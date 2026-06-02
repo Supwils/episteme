@@ -193,4 +193,21 @@ export const REFERENCES = {
   'eraly-peacock-throne': { author: '亚伯拉罕·埃拉利', title: '《孔雀宝座上的皇帝：莫卧儿大帝史诗》', titleEn: 'Emperors of the Peacock Throne: The Saga of the Great Mughals', year: 1997, lang: 'en' },
   'hamalainen-lakota': { author: '佩卡·哈梅莱宁', title: '《拉科塔的美洲：原住民权力新史》', titleEn: 'Lakota America: A New History of Indigenous Power', year: 2019, lang: 'en' },
   'montefiore-catherine': { author: '西蒙·塞巴格·蒙蒂菲奥里', title: '《叶卡捷琳娜大帝与波将金》', titleEn: 'Catherine the Great & Potemkin', year: 2000, lang: 'en' },
+
+  // === 拉丁美洲历史新增引用 ===
+  'coe-maya': { author: '迈克尔·D·科', title: '《玛雅》', titleEn: 'The Maya', year: 2015, lang: 'en' },
+  'webster-fall-maya': { author: '大卫·韦伯斯特', title: '《古玛雅的衰落》', titleEn: 'The Fall of the Ancient Maya', year: 2002, lang: 'en' },
+  'martin-maya-kings': { author: '西蒙·马丁', title: '《玛雅国王与女王编年史》', titleEn: 'Chronicle of the Maya Kings and Queens', year: 2000, lang: 'en' },
+  'smith-aztecs': { author: '迈克尔·E·史密斯', title: '《阿兹特克人》', titleEn: 'The Aztecs', year: 2003, lang: 'en' },
+  'thomas-conquest': { author: '休·托马斯', title: '《征服：科尔特斯、蒙特祖马与旧墨西哥的覆灭》', titleEn: 'Conquest: Cortés, Montezuma, and the Fall of Old Mexico', year: 1993, lang: 'en' },
+  'leon-portilla-broken-spears': { author: '米格尔·莱昂-波蒂利亚', title: '《碎矛：从美洲人视角看征服》', titleEn: 'Broken Spears: The Aztec Account of the Conquest of Mexico', year: 1959, lang: 'es' },
+  'arana-bolivar': { author: '玛丽·阿拉纳', title: '《玻利瓦尔：美洲解放者》', titleEn: 'Bolivar: American Liberator', year: 2013, lang: 'en' },
+  'williamson-penguin-latam': { author: '埃德温·威廉姆森', title: '《企鹅版拉丁美洲史》', titleEn: 'The Penguin History of Latin America', year: 2009, lang: 'en' },
+  'taylor-american-revolutions': { author: '艾伦·泰勒', title: '《美洲革命》', titleEn: 'American Revolutions: A Continental History, 1750-1804', year: 2016, lang: 'en' },
+  'knight-mexican-revolution': { author: '艾伦·奈特', title: '《墨西哥革命》', titleEn: 'The Mexican Revolution', year: 1986, lang: 'en' },
+  'womack-zapata': { author: '约翰·沃马克', title: '《萨帕塔与墨西哥革命》', titleEn: 'Zapata and the Mexican Revolution', year: 1968, lang: 'en' },
+  'reed-insurgent-mexico': { author: '约翰·里德', title: '《起义的墨西哥》', titleEn: 'Insurgent Mexico', year: 1914, lang: 'en' },
+  'gott-cuba': { author: '理查德·戈特', title: '《古巴新史》', titleEn: 'Cuba: A New History', year: 2004, lang: 'en' },
+  'anderson-che': { author: '乔恩·李·安德森', title: '《切·格瓦拉：革命的一生》', titleEn: 'Che Guevara: A Revolutionary Life', year: 1997, lang: 'en' },
+  'farber-cuban-revolution': { author: '塞缪尔·法伯', title: '《古巴革命》', titleEn: 'The Cuban Revolution', year: 2006, lang: 'en' },
 };
