@@ -21,7 +21,7 @@ function FeatureCard({ feature, index }: { feature: (typeof FEATURES)[0]; index:
 
 export function FeatureGrid() {
   return (
-    <section className="max-w-[1200px] mx-auto px-6 pb-20">
+    <section className="max-w-[1400px] mx-auto px-6 pb-20">
       <h2 className="text-center text-2xl font-bold text-[#e8e8f0] mb-2 animate-fade-slide-up" style={{ animationDelay: '0.5s' }}>
         平台特色
       </h2>

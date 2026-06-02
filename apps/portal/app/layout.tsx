@@ -34,7 +34,7 @@ export default function RootLayout({
           跳转到内容
         </a>
         <header className="sticky top-0 z-50 border-b border-[#1e1e2e] bg-[rgba(10,10,15,0.85)] backdrop-blur-xl">
-          <nav aria-label="主导航" className="max-w-[1200px] mx-auto px-6 h-14 flex items-center justify-between">
+          <nav aria-label="主导航" className="max-w-[1400px] mx-auto px-6 h-14 flex items-center justify-between">
             <Link
               href="/"
               className="text-lg font-bold text-[#e8e8f0] tracking-tight"

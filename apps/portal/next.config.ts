@@ -38,8 +38,11 @@ const nextConfig: NextConfig = {
   },
   async rewrites() {
     return [
+      // Proxy universe-physics pages and static assets
       { source: "/universe-physics/:path*", destination: "http://localhost:3033/universe-physics/:path*" },
+      // Proxy human-history pages and static assets
       { source: "/human-history/:path*", destination: "http://localhost:3001/human-history/:path*" },
+      // Proxy philosophy pages and static assets
       { source: "/philosophy/:path*", destination: "http://localhost:3002/philosophy/:path*" },
     ];
   },

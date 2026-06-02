@@ -49,6 +49,7 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   basePath: "/universe-physics",
+  assetPrefix: "/universe-physics",
   reactStrictMode: true,
   poweredByHeader: false,
   experimental: {

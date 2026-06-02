@@ -14,7 +14,7 @@ export function TimelinePageHeader({
   d: (sec: number) => number;
 }) {
   return (
-    <section className="relative z-10 mx-auto max-w-5xl px-6 pt-24 pb-8">
+    <section className="relative z-10 mx-auto max-w-[1400px] px-6 pt-24 pb-8">
       <motion.p
         className="text-fg-muted font-mono text-[10px] tracking-[0.42em] uppercase"
         initial={{ opacity: 0 }}
@@ -86,7 +86,7 @@ export function FilterBar({
   d: (sec: number) => number;
 }) {
   return (
-    <section className="relative z-10 mx-auto max-w-5xl px-6 pb-6">
+    <section className="relative z-10 mx-auto max-w-[1400px] px-6 pb-6">
       <motion.div
         className="flex flex-wrap items-center gap-3"
         initial={{ opacity: 0, y: 8 }}

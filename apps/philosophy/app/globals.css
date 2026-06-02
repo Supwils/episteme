@@ -657,6 +657,36 @@
   .show-mobile-only { display: none; }
   @media (max-width: 639px) { .show-mobile-only { display: block; } }
   .touch-target { min-width: 44px; min-height: 44px; }
+
+  /* ── Mobile Menu ──────────────────────────────────────────────── */
+
+  .mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 400;
+    background: rgba(6, 6, 10, 0.75);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    animation: fade-in var(--duration-fast) var(--ease-smooth) both;
+  }
+
+  .mobile-menu-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 410;
+    width: min(85vw, 320px);
+    background: var(--color-bg-near);
+    border-left: 1px solid var(--color-border-faint);
+    transform: translateX(100%);
+    transition: transform var(--duration-normal) var(--ease-product);
+    overflow-y: auto;
+  }
+
+  .mobile-menu-panel[data-open="true"] {
+    transform: translateX(0);
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════

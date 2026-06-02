@@ -61,7 +61,7 @@ export default async function ThinkerDetailPage({
   const readMinutes = Math.max(1, Math.ceil(wordCount / 500));
 
   return (
-    <div className="mx-auto max-w-6xl px-4 pt-8 pb-20 sm:px-6">
+    <div className="mx-auto max-w-[1400px] px-4 pt-8 pb-20 sm:px-6">
       <header className="mb-12">
         <Breadcrumb category="thinkers" currentTitle={thinker.title} />
 

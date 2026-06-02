@@ -6,7 +6,7 @@ import { STATS } from '../lib/data';
 
 export function HeroSection() {
   return (
-    <section className="max-w-[960px] mx-auto px-6 pt-24 pb-14 text-center">
+    <section className="max-w-[1200px] mx-auto px-6 pt-24 pb-14 text-center">
       <div className="relative inline-block px-10 py-8">
         <CornerMark position="tl" />
         <CornerMark position="tr" />

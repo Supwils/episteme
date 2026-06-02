@@ -34,7 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-bg-deep text-fg-primary antialiased">
         {/* Top navigation bar */}
         <header className="nav-capsule fixed top-0 right-0 left-0 z-50 border-b border-border-faint">
-          <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6 py-3">
+          <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-4 sm:px-6 py-3">
             {/* Left: portal back-link + brand */}
             <div className="flex items-center gap-4 sm:gap-6">
               <a
@@ -76,7 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* Footer */}
         <footer className="border-border-faint border-t px-4 sm:px-6 py-6">
-          <div className="mx-auto flex max-w-6xl flex-col items-center gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mx-auto flex max-w-[1400px] flex-col items-center gap-2 sm:flex-row sm:items-center sm:justify-between">
             <span className="text-fg-muted font-mono text-[10px] tracking-[0.32em] uppercase">
               philosophy · ideas atlas
             </span>

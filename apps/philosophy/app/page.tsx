@@ -167,7 +167,7 @@ export default function PhilosophyHomePage() {
       <div className="border-fg-disabled/30 pointer-events-none absolute right-6 bottom-6 h-3 w-3 border-r border-b" />
 
       {/* Hero */}
-      <section className="relative mx-auto flex max-w-5xl flex-col items-start gap-8 px-6 pt-28 pb-24 md:pt-36 md:pb-32">
+      <section className="relative mx-auto flex max-w-[1400px] flex-col items-start gap-8 px-6 pt-28 pb-24 md:pt-36 md:pb-32">
         <motion.p
           className="text-fg-muted font-mono text-[10px] tracking-[0.42em] uppercase"
           initial={{ opacity: 0 }}
@@ -206,7 +206,7 @@ export default function PhilosophyHomePage() {
       </section>
 
       {/* School Grid */}
-      <section className="relative z-[2] mx-auto max-w-6xl px-6 pb-20">
+      <section className="relative z-[2] mx-auto max-w-[1400px] px-6 pb-20">
         <motion.p
           className="text-fg-muted mb-8 font-mono text-[10px] tracking-[0.38em] uppercase"
           initial={{ opacity: 0 }}
@@ -223,7 +223,7 @@ export default function PhilosophyHomePage() {
       </section>
 
       {/* Featured Thinkers */}
-      <section className="relative z-[2] mx-auto max-w-6xl px-6 pb-20">
+      <section className="relative z-[2] mx-auto max-w-[1400px] px-6 pb-20">
         <motion.p
           className="text-fg-muted mb-8 font-mono text-[10px] tracking-[0.38em] uppercase"
           initial={{ opacity: 0 }}
@@ -240,7 +240,7 @@ export default function PhilosophyHomePage() {
       </section>
 
       {/* Quick Explore */}
-      <section className="relative z-[2] mx-auto max-w-6xl px-6 pb-24">
+      <section className="relative z-[2] mx-auto max-w-[1400px] px-6 pb-24">
         <motion.p
           className="text-fg-muted mb-8 font-mono text-[10px] tracking-[0.38em] uppercase"
           initial={{ opacity: 0 }}
@@ -307,7 +307,7 @@ export default function PhilosophyHomePage() {
 
       {/* Stats Bar */}
       <section className="border-border-faint border-t border-b">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-12 px-6 py-12 md:justify-between">
+        <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-center gap-12 px-6 py-12 md:justify-between">
           {STATS.map((stat) => (
             <StatCounter key={stat.label} value={stat.value} label={stat.label} suffix={stat.suffix} />
           ))}

@@ -36,6 +36,7 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   basePath: "/philosophy",
+  assetPrefix: "/philosophy",
   reactStrictMode: true,
   poweredByHeader: false,
   // Enable .mdx page extensions

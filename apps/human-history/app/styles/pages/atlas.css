@@ -1,5 +1,6 @@
 /* === ATLAS PAGE === */
 .atlas-page {
+  width: 100%;
   height: calc(100dvh - var(--nav-h));
   display: flex;
   flex-direction: column;

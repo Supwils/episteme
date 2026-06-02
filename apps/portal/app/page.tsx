@@ -36,7 +36,7 @@ export default function HomePage() {
       <div className="relative z-1">
         <HeroSection />
 
-        <section className="max-w-[1200px] mx-auto px-6 py-4 pb-20 grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6">
+        <section className="max-w-[1400px] mx-auto px-6 py-4 pb-20 grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6">
           {DOMAINS.map((domain, i) => (
             <DomainCard key={domain.id} domain={domain} index={i} />
           ))}
@@ -44,7 +44,7 @@ export default function HomePage() {
 
         <FeatureGrid />
 
-        <footer className="border-t border-white/[0.06] pt-12 pb-8 px-6 max-w-[1200px] mx-auto">
+        <footer className="border-t border-white/[0.06] pt-12 pb-8 px-6 max-w-[1400px] mx-auto">
           <div className="grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-8 mb-10">
             <div>
               <div

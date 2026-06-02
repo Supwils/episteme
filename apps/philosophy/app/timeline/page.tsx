@@ -89,7 +89,7 @@ export default function TimelinePage() {
         d={d}
       />
 
-      <section className="relative z-10 mx-auto max-w-5xl px-6 pb-32">
+      <section className="relative z-10 mx-auto max-w-[1400px] px-6 pb-32">
         {grouped.length === 0 && (
           <p className="text-fg-muted py-20 text-center font-mono text-sm">
             没有匹配的事件

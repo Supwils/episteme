@@ -31,6 +31,7 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   basePath: "/human-history",
+  assetPrefix: "/human-history",
   poweredByHeader: false,
   reactStrictMode: true,
   async headers() {

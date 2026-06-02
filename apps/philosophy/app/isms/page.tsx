@@ -22,7 +22,7 @@ export default function IsmsPage() {
   }));
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-16">
+    <div className="mx-auto max-w-[1400px] px-6 py-16">
       <header className="mb-10">
         <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
           philosophical · isms

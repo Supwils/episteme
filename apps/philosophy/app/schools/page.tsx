@@ -5,7 +5,7 @@ export default function SchoolsPage() {
   const schools = getAllSchools();
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-16">
+    <div className="mx-auto max-w-[1400px] px-6 py-16">
       <header className="mb-12">
         <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
           philosophy / schools

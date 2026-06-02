@@ -1,5 +1,6 @@
 /* === NAV === */
 .nav-bar {
+  width: 100%;
   height: var(--nav-h);
   display: flex;
   align-items: center;
