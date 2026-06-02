@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import { getThinkerBySlug, getThinkerSlugs, getAllThinkers } from "@/lib/mdx";
 import Breadcrumb from "@/components/Breadcrumb";
+import CrossDomainLinks from "@/components/CrossDomainLinks";
 import RelatedContent from "@/components/RelatedContent";
-import RelatedDomains from "@/components/RelatedDomains";
 import SafeRender from "@/components/SafeRender";
 import { ERA_ACCENT } from "@/lib/constants";
 import { parseContent, extractH2Headings } from "@/components/thinker-detail/content-parser";
@@ -120,7 +120,7 @@ export default async function ThinkerDetailPage({
 
           <div className="mt-10">
             <SafeRender>
-              <RelatedDomains thinkerSlug={slug} />
+              <CrossDomainLinks currentApp="philosophy" entityId={slug} />
             </SafeRender>
           </div>
         </div>

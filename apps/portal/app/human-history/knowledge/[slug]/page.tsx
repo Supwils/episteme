@@ -1,0 +1,191 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { getAllArticles, getArticleBySlug } from "@/lib/knowledge-base";
+
+interface Props {
+  params: Promise<{ slug: string }>;
+}
+
+const ERA_COLORS: Record<string, string> = {
+  远古时期: "#8b6914",
+  古典时期: "#c8443a",
+  中世纪: "#4a148c",
+  近代: "#2d6a4f",
+  现代: "#2b4a73",
+  当代: "#6b4226",
+  未来展望: "#1a5276",
+  人物: "#c8a951",
+  文明: "#a8362b",
+  事件: "#7d6608",
+};
+
+export async function generateStaticParams() {
+  const articles = getAllArticles();
+  return articles.map((a) => ({ slug: a.slug }));
+}
+
+export async function generateMetadata({ params }: Props) {
+  const { slug } = await params;
+  const article = getArticleBySlug(slug);
+  if (!article) return { title: "未找到" };
+  return {
+    title: `${article.title} — 知识库`,
+    description: article.excerpt,
+  };
+}
+
+function renderMarkdown(content: string): React.ReactNode {
+  const blocks = content.split("\n\n");
+  return blocks.map((block, i) => {
+    const text = block.trim();
+    if (!text) return null;
+
+    if (text.startsWith("# ")) {
+      return null;
+    }
+    if (text.startsWith("## ")) {
+      return (
+        <h2 key={i} className="kb-detail-h2">
+          {text.slice(3)}
+        </h2>
+      );
+    }
+    if (text.startsWith("### ")) {
+      return (
+        <h3 key={i} className="kb-detail-h3">
+          {text.slice(4)}
+        </h3>
+      );
+    }
+    if (text.startsWith("#### ")) {
+      return (
+        <h4 key={i} className="kb-detail-h4">
+          {text.slice(5)}
+        </h4>
+      );
+    }
+    if (text.startsWith("> ")) {
+      const lines = text.split("\n").map((l) => l.replace(/^>\s?/, ""));
+      return (
+        <blockquote key={i} className="kb-detail-quote">
+          {lines.map((line, li) => (
+            <p key={li}>{renderInline(line)}</p>
+          ))}
+        </blockquote>
+      );
+    }
+    if (text.startsWith("---")) {
+      return <hr key={i} className="kb-detail-hr" />;
+    }
+    if (text.startsWith("- ") || text.startsWith("* ")) {
+      const items = text.split("\n");
+      return (
+        <ul key={i} className="kb-detail-list">
+          {items.map((item, li) => (
+            <li key={li}>{renderInline(item.replace(/^[-*]\s*/, ""))}</li>
+          ))}
+        </ul>
+      );
+    }
+    if (/^\d+\.\s/.test(text)) {
+      const items = text.split("\n");
+      return (
+        <ol key={i} className="kb-detail-olist">
+          {items.map((item, li) => (
+            <li key={li}>{renderInline(item.replace(/^\d+\.\s*/, ""))}</li>
+          ))}
+        </ol>
+      );
+    }
+    if (text.startsWith("| ")) {
+      const rows = text.split("\n").filter((r) => !r.match(/^\|[\s-|]+\|$/));
+      return (
+        <div key={i} className="kb-detail-table-wrap">
+          <table className="kb-detail-table">
+            <tbody>
+              {rows.map((row, ri) => {
+                const cells = row.split("|").filter(Boolean).map((c) => c.trim());
+                return (
+                  <tr key={ri}>
+                    {cells.map((cell, ci) =>
+                      ri === 0 ? (
+                        <th key={ci}>{renderInline(cell)}</th>
+                      ) : (
+                        <td key={ci}>{renderInline(cell)}</td>
+                      ),
+                    )}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      );
+    }
+    return (
+      <p key={i} className="kb-detail-p">
+        {renderInline(text)}
+      </p>
+    );
+  });
+}
+
+function renderInline(text: string): React.ReactNode {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return <strong key={i}>{part.slice(2, -2)}</strong>;
+    }
+    return part;
+  });
+}
+
+export default async function KnowledgeArticlePage({ params }: Props) {
+  const { slug } = await params;
+  const article = getArticleBySlug(slug);
+  if (!article) notFound();
+
+  const accent = ERA_COLORS[article.era] ?? "#c8a951";
+
+  return (
+    <div className="kb-detail-page">
+      <nav className="kb-detail-nav">
+        <Link href="/human-history/knowledge" className="kb-back-link">
+          ← 返回知识库
+        </Link>
+        <span className="kb-detail-breadcrumb">
+          {article.eraLabel} {article.category !== article.eraLabel ? `/ ${article.category}` : ""}
+        </span>
+      </nav>
+
+      <article className="kb-detail-article">
+        <header className="kb-detail-header">
+          <span className="kb-detail-era" style={{ color: accent, borderColor: accent }}>
+            {article.eraLabel}
+          </span>
+          <h1 className="kb-detail-title">{article.title}</h1>
+          {article.period && (
+            <p className="kb-detail-period">{article.period}</p>
+          )}
+          {article.tags.length > 0 && (
+            <div className="kb-detail-tags">
+              {article.tags.map((tag) => (
+                <span key={tag} className="kb-detail-tag">{tag}</span>
+              ))}
+            </div>
+          )}
+        </header>
+
+        <div className="kb-detail-body">
+          {renderMarkdown(article.content)}
+        </div>
+      </article>
+
+      <div className="kb-detail-footer">
+        <Link href="/human-history/knowledge" className="kb-back-bottom">
+          ← 返回知识库
+        </Link>
+      </div>
+    </div>
+  );
+}

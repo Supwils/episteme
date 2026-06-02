@@ -23,7 +23,7 @@ export function DomainCard({ domain, index }: { domain: Domain; index: number })
     <Link
       href={href}
       aria-label={`${domain.title} — ${domain.description}`}
-      className="group relative flex flex-col gap-4 p-8 rounded-2xl no-underline overflow-hidden cursor-pointer backdrop-blur-xl animate-fade-slide-up domain-card"
+      className="group relative flex flex-col gap-4 p-5 sm:p-8 rounded-2xl no-underline overflow-hidden cursor-pointer backdrop-blur-xl animate-fade-slide-up domain-card"
       style={{
         color: 'inherit',
         background: 'rgba(255,255,255,0.03)',

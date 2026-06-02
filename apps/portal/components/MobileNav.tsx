@@ -69,7 +69,7 @@ export function MobileNav({ links }: { links: NavLink[] }) {
     <div className="md:hidden">
       <button
         ref={buttonRef}
-        className="flex flex-col justify-center items-center w-8 h-8 gap-[5px]"
+        className="flex flex-col justify-center items-center w-11 h-11 gap-[5px]"
         aria-label={open ? '关闭菜单' : '打开菜单'}
         aria-expanded={open}
         aria-haspopup="true"
@@ -100,7 +100,7 @@ export function MobileNav({ links }: { links: NavLink[] }) {
                 <Link
                   role="menuitem"
                   href={link.href}
-                  className={`block py-2.5 px-4 text-[0.95rem] rounded transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#818cf8] ${
+                  className={`block py-3 px-4 text-[0.95rem] rounded transition-colors min-h-[44px] flex items-center focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#818cf8] ${
                     isActive(link.href)
                       ? 'text-[#818cf8] bg-white/[0.05] font-medium'
                       : 'text-[#9ca3af] hover:text-[#818cf8] hover:bg-white/[0.03]'

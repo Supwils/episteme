@@ -1,9 +1,16 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import { APP_URLS } from "../lib/urls";
 import { DesktopNav } from "../components/DesktopNav";
 import { MobileNav } from "../components/MobileNav";
+import { SearchTrigger } from "../components/SearchTrigger";
+import { GlobalSearch } from "../components/GlobalSearch";
 import "./globals.css";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   title: "Universe Knowledge",
@@ -43,13 +50,17 @@ export default function RootLayout({
               Universe Knowledge
             </Link>
             <DesktopNav links={NAV_LINKS} />
-            <MobileNav links={NAV_LINKS} />
+            <div className="flex items-center gap-3">
+              <SearchTrigger />
+              <MobileNav links={NAV_LINKS} />
+            </div>
           </nav>
         </header>
         <main id="main-content">{children}</main>
         <footer className="border-t border-[#1e1e2e] py-6 text-center text-xs text-[#6b7280]">
           <p>Universe Knowledge — 探索人类知识的边界</p>
         </footer>
+        <GlobalSearch />
       </body>
     </html>
   );

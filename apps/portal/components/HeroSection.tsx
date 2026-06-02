@@ -25,7 +25,7 @@ export function HeroSection() {
       />
 
       <div className="relative z-1 max-w-[1200px] mx-auto px-6">
-        <div className="relative inline-block px-10 py-8">
+        <div className="relative inline-block px-4 sm:px-10 py-8">
           <CornerMark position="tl" />
           <CornerMark position="tr" />
           <CornerMark position="bl" />
@@ -59,7 +59,7 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="flex justify-center gap-12 flex-wrap animate-fade-slide-up" style={{ animationDelay: '0.35s' }}>
+      <div className="flex justify-center gap-6 sm:gap-12 flex-wrap animate-fade-slide-up px-4" style={{ animationDelay: '0.35s' }}>
         {STATS.map((stat) => (
           <div key={stat.label} className="text-center">
             <div

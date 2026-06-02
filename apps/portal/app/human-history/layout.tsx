@@ -21,6 +21,7 @@ const NAV_ITEMS = [
   { href: "/human-history/map", label: "世界地图" },
   { href: "/human-history/figures", label: "人物" },
   { href: "/human-history/lessons", label: "以史为鉴" },
+  { href: "/human-history/knowledge", label: "知识库" },
 ];
 
 export default function HumanHistoryLayout({ children }: { children: ReactNode }) {

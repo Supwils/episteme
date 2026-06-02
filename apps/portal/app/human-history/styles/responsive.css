@@ -9,7 +9,7 @@
     gap: 0;
   }
   .nav-links::-webkit-scrollbar { display: none; }
-  .nav-link { padding: 6px 10px; font-size: 0.78rem; flex-shrink: 0; }
+  .nav-link { padding: 10px 12px; font-size: 0.82rem; flex-shrink: 0; min-height: 44px; display: flex; align-items: center; }
   .nav-num { display: none; }
   .nav-subtitle { display: none; }
   .nav-inner { padding: 0 14px; gap: 8px; }

@@ -156,7 +156,7 @@ export function MobileMenu() {
           <a
             href="/"
             onClick={close}
-            className="text-fg-muted hover:text-fg-secondary font-mono text-[10px] tracking-[0.32em] uppercase transition-colors"
+            className="touch-target text-fg-muted hover:text-fg-secondary font-mono text-[10px] tracking-[0.32em] uppercase transition-colors flex items-center"
           >
             ← 返回 portal
           </a>

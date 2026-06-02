@@ -28,7 +28,7 @@ export function FeatureGrid() {
       <p className="text-center text-[0.88rem] text-[#9ca3af] mb-10 animate-fade-slide-up" style={{ animationDelay: '0.55s' }}>
         以技术驱动知识的可视化、关联化与深度化
       </p>
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4">
         {FEATURES.map((f, i) => (
           <FeatureCard key={f.title} feature={f} index={i} />
         ))}

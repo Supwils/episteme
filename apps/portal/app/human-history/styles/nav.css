@@ -32,7 +32,11 @@
   color: var(--parchment-dim);
   text-decoration: none;
   font-size: 0.88rem;
+  padding: 8px 12px;
   transition: color 0.2s;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .nav-link:hover, .nav-link.active {
