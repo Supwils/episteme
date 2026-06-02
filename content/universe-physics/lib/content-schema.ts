@@ -101,7 +101,7 @@ export const tierContentSchema = z
     dataCards: z
       .array(dataCardSchema)
       .min(4, "tier needs at least 4 data cards for the panel grid")
-      .max(12, "panel grid gets crowded past 12"),
+      .max(16, "panel grid gets crowded past 16"),
     narrative: z
       .array(narrativeSectionSchema)
       .min(3, "tier needs at least 3 narrative sections")

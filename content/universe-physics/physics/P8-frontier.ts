@@ -34,6 +34,21 @@ const content: TierContent = {
       value: "ν = −2/3, −3/5",
       hint: "分数反常量子 Hall · 2023 (Cornell/UW)",
     },
+    {
+      label: "量子计算",
+      value: "1000+ qubit",
+      hint: "2024年量子处理器已突破1000量子比特",
+    },
+    {
+      label: "暗能量巡天",
+      value: "DES",
+      hint: "Dark Energy Survey对宇宙大尺度结构的精确测量",
+    },
+    {
+      label: "中微子质量",
+      value: "< 0.8 eV",
+      hint: "KATRIN实验给出的最严格上限",
+    },
   ],
   narrative: [
     {
@@ -80,6 +95,27 @@ const content: TierContent = {
         "实验难度集中在「保住相干」：要求介观物体在 ~100 μm 量级的叠加里维持 ~1 s 量级的退相干时间，约比目前最好的纳米机械振子记录还高几个数量级。维也纳、伦敦帝国、剑桥、麻省理工的多个组都在追这条线，预计 2030 年代有第一次决定性结果。这是历史上第一次有人尝试用桌面实验直接问「引力到底量子吗」——一个 P3 与 P4 七十年悬而未决的问题，或许将由一根光镊里的硅球回答。",
       ],
     },
+    {
+      heading: "量子计算 · 从 Sycamore 到 Willow",
+      body: [
+        "IBM Condor（2023）突破 1000 量子比特大关，采用 heavy-hex 拓扑降低 crosstalk；Google Willow（2024）首次证明 surface code 码距从 3 增到 5 再到 7 时，逻辑错误率以指数级下降——这是容错量子计算里程碑。离子阱阵营（Quantinuum H2、IonQ Forte）以更高的保真度与全连接拓扑追赶。",
+        "纠错路线之争仍白热化：surface code 门槛 ~10⁻³ 物理错误率，LDPC code 可在更少物理比特下编码更多逻辑比特但工程难度更大，cat-qubit 用玻色码在硬件层面指数压低 bit-flip。实用量子优势（drug discovery、材料模拟、组合优化）可能要到百万物理比特与算法-硬件协同设计阶段才能实现。IBM Quantum 路线图指向 2029 年 100,000+ qubit 系统。",
+      ],
+    },
+    {
+      heading: "暗能量巡天 · 宇宙大尺度结构的精密测量",
+      body: [
+        "Dark Energy Survey（DES）用 Blanco 4 米望远镜 + DECam 对南天银冠区 5000 deg² 做了 6 年成像，记录了超过 1 亿个星系的形状与红移。其核心科学目标是用弱引力透镜（cosmic shear）、星系团计数、星系聚类与 BAO 四种独立探针联合约束暗能量状态方程 w(z)。",
+        "DES Y3（2022）的 cosmic shear 分析在 S₈ ≡ σ₈(Ωm/0.3)^0.5 上给出了比 Planck CMB 预言偏低 ~2σ 的结果——这与 KiDS-1000、HSC Y1 一致，形成了「S₈ 张力」。虽然统计显著性仅 ~2–3σ 不足以宣称新物理，但它与 Hubble 张力一起暗示 ΛCDM 可能需要修正。DES Y6 最终数据与即将到来的 Vera Rubin LSST（2025+）将以更高精度裁决。",
+      ],
+    },
+    {
+      heading: "中微子质量 · 从振荡到绝对标度",
+      body: [
+        "Super-Kamiokande（1998）和 SNO（2001）发现中微子振荡，证明中微子有非零质量——这是超越标准模型的第一个确凿证据。振荡实验测到的是质量平方差 |Δm²|（大气 ~2.5×10⁻³ eV²、太阳 ~7.5×10⁻⁵ eV²），但无法给出绝对质量标度。",
+        "KATRIN（2022）用氚 β 衰变端点谱直接约束电子反中微子有效质量 < 0.8 eV（90% CL），是迄今最严格的直接测量上限。未来 KATRIN 最终目标 ~0.2 eV 与 Project 8（CRES 技术）有望进一步收紧。宇宙学约束（Planck + BAO）给出 Σmν < 0.12 eV，若中微子是 Majorana 粒子，无中微子双 β 衰变（nEXO、LEGEND）将提供另一条独立路径。中微子质量的起源——Dirac 还是 Majorana、跷跷板机制还是辐射生成——仍是粒子物理最深刻的开放问题之一。",
+      ],
+    },
   ],
   sources: [
     {
@@ -105,6 +141,26 @@ const content: TierContent = {
     {
       label: "Kitaev 2003 — Fault-tolerant QC by anyons",
       url: "https://arxiv.org/abs/quant-ph/9707021",
+      kind: "paper",
+    },
+    {
+      label: "IBM Quantum Roadmap",
+      url: "https://www.ibm.com/quantum/roadmap",
+      kind: "agency",
+    },
+    {
+      label: "Google — Suppressing quantum errors by scaling a surface code logical qubit (Nature 2023)",
+      url: "https://www.nature.com/articles/s41586-022-05434-1",
+      kind: "paper",
+    },
+    {
+      label: "DES Collaboration — Dark Energy Survey Year 3 results (Phys. Rev. D 2022)",
+      url: "https://journals.aps.org/prd/abstract/10.1103/PhysRevD.105.023520",
+      kind: "paper",
+    },
+    {
+      label: "KATRIN Collaboration — Direct neutrino-mass measurement with sub-eV sensitivity (Nature Physics 2022)",
+      url: "https://www.nature.com/articles/s41567-021-01463-1",
       kind: "paper",
     },
   ],

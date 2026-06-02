@@ -6,6 +6,7 @@ import { MobileNav } from "../components/MobileNav";
 import { SearchTrigger } from "../components/SearchTrigger";
 import { GlobalSearch } from "../components/GlobalSearch";
 import { ScrollToTop } from "../components/ScrollToTop";
+import { VitalsReporter } from "../components/VitalsReporter";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -63,6 +64,7 @@ export default function RootLayout({
         </footer>
         <GlobalSearch />
         <ScrollToTop />
+        <VitalsReporter />
       </body>
     </html>
   );
