@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const REFERENCES = {
   'gibbon-decline': { author: '爱德华·吉本', title: '《罗马帝国衰亡史》', titleEn: 'The History of the Decline and Fall of the Roman Empire', year: 1776, lang: 'en' },
   'kennedy-rise': { author: '保罗·肯尼迪', title: '《大国的兴衰》', titleEn: 'The Rise and Fall of the Great Powers', year: 1987, lang: 'en' },

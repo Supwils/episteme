@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { LESSONS } from '../data/lessons.js';
 import { FIGURES, EVENTS, ERAS, formatYear } from '../data/index.js';
 import { el, clearApp, animateIn, animateOnScroll, prefersReducedMotion } from '../lib/dom.js';

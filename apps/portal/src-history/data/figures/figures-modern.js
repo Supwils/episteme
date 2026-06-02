@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const FIGURES_MODERN = [
   {
     name: '拿破仑', birth: 1769, death: 1821, title: '法国皇帝',

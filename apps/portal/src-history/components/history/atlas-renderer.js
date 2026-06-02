@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { getNodeBounds, hitTestNodes, isNearNodes, scaleValue } from '../../features/atlas/atlas-geometry.js';
 import {
   atlasColor as hsl,

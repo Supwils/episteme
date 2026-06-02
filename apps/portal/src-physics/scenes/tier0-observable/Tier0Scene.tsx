@@ -1,18 +1,14 @@
 "use client";
 
 import { useFrame } from "@react-three/fiber";
-import { useMemo, useRef, useState, type ComponentProps } from "react";
+import { useMemo, useRef, type ComponentProps } from "react";
 import { BackSide, type Group, type Mesh } from "three";
 import { getTierContent } from "@/src-physics/content/cosmos";
-import { useLOD } from "@/src-physics/lib/lod";
 import { fbm3D, hash01, mixRgb, smoothstep } from "@/src-physics/lib/noise";
 import { StarPoints } from "@/src-physics/components/three/StarPoints";
 import { VolumeBillboard } from "@/src-physics/components/volumetric/VolumeBillboard";
 import { SceneMarkers } from "../SceneMarkers";
 import { useUiStore } from "@/src-physics/store/useUiStore";
-
-const LOD_THRESHOLDS = [1.5, 2.5];
-const CMB_COUNTS = [6800, 3400, 0];
 
 type Props = ComponentProps<"group"> & {
   opacity?: number;
@@ -25,23 +21,15 @@ export function Tier0Scene({ opacity = 1, ...groupProps }: Props) {
   const ring3Ref = useRef<Mesh>(null);
   const reducedMotion = useUiStore((s) => s.reducedMotion);
 
-  const lodRef = useLOD(LOD_THRESHOLDS);
-  const [lodLevel, setLodLevel] = useState(0);
-
   const web = useMemo(() => buildCosmicWebHint(1700, 0.72, 0.06), []);
   const galaxies = useMemo(() => buildGalaxyField(4400, 0.92, 0.055), []);
   const heroGalaxies = useMemo(() => buildHeroGalaxies(280, 0.92, 0.06), []);
   const reion = useMemo(() => buildReionShell(900, 0.985, 0.01), []);
-  const cmbLevels = useMemo(
-    () => CMB_COUNTS.map((c) => (c > 0 ? buildCmbShell(c, 1.02, 0.006) : null)),
-    [],
-  );
+  const cmb = useMemo(() => buildCmbShell(6800, 1.02, 0.006), []);
   const markers = useMemo(() => getTierContent("T0")?.markers ?? [], []);
 
   useFrame((_, dt) => {
     if (!reducedMotion && group.current) group.current.rotation.y += dt * 0.011;
-
-    if (lodRef.current !== lodLevel) setLodLevel(lodRef.current);
 
     const ringFade = (m: Mesh | null, base: number) => {
       if (!m) return;
@@ -105,17 +93,15 @@ export function Tier0Scene({ opacity = 1, ...groupProps }: Props) {
         opacity={0.4 * opacity}
       />
 
-      {/* CMB anisotropy — LOD-aware: fewer points when camera is far */}
-      {cmbLevels[lodLevel] && (
-        <StarPoints
-          positions={cmbLevels[lodLevel]!.positions}
-          colors={cmbLevels[lodLevel]!.colors}
-          baseSize={3.5}
-          baseBrightness={0.5}
-          sizeMultiplier={1}
-          opacity={0.5 * opacity}
-        />
-      )}
+      {/* CMB anisotropy */}
+      <StarPoints
+        positions={cmb.positions}
+        colors={cmb.colors}
+        baseSize={3.5}
+        baseBrightness={0.5}
+        sizeMultiplier={1}
+        opacity={0.5 * opacity}
+      />
 
       {/* three orthogonal hairline rings */}
       <mesh ref={ring1Ref} rotation={[Math.PI / 2, 0, 0]}>

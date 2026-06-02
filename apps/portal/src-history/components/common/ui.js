@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { el } from '../../lib/dom.js';
 
 export function createPageHeader(title, subtitle) {

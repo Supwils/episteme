@@ -1,4 +1,3 @@
-// @ts-nocheck
 // @ts-check
 
 export { ERAS } from './eras.js';

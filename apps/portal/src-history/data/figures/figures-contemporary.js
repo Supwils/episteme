@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const FIGURES_CONTEMPORARY = [
   {
     name: '毛泽东', birth: 1893, death: 1976, title: '新中国缔造者',

@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const FIGURES_FUTURE = [
   {
     name: '马斯克', birth: 1971, death: null, title: '太空与电动车企业家',

@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const EVENT_DETAILS_CONTEMPORARY = {
   '人类登月': {
     pages: [

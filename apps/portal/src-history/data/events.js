@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const EVENTS = [
   // === 远古时期 · 人类诞生 ===
   {

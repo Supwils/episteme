@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const EVENT_DETAILS_EARLY_MODERN = {
   '哥伦布发现新大陆': {
     pages: [

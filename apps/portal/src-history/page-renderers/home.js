@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { gsap } from 'gsap';
 import { ERAS, EVENTS, FIGURES, formatYear } from '../data/index.js';
 import { el, clearApp, createParticleCanvas, prefersReducedMotion } from '../lib/dom.js';

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { FIGURES_CLASSICAL } from './figures/figures-classical.js';
 import { FIGURES_MEDIEVAL } from './figures/figures-medieval.js';
 import { FIGURES_EARLY_MODERN } from './figures/figures-early-modern.js';

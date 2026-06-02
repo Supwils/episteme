@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const GEO_ENRICHMENT_2 = {
 
   '斯里维加亚海权': {

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { ERAS, EVENTS, FIGURES, FIGURE_RELATIONS, FIGURE_EVENT_LINKS, RELATION_COLORS } from '../data/index.js';
 import { PARALLEL_EVENTS } from '../data/parallel-events.js';
 import { el, clearApp, prefersReducedMotion } from '../lib/dom.js';

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import countriesTopology from '../../assets/maps/countries-110m.json';
 import { projectGeo } from '../../data/geo-events.js';
 

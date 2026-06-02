@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const EVENT_DETAILS_MODERN = {
   '鸦片战争': {
     pages: [

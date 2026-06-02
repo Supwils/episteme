@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const EXTRA_DETAILS = {
   '非洲最早的埋葬': {
     pages: [

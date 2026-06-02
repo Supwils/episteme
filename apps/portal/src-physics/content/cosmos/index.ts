@@ -1,10 +1,5 @@
 import type { TierId } from "@/src-physics/lib/tier";
 import type { TierContent } from "@/src-physics/lib/content";
-
-// PERF: All tier modules are statically imported. If bundle size becomes a
-// concern, convert to dynamic imports with a caching layer. This requires
-// changing getTierContent to return Promise<TierContent | null> and updating
-// all ~30 call sites across scenes and handwritten views.
 import T0 from "./T0";
 import T1 from "./T1";
 import T2 from "./T2";

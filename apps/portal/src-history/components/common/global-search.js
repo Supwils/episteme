@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { ERAS, EVENTS, FIGURES } from '../../data/index.js';
 import { LESSONS } from '../../data/lessons.js';
 import { ATLAS_ERAS } from '../../data/atlas-content.js';

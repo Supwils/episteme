@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { el } from '../../lib/dom.js';
 import { SCHOLARLY_TITLES } from '../../data/scholarly-titles.js';
 import { saveReadingProgress } from '../../lib/reading-progress.js';

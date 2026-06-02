@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { REFERENCES } from '../data/references.js';
 
 export function renderReferences(refKeys) {

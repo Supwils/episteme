@@ -34,7 +34,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "src-physics/**/*",
-    "src-history/**/*",
     "src-philosophy/**/*"
   ],
   "exclude": ["node_modules", ".next", "out", "dist", "coverage"]

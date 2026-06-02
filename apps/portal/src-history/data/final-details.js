@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const FINAL_DETAILS = {
   '耆那教创立': {
     pages: [

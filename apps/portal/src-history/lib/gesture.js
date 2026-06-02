@@ -1,4 +1,3 @@
-// @ts-nocheck
 export function addSwipeGesture(element, { onSwipeLeft, onSwipeRight, threshold = 50 } = {}) {
   let startX = 0;
   let startY = 0;

@@ -1,11 +1,23 @@
-import type { ReactNode } from "react";
+import type { Metadata, Viewport } from "next";
 import { fraunces, inter, jetbrainsMono } from "./fonts";
 import "./globals.css";
 
-export default function UniversePhysicsLayout({ children }: { children: ReactNode }) {
+export const metadata: Metadata = {
+  title: "universe-physics — scale atlas",
+  description:
+    "A browser-delivered scale atlas of the universe, from the observable horizon to a single planet.",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#000000",
+  width: "device-width",
+  initialScale: 1,
+};
+
+export default function PhysicsLayout({ children }: { children: React.ReactNode }) {
   return (
     <div
-      className={`${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable} bg-bg-deep text-fg-primary fixed inset-0 z-40 overflow-hidden antialiased`}
+      className={`${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable} physics-root`}
     >
       {children}
     </div>

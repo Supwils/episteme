@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { el } from '../../lib/dom.js';
 import { renderReferences } from '../../lib/references.js';
 

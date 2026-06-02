@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const FIGURES_OCEANIA = [
   {
     name: '图派亚', birth: 1725, death: 1770, title: '塔希提导航员',

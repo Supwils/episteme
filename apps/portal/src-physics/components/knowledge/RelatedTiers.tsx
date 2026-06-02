@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useMemo } from "react";
 import { ArrowUpRight } from "@/src-physics/components/hud/icons";
-import { hasContentForTier } from "@/content";
+import { hasContentForTier } from "@/src-physics/content";
 import { cn } from "@/src-physics/lib/cn";
 import { parseCrossLink, tierSection } from "@/src-physics/lib/cross-link";
 import { getSectionConfig, getSectionRoute } from "@/src-physics/lib/section";

@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const FIGURES_PREHISTORIC = [
   {
     name: '唐纳德·约翰森', birth: 1943, death: null, title: '"露西"发现者',

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // @ts-check
 
 import { scaleValue } from './atlas-geometry.js';

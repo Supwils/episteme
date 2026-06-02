@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const GEO_ENRICHMENT_1 = {
 
   '智人诞生': {

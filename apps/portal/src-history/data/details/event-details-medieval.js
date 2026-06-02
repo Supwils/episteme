@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const EVENT_DETAILS_MEDIEVAL = {
   '阿拔斯王朝': {
     pages: [

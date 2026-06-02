@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Fragment } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useTierTransition } from "@/src-physics/camera/useTierTransition";
-import { hasContentForTier } from "@/content";
+import { hasContentForTier } from "@/src-physics/content";
 import { cn } from "@/src-physics/lib/cn";
 import { formatScaleMeters } from "@/src-physics/lib/format";
 import { getSectionConfig, getSectionFromPath, getSectionRoute } from "@/src-physics/lib/section";

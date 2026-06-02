@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { ERAS, FIGURES, REGION_LABELS, formatYear } from '../../data/index.js';
 
 export const DOMAIN_LABELS = {

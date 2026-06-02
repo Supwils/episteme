@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const SCHOLARLY_BATCH_4 = {
   '波斯战争': {
     pages: [

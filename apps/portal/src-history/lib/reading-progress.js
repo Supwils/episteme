@@ -1,4 +1,3 @@
-// @ts-nocheck
 const STORAGE_KEY = 'history-continue-reading';
 
 export function saveReadingProgress({ title, page = 0, type = 'timeline' }) {

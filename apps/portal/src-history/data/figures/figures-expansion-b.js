@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const FIGURES_EXPANSION_B = [
   {
     name: '特库姆塞', birth: 1768, death: 1813, title: '肖尼族联盟领袖',

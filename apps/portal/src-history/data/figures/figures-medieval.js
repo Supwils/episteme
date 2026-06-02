@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const FIGURES_MEDIEVAL = [
   {
     name: '唐太宗', birth: 598, death: 649, title: '天可汗',

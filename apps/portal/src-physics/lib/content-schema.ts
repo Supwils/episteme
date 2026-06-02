@@ -101,12 +101,12 @@ export const tierContentSchema = z
     dataCards: z
       .array(dataCardSchema)
       .min(4, "tier needs at least 4 data cards for the panel grid")
-      .max(25, "panel grid gets crowded past 25"),
+      .max(12, "panel grid gets crowded past 12"),
     narrative: z
       .array(narrativeSectionSchema)
       .min(3, "tier needs at least 3 narrative sections")
-      .max(15),
-    sources: z.array(sourceRefSchema).min(2, "tier needs at least 2 cited sources").max(20),
+      .max(8),
+    sources: z.array(sourceRefSchema).min(2, "tier needs at least 2 cited sources").max(10),
     markers: z.array(sceneMarkerSchema).min(1).max(20).optional(),
   })
   .superRefine((content, ctx) => {

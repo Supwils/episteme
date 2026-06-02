@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const SCHOLARLY_BATCH_1 = {
   '农业革命': {
     pages: [

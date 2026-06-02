@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { EVENT_DETAILS_PREHISTORIC } from './details/event-details-prehistoric.js';
 import { EVENT_DETAILS_CLASSICAL } from './details/event-details-classical.js';
 import { EVENT_DETAILS_MEDIEVAL } from './details/event-details-medieval.js';

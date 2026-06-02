@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { gsap } from 'gsap';
 
 export function $(sel, ctx = document) {

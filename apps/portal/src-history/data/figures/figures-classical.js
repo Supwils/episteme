@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const FIGURES_CLASSICAL = [
   {
     name: '孔子', birth: -551, death: -479, title: '至圣先师',

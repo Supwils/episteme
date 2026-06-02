@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const EVENT_DETAILS_PREHISTORIC = {
   '智人在非洲诞生': {
     pages: [

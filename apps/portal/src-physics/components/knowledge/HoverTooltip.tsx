@@ -1,23 +1,11 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import { parseCrossLink, tierSection } from "@/src-physics/lib/cross-link";
 import { getSectionConfig } from "@/src-physics/lib/section";
 import { useUiStore } from "@/src-physics/store/useUiStore";
 
 const PRODUCT_EASE = [0.22, 0.61, 0.36, 1] as const;
-
-function useWindowSize() {
-  const [size, setSize] = useState({ w: 1280, h: 720 });
-  useEffect(() => {
-    const update = () => setSize({ w: window.innerWidth, h: window.innerHeight });
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
-  }, []);
-  return size;
-}
 
 /**
  * Floating tooltip that appears when the user hovers over a 3D scene marker.
@@ -27,7 +15,6 @@ function useWindowSize() {
 export function HoverTooltip() {
   const marker = useUiStore((state) => state.hoveredMarker);
   const pos = useUiStore((state) => state.hoverMousePos);
-  const { w, h } = useWindowSize();
 
   return (
     <AnimatePresence>
@@ -41,8 +28,8 @@ export function HoverTooltip() {
           transition={{ duration: 0.18, ease: PRODUCT_EASE }}
           className="pointer-events-none fixed z-30 max-w-sm"
           style={{
-            left: Math.min(pos.x + 16, w - 340),
-            top: Math.min(pos.y - 12, h - 260),
+            left: Math.min(pos.x + 16, window.innerWidth - 340),
+            top: Math.min(pos.y - 12, window.innerHeight - 260),
           }}
         >
           <div className="border-fg-disabled/35 bg-bg-deep/90 relative overflow-hidden border shadow-[0_0_40px_rgba(0,0,0,0.5)] backdrop-blur-xl">

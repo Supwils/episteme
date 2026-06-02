@@ -1,7 +1,7 @@
 "use client";
 
-import { useFrame, type RootState } from "@react-three/fiber";
-import { useCallback, useMemo, useRef, useState, type PointerEvent } from "react";
+import { useFrame } from "@react-three/fiber";
+import { useCallback, useRef, useState, type PointerEvent } from "react";
 import { Vector3, type Group } from "three";
 import type { SceneMarker } from "@/src-physics/lib/content";
 import { TIER_MARKER_KIND, type MarkerKind, type UniverseTierId } from "@/src-physics/lib/tier";
@@ -48,7 +48,6 @@ function MarkerPoint({
 
   const baseColor = marker.color ?? "#ffb45a";
   const size = marker.size ?? 0.02;
-  const position = useMemo(() => new Vector3(...marker.position), [marker.position]);
 
   const onPointerOver = useCallback(
     (e: PointerEvent) => {
@@ -76,7 +75,7 @@ function MarkerPoint({
     [setHoverMousePos],
   );
 
-  useFrame((state: RootState, dt) => {
+  useFrame((_, dt) => {
     if (!meshRef.current) return;
     setGlow((prev) => {
       const next = prev + (targetGlow.current - prev) * Math.min(dt * 8, 1);
@@ -85,7 +84,7 @@ function MarkerPoint({
     const s = size * (1 + glow * 0.25);
     meshRef.current.scale.setScalar(s);
     if (!reducedMotion) {
-      const pulse = 1 + Math.sin(state.clock.elapsedTime * 3) * 0.06;
+      const pulse = 1 + Math.sin(performance.now() * 0.003) * 0.06;
       meshRef.current.scale.multiplyScalar(pulse);
     }
   });
@@ -93,7 +92,7 @@ function MarkerPoint({
   return (
     <group
       ref={meshRef}
-      position={position}
+      position={new Vector3(...marker.position)}
       onPointerOver={onPointerOver}
       onPointerOut={onPointerOut}
       onPointerMove={onPointerMove}

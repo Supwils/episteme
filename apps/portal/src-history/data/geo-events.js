@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const GEO_EVENTS = [
   // === 远古时期 ===
   { year: -300000, title: '智人诞生', region: 'africa', era: 'prehistoric', lng: 35, lat: 0, cat: 'science' },

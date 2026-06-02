@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const SCHOLARLY_BATCH_2 = {
   '轴心时代': {
     pages: [

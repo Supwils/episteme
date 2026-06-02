@@ -193,12 +193,12 @@
   text-transform: uppercase;
 }
 
-/* Override portal root body styles so the physics section renders on its
-   own deep-space palette rather than inheriting the portal's surface. */
-html,
-body {
-  background-color: #000000;
-  color: #f5f6fa;
+.physics-root {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 @layer base {
@@ -209,8 +209,6 @@ body {
   html,
   body {
     height: 100%;
-    width: 100%;
-    overflow-x: hidden;
   }
 
   body {
@@ -220,6 +218,8 @@ body {
       "cv11" on;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-bg-deep);
+    color: var(--color-fg-primary);
   }
 
   h1,

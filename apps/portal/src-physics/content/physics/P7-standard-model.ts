@@ -43,7 +43,6 @@ const content: TierContent = {
       body: [
         "物质 = 3 代轻子（e, μ, τ 与对应中微子） + 3 代夸克（u/d, c/s, t/b）；力的载体 = γ（电磁）、W±/Z⁰（弱）、g（强）；Higgs 玻色子 H 给其他粒子质量。每个粒子还有反粒子。",
         "「代」之间只有质量不同——没人知道为什么自然界要 3 代，也不知道为什么质量比这么悬殊（m_t / m_e ≈ 10⁵.⁵）。这是标准模型留下最大的「为什么」之一。",
-        "如果把标准模型比作一本乐谱，那么 17 个基本粒子就是 17 个音符——6 种夸克、6 种轻子、5 种力的载体。它们之间按照 SU(3) × SU(2) × U(1) 这组对称性的「和声规则」组合出整个可见宇宙。但乐谱上有几个奇怪之处：为什么是 3 个「八度」（代）而不是 1 个或 7 个？为什么顶夸克比电子重 35 万倍——同一个音符的两个八度之间音高差了 15 个八度？这些问题就像问「为什么这首曲子是 C 大调而不是 G 大调」——标准模型能完美演奏，但作曲的理由仍隐藏在乐谱之外。",
       ],
     },
     {
@@ -84,16 +83,9 @@ const content: TierContent = {
       ],
     },
     {
-      heading: "大爆炸的最初三分钟",
-      body: [
-        "Steven Weinberg 在他 1977 年的经典著作《最初三分钟》里把大爆炸后的核合成过程讲成了一段宇宙编年史。在 t = 0 到 t ≈ 3 分钟之间，宇宙完成了一件此后再也没有重复过的事：从一锅纯粹的辐射和基本粒子，烹饪出了化学元素的原型。t < 1 秒时温度 > 10¹⁰ K，质子和中子在弱相互作用下维持平衡（n ↔ p + e⁻ + ν̄_e）；t ≈ 1 秒中微子退耦（宇宙中微子背景，T_ν ≈ 1.95 K 今天），正负电子湮灭把能量移交给光子；t ≈ 3 分钟温度降到 ~10⁹ K，质子和中子开始结合成氘、氦-3、氦-4 和微量的锂-7。预言的轻元素丰度：氦-4 质量分数 ≈ 25%，氘 ≈ 0.01%，与天文观测惊人吻合——这是大爆炸理论最精确的定量验证之一。",
-        "为什么只有 3 分钟？因为宇宙在膨胀，温度在迅速下降。3 分钟后温度降到 ~3 × 10⁸ K 以下，核物理里的「氘瓶颈」（deuterium bottleneck）锁住了进一步的核合成——自由质子和中子的热能不再足以克服氘的结合能壁垒，合成链断裂。要等到数亿年后第一批恒星点燃，恒星核心的高温高压才重新开启核聚变，制造出碳、氧、铁等更重的元素。我们身体里的每一个碳原子，要么来自某颗恒星的核心，要么来自某次超新星的爆发——宇宙的最初三分钟只给了我们氢和氦，其余的一切都是恒星的产物。",
-      ],
-    },
-    {
       heading: "参考文献入口",
       body: [
-        "Peskin & Schroeder《An Introduction to QFT》是博士标配；Schwartz《Quantum Field Theory and the Standard Model》现代化；Srednicki 是替代。Particle Data Group 是数据真相源。Weinberg《The First Three Minutes》是宇宙核合成的最佳科普。",
+        "Peskin & Schroeder《An Introduction to QFT》是博士标配；Schwartz《Quantum Field Theory and the Standard Model》现代化；Srednicki 是替代。Particle Data Group 是数据真相源。",
       ],
     },
   ],
@@ -122,11 +114,6 @@ const content: TierContent = {
       label: "Sakharov 1967 — Violation of CP Invariance & Baryon Asymmetry",
       url: "https://inspirehep.net/literature/51345",
       kind: "paper",
-    },
-    {
-      label: "Weinberg 1977 — The First Three Minutes",
-      url: "https://en.wikipedia.org/wiki/The_First_Three_Minutes",
-      kind: "encyclopedia",
     },
   ],
   markers: [

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { CAT_LABELS, REGION_LABELS, REGIONS, formatYear } from '../../data/index.js';
 import { EVENT_DETAILS } from '../../data/event-details.js';
 import { EXTRA_DETAILS } from '../../data/extra-details.js';

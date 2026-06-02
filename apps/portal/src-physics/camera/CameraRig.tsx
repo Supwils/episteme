@@ -5,13 +5,18 @@ import { useThree } from "@react-three/fiber";
 import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
 import { PerspectiveCamera, Vector3 } from "three";
-import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import { registerCameraRig, type CameraRigApi } from "./cameraRegistry";
 import { TIER_DEFAULT_DISTANCE } from "./tierFraming";
 
+type OrbitHandle = {
+  enabled: boolean;
+  target: Vector3;
+  update: () => void;
+};
+
 export function CameraRig() {
   const camera = useThree((state) => state.camera);
-  const controlsRef = useRef<OrbitControlsImpl>(null);
+  const controlsRef = useRef<OrbitHandle | null>(null);
   const [userControl, setUserControl] = useState(true);
 
   useEffect(() => {
@@ -140,7 +145,7 @@ export function CameraRig() {
 
   return (
     <OrbitControls
-      ref={controlsRef}
+      ref={controlsRef as never}
       enabled={userControl}
       enableDamping
       dampingFactor={0.12}

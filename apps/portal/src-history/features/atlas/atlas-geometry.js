@@ -1,4 +1,3 @@
-// @ts-nocheck
 // @ts-check
 
 export function scaleValue(value, scaleRatio) {

@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const FIGURES_EARLY_MODERN = [
   {
     name: '达芬奇', birth: 1452, death: 1519, title: '文艺复兴巨人',

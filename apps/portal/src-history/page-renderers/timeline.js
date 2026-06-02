@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { gsap } from 'gsap';
 import { ERAS, EVENTS, CAT_LABELS, CAT_COLORS, REGION_LABELS, formatYear } from '../data/index.js';
 import { PARALLEL_EVENTS } from '../data/parallel-events.js';

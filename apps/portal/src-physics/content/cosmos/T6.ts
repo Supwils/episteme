@@ -76,36 +76,6 @@ const content: TierContent = {
       value: "≈ 10¹¹ – 10¹²",
       hint: "Dones 2015",
     },
-    {
-      label: "已确认系外行星",
-      latinLabel: "Confirmed exoplanets",
-      value: "> 5700",
-      hint: "NASA Archive 2025",
-    },
-    {
-      label: "银河系行星数估算",
-      latinLabel: "Planets in Milky Way",
-      value: "≥ 1000 亿",
-      hint: "Kepler 统计外推",
-    },
-    {
-      label: "宜居带岩石行星",
-      latinLabel: "Habitable rocky planets",
-      value: "~30 颗候选",
-      hint: "Kepler + TESS · 半径 < 2 R⊕",
-    },
-    {
-      label: "小行星带总质量",
-      latinLabel: "Asteroid belt mass",
-      value: "~4% 月球",
-      hint: "≈ 3 × 10²¹ kg",
-    },
-    {
-      label: "冰巨星",
-      latinLabel: "Ice giants",
-      value: "2",
-      hint: "天王星和海王星 — 太阳系最神秘的行星",
-    },
   ],
   narrative: [
     {
@@ -113,14 +83,6 @@ const content: TierContent = {
       body: [
         "太阳系内圈是水星、金星、地球、火星四颗岩石行星，它们的轨道全部挤在 1.5 AU 以内。外圈是木星、土星、天王星、海王星四颗气体/冰巨星，分布在 5 到 30 AU。这种「内小外大」的结构跟我们目前找到的大多数系外行星系统并不一致 — 太阳系反而是个少数派。",
         "在内外行星之间，是 2.2 到 3.2 AU 的主小行星带：~10⁶ 颗大于 1 km 的小行星，总质量只有月球的 4%。海王星外是 Kuiper 带：~10⁵ 颗冰质天体在 30 到 50 AU 范围内，Pluto 是它最大的常驻成员。",
-        "主小行星带是太阳系的「宇宙碎片场」——一颗行星未能诞生的遗骸。木星巨大的引力在 45 亿年里反复扰动这个区域，把原本可能聚合成第五颗岩石行星的原材料搅成了一盘碎石。最大的碎片 Ceres (940 km) 勉强靠自身引力抟成球形，但其他绝大多数都是不规则的岩块——从 Vesta (525 km) 到数以百万计的千米级碎石，再到无数尘粒。它们以 5–25 km/s 的速度在各自的轨道上运行，偶尔碰撞产生新的碎片家族，偶尔被引力弹弓甩向内太阳系——这就是我们看到的流星。",
-      ],
-    },
-    {
-      heading: "系外行星：太阳系之外的世界",
-      body: [
-        "1995 年 Mayor 和 Queloz 发现了第一颗围绕类日恒星公转的系外行星 51 Pegasi b——一颗「热木星」，轨道周期仅 4.2 天。这个发现彻底颠覆了行星形成理论：此前没人相信气态巨行星能出现在如此靠近恒星的地方。2019 年 Nobel 物理学奖表彰了这项开创性工作。",
-        "截至 2025 年，NASA 系外行星档案已确认超过 5700 颗系外行星。开普勒太空望远镜 (2009–2018) 的统计表明，银河系中平均每颗恒星至少拥有一颗行星——行星才是常态，没有行星的恒星才是异类。TESS (2018–) 和 JWST (2021–) 正在把搜索范围从「发现」推进到「表征」：测量系外行星大气的化学成分（H₂O、CO₂、CH₄）以寻找生命迹象。TRAPPIST-1 系统（7 颗岩石行星，其中 3 颗在宜居带内）是这一搜索的灯塔目标。",
       ],
     },
     {
@@ -152,19 +114,10 @@ const content: TierContent = {
       ],
     },
     {
-      heading: "冰巨星 · 太阳系最神秘的行星",
-      body: [
-        "天王星和海王星被归为「冰巨星」，以区别于木星和土星这样的「气巨星」。它们的内部结构主要由水 (H₂O)、氨 (NH₃) 和甲烷 (CH₄) 组成的高压冰相物质构成，而非气巨星那样的纯氢/氦。这两颗行星占了太阳系外行星质量的大部分（仅次于木星和土星），但人类对它们的了解却出奇地少——唯一的近距离飞掠是 Voyager 2：天王星在 1986 年、海王星在 1989 年。此后近 40 年再无探测器造访。",
-        "天王星最反常的特征是它的极端轴向倾斜——自转轴倾角 97.8°，几乎是「躺着」绕太阳公转，一种假说认为这是远古时期一次地球大小天体撞击的结果。海王星的卫星 Triton（海卫一）同样令人困惑：它是太阳系大卫星中唯一逆行的（即公转方向与海王星自转方向相反），表面覆盖着氮冰，有活跃的氮气间歇泉（Voyager 2 1989 年拍摄到），这强烈暗示它原本是 Kuiper 带天体被海王星引力俘获——换句话说，Triton 可能是一颗被捕获的矮行星。",
-        "冰巨星内部最戏剧性的物理过程是「钻石雨」：在数百万大气压和数千开尔文的条件下，甲烷分子被分解，碳原子在高压下结晶成钻石并沉降到行星深处。这一理论由 Ross 1981 年首次提出，2017 年 SLAC 国家实验室用高功率激光在聚苯乙烯上直接复现了这一过程——在约 150 GPa 和 5000 K 的条件下，碳确实形成了纳米级钻石晶体。这意味着天王星和海王星内部可能有一层液态碳氢化合物的「钻石海洋」，钻石像雨滴一样不断下沉。NASA 的 Uranus Orbiter and Probe 任务已被美国天文学十年调查 (Astro2020) 列为最高优先级旗舰任务，预计 2030 年代发射。",
-      ],
-    },
-    {
       heading: "卫星海洋 · 太阳系里隐藏的水体",
       body: [
         "把视线从行星本身挪到外行星卫星，会发现一连串「冰壳下藏着海」的世界。Europa (木卫二) 表层下 ~15 km 的冰层下有一层 ~100 km 深的液态咸水海，总水量约地球的两倍 (Galileo 磁感应 1998)。Enceladus (土卫二) 南极喷出富含 H₂、有机分子和硅酸盐颗粒的羽流 (Cassini 2014)，直接指向一个能维持热液活动的全球海洋。",
         "Titan (土卫六) 是太阳系唯一拥有稠密氮气大气并在地表稳定有液体的卫星 —— 不过那是甲烷和乙烷的液体湖。冰壳下也有水海。Triton (海王星卫一) 的逆行轨道暗示它原本是被海王星俘获的 Kuiper 带天体，Voyager 2 在 1989 拍到它表面的氮气间歇泉。这些海洋世界是寻找太阳系内地外生命的首要目标 ——「Europa Clipper」(NASA 2024 发射) 与「JUICE」(ESA 2023 发射) 是当前最大两笔投入。",
-        "如果把太阳系比作一栋房子，我们长久以来只在客厅（内行星）里找钥匙，却不知道地下室（冰卫星）里藏着一整个游泳池。Europa 的海洋水量是地球的两倍，Enceladus 的热液喷口温度和地球深海热泉惊人地相似——而地球深海热泉正是生命起源的热门候选场所。也许太阳系里最重大的发现不在火星的干涸河床上，而在这些冰壳之下那片黑暗、温暖、充满化学能的海洋深处。",
       ],
     },
   ],
@@ -203,31 +156,6 @@ const content: TierContent = {
       label: "Hsu et al. 2015 — Hydrothermal activity at Enceladus",
       url: "https://www.nature.com/articles/nature14262",
       kind: "paper",
-    },
-    {
-      label: "Mayor & Queloz 1995 — 51 Pegasi b discovery",
-      url: "https://www.nature.com/articles/378355a0",
-      kind: "paper",
-    },
-    {
-      label: "NASA Kepler & TESS — Exoplanet statistics",
-      url: "https://exoplanetarchive.ipac.caltech.edu/",
-      kind: "agency",
-    },
-    {
-      label: "Ross 1981 — The ice layer in Uranus and Neptune",
-      url: "https://www.nature.com/articles/292435a0",
-      kind: "paper",
-    },
-    {
-      label: "Kraus et al. 2017 — Formation of diamonds in dense planetary interiors",
-      url: "https://www.nature.com/articles/s41550-017-0219-9",
-      kind: "paper",
-    },
-    {
-      label: "National Academies 2022 — Astro2020 Decadal Survey: Uranus Orbiter and Probe",
-      url: "https://nap.nationalacademies.org/catalog/26453/pathways-to-discovery-in-astronomy-and-astrophysics-for-the-2020s",
-      kind: "encyclopedia",
     },
   ],
   // Marker positions match orbitPos(a, phase, incl) from Tier6Scene; the

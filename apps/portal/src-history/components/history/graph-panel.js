@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { el } from '../../lib/dom.js';
 import { ERAS, FIGURE_RELATIONS, FIGURE_EVENT_LINKS, RELATION_LABELS, RELATION_COLORS, formatYear } from '../../data/index.js';
 import { getFigureDates } from '../../features/figures/figure-model.js';

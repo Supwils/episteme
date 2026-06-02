@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const ATLAS_ERAS = [
   {
     id: 'prehistoric',

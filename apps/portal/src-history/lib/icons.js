@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const ERA_ICONS = {
   prehistoric: 'mdi:tent',
   classical: 'mdi:temple-hindu',

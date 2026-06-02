@@ -8,7 +8,7 @@ import { DataCard } from "./DataCard";
 import { NarrativeSection } from "./NarrativeSection";
 import { RelatedTiers } from "./RelatedTiers";
 import { SourcesList } from "./SourcesList";
-import { getContentForTier } from "@/content";
+import { getContentForTier } from "@/src-physics/content";
 import { SECTIONS } from "@/src-physics/lib/section";
 import { isPhysicsTierId } from "@/src-physics/lib/physics-tier";
 import type { AnyTierId } from "@/src-physics/lib/tier";

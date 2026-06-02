@@ -33,7 +33,7 @@ export default function HomePage() {
   const d = (sec: number) => (reduce ? 0 : sec);
 
   return (
-    <main className="bg-bg-deep relative flex h-dvh flex-col items-center justify-center overflow-hidden px-6">
+    <main className="bg-bg-deep relative flex min-h-dvh flex-col items-center justify-center overflow-hidden px-6">
       <div className="border-fg-disabled/40 absolute top-6 left-6 h-3 w-3 border-t border-l" />
       <div className="border-fg-disabled/40 absolute top-6 right-6 h-3 w-3 border-t border-r" />
       <div className="border-fg-disabled/40 absolute bottom-6 left-6 h-3 w-3 border-b border-l" />

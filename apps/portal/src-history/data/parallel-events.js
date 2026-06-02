@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const PARALLEL_EVENTS = [
   // ===== 远古时期 =====
   { year: -200000, title: '非洲最早的埋葬', desc: '非洲出现最早的象征性行为——肯尼亚等地发现约30万年前加工的赭石颜料，与智人起源同步', era: 'prehistoric', region: 'africa', cat: 'culture' },

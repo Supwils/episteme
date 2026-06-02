@@ -1,4 +1,3 @@
-// @ts-nocheck
 // @ts-check
 
 import { getNodeBounds, hitTestNodes, isNearNodes, scaleValue } from '../../features/atlas/atlas-geometry.js';

@@ -9,7 +9,6 @@ import {
   starPointVertColor,
   starPointFragColor,
 } from "@/src-physics/shaders/starPoint.frag.glsl";
-import { useUiStore } from "@/src-physics/store/useUiStore";
 
 type StarPointsProps = {
   /** Flat array of [x, y, z, x, y, z, ...] positions. */
@@ -60,57 +59,15 @@ export function StarPoints({
   opacity = 1,
 }: StarPointsProps) {
   const matRef = useRef<THREE.ShaderMaterial>(null);
-  const degradationLevel = useUiStore((s) => s.degradationLevel);
-  const halvePoints = degradationLevel >= 3;
-
-  const { reducedPositions, reducedSizes, reducedTemps, reducedBrightnesses, reducedColors } =
-    useMemo(() => {
-      if (!halvePoints) {
-        return {
-          reducedPositions: positions,
-          reducedSizes: sizes,
-          reducedTemps: temps,
-          reducedBrightnesses: brightnesses,
-          reducedColors: colors,
-        };
-      }
-      const halfCount = Math.floor(positions.length / 6);
-      const rPos = new Float32Array(halfCount * 3);
-      const rSz = sizes ? new Float32Array(halfCount) : undefined;
-      const rTp = temps ? new Float32Array(halfCount) : undefined;
-      const rBr = brightnesses ? new Float32Array(halfCount) : undefined;
-      const rCl = colors ? new Float32Array(halfCount * 3) : undefined;
-      for (let i = 0; i < halfCount; i++) {
-        rPos[i * 3] = positions[i * 6]!;
-        rPos[i * 3 + 1] = positions[i * 6 + 1]!;
-        rPos[i * 3 + 2] = positions[i * 6 + 2]!;
-        if (rSz) rSz[i] = sizes![i * 2]!;
-        if (rTp) rTp[i] = temps![i * 2]!;
-        if (rBr) rBr[i] = brightnesses![i * 2]!;
-        if (rCl) {
-          rCl[i * 3] = colors![i * 6]!;
-          rCl[i * 3 + 1] = colors![i * 6 + 1]!;
-          rCl[i * 3 + 2] = colors![i * 6 + 2]!;
-        }
-      }
-      return {
-        reducedPositions: rPos,
-        reducedSizes: rSz,
-        reducedTemps: rTp,
-        reducedBrightnesses: rBr,
-        reducedColors: rCl,
-      };
-    }, [positions, sizes, temps, brightnesses, colors, halvePoints]);
-
-  const count = reducedPositions.length / 3;
-  const useVertexColors = reducedColors !== undefined;
+  const count = positions.length / 3;
+  const useVertexColors = colors !== undefined;
 
   const { aSize, aTemp, aBright } = useMemo(() => {
-    const sz = reducedSizes ?? new Float32Array(count).fill(baseSize);
-    const tp = reducedTemps ?? new Float32Array(count).fill(baseTemp);
-    const br = reducedBrightnesses ?? new Float32Array(count).fill(baseBrightness);
+    const sz = sizes ?? new Float32Array(count).fill(baseSize);
+    const tp = temps ?? new Float32Array(count).fill(baseTemp);
+    const br = brightnesses ?? new Float32Array(count).fill(baseBrightness);
     return { aSize: sz, aTemp: tp, aBright: br };
-  }, [reducedSizes, reducedTemps, reducedBrightnesses, count, baseSize, baseTemp, baseBrightness]);
+  }, [sizes, temps, brightnesses, count, baseSize, baseTemp, baseBrightness]);
 
   const uniforms = useMemo(
     () => ({
@@ -129,13 +86,13 @@ export function StarPoints({
   return (
     <points>
       <bufferGeometry>
-        <bufferAttribute attach="attributes-position" args={[reducedPositions, 3]} />
+        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
         <bufferAttribute attach="attributes-aSize" args={[aSize, 1]} />
         <bufferAttribute attach="attributes-aTemp" args={[aTemp, 1]} />
         <bufferAttribute attach="attributes-aBrightness" args={[aBright, 1]} />
-        {useVertexColors && reducedColors ? (
-          <bufferAttribute attach="attributes-color" args={[reducedColors, 3]} />
-        ) : null}
+        {useVertexColors && colors && (
+          <bufferAttribute attach="attributes-color" args={[colors, 3]} />
+        )}
       </bufferGeometry>
       <shaderMaterial
         ref={matRef}

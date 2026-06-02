@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const EVENT_DETAILS_CLASSICAL = {
   '苏美尔城邦': {
     pages: [

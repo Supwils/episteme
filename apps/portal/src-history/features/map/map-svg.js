@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { CAT_COLORS, CAT_LABELS, ERAS, REGION_LABELS, formatYear } from '../../data/index.js';
 import { projectGeo } from '../../data/geo-events.js';
 import { icon } from '../../lib/icons.js';

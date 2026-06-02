@@ -97,13 +97,12 @@ export default function AtlasCanvas() {
         sep.textContent = '›';
         el.appendChild(sep);
       }
-      const breadcrumb = items[i];
-      if (!breadcrumb) continue;
       const isLast = i === items.length - 1;
       const item = document.createElement('span');
+      const entry = items[i]!;
       item.className = `atlas-bc-item${isLast ? ' active' : ''}`;
-      item.textContent = breadcrumb.label;
-      if (breadcrumb.action) item.addEventListener('click', breadcrumb.action);
+      item.textContent = entry.label;
+      if (entry.action) item.addEventListener('click', entry.action);
       el.appendChild(item);
     }
   }, []);

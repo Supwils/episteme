@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { SCHOLARLY_DETAILS } from '../data/scholarly-index.js';
 import { ERAS, EVENTS, formatYear } from '../data/index.js';
 import { el, clearApp, animateOnScroll, prefersReducedMotion } from '../lib/dom.js';

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { SCHOLARLY_BATCH_1 } from './scholarly/scholarly-batch-1.js';
 import { SCHOLARLY_BATCH_2 } from './scholarly/scholarly-batch-2.js';
 import { SCHOLARLY_BATCH_3 } from './scholarly/scholarly-batch-3.js';

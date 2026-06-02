@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const FIGURES_EXPANSION_A = [
   {
     name: '汉尼拔', birth: -247, death: -183, title: '迦太基战神',

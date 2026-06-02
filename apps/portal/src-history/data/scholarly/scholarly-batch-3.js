@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const SCHOLARLY_BATCH_3 = {
   '托尔德西里亚斯条约': {
     pages: [
