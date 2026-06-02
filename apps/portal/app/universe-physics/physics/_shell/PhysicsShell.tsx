@@ -1,0 +1,68 @@
+"use client";
+
+import type { ReactNode } from "react";
+import { FloatingViewControl } from "@/src-physics/components/hud/FloatingViewControl";
+import { KeyboardNav } from "@/src-physics/components/hud/KeyboardNav";
+import { MobileTierStrip } from "@/src-physics/components/hud/MobileTierStrip";
+import { PhysicsPager } from "@/src-physics/components/hud/PhysicsPager";
+import { SkipLink } from "@/src-physics/components/hud/SkipLink";
+import { SubjectCard } from "@/src-physics/components/hud/SubjectCard";
+import { SwipePager } from "@/src-physics/components/hud/SwipePager";
+import { TierAriaLive } from "@/src-physics/components/hud/TierAriaLive";
+import { TierRail } from "@/src-physics/components/hud/TierRail";
+import { TopBar } from "@/src-physics/components/hud/TopBar";
+import { HoverTooltip } from "@/src-physics/components/knowledge/HoverTooltip";
+import { KnowledgePanel } from "@/src-physics/components/knowledge/KnowledgePanel";
+import { HW_VIEWBOX_STRING } from "@/src-physics/lib/handwritten-coords";
+import { ActivePhysicsHandwrittenScene } from "@/src-physics/scenes-handwritten/physics/ActivePhysicsHandwrittenScene";
+import { HandwrittenDefs } from "@/src-physics/scenes-handwritten/shared/HandwrittenDefs";
+import { PaperBackground } from "@/src-physics/scenes-handwritten/shared/PaperBackground";
+import { useHandwrittenStore } from "@/src-physics/store/useHandwrittenStore";
+
+export function PhysicsShell({ children }: { children: ReactNode }) {
+  const theme = useHandwrittenStore((s) => s.theme);
+  const palette = useHandwrittenStore((s) => s.physicsPalette);
+
+  return (
+    <div
+      data-section="physics"
+      data-hw-theme={theme}
+      data-force-night={palette === "night" ? "true" : undefined}
+      className="relative h-dvh w-full overflow-hidden"
+      style={{ background: "var(--hw-bg)", color: "var(--hw-ink)" }}
+    >
+      <SkipLink targetId="main-content" />
+      <TierAriaLive />
+      <svg
+        id="main-content"
+        tabIndex={-1}
+        className="absolute inset-0 h-full w-full focus:outline-none"
+        viewBox={HW_VIEWBOX_STRING}
+        preserveAspectRatio="xMidYMid meet"
+        aria-label="Physics atlas scene"
+      >
+        <HandwrittenDefs />
+        <PaperBackground />
+        <ActivePhysicsHandwrittenScene />
+      </svg>
+
+      <div className="pointer-events-none absolute inset-0 z-20">
+        <TopBar />
+        <TierRail />
+        <MobileTierStrip />
+        <div className="pointer-events-none absolute right-0 bottom-16 left-0 flex justify-start px-5 pb-2 md:bottom-0 md:px-10 md:pb-10">
+          <SubjectCard />
+        </div>
+        <PhysicsPager />
+      </div>
+
+      <HoverTooltip />
+      <KnowledgePanel />
+      <FloatingViewControl />
+      <KeyboardNav />
+      <SwipePager />
+
+      <div className="hidden">{children}</div>
+    </div>
+  );
+}

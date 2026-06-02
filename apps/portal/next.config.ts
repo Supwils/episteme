@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import createMDX from "@next/mdx";
 
 const isProd = process.env.NODE_ENV === "production";
 
@@ -33,19 +34,28 @@ const nextConfig: NextConfig = {
   transpilePackages: ["@universe/ui"],
   poweredByHeader: false,
   reactStrictMode: true,
+  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+  experimental: {
+    optimizePackageImports: [
+      "three",
+      "framer-motion",
+      "@react-three/fiber",
+      "@react-three/drei",
+      "@react-three/postprocessing",
+    ],
+  },
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];
   },
-  async rewrites() {
-    return [
-      // Proxy universe-physics pages and static assets
-      { source: "/universe-physics/:path*", destination: "http://localhost:3033/universe-physics/:path*" },
-      // Proxy human-history pages and static assets
-      { source: "/human-history/:path*", destination: "http://localhost:3001/human-history/:path*" },
-      // Proxy philosophy pages and static assets
-      { source: "/philosophy/:path*", destination: "http://localhost:3002/philosophy/:path*" },
-    ];
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.(glsl|vs|fs|vert|frag)$/,
+      type: "asset/source",
+    });
+    return config;
   },
 };
 
-export default nextConfig;
+const withMDX = createMDX({ options: {} });
+
+export default withMDX(nextConfig);

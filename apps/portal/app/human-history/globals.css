@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@400;500;600&family=Ma+Shan+Zheng&display=swap');
+
+@import './styles/base.css';
+@import './styles/nav.css';
+@import './styles/pages/home.css';
+@import './styles/pages/timeline.css';
+@import './styles/pages/atlas.css';
+@import './styles/pages/graph.css';
+@import './styles/pages/map.css';
+@import './styles/pages/figures.css';
+@import './styles/pages/lessons.css';
+@import './styles/pages/scholarly.css';
+@import './styles/animations.css';
+@import './styles/responsive.css';
+
