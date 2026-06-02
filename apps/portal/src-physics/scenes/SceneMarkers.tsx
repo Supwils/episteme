@@ -1,7 +1,7 @@
 "use client";
 
 import { useFrame } from "@react-three/fiber";
-import { useCallback, useRef, useState, type PointerEvent } from "react";
+import { useCallback, useRef, type PointerEvent } from "react";
 import { Vector3, type Group } from "three";
 import type { SceneMarker } from "@/src-physics/lib/content";
 import { TIER_MARKER_KIND, type MarkerKind, type UniverseTierId } from "@/src-physics/lib/tier";
@@ -39,7 +39,7 @@ function MarkerPoint({
   kind: MarkerKind;
 }) {
   const meshRef = useRef<Group>(null);
-  const [glow, setGlow] = useState(0);
+  const glowRef = useRef(0);
   const targetGlow = useRef(0);
   const reducedMotion = useUiStore((s) => s.reducedMotion);
 
@@ -77,11 +77,10 @@ function MarkerPoint({
 
   useFrame((_, dt) => {
     if (!meshRef.current) return;
-    setGlow((prev) => {
-      const next = prev + (targetGlow.current - prev) * Math.min(dt * 8, 1);
-      return Math.abs(next - prev) < 0.001 ? prev : next;
-    });
-    const s = size * (1 + glow * 0.25);
+    const prev = glowRef.current;
+    const next = prev + (targetGlow.current - prev) * Math.min(dt * 8, 1);
+    glowRef.current = Math.abs(next - prev) < 0.001 ? prev : next;
+    const s = size * (1 + glowRef.current * 0.25);
     meshRef.current.scale.setScalar(s);
     if (!reducedMotion) {
       const pulse = 1 + Math.sin(performance.now() * 0.003) * 0.06;
@@ -97,10 +96,10 @@ function MarkerPoint({
       onPointerOut={onPointerOut}
       onPointerMove={onPointerMove}
     >
-      {kind === "haloDisk" && <MarkerHaloDisk color={baseColor} opacity={opacity} glow={glow} />}
-      {kind === "diamond" && <MarkerDiamond color={baseColor} opacity={opacity} glow={glow} />}
-      {kind === "starPoint" && <MarkerStarPoint color={baseColor} opacity={opacity} glow={glow} />}
-      {kind === "pinNeedle" && <MarkerPinNeedle color={baseColor} opacity={opacity} glow={glow} />}
+      {kind === "haloDisk" && <MarkerHaloDisk color={baseColor} opacity={opacity} glowRef={glowRef} />}
+      {kind === "diamond" && <MarkerDiamond color={baseColor} opacity={opacity} glowRef={glowRef} />}
+      {kind === "starPoint" && <MarkerStarPoint color={baseColor} opacity={opacity} glowRef={glowRef} />}
+      {kind === "pinNeedle" && <MarkerPinNeedle color={baseColor} opacity={opacity} glowRef={glowRef} />}
     </group>
   );
 }

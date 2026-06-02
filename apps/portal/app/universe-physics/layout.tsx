@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { fraunces, inter, jetbrainsMono } from "./fonts";
+import { PageTransition } from "../../components/PageTransition";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -19,7 +20,7 @@ export default function PhysicsLayout({ children }: { children: React.ReactNode 
     <div
       className={`${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable} physics-root`}
     >
-      {children}
+      <PageTransition>{children}</PageTransition>
     </div>
   );
 }

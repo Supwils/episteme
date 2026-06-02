@@ -1,7 +1,7 @@
 "use client";
 
 import { useFrame } from "@react-three/fiber";
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { volumeVert } from "@/src-physics/shaders/volumeRaymarch.frag.glsl";
 import { volumeFrag } from "@/src-physics/shaders/volumeRaymarch.frag.glsl";
@@ -56,12 +56,22 @@ export function VolumeBillboard({
     [coreColor, haloColor, density, steps],
   );
 
+  const lastOpacity = useRef(opacity);
   useFrame((state) => {
     if (matRef.current?.uniforms?.uTime) {
       matRef.current.uniforms.uTime.value = state.clock.elapsedTime;
-      matRef.current.opacity = opacity;
+      if (lastOpacity.current !== opacity) {
+        matRef.current.opacity = opacity;
+        lastOpacity.current = opacity;
+      }
     }
   });
+
+  useEffect(() => {
+    return () => {
+      matRef.current?.dispose();
+    };
+  }, []);
 
   return (
     <mesh>

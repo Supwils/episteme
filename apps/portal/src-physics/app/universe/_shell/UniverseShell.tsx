@@ -1,6 +1,7 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
+import { Preload } from "@react-three/drei";
 import { usePathname } from "next/navigation";
 import { Suspense, useEffect, type ReactNode } from "react";
 import * as THREE from "three";
@@ -76,6 +77,7 @@ export function UniverseShell({ children }: { children: ReactNode }) {
         </Suspense>
         <CameraRig />
         <PostFX />
+        <Preload all />
       </Canvas>
 
       <HoverTooltip />

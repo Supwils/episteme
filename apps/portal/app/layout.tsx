@@ -5,6 +5,7 @@ import { DesktopNav } from "../components/DesktopNav";
 import { MobileNav } from "../components/MobileNav";
 import { SearchTrigger } from "../components/SearchTrigger";
 import { GlobalSearch } from "../components/GlobalSearch";
+import { ScrollToTop } from "../components/ScrollToTop";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -61,6 +62,7 @@ export default function RootLayout({
           <p>Universe Knowledge — 探索人类知识的边界</p>
         </footer>
         <GlobalSearch />
+        <ScrollToTop />
       </body>
     </html>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { getPlanetTexture, type PlanetTextureKey } from "@/src-physics/lib/planetTextures";
@@ -43,6 +43,7 @@ export function Planet({
   const reducedMotion = useUiStore((s) => s.reducedMotion);
   const map = useMemo(() => getPlanetTexture(textureKey), [textureKey]);
   const tiltRad = (axialTilt * Math.PI) / 180;
+  const textureLoaded = useRef(false);
 
   useFrame((_, dt) => {
     if (meshRef.current && !reducedMotion) {
@@ -50,16 +51,22 @@ export function Planet({
     }
     if (matRef.current) {
       matRef.current.opacity = opacity;
-      // The cached texture starts as a 1×1 placeholder; once the real
-      // texture loads we swap the map reference so the material picks
-      // it up on the next frame.
-      const fresh = getPlanetTexture(textureKey);
-      if (matRef.current.map !== fresh) {
-        matRef.current.map = fresh;
-        matRef.current.needsUpdate = true;
+      if (!textureLoaded.current) {
+        const fresh = getPlanetTexture(textureKey);
+        if (fresh !== map) {
+          matRef.current.map = fresh;
+          matRef.current.needsUpdate = true;
+          textureLoaded.current = true;
+        }
       }
     }
   });
+
+  useEffect(() => {
+    return () => {
+      matRef.current?.dispose();
+    };
+  }, []);
 
   return (
     <mesh ref={meshRef} position={position} rotation={[tiltRad, 0, 0]}>

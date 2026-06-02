@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { getPlanetTexture } from "@/src-physics/lib/planetTextures";
@@ -30,9 +30,19 @@ export function SaturnRings({
   const texture = useMemo(() => getPlanetTexture("saturnRing"), []);
   const geometry = useMemo(() => buildRingGeometry(inner, outer, 96), [inner, outer]);
 
+  const lastOpacity = useRef(opacity);
   useFrame(() => {
-    if (matRef.current) matRef.current.opacity = opacity;
+    if (matRef.current && lastOpacity.current !== opacity) {
+      matRef.current.opacity = opacity;
+      lastOpacity.current = opacity;
+    }
   });
+
+  useEffect(() => {
+    return () => {
+      geometry.dispose();
+    };
+  }, [geometry]);
 
   return (
     <mesh position={position} rotation={[tilt, 0, 0]} geometry={geometry}>
@@ -51,8 +61,6 @@ function buildRingGeometry(inner: number, outer: number, segs: number): THREE.Ri
   const geo = new THREE.RingGeometry(inner, outer, segs, 1);
   const pos = geo.getAttribute("position");
   const uv = geo.getAttribute("uv");
-  // Remap UVs: U follows radial distance, V centered. Default RingGeometry UV
-  // is unsuitable for a 1-D strip texture, so override.
   for (let i = 0; i < pos.count; i++) {
     const x = pos.getX(i);
     const y = pos.getY(i);

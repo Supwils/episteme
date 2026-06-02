@@ -36,10 +36,10 @@ export function PostFX() {
       <EffectComposer multisampling={0}>
         <SMAA />
         <Bloom
-          intensity={0.6}
+          intensity={0.5}
           luminanceThreshold={1.0}
           luminanceSmoothing={0.2}
-          kernelSize={KernelSize.LARGE}
+          kernelSize={KernelSize.MEDIUM}
           mipmapBlur
         />
         <Vignette offset={0.5} darkness={0.45} blendFunction={BlendFunction.NORMAL} />

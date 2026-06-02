@@ -2,20 +2,24 @@
 
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
-import { AdditiveBlending, BackSide, type Group } from "three";
+import { AdditiveBlending, BackSide, type Group, type MeshBasicMaterial } from "three";
 
 type Props = {
   color: string;
   opacity: number;
-  glow: number;
+  glowRef: React.RefObject<number>;
 };
 
-export function MarkerHaloDisk({ color, opacity, glow }: Props) {
+export function MarkerHaloDisk({ color, opacity, glowRef }: Props) {
   const ringRef = useRef<Group>(null);
+  const outerMatRef = useRef<MeshBasicMaterial>(null);
 
   useFrame(() => {
     if (ringRef.current) {
       ringRef.current.rotation.z += 0.003;
+    }
+    if (outerMatRef.current) {
+      outerMatRef.current.opacity = 0.18 * opacity * (0.5 + glowRef.current * 0.5);
     }
   });
 
@@ -34,9 +38,10 @@ export function MarkerHaloDisk({ color, opacity, glow }: Props) {
       <mesh>
         <sphereGeometry args={[1.6, 12, 12]} />
         <meshBasicMaterial
+          ref={outerMatRef}
           color={color}
           transparent
-          opacity={0.18 * opacity * (0.5 + glow * 0.5)}
+          opacity={0.18 * opacity * 0.5}
           depthWrite={false}
           blending={AdditiveBlending}
         />
@@ -47,7 +52,7 @@ export function MarkerHaloDisk({ color, opacity, glow }: Props) {
           <meshBasicMaterial
             color={color}
             transparent
-            opacity={0.25 * opacity * (0.4 + glow * 0.6)}
+            opacity={0.25 * opacity * 0.4}
             depthWrite={false}
             side={BackSide}
           />

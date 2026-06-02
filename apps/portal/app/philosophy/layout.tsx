@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { fraunces, inter, jetbrainsMono } from "./fonts";
 import { MobileMenu } from "@/components/philosophy/MobileMenu";
+import { PageTransition } from "@/components/PageTransition";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -52,7 +53,7 @@ export default function PhilosophyLayout({ children }: { children: React.ReactNo
         </nav>
       </header>
 
-      <main className="pt-28">{children}</main>
+      <main className="pt-28"><PageTransition>{children}</PageTransition></main>
 
       <footer className="border-border-faint border-t px-4 sm:px-6 py-6">
         <div className="mx-auto flex max-w-[1400px] flex-col items-center gap-2 sm:flex-row sm:items-center sm:justify-between">

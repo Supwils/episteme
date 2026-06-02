@@ -67,7 +67,28 @@ export function DomainCard({ domain, index }: { domain: Domain; index: number })
         .domain-card:focus-visible .domain-card__cta {
           gap: 0.65rem;
         }
+        @media (prefers-reduced-motion: no-preference) {
+          .domain-card__shimmer {
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: linear-gradient(
+              110deg,
+              transparent 30%,
+              rgba(255,255,255,0.04) 45%,
+              rgba(255,255,255,0.06) 50%,
+              rgba(255,255,255,0.04) 55%,
+              transparent 70%
+            );
+            background-size: 200% 100%;
+            animation: shimmer 1.5s ease-in-out 1;
+            animation-delay: ${0.15 + index * 0.12}s;
+            pointer-events: none;
+          }
+        }
       `}</style>
+
+      <div aria-hidden="true" className="domain-card__shimmer" />
 
       <div
         aria-hidden="true"
