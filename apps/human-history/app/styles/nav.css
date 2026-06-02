@@ -1,0 +1,218 @@
+/* === NAV === */
+.nav-bar {
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in oklab, var(--bg) 92%, transparent);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.nav-brand {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.nav-link {
+  color: var(--parchment-dim);
+  text-decoration: none;
+  font-size: 0.88rem;
+  transition: color 0.2s;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--gold);
+}
+
+.nav-search-hint {
+  font-size: 0.72rem;
+  color: var(--parchment-mute);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 3px 8px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+
+.nav-search-hint:hover {
+  color: var(--parchment-dim);
+  border-color: var(--border-hover);
+}
+
+/* === GLOBAL SEARCH OVERLAY === */
+.gs-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 120px;
+  opacity: 0;
+  animation: gs-fade-in 0.2s forwards;
+}
+
+@keyframes gs-fade-in {
+  to { opacity: 1; }
+}
+
+.gs-box {
+  width: min(600px, 90vw);
+  max-height: 70vh;
+  background: var(--bg-card);
+  border: 1px solid var(--border-hover);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6);
+  animation: gs-slide-in 0.25s var(--ease-out) forwards;
+}
+
+@keyframes gs-slide-in {
+  from { transform: translateY(-10px); }
+  to { transform: translateY(0); }
+}
+
+.gs-input {
+  width: 100%;
+  padding: 16px 20px;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  color: var(--parchment);
+  font-family: var(--sans);
+  font-size: 1rem;
+  outline: none;
+}
+
+.gs-input::placeholder {
+  color: var(--parchment-dim);
+}
+
+.gs-list {
+  overflow-y: auto;
+  max-height: 55vh;
+  padding: 8px 0;
+}
+
+.gs-empty {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--parchment-dim);
+  font-size: 0.85rem;
+}
+
+.gs-section {
+  padding: 4px 0;
+}
+
+.gs-section-label {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--gold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 8px 20px 4px;
+}
+
+.gs-result {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 20px;
+  border: none;
+  background: none;
+  color: var(--parchment);
+  cursor: pointer;
+  transition: background 0.15s;
+  font-family: var(--sans);
+}
+
+.gs-result:hover {
+  background: var(--bg-card-hover);
+}
+
+.gs-result-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 3px;
+}
+
+.gs-result-label {
+  font-family: var(--serif);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.gs-result-sub {
+  font-size: 0.7rem;
+  color: var(--parchment-dim);
+}
+
+.gs-result-desc {
+  font-size: 0.78rem;
+  color: var(--parchment-dim);
+  line-height: 1.5;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gs-result mark {
+  background: color-mix(in oklab, var(--gold) 25%, transparent);
+  color: var(--gold-light);
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--parchment-dim);
+  transition: all 0.2s;
+}
+
+.theme-toggle:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+html:not(.light) .icon-sun { display: block; }
+html:not(.light) .icon-moon { display: none; }
+html.light .icon-sun { display: none; }
+html.light .icon-moon { display: block; }
+
+
