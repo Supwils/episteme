@@ -10,7 +10,7 @@
   background: color-mix(in oklab, var(--bg) 92%, transparent);
   backdrop-filter: blur(10px);
   position: sticky;
-  top: 56px;
+  top: 40px;
   z-index: 49;
 }
 

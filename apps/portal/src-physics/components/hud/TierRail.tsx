@@ -29,7 +29,7 @@ export function TierRail() {
   const currentTier = useUniverseStore((state) => state.currentTier);
   const transitionActive = useUniverseStore((state) => state.transition.active);
 
-  const universeIsHandwritten = pathname.startsWith("/universe/handwritten");
+  const universeIsHandwritten = pathname.startsWith("/universe-physics/universe/handwritten");
 
   const handleSelect = (id: AnyTierId) => {
     if (transitionActive || id === currentTier) return;

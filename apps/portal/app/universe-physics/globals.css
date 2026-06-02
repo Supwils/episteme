@@ -199,62 +199,60 @@
   z-index: 60;
   overflow-y: auto;
   overflow-x: hidden;
+  background-color: #000000;
+  color: var(--color-fg-primary, #f5f6fa);
 }
 
 @layer base {
   :root {
     color-scheme: dark;
   }
+}
 
-  html,
-  body {
-    height: 100%;
-  }
+.physics-root {
+  font-family: var(--font-sans);
+  font-feature-settings:
+    "ss01" on,
+    "cv11" on;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-bg-deep);
+  color: var(--color-fg-primary);
+  min-height: 100vh;
+}
 
-  body {
-    font-family: var(--font-sans);
-    font-feature-settings:
-      "ss01" on,
-      "cv11" on;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: var(--color-bg-deep);
-    color: var(--color-fg-primary);
-  }
+.physics-root h1,
+.physics-root h2,
+.physics-root h3,
+.physics-root h4,
+.physics-root .font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-variation-settings: "SOFT" 30;
+}
 
-  h1,
-  h2,
-  h3,
-  h4,
-  .font-display {
-    font-family: var(--font-display);
-    font-optical-sizing: auto;
-    font-variation-settings: "SOFT" 30;
-  }
+.physics-root [data-num],
+.physics-root .font-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
 
-  [data-num],
-  .font-mono {
-    font-family: var(--font-mono);
-    font-variant-numeric: tabular-nums;
-  }
+.physics-root ::selection {
+  background: rgba(255, 180, 90, 0.32);
+  color: var(--color-fg-primary);
+}
 
-  ::selection {
-    background: rgba(255, 180, 90, 0.32);
-    color: var(--color-fg-primary);
-  }
+.physics-root *:focus-visible {
+  outline: 2px solid var(--color-accent-warm, #ffb45a);
+  outline-offset: 2px;
+}
 
-  *:focus-visible {
-    outline: 2px solid var(--color-accent-warm, #ffb45a);
-    outline-offset: 2px;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.001ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.001ms !important;
-    }
+@media (prefers-reduced-motion: reduce) {
+  .physics-root *,
+  .physics-root *::before,
+  .physics-root *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }

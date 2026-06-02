@@ -25,7 +25,7 @@ export function MobileTierStrip() {
   const currentTier = useUniverseStore((s) => s.currentTier);
   const transitionActive = useUniverseStore((s) => s.transition.active);
 
-  const universeIsHandwritten = pathname.startsWith("/universe/handwritten");
+  const universeIsHandwritten = pathname.startsWith("/universe-physics/universe/handwritten");
 
   const handleSelect = (id: AnyTierId) => {
     if (transitionActive || id === currentTier) return;

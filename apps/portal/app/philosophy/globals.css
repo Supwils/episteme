@@ -148,19 +148,28 @@
    BASE LAYER
    ═══════════════════════════════════════════════════════════════════════ */
 
+.philosophy-root {
+  background-color: var(--color-bg-deep);
+  color: var(--color-fg-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-body-base);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-normal);
+  font-feature-settings:
+    "ss01" on,
+    "cv11" on;
+  width: 100%;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
 @layer base {
   :root {
     color-scheme: dark;
     --article-max-width: 42rem;
   }
 
-  html {
-    height: 100%;
-    scroll-behavior: smooth;
-    text-size-adjust: 100%;
-  }
-
-  body {
+  .philosophy-root {
     height: 100%;
     font-family: var(--font-sans);
     font-size: var(--text-body-base);
@@ -175,11 +184,11 @@
     color: var(--color-fg-primary);
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  .font-display {
+  .philosophy-root h1,
+  .philosophy-root h2,
+  .philosophy-root h3,
+  .philosophy-root h4,
+  .philosophy-root .font-display {
     font-family: var(--font-display);
     font-optical-sizing: auto;
     font-variation-settings: "SOFT" 30;
@@ -188,66 +197,66 @@
     color: var(--color-fg-primary);
   }
 
-  h1 {
+  .philosophy-root h1 {
     font-size: var(--text-display-lg);
     letter-spacing: var(--tracking-tighter);
   }
 
-  h2 {
+  .philosophy-root h2 {
     font-size: var(--text-display-md);
   }
 
-  h3 {
+  .philosophy-root h3 {
     font-size: var(--text-display-sm);
   }
 
-  h4 {
+  .philosophy-root h4 {
     font-size: var(--text-body-lg);
     line-height: var(--leading-snug);
   }
 
-  [data-num],
-  .font-mono {
+  .philosophy-root [data-num],
+  .philosophy-root .font-mono {
     font-family: var(--font-mono);
     font-variant-numeric: tabular-nums;
   }
 
-  a {
+  .philosophy-root a {
     color: var(--color-accent-gold);
     text-decoration: none;
     transition: color var(--duration-fast) var(--ease-smooth);
   }
 
-  a:hover {
+  .philosophy-root a:hover {
     color: var(--color-accent-gold-bright);
   }
 
-  ::selection {
+  .philosophy-root ::selection {
     background: rgba(200, 164, 90, 0.30);
     color: var(--color-fg-primary);
   }
 
-  *:focus-visible {
+  .philosophy-root *:focus-visible {
     outline: 2px solid var(--color-accent-gold);
     outline-offset: 2px;
   }
 
-  img,
-  video {
+  .philosophy-root img,
+  .philosophy-root video {
     max-width: 100%;
     height: auto;
   }
 
-  hr {
+  .philosophy-root hr {
     border: none;
     border-top: 1px solid var(--color-border-subtle);
     margin: var(--space-2xl) 0;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
+    .philosophy-root *,
+    .philosophy-root *::before,
+    .philosophy-root *::after {
       animation-duration: 0.001ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.001ms !important;
@@ -953,30 +962,30 @@
    ═══════════════════════════════════════════════════════════════════════ */
 
 @layer base {
-  ::-webkit-scrollbar {
+  .philosophy-root ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
   }
 
-  ::-webkit-scrollbar-track {
+  .philosophy-root ::-webkit-scrollbar-track {
     background: var(--color-bg-deep);
   }
 
-  ::-webkit-scrollbar-thumb {
+  .philosophy-root ::-webkit-scrollbar-thumb {
     background: var(--color-fg-disabled);
     border-radius: var(--radius-full);
     border: 2px solid var(--color-bg-deep);
   }
 
-  ::-webkit-scrollbar-thumb:hover {
+  .philosophy-root ::-webkit-scrollbar-thumb:hover {
     background: var(--color-fg-muted);
   }
 
-  ::-webkit-scrollbar-corner {
+  .philosophy-root ::-webkit-scrollbar-corner {
     background: var(--color-bg-deep);
   }
 
-  * {
+  .philosophy-root * {
     scrollbar-width: thin;
     scrollbar-color: var(--color-fg-disabled) var(--color-bg-deep);
   }

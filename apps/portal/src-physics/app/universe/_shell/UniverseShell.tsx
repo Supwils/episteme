@@ -66,9 +66,10 @@ export function UniverseShell({ children }: { children: ReactNode }) {
         id="main-content"
         tabIndex={-1}
         className="absolute inset-0 focus:outline-none"
+        style={{ background: "#000000" }}
         camera={{ position: [0, 0, 3], fov: 50, near: 0.01, far: 1000 }}
         dpr={[1, 2]}
-        gl={{ antialias: false, powerPreference: "high-performance" }}
+        gl={{ antialias: false, alpha: false, powerPreference: "high-performance" }}
         onCreated={onRendererCreated}
       >
         <color attach="background" args={["#000000"]} />

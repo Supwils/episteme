@@ -11,16 +11,16 @@ import {
 } from "./section";
 
 describe("getSectionFromPath", () => {
-  it("returns universe for root and /universe/*", () => {
+  it("returns universe for root and /universe-physics/universe/*", () => {
     expect(getSectionFromPath("/")).toBe("universe");
-    expect(getSectionFromPath("/universe")).toBe("universe");
-    expect(getSectionFromPath("/universe/observable")).toBe("universe");
-    expect(getSectionFromPath("/universe/handwritten/earth")).toBe("universe");
+    expect(getSectionFromPath("/universe-physics/universe")).toBe("universe");
+    expect(getSectionFromPath("/universe-physics/universe/observable")).toBe("universe");
+    expect(getSectionFromPath("/universe-physics/universe/handwritten/earth")).toBe("universe");
   });
 
-  it("returns physics for /physics/*", () => {
-    expect(getSectionFromPath("/physics")).toBe("physics");
-    expect(getSectionFromPath("/physics/classical-mechanics")).toBe("physics");
+  it("returns physics for /universe-physics/physics/*", () => {
+    expect(getSectionFromPath("/universe-physics/physics")).toBe("physics");
+    expect(getSectionFromPath("/universe-physics/physics/classical-mechanics")).toBe("physics");
   });
 });
 
@@ -68,29 +68,33 @@ describe("inferSectionFromTier", () => {
 
 describe("getSectionRoute", () => {
   it("builds 3d universe routes", () => {
-    expect(getSectionRoute("universe", "T0", "3d")).toBe("/universe/observable");
-    expect(getSectionRoute("universe", "T6", "3d")).toBe("/universe/solar-system");
+    expect(getSectionRoute("universe", "T0", "3d")).toBe("/universe-physics/universe/observable");
+    expect(getSectionRoute("universe", "T6", "3d")).toBe("/universe-physics/universe/solar-system");
   });
   it("builds handwritten universe routes", () => {
     expect(getSectionRoute("universe", "T0", "handwritten")).toBe(
-      "/universe/handwritten/observable",
+      "/universe-physics/universe/handwritten/observable",
     );
-    expect(getSectionRoute("universe", "T7", "handwritten")).toBe("/universe/handwritten/earth");
+    expect(getSectionRoute("universe", "T7", "handwritten")).toBe(
+      "/universe-physics/universe/handwritten/earth",
+    );
   });
   it("builds physics routes (always handwritten, no subpath)", () => {
-    expect(getSectionRoute("physics", "P0", "handwritten")).toBe("/physics/classical-mechanics");
-    expect(getSectionRoute("physics", "P4")).toBe("/physics/quantum-mechanics");
+    expect(getSectionRoute("physics", "P0", "handwritten")).toBe(
+      "/universe-physics/physics/classical-mechanics",
+    );
+    expect(getSectionRoute("physics", "P4")).toBe("/universe-physics/physics/quantum-mechanics");
   });
   it("falls back to defaultTier on cross-section tier id", () => {
-    // passing P0 into universe section should not produce /universe/P0 — instead defaults to T0
-    expect(getSectionRoute("universe", "P0")).toBe("/universe/observable");
+    // passing P0 into universe section should not produce /universe-physics/universe/P0 — instead defaults to T0
+    expect(getSectionRoute("universe", "P0")).toBe("/universe-physics/universe/observable");
   });
 });
 
 describe("defaultRouteForSection", () => {
   it("uses each section's defaultTier and defaultViewMode", () => {
-    expect(defaultRouteForSection("universe")).toBe("/universe/observable");
-    expect(defaultRouteForSection("physics")).toBe("/physics/classical-mechanics");
+    expect(defaultRouteForSection("universe")).toBe("/universe-physics/universe/observable");
+    expect(defaultRouteForSection("physics")).toBe("/universe-physics/physics/classical-mechanics");
   });
 });
 

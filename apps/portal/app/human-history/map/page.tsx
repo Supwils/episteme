@@ -2,14 +2,12 @@
 
 import PageWrapper from '@/src-history/components/PageWrapper';
 
+const renderMap = async () => {
+  const { renderMap: render, cleanupMap } = await import('@/src-history/page-renderers/map');
+  render();
+  return cleanupMap;
+};
+
 export default function MapPage() {
-  return (
-    <PageWrapper
-      render={async (app) => {
-        const { renderMap, cleanupMap } = await import('@/src-history/page-renderers/map');
-        renderMap();
-        return cleanupMap;
-      }}
-    />
-  );
+  return <PageWrapper render={renderMap} />;
 }

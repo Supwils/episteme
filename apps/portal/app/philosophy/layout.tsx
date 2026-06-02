@@ -24,8 +24,8 @@ export default function PhilosophyLayout({ children }: { children: React.ReactNo
   const fontVars = `${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable}`;
 
   return (
-    <div className={fontVars}>
-      <header className="nav-capsule fixed top-14 right-0 left-0 z-40 border-b border-border-faint bg-[rgba(6,6,10,0.85)] backdrop-blur-xl">
+    <div className={`philosophy-root ${fontVars}`}>
+      <header className="nav-capsule fixed top-10 right-0 left-0 z-40 border-b border-border-faint bg-[rgba(6,6,10,0.85)] backdrop-blur-xl">
         <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-4 sm:px-6 py-3">
           <div className="flex items-center gap-4 sm:gap-6">
             <Link

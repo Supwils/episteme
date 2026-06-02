@@ -26,7 +26,7 @@ const NAV_ITEMS = [
 
 export default function HumanHistoryLayout({ children }: { children: ReactNode }) {
   return (
-    <>
+    <div className="human-history-root">
       <Script
         id="history-theme-init"
         strategy="beforeInteractive"
@@ -56,6 +56,6 @@ export default function HumanHistoryLayout({ children }: { children: ReactNode }
         <PageTransition>{children}</PageTransition>
       </main>
       <GlobalSearch />
-    </>
+    </div>
   );
 }

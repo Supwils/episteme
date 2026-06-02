@@ -1,9 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import Link from "next/link";
-import { APP_URLS } from "../lib/urls";
-import { DesktopNav } from "../components/DesktopNav";
-import { MobileNav } from "../components/MobileNav";
-import { SearchTrigger } from "../components/SearchTrigger";
+import { SectionAwareNav } from "../components/SectionAwareNav";
+import { SectionAwareFooter } from "../components/SectionAwareFooter";
 import { GlobalSearch } from "../components/GlobalSearch";
 import { ScrollToTop } from "../components/ScrollToTop";
 import { VitalsReporter } from "../components/VitalsReporter";
@@ -25,13 +22,6 @@ export const metadata: Metadata = {
   },
 };
 
-const NAV_LINKS = [
-  { href: "/", label: "首页" },
-  { href: APP_URLS["universe-physics"], label: "宇宙物理" },
-  { href: APP_URLS["human-history"], label: "人类历史" },
-  { href: APP_URLS["philosophy"], label: "哲学" },
-];
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -40,28 +30,15 @@ export default function RootLayout({
   return (
     <html lang="zh">
       <body>
-        <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[9999] focus:rounded focus:bg-[#1a1a2e] focus:px-4 focus:py-2 focus:text-white">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[9999] focus:rounded focus:bg-[#1a1a2e] focus:px-4 focus:py-2 focus:text-white"
+        >
           跳转到内容
         </a>
-        <header className="sticky top-0 z-50 border-b border-[#1e1e2e] bg-[rgba(10,10,15,0.85)] backdrop-blur-xl">
-          <nav aria-label="主导航" className="max-w-[1400px] mx-auto px-6 h-14 flex items-center justify-between">
-            <Link
-              href="/"
-              className="text-lg font-bold text-[#e8e8f0] tracking-tight"
-            >
-              Universe Knowledge
-            </Link>
-            <DesktopNav links={NAV_LINKS} />
-            <div className="flex items-center gap-3">
-              <SearchTrigger />
-              <MobileNav links={NAV_LINKS} />
-            </div>
-          </nav>
-        </header>
+        <SectionAwareNav />
         <main id="main-content">{children}</main>
-        <footer className="border-t border-[#1e1e2e] py-6 text-center text-xs text-[#6b7280]">
-          <p>Universe Knowledge — 探索人类知识的边界</p>
-        </footer>
+        <SectionAwareFooter />
         <GlobalSearch />
         <ScrollToTop />
         <VitalsReporter />

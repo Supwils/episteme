@@ -70,7 +70,7 @@ export const SECTIONS: Record<SectionId, SectionConfig> = {
     tierOrder: TIER_ORDER,
     tiers: TIERS as Record<string, TierMeta>,
     defaultTier: "T0",
-    routePrefix: "/universe",
+    routePrefix: "/universe-physics/universe",
     tierRoutes: TIER_ROUTES,
     hasHandwrittenSubpath: true,
     frameLabel: "geocentric",
@@ -86,7 +86,7 @@ export const SECTIONS: Record<SectionId, SectionConfig> = {
     tierOrder: PHYSICS_TIER_ORDER,
     tiers: PHYSICS_TIERS as Record<string, TierMeta>,
     defaultTier: "P0",
-    routePrefix: "/physics",
+    routePrefix: "/universe-physics/physics",
     tierRoutes: PHYSICS_TIER_ROUTES,
     hasHandwrittenSubpath: false,
     frameLabel: "mks · SI",
@@ -100,7 +100,7 @@ export function getSectionConfig(section: SectionId): SectionConfig {
 }
 
 export function getSectionFromPath(pathname: string): SectionId {
-  if (pathname.startsWith("/physics")) return "physics";
+  if (pathname.startsWith("/universe-physics/physics")) return "physics";
   return "universe";
 }
 

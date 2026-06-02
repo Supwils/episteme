@@ -194,7 +194,7 @@ export const TIER_ROUTES_HANDWRITTEN: Record<TierId, string> = {
   T7: "earth",
 };
 
-export const HANDWRITTEN_PATH_PREFIX = "/universe/handwritten" as const;
+export const HANDWRITTEN_PATH_PREFIX = "/universe-physics/universe/handwritten" as const;
 
 export function isHandwrittenPath(pathname: string): boolean {
   return pathname.startsWith(HANDWRITTEN_PATH_PREFIX);
@@ -203,7 +203,7 @@ export function isHandwrittenPath(pathname: string): boolean {
 export function tierRouteFor(tier: TierId, mode: "3d" | "handwritten"): string {
   return mode === "handwritten"
     ? `${HANDWRITTEN_PATH_PREFIX}/${TIER_ROUTES_HANDWRITTEN[tier]}`
-    : `/universe/${TIER_ROUTES[tier]}`;
+    : `/universe-physics/universe/${TIER_ROUTES[tier]}`;
 }
 
 /**
@@ -212,7 +212,7 @@ export function tierRouteFor(tier: TierId, mode: "3d" | "handwritten"): string {
  * Physics is always "handwritten".
  */
 export function getViewMode(pathname: string): "3d" | "handwritten" {
-  if (pathname.startsWith("/physics")) return "handwritten";
+  if (pathname.startsWith("/universe-physics/physics")) return "handwritten";
   return isHandwrittenPath(pathname) ? "handwritten" : "3d";
 }
 

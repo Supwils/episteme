@@ -2,14 +2,12 @@
 
 import PageWrapper from '@/src-history/components/PageWrapper';
 
+const renderScholarly = async () => {
+  const { renderScholarly: render, cleanupScholarly } = await import('@/src-history/page-renderers/scholarly');
+  render();
+  return cleanupScholarly;
+};
+
 export default function ScholarlyPage() {
-  return (
-    <PageWrapper
-      render={async (app) => {
-        const { renderScholarly, cleanupScholarly } = await import('@/src-history/page-renderers/scholarly');
-        renderScholarly();
-        return cleanupScholarly;
-      }}
-    />
-  );
+  return <PageWrapper render={renderScholarly} />;
 }

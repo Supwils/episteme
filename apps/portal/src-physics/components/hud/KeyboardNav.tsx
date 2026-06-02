@@ -48,7 +48,7 @@ export function KeyboardNav() {
 
       const section = getSectionFromPath(pathname);
       const cfg = getSectionConfig(section);
-      const universeIsHandwritten = pathname.startsWith("/universe/handwritten");
+      const universeIsHandwritten = pathname.startsWith("/universe-physics/universe/handwritten");
 
       if (e.key === "Escape") {
         if (shortcutsOpen) {

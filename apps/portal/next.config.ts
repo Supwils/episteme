@@ -9,11 +9,11 @@ const csp = [
   "object-src 'none'",
   "frame-ancestors 'none'",
   "form-action 'self'",
-  `script-src 'self'${isProd ? "" : " 'unsafe-eval'"} 'unsafe-inline'`,
-  "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
-  "font-src 'self' data:",
-  "connect-src 'self'",
+  `script-src 'self'${isProd ? "" : " 'unsafe-eval'"} 'unsafe-inline' https://code.iconify.design`,
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "img-src 'self' data: blob: https://cdn.jsdelivr.net",
+  "font-src 'self' data: https://fonts.gstatic.com",
+  "connect-src 'self' https://api.iconify.design https://api.unisvg.com https://api.simpleicons.org",
   "manifest-src 'self'",
 ].join("; ");
 
