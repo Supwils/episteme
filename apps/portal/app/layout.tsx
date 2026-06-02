@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { APP_URLS } from "../lib/urls";
+import { DesktopNav } from "../components/DesktopNav";
 import { MobileNav } from "../components/MobileNav";
 import "./globals.css";
 
@@ -41,22 +42,14 @@ export default function RootLayout({
             >
               Universe Knowledge
             </Link>
-            <ul className="hidden md:flex gap-8 list-none m-0 p-0">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="nav-link-item"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <DesktopNav links={NAV_LINKS} />
             <MobileNav links={NAV_LINKS} />
           </nav>
         </header>
         <main id="main-content">{children}</main>
+        <footer className="border-t border-[#1e1e2e] py-6 text-center text-xs text-[#6b7280]">
+          <p>Universe Knowledge — 探索人类知识的边界</p>
+        </footer>
       </body>
     </html>
   );

@@ -1,4 +1,4 @@
-import { REFERENCES } from '../data/references.js';
+import { REFERENCES } from '@/content/human-history/data/references.js';
 
 export function renderReferences(refKeys) {
   if (!refKeys || refKeys.length === 0) return '';

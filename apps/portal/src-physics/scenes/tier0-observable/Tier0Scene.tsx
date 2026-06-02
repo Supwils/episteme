@@ -3,7 +3,7 @@
 import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef, type ComponentProps } from "react";
 import { BackSide, type Group, type Mesh } from "three";
-import { getTierContent } from "@/src-physics/content/cosmos";
+import { getTierContent } from "@/content/universe-physics/cosmos";
 import { fbm3D, hash01, mixRgb, smoothstep } from "@/src-physics/lib/noise";
 import { StarPoints } from "@/src-physics/components/three/StarPoints";
 import { VolumeBillboard } from "@/src-physics/components/volumetric/VolumeBillboard";

@@ -1,4 +1,4 @@
-import { ATLAS_ERAS } from '@/src-history/data/atlas-content';
+import { ATLAS_ERAS } from '@/content/human-history/data/atlas-content';
 import {
   getMousePos,
   hitTestEra,

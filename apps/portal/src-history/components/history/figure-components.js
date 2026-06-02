@@ -1,4 +1,4 @@
-import { ERAS, FIGURES, FIGURE_RELATIONS, FIGURE_EVENT_LINKS, RELATION_LABELS, RELATION_COLORS, REGION_LABELS } from '../../data/index.js';
+import { ERAS, FIGURES, FIGURE_RELATIONS, FIGURE_EVENT_LINKS, RELATION_LABELS, RELATION_COLORS, REGION_LABELS } from '@/content/human-history/data/index.js';
 import { el } from '../../lib/dom.js';
 import { DOMAIN_LABELS, getFigureDates, getFigureDomain, getFigureLifespan } from '../../features/figures/figure-model.js';
 import { renderReferences } from '../../lib/references.js';

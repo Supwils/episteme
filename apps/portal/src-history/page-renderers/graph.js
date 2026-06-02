@@ -1,5 +1,5 @@
-import { ERAS, EVENTS, FIGURES, FIGURE_RELATIONS, FIGURE_EVENT_LINKS, RELATION_COLORS } from '../data/index.js';
-import { PARALLEL_EVENTS } from '../data/parallel-events.js';
+import { ERAS, EVENTS, FIGURES, FIGURE_RELATIONS, FIGURE_EVENT_LINKS, RELATION_COLORS } from '@/content/human-history/data/index.js';
+import { PARALLEL_EVENTS } from '@/content/human-history/data/parallel-events.js';
 import { el, clearApp, prefersReducedMotion } from '../lib/dom.js';
 import { renderFigureDetail, renderEventDetail, renderEraDetail } from '../components/history/graph-panel.js';
 import { cleanupScholarlyModal } from '../components/history/scholarly-modal.js';

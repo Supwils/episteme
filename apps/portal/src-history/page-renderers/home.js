@@ -1,5 +1,5 @@
 import { gsap } from 'gsap';
-import { ERAS, EVENTS, FIGURES, formatYear } from '../data/index.js';
+import { ERAS, EVENTS, FIGURES, formatYear } from '@/content/human-history/data/index.js';
 import { el, clearApp, createParticleCanvas, prefersReducedMotion } from '../lib/dom.js';
 import { icon } from '../lib/icons.js';
 import { createEraDetailPanel } from '../components/history/era-detail.js';

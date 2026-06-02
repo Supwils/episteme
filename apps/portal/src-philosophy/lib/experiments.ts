@@ -3,7 +3,7 @@ import path from "node:path";
 import matter from "gray-matter";
 import type { Experiment, ExperimentFrontmatter } from "./types";
 
-const EXP_DIR = path.join(process.cwd(), "src-philosophy", "content", "experiments");
+const EXP_DIR = path.join(process.cwd(), "content", "philosophy", "experiments");
 
 export function getExperimentSlugs(): string[] {
   if (!fs.existsSync(EXP_DIR)) return [];

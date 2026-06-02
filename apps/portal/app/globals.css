@@ -79,3 +79,33 @@
   0%, 100% { opacity: 0.3; }
   50% { opacity: 0.7; }
 }
+
+@keyframes heroGradientDrift {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 15px) scale(0.98); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes heroGradientDrift2 {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-25px, 25px) scale(1.03); }
+  66% { transform: translate(15px, -10px) scale(0.97); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+.nav-link-active {
+  color: #818cf8 !important;
+  position: relative;
+}
+
+.nav-link-active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #6366f1, #a78bfa);
+  border-radius: 1px;
+}

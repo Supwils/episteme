@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "./icons";
-import { getContentForTier } from "@/src-physics/content";
+import { getContentForTier } from "@/content/universe-physics";
 import { getSectionConfig } from "@/src-physics/lib/section";
 import { useUiStore } from "@/src-physics/store/useUiStore";
 import { useUniverseStore } from "@/src-physics/store/useUniverseStore";

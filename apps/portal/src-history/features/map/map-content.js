@@ -1,10 +1,10 @@
-import { CAT_LABELS, REGION_LABELS, REGIONS, formatYear } from '../../data/index.js';
-import { EVENT_DETAILS } from '../../data/event-details.js';
-import { EXTRA_DETAILS } from '../../data/extra-details.js';
-import { FINAL_DETAILS } from '../../data/final-details.js';
-import { LAST_DETAILS } from '../../data/last-details.js';
-import { GEO_ENRICHMENT_1 } from '../../data/geo-enrichment-ancient.js';
-import { GEO_ENRICHMENT_2 } from '../../data/geo-enrichment-modern.js';
+import { CAT_LABELS, REGION_LABELS, REGIONS, formatYear } from '@/content/human-history/data/index.js';
+import { EVENT_DETAILS } from '@/content/human-history/data/event-details.js';
+import { EXTRA_DETAILS } from '@/content/human-history/data/extra-details.js';
+import { FINAL_DETAILS } from '@/content/human-history/data/final-details.js';
+import { LAST_DETAILS } from '@/content/human-history/data/last-details.js';
+import { GEO_ENRICHMENT_1 } from '@/content/human-history/data/geo-enrichment-ancient.js';
+import { GEO_ENRICHMENT_2 } from '@/content/human-history/data/geo-enrichment-modern.js';
 
 export const MAP_EVENT_DETAILS = {
   ...EVENT_DETAILS,

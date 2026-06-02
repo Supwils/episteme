@@ -1,5 +1,5 @@
 import countriesTopology from '../../assets/maps/countries-110m.json';
-import { projectGeo } from '../../data/geo-events.js';
+import { projectGeo } from '@/content/human-history/data/geo-events.js';
 
 export const MAP_W = 1200;
 export const MAP_H = 600;

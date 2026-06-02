@@ -1,5 +1,5 @@
 import { el } from '../../lib/dom.js';
-import { ERAS, FIGURE_RELATIONS, FIGURE_EVENT_LINKS, RELATION_LABELS, RELATION_COLORS, formatYear } from '../../data/index.js';
+import { ERAS, FIGURE_RELATIONS, FIGURE_EVENT_LINKS, RELATION_LABELS, RELATION_COLORS, formatYear } from '@/content/human-history/data/index.js';
 import { getFigureDates } from '../../features/figures/figure-model.js';
 import { renderReferences } from '../../lib/references.js';
 import { hasScholarlyDetail, openScholarlyModal } from './scholarly-modal.js';

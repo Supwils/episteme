@@ -1,6 +1,6 @@
 import { gsap } from 'gsap';
-import { ERAS, REGIONS, CAT_COLORS, CAT_LABELS, REGION_LABELS, formatYear } from '../data/index.js';
-import { GEO_EVENTS, projectGeo } from '../data/geo-events.js';
+import { ERAS, REGIONS, CAT_COLORS, CAT_LABELS, REGION_LABELS, formatYear } from '@/content/human-history/data/index.js';
+import { GEO_EVENTS, projectGeo } from '@/content/human-history/data/geo-events.js';
 import { el, clearApp, prefersReducedMotion } from '../lib/dom.js';
 import { createPageHeader } from '../components/common/ui.js';
 import { getEventStory, getMapEventSummary, getRegionProfile } from '../features/map/map-content.js';

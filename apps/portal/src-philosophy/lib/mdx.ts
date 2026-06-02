@@ -8,8 +8,8 @@ import type {
   QuestionFrontmatter,
 } from "./types";
 
-const THINKERS_DIR = path.join(process.cwd(), "src-philosophy", "content", "thinkers");
-const QUESTIONS_DIR = path.join(process.cwd(), "src-philosophy", "content", "questions");
+const THINKERS_DIR = path.join(process.cwd(), "content", "philosophy", "thinkers");
+const QUESTIONS_DIR = path.join(process.cwd(), "content", "philosophy", "questions");
 
 export function getThinkerSlugs(): string[] {
   if (!fs.existsSync(THINKERS_DIR)) return [];

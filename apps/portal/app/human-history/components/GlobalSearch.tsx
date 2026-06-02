@@ -4,9 +4,9 @@
 
 import { useEffect, useRef, useState, useCallback, useMemo, Fragment } from 'react';
 import { useRouter } from 'next/navigation';
-import { EVENTS } from '@/src-history/data/events';
-import { FIGURES } from '@/src-history/data/figures';
-import { SCHOLARLY_TITLES } from '@/src-history/data/scholarly-titles';
+import { EVENTS } from '@/content/human-history/data/events';
+import { FIGURES } from '@/content/human-history/data/figures';
+import { SCHOLARLY_TITLES } from '@/content/human-history/data/scholarly-titles';
 
 interface SearchItem {
   type: string;

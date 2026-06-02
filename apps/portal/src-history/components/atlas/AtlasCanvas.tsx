@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useCallback } from 'react';
-import { ATLAS_ERAS } from '@/src-history/data/atlas-content';
+import { ATLAS_ERAS } from '@/content/human-history/data/atlas-content';
 import { drawMain } from '@/src-history/components/atlas/atlas-renderer';
 import {
   zoomTo as zoomToImpl,

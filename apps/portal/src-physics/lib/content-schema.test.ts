@@ -1,12 +1,12 @@
 import { describe, expect, it } from "vitest";
-import T0 from "@/src-physics/content/cosmos/T0";
-import T1 from "@/src-physics/content/cosmos/T1";
-import T2 from "@/src-physics/content/cosmos/T2";
-import T3 from "@/src-physics/content/cosmos/T3";
-import T4 from "@/src-physics/content/cosmos/T4";
-import T5 from "@/src-physics/content/cosmos/T5";
-import T6 from "@/src-physics/content/cosmos/T6";
-import T7 from "@/src-physics/content/cosmos/T7";
+import T0 from "@/content/universe-physics/cosmos/T0";
+import T1 from "@/content/universe-physics/cosmos/T1";
+import T2 from "@/content/universe-physics/cosmos/T2";
+import T3 from "@/content/universe-physics/cosmos/T3";
+import T4 from "@/content/universe-physics/cosmos/T4";
+import T5 from "@/content/universe-physics/cosmos/T5";
+import T6 from "@/content/universe-physics/cosmos/T6";
+import T7 from "@/content/universe-physics/cosmos/T7";
 import type { TierContent } from "./content";
 import {
   formatTierIssue,

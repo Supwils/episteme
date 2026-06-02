@@ -1,5 +1,5 @@
 import { el } from '../../lib/dom.js';
-import { SCHOLARLY_TITLES } from '../../data/scholarly-titles.js';
+import { SCHOLARLY_TITLES } from '@/content/human-history/data/scholarly-titles.js';
 import { saveReadingProgress } from '../../lib/reading-progress.js';
 import { renderReferences } from '../../lib/references.js';
 
@@ -12,7 +12,7 @@ export function hasScholarlyDetail(title) {
 
 async function loadScholarlyDetails() {
   if (!scholarlyCache) {
-    const mod = await import('../../data/scholarly-index.js');
+    const mod = await import('@/content/human-history/data/scholarly-index.js');
     scholarlyCache = mod.SCHOLARLY_DETAILS;
   }
   return scholarlyCache;

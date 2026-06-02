@@ -1,5 +1,5 @@
-import { SCHOLARLY_DETAILS } from '../data/scholarly-index.js';
-import { ERAS, EVENTS, formatYear } from '../data/index.js';
+import { SCHOLARLY_DETAILS } from '@/content/human-history/data/scholarly-index.js';
+import { ERAS, EVENTS, formatYear } from '@/content/human-history/data/index.js';
 import { el, clearApp, animateOnScroll, prefersReducedMotion } from '../lib/dom.js';
 import { openScholarlyModal, cleanupScholarlyModal } from '../components/history/scholarly-modal.js';
 

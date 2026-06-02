@@ -3,7 +3,7 @@ import path from "node:path";
 import matter from "gray-matter";
 import type { School, SchoolFrontmatter } from "./types";
 
-const SCHOOLS_DIR = path.join(process.cwd(), "src-philosophy", "content", "schools");
+const SCHOOLS_DIR = path.join(process.cwd(), "content", "philosophy", "schools");
 
 export function getSchoolSlugs(): string[] {
   if (!fs.existsSync(SCHOOLS_DIR)) return [];

@@ -27,14 +27,15 @@
       "@universe/content": ["../../packages/content/src/index.ts"]
     }
   },
-  "include": [
+    "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "src-physics/**/*",
-    "src-philosophy/**/*"
+    "src-philosophy/**/*",
+    "content/**/*"
   ],
   "exclude": ["node_modules", ".next", "out", "dist", "coverage"]
 }

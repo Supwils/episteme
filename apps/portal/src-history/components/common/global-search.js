@@ -1,7 +1,7 @@
-import { ERAS, EVENTS, FIGURES } from '../../data/index.js';
-import { LESSONS } from '../../data/lessons.js';
-import { ATLAS_ERAS } from '../../data/atlas-content.js';
-import { SCHOLARLY_TITLES } from '../../data/scholarly-titles.js';
+import { ERAS, EVENTS, FIGURES } from '@/content/human-history/data/index.js';
+import { LESSONS } from '@/content/human-history/data/lessons.js';
+import { ATLAS_ERAS } from '@/content/human-history/data/atlas-content.js';
+import { SCHOLARLY_TITLES } from '@/content/human-history/data/scholarly-titles.js';
 import { el } from '../../lib/dom.js';
 
 let activeCleanup = null;

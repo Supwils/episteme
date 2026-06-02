@@ -1,4 +1,4 @@
-import { ERAS, FIGURES, REGION_LABELS, formatYear } from '../../data/index.js';
+import { ERAS, FIGURES, REGION_LABELS, formatYear } from '@/content/human-history/data/index.js';
 
 export const DOMAIN_LABELS = {
   all: '全部领域',

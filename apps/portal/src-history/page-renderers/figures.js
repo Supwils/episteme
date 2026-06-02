@@ -1,4 +1,4 @@
-import { ERAS, FIGURES, REGION_LABELS } from '../data/index.js';
+import { ERAS, FIGURES, REGION_LABELS } from '@/content/human-history/data/index.js';
 import { el, clearApp, animateIn, prefersReducedMotion } from '../lib/dom.js';
 import { createEmptyState, createPageHeader, createSegmentButton, createStatCard } from '../components/common/ui.js';
 import { cleanupFigureModal, createFigureCard, openFigureModal } from '../components/history/figure-components.js';

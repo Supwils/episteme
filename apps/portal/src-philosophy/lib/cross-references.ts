@@ -28,7 +28,7 @@ const CATEGORY_ROUTES: Record<ContentCategory, string> = {
 };
 
 function scanDir(dir: string, category: ContentCategory): ContentItem[] {
-  const fullDir = path.join(process.cwd(), "content", dir);
+  const fullDir = path.join(process.cwd(), "content", "philosophy", dir);
   if (!fs.existsSync(fullDir)) return [];
   return fs
     .readdirSync(fullDir)

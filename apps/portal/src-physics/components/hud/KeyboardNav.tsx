@@ -2,7 +2,7 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
-import { hasContentForTier } from "@/src-physics/content";
+import { hasContentForTier } from "@/content/universe-physics";
 import { getPhysicsPageCount, isPhysicsTierId } from "@/src-physics/lib/physics-tier";
 import { getSectionConfig, getSectionFromPath, getSectionRoute } from "@/src-physics/lib/section";
 import { isUniverseTierId, type AnyTierId } from "@/src-physics/lib/tier";

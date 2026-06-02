@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 
-const ISMS_DIR = path.join(process.cwd(), "src-philosophy", "content", "isms");
+const ISMS_DIR = path.join(process.cwd(), "content", "philosophy", "isms");
 
 export type IsmFrontmatter = {
   title: string;

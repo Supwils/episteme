@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 interface NavLink {
   href: string;
@@ -12,6 +13,12 @@ export function MobileNav({ links }: { links: NavLink[] }) {
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const pathname = usePathname();
+
+  function isActive(href: string) {
+    if (href === '/') return pathname === '/';
+    return pathname.startsWith(href);
+  }
 
   const closeMenu = useCallback(() => {
     setOpen(false);
@@ -93,7 +100,11 @@ export function MobileNav({ links }: { links: NavLink[] }) {
                 <Link
                   role="menuitem"
                   href={link.href}
-                  className="block py-2.5 px-4 text-[0.95rem] text-[#9ca3af] hover:text-[#818cf8] hover:bg-white/[0.03] rounded transition-colors focus-visible:text-[#818cf8] focus-visible:bg-white/[0.03] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#818cf8]"
+                  className={`block py-2.5 px-4 text-[0.95rem] rounded transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#818cf8] ${
+                    isActive(link.href)
+                      ? 'text-[#818cf8] bg-white/[0.05] font-medium'
+                      : 'text-[#9ca3af] hover:text-[#818cf8] hover:bg-white/[0.03]'
+                  }`}
                   onClick={closeMenu}
                   onKeyDown={(e) => {
                     if (e.key === 'Escape') {

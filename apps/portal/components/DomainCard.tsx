@@ -45,7 +45,7 @@ export function DomainCard({ domain, index }: { domain: Domain; index: number })
           box-shadow: 0 20px 60px color-mix(in srgb, var(--card-glow) 9%, transparent),
                       0 0 0 1px color-mix(in srgb, var(--card-glow) 8%, transparent),
                       inset 0 1px 0 rgba(255,255,255,0.05) !important;
-          transform: translateY(-6px) !important;
+          transform: translateY(-6px) scale(1.02) !important;
         }
         .domain-card:focus-visible {
           outline: 2px solid var(--card-glow);

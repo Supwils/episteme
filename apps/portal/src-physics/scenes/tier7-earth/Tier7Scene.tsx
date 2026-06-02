@@ -3,7 +3,7 @@
 import { useFrame } from "@react-three/fiber";
 import { useEffect, useMemo, useRef, type ComponentProps } from "react";
 import * as THREE from "three";
-import { getTierContent } from "@/src-physics/content/cosmos";
+import { getTierContent } from "@/content/universe-physics/cosmos";
 import { getPlanetTexture, preloadPlanetTextures } from "@/src-physics/lib/planetTextures";
 import { Planet } from "@/src-physics/components/three/Planet";
 import {

@@ -1,5 +1,5 @@
-import { CAT_COLORS, CAT_LABELS, ERAS, REGION_LABELS, formatYear } from '../../data/index.js';
-import { projectGeo } from '../../data/geo-events.js';
+import { CAT_COLORS, CAT_LABELS, ERAS, REGION_LABELS, formatYear } from '@/content/human-history/data/index.js';
+import { projectGeo } from '@/content/human-history/data/geo-events.js';
 import { icon } from '../../lib/icons.js';
 import {
   COUNTRY_PATHS,
