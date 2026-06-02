@@ -188,6 +188,6 @@ export const FIGURE_EVENT_LINKS = [
   { figure: '罗莎·卢森堡', eventTitle: '十月革命' },
   { figure: '弗里达·卡罗', eventTitle: '墨西哥独立' },
   { figure: '丰臣秀吉', eventTitle: '明治维新' },
-  { figure: '利玛窦', eventTitle: '张骞出使西域' },
+  { figure: '利玛窦', eventTitle: '东印度公司' },
   { figure: '特库姆塞', eventTitle: '美国独立' },
 ];

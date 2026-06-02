@@ -8,6 +8,8 @@
     "dev": {
       "persistent": true
     },
-    "lint": {}
+    "lint": {},
+    "typecheck": {},
+    "test": {}
   }
 }

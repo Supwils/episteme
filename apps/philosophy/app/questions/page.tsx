@@ -1,21 +1,6 @@
 import Link from "next/link";
 import { getAllQuestions } from "@/lib/mdx";
-
-const FIELD_ACCENTS: Record<string, string> = {
-  形而上学: "#c678dd",
-  认识论: "#61afef",
-  伦理学: "#e06c75",
-  美学: "#e5c07b",
-  逻辑学: "#98c379",
-  政治哲学: "#56b6c2",
-  语言哲学: "#d19a66",
-  科学哲学: "#be5046",
-  心灵哲学: "#a88adf",
-  宗教哲学: "#c8a45a",
-  本体论: "#c678dd",
-  "存在主义 / 语言哲学": "#e5c07b",
-  "形而上学 / 伦理学": "#c678dd",
-};
+import { FIELD_ACCENTS } from "@/lib/constants";
 
 const DEPTH_LABELS: Record<number, { label: string; dots: number }> = {
   1: { label: "入门", dots: 1 },

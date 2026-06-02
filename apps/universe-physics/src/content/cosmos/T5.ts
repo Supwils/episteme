@@ -113,12 +113,6 @@ const content: TierContent = {
       hint: "NASA Exoplanet Archive",
     },
     {
-      label: "中子星密度",
-      latinLabel: "Neutron star density",
-      value: "~10¹⁷ kg/m³",
-      hint: "一茶匙重约 60 亿吨",
-    },
-    {
       label: "中子星典型质量",
       latinLabel: "NS mass",
       value: "1.4 – 2.1 M☉",

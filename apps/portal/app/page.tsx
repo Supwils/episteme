@@ -87,9 +87,9 @@ export default function HomePage() {
                 关于
               </h4>
               <div className="flex flex-col gap-2">
-                <span className="text-sm text-[#9ca3af]">工程原则</span>
-                <span className="text-sm text-[#9ca3af]">知识精神</span>
-                <span className="text-sm text-[#9ca3af]">开源贡献</span>
+                <span className="text-sm text-[#6b7280]">工程原则</span>
+                <span className="text-sm text-[#6b7280]">知识精神</span>
+                <span className="text-sm text-[#6b7280]">开源贡献</span>
               </div>
             </div>
           </div>

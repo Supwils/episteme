@@ -653,6 +653,10 @@
       linear-gradient(90deg, rgba(200, 164, 90, 0.02) 1px, transparent 1px);
     background-size: 1rem 1rem;
   }
+
+  .show-mobile-only { display: none; }
+  @media (max-width: 639px) { .show-mobile-only { display: block; } }
+  .touch-target { min-width: 44px; min-height: 44px; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════

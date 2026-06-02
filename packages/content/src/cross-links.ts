@@ -1,3 +1,8 @@
+// Note: human-history and universe-physics cross-links route to section pages
+// (e.g., /timeline, /physics/classical-mechanics) rather than entity-specific pages,
+// because these apps use imperative rendering without per-entity URL routes.
+// Philosophy links use per-entity routes (/thinkers/[slug]) since it has SSG detail pages.
+
 export type DomainApp = "universe-physics" | "human-history" | "philosophy";
 
 export type CrossLink = {

@@ -62,6 +62,12 @@ const content: TierContent = {
       value: "I ∝ e^(−2κd)",
       hint: "κ ≈ √(2m φ)/ℏ · 每 0.1 nm 变化 10 倍",
     },
+    {
+      label: "Bell 不等式实验",
+      latinLabel: "Bell test experiments",
+      value: "2022 诺贝尔奖",
+      hint: "Aspect · Clauser · Zeilinger",
+    },
   ],
 
   narrative: [
@@ -108,6 +114,13 @@ const content: TierContent = {
       body: [
         "Feynman 1948 把量子力学重写成第三种形式：粒子从 a 到 b 的振幅是对**所有**可能的经典路径 x(t) 求积分 K(b, a) = ∫ 𝒟x exp(i S[x] / ℏ)，其中 S = ∫ L dt 正是 P0 的作用量。让 ℏ → 0，非极值路径之间的相位剧烈震荡相消，只剩下 δS = 0 的经典轨道——最小作用量原理在这里浮出水面，作为「相位驻定点」的几何后果。",
         "这套语言把 P0 → P4 → P7 焊成一条暗线：量子场论的生成泛函 Z = ∫ 𝒟φ e^(iS[φ]/ℏ) 是它的场论版；统计力学的配分函数 Z = ∫ 𝒟φ e^(−S_E[φ]/ℏ) 只差一个 Wick 旋转 t → −iτ。今天的格点 QCD、量子蒙特卡洛、机器学习里的扩散模型与 score matching，背后都是同一条「对历史求和」。",
+      ],
+    },
+    {
+      heading: "Bell 不等式实验 · 判决非局域性的四十年",
+      body: [
+        "1982 年 Alain Aspect 在巴黎光学研究所完成了里程碑式的实验：用钙原子级联辐射产生纠缠光子对，以极快的声光开关随机切换测量基矢方向，验证了 CHSH 不等式被违反 5 个标准差 (Physical Review Letters 49, 91)。这个实验首次在几乎同时关闭「局域性漏洞」——测量选择与光子飞行方向的空间分离确保了信息不能以光速以下的速度在两个测量站之间传递。在此之前，John Clauser 1972 年的首次 Bell 测试 (用钙-40 源) 已经观察到违反，但仍留有局域性漏洞；Aspect 的实验把这一漏洞大幅收窄。这些工作奠定了量子信息科学的实验基础，三位先驱——Clauser、Aspect、Zeilinger——因此共享 2022 年 Nobel 物理学奖。",
+        "Bell 测试并未止步于实验室。2017 年中国「墨子号」量子科学实验卫星实现了 1200 公里级别的星地纠缠分发 (Ji-Gang Ren et al., Nature 549, 70, 2017)，把纠缠光子对从太空送到地面两个相距超过 1000 公里的接收站，以超过 12σ 的置信度违反了 CHSH 不等式——在前所未有的距离上排除了局域性漏洞。结合此前 2015 年的三组「无漏洞」Bell 测试 (Delft、Vienna、NIST) 同时关闭局域性和探测效率两大漏洞，量子力学的非局域性预言已在所有可想象的实验条件下得到验证。纠缠不再是哲学争论，而是被精确工程化的物理资源——它支撑着量子密钥分发的安全性证明、量子隐形传态的协议正确性、以及未来量子互联网的全部架构。",
       ],
     },
     {
@@ -161,6 +174,21 @@ const content: TierContent = {
       label: "Binnig & Rohrer 1982 — Surface Studies by STM (Nobel work)",
       url: "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.49.57",
       kind: "paper",
+    },
+    {
+      label: "Aspect et al. 1982 — Bell inequality violation (PRL 49, 91)",
+      url: "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.49.91",
+      kind: "paper",
+    },
+    {
+      label: "Ren et al. 2017 — Ground-to-satellite entanglement (Nature 549, 70)",
+      url: "https://www.nature.com/articles/nature23675",
+      kind: "paper",
+    },
+    {
+      label: "Nobel Prize 2022 — Aspect, Clauser, Zeilinger",
+      url: "https://www.nobelprize.org/prizes/physics/2022/",
+      kind: "agency",
     },
   ],
 

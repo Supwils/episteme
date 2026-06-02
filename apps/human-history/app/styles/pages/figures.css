@@ -203,11 +203,6 @@
   border-radius: 4px;
 }
 
-.figure-network-hint {
-  font-size: 0.68rem;
-  color: var(--parchment-dim);
-}
-
 .figure-meta-row {
   margin-top: 12px;
   display: flex;

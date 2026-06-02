@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { CATEGORY_ACCENTS } from "@/lib/constants";
 
@@ -22,6 +23,7 @@ export default function IsmsFilter({
   categories: string[];
   categoryAccents: Record<string, string>;
 }) {
+  const prefersReducedMotion = useReducedMotion();
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [search, setSearch] = useState("");
 
@@ -106,10 +108,12 @@ export default function IsmsFilter({
             <Link
               key={ism.slug}
               href={`/isms/${ism.slug}`}
-              className="group border-border-faint bg-bg-panel relative flex flex-col gap-3 overflow-hidden border p-5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-fg-disabled/30 hover:shadow-[0_8px_32px_rgba(200,164,90,0.06)]"
+              className={`group border-border-faint bg-bg-panel relative flex flex-col gap-3 overflow-hidden border p-5 backdrop-blur-md transition-all duration-500 hover:border-fg-disabled/30 hover:shadow-[0_8px_32px_rgba(200,164,90,0.06)] ${
+                prefersReducedMotion ? "" : "hover:-translate-y-1"
+              }`}
               style={{
-                animationDelay: `${i * 60}ms`,
-                animation: "fadeInUp 0.5s var(--ease-product) both",
+                animationDelay: prefersReducedMotion ? undefined : `${i * 60}ms`,
+                animation: prefersReducedMotion ? undefined : "fadeInUp 0.5s var(--ease-product) both",
               }}
             >
               <div

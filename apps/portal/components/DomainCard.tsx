@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import { APP_URLS } from '../lib/urls';
 
@@ -18,42 +17,72 @@ interface Domain {
 }
 
 export function DomainCard({ domain, index }: { domain: Domain; index: number }) {
-  const [hovered, setHovered] = useState(false);
   const href = APP_URLS[domain.id];
 
   return (
     <Link
       href={href}
       aria-label={`${domain.title} — ${domain.description}`}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="relative flex flex-col gap-4 p-8 rounded-2xl no-underline overflow-hidden cursor-pointer backdrop-blur-xl animate-fade-slide-up"
+      className="group relative flex flex-col gap-4 p-8 rounded-2xl no-underline overflow-hidden cursor-pointer backdrop-blur-xl animate-fade-slide-up domain-card"
       style={{
         color: 'inherit',
-        background: hovered ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.03)',
-        border: `1px solid ${hovered ? domain.borderAccent : 'rgba(255,255,255,0.06)'}`,
-        boxShadow: hovered
-          ? `0 20px 60px ${domain.glowColor}18, 0 0 0 1px ${domain.glowColor}15, inset 0 1px 0 rgba(255,255,255,0.05)`
-          : '0 4px 24px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.03)',
-        transform: hovered ? 'translateY(-6px)' : 'translateY(0)',
+        background: 'rgba(255,255,255,0.03)',
+        border: '1px solid rgba(255,255,255,0.06)',
+        boxShadow: '0 4px 24px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.03)',
         transition: 'all 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
         animationDelay: `${0.15 + index * 0.12}s`,
+        ['--card-glow' as string]: domain.glowColor,
+        ['--card-border' as string]: domain.borderAccent,
+        ['--card-bg' as string]: domain.bgAccent,
+        ['--card-gradient' as string]: domain.gradient,
       }}
     >
+      <style>{`
+        .domain-card:hover,
+        .domain-card:focus-visible {
+          background: rgba(255,255,255,0.06) !important;
+          border-color: var(--card-border) !important;
+          box-shadow: 0 20px 60px color-mix(in srgb, var(--card-glow) 9%, transparent),
+                      0 0 0 1px color-mix(in srgb, var(--card-glow) 8%, transparent),
+                      inset 0 1px 0 rgba(255,255,255,0.05) !important;
+          transform: translateY(-6px) !important;
+        }
+        .domain-card:focus-visible {
+          outline: 2px solid var(--card-glow);
+          outline-offset: 2px;
+        }
+        .domain-card:hover .domain-card__topline,
+        .domain-card:focus-visible .domain-card__topline {
+          opacity: 1;
+        }
+        .domain-card:hover .domain-card__glow,
+        .domain-card:focus-visible .domain-card__glow {
+          opacity: 1;
+        }
+        .domain-card:hover .domain-card__arrow,
+        .domain-card:focus-visible .domain-card__arrow {
+          transform: translateX(4px);
+        }
+        .domain-card:hover .domain-card__cta,
+        .domain-card:focus-visible .domain-card__cta {
+          gap: 0.65rem;
+        }
+      `}</style>
+
       <div
         aria-hidden="true"
-        className="absolute top-0 left-0 right-0 h-[3px] transition-opacity duration-400"
+        className="domain-card__topline absolute top-0 left-0 right-0 h-[3px] transition-opacity duration-400"
         style={{
           background: domain.gradient,
-          opacity: hovered ? 1 : 0,
+          opacity: 0,
         }}
       />
       <div
         aria-hidden="true"
-        className="absolute -top-20 -right-20 w-50 h-50 rounded-full pointer-events-none transition-opacity duration-400"
+        className="domain-card__glow absolute -top-20 -right-20 w-50 h-50 rounded-full pointer-events-none transition-opacity duration-400"
         style={{
           background: `radial-gradient(circle, ${domain.glowColor}12 0%, transparent 70%)`,
-          opacity: hovered ? 1 : 0.4,
+          opacity: 0.4,
         }}
       />
 
@@ -96,18 +125,18 @@ export function DomainCard({ domain, index }: { domain: Domain; index: number })
           {domain.stats}
         </span>
         <span
-          className="inline-flex items-center text-[0.85rem] font-semibold transition-[gap] duration-300"
+          className="domain-card__cta inline-flex items-center text-[0.85rem] font-semibold transition-[gap] duration-300"
           style={{
             color: domain.glowColor,
-            gap: hovered ? '0.65rem' : '0.35rem',
+            gap: '0.35rem',
           }}
         >
           进入探索
           <span
             aria-hidden="true"
-            className="inline-block transition-transform duration-300"
+            className="domain-card__arrow inline-block transition-transform duration-300"
             style={{
-              transform: hovered ? 'translateX(4px)' : 'translateX(0)',
+              transform: 'translateX(0)',
             }}
           >
             →

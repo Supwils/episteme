@@ -2,7 +2,7 @@
 
 // @ts-check
 
-import { useEffect, useRef, useState, useCallback, useMemo } from 'react';
+import { useEffect, useRef, useState, useCallback, useMemo, Fragment } from 'react';
 import { useRouter } from 'next/navigation';
 import { EVENTS } from '@/data/events';
 import { FIGURES } from '@/data/figures';
@@ -58,15 +58,23 @@ function buildIndex(): SearchItem[] {
   return items;
 }
 
-function highlightMatch(text: string, query: string): string {
-  if (!query.trim()) return text;
+function HighlightedText({ text, query }: { text: string; query: string }) {
+  if (!query.trim()) return <>{text}</>;
   const tokens = query.trim().split(/\s+/);
-  let result = text;
-  for (const t of tokens) {
-    const escaped = t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    result = result.replace(new RegExp(`(${escaped})`, 'gi'), '<mark>$1</mark>');
-  }
-  return result;
+  const escaped = tokens.map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+  const regex = new RegExp(`(${escaped.join('|')})`, 'gi');
+  const parts = text.split(regex);
+  return (
+    <>
+      {parts.map((part, i) =>
+        escaped.some((t) => new RegExp(`^${t}$`, 'i').test(part)) ? (
+          <mark key={i}>{part}</mark>
+        ) : (
+          <Fragment key={i}>{part}</Fragment>
+        ),
+      )}
+    </>
+  );
 }
 
 function truncate(text: string, max: number): string {
@@ -181,20 +189,14 @@ export default function GlobalSearch() {
                     type="button"
                   >
                     <div className="gs-result-head">
-                      <span
-                        className="gs-result-label"
-                        dangerouslySetInnerHTML={{
-                          __html: highlightMatch(item.label, debouncedQuery),
-                        }}
-                      />
+                      <span className="gs-result-label">
+                        <HighlightedText text={item.label} query={debouncedQuery} />
+                      </span>
                       <span className="gs-result-sub">{item.sub}</span>
                     </div>
-                    <p
-                      className="gs-result-desc"
-                      dangerouslySetInnerHTML={{
-                        __html: highlightMatch(truncate(item.desc, 100), debouncedQuery),
-                      }}
-                    />
+                    <p className="gs-result-desc">
+                      <HighlightedText text={truncate(item.desc, 100)} query={debouncedQuery} />
+                    </p>
                   </button>
                 ))}
               </div>

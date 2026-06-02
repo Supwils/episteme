@@ -80,6 +80,12 @@ const content: TierContent = {
       value: "(302.6 Mpc)³",
       hint: "Pillepich 2018",
     },
+    {
+      label: "暗物质直接探测",
+      latinLabel: "DM direct detection",
+      value: "LZ 2024",
+      hint: "9.2 × 10⁻⁴⁸ cm² @ 36 GeV · 最新排除限",
+    },
   ],
   narrative: [
     {
@@ -130,6 +136,13 @@ const content: TierContent = {
       body: [
         "我们看到的星系只是 cosmic web 上的「路灯」，真正支撑这张网的是暗物质——一种不发光、不吸收光、只通过引力与普通物质相互作用的神秘成分。它占宇宙物质总量的约 85%，是纤维和节点的骨架。没有暗物质提供的引力势阱，普通气体根本来不及在 137 亿年内塌缩成星系。",
         "暗物质的本质至今成谜。主流候选者包括：WIMP（弱相互作用大质量粒子，质量 ~10–1000 GeV）、轴子（极轻，质量 ~10⁻⁵ eV）、以及原初黑洞。LUX-ZEPLIN、PandaX-4T 等地下实验正在一吨级探测器里搜寻 WIMP 碰撞的信号，但至今未捕获。P8 前沿物理里我们还会回到这个问题——它可能是整个物理学最大的未解之谜之一。",
+      ],
+    },
+    {
+      heading: "暗物质直接探测 · 地下实验室的极限搜寻",
+      body: [
+        "直接探测暗物质的策略是把探测器深埋地下（屏蔽宇宙射线），等待暗物质粒子与原子核发生弹性散射。LUX-ZEPLIN (LZ) 实验是目前最灵敏的暗物质直接探测器：7 吨液氙时间投影室置于美国南达科他州 Sanford 地下研究中心 1500 米深处。2024 年 LZ 合作组发表了第一轮完整数据的分析结果 (arXiv:2404.10480)，在 WIMP 质量 36 GeV/c² 处将自旋无关散射截面排除限推至 9.2 × 10⁻⁴⁸ cm²——这意味着如果 WIMP 存在，它与普通物质的相互作用比此前所有实验估计的还要弱。这一结果进一步压缩了超对称模型的参数空间，迫使理论家重新思考暗物质候选者的质量窗口。",
+        "然而，直接探测并非一片沉寂。XENON1T 实验在 2020 年报告了一个 3.5σ 的低能电子反冲超出 (Physical Review D 102, 072004)，一种可能的解释是太阳轴子或中微子磁矩的贡献，但统计量不足以定论。PandaX-4T 在 2024 年用 3.7 吨有效质量的液氙探测器发表了首批结果 (Nature 626, 282-285)，在 40 GeV/c² 处给出 3.8 × 10⁻⁴⁷ cm² 的排除限，与 LZ 相互验证。两大实验的竞争把灵敏度推向了所谓「中微子地板」(neutrino floor)——当探测器灵敏度足以探测到太阳中微子和大气中微子的相干弹性散射 (CEνNS) 时，暗物质信号将被中微子背景淹没，直接探测范式本身需要升级。下一代 DARWIN/XLZD 实验 (40 吨级液氙) 预计在 2030 年代触及这一地板，届时无论是否发现 WIMP，都将是对暗物质本质的决定性裁决。",
       ],
     },
     {
@@ -185,6 +198,21 @@ const content: TierContent = {
     {
       label: "LZ Collaboration 2024 — Dark matter search results",
       url: "https://arxiv.org/abs/2407.17646",
+      kind: "paper",
+    },
+    {
+      label: "LZ Collaboration 2024 — First science run (arXiv:2404.10480)",
+      url: "https://arxiv.org/abs/2404.10480",
+      kind: "paper",
+    },
+    {
+      label: "Aprile et al. 2020 — XENON1T excess (Phys. Rev. D 102, 072004)",
+      url: "https://journals.aps.org/prd/abstract/10.1103/PhysRevD.102.072004",
+      kind: "paper",
+    },
+    {
+      label: "PandaX-4T 2024 — Dark matter search (Nature 626, 282)",
+      url: "https://www.nature.com/articles/s41586-024-07050-x",
       kind: "paper",
     },
   ],

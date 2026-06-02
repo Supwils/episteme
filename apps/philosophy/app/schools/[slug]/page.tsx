@@ -4,7 +4,7 @@ import { getSchoolBySlug, getSchoolSlugs } from "@/lib/schools";
 import Breadcrumb from "@/components/Breadcrumb";
 import RelatedContent from "@/components/RelatedContent";
 import { CornerMarks, OrnamentalDivider } from "@/components/school-detail/Decorations";
-import { ContentRenderer } from "@/components/school-detail/ContentRenderer";
+import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { KeyFiguresSection, RelatedSchoolsSection } from "@/components/school-detail/Sections";
 import { ERA_ACCENT } from "@/lib/constants";
 
@@ -105,7 +105,7 @@ export default async function SchoolDetailPage({
         )}
       </header>
 
-      <ContentRenderer content={school.content} />
+      <MarkdownRenderer content={school.content} />
 
       {keyFigures.length > 0 && (
         <>

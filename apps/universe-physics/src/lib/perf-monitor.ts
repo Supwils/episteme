@@ -69,7 +69,7 @@ function applyNextDegradation() {
  * 2. Reduce DPR from [1,2] to [1,1.5]
  * 3. Reduce particle count by 50% (halve StarPoints size)
  * 4. Post-processing → Vignette + SMAA only (remove CA, Noise)
- * 5. Show toast notification "Performance degraded"
+ * 5. Show toast notification "性能已降低以保持流畅体验"
  */
 export function usePerfMonitor(): PerfMonitor {
   return {
@@ -102,7 +102,7 @@ function showDegradationToast() {
   const toast = document.createElement("div");
   toast.setAttribute("role", "alert");
   toast.setAttribute("aria-live", "polite");
-  toast.textContent = "Performance degraded — visuals simplified for smoother experience";
+  toast.textContent = "性能已降低以保持流畅体验";
   Object.assign(toast.style, {
     position: "fixed",
     bottom: "1.5rem",

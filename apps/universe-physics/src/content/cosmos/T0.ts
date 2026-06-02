@@ -81,6 +81,12 @@ const content: TierContent = {
       value: "nHz",
       hint: "2023 年脉冲星计时阵列发现的纳赫兹引力波背景",
     },
+    {
+      label: "JWST 深场",
+      latinLabel: "JWST deep field",
+      value: "JADES",
+      hint: "已知最深红外图像 · z > 12 星系候选体",
+    },
   ],
   narrative: [
     {
@@ -143,6 +149,13 @@ const content: TierContent = {
       ],
     },
     {
+      heading: "JWST 深场 · 重写宇宙的黎明",
+      body: [
+        "2022 年 7 月 JWST 发布的第一批科学图像中，SMACS 0723 深场以前所未有的红外灵敏度震撼了天文学界。但真正的革命来自 JADES (JWST Advanced Deep Extragalactic Survey)：这是一个由 NIRCam 和 NIRSpec 联合执行的系统性深场巡天，覆盖 GOODS-S 和 GOODS-N 两块经典深场天区。D.J. Eisenstein 等人 (arXiv:2306.02465, 2023) 报告了 JADES 的首批结果——在总计约 100 小时的曝光中，JWST 在 0.9–5 μm 波段达到 29–30 AB 星等的深度，这是人类有史以来拍摄的最深红外图像。光谱确认了数十个红移 z > 8 的星系，其中多个位于 z = 10–13，对应宇宙年龄仅 3–5 亿年时的状态。",
+        "更令理论家意外的是高红移星系的数量和亮度。多个独立团队在 2023 年报告了 z > 12 的星系候选体 (Nature Astronomy, 2023)，其数密度和恒星质量远超基于 ΛCDM 标准模型的紫外光度函数外推预测。这些「不可能的早期星系」意味着恒星形成在宇宙最初几亿年内的效率比预期高得多，或者再电离过程比此前认为的更早、更剧烈。一些研究者甚至提出这可能暗示暗物质的性质（如温暗物质或相互作用暗物质）需要修正，尽管标准宇宙学框架内的解释（如bursty 恒星形成历史、低金属丰度 IMF 偏差）目前仍可容纳这些数据。JADES 的后续轮次和 JWST 其他深场项目 (CEERS, UNCOVER, PRIMER) 正在累积更多统计量，宇宙黎明的图景正在被以前所未有的速度重写。",
+      ],
+    },
+    {
       heading: "再电离 · 第一道光",
       body: [
         "复合之后宇宙陷入「黑暗时代」(dark ages)：氢都是中性的，没有恒星、没有光源。直到 z ~ 15–20 第一代恒星 (Pop III) 点燃，它们的紫外光开始把周围的氢重新电离。等到 z ~ 6 整个星系际介质 (IGM) 被烧穿，宇宙再一次变成透明的等离子体 —— 这就是「再电离 (reionization) 时代」。",
@@ -199,6 +212,16 @@ const content: TierContent = {
     {
       label: "Agazie et al. 2023 — The NANOGrav 15 yr Data Set",
       url: "https://iopscience.iop.org/article/10.3847/2041-8213/acdac6",
+      kind: "paper",
+    },
+    {
+      label: "Eisenstein et al. 2023 — JADES (arXiv:2306.02465)",
+      url: "https://arxiv.org/abs/2306.02465",
+      kind: "paper",
+    },
+    {
+      label: "Early galaxy candidates at z > 12 — Nature Astronomy 2023",
+      url: "https://www.nature.com/articles/s41550-023-02076-x",
       kind: "paper",
     },
   ],
