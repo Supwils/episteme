@@ -3,10 +3,10 @@ export {
   CROSS_LINKS,
   type CrossLink,
   type DomainApp,
-  getLinksForEntity,
-  getLinksToApp,
-  getLinkedEntityIds,
+  getLinksForEntityBound as getLinksForEntity,
+  getLinksToAppBound as getLinksToApp,
+  getLinkedEntityIdsBound as getLinkedEntityIds,
   getAppLabel,
   getAppBasePath,
   getLinkUrl,
-} from "./cross-links";
+} from "./cross-links/index";

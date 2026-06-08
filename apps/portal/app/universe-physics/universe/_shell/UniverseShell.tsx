@@ -3,7 +3,7 @@
 import { Canvas } from "@react-three/fiber";
 import { usePathname } from "next/navigation";
 import { Suspense, useEffect, type ReactNode } from "react";
-import * as THREE from "three";
+import { ACESFilmicToneMapping, SRGBColorSpace, type WebGLRenderer } from "three";
 import { CameraRig } from "@/src-physics/camera/CameraRig";
 import { FloatingViewControl } from "@/src-physics/components/hud/FloatingViewControl";
 import { HudShell } from "@/src-physics/components/hud/HudShell";
@@ -12,16 +12,17 @@ import { SkipLink } from "@/src-physics/components/hud/SkipLink";
 import { TierAriaLive } from "@/src-physics/components/hud/TierAriaLive";
 import { HoverTooltip } from "@/src-physics/components/knowledge/HoverTooltip";
 import { KnowledgePanel } from "@/src-physics/components/knowledge/KnowledgePanel";
+import { TierDeepReadingPanel } from "@/src-physics/components/TierDeepReadingPanel";
 import { PostFX } from "@/src-physics/components/post/PostFX";
 import { isHandwrittenPath } from "@/src-physics/lib/tier";
 import { startMonitoring, stopMonitoring } from "@/src-physics/lib/perf-monitor";
 import { ActiveScene } from "@/src-physics/scenes/ActiveScene";
 import { useUiStore } from "@/src-physics/store/useUiStore";
 
-function onRendererCreated({ gl }: { gl: THREE.WebGLRenderer }) {
-  gl.toneMapping = THREE.ACESFilmicToneMapping;
+function onRendererCreated({ gl }: { gl: WebGLRenderer }) {
+  gl.toneMapping = ACESFilmicToneMapping;
   gl.toneMappingExposure = 1.0;
-  gl.outputColorSpace = THREE.SRGBColorSpace;
+  gl.outputColorSpace = SRGBColorSpace;
 }
 
 function MotionPreferenceSync() {
@@ -67,7 +68,7 @@ export function UniverseShell({ children }: { children: ReactNode }) {
         className="absolute inset-0 focus:outline-none"
         camera={{ position: [0, 0, 3], fov: 50, near: 0.01, far: 1000 }}
         dpr={[1, 2]}
-        gl={{ antialias: false, powerPreference: "high-performance" }}
+        gl={{ antialias: false, alpha: false, powerPreference: "high-performance" }}
         onCreated={onRendererCreated}
       >
         <color attach="background" args={["#000000"]} />
@@ -81,6 +82,7 @@ export function UniverseShell({ children }: { children: ReactNode }) {
       <HoverTooltip />
       <HudShell />
       <KnowledgePanel />
+      <TierDeepReadingPanel />
       <FloatingViewControl />
       <KeyboardNav />
 

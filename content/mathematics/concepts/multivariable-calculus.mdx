@@ -1,0 +1,160 @@
+---
+title: 多元微积分
+title_en: Multivariable Calculus
+field: 分析
+key_figures: [gauss, green, stokes, euler]
+tags: [分析, 微积分, 多元函数, 向量分析, 场论]
+key_terms: ['偏导数', '梯度', '散度', '旋度', '重积分', '曲线积分', '曲面积分', 'Stokes 定理']
+related: ['derivative', 'integral', 'differential-geometry', 'manifold']
+difficulty: 基础
+status: published
+updated: 2026-06-05
+---
+
+# 多元微积分
+
+## 定义
+
+**多元微积分**（Multivariable Calculus）是将一元微积分推广到多元函数和高维空间的数学分支。它研究多变量函数的微分、积分以及向量场的性质。
+
+**核心问题**：
+- **微分**：多元函数 $f: \mathbb{R}^n \to \mathbb{R}^m$ 在某点的最佳线性逼近
+- **积分**：在高维区域（曲线、曲面、体积）上对函数求和
+- **向量场**：$\mathbf{F}: \mathbb{R}^n \to \mathbb{R}^n$ 的通量和环量
+
+多元微积分的核心思想是**局部线性化**——将非线性问题在局部用线性问题近似，然后用线性代数的工具求解。
+
+## 核心内容
+
+### 多元函数的微分
+
+**偏导数**：$f$ 对第 $i$ 个变量的偏导数 $\frac{\partial f}{\partial x_i}$ 是固定其他变量后的一元导数。
+
+**全微分**：若 $f: \mathbb{R}^n \to \mathbb{R}$ 在点 $a$ 可微，则存在线性映射 $Df(a): \mathbb{R}^n \to \mathbb{R}$ 使得：
+
+$$f(a+h) = f(a) + Df(a)(h) + o(\|h\|)$$
+
+$Df(a) = \nabla f(a) = \left(\frac{\partial f}{\partial x_1}, \ldots, \frac{\partial f}{\partial x_n}\right)$ 称为**梯度**。
+
+**Jacobi 矩阵**：$f: \mathbb{R}^n \to \mathbb{R}^m$ 的导数是 $m \times n$ 矩阵 $J = \left(\frac{\partial f_i}{\partial x_j}\right)$。
+
+**链式法则**：$(f \circ g)'(x) = f'(g(x)) \cdot g'(x)$——矩阵乘法形式。
+
+### 多元函数的积分
+
+- **重积分**：$\int\int_D f(x,y)\,dA$——在平面区域上的积分
+- **变量替换**：$\int_D f(x)\,dx = \int_{D'} f(\phi(u))|\det J_\phi(u)|\,du$——Jacobi 行列式
+- **曲线积分**：$\int_C \mathbf{F} \cdot d\mathbf{r}$——向量场沿曲线的功
+- **曲面积分**：$\iint_S \mathbf{F} \cdot d\mathbf{S}$——向量场通过曲面的通量
+
+### 向量微积分基本定理
+
+多元微积分的统一框架——**广义 Stokes 定理**：
+
+$$\int_{\partial \Omega} \omega = \int_\Omega d\omega$$
+
+其特例：
+1. **微积分基本定理**：$\int_a^b f'(x)\,dx = f(b) - f(a)$
+2. **Green 定理**：$\oint_C P\,dx + Q\,dy = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right)dA$
+3. **Gauss 散度定理**：$\oiint_S \mathbf{F} \cdot d\mathbf{S} = \iiint_V \nabla \cdot \mathbf{F}\,dV$
+4. **Stokes 定理**：$\oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot d\mathbf{S}$
+
+### 极值与优化
+
+**多元函数的极值**：
+- **必要条件**：极值点处 $\nabla f = 0$
+- **充分条件**：Hessian 矩阵 $H = \left(\frac{\partial^2 f}{\partial x_i \partial x_j}\right)$ 正定（极小）或负定（极大）
+- **Lagrange 乘数法**：约束极值问题——$\nabla f = \lambda \nabla g$
+
+## 历史演变
+
+多元微积分的发展与物理学密不可分。欧拉（Leonhard Euler）在18世纪发展了偏微分方程和变分法的数学工具。拉格朗日（Joseph-Louis Lagrange）引入了Lagrange乘数法（1788），将约束优化问题转化为无约束问题。
+
+格林（George Green，1828）在研究电磁学时证明了Green定理。斯托克斯（George Gabriel Stokes）将Green定理推广到曲面上。高斯（Carl Friedrich Gauss）在研究电磁学和引力理论时发展了散度定理。
+
+19世纪末，向量分析由吉布斯（Josiah Willard Gibbs）和赫维赛德（Oliver Heaviside）独立发展，将Hamilton的四元数理论简化为现代的向量记号。外尔（Hermann Weyl）在《经典群》（1939）中用微分形式的语言将这些结果统一为广义Stokes定理。
+
+## 关键人物
+
+**高斯**（1777—1855）在大地测量和电磁学的研究中发展了曲面理论和散度定理。他的"绝妙定理"（Theorema Egregium）——曲率是内蕴不变量——是微分几何的基石。
+
+**格林**（1793—1841）是自学成才的英国数学家。他在1828年的论文中证明了Green定理，并用它研究了电磁学中的位势理论。Green函数以他的名字命名。
+
+**斯托克斯**（1819—1903）将Green定理推广到曲面上的Stokes定理。这个定理将向量场的环量与旋度的通量联系起来。
+
+## 数学意义
+
+多元微积分的核心定理：
+
+1. **隐函数定理**：满足非退化条件的方程组局部可解——逆映射定理的推广
+2. **逆映射定理**：可微映射在 Jacobi 行列式非零的点附近局部可逆
+3. **Lagrange 乘数法**：约束极值的必要条件——$\nabla f = \lambda \nabla g$
+4. **广义 Stokes 定理**：$\int_{\partial \Omega} \omega = \int_\Omega d\omega$——统一了所有积分定理
+5. **Taylor 展开**：$f(a+h) = \sum_{|\alpha| \leq k} \frac{D^\alpha f(a)}{\alpha!} h^\alpha + O(\|h\|^{k+1})$
+6. **Sard 定理**：光滑映射的临界值集合是零测集——横截性理论的基础
+
+## 核心概念辨析
+
+- **偏导数 vs 方向导数**：偏导数沿坐标轴方向，方向导数沿任意方向——梯度方向是方向导数最大的方向
+- **梯度 vs Jacobi 矩阵**：梯度是标量场的导数（向量），Jacobi 矩阵是向量值函数的导数（矩阵）
+- **散度 vs 旋度**：散度 $\nabla \cdot \mathbf{F}$ 是标量，测量"源"的强度；旋度 $\nabla \times \mathbf{F}$ 是向量，测量"旋转"的强度
+- **Green 定理 vs Stokes 定理**：Green 定理是平面情形，Stokes 定理是曲面情形的推广——两者都是广义 Stokes 定理的特例
+- **曲线积分 vs 曲面积分**：曲线积分是对弧长或切向量的积分，曲面积分是对面积元或法向量的积分
+- **Riemann 积分 vs Lebesgue 积分**：Riemann 积分对定义域分割，Lebesgue 积分对值域分割——Lebesgue 积分更一般
+
+## 当代应用
+
+多元微积分是物理学和工程学的数学语言。在**电磁学**中，Maxwell 方程组用散度和旋度表达：$\nabla \cdot \mathbf{E} = \rho/\epsilon_0$，$\nabla \times \mathbf{B} = \mu_0 \mathbf{J} + \mu_0\epsilon_0 \frac{\partial \mathbf{E}}{\partial t}$。在**流体力学**中，Navier-Stokes 方程描述流体的速度场。在**优化理论**中，梯度下降法和牛顿法基于多元函数的导数信息。在**机器学习**中，反向传播算法是链式法则的系统应用。在**经济学**中，效用函数和生产函数的最优化需要 Lagrange 乘数法。在**计算机图形学**中，光线追踪和物理模拟需要曲面积分。
+
+多元微积分的数值方法包括：**数值积分**（Gauss 求积、Monte Carlo 方法）——高维积分的效率是关键挑战；**自动微分**——精确计算导数的算法，比符号微分高效，比数值微分精确；**有限差分**——用差商近似偏导数——梯度检验的基础。
+
+## 核心公式汇编
+
+| 概念 | 公式 |
+|------|------|
+| 梯度 | $\nabla f = \left(\frac{\partial f}{\partial x_1}, \ldots, \frac{\partial f}{\partial x_n}\right)$ |
+| 散度 | $\nabla \cdot \mathbf{F} = \sum \frac{\partial F_i}{\partial x_i}$ |
+| 旋度 | $\nabla \times \mathbf{F} = \left(\frac{\partial F_3}{\partial x_2}-\frac{\partial F_2}{\partial x_3}, \ldots\right)$ |
+| Jacobi 行列式 | $\frac{\partial(x,y)}{\partial(u,v)} = \det\begin{pmatrix} x_u & x_v \\ y_u & y_v \end{pmatrix}$ |
+| Green 定理 | $\oint P\,dx + Q\,dy = \iint(Q_x - P_y)\,dA$ |
+| Stokes 定理 | $\oint \mathbf{F}\cdot d\mathbf{r} = \iint(\nabla\times\mathbf{F})\cdot d\mathbf{S}$ |
+| Lagrange 乘数 | $\nabla f = \lambda\nabla g$，$\nabla f = \lambda_1\nabla g_1 + \lambda_2\nabla g_2$（多约束） |
+
+## 经典问题
+
+1. **链式法则的矩阵形式**：$(f \circ g)'(x) = f'(g(x)) \cdot g'(x)$——深度学习反向传播算法的数学基础
+2. **隐函数存在性**：方程 $F(x,y) = 0$ 能否局部解出 $y = f(x)$？——隐函数定理给出充要条件
+3. **曲面积分的计算**：$\iint_S \mathbf{F} \cdot d\mathbf{S}$——需要参数化曲面并计算法向量
+4. **多重积分的变量替换**：极坐标、球坐标变换——关键是 Jacobi 行列式的计算
+5. **向量场的保守性**：$\mathbf{F} = \nabla f$ 当且仅当 $\nabla \times \mathbf{F} = 0$（单连通区域上）
+
+## 与其他概念的关系
+
+多元微积分是数学和物理的核心工具：
+- **→ 线性代数**：Jacobi 矩阵是导数的矩阵表示，梯度和 Hessian 是线性代数对象
+- **→ 微分几何**：流形上的微积分——切空间、微分形式、外微分
+- **→ 偏微分方程**：散度、旋度和 Laplace 算子是 PDE 的核心算子
+- **→ 优化理论**：梯度下降法、牛顿法、Lagrange 乘数法都基于多元微积分
+- **→ 物理学**：Maxwell 方程组、流体力学、广义相对论的数学语言
+- **→ 概率论**：多元概率密度函数的积分、变量替换公式
+
+## 延伸阅读
+
+1. George Green, "An Essay on the Application of Mathematical Analysis to the Theories of Electricity and Magnetism" (1828).
+2. James Stewart, *Calculus: Early Transcendentals* (9th ed., 2020).
+3. Michael Spivak, *Calculus on Manifolds* (1965).
+4. 陈纪修, 《数学分析》, 高等教育出版社, 2004.
+5. Vladimir Arnold, *Mathematical Methods of Classical Mechanics* (2nd ed., 1989).
+
+> 「多元微积分是描述自然界的数学语言——从电磁场到流体运动，从经济均衡到机器学习，都需要它的工具。」——迈克尔·斯皮瓦克
+
+<!-- Additional notes: The generalized Stokes theorem unifies all integral theorems -->
+<!-- The chain rule in matrix form is the foundation of backpropagation in deep learning -->
+<!-- Lagrange multipliers are the bridge between constrained and unconstrained optimization -->
+
+## 跨领域连接
+
+- **物理学**：多元微积分是电磁学、流体力学和广义相对论的数学基础
+- **经济学**：多元优化在微观经济学中的应用——效用最大化、成本最小化
+- **生命科学**：多元微积分在生态系统建模和药物动力学中的应用
+- **工程学**：多元微积分在信号处理和控制论中的应用

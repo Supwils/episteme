@@ -40,6 +40,21 @@ const content: TierContent = {
       value: "k_B T_c / J = 2 / ln(1 + √2)",
       hint: "≈ 2.269 · Onsager 1944 精确解",
     },
+    {
+      label: "Jarzynski 等式",
+      value: "⟨e^(−βW)⟩ = e^(−βΔF)",
+      hint: "非平衡功与自由能差 · 1997",
+    },
+    {
+      label: "Landauer 极限",
+      value: "k_B T ln 2",
+      hint: "擦除 1 比特的最小热耗散 ≈ 3 × 10⁻²¹ J (300 K)",
+    },
+    {
+      label: "Hawking 温度",
+      value: "ℏ c³ / (8π G M k_B)",
+      hint: "太阳质量黑洞 T_H ≈ 60 nK · 极冷",
+    },
   ],
   narrative: [
     {
@@ -87,6 +102,20 @@ const content: TierContent = {
       ],
     },
     {
+      heading: "Maxwell 妖的实验实现 · 信息热力学",
+      body: [
+        "Maxwell 妖不再是纯思想实验。2007 年日本团队（Toyabe et al.）用一个胶体粒子在「信息棘轮」中首次实现了 Szilard 引擎的实验版本：通过测量粒子位置并施加反馈力，他们把信息转化成了有用功——直接验证了 Landauer 原理的逆过程。2010 年 Bérut et al. 在 Nature 上发表了首个直接测量信息擦除热耗散的实验，测到擦除 1 比特的功正好等于 k_B T ln 2——与 Landauer 1961 年的预言精确吻合。",
+        "信息热力学也深刻影响了黑洞物理。Hawking 辐射（1974）预言黑洞会缓慢蒸发，温度 T_H = ℏc³/(8πGMk_B)——一个太阳质量的黑洞温度仅 ~60 nK。2019 年 Penington 等人提出「岛屿公式」，用量子极值面修正了 Hawking 的半经典计算，首次在玩具模型中恢复了 Page 曲线——暗示信息确实被保留，但存储在视界附近的量子纠缠中。",
+      ],
+    },
+    {
+      heading: "涨落定理 · 非平衡的精确等式",
+      body: [
+        "热力学第二定律 dS ≥ 0 是一个不等式——只告诉我们熵增的方向，不给出精确数值。1990 年代 Evans、Cohen、Morriss 和 Gallavotti、Cohen 独立发现了「涨落定理」：在有限时间的非平衡过程中，观测到熵减小的概率与熵增大的概率之比按指数规律衰减——P(−S)/P(+S) ≈ exp(−S/k_B)。",
+        "Jarzynski 1997 年把这个洞见变成了一个惊人的等式 ⟨e^(−βW)⟩ = e^(−βΔF)：无论过程多远离平衡、多不可逆，功 W 的指数平均值精确等于平衡自由能差。这条等式在 2002 年被 Liphardt et al. 用光镊拉伸 RNA 分子首次实验验证。Crooks 1999 年给出了更精细的版本：正向和逆向过程的功分布满足 P_F(W)/P_R(−W) = exp(β(W−ΔF))。涨落定理是 21 世纪统计力学最重要的理论突破之一。",
+      ],
+    },
+    {
       heading: "参考文献入口",
       body: [
         "Reif《Fundamentals of Statistical and Thermal Physics》经典本科；Kardar《Statistical Physics of Particles / Fields》两卷研究生级；Landau-Lifshitz Vol 5《Statistical Physics》是俄派标准；Goldenfeld《Lectures on Phase Transitions and the Renormalization Group》给 RG 视角。",
@@ -122,6 +151,16 @@ const content: TierContent = {
     {
       label: "Onsager 1944 — Crystal Statistics I (2D Ising exact)",
       url: "https://journals.aps.org/pr/abstract/10.1103/PhysRev.65.117",
+      kind: "paper",
+    },
+    {
+      label: "Bérut et al. 2012 — Experimental verification of Landauer's principle (Nature)",
+      url: "https://www.nature.com/articles/nature10872",
+      kind: "paper",
+    },
+    {
+      label: "Hawking 1975 — Particle Creation by Black Holes (Comm. Math. Phys.)",
+      url: "https://link.springer.com/article/10.1007/BF02345020",
       kind: "paper",
     },
   ],

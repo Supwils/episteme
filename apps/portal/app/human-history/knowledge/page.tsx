@@ -1,5 +1,21 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllArticles, type KBArticle } from "@/lib/knowledge-base";
+
+export const metadata: Metadata = {
+  title: "知识库 — Universe Knowledge",
+  description: "人类历史知识库，涵盖从远古到当代的重大事件、文明与人物",
+  openGraph: {
+    title: "知识库 — Universe Knowledge",
+    description: "人类历史知识库，涵盖从远古到当代的重大事件、文明与人物",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "知识库 — Universe Knowledge",
+    description: "人类历史知识库，涵盖从远古到当代的重大事件、文明与人物",
+  },
+};
 
 const ERA_COLORS: Record<string, string> = {
   远古时期: "#8b6914",
@@ -37,24 +53,28 @@ function groupByEra(articles: KBArticle[]): Map<string, KBArticle[]> {
   return grouped;
 }
 
-export const metadata = {
-  title: "知识库 — 人类历史",
-  description: "人类历史知识库，涵盖远古至当代的71篇深度文章",
-};
-
 export default function KnowledgePage() {
   const articles = getAllArticles();
   const grouped = groupByEra(articles);
-  const eraOrder = ["远古时期", "古典时期", "中世纪", "近代", "现代", "当代", "未来展望", "人物", "文明", "事件"];
+  const eraOrder = [
+    "远古时期",
+    "古典时期",
+    "中世纪",
+    "近代",
+    "现代",
+    "当代",
+    "未来展望",
+    "人物",
+    "文明",
+    "事件",
+  ];
 
   return (
     <div className="kb-page">
       <header className="kb-header">
         <p className="kb-header-label">KNOWLEDGE BASE</p>
         <h1 className="kb-header-title">人类历史知识库</h1>
-        <p className="kb-header-desc">
-          {articles.length} 篇深度文章，从人类起源到当代世界
-        </p>
+        <p className="kb-header-desc">{articles.length} 篇深度文章，从人类起源到当代世界</p>
       </header>
 
       <div className="kb-stats">
@@ -79,7 +99,9 @@ export default function KnowledgePage() {
           <section key={era} className="kb-era-section">
             <div className="kb-era-head">
               <span className="kb-era-icon">{ERA_ICONS[era]}</span>
-              <h2 className="kb-era-title" style={{ color }}>{era}</h2>
+              <h2 className="kb-era-title" style={{ color }}>
+                {era}
+              </h2>
               <span className="kb-era-count">{eraArticles.length} 篇</span>
             </div>
             <div className="kb-grid">
@@ -92,16 +114,16 @@ export default function KnowledgePage() {
                 >
                   <div className="kb-card-top">
                     <span className="kb-card-category">{article.category}</span>
-                    {article.period && (
-                      <span className="kb-card-period">{article.period}</span>
-                    )}
+                    {article.period && <span className="kb-card-period">{article.period}</span>}
                   </div>
                   <h3 className="kb-card-title">{article.title}</h3>
                   <p className="kb-card-excerpt">{article.excerpt}</p>
                   {article.tags.length > 0 && (
                     <div className="kb-card-tags">
                       {article.tags.slice(0, 4).map((tag) => (
-                        <span key={tag} className="kb-card-tag">{tag}</span>
+                        <span key={tag} className="kb-card-tag">
+                          {tag}
+                        </span>
                       ))}
                     </div>
                   )}

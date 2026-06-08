@@ -1,5 +1,5 @@
 /* === HOME === */
-.home-hero {
+.human-history-root .home-hero {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,28 +9,28 @@
   padding: 40px 24px;
 }
 
-.home-title {
+.human-history-root .home-title {
   font-family: var(--serif);
   font-size: clamp(2rem, 5vw, 3.5rem);
   color: var(--parchment);
   margin-bottom: 16px;
 }
 
-.home-subtitle {
+.human-history-root .home-subtitle {
   font-size: 1.1rem;
   color: var(--parchment-dim);
   margin-bottom: 40px;
   max-width: 600px;
 }
 
-.home-links {
+.human-history-root .home-links {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.home-link {
+.human-history-root .home-link {
   padding: 12px 28px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -42,14 +42,14 @@
   transition: all 0.2s;
 }
 
-.home-link:hover {
+.human-history-root .home-link:hover {
   border-color: var(--gold);
   background: var(--bg-card-hover);
   transform: translateY(-2px);
 }
 /* === home.css === */
 /* === HERO === */
-.hero {
+.human-history-root .hero {
   min-height: 100dvh;
   position: relative;
   overflow: hidden;
@@ -60,20 +60,20 @@
 }
 
 @media (min-width: 960px) {
-  .hero {
+  .human-history-root .hero {
     grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
     column-gap: clamp(40px, 6vw, 96px);
   }
 }
 
-.hero-canvas {
+.human-history-root .hero-canvas {
   position: absolute;
   inset: 0;
   z-index: 0;
 }
 
 /* Massive 史 calligraphy as background watermark */
-.hero-watermark {
+.human-history-root .hero-watermark {
   position: absolute;
   top: 50%;
   left: -2%;
@@ -89,9 +89,11 @@
   letter-spacing: -0.08em;
   white-space: nowrap;
 }
-html.light .hero-watermark { opacity: 0.06; }
+.human-history-root.light .hero-watermark {
+  opacity: 0.06;
+}
 
-.hero-side {
+.human-history-root .hero-side {
   position: relative;
   z-index: 1;
   display: flex;
@@ -101,7 +103,7 @@ html.light .hero-watermark { opacity: 0.06; }
 }
 
 /* Editorial top marker — small archival label */
-.hero-marker {
+.human-history-root .hero-marker {
   display: inline-flex;
   align-items: center;
   gap: 14px;
@@ -112,14 +114,14 @@ html.light .hero-watermark { opacity: 0.06; }
   color: var(--parchment-mute);
 }
 
-.hero-marker::before {
-  content: '';
+.human-history-root .hero-marker::before {
+  content: "";
   width: 36px;
   height: 1px;
   background: var(--cinnabar);
 }
 
-.hero-marker em {
+.human-history-root .hero-marker em {
   color: var(--cinnabar);
   font-style: normal;
   font-family: var(--italic);
@@ -128,14 +130,14 @@ html.light .hero-watermark { opacity: 0.06; }
   font-size: 0.78rem;
 }
 
-.hero-content {
+.human-history-root .hero-content {
   position: relative;
   z-index: 1;
   max-width: 720px;
 }
 
 /* Cinnabar seal — replaces the round svg with a square Chinese seal */
-.hero-seal {
+.human-history-root .hero-seal {
   position: relative;
   width: 88px;
   height: 88px;
@@ -144,17 +146,19 @@ html.light .hero-watermark { opacity: 0.06; }
   margin: 0 0 4px;
   background: linear-gradient(135deg, var(--cinnabar) 0%, #9c2e26 100%);
   border-radius: 4px;
-  box-shadow: 0 14px 40px -16px rgba(200, 68, 58, 0.55), 0 0 0 1px rgba(241, 229, 192, 0.08) inset;
+  box-shadow:
+    0 14px 40px -16px rgba(200, 68, 58, 0.55),
+    0 0 0 1px rgba(241, 229, 192, 0.08) inset;
 }
-.hero-seal::after {
-  content: '';
+.human-history-root .hero-seal::after {
+  content: "";
   position: absolute;
   inset: 6px;
   border: 1px solid rgba(241, 229, 192, 0.55);
   border-radius: 2px;
   pointer-events: none;
 }
-.hero-seal-glyph {
+.human-history-root .hero-seal-glyph {
   position: relative;
   font-family: var(--brush);
   font-size: 3.4rem;
@@ -164,7 +168,7 @@ html.light .hero-watermark { opacity: 0.06; }
   z-index: 1;
 }
 
-.hero h1 {
+.human-history-root .hero h1 {
   font-family: var(--serif);
   font-size: clamp(3rem, 9vw, 6.4rem);
   font-weight: 900;
@@ -175,11 +179,11 @@ html.light .hero-watermark { opacity: 0.06; }
   text-wrap: balance;
 }
 
-.hero h1 .hero-h1-cn {
+.human-history-root .hero h1 .hero-h1-cn {
   display: block;
 }
 
-.hero h1 .hero-h1-en {
+.human-history-root .hero h1 .hero-h1-en {
   display: block;
   margin-top: 16px;
   font-family: var(--display);
@@ -191,7 +195,7 @@ html.light .hero-watermark { opacity: 0.06; }
   text-transform: none;
 }
 
-.hero h2 {
+.human-history-root .hero h2 {
   font-family: var(--display);
   font-weight: 300;
   font-size: clamp(0.95rem, 1.3vw, 1.1rem);
@@ -205,15 +209,15 @@ html.light .hero-watermark { opacity: 0.06; }
 }
 
 .hero h2::before,
-.hero h2::after {
-  content: '';
+.human-history-root .hero h2::after {
+  content: "";
   height: 1px;
   flex: 1;
   max-width: 80px;
   background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent);
 }
 
-.hero-desc {
+.human-history-root .hero-desc {
   color: var(--parchment-dim);
   font-size: clamp(0.98rem, 1.2vw, 1.1rem);
   line-height: 1.95;
@@ -222,7 +226,7 @@ html.light .hero-watermark { opacity: 0.06; }
   text-wrap: pretty;
 }
 
-.hero-desc .hero-cinnabar {
+.human-history-root .hero-desc .hero-cinnabar {
   color: var(--cinnabar-soft);
   font-style: italic;
   font-family: var(--italic);
@@ -230,7 +234,7 @@ html.light .hero-watermark { opacity: 0.06; }
   padding: 0 0.1em;
 }
 
-.hero-actions {
+.human-history-root .hero-actions {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
@@ -238,7 +242,7 @@ html.light .hero-watermark { opacity: 0.06; }
 }
 
 /* Vital-stats inline strip — replaces the separate stats-row below */
-.hero-vitals {
+.human-history-root .hero-vitals {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 0;
@@ -247,32 +251,36 @@ html.light .hero-watermark { opacity: 0.06; }
   border-top: 1px solid var(--border);
 }
 
-.hero-vital {
+.human-history-root .hero-vital {
   padding: 18px 0 4px;
   border-right: 1px solid var(--border);
   padding-right: 16px;
 }
 
-.hero-vital:last-child { border-right: 0; }
+.human-history-root .hero-vital:last-child {
+  border-right: 0;
+}
 
-.hero-vital-val {
+.human-history-root .hero-vital-val {
   font-family: var(--display);
   font-weight: 500;
   font-size: clamp(1.4rem, 2.4vw, 2rem);
   color: var(--parchment);
   letter-spacing: -0.01em;
   line-height: 1.1;
-  font-feature-settings: 'lnum' 1, 'tnum' 1;
+  font-feature-settings:
+    "lnum" 1,
+    "tnum" 1;
 }
 
-.hero-vital-val sup {
+.human-history-root .hero-vital-val sup {
   font-size: 0.5em;
   color: var(--cinnabar);
   margin-left: 2px;
   vertical-align: super;
 }
 
-.hero-vital-label {
+.human-history-root .hero-vital-label {
   font-size: 0.7rem;
   color: var(--parchment-mute);
   margin-top: 6px;
@@ -281,7 +289,7 @@ html.light .hero-watermark { opacity: 0.06; }
 }
 
 /* Right column: cinematic era column */
-.hero-aside {
+.human-history-root .hero-aside {
   position: relative;
   z-index: 1;
   display: flex;
@@ -289,7 +297,7 @@ html.light .hero-watermark { opacity: 0.06; }
   gap: 14px;
 }
 
-.hero-aside-head {
+.human-history-root .hero-aside-head {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -298,7 +306,7 @@ html.light .hero-watermark { opacity: 0.06; }
   border-bottom: 1px solid var(--border);
 }
 
-.hero-aside-head strong {
+.human-history-root .hero-aside-head strong {
   font-family: var(--display);
   font-weight: 500;
   font-size: 0.95rem;
@@ -306,7 +314,7 @@ html.light .hero-watermark { opacity: 0.06; }
   color: var(--parchment);
 }
 
-.hero-aside-head span {
+.human-history-root .hero-aside-head span {
   font-family: var(--mono);
   font-size: 0.65rem;
   letter-spacing: 0.18em;
@@ -314,13 +322,13 @@ html.light .hero-watermark { opacity: 0.06; }
   text-transform: uppercase;
 }
 
-.hero-era-strip {
+.human-history-root .hero-era-strip {
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
 
-.hero-era-row {
+.human-history-root .hero-era-row {
   display: grid;
   grid-template-columns: 36px minmax(0, 1fr) auto;
   align-items: center;
@@ -330,12 +338,15 @@ html.light .hero-watermark { opacity: 0.06; }
   color: inherit;
   border-bottom: 1px dashed var(--border-soft);
   cursor: pointer;
-  transition: transform 0.4s var(--ease-cinema), padding 0.4s var(--ease-cinema), background 0.3s var(--ease-out);
+  transition:
+    transform 0.4s var(--ease-cinema),
+    padding 0.4s var(--ease-cinema),
+    background 0.3s var(--ease-out);
   position: relative;
 }
 
-.hero-era-row::before {
-  content: '';
+.human-history-root .hero-era-row::before {
+  content: "";
   position: absolute;
   left: 0;
   top: 14%;
@@ -346,21 +357,23 @@ html.light .hero-watermark { opacity: 0.06; }
   transition: opacity 0.3s var(--ease-out);
 }
 
-.hero-era-row:hover {
+.human-history-root .hero-era-row:hover {
   padding-left: 16px;
   background: color-mix(in oklab, var(--era-color, var(--gold)) 6%, transparent);
 }
 
-.hero-era-row:hover::before { opacity: 1; }
+.human-history-root .hero-era-row:hover::before {
+  opacity: 1;
+}
 
-.hero-era-num {
+.human-history-root .hero-era-num {
   font-family: var(--mono);
   font-size: 0.72rem;
   letter-spacing: 0.05em;
   color: var(--parchment-mute);
 }
 
-.hero-era-name {
+.human-history-root .hero-era-name {
   font-family: var(--serif);
   font-size: 1rem;
   font-weight: 600;
@@ -368,7 +381,7 @@ html.light .hero-watermark { opacity: 0.06; }
   letter-spacing: 0.05em;
 }
 
-.hero-era-name em {
+.human-history-root .hero-era-name em {
   font-family: var(--italic);
   font-style: italic;
   font-weight: 400;
@@ -378,7 +391,7 @@ html.light .hero-watermark { opacity: 0.06; }
   letter-spacing: 0.02em;
 }
 
-.hero-era-range {
+.human-history-root .hero-era-range {
   font-family: var(--mono);
   font-size: 0.7rem;
   color: var(--era-color, var(--gold));
@@ -388,10 +401,12 @@ html.light .hero-watermark { opacity: 0.06; }
 }
 
 @media (max-width: 959px) {
-  .hero-aside { margin-top: 32px; }
+  .human-history-root .hero-aside {
+    margin-top: 32px;
+  }
 }
 
-.btn {
+.human-history-root .btn {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -402,7 +417,11 @@ html.light .hero-watermark { opacity: 0.06; }
   font-weight: 600;
   text-decoration: none;
   border-radius: 2px;
-  transition: transform 0.4s var(--ease-cinema), background 0.3s var(--ease-out), color 0.3s var(--ease-out), box-shadow 0.4s var(--ease-cinema);
+  transition:
+    transform 0.4s var(--ease-cinema),
+    background 0.3s var(--ease-out),
+    color 0.3s var(--ease-out),
+    box-shadow 0.4s var(--ease-cinema);
   cursor: pointer;
   border: none;
   letter-spacing: 0.18em;
@@ -410,8 +429,8 @@ html.light .hero-watermark { opacity: 0.06; }
   isolation: isolate;
 }
 
-.btn::after {
-  content: '→';
+.human-history-root .btn::after {
+  content: "→";
   font-family: var(--display);
   font-style: italic;
   font-weight: 400;
@@ -419,32 +438,38 @@ html.light .hero-watermark { opacity: 0.06; }
   font-size: 1.1em;
 }
 
-.btn:hover::after { transform: translateX(4px); }
+.human-history-root .btn:hover::after {
+  transform: translateX(4px);
+}
 
-.btn-primary {
+.human-history-root .btn-primary {
   background: linear-gradient(135deg, var(--cinnabar) 0%, #9c2e26 100%);
   color: var(--silk);
-  box-shadow: 0 1px 0 rgba(241, 229, 192, 0.18) inset, 0 18px 40px -16px rgba(200, 68, 58, 0.45);
+  box-shadow:
+    0 1px 0 rgba(241, 229, 192, 0.18) inset,
+    0 18px 40px -16px rgba(200, 68, 58, 0.45);
 }
 
-.btn-primary:hover {
+.human-history-root .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 1px 0 rgba(241, 229, 192, 0.25) inset, 0 24px 48px -16px rgba(200, 68, 58, 0.6);
+  box-shadow:
+    0 1px 0 rgba(241, 229, 192, 0.25) inset,
+    0 24px 48px -16px rgba(200, 68, 58, 0.6);
 }
 
-.btn-outline {
+.human-history-root .btn-outline {
   background: transparent;
   color: var(--parchment);
   border: 1px solid var(--gold);
   box-shadow: inset 0 0 0 0 var(--gold);
 }
 
-.btn-outline:hover {
+.human-history-root .btn-outline:hover {
   color: var(--bg);
   box-shadow: inset 0 -3em 0 0 var(--gold-light);
 }
 
-.hero-scroll {
+.human-history-root .hero-scroll {
   position: absolute;
   bottom: 32px;
   left: 50%;
@@ -459,15 +484,14 @@ html.light .hero-watermark { opacity: 0.06; }
   gap: 8px;
 }
 
-.scroll-arrow {
+.human-history-root .scroll-arrow {
   width: 20px;
   height: 20px;
   animation: bounce 2s infinite;
 }
 
-
 /* === STATS === */
-.stats-row {
+.human-history-root .stats-row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 0;
@@ -479,32 +503,36 @@ html.light .hero-watermark { opacity: 0.06; }
   position: relative;
 }
 
-.stats-row > div {
+.human-history-root .stats-row > div {
   text-align: left;
   padding: 16px 20px;
   border-right: 1px dashed var(--border);
 }
 
-.stats-row > div:last-child { border-right: 0; }
+.human-history-root .stats-row > div:last-child {
+  border-right: 0;
+}
 
-.stat-val {
+.human-history-root .stat-val {
   font-family: var(--display);
   font-weight: 500;
   font-size: clamp(2rem, 4vw, 2.8rem);
   color: var(--parchment);
   letter-spacing: -0.02em;
-  font-feature-settings: 'lnum' 1, 'tnum' 1;
+  font-feature-settings:
+    "lnum" 1,
+    "tnum" 1;
   line-height: 1;
 }
 
-.stat-val sup {
+.human-history-root .stat-val sup {
   font-size: 0.45em;
   color: var(--cinnabar);
   margin-left: 4px;
   vertical-align: super;
 }
 
-.stat-label {
+.human-history-root .stat-label {
   font-size: 0.72rem;
   color: var(--parchment-mute);
   margin-top: 12px;
@@ -514,13 +542,13 @@ html.light .hero-watermark { opacity: 0.06; }
 }
 
 /* === SECTION HEADERS — editorial chapter cards === */
-.section-frame {
+.human-history-root .section-frame {
   max-width: 1600px;
   margin: 0 auto;
   padding: 96px 28px 0;
 }
 
-.section-eyebrow {
+.human-history-root .section-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 14px;
@@ -532,14 +560,14 @@ html.light .hero-watermark { opacity: 0.06; }
   margin-bottom: 18px;
 }
 
-.section-eyebrow::before {
-  content: '';
+.human-history-root .section-eyebrow::before {
+  content: "";
   width: 32px;
   height: 1px;
   background: var(--cinnabar);
 }
 
-.section-eyebrow span {
+.human-history-root .section-eyebrow span {
   font-family: var(--italic);
   font-style: italic;
   font-size: 0.78rem;
@@ -548,7 +576,7 @@ html.light .hero-watermark { opacity: 0.06; }
   color: var(--parchment-mute);
 }
 
-.section-title {
+.human-history-root .section-title {
   font-family: var(--serif);
   font-size: clamp(2rem, 5vw, 3.6rem);
   font-weight: 700;
@@ -560,7 +588,7 @@ html.light .hero-watermark { opacity: 0.06; }
   text-wrap: balance;
 }
 
-.section-title em {
+.human-history-root .section-title em {
   font-family: var(--italic);
   font-style: italic;
   font-weight: 400;
@@ -568,7 +596,7 @@ html.light .hero-watermark { opacity: 0.06; }
   letter-spacing: 0;
 }
 
-.section-sub {
+.human-history-root .section-sub {
   color: var(--parchment-dim);
   text-align: inherit;
   margin: 0 auto 56px;
@@ -577,18 +605,25 @@ html.light .hero-watermark { opacity: 0.06; }
   line-height: 1.85;
 }
 
-.section-frame { text-align: left; }
-.section-frame > .section-sub { margin-left: 0; margin-right: 0; }
+.human-history-root .section-frame {
+  text-align: left;
+}
+.human-history-root .section-frame > .section-sub {
+  margin-left: 0;
+  margin-right: 0;
+}
 
 /* Centered variant for quote-like blocks */
-.section-frame.is-centered { text-align: center; }
-.section-frame.is-centered .section-sub {
+.human-history-root .section-frame.is-centered {
+  text-align: center;
+}
+.human-history-root .section-frame.is-centered .section-sub {
   margin-left: auto;
   margin-right: auto;
 }
 
 /* Ornamental divider — used between major sections */
-.section-divider {
+.human-history-root .section-divider {
   max-width: 1600px;
   margin: 88px auto 0;
   display: flex;
@@ -599,14 +634,14 @@ html.light .hero-watermark { opacity: 0.06; }
 }
 
 .section-divider::before,
-.section-divider::after {
-  content: '';
+.human-history-root .section-divider::after {
+  content: "";
   flex: 1;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--border-hover) 50%, transparent);
 }
 
-.section-divider-glyph {
+.human-history-root .section-divider-glyph {
   font-family: var(--brush);
   font-size: 1.4rem;
   color: var(--cinnabar);
@@ -614,11 +649,10 @@ html.light .hero-watermark { opacity: 0.06; }
   line-height: 1;
 }
 
-
 /* === components.css === */
 /* === ERA CARDS === */
 
-.era-list {
+.human-history-root .era-list {
   max-width: 1600px;
   margin: 0 auto;
   padding: 0 28px 24px;
@@ -628,13 +662,13 @@ html.light .hero-watermark { opacity: 0.06; }
 }
 
 @media (min-width: 720px) {
-  .era-list {
+  .human-history-root .era-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 24px;
   }
 }
 
-.era-card {
+.human-history-root .era-card {
   position: relative;
   display: grid;
   grid-template-columns: 56px minmax(0, 1fr);
@@ -651,10 +685,12 @@ html.light .hero-watermark { opacity: 0.06; }
   transition: background 0.6s var(--ease-cinema);
 }
 
-.era-list .era-card:last-child { border-bottom-color: var(--border); }
+.human-history-root .era-list .era-card:last-child {
+  border-bottom-color: var(--border);
+}
 
-.era-card::before {
-  content: '';
+.human-history-root .era-card::before {
+  content: "";
   position: absolute;
   left: 0;
   top: 0;
@@ -666,7 +702,7 @@ html.light .hero-watermark { opacity: 0.06; }
   transition: transform 0.65s var(--ease-cinema);
 }
 
-.era-card::after {
+.human-history-root .era-card::after {
   content: attr(data-stem);
   position: absolute;
   right: 24px;
@@ -678,27 +714,31 @@ html.light .hero-watermark { opacity: 0.06; }
   line-height: 1;
   pointer-events: none;
   user-select: none;
-  transition: opacity 0.5s var(--ease-out), transform 0.6s var(--ease-cinema);
+  transition:
+    opacity 0.5s var(--ease-out),
+    transform 0.6s var(--ease-cinema);
   transform: translateX(20px) translateY(20px);
 }
 
-.era-card:hover {
+.human-history-root .era-card:hover {
   background: color-mix(in oklab, var(--era-color, var(--gold)) 5%, transparent);
 }
-.era-card:hover::before { transform: scaleY(1); }
-.era-card:hover::after {
+.human-history-root .era-card:hover::before {
+  transform: scaleY(1);
+}
+.human-history-root .era-card:hover::after {
   opacity: 0.14;
   transform: translateX(0) translateY(0);
 }
 
-.era-card-link {
+.human-history-root .era-card-link {
   display: contents;
   text-decoration: none;
   color: inherit;
   cursor: pointer;
 }
 
-.era-expand-btn {
+.human-history-root .era-expand-btn {
   grid-column: 2;
   background: none;
   border: 1px solid var(--border);
@@ -713,12 +753,12 @@ html.light .hero-watermark { opacity: 0.06; }
   margin-top: 8px;
 }
 
-.era-expand-btn:hover {
+.human-history-root .era-expand-btn:hover {
   color: var(--gold);
   border-color: var(--gold);
 }
 
-.era-expand-body {
+.human-history-root .era-expand-body {
   grid-column: 1 / -1;
   display: none;
   padding: 16px 0 0;
@@ -726,11 +766,11 @@ html.light .hero-watermark { opacity: 0.06; }
   margin-top: 12px;
 }
 
-.era-card-expanded {
+.human-history-root .era-card-expanded {
   background: var(--bg-card);
 }
 
-.era-card-head {
+.human-history-root .era-card-head {
   grid-column: 2;
   display: flex;
   align-items: flex-start;
@@ -738,7 +778,7 @@ html.light .hero-watermark { opacity: 0.06; }
   margin-bottom: 14px;
 }
 
-.era-stem {
+.human-history-root .era-stem {
   grid-column: 1;
   grid-row: 1 / span 3;
   font-family: var(--display);
@@ -750,10 +790,12 @@ html.light .hero-watermark { opacity: 0.06; }
   border-right: 1px dashed var(--border);
   padding-right: 14px;
   text-align: right;
-  font-feature-settings: 'lnum' 1, 'tnum' 1;
+  font-feature-settings:
+    "lnum" 1,
+    "tnum" 1;
 }
 
-.era-stem strong {
+.human-history-root .era-stem strong {
   display: block;
   font-family: var(--brush);
   font-weight: 400;
@@ -763,7 +805,7 @@ html.light .hero-watermark { opacity: 0.06; }
   letter-spacing: 0;
 }
 
-.era-icon {
+.human-history-root .era-icon {
   width: 38px;
   height: 38px;
   border-radius: 50%;
@@ -776,16 +818,18 @@ html.light .hero-watermark { opacity: 0.06; }
   border: 1px solid color-mix(in oklab, var(--era-color, var(--gold)) 35%, transparent) !important;
 }
 
-.era-icon iconify-icon { color: var(--era-color, var(--gold)); }
+.human-history-root .era-icon iconify-icon {
+  color: var(--era-color, var(--gold));
+}
 
-.era-name-wrap {
+.human-history-root .era-name-wrap {
   display: flex;
   flex-direction: column;
   gap: 4px;
   flex: 1;
 }
 
-.era-name {
+.human-history-root .era-name {
   font-family: var(--serif);
   font-size: 1.35rem;
   font-weight: 700;
@@ -794,7 +838,7 @@ html.light .hero-watermark { opacity: 0.06; }
   line-height: 1.1;
 }
 
-.era-name em {
+.human-history-root .era-name em {
   display: block;
   font-family: var(--italic);
   font-style: italic;
@@ -805,7 +849,7 @@ html.light .hero-watermark { opacity: 0.06; }
   margin-top: 4px;
 }
 
-.era-date {
+.human-history-root .era-date {
   font-family: var(--mono);
   font-size: 0.7rem;
   color: var(--era-color, var(--gold));
@@ -815,7 +859,7 @@ html.light .hero-watermark { opacity: 0.06; }
   padding-top: 6px;
 }
 
-.era-desc {
+.human-history-root .era-desc {
   grid-column: 2;
   color: var(--parchment-dim);
   font-size: 0.92rem;
@@ -824,7 +868,7 @@ html.light .hero-watermark { opacity: 0.06; }
   max-width: 56ch;
 }
 
-.era-tags {
+.human-history-root .era-tags {
   grid-column: 2;
   display: flex;
   flex-wrap: wrap;
@@ -833,7 +877,7 @@ html.light .hero-watermark { opacity: 0.06; }
   z-index: 1;
 }
 
-.tag {
+.human-history-root .tag {
   font-size: 0.7rem;
   padding: 4px 10px;
   border-radius: 2px;
@@ -843,13 +887,13 @@ html.light .hero-watermark { opacity: 0.06; }
 }
 
 /* === ERA DETAIL PANEL (shared component) === */
-.era-detail-panel {
+.human-history-root .era-detail-panel {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.era-detail-quote {
+.human-history-root .era-detail-quote {
   font-family: var(--serif);
   font-style: italic;
   color: var(--gold);
@@ -862,7 +906,7 @@ html.light .hero-watermark { opacity: 0.06; }
   margin: 0;
 }
 
-.era-detail-quote cite {
+.human-history-root .era-detail-quote cite {
   display: block;
   font-style: normal;
   font-size: 0.78rem;
@@ -870,7 +914,7 @@ html.light .hero-watermark { opacity: 0.06; }
   margin-top: 8px;
 }
 
-.era-detail-desc p {
+.human-history-root .era-detail-desc p {
   font-size: 0.88rem;
   color: var(--parchment-dim);
   line-height: 1.9;
@@ -878,11 +922,11 @@ html.light .hero-watermark { opacity: 0.06; }
   text-indent: 2em;
 }
 
-.era-detail-desc p:first-child {
+.human-history-root .era-detail-desc p:first-child {
   text-indent: 0;
 }
 
-.era-detail-section h4 {
+.human-history-root .era-detail-section h4 {
   font-family: var(--serif);
   font-size: 0.85rem;
   color: var(--parchment);
@@ -892,13 +936,13 @@ html.light .hero-watermark { opacity: 0.06; }
   border-bottom: 1px solid var(--border-soft);
 }
 
-.era-detail-tags {
+.human-history-root .era-detail-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
 }
 
-.era-detail-tag {
+.human-history-root .era-detail-tag {
   font-size: 0.72rem;
   padding: 3px 10px;
   border-radius: 99px;
@@ -907,12 +951,12 @@ html.light .hero-watermark { opacity: 0.06; }
   background: var(--bg-card);
 }
 
-.era-tag-figure {
+.human-history-root .era-tag-figure {
   border-color: color-mix(in oklab, var(--gold) 25%, transparent);
   color: var(--gold-light);
 }
 
-.era-detail-legacy {
+.human-history-root .era-detail-legacy {
   font-size: 0.84rem;
   color: var(--parchment-dim);
   line-height: 1.85;
@@ -924,7 +968,7 @@ html.light .hero-watermark { opacity: 0.06; }
 }
 
 /* === MINI TIMELINE (home) — flowing river of history === */
-.mini-tl {
+.human-history-root .mini-tl {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 28px 32px;
@@ -934,8 +978,8 @@ html.light .hero-watermark { opacity: 0.06; }
   gap: 0;
 }
 
-.mini-tl::before {
-  content: '';
+.human-history-root .mini-tl::before {
+  content: "";
   position: absolute;
   left: 28px;
   top: 0;
@@ -945,7 +989,7 @@ html.light .hero-watermark { opacity: 0.06; }
   opacity: 0.24;
 }
 
-.mini-tl-item {
+.human-history-root .mini-tl-item {
   display: grid;
   grid-template-columns: 120px 36px minmax(0, 1fr);
   gap: 16px 20px;
@@ -953,22 +997,26 @@ html.light .hero-watermark { opacity: 0.06; }
   padding: 18px 0 18px 14px;
   position: relative;
   border-bottom: 1px dashed var(--border-soft);
-  transition: padding 0.4s var(--ease-cinema), background 0.3s var(--ease-out);
+  transition:
+    padding 0.4s var(--ease-cinema),
+    background 0.3s var(--ease-out);
 }
 
-.mini-tl-item:last-child { border-bottom: 0; }
+.human-history-root .mini-tl-item:last-child {
+  border-bottom: 0;
+}
 
-.mini-tl-item:hover {
+.human-history-root .mini-tl-item:hover {
   padding-left: 22px;
   background: color-mix(in oklab, var(--gold) 3%, transparent);
 }
 
-.mini-tl-item:hover .mini-tl-dot {
+.human-history-root .mini-tl-item:hover .mini-tl-dot {
   background: var(--cinnabar);
   box-shadow: 0 0 0 4px color-mix(in oklab, var(--cinnabar) 18%, transparent);
 }
 
-.mini-tl-year {
+.human-history-root .mini-tl-year {
   grid-column: 1;
   font-family: var(--display);
   font-weight: 500;
@@ -977,10 +1025,12 @@ html.light .hero-watermark { opacity: 0.06; }
   letter-spacing: 0.02em;
   text-align: right;
   padding-right: 4px;
-  font-feature-settings: 'lnum' 1, 'tnum' 1;
+  font-feature-settings:
+    "lnum" 1,
+    "tnum" 1;
 }
 
-.mini-tl-dot {
+.human-history-root .mini-tl-dot {
   grid-column: 2;
   width: 9px;
   height: 9px;
@@ -989,10 +1039,12 @@ html.light .hero-watermark { opacity: 0.06; }
   margin: 9px auto 0;
   position: relative;
   z-index: 1;
-  transition: background 0.3s var(--ease-out), box-shadow 0.4s var(--ease-cinema);
+  transition:
+    background 0.3s var(--ease-out),
+    box-shadow 0.4s var(--ease-cinema);
 }
 
-.mini-tl-content {
+.human-history-root .mini-tl-content {
   grid-column: 3;
   display: flex;
   flex-direction: column;
@@ -1000,7 +1052,7 @@ html.light .hero-watermark { opacity: 0.06; }
   text-align: left;
 }
 
-.mini-tl-content h3 {
+.human-history-root .mini-tl-content h3 {
   font-family: var(--serif);
   font-size: 1.05rem;
   font-weight: 600;
@@ -1009,7 +1061,7 @@ html.light .hero-watermark { opacity: 0.06; }
   line-height: 1.4;
 }
 
-.mini-tl-content .mtl-desc {
+.human-history-root .mini-tl-content .mtl-desc {
   font-size: 0.86rem;
   color: var(--parchment-dim);
   line-height: 1.7;
@@ -1017,7 +1069,7 @@ html.light .hero-watermark { opacity: 0.06; }
 }
 
 /* === QUOTE — vermillion seal moment === */
-.quote-section {
+.human-history-root .quote-section {
   max-width: 920px;
   margin: 96px auto 0;
   padding: 96px 32px 96px;
@@ -1025,8 +1077,8 @@ html.light .hero-watermark { opacity: 0.06; }
   position: relative;
 }
 
-.quote-section::before {
-  content: '「';
+.human-history-root .quote-section::before {
+  content: "「";
   position: absolute;
   top: 40px;
   left: 50%;
@@ -1038,12 +1090,12 @@ html.light .hero-watermark { opacity: 0.06; }
   line-height: 1;
 }
 
-.quote-section .section-title {
+.human-history-root .quote-section .section-title {
   text-align: center;
   margin-bottom: 36px;
 }
 
-.quote-section blockquote {
+.human-history-root .quote-section blockquote {
   font-family: var(--serif);
   font-size: clamp(1.4rem, 2.6vw, 2.1rem);
   font-weight: 400;
@@ -1056,7 +1108,7 @@ html.light .hero-watermark { opacity: 0.06; }
   text-wrap: balance;
 }
 
-.quote-section cite {
+.human-history-root .quote-section cite {
   display: inline-flex;
   align-items: center;
   gap: 14px;
@@ -1067,15 +1119,15 @@ html.light .hero-watermark { opacity: 0.06; }
   font-family: var(--mono);
 }
 
-.quote-section cite::before {
-  content: '';
+.human-history-root .quote-section cite::before {
+  content: "";
   width: 32px;
   height: 1px;
   background: var(--cinnabar);
 }
 
 /* Cinnabar seal stamp at corner of the quote block */
-.quote-seal {
+.human-history-root .quote-seal {
   position: absolute;
   bottom: 56px;
   right: 12%;
@@ -1092,8 +1144,8 @@ html.light .hero-watermark { opacity: 0.06; }
   box-shadow: 0 14px 36px -16px rgba(200, 68, 58, 0.5);
   opacity: 0.82;
 }
-.quote-seal::after {
-  content: '';
+.human-history-root .quote-seal::after {
+  content: "";
   position: absolute;
   inset: 4px;
   border: 1px solid rgba(241, 229, 192, 0.5);
@@ -1101,7 +1153,11 @@ html.light .hero-watermark { opacity: 0.06; }
 }
 
 @media (max-width: 720px) {
-  .quote-seal { bottom: 24px; right: 24px; width: 52px; height: 52px; font-size: 1.3rem; }
+  .human-history-root .quote-seal {
+    bottom: 24px;
+    right: 24px;
+    width: 52px;
+    height: 52px;
+    font-size: 1.3rem;
+  }
 }
-
-

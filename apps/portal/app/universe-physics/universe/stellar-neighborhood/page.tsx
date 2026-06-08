@@ -1,8 +1,16 @@
-"use client";
+import type { Metadata } from "next";
+import StellarNeighborhoodPageClient from "./StellarNeighborhoodPageClient";
 
-import { useSyncTier } from "@/src-physics/hooks/useSyncTier";
+export const metadata: Metadata = {
+  title: "恒星邻里 — 宇宙物理 — Universe Knowledge",
+  description: "恒星邻里——太阳附近的恒星与星际空间，距太阳约20光年范围",
+  openGraph: {
+    title: "恒星邻里 — 宇宙物理",
+    description: "恒星邻里——太阳附近的恒星与星际空间，距太阳约20光年范围",
+    type: "website",
+  },
+};
 
 export default function StellarNeighborhoodPage() {
-  useSyncTier("T5");
-  return null;
+  return <StellarNeighborhoodPageClient />;
 }

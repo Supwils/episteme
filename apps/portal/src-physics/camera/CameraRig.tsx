@@ -18,6 +18,8 @@ export function CameraRig() {
   const camera = useThree((state) => state.camera);
   const controlsRef = useRef<OrbitHandle | null>(null);
   const [userControl, setUserControl] = useState(true);
+  const activeTimelineRef = useRef<gsap.core.Timeline | null>(null);
+  const activeTweensRef = useRef<Record<string, gsap.core.Tween>>({});
 
   useEffect(() => {
     const getTarget = () => controlsRef.current?.target ?? new Vector3();
@@ -25,6 +27,7 @@ export function CameraRig() {
     const api: CameraRigApi = {
       flyTo(target, distance, opts = {}) {
         const { fov, duration = 1.2 } = opts;
+        activeTimelineRef.current?.kill();
         const tl = gsap.timeline();
 
         const offset = new Vector3().subVectors(camera.position, target);
@@ -53,10 +56,11 @@ export function CameraRig() {
               ease: "power2.inOut",
               onUpdate: () => camera.updateProjectionMatrix(),
             },
-            0,
+            0
           );
         }
 
+        activeTimelineRef.current = tl;
         return tl;
       },
       jumpTo(target, distance, opts = {}) {
@@ -86,7 +90,8 @@ export function CameraRig() {
         const newLen = Math.max(0.12, currentLen - amount);
         const dir = offset.divideScalar(currentLen);
         const endPos = new Vector3().addVectors(target, dir.multiplyScalar(newLen));
-        gsap.to(camera.position, {
+        activeTweensRef.current.dolly?.kill();
+        activeTweensRef.current.dolly = gsap.to(camera.position, {
           x: endPos.x,
           y: endPos.y,
           z: endPos.z,
@@ -102,7 +107,8 @@ export function CameraRig() {
         const startAzimuth = Math.atan2(offset.z, offset.x);
         const elevation = offset.y;
         const tween = { t: 0 };
-        gsap.to(tween, {
+        activeTweensRef.current.spin?.kill();
+        activeTweensRef.current.spin = gsap.to(tween, {
           t: 1,
           duration,
           ease: "power2.inOut",
@@ -111,7 +117,7 @@ export function CameraRig() {
             camera.position.set(
               target.x + Math.cos(az) * radius,
               target.y + elevation,
-              target.z + Math.sin(az) * radius,
+              target.z + Math.sin(az) * radius
             );
             camera.lookAt(target);
           },
@@ -130,7 +136,8 @@ export function CameraRig() {
           controlsRef.current?.update();
           return;
         }
-        gsap.to(camera.position, {
+        activeTweensRef.current.settle?.kill();
+        activeTweensRef.current.settle = gsap.to(camera.position, {
           x: endPos.x,
           y: endPos.y,
           z: endPos.z,
@@ -140,7 +147,14 @@ export function CameraRig() {
         });
       },
     };
-    return registerCameraRig(api);
+    const unregister = registerCameraRig(api);
+    return () => {
+      activeTimelineRef.current?.kill();
+      activeTimelineRef.current = null;
+      Object.values(activeTweensRef.current).forEach((t) => t?.kill());
+      activeTweensRef.current = {};
+      unregister();
+    };
   }, [camera]);
 
   return (

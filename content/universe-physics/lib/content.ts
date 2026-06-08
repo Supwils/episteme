@@ -54,4 +54,6 @@ export type TierContent = {
   sources: SourceRef[];
   /** Interactive 3D markers with hover tooltips. */
   markers?: SceneMarker[];
+  /** Discussion questions encouraging critical thinking. */
+  discussionQuestions?: string[];
 };

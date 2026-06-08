@@ -1,17 +1,34 @@
 "use client";
 
-import type { ReactNode } from "react";
+import React, { Suspense, type ReactNode } from "react";
 import type { AnyTierId, UniverseTierId } from "@/src-physics/lib/tier";
 import { isUniverseTierId } from "@/src-physics/lib/tier";
 import { useUniverseStore } from "@/src-physics/store/useUniverseStore";
-import { Tier0Scene } from "./tier0-observable/Tier0Scene";
-import { Tier1Scene } from "./tier1-cosmic-web/Tier1Scene";
-import { Tier2Scene } from "./tier2-supercluster/Tier2Scene";
-import { Tier3Scene } from "./tier3-local-group/Tier3Scene";
-import { Tier4Scene } from "./tier4-milky-way/Tier4Scene";
-import { Tier5Scene } from "./tier5-stellar-neighborhood/Tier5Scene";
-import { Tier6Scene } from "./tier6-solar-system/Tier6Scene";
-import { Tier7Scene } from "./tier7-earth/Tier7Scene";
+
+const Tier0Scene = React.lazy(() =>
+  import("./tier0-observable/Tier0Scene").then((m) => ({ default: m.Tier0Scene }))
+);
+const Tier1Scene = React.lazy(() =>
+  import("./tier1-cosmic-web/Tier1Scene").then((m) => ({ default: m.Tier1Scene }))
+);
+const Tier2Scene = React.lazy(() =>
+  import("./tier2-supercluster/Tier2Scene").then((m) => ({ default: m.Tier2Scene }))
+);
+const Tier3Scene = React.lazy(() =>
+  import("./tier3-local-group/Tier3Scene").then((m) => ({ default: m.Tier3Scene }))
+);
+const Tier4Scene = React.lazy(() =>
+  import("./tier4-milky-way/Tier4Scene").then((m) => ({ default: m.Tier4Scene }))
+);
+const Tier5Scene = React.lazy(() =>
+  import("./tier5-stellar-neighborhood/Tier5Scene").then((m) => ({ default: m.Tier5Scene }))
+);
+const Tier6Scene = React.lazy(() =>
+  import("./tier6-solar-system/Tier6Scene").then((m) => ({ default: m.Tier6Scene }))
+);
+const Tier7Scene = React.lazy(() =>
+  import("./tier7-earth/Tier7Scene").then((m) => ({ default: m.Tier7Scene }))
+);
 
 /**
  * Scene router with cross-fade support.
@@ -30,13 +47,13 @@ export function ActiveScene() {
   if (transition.active && transition.kind === "dissolve" && transition.from && transition.to) {
     return (
       <>
-        {renderScene(transition.from, 1 - transition.progress)}
-        {renderScene(transition.to, transition.progress)}
+        <Suspense fallback={null}>{renderScene(transition.from, 1 - transition.progress)}</Suspense>
+        <Suspense fallback={null}>{renderScene(transition.to, transition.progress)}</Suspense>
       </>
     );
   }
 
-  return renderScene(currentTier, 1);
+  return <Suspense fallback={null}>{renderScene(currentTier, 1)}</Suspense>;
 }
 
 function renderScene(tier: AnyTierId, opacity: number): ReactNode {

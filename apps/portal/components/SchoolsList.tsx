@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useCallback } from "react";
+import { memo, useMemo, useState, useCallback } from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { SearchInput } from "./SearchInput";
@@ -45,13 +45,7 @@ function truncate(text: string, max: number): string {
   return text.slice(0, max) + "……";
 }
 
-function SchoolCard({
-  school,
-  reducedMotion,
-}: {
-  school: SchoolItem;
-  reducedMotion: boolean;
-}) {
+function SchoolCard({ school, reducedMotion }: { school: SchoolItem; reducedMotion: boolean }) {
   const founder = school.founder ?? school.philosopher ?? "";
   const accent = ERA_ACCENT[school.era] ?? "#c8a45a";
   const glow = ERA_GLOW[school.era] ?? "rgba(200,164,90,0.12)";
@@ -63,7 +57,7 @@ function SchoolCard({
     >
       <Link
         href={`/schools/${school.slug}`}
-        className="group border-border-faint bg-bg-near relative flex h-full flex-col overflow-hidden border transition-all duration-300 hover:border-[color:var(--card-accent)]"
+        className="border-border-faint bg-bg-near group relative flex h-full flex-col overflow-hidden border transition-all duration-300 hover:border-[color:var(--card-accent)]"
         style={
           {
             "--card-accent": accent,
@@ -73,7 +67,7 @@ function SchoolCard({
       >
         <span
           aria-hidden
-          className="absolute top-0 left-0 h-full w-[3px] transition-all duration-300 group-hover:w-[4px]"
+          className="absolute left-0 top-0 h-full w-[3px] transition-all duration-300 group-hover:w-[4px]"
           style={{ backgroundColor: accent }}
         />
 
@@ -83,10 +77,10 @@ function SchoolCard({
           style={{ boxShadow: `inset 0 0 32px var(--card-glow)` }}
         />
 
-        <div className="flex flex-col gap-3 pl-5 pr-5 pt-5 pb-4">
+        <div className="flex flex-col gap-3 pb-4 pl-5 pr-5 pt-5">
           <div className="flex items-center justify-between gap-2">
             <span
-              className="font-mono text-[9px] tracking-[0.28em] uppercase"
+              className="font-mono text-[9px] uppercase tracking-[0.28em]"
               style={{ color: accent }}
             >
               {school.era}
@@ -151,7 +145,7 @@ function SchoolCard({
   );
 }
 
-export function SchoolsList({ schools }: { schools: SchoolItem[] }) {
+export const SchoolsList = memo(function SchoolsList({ schools }: { schools: SchoolItem[] }) {
   const [query, setQuery] = useState("");
   const [activeEra, setActiveEra] = useState<EraFilter>("全部");
   const reducedMotion = useReducedMotion() ?? false;
@@ -196,11 +190,11 @@ export function SchoolsList({ schools }: { schools: SchoolItem[] }) {
               key={era}
               type="button"
               onClick={() => setActiveEra(era)}
-              className="relative px-4 py-2 font-mono text-[11px] tracking-[0.18em] uppercase transition-colors"
+              className="relative px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em] transition-colors"
               style={{
                 color:
                   activeEra === era
-                    ? ERA_ACCENT[era === "全部" ? "古代" : era] ?? "#c8a45a"
+                    ? (ERA_ACCENT[era === "全部" ? "古代" : era] ?? "#c8a45a")
                     : undefined,
               }}
             >
@@ -216,8 +210,7 @@ export function SchoolsList({ schools }: { schools: SchoolItem[] }) {
                   layoutId="era-tab-indicator"
                   className="absolute bottom-0 left-2 right-2 h-[2px]"
                   style={{
-                    backgroundColor:
-                      ERA_ACCENT[era === "全部" ? "古代" : era] ?? "#c8a45a",
+                    backgroundColor: ERA_ACCENT[era === "全部" ? "古代" : era] ?? "#c8a45a",
                   }}
                   transition={{
                     type: "spring",
@@ -263,13 +256,9 @@ export function SchoolsList({ schools }: { schools: SchoolItem[] }) {
                 </div>
               )}
 
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
                 {eraSchools.map((school) => (
-                  <SchoolCard
-                    key={school.slug}
-                    school={school}
-                    reducedMotion={reducedMotion}
-                  />
+                  <SchoolCard key={school.slug} school={school} reducedMotion={reducedMotion} />
                 ))}
               </div>
             </section>
@@ -278,4 +267,4 @@ export function SchoolsList({ schools }: { schools: SchoolItem[] }) {
       )}
     </>
   );
-}
+});

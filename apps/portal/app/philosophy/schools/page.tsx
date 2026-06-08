@@ -1,20 +1,37 @@
+import type { Metadata } from "next";
 import { getAllSchools } from "@/lib/schools";
 import { SchoolsList } from "@/components/SchoolsList";
+
+export const metadata: Metadata = {
+  title: "哲学流派 — Universe Knowledge",
+  description: "跨越东西方的哲学流派，从柏拉图学院到当代分析哲学与后现代思潮",
+  openGraph: {
+    title: "哲学流派 — Universe Knowledge",
+    description: "跨越东西方的哲学流派，从柏拉图学院到当代分析哲学与后现代思潮",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "哲学流派 — Universe Knowledge",
+    description: "跨越东西方的哲学流派，从柏拉图学院到当代分析哲学与后现代思潮",
+  },
+};
 
 export default function SchoolsPage() {
   const schools = getAllSchools();
 
   return (
-    <div className="mx-auto max-w-[1400px] px-6 py-16">
+    <div className="w-full px-6 py-16 sm:px-10 lg:px-16">
       <header className="mb-12">
-        <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
+        <p className="text-fg-muted mb-3 font-mono text-[10px] uppercase tracking-[0.42em]">
           philosophy / schools
         </p>
         <h1 className="font-display text-fg-primary text-[2.4rem] leading-tight tracking-tight md:text-[3.2rem]">
           哲学<em className="text-accent-gold italic"> 流派</em>
         </h1>
         <p className="text-fg-secondary mt-3 max-w-xl text-sm leading-relaxed">
-          {schools.length} 个跨越东西方的哲学流派，从古希腊的柏拉图学院到当代的分析哲学与后现代思潮。
+          {schools.length}{" "}
+          个跨越东西方的哲学流派，从古希腊的柏拉图学院到当代的分析哲学与后现代思潮。
         </p>
       </header>
 

@@ -1,8 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import { getDomainContentDir } from "./content-paths";
 
-const KB_ROOT = path.join(process.cwd(), "..", "..", "content", "human-history", "knowledge-base");
+const KB_ROOT = path.join(getDomainContentDir("human-history"), "knowledge-base");
 
 const SKIP_FILES = new Set([
   "索引.md",
@@ -21,6 +22,7 @@ export interface KBArticle {
   category: string;
   region?: string;
   period?: string;
+  date?: string;
   tags: string[];
   excerpt: string;
   filePath: string;
@@ -44,14 +46,15 @@ const ERA_MAP: Record<string, { label: string; order: number }> = {
 };
 
 function makeSlug(relativePath: string): string {
-  return relativePath
-    .replace(/\.md$/, "")
-    .replace(/\//g, "--");
+  return relativePath.replace(/\.md$/, "").replace(/\//g, "--");
 }
 
 function extractExcerpt(content: string): string {
   const lines = content.split("\n").filter((l) => l.trim() && !l.startsWith("#"));
-  const text = lines.slice(0, 3).join(" ").replace(/[*_`#\[\]]/g, "");
+  const text = lines
+    .slice(0, 3)
+    .join(" ")
+    .replace(/[*_`#\[\]]/g, "");
   return text.length > 160 ? text.slice(0, 160) + "…" : text;
 }
 
@@ -87,47 +90,71 @@ function safeParseMatter(raw: string): { data: Record<string, unknown>; content:
   }
 }
 
-export function getAllArticles(): KBArticle[] {
-  const relPaths = walkDir(KB_ROOT);
-  return relPaths
-    .map((rel) => {
-      const fullPath = path.join(KB_ROOT, rel);
-      const raw = fs.readFileSync(fullPath, "utf-8");
-      const { data, content } = safeParseMatter(raw);
-      const era = getEraFromPath(rel);
-      const parts = rel.replace(/\.md$/, "").split("/");
-      const category = parts.length > 2 ? (parts[1] ?? "概述") : parts.length > 1 ? (parts[1] ?? "概述") : "概述";
+let articlesCache: KBArticle[] | null = null;
 
-      return {
-        slug: makeSlug(rel),
-        title: (data.title as string) || (parts[parts.length - 1] ?? ""),
-        era,
-        eraLabel: ERA_MAP[era]?.label ?? era,
-        category,
-        region: data.region as string | undefined,
-        period: (data.period as string) || undefined,
-        tags: (data.tags as string[]) || [],
-        excerpt: extractExcerpt(content),
-        filePath: rel,
-      };
-    })
-    .sort((a, b) => {
-      const ea = ERA_MAP[a.era]?.order ?? 99;
-      const eb = ERA_MAP[b.era]?.order ?? 99;
-      if (ea !== eb) return ea - eb;
-      return a.title.localeCompare(b.title, "zh");
-    });
+function buildArticle(rel: string): KBArticle | null {
+  const fullPath = path.join(KB_ROOT, rel);
+  let raw: string;
+  try {
+    raw = fs.readFileSync(fullPath, "utf-8");
+  } catch {
+    return null;
+  }
+  const { data, content } = safeParseMatter(raw);
+  const era = getEraFromPath(rel);
+  const parts = rel.replace(/\.md$/, "").split("/");
+  const category =
+    parts.length > 2 ? (parts[1] ?? "概述") : parts.length > 1 ? (parts[1] ?? "概述") : "概述";
+
+  return {
+    slug: makeSlug(rel),
+    title: (data.title as string) || (parts[parts.length - 1] ?? ""),
+    era,
+    eraLabel: ERA_MAP[era]?.label ?? era,
+    category,
+    region: data.region as string | undefined,
+    period: (data.period as string) || undefined,
+    date: (data.date as string) || undefined,
+    tags: (data.tags as string[]) || [],
+    excerpt: extractExcerpt(content),
+    filePath: rel,
+  };
+}
+
+export function getAllArticles(): KBArticle[] {
+  if (articlesCache) return articlesCache;
+  const relPaths = walkDir(KB_ROOT);
+  const articles: KBArticle[] = [];
+  for (const rel of relPaths) {
+    const article = buildArticle(rel);
+    if (article) articles.push(article);
+  }
+  articlesCache = articles.sort((a, b) => {
+    const ea = ERA_MAP[a.era]?.order ?? 99;
+    const eb = ERA_MAP[b.era]?.order ?? 99;
+    if (ea !== eb) return ea - eb;
+    return a.title.localeCompare(b.title, "zh");
+  });
+  return articlesCache;
 }
 
 export function getArticleBySlug(slug: string): KBArticleFull | null {
+  if (slug.includes("..")) return null;
   const relPath = slug.replace(/--/g, "/") + ".md";
-  const fullPath = path.join(KB_ROOT, relPath);
-  if (!fs.existsSync(fullPath)) return null;
-  const raw = fs.readFileSync(fullPath, "utf-8");
+  const fullPath = path.resolve(KB_ROOT, relPath);
+  if (!fullPath.startsWith(path.resolve(KB_ROOT))) return null;
+  let raw: string;
+  try {
+    if (!fs.existsSync(fullPath)) return null;
+    raw = fs.readFileSync(fullPath, "utf-8");
+  } catch {
+    return null;
+  }
   const { data, content } = safeParseMatter(raw);
   const era = getEraFromPath(relPath);
   const parts = relPath.replace(/\.md$/, "").split("/");
-  const category = parts.length > 2 ? (parts[1] ?? "概述") : parts.length > 1 ? (parts[1] ?? "概述") : "概述";
+  const category =
+    parts.length > 2 ? (parts[1] ?? "概述") : parts.length > 1 ? (parts[1] ?? "概述") : "概述";
 
   return {
     slug,
@@ -137,6 +164,7 @@ export function getArticleBySlug(slug: string): KBArticleFull | null {
     category,
     region: data.region as string | undefined,
     period: (data.period as string) || undefined,
+    date: (data.date as string) || undefined,
     tags: (data.tags as string[]) || [],
     excerpt: extractExcerpt(content),
     filePath: relPath,

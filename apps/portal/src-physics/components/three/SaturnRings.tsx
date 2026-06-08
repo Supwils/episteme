@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import * as THREE from "three";
+import { DoubleSide, type MeshBasicMaterial, RingGeometry } from "three";
 import { getPlanetTexture } from "@/src-physics/lib/planetTextures";
 
 type Props = {
@@ -26,7 +26,7 @@ export function SaturnRings({
   tilt = 0.466,
   opacity = 1,
 }: Props) {
-  const matRef = useRef<THREE.MeshBasicMaterial>(null);
+  const matRef = useRef<MeshBasicMaterial>(null);
   const texture = useMemo(() => getPlanetTexture("saturnRing"), []);
   const geometry = useMemo(() => buildRingGeometry(inner, outer, 96), [inner, outer]);
 
@@ -39,8 +39,10 @@ export function SaturnRings({
   });
 
   useEffect(() => {
+    const mat = matRef.current;
     return () => {
       geometry.dispose();
+      mat?.dispose();
     };
   }, [geometry]);
 
@@ -49,7 +51,7 @@ export function SaturnRings({
       <meshBasicMaterial
         ref={matRef}
         map={texture}
-        side={THREE.DoubleSide}
+        side={DoubleSide}
         transparent
         depthWrite={false}
       />
@@ -57,8 +59,8 @@ export function SaturnRings({
   );
 }
 
-function buildRingGeometry(inner: number, outer: number, segs: number): THREE.RingGeometry {
-  const geo = new THREE.RingGeometry(inner, outer, segs, 1);
+function buildRingGeometry(inner: number, outer: number, segs: number): RingGeometry {
+  const geo = new RingGeometry(inner, outer, segs, 1);
   const pos = geo.getAttribute("position");
   const uv = geo.getAttribute("uv");
   for (let i = 0; i < pos.count; i++) {

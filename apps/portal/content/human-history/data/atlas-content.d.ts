@@ -1,1 +1,3 @@
-export const ATLAS_ERAS: Record<string, any>[];
+import type { AtlasEra } from "@/src-history/types/atlas";
+
+export const ATLAS_ERAS: AtlasEra[];

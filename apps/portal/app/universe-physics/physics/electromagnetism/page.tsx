@@ -1,8 +1,16 @@
-"use client";
+import type { Metadata } from "next";
+import P2PageClient from "./P2PageClient";
 
-import { useSyncTier } from "@/src-physics/hooks/useSyncTier";
+export const metadata: Metadata = {
+  title: "电磁学 — 宇宙物理 — Universe Knowledge",
+  description: "电磁学——电场、磁场与电磁波的统一理论",
+  openGraph: {
+    title: "电磁学 — 宇宙物理",
+    description: "电磁学——电场、磁场与电磁波的统一理论",
+    type: "website",
+  },
+};
 
 export default function P2Page() {
-  useSyncTier("P2");
-  return null;
+  return <P2PageClient />;
 }

@@ -1,25 +1,26 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 export default function ThemeToggle() {
   const [isLight, setIsLight] = useState(false);
 
   useEffect(() => {
     try {
-      const stored = localStorage.getItem('history-theme');
+      const stored = localStorage.getItem("history-theme");
       if (stored) {
-        setIsLight(stored === 'light');
+        setIsLight(stored === "light");
       } else {
-        setIsLight(window.matchMedia('(prefers-color-scheme: light)').matches);
+        setIsLight(window.matchMedia("(prefers-color-scheme: light)").matches);
       }
     } catch {}
   }, []);
 
   useEffect(() => {
-    document.documentElement.classList.toggle('light', isLight);
+    const root = document.querySelector(".human-history-root");
+    if (root) root.classList.toggle("light", isLight);
     try {
-      localStorage.setItem('history-theme', isLight ? 'light' : 'dark');
+      localStorage.setItem("history-theme", isLight ? "light" : "dark");
     } catch {}
   }, [isLight]);
 
@@ -27,10 +28,20 @@ export default function ThemeToggle() {
     <button
       className="theme-toggle"
       onClick={() => setIsLight((prev) => !prev)}
-      aria-label={isLight ? '切换为深色主题' : '切换为浅色主题'}
-      title={isLight ? '深色主题' : '浅色主题'}
+      aria-label={isLight ? "切换为深色主题" : "切换为浅色主题"}
+      title={isLight ? "深色主题" : "浅色主题"}
     >
-      <svg className="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        className="icon-sun"
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <circle cx="12" cy="12" r="5" />
         <line x1="12" y1="1" x2="12" y2="3" />
         <line x1="12" y1="21" x2="12" y2="23" />
@@ -41,7 +52,17 @@ export default function ThemeToggle() {
         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
       </svg>
-      <svg className="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        className="icon-moon"
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
       </svg>
     </button>

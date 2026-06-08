@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { memo, useCallback, useMemo, useState } from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
+import { SearchInput } from "./SearchInput";
 import { ERA_ACCENT, ERA_BG, PRODUCT_EASE } from "@/lib/constants";
 
 type ThinkerItem = {
@@ -16,10 +17,12 @@ type ThinkerItem = {
 
 const ERA_OPTIONS = ["全部", "古代", "近代", "现代", "当代"] as const;
 
-export function ThinkersList({ thinkers }: { thinkers: ThinkerItem[] }) {
+export const ThinkersList = memo(function ThinkersList({ thinkers }: { thinkers: ThinkerItem[] }) {
   const [query, setQuery] = useState("");
   const [activeEra, setActiveEra] = useState<string>("全部");
   const reduce = useReducedMotion();
+
+  const handleSearch = useCallback((q: string) => setQuery(q), []);
 
   const filtered = useMemo(() => {
     let result = thinkers;
@@ -41,47 +44,7 @@ export function ThinkersList({ thinkers }: { thinkers: ThinkerItem[] }) {
 
   return (
     <>
-      {/* Search input — glass morphism */}
-      <div className="relative mb-5">
-        <div
-          className="border-border-faint bg-bg-panel flex items-center gap-3 border px-4 py-3 backdrop-blur-xl transition-colors duration-300 focus-within:border-accent-gold/40"
-          style={{
-            boxShadow: "inset 0 1px 0 rgba(255,255,255,0.03)",
-          }}
-        >
-          <svg
-            className="text-fg-disabled h-4 w-4 shrink-0"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden
-          >
-            <path
-              fillRule="evenodd"
-              d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
-              clipRule="evenodd"
-            />
-          </svg>
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="搜索哲学家、流派、标签……"
-            className="text-fg-primary placeholder:text-fg-disabled w-full bg-transparent font-mono text-sm tracking-wide outline-none"
-          />
-          {query && (
-            <button
-              type="button"
-              onClick={() => setQuery("")}
-              className="text-fg-disabled hover:text-fg-secondary transition-colors"
-              aria-label="清除搜索"
-            >
-              <svg className="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
-              </svg>
-            </button>
-          )}
-        </div>
-      </div>
+      <SearchInput placeholder="搜索哲学家、流派、标签……" onSearch={handleSearch} />
 
       {/* Era filter chips */}
       <div className="mb-8 flex flex-wrap items-center gap-2">
@@ -114,7 +77,7 @@ export function ThinkersList({ thinkers }: { thinkers: ThinkerItem[] }) {
       {/* Card grid */}
       {filtered.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-24 text-center">
-          <div className="mb-6 flex h-16 w-16 items-center justify-center border border-border-subtle">
+          <div className="border-border-subtle mb-6 flex h-16 w-16 items-center justify-center border">
             <span className="font-display text-fg-disabled text-2xl italic">Φ</span>
           </div>
           <p className="font-display text-fg-muted text-lg font-semibold">未找到哲学家</p>
@@ -123,20 +86,15 @@ export function ThinkersList({ thinkers }: { thinkers: ThinkerItem[] }) {
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
           {filtered.map((thinker, i) => (
-            <ThinkerCard
-              key={thinker.slug}
-              thinker={thinker}
-              index={i}
-              reduce={!!reduce}
-            />
+            <ThinkerCard key={thinker.slug} thinker={thinker} index={i} reduce={!!reduce} />
           ))}
         </div>
       )}
     </>
   );
-}
+});
 
 /* ── Individual Thinker Card ──────────────────────────────────── */
 
@@ -163,7 +121,7 @@ function ThinkerCard({
     >
       <Link
         href={`/thinkers/${thinker.slug}`}
-        className="group border-border-faint bg-bg-near hover:bg-bg-elevated relative flex h-full flex-col overflow-hidden border transition-all duration-500 hover:shadow-[0_8px_40px_-12px_rgba(200,164,90,0.15)]"
+        className="border-border-faint bg-bg-near hover:bg-bg-elevated group relative flex h-full flex-col overflow-hidden border transition-all duration-500 hover:shadow-[0_8px_40px_-12px_rgba(200,164,90,0.15)]"
       >
         {/* Era color accent — top bar */}
         <div
@@ -175,7 +133,7 @@ function ThinkerCard({
           {/* Header: philosopher name + era */}
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0 flex-1">
-              <h3 className="font-display text-fg-primary text-xl font-semibold leading-snug transition-colors duration-300 group-hover:text-accent-gold">
+              <h3 className="font-display text-fg-primary group-hover:text-accent-gold text-xl font-semibold leading-snug transition-colors duration-300">
                 {thinker.title}
               </h3>
               <p className="text-fg-muted mt-0.5 font-mono text-[11px] italic tracking-wider">
@@ -183,7 +141,7 @@ function ThinkerCard({
               </p>
             </div>
             <div
-              className="flex h-9 w-9 shrink-0 items-center justify-center border font-display text-base italic"
+              className="font-display flex h-9 w-9 shrink-0 items-center justify-center border text-base italic"
               style={{
                 borderColor: `${accent}30`,
                 color: accent,
@@ -197,7 +155,7 @@ function ThinkerCard({
           {/* Badges: era + school */}
           <div className="flex flex-wrap items-center gap-2">
             <span
-              className="rounded-full border px-2.5 py-0.5 font-mono text-[9px] tracking-[0.2em] uppercase"
+              className="rounded-full border px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.2em]"
               style={{
                 borderColor: `${accent}30`,
                 color: accent,

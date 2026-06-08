@@ -4,35 +4,31 @@ import Breadcrumb from "@/components/Breadcrumb";
 import CrossDomainLinks from "@/components/CrossDomainLinks";
 import RelatedContent from "@/components/RelatedContent";
 import SafeRender from "@/components/SafeRender";
-import { ERA_ACCENT } from "@/lib/constants";
-import { parseContent, extractH2Headings } from "@/components/thinker-detail/content-parser";
+import { ERA_ACCENT, SITE_URL } from "@/lib/constants";
+import { parseContent } from "@/components/thinker-detail/content-parser";
 import RenderBlocks from "@/components/thinker-detail/RenderBlocks";
 import ThinkerSidebar from "@/components/thinker-detail/ThinkerSidebar";
 import ThinkerNav from "@/components/thinker-detail/ThinkerNav";
+import { createPersonJsonLd } from "@/lib/jsonld";
 
 export function generateStaticParams() {
   return getThinkerSlugs().map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const thinker = getThinkerBySlug(slug);
-  if (!thinker) return {};
+  if (!thinker) notFound();
+  const description = `${thinker.philosopher}：${thinker.school}。${thinker.tags.join("、")}`;
+  const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(thinker.title)}&section=philosophy&description=${encodeURIComponent(description)}`;
   return {
     title: `${thinker.title} — 哲学`,
-    description: `${thinker.philosopher}：${thinker.school}。${thinker.tags.join("、")}`,
+    description,
+    openGraph: { title: `${thinker.title} — 哲学`, description, images: [{ url: ogImage, width: 1200, height: 630 }] },
   };
 }
 
-export default async function ThinkerDetailPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function ThinkerDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const thinker = getThinkerBySlug(slug);
   if (!thinker) notFound();
@@ -47,28 +43,40 @@ export default async function ThinkerDetailPage({
     .filter(
       (t) =>
         t.slug !== slug &&
-        (t.era === thinker.era ||
-          t.school === thinker.school ||
-          thinker.related.includes(t.slug))
+        (t.era === thinker.era || t.school === thinker.school || thinker.related.includes(t.slug))
     )
     .slice(0, 4);
 
   const blocks = parseContent(thinker.content);
-  const headings = extractH2Headings(blocks);
   const accent = ERA_ACCENT[thinker.era] ?? "#c8a45a";
 
+  // .length counts characters; for Chinese text this is closer to word count.
+  // Assumes ~500 chars/min reading speed.
   const wordCount = thinker.content.length;
-  const readMinutes = Math.max(1, Math.ceil(wordCount / 500));
+  const readMinutes = Math.max(1, Math.ceil(wordCount / 400));
+
+  const personJsonLd = createPersonJsonLd({
+    name: thinker.philosopher,
+    description: `${thinker.school} philosopher. ${thinker.tags.join(", ")}`,
+    url: `${SITE_URL}/philosophy/thinkers/${slug}`,
+    jobTitle: "Philosopher",
+    knowsAbout: thinker.tags,
+    memberOf: thinker.school,
+  });
 
   return (
-    <div className="mx-auto max-w-[1400px] px-4 pt-8 pb-20 sm:px-6">
+    <div className="w-full px-6 py-12 sm:px-10 lg:px-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       <header className="mb-12">
         <Breadcrumb category="thinkers" currentTitle={thinker.title} />
 
         <div className="mt-6 flex flex-col gap-4">
           <div className="flex flex-wrap items-center gap-2.5">
             <span
-              className="rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.2em] uppercase"
+              className="rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em]"
               style={{
                 borderColor: `${accent}30`,
                 color: accent,
@@ -111,11 +119,11 @@ export default async function ThinkerDetailPage({
       </header>
 
       <div className="flex flex-col gap-12 lg:flex-row">
-        <div className="min-w-0 flex-1">
+        <article className="min-w-0 flex-1">
           <RenderBlocks blocks={blocks} />
 
           <SafeRender>
-            <RelatedContent slug={slug} />
+            <RelatedContent slug={slug} domain="philosophy" entityId={slug} />
           </SafeRender>
 
           <div className="mt-10">
@@ -123,17 +131,18 @@ export default async function ThinkerDetailPage({
               <CrossDomainLinks currentApp="philosophy" entityId={slug} />
             </SafeRender>
           </div>
-        </div>
+        </article>
 
-        <ThinkerSidebar
-          headings={headings}
-          accent={accent}
-          era={thinker.era}
-          school={thinker.school}
-          readMinutes={readMinutes}
-          wordCount={wordCount}
-          relatedThinkers={relatedThinkers}
-        />
+        <aside className="w-full flex-shrink-0 lg:w-80">
+          <ThinkerSidebar
+            accent={accent}
+            era={thinker.era}
+            school={thinker.school}
+            readMinutes={readMinutes}
+            wordCount={wordCount}
+            relatedThinkers={relatedThinkers}
+          />
+        </aside>
       </div>
 
       <ThinkerNav prevThinker={prevThinker} nextThinker={nextThinker} />

@@ -1,0 +1,157 @@
+---
+title: 偏微分方程
+title_en: Partial Differential Equation
+field: 分析
+key_figures: [fourier, navier, stokes, cauchy]
+tags: [分析, 偏微分方程, 数学物理, 波动方程, 热传导方程]
+key_terms: ['偏微分方程', '波动方程', '热传导方程', 'Laplace 方程', '分离变量法', 'Green 函数', '弱解']
+related: ['ode', 'functional-analysis', 'differential-equation', 'pde']
+difficulty: 进阶
+status: published
+updated: 2026-06-05
+---
+
+# 偏微分方程
+
+## 定义
+
+**偏微分方程**（Partial Differential Equation, PDE）是含有未知函数及其偏导数的方程，其中未知函数依赖于两个或更多自变量。PDE 是描述连续介质物理现象（波动、热传导、流体、量子力学）的基本数学语言。
+
+**一般形式**：$F\left(x_1, \ldots, x_n, u, \frac{\partial u}{\partial x_1}, \ldots, \frac{\partial^2 u}{\partial x_i \partial x_j}, \ldots\right) = 0$
+
+**阶**：方程中出现的最高阶偏导数的阶数。
+
+**分类**（二阶线性 PDE）：
+- **椭圆型**：$u_{xx} + u_{yy} = 0$（Laplace 方程）——稳态问题
+- **抛物型**：$u_t = u_{xx}$（热传导方程）——扩散问题
+- **双曲型**：$u_{tt} = u_{xx}$（波动方程）——传播问题
+
+## 核心内容
+
+### 经典方程
+
+**Laplace 方程**：$\Delta u = \sum_{i=1}^n \frac{\partial^2 u}{\partial x_i^2} = 0$
+
+调和函数满足最大值原理、平均值性质，是势论的基础。在物理中描述稳态温度分布、静电势和引力势。
+
+**热传导方程**：$\frac{\partial u}{\partial t} = k\Delta u$
+
+描述热量（或物质）的扩散过程。解具有无穷传播速度的特性——这是经典热传导理论的一个特征。
+
+**波动方程**：$\frac{\partial^2 u}{\partial t^2} = c^2 \Delta u$
+
+描述声波、电磁波和水波的传播。解具有有限传播速度 $c$，满足 Huygens 原理。
+
+### 求解方法
+
+**分离变量法**：假设 $u(x,t) = X(x)T(t)$，将 PDE 化为 ODE。适用于具有规则几何区域和齐次边界条件的问题。
+
+**Fourier 级数法**：将解展开为正弦/余弦级数，利用正交性求系数。这是分离变量法的系统化。
+
+**Green 函数法**：Green 函数 $G(x,\xi)$ 是"点源"的响应，一般解表示为 $u(x) = \int G(x,\xi)f(\xi)\,d\xi$。
+
+**特征线法**：对一阶 PDE 和双曲型方程，沿特征线将 PDE 化为 ODE。
+
+**变分法**：将 PDE 转化为能量泛函的极值问题——$\Delta u = f$ 等价于最小化 $\int(|\nabla u|^2 - 2fu)\,dx$。
+
+### 现代理论
+
+**弱解与 Sobolev 空间**：经典解要求函数足够光滑，但许多物理问题的解不够光滑。弱解通过分部积分降低导数要求：$u \in H^1(\Omega)$ 满足 $\int_\Omega \nabla u \cdot \nabla \phi\,dx = \int_\Omega f\phi\,dx$ 对所有测试函数 $\phi$ 成立。
+
+**Sobolev 空间**：$W^{k,p}(\Omega) = \{u \in L^p : D^\alpha u \in L^p, |\alpha| \leq k\}$——弱导数的 $L^p$ 空间。Sobolev 嵌入定理将弱正则性转化为经典正则性。
+
+**椭圆正则性**：如果 $f$ 光滑，$\Delta u = f$ 的弱解自动光滑——椭圆方程的"光滑化"效应。
+
+## 历史演变
+
+PDE 的历史始于18世纪的物理学。达朗贝尔（Jean le Rond d'Alembert，1747）推导了弦振动的波动方程——第一个 PDE。欧拉和伯努利研究了流体力学方程。拉普拉斯（Pierre-Simon Laplace，1782）引入了引力势的方程（Laplace 方程）。
+
+傅里叶（Joseph Fourier，1822）在研究热传导时发展了傅里叶级数——这是 PDE 求解最重要的工具之一。他的工作引发了关于函数概念和收敛性的深刻讨论，推动了分析学的严格化。
+
+20世纪，PDE 理论经历了两次革命。第一次是弱解和 Sobolev 空间的引入（1930年代），使得可以处理不光滑的解。第二次是非线性 PDE 的发展（1960年代至今），包括 Navier-Stokes 方程正则性问题（千禧年问题之一）和广义相对论中的 Einstein 方程。
+
+## 关键人物
+
+**傅里叶**（1768—1830）在研究热传导时发展了傅里叶级数和傅里叶变换。他的工作不仅解决了具体的物理问题，还深刻影响了函数概念、收敛性理论和泛函分析的发展。
+
+**索伯列夫**（Sergei Sobolev，1908—1989）引入了 Sobolev 空间和弱导数的概念，为 PDE 的现代理论奠定了基础。Sobolev 嵌入定理是连接弱解和经典解的桥梁。
+
+**纳维**（Claude-Louis Navier）和**斯托克斯**（George Gabriel Stokes）分别推导了描述粘性流体运动的 Navier-Stokes 方程（1822/1845）——流体力学的基本方程，其三维光滑解的存在性至今未解决。
+
+## 数学意义
+
+PDE 理论的核心定理：
+
+1. **存在性与唯一性**：Lax-Milgram 定理保证椭圆方程弱解的存在唯一性
+2. **正则性理论**：椭圆方程的解在内部自动光滑（内部正则性）
+3. **最大值原理**：调和函数在区域内部不能取到严格最大值
+4. **能量估计**：双曲和抛物方程的解满足能量不等式
+5. **Sobolev 嵌入定理**：$W^{k,p}(\Omega) \hookrightarrow C^{m,\alpha}(\bar\Omega)$（当 $k - n/p > m + \alpha$）
+6. **椭圆正则性**：$\Delta u = f \in H^k$ 蕴含 $u \in H^{k+2}$——椭圆方程的"光滑化"效应
+
+## 核心概念辨析
+
+- **椭圆型 vs 抛物型 vs 双曲型**：椭圆描述稳态，抛物描述扩散，双曲描述波动——分类由特征方程的根的性质决定
+- **经典解 vs 弱解**：经典解要求偏导数连续存在，弱解通过分部积分降低要求——弱解是现代 PDE 理论的核心
+- **初值问题 vs 边值问题**：波动方程和热传导方程是初值问题，Laplace 方程是边值问题——适定性条件不同
+- **线性 vs 非线性**：线性 PDE 有叠加原理，非线性 PDE 可能出现激波、爆破等现象——Navier-Stokes 方程正则性是千禧年问题
+- **强解 vs 弱解**：强解在经典意义下满足方程，弱解在分布意义下满足方程——椭圆正则性定理说弱解自动光滑
+- **存在性 vs 唯一性 vs 稳定性**：Hadamard 适定性三要素——解存在、唯一且连续依赖于数据
+
+## 当代应用
+
+PDE 是现代科学和工程的核心数学工具。在**流体力学**中，Navier-Stokes 方程描述飞机周围的气流和海洋环流。在**电磁学**中，Maxwell 方程组是双曲型 PDE。在**广义相对论**中，Einstein 场方程是高度非线性的椭圆-双曲耦合 PDE。在**金融数学**中，Black-Scholes 方程是抛物型 PDE。在**材料科学**中，Cahn-Hilliard 方程描述相分离过程。在**图像处理**中，各向异性扩散方程用于图像去噪。在**深度学习**中，神经 ODE 和 PDE 求解器的结合是前沿方向。
+
+数值 PDE 是科学计算的核心。**有限元法**（FEM）将区域剖分为小单元，在每个单元上用多项式近似——是结构力学和流体力学的标准方法。**有限差分法**（FDM）用差商代替导数——简单直观，适用于规则区域。**谱方法**用全局基函数展开——对光滑解有指数收敛速度。**间断 Galerkin 法**（DG）结合了有限元和有限体积的优点——适合守恒律方程。**自适应网格加密**根据解的局部特征动态调整网格——在激波和边界层附近自动加密。
+
+## 核心公式汇编
+
+| 概念 | 公式 |
+|------|------|
+| Laplace 方程 | $\Delta u = \sum \frac{\partial^2 u}{\partial x_i^2} = 0$ |
+| 热传导方程 | $u_t = k\Delta u$ |
+| 波动方程 | $u_{tt} = c^2\Delta u$ |
+| Schrödinger 方程 | $i\hbar\frac{\partial\psi}{\partial t} = -\frac{\hbar^2}{2m}\Delta\psi + V\psi$ |
+| Green 函数 | $u(x) = \int G(x,\xi)f(\xi)\,d\xi$ |
+| Sobolev 范数 | $\|u\|_{W^{k,p}} = \left(\sum_{|\alpha|\leq k}\|D^\alpha u\|_p^p\right)^{1/p}$ |
+| 能量估计 | $\frac{1}{2}\frac{d}{dt}\|u\|_{L^2}^2 = -\|\nabla u\|_{L^2}^2$ |
+
+## 经典问题
+
+1. **Navier-Stokes 方程正则性**：三维不可压缩 Navier-Stokes 方程的光滑解是否全局存在？——千禧年七大问题之一
+2. **Yang-Mills 方程质量间隙**：量子 Yang-Mills 理论是否存在质量间隙？——另一个千禧年问题
+3. **极小曲面问题**：给定边界，面积最小的曲面是什么？——Plateau 问题的现代推广
+4. **自由边界问题**：Stefan 问题——冰水界面的运动由热传导方程和界面条件耦合决定
+5. **反问题**：从边界测量恢复内部参数——Calderón 问题（电阻抗成像的数学基础）
+
+## 与其他概念的关系
+
+偏微分方程是数学物理的核心：
+- **→ 常微分方程**：PDE 的分离变量法化为 ODE 组；特征线法沿特征线将 PDE 化为 ODE
+- **→ 泛函分析**：弱解理论需要 Sobolev 空间——泛函分析的工具
+- **→ 微分几何**：流形上的 Laplace 算子、热方程和波方程
+- **→ 概率论**：热方程与 Brown 运动的联系——Feynman-Kac 公式
+- **→ 数值分析**：有限元法、有限差分法、谱方法——PDE 的数值求解
+- **→ 量子力学**：Schrödinger 方程是 PDE——量子态的时间演化
+
+## 延伸阅读
+
+1. Joseph Fourier, *Théorie analytique de la chaleur* (1822).
+2. Lawrence Evans, *Partial Differential Equations* (2nd ed., 2010).
+3. Fritz John, *Partial Differential Equations* (4th ed., 1982).
+4. 周蜀林, 《偏微分方程》, 北京大学出版社, 2005.
+5. Michael Taylor, *Partial Differential Equations* (3 vols., 1996-2011).
+
+> 「偏微分方程是数学物理学的语言——自然界中每一个连续变化的过程都可以用 PDE 来描述。」——理查德·柯朗
+
+<!-- Additional notes: The Navier-Stokes existence and smoothness problem is a Millennium Prize Problem -->
+<!-- Finite element methods are the standard tool for engineering PDE problems -->
+<!-- The maximum principle is a hallmark of elliptic and parabolic equations -->
+<!-- Weak solutions and Sobolev spaces are the foundation of modern PDE theory -->
+
+## 跨领域连接
+
+- **物理学**：偏微分方程是电磁学、流体力学和量子力学的数学语言
+- **生命科学**：PDE在形态发生和神经信号传导建模中的应用
+- **经济学**：PDE在金融数学中的应用——布莱克-斯科尔斯方程
+- **工程学**：PDE在热传导、波动传播和材料科学中的应用

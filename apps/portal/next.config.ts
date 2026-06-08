@@ -13,7 +13,8 @@ const csp = [
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "img-src 'self' data: blob: https://cdn.jsdelivr.net",
   "font-src 'self' data: https://fonts.gstatic.com",
-  "connect-src 'self' https://api.iconify.design https://api.unisvg.com https://api.simpleicons.org",
+  "connect-src 'self' https://api.iconify.design https://api.unisvg.com https://api.simpleicons.org https://vitals.vercel-insights.com https://vitals.vercel-insights.com/v1/",
+  "worker-src 'self'",
   "manifest-src 'self'",
 ].join("; ");
 
@@ -24,24 +25,24 @@ const securityHeaders = [
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   {
     key: "Permissions-Policy",
-    value: "camera=(), microphone=(), geolocation=(), interest-cohort=(), browsing-topics=(), payment=()",
+    value:
+      "camera=(), microphone=(), geolocation=(), interest-cohort=(), browsing-topics=(), payment=()",
   },
   { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
   { key: "Cross-Origin-Resource-Policy", value: "same-origin" },
 ];
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["@universe/ui"],
+  transpilePackages: ["@universe/ui", "@universe/graph-engine"],
   poweredByHeader: false,
   reactStrictMode: true,
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   experimental: {
     optimizePackageImports: [
       "three",
-      "framer-motion",
-      "@react-three/fiber",
       "@react-three/drei",
-      "@react-three/postprocessing",
+      "framer-motion",
+      "gsap",
     ],
   },
   async headers() {

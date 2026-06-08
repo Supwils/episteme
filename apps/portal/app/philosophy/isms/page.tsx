@@ -1,11 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllIsms, getOrderedCategories, type Ism } from "@/lib/isms";
 import IsmsFilter from "./IsmsFilter";
 import { CATEGORY_ACCENTS } from "@/lib/constants";
 
-export const metadata = {
-  title: "哲学主义 — Philosophy",
-  description: "从本体论到伦理学，探索哲学中最重要的主义与立场。",
+export const metadata: Metadata = {
+  title: "哲学主义 — Universe Knowledge",
+  description: "从本体论到伦理学，探索哲学中最重要的主义与立场",
 };
 
 export default function IsmsPage() {
@@ -22,9 +23,9 @@ export default function IsmsPage() {
   }));
 
   return (
-    <div className="mx-auto max-w-[1400px] px-6 py-16">
+    <div className="w-full px-6 py-16 sm:px-10 lg:px-16">
       <header className="mb-10">
-        <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
+        <p className="text-fg-muted mb-3 font-mono text-[10px] uppercase tracking-[0.42em]">
           philosophical · isms
         </p>
         <h1 className="font-display text-fg-primary text-[2.4rem] leading-tight tracking-tight md:text-[3.2rem]">
@@ -35,11 +36,7 @@ export default function IsmsPage() {
         </p>
       </header>
 
-      <IsmsFilter
-        isms={serialized}
-        categories={categories}
-        categoryAccents={CATEGORY_ACCENTS}
-      />
+      <IsmsFilter isms={serialized} categories={categories} categoryAccents={CATEGORY_ACCENTS} />
     </div>
   );
 }

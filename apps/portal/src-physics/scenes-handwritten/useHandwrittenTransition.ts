@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useCallback, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { getSectionRoute, inferSectionFromTier } from "@/src-physics/lib/section";
 import type { AnyTierId } from "@/src-physics/lib/tier";
 import { SECTIONS } from "@/src-physics/lib/section";
@@ -25,10 +25,25 @@ export function useHandwrittenTransition() {
   const transitionActive = useUniverseStore((s) => s.transition.active);
   const rafRef = useRef<number | null>(null);
 
+  useEffect(() => {
+    return () => {
+      if (rafRef.current !== null) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
+      }
+    };
+  }, []);
+
   return useCallback(
     (target: AnyTierId) => {
       if (transitionActive) return;
       if (target === currentTier) return;
+
+      if (rafRef.current !== null) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
+      }
+
       const store = useUniverseStore.getState();
       const targetSection = inferSectionFromTier(target);
       const kind = SECTIONS[targetSection].transitionKind(currentTier, target);

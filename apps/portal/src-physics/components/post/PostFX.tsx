@@ -1,5 +1,7 @@
 "use client";
 
+import { useMemo } from "react";
+import { Vector2 } from "three";
 import {
   EffectComposer,
   Bloom,
@@ -21,6 +23,7 @@ import { useUiStore } from "@/src-physics/store/useUiStore";
  */
 export function PostFX() {
   const quality = useUiStore((s) => s.qualityTier);
+  const chromaticOffset = useMemo(() => new Vector2(0.0005, 0.0005), []);
 
   if (quality === "low") {
     return (
@@ -58,11 +61,7 @@ export function PostFX() {
         mipmapBlur
       />
       <Vignette offset={0.5} darkness={0.45} blendFunction={BlendFunction.NORMAL} />
-      <ChromaticAberration
-        offset={[0.0005, 0.0005] as unknown as import("three").Vector2}
-        radialModulation={false}
-        modulationOffset={0}
-      />
+      <ChromaticAberration offset={chromaticOffset} radialModulation={false} modulationOffset={0} />
       <Noise opacity={0.025} blendFunction={BlendFunction.OVERLAY} />
     </EffectComposer>
   );

@@ -7,10 +7,12 @@ export type QualityTier = "high" | "medium" | "low";
 export function detectInitialQuality(): QualityTier {
   if (typeof navigator === "undefined") return "medium";
 
-  const mem = (navigator as Navigator & { deviceMemory?: number }).deviceMemory ?? 8;
+  const mem = (navigator as Navigator & { deviceMemory?: number }).deviceMemory ?? 4;
   const cores = navigator.hardwareConcurrency ?? 8;
   const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
-  const mobile = /Android|iPhone|iPad/.test(navigator.userAgent);
+  const UA = navigator.userAgent;
+  const mobile =
+    /Android|iPhone|iPad/.test(UA) || (navigator.maxTouchPoints > 1 && /Macintosh/.test(UA));
 
   if (mobile || mem < 4 || cores < 4) return "low";
   if (mem < 8 || dpr > 2.5) return "medium";

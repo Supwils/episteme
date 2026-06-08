@@ -22,6 +22,7 @@ export function DesktopNav({ links }: { links: NavLink[] }) {
         <li key={link.href}>
           <Link
             href={link.href}
+            aria-current={isActive(link.href) ? 'page' : undefined}
             className={`nav-link-item ${isActive(link.href) ? 'nav-link-active' : ''}`}
           >
             {link.label}

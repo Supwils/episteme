@@ -54,6 +54,10 @@ export function HandwrittenMarker({
     setHovered(false);
     setHover(null);
   };
+  const onFocus = () => {
+    setHovered(true);
+    setHover(marker);
+  };
   const onClick = () => openPanel(marker.id);
   const onKey = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" || e.key === " ") {
@@ -76,7 +80,7 @@ export function HandwrittenMarker({
         onMouseEnter={onEnter}
         onMouseMove={onMove}
         onMouseLeave={onLeave}
-        onFocus={onEnter as unknown as (e: React.FocusEvent) => void}
+        onFocus={onFocus}
         onBlur={onLeave}
         onClick={onClick}
         onKeyDown={onKey}

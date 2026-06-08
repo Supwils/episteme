@@ -1,0 +1,94 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+
+export type GraphLegendProps = {
+  nodeCounts: Record<string, number>;
+  edgeCounts: Record<string, number>;
+};
+
+const DOMAIN_ITEMS = [
+  { id: "physics", label: "物理", color: "#6366f1" },
+  { id: "history", label: "历史", color: "#f59e0b" },
+  { id: "philosophy", label: "哲学", color: "#10b981" },
+  { id: "life-science", label: "生命科学", color: "#ec4899" },
+  { id: "economics", label: "经济学", color: "#e8b84a" },
+  { id: "psychology", label: "心理学", color: "#d4789c" },
+] as const;
+
+const NODE_TYPE_ITEMS = [
+  { id: "thinker", label: "思想家", color: "#818cf8" },
+  { id: "event", label: "事件", color: "#fbbf24" },
+  { id: "species", label: "物种", color: "#34d399" },
+  { id: "concept", label: "概念", color: "#f472b6" },
+  { id: "experiment", label: "实验", color: "#60a5fa" },
+  { id: "economist", label: "经济学家", color: "#e8b84a" },
+  { id: "theorist", label: "心理学家", color: "#d4789c" },
+  { id: "phenomenon", label: "心理现象", color: "#e8a0bf" },
+] as const;
+
+export function GraphLegend({ nodeCounts, edgeCounts }: GraphLegendProps) {
+  const reducedMotion = useReducedMotion();
+  const totalNodes = Object.values(nodeCounts).reduce((sum, n) => sum + n, 0);
+  const totalEdges = Object.values(edgeCounts).reduce((sum, n) => sum + n, 0);
+
+  return (
+    <motion.div
+      initial={reducedMotion ? false : { opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: reducedMotion ? 0 : 0.3, ease: "easeOut" }}
+      className="inline-flex flex-col gap-2.5 px-4 py-3 rounded-xl border border-white/[0.06] bg-[#111118]/80 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.03)]"
+      role="region"
+      aria-label="图谱图例"
+    >
+      {/* Domain row */}
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
+        {DOMAIN_ITEMS.map((domain) => (
+          <div key={domain.id} className="flex items-center gap-1.5" title={`${domain.label}: ${nodeCounts[domain.id] ?? 0} 个节点`}>
+            <span
+              className="h-2.5 w-2.5 rounded-full shrink-0"
+              style={{ backgroundColor: domain.color }}
+            />
+            <span className="text-[0.7rem] text-white/60">{domain.label}</span>
+            {(nodeCounts[domain.id] ?? 0) > 0 && (
+              <span className="text-[0.6rem] text-white/40 tabular-nums">{nodeCounts[domain.id]}</span>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* Divider */}
+      <div className="h-px bg-white/[0.06]" aria-hidden="true" />
+
+      {/* Node type row */}
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
+        {NODE_TYPE_ITEMS.map((nodeType) => (
+          <div key={nodeType.id} className="flex items-center gap-1.5" title={`${nodeType.label}: ${nodeCounts[nodeType.id] ?? 0} 个节点`}>
+            <span
+              className="h-2 w-2 rounded-full border shrink-0"
+              style={{
+                borderColor: nodeType.color,
+                backgroundColor: "transparent",
+              }}
+            />
+            <span className="text-[0.7rem] text-white/50">{nodeType.label}</span>
+            {(nodeCounts[nodeType.id] ?? 0) > 0 && (
+              <span className="text-[0.6rem] text-white/40 tabular-nums">{nodeCounts[nodeType.id]}</span>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* Stats summary */}
+      {(totalNodes > 0 || totalEdges > 0) && (
+        <>
+          <div className="h-px bg-white/[0.06]" aria-hidden="true" />
+          <div className="flex items-center gap-3 text-[0.6rem] text-white/40">
+            {totalNodes > 0 && <span>{totalNodes} 个节点</span>}
+            {totalEdges > 0 && <span>{totalEdges} 条关系</span>}
+          </div>
+        </>
+      )}
+    </motion.div>
+  );
+}

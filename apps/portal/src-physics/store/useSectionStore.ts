@@ -39,13 +39,13 @@ type State = {
   setPhysicsPage: (page: number) => void;
 };
 
-const IDLE_TRANSITION: Transition = {
+const IDLE_TRANSITION: Readonly<Transition> = Object.freeze({
   active: false,
   from: null,
   to: null,
   kind: null,
   progress: 0,
-};
+});
 
 export const useSectionStore = create<State>((set) => ({
   section: "universe",
@@ -67,8 +67,8 @@ export const useSectionStore = create<State>((set) => ({
       // If the tier belongs to another section, auto-switch section too
       const owningSection = SECTIONS.physics.isOwnedTier(currentTier) ? "physics" : "universe";
       return owningSection === state.section
-        ? { currentTier, physicsPage: 0 }
-        : { section: owningSection, currentTier, physicsPage: 0 };
+        ? { currentTier, transition: IDLE_TRANSITION, physicsPage: 0 }
+        : { section: owningSection, currentTier, transition: IDLE_TRANSITION, physicsPage: 0 };
     }),
 
   setTarget: (targetObjectId) => set({ targetObjectId }),
@@ -82,11 +82,14 @@ export const useSectionStore = create<State>((set) => ({
     })),
 
   finishTransition: () =>
-    set((state) => ({
-      currentTier: state.transition.to ?? state.currentTier,
-      transition: IDLE_TRANSITION,
-      physicsPage: 0,
-    })),
+    set((state) => {
+      if (!state.transition.active) return state;
+      return {
+        currentTier: state.transition.to ?? state.currentTier,
+        transition: IDLE_TRANSITION,
+        physicsPage: 0,
+      };
+    }),
 
   cancelTransition: () => set({ transition: IDLE_TRANSITION }),
 

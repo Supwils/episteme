@@ -18,6 +18,11 @@ const DOMAIN_ICON: Record<DomainApp, string> = {
   "universe-physics": "\u{1F52C}",
   "human-history": "\u{1F4DC}",
   philosophy: "\u{1F4AD}",
+  "life-science": "\u{1F9EC}",
+  mathematics: "\u{2211}",
+  cosmology: "\u{1F30C}",
+  economics: "\u{1F4CA}",
+  psychology: "\u{1F9E0}",
 };
 
 const APP_STYLES: Record<DomainApp, { badge: string; border: string; hoverText: string }> = {
@@ -36,6 +41,31 @@ const APP_STYLES: Record<DomainApp, { badge: string; border: string; hoverText: 
     border: "hover:border-amber-400/30",
     hoverText: "group-hover/crosslink:text-amber-400",
   },
+  "life-science": {
+    badge: "bg-emerald-500/15 text-emerald-400",
+    border: "hover:border-emerald-400/30",
+    hoverText: "group-hover/crosslink:text-emerald-400",
+  },
+  mathematics: {
+    badge: "bg-sky-500/15 text-sky-400",
+    border: "hover:border-sky-400/30",
+    hoverText: "group-hover/crosslink:text-sky-400",
+  },
+  cosmology: {
+    badge: "bg-violet-500/15 text-violet-400",
+    border: "hover:border-violet-400/30",
+    hoverText: "group-hover/crosslink:text-violet-400",
+  },
+  economics: {
+    badge: "bg-yellow-500/15 text-yellow-400",
+    border: "hover:border-yellow-400/30",
+    hoverText: "group-hover/crosslink:text-yellow-400",
+  },
+  psychology: {
+    badge: "bg-pink-500/15 text-pink-400",
+    border: "hover:border-pink-400/30",
+    hoverText: "group-hover/crosslink:text-pink-400",
+  },
 };
 
 function resolveTarget(link: CrossLink, currentApp: DomainApp) {
@@ -48,16 +78,13 @@ function resolveTarget(link: CrossLink, currentApp: DomainApp) {
   };
 }
 
-export default function CrossDomainLinks({
-  currentApp,
-  entityId,
-}: CrossDomainLinksProps) {
+export default function CrossDomainLinks({ currentApp, entityId }: CrossDomainLinksProps) {
   const links = getLinksForEntity(currentApp, entityId);
   if (links.length === 0) return null;
 
   return (
     <section className="mt-8 border-t border-white/[0.06] pt-5">
-      <h3 className="mb-3 font-mono text-[10px] tracking-[0.3em] uppercase text-white/40">
+      <h3 className="mb-3 font-mono text-[10px] uppercase tracking-[0.3em] text-white/40">
         跨领域连接
       </h3>
       <div className="flex flex-col gap-2">
@@ -77,7 +104,7 @@ export default function CrossDomainLinks({
               className={clsx(
                 "group/crosslink flex items-start gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 backdrop-blur-sm transition-all duration-200",
                 "hover:-translate-y-0.5 hover:bg-white/[0.05] hover:shadow-[0_4px_16px_rgba(0,0,0,0.2)]",
-                styles.border,
+                styles.border
               )}
             >
               <span className="mt-0.5 shrink-0 text-sm leading-none" aria-hidden>
@@ -87,8 +114,8 @@ export default function CrossDomainLinks({
                 <div className="flex items-center gap-2">
                   <span
                     className={clsx(
-                      "shrink-0 rounded px-1.5 py-0.5 font-mono text-[9px] tracking-[0.1em] uppercase",
-                      styles.badge,
+                      "shrink-0 rounded px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.1em]",
+                      styles.badge
                     )}
                   >
                     {appLabel}
@@ -96,7 +123,7 @@ export default function CrossDomainLinks({
                   <span
                     className={clsx(
                       "truncate font-mono text-[12px] font-semibold tracking-wide text-white/90 transition-colors duration-200",
-                      styles.hoverText,
+                      styles.hoverText
                     )}
                   >
                     {target.title}
@@ -108,9 +135,15 @@ export default function CrossDomainLinks({
               </div>
               <span
                 aria-hidden
-                className="mt-1 shrink-0 text-white/20 opacity-0 transition-all duration-200 group-hover/crosslink:translate-x-0.5 group-hover/crosslink:-translate-y-0.5 group-hover/crosslink:opacity-100"
+                className="mt-1 shrink-0 text-white/20 opacity-0 transition-all duration-200 group-hover/crosslink:-translate-y-0.5 group-hover/crosslink:translate-x-0.5 group-hover/crosslink:opacity-100"
               >
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-3.5 w-3.5">
+                <svg
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  className="h-3.5 w-3.5"
+                >
                   <path d="M12 9v4a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h4" />
                   <path d="M8 2h6v6" />
                   <path d="M14 2L6.5 9.5" />

@@ -1,6 +1,14 @@
 "use client";
 
-import * as THREE from "three";
+import {
+  ClampToEdgeWrapping,
+  DataTexture,
+  RGBAFormat,
+  RepeatWrapping,
+  SRGBColorSpace,
+  type Texture,
+  TextureLoader,
+} from "three";
 
 /** Public-relative paths to the 12 planet/moon textures. */
 export const PLANET_TEXTURE_PATHS = {
@@ -20,8 +28,8 @@ export const PLANET_TEXTURE_PATHS = {
 
 export type PlanetTextureKey = keyof typeof PLANET_TEXTURE_PATHS;
 
-const cache = new Map<PlanetTextureKey, THREE.Texture>();
-let sharedLoader: THREE.TextureLoader | null = null;
+const cache = new Map<PlanetTextureKey, Texture>();
+let sharedLoader: TextureLoader | null = null;
 
 /**
  * Synchronous texture getter with a module-level cache.
@@ -32,19 +40,19 @@ let sharedLoader: THREE.TextureLoader | null = null;
  * so the next frame picks it up. This avoids Suspense and keeps each
  * scene's mount cheap.
  */
-export function getPlanetTexture(key: PlanetTextureKey): THREE.Texture {
+export function getPlanetTexture(key: PlanetTextureKey): Texture {
   const hit = cache.get(key);
   if (hit) return hit;
 
-  if (!sharedLoader) sharedLoader = new THREE.TextureLoader();
+  if (!sharedLoader) sharedLoader = new TextureLoader();
   const placeholder = makePlaceholder();
   cache.set(key, placeholder);
 
   sharedLoader.load(PLANET_TEXTURE_PATHS[key], (tex) => {
-    tex.colorSpace = THREE.SRGBColorSpace;
+    tex.colorSpace = SRGBColorSpace;
     tex.anisotropy = 4;
-    tex.wrapS = THREE.RepeatWrapping;
-    tex.wrapT = THREE.ClampToEdgeWrapping;
+    tex.wrapS = RepeatWrapping;
+    tex.wrapT = ClampToEdgeWrapping;
     tex.needsUpdate = true;
     cache.set(key, tex);
     placeholder.dispose();
@@ -58,10 +66,10 @@ export function preloadPlanetTextures(keys: readonly PlanetTextureKey[]) {
   for (const k of keys) getPlanetTexture(k);
 }
 
-function makePlaceholder(): THREE.Texture {
+function makePlaceholder(): Texture {
   const data = new Uint8Array([60, 60, 70, 255]);
-  const tex = new THREE.DataTexture(data, 1, 1, THREE.RGBAFormat);
-  tex.colorSpace = THREE.SRGBColorSpace;
+  const tex = new DataTexture(data, 1, 1, RGBAFormat);
+  tex.colorSpace = SRGBColorSpace;
   tex.needsUpdate = true;
   return tex;
 }

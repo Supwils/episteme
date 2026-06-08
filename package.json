@@ -2,19 +2,35 @@
   "name": "universe-knowledge",
   "private": true,
   "packageManager": "pnpm@10.27.0",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
-    "dev": "pnpm --filter @universe/portal dev",
+    "dev": "turbo run dev",
     "build": "turbo run build",
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck",
-    "test": "turbo run test"
+    "test": "turbo run test",
+    "clean": "turbo run clean",
+    "clean:all": "turbo run clean && rm -rf node_modules",
+    "check-content": "tsx scripts/check-content.ts",
+    "prepare": "husky"
   },
   "devDependencies": {
-    "turbo": "^2.5.0"
+    "gray-matter": "^4.0.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.7",
+    "prettier": "^3.8.3",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "turbo": "^2.5.0",
+    "tsx": "^4.19.0",
+    "zod": "^3.23.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{json,css,md}": [
+      "prettier --write"
+    ]
   },
   "pnpm": {
     "onlyBuiltDependencies": [

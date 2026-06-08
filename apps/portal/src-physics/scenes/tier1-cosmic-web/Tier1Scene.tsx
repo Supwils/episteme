@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef, type ComponentProps } from "react";
 import type { Group } from "three";
 import { StarPoints } from "@/src-physics/components/three/StarPoints";
-import { getTierContent } from "@/content/universe-physics/cosmos";
+import { getTierContent } from "@/src-physics/lib/tier-content";
 import { fbm3D, hash01, mixRgb } from "@/src-physics/lib/noise";
 import { SceneMarkers } from "../SceneMarkers";
 import { useUiStore } from "@/src-physics/store/useUiStore";
@@ -60,11 +60,11 @@ export function Tier1Scene({ opacity = 1, ...groupProps }: Props) {
   const net = useMemo(() => buildNetwork(), []);
   const markers = useMemo(() => getTierContent("T1")?.markers ?? [], []);
 
-  useFrame((_, dt) => {
+  useFrame((state, dt) => {
     if (group.current) {
       if (!reducedMotion) {
         group.current.rotation.y += dt * 0.022;
-        group.current.rotation.x = Math.sin(performance.now() * 0.00006) * 0.05;
+        group.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.06) * 0.05;
       }
     }
   });

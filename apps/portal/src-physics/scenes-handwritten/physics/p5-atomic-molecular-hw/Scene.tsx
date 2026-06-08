@@ -1,6 +1,6 @@
 "use client";
 
-import { getPhysicsContent } from "@/content/universe-physics/physics";
+import { getPhysicsContent } from "@/src-physics/lib/tier-content";
 import { Cartouche } from "@/src-physics/scenes-handwritten/shared/Cartouche";
 import { HandwrittenLabel } from "@/src-physics/scenes-handwritten/shared/HandwrittenLabel";
 import { HandwrittenMarker } from "@/src-physics/scenes-handwritten/shared/HandwrittenMarker";

@@ -2,20 +2,26 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="flex min-h-[60vh] flex-col items-center justify-center gap-6 px-6">
-      <span className="font-mono text-[10px] tracking-[0.42em] uppercase text-fg-muted">
-        404 · not found
-      </span>
-      <h1 className="font-display text-3xl text-fg-primary">此路不通</h1>
-      <p className="text-fg-secondary text-sm max-w-md text-center leading-relaxed">
-        你所寻找的页面不存在。它可能已被移除，或从未存在过——正如哲学中的许多问题一样。
-      </p>
-      <Link
-        href="/"
-        className="font-mono text-[10px] tracking-[0.28em] uppercase text-accent-gold hover:text-accent-gold-bright transition-colors"
-      >
-        ← 返回首页
-      </Link>
+    <div className="flex min-h-[60vh] w-full items-center justify-center px-6">
+      <div className="text-center">
+        <p className="mb-4 text-8xl font-bold text-white/20">404</p>
+        <h2 className="mb-4 text-2xl text-white">页面未找到</h2>
+        <p className="mb-8 text-white/50">您访问的页面不存在或已被移动。</p>
+        <div className="flex justify-center gap-4">
+          <Link
+            href="/"
+            className="rounded-full border border-white/20 bg-white/10 px-6 py-2 text-white transition-colors hover:bg-white/20"
+          >
+            返回首页
+          </Link>
+          <Link
+            href="/philosophy"
+            className="rounded-full border border-white/10 bg-white/5 px-6 py-2 text-white/70 transition-colors hover:bg-white/10"
+          >
+            返回哲学思想
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

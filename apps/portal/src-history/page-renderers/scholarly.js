@@ -2,6 +2,7 @@ import { SCHOLARLY_DETAILS } from '@/content/human-history/data/scholarly-index.
 import { ERAS, EVENTS, formatYear } from '@/content/human-history/data/index.js';
 import { el, clearApp, animateOnScroll, prefersReducedMotion } from '../lib/dom.js';
 import { openScholarlyModal, cleanupScholarlyModal } from '../components/history/scholarly-modal.js';
+import { escapeHtml } from '../lib/escape-html';
 
 export function renderScholarly() {
   const app = clearApp();
@@ -11,7 +12,7 @@ export function renderScholarly() {
   const header = el('div', { class: 'scholarly-header' });
   header.innerHTML = `
     <h1 class="section-title">深度<em>讲稿</em></h1>
-    <p class="section-sub">80篇顶级教授讲课式的历史解读——有现场感、有结构、有争议意识、有跨区域连接。每篇包含5个讲稿页面、4条事实卡和核心引言。</p>
+    <p class="section-sub">81篇顶级教授讲课式的历史解读——有现场感、有结构、有争议意识、有跨区域连接。每篇包含5个讲稿页面、4条事实卡和核心引言。</p>
   `;
   page.appendChild(header);
 
@@ -35,12 +36,12 @@ export function renderScholarly() {
     card.innerHTML = `
       <div class="sch-card-head">
         <span class="sch-card-pages">${data.pages?.length || 0}页</span>
-        ${era ? `<span class="sch-card-era" style="color:${era.color};border-color:${era.color}40;background:${era.color}10">${era.name}</span>` : ''}
+        ${era ? `<span class="sch-card-era" style="color:${era.color};border-color:${era.color}40;background:${era.color}10">${escapeHtml(era.name)}</span>` : ''}
         ${ev ? `<span class="sch-card-year">${formatYear(ev.year)}</span>` : ''}
       </div>
-      <h3 class="sch-card-title">${title}</h3>
-      ${data.quote ? `<p class="sch-card-quote">"${data.quote.text}"</p>` : ''}
-      ${data.facts?.length ? `<div class="sch-card-facts">${data.facts.slice(0, 2).map(f => `<span class="sch-card-fact">${f}</span>`).join('')}</div>` : ''}
+      <h3 class="sch-card-title">${escapeHtml(title)}</h3>
+      ${data.quote ? `<p class="sch-card-quote">"${escapeHtml(data.quote.text)}"</p>` : ''}
+      ${data.facts?.length ? `<div class="sch-card-facts">${data.facts.slice(0, 2).map(f => `<span class="sch-card-fact">${escapeHtml(f)}</span>`).join('')}</div>` : ''}
     `;
     card.addEventListener('click', () => openScholarlyModal(title));
     grid.appendChild(card);

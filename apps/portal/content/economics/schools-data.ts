@@ -1,0 +1,14 @@
+export const ECONOMICS_SCHOOLS_DATA = [
+  { slug: "austrian-school", title: "奥地利学派", subtitle: "Austrian School", era: "1871-至今" },
+  { slug: "behavioral-economics-school", title: "行为经济学派", subtitle: "Behavioral Economics School", era: "1979-至今" },
+  { slug: "classical-economics", title: "古典经济学", subtitle: "Classical Economics", era: "1776-1870" },
+  { slug: "institutional-school", title: "制度经济学派", subtitle: "Institutional Economics", era: "现代" },
+  { slug: "keynesian-school", title: "凯恩斯学派", subtitle: "Keynesian School", era: "1936-至今" },
+  { slug: "marxian-school", title: "马克思主义经济学", subtitle: "Marxian Economics", era: "古典" },
+  { slug: "monetarist-school", title: "货币主义学派", subtitle: "Monetarist School", era: "当代" },
+  { slug: "new-classical-school", title: "新古典宏观经济学", subtitle: "New Classical Macroeconomics", era: "当代" },
+  { slug: "supply-side-school", title: "供给学派", subtitle: "Supply-Side Economics", era: "当代" },
+  { slug: "neoliberal-school", title: "新自由主义学派", subtitle: "Neoliberalism", era: "当代" },
+  { slug: "post-keynesian-school", title: "后凯恩斯学派", subtitle: "Post-Keynesian Economics", era: "当代" },
+  { slug: "mmt-school", title: "现代货币理论", subtitle: "Modern Monetary Theory", era: "当代" },
+] as const;

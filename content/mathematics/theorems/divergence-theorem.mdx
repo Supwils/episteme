@@ -1,0 +1,158 @@
+---
+title: 散度定理
+title_en: Divergence Theorem
+field: 向量分析
+mathematician: gauss
+year: 1813
+statement_latex: "\\iiint_V(\\nabla\\cdot\\mathbf{F})dV=\\oiint_{\\partial V}\\mathbf{F}\\cdot\\mathbf{n}\\,dS"
+proof_type: constructive
+tags: ["向量分析", "散度", "高斯", "电磁学"]
+related: ["stokes-theorem", "green-theorem", "divergence", "gauss"]
+difficulty: "中等"
+status: published
+updated: 2026-06-05
+---
+
+## 定理陈述
+
+**散度定理**（Divergence Theorem），也称为高斯定理（Gauss's Theorem），建立了体积分与面积分之间的关系。
+
+设 $V$ 是三维空间中的有界闭区域，边界 $\partial V$ 分段光滑且取外法向。设 $\mathbf{F}$ 是在包含 $V$ 的开集上连续可微的向量场，则
+
+$$\iiint_V (\nabla \cdot \mathbf{F})\,dV = \oiint_{\partial V} \mathbf{F} \cdot \mathbf{n}\,dS$$
+
+其中 $\nabla \cdot \mathbf{F} = \frac{\partial F_1}{\partial x} + \frac{\partial F_2}{\partial y} + \frac{\partial F_3}{\partial z}$ 是 $\mathbf{F}$ 的散度，$\mathbf{n}$ 是 $\partial V$ 的单位外法向量。
+
+## 直觉理解
+
+散度定理说的是：**从一个区域流出的总量等于内部源的总强度**。
+
+想象一个充满水的容器。散度 $\nabla \cdot \mathbf{F}$ 度量每个点"产生"或"吸收"水的速率。从容器表面流出的总水量等于内部所有水源的总出水量减去总吸水量。
+
+在电学中：从闭合曲面流出的电通量等于曲面包围的总电荷量（高斯定律）。这就是散度定理在物理学中最著名的应用。
+
+散度定理也可以理解为微积分基本定理在三维的推广：FTC 说"内部的导数 = 边界上的值"，散度定理说的是同样的话，只是维度更高。
+
+## 证明思路
+
+### 证明概要
+
+**步骤 1**：将向量场 $\mathbf{F} = (F_1, F_2, F_3)$ 分解为三个分量，分别证明：
+
+$$\iiint_V \frac{\partial F_1}{\partial x}\,dV = \oiint_{\partial V} F_1 n_1\,dS$$
+
+**步骤 2**：假设 $V$ 是 $x$-型区域（$V = \{(x,y,z) : a \leq x \leq b,\, (y,z) \in D(x)\}$）。
+
+**步骤 3**：将体积分化为累次积分：
+
+$$\iiint_V \frac{\partial F_1}{\partial x}\,dV = \iint_{D} \left[\int_{x_1(y,z)}^{x_2(y,z)} \frac{\partial F_1}{\partial x}\,dx\right]dA$$
+
+$$= \iint_D [F_1(x_2(y,z), y, z) - F_1(x_1(y,z), y, z)]\,dA$$
+
+**步骤 4**：右端恰好等于 $\oiint_{\partial V} F_1 n_1\,dS$——因为前表面的法向量 $n_1 > 0$，后表面的 $n_1 < 0$。
+
+对 $F_2$ 和 $F_3$ 的证明类似。一般区域可以分解为有限个简单区域。
+
+## 历史背景
+
+**高斯**在 1813 年证明了散度定理的一个特殊情形——与他在静电学中的研究有关。**格林**（1828）和**米歇尔·查斯莱斯**（1840）也独立得到了类似结果。
+
+散度定理的现代形式在 19 世纪下半叶由**奥斯特罗格拉茨基**（1831）和**汤姆森**（开尔文勋爵）确立。在俄罗斯和法国的数学传统中，这一定理有时被称为奥斯特罗格拉茨基定理。
+
+在嘉当的外微分形式语言中，散度定理是斯托克斯定理 $\int_M d\omega = \int_{\partial M} \omega$ 取 $\omega$ 为 $(n-1)$-形式的特殊情形。
+
+## 应用
+
+1. **电磁学**：高斯定律 $\oiint \mathbf{E} \cdot d\mathbf{S} = Q_{\text{enc}}/\varepsilon_0$——电场通量等于包围电荷
+2. **流体力学**：质量守恒的连续性方程 $\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \mathbf{v}) = 0$
+3. **热力学**：热传导方程的推导——流入热量等于内部热源
+4. **引力场**：高斯引力定律——引力通量与质量的关系
+5. **有限体积法**：数值求解偏微分方程的基本方法
+
+## 与其他定理的关系
+
+- **微积分基本定理**：散度定理是 FTC 在三维的推广
+- **斯托克斯定理**：散度定理是斯托克斯定理的特例
+- **格林定理**：散度定理在二维的对应——$\oint \mathbf{F} \cdot \mathbf{n}\,ds = \iint \nabla \cdot \mathbf{F}\,dA$
+- **高斯定律**：散度定理在电磁学中的直接应用
+- **连续性方程**：物理学中质量、电荷守恒的数学表述
+
+## 散度的物理意义
+
+散度 $\nabla \cdot \mathbf{F}$ 度量向量场在某点的"源"或"汇"的强度：
+
+- $\nabla \cdot \mathbf{F} > 0$：该点是"源"——向量场从该点向外发散（如正电荷处的电场）
+- $\nabla \cdot \mathbf{F} < 0$：该点是"汇"——向量场向该点汇聚（如负电荷处的电场）
+- $\nabla \cdot \mathbf{F} = 0$：该点无源无汇（如不可压缩流体的速度场）
+
+散度定理将局部的源强度与全局的流量联系起来——这是物理学中守恒律的数学表述。
+
+## 具体示例
+
+设 $\mathbf{F} = (x, y, z)$，$V$ 是单位球 $x^2 + y^2 + z^2 \leq 1$。
+
+散度 $\nabla \cdot \mathbf{F} = 1 + 1 + 1 = 3$。
+
+体积分：$\iiint_V 3\,dV = 3 \cdot \frac{4}{3}\pi = 4\pi$。
+
+面积分：$\oiint_{\partial V} \mathbf{F} \cdot \mathbf{n}\,dS = \oiint_{\partial V} (x, y, z) \cdot (x, y, z)\,dS = \oiint_{\partial V} 1\,dS = 4\pi$。
+
+两边相等，验证了散度定理。
+
+再看一个非平凡的例子：设 $\mathbf{F} = (x^2, y^2, z^2)$，则 $\nabla \cdot \mathbf{F} = 2(x + y + z)$。由对称性，$\iiint_V 2x\,dV = 0$（球心对称），故体积分为 0。面积分同理为 0。
+
+## 物理意义的深入理解
+
+散度定理的物理意义可以通过连续性方程来理解。
+
+设 $\rho$ 是某种"量"的密度（质量密度、电荷密度等），$\mathbf{J}$ 是流量密度。守恒定律说：
+
+$$\frac{\partial \rho}{\partial t} + \nabla \cdot \mathbf{J} = 0$$
+
+对区域 $V$ 积分并应用散度定理：
+
+$$\frac{d}{dt}\int_V \rho\,dV = -\oint_{\partial V} \mathbf{J} \cdot \mathbf{n}\,dS$$
+
+即：区域 $V$ 内总量的变化率等于通过边界的净流入量。这是物理学中最基本的守恒律的数学表述。
+
+在电磁学中，高斯定律 $\oiint \mathbf{E} \cdot d\mathbf{S} = Q/\varepsilon_0$ 与微分形式 $\nabla \cdot \mathbf{E} = \rho/\varepsilon_0$ 通过散度定理等价。
+
+## 延伸阅读
+
+1. Carl Friedrich Gauss, *Theoria attractionis corporum sphaeroidicorum* (1813).
+2. H.M. Schey, *Div, Grad, Curl, and All That* (4th ed., 2005).
+3. Jerrold E. Marsden & Anthony J. Tromba, *Vector Calculus* (6th ed., 2012).
+4. 梁昆淼, 《数学物理方法》, 高等教育出版社.
+5. M. Spivak, *Calculus on Manifolds* (1965).
+
+> 「散度定理将体积分转化为面积分——它是物理学中最常用的数学工具之一。」
+
+## 散度定理的高维推广
+
+散度定理可以推广到任意维度。在 $n$ 维空间中，设 $V \subset \mathbb{R}^n$ 是有界闭区域，$\mathbf{F}$ 是向量场，则：
+
+$$\int_V \nabla \cdot \mathbf{F}\,d^n x = \oint_{\partial V} \mathbf{F} \cdot \mathbf{n}\,d^{n-1}S$$
+
+在微分形式语言中，散度定理是斯托克斯定理 $\int_M d\omega = \int_{\partial M} \omega$ 的特例。取 $\omega = F_1\,dx_2 \wedge \cdots \wedge dx_n - F_2\,dx_1 \wedge dx_3 \wedge \cdots \wedge dx_n + \cdots$（$\mathbf{F}$ 对应的 $(n-1)$-形式），则 $d\omega = (\nabla \cdot \mathbf{F})\,dx_1 \wedge \cdots \wedge dx_n$。
+
+嘉当的外微分形式语言将格林定理、斯托克斯定理和散度定理统一为同一个定理的不同特例——这是现代微分几何的基础。
+
+## 散度定理在电磁学中的完整应用
+
+麦克斯韦方程组的积分形式全部由散度定理和斯托克斯定理从微分形式推出：
+
+| 微分形式 | 积分形式 | 定理 |
+|----------|----------|------|
+| $\nabla \cdot \mathbf{E} = \rho/\varepsilon_0$ | $\oiint \mathbf{E}\cdot d\mathbf{S} = Q/\varepsilon_0$ | 散度定理 |
+| $\nabla \cdot \mathbf{B} = 0$ | $\oiint \mathbf{B}\cdot d\mathbf{S} = 0$ | 散度定理 |
+| $\nabla \times \mathbf{E} = -\partial\mathbf{B}/\partial t$ | $\oint \mathbf{E}\cdot d\mathbf{l} = -d\Phi_B/dt$ | 斯托克斯定理 |
+| $\nabla \times \mathbf{B} = \mu_0\mathbf{J} + \mu_0\varepsilon_0\partial\mathbf{E}/\partial t$ | $\oint \mathbf{B}\cdot d\mathbf{l} = \mu_0 I + \mu_0\varepsilon_0\,d\Phi_E/dt$ | 斯托克斯定理 |
+
+散度定理不仅是一个数学恒等式——它是物理守恒律的精确数学表述。
+
+## 跨领域连接
+
+- **物理学**：散度定理是电磁学（高斯定律）和流体力学的数学基础
+- **工程学**：散度定理在热传导和流体仿真中的应用
+- **经济学**：散度定理在经济场论和空间经济学中的应用
+- **哲学**：散度定理与局部-整体关系的哲学

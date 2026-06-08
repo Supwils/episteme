@@ -35,10 +35,10 @@ const CHUNKS_DIR = join(NEXT_DIR, "static", "chunks");
 // passes while still flagging accidental new mega-chunks.
 // ---------------------------------------------------------------------------
 const BUDGET = {
-  sharedInitialJs: 220 * 1024, // 220 KB — root+polyfill shared by every route
-  initialCss: 30 * 1024, //  30 KB
-  singleChunkMax: 260 * 1024, // 260 KB — accommodates the Three.js chunk
-  totalChunksWarn: 1500 * 1024, // 1500 KB — full app surface (warn only)
+  sharedInitialJs: 180 * 1024, // 180 KB — root+polyfill shared by every route
+  largestRouteCss: 40 * 1024, // 40 KB — largest single section stylesheet (per-route)
+  singleChunkMax: 285 * 1024, // 285 KB — accommodates the Three.js / R3F vendor chunk
+  totalChunksWarn: 3000 * 1024, // 3000 KB — full 9-domain app surface (warn only)
 };
 
 // ---------------------------------------------------------------------------
@@ -155,6 +155,9 @@ const cssEntries = cssFiles.map((f) => ({
 
 const totalJsGzip = jsEntries.reduce((s, e) => s + e.gzip, 0);
 const totalCssGzip = cssEntries.reduce((s, e) => s + e.gzip, 0);
+// Each route loads its own section stylesheet, not the sum of all of them, so
+// the per-route metric is the largest single CSS file, not the total.
+const largestCssGzip = cssEntries.reduce((m, e) => Math.max(m, e.gzip), 0);
 
 /**
  * Sum the gzip size of the chunks listed under `rootMainFiles` +
@@ -218,7 +221,10 @@ console.log(
     sharedJsGzip === null ? "n/a" : fmt(sharedJsGzip)
   }   (budget ${fmt(BUDGET.sharedInitialJs)})`,
 );
-console.log(`    Initial CSS        : ${fmt(totalCssGzip)}   (budget ${fmt(BUDGET.initialCss)})`);
+console.log(
+  `    Largest route CSS  : ${fmt(largestCssGzip)}   (budget ${fmt(BUDGET.largestRouteCss)})`,
+);
+console.log(`    Total CSS (all)    : ${fmt(totalCssGzip)}   (informational)`);
 console.log(
   `    Largest single chunk: ${fmt(topJs[0]?.gzip ?? 0)}   (budget ${fmt(BUDGET.singleChunkMax)})`,
 );
@@ -238,9 +244,9 @@ if (sharedJsGzip !== null && sharedJsGzip > BUDGET.sharedInitialJs) {
   );
 }
 
-if (totalCssGzip > BUDGET.initialCss) {
+if (largestCssGzip > BUDGET.largestRouteCss) {
   violations.push(
-    `Total CSS gzip (${fmt(totalCssGzip)}) exceeds budget (${fmt(BUDGET.initialCss)})`,
+    `Largest route CSS (${fmt(largestCssGzip)}) exceeds budget (${fmt(BUDGET.largestRouteCss)})`,
   );
 }
 

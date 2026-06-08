@@ -30,6 +30,21 @@ const content: TierContent = {
       value: "≈ 3 M☉ c²",
       hint: "21 ms 内以引力波形式释放",
     },
+    {
+      label: "LIGO O4 事件数",
+      value: "≥ 200+",
+      hint: "2023–2025 观测期 · 引力波天文学常态化",
+    },
+    {
+      label: "Sgr A* 质量",
+      value: "4.0 × 10⁶ M☉",
+      hint: "EHT 2022 · 银河系中心黑洞阴影",
+    },
+    {
+      label: "GW170817 中子星并合",
+      value: "Δv_GW / c < 10⁻¹⁵",
+      hint: "引力波速度与光速偏差上限 · 2017",
+    },
   ],
   narrative: [
     {
@@ -67,6 +82,20 @@ const content: TierContent = {
       body: [
         "GR 在 110 年里被一轮轮越来越精的实验逼近：水星近日点进动 43″/世纪、星光经过太阳的偏转 1.75″（Eddington 1919）、引力红移（Pound-Rebka 1959）、Shapiro 延迟（Cassini 探测器 2003，γ−1 < 2 × 10⁻⁵）、双脉冲星 PSR J0737-3039 的轨道衰减与 GR 预测吻合到 0.05%。",
         "强场测试现在由 GW + EHT 主导：GW170817 双中子星并合给出 ΔvGW − c / c < 10⁻¹⁵，把许多修正引力理论一次性扼杀；LIGO 的 O4 (2023-2025) 已经累积 200+ 事件，群体统计开始限制 black-hole 形成通道。GR 没有一处可量化的偏离 —— 这本身就是悬念，因为我们知道它不可能是终极理论。",
+      ],
+    },
+    {
+      heading: "LIGO O4 · 引力波天文学的新时代",
+      body: [
+        "LIGO/Virgo/KAGRA 的第四次观测（O4，2023–2025）标志着引力波天文学从「首次探测」走向「常规观测」。O4 期间累积了超过 200 个确认事件，包括双黑洞并合、双中子星并合和黑洞-中子星并合。GW230529（2024 年公布）是一个特别有趣的事件：一颗 ~3.6 M☉ 的天体与一颗 ~1.4 M☉ 的中子星并合，3.6 M☉ 的伴星质量落在「质量间隙」中。",
+        "引力波天文学的另一个突破是「多信使天文学」的成熟。GW170817（2017）是里程碑：LIGO/Virgo 探测到双中子星并合后 1.7 秒，Fermi 卫星探测到伽马射线暴，随后全球 70+ 个望远镜观测到光学暂现源。这次事件确认了双中子星并合是短伽马射线暴和重元素（金、铂）的来源。下一步是 LISA（预计 2035 年发射），将在太空探测 mHz 频段引力波。",
+      ],
+    },
+    {
+      heading: "EHT 银河系中心 · Sgr A* 与黑洞阴影",
+      body: [
+        "事件视界望远镜（EHT）在 2019 年拍摄了 M87* 的第一张黑洞阴影照片后，2022 年 5 月公布了银河系中心超大质量黑洞 Sgr A* 的图像。Sgr A* 的质量约 400 万太阳质量，距离仅 26000 光年，角直径约 52 微角秒。Sgr A* 的成像比 M87* 困难得多：变化时标仅 ~10 分钟（M87* ~数天）。",
+        "2024 年 EHT 发布了 Sgr A* 的偏振图像，揭示了黑洞周围的磁场结构——螺旋形的磁场线与 M87* 的喷流形成机制高度一致。下一代 EHT（ngEHT）计划增加更多天线和太空基线，目标是拍摄「黑洞电影」——实时观测吸积流的轨道运动。结合 LISA 的引力波数据，我们将首次同时用电磁波和引力波「看」同一个黑洞系统。",
       ],
     },
     {
@@ -114,6 +143,16 @@ const content: TierContent = {
       label: "MICROSCOPE 2022 — Equivalence Principle to 2e−15",
       url: "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.129.121102",
       kind: "paper",
+    },
+    {
+      label: "EHT Collaboration 2022 — First Sagittarius A* Event Horizon Telescope Results",
+      url: "https://iopscience.iop.org/journal/2041-8205/page/Focus_Issue_EHT_Sgr_A",
+      kind: "paper",
+    },
+    {
+      label: "LISA Consortium — Laser Interferometer Space Antenna (ESA/NASA)",
+      url: "https://lisa.nasa.gov/",
+      kind: "agency",
     },
   ],
   markers: [

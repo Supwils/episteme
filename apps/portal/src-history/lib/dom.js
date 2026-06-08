@@ -14,6 +14,8 @@ export function el(tag, attrs = {}, ...children) {
     if (k === 'class') node.className = v;
     else if (k === 'style' && typeof v === 'object') Object.assign(node.style, v);
     else if (k.startsWith('on')) node.addEventListener(k.slice(2).toLowerCase(), v);
+    // SECURITY: innerHTML accepts raw HTML. Callers must ensure `v` is trusted
+    // or properly escaped. All current usage passes static/hardcoded strings.
     else if (k === 'html') node.innerHTML = v;
     else node.setAttribute(k, v);
   }
@@ -26,7 +28,9 @@ export function el(tag, attrs = {}, ...children) {
 
 export function clearApp() {
   const app = $('#app');
-  if (app) app.innerHTML = '';
+  if (!app) return app;
+  gsap.killTweensOf(app.querySelectorAll('*'));
+  app.innerHTML = '';
   return app;
 }
 
@@ -70,6 +74,8 @@ export function animateOnScroll(container, selector, opts = {}) {
 }
 
 export function createParticleCanvas(container) {
+  if (prefersReducedMotion()) return () => {};
+
   const canvas = el('canvas');
   canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;';
   container.appendChild(canvas);

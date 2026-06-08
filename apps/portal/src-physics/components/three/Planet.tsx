@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import * as THREE from "three";
+import { type BufferGeometry, type Mesh, type MeshStandardMaterial } from "three";
 import { getPlanetTexture, type PlanetTextureKey } from "@/src-physics/lib/planetTextures";
 import { useUiStore } from "@/src-physics/store/useUiStore";
 
@@ -38,12 +38,17 @@ export function Planet({
   segments = 32,
   emissiveIntensity = 0.05,
 }: PlanetProps) {
-  const meshRef = useRef<THREE.Mesh>(null);
-  const matRef = useRef<THREE.MeshStandardMaterial>(null);
+  const meshRef = useRef<Mesh>(null);
+  const matRef = useRef<MeshStandardMaterial>(null);
+  const geomRef = useRef<BufferGeometry>(null);
   const reducedMotion = useUiStore((s) => s.reducedMotion);
   const map = useMemo(() => getPlanetTexture(textureKey), [textureKey]);
   const tiltRad = (axialTilt * Math.PI) / 180;
-  const textureLoaded = useRef(false);
+  const textureSwapped = useRef(false);
+
+  useEffect(() => {
+    textureSwapped.current = false;
+  }, [textureKey]);
 
   useFrame((_, dt) => {
     if (meshRef.current && !reducedMotion) {
@@ -51,26 +56,29 @@ export function Planet({
     }
     if (matRef.current) {
       matRef.current.opacity = opacity;
-      if (!textureLoaded.current) {
+      if (!textureSwapped.current) {
         const fresh = getPlanetTexture(textureKey);
         if (fresh !== map) {
           matRef.current.map = fresh;
           matRef.current.needsUpdate = true;
-          textureLoaded.current = true;
+          textureSwapped.current = true;
         }
       }
     }
   });
 
   useEffect(() => {
+    const mat = matRef.current;
+    const geom = geomRef.current;
     return () => {
-      matRef.current?.dispose();
+      mat?.dispose();
+      geom?.dispose();
     };
   }, []);
 
   return (
     <mesh ref={meshRef} position={position} rotation={[tiltRad, 0, 0]}>
-      <sphereGeometry args={[radius, segments, segments]} />
+      <sphereGeometry ref={geomRef} args={[radius, segments, segments]} />
       <meshStandardMaterial
         ref={matRef}
         map={map}

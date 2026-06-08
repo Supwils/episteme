@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { usePathname, useRouter } from "next/navigation";
 import { Fragment } from "react";
 import { useTierTransition } from "@/src-physics/camera/useTierTransition";
-import { hasContentForTier } from "@/content/universe-physics";
+import { hasContentForTier } from "@/src-physics/lib/tier-content";
 import { cn } from "@/src-physics/lib/cn";
 import { getSectionConfig, getSectionFromPath, getSectionRoute } from "@/src-physics/lib/section";
 import { isUniverseTierId, type AnyTierId } from "@/src-physics/lib/tier";
@@ -47,7 +47,7 @@ export function MobileTierStrip() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
       aria-label="Tier picker"
-      className="hud-capsule pointer-events-auto absolute right-3 bottom-3 left-3 z-20 flex items-center gap-1 overflow-x-auto px-2 py-2 md:hidden"
+      className="hud-capsule pointer-events-auto absolute bottom-3 left-3 right-3 z-20 flex items-center gap-1 overflow-x-auto px-2 py-2 md:hidden"
     >
       {cfg.tierOrder.map((id, idx) => {
         const isActive = id === currentTier;
@@ -58,7 +58,7 @@ export function MobileTierStrip() {
             {divider ? (
               <span className="flex shrink-0 items-center gap-1 px-0.5">
                 <span aria-hidden className="bg-fg-disabled/40 h-3 w-px" />
-                <span className="text-fg-disabled font-mono text-[8px] tracking-[0.3em] uppercase">
+                <span className="text-fg-disabled font-mono text-[8px] uppercase tracking-[0.3em]">
                   {divider}
                 </span>
               </span>
@@ -69,12 +69,12 @@ export function MobileTierStrip() {
               disabled={transitionActive && isActive}
               aria-current={isActive ? "true" : undefined}
               className={cn(
-                "ease-product shrink-0 rounded-md px-2.5 py-1 font-mono text-[11px] tracking-[0.18em] uppercase transition-colors duration-150",
+                "ease-product shrink-0 rounded-md px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.18em] transition-colors duration-150",
                 isActive
                   ? "bg-accent-warm/20 text-fg-primary"
                   : drillable
                     ? "text-fg-muted hover:bg-bg-elevated/40 hover:text-fg-secondary"
-                    : "text-fg-disabled cursor-not-allowed opacity-50",
+                    : "text-fg-disabled cursor-not-allowed opacity-50"
               )}
             >
               {id}

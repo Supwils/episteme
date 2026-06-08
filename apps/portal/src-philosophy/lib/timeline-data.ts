@@ -11,7 +11,9 @@ export type TimelineEvent = {
 import { ANCIENT_EVENTS } from "./timeline-data-ancient";
 import { MODERN_EVENTS } from "./timeline-data-modern";
 
-export const TIMELINE: TimelineEvent[] = [...ANCIENT_EVENTS, ...MODERN_EVENTS];
+export const TIMELINE: TimelineEvent[] = [...ANCIENT_EVENTS, ...MODERN_EVENTS].sort(
+  (a, b) => a.year - b.year
+);
 
 export const ERA_ORDER = ["古代", "近代", "现代", "当代"] as const;
 

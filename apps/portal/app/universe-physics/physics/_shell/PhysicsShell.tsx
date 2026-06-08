@@ -13,6 +13,7 @@ import { TierRail } from "@/src-physics/components/hud/TierRail";
 import { TopBar } from "@/src-physics/components/hud/TopBar";
 import { HoverTooltip } from "@/src-physics/components/knowledge/HoverTooltip";
 import { KnowledgePanel } from "@/src-physics/components/knowledge/KnowledgePanel";
+import { TierDeepReadingPanel } from "@/src-physics/components/TierDeepReadingPanel";
 import { HW_VIEWBOX_STRING } from "@/src-physics/lib/handwritten-coords";
 import { ActivePhysicsHandwrittenScene } from "@/src-physics/scenes-handwritten/physics/ActivePhysicsHandwrittenScene";
 import { HandwrittenDefs } from "@/src-physics/scenes-handwritten/shared/HandwrittenDefs";
@@ -56,7 +57,7 @@ export function PhysicsShell({ children }: { children: ReactNode }) {
         <TopBar />
         <TierRail />
         <MobileTierStrip />
-        <div className="pointer-events-none absolute right-0 bottom-16 left-0 flex justify-start px-5 pb-2 md:bottom-0 md:px-10 md:pb-10">
+        <div className="pointer-events-none absolute bottom-16 left-0 right-0 flex justify-start px-5 pb-2 md:bottom-0 md:px-10 md:pb-10">
           <SubjectCard />
         </div>
         <PhysicsPager />
@@ -64,6 +65,7 @@ export function PhysicsShell({ children }: { children: ReactNode }) {
 
       <HoverTooltip />
       <KnowledgePanel />
+      <TierDeepReadingPanel />
       <FloatingViewControl />
       <KeyboardNav />
       <SwipePager />

@@ -38,6 +38,21 @@ const content: TierContent = {
       value: "2.817 940 × 10⁻¹⁵",
       hint: "m · α² a₀",
     },
+    {
+      label: "超导体最高 T_c（常压）",
+      value: "≈ 133 K",
+      hint: "HgBa₂Ca₂Cu₃O₈ · 铜氧化物 · 1993",
+    },
+    {
+      label: "超导体最高 T_c（高压）",
+      value: "≈ 288 K (15°C)",
+      hint: "LaH₁₀ · 170 GPa · 2019 · 接近室温",
+    },
+    {
+      label: "负折射率 metamaterial",
+      value: "ε < 0, μ < 0",
+      hint: "Veselago 1968 预言 · Smith 2000 实现",
+    },
   ],
   narrative: [
     {
@@ -85,6 +100,20 @@ const content: TierContent = {
       ],
     },
     {
+      heading: "室温超导之争 · 从 LK-99 到高压氢化物",
+      body: [
+        "超导的「圣杯」是室温常压超导体——如果实现，将彻底改变电力传输、磁悬浮、量子计算等领域。2023 年韩国团队声称合成了 LK-99，在常压下表现出室温超导性。这一声明在全球引发了「复现热潮」，但最终被多个独立实验证伪：观察到的「悬浮」来自铁磁性杂质，电阻下降来自硫化亚铜杂质的相变。",
+        "高压氢化物超导是真正有实验支持的方向。2019 年 Drozdov 等人在 Nature 上报道 LaH₁₀ 在 170 GPa 压力下 T_c ≈ 288 K（15°C），首次接近室温。理论方面，BCS 框架被扩展到「非常规配对」机制：铜氧化物的 d 波配对可能由自旋涨落介导。理解非常规超导机制是凝聚态物理最大的未解问题之一。",
+      ],
+    },
+    {
+      heading: "电磁隐身 · Metamaterial 与变换光学",
+      body: [
+        "电磁隐身——让光线绕过物体再恢复原方向——长期被认为是科幻。2006 年 Pendry 和 Leonhardt 独立提出「变换光学」理论：通过设计空间中每一点的 ε 和 μ 张量，可以弯曲光的路径就像引力弯曲时空。Pendry 的方案用 metamaterial 实现了 2D 微波频段的圆柱形隐身斗篷（Schurig et al. 2006, Science）。",
+        "变换光学的思想被推广到声学（声学隐身）、热力学（热隐身）和地震学（地震波偏转）。2014 年 Lee et al. 实现了热隐身斗篷，让热流绕过一个区域而不留下任何热学痕迹。Maxwell 方程的结构在不同物理领域反复出现，变换光学就是利用这种数学统一性的典范。",
+      ],
+    },
+    {
       heading: "参考文献入口",
       body: [
         "Griffiths《Introduction to Electrodynamics》是本科金标准；Jackson《Classical Electrodynamics》是研究生圣经；Feynman Lectures Vol II 给出最优雅的物理直觉；Born & Wolf《Principles of Optics》给最完整的光学版本。",
@@ -116,6 +145,17 @@ const content: TierContent = {
       label: "NIST CODATA · Fundamental physical constants",
       url: "https://physics.nist.gov/cuu/Constants/",
       kind: "agency",
+    },
+    {
+      label: "Drozdov et al. 2019 — Superconductivity at 250 K in lanthanum hydride (Nature)",
+      url: "https://www.nature.com/articles/s41586-019-1681-7",
+      kind: "paper",
+    },
+    {
+      label:
+        "Pendry et al. 2006 — Controlling Electromagnetic Fields (transformation optics, Science)",
+      url: "https://www.science.org/doi/10.1126/science.1125907",
+      kind: "paper",
     },
   ],
   markers: [

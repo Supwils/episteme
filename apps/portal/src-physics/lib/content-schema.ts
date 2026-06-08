@@ -18,6 +18,8 @@ import { TIER_ORDER, type AnyTierId } from "./tier";
  */
 
 const ALL_TIER_IDS = [...TIER_ORDER, ...PHYSICS_TIER_ORDER] as const;
+// Both TIER_ORDER and PHYSICS_TIER_ORDER are non-empty at runtime;
+// z.enum requires a non-empty tuple which TS can't infer from spreads.
 const tierIdSchema = z.enum(ALL_TIER_IDS as unknown as readonly [string, ...string[]]);
 
 const slugSchema = z
@@ -83,7 +85,7 @@ export const sceneMarkerSchema = z.object({
       z.object({
         label: z.string().min(1),
         value: z.string().min(1),
-      }),
+      })
     )
     .min(1, "marker should have at least one data chip")
     .max(8, "marker data chips capped at 8 for UI legibility")

@@ -1,0 +1,170 @@
+---
+title: 中心极限定理
+title_en: Central Limit Theorem
+field: 概率论
+mathematician: laplace
+year: 1810
+statement_latex: "\\frac{\\bar{X}_n - \\mu}{\\sigma/\\sqrt{n}} \\xrightarrow{d} N(0,1)"
+proof_type: constructive
+tags: ["概率论", "统计学", "正态分布", "拉普拉斯"]
+related: ["probability", "statistics", "normal-distribution", "laplace"]
+difficulty: "中等"
+status: published
+updated: 2026-06-05
+---
+
+## 定理陈述
+
+**中心极限定理**（Central Limit Theorem，CLT）是概率论和统计学中最重要的定理之一。
+
+设 $X_1, X_2, \ldots, X_n$ 是独立同分布的随机变量，具有期望 $\mu$ 和有限方差 $\sigma^2 > 0$。定义样本均值 $\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i$，则当 $n \to \infty$ 时，
+
+$$\frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}} \xrightarrow{d} N(0, 1)$$
+
+即标准化后的样本均值依分布收敛到标准正态分布。
+
+等价表述：对任意实数 $x$，
+
+$$\lim_{n \to \infty} P\left(\frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}} \leq x\right) = \Phi(x) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^x e^{-t^2/2}\,dt$$
+
+## 直觉理解
+
+中心极限定理解释了为什么正态分布在自然界中如此普遍。
+
+想象你掷一颗骰子一次，结果是均匀分布的——1 到 6 各有 1/6 的概率，完全不是正态分布。但如果你掷 1000 次并取平均值，这个平均值的分布会非常接近正态分布。
+
+关键洞察：当大量独立随机因素叠加时，无论每个因素本身服从什么分布，总和的分布都趋向正态分布。这就是为什么身高、考试分数、测量误差等许多自然现象都近似服从正态分布——它们都是大量微小独立因素叠加的结果。
+
+正态分布的"中心"地位由此而来——它是独立随机变量之和的"吸引子"。
+
+## 证明思路
+
+### 特征函数方法
+
+设 $\varphi(t) = E[e^{itX_1}]$ 是 $X_1$ 的特征函数。标准化后的样本均值 $Z_n = \frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}}$ 的特征函数为
+
+$$\varphi_{Z_n}(t) = \left[\varphi\left(\frac{t}{\sigma\sqrt{n}}\right)\right]^n$$
+
+将 $\varphi$ 在 0 附近展开：
+
+$$\varphi(s) = 1 + is\mu - \frac{s^2}{2}(\sigma^2 + \mu^2) + o(s^2)$$
+
+对标准化变量，代入 $s = t/(\sigma\sqrt{n})$ 并取对数：
+
+$$\ln \varphi_{Z_n}(t) = n \ln\left[1 - \frac{t^2}{2n} + o(1/n)\right] \to -\frac{t^2}{2}$$
+
+因此 $\varphi_{Z_n}(t) \to e^{-t^2/2}$，即标准正态分布的特征函数。由 Lévy 连续性定理，$Z_n \xrightarrow{d} N(0,1)$。
+
+### 林德伯格-莱维定理
+
+上述证明对独立同分布情形成立。更一般的**林德伯格条件**允许不同分布的情形。
+
+## 历史背景
+
+中心极限定理的历史跨越了 200 多年。
+
+**棣莫弗**（Abraham de Moivre，1733）首先发现了二项分布在 $n$ 很大时可以用正态分布近似——这是中心极限定理的雏形。
+
+**拉普拉斯**（Pierre-Simon Laplace，1810）将棣莫弗的结果推广到一般分布，给出了中心极限定理的初步形式。他在《概率的分析理论》（1812）中系统地发展了这一理论。
+
+**李雅普诺夫**（Aleksandr Lyapunov，1901）给出了第一个严格的证明，并引入了李雅普诺夫条件。
+
+**林德伯格**（Jarl Waldemar Lindeberg，1922）和**莱维**（Paul Lévy，1935）给出了最一般的条件——林德伯格条件，完成了中心极限定理的现代形式。
+
+## 应用
+
+中心极限定理是现代统计学的理论基石：
+
+1. **置信区间**：总体均值的 95% 置信区间 $\bar{x} \pm 1.96 \cdot s/\sqrt{n}$ 直接由 CLT 推导
+2. **假设检验**：$t$ 检验、$z$ 检验等统计检验的理论基础
+3. **质量控制**：工业过程中的六西格玛方法依赖于正态性假设
+4. **金融工程**：投资组合收益率的正态近似、风险价值（VaR）计算
+5. **民意调查**：抽样误差的估计——"误差在 ±3% 以内"的理论依据
+6. **机器学习**：随机梯度下降中梯度噪声的正态性假设
+
+## 与其他定理的关系
+
+- **大数定律**：大数定律说 $\bar{X}_n \to \mu$（收敛到一点），CLT 说 $\sqrt{n}(\bar{X}_n - \mu)$ 的分布趋向正态——CLT 提供了更精确的渐近信息
+- **贝里-埃森定理**：CLT 的定量版本，给出了收敛速度——$O(1/\sqrt{n})$
+- **林德伯格-费勒定理**：CLT 的推广，允许不同分布
+- **特征函数理论**：CLT 的证明核心是特征函数的收敛
+- **伊藤引理**：随机分析中的伊藤引理将 CLT 推广到连续时间情形
+
+## 收敛速度
+
+中心极限定理是一个渐近结果——它说 $n \to \infty$ 时收敛到正态分布。但在实际应用中，$n$ 是有限的，我们需要知道收敛速度。
+
+### 贝里-埃森定理
+
+**贝里-埃森定理**（Berry-Esseen Theorem）给出了 CLT 的定量版本：
+
+$$\sup_x \left|P\left(\frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \leq x\right) - \Phi(x)\right| \leq \frac{C \cdot \rho}{\sigma^3 \sqrt{n}}$$
+
+其中 $C$ 是通用常数（$C \leq 0.4748$），$\rho = E[|X_1 - \mu|^3]$。收敛速度为 $O(1/\sqrt{n})$。
+
+### 经验法则
+
+实际应用中，$n \geq 30$ 时正态近似通常足够好。但如果原始分布严重偏斜（如指数分布），需要更大的 $n$。
+
+## CLT 的推广
+
+### 林德伯格-费勒定理
+
+将 CLT 推广到不同分布的情形：设 $X_1, X_2, \ldots$ 独立但不一定同分布，期望 $\mu_i$，方差 $\sigma_i^2$。令 $s_n^2 = \sum_{i=1}^n \sigma_i^2$。若林德伯格条件满足：
+
+$$\lim_{n \to \infty} \frac{1}{s_n^2}\sum_{i=1}^n E[(X_i - \mu_i)^2 \cdot \mathbf{1}_{|X_i - \mu_i| > \varepsilon s_n}] = 0$$
+
+则 $\frac{1}{s_n}\sum_{i=1}^n (X_i - \mu_i) \xrightarrow{d} N(0,1)$。
+
+### 多维 CLT
+
+设 $\mathbf{X}_1, \mathbf{X}_2, \ldots$ 是独立同分布的 $d$ 维随机向量，期望 $\boldsymbol{\mu}$，协方差矩阵 $\Sigma$。则
+
+$$\sqrt{n}(\bar{\mathbf{X}}_n - \boldsymbol{\mu}) \xrightarrow{d} N(\mathbf{0}, \Sigma)$$
+
+多维 CLT 在多元统计分析和机器学习中有重要应用。
+
+## 延伸阅读
+
+1. Abraham de Moivre, *Doctrine of Chances* (1733).
+2. Pierre-Simon Laplace, *Théorie analytique des probabilités* (1812).
+3. Billingsley, *Probability and Measure* (3rd ed., 1995).
+4. 何书元, 《概率论》, 北京大学出版社, 2008.
+5. Hans Fischer, *A History of the Central Limit Theorem* (2011).
+
+> 「中心极限定理是概率论中最深刻的结论之一——它解释了为什么正态分布是自然界的默认分布。」——威廉·费勒
+
+## CLT 失效的情形
+
+中心极限定理并非万能——在某些条件下它不成立：
+
+**无限方差分布**：当方差 $\sigma^2 = \infty$ 时，CLT 的标准形式不适用。此时样本均值的极限分布不是正态分布，而是**稳定分布**（stable distribution）。帕累托分布（尾部按 $x^{-\alpha}$ 衰减，$1 < \alpha < 2$）的样本均值收敛到 $\alpha$-稳定分布。
+
+**强相关数据**：CLT 要求独立性（或弱相关性）。对于强相关的时间序列（如长记忆过程），样本均值的收敛速度不同于 $1/\sqrt{n}$——可能更慢。这种情况下需要使用**长程依赖**的极限理论。
+
+**混沌系统**：确定性混沌系统的遍历平均可能满足某种 CLT，但收敛速度和极限分布取决于系统的李雅普诺夫指数和混合速率。
+
+**稀有事件**：当关注的事件极其罕见时（如极端损失），正态近似完全失效。极值理论提供了正确的框架——广义极值分布和帕累托分布描述了极端事件的统计行为。
+
+## Bootstrap 与 CLT
+
+**Bootstrap 方法**（Efron，1979）是 CLT 的计算替代——当解析推导困难时，通过重采样估计统计量的分布。Bootstrap 的理论基础是：经验分布函数在 $n \to \infty$ 时收敛到真实分布，使得重采样统计量的变异性近似真实变异性。
+
+**蒙特卡洛方法**：CLT 保证了蒙特卡洛积分的收敛——样本均值以 $1/\sqrt{n}$ 的速率收敛到真实值，且误差服从正态分布。这为蒙特卡洛模拟的置信区间提供了理论依据。
+
+## 大偏差理论
+
+CLT 描述了样本均值在 $\mu$ 附近的典型波动（$O(1/\sqrt{n})$），但不描述远离均值的**大偏差**。**大偏差理论**（Large Deviation Theory）补充了这一空白：
+
+$$P(\bar{X}_n \geq a) \approx e^{-nI(a)}$$
+
+其中 $I(a)$ 是速率函数——$a$ 离 $\mu$ 越远，概率指数衰减越快。大偏差理论在统计力学（自由能）、信息论（信道编码定理）和金融（尾部风险）中有重要应用。
+
+Cramér 定理给出了独立同分布情形的速率函数：$I(a) = \sup_{t} [ta - \ln \varphi(t)]$，其中 $\varphi(t)$ 是矩母函数。
+
+## 跨领域连接
+
+- **经济学**：中心极限定理在计量经济学和金融风险度量中的应用
+- **生命科学**：中心极限定理在生物统计学和临床试验中的应用
+- **心理学**：中心极限定理在心理测量和实验设计中的应用
+- **哲学**：中心极限定理与正态分布的普遍性——为什么正态分布无处不在

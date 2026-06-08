@@ -1,0 +1,319 @@
+.civilizations-page {
+  min-height: calc(100vh - var(--nav-h, 64px));
+  padding: calc(var(--nav-h, 64px) + 24px) 24px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Section shell ── */
+.civ-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.civ-compare__header {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.civ-compare__title {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--parchment);
+  margin: 0 0 8px;
+  letter-spacing: 0.04em;
+}
+
+.civ-compare__subtitle {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  color: var(--parchment-dim);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ── Body: selector + chart ── */
+.civ-compare__body {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+@media (max-width: 860px) {
+  .civ-compare__body {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ── Selector panel ── */
+.civ-compare__selector {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 200px;
+  flex-shrink: 0;
+}
+
+.civ-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: var(--radius, 8px);
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+  border: 1px solid transparent;
+  user-select: none;
+}
+
+.civ-option:hover {
+  background: var(--bg-card-hover, rgba(38, 30, 20, 0.95));
+  border-color: var(--border);
+}
+
+.civ-option--selected {
+  background: var(--bg-card, rgba(26, 21, 15, 0.88));
+  border-color: var(--border-hover, rgba(200, 169, 81, 0.42));
+}
+
+.civ-option--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.civ-option__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.civ-option__swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.civ-option__name {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  color: var(--parchment);
+  flex: 1;
+}
+
+.civ-option__peak {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--parchment-mute);
+}
+
+/* ── Chart area ── */
+.civ-compare__chart-wrap {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
+.civ-compare__svg {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+}
+
+.civ-compare__axis-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  fill: var(--parchment-dim);
+  pointer-events: none;
+}
+
+.civ-compare__ring-label {
+  font-family: var(--sans);
+  font-size: 9px;
+  fill: var(--parchment-mute);
+  pointer-events: none;
+}
+
+.civ-compare__dot {
+  cursor: pointer;
+  transition: r 0.15s;
+}
+
+.civ-compare__dot:hover {
+  r: 6;
+}
+
+/* ── Tooltip ── */
+.civ-compare__tooltip {
+  position: absolute;
+  transform: translateX(-50%);
+  background: var(--bg-elev, rgba(48, 38, 25, 0.95));
+  border: 1px solid var(--border-hover);
+  border-radius: var(--radius, 8px);
+  padding: 8px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--parchment);
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 10;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.civ-compare__tooltip-value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-top: 2px;
+}
+
+/* ── Key facts ── */
+.civ-compare__facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.civ-fact-card {
+  background: var(--bg-card, rgba(26, 21, 15, 0.88));
+  border: 1px solid var(--border);
+  border-left-width: 4px;
+  border-radius: var(--radius-lg, 14px);
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.civ-fact-card__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.civ-fact-card__swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.civ-fact-card__name {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--parchment);
+  margin: 0;
+}
+
+.civ-fact-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--parchment-dim);
+}
+
+.civ-fact-card__desc {
+  font-family: var(--serif);
+  font-size: 0.9rem;
+  color: var(--parchment);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── Score bars ── */
+.civ-fact-card__scores {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.civ-fact-score {
+  display: grid;
+  grid-template-columns: 100px 1fr 28px;
+  align-items: center;
+  gap: 8px;
+}
+
+.civ-fact-score__label {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--parchment-dim);
+  white-space: nowrap;
+}
+
+.civ-fact-score__bar-track {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--border-soft, rgba(200, 169, 81, 0.08));
+  overflow: hidden;
+}
+
+.civ-fact-score__bar-fill {
+  height: 100%;
+  border-radius: 3px;
+}
+
+.civ-fact-score__value {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--parchment-dim);
+  text-align: right;
+}
+
+/* ── Empty state ── */
+.civ-compare__empty {
+  text-align: center;
+  padding: 60px 20px;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--parchment-mute);
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .civilizations-page {
+    padding: calc(var(--nav-h, 64px) + 16px) 14px 36px;
+  }
+
+  .civ-compare__title {
+    font-size: 1.5rem;
+  }
+
+  .civ-compare__selector {
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: unset;
+    gap: 4px;
+  }
+
+  .civ-option {
+    padding: 6px 8px;
+    gap: 6px;
+  }
+
+  .civ-option__peak {
+    display: none;
+  }
+
+  .civ-fact-card {
+    padding: 16px;
+  }
+
+  .civ-fact-score {
+    grid-template-columns: 80px 1fr 24px;
+  }
+}

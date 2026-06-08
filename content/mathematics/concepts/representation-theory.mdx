@@ -1,0 +1,159 @@
+---
+title: 表示论
+title_en: Representation Theory
+field: 代数
+key_figures: [frobenius, burnside, young, weyl]
+tags: [代数, 表示论, 群论, 线性代数, 李代数]
+key_terms: ['表示', '特征标', '不可约表示', '群代数', 'Schur 引理', '诱导表示']
+related: ['group', 'linear-algebra', 'eigenvalue', 'eigenvalue']
+difficulty: 进阶
+status: published
+updated: 2026-06-05
+---
+
+# 表示论
+
+## 定义
+
+**表示论**（Representation Theory）研究抽象代数结构（群、李代数、结合代数）如何作用于向量空间——即将抽象的代数对象"表示"为具体的矩阵和线性变换。表示论是将抽象代数与线性代数联系起来的桥梁。
+
+**群的线性表示**：群 $G$ 在向量空间 $V$ 上的**线性表示**是一个同态：
+
+$$\rho: G \to GL(V)$$
+
+将每个群元素 $g$ 映为可逆线性变换 $\rho(g)$，满足 $\rho(gh) = \rho(g)\rho(h)$。
+
+表示论的核心思想是**用线性代数的语言理解抽象对称性**。
+
+## 核心内容
+
+### 基本概念
+
+**不可约表示**：没有非平凡不变子空间的表示——表示论的"基本粒子"。
+
+**完全可约性**（Maschke 定理）：有限群在特征不整除 $|G|$ 的域上的每个表示都是不可约表示的直和。
+
+**等价表示**：$\rho_1$ 和 $\rho_2$ 等价 $\Leftrightarrow$ 存在可逆 $T$ 使得 $T\rho_1(g) = \rho_2(g)T$ 对所有 $g$。
+
+### 特征标
+
+**特征标**（Character）：$\chi_\rho(g) = \text{tr}(\rho(g))$——表示矩阵的迹。
+
+特征标是表示论最强大的工具：
+- 特征标完全决定表示（在同构意义下）
+- 不可约特征标构成正交系：$\frac{1}{|G|}\sum_g \chi_i(g)\overline{\chi_j(g)} = \delta_{ij}$
+
+### Schur 引理
+
+**Schur 引理**：若 $\rho_1$ 和 $\rho_2$ 是不可约表示，$T: V_1 \to V_2$ 满足 $T\rho_1(g) = \rho_2(g)T$ 对所有 $g$，则 $T = 0$ 或 $T$ 是同构。
+
+推论：在代数闭域上，不可约表示的自同态都是标量乘法。
+
+### 群代数
+
+**群代数** $\mathbb{C}[G]$：以群元素为基的向量空间，乘法由群乘法线性扩展。$\mathbb{C}[G]$ 的表示等价于 $G$ 的表示。
+
+**Wedderburn-Artin 定理**：$\mathbb{C}[G] \cong \bigoplus_i M_{n_i}(\mathbb{C})$——群代数分解为矩阵代数的直和。
+
+### 李群与李代数的表示
+
+**李代数表示**：$\rho: \mathfrak{g} \to \mathfrak{gl}(V)$ 满足 $\rho([X,Y]) = [\rho(X), \rho(Y)]$。
+
+**最高权理论**：复半单李代数的不可约表示由最高权分类——这是表示论最优美的结果之一。
+
+**Weyl 特征标公式**：不可约表示 $V_\lambda$ 的特征标为：
+
+$$\text{ch}(V_\lambda) = \frac{\sum_{w \in W} \text{sgn}(w) e^{w(\lambda+\rho)}}{\sum_{w \in W} \text{sgn}(w) e^{w\rho}}$$
+
+## 历史演变
+
+表示论起源于19世纪末的群论。Frobenius（Ferdinand Georg Frobenius，1896—1897）创立了有限群的表示论——引入了特征标理论，证明了正交关系。Burnside（William Burnside，1904）用表示论证明了群论的重要定理（如 $p^aq^b$ 定理）。
+
+Young（Alfred Young，1900—1901）发展了对称群的表示论——Young 图和 Young 表。Weyl（Hermann Weyl，1925—1926）将表示论推广到李群——这是量子力学的数学基础。他证明了 Weyl 特征标公式和完全可约性定理。
+
+20世纪后半叶，表示论发展为现代数学的核心学科。Harish-Chandra（1950年代）发展了实约化群的表示论。Langlands（Robert Langlands，1967）提出了 Langlands 纲领——数论与表示论的统一框架，被称为"数学的大统一理论"。
+
+## 关键人物
+
+**Frobenius**（1849—1917）在1896—1897年创立了有限群的表示论。他引入了特征标理论，证明了正交关系，建立了表示论的基本框架。
+
+**外尔**（Hermann Weyl，1885—1955）将表示论推广到李群和李代数。他的《经典群》（1939）系统地研究了经典群的不变量理论。他的工作将表示论与量子力学紧密结合。
+
+**朗兰兹**（Robert Langlands，1936—）提出了 Langlands 纲领——数论、表示论和代数几何的宏大统一框架。这是当代数学最雄心勃勃的计划之一。
+
+## 数学意义
+
+表示论的核心定理：
+
+1. **Maschke 定理**：有限群的表示完全可约
+2. **Schur 引理**：不可约表示之间的同态只有零或同构
+3. **正交关系**：不可约特征标的正交性
+4. **Peter-Weyl 定理**：紧群的 $L^2$ 分解为不可约表示的直和
+5. **Weyl 特征标公式**：半单李代数不可约表示的特征标——用根系和权完全确定
+6. **Peter-Weyl 定理**：紧群的 $L^2(G)$ 分解为不可约表示的直和——傅里叶分析在紧群上的推广
+
+## 核心概念辨析
+
+- **表示 vs 模**：群 $G$ 的表示等价于群代数 $\mathbb{C}[G]$ 上的模——两种语言等价但视角不同
+- **不可约 vs 完全可约**：不可约是没有不变子空间，完全可约是可以分解为不可约直和——Maschke 定理说有限群表示完全可约
+- **特征标 vs 维数**：特征标 $\chi(g)$ 是 $g$ 的表示矩阵的迹，维数是 $\chi(e) = \dim V$——特征标包含更多信息
+- **有限群表示 vs 李群表示**：有限群表示是离散的（特征标表），李群表示是连续的（最高权理论）
+- **诱导表示 vs 限制表示**：诱导 $\text{Ind}_H^G$ 从小群到大群，限制 $\text{Res}_H^G$ 从大群到小群——Frobenius 互反律联系两者
+- **代数表示 vs 几何表示**：代数表示用矩阵语言，几何表示用向量丛语言——几何表示论是现代前沿
+
+## 当代应用
+
+表示论在物理学和数学中有深远应用。在**量子力学**中，粒子的自旋和同位旋是 SU(2) 和 SU(3) 的表示——粒子物理的标准模型基于李群的表示论。在**量子化学**中，分子轨道的对称性分类使用点群的表示论。在**编码理论**中，群码和不变码基于群表示。在**数论**中，Langlands 纲领将 Galois 表示与自守形式联系起来——这是费马大定理证明的深层背景。在**机器学习**中，等变神经网络利用对称群的表示来设计具有对称性的网络架构。在**信号处理**中，傅里叶变换是阿贝尔群表示论的特例。
+
+表示论的现代发展包括：**几何表示论**——用代数几何方法研究表示（Beilinson-Bernstein 局部化）；**量子群表示**——Drinfeld-Jimbo 量子群的表示理论与结不变量和共形场论相关；**模表示论**——特征整除群阶时的表示理论（Brauer 理论），比复表示复杂得多；**$p$-进表示论**——$p$-进数域上的表示理论，是 Langlands 纲领的核心组成部分。
+
+## 核心公式汇编
+
+| 概念 | 公式 |
+|------|------|
+| 表示 | $\rho: G\to GL(V)$，$\rho(gh) = \rho(g)\rho(h)$ |
+| 特征标 | $\chi(g) = \text{tr}(\rho(g))$ |
+| 正交关系 | $\frac{1}{|G|}\sum_g\chi_i(g)\overline{\chi_j(g)} = \delta_{ij}$ |
+| 特征标表 | $\sum_i n_i^2 = |G|$（$n_i$ 为不可约表示维数） |
+| Schur 引理 | $\text{Hom}_G(V_i,V_j) = 0$（$i\neq j$），$\text{End}_G(V_i) = \mathbb{C}$ |
+| 诱导表示 | $\text{Ind}_H^G V = \mathbb{C}[G]\otimes_{\mathbb{C}[H]} V$ |
+| Weyl 特征标公式 | $\text{ch}(V_\lambda) = \frac{\sum_w\text{sgn}(w)e^{w(\lambda+\rho)}}{\sum_w\text{sgn}(w)e^{w\rho}}$ |
+
+## 经典问题
+
+1. **不可约表示的分类**：有限群的所有不可约表示如何分类？——对称群的 Young 图方法
+2. **Langlands 纲领**：Galois 表示与自守形式的对应——数论与表示论的"大统一理论"
+3. **分支律**：$G$ 的不可约表示限制到子群 $H$ 时如何分解？——对称群限制到交错群的分支
+4. **模表示论**：特征整除群阶时的表示理论——Brauer 理论，比复表示复杂得多
+5. **量子群表示**：Drinfeld-Jimbo 量子群的表示——与结不变量和共形场论相关
+
+## 与其他概念的关系
+
+表示论是连接代数与几何的桥梁：
+- **→ 群论**：表示论是群论的"线性化"——通过矩阵理解群的结构
+- **→ 线性代数**：表示就是群到一般线性群的同态——特征值、对角化、Jordan 形的应用
+- **→ 李代数**：半单李代数的表示由最高权分类——Weyl 特征标公式
+- **→ 数论**：Langlands 纲领——Galois 群的表示与自守形式的对应
+- **→ 量子力学**：对称群的表示分类粒子态——角动量的耦合就是表示的张量积分解
+- **→ 机器学习**：等变神经网络利用群表示设计具有对称性的网络架构
+
+## 延伸阅读
+
+1. F. G. Frobenius, "Über die Primfactoren der Gruppendeterminante" (1896).
+2. William Fulton & Joe Harris, *Representation Theory: A First Course* (1991).
+3. Hermann Weyl, *The Classical Groups* (1939).
+4. 丘维声, 《表示论》, 高等教育出版社, 2010.
+5. Jean-Pierre Serre, *Linear Representations of Finite Groups* (1977).
+
+> 「表示论是将抽象代数翻译为线性代数的语言——通过这种翻译，代数结构的内在美得以显现。」——赫尔曼·外尔
+
+<!-- Additional notes: Character theory is the most computational part of representation theory -->
+<!-- The Langlands program is the deepest conjecture connecting number theory and representation theory -->
+<!-- Equivariant neural networks use group representations to encode symmetries -->
+
+## 跨领域连接
+
+- **物理学**：表示论在粒子物理标准模型中的核心地位
+- **化学**：表示论在分子对称性和光谱学中的应用
+- **哲学**：表示论与结构主义——数学结构的本质
+- **生命科学**：表示论在晶体学和蛋白质结构分析中的应用

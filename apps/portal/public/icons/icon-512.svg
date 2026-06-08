@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="80" fill="#07070c"/>
+  <circle cx="256" cy="220" r="100" fill="none" stroke="#6366f1" stroke-width="6"/>
+  <ellipse cx="256" cy="220" rx="100" ry="38" fill="none" stroke="#818cf8" stroke-width="4" transform="rotate(-30 256 220)"/>
+  <ellipse cx="256" cy="220" rx="100" ry="38" fill="none" stroke="#a5b4fc" stroke-width="4" transform="rotate(30 256 220)"/>
+  <circle cx="256" cy="220" r="14" fill="#6366f1"/>
+  <text x="256" y="400" text-anchor="middle" font-family="system-ui,sans-serif" font-size="48" font-weight="600" fill="#e0e7ff">UniverseK</text>
+</svg>

@@ -1,0 +1,158 @@
+---
+title: 特征值与特征向量
+title_en: Eigenvalue and Eigenvector
+field: 代数
+key_figures: [euler, cauchy, hilbert, von_neumann]
+tags: [代数, 线性代数, 特征值, 对角化, 谱理论]
+key_terms: ['特征值', '特征向量', '特征多项式', '对角化', '谱分解', 'Jordan 标准形']
+related: ['linear-algebra', 'matrix', 'vector-space', 'functional-analysis']
+difficulty: 基础
+status: published
+updated: 2026-06-05
+---
+
+# 特征值与特征向量
+
+## 定义
+
+**特征值**（Eigenvalue）和**特征向量**（Eigenvector）刻画了线性变换最本质的几何行为——哪些方向在变换下只被缩放而不被旋转。
+
+**定义**：设 $T: V \to V$ 是线性变换，若存在非零向量 $v \in V$ 和标量 $\lambda$ 使得：
+
+$$T(v) = \lambda v$$
+
+则 $\lambda$ 称为 $T$ 的**特征值**，$v$ 称为对应于 $\lambda$ 的**特征向量**。
+
+对于矩阵 $A$，特征值是特征方程 $\det(A - \lambda I) = 0$ 的根。这个 $n$ 次多项式称为**特征多项式** $p_A(\lambda)$。
+
+所有特征值的集合称为 $A$ 的**谱**（spectrum），记为 $\sigma(A)$。
+
+## 核心内容
+
+### 特征值的计算
+
+求特征值的步骤：
+1. 计算特征多项式 $p_A(\lambda) = \det(A - \lambda I)$
+2. 求解 $p_A(\lambda) = 0$ 得特征值 $\lambda_1, \ldots, \lambda_n$
+3. 对每个 $\lambda_i$，求解 $(A - \lambda_i I)v = 0$ 得特征向量
+
+**特征子空间**：$E_{\lambda} = \ker(A - \lambda I)$ 是对应于 $\lambda$ 的特征子空间，其维数称为 $\lambda$ 的**几何重数**。
+
+### 对角化
+
+矩阵 $A$ 可**对角化**，当且仅当存在可逆矩阵 $P$ 使得 $P^{-1}AP = D$（对角矩阵）。等价条件：
+- $A$ 有 $n$ 个线性无关的特征向量
+- 每个特征值的几何重数等于代数重数
+
+实对称矩阵总是可以正交对角化：$A = Q\Lambda Q^T$，其中 $Q$ 正交，$\Lambda$ 对角。这就是**谱定理**。
+
+### Jordan 标准形
+
+当矩阵不可对角化时，存在 Jordan 标准形：$A = PJP^{-1}$，其中 $J$ 由 Jordan 块组成：
+
+$$J_k(\lambda) = \begin{pmatrix} \lambda & 1 & & \\ & \lambda & \ddots & \\ & & \ddots & 1 \\ & & & \lambda \end{pmatrix}$$
+
+Jordan 标准形是线性变换在相似变换下的"最简表示"。
+
+### 特征值的性质
+
+- **迹与行列式**：$\text{tr}(A) = \sum \lambda_i$，$\det(A) = \prod \lambda_i$
+- **Cayley-Hamilton 定理**：$p_A(A) = 0$
+- **Gershgorin 圆盘定理**：特征值位于复平面上的圆盘并集中
+- **瑞利商**：$R(x) = \frac{x^*Ax}{x^*x}$，其极值即为最大/最小特征值
+- **特征值的扰动**：Bauer-Fike 定理——若 $A = PDP^{-1}$，则 $A+E$ 的特征值在 $D$ 的特征值的 $\kappa(P)\|E\|$ 邻域内
+- **交错定理**：对称矩阵的子矩阵的特征值与原矩阵的特征值交错——Cauchy 交错定理
+
+## 历史演变
+
+特征值的概念起源于欧拉（Leonhard Euler）在18世纪对旋转体的研究。欧拉发现了刚体转动的主轴——即惯性张量的特征向量。拉格朗日（1773）在研究二次型的化简时，本质上求解了对称矩阵的特征值问题。
+
+柯西（Augustin-Louis Cauchy，1829）证明了实对称矩阵的特征值都是实数——这是谱定理的第一个版本。希尔伯特（David Hilbert，1904）在研究积分方程时，将有限维的特征值理论推广到无穷维——引入了谱理论的概念。冯·诺依曼（1929）将谱理论应用于量子力学，建立了量子力学的数学基础。
+
+## 关键人物
+
+**柯西**（1789—1857）严格证明了实对称矩阵特征值为实数的结果，奠定了特征值理论的严格基础。
+
+**希尔伯特**（1862—1943）将特征值理论推广到无穷维空间，建立了希尔伯特空间上的谱理论——这是量子力学的数学语言。
+
+**冯·诺依曼**（1903—1957）证明了量子力学中可观测量对应于希尔伯特空间上的自伴算子，其特征值对应于可能的测量结果。
+
+## 数学意义
+
+特征值理论的核心定理：
+
+1. **谱定理**：实对称矩阵可正交对角化——$A = Q\Lambda Q^T$
+2. **Jordan 标准形定理**：复方阵相似于 Jordan 形
+3. **Cayley-Hamilton 定理**：$p_A(A) = 0$
+4. **极小多项式定理**：极小多项式整除特征多项式
+5. **Courant-Fischer 极小极大定理**：特征值的变分刻画——$\lambda_k = \max_{\dim S=k} \min_{x \in S, \|x\|=1} x^TAx$
+6. **Weyl 不等式**：$A+B$ 的特征值与 $A$、$B$ 特征值之间的不等式关系——特征值的连续依赖性
+
+## 核心概念辨析
+
+- **特征值 vs 奇异值**：特征值可能为复数（$\det(A-\lambda I)=0$），奇异值总是非负实数（$\sigma_i = \sqrt{\lambda_i(A^*A)}$）
+- **代数重数 vs 几何重数**：代数重数是特征值作为特征多项式根的重数，几何重数是对应特征子空间的维数
+- **可对角化 vs 正交对角化**：可对角化只需 $n$ 个线性无关特征向量，正交对角化要求矩阵对称（或正规）
+- **谱半径 vs 谱范数**：谱半径 $\rho(A) = \max|\lambda_i|$，谱范数 $\|A\|_2 = \sigma_{\max}(A)$
+- **特征值 vs 奇异值分解**：特征值分解 $A = PDP^{-1}$ 要求可对角化，SVD $A = U\Sigma V^T$ 对任意矩阵成立
+- **左特征向量 vs 右特征向量**：右特征向量满足 $Av = \lambda v$，左特征向量满足 $u^*A = \lambda u^*$
+
+## 当代应用
+
+特征值理论在现代科学中有极其广泛的应用。在**主成分分析**（PCA）中，协方差矩阵的特征向量是数据变化最大的方向——这是降维的基础。在**PageRank 算法**中，网页排名是转移矩阵的主特征向量。在**振动分析**中，系统的固有频率是刚度矩阵特征值的平方根。在**量子力学**中，能量的可能取值是哈密顿算子的特征值。在**稳定性分析**中，动力系统平衡点的稳定性由 Jacobi 矩阵特征值的实部决定。在**图论**中，图的拉普拉斯矩阵的特征值反映了图的连通性和聚类结构。
+
+特征值计算是数值线性代数的核心课题。**QR 算法**通过反复的 QR 分解迭代求所有特征值——它是20世纪最成功的数值算法之一。**Lanczos 算法**利用 Krylov 子空间高效求大型稀疏对称矩阵的少数极端特征值。**Arnoldi 算法**是非对称矩阵的 Lanczos 推广。这些算法在大规模科学计算和机器学习中不可或缺。
+
+特征值问题的推广包括：**广义特征值问题** $Av = \lambda Bv$——出现在振动分析和广义 Rayleigh 商中；**非线性特征值问题** $\lambda^2 Mv + \lambda Cv + Kv = 0$——出现在流固耦合问题中；**随机矩阵的特征值分布**——Wigner 半圆律和 Tracy-Widom 分布是随机矩阵理论的核心结果。
+
+## 核心公式汇编
+
+| 概念 | 公式 |
+|------|------|
+| 特征方程 | $\det(A - \lambda I) = 0$ |
+| 迹 | $\text{tr}(A) = \sum \lambda_i$ |
+| 行列式 | $\det(A) = \prod \lambda_i$ |
+| 谱半径 | $\rho(A) = \max|\lambda_i|$ |
+| Rayleigh 商 | $R(x) = \frac{x^*Ax}{x^*x}$，极值为 $\lambda_{\max}$ 和 $\lambda_{\min}$ |
+| 矩阵指数 | $e^{At} = \sum_{k=0}^\infty \frac{(At)^k}{k!} = Pe^{Dt}P^{-1}$ |
+| Courant-Fischer | $\lambda_k = \max_{\dim S=k}\min_{x\in S,\|x\|=1} x^TAx$ |
+
+## 经典问题
+
+1. **幂迭代法**：$x_{k+1} = Ax_k / \|Ax_k\|$——收敛到主特征向量，计算 PageRank 的基础
+2. **QR 算法**：通过反复的 QR 分解求所有特征值——数值线性代数最成功的算法之一
+3. **对称矩阵的三对角化**：Householder 变换将对称矩阵化为三对角矩阵，然后用 QR 算法高效求特征值
+4. **广义特征值问题**：$Av = \lambda Bv$——出现在振动分析和广义 Rayleigh 商中
+5. **扰动理论**：矩阵的微小变化如何影响特征值？——Bauer-Fike 定理给出误差界
+
+## 与其他概念的关系
+
+特征值是数学和物理中的核心概念：
+- **→ 线性代数**：特征值是线性变换最本质的不变量——对角化的基础
+- **→ 微分方程**：线性 ODE 的解由矩阵指数 $e^{At}$ 给出，特征值决定解的渐近行为
+- **→ 泛函分析**：紧算子的谱理论是有限维特征值理论的无穷维推广
+- **→ 量子力学**：测量值是可观测量（自伴算子）的特征值，测量后状态坍缩到对应特征向量
+- **→ 数据科学**：PCA 的主成分是协方差矩阵的特征向量，方差是对应特征值
+- **→ 图论**：图的拉普拉斯矩阵的特征值反映图的连通性——代数连通度（Fiedler 值）
+
+## 延伸阅读
+
+1. Augustin-Louis Cauchy, "Sur l'équation à l'aide de laquelle on détermine les inégalités séculaires des planètes" (1829).
+2. Gilbert Strang, *Linear Algebra and Its Applications* (4th ed., 2006).
+3. Roger Horn & Charles Johnson, *Matrix Analysis* (2nd ed., 2012).
+4. 戴华, 《矩阵论》, 科学出版社, 2001.
+5. Lloyd Trefethen & David Bau, *Numerical Linear Algebra* (1997).
+
+> 「特征值揭示了线性变换的内在结构——它告诉我们在哪些方向上，变换只是简单的缩放。」——大卫·希尔伯特
+
+<!-- Additional notes: The power iteration method is the simplest algorithm for finding dominant eigenvalues -->
+<!-- The QR algorithm is considered one of the top 10 algorithms of the 20th century -->
+<!-- Random matrix theory connects eigenvalue distributions to number theory and physics -->
+<!-- Eigenvalue problems are fundamental to vibration analysis, stability theory, and quantum mechanics -->
+
+## 跨领域连接
+
+- **物理学**：特征值问题在量子力学中的核心地位——能级与波函数
+- **生命科学**：特征值分析在种群遗传学和生态稳定性中的应用
+- **经济学**：特征值在投入产出分析和主成分分析中的应用
+- **心理学**：因子分析中的特征值——智力结构的统计分析

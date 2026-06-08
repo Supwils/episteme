@@ -33,7 +33,9 @@ export function initRouter(cb) {
   window.addEventListener('popstate', resolve);
   document.addEventListener('click', (e) => {
     const a = e.target.closest('a[href^="/"]');
-    if (a && !a.target && !a.hasAttribute('download')) {
+    if (!a) return;
+    if (!a.closest('.human-history-root')) return;
+    if (!a.target && !a.hasAttribute('download')) {
       e.preventDefault();
       navigate(a.getAttribute('href'));
     }

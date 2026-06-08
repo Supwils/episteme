@@ -2,7 +2,13 @@
 
 import { useFrame } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
-import * as THREE from "three";
+import {
+  AdditiveBlending,
+  Color,
+  DoubleSide,
+  type BufferGeometry,
+  type ShaderMaterial,
+} from "three";
 import { volumeVert } from "@/src-physics/shaders/volumeRaymarch.frag.glsl";
 import { volumeFrag } from "@/src-physics/shaders/volumeRaymarch.frag.glsl";
 
@@ -43,17 +49,18 @@ export function VolumeBillboard({
   steps = 6,
   opacity = 1,
 }: Props) {
-  const matRef = useRef<THREE.ShaderMaterial>(null);
+  const matRef = useRef<ShaderMaterial>(null);
+  const geomRef = useRef<BufferGeometry>(null);
 
   const uniforms = useMemo(
     () => ({
-      uCoreColor: { value: new THREE.Color(...coreColor) },
-      uHaloColor: { value: new THREE.Color(...haloColor) },
+      uCoreColor: { value: new Color(...coreColor) },
+      uHaloColor: { value: new Color(...haloColor) },
       uDensity: { value: density },
       uTime: { value: 0 },
       uSteps: { value: steps },
     }),
-    [coreColor, haloColor, density, steps],
+    [coreColor, haloColor, density, steps]
   );
 
   const lastOpacity = useRef(opacity);
@@ -68,14 +75,26 @@ export function VolumeBillboard({
   });
 
   useEffect(() => {
+    const mat = matRef.current;
+    const geom = geomRef.current;
     return () => {
-      matRef.current?.dispose();
+      mat?.dispose();
+      geom?.dispose();
     };
   }, []);
 
+  useEffect(() => {
+    if (!matRef.current) return;
+    const u = matRef.current.uniforms;
+    if (u.uCoreColor) u.uCoreColor.value.setRGB(...coreColor);
+    if (u.uHaloColor) u.uHaloColor.value.setRGB(...haloColor);
+    if (u.uDensity) u.uDensity.value = density;
+    if (u.uSteps) u.uSteps.value = steps;
+  }, [coreColor, haloColor, density, steps]);
+
   return (
     <mesh>
-      <planeGeometry args={[radius * 2, radius * 2]} />
+      <planeGeometry ref={geomRef} args={[radius * 2, radius * 2]} />
       <shaderMaterial
         ref={matRef}
         vertexShader={volumeVert}
@@ -83,8 +102,8 @@ export function VolumeBillboard({
         uniforms={uniforms}
         transparent
         depthWrite={false}
-        blending={THREE.AdditiveBlending}
-        side={THREE.DoubleSide}
+        blending={AdditiveBlending}
+        side={DoubleSide}
       />
     </mesh>
   );

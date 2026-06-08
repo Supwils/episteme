@@ -1,8 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import { getDomainContentDir } from "./content-paths";
 
-const ISMS_DIR = path.join(process.cwd(), "content", "philosophy", "isms");
+const ISMS_DIR = path.join(getDomainContentDir("philosophy"), "isms");
 
 export type IsmFrontmatter = {
   title: string;
@@ -21,6 +22,9 @@ export type Ism = IsmFrontmatter & {
   content: string;
 };
 
+const ismBySlugCache = new Map<string, Ism | null>();
+let cachedIsms: Ism[] | null = null;
+
 export function getIsmSlugs(): string[] {
   if (!fs.existsSync(ISMS_DIR)) return [];
   return fs
@@ -30,21 +34,33 @@ export function getIsmSlugs(): string[] {
 }
 
 export function getIsmBySlug(slug: string): Ism | null {
+  if (ismBySlugCache.has(slug)) return ismBySlugCache.get(slug)!;
+  if (!slug || slug.includes("..") || slug.includes("/") || slug.includes("\\")) return null;
   const filePath = path.join(ISMS_DIR, `${slug}.mdx`);
+  if (!filePath.startsWith(ISMS_DIR)) return null;
   if (!fs.existsSync(filePath)) return null;
-  const raw = fs.readFileSync(filePath, "utf-8");
-  const { data, content } = matter(raw);
-  return {
-    ...(data as IsmFrontmatter),
-    slug,
-    content,
-  };
+  let result: Ism | null = null;
+  try {
+    const raw = fs.readFileSync(filePath, "utf-8");
+    const { data, content } = matter(raw);
+    result = {
+      ...(data as IsmFrontmatter),
+      slug,
+      content,
+    };
+  } catch {
+    // result stays null
+  }
+  ismBySlugCache.set(slug, result);
+  return result;
 }
 
 export function getAllIsms(): Ism[] {
-  return getIsmSlugs()
+  if (cachedIsms) return cachedIsms;
+  cachedIsms = getIsmSlugs()
     .map((slug) => getIsmBySlug(slug))
     .filter((i): i is Ism => i !== null);
+  return cachedIsms;
 }
 
 export function getIsmsByCategory(): Record<string, Ism[]> {
@@ -58,14 +74,7 @@ export function getIsmsByCategory(): Record<string, Ism[]> {
   return grouped;
 }
 
-const CATEGORY_ORDER = [
-  "本体论",
-  "认识论",
-  "伦理学",
-  "美学",
-  "政治哲学",
-  "逻辑学",
-];
+const CATEGORY_ORDER = ["本体论", "认识论", "伦理学", "美学", "政治哲学", "逻辑学"];
 
 export function getOrderedCategories(): string[] {
   const grouped = getIsmsByCategory();

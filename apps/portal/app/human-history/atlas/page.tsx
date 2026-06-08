@@ -1,11 +1,16 @@
-'use client';
+import type { Metadata } from "next";
+import AtlasClient from "./AtlasClient";
 
-// @ts-check
-
-import dynamic from 'next/dynamic';
-
-const AtlasCanvas = dynamic(() => import('@/src-history/components/atlas/AtlasCanvas'), { ssr: false });
+export const metadata: Metadata = {
+  title: "知识图谱 — 人类历史 — Universe Knowledge",
+  description: "交互式历史知识图谱，探索历史事件、人物与时代的关联",
+  openGraph: {
+    title: "知识图谱 — 人类历史",
+    description: "交互式历史知识图谱，探索历史事件、人物与时代的关联",
+    type: "website",
+  },
+};
 
 export default function AtlasPage() {
-  return <AtlasCanvas />;
+  return <AtlasClient />;
 }

@@ -2,6 +2,7 @@ import { LESSONS } from '@/content/human-history/data/lessons.js';
 import { FIGURES, EVENTS, ERAS, formatYear } from '@/content/human-history/data/index.js';
 import { el, clearApp, animateIn, animateOnScroll, prefersReducedMotion } from '../lib/dom.js';
 import { hasScholarlyDetail, openScholarlyModal, cleanupScholarlyModal } from '../components/history/scholarly-modal.js';
+import { escapeHtml } from '../lib/escape-html';
 
 let expandedLesson = null;
 let expandedCase = null;
@@ -55,7 +56,7 @@ export function renderLessons() {
       <cite>——乔治·桑塔亚纳</cite>
     </blockquote>
     <div class="ls-scholarly-link">
-      <a href="/scholarly" class="ls-scholarly-btn">📖 浏览80篇深度讲稿 →</a>
+      <a href="/human-history/scholarly" class="ls-scholarly-btn">📖 浏览81篇深度讲稿 →</a>
     </div>
   `;
   page.appendChild(intro);
@@ -151,8 +152,8 @@ function createLessonCard(lesson) {
   head.innerHTML = `
     <div class="ls-lesson-icon" style="color:${lesson.color}"><iconify-icon icon="${lesson.icon}"></iconify-icon></div>
     <div class="ls-lesson-info">
-      <h2 class="ls-lesson-title">${lesson.title}</h2>
-      <p class="ls-lesson-subtitle">${lesson.subtitle}</p>
+      <h2 class="ls-lesson-title">${escapeHtml(lesson.title)}</h2>
+      <p class="ls-lesson-subtitle">${escapeHtml(lesson.subtitle)}</p>
     </div>
     <span class="ls-lesson-count">${lesson.cases.length}个案例</span>
     <span class="ls-lesson-toggle">▸</span>
@@ -161,7 +162,7 @@ function createLessonCard(lesson) {
   card.appendChild(head);
 
   const body = el('div', { class: 'ls-lesson-body' });
-  body.innerHTML = `<p class="ls-lesson-intro">${lesson.intro}</p>`;
+  body.innerHTML = `<p class="ls-lesson-intro">${escapeHtml(lesson.intro)}</p>`;
 
   const casesList = el('div', { class: 'ls-cases-list' });
   for (const c of lesson.cases) {
@@ -173,11 +174,11 @@ function createLessonCard(lesson) {
   lessonBlock.innerHTML = `
     <div class="ls-conclusion-section">
       <h3>历史规律</h3>
-      <p>${lesson.lesson}</p>
+      <p>${escapeHtml(lesson.lesson)}</p>
     </div>
     <div class="ls-conclusion-section ls-modern">
       <h3>当代启示</h3>
-      <p>${lesson.modernRelevance}</p>
+      <p>${escapeHtml(lesson.modernRelevance)}</p>
     </div>
   `;
   body.appendChild(lessonBlock);
@@ -192,10 +193,10 @@ function createCaseCard(caseData, color) {
   const head = el('div', { class: 'ls-case-head' });
   head.innerHTML = `
     <div class="ls-case-header-row">
-      <h3 class="ls-case-title">${caseData.title}</h3>
-      <span class="ls-case-period">${caseData.period}</span>
+      <h3 class="ls-case-title">${escapeHtml(caseData.title)}</h3>
+      <span class="ls-case-period">${escapeHtml(caseData.period)}</span>
     </div>
-    <p class="ls-case-summary">${caseData.summary}</p>
+    <p class="ls-case-summary">${escapeHtml(caseData.summary)}</p>
   `;
   head.addEventListener('click', () => toggleCase(caseData.title));
   card.appendChild(head);
@@ -206,11 +207,11 @@ function createCaseCard(caseData, color) {
   let detailHtml = '';
   for (const part of detailParts) {
     if (part.startsWith('【史学争论】')) {
-      detailHtml += `<div class="ls-case-debate"><span class="ls-debate-label">史学争论</span><p>${part.replace('【史学争论】', '')}</p></div>`;
+      detailHtml += `<div class="ls-case-debate"><span class="ls-debate-label">史学争论</span><p>${escapeHtml(part.replace('【史学争论】', ''))}</p></div>`;
     } else if (part.startsWith('【方法论注释】')) {
-      detailHtml += `<div class="ls-case-methodology"><span class="ls-method-label">方法论注释</span><p>${part.replace('【方法论注释】', '')}</p></div>`;
+      detailHtml += `<div class="ls-case-methodology"><span class="ls-method-label">方法论注释</span><p>${escapeHtml(part.replace('【方法论注释】', ''))}</p></div>`;
     } else {
-      detailHtml += `<p class="ls-case-detail">${part}</p>`;
+      detailHtml += `<p class="ls-case-detail">${escapeHtml(part)}</p>`;
     }
   }
   body.innerHTML = detailHtml;
@@ -223,7 +224,7 @@ function createCaseCard(caseData, color) {
       const fig = FIGURES.find(f => f.name === figName);
       if (fig) {
         const chip = el('span', { class: 'ls-ref-chip ls-ref-figure' });
-        chip.innerHTML = `<iconify-icon icon="mdi:account"></iconify-icon>${figName}`;
+        chip.innerHTML = `<iconify-icon icon="mdi:account"></iconify-icon>${escapeHtml(figName)}`;
         chip.addEventListener('click', (e) => {
           e.stopPropagation();
           navigateToFigure(figName);
@@ -235,12 +236,12 @@ function createCaseCard(caseData, color) {
       const ev = EVENTS.find(e => e.title === evTitle);
       if (ev) {
         const chip = el('span', { class: 'ls-ref-chip ls-ref-event' });
-        chip.innerHTML = `<iconify-icon icon="mdi:lightning-bolt"></iconify-icon>${evTitle}`;
+        chip.innerHTML = `<iconify-icon icon="mdi:lightning-bolt"></iconify-icon>${escapeHtml(evTitle)}`;
         refs.appendChild(chip);
       }
       if (hasScholarlyDetail(evTitle)) {
         const schBtn = el('button', { class: 'scholarly-btn ls-sch-btn' });
-        schBtn.innerHTML = `📖 ${evTitle}讲稿`;
+        schBtn.innerHTML = `📖 ${escapeHtml(evTitle)}讲稿`;
         schBtn.addEventListener('click', (e) => { e.stopPropagation(); openScholarlyModal(evTitle); });
         refs.appendChild(schBtn);
       }
@@ -278,8 +279,7 @@ function toggleCase(caseTitle) {
 
 function navigateToFigure(name) {
   try { sessionStorage.setItem('highlight-figure', name); } catch (e) {}
-  window.history.pushState({}, '', '/figures');
-  window.dispatchEvent(new PopStateEvent('popstate'));
+  window.location.href = '/human-history/figures';
 }
 
 export function cleanupLessons() {

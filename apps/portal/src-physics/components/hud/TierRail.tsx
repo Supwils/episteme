@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Fragment } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useTierTransition } from "@/src-physics/camera/useTierTransition";
-import { hasContentForTier } from "@/content/universe-physics";
+import { hasContentForTier } from "@/src-physics/lib/tier-content";
 import { cn } from "@/src-physics/lib/cn";
 import { formatScaleMeters } from "@/src-physics/lib/format";
 import { getSectionConfig, getSectionFromPath, getSectionRoute } from "@/src-physics/lib/section";
@@ -52,7 +52,7 @@ export function TierRail() {
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 0.61, 0.36, 1] }}
       aria-label="Scale ladder"
-      className="hud-capsule pointer-events-auto absolute top-1/2 right-4 z-20 hidden w-14 -translate-y-1/2 flex-col items-stretch gap-2 px-1.5 py-4 md:right-6 md:flex"
+      className="hud-capsule pointer-events-auto absolute right-4 top-1/2 z-20 hidden w-14 -translate-y-1/2 flex-col items-stretch gap-2 px-1.5 py-4 md:right-6 md:flex"
     >
       <div className="hud-meta text-fg-muted px-1 text-center">
         {section === "universe" ? "scale" : "depth"}
@@ -69,7 +69,7 @@ export function TierRail() {
               {groupLabel ? (
                 <li
                   aria-hidden
-                  className="text-fg-muted mt-1.5 mb-0.5 px-1 text-center font-mono text-[8px] leading-none tracking-[0.28em] uppercase first:mt-0"
+                  className="text-fg-muted mb-0.5 mt-1.5 px-1 text-center font-mono text-[8px] uppercase leading-none tracking-[0.28em] first:mt-0"
                 >
                   <span className="bg-fg-disabled/40 mx-auto mb-1 block h-px w-4" />
                   {groupLabel}
@@ -84,7 +84,7 @@ export function TierRail() {
                   aria-label={`${meta.id} ${meta.label}`}
                   className={cn(
                     "ease-product relative flex w-full items-center gap-2 py-1.5 transition-opacity duration-200",
-                    drillable ? "cursor-pointer opacity-100" : "cursor-not-allowed opacity-50",
+                    drillable ? "cursor-pointer opacity-100" : "cursor-not-allowed opacity-50"
                   )}
                 >
                   <span
@@ -92,14 +92,14 @@ export function TierRail() {
                       "ease-product block h-px transition-all duration-300",
                       isActive
                         ? "bg-accent-warm w-8"
-                        : "bg-fg-disabled group-hover:bg-fg-secondary w-3 group-hover:w-6",
+                        : "bg-fg-disabled group-hover:bg-fg-secondary w-3 group-hover:w-6"
                     )}
                   />
                   <span
                     data-num
                     className={cn(
-                      "font-mono text-[10px] tracking-[0.18em] uppercase transition-colors",
-                      isActive ? "text-fg-primary" : "text-fg-muted group-hover:text-fg-secondary",
+                      "font-mono text-[10px] uppercase tracking-[0.18em] transition-colors",
+                      isActive ? "text-fg-primary" : "text-fg-muted group-hover:text-fg-secondary"
                     )}
                   >
                     {id}
@@ -108,23 +108,23 @@ export function TierRail() {
 
                 <span
                   className={cn(
-                    "ease-product pointer-events-none absolute top-1/2 right-full mr-3 -translate-y-1/2 text-right whitespace-nowrap transition-all duration-300",
+                    "ease-product pointer-events-none absolute right-full top-1/2 mr-3 -translate-y-1/2 whitespace-nowrap text-right transition-all duration-300",
                     isActive
                       ? "opacity-100"
-                      : "translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100",
+                      : "translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100"
                   )}
                 >
                   <span
                     className={cn(
                       "font-display block text-sm leading-none",
-                      isActive ? "text-fg-primary" : "text-fg-secondary",
+                      isActive ? "text-fg-primary" : "text-fg-secondary"
                     )}
                   >
                     {meta.shortLabel}
                   </span>
                   <span
                     data-num
-                    className="text-fg-muted mt-1 block font-mono text-[10px] tracking-[0.18em] uppercase"
+                    className="text-fg-muted mt-1 block font-mono text-[10px] uppercase tracking-[0.18em]"
                   >
                     {section === "universe" ? formatScaleMeters(meta.scaleMeters) : meta.unit}
                   </span>

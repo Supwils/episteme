@@ -1,13 +1,16 @@
-'use client';
+import type { Metadata } from "next";
+import TimelineClient from "./TimelineClient";
 
-import PageWrapper from '@/src-history/components/PageWrapper';
-
-const renderTimeline = async () => {
-  const { renderTimeline: render, cleanupTimeline } = await import('@/src-history/page-renderers/timeline');
-  render();
-  return cleanupTimeline;
+export const metadata: Metadata = {
+  title: "历史时间线 — 人类历史 — Universe Knowledge",
+  description: "从远古到当代的人类历史时间线，浏览重大历史事件",
+  openGraph: {
+    title: "历史时间线 — 人类历史",
+    description: "从远古到当代的人类历史时间线，浏览重大历史事件",
+    type: "website",
+  },
 };
 
 export default function TimelinePage() {
-  return <PageWrapper render={renderTimeline} />;
+  return <TimelineClient />;
 }

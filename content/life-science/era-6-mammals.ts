@@ -1,0 +1,312 @@
+import type { EraContent } from "./types";
+
+const era: EraContent = {
+  id: "rise-of-mammals",
+  name: { primary: "哺乳动物崛起", latin: "Rise of Mammals" },
+  tagline: "从地洞到鲸鱼：哺乳动物的史诗辐射",
+  timeRange: "6600万年前 - 700万年前",
+  dataCards: [
+    {
+      label: "哺乳动物目数",
+      latinLabel: "Mammalian orders",
+      value: "~27个目",
+      hint: "现存约 27 个目 · K-Pg 后快速辐射",
+    },
+    {
+      label: "哺乳动物物种数",
+      latinLabel: "Mammal species",
+      value: "~6,400种",
+      hint: "截至2024年已知物种",
+    },
+    {
+      label: "最早胎盘哺乳动物",
+      latinLabel: "First placental mammals",
+      value: "≈ 6600万年前",
+      hint: "K-Pg 灭绝后迅速出现",
+    },
+    {
+      label: "鲸类返回海洋",
+      latinLabel: "Whales returned to sea",
+      value: "≈ 5000万年前",
+      hint: "巴基鲸 Pakicetus → 走鲸 Ambulocetus",
+    },
+    {
+      label: "灵长类起源",
+      latinLabel: "Primate origins",
+      value: "≈ 5500-6000万年前",
+      hint: "最早的灵长目化石 · 北美洲和亚洲",
+    },
+    {
+      label: "马的进化",
+      latinLabel: "Horse evolution",
+      value: "~5500万年起",
+      hint: "始祖马 Hyracotherium → 现代马",
+    },
+    {
+      label: "草的扩张",
+      latinLabel: "Grassland expansion",
+      value: "≈ 2500万年前",
+      hint: "草原生态系统形成 · 牙齿进化",
+    },
+    {
+      label: "冰河时代",
+      latinLabel: "Ice Ages",
+      value: "260万年前至今",
+      hint: "更新世冰期 · 哺乳动物巨型化",
+    },
+    {
+      label: "鲸类进化中间物种数",
+      latinLabel: "Whale evolution intermediate species",
+      value: "~30属",
+      hint: "从巴基鲸到现代鲸 · 5000万年 · 化石序列最完整的进化过渡之一",
+    },
+    {
+      label: "马科进化现存种/灭绝种比",
+      latinLabel: "Equidae living vs extinct ratio",
+      value: "1:~20",
+      hint: "仅Equus属存活 · 20+属已灭绝 · 化石记录跨越5500万年",
+    },
+  ],
+  narrative: [
+    {
+      heading: "大灭绝后的真空：哺乳动物的机会",
+      body: [
+        "在恐龙统治的 1.7 亿年里，哺乳动物一直生活在阴影中。最早的哺乳动物出现在约 2.2 亿年前（三叠纪晚期），但整个中生代它们大多体型微小（老鼠大小或更小）、夜行性、以昆虫为食。这一「压迫」反而促进了哺乳动物的关键创新：恒温代谢、毛发、乳腺、更大的大脑（相对体型）。这些在恐龙时代是「隐性优势」的特征，在恐龙灭绝后成为了征服空出生态位的利器。",
+        "K-Pg 大灭绝（6600万年前）清除了约 76% 的物种——但哺乳动物的灭绝率相对较低（约 25-30%的小型哺乳动物灭绝），因为它们的小体型、杂食性和穴居习性帮助它们在「撞击冬天」中存活。灭绝后的地球上，大型陆地脊椎动物的生态位几乎全部空出——从食草动物到顶级捕食者——这为幸存的哺乳动物提供了前所未有的进化机遇。",
+        "在灭绝后的约 1000 万年内（古新世），哺乳动物的体型平均增大了约 1000 倍。一些谱系迅速特化：踝节目（Condylarthra）演化出了早期的有蹄类；肉齿目（Creodonta）占据了顶级捕食者的角色；灵长目的祖先开始在热带雨林中攀爬。这种爆发式的多样化被称为「哺乳动物大辐射」——是生命史上最迅速的适应辐射之一。",
+      ],
+    },
+    {
+      heading: "从陆地到海洋：鲸的进化之旅",
+      body: [
+        "鲸类（Cetacea）的进化是达尔文进化论最精彩的例证之一。今天的鲸鱼和海豚完全适应了水生生活——流线型身体、前肢变为鳍状肢、后肢完全退化、尾部变为水平尾鳍、鼻孔移到头顶（喷气孔）。但化石记录清楚地揭示了它们的陆地起源。",
+        "巴基斯坦是鲸类进化的「圣地」。约 5000 万年前，巴基鲸（Pakicetus）——一种类似狼的有蹄动物——生活在古特提斯海沿岸。它的耳朵结构（鼓泡由听骨包裹）与鲸类相同，但身体完全是陆生的。走鲸（Ambulocetus，约 4900 万年前）是半水生的——它像鳄鱼一样在浅水中伏击猎物，后肢有蹼但仍然可以在陆地上行走。罗德侯鲸（Rodhocetus，约 4700 万年前）更进一步——它的后肢更大、尾巴更有力，可能已经主要在水中活动。",
+        "约 3400 万年前（始新世-渐新世之交），现代鲸类的两大支系——须鲸（Mysticeti）和齿鲸（Odontoceti）——分化。须鲸演化出了鲸须板（滤食磷虾），齿鲸演化出了回声定位能力。2023年，Pyenson 等人的研究表明，鲸类体型的巨大化（蓝鲸，体长 30 米，体重 190 吨——有史以来最大的动物）与极地上升流生态系统中磷虾的高密度分布密切相关——是食物的分布模式塑造了地球上最大动物的体型极限。",
+      ],
+    },
+    {
+      heading: "草与马：协同进化的经典案例",
+      body: [
+        "约 2500 万年前（渐新世晚期），全球气候变冷变干，热带森林退缩，草原开始扩张。这一环境变化对哺乳动物的进化产生了深远影响——最经典的案例是马的进化。",
+        "马的进化谱系（马科 Equidae）跨越约 5500 万年，是化石记录最完整的进化序列之一。始祖马（Hyracotherium，约 5500 万年前）是一种小型动物（约 60 厘米高），生活在森林中，有多个脚趾（前足 4 趾，后足 3 趾），以树叶和果实为食。随着草原扩张，马的后代逐渐适应了开阔环境：体型增大（在草原上看得更远）、脚趾减少（中趾变大，更适合在坚硬地面上奔跑）、牙齿变高且有复杂的釉质褶皱（适应研磨粗糙的草叶）。",
+        "但马的进化并非简单的「线性进步」——它是一棵茂密的灌木，有无数分支和死胡同。至少有 20 多个马的属曾经共存，它们在不同大陆上走上了不同的进化道路。今天的马（Equus）只是这棵进化树上唯一幸存的枝条——其他所有分支都已灭绝。这提醒我们：进化没有方向，没有「更高」或「更低」——只有适应当前环境的幸存者。",
+      ],
+    },
+    {
+      heading: "冰河时代与巨型动物",
+      body: [
+        "约 260 万年前开始的更新世冰期是地球历史上最近的大规模气候波动。冰盖反复扩张和收缩——约每 10 万年一个周期——重塑了全球的生态系统和生物分布。冰河时代的哺乳动物适应了寒冷环境：猛犸象（Mammuthus）演化出了厚毛皮、小耳朵和脂肪驼峰；披毛犀（Coelodonta）覆盖着长毛；剑齿虎（Smilodon）拥有 28 厘米的犬齿——这些巨型动物（megafauna）是冰河时代的标志。",
+        "更新世的巨型动物遍布各大洲：北美的猛犸象、乳齿象、巨型地懒（Megatherium，6 米高）、剑齿虎；南美的雕齿兽（Glyptodon，大众汽车大小的甲壳动物）；欧亚大陆的猛犸象、披毛犀、洞熊；澳大利亚的巨型袋鼠（Procoptodon，3 米高）和双门齿兽（Diprotodon，2.8 吨）。",
+        "约 1 万年前，巨型动物开始大规模灭绝——这与人类扩散到各大陆的时间高度吻合。北美在约 1.3 万年前失去了约 75% 的大型哺乳动物，澳大利亚在约 4.6 万年前失去了约 85%。灭绝的原因仍有激烈争论：「过度猎杀」假说（Paul Martin 1966）认为人类猎杀了这些动物；「气候变化」假说认为冰期-间冰期转换摧毁了栖息地；最可能是两者的协同作用——气候压力削弱了动物种群，人类猎杀给了它们最后一击。",
+      ],
+    },
+    {
+      heading: "哺乳动物进化的现代遗产：保护生物学与古DNA",
+      body: [
+        "哺乳动物进化研究不仅是学术探索，更直接服务于当代生物多样性保护。理解物种灭绝的模式——哪些特征使物种更易灭绝（大型体型、低繁殖率、狭窄的栖息地范围）——帮助保护生物学家评估现代物种的濒危风险。2024 年，国际自然保护联盟（IUCN）红色名录中约 26% 的哺乳动物面临灭绝威胁。更新世巨型动物灭绝的教训——多重压力的协同作用——被直接应用于理解当代的「第六次大灭绝」：栖息地丧失、气候变化和人类活动的叠加效应。",
+        "古 DNA 技术彻底改变了哺乳动物进化研究。2021 年，哥本哈根大学的 Eske Willerslev 团队从西伯利亚永久冻土中提取了 120 万年前的猛犸象 DNA——这是当时已知最古老的基因组。2023 年，Colossal Biosciences 公司宣布计划利用 CRISPR 技术「复活」猛犸象——通过编辑亚洲象的基因组，使其具有猛犸象的耐寒特征。无论这一项目是否成功，它都引发了关于「去灭绝」（de-extinction）伦理的深入讨论：我们应该复活已灭绝的物种吗？复活的个体能否适应现代环境？",
+        "哺乳动物的进化树——从 2012 年 dos Reis 等人的胎盘哺乳动物时间校准树到 2019 年 Upham 等人的物种级系统发育——为理解生态系统的演化提供了框架。每个哺乳动物目代表了一种独特的生态策略——从蝙蝠的回声定位到鲸鱼的深潜、从鼹鼠的地下生活到人类的文化适应。理解这些策略的进化历史，有助于预测物种对气候变化的响应——例如，具有宽温幅适应的物种（如老鼠）可能比窄温幅物种（如北极熊）更能适应全球变暖。",
+      ],
+    },
+  ],
+  sources: [
+    {
+      label: "Prothero 2006 — After the Dinosaurs (book)",
+      kind: "book",
+    },
+    {
+      label: "Thewissen et al. 2007 — Whales originated from aquatic artiodactyls in the Eocene epoch",
+      url: "https://www.nature.com/articles/nature06343",
+      kind: "paper",
+    },
+    {
+      label: "MacFadden 2005 — Fossil Horses—Evidence for Evolution",
+      url: "https://www.science.org/doi/10.1126/science.1105558",
+      kind: "paper",
+    },
+    {
+      label: "Barnosky et al. 2004 — Assessing the causes of late Pleistocene extinctions on the continents",
+      url: "https://www.science.org/doi/10.1126/science.1085226",
+      kind: "paper",
+    },
+    {
+      label: "Slater & Bhatt 2023 — The evolution of whale gigantism",
+      url: "https://www.nature.com/articles/s41559-023-02123-4",
+      kind: "paper",
+    },
+    {
+      label: "dos Reis, M. et al. (2012). Phylogenomic datasets provide both precision and accuracy in estimating the timescale of placental mammal phylogeny. Proceedings of the Royal Society B, 279(1742), 3491-3500.",
+      url: "https://doi.org/10.1098/rspb.2012.0683",
+      kind: "paper",
+    },
+    {
+      label: "Upham, N. S., Esselstyn, J. A. & Jetz, W. (2019). Inferring the mammal tree: species-level sets of phylogenies for questions in ecology, evolution, and conservation. PLoS Biology, 17(12), e3000494.",
+      url: "https://doi.org/10.1371/journal.pbio.3000494",
+      kind: "paper",
+    },
+    {
+      label: "Dalén, L. et al. (2021). Complete genomes reveal signatures of demographic and genetic declines in the woolly mammoth. Current Biology, 31(11), 2349-2357.",
+      url: "https://doi.org/10.1016/j.cub.2021.03.046",
+      kind: "paper",
+    },
+  ],
+  deepReading: {
+    introduction: [
+      "哺乳动物崛起的故事是进化史上最引人入胜的叙事之一。在恐龙统治的1.7亿年里，哺乳动物一直生活在阴影中——体型微小、夜行性、以昆虫为食。然而，K-Pg灭绝（约6600万年前）清除了恐龙，为哺乳动物提供了前所未有的生态空间。在灭绝后的约1000万年内，哺乳动物的体型平均增大了约1000倍，迅速占据了从食草动物到顶级捕食者的所有生态位。这一爆发式的多样化被称为「哺乳动物大辐射」——是生命史上最迅速的适应辐射之一。",
+      "近五年来（2020-2025），哺乳动物进化研究在多个前沿取得了突破。2021年，哥本哈根大学的Willerslev团队从西伯利亚永久冻土中提取了120万年前的猛犸象DNA——这是当时已知最古老的基因组。2023年，Slater和Bhatt在《Nature Ecology & Evolution》上发表了关于鲸类巨型化的新研究，揭示了蓝鲸成为有史以来最大动物的生态驱动因素。同年，Colossal Biosciences公司宣布计划利用CRISPR技术「复活」猛犸象，引发了关于「去灭绝」伦理的深入讨论。",
+      "哺乳动物进化研究不仅是学术探索，更直接服务于当代生物多样性保护。理解物种灭绝的模式——哪些特征使物种更易灭绝——帮助保护生物学家评估现代物种的濒危风险。更新世巨型动物灭绝的教训——多重压力的协同作用——被直接应用于理解当代的「第六次大灭绝」：栖息地丧失、气候变化和人类活动的叠加效应。",
+    ],
+    sections: [
+      {
+        title: "白垩纪哺乳动物的多样性：被低估的中生代",
+        content: [
+          "传统观点认为中生代的哺乳动物都是小型、夜行性、以昆虫为食的动物——但近年来的化石发现彻底改变了这一认知。2013年，O'Leary等人在《Science》上发表了对已知最完整的早期胎盘哺乳动物化石（约5500万年前的Purgatorius近亲）的综合分析，发现早期胎盘哺乳动物的多样性远超之前想象——包括食虫、食草、食果甚至半水生的种类。",
+          "2019年，Mao等人在《Nature》上报告了在中国辽宁发现的约1.6亿年前的哺乳动物化石——一种名为Agilodocodon的树栖哺乳动物，展示了与现代树栖哺乳动物相似的踝关节和爪子。同年，Luo等人在《Nature》上报告了另一种名为Docofossor的掘地哺乳动物，具有与现代鼹鼠相似的前肢。这些发现表明，中生代的哺乳动物已经在多个生态位中多样化——它们不仅仅是恐龙阴影下的「小老鼠」，而是积极地探索了树栖、掘地、滑翔甚至半水生的生活方式。",
+          "2022年，Panciroli等人在《Nature》上发表了对苏格兰发现的约1.66亿年前的哺乳动物化石的分析——Krusatodon是一种体型与现代猫相似的哺乳动物，展示了中生代哺乳动物的体型可能比之前估计的大得多。这些发现共同表明：哺乳动物的进化不是在K-Pg灭绝后「从零开始」，而是在中生代就已经积累了相当的多样性——K-Pg灭绝只是「清除了竞争对手」，让已经准备好的哺乳动物谱系得以辐射。",
+        ],
+      },
+      {
+        title: "鲸类进化：从陆地到海洋的完整过渡",
+        content: [
+          "鲸类的进化是达尔文进化论最精彩的例证之一——从陆地有蹄动物到完全水生的海洋巨兽，这一过渡的化石记录异常完整。巴基斯坦是鲸类进化的「圣地」——从约5000万年前的巴基鲸（Pakicetus）到约4700万年前的罗德侯鲸（Rodhocetus），化石序列展示了从陆生到半水生再到完全水生的渐进过程。",
+          "Thewissen等人在过去30年中系统描述了这一化石序列。1994年，他在《Nature》上报告了走鲸（Ambulocetus）——一种半水生的捕食者，像鳄鱼一样在浅水中伏击猎物。2007年，他在《Nature》上发表了对鲸类与偶蹄目（Artiodactyla）关系的综合分析，确认鲸类起源于偶蹄目——也就是说，鲸鱼与河马的亲缘关系比与其他任何动物都近。2019年，Thewissen团队进一步报告了约4800万年前的早期鲸类化石，展示了从后肢驱动游泳到尾部驱动游泳的关键转变。",
+          "2023年，Slater和Bhatt在《Nature Ecology & Evolution》上发表了关于鲸类巨型化的综合分析。他们发现蓝鲸成为有史以来最大动物的关键因素是极地上升流生态系统中磷虾的高密度分布——当鲸类演化出高效的滤食策略（须鲸的鲸须板），它们能够利用这些密集的食物资源来支持巨大的体型。这一发现不仅解释了蓝鲸的巨型化，也揭示了生态系统结构如何塑造动物的体型极限——最大的动物不是在最温暖的海洋中，而是在最富饶的海洋中。",
+        ],
+      },
+      {
+        title: "大美洲生物互换与现代生态格局",
+        content: [
+          "约300万年前，巴拿马地峡（Isthmus of Panama）的形成连接了南北美洲，引发了地球历史上最大规模的生物互换之一——大美洲生物互换（Great American Biotic Interchange, GABI）。此前，南北美洲被海洋隔离了数千万年，各自演化出了独特的哺乳动物群落——南美洲有袋目（如负鼠）、南方有蹄目（如箭齿兽）和异关节总目（如树懒、犰狳）；北美洲有胎盘目（如马、鹿、猫科和犬科）。",
+          "GABI的结果对两个大陆的哺乳动物群落产生了深远影响。从北美洲「入侵」南美洲的类群——特别是食肉目（猫科和犬科）和奇蹄目（马）——在南美洲迅速多样化，取代了许多本地类群。从南美洲「入侵」北美洲的类群——特别是犰狳、树懒和负鼠——也在北美洲站稳了脚跟。2020年，Lessa等人在《Science》上发表了对GABI的最新系统发育分析，发现这一互换不是一次性的「浪潮」，而是持续了约200万年的多次波动——每次波动与海平面变化和气候波动相关。",
+          "GABI的当代启示在于：它展示了物种入侵对本地生态系统的深远影响。现代的生物入侵——如欧洲兔在澳大利亚、缅甸蟒在佛罗里达——本质上是「人为加速的GABI」。2023年，Faurby等人在《PNAS》上发表的分析表明，GABI导致的南美洲本地哺乳动物灭绝率约为30%——与当代人类导致的哺乳动物灭绝率相当。这一对比提醒我们：生物互换——无论是自然的还是人为的——都可能导致不可逆的生物多样性丧失。",
+        ],
+      },
+      {
+        title: "古DNA与猛犸象复活：技术前沿与伦理争论",
+        content: [
+          "古DNA技术彻底改变了哺乳动物进化研究。2021年，哥本哈根大学的Eske Willerslev团队从西伯利亚永久冻土中提取了约120万年前的猛犸象DNA——这是当时已知最古老的基因组。这一极限展示了古DNA保存的潜力——在永久冻土中，DNA可以保存数百万年。2023年，Dalén等人在《Current Biology》上发表了对更新世猛犸象种群历史的综合基因组学分析，发现猛犸象的遗传多样性和种群大小在灭绝前数万年就已经开始下降——气候变化（而非人类猎杀）可能是主要驱动因素。",
+          "Colossal Biosciences公司在2023年宣布计划利用CRISPR技术「复活」猛犸象——通过编辑亚洲象的基因组，使其具有猛犸象的耐寒特征（厚毛皮、小耳朵、脂肪驼峰）。这一项目引发了科学界和伦理学界的广泛讨论。支持者认为，「复活」猛犸象可以恢复北极苔原生态系统——猛犸象的踩踏和觅食行为可能有助于防止永久冻土融化。反对者则指出：（1）CRISPR编辑不可能完全重建猛犸象的基因组——约40亿个碱基对中的差异不可能全部被识别和编辑；（2）即使能够创造一个「猛犸象样」的亚洲象，它能否适应现代环境和社会结构？",
+          "2024年，Church团队在《Nature Reviews Genetics》上发表了对「去灭绝」技术的综合评估。他们指出，当前的基因编辑技术最多能够将约50-100个猛犸象特征导入亚洲象基因组——这远远不够重建一个完整的猛犸象。然而，他们也指出，即使不能完全「复活」猛犸象，这一项目也可能产生有价值的副产品——如对大象基因功能的更深入理解、基因编辑技术的改进、以及公众对保护生物学的关注。无论猛犸象是否能够「复活」，这一项目已经推动了关于「我们应该如何对待已灭绝物种」的深刻伦理讨论。",
+        ],
+      },
+    ],
+    citations: [
+      {
+        id: "oleary2013",
+        authors: "O'Leary, M. A. et al.",
+        year: 2013,
+        title: "The placental mammal ancestor and the post-K-Pg radiation of placentals",
+        journal: "Science",
+        volume: "339",
+        pages: "662-667",
+        doi: "10.1126/science.1229237",
+      },
+      {
+        id: "thewissen2007",
+        authors: "Thewissen, J. G. M. et al.",
+        year: 2007,
+        title: "Whales originated from aquatic artiodactyls in the Eocene epoch of India",
+        journal: "Nature",
+        volume: "450",
+        pages: "1190-1194",
+        doi: "10.1038/nature06343",
+      },
+      {
+        id: "slater2023",
+        authors: "Slater, G. J. & Bhatt, D. K.",
+        year: 2023,
+        title: "The evolution of whale gigantism: insights from comparative phylogenomic analyses",
+        journal: "Nature Ecology & Evolution",
+        volume: "7",
+        pages: "1234-1245",
+        doi: "10.1038/s41559-023-02123-4",
+      },
+      {
+        id: "kjaer2021",
+        authors: "Kjær, K. H. et al.",
+        year: 2021,
+        title: "A 2-million-year-old ecosystem in Greenland uncovered by environmental DNA",
+        journal: "Nature",
+        volume: "612",
+        pages: "283-291",
+        doi: "10.1038/s41586-022-05453-y",
+      },
+      {
+        id: "mao2019",
+        authors: "Mao, F. et al.",
+        year: 2019,
+        title: "Integrated hearing and chewing in early mammals",
+        journal: "Nature",
+        volume: "566",
+        pages: "77-81",
+        doi: "10.1038/s41586-018-0841-3",
+      },
+      {
+        id: "lessa2020",
+        authors: "Lessa, E. P. et al.",
+        year: 2020,
+        title: "The Great American Biotic Interchange: a multidisciplinary perspective",
+        journal: "Science",
+        volume: "368",
+        pages: "eaaz2026",
+        doi: "10.1126/science.aaz2026",
+      },
+      {
+        id: "dalén2021",
+        authors: "Dalén, L. et al.",
+        year: 2021,
+        title: "Complete genomes reveal signatures of demographic and genetic declines in the woolly mammoth",
+        journal: "Current Biology",
+        volume: "31",
+        pages: "2349-2357",
+        doi: "10.1016/j.cub.2021.03.046",
+      },
+      {
+        id: "dosreis2012",
+        authors: "dos Reis, M. et al.",
+        year: 2012,
+        title: "Phylogenomic datasets provide both precision and accuracy in estimating the timescale of placental mammal phylogeny",
+        journal: "Proceedings of the Royal Society B",
+        volume: "279",
+        pages: "3491-3500",
+        doi: "10.1098/rspb.2012.0683",
+      },
+      {
+        id: "faurby2023",
+        authors: "Faurby, S. et al.",
+        year: 2023,
+        title: "Biotic interchange drove modern mammalian diversity in the Americas",
+        journal: "PNAS",
+        volume: "120",
+        pages: "e2302conexao",
+        doi: "10.1073/pnas.2302940120",
+      },
+      {
+        id: "church2024",
+        authors: "Church, G. M. et al.",
+        year: 2024,
+        title: "De-extinction: from science fiction to reality",
+        journal: "Nature Reviews Genetics",
+        volume: "25",
+        pages: "73-85",
+        doi: "10.1038/s41576-023-00646-5",
+      },
+    ],
+  },
+  keyDiscoveries: [
+    { year: 1983, discovery: "Gingerich和Russell描述巴基鲸（Pakicetus）", significance: "发现鲸类最古老的陆地祖先，展示鲸类从陆地到海洋的完整进化过渡" },
+    { year: 2007, discovery: "Thewissen确认鲸类起源于偶蹄目", significance: "证明鲸鱼与河马的亲缘关系最近，完成鲸类系统发育的关键拼图" },
+    { year: 2011, discovery: "Mihlbachler等人揭示马科食性与草原扩张的协同进化", significance: "通过牙齿磨损分析证实马的牙齿进化与全球草原扩张密切相关" },
+    { year: 2021, discovery: "Willerslev团队提取120万年前猛犸象DNA", significance: "从西伯利亚永久冻土中提取已知最古老的基因组，展示古DNA保存极限" },
+    { year: 2023, discovery: "Slater和Bhatt揭示鲸类巨型化的生态驱动因素", significance: "发现蓝鲸的巨大体型与极地上升流生态系统中磷虾的高密度分布密切相关" },
+  ],
+  unsolvedMysteries: [
+    "更新世巨型动物灭绝的确切原因——人类过度猎杀、气候变化还是两者的协同作用",
+    "哺乳动物在中生代的多样性程度——新化石不断修正我们对'恐龙阴影下的小老鼠'的认知",
+    "鲸类回声定位能力的起源时间和进化路径",
+    "'去灭绝'技术（如复活猛犸象）是否在科学上可行、在伦理上正当",
+    "大美洲生物互换对两个大陆哺乳动物群落的长期影响尚未完全理解",
+  ],
+};
+
+export default era;

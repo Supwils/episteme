@@ -4,7 +4,11 @@ import { AnimatePresence, motion, useDragControls } from "framer-motion";
 import { usePathname, useRouter } from "next/navigation";
 import { useRef, useState, useSyncExternalStore } from "react";
 import { cn } from "@/src-physics/lib/cn";
-import { HW_THEME_LABEL, nextHwTheme, type HandwrittenTheme } from "@/src-physics/lib/handwritten-theme";
+import {
+  HW_THEME_LABEL,
+  nextHwTheme,
+  type HandwrittenTheme,
+} from "@/src-physics/lib/handwritten-theme";
 import {
   defaultRouteForSection,
   getSectionConfig,
@@ -75,7 +79,7 @@ export function FloatingViewControl() {
   const isClient = useSyncExternalStore(
     noopSubscribe,
     () => true,
-    () => false,
+    () => false
   );
   const [localPos, setLocalPos] = useState<Pos | null>(null);
   const pos: Pos | null = isClient ? (localPos ?? readPersistedPos()) : null;
@@ -127,7 +131,7 @@ export function FloatingViewControl() {
         transition={{ type: "spring", stiffness: 300, damping: 32 }}
         onHoverStart={() => !wasDragging.current && setExpanded(true)}
         onHoverEnd={() => setExpanded(false)}
-        className="pointer-events-auto absolute top-0 left-0"
+        className="pointer-events-auto absolute left-0 top-0"
       >
         <motion.button
           type="button"
@@ -140,7 +144,7 @@ export function FloatingViewControl() {
           }}
           className={cn(
             "border-fg-disabled/40 bg-bg-deep/70 text-fg-primary flex h-12 w-12 cursor-grab items-center justify-center rounded-full border backdrop-blur-md transition-colors duration-200 active:cursor-grabbing",
-            "hover:border-accent-warm/70",
+            "hover:border-accent-warm/70"
           )}
         >
           <PuckGlyph mode={handwritten ? "handwritten" : "3d"} />
@@ -154,7 +158,7 @@ export function FloatingViewControl() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -4, scale: 0.96 }}
               transition={{ duration: 0.18, ease: [0.22, 0.61, 0.36, 1] }}
-              className="border-fg-disabled/40 bg-bg-deep/85 absolute top-14 left-1/2 flex w-[232px] -translate-x-1/2 flex-col gap-2 rounded-2xl border p-3 backdrop-blur-xl"
+              className="border-fg-disabled/40 bg-bg-deep/85 absolute left-1/2 top-14 flex w-[232px] -translate-x-1/2 flex-col gap-2 rounded-2xl border p-3 backdrop-blur-xl"
             >
               <SegmentGroup
                 label="section"
@@ -217,7 +221,25 @@ export function FloatingViewControl() {
                 />
               ) : null}
 
-              <p className="text-fg-disabled px-1 pt-1 font-mono text-[9px] tracking-[0.28em] uppercase">
+              <button
+                type="button"
+                onClick={() => router.push("/universe-physics/experiments")}
+                className="ease-product text-fg-muted hover:bg-bg-elevated hover:text-fg-secondary flex w-full items-center gap-2 rounded-md px-2.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] transition-all duration-150"
+              >
+                <span aria-hidden className="bg-accent-cool h-1.5 w-1.5 rounded-full" />
+                <span>EXPERIMENTS · 实验</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => router.push("/")}
+                className="ease-product text-fg-muted hover:bg-bg-elevated hover:text-fg-secondary flex w-full items-center gap-2 rounded-md px-2.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] transition-all duration-150"
+              >
+                <span aria-hidden className="bg-fg-disabled h-1.5 w-1.5 rounded-full" />
+                <span>← 返回首页</span>
+              </button>
+
+              <p className="text-fg-disabled px-1 pt-1 font-mono text-[9px] uppercase tracking-[0.28em]">
                 {cfg.label.primary} · drag 拖动定位
               </p>
             </motion.div>
@@ -235,10 +257,10 @@ function PuckGlyph({ mode }: { mode: "3d" | "handwritten" }) {
       <span
         className={cn(
           "absolute inset-1 rounded-full transition-colors",
-          mode === "3d" ? "bg-accent-warm/60" : "bg-accent-cool/50",
+          mode === "3d" ? "bg-accent-warm/60" : "bg-accent-cool/50"
         )}
       />
-      <span className="text-fg-primary relative font-mono text-[9px] tracking-[0.1em] uppercase">
+      <span className="text-fg-primary relative font-mono text-[9px] uppercase tracking-[0.1em]">
         {mode === "3d" ? "3D" : "Hw"}
       </span>
     </span>
@@ -263,11 +285,11 @@ function SegmentGroup({
   return (
     <div className="flex flex-col gap-1.5">
       <div className="flex items-baseline justify-between px-1">
-        <span className="text-fg-muted font-mono text-[9px] tracking-[0.28em] uppercase">
+        <span className="text-fg-muted font-mono text-[9px] uppercase tracking-[0.28em]">
           {label}
         </span>
         {showHint ? (
-          <span className="text-fg-disabled font-mono text-[9px] tracking-[0.18em] uppercase">
+          <span className="text-fg-disabled font-mono text-[9px] uppercase tracking-[0.18em]">
             {showHint()}
           </span>
         ) : null}
@@ -290,19 +312,19 @@ function SegmentGroup({
               aria-disabled={disabled || undefined}
               onClick={() => !disabled && onChange(opt.id)}
               className={cn(
-                "ease-product flex items-center gap-2 rounded-md px-2.5 py-1.5 font-mono text-[10px] tracking-[0.16em] uppercase transition-all duration-150",
+                "ease-product flex items-center gap-2 rounded-md px-2.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] transition-all duration-150",
                 isActive
                   ? "bg-accent-warm/15 text-fg-primary"
                   : disabled
                     ? "text-fg-disabled cursor-not-allowed"
-                    : "text-fg-muted hover:bg-bg-elevated hover:text-fg-secondary",
+                    : "text-fg-muted hover:bg-bg-elevated hover:text-fg-secondary"
               )}
             >
               <span
                 aria-hidden
                 className={cn(
                   "h-1.5 w-1.5 rounded-full",
-                  isActive ? "bg-accent-warm" : "bg-fg-disabled",
+                  isActive ? "bg-accent-warm" : "bg-fg-disabled"
                 )}
               />
               <span className="truncate">{opt.label}</span>

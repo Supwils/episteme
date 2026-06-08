@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef, type ComponentProps } from "react";
 import { type Group, Vector3 } from "three";
 import { StarPoints } from "@/src-physics/components/three/StarPoints";
-import { getTierContent } from "@/content/universe-physics/cosmos";
+import { getTierContent } from "@/src-physics/lib/tier-content";
 import { hash01, mixRgb } from "@/src-physics/lib/noise";
 import { SceneMarkers } from "../SceneMarkers";
 import { useUiStore } from "@/src-physics/store/useUiStore";

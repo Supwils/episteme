@@ -1,6 +1,6 @@
 "use client";
 
-import { getTierContent } from "@/content/universe-physics/cosmos";
+import { getTierContent } from "@/src-physics/lib/tier-content";
 import { hash01 } from "@/src-physics/lib/handwritten-coords";
 import { Cartouche } from "../shared/Cartouche";
 import { HandwrittenLabel } from "../shared/HandwrittenLabel";

@@ -73,15 +73,15 @@ describe("getSectionRoute", () => {
   });
   it("builds handwritten universe routes", () => {
     expect(getSectionRoute("universe", "T0", "handwritten")).toBe(
-      "/universe-physics/universe/handwritten/observable",
+      "/universe-physics/universe/handwritten/observable"
     );
     expect(getSectionRoute("universe", "T7", "handwritten")).toBe(
-      "/universe-physics/universe/handwritten/earth",
+      "/universe-physics/universe/handwritten/earth"
     );
   });
   it("builds physics routes (always handwritten, no subpath)", () => {
     expect(getSectionRoute("physics", "P0", "handwritten")).toBe(
-      "/universe-physics/physics/classical-mechanics",
+      "/universe-physics/physics/classical-mechanics"
     );
     expect(getSectionRoute("physics", "P4")).toBe("/universe-physics/physics/quantum-mechanics");
   });

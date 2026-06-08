@@ -14,9 +14,12 @@ import { openScholarlyModal, hasScholarlyDetail, cleanupScholarlyModal } from '.
 import { addSwipeGesture } from '../lib/gesture.js';
 import { getQuery } from '../lib/router.js';
 import { getReadingProgress, clearReadingProgress, estimateReadMinutes, saveReadingProgress } from '../lib/reading-progress.js';
+import { getSimulationId } from '../lib/simulation-links.js';
 
 const ALL_DETAILS = { ...EVENT_DETAILS, ...EXTRA_DETAILS, ...FINAL_DETAILS, ...LAST_DETAILS, ...GEO_ENRICHMENT_1, ...GEO_ENRICHMENT_2 };
 import { icon, DETAIL_ICONS, CAT_ICONS } from '../lib/icons.js';
+
+import { escapeHtml } from '../lib/escape-html';
 
 function truncateText(text, length = 92) {
   if (!text) return '';
@@ -80,15 +83,15 @@ function renderPaginatedCard(ev) {
   function buildPage(idx) {
     if (idx < pages.length) {
       const p = pages[idx];
-      return `<h3 class="pc-page-title">${p.title}</h3><div class="pc-page-body">${p.body}</div>`;
+      return `<h3 class="pc-page-title">${escapeHtml(p.title)}</h3><div class="pc-page-body">${escapeHtml(p.body)}</div>`;
     }
     if (hasFacts && idx === pages.length) {
       return `<h3 class="pc-page-title">${icon(DETAIL_ICONS.facts, 16)} 鲜为人知的历史细节</h3>
-        <div class="pc-facts-list">${detail.facts.map(f => `<div class="pc-fact">▸ ${f}</div>`).join('')}</div>`;
+        <div class="pc-facts-list">${detail.facts.map(f => `<div class="pc-fact">▸ ${escapeHtml(f)}</div>`).join('')}</div>`;
     }
     if (hasQuote && idx === totalPages - 1) {
       return `<h3 class="pc-page-title">${icon(DETAIL_ICONS.quote, 16)} 历史之声</h3>
-        <blockquote class="pc-quote">"${detail.quote.text}"<cite>—— ${detail.quote.author}</cite></blockquote>`;
+        <blockquote class="pc-quote">"${escapeHtml(detail.quote.text)}"<cite>—— ${escapeHtml(detail.quote.author)}</cite></blockquote>`;
     }
     return '';
   }
@@ -100,10 +103,10 @@ function renderPaginatedCard(ev) {
         <span class="tl-year">${formatYear(ev.year)}</span>
         <span class="tl-cat" style="color:${catColor};background:${catColor}15">${icon(CAT_ICONS[ev.cat] || 'mdi:tag', 12)} ${CAT_LABELS[ev.cat] || ev.cat}</span>
         <span class="tl-region">${REGION_LABELS[ev.region] || ev.region}</span>
-        ${era ? `<span class="tag" style="color:${era.color};border-color:${era.color}30;background:${era.color}10;font-size:0.65rem">${era.name}</span>` : ''}
+        ${era ? `<span class="tag" style="color:${era.color};border-color:${era.color}30;background:${era.color}10;font-size:0.65rem">${escapeHtml(era.name)}</span>` : ''}
       </div>
       <div class="pc-title-row">
-        <h2 class="pc-title">${ev.title}</h2>
+        <h2 class="pc-title">${escapeHtml(ev.title)}</h2>
         <button class="pc-close" aria-label="收起">${icon('mdi:close', 16)}</button>
       </div>
     </div>
@@ -164,7 +167,13 @@ function collapseCard() {
   if (existing) {
     const reduce = prefersReducedMotion();
     if (reduce) existing.remove();
-    else gsap.to(existing, { height: 0, opacity: 0, duration: 0.3, ease: 'power2.in', onComplete: () => existing.remove() });
+    else {
+      existing.style.willChange = 'height, opacity';
+      gsap.to(existing, {
+        height: 0, opacity: 0, duration: 0.3, ease: 'power2.in',
+        onComplete: () => { existing.style.willChange = 'auto'; existing.remove(); },
+      });
+    }
   }
   expandedTitle = null;
   currentPage = 0;
@@ -217,7 +226,7 @@ function buildContinueBanner() {
   const banner = el('div', { class: 'timeline-continue' });
   const label = progress.type === 'scholarly' ? '深度讲稿' : '时间线';
   banner.innerHTML = `
-    <span>${icon('mdi:bookmark-outline', 16)} 继续阅读 · ${label}「${progress.title}」</span>
+    <span>${icon('mdi:bookmark-outline', 16)} 继续阅读 · ${label}「${escapeHtml(progress.title)}」</span>
     <button type="button" class="timeline-continue-btn">继续</button>
     <button type="button" class="timeline-continue-dismiss" aria-label="清除">✕</button>
   `;
@@ -247,7 +256,11 @@ function expandCard(ev, eventEl) {
   card.focus();
   const reduce = prefersReducedMotion();
   if (reduce) return;
-  gsap.fromTo(card, { height: 0, opacity: 0 }, { height: '55vh', opacity: 1, duration: 0.45, ease: 'power2.out' });
+  card.style.willChange = 'height, opacity';
+  gsap.fromTo(card, { height: 0, opacity: 0 }, {
+    height: '55vh', opacity: 1, duration: 0.45, ease: 'power2.out',
+    onComplete: () => { card.style.willChange = 'auto'; },
+  });
   setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
 }
 
@@ -268,7 +281,7 @@ function buildScrubber() {
       style: `flex:${ratio};background:${era.color}30;border-color:${era.color}60`,
       title: `${era.name} (${formatYear(era.startYear)} - ${formatYear(era.endYear)})`,
     });
-    seg.innerHTML = `<span class="ys-seg-label">${era.name}</span>`;
+    seg.innerHTML = `<span class="ys-seg-label">${escapeHtml(era.name)}</span>`;
     seg.addEventListener('click', () => {
       const s = document.getElementById(`era-${era.id}`);
       if (s) s.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -315,16 +328,26 @@ function renderEventCard(ev) {
         <span class="tl-cat" style="color:${catColor};background:${catColor}15">${icon(CAT_ICONS[ev.cat] || 'mdi:tag', 12)} ${CAT_LABELS[ev.cat] || ev.cat}</span>
         ${hasDetail ? `<span class="tl-has-detail-badge">${icon('mdi:book-open-page-variant', 10)} ${pageCount}页 · 约${readMins}分钟</span>` : ''}
       </div>
-      <div class="tl-title">${ev.title}</div>
-      <div class="tl-desc">${ev.desc}</div>
+      <div class="tl-title">${escapeHtml(ev.title)}</div>
+      <div class="tl-desc">${escapeHtml(ev.desc)}</div>
       ${hasDetail ? `<div class="tl-expand-hint">${icon(DETAIL_ICONS.expand, 14)} 点击展开详细历史</div>` : ''}
-      ${hasScholarlyDetail(ev.title) ? `<button class="scholarly-btn" data-sch-title="${ev.title}">${icon('mdi:book-open-page-variant', 12)} 深度阅读讲稿</button>` : ''}
+      ${hasScholarlyDetail(ev.title) ? `<button class="scholarly-btn" data-sch-title="${escapeHtml(ev.title)}">${icon('mdi:book-open-page-variant', 12)} 深度阅读讲稿</button>` : ''}
+      ${getSimulationId(ev.title) ? `<a class="sim-link-btn" href="/human-history/simulations?sim=${getSimulationId(ev.title)}">${icon('mdi:flask-outline', 12)} 历史模拟：如果……</a>` : ''}
+      <a class="event-detail-link" href="/human-history/events/${encodeURIComponent(ev.title)}" onclick="event.stopPropagation()">${icon('mdi:arrow-expand', 12)} 查看详情页</a>
     </div>`;
   item.style.setProperty('--dot-color', catColor);
   item.addEventListener('click', (e) => {
     if (e.target.closest('.scholarly-btn')) {
       e.stopPropagation();
       openScholarlyModal(e.target.closest('.scholarly-btn').dataset.schTitle);
+      return;
+    }
+    if (e.target.closest('.sim-link-btn')) {
+      e.stopPropagation();
+      return;
+    }
+    if (e.target.closest('.event-detail-link')) {
+      e.stopPropagation();
       return;
     }
     expandCard(ev, item);
@@ -398,6 +421,7 @@ function rebuildEraSection(eraId, events, trackContainer) {
 export function renderTimeline() {
   const app = clearApp();
   expandedTitle = null;
+  currentPage = 0;
   activeEraFilter = null;
   searchQuery = '';
   detailOnly = false;
@@ -519,14 +543,14 @@ export function renderTimeline() {
       const head = el('div', { class: 'timeline-era-head' });
       head.innerHTML = `
         <div class="era-icon" style="background:${era.color}20;border:1px solid ${era.color}40">${icon(era.icon, 22)}</div>
-        <div><h2>${era.name}</h2><span style="font-size:0.75rem;color:var(--parchment-dim)">${formatYear(era.startYear)} - ${formatYear(era.endYear)} · ${events.length}/${totalEvents.length}个事件</span></div>
+        <div><h2>${escapeHtml(era.name)}</h2><span style="font-size:0.75rem;color:var(--parchment-dim)">${formatYear(era.startYear)} - ${formatYear(era.endYear)} · ${events.length}/${totalEvents.length}个事件</span></div>
         <div class="era-line" style="background:linear-gradient(90deg,${era.color}40,transparent)"></div>`;
       section.appendChild(head);
 
       // Era intro
       const intro = el('div', { class: 'tl-era-intro' });
-      intro.innerHTML = `<p>${era.desc}</p>
-        ${era.quote ? `<blockquote class="tl-era-quote">"${era.quote.text}"<cite>—— ${era.quote.author}</cite></blockquote>` : ''}`;
+      intro.innerHTML = `<p>${escapeHtml(era.desc)}</p>
+        ${era.quote ? `<blockquote class="tl-era-quote">"${escapeHtml(era.quote.text)}"<cite>—— ${escapeHtml(era.quote.author)}</cite></blockquote>` : ''}`;
       section.appendChild(intro);
 
       // Region tabs
@@ -562,6 +586,13 @@ export function renderTimeline() {
 
 export function cleanupTimeline() {
   if (_swipeCleanup) { _swipeCleanup(); _swipeCleanup = null; }
-  // Scholarly modal lives on document.body; close it (detaches keydown) on exit.
   cleanupScholarlyModal();
+  // Kill all GSAP tweens to prevent height/opacity animations from leaking
+  gsap.killTweensOf('*');
+  expandedTitle = null;
+  currentPage = 0;
+  activeEraFilter = null;
+  searchQuery = '';
+  detailOnly = false;
+  for (const key in activeRegionPerEra) delete activeRegionPerEra[key];
 }

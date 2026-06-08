@@ -131,7 +131,7 @@ export const TIER_ROUTES: Record<TierId, string> = {
 };
 
 const ROUTE_TO_TIER: Map<string, TierId> = new Map(
-  (Object.entries(TIER_ROUTES) as Array<[TierId, string]>).map(([tier, slug]) => [slug, tier]),
+  (Object.entries(TIER_ROUTES) as Array<[TierId, string]>).map(([tier, slug]) => [slug, tier])
 );
 
 export function tierFromSlug(slug: string): TierId | null {

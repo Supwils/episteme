@@ -57,6 +57,21 @@ const content: TierContent = {
       value: "I ∝ e^(−2κd)",
       hint: "κ ≈ √(2m φ)/ℏ · 每 0.1 nm 变化 10 倍",
     },
+    {
+      label: "无漏洞 Bell 测试 S 值",
+      value: "S = 2.40 ± 0.09",
+      hint: "Hensen et al. 2015 · Delft · 首个无漏洞",
+    },
+    {
+      label: "Google 量子霸权",
+      value: "200 秒 vs 10000 年",
+      hint: "Sycamore 53 qubit · 2019 · 随机电路采样",
+    },
+    {
+      label: "量子纠错突破",
+      value: "逻辑错误 < 物理错误",
+      hint: "Google 2024 · Surface code · 距离 5→7 降低错误率",
+    },
   ],
 
   narrative: [
@@ -103,6 +118,20 @@ const content: TierContent = {
         "工程上的反向利用更精彩。Binnig & Rohrer 1981 让一根 W 针尖逼近样品表面到 ~ 0.5 nm，加几个伏特偏压，电子隧穿电流 I ∝ exp(−2κd)，d 每变 0.1 nm 电流变 10 倍——扫描隧道显微镜 (STM) 由此第一次「看见」单个原子（Nobel 1986）。Josephson 1962 预言两块超导体之间也存在 Cooper 对的相干隧穿，I = I_c sin(Δφ)，今天的超导量子比特 (transmon) 与 SQUID 磁强计全部基于这个效应。同一条隧穿方程从地壳放射性年代学走到 IBM/Google 的量子芯片，跨度 26 个数量级。",
       ],
     },
+    {
+      heading: "无漏洞 Bell 测试 · 量子非局域性的最终判决",
+      body: [
+        "Bell 不等式的实验检验经历了半个世纪的演进。1972 年 Freedman & Clauser 完成了第一个 Bell 测试实验；1982 年 Aspect 用快速切换偏振片堵住了「局域性漏洞」。但所有早期实验都有一个或多个「漏洞」。2015 年 Hensen et al. 在 Delft 大学完成了首个「无漏洞」Bell 测试：两个金刚石 NV 色心相距 1.3 公里，S = 2.40 ± 0.09，明确违反经典上限 2。",
+        "2022 年 Nobel 物理学奖授予 Aspect、Clauser 和 Zeilinger，表彰他们「用纠缠光子进行实验，确立了 Bell 不等式的违反，并开创了量子信息科学」。无漏洞 Bell 测试不仅是基础物理的里程碑，也是量子技术的安全基石——量子密钥分发（QKD）的安全性依赖于 Bell 不等式的违反。",
+      ],
+    },
+    {
+      heading: "量子计算里程碑 · 从量子霸权到纠错突破",
+      body: [
+        "2019 年 Google 的 Sycamore 处理器（53 个超导量子比特）在 Nature 上发表了「量子霸权」实验：完成一个特定的随机电路采样任务，量子计算机用了 200 秒，而经典超级计算机估计需要 10000 年。2020 年中国「九章」光量子计算机用玻色子采样也展示了量子优势。",
+        "量子计算最大的敌人是退相干和噪声。2024 年 Google 团队在 Nature 上发表了突破性成果：用 surface code（distance 5 → 7）首次实现了「逻辑错误率低于物理错误率」——编码越大，错误越少。这是量子纠错从理论走向实用的关键转折点。量子计算的技术路线仍在竞争：超导（Google、IBM）、离子阱（IonQ）、光量子（Xanadu）、拓扑（Microsoft）、中性原子（QuEra）。",
+      ],
+    },
   ],
 
   sources: [
@@ -139,6 +168,18 @@ const content: TierContent = {
     {
       label: "Binnig & Rohrer 1982 — Surface Studies by STM (Nobel work)",
       url: "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.49.57",
+      kind: "paper",
+    },
+    {
+      label:
+        "Hensen et al. 2015 — Loophole-free Bell inequality violation using electron spins (Nature)",
+      url: "https://www.nature.com/articles/nature15759",
+      kind: "paper",
+    },
+    {
+      label:
+        "Google Quantum AI 2024 — Quantum error correction below the surface code threshold (Nature)",
+      url: "https://www.nature.com/articles/s41586-024-08449-y",
       kind: "paper",
     },
   ],

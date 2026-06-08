@@ -1,0 +1,155 @@
+---
+title: 格林定理
+title_en: Green's Theorem
+field: 向量分析
+mathematician: green
+year: 1828
+statement_latex: "\\oint_{\\partial D}(Pdx+Qdy)=\\iint_D\\left(\\frac{\\partial Q}{\\partial x}-\\frac{\\partial P}{\\partial y}\\right)dA"
+proof_type: constructive
+tags: ["向量分析", "线积分", "面积分", "格林"]
+related: ["stokes-theorem", "divergence-theorem", "fundamental-theorem-of-calculus", "green"]
+difficulty: "中等"
+status: published
+updated: 2026-06-05
+---
+
+## 定理陈述
+
+**格林定理**（Green's Theorem）建立了平面区域上的二重积分与边界曲线积分之间的关系。
+
+设 $D$ 是平面上的有界闭区域，边界 $\partial D$ 分段光滑且取正向（逆时针方向）。设 $P(x,y)$ 和 $Q(x,y)$ 在包含 $D$ 的开集上连续可微，则
+
+$$\oint_{\partial D} (P\,dx + Q\,dy) = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dA$$
+
+两种特殊形式：
+
+**面积公式**：取 $P = -y/2$，$Q = x/2$，则
+
+$$\text{Area}(D) = \frac{1}{2}\oint_{\partial D} (x\,dy - y\,dx) = \oint_{\partial D} x\,dy$$
+
+## 直觉理解
+
+格林定理说的是：**沿边界的环流量等于内部旋度的总和**。
+
+想象一个旋转的流体。如果你沿着边界走一圈，感受到的净推力（环量）等于内部所有微小旋转（旋度）的叠加。
+
+从面积的角度看：你可以通过测量边界的环量来计算内部的面积。这就是为什么格林定理在计算面积时非常有用——将面积分转化为线积分。
+
+格林定理是微积分基本定理在二维的推广。FTC 说 $\int_a^b f'(x)dx = f(b) - f(a)$——"内部的导数 = 边界上的值"。格林定理说的也是同样的话，只是维度提高了。
+
+## 证明思路
+
+### 证明概要
+
+**步骤 1**：假设 $D$ 是 $x$-型区域（即 $D = \{(x,y) : a \leq x \leq b,\, g_1(x) \leq y \leq g_2(x)\}$）。
+
+**步骤 2**：计算 $\iint_D \frac{\partial Q}{\partial x} dA$：
+
+$$\iint_D \frac{\partial Q}{\partial x} dA = \int_a^b \int_{g_1(x)}^{g_2(x)} \frac{\partial Q}{\partial x} dy\,dx = \int_a^b [Q(x, g_2(x)) - Q(x, g_1(x))] dx$$
+
+**步骤 3**：计算 $\oint_{\partial D} Q\,dy$。边界由下曲线 $y = g_1(x)$（从左到右）和上曲线 $y = g_2(x)$（从右到左）组成：
+
+$$\oint_{\partial D} Q\,dy = \int_a^b Q(x, g_2(x))dx - \int_a^b Q(x, g_1(x))dx$$
+
+两式相等。类似地证明 $P$ 的部分。
+
+**步骤 4**：一般区域可以分解为有限个 $x$-型和 $y$-型子区域，内部边界上的积分相互抵消。
+
+## 历史背景
+
+**乔治·格林**（George Green，1793—1841）是英国自学成才的数学家和物理学家。他在 1828 年自费出版了论文《论数学分析应用于电磁学》，其中包含了格林定理和格林函数。
+
+格林的论文在发表时几乎没有引起注意。直到开尔文勋爵在 1840 年代发现了这篇论文，格林的工作才被广泛认可。格林函数后来成为数学物理中最重要的工具之一——用于求解偏微分方程。
+
+格林定理的现代形式和严格证明归功于 19 世纪后半叶的数学家，特别是柯西和黎曼对复分析的发展——柯西-黎曼方程和柯西积分定理与格林定理密切相关。
+
+## 应用
+
+1. **面积计算**：通过边界曲线的线积分计算平面区域的面积
+2. **流体力学**：计算流体绕障碍物的环量和升力
+3. **电磁学**：安培环路定理的二维形式
+4. **复分析**：柯西积分定理的实变量版本——格林定理是复分析的基础
+5. **有限元方法**：格林公式用于弱形式的推导
+
+## 与其他定理的关系
+
+- **微积分基本定理**：格林定理是 FTC 在二维的推广
+- **斯托克斯定理**：格林定理是斯托克斯定理在平面上的特例
+- **散度定理**：格林定理的散度形式——$\oint \mathbf{F} \cdot \mathbf{n}\,ds = \iint \nabla \cdot \mathbf{F}\,dA$
+- **柯西积分定理**：复分析中 $\oint f(z)dz = 0$——由格林定理推出
+- **散度定理**：格林定理与散度定理是同一枚硬币的两面
+
+## 具体示例
+
+设 $P = -y$，$Q = x$，$D$ 是单位圆盘 $x^2 + y^2 \leq 1$。
+
+格林定理给出：
+
+$$\oint_{\partial D} (-y\,dx + x\,dy) = \iint_D (1 - (-1))\,dA = 2 \cdot \pi = 2\pi$$
+
+左端是沿单位圆的线积分。参数化 $x = \cos t$，$y = \sin t$：
+
+$$\int_0^{2\pi} (-\sin t)(-\sin t)\,dt + (\cos t)(\cos t)\,dt = \int_0^{2\pi} 1\,dt = 2\pi$$
+
+两边相等。利用面积公式 $\text{Area} = \frac{1}{2}\oint(x\,dy - y\,dx) = \pi$。
+
+## 格林定理与复分析
+
+格林定理在复分析中有重要应用。设 $f(z) = u + iv$ 是区域 $D$ 上的解析函数，$\oint_{\partial D} f(z)\,dz$ 可以分解为实部和虚部的线积分。利用柯西-黎曼方程 $\partial u/\partial x = \partial v/\partial y$ 和 $\partial u/\partial y = -\partial v/\partial x$，应用格林定理可得：
+
+$$\oint_{\partial D} f(z)\,dz = 0$$
+
+这就是**柯西积分定理**——复分析的基石。格林定理为柯西积分定理提供了实变量的证明。
+
+更一般地，柯西积分公式 $f(a) = \frac{1}{2\pi i}\oint_\gamma \frac{f(z)}{z-a}dz$ 的证明也依赖于格林定理（通过将解析函数的积分化为实部和虚部的线积分）。
+
+## 格林定理的物理应用
+
+在流体力学中，格林定理的旋度形式给出：
+
+$$\oint_{\partial D} \mathbf{v} \cdot d\mathbf{r} = \iint_D (\nabla \times \mathbf{v}) \cdot \mathbf{k}\,dA$$
+
+即：沿边界的速度环量等于内部涡度的总和。这是开尔文环量定理的二维版本。
+
+在电磁学中，安培环路定理的二维形式 $\oint \mathbf{B} \cdot d\mathbf{l} = \mu_0 I$ 本质上是格林定理的应用。
+
+## 延伸阅读
+
+1. George Green, "An Essay on the Application of Mathematical Analysis to the Theories of Electricity and Magnetism" (1828).
+2. H.M. Schey, *Div, Grad, Curl, and All That* (4th ed., 2005).
+3. John B. Conway, *Functions of One Complex Variable* (2nd ed., 1978).
+4. 吉米多维奇, 《数学分析习题集》, 人民教育出版社.
+5. R.V. Churchill & J.W. Brown, *Complex Variables and Applications* (9th ed., 2013).
+
+> 「格林定理是向量微积分的入门之钥——掌握了它，就掌握了通向斯托克斯定理和散度定理的道路。」
+
+## 格林第一与第二恒等式
+
+格林定理可以推导出两个重要的恒等式。设 $u$ 和 $v$ 是区域 $D$ 上的二阶连续可微函数：
+
+**格林第一恒等式**：
+
+$$\iint_D (u\nabla^2 v + \nabla u \cdot \nabla v)\,dA = \oint_{\partial D} u\frac{\partial v}{\partial n}\,ds$$
+
+其中 $\frac{\partial v}{\partial n} = \nabla v \cdot \mathbf{n}$ 是法向导数。
+
+**格林第二恒等式**（将第一恒等式中的 $u, v$ 互换后相减）：
+
+$$\iint_D (u\nabla^2 v - v\nabla^2 u)\,dA = \oint_{\partial D}\left(u\frac{\partial v}{\partial n} - v\frac{\partial u}{\partial n}\right)ds$$
+
+这两个恒等式是求解拉普拉斯方程和泊松方程的基础。格林函数法正是利用第二恒等式，将偏微分方程的解表示为边界积分——这是边界元方法（BEM）的数学基础。
+
+## 格林定理的离散化
+
+在计算数学中，格林定理的离散化形式是**有限体积法**的核心。将区域划分为控制体积 $V_i$，对每个体积应用散度定理的二维形式：
+
+$$\iint_{V_i} \nabla \cdot \mathbf{F}\,dA = \sum_{\text{edges}} \mathbf{F} \cdot \mathbf{n}\,\Delta s$$
+
+这种方法在计算流体力学（CFD）中被广泛使用，因为它天然地保持了物理守恒律——离散化后的方程仍然精确满足质量、动量和能量守恒。
+
+## 跨领域连接
+
+- **物理学**：格林定理在电磁学和流体力学中的应用
+- **工程学**：格林定理在有限元方法和计算物理中的应用
+- **经济学**：格林定理在空间经济学和区域分析中的应用
+- **哲学**：格林定理与局部-整体关系

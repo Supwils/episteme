@@ -12,29 +12,30 @@ concurrency:
 
 jobs:
   build:
-    name: Build & Type Check
+    name: Build, Type Check & Bundle Budget
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - uses: pnpm/action-setup@v4
         with:
           version: 10
-      
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: pnpm
-      
+
       - run: pnpm install --frozen-lockfile
-      
+
       - name: Build all apps
         run: pnpm build
-      
-      - name: Type check (apps with typecheck script)
-        run: |
-          pnpm --filter @universe/universe-physics typecheck || true
-          pnpm --filter @universe/philosophy typecheck || true
+
+      - name: Type check
+        run: pnpm typecheck
+
+      - name: Bundle size budget
+        run: pnpm --filter @universe/portal exec node scripts-physics/bundle-check.mjs --skip-build
 
   lint:
     name: Lint
@@ -52,4 +53,22 @@ jobs:
           cache: pnpm
       
       - run: pnpm install --frozen-lockfile
-      - run: pnpm lint || true
+      - run: pnpm lint
+
+  test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test

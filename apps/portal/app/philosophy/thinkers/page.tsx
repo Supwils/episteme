@@ -1,13 +1,29 @@
+import type { Metadata } from "next";
 import { getAllThinkers } from "@/lib/mdx";
 import { ThinkersList } from "@/components/ThinkersList";
+
+export const metadata: Metadata = {
+  title: "哲学家 — Universe Knowledge",
+  description: "东西方哲学家的生平、思想与遗产，从苏格拉底到维特根斯坦",
+  openGraph: {
+    title: "哲学家 — Universe Knowledge",
+    description: "东西方哲学家的生平、思想与遗产，从苏格拉底到维特根斯坦",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "哲学家 — Universe Knowledge",
+    description: "东西方哲学家的生平、思想与遗产，从苏格拉底到维特根斯坦",
+  },
+};
 
 export default function ThinkersPage() {
   const thinkers = getAllThinkers();
 
   return (
-    <div className="mx-auto max-w-[1400px] px-4 sm:px-6 py-12 sm:py-16">
+    <div className="w-full px-6 py-12 sm:px-10 sm:py-16 lg:px-16">
       <header className="mb-12">
-        <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
+        <p className="text-fg-muted mb-3 font-mono text-[10px] uppercase tracking-[0.42em]">
           philosophy / thinkers
         </p>
         <h1 className="font-display text-fg-primary text-[2.4rem] leading-tight tracking-tight md:text-[3.2rem]">

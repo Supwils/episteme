@@ -2,11 +2,26 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", minHeight: "60vh", gap: "1rem" }}>
-      <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", color: "var(--color-text-tertiary)" }}>404</span>
-      <h2 style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem" }}>页面未找到</h2>
-      <p style={{ color: "var(--color-text-secondary)" }}>你寻找的历史篇章尚未被书写。</p>
-      <Link href="/human-history/" style={{ color: "var(--color-accent)", textDecoration: "none" }}>← 返回首页</Link>
+    <div className="flex min-h-[60vh] w-full items-center justify-center px-6">
+      <div className="text-center">
+        <p className="mb-4 text-8xl font-bold text-white/20">404</p>
+        <h2 className="mb-4 text-2xl text-white">页面未找到</h2>
+        <p className="mb-8 text-white/50">您访问的页面不存在或已被移动。</p>
+        <div className="flex justify-center gap-4">
+          <Link
+            href="/"
+            className="rounded-full border border-white/20 bg-white/10 px-6 py-2 text-white transition-colors hover:bg-white/20"
+          >
+            返回首页
+          </Link>
+          <Link
+            href="/human-history"
+            className="rounded-full border border-white/10 bg-white/5 px-6 py-2 text-white/70 transition-colors hover:bg-white/10"
+          >
+            返回人类历史
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

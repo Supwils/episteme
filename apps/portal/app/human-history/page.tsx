@@ -1,13 +1,17 @@
-'use client';
+import type { Metadata } from "next";
+import HumanHistoryClient from "./HumanHistoryClient";
+import { SITE_URL } from "@/lib/constants";
 
-import PageWrapper from '@/src-history/components/PageWrapper';
-
-const renderHome = async () => {
-  const { renderHome: render, cleanupHome } = await import('@/src-history/page-renderers/home');
-  render();
-  return cleanupHome;
+export const metadata: Metadata = {
+  title: "人类历史 — Universe Knowledge",
+  description: "人类历史知识图谱——时间线、图谱、人物与地图，从远古到当代",
+  openGraph: {
+    title: "人类历史",
+    description: "人类历史知识图谱——时间线、图谱、人物与地图，从远古到当代",
+    type: "website",
+  },
 };
 
 export default function HomePage() {
-  return <PageWrapper render={renderHome} />;
+  return <HumanHistoryClient />;
 }

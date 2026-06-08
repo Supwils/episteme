@@ -1,0 +1,244 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-deep: #000000;
+  --color-bg-near: #060814;
+  --color-bg-panel: rgba(8, 10, 18, 0.72);
+  --color-bg-elevated: #0f1320;
+
+  --color-fg-primary: #f5f6fa;
+  --color-fg-secondary: #a8adbd;
+  --color-fg-muted: #868da0;
+  --color-fg-disabled: #3a3e4a;
+
+  --color-accent-warm: #ffb45a;
+  --color-accent-cool: #6ad0ff;
+
+  --color-border-faint: rgba(255, 255, 255, 0.08);
+  --color-border-subtle: rgba(255, 255, 255, 0.14);
+
+  --font-sans:
+    var(--font-inter), "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui,
+    sans-serif;
+  --font-display:
+    var(--font-fraunces), "Fraunces", "Noto Serif SC", "Songti SC", "STSong", "PingFang SC", serif;
+  --font-mono:
+    var(--font-jetbrains-mono), "JetBrains Mono Variable", "JetBrains Mono", ui-monospace,
+    monospace;
+}
+
+.cosmology-root {
+  min-height: 100vh;
+  background: var(--color-bg-deep);
+  color: var(--color-fg-primary);
+  font-family: var(--font-sans);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cosmology-root *,
+  .cosmology-root *::before,
+  .cosmology-root *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.cosmology-root {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-fg-disabled) transparent;
+}
+
+.cosmology-root ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.cosmology-root ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cosmology-root ::-webkit-scrollbar-thumb {
+  background-color: var(--color-fg-disabled);
+  border-radius: 3px;
+}
+
+.cosmology-root ::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-fg-muted);
+}
+
+.cosmology-root ::selection {
+  background-color: rgba(106, 208, 255, 0.25);
+  color: var(--color-fg-primary);
+}
+
+.cosmology-root *:focus-visible {
+  outline: 2px solid var(--color-accent-cool);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.cosmology-root h1 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-fg-primary);
+  margin-bottom: 1rem;
+}
+
+.cosmology-root h2 {
+  font-family: var(--font-display);
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--color-fg-primary);
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.cosmology-root h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-fg-primary);
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.cosmology-root h4 {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-fg-secondary);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.cosmology-root p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-fg-secondary);
+  margin-bottom: 1.25rem;
+}
+
+.cosmology-root a {
+  color: var(--color-accent-cool);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.cosmology-root a:hover {
+  color: var(--color-accent-warm);
+}
+
+.cosmology-root blockquote {
+  border-left: 3px solid var(--color-accent-cool);
+  padding: 0.75rem 1.25rem;
+  margin: 1.5rem 0;
+  background: var(--color-bg-panel);
+  color: var(--color-fg-secondary);
+  font-style: italic;
+}
+
+.cosmology-root code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--color-bg-elevated);
+  color: var(--color-accent-warm);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+}
+
+.cosmology-root pre {
+  background: var(--color-bg-near);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+}
+
+.cosmology-root pre code {
+  background: none;
+  padding: 0;
+  color: var(--color-fg-secondary);
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+.cosmology-root ul,
+.cosmology-root ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+  color: var(--color-fg-secondary);
+}
+
+.cosmology-root li {
+  line-height: 1.75;
+  margin-bottom: 0.35rem;
+}
+
+.cosmology-root ul li::marker {
+  color: var(--color-accent-cool);
+}
+
+.cosmology-root ol li::marker {
+  color: var(--color-accent-cool);
+  font-weight: 600;
+}
+
+.cosmology-root hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-fg-disabled),
+    transparent
+  );
+  margin: 2.5rem 0;
+}
+
+.cosmology-root table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+}
+
+.cosmology-root th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-fg-primary);
+  padding: 0.6rem 0.8rem;
+  border-bottom: 2px solid var(--color-fg-disabled);
+}
+
+.cosmology-root td {
+  padding: 0.5rem 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  color: var(--color-fg-secondary);
+}
+
+.cosmology-root img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin: 1.5rem 0;
+}
+
+.cosmology-root strong {
+  color: var(--color-fg-primary);
+  font-weight: 600;
+}
+
+.cosmology-root em {
+  color: var(--color-fg-secondary);
+}

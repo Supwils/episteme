@@ -5,10 +5,7 @@ import { Component, type ReactNode, type ErrorInfo } from "react";
 type SafeRenderProps = { children: ReactNode };
 type SafeRenderState = { hasError: boolean };
 
-export default class SafeRender extends Component<
-  SafeRenderProps,
-  SafeRenderState
-> {
+export default class SafeRender extends Component<SafeRenderProps, SafeRenderState> {
   constructor(props: SafeRenderProps) {
     super(props);
     this.state = { hasError: false };
@@ -19,7 +16,9 @@ export default class SafeRender extends Component<
   }
 
   override componentDidCatch(error: Error, _info: ErrorInfo) {
-    console.warn("[SafeRender] caught error:", error.message);
+    if (process.env.NODE_ENV === "development") {
+      console.warn("[SafeRender] caught error:", error.message);
+    }
   }
 
   override render() {

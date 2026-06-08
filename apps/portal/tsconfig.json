@@ -24,10 +24,11 @@
     "paths": {
       "@/*": ["./*"],
       "@universe/ui": ["../../packages/ui/src/index.ts"],
-      "@universe/content": ["../../packages/content/src/index.ts"]
+      "@universe/content": ["../../packages/content/src/index.ts"],
+      "@universe/graph-engine": ["../../packages/graph-engine/src/index.ts"]
     }
   },
-    "include": [
+  "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
@@ -35,6 +36,13 @@
     ".next/dev/types/**/*.ts",
     "src-physics/**/*",
     "src-philosophy/**/*",
+    "src-life-science/**/*",
+    "src-mathematics/**/*",
+    "src-history/**/*",
+    "src-knowledge-graph/**/*",
+    "src-cosmology/**/*",
+    "src-economics/**/*",
+    "src-psychology/**/*",
     "content/**/*"
   ],
   "exclude": ["node_modules", ".next", "out", "dist", "coverage"]

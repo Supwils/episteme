@@ -1,8 +1,16 @@
-"use client";
+import type { Metadata } from "next";
+import P0PageClient from "./P0PageClient";
 
-import { useSyncTier } from "@/src-physics/hooks/useSyncTier";
+export const metadata: Metadata = {
+  title: "经典力学 — 宇宙物理 — Universe Knowledge",
+  description: "经典力学——牛顿运动定律与万有引力的基础物理",
+  openGraph: {
+    title: "经典力学 — 宇宙物理",
+    description: "经典力学——牛顿运动定律与万有引力的基础物理",
+    type: "website",
+  },
+};
 
 export default function P0Page() {
-  useSyncTier("P0");
-  return null;
+  return <P0PageClient />;
 }

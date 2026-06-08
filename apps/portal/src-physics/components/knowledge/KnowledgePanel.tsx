@@ -9,7 +9,7 @@ import { DataCard } from "./DataCard";
 import { NarrativeSection } from "./NarrativeSection";
 import { RelatedTiers } from "./RelatedTiers";
 import { SourcesList } from "./SourcesList";
-import { getContentForTier } from "@/content/universe-physics";
+import { getContentForTier } from "@/src-physics/lib/tier-content";
 import { SECTIONS } from "@/src-physics/lib/section";
 import { isPhysicsTierId, PHYSICS_TIER_ROUTES, type PhysicsTierId } from "@/src-physics/lib/physics-tier";
 import { TIER_ROUTES, type AnyTierId, type UniverseTierId } from "@/src-physics/lib/tier";

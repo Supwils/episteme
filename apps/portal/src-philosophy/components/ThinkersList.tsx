@@ -1,9 +1,10 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { memo, useMemo, useState } from "react";
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
-import { ERA_ACCENT, ERA_BG, PRODUCT_EASE } from "@/src-philosophy/lib/constants";
+import { motion } from "framer-motion";
+import { ERA_ACCENT, ERA_BG } from "@/src-philosophy/lib/constants";
+import { STAGGER_CONTAINER, STAGGER_ITEM } from "@/lib/animations";
 
 type ThinkerItem = {
   title: string;
@@ -16,11 +17,9 @@ type ThinkerItem = {
 
 const ERA_OPTIONS = ["全部", "古代", "近代", "现代", "当代"] as const;
 
-export function ThinkersList({ thinkers }: { thinkers: ThinkerItem[] }) {
+export const ThinkersList = memo(function ThinkersList({ thinkers }: { thinkers: ThinkerItem[] }) {
   const [query, setQuery] = useState("");
   const [activeEra, setActiveEra] = useState<string>("全部");
-  const reduce = useReducedMotion();
-
   const filtered = useMemo(() => {
     let result = thinkers;
     if (activeEra !== "全部") {
@@ -44,7 +43,7 @@ export function ThinkersList({ thinkers }: { thinkers: ThinkerItem[] }) {
       {/* Search input — glass morphism */}
       <div className="relative mb-5">
         <div
-          className="border-border-faint bg-bg-panel flex items-center gap-3 border px-4 py-3 backdrop-blur-xl transition-colors duration-300 focus-within:border-accent-gold/40"
+          className="border-border-faint bg-bg-panel focus-within:border-accent-gold/40 flex items-center gap-3 border px-4 py-3 backdrop-blur-xl transition-colors duration-300"
           style={{
             boxShadow: "inset 0 1px 0 rgba(255,255,255,0.03)",
           }}
@@ -114,7 +113,7 @@ export function ThinkersList({ thinkers }: { thinkers: ThinkerItem[] }) {
       {/* Card grid */}
       {filtered.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-24 text-center">
-          <div className="mb-6 flex h-16 w-16 items-center justify-center border border-border-subtle">
+          <div className="border-border-subtle mb-6 flex h-16 w-16 items-center justify-center border">
             <span className="font-display text-fg-disabled text-2xl italic">Φ</span>
           </div>
           <p className="font-display text-fg-muted text-lg font-semibold">未找到哲学家</p>
@@ -123,47 +122,31 @@ export function ThinkersList({ thinkers }: { thinkers: ThinkerItem[] }) {
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((thinker, i) => (
-            <ThinkerCard
-              key={thinker.slug}
-              thinker={thinker}
-              index={i}
-              reduce={!!reduce}
-            />
+        <motion.div
+          variants={STAGGER_CONTAINER}
+          initial="hidden"
+          animate="show"
+          className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {filtered.map((thinker) => (
+            <ThinkerCard key={thinker.slug} thinker={thinker} />
           ))}
-        </div>
+        </motion.div>
       )}
     </>
   );
-}
+});
 
 /* ── Individual Thinker Card ──────────────────────────────────── */
 
-function ThinkerCard({
-  thinker,
-  index,
-  reduce,
-}: {
-  thinker: ThinkerItem;
-  index: number;
-  reduce: boolean;
-}) {
+function ThinkerCard({ thinker }: { thinker: ThinkerItem }) {
   const accent = ERA_ACCENT[thinker.era] ?? "#c8a45a";
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 0.5,
-        delay: reduce ? 0 : Math.min(index * 0.06, 0.6),
-        ease: PRODUCT_EASE,
-      }}
-    >
+    <motion.div variants={STAGGER_ITEM}>
       <Link
         href={`/thinkers/${thinker.slug}`}
-        className="group border-border-faint bg-bg-near hover:bg-bg-elevated relative flex h-full flex-col overflow-hidden border transition-all duration-500 hover:shadow-[0_8px_40px_-12px_rgba(200,164,90,0.15)]"
+        className="border-border-faint bg-bg-near hover:bg-bg-elevated group relative flex h-full flex-col overflow-hidden border transition-all duration-500 hover:shadow-[0_8px_40px_-12px_rgba(200,164,90,0.15)]"
       >
         {/* Era color accent — top bar */}
         <div
@@ -175,7 +158,7 @@ function ThinkerCard({
           {/* Header: philosopher name + era */}
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0 flex-1">
-              <h3 className="font-display text-fg-primary text-xl font-semibold leading-snug transition-colors duration-300 group-hover:text-accent-gold">
+              <h3 className="font-display text-fg-primary group-hover:text-accent-gold text-xl font-semibold leading-snug transition-colors duration-300">
                 {thinker.title}
               </h3>
               <p className="text-fg-muted mt-0.5 font-mono text-[11px] italic tracking-wider">
@@ -183,7 +166,7 @@ function ThinkerCard({
               </p>
             </div>
             <div
-              className="flex h-9 w-9 shrink-0 items-center justify-center border font-display text-base italic"
+              className="font-display flex h-9 w-9 shrink-0 items-center justify-center border text-base italic"
               style={{
                 borderColor: `${accent}30`,
                 color: accent,
@@ -197,7 +180,7 @@ function ThinkerCard({
           {/* Badges: era + school */}
           <div className="flex flex-wrap items-center gap-2">
             <span
-              className="rounded-full border px-2.5 py-0.5 font-mono text-[9px] tracking-[0.2em] uppercase"
+              className="rounded-full border px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.2em]"
               style={{
                 borderColor: `${accent}30`,
                 color: accent,

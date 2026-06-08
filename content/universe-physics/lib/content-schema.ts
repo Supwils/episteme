@@ -83,7 +83,7 @@ export const sceneMarkerSchema = z.object({
       z.object({
         label: z.string().min(1),
         value: z.string().min(1),
-      }),
+      })
     )
     .min(1, "marker should have at least one data chip")
     .max(8, "marker data chips capped at 8 for UI legibility")
@@ -108,6 +108,7 @@ export const tierContentSchema = z
       .max(8),
     sources: z.array(sourceRefSchema).min(2, "tier needs at least 2 cited sources").max(10),
     markers: z.array(sceneMarkerSchema).min(1).max(20).optional(),
+    discussionQuestions: z.array(z.string().min(1)).min(1).max(5).optional(),
   })
   .superRefine((content, ctx) => {
     if (!content.markers) return;

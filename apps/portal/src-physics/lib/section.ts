@@ -126,7 +126,7 @@ export function sectionSupportsView(section: SectionId, view: ViewMode): boolean
 export function getSectionRoute(
   section: SectionId,
   tier: AnyTierId,
-  view: ViewMode = SECTIONS[section].defaultViewMode,
+  view: ViewMode = SECTIONS[section].defaultViewMode
 ): string {
   const cfg = SECTIONS[section];
   const ownedTier = cfg.isOwnedTier(tier) ? tier : cfg.defaultTier;

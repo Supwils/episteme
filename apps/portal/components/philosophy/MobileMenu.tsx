@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { clsx } from "clsx";
 
@@ -8,7 +8,9 @@ const NAV_LINKS = [
   { href: "/philosophy/thinkers", label: "哲学家" },
   { href: "/philosophy/schools", label: "流派" },
   { href: "/philosophy/isms", label: "主义" },
+  { href: "/philosophy/concepts", label: "概念" },
   { href: "/philosophy/experiments", label: "思想实验" },
+  { href: "/philosophy/dialogues", label: "对话" },
   { href: "/philosophy/questions", label: "大问题" },
   { href: "/philosophy/timeline", label: "时间线" },
 ] as const;
@@ -20,6 +22,8 @@ const CROSS_APP_LINKS = [
 
 export function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const tabHandlerRef = useRef<((e: KeyboardEvent) => void) | null>(null);
 
   const close = useCallback(() => setIsOpen(false), []);
 
@@ -35,13 +39,45 @@ export function MobileMenu() {
   }, [isOpen]);
 
   useEffect(() => {
+    if (!isOpen) return;
+
     function handleEscape(e: KeyboardEvent) {
       if (e.key === "Escape") close();
     }
-    if (isOpen) {
-      document.addEventListener("keydown", handleEscape);
-      return () => document.removeEventListener("keydown", handleEscape);
-    }
+    document.addEventListener("keydown", handleEscape);
+
+    const rafId = requestAnimationFrame(() => {
+      const panel = panelRef.current;
+      if (!panel) return;
+      const focusable = panel.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      first?.focus();
+
+      function handleTab(e: KeyboardEvent) {
+        if (e.key !== "Tab" || focusable.length === 0) return;
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last?.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first?.focus();
+        }
+      }
+      tabHandlerRef.current = handleTab;
+      document.addEventListener("keydown", handleTab);
+    });
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      document.removeEventListener("keydown", handleEscape);
+      if (tabHandlerRef.current) {
+        document.removeEventListener("keydown", tabHandlerRef.current);
+        tabHandlerRef.current = null;
+      }
+    };
   }, [isOpen, close]);
 
   return (
@@ -68,22 +104,17 @@ export function MobileMenu() {
         </svg>
       </button>
 
-      {isOpen && (
-        <div
-          className="mobile-menu-overlay"
-          onClick={close}
-          aria-hidden="true"
-        />
-      )}
+      {isOpen && <div className="mobile-menu-overlay" onClick={close} aria-hidden="true" />}
 
       <div
+        ref={panelRef}
         className="mobile-menu-panel"
         data-open={isOpen}
         role="dialog"
         aria-modal="true"
         aria-label="导航菜单"
       >
-        <div className="flex items-center justify-between border-b border-border-faint px-5 py-4">
+        <div className="border-border-faint flex items-center justify-between border-b px-5 py-4">
           <span className="font-display text-fg-primary text-sm italic tracking-wide">
             Philosophy
           </span>
@@ -109,7 +140,7 @@ export function MobileMenu() {
         </div>
 
         <nav className="px-5 py-6">
-          <p className="text-fg-muted mb-4 font-mono text-[10px] tracking-[0.38em] uppercase">
+          <p className="text-fg-muted mb-4 font-mono text-[10px] uppercase tracking-[0.38em]">
             板块
           </p>
           <ul className="flex flex-col gap-1" role="list">
@@ -130,8 +161,8 @@ export function MobileMenu() {
           </ul>
         </nav>
 
-        <div className="border-t border-border-faint px-5 py-6">
-          <p className="text-fg-muted mb-4 font-mono text-[10px] tracking-[0.38em] uppercase">
+        <div className="border-border-faint border-t px-5 py-6">
+          <p className="text-fg-muted mb-4 font-mono text-[10px] uppercase tracking-[0.38em]">
             其他领域
           </p>
           <ul className="flex flex-col gap-1" role="list">
@@ -152,14 +183,14 @@ export function MobileMenu() {
           </ul>
         </div>
 
-        <div className="border-t border-border-faint px-5 py-4">
-          <a
+        <div className="border-border-faint border-t px-5 py-4">
+          <Link
             href="/"
             onClick={close}
-            className="touch-target text-fg-muted hover:text-fg-secondary font-mono text-[10px] tracking-[0.32em] uppercase transition-colors flex items-center"
+            className="touch-target text-fg-muted hover:text-fg-secondary flex items-center font-mono text-[10px] uppercase tracking-[0.32em] transition-colors"
           >
-            ← 返回 portal
-          </a>
+            ← 首页
+          </Link>
         </div>
       </div>
     </div>

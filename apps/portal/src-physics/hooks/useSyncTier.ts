@@ -16,14 +16,16 @@ import { useUniverseStore } from "@/src-physics/store/useUniverseStore";
  * the user just kicked off.
  */
 export function useSyncTier(tier: AnyTierId, section?: SectionId) {
+  const transitionActive = useUniverseStore((s) => s.transition.active);
+
   useEffect(() => {
+    if (transitionActive) return;
     const store = useUniverseStore.getState();
-    if (store.transition.active) return;
     const targetSection = section ?? inferSectionFromTier(tier);
     if (store.section !== targetSection) {
       store.setSection(targetSection, tier);
     } else if (store.currentTier !== tier) {
       store.setTier(tier);
     }
-  }, [tier, section]);
+  }, [tier, section, transitionActive]);
 }

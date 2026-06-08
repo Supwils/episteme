@@ -1,7 +1,7 @@
 "use client";
 
 import { useFrame } from "@react-three/fiber";
-import { useCallback, useRef, type PointerEvent } from "react";
+import { useCallback, useMemo, useRef, type PointerEvent } from "react";
 import { Vector3, type Group } from "three";
 import type { SceneMarker } from "@/src-physics/lib/content";
 import { TIER_MARKER_KIND, type MarkerKind, type UniverseTierId } from "@/src-physics/lib/tier";
@@ -48,6 +48,7 @@ function MarkerPoint({
 
   const baseColor = marker.color ?? "#ffb45a";
   const size = marker.size ?? 0.02;
+  const position = useMemo(() => new Vector3(...marker.position), [marker.position]);
 
   const onPointerOver = useCallback(
     (e: PointerEvent) => {
@@ -91,7 +92,7 @@ function MarkerPoint({
   return (
     <group
       ref={meshRef}
-      position={new Vector3(...marker.position)}
+      position={position}
       onPointerOver={onPointerOver}
       onPointerOut={onPointerOut}
       onPointerMove={onPointerMove}

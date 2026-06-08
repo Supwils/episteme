@@ -1,0 +1,165 @@
+---
+title: 测度论
+title_en: Measure Theory
+field: 分析
+key_figures: [lebesgue, borel, radon, nikodym]
+tags: [分析, 测度论, Lebesgue 积分, 概率论, 泛函分析]
+key_terms: ['测度', '可测函数', 'Lebesgue 积分', 'Radon-Nikodym 定理', 'Fubini 定理', 'Lp 空间']
+related: ['integral', 'probability', 'functional-analysis', 'convergence']
+difficulty: 进阶
+status: published
+updated: 2026-06-05
+---
+
+# 测度论
+
+## 定义
+
+**测度论**（Measure Theory）是积分论的现代基础——它将"长度""面积""体积"等概念抽象为一般的**测度**，并在此基础上建立了比 Riemann 积分更强大的 **Lebesgue 积分**。测度论是概率论、泛函分析和调和分析的共同基础。
+
+**测度空间** $(X, \mathcal{A}, \mu)$：
+- $X$ 是集合
+- $\mathcal{A}$ 是 $X$ 上的 $\sigma$-代数（对可数并和补封闭的集合族）
+- $\mu: \mathcal{A} \to [0, \infty]$ 是测度——满足可数可加性 $\mu\left(\bigsqcup_{i=1}^\infty A_i\right) = \sum_{i=1}^\infty \mu(A_i)$
+
+## 核心内容
+
+### $\sigma$-代数与测度
+
+**Borel $\sigma$-代数** $\mathcal{B}(\mathbb{R})$：由 $\mathbb{R}$ 中所有开集生成的最小 $\sigma$-代数。Borel 集合包括所有开集、闭集、可数集等。
+
+**Lebesgue 测度** $m$：$\mathbb{R}^n$ 上的"标准"测度——区间的测度是其长度（面积、体积）。Lebesgue 测度是平移不变的且对开球正则。
+
+**构造测度**：Carathéodory 扩张定理——从半环上的预测度唯一扩张为 $\sigma$-代数上的测度。
+
+### Lebesgue 积分
+
+Lebesgue 积分的思想是**先对函数值域分割**（而非定义域分割）：
+
+$$\int_X f\,d\mu = \sup\left\{\int_X s\,d\mu : 0 \leq s \leq f, s \text{ 简单函数}\right\}$$
+
+简单函数 $s = \sum a_i \chi_{A_i}$ 的积分为 $\int s\,d\mu = \sum a_i \mu(A_i)$。
+
+Lebesgue 积分比 Riemann 积分的优势：
+- 可以积分更多函数（如 Dirichlet 函数）
+- 积分与极限交换的条件更弱（单调收敛定理、控制收敛定理）
+- $L^p$ 空间是完备的
+
+### 收敛定理
+
+**单调收敛定理**（MCT）：若 $0 \leq f_n \uparrow f$，则 $\int f_n\,d\mu \uparrow \int f\,d\mu$。
+
+**控制收敛定理**（DCT）：若 $f_n \to f$ 几乎处处且 $|f_n| \leq g$（$g$ 可积），则 $\int f_n\,d\mu \to \int f\,d\mu$。
+
+**Fatou 引理**：$\int \liminf f_n\,d\mu \leq \liminf \int f_n\,d\mu$。
+
+### $L^p$ 空间
+
+$$L^p(X, \mu) = \left\{f : \int |f|^p\,d\mu < \infty\right\}, \quad \|f\|_p = \left(\int |f|^p\,d\mu\right)^{1/p}$$
+
+- $L^1$：可积函数空间
+- $L^2$：平方可积函数空间——Hilbert 空间
+- $L^\infty$：本质有界函数空间
+
+**Riesz-Fischer 定理**：$L^p$ 空间是完备的（Banach 空间）。
+
+### 乘积测度与 Fubini 定理
+
+**Fubini 定理**：若 $f \in L^1(X \times Y)$，则：
+
+$$\int_{X \times Y} f\,d(\mu \times \nu) = \int_X\left(\int_Y f(x,y)\,d\nu(y)\right)d\mu(x) = \int_Y\left(\int_X f(x,y)\,d\mu(x)\right)d\nu(y)$$
+
+积分次序可以交换。
+
+### Radon-Nikodym 定理
+
+若 $\nu$ 关于 $\mu$ 绝对连续（$\nu \ll \mu$），则存在唯一的密度函数 $f = \frac{d\nu}{d\mu}$ 使得：
+
+$$\nu(A) = \int_A f\,d\mu$$
+
+Radon-Nikodym 导数是概率论中条件期望的数学基础。
+
+## 历史演变
+
+测度论的起源可追溯到19世纪末对积分概念的反思。Lebesgue（Henri Lebesgue，1902）在他的博士论文中引入了 Lebesgue 积分——这是分析学的一场革命。他的积分比 Riemann 积分更一般、更灵活，为傅里叶分析和泛函分析的发展铺平了道路。
+
+Borel（Émile Borel，1898）引入了 Borel 集合的概念。Radon（Johann Radon，1913）和 Nikodym（Otton Nikodym）证明了 Radon-Nikodym 定理。Riesz（Frigyes Riesz）将 Lebesgue 积分与泛函分析联系起来。
+
+Kolmogorov（Andrei Kolmogorov，1933）用测度论建立了概率论的公理化基础——概率就是测度，随机变量就是可测函数，期望就是 Lebesgue 积分。这是20世纪数学最重要的综合之一。
+
+## 关键人物
+
+**Lebesgue**（Henri Lebesgue，1875—1941）在1902年的博士论文中引入了 Lebesgue 积分——将积分从 Riemann 的"分割定义域"改为"分割值域"。这一革命性的思想使得可以积分更广泛的函数，并为泛函分析和概率论奠定了基础。
+
+**Kolmogorov**（Andrei Kolmogorov，1903—1987）在1933年的《概率论基础》中用测度论公理化了概率论。他将概率定义为 $\sigma$-代数上的测度，期望定义为 Lebesgue 积分——这使得概率论成为严格的数学分支。
+
+**Riesz**（Frigyes Riesz，1880—1956）将 Lebesgue 积分与泛函分析联系起来。Riesz 表示定理将 $L^p$ 空间的对偶空间表示为 $L^q$ 空间——这是泛函分析的核心结果。
+
+## 数学意义
+
+测度论的核心定理：
+
+1. **Carathéodory 扩张定理**：预测度唯一扩张为测度
+2. **单调收敛定理**：非负递增函数列的积分等于积分的极限
+3. **控制收敛定理**：有控制函数时积分与极限可交换
+4. **Fubini 定理**：乘积空间上的累次积分等于重积分
+5. **Radon-Nikodym 定理**：绝对连续测度有密度函数
+
+## 核心概念辨析
+
+- **Lebesgue 积分 vs Riemann 积分**：Lebesgue 积分对值域分割，Riemann 积分对定义域分割；Lebesgue 积分更一般
+- **$\sigma$-代数 vs 拓扑**：$\sigma$-代数对可数并和补封闭，拓扑对任意并和有限交封闭
+- **绝对连续 vs 奇异**：$\nu \ll \mu$ 意味着 $\mu(A)=0$ 蕴含 $\nu(A)=0$；奇异测度集中在零测集上
+- **几乎处处 vs 一致**：几乎处处是测度论的"几乎全部"，一致是"处处且均匀"
+
+## 当代应用
+
+测度论是现代数学的基础语言。在**概率论**中，Kolmogorov 公理化将概率论建立在测度论之上——随机过程、鞅论和随机分析都以测度论为基础。在**泛函分析**中，$L^p$ 空间和 Sobolev 空间是偏微分方程和量子力学的基本工具。在**调和分析**中，傅里叶变换在 $L^p$ 空间上的行为需要测度论。在**信息论**中，Kullback-Leibler 散度是两个概率测度之间的"距离"。在**机器学习**中，概率模型和贝叶斯推断的严格基础是测度论。在**金融数学**中，风险中性定价理论基于测度变换（Girsanov 定理）。
+
+## 核心公式汇编
+
+| 概念 | 公式 |
+|------|------|
+| 测度 | $\mu(\bigsqcup A_i) = \sum\mu(A_i)$（可数可加性） |
+| Lebesgue 积分 | $\int f\,d\mu = \sup\{\int s\,d\mu: 0\leq s\leq f\}$ |
+| MCT | $0\leq f_n\uparrow f\Rightarrow\int f_n\uparrow\int f$ |
+| DCT | $|f_n|\leq g$，$f_n\to f\Rightarrow\int f_n\to\int f$ |
+| Fatou 引理 | $\int\liminf f_n\leq\liminf\int f_n$ |
+| Fubini | $\int_{X\times Y}f\,d(\mu\times\nu) = \int_X(\int_Y f\,d\nu)\,d\mu$ |
+| Radon-Nikodym | $\nu(A) = \int_A\frac{d\nu}{d\mu}\,d\mu$（$\nu\ll\mu$） |
+| $L^p$ 对偶 | $(L^p)^* \cong L^q$（$1/p+1/q=1$） |
+
+## 经典问题
+
+1. **Lebesgue 测度的不可测集**：Vitali 集合不是 Lebesgue 可测的——需要选择公理
+2. **Banach-Tarski 悖论**：球可以分解为有限块后重新组装为两个同样大小的球——不可测集的悖论
+3. **Hausdorff 测度与维数**：分形集的"维数"——Cantor 集的 Hausdorff 维数为 $\ln 2/\ln 3$
+4. **测度的正则性**：Borel 测度是否自动正则？——在度量空间上答案是肯定的
+5. **遍历定理的推广**：Birkhoff 遍历定理和 von Neumann 遍历定理——动力系统的统计基础
+
+## 与其他概念的关系
+
+测度论是现代分析的基石：
+- **→ 积分论**：Lebesgue 积分基于测度——比 Riemann 积分更一般、更灵活
+- **→ 概率论**：Kolmogorov 公理化——概率即测度，随机变量即可测函数，期望即积分
+- **→ 泛函分析**：$L^p$ 空间是测度论的产物——Banach 空间和 Hilbert 空间的基本例子
+- **→ 实分析**：Lebesgue 微分定理——可积函数几乎处处是其积分的导数
+- **→ 随机过程**：Brown 运动、鞅论、随机分析——都建立在测度论之上
+- **→ 信息论**：Kullback-Leibler 散度、Shannon 熵——信息的测度论刻画
+
+## 延伸阅读
+
+1. Henri Lebesgue, *Intégrale, longueur, aire* (1902).
+2. Andrei Kolmogorov, *Grundbegriffe der Wahrscheinlichkeitsrechnung* (1933).
+3. Halsey Royden & Patrick Fitzpatrick, *Real Analysis* (4th ed., 2010).
+4. 周民强, 《实变函数论》, 北京大学出版社, 2008.
+5. Paul Halmos, *Measure Theory* (1950).
+
+> 「测度论是现代分析的基石——它将积分、概率和泛函分析统一在一个框架中。」——安德烈·柯尔莫哥洛夫
+
+## 跨领域连接
+
+- **物理学**：测度论是量子力学数学基础的核心
+- **经济学**：测度论在金融数学和风险度量中的应用
+- **哲学**：测度论与概率的哲学——概率是频率还是信念
+- **生命科学**：测度论在生物统计学中的理论基础

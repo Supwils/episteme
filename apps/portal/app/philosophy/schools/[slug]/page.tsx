@@ -1,36 +1,33 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getSchoolBySlug, getSchoolSlugs } from "@/lib/schools";
+import { getSchoolBySlug, getSchoolSlugs, getAllSchools } from "@/lib/schools";
 import Breadcrumb from "@/components/Breadcrumb";
 import RelatedContent from "@/components/RelatedContent";
 import { CornerMarks, OrnamentalDivider } from "@/components/school-detail/Decorations";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { KeyFiguresSection, RelatedSchoolsSection } from "@/components/school-detail/Sections";
-import { ERA_ACCENT } from "@/lib/constants";
+import { ERA_ACCENT, SITE_URL } from "@/lib/constants";
+import { TableOfContents } from "@/components/TableOfContents";
+import { createArticleJsonLd } from "@/lib/jsonld";
 
 export function generateStaticParams() {
   return getSchoolSlugs().map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const school = getSchoolBySlug(slug);
-  if (!school) return {};
+  if (!school) notFound();
+  const description = school.founder ?? school.school ?? school.title;
+  const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(school.title)}&section=philosophy&description=${encodeURIComponent(description)}`;
   return {
     title: `${school.title} — 哲学流派`,
-    description: school.founder ?? school.school,
+    description,
+    openGraph: { title: `${school.title} — 哲学流派`, description, images: [{ url: ogImage, width: 1200, height: 630 }] },
   };
 }
 
-export default async function SchoolDetailPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function SchoolDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const school = getSchoolBySlug(slug);
   if (!school) notFound();
@@ -40,11 +37,33 @@ export default async function SchoolDetailPage({
   const keyFigures = school.key_figures ?? [];
   const accent = ERA_ACCENT[school.era] ?? "#c8a45a";
 
+  const allSchools = getAllSchools();
+  const relatedSchools = allSchools
+    .filter(
+      (other) =>
+        other.slug !== slug &&
+        (other.era === school.era || other.key_figures?.some((fig) => keyFigures.includes(fig)))
+    )
+    .slice(0, 4);
+  const readMinutes = Math.max(1, Math.ceil(school.content.replace(/\s/g, "").length / 400));
+
+  const jsonLd = createArticleJsonLd({
+    title: school.title,
+    description: founder || school.school || school.title,
+    url: `${SITE_URL}/philosophy/schools/${slug}`,
+    author: founder || "Universe Knowledge",
+    keywords: [school.title, school.school ?? "", ...keyFigures, ...school.tags],
+  });
+
   return (
-    <article className="mx-auto max-w-3xl px-6 py-16">
+    <div className="mx-auto w-full max-w-[1800px] px-6 py-12 sm:px-10 lg:px-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Link
         href="/philosophy/schools"
-        className="text-fg-muted hover:text-fg-secondary mb-8 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] uppercase transition-colors"
+        className="text-fg-muted hover:text-fg-secondary mb-8 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] transition-colors"
       >
         ← 返回流派列表
       </Link>
@@ -56,7 +75,7 @@ export default async function SchoolDetailPage({
 
         <div className="mb-3 flex items-center gap-3">
           <span
-            className="font-mono text-[10px] tracking-[0.32em] uppercase"
+            className="font-mono text-[10px] uppercase tracking-[0.32em]"
             style={{ color: accent }}
           >
             {school.era}
@@ -66,6 +85,7 @@ export default async function SchoolDetailPage({
               {period}
             </span>
           )}
+          <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">约 {readMinutes} 分钟阅读</span>
         </div>
 
         <h1 className="font-display text-fg-primary text-[2.2rem] leading-tight tracking-tight md:text-[2.8rem]">
@@ -105,20 +125,85 @@ export default async function SchoolDetailPage({
         )}
       </header>
 
-      <MarkdownRenderer content={school.content} />
+      <div className="flex flex-col gap-12 lg:flex-row">
+        <article className="min-w-0 max-w-[1200px] flex-1">
+          <MarkdownRenderer content={school.content} />
 
-      {keyFigures.length > 0 && (
-        <>
+          {keyFigures.length > 0 && (
+            <>
+              <OrnamentalDivider color={accent} />
+              <KeyFiguresSection figures={keyFigures} accent={accent} />
+            </>
+          )}
+
           <OrnamentalDivider color={accent} />
-          <KeyFiguresSection figures={keyFigures} accent={accent} />
-        </>
-      )}
 
-      <OrnamentalDivider color={accent} />
+          <RelatedSchoolsSection currentSlug={slug} era={school.era} />
 
-      <RelatedSchoolsSection currentSlug={slug} era={school.era} />
+          <RelatedContent slug={slug} domain="philosophy" entityId={slug} />
+        </article>
 
-      <RelatedContent slug={slug} />
-    </article>
+        <aside className="w-full flex-shrink-0 lg:w-80">
+          <TableOfContents accentColor="#a88adf" />
+          <div className="border-border-faint border p-4">
+            <h3 className="text-fg-muted mb-3 font-mono text-[10px] uppercase tracking-[0.22em]">
+              流派信息
+            </h3>
+            <dl className="space-y-3 text-sm">
+              {founder && (
+                <div>
+                  <dt className="text-fg-disabled font-mono text-[9px] uppercase tracking-[0.18em]">
+                    创始人
+                  </dt>
+                  <dd className="text-fg-primary mt-0.5">{founder}</dd>
+                </div>
+              )}
+              {period && (
+                <div>
+                  <dt className="text-fg-disabled font-mono text-[9px] uppercase tracking-[0.18em]">
+                    时期
+                  </dt>
+                  <dd className="text-fg-primary mt-0.5">{period}</dd>
+                </div>
+              )}
+              <div>
+                <dt className="text-fg-disabled font-mono text-[9px] uppercase tracking-[0.18em]">
+                  时代
+                </dt>
+                <dd className="text-fg-primary mt-0.5">{school.era}</dd>
+              </div>
+            </dl>
+          </div>
+
+          {relatedSchools.length > 0 && (
+            <div className="border-border-faint mt-4 border p-4">
+              <h3 className="text-fg-muted mb-3 font-mono text-[10px] uppercase tracking-[0.22em]">
+                相关流派
+              </h3>
+              <div className="space-y-2">
+                {relatedSchools.map((other) => {
+                  const otherAccent = ERA_ACCENT[other.era] ?? "#c8a45a";
+                  return (
+                    <Link
+                      key={other.slug}
+                      href={`/philosophy/schools/${other.slug}`}
+                      className="group flex items-center gap-2 transition-colors"
+                    >
+                      <div
+                        className="h-4 w-0.5 rounded-full opacity-40 transition-opacity group-hover:opacity-70"
+                        style={{ backgroundColor: otherAccent }}
+                      />
+                      <span className="text-fg-secondary group-hover:text-accent-gold text-sm transition-colors">
+                        {other.title}
+                      </span>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </aside>
+      </div>
+    </div>
   );
 }

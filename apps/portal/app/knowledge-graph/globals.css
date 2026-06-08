@@ -1,0 +1,237 @@
+@import "tailwindcss";
+
+.knowledge-graph-page {
+  --kg-bg: #06060a;
+  --kg-surface: rgba(255, 255, 255, 0.03);
+  --kg-border: rgba(255, 255, 255, 0.06);
+  --kg-text: #e8e8f0;
+  --kg-text-muted: #a0a4b8;
+
+  --kg-physics: #3b82f6;
+  --kg-history: #f59e0b;
+  --kg-philosophy: #c8a45a;
+  --kg-life-science: #4a9e6f;
+
+  --kg-radius-cosmos: 28px;
+  --kg-radius-physics: 22px;
+  --kg-radius-event: 16px;
+  --kg-radius-figure: 16px;
+  --kg-radius-school: 20px;
+  --kg-radius-thinker: 18px;
+  --kg-radius-concept: 14px;
+
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--kg-bg);
+  color: var(--kg-text);
+  display: flex;
+  flex-direction: column;
+}
+
+.kg-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 20px;
+  gap: 16px;
+}
+
+.kg-header {
+  text-align: center;
+}
+
+.kg-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 6px;
+  background: linear-gradient(135deg, #e8e8f0, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.kg-subtitle {
+  font-size: 0.88rem;
+  color: var(--kg-text-muted);
+  margin: 0;
+}
+
+.kg-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.kg-domain-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.kg-filter-btn {
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--kg-border);
+  background: var(--kg-surface);
+  color: var(--kg-text-muted);
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  font-family: inherit;
+}
+
+.kg-filter-btn:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--kg-text);
+}
+
+.kg-filter-active {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: #6366f1;
+  color: #818cf8;
+}
+
+.kg-node-count {
+  font-size: 0.78rem;
+  color: #8b95a3;
+}
+
+.kg-canvas-wrap {
+  flex: 1;
+  min-height: 400px;
+  position: relative;
+  border-radius: 12px;
+  border: 1px solid var(--kg-border);
+  background: var(--kg-bg);
+  overflow: hidden;
+}
+
+.kg-canvas-wrap canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+.kg-tooltip {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  max-width: 280px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(17, 17, 24, 0.92);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  animation: kg-fade-in 0.15s ease-out;
+}
+
+.kg-tooltip-domain {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.kg-tooltip-label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--kg-text);
+  margin-bottom: 6px;
+}
+
+.kg-tooltip-desc {
+  font-size: 0.8rem;
+  color: var(--kg-text-muted);
+  line-height: 1.5;
+  margin: 0 0 8px;
+}
+
+.kg-tooltip-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.kg-tag {
+  font-size: 0.68rem;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #9ca3af;
+}
+
+.kg-legend {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 8px 0;
+}
+
+.kg-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.kg-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.kg-legend-label {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+@keyframes kg-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kg-tooltip {
+    animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .kg-container {
+    padding: 16px 12px;
+    gap: 12px;
+  }
+
+  .kg-title {
+    font-size: 1.4rem;
+  }
+
+  .kg-canvas-wrap {
+    min-height: 300px;
+  }
+
+  .kg-tooltip {
+    top: auto;
+    bottom: 16px;
+    right: 12px;
+    left: 12px;
+    max-width: none;
+  }
+}

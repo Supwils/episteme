@@ -1,200 +1,92 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
-import Link from 'next/link';
+import { useState, useEffect, useCallback, useRef, useMemo } from "react";
+import type { SearchResult as MiniSearchResult } from "minisearch";
+import type { SearchDocument } from "@/lib/search-index";
+import {
+  getSearchHistory,
+  addToSearchHistory,
+} from "@/lib/search-history";
+import { trackEvent } from "@/lib/analytics";
+import type { Section, SearchResult, SearchEngine } from "./search/types";
+import { SECTION_META } from "./search/types";
+import { SearchInput } from "./search/SearchInput";
+import { SearchHistory } from "./search/SearchHistory";
+import { SearchResultItem } from "./search/SearchResultItem";
 
-type Section = 'physics' | 'history' | 'philosophy';
+let enginePromise: Promise<SearchEngine> | null = null;
 
-interface SearchItem {
-  id: string;
-  title: string;
-  subtitle?: string;
-  description: string;
-  section: Section;
-  href: string;
-}
-
-interface SearchIndex {
-  items: SearchItem[];
-  loaded: boolean;
-}
-
-const SECTION_META: Record<Section, { label: string; color: string }> = {
-  physics: { label: '宇宙物理', color: '#6ad0ff' },
-  history: { label: '人类历史', color: '#c8a45a' },
-  philosophy: { label: '哲学思想', color: '#a88adf' },
-};
-
-async function loadSearchIndex(): Promise<SearchItem[]> {
-  const items: SearchItem[] = [];
-
-  try {
-    const cosmosMods = await Promise.all([
-      import('@/content/universe-physics/cosmos/T0'),
-      import('@/content/universe-physics/cosmos/T1'),
-      import('@/content/universe-physics/cosmos/T2'),
-      import('@/content/universe-physics/cosmos/T3'),
-      import('@/content/universe-physics/cosmos/T4'),
-      import('@/content/universe-physics/cosmos/T5'),
-      import('@/content/universe-physics/cosmos/T6'),
-      import('@/content/universe-physics/cosmos/T7'),
-    ]);
-    const physicsMods = await Promise.all([
-      import('@/content/universe-physics/physics/P0-classical-mechanics'),
-      import('@/content/universe-physics/physics/P1-thermodynamics'),
-      import('@/content/universe-physics/physics/P2-electromagnetism'),
-      import('@/content/universe-physics/physics/P3-relativity'),
-      import('@/content/universe-physics/physics/P4-quantum-mechanics'),
-      import('@/content/universe-physics/physics/P5-atomic-molecular'),
-      import('@/content/universe-physics/physics/P6-nuclear-particle'),
-      import('@/content/universe-physics/physics/P7-standard-model'),
-      import('@/content/universe-physics/physics/P8-frontier'),
-    ]);
-    const [eventsMod, homeDataMod] = await Promise.all([
-      import('@/content/human-history/data/events.js'),
-      import('@/src-philosophy/lib/home-data'),
-    ]);
-
-    const TIER_ROUTES: Record<string, string> = {
-      T0: 'observable', T1: 'cosmic-web', T2: 'laniakea', T3: 'local-group',
-      T4: 'milky-way', T5: 'stellar-neighborhood', T6: 'solar-system', T7: 'earth',
-    };
-    const PHYSICS_ROUTES: Record<string, string> = {
-      P0: 'classical-mechanics', P1: 'thermodynamics', P2: 'electromagnetism',
-      P3: 'relativity', P4: 'quantum-mechanics', P5: 'atomic-molecular',
-      P6: 'nuclear-particle', P7: 'standard-model', P8: 'frontier',
-    };
-
-    for (const mod of cosmosMods) {
-      const tier = mod.default;
-      const slug = TIER_ROUTES[tier.tier] ?? tier.tier.toLowerCase();
-      items.push({
-        id: `cosmos-${tier.tier}`,
-        title: tier.name.primary,
-        subtitle: tier.name.latin,
-        description: tier.tagline,
-        section: 'physics',
-        href: `/universe-physics/universe/${slug}`,
-      });
-    }
-
-    for (const mod of physicsMods) {
-      const tier = mod.default;
-      const slug = PHYSICS_ROUTES[tier.tier] ?? tier.tier.toLowerCase();
-      items.push({
-        id: `physics-${tier.tier}`,
-        title: tier.name.primary,
-        subtitle: tier.name.latin,
-        description: tier.tagline,
-        section: 'physics',
-        href: `/universe-physics/physics/${slug}`,
-      });
-    }
-
-    const events = eventsMod.EVENTS as Array<{
-      year: number;
-      title: string;
-      desc: string;
-    }>;
-    for (const event of events) {
-      items.push({
-        id: `event-${event.title}`,
-        title: event.title,
-        subtitle: event.year < 0 ? `公元前${Math.abs(event.year)}年` : `${event.year}年`,
-        description: event.desc,
-        section: 'history',
-        href: '/human-history/timeline',
-      });
-    }
-
-    const thinkers = homeDataMod.THINKERS as ReadonlyArray<{
-      name: string;
-      latin: string;
-      era: string;
-    }>;
-    for (const thinker of thinkers) {
-      items.push({
-        id: `thinker-${thinker.latin}`,
-        title: thinker.name,
-        subtitle: thinker.latin,
-        description: thinker.era,
-        section: 'philosophy',
-        href: '/philosophy/thinkers',
-      });
-    }
-
-    const schools = (homeDataMod.SCHOOLS ?? []) as ReadonlyArray<{
-      title: string;
-      subtitle: string;
-      description: string;
-    }>;
-    for (const school of schools) {
-      items.push({
-        id: `school-${school.title}`,
-        title: school.title,
-        subtitle: school.subtitle,
-        description: school.description,
-        section: 'philosophy',
-        href: '/philosophy/schools',
-      });
-    }
-  } catch (err) {
-    console.error('[GlobalSearch] Failed to load search index:', err);
+function ensureEngine(): Promise<SearchEngine> {
+  if (!enginePromise) {
+    enginePromise = import("@/lib/search-index").then((mod) => mod.getSearchIndex());
   }
-
-  return items;
+  return enginePromise;
 }
 
-function matchesQuery(item: SearchItem, lowerQuery: string): boolean {
-  return (
-    item.title.toLowerCase().includes(lowerQuery) ||
-    (item.subtitle?.toLowerCase().includes(lowerQuery) ?? false) ||
-    item.description.toLowerCase().includes(lowerQuery)
-  );
+function collectMatchTerms(result: MiniSearchResult): string[] {
+  const terms = new Set<string>();
+  const matchInfo = result.match as Record<string, string[]>;
+  for (const matchedTerms of Object.values(matchInfo)) {
+    for (const term of matchedTerms) {
+      terms.add(term);
+    }
+  }
+  return Array.from(terms);
 }
 
 export function GlobalSearch() {
   const [open, setOpen] = useState(false);
-  const [query, setQuery] = useState('');
-  const [searchIndex, setSearchIndex] = useState<SearchIndex>({ items: [], loaded: false });
+  const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [history, setHistory] = useState<string[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const indexLoadedRef = useRef(false);
+  const engineRef = useRef<SearchEngine | null>(null);
+
+  const loadHistory = useCallback(() => {
+    setHistory(getSearchHistory());
+  }, []);
 
   const ensureIndex = useCallback(() => {
-    if (indexLoadedRef.current) return;
-    indexLoadedRef.current = true;
+    if (engineRef.current) return;
     setLoading(true);
-    loadSearchIndex().then((items) => {
-      setSearchIndex({ items, loaded: true });
-      setLoading(false);
-    });
+    ensureEngine()
+      .then((engine) => {
+        engineRef.current = engine;
+        setLoading(false);
+      })
+      .catch(() => {
+        setLoading(false);
+      });
   }, []);
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
         setOpen((prev) => {
-          if (!prev) ensureIndex();
+          if (!prev) {
+            ensureIndex();
+            loadHistory();
+          }
           return !prev;
         });
       }
     }
     function handleOpen() {
       ensureIndex();
+      loadHistory();
       setOpen(true);
     }
-    document.addEventListener('keydown', handleKeyDown);
-    document.addEventListener('open-global-search', handleOpen);
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("open-global-search", handleOpen);
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.removeEventListener('open-global-search', handleOpen);
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("open-global-search", handleOpen);
     };
-  }, [ensureIndex]);
+  }, [ensureIndex, loadHistory]);
 
   useEffect(() => {
     if (open) {
@@ -202,31 +94,65 @@ export function GlobalSearch() {
     }
   }, [open]);
 
-  const filtered = useMemo(() => {
-    if (!query.trim()) return [];
-    const lower = query.toLowerCase();
-    return searchIndex.items.filter((item) => matchesQuery(item, lower));
-  }, [query, searchIndex.items]);
+  const results = useMemo((): SearchResult[] => {
+    const trimmed = query.trim();
+    if (!trimmed || !engineRef.current) return [];
+
+    const searchResults = engineRef.current.index.search(trimmed).slice(0, 30);
+    const docMap = new Map(engineRef.current.documents.map((d) => [d.id, d]));
+
+    return searchResults
+      .map((r) => {
+        const doc = docMap.get(r.id);
+        if (!doc) return null;
+        const terms = collectMatchTerms(r);
+        const titleLower = doc.title.toLowerCase();
+        const subtitleLower = doc.subtitle.toLowerCase();
+        const contentLower = doc.content.toLowerCase();
+
+        return {
+          doc,
+          score: r.score,
+          titleMatches: terms.filter((t) => titleLower.includes(t.toLowerCase())),
+          subtitleMatches: terms.filter((t) => subtitleLower.includes(t.toLowerCase())),
+          contentMatches: terms.filter((t) => contentLower.includes(t.toLowerCase())),
+        };
+      })
+      .filter((r): r is SearchResult => r !== null);
+  }, [query]);
 
   const grouped = useMemo(() => {
-    const groups: Record<Section, SearchItem[]> = {
+    const groups: Record<Section, SearchResult[]> = {
       physics: [],
       history: [],
       philosophy: [],
+      "life-science": [],
+      economics: [],
+      psychology: [],
+      cosmology: [],
     };
-    for (const item of filtered) {
-      groups[item.section].push(item);
+    for (const result of results) {
+      const section = result.doc.section as Section;
+      if (section in groups) {
+        groups[section].push(result);
+      }
     }
     return groups;
-  }, [filtered]);
+  }, [results]);
 
   const flatResults = useMemo(() => {
-    const result: SearchItem[] = [];
-    for (const section of ['physics', 'history', 'philosophy'] as Section[]) {
+    const result: SearchResult[] = [];
+    for (const section of ["physics", "history", "philosophy", "life-science", "economics", "psychology"] as Section[]) {
       result.push(...grouped[section]);
     }
     return result;
   }, [grouped]);
+
+  const flatIndexMap = useMemo(() => {
+    const map = new Map<string, number>();
+    flatResults.forEach((item, index) => map.set(item.doc.id, index));
+    return map;
+  }, [flatResults]);
 
   useEffect(() => {
     setActiveIndex(0);
@@ -235,33 +161,35 @@ export function GlobalSearch() {
   useEffect(() => {
     if (!open) return;
     function handleKeyDown(e: KeyboardEvent) {
-      if (e.key === 'Escape') {
+      if (e.key === "Escape") {
         e.preventDefault();
         setOpen(false);
         return;
       }
-      if (e.key === 'ArrowDown') {
+      if (e.key === "ArrowDown") {
         e.preventDefault();
         setActiveIndex((prev) => Math.min(prev + 1, flatResults.length - 1));
       }
-      if (e.key === 'ArrowUp') {
+      if (e.key === "ArrowUp") {
         e.preventDefault();
         setActiveIndex((prev) => Math.max(prev - 1, 0));
       }
-      if (e.key === 'Enter' && flatResults[activeIndex]) {
+      if (e.key === "Enter" && flatResults[activeIndex]) {
         e.preventDefault();
-        setOpen(false);
+        addToSearchHistory(query.trim());
+        trackEvent({ type: "search", query: query.trim(), resultCount: flatResults.length });
+        window.location.href = flatResults[activeIndex].doc.url;
       }
     }
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [open, flatResults, activeIndex]);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [open, flatResults, activeIndex, query]);
 
   useEffect(() => {
     if (!listRef.current) return;
     const activeEl = listRef.current.querySelector('[data-active="true"]');
     if (activeEl) {
-      activeEl.scrollIntoView({ block: 'nearest' });
+      activeEl.scrollIntoView({ block: "nearest" });
     }
   }, [activeIndex]);
 
@@ -269,8 +197,29 @@ export function GlobalSearch() {
     if (debounceRef.current) clearTimeout(debounceRef.current);
     debounceRef.current = setTimeout(() => {
       setQuery(value);
-    }, 150);
+    }, 100);
   }, []);
+
+  const handleHistoryClick = useCallback((term: string) => {
+    setQuery(term);
+    if (inputRef.current) {
+      inputRef.current.value = term;
+    }
+  }, []);
+
+  const handleHistoryChange = useCallback(() => {
+    setHistory(getSearchHistory());
+  }, []);
+
+  const handleItemClick = useCallback(
+    (url: string) => {
+      addToSearchHistory(query.trim());
+      trackEvent({ type: "search", query: query.trim(), resultCount: flatResults.length });
+      setOpen(false);
+      window.location.href = url;
+    },
+    [query, flatResults.length],
+  );
 
   useEffect(() => {
     return () => {
@@ -278,9 +227,13 @@ export function GlobalSearch() {
     };
   }, []);
 
+  const showHistory = !query.trim() && history.length > 0;
+  const showSuggestions = query.trim().length >= 2 && query.trim().length < 4;
+  const hasResults = flatResults.length > 0;
+
   if (!open) return null;
 
-  let flatIndex = -1;
+  const activeId = flatResults[activeIndex] ? `gs-item-${flatResults[activeIndex].doc.id}` : undefined;
 
   return (
     <div
@@ -293,84 +246,63 @@ export function GlobalSearch() {
       }}
     >
       <div className="gs-panel">
-        <div className="gs-input-wrap">
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 20 20"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            className="gs-search-icon"
-          >
-            <circle cx="9" cy="9" r="6" />
-            <path d="m14 14 4.5 4.5" />
-          </svg>
-          <input
-            ref={inputRef}
-            type="text"
-            className="gs-input"
-            placeholder="搜索宇宙物理、人类历史、哲学思想…"
-            onChange={(e) => handleQueryChange(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' && flatResults[activeIndex]) {
-                setOpen(false);
-              }
-            }}
-            autoComplete="off"
-            spellCheck={false}
-          />
-          <kbd className="gs-kbd">ESC</kbd>
-        </div>
+        <SearchInput
+          inputRef={inputRef}
+          activeId={activeId}
+          onChange={handleQueryChange}
+        />
 
-        <div className="gs-results" ref={listRef}>
-          {loading && (
-            <div className="gs-empty">正在加载搜索索引…</div>
+        <div className="gs-results" ref={listRef} id="gs-result-list" role="listbox">
+          {loading && <div className="gs-empty">正在加载搜索索引…</div>}
+
+          {!loading && showHistory && (
+            <SearchHistory
+              history={history}
+              onHistoryClick={handleHistoryClick}
+              onHistoryChange={handleHistoryChange}
+            />
           )}
 
-          {!loading && !query.trim() && (
+          {!loading && !query.trim() && !showHistory && (
             <div className="gs-empty">
               输入关键词开始搜索
-              <span className="gs-empty-hint">支持宇宙物理、人类历史、哲学思想</span>
+              <span className="gs-empty-hint">支持宇宙物理、人类历史、哲学思想、生命科学、经济学、心理学</span>
             </div>
           )}
 
-          {!loading && query.trim() && flatResults.length === 0 && (
+          {!loading && showSuggestions && !hasResults && (
             <div className="gs-empty">
-              未找到「{query}」相关结果
+              正在搜索「{query.trim()}」…
+              <span className="gs-empty-hint">输入更多字符以获取更精确的结果</span>
+            </div>
+          )}
+
+          {!loading && query.trim() && !showSuggestions && !hasResults && (
+            <div className="gs-empty">
+              未找到「{query.length > 100 ? `${query.slice(0, 100)}…` : query}」相关结果
               <span className="gs-empty-hint">试试其他关键词</span>
             </div>
           )}
 
-          {(['physics', 'history', 'philosophy'] as Section[]).map((section) => {
-            const sectionItems = grouped[section];
-            if (sectionItems.length === 0) return null;
+          {(["physics", "history", "philosophy", "life-science", "economics", "psychology"] as Section[]).map((section) => {
+            const sectionResults = grouped[section];
+            if (sectionResults.length === 0) return null;
             const meta = SECTION_META[section];
             return (
               <div key={section} className="gs-group">
                 <div className="gs-group-label" style={{ color: meta.color }}>
                   {meta.label}
                 </div>
-                {sectionItems.map((item) => {
-                  flatIndex++;
-                  const isActive = flatIndex === activeIndex;
+                {sectionResults.map((result) => {
+                  const currentIndex = flatIndexMap.get(result.doc.id) ?? 0;
                   return (
-                    <Link
-                      key={item.id}
-                      href={item.href}
-                      className="gs-item"
-                      data-active={isActive}
-                      onClick={() => setOpen(false)}
-                      onMouseEnter={() => setActiveIndex(flatIndex)}
-                    >
-                      <div className="gs-item-title">
-                        {item.title}
-                        {item.subtitle && (
-                          <span className="gs-item-subtitle">{item.subtitle}</span>
-                        )}
-                      </div>
-                      <div className="gs-item-desc">{item.description}</div>
-                    </Link>
+                    <SearchResultItem
+                      key={result.doc.id}
+                      result={result}
+                      isActive={currentIndex === activeIndex}
+                      onClick={handleItemClick}
+                      onMouseEnter={() => setActiveIndex(currentIndex)}
+                    />
                   );
                 })}
               </div>
@@ -379,9 +311,15 @@ export function GlobalSearch() {
         </div>
 
         <div className="gs-footer">
-          <span><kbd className="gs-kbd-sm">↑↓</kbd> 导航</span>
-          <span><kbd className="gs-kbd-sm">↵</kbd> 打开</span>
-          <span><kbd className="gs-kbd-sm">esc</kbd> 关闭</span>
+          <span>
+            <kbd className="gs-kbd-sm">↑↓</kbd> 导航
+          </span>
+          <span>
+            <kbd className="gs-kbd-sm">↵</kbd> 打开
+          </span>
+          <span>
+            <kbd className="gs-kbd-sm">esc</kbd> 关闭
+          </span>
         </div>
       </div>
     </div>

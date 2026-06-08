@@ -6,6 +6,7 @@ import { KeyboardNav } from "@/src-physics/components/hud/KeyboardNav";
 import { MobileTierStrip } from "@/src-physics/components/hud/MobileTierStrip";
 import { HoverTooltip } from "@/src-physics/components/knowledge/HoverTooltip";
 import { KnowledgePanel } from "@/src-physics/components/knowledge/KnowledgePanel";
+import { TierDeepReadingPanel } from "@/src-physics/components/TierDeepReadingPanel";
 import { SkipLink } from "@/src-physics/components/hud/SkipLink";
 import { SubjectCard } from "@/src-physics/components/hud/SubjectCard";
 import { TierAriaLive } from "@/src-physics/components/hud/TierAriaLive";
@@ -59,13 +60,14 @@ export function HandwrittenShell({ children }: { children: ReactNode }) {
         <TopBar />
         <TierRail />
         <MobileTierStrip />
-        <div className="pointer-events-none absolute right-0 bottom-16 left-0 flex justify-start px-5 pb-2 md:bottom-0 md:px-10 md:pb-10">
+        <div className="pointer-events-none absolute bottom-16 left-0 right-0 flex justify-start px-5 pb-2 md:bottom-0 md:px-10 md:pb-10">
           <SubjectCard />
         </div>
       </div>
 
       <HoverTooltip />
       <KnowledgePanel />
+      <TierDeepReadingPanel />
       <FloatingViewControl />
       <KeyboardNav />
 

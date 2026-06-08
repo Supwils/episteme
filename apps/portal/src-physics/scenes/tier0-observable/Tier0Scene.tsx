@@ -1,9 +1,9 @@
 "use client";
 
 import { useFrame } from "@react-three/fiber";
-import { useMemo, useRef, type ComponentProps } from "react";
-import { BackSide, type Group, type Mesh } from "three";
-import { getTierContent } from "@/content/universe-physics/cosmos";
+import { useEffect, useMemo, useRef, type ComponentProps } from "react";
+import { BackSide, type Group, type Mesh, type MeshBasicMaterial } from "three";
+import { getTierContent } from "@/src-physics/lib/tier-content";
 import { fbm3D, hash01, mixRgb, smoothstep } from "@/src-physics/lib/noise";
 import { StarPoints } from "@/src-physics/components/three/StarPoints";
 import { VolumeBillboard } from "@/src-physics/components/volumetric/VolumeBillboard";
@@ -19,6 +19,9 @@ export function Tier0Scene({ opacity = 1, ...groupProps }: Props) {
   const ring1Ref = useRef<Mesh>(null);
   const ring2Ref = useRef<Mesh>(null);
   const ring3Ref = useRef<Mesh>(null);
+  const ring1MatRef = useRef<MeshBasicMaterial>(null);
+  const ring2MatRef = useRef<MeshBasicMaterial>(null);
+  const ring3MatRef = useRef<MeshBasicMaterial>(null);
   const reducedMotion = useUiStore((s) => s.reducedMotion);
 
   const web = useMemo(() => buildCosmicWebHint(1700, 0.72, 0.06), []);
@@ -31,15 +34,21 @@ export function Tier0Scene({ opacity = 1, ...groupProps }: Props) {
   useFrame((_, dt) => {
     if (!reducedMotion && group.current) group.current.rotation.y += dt * 0.011;
 
-    const ringFade = (m: Mesh | null, base: number) => {
-      if (!m) return;
-      const mat = m.material as { opacity?: number };
-      mat.opacity = base * opacity;
-    };
-    ringFade(ring1Ref.current, 0.09);
-    ringFade(ring2Ref.current, 0.06);
-    ringFade(ring3Ref.current, 0.06);
+    if (ring1MatRef.current) ring1MatRef.current.opacity = 0.09 * opacity;
+    if (ring2MatRef.current) ring2MatRef.current.opacity = 0.06 * opacity;
+    if (ring3MatRef.current) ring3MatRef.current.opacity = 0.06 * opacity;
   });
+
+  useEffect(() => {
+    const r1 = ring1MatRef.current;
+    const r2 = ring2MatRef.current;
+    const r3 = ring3MatRef.current;
+    return () => {
+      r1?.dispose();
+      r2?.dispose();
+      r3?.dispose();
+    };
+  }, []);
 
   return (
     <group ref={group} {...groupProps}>
@@ -106,15 +115,15 @@ export function Tier0Scene({ opacity = 1, ...groupProps }: Props) {
       {/* three orthogonal hairline rings */}
       <mesh ref={ring1Ref} rotation={[Math.PI / 2, 0, 0]}>
         <ringGeometry args={[0.9992, 1.0008, 360]} />
-        <meshBasicMaterial color="#6ad0ff" transparent depthWrite={false} side={BackSide} />
+        <meshBasicMaterial ref={ring1MatRef} color="#6ad0ff" transparent opacity={0.09} depthWrite={false} side={BackSide} />
       </mesh>
       <mesh ref={ring2Ref} rotation={[0, 0, 0]}>
         <ringGeometry args={[0.9994, 1.0006, 360]} />
-        <meshBasicMaterial color="#6ad0ff" transparent depthWrite={false} side={BackSide} />
+        <meshBasicMaterial ref={ring2MatRef} color="#6ad0ff" transparent opacity={0.06} depthWrite={false} side={BackSide} />
       </mesh>
       <mesh ref={ring3Ref} rotation={[0, Math.PI / 2, 0]}>
         <ringGeometry args={[0.9994, 1.0006, 360]} />
-        <meshBasicMaterial color="#6ad0ff" transparent depthWrite={false} side={BackSide} />
+        <meshBasicMaterial ref={ring3MatRef} color="#6ad0ff" transparent opacity={0.06} depthWrite={false} side={BackSide} />
       </mesh>
 
       {markers.length > 0 ? <SceneMarkers markers={markers} opacity={opacity} tierId="T0" /> : null}

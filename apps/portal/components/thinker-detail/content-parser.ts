@@ -174,3 +174,25 @@ export function extractH2Headings(blocks: Block[]): { id: string; text: string }
     .filter((b): b is { type: "h2"; text: string } => b.type === "h2")
     .map((b) => ({ id: slugify(b.text), text: b.text }));
 }
+
+export type TocEntry = {
+  id: string;
+  text: string;
+  children: { id: string; text: string }[];
+};
+
+export function extractToc(blocks: Block[]): TocEntry[] {
+  const toc: TocEntry[] = [];
+  let current: TocEntry | null = null;
+
+  for (const b of blocks) {
+    if (b.type === "h2") {
+      current = { id: slugify(b.text), text: b.text, children: [] };
+      toc.push(current);
+    } else if (b.type === "h3" && current) {
+      current.children.push({ id: slugify(b.text), text: b.text });
+    }
+  }
+
+  return toc;
+}

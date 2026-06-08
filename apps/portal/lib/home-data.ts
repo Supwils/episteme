@@ -50,27 +50,93 @@ export const SCHOOLS = [
 ] as const;
 
 export const THINKERS = [
-  { name: "柏拉图", latin: "Plato", era: "前 428—前 348", quote: "哲学始于惊奇。", accent: "#6ad0ff" },
-  { name: "亚里士多德", latin: "Aristotle", era: "前 384—前 322", quote: "吾爱吾师，吾更爱真理。", accent: "#6ad0ff" },
-  { name: "孔子", latin: "Confucius", era: "前 551—前 479", quote: "己所不欲，勿施于人。", accent: "#c8a45a" },
-  { name: "康德", latin: "Kant", era: "1724—1804", quote: "有两样东西，愈是思索愈惊叹。", accent: "#7aaa8a" },
-  { name: "尼采", latin: "Nietzsche", era: "1844—1900", quote: "那些杀不死我的，使我更强大。", accent: "#7aaa8a" },
-  { name: "维特根斯坦", latin: "Wittgenstein", era: "1889—1951", quote: "凡不可说的，必须沉默。", accent: "#a88adf" },
+  {
+    name: "柏拉图",
+    latin: "Plato",
+    era: "前 428—前 348",
+    quote: "哲学始于惊奇。",
+    accent: "#6ad0ff",
+  },
+  {
+    name: "亚里士多德",
+    latin: "Aristotle",
+    era: "前 384—前 322",
+    quote: "吾爱吾师，吾更爱真理。",
+    accent: "#6ad0ff",
+  },
+  {
+    name: "孔子",
+    latin: "Confucius",
+    era: "前 551—前 479",
+    quote: "己所不欲，勿施于人。",
+    accent: "#c8a45a",
+  },
+  {
+    name: "康德",
+    latin: "Kant",
+    era: "1724—1804",
+    quote: "有两样东西，愈是思索愈惊叹。",
+    accent: "#7aaa8a",
+  },
+  {
+    name: "尼采",
+    latin: "Nietzsche",
+    era: "1844—1900",
+    quote: "那些杀不死我的，使我更强大。",
+    accent: "#7aaa8a",
+  },
+  {
+    name: "维特根斯坦",
+    latin: "Wittgenstein",
+    era: "1889—1951",
+    quote: "凡不可说的，必须沉默。",
+    accent: "#a88adf",
+  },
 ] as const;
 
 export const QUICK_LINKS = [
-  { href: "/philosophy/thinkers", label: "哲学家", icon: "Φ", description: "50 位东西方哲学家的生平、思想与遗产", accent: "#6ad0ff" },
-  { href: "/philosophy/schools", label: "流派", icon: "◎", description: "32 个跨越文明的哲学流派全景图", accent: "#c8a45a" },
-  { href: "/philosophy/isms", label: "主义", icon: "∑", description: "从唯物主义到存在主义的思想光谱", accent: "#7aaa8a" },
-  { href: "/philosophy/experiments", label: "思想实验", icon: "∞", description: "16 个改变哲学进程的思想实验", accent: "#a88adf" },
-  { href: "/philosophy/questions", label: "大问题", icon: "?", description: "哲学史上最根本的追问与回答", accent: "#6ad0ff" },
+  {
+    href: "/philosophy/thinkers",
+    label: "哲学家",
+    icon: "Φ",
+    description: "67 位东西方哲学家的生平、思想与遗产",
+    accent: "#6ad0ff",
+  },
+  {
+    href: "/philosophy/schools",
+    label: "流派",
+    icon: "◎",
+    description: "33 个跨越文明的哲学流派全景图",
+    accent: "#c8a45a",
+  },
+  {
+    href: "/philosophy/isms",
+    label: "主义",
+    icon: "∑",
+    description: "从唯物主义到存在主义的思想光谱",
+    accent: "#7aaa8a",
+  },
+  {
+    href: "/philosophy/experiments",
+    label: "思想实验",
+    icon: "∞",
+    description: "21 个改变哲学进程的思想实验",
+    accent: "#a88adf",
+  },
+  {
+    href: "/philosophy/questions",
+    label: "大问题",
+    icon: "?",
+    description: "哲学史上最根本的追问与回答",
+    accent: "#6ad0ff",
+  },
 ] as const;
 
 export const STATS = [
-  { value: 50, label: "哲学家", suffix: "位" },
-  { value: 32, label: "流派", suffix: "个" },
-  { value: 108, label: "时间线事件", suffix: "件" },
-  { value: 16, label: "思想实验", suffix: "个" },
+  { value: 67, label: "哲学家", suffix: "位" },
+  { value: 33, label: "流派", suffix: "个" },
+  { value: 21, label: "思想实验", suffix: "个" },
+  { value: 201, label: "文章", suffix: "篇" },
 ] as const;
 
 export const FLOATING_SYMBOLS = ["φ", "θ", "∞", "π", "Ω", "λ", "Δ", "ψ"] as const;

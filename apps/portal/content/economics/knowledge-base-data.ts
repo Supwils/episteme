@@ -1,0 +1,15 @@
+export const ECONOMICS_KB_DATA = [
+  { slug: "understanding-bubbles", title: "理解泡沫：为什么我们总是重蹈覆辙", titleEn: "Understanding Bubbles: Why We Keep Making the Same Mistakes", category: "行为经济学应用" },
+  { slug: "behavioral-economics-daily", title: "行为经济学日常应用：用科学方法改善你的每一个决定", titleEn: "Behavioral Economics in Daily Life: Using Science to Improve Your Decisions", category: "行为经济学应用" },
+  { slug: "money-and-happiness", title: "金钱与幸福：科学怎么说", titleEn: "Money and Happiness: What Science Says", category: "行为经济学应用" },
+  { slug: "inequality-economics", title: "不平等经济学：数据、原因与后果", titleEn: "The Economics of Inequality: Data, Causes, and Consequences", category: "行为经济学应用" },
+  { slug: "time-discounting", title: "时间折扣：为什么我们总是选择即时满足", titleEn: "Time Discounting: Why We Always Choose Instant Gratification", category: "行为经济学应用" },
+  { slug: "stock-market-explained", title: "股票市场完全指南", titleEn: "Complete Guide to the Stock Market", category: "金融市场" },
+  { slug: "bond-market-explained", title: "债券市场入门", titleEn: "Bond Market Basics", category: "固定收益" },
+  { slug: "forex-basics", title: "外汇市场入门", titleEn: "Forex Market Basics", category: "国际金融" },
+  { slug: "inflation-guide", title: "通胀完全指南", titleEn: "Complete Guide to Inflation", category: "宏观经济" },
+  { slug: "interest-rate-guide", title: "利率指南", titleEn: "Interest Rate Guide", category: "货币政策" },
+  { slug: "economic-indicators-guide", title: "经济指标指南", titleEn: "Economic Indicators Guide", category: "宏观经济" },
+  { slug: "retirement-planning", title: "退休规划指南", titleEn: "Retirement Planning Guide", category: "个人理财" },
+  { slug: "real-estate-guide", title: "房地产投资指南", titleEn: "Real Estate Investment Guide", category: "房地产" },
+] as const;

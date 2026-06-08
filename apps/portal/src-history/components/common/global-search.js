@@ -3,6 +3,7 @@ import { LESSONS } from '@/content/human-history/data/lessons.js';
 import { ATLAS_ERAS } from '@/content/human-history/data/atlas-content.js';
 import { SCHOLARLY_TITLES } from '@/content/human-history/data/scholarly-titles.js';
 import { el } from '../../lib/dom.js';
+import { escapeHtml } from '../../lib/escape-html';
 
 let activeCleanup = null;
 
@@ -15,7 +16,7 @@ function buildIndex() {
       label: f.name,
       sub: f.title,
       desc: f.desc,
-      href: `/figures?name=${encodeURIComponent(f.name)}`,
+      href: `/human-history/figures?name=${encodeURIComponent(f.name)}`,
       action: 'figure',
       target: f.name,
       search: `${f.name} ${f.title} ${f.desc} ${f.era} ${f.region}`,
@@ -27,7 +28,7 @@ function buildIndex() {
       label: ev.title,
       sub: `${ev.year < 0 ? '前' + Math.abs(ev.year) : ev.year}年`,
       desc: ev.desc,
-      href: `/timeline?event=${encodeURIComponent(ev.title)}`,
+      href: `/human-history/timeline?event=${encodeURIComponent(ev.title)}`,
       action: 'timeline',
       target: ev.title,
       search: `${ev.title} ${ev.desc} ${ev.era} ${ev.region} ${ev.cat}`,
@@ -40,7 +41,7 @@ function buildIndex() {
       label: title,
       sub: '课堂讲稿',
       desc: '深度阅读 · 5页讲稿',
-      href: `/timeline?event=${encodeURIComponent(title)}&mode=scholarly`,
+      href: `/human-history/timeline?event=${encodeURIComponent(title)}&mode=scholarly`,
       action: 'scholarly',
       target: title,
       search: `${title} 深度讲稿`,
@@ -52,7 +53,7 @@ function buildIndex() {
       label: era.name,
       sub: `${era.startYear < 0 ? '前' + Math.abs(era.startYear) : era.startYear}-${era.endYear}`,
       desc: era.desc,
-      href: `/timeline#${era.id}`,
+      href: `/human-history/timeline#${era.id}`,
       action: 'navigate',
       search: `${era.name} ${era.desc} ${(era.highlights || []).join(' ')}`,
     });
@@ -63,7 +64,7 @@ function buildIndex() {
       label: lesson.title,
       sub: lesson.subtitle,
       desc: lesson.intro,
-      href: '/lessons',
+      href: '/human-history/lessons',
       action: 'navigate',
       search: `${lesson.title} ${lesson.subtitle} ${lesson.intro}`,
     });
@@ -73,7 +74,7 @@ function buildIndex() {
         label: c.title,
         sub: lesson.title,
         desc: c.summary,
-        href: '/lessons',
+        href: '/human-history/lessons',
         action: 'navigate',
         search: `${c.title} ${c.summary} ${c.detail}`,
       });
@@ -86,7 +87,7 @@ function buildIndex() {
         label: topic.name,
         sub: era.name,
         desc: `${topic.scenes.length}个场景`,
-        href: '/atlas',
+        href: '/human-history/atlas',
         action: 'navigate',
         search: `${topic.name} ${era.name} ${topic.scenes.map(s => s.title + ' ' + s.body).join(' ')}`,
       });
@@ -115,7 +116,8 @@ function renderResults(results, query, listEl) {
     return;
   }
   if (results.length === 0) {
-    listEl.innerHTML = `<div class="gs-empty">未找到"${query}"的相关结果</div>`;
+    const escaped = escapeHtml(query);
+    listEl.innerHTML = `<div class="gs-empty">未找到"${escaped}"的相关结果</div>`;
     return;
   }
 
@@ -133,7 +135,7 @@ function renderResults(results, query, listEl) {
       row.innerHTML = `
         <div class="gs-result-head">
           <span class="gs-result-label">${highlightMatch(item.label, query)}</span>
-          <span class="gs-result-sub">${item.sub}</span>
+          <span class="gs-result-sub">${escapeHtml(item.sub)}</span>
         </div>
         <p class="gs-result-desc">${highlightMatch(truncate(item.desc, 100), query)}</p>
       `;
@@ -163,9 +165,10 @@ function renderResults(results, query, listEl) {
 }
 
 function highlightMatch(text, query) {
-  if (!query.trim()) return text;
+  const escaped = escapeHtml(text);
+  if (!query.trim()) return escaped;
   const tokens = query.trim().split(/\s+/);
-  let result = text;
+  let result = escaped;
   for (const t of tokens) {
     const re = new RegExp(`(${t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
     result = result.replace(re, '<mark>$1</mark>');

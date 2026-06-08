@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef } from "react";
-import * as THREE from "three";
+import { AdditiveBlending, BufferAttribute, type BufferGeometry, type ShaderMaterial } from "three";
 import { useFrame } from "@react-three/fiber";
 import { starPointVert } from "@/src-physics/shaders/starPoint.vert.glsl";
 import {
@@ -9,7 +9,7 @@ import {
   starPointVertColor,
   starPointFragColor,
 } from "@/src-physics/shaders/starPoint.frag.glsl";
-import { getParticleScale } from "@/src-physics/lib/lod";
+import { getParticleScale, subsamplePositions, subsample1 } from "@/src-physics/lib/lod";
 import { useUiStore } from "@/src-physics/store/useUiStore";
 
 type StarPointsProps = {
@@ -34,34 +34,6 @@ type StarPointsProps = {
   /** Parent opacity for cross-fade support (written to material each frame). */
   opacity?: number;
 };
-
-function subsample3(arr: Float32Array, scale: number): Float32Array {
-  if (scale >= 1) return arr;
-  const total = arr.length / 3;
-  const keep = Math.max(1, Math.ceil(total * scale));
-  if (keep >= total) return arr;
-  const out = new Float32Array(keep * 3);
-  const stride = total / keep;
-  for (let i = 0; i < keep; i++) {
-    const s = Math.floor(i * stride) * 3;
-    out[i * 3] = arr[s]!;
-    out[i * 3 + 1] = arr[s + 1]!;
-    out[i * 3 + 2] = arr[s + 2]!;
-  }
-  return out;
-}
-
-function subsample1(arr: Float32Array, scale: number): Float32Array {
-  if (scale >= 1) return arr;
-  const keep = Math.max(1, Math.ceil(arr.length * scale));
-  if (keep >= arr.length) return arr;
-  const out = new Float32Array(keep);
-  const stride = arr.length / keep;
-  for (let i = 0; i < keep; i++) {
-    out[i] = arr[Math.floor(i * stride)]!;
-  }
-  return out;
-}
 
 /**
  * Reusable soft-edged star/galaxy point cloud with custom shader.
@@ -91,7 +63,8 @@ export function StarPoints({
   sizeMultiplier = 1,
   opacity = 1,
 }: StarPointsProps) {
-  const matRef = useRef<THREE.ShaderMaterial>(null);
+  const matRef = useRef<ShaderMaterial>(null);
+  const geomRef = useRef<BufferGeometry>(null);
   const qualityTier = useUiStore((s) => s.qualityTier);
   const useVertexColors = colors !== undefined;
 
@@ -99,8 +72,8 @@ export function StarPoints({
 
   const { scaledPositions, scaledColors, scaledSizes, scaledTemps, scaledBrights, count } =
     useMemo(() => {
-      const sp = subsample3(positions, particleScale);
-      const sc = colors ? subsample3(colors, particleScale) : undefined;
+      const sp = subsamplePositions(positions, particleScale);
+      const sc = colors ? subsamplePositions(colors, particleScale) : undefined;
       const totalPoints = sp.length / 3;
       return {
         scaledPositions: sp,
@@ -122,10 +95,22 @@ export function StarPoints({
   const uniforms = useMemo(
     () => ({
       uPixelRatio: { value: Math.min(window.devicePixelRatio, 2) },
-      uSizeMultiplier: { value: sizeMultiplier },
+      uSizeMultiplier: { value: 1 },
     }),
-    [sizeMultiplier],
+    []
   );
+
+  useEffect(() => {
+    if (matRef.current) {
+      matRef.current.uniforms.uPixelRatio!.value = Math.min(window.devicePixelRatio, 2);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (matRef.current) {
+      matRef.current.uniforms.uSizeMultiplier!.value = sizeMultiplier;
+    }
+  }, [sizeMultiplier]);
 
   const lastOpacity = useRef(opacity);
   useFrame(() => {
@@ -136,14 +121,50 @@ export function StarPoints({
   });
 
   useEffect(() => {
+    const mat = matRef.current;
     return () => {
-      matRef.current?.dispose();
+      mat?.dispose();
+    };
+  }, []);
+
+  useEffect(() => {
+    const geom = geomRef.current;
+    if (!geom) return;
+
+    function patchAttr(
+      attr: import("three").BufferAttribute | undefined,
+      array: Float32Array,
+      itemSize: number
+    ) {
+      if (!attr) return;
+      const ba = attr as BufferAttribute;
+      ba.array = array;
+      // Three.js types mark count as readonly but it's writable at runtime
+      // @ts-expect-error — count is writable on WebGLBufferAttribute
+      ba.count = array.length / itemSize;
+      ba.needsUpdate = true;
+    }
+
+    patchAttr(geom.attributes.position as BufferAttribute | undefined, scaledPositions, 3);
+    patchAttr(geom.attributes.aSize as BufferAttribute | undefined, aSize, 1);
+    patchAttr(geom.attributes.aTemp as BufferAttribute | undefined, aTemp, 1);
+    patchAttr(geom.attributes.aBrightness as BufferAttribute | undefined, aBright, 1);
+    if (useVertexColors && scaledColors) {
+      patchAttr(geom.attributes.color as BufferAttribute | undefined, scaledColors, 3);
+    }
+    geom.setDrawRange(0, count);
+  }, [scaledPositions, scaledColors, aSize, aTemp, aBright, useVertexColors, count]);
+
+  useEffect(() => {
+    const geom = geomRef.current;
+    return () => {
+      geom?.dispose();
     };
   }, []);
 
   return (
     <points>
-      <bufferGeometry>
+      <bufferGeometry ref={geomRef}>
         <bufferAttribute attach="attributes-position" args={[scaledPositions, 3]} />
         <bufferAttribute attach="attributes-aSize" args={[aSize, 1]} />
         <bufferAttribute attach="attributes-aTemp" args={[aTemp, 1]} />
@@ -159,7 +180,7 @@ export function StarPoints({
         uniforms={uniforms}
         transparent
         depthWrite={false}
-        blending={THREE.AdditiveBlending}
+        blending={AdditiveBlending}
         vertexColors={useVertexColors}
       />
     </points>

@@ -1,0 +1,180 @@
+import type { GraphNode, GraphEdge } from '../data/types';
+import type { LayoutNode, LayoutEdge } from '@universe/graph-engine';
+import type { RenderNode, RenderEdge } from '@universe/graph-engine';
+
+export const DOMAIN_COLORS: Record<string, string> = {
+  physics: '#6366f1',
+  history: '#f59e0b',
+  philosophy: '#10b981',
+  'life-science': '#ec4899',
+  economics: '#e8b84a',
+  psychology: '#d4789c',
+};
+
+export const NODE_RADIUS: Record<string, number> = {
+  'cosmos-tier': 28,
+  'physics-tier': 22,
+  event: 16,
+  figure: 16,
+  school: 20,
+  thinker: 18,
+  concept: 14,
+  era: 20,
+  species: 14,
+  extinction: 18,
+  scientist: 16,
+  experiment: 14,
+  ism: 16,
+  question: 14,
+  economist: 16,
+  theory: 14,
+  theorist: 16,
+  phenomenon: 14,
+};
+
+export const EDGE_COLOR = 'rgba(255, 255, 255, 0.08)';
+export const BG_COLOR = '#08080f';
+export const LABEL_FONT = '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+export const LABEL_COLOR = 'rgba(255, 255, 255, 0.7)';
+export const HIGHLIGHT_COLOR = '#818cf8';
+
+export const ALL_DOMAINS = ['physics', 'history', 'philosophy', 'life-science', 'economics', 'psychology'] as const;
+
+export const NODE_TYPE_LABELS: Record<string, string> = {
+  'cosmos-tier': '宇宙层级',
+  'physics-tier': '物理层级',
+  event: '历史事件',
+  figure: '历史人物',
+  school: '哲学流派',
+  thinker: '哲学家',
+  concept: '哲学概念',
+  experiment: '实验',
+  question: '哲学问题',
+  ism: '主义',
+  era: '时代',
+  species: '物种',
+  scientist: '科学家',
+  extinction: '大灭绝',
+  economist: '经济学家',
+  theory: '经济理论',
+  theorist: '心理学家',
+  phenomenon: '心理现象',
+};
+
+export const CLUSTER_RADIUS = 350;
+export const CLUSTER_CENTERS: Record<string, { x: number; y: number }> = {};
+ALL_DOMAINS.forEach((domain, i) => {
+  const angle = (2 * Math.PI * i) / ALL_DOMAINS.length - Math.PI / 2;
+  CLUSTER_CENTERS[domain] = {
+    x: Math.cos(angle) * CLUSTER_RADIUS,
+    y: Math.sin(angle) * CLUSTER_RADIUS,
+  };
+});
+
+export function buildLayoutNodes(nodes: GraphNode[]): LayoutNode[] {
+  return nodes.map((node) => {
+    const domainIndex = ALL_DOMAINS.indexOf(node.domain as typeof ALL_DOMAINS[number]);
+    const domainAngle = (2 * Math.PI * domainIndex) / ALL_DOMAINS.length;
+    const jitterR = 80 + Math.random() * 150;
+    const jitterA = domainAngle + (Math.random() - 0.5) * 1.2;
+    return {
+      id: node.id,
+      x: Math.cos(jitterA) * jitterR,
+      y: Math.sin(jitterA) * jitterR,
+      vx: 0,
+      vy: 0,
+      domain: node.domain,
+    };
+  });
+}
+
+export function buildLayoutEdges(edges: GraphEdge[]): LayoutEdge[] {
+  return edges.map((e) => ({
+    source: e.source,
+    target: e.target,
+    strength: e.type === 'domain-link' ? 0.3 : 1,
+  }));
+}
+
+export function toRenderNodes(
+  nodes: GraphNode[],
+  positions: Map<string, { x: number; y: number }>,
+  hoveredId: string | null,
+  selectedId: string | null,
+  activeDomains: Set<string>,
+  spreadOffsets?: Map<string, { x: number; y: number }>,
+  searchMatchedIds?: Set<string>,
+): RenderNode[] {
+  return nodes
+    .filter((n) => activeDomains.has(n.domain))
+    .map((node) => {
+      const pos = positions.get(node.id);
+      const spread = spreadOffsets?.get(node.id);
+      return {
+        id: node.id,
+        x: (pos?.x ?? 0) + (spread?.x ?? 0),
+        y: (pos?.y ?? 0) + (spread?.y ?? 0),
+        label: node.label,
+        domain: node.domain,
+        type: node.type,
+        radius: NODE_RADIUS[node.type] ?? 16,
+        color: DOMAIN_COLORS[node.domain] ?? '#9ca3af',
+        hovered: node.id === hoveredId,
+        selected: node.id === selectedId,
+        searchMatched: searchMatchedIds?.has(node.id) ?? false,
+        alpha: 1,
+      };
+    });
+}
+
+export function toRenderEdges(
+  edges: GraphEdge[],
+  positions: Map<string, { x: number; y: number }>,
+  activeDomains: Set<string>,
+  nodeDomainMap: Map<string, string>,
+): RenderEdge[] {
+  return edges
+    .filter((e) => {
+      const sd = nodeDomainMap.get(e.source);
+      const td = nodeDomainMap.get(e.target);
+      return sd !== undefined && td !== undefined && activeDomains.has(sd) && activeDomains.has(td);
+    })
+    .map((edge) => {
+      const s = positions.get(edge.source);
+      const t = positions.get(edge.target);
+      return {
+        x1: s?.x ?? 0,
+        y1: s?.y ?? 0,
+        x2: t?.x ?? 0,
+        y2: t?.y ?? 0,
+        color:
+          edge.type === 'cross-reference'
+            ? 'rgba(200, 164, 90, 0.2)'
+            : edge.type === 'domain-link'
+              ? 'rgba(255, 255, 255, 0.12)'
+              : 'rgba(255, 255, 255, 0.06)',
+        width: edge.type === 'cross-reference' || edge.type === 'domain-link' ? 1.5 : 0.8,
+        alpha: 0.6,
+        sourceId: edge.source,
+        targetId: edge.target,
+      };
+    });
+}
+
+export function computeNodeCounts(nodes: GraphNode[], activeDomains: Set<string>): Record<string, number> {
+  const counts: Record<string, number> = {};
+  for (const node of nodes) {
+    if (!activeDomains.has(node.domain)) continue;
+    counts[node.domain] = (counts[node.domain] ?? 0) + 1;
+    counts[node.type] = (counts[node.type] ?? 0) + 1;
+  }
+  return counts;
+}
+
+export function computeEdgeCounts(edges: GraphEdge[]): Record<string, number> {
+  const counts: Record<string, number> = {};
+  for (const edge of edges) {
+    counts[edge.type] = (counts[edge.type] ?? 0) + 1;
+  }
+  return counts;
+}

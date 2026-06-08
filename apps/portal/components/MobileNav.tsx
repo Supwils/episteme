@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState, useRef, useEffect, useCallback } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useState, useRef, useEffect, useCallback } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface NavLink {
   href: string;
@@ -16,7 +16,7 @@ export function MobileNav({ links }: { links: NavLink[] }) {
   const pathname = usePathname();
 
   function isActive(href: string) {
-    if (href === '/') return pathname === '/';
+    if (href === "/") return pathname === "/";
     return pathname.startsWith(href);
   }
 
@@ -26,88 +26,111 @@ export function MobileNav({ links }: { links: NavLink[] }) {
   }, []);
 
   useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  useEffect(() => {
     if (!open) return;
 
     const menu = menuRef.current;
     if (!menu) return;
 
-    const focusable = menu.querySelectorAll<HTMLElement>(
-      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
-    );
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
+    let handleKeyDown: ((e: KeyboardEvent) => void) | null = null;
+    let rafId = requestAnimationFrame(() => {
+      const focusable = menu.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
 
-    first?.focus();
+      first?.focus();
 
-    function handleKeyDown(e: KeyboardEvent) {
-      if (e.key === 'Escape') {
-        e.preventDefault();
-        closeMenu();
-        return;
-      }
-
-      if (e.key !== 'Tab' || focusable.length === 0) return;
-
-      if (e.shiftKey) {
-        if (document.activeElement === first) {
+      handleKeyDown = function (e: KeyboardEvent) {
+        if (e.key === "Escape") {
           e.preventDefault();
-          last?.focus();
+          closeMenu();
+          return;
         }
-      } else {
-        if (document.activeElement === last) {
-          e.preventDefault();
-          first?.focus();
-        }
-      }
-    }
 
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
+        if (e.key !== "Tab" || focusable.length === 0) return;
+
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault();
+            last?.focus();
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault();
+            first?.focus();
+          }
+        }
+      };
+
+      document.addEventListener("keydown", handleKeyDown);
+    });
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      if (handleKeyDown) {
+        document.removeEventListener("keydown", handleKeyDown);
+      }
+    };
   }, [open, closeMenu]);
 
   return (
     <div className="md:hidden">
       <button
         ref={buttonRef}
-        className="flex flex-col justify-center items-center w-11 h-11 gap-[5px]"
-        aria-label={open ? '关闭菜单' : '打开菜单'}
+        className="flex h-11 w-11 flex-col items-center justify-center gap-[5px]"
+        aria-label={open ? "关闭菜单" : "打开菜单"}
         aria-expanded={open}
         aria-haspopup="true"
         type="button"
         onClick={() => setOpen(!open)}
       >
         <span
-          className="block w-5 h-[2px] bg-[#9ca3af] rounded-full transition-transform duration-200"
-          style={open ? { transform: 'translateY(7px) rotate(45deg)' } : undefined}
+          className="block h-[2px] w-5 rounded-full bg-[#9ca3af] transition-transform duration-200"
+          style={open ? { transform: "translateY(7px) rotate(45deg)" } : undefined}
         />
         <span
-          className="block w-5 h-[2px] bg-[#9ca3af] rounded-full transition-opacity duration-200"
+          className="block h-[2px] w-5 rounded-full bg-[#9ca3af] transition-opacity duration-200"
           style={open ? { opacity: 0 } : undefined}
         />
         <span
-          className="block w-5 h-[2px] bg-[#9ca3af] rounded-full transition-transform duration-200"
-          style={open ? { transform: 'translateY(-7px) rotate(-45deg)' } : undefined}
+          className="block h-[2px] w-5 rounded-full bg-[#9ca3af] transition-transform duration-200"
+          style={open ? { transform: "translateY(-7px) rotate(-45deg)" } : undefined}
         />
       </button>
       {open && (
+        <div className="fixed inset-0 z-40 bg-black/50" onClick={closeMenu} aria-hidden="true" />
+      )}
+      {open && (
         <div
           ref={menuRef}
-          className="absolute top-14 left-0 right-0 bg-[rgba(10,10,15,0.97)] backdrop-blur-xl border-b border-[#1e1e2e] z-50"
+          className="absolute left-0 right-0 top-14 z-[60] border-b border-[#1e1e2e] bg-[rgba(10,10,15,0.97)] backdrop-blur-xl"
         >
-          <ul role="menu" className="flex flex-col list-none m-0 p-4 gap-1">
+          <ul role="menu" className="m-0 flex list-none flex-col gap-1 p-4">
             {links.map((link) => (
               <li key={link.href} role="none">
                 <Link
                   role="menuitem"
                   href={link.href}
-                  className={`block py-3 px-4 text-[0.95rem] rounded transition-colors min-h-[44px] flex items-center focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#818cf8] ${
+                  className={`block flex min-h-[44px] items-center rounded px-4 py-3 text-[0.95rem] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#818cf8] ${
                     isActive(link.href)
-                      ? 'text-[#818cf8] bg-white/[0.05] font-medium'
-                      : 'text-[#9ca3af] hover:text-[#818cf8] hover:bg-white/[0.03]'
+                      ? "bg-white/[0.05] font-medium text-[#818cf8]"
+                      : "text-[#9ca3af] hover:bg-white/[0.03] hover:text-[#818cf8]"
                   }`}
                   onClick={closeMenu}
                   onKeyDown={(e) => {
-                    if (e.key === 'Escape') {
+                    if (e.key === "Escape") {
                       e.preventDefault();
                       closeMenu();
                     }

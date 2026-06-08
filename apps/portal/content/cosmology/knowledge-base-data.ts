@@ -1,0 +1,15 @@
+export const COSMOLOGY_KB_DATA = [
+  { slug: "big-bang-theory", title: "大爆炸理论", titleEn: "Big Bang Theory", category: "宇宙学基础" },
+  { slug: "cosmic-microwave-background", title: "宇宙微波背景辐射", titleEn: "Cosmic Microwave Background", category: "宇宙学观测" },
+  { slug: "dark-matter-dark-energy", title: "暗物质与暗能量", titleEn: "Dark Matter and Dark Energy", category: "宇宙学前沿" },
+  { slug: "ultimate-fate", title: "宇宙的最终命运", titleEn: "The Ultimate Fate of the Universe", category: "宇宙学前沿" },
+  { slug: "multiverse-hypothesis", title: "多重宇宙假说", titleEn: "Multiverse Hypothesis", category: "宇宙学前沿" },
+  { slug: "stellar-evolution", title: "恒星演化", titleEn: "Stellar Evolution", category: "天体物理学" },
+  { slug: "exoplanets", title: "系外行星", titleEn: "Exoplanets", category: "天体生物学" },
+  { slug: "galaxies-cosmic-structures", title: "星系与宇宙大尺度结构", titleEn: "Galaxies and Cosmic Structures", category: "星系天文学" },
+  { slug: "gravitational-waves", title: "引力波天文学", titleEn: "Gravitational Wave Astronomy", category: "天体物理学" },
+  { slug: "black-holes", title: "黑洞物理学", titleEn: "Black Hole Physics", category: "天体物理学" },
+  { slug: "cosmic-inflation", title: "宇宙暴胀理论", titleEn: "Cosmic Inflation Theory", category: "宇宙学基础" },
+  { slug: "nucleosynthesis", title: "大爆炸核合成", titleEn: "Big Bang Nucleosynthesis", category: "宇宙学基础" },
+  { slug: "hubble-tension", title: "哈勃张力：宇宙膨胀率之谜", titleEn: "The Hubble Tension: Mystery of Cosmic Expansion Rate", category: "宇宙学前沿" },
+] as const;

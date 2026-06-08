@@ -1,3 +1,5 @@
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://universe-knowledge.vercel.app";
+
 export const ERA_ACCENT: Record<string, string> = {
   古代: "#6ad0ff",
   近代: "#c8a45a",

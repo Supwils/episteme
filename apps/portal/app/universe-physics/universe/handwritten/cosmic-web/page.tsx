@@ -1,8 +1,16 @@
-"use client";
+import type { Metadata } from "next";
+import HandwrittenCosmicWebPageClient from "./HandwrittenCosmicWebPageClient";
 
-import { useSyncTier } from "@/src-physics/hooks/useSyncTier";
+export const metadata: Metadata = {
+  title: "手绘·宇宙纤维 — 宇宙物理 — Universe Knowledge",
+  description: "手绘风格的宇宙纤维可视化",
+  openGraph: {
+    title: "手绘·宇宙纤维 — 宇宙物理",
+    description: "手绘风格的宇宙纤维可视化",
+    type: "website",
+  },
+};
 
 export default function HandwrittenCosmicWebPage() {
-  useSyncTier("T1");
-  return null;
+  return <HandwrittenCosmicWebPageClient />;
 }

@@ -3,6 +3,7 @@
 import gsap from "gsap";
 import { useCallback } from "react";
 import { Vector3 } from "three";
+import { prefersReducedMotion } from "@/lib/a11y";
 import {
   isUniverseTierId,
   tierIndex,
@@ -96,11 +97,4 @@ export function useTierTransition() {
       })
       .to({}, { duration, ease: "linear" });
   }, []);
-}
-
-function prefersReducedMotion(): boolean {
-  if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
-    return false;
-  }
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }

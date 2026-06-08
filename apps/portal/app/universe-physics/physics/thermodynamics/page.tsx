@@ -1,8 +1,16 @@
-"use client";
+import type { Metadata } from "next";
+import P1PageClient from "./P1PageClient";
 
-import { useSyncTier } from "@/src-physics/hooks/useSyncTier";
+export const metadata: Metadata = {
+  title: "热力学 — 宇宙物理 — Universe Knowledge",
+  description: "热力学——能量、熵与热力学定律，理解热现象的本质",
+  openGraph: {
+    title: "热力学 — 宇宙物理",
+    description: "热力学——能量、熵与热力学定律，理解热现象的本质",
+    type: "website",
+  },
+};
 
 export default function P1Page() {
-  useSyncTier("P1");
-  return null;
+  return <P1PageClient />;
 }

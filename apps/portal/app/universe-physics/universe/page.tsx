@@ -1,4 +1,15 @@
+import type { Metadata } from "next";
 import { redirect } from "next/navigation";
+
+export const metadata: Metadata = {
+  title: "宇宙地图 — 宇宙物理 — Universe Knowledge",
+  description: "从可观测宇宙到地球的跨尺度宇宙漫游",
+  openGraph: {
+    title: "宇宙地图 — 宇宙物理",
+    description: "从可观测宇宙到地球的跨尺度宇宙漫游",
+    type: "website",
+  },
+};
 
 export default function UniverseIndexPage(): never {
   redirect("/universe-physics/universe/observable");

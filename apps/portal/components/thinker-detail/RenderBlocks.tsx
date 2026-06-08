@@ -16,7 +16,7 @@ function InlineFormatted({ text }: { text: string }) {
           return (
             <code
               key={i}
-              className="bg-bg-elevated rounded px-1.5 py-0.5 font-mono text-[0.85em] text-accent-gold"
+              className="bg-bg-elevated text-accent-gold rounded px-1.5 py-0.5 font-mono text-[0.85em]"
             >
               {part.slice(1, -1)}
             </code>
@@ -24,11 +24,19 @@ function InlineFormatted({ text }: { text: string }) {
         }
         const linkMatch = part.match(/^\[(.*?)\]\((.*?)\)$/);
         if (linkMatch) {
+          const url = linkMatch[2] ?? "";
+          const safeUrl =
+            url.startsWith("http://") ||
+            url.startsWith("https://") ||
+            url.startsWith("/") ||
+            url.startsWith("#")
+              ? url
+              : "#";
           return (
             <a
               key={i}
-              href={linkMatch[2]}
-              className="text-accent-gold underline underline-offset-2 transition-colors hover:text-accent-gold/80"
+              href={safeUrl}
+              className="text-accent-gold hover:text-accent-gold/80 underline underline-offset-2 transition-colors"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -46,7 +54,7 @@ function RenderBlock({ block }: { block: Block }) {
   switch (block.type) {
     case "h1":
       return (
-        <h1 className="font-display text-fg-primary mt-10 mb-4 text-2xl font-bold leading-tight first:mt-0">
+        <h1 className="font-display text-fg-primary mb-4 mt-10 text-2xl font-bold leading-tight first:mt-0">
           <InlineFormatted text={block.text} />
         </h1>
       );
@@ -54,14 +62,17 @@ function RenderBlock({ block }: { block: Block }) {
       return (
         <h2
           id={slugify(block.text)}
-          className="border-accent-gold/30 font-display text-fg-primary mt-10 mb-4 flex items-center gap-3 border-l-3 pl-4 text-xl font-semibold leading-snug scroll-mt-24"
+          className="border-accent-gold/30 font-display text-fg-primary border-l-3 mb-4 mt-10 flex scroll-mt-24 items-center gap-3 pl-4 text-xl font-semibold leading-snug"
         >
           <InlineFormatted text={block.text} />
         </h2>
       );
     case "h3":
       return (
-        <h3 className="font-display text-fg-primary mt-8 mb-3 text-lg font-semibold leading-snug">
+        <h3
+          id={slugify(block.text)}
+          className="font-display text-fg-primary mb-3 mt-8 scroll-mt-24 text-lg font-semibold leading-snug"
+        >
           <InlineFormatted text={block.text} />
         </h3>
       );
@@ -70,10 +81,7 @@ function RenderBlock({ block }: { block: Block }) {
         <blockquote className="border-accent-gold/20 bg-accent-gold/[0.03] my-6 border-l-2 py-4 pl-6 pr-4">
           {block.lines.map((line, i) =>
             line ? (
-              <p
-                key={i}
-                className="font-display text-fg-primary text-base leading-relaxed italic"
-              >
+              <p key={i} className="font-display text-fg-primary text-base italic leading-relaxed">
                 <InlineFormatted text={line} />
               </p>
             ) : (
@@ -126,7 +134,7 @@ function RenderBlock({ block }: { block: Block }) {
                 {block.header.map((h, i) => (
                   <th
                     key={i}
-                    className="text-fg-primary border-border-faint border-b px-4 py-2.5 text-left font-mono text-[11px] font-semibold tracking-[0.12em] uppercase"
+                    className="text-fg-primary border-border-faint border-b px-4 py-2.5 text-left font-mono text-[11px] font-semibold uppercase tracking-[0.12em]"
                   >
                     {h}
                   </th>
@@ -137,7 +145,7 @@ function RenderBlock({ block }: { block: Block }) {
               {block.rows.map((row, ri) => (
                 <tr
                   key={ri}
-                  className="border-border-faint border-t transition-colors first:border-t-0 hover:bg-bg-elevated/50"
+                  className="border-border-faint hover:bg-bg-elevated/50 border-t transition-colors first:border-t-0"
                 >
                   {row.map((cell, ci) => (
                     <td

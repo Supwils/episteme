@@ -67,3 +67,36 @@ export type Experiment = ExperimentFrontmatter & {
   slug: string;
   content: string;
 };
+
+export type ConceptFrontmatter = {
+  title: string;
+  title_en: string;
+  field: string;
+  key_figures: string[];
+  tags: string[];
+  related: string[];
+  status: "stub" | "draft" | "published";
+  updated: string;
+};
+
+export type Concept = ConceptFrontmatter & {
+  slug: string;
+  content: string;
+};
+
+export type DialogueFrontmatter = {
+  title: string;
+  title_en: string;
+  participants: string[];
+  era: Era;
+  field: string;
+  tags: string[];
+  related_thinkers: string[];
+  status: "stub" | "draft" | "published";
+  updated: string;
+};
+
+export type Dialogue = DialogueFrontmatter & {
+  slug: string;
+  content: string;
+};

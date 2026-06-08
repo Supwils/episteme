@@ -1,0 +1,902 @@
+@import "tailwindcss";
+@import "../shared-animations.css";
+
+@theme {
+  /* ── Surface hierarchy ────────────────────────────────────────────── */
+  --color-bg-deep: #060a08;
+  --color-bg-near: #0d1410;
+  --color-bg-panel: rgba(12, 20, 16, 0.78);
+  --color-bg-elevated: #131e17;
+  --color-bg-floating: #1a2a20;
+  --color-bg-overlay: rgba(6, 10, 8, 0.85);
+
+  /* ── Foregrounds ──────────────────────────────────────────────────── */
+  --color-fg-primary: #eaf0ec;
+  --color-fg-secondary: #a4b0a8;
+  --color-fg-muted: #95a59b;
+  --color-fg-disabled: #323a35;
+  --color-fg-inverse: #060a08;
+
+  /* ── Accents ──────────────────────────────────────────────────────── */
+  --color-accent-green: #4a9e6f;
+  --color-accent-green-dim: #2d6b45;
+  --color-accent-green-bright: #5ec488;
+  --color-accent-earth: #8b5e3c;
+  --color-accent-earth-dim: #6a4528;
+  --color-accent-earth-bright: #b07a50;
+  --color-accent-amber: #c8a45a;
+
+  /* ── Semantic ─────────────────────────────────────────────────────── */
+  --color-success: #5cb87a;
+  --color-success-dim: rgba(92, 184, 122, 0.15);
+  --color-warning: #e8a840;
+  --color-warning-dim: rgba(232, 168, 64, 0.15);
+  --color-info: #5a9ad8;
+  --color-info-dim: rgba(90, 154, 216, 0.15);
+  --color-danger: #d85a5a;
+  --color-danger-dim: rgba(216, 90, 90, 0.15);
+
+  /* ── Borders ──────────────────────────────────────────────────────── */
+  --color-border-subtle: rgba(74, 158, 111, 0.15);
+  --color-border-faint: rgba(74, 158, 111, 0.08);
+  --color-border-strong: rgba(74, 158, 111, 0.30);
+  --color-border-earth: rgba(139, 94, 60, 0.20);
+
+  /* ── Glow / Accent Effects ────────────────────────────────────────── */
+  --glow-green: 0 0 20px rgba(74, 158, 111, 0.25), 0 0 60px rgba(74, 158, 111, 0.08);
+  --glow-green-intense: 0 0 30px rgba(74, 158, 111, 0.40), 0 0 80px rgba(74, 158, 111, 0.15);
+  --glow-earth: 0 0 20px rgba(139, 94, 60, 0.25), 0 0 60px rgba(139, 94, 60, 0.08);
+  --glow-earth-intense: 0 0 30px rgba(139, 94, 60, 0.40), 0 0 80px rgba(139, 94, 60, 0.15);
+
+  /* ── Gradients ────────────────────────────────────────────────────── */
+  --gradient-radial-green: radial-gradient(ellipse at center, rgba(74, 158, 111, 0.12) 0%, transparent 70%);
+  --gradient-radial-earth: radial-gradient(ellipse at center, rgba(139, 94, 60, 0.10) 0%, transparent 70%);
+  --gradient-fade-down: linear-gradient(to bottom, transparent 0%, var(--color-bg-deep) 100%);
+  --gradient-fade-up: linear-gradient(to top, transparent 0%, var(--color-bg-deep) 100%);
+  --gradient-green-border: linear-gradient(135deg, rgba(74, 158, 111, 0.30), rgba(139, 94, 60, 0.15));
+
+  /* ── Typography stacks ────────────────────────────────────────────── */
+  --font-sans:
+    var(--font-inter), "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui,
+    sans-serif;
+  --font-display:
+    var(--font-fraunces), "Fraunces", "Noto Serif SC", "Songti SC", "STSong", "PingFang SC", serif;
+  --font-mono:
+    var(--font-jetbrains-mono), "JetBrains Mono Variable", "JetBrains Mono", ui-monospace,
+    "Cascadia Code", monospace;
+
+  /* ── Type Scale (modular, ratio ≈ 1.25) ───────────────────────────── */
+  --text-display-hero: 4.5rem;
+  --text-display-lg: 3rem;
+  --text-display-md: 2.25rem;
+  --text-display-sm: 1.75rem;
+  --text-body-lg: 1.25rem;
+  --text-body-base: 1rem;
+  --text-body-sm: 0.875rem;
+  --text-caption: 0.75rem;
+  --text-mono-code: 0.9375rem;
+  --text-mono-label: 0.6875rem;
+  --text-mono-badge: 0.625rem;
+
+  /* ── Line Heights ─────────────────────────────────────────────────── */
+  --leading-tight: 1.15;
+  --leading-snug: 1.3;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.8;
+  --leading-loose: 2.0;
+
+  /* ── Letter Spacing ───────────────────────────────────────────────── */
+  --tracking-tighter: -0.03em;
+  --tracking-tight: -0.015em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.04em;
+  --tracking-wider: 0.08em;
+  --tracking-widest: 0.14em;
+
+  /* ── Spacing Scale ────────────────────────────────────────────────── */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+  --space-5xl: 8rem;
+
+  /* ── Radius ───────────────────────────────────────────────────────── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* ── Shadows ──────────────────────────────────────────────────────── */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 16px 50px rgba(0, 0, 0, 0.7);
+  --shadow-inset: inset 0 1px 3px rgba(0, 0, 0, 0.4);
+
+  /* ── Animation Easings ────────────────────────────────────────────── */
+  --ease-product: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+  /* ── Animation Durations ──────────────────────────────────────────── */
+  --duration-instant: 50ms;
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 800ms;
+  --duration-crawl: 1200ms;
+
+  /* ── Z-Index Scale ────────────────────────────────────────────────── */
+  --z-base: 0;
+  --z-raised: 10;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+  --z-tooltip: 600;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   BASE LAYER
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.life-science-root {
+  background-color: var(--color-bg-deep);
+  color: var(--color-fg-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-body-base);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-normal);
+  font-feature-settings:
+    "ss01" on,
+    "cv11" on;
+  width: 100%;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+@layer base {
+  .life-science-root {
+    color-scheme: dark;
+    --article-max-width: 56rem;
+  }
+
+  .life-science-root {
+    height: 100%;
+    font-family: var(--font-sans);
+    font-size: var(--text-body-base);
+    line-height: var(--leading-normal);
+    letter-spacing: var(--tracking-normal);
+    font-feature-settings:
+      "ss01" on,
+      "cv11" on;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-bg-deep);
+    color: var(--color-fg-primary);
+  }
+
+  .life-science-root h1,
+  .life-science-root h2,
+  .life-science-root h3,
+  .life-science-root h4,
+  .life-science-root .font-display {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    font-variation-settings: "SOFT" 30;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-fg-primary);
+  }
+
+  .life-science-root h1 {
+    font-size: var(--text-display-lg);
+    letter-spacing: var(--tracking-tighter);
+  }
+
+  .life-science-root h2 {
+    font-size: var(--text-display-md);
+  }
+
+  .life-science-root h3 {
+    font-size: var(--text-display-sm);
+  }
+
+  .life-science-root h4 {
+    font-size: var(--text-body-lg);
+    line-height: var(--leading-snug);
+  }
+
+  .life-science-root [data-num],
+  .life-science-root .font-mono {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .life-science-root a {
+    color: var(--color-accent-green);
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-smooth);
+  }
+
+  .life-science-root a:hover {
+    color: var(--color-accent-green-bright);
+  }
+
+  .life-science-root ::selection {
+    background: rgba(74, 158, 111, 0.30);
+    color: var(--color-fg-primary);
+  }
+
+  .life-science-root *:focus-visible {
+    outline: 2px solid var(--color-accent-green);
+    outline-offset: 2px;
+  }
+
+  .life-science-root img,
+  .life-science-root video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .life-science-root hr {
+    border: none;
+    border-top: 1px solid var(--color-border-subtle);
+    margin: var(--space-2xl) 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .life-science-root *,
+    .life-science-root *::before,
+    .life-science-root *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   COMPONENTS LAYER
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@layer components {
+
+  /* ── Glass Morphism ───────────────────────────────────────────────── */
+
+  .life-science-root .glass {
+    background: color-mix(in oklab, var(--color-bg-panel) 60%, transparent);
+    border: 1px solid var(--color-border-faint);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+  }
+
+  .life-science-root .glass-strong {
+    background: color-mix(in oklab, var(--color-bg-elevated) 75%, transparent);
+    border: 1px solid var(--color-border-subtle);
+    backdrop-filter: blur(30px) saturate(160%);
+    -webkit-backdrop-filter: blur(30px) saturate(160%);
+  }
+
+  .life-science-root .glass-subtle {
+    background: color-mix(in oklab, var(--color-bg-near) 40%, transparent);
+    border: 1px solid var(--color-border-faint);
+    backdrop-filter: blur(12px) saturate(120%);
+    -webkit-backdrop-filter: blur(12px) saturate(120%);
+  }
+
+  /* ── Surface Effects ──────────────────────────────────────────────── */
+
+  .life-science-root .surface-raised {
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border-faint);
+    box-shadow: var(--shadow-md);
+    border-radius: var(--radius-lg);
+  }
+
+  .life-science-root .surface-sunken {
+    background: var(--color-bg-deep);
+    border: 1px solid var(--color-border-faint);
+    box-shadow: var(--shadow-inset);
+    border-radius: var(--radius-lg);
+  }
+
+  .life-science-root .surface-panel {
+    background: var(--color-bg-panel);
+    border: 1px solid var(--color-border-faint);
+    border-radius: var(--radius-lg);
+  }
+
+  .life-science-root .surface-flat {
+    background: var(--color-bg-near);
+    border-radius: var(--radius-md);
+  }
+
+  /* ── Glow Effects ─────────────────────────────────────────────────── */
+
+  .glow-green {
+    box-shadow: var(--glow-green);
+  }
+
+  .glow-green-intense {
+    box-shadow: var(--glow-green-intense);
+  }
+
+  .glow-earth {
+    box-shadow: var(--glow-earth);
+  }
+
+  .glow-earth-intense {
+    box-shadow: var(--glow-earth-intense);
+  }
+
+  .glow-green-text {
+    text-shadow: 0 0 20px rgba(74, 158, 111, 0.30);
+  }
+
+  .glow-earth-text {
+    text-shadow: 0 0 20px rgba(139, 94, 60, 0.30);
+  }
+
+  /* ── Navigation Bar ─────────────────────────────────────────────── */
+
+  .life-science-nav-bar {
+    width: 100%;
+    height: var(--nav-h, 64px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    border-bottom: 1px solid var(--color-border-faint);
+    background: color-mix(in oklab, var(--color-bg-deep) 92%, transparent);
+    backdrop-filter: blur(16px) saturate(130%);
+    -webkit-backdrop-filter: blur(16px) saturate(130%);
+    position: sticky;
+    top: 0;
+    z-index: 49;
+  }
+
+  .life-science-nav-brand {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--color-accent-green);
+    text-decoration: none;
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: 0.04em;
+  }
+
+  .life-science-nav-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+
+  .life-science-nav-link {
+    color: var(--color-fg-muted);
+    text-decoration: none;
+    font-size: 0.88rem;
+    padding: 8px 12px;
+    transition: color 0.2s;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .life-science-nav-link:hover, .life-science-nav-link.active {
+    color: var(--color-accent-green);
+  }
+
+  .life-science-nav-num {
+    font-size: 0.72rem;
+    opacity: 0.5;
+    margin-right: 4px;
+    font-family: var(--font-mono);
+  }
+
+  @media (max-width: 720px) {
+    .life-science-nav-bar {
+      flex-wrap: wrap;
+      height: auto;
+      min-height: var(--nav-h, 64px);
+      padding: 0 14px;
+      gap: 0;
+    }
+    .life-science-nav-links {
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      justify-content: flex-start;
+      gap: 0;
+      order: 3;
+      width: 100%;
+    }
+    .life-science-nav-links::-webkit-scrollbar { display: none; }
+    .life-science-nav-link { padding: 10px 12px; font-size: 0.82rem; flex-shrink: 0; min-height: 44px; display: flex; align-items: center; }
+    .life-science-nav-num { display: none; }
+  }
+
+  .life-science-root .nav-capsule {
+    background: color-mix(in oklab, var(--color-bg-deep) 60%, transparent);
+    border: 1px solid color-mix(in oklab, var(--color-fg-disabled) 35%, transparent);
+    backdrop-filter: blur(16px) saturate(130%);
+    -webkit-backdrop-filter: blur(16px) saturate(130%);
+  }
+
+  /* ── Pull Quote ───────────────────────────────────────────────────── */
+
+  .life-science-root .pull-quote {
+    position: relative;
+    padding: var(--space-xl) var(--space-2xl);
+    margin: var(--space-3xl) 0;
+    border-left: 3px solid var(--color-accent-green);
+    background: linear-gradient(
+      135deg,
+      rgba(74, 158, 111, 0.04) 0%,
+      transparent 50%
+    );
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  }
+
+  .life-science-root .pull-quote::before {
+    content: "\201C";
+    position: absolute;
+    top: -0.15em;
+    left: var(--space-sm);
+    font-family: var(--font-display);
+    font-size: var(--text-display-lg);
+    color: var(--color-accent-green-dim);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .life-science-root .pull-quote p {
+    font-family: var(--font-display);
+    font-size: var(--text-body-lg);
+    line-height: var(--leading-relaxed);
+    color: var(--color-fg-primary);
+    font-style: italic;
+  }
+
+  .life-science-root .pull-quote cite {
+    display: block;
+    margin-top: var(--space-md);
+    font-family: var(--font-sans);
+    font-style: normal;
+    font-size: var(--text-body-sm);
+    color: var(--color-fg-muted);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+  }
+
+  /* ── Info Card ────────────────────────────────────────────────────── */
+
+  .life-science-root .info-card {
+    position: relative;
+    padding: var(--space-lg);
+    margin: var(--space-xl) 0;
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border-faint);
+    border-left: 3px solid var(--color-info);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+
+  .life-science-root .info-card-green {
+    border-left-color: var(--color-accent-green);
+    background: linear-gradient(
+      90deg,
+      rgba(74, 158, 111, 0.04) 0%,
+      var(--color-bg-elevated) 30%
+    );
+  }
+
+  .life-science-root .info-card-earth {
+    border-left-color: var(--color-accent-earth);
+    background: linear-gradient(
+      90deg,
+      rgba(139, 94, 60, 0.04) 0%,
+      var(--color-bg-elevated) 30%
+    );
+  }
+
+  .life-science-root .info-card-title {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    font-weight: 600;
+    color: var(--color-fg-primary);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    margin-bottom: var(--space-xs);
+  }
+
+  /* ── Badge / Tag ──────────────────────────────────────────────────── */
+
+  .life-science-root .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25em;
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-badge);
+    font-weight: 500;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    padding: 0.2em 0.6em;
+    border-radius: var(--radius-full);
+    background: rgba(74, 158, 111, 0.10);
+    color: var(--color-accent-green);
+    border: 1px solid rgba(74, 158, 111, 0.20);
+  }
+
+  .life-science-root .badge-earth {
+    background: rgba(139, 94, 60, 0.10);
+    color: var(--color-accent-earth);
+    border-color: rgba(139, 94, 60, 0.20);
+  }
+
+  /* ── Decorative Divider ───────────────────────────────────────────── */
+
+  .life-science-root .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin: var(--space-3xl) 0;
+    color: var(--color-fg-disabled);
+  }
+
+  .life-science-root .ornament-line::before,
+  .life-science-root .ornament-line::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-border-subtle),
+      transparent
+    );
+  }
+
+  .life-science-root .ornament-line > span {
+    font-family: var(--font-display);
+    font-size: var(--text-body-sm);
+    letter-spacing: var(--tracking-wider);
+    color: var(--color-accent-green-dim);
+  }
+
+  /* ── Grid Paper Background ────────────────────────────────────────── */
+
+  .life-science-root .grid-paper {
+    background-image:
+      linear-gradient(rgba(74, 158, 111, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(74, 158, 111, 0.03) 1px, transparent 1px);
+    background-size: 2rem 2rem;
+  }
+
+  .life-science-root .grid-paper-fine {
+    background-image:
+      linear-gradient(rgba(74, 158, 111, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(74, 158, 111, 0.02) 1px, transparent 1px);
+    background-size: 1rem 1rem;
+  }
+
+  .show-mobile-only { display: none; }
+  @media (max-width: 639px) { .show-mobile-only { display: block; } }
+  .touch-target { min-width: 44px; min-height: 44px; }
+
+  /* ── Mobile Menu ──────────────────────────────────────────────── */
+
+  .life-science-root .mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 400;
+    background: rgba(6, 10, 8, 0.75);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    animation: fade-in var(--duration-fast) var(--ease-smooth) both;
+  }
+
+  .life-science-root .mobile-menu-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 410;
+    width: min(85vw, 320px);
+    background: var(--color-bg-near);
+    border-left: 1px solid var(--color-border-faint);
+    transform: translateX(100%);
+    transition: transform var(--duration-normal) var(--ease-product);
+    overflow-y: auto;
+  }
+
+  .life-science-root .mobile-menu-panel[data-open="true"] {
+    transform: translateX(0);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   PROSE / MDX CONTENT STYLING
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@layer components {
+  .life-science-root .prose {
+    --tw-prose-body: var(--color-fg-secondary);
+    --tw-prose-headings: var(--color-fg-primary);
+    --tw-prose-links: var(--color-accent-green);
+    --tw-prose-bold: var(--color-fg-primary);
+    --tw-prose-counters: var(--color-fg-muted);
+    --tw-prose-bullets: var(--color-fg-muted);
+    --tw-prose-hr: var(--color-border-subtle);
+    --tw-prose-quotes: var(--color-fg-primary);
+    --tw-prose-quote-borders: var(--color-accent-green);
+    --tw-prose-code: var(--color-accent-amber);
+    --tw-prose-pre-code: var(--color-fg-primary);
+    --tw-prose-pre-bg: var(--color-bg-elevated);
+
+    max-width: var(--article-max-width);
+    margin: 0 auto;
+    font-size: var(--text-body-base);
+    line-height: var(--leading-relaxed);
+    color: var(--color-fg-secondary);
+  }
+
+  .life-science-root .prose > * + * { margin-top: var(--space-lg); }
+
+  .life-science-root .prose h1,
+  .life-science-root .prose h2,
+  .life-science-root .prose h3,
+  .life-science-root .prose h4 {
+    color: var(--color-fg-primary);
+    margin-top: var(--space-3xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .life-science-root .prose h1 { font-size: var(--text-display-lg); letter-spacing: var(--tracking-tighter); }
+  .life-science-root .prose h2 { font-size: var(--text-display-md); padding-bottom: var(--space-sm); border-bottom: 1px solid var(--color-border-faint); }
+  .life-science-root .prose h3 { font-size: var(--text-display-sm); }
+  .life-science-root .prose h4 { font-size: var(--text-body-lg); line-height: var(--leading-snug); }
+
+  .life-science-root .prose p { margin-top: var(--space-md); margin-bottom: var(--space-md); }
+
+  .life-science-root .prose a {
+    color: var(--color-accent-green);
+    text-decoration: underline;
+    text-decoration-color: rgba(74, 158, 111, 0.3);
+    text-underline-offset: 3px;
+    transition: text-decoration-color var(--duration-fast) var(--ease-smooth);
+  }
+
+  .life-science-root .prose a:hover {
+    color: var(--color-accent-green-bright);
+    text-decoration-color: var(--color-accent-green);
+  }
+
+  .life-science-root .prose strong { color: var(--color-fg-primary); font-weight: 600; }
+  .life-science-root .prose em { font-style: italic; color: var(--color-fg-secondary); }
+
+  .life-science-root .prose blockquote {
+    border-left: 3px solid var(--color-accent-green);
+    padding: var(--space-md) var(--space-lg);
+    color: var(--color-fg-primary);
+    font-style: italic;
+    background: linear-gradient(135deg, rgba(74, 158, 111, 0.04) 0%, transparent 50%);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+
+  .life-science-root .prose ul, .life-science-root .prose ol { padding-left: var(--space-lg); }
+  .life-science-root .prose li { margin-top: var(--space-xs); margin-bottom: var(--space-xs); }
+  .life-science-root .prose li::marker { color: var(--color-accent-green-dim); }
+
+  .life-science-root .prose code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    color: var(--color-accent-amber);
+    background: rgba(200, 164, 90, 0.08);
+    padding: 0.15em 0.4em;
+    border-radius: var(--radius-sm);
+  }
+
+  .life-science-root .prose pre {
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border-faint);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    overflow-x: auto;
+    margin: var(--space-xl) 0;
+  }
+
+  .life-science-root .prose pre code {
+    color: var(--color-fg-primary);
+    background: none;
+    padding: 0;
+    font-size: var(--text-mono-code);
+    line-height: var(--leading-relaxed);
+  }
+
+  .life-science-root .prose hr { border: none; border-top: 1px solid var(--color-border-subtle); margin: var(--space-3xl) 0; }
+  .life-science-root .prose img { border-radius: var(--radius-lg); margin: var(--space-2xl) 0; }
+
+  .life-science-root .prose figcaption {
+    text-align: center;
+    font-size: var(--text-body-sm);
+    color: var(--color-fg-muted);
+    margin-top: var(--space-xs);
+  }
+
+  .life-science-root .prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space-xl) 0;
+    font-size: var(--text-body-sm);
+  }
+
+  .life-science-root .prose thead { border-bottom: 2px solid var(--color-border-subtle); }
+
+  .life-science-root .prose th {
+    font-weight: 600;
+    font-size: var(--text-body-sm);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-fg-muted);
+    text-align: left;
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .life-science-root .prose td {
+    padding: var(--space-sm) var(--space-md);
+    border-bottom: 1px solid var(--color-border-faint);
+    color: var(--color-fg-secondary);
+  }
+
+  .life-science-root .prose tbody tr:hover {
+    background: rgba(74, 158, 111, 0.03);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   DOMAIN-SPECIFIC KEYFRAME ANIMATIONS
+   (common keyframes are in shared-animations.css)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 15px rgba(74, 158, 111, 0.15); }
+  50% { box-shadow: 0 0 30px rgba(74, 158, 111, 0.30); }
+}
+
+@keyframes pulse-glow-earth {
+  0%, 100% { box-shadow: 0 0 15px rgba(139, 94, 60, 0.15); }
+  50% { box-shadow: 0 0 30px rgba(139, 94, 60, 0.30); }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   CUSTOM SCROLLBAR
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@layer base {
+  .life-science-root ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .life-science-root ::-webkit-scrollbar-track {
+    background: var(--color-bg-deep);
+  }
+
+  .life-science-root ::-webkit-scrollbar-thumb {
+    background: var(--color-accent-green);
+    border-radius: 8px;
+    border: 2px solid var(--color-bg-deep);
+  }
+
+  .life-science-root ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-green-bright);
+  }
+
+  .life-science-root ::-webkit-scrollbar-corner {
+    background: var(--color-bg-deep);
+  }
+
+  .life-science-root {
+    scrollbar-color: #4a9e6f transparent;
+  }
+
+  .life-science-root * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent-green) var(--color-bg-deep);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   UTILITY ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@layer utilities {
+  .life-science-root .animate-fade-in {
+    animation: fade-in var(--duration-normal) var(--ease-smooth) both;
+  }
+
+  .life-science-root .animate-slide-up {
+    animation: slide-up var(--duration-slow) var(--ease-product) both;
+  }
+
+  .life-science-root .animate-slide-down {
+    animation: slide-down var(--duration-slow) var(--ease-product) both;
+  }
+
+  .life-science-root .animate-float {
+    animation: float 4s var(--ease-smooth) infinite;
+  }
+
+  .life-science-root .animate-pulse-glow {
+    animation: pulse-glow 3s var(--ease-smooth) infinite;
+  }
+
+  .life-science-root .animate-pulse-glow-earth {
+    animation: pulse-glow-earth 3s var(--ease-smooth) infinite;
+  }
+
+  .life-science-root .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(74, 158, 111, 0.06) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s var(--ease-smooth) infinite;
+  }
+
+  .life-science-root .animate-expand-line {
+    animation: expand-line var(--duration-slow) var(--ease-product) both;
+    transform-origin: left center;
+  }
+
+  .life-science-root .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+
+  .life-science-root .stagger-1 { animation-delay: 50ms; }
+  .life-science-root .stagger-2 { animation-delay: 100ms; }
+  .life-science-root .stagger-3 { animation-delay: 150ms; }
+  .life-science-root .stagger-4 { animation-delay: 200ms; }
+  .life-science-root .stagger-5 { animation-delay: 250ms; }
+  .life-science-root .stagger-6 { animation-delay: 300ms; }
+  .life-science-root .stagger-7 { animation-delay: 350ms; }
+  .life-science-root .stagger-8 { animation-delay: 400ms; }
+
+  .life-science-root .full-width {
+    width: 100%;
+    max-width: 100%;
+    padding-left: clamp(1.5rem, 4vw, 4rem);
+    padding-right: clamp(1.5rem, 4vw, 4rem);
+  }
+
+  .life-science-root .content-width {
+    max-width: min(1200px, 100%);
+    margin-inline: auto;
+  }
+}
+
+@media (min-width: 1920px) {
+  .life-science-root {
+    --page-padding: 4rem;
+  }
+}
+
+@media (min-width: 2560px) {
+  .life-science-root {
+    --page-padding: 6rem;
+  }
+}

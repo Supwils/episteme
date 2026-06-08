@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
 // @ts-check
 
-import { useEffect, useRef, useState, useCallback, useMemo, Fragment } from 'react';
-import { useRouter } from 'next/navigation';
-import { EVENTS } from '@/content/human-history/data/events';
-import { FIGURES } from '@/content/human-history/data/figures';
-import { SCHOLARLY_TITLES } from '@/content/human-history/data/scholarly-titles';
+import { useEffect, useRef, useState, useCallback, useMemo, Fragment } from "react";
+import { useRouter } from "next/navigation";
+import { EVENTS } from "@/content/human-history/data/events";
+import { FIGURES } from "@/content/human-history/data/figures";
+import { SCHOLARLY_TITLES } from "@/content/human-history/data/scholarly-titles";
 
 interface SearchItem {
   type: string;
@@ -22,11 +22,11 @@ function buildIndex(): SearchItem[] {
 
   for (const f of FIGURES) {
     items.push({
-      type: '人物',
+      type: "人物",
       label: f.name,
       sub: f.title,
       desc: f.desc,
-      href: `/figures?name=${encodeURIComponent(f.name)}`,
+      href: `/human-history/figures?name=${encodeURIComponent(f.name)}`,
       search: `${f.name} ${f.title} ${f.desc} ${f.era} ${f.region}`,
     });
   }
@@ -34,11 +34,11 @@ function buildIndex(): SearchItem[] {
   for (const ev of EVENTS) {
     const yearStr = ev.year < 0 ? `前${Math.abs(ev.year)}` : String(ev.year);
     items.push({
-      type: '事件',
+      type: "事件",
       label: ev.title,
       sub: `${yearStr}年`,
       desc: ev.desc,
-      href: `/timeline?event=${encodeURIComponent(ev.title)}`,
+      href: `/human-history/timeline?event=${encodeURIComponent(ev.title)}`,
       search: `${ev.title} ${ev.desc} ${ev.era} ${ev.region} ${ev.cat}`,
     });
   }
@@ -46,11 +46,11 @@ function buildIndex(): SearchItem[] {
   for (const title of SCHOLARLY_TITLES) {
     if (EVENTS.some((ev) => ev.title === title)) continue;
     items.push({
-      type: '讲稿',
+      type: "讲稿",
       label: title,
-      sub: '深度讲稿',
-      desc: '深度阅读 · 5页讲稿',
-      href: `/scholarly/${encodeURIComponent(title)}`,
+      sub: "深度讲稿",
+      desc: "深度阅读 · 5页讲稿",
+      href: `/human-history/scholarly/${encodeURIComponent(title)}`,
       search: `${title} 深度讲稿`,
     });
   }
@@ -61,17 +61,17 @@ function buildIndex(): SearchItem[] {
 function HighlightedText({ text, query }: { text: string; query: string }) {
   if (!query.trim()) return <>{text}</>;
   const tokens = query.trim().split(/\s+/);
-  const escaped = tokens.map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-  const regex = new RegExp(`(${escaped.join('|')})`, 'gi');
+  const escaped = tokens.map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  const regex = new RegExp(`(${escaped.join("|")})`, "gi");
   const parts = text.split(regex);
   return (
     <>
       {parts.map((part, i) =>
-        escaped.some((t) => new RegExp(`^${t}$`, 'i').test(part)) ? (
+        escaped.some((t) => new RegExp(`^${t}$`, "i").test(part)) ? (
           <mark key={i}>{part}</mark>
         ) : (
           <Fragment key={i}>{part}</Fragment>
-        ),
+        )
       )}
     </>
   );
@@ -79,14 +79,14 @@ function HighlightedText({ text, query }: { text: string; query: string }) {
 
 function truncate(text: string, max: number): string {
   if (!text || text.length <= max) return text;
-  return text.slice(0, max) + '…';
+  return text.slice(0, max) + "…";
 }
 
 export default function GlobalSearch() {
   const router = useRouter();
   const [open, setOpen] = useState(false);
-  const [query, setQuery] = useState('');
-  const [debouncedQuery, setDebouncedQuery] = useState('');
+  const [query, setQuery] = useState("");
+  const [debouncedQuery, setDebouncedQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
 
@@ -117,22 +117,22 @@ export default function GlobalSearch() {
 
   const close = useCallback(() => {
     setOpen(false);
-    setQuery('');
-    setDebouncedQuery('');
+    setQuery("");
+    setDebouncedQuery("");
   }, []);
 
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
         setOpen((prev) => !prev);
       }
-      if (e.key === 'Escape' && open) {
+      if (e.key === "Escape" && open) {
         close();
       }
     }
-    document.addEventListener('keydown', onKeyDown);
-    return () => document.removeEventListener('keydown', onKeyDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
   }, [open, close]);
 
   useEffect(() => {

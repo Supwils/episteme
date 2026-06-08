@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+  <rect width="192" height="192" rx="32" fill="#07070c"/>
+  <circle cx="96" cy="86" r="40" fill="none" stroke="#6366f1" stroke-width="3"/>
+  <ellipse cx="96" cy="86" rx="40" ry="15" fill="none" stroke="#818cf8" stroke-width="2" transform="rotate(-30 96 86)"/>
+  <ellipse cx="96" cy="86" rx="40" ry="15" fill="none" stroke="#a5b4fc" stroke-width="2" transform="rotate(30 96 86)"/>
+  <circle cx="96" cy="86" r="6" fill="#6366f1"/>
+  <text x="96" y="152" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="600" fill="#e0e7ff">UK</text>
+</svg>

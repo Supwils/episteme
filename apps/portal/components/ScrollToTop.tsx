@@ -6,7 +6,6 @@ export function ScrollToTop() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     const onScroll = () => setVisible(window.scrollY > 300);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -21,7 +20,7 @@ export function ScrollToTop() {
         window.scrollTo({ top: 0, behavior: mq.matches ? "auto" : "smooth" });
       }}
       aria-label="回到顶部"
-      className="fixed bottom-6 right-6 z-50 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer border border-[#2a2a3a] bg-[rgba(17,17,24,0.9)] backdrop-blur-md text-[#9ca3af] hover:text-[#e8e8f0] hover:border-[#6366f1] transition-colors duration-200"
+      className="fixed bottom-6 right-6 z-50 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-[#2a2a3a] bg-[rgba(17,17,24,0.9)] text-[#9ca3af] backdrop-blur-md transition-colors duration-200 hover:border-[#6366f1] hover:text-[#e8e8f0]"
       style={{ boxShadow: "0 4px 16px rgba(0,0,0,0.3)" }}
     >
       <svg

@@ -1,13 +1,16 @@
-'use client';
+import type { Metadata } from "next";
+import LessonsClient from "./LessonsClient";
 
-import PageWrapper from '@/src-history/components/PageWrapper';
-
-const renderLessons = async () => {
-  const { renderLessons: render, cleanupLessons } = await import('@/src-history/page-renderers/lessons');
-  render();
-  return cleanupLessons;
+export const metadata: Metadata = {
+  title: "历史启示 — 人类历史 — Universe Knowledge",
+  description: "从历史中汲取智慧，探索关键历史事件的深层启示",
+  openGraph: {
+    title: "历史启示 — 人类历史",
+    description: "从历史中汲取智慧，探索关键历史事件的深层启示",
+    type: "website",
+  },
 };
 
 export default function LessonsPage() {
-  return <PageWrapper render={renderLessons} />;
+  return <LessonsClient />;
 }

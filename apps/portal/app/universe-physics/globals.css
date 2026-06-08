@@ -10,7 +10,7 @@
   /* Foregrounds */
   --color-fg-primary: #f5f6fa;
   --color-fg-secondary: #a8adbd;
-  --color-fg-muted: #6b7080;
+  --color-fg-muted: #868da0;
   --color-fg-disabled: #3a3e4a;
 
   /* Accents — restrained to two */
@@ -38,8 +38,8 @@
    aligned with the 3D variant so the two views feel like one product.
    Both subthemes share cold deep-space ink + the same two accents; they
    differ only in the canvas darkness (deep vs near). */
-:root,
-[data-hw-theme="night"] {
+.physics-root,
+.physics-root [data-hw-theme="night"] {
   /* Aligned with --color-bg-deep / 3D primary canvas */
   --hw-bg: #000000;
   --hw-bg-edge: #0a0d18;
@@ -64,7 +64,7 @@
   --hw-fs-hairline: 11px;
 }
 
-[data-hw-theme="day"] {
+.physics-root [data-hw-theme="day"] {
   /* Aligned with --color-bg-near — same family, slightly lifted floor */
   --hw-bg: #060814;
   --hw-bg-edge: #0f1320;
@@ -82,7 +82,7 @@
 
 /* Physics section — font scale applies in BOTH paper and night palettes.
    The dense knowledge maps need bigger text regardless of background. */
-[data-section="physics"] {
+.physics-root [data-section="physics"] {
   --hw-fs-title: 52px;
   --hw-fs-subtitle: 34px;
   --hw-fs-major: 28px;
@@ -92,7 +92,7 @@
 }
 
 /* Physics paper palette — warm light backdrop with dark ink (default). */
-[data-section="physics"]:not([data-force-night="true"]) {
+.physics-root [data-section="physics"]:not([data-force-night="true"]) {
   --hw-bg: #f4ecd8;
   --hw-bg-edge: #e7dcbe;
   --hw-ink: #1a1a1a;
@@ -122,7 +122,7 @@
 /* Physics night palette — same big font scale, but lift the ink-faint
    tokens so PaperGrid + group dividers stay visible on near-black, and
    warm up the disabled fg so the muted strip labels don't dissolve. */
-[data-section="physics"][data-force-night="true"] {
+.physics-root [data-section="physics"][data-force-night="true"] {
   --hw-ink-faint-solid: #8a92a5;
   --hw-paper-opacity: 0.18;
   --color-fg-muted: #8a92a5;
@@ -132,7 +132,7 @@
 /* Floating HUD island. Capsule background with strong blur so the
    underlying canvas reads through, plus a hairline border for the
    engineering-drawing feel. */
-.hud-capsule {
+.physics-root .hud-capsule {
   background: color-mix(in oklab, var(--color-bg-deep) 55%, transparent);
   border: 1px solid color-mix(in oklab, var(--color-fg-disabled) 40%, transparent);
   border-radius: 14px;
@@ -144,14 +144,14 @@
 }
 /* Under the physics paper theme, flip the capsule to a creamy light
    variant with deep ink so it sits naturally on warm paper. */
-[data-section="physics"]:not([data-force-night="true"]) .hud-capsule {
+.physics-root [data-section="physics"]:not([data-force-night="true"]) .hud-capsule {
   background: rgba(252, 247, 234, 0.78);
   border-color: rgba(60, 50, 30, 0.22);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.5) inset,
     0 6px 18px -10px rgba(60, 40, 20, 0.35);
 }
-.hud-meta {
+.physics-root .hud-meta {
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.28em;
@@ -159,34 +159,34 @@
   line-height: 1;
 }
 
-.hw-label-title {
+.physics-root .hw-label-title {
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 600;
   font-size: var(--hw-fs-title);
   letter-spacing: 0.04em;
 }
-.hw-label-subtitle {
+.physics-root .hw-label-subtitle {
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 500;
   font-size: var(--hw-fs-subtitle);
 }
-.hw-label-major {
+.physics-root .hw-label-major {
   font-family: var(--font-display);
   font-style: italic;
   font-size: var(--hw-fs-major);
 }
-.hw-label-minor {
+.physics-root .hw-label-minor {
   font-family: var(--font-sans);
   font-size: var(--hw-fs-minor);
 }
-.hw-label-caption {
+.physics-root .hw-label-caption {
   font-family: var(--font-mono);
   font-size: var(--hw-fs-caption);
   letter-spacing: 0.14em;
 }
-.hw-label-hairline {
+.physics-root .hw-label-hairline {
   font-family: var(--font-mono);
   font-size: var(--hw-fs-hairline);
   letter-spacing: 0.32em;
@@ -204,7 +204,7 @@
 }
 
 @layer base {
-  :root {
+  .physics-root {
     color-scheme: dark;
   }
 }
@@ -251,8 +251,8 @@
   .physics-root *,
   .physics-root *::before,
   .physics-root *::after {
-    animation-duration: 0.001ms !important;
+    animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
+    transition-duration: 0.01ms !important;
   }
 }

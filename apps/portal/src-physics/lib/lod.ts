@@ -1,5 +1,6 @@
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
+import type { Vector3 } from "three";
 import { useUiStore } from "@/src-physics/store/useUiStore";
 import type { QualityTier } from "@/src-physics/lib/quality";
 
@@ -17,11 +18,16 @@ import type { QualityTier } from "@/src-physics/lib/quality";
  * Runs inside the R3F render loop via useFrame so it never triggers
  * React re-renders; consumers read the ref directly.
  */
-export function useLOD(thresholds: number[]): { readonly current: number } {
+export function useLOD(
+  thresholds: number[],
+  referencePoint?: Vector3
+): { readonly current: number } {
   const level = useRef(0);
 
   useFrame(({ camera }) => {
-    const d = camera.position.length();
+    const d = referencePoint
+      ? camera.position.distanceTo(referencePoint)
+      : camera.position.length();
     let idx = 0;
     while (idx < thresholds.length && d >= thresholds[idx]!) {
       idx++;
@@ -74,21 +80,18 @@ export function subsamplePositions(positions: Float32Array, scale: number): Floa
 }
 
 /**
- * Subsample a paired colors Float32Array using the same stride as
- * `subsamplePositions`. Returns the original if scale >= 1.
+ * Subsample a stride-1 Float32Array (e.g. per-point sizes, temps)
+ * by a scale factor. Returns a new array of `ceil(length * scale)` elements.
+ * The selection is deterministic (uniform stride sampling).
  */
-export function subsampleColors(colors: Float32Array, scale: number): Float32Array {
-  if (scale >= 1) return colors;
-  const totalPoints = colors.length / 3;
-  const keep = Math.max(1, Math.ceil(totalPoints * scale));
-  if (keep >= totalPoints) return colors;
-  const out = new Float32Array(keep * 3);
-  const stride = totalPoints / keep;
+export function subsample1(arr: Float32Array, scale: number): Float32Array {
+  if (scale >= 1) return arr;
+  const keep = Math.max(1, Math.ceil(arr.length * scale));
+  if (keep >= arr.length) return arr;
+  const out = new Float32Array(keep);
+  const stride = arr.length / keep;
   for (let i = 0; i < keep; i++) {
-    const srcIdx = Math.floor(i * stride);
-    out[i * 3] = colors[srcIdx * 3]!;
-    out[i * 3 + 1] = colors[srcIdx * 3 + 1]!;
-    out[i * 3 + 2] = colors[srcIdx * 3 + 2]!;
+    out[i] = arr[Math.floor(i * stride)]!;
   }
   return out;
 }

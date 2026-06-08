@@ -3,6 +3,7 @@ import { ERAS, EVENTS, FIGURES, formatYear } from '@/content/human-history/data/
 import { el, clearApp, createParticleCanvas, prefersReducedMotion } from '../lib/dom.js';
 import { icon } from '../lib/icons.js';
 import { createEraDetailPanel } from '../components/history/era-detail.js';
+import { escapeHtml } from '../lib/escape-html';
 
 let _particleCleanup = null;
 let _observers = [];
@@ -20,6 +21,8 @@ const ERA_LATIN = {
 
 export function cleanupHome() {
   if (_particleCleanup) { _particleCleanup(); _particleCleanup = null; }
+  // Kill all GSAP tweens to prevent infinite animations from leaking
+  gsap.killTweensOf('*');
   // Disconnect scroll/counter IntersectionObservers so they don't linger
   // after the home page is torn down on navigation.
   for (const obs of _observers) obs.disconnect();
@@ -54,8 +57,8 @@ function buildHero() {
       的奇点临近——在这里，把人类文明读成一条可触摸的长河。
     </p>
     <div class="hero-actions">
-      <a href="/atlas" class="btn btn-primary">开启探索</a>
-      <a href="/timeline" class="btn btn-outline">浏览时间线</a>
+      <a href="/human-history/atlas" class="btn btn-primary">开启探索</a>
+      <a href="/human-history/timeline" class="btn btn-outline">浏览时间线</a>
     </div>
     <div class="hero-vitals">
       <div class="hero-vital">
@@ -90,12 +93,12 @@ function buildHero() {
   ERAS.forEach((era, i) => {
     const row = el('a', {
       class: 'hero-era-row',
-      href: `/timeline#${era.id}`,
+      href: `/human-history/timeline#${era.id}`,
       style: { '--era-color': era.color },
     });
     row.innerHTML = `
       <span class="hero-era-num">${String(i + 1).padStart(2, '0')}</span>
-      <span class="hero-era-name">${era.name}<em>${ERA_LATIN[era.id] || ''}</em></span>
+      <span class="hero-era-name">${escapeHtml(era.name)}<em>${ERA_LATIN[era.id] || ''}</em></span>
       <span class="hero-era-range">${formatYear(era.startYear)} — ${formatYear(era.endYear)}</span>
     `;
     strip.appendChild(row);
@@ -129,16 +132,16 @@ function buildEraSection() {
     });
     card.innerHTML = `
       <div class="era-stem"><strong>${STEM_GLYPHS[i] || ''}</strong>0${i + 1}</div>
-      <a href="/timeline#${era.id}" class="era-card-link">
+      <a href="/human-history/timeline#${era.id}" class="era-card-link">
         <div class="era-card-head">
           <div class="era-icon">${icon(era.icon, 20)}</div>
           <div class="era-name-wrap">
-            <span class="era-name">${era.name}<em>${ERA_LATIN[era.id] || ''}</em></span>
+            <span class="era-name">${escapeHtml(era.name)}<em>${ERA_LATIN[era.id] || ''}</em></span>
           </div>
           <span class="era-date">${formatYear(era.startYear)} ╱ ${formatYear(era.endYear)}</span>
         </div>
-        <p class="era-desc">${era.desc}</p>
-        <div class="era-tags">${era.highlights.slice(0, 5).map(h => `<span class="tag" style="color:${era.color};border-color:${era.color}40;background:${era.color}10">${h}</span>`).join('')}</div>
+        <p class="era-desc">${escapeHtml(era.desc)}</p>
+        <div class="era-tags">${era.highlights.slice(0, 5).map(h => `<span class="tag" style="color:${era.color};border-color:${era.color}40;background:${era.color}10">${escapeHtml(h)}</span>`).join('')}</div>
       </a>
       <button class="era-expand-btn" aria-label="展开详情">深入探索 ▾</button>
       <div class="era-expand-body"></div>
@@ -185,8 +188,8 @@ function buildMiniTimeline() {
       <span class="mini-tl-year">${formatYear(ev.year)}</span>
       <span class="mini-tl-dot"></span>
       <div class="mini-tl-content">
-        <h3>${ev.title}</h3>
-        <p class="mtl-desc">${ev.desc}</p>
+        <h3>${escapeHtml(ev.title)}</h3>
+        <p class="mtl-desc">${escapeHtml(ev.desc)}</p>
       </div>
     `;
     track.appendChild(item);
@@ -206,16 +209,16 @@ function buildFiguresSection() {
   `;
   const grid = el('div', { class: 'figures-grid' });
   for (const f of FIGURES.slice(0, 6)) {
-    const card = el('a', { class: 'figure-card', href: `/figures` });
+    const card = el('a', { class: 'figure-card', href: `/human-history/figures` });
     card.innerHTML = `
       <div class="figure-head">
-        <div class="figure-avatar">${f.name[0]}</div>
+        <div class="figure-avatar">${escapeHtml(f.name[0])}</div>
         <div>
-          <div class="figure-name">${f.name}</div>
-          <div class="figure-title-text">${f.title}</div>
+          <div class="figure-name">${escapeHtml(f.name)}</div>
+          <div class="figure-title-text">${escapeHtml(f.title)}</div>
         </div>
       </div>
-      <p class="figure-desc">${f.desc}</p>
+      <p class="figure-desc">${escapeHtml(f.desc)}</p>
     `;
     grid.appendChild(card);
   }

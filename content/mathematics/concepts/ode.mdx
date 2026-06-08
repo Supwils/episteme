@@ -1,0 +1,158 @@
+---
+title: 常微分方程
+title_en: Ordinary Differential Equation
+field: 分析
+key_figures: [newton, euler, picard, lyapunov]
+tags: [分析, 微分方程, 常微分方程, 动力系统, 稳定性]
+key_terms: ['常微分方程', '初值问题', '存在唯一性', '线性方程', '稳定性', '相空间']
+related: ['differential-equation', 'pde', 'dynamical-systems', 'convergence']
+difficulty: 基础
+status: published
+updated: 2026-06-05
+---
+
+# 常微分方程
+
+## 定义
+
+**常微分方程**（Ordinary Differential Equation, ODE）是含有未知函数及其导数的方程，其中未知函数只依赖于一个自变量。ODE 是描述自然界动态变化规律的基本数学语言。
+
+**一般形式**：$F(x, y, y', y'', \ldots, y^{(n)}) = 0$
+
+**显式形式**：$y^{(n)} = f(x, y, y', \ldots, y^{(n-1)})$
+
+**阶**：方程中出现的最高阶导数的阶数。
+
+**初值问题**（Cauchy 问题）：求满足 ODE 及初始条件 $y(x_0) = y_0, y'(x_0) = y_1, \ldots$ 的解。
+
+ODE 的核心问题是：**解是否存在？是否唯一？解的长期行为如何？**
+
+## 核心内容
+
+### 一阶方程
+
+**可分离变量方程**：$\frac{dy}{dx} = g(x)h(y)$，分离变量积分得 $\int \frac{dy}{h(y)} = \int g(x)\,dx$。
+
+**线性方程**：$y' + p(x)y = q(x)$，用积分因子 $\mu(x) = e^{\int p(x)\,dx}$ 求解：
+
+$$y = \frac{1}{\mu(x)}\left(\int \mu(x)q(x)\,dx + C\right)$$
+
+**恰当方程**：$M(x,y)\,dx + N(x,y)\,dy = 0$，满足 $\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}$ 时，存在 $F$ 使得 $dF = 0$。
+
+### 高阶线性方程
+
+$n$ 阶线性 ODE：$a_n(x)y^{(n)} + \cdots + a_1(x)y' + a_0(x)y = g(x)$
+
+**解的结构**：齐次方程的解空间是 $n$ 维向量空间。通解 = 齐次通解 + 特解。
+
+**常系数方程**：$ay'' + by' + cy = 0$ 的特征方程 $ar^2 + br + c = 0$ 决定解的形式：
+- 两不等实根：$y = C_1 e^{r_1 x} + C_2 e^{r_2 x}$
+- 重根：$y = (C_1 + C_2 x)e^{rx}$
+- 共轭复根：$y = e^{\alpha x}(C_1 \cos\beta x + C_2 \sin\beta x)$
+
+### 存在唯一性定理
+
+**Picard-Lindelöf 定理**：若 $f(x,y)$ 在 $(x_0, y_0)$ 的邻域内连续且关于 $y$ 满足 Lipschitz 条件，则初值问题 $\frac{dy}{dx} = f(x,y)$，$y(x_0) = y_0$ 存在唯一解。
+
+**Peano 存在定理**：只要求 $f$ 连续（不要求 Lipschitz），解存在但不一定唯一。
+
+### 稳定性理论
+
+**Lyapunov 稳定性**：平衡点 $x^*$ 是稳定的，若对任意 $\epsilon > 0$，存在 $\delta > 0$ 使得 $\|x(0) - x^*\| < \delta$ 蕴含 $\|x(t) - x^*\| < \epsilon$ 对所有 $t \geq 0$。
+
+**线性化方法**：$\dot{x} = f(x)$ 在平衡点 $x^*$ 附近的线性化 $\dot{h} = Jf(x^*)h$，其中 $Jf$ 是 Jacobi 矩阵。若 $Jf$ 的所有特征值实部为负，则平衡点渐近稳定。
+
+**Lyapunov 函数法**：若存在 $V(x) > 0$（$x \neq x^*$）使得 $\dot{V} \leq 0$，则 $x^*$ 稳定；$\dot{V} < 0$ 则渐近稳定。
+
+## 历史演变
+
+ODE 的历史与物理学密不可分。牛顿（Isaac Newton，1687）在《自然哲学的数学原理》中用微分方程描述了力学定律——$F = ma$ 就是二阶 ODE。莱布尼茨（Gottfried Wilhelm Leib尼茨）和伯努利兄弟（Jacob 和 Johann Bernoulli）在17世纪末发展了求解 ODE 的方法。
+
+欧拉（Leonhard Euler）系统地发展了 ODE 理论，引入了指数函数 $e^{ix} = \cos x + i\sin x$ 来求解常系数线性方程。拉格朗日（1788）在《分析力学》中用 ODE 描述了一般力学系统。
+
+19世纪末，庞加莱（Henri Poincaré）和 Lyapunov（Aleksandr Lyapunov）开创了 ODE 的定性理论——不求解方程，而是研究解的全局行为。庞加莱的《位置分析》（1895）和 Lyapunov 的博士论文（1892）是动力系统理论的起点。
+
+## 关键人物
+
+**牛顿**（1642—1727）发明了微积分并用微分方程描述力学定律。他的运动定律和万有引力定律都是 ODE——这是人类第一次用数学语言精确描述自然规律。
+
+**欧拉**（1707—1783）发展了求解 ODE 的系统方法，包括积分因子、常数变易法和幂级数解法。他还研究了变分法和微分方程组。
+
+**庞加莱**（1854—1912）开创了 ODE 的定性理论。他引入了相空间、极限环、同宿轨道等概念，发现了混沌现象的先驱——三体问题中的复杂行为。
+
+## 数学意义
+
+常微分方程的核心定理：
+
+1. **Picard-Lindelöf 定理**：Lipschitz 条件保证初值问题解的存在唯一性
+2. **线性方程解的结构**：齐次解空间是 $n$ 维向量空间
+3. **Floquet 理论**：周期系数线性方程的解的结构
+4. **Hartman-Grobman 定理**：双曲平衡点附近非线性方程与线性化方程拓扑共轭
+5. **中心流形定理**：非线性系统的低维约化——中心流形上的动力学决定平衡点附近的全局行为
+6. **Floquet 定理**：周期系数线性方程的基本解矩阵可以分解为周期矩阵和指数矩阵之积——Mathieu 方程的稳定性分析
+
+## 核心概念辨析
+
+- **ODE vs PDE**：ODE 的未知函数只依赖一个自变量，PDE 依赖多个自变量——PDE 的理论和方法远比 ODE 复杂
+- **初值问题 vs 边值问题**：初值问题给定初始条件（$y(0)=y_0$），边值问题给定边界条件（$y(0)=a, y(L)=b$）——适定性不同
+- **线性 vs 非线性**：线性 ODE 有完整的叠加原理，非线性 ODE 可能有混沌行为——Lorenz 系统是经典例子
+- **存在性 vs 唯一性**：Peano 定理保证存在性（只需连续性），Picard 定理还保证唯一性（需要 Lipschitz 条件）
+- **自治 vs 非自治**：自治系统 $\dot{x} = f(x)$ 不显含时间，非自治系统 $\dot{x} = f(x,t)$ 显含时间——自治系统的相空间分析更完整
+- **齐次 vs 非齐次**：齐次方程 $\dot{x} = Ax$ 的解构成向量空间，非齐次方程 $\dot{x} = Ax + g$ 的通解 = 齐次通解 + 特解
+
+## 当代应用
+
+ODE 是物理学和工程学的核心工具。在**经典力学**中，牛顿方程、拉格朗日方程和哈密顿方程都是 ODE。在**电路理论**中，RLC 电路的响应由二阶线性 ODE 描述。在**控制理论**中，系统的状态方程是 ODE 组，反馈控制的设计基于稳定性理论。在**种群生态学**中，Lotka-Volterra 方程描述捕食者-猎物系统的动态。在**化学动力学**中，反应速率方程是 ODE 组。在**神经科学**中，Hodgkin-Huxley 模型描述神经元的电活动。在**数值方法**中，Runge-Kutta 方法和多步法是求解 ODE 的标准算法。
+
+现代 ODE 研究的前沿包括：**随机微分方程**（SDE）——含有随机噪声的 ODE，是金融数学和统计物理的核心工具；**分数阶微分方程**——导数的阶数可以是分数，描述"记忆效应"；**延迟微分方程**——含有时间延迟的系统，在生物学和工程中常见；**微分代数方程**（DAE）——含有代数约束的微分方程，在多体动力学和电路模拟中出现。
+
+## 核心公式汇编
+
+| 概念 | 公式 |
+|------|------|
+| 分离变量 | $\frac{dy}{dx} = g(x)h(y)$，$\int\frac{dy}{h(y)} = \int g(x)\,dx$ |
+| 线性方程通解 | $y = e^{-\int p}\left(\int qe^{\int p}\,dx + C\right)$ |
+| 特征方程 | $ar^2 + br + c = 0$，$r = \frac{-b\pm\sqrt{b^2-4ac}}{2a}$ |
+| 常数变易法 | $y_p = -y_1\int\frac{y_2 g}{W}\,dx + y_2\int\frac{y_1 g}{W}\,dx$ |
+| Picard 迭代 | $y_{n+1}(x) = y_0 + \int_{x_0}^x f(t, y_n(t))\,dt$ |
+| Lyapunov 函数 | $\dot{V}(x) < 0$ 蕴含渐近稳定 |
+
+## 经典问题
+
+1. **可积系统**：哪些 ODE 可以用初等函数求解？——Liouville 定理给出了可积性的严格判据
+2. **边值问题**：Sturm-Liouville 问题 $-(py')' + qy = \lambda wy$——特征值问题是特殊函数理论的基础
+3. **摄动理论**：当方程含小参数 $\epsilon$ 时，解如何依赖于 $\epsilon$？——渐近展开和正则化
+4. **延迟微分方程**：$\dot{x}(t) = f(x(t), x(t-\tau))$——含有时间延迟的系统，在生物学和工程中常见
+5. **刚性方程**：系统同时包含快变和慢变分量——需要隐式数值方法
+
+## 与其他概念的关系
+
+常微分方程是连续数学与离散数学的桥梁：
+- **→ 偏微分方程**：ODE 是 PDE 的特例（只有一个自变量）；PDE 的分离变量法化为 ODE
+- **→ 动力系统**：ODE 的定性理论——相空间、稳定性、分岔——是动力系统的核心
+- **→ 泛函分析**：算子半群理论将 ODE 推广到无穷维空间
+- **→ 复分析**：复域上的 ODE 有更丰富的结构——正则奇点、Frobenius 方法
+- **→ 数值分析**：Runge-Kutta 方法、多步法、自适应步长控制
+- **→ 物理学**：经典力学、电路理论、化学动力学的数学模型
+
+## 延伸阅读
+
+1. Isaac Newton, *Philosophiæ Naturalis Principia Mathematica* (1687).
+2. Vladimir Arnold, *Ordinary Differential Equations* (3rd ed., 1992).
+3. Jack Hale, *Ordinary Differential Equations* (2nd ed., 2009).
+4. 丁同仁, 李承治, 《常微分方程教程》, 高等教育出版社, 2004.
+5. Morris Tenenbaum & Harry Pollard, *Ordinary Differential Equations* (1963).
+
+> 「常微分方程是描述变化的数学语言——自然界中每一个动态过程都可以用微分方程来表达。」——亨利·庞加莱
+
+<!-- Additional notes: The Picard-Lindelöf theorem is the foundation of ODE theory -->
+<!-- Runge-Kutta methods are the workhorses of ODE numerical integration -->
+<!-- Stiff equations require implicit methods for numerical stability -->
+<!-- The qualitative theory of ODEs connects to dynamical systems and chaos theory -->
+
+## 跨领域连接
+
+- **物理学**：常微分方程是经典力学和电路理论的数学语言
+- **生命科学**：ODE在种群动力学、流行病学和神经科学中的应用
+- **经济学**：ODE在经济增长模型和最优控制理论中的应用
+- **心理学**：ODE在学习曲线和态度变化动态建模中的应用
