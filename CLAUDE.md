@@ -29,22 +29,22 @@
 
 ### 第二步：运行自检命令（Read the environment）
 
+> 本仓库已从 Turborepo monorepo 收敛为**单一 Next.js 应用**（应用代码直接位于仓库根目录）。不再有 `apps/`、`packages/`、`turbo.json`、`pnpm-workspace.yaml`。
+
 ```bash
-# 检查工作区基础设施
-ls package.json turbo.json pnpm-workspace.yaml 2>&1
+# 检查应用基础设施（应位于仓库根目录）
+ls package.json next.config.ts tsconfig.json 2>&1
 cat package.json
 
-# 检查 apps 目录实际状态
-ls apps/
-ls packages/ 2>/dev/null || echo "packages/ 目录不存在"
-ls packages/ui/package.json 2>/dev/null || echo "⚠️  @universe/ui 不存在 — 这会导致 pnpm install 报错"
-
-# 检查统一应用结构
-ls apps/portal/app/
-ls apps/portal/src-physics/ 2>/dev/null && echo "✅ 物理代码存在" || echo "⚠️  物理代码不存在"
+# 确认这是单一应用结构（以下都应存在）
+ls app/                                  # App Router 路由
+ls src-physics/ 2>/dev/null && echo "✅ 物理代码存在" || echo "⚠️  物理代码不存在"
 ls content/ 2>/dev/null && echo "✅ 内容目录存在" || echo "⚠️  内容目录不存在"
 
-# 尝试 pnpm install，发现真实报错
+# 确认旧 monorepo 残留已清除（以下都应不存在）
+ls apps packages turbo.json pnpm-workspace.yaml 2>/dev/null && echo "⚠️  仍有 monorepo 残留" || echo "✅ 无 monorepo 残留"
+
+# 安装依赖（单包，应无报错）
 pnpm install 2>&1 | tail -20
 ```
 
@@ -52,7 +52,7 @@ pnpm install 2>&1 | tail -20
 
 把第二步发现的问题记录到 `docs/工作日志.md`（格式见第七节），然后：
 
-- 如果存在 P0 阻塞问题（如 `@universe/ui` 缺失）：**先解决阻塞，再做其他事**。
+- 如果存在 P0 阻塞问题：**先解决阻塞，再做其他事**。
 - 如果没有阻塞：按 `docs/任务清单.md` 的优先级从上往下取第一个"待开始"任务。
 
 ### 第四步：执行任务（一次只做一件事）
@@ -90,55 +90,57 @@ pnpm install 2>&1 | tail -20
 
 ## 2. 仓库结构
 
+**本仓库是一个单一的 Next.js 15 应用，应用代码直接位于仓库根目录**（不再是 monorepo）。
+
 ```
-universe-knowledge/                  ← Turborepo 根
-├── apps/
-│   └── portal/                      ← 唯一活跃应用（Next.js 15，统一入口）
-│       ├── app/                     ← App Router 路由（8 个知识领域 + 全局页面）
-│       │   ├── universe-physics/    ← 宇宙物理路由
-│       │   ├── human-history/       ← 人类历史路由
-│       │   ├── philosophy/          ← 哲学思想路由
-│       │   ├── life-science/        ← 生命科学路由
-│       │   ├── cosmology/           ← 宇宙学路由
-│       │   ├── mathematics/         ← 数学路由
-│       │   ├── economics/           ← 经济学路由
-│       │   ├── psychology/          ← 心理学路由
-│       │   ├── knowledge-graph/     ← 知识图谱路由
-│       │   └── daily/               ← 每日知识路由
-│       ├── src-physics/             ← 物理前端代码
-│       ├── src-history/             ← 历史前端代码
-│       ├── src-philosophy/          ← 哲学前端代码
-│       ├── src-life-science/        ← 生命科学前端代码
-│       ├── src-cosmology/           ← 宇宙学前端代码
-│       ├── src-mathematics/         ← 数学前端代码
-│       ├── src-economics/           ← 经济学前端代码
-│       ├── src-psychology/          ← 心理学前端代码
-│       ├── src-knowledge-graph/     ← 知识图谱前端代码
-│       └── content/                 ← 应用内知识内容（TS/JS/MDX）
-├── content/                         ← 平台级知识内容目录
-├── packages/
-│   ├── ui/                          ← @universe/ui（共享组件库，空壳）
-│   └── content/                     ← @universe/content（跨应用链接）
-├── docs/                            ← 平台级文档（代理读写区）
-│   ├── 任务清单.md                  ← ⭐ 任务状态真相源，每次会话后必须更新
-│   ├── 工作日志.md                  ← ⭐ 代理会话记录，每次会话后必须追加
-│   ├── 迁移计划.md                  ← 迁移完成记录
-│   ├── 工程原则.md                  ← 代码质量铁律
-│   ├── 知识精神.md                  ← 内容创作标准
-│   └── 项目总览.md                  ← 平台全景介绍
-├── .archive/                        ← 旧应用归档（apps-universe-physics 等）
-├── universe-physics/                ← 旧位置源码（参考用，禁止删除）
-├── human-history/                   ← 旧位置源码 + 知识库（参考用，禁止删除）
-├── CLAUDE.md                        ← 本文件
-├── MIGRATION.md                     ← 英文草稿（归档），详见 docs/迁移计划.md
-├── package.json                     ← 工作区根
-├── turbo.json                       ← Turbo 流水线
-└── pnpm-workspace.yaml              ← pnpm 工作区声明
+universe-knowledge/                  ← 单一 Next.js 应用根目录
+├── app/                             ← App Router 路由（9 个知识领域 + 全局页面）
+│   ├── universe-physics/            ← 宇宙物理路由
+│   ├── human-history/               ← 人类历史路由
+│   ├── philosophy/                  ← 哲学思想路由
+│   ├── life-science/                ← 生命科学路由
+│   ├── cosmology/                   ← 宇宙学路由
+│   ├── mathematics/                 ← 数学路由
+│   ├── economics/                   ← 经济学路由
+│   ├── psychology/                  ← 心理学路由
+│   ├── knowledge-graph/             ← 知识图谱路由
+│   ├── daily/                       ← 每日知识路由
+│   └── api/                         ← API 路由（daily、og 图）
+├── components/                      ← 共享组件
+│   ├── ui/                          ← 通用基础组件（原 @universe/ui：Button、Badge、Panel…）
+│   ├── search/ timeline/ …          ← 跨领域功能组件
+│   └── <subject>/                   ← 各领域专属组件（economics、life-science…）
+├── src-<subject>/                   ← 各领域前端逻辑（physics、history、knowledge-graph…）
+│                                       含 scenes/shaders/store/hooks/lib，领域间互相隔离
+├── lib/                             ← 共享工具 + 内容加载器
+│   ├── graph-engine/                ← 力导向图引擎（原 @universe/graph-engine）
+│   ├── cross-links/                 ← 跨领域链接（原 @universe/content；api.ts 为公开入口）
+│   ├── content.ts                   ← TierContent 等内容类型 barrel（@/lib/content）
+│   ├── content-paths.ts             ← 从 <cwd>/content 读取内容
+│   └── …                            ← mdx、search-index、daily-*、urls 等
+├── content/                         ← ⭐ 唯一内容目录，按领域分子目录
+│   ├── universe-physics/ human-history/ philosophy/ …
+│   ├── *.ts / *.js                  ← 类型化内容数据模块（经 @/content/... 导入）
+│   └── *.mdx / *.md                 ← 散文内容（由 lib/mdx.ts 在运行时按路径 fs 读取）
+├── public/ public-physics/          ← 静态资源
+├── scripts/                         ← check-content.ts（内容质量校验）
+├── scripts-physics/                 ← bundle-check、lighthouse 等
+├── e2e/                             ← Playwright E2E 测试
+├── types/                           ← 全局类型声明
+├── docs/                            ← 平台级文档（代理读写区，见下）
+├── universe-physics/                ← 旧位置源码（参考用，禁止删除；已排除出 tsconfig）
+├── human-history/                   ← 旧位置源码 + 知识库（参考用，禁止删除；已排除出 tsconfig）
+├── package.json                     ← 单一应用清单（无 turbo、无 workspace）
+├── next.config.ts  tsconfig.json  vercel.json
+├── vitest.config.ts  playwright.config.ts  eslint.config.mjs  postcss.config.mjs
+└── CLAUDE.md                        ← 本文件
 ```
 
-**当前架构**：所有知识领域已合并为 `apps/portal/` 单一 Next.js 应用，通过 `localhost:3000` 统一访问。内容与代码解耦，存放在 `content/` 和 `apps/portal/content/`。
+`docs/` 内容：`任务清单.md`（任务真相源）、`工作日志.md`（会话记录）、`工程原则.md`、`知识精神.md`、`项目总览.md`。
 
-**关键规则**：`universe-physics/`（旧）和 `human-history/website/`（旧）是参考代码，迁移已完成但保留供查阅。
+**当前架构**：单一 Next.js 应用，`pnpm dev` 在 `localhost:3000` 启动。内容统一存放在根 `content/`；类型化数据用 `@/content/...` 直接导入，MDX 散文由 `lib/content-paths.ts` + `lib/mdx.ts` 在运行时从 `<cwd>/content` 用 fs 读取。
+
+**关键规则**：`universe-physics/` 和 `human-history/` 是旧的参考代码，保留供查阅，**已在 `tsconfig.json` 的 `exclude` 中排除**，不参与构建与类型检查。
 
 ---
 
@@ -170,18 +172,18 @@ universe-knowledge/                  ← Turborepo 根
 
 ## 5. 技术栈速查
 
-### 统一应用（apps/portal/）
+### 单一应用（仓库根目录）
 
-- **框架**：Next.js 15，App Router
+- **框架**：Next.js 15，App Router（Turbopack dev）
 - **3D**：React Three Fiber + drei + postprocessing + Three.js
 - **状态**：Zustand
 - **动画**：Framer Motion + GSAP
 - **样式**：Tailwind CSS v4 + CSS Custom Properties
 - **内容**：MDX + gray-matter + Zod schema 校验
 - **语言**：TypeScript（strict mode + noUncheckedIndexedAccess）
-- **包管理**：pnpm 10 + Turborepo
+- **包管理**：pnpm 10（单包，无 Turborepo / 无 workspace）
 - **测试**：Vitest + Testing Library + Playwright
-- **部署**：Vercel 就绪
+- **部署**：Vercel 就绪（根目录即应用，无 rootDirectory）
 
 ### 知识领域路由
 
@@ -197,11 +199,22 @@ universe-knowledge/                  ← Turborepo 根
 | 心理学   | `/psychology`       | `src-psychology/`      | MDX + 认知偏差           |
 | 知识图谱 | `/knowledge-graph`  | `src-knowledge-graph/` | Canvas 2D 力导向图       |
 
-### 应用级文档
+### 开发命令（全部在仓库根目录运行）
 
-- 物理板块：`universe-physics/CLAUDE.md`（旧版参考，部分规范仍适用）
-- 历史板块：`human-history/website/AGENTS.md`（旧版参考，Vite 版规范）
-- Portal：`apps/portal/CLAUDE.md`
+```bash
+pnpm install          # 安装依赖（单包，只在根目录）
+pnpm dev              # localhost:3000（Turbopack）
+pnpm build            # 生产构建
+pnpm typecheck        # tsc --noEmit
+pnpm lint             # eslint . --max-warnings 0
+pnpm test             # Vitest 单元测试
+pnpm test:e2e         # Playwright E2E
+pnpm check-content    # 内容质量校验（scripts/check-content.ts）
+```
+
+### 旧版参考文档（仅供查阅，不再适用当前结构）
+
+- `universe-physics/CLAUDE.md`、`human-history/website/AGENTS.md` — 旧独立应用的规范，部分设计思路仍有参考价值。
 
 ---
 
@@ -252,40 +265,29 @@ universe-knowledge/                  ← Turborepo 根
 
 ## 8. 任务验证命令（自主代理必须执行）
 
-每个任务完成后，运行对应的验证命令确认真的完成了，不要只看代码写完了就算。
+每个任务完成后，运行对应的验证命令确认真的完成了，不要只看代码写完了就算。全部在仓库根目录运行。
 
-### T-001：@universe/ui 创建完成验证
-
-```bash
-ls packages/ui/package.json                      # 文件必须存在
-grep '"name"' packages/ui/package.json            # 必须包含 @universe/ui
-pnpm install 2>&1 | grep -i "error" | head -5     # 不得有 @universe/ui 相关报错
-```
-
-### T-002：pnpm-workspace.yaml 验证
+### 类型检查 + 构建（最重要）
 
 ```bash
-cat pnpm-workspace.yaml                           # 必须包含 apps/* 和 packages/*
-```
-
-### 统一应用验证
-
-```bash
-pnpm --filter @universe/portal build 2>&1 | tail -10  # 构建必须通过
-pnpm --filter @universe/portal typecheck 2>&1 | tail -5  # 类型检查必须通过
+pnpm typecheck 2>&1 | tail -10                    # tsc --noEmit 必须通过（exit 0）
+pnpm build 2>&1 | tail -20                        # 生产构建必须通过
 ```
 
 ### 内容完整性验证
 
 ```bash
-ls content/                                       # 6 个知识领域目录
-ls apps/portal/app/                               # 路由目录与 content 对应
+ls content/                                       # 各知识领域子目录
+ls app/                                           # 路由目录与 content 对应
+pnpm check-content 2>&1 | tail -10                # 内容质量校验
 ```
 
-### 通用：全工作区构建验证
+### 渲染验证（改动页面/路由后）
 
 ```bash
-pnpm build 2>&1 | tail -20                        # 所有 apps 构建通过
+pnpm dev                                          # 启动后探测：
+curl -s -o /dev/null -w "%{http_code}\n" http://localhost:3000        # 应为 200
+curl -s -o /dev/null -w "%{http_code}\n" http://localhost:3000/philosophy
 ```
 
 ---
@@ -297,29 +299,28 @@ pnpm build 2>&1 | tail -20                        # 所有 apps 构建通过
 ### 9.1 基础设施问题（每次接手都检查）
 
 ```bash
-# 检查工作区 install 状态
-pnpm install --dry-run 2>&1 | grep -i "error"
+# 检查依赖安装状态
+pnpm install 2>&1 | grep -i "error" | head -5
 
-# 统一应用构建与类型检查
-pnpm --filter @universe/portal build 2>&1 | tail -5
-pnpm --filter @universe/portal typecheck 2>&1 | tail -5
+# 构建与类型检查
+pnpm build 2>&1 | tail -5
+pnpm typecheck 2>&1 | tail -5
 ```
 
 ### 9.2 内容完整性问题（知识内容相关任务时检查）
 
 ```bash
-# 检查各领域内容目录
+# 检查统一内容目录（按领域）
 ls content/
-ls apps/portal/content/
 
 # 检查路由与内容对应关系
-ls apps/portal/app/
+ls app/
 ```
 
 ### 9.3 TypeScript 类型问题（新功能任务时检查）
 
 ```bash
-pnpm --filter @universe/portal typecheck 2>&1 | head -20
+pnpm typecheck 2>&1 | head -20
 ```
 
 ### 9.4 发现问题的处理流程
