@@ -143,7 +143,7 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
           <RelatedContent slug={slug} domain="philosophy" entityId={slug} />
         </article>
 
-        <aside className="w-full flex-shrink-0 lg:w-80">
+        <aside className="w-full flex-shrink-0 lg:w-80 lg:sticky lg:top-24 lg:self-start">
           <TableOfContents accentColor="#a88adf" />
           <div className="border-border-faint border p-4">
             <h3 className="text-fg-muted mb-3 font-mono text-[10px] uppercase tracking-[0.22em]">

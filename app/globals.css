@@ -73,6 +73,17 @@
     text-decoration: none;
   }
 
+  @media (min-width: 1024px) {
+    aside:has(> nav[aria-label="目录"]) {
+      position: sticky;
+      top: 6rem;
+      align-self: flex-start;
+      max-height: calc(100vh - 7rem);
+      overflow-y: auto;
+      scrollbar-gutter: stable;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,

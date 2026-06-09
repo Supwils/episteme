@@ -100,7 +100,7 @@ export default async function KnowledgeBaseDetailPage({ params }: { params: Prom
           <MarkdownRenderer content={article.content} accentColor={accent} />
         </article>
 
-        <aside className="w-full flex-shrink-0 lg:w-80">
+        <aside className="w-full flex-shrink-0 lg:w-80 lg:sticky lg:top-24 lg:self-start">
           <TableOfContents accentColor={accent} />
           <div className="border-border-faint border p-4">
             <h3 className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.22em] uppercase">

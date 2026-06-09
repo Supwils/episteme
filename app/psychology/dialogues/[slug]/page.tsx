@@ -81,7 +81,7 @@ export default async function DialogueDetailPage({ params }: { params: Promise<{
         <article className="min-w-0 flex-1 max-w-[1200px]">
           <MarkdownRenderer content={dialogue.content} accentColor={eraColor} />
         </article>
-        <aside className="w-full lg:w-80 flex-shrink-0">
+        <aside className="w-full lg:w-80 flex-shrink-0 lg:sticky lg:top-24 lg:self-start">
           <TableOfContents accentColor="#d4789c" />
           <div className="border-border-faint border p-4">
             <h3 className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.22em] uppercase">对话信息</h3>

@@ -73,11 +73,11 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
 
   return (
     <>
-      {/* Desktop: a floating sticky list. No inner scroll container, so it never
-          traps the wheel; it simply rides along with the page scroll. */}
+      {/* Desktop sticky behavior belongs to the whole article sidebar, not the
+          TOC alone, so the cards below it stay in the same scroll context. */}
       <nav
         aria-label="目录"
-        className="sticky top-24 hidden self-start border-border-faint border-l pl-4 lg:block"
+        className="border-border-faint mb-4 hidden self-start border-l pl-4 lg:block"
       >
         <div className="h-0.5 rounded-full bg-border-faint mb-3">
           <div

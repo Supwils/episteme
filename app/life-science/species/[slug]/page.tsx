@@ -163,7 +163,7 @@ export default async function SpeciesDetailPage({ params }: Props) {
           </div>
         </article>
 
-        <aside className="w-full lg:w-80 flex-shrink-0">
+        <aside className="w-full lg:w-80 flex-shrink-0 lg:sticky lg:top-24 lg:self-start">
           <div className="sticky top-24 space-y-6">
             <TableOfContents accentColor="#4a9e6f" />
             <div className="border-border-faint bg-bg-near border p-5">

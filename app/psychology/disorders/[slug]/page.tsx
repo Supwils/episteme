@@ -77,7 +77,7 @@ export default async function DisorderDetailPage({ params }: { params: Promise<{
         <article className="min-w-0 max-w-[1200px] flex-1">
           <MarkdownRenderer content={disorder.content} accentColor={catColor} />
         </article>
-        <aside className="w-full flex-shrink-0 lg:w-80">
+        <aside className="w-full flex-shrink-0 lg:w-80 lg:sticky lg:top-24 lg:self-start">
           <TableOfContents accentColor="#d4789c" />
           <div className="border-border-faint border p-4">
             <h3 className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.22em] uppercase">障碍信息</h3>

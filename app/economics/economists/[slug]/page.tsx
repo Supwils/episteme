@@ -125,7 +125,7 @@ export default async function EconomistDetailPage({ params }: { params: Promise<
           <RelatedContent slug={slug} domain="economics" entityId={slug} />
         </article>
 
-        <aside className="w-full flex-shrink-0 lg:w-80">
+        <aside className="w-full flex-shrink-0 lg:w-80 lg:sticky lg:top-24 lg:self-start">
           <TableOfContents accentColor="#e8b84a" />
           <div className="border-border-faint border p-4">
             <h3 className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.22em] uppercase">

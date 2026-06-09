@@ -59,7 +59,7 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
         <article className="min-w-0 max-w-[900px] flex-1">
           <MarkdownRenderer content={school.content} accentColor="#61afef" />
         </article>
-        <aside className="w-full flex-shrink-0 lg:w-80">
+        <aside className="w-full flex-shrink-0 lg:w-80 lg:sticky lg:top-24 lg:self-start">
           <TableOfContents accentColor="#e8b84a" />
           <div className="border-border-faint border p-4">
             <h3 className="text-fg-muted mb-3 font-mono text-[10px] uppercase tracking-[0.22em]">学派信息</h3>

@@ -79,7 +79,7 @@ export default async function ConceptDetailPage({ params }: { params: Promise<{ 
           <MarkdownRenderer content={concept.content} accentColor="#c8a45a" />
           <RelatedContent slug={slug} domain="economics" entityId={slug} />
         </article>
-        <aside className="w-full flex-shrink-0 lg:w-80">
+        <aside className="w-full flex-shrink-0 lg:w-80 lg:sticky lg:top-24 lg:self-start">
           <TableOfContents accentColor="#e8b84a" />
           <div className="border-border-faint border p-4">
             <h3 className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.22em] uppercase">概念信息</h3>

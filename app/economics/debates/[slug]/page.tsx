@@ -63,7 +63,7 @@ export default async function DebateDetailPage({ params }: { params: Promise<{ s
         <article className="min-w-0 flex-1 max-w-[900px]">
           <MarkdownRenderer content={debate.content} accentColor="#c8a45a" />
         </article>
-        <aside className="w-full flex-shrink-0 lg:w-80">
+        <aside className="w-full flex-shrink-0 lg:w-80 lg:sticky lg:top-24 lg:self-start">
           <TableOfContents accentColor="#e8b84a" />
           {related.length > 0 && (
             <div className="border-border-faint border p-4">

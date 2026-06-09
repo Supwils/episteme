@@ -61,7 +61,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
         <article className="min-w-0 flex-1 max-w-[900px]">
           <MarkdownRenderer content={cs.content} accentColor="#e8b84a" />
         </article>
-        <aside className="w-full flex-shrink-0 lg:w-80">
+        <aside className="w-full flex-shrink-0 lg:w-80 lg:sticky lg:top-24 lg:self-start">
           <TableOfContents accentColor="#e8b84a" />
         </aside>
       </div>
