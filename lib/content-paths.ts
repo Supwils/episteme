@@ -1,9 +1,8 @@
 import path from "node:path";
 
-const WORKSPACE_ROOT = path.join(process.cwd(), "..", "..");
-
+// The app now lives at the repo root, so content sits at <cwd>/content.
 export function getContentDir(): string {
-  return path.join(WORKSPACE_ROOT, "content");
+  return path.join(process.cwd(), "content");
 }
 
 export function getDomainContentDir(domain: string): string {

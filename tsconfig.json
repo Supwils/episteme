@@ -1,18 +1,55 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "esnext",
-    "moduleResolution": "bundler",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": false,
+    "skipLibCheck": true,
     "strict": true,
     "noUncheckedIndexedAccess": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
+    "noImplicitOverride": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "verbatimModuleSyntax": true
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
-  "include": ["lib/**/*.ts", "scripts/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "src-physics/**/*",
+    "src-philosophy/**/*",
+    "src-life-science/**/*",
+    "src-mathematics/**/*",
+    "src-history/**/*",
+    "src-knowledge-graph/**/*",
+    "src-cosmology/**/*",
+    "src-economics/**/*",
+    "src-psychology/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    ".next",
+    "out",
+    "dist",
+    "coverage",
+    "scripts",
+    "content",
+    "universe-physics",
+    "human-history"
+  ]
 }

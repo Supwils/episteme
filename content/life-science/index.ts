@@ -1,19 +1,20 @@
-export { ERAS, getEraById, getEraByIndex, ERA_IDS } from "./eras";
-export { TIMELINE_EVENTS } from "./events";
-export { SPECIES_CATALOG } from "./species";
-export { EXTINCTION_EVENTS } from "./extinctions";
-export { KEY_SCIENTISTS } from "./scientists";
-export type {
-  EraContent,
-  DataCard,
-  NarrativeSection,
-  SourceRef,
-  TimelineEvent,
-  Species,
-  ExtinctionEvent,
-  Scientist,
-  DeepReading,
-  DeepReadingSection,
-  DeepReadingCitation,
-  KeyDiscovery,
-} from "./types";
+export const ERAS: ReadonlyArray<{
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+}> = [];
+
+export const SPECIES: ReadonlyArray<{
+  id: string;
+  name: string;
+  era: string;
+  description: string;
+}> = [];
+
+export const SCIENTISTS: ReadonlyArray<{
+  id: string;
+  name: string;
+  latin: string;
+  field: string;
+}> = [];
