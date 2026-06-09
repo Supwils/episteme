@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import MatrixTransformer from '@/src-mathematics/components/visualizations/MatrixTransformer';
+import MatrixTransformer from '@/subjects/mathematics/components/visualizations/MatrixTransformer';
 
 export const metadata: Metadata = {
   title: '矩阵变换 — Universe Knowledge',

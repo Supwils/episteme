@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getEconomistBySlug, getEconomistSlugs, getAllEconomists } from "@/src-economics/lib/mdx";
-import { ERA_COLORS } from "@/src-economics/lib/constants";
+import { getEconomistBySlug, getEconomistSlugs, getAllEconomists } from "@/subjects/economics/lib/mdx";
+import { ERA_COLORS } from "@/subjects/economics/lib/constants";
 import { TableOfContents } from "@/components/TableOfContents";
 import RelatedContent from "@/components/RelatedContent";
 import Breadcrumb from "@/components/Breadcrumb";

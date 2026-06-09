@@ -2,11 +2,11 @@
 
 import dynamic from 'next/dynamic';
 import { LoadingSpinner } from '@/components/ui';
-import type { GraphNode, GraphEdge } from '@/src-knowledge-graph/data/types';
+import type { GraphNode, GraphEdge } from '@/subjects/knowledge-graph/data/types';
 
 const KnowledgeGraph = dynamic(
   () =>
-    import('@/src-knowledge-graph/components/KnowledgeGraph').then(
+    import('@/subjects/knowledge-graph/components/KnowledgeGraph').then(
       (m) => m.KnowledgeGraph,
     ),
   {

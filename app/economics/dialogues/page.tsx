@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllDialogues } from "@/src-economics/lib/mdx";
-import { ERA_COLORS } from "@/src-economics/lib/constants";
+import { getAllDialogues } from "@/subjects/economics/lib/mdx";
+import { ERA_COLORS } from "@/subjects/economics/lib/constants";
 
 export const metadata: Metadata = {
   title: "经济学对话 — Universe Knowledge",

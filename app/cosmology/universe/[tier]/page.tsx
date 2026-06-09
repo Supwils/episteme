@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { hasTierContent, getTierContent, tierFromSlug, COSMOLOGY_TIER_ORDER, COSMOLOGY_TIER_ROUTES } from '@/src-cosmology/lib/tiers';
-import { CosmologyNav } from '@/src-cosmology/components/CosmologyNav';
+import { hasTierContent, getTierContent, tierFromSlug, COSMOLOGY_TIER_ORDER, COSMOLOGY_TIER_ROUTES } from '@/subjects/cosmology/lib/tiers';
+import { CosmologyNav } from '@/subjects/cosmology/components/CosmologyNav';
 
 export function generateStaticParams() {
   return COSMOLOGY_TIER_ORDER.map((tierId) => ({ tier: COSMOLOGY_TIER_ROUTES[tierId] }));

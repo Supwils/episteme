@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getAllExtinctions, getExtinctionById } from "@/src-life-science/lib/extinctions";
-import type { ExtinctionEvent } from "@/src-life-science/lib/types";
+import { getAllExtinctions, getExtinctionById } from "@/subjects/life-science/lib/extinctions";
+import type { ExtinctionEvent } from "@/subjects/life-science/lib/types";
 import { FadeInSection } from "@/components/FadeInSection";
 import { SITE_URL } from "@/lib/constants";
 import { createArticleJsonLd } from "@/lib/jsonld";

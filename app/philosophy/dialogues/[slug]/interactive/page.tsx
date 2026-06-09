@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getDialogueBySlug, getDialogueSlugs } from '@/lib/dialogues';
-import InteractiveDialogue from '@/src-philosophy/components/InteractiveDialogue';
-import { FIELD_COLORS } from '@/src-philosophy/lib/constants';
+import InteractiveDialogue from '@/subjects/philosophy/components/InteractiveDialogue';
+import { FIELD_COLORS } from '@/subjects/philosophy/lib/constants';
 
 export function generateStaticParams() {
   return getDialogueSlugs().map((slug) => ({ slug }));

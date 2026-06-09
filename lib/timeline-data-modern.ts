@@ -1,1 +1,1 @@
-export { MODERN_EVENTS } from "@/src-philosophy/lib/timeline-data-modern";
+export { MODERN_EVENTS } from "@/subjects/philosophy/lib/timeline-data-modern";

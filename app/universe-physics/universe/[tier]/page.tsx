@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { TIER_ORDER, TIER_ROUTES } from '@/src-physics/lib/tier';
+import { TIER_ORDER, TIER_ROUTES } from '@/subjects/physics/lib/tier';
 import UniverseTierPageClient from './UniverseTierPageClient';
 
 export function generateStaticParams() {

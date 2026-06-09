@@ -6,4 +6,4 @@ export type {
   SourceRef,
   SceneMarker,
   TierContent,
-} from "@/src-physics/lib/content";
+} from "@/subjects/physics/lib/content";

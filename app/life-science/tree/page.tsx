@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FadeInSection } from "@/components/FadeInSection";
 import { StaggerGrid, StaggerItem } from "@/components/StaggerGrid";
-import { PhylogeneticTree } from "@/src-life-science/components/PhylogeneticTree";
-import { TREE_OF_LIFE } from "@/src-life-science/lib/tree-data";
+import { PhylogeneticTree } from "@/subjects/life-science/components/PhylogeneticTree";
+import { TREE_OF_LIFE } from "@/subjects/life-science/lib/tree-data";
 
 export const metadata: Metadata = {
   title: "生命之树 — Universe Knowledge",

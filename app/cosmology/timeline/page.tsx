@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { COSMOLOGY_ERAS } from '@/src-cosmology/lib/eras';
-import { CosmologyNav } from '@/src-cosmology/components/CosmologyNav';
-import { CosmicTimeline } from '@/src-cosmology/components/visualizations/CosmicTimeline';
+import { COSMOLOGY_ERAS } from '@/subjects/cosmology/lib/eras';
+import { CosmologyNav } from '@/subjects/cosmology/components/CosmologyNav';
+import { CosmicTimeline } from '@/subjects/cosmology/components/visualizations/CosmicTimeline';
 
 export const metadata: Metadata = {
   title: '宇宙时间线 — 宇宙学 — Universe Knowledge',

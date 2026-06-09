@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getAllTimelineEvents, getTimelineEventById } from "@/src-life-science/lib/timeline-events";
-import { DeepReading } from "@/src-life-science/components/DeepReading";
+import { getAllTimelineEvents, getTimelineEventById } from "@/subjects/life-science/lib/timeline-events";
+import { DeepReading } from "@/subjects/life-science/components/DeepReading";
 import { TableOfContents } from "@/components/TableOfContents";
 import { SITE_URL } from "@/lib/constants";
 import { createArticleJsonLd } from "@/lib/jsonld";

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllExtinctions } from "@/src-life-science/lib/extinctions";
+import { getAllExtinctions } from "@/subjects/life-science/lib/extinctions";
 import { FadeInSection } from "@/components/FadeInSection";
 import { StaggerGrid, StaggerItem } from "@/components/StaggerGrid";
 

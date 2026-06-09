@@ -1,12 +1,12 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getConceptBySlug, getConceptSlugs, getAllConcepts } from "@/src-economics/lib/mdx";
-import { CATEGORY_COLORS } from "@/src-economics/lib/constants";
+import { getConceptBySlug, getConceptSlugs, getAllConcepts } from "@/subjects/economics/lib/mdx";
+import { CATEGORY_COLORS } from "@/subjects/economics/lib/constants";
 import { TableOfContents } from "@/components/TableOfContents";
 import RelatedContent from "@/components/RelatedContent";
 import Breadcrumb from "@/components/Breadcrumb";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
-import { SupplyDemandChart } from "@/src-economics/components/visualizations/SupplyDemandChart";
+import { SupplyDemandChart } from "@/subjects/economics/components/visualizations/SupplyDemandChart";
 import { GDPChartSection } from "./GDPChartSection";
 import { LorenzCurveSection } from "./LorenzCurveSection";
 

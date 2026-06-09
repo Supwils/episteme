@@ -5,8 +5,8 @@ import { motion, useReducedMotion } from "framer-motion";
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { BrandMark } from "@/src-physics/components/hud/BrandMark";
-import { SplashStars } from "@/src-physics/components/splash/SplashStars";
+import { BrandMark } from "@/subjects/physics/components/hud/BrandMark";
+import { SplashStars } from "@/subjects/physics/components/splash/SplashStars";
 import { SITE_URL } from "@/lib/constants";
 
 const collectionJsonLd = {

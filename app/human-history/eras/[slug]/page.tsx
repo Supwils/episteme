@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ERAS, getEraBySlug, getAdjacentEras } from "@/src-history/lib/eras";
+import { ERAS, getEraBySlug, getAdjacentEras } from "@/subjects/history/lib/eras";
 import { EVENTS } from "@/content/human-history/data/events.js";
 import { FIGURES } from "@/content/human-history/data/figures.js";
 import { ERA_DETAIL_STYLES } from "./EraDetailStyles";

@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getMathParadoxBySlug, getMathParadoxSlugs, getAllMathParadoxes } from "@/src-mathematics/lib/paradoxes";
-import { MATH_FIELD_COLORS } from "@/src-mathematics/lib/constants";
-import { MathMarkdownRenderer } from "@/src-mathematics/components/MathMarkdownRenderer";
+import { getMathParadoxBySlug, getMathParadoxSlugs, getAllMathParadoxes } from "@/subjects/mathematics/lib/paradoxes";
+import { MATH_FIELD_COLORS } from "@/subjects/mathematics/lib/constants";
+import { MathMarkdownRenderer } from "@/subjects/mathematics/components/MathMarkdownRenderer";
 import { SITE_URL } from "@/lib/constants";
 import { createArticleJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";

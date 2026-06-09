@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllMathDialogues } from "@/src-mathematics/lib/dialogues";
-import { MATH_FIELD_COLORS, MATH_ERA_ACCENT } from "@/src-mathematics/lib/constants";
+import { getAllMathDialogues } from "@/subjects/mathematics/lib/dialogues";
+import { MATH_FIELD_COLORS, MATH_ERA_ACCENT } from "@/subjects/mathematics/lib/constants";
 
 export const metadata: Metadata = {
   title: "数学对话 — Universe Knowledge",

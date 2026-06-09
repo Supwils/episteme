@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllMathConcepts, getMathConceptsByField } from "@/src-mathematics/lib/concepts";
-import { MATH_FIELD_COLORS } from "@/src-mathematics/lib/constants";
+import { getAllMathConcepts, getMathConceptsByField } from "@/subjects/mathematics/lib/concepts";
+import { MATH_FIELD_COLORS } from "@/subjects/mathematics/lib/constants";
 
 export const metadata: Metadata = {
   title: "数学概念 — Universe Knowledge",

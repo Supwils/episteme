@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import ProbabilityVisualizer from '@/src-mathematics/components/visualizations/ProbabilityVisualizer';
+import ProbabilityVisualizer from '@/subjects/mathematics/components/visualizations/ProbabilityVisualizer';
 
 export const metadata: Metadata = {
   title: '概率可视化 — Universe Knowledge',

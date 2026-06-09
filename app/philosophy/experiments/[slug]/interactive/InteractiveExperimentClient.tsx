@@ -5,13 +5,13 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 
-const TrolleyProblem = dynamic(() => import('@/src-philosophy/components/experiments/TrolleyProblem'));
-const PlatosCave = dynamic(() => import('@/src-philosophy/components/experiments/PlatosCave'));
-const ChineseRoom = dynamic(() => import('@/src-philosophy/components/experiments/ChineseRoom'));
-const ExperienceMachine = dynamic(() => import('@/src-philosophy/components/experiments/ExperienceMachine'));
-const VeilOfIgnorance = dynamic(() => import('@/src-philosophy/components/experiments/VeilOfIgnorance'));
-const ShipOfTheseus = dynamic(() => import('@/src-philosophy/components/experiments/ShipOfTheseus'));
-const BuridansAss = dynamic(() => import('@/src-philosophy/components/experiments/BuridansAss'));
+const TrolleyProblem = dynamic(() => import('@/subjects/philosophy/components/experiments/TrolleyProblem'));
+const PlatosCave = dynamic(() => import('@/subjects/philosophy/components/experiments/PlatosCave'));
+const ChineseRoom = dynamic(() => import('@/subjects/philosophy/components/experiments/ChineseRoom'));
+const ExperienceMachine = dynamic(() => import('@/subjects/philosophy/components/experiments/ExperienceMachine'));
+const VeilOfIgnorance = dynamic(() => import('@/subjects/philosophy/components/experiments/VeilOfIgnorance'));
+const ShipOfTheseus = dynamic(() => import('@/subjects/philosophy/components/experiments/ShipOfTheseus'));
+const BuridansAss = dynamic(() => import('@/subjects/philosophy/components/experiments/BuridansAss'));
 
 const EXPERIMENT_MAP: Record<string, { component: React.ComponentType; title: string; titleEn: string }> = {
   'trolley-problem': { component: TrolleyProblem, title: '电车难题', titleEn: 'Trolley Problem' },

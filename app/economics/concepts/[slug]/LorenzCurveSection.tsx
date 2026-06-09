@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 
 const LorenzCurve = dynamic(
   () =>
-    import("@/src-economics/components/visualizations/LorenzCurve").then(
+    import("@/subjects/economics/components/visualizations/LorenzCurve").then(
       (m) => m.LorenzCurve
     ),
   {

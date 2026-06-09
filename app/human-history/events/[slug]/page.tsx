@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
-import { getAllEvents, getEventBySlug } from "@/src-history/lib/events";
-import { ERAS } from "@/src-history/lib/eras";
+import { getAllEvents, getEventBySlug } from "@/subjects/history/lib/events";
+import { ERAS } from "@/subjects/history/lib/eras";
 import { EVENT_DETAIL_STYLES } from "./EventDetailStyles";
 import {
   EventHero,

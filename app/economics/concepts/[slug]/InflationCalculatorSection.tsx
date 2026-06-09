@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 
 const InflationCalculator = dynamic(
   () =>
-    import("@/src-economics/components/visualizations/InflationCalculator").then(
+    import("@/subjects/economics/components/visualizations/InflationCalculator").then(
       (m) => m.InflationCalculator
     ),
   {

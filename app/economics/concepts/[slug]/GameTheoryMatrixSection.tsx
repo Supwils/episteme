@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 
 const GameTheoryMatrix = dynamic(
   () =>
-    import("@/src-economics/components/visualizations/GameTheoryMatrix").then(
+    import("@/subjects/economics/components/visualizations/GameTheoryMatrix").then(
       (m) => m.GameTheoryMatrix
     ),
   {

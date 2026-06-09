@@ -1,11 +1,11 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getPhenomenonBySlug, getPhenomenonSlugs, getAllPhenomena } from "@/src-psychology/lib/mdx";
-import { CATEGORY_COLORS } from "@/src-psychology/lib/constants";
+import { getPhenomenonBySlug, getPhenomenonSlugs, getAllPhenomena } from "@/subjects/psychology/lib/mdx";
+import { CATEGORY_COLORS } from "@/subjects/psychology/lib/constants";
 import { SITE_URL } from "@/lib/constants";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { TableOfContents } from "@/components/TableOfContents";
-import AttachmentStyles from "@/src-psychology/components/visualizations/AttachmentStyles";
+import AttachmentStyles from "@/subjects/psychology/components/visualizations/AttachmentStyles";
 
 export function generateStaticParams() {
   return getPhenomenonSlugs().map((slug) => ({ slug }));

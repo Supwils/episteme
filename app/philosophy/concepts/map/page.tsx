@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { ConceptMap } from '@/src-philosophy/components/visualizations/ConceptMap';
+import { ConceptMap } from '@/subjects/philosophy/components/visualizations/ConceptMap';
 
 export const metadata: Metadata = {
   title: '哲学概念图谱 — Universe Knowledge',

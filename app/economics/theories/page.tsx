@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllTheories } from "@/src-economics/lib/mdx";
-import { CATEGORY_COLORS } from "@/src-economics/lib/constants";
+import { getAllTheories } from "@/subjects/economics/lib/mdx";
+import { CATEGORY_COLORS } from "@/subjects/economics/lib/constants";
 
 export const metadata: Metadata = {
   title: "经济理论 — Universe Knowledge",

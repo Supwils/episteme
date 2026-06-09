@@ -1,7 +1,7 @@
 'use client';
 
-import { useSyncTier } from "@/src-physics/hooks/useSyncTier";
-import SolarSystem from "@/src-physics/components/visualizations/SolarSystem";
+import { useSyncTier } from "@/subjects/physics/hooks/useSyncTier";
+import SolarSystem from "@/subjects/physics/components/visualizations/SolarSystem";
 
 
 export default function SolarSystemPageClient() {

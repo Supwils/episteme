@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllMathematicians } from "@/src-mathematics/lib/mathematicians";
-import { getAllTheorems } from "@/src-mathematics/lib/theorems";
-import { getAllMathConcepts } from "@/src-mathematics/lib/concepts";
-import { getAllMathDialogues } from "@/src-mathematics/lib/dialogues";
-import { getAllMathParadoxes } from "@/src-mathematics/lib/paradoxes";
-import { getAllMathEras } from "@/src-mathematics/lib/eras";
-import { MATH_ERA_ACCENT, MATH_FIELD_COLORS } from "@/src-mathematics/lib/constants";
+import { getAllMathematicians } from "@/subjects/mathematics/lib/mathematicians";
+import { getAllTheorems } from "@/subjects/mathematics/lib/theorems";
+import { getAllMathConcepts } from "@/subjects/mathematics/lib/concepts";
+import { getAllMathDialogues } from "@/subjects/mathematics/lib/dialogues";
+import { getAllMathParadoxes } from "@/subjects/mathematics/lib/paradoxes";
+import { getAllMathEras } from "@/subjects/mathematics/lib/eras";
+import { MATH_ERA_ACCENT, MATH_FIELD_COLORS } from "@/subjects/mathematics/lib/constants";
 
 export const metadata: Metadata = {
   title: "数学与逻辑 — Universe Knowledge",

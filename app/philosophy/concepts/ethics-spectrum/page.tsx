@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import EthicsSpectrum from '@/src-philosophy/components/visualizations/EthicsSpectrum';
+import EthicsSpectrum from '@/subjects/philosophy/components/visualizations/EthicsSpectrum';
 
 export const metadata: Metadata = {
   title: '伦理学光谱 — Universe Knowledge',

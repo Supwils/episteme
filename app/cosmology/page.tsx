@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { COSMOLOGY_TIER_ORDER, COSMOLOGY_TIER_ROUTES } from '@/src-cosmology/lib/tiers';
-import { COSMOLOGY_TIERS } from '@/src-cosmology/lib/tiers';
-import { COSMOLOGY_ERAS } from '@/src-cosmology/lib/eras';
-import { TierCard } from '@/src-cosmology/components/TierCard';
-import { CosmologyNav } from '@/src-cosmology/components/CosmologyNav';
-import { ScaleOfUniverse } from '@/src-cosmology/components/visualizations';
+import { COSMOLOGY_TIER_ORDER, COSMOLOGY_TIER_ROUTES } from '@/subjects/cosmology/lib/tiers';
+import { COSMOLOGY_TIERS } from '@/subjects/cosmology/lib/tiers';
+import { COSMOLOGY_ERAS } from '@/subjects/cosmology/lib/eras';
+import { TierCard } from '@/subjects/cosmology/components/TierCard';
+import { CosmologyNav } from '@/subjects/cosmology/components/CosmologyNav';
+import { ScaleOfUniverse } from '@/subjects/cosmology/components/visualizations';
 import { CosmologyVisualizations } from './CosmologyVisualizations';
 
 export const metadata: Metadata = {

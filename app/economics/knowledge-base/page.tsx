@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllKnowledgeBase } from "@/src-economics/lib/mdx";
+import { getAllKnowledgeBase } from "@/subjects/economics/lib/mdx";
 
 export const metadata: Metadata = {
   title: "知识库 — 经济学 — Universe Knowledge",

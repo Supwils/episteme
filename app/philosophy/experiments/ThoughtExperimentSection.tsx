@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 
 const ThoughtExperimentTree = dynamic(
-  () => import("@/src-philosophy/components/visualizations/ThoughtExperimentTree"),
+  () => import("@/subjects/philosophy/components/visualizations/ThoughtExperimentTree"),
   { ssr: false }
 );
 

@@ -5,8 +5,8 @@ import { useState } from "react";
 
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { getAllSpecies } from "@/src-life-science/lib/species";
-import type { Species } from "@/src-life-science/lib/types";
+import { getAllSpecies } from "@/subjects/life-science/lib/species";
+import type { Species } from "@/subjects/life-science/lib/types";
 import { STAGGER_CONTAINER, STAGGER_ITEM } from "@/lib/animations";
 
 const ALL_SPECIES = getAllSpecies();

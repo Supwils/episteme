@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { lazy, Suspense } from "react";
-import { getAllExperiments } from "@/src-psychology/lib/mdx";
-import { FIELD_COLORS } from "@/src-psychology/lib/constants";
+import { getAllExperiments } from "@/subjects/psychology/lib/mdx";
+import { FIELD_COLORS } from "@/subjects/psychology/lib/constants";
 
 const StroopEffect = lazy(
-  () => import("@/src-psychology/components/visualizations/StroopEffect"),
+  () => import("@/subjects/psychology/components/visualizations/StroopEffect"),
 );
 
 function formatYear(year: number): string {

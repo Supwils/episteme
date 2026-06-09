@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getTheoremBySlug, getTheoremSlugs, getAllTheorems } from "@/src-mathematics/lib/theorems";
-import { MATH_FIELD_COLORS, MATH_DIFFICULTY_COLORS } from "@/src-mathematics/lib/constants";
-import { MathMarkdownRenderer } from "@/src-mathematics/components/MathMarkdownRenderer";
+import { getTheoremBySlug, getTheoremSlugs, getAllTheorems } from "@/subjects/mathematics/lib/theorems";
+import { MATH_FIELD_COLORS, MATH_DIFFICULTY_COLORS } from "@/subjects/mathematics/lib/constants";
+import { MathMarkdownRenderer } from "@/subjects/mathematics/components/MathMarkdownRenderer";
 import { SITE_URL } from "@/lib/constants";
 import { createDefinedTermJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";

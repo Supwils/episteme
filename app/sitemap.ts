@@ -5,12 +5,12 @@ import { getIsmSlugs } from '@/lib/isms';
 import { getExperimentSlugs } from '@/lib/experiments';
 import { getAllArticles } from '@/lib/knowledge-base';
 import { SITE_URL } from '@/lib/constants';
-import { getMathematicianSlugs } from '@/src-mathematics/lib/mathematicians';
-import { getTheoremSlugs } from '@/src-mathematics/lib/theorems';
-import { getMathConceptSlugs } from '@/src-mathematics/lib/concepts';
-import { getMathDialogueSlugs } from '@/src-mathematics/lib/dialogues';
-import { getEconomistSlugs, getTheorySlugs as getEconTheorySlugs, getConceptSlugs as getEconConceptSlugs, getCaseStudySlugs, getSchoolSlugs as getEconSchoolSlugs, getDebateSlugs as getEconDebateSlugs, getDialogueSlugs as getEconDialogueSlugs } from '@/src-economics/lib/mdx';
-import { getTheoristSlugs, getExperimentSlugs as getPsyExperimentSlugs, getPhenomenonSlugs, getSchoolSlugs as getPsySchoolSlugs, getDisorderSlugs, getDebateSlugs as getPsyDebateSlugs, getDialogueSlugs as getPsyDialogueSlugs } from '@/src-psychology/lib/mdx';
+import { getMathematicianSlugs } from '@/subjects/mathematics/lib/mathematicians';
+import { getTheoremSlugs } from '@/subjects/mathematics/lib/theorems';
+import { getMathConceptSlugs } from '@/subjects/mathematics/lib/concepts';
+import { getMathDialogueSlugs } from '@/subjects/mathematics/lib/dialogues';
+import { getEconomistSlugs, getTheorySlugs as getEconTheorySlugs, getConceptSlugs as getEconConceptSlugs, getCaseStudySlugs, getSchoolSlugs as getEconSchoolSlugs, getDebateSlugs as getEconDebateSlugs, getDialogueSlugs as getEconDialogueSlugs } from '@/subjects/economics/lib/mdx';
+import { getTheoristSlugs, getExperimentSlugs as getPsyExperimentSlugs, getPhenomenonSlugs, getSchoolSlugs as getPsySchoolSlugs, getDisorderSlugs, getDebateSlugs as getPsyDebateSlugs, getDialogueSlugs as getPsyDialogueSlugs } from '@/subjects/psychology/lib/mdx';
 
 const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: '', priority: 1 },

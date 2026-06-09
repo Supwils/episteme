@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllTheorists } from "@/src-psychology/lib/mdx";
-import { ERA_COLORS } from "@/src-psychology/lib/constants";
+import { getAllTheorists } from "@/subjects/psychology/lib/mdx";
+import { ERA_COLORS } from "@/subjects/psychology/lib/constants";
 
 export const metadata: Metadata = {
   title: "心理学家 — Universe Knowledge",

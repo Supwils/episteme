@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { cn } from '@/src-physics/lib/cn';
+import { cn } from '@/subjects/physics/lib/cn';
 import { LoadingSpinner } from '@/components/ui';
 
 const experimentLoading = (
@@ -13,17 +13,17 @@ const experimentLoading = (
   </div>
 );
 
-const MillersUrey = dynamic(() => import('@/src-physics/components/experiments/MillersUrey').then(m => m.MillersUrey), { ssr: false, loading: () => experimentLoading });
-const DoubleSlit = dynamic(() => import('@/src-physics/components/experiments/DoubleSlit').then(m => m.DoubleSlit), { ssr: false, loading: () => experimentLoading });
-const GalileosRamp = dynamic(() => import('@/src-physics/components/experiments/GalileosRamp').then(m => m.GalileosRamp), { ssr: false, loading: () => experimentLoading });
-const RutherfordScattering = dynamic(() => import('@/src-physics/components/experiments/RutherfordScattering').then(m => m.RutherfordScattering), { ssr: false, loading: () => experimentLoading });
-const CavendishExperiment = dynamic(() => import('@/src-physics/components/experiments/CavendishExperiment').then(m => m.CavendishExperiment), { ssr: false, loading: () => experimentLoading });
-const PendulumWave = dynamic(() => import('@/src-physics/components/experiments/PendulumWave').then(m => m.PendulumWave), { ssr: false, loading: () => experimentLoading });
-const BlackHoleAccretion = dynamic(() => import('@/src-physics/components/experiments/BlackHoleAccretion').then(m => m.BlackHoleAccretion), { ssr: false, loading: () => experimentLoading });
-const WaveInterference = dynamic(() => import('@/src-physics/components/experiments/WaveInterference').then(m => m.WaveInterference), { ssr: false, loading: () => experimentLoading });
-const ThermodynamicCycles = dynamic(() => import('@/src-physics/components/visualizations/ThermodynamicCycles').then(m => m.ThermodynamicCycles), { ssr: false, loading: () => experimentLoading });
-const LensOptics = dynamic(() => import('@/src-physics/components/visualizations/LensOptics').then(m => m.LensOptics), { ssr: false, loading: () => experimentLoading });
-const CircuitBuilder = dynamic(() => import('@/src-physics/components/visualizations/CircuitBuilder').then(m => m.CircuitBuilder), { ssr: false, loading: () => experimentLoading });
+const MillersUrey = dynamic(() => import('@/subjects/physics/components/experiments/MillersUrey').then(m => m.MillersUrey), { ssr: false, loading: () => experimentLoading });
+const DoubleSlit = dynamic(() => import('@/subjects/physics/components/experiments/DoubleSlit').then(m => m.DoubleSlit), { ssr: false, loading: () => experimentLoading });
+const GalileosRamp = dynamic(() => import('@/subjects/physics/components/experiments/GalileosRamp').then(m => m.GalileosRamp), { ssr: false, loading: () => experimentLoading });
+const RutherfordScattering = dynamic(() => import('@/subjects/physics/components/experiments/RutherfordScattering').then(m => m.RutherfordScattering), { ssr: false, loading: () => experimentLoading });
+const CavendishExperiment = dynamic(() => import('@/subjects/physics/components/experiments/CavendishExperiment').then(m => m.CavendishExperiment), { ssr: false, loading: () => experimentLoading });
+const PendulumWave = dynamic(() => import('@/subjects/physics/components/experiments/PendulumWave').then(m => m.PendulumWave), { ssr: false, loading: () => experimentLoading });
+const BlackHoleAccretion = dynamic(() => import('@/subjects/physics/components/experiments/BlackHoleAccretion').then(m => m.BlackHoleAccretion), { ssr: false, loading: () => experimentLoading });
+const WaveInterference = dynamic(() => import('@/subjects/physics/components/experiments/WaveInterference').then(m => m.WaveInterference), { ssr: false, loading: () => experimentLoading });
+const ThermodynamicCycles = dynamic(() => import('@/subjects/physics/components/visualizations/ThermodynamicCycles').then(m => m.ThermodynamicCycles), { ssr: false, loading: () => experimentLoading });
+const LensOptics = dynamic(() => import('@/subjects/physics/components/visualizations/LensOptics').then(m => m.LensOptics), { ssr: false, loading: () => experimentLoading });
+const CircuitBuilder = dynamic(() => import('@/subjects/physics/components/visualizations/CircuitBuilder').then(m => m.CircuitBuilder), { ssr: false, loading: () => experimentLoading });
 
 type Experiment = {
   id: string;

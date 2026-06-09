@@ -5,10 +5,10 @@ import { motion, useReducedMotion, useInView } from "framer-motion";
 
 import Link from "next/link";
 import { useRef, useEffect, useState, useCallback } from "react";
-import { PRODUCT_EASE } from "@/src-philosophy/lib/constants";
-import { SCHOOLS, THINKERS, QUICK_LINKS, STATS, FLOATING_SYMBOLS } from "@/src-philosophy/lib/home-data";
-import { ThinkerCarousel } from "@/src-philosophy/components/ThinkerCarousel";
-import QuotesTimeline from "@/src-philosophy/components/visualizations/QuotesTimeline";
+import { PRODUCT_EASE } from "@/subjects/philosophy/lib/constants";
+import { SCHOOLS, THINKERS, QUICK_LINKS, STATS, FLOATING_SYMBOLS } from "@/subjects/philosophy/lib/home-data";
+import { ThinkerCarousel } from "@/subjects/philosophy/components/ThinkerCarousel";
+import QuotesTimeline from "@/subjects/philosophy/components/visualizations/QuotesTimeline";
 import { SITE_URL } from "@/lib/constants";
 
 const collectionJsonLd = {

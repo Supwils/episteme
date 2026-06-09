@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllMathematicians } from "@/src-mathematics/lib/mathematicians";
-import { MATH_ERA_ACCENT } from "@/src-mathematics/lib/constants";
+import { getAllMathematicians } from "@/subjects/mathematics/lib/mathematicians";
+import { MATH_ERA_ACCENT } from "@/subjects/mathematics/lib/constants";
 
 export const metadata: Metadata = {
   title: "数学家 — Universe Knowledge",

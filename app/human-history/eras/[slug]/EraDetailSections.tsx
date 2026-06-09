@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { EraDetail } from "@/src-history/lib/eras";
+import type { EraDetail } from "@/subjects/history/lib/eras";
 
 interface HistoryEvent {
   year: number;

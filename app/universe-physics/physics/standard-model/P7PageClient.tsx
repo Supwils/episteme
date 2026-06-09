@@ -1,7 +1,7 @@
 'use client';
 
-import { useSyncTier } from "@/src-physics/hooks/useSyncTier";
-import { StandardModel } from "@/src-physics/components/visualizations/StandardModel";
+import { useSyncTier } from "@/subjects/physics/hooks/useSyncTier";
+import { StandardModel } from "@/subjects/physics/components/visualizations/StandardModel";
 
 export default function P7PageClient() {
   useSyncTier("P7");

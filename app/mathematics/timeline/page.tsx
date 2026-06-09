@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getAllMathEras } from "@/src-mathematics/lib/eras";
+import { getAllMathEras } from "@/subjects/mathematics/lib/eras";
 
 export const metadata: Metadata = {
   title: "数学时间线 — Universe Knowledge",

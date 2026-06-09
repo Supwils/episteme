@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getAllScientists, getScientistById } from "@/src-life-science/lib/scientists";
-import type { Scientist } from "@/src-life-science/lib/types";
+import { getAllScientists, getScientistById } from "@/subjects/life-science/lib/scientists";
+import type { Scientist } from "@/subjects/life-science/lib/types";
 import { FadeInSection } from "@/components/FadeInSection";
 import { SITE_URL } from "@/lib/constants";
 import { createPersonJsonLd } from "@/lib/jsonld";

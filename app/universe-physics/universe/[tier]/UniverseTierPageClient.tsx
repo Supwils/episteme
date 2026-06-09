@@ -3,8 +3,8 @@
 import { redirect } from "next/navigation";
 
 
-import { useSyncTier } from "@/src-physics/hooks/useSyncTier";
-import { tierFromSlug } from "@/src-physics/lib/tier";
+import { useSyncTier } from "@/subjects/physics/hooks/useSyncTier";
+import { tierFromSlug } from "@/subjects/physics/lib/tier";
 
 export default function UniverseTierPageClient({ params }: { params: { tier: string } }) {
   const tier = tierFromSlug(params.tier);

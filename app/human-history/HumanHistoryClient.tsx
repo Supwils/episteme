@@ -1,11 +1,11 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import PageWrapper from '@/src-history/components/PageWrapper';
+import PageWrapper from '@/subjects/history/components/PageWrapper';
 import { SITE_URL } from '@/lib/constants';
 
 const EventTimeline = dynamic(
-  () => import('@/src-history/components/visualizations/EventTimeline'),
+  () => import('@/subjects/history/components/visualizations/EventTimeline'),
   { ssr: false }
 );
 
@@ -24,7 +24,7 @@ const collectionJsonLd = {
 };
 
 const renderHome = async () => {
-  const { renderHome: render, cleanupHome } = await import('@/src-history/page-renderers/home');
+  const { renderHome: render, cleanupHome } = await import('@/subjects/history/page-renderers/home');
   render();
   return cleanupHome;
 };

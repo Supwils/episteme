@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import NumberLineConcepts from '@/src-mathematics/components/visualizations/NumberLineConcepts';
+import NumberLineConcepts from '@/subjects/mathematics/components/visualizations/NumberLineConcepts';
 
 export const metadata: Metadata = {
   title: '数轴概念 — Universe Knowledge',

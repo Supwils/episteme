@@ -4,11 +4,11 @@ import { useState, lazy, Suspense } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { useSearchParams } from 'next/navigation';
 
-const WhatIfNoColumbus = lazy(() => import('@/src-history/components/simulations/WhatIfNoColumbus'));
-const WhatIfGreeceFalls = lazy(() => import('@/src-history/components/simulations/WhatIfGreeceFalls'));
-const WhatIfPrintingNever = lazy(() => import('@/src-history/components/simulations/WhatIfPrintingNever'));
-const WhatIfWWIAverted = lazy(() => import('@/src-history/components/simulations/WhatIfWWIAverted'));
-const WhatIfInternetDelayed = lazy(() => import('@/src-history/components/simulations/WhatIfInternetDelayed'));
+const WhatIfNoColumbus = lazy(() => import('@/subjects/history/components/simulations/WhatIfNoColumbus'));
+const WhatIfGreeceFalls = lazy(() => import('@/subjects/history/components/simulations/WhatIfGreeceFalls'));
+const WhatIfPrintingNever = lazy(() => import('@/subjects/history/components/simulations/WhatIfPrintingNever'));
+const WhatIfWWIAverted = lazy(() => import('@/subjects/history/components/simulations/WhatIfWWIAverted'));
+const WhatIfInternetDelayed = lazy(() => import('@/subjects/history/components/simulations/WhatIfInternetDelayed'));
 
 interface SimMeta {
   id: string;

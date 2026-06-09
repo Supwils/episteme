@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getKnowledgeBaseBySlug, getKnowledgeBaseSlugs, getAllKnowledgeBase } from "@/src-economics/lib/mdx";
+import { getKnowledgeBaseBySlug, getKnowledgeBaseSlugs, getAllKnowledgeBase } from "@/subjects/economics/lib/mdx";
 import { TableOfContents } from "@/components/TableOfContents";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { StaggerGrid, StaggerItem } from "@/components/StaggerGrid";
-import { getAllTimelineEvents } from "@/src-life-science/lib/timeline-events";
-import { EvolutionTimeline } from "@/src-life-science/components/visualizations";
+import { getAllTimelineEvents } from "@/subjects/life-science/lib/timeline-events";
+import { EvolutionTimeline } from "@/subjects/life-science/components/visualizations";
 
 export const metadata: Metadata = {
   title: "进化时间线 — Universe Knowledge",

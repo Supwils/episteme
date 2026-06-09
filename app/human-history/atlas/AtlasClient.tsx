@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 import { LoadingSpinner } from '@/components/ui';
 
-const AtlasCanvas = dynamic(() => import('@/src-history/components/atlas/AtlasCanvas'), {
+const AtlasCanvas = dynamic(() => import('@/subjects/history/components/atlas/AtlasCanvas'), {
   ssr: false,
   loading: () => (
     <div className="flex h-screen w-full items-center justify-center bg-[#08080f]">

@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getMathematicianBySlug, getMathematicianSlugs, getAllMathematicians } from "@/src-mathematics/lib/mathematicians";
-import { MATH_ERA_ACCENT } from "@/src-mathematics/lib/constants";
-import { MathMarkdownRenderer } from "@/src-mathematics/components/MathMarkdownRenderer";
+import { getMathematicianBySlug, getMathematicianSlugs, getAllMathematicians } from "@/subjects/mathematics/lib/mathematicians";
+import { MATH_ERA_ACCENT } from "@/subjects/mathematics/lib/constants";
+import { MathMarkdownRenderer } from "@/subjects/mathematics/components/MathMarkdownRenderer";
 import { SITE_URL } from "@/lib/constants";
 import { createPersonJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";

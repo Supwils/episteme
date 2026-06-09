@@ -24,8 +24,8 @@
 
 如果要深入某个应用，再读其自己的文档：
 
-- 宇宙物理：`universe-physics/CLAUDE.md` → `universe-physics/docs/develop/06-phase-1-plan.md`
-- 人类历史：`human-history/website/AGENTS.md` → `human-history/docs/开发规范.md`
+- 宇宙物理：`reference/universe-physics/CLAUDE.md` → （见 reference/ 内）
+- 人类历史：`reference/human-history/website/AGENTS.md` → （见 reference/ 内）
 
 ### 第二步：运行自检命令（Read the environment）
 
@@ -38,7 +38,7 @@ cat package.json
 
 # 确认这是单一应用结构（以下都应存在）
 ls app/                                  # App Router 路由
-ls src-physics/ 2>/dev/null && echo "✅ 物理代码存在" || echo "⚠️  物理代码不存在"
+ls subjects/physics/ 2>/dev/null && echo "✅ 物理代码存在" || echo "⚠️  物理代码不存在"
 ls content/ 2>/dev/null && echo "✅ 内容目录存在" || echo "⚠️  内容目录不存在"
 
 # 确认旧 monorepo 残留已清除（以下都应不存在）
@@ -110,8 +110,10 @@ universe-knowledge/                  ← 单一 Next.js 应用根目录
 │   ├── ui/                          ← 通用基础组件（原 @universe/ui：Button、Badge、Panel…）
 │   ├── search/ timeline/ …          ← 跨领域功能组件
 │   └── <subject>/                   ← 各领域专属组件（economics、life-science…）
-├── src-<subject>/                   ← 各领域前端逻辑（physics、history、knowledge-graph…）
-│                                       含 scenes/shaders/store/hooks/lib，领域间互相隔离
+├── subjects/                        ← 各领域前端逻辑（9 个领域），导入路径 @/subjects/<x>
+│   ├── physics/ history/ philosophy/ economics/ life-science/
+│   ├── mathematics/ psychology/ cosmology/ knowledge-graph/
+│   └── <subject>/{components,lib,scenes,shaders,store,hooks}  领域间互相隔离
 ├── lib/                             ← 共享工具 + 内容加载器
 │   ├── graph-engine/                ← 力导向图引擎（原 @universe/graph-engine）
 │   ├── cross-links/                 ← 跨领域链接（原 @universe/content；api.ts 为公开入口）
@@ -122,14 +124,13 @@ universe-knowledge/                  ← 单一 Next.js 应用根目录
 │   ├── universe-physics/ human-history/ philosophy/ …
 │   ├── *.ts / *.js                  ← 类型化内容数据模块（经 @/content/... 导入）
 │   └── *.mdx / *.md                 ← 散文内容（由 lib/mdx.ts 在运行时按路径 fs 读取）
-├── public/ public-physics/          ← 静态资源
-├── scripts/                         ← check-content.ts（内容质量校验）
-├── scripts-physics/                 ← bundle-check、lighthouse 等
+├── public/                          ← 静态资源（含 textures/planets）
+├── scripts/                         ← check-content.ts + physics/（bundle-check、lighthouse 等）
 ├── e2e/                             ← Playwright E2E 测试
 ├── types/                           ← 全局类型声明
-├── docs/                            ← 平台级文档（代理读写区，见下）
-├── universe-physics/                ← 旧位置源码（参考用，禁止删除；已排除出 tsconfig）
-├── human-history/                   ← 旧位置源码 + 知识库（参考用，禁止删除；已排除出 tsconfig）
+├── docs/                            ← 平台级文档（代理读写区，见下；含 DEPLOY.md、MIGRATION.md）
+├── reference/                       ← 旧位置参考代码（universe-physics/、human-history/）
+│                                       禁止删除；已排除出 tsconfig，不参与构建
 ├── package.json                     ← 单一应用清单（无 turbo、无 workspace）
 ├── next.config.ts  tsconfig.json  vercel.json
 ├── vitest.config.ts  playwright.config.ts  eslint.config.mjs  postcss.config.mjs
@@ -140,7 +141,7 @@ universe-knowledge/                  ← 单一 Next.js 应用根目录
 
 **当前架构**：单一 Next.js 应用，`pnpm dev` 在 `localhost:3000` 启动。内容统一存放在根 `content/`；类型化数据用 `@/content/...` 直接导入，MDX 散文由 `lib/content-paths.ts` + `lib/mdx.ts` 在运行时从 `<cwd>/content` 用 fs 读取。
 
-**关键规则**：`universe-physics/` 和 `human-history/` 是旧的参考代码，保留供查阅，**已在 `tsconfig.json` 的 `exclude` 中排除**，不参与构建与类型检查。
+**关键规则**：`reference/` 下是旧的参考代码（`universe-physics/`、`human-history/`），保留供查阅，**已在 `tsconfig.json` 的 `exclude` 中排除**，不参与构建与类型检查。
 
 ---
 
@@ -163,8 +164,8 @@ universe-knowledge/                  ← 单一 Next.js 应用根目录
 1. `docs/任务清单.md` — 当前阶段有序任务与状态
 2. `docs/工作日志.md` — 最新一次代理的发现与遗留问题
 3. `docs/迁移计划.md` — 迁移步骤与风险
-4. `universe-physics/CLAUDE.md` — universe-physics 应用级规范
-5. `human-history/website/AGENTS.md` — human-history 应用级规范
+4. `reference/universe-physics/CLAUDE.md` — universe-physics 应用级规范
+5. `reference/human-history/website/AGENTS.md` — human-history 应用级规范
 6. `docs/工程原则.md` — 平台工程铁律
 7. 本文件（CLAUDE.md）
 
@@ -189,15 +190,15 @@ universe-knowledge/                  ← 单一 Next.js 应用根目录
 
 | 领域     | 路由前缀            | src 目录               | 技术特点                 |
 | -------- | ------------------- | ---------------------- | ------------------------ |
-| 宇宙物理 | `/universe-physics` | `src-physics/`         | R3F 3D + Shaders + LOD   |
-| 人类历史 | `/human-history`    | `src-history/`         | Canvas + GSAP + SVG 地图 |
-| 哲学思想 | `/philosophy`       | `src-philosophy/`      | MDX + 交叉引用           |
-| 生命科学 | `/life-science`     | `src-life-science/`    | Zod schema + 系统发育树  |
-| 宇宙学   | `/cosmology`        | `src-cosmology/`       | 专题内容                 |
-| 数学     | `/mathematics`      | `src-mathematics/`     | 专题内容                 |
-| 经济学   | `/economics`        | `src-economics/`       | MDX + 模拟实验           |
-| 心理学   | `/psychology`       | `src-psychology/`      | MDX + 认知偏差           |
-| 知识图谱 | `/knowledge-graph`  | `src-knowledge-graph/` | Canvas 2D 力导向图       |
+| 宇宙物理 | `/universe-physics` | `subjects/physics/`         | R3F 3D + Shaders + LOD   |
+| 人类历史 | `/human-history`    | `subjects/history/`         | Canvas + GSAP + SVG 地图 |
+| 哲学思想 | `/philosophy`       | `subjects/philosophy/`      | MDX + 交叉引用           |
+| 生命科学 | `/life-science`     | `subjects/life-science/`    | Zod schema + 系统发育树  |
+| 宇宙学   | `/cosmology`        | `subjects/cosmology/`       | 专题内容                 |
+| 数学     | `/mathematics`      | `subjects/mathematics/`     | 专题内容                 |
+| 经济学   | `/economics`        | `subjects/economics/`       | MDX + 模拟实验           |
+| 心理学   | `/psychology`       | `subjects/psychology/`      | MDX + 认知偏差           |
+| 知识图谱 | `/knowledge-graph`  | `subjects/knowledge-graph/` | Canvas 2D 力导向图       |
 
 ### 开发命令（全部在仓库根目录运行）
 
@@ -214,7 +215,7 @@ pnpm check-content    # 内容质量校验（scripts/check-content.ts）
 
 ### 旧版参考文档（仅供查阅，不再适用当前结构）
 
-- `universe-physics/CLAUDE.md`、`human-history/website/AGENTS.md` — 旧独立应用的规范，部分设计思路仍有参考价值。
+- `reference/universe-physics/CLAUDE.md`、`reference/human-history/website/AGENTS.md` — 旧独立应用的规范，部分设计思路仍有参考价值。
 
 ---
 
@@ -333,7 +334,7 @@ pnpm typecheck 2>&1 | head -20
 
 ## 10. 禁止事项（代理不得自行做的事）
 
-- ❌ 删除 `universe-physics/`（旧位置）或 `human-history/website/`（旧 Vite 版本）——需用户明确授权
+- ❌ 删除 `reference/`（含 `universe-physics/`、`human-history/` 旧参考代码）——需用户明确授权
 - ❌ force push 到任何分支
 - ❌ 在没有验证的情况下声称任务已完成
 - ❌ 一次会话同时开多个无关的大任务

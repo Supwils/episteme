@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { CosmologyNav } from '@/src-cosmology/components/CosmologyNav';
-import { HRDiagram } from '@/src-cosmology/components/visualizations';
+import { CosmologyNav } from '@/subjects/cosmology/components/CosmologyNav';
+import { HRDiagram } from '@/subjects/cosmology/components/visualizations';
 
 export const metadata: Metadata = {
   title: '恒星演化 — 宇宙学 — Universe Knowledge',

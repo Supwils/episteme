@@ -1,4 +1,4 @@
-import type { TierContent } from "@/src-physics/lib/content";
+import type { TierContent } from "@/subjects/physics/lib/content";
 
 const content: TierContent = {
   tier: "P2",

@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 
 const CircularFlowDiagram = dynamic(
   () =>
-    import("@/src-economics/components/visualizations/CircularFlowDiagram").then(
+    import("@/subjects/economics/components/visualizations/CircularFlowDiagram").then(
       (m) => m.CircularFlowDiagram
     ),
   {

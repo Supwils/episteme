@@ -1,16 +1,16 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getMathConceptBySlug, getMathConceptSlugs, getAllMathConcepts } from "@/src-mathematics/lib/concepts";
-import { MATH_FIELD_COLORS } from "@/src-mathematics/lib/constants";
-import { MathMarkdownRenderer } from "@/src-mathematics/components/MathMarkdownRenderer";
-import { FunctionPlotter } from "@/src-mathematics/components/visualizations";
+import { getMathConceptBySlug, getMathConceptSlugs, getAllMathConcepts } from "@/subjects/mathematics/lib/concepts";
+import { MATH_FIELD_COLORS } from "@/subjects/mathematics/lib/constants";
+import { MathMarkdownRenderer } from "@/subjects/mathematics/components/MathMarkdownRenderer";
+import { FunctionPlotter } from "@/subjects/mathematics/components/visualizations";
 import { SITE_URL } from "@/lib/constants";
 import { createDefinedTermJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
 import CrossDomainLinks from "@/components/CrossDomainLinks";
-import GeometryExplorer from "@/src-mathematics/components/visualizations/GeometryExplorer";
-import { FractalExplorer } from "@/src-mathematics/components/visualizations/FractalExplorer";
+import GeometryExplorer from "@/subjects/mathematics/components/visualizations/GeometryExplorer";
+import { FractalExplorer } from "@/subjects/mathematics/components/visualizations/FractalExplorer";
 
 const INTERACTIVE_CONCEPTS = new Set(["derivative", "integral", "limit"]);
 

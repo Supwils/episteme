@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import PhilosophyQuiz from '@/src-philosophy/components/visualizations/PhilosophyQuiz';
+import PhilosophyQuiz from '@/subjects/philosophy/components/visualizations/PhilosophyQuiz';
 
 export const metadata: Metadata = {
   title: '哲学思想实验测试 — Universe Knowledge',

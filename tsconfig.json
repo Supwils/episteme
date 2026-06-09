@@ -31,15 +31,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "src-physics/**/*",
-    "src-philosophy/**/*",
-    "src-life-science/**/*",
-    "src-mathematics/**/*",
-    "src-history/**/*",
-    "src-knowledge-graph/**/*",
-    "src-cosmology/**/*",
-    "src-economics/**/*",
-    "src-psychology/**/*"
+    "subjects/**/*"
   ],
   "exclude": [
     "node_modules",
@@ -49,7 +41,6 @@
     "coverage",
     "scripts",
     "content",
-    "universe-physics",
-    "human-history"
+    "reference"
   ]
 }

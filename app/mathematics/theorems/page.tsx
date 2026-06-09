@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllTheorems, getTheoremsByField } from "@/src-mathematics/lib/theorems";
-import { MATH_FIELD_COLORS, MATH_DIFFICULTY_COLORS } from "@/src-mathematics/lib/constants";
+import { getAllTheorems, getTheoremsByField } from "@/subjects/mathematics/lib/theorems";
+import { MATH_FIELD_COLORS, MATH_DIFFICULTY_COLORS } from "@/subjects/mathematics/lib/constants";
 
 export const metadata: Metadata = {
   title: "定理 — Universe Knowledge",

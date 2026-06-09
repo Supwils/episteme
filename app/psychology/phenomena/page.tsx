@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { lazy, Suspense } from "react";
-import { getAllPhenomena } from "@/src-psychology/lib/mdx";
-import { CATEGORY_COLORS } from "@/src-psychology/lib/constants";
-import BrainRegions from "@/src-psychology/components/visualizations/BrainRegions";
-import BiasTaxonomy from "@/src-psychology/components/visualizations/BiasTaxonomy";
+import { getAllPhenomena } from "@/subjects/psychology/lib/mdx";
+import { CATEGORY_COLORS } from "@/subjects/psychology/lib/constants";
+import BrainRegions from "@/subjects/psychology/components/visualizations/BrainRegions";
+import BiasTaxonomy from "@/subjects/psychology/components/visualizations/BiasTaxonomy";
 
 const MemoryCurve = lazy(
-  () => import("@/src-psychology/components/visualizations/MemoryCurve"),
+  () => import("@/subjects/psychology/components/visualizations/MemoryCurve"),
 );
 const DecisionMatrix = lazy(
-  () => import("@/src-psychology/components/visualizations/DecisionMatrix"),
+  () => import("@/subjects/psychology/components/visualizations/DecisionMatrix"),
 );
 
 const CATEGORIES = ["全部", "认知", "社会", "发展", "情绪", "感知", "记忆", "决策"];

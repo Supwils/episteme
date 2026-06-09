@@ -1,9 +1,9 @@
 'use client';
 
-import PageWrapper from '@/src-history/components/PageWrapper';
+import PageWrapper from '@/subjects/history/components/PageWrapper';
 
 const renderTimeline = async () => {
-  const { renderTimeline: render, cleanupTimeline } = await import('@/src-history/page-renderers/timeline');
+  const { renderTimeline: render, cleanupTimeline } = await import('@/subjects/history/page-renderers/timeline');
   render();
   return cleanupTimeline;
 };

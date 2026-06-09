@@ -1,11 +1,11 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getTheoristBySlug, getTheoristSlugs, getAllTheorists } from "@/src-psychology/lib/mdx";
-import { ERA_COLORS } from "@/src-psychology/lib/constants";
+import { getTheoristBySlug, getTheoristSlugs, getAllTheorists } from "@/subjects/psychology/lib/mdx";
+import { ERA_COLORS } from "@/subjects/psychology/lib/constants";
 import { SITE_URL } from "@/lib/constants";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { TableOfContents } from "@/components/TableOfContents";
-import { MaslowHierarchy } from "@/src-psychology/components/visualizations/MaslowHierarchy";
+import { MaslowHierarchy } from "@/subjects/psychology/components/visualizations/MaslowHierarchy";
 
 export function generateStaticParams() {
   return getTheoristSlugs().map((slug) => ({ slug }));

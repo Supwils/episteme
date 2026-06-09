@@ -1,10 +1,10 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { useSyncTier } from "@/src-physics/hooks/useSyncTier";
+import { useSyncTier } from "@/subjects/physics/hooks/useSyncTier";
 
 const WaveVisualizer = dynamic(
-  () => import('@/src-physics/components/visualizations/WaveVisualizer').then(m => m.WaveVisualizer),
+  () => import('@/subjects/physics/components/visualizations/WaveVisualizer').then(m => m.WaveVisualizer),
   { ssr: false },
 );
 

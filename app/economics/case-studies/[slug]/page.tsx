@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getCaseStudyBySlug, getCaseStudySlugs, getAllCaseStudies } from "@/src-economics/lib/mdx";
-import { CATEGORY_COLORS } from "@/src-economics/lib/constants";
+import { getCaseStudyBySlug, getCaseStudySlugs, getAllCaseStudies } from "@/subjects/economics/lib/mdx";
+import { CATEGORY_COLORS } from "@/subjects/economics/lib/constants";
 import { TableOfContents } from "@/components/TableOfContents";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import Breadcrumb from "@/components/Breadcrumb";

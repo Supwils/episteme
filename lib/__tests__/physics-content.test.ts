@@ -16,15 +16,15 @@ import P5 from "@/content/universe-physics/physics/P5-atomic-molecular";
 import P6 from "@/content/universe-physics/physics/P6-nuclear-particle";
 import P7 from "@/content/universe-physics/physics/P7-standard-model";
 import P8 from "@/content/universe-physics/physics/P8-frontier";
-import type { TierContent } from "@/src-physics/lib/content";
+import type { TierContent } from "@/subjects/physics/lib/content";
 import {
   tierContentSchema,
   formatTierIssue,
-} from "@/src-physics/lib/content-schema";
-import { TIER_ORDER } from "@/src-physics/lib/tier";
-import { PHYSICS_TIER_ORDER } from "@/src-physics/lib/physics-tier";
-import { detectInitialQuality } from "@/src-physics/lib/quality";
-import { subsamplePositions, subsample1 } from "@/src-physics/lib/lod";
+} from "@/subjects/physics/lib/content-schema";
+import { TIER_ORDER } from "@/subjects/physics/lib/tier";
+import { PHYSICS_TIER_ORDER } from "@/subjects/physics/lib/physics-tier";
+import { detectInitialQuality } from "@/subjects/physics/lib/quality";
+import { subsamplePositions, subsample1 } from "@/subjects/physics/lib/lod";
 
 const COSMOS: TierContent[] = [T0, T1, T2, T3, T4, T5, T6, T7];
 const PHYSICS: TierContent[] = [P0, P1, P2, P3, P4, P5, P6, P7, P8];

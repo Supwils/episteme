@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getAllSpecies, getSpeciesById } from "@/src-life-science/lib/species";
-import { getDeepReading } from "@/src-life-science/lib/deep-reading";
-import type { Species } from "@/src-life-science/lib/types";
-import { DeepReading } from "@/src-life-science/components/DeepReading";
+import { getAllSpecies, getSpeciesById } from "@/subjects/life-science/lib/species";
+import { getDeepReading } from "@/subjects/life-science/lib/deep-reading";
+import type { Species } from "@/subjects/life-science/lib/types";
+import { DeepReading } from "@/subjects/life-science/components/DeepReading";
 import { TableOfContents } from "@/components/TableOfContents";
 import { FadeInSection } from "@/components/FadeInSection";
 import { SITE_URL } from "@/lib/constants";
@@ -12,7 +12,7 @@ import { createArticleJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
 import CrossDomainLinks from "@/components/CrossDomainLinks";
-import { CellExplorer } from "@/src-life-science/components/visualizations/CellExplorer";
+import { CellExplorer } from "@/subjects/life-science/components/visualizations/CellExplorer";
 
 type Props = { params: Promise<{ slug: string }> };
 

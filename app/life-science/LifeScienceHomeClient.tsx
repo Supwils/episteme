@@ -5,14 +5,14 @@ import { motion, useReducedMotion, useInView } from "framer-motion";
 
 import Link from "next/link";
 import { useRef, useEffect, useState, useCallback, lazy, Suspense } from "react";
-import { PRODUCT_EASE } from "@/src-life-science/lib/constants";
-import { ERAS, FEATURED_SPECIES, QUICK_LINKS, STATS, FLOATING_SYMBOLS } from "@/src-life-science/lib/home-data";
+import { PRODUCT_EASE } from "@/subjects/life-science/lib/constants";
+import { ERAS, FEATURED_SPECIES, QUICK_LINKS, STATS, FLOATING_SYMBOLS } from "@/subjects/life-science/lib/home-data";
 import { SITE_URL } from "@/lib/constants";
 
-const DNAHelix = lazy(() => import("@/src-life-science/components/visualizations/DNAHelix"));
-const ProteinFolding = lazy(() => import("@/src-life-science/components/visualizations/ProteinFolding").then(m => ({ default: m.ProteinFolding })));
-const EcosystemEnergyFlow = lazy(() => import("@/src-life-science/components/visualizations/EcosystemEnergyFlow").then(m => ({ default: m.EcosystemEnergyFlow })));
-const GeneExpression = lazy(() => import("@/src-life-science/components/visualizations/GeneExpression").then(m => ({ default: m.GeneExpression })));
+const DNAHelix = lazy(() => import("@/subjects/life-science/components/visualizations/DNAHelix"));
+const ProteinFolding = lazy(() => import("@/subjects/life-science/components/visualizations/ProteinFolding").then(m => ({ default: m.ProteinFolding })));
+const EcosystemEnergyFlow = lazy(() => import("@/subjects/life-science/components/visualizations/EcosystemEnergyFlow").then(m => ({ default: m.EcosystemEnergyFlow })));
+const GeneExpression = lazy(() => import("@/subjects/life-science/components/visualizations/GeneExpression").then(m => ({ default: m.GeneExpression })));
 
 const collectionJsonLd = {
   '@context': 'https://schema.org',

@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getMathDialogueBySlug, getMathDialogueSlugs, getAllMathDialogues } from "@/src-mathematics/lib/dialogues";
-import { MATH_FIELD_COLORS, MATH_ERA_ACCENT } from "@/src-mathematics/lib/constants";
-import { MathMarkdownRenderer } from "@/src-mathematics/components/MathMarkdownRenderer";
+import { getMathDialogueBySlug, getMathDialogueSlugs, getAllMathDialogues } from "@/subjects/mathematics/lib/dialogues";
+import { MATH_FIELD_COLORS, MATH_ERA_ACCENT } from "@/subjects/mathematics/lib/constants";
+import { MathMarkdownRenderer } from "@/subjects/mathematics/components/MathMarkdownRenderer";
 import { SITE_URL } from "@/lib/constants";
 import { createArticleJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";

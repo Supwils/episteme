@@ -3,10 +3,10 @@
 import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { lazy, Suspense, useCallback } from "react";
-import { PRODUCT_EASE } from "@/src-psychology/lib/constants";
+import { PRODUCT_EASE } from "@/subjects/psychology/lib/constants";
 
 const EmotionWheel = lazy(
-  () => import("@/src-psychology/components/visualizations/EmotionWheel"),
+  () => import("@/subjects/psychology/components/visualizations/EmotionWheel"),
 );
 
 const SECTIONS = [

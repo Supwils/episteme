@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 
 const GDPChart = dynamic(
   () =>
-    import("@/src-economics/components/visualizations/GDPChart").then(
+    import("@/subjects/economics/components/visualizations/GDPChart").then(
       (m) => m.GDPChart
     ),
   {

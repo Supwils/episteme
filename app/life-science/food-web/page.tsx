@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { FoodWeb } from "@/src-life-science/components/visualizations/FoodWeb";
+import { FoodWeb } from "@/subjects/life-science/components/visualizations/FoodWeb";
 
 export const metadata: Metadata = {
   title: "食物网 — Universe Knowledge",

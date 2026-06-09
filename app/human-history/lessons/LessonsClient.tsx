@@ -1,9 +1,9 @@
 'use client';
 
-import PageWrapper from '@/src-history/components/PageWrapper';
+import PageWrapper from '@/subjects/history/components/PageWrapper';
 
 const renderLessons = async () => {
-  const { renderLessons: render, cleanupLessons } = await import('@/src-history/page-renderers/lessons');
+  const { renderLessons: render, cleanupLessons } = await import('@/subjects/history/page-renderers/lessons');
   render();
   return cleanupLessons;
 };

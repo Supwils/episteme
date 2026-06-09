@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getAllDomains, getDomainById } from "@/src-life-science/lib/tree-data";
-import { getSpeciesById } from "@/src-life-science/lib/species";
-import { DeepReading } from "@/src-life-science/components/DeepReading";
+import { getAllDomains, getDomainById } from "@/subjects/life-science/lib/tree-data";
+import { getSpeciesById } from "@/subjects/life-science/lib/species";
+import { DeepReading } from "@/subjects/life-science/components/DeepReading";
 import { FadeInSection } from "@/components/FadeInSection";
 
 type Props = { params: Promise<{ domain: string }> };

@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getDisorderBySlug, getDisorderSlugs, getAllDisorders } from "@/src-psychology/lib/mdx";
-import { DISORDER_CATEGORY_COLORS } from "@/src-psychology/lib/constants";
+import { getDisorderBySlug, getDisorderSlugs, getAllDisorders } from "@/subjects/psychology/lib/mdx";
+import { DISORDER_CATEGORY_COLORS } from "@/subjects/psychology/lib/constants";
 import { SITE_URL } from "@/lib/constants";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { TableOfContents } from "@/components/TableOfContents";

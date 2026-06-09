@@ -37,9 +37,9 @@ vi.mock('framer-motion', () => ({
 import { DomainCard } from '../DomainCard';
 import { AnimatedCounter } from '../AnimatedCounter';
 import { ScrollToTop } from '../ScrollToTop';
-import { MarkdownRenderer } from '../../src-philosophy/components/MarkdownRenderer';
-import { DeepReading } from '../../src-life-science/components/DeepReading';
-import { LifeStats } from '../../src-life-science/components/LifeStats';
+import { MarkdownRenderer } from '@/subjects/philosophy/components/MarkdownRenderer';
+import { DeepReading } from '@/subjects/life-science/components/DeepReading';
+import { LifeStats } from '@/subjects/life-science/components/LifeStats';
 
 afterEach(() => {
   cleanup();

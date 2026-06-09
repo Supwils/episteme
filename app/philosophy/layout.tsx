@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { fraunces, inter, jetbrainsMono } from "./fonts";
 import PhilosophyNav from "@/components/philosophy/PhilosophyNav";
 import { PageTransition } from "@/components/PageTransition";
-import { PhilosophyProgressWrapper } from "@/src-philosophy/components/PhilosophyProgressWrapper";
+import { PhilosophyProgressWrapper } from "@/subjects/philosophy/components/PhilosophyProgressWrapper";
 import "./globals.css";
 
 export const metadata: Metadata = {

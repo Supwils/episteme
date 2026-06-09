@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getTheoryBySlug, getTheorySlugs, getAllTheories } from "@/src-economics/lib/mdx";
-import { CATEGORY_COLORS } from "@/src-economics/lib/constants";
+import { getTheoryBySlug, getTheorySlugs, getAllTheories } from "@/subjects/economics/lib/mdx";
+import { CATEGORY_COLORS } from "@/subjects/economics/lib/constants";
 import { TableOfContents } from "@/components/TableOfContents";
 import RelatedContent from "@/components/RelatedContent";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";

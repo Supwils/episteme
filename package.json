@@ -12,7 +12,7 @@
     "lint": "eslint . --max-warnings 0",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "bundle-check": "node scripts-physics/bundle-check.mjs",
+    "bundle-check": "node scripts/physics/bundle-check.mjs",
     "check-content": "tsx scripts/check-content.ts",
     "clean": "rm -rf .next dist coverage",
     "prepare": "husky"

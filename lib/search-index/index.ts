@@ -102,7 +102,7 @@ export async function getSearchIndex(): Promise<{
       import("@/content/philosophy/concepts-data").catch(() => null),
       import("@/content/human-history/data/figures.js").catch(() => null),
       import("@/content/human-history/data/simulations-data").catch(() => null),
-      import("@/src-life-science/lib/index").catch(() => null),
+      import("@/subjects/life-science/lib/index").catch(() => null),
       import("@/content/human-history/data/knowledge-base-data").catch(() => null),
       import("@/content/economics/economists-data").catch(() => null),
       import("@/content/economics/schools-data").catch(() => null),

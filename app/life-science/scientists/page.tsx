@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllScientists } from "@/src-life-science/lib/scientists";
+import { getAllScientists } from "@/subjects/life-science/lib/scientists";
 import { StaggerGrid, StaggerItem } from "@/components/StaggerGrid";
 
 export const metadata: Metadata = {

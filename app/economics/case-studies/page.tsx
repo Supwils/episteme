@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllCaseStudies } from "@/src-economics/lib/mdx";
-import { CATEGORY_COLORS } from "@/src-economics/lib/constants";
+import { getAllCaseStudies } from "@/subjects/economics/lib/mdx";
+import { CATEGORY_COLORS } from "@/subjects/economics/lib/constants";
 
 export const metadata: Metadata = {
   title: "经济案例 — Universe Knowledge",

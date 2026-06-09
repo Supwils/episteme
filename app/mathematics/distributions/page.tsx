@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import DistributionExplorer from "@/src-mathematics/components/visualizations/DistributionExplorer";
+import DistributionExplorer from "@/subjects/mathematics/components/visualizations/DistributionExplorer";
 
 export const metadata: Metadata = {
   title: "概率分布探索器 — 数学可视化",

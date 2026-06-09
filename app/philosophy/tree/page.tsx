@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PhilosophyTree } from "@/src-philosophy/components/visualizations";
+import { PhilosophyTree } from "@/subjects/philosophy/components/visualizations";
 
 export const metadata: Metadata = {
   title: "哲学传承树 — 哲学思想 — Universe Knowledge",

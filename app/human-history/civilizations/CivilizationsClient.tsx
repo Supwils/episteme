@@ -3,7 +3,7 @@
 import { lazy, Suspense } from 'react';
 
 const CivilizationCompare = lazy(
-  () => import('@/src-history/components/visualizations/CivilizationCompare'),
+  () => import('@/subjects/history/components/visualizations/CivilizationCompare'),
 );
 
 function CompareLoading() {

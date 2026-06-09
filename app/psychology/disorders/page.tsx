@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllDisorders } from "@/src-psychology/lib/mdx";
-import { DISORDER_CATEGORY_COLORS } from "@/src-psychology/lib/constants";
+import { getAllDisorders } from "@/subjects/psychology/lib/mdx";
+import { DISORDER_CATEGORY_COLORS } from "@/subjects/psychology/lib/constants";
 
 export const metadata: Metadata = {
   title: "心理障碍 — Universe Knowledge",

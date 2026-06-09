@@ -33,23 +33,23 @@ const AuctionSimulator = dynamic(
   { loading: () => loadingPlaceholder, ssr: false }
 );
 const YieldCurve = dynamic(
-  () => import("@/src-economics/components/visualizations/YieldCurve").then((m) => m.YieldCurve),
+  () => import("@/subjects/economics/components/visualizations/YieldCurve").then((m) => m.YieldCurve),
   { loading: () => loadingPlaceholder, ssr: false }
 );
 const PhillipsCurve = dynamic(
-  () => import("@/src-economics/components/visualizations/PhillipsCurve").then((m) => m.PhillipsCurve),
+  () => import("@/subjects/economics/components/visualizations/PhillipsCurve").then((m) => m.PhillipsCurve),
   { loading: () => loadingPlaceholder, ssr: false }
 );
 const CircularFlowDiagram = dynamic(
-  () => import("@/src-economics/components/visualizations/CircularFlowDiagram").then((m) => m.CircularFlowDiagram),
+  () => import("@/subjects/economics/components/visualizations/CircularFlowDiagram").then((m) => m.CircularFlowDiagram),
   { loading: () => loadingPlaceholder, ssr: false }
 );
 const InflationCalculator = dynamic(
-  () => import("@/src-economics/components/visualizations/InflationCalculator").then((m) => m.InflationCalculator),
+  () => import("@/subjects/economics/components/visualizations/InflationCalculator").then((m) => m.InflationCalculator),
   { loading: () => loadingPlaceholder, ssr: false }
 );
 const GameTheoryMatrix = dynamic(
-  () => import("@/src-economics/components/visualizations/GameTheoryMatrix").then((m) => m.GameTheoryMatrix),
+  () => import("@/subjects/economics/components/visualizations/GameTheoryMatrix").then((m) => m.GameTheoryMatrix),
   { loading: () => loadingPlaceholder, ssr: false }
 );
 

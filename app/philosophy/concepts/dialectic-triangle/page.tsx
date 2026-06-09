@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import DialecticTriangle from '@/src-philosophy/components/visualizations/DialecticTriangle';
+import DialecticTriangle from '@/subjects/philosophy/components/visualizations/DialecticTriangle';
 
 export const metadata: Metadata = {
   title: '辩证三角 — Universe Knowledge',

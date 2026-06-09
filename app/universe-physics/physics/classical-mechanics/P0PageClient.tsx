@@ -1,7 +1,7 @@
 'use client';
 
-import { useSyncTier } from "@/src-physics/hooks/useSyncTier";
-import { ForceDiagram } from "@/src-physics/components/visualizations/ForceDiagram";
+import { useSyncTier } from "@/subjects/physics/hooks/useSyncTier";
+import { ForceDiagram } from "@/subjects/physics/components/visualizations/ForceDiagram";
 
 
 export default function P0PageClient() {

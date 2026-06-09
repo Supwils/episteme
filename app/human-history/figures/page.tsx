@@ -1,5 +1,5 @@
 import { FIGURES } from "@/content/human-history/data/figures.js";
-import { ERAS } from "@/src-history/lib/eras";
+import { ERAS } from "@/subjects/history/lib/eras";
 import Link from "next/link";
 import type { Metadata } from "next";
 

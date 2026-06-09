@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 
 const HistoricalMap = dynamic(
-  () => import('@/src-history/components/visualizations/HistoricalMap'),
+  () => import('@/subjects/history/components/visualizations/HistoricalMap'),
   {
     ssr: false,
     loading: () => (

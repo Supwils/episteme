@@ -3,17 +3,17 @@
 import dynamic from "next/dynamic";
 
 const BlackHoleVisualizer = dynamic(
-  () => import("@/src-cosmology/components/visualizations/BlackHoleVisualizer").then((m) => ({ default: m.BlackHoleVisualizer })),
+  () => import("@/subjects/cosmology/components/visualizations/BlackHoleVisualizer").then((m) => ({ default: m.BlackHoleVisualizer })),
   { ssr: false },
 );
 
 const GravitySimulation = dynamic(
-  () => import("@/src-cosmology/components/visualizations/GravitySimulation").then((m) => ({ default: m.GravitySimulation })),
+  () => import("@/subjects/cosmology/components/visualizations/GravitySimulation").then((m) => ({ default: m.GravitySimulation })),
   { ssr: false },
 );
 
 const CosmicDistanceLadder = dynamic(
-  () => import("@/src-cosmology/components/visualizations/CosmicDistanceLadder").then((m) => ({ default: m.CosmicDistanceLadder })),
+  () => import("@/subjects/cosmology/components/visualizations/CosmicDistanceLadder").then((m) => ({ default: m.CosmicDistanceLadder })),
   { ssr: false },
 );
 

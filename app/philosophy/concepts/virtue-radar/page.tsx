@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import VirtueRadar from '@/src-philosophy/components/visualizations/VirtueRadar';
+import VirtueRadar from '@/subjects/philosophy/components/visualizations/VirtueRadar';
 
 export const metadata: Metadata = {
   title: '美德雷达图 — Universe Knowledge',

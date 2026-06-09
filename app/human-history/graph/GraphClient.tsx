@@ -3,11 +3,11 @@
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { LoadingSpinner } from '@/components/ui';
-import type { HistoryGraphProps } from '@/src-history/components/history-graph/HistoryGraph';
+import type { HistoryGraphProps } from '@/subjects/history/components/history-graph/HistoryGraph';
 
 const HistoryGraph = dynamic<HistoryGraphProps>(
   () =>
-    import('@/src-history/components/history-graph/HistoryGraph').then(
+    import('@/subjects/history/components/history-graph/HistoryGraph').then(
       (mod) => ({ default: mod.HistoryGraph }),
     ),
   {
@@ -31,7 +31,7 @@ export default function GraphClient() {
 
   useEffect(() => {
     let cancelled = false;
-    import('@/src-history/lib/graph-data').then((mod) => {
+    import('@/subjects/history/lib/graph-data').then((mod) => {
       if (cancelled) return;
       setData({
         nodes: mod.buildHistoryNodes(),

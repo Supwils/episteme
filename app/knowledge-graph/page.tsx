@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { ALL_NODES, ALL_EDGES } from '@/src-knowledge-graph/data/graph-data';
+import { ALL_NODES, ALL_EDGES } from '@/subjects/knowledge-graph/data/graph-data';
 import { KnowledgeGraphClient } from './KnowledgeGraphClient';
 import './globals.css';
 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllMathParadoxes, getMathParadoxesByField } from "@/src-mathematics/lib/paradoxes";
-import { MATH_FIELD_COLORS } from "@/src-mathematics/lib/constants";
+import { getAllMathParadoxes, getMathParadoxesByField } from "@/subjects/mathematics/lib/paradoxes";
+import { MATH_FIELD_COLORS } from "@/subjects/mathematics/lib/constants";
 
 export const metadata: Metadata = {
   title: "数学悖论 — Universe Knowledge",
