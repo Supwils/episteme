@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 type TocItem = {
   id: string;
@@ -17,7 +17,6 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
   const [activeId, setActiveId] = useState<string>("");
   const [collapsed, setCollapsed] = useState(true);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const activeRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
     const headings = document.querySelectorAll<HTMLElement>("h2[id], h3[id]");
@@ -53,9 +52,8 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    activeRef.current?.scrollIntoView({ block: "nearest", behavior: "smooth" });
-  }, [activeId]);
+  // Highlighting the active item is purely visual — we deliberately do NOT
+  // auto-scroll it into view, because doing so fought the reader's own scroll.
 
   const handleClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
@@ -75,7 +73,12 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
 
   return (
     <>
-      <div className="sticky top-24 hidden max-h-[calc(100vh-8rem)] border-border-faint border-l pl-4 lg:block">
+      {/* Desktop: a floating sticky list. No inner scroll container, so it never
+          traps the wheel; it simply rides along with the page scroll. */}
+      <nav
+        aria-label="目录"
+        className="sticky top-24 hidden self-start border-border-faint border-l pl-4 lg:block"
+      >
         <div className="h-0.5 rounded-full bg-border-faint mb-3">
           <div
             className="h-full rounded-full transition-all duration-300"
@@ -85,21 +88,16 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
         <p className="text-fg-muted mb-3 font-mono text-[9px] tracking-[0.32em] uppercase">
           目录 · contents
         </p>
-        <nav className="max-h-[calc(100vh-12rem)] space-y-1.5 overflow-y-auto pr-2 scrollbar-thin">
+        <div className="space-y-1.5">
           {items.map((item) => {
             const isActive = activeId === item.id;
             return (
               <a
                 key={item.id}
-                ref={isActive ? activeRef : undefined}
                 href={`#${item.id}`}
                 className={`block py-0.5 font-mono text-[11px] leading-relaxed tracking-[0.04em] transition-colors duration-200 ${
                   item.level === 3 ? "pl-3" : ""
-                } ${
-                  isActive
-                    ? "font-medium"
-                    : "text-fg-muted hover:opacity-80"
-                }`}
+                } ${isActive ? "font-medium" : "text-fg-muted hover:opacity-80"}`}
                 style={isActive ? { color: accentColor } : undefined}
                 onClick={(e) => handleClick(e, item.id)}
               >
@@ -107,15 +105,13 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
               </a>
             );
           })}
-        </nav>
-      </div>
+        </div>
+      </nav>
 
       <details
         className="border-border-faint border lg:hidden"
         open={!collapsed}
-        onToggle={(e) =>
-          setCollapsed(!(e.target as HTMLDetailsElement).open)
-        }
+        onToggle={(e) => setCollapsed(!(e.target as HTMLDetailsElement).open)}
       >
         <summary className="text-fg-muted cursor-pointer px-4 py-3 font-mono text-[10px] tracking-[0.28em] uppercase">
           目录 · contents
