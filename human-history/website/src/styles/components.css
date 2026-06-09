@@ -1,0 +1,488 @@
+/* === ERA CARDS === */
+
+.era-list {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 28px 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+
+@media (min-width: 720px) {
+  .era-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px;
+  }
+}
+
+.era-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 20px;
+  padding: 36px 28px 32px;
+  text-decoration: none;
+  color: inherit;
+  background: transparent;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background 0.6s var(--ease-cinema);
+}
+
+.era-list .era-card:last-child { border-bottom-color: var(--border); }
+
+.era-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--era-color, var(--gold));
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.65s var(--ease-cinema);
+}
+
+.era-card::after {
+  content: attr(data-stem);
+  position: absolute;
+  right: 24px;
+  bottom: 12px;
+  font-family: var(--brush);
+  font-size: 7rem;
+  color: var(--era-color, var(--gold));
+  opacity: 0.05;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  transition: opacity 0.5s var(--ease-out), transform 0.6s var(--ease-cinema);
+  transform: translateX(20px) translateY(20px);
+}
+
+.era-card:hover {
+  background: color-mix(in oklab, var(--era-color, var(--gold)) 5%, transparent);
+}
+.era-card:hover::before { transform: scaleY(1); }
+.era-card:hover::after {
+  opacity: 0.14;
+  transform: translateX(0) translateY(0);
+}
+
+.era-card-link {
+  display: contents;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.era-expand-btn {
+  grid-column: 2;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  color: var(--parchment-dim);
+  font-size: 0.72rem;
+  padding: 4px 14px;
+  cursor: pointer;
+  font-family: var(--sans);
+  transition: all 0.2s;
+  justify-self: start;
+  margin-top: 8px;
+}
+
+.era-expand-btn:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+.era-expand-body {
+  grid-column: 1 / -1;
+  display: none;
+  padding: 16px 0 0;
+  border-top: 1px solid var(--border);
+  margin-top: 12px;
+}
+
+.era-card-expanded {
+  background: var(--bg-card);
+}
+
+.era-card-head {
+  grid-column: 2;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.era-stem {
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 0.78rem;
+  color: var(--parchment-mute);
+  letter-spacing: 0.18em;
+  padding-top: 2px;
+  border-right: 1px dashed var(--border);
+  padding-right: 14px;
+  text-align: right;
+  font-feature-settings: 'lnum' 1, 'tnum' 1;
+}
+
+.era-stem strong {
+  display: block;
+  font-family: var(--brush);
+  font-weight: 400;
+  color: var(--era-color, var(--gold));
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+  letter-spacing: 0;
+}
+
+.era-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  background: color-mix(in oklab, var(--era-color, var(--gold)) 12%, transparent) !important;
+  border: 1px solid color-mix(in oklab, var(--era-color, var(--gold)) 35%, transparent) !important;
+}
+
+.era-icon iconify-icon { color: var(--era-color, var(--gold)); }
+
+.era-name-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.era-name {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--parchment);
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+}
+
+.era-name em {
+  display: block;
+  font-family: var(--italic);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.72rem;
+  color: var(--parchment-mute);
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+
+.era-date {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--era-color, var(--gold));
+  letter-spacing: 0.04em;
+  margin-left: auto;
+  white-space: nowrap;
+  padding-top: 6px;
+}
+
+.era-desc {
+  grid-column: 2;
+  color: var(--parchment-dim);
+  font-size: 0.92rem;
+  line-height: 1.85;
+  margin-bottom: 16px;
+  max-width: 56ch;
+}
+
+.era-tags {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+.tag {
+  font-size: 0.7rem;
+  padding: 4px 10px;
+  border-radius: 2px;
+  border: 1px solid;
+  font-family: var(--sans);
+  letter-spacing: 0.04em;
+}
+
+/* === ERA DETAIL PANEL (shared component) === */
+.era-detail-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.era-detail-quote {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--gold);
+  font-size: 0.92rem;
+  line-height: 1.8;
+  padding: 14px 18px;
+  border-left: 3px solid var(--gold);
+  background: var(--bg-card);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin: 0;
+}
+
+.era-detail-quote cite {
+  display: block;
+  font-style: normal;
+  font-size: 0.78rem;
+  color: var(--parchment-dim);
+  margin-top: 8px;
+}
+
+.era-detail-desc p {
+  font-size: 0.88rem;
+  color: var(--parchment-dim);
+  line-height: 1.9;
+  margin: 0 0 12px;
+  text-indent: 2em;
+}
+
+.era-detail-desc p:first-child {
+  text-indent: 0;
+}
+
+.era-detail-section h4 {
+  font-family: var(--serif);
+  font-size: 0.85rem;
+  color: var(--parchment);
+  font-weight: 600;
+  margin: 0 0 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.era-detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.era-detail-tag {
+  font-size: 0.72rem;
+  padding: 3px 10px;
+  border-radius: 99px;
+  border: 1px solid var(--border);
+  color: var(--parchment-dim);
+  background: var(--bg-card);
+}
+
+.era-tag-figure {
+  border-color: color-mix(in oklab, var(--gold) 25%, transparent);
+  color: var(--gold-light);
+}
+
+.era-detail-legacy {
+  font-size: 0.84rem;
+  color: var(--parchment-dim);
+  line-height: 1.85;
+  margin: 0;
+  padding: 10px 14px;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border-left: 2px solid var(--cinnabar);
+}
+
+/* === MINI TIMELINE (home) — flowing river of history === */
+.mini-tl {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 28px 32px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.mini-tl::before {
+  content: '';
+  position: absolute;
+  left: 28px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--gold) 8%, var(--gold) 92%, transparent);
+  opacity: 0.24;
+}
+
+.mini-tl-item {
+  display: grid;
+  grid-template-columns: 120px 36px minmax(0, 1fr);
+  gap: 16px 20px;
+  align-items: start;
+  padding: 18px 0 18px 14px;
+  position: relative;
+  border-bottom: 1px dashed var(--border-soft);
+  transition: padding 0.4s var(--ease-cinema), background 0.3s var(--ease-out);
+}
+
+.mini-tl-item:last-child { border-bottom: 0; }
+
+.mini-tl-item:hover {
+  padding-left: 22px;
+  background: color-mix(in oklab, var(--gold) 3%, transparent);
+}
+
+.mini-tl-item:hover .mini-tl-dot {
+  background: var(--cinnabar);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--cinnabar) 18%, transparent);
+}
+
+.mini-tl-year {
+  grid-column: 1;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+  text-align: right;
+  padding-right: 4px;
+  font-feature-settings: 'lnum' 1, 'tnum' 1;
+}
+
+.mini-tl-dot {
+  grid-column: 2;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--gold);
+  margin: 9px auto 0;
+  position: relative;
+  z-index: 1;
+  transition: background 0.3s var(--ease-out), box-shadow 0.4s var(--ease-cinema);
+}
+
+.mini-tl-content {
+  grid-column: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+}
+
+.mini-tl-content h3 {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--parchment);
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+}
+
+.mini-tl-content .mtl-desc {
+  font-size: 0.86rem;
+  color: var(--parchment-dim);
+  line-height: 1.7;
+  max-width: 64ch;
+}
+
+/* === QUOTE — vermillion seal moment === */
+.quote-section {
+  max-width: 920px;
+  margin: 96px auto 0;
+  padding: 96px 32px 96px;
+  text-align: center;
+  position: relative;
+}
+
+.quote-section::before {
+  content: '「';
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--brush);
+  font-size: 5rem;
+  color: var(--cinnabar);
+  opacity: 0.55;
+  line-height: 1;
+}
+
+.quote-section .section-title {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.quote-section blockquote {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 2.6vw, 2.1rem);
+  font-weight: 400;
+  color: var(--parchment);
+  line-height: 1.9;
+  font-style: normal;
+  margin: 0 auto 28px;
+  letter-spacing: 0.08em;
+  max-width: 32ch;
+  text-wrap: balance;
+}
+
+.quote-section cite {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--parchment-dim);
+  font-size: 0.82rem;
+  font-style: normal;
+  letter-spacing: 0.16em;
+  font-family: var(--mono);
+}
+
+.quote-section cite::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--cinnabar);
+}
+
+/* Cinnabar seal stamp at corner of the quote block */
+.quote-seal {
+  position: absolute;
+  bottom: 56px;
+  right: 12%;
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--cinnabar) 0%, #9c2e26 100%);
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  font-family: var(--brush);
+  font-size: 1.6rem;
+  color: var(--silk);
+  transform: rotate(-8deg);
+  box-shadow: 0 14px 36px -16px rgba(200, 68, 58, 0.5);
+  opacity: 0.82;
+}
+.quote-seal::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(241, 229, 192, 0.5);
+  border-radius: 2px;
+}
+
+@media (max-width: 720px) {
+  .quote-seal { bottom: 24px; right: 24px; width: 52px; height: 52px; font-size: 1.3rem; }
+}
+
