@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { ForceLayout, type LayoutNode, type LayoutEdge } from '@universe/graph-engine';
+import { ForceLayout, type LayoutNode, type LayoutEdge } from '@/lib/graph-engine';
 
 function makeNodes(count: number, domain = 'physics'): LayoutNode[] {
   return Array.from({ length: count }, (_, i) => ({

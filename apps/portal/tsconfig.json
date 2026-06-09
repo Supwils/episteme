@@ -22,10 +22,7 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"],
-      "@universe/ui": ["../../packages/ui/src/index.ts"],
-      "@universe/content": ["../../packages/content/src/index.ts"],
-      "@universe/graph-engine": ["../../packages/graph-engine/src/index.ts"]
+      "@/*": ["./*"]
     }
   },
   "include": [

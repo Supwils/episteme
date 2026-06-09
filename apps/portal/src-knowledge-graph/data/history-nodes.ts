@@ -1,7 +1,7 @@
 import { ERAS } from '@/content/human-history/data/eras';
 import { EVENTS } from '@/content/human-history/data/events';
 import { FIGURES } from '@/content/human-history/data/figures';
-import { CROSS_LINKS } from '@universe/content';
+import { CROSS_LINKS } from '@/lib/cross-links/api';
 
 type HistoryNode = {
   id: string;

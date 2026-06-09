@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useCallback } from 'react';
-import { ForceLayout, GraphRenderer, animateEntrance } from '@universe/graph-engine';
-import type { LayoutNode, LayoutEdge, RenderNode, RenderEdge } from '@universe/graph-engine';
+import { ForceLayout, GraphRenderer, animateEntrance } from '@/lib/graph-engine';
+import type { LayoutNode, LayoutEdge, RenderNode, RenderEdge } from '@/lib/graph-engine';
 import type { HistoryGraphState } from './useHistoryGraphState';
 import { NODE_RADIUS, NODE_COLORS, EDGE_COLORS, EDGE_WIDTHS } from './constants';
 

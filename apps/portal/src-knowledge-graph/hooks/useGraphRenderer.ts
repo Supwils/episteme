@@ -2,10 +2,10 @@
 
 import { useEffect, useCallback } from 'react';
 import type { GraphNode, GraphEdge } from '../data/types';
-import type { GraphRenderer, RenderNode, HighlightState, RenderConfig } from '@universe/graph-engine';
-import { GraphRenderer as GraphRendererClass } from '@universe/graph-engine';
-import type { ForceLayout } from '@universe/graph-engine';
-import { animateEntrance, animateFocus, animateNodePositions } from '@universe/graph-engine';
+import type { GraphRenderer, RenderNode, HighlightState, RenderConfig } from '@/lib/graph-engine';
+import { GraphRenderer as GraphRendererClass } from '@/lib/graph-engine';
+import type { ForceLayout } from '@/lib/graph-engine';
+import { animateEntrance, animateFocus, animateNodePositions } from '@/lib/graph-engine';
 import {
   buildLayoutNodes,
   buildLayoutEdges,
@@ -286,7 +286,7 @@ export function useGraphRenderer(
     };
 
     const runSync = async () => {
-      const { ForceLayout: ForceLayoutClass } = await import('@universe/graph-engine');
+      const { ForceLayout: ForceLayoutClass } = await import('@/lib/graph-engine');
       if (cancelled) return;
       const layout = new ForceLayoutClass(layoutNodes, layoutEdges);
       layoutRef.current = layout;

@@ -2,9 +2,9 @@
 
 import { useCallback } from 'react';
 import type { GraphNode, GraphEdge } from '../data/types';
-import type { GraphRenderer } from '@universe/graph-engine';
-import type { ForceLayout } from '@universe/graph-engine';
-import { animateAlpha, animateNodePositions } from '@universe/graph-engine';
+import type { GraphRenderer } from '@/lib/graph-engine';
+import type { ForceLayout } from '@/lib/graph-engine';
+import { animateAlpha, animateNodePositions } from '@/lib/graph-engine';
 import { toRenderNodes, toRenderEdges, CLUSTER_CENTERS } from '../lib/constants';
 
 type AnimationDeps = {

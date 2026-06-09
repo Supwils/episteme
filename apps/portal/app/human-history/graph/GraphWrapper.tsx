@@ -1,7 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { LoadingSpinner } from '@universe/ui';
+import { LoadingSpinner } from '@/components/ui';
 
 const GraphClient = dynamic(() => import('./GraphClient'), {
   ssr: false,

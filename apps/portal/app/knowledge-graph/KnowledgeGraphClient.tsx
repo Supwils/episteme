@@ -1,7 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { LoadingSpinner } from '@universe/ui';
+import { LoadingSpinner } from '@/components/ui';
 import type { GraphNode, GraphEdge } from '@/src-knowledge-graph/data/types';
 
 const KnowledgeGraph = dynamic(

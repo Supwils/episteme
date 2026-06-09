@@ -8,11 +8,7 @@ export default defineConfig({
     },
   },
   test: {
-    include: [
-      '**/*.test.ts',
-      '**/*.test.tsx',
-      '../../packages/graph-engine/src/**/*.test.ts',
-    ],
+    include: ['**/*.test.ts', '**/*.test.tsx'],
     exclude: ['e2e/**', 'node_modules/**', '.next/**'],
     globals: true,
   },

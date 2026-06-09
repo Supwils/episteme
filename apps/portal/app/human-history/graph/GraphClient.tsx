@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
-import { LoadingSpinner } from '@universe/ui';
+import { LoadingSpinner } from '@/components/ui';
 import type { HistoryGraphProps } from '@/src-history/components/history-graph/HistoryGraph';
 
 const HistoryGraph = dynamic<HistoryGraphProps>(

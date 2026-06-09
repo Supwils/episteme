@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { searchNodes, levenshtein } from '@universe/graph-engine';
+import { searchNodes, levenshtein } from '@/lib/graph-engine';
 import type { GraphNode } from '../../data/types';
 
 function node(overrides: Partial<GraphNode> & { id: string }): GraphNode {

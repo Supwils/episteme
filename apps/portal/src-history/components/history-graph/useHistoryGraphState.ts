@@ -2,8 +2,8 @@
 
 import { useEffect, useRef, useState, useMemo } from 'react';
 import type { HistoryGraphNode, HistoryGraphEdge, HistoryNodeType } from '../../lib/graph-data';
-import { ForceLayout, GraphRenderer, searchNodes } from '@universe/graph-engine';
-import type { RenderConfig, GraphNode } from '@universe/graph-engine';
+import { ForceLayout, GraphRenderer, searchNodes } from '@/lib/graph-engine';
+import type { RenderConfig, GraphNode } from '@/lib/graph-engine';
 import { NODE_RADIUS, BG_COLOR, LABEL_FONT, LABEL_COLOR, HIGHLIGHT_COLOR } from './constants';
 
 export type HistoryGraphProps = {

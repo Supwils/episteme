@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback } from 'react';
-import { animateFocus } from '@universe/graph-engine';
+import { animateFocus } from '@/lib/graph-engine';
 import type { HistoryGraphState } from './useHistoryGraphState';
 
 export function useHistoryGraphInteractions(state: HistoryGraphState) {

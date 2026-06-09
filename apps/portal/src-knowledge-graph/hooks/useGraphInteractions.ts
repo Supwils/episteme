@@ -2,8 +2,8 @@
 
 import { useCallback, useEffect } from 'react';
 import type { GraphNode, GraphEdge } from '../data/types';
-import type { GraphRenderer } from '@universe/graph-engine';
-import { animateFocus } from '@universe/graph-engine';
+import type { GraphRenderer } from '@/lib/graph-engine';
+import { animateFocus } from '@/lib/graph-engine';
 import { toRenderNodes, toRenderEdges } from '../lib/constants';
 
 type InteractionDeps = {

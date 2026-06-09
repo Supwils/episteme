@@ -1,4 +1,4 @@
-// Content utility exports
+// Public cross-links API (formerly the @/lib/cross-links/api package entry point).
 export {
   CROSS_LINKS,
   type CrossLink,
@@ -9,4 +9,4 @@ export {
   getAppLabel,
   getAppBasePath,
   getLinkUrl,
-} from "./cross-links/index";
+} from "./index";

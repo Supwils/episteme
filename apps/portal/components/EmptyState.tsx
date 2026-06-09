@@ -1,4 +1,4 @@
-import { EmptyState as BaseEmptyState, type EmptyStateProps as BaseEmptyStateProps } from "@universe/ui";
+import { EmptyState as BaseEmptyState, type EmptyStateProps as BaseEmptyStateProps } from "@/components/ui";
 
 type EmptyStateProps = {
   title: string;

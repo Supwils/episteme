@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { findShortestPath, getNodesWithinHops, buildAdjacency } from '@universe/graph-engine';
+import { findShortestPath, getNodesWithinHops, buildAdjacency } from '@/lib/graph-engine';
 
 function makeAdjacency(pairs: [string, string][]): Map<string, string[]> {
   return buildAdjacency(

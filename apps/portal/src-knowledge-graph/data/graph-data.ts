@@ -4,7 +4,7 @@ import { philosophyNodes, philosophyEdges } from './philosophy-nodes';
 import { HISTORY_NODES, HISTORY_EDGES } from './history-nodes';
 import { economicsNodes, economicsEdges } from './economics-nodes';
 import { psychologyNodes, psychologyEdges } from './psychology-nodes';
-import { CROSS_LINKS } from '@universe/content';
+import { CROSS_LINKS } from '@/lib/cross-links/api';
 import type { GraphNode, GraphEdge } from './types';
 
 export type { GraphNodeType, GraphNode, GraphEdge } from './types';

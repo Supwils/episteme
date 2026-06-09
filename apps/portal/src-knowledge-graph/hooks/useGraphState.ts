@@ -2,10 +2,10 @@
 
 import { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 import type { GraphNode, GraphEdge } from '../data/types';
-import type { GraphRenderer, HighlightState, RenderConfig } from '@universe/graph-engine';
-import type { ForceLayout } from '@universe/graph-engine';
-import { buildAdjacency, getNodesWithinHops, findShortestPath } from '@universe/graph-engine';
-import { searchNodes } from '@universe/graph-engine';
+import type { GraphRenderer, HighlightState, RenderConfig } from '@/lib/graph-engine';
+import type { ForceLayout } from '@/lib/graph-engine';
+import { buildAdjacency, getNodesWithinHops, findShortestPath } from '@/lib/graph-engine';
+import { searchNodes } from '@/lib/graph-engine';
 import type { GroupedSearchResult } from '../components/GraphFilterBar';
 import type { GraphA11yAnnouncerProps } from '../components/GraphA11yAnnouncer';
 import {

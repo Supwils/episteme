@@ -5,7 +5,7 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { cn } from '@/src-physics/lib/cn';
-import { LoadingSpinner } from '@universe/ui';
+import { LoadingSpinner } from '@/components/ui';
 
 const experimentLoading = (
   <div className="flex h-96 items-center justify-center">

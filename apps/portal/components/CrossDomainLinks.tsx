@@ -7,7 +7,7 @@ import {
   type DomainApp,
   getAppLabel,
   getLinkUrl,
-} from "@universe/content";
+} from "@/lib/cross-links/api";
 
 type CrossDomainLinksProps = {
   currentApp: DomainApp;

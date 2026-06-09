@@ -1,6 +1,6 @@
 import type { GraphNode, GraphEdge } from '../data/types';
-import type { LayoutNode, LayoutEdge } from '@universe/graph-engine';
-import type { RenderNode, RenderEdge } from '@universe/graph-engine';
+import type { LayoutNode, LayoutEdge } from '@/lib/graph-engine';
+import type { RenderNode, RenderEdge } from '@/lib/graph-engine';
 
 export const DOMAIN_COLORS: Record<string, string> = {
   physics: '#6366f1',

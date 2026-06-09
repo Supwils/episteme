@@ -1,3 +1,3 @@
 "use client";
 
-export { SearchInput, type SearchInputProps } from "@universe/ui";
+export { SearchInput, type SearchInputProps } from "@/components/ui";

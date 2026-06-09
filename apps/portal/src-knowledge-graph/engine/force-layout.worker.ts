@@ -1,4 +1,4 @@
-import type { LayoutNode, LayoutEdge, LayoutConfig } from '@universe/graph-engine';
+import type { LayoutNode, LayoutEdge, LayoutConfig } from '@/lib/graph-engine';
 
 type WorkerRequest = {
   type: 'run';
@@ -15,7 +15,7 @@ type WorkerResponse = {
 self.onmessage = async (e: MessageEvent<WorkerRequest>) => {
   const { nodes, edges, config } = e.data;
 
-  const { ForceLayout } = await import('@universe/graph-engine');
+  const { ForceLayout } = await import('@/lib/graph-engine');
   const layout = new ForceLayout(nodes, edges, config);
   layout.runToStability();
 

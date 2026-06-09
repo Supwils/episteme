@@ -4,7 +4,7 @@ import {
   getLinkUrl,
   type DomainApp,
   type CrossLink,
-} from "@universe/content";
+} from "@/lib/cross-links/api";
 import {
   getAllContent,
   getBackReferences,
