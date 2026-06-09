@@ -1,9 +1,13 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getAllTimelineEvents, getTimelineEventById } from "@/subjects/life-science/lib/timeline-events";
+import {
+  getAllTimelineEvents,
+  getTimelineEventById,
+} from "@/subjects/life-science/lib/timeline-events";
 import { DeepReading } from "@/subjects/life-science/components/DeepReading";
 import { TableOfContents } from "@/components/TableOfContents";
+import { ArticleSidebar } from "@/components/ArticleSidebar";
 import { SITE_URL } from "@/lib/constants";
 import { createArticleJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
@@ -32,7 +36,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${event.event}（${event.era}） — 进化时间线`,
     description,
-    openGraph: { title: `${event.event}（${event.era}） — 进化时间线`, description, images: [{ url: ogImage, width: 1200, height: 630 }] },
+    openGraph: {
+      title: `${event.event}（${event.era}） — 进化时间线`,
+      description,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
   };
 }
 
@@ -54,25 +62,34 @@ export default async function TimelineEventDetailPage({ params }: Props) {
     title: `${event.event}（${event.era}）`,
     description: event.detail,
     url: `${SITE_URL}/life-science/timeline/${slug}`,
-    keywords: [event.event, event.era, CATEGORY_LABEL[event.category] ?? event.category, ...event.keyFigures],
+    keywords: [
+      event.event,
+      event.era,
+      CATEGORY_LABEL[event.category] ?? event.category,
+      ...event.keyFigures,
+    ],
   });
 
   return (
-    <div className="w-full px-6 sm:px-10 lg:px-16 py-12">
+    <div className="w-full px-6 py-12 sm:px-10 lg:px-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="flex flex-col gap-12 lg:flex-row">
-        <article className="min-w-0 flex-1 max-w-[1200px]">
+        <article className="max-w-[1200px] min-w-0 flex-1">
           <header className="mb-12">
             <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
               life-science / timeline
             </p>
-            <div className="flex flex-wrap items-center gap-2.5 mb-4">
+            <div className="mb-4 flex flex-wrap items-center gap-2.5">
               <span
                 className="rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.2em] uppercase"
-                style={{ borderColor: `${event.accent}30`, color: event.accent, backgroundColor: `${event.accent}10` }}
+                style={{
+                  borderColor: `${event.accent}30`,
+                  color: event.accent,
+                  backgroundColor: `${event.accent}10`,
+                }}
               >
                 {event.era}
               </span>
@@ -89,14 +106,17 @@ export default async function TimelineEventDetailPage({ params }: Props) {
           </header>
 
           <section className="mb-12">
-            <h2 className="font-display text-fg-primary text-xl font-semibold mb-4" id="significance">
+            <h2
+              className="font-display text-fg-primary mb-4 text-xl font-semibold"
+              id="significance"
+            >
               科学意义
             </h2>
             <p className="text-fg-secondary leading-relaxed">{event.significance}</p>
           </section>
 
           <section className="mb-12">
-            <h2 className="font-display text-fg-primary text-xl font-semibold mb-4" id="context">
+            <h2 className="font-display text-fg-primary mb-4 text-xl font-semibold" id="context">
               历史脉络
             </h2>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -104,7 +124,10 @@ export default async function TimelineEventDetailPage({ params }: Props) {
                 className="border-border-faint bg-bg-near border p-6"
                 style={{ borderLeftColor: "var(--color-fg-muted)", borderLeftWidth: "3px" }}
               >
-                <h3 className="font-display text-sm font-semibold mb-3" style={{ color: "var(--color-fg-muted)" }}>
+                <h3
+                  className="font-display mb-3 text-sm font-semibold"
+                  style={{ color: "var(--color-fg-muted)" }}
+                >
                   之前
                 </h3>
                 <p className="text-fg-secondary text-sm leading-relaxed">{event.context.before}</p>
@@ -113,7 +136,10 @@ export default async function TimelineEventDetailPage({ params }: Props) {
                 className="border-border-faint bg-bg-near border p-6"
                 style={{ borderLeftColor: event.accent, borderLeftWidth: "3px" }}
               >
-                <h3 className="font-display text-sm font-semibold mb-3" style={{ color: event.accent }}>
+                <h3
+                  className="font-display mb-3 text-sm font-semibold"
+                  style={{ color: event.accent }}
+                >
                   之后
                 </h3>
                 <p className="text-fg-secondary text-sm leading-relaxed">{event.context.after}</p>
@@ -123,7 +149,10 @@ export default async function TimelineEventDetailPage({ params }: Props) {
 
           {event.keyFigures.length > 0 && (
             <section className="mb-12">
-              <h2 className="font-display text-fg-primary text-xl font-semibold mb-4" id="key-figures">
+              <h2
+                className="font-display text-fg-primary mb-4 text-xl font-semibold"
+                id="key-figures"
+              >
                 关键人物
               </h2>
               <div className="flex flex-wrap gap-2">
@@ -131,7 +160,11 @@ export default async function TimelineEventDetailPage({ params }: Props) {
                   <span
                     key={figure}
                     className="rounded-full border px-3 py-1.5 font-mono text-[11px] tracking-[0.08em]"
-                    style={{ borderColor: `${event.accent}25`, color: `${event.accent}cc`, backgroundColor: `${event.accent}08` }}
+                    style={{
+                      borderColor: `${event.accent}25`,
+                      color: `${event.accent}cc`,
+                      backgroundColor: `${event.accent}08`,
+                    }}
                   >
                     {figure}
                   </span>
@@ -142,7 +175,10 @@ export default async function TimelineEventDetailPage({ params }: Props) {
 
           {event.openQuestions.length > 0 && (
             <section className="mb-12">
-              <h2 className="font-display text-fg-primary text-xl font-semibold mb-4" id="open-questions">
+              <h2
+                className="font-display text-fg-primary mb-4 text-xl font-semibold"
+                id="open-questions"
+              >
                 未解之谜
               </h2>
               <ul className="space-y-3">
@@ -171,85 +207,95 @@ export default async function TimelineEventDetailPage({ params }: Props) {
             </SafeRender>
           </div>
 
-          <div className="border-border-faint border-t pt-8 mt-16 flex items-center justify-between gap-4">
+          <div className="border-border-faint mt-16 flex items-center justify-between gap-4 border-t pt-8">
             {prev ? (
               <Link
                 href={`/life-science/timeline/${prev.id}`}
                 className="group flex items-center gap-2 text-sm transition-colors"
               >
                 <span className="text-fg-muted group-hover:text-fg-secondary">←</span>
-                <span className="text-fg-secondary group-hover:text-accent-green transition-colors">{prev.event}</span>
+                <span className="text-fg-secondary group-hover:text-accent-green transition-colors">
+                  {prev.event}
+                </span>
               </Link>
-            ) : <span />}
+            ) : (
+              <span />
+            )}
             {next ? (
               <Link
                 href={`/life-science/timeline/${next.id}`}
                 className="group flex items-center gap-2 text-sm transition-colors"
               >
-                <span className="text-fg-secondary group-hover:text-accent-green transition-colors">{next.event}</span>
+                <span className="text-fg-secondary group-hover:text-accent-green transition-colors">
+                  {next.event}
+                </span>
                 <span className="text-fg-muted group-hover:text-fg-secondary">→</span>
               </Link>
-            ) : <span />}
+            ) : (
+              <span />
+            )}
           </div>
         </article>
 
-        <aside className="w-full lg:w-80 flex-shrink-0 lg:sticky lg:top-24 lg:self-start">
-          <div className="sticky top-24 space-y-6">
-            <TableOfContents accentColor="#4a9e6f" />
-            {related.length > 0 && (
-              <div className="border-border-faint bg-bg-near border p-5">
-                <h3 className="font-display text-fg-primary text-sm font-semibold mb-4 tracking-wide">关联事件</h3>
-                <ul className="space-y-3" role="list">
-                  {related.map((r) => (
-                    <li key={r.id}>
-                      <Link
-                        href={`/life-science/timeline/${r.id}`}
-                        className="group flex items-start gap-3 text-sm transition-colors"
-                      >
-                        <span
-                          className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
-                          style={{ backgroundColor: r.accent }}
-                        />
-                        <span>
-                          <span className="text-fg-secondary group-hover:text-accent-green transition-colors">
-                            {r.event}
-                          </span>
-                          <span className="text-fg-muted ml-1.5 font-mono text-[10px]">{r.era}</span>
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+        <ArticleSidebar contentClassName="space-y-6">
+          <TableOfContents accentColor="#4a9e6f" />
+          {related.length > 0 && (
             <div className="border-border-faint bg-bg-near border p-5">
-              <h3 className="font-display text-fg-primary text-sm font-semibold mb-4 tracking-wide">全部事件</h3>
+              <h3 className="font-display text-fg-primary mb-4 text-sm font-semibold tracking-wide">
+                关联事件
+              </h3>
               <ul className="space-y-3" role="list">
-                {allEvents.map((e) => (
-                  <li key={e.id}>
+                {related.map((r) => (
+                  <li key={r.id}>
                     <Link
-                      href={`/life-science/timeline/${e.id}`}
-                      className={`group flex items-start gap-3 text-sm transition-colors ${e.id === slug ? "pointer-events-none" : ""}`}
+                      href={`/life-science/timeline/${r.id}`}
+                      className="group flex items-start gap-3 text-sm transition-colors"
                     >
                       <span
                         className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
-                        style={{ backgroundColor: e.accent }}
+                        style={{ backgroundColor: r.accent }}
                       />
                       <span>
-                        <span
-                          className={`transition-colors ${e.id === slug ? "text-accent-green" : "text-fg-secondary group-hover:text-accent-green"}`}
-                        >
-                          {e.event}
+                        <span className="text-fg-secondary group-hover:text-accent-green transition-colors">
+                          {r.event}
                         </span>
-                        <span className="text-fg-muted ml-1.5 font-mono text-[10px]">{e.era}</span>
+                        <span className="text-fg-muted ml-1.5 font-mono text-[10px]">{r.era}</span>
                       </span>
                     </Link>
                   </li>
                 ))}
               </ul>
             </div>
+          )}
+          <div className="border-border-faint bg-bg-near border p-5">
+            <h3 className="font-display text-fg-primary mb-4 text-sm font-semibold tracking-wide">
+              全部事件
+            </h3>
+            <ul className="space-y-3" role="list">
+              {allEvents.map((e) => (
+                <li key={e.id}>
+                  <Link
+                    href={`/life-science/timeline/${e.id}`}
+                    className={`group flex items-start gap-3 text-sm transition-colors ${e.id === slug ? "pointer-events-none" : ""}`}
+                  >
+                    <span
+                      className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
+                      style={{ backgroundColor: e.accent }}
+                    />
+                    <span>
+                      <span
+                        className={`transition-colors ${e.id === slug ? "text-accent-green" : "text-fg-secondary group-hover:text-accent-green"}`}
+                      >
+                        {e.event}
+                      </span>
+                      <span className="text-fg-muted ml-1.5 font-mono text-[10px]">{e.era}</span>
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
-        </aside>
+        </ArticleSidebar>
       </div>
     </div>
   );

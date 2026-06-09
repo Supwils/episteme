@@ -58,7 +58,7 @@
   body {
     max-width: 100vw;
     /* clip (not hidden) prevents horizontal scroll WITHOUT creating a scroll
-       container, so position: sticky descendants (e.g. the article TOC) work. */
+       container. */
     overflow-x: clip;
     background-color: var(--background);
     color: var(--foreground);
@@ -71,17 +71,6 @@
   a {
     color: inherit;
     text-decoration: none;
-  }
-
-  @media (min-width: 1024px) {
-    aside:has(> nav[aria-label="目录"]) {
-      position: sticky;
-      top: 6rem;
-      align-self: flex-start;
-      max-height: calc(100vh - 7rem);
-      overflow-y: auto;
-      scrollbar-gutter: stable;
-    }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -538,7 +527,9 @@
   cursor: pointer;
   padding: 2px 6px;
   border-radius: 3px;
-  transition: color 0.15s, background 0.15s;
+  transition:
+    color 0.15s,
+    background 0.15s;
 }
 
 .gs-clear-btn:hover {
@@ -560,7 +551,9 @@
   font-size: 0.82rem;
   font-family: inherit;
   text-align: left;
-  transition: background 0.15s, color 0.15s;
+  transition:
+    background 0.15s,
+    color 0.15s;
 }
 
 .gs-history-item:hover {
@@ -591,7 +584,10 @@
   border-radius: 3px;
   line-height: 1;
   opacity: 0;
-  transition: opacity 0.15s, color 0.15s, background 0.15s;
+  transition:
+    opacity 0.15s,
+    color 0.15s,
+    background 0.15s;
 }
 
 .gs-history-item:hover .gs-history-remove,

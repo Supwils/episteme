@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useCallback } from "react";
 
+const HEADING_SCROLL_OFFSET = 96;
+
 type TocItem = {
   id: string;
   text: string;
@@ -34,7 +36,7 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
           setActiveId(visible[0].target.id);
         }
       },
-      { rootMargin: "-80px 0px -80% 0px", threshold: 0 },
+      { rootMargin: "-80px 0px -80% 0px", threshold: 0 }
     );
 
     headings.forEach((h) => observer.observe(h));
@@ -55,31 +57,35 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
   // Highlighting the active item is purely visual — we deliberately do NOT
   // auto-scroll it into view, because doing so fought the reader's own scroll.
 
-  const handleClick = useCallback(
-    (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-      e.preventDefault();
-      const prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)",
-      ).matches;
-      document.getElementById(id)?.scrollIntoView({
-        behavior: prefersReducedMotion ? "auto" : "smooth",
-        block: "start",
-      });
-    },
-    [],
-  );
+  const handleClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    const root = document.documentElement;
+    const previousScrollBehavior = root.style.scrollBehavior;
+    root.style.scrollBehavior = "auto";
+    window.scrollTo({
+      top: target.getBoundingClientRect().top + window.scrollY - HEADING_SCROLL_OFFSET,
+      behavior: "auto",
+    });
+    window.requestAnimationFrame(() => {
+      root.style.scrollBehavior = previousScrollBehavior;
+    });
+    setActiveId(id);
+  }, []);
 
   if (items.length === 0) return null;
 
   return (
     <>
-      {/* Desktop sticky behavior belongs to the whole article sidebar, not the
-          TOC alone, so the cards below it stay in the same scroll context. */}
+      {/* TOC jumps are instant so a programmatic smooth scroll cannot fight the
+          reader's next wheel input. */}
       <nav
         aria-label="目录"
         className="border-border-faint mb-4 hidden self-start border-l pl-4 lg:block"
       >
-        <div className="h-0.5 rounded-full bg-border-faint mb-3">
+        <div className="bg-border-faint mb-3 h-0.5 rounded-full">
           <div
             className="h-full rounded-full transition-all duration-300"
             style={{ width: `${scrollProgress}%`, backgroundColor: accentColor }}
@@ -123,11 +129,7 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
               href={`#${item.id}`}
               className={`block py-0.5 font-mono text-[11px] leading-relaxed transition-colors duration-200 ${
                 item.level === 3 ? "pl-3" : ""
-              } ${
-                activeId === item.id
-                  ? "font-medium"
-                  : "text-fg-muted hover:opacity-80"
-              }`}
+              } ${activeId === item.id ? "font-medium" : "text-fg-muted hover:opacity-80"}`}
               style={activeId === item.id ? { color: accentColor } : undefined}
               onClick={(e) => handleClick(e, item.id)}
             >

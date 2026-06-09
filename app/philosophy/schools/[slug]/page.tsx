@@ -7,6 +7,7 @@ import { CornerMarks, OrnamentalDivider } from "@/components/school-detail/Decor
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { KeyFiguresSection, RelatedSchoolsSection } from "@/components/school-detail/Sections";
 import { ERA_ACCENT, SITE_URL } from "@/lib/constants";
+import { ArticleSidebar } from "@/components/ArticleSidebar";
 import { TableOfContents } from "@/components/TableOfContents";
 import { createArticleJsonLd } from "@/lib/jsonld";
 
@@ -23,7 +24,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${school.title} — 哲学流派`,
     description,
-    openGraph: { title: `${school.title} — 哲学流派`, description, images: [{ url: ogImage, width: 1200, height: 630 }] },
+    openGraph: {
+      title: `${school.title} — 哲学流派`,
+      description,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
   };
 }
 
@@ -63,7 +68,7 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
       />
       <Link
         href="/philosophy/schools"
-        className="text-fg-muted hover:text-fg-secondary mb-8 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] transition-colors"
+        className="text-fg-muted hover:text-fg-secondary mb-8 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] uppercase transition-colors"
       >
         ← 返回流派列表
       </Link>
@@ -75,7 +80,7 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
 
         <div className="mb-3 flex items-center gap-3">
           <span
-            className="font-mono text-[10px] uppercase tracking-[0.32em]"
+            className="font-mono text-[10px] tracking-[0.32em] uppercase"
             style={{ color: accent }}
           >
             {school.era}
@@ -85,7 +90,9 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
               {period}
             </span>
           )}
-          <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">约 {readMinutes} 分钟阅读</span>
+          <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">
+            约 {readMinutes} 分钟阅读
+          </span>
         </div>
 
         <h1 className="font-display text-fg-primary text-[2.2rem] leading-tight tracking-tight md:text-[2.8rem]">
@@ -126,7 +133,7 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
       </header>
 
       <div className="flex flex-col gap-12 lg:flex-row">
-        <article className="min-w-0 max-w-[1200px] flex-1">
+        <article className="max-w-[1200px] min-w-0 flex-1">
           <MarkdownRenderer content={school.content} />
 
           {keyFigures.length > 0 && (
@@ -143,16 +150,16 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
           <RelatedContent slug={slug} domain="philosophy" entityId={slug} />
         </article>
 
-        <aside className="w-full flex-shrink-0 lg:w-80 lg:sticky lg:top-24 lg:self-start">
+        <ArticleSidebar>
           <TableOfContents accentColor="#a88adf" />
           <div className="border-border-faint border p-4">
-            <h3 className="text-fg-muted mb-3 font-mono text-[10px] uppercase tracking-[0.22em]">
+            <h3 className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.22em] uppercase">
               流派信息
             </h3>
             <dl className="space-y-3 text-sm">
               {founder && (
                 <div>
-                  <dt className="text-fg-disabled font-mono text-[9px] uppercase tracking-[0.18em]">
+                  <dt className="text-fg-disabled font-mono text-[9px] tracking-[0.18em] uppercase">
                     创始人
                   </dt>
                   <dd className="text-fg-primary mt-0.5">{founder}</dd>
@@ -160,14 +167,14 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
               )}
               {period && (
                 <div>
-                  <dt className="text-fg-disabled font-mono text-[9px] uppercase tracking-[0.18em]">
+                  <dt className="text-fg-disabled font-mono text-[9px] tracking-[0.18em] uppercase">
                     时期
                   </dt>
                   <dd className="text-fg-primary mt-0.5">{period}</dd>
                 </div>
               )}
               <div>
-                <dt className="text-fg-disabled font-mono text-[9px] uppercase tracking-[0.18em]">
+                <dt className="text-fg-disabled font-mono text-[9px] tracking-[0.18em] uppercase">
                   时代
                 </dt>
                 <dd className="text-fg-primary mt-0.5">{school.era}</dd>
@@ -177,7 +184,7 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
 
           {relatedSchools.length > 0 && (
             <div className="border-border-faint mt-4 border p-4">
-              <h3 className="text-fg-muted mb-3 font-mono text-[10px] uppercase tracking-[0.22em]">
+              <h3 className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.22em] uppercase">
                 相关流派
               </h3>
               <div className="space-y-2">
@@ -202,7 +209,7 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
               </div>
             </div>
           )}
-        </aside>
+        </ArticleSidebar>
       </div>
     </div>
   );

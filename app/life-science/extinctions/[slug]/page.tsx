@@ -10,6 +10,7 @@ import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
 import CrossDomainLinks from "@/components/CrossDomainLinks";
 import { TableOfContents } from "@/components/TableOfContents";
+import { ArticleSidebar } from "@/components/ArticleSidebar";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -58,7 +59,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${extinction.name} — 生命科学`,
     description,
-    openGraph: { title: `${extinction.name} — 生命科学`, description, images: [{ url: ogImage, width: 1200, height: 630 }] },
+    openGraph: {
+      title: `${extinction.name} — 生命科学`,
+      description,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
   };
 }
 
@@ -77,25 +82,29 @@ export default async function ExtinctionDetailPage({ params }: Props) {
     title: `${extinction.name}（${extinction.nameEn}）`,
     description: `${extinction.dateDisplay}，${extinction.speciesLostPercent}% 物种灭绝。${extinction.description}`,
     url: `${SITE_URL}/life-science/extinctions/${slug}`,
-    keywords: [extinction.name, extinction.nameEn, extinction.dateDisplay, 'mass extinction'],
+    keywords: [extinction.name, extinction.nameEn, extinction.dateDisplay, "mass extinction"],
   });
 
   return (
-    <div className="w-full px-6 sm:px-10 lg:px-16 py-12">
+    <div className="w-full px-6 py-12 sm:px-10 lg:px-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="flex flex-col gap-12 lg:flex-row">
-        <article className="min-w-0 flex-1 max-w-[1200px]">
+        <article className="max-w-[1200px] min-w-0 flex-1">
           <header className="mb-12">
             <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
               life-science / mass extinctions
             </p>
-            <div className="flex flex-wrap items-center gap-2.5 mb-4">
+            <div className="mb-4 flex flex-wrap items-center gap-2.5">
               <span
                 className="rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.2em] uppercase"
-                style={{ borderColor: `${supp.accent}30`, color: supp.accent, backgroundColor: `${supp.accent}10` }}
+                style={{
+                  borderColor: `${supp.accent}30`,
+                  color: supp.accent,
+                  backgroundColor: `${supp.accent}10`,
+                }}
               >
                 {extinction.dateDisplay}
               </span>
@@ -109,12 +118,12 @@ export default async function ExtinctionDetailPage({ params }: Props) {
             <h1 className="font-display text-fg-primary text-[2.4rem] leading-tight tracking-tight md:text-[3.2rem]">
               {extinction.name}
             </h1>
-            <p className="text-fg-muted mt-2 font-mono text-sm italic tracking-wider">
+            <p className="text-fg-muted mt-2 font-mono text-sm tracking-wider italic">
               {extinction.nameEn}
             </p>
           </header>
 
-          <div className="flex flex-col items-center sm:items-start sm:flex-row gap-8 mb-12">
+          <div className="mb-12 flex flex-col items-center gap-8 sm:flex-row sm:items-start">
             <div className="flex flex-col items-center sm:min-w-[140px]">
               <span
                 className="font-display text-5xl font-bold tabular-nums"
@@ -122,7 +131,7 @@ export default async function ExtinctionDetailPage({ params }: Props) {
               >
                 {extinction.speciesLostPercent}%
               </span>
-              <span className="text-fg-muted font-mono text-[9px] tracking-[0.22em] uppercase mt-1">
+              <span className="text-fg-muted mt-1 font-mono text-[9px] tracking-[0.22em] uppercase">
                 物种灭绝率
               </span>
             </div>
@@ -132,26 +141,41 @@ export default async function ExtinctionDetailPage({ params }: Props) {
           </div>
 
           <FadeInSection className="mb-12">
-            <h2 className="font-display text-fg-primary text-xl font-semibold mb-4">灭绝原因</h2>
+            <h2 className="font-display text-fg-primary mb-4 text-xl font-semibold">灭绝原因</h2>
             <ul className="space-y-3">
               {extinction.causes.map((cause) => (
                 <li key={cause} className="flex items-start gap-3">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" style={{ backgroundColor: supp.accent }} />
+                  <span
+                    className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
+                    style={{ backgroundColor: supp.accent }}
+                  />
                   <span className="text-fg-secondary text-sm leading-relaxed">{cause}</span>
                 </li>
               ))}
             </ul>
           </FadeInSection>
 
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 mb-12">
-            <div className="border-border-faint bg-bg-near border p-6" style={{ borderLeftColor: "var(--color-danger)", borderLeftWidth: "3px" }}>
-              <h3 className="font-display text-sm font-semibold mb-3" style={{ color: "var(--color-danger)" }}>
+          <div className="mb-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <div
+              className="border-border-faint bg-bg-near border p-6"
+              style={{ borderLeftColor: "var(--color-danger)", borderLeftWidth: "3px" }}
+            >
+              <h3
+                className="font-display mb-3 text-sm font-semibold"
+                style={{ color: "var(--color-danger)" }}
+              >
                 受害者
               </h3>
               <p className="text-fg-secondary text-sm leading-relaxed">{supp.victims}</p>
             </div>
-            <div className="border-border-faint bg-bg-near border p-6" style={{ borderLeftColor: "var(--color-accent-green)", borderLeftWidth: "3px" }}>
-              <h3 className="font-display text-sm font-semibold mb-3" style={{ color: "var(--color-accent-green)" }}>
+            <div
+              className="border-border-faint bg-bg-near border p-6"
+              style={{ borderLeftColor: "var(--color-accent-green)", borderLeftWidth: "3px" }}
+            >
+              <h3
+                className="font-display mb-3 text-sm font-semibold"
+                style={{ color: "var(--color-accent-green)" }}
+              >
                 后续影响
               </h3>
               <p className="text-fg-secondary text-sm leading-relaxed">{supp.aftermath}</p>
@@ -168,64 +192,72 @@ export default async function ExtinctionDetailPage({ params }: Props) {
             </SafeRender>
           </div>
 
-          <div className="border-border-faint border-t pt-8 flex items-center justify-between gap-4">
+          <div className="border-border-faint flex items-center justify-between gap-4 border-t pt-8">
             {prev ? (
               <Link
                 href={`/life-science/extinctions/${prev.id}`}
                 className="group flex items-center gap-2 text-sm transition-colors"
               >
                 <span className="text-fg-muted group-hover:text-fg-secondary">←</span>
-                <span className="text-fg-secondary group-hover:text-accent-green transition-colors">{prev.name}</span>
+                <span className="text-fg-secondary group-hover:text-accent-green transition-colors">
+                  {prev.name}
+                </span>
               </Link>
-            ) : <span />}
+            ) : (
+              <span />
+            )}
             {next ? (
               <Link
                 href={`/life-science/extinctions/${next.id}`}
                 className="group flex items-center gap-2 text-sm transition-colors"
               >
-                <span className="text-fg-secondary group-hover:text-accent-green transition-colors">{next.name}</span>
+                <span className="text-fg-secondary group-hover:text-accent-green transition-colors">
+                  {next.name}
+                </span>
                 <span className="text-fg-muted group-hover:text-fg-secondary">→</span>
               </Link>
-            ) : <span />}
+            ) : (
+              <span />
+            )}
           </div>
         </article>
 
-        <aside className="w-full lg:w-80 flex-shrink-0 lg:sticky lg:top-24 lg:self-start">
-          <div className="sticky top-24 space-y-6">
-            <TableOfContents accentColor="#4a9e6f" />
-            <div className="border-border-faint bg-bg-near border p-5">
-              <h3 className="font-display text-fg-primary text-sm font-semibold mb-4 tracking-wide">全部大灭绝事件</h3>
-              <ul className="space-y-3" role="list">
-                {allExtinctions.map((e) => {
-                  const eSupp = getSupp(e);
-                  return (
-                    <li key={e.id}>
-                      <Link
-                        href={`/life-science/extinctions/${e.id}`}
-                        className={`group flex items-start gap-3 text-sm transition-colors ${e.id === slug ? "pointer-events-none" : ""}`}
-                      >
+        <ArticleSidebar contentClassName="space-y-6">
+          <TableOfContents accentColor="#4a9e6f" />
+          <div className="border-border-faint bg-bg-near border p-5">
+            <h3 className="font-display text-fg-primary mb-4 text-sm font-semibold tracking-wide">
+              全部大灭绝事件
+            </h3>
+            <ul className="space-y-3" role="list">
+              {allExtinctions.map((e) => {
+                const eSupp = getSupp(e);
+                return (
+                  <li key={e.id}>
+                    <Link
+                      href={`/life-science/extinctions/${e.id}`}
+                      className={`group flex items-start gap-3 text-sm transition-colors ${e.id === slug ? "pointer-events-none" : ""}`}
+                    >
+                      <span
+                        className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: eSupp.accent }}
+                      />
+                      <span>
                         <span
-                          className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
-                          style={{ backgroundColor: eSupp.accent }}
-                        />
-                        <span>
-                          <span
-                            className={`transition-colors ${e.id === slug ? "text-accent-green" : "text-fg-secondary group-hover:text-accent-green"}`}
-                          >
-                            {e.name}
-                          </span>
-                          <span className="text-fg-muted ml-1.5 font-mono text-[10px]">
-                            {e.speciesLostPercent}%
-                          </span>
+                          className={`transition-colors ${e.id === slug ? "text-accent-green" : "text-fg-secondary group-hover:text-accent-green"}`}
+                        >
+                          {e.name}
                         </span>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
+                        <span className="text-fg-muted ml-1.5 font-mono text-[10px]">
+                          {e.speciesLostPercent}%
+                        </span>
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
-        </aside>
+        </ArticleSidebar>
       </div>
     </div>
   );
