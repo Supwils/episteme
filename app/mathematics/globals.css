@@ -158,7 +158,7 @@
   letter-spacing: var(--tracking-normal);
   font-feature-settings: "ss01" on, "cv11" on;
   width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
   min-height: 100vh;
 }
 
