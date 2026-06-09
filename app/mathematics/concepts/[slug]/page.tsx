@@ -1,6 +1,10 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getMathConceptBySlug, getMathConceptSlugs, getAllMathConcepts } from "@/subjects/mathematics/lib/concepts";
+import {
+  getMathConceptBySlug,
+  getMathConceptSlugs,
+  getAllMathConcepts,
+} from "@/subjects/mathematics/lib/concepts";
 import { MATH_FIELD_COLORS } from "@/subjects/mathematics/lib/constants";
 import { MathMarkdownRenderer } from "@/subjects/mathematics/components/MathMarkdownRenderer";
 import { FunctionPlotter } from "@/subjects/mathematics/components/visualizations";
@@ -18,11 +22,7 @@ export function generateStaticParams() {
   return getMathConceptSlugs().map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const concept = getMathConceptBySlug(slug);
   if (!concept) notFound();
@@ -31,7 +31,11 @@ export async function generateMetadata({
   return {
     title: `${concept.title} — 数学概念`,
     description,
-    openGraph: { title: `${concept.title} — 数学概念`, description, images: [{ url: ogImage, width: 1200, height: 630 }] },
+    openGraph: {
+      title: `${concept.title} — 数学概念`,
+      description,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
   };
 }
 
@@ -58,12 +62,18 @@ export default async function MathConceptDetailPage({
     name: `${concept.title}（${concept.title_en}）`,
     description: `${concept.title_en}：${concept.field}。${concept.tags.join("、")}`,
     url: `${SITE_URL}/mathematics/concepts/${slug}`,
-    inDefinedTermSet: 'Mathematical Concepts',
-    keywords: [concept.title, concept.title_en, concept.field, ...concept.key_figures, ...concept.tags],
+    inDefinedTermSet: "Mathematical Concepts",
+    keywords: [
+      concept.title,
+      concept.title_en,
+      concept.field,
+      ...concept.key_figures,
+      ...concept.tags,
+    ],
   });
 
   return (
-    <div className="w-full px-6 sm:px-10 lg:px-16 py-12">
+    <div className="w-full px-6 py-12 sm:px-10 lg:px-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -75,9 +85,9 @@ export default async function MathConceptDetailPage({
         ← 返回概念
       </Link>
 
-      <header className="relative mb-12 overflow-hidden border border-border-faint bg-bg-panel p-8 backdrop-blur-md">
+      <header className="border-border-faint bg-bg-panel relative mb-12 overflow-hidden border p-8 backdrop-blur-md">
         <div
-          className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full opacity-10 blur-3xl"
+          className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full opacity-10 blur-3xl"
           style={{ backgroundColor: fieldColor }}
         />
 
@@ -97,7 +107,7 @@ export default async function MathConceptDetailPage({
           <h1 className="font-display text-fg-primary mb-2 text-[2rem] leading-tight font-semibold tracking-tight md:text-[2.8rem]">
             {concept.title}
           </h1>
-          <p className="text-fg-muted font-display text-lg italic tracking-wide opacity-70">
+          <p className="text-fg-muted font-display text-lg tracking-wide italic opacity-70">
             {concept.title_en}
           </p>
 
@@ -145,7 +155,7 @@ export default async function MathConceptDetailPage({
         </div>
       )}
 
-      <article className="min-w-0 max-w-[1200px]">
+      <article className="max-w-[1200px] min-w-0">
         {concept.content ? (
           <MathMarkdownRenderer content={concept.content} accentColor={fieldColor} />
         ) : (
@@ -179,18 +189,10 @@ export default async function MathConceptDetailPage({
           </div>
         )}
 
-        {concept.content ? (
-          <MathMarkdownRenderer content={concept.content} accentColor={fieldColor} />
-        ) : (
-          <div className="border-border-faint bg-bg-panel border p-8 text-center">
-            <p className="text-fg-muted text-sm">详细内容正在编写中。</p>
-          </div>
-        )}
-
         {INTERACTIVE_CONCEPTS.has(slug) && (
           <section className="my-10">
             <h2
-              className="font-display mb-4 text-[1.25rem] font-semibold leading-snug"
+              className="font-display mb-4 text-[1.25rem] leading-snug font-semibold"
               style={{ color: fieldColor }}
             >
               交互式函数绘图
@@ -217,12 +219,12 @@ export default async function MathConceptDetailPage({
         {prevConcept ? (
           <Link
             href={`/mathematics/concepts/${prevConcept.slug}`}
-            className="group flex flex-1 flex-col gap-1 border border-border-faint p-4 transition-all duration-300 hover:border-fg-disabled/30 hover:bg-bg-panel"
+            className="group border-border-faint hover:border-fg-disabled/30 hover:bg-bg-panel flex flex-1 flex-col gap-1 border p-4 transition-all duration-300"
           >
             <span className="text-fg-disabled font-mono text-[9px] tracking-[0.22em] uppercase">
               ← 上一个
             </span>
-            <span className="font-display text-fg-secondary text-sm font-medium transition-colors group-hover:text-accent-indigo">
+            <span className="font-display text-fg-secondary group-hover:text-accent-indigo text-sm font-medium transition-colors">
               {prevConcept.title}
             </span>
           </Link>
@@ -232,12 +234,12 @@ export default async function MathConceptDetailPage({
         {nextConcept ? (
           <Link
             href={`/mathematics/concepts/${nextConcept.slug}`}
-            className="group flex flex-1 flex-col items-end gap-1 border border-border-faint p-4 text-right transition-all duration-300 hover:border-fg-disabled/30 hover:bg-bg-panel"
+            className="group border-border-faint hover:border-fg-disabled/30 hover:bg-bg-panel flex flex-1 flex-col items-end gap-1 border p-4 text-right transition-all duration-300"
           >
             <span className="text-fg-disabled font-mono text-[9px] tracking-[0.22em] uppercase">
               下一个 →
             </span>
-            <span className="font-display text-fg-secondary text-sm font-medium transition-colors group-hover:text-accent-indigo">
+            <span className="font-display text-fg-secondary group-hover:text-accent-indigo text-sm font-medium transition-colors">
               {nextConcept.title}
             </span>
           </Link>

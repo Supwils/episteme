@@ -5,6 +5,14 @@ import { motion, useReducedMotion } from "framer-motion";
 
 const PRODUCT_EASE: [number, number, number, number] = [0.22, 0.61, 0.36, 1];
 
+// Deterministic 0..1 pseudo-random keyed by index, so per-point radius/size stay
+// fixed across frames and match between server and client (no jitter, no
+// hydration drift). Plain Math.random() re-rolled on every animation frame.
+function pseudoRandom(seed: number): number {
+  const x = Math.sin(seed * 12.9898) * 43758.5453;
+  return x - Math.floor(x);
+}
+
 interface BlackHoleVisualizerProps {
   className?: string;
 }
@@ -38,16 +46,18 @@ export function BlackHoleVisualizer({ className }: BlackHoleVisualizerProps) {
   }, [reduce]);
 
   const accretionDiskPoints = useMemo(() => {
-    const points: { x: number; y: number; opacity: number }[] = [];
+    const points: { x: number; y: number; opacity: number; size: number }[] = [];
     const count = 200;
     for (let i = 0; i < count; i++) {
       const angle = (i / count) * Math.PI * 2 + rotation;
-      const r = accretionInnerR + Math.random() * (accretionOuterR - accretionInnerR);
+      const r = accretionInnerR + pseudoRandom(i) * (accretionOuterR - accretionInnerR);
       const x = cx + Math.cos(angle) * r;
       const y = cy + Math.sin(angle) * r * 0.3;
-      const distFromCenter = Math.abs(r - (accretionInnerR + accretionOuterR) / 2) / ((accretionOuterR - accretionInnerR) / 2);
+      const distFromCenter =
+        Math.abs(r - (accretionInnerR + accretionOuterR) / 2) /
+        ((accretionOuterR - accretionInnerR) / 2);
       const opacity = Math.max(0.1, 1 - distFromCenter * 0.8);
-      points.push({ x, y, opacity });
+      points.push({ x, y, opacity, size: 1.5 + pseudoRandom(i + 0.5) });
     }
     return points;
   }, [rotation, cx, cy, accretionInnerR, accretionOuterR]);
@@ -74,8 +84,8 @@ export function BlackHoleVisualizer({ className }: BlackHoleVisualizerProps) {
   return (
     <div className={className}>
       <div className="border-border-faint bg-bg-near relative overflow-hidden border">
-        <div className="flex items-center justify-between border-b border-border-faint px-4 py-2">
-          <span className="font-mono text-[10px] tracking-[0.28em] text-fg-muted uppercase">
+        <div className="border-border-faint flex items-center justify-between border-b px-4 py-2">
+          <span className="text-fg-muted font-mono text-[10px] tracking-[0.28em] uppercase">
             黑洞可视化 · black hole
           </span>
           <div className="flex items-center gap-3">
@@ -124,8 +134,8 @@ export function BlackHoleVisualizer({ className }: BlackHoleVisualizerProps) {
           <rect width={svgSize} height={svgSize} fill="url(#bh-bg)" />
 
           {Array.from({ length: 80 }).map((_, i) => {
-            const x = ((i * 137.5) % svgSize);
-            const y = ((i * 97.3) % svgSize);
+            const x = (i * 137.5) % svgSize;
+            const y = (i * 97.3) % svgSize;
             const r = 0.5 + (i % 3) * 0.5;
             const dist = Math.sqrt((x - cx) ** 2 + (y - cy) ** 2);
             if (dist < accretionOuterR + 20) return null;
@@ -169,18 +179,13 @@ export function BlackHoleVisualizer({ className }: BlackHoleVisualizerProps) {
               key={`disk-${i}`}
               cx={pt.x}
               cy={pt.y}
-              r={1.5 + Math.random()}
+              r={pt.size}
               fill={i % 3 === 0 ? "#f97316" : i % 3 === 1 ? "#fbbf24" : "#ef4444"}
               opacity={pt.opacity * 0.6}
             />
           ))}
 
-          <circle
-            cx={cx}
-            cy={cy}
-            r={photonSphereR}
-            fill="url(#photon-glow)"
-          />
+          <circle cx={cx} cy={cy} r={photonSphereR} fill="url(#photon-glow)" />
 
           {lensingArcs.map((arc, i) => (
             <path
@@ -302,24 +307,22 @@ export function BlackHoleVisualizer({ className }: BlackHoleVisualizerProps) {
           )}
         </svg>
 
-        <div className="flex items-center justify-between border-t border-border-faint px-4 py-2">
+        <div className="border-border-faint flex items-center justify-between border-t px-4 py-2">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-1.5">
               <span className="inline-block h-2.5 w-2.5 rounded-full bg-orange-500" />
-              <span className="font-mono text-[9px] text-fg-muted">事件视界</span>
+              <span className="text-fg-muted font-mono text-[9px]">事件视界</span>
             </div>
             <div className="flex items-center gap-1.5">
               <span className="inline-block h-2.5 w-2.5 rounded-full bg-yellow-500" />
-              <span className="font-mono text-[9px] text-fg-muted">光子层</span>
+              <span className="text-fg-muted font-mono text-[9px]">光子层</span>
             </div>
             <div className="flex items-center gap-1.5">
               <span className="inline-block h-2.5 w-2.5 rounded-full bg-red-500" />
-              <span className="font-mono text-[9px] text-fg-muted">吸积盘</span>
+              <span className="text-fg-muted font-mono text-[9px]">吸积盘</span>
             </div>
           </div>
-          <span className="font-mono text-[9px] text-fg-disabled">
-            史瓦西半径模型
-          </span>
+          <span className="text-fg-disabled font-mono text-[9px]">史瓦西半径模型</span>
         </div>
       </div>
 
