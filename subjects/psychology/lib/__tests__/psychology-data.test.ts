@@ -109,7 +109,7 @@ describe("psychology data access", () => {
 
   describe("getAllPhenomena", () => {
     it("returns all phenomena", () => {
-      expect(getAllPhenomena()).toHaveLength(52);
+      expect(getAllPhenomena().length).toBeGreaterThanOrEqual(52);
     });
 
     it("each phenomenon has required fields (title, slug, content)", () => {

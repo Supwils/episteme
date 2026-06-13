@@ -1,0 +1,133 @@
+---
+title: 堆与优先队列
+title_en: Heaps and Priority Queues
+status: published
+updated: 2026-06-13
+category: 数据结构
+order: 16
+field: 计算机科学 · 数据结构
+tags:
+  - 堆
+  - 优先队列
+  - 二叉堆
+  - 斐波那契堆
+related:
+  - sorting-algorithms
+  - shortest-path-dijkstra
+  - greedy-algorithms
+---
+
+# 堆与优先队列
+
+想象一家急诊室：病人按紧迫程度（而不是到达时间）接受治疗。最危重的病人总是最先被处理，哪怕他是最后到达的。这就是**优先队列**的行为模型——一种"根据优先级出队"而非"先进先出"的数据结构。
+
+**堆（Heap）**是优先队列最高效的实现方式，也是一种奇妙的数据结构：它用**数组**实现了一棵**树**，同时保证了极高的缓存友好性。
+
+## 核心概念：堆序性
+
+**二叉堆（Binary Heap）**是一棵满足以下两个条件的完全二叉树：
+
+1. **完全性**：所有层都填满，最后一层从左到右填入
+2. **堆序性（Heap Property）**：
+   - **最大堆（Max-Heap）**：每个节点的值 $\geq$ 其所有子节点的值
+   - **最小堆（Min-Heap）**：每个节点的值 $\leq$ 其所有子节点的值
+
+关键洞察：完全二叉树可以用数组表示，不需要指针！
+
+若根节点存在下标 $1$（1-indexed），则：
+- 节点 $i$ 的父节点：$\lfloor i/2 \rfloor$
+- 节点 $i$ 的左子节点：$2i$
+- 节点 $i$ 的右子节点：$2i + 1$
+
+这种数组表示不仅节省指针的内存开销，更重要的是**缓存友好**——相关节点在内存中是连续的，CPU 缓存命中率高。
+
+## 基本操作
+
+**插入（Insert）**：将新元素放到末尾，然后"上浮（sift-up / bubble-up）"：与父节点比较，若违反堆序则交换，重复直到满足。时间 $O(\log n)$。
+
+**取最值（Extract-Max / Extract-Min）**：取根节点（最大/最小值），将末尾元素移到根，然后"下沉（sift-down / heapify-down）"：与最大/最小的子节点比较并交换，重复直到满足。时间 $O(\log n)$。
+
+**查看最值（Peek）**：直接返回根节点，$O(1)$。
+
+**建堆（Heapify / Build-Heap）**：将任意数组建成堆。朴素方法逐个插入 $O(n \log n)$。**Floyd 建堆算法**：从最后一个非叶节点开始，逐个向前对每个节点执行 sift-down，时间 $O(n)$！
+
+Floyd 建堆为 $O(n)$ 的证明是精妙的分析：大多数节点在树的底层，下沉代价小；只有少数节点在顶层代价大，求和的级数收敛到 $O(n)$。
+
+## 堆排序
+
+堆排序（Heapsort）由 J.W.J. Williams 在 1964 年提出：先 $O(n)$ 建堆，然后 $n$ 次取出最大值，每次取出后维护堆——总计 $O(n \log n)$，且原地进行（$O(1)$ 额外空间）。
+
+与快速排序相比：堆排序最坏情况同样 $O(n \log n)$（无退化风险），但实践中因访问模式跳跃，缓存命中率差，通常比快速排序慢约 2-5 倍。
+
+## 优先队列的应用场景
+
+优先队列是众多算法的核心子结构：
+
+**Dijkstra 最短路径**：每次从优先队列中提取当前距离最小的未访问节点。用二叉堆：$O((V + E) \log V)$；用斐波那契堆（理论上）：$O(E + V \log V)$。
+
+**Prim 最小生成树**：每次从优先队列取代价最小的跨越边。
+
+**A* 搜索**：按估计总代价 $f = g + h$ 的优先队列驱动搜索。
+
+**Top-K 问题**：从 $n$ 个元素中找最大的 $k$ 个。用最小堆维护大小为 $k$ 的窗口，时间 $O(n \log k)$。
+
+**任务调度**：操作系统调度器按优先级管理就绪队列。
+
+**中位数维护**：用一个最大堆和一个最小堆分别维护前半段和后半段，可在 $O(\log n)$ 内动态维护流数据的中位数。
+
+## 堆的变种
+
+### d-叉堆（d-ary Heap）
+
+每个节点有 $d$ 个子节点（而非 2 个）。Insert 变快（上浮高度 $O(\log_d n)$），Extract-Min 变慢（下沉时比较 $d$ 个子节点，时间 $O(d \log_d n)$）。
+
+$d = 4$ 的 4-叉堆在 Dijkstra 等 Insert 操作远多于 Extract 的场景中实践性能更好，因为树更矮，缓存命中率更高。
+
+### 二项堆（Binomial Heap）
+
+由 Jean Vuillemin 在 1978 年提出。支持高效的**合并（Merge）**操作：$O(\log n)$ 时间合并两个堆。而二叉堆的合并需要 $O(n)$。
+
+二项堆由多棵"二项树"组成，结构类似二进制计数。
+
+### 斐波那契堆（Fibonacci Heap）
+
+由 Michael Fredman 和 Robert Tarjan 在 1984/1987 年提出。支持**摊销 $O(1)$** 的 Insert 和 Decrease-Key（降低某元素的优先级），$O(\log n)$ 的 Extract-Min。
+
+这使得 Dijkstra 算法理论复杂度降至 $O(E + V \log V)$（用二叉堆是 $O((V+E)\log V)$）——在稠密图上是显著的改进。
+
+然而，斐波那契堆的常数因子大，实现复杂，实践中被证明常常不如简单的二叉堆或 d-叉堆快——这是理论与工程之间著名的"差距"。
+
+**实际基准**（现代硬件）：
+
+| 实现 | Insert | Extract-Min | 备注 |
+|------|--------|-------------|------|
+| 二叉堆 | $O(\log n)$ | $O(\log n)$ | 实践最快，缓存友好 |
+| d-叉堆（$d=4$） | $O(\log n)$ | $O(\log n)$ | Dijkstra 常用 |
+| 斐波那契堆 | $O(1)$ 摊销 | $O(\log n)$ | 理论最优，实践较慢 |
+| 配对堆（Pairing Heap） | $O(1)$ 摊销 | $O(\log n)$ 摊销 | 实践上接近斐波那契堆但更简单 |
+
+### 配对堆（Pairing Heap）
+
+Michael Fredman、Robert Sedgewick、Daniel Sleator 和 Robert Tarjan 在 1986 年提出。实现简单，实践性能接近斐波那契堆，是目前许多场景下的首选。
+
+## 堆的视角：部分有序
+
+堆是一种**部分有序（Partially Ordered）**数据结构——它不保证完整的排序，只保证"最值可以 $O(1)$ 访问，下一最值可以 $O(\log n)$ 提取"。这种"不完全排序"正是它比全排序高效的原因。
+
+相比之下，若想要 $O(1)$ 查询任意元素，需要哈希表；若想要有序遍历，需要平衡 BST。堆在"只需反复取最值"这一场景下是最优的工具。
+
+## 跨域连接
+
+- **[[sorting-algorithms]]**：堆排序是以堆为核心的排序算法，原地且最坏 $O(n \log n)$。建堆的 $O(n)$ 复杂度分析是摊销分析的经典案例。
+- **[[shortest-path-dijkstra]]**：优先队列是 Dijkstra 算法的关键数据结构；斐波那契堆对 Dijkstra 的理论优化是优先队列研究的重要动力。
+- **[[greedy-algorithms]]**：贪心算法（活动选择、Huffman 编码、Prim/Kruskal）频繁使用优先队列，因为"每次取当前最优选项"正是优先队列的核心操作。
+- **操作系统**：进程调度器在实现中常用堆（或红黑树）维护就绪队列；实时操作系统（RTOS）对优先队列的延迟特性有严格要求。
+
+---
+
+## 延伸阅读
+
+- Williams, J.W.J. "Algorithm 232: Heapsort." *Communications of the ACM* 7(6), 1964.
+- Fredman, M. & Tarjan, R. "Fibonacci Heaps and Their Uses in Improved Network Optimization Algorithms." *Journal of the ACM* 34(3), 1987.
+- Cormen, T. et al. *Introduction to Algorithms (CLRS).* 4th ed. MIT Press, 2022. （第6章 Heapsort, 第19章 Fibonacci Heaps）
+- Brodal, G. & Lagogiannis, G. & Tarjan, R. "Strict Fibonacci Heaps." *STOC*, 2012.

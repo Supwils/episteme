@@ -1,0 +1,122 @@
+---
+title: 分布式系统
+title_en: Distributed Systems
+status: published
+updated: 2026-06-13
+category: 系统与架构
+order: 20
+field: 计算机科学 · 系统
+tags:
+  - 分布式
+  - 一致性
+  - 容错
+  - CAP定理
+  - 网络
+related:
+  - networking-protocols
+  - cloud-computing
+  - concurrency
+---
+
+# 分布式系统
+
+2003 年，Google 发表了三篇论文：GFS（分布式文件系统）、MapReduce（分布式计算框架）、Bigtable（分布式数据库）。这三篇论文重塑了整个互联网行业的基础设施——不是因为它们发明了什么革命性算法，而是因为它们系统性地解答了一个问题：**如何让数千台普通廉价机器像一台超级计算机一样工作**。
+
+这就是分布式系统的核心挑战。
+
+## 破除误解：分布式不是"更快的单机"
+
+人们常以为，分布式系统就是把一台计算机的工作分给多台机器，让它们各做一份，然后合并结果——速度自然快了十倍、百倍。
+
+这个理解在某些场景正确，但它掩盖了分布式系统最根本的特性：**网络带来了全新的失败模式**。
+
+单机系统要么在运行，要么完全停机。但在分布式系统中，部分节点可以崩溃，网络可以把消息丢掉或乱序，某个节点可能运行缓慢而不是真的宕机——外界无法分辨。莱斯利·兰波特（Leslie Lamport）有一句话：*"分布式系统是这样一种系统：你甚至不知道某台你从未听说过的机器出了故障，却让你自己的机器停止运行。"*
+
+## CAP 定理：不可能三角
+
+2000 年，Eric Brewer 在 PODC 大会上提出了 CAP 猜想，2002 年 Gilbert 和 Lynch 将其证明为定理：
+
+> 一个分布式系统**不可能同时满足**：
+> - **C（Consistency，一致性）**：所有节点在同一时间看到相同的数据
+> - **A（Availability，可用性）**：每个请求都能收到响应（不管是否包含最新数据）
+> - **P（Partition tolerance，分区容忍性）**：系统在网络分区时仍能继续运行
+
+网络分区（P）在现实中不可避免，所以实际上系统只能在 C 和 A 之间取舍：
+
+| 选择 | 典型系统 | 应用场景 |
+|------|---------|---------|
+| CP（放弃可用性） | HBase、Zookeeper | 金融交易、配置中心 |
+| AP（放弃强一致） | Cassandra、CouchDB | 购物车、用户行为日志 |
+
+CAP 定理之后，学界又提出了更精细的 PACELC 模型，指出即使没有网络分区，延迟与一致性之间也存在权衡——这更贴近现实的工程决策。
+
+## 核心挑战：时间、顺序与共识
+
+### 时钟问题
+
+分布式系统中没有"全局时钟"。每台机器有自己的时钟，且时钟会漂移（drift）。两台机器的时间差可以超过几百毫秒。这意味着你不能用时间戳来确定事件的先后顺序。
+
+Lamport 在 1978 年提出了**逻辑时钟（Lamport Clocks）**：每个事件带一个单调递增的计数器，通信时传递时钟值，接收方取较大值并加一。这建立了事件之间的**因果关系**，但不是全序。后来的**向量时钟（Vector Clocks）**进一步允许检测并发（两个事件互相不因果）。
+
+### 共识问题
+
+共识（Consensus）是分布式系统最核心的问题：如何让多个节点就某个值达成一致意见，即使部分节点宕机？
+
+1985 年，Fischer、Lynch、Paterson 证明了 **FLP 不可能定理**：在一个异步网络中，即使只有一个节点可能失败，也无法设计出一个始终能在有限时间内终止的共识算法。
+
+这意味着实践中的共识算法必须做出妥协：
+
+- **Paxos**（Lamport，1989）：第一个实用的共识协议，理论上严格，但极难实现
+- **Raft**（Ongaro & Ousterhout，2014）：为可理解性而设计，Etcd、CockroachDB 使用
+- **PBFT**（Castro & Liskov，1999）：拜占庭容错，可抵抗节点发送错误消息（用于区块链）
+
+### 最终一致性
+
+在 AP 系统中，常见的一致性模型是**最终一致性（Eventual Consistency）**：系统保证，如果不再有新的更新，最终所有副本都会收敛到相同的值。
+
+Amazon DynamoDB 论文（DeCandia et al., 2007）将最终一致性带入工程主流，并引入了具体的冲突解决机制（向量时钟 + 版本协调）。
+
+## 分布式系统的常见模式
+
+**主从复制（Leader-Follower）**：一个主节点处理写入，从节点复制主节点数据。读可以分发到从节点。主节点宕机需要选举新主（failover）。MySQL、PostgreSQL 默认采用此模式。
+
+**无主复制（Leaderless）**：任何节点都可以接受写入，通过仲裁（quorum）保证一致性。写入 $w$ 个节点，读取 $r$ 个节点，只要 $w + r > n$（总节点数），读写集必然有交集。Dynamo、Cassandra 采用此模式。
+
+**分片（Sharding）**：把数据按某个键（如用户 ID 的哈希值）分配到不同节点，每个节点只存部分数据，突破单机存储上限。分片带来跨分片查询的复杂性。
+
+**一致性哈希（Consistent Hashing）**：解决增减节点时的数据迁移问题。把节点和数据都映射到一个逻辑环，只迁移相邻节点的数据，而不是全量重新分配。由 Karger 等人于 1997 年提出，被 Akamai CDN 和 Memcached 广泛使用。
+
+## 脑裂与拜占庭故障
+
+**脑裂（Split-Brain）**：网络分区导致系统出现两个"主节点"，各自接受写入，产生数据不一致。解决方案是要求主节点必须获得多数节点确认（majority quorum），少数区的节点拒绝写入。
+
+**拜占庭故障（Byzantine Fault）**：节点不只会崩溃，还会发送错误或恶意的消息。解决拜占庭故障需要至少 $3f+1$ 个节点才能容忍 $f$ 个叛变节点，代价极高。区块链的共识机制（PoW、PoS）本质上是低成本拜占庭容错的不同工程路径。
+
+## 代价与争议
+
+**分布式系统的隐藏复杂性**：分布式系统会把原本简单的问题变得极端复杂。"只需要分布式锁"这个需求，要正确实现需要处理：锁超时、节点宕机、网络分区、时钟漂移……Martin Kleppmann 等人认为，许多系统声称使用 Redis 实现分布式锁（Redlock 算法），但这在网络分区时会产生安全性漏洞。
+
+**CAP 定理的局限**：批评者指出 CAP 定理过于简化，把一致性和可用性都定义成了二元选择，而现实中它们是连续谱。PACELC、Linearizability vs Serializability 等更细粒度的框架提供了更精确的分析工具。
+
+**分布式系统不应成为默认选择**：分布式系统带来的复杂性代价巨大。Kelsey Hightower 等工程师一再强调，大多数应用在规模到真正需要分布式之前，用一台优化过的单机或简单的主从复制已经足够。
+
+## 跨域连接
+
+- **数学**：图论用于描述网络拓扑；概率论用于分析副本一致性；博弈论用于建模拜占庭节点的策略。
+- **哲学**：FLP 不可能定理与哥德尔不完备定理有类似的精神——在给定约束下，某些问题原则上无法解决。
+- **经济学**：云计算的计费模型、容量规划是分布式系统的经济决策，涉及边际成本曲线。
+- **[[cloud-computing]]**：现代云计算本质上是在出租分布式系统的能力。
+- **[[concurrency]]**：分布式系统中的并发问题比单机更复杂，因为缺乏共享内存。
+
+---
+
+## 延伸阅读
+
+- Lamport, L. *Time, Clocks, and the Ordering of Events in a Distributed System.* CACM 21(7), 1978.
+- Brewer, E. *Towards Robust Distributed Systems.* PODC Keynote, 2000.
+- DeCandia, G. et al. *Dynamo: Amazon's Highly Available Key-value Store.* SOSP, 2007.
+- Kleppmann, M. *Designing Data-Intensive Applications.* O'Reilly, 2017. （最权威的分布式系统工程实践教材）
+- Ongaro, D. & Ousterhout, J. *In Search of an Understandable Consensus Algorithm.* USENIX ATC, 2014. （Raft 论文）
+- Fischer, M., Lynch, N., Paterson, M. *Impossibility of Distributed Consensus with One Faulty Process.* JACM 32(2), 1985.
+- Lamport, L. *Paxos Made Simple.* ACM SIGACT News 32(4), 2001. （共识算法 Paxos 的可读版解释）
+- Vogels, W. *Eventually Consistent.* ACM Queue 6(6), 2008. （亚马逊 CTO 关于最终一致性的权威阐述）

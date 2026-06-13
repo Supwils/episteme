@@ -1,0 +1,211 @@
+---
+title: 图的遍历（BFS 与 DFS）
+title_en: Graph Traversal — BFS and DFS
+status: published
+updated: 2026-06-13
+category: 经典算法
+order: 3
+field: 计算机科学 · 算法 · 图论
+tags:
+  - BFS
+  - DFS
+  - 图遍历
+  - 图算法
+  - 宽度优先
+  - 深度优先
+related:
+  - data-structures
+  - shortest-path-dijkstra
+---
+
+# 图的遍历：BFS 与 DFS
+
+谷歌的网络爬虫访问 `example.com`，发现它链接到 `a.com`、`b.com`，然后访问 `a.com`，发现它链接到 `c.com`、`d.com`……这个过程叫做**图遍历**：系统地访问图中每一个可达节点，不重复、不遗漏。
+
+从地图导航到代码编译器的依赖分析，从社交网络的朋友推荐到游戏中的寻路——几乎所有涉及"关系"的问题，背后都有图遍历在工作。
+
+## 两种基本策略
+
+图遍历有两种基本策略，区别在于**探索的顺序**：
+
+**广度优先搜索（BFS，Breadth-First Search）**：先把距起点 1 步的所有节点访问完，再访问距离 2 步的，以此类推——像水波一样逐层扩散。
+
+**深度优先搜索（DFS，Depth-First Search）**：沿一条路一直走到底，走不通了再回头换路——像探迷宫时选一条走道走到尽头。
+
+## BFS：最短路径的保证
+
+BFS 使用**队列**实现，保证按距离顺序访问节点：
+
+```python
+from collections import deque
+
+def bfs(graph, start):
+    visited = {start}
+    queue = deque([start])
+    while queue:
+        node = queue.popleft()
+        print(node)  # 处理节点
+        for neighbor in graph[node]:
+            if neighbor not in visited:
+                visited.add(neighbor)
+                queue.append(neighbor)
+```
+
+以下图为例：
+
+```
+    A
+   / \
+  B   C
+ / \   \
+D   E   F
+```
+
+BFS 从 A 开始的访问顺序：A → B → C → D → E → F
+
+层次 0: {A}
+层次 1: {B, C}
+层次 2: {D, E, F}
+
+**BFS 的关键性质**：第一次到达一个节点时，经过的路径是从起点到该节点的**最短路径**（按边数计）。这使 BFS 天然适合求无权图中的最短路径。
+
+**复杂度**：时间 $O(V + E)$（$V$ = 节点数，$E$ = 边数），空间 $O(V)$（队列最大存整层节点）。
+
+## DFS：递归探索的本质
+
+DFS 使用**栈**实现（或用递归，递归调用栈本质也是栈）：
+
+```python
+def dfs(graph, node, visited=None):
+    if visited is None:
+        visited = set()
+    visited.add(node)
+    print(node)  # 处理节点
+    for neighbor in graph[node]:
+        if neighbor not in visited:
+            dfs(graph, neighbor, visited)
+    return visited
+```
+
+同样的图，DFS 从 A 开始的访问顺序（取决于邻居顺序）：A → B → D → E → C → F
+
+DFS 的访问顺序有三种时间点：
+- **前序（Pre-order）**：访问节点时处理（进入节点时）
+- **后序（Post-order）**：回溯时处理（所有子节点处理完后）
+- **中序（In-order）**：只适用于二叉树，左-根-右
+
+**复杂度**：时间 $O(V + E)$，空间 $O(V)$（最深递归栈深度，最坏情况为图的直径）。
+
+## 应用对比
+
+| 场景 | 首选算法 | 理由 |
+|------|---------|------|
+| 无权图最短路径 | BFS | 按层遍历保证最短 |
+| 检测图中是否存在路径 | BFS 或 DFS | 均可，DFS 实现更简洁 |
+| 拓扑排序 | DFS | DFS 后序天然给出逆拓扑序 |
+| 检测有向图中的环 | DFS | DFS 期间发现后向边即有环 |
+| 连通分量 | BFS 或 DFS | 均可 |
+| 迷宫求解（任意路径） | DFS | 深入探索，实现简单 |
+| 迷宫求最短路径 | BFS | 保证最短 |
+| 网页爬虫 | BFS | 按距离优先访问近邻 |
+
+## 拓扑排序：DFS 的重要应用
+
+对有向无环图（DAG），拓扑排序是把所有节点排成一行，使每条有向边都从前到后指向。
+
+应用：课程选修的先修顺序、软件包安装的依赖关系、编译器确定代码编译顺序。
+
+DFS 实现拓扑排序：对图做 DFS，记录每个节点的"完成时间"（DFS 回溯时），按完成时间从大到小排序即是拓扑序。
+
+```python
+def topological_sort(graph):
+    visited = set()
+    order = []
+
+    def dfs(node):
+        visited.add(node)
+        for neighbor in graph[node]:
+            if neighbor not in visited:
+                dfs(neighbor)
+        order.append(node)  # 后序：所有子节点处理完后才加入
+
+    for node in graph:
+        if node not in visited:
+            dfs(node)
+    return list(reversed(order))
+```
+
+## 双向 BFS：加速搜索
+
+对于两端已知的最短路径问题（如"从 A 到 B 最短几步"），可以**从两端同时 BFS**，当两个搜索波前相遇时停止。
+
+在均匀图中，双向 BFS 的时间复杂度从 $O(b^d)$ 降至 $O(b^{d/2})$（$b$ 为分支因子，$d$ 为最短路径长度）——这可以是数量级的差距。Google Maps 的路径规划使用此类技术的变种。
+
+## A* 与启发式搜索：BFS 的扩展
+
+纯 BFS 按边数寻找最短路径，不考虑边的权重。当边有不同权重（如道路距离）时，需要 Dijkstra 算法（见[[shortest-path-dijkstra]]）。
+
+但在实际地图导航中，还可以利用**启发信息**（如目标方向的直线距离）来优先探索"看起来更接近目标"的路径，大幅减少探索节点数——这是 **A\* 算法**的核心思想（Hart et al., 1968）。A\* 是游戏 AI 寻路的标准算法，也用于机器人规划。
+
+## 强连通分量：DFS 的深层应用
+
+有向图中有一个重要问题：找出所有**强连通分量（Strongly Connected Components，SCC）**——即每个顶点都能到达同一个分量中所有其他顶点的最大子图。
+
+Kosaraju-Sharir 算法（1978）用两次 DFS 解决这个问题：
+
+1. 对原图做 DFS，按完成时间从大到小记录顶点
+2. 对**转置图**（所有边反向）按上述顺序做 DFS，每次 DFS 覆盖的顶点集就是一个 SCC
+
+Tarjan 算法（Robert Tarjan，1972）用一次 DFS 完成，使用栈和"low-link"值追踪可达性。时间复杂度均为 $O(V + E)$。
+
+SCC 的应用：
+- **社交网络分析**：找出互相关注的"小圈子"（用户之间可以相互到达的最大子图）
+- **程序分析**：编译器用 SCC 识别互递归的函数组，分析数据流
+- **网页排名**：PageRank 的核心计算在 SCC 的有向图缩点（DAG）上进行
+
+## 最短路径树与 BFS 的正确性证明
+
+为什么 BFS 第一次到达节点时的路径一定是最短的？
+
+**归纳证明**：
+- 层次 0（起点 $s$）：距离 = 0，显然正确
+- 层次 $d$：假设所有层次 $< d$ 的节点已有正确最短距离
+- 层次 $d$ 的节点 $v$ 被某个层次 $d-1$ 的节点 $u$ 发现：$dist(v) = dist(u) + 1$
+- 不可能存在更短路径：若有路径长度 $< d$，$v$ 应在层次 $< d$ 就被发现了
+
+这个证明的关键是 BFS 的**FIFO 顺序**——队列保证层次 $d$ 的所有节点在层次 $d+1$ 的任何节点之前被处理。
+
+**"最短"仅限无权图**：边权不同时，BFS 的层次结构不再对应实际距离——需要用 Dijkstra（带权 BFS）。
+
+## 图遍历的历史
+
+BFS 的概念最早由 Konrad Zuse 在 1945 年提出（在他为 Plankalkül 语言写的文档中），但现代的 BFS 描述一般追溯到 Edward F. Moore 1959 年用于迷宫求解的工作。
+
+DFS 的系统化则来自 Tarjan 1972 年的工作——他不只提出了 DFS，更揭示了 DFS 树、后向边、前向边、交叉边的结构，以及它们与图的拓扑性质（SCC、桥、割点）之间的精确对应。
+
+Tarjan 凭借这项工作（以及后来对数据结构的大量贡献）在 1986 年获得 ACM 图灵奖。
+
+## 代价与争议
+
+**递归 DFS 的栈溢出风险**：对非常深的图（如长链），递归 DFS 可能栈溢出。解决方法：用显式栈迭代实现，或设置递归深度限制（Python 默认 1000）。
+
+**BFS 的内存压力**：BFS 需要在内存中保存整个当前层的所有节点。对于分支因子大（每个节点有很多邻居）的图，BFS 可能需要大量内存。这是 DFS 内存占用 $O(d)$（深度）相对 BFS $O(b^d)$ 的优势所在。
+
+**图的稀疏性与表示**：图可以用邻接矩阵（$O(V^2)$ 空间，随机查询 $O(1)$）或邻接表（$O(V + E)$ 空间，遍历更快）表示。对稀疏图（$E \ll V^2$，如社交网络），邻接表是标准选择；对稠密图（如完全图），邻接矩阵更紧凑。BFS 和 DFS 都更适合邻接表表示：复杂度是 $O(V + E)$ 而非 $O(V^2)$。
+
+## 跨域连接
+
+- **[[data-structures]]**：BFS 依赖队列，DFS 依赖栈（或递归调用栈），遍历本质是数据结构的应用。
+- **[[shortest-path-dijkstra]]**：BFS 是无权图最短路径算法；Dijkstra 是 BFS 的加权版本推广；A* 是加启发函数的 Dijkstra。
+- **人工智能**：BFS 和 DFS 是状态空间搜索的基础；棋类 AI（如 Minimax 搜索）本质是对博弈树的 DFS；蒙特卡洛树搜索（AlphaGo 用的方法）是随机化的 BFS/DFS 混合。
+- **编译器**：程序的控制流图（CFG）用 DFS 分析；依赖关系的拓扑排序用于确定编译顺序；SCC 用于识别互递归函数组。
+- **[[minimum-spanning-tree]]**：最小生成树算法（Prim）的结构与 BFS 相似——都是从一个起点贪心地扩展，但优先级不同。
+
+---
+
+## 延伸阅读
+
+- Cormen, T. et al. *Introduction to Algorithms (CLRS).* 3rd ed. 第22章. MIT Press, 2009.
+- Sedgewick, R. & Wayne, K. *Algorithms.* 4th ed. 第4章（图算法）. Addison-Wesley, 2011.
+- Tarjan, R. E. *Depth-First Search and Linear Graph Algorithms.* SIAM J. Comput. 1(2), 1972.（DFS 理论的奠基论文）
+- Hart, P. et al. *A Formal Basis for the Heuristic Determination of Minimum Cost Paths.* IEEE Transactions on Systems Science and Cybernetics, 4(2), 1968. （A* 算法原始论文）

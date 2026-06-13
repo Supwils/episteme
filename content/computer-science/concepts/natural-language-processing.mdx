@@ -1,0 +1,140 @@
+---
+title: 自然语言处理
+title_en: Natural Language Processing
+status: published
+updated: 2026-06-13
+category: 人工智能
+order: 43
+field: 计算机科学 · 人工智能
+tags:
+  - NLP
+  - 语言模型
+  - Transformer
+  - 文本处理
+related:
+  - deep-learning-architectures
+  - machine-learning-overview
+  - neural-networks-concept
+---
+
+# 自然语言处理
+
+1950 年，Alan Turing 在他关于"计算机器与智能"的论文中提出，评判机器智能的标准应该是：能否在文字对话中被误认为是人类。
+
+七十多年后，我们制造出了能流畅回答问题、写代码、解数学题、分析文学作品的系统。问题是：它们真的"理解"语言，还是只是在进行极其复杂的模式匹配？这个问题至今没有定论，但 NLP 技术本身已经深刻改变了信息获取和知识工作的方式。
+
+## 破除误解：NLP 不是"让计算机读懂文字"
+
+把 NLP 描述为"让计算机理解语言"是有误导性的。"理解"蕴含主观意识和语义把握，这些我们并不知道机器是否具备。
+
+更准确的描述是：NLP 研究**如何让计算机有效处理和生成自然语言文本**——执行分类、翻译、摘要、问答、生成等任务，以人类可用的质量完成。至于其中是否有"理解"，是哲学问题，不是工程问题。
+
+## 语言的核心挑战
+
+自然语言的处理比处理图像或结构化数据难得多，因为语言具有：
+
+**歧义（Ambiguity）**：
+- 词汇歧义："bank"可以是银行或河岸
+- 句法歧义："I saw the man with the telescope"（是我用望远镜看，还是看到拿望远镜的人？）
+- 指代歧义："The trophy didn't fit in the suitcase because it was too big."（"it"是奖杯还是箱子？）
+
+**上下文依赖**：理解一个词或句子往往需要整个对话甚至文化背景的知识。
+
+**组合性（Compositionality）**：语言意义通过有限元素（词汇、句法）的组合产生无限表达——"无色绿色的想法在沉睡中愤怒地燃烧"在语法上完全正确，在语义上毫无意义。
+
+**隐含语用信息（Pragmatics）**："你能把盐递给我吗？"不是在询问能力，而是请求行为。语言在使用中远比字面意思复杂。
+
+## NLP 任务分类
+
+| 任务 | 描述 | 示例 |
+|------|------|------|
+| 分词（Tokenization） | 把文本分解为词元 | "Hello, world!" → ["Hello", ",", "world", "!"] |
+| 词性标注（POS Tagging） | 为每个词标注词性 | "runs"（动词）, "fast"（副词）|
+| 命名实体识别（NER） | 识别人名、地名、组织等 | "苹果公司"（公司）, "北京"（地点）|
+| 句法分析（Parsing） | 分析句子的语法结构 | 依存树、成分树 |
+| 情感分析 | 判断文本情感倾向 | "这个产品很棒！" → 正面 |
+| 机器翻译 | 跨语言文本转换 | 中文 → 英文 |
+| 文本摘要 | 提取/生成文本要点 | 长文档 → 关键段落 |
+| 问答（QA） | 基于知识回答问题 | 阅读理解、开放域问答 |
+| 文本生成 | 生成连贯文本 | 故事创作、代码生成 |
+
+## 语言模型：预测下一个词
+
+**语言模型（Language Model）**：估计文本序列的概率分布 $P(w_1, w_2, ..., w_n)$，或条件概率 $P(w_t | w_1, ..., w_{t-1})$。
+
+最朴素的语言模型是 N-gram 模型：用前 $N-1$ 个词预测下一个词。
+
+$$P(w_t | w_1, ..., w_{t-1}) \approx P(w_t | w_{t-N+1}, ..., w_{t-1})$$
+
+N-gram 在 2010 年代前主导 NLP，但面对 $|V|^N$（词汇量的 N 次方）的参数空间，数据稀疏问题严重（大量组合没有在训练数据中出现过）。
+
+## 词嵌入：把词变成向量
+
+**词嵌入（Word Embedding）**：将每个词映射到低维实数向量，语义相似的词在向量空间中距离近。
+
+**Word2Vec（Google，2013，Mikolov 等）**：两种训练方式：
+- Skip-gram：给定中心词，预测上下文词
+- CBOW：给定上下文词，预测中心词
+
+训练好的向量有惊人的语义代数性质：
+
+$$\text{vec}(\text{"King"}) - \text{vec}(\text{"Man"}) + \text{vec}(\text{"Woman"}) \approx \text{vec}(\text{"Queen"})$$
+
+词嵌入从根本上改变了 NLP——把离散的词语符号变成可微分的连续向量，使梯度下降能直接优化词语表示。
+
+**GloVe（Stanford，2014）**和**FastText（Facebook，2016）**是 Word2Vec 的重要后继，各有改进（GloVe 利用全局统计；FastText 基于子词，处理词形变化和未登录词）。
+
+## Transformer 时代：BERT 与 GPT
+
+词嵌入的问题是**静态的**——"bank"在所有上下文中有相同的向量表示，无法区分"银行"和"河岸"。
+
+Transformer 的出现彻底改变了这一点，带来了**上下文化的词表示**：
+
+**BERT（Bidirectional Encoder Representations from Transformers，Google，2018）**：
+- 用 Transformer 编码器，同时看词的左边和右边上下文
+- 预训练任务：遮蔽语言模型（随机遮蔽 15% 的词，预测被遮的词）+ 下句预测
+- 预训练后微调（Fine-tune）到下游任务，刷新了几乎所有 NLP 基准测试的记录
+- 适合理解任务（分类、NER、QA）
+
+**GPT 系列（OpenAI，2018-至今）**：
+- 用 Transformer 解码器，从左到右自回归生成
+- 预训练任务：语言模型（预测下一个词）
+- GPT-3（2020）：1750 亿参数，展示了强大的少样本学习（Few-Shot Learning）——只给几个例子，就能完成新任务
+- ChatGPT（2022）：GPT-3.5 + RLHF，对话体验大幅提升
+- GPT-4（2023）：多模态，性能再度飞跃
+
+**T5（Google，2019）**：把所有 NLP 任务统一为"文本到文本"格式，简化了多任务学习框架。
+
+## 机器翻译的演化
+
+**规则翻译 → 统计机器翻译 → 神经机器翻译**：
+
+- 1990-2000 年代：**统计机器翻译（SMT）**，基于翻译概率和语言模型的对数线性组合（IBM 模型、Moses 工具箱）
+- 2014-2016：**神经机器翻译（NMT）**，编码器-解码器架构，注意力机制（Bahdanau，2014），显著超越 SMT
+- 2017：Transformer 让 NMT 性能再度飞跃，Google 翻译全面切换
+- 今天：大语言模型（如 GPT-4）在多数语言对上接近或超越专用翻译系统
+
+## 代价与争议
+
+**幻觉（Hallucination）**：大语言模型经常用流利的语言生成事实错误的内容，且表达得同样自信。原因在于训练目标（最大化文本预测概率）与"输出真实信息"之间没有对齐。检索增强生成（RAG）是缓解方案之一。
+
+**文化偏见与语言不平等**：训练数据以英文为主，其他语言的 NLP 性能差距显著。全球约 7000 种语言中，只有不到 100 种有足够的 NLP 资源。语言模型中可能编码了训练数据来源文化的偏见。
+
+**"鹦鹉随机"假说（Stochastic Parrot）**：2021 年 Emily Bender 等人发表论文，提出大语言模型只是在根据训计过的文本做复杂的形式匹配（"随机鹦鹉"），没有真正的语言理解和意图。这引发了 NLP 学界关于大语言模型本质的激烈辩论，也导致了 Google 对 Timnit Gebru 的解雇风波（发表该论文的作者之一）。
+
+**版权与内容安全**：训练数据中包含大量网络内容；生成的内容可能造成错误信息传播、版权侵犯或有害内容。内容安全过滤是大规模 NLP 系统部署的核心工程挑战。
+
+## 跨域连接
+
+- **[[deep-learning-architectures]]**：Transformer 架构是现代 NLP 的基石，BERT、GPT、T5 都建立在 Transformer 之上。
+- **语言学**：NLP 与语言学有深度交叉——语法（句法学）、语义（词汇语义学、命题逻辑）、语用（语用学）为 NLP 任务提供了理论框架，但深度学习方法越来越多地绕过显式语言规则，直接从数据中学习。
+- **哲学**：图灵测试、中文屋论证（Searle）、"随机鹦鹉"假说，都是关于"语言理解"和"人工智能"的哲学争论——NLP 的技术进步不断重新激活这些根本性问题。
+
+---
+
+## 延伸阅读
+
+- Jurafsky, D. & Martin, J. *Speech and Language Processing.* 3rd ed. 草稿在线免费. （NLP 最全面的教材）
+- Mikolov, T. et al. *Distributed Representations of Words and Phrases and their Compositionality.* NeurIPS, 2013. （Word2Vec）
+- Devlin, J. et al. *BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding.* NAACL, 2019.
+- Bender, E. et al. *On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?* FAccT, 2021.

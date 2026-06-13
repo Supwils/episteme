@@ -1,19 +1,21 @@
-import type { GraphNode, GraphEdge } from '../data/types';
-import type { LayoutNode, LayoutEdge } from '@/lib/graph-engine';
-import type { RenderNode, RenderEdge } from '@/lib/graph-engine';
+import type { GraphNode, GraphEdge } from "../data/types";
+import type { LayoutNode, LayoutEdge } from "@/lib/graph-engine";
+import type { RenderNode, RenderEdge } from "@/lib/graph-engine";
 
 export const DOMAIN_COLORS: Record<string, string> = {
-  physics: '#6366f1',
-  history: '#f59e0b',
-  philosophy: '#10b981',
-  'life-science': '#ec4899',
-  economics: '#e8b84a',
-  psychology: '#d4789c',
+  physics: "#6366f1",
+  history: "#f59e0b",
+  philosophy: "#10b981",
+  "life-science": "#ec4899",
+  economics: "#e8b84a",
+  psychology: "#d4789c",
+  "computer-science": "#4f9cf0",
+  "political-science": "#c25b5b",
 };
 
 export const NODE_RADIUS: Record<string, number> = {
-  'cosmos-tier': 28,
-  'physics-tier': 22,
+  "cosmos-tier": 28,
+  "physics-tier": 22,
   event: 16,
   figure: 16,
   school: 20,
@@ -30,35 +32,50 @@ export const NODE_RADIUS: Record<string, number> = {
   theory: 14,
   theorist: 16,
   phenomenon: 14,
+  pioneer: 18,
+  algorithm: 14,
+  institution: 16,
 };
 
-export const EDGE_COLOR = 'rgba(255, 255, 255, 0.08)';
-export const BG_COLOR = '#08080f';
+export const EDGE_COLOR = "rgba(255, 255, 255, 0.08)";
+export const BG_COLOR = "#08080f";
 export const LABEL_FONT = '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
-export const LABEL_COLOR = 'rgba(255, 255, 255, 0.7)';
-export const HIGHLIGHT_COLOR = '#818cf8';
+export const LABEL_COLOR = "rgba(255, 255, 255, 0.7)";
+export const HIGHLIGHT_COLOR = "#818cf8";
 
-export const ALL_DOMAINS = ['physics', 'history', 'philosophy', 'life-science', 'economics', 'psychology'] as const;
+export const ALL_DOMAINS = [
+  "physics",
+  "history",
+  "philosophy",
+  "life-science",
+  "economics",
+  "psychology",
+  "computer-science",
+  "political-science",
+] as const;
 
 export const NODE_TYPE_LABELS: Record<string, string> = {
-  'cosmos-tier': '宇宙层级',
-  'physics-tier': '物理层级',
-  event: '历史事件',
-  figure: '历史人物',
-  school: '哲学流派',
-  thinker: '哲学家',
-  concept: '哲学概念',
-  experiment: '实验',
-  question: '哲学问题',
-  ism: '主义',
-  era: '时代',
-  species: '物种',
-  scientist: '科学家',
-  extinction: '大灭绝',
-  economist: '经济学家',
-  theory: '经济理论',
-  theorist: '心理学家',
-  phenomenon: '心理现象',
+  "cosmos-tier": "宇宙层级",
+  "physics-tier": "物理层级",
+  event: "历史事件",
+  figure: "历史人物",
+  school: "哲学流派",
+  thinker: "哲学家",
+  concept: "哲学概念",
+  experiment: "实验",
+  question: "哲学问题",
+  ism: "主义",
+  era: "时代",
+  species: "物种",
+  scientist: "科学家",
+  extinction: "大灭绝",
+  economist: "经济学家",
+  theory: "经济理论",
+  theorist: "心理学家",
+  phenomenon: "心理现象",
+  pioneer: "计算机先驱",
+  algorithm: "算法",
+  institution: "制度与政体",
 };
 
 export const CLUSTER_RADIUS = 350;
@@ -73,7 +90,7 @@ ALL_DOMAINS.forEach((domain, i) => {
 
 export function buildLayoutNodes(nodes: GraphNode[]): LayoutNode[] {
   return nodes.map((node) => {
-    const domainIndex = ALL_DOMAINS.indexOf(node.domain as typeof ALL_DOMAINS[number]);
+    const domainIndex = ALL_DOMAINS.indexOf(node.domain as (typeof ALL_DOMAINS)[number]);
     const domainAngle = (2 * Math.PI * domainIndex) / ALL_DOMAINS.length;
     const jitterR = 80 + Math.random() * 150;
     const jitterA = domainAngle + (Math.random() - 0.5) * 1.2;
@@ -92,7 +109,7 @@ export function buildLayoutEdges(edges: GraphEdge[]): LayoutEdge[] {
   return edges.map((e) => ({
     source: e.source,
     target: e.target,
-    strength: e.type === 'domain-link' ? 0.3 : 1,
+    strength: e.type === "domain-link" ? 0.3 : 1,
   }));
 }
 
@@ -103,7 +120,7 @@ export function toRenderNodes(
   selectedId: string | null,
   activeDomains: Set<string>,
   spreadOffsets?: Map<string, { x: number; y: number }>,
-  searchMatchedIds?: Set<string>,
+  searchMatchedIds?: Set<string>
 ): RenderNode[] {
   return nodes
     .filter((n) => activeDomains.has(n.domain))
@@ -118,7 +135,7 @@ export function toRenderNodes(
         domain: node.domain,
         type: node.type,
         radius: NODE_RADIUS[node.type] ?? 16,
-        color: DOMAIN_COLORS[node.domain] ?? '#9ca3af',
+        color: DOMAIN_COLORS[node.domain] ?? "#9ca3af",
         hovered: node.id === hoveredId,
         selected: node.id === selectedId,
         searchMatched: searchMatchedIds?.has(node.id) ?? false,
@@ -131,7 +148,7 @@ export function toRenderEdges(
   edges: GraphEdge[],
   positions: Map<string, { x: number; y: number }>,
   activeDomains: Set<string>,
-  nodeDomainMap: Map<string, string>,
+  nodeDomainMap: Map<string, string>
 ): RenderEdge[] {
   return edges
     .filter((e) => {
@@ -148,12 +165,12 @@ export function toRenderEdges(
         x2: t?.x ?? 0,
         y2: t?.y ?? 0,
         color:
-          edge.type === 'cross-reference'
-            ? 'rgba(200, 164, 90, 0.2)'
-            : edge.type === 'domain-link'
-              ? 'rgba(255, 255, 255, 0.12)'
-              : 'rgba(255, 255, 255, 0.06)',
-        width: edge.type === 'cross-reference' || edge.type === 'domain-link' ? 1.5 : 0.8,
+          edge.type === "cross-reference"
+            ? "rgba(200, 164, 90, 0.2)"
+            : edge.type === "domain-link"
+              ? "rgba(255, 255, 255, 0.12)"
+              : "rgba(255, 255, 255, 0.06)",
+        width: edge.type === "cross-reference" || edge.type === "domain-link" ? 1.5 : 0.8,
         alpha: 0.6,
         sourceId: edge.source,
         targetId: edge.target,
@@ -161,7 +178,10 @@ export function toRenderEdges(
     });
 }
 
-export function computeNodeCounts(nodes: GraphNode[], activeDomains: Set<string>): Record<string, number> {
+export function computeNodeCounts(
+  nodes: GraphNode[],
+  activeDomains: Set<string>
+): Record<string, number> {
   const counts: Record<string, number> = {};
   for (const node of nodes) {
     if (!activeDomains.has(node.domain)) continue;

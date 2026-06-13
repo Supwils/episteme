@@ -1,7 +1,8 @@
 export type Block =
   | { type: "h1"; text: string }
-  | { type: "h2"; text: string }
-  | { type: "h3"; text: string }
+  | { type: "h2"; text: string; id: string }
+  | { type: "h3"; text: string; id: string }
+  | { type: "h4"; text: string; id: string }
   | { type: "blockquote"; lines: string[] }
   | { type: "list"; items: string[]; ordered: boolean }
   | { type: "table"; header: string[]; rows: string[][] }
@@ -89,21 +90,28 @@ export function parseContent(raw: string): Block[] {
       flushParagraph();
       flushList();
       if (inBlockquote) flushBlockquote();
-      blocks.push({ type: "h1", text: trimmed.slice(2) });
+      blocks.push({ type: "h1", text: parseHeading(trimmed.slice(2)).text });
       continue;
     }
     if (trimmed.startsWith("## ")) {
       flushParagraph();
       flushList();
       if (inBlockquote) flushBlockquote();
-      blocks.push({ type: "h2", text: trimmed.slice(3) });
+      blocks.push({ type: "h2", ...parseHeading(trimmed.slice(3)) });
       continue;
     }
     if (trimmed.startsWith("### ")) {
       flushParagraph();
       flushList();
       if (inBlockquote) flushBlockquote();
-      blocks.push({ type: "h3", text: trimmed.slice(4) });
+      blocks.push({ type: "h3", ...parseHeading(trimmed.slice(4)) });
+      continue;
+    }
+    if (trimmed.startsWith("#### ")) {
+      flushParagraph();
+      flushList();
+      if (inBlockquote) flushBlockquote();
+      blocks.push({ type: "h4", ...parseHeading(trimmed.slice(5)) });
       continue;
     }
     if (trimmed.startsWith("> ")) {
@@ -161,6 +169,16 @@ export function parseContent(raw: string): Block[] {
   return blocks;
 }
 
+/**
+ * Authors mark explicit anchors as `## 标题 {#anchor}` (a third of the thinker
+ * corpus uses this); the suffix is metadata, never display text.
+ */
+function parseHeading(text: string): { text: string; id: string } {
+  const match = text.match(/^(.*?)\s*\{#([A-Za-z0-9_-]+)\}\s*$/);
+  if (match) return { text: match[1]!.trim(), id: match[2]! };
+  return { text, id: slugify(text) };
+}
+
 export function slugify(text: string): string {
   return text
     .toLowerCase()
@@ -171,8 +189,8 @@ export function slugify(text: string): string {
 
 export function extractH2Headings(blocks: Block[]): { id: string; text: string }[] {
   return blocks
-    .filter((b): b is { type: "h2"; text: string } => b.type === "h2")
-    .map((b) => ({ id: slugify(b.text), text: b.text }));
+    .filter((b): b is { type: "h2"; text: string; id: string } => b.type === "h2")
+    .map((b) => ({ id: b.id, text: b.text }));
 }
 
 export type TocEntry = {
@@ -187,10 +205,10 @@ export function extractToc(blocks: Block[]): TocEntry[] {
 
   for (const b of blocks) {
     if (b.type === "h2") {
-      current = { id: slugify(b.text), text: b.text, children: [] };
+      current = { id: b.id, text: b.text, children: [] };
       toc.push(current);
     } else if (b.type === "h3" && current) {
-      current.children.push({ id: slugify(b.text), text: b.text });
+      current.children.push({ id: b.id, text: b.text });
     }
   }
 

@@ -4,6 +4,7 @@ import { PHILOSOPHY_TODAY } from "./philosophy-today";
 import { ECONOMICS_TODAY } from "./daily-economics";
 import { PSYCHOLOGY_TODAY } from "./daily-psychology";
 import { ON_THIS_DAY } from "./on-this-day";
+import { getAllCuriosities } from "./curiosities";
 
 export interface DailySelected {
   date: string;
@@ -16,6 +17,9 @@ export interface DailySelected {
   mathematics: DailySelectedFact;
   lifeScience: DailySelectedFact;
   cosmology: DailySelectedFact;
+  computerScience: DailySelectedFact;
+  politicalScience: DailySelectedFact;
+  curiosity: { title: string; detail: string; url?: string };
   question: string;
   fact: string;
   onThisDay: OnThisDayMatch[];
@@ -58,7 +62,7 @@ function simpleHash(str: string): number {
   let hash = 0;
   for (let i = 0; i < str.length; i++) {
     const char = str.charCodeAt(i);
-    hash = ((hash << 5) - hash) + char;
+    hash = (hash << 5) - hash + char;
     hash |= 0;
   }
   return Math.abs(hash);
@@ -114,7 +118,7 @@ const MONTHLY_FACTS: Record<string, readonly string[]> = {
     "3月是北半球气象学春季的开始",
   ],
   "04": [
-    "4月的英文April来自拉丁语aperire，意为\"开放\"",
+    '4月的英文April来自拉丁语aperire，意为"开放"',
     "清明节通常在4月4日或5日，是中国传统节日",
     "4月的诞生石是钻石，象征纯洁与力量",
   ],
@@ -161,165 +165,556 @@ const MONTHLY_FACTS: Record<string, readonly string[]> = {
 };
 
 const MATH_FACTS: readonly DailySelectedFact[] = [
-  { title: "欧拉恒等式", description: "e^(iπ) + 1 = 0 被誉为最优美的数学公式，将五个最重要的数学常数联系在一起。", url: "/mathematics" },
-  { title: "素数的无穷性", description: "欧几里得在公元前300年就证明了素数有无穷多个，这是数论的基石。", url: "/mathematics" },
-  { title: "哥德尔不完备定理", description: "任何包含算术的一致形式系统都存在不可判定的命题，这改变了数学的根基。", url: "/mathematics" },
-  { title: "费马大定理", description: "x^n + y^n = z^n 在 n>2 时无正整数解，这个猜想花了358年才被安德鲁·怀尔斯证明。", url: "/mathematics" },
-  { title: "黄金比例", description: "φ = (1+√5)/2 ≈ 1.618，出现在自然界、艺术和建筑中，被认为是美的数学表达。", url: "/mathematics" },
-  { title: "黎曼猜想", description: "关于素数分布的核心猜想，至今未被证明，是千禧年七大数学难题之一。", url: "/mathematics" },
-  { title: "圆周率的奥秘", description: "π是无理数也是超越数，小数位无穷无尽且不循环，目前已计算到数百万亿位。", url: "/mathematics" },
-  { title: "莫比乌斯带", description: "只有一条边和一个面的曲面，是拓扑学最经典的研究对象之一。", url: "/mathematics" },
-  { title: "分形几何", description: "曼德博集合展示了简单迭代规则如何产生无限复杂的图案，揭示了混沌中的秩序。", url: "/mathematics" },
-  { title: "四色定理", description: "任何地图只需四种颜色就能确保相邻区域不同色，1976年首次用计算机辅助证明。", url: "/mathematics" },
-  { title: "无穷大的等级", description: "康托尔证明了无穷大有不同的大小：自然数的无穷小于实数的无穷。", url: "/mathematics" },
-  { title: "博弈论", description: "纳什均衡揭示了在非合作博弈中，每个参与者都选择最优策略时的状态。", url: "/mathematics" },
-  { title: "欧拉公式", description: "V - E + F = 2 揭示了多面体的顶点、边和面之间的基本关系。", url: "/mathematics" },
-  { title: "概率论的起源", description: "帕斯卡和费马在1654年的通信中奠定了概率论的基础，起源于赌博问题。", url: "/mathematics" },
-  { title: "集合论悖论", description: "罗素悖论动摇了朴素集合论的基础，推动了公理化集合论的发展。", url: "/mathematics" },
+  {
+    title: "欧拉恒等式",
+    description: "e^(iπ) + 1 = 0 被誉为最优美的数学公式，将五个最重要的数学常数联系在一起。",
+    url: "/mathematics",
+  },
+  {
+    title: "素数的无穷性",
+    description: "欧几里得在公元前300年就证明了素数有无穷多个，这是数论的基石。",
+    url: "/mathematics",
+  },
+  {
+    title: "哥德尔不完备定理",
+    description: "任何包含算术的一致形式系统都存在不可判定的命题，这改变了数学的根基。",
+    url: "/mathematics",
+  },
+  {
+    title: "费马大定理",
+    description: "x^n + y^n = z^n 在 n>2 时无正整数解，这个猜想花了358年才被安德鲁·怀尔斯证明。",
+    url: "/mathematics",
+  },
+  {
+    title: "黄金比例",
+    description: "φ = (1+√5)/2 ≈ 1.618，出现在自然界、艺术和建筑中，被认为是美的数学表达。",
+    url: "/mathematics",
+  },
+  {
+    title: "黎曼猜想",
+    description: "关于素数分布的核心猜想，至今未被证明，是千禧年七大数学难题之一。",
+    url: "/mathematics",
+  },
+  {
+    title: "圆周率的奥秘",
+    description: "π是无理数也是超越数，小数位无穷无尽且不循环，目前已计算到数百万亿位。",
+    url: "/mathematics",
+  },
+  {
+    title: "莫比乌斯带",
+    description: "只有一条边和一个面的曲面，是拓扑学最经典的研究对象之一。",
+    url: "/mathematics",
+  },
+  {
+    title: "分形几何",
+    description: "曼德博集合展示了简单迭代规则如何产生无限复杂的图案，揭示了混沌中的秩序。",
+    url: "/mathematics",
+  },
+  {
+    title: "四色定理",
+    description: "任何地图只需四种颜色就能确保相邻区域不同色，1976年首次用计算机辅助证明。",
+    url: "/mathematics",
+  },
+  {
+    title: "无穷大的等级",
+    description: "康托尔证明了无穷大有不同的大小：自然数的无穷小于实数的无穷。",
+    url: "/mathematics",
+  },
+  {
+    title: "博弈论",
+    description: "纳什均衡揭示了在非合作博弈中，每个参与者都选择最优策略时的状态。",
+    url: "/mathematics",
+  },
+  {
+    title: "欧拉公式",
+    description: "V - E + F = 2 揭示了多面体的顶点、边和面之间的基本关系。",
+    url: "/mathematics",
+  },
+  {
+    title: "概率论的起源",
+    description: "帕斯卡和费马在1654年的通信中奠定了概率论的基础，起源于赌博问题。",
+    url: "/mathematics",
+  },
+  {
+    title: "集合论悖论",
+    description: "罗素悖论动摇了朴素集合论的基础，推动了公理化集合论的发展。",
+    url: "/mathematics",
+  },
 ];
 
 const LIFE_SCIENCE_FACTS: readonly DailySelectedFact[] = [
-  { title: "DNA的双螺旋", description: "1953年沃森和克里克发现了DNA的双螺旋结构，开启了分子生物学时代。", url: "/life-science" },
-  { title: "寒武纪生命大爆发", description: "约5.4亿年前，地球上几乎所有动物门类在短短2000万年内同时出现。", url: "/life-science" },
-  { title: "线粒体夏娃", description: "所有现代人类的线粒体DNA都可以追溯到约15万年前非洲的一位女性祖先。", url: "/life-science" },
-  { title: "CRISPR基因编辑", description: "CRISPR-Cas9技术让精确编辑基因组成为可能，正在改变医学和农业。", url: "/life-science" },
-  { title: "五次大灭绝", description: "地球历史上经历了五次大规模物种灭绝，每次都重塑了生命的演化方向。", url: "/life-science" },
-  { title: "光合作用的奇迹", description: "植物、藻类和蓝藻通过光合作用将太阳能转化为化学能，维持了地球几乎所有的生命。", url: "/life-science" },
-  { title: "人类基因组", description: "人类基因组包含约20000-25000个基因，但98%的DNA曾被认为是'垃圾'，现在发现有重要功能。", url: "/life-science" },
-  { title: "共生与进化", description: "线粒体曾经是独立的细菌，通过内共生与真核细胞结合，成为细胞的'能量工厂'。", url: "/life-science" },
-  { title: "表观遗传学", description: "环境可以通过表观遗传修饰影响基因表达，且某些修饰可以遗传给后代。", url: "/life-science" },
-  { title: "微生物组", description: "人体内寄居着约38万亿微生物，它们影响免疫、消化甚至情绪和行为。", url: "/life-science" },
-  { title: "趋同进化", description: "章鱼的眼睛和人类的眼睛结构惊人相似，但独立进化了至少5亿年。", url: "/life-science" },
-  { title: "朊病毒", description: "朊病毒是不含核酸的感染性蛋白质，挑战了'所有病原体都需要遗传物质'的传统观念。", url: "/life-science" },
-  { title: "干细胞的潜力", description: "干细胞可以分化为人体200多种细胞类型中的任何一种，是再生医学的希望。", url: "/life-science" },
-  { title: "生命的化学起源", description: "米勒-尤里实验证明，原始地球条件下无机物可以自发形成氨基酸等有机分子。", url: "/life-science" },
-  { title: "生物钟", description: "几乎所有生物都有内在的昼夜节律，由基因调控的分子时钟驱动。", url: "/life-science" },
+  {
+    title: "DNA的双螺旋",
+    description: "1953年沃森和克里克发现了DNA的双螺旋结构，开启了分子生物学时代。",
+    url: "/life-science",
+  },
+  {
+    title: "寒武纪生命大爆发",
+    description: "约5.4亿年前，地球上几乎所有动物门类在短短2000万年内同时出现。",
+    url: "/life-science",
+  },
+  {
+    title: "线粒体夏娃",
+    description: "所有现代人类的线粒体DNA都可以追溯到约15万年前非洲的一位女性祖先。",
+    url: "/life-science",
+  },
+  {
+    title: "CRISPR基因编辑",
+    description: "CRISPR-Cas9技术让精确编辑基因组成为可能，正在改变医学和农业。",
+    url: "/life-science",
+  },
+  {
+    title: "五次大灭绝",
+    description: "地球历史上经历了五次大规模物种灭绝，每次都重塑了生命的演化方向。",
+    url: "/life-science",
+  },
+  {
+    title: "光合作用的奇迹",
+    description: "植物、藻类和蓝藻通过光合作用将太阳能转化为化学能，维持了地球几乎所有的生命。",
+    url: "/life-science",
+  },
+  {
+    title: "人类基因组",
+    description:
+      "人类基因组包含约20000-25000个基因，但98%的DNA曾被认为是'垃圾'，现在发现有重要功能。",
+    url: "/life-science",
+  },
+  {
+    title: "共生与进化",
+    description: "线粒体曾经是独立的细菌，通过内共生与真核细胞结合，成为细胞的'能量工厂'。",
+    url: "/life-science",
+  },
+  {
+    title: "表观遗传学",
+    description: "环境可以通过表观遗传修饰影响基因表达，且某些修饰可以遗传给后代。",
+    url: "/life-science",
+  },
+  {
+    title: "微生物组",
+    description: "人体内寄居着约38万亿微生物，它们影响免疫、消化甚至情绪和行为。",
+    url: "/life-science",
+  },
+  {
+    title: "趋同进化",
+    description: "章鱼的眼睛和人类的眼睛结构惊人相似，但独立进化了至少5亿年。",
+    url: "/life-science",
+  },
+  {
+    title: "朊病毒",
+    description: "朊病毒是不含核酸的感染性蛋白质，挑战了'所有病原体都需要遗传物质'的传统观念。",
+    url: "/life-science",
+  },
+  {
+    title: "干细胞的潜力",
+    description: "干细胞可以分化为人体200多种细胞类型中的任何一种，是再生医学的希望。",
+    url: "/life-science",
+  },
+  {
+    title: "生命的化学起源",
+    description: "米勒-尤里实验证明，原始地球条件下无机物可以自发形成氨基酸等有机分子。",
+    url: "/life-science",
+  },
+  {
+    title: "生物钟",
+    description: "几乎所有生物都有内在的昼夜节律，由基因调控的分子时钟驱动。",
+    url: "/life-science",
+  },
 ];
 
 const COSMOLOGY_FACTS: readonly DailySelectedFact[] = [
-  { title: "宇宙微波背景辐射", description: "大爆炸留下的余辉，温度约2.7K，是宇宙最古老的光。", url: "/cosmology" },
-  { title: "暗能量", description: "约占宇宙总能量的68%，是推动宇宙加速膨胀的神秘力量。", url: "/cosmology" },
-  { title: "哈勃定律", description: "星系远离我们的速度与距离成正比，揭示了宇宙正在膨胀。", url: "/cosmology" },
-  { title: "宇宙的年龄", description: "通过宇宙微波背景辐射精确测量，宇宙的年龄约为138亿年。", url: "/cosmology" },
-  { title: "宇宙大尺度结构", description: "星系构成纤维状结构和巨大空洞，形成宇宙网。", url: "/cosmology" },
-  { title: "暴胀理论", description: "宇宙在诞生后极短时间内经历了指数级膨胀，解释了宇宙的平坦性。", url: "/cosmology" },
-  { title: "暗物质", description: "约占宇宙总质量的27%，不发光也不与光相互作用，但通过引力影响星系运动。", url: "/cosmology" },
-  { title: "宇宙的命运", description: "宇宙可能面临大冻结、大撕裂或大坍缩三种终极命运。", url: "/cosmology" },
-  { title: "多宇宙假说", description: "某些物理理论暗示我们的宇宙可能只是无数宇宙中的一个。", url: "/cosmology" },
-  { title: "宇宙的平坦性", description: "观测表明宇宙的空间曲率非常接近于零，这意味着宇宙在大尺度上是平坦的。", url: "/cosmology" },
-  { title: "星系的形成", description: "暗物质晕是星系形成的骨架，普通物质在引力作用下聚集形成恒星和星系。", url: "/cosmology" },
-  { title: "宇宙的元素起源", description: "氢和氦在大爆炸中形成，其他元素在恒星内部和超新星爆发中合成。", url: "/cosmology" },
+  {
+    title: "宇宙微波背景辐射",
+    description: "大爆炸留下的余辉，温度约2.7K，是宇宙最古老的光。",
+    url: "/cosmology",
+  },
+  {
+    title: "暗能量",
+    description: "约占宇宙总能量的68%，是推动宇宙加速膨胀的神秘力量。",
+    url: "/cosmology",
+  },
+  {
+    title: "哈勃定律",
+    description: "星系远离我们的速度与距离成正比，揭示了宇宙正在膨胀。",
+    url: "/cosmology",
+  },
+  {
+    title: "宇宙的年龄",
+    description: "通过宇宙微波背景辐射精确测量，宇宙的年龄约为138亿年。",
+    url: "/cosmology",
+  },
+  {
+    title: "宇宙大尺度结构",
+    description: "星系构成纤维状结构和巨大空洞，形成宇宙网。",
+    url: "/cosmology",
+  },
+  {
+    title: "暴胀理论",
+    description: "宇宙在诞生后极短时间内经历了指数级膨胀，解释了宇宙的平坦性。",
+    url: "/cosmology",
+  },
+  {
+    title: "暗物质",
+    description: "约占宇宙总质量的27%，不发光也不与光相互作用，但通过引力影响星系运动。",
+    url: "/cosmology",
+  },
+  {
+    title: "宇宙的命运",
+    description: "宇宙可能面临大冻结、大撕裂或大坍缩三种终极命运。",
+    url: "/cosmology",
+  },
+  {
+    title: "多宇宙假说",
+    description: "某些物理理论暗示我们的宇宙可能只是无数宇宙中的一个。",
+    url: "/cosmology",
+  },
+  {
+    title: "宇宙的平坦性",
+    description: "观测表明宇宙的空间曲率非常接近于零，这意味着宇宙在大尺度上是平坦的。",
+    url: "/cosmology",
+  },
+  {
+    title: "星系的形成",
+    description: "暗物质晕是星系形成的骨架，普通物质在引力作用下聚集形成恒星和星系。",
+    url: "/cosmology",
+  },
+  {
+    title: "宇宙的元素起源",
+    description: "氢和氦在大爆炸中形成，其他元素在恒星内部和超新星爆发中合成。",
+    url: "/cosmology",
+  },
 ];
 
 const ECONOMICS_FACTS: readonly DailySelectedFact[] = [
-  { title: "看不见的手", description: "亚当·斯密提出，个人追求自身利益会通过市场机制促进社会整体福利。", url: "/economics" },
-  { title: "边际效用递减", description: "消费越多同一商品，每增加一单位带来的满足感越少。", url: "/economics/concepts/opportunity-cost" },
-  { title: "比较优势", description: "大卫·李嘉图证明，即使一方在所有方面都更有效率，贸易仍对双方有利。", url: "/economics/theories/comparative-advantage" },
-  { title: "凯恩斯乘数效应", description: "政府支出的增加可以产生数倍于原始支出的经济效应。", url: "/economics/theories/keynesian-economics" },
-  { title: "纳什均衡", description: "在非合作博弈中，每个参与者都选择了对其他参与者策略的最优反应。", url: "/economics/concepts/nash-equilibrium" },
-  { title: "信息不对称", description: "交易双方拥有的信息不同，可能导致逆向选择和道德风险。", url: "/economics/theories/information-asymmetry" },
-  { title: "外部性", description: "经济活动对第三方产生的未通过市场价格反映的影响。", url: "/economics/concepts/externalities" },
-  { title: "公地悲剧", description: "共享资源因个体过度使用而枯竭，需要产权或制度来解决。", url: "/economics/concepts/tragedy-of-commons" },
-  { title: "创造性破坏", description: "熊彼特提出，创新不断摧毁旧产业并创造新产业，是资本主义的本质。", url: "/economics/concepts/creative-destruction" },
-  { title: "行为经济学", description: "卡尼曼和特沃斯基证明，人类决策并非完全理性，受到各种认知偏差影响。", url: "/economics/theories/behavioral-economics-theory" },
-  { title: "GDP的局限", description: "GDP衡量经济产出但不反映收入分配、环境成本或幸福感。", url: "/economics/concepts/gdp" },
-  { title: "基尼系数", description: "衡量收入不平等的指标，0表示完全平等，1表示完全不平等。", url: "/economics/concepts/gini-coefficient" },
+  {
+    title: "看不见的手",
+    description: "亚当·斯密提出，个人追求自身利益会通过市场机制促进社会整体福利。",
+    url: "/economics",
+  },
+  {
+    title: "边际效用递减",
+    description: "消费越多同一商品，每增加一单位带来的满足感越少。",
+    url: "/economics/concepts/opportunity-cost",
+  },
+  {
+    title: "比较优势",
+    description: "大卫·李嘉图证明，即使一方在所有方面都更有效率，贸易仍对双方有利。",
+    url: "/economics/theories/comparative-advantage",
+  },
+  {
+    title: "凯恩斯乘数效应",
+    description: "政府支出的增加可以产生数倍于原始支出的经济效应。",
+    url: "/economics/theories/keynesian-economics",
+  },
+  {
+    title: "纳什均衡",
+    description: "在非合作博弈中，每个参与者都选择了对其他参与者策略的最优反应。",
+    url: "/economics/concepts/nash-equilibrium",
+  },
+  {
+    title: "信息不对称",
+    description: "交易双方拥有的信息不同，可能导致逆向选择和道德风险。",
+    url: "/economics/theories/information-asymmetry",
+  },
+  {
+    title: "外部性",
+    description: "经济活动对第三方产生的未通过市场价格反映的影响。",
+    url: "/economics/concepts/externalities",
+  },
+  {
+    title: "公地悲剧",
+    description: "共享资源因个体过度使用而枯竭，需要产权或制度来解决。",
+    url: "/economics/concepts/tragedy-of-commons",
+  },
+  {
+    title: "创造性破坏",
+    description: "熊彼特提出，创新不断摧毁旧产业并创造新产业，是资本主义的本质。",
+    url: "/economics/concepts/creative-destruction",
+  },
+  {
+    title: "行为经济学",
+    description: "卡尼曼和特沃斯基证明，人类决策并非完全理性，受到各种认知偏差影响。",
+    url: "/economics/theories/behavioral-economics-theory",
+  },
+  {
+    title: "GDP的局限",
+    description: "GDP衡量经济产出但不反映收入分配、环境成本或幸福感。",
+    url: "/economics/concepts/gdp",
+  },
+  {
+    title: "基尼系数",
+    description: "衡量收入不平等的指标，0表示完全平等，1表示完全不平等。",
+    url: "/economics/concepts/gini-coefficient",
+  },
 ];
 
 const PSYCHOLOGY_FACTS: readonly DailySelectedFact[] = [
-  { title: "经典条件反射", description: "巴甫洛夫发现，通过反复配对中性刺激与自然反应，可以建立新的条件反射。", url: "/psychology/experiments/pavlov-classical-conditioning" },
-  { title: "从众效应", description: "阿希实验证明，即使答案明显错误，约75%的人至少会从众一次。", url: "/psychology/experiments/asch-conformity-1951" },
-  { title: "认知失调", description: "当行为与信念矛盾时，人们倾向于改变信念而非行为。", url: "/psychology/phenomena/cognitive-dissonance" },
-  { title: "确认偏差", description: "人们倾向于寻找、解释和记住支持自己已有信念的信息。", url: "/psychology/phenomena/confirmation-bias" },
-  { title: "锚定效应", description: "决策时过度依赖最先获得的信息（锚点），即使该信息与决策无关。", url: "/psychology/phenomena/anchoring-bias" },
-  { title: "旁观者效应", description: "在场的人越多，每个人提供帮助的可能性越小。", url: "/psychology/phenomena/bystander-effect" },
-  { title: "邓宁-克鲁格效应", description: "能力不足的人倾向于高估自己的能力，而专家倾向于低估自己。", url: "/psychology/phenomena/dunning-kruger" },
-  { title: "心流状态", description: "当挑战与技能完美匹配时，人会进入完全沉浸的最佳体验状态。", url: "/psychology/phenomena/flow-state" },
-  { title: "前景理论", description: "卡尼曼和特沃斯基发现，人们对损失的敏感度是收益的约两倍。", url: "/psychology/experiments/kahneman-tversky-1979" },
-  { title: "习得性无助", description: "塞利格曼发现，反复经历无法控制的负面事件后，个体会放弃尝试。", url: "/psychology/experiments/learned-helplessness" },
-  { title: "虚假记忆", description: "洛夫特斯的研究表明，记忆可以被误导信息篡改，产生从未发生的事件记忆。", url: "/psychology/phenomena/false-memory" },
-  { title: "峰终定律", description: "人们对体验的记忆主要取决于峰值时刻和结束时刻的感受。", url: "/psychology/phenomena/peak-end-rule" },
+  {
+    title: "经典条件反射",
+    description: "巴甫洛夫发现，通过反复配对中性刺激与自然反应，可以建立新的条件反射。",
+    url: "/psychology/experiments/pavlov-classical-conditioning",
+  },
+  {
+    title: "从众效应",
+    description: "阿希实验证明，即使答案明显错误，约75%的人至少会从众一次。",
+    url: "/psychology/experiments/asch-conformity-1951",
+  },
+  {
+    title: "认知失调",
+    description: "当行为与信念矛盾时，人们倾向于改变信念而非行为。",
+    url: "/psychology/phenomena/cognitive-dissonance",
+  },
+  {
+    title: "确认偏差",
+    description: "人们倾向于寻找、解释和记住支持自己已有信念的信息。",
+    url: "/psychology/phenomena/confirmation-bias",
+  },
+  {
+    title: "锚定效应",
+    description: "决策时过度依赖最先获得的信息（锚点），即使该信息与决策无关。",
+    url: "/psychology/phenomena/anchoring-bias",
+  },
+  {
+    title: "旁观者效应",
+    description: "在场的人越多，每个人提供帮助的可能性越小。",
+    url: "/psychology/phenomena/bystander-effect",
+  },
+  {
+    title: "邓宁-克鲁格效应",
+    description: "能力不足的人倾向于高估自己的能力，而专家倾向于低估自己。",
+    url: "/psychology/phenomena/dunning-kruger",
+  },
+  {
+    title: "心流状态",
+    description: "当挑战与技能完美匹配时，人会进入完全沉浸的最佳体验状态。",
+    url: "/psychology/phenomena/flow-state",
+  },
+  {
+    title: "前景理论",
+    description: "卡尼曼和特沃斯基发现，人们对损失的敏感度是收益的约两倍。",
+    url: "/psychology/experiments/kahneman-tversky-1979",
+  },
+  {
+    title: "习得性无助",
+    description: "塞利格曼发现，反复经历无法控制的负面事件后，个体会放弃尝试。",
+    url: "/psychology/experiments/learned-helplessness",
+  },
+  {
+    title: "虚假记忆",
+    description: "洛夫特斯的研究表明，记忆可以被误导信息篡改，产生从未发生的事件记忆。",
+    url: "/psychology/phenomena/false-memory",
+  },
+  {
+    title: "峰终定律",
+    description: "人们对体验的记忆主要取决于峰值时刻和结束时刻的感受。",
+    url: "/psychology/phenomena/peak-end-rule",
+  },
 ];
 
-export function getDailySelected(date?: Date): DailySelected {
+const COMPUTER_SCIENCE_FACTS: readonly DailySelectedFact[] = [
+  {
+    title: "图灵机",
+    description:
+      "图灵在 1936 年用一台纸上的假想机器定义了「什么是计算」，奠定了所有计算机的能力边界。",
+    url: "/computer-science/pioneers/alan-turing",
+  },
+  {
+    title: "停机问题",
+    description:
+      "没有任何程序能对所有「程序+输入」判断它会停机还是永远运行——计算机科学第一个不可能性定理。",
+    url: "/computer-science/theory/computability",
+  },
+  {
+    title: "P vs NP",
+    description:
+      "「验证一个答案是否容易，找到它就一定容易吗？」这是千禧年七大难题中最受关注的一个。",
+    url: "/computer-science/theory/computational-complexity",
+  },
+  {
+    title: "香农信息论",
+    description: "香农 1948 年用「比特」量化了信息，证明了任何信道都有不可逾越的容量上限。",
+    url: "/computer-science/pioneers/claude-shannon",
+  },
+  {
+    title: "公钥密码 RSA",
+    description: "RSA 让素未谋面的双方在公开信道上安全通信，其安全性建立在大数分解的数论难题之上。",
+    url: "/computer-science/algorithms/public-key-rsa",
+  },
+  {
+    title: "反向传播",
+    description: "深度学习的引擎：用链式法则把误差从输出层逐层传回，是当代 AI 革命的数学心脏。",
+    url: "/computer-science/algorithms/gradient-descent-backprop",
+  },
+  {
+    title: "冯·诺伊曼架构",
+    description: "把程序和数据一同存在内存里——这个「存储程序」思想是今天几乎所有计算机的蓝图。",
+    url: "/computer-science/pioneers/john-von-neumann",
+  },
+  {
+    title: "大语言模型",
+    description:
+      "Transformer 架构 + 规模化，让机器在海量文本上「涌现」出推理与对话能力，也引发它是否真正理解的争论。",
+    url: "/computer-science/frontier/large-language-models",
+  },
+  {
+    title: "万维网",
+    description: "Berners-Lee 1989 年用 HTTP/HTML/URL 三件套，把互联网变成了人人可读写的信息空间。",
+    url: "/computer-science/pioneers/tim-berners-lee",
+  },
+  {
+    title: "递归",
+    description: "一个函数调用自身——用有限的代码描述无限的结构，是计算思维最优雅的核心之一。",
+    url: "/computer-science/concepts/recursion",
+  },
+  {
+    title: "哈希与碰撞",
+    description: "哈希把任意数据压成定长指纹；王小云 2004 年攻破 MD5，改写了密码学哈希的安全格局。",
+    url: "/computer-science/algorithms/hashing",
+  },
+];
+
+const POLITICAL_SCIENCE_FACTS: readonly DailySelectedFact[] = [
+  {
+    title: "利维坦与社会契约",
+    description: "霍布斯问：一群平等自利、互不信任的个体，凭什么会把权力交给一个共同的权威？",
+    url: "/political-science/thinkers/thomas-hobbes",
+  },
+  {
+    title: "三权分立",
+    description: "孟德斯鸠主张把立法、行政、司法分开制衡——「以权力制约权力」，成为现代宪政的基石。",
+    url: "/political-science/institutions/constitutionalism-separation-of-powers",
+  },
+  {
+    title: "主权",
+    description: "谁拥有最终的、不可分割的决断权？从博丹到当代，主权概念一直是政治秩序的根问题。",
+    url: "/political-science/concepts/sovereignty",
+  },
+  {
+    title: "自由主义",
+    description:
+      "以个人权利、有限政府与法治为核心的政治传统，内部又分化出古典与社会自由主义两大支流。",
+    url: "/political-science/isms/liberalism",
+  },
+  {
+    title: "国际关系现实主义",
+    description: "在没有世界政府的无政府状态下，国家只能自助求存——这是理解大国博弈的经典视角之一。",
+    url: "/political-science/international-relations/realism-ir",
+  },
+  {
+    title: "无知之幕",
+    description: "罗尔斯设想：如果你不知道自己将生在社会哪个位置，你会选择怎样的正义原则？",
+    url: "/political-science/concepts/justice",
+  },
+  {
+    title: "平庸之恶",
+    description: "阿伦特对艾希曼的观察：最大的恶未必出自恶魔，也可能来自不思考的平庸服从。",
+    url: "/political-science/thinkers/hannah-arendt",
+  },
+  {
+    title: "公意",
+    description:
+      "卢梭区分「众意」（个人意志之和）与「公意」（共同体的整体意志），至今仍是民主理论的难题。",
+    url: "/political-science/thinkers/jean-jacques-rousseau",
+  },
+  {
+    title: "民粹主义",
+    description: "把社会简化为「纯洁的人民」对「腐败的精英」——一种可左可右的「薄意识形态」。",
+    url: "/political-science/isms/populism",
+  },
+  {
+    title: "民主衰退",
+    description:
+      "V-Dem 等指标显示，21 世纪以来生活在专制化进程中的人口显著上升，民主并非单向前进。",
+    url: "/political-science/frontier/democratic-backsliding",
+  },
+  {
+    title: "全球治理",
+    description:
+      "在没有世界政府的情况下，联合国、WTO、IMF 等机制如何协调一个相互依存却主权林立的世界？",
+    url: "/political-science/international-relations/global-governance",
+  },
+];
+
+export function getDailySelected(date?: Date, seedOffset = 0): DailySelected {
   const now = date ?? new Date();
-  const seed = dateSeed(now);
+  const seed = dateSeed(now) + seedOffset * 7919;
   const dateStr = formatDate(now);
   const month = now.getMonth() + 1;
   const day = now.getDate();
 
-  const historyEvents = HISTORY_TODAY.filter(
-    (e) => e.month === month && e.day === day
-  );
-  const physicsEvents = PHYSICS_TODAY.filter(
-    (e) => e.month === month && e.day === day
-  );
-  const philosophyEvents = PHILOSOPHY_TODAY.filter(
-    (e) => e.month === month && e.day === day
-  );
-  const economicsEvents = ECONOMICS_TODAY.filter(
-    (e) => e.month === month && e.day === day
-  );
-  const psychologyEvents = PSYCHOLOGY_TODAY.filter(
-    (e) => e.month === month && e.day === day
-  );
-  const onThisDayEvents = ON_THIS_DAY.filter(
-    (e) => e.month === month && e.day === day
-  );
+  const historyEvents = HISTORY_TODAY.filter((e) => e.month === month && e.day === day);
+  const physicsEvents = PHYSICS_TODAY.filter((e) => e.month === month && e.day === day);
+  const philosophyEvents = PHILOSOPHY_TODAY.filter((e) => e.month === month && e.day === day);
+  const economicsEvents = ECONOMICS_TODAY.filter((e) => e.month === month && e.day === day);
+  const psychologyEvents = PSYCHOLOGY_TODAY.filter((e) => e.month === month && e.day === day);
+  const onThisDayEvents = ON_THIS_DAY.filter((e) => e.month === month && e.day === day);
 
-  const physics: DailySelectedEvent = physicsEvents.length > 0
-    ? (() => {
-        const e = seededSelect(physicsEvents, seed);
-        return { title: e.title, description: e.description, year: e.year, url: e.url };
-      })()
-    : (() => {
-        const e = seededSelect(PHYSICS_TODAY, seed);
-        return { title: e.title, description: e.description, year: e.year, url: e.url };
-      })();
+  const physics: DailySelectedEvent =
+    physicsEvents.length > 0
+      ? (() => {
+          const e = seededSelect(physicsEvents, seed);
+          return { title: e.title, description: e.description, year: e.year, url: e.url };
+        })()
+      : (() => {
+          const e = seededSelect(PHYSICS_TODAY, seed);
+          return { title: e.title, description: e.description, year: e.year, url: e.url };
+        })();
 
-  const history: DailySelectedEvent = historyEvents.length > 0
-    ? (() => {
-        const e = seededSelect(historyEvents, seed + 1);
-        return { title: e.title, description: e.description, year: e.year, url: e.url };
-      })()
-    : (() => {
-        const e = seededSelect(HISTORY_TODAY, seed + 1);
-        return { title: e.title, description: e.description, year: e.year, url: e.url };
-      })();
+  const history: DailySelectedEvent =
+    historyEvents.length > 0
+      ? (() => {
+          const e = seededSelect(historyEvents, seed + 1);
+          return { title: e.title, description: e.description, year: e.year, url: e.url };
+        })()
+      : (() => {
+          const e = seededSelect(HISTORY_TODAY, seed + 1);
+          return { title: e.title, description: e.description, year: e.year, url: e.url };
+        })();
 
-  const philosophy: DailySelectedEvent = philosophyEvents.length > 0
-    ? (() => {
-        const e = seededSelect(philosophyEvents, seed + 2);
-        return { title: e.title, description: e.description, year: e.year, url: e.url };
-      })()
-    : (() => {
-        const e = seededSelect(PHILOSOPHY_TODAY, seed + 2);
-        return { title: e.title, description: e.description, year: e.year, url: e.url };
-      })();
+  const philosophy: DailySelectedEvent =
+    philosophyEvents.length > 0
+      ? (() => {
+          const e = seededSelect(philosophyEvents, seed + 2);
+          return { title: e.title, description: e.description, year: e.year, url: e.url };
+        })()
+      : (() => {
+          const e = seededSelect(PHILOSOPHY_TODAY, seed + 2);
+          return { title: e.title, description: e.description, year: e.year, url: e.url };
+        })();
 
-  const economics: DailySelectedEvent = economicsEvents.length > 0
-    ? (() => {
-        const e = seededSelect(economicsEvents, seed + 8);
-        return { title: e.title, description: e.description, year: e.year, url: e.url };
-      })()
-    : (() => {
-        const e = seededSelect(ECONOMICS_TODAY, seed + 8);
-        return { title: e.title, description: e.description, year: e.year, url: e.url };
-      })();
+  const economics: DailySelectedEvent =
+    economicsEvents.length > 0
+      ? (() => {
+          const e = seededSelect(economicsEvents, seed + 8);
+          return { title: e.title, description: e.description, year: e.year, url: e.url };
+        })()
+      : (() => {
+          const e = seededSelect(ECONOMICS_TODAY, seed + 8);
+          return { title: e.title, description: e.description, year: e.year, url: e.url };
+        })();
 
-  const psychology: DailySelectedEvent = psychologyEvents.length > 0
-    ? (() => {
-        const e = seededSelect(psychologyEvents, seed + 9);
-        return { title: e.title, description: e.description, year: e.year, url: e.url };
-      })()
-    : (() => {
-        const e = seededSelect(PSYCHOLOGY_TODAY, seed + 9);
-        return { title: e.title, description: e.description, year: e.year, url: e.url };
-      })();
+  const psychology: DailySelectedEvent =
+    psychologyEvents.length > 0
+      ? (() => {
+          const e = seededSelect(psychologyEvents, seed + 9);
+          return { title: e.title, description: e.description, year: e.year, url: e.url };
+        })()
+      : (() => {
+          const e = seededSelect(PSYCHOLOGY_TODAY, seed + 9);
+          return { title: e.title, description: e.description, year: e.year, url: e.url };
+        })();
 
   const mathematics = seededSelect(MATH_FACTS, seed + 3);
   const lifeScience = seededSelect(LIFE_SCIENCE_FACTS, seed + 4);
   const cosmology = seededSelect(COSMOLOGY_FACTS, seed + 5);
+  const computerScience = seededSelect(COMPUTER_SCIENCE_FACTS, seed + 12);
+  const politicalScience = seededSelect(POLITICAL_SCIENCE_FACTS, seed + 13);
+
+  const curiosityItem = seededSelect(getAllCuriosities(), seed + 14);
+  const curiosity = {
+    title: curiosityItem.title,
+    detail: curiosityItem.detail,
+    url: curiosityItem.url,
+  };
   const economicsFact = seededSelect(ECONOMICS_FACTS, seed + 10);
   const psychologyFact = seededSelect(PSYCHOLOGY_FACTS, seed + 11);
 
@@ -351,6 +746,9 @@ export function getDailySelected(date?: Date): DailySelected {
     mathematics,
     lifeScience,
     cosmology,
+    computerScience,
+    politicalScience,
+    curiosity,
     question,
     fact,
     onThisDay,
@@ -393,6 +791,8 @@ export function buildShareText(daily: DailySelected): string {
     `📐 数学：${daily.mathematics.title}`,
     `🧬 生命：${daily.lifeScience.title}`,
     `🌌 宇宙：${daily.cosmology.title}`,
+    `💻 计算机：${daily.computerScience.title}`,
+    `⚖️ 政治：${daily.politicalScience.title}`,
     "",
     `❓ 今日一问：${daily.question}`,
     "",

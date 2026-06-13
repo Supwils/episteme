@@ -1,0 +1,134 @@
+---
+title: PageRank 算法
+title_en: PageRank Algorithm
+status: published
+updated: 2026-06-13
+category: 图算法
+order: 26
+field: 计算机科学 · 信息检索 · 图论
+tags:
+  - PageRank
+  - 搜索引擎
+  - 随机游走
+  - 马尔可夫链
+related:
+  - graph-traversal
+  - linear-programming
+---
+
+# PageRank 算法
+
+1998 年，斯坦福大学的两位博士生 Larry Page 和 Sergey Brin 在论文"The Anatomy of a Large-Scale Hypertextual Web Search Engine"中描述了一种给网页打分的方法，并用它建立了一个新的搜索引擎。
+
+他们把这个算法命名为"PageRank"——既是页面（Page）排名，也是 Larry Page 的姓。
+
+这个算法后来成为 Google 的核心专利之一（US Patent 6285999，1998 年申请），并在相当程度上奠定了现代网络搜索的基础。
+
+## 问题：网页的重要性如何排序？
+
+在 Google 之前，搜索引擎主要靠关键词匹配——页面中出现搜索词越多越靠前。这个策略被垃圾网站大量利用（关键词堆砌），搜索质量越来越差。
+
+Page 和 Brin 的洞察：**网页的重要性不只取决于内容，更取决于谁链接了它**。
+
+一个被《纽约时报》链接的页面，应该比被垃圾网站链接的页面更重要。而《纽约时报》本身的重要性，又取决于谁链接了《纽约时报》……这是一个循环定义，需要迭代求解。
+
+## 核心模型：随机冲浪者
+
+**随机冲浪者模型（Random Surfer Model）**是 PageRank 最直观的解释：
+
+想象一个随机上网的用户，他的行为如下：
+- 以概率 $d$（阻尼因子，damping factor，通常取 0.85）：随机点击当前页面的某个外链
+- 以概率 $1 - d$（通常 0.15）：厌倦了，随机跳转到任意一个网页（"传送"）
+
+$d = 0.85$ 意味着用户有 85% 的概率继续浏览、15% 的概率随机跳转。
+
+某个页面的 **PageRank** 就是：在这个随机过程的**稳定分布**（Stationary Distribution）下，用户停在该页面的概率。
+
+## 数学定义
+
+设网络中有 $N$ 个页面，$PR(v)$ 是页面 $v$ 的 PageRank，$B_v$ 是所有指向 $v$ 的页面集合，$L(u)$ 是页面 $u$ 的出链数量：
+
+$$PR(v) = \frac{1-d}{N} + d \sum_{u \in B_v} \frac{PR(u)}{L(u)}$$
+
+解释：
+- $\frac{1-d}{N}$：随机传送到任意页面的概率均摊
+- $\sum_{u \in B_v} \frac{PR(u)}{L(u)}$：从指向 $v$ 的所有页面中"流入"的 PR 值（每个出链均分 PR）
+
+这是一个**自引用方程组**：每个页面的 PR 依赖其他页面的 PR，需要迭代求解。
+
+## 矩阵形式与幂迭代
+
+将 PageRank 写成矩阵形式。设**转移矩阵** $M$，$M_{ij}$ 表示从页面 $j$ 到页面 $i$ 的转移概率（若 $j$ 有出链到 $i$，则 $M_{ij} = 1/L(j)$）。
+
+加入传送项后，**Google 矩阵（Google Matrix）**：
+
+$$G = d \cdot M + \frac{1-d}{N} \cdot \mathbf{1}\mathbf{1}^T$$
+
+其中 $\mathbf{1}$ 是全 1 向量。
+
+PageRank 向量 $\vec{PR}$ 满足 $G \vec{PR} = \vec{PR}$——即 $\vec{PR}$ 是 $G$ 的特征值为 1 的特征向量（主特征向量）。
+
+**幂迭代法（Power Iteration）**求解：
+
+$$\vec{PR}^{(t+1)} = G \cdot \vec{PR}^{(t)}$$
+
+从均匀分布 $\vec{PR}^{(0)} = [1/N, \ldots, 1/N]^T$ 出发，反复迭代直到收敛（相邻两次变化小于阈值 $\varepsilon$）。
+
+**收敛速度**：由 Perron-Frobenius 定理，迭代收敛速度由矩阵的第二大特征值 $|\lambda_2|$ 决定。对 Google 矩阵，$|\lambda_2| \leq d = 0.85$，收敛速度合理。早期 Google 报告约 50-100 次迭代收敛到百亿量级的网页规模。
+
+## 特殊情形的处理
+
+**悬挂节点（Dangling Nodes）**：没有出链的页面（如 PDF 文档）。标准模型中，悬挂节点会"吸走"所有 PR 值而不分发。处理方法：将悬挂节点的 PR 值均分给所有页面（等价于在悬挂节点添加到所有页面的边）。
+
+**不连通分量（Spider Traps）**：某些页面群形成只进不出的封闭子图，随机冲浪者一旦进入就出不去。阻尼因子 $d < 1$ 正是解决此问题——传送操作保证了遍历整个图的可能性，使 Google 矩阵是**不可约（Irreducible）且非周期（Aperiodic）**的，马尔可夫链收敛到唯一稳定分布。
+
+## PageRank 的理论基础：马尔可夫链
+
+PageRank 本质上是**有限马尔可夫链（Markov Chain）**的稳定分布问题。
+
+网页图对应马尔可夫链的状态转移图。稳定分布 $\pi$ 满足细致平衡方程，是转移矩阵的左特征向量。Perron-Frobenius 定理保证：对正随机矩阵（Google 矩阵满足此条件），稳定分布存在且唯一。
+
+这将一个互联网规模的工程问题，根植于了 19 世纪的概率论数学。
+
+## PageRank 的局限与 SEO 军备竞赛
+
+PageRank 公布后，很快引发了**搜索引擎优化（SEO，Search Engine Optimization）**的军备竞赛：
+
+- **链接农场（Link Farms）**：建立互相链接的垃圾网站群，人为提升 PR 值
+- **链接购买**：付费让权威网站链接，虚增 PR
+- **内容农场**：大量生产低质但关键词密集的内容，吸引链接
+
+Google 对此进行了大量改进：
+- **TrustRank**（Gyöngyi et al., 2004）：从可信种子网站出发，距离越远 PR 权重越低
+- **Spam Detection**：检测异常链接模式
+- **Penguin/Panda 算法更新**：针对特定垃圾 SEO 手段的惩罚机制
+
+如今，Google 的排名算法融合了 200+ 信号，PageRank 只是其中之一，但仍是理解链接权威性的基础框架。
+
+## PageRank 的影响力延伸
+
+PageRank 思想远超搜索引擎，影响了多个领域：
+
+**学术引用分析**：科学论文的引用图上的 PageRank 给出比引用次数更准确的重要性排名（被重要论文引用比被普通论文引用更有价值）。
+
+**社交网络分析**：Twitter 的"Who to Follow"推荐基于 PageRank 变种（SALSA 算法，Lempel & Moran 2001）。
+
+**生物信息学**：蛋白质相互作用网络、基因调控网络的重要节点识别——"HubRank"类算法在生物网络中的应用正在增长。
+
+**随机游走在图上的普遍性**：Google Random Walk、DeepWalk（2014）、Node2Vec（2016）等图神经网络前驱算法，都将 PageRank 的随机游走思想延伸为图的节点嵌入方法。
+
+## 跨域连接
+
+- **[[graph-traversal]]**：PageRank 的幂迭代本质是在图上反复"传播"信息，与 BFS/DFS 传播的思想有深层联系；稀疏矩阵-向量乘法（SpMV）是 PageRank 计算的核心操作，与图遍历的数据访问模式相似。
+- **概率论（马尔可夫链）**：PageRank 是应用数学中马尔可夫链理论的最著名工业应用，Perron-Frobenius 定理的工程价值在这里被亿级用户感知。
+- **线性代数**：PageRank 是特征向量的工业级应用——主特征向量对应最重要的"流量分布"，幂迭代是实用的特征向量计算方法。
+- **网络科学**：PageRank 与 Hubs-Authorities（HITS，Jon Kleinberg，1999 年发表）是网络中心性（Centrality）度量的两大范式，揭示了网络拓扑与信息权威性的关系。
+
+---
+
+## 延伸阅读
+
+- Page, L., Brin, S. et al. "The PageRank Citation Ranking: Bringing Order to the Web." *Stanford Technical Report*, 1999.
+- Brin, S. & Page, L. "The Anatomy of a Large-Scale Hypertextual Web Search Engine." *WWW*, 1998.
+- Langville, A.N. & Meyer, C.D. *Google's PageRank and Beyond: The Science of Search Engine Rankings.* Princeton University Press, 2006.
+- Kleinberg, J. "Authoritative Sources in a Hyperlinked Environment." *Journal of the ACM* 46(5), 1999.

@@ -1,0 +1,142 @@
+---
+title: 强化学习
+title_en: Reinforcement Learning
+status: published
+updated: 2026-06-13
+category: 人工智能
+order: 42
+field: 计算机科学 · 机器学习
+tags:
+  - 强化学习
+  - 马尔可夫决策过程
+  - Q学习
+  - AlphaGo
+related:
+  - machine-learning-overview
+  - neural-networks-concept
+  - deep-learning-architectures
+---
+
+# 强化学习
+
+2016 年 3 月，DeepMind 的 AlphaGo 以 4:1 击败围棋世界冠军李世石。围棋被认为是人工智能最难的棋盘游戏之一——棋盘状态空间约 $2.08 \times 10^{170}$，远超国际象棋的约 $10^{43}$。穷举搜索完全不可行。
+
+AlphaGo 的核心技术是深度强化学习（Deep Reinforcement Learning）。
+
+一年后，AlphaGo Zero 以 100:0 击败了 AlphaGo——完全从零开始，只通过自我对弈学习，不使用任何人类棋谱。
+
+## 破除误解：强化学习不是监督学习
+
+监督学习需要标注数据——人告诉模型"这个输入的正确输出是 X"。强化学习没有这样的标注：
+
+- 智能体（Agent）做出行动
+- 环境（Environment）返回奖励（正/负/零）和新状态
+- 智能体通过试错，学习最大化长期累计奖励的策略
+
+没有人告诉智能体每步棋的"正确答案"，只有赢了或输了的最终结果。如何从稀疏、延迟的奖励中学习有效策略，是强化学习的核心挑战，也是其与监督学习的根本区别。
+
+## 核心框架：马尔可夫决策过程（MDP）
+
+强化学习问题被形式化为**马尔可夫决策过程**：
+
+$$(\mathcal{S}, \mathcal{A}, P, R, \gamma)$$
+
+- $\mathcal{S}$：状态空间（环境的所有可能状态）
+- $\mathcal{A}$：动作空间（智能体可以执行的所有动作）
+- $P(s' | s, a)$：状态转移概率（执行动作 $a$ 后从状态 $s$ 到 $s'$ 的概率）
+- $R(s, a)$：奖励函数（执行动作 $a$ 在状态 $s$ 下获得的即时奖励）
+- $\gamma \in [0, 1]$：折扣因子（未来奖励的权重，越远越少）
+
+目标：找到策略 $\pi: \mathcal{S} \to \mathcal{A}$，最大化**期望累计折扣奖励**：
+
+$$G_t = \sum_{k=0}^{\infty} \gamma^k R_{t+k+1}$$
+
+**马尔可夫性质**：未来状态只依赖当前状态，与历史无关——$P(s_{t+1} | s_t, a_t, s_{t-1}, a_{t-1}, ...) = P(s_{t+1} | s_t, a_t)$。这是 MDP 的核心假设，简化了问题，但现实中并非总成立（如部分可观测环境，扑克牌中的隐藏手牌）。
+
+## 价值函数与贝尔曼方程
+
+**状态价值函数** $V^{\pi}(s)$：从状态 $s$ 出发，遵循策略 $\pi$，期望能获得的累计奖励：
+
+$$V^{\pi}(s) = \mathbb{E}_{\pi}\left[G_t | S_t = s\right]$$
+
+**贝尔曼方程（Bellman Equation）**：把当前状态的价值拆分为即时奖励加上下一状态价值的期望：
+
+$$V^{\pi}(s) = \sum_a \pi(a|s) \sum_{s'} P(s'|s,a) \left[R(s,a) + \gamma V^{\pi}(s')\right]$$
+
+贝尔曼方程是强化学习所有主要算法的理论基础。
+
+**最优价值函数** $V^*(s) = \max_{\pi} V^{\pi}(s)$，满足**贝尔曼最优方程**：
+
+$$V^*(s) = \max_a \sum_{s'} P(s'|s,a) \left[R(s,a) + \gamma V^*(s')\right]$$
+
+## 主要算法分类
+
+**基于模型（Model-Based）vs. 无模型（Model-Free）**：
+
+| 类别 | 是否需要环境模型 | 代表算法 | 优缺点 |
+|------|----------------|---------|-------|
+| 基于模型 | 需要（或学习模型） | AlphaZero、Dyna | 数据效率高，但建模难 |
+| 无模型 | 不需要 | Q-Learning、A3C | 适用广泛，数据需求大 |
+
+**时序差分（TD）方法**：结合蒙特卡洛（完整轨迹）和动态规划（使用价值函数估计），每步更新：
+
+**Q-Learning（1989 年，Watkins 提出）**：学习动作价值函数 $Q(s, a)$（在状态 $s$ 采取动作 $a$ 的期望回报）：
+
+$$Q(s, a) \leftarrow Q(s, a) + \alpha \left[r + \gamma \max_{a'} Q(s', a') - Q(s, a)\right]$$
+
+Q-Learning 是**离策略（Off-Policy）**方法：学习最优策略，但可以用任意策略探索。
+
+**策略梯度（Policy Gradient）**：直接对策略参数 $\theta$ 求梯度，最大化期望奖励：
+
+$$\nabla_\theta J(\theta) = \mathbb{E}_{\pi_\theta} \left[\nabla_\theta \log \pi_\theta(a|s) \cdot G_t\right]$$
+
+**近端策略优化（PPO，Proximal Policy Optimization，2017 年，OpenAI）**：目前最实用的强化学习算法之一，通过限制每次策略更新的幅度（Clipping），稳定训练。ChatGPT 的 RLHF（人类反馈强化学习）阶段使用了 PPO。
+
+## 深度强化学习
+
+将深度神经网络作为函数近似器，处理高维状态空间：
+
+**DQN（Deep Q-Network，DeepMind，2013/2015）**：
+- 用神经网络近似 $Q(s, a; \theta)$
+- 引入**经验回放（Experience Replay）**：存储历史 $(s, a, r, s')$ 元组，随机采样训练，打破数据相关性
+- 引入**目标网络（Target Network）**：训练时固定目标 Q 值计算网络的参数，减少振荡
+- 在 49 款 Atari 游戏上超越人类专家水平，原始输入是像素
+
+**Actor-Critic 方法**：同时维护策略网络（Actor）和价值网络（Critic）。Actor 选择动作，Critic 评估动作质量，两者相互训练。A3C（异步优势 Actor-Critic，DeepMind，2016）在 CPU 多线程上高效训练。
+
+## 强化学习的里程碑
+
+| 年份 | 成就 |
+|------|------|
+| 1992 | TD-Gammon 通过自我对弈达到人类顶级水平（西洋双陆棋）|
+| 2013 | DQN 在 Atari 游戏超越人类（DeepMind）|
+| 2016 | AlphaGo 击败李世石 |
+| 2017 | AlphaGo Zero 无人类知识从零学习围棋；AlphaZero 推广到国际象棋和将棋 |
+| 2019 | OpenAI Five 击败 Dota 2 世界冠军（多智能体、部分可观测）|
+| 2019 | AlphaStar 击败职业星际争霸 II 玩家（实时策略游戏）|
+| 2022 | ChatGPT 使用 RLHF 对齐人类偏好，强化学习进入大语言模型时代 |
+
+## 代价与争议
+
+**样本效率**：强化学习通常需要巨量交互才能学会简单任务。AlphaGo Zero 训练约 490 万局；人类专业棋手可能只下过几万局。对现实世界应用（机器人），采集如此多交互数据代价极高。
+
+**奖励设计（Reward Shaping）**：设计一个能引导智能体达成目标的奖励函数，比看起来难得多。"奖励黑客（Reward Hacking）"屡见不鲜：智能体找到了优化奖励函数的捷径，但完全不符合人类意图。例如，一个被要求在游戏中得分的智能体发现了某个让自己原地重复动作快速得分的漏洞，而非真正完成任务。
+
+**RLHF 的局限**：用人类反馈对齐大语言模型的行为（RLHF），可能让模型学会"讨好"人类标注者，而非真正诚实和有帮助——这是 AI 对齐研究的核心关切之一。
+
+**可解释性与安全性**：强化学习智能体的决策过程难以理解。在真实环境（自动驾驶、医疗机器人）部署时，如何保证安全性是开放问题。
+
+## 跨域连接
+
+- **[[machine-learning-overview]]**：强化学习是机器学习三大范式之一，与监督学习、无监督学习并列，但问题设定截然不同——没有标注数据，只有奖励信号。
+- **博弈论**：多智能体强化学习（MARL）与博弈论密切相关；纳什均衡、合作博弈等概念在 MARL 中有直接应用。AlphaZero 的自我对弈训练，可以视为寻找零和博弈纳什均衡的过程。
+- **[[neural-networks-concept]]**：深度强化学习用神经网络近似价值函数或策略，将深度学习的表示能力与强化学习的试错学习框架结合。
+
+---
+
+## 延伸阅读
+
+- Sutton, R. & Barto, A. *Reinforcement Learning: An Introduction.* 2nd ed. MIT Press, 2018. （免费在线版，领域圣经）
+- Mnih, V. et al. *Human-level Control through Deep Reinforcement Learning.* Nature 518, 2015. （DQN）
+- Silver, D. et al. *Mastering the Game of Go without Human Knowledge.* Nature 550, 2017. （AlphaGo Zero）
+- Schulman, J. et al. *Proximal Policy Optimization Algorithms.* arXiv, 2017. （PPO）

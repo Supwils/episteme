@@ -1,6 +1,10 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getTheoremBySlug, getTheoremSlugs, getAllTheorems } from "@/subjects/mathematics/lib/theorems";
+import {
+  getTheoremBySlug,
+  getTheoremSlugs,
+  getAllTheorems,
+} from "@/subjects/mathematics/lib/theorems";
 import { MATH_FIELD_COLORS, MATH_DIFFICULTY_COLORS } from "@/subjects/mathematics/lib/constants";
 import { MathMarkdownRenderer } from "@/subjects/mathematics/components/MathMarkdownRenderer";
 import { SITE_URL } from "@/lib/constants";
@@ -8,16 +12,14 @@ import { createDefinedTermJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
 import CrossDomainLinks from "@/components/CrossDomainLinks";
+import { ArticleSidebar } from "@/components/ArticleSidebar";
+import { TableOfContents } from "@/components/TableOfContents";
 
 export function generateStaticParams() {
   return getTheoremSlugs().map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const theorem = getTheoremBySlug(slug);
   if (!theorem) notFound();
@@ -26,15 +28,15 @@ export async function generateMetadata({
   return {
     title: `${theorem.title} — 数学定理`,
     description,
-    openGraph: { title: `${theorem.title} — 数学定理`, description, images: [{ url: ogImage, width: 1200, height: 630 }] },
+    openGraph: {
+      title: `${theorem.title} — 数学定理`,
+      description,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
   };
 }
 
-export default async function TheoremDetailPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function TheoremDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const theorem = getTheoremBySlug(slug);
   if (!theorem) notFound();
@@ -54,12 +56,18 @@ export default async function TheoremDetailPage({
     name: `${theorem.title}（${theorem.title_en}）`,
     description: `${theorem.title_en}：${theorem.field}。${theorem.tags.join("、")}`,
     url: `${SITE_URL}/mathematics/theorems/${slug}`,
-    inDefinedTermSet: 'Mathematical Theorems',
-    keywords: [theorem.title, theorem.title_en, theorem.field, theorem.mathematician, ...theorem.tags],
+    inDefinedTermSet: "Mathematical Theorems",
+    keywords: [
+      theorem.title,
+      theorem.title_en,
+      theorem.field,
+      theorem.mathematician,
+      ...theorem.tags,
+    ],
   });
 
   return (
-    <div className="w-full px-6 sm:px-10 lg:px-16 py-12">
+    <div className="w-full px-6 py-12 sm:px-10 lg:px-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -71,9 +79,9 @@ export default async function TheoremDetailPage({
         ← 返回定理
       </Link>
 
-      <header className="relative mb-12 overflow-hidden border border-border-faint bg-bg-panel p-8 backdrop-blur-md">
+      <header className="border-border-faint bg-bg-panel relative mb-12 overflow-hidden border p-8 backdrop-blur-md">
         <div
-          className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full opacity-10 blur-3xl"
+          className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full opacity-10 blur-3xl"
           style={{ backgroundColor: fieldColor }}
         />
 
@@ -99,7 +107,7 @@ export default async function TheoremDetailPage({
           <h1 className="font-display text-fg-primary mb-2 text-[2rem] leading-tight font-semibold tracking-tight md:text-[2.8rem]">
             {theorem.title}
           </h1>
-          <p className="text-fg-muted font-display text-lg italic tracking-wide opacity-70">
+          <p className="text-fg-muted font-display text-lg tracking-wide italic opacity-70">
             {theorem.title_en}
           </p>
 
@@ -118,7 +126,7 @@ export default async function TheoremDetailPage({
               {theorem.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="border px-2.5 py-1 font-mono text-[10px] tracking-[0.22em] transition-colors hover:border-accent-indigo/30 hover:text-accent-indigo"
+                  className="hover:border-accent-indigo/30 hover:text-accent-indigo border px-2.5 py-1 font-mono text-[10px] tracking-[0.22em] transition-colors"
                   style={{
                     borderColor: `${fieldColor}20`,
                     color: `${fieldColor}cc`,
@@ -134,7 +142,7 @@ export default async function TheoremDetailPage({
       </header>
 
       <div className="flex flex-col gap-12 lg:flex-row">
-        <article className="min-w-0 flex-1 max-w-[1200px]">
+        <article className="max-w-[1200px] min-w-0 flex-1">
           {theorem.content ? (
             <MathMarkdownRenderer content={theorem.content} accentColor={fieldColor} />
           ) : (
@@ -154,49 +162,60 @@ export default async function TheoremDetailPage({
           </div>
         </article>
 
-        <aside className="w-full lg:w-80 flex-shrink-0">
+        <ArticleSidebar>
+          <TableOfContents accentColor={fieldColor} />
           <div className="border-border-faint border p-4">
             <h3 className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.22em] uppercase">
               定理信息
             </h3>
             <dl className="space-y-3 text-sm">
               <div>
-                <dt className="text-fg-disabled font-mono text-[9px] tracking-[0.18em] uppercase">领域</dt>
+                <dt className="text-fg-disabled font-mono text-[9px] tracking-[0.18em] uppercase">
+                  领域
+                </dt>
                 <dd className="text-fg-primary mt-0.5">{theorem.field}</dd>
               </div>
               <div>
-                <dt className="text-fg-disabled font-mono text-[9px] tracking-[0.18em] uppercase">难度</dt>
+                <dt className="text-fg-disabled font-mono text-[9px] tracking-[0.18em] uppercase">
+                  难度
+                </dt>
                 <dd className="text-fg-primary mt-0.5">{theorem.difficulty}</dd>
               </div>
               <div>
-                <dt className="text-fg-disabled font-mono text-[9px] tracking-[0.18em] uppercase">证明者</dt>
+                <dt className="text-fg-disabled font-mono text-[9px] tracking-[0.18em] uppercase">
+                  证明者
+                </dt>
                 <dd className="text-fg-primary mt-0.5">{theorem.mathematician}</dd>
               </div>
               {theorem.year && (
                 <div>
-                  <dt className="text-fg-disabled font-mono text-[9px] tracking-[0.18em] uppercase">年份</dt>
+                  <dt className="text-fg-disabled font-mono text-[9px] tracking-[0.18em] uppercase">
+                    年份
+                  </dt>
                   <dd className="text-fg-primary mt-0.5">{theorem.year}</dd>
                 </div>
               )}
               <div>
-                <dt className="text-fg-disabled font-mono text-[9px] tracking-[0.18em] uppercase">阅读时间</dt>
+                <dt className="text-fg-disabled font-mono text-[9px] tracking-[0.18em] uppercase">
+                  阅读时间
+                </dt>
                 <dd className="text-fg-primary mt-0.5">约 {readMinutes} 分钟</dd>
               </div>
             </dl>
           </div>
-        </aside>
+        </ArticleSidebar>
       </div>
 
       <nav className="border-border-faint mt-16 flex items-stretch justify-between gap-4 border-t pt-8">
         {prevTheorem ? (
           <Link
             href={`/mathematics/theorems/${prevTheorem.slug}`}
-            className="group flex flex-1 flex-col gap-1 border border-border-faint p-4 transition-all duration-300 hover:border-fg-disabled/30 hover:bg-bg-panel"
+            className="group border-border-faint hover:border-fg-disabled/30 hover:bg-bg-panel flex flex-1 flex-col gap-1 border p-4 transition-all duration-300"
           >
             <span className="text-fg-disabled font-mono text-[9px] tracking-[0.22em] uppercase">
               ← 上一个
             </span>
-            <span className="font-display text-fg-secondary text-sm font-medium transition-colors group-hover:text-accent-indigo">
+            <span className="font-display text-fg-secondary group-hover:text-accent-indigo text-sm font-medium transition-colors">
               {prevTheorem.title}
             </span>
           </Link>
@@ -206,12 +225,12 @@ export default async function TheoremDetailPage({
         {nextTheorem ? (
           <Link
             href={`/mathematics/theorems/${nextTheorem.slug}`}
-            className="group flex flex-1 flex-col items-end gap-1 border border-border-faint p-4 text-right transition-all duration-300 hover:border-fg-disabled/30 hover:bg-bg-panel"
+            className="group border-border-faint hover:border-fg-disabled/30 hover:bg-bg-panel flex flex-1 flex-col items-end gap-1 border p-4 text-right transition-all duration-300"
           >
             <span className="text-fg-disabled font-mono text-[9px] tracking-[0.22em] uppercase">
               下一个 →
             </span>
-            <span className="font-display text-fg-secondary text-sm font-medium transition-colors group-hover:text-accent-indigo">
+            <span className="font-display text-fg-secondary group-hover:text-accent-indigo text-sm font-medium transition-colors">
               {nextTheorem.title}
             </span>
           </Link>

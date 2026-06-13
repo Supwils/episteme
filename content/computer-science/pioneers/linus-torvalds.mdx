@@ -1,0 +1,100 @@
+---
+title: 林纳斯·托瓦兹
+title_en: Linus Torvalds
+status: published
+updated: 2026-06-13
+category: 开源运动
+years: 1969–
+nationality: 芬兰 / 美国
+field: 操作系统内核 · 版本控制
+order: 15
+tags:
+  - Linux
+  - Git
+  - 开源
+  - 操作系统内核
+related:
+  - richard-stallman
+  - ken-thompson
+  - dennis-ritchie
+---
+
+# 林纳斯·托瓦兹
+
+1991 年 8 月 25 日，赫尔辛基大学的一名 21 岁学生在 comp.os.minix 新闻组上发帖：
+
+> "你好，所有正在使用 minix 的人——我正在为 386（486）AT 克隆机做一个（免费的）操作系统（只是爱好，不会像 GNU 那样大而专业）。"
+
+这个声称"只是爱好"、"不会很大"的项目，就是 **Linux 内核**。三十余年后，它运行在全球超过 90% 的服务器、97% 的超级计算机、全球 Android 手机、云计算基础设施的绝大多数，以及太空中的火星直升机"机智号"上。
+
+## 破除误解：Linux 不是完整的操作系统
+
+人们说的"Linux"在技术上只是**内核（Kernel）**——操作系统最核心的部分，负责管理硬件、调度进程、管理内存。用户实际使用的完整操作系统是 **GNU/Linux**（或 Linux 发行版）：Linux 内核加上 GNU 工具链（编译器、shell、系统库……）加上各种应用软件。
+
+理查德·斯托曼坚持用"GNU/Linux"这个名字，以彰显 GNU 项目对整个系统的贡献。Torvalds 则对此不感兴趣，认为这只是名字之争。争论延续至今，本质是两人对"贡献与归因"的不同态度。
+
+## 现场：Minix 带来的灵感与挫折
+
+Torvalds 的计算启蒙来自外祖父——赫尔辛基大学的统计学教授 Leo Tornqvist。12 岁时，外祖父买了一台 Commodore VIC-20，让他帮忙录入 BASIC 程序，从此迷上了计算机内部的工作机制。
+
+1990 年，他在大学课堂上接触到 Andrew Tanenbaum 的 **Minix**——一个为教学目的设计的简化 Unix 操作系统。Minix 帮他理解了操作系统，但它的版权限制（不能修改、不能以商业方式发布）和功能限制令他不满。
+
+1991 年，他开始在自己新买的 386 PC 上写一个属于自己的操作系统。起初是为了学习，然后是为了解决实际需求（他想在电脑上访问赫尔辛基大学的新闻组服务器），最后演变成了一个完整的内核。
+
+## Linux 内核的技术设计
+
+Linux 是**宏内核（Monolithic Kernel）**架构：操作系统的核心服务（进程调度、内存管理、文件系统、设备驱动……）都运行在内核空间，彼此直接调用，效率高但一个模块崩溃可能影响整个系统。
+
+这与 Tanenbaum 倡导的**微内核（Microkernel）**形成对比：微内核把大多数服务移到用户空间，通过消息传递交互，单个服务崩溃不影响内核。1992 年，Tanenbaum 在新闻组公开批评 Linux 的宏内核设计"从根本上就是错的"，预言微内核是未来——这场"Tanenbaum-Torvalds 辩论"成为操作系统历史上最著名的技术争论之一。
+
+Torvalds 的反驳是务实的：宏内核在当时的硬件上性能更好，微内核的理论优越性在实践中难以实现。历史的发展——Linux 成为最成功的服务器操作系统——似乎支持了他的立场，但学界对微内核与宏内核的争论至今未有定论。
+
+## 开源的发展模式
+
+Linux 的成功不仅是技术上的，更是开发模式上的。Torvalds 从一开始就采取开放策略：公开代码、接受任何人的补丁。
+
+1999 年，Eric S. Raymond 在《大教堂与市集》中总结了 Linux 的开发模式，称其为"市集模式"（Bazaar）——与传统软件的封闭开发（"大教堂"）相对。核心洞察是"Linus 定律"：
+
+> "只要有足够多的眼睛，所有 Bug 都将无处遁形（Given enough eyeballs, all bugs are shallow）。"
+
+Linux 社区的贡献者机制也在演化：早期 Torvalds 个人审阅所有补丁；随着规模扩大，形成了分层的"受信任的副手"（Trusted Lieutenants）网络——每个子系统有自己的维护者，Torvalds 只需整合各子系统的补丁。
+
+## Git：另一个改变世界的发明
+
+2005 年，Linux 内核开发从使用商业版本控制系统 BitKeeper（免费授权）转变。当 BitKeeper 的免费授权被撤销后，Torvalds 用 10 天时间写出了 **Git** 的初版——一个分布式版本控制系统。
+
+Git 的核心思想：
+- **分布式**：每个开发者都有完整的仓库历史，不依赖中央服务器
+- **快照而非差异**：Git 存储的是文件快照，而非文件变更的差异（虽然底层有去重优化）
+- **内容寻址存储**：用 SHA-1 哈希（后改用 SHA-256）标识每个对象，确保数据完整性
+
+Git 如今是全球最广泛使用的版本控制系统。GitHub（2008）建立在 Git 之上，成为最大的开源代码托管平台（微软于 2018 年以 75 亿美元收购）。2026 年，全球有超过 1 亿开发者使用 GitHub。
+
+## 管理风格与争议
+
+Torvalds 以坦率甚至粗鲁著称。他在邮件列表上直接批评认为质量不达标的代码贡献者，措辞有时非常犀利。支持者认为这是维护内核质量的必要手段；批评者则认为这种行为文化不利于多样性和包容性。
+
+2018 年，在一轮针对他管理风格的批评之后，Torvalds 公开道歉，并宣布暂时离开 Linux 内核开发以"寻求帮助，理解人们的情感及其反应"。Linux 内核社区同时引入了新的《贡献者契约》行为准则（Contributor Covenant Code of Conduct）。Torvalds 数周后返回，但这一事件引发了关于开源社区文化的广泛讨论。
+
+## 主要荣誉
+
+- **2012 年千年技术奖**（Millennium Technology Prize）：芬兰授予，表彰他创建了 Linux 内核，是有史以来最大的单一软件工程奖项之一
+- **2014 年 IEEE 计算机学会先驱奖**（Computer Pioneer Award）
+- 2012 年入选互联网名人堂
+
+Torvalds 自 1997 年起移居美国，在美籍后长期居住于俄勒冈州。
+
+## 跨域连接
+
+- **[[richard-stallman]]**：GNU/Linux 的两个核心贡献者；GNU 提供工具链，Linux 提供内核。两人的哲学取向不同——斯托曼强调道德自由，Torvalds 更关注实用工程质量——共同构成了开源/自由软件运动的两个核心面向。
+- **[[operating-systems]]**：Linux 内核是当代宏内核设计的最重要实例，也是研究进程调度、内存管理、文件系统的现实参考。
+- **[[distributed-systems]]**：Git 的设计是分布式系统思想在版本控制上的完美体现——去中心化、最终一致性、内容寻址。
+
+---
+
+## 延伸阅读
+
+- Torvalds, L. & Diamond, D. *Just for Fun: The Story of an Accidental Revolutionary.* HarperBusiness, 2001. （自传，轻松易读）
+- Raymond, E. *The Cathedral and the Bazaar.* O'Reilly, 1999. （分析 Linux 开发模式的经典文章）
+- Salus, P. *A Quarter Century of UNIX.* Addison-Wesley, 1994. （Linux 的文化背景）
+- Linux 内核档案：kernel.org；Git 官方文档：git-scm.com

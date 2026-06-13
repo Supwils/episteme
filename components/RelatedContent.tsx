@@ -44,6 +44,8 @@ const DOMAIN_COLORS: Record<Domain, string> = {
   mathematics: "#0ea5e9",
   economics: "#f97316",
   psychology: "#ec4899",
+  "computer-science": "#4f9cf0",
+  "political-science": "#c25b5b",
 };
 
 function CategoryGroup({
@@ -59,7 +61,7 @@ function CategoryGroup({
   return (
     <div className="mb-5">
       <p
-        className="mb-2.5 font-mono text-[9px] uppercase tracking-[0.28em]"
+        className="mb-2.5 font-mono text-[9px] tracking-[0.28em] uppercase"
         style={{ color: accent }}
       >
         {label}
@@ -103,14 +105,8 @@ function CrossDomainGroup({
   return (
     <div className="mb-5">
       <div className="mb-2.5 flex items-center gap-2">
-        <span
-          className="inline-block h-2 w-2 rounded-full"
-          style={{ backgroundColor: color }}
-        />
-        <p
-          className="font-mono text-[9px] uppercase tracking-[0.28em]"
-          style={{ color }}
-        >
+        <span className="inline-block h-2 w-2 rounded-full" style={{ backgroundColor: color }} />
+        <p className="font-mono text-[9px] tracking-[0.28em] uppercase" style={{ color }}>
           {label}
         </p>
       </div>
@@ -192,6 +188,8 @@ export default function RelatedContent({ slug, domain, entityId }: RelatedConten
     "philosophy",
     "economics",
     "psychology",
+    "computer-science",
+    "political-science",
   ];
 
   return (
@@ -200,7 +198,7 @@ export default function RelatedContent({ slug, domain, entityId }: RelatedConten
         <>
           {related.length > 0 && (
             <div className="mb-8">
-              <h3 className="text-fg-primary mb-5 font-mono text-[11px] uppercase tracking-[0.32em]">
+              <h3 className="text-fg-primary mb-5 font-mono text-[11px] tracking-[0.32em] uppercase">
                 相关内容 · related
               </h3>
               {CATEGORY_ORDER.map((cat) => (
@@ -216,7 +214,7 @@ export default function RelatedContent({ slug, domain, entityId }: RelatedConten
 
           {backRefs.length > 0 && (
             <div className="mb-8">
-              <h3 className="text-fg-primary mb-5 font-mono text-[11px] uppercase tracking-[0.32em]">
+              <h3 className="text-fg-primary mb-5 font-mono text-[11px] tracking-[0.32em] uppercase">
                 被引用 · referenced by
               </h3>
               {CATEGORY_ORDER.map((cat) => (
@@ -234,20 +232,13 @@ export default function RelatedContent({ slug, domain, entityId }: RelatedConten
 
       {hasCrossDomainContent && domain && (
         <div>
-          <h3 className="text-fg-primary mb-5 font-mono text-[11px] uppercase tracking-[0.32em]">
+          <h3 className="text-fg-primary mb-5 font-mono text-[11px] tracking-[0.32em] uppercase">
             跨领域关联 · cross-domain
           </h3>
           {domainOrder.map((d) => {
             const refs = refsByDomain.get(d);
             if (!refs || refs.length === 0) return null;
-            return (
-              <CrossDomainGroup
-                key={d}
-                domain={d}
-                refs={refs}
-                currentDomain={domain}
-              />
-            );
+            return <CrossDomainGroup key={d} domain={d} refs={refs} currentDomain={domain} />;
           })}
         </div>
       )}

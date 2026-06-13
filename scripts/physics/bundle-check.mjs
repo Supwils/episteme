@@ -19,7 +19,7 @@ import { gzipSync } from "node:zlib";
 // Paths
 // ---------------------------------------------------------------------------
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, "..");
+const ROOT = join(__dirname, "..", "..");
 const NEXT_DIR = join(ROOT, ".next");
 const CHUNKS_DIR = join(NEXT_DIR, "static", "chunks");
 

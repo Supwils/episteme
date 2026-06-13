@@ -1,0 +1,127 @@
+---
+title: 注意力机制与 Transformer
+title_en: Attention and Transformers
+status: published
+updated: 2026-06-13
+category: 深度学习
+order: 39
+field: 计算机科学 · 深度学习 · 自然语言处理
+tags:
+  - Transformer
+  - 注意力机制
+  - 自注意力
+  - 大语言模型
+  - 深度学习
+related:
+  - recurrent-neural-networks
+  - convolutional-neural-networks
+  - gradient-descent-backprop
+---
+
+# 注意力机制与 Transformer
+
+2017 年，谷歌大脑的八位研究员——阿希什·瓦斯瓦尼（Ashish Vaswani）等人——发表了题为《注意力就是一切》（*Attention Is All You Need*）的论文，提出了 Transformer 架构。这篇论文彻底改变了人工智能的方向：GPT、BERT、T5、PaLM、LLaMA、Gemini——今天几乎所有大型语言模型都建立在这个架构之上。
+
+## 破除误解：注意力不是"关注重要部分"
+
+注意力机制经常被比喻为"大脑关注重要信息"，这个比喻容易误导。数学上，注意力操作是：
+
+**给定一个查询（Query），对所有键值对（Key-Value Pairs）做加权平均**。
+
+权重由查询与键的相似度决定。这是一个纯代数操作，"注意力"只是个形象化的名字。
+
+另一个误解：Transformer 发明了注意力机制。实际上，注意力机制由 Bahdanau 等人于 2015 年在 RNN 机器翻译中提出。Transformer 的创新是**完全抛弃 RNN，只用注意力（Self-Attention）构建整个网络**。
+
+## 缩放点积注意力
+
+注意力的核心计算：给定查询矩阵 $Q$、键矩阵 $K$、值矩阵 $V$（维度均为 $d_k$）：
+
+$$\text{Attention}(Q, K, V) = \text{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}\right) V$$
+
+- $QK^\top$：查询与所有键的点积，得到注意力分数矩阵
+- $\sqrt{d_k}$：缩放因子，防止点积值过大导致 softmax 梯度消失
+- softmax：将注意力分数归一化为权重（和为 1）
+- 乘以 $V$：按权重对值向量做加权平均
+
+**自注意力（Self-Attention）**：$Q, K, V$ 都来自同一输入序列，序列中每个位置都可以"关注"其他所有位置。这使得序列中任意两个位置之间的信息传播路径长度恒为 1（而 RNN 为序列长度 $n$）。
+
+## 多头注意力
+
+单头注意力只能学习一种"注意方式"。**多头注意力（Multi-Head Attention）**并行运行 $h$ 个注意力头，每个头用不同的线性投影：
+
+$$\text{MultiHead}(Q, K, V) = \text{Concat}(\text{head}_1, \ldots, \text{head}_h) W^O$$
+
+$$\text{head}_i = \text{Attention}(QW_i^Q, KW_i^K, VW_i^V)$$
+
+不同的头可以同时关注不同类型的关系（语法、语义、长距离依赖等）。
+
+## Transformer 完整架构
+
+Transformer 由**编码器**和**解码器**组成（原始论文为机器翻译设计）：
+
+**编码器层**（堆叠 $N$ 个）：
+1. 多头自注意力
+2. 前馈网络（两层 MLP）
+3. 残差连接 + 层归一化（LayerNorm）
+
+**解码器层**：
+1. 带掩码的多头自注意力（防止看到未来位置）
+2. 交叉注意力（Query 来自解码器，Key/Value 来自编码器）
+3. 前馈网络
+4. 残差连接 + 层归一化
+
+**位置编码（Positional Encoding）**：自注意力本身没有位置感知，通过在输入中叠加正弦/余弦位置编码引入位置信息：
+
+$$PE_{(pos, 2i)} = \sin(pos / 10000^{2i/d_{model}})$$
+$$PE_{(pos, 2i+1)} = \cos(pos / 10000^{2i/d_{model}})$$
+
+## 从 Transformer 到大语言模型
+
+| 模型系列  | 架构       | 机构            | 年份 | 参数量（代表型号）    |
+|---------|----------|---------------|------|------------------|
+| BERT    | 编码器      | Google        | 2018 | 340M             |
+| GPT-2   | 解码器      | OpenAI        | 2019 | 1.5B             |
+| T5      | 编码器-解码器 | Google        | 2019 | 11B              |
+| GPT-3   | 解码器      | OpenAI        | 2020 | 175B             |
+| LLaMA   | 解码器      | Meta          | 2023 | 7B–65B           |
+| GPT-4   | 解码器（MoE?）| OpenAI      | 2023 | 未公开            |
+
+**GPT 系列（仅解码器）**：只用 Transformer 解码器，训练目标是**下一个词的预测**，产生了强大的生成能力和涌现的上下文学习能力（In-Context Learning）。
+
+**BERT（仅编码器）**：训练目标是**掩码语言模型（MLM）**，擅长理解任务（分类、问答）而非生成。
+
+## 计算复杂度与长度困境
+
+自注意力的计算复杂度为 $O(n^2 d)$，$n$ 为序列长度，$d$ 为模型维度。序列长度翻倍，注意力计算量翻四倍——这限制了早期 Transformer 的上下文窗口。
+
+应对方案（部分）：
+
+- **稀疏注意力**（Longformer、BigBird）：不计算所有位置对，只计算局部窗口 + 全局 token
+- **线性注意力**：近似计算，将复杂度降至 $O(n)$
+- **Flash Attention（Dao et al., 2022）**：通过 IO 感知的分块计算，在相同复杂度下大幅减少内存访问，实现 2–4 倍加速，成为现代 LLM 训练的标准
+
+## 代价与争议
+
+**数据与计算需求极高**：训练 GPT-3 规模的模型需要数千亿 token 的文本和数千张 GPU，成本达数千万美元。这带来了中心化担忧——只有少数大公司有能力训练最强的模型。
+
+**幻觉（Hallucination）**：大语言模型会自信地生成不存在的事实、引用、代码。这是当前最严重的实际问题之一，理论上尚无完美解决方案。
+
+**可解释性**：没有人真正理解为什么 Transformer 在 Scaling 后会"涌现"新能力（如思维链推理、少样本学习）。Anthropic 等机构在机械可解释性（Mechanistic Interpretability）方向投入大量研究。
+
+**对 RNN 复归的讨论**：Mamba（Gu & Dao, 2023）等选择性状态空间模型在某些任务上以线性复杂度追上了 Transformer，引发了"Transformer 是否是最终形态"的讨论。
+
+## 跨域连接
+
+- **[[recurrent-neural-networks]]**：Transformer 取代 RNN 的根本原因是并行性和长程依赖建模能力，但两者的竞争远未结束。
+- **[[convolutional-neural-networks]]**：ViT（Vision Transformer）将 Transformer 用于图像，说明注意力机制并非 NLP 专属。
+- **[[gradient-descent-backprop]]**：反向传播是 Transformer 训练的底层机制，Flash Attention 等创新在保持反向传播正确性的同时优化内存效率。
+- **认知科学**：注意力的概念在心理学和神经科学中由来已久（William James 1890 年已描述选择性注意），但计算注意力与生物注意力的关系仍是开放问题。
+
+---
+
+## 延伸阅读
+
+- Vaswani, A. et al. *Attention Is All You Need.* NeurIPS 2017. arXiv:1706.03762.
+- Devlin, J. et al. *BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding.* NAACL 2019. arXiv:1810.04805.
+- Brown, T. et al. *Language Models are Few-Shot Learners (GPT-3).* NeurIPS 2020. arXiv:2005.14165.
+- Dao, T. et al. *FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness.* NeurIPS 2022. arXiv:2205.14135.

@@ -1,0 +1,202 @@
+---
+title: 最小生成树
+title_en: Minimum Spanning Tree
+status: published
+updated: 2026-06-13
+category: 经典算法
+order: 10
+field: 计算机科学 · 算法 · 图论
+tags:
+  - 最小生成树
+  - Kruskal算法
+  - Prim算法
+  - 图算法
+  - 贪心算法
+related:
+  - shortest-path-dijkstra
+  - graph-traversal
+  - data-structures
+---
+
+# 最小生成树
+
+1926 年，捷克数学家奥塔卡尔·博鲁夫卡（Otakar Borůvka）受摩拉维亚电力公司委托，研究如何用最少的电线把全国所有城镇连接成电网。他发表了第一个求解最小生成树的算法——比 Kruskal 和 Prim 的工作早了整整 30 年。
+
+这个问题的应用范围远超电力线路：从计算机网络的拓扑设计，到图像分割，到聚类算法，最小生成树都是基础工具。
+
+## 问题定义
+
+给定一个连通的无向加权图 $G = (V, E, w)$，其中：
+- $V$ 是顶点集（城市、服务器、神经元……）
+- $E$ 是边集（连接关系）
+- $w: E \to \mathbb{R}$ 是边的权重函数（距离、成本、延迟……）
+
+**生成树（Spanning Tree）**是图 G 的一个子图，满足：
+1. 包含 G 的所有顶点
+2. 是连通的
+3. 是无环的（树）
+
+一棵 $n$ 个顶点的生成树有且仅有 $n-1$ 条边。
+
+**最小生成树（Minimum Spanning Tree，MST）**是所有生成树中，边权之和最小的那棵（或几棵——可能有多棵权值相同的 MST）。
+
+## 破除误解：MST 不是"最短路径树"
+
+MST 是总权重最小的树，但它不保证任意两点之间的路径最短。最短路径树（以某个点为根，到所有其他点路径最短）是不同的概念：
+
+```
+例子：4 个顶点的图
+A ——5—— B
+|        |
+1        3
+|        |
+C ——2—— D
+
+MST 使用的边：A-C(1), C-D(2), B-D(3)，总权重=6
+A 到 B 的路径通过 MST：A→C→D→B，长度=6
+A 到 B 的最短路径：A→B，长度=5（MST 中不含此边！）
+```
+
+MST 连接所有节点的总成本最低，但不保证通信路径最短——两者是不同的优化目标。
+
+## Kruskal 算法：从小到大，贪心加边
+
+1956 年，约瑟夫·伯纳德·克鲁斯卡尔（Joseph Bernard Kruskal, Jr.）发表了 Kruskal 算法：
+
+**思路**：按边的权重从小到大排序。逐条取出最小权重的边，如果加入这条边不形成环，就把它加入 MST；否则跳过。重复直到 MST 有 $n-1$ 条边。
+
+```python
+def kruskal(vertices, edges):
+    # 1. 按权重排序所有边
+    edges.sort(key=lambda e: e.weight)
+    
+    # 2. 并查集：用于高效判断是否成环
+    uf = UnionFind(vertices)
+    mst = []
+    
+    for edge in edges:
+        u, v, w = edge.u, edge.v, edge.weight
+        # 如果 u 和 v 不在同一连通分量，加这条边不会形成环
+        if uf.find(u) != uf.find(v):
+            uf.union(u, v)
+            mst.append(edge)
+            if len(mst) == len(vertices) - 1:
+                break  # MST 已完成
+    
+    return mst
+```
+
+**关键数据结构：并查集（Union-Find）**
+
+判断两个顶点是否已连通（即加边是否会形成环），需要高效的数据结构。**并查集**（Disjoint Set Union，DSU）支持两种操作：
+- `find(x)`：找到 x 所在连通分量的代表元
+- `union(x, y)`：合并 x 和 y 所在的连通分量
+
+通过路径压缩（Path Compression）和按秩合并（Union by Rank），每次操作的均摊时间复杂度接近 $O(\alpha(n))$（反阿克曼函数，增长极慢，实践中视为常数）。
+
+Kruskal 的总时间复杂度由排序步骤主导：$O(E \log E)$（对稀疏图非常高效）。
+
+### 贪心正确性证明
+
+为什么贪心选择（每次选最小的不成环的边）是正确的？
+
+**切割引理（Cut Property）**：对于图 G 的任意一个"切割"（把顶点集分成两部分的划分），连接两部分的**权重最小的边**一定属于某棵 MST。
+
+**证明直觉**：假设 MST 不包含某个切割的最小边 $e^*$，而 MST 中连接这个切割的边是 $e'$（权重 $>$ $e^*$ 的权重）。那么把 $e^*$ 换入、把 $e'$ 移出，总权重下降——与 MST 的最优性矛盾。
+
+Kruskal 的每次加边都满足切割引理：以"已选顶点集 vs 未选顶点集"为切割，每次选的都是连接这个切割的最小边（在不成环的前提下）。
+
+## Prim 算法：从一点出发，逐步生长
+
+1957 年，罗伯特·克莱·普里姆（Robert Clay Prim）发表了 Prim 算法（同年被迪克斯特拉重新发现，更早的版本由雅尔尼克于 1930 年发现）：
+
+**思路**：从任意一个顶点出发，维护"已加入 MST 的顶点集 S"。每次找到一条**连接 S 内顶点和 S 外顶点的最小权重边**，把对应的 S 外顶点加入 S。重复 $n-1$ 次。
+
+```python
+def prim(graph, start):
+    n = len(graph)
+    in_mst = {start}
+    key = {v: float('inf') for v in graph}  # 加入 MST 的最小代价
+    key[start] = 0
+    parent = {v: None for v in graph}
+    mst_edges = []
+    
+    import heapq
+    pq = [(0, start)]  # (边权, 顶点)
+    
+    while pq and len(in_mst) < n:
+        w, u = heapq.heappop(pq)
+        if u in in_mst and u != start:
+            continue
+        in_mst.add(u)
+        if parent[u] is not None:
+            mst_edges.append((parent[u], u, w))
+        
+        for v, weight in graph[u]:
+            if v not in in_mst and weight < key[v]:
+                key[v] = weight
+                parent[v] = u
+                heapq.heappush(pq, (weight, v))
+    
+    return mst_edges
+```
+
+Prim 算法与 Dijkstra 算法结构非常相似——都是从一个起点"贪心"地扩展。区别在于：
+- Dijkstra：每次选距起点**路径总长度最小**的顶点
+- Prim：每次选**连接 MST 的边权最小**的顶点
+
+用二叉堆实现，Prim 的复杂度是 $O((V + E) \log V)$；对**稠密图**（$E \approx V^2$），朴素实现（直接遍历找最小 key）的复杂度 $O(V^2)$ 反而更优。
+
+## 两种算法的适用场景
+
+| 场景 | 推荐算法 | 原因 |
+|------|---------|------|
+| 稀疏图（$E \ll V^2$） | Kruskal | 排序 $O(E \log E)$ 高效 |
+| 稠密图（$E \approx V^2$） | Prim（朴素版） | $O(V^2)$ 优于 $O(E \log E)$ |
+| 边已排序 | Kruskal | 省去排序步骤，近线性 |
+| 动态图（边动态增删） | 专门的动态 MST 算法 | Kruskal/Prim 不支持动态更新 |
+
+## Borůvka 算法：并行天生
+
+博鲁夫卡 1926 年的算法在今天的大规模图处理中重新获得关注，因为它天然并行：
+
+**思路**：每轮，每个连通分量同时找**从本分量出发的最小权重边**，把对应的连通分量合并。每轮合并后，连通分量数量至少减半。因此至多 $O(\log V)$ 轮后，所有顶点合并为一个连通分量（即 MST 完成）。
+
+在 MapReduce、Spark 等分布式框架上，Borůvka 的每一轮可以完全并行执行，非常适合处理上亿顶点的图。Google 和 Facebook 的大规模图分析系统都使用了类 Borůvka 的方法。
+
+## MST 的应用
+
+**网络规划**：用最小代价连接所有节点——通信网络、输电网络、管道网络的布线规划。
+
+**图像分割**：Felzenszwalb-Huttenlocher 算法（2004）基于 MST 的思想，把图像像素作为图的顶点，相邻像素之间的颜色差异作为边权，用类似 MST 的方法把图像分割成语义区域。这是计算机视觉领域的经典算法之一。
+
+**聚类算法**：把 MST 的最重的 k-1 条边删掉，得到 k 个连通分量，这是一种**层次聚类**方法（Single-Linkage Clustering）。对异形状的簇（非球形），这种方法比 K-means 更有效。
+
+**近似算法**：最小权重哈密顿路径（TSP，旅行商问题）是 NP 难的，但 MST 可以给出一个 2 倍近似比的解——找到 MST，然后对树做 DFS，产生的顶点访问顺序就是 TSP 的 2-近似解。
+
+**树协议（Spanning Tree Protocol，STP）**：以太网交换机之间通过 STP 自动构建一棵生成树，防止网络环路。802.1D 标准（1990）正是 MST 思想在网络协议中的直接应用。
+
+## 代价与争议
+
+**唯一性**：若所有边权都不同，MST 唯一。若有相同边权，MST 可能有多棵。这在某些应用场景（如需要确定性的网络协议）中需要额外的决策规则（如按顶点 ID 打破平局）。
+
+**线性时间的悬案**：Kruskal 和 Prim 都是 $O(E \log E)$ 或 $O(E \log V)$。一个长期开放的问题是：是否存在确定性的 $O(E)$ 算法？
+
+目前已知：弗雷德曼-塔扬（Fredman-Tarjan，1987）用斐波那契堆实现了 $O(E + V \log V)$；卡格-克莱因-塔扬（Karger-Klein-Tarjan，1995）给出了随机化的 $O(E)$ 期望时间算法；彼得森-拉马钱德兰（Pettie-Ramachandran，2002）给出了"最优"的确定性算法（但时间复杂度用了不可计算函数描述）。$O(E)$ 的确定性算法是否存在，至今是开放问题。
+
+## 跨域连接
+
+- **[[shortest-path-dijkstra]]**：Prim 和 Dijkstra 结构几乎相同，但优化目标不同——MST vs 最短路径。理解两者的区别，是理解图算法"贪心策略设计"的关键。
+- **[[data-structures]]**：并查集（Kruskal 必用）和斐波那契堆（Prim 高效版必用）都是图算法中的关键数据结构。
+- **运筹学**：MST 是网络流理论的基础；旅行商问题的近似算法依赖 MST；设施选址等组合优化问题都与 MST 相关。
+- **物理学**：最小生成树与统计物理中的渗流理论（Percolation Theory）有深刻联系——渗流阈值附近的无限簇结构与 MST 高度相关。
+
+---
+
+## 延伸阅读
+
+- Kruskal, J. B. *On the Shortest Spanning Subtree of a Graph and the Traveling Salesman Problem.* Proceedings of the AMS 7(1), 1956.
+- Prim, R. C. *Shortest Connection Networks and Some Generalizations.* Bell System Technical Journal 36(6), 1957.
+- Borůvka, O. *O jistém problému minimálním* (On a minimal problem). Práce Mor. Přírodověd. Spol. v Brně 3, 1926.
+- Graham, R. L. & Hell, P. *On the History of the Minimum Spanning Tree Problem.* IEEE Annals of the History of Computing 7(1), 1985.（MST 历史的权威综述）
+- Cormen, T. et al. *Introduction to Algorithms (CLRS).* 3rd ed. 第 23 章. MIT Press, 2009.

@@ -1,0 +1,100 @@
+---
+title: 杨·勒坤
+title_en: Yann LeCun
+status: published
+updated: 2026-06-13
+category: 人工智能
+years: 1960–
+nationality: 法国裔美国
+field: 深度学习 · 计算机视觉 · 卷积神经网络
+order: 31
+tags:
+  - 深度学习
+  - 卷积神经网络
+  - 计算机视觉
+  - 图灵奖
+related:
+  - geoffrey-hinton
+  - deep-learning-architectures
+  - computer-vision
+---
+
+# 杨·勒坤
+
+1989 年，贝尔实验室的一位年轻法国研究员把一张手写数字的灰度图像送入一个神经网络，网络输出了正确的数字识别结果。这不是第一次有人尝试用神经网络识别字符，但这一次的网络有一个根本不同的结构——它利用了图像的空间局部性，用共享权重的小型过滤器扫描整张图像，而不是把图像"拍平"成一维向量。
+
+这种结构叫**卷积神经网络**（Convolutional Neural Network，CNN）。这个名字来自信号处理中的卷积运算。设计它的人叫 **Yann LeCun（杨·勒坤）**，生于 1960 年 7 月 8 日，法国。
+
+## 破除误解：CNN 不是 LeCun 凭空发明的
+
+卷积神经网络的思想有更早的来源。日本研究者福岛邦彦（Kunihiko Fukushima）在 1980 年提出的 Neocognitron 已包含了层次化局部感受野的核心思想。Geoffrey Hinton 的反向传播算法（1986 年 Rumelhart、Hinton、Williams 联合发表）为训练多层网络提供了可行的学习算法。
+
+LeCun 的贡献在于把这些想法结合并工程化——他把反向传播应用于卷积结构，设计了端到端可训练的 LeNet，并证明它可以在真实数据（手写邮政编码）上可靠地工作。1989 年在贝尔实验室，LeNet 被部署用于美国银行支票的手写数字识别，是神经网络第一次大规模商业部署之一。
+
+## 现场：LeNet 与黑暗年代的坚守
+
+1998 年，LeCun 发表了 LeNet-5 论文，系统描述了卷积神经网络的完整架构：卷积层（提取局部特征）、池化层（降低分辨率与平移不变性）、全连接层（分类决策）。
+
+这篇论文领先了时代约 15 年。
+
+1990 年代到 2000 年代初，支持向量机（SVM）成为机器学习的主流方法，神经网络被学术界普遍视为"死路"。LeCun、Hinton、Bengio 这三位后来并称"深度学习教父"的研究者，在这段时期都处于学术主流的边缘——他们的研究经费紧张，论文频繁被顶会拒稿，学生被劝告不要选神经网络方向。
+
+LeCun 在这段时期坚持推进无监督学习和能量模型（Energy-Based Models）的研究，并持续倡导卷积结构的优越性。他是少数在 2000 年代仍然坚信大规模神经网络会成功的研究者之一。
+
+## 转折：2012 年与 ImageNet 革命
+
+2012 年，Hinton 的学生 Alex Krizhevsky 用 GPU 加速训练的深度卷积网络 AlexNet 在 ImageNet 竞赛中以巨大优势胜出，错误率比传统方法低 10 个百分点以上。深度学习的时代正式开始。
+
+这场革命印证了 LeCun 多年前的研究方向。2013 年，Facebook（现 Meta）为争夺人才，聘请 LeCun 出任 AI 研究部门（FAIR，Facebook AI Research）的首任主任。LeCun 同时保留了在纽约大学（NYU）的教职，担任 Silver Professor。
+
+FAIR 在 LeCun 主导下产出了多项有影响力的工作：用于图像分割的 Mask R-CNN（Facebook 工程团队与 FAIR 合作）、用于问答的 DrQA、以及大量关于自监督学习的理论探索。
+
+## 技术立场与争议
+
+LeCun 是深度学习界最活跃也最具争议的公共知识分子。他在 X（原 Twitter）上的发言经常引发论战。
+
+**反对"大语言模型是通向 AGI 之路"**：LeCun 长期坚持，当前基于自回归文本生成的大语言模型有根本性局限——它们缺乏对世界的因果模型，缺乏持续学习能力，缺乏对物理世界的感知与推理。他认为，真正接近人类智能的路径是**世界模型**（World Model）：系统能预测行动的后果，并用此进行规划。他的 I-JEPA（Image Joint Embedding Predictive Architecture，2023）是这一方向的具体探索。
+
+**与 Geoff Hinton 的公开分歧**：Hinton 在 2023 年离开 Google，警告 AI 可能对人类存在威胁，呼吁监管。LeCun 多次公开表示不同意，认为当前 AI 系统与人类智能的差距被夸大，AI 安全担忧是"premature"（过早的）。这场分歧在两位图灵奖得主之间展开，是 AI 领域最受关注的学术-公共辩论之一。
+
+## 2018 年图灵奖
+
+2018 年，LeCun 与 Geoff Hinton、Yoshua Bengio 共同获得 ACM 图灵奖，表彰他们对深度学习的奠基性贡献。这是图灵奖历史上第一次同年颁给三位在同一研究方向上长期合作又各有独立贡献的研究者。
+
+## 代价与争议
+
+**工业界与学术界的张力**：LeCun 同时担任 Meta AI 高级副总裁和 NYU 教授，有人批评这种双重角色导致他对 Meta 商业利益的潜在偏袒，以及对开源 AI（Meta 的 LLaMA 模型开源策略）的辩护是否真的从公众利益出发。
+
+**对 AI 风险的低估争议**：许多 AI 安全研究者认为 LeCun 对大规模 AI 风险的低估立场在实质上为过快推进 AI 商业化提供了背书，可能危害公众利益。LeCun 反驳说，夸大 AI 能力和风险同样是一种有害的误导。
+
+**世界模型方向的争议**：LeCun 近年提出的 I-JEPA 和世界模型框架被部分研究者认为过于依赖预测误差最小化，而对奖励学习和真正的因果推理关注不足。这与他对强化学习（RL）路线的长期怀疑态度有关——他认为 RL 的样本效率太低，不是通向 AGI 的可扩展路径。这场争论目前没有定论，但推动了自监督学习领域的活跃进展。
+
+## 跨域连接
+
+- **神经科学**：卷积神经网络的局部感受野概念直接借鉴了 Hubel 和 Wiesel 1960 年代的视觉神经科学研究——他们发现猫的初级视觉皮层中的神经元只响应特定位置、特定方向的刺激。
+- **数学**：卷积运算来自信号处理和调和分析；反向传播是自动微分（链式法则）的应用。
+- **[[geoffrey-hinton]]**：共同获得图灵奖的同事，在 AI 安全问题上持有对立立场。
+- **[[deep-learning-architectures]]**：LeCun 的 LeNet 是所有现代深度卷积网络的直接祖先。
+- **[[computer-vision]]**：卷积神经网络将计算机视觉从"人工特征工程"时代带入"端到端学习"时代，LeCun 的工作是这一转变的起点。
+
+## 人物小记：风格与个性
+
+LeCun 以直言不讳著称，在学术界和工业界都是有争议的人物。他积极在社交媒体上与反对者辩论，曾与多位 AI 安全研究者正面交锋，也曾为 Meta 的 LLaMA 开源策略公开辩护。他认为，"封闭 AI"（只有大科技公司才能使用的 AI）比"开放 AI"风险更高，因为封闭会集中权力，而开放会分散。
+
+他的法语口音在英语世界的 AI 社区是一个标志性特征，他本人对此调侃自如。他是 NYU Courant 数学研究所的 Silver Professor，一职位既体现了他对数学基础的重视，也反映了他在学术界的长期根基。
+
+FAIR（Meta AI Research）在他主导期间形成了一种独特的研究文化：公开发表大量论文、开源模型和代码，而非像 Google 和 OpenAI 那样把研究成果留作商业竞争优势。这一开放文化来自 LeCun 本人的信念，也影响了整个 AI 开源生态。Meta 在 2023 年开源的 LLaMA 系列模型，在 AI 社区引发了关于开源 AI 利弊的深度讨论。
+
+---
+
+## 延伸阅读
+
+- LeCun, Y., Boser, B., Denker, J. et al. *Backpropagation Applied to Handwritten Zip Code Recognition.* Neural Computation 1(4), 1989.
+- LeCun, Y., Bottou, L., Bengio, Y., Haffner, P. *Gradient-Based Learning Applied to Document Recognition.* Proceedings of the IEEE 86(11), 1998.（LeNet-5 论文）
+- LeCun, Y., Bengio, Y., Hinton, G. *Deep Learning.* Nature 521, 2015.（三位图灵奖得主合著的深度学习综述）
+- LeCun, Y. *A Path Towards Autonomous Machine Intelligence.* openreview.net, 2022.（世界模型愿景）
+- LeCun, Y., Misra, I. *Self-Supervised Learning: The Dark Matter of Intelligence.* ai.facebook.com, 2021.
+- Fukushima, K. *Neocognitron: A Self-Organizing Neural Network Model for a Mechanism of Pattern Recognition Unaffected by Shift in Position.* Biological Cybernetics 36(4), 1980.（CNN 先驱架构）
+- Lecun, Y. *Modeles connexionnistes de l'apprentissage.* PhD Thesis, Universite Pierre et Marie Curie, 1987.（LeCun 博士论文，法语）
+- Krizhevsky, A., Sutskever, I., Hinton, G. *ImageNet Classification with Deep Convolutional Neural Networks.* NeurIPS, 2012.（AlexNet 论文，印证了 LeCun 方向的里程碑）
+- Assran, M. et al. *Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture.* CVPR, 2023.（I-JEPA 论文，LeCun 世界模型方向的最新实践）

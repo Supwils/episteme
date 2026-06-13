@@ -1,7 +1,17 @@
 import type MiniSearch from "minisearch";
 import type { SearchDocument } from "@/lib/search-index";
 
-export type Section = "physics" | "history" | "philosophy" | "life-science" | "economics" | "psychology" | "cosmology";
+export type Section =
+  | "physics"
+  | "history"
+  | "philosophy"
+  | "life-science"
+  | "economics"
+  | "psychology"
+  | "cosmology"
+  | "mathematics"
+  | "computer-science"
+  | "political-science";
 
 export const SECTION_META: Record<Section, { label: string; color: string }> = {
   physics: { label: "宇宙物理", color: "#6ad0ff" },
@@ -11,6 +21,9 @@ export const SECTION_META: Record<Section, { label: string; color: string }> = {
   economics: { label: "经济学", color: "#e8b84a" },
   psychology: { label: "心理学", color: "#d4789c" },
   cosmology: { label: "宇宙学", color: "#7eb8da" },
+  mathematics: { label: "数学", color: "#5fb3a3" },
+  "computer-science": { label: "计算机科学", color: "#4f9cf0" },
+  "political-science": { label: "政治学", color: "#c25b5b" },
 };
 
 export const TYPE_LABELS: Record<string, string> = {
@@ -39,6 +52,8 @@ export const TYPE_LABELS: Record<string, string> = {
   disorder: "心理障碍",
   psychologist: "心理学家",
   knowledgeBase: "知识库",
+  frontier: "研究前沿",
+  entry: "条目",
 };
 
 export interface SearchResult {

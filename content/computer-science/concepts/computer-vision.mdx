@@ -1,0 +1,142 @@
+---
+title: 计算机视觉
+title_en: Computer Vision
+status: published
+updated: 2026-06-13
+category: 人工智能
+order: 44
+field: 计算机科学 · 人工智能
+tags:
+  - 计算机视觉
+  - 图像识别
+  - 目标检测
+  - 深度学习
+related:
+  - deep-learning-architectures
+  - machine-learning-overview
+  - gpu-and-parallel-computing
+---
+
+# 计算机视觉
+
+1966 年夏天，MIT 人工智能实验室将"计算机视觉"作为一个暑期作业项目布置给一名本科生：让计算机描述一张图片。
+
+研究者们以为这会是相对容易的起点——毕竟视觉对人类来说是瞬间完成的自动化过程，应该不难。五十多年后，我们才真正明白这个问题有多难，以及当我们最终让机器"看见"时，用的是什么样的思路。
+
+## 破除误解：人眼看到的和计算机处理的是完全不同的东西
+
+对计算机来说，一张图像是一个由数字组成的三维数组：$H \times W \times C$（高 × 宽 × 通道数，RGB 图像为 3 通道）。每个数字是 0-255 的整数，代表某个像素在某个颜色通道的强度。
+
+"看懂"这张图意味着从这些数字中推断出高层语义——"这是一只猫"——这需要跨越巨大的**语义鸿沟（Semantic Gap）**。两个相邻像素值从 100 变到 101，可能完全看不出变化；但从 100 变到 200，可能也完全看不出变化（光照变化）；而把所有像素翻转（镜像），图像内容没有任何改变——这些对人类直觉来说显而易见的事实，对计算机来说都需要显式学习。
+
+## 核心任务分类
+
+| 任务 | 描述 | 粒度 |
+|------|------|------|
+| 图像分类（Classification） | "图中有什么？" | 全图一个标签 |
+| 目标检测（Object Detection） | "图中有什么，在哪里？" | 边界框（Bounding Box）|
+| 语义分割（Semantic Segmentation） | "每个像素属于哪个类别？" | 像素级标签 |
+| 实例分割（Instance Segmentation） | "每个对象实例的精确轮廓？" | 对象级精确掩码 |
+| 姿态估计（Pose Estimation） | "人体关键点的位置？" | 骨骼关键点 |
+| 深度估计（Depth Estimation） | "每个像素距摄像头多远？" | 像素级深度图 |
+| 光流（Optical Flow） | "帧间像素如何移动？" | 像素级运动向量 |
+| 图像生成 | "生成符合描述的图像" | 输出图像 |
+
+## 前深度学习时代：手工特征
+
+2012 年之前，计算机视觉依赖手工设计的特征提取器：
+
+**SIFT（Scale-Invariant Feature Transform，1999 年，Lowe）**：提取对旋转、缩放、光照变化鲁棒的局部特征。用于图像拼接（全景摄影）、三维重建、图像检索。尽管深度学习兴起，SIFT 在需要鲁棒性而数据不足的领域仍有使用。
+
+**HOG（Histogram of Oriented Gradients，2005 年，Dalal & Triggs）**：统计局部区域的梯度方向分布，对行人检测极为有效，是 2012 年前行人检测的主流特征。
+
+**Haar 特征 + AdaBoost（Viola-Jones，2001）**：第一个实时人脸检测系统，用级联分类器在普通 CPU 上实现秒级检测，被集成到几乎所有数码相机中。
+
+**词袋模型（Bag of Visual Words）**：类比 NLP 中的词袋模型，用视觉词典将图像表示为视觉词的频率直方图。配合 SVM 分类，2010 年前后的 ImageNet 竞赛主流方法。
+
+## AlexNet 后的深度学习革命
+
+2012 年 AlexNet 的成功（见 [[deep-learning-architectures]]）后，计算机视觉迅速被深度学习统治。
+
+**ImageNet 挑战赛（ILSVRC）错误率演化**：
+- 2010 年：~28%（手工特征 + SVM）
+- 2011 年：~26%（手工特征）
+- 2012 年：15.3%（AlexNet，CNN）
+- 2014 年：6.7%（GoogLeNet）
+- 2015 年：3.57%（ResNet-152）——**超越人类 5.1% 的错误率**
+- 2017 年竞赛结束，人类水平已被全面超越
+
+## 目标检测：定位与识别
+
+**两阶段方法（Two-Stage）**：先生成候选区域，再分类和精修。
+
+- **R-CNN（2013）**：用选择性搜索提取 2000 个候选区域，每个送入 CNN 提取特征，SVM 分类。准确但极慢（每张图约 49 秒）。
+- **Fast R-CNN（2015）**：整张图一次 CNN 前向传播，候选区域通过 RoI Pooling 提取特征。快 20 倍。
+- **Faster R-CNN（2015）**：引入区域提议网络（RPN），候选区域生成也由 CNN 完成，接近实时。
+
+**单阶段方法（One-Stage）**：直接在特征图上预测所有位置的边界框和类别。
+
+- **YOLO（You Only Look Once，2016）**：实时检测（45 FPS），把检测视为回归问题。后续版本（YOLOv5 到 YOLOv9）持续改进，是工业部署的主流。
+- **SSD（Single Shot MultiBox Detector，2016）**：在多个尺度的特征图上检测不同大小的目标。
+- **DETR（Detection Transformer，Facebook，2020）**：用 Transformer 做目标检测，去除了 NMS（非极大值抑制）等手工设计的后处理步骤。
+
+## 图像分割
+
+**语义分割**：
+
+- **FCN（全卷积网络，2015）**：第一个端到端训练的语义分割网络，用转置卷积（Deconvolution）恢复分辨率。
+- **U-Net（2015）**：编码器-解码器结构加跳跃连接，特别适合医学图像分割（小数据集）。
+- **DeepLab 系列（Google）**：引入空洞卷积（Atrous Convolution）扩大感受野而不降低分辨率。
+
+**实例分割**：
+
+- **Mask R-CNN（2017，FAIR）**：在 Faster R-CNN 基础上添加一个并行的掩码预测分支，高质量的实例分割标杆，获得 ICCV 2017 最佳论文。
+
+## 生成与视觉合成
+
+**图像生成**经历了三次范式：
+1. **GAN（2014 起）**：StyleGAN、BigGAN 生成逼真人脸、场景；也是 Deepfake 技术的基础。
+2. **VAE 系列**：更稳定但质量稍逊。
+3. **扩散模型（2020 起）**：DALL-E 2、Stable Diffusion、Midjourney——当前图像生成的主流，质量碾压 GAN。
+
+**扩散模型原理**：训练时逐步向真实图像添加高斯噪声，直到变成纯噪声；推断时学习逆过程，从随机噪声逐步去噪生成图像。通过文本条件控制（文本编码器指引扩散过程），实现"文字生成图像"。
+
+## 视觉 Transformer（ViT）
+
+2020 年，Google 提出 Vision Transformer（ViT）：将图像分割为固定大小的补丁（Patch），展平为序列，用 Transformer 编码器处理。
+
+ViT 在大规模数据预训练后，性能超越 CNN，且可扩展性更好（遵循与 LLM 相似的 Scaling Law）。目前 ViT 系列（DeiT、Swin Transformer、MAE）与 CNN 共存，在不同场景各有优势。
+
+## 应用全景
+
+| 领域 | 应用 | 现状 |
+|------|------|------|
+| 自动驾驶 | 实时目标检测、语义分割、深度估计 | 大规模测试，有限商业部署 |
+| 医疗影像 | 癌症筛查、病理分析 | FDA 批准多个 AI 辅助诊断产品 |
+| 工业质检 | 产品缺陷检测 | 广泛工业部署 |
+| 人脸识别 | 解锁、支付、安防 | 广泛部署，引发重大隐私争议 |
+| AR/VR | 实时场景理解 | 快速发展 |
+| 内容审核 | 违规图像自动检测 | 全球各大平台部署 |
+
+## 代价与争议
+
+**人脸识别与隐私**：准确率的提升使人脸识别大规模部署成为现实，但也带来前所未有的监控风险。研究发现，主要商业人脸识别系统对深肤色女性的错误率显著高于浅肤色男性（MIT 媒体实验室 Joy Buolamwini 的研究，2018）。美国多个城市（旧金山、波士顿）已立法禁止政府使用人脸识别。
+
+**Deepfake 的威胁**：基于深度学习的图像和视频伪造（Deepfake）技术使视觉内容的真实性不再可靠。政治操纵、色情恶意内容、诈骗是主要威胁。检测 Deepfake 本身也成为一个重要的计算机视觉子领域。
+
+**数据集偏见**：训练数据的偏见会在模型中被放大。ImageNet 中不同国家/地区物体的分布不均，导致模型对非西方文化物品的识别能力更差。
+
+## 跨域连接
+
+- **[[deep-learning-architectures]]**：CNN 和 Vision Transformer 是计算机视觉的核心架构，两者的对比和融合代表了视觉领域的主要架构演化轨迹。
+- **[[gpu-and-parallel-computing]]**：GPU 的并行计算能力使大规模卷积运算成为可能，是计算机视觉深度学习革命的硬件基础。
+- **[[natural-language-processing]]**：视觉-语言多模态模型（CLIP、DALL-E、GPT-4V）将计算机视觉与 NLP 深度融合，"文字生成图像"和"图像描述"都是两个领域的交汇点。
+
+---
+
+## 延伸阅读
+
+- Szeliski, R. *Computer Vision: Algorithms and Applications.* 2nd ed. Springer, 2022. （免费在线版）
+- Goodfellow, I. et al. *Generative Adversarial Nets.* NeurIPS, 2014. （GAN 原论文）
+- Dosovitskiy, A. et al. *An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale.* ICLR, 2021. （ViT）
+- He, K. et al. *Mask R-CNN.* ICCV, 2017. （实例分割标杆）

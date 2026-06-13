@@ -1,0 +1,176 @@
+---
+title: 字符串匹配
+title_en: String Matching
+status: published
+updated: 2026-06-13
+category: 经典算法
+order: 9
+field: 计算机科学 · 算法 · 字符串处理
+tags:
+  - 字符串匹配
+  - KMP算法
+  - Boyer-Moore
+  - 模式匹配
+  - 文本搜索
+related:
+  - automata-formal-languages
+  - hashing
+  - sorting-algorithms
+---
+
+# 字符串匹配
+
+每次你按下 Ctrl+F 搜索一个词，每次你的 IDE 给你标出一个错误，每次 grep 在日志文件里找到一行记录——背后都有一个字符串匹配算法在工作。
+
+字符串匹配听起来简单：给定**文本** T（长度 n）和**模式** P（长度 m），找出 P 在 T 中所有出现的位置。但"如何高效地做"这件事，包含了计算机科学中一些最精妙的思想。
+
+## 破除误解：暴力匹配不够用
+
+最直觉的方法是：对文本 T 中的每个位置 i，检查从 i 开始的 m 个字符是否与模式 P 完全匹配。
+
+```python
+def naive_search(text, pattern):
+    n, m = len(text), len(pattern)
+    for i in range(n - m + 1):
+        if text[i:i+m] == pattern:  # 比较 m 个字符
+            print(f"找到位置 {i}")
+```
+
+这个方法的时间复杂度是 $O(nm)$——在最坏情况下，每个位置都要比较 m 次。
+
+对于短文本这没问题，但当 T 是一个 10 GB 的日志文件，P 是一个 100 字符的错误消息，$O(nm)$ 就有 $10^{12}$ 次操作，需要等几分钟——完全不可接受。
+
+更糟的是，暴力匹配"浪费"了比较过程中已经获得的信息：当匹配在位置 i 失败时，我们已经知道了 T[i..i+k] = P[0..k]（前 k 个字符匹配），但暴力算法把这个信息完全丢弃，从 i+1 重新开始。
+
+KMP 算法的突破，正是来自对这个"丢弃信息"问题的彻底解决。
+
+## KMP 算法：利用失败中的信息
+
+1977 年，高德纳（Donald Knuth）、詹姆斯·莫里斯（James H. Morris）和沃恩·普拉特（Vaughan R. Pratt）联合发表了 KMP 算法（也是在 Morris-Pratt 1970 年工作的基础上改进的）。
+
+KMP 的核心思想：**预处理模式 P，构建一张"失败函数表"，告诉我们在任何位置匹配失败时，应该从模式的哪个位置重新开始比较——而不是回到 P[0]。**
+
+### 失败函数（Failure Function）
+
+失败函数 `fail[k]` 的定义：模式 `P[0..k]` 的**最长真前缀**，使得这个前缀也是 `P[0..k]` 的一个后缀。
+
+举例，模式 `P = "ABABC"`：
+
+| k | P[0..k] | 最长真前后缀相同的前缀 | fail[k] |
+|---|---------|---------------------|---------|
+| 0 | A | 无 | 0 |
+| 1 | AB | 无 | 0 |
+| 2 | ABA | A（前缀A = 后缀A） | 1 |
+| 3 | ABAB | AB（前缀AB = 后缀AB） | 2 |
+| 4 | ABABC | 无 | 0 |
+
+```python
+def build_fail(pattern):
+    m = len(pattern)
+    fail = [0] * m
+    j = 0  # 最长前后缀的长度
+    for i in range(1, m):
+        while j > 0 and pattern[i] != pattern[j]:
+            j = fail[j - 1]  # 关键：利用已计算的 fail 值
+        if pattern[i] == pattern[j]:
+            j += 1
+        fail[i] = j
+    return fail
+```
+
+### KMP 搜索
+
+有了失败函数，搜索过程中不再回退文本指针 i，只调整模式指针 j：
+
+```python
+def kmp_search(text, pattern):
+    n, m = len(text), len(pattern)
+    fail = build_fail(pattern)
+    results = []
+    j = 0  # 模式中当前匹配位置
+    for i in range(n):
+        while j > 0 and text[i] != pattern[j]:
+            j = fail[j - 1]  # 不回退 i，只调整 j
+        if text[i] == pattern[j]:
+            j += 1
+        if j == m:
+            results.append(i - m + 1)
+            j = fail[j - 1]  # 继续搜索下一个
+    return results
+```
+
+**关键性质**：文本指针 i 从不回头。每次字符比较，i 要么前进，要么保持不动（j 回退）。可以证明 i 至多前进 n 次，j 的总回退量不超过 j 的总前进量（最多 n 次）。因此整个搜索是 $O(n)$，预处理是 $O(m)$，总体 $O(n + m)$。
+
+## Boyer-Moore 算法：从右往左，跳更远
+
+同在 1977 年，罗伯特·博耶（Robert S. Boyer）和J·斯特罗瑟·摩尔（J. Strother Moore）提出了 Boyer-Moore 算法。它从不同方向出发，在实践中通常**比 KMP 更快**——因为它能跳过更多字符。
+
+Boyer-Moore 有两个启发式规则，都基于"从模式右端开始比较"：
+
+**坏字符规则（Bad Character Rule）**：当 T[i+j] 与 P[j] 不匹配时，在 P 中找 T[i+j] 最后一次出现的位置，把 P 向右对齐到那个位置。如果 T[i+j] 在 P 中根本不存在，直接跳过整个模式长度 m。
+
+**好后缀规则（Good Suffix Rule）**：已匹配的后缀在 P 中其他位置再找找，对齐到下一个可能匹配的位置。
+
+对于长模式和随机文本，Boyer-Moore 的平均复杂度是 $O(n/m)$——文本越长、模式越长，跳过的越多，速度越快。最坏情况是 $O(nm)$，但极少发生。
+
+实践中，`grep` 命令使用的算法正是 Boyer-Moore 的变体——这就是为什么 `grep "longpattern" huge_file.log` 比预期快很多。
+
+## Rabin-Karp：哈希加速
+
+1987 年，迈克尔·拉宾（Michael Rabin）和理查德·卡普（Richard Karp）提出了一种完全不同的思路：用**哈希函数**加速比较。
+
+思路：不直接比较 m 个字符，先比较哈希值。如果哈希值不同，绝对不匹配（跳过）；如果哈希值相同，再逐字符确认（避免哈希碰撞误报）。
+
+关键技术是**滚动哈希（Rolling Hash）**：从 T[i..i+m-1] 滑动到 T[i+1..i+m] 时，只需 $O(1)$ 时间更新哈希值（而非重新计算整个窗口）：
+
+$$h(T[i+1..i+m]) = \left(h(T[i..i+m-1]) - T[i] \cdot b^{m-1}\right) \cdot b + T[i+m]$$
+
+（其中 b 是进制基数，通常取 256；计算在某个大素数模下进行）
+
+Rabin-Karp 在**多模式匹配**中有独特优势：同时搜索 k 个模式，用哈希表把所有模式的哈希存起来，每次滑动窗口只需查一次哈希表，复杂度是 $O((n+m)k)$。这是病毒扫描软件同时查找数万种病毒签名的基础技术之一。
+
+## 算法对比
+
+| 算法 | 预处理 | 搜索 | 实践表现 | 适用场景 |
+|------|-------|------|---------|---------|
+| 暴力 | O(1) | O(nm) | 差（短模式可用） | 极短文本 |
+| KMP | O(m) | O(n) | 稳定 | 流式数据、DNA序列 |
+| Boyer-Moore | O(m + σ) | O(n/m) 平均 | 最快（实践中） | 大文件搜索 |
+| Rabin-Karp | O(m) | O(n) 平均 | 多模式最佳 | 多模式匹配 |
+| Aho-Corasick | O(Σm) | O(n + 输出) | 多模式最强 | 病毒扫描、内容过滤 |
+
+（σ 为字母表大小，Σm 为所有模式总长度）
+
+**Aho-Corasick 算法**（Alfred Aho 和 Margaret Corasick，1975）是 KMP 在多模式情况的推广——把所有模式构建成一个自动机（类似 Trie + KMP 失败函数），对文本扫描一遍即可找出所有模式的所有出现。UNIX 的 `fgrep` 命令使用此算法，入侵检测系统（IDS）的签名匹配引擎也大量使用它。
+
+## 现实中的字符串匹配
+
+**DNA 序列比对**：人类基因组有约 30 亿个碱基对。找到一个 1000 碱基的基因序列在哪里，需要极高效的字符串匹配。Burrows-Wheeler Alignment（BWA，2009）等工具把 BWT（Burrows-Wheeler 变换）与 FM-Index 结合，实现了亚线性时间的基因比对。
+
+**全文搜索引擎**：Google、Elasticsearch 等搜索引擎并不实时做字符串匹配，而是预先建立**倒排索引（Inverted Index）**：每个词对应一个文档 ID 列表。搜索时直接查索引，不需要扫描文档。字符串匹配只在建立索引时和某些特殊查询（正则、通配符）时发生。
+
+**正则表达式引擎**：正则表达式匹配可以通过 NFA/DFA 自动机实现（理论上 $O(nm)$ 或 $O(n)$），也可以用回溯方式实现（PCRE 等，某些情况下会指数级慢）。2019 年，Cloudflare 遭受了因 Web 应用防火墙使用的正则表达式发生"灾难性回溯"（catastrophic backtracking）而导致的全球性宕机，持续约 27 分钟。
+
+## 代价与争议
+
+**理论最优与实践最优的背离**：KMP 和 Boyer-Moore 的理论复杂度都是 $O(n)$，但在实践中（特别是英文文本），由于 Boyer-Moore 的跳跃效果，它通常快得多。理论上的大O分析在常数因子很大时会失真。
+
+**实现复杂度**：Boyer-Moore 的正确实现（包含好后缀规则的完整版本）出了名地难写对。很多教程和实现只实现了坏字符规则（BM 的简化版），严格说来并不是完整的 Boyer-Moore 算法。
+
+**Unicode 的挑战**：上述所有算法处理的是固定宽度的字节（ASCII）。Unicode 引入了变长编码（UTF-8：1–4 字节），多语言字符有时在视觉上等价但编码不同（如全角/半角、不同的空白字符），使字符串匹配在语义上更加复杂。
+
+## 跨域连接
+
+- **[[automata-formal-languages]]**：KMP 的失败函数构造等价于构建一个识别模式 P 的 NFA；Aho-Corasick 本质上是一个 DFA。字符串算法与自动机理论深度交融。
+- **[[hashing]]**：Rabin-Karp 的核心是滚动哈希，哈希函数的选择（碰撞率、计算速度）直接影响算法性能。
+- **生物信息学**：DNA 序列比对是字符串匹配与比对（带编辑距离）的结合，见 [[computational-complexity]] 中的动态规划。
+- **信息论**：Burrows-Wheeler 变换既是压缩算法（bzip2）的基础，也是现代 DNA 比对算法的基础——压缩与字符串匹配在信息论层面深度相关。
+
+---
+
+## 延伸阅读
+
+- Knuth, D., Morris, J. & Pratt, V. *Fast Pattern Matching in Strings.* SIAM J. Comput. 6(2), 1977.（KMP 原始论文）
+- Boyer, R. & Moore, J. S. *A Fast String Searching Algorithm.* CACM 20(10), 1977.（BM 原始论文）
+- Aho, A. & Corasick, M. *Efficient String Matching: An Aid to Bibliographic Search.* CACM 18(6), 1975.
+- Gusfield, D. *Algorithms on Strings, Trees, and Sequences.* Cambridge University Press, 1997.（字符串算法最权威的教材）

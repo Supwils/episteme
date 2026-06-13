@@ -1,0 +1,128 @@
+---
+title: GPU 与并行计算
+title_en: GPU and Parallel Computing
+status: published
+updated: 2026-06-13
+category: 计算机科学基础
+order: 34
+field: 计算机科学 · 体系结构
+tags:
+  - GPU
+  - 并行计算
+  - CUDA
+  - 深度学习
+  - 图形渲染
+related:
+  - cpu-pipelining
+  - computer-graphics
+  - computer-architecture
+---
+
+# GPU 与并行计算
+
+2012 年，多伦多大学的 AlexNet 在 ImageNet 图像识别大赛中，将前五误差率从 26% 降到 15.3%——领先第二名超过 10 个百分点。震撼行业的不只是准确率，还有它的实现方式：用两块 NVIDIA GTX 580 GPU（每块 3GB 显存）训练出来。
+
+这是深度学习革命的奇点时刻。GPU，这个原本为游戏渲染而生的芯片，成为人工智能时代最重要的计算基础设施。NVIDIA 的市值从 2012 年的约 70 亿美元，飙升至 2024 年超过 3 万亿美元。
+
+## 破除误解：GPU 不是"更强的 CPU"
+
+许多人把 GPU 理解为"更多核心的 CPU"。这是对两种架构根本差异的误解。
+
+CPU 和 GPU 是面向完全不同问题的两种解决方案：
+
+**CPU（Central Processing Unit）**：少量强大的核心（4-128 个），每个核心有深度流水线、大缓存、复杂分支预测，擅长串行的、分支密集的复杂任务。目标是**最小化单条指令的延迟（Latency）**。
+
+**GPU（Graphics Processing Unit）**：大量简单的核心（数千到数万个），每个核心功能有限，缓存小，无复杂分支预测，擅长对大量数据执行相同操作的任务。目标是**最大化数据的吞吐量（Throughput）**，以并行隐藏延迟。
+
+简单比喻：CPU 是少数几位能解任何题的天才教授；GPU 是数以千计只会做乘法的小学生，但同时做乘法。
+
+## GPU 的起源：图形渲染的数学
+
+GPU 的历史根植于实时三维图形。渲染一帧游戏画面，需要对数百万个三角形的每个顶点做相同的矩阵变换，对数百万个像素做相同的着色计算。这种"同样的操作作用于大量数据"的模式，完美匹配了大规模并行架构。
+
+1999 年，NVIDIA 发布 GeForce 256，首次使用"GPU"这个词。早期 GPU 是固定功能管线；2001 年的 GeForce 3 引入了可编程顶点着色器，开始允许程序员自定义 GPU 计算。
+
+2006 年，NVIDIA 发布了 CUDA（Compute Unified Device Architecture）编程框架，让开发者可以用 C 语言扩展编写通用程序在 GPU 上运行，GPU 从此从图形处理器变成了通用并行计算平台——称为 **GPGPU（General-Purpose GPU Computing）**。
+
+## CUDA 编程模型：SIMT
+
+CUDA 的核心概念是 **SIMT（Single Instruction, Multiple Threads）**：
+
+- 程序员写 **kernel 函数**（GPU 上运行的函数）
+- 每次启动 kernel 时指定线程数量（如 100 万个线程）
+- 所有线程执行相同的指令，但作用于不同的数据
+- 线程组织成**线程块（Block）**，线程块组织成**网格（Grid）**
+
+```cuda
+// GPU kernel：并行对数组每个元素乘以 2
+__global__ void doubleArray(float *a, int n) {
+    int i = blockIdx.x * blockDim.x + threadIdx.x;
+    if (i < n) {
+        a[i] = a[i] * 2.0f;
+    }
+}
+
+// 启动 100 万个线程
+doubleArray<<<1000, 1024>>>(deviceArray, 1000000);
+```
+
+GPU 内部，32 个线程组成一个 **Warp**（NVIDIA 术语，AMD 叫 Wavefront），Warp 内的所有线程同步执行相同指令。如果 Warp 内部出现分支（if-else），NVIDIA 使用**谓词执行**：两条路径都执行，不相关线程的结果被屏蔽。这使得分支在 GPU 上代价极高——"避免分支"是 GPU 编程的重要优化原则。
+
+## 矩阵乘法：为什么 GPU 天生适合深度学习
+
+深度学习的核心计算是**矩阵乘法**（全连接层、注意力机制）和**卷积**（卷积层）。
+
+矩阵乘法 $C = A \times B$（$A$ 是 $m \times k$，$B$ 是 $k \times n$，$C$ 是 $m \times n$）：每个输出元素 $C_{ij} = \sum_{l=1}^{k} A_{il} \cdot B_{lj}$，共有 $m \times n$ 个输出元素，每个需要 $k$ 次乘加，总操作数 $O(mnk)$。
+
+$m \times n$ 个输出元素的计算完全独立，可以完美并行。GPU 的数千个核心正好能同时处理这些独立计算。
+
+以 GPT-3（2020）为例：其核心的 Transformer 注意力机制每次前向传播需要约 $10^{12}$（万亿）次浮点运算，在 CPU 上以每秒 $10^{12}$ 次运算的速度约需 1 秒，而高端 GPU 的峰值性能超过 $10^{14}$ 次运算每秒，快了两个数量级。
+
+## GPU 架构的演进
+
+**NVIDIA A100（2020，Ampere 架构）**：
+- 6912 个 CUDA 核心
+- 432 个 Tensor Core（专用于矩阵乘法，每时钟周期完成 $4 \times 4$ 矩阵乘加，比普通 CUDA 核心快 8 倍）
+- 80 GB HBM2e 显存，带宽 2 TB/s
+- 峰值 FP16 性能：312 TFLOPS
+
+**Tensor Core / Matrix Core**：NVIDIA 在 Volta 架构（2017）引入的专用硬件单元，专门加速混合精度矩阵运算。AMD 称之为 Matrix Core。这是深度学习训练速度暴增的关键硬件基础。
+
+**NVLink 与 NVSwitch**：允许多 GPU 之间高速直连，通信带宽远超 PCIe。NVIDIA DGX A100 包含 8 块 A100 GPU，通过 NVSwitch 互联，可作为一块"超级 GPU"使用。
+
+## 并行计算的挑战
+
+**Amdahl 定律（Amdahl's Law）**：程序的并行加速比受限于串行部分。设串行部分比例为 $s$，并行部分为 $1-s$，使用 $n$ 个处理器的加速比上限为：
+
+$$\text{Speedup} \leq \frac{1}{s + \frac{1-s}{n}}$$
+
+当 $n \to \infty$，加速比最大为 $\frac{1}{s}$。如果程序有 5% 的部分必须串行，无论多少个 GPU 并行，加速比上限只有 20。
+
+**内存带宽瓶颈**：GPU 计算速度很快，但内存访问常是瓶颈。许多运算是"内存带宽受限"（Memory-Bound）而非"计算受限"（Compute-Bound）。优化 GPU 程序往往意味着减少内存访问次数、提高缓存利用率、使用高带宽内存（HBM）。
+
+**通信开销**：多 GPU 并行训练时，梯度同步（All-Reduce）的通信开销随 GPU 数量增加，可能成为主要瓶颈。
+
+## 代价与争议
+
+**能耗**：NVIDIA H100 GPU 的 TDP（热设计功耗）超过 700 瓦。一个 AI 训练集群可能包含数万块 GPU，总功耗相当于一个中小城市。据 IEA 估计，AI 的能耗增长是全球数据中心能耗增速的主要驱动力。
+
+**GPU 垄断与依赖**：CUDA 生态高度绑定 NVIDIA，切换到 AMD 或 Intel GPU 需要移植大量优化代码。Google TPU、Meta MTIA、特斯拉 Dojo 等自研 AI 芯片都是试图打破这种依赖的尝试。
+
+**AI 芯片军备竞赛**：英伟达、AMD、Intel、谷歌、亚马逊、苹果、各国政府都在投入巨资开发新一代 AI 加速芯片，这场竞赛的走向将决定 AI 计算的成本和可及性。
+
+## 跨域连接
+
+- **[[computer-graphics]]**：GPU 起源于图形渲染，图形学是 GPU 发展的原始驱动力。
+- **[[cpu-pipelining]]**：CPU 和 GPU 是互补的计算架构，各自针对不同问题优化。
+- **[[distributed-systems]]**：大规模 GPU 集群本身是分布式系统，需要解决通信、容错等问题。
+- **经济学**：GPU 短缺（2020-2023）是供需失衡的典型案例，揭示了关键技术组件的地缘政治敏感性。
+
+---
+
+## 延伸阅读
+
+- Kirk, D. & Hwu, W. *Programming Massively Parallel Processors: A Hands-on Approach.* Morgan Kaufmann, 2022.
+- Nickolls, J. et al. *Scalable Parallel Programming with CUDA.* Queue 6(2), 2008. （CUDA 的奠基性论文）
+- NVIDIA. *CUDA C++ Programming Guide.* docs.nvidia.com/cuda/. （官方文档）
+- Amdahl, G. *Validity of the Single Processor Approach to Achieving Large Scale Computing Capabilities.* AFIPS, 1967.
+- Krizhevsky, A., Sutskever, I., Hinton, G. *ImageNet Classification with Deep Convolutional Neural Networks.* NIPS, 2012. （AlexNet 论文）

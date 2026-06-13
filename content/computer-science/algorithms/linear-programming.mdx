@@ -1,0 +1,140 @@
+---
+title: 线性规划
+title_en: Linear Programming
+status: published
+updated: 2026-06-13
+category: 优化算法
+order: 29
+field: 计算机科学 · 运筹学 · 优化理论
+tags:
+  - 线性规划
+  - 单纯形法
+  - 对偶理论
+  - 运筹学
+related:
+  - network-flow
+  - dynamic-programming
+  - greedy-algorithms
+---
+
+# 线性规划
+
+1941 年，苏联数学家 Leonid Kantorovich 在研究苏联工业生产调度时，提出了一类特殊的数学优化问题：目标函数和约束都是线性的。他的工作后来为他赢得了 1975 年诺贝尔经济学奖（与 Tjalling Koopmans 共享）。
+
+1947 年，在美国空军资助下，George Dantzig 独立发展了线性规划理论，并提出了求解这类问题的**单纯形法（Simplex Method）**。二战期间的军事后勤调度需求，直接推动了这一理论的诞生。
+
+线性规划（Linear Programming，LP）是优化理论中最成熟、应用最广的分支，是运筹学的核心工具，也是整数规划、凸优化等更一般框架的基础。
+
+## 标准形式
+
+一个线性规划问题的标准形式：
+
+$$\text{最大化 } \mathbf{c}^T \mathbf{x}$$
+
+$$\text{满足 } A\mathbf{x} \leq \mathbf{b},\ \mathbf{x} \geq \mathbf{0}$$
+
+其中：
+- $\mathbf{x} \in \mathbb{R}^n$：决策变量（如生产数量、资源分配量）
+- $\mathbf{c} \in \mathbb{R}^n$：目标函数系数（如单位利润）
+- $A \in \mathbb{R}^{m \times n}$：约束矩阵（如资源消耗系数）
+- $\mathbf{b} \in \mathbb{R}^m$：约束右端（如资源总量）
+
+一个直觉例子：工厂生产两种产品，各有不同的利润和资源消耗，资源总量有限，如何安排生产使总利润最大？这就是最简单的 LP。
+
+## 可行域：多面体的几何
+
+LP 的约束定义了一个**多面体（Polyhedron）**——若干线性不等式的交集。在二维情况下是凸多边形，三维是凸多面体，高维类似。
+
+**关键定理（基本可行解定理）**：若 LP 有最优解，则一定存在一个多面体的**顶点（Vertex/Extreme Point）**也是最优解。
+
+直觉：线性目标函数在凸多面体上的最大值，一定在顶点取到（或在一条边/面上取到，但总有顶点也是最优的）。
+
+这一观察是单纯形法的几何基础。
+
+## 单纯形法：沿边游走
+
+**单纯形法（Simplex Method，Dantzig 1947）**：
+
+1. 从多面体的一个顶点（基本可行解）开始
+2. 检查所有相邻顶点（沿一条边移动可达）
+3. 若有相邻顶点使目标函数值更大，移动过去
+4. 重复直到没有更好的相邻顶点——已到达局部（也是全局）最优
+
+由于 LP 是凸问题，局部最优即全局最优。
+
+**代数实现**：用**单纯形表（Simplex Tableau）**表示当前顶点和约束，每次"主元变换（Pivot）"对应从一个顶点沿边移动到相邻顶点。
+
+**实践性能**：单纯形法在实际中极快——典型地在 $O(m)$ 到 $O(3m)$ 次迭代收敛（$m$ 为约束数），每次迭代 $O(mn)$。尽管理论最坏情况是指数级的（Klee-Minty 立方体，1972 年），但病态实例在实际问题中极罕见。
+
+## Klee-Minty 问题与多项式算法
+
+1972 年，Klee 和 Minty 构造了使单纯形法需要指数步骤的实例，引发了一个问题：LP 有多项式时间算法吗？
+
+**Khachian 椭球法（1979）**：Leonid Khachian 证明 LP 可以在多项式时间内求解——但实践中极慢。它的理论意义在于证明了 LP $\in$ P。
+
+**Karmarkar 内点法（1984）**：N. Karmarkar 提出的内点法（Interior Point Method）不沿边游走，而是穿过多面体内部，理论复杂度 $O(n^{3.5}L)$（$L$ 为输入编码长度），实践中也快于单纯形法（对某些大规模问题）。
+
+现代 LP 求解器（Gurobi、CPLEX、HiGHS）同时实现了单纯形法和内点法，根据问题规模和结构自动选择：
+- 单纯形法：更适合需要**温起动（Warm Start）**的序列求解（如整数规划中的 LP 松弛序列）
+- 内点法：更适合大规模稠密 LP
+
+## 对偶理论：LP 最深刻的结论
+
+每个 LP 问题（原问题，Primal）都有一个对应的**对偶问题（Dual）**：
+
+$$\text{原问题：最大化 } \mathbf{c}^T\mathbf{x},\ A\mathbf{x} \leq \mathbf{b},\ \mathbf{x} \geq 0$$
+
+$$\text{对偶：最小化 } \mathbf{b}^T\mathbf{y},\ A^T\mathbf{y} \geq \mathbf{c},\ \mathbf{y} \geq 0$$
+
+**弱对偶定理**：对偶可行解的值 $\geq$ 原始可行解的值（提供上界）。
+
+**强对偶定理（Strong Duality）**：若原问题有最优解，则对偶问题也有最优解，且**两者最优值相等**。
+
+这是 LP 理论最深刻的结论：一个极大化问题和一个极小化问题，居然有相同的最优值。
+
+**经济解释**：原问题的对偶变量 $\mathbf{y}$（"影子价格，Shadow Price"）表示每单位约束松弛对最优值的边际贡献——约束的经济价值。
+
+**与最大流-最小割的关系**：最大流-最小割定理是对偶定理的组合版本——最大流 LP 的对偶正是最小割问题，两者的强对偶等价于 Max-Flow = Min-Cut。
+
+## 整数线性规划（ILP）
+
+若决策变量必须是整数（如生产件数不能是 0.7 件），则为**整数线性规划（Integer Linear Programming，ILP）**。
+
+ILP 是 NP-hard 问题——它比 LP 困难得多。标准求解方法是**分支定界法（Branch and Bound）**：
+
+1. 先求 LP 松弛（忽略整数约束）
+2. 若解已是整数，则完成
+3. 若某变量取非整数值 $x^* = 3.7$，分支为两个子问题：$x \leq 3$ 和 $x \geq 4$
+4. 递归求解每个子问题，用 LP 界剪枝
+
+现代 ILP 求解器还结合割平面（Cutting Planes）、启发式等技术。
+
+0-1 背包、旅行商问题、调度问题等都可以建模为 ILP。
+
+## 现实应用
+
+**航空调度**：航空公司每天用 LP/ILP 解决机组人员排班（Crew Scheduling）、飞机轮转（Aircraft Rotation）——这些问题有数十万变量，现代求解器在分钟内给出最优解。
+
+**电力调度**：电网单位承诺问题（Unit Commitment）——哪些发电机开/关，以最小成本满足需求——是每天实时运行的大规模 ILP。
+
+**供应链优化**：全球供应链的仓储、运输、生产配置决策，通常建模为多目标线性规划。
+
+**金融投资组合**：Markowitz 均值-方差优化模型的计算核心是 QP（二次规划），是 LP 的直接推广。
+
+**机器学习（SVM）**：支持向量机的训练在数学上是一个二次规划（QP）问题，是 LP 的推广。
+
+## 跨域连接
+
+- **[[network-flow]]**：最大流是 LP 的特殊情形，最大流-最小割定理是 LP 强对偶定理的组合实例。用 LP 对偶分析网络流问题是运筹学的核心方法。
+- **[[dynamic-programming]]**：DP 最优化问题有时可以写成 LP（特别是在有限 MDP 中），揭示了两种看似不同的框架之间的深刻联系。
+- **[[greedy-algorithms]]**：在拟阵上，贪心最优性可以用 LP 对偶理论解释——贪心解对应 LP 的一个可行对偶解，互补松弛条件保证最优性。
+- **经济学**：线性规划与对偶理论是数理经济学（尤其是福利经济学、均衡理论）的数学基础。Kantorovich 获诺贝尔经济学奖正是因为他将 LP 用于经济学中的资源配置问题。
+
+---
+
+## 延伸阅读
+
+- Dantzig, G.B. *Linear Programming and Extensions.* Princeton University Press, 1963.
+- Karmarkar, N. "A New Polynomial-Time Algorithm for Linear Programming." *Combinatorica* 4(4), 1984.
+- Vanderbei, R.J. *Linear Programming: Foundations and Extensions.* 4th ed. Springer, 2014.
+- Bertsimas, D. & Tsitsiklis, J. *Introduction to Linear Optimization.* Athena Scientific, 1997.

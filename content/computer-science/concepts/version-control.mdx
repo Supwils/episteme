@@ -1,0 +1,123 @@
+---
+title: 版本控制
+title_en: Version Control
+status: published
+updated: 2026-06-13
+category: 软件工程实践
+order: 22
+field: 计算机科学 · 软件工程
+tags:
+  - 版本控制
+  - Git
+  - 协作
+  - 历史
+  - 分支
+related:
+  - software-engineering
+  - distributed-systems
+---
+
+# 版本控制
+
+1991 年，Linus Torvalds 在赫尔辛基大学宿舍里开始写 Linux 内核，协调方式是通过邮件列表发补丁文件（`.patch`）。贡献者把修改写成差异文件，发给 Linus，他手工合并。
+
+这种方式在全球数千名开发者同时贡献代码时完全行不通。
+
+2005 年，Linux 社区与 BitKeeper（当时使用的专有版本控制工具）决裂。Torvalds 花了两周时间写出了 Git——一个专为大规模分布式协作设计的版本控制系统。今天，Git 是地球上使用最广泛的软件开发工具之一。
+
+## 破除误解：版本控制不是"存档"
+
+许多初学者把版本控制理解为"定期存档"——就像游戏存档一样，不满意了就退回去。这是一个过度简化。
+
+版本控制的核心价值不是回退，而是**追踪意图**。每一次提交（commit）不只是一个快照，还携带：
+- **谁**做了这个改动（作者信息）
+- **什么时候**做的（时间戳）
+- **为什么**做这个改动（提交消息）
+- **改了什么**（差异）
+
+这个元数据让团队能够回答："三个月前我们为什么删掉了这段代码？"——这个问题的答案往往决定了今天一个 bug 的修复方向。
+
+## Git 的核心模型
+
+Git 把每次提交表示为一个**有向无环图（DAG）** 中的节点，每个节点指向它的父节点。分支只是指向某个节点的指针。
+
+```
+A --- B --- C --- D  (main)
+            \
+             E --- F  (feature)
+```
+
+这个模型带来了几个重要性质：
+
+**历史是不可篡改的**：每个节点的 ID 是其内容的 SHA-1 哈希（Git 2.29 起可选 SHA-256）。改变任何内容会导致哈希变化，从而连锁改变所有后续节点的哈希。这使得 Git 仓库本质上是一个**内容寻址的不可变数据结构**。
+
+**分支极其廉价**：一个分支只是 40 字节的哈希值（一个指针），创建分支的代价几乎为零。这与 SVN 等早期工具形成对比——在 SVN 中，创建分支需要复制整个项目目录。
+
+**合并是一等公民**：Git 的合并算法（三路合并，three-way merge）理解"我在哪里分叉"，能自动合并两个人在不同地方做的修改，只在真正冲突时要求人工介入。
+
+## 工作流演进
+
+**集中式工作流**：所有人直接推送到 main 分支，适合个人项目或极小团队。
+
+**功能分支工作流（Feature Branch）**：每个新功能在独立分支开发，完成后通过 Pull Request / Merge Request 合并。这是当今最主流的开源协作模式，GitHub 在 2008 年推出 Pull Request 功能后将其普及。
+
+**GitFlow**：Vincent Driessen 在 2010 年提出的规范化分支策略，定义了 main、develop、feature、release、hotfix 五类分支及其交互规则。适合有计划发布节奏的产品。
+
+**Trunk-Based Development（主干开发）**：所有人每天至少向主干提交一次，通过**功能开关（Feature Flag）**控制功能是否对用户可见。Google 和 Facebook 内部采用的方式，配合持续集成效果最佳。
+
+## 分布式版本控制的革命
+
+Git 和 Mercurial（2005 年，同期由 Matt Mackall 开发）属于**分布式版本控制系统（DVCS）**，与此前的 CVS、SVN 有根本区别：
+
+每个开发者本地有**完整的仓库副本**，包括全部历史。这意味着：
+- 本地提交、查看历史、创建分支无需网络连接
+- 每个仓库都是完整备份，没有单点故障
+- 开发者可以在私下积累提交，选择合适时机推送
+
+相比之下，SVN 的每次提交都需要连接中央服务器，断网就无法工作。
+
+## 版本控制系统的演进历史
+
+了解版本控制的历史，有助于理解 Git 的设计决策：
+
+**SCCS（Source Code Control System，1972）**：贝尔实验室 Marc Rochkind 开发，世界上第一个版本控制系统。只支持单文件锁定（一次只有一人可以编辑一个文件），避免冲突的方式是强制串行化。
+
+**RCS（Revision Control System，1982）**：GNU 版本，也是文件锁定模型，但存储方式更高效（用差分存储历史，而不是全量快照）。
+
+**CVS（Concurrent Versions System，1986）**：革命性地引入了**乐观并发**——多人可以同时编辑同一文件，提交时系统尝试自动合并，有冲突时提示人工解决。这使团队协作不再需要严格协调。
+
+**Subversion（SVN，2000）**：CVS 的替代，改进了目录移动、原子提交等操作，成为 2000 年代开源项目的主流版本控制系统。Apache、GCC、Python 等都曾使用 SVN。
+
+**BitKeeper（商业，1998）**：Linux 内核 2002-2005 年使用，是第一个大规模应用的分布式版本控制系统，对 Linux 贡献者免费。2005 年因许可证争议（一位内核开发者试图逆向工程 BitKeeper 协议）撤销了免费使用权，直接导致 Torvalds 写出了 Git。
+
+**Git（2005）** 和 **Mercurial（2005）**：几乎同时诞生于 Linux 社区，两者设计目标类似，但 Git 赢得了市场（GitHub 的支持是关键因素），Mercurial 在 Facebook 等少数公司使用。
+
+这段历史说明：版本控制系统的每一次革新，都是对前一代局限性的直接回应——从串行到并发，从集中到分布。
+
+## 代价与争议
+
+**Git 的学习曲线**：Git 的概念模型（工作区、暂存区、仓库；HEAD、分支、标签；rebase vs merge……）对初学者来说相当陡峭。"我不小心 force push 了 main" 是许多工程师噩梦的来源。
+
+**大文件问题**：Git 为文本代码优化，但游戏资产、机器学习模型等大型二进制文件在 Git 中存储效率极低。Git LFS（Large File Storage）是一个补丁方案，但体验依然不完美。
+
+**历史重写的伦理**：`git rebase` 和 `git push --force` 允许重写已发布的历史，这在团队环境中可能导致他人工作丢失。何时应该保留"真实历史"（包括所有混乱的中间提交），何时应该整理为整洁的叙事，是持续的工程文化争论。
+
+**Monorepo vs Polyrepo**：Google、Facebook、Twitter 把公司所有代码存在一个超大 Git 仓库（Monorepo），声称有利于跨项目代码复用和原子性变更。反对者认为这带来了工具链复杂性和不必要的耦合。两种方式都有成功案例。
+
+## 跨域连接
+
+- **历史学**：版本控制把软件开发历史化了——每个提交都是一条历史记录，可以追溯"软件考古"（software archaeology）。
+- **数学**：Git 的内部数据结构是有向无环图和 Merkle 树，这些数学结构也是区块链的基础。
+- **哲学**：版本控制引发了关于"真实性"的哲学问题：哪一份才是代码的"真实"版本？rebase 后的整洁历史和 merge 后的真实历史，哪个更诚实？
+- **[[software-engineering]]**：版本控制是现代软件工程的核心基础设施，见软件工程条目。
+
+---
+
+## 延伸阅读
+
+- Chacon, S. & Straub, B. *Pro Git.* Apress, 2014. （免费在线阅读：https://git-scm.com/book）
+- Driessen, V. *A Successful Git Branching Model.* nvie.com, 2010.
+- Hammant, P. *Trunk Based Development.* trunkbaseddevelopment.com. （持续更新的在线指南）
+- Loeliger, J. & McCullough, M. *Version Control with Git.* O'Reilly, 2012.
+- O'Sullivan, B. *Mercurial: The Definitive Guide.* O'Reilly, 2009. （Mercurial 的官方指南，对理解 DVCS 设计思想有帮助）
+- Potvin, R. & Levenberg, J. *Why Google Stores Billions of Lines of Code in a Single Repository.* CACM 59(7), 2016. （Google Monorepo 实践的权威描述）

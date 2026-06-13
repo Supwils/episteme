@@ -1,0 +1,155 @@
+---
+title: 万维网与 HTTP
+title_en: The Web and HTTP
+status: published
+updated: 2026-06-13
+category: 系统与架构
+order: 33
+field: 计算机科学 · 互联网
+tags:
+  - HTTP
+  - 万维网
+  - REST
+  - HTML
+related:
+  - networking-protocols
+  - dns
+  - computer-security-principles
+---
+
+# 万维网与 HTTP
+
+1991 年 8 月 6 日，互联网上出现了第一个公开可访问的网页。它的内容是关于如何使用万维网的说明，由 Tim Berners-Lee 在瑞士日内瓦的 CERN（欧洲核子研究中心）托管。
+
+这一天距 ARPANET 建立已过去 22 年。互联网（Internet）存在了 22 年，但万维网（World Wide Web）才刚刚开始。互联网和万维网常被混用，实际上截然不同：互联网是底层的网络基础设施，万维网是运行在互联网之上的一种特定的**信息超链接系统**。
+
+## 破除误解：网络不等于互联网
+
+互联网（Internet）是由 TCP/IP 协议连接的全球计算机网络，支持电子邮件、FTP、VoIP、万维网等众多服务。万维网（World Wide Web，WWW）是其中**一种**服务：以超链接文档（HTML）为形式，以 HTTP 为传输协议，以 URL 为地址系统的信息空间。
+
+没有万维网，互联网仍然存在——电子邮件、新闻组、FTP 都在万维网诞生前运作多年。Berners-Lee 的贡献是把**文档**、**链接**、**地址**和**传输协议**打包成一个易于使用的系统。
+
+## 三个核心构件
+
+万维网由三个彼此配合的发明构成：
+
+**1. URL（统一资源定位符）**：给每个资源一个全球唯一的地址。
+```
+https://www.example.com:443/path/to/page?key=value#section
+  |____|  |_____________| |__| |_________| |_______| |_____|
+  协议     主机名          端口  路径         查询字符串  片段
+```
+
+**2. HTML（超文本标记语言）**：描述文档结构和内容，以及文档之间的链接。链接让"超文本"成为现实——读者可以自由跳转，不再受线性阅读的限制。
+
+**3. HTTP（超文本传输协议）**：客户端（浏览器）与服务器之间的请求/响应协议。
+
+## HTTP 的工作原理
+
+HTTP 是无状态的请求-响应协议。每次交互：
+
+```
+客户端发送请求：
+GET /index.html HTTP/1.1
+Host: www.example.com
+User-Agent: Mozilla/5.0
+Accept: text/html
+
+服务器返回响应：
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+Content-Length: 1234
+
+<html>...</html>
+```
+
+**HTTP 方法（动词）**定义操作语义：
+- `GET`：获取资源，无副作用，可缓存
+- `POST`：提交数据，创建资源
+- `PUT`：替换资源
+- `PATCH`：部分更新资源
+- `DELETE`：删除资源
+- `HEAD`：只获取响应头，不要正文
+- `OPTIONS`：查询服务器支持哪些方法
+
+**状态码**告知结果：
+
+| 范围 | 含义 | 常见示例 |
+|------|------|---------|
+| 2xx | 成功 | 200 OK, 201 Created, 204 No Content |
+| 3xx | 重定向 | 301 永久移动, 302 临时移动, 304 未修改 |
+| 4xx | 客户端错误 | 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found |
+| 5xx | 服务器错误 | 500 Internal Server Error, 503 Service Unavailable |
+
+## HTTP 的演化：从 0.9 到 3
+
+**HTTP/0.9（1991）**：只有 GET 方法，只能传 HTML，每次请求新建 TCP 连接。
+
+**HTTP/1.0（1996）**：引入方法、头部、状态码、多媒体类型。仍然每请求一连接。
+
+**HTTP/1.1（1997，RFC 2068；修订 1999，RFC 2616）**：引入**持久连接（Keep-Alive）**（同一 TCP 连接复用多次请求）、管道（Pipelining，允许连续发送请求不等响应）、分块传输编码、Host 头（允许一个 IP 托管多个域名）。HTTP/1.1 统治互联网长达 15 年以上。
+
+**HTTP/2（2015，RFC 7540）**：基于 Google 的 SPDY 协议。核心改进：
+- **二进制帧**（取代文本格式，更高效解析）
+- **多路复用（Multiplexing）**：单个 TCP 连接上并行传输多个请求/响应流
+- **头部压缩（HPACK）**：减少重复头部的传输量
+- **服务器推送（Server Push）**：服务器可主动推送资源
+
+HTTP/2 消除了 HTTP/1.x 的"队头阻塞"（在应用层）——但 TCP 层的队头阻塞仍然存在。
+
+**HTTP/3（2022，RFC 9114）**：传输层从 TCP 换为 QUIC（基于 UDP）。彻底解决 TCP 层队头阻塞，连接迁移（换网络不断连），内置加密。截至 2026 年，约 30% 的网络请求使用 HTTP/3。
+
+## REST：Web API 的架构风格
+
+REST（Representational State Transfer）由 Roy Fielding 在 2000 年的博士论文中提出，是一套描述 Web 架构风格的约束集合。RESTful API 把网络服务的每个资源赋予 URL，用 HTTP 方法表达操作语义：
+
+```
+GET    /users/42        # 获取用户 42 的信息
+POST   /users           # 创建新用户
+PUT    /users/42        # 替换用户 42 的信息
+DELETE /users/42        # 删除用户 42
+```
+
+REST 不是标准，是一种风格。它的普及使 Web API 设计趋于统一，但"真正的 RESTful"在工程界常有争议。GraphQL（Facebook，2015）和 gRPC（Google，2016）是主要的替代方案，各有适用场景。
+
+## HTTPS 与 TLS
+
+HTTP 本身是明文——所有传输数据包括密码都可被监听。**HTTPS = HTTP over TLS**：在 TCP 和 HTTP 之间加入 TLS 层，实现加密和服务器身份验证。
+
+2010 年代，推动 HTTPS 的历史事件包括：
+- 斯诺登披露（2013）：NSA 大规模监听互联网流量
+- Google 从 2014 年起给 HTTPS 网站在搜索排名中加分
+- Let's Encrypt（2015）：免费自动化证书颁发，让小网站也能用 HTTPS
+
+2023 年，约 95% 的 Chrome 浏览器页面加载使用 HTTPS。明文 HTTP 实际上已成遗迹。
+
+## Cookie 与会话：打破无状态
+
+HTTP 的无状态性（每个请求互相独立）在功能上是简单性的来源，在工程上却是麻烦——如何让服务器记住"用户已登录"？
+
+**Cookie**（1994 年由 Netscape 工程师 Lou Montulli 发明）：服务器在响应中设置小型键值对，浏览器在后续请求中自动携带。这让"会话"成为可能。
+
+Cookie 后来也成为广告追踪的基础，引发了长达二十年的隐私之争。**第三方 Cookie**（跨域追踪）已被主要浏览器陆续禁止，截至 2025 年 Chrome 也在逐步淘汰。
+
+## 代价与争议
+
+**开放性与滥用**：HTTP 的开放性让任何人都能建网站，也让钓鱼、垃圾邮件、DDoS 无处不在。Web 的成功从未与安全同步。
+
+**Web 的中心化**：万维网最初的愿景是去中心化的信息网络。但今天，网络流量高度集中在少数平台（Google、Facebook、Amazon、Cloudflare）。Berners-Lee 本人多次表达对这种中心化趋势的担忧，并在 2018 年启动 Solid 项目，试图重建去中心化 Web。
+
+**HTTP/2 Server Push 的失败**：HTTP/2 引入的服务器推送功能，理论上可以让服务器在客户端请求前推送所需资源。实践中，浏览器实现复杂、收益不明显。Chrome 在 2022 年宣布移除 HTTP/2 Server Push 支持。这是一个"理论上优美，实践中失败"的设计的典型案例。
+
+## 跨域连接
+
+- **[[networking-protocols]]**：HTTP 是应用层协议，运行在 TCP（或 QUIC）之上，依赖 DNS 进行域名解析。三者共同构成今天大多数互联网通信的基础。
+- **[[dns]]**：浏览器访问网站的第一步是 DNS 查询，把域名转化为 IP 地址，然后才能发起 TCP 连接和 HTTP 请求。
+- **[[distributed-systems]]**：现代 Web 服务是大规模分布式系统：负载均衡、CDN、缓存服务器共同构成 HTTP 请求的处理链路。
+
+---
+
+## 延伸阅读
+
+- Berners-Lee, T. *Information Management: A Proposal.* CERN, 1989. （万维网提案原文）
+- Fielding, R. *Architectural Styles and the Design of Network-based Software Architectures.* PhD dissertation, UC Irvine, 2000. （REST 的出处）
+- Grigorik, I. *High Performance Browser Networking.* O'Reilly, 2013. （免费在线版）
+- Ietf. *HTTP/1.1.* RFC 9110–9112, 2022. （HTTP 的最新统一规范）

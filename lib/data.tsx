@@ -217,6 +217,77 @@ export const DOMAINS = [
     ),
     stats: "36 理论家 · 26 实验 · 16 现象 · 6 流派",
   },
+  {
+    id: "computer-science" as const,
+    title: "计算机科学",
+    titleEn: "Computer Science",
+    description:
+      "从图灵机到大语言模型，探索计算这门新语言。涵盖先驱、核心概念、算法、计算理论与研究前沿。",
+    gradient: "linear-gradient(135deg, #4f9cf0 0%, #3a7fd0 50%, #6fb0f5 100%)",
+    glowColor: "#4f9cf0",
+    bgAccent: "rgba(79, 156, 240, 0.08)",
+    borderAccent: "rgba(79, 156, 240, 0.2)",
+    icon: (
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+        <rect
+          x="6"
+          y="9"
+          width="24"
+          height="16"
+          rx="2"
+          stroke="#4f9cf0"
+          strokeWidth="1.5"
+          opacity="0.45"
+        />
+        <path d="M13 30h10" stroke="#6fb0f5" strokeWidth="1.5" opacity="0.5" />
+        <path d="M18 25v5" stroke="#6fb0f5" strokeWidth="1.5" opacity="0.5" />
+        <path
+          d="M12 14l-3 3 3 3"
+          stroke="#4f9cf0"
+          strokeWidth="1.5"
+          opacity="0.7"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M21 14l3 3-3 3"
+          stroke="#4f9cf0"
+          strokeWidth="1.5"
+          opacity="0.7"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+    stats: "先驱 · 概念 · 算法 · 计算理论 · 前沿",
+  },
+  {
+    id: "political-science" as const,
+    title: "政治学",
+    titleEn: "Political Science",
+    description:
+      "权力如何被获得、约束与正当化。涵盖政治思想家、主义、核心概念、制度与政体、国际关系与研究前沿。",
+    gradient: "linear-gradient(135deg, #c25b5b 0%, #a84848 50%, #d67676 100%)",
+    glowColor: "#c25b5b",
+    bgAccent: "rgba(194, 91, 91, 0.08)",
+    borderAccent: "rgba(194, 91, 91, 0.2)",
+    icon: (
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+        <path d="M6 30h24" stroke="#c25b5b" strokeWidth="1.5" opacity="0.4" />
+        <path
+          d="M18 6l10 6H8l10-6z"
+          stroke="#c25b5b"
+          strokeWidth="1.5"
+          opacity="0.5"
+          strokeLinejoin="round"
+        />
+        <rect x="11" y="14" width="2.5" height="12" fill="#c25b5b" opacity="0.4" />
+        <rect x="17" y="14" width="2.5" height="12" fill="#a84848" opacity="0.45" />
+        <rect x="23" y="14" width="2.5" height="12" fill="#d67676" opacity="0.4" />
+      </svg>
+    ),
+    stats: "思想家 · 主义 · 概念 · 制度 · 国关 · 前沿",
+  },
 ];
 
 export const FEATURES = [
@@ -299,7 +370,8 @@ export const LATEST_UPDATES = [
     domain: "经济学",
     domainColor: "#e8b84a",
     title: "经济学板块上线",
-    description: "覆盖 29 位经济学家、12 理论、10 概念、9 流派，从古典政治学到行为经济学的完整知识体系。",
+    description:
+      "覆盖 29 位经济学家、12 理论、10 概念、9 流派，从古典政治学到行为经济学的完整知识体系。",
     date: "2026-06",
     href: "/economics",
   },
@@ -311,6 +383,16 @@ export const LATEST_UPDATES = [
     description: "覆盖 36 位理论家、26 经典实验、16 心理现象，从精神分析到认知神经科学的全面探索。",
     date: "2026-06",
     href: "/psychology",
+  },
+  {
+    id: "lu-8",
+    domain: "奇趣知识",
+    domainColor: "#e8b84a",
+    title: "「奇趣知识」上线",
+    description:
+      "横跨十个学科、少有人知却真实而迷人的冷知识——从章鱼的三颗心脏到克娄巴特拉的时间错觉，每条都有出处。",
+    date: "2026-06",
+    href: "/curiosities",
   },
 ];
 

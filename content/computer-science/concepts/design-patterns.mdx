@@ -1,0 +1,127 @@
+---
+title: 设计模式
+title_en: Design Patterns
+status: published
+updated: 2026-06-13
+category: 软件工程实践
+order: 25
+field: 计算机科学 · 软件工程
+tags:
+  - 设计模式
+  - 面向对象
+  - 架构
+  - 重构
+  - GoF
+related:
+  - object-oriented-programming
+  - software-engineering
+  - abstraction
+---
+
+# 设计模式
+
+1977 年，建筑学家克里斯托弗·亚历山大（Christopher Alexander）出版了《建筑模式语言》——一本记录了 253 种建筑设计中反复出现的解决方案的书：如何设计楼梯、如何安排窗户、如何创造让人感到舒适的广场。他相信，这些模式是独立于具体设计的"反复出现的结构关系"。
+
+1995 年，四位软件工程师——Erich Gamma、Richard Helm、Ralph Johnson、John Vlissides——把这个想法引入软件设计，出版了《设计模式：可复用面向对象软件的基础》。这本书简称 GoF（Gang of Four，四人帮），定义了 23 种在面向对象设计中反复出现的模式，成为软件工程史上最有影响力的书籍之一。
+
+## 破除误解：模式不是"万能套路"
+
+设计模式常被初学者误解为"把这些模式记住，遇到问题套进去就行"。这是最危险的使用方式。
+
+GoF 书中最重要的一句话是：**"找到变化的部分，把它封装起来"**。模式是解决特定问题的方案，不是应该随处安插的"好设计"标志。
+
+把不需要工厂模式的地方硬加一个 `AbstractFactory`，把简单的函数包裹进 `Strategy` 对象——这是"过度工程化"（over-engineering）的典型症状，让代码更难理解，不是更好。
+
+## 三类模式
+
+GoF 把 23 种模式分为三类：
+
+### 创建型（Creational）：如何创建对象
+
+**工厂方法（Factory Method）**：定义创建对象的接口，由子类决定实例化哪个类。例：日志框架根据配置创建不同的日志输出（文件/控制台/网络）。
+
+**抽象工厂（Abstract Factory）**：创建相关对象的家族，而不指定具体类。例：跨平台 UI 库，根据操作系统返回 Windows 风格或 macOS 风格的控件。
+
+**单例（Singleton）**：确保一个类只有一个实例。例：数据库连接池、全局配置对象。
+
+**建造者（Builder）**：分步骤构建复杂对象。例：`StringBuilder`、SQL 查询构建器。
+
+**原型（Prototype）**：通过克隆现有对象创建新对象，而不是 `new`。
+
+### 结构型（Structural）：如何组合对象
+
+**适配器（Adapter）**：让接口不兼容的类能够合作。例：把老旧 API 包裹成符合新接口的形式，无需修改原始代码。
+
+**装饰器（Decorator）**：动态地给对象添加职责，比继承更灵活。Java I/O 流是最著名的应用：`new BufferedInputStream(new FileInputStream(path))`——可以无限叠加功能。
+
+**代理（Proxy）**：为另一个对象提供代理，控制对原对象的访问。例：懒加载（访问时才真正创建）、权限检查、缓存。
+
+**外观（Facade）**：为复杂子系统提供一个简化的接口。例：编译器对用户只暴露 `compile(source)` 接口，内部的词法分析、语法分析、代码生成全部隐藏。
+
+**组合（Composite）**：把对象组合成树形结构，让叶节点和容器节点有统一的处理方式。例：文件系统（文件和目录都可以"获取大小"）、GUI 组件树。
+
+**桥接（Bridge）**：把抽象和实现分离，使两者可以独立变化。
+
+**享元（Flyweight）**：共享大量细粒度对象，节省内存。例：游戏中渲染大量树木，每种树只创建一个对象，位置等数据在外部存储。
+
+### 行为型（Behavioral）：对象如何通信
+
+**观察者（Observer）**：定义对象间一对多的依赖，当一个对象状态改变，所有依赖者自动通知。例：事件系统、MVC 中 Model 变化时通知 View。这是现代响应式编程（RxJS、React 状态管理）的核心思想。
+
+**策略（Strategy）**：定义一组算法，封装每个算法，使它们可以互换。例：排序算法可以在运行时切换（快排/归并/插入），调用者代码不变。
+
+**命令（Command）**：把请求封装成对象，支持撤销、队列、日志。例：编辑器的撤销/重做功能，每个操作是一个命令对象。
+
+**迭代器（Iterator）**：提供顺序访问集合元素的方式，而不暴露内部表示。几乎所有语言的 `for-each` 循环都是这个模式。
+
+**模板方法（Template Method）**：在父类中定义算法骨架，把具体步骤推迟到子类实现。例：JUnit 的测试框架定义了 `setUp → test → tearDown` 的骨架。
+
+**状态（State）**：对象在内部状态改变时改变行为，好像改变了类。例：订单系统中的"待付款/已付款/已发货/已完成"状态机。
+
+**职责链（Chain of Responsibility）**：把请求的发送者和接收者解耦，由多个对象依次处理。例：HTTP 中间件管道、异常处理链。
+
+**访问者（Visitor）**：在不修改元素类的情况下，定义作用于元素的新操作。适合稳定的元素类型但频繁添加操作的场景（如编译器的 AST 遍历）。
+
+**中介者（Mediator）**：用一个中介对象封装对象间的交互，降低耦合。例：飞机场控制塔（飞机之间不直接通信，通过控制塔协调）。
+
+**备忘录（Memento）**：在不破坏封装的前提下，捕获和恢复对象的内部状态。
+
+**解释器（Interpreter）**：为语言定义文法，并实现解释该文法的解释器。
+
+## 反模式（Anti-Patterns）
+
+与设计模式相对的是反模式——在软件开发中反复出现的糟糕解决方案：
+
+- **大泥球（Big Ball of Mud）**：没有清晰架构，随意添加功能，最终成为无法维护的巨大混乱
+- **过度工程化（Over-Engineering）**：为未来可能不存在的需求过度抽象
+- **神类（God Class）**：一个类知道太多、做太多，违反单一职责
+- **意大利面条代码（Spaghetti Code）**：控制流混乱，难以追踪执行路径
+
+## 代价与争议
+
+**模式是语言缺陷的补丁？** Peter Norvig 在 1996 年的演讲中指出，GoF 的 23 个模式中，有 16 个在 Lisp 或 Dylan 这类有一等函数（first-class functions）的语言中，根本不需要——直接用 lambda 函数即可。这个观点引发了持续争论：设计模式是通用的，还是只针对 Java/C++ 这类特定语言的？
+
+**模式的滥用与误用**：GoF 书出版后，大量 Java 代码库充斥着不必要的 `AbstractSingletonProxyFactoryBean` 风格的类名，成为过度设计的代名词。Rails 框架的作者 DHH 明确批评"依赖注入容器"等模式为过度工程化。
+
+**模式过时了吗？** 在函数式编程、响应式编程兴起的背景下，许多 GoF 模式（如命令、策略、观察者）都有更简洁的函数式表达。争论的焦点是：学 GoF 模式是否还值得？共识是：理解模式背后的**问题意识**仍然有价值，即使实现方式已经改变。
+
+## 跨域连接
+
+- **建筑学**：设计模式直接从建筑学借用了"模式语言"的概念，Christopher Alexander 是间接创始人。
+- **[[object-oriented-programming]]**：GoF 模式是针对面向对象语言的最佳实践，见面向对象编程条目。
+- **[[software-engineering]]**：设计模式是软件工程的重要工具箱，见软件工程条目。
+- **[[abstraction]]**：设计模式的核心是找到变化点并抽象它，是抽象思想在工程中的应用。
+- **数学**：GoF 中的部分模式（如组合、访问者）与范畴论中的结构有形式对应关系。
+
+---
+
+## 延伸阅读
+
+- Gamma, E., Helm, R., Johnson, R., Vlissides, J. *Design Patterns: Elements of Reusable Object-Oriented Software.* Addison-Wesley, 1994.
+- Alexander, C., Ishikawa, S., Silverstein, M. *A Pattern Language.* Oxford University Press, 1977.
+- Freeman, E. & Robson, E. *Head First Design Patterns.* O'Reilly, 2004. （最易读的入门书）
+- Norvig, P. *Design Patterns in Dynamic Languages.* 1996. （http://norvig.com/design-patterns/）
+- Fowler, M. *Patterns of Enterprise Application Architecture.* Addison-Wesley, 2002.
+- Martin, R. C. *Agile Software Development, Principles, Patterns, and Practices.* Prentice Hall, 2002. （SOLID 原则的系统阐述）
+- Buschmann, F. et al. *Pattern-Oriented Software Architecture, Volume 1.* Wiley, 1996. （POSA，与 GoF 并列的架构模式参考）
+- Evans, E. *Domain-Driven Design: Tackling Complexity in the Heart of Software.* Addison-Wesley, 2003. （DDD，以领域为中心的更成熟建模方法）

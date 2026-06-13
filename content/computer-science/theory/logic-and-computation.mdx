@@ -1,0 +1,162 @@
+---
+title: 逻辑与计算
+title_en: Logic and Computation
+status: published
+updated: 2026-06-13
+category: 计算理论
+order: 12
+field: 数理逻辑 · 类型理论 · 程序验证
+era: 当代
+key_figures:
+  - 哈斯凯尔·加里
+  - 威廉·霍华德
+  - 阿隆佐·邱奇
+  - 戴克斯特拉
+tags:
+  - Curry-Howard对应
+  - 程序验证
+  - 类型论
+  - 逻辑
+related:
+  - lambda-calculus-type-theory
+  - computability
+  - computational-complexity
+---
+
+# 逻辑与计算
+
+1958 年，数学家哈斯凯尔·加里（Haskell Curry）注意到一件奇怪的事：某些组合子逻辑（combinatory logic）的类型，与命题逻辑中的公式在形式上一模一样。
+
+1969 年，数学家威廉·霍华德（William Howard）将这个观察系统化为一个深刻的对应：**类型与命题是同一件事，程序与证明是同一件事**。
+
+这个被称为 **Curry-Howard 对应**（Curry-Howard Correspondence，又称"命题即类型"或"证明即程序"）的发现，揭示了两个看似毫无关联的领域——形式逻辑与编程语言——之间的深层同构。它不仅是一个哲学洞见，更是今天**定理证明器**（Coq、Agda、Lean）和**形式化软件验证**的数学基础。
+
+## 破除误解：不是所有逻辑都是"真/假判断"
+
+在日常使用中，"逻辑"意味着对错判断和推理规则。在计算机科学的语境里，"逻辑"有更丰富的含义：
+
+**经典逻辑**（Classical Logic）：每个命题要么真要么假（排中律成立），对应传统数学证明，但不直接给出计算内容。
+
+**直觉主义逻辑**（Intuitionistic Logic）：证明一个命题意味着给出一个**构造**——一个具体的见证（witness）。排中律（$P \vee \neg P$）在直觉主义逻辑中不是公理，因为存在一些命题无法给出构造性证明（只能用反证）。
+
+Curry-Howard 对应成立的，正是**直觉主义逻辑**与**类型化 lambda 演算**之间的对应，而非经典逻辑。这不是偶然：直觉主义的"证明即构造"恰好与"程序计算出一个值"在计算内容上对应。
+
+## 现场：从类型论到程序正确性
+
+**邱奇（Alonzo Church）** 在 1940 年代发展了**简单类型 lambda 演算**（Simply Typed Lambda Calculus，STLC），起初是为了修复 lambda 演算中的逻辑悖论（无类型 lambda 演算允许自我引用，会导致罗素悖论式的矛盾）。类型规则保证了良类型的程序不会产生悖论。
+
+**加里（Haskell Curry）** 注意到，STLC 中的类型判断（"$e$ 有类型 $T$"）与直觉主义命题逻辑中的公式之间存在结构上的相似。
+
+**霍华德（William Howard）** 在 1969 年的未发表的手稿中（1980 年才发表）将这个对应完整系统化：
+
+| 逻辑（Logic） | 计算（Computation） |
+|------|------|
+| 命题（Proposition） | 类型（Type） |
+| 证明（Proof） | 程序（Program） |
+| 推理规则（Inference Rule） | 类型规则（Typing Rule） |
+| 蕴含（$A \Rightarrow B$） | 函数类型（$A \to B$） |
+| 合取（$A \wedge B$） | 积类型（$A \times B$，二元组） |
+| 析取（$A \vee B$） | 和类型（$A + B$，Either 类型） |
+| 假（$\bot$） | 空类型（Empty Type，没有值） |
+| 归结/消除（Elimination） | 函数应用（Application） |
+| 引入（Introduction） | Lambda 抽象（Lambda Abstraction） |
+| 证明的规范化（Normalization） | 程序求值（Evaluation） |
+
+## 核心一：命题即类型
+
+**蕴含与函数类型**：逻辑命题"若 $A$ 成立，则 $B$ 成立"（$A \Rightarrow B$）对应类型"从 $A$ 到 $B$ 的函数"（$A \to B$）。一个类型为 $A \to B$ 的程序（函数），就是命题 $A \Rightarrow B$ 的一个证明：给你一个 $A$ 的证明（函数的参数），它产出一个 $B$ 的证明（函数的返回值）。
+
+**合取与积类型**：逻辑"$A$ 且 $B$"（$A \wedge B$）对应编程里的"$A$ 和 $B$ 的有序对"（pair/product 类型）。证明 $A \wedge B$ 就是给出 $A$ 的一个证明和 $B$ 的一个证明，正如一个 $(A \times B)$ 类型的值是 $A$ 类型值和 $B$ 类型值的组合。
+
+**析取与和类型**：逻辑"$A$ 或 $B$"（$A \vee B$）对应"要么是 $A$ 要么是 $B$"的标签联合类型（tagged union/sum type）。在 Haskell 中就是 `Either A B`，在 Rust 中就是 `enum`。
+
+**归谬/否定**：命题的否定 $\neg A = A \Rightarrow \bot$（若 $A$ 真则可以推出假），对应函数类型 $A \to \bot$（一个从 $A$ 到空类型的函数，但空类型没有值，这个函数永远不会被正确调用）。
+
+## 核心二：证明即程序，程序的执行即证明的规范化
+
+这个对应的第二个维度更令人惊奇：**程序的执行对应证明的规范化（simplification）**。
+
+在逻辑中，证明可以被"化简"：引入-消除规则的对消（如"引入一个 $A \wedge B$，然后立即取其第一分量 $A$"，可以化简为"直接给出 $A$ 的证明"，消掉多余步骤）。
+
+在计算中，这对应 **$\beta$-归约**（beta-reduction）：函数应用的化简（把参数代入函数体）。
+
+这意味着：**执行一个良类型的程序，在逻辑上等价于简化一个证明**。程序终止对应证明被化简到正规形式（normal form）。这建立了计算终止性（全函数 vs 偏函数）与证明一致性（无矛盾）之间的对应。
+
+## 依赖类型：把定理陈述进类型里
+
+简单类型 lambda 演算的类型是静态的：`Int -> Int`，`Bool`，`List Int`。
+
+**依赖类型**（Dependent Types）允许类型依赖于**值**：例如，"长度为 $n$ 的整数向量"的类型 `Vec Int n`，其中 $n$ 是一个运行时的整数值；或者"$n < m$ 的证明"作为函数参数的类型。
+
+在依赖类型系统中，你可以把数学定理的陈述**直接编码成类型**：
+
+```
+-- 排序算法的正确性（伪 Agda 语法）
+sort : (xs : List Nat) -> Sorted (sort xs) × Permutation xs (sort xs)
+```
+
+这个类型说的是：`sort` 函数接受一个自然数列表 `xs`，返回一个有序列表，且该有序列表是 `xs` 的一个排列。**实现这个函数，就等于构造了"这个排序算法是正确的"这个定理的证明。**
+
+依赖类型系统中，类型本身就是规格说明（specification），通过类型检查的程序就是满足规格的验证过的实现。
+
+## 定理证明器：形式化数学与软件验证
+
+Curry-Howard 对应的最重要应用，是**交互式定理证明器**（Interactive Theorem Provers）：
+
+**Coq**（1984 年起发展，法国 INRIA）：基于"归纳构造演算"（Calculus of Inductive Constructions）的依赖类型系统。已被用于：
+- 形式化验证了四色定理的计算机证明（Gonthier，2005）
+- 验证 C 编译器 CompCert 的正确性（程序语义保持）
+- 验证 seL4 微内核操作系统的功能正确性
+
+**Agda**（瑞典查尔默斯理工大学）：函数式编程语言与定理证明器的结合，编写 Agda 程序即是写证明。
+
+**Lean**（微软研究院）：设计用于数学定理形式化，近年来发展迅速，吸引了大量数学家（如菲尔兹奖得主陶哲轩参与了 Lean 形式化项目）。
+
+**Isabelle/HOL**（英国剑桥大学）：基于高阶逻辑（HOL），大量用于软件和硬件的形式化验证，包括 ARM 处理器指令集的语义验证。
+
+## 程序逻辑：戴克斯特拉与霍尔三元组
+
+与 Curry-Howard 对应平行发展的，是**程序逻辑**（Program Logic）传统：
+
+**霍尔逻辑**（Hoare Logic，1969）：由托尼·霍尔（Tony Hoare，图灵奖 1980 年得主）提出，用**霍尔三元组** $\{P\} \;C\; \{Q\}$ 描述程序正确性：若前置条件 $P$ 满足，执行程序 $C$ 后，后置条件 $Q$ 必然满足。
+
+```
+{x >= 0}     // 前置条件
+y := x * 2;  // 程序
+{y >= 0 and y = 2*x}  // 后置条件
+```
+
+霍尔逻辑的公理系统给出了每种程序构造（赋值、顺序、条件、循环）的推理规则，使得程序正确性的验证可以被系统化地进行。
+
+**戴克斯特拉**（Edsger Dijkstra）进一步发展了**最弱前置条件**（weakest precondition）计算：给定后置条件 $Q$ 和程序 $C$，自动计算最弱的前置条件 $wp(C, Q)$——满足它的任何状态执行 $C$ 后都满足 $Q$。这是程序验证自动化的基础。
+
+## 分离逻辑：并发程序的验证
+
+指针、动态内存、并发——这些使得经典霍尔逻辑难以应用的特性，由**分离逻辑**（Separation Logic，2000 年代，约翰·雷诺兹 John Reynolds 和彼得·奥赫恩 Peter O'Hearn）系统解决。
+
+分离逻辑引入了**分离合取**（$P * Q$）：$P$ 和 $Q$ 分别成立，且它们描述的**内存区域不重叠**。这使得可以局部推理（程序的一部分只影响其特定内存区域，不影响其他），大大简化了含指针程序的正确性证明。
+
+分离逻辑被用于验证 Linux 内核驱动代码（Infer 静态分析工具，Facebook 开发，已被 Meta、Amazon 等大公司采用）以及各种并发数据结构的正确性。
+
+## 代价与限制
+
+**表达能力与可判定性的张力**：类型系统越强（如依赖类型），越能表达复杂的规格说明，但类型检查可能变得不可判定或计算成本极高。简单类型系统（如 Java、Python 的类型注解）可判定且高效，但表达能力有限，无法在类型层面排除全部逻辑错误。
+
+**可计算性的限制**：自动程序验证面临根本的不可判定性障碍。完全自动地验证任意程序满足任意规格，与停机问题一样不可判定。交互式定理证明器需要大量人工引导（这也是为什么形式化证明的成本仍然极高）。
+
+**工程采用的缓慢**：形式化验证技术在学术界已有六十年历史，但在主流工业软件开发中仍属边缘。主要障碍是成本（写规格说明和证明可能比写程序本身更费时）和工具链的成熟度。seL4、CompCert 等成功案例集中在安全关键领域。
+
+## 跨域连接
+
+- **Lambda 演算与类型论**：[[lambda-calculus-type-theory]] 是 Curry-Howard 对应的直接数学基础，两者密不可分。
+- **可计算性**：[[computability]] 中的不可判定性（停机问题）直接影响程序验证的自动化极限——完全自动验证是不可能的。
+- **数学基础**：Curry-Howard 对应把数学证明与计算程序统一为同一件事，这连接到数学基础（Martin-Löf 类型论将集合论基础替换为类型论基础）和同伦类型论（HoTT）等前沿数学领域。
+
+---
+
+## 延伸阅读
+
+- Howard, W. A. *The Formulae-as-Types Notion of Construction.* In Seldin & Hindley (eds.), To H.B. Curry: Essays on Combinatory Logic. Academic Press (1980). （Curry-Howard 对应的原始文档，1969 年手稿）
+- Hoare, C. A. R. *An Axiomatic Basis for Computer Programming.* Communications of the ACM 12(10) (1969): 576–580. （霍尔逻辑原始论文）
+- Pierce, B. C. *Types and Programming Languages.* MIT Press (2002). （TAPL，类型系统标准教材，包含 Curry-Howard 的详细阐述）
+- Bertot, Y. & Castéran, P. *Interactive Theorem Proving and Program Development: Coq'Art.* Springer (2004). （Coq 入门参考书）

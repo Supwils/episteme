@@ -10,9 +10,9 @@ function renderKatex(latex: string, displayMode: boolean): string {
 function slugify(text: string): string {
   return text
     .toLowerCase()
-    .replace(/<[^>]*>/g, '')
-    .replace(/[^\w\u4e00-\u9fff]+/g, '-')
-    .replace(/^-|-$/g, '');
+    .replace(/<[^>]*>/g, "")
+    .replace(/[^\w\u4e00-\u9fff]+/g, "-")
+    .replace(/^-|-$/g, "");
 }
 
 interface MathMarkdownRendererProps {
@@ -55,6 +55,31 @@ type Block =
   | { type: "hr" }
   | { type: "code"; lang: string; code: string }
   | { type: "paragraph"; text: string };
+
+/**
+ * Split a markdown table row on `|`, but never inside `$…$`. Math cells like
+ * `$\max|\lambda_i|$` or `$|G|$` carry literal pipes that a naive split would
+ * tear into bogus columns. Empty edge/interior cells are dropped to match the
+ * prior behavior for `| a | b |`-style rows.
+ */
+function splitTableCells(row: string): string[] {
+  const cells: string[] = [];
+  let current = "";
+  let inMath = false;
+  for (const ch of row) {
+    if (ch === "$") {
+      inMath = !inMath;
+      current += ch;
+    } else if (ch === "|" && !inMath) {
+      cells.push(current);
+      current = "";
+    } else {
+      current += ch;
+    }
+  }
+  cells.push(current);
+  return cells.map((c) => c.trim()).filter((c) => c !== "");
+}
 
 function splitBlocks(content: string): Block[] {
   const blocks: Block[] = [];
@@ -126,19 +151,18 @@ function splitBlocks(content: string): Block[] {
       continue;
     }
 
-    if (trimmed.startsWith("| ")) {
+    // Match any leading `|`, not `| ` — tight separator rows (`|---|---|`) lack
+    // the space and would otherwise end the table after its header, spilling
+    // every data row into a paragraph.
+    if (trimmed.startsWith("|")) {
       const tableRows: string[][] = [];
-      while (i < lines.length && lines[i]!.trim().startsWith("| ")) {
+      while (i < lines.length && lines[i]!.trim().startsWith("|")) {
         const row = lines[i]!.trim();
         if (/^\|[\s\-:|]+\|$/.test(row)) {
           i++;
           continue;
         }
-        const cells = row
-          .split("|")
-          .filter((c) => c.trim() !== "")
-          .map((c) => c.trim());
-        tableRows.push(cells);
+        tableRows.push(splitTableCells(row));
         i++;
       }
       if (tableRows.length > 0) {
@@ -169,9 +193,7 @@ function FootnotesSection({
 }) {
   return (
     <footer className="border-border-subtle mt-12 border-t pt-6">
-      <h4 className="text-fg-muted mb-4 font-mono text-[10px] tracking-[0.22em] uppercase">
-        脚注
-      </h4>
+      <h4 className="text-fg-muted mb-4 font-mono text-[10px] tracking-[0.22em] uppercase">脚注</h4>
       <ol className="space-y-2 text-sm">
         {Array.from(footnotes.entries()).map(([id, text]) => (
           <li key={id} id={`fn-${id}`} className="text-fg-secondary leading-relaxed">
@@ -203,10 +225,13 @@ function CodeBlock({
   }, [code]);
 
   return (
-    <div className="group/code relative my-6 overflow-hidden rounded-lg border border-border-faint">
+    <div className="group/code border-border-faint relative my-6 overflow-hidden rounded-lg border">
       {language && (
-        <div className="border-b border-border-faint bg-bg-elevated/50 px-4 py-1.5">
-          <span className="font-mono text-[10px] tracking-[0.15em] uppercase" style={{ color: accentColor }}>
+        <div className="border-border-faint bg-bg-elevated/50 border-b px-4 py-1.5">
+          <span
+            className="font-mono text-[10px] tracking-[0.15em] uppercase"
+            style={{ color: accentColor }}
+          >
             {language}
           </span>
         </div>
@@ -217,7 +242,7 @@ function CodeBlock({
       <button
         type="button"
         onClick={handleCopy}
-        className="absolute right-2 top-2 rounded-md border border-border-faint bg-bg-panel/80 px-2.5 py-1 font-mono text-[10px] tracking-wider uppercase opacity-0 backdrop-blur-sm transition-opacity hover:bg-bg-elevated group-hover/code:opacity-100"
+        className="border-border-faint bg-bg-panel/80 hover:bg-bg-elevated absolute top-2 right-2 rounded-md border px-2.5 py-1 font-mono text-[10px] tracking-wider uppercase opacity-0 backdrop-blur-sm transition-opacity group-hover/code:opacity-100"
         style={{ color: copied ? "#6bae8a" : accentColor }}
         aria-label={copied ? "已复制" : "复制代码"}
       >
@@ -227,7 +252,12 @@ function CodeBlock({
   );
 }
 
-function renderBlock(block: Block, key: number, accentColor: string, footnotes: Map<string, string>): React.ReactNode {
+function renderBlock(
+  block: Block,
+  key: number,
+  accentColor: string,
+  footnotes: Map<string, string>
+): React.ReactNode {
   switch (block.type) {
     case "heading": {
       const id = slugify(block.text);
@@ -237,7 +267,7 @@ function renderBlock(block: Block, key: number, accentColor: string, footnotes: 
           <h1
             key={key}
             id={id}
-            className="font-display text-fg-primary mb-4 mt-10 text-[1.6rem] font-semibold leading-tight first:mt-0"
+            className="font-display text-fg-primary mt-10 mb-4 text-[1.6rem] leading-tight font-semibold first:mt-0"
           >
             {text}
           </h1>
@@ -248,7 +278,7 @@ function renderBlock(block: Block, key: number, accentColor: string, footnotes: 
           <h2
             key={key}
             id={id}
-            className="font-display mt-8 mb-3 text-[1.25rem] font-semibold leading-snug scroll-mt-24"
+            className="font-display mt-8 mb-3 scroll-mt-24 text-[1.25rem] leading-snug font-semibold"
             style={{ color: accentColor }}
           >
             {text}
@@ -260,7 +290,7 @@ function renderBlock(block: Block, key: number, accentColor: string, footnotes: 
           <h3
             key={key}
             id={id}
-            className="font-display text-fg-primary mt-6 mb-2 text-lg font-semibold scroll-mt-24"
+            className="font-display text-fg-primary mt-6 mb-2 scroll-mt-24 text-lg font-semibold"
           >
             {text}
           </h3>
@@ -270,7 +300,7 @@ function renderBlock(block: Block, key: number, accentColor: string, footnotes: 
         <h4
           key={key}
           id={id}
-          className="font-display text-fg-primary mt-4 mb-2 text-base font-semibold scroll-mt-24"
+          className="font-display text-fg-primary mt-4 mb-2 scroll-mt-24 text-base font-semibold"
         >
           {text}
         </h4>
@@ -281,13 +311,13 @@ function renderBlock(block: Block, key: number, accentColor: string, footnotes: 
       return (
         <blockquote
           key={key}
-          className="my-6 border-l-3 rounded-r-lg py-4 pl-5 pr-4"
+          className="my-6 rounded-r-lg border-l-3 py-4 pr-4 pl-5"
           style={{
             borderColor: accentColor,
             background: `linear-gradient(135deg, ${accentColor}0a, ${accentColor}04)`,
           }}
         >
-          <p className="font-display text-fg-primary text-lg italic leading-relaxed">
+          <p className="font-display text-fg-primary text-lg leading-relaxed italic">
             {renderInline(block.text, footnotes)}
           </p>
         </blockquote>
@@ -312,16 +342,13 @@ function renderBlock(block: Block, key: number, accentColor: string, footnotes: 
 
     case "table":
       return (
-        <div key={key} className="my-6 overflow-x-auto rounded-lg border border-border-faint">
+        <div key={key} className="border-border-faint my-6 overflow-x-auto rounded-lg border">
           <table className="w-full text-sm">
             <thead>
               {block.rows.length > 0 && (
-                <tr className="border-b border-border-subtle bg-bg-elevated/50">
+                <tr className="border-border-subtle bg-bg-elevated/50 border-b">
                   {block.rows[0]!.map((cell, ci) => (
-                    <th
-                      key={ci}
-                      className="text-fg-primary px-4 py-3 text-left font-semibold"
-                    >
+                    <th key={ci} className="text-fg-primary px-4 py-3 text-left font-semibold">
                       {renderInline(cell, footnotes)}
                     </th>
                   ))}
@@ -332,7 +359,7 @@ function renderBlock(block: Block, key: number, accentColor: string, footnotes: 
               {block.rows.slice(1).map((row, ri) => (
                 <tr
                   key={ri}
-                  className={`border-b border-border-faint ${ri % 2 === 1 ? "bg-bg-elevated/20" : ""}`}
+                  className={`border-border-faint border-b ${ri % 2 === 1 ? "bg-bg-elevated/20" : ""}`}
                 >
                   {row.map((cell, ci) => (
                     <td key={ci} className="text-fg-secondary px-4 py-2.5">
@@ -388,7 +415,7 @@ function renderInline(text: string, footnotes: Map<string, string>): React.React
         segments.push(
           <span key={segIndex++} className="my-2 block">
             {inner}
-          </span>,
+          </span>
         );
       } else {
         segments.push(
@@ -396,7 +423,7 @@ function renderInline(text: string, footnotes: Map<string, string>): React.React
             key={segIndex++}
             className="my-2 block overflow-x-auto"
             dangerouslySetInnerHTML={{ __html: renderKatex(inner, true) }}
-          />,
+          />
         );
       }
       remaining = remaining.slice(latexBlockMatch[0].length);
@@ -412,10 +439,7 @@ function renderInline(text: string, footnotes: Map<string, string>): React.React
         segments.push(<span key={segIndex++}>{inner}</span>);
       } else {
         segments.push(
-          <span
-            key={segIndex++}
-            dangerouslySetInnerHTML={{ __html: renderKatex(inner, false) }}
-          />,
+          <span key={segIndex++} dangerouslySetInnerHTML={{ __html: renderKatex(inner, false) }} />
         );
       }
       remaining = remaining.slice(latexInlineMatch[0].length);
@@ -430,18 +454,20 @@ function renderInline(text: string, footnotes: Map<string, string>): React.React
           className="bg-bg-elevated text-accent-cyan rounded px-1.5 py-0.5 font-mono text-[13px]"
         >
           {codeMatch[0].slice(1, -1)}
-        </code>,
+        </code>
       );
       remaining = remaining.slice(codeMatch[0].length);
       continue;
     }
 
-    const boldMatch = remaining.match(/^\*\*[^*]+?\*\*/);
+    // `[\s\S]+?` (not `[^*]`) so bold can wrap inline math/code: `**$n=4$**`
+    // recurses instead of printing the literal `$n=4$`.
+    const boldMatch = remaining.match(/^\*\*([\s\S]+?)\*\*/);
     if (boldMatch) {
       segments.push(
         <strong key={segIndex++} className="text-fg-primary font-semibold">
-          {boldMatch[0].slice(2, -2)}
-        </strong>,
+          {renderInline(boldMatch[1]!, footnotes)}
+        </strong>
       );
       remaining = remaining.slice(boldMatch[0].length);
       continue;
@@ -452,7 +478,7 @@ function renderInline(text: string, footnotes: Map<string, string>): React.React
       segments.push(
         <em key={segIndex++} className="italic">
           {italicMatch[1]}
-        </em>,
+        </em>
       );
       remaining = remaining.slice(italicMatch[0].length);
       continue;
@@ -463,7 +489,7 @@ function renderInline(text: string, footnotes: Map<string, string>): React.React
       segments.push(
         <a key={segIndex++} href={linkMatch[2]} className="text-accent-indigo underline">
           {linkMatch[1]}
-        </a>,
+        </a>
       );
       remaining = remaining.slice(linkMatch[0].length);
       continue;
@@ -475,12 +501,12 @@ function renderInline(text: string, footnotes: Map<string, string>): React.React
         <a
           key={segIndex++}
           href={`#fn-${footnoteRefMatch[1]}`}
-          className="font-mono text-xs align-super"
+          className="align-super font-mono text-xs"
           style={{ color: "#6366f1" }}
           title={footnotes.get(footnoteRefMatch[1]!)!}
         >
           [{footnoteRefMatch[1]}]
-        </a>,
+        </a>
       );
       remaining = remaining.slice(footnoteRefMatch[0].length);
       continue;

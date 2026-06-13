@@ -1,0 +1,134 @@
+---
+title: Unicode 与文本编码
+title_en: Unicode and Text Encoding
+status: published
+updated: 2026-06-13
+category: 计算机科学基础
+order: 37
+field: 计算机科学 · 系统
+tags:
+  - Unicode
+  - UTF-8
+  - 字符编码
+  - 国际化
+  - 文本处理
+related:
+  - operating-systems
+  - networking-protocols
+  - computer-architecture
+---
+
+# Unicode 与文本编码
+
+2003 年，一位程序员在他的博客里写道："如果你不知道字符编码，你的代码是一个定时炸弹。"这篇文章是 Joel Spolsky 的《每个软件开发者必须了解的字符集和编码知识（真的没有借口）》，发表后被无数程序员转发，因为它精确描述了一代人的痛苦。
+
+乱码——在中文 Windows 环境里打开一个日文文件，或者在网页上看到"锟斤拷"——是文本编码问题的直接后果。这些问题背后是人类语言的多样性与计算机只懂二进制这一根本矛盾。
+
+## 破除误解：文本不是字节
+
+在计算机内部，所有数据都是字节（0-255 的整数）。但字节序列本身没有内在含义——相同的字节序列 `0xC4 0xE9 0xBA` 在 Windows-1252（拉丁文）编码里是 "ÄéD"，在 GB2312（中文）里是"你"，在 UTF-8 里则是无效的序列。
+
+**字符与编码的分离**是理解文本的关键：
+- **字符（Character）**：抽象的意义单位（如"汉字'你'"或"拉丁字母'A'"）
+- **码点（Code Point）**：给每个字符分配的唯一整数（如 Unicode 中 'A' 是 U+0041，'你' 是 U+4F60）
+- **编码（Encoding）**：把码点转换为字节序列的规则
+
+脱离编码谈文本是无意义的——字节序列需要知道编码才能正确解读。
+
+## 历史：从 ASCII 到编码战争
+
+**ASCII（American Standard Code for Information Interchange，1963）**：用 7 位（0-127）表示 128 个字符：英文字母（大小写各 26 个）、数字、标点和控制字符。足够表示英文，但完全不覆盖其他语言。
+
+计算机传到世界其他地方后，各个地区自行扩展了 ASCII 的第 8 位（128-255）来表示本地字符：
+
+- **Latin-1（ISO-8859-1）**：西欧语言
+- **GB2312 / GBK / GB18030**：中文简体
+- **Big5**：中文繁体
+- **Shift_JIS / EUC-JP**：日文
+- **KOI8-R**：俄文
+- **Windows 代码页**：微软的各地区扩展
+
+这些编码互不兼容，在同一个文档中混用就会产生乱码。1990 年代的国际化软件开发是噩梦——同一份代码在不同地区的计算机上可能显示完全不同的结果。
+
+## Unicode：统一的宇宙
+
+1987 年，Xerox 和 Apple 的工程师开始了一个项目：为世界上所有书写系统创建一个统一的字符集。1991 年，Unicode 联盟发布了 Unicode 1.0。
+
+**Unicode 的核心思想**：给世界上所有字符（包括古代文字、表情符号、数学符号）分配一个全球唯一的整数（码点，Code Point），从 U+0000 到 U+10FFFF，共 $2^{21} = 1,114,112$ 个位置。
+
+目前已分配约 14 万个字符，包括：
+- 基本多文种平面（BMP，U+0000-U+FFFF）：日常使用的字符
+- 补充平面（U+10000-U+10FFFF）：罕见汉字、古代文字、表情符号（Emoji）
+
+**重要区分**：Unicode 是字符集（定义码点），不是编码（不规定字节表示）。Unicode 码点可以用多种编码方式序列化为字节：UTF-8、UTF-16、UTF-32。
+
+## UTF-8：精妙的设计
+
+**UTF-8（Unicode Transformation Format，8-bit）** 是目前互联网上最广泛使用的 Unicode 编码，由 Ken Thompson 和 Rob Pike（Unix 和 Go 的创造者）在 1992 年设计。
+
+UTF-8 的关键特性：
+
+**可变长度**：不同范围的码点用不同字节数表示
+
+| 码点范围 | 字节数 | 字节格式（二进制） |
+|---------|-------|----------------|
+| U+0000 - U+007F | 1 字节 | 0xxxxxxx |
+| U+0080 - U+07FF | 2 字节 | 110xxxxx 10xxxxxx |
+| U+0800 - U+FFFF | 3 字节 | 1110xxxx 10xxxxxx 10xxxxxx |
+| U+10000 - U+10FFFF | 4 字节 | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx |
+
+**ASCII 兼容**：U+0000-U+007F 的 128 个 ASCII 字符在 UTF-8 中用完全相同的单字节表示。这意味着所有合法的 ASCII 文本都是合法的 UTF-8 文本，ASCII 程序无需修改即可处理纯英文 UTF-8 内容。
+
+**自同步性（Self-Synchronizing）**：每个字节的最高几位指示了该字节是什么类型（首字节还是续字节），使得从任意字节位置都能可靠地找到字符边界，而不需要从头扫描。
+
+相比之下，UTF-16 把每个码点用 2 字节或 4 字节表示，破坏了 ASCII 兼容性（ASCII 字符被扩展成了 2 字节），且存在字节序（大端/小端）的问题（需要 BOM，Byte Order Mark，来区分）。
+
+## 统计现状
+
+根据 W3Techs 的追踪数据，截至 2024 年，全球网页中约 **98%** 使用 UTF-8 编码。这一比例在 2008 年不到 30%，此后快速增长，UTF-8 几乎统一了互联网的文本编码。
+
+## 字符串长度的陷阱
+
+Unicode 的一个微妙问题：**"字符串长度"有三种意思**：
+
+1. **字节数**：`"你好".encode('utf-8')` 在 Python 中返回 6 字节（每个汉字 3 字节）
+2. **码点数**：`"你好"` 是 2 个码点
+3. **字形符（Grapheme Cluster）数**：用户感知的"字符"数
+
+问题在于，某些字形符由多个码点组成：
+- "é"可以是单个码点 U+00E9，也可以是 "e"（U+0065）+ 组合重音符（U+0301）——两种表示在视觉上相同，但码点数不同
+- 表情符号 "👨‍👩‍👧‍👦"（家庭）在 Unicode 中是 7 个码点的序列（用零宽连接符 ZWJ 连接）
+- 某些语言的字符需要在相邻上下文中才能确定字形
+
+这导致了大量"字符串长度"相关的 bug，尤其在处理 Emoji、阿拉伯文（从右向左书写）、泰文（不用空格分词）时。
+
+## 编码检测的困难
+
+当你收到一个字节序列，没有任何元数据告诉你编码是什么时，如何判断？
+
+**BOM（Byte Order Mark）**：UTF-16 和 UTF-32 在文件开头可以加 BOM（UTF-8 的 BOM 是 0xEF BB BF）来标识编码和字节序。但许多工具不添加 BOM，BOM 也可能干扰某些解析器。
+
+**启发式检测**：chardet、icu 等库通过统计字节模式猜测编码（如连续出现的高字节值，在 UTF-8 中有固定的后跟模式）。这不能保证 100% 准确，只是概率最高的猜测。
+
+**最佳实践**：在任何文本在系统边界传递时，始终明确声明编码（HTTP `Content-Type: text/html; charset=utf-8`；HTML `<meta charset="utf-8">`；数据库连接字符集设置），不让接收方猜测。
+
+## 代价与争议
+
+**UTF-16 的历史负担**：Java、JavaScript、Windows API、.NET 在 Unicode 早期就采用了 UTF-16，当时认为 BMP 的 65536 个位置足够所有字符。后来 Unicode 扩展到了 BMP 以外，导致这些语言的字符串实际上是 UTF-16 代理对（Surrogate Pair），长度计算和字符串操作充满陷阱。Python 3 选择了更整洁的内部表示，但兼容历史遗留 UTF-16 代码仍是问题。
+
+**Emoji 的复杂性**：表情符号序列的快速扩张（每年 Unicode 新增数十到数百个表情）使得字形符处理越来越复杂。不同平台（Apple、Google、微软）对同一个 Emoji 码点的渲染不同，导致同一条消息在不同设备上给人完全不同的感受。
+
+## 跨域连接
+
+- **[[networking-protocols]]**：HTTP、SMTP 等协议中，字符编码的声明和正确处理是国际化的基础。
+- **[[operating-systems]]**：操作系统的文件名、路径在不同系统中有不同的编码约定（macOS 用 NFC 规范化的 UTF-8，Linux 不规范化，Windows 用 UTF-16）。
+- **语言学**：Unicode 的设计者必须与语言学家合作，决定哪些是"不同字符"（中文简体和繁体的同一个字，在 Unicode 中是同一个码点还是不同码点？）——这些决定有时引发争议（CJK 统一汉字的"统合"争议）。
+
+---
+
+## 延伸阅读
+
+- Spolsky, J. *The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!).* Joel on Software, 2003. （https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/）
+- Thompson, K. & Pike, R. *Hello World or Καλημέρα κόσμε or こんにちは 世界.* Plan 9 Laboratory, 1993. （UTF-8 的原始设计文档）
+- Unicode Consortium. *The Unicode Standard.* unicode.org. （持续更新的在线标准）
+- Bray, T. *On the Goodness of Unicode.* tbray.org, 2003.

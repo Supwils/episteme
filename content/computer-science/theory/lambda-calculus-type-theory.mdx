@@ -1,0 +1,141 @@
+---
+title: λ演算与类型理论
+title_en: Lambda Calculus and Type Theory
+status: published
+updated: 2026-06-13
+category: 计算理论
+order: 6
+field: 计算理论 · 数理逻辑 · 编程语言理论
+era: 当代
+key_figures:
+  - 阿隆佐·邱奇
+  - 哈斯凯尔·柯里
+  - 威廉·霍华德
+  - 佩尔·马丁-洛夫
+tags:
+  - lambda演算
+  - 类型系统
+  - Curry-Howard对应
+  - 依赖类型
+  - 函数式编程
+related:
+  - computability
+  - automata-formal-languages
+  - alan-turing
+---
+
+# λ演算与类型理论
+
+数学中的函数，在教科书里通常被写成 $f(x) = x^2 + 1$ 的形式——$f$ 有个名字，$x$ 是变量，结果是某个表达式。1936 年，阿隆佐·邱奇（Alonzo Church）提出了一种不需要函数名字的写法：把函数本身当作一个对象，写成 $\lambda x.\, x^2 + 1$。这个 $\lambda$（lambda），后来成为函数式编程、类型论和形式逻辑深层统一的符号。
+
+λ 演算和类型理论，是现代编程语言理论的双重基础：前者定义了"计算是什么"，后者定义了"什么样的程序是安全的"。它们之间那条被称为 Curry-Howard 对应的深刻联系，揭示了程序和数学证明之间令人惊讶的同构关系。
+
+## 破除误解：λ 演算不只是函数式语言的"语法糖"
+
+Haskell、OCaml、Lisp、甚至 Python 的 lambda 表达式，让人以为 λ 演算只是函数式编程语言的语法特性。这是对它地位的大幅低估。
+
+λ 演算是一套与图灵机等价的**计算模型**——任何图灵机能计算的，λ 演算都能计算，反之亦然（这是邱奇-图灵论题的一个分支）。它不依赖于内存、状态、指令序列，只用函数定义和函数应用就能表达一切计算。这使它成为研究计算本质最干净的数学框架之一。
+
+## 核心一：无类型 λ 演算
+
+无类型 λ 演算（Untyped Lambda Calculus）的语法极为简洁，只有三种构造：
+
+- **变量**：$x$、$y$、$z$（代表某个值）
+- **抽象（函数定义）**：$\lambda x.\, M$（参数为 $x$，函数体为 $M$）
+- **应用（函数调用）**：$M\, N$（把函数 $M$ 应用于参数 $N$）
+
+计算通过**β 规约**（beta reduction）进行：
+
+$$(\lambda x.\, M)\, N \;\to_\beta\; M[x := N]$$
+
+把 $M$ 中所有自由出现的 $x$ 替换为 $N$。
+
+这三条规则，足以表达加法、乘法、布尔逻辑、条件分支、递归（通过不动点组合子 $Y$），乃至整个自然数系统（通过邱奇数编码）。
+
+**Y 组合子**（Y combinator）是表达递归的关键：
+
+$$Y = \lambda f.\, (\lambda x.\, f\, (x\, x))\, (\lambda x.\, f\, (x\, x))$$
+
+$Y\, f = f\, (Y\, f)$——$Y$ 让函数 $f$ 能"调用自身"，而 $f$ 本身无需知道自己的名字。Y Combinator（孵化器）的名字正来源于此，寓意"让自我复制成为可能"。
+
+## 核心二：类型系统——给程序加上安全网
+
+无类型 λ 演算强大但危险：任何表达式都可以被应用于任何其他表达式，这意味着"一个数字加上一个布尔值"在语法上是合法的，但在语义上没有意义，甚至可能发散（无限循环）。
+
+**类型系统**给每个表达式分配一个"类型"，并通过**类型检查**在程序运行前排除一大类错误。
+
+**简单类型 λ 演算**（Simply Typed Lambda Calculus，STLC，Church 1940 年提出）是最基础的有类型版本：
+
+- 基础类型：$\text{Int}$、$\text{Bool}$ 等
+- 函数类型：$A \to B$（接受 $A$ 类型参数，返回 $B$ 类型结果）
+- 类型规则：$\lambda x{:}A.\, M$ 的类型为 $A \to B$，当且仅当 $M$ 在 $x : A$ 的假设下具有类型 $B$
+
+STLC 的代价是失去了图灵完备性——可以检查的程序范围变窄，但换来的是：**所有类型正确的程序都能终止**（强归一化定理）。
+
+更丰富的类型系统在安全性和表达力之间寻找不同平衡：
+
+| 系统 | 代表语言 | 特点 |
+|------|---------|------|
+| Hindley-Milner 类型推断 | Haskell, OCaml, ML | 多态类型，自动推断，不需要显式标注 |
+| 依赖类型（Dependent Types） | Coq, Agda, Lean | 类型可以依赖于值，可表达任意数学命题 |
+| 线性类型（Linear Types） | Rust（近似） | 每个值只能用一次，用于资源管理 |
+
+## 核心三：Curry-Howard 对应——程序即证明
+
+1958 年，哈斯凯尔·柯里（Haskell Curry）注意到：简单类型 λ 演算中的**类型**，与直觉主义命题逻辑中的**命题**，有一种令人惊讶的对应。1969 年，威廉·霍华德（William Howard）进一步系统化了这个对应（他的手稿 1980 年才正式发表）。
+
+**Curry-Howard 对应**（也称"命题即类型"，Propositions as Types）：
+
+| 类型论 | 逻辑 |
+|-------|------|
+| 类型 $A$ | 命题 $A$ |
+| 类型 $A$ 的项（term）$t$ | 命题 $A$ 的一个证明 |
+| 函数类型 $A \to B$ | 蕴含 $A \Rightarrow B$ |
+| 乘积类型 $A \times B$ | 合取 $A \wedge B$ |
+| 和类型 $A + B$ | 析取 $A \vee B$ |
+| 空类型 $\bot$ | 假命题（矛盾） |
+| 函数应用 | 肯定前件（Modus Ponens）推理规则 |
+| β 规约 | 证明化简 |
+
+这个对应不是类比，而是严格的数学同构：**写一个类型为 $A$ 的程序，等价于构造命题 $A$ 的一个证明**。程序和证明是同一件事的两种说法。
+
+Curry-Howard 对应的实践结果是**证明辅助系统**（Proof Assistants）：Coq、Agda、Lean 等工具，把数学证明作为程序来编写，由计算机验证其正确性。四色定理（2005 年的 Coq 机器验证版本）、Feit-Thompson 定理（2012 年的 Coq 验证）等重要数学结果，都已通过这种方式得到形式验证。
+
+## 核心四：依赖类型与定理证明
+
+**依赖类型**（Dependent Types）允许类型依赖于值——例如，"长度为 $n$ 的向量"可以是一个以自然数 $n$ 为参数的类型：$\text{Vec}\, A\, n$。
+
+这使类型系统能表达任意精确的程序性质：
+
+- "这个排序函数返回与输入等长的数组，且元素是输入的置换"
+- "这个除法函数只接受除数不为零的参数"
+
+依赖类型的 Curry-Howard 对应更丰富：全称量词 $\forall x{:}A.\, B(x)$ 对应依赖函数类型 $\Pi x{:}A.\, B(x)$，存在量词 $\exists x{:}A.\, B(x)$ 对应依赖对类型 $\Sigma x{:}A.\, B(x)$。
+
+佩尔·马丁-洛夫（Per Martin-Löf）的直觉主义类型论（Intuitionistic Type Theory，1975–1984）是依赖类型理论的奠基工作，也是 Coq、Agda 的直接理论前驱。
+
+## 代价与争议
+
+**可用性鸿沟**：高阶类型系统（特别是依赖类型）在实用工程项目中的采用非常有限，主要原因是学习曲线陡峭、类型错误难以阅读、编程负担重。Rust 的成功部分来自于引入了线性类型（所有权系统）而没有依赖类型——在安全性和可用性之间找到了更好的平衡点。
+
+**证明辅助的局限**：形式验证并不能消灭所有 bug。规范（specification）本身可能是错的；形式化工作量往往是非形式化的数倍。主流软件工程实践中，形式验证主要用于关键安全领域（密码学协议、操作系统微内核）。
+
+**经典逻辑 vs. 直觉主义**：Curry-Howard 对应对应的是**直觉主义逻辑**（不承认排中律的一般有效性），而非经典逻辑。排中律 $A \vee \neg A$ 对应的程序是`call/cc`（call-with-current-continuation），引入了复杂的控制流。经典逻辑的完整类型论语义至今仍是活跃研究课题。
+
+## 跨域连接
+
+- **可计算性**：无类型 λ 演算与图灵机计算能力等价，是邱奇-图灵论题的一翼，见 [[computability]]。
+- **数学基础**：依赖类型理论（特别是同伦类型论，HoTT）提供了比 ZFC 集合论更具计算内容的数学基础，是 21 世纪数学基础研究的前沿。
+- **编程语言设计**：类型系统的研究直接推动了 ML、Haskell、Scala、Rust、TypeScript 等语言的核心特性设计。
+- **人工智能**：神经定理证明（neural theorem proving）尝试用深度学习辅助形式证明，是当前 AI 与数学交叉的活跃前沿。
+
+---
+
+## 延伸阅读
+
+- Church, A. *A Formulation of the Simple Theory of Types.* Journal of Symbolic Logic 5 (1940): 56–68.
+- Howard, W. A. *The Formulae-as-Types Notion of Construction.* 手稿 1969 年；发表于 Seldin & Hindley (eds.), *To H. B. Curry: Essays on Combinatory Logic, Lambda Calculus, and Formalism*. Academic Press (1980).
+- Martin-Löf, P. *An Intuitionistic Theory of Types.* In Sambin & Smith (eds.), *Twenty-Five Years of Constructive Type Theory*. Oxford University Press (1998).
+- Pierce, B. C. *Types and Programming Languages.* MIT Press (2002). （最广泛使用的教材）
+- Wadler, P. *Propositions as Types.* Communications of the ACM 58 (2015): 75–84. （优秀的综述，免费在线）
+- The Univalent Foundations Program. *Homotopy Type Theory: Univalent Foundations of Mathematics.* Institute for Advanced Study (2013). （HoTT 书，免费在线版）

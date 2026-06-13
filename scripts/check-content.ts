@@ -2,10 +2,12 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
-import {
-  ALL_SCHEMAS,
-  type ContentType,
-} from "../lib/content-schemas.ts";
+import { ALL_SCHEMAS, FrontierSchema, type ContentType } from "../lib/content-schemas.ts";
+import { FRONTIER_DOMAINS } from "../lib/frontier.ts";
+import { createKnowledgeBase } from "../lib/generic-kb.ts";
+import { createDialogues } from "../lib/generic-dialogues.ts";
+import { COSMOLOGY_KB_DATA } from "../content/cosmology/knowledge-base-data.ts";
+import { COSMOLOGY_DIALOGUES_DATA } from "../content/cosmology/dialogues-data.ts";
 
 interface Issue {
   type: "error" | "warning";
@@ -189,6 +191,131 @@ function checkFile(filePath: string, allSlugs: Map<ContentType, Set<string>>): C
   return { file: filePath, issues };
 }
 
+/**
+ * Verify every routable KB/dialogue article still resolves after the round-trip
+ * Next does on its slug param (CJK slugs arrive percent-encoded). A miss here is
+ * a silent 404 — exactly the class of bug that hid ~99 CJK-named KB articles.
+ * Also flags search-index data slugs that point at content which no longer
+ * exists (live "search result → 404" links).
+ */
+function checkLinkIntegrity(): { errors: number; warnings: number } {
+  let errors = 0;
+  let warnings = 0;
+  console.log(`\n${"=".repeat(60)}`);
+  console.log(`Link Integrity`);
+  console.log(`${"=".repeat(60)}`);
+
+  // Phase 1 — every real KB/dialogue file must resolve through its loader after
+  // the encode that the URL applies to the slug.
+  for (const domain of ["cosmology", "life-science", "universe-physics"]) {
+    const kb = createKnowledgeBase(domain);
+    for (const slug of kb.getSlugs()) {
+      const article = kb.getArticleBySlug(encodeURIComponent(slug));
+      if (!article || !article.content.trim()) {
+        console.log(
+          `  \x1b[31mERROR\x1b[0m ${domain}/knowledge-base/${slug} does not resolve (404)`
+        );
+        errors++;
+      }
+    }
+  }
+  for (const domain of ["cosmology", "universe-physics"]) {
+    const dlg = createDialogues(domain);
+    for (const slug of dlg.getSlugs()) {
+      if (!dlg.getBySlug(slug)) {
+        console.log(`  \x1b[31mERROR\x1b[0m ${domain}/dialogues/${slug} does not resolve (404)`);
+        errors++;
+      }
+    }
+  }
+
+  // Phase 2 — search-index data modules build URLs from their own slug lists;
+  // any slug with no underlying article is a dead search result.
+  const cosKb = createKnowledgeBase("cosmology");
+  for (const { slug } of COSMOLOGY_KB_DATA) {
+    if (!cosKb.getArticleBySlug(slug)) {
+      console.log(
+        `  \x1b[33mWARN\x1b[0m search-index cosmology KB slug "${slug}" has no article (dead link)`
+      );
+      warnings++;
+    }
+  }
+  const cosDlg = createDialogues("cosmology");
+  for (const { slug } of COSMOLOGY_DIALOGUES_DATA) {
+    if (!cosDlg.getBySlug(slug)) {
+      console.log(
+        `  \x1b[33mWARN\x1b[0m search-index cosmology dialogue slug "${slug}" has no article (dead link)`
+      );
+      warnings++;
+    }
+  }
+
+  if (errors === 0 && warnings === 0) {
+    console.log(`  \x1b[32mAll routable content resolves.\x1b[0m`);
+  }
+  return { errors, warnings };
+}
+
+const MIN_FRONTIER_LINES = 60;
+
+/**
+ * Frontier articles span every domain and are not covered by the per-domain
+ * .mdx pass above (they are .md under content/<domain>/frontier/). Validate
+ * their frontmatter against FrontierSchema plus the same depth/citation bar.
+ */
+function checkFrontier(): { errors: number; warnings: number } {
+  let errors = 0;
+  let warnings = 0;
+  console.log(`\n${"=".repeat(60)}`);
+  console.log(`Frontier Articles`);
+  console.log(`${"=".repeat(60)}`);
+
+  let total = 0;
+  for (const domain of FRONTIER_DOMAINS) {
+    const dir = path.join(CONTENT_ROOT, domain, "frontier");
+    if (!fs.existsSync(dir)) continue;
+    for (const entry of fs.readdirSync(dir)) {
+      if (!entry.endsWith(".md")) continue;
+      total++;
+      const rel = `${domain}/frontier/${entry}`;
+      const raw = fs.readFileSync(path.join(dir, entry), "utf-8");
+      let parsed: matter.GrayMatterFile<string>;
+      try {
+        parsed = matter(raw);
+      } catch {
+        console.log(`  \x1b[31mERROR\x1b[0m ${rel}: failed to parse frontmatter`);
+        errors++;
+        continue;
+      }
+      const result = FrontierSchema.safeParse(parsed.data);
+      if (!result.success) {
+        for (const issue of result.error.issues) {
+          console.log(
+            `  \x1b[31mERROR\x1b[0m ${rel}: ${issue.path.join(".") || "(root)"} — ${issue.message}`
+          );
+          errors++;
+        }
+      }
+      const lines = countNonEmptyLines(parsed.content);
+      if (lines < MIN_FRONTIER_LINES) {
+        console.log(
+          `  \x1b[33mWARN\x1b[0m ${rel}: too short (${lines} lines, min ${MIN_FRONTIER_LINES})`
+        );
+        warnings++;
+      }
+      if (!FURTHER_READING_PATTERN.test(parsed.content)) {
+        console.log(`  \x1b[33mWARN\x1b[0m ${rel}: no 延伸阅读/参考书目 section`);
+        warnings++;
+      }
+    }
+  }
+
+  if (errors === 0 && warnings === 0) {
+    console.log(`  \x1b[32m${total} frontier article(s) look good.\x1b[0m`);
+  }
+  return { errors, warnings };
+}
+
 function main() {
   const domains: ContentType[] = ["philosophy", "mathematics", "life-science"];
 
@@ -253,9 +380,19 @@ function main() {
     }
     console.log(`\nBy domain:`);
     for (const [domain, stats] of Object.entries(byDomain)) {
-      console.log(`  ${domain}: ${stats.files} files, ${stats.errors} errors, ${stats.warnings} warnings`);
+      console.log(
+        `  ${domain}: ${stats.files} files, ${stats.errors} errors, ${stats.warnings} warnings`
+      );
     }
   }
+
+  const link = checkLinkIntegrity();
+  errorCount += link.errors;
+  warningCount += link.warnings;
+
+  const frontier = checkFrontier();
+  errorCount += frontier.errors;
+  warningCount += frontier.warnings;
 
   if (errorCount > 0) {
     console.log(`\n\x1b[31mContent check FAILED with ${errorCount} error(s).\x1b[0m`);

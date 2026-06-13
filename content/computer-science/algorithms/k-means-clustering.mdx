@@ -1,0 +1,142 @@
+---
+title: K-means 聚类
+title_en: K-means Clustering
+status: published
+updated: 2026-06-13
+category: 机器学习算法
+order: 27
+field: 计算机科学 · 机器学习 · 无监督学习
+tags:
+  - K-means
+  - 聚类
+  - 无监督学习
+  - 向量量化
+related:
+  - gradient-descent-backprop
+  - decision-trees
+---
+
+# K-means 聚类
+
+1957 年，Bell Labs 的 Stuart Lloyd 开发了一种信号量化算法，用于将连续信号压缩为有限个离散值——他将类似的点"聚合"到同一个"中心"附近。这个方法在 Bell Labs 内部流传了二十多年，直到 1982 年才正式发表。
+
+与此同时，James MacQueen 在 1967 年的论文中命名了"k-means"，Hugo Steinhaus 在 1956 年的波兰语论文中也独立描述了相似方法。
+
+如今，K-means 是最广为人知的无监督机器学习算法，也是数据分析工具箱中的标配工具。它的成功有一个悖论：极其简单，却被证明在理论上是 NP-hard 的。
+
+## 什么是聚类？
+
+**无监督学习（Unsupervised Learning）**：不提供标签，让算法自己从数据中发现结构。
+
+**聚类（Clustering）**：将数据点分组，使同一组内的点彼此相似，不同组间的点差异较大。
+
+聚类没有"正确答案"——因为没有标签，无法验证。不同的距离度量、不同的 $k$ 值会给出不同的聚类结果，这些结果都可能在不同的问题框架下"有意义"。
+
+K-means 是**基于质心（Centroid-based）**的聚类方法，假设每个簇由一个代表点（质心）描述，每个点属于距其质心最近的簇。
+
+## 算法：Lloyd 迭代
+
+**目标**：将 $n$ 个数据点 $x_1, \ldots, x_n \in \mathbb{R}^d$ 分成 $k$ 个簇，使得**簇内平方和（Within-Cluster Sum of Squares，WCSS）最小**：
+
+$$\text{最小化} \sum_{j=1}^{k} \sum_{x_i \in C_j} \|x_i - \mu_j\|^2$$
+
+其中 $\mu_j$ 是第 $j$ 个簇的质心（均值），$C_j$ 是第 $j$ 个簇的点集。
+
+**Lloyd 算法**（"标准 K-means"）：
+
+```
+1. 随机初始化 k 个质心 μ₁, ..., μₖ
+2. 重复直到收敛：
+   a. 分配步骤（Assignment）：每个点分配给最近的质心
+      对每个 xᵢ：Cⱼ ← 使 ‖xᵢ - μⱼ‖ 最小的 j
+   b. 更新步骤（Update）：重新计算每个簇的质心
+      μⱼ ← 簇 Cⱼ 内所有点的均值
+```
+
+**收敛性**：每次迭代 WCSS 单调不增（可以证明），而 WCSS 有下界 0，因此算法一定收敛。但收敛到的是**局部最优**，不保证全局最优。
+
+**时间复杂度（每次迭代）**：$O(nkd)$——$n$ 个点，各自计算到 $k$ 个质心的 $d$ 维欧氏距离。
+
+## 初始化的关键：K-means++
+
+标准 Lloyd 算法的主要缺陷是对初始化**极为敏感**——不同的随机初始质心可能收敛到差异极大的局部最优解。
+
+**K-means++**（David Arthur 和 Sergei Vassilvitskii，2007 年提出）：
+
+1. 均匀随机选第一个质心 $\mu_1$
+2. 对每个点 $x$，计算其到**最近已选质心**的距离平方 $D(x)^2$
+3. 按概率 $D(x)^2 / \sum D(x_i)^2$ 随机选下一个质心（距离越远被选中概率越大）
+4. 重复步骤 2-3 直到选出 $k$ 个质心
+5. 用 Lloyd 迭代优化
+
+**理论保证**：K-means++ 初始化后，Lloyd 算法收敛的期望 WCSS 不超过最优 WCSS 的 $O(\log k)$ 倍。
+
+实践上，K-means++ 显著提高结果质量和收敛速度，是现代实现的标准初始化方法（scikit-learn 默认使用 K-means++）。
+
+## 选择 $k$：肘部法则与轮廓系数
+
+K-means 需要预先指定 $k$——这是它最大的实践困难之一。
+
+**肘部法则（Elbow Method）**：对不同的 $k$ 值绘制 WCSS 曲线，寻找曲线下降明显放缓的"肘部"点，对应合理的 $k$。
+
+局限：肘部往往不清晰，不同数据集差异很大。
+
+**轮廓系数（Silhouette Coefficient，Rousseeuw 1987）**：衡量每个点与其所在簇的契合程度。对点 $i$，定义：
+
+$$s(i) = \frac{b(i) - a(i)}{\max(a(i), b(i))}$$
+
+- $a(i)$：$i$ 到同簇其他点的平均距离（凝聚度）
+- $b(i)$：$i$ 到最近邻簇点的平均距离（分离度）
+- $s(i) \in [-1, 1]$，越接近 1 越好
+
+平均轮廓系数最大时对应的 $k$ 通常是较好的选择。
+
+**贝叶斯信息准则（BIC）**和**赤池信息准则（AIC）**：用信息论方法平衡模型复杂度与拟合质量，适用于高斯混合模型等概率聚类框架。
+
+## K-means 的局限
+
+**只能发现凸形簇**：K-means 基于欧氏距离，本质上假设每个簇是球形（凸形）。对于"环形"或"月牙形"等非凸形状的簇，K-means 彻底失效。
+
+**对噪声和异常值敏感**：质心是均值，被极端点显著拉偏。K-medoids（用实际点作为簇代表，而非均值）对异常值更鲁棒。
+
+**假设等方差（球形）**：若各簇大小或密度差异很大，K-means 效果变差。高斯混合模型（Gaussian Mixture Model，GMM）用 EM 算法，允许椭球形簇，是 K-means 的概率版本推广。
+
+**全局 NP-hard**：即使在二维平面上，找 $k$ 个簇的全局最优分配也是 NP-hard 的（首个严格证明由 Dasgupta 2008 和 Aloise et al. 2009 独立给出；更早的 Drineas et al. 2004 证明后被发现存在漏洞）。K-means++ 提供近似保证。
+
+## 变种与替代
+
+**Mini-Batch K-means**：每次迭代只用随机抽取的一个小批量（Mini-Batch）而非全部数据更新质心，适合大规模数据集。收敛速度大幅提升，代价是略微降低精度。
+
+**DBSCAN（Density-Based Spatial Clustering of Applications with Noise，1996）**：不需要指定 $k$，基于密度自动发现任意形状的簇，并将低密度区域的点标记为噪声。对非凸形簇效果极好。
+
+**谱聚类（Spectral Clustering）**：利用图的 Laplacian 矩阵的特征向量，在低维嵌入中运行 K-means，能发现非凸结构。
+
+**层次聚类（Hierarchical Clustering）**：自底向上（凝聚型，Agglomerative）或自顶向下（分裂型，Divisive），输出树状图（Dendrogram），不需要预先指定 $k$。
+
+## 实际应用
+
+**图像压缩（向量量化）**：将图像的像素颜色用 $k$ 个代表色替换（Lloyd 的原始应用），可以用 $\log_2 k$ 位而非 24 位表示每个像素颜色。JPEG 的色度子采样用了类似思想。
+
+**用户分群（Customer Segmentation）**：按购买行为、地理位置等对用户聚类，用于精准营销。
+
+**文档聚类**：将新闻文章按话题自动聚类（TF-IDF 向量 + K-means），是信息检索和话题模型的基础工具。
+
+**基因表达分析**：将基因按表达模式聚类，发现功能相关的基因群——20 世纪 90 年代末微阵列技术兴起时，K-means 是标准分析工具。
+
+**推荐系统**：协同过滤的早期实现用 K-means 对用户行为聚类，对同一簇内的用户进行统一推荐。
+
+## 跨域连接
+
+- **[[gradient-descent-backprop]]**：K-means 的 Lloyd 迭代是一种坐标下降（Coordinate Descent）方法——交替优化簇分配和质心位置。这与梯度下降在优化思路上有深刻联系；K-means 可以视为特殊的 EM 算法。
+- **[[decision-trees]]**：两者都是经典的机器学习算法——K-means 处理无监督聚类，决策树处理有监督分类，共同构成数据挖掘的基础工具箱。
+- **信息论**：K-means 最小化的 WCSS 在信息论中对应向量量化（Vector Quantization）的失真度量。香农的率失真理论为向量量化提供了理论下界。
+- **统计学（EM 算法）**：高斯混合模型的 EM 算法是 K-means 的概率推广，"软分配"（每个点以一定概率属于每个簇）取代 K-means 的"硬分配"。
+
+---
+
+## 延伸阅读
+
+- Lloyd, S. "Least Squares Quantization in PCM." *IEEE Transactions on Information Theory* 28(2), 1982. （论文写于 1957 年，发表于 1982 年）
+- MacQueen, J. "Some Methods for Classification and Analysis of Multivariate Observations." *5th Berkeley Symposium*, 1967.
+- Arthur, D. & Vassilvitskii, S. "k-means++: The Advantages of Careful Seeding." *SODA*, 2007.
+- Bishop, C. *Pattern Recognition and Machine Learning.* Springer, 2006. （第9章 Mixture Models and EM）

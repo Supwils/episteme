@@ -50,6 +50,20 @@ export const DOMAIN_META: Record<
     border: "border-pink-500/30",
     dot: "bg-pink-400",
   },
+  "computer-science": {
+    label: "计算机科学",
+    color: "text-blue-400",
+    bg: "bg-blue-500/15",
+    border: "border-blue-500/30",
+    dot: "bg-blue-400",
+  },
+  "political-science": {
+    label: "政治学",
+    color: "text-rose-400",
+    bg: "bg-rose-500/15",
+    border: "border-rose-500/30",
+    dot: "bg-rose-400",
+  },
 };
 
 export const NODE_TYPE_LABEL: Record<GraphNodeType, string> = {
@@ -71,6 +85,9 @@ export const NODE_TYPE_LABEL: Record<GraphNodeType, string> = {
   theory: "经济理论",
   theorist: "心理学家",
   phenomenon: "心理现象",
+  pioneer: "计算机先驱",
+  algorithm: "算法",
+  institution: "制度与政体",
 };
 
 export const DOMAIN_ACCENT_GRADIENT: Record<Domain, string> = {
@@ -80,9 +97,15 @@ export const DOMAIN_ACCENT_GRADIENT: Record<Domain, string> = {
   "life-science": "linear-gradient(90deg, #10b981 0%, #34d399 100%)",
   economics: "linear-gradient(90deg, #e8b84a 0%, #f0d060 100%)",
   psychology: "linear-gradient(90deg, #d4789c 0%, #e8a0bf 100%)",
+  "computer-science": "linear-gradient(90deg, #4f9cf0 0%, #6fb0f5 100%)",
+  "political-science": "linear-gradient(90deg, #c25b5b 0%, #d67676 100%)",
 };
 
 export function resolveNodeUrl(node: GraphNode): string | null {
+  // Nodes that carry their own url (every engine-driven domain does) are
+  // authoritative — the type→route switch below is only a legacy fallback and
+  // assumes thinker=philosophy etc., which is wrong for the new domains.
+  if (node.url) return node.url;
   switch (node.type) {
     case "thinker":
       return `/philosophy/thinkers/${node.slug}`;
@@ -118,6 +141,9 @@ export function resolveNodeUrl(node: GraphNode): string | null {
     case "question":
     case "ism":
     case "era":
+    case "pioneer":
+    case "algorithm":
+    case "institution":
       return null;
   }
 }

@@ -1,0 +1,154 @@
+---
+title: 数据库索引与查询优化
+title_en: Database Indexing and Query Optimization
+status: published
+updated: 2026-06-13
+category: 系统与架构
+order: 45
+field: 计算机科学 · 数据库
+tags:
+  - 数据库
+  - 索引
+  - 查询优化
+  - B树
+related:
+  - databases-transactions
+  - data-structures
+  - big-data-systems
+---
+
+# 数据库索引与查询优化
+
+一张存储了 10 亿行用户数据的表，每行包含用户 ID、姓名、邮箱、注册时间等字段。你执行一条查询：
+
+```sql
+SELECT * FROM users WHERE email = 'alice@example.com';
+```
+
+没有索引：数据库必须逐行扫描所有 10 亿行，找出匹配的记录——这需要几十分钟甚至几个小时。有了合适的索引：查询在几毫秒内完成。
+
+这就是索引的作用。索引是数据库性能工程的核心，也是理解大规模数据系统的关键。
+
+## 破除误解：索引越多越好
+
+初学者往往认为索引只有好处没有坏处——查询快了，何乐而不为？实际上，索引有明确的代价：
+
+- **写操作变慢**：插入、更新、删除时，所有相关索引都要同步更新
+- **存储空间**：索引本身需要额外磁盘空间（有时与原表相当甚至更大）
+- **内存占用**：频繁使用的索引被缓存在内存中
+
+读多写少的场景（如数据分析、搜索）：索引收益大，应该建。写多读少的场景（如日志写入、事件流）：索引代价大，应该谨慎。**索引设计是权衡，不是多多益善**。
+
+## B 树：数据库索引的主力
+
+**B+ 树（B-Plus Tree）**是关系数据库（MySQL InnoDB、PostgreSQL）索引的标准数据结构。
+
+B+ 树是一种平衡多路搜索树：
+- **所有叶子节点在同一层**（平衡）
+- **所有实际数据只存在叶子节点**（B+ 树特点，B 树内节点也存数据）
+- **叶子节点之间用链表串联**（支持范围查询）
+- **每个节点可以有多个子节点**（减少树的高度，适合磁盘块存储）
+
+对于 10 亿行数据，4 阶 B+ 树高度约为 $\log_4 10^9 \approx 15$。最坏情况下，查询只需要 15 次磁盘 I/O——而全表扫描需要读取所有磁盘块。
+
+**为什么不用红黑树（每个节点 2 个子节点）？**
+
+红黑树对 10 亿行数据深度约 $\log_2 10^9 \approx 30$，与 B+ 树相比没有决定性差距。但 B+ 树每个节点可以存储一个磁盘页（通常 4KB 或 16KB）的数据——一次磁盘读取可以加载几百个键。磁盘 I/O 的时间（毫秒级）远超 CPU 计算（纳秒级），所以减少 I/O 次数才是关键。
+
+## 索引类型
+
+**聚集索引（Clustered Index）**：数据行按索引键顺序物理存储。一张表只能有一个聚集索引（MySQL InnoDB 的主键即聚集索引）。范围查询极快，因为相邻键的数据物理相邻。
+
+**非聚集索引（Non-Clustered Index / Secondary Index）**：索引与数据分开存储，索引叶子节点存储的是指向实际数据行的指针（或主键值）。查询时先查索引，再"回表"查实际数据。
+
+**覆盖索引（Covering Index）**：查询所需的所有列都在索引中，不需要回表。显著减少 I/O。
+
+示例：
+
+```sql
+-- 查询只需 email 和 name
+SELECT name FROM users WHERE email = 'alice@example.com';
+
+-- 在 (email, name) 上建覆盖索引，避免回表
+CREATE INDEX idx_email_name ON users(email, name);
+```
+
+**复合索引（Composite Index）**：多列组合的索引，遵循**最左前缀原则**：
+
+```sql
+CREATE INDEX idx_city_age ON users(city, age);
+
+-- 这些查询可以使用索引：
+SELECT * FROM users WHERE city = 'Beijing';
+SELECT * FROM users WHERE city = 'Beijing' AND age > 18;
+
+-- 这个查询不能用上面的索引（跳过了 city）：
+SELECT * FROM users WHERE age > 18;
+```
+
+**哈希索引**：基于哈希表，等值查询极快 $O(1)$，但不支持范围查询。MySQL Memory 引擎使用哈希索引，InnoDB 有自适应哈希索引（自动对频繁访问的 B+ 树节点建哈希缓存）。
+
+## 查询优化器：决策者
+
+你写 SQL 只是说"我想要什么"，查询优化器（Query Optimizer）决定"怎么去取"。这是数据库中最复杂的组件之一。
+
+优化器的主要工作：
+
+**1. 解析与重写**：把 SQL 转化为逻辑查询计划（关系代数表达式），应用等价变换规则（如谓词下推、列裁剪）。
+
+**2. 代价估算**：估计不同执行方案的代价（CPU 时间 + I/O 次数）。代价估算依赖**统计信息（Statistics）**：表行数、列值分布（直方图）、索引选择性。统计信息不准确会导致优化器做出错误决策。
+
+**3. 计划选择**：搜索执行计划空间，找到代价最低的计划。对于涉及多个表的 JOIN，可能的执行顺序有 $n!$ 种（$n$ 是表的数量），枚举所有组合代价不可接受，实际使用启发式搜索（贪心、动态规划）。
+
+**常见执行算子**：
+
+| 算子 | 适用场景 |
+|------|---------|
+| 全表扫描（Seq Scan） | 无合适索引，或表很小 |
+| 索引扫描（Index Scan） | 选择性高的条件（返回少量行）|
+| 索引范围扫描 | 范围条件（BETWEEN、>、<）|
+| 位图堆扫描（Bitmap Heap Scan）| 多个索引组合（PostgreSQL）|
+| 嵌套循环连接（Nested Loop Join） | 小表驱动大表，有索引 |
+| 哈希连接（Hash Join） | 大表连接，无排序 |
+| 归并连接（Sort-Merge Join） | 已排序数据 |
+
+## EXPLAIN：理解执行计划
+
+在 SQL 前加 `EXPLAIN`，查看查询优化器选择的执行计划：
+
+```sql
+EXPLAIN SELECT * FROM users WHERE email = 'alice@example.com';
+```
+
+输出会显示每一步用了什么索引、预计扫描多少行、各步骤代价。`EXPLAIN ANALYZE` 实际执行查询，显示真实的执行统计，是性能调优的最重要工具。
+
+## 慢查询的常见原因
+
+- **未使用索引**：条件列没有索引，或索引被函数/表达式使该列失效（如 `WHERE YEAR(created_at) = 2024` 无法用 `created_at` 上的 B+ 树索引）
+- **索引选择性低**：性别字段（只有"男"/"女"）上的索引几乎没用，优化器可能选择全表扫描
+- **回表代价高**：非聚集索引查询返回大量行时，大量随机 I/O 回表比全表扫描更慢
+- **JOIN 笛卡尔积**：忘记 JOIN 条件导致结果集爆炸
+- **N+1 查询问题**：对 N 个对象各发一次查询，应该用一次 JOIN 或 IN 子句
+
+## 代价与争议
+
+**统计信息与实际分布的偏差**：优化器依赖统计信息，但统计信息更新有延迟，数据分布倾斜（Skew）时直方图可能失效。错误的代价估计导致次优的执行计划，而 DBA 往往很难诊断原因。
+
+**学习型查询优化器**：传统优化器是基于规则和统计模型的——用机器学习代替传统统计估计，预测更准确的代价。这是活跃的研究方向（Neo、Bao 等系统），但生产部署仍以传统方法为主。
+
+**云原生数据库的变化**：Aurora、Spanner 等云数据库将存储与计算分离、多副本、Serverless——这些架构变化使传统的 B+ 树假设（磁盘 I/O 是瓶颈）不再完全适用，新的索引结构（LSM 树、ALEX 学习型索引）正在崛起。
+
+## 跨域连接
+
+- **[[databases-transactions]]**：索引是数据库存储引擎的核心组件；MVCC（多版本并发控制）和 WAL（预写日志）与索引维护的交互，决定了事务性能。
+- **[[data-structures]]**：B+ 树、哈希表、跳表（MemTable 使用）都是数据结构在数据库中的关键应用，选择合适的数据结构直接决定查询性能。
+- **[[big-data-systems]]**：当数据量超出单机 B+ 树能有效处理的规模，需要分布式索引（Elasticsearch 的倒排索引、HBase 的 LSM 树）和查询优化（Spark/Presto 的分布式查询计划）。
+
+---
+
+## 延伸阅读
+
+- Ramakrishnan, R. & Gehrke, J. *Database Management Systems.* 3rd ed. McGraw-Hill, 2002.
+- Mohan, C. et al. *ARIES: A Transaction Recovery Method Supporting Fine-Granularity Locking and Partial Rollbacks Using Write-Ahead Logging.* ACM TODS, 1992.
+- Graefe, G. *Modern B-tree Techniques.* Foundations and Trends in Databases, 2011.
+- Use The Index, Luke. *use-the-index-luke.com* （实用数据库索引指南，免费在线）

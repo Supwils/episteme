@@ -1,0 +1,93 @@
+---
+title: 程序设计语言设计
+title_en: Programming Language Design
+status: published
+updated: 2026-06-13
+category: 理论与语言
+order: 50
+field: 计算机科学 · 编程语言
+tags:
+  - 编程语言
+  - 类型系统
+  - 语法
+  - 语义
+  - 编译器
+related:
+  - type-systems
+  - compilers
+  - functional-programming
+---
+
+# 程序设计语言设计
+
+1972 年，Dennis Ritchie 在贝尔实验室用 C 语言重写了 Unix 操作系统。在此之前，操作系统只能用汇编语言写——每换一台新机器，代码全部报废。C 的出现让同一份源代码能跑在不同硬件上，只需重新编译。这件事改变了软件的性质：它从"一次性的机器指令集"变成了**可移植的人类思想的表达**。
+
+这正是程序设计语言设计的核心命题：如何发明一种符号系统，让人类能清晰地表达计算意图，让机器能精确地执行，让两者之间的距离尽可能小？
+
+## 破除误解：语言设计不是"语法美学"
+
+初学者常认为语言设计不过是选择括号还是花括号、用关键字 `end` 还是缩进来结束代码块——审美的问题。
+
+真正的语言设计是关于**语义**和**安全性保证**的工程决策。一个语言的类型系统决定了哪类程序错误能在编译时被发现；内存管理模型决定了安全漏洞的概率分布；求值策略（急切求值 vs 惰性求值）决定了程序员的思维模型。这些选择的代价要在几十年、数十亿行代码之后才能被充分感受到。
+
+## 核心概念：语法、语义与语用
+
+语言理论把语言分为三个层次：
+
+**语法（Syntax）**描述合法的程序结构——什么样的符号序列是"格式正确的"。上下文无关文法（CFG）和 BNF（巴科斯-诺尔范式）是描述语法的标准工具，由 John Backus 为 ALGOL 58 设计。
+
+**语义（Semantics）**描述程序的含义——合法的程序"做了什么"。有三种主要框架：
+- 操作语义（Operational Semantics）：用抽象机器的状态转移定义程序行为
+- 指称语义（Denotational Semantics）：把程序映射为数学对象（函数）
+- 公理语义（Axiomatic Semantics）：用逻辑断言（前置条件/后置条件）刻画程序行为——Hoare 逻辑就属于这一类
+
+**语用（Pragmatics）**关注语言在实际使用中的效果：可读性、工具链成熟度、社区生态。Python 的成功很大程度上来自语用层面的正确决策。
+
+## 关键设计维度
+
+| 维度 | 选项 | 典型语言 |
+|------|------|---------|
+| 类型检查时机 | 静态 vs 动态 | Haskell / Python |
+| 内存管理 | 手动 / GC / 所有权 | C / Java / Rust |
+| 求值策略 | 急切 vs 惰性 | C / Haskell |
+| 范式 | 命令式 / 函数式 / 逻辑式 | C / Lisp / Prolog |
+| 并发模型 | 线程 / Actor / CSP | Java / Erlang / Go |
+
+## 类型系统是安全阀
+
+类型系统是语言设计中争论最多的部分。静态强类型（如 Haskell、Rust）能在编译阶段消除一大类错误——空指针、类型混用、越界访问——但增加了书写成本。动态类型（如 Python、JavaScript）让原型快速成型，但将错误推迟到运行时。
+
+2006 年，Tony Hoare（null 的发明者）称将 null 引入 ALGOL W 是"十亿美元的错误"——这类引用空值导致的崩溃在软件历史上造成了难以估量的损失。Rust 的类型系统通过所有权和借用检查器在编译时消除了数据竞争和悬空指针，2022 年起被 Linux 内核接受，是语言设计对系统安全影响的最新例证。
+
+## 范式战争：命令式 vs 函数式
+
+**命令式编程**模拟计算机的工作方式：告诉机器一步步怎么做（`for` 循环、赋值、状态变更）。C、Java、Python 都以命令式为主。
+
+**函数式编程**把程序看成函数的组合，禁止（或限制）可变状态和副作用。Haskell、Erlang、Clojure 是纯粹或接近纯粹的函数式语言。
+
+这场争论没有赢家，只有融合：现代语言普遍吸收函数式特性（Python 的 `map/filter`、Java 8 的 Lambda、Rust 的迭代器）。Philip Wadler（Haskell 核心设计者）将单子（Monad）引入主流之后，函数式思想已悄悄渗透进命令式语言的标准库。
+
+## 代价与争议
+
+**语言的锁定效应**：一旦一门语言在某个生态中占据主导，替换成本极高。COBOL 写于 1959 年，时至今日仍在全球银行系统中运行数百亿行代码，雇用数十万程序员维护。语言的寿命远超其设计者的预期。
+
+**安全性与性能的永恒张力**：内存安全语言（Java、Python）付出的是垃圾回收带来的延迟和吞吐损失；手动内存管理（C、C++）换取的性能以数十年的安全漏洞为代价。2022 年 NSA 发布报告，建议组织迁移到内存安全语言，这场争论上升到了国家安全层面。
+
+**语言设计的民主问题**：重要语言的设计委员会（如 ISO C++）会把一个设计决策推迟数年，等待共识。而单一作者（van Rossum 之于 Python、Matz 之于 Ruby）的语言往往内部一致性更好，但风险集中在个人偏好上。
+
+## 跨域连接
+
+- **数学**：类型理论与范畴论有深刻联系（Curry-Howard 同构将程序与逻辑证明对应），Haskell 的类型类直接借鉴了范畴论的函子和单子概念。
+- **哲学**：维特根斯坦的"意义即使用"在语言的语用层面有直接对应——一门语言的真正含义由程序员社区的实践塑造，而非规范文档。
+- **[[type-systems]]**：类型理论是语言设计的数学基础。
+- **[[compilers]]**：语言设计与编译器设计是硬币的两面——语言特性必须在编译器中找到可实现的对应物。
+
+---
+
+## 延伸阅读
+
+- Aho, A., Lam, M., Sethi, R., Ullman, J. *Compilers: Principles, Techniques, and Tools.* 2nd ed., Addison-Wesley, 2006.（"龙书"，编译与语言实现的经典教材）
+- Pierce, B. *Types and Programming Languages.* MIT Press, 2002.（类型理论权威教材）
+- Backus, J. *Can Programming Be Liberated from the von Neumann Style? A Functional Style and Its Algebra of Programs.* CACM 21(8), 1978.（Turing 奖演讲，函数式编程宣言）
+- Stroustrup, B. *The Design and Evolution of C++.* Addison-Wesley, 1994.
+- van Rossum, G. *Python's Design Philosophy.* PyCon keynote, 2016.

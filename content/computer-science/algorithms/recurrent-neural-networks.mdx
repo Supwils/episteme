@@ -1,0 +1,131 @@
+---
+title: 循环神经网络
+title_en: Recurrent Neural Networks
+status: published
+updated: 2026-06-13
+category: 深度学习
+order: 38
+field: 计算机科学 · 深度学习 · 序列建模
+tags:
+  - 循环神经网络
+  - RNN
+  - LSTM
+  - 序列建模
+  - 自然语言处理
+related:
+  - convolutional-neural-networks
+  - attention-and-transformers
+  - gradient-descent-backprop
+---
+
+# 循环神经网络
+
+1986 年，大卫·鲁姆哈特（David Rumelhart）、杰弗里·欣顿（Geoffrey Hinton）和罗纳德·威廉姆斯（Ronald Williams）在提出反向传播算法的同一篇论文中，也提出了将其应用于循环网络的设想。循环神经网络（Recurrent Neural Network, RNN）随后成为处理语言、音频、时间序列的主要工具，直到 2017 年 Transformer 出现。
+
+RNN 的核心思想：**网络有"记忆"，当前的输出不仅取决于当前输入，还取决于对过去信息的压缩表示（隐状态）。**
+
+## 破除误解：RNN 的"记忆"是有限的
+
+RNN 理论上能记住任意长的历史，但实际上由于**梯度消失（Vanishing Gradient）**问题，标准 RNN 的有效记忆长度非常短（通常不超过 10–20 个时间步）。LSTM 的发明就是为了解决这个问题，但即便是 LSTM，在序列长度超过几百时也面临困难。
+
+这是 Transformer 取代 RNN 的根本原因：注意力机制允许任意两个位置之间直接交互，不受序列长度限制。
+
+## 标准 RNN
+
+RNN 的基本单元：在时间步 $t$，接受输入 $x_t$ 和上一时间步的隐状态 $h_{t-1}$，输出新的隐状态 $h_t$：
+
+$$h_t = \tanh(W_h h_{t-1} + W_x x_t + b)$$
+
+$$\hat{y}_t = W_y h_t + b_y$$
+
+其中 $W_h, W_x, W_y, b, b_y$ 是在所有时间步**共享**的参数。这种权重共享使 RNN 能处理任意长度的序列，参数数量不随序列长度增加。
+
+**展开的 RNN**：将 RNN 在时间轴上展开，等价于一个非常深的前馈网络，每层共享权重。用**随时间反向传播（Backpropagation Through Time, BPTT）**计算梯度。
+
+**梯度消失的本质**：BPTT 中，对 $t=0$ 的梯度包含矩阵乘积 $\prod_{k=1}^{T} W_h^{(k)}$。若 $W_h$ 的最大奇异值 $< 1$，长距离梯度指数衰减；若 $> 1$，梯度指数爆炸（用梯度裁剪 Gradient Clipping 应对）。
+
+## LSTM：长短期记忆网络
+
+1997 年，塞普·霍克赖特（Sepp Hochreiter）和于尔根·施密德胡贝尔（Jürgen Schmidhuber）发表了 LSTM（Long Short-Term Memory），引入了**门控机制（Gating Mechanism）**和**细胞状态（Cell State）**。
+
+LSTM 的核心是三个门：
+
+**遗忘门**（决定丢弃哪些旧记忆）：
+$$f_t = \sigma(W_f [h_{t-1}, x_t] + b_f)$$
+
+**输入门**（决定记录哪些新信息）：
+$$i_t = \sigma(W_i [h_{t-1}, x_t] + b_i)$$
+$$\tilde{C}_t = \tanh(W_C [h_{t-1}, x_t] + b_C)$$
+
+**细胞状态更新**：
+$$C_t = f_t \odot C_{t-1} + i_t \odot \tilde{C}_t$$
+
+**输出门**：
+$$o_t = \sigma(W_o [h_{t-1}, x_t] + b_o)$$
+$$h_t = o_t \odot \tanh(C_t)$$
+
+细胞状态 $C_t$ 是"记忆高速公路"——信息可以通过它几乎无损地在时间轴上传播，梯度也能沿此路径回传，有效缓解了梯度消失问题。
+
+**GRU（Gated Recurrent Unit，Cho et al., 2014）**：LSTM 的简化版，将遗忘门和输入门合并为一个"更新门"，参数更少，在许多任务上表现与 LSTM 相当。
+
+## 序列到序列（Seq2Seq）架构
+
+2014 年，苏茨克维尔（Sutskever）等人提出 **Seq2Seq** 架构，彻底改变了机器翻译：
+
+```
+编码器 RNN：输入序列 → 上下文向量 c
+解码器 RNN：上下文向量 c → 输出序列
+```
+
+编码器将可变长度的输入序列压缩为固定长度的上下文向量；解码器将其"翻译"为输出序列。这个框架被用于机器翻译、文本摘要、对话系统等几乎所有序列到序列任务。
+
+**注意力机制（Attention，Bahdanau et al., 2015）**：发现固定长度的上下文向量是瓶颈，允许解码器在每一步"注意"编码器的不同输出位置，大幅提升了长序列翻译质量。这成为 Transformer 的前身。
+
+## 主要应用领域
+
+| 任务              | 典型架构              |
+|-----------------|---------------------|
+| 语言模型（文本生成）| 单向 LSTM            |
+| 机器翻译           | Seq2Seq + Attention  |
+| 语音识别           | 双向 LSTM + CTC 损失  |
+| 情感分析           | 双向 LSTM            |
+| 时间序列预测        | LSTM / GRU           |
+| 音乐生成           | LSTM（如 Magenta）   |
+
+## 双向 RNN 与训练技巧
+
+**双向 RNN（BiRNN）**：标准 RNN 只能看到过去的信息。对于非实时任务（如情感分析、阅读理解），整个序列都已知，可以同时训练两个 RNN——一个从左到右，一个从右到左——将两个方向的隐状态拼接，让每个位置都能看到"前后文"：
+
+$$\overrightarrow{h}_t = \text{RNN}(x_t, \overrightarrow{h}_{t-1}), \quad \overleftarrow{h}_t = \text{RNN}(x_t, \overleftarrow{h}_{t+1})$$
+$$h_t = [\overrightarrow{h}_t; \overleftarrow{h}_t]$$
+
+双向 LSTM 在序列标注（命名实体识别、词性标注）上是深度学习时代的标准模型，BERT 在本质上也可以看作全双向的"软注意力 LSTM"。
+
+**梯度裁剪（Gradient Clipping）**：RNN 训练中梯度爆炸可以通过限制梯度范数来应对——当 $\|\nabla L\| > \text{threshold}$，将梯度等比缩小到阈值：
+
+$$g \leftarrow g \cdot \frac{\text{threshold}}{\|g\|}$$
+
+这是训练 RNN 的标准技巧，由 Pascanu 等人（2013）系统化研究。
+
+## 代价与争议
+
+**Transformer 的挑战**：在大多数 NLP 任务上，Transformer 已经全面超越 RNN/LSTM，因为它支持完全并行训练、能建模任意长距离依赖。RNN 是序列性的，不易并行化，训练速度远慢于 Transformer。
+
+**仍有价值的场景**：在**低延迟在线推理**（RNN 逐步处理新输入，无需重新计算所有历史）和**资源受限设备**（参数量少于 Transformer）上，RNN 仍有优势。2024 年后，Mamba（基于选择性状态空间模型）等新架构试图结合 RNN 的推理效率与 Transformer 的表达能力。
+
+**理论理解不完整**：为什么 LSTM 的门控机制如此有效？为什么某些任务用 LSTM 而非 Transformer 更好？这些问题没有完整的理论解释。
+
+## 跨域连接
+
+- **[[attention-and-transformers]]**：Transformer 从 Seq2Seq + Attention 演化而来，用多头自注意力完全取代了 RNN，是 RNN 时代的终结者，也是其精神继承者。
+- **[[convolutional-neural-networks]]**：CNN 擅长空间，RNN 擅长时序。视频理解（时空）、语音增强等任务常将两者结合。
+- **神经科学**：RNN 是神经科学中对大脑工作记忆建模的重要工具。前额叶皮层的"持续激活"现象与 LSTM 的细胞状态有功能上的类比——但这是类比，不是同一机制。
+
+---
+
+## 延伸阅读
+
+- Hochreiter, S. & Schmidhuber, J. *Long Short-Term Memory.* Neural Computation 9(8), 1735–1780 (1997).
+- Sutskever, I., Vinyals, O. & Le, Q. V. *Sequence to Sequence Learning with Neural Networks.* NeurIPS 2014. arXiv:1409.3215.
+- Bahdanau, D., Cho, K. & Bengio, Y. *Neural Machine Translation by Jointly Learning to Align and Translate.* ICLR 2015. arXiv:1409.0473.
+- Cho, K. et al. *Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation.* EMNLP 2014. arXiv:1406.1078.

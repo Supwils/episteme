@@ -7,5 +7,7 @@ export const APP_URLS = {
   mathematics: "/mathematics",
   economics: "/economics",
   psychology: "/psychology",
+  "computer-science": "/computer-science",
+  "political-science": "/political-science",
   "knowledge-graph": "/knowledge-graph",
 } as const;

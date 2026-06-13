@@ -6,17 +6,90 @@ import { lazy, Suspense, useCallback } from "react";
 import { PRODUCT_EASE } from "@/subjects/psychology/lib/constants";
 
 const EmotionWheel = lazy(
-  () => import("@/subjects/psychology/components/visualizations/EmotionWheel"),
+  () => import("@/subjects/psychology/components/visualizations/EmotionWheel")
 );
 
 const SECTIONS = [
-  { id: "theorists", icon: "🧠", title: "理论家", titleEn: "Theorists", count: "—", description: "从弗洛伊德到卡尼曼，心理学巨匠的生平与理论", href: "/psychology/theorists", accent: "#9b7dc4" },
-  { id: "experiments", icon: "🔬", title: "经典实验", titleEn: "Experiments", count: "—", description: "改变心理学进程的里程碑实验与发现", href: "/psychology/experiments", accent: "#6b8fd6" },
-  { id: "phenomena", icon: "✨", title: "心理现象", titleEn: "Phenomena", count: "—", description: "认知偏差、社会效应与令人惊奇的心理规律", href: "/psychology/phenomena", accent: "#d4789c" },
-  { id: "schools", icon: "🏛️", title: "流派学说", titleEn: "Schools", count: "—", description: "从精神分析到认知革命，心理学的主要流派", href: "/psychology/schools", accent: "#9b7dc4" },
-  { id: "disorders", icon: "💊", title: "心理障碍", titleEn: "Disorders", count: "—", description: "DSM分类体系中的主要心理障碍与诊断", href: "/psychology/disorders", accent: "#e07a5f" },
-  { id: "debates", icon: "⚖️", title: "经典论辩", titleEn: "Debates", count: "—", description: "先天vs后天、自由意志vs决定论等核心争论", href: "/psychology/debates", accent: "#6b8fd6" },
-  { id: "dialogues", icon: "💬", title: "思想对话", titleEn: "Dialogues", count: "—", description: "跨越时代的思想交锋与虚拟对话", href: "/psychology/dialogues", accent: "#d4789c" },
+  {
+    id: "theorists",
+    icon: "🧠",
+    title: "理论家",
+    titleEn: "Theorists",
+    count: "—",
+    description: "从弗洛伊德到卡尼曼，心理学巨匠的生平与理论",
+    href: "/psychology/theorists",
+    accent: "#9b7dc4",
+  },
+  {
+    id: "experiments",
+    icon: "🔬",
+    title: "经典实验",
+    titleEn: "Experiments",
+    count: "—",
+    description: "改变心理学进程的里程碑实验与发现",
+    href: "/psychology/experiments",
+    accent: "#6b8fd6",
+  },
+  {
+    id: "phenomena",
+    icon: "✨",
+    title: "心理现象",
+    titleEn: "Phenomena",
+    count: "—",
+    description: "认知偏差、社会效应与令人惊奇的心理规律",
+    href: "/psychology/phenomena",
+    accent: "#d4789c",
+  },
+  {
+    id: "schools",
+    icon: "🏛️",
+    title: "流派学说",
+    titleEn: "Schools",
+    count: "—",
+    description: "从精神分析到认知革命，心理学的主要流派",
+    href: "/psychology/schools",
+    accent: "#9b7dc4",
+  },
+  {
+    id: "disorders",
+    icon: "💊",
+    title: "心理障碍",
+    titleEn: "Disorders",
+    count: "—",
+    description: "DSM分类体系中的主要心理障碍与诊断",
+    href: "/psychology/disorders",
+    accent: "#e07a5f",
+  },
+  {
+    id: "debates",
+    icon: "⚖️",
+    title: "经典论辩",
+    titleEn: "Debates",
+    count: "—",
+    description: "先天vs后天、自由意志vs决定论等核心争论",
+    href: "/psychology/debates",
+    accent: "#6b8fd6",
+  },
+  {
+    id: "dialogues",
+    icon: "💬",
+    title: "思想对话",
+    titleEn: "Dialogues",
+    count: "—",
+    description: "跨越时代的思想交锋与虚拟对话",
+    href: "/psychology/dialogues",
+    accent: "#d4789c",
+  },
+  {
+    id: "frontier",
+    icon: "🛰️",
+    title: "研究前沿",
+    titleEn: "Frontier",
+    count: "2020s",
+    description: "复制危机之后、计算精神病学、致幻剂疗法——正在发生的心理科学",
+    href: "/psychology/frontier",
+    accent: "#56b6c2",
+  },
 ] as const;
 
 const STATS = [
@@ -35,18 +108,35 @@ function FloatingSymbols({ reduce }: { reduce: boolean }) {
       {FLOATING_SYMBOLS.map((sym, i) => (
         <motion.span
           key={i}
-          className="absolute font-display text-fg-disabled/20 select-none"
-          style={{ left: `${8 + i * 12.5}%`, top: `${10 + (i * 37) % 80}%`, fontSize: `${20 + (i % 3) * 12}px` }}
+          className="font-display text-fg-disabled/20 absolute select-none"
+          style={{
+            left: `${8 + i * 12.5}%`,
+            top: `${10 + ((i * 37) % 80)}%`,
+            fontSize: `${20 + (i % 3) * 12}px`,
+          }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: [0, -8, 0] }}
-          transition={{ opacity: { duration: 1.2, delay: 1 + i * 0.15 }, y: { duration: 4 + i * 0.5, repeat: Infinity, ease: "easeInOut" } }}
-        >{sym}</motion.span>
+          transition={{
+            opacity: { duration: 1.2, delay: 1 + i * 0.15 },
+            y: { duration: 4 + i * 0.5, repeat: Infinity, ease: "easeInOut" },
+          }}
+        >
+          {sym}
+        </motion.span>
       ))}
     </div>
   );
 }
 
-function SectionCard({ section, index, reduce }: { section: (typeof SECTIONS)[number]; index: number; reduce: boolean }) {
+function SectionCard({
+  section,
+  index,
+  reduce,
+}: {
+  section: (typeof SECTIONS)[number];
+  index: number;
+  reduce: boolean;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
@@ -70,7 +160,7 @@ function SectionCard({ section, index, reduce }: { section: (typeof SECTIONS)[nu
           </span>
         </div>
         <div className="flex flex-col gap-1">
-          <h2 className="font-display text-fg-primary text-2xl font-semibold leading-tight transition-colors duration-300 group-hover:text-accent-purple">
+          <h2 className="font-display text-fg-primary group-hover:text-accent-purple text-2xl leading-tight font-semibold transition-colors duration-300">
             {section.title}
           </h2>
         </div>
@@ -101,15 +191,19 @@ export default function PsychologyHomeClient() {
 
       <div
         className="pointer-events-none fixed inset-0 z-[1] opacity-[0.03] mix-blend-overlay"
-        style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")" }}
-        aria-hidden />
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+        }}
+        aria-hidden
+      />
 
       <div className="border-fg-disabled/30 pointer-events-none absolute top-16 left-6 h-3 w-3 border-t border-l" />
       <div className="border-fg-disabled/30 pointer-events-none absolute top-16 right-6 h-3 w-3 border-t border-r" />
       <div className="border-fg-disabled/30 pointer-events-none absolute bottom-6 left-6 h-3 w-3 border-b border-l" />
       <div className="border-fg-disabled/30 pointer-events-none absolute right-6 bottom-6 h-3 w-3 border-r border-b" />
 
-      <section className="relative flex w-full flex-col items-start gap-8 px-6 sm:px-10 lg:px-16 pt-28 pb-24 md:pt-36 md:pb-32">
+      <section className="relative flex w-full flex-col items-start gap-8 px-6 pt-28 pb-24 sm:px-10 md:pt-36 md:pb-32 lg:px-16">
         <motion.p
           className="text-fg-muted font-mono text-[10px] tracking-[0.42em] uppercase"
           initial={{ opacity: 0 }}
@@ -126,11 +220,13 @@ export default function PsychologyHomeClient() {
           transition={{ duration: 0.9, delay: d(0.4), ease: PRODUCT_EASE }}
         >
           <h1 className="font-display text-[3.2rem] leading-[1.02] tracking-tight md:text-[5rem]">
-            <span className="text-fg-primary">心灵的</span><br />
+            <span className="text-fg-primary">心灵的</span>
+            <br />
             <span
               className="bg-clip-text text-transparent"
               style={{
-                backgroundImage: "linear-gradient(135deg, #9b7dc4 0%, #b99de4 40%, #6b8fd6 60%, #d4789c 100%)",
+                backgroundImage:
+                  "linear-gradient(135deg, #9b7dc4 0%, #b99de4 40%, #6b8fd6 60%, #d4789c 100%)",
                 backgroundSize: "200% 200%",
                 animation: reduce ? "none" : "gradient-shift 6s ease infinite",
               }}
@@ -153,15 +249,18 @@ export default function PsychologyHomeClient() {
           {STATS.map((stat) => (
             <div key={stat.label} className="flex flex-col items-center gap-1">
               <span className="font-display text-accent-purple text-3xl font-semibold tabular-nums md:text-4xl">
-                {stat.value}<span className="text-fg-muted ml-0.5 text-lg">{stat.suffix}</span>
+                {stat.value}
+                <span className="text-fg-muted ml-0.5 text-lg">{stat.suffix}</span>
               </span>
-              <span className="text-fg-muted font-mono text-[10px] tracking-[0.28em] uppercase">{stat.label}</span>
+              <span className="text-fg-muted font-mono text-[10px] tracking-[0.28em] uppercase">
+                {stat.label}
+              </span>
             </div>
           ))}
         </motion.div>
       </section>
 
-      <section className="relative z-[2] w-full px-6 sm:px-10 lg:px-16 pb-16">
+      <section className="relative z-[2] w-full px-6 pb-16 sm:px-10 lg:px-16">
         <motion.p
           className="text-fg-muted mb-8 font-mono text-[10px] tracking-[0.38em] uppercase"
           initial={{ opacity: 0 }}

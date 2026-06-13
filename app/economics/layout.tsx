@@ -29,6 +29,7 @@ const NAV_LINKS = [
   { href: "/economics/debates", label: "辩论", num: "07" },
   { href: "/economics/dialogues", label: "对话", num: "08" },
   { href: "/economics/knowledge-base", label: "知识库", num: "09" },
+  { href: "/economics/frontier", label: "前沿", num: "10" },
 ];
 
 export default function EconomicsLayout({ children }: { children: React.ReactNode }) {
@@ -37,19 +38,28 @@ export default function EconomicsLayout({ children }: { children: React.ReactNod
   return (
     <div className={`economics-root ${fontVars}`}>
       <nav className="economics-nav-bar">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
           <Link
             href="/"
             className="economics-nav-link"
             style={{
-              fontSize: '0.82rem',
-              color: 'var(--color-fg-muted)',
-              gap: '4px',
-              display: 'inline-flex',
-              alignItems: 'center',
+              fontSize: "0.82rem",
+              color: "var(--color-fg-muted)",
+              gap: "4px",
+              display: "inline-flex",
+              alignItems: "center",
             }}
           >
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
               <path d="M10 12L6 8l4-4" />
             </svg>
             首页
@@ -70,13 +80,11 @@ export default function EconomicsLayout({ children }: { children: React.ReactNod
         </ul>
       </nav>
 
-      <main className="pt-16">
-        {children}
-      </main>
+      <main className="pt-16">{children}</main>
 
       <footer className="border-border-faint border-t px-4 py-6 sm:px-6">
         <div className="flex w-full flex-col items-center gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <span className="text-fg-muted font-mono text-[10px] uppercase tracking-[0.32em]">
+          <span className="text-fg-muted font-mono text-[10px] tracking-[0.32em] uppercase">
             economics · finance · game theory
           </span>
         </div>

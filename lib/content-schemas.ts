@@ -120,6 +120,22 @@ export const LifeScienceDialogueSchema = BaseFrontmatter.extend({
   field: z.string().optional(),
 });
 
+/**
+ * Frontier articles span every domain (content/<domain>/frontier/*.md). They
+ * describe active 2020s research: who is pushing it, what broke recently, and
+ * what is still open — so they carry researchers/institutions/horizon metadata
+ * that ordinary articles don't.
+ */
+export const FrontierSchema = BaseFrontmatter.extend({
+  title_en: z.string().optional(),
+  category: z.string().min(1, "category is required for grouping"),
+  horizon: z.string().optional(),
+  researchers: z.array(z.string()).default([]),
+  institutions: z.array(z.string()).default([]),
+  related: z.array(z.string()).default([]),
+  order: z.number().optional(),
+});
+
 type ContentSchemaMap = Record<string, z.ZodTypeAny>;
 
 export const PHILOSOPHY_SCHEMAS: ContentSchemaMap = {
@@ -144,10 +160,7 @@ export const LIFE_SCIENCE_SCHEMAS: ContentSchemaMap = {
   dialogues: LifeScienceDialogueSchema,
 };
 
-export type ContentType =
-  | "philosophy"
-  | "mathematics"
-  | "life-science";
+export type ContentType = "philosophy" | "mathematics" | "life-science";
 
 export const ALL_SCHEMAS: Record<ContentType, ContentSchemaMap> = {
   philosophy: PHILOSOPHY_SCHEMAS,

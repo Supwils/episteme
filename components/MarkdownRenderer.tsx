@@ -15,6 +15,16 @@ function slugify(text: string): string {
     .replace(/^-|-$/g, "");
 }
 
+/**
+ * Authors mark explicit anchors as `## \u6807\u9898 {#anchor}`; the suffix is
+ * metadata, never display text.
+ */
+function parseHeading(raw: string): { text: string; id: string } {
+  const match = raw.match(/^(.*?)\s*\{#([A-Za-z0-9_-]+)\}\s*$/);
+  if (match) return { text: match[1]!.trim(), id: match[2]! };
+  return { text: raw, id: slugify(raw) };
+}
+
 interface MarkdownRendererProps {
   content: string;
   accentColor?: string;
@@ -35,24 +45,24 @@ export function MarkdownRenderer({
         if (!text) return null;
 
         if (text.startsWith("# ")) {
+          const h1 = parseHeading(text.slice(2));
           return (
             <h1
               key={i}
-              id={slugify(text.slice(2))}
-              className="font-display text-fg-primary mb-4 mt-10 text-[1.6rem] font-semibold leading-tight first:mt-0"
+              id={h1.id}
+              className="font-display text-fg-primary mt-10 mb-4 text-[1.6rem] leading-tight font-semibold first:mt-0"
             >
-              {text.slice(2)}
+              {h1.text}
             </h1>
           );
         }
         if (text.startsWith("## ")) {
-          const headingText = text.slice(3);
-          const id = slugify(headingText);
+          const { text: headingText, id } = parseHeading(text.slice(3));
           return (
             <h2
               key={i}
               id={id}
-              className="font-display mb-3 mt-8 scroll-mt-24 text-[1.25rem] font-semibold leading-snug"
+              className="font-display mt-8 mb-3 scroll-mt-24 text-[1.25rem] leading-snug font-semibold"
               style={{ color: accentColor }}
             >
               {headingText}
@@ -60,26 +70,24 @@ export function MarkdownRenderer({
           );
         }
         if (text.startsWith("### ")) {
-          const headingText = text.slice(4);
-          const id = slugify(headingText);
+          const { text: headingText, id } = parseHeading(text.slice(4));
           return (
             <h3
               key={i}
               id={id}
-              className="font-display text-fg-primary mb-2 mt-6 scroll-mt-24 text-lg font-semibold"
+              className="font-display text-fg-primary mt-6 mb-2 scroll-mt-24 text-lg font-semibold"
             >
               {headingText}
             </h3>
           );
         }
         if (text.startsWith("#### ")) {
-          const headingText = text.slice(5);
-          const id = slugify(headingText);
+          const { text: headingText, id } = parseHeading(text.slice(5));
           return (
             <h4
               key={i}
               id={id}
-              className="font-display text-fg-primary mb-2 mt-5 scroll-mt-24 text-base font-semibold"
+              className="font-display text-fg-primary mt-5 mb-2 scroll-mt-24 text-base font-semibold"
             >
               {headingText}
             </h4>
@@ -89,9 +97,7 @@ export function MarkdownRenderer({
           const lines = text.split("\n");
           const lang = lines[0]!.slice(3).trim();
           const code = lines.slice(1).join("\n");
-          return (
-            <CodeBlock key={i} code={code} language={lang} accentColor={accentColor} />
-          );
+          return <CodeBlock key={i} code={code} language={lang} accentColor={accentColor} />;
         }
         if (text.startsWith("> ")) {
           const quoteText = text
@@ -101,13 +107,13 @@ export function MarkdownRenderer({
           return (
             <blockquote
               key={i}
-              className="border-l-3 my-6 rounded-r-lg py-4 pl-5 pr-4"
+              className="my-6 rounded-r-lg border-l-3 py-4 pr-4 pl-5"
               style={{
                 borderColor: accentColor,
                 background: `linear-gradient(135deg, ${accentColor}0a, ${accentColor}04)`,
               }}
             >
-              <p className="font-display text-fg-primary text-lg italic leading-relaxed">
+              <p className="font-display text-fg-primary text-lg leading-relaxed italic">
                 {renderInline(quoteText, footnotes)}
               </p>
             </blockquote>
@@ -116,11 +122,11 @@ export function MarkdownRenderer({
         if (text.startsWith("| ")) {
           const rows = text.split("\n").filter((r) => !r.match(/^\|[\s-:|]+\|$/));
           return (
-            <div key={i} className="my-6 overflow-x-auto rounded-lg border border-border-faint">
+            <div key={i} className="border-border-faint my-6 overflow-x-auto rounded-lg border">
               <table className="w-full text-sm">
                 <thead>
                   {rows.length > 0 && (
-                    <tr className="border-b border-border-subtle bg-bg-elevated/50">
+                    <tr className="border-border-subtle bg-bg-elevated/50 border-b">
                       {rows[0]!
                         .split("|")
                         .filter(Boolean)
@@ -145,7 +151,7 @@ export function MarkdownRenderer({
                     return (
                       <tr
                         key={ri}
-                        className={`border-b border-border-faint ${ri % 2 === 1 ? "bg-bg-elevated/20" : ""}`}
+                        className={`border-border-faint border-b ${ri % 2 === 1 ? "bg-bg-elevated/20" : ""}`}
                       >
                         {cells.map((cell, ci) => (
                           <td key={ci} className="text-fg-secondary px-4 py-2.5">
@@ -240,9 +246,7 @@ function FootnotesSection({
 }) {
   return (
     <footer className="border-border-subtle mt-12 border-t pt-6">
-      <h4 className="text-fg-muted mb-4 font-mono text-[10px] tracking-[0.22em] uppercase">
-        脚注
-      </h4>
+      <h4 className="text-fg-muted mb-4 font-mono text-[10px] tracking-[0.22em] uppercase">脚注</h4>
       <ol className="space-y-2 text-sm">
         {Array.from(footnotes.entries()).map(([id, text]) => (
           <li key={id} id={`fn-${id}`} className="text-fg-secondary leading-relaxed">
@@ -274,10 +278,13 @@ function CodeBlock({
   }, [code]);
 
   return (
-    <div className="group/code relative my-6 overflow-hidden rounded-lg border border-border-faint">
+    <div className="group/code border-border-faint relative my-6 overflow-hidden rounded-lg border">
       {language && (
-        <div className="border-b border-border-faint bg-bg-elevated/50 px-4 py-1.5">
-          <span className="font-mono text-[10px] tracking-[0.15em] uppercase" style={{ color: accentColor }}>
+        <div className="border-border-faint bg-bg-elevated/50 border-b px-4 py-1.5">
+          <span
+            className="font-mono text-[10px] tracking-[0.15em] uppercase"
+            style={{ color: accentColor }}
+          >
             {language}
           </span>
         </div>
@@ -288,7 +295,7 @@ function CodeBlock({
       <button
         type="button"
         onClick={handleCopy}
-        className="absolute right-2 top-2 rounded-md border border-border-faint bg-bg-panel/80 px-2.5 py-1 font-mono text-[10px] tracking-wider uppercase opacity-0 backdrop-blur-sm transition-opacity hover:bg-bg-elevated group-hover/code:opacity-100"
+        className="border-border-faint bg-bg-panel/80 hover:bg-bg-elevated absolute top-2 right-2 rounded-md border px-2.5 py-1 font-mono text-[10px] tracking-wider uppercase opacity-0 backdrop-blur-sm transition-opacity group-hover/code:opacity-100"
         style={{ color: copied ? "#6bae8a" : accentColor }}
         aria-label={copied ? "已复制" : "复制代码"}
       >
@@ -315,7 +322,7 @@ function ZoomableImage({
         <button
           type="button"
           onClick={() => setZoomed(true)}
-          className="group/img relative block w-full cursor-zoom-in overflow-hidden rounded-lg border border-border-faint transition-all hover:border-border-subtle"
+          className="group/img border-border-faint hover:border-border-subtle relative block w-full cursor-zoom-in overflow-hidden rounded-lg border transition-all"
         >
           <img
             src={src}
@@ -324,13 +331,14 @@ function ZoomableImage({
             decoding="async"
             className="w-full transition-transform duration-300 group-hover/img:scale-[1.02]"
           />
-          <span className="absolute bottom-2 right-2 rounded-md bg-bg-panel/80 px-2 py-1 font-mono text-[10px] tracking-wider uppercase opacity-0 backdrop-blur-sm transition-opacity group-hover/img:opacity-100" style={{ color: accentColor }}>
+          <span
+            className="bg-bg-panel/80 absolute right-2 bottom-2 rounded-md px-2 py-1 font-mono text-[10px] tracking-wider uppercase opacity-0 backdrop-blur-sm transition-opacity group-hover/img:opacity-100"
+            style={{ color: accentColor }}
+          >
             点击放大
           </span>
         </button>
-        {alt && (
-          <figcaption className="text-fg-muted mt-2 text-center text-sm">{alt}</figcaption>
-        )}
+        {alt && <figcaption className="text-fg-muted mt-2 text-center text-sm">{alt}</figcaption>}
       </figure>
       {zoomed && (
         <div
@@ -350,10 +358,7 @@ function ZoomableImage({
   );
 }
 
-function renderInline(
-  text: string,
-  footnotes: Map<string, string>,
-): React.ReactNode[] {
+function renderInline(text: string, footnotes: Map<string, string>): React.ReactNode[] {
   const parts: React.ReactNode[] = [];
   let remaining = text;
   let key = 0;
@@ -368,7 +373,7 @@ function renderInline(
           dangerouslySetInnerHTML={{
             __html: renderKatex(latexBlockMatch[0].slice(2, -2).trim(), true),
           }}
-        />,
+        />
       );
       remaining = remaining.slice(latexBlockMatch[0].length);
       continue;
@@ -388,7 +393,7 @@ function renderInline(
           dangerouslySetInnerHTML={{
             __html: renderKatex(latexInlineMatch[1]!, false),
           }}
-        />,
+        />
       );
       remaining = remaining.slice(latexInlineMatch[0].length);
       continue;
@@ -399,7 +404,7 @@ function renderInline(
       parts.push(
         <strong key={key++} className="text-fg-primary font-semibold">
           <em>{boldItalicMatch[1]}</em>
-        </strong>,
+        </strong>
       );
       remaining = remaining.slice(boldItalicMatch[0].length);
       continue;
@@ -410,7 +415,7 @@ function renderInline(
       parts.push(
         <strong key={key++} className="text-fg-primary font-semibold">
           {boldMatch[1]}
-        </strong>,
+        </strong>
       );
       remaining = remaining.slice(boldMatch[0].length);
       continue;
@@ -428,14 +433,26 @@ function renderInline(
     const codeMatch = remaining.match(/^`([^`]+)`/);
     if (codeMatch) {
       parts.push(
-        <code
-          key={key++}
-          className="text-[#e8b84a] bg-[#1a1a2e] px-1 rounded font-mono text-sm"
-        >
+        <code key={key++} className="rounded bg-[#1a1a2e] px-1 font-mono text-sm text-[#e8b84a]">
           {codeMatch[1]}
-        </code>,
+        </code>
       );
       remaining = remaining.slice(codeMatch[0].length);
+      continue;
+    }
+
+    // `[[概念]]` wiki-links annotate a concept graph (the "连接节点" lines in
+    // physics KB). Many targets have no page, so render the name as an
+    // emphasized non-link chip rather than risk dead links. Checked before the
+    // `[label](url)` rule since both start with `[`.
+    const wikiMatch = remaining.match(/^\[\[([^\]|]+)(?:\|[^\]]+)?\]\]/);
+    if (wikiMatch) {
+      parts.push(
+        <span key={key++} className="text-fg-primary font-medium">
+          {wikiMatch[1]!.trim()}
+        </span>
+      );
+      remaining = remaining.slice(wikiMatch[0].length);
       continue;
     }
 
@@ -448,7 +465,7 @@ function renderInline(
           className="text-[#6366f1] underline hover:text-[#818cf8]"
         >
           {linkMatch[1]}
-        </a>,
+        </a>
       );
       remaining = remaining.slice(linkMatch[0].length);
       continue;
@@ -460,12 +477,12 @@ function renderInline(
         <a
           key={key++}
           href={`#fn-${footnoteRefMatch[1]}`}
-          className="font-mono text-xs align-super"
+          className="align-super font-mono text-xs"
           style={{ color: "#6366f1" }}
           title={footnotes.get(footnoteRefMatch[1]!)!}
         >
           [{footnoteRefMatch[1]}]
-        </a>,
+        </a>
       );
       remaining = remaining.slice(footnoteRefMatch[0].length);
       continue;
@@ -481,7 +498,7 @@ function renderInline(
           loading="lazy"
           decoding="async"
           className="inline max-w-full rounded"
-        />,
+        />
       );
       remaining = remaining.slice(imgMatch[0].length);
       continue;

@@ -1,0 +1,124 @@
+---
+title: 梯度提升
+title_en: Gradient Boosting
+status: published
+updated: 2026-06-13
+category: 机器学习算法
+order: 36
+field: 计算机科学 · 机器学习 · 集成学习
+tags:
+  - 梯度提升
+  - XGBoost
+  - 集成学习
+  - 弱学习器
+  - 决策树
+related:
+  - random-forests
+  - decision-trees
+  - gradient-descent-backprop
+---
+
+# 梯度提升
+
+2001 年，斯坦福大学教授杰罗姆·弗里德曼（Jerome Friedman）发表论文《贪婪函数近似：梯度提升机》，将函数空间的梯度下降与集成学习结合，创造了梯度提升（Gradient Boosting）框架。此后，以此为基础的 XGBoost（2016）、LightGBM（2017）和 CatBoost（2017）横扫了数据科学竞赛——在 Kaggle 上，每年大量冠军方案的核心都是梯度提升树。
+
+## 破除误解：提升不是更强的随机森林
+
+随机森林和梯度提升都用决策树作为基础元件，但策略根本不同：
+
+- **随机森林（Bagging）**：并行训练大量独立的树，用多样性减少方差。
+- **梯度提升（Boosting）**：串行训练树，每棵树**专门修正前面所有树的错误**，用迭代减少偏差。
+
+随机森林的树互相独立；梯度提升的树高度依赖——每棵树都是针对"当前模型的残差"训练的。
+
+## 核心思想：在函数空间做梯度下降
+
+弗里德曼的关键洞见：把集成模型 $F(x) = \sum_m h_m(x)$ 看作函数空间中的一个点，每次迭代添加一个新函数 $h_m$，方向是**损失函数对当前模型的负梯度**。
+
+这与参数空间的梯度下降完全类比：
+
+| 参数空间梯度下降          | 函数空间梯度提升              |
+|----------------------|---------------------------|
+| 参数向量 $\theta$       | 函数 $F(x)$                |
+| 参数梯度 $\nabla_\theta L$ | 函数梯度（伪残差）$r_i$       |
+| 参数更新步              | 添加弱学习器 $h_m$           |
+| 学习率 $\eta$           | 收缩率 $\nu$（Shrinkage）    |
+
+## 标准梯度提升算法
+
+**算法框架**（以均方误差回归为例）：
+
+```
+初始化：F_0(x) = 常数（如目标均值）
+对 m = 1, 2, ..., M：
+  计算伪残差：r_i = -[∂L(y_i, F(x_i)) / ∂F(x_i)]
+                  （对 MSE：r_i = y_i - F_{m-1}(x_i)）
+  训练一棵回归树 h_m 来拟合伪残差 {r_i}
+  通过线搜索确定最优步长 γ_m
+  更新：F_m(x) = F_{m-1}(x) + ν · γ_m · h_m(x)
+输出：F_M(x)
+```
+
+**伪残差**是损失函数对模型输出的负梯度。对均方误差 $L = (y - F)^2 / 2$，负梯度恰好是残差 $y_i - F(x_i)$，这就是"残差拟合"这一说法的来源。但梯度提升框架更通用——对任意可微损失函数都适用，包括分类的对数损失、排序的损失等。
+
+## XGBoost：梯度提升的工程极致
+
+陈天奇（Tianqi Chen）于 2016 年发表的 XGBoost（eXtreme Gradient Boosting）将梯度提升做到了工业强度：
+
+**正则化目标函数**：
+
+$$\mathcal{L} = \sum_{i} l(y_i, \hat{y}_i) + \sum_m \Omega(h_m)$$
+
+$$\Omega(h) = \gamma T + \frac{\lambda}{2} \|w\|^2$$
+
+其中 $T$ 是叶节点数，$w$ 是叶节点权重。这直接在目标函数中控制树的复杂度，而不是事后剪枝。
+
+**关键工程优化**：
+
+- 近似分裂点算法：用分位数而非穷举找分裂点，大幅减少计算
+- 稀疏感知：高效处理缺失值和稀疏特征
+- 列块（Column Block）：将数据按列排序存储，加速特征选择
+- 并行化：特征排序并行，树级别并行
+
+LightGBM（微软，2017）进一步引入**基于梯度的单边采样（GOSS）**和**互斥特征捆绑（EFB）**，在大数据集上比 XGBoost 快数倍。
+
+## 实战调参要点
+
+梯度提升对超参数比随机森林敏感得多：
+
+| 超参数           | 作用           | 典型范围              |
+|----------------|--------------|---------------------|
+| `n_estimators` | 树的数量        | 100–10000            |
+| `learning_rate`| 收缩率 $\nu$   | 0.01–0.3（与树数量反比）|
+| `max_depth`    | 每棵树的深度     | 3–8                  |
+| `subsample`    | 行采样比例       | 0.5–0.9              |
+| `colsample`    | 列采样比例       | 0.5–0.9              |
+| `lambda`, `alpha` | L2/L1 正则化 | 依问题调整             |
+
+经验法则：**学习率小，树数量多**，通常比学习率大、树数量少更好，但训练更慢。早停（Early Stopping）用验证集误差自动确定最优树数量。
+
+## 代价与争议
+
+**串行训练，不易并行**：每棵树依赖前一棵，树的生成本质上是串行的（虽然每棵树内部的节点分裂可以并行）。这使得梯度提升训练比随机森林慢。
+
+**过拟合风险**：学习率过大或树太多太深，梯度提升很容易过拟合。需要仔细调参或使用早停。
+
+**不适合流式数据**：串行依赖使在线学习困难，而随机森林更易扩展到流式设置。
+
+**可解释性有限**：虽有特征重要性和 SHAP 值（SHapley Additive exPlanations），但预测过程仍然是黑盒。Shapley 值（2017 年 Lundberg & Lee 将其应用于 ML）是目前最受信任的模型解释方法之一。
+
+## 跨域连接
+
+- **[[gradient-descent-backprop]]**：梯度提升是函数空间的梯度下降，与参数空间的梯度下降共享同一框架，是"梯度"概念在更高维度的推广。
+- **[[random-forests]]**：同为基于决策树的集成方法，Bagging vs Boosting 的对比是机器学习中最经典的偏差-方差权衡案例。
+- **统计学**：AdaBoost（Freund & Schapire, 1997）是梯度提升的前身，弗里德曼将其重新解释为梯度下降。Freund 和 Schapire 因 Boosting 的工作获得了 2003 年 Gödel 奖。
+- **博弈论**：SHAP 值基于博弈论中的 Shapley 值，提供了"每个特征对预测贡献多少"的公理化公平分配方案。
+
+---
+
+## 延伸阅读
+
+- Friedman, J. H. *Greedy Function Approximation: A Gradient Boosting Machine.* Annals of Statistics 29(5), 1189–1232 (2001).
+- Chen, T. & Guestrin, C. *XGBoost: A Scalable Tree Boosting System.* KDD 2016. arXiv:1603.02754.
+- Ke, G. et al. *LightGBM: A Highly Efficient Gradient Boosting Decision Tree.* NeurIPS 2017.
+- Lundberg, S. M. & Lee, S.-I. *A Unified Approach to Interpreting Model Predictions.* NeurIPS 2017.

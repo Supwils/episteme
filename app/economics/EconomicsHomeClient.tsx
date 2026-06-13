@@ -88,6 +88,15 @@ const SECTIONS = [
     href: "/economics/knowledge-base",
     accent: "#56b6c2",
   },
+  {
+    id: "frontier",
+    icon: "🛰",
+    title: "研究前沿",
+    count: "2020s",
+    description: "可信性革命、市场设计、气候经济学、全球财富税——正在发生的经济学",
+    href: "/economics/frontier",
+    accent: "#e06c75",
+  },
 ];
 
 const STATS = [
@@ -174,7 +183,7 @@ export default function EconomicsHomeClient() {
       <div className="border-fg-disabled/30 pointer-events-none absolute right-6 bottom-6 h-3 w-3 border-r border-b" />
 
       {/* Hero Section */}
-      <section className="relative flex w-full flex-col items-start gap-8 px-6 sm:px-10 lg:px-16 pt-28 pb-24 md:pt-36 md:pb-32">
+      <section className="relative flex w-full flex-col items-start gap-8 px-6 pt-28 pb-24 sm:px-10 md:pt-36 md:pb-32 lg:px-16">
         <motion.p
           className="text-fg-muted font-mono text-[10px] tracking-[0.42em] uppercase"
           initial={{ opacity: 0 }}
@@ -229,7 +238,7 @@ export default function EconomicsHomeClient() {
       </section>
 
       {/* Section Cards */}
-      <section className="relative z-[2] w-full px-6 sm:px-10 lg:px-16 pb-20">
+      <section className="relative z-[2] w-full px-6 pb-20 sm:px-10 lg:px-16">
         <motion.p
           className="text-fg-muted mb-8 font-mono text-[10px] tracking-[0.38em] uppercase"
           initial={{ opacity: 0 }}
@@ -256,7 +265,7 @@ export default function EconomicsHomeClient() {
                 aria-label={`${section.title} — ${section.description}`}
               >
                 <div
-                  className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-20"
+                  className="pointer-events-none absolute -top-10 -right-10 h-28 w-28 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-20"
                   style={{ backgroundColor: section.accent }}
                 />
 
@@ -276,7 +285,7 @@ export default function EconomicsHomeClient() {
                 </div>
 
                 <div className="relative flex flex-col gap-1">
-                  <h2 className="font-display text-fg-primary text-xl font-semibold leading-tight transition-colors duration-300 group-hover:text-accent-gold">
+                  <h2 className="font-display text-fg-primary group-hover:text-accent-gold text-xl leading-tight font-semibold transition-colors duration-300">
                     {section.title}
                   </h2>
                 </div>
@@ -323,7 +332,7 @@ export default function EconomicsHomeClient() {
 
       {/* Stats Footer */}
       <section className="border-border-faint border-t border-b">
-        <div className="flex w-full flex-wrap items-center justify-center gap-12 px-6 sm:px-10 lg:px-16 py-12 md:justify-between">
+        <div className="flex w-full flex-wrap items-center justify-center gap-12 px-6 py-12 sm:px-10 md:justify-between lg:px-16">
           {STATS.map((stat) => (
             <StatCounter
               key={stat.label}

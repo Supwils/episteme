@@ -1,0 +1,121 @@
+---
+title: 软件工程
+title_en: Software Engineering
+status: published
+updated: 2026-06-13
+category: 软件工程实践
+order: 27
+field: 计算机科学 · 软件工程
+tags:
+  - 软件工程
+  - 开发方法论
+  - 敏捷
+  - 代码质量
+  - 项目管理
+related:
+  - design-patterns
+  - software-testing
+  - version-control
+---
+
+# 软件工程
+
+1968 年，北大西洋公约组织（NATO）在西德加尔米施举办了一次研讨会，议题只有一个：软件危机（Software Crisis）。
+
+当时，大型软件项目普遍超预算、超期限、质量低下，甚至根本无法完成。IBM 的 OS/360 操作系统开发——有数千程序员参与——成为失控的代名词。项目负责人 Fred Brooks 后来在《人月神话》（1975）中写道：**"添加人手到一个已经延迟的软件项目只会让它更加延迟。"**
+
+正是在这次会议上，与会者提出了"软件工程"（Software Engineering）这个词，试图把工程学的原则和方法引入软件开发。
+
+## 破除误解：软件工程不是"照书写代码"
+
+软件工程最大的误解是：它是一套可以机械执行的规则——只要按照某个方法论（瀑布/敏捷/Scrum）执行，就能生产出好软件。
+
+事实是，软件开发面临一种根本性的困难，Brooks 称之为**本质复杂性（Essential Complexity）**：软件所解决的问题本身就是复杂的，这种复杂性不能被任何方法论消除，只能被管理。相对地，**偶然复杂性（Accidental Complexity）**是工具和方法导致的不必要复杂性，这部分可以改善。
+
+软件工程的目标是：在不可消除的本质复杂性面前，尽量减少偶然复杂性，保持系统可理解、可修改、可测试。
+
+## 软件开发方法论的演进
+
+### 瀑布模型（Waterfall，1970 年代）
+
+Winston Royce 在 1970 年的论文中描述了一种顺序开发模型：需求分析 → 系统设计 → 编码 → 测试 → 部署 → 维护，每个阶段完成后才进入下一阶段。
+
+讽刺的是，Royce 在同一篇论文中指出这个模型在实践中会导致失败——但这个警告被大多数引用者忽视了。瀑布模型的根本问题：需求很少在一开始就能完整确定，错误越晚发现代价越大。
+
+### 迭代与增量开发（1980-1990 年代）
+
+Barry Boehm 的螺旋模型（1986）和其他迭代方法开始流行，核心思想是：**短周期交付可工作的软件**，每次迭代后根据反馈调整。
+
+### 敏捷宣言（Agile，2001）
+
+2001 年，17 位软件开发者在美国犹他州雪鸟（Snowbird）度假村起草了《敏捷软件开发宣言》，四项核心价值观：
+
+> 个体和互动 **高于** 流程和工具  
+> 工作的软件 **高于** 详尽的文档  
+> 客户合作 **高于** 合同谈判  
+> 响应变化 **高于** 遵循计划
+
+敏捷不是一种具体方法，而是一组价值观。具体的实践框架有：
+
+| 框架 | 核心 | 适用场景 |
+|------|------|---------|
+| Scrum | 2-4 周 Sprint，每日站会，Backlog | 产品团队，需求不确定 |
+| Kanban | 可视化工作流，限制并行任务（WIP） | 运维、支持，持续交付 |
+| XP（极限编程） | 结对编程、TDD、持续集成，工程纪律 | 技术质量要求高 |
+| SAFe / LeSS | 大规模敏捷，多团队协调 | 大型组织 |
+
+### DevOps（2010 年代）
+
+DevOps 打破了开发（Dev）和运维（Ops）之间的壁垒，强调：
+- **持续集成（CI）**：频繁合并代码，自动化测试
+- **持续交付（CD）**：任何时候都可以安全发布
+- **基础设施即代码（IaC）**：用代码管理服务器配置（Terraform、Ansible）
+- **监控与可观测性（Observability）**：追踪生产环境中系统的健康状态
+
+## 代码质量的量化困境
+
+软件质量很难量化。常用指标：
+
+**代码覆盖率（Code Coverage）**：测试覆盖的代码行数比例。高覆盖率不等于高质量——可以写大量没有断言的空测试把覆盖率刷到 100%。Google 内部经验表明，60-70% 的覆盖率是有意义且可持续的目标。
+
+**圈复杂度（Cyclomatic Complexity）**：函数中独立执行路径的数量，反映代码的分支复杂度。过高（通常 > 10）意味着函数需要拆分。
+
+**技术债（Technical Debt）**：为了快速交付而做的短视决策，未来需要"还债"（重构）。Ward Cunningham（Wiki 发明者）提出了这个比喻：就像财务债务，少量技术债可以接受，但积累过多会导致利息（维护成本）吞噬所有开发能力。
+
+## 软件工程的核心工具
+
+**代码审查（Code Review）**：提交代码前，由同事审查。Google、Microsoft 等公司的研究表明，代码审查是发现 bug 最具性价比的方法，同时传播知识和统一代码风格。
+
+**静态分析（Static Analysis）**：在不运行代码的情况下分析源代码，发现潜在 bug、类型错误、安全漏洞。工具包括 ESLint、Pylint、SonarQube、Coverity。
+
+**持续集成（CI）**：每次代码提交后自动运行测试套件，确保代码库始终处于可工作状态。GitHub Actions、Jenkins、CircleCI 是主流工具。
+
+**重构（Refactoring）**：在不改变外部行为的前提下，改善代码内部结构。Martin Fowler 的《重构》（1999）系统整理了 70 多种重构手法，如提取函数、内联变量、引入参数对象。
+
+## 代价与争议
+
+**Brooks 定律的反思**：有人质疑"没有银弹"（No Silver Bullet，Brooks 1986）是否过于悲观。现代静态类型语言、AI 辅助编程工具（GitHub Copilot）、云基础设施确实降低了部分偶然复杂性。但本质复杂性依然存在。
+
+**敏捷的商业化变形**：Scrum 已成为培训和认证产业（Certified ScrumMaster 等），被批评者认为失去了敏捷的原始精神，变成了另一种僵化的流程——"Zombie Scrum"。敏捷宣言的联署者之一 Dave Thomas 直言："Agile is dead."
+
+**远程工作与协作**：疫情加速了远程工作的普及，但许多敏捷实践（每日站会、结对编程、面对面沟通）假设团队在同一地点。异步协作工具和文档文化正在重塑软件工程实践。
+
+## 跨域连接
+
+- **心理学**：Brooks 定律背后是认知负荷和协调成本，涉及认知科学中的"工作记忆"和团队动力学。
+- **经济学**：技术债是一个经济概念，也受到贴现率、利率等经济原则的类比分析。
+- **[[version-control]]**：版本控制是软件工程最核心的基础设施，见版本控制条目。
+- **[[software-testing]]**：测试是软件质量保证的核心工具，见软件测试条目。
+- **[[design-patterns]]**：设计模式是软件工程实践的重要工具箱，见设计模式条目。
+
+---
+
+## 延伸阅读
+
+- Brooks, F. *The Mythical Man-Month.* Addison-Wesley, 1975. （软件项目管理的经典必读）
+- Beck, K. et al. *Manifesto for Agile Software Development.* agilemanifesto.org, 2001.
+- Fowler, M. *Refactoring: Improving the Design of Existing Code, 2nd Ed.* Addison-Wesley, 2018.
+- Humble, J. & Farley, D. *Continuous Delivery.* Addison-Wesley, 2010.
+- DeMarco, T. & Lister, T. *Peopleware: Productive Projects and Teams.* Dorset House, 1987. （人和文化在软件工程中的重要性）
+- Kim, G. et al. *The Phoenix Project: A Novel About IT, DevOps, and Helping Your Business Win.* IT Revolution Press, 2013. （DevOps 实践的小说化呈现，被大量工程师推荐）
+- Forsgren, N. et al. *Accelerate: The Science of Lean Software and DevOps.* IT Revolution Press, 2018. （基于四年大规模调研的软件交付效能量化研究）

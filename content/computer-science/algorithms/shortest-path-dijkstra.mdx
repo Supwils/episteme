@@ -1,0 +1,159 @@
+---
+title: 最短路径与 Dijkstra 算法
+title_en: Shortest Path and Dijkstra's Algorithm
+status: published
+updated: 2026-06-13
+category: 经典算法
+order: 4
+field: 计算机科学 · 算法 · 图论
+tags:
+  - Dijkstra
+  - 最短路径
+  - 图算法
+  - 贪心算法
+  - 优先级队列
+related:
+  - graph-traversal
+  - data-structures
+---
+
+# 最短路径与 Dijkstra 算法
+
+1956 年，荷兰计算机科学家艾兹赫尔·迪克斯特拉（Edsger W. Dijkstra）在阿姆斯特丹数学中心工作，那时没有鼠标、没有编辑器——程序员用铅笔在纸上写，然后把穿孔卡片送进去运行。
+
+他在这年想出了一个算法，能找出加权图中任意两点之间的最短路径。这个算法今天仍然运行在全球每一台路由器上，也在你每次用导航 App 的时候悄悄工作。
+
+迪克斯特拉后来回忆：他花了大约 20 分钟在一家阿姆斯特丹咖啡馆里构想出这个算法——那天他没有带铅笔纸。
+
+## 破除误解：最短路径不等于"最少边数"
+
+BFS 可以找到无权图中最少边数的路径。但现实问题通常有**权重**：
+
+- 路径：不同道路有不同长度
+- 网络：不同链路有不同延迟
+- 航班：不同路线有不同价格
+
+此时"最短路径"指权重之和最小的路径，而不仅仅是经过节点最少。BFS 无法处理这种情况——权重为 2 的直达路，可能比权重各为 1 的两跳路还要贵。
+
+Dijkstra 算法解决的正是加权图中的单源最短路径问题（Single-Source Shortest Paths）：从给定起点出发，求到图中所有其他节点的最短路径。
+
+**前提条件**：所有边的权重必须**非负**。负权边会破坏 Dijkstra 的核心假设（见后文争议部分）。
+
+## 算法思路：贪心地扩展最近节点
+
+Dijkstra 的核心是一个**贪心策略**：
+
+> 每次从"当前已知距起点最近的未处理节点"出发，更新其邻居的距离。
+
+维护一个距离表 `dist[v]`，初始化为：起点 $s$ 距离为 0，其余为 $\infty$。
+
+```
+dist = {A: 0, B: inf, C: inf, D: inf, E: inf}
+priority_queue = [(0, A)]  # (距离, 节点)
+```
+
+每次取出距离最小的节点 $u$，对其每条出边 $(u, v, w)$：
+
+$$\text{如果 } dist[u] + w < dist[v], \text{ 则更新 } dist[v] = dist[u] + w$$
+
+这叫做**松弛（Relaxation）**操作——"通过 $u$ 到达 $v$ 是否比目前已知的更短？"
+
+## 实现
+
+```python
+import heapq
+
+def dijkstra(graph, start):
+    # graph[u] = [(weight, v), ...]
+    dist = {node: float('inf') for node in graph}
+    dist[start] = 0
+    prev = {node: None for node in graph}  # 记录路径
+    pq = [(0, start)]  # 优先级队列（最小堆）
+
+    while pq:
+        d, u = heapq.heappop(pq)
+        if d > dist[u]:
+            continue  # 过时的条目，跳过
+        for weight, v in graph[u]:
+            new_dist = dist[u] + weight
+            if new_dist < dist[v]:
+                dist[v] = new_dist
+                prev[v] = u
+                heapq.heappush(pq, (new_dist, v))
+
+    return dist, prev
+```
+
+## 图解示例
+
+```
+        6
+   A --------- B
+   |  \        |
+ 1 |   4\      | 2
+   |     \     |
+   C       D --+-- E
+     \   /    3
+    2 \ / 1
+       F
+```
+
+从 A 出发：
+
+| 步骤 | 处理节点 | dist[A] | dist[B] | dist[C] | dist[D] |
+|------|---------|---------|---------|---------|---------|
+| 初始 | — | 0 | ∞ | ∞ | ∞ |
+| 1 | A | 0 | 6 | 1 | 4 |
+| 2 | C（最近=1） | 0 | 6 | 1 | 3 |
+| 3 | D（最近=3） | 0 | 5 | 1 | 3 |
+| 4 | B（最近=5） | 0 | 5 | 1 | 3 |
+
+## 复杂度
+
+时间复杂度取决于实现：
+
+| 实现 | 时间复杂度 |
+|------|-----------|
+| 朴素（遍历数组找最小） | $O(V^2)$ |
+| 二叉堆（标准优先级队列） | $O((V + E) \log V)$ |
+| 斐波那契堆（理论最优） | $O(E + V \log V)$ |
+
+实践中，二叉堆实现是最常用的。对稠密图（$E \approx V^2$），朴素版可能更快（常数小）；对稀疏图（$E \ll V^2$），堆版更优。
+
+## 为什么贪心是正确的
+
+Dijkstra 正确性的关键：若所有边权非负，那么一个节点一旦被弹出优先级队列（被标记为"已处理"），其最短距离就已经确定，不会再被改进。
+
+**证明的直觉**：已处理节点 $u$ 的距离 $dist[u]$ 是当前最小的。通过其他未处理节点绕路到 $u$ 的任何路径，距离必然 $\geq dist[u]$（因为所有边权 $\geq 0$）。所以不存在更短的路。
+
+这个论证在有**负权边**时失效——负权边可以让"绕远路"反而变短，破坏了"已处理节点不再更新"的假设。处理负权边需要 Bellman-Ford 算法（$O(VE)$，慢得多）。
+
+## 现实应用
+
+**互联网路由**：OSPF（Open Shortest Path First）协议是互联网内部路由的主要协议之一，其核心就是 Dijkstra 算法。每个路由器维护一张网络拓扑图，用 Dijkstra 计算到所有目的地的最短路径，构建转发表。
+
+**GPS 导航**：地图导航系统的路径规划在 Dijkstra 基础上加入了 A* 启发式（用直线距离作为"估计剩余距离"），显著减少需要探索的节点数量。大规模地图还使用 Contraction Hierarchies（层级收缩）等预处理技术，让实时查询快到毫秒级。
+
+**游戏地图寻路**：策略游戏、RPG 中的单位寻路通常使用 A*，可以理解为"有启发函数的 Dijkstra"。
+
+## 代价与争议
+
+**负权边**：Dijkstra 不支持负权边——这在某些场景（如套汇问题、某些图形问题）是限制。Bellman-Ford 支持负权边，但慢 $O(VE)$；Johnson's Algorithm 对整图权重重新标注，使得可以对所有点对运行 Dijkstra，复杂度 $O(V^2 \log V + VE)$。
+
+**大规模地图的实际挑战**：Google Maps 的地图有数十亿节点。朴素 Dijkstra 不够快，实际系统使用了大量预计算、分层和启发式技术，与教科书 Dijkstra 已相差甚远。
+
+**与 BFS 的关系**：若所有边权为 1，Dijkstra 退化为 BFS。Dijkstra 可以视为"加权 BFS"——用优先级队列代替普通队列。
+
+## 跨域连接
+
+- **[[graph-traversal]]**：BFS 是无权最短路径；Dijkstra 是加权推广；A* 是加启发函数的 Dijkstra。
+- **运筹学**：最短路径问题是网络流理论的基础；最大流最小割定理和最短路径有深刻联系。
+- **互联网基础设施**：路由协议（OSPF、IS-IS）是 Dijkstra 算法最大规模的工程部署，运行在全球每一台核心路由器上。
+
+---
+
+## 延伸阅读
+
+- Dijkstra, E. W. *A Note on Two Problems in Connexion with Graphs.* Numerische Mathematik 1, 269–271 (1959). （原始论文，仅3页）
+- Cormen, T. et al. *Introduction to Algorithms (CLRS).* 3rd ed. 第24章. MIT Press, 2009.
+- Goldberg, A. & Harrelson, C. *Computing the Shortest Path: A Search Meets Graph Theory.* SODA 2005. （现代大规模路径规划技术的起点之一）

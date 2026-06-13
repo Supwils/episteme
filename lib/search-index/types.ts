@@ -30,5 +30,7 @@ export interface SearchDocument {
     | "phenomenon"
     | "disorder"
     | "psychologist"
-    | "knowledgeBase";
+    | "knowledgeBase"
+    | "frontier"
+    | "entry";
 }

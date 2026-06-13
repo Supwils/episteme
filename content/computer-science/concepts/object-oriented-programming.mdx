@@ -1,0 +1,126 @@
+---
+title: 面向对象编程
+title_en: Object-Oriented Programming
+status: published
+updated: 2026-06-13
+category: 编程范式
+order: 24
+field: 计算机科学 · 编程语言
+tags:
+  - 面向对象
+  - 封装
+  - 继承
+  - 多态
+  - 类
+related:
+  - functional-programming
+  - design-patterns
+  - abstraction
+---
+
+# 面向对象编程
+
+1966 年，挪威计算机科学家奥利·约翰·达尔（Ole-Johan Dahl）和克里斯滕·尼高（Kristen Nygaard）发布了 Simula 67——一种为离散事件模拟而设计的语言。为了模拟现实中的船只、银行和交通系统，他们引入了"类"和"对象"的概念：把数据和操作数据的方法打包在一起，称为一个对象。
+
+这个实用的工程决策，最终演变成了 20 世纪最主流的编程范式。
+
+## 破除误解：OOP 的核心不是"继承"
+
+许多教材把面向对象编程（Object-Oriented Programming，OOP）讲成：继承是核心，通过继承实现代码复用。这个理解导致了无数糟糕的代码库。
+
+Alan Kay，Smalltalk 语言（1972）的设计者，也是第一个使用"面向对象"这个术语的人，曾明确说过他对 OOP 的定义：**消息传递（messaging）才是核心**。对象之间通过发送消息通信，每个对象自己决定如何响应消息，内部实现对外完全隐藏。
+
+继承只是实现代码复用的一种机制，而且是问题最多的一种。
+
+OOP 的四个核心概念，重要性依次排列：
+
+**1. 封装（Encapsulation）**：把数据和操作数据的方法捆绑在一起，对外只暴露接口，隐藏内部实现。这是 OOP 最核心的贡献。
+
+**2. 多态（Polymorphism）**：同一个接口，不同类型的对象可以有不同的行为。调用者不需要知道对象的具体类型，只需要知道它能响应哪些消息。
+
+**3. 继承（Inheritance）**：子类复用父类的代码，并可以覆盖（override）部分行为。
+
+**4. 抽象（Abstraction）**：通过接口/抽象类定义"应该做什么"，不规定"怎么做"。
+
+## 多态：OOP 最强大的工具
+
+```java
+// 不同类型的动物，但都能响应 makeSound()
+Animal dog = new Dog();
+Animal cat = new Cat();
+
+dog.makeSound();  // 输出：Woof
+cat.makeSound();  // 输出：Meow
+```
+
+多态的力量在于：调用者的代码（`animal.makeSound()`）不需要随着动物种类的增加而修改。这是"对扩展开放，对修改关闭"（开闭原则）的直接体现。
+
+多态有两种主要实现方式：
+
+- **动态多态（运行时绑定）**：Java、Python 中通过继承/接口实现，方法调用在运行时决定
+- **参数多态（泛型）**：C++ 模板、Java 泛型，一个函数可以作用于多种类型
+- **特设多态（运算符重载）**：同一个运算符对不同类型有不同行为
+
+## 继承的问题：组合优于继承
+
+继承是 OOP 中使用最广泛也被滥用最多的特性。《设计模式》（1994）一书最重要的设计建议之一就是：**"优先使用组合（composition）而非继承（inheritance）"**。
+
+为什么？
+
+**脆弱基类问题（Fragile Base Class Problem）**：父类的修改可能以不可预见的方式破坏子类的行为。子类对父类的内部实现有隐式依赖。
+
+**继承层次地狱**：多层继承（A 继承 B，B 继承 C……）产生的系统极难理解和修改。经典的反面教材是 Java 早期 GUI 框架的继承树。
+
+**违反里氏替换原则（LSP）**：如果子类不能在所有情况下替换父类，这个继承关系在语义上就是错误的。经典例子是"正方形是矩形的子类"——听起来正确，但会破坏所有依赖"矩形宽高可独立设置"的代码。
+
+**组合的替代**：用"has-a"（有一个）而不是"is-a"（是一个）来构建关系。一个 `Duck` 不需要继承 `FlyingBird`，而是持有一个 `FlyBehavior` 对象，在运行时可以更换飞行策略。
+
+## SOLID 原则
+
+SOLID 是 Robert C. Martin（"Uncle Bob"）总结的五条面向对象设计原则：
+
+| 原则 | 含义 |
+|------|------|
+| **S** - Single Responsibility | 一个类只负责一件事 |
+| **O** - Open/Closed | 对扩展开放，对修改关闭 |
+| **L** - Liskov Substitution | 子类必须可以替换父类 |
+| **I** - Interface Segregation | 不应强迫客户依赖它不使用的接口 |
+| **D** - Dependency Inversion | 高层模块不依赖低层模块，两者都依赖抽象 |
+
+这五条原则不是 OOP 独有的，但在 OOP 语境下尤其重要。违反 SOLID 的代码库，通常就是难以测试、难以修改的"大泥球"（Big Ball of Mud）。
+
+## OOP 与语言
+
+主要的 OOP 语言形成了几个流派：
+
+**纯 OOP（一切皆对象）**：Smalltalk、Ruby——连数字都是对象，有自己的方法
+**混合 OOP**：Java、C++——有基本类型（primitive types），不是对象
+**原型 OOP**：JavaScript——没有类（ES6 class 是语法糖），对象直接从其他对象继承
+**多范式**：Python、Scala、Kotlin——支持 OOP 和函数式
+
+## 代价与争议
+
+**OOP 过度被神化**：1990 年代，OOP 被视为软件危机的解药。实践证明，OOP 本身不能解决软件复杂性，糟糕的 OOP 代码和糟糕的过程式代码一样糟糕。
+
+**与函数式的张力**：函数式编程的支持者认为，可变状态（OOP 的对象通常是可变的）是 bug 的主要来源，纯函数更容易测试和推理。两个范式各有优势，现代语言趋向融合。
+
+**Java 的批评**：Java 的强制 OOP（一切必须在类里）导致了大量"只有静态方法的工具类"这样语义错误但不得不用的模式。Martin Odersky（Scala 创建者）等人认为，过于僵化的 OOP 强制造成了不必要的冗余。
+
+**"面向对象是一种思维方式"的批评**：OOP 通常被解释为"模拟现实世界"——车有颜色、狗能叫。但计算问题往往不是"模拟现实"，强行用现实世界类比设计软件会产生扭曲的模型。Eric Evans 的领域驱动设计（DDD）是一种更成熟的"以领域为中心"建模方法。
+
+## 跨域连接
+
+- **[[functional-programming]]**：OOP 与函数式编程是两大主流范式，现代语言的趋势是融合两者。
+- **[[design-patterns]]**：23 种经典设计模式是 OOP 的最佳实践提炼，见设计模式条目。
+- **[[abstraction]]**：封装是抽象的直接实现，OOP 的类是数据抽象的主要形式。
+- **哲学**：OOP 的建模方式体现了亚里士多德的分类学传统——按"属"（类）和"种"（子类）组织知识。
+
+---
+
+## 延伸阅读
+
+- Kay, A. *The Early History of Smalltalk.* ACM SIGPLAN, 1993.
+- Gamma, E., Helm, R., Johnson, R., Vlissides, J. *Design Patterns: Elements of Reusable Object-Oriented Software.* Addison-Wesley, 1994. （"四人帮"，GoF）
+- Martin, R. C. *Clean Code.* Prentice Hall, 2008.
+- Liskov, B. & Wing, J. *A Behavioral Notion of Subtyping.* ACM TOPLAS 16(6), 1994.
+- West, D. *Object Thinking.* Microsoft Press, 2004. （从 Alan Kay 的原始视角理解 OOP）

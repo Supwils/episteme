@@ -7,6 +7,8 @@ import { LIFE_SCIENCE_REFS } from "./life-science-refs";
 import { COSMOLOGY_REFS } from "./cosmology-refs";
 import { ECONOMICS_REFS } from "./economics-refs";
 import { PSYCHOLOGY_REFS } from "./psychology-refs";
+import { COMPUTER_SCIENCE_REFS } from "./computer-science-refs";
+import { POLITICAL_SCIENCE_REFS } from "./political-science-refs";
 
 export type { Domain, CrossReference } from "./types";
 export { DOMAIN_LABELS, DOMAIN_ROUTES } from "./types";
@@ -19,6 +21,8 @@ const CROSS_REFERENCES: CrossReference[] = [
   ...COSMOLOGY_REFS,
   ...ECONOMICS_REFS,
   ...PSYCHOLOGY_REFS,
+  ...COMPUTER_SCIENCE_REFS,
+  ...POLITICAL_SCIENCE_REFS,
 ];
 
 export { CROSS_REFERENCES };
@@ -32,15 +36,11 @@ export function getCrossReferences(domain: Domain, id: string): CrossReference[]
 }
 
 export function getOutgoingReferences(domain: Domain, id: string): CrossReference[] {
-  return CROSS_REFERENCES.filter(
-    (ref) => ref.fromDomain === domain && ref.fromId === id
-  );
+  return CROSS_REFERENCES.filter((ref) => ref.fromDomain === domain && ref.fromId === id);
 }
 
 export function getIncomingReferences(domain: Domain, id: string): CrossReference[] {
-  return CROSS_REFERENCES.filter(
-    (ref) => ref.toDomain === domain && ref.toId === id
-  );
+  return CROSS_REFERENCES.filter((ref) => ref.toDomain === domain && ref.toId === id);
 }
 
 export function getRelatedDomains(domain: Domain): Domain[] {
@@ -52,7 +52,10 @@ export function getRelatedDomains(domain: Domain): Domain[] {
   return [...related];
 }
 
-export function resolveReference(ref: CrossReference, currentDomain: Domain): {
+export function resolveReference(
+  ref: CrossReference,
+  currentDomain: Domain
+): {
   targetDomain: Domain;
   targetId: string;
   targetTitle: string;
@@ -61,11 +64,14 @@ export function resolveReference(ref: CrossReference, currentDomain: Domain): {
   direction: "outgoing" | "incoming";
 } {
   const isOutgoing = ref.fromDomain === currentDomain;
+  const targetDomain = isOutgoing ? ref.toDomain : ref.fromDomain;
+  const targetId = isOutgoing ? ref.toId : ref.fromId;
+  const explicitPath = isOutgoing ? ref.toPath : ref.fromPath;
   return {
-    targetDomain: isOutgoing ? ref.toDomain : ref.fromDomain,
-    targetId: isOutgoing ? ref.toId : ref.fromId,
+    targetDomain,
+    targetId,
     targetTitle: isOutgoing ? ref.toTitle : ref.fromTitle,
-    targetRoute: `${DOMAIN_ROUTES[isOutgoing ? ref.toDomain : ref.fromDomain]}/${isOutgoing ? ref.toId : ref.fromId}`,
+    targetRoute: explicitPath ?? `${DOMAIN_ROUTES[targetDomain]}/${targetId}`,
     relation: ref.relation,
     direction: isOutgoing ? "outgoing" : "incoming",
   };

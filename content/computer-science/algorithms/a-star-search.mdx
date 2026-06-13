@@ -1,0 +1,146 @@
+---
+title: A* 搜索算法
+title_en: A* Search Algorithm
+status: published
+updated: 2026-06-13
+category: 图算法
+order: 15
+field: 计算机科学 · 人工智能 · 搜索
+tags:
+  - A*
+  - 启发式搜索
+  - 路径规划
+  - 人工智能
+related:
+  - shortest-path-dijkstra
+  - graph-traversal
+  - greedy-algorithms
+---
+
+# A* 搜索算法
+
+1968 年，Stanford Research Institute 的三位研究员——Peter Hart、Nils Nilsson 和 Bertram Raphael——在开发一台机器人（Shakey）的导航系统时，需要一种高效的路径规划算法。
+
+他们提出的算法发表在论文"A Formal Basis for the Heuristic Determination of Minimum Cost Paths"中，被命名为 A*（读作"A-star"）。五十多年后，A* 仍然是路径规划领域最重要的算法之一，是游戏引擎、地图应用、机器人导航的标准工具。
+
+## Dijkstra 的局限
+
+理解 A* 需要先理解它在解决什么问题。
+
+Dijkstra 算法在已知图上找最短路径，是精确且通用的。但它有一个根本问题：它**不知道目标在哪里**。它从源点出发，以"涟漪"形式向四面八方展开，直到遇到目标——这意味着在目标方向上的搜索效率与在错误方向上相同，浪费了大量计算。
+
+在大型地图上，Dijkstra 可能需要探索数百万个节点；而如果我们能告诉算法"目标大概在东北方向"，就可以优先往那个方向搜索，大幅提升效率。
+
+这就是**启发式搜索（Heuristic Search）**的思想，A* 是其最成功的实现。
+
+## 核心思想：$f = g + h$
+
+A* 对每个节点 $n$ 维护一个**估计函数**：
+
+$$f(n) = g(n) + h(n)$$
+
+- $g(n)$：从起点到节点 $n$ 的**已知实际代价**（与 Dijkstra 一样）
+- $h(n)$：从节点 $n$ 到目标的**启发式估计代价**（对未来的猜测）
+- $f(n)$：经过节点 $n$ 的路径的**估计总代价**
+
+算法每次从优先队列中取出 $f$ 值最小的节点，与 Dijkstra 每次取 $g$ 值最小相比，A* 用启发函数 $h$ 引导搜索朝向目标。
+
+```
+A* 算法框架：
+open_set = {start}  （带优先级，按 f 值）
+g[start] = 0
+f[start] = h(start)
+
+while open_set 非空：
+    current = open_set 中 f 值最小的节点
+    if current == goal: 返回路径
+    for 每个邻居 neighbor:
+        tentative_g = g[current] + cost(current, neighbor)
+        if tentative_g < g[neighbor]:
+            g[neighbor] = tentative_g
+            f[neighbor] = g[neighbor] + h(neighbor)
+            将 neighbor 加入 open_set
+```
+
+## 启发函数的关键：可接受性
+
+A* 正确性（保证找到最短路径）的关键条件：**启发函数 $h$ 必须是可接受的（admissible）**，即：
+
+$$h(n) \leq h^*(n)$$
+
+其中 $h^*(n)$ 是从节点 $n$ 到目标的真实最短代价。换言之，$h$ **不能高估**实际代价。
+
+**为什么？** 直觉：若 $h$ 高估，则某些"绕路"的节点因为 $h$ 值被高估而被算法跳过，可能错失真正的最短路径。若 $h$ 从不高估，被跳过的路径一定不是最优的。
+
+更强的条件是**一致性（Consistency / Monotonicity）**：
+
+$$h(n) \leq cost(n, n') + h(n')$$
+
+对所有 $n$ 的邻居 $n'$ 成立（类似三角不等式）。一致的启发函数一定可接受，且使得 A* 无需重新处理节点，效率更高。
+
+## 常用启发函数
+
+**网格地图（Grid Map）**：
+
+- **曼哈顿距离**（Manhattan Distance，仅允许上下左右移动）：$h = |x_1 - x_2| + |y_1 - y_2|$
+- **欧几里得距离**（允许任意方向移动）：$h = \sqrt{(x_1-x_2)^2 + (y_1-y_2)^2}$
+- **切比雪夫距离**（允许对角移动）：$h = \max(|x_1-x_2|, |y_1-y_2|)$
+
+**地图路由（道路网络）**：直线距离除以最大速度，是行驶时间的下界。
+
+**八数码（8-puzzle）**：每个数字到目标位置的曼哈顿距离之和——这是可接受的，因为每个数字至少需要这么多步移动，各数字不妨碍彼此。
+
+## 效率：$h$ 越紧越好
+
+- $h = 0$：A* 退化为 Dijkstra——均匀展开，无方向性，最慢但保证最优
+- $h = h^*$（完美启发）：A* 直接找到最短路，不走弯路，最快
+- $h > h^*$（不可接受）：速度快但可能错过最优路径（变为近似算法）
+
+这揭示了一个根本权衡：**启发函数越精确，搜索越高效；但精确启发往往难以计算**。实践中追求"足够紧"的可接受启发。
+
+## A* 的复杂度与局限
+
+**理论复杂度**（最坏情况）：$O(b^d)$，$b$ 是分支因子，$d$ 是解的深度。在无启发的情况下，A* 与 BFS 一样是指数级的。但好的启发函数可以将有效分支因子降到接近 1，使时间近乎线性。
+
+**内存**是 A* 的主要瓶颈：在最坏情况下，open set 可能存储指数多的节点。
+
+改进方案：
+- **IDA*（Iterative-Deepening A*，Korf 1985）**：用迭代加深代替优先队列，内存 $O(d)$，在许多场景（如数字拼图）更实用
+- **SMA*（Simplified Memory-Bounded A*）**：内存满时删除最不有希望的节点
+- **双向 A***：从起点和终点同时搜索，在某些图上大幅提速
+
+## 现实应用
+
+**视频游戏**：几乎所有 RTS（即时战略）游戏的单位寻路都用 A* 或其变种。Warcraft、StarCraft、Age of Empires 等经典游戏的地面单位导航背后都有 A*。
+
+**地图导航**：Google Maps、高德地图的路线规划结合了 A* 与更复杂的层次化路由算法（如 Contraction Hierarchies，用于超大规模道路网络）。
+
+**机器人学**：机器人路径规划在连续空间中用 RRT（Rapidly-exploring Random Trees）和 PRM（Probabilistic Roadmap），但离散化后的 A* 仍是基础工具。
+
+**解谜与 AI**：在 15 数码、魔方等状态空间搜索问题中，IDA* 是标准解法。Deep Blue（IBM 国际象棋 AI）的搜索树也用了带剪枝的 A* 类方法。
+
+## A* 的变种与继承者
+
+**Weighted A*（权重化 A*）**：用 $f = g + w \cdot h$（$w > 1$）加速搜索，以找到次优但更快的解（满足 $w$-最优）。
+
+**Theta*（Theta-star）**：在网格上，允许从任意已访问节点到当前节点的直线路径，生成更自然的（非格点受限的）路径。
+
+**D*（Dynamic A*）和 D* Lite（Koenig & Likhachev 2002）**：动态环境下的 A* 变种，当地图部分变化时增量更新路径，广泛用于机器人实时导航。
+
+**ARA*（Anytime Repairing A*）**：先快速找一个粗糙解，然后利用剩余时间逐步优化，适合实时系统。
+
+## 跨域连接
+
+- **[[shortest-path-dijkstra]]**：Dijkstra 是 A* 的特例（$h=0$）。A* 可以看作"带方向感"的 Dijkstra，是其自然进化。
+- **[[graph-traversal]]**：A* 的框架建立在 BFS/DFS 之上，优先队列版的 BFS 就是 Dijkstra，加上启发函数就是 A*。
+- **[[greedy-algorithms]]**：纯启发式贪心搜索（每次只选 $h$ 最小的）是 A* 的极端情况——速度快但不保证最优；A* 用 $g+h$ 在贪心与最优之间取得平衡。
+- **认知科学**：人类的空间导航（海马体的"位置细胞"和"网格细胞"）有时被类比为生物版本的 A* 启发搜索——大脑维护位置的内部表征，引导行为。
+
+---
+
+## 延伸阅读
+
+- Hart, P., Nilsson, N. & Raphael, B. "A Formal Basis for the Heuristic Determination of Minimum Cost Paths." *IEEE Transactions on Systems Science and Cybernetics* 4(2), 1968.
+- Korf, R. "Depth-First Iterative-Deepening." *Artificial Intelligence* 27(1), 1985.
+- Russell, S. & Norvig, P. *Artificial Intelligence: A Modern Approach.* 4th ed. Pearson, 2020. （第3-4章）
+- Koenig, S. & Likhachev, M. "D* Lite." *AAAI*, 2002.

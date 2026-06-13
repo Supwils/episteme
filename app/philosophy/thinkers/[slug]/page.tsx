@@ -8,6 +8,7 @@ import { ERA_ACCENT, SITE_URL } from "@/lib/constants";
 import { parseContent } from "@/components/thinker-detail/content-parser";
 import RenderBlocks from "@/components/thinker-detail/RenderBlocks";
 import ThinkerSidebar from "@/components/thinker-detail/ThinkerSidebar";
+import { ArticleSidebar } from "@/components/ArticleSidebar";
 import ThinkerNav from "@/components/thinker-detail/ThinkerNav";
 import { createPersonJsonLd } from "@/lib/jsonld";
 
@@ -24,7 +25,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${thinker.title} — 哲学`,
     description,
-    openGraph: { title: `${thinker.title} — 哲学`, description, images: [{ url: ogImage, width: 1200, height: 630 }] },
+    openGraph: {
+      title: `${thinker.title} — 哲学`,
+      description,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
   };
 }
 
@@ -76,7 +81,7 @@ export default async function ThinkerDetailPage({ params }: { params: Promise<{ 
         <div className="mt-6 flex flex-col gap-4">
           <div className="flex flex-wrap items-center gap-2.5">
             <span
-              className="rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em]"
+              className="rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.2em] uppercase"
               style={{
                 borderColor: `${accent}30`,
                 color: accent,
@@ -94,7 +99,7 @@ export default async function ThinkerDetailPage({ params }: { params: Promise<{ 
             {thinker.title}
           </h1>
 
-          <p className="text-fg-muted font-mono text-sm italic tracking-wider">
+          <p className="text-fg-muted font-mono text-sm tracking-wider italic">
             {thinker.philosopher}
           </p>
 
@@ -133,7 +138,7 @@ export default async function ThinkerDetailPage({ params }: { params: Promise<{ 
           </div>
         </article>
 
-        <aside className="w-full flex-shrink-0 lg:w-80">
+        <ArticleSidebar>
           <ThinkerSidebar
             accent={accent}
             era={thinker.era}
@@ -142,7 +147,7 @@ export default async function ThinkerDetailPage({ params }: { params: Promise<{ 
             wordCount={wordCount}
             relatedThinkers={relatedThinkers}
           />
-        </aside>
+        </ArticleSidebar>
       </div>
 
       <ThinkerNav prevThinker={prevThinker} nextThinker={nextThinker} />

@@ -1,0 +1,151 @@
+---
+title: 贝尔曼-福特算法
+title_en: Bellman-Ford Algorithm
+status: published
+updated: 2026-06-13
+category: 图算法
+order: 21
+field: 计算机科学 · 图论 · 最短路径
+tags:
+  - 贝尔曼-福特
+  - 最短路径
+  - 负权边
+  - 动态规划
+related:
+  - shortest-path-dijkstra
+  - dynamic-programming
+  - floyd-warshall
+---
+
+# 贝尔曼-福特算法
+
+1958 年，Richard Bellman（动态规划的奠基人）和 Lester Ford Jr.（同年与 Fulkerson 发表最大流论文的人）分别发现了处理含负权边图的最短路径算法。Alfonso Shimbel 在 1955 年也独立发现了相似方法。
+
+Dijkstra 算法无法处理负权边——这不是实现的缺陷，而是贪心策略在负权下理论上就会失败。Bellman-Ford 通过动态规划，绕过了这一限制。
+
+更重要的是，Bellman-Ford 能**检测负权环（Negative Weight Cycle）**——一个路径绕一圈就能让总代价无限减少的环，使"最短路径"变得无意义。
+
+## Dijkstra 为何无法处理负权边
+
+Dijkstra 的核心假设：**一旦某节点的最短距离被确定（取出优先队列），就永远不需要更新**。
+
+这依赖于"非负边权保证：从已确定节点出发的路径，距离只会增大"。
+
+若存在负权边，已"确定"的节点可能通过后续的负权边获得更短路径，导致 Dijkstra 给出错误答案。
+
+```
+例：S → A (权重5)，S → B (权重2)，B → A (权重-4)
+实际 S → A 最短路：S→B→A = 2 + (-4) = -2
+Dijkstra 先确定 B(2)，再确定 A(5)，错误！（A 的真实最短距离是 -2）
+```
+
+## Bellman-Ford 核心思想
+
+**关键观察**：若图有 $V$ 个节点，不含负权环，则最短路径上**最多经过 $V-1$ 条边**（路径不重复访问节点，否则去掉环更短）。
+
+**动态规划状态**：$d_k(v)$ = 从源点 $s$ 出发，经过**最多 $k$ 条边**到达 $v$ 的最短距离。
+
+**递推**：
+
+$$d_k(v) = \min\left(d_{k-1}(v),\ \min_{(u,v) \in E}\left(d_{k-1}(u) + w(u, v)\right)\right)$$
+
+初始：$d_0(s) = 0$，$d_0(v) = \infty$（$v \neq s$）
+
+迭代 $V-1$ 次即可得到所有最短路径。
+
+**等价算法描述**（更常用的实现）：
+
+```python
+def bellman_ford(graph, source, V, E):
+    dist = {v: float('inf') for v in graph.nodes}
+    dist[source] = 0
+    
+    for _ in range(V - 1):
+        for (u, v, w) in E:  # 松弛每条边
+            if dist[u] + w < dist[v]:
+                dist[v] = dist[u] + w
+    
+    # 检测负权环
+    for (u, v, w) in E:
+        if dist[u] + w < dist[v]:
+            return "存在负权环"
+    
+    return dist
+```
+
+**时间复杂度**：$O(VE)$（$V-1$ 轮，每轮松弛所有 $E$ 条边）。
+
+比 Dijkstra 的 $O((V+E) \log V)$ 慢，但能处理负权边，且检测负权环。
+
+## 负权环检测
+
+第 $V$ 轮（额外再做一次）松弛：若仍有边能被松弛，说明从源点可达某负权环——在有 $V-1$ 条边已能覆盖所有最短路的情况下，第 $V$ 次仍能松弛，意味着路径还在"缩短"，必然有负权环。
+
+负权环在现实中的意义：
+- **套利机会**：货币兑换图中，负权环对应无风险套利路径（通过汇率循环兑换可无限增值）
+- **金融风险**：债务循环可能产生等价的负权环
+- **程序分析**：循环依赖中的"负权环"导致无解
+
+## 优化：SPFA（Shortest Path Faster Algorithm）
+
+Bellman-Ford 每轮对所有边松弛，但很多边可能没有"激活"（其起点距离未更新），做无用功。
+
+**SPFA（Shortest Path Faster Algorithm）**：用队列维护"距离刚被更新的节点"，只有这些节点的出边才需要松弛。该算法本质上由 Edward F. Moore 于 1959 年首先发表；1994 年，中国研究者段凡丁在《西南交通大学学报》重新发现并推广了此方法，"SPFA"之名由此在中文算法竞赛社区流行：
+
+```python
+queue = [source]
+in_queue = {source: True}
+
+while queue:
+    u = queue.pop(0)
+    in_queue[u] = False
+    for (u, v, w) in edges_from[u]:
+        if dist[u] + w < dist[v]:
+            dist[v] = dist[u] + w
+            if not in_queue[v]:
+                queue.append(v)
+                in_queue[v] = True
+```
+
+SPFA 平均性能优于 Bellman-Ford，但最坏情况仍 $O(VE)$，且存在可以构造的最坏情况使其退化。竞赛环境中 SPFA 曾被广泛使用，但随着 "SPFA 已死（SPFA is Dead）"的梗在中国算法竞赛圈流行（指出题人构造卡 SPFA 的数据），现在更推荐根据场景选择 Dijkstra（无负权）或标准 Bellman-Ford。
+
+## 实际应用：RIP 网络路由协议
+
+Bellman-Ford（的一个分布式版本）是互联网早期**路由信息协议（RIP，Routing Information Protocol）**的核心算法。
+
+在分布式 Bellman-Ford 中，每个路由器只知道邻居的距离，通过与邻居交换距离向量（Distance Vector）逐步收敛。
+
+**收敛问题——"计数到无穷（Count to Infinity）"**：若某条链路断开，节点可能相互"误导"，导致距离信息循环增大，需要很长时间收敛。这是 RIP 协议的主要缺陷，现代网络更多使用 OSPF（Open Shortest Path First，基于 Dijkstra）。
+
+## Bellman-Ford 与动态规划
+
+Bellman-Ford 是动态规划的典型应用：
+
+- **子问题**：$d_k(v)$ = "最多 $k$ 步到 $v$ 的最短路"
+- **最优子结构**：若 $P$ 是最短路，$P$ 的任何子路也是对应节点间的最短路
+- **无后效性**：$d_k$ 只依赖 $d_{k-1}$（单向依赖，无环）
+- **表格遍历**：从 $k=0$ 到 $k=V-1$ 填表
+
+Richard Bellman 在 1958 年的论文标题就是"On a Routing Problem"，用动态规划的语言表述，体现了他在创立动态规划理论时对这类问题的深度思考。
+
+## 与 Floyd-Warshall 的关系
+
+Bellman-Ford 解决**单源最短路径**（从一个固定源到所有节点）。若需要**所有节点对**间的最短路径，运行 $V$ 次 Bellman-Ford 需要 $O(V^2 E)$。
+
+Floyd-Warshall 算法用一个三重循环直接求所有节点对最短路，时间 $O(V^3)$——在稠密图（$E = O(V^2)$）上，$O(V^3)$ 与 $V$ 次 Bellman-Ford 的 $O(V^2 \cdot V^2) = O(V^4)$ 相比快得多。
+
+## 跨域连接
+
+- **[[shortest-path-dijkstra]]**：Dijkstra 是 Bellman-Ford 在无负权边时的高效替代。理解两者的关系就是理解贪心与动态规划的本质区别：贪心更快但要求数据满足特定结构，DP 更通用但更慢。
+- **[[dynamic-programming]]**：Bellman-Ford 是动态规划的教科书应用，也是 Richard Bellman 用来验证动态规划框架的经典问题之一。
+- **[[floyd-warshall]]**：从单源到全对的自然推广，两者共享"松弛"操作的核心思想。
+- **网络与互联网**：RIP 协议将 Bellman-Ford 的分布式版本嵌入了互联网的底层基础设施，影响了数十年的网络工程实践。
+
+---
+
+## 延伸阅读
+
+- Bellman, R. "On a Routing Problem." *Quarterly of Applied Mathematics* 16(1), 1958.
+- Ford, L.R. "Network Flow Theory." *RAND Report P-923*, 1956.
+- Cormen, T. et al. *Introduction to Algorithms (CLRS).* 4th ed. MIT Press, 2022. （第22章 Single-Source Shortest Paths）
+- Tanenbaum, A.S. & Wetherall, D. *Computer Networks.* 5th ed. Prentice Hall, 2010. （第5章 网络层）

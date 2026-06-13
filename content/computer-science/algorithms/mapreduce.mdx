@@ -1,0 +1,133 @@
+---
+title: MapReduce
+title_en: MapReduce
+status: published
+updated: 2026-06-13
+category: 分布式算法
+order: 47
+field: 计算机科学 · 分布式系统 · 大数据处理
+tags:
+  - MapReduce
+  - 分布式计算
+  - 大数据
+  - 并行计算
+  - Google
+related:
+  - consistent-hashing
+  - dynamic-programming
+---
+
+# MapReduce
+
+2004 年，谷歌工程师杰弗里·迪恩（Jeffrey Dean）和桑贾伊·格马瓦特（Sanjay Ghemawat）发表了《MapReduce：大型集群上的简化数据处理》。这篇论文描述了 Google 内部用于处理 PB 级数据的编程模型，并在发表后迅速成为大数据时代的基础范式，催生了 Hadoop 生态系统，影响了此后十年的数据工程实践。
+
+## 背景：集群计算的工程噩梦
+
+2000 年代初，搜索引擎需要处理数以亿计的网页、日志、索引。单台服务器无法胜任，但分布式计算面临的工程问题令人头疼：如何分发任务？如何处理机器故障？如何聚合结果？
+
+迪恩和格马瓦特注意到，Google 内部大量分布式计算代码都在重复相同的模式：**将输入分成块、并行处理每块、聚合结果**。他们将这个模式抽象为 MapReduce。
+
+## 核心抽象：两个函数
+
+MapReduce 的编程模型极简：用户只需实现两个函数：
+
+**Map 函数**：
+
+$$\text{Map}(k_1, v_1) \to [(k_2, v_2)]$$
+
+接受一个键值对，输出一组中间键值对。
+
+**Reduce 函数**：
+
+$$\text{Reduce}(k_2, [v_2]) \to [(k_3, v_3)]$$
+
+接受一个中间键和该键对应的所有值的列表，输出最终结果。
+
+**经典例子——单词计数（Word Count）**：
+
+```
+Map(document_id, text):
+  for each word w in text:
+    emit(w, 1)
+
+Reduce(word, [count_1, count_2, ...]):
+  emit(word, sum(counts))
+```
+
+将这两个函数提交给 MapReduce 框架，框架自动处理：数据分发、并行执行、故障恢复、结果聚合。
+
+## 执行流程
+
+```
+输入文件 → 分片（Split）→ Map 阶段
+                              ↓
+                          Shuffle（按 key 分组，跨网络传输）
+                              ↓
+                          Reduce 阶段 → 输出文件
+```
+
+**详细步骤**：
+
+1. **输入分片**：输入文件被分成 16–64 MB 的块（Chunk）
+2. **Map 任务分配**：调度器将每个 Chunk 分配给一台空闲 Worker，Worker 在本地磁盘运行 Map 函数
+3. **Shuffle 阶段**：中间键值对按键的哈希值分配到不同的 Reduce Worker，通过网络传输（这是最昂贵的阶段）
+4. **排序**：每个 Reduce Worker 对收到的中间键值对按键排序
+5. **Reduce 任务执行**：对每个不同的键，调用 Reduce 函数
+6. **输出**：写入分布式文件系统（如 GFS/HDFS）
+
+## 故障容忍：重试即可
+
+MapReduce 最重要的工程贡献之一是其简单而有效的**故障处理机制**：
+
+- **Worker 故障**：Master 定期 ping Worker。若 Worker 失联，其正在进行的 Map/Reduce 任务被标记为失败，重新分配给其他 Worker。Map 任务的中间结果也需要重新计算（因为存在本地磁盘上）。
+- **Master 故障**：Master 将状态定期写入检查点文件，故障后从最近的检查点恢复。
+- **任务慢尾（Straggler）**：某些 Worker 由于硬件原因极慢，Master 在任务接近完成时，为仍在进行的任务启动"备份执行（Backup Execution）"，取先完成的结果。
+
+这种设计依赖的关键假设：**Map 和 Reduce 函数是纯函数（相同输入 → 相同输出），可以安全地重试**。
+
+## 历史影响
+
+MapReduce 论文发表后，开源社区基于其思想实现了 **Hadoop**（道格·卡廷 Doug Cutting 等人，2006），成为大数据时代最重要的开源项目之一：
+
+- **Hadoop MapReduce**：MapReduce 的开源实现
+- **HDFS（Hadoop Distributed File System）**：基于 GFS 的分布式文件系统
+- **Hive**：将 SQL 查询编译为 MapReduce 作业
+- **Pig**：数据流语言，编译为 MapReduce
+
+雅虎、Facebook、百度等公司曾在数万台服务器规模的 Hadoop 集群上运行 MapReduce 作业。
+
+## MapReduce 的衰落与遗产
+
+2012 年之后，MapReduce 逐渐被更高效的框架取代：
+
+**Apache Spark（2012）**：将中间数据保存在内存中（而非磁盘），迭代计算速度比 Hadoop MapReduce 快 10–100 倍。Spark 的 RDD（弹性分布式数据集）保留了 MapReduce 的函数式思想，但更灵活。
+
+**Google Dataflow / Apache Beam（2015）**：将批处理和流处理统一为同一编程模型，进一步抽象了计算框架。
+
+MapReduce 本身已不再是首选，但其思想——**将数据处理分解为无状态的转换（Map）和聚合（Reduce），由框架处理并行化和容错**——渗透进了所有后继系统。
+
+## 代价与争议
+
+**磁盘 I/O 瓶颈**：每个 MapReduce 阶段的输出都写入磁盘，Shuffle 阶段大量网络传输+磁盘写入，对迭代算法（机器学习）极度低效。Spark 等内存计算框架因此兴起。
+
+**编程模型有限**：不是所有算法都能自然地表达为 Map-Reduce 两步。图算法、迭代优化等需要多个 MapReduce 轮次，效率低，代码复杂。
+
+**投机执行的争议**：备份执行（Straggler 处理）会消耗额外资源，在资源受限的集群上可能加剧竞争而非改善性能。
+
+**"大数据"的反思**：MapReduce 的设计假设数据规模需要数百台机器，但 McSherry 等人（"Scalability! But at what COST?", USENIX HotOS 2015）指出，许多 MapReduce/Spark 集群作业在单台笔记本电脑上用简单的单线程代码能更快完成——分布式系统的开销常被低估。
+
+## 跨域连接
+
+- **[[consistent-hashing]]**：Shuffle 阶段用哈希将中间键分配给 Reducer，一致性哈希可以使 Reducer 数量动态变化时的数据迁移最小化。
+- **[[dynamic-programming]]**：MapReduce 能高效实现某些 DP 问题（如矩阵链乘、图上的 DP），但不能直接表达有前向依赖的 DP 计算。
+- **函数式编程**：MapReduce 是函数式编程思想（纯函数、高阶函数 map/reduce/filter）在分布式系统上的直接应用。Haskell 和 Lisp 中的 `map` 和 `fold/reduce` 与之同源。
+- **并行计算理论**：MapReduce 对应理论计算机科学中的 PRAM 模型（并行随机访问机），BSP（Bulk Synchronous Parallel）模型是其更精确的理论对应物。
+
+---
+
+## 延伸阅读
+
+- Dean, J. & Ghemawat, S. *MapReduce: Simplified Data Processing on Large Clusters.* OSDI 2004, pp. 137–150.
+- Ghemawat, S., Gobioff, H. & Leung, S.-T. *The Google File System.* SOSP 2003, pp. 29–43.
+- Zaharia, M. et al. *Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing.* NSDI 2012.（Spark 论文）
+- McSherry, F., Isard, M. & Murray, D. G. *Scalability! But at what COST?* HotOS XV, USENIX 2015.

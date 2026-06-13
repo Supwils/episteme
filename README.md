@@ -10,11 +10,13 @@
 | 人类历史 | `/human-history`    | Canvas + GSAP + SVG        | 219 事件、235 人物、104 知识库       |
 | 哲学思想 | `/philosophy`       | MDX + 交叉引用             | 68 哲学家、38 流派、229 篇 MDX       |
 | 生命科学 | `/life-science`     | Zod schema + Framer Motion | 84 物种、50 事件、23 科学家          |
-| 宇宙学   | `/cosmology`        | 专题内容                   | 宇宙学专题                           |
-| 数学     | `/mathematics`      | 专题内容                   | 数学专题                             |
+| 宇宙学   | `/cosmology`        | 专题内容                   | 宇宙学专题、知识库、对话             |
+| 数学     | `/mathematics`      | KaTeX + 自研 Markdown 渲染 | 数学专题、定理、悖论、对话           |
+| 经济学   | `/economics`        | MDX + 模拟实验             | 经济学家、理论、案例与模拟           |
+| 心理学   | `/psychology`       | MDX + 认知偏差可视化       | 心理学家、实验、现象与障碍           |
 | 知识图谱 | `/knowledge-graph`  | Canvas 2D 力导向图         | 跨领域交互式图谱                     |
 
-**总计**：1650+ 知识单元，500+ 静态页面。
+**总计**：1800+ 知识单元，1600+ 静态页面。
 
 ## 快速开始
 
@@ -41,25 +43,19 @@ pnpm test
 
 ```
 universe-knowledge/
-├── apps/portal/               ← 唯一活跃应用（Next.js 15）
-│   ├── app/                   ← App Router 路由
-│   ├── src-physics/           ← 物理前端代码
-│   ├── src-history/           ← 历史前端代码
-│   ├── src-philosophy/        ← 哲学前端代码
-│   ├── src-life-science/      ← 生命科学前端代码
-│   ├── src-cosmology/         ← 宇宙学前端代码
-│   ├── src-mathematics/       ← 数学前端代码
-│   └── src-knowledge-graph/   ← 知识图谱前端代码
+├── app/                       ← App Router 路由与 API
+├── components/                ← 全局与跨领域 UI 组件
+├── lib/                       ← loader、搜索、图引擎与工具
+├── subjects/                  ← 各知识领域前端代码与领域逻辑
 ├── content/                   ← 知识内容（与代码解耦）
-├── packages/                  ← 共享包（ui、content）
 ├── docs/                      ← 平台文档（代理读写区）
-└── .archive/                  ← 旧应用归档
+└── reference/                 ← 旧源码参考（不参与当前测试/构建）
 ```
 
 ## 技术栈
 
 - **框架**: Next.js 15 (App Router)
-- **包管理**: pnpm 10 + Turborepo
+- **包管理**: pnpm 10
 - **样式**: Tailwind CSS v4 + CSS Custom Properties
 - **3D**: React Three Fiber + Three.js
 - **动画**: Framer Motion + GSAP

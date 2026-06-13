@@ -23,7 +23,10 @@ const NAV_LINKS: NavLink[] = [
   { href: "/mathematics", label: "数学与逻辑" },
   { href: "/economics", label: "经济学" },
   { href: "/psychology", label: "心理学" },
+  { href: "/computer-science", label: "计算机科学" },
+  { href: "/political-science", label: "政治学" },
   { href: "/knowledge-graph", label: "知识图谱" },
+  { href: "/curiosities", label: "奇趣知识" },
 ];
 
 const SECTION_PREFIXES = [
@@ -35,7 +38,10 @@ const SECTION_PREFIXES = [
   "/life-science",
   "/economics",
   "/psychology",
+  "/computer-science",
+  "/political-science",
   "/knowledge-graph",
+  "/curiosities",
 ];
 
 export function SectionAwareNav() {

@@ -6,7 +6,9 @@ export type Domain =
   | "cosmology"
   | "mathematics"
   | "economics"
-  | "psychology";
+  | "psychology"
+  | "computer-science"
+  | "political-science";
 
 export interface CrossReference {
   fromDomain: Domain;
@@ -16,6 +18,13 @@ export interface CrossReference {
   toId: string;
   toTitle: string;
   relation: string;
+  /**
+   * Explicit target routes. The legacy `${DOMAIN_ROUTES[domain]}/${id}` form
+   * only works for flat domains; nested domains (section/slug) supply the full
+   * path here so the link resolves correctly instead of 404ing.
+   */
+  fromPath?: string;
+  toPath?: string;
 }
 
 export const DOMAIN_LABELS: Record<Domain, string> = {
@@ -27,6 +36,8 @@ export const DOMAIN_LABELS: Record<Domain, string> = {
   mathematics: "数学",
   economics: "经济学",
   psychology: "心理学",
+  "computer-science": "计算机科学",
+  "political-science": "政治学",
 };
 
 export const DOMAIN_ROUTES: Record<Domain, string> = {
@@ -38,4 +49,6 @@ export const DOMAIN_ROUTES: Record<Domain, string> = {
   mathematics: "/mathematics",
   economics: "/economics",
   psychology: "/psychology",
+  "computer-science": "/computer-science",
+  "political-science": "/political-science",
 };

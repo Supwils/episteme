@@ -1,0 +1,164 @@
+---
+title: 拓扑排序
+title_en: Topological Sort
+status: published
+updated: 2026-06-13
+category: 图算法
+order: 23
+field: 计算机科学 · 图论
+tags:
+  - 拓扑排序
+  - 有向无环图
+  - DAG
+  - 依赖解析
+related:
+  - graph-traversal
+  - dynamic-programming
+  - shortest-path-dijkstra
+---
+
+# 拓扑排序
+
+你在规划一个项目：任务 B 必须在任务 A 完成后才能开始，任务 D 依赖 B 和 C，任务 E 依赖 D……这类依赖关系在工程里无处不在。如何找到一个合法的执行顺序，使得所有任务的依赖都在它本身之前完成？
+
+这就是**拓扑排序（Topological Sort）**要解决的问题。
+
+拓扑排序只对**有向无环图（DAG，Directed Acyclic Graph）**有意义——如果存在环（A 依赖 B，B 依赖 A），则没有合法顺序，任务无法完成。
+
+## 形式定义
+
+给定有向无环图 $G = (V, E)$，拓扑排序是节点的一个线性排列，使得对每条边 $(u, v) \in E$，$u$ 在排列中出现在 $v$ 之前。
+
+直白说：若 $u \to v$（$u$ 是 $v$ 的前驱），则在排列中 $u$ 必须排在 $v$ 前面。
+
+**不唯一性**：拓扑排序通常不唯一。例如若 $A \to C$ 且 $B \to C$，则 $A, B, C$ 和 $B, A, C$ 都是合法的拓扑序。
+
+## Kahn 算法（BFS 版本）
+
+由 Arthur B. Kahn 在 1962 年提出。基于"入度为 0 的节点可以最先处理"的直觉。
+
+**入度（in-degree）**：指向某节点的边的数量，代表"还有多少前驱未完成"。
+
+```python
+from collections import deque
+
+def topological_sort_kahn(graph, n):
+    in_degree = [0] * n
+    for u in range(n):
+        for v in graph[u]:
+            in_degree[v] += 1
+    
+    queue = deque([v for v in range(n) if in_degree[v] == 0])
+    result = []
+    
+    while queue:
+        u = queue.popleft()
+        result.append(u)
+        for v in graph[u]:
+            in_degree[v] -= 1
+            if in_degree[v] == 0:
+                queue.append(v)
+    
+    if len(result) != n:
+        return None  # 存在环，无拓扑序
+    return result
+```
+
+**时间复杂度**：$O(V + E)$——每个节点和每条边被处理一次。
+
+**环检测**：若最终 `result` 长度不等于 $n$，说明存在环（某些节点的入度永远不会变为 0）。
+
+## DFS 版本
+
+基于深度优先搜索的拓扑排序：完成 DFS 时，将节点压入栈，最终**逆序**输出栈中元素即为拓扑序。
+
+**直觉**：DFS 回溯时，意味着该节点的所有后继都已被"处理"，因此在拓扑序中它应排在所有后继之前——压栈逆序输出正好符合此要求。
+
+```python
+def topological_sort_dfs(graph, n):
+    color = ['white'] * n  # 未访问/访问中/已完成
+    stack = []
+    has_cycle = [False]
+    
+    def dfs(u):
+        color[u] = 'gray'  # 访问中
+        for v in graph[u]:
+            if color[v] == 'gray':  # 发现后向边 → 有环
+                has_cycle[0] = True
+                return
+            if color[v] == 'white':
+                dfs(v)
+        color[u] = 'black'  # 已完成
+        stack.append(u)
+    
+    for v in range(n):
+        if color[v] == 'white':
+            dfs(v)
+    
+    return None if has_cycle[0] else stack[::-1]
+```
+
+DFS 版本的关键：**灰色节点（正在访问中）出现后向边 → 发现环**。这是 DFS 环检测的标准方法。
+
+两种方法时间复杂度都是 $O(V + E)$，各有优缺点：Kahn 直接给出拓扑序且易于检测环；DFS 版可以更方便地处理某些需要 DFS 信息的扩展问题。
+
+## 重要应用
+
+### 构建系统与包管理
+
+**Make**、**Gradle**、**CMake**：编译项目时，源文件之间有依赖关系（A.cpp 需要 B.h 中的类型定义）。构建工具用拓扑排序确定编译顺序，只重新编译需要更新的文件。
+
+**npm**、**pip**、**Maven**：软件包 A 依赖包 B、B 依赖包 C——包管理器用拓扑排序确定安装顺序，并检测循环依赖（若存在循环，安装无法完成）。
+
+### 课程规划
+
+大学课程体系：线性代数是机器学习的先修课，微积分是线性代数的先修课……拓扑排序给出合理的学习顺序。这也是 Kahn 在 1962 年提出算法时的原始应用场景。
+
+### 关键路径分析（CPM/PERT）
+
+工程项目中，每个任务有完成时间，任务间有依赖关系。**关键路径（Critical Path）**是从项目开始到结束的最长路径（决定项目最短工期）。
+
+计算关键路径：对 DAG 拓扑排序后，用动态规划计算每个节点的"最早开始时间"——在 DAG 上的"最长路径"问题，时间 $O(V + E)$（而一般图上最长路径是 NP-hard 的）。
+
+### 数据流分析（编译器优化）
+
+编译器中，程序语句构成数据流图（SSA 形式），拓扑排序用于常量传播、活跃变量分析等优化 pass 的顺序安排。
+
+### DAG 上的动态规划
+
+**重要定理**：所有 DAG 上的动态规划，都可以通过先拓扑排序、再按序计算实现，无需记忆化递归。
+
+例如 DAG 最短路径：按拓扑序处理节点，每个节点只需看其已处理的前驱——比 Dijkstra 更高效（$O(V + E)$ 而非 $O((V+E) \log V)$），且能处理负权边（因 DAG 无环，无负权环问题）。
+
+## 拓扑序的唯一性与图的结构
+
+**唯一拓扑序 ↔ 哈密顿路径**：若 DAG 的拓扑序唯一，则图中存在一条从第一个节点到最后一个节点经过所有节点的哈密顿路径（即图形成一条"链"）。
+
+**字典序最小拓扑排序**：Kahn 算法中若用最小堆而非普通队列，则得到字典序最小的拓扑序（每步选入度为 0 的编号最小节点）。
+
+**拓扑序的数量**：计数 DAG 的拓扑序数量是 #P-hard 问题（计算复杂度的 #P 类，比 NP 更难），没有已知高效算法。
+
+## 检测有向环
+
+拓扑排序的一个重要副产品：**判断有向图是否有环**。
+
+- Kahn 算法：若输出长度 $< n$ → 有环
+- DFS 算法：若发现灰色节点的后向边 → 有环
+- 时间复杂度：$O(V + E)$
+
+这比其他环检测方法（如 Floyd 判圈，用于链表）更适合稀疏图。
+
+## 跨域连接
+
+- **[[graph-traversal]]**：拓扑排序的 DFS 版本直接建立在 DFS 框架上；理解 DFS 的时间戳（发现时间 / 完成时间）是理解拓扑排序 DFS 版本的关键。
+- **[[dynamic-programming]]**：DAG 上的 DP 通过拓扑排序确定计算顺序；拓扑排序让 DP 可以迭代地（而非递归地）进行，避免栈溢出风险。
+- **[[shortest-path-dijkstra]]**：DAG 上的最短路径可以在 $O(V + E)$ 内完成（拓扑排序 + 松弛），比 Dijkstra 更快，且可处理负权边——这是因为 DAG 无环保证了无负权环。
+- **软件工程**：循环依赖是软件架构的大忌，拓扑排序是检测和理解依赖关系的核心工具；许多现代架构检查工具（如 ArchUnit）在底层用拓扑排序验证依赖方向。
+
+---
+
+## 延伸阅读
+
+- Kahn, A.B. "Topological Sorting of Large Networks." *Communications of the ACM* 5(11), 1962.
+- Cormen, T. et al. *Introduction to Algorithms (CLRS).* 4th ed. MIT Press, 2022. （第20章 Elementary Graph Algorithms，22章 DFS 与拓扑排序）
+- Kleinberg, J. & Tardos, É. *Algorithm Design.* Pearson, 2005. （第3章 Graphs）

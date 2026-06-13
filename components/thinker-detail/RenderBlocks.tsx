@@ -1,4 +1,4 @@
-import { Block, slugify } from "./content-parser";
+import { Block } from "./content-parser";
 
 function InlineFormatted({ text }: { text: string }) {
   const parts = text.split(/(\*\*.*?\*\*|`[^`]+`|\[.*?\]\(.*?\))/g);
@@ -54,15 +54,15 @@ function RenderBlock({ block }: { block: Block }) {
   switch (block.type) {
     case "h1":
       return (
-        <h1 className="font-display text-fg-primary mb-4 mt-10 text-2xl font-bold leading-tight first:mt-0">
+        <h1 className="font-display text-fg-primary mt-10 mb-4 text-2xl leading-tight font-bold first:mt-0">
           <InlineFormatted text={block.text} />
         </h1>
       );
     case "h2":
       return (
         <h2
-          id={slugify(block.text)}
-          className="border-accent-gold/30 font-display text-fg-primary border-l-3 mb-4 mt-10 flex scroll-mt-24 items-center gap-3 pl-4 text-xl font-semibold leading-snug"
+          id={block.id}
+          className="border-accent-gold/30 font-display text-fg-primary mt-10 mb-4 flex scroll-mt-24 items-center gap-3 border-l-3 pl-4 text-xl leading-snug font-semibold"
         >
           <InlineFormatted text={block.text} />
         </h2>
@@ -70,18 +70,27 @@ function RenderBlock({ block }: { block: Block }) {
     case "h3":
       return (
         <h3
-          id={slugify(block.text)}
-          className="font-display text-fg-primary mb-3 mt-8 scroll-mt-24 text-lg font-semibold leading-snug"
+          id={block.id}
+          className="font-display text-fg-primary mt-8 mb-3 scroll-mt-24 text-lg leading-snug font-semibold"
         >
           <InlineFormatted text={block.text} />
         </h3>
       );
+    case "h4":
+      return (
+        <h4
+          id={block.id}
+          className="font-display text-fg-primary mt-6 mb-2 scroll-mt-24 text-base leading-snug font-semibold"
+        >
+          <InlineFormatted text={block.text} />
+        </h4>
+      );
     case "blockquote":
       return (
-        <blockquote className="border-accent-gold/20 bg-accent-gold/[0.03] my-6 border-l-2 py-4 pl-6 pr-4">
+        <blockquote className="border-accent-gold/20 bg-accent-gold/[0.03] my-6 border-l-2 py-4 pr-4 pl-6">
           {block.lines.map((line, i) =>
             line ? (
-              <p key={i} className="font-display text-fg-primary text-base italic leading-relaxed">
+              <p key={i} className="font-display text-fg-primary text-base leading-relaxed italic">
                 <InlineFormatted text={line} />
               </p>
             ) : (
@@ -134,7 +143,7 @@ function RenderBlock({ block }: { block: Block }) {
                 {block.header.map((h, i) => (
                   <th
                     key={i}
-                    className="text-fg-primary border-border-faint border-b px-4 py-2.5 text-left font-mono text-[11px] font-semibold uppercase tracking-[0.12em]"
+                    className="text-fg-primary border-border-faint border-b px-4 py-2.5 text-left font-mono text-[11px] font-semibold tracking-[0.12em] uppercase"
                   >
                     {h}
                   </th>

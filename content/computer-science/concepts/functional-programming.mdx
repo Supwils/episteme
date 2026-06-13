@@ -1,0 +1,140 @@
+---
+title: 函数式编程
+title_en: Functional Programming
+status: published
+updated: 2026-06-13
+category: 编程范式
+order: 23
+field: 计算机科学 · 编程语言
+tags:
+  - 函数式编程
+  - 不可变性
+  - 纯函数
+  - Lambda演算
+  - 高阶函数
+related:
+  - object-oriented-programming
+  - type-systems
+  - recursion
+---
+
+# 函数式编程
+
+1958 年，约翰·麦卡锡（John McCarthy）在麻省理工学院设计了 Lisp——世界上第一门函数式编程语言。它的灵感不来自硬件或工程实用性，而来自阿隆佐·邱奇（Alonzo Church）在 1930 年代发展的数学系统：**Lambda 演算（Lambda Calculus）**。
+
+这个血统决定了函数式编程的气质：它首先是数学，其次才是编程。
+
+## 破除误解：函数式不只是"用函数写代码"
+
+许多人以为"函数式编程"就是多用函数、少用循环。这完全误解了这个范式的本质。
+
+函数式编程的核心思想是：**程序是数学函数的组合，而不是机器指令的序列**。
+
+数学函数有一个关键特性：**引用透明性（Referential Transparency）**——给定相同的输入，函数始终返回相同的输出，且不产生任何可观察的副作用。这和我们日常说的"函数"不同：
+
+```python
+# 不是函数式的——依赖外部状态，有副作用
+count = 0
+def increment():
+    global count
+    count += 1
+    return count
+
+# 函数式的——纯函数，引用透明
+def add(x, y):
+    return x + y
+```
+
+**纯函数（Pure Function）** 是函数式编程的基本单位。它不读写全局变量，不修改传入的参数，不打印到屏幕，不写文件。它只计算并返回一个值。
+
+## Lambda 演算：数学基础
+
+邱奇的 Lambda 演算只有三条规则，却是图灵完备的：
+
+1. **变量**：$x$
+2. **抽象（函数定义）**：$\lambda x. \text{body}$，表示"以 $x$ 为参数的函数"
+3. **应用（函数调用）**：$f \; x$，表示"把 $f$ 应用到 $x$"
+
+比如，把两个数相加可以表示为：$\lambda x. \lambda y. x + y$
+
+邱奇还证明，任何可计算函数都可以用 Lambda 演算表达——这与图灵机等价（邱奇-图灵论题）。因此，函数式语言在理论上与命令式语言有相同的计算能力，但表达方式完全不同。
+
+## 核心概念
+
+**不可变性（Immutability）**：函数式编程中，数据创建后不再修改。修改数据的唯一方式是创建一个新的数据副本（带有修改内容）。Haskell 的所有变量默认不可变；Clojure 的数据结构默认持久化（persistent）——修改操作返回新结构，共享未修改的部分。
+
+**高阶函数（Higher-Order Functions）**：函数可以接受其他函数作为参数，或返回函数作为结果。最常见的高阶函数：
+- `map`：把函数应用到列表每个元素，返回新列表
+- `filter`：用谓词函数筛选列表元素
+- `fold/reduce`：把列表折叠成单一值
+
+```haskell
+-- Haskell：求列表中所有偶数的平方和
+sumSquaresOfEvens xs = foldr (+) 0 (map (^2) (filter even xs))
+```
+
+**函数组合（Function Composition）**：把多个函数串联，一个函数的输出成为下一个函数的输入。数学上写作 $(f \circ g)(x) = f(g(x))$，代码中是管道操作符或 compose 函数。这是构建复杂功能的主要方式。
+
+**柯里化（Currying）**：以 Haskell Curry 命名（Curry 本人并未发明，但系统研究了它）。把一个接受多个参数的函数转换为一系列每次接受一个参数的函数：$f(x, y) \rightarrow f(x)(y)$。柯里化使部分应用（partial application）成为可能。
+
+**惰性求值（Lazy Evaluation）**：直到真正需要值时才计算它。Haskell 默认使用惰性求值，这使得处理无限列表成为可能：
+
+```haskell
+-- Haskell：定义无限的自然数列表，只取前10个
+take 10 [1..]  -- [1,2,3,4,5,6,7,8,9,10]
+```
+
+## 函数式编程的主要语言
+
+| 语言 | 年份 | 特点 |
+|------|------|------|
+| Lisp | 1958 | 第一门函数式语言，S 表达式语法 |
+| ML | 1973 | 引入类型推断，影响了 Haskell、F# |
+| Haskell | 1990 | 纯函数式、惰性求值、强类型 |
+| Erlang | 1987 | 面向电信并发，OTP 框架 |
+| Clojure | 2007 | JVM 上的 Lisp，持久化数据结构 |
+| F# | 2005 | .NET 生态的函数式语言 |
+| Scala | 2004 | 函数式 + 面向对象的混合 |
+| Elm | 2012 | 前端函数式，无运行时异常 |
+
+许多主流语言（Python、JavaScript、Java、C++）也在逐步引入函数式特性，如 lambda 表达式、stream API、不可变数据类型。
+
+## 单子：函数式处理副作用
+
+纯函数不能有副作用——但真实程序必须读文件、连数据库、打印日志。函数式编程如何处理这个矛盾？
+
+答案是**单子（Monad）**：一种数学结构（来自范畴论），把副作用"包裹"进类型系统，在类型层面区分纯计算和有副作用的计算。Haskell 用 `IO a` 类型标记所有有副作用的操作，并通过 `do` 语法糖让代码仍然可读。
+
+单子的解释极难——Philip Wadler 有一个著名的笑话："你向任何一个人解释了单子，你就失去了向别人解释的能力"（the Monad Tutorial Fallacy）。本质上，单子是一个容器，定义了如何把一系列操作串联起来。
+
+## 代价与争议
+
+**学习曲线**：函数式思维对习惯了命令式的程序员来说需要思维重构。"如何用函数式写一个 for 循环"是初学者的常见困惑（答案是递归或 `fold`）。
+
+**性能开销**：不可变数据结构需要在每次"修改"时创建新副本，可能产生大量短命对象，对垃圾回收器造成压力。现代函数式运行时（如 Haskell 的 GHC）有高度优化的内存管理，但与手工优化的命令式代码相比仍有差距。
+
+**调试困难**：点自由（point-free）风格的代码——即不显式命名参数、只组合函数——可能极难阅读和调试：
+```haskell
+process = filter (> 0) . map (*2) . take 100
+```
+这段代码的意图明确，但对不熟悉的人来说像天书。
+
+**纯函数式的现实局限**：Haskell 社区有一个持续的争论：单子和类型类（type class）系统带来的复杂性，是否值得纯函数式带来的好处？部分人转向了 Rust 这类"借用了函数式思想但不强制纯函数"的语言。
+
+## 跨域连接
+
+- **数学**：函数式编程是把数学函数概念直接用于计算，范畴论是其高级理论基础。
+- **[[recursion]]**：函数式编程用递归替代循环，递归是其主要的控制流工具。
+- **[[type-systems]]**：Hindley-Milner 类型推断系统（用于 ML、Haskell）是函数式语言类型理论的核心贡献。
+- **[[object-oriented-programming]]**：面向对象与函数式是两种主要编程范式，现代语言趋向混合两者。
+- **哲学**：函数式编程体现了数学柏拉图主义——认为数学对象是真实存在的，程序只是在描述数学真理。
+
+---
+
+## 延伸阅读
+
+- Abelson, H. & Sussman, G. *Structure and Interpretation of Computer Programs.* MIT Press, 1996. （SICP，最好的函数式入门之一）
+- Hutton, G. *Programming in Haskell.* Cambridge University Press, 2016.
+- Bird, R. *Introduction to Functional Programming Using Haskell.* Prentice Hall, 1998.
+- Wadler, P. *Monads for Functional Programming.* 收录于 *Advanced Functional Programming*, Springer, 1995.
+- Church, A. *A Formulation of the Simple Theory of Types.* Journal of Symbolic Logic 5(2), 1940. （Lambda 演算的基础论文）

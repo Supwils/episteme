@@ -1,0 +1,147 @@
+---
+title: Floyd-Warshall 算法
+title_en: Floyd-Warshall Algorithm
+status: published
+updated: 2026-06-13
+category: 图算法
+order: 22
+field: 计算机科学 · 图论 · 最短路径
+tags:
+  - Floyd-Warshall
+  - 全对最短路
+  - 动态规划
+  - 传递闭包
+related:
+  - bellman-ford
+  - shortest-path-dijkstra
+  - dynamic-programming
+---
+
+# Floyd-Warshall 算法
+
+1962 年，两位研究者几乎同时发表了全对最短路径算法。Robert Floyd 在 *Communications of the ACM* 上发表了"Algorithm 97: Shortest Path"。Stephen Warshall 的先前工作（1962 年，针对图的传递闭包）提供了相同的矩阵递推框架。因此，这个算法通常称为 Floyd-Warshall。
+
+Bernard Roy 在 1959 年也独立发现了类似方法（在法国期刊发表，在英语世界较晚被关注）。
+
+三行核心代码，三重循环，$O(V^3)$ 时间——Floyd-Warshall 是最简洁的图算法之一，同时解决了所有节点对之间的最短路径问题。
+
+## 问题：所有节点对最短路径
+
+**给定**：有向加权图 $G = (V, E)$，顶点集 $V = \{1, 2, \ldots, n\}$，边权矩阵 $W$（$W[i][j]$ 为从 $i$ 到 $j$ 的直接边权，若无直接边则为 $\infty$，对角线为 0）。
+
+**求**：所有节点对 $(i, j)$ 之间的最短路径长度矩阵 $D$，其中 $D[i][j]$ 是从 $i$ 到 $j$ 的最短路径长度。
+
+若用 Dijkstra 解决，对每个源节点运行一次，总时间 $O(V \cdot (V + E) \log V)$——对稠密图（$E = O(V^2)$）是 $O(V^3 \log V)$。Floyd-Warshall 用 $O(V^3)$ 就能搞定，且常数小，实现极简。
+
+## 核心思想：中间节点的动态规划
+
+**关键问题重构**：从 $i$ 到 $j$ 的最短路径，其中间节点只能从 $\{1, 2, \ldots, k\}$ 中选取。
+
+**状态**：$d^{(k)}(i, j)$ = 只使用 $\{1, 2, \ldots, k\}$ 作为中间节点时，$i$ 到 $j$ 的最短路径长度。
+
+**初始**：$d^{(0)}(i, j) = W[i][j]$（不用任何中间节点，只能用直接边）
+
+**递推**：
+
+$$d^{(k)}(i, j) = \min\left(d^{(k-1)}(i, j),\ d^{(k-1)}(i, k) + d^{(k-1)}(k, j)\right)$$
+
+直觉：考虑加入节点 $k$ 作为可能的中间节点后，$i$ 到 $j$ 的最短路要么：
+- 不经过 $k$：仍是 $d^{(k-1)}(i, j)$
+- 经过 $k$：$i$ 到 $k$ 的最短路 + $k$ 到 $j$ 的最短路
+
+**最终**：$d^{(n)}(i, j)$ 就是使用所有节点作为中间节点时的最短路径——即真正的全局最短路径。
+
+## 算法代码：三行核心
+
+```python
+# 初始化 dist 矩阵为邻接矩阵（无直接边为 inf，对角线为 0）
+def floyd_warshall(dist, n):
+    for k in range(n):            # 中间节点
+        for i in range(n):        # 起点
+            for j in range(n):    # 终点
+                if dist[i][k] + dist[k][j] < dist[i][j]:
+                    dist[i][j] = dist[i][k] + dist[k][j]
+    return dist
+```
+
+三重嵌套循环，每层遍历所有节点，时间 $O(V^3)$，空间 $O(V^2)$（矩阵）。
+
+注意：**$k$ 的循环必须在最外层**——这是正确性的关键。若 $k$ 在内层，会在"中间节点限制为 $k$"之前就使用了编号 $>k$ 的节点。
+
+## 路径重建
+
+除了最短距离，通常还需要重建具体路径。引入**前驱矩阵（Predecessor Matrix）** $P$：
+
+- 初始：若 $i \neq j$ 且存在直接边，$P[i][j] = i$；否则 $P[i][j] = \text{None}$
+- 更新：若 $d[i][k] + d[k][j] < d[i][j]$，则 $P[i][j] = P[k][j]$（经过 $k$ 的路径，$j$ 的前驱改为从 $k$ 到 $j$ 的路径上 $j$ 的前驱）
+
+重建路径：从 $j$ 出发，反复查 $P[\cdot][j]$ 直到回到 $i$。
+
+## 负权环检测
+
+Floyd-Warshall 也可以检测负权环：若计算后某对角线元素 $d[i][i] < 0$，则说明存在负权环经过节点 $i$。
+
+初始对角线全为 0，若某节点 $i$ 存在负权回路，则 $d[i][i]$ 会在算法中被更新为负值。
+
+## 传递闭包：Floyd-Warshall 的布尔版本
+
+若边权为 1（表示"有连接"），Floyd-Warshall 退化为计算图的**传递闭包（Transitive Closure）**：
+
+$$t^{(k)}(i, j) = t^{(k-1)}(i, j) \vee \left(t^{(k-1)}(i, k) \wedge t^{(k-1)}(k, j)\right)$$
+
+Warshall 1962 年的原始论文正是针对传递闭包的，这也是算法名字包含 Warshall 的原因。
+
+传递闭包应用：可达性分析（网页是否可从首页到达？）、数据库中的递归查询、程序依赖分析。
+
+## 实际应用场景
+
+**小规模稠密图的全对最短路**：节点数 $V \leq 500$ 时，$O(V^3) \approx 1.25 \times 10^8$ 操作，毫秒级完成；当 $V > 1000$ 时，$O(V^3) = 10^9$ 需要秒级，要谨慎。
+
+**货币汇率套利检测**：设汇率图中，$W[i][j] = -\log(\text{汇率}_{i \to j})$，负权环对应套利机会。Floyd-Warshall 检测负对角线。
+
+**网络路由中的距离向量更新**：部分网络路由协议实现用 Floyd-Warshall 更新全对路由表。
+
+**关系代数（数据库）**：计算图数据库中的可达性或最短路径，尤其在小型社交网络分析中。
+
+**计算机图形学**：关节动画系统中计算骨骼节点间的运动约束传播。
+
+## 与 Johnson 算法的对比
+
+若图稀疏（$E \ll V^2$）且需要全对最短路，**Johnson 算法**（Donald Johnson，1977）更高效：
+
+1. 用 Bellman-Ford 对所有边进行**重新加权（Reweighting）**，消除负权边
+2. 对每个节点运行一次 Dijkstra
+
+总时间：$O(V^2 \log V + VE)$——在稀疏图上远优于 $O(V^3)$。
+
+重新加权技巧的核心：引入虚拟源节点连接所有节点（边权 0），用 Bellman-Ford 求虚拟源到各节点的距离 $h$，将边 $(u,v)$ 的权重改为 $w(u,v) + h(u) - h(v)$——这保证新权重非负，且不改变最短路径的相对顺序（三角不等式保证）。
+
+| 算法 | 时间复杂度 | 适用场景 |
+|------|------------|---------|
+| Floyd-Warshall | $O(V^3)$ | 小稠密图，代码简单 |
+| Johnson | $O(V^2 \log V + VE)$ | 大稀疏图（可能有负权） |
+| $V$ 次 Dijkstra | $O(VE \log V)$ | 无负权稀疏图 |
+
+## 空间优化的微妙点
+
+Floyd-Warshall 可以**原地（in-place）**更新同一矩阵而不是维护 $d^{(k)}$ 和 $d^{(k-1)}$ 两个矩阵。
+
+这是因为：在更新 $d[i][j]$ 时，即使 $d[i][k]$ 或 $d[k][j]$ 已被当前轮更新，结果仍正确。直觉上：若路径 $i \to k$ 经过了新节点 $k$（即 $k$ 已被用作中间节点），这说明真实最短路可能经过 $k$ 两次；但若图无负权环，$d^{(k)}[k][k] = 0$，这样的更新不会引入错误。
+
+形式证明见 CLRS 课后练习 23.1-4。
+
+## 跨域连接
+
+- **[[bellman-ford]]**：两者都处理含负权边的最短路径，都基于松弛（relaxation）操作。Bellman-Ford 是单源的，Floyd-Warshall 是全对的；两者都能检测负权环。
+- **[[dynamic-programming]]**：Floyd-Warshall 是动态规划的教科书案例——"中间节点集合"是完美的状态空间分解，递推关系清晰，无后效性。
+- **[[shortest-path-dijkstra]]**：Johnson 算法将 Floyd-Warshall 的全对问题规约为 $V$ 次 Dijkstra，展示了算法规约（reduction）的力量。
+- **数学（关系代数）**：传递闭包的计算在数学上等价于布尔矩阵的传递闭包，与矩阵乘法有深刻联系——理论上可以用快速矩阵乘法加速到 $O(V^{2.37})$，但实践意义有限。
+
+---
+
+## 延伸阅读
+
+- Floyd, R.W. "Algorithm 97: Shortest Path." *Communications of the ACM* 5(6), 1962.
+- Warshall, S. "A Theorem on Boolean Matrices." *Journal of the ACM* 9(1), 1962.
+- Johnson, D.B. "Efficient Algorithms for Shortest Paths in Sparse Networks." *Journal of the ACM* 24(1), 1977.
+- Cormen, T. et al. *Introduction to Algorithms (CLRS).* 4th ed. MIT Press, 2022. （第23章 All-Pairs Shortest Paths）

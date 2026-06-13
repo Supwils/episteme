@@ -1,0 +1,102 @@
+---
+title: 吉多·范罗苏姆
+title_en: Guido van Rossum
+status: published
+updated: 2026-06-13
+category: 编程语言
+years: 1956–
+nationality: 荷兰
+field: 编程语言设计 · 脚本语言 · Python
+order: 34
+tags:
+  - Python
+  - 编程语言
+  - 开源
+  - 脚本语言
+related:
+  - programming-language-design
+  - functional-programming
+---
+
+# 吉多·范罗苏姆
+
+1989 年圣诞节假期，荷兰程序员吉多·范罗苏姆（Guido van Rossum）觉得无聊，决定做一个他构思已久的小项目：一门新的脚本语言，作为 ABC 语言的继承者，但修正他认为 ABC 的所有失误。
+
+他没有预料到，这个圣诞节的消遣项目，三十多年后会成为世界上使用最广泛的编程语言之一——从大学编程课到机器学习研究，从自动化脚本到 NASA 火箭控制，无处不在。
+
+## 破除误解：Python 不是一门"慢而简单"的玩具语言
+
+长期以来，Python 被系统程序员视为"脚本语言"或"胶水语言"——适合把其他程序拼接起来的工具，但太慢、太不严格，不适合严肃的计算任务。
+
+这个印象在 2012 年之后被彻底颠覆。深度学习的崛起让 Python 成为了 AI/ML 领域的首选语言——TensorFlow、PyTorch、scikit-learn、NumPy 都是 Python 的核心库。Python 的"慢"通过 NumPy 的向量化（底层 Fortran/C）、GPU 计算（CUDA）和 Cython 等方式完全规避：慢的是 Python 解释器，而不是运行在 Python 调用链下的 C/Fortran 代码。
+
+## 现场：ABC 的遗产与 Python 的诞生
+
+范罗苏姆 1956 年 1 月 31 日出生于荷兰海牙，1982 年在阿姆斯特丹大学获数学与计算机科学硕士学位。此后他在 CWI（荷兰数学与计算机科学研究中心）工作，参与了 ABC 语言的开发。
+
+ABC 是一门面向初学者的交互式语言，强调可读性和无错误性——这些理念直接影响了 Python。但 ABC 有一个根本缺陷：它是封闭设计的，没有扩展接口，无法接入操作系统功能或其他库。
+
+1989 年，范罗苏姆开始写 Python，核心目标是：
+1. **可读性优先**：代码应该像伪代码一样清晰
+2. **可扩展**：允许用 C 写扩展模块，并能直接调用 Unix 系统接口
+3. **异常处理**：明确的错误报告，而非静默失败
+
+1991 年，Python 0.9.0 发布到 USENET。Python 的名字来自 BBC 喜剧《蒙提·派森的飞翔马戏团》（Monty Python's Flying Circus），而非蛇——但蛇作为视觉形象被广泛采用，范罗苏姆本人不反对。
+
+## Python 的核心设计决策
+
+**强制缩进**：Python 用缩进表示代码块，而非花括号或 `end` 关键字。这是 Python 最有争议的设计之一，也是 Python 可读性的最重要来源。"代码必须看起来像它运行的方式"是范罗苏姆的核心审美。
+
+**动态类型**：Python 是动态类型语言——变量不需要声明类型，类型检查在运行时进行。这降低了入门门槛，但大型项目中的类型错误只能在运行时被发现。Python 3.5（2015）引入了类型提示（Type Hints），配合 mypy 等工具可以做静态分析，但仍是可选的。
+
+**"一种最佳做法"（One Obvious Way）**：Python 的设计哲学（写在 PEP 20《Python 之禅》中）强调，对于每个问题，应该有且只有一种显而易见的做法。这与 Perl 的"条条大路通罗马"的哲学相对。这一原则在语言生态和标准库设计上都有体现——Python 的标准库（"batteries included"）覆盖了大量常见任务，减少了对外部库的依赖。
+
+**鸭子类型（Duck Typing）**："如果它走路像鸭子，叫声像鸭子，那它就是鸭子。"Python 不要求对象实现特定接口或继承特定基类，只要对象有所需的方法，就可以被使用。这种灵活性是 Python 在科学计算和快速原型中的核心优势。
+
+## BDFL 与退位
+
+范罗苏姆长期以"仁慈的独裁者"（Benevolent Dictator For Life，BDFL）的身份主导 Python 的设计决策——PEP（Python Enhancement Proposals，Python 改进提案）机制让社区提案，但最终决定权在范罗苏姆手中。
+
+2018 年，一场关于 PEP 572（海象运算符 `:=`）的激烈争论耗尽了他的精力。争论本身并不极端，但他感受到社区无论他做任何决定都会引发批评。他在邮件列表上宣布"永久退位"，辞去 BDFL 角色，Python 由此转型为委员会（Python Steering Council）治理。
+
+退位后，范罗苏姆在 2019 年加入 Dropbox，2021 年加入 Microsoft（Python Faster CPython 团队），目前仍在 Microsoft 工作，致力于提升 CPython 的性能。
+
+## Python 的生态成就
+
+- **科学计算**：NumPy（1995 年前身 Numeric），SciPy，Matplotlib 构成了科学 Python 的基础，让 Python 取代 MATLAB 成为数值计算的首选。
+- **AI/ML**：TensorFlow（Google，2015）、PyTorch（Meta，2016）把深度学习框架建立在 Python 之上，反过来把 Python 推向了 AI 时代的中心。
+- **Web 框架**：Django、Flask 让 Python 成为 Web 后端开发的主流选择之一。
+- **教育**：TIOBE 指数显示 Python 长期位居最流行语言前三，是全球大学编程入门课中使用最广泛的语言之一。
+
+## 代价与争议
+
+**Python 2 到 3 的迁移**：Python 3（2008）引入了不向后兼容的改动（`print` 函数、字符串 Unicode、整数除法等），导致了长达十年的分裂——Python 2 直到 2020 年才正式终止支持。这场迁移是软件工程历史上最大规模的"语言版本分裂"之一，也被认为是 BDFL 模式在跨越式改进时的局限性体现。
+
+**GIL（全局解释器锁）**：CPython（Python 的参考实现）有一个 GIL，使得 Python 多线程无法真正并行运行 CPU 密集型任务。这是 Python 在多核利用率上的根本短板。Python 3.13（2024）开始提供实验性的"无 GIL 模式"，但完整生态兼容性仍需时日。
+
+**性能**：Python 的解释器比编译型语言慢一到两个数量级。对大多数任务这不是问题，但对性能关键代码仍是瓶颈。Microsoft 的 Faster CPython 项目（范罗苏姆参与）目标是在数个版本内实现 CPython 两倍性能提升，Python 3.11 已实现约 25% 的加速。
+
+## 跨域连接
+
+- **语言哲学**：Python 的"One Obvious Way"原则对应维特根斯坦"意义即使用"的哲学——语言的规则由社区实践塑造，而范罗苏姆的角色是这场实践的裁判而非独裁者。
+- **[[programming-language-design]]**：Python 是动态类型、强制可读性、"batteries included"哲学的最成功实践。
+- **[[functional-programming]]**：Python 吸收了部分函数式特性（`map`、`filter`、lambda、列表推导式），但不是纯函数式语言——范罗苏姆对 Haskell 风格的纯函数式保持距离。
+- **[[object-oriented-programming]]**：Python 的一切皆对象（包括函数、类、模块本身），是动态语言中最彻底的 OOP 实现之一，但不要求程序员必须用面向对象方式编程。
+
+## 人物小记：BDFL 之后
+
+范罗苏姆 2018 年退位 BDFL 后曾短暂"退休"，自称"永久假期"（permanent vacation）。但仅六个月后他就宣布加入 Dropbox，之后又加入 Microsoft——他坦言退休让他"太无聊了"。
+
+他在接受采访时描述自己的工作方式：早上不看邮件，先写代码两到三小时，然后再处理沟通事务。这个习惯帮助他在三十年里保持了对细节的直接掌控。
+
+Python 社区在他担任 BDFL 的年代形成了一种独特文化：尊重但不盲从，每个人都可以提 PEP，每个 PEP 都可能被"仁慈的独裁者"以"这不 Pythonic"为由拒绝。范罗苏姆退位后，Python Steering Council 的决策更民主，但批评者认为失去了内部一致性。2019 年的 PEP 594（移除电池仓中的一批旧库）历时五年讨论，比 BDFL 时代的任何决策都费时得多。
+
+---
+
+## 延伸阅读
+
+- van Rossum, G. *Python Reference Manual.* CWI Report CS-R9525, 1995.（早期官方参考手册）
+- Peters, T. *The Zen of Python.* PEP 20, 2004.（python.org 上 `import this` 输出的 19 条格言，简洁描述 Python 设计哲学）
+- Slatkin, B. *Effective Python.* 2nd ed., Addison-Wesley, 2020.（现代 Python 最佳实践）
+- Ramalho, L. *Fluent Python.* 2nd ed., O'Reilly, 2022.（Python 进阶实践，深入语言特性）
+- Guido van Rossum. *Brief Bio and FAQ.* gvanrossum.github.io.

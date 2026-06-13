@@ -1,27 +1,38 @@
 export type GraphNodeType =
-  | 'thinker'
-  | 'school'
-  | 'concept'
-  | 'experiment'
-  | 'question'
-  | 'ism'
-  | 'event'
-  | 'figure'
-  | 'era'
-  | 'cosmos-tier'
-  | 'physics-tier'
-  | 'species'
-  | 'scientist'
-  | 'extinction'
-  | 'economist'
-  | 'theory'
-  | 'theorist'
-  | 'phenomenon';
+  | "thinker"
+  | "school"
+  | "concept"
+  | "experiment"
+  | "question"
+  | "ism"
+  | "event"
+  | "figure"
+  | "era"
+  | "cosmos-tier"
+  | "physics-tier"
+  | "species"
+  | "scientist"
+  | "extinction"
+  | "economist"
+  | "theory"
+  | "theorist"
+  | "phenomenon"
+  | "pioneer"
+  | "algorithm"
+  | "institution";
 
 export type GraphNode = {
   id: string;
   label: string;
-  domain: 'philosophy' | 'history' | 'physics' | 'life-science' | 'economics' | 'psychology';
+  domain:
+    | "philosophy"
+    | "history"
+    | "physics"
+    | "life-science"
+    | "economics"
+    | "psychology"
+    | "computer-science"
+    | "political-science";
   type: GraphNodeType;
   slug: string;
   era?: string;
@@ -35,6 +46,6 @@ export type GraphNode = {
 export type GraphEdge = {
   source: string;
   target: string;
-  type: 'cross-reference' | 'temporal' | 'hierarchy' | 'domain-link';
+  type: "cross-reference" | "temporal" | "hierarchy" | "domain-link";
   label?: string;
 };

@@ -1,0 +1,15 @@
+import type { Metadata } from "next";
+import { DomainSectionList } from "@/components/domain/DomainSectionList";
+import { getDomainConfig, getSectionConfig } from "@/lib/new-domains";
+
+const sc = getSectionConfig("computer-science", "concepts");
+const dc = getDomainConfig("computer-science");
+
+export const metadata: Metadata = {
+  title: `${sc?.label ?? ""} — ${dc?.label ?? ""} — Universe Knowledge`,
+  description: sc?.description ?? "",
+};
+
+export default function Page() {
+  return <DomainSectionList domain="computer-science" section="concepts" />;
+}

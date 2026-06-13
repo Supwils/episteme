@@ -1,0 +1,145 @@
+---
+title: CPU 流水线
+title_en: CPU Pipelining
+status: published
+updated: 2026-06-13
+category: 计算机科学基础
+order: 33
+field: 计算机科学 · 体系结构
+tags:
+  - CPU
+  - 流水线
+  - 乱序执行
+  - 分支预测
+  - 微架构
+related:
+  - computer-architecture
+  - memory-hierarchy-caching
+  - gpu-and-parallel-computing
+---
+
+# CPU 流水线
+
+想象一个汽车组装工厂，有一百道工序。最简单的方式是：一辆车从头到尾完成所有工序后，再开始下一辆。如果每道工序需要 1 分钟，完成一辆车需要 100 分钟，每小时生产 0.6 辆。
+
+更聪明的方式是**流水线（Assembly Line）**：一辆车完成第一道工序后，立刻移向第二道，而另一辆新车进入第一道工序。在任何一个时刻，每道工序都在同时处理一辆不同的车。满载后，每分钟完成一辆车，每小时生产 60 辆——提升了 100 倍。
+
+1960 年代，处理器设计师把这个工业流水线的思想引入了 CPU 设计。这是现代高性能处理器最核心的技术之一。
+
+## 破除误解：流水线不是多核并行
+
+人们常把流水线与多核处理器（同时运行多个程序）混为一谈。两者是不同的并行化维度：
+
+- **多核（多处理器）**：多条独立的流水线，真正的指令级并行，执行不同的线程
+- **流水线**：单条流水线内部的并行，不同指令的不同阶段同时进行
+
+一个 4 核 CPU，每个核内部都有一条完整的流水线。流水线是单个核的性能技术，多核是系统级并行技术。
+
+## 流水线的基本阶段
+
+经典的 5 阶段 RISC 流水线（MIPS 架构为原型）：
+
+```
+IF     →  ID    →  EX    →  MEM   →  WB
+取指      译码     执行     内存访问   写回
+(Instruction  (Instruction  (Execute)  (Memory   (Write-
+ Fetch)        Decode)                  Access)   Back)
+```
+
+**流水线时空图**（展示多条指令的重叠执行）：
+
+```
+指令 1：IF  ID  EX  MEM  WB
+指令 2：    IF  ID  EX   MEM  WB
+指令 3：        IF  ID   EX   MEM  WB
+指令 4：            IF   ID   EX   MEM  WB
+```
+
+在第 5 个时钟周期，4 条指令同时处于流水线的不同阶段。理想情况下，5 阶段流水线使吞吐量提升 5 倍。
+
+## 流水线的阻碍：冒险（Hazard）
+
+现实中，流水线并非总能满载运行，存在三类冒险（Hazard）使流水线必须"停顿"（Stall）：
+
+### 数据冒险（Data Hazard）
+
+一条指令依赖于前一条指令的结果，而结果还没准备好：
+
+```
+ADD R1, R2, R3    # R1 = R2 + R3（在 WB 阶段写回 R1）
+SUB R4, R1, R5    # R4 = R1 - R5（需要 R1 的新值，但 ADD 还没写回）
+```
+
+解决方案：
+- **流水线停顿（Stall）**：等待前一条指令完成，插入"气泡"（NOP），简单但损失性能
+- **数据前推（Data Forwarding / Bypassing）**：在 ADD 的 EX 阶段结果出来后，不等写回，直接传给 SUB 的 EX 阶段使用，消除大部分数据冒险
+
+### 控制冒险（Control Hazard）：分支预测
+
+遇到分支（if-else、for 循环）时，CPU 不知道下一条应该执行哪条指令，因为条件还没计算完：
+
+```
+CMP R1, 0          # 比较 R1 与 0
+BEQ label          # 如果等于 0，跳转到 label
+ADD R2, R3, R4     # 不跳转则执行
+... (label 处的指令)
+```
+
+当 BEQ 在 EX 阶段得出结论时，后续指令已经进入流水线了。如果预取的指令是错的，必须冲刷流水线，损失若干个时钟周期。
+
+**分支预测（Branch Prediction）**：CPU 预测分支结果，按预测方向取指，如果预测正确则无损失，预测错误则冲刷。
+
+- **静态预测**：总是预测不跳转（或总是跳转），简单但不准
+- **动态预测**：维护分支历史表（Branch History Table），记录每个分支上次的结果，以此预测下一次。现代高性能 CPU 的分支预测精度超过 95%
+
+现代处理器（如 Intel 的 Skylake）的分支预测器使用神经网络级别的算法（TAGE，Tag-based Predictor），在复杂程序中实现超过 98% 的预测精度。
+
+### 结构冒险（Structural Hazard）
+
+多条指令同时需要同一个硬件资源。解决方案是提供足够的资源副本（如独立的指令缓存和数据缓存，避免两者争用同一内存端口）。
+
+## 超标量与乱序执行
+
+现代处理器把流水线进一步推进到两个方向：
+
+**超标量（Superscalar）**：每个时钟周期同时取指、发射多条指令。现代处理器通常是 4-6 路超标量，理论上每周期完成 4-6 条指令（Instructions Per Cycle，IPC）。
+
+**乱序执行（Out-of-Order Execution，OoOE）**：当一条指令等待数据（内存访问慢）时，不停顿，而是找下游没有依赖关系的指令先执行。Robert Tomasulo 在 1967 年为 IBM 360/91 设计的 Tomasulo 算法是乱序执行的先驱。
+
+乱序执行维持了程序的逻辑语义，对程序员透明，但物理上指令以不同于程序文本的顺序执行。这产生了 Spectre 和 Meltdown 漏洞。
+
+## 推测执行与安全漏洞
+
+**推测执行（Speculative Execution）**：CPU 提前执行"可能不会执行"的指令（如分支后的指令），如果预测正确，节省了时间；如果错误，撤销结果并重新执行正确路径。推测执行是现代高性能处理器的核心技术之一。
+
+**Spectre 与 Meltdown（2018）**：两组 Google Project Zero 等机构发现的漏洞，利用推测执行和缓存的时序副作用，从一个进程读取另一个进程（甚至操作系统内核）的私有数据。
+
+原理：CPU 推测执行期间，即使指令最终被回滚，对缓存的影响（哪些数据被加载进缓存）残留下来。攻击者通过测量特定内存地址的访问延迟（缓存命中 vs 缓存缺失），可以推断出被推测执行的代码处理的数据内容。
+
+这两个漏洞影响了几乎所有过去 20 年生产的高性能处理器，补丁带来的性能损失在某些工作负载上高达 30%。它们暴示：性能优化（推测执行）与安全隔离是根本矛盾，不能只看功能正确性，还必须考虑侧信道。
+
+## 流水线深度的权衡
+
+更深的流水线（更多阶段）理论上允许更高的时钟频率（每个阶段工作量更少），但：
+
+- **分支误预测代价更大**：流水线越深，预测错误时需要冲刷的阶段越多
+- **功耗增加**：维持深流水线的逻辑更复杂，静态功耗更高
+
+Intel Prescott（Pentium 4，2004）将流水线加深到 31 阶段，时钟频率达到 3.8 GHz，但性能反不如频率更低的竞争对手，被称为"NetBurst 架构的失败"。此后处理器设计回归了中等深度的流水线，转而以乱序执行和缓存优化提升性能。
+
+## 跨域连接
+
+- **[[computer-architecture]]**：流水线是微架构层面的实现，建立在 ISA 提供的接口之上。
+- **[[gpu-and-parallel-computing]]**：GPU 采用了与 CPU 完全不同的并行策略，见 GPU 与并行计算条目。
+- **安全**：Spectre/Meltdown 展示了性能优化与安全隔离之间深刻的张力，影响了整个行业对"侧信道攻击"的认识。
+- **数学**：流水线效率分析涉及队列论和概率论（分支预测的统计分析）。
+
+---
+
+## 延伸阅读
+
+- Patterson, D. & Hennessy, J. *Computer Organization and Design: The Hardware/Software Interface.* Morgan Kaufmann. （经典教材，详细讲述流水线）
+- Kocher, P. et al. *Spectre Attacks: Exploiting Speculative Execution.* IEEE S&P, 2019. （Spectre 论文）
+- Lipp, M. et al. *Meltdown: Reading Kernel Memory from User Space.* USENIX Security, 2018. （Meltdown 论文）
+- Tomasulo, R. *An Efficient Algorithm for Exploiting Multiple Arithmetic Units.* IBM Journal of R&D 11(1), 1967. （乱序执行的开山之作）
+- Hennessy, J. & Patterson, D. *Computer Architecture: A Quantitative Approach.* Morgan Kaufmann.

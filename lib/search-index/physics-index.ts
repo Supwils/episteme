@@ -1,5 +1,4 @@
 import type { SearchDocument } from "./types";
-
 const TIER_ROUTES: Record<string, string> = {
   T0: "observable",
   T1: "cosmic-web",
@@ -32,10 +31,38 @@ interface TierData {
   };
 }
 
+interface PhysicsKbData {
+  slug: string;
+  title: string;
+  category: string;
+  excerpt: string;
+}
+
+interface PhysicsDialogueData {
+  slug: string;
+  title: string;
+  description: string;
+  participants: readonly string[];
+  tags: readonly string[];
+}
+
 export function indexPhysics(
   cosmosMods: Array<{ default: TierData }>,
   physicsMods: Array<{ default: TierData }>,
-  experimentsDataMod: { PHYSICS_EXPERIMENTS: ReadonlyArray<{ id: string; title: string; subtitle: string; year: string; field: string; description: string }> } | null
+  experimentsDataMod: {
+    PHYSICS_EXPERIMENTS: ReadonlyArray<{
+      id: string;
+      title: string;
+      subtitle: string;
+      year: string;
+      field: string;
+      description: string;
+    }>;
+  } | null,
+  physicsKbDataMod: { UNIVERSE_PHYSICS_KB_DATA: ReadonlyArray<PhysicsKbData> } | null,
+  physicsDialoguesDataMod: {
+    UNIVERSE_PHYSICS_DIALOGUES_DATA: ReadonlyArray<PhysicsDialogueData>;
+  } | null
 ): SearchDocument[] {
   const docs: SearchDocument[] = [];
 
@@ -77,6 +104,34 @@ export function indexPhysics(
         section: "physics",
         url: "/universe-physics/experiments",
         type: "experiment",
+      });
+    }
+  }
+
+  if (physicsKbDataMod) {
+    for (const article of physicsKbDataMod.UNIVERSE_PHYSICS_KB_DATA) {
+      docs.push({
+        id: `physics-kb-${article.slug}`,
+        title: article.title,
+        subtitle: article.category,
+        content: article.excerpt,
+        section: "physics",
+        url: `/universe-physics/knowledge-base/${article.slug}`,
+        type: "knowledgeBase",
+      });
+    }
+  }
+
+  if (physicsDialoguesDataMod) {
+    for (const dialogue of physicsDialoguesDataMod.UNIVERSE_PHYSICS_DIALOGUES_DATA) {
+      docs.push({
+        id: `physics-dialogue-${dialogue.slug}`,
+        title: dialogue.title,
+        subtitle: dialogue.participants.join("、"),
+        content: `${dialogue.description} ${dialogue.tags.join(" ")}`,
+        section: "physics",
+        url: `/universe-physics/dialogues/${dialogue.slug}`,
+        type: "dialogue",
       });
     }
   }

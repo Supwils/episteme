@@ -1,0 +1,129 @@
+---
+title: 快速傅里叶变换
+title_en: Fast Fourier Transform (FFT)
+status: published
+updated: 2026-06-13
+category: 经典算法
+order: 19
+field: 计算机科学 · 数学 · 信号处理
+tags:
+  - FFT
+  - 傅里叶变换
+  - 分治
+  - 信号处理
+related:
+  - divide-and-conquer
+  - dynamic-programming
+---
+
+# 快速傅里叶变换
+
+1965 年，James Cooley 和 John Tukey 在 *Mathematics of Computation* 上发表了一篇五页的论文"An Algorithm for the Machine Calculation of Complex Fourier Series"，提出了快速傅里叶变换（FFT）算法。
+
+IBM 研究员 Cooley 后来回忆，这个算法的灵感来自 John Tukey——他在一次白宫科学顾问委员会会议上，为了监测苏联核试验，随手在便条纸上推导出了这个算法的雏形。
+
+几十年后，IEEE 将 FFT 列为 20 世纪十大算法之一。从 MP3 音频压缩，到 JPEG 图像、5G 通信、医学 MRI 图像重建、天文信号处理——FFT 无处不在，是数字时代基础设施的核心算法之一。
+
+## 什么是傅里叶变换？
+
+约瑟夫·傅里叶（Joseph Fourier）在 1822 年的《热的解析理论》中提出：**任何周期信号都可以分解为一系列正弦波和余弦波的叠加**。
+
+这个思想的意义在于：**时域（time domain）和频域（frequency domain）是同一信号的两种等价表示**。在时域中，信号是随时间变化的波形；在频域中，信号是各频率成分的强度分布（频谱）。
+
+**离散傅里叶变换（DFT）**将长度为 $n$ 的离散信号 $x_0, x_1, \ldots, x_{n-1}$ 变换为频域表示：
+
+$$X_k = \sum_{j=0}^{n-1} x_j \cdot e^{-2\pi i jk / n}, \quad k = 0, 1, \ldots, n-1$$
+
+其中 $i = \sqrt{-1}$，$e^{-2\pi i jk/n} = \cos(2\pi jk/n) - i \sin(2\pi jk/n)$ 是单位根。
+
+直接计算 DFT：对每个 $X_k$ 需要 $n$ 次复数乘法，共 $n$ 个输出，总计 $O(n^2)$ 操作。
+
+对 $n = 10^6$（百万点 DFT），$O(n^2) = 10^{12}$ 次操作，以每秒 $10^9$ 操作计，需要约 16 分钟。
+
+## FFT：$O(n \log n)$ 的奇迹
+
+FFT 利用 DFT 的数学结构，用分治将 $O(n^2)$ 降至 $O(n \log n)$。
+
+**关键观察（Cooley-Tukey）**：设 $n = 2^m$（$n$ 是 2 的幂），将 DFT 分成奇偶两半：
+
+$$X_k = \sum_{j=0}^{n/2-1} x_{2j} \cdot \omega_n^{2jk} + \omega_n^k \sum_{j=0}^{n/2-1} x_{2j+1} \cdot \omega_n^{2jk}$$
+
+其中 $\omega_n = e^{-2\pi i/n}$（$n$ 次单位根）。注意 $\omega_n^{2jk} = \omega_{n/2}^{jk}$，所以：
+
+$$X_k = \text{DFT}_{n/2}(\text{偶数项})_k + \omega_n^k \cdot \text{DFT}_{n/2}(\text{奇数项})_k$$
+
+$$X_{k+n/2} = \text{DFT}_{n/2}(\text{偶数项})_k - \omega_n^k \cdot \text{DFT}_{n/2}(\text{奇数项})_k$$
+
+这意味着：**$n$ 点 DFT 可以分解为两个 $n/2$ 点 DFT**，再用 $O(n)$ 合并！
+
+递推：$T(n) = 2T(n/2) + O(n)$，由主定理得 $T(n) = O(n \log n)$。
+
+对同样的 $n = 10^6$，$O(n \log n) \approx 2 \times 10^7$ 操作——约 0.02 秒。加速比超过 **5 万倍**。
+
+## "蝶形运算"可视化
+
+FFT 最底层的计算单元是"蝶形运算（Butterfly Operation）"：
+
+```
+a ───┬──────── a + W·b
+     │
+b ───┴── W ─── a - W·b
+```
+
+其中 $W$ 是单位根因子。长度为 $n$ 的 FFT 由 $\log_2 n$ 层、每层 $n/2$ 个蝶形运算构成——总计 $\frac{n}{2} \log_2 n$ 次复数乘法。
+
+这个规则的蝶形结构使得 FFT 易于硬件实现（VLSI、DSP 芯片），是 FFT 成为工程标准的重要原因。
+
+## 多项式乘法：FFT 最核心的应用
+
+**问题**：两个 $n-1$ 次多项式 $A(x) = \sum_{i=0}^{n-1} a_i x^i$ 和 $B(x)$ 相乘，得到 $2n-2$ 次多项式 $C = A \cdot B$。
+
+朴素系数展开：$O(n^2)$（FOIL 方法）。
+
+FFT 方法：
+
+1. 在 $2n$ 个点（$2n$ 次单位根处）**求值**（用 FFT）：$O(n \log n)$
+2. **逐点相乘**（点值表示下，乘法是逐点的）：$O(n)$
+3. **插值**（逆 FFT，IFFT）回系数表示：$O(n \log n)$
+
+总计 $O(n \log n)$！
+
+这不仅用于数学计算，还直接影响：
+- **大整数乘法**：数字可以看成多项式系数，$n$ 位乘法由 $O(n^2)$（Karatsuba $O(n^{1.585})$）进一步降至 $O(n \log n \log \log n)$（Schönhage–Strassen 1971）
+- **卷积**：数字信号处理的核心操作（滤波、互相关）本质是多项式乘法，FFT 加速后称为**快速卷积**
+
+## 改变世界的应用
+
+**音频处理（MP3 等）**：音频编码器用 FFT 分析各频率成分的能量，根据人耳的感知特性（听觉掩蔽效应）舍弃不重要的高频成分，实现 10:1 甚至 20:1 的压缩比。
+
+**JPEG 图像压缩**：JPEG 用的是离散余弦变换（DCT），是 FFT 的实数版本，对每个 $8 \times 8$ 像素块做变换，丢弃高频（细节）成分，保留低频（轮廓）成分。
+
+**无线通信（4G/5G OFDM）**：现代移动通信使用**正交频分复用（OFDM）**，IFFT/FFT 是调制/解调的核心——每个通话、每次上网，都在毫秒内完成成千上万次 FFT。
+
+**雷达与声呐**：发射信号经目标反射后用 FFT 分析频移（多普勒效应），判断目标速度和距离。
+
+**MRI 医学成像**：核磁共振扫描仪采集的原始数据天然在"k 空间"（频域），FFT 重建为空间图像是 MRI 的必要步骤。
+
+**天文学**：射电望远镜数据分析（如 SETI@home 用志愿者计算机做的信号搜索）依赖 FFT 在海量数据中寻找周期信号。
+
+## 历史悬案：高斯早知道了？
+
+Cooley 和 Tukey 的论文发表后，数学史家发现：Carl Friedrich Gauss 在 1805 年的未发表手稿中就描述了实质相同的算法（用于天文计算中的插值）——比 Cooley-Tukey 早 160 年。
+
+这并不是孤立案例。许多算法的"发明者"其实是"重新发现者"——知识在历史中多次独立涌现，最终在合适的工程需求下被正式发表和推广。
+
+## 跨域连接
+
+- **[[divide-and-conquer]]**：FFT 是分治算法在实际工程中最震撼的应用，分治框架解释了为什么 $O(n^2)$ 可以降至 $O(n \log n)$。
+- **数学（傅里叶分析）**：DFT 是连续傅里叶变换的离散近似，背后是调和分析的深刻数学。Parseval 定理等保证了时频域的能量守恒。
+- **物理学**：量子力学的动量-位置对偶性、量子傅里叶变换（量子计算中的核心操作）与经典 FFT 有深刻的数学对应。量子傅里叶变换是 Shor 素数分解算法的核心。
+- **信号处理**：Nyquist-Shannon 采样定理告诉我们，只要采样频率超过信号最高频率的两倍，就能完整恢复信号——这是 FFT 应用的理论基础。
+
+---
+
+## 延伸阅读
+
+- Cooley, J.W. & Tukey, J.W. "An Algorithm for the Machine Calculation of Complex Fourier Series." *Mathematics of Computation* 19(90), 1965.
+- Schönhage, A. & Strassen, V. "Schnelle Multiplikation grosser Zahlen." *Computing* 7, 1971.
+- Cormen, T. et al. *Introduction to Algorithms (CLRS).* 4th ed. MIT Press, 2022. （第30章 Polynomials and the FFT）
+- Smith, J.O. *Mathematics of the Discrete Fourier Transform (DFT).* W3K Publishing, 2007. （免费在线版）

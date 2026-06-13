@@ -1,0 +1,134 @@
+---
+title: 网络流
+title_en: Network Flow
+status: published
+updated: 2026-06-13
+category: 图算法
+order: 14
+field: 计算机科学 · 图论 · 优化
+tags:
+  - 网络流
+  - 最大流
+  - 最小割
+  - 增广路
+related:
+  - graph-traversal
+  - shortest-path-dijkstra
+  - linear-programming
+---
+
+# 网络流
+
+1956 年，美国空军系统分析师 T.E. Harris 写了一份机密备忘录，估算若苏联遭受核打击后，铁路网络能承载多少物资流量。这个问题后来成为一道经典算法题目的直接来源。
+
+同年，L.R. Ford Jr. 和 D.R. Fulkerson 在 *Canadian Journal of Mathematics* 上发表了"最大流-最小割定理"，奠定了网络流理论的基础。
+
+从军事物资调配，到航空公司航班安排，从通信网络带宽分配，到 Bipartite 匹配——网络流是组合优化中最有力的工具之一。
+
+## 核心概念
+
+**流网络（Flow Network）**是一个有向图 $G = (V, E)$，每条边 $(u, v)$ 有**容量（capacity）** $c(u, v) \geq 0$。有两个特殊节点：**源点（source）** $s$ 和**汇点（sink）** $t$。
+
+**流（flow）** $f$ 是对每条边的实数赋值，满足：
+1. **容量约束**：$0 \leq f(u, v) \leq c(u, v)$（不超过容量）
+2. **流量守恒**：对所有非 $s, t$ 节点，流入等于流出
+
+**流的值** $|f|$ = 从 $s$ 流出的净流量。
+
+**最大流问题**：找流 $f$，使 $|f|$ 最大。
+
+## 最大流-最小割定理
+
+**割（cut）**是节点集合的划分 $(S, T)$，其中 $s \in S, t \in T$。割的**容量** = 从 $S$ 到 $T$ 的边的容量之和。
+
+**最大流-最小割定理（Max-Flow Min-Cut Theorem，Ford & Fulkerson 1956）**：
+
+$$\text{最大流} = \text{最小割容量}$$
+
+这是网络流理论的基石，也是组合优化中最优美的定理之一。它意味着：网络能传输的最大流量，恰好等于"切断所有从 $s$ 到 $t$ 的路径"所需要切断的最小容量。
+
+直觉：最小割就是网络的"瓶颈"——流必须经过这里，而容量就是上限。
+
+## Ford-Fulkerson 方法
+
+基本思想：**重复找增广路，直到无法找到**。
+
+**增广路（Augmenting Path）**：在**残差网络（Residual Graph）** $G_f$ 中，从 $s$ 到 $t$ 的路径。残差网络中，每条正向边有**剩余容量** $c(u,v) - f(u,v)$，同时每条已有流量的边有**反向边**，容量为 $f(u,v)$（允许"撤销"部分流量）。
+
+```
+Ford-Fulkerson 框架：
+初始化所有流为 0
+while 在残差网络 G_f 中存在从 s 到 t 的路径 p:
+    瓶颈量 = p 上的最小残差容量
+    沿 p 增加流量（正向边增，反向边减）
+```
+
+**反向边**是最反直觉但最关键的部分：它允许算法"纠错"——如果之前选的路径导致次优，反向边允许重路由。
+
+**时间复杂度**：若用 DFS 找增广路，每次流量至少增加 1（整数情况），最坏 $O(|E| \cdot |f^*|)$（$f^*$ 为最大流值）。若容量为无理数，Ford-Fulkerson 可能不终止！
+
+## Edmonds-Karp 算法
+
+Jack Edmonds 和 Richard Karp 在 1972 年提出：**用 BFS（广度优先搜索）找增广路**（即最短增广路）。
+
+这一简单改变带来多项式时间保证：
+
+$$O(VE^2)$$
+
+关键引理：最短增广路长度单调不减；每条边至多成为瓶颈 $O(V)$ 次；共至多 $O(VE)$ 次增广，每次 BFS $O(E)$。
+
+## Dinic 算法
+
+Yefim Dinitz（苏联计算机科学家，名字有时拼写为 Dinic）在 1970 年（发表于苏联期刊）提出**阻塞流（Blocking Flow）**的概念，达到 $O(V^2 E)$ 的时间复杂度。
+
+对于单位容量图（如二部图匹配），Dinic 算法更快：$O(E \sqrt{V})$。Dinic 是竞技编程中求最大流的首选算法。
+
+## 应用：二部图最大匹配
+
+网络流最优雅的应用之一是**二部图最大匹配（Bipartite Maximum Matching）**。
+
+**问题**：有 $m$ 名工人和 $n$ 项工作，每名工人能胜任某些工作，找最多的"工人-工作"配对（每人每工作至多一对）。
+
+**建图**：
+- 源点 $s$ 连向所有工人，容量 1
+- 每名工人连向其能胜任的工作，容量 1
+- 所有工作连向汇点 $t$，容量 1
+- 求最大流
+
+最大流值 = 最大匹配数。这将匹配问题规约为流问题，结构之简洁令人叫绝。
+
+**König 定理**（1931，Dénes König）：在二部图中，最大匹配数 = 最小顶点覆盖数。这是最大流-最小割定理的组合版本。
+
+## 最小费用最大流
+
+若每条边不仅有容量 $c(u,v)$，还有单位流量的**费用（cost）** $w(u,v)$，则最小费用最大流（Min-Cost Max-Flow）在所有最大流中找费用最小的。
+
+算法：用 Bellman-Ford 或 SPFA（Shortest Path Faster Algorithm）在残差网络中找**最短（最小费用）增广路**，重复增广。
+
+应用：运输规划、任务分配（最小总成本匹配）、流水线调度。
+
+## 更强大的推进-重标（Push-Relabel）算法
+
+Andrew Goldberg 和 Robert Tarjan 在 1986 年提出 Push-Relabel 算法，理论复杂度 $O(V^2 E)$ 或 $O(V^3)$（各种变种），在稠密图上实践表现极佳。
+
+它打破了"增广路"的框架，用"高度函数"和局部推流操作代替全局路径搜索，是最大流算法设计的里程碑。
+
+## 计算机视觉中的图割
+
+2000 年代，Yuri Boykov、Vladimir Kolmogorov 等人将网络流用于计算机视觉的图像分割：把像素建成图的节点，相邻像素的边权表示"属于同一区域"的强度，求最小割等价于最优分割。这一框架在医学图像分析中广泛使用。
+
+## 跨域连接
+
+- **[[graph-traversal]]**：BFS 是 Edmonds-Karp 算法的核心子程序；网络流算法本质上是对图的系统搜索。
+- **[[linear-programming]]**：网络流是线性规划的特殊情形——最大流可以写成 LP，最大流-最小割定理是该 LP 的强对偶定理的组合体现。
+- **[[shortest-path-dijkstra]]**：最小费用最大流的内层循环求最短路；Dijkstra 或 Bellman-Ford 是其子程序。
+- **运筹学**：网络流是运筹学的标志性工具，从物流到电力网调度无所不在。
+
+---
+
+## 延伸阅读
+
+- Ford, L.R. & Fulkerson, D.R. "Maximal Flow Through a Network." *Canadian Journal of Mathematics* 8, 1956.
+- Edmonds, J. & Karp, R.M. "Theoretical Improvements in Algorithmic Efficiency for Network Flow Problems." *Journal of the ACM* 19(2), 1972.
+- Cormen, T. et al. *Introduction to Algorithms (CLRS).* 4th ed. MIT Press, 2022. （第24、26章）
+- Ahuja, R.K., Magnanti, T.L. & Orlin, J.B. *Network Flows: Theory, Algorithms, and Applications.* Prentice Hall, 1993.

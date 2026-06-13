@@ -1,0 +1,100 @@
+---
+title: 约书亚·本希奥
+title_en: Yoshua Bengio
+status: published
+updated: 2026-06-13
+category: 人工智能
+years: 1964–
+nationality: 加拿大（出生于法国巴黎）
+field: 深度学习 · 生成模型 · AI 安全
+order: 32
+tags:
+  - 深度学习
+  - 生成模型
+  - 图灵奖
+  - AI安全
+related:
+  - geoffrey-hinton
+  - deep-learning-architectures
+  - natural-language-processing
+---
+
+# 约书亚·本希奥
+
+2003 年，约书亚·本希奥（Yoshua Bengio）与合作者发表了一篇论文《神经概率语言模型》（A Neural Probabilistic Language Model）。这篇论文引入了一个在当时看起来只是技术细节的思想：用神经网络把词语映射到低维连续向量空间——**词嵌入（Word Embeddings）**。
+
+没有人预见到，这个想法是通向 Word2Vec、BERT、GPT 的直接道路，也是现代大语言模型的基础砖块之一。Bengio 在 2003 年做的，是在正确的时机提出了正确问题的正确解法——而绝大多数人当时还不知道这个问题有多重要。
+
+## 破除误解：Bengio 不只是"深度学习三剑客"之一
+
+把 Bengio 定位为 Hinton 和 LeCun 的"第三个人"是不准确的。他的研究风格与两位同行有明显差异：
+
+Hinton 更多是直觉驱动的创新者，常常基于对大脑的隐喻提出新结构；LeCun 的强项是把理论快速工程化并大规模部署；Bengio 则更倾向于从概率论和信息论视角对深度学习做理论分析，研究为什么深度架构有效，以及它们的泛化能力边界在哪里。
+
+他对 RNN（循环神经网络）训练困难的分析、对变分推断的贡献、对生成对抗网络（GAN）的早期工作，都比"卷积神经网络"更难被一句话概括，但从学术深度上同样重要。
+
+## 现场：蒙特利尔与黑暗中的坚持
+
+Bengio 1964 年 3 月 5 日出生于法国巴黎，后移居加拿大，在麦吉尔大学完成学士学位，1991 年获蒙特利尔大学博士学位，此后在麻省理工学院和贝尔实验室做博士后。1993 年，他加入蒙特利尔大学信息与运算研究中心（DIRO）担任教职，此后三十余年以蒙特利尔为根据地。
+
+1990 年代到 2000 年代初，Bengio 和 Hinton、LeCun 一样，在神经网络研究的"冬天"里坚持了下来。他专注于序列建模和循环神经网络（RNN），研究长序列的梯度消失问题——这正是后来 LSTM 和 Attention 机制要解决的根本问题。
+
+## 关键技术贡献
+
+**词嵌入（Word Embeddings，2003）**：Bengio 等人提出用神经网络把词语映射为稠密向量，使得语义相似的词在向量空间中距离相近。这篇论文在发表后数年影响有限，直到 Mikolov 的 Word2Vec（2013）使其大规模普及，人们才回过头认识到 Bengio 2003 年工作的先见之明。
+
+**梯度消失问题的分析（1994）**：Bengio、Simard、Frasconi 在 1994 年系统分析了为什么 RNN 难以学习长期依赖——梯度在反向传播时随时间步指数级缩小（或爆炸）。这一分析为 LSTM（Hochreiter & Schmidhuber，1997）的提出铺垫了问题定义。
+
+**生成对抗网络（GAN，2014）**：Ian Goodfellow 在 Bengio 的研究组提出了 GAN。生成器与判别器的对抗训练框架彻底改变了生成模型的面貌，让计算机能够生成逼真的图像、音频和文本。Bengio 作为 Goodfellow 的导师，在 GAN 的提出中扮演了导师和评审的角色，并在论文中作为共同作者。
+
+**注意力机制的早期贡献（2015）**：Bahdanau、Cho、Bengio 的论文《基于对齐与翻译的神经机器翻译》（Neural Machine Translation by Jointly Learning to Align and Translate）将注意力机制（Attention）引入序列到序列模型，让模型在生成每个词时动态关注源句的不同部分。这篇论文是后来 Transformer（2017）的直接先驱。
+
+## 2018 年图灵奖与转向 AI 安全
+
+2018 年，Bengio 与 Hinton、LeCun 共同获得图灵奖。得奖后，Bengio 的研究重心发生了明显转向：从技术创新转向 AI 的社会影响和安全性。
+
+他参与创立了 Mila（蒙特利尔人工智能研究所），该机构是全球最大的大学 AI 研究中心之一。他的研究组开始发表关于 AI 公平性、可解释性和对齐（Alignment）的论文。
+
+2023 年，ChatGPT 引发的 AI 热潮之后，Bengio 的公开立场变得更加明确：他签署了呼吁暂停训练比 GPT-4 更强系统的公开信，呼吁建立国际 AI 安全委员会（类比 IPCC，即政府间气候变化专门委员会），并在加拿大联邦政府的 AI 监管听证会上出席作证。2024 年，他被任命为 LawZero 的联席主席——这是一个专注于 AI 安全研究的非营利机构。
+
+这与 LeCun 的立场形成鲜明对比，尽管两人仍然相互尊重。
+
+## 代价与争议
+
+**工业界与学术界的定位选择**：与 LeCun（Meta）和 Hinton（曾在 Google）不同，Bengio 选择留在学术界，没有出任大型科技公司 AI 实验室的高管职位。他公开解释这是因为担心接受大型科技公司资助会影响独立性。
+
+**对 AI 风险的"反转"**：Bengio 早年专注于提升 AI 能力，近年转向呼吁限制 AI 进展速度。批评者认为，作为深度学习的奠基者之一，他对 AI 风险的警告带有"既开了枪，又呼吁管控枪支"的矛盾感。Bengio 的回应是：当技术进展超过预期时，科学家有责任修正对风险的评估。
+
+**"系统二"AI 与可解释性**：Bengio 近年提出，当前深度学习以"系统一"（快速、直觉）推理为主，而人类智能还依赖"系统二"（慢速、逻辑）推理。他认为，推动 AI 获得显式的因果推理和逻辑组合能力，是深度学习下一阶段的核心挑战。这一判断与 LeCun 的世界模型路线有重叠，但在技术实现上存在方法论分歧。
+
+## 跨域连接
+
+- **概率论与统计学**：Bengio 的研究深度根植于概率图模型、变分推断和信息论——与其说他是工程师，不如说他是把统计力学的思维带入神经网络的理论家。
+- **哲学**：Bengio 在 AI 安全问题上的转变，涉及"科学家对技术后果的道德责任"这一古老议题，是奥本海默困境在 AI 时代的重演。
+- **[[geoffrey-hinton]]**：图灵奖同年得主，在 AI 安全问题上持相近立场。
+- **[[natural-language-processing]]**：Bengio 的词嵌入和注意力机制是现代 NLP 的两块奠基石。
+- **[[machine-learning-overview]]**：Bengio 对深度学习为什么有效的理论探索，至今是机器学习泛化理论的重要组成部分。
+
+## 人物小记：学者与公民
+
+Bengio 与 Hinton、LeCun 三人形成了深度学习世界的一种三角结构：Hinton 是充满灵感的发明者，LeCun 是工程化的旗手，Bengio 则更像一位追求内在一致性的理论家。三人在 2018 年图灵奖致辞时都强调了各自不同的关注点——Bengio 着重谈到了 AI 的社会责任。
+
+他的学生名单几乎是深度学习领域的名人录：Ian Goodfellow（GAN 发明者）、Kyunghyun Cho（GRU 联合设计者）、Aaron Courville（深度学习教材共同作者）……Mila 研究所每年在顶会（NeurIPS、ICLR、ICML）发表的论文数量位居全球前列，与 Google DeepMind 和 Meta FAIR 比肩，但完全依托学术体制运作。
+
+Bengio 2023 年被《时代》杂志评选为"人工智能领域 100 位最具影响力的人物"之一，是少数因技术贡献和公共立场同时入选的学者。
+
+Mila 的资金来源是加拿大联邦政府（泛加拿大人工智能战略，2017 年启动，是全国首个 AI 国家战略）和省政府，以及与业界的合作研究合同。这一"学术托底、政府支持、开放发表"的模式被认为是维护 AI 研究独立性的可行路径，与美国以私人企业为主导的 AI 投资生态形成对比。
+
+---
+
+## 延伸阅读
+
+- Bengio, Y., Ducharme, R., Vincent, P., Jauvin, C. *A Neural Probabilistic Language Model.* JMLR 3, 2003.（词嵌入奠基论文）
+- Bengio, Y., Simard, P., Frasconi, P. *Learning Long-Term Dependencies with Gradient Descent is Difficult.* IEEE Trans. Neural Networks 5(2), 1994.
+- Bahdanau, D., Cho, K., Bengio, Y. *Neural Machine Translation by Jointly Learning to Align and Translate.* ICLR, 2015.（注意力机制奠基论文）
+- Goodfellow, I., Pouget-Abadie, J., Mirza, M., Xu, B., Warde-Farley, D., Ozair, S., Courville, A., Bengio, Y. *Generative Adversarial Nets.* NeurIPS, 2014.
+- LeCun, Y., Bengio, Y., Hinton, G. *Deep Learning.* Nature 521, 2015.
+- Bengio, Y. et al. *Representation Learning: A Review and New Perspectives.* IEEE TPAMI 35(8), 2013.（自监督表示学习的综述）
+- Bengio, Y. *Managing AI Risks in an Era of Rapid Progress.* arxiv.org, 2023.（AI 安全立场论文）
+- Cho, K., van Merrienboer, B., Bahdanau, D., Bengio, Y. *On the Properties of Neural Machine Translation: Encoder-Decoder Approaches.* SSST Workshop, EMNLP, 2014.（GRU 与编码器-解码器架构）
+- Courville, A., Goodfellow, I., Bengio, Y. *Deep Learning.* MIT Press, 2016.（深度学习权威教材，Bengio 团队出品，可免费在线获取）

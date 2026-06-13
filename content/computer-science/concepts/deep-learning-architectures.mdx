@@ -1,0 +1,135 @@
+---
+title: 深度学习架构
+title_en: Deep Learning Architectures
+status: published
+updated: 2026-06-13
+category: 人工智能
+order: 41
+field: 计算机科学 · 深度学习
+tags:
+  - 深度学习
+  - CNN
+  - Transformer
+  - 生成模型
+related:
+  - neural-networks-concept
+  - machine-learning-overview
+  - natural-language-processing
+  - computer-vision
+---
+
+# 深度学习架构
+
+2012 年 9 月，ImageNet 大规模视觉识别挑战赛（ILSVRC）的结果公布。多伦多大学的 AlexNet 以 15.3% 的 Top-5 错误率获胜，而第二名是 26.2%——超出约 11 个百分点。这不是渐进改进，是质的飞跃。
+
+AlexNet 的核心是一个深度卷积神经网络，在两块 GTX 580 GPU 上训练了约一周。这一刻被广泛认为是现代深度学习时代的起点——不是因为它发明了新概念，而是因为它用规模和 GPU 把已有思想变成了统治性技术。
+
+## 破除误解："深度"不只是"更多层"
+
+深度学习的"深"不仅指神经网络有很多层。更根本的是，深层架构能自动学习**层次化的特征表示（Hierarchical Representations）**：
+
+- 图像的第一层学习边缘和颜色
+- 第二层学习纹理和局部形状
+- 第三层学习物体部件
+- 更深层学习整体概念
+
+这种从原始数据到抽象语义的自动表示学习，是深度学习超越传统机器学习（依赖人工特征工程）的核心原因。
+
+## 卷积神经网络（CNN）：为图像而生
+
+CNN 由 Yann LeCun 于 1989-1998 年期间开发（LeNet 用于手写数字识别），2012 年随 AlexNet 爆发。
+
+**卷积层**：用一组小的可学习滤波器（Kernel）在输入上滑动，每个滤波器提取一种特征：
+
+$$(\mathbf{X} * \mathbf{K})[i, j] = \sum_{m}\sum_{n} \mathbf{X}[i+m, j+n] \cdot \mathbf{K}[m, n]$$
+
+卷积的关键属性：
+- **参数共享**：同一滤波器在整张图上滑动，参数数量与图像大小无关
+- **局部连接**：每个神经元只连接输入的局部区域，符合图像的局部相关性
+- **平移不变性**：无论特征出现在图像什么位置，都能被检测到
+
+**池化层（Pooling）**：对局部区域取最大值或平均值，降低空间分辨率（下采样），增加感受野，减少计算量。
+
+**CNN 架构演化**：
+
+| 架构 | 年份 | 深度 | 亮点 |
+|------|------|------|------|
+| AlexNet | 2012 | 8 层 | ReLU、Dropout、GPU 训练 |
+| VGGNet | 2014 | 16/19 层 | 使用 3x3 小滤波器堆叠 |
+| GoogLeNet/Inception | 2014 | 22 层 | Inception 模块并行多尺度卷积 |
+| ResNet | 2015 | 152 层 | **残差连接（Skip Connection）**解决梯度消失 |
+| EfficientNet | 2019 | 可扩展 | 系统化地平衡深度/宽度/分辨率 |
+
+**残差网络（ResNet）**是 2015 年的重大突破。训练极深网络时面临**梯度消失**问题（梯度在反向传播时逐层缩小，远层几乎收不到梯度信号）。ResNet 引入**跳跃连接（Skip Connection）**：
+
+$$\mathbf{H}(\mathbf{x}) = \mathbf{F}(\mathbf{x}) + \mathbf{x}$$
+
+让网络学习"残差"而非完整映射。梯度可以直接通过恒等路径回传，使 152 层的网络训练成为可能。ResNet-50、ResNet-101 至今仍是图像处理的基础骨干。
+
+## 循环神经网络（RNN）：处理序列数据
+
+文本、语音、时间序列——数据有前后依赖关系。RNN 引入**隐藏状态（Hidden State）**在时间步之间传递信息：
+
+$$\mathbf{h}_t = \sigma(\mathbf{W}_{hh} \mathbf{h}_{t-1} + \mathbf{W}_{xh} \mathbf{x}_t + \mathbf{b})$$
+
+**长短期记忆网络（LSTM，Long Short-Term Memory）**：1997 年由 Hochreiter & Schmidhuber 提出。引入门控机制（输入门、遗忘门、输出门），解决 RNN 长程依赖问题（长序列的早期信息难以保持）。LSTM 在 2010 年代是序列任务（语言模型、机器翻译、语音识别）的主流架构，直到 Transformer 出现。
+
+## Transformer：统治当代 AI 的架构
+
+2017 年，Google Brain 团队发表论文《Attention Is All You Need》，提出 **Transformer** 架构，彻底改变了 NLP 乃至整个深度学习领域。
+
+Transformer 的核心是**自注意力机制（Self-Attention）**：
+
+$$\text{Attention}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \text{softmax}\left(\frac{\mathbf{Q}\mathbf{K}^T}{\sqrt{d_k}}\right) \mathbf{V}$$
+
+其中 $\mathbf{Q}$（Query）、$\mathbf{K}$（Key）、$\mathbf{V}$（Value）都从输入线性变换得到。自注意力让序列中每个位置都能直接"看到"其他所有位置，不受距离限制。
+
+**Transformer 相对于 RNN 的优势**：
+- 并行计算（RNN 必须顺序处理）
+- 全局依赖（RNN 长程依赖衰减）
+- 更易扩展到更大规模
+
+**多头注意力（Multi-Head Attention）**：并行运行多组注意力，每组关注不同的语义关系（语法、语义、指代……），结果拼接后线性变换。
+
+Transformer 迅速从 NLP 扩展到：
+- **视觉**：Vision Transformer（ViT，2020）——把图像分块处理，性能超越 CNN
+- **多模态**：CLIP（OpenAI，2021）——联合训练图像-文本表示
+- **蛋白质结构预测**：AlphaFold2（DeepMind，2020）——使用 Transformer 变体，在 CASP14 竞赛中准确预测蛋白质结构
+
+## 生成模型
+
+**生成对抗网络（GAN，Generative Adversarial Network）**：Ian Goodfellow 2014 年提出。生成器（Generator）和判别器（Discriminator）相互博弈：
+
+- 生成器：从随机噪声生成假数据，试图骗过判别器
+- 判别器：区分真实数据和生成数据，试图揭穿生成器
+
+两者同时训练，形成动态博弈，最终生成器能生成以假乱真的样本。GAN 在图像生成（StyleGAN、DALL-E 前身）领域取得惊人成果，也是 Deepfake 技术的基础。
+
+**变分自编码器（VAE）**：学习数据的潜在空间表示（Latent Space），能生成新样本并做有意义的插值。
+
+**扩散模型（Diffusion Models）**：2020 年后成为图像生成的主流。训练过程逐步向数据添加噪声（前向过程），推断过程逐步去噪（反向过程）。Stable Diffusion、DALL-E 2、Midjourney 的核心。
+
+**大语言模型（LLM）**：基于 Transformer 的自回归语言模型，通过预测下一个词来学习语言。GPT 系列（OpenAI）、BERT（Google）、LLaMA（Meta）代表了这一范式的最高成就。
+
+## 代价与争议
+
+**规模化的极限**：深度学习的一个经验规律是"规模即性能"——更大的模型、更多数据、更多算力往往带来更好的性能。但这一规律是否无限成立仍有争议。2022 年后，多个研究指出纯规模化的边际收益在下降。
+
+**幻觉（Hallucination）**：大语言模型经常自信地生成事实错误的内容。这源于其训练目标（预测下一个词）与"准确表达真实世界信息"之间的不对齐。这是当前 LLM 最严峻的实际挑战之一。
+
+**版权与数据来源**：生成模型在大量互联网数据上训练，包括有版权的作品。艺术家、作家群体对此提起了多起诉讼。法律如何平衡 AI 训练与版权保护，全球各司法管辖区仍在摸索。
+
+## 跨域连接
+
+- **[[computer-vision]]**：CNN 和 Vision Transformer 是计算机视觉的核心架构；图像识别、目标检测、图像分割都依赖这些架构。
+- **[[natural-language-processing]]**：Transformer 是现代 NLP 的基石；BERT 用于理解，GPT 用于生成，几乎所有 SOTA NLP 系统都基于 Transformer。
+- **[[gpu-and-parallel-computing]]**：深度学习的爆发与 GPU 计算的普及密不可分——矩阵乘法在 GPU 上的并行加速，使训练大型网络成为可能。
+
+---
+
+## 延伸阅读
+
+- Krizhevsky, A., Sutskever, I., & Hinton, G. *ImageNet Classification with Deep Convolutional Neural Networks.* NeurIPS, 2012. （AlexNet 原论文）
+- He, K. et al. *Deep Residual Learning for Image Recognition.* CVPR, 2016. （ResNet）
+- Vaswani, A. et al. *Attention Is All You Need.* NeurIPS, 2017. （Transformer 原论文）
+- Goodfellow, I. et al. *Generative Adversarial Nets.* NeurIPS, 2014. （GAN）

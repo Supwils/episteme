@@ -1,0 +1,132 @@
+---
+title: 凸包算法
+title_en: Convex Hull
+status: published
+updated: 2026-06-13
+category: 计算几何
+order: 25
+field: 计算机科学 · 计算几何
+tags:
+  - 凸包
+  - 计算几何
+  - Graham扫描
+  - 分治
+related:
+  - divide-and-conquer
+  - greedy-algorithms
+  - sorting-algorithms
+---
+
+# 凸包算法
+
+把若干颗钉子钉在木板上，然后用一根橡皮筋套住所有钉子并拉紧——橡皮筋绷出的形状就是这些点的**凸包（Convex Hull）**。
+
+凸包是包含所有给定点的最小凸多边形。它是计算几何的基础问题，也是地图计算、碰撞检测、模式识别、机器学习（支持向量机的几何基础）的核心工具。
+
+更重要的是，凸包问题揭示了计算几何与排序之间的深刻联系——它们有相同的计算复杂度下界。
+
+## 为什么下界是 $\Omega(n \log n)$？
+
+凸包不是"普通"的几何问题，它有一个漂亮的理论下界：**任何基于比较的凸包算法都需要 $\Omega(n \log n)$ 时间**。
+
+**下界证明（规约论证）**：可以将排序问题规约为凸包问题。
+
+给定 $n$ 个实数 $x_1, \ldots, x_n$ 的排序问题，构造点集 $\{(x_i, x_i^2) \mid i = 1, \ldots, n\}$——所有点都在抛物线 $y = x^2$ 上。由于抛物线是凸曲线，所有点都在凸包上，且凸包的顶点顺序对应 $x_i$ 的排序。
+
+因此：会排序 $\Rightarrow$ 会算凸包；会算凸包 $\Rightarrow$ 会排序（从凸包顶点顺序读出）。排序的 $\Omega(n \log n)$ 下界直接传递给凸包。
+
+达到 $O(n \log n)$ 的算法即为渐近最优。
+
+## Graham 扫描算法
+
+由 Ronald Graham 在 1972 年提出，时间 $O(n \log n)$（主要耗在排序上），是最常用的精确凸包算法之一。
+
+**步骤**：
+
+1. 找最低点（$y$ 最小，若相同取 $x$ 最小的）$p_0$，称为极点（pivot）
+2. 将其余点按**相对 $p_0$ 的极角**从小到大排序
+3. 初始化栈，push $p_0$ 和排序后第一个点
+4. 对剩余点依次处理：
+   - 若当前点使栈顶两点的连线**向右转（非左转）**，弹出栈顶
+   - 重复检查，直到左转或栈中只剩一点
+   - 将当前点压栈
+5. 栈中剩余点即为凸包顶点（按逆时针顺序）
+
+**左转/右转的判断**：用叉积（Cross Product）：
+
+$$\text{叉积}(O, A, B) = (A_x - O_x)(B_y - O_y) - (A_y - O_y)(B_x - O_x)$$
+
+- $> 0$：$O \to A \to B$ 是逆时针（左转）
+- $< 0$：是顺时针（右转）
+- $= 0$：共线
+
+Graham 扫描的关键：每个点最多被压栈一次、弹栈一次，整体压弹操作 $O(n)$，瓶颈在排序 $O(n \log n)$。
+
+## Jarvis 步进算法（Gift Wrapping）
+
+由 R.A. Jarvis 在 1973 年提出，另一种直觉更简单的算法：像用礼品纸包裹礼物一样，每次找"最右转"的下一个点。
+
+1. 从最左点开始
+2. 当前点 $p$，找使所有其他点都在 $p \to q$ 左边的点 $q$（即极角最小的点）
+3. $q$ 成为下一个凸包顶点
+4. 重复直到回到起点
+
+时间复杂度：$O(nh)$，$h$ 是凸包顶点数。
+
+当 $h$ 很小（如 $h = O(\log n)$）时，Jarvis 优于 Graham；当 $h = O(n)$ 时，退化到 $O(n^2)$。
+
+## Chan 算法：最优输出敏感算法
+
+Timothy Chan 在 1996 年提出了一个精妙的算法，时间 $O(n \log h)$（$h$ 为凸包顶点数），这是凸包问题理论上的最优**输出敏感算法（Output-Sensitive Algorithm）**。
+
+Chan 算法结合了 Graham 和 Jarvis 的优点：
+1. 猜测 $h$ 的值（从 $m = 2$ 开始，若不够则翻倍 $m \leftarrow m^2$，最多 $O(\log \log h)$ 次猜测）
+2. 将点集分成大小约 $m$ 的子组，对每组做 Graham 扫描（$O(n \log m)$）
+3. 用 Jarvis 步进进行全局扫描，但每步仅在各子组的凸包上二分查找极角最小点（$O(\log m)$ 每步），共 $h$ 步
+
+Chan 算法展示了"猜测+验证"的自举（Bootstrap）技术，是算法设计中的精妙构思。
+
+## 三维及更高维凸包
+
+**三维凸包**：在三维空间中，凸包是凸多面体（Convex Polyhedron）。时间复杂度 $O(n \log n)$，输出大小 $O(n)$（三维凸包的面数线性于点数——Euler 公式保证）。
+
+**高维凸包**：在 $d$ 维空间中，凸包的面数（faces）可达 $O(n^{\lfloor d/2 \rfloor})$（上界定理），计算复杂度急剧增加。维度 $d \geq 4$ 时，凸包计算实践上极为昂贵——这被称为"维度灾难"的几何版本。
+
+## 应用领域
+
+**机器人与运动规划**：障碍物的凸包是碰撞检测中的"保守近似"——若机器人与凸包不相交，则一定不与原始形状相交（减少精确碰撞检测的频率）。GJK 算法（Gilbert-Johnson-Keerthi，1988）基于凸包做高效碰撞检测，是物理引擎（Unity、Bullet Physics）的标准工具。
+
+**支持向量机（SVM）**：SVM 的二分类问题（找最大间隔超平面）在几何上等价于计算两类点的凸包的距离——两个凸包的最近点对应支持向量，间隔等于两凸包距离。
+
+**地图 GIS**：计算城市或区域的边界轮廓，找一组 GPS 点的最小覆盖范围。
+
+**计算机图形学**：确定物体的包围体（Bounding Volume），用于场景渲染中的视锥剔除（Frustum Culling），以及光线追踪的加速结构。
+
+**图像处理**：手势识别中，手部轮廓的凸包和凸缺陷（Convexity Defects，凸包与实际轮廓之间的区域）用于识别手指数量和手势类型。
+
+## 动态凸包
+
+如果点集动态变化（支持插入/删除），维护凸包的代价更高。
+
+动态凸包（Dynamic Convex Hull）支持：
+- 插入点：$O(\log^2 n)$ 均摊（使用某些平衡 BST 实现）
+- 删除点：$O(\log^2 n)$ 均摊
+- 查询"点是否在凸包内"：$O(\log n)$
+
+完全动态凸包的高效实现是计算几何中的研究热点，涉及复杂的分层数据结构。
+
+## 跨域连接
+
+- **[[divide-and-conquer]]**：凸包有经典的分治算法——将点集按 $x$ 坐标分为左右两半，递归求各半凸包，再合并（找公切线）。这是 $O(n \log n)$ 的另一种方案，与归并排序在结构上极为相似。
+- **[[sorting-algorithms]]**：凸包与排序有相同的 $\Omega(n \log n)$ 下界——这不是巧合，而是因为可以在线性时间内互相规约。凸包是"比排序更难不了多少"的问题。
+- **数学（线性规划）**：线性规划的可行域是一个多面体，其顶点是最优解的候选——凸包的计算与线性规划理论深度交织。单纯形法本质上是在凸多面体的顶点上游走。
+- **机器学习（SVM）**：支持向量机的几何直觉是最大间隔凸包，理解凸包是理解 SVM 数学本质的关键步骤。
+
+---
+
+## 延伸阅读
+
+- Graham, R. "An Efficient Algorithm for Determining the Convex Hull of a Finite Planar Set." *Information Processing Letters* 1(4), 1972.
+- Chan, T. "Optimal Output-Sensitive Convex Hull Algorithms in Two and Three Dimensions." *Discrete & Computational Geometry* 16(4), 1996.
+- de Berg, M. et al. *Computational Geometry: Algorithms and Applications.* 3rd ed. Springer, 2008. （第1章）
+- O'Rourke, J. *Computational Geometry in C.* 2nd ed. Cambridge University Press, 1998.

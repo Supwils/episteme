@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getAllScientists, getScientistById } from "@/subjects/life-science/lib/scientists";
+import { getScientistArticleBody } from "@/subjects/life-science/lib/scientist-article";
+import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import type { Scientist } from "@/subjects/life-science/lib/types";
 import { FadeInSection } from "@/components/FadeInSection";
 import { SITE_URL } from "@/lib/constants";
@@ -96,6 +98,7 @@ export default async function ScientistDetailPage({ params }: Props) {
   if (!scientist) notFound();
 
   const supp = getSupp(scientist);
+  const articleBody = getScientistArticleBody(scientist.id);
   const allScientists = getAllScientists();
   const related = allScientists
     .filter(
@@ -170,6 +173,12 @@ export default async function ScientistDetailPage({ params }: Props) {
             <h2 className="font-display text-fg-primary mb-4 text-xl font-semibold">代表著作</h2>
             <p className="text-fg-secondary leading-relaxed">{scientist.famousWork}</p>
           </FadeInSection>
+
+          {articleBody && (
+            <FadeInSection className="mb-12">
+              <MarkdownRenderer content={articleBody} accentColor={supp.accent} />
+            </FadeInSection>
+          )}
 
           {supp.quote && (
             <FadeInSection className="mb-12">

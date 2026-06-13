@@ -1,0 +1,138 @@
+---
+title: Q 学习与强化学习
+title_en: Q-Learning and Reinforcement Learning
+status: published
+updated: 2026-06-13
+category: 机器学习算法
+order: 40
+field: 计算机科学 · 机器学习 · 强化学习
+tags:
+  - Q学习
+  - 强化学习
+  - 马尔可夫决策过程
+  - 深度强化学习
+  - 游戏AI
+related:
+  - gradient-descent-backprop
+  - monte-carlo-methods
+  - attention-and-transformers
+---
+
+# Q 学习与强化学习
+
+1992 年，克里斯托弗·沃特金斯（Christopher Watkins）和彼得·达扬（Peter Dayan）发表论文，为 Q 学习（Q-Learning）算法提供了收敛证明。但这个算法在 2013-2015 年之前几乎只存在于学术研究中——直到 DeepMind 的研究员将 Q 学习与深度神经网络结合，创造了 DQN（Deep Q-Network），让一个 AI 仅靠像素输入就能以超越人类的水平玩 49 个 Atari 游戏。
+
+强化学习（Reinforcement Learning, RL）的核心问题：**一个智能体如何通过与环境的交互，学习到最大化长期奖励的行为策略？**
+
+## 破除误解：强化学习不是监督学习
+
+监督学习需要"正确答案"（标注数据）；强化学习只有**延迟的、稀疏的奖励信号**。
+
+国际象棋：一局棋可能走 80 步，直到游戏结束才知道输赢。哪一步是错误的？强化学习必须解决这个**信用分配问题（Credit Assignment Problem）**——把最终结果的功劳或过失分配给过程中的每一步。
+
+这比监督学习困难得多，也更接近人类和动物学习的真实情况。
+
+## 基础框架：马尔可夫决策过程
+
+强化学习的数学基础是**马尔可夫决策过程（Markov Decision Process, MDP）**，由五元组 $(S, A, P, R, \gamma)$ 定义：
+
+- $S$：状态空间（如棋盘局面、游戏画面）
+- $A$：动作空间（如走棋、按键）
+- $P(s'|s, a)$：状态转移概率
+- $R(s, a, s')$：即时奖励
+- $\gamma \in [0, 1)$：折扣因子，衡量未来奖励的价值
+
+**马尔可夫性质**：下一状态只依赖当前状态和动作，与历史无关。这是 MDP 的核心假设。
+
+**目标**：找到策略 $\pi: S \to A$（或概率分布 $\pi(a|s)$），最大化期望折扣回报：
+
+$$G_t = \sum_{k=0}^{\infty} \gamma^k R_{t+k+1}$$
+
+## Q 函数与贝尔曼方程
+
+**Q 函数（Action-Value Function）** $Q^\pi(s, a)$ 表示：在状态 $s$ 执行动作 $a$，然后按策略 $\pi$ 行动，期望能获得的总回报：
+
+$$Q^\pi(s, a) = \mathbb{E}_\pi\left[G_t \mid S_t = s, A_t = a\right]$$
+
+**贝尔曼方程（Bellman Equation）** 建立了 $Q$ 函数的递归关系：
+
+$$Q^\pi(s, a) = \mathbb{E}\left[R_{t+1} + \gamma \sum_{a'} \pi(a'|s') Q^\pi(s', a')\right]$$
+
+**最优 Q 函数** $Q^*$ 满足**贝尔曼最优方程**：
+
+$$Q^*(s, a) = \mathbb{E}\left[R_{t+1} + \gamma \max_{a'} Q^*(s', a')\right]$$
+
+一旦知道 $Q^*$，最优策略就是在每个状态选择 $Q$ 值最大的动作：$\pi^*(s) = \arg\max_a Q^*(s, a)$。
+
+## Q 学习算法
+
+Q 学习是一种**无模型（Model-Free）**、**离策略（Off-Policy）** 的时序差分（TD）算法：
+
+```
+初始化 Q 表为零（或随机）
+对每个 episode：
+  初始状态 s
+  重复（直到终止）：
+    用 ε-贪婪策略选择动作 a
+      （以 ε 概率随机探索，以 1-ε 概率选 argmax Q(s, a)）
+    执行动作，观察奖励 r 和新状态 s'
+    更新 Q 值：
+      Q(s, a) ← Q(s, a) + α[r + γ max Q(s', a') - Q(s, a)]
+              ↑              ↑_________________________↑
+           旧估计        TD 目标（单步向前看）与旧估计的差（TD 误差）
+    s ← s'
+```
+
+**TD 误差** $\delta = r + \gamma \max_{a'} Q(s', a') - Q(s, a)$ 是"预期"与"实际"之间的差距，推动 $Q$ 值不断修正。
+
+**收敛定理（Watkins & Dayan, 1992）**：在状态动作有限、学习率满足 Robbins-Monro 条件、每个状态动作对被无限次访问的前提下，Q 学习收敛到 $Q^*$。
+
+## DQN：让 Q 学习遇上深度学习
+
+2015 年，DeepMind 的 Mnih 等人在 Nature 发表 DQN，解决了将 Q 学习用于高维状态空间（如游戏像素）的两大不稳定性问题：
+
+**经验回放（Experience Replay）**：将交互经验 $(s, a, r, s')$ 存入回放缓冲区，每次训练从中随机采样 mini-batch，打破样本间的时序相关性。
+
+**目标网络（Target Network）**：用一个参数缓慢更新的网络计算 TD 目标，避免"追逐移动靶标"的不稳定性。
+
+此后的重要改进：
+- **Double DQN（2016）**：解决 Q 值高估问题
+- **Dueling DQN（2016）**：将 Q 函数分解为状态值和优势函数
+- **Rainbow（2017）**：综合六项改进，显著提升性能
+
+## RL 的算法版图
+
+| 类别             | 代表算法              | 特点                              |
+|----------------|---------------------|----------------------------------|
+| 值函数法         | Q-Learning, DQN      | 学习动作价值函数，适合离散动作        |
+| 策略梯度法       | REINFORCE, PPO       | 直接优化策略，适合连续动作            |
+| 演员-评论家法    | A3C, SAC             | 结合值函数与策略梯度                 |
+| 基于模型的 RL   | Dyna, MuZero          | 学习环境模型，样本效率高              |
+
+**PPO（Proximal Policy Optimization，Schulman et al., 2017）**是目前工业界最广泛使用的 RL 算法之一，也是 RLHF（从人类反馈中的强化学习）训练大语言模型（如 ChatGPT）的核心。
+
+## 代价与争议
+
+**样本效率极低**：DQN 训练 Atari 游戏需要 $10^7$ 到 $10^8$ 帧交互，相当于人类玩几百小时。人类可能只需几分钟就能学会。
+
+**奖励函数设计困难**：智能体会发现意想不到的"作弊"方式来最大化奖励，而不是完成人类真正想要的任务（奖励黑客 Reward Hacking）。这是 AI 对齐领域的核心挑战之一。
+
+**稀疏奖励问题**：许多真实任务的奖励极为稀疏（如围棋只有最后的输赢），需要课程学习、奖励塑形等技巧。
+
+**泛化性差**：RL 策略通常高度过拟合训练环境，稍微改变环境（如改变背景颜色）就可能失效。
+
+## 跨域连接
+
+- **[[monte-carlo-methods]]**：蒙特卡洛强化学习用随机采样估计回报，是 Q 学习的替代方案，在 AlphaGo 的 MCTS 中有重要应用。
+- **[[gradient-descent-backprop]]**：DQN 用神经网络参数化 Q 函数，通过反向传播更新参数，是 RL 与深度学习的结合点。
+- **博弈论**：多智能体强化学习（MARL）是博弈论和 RL 的交叉，AlphaStar（星际争霸 AI）等系统用多智能体 RL 的自博弈训练。
+- **神经科学**：TD 学习与多巴胺神经元的奖励预测误差信号有惊人的吻合（Schultz et al., 1997），是计算神经科学中 AI-神经科学最成功的互动案例之一。
+
+---
+
+## 延伸阅读
+
+- Watkins, C. J. C. H. & Dayan, P. *Q-Learning.* Machine Learning 8(3–4), 279–292 (1992).
+- Mnih, V. et al. *Human-Level Control through Deep Reinforcement Learning.* Nature 518, 529–533 (2015).
+- Sutton, R. S. & Barto, A. G. *Reinforcement Learning: An Introduction.* 2nd ed. MIT Press, 2018.（免费在线）
+- Schulman, J. et al. *Proximal Policy Optimization Algorithms.* arXiv:1707.06347 (2017).

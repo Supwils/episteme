@@ -1,0 +1,141 @@
+---
+title: 编辑距离算法
+title_en: Edit Distance Algorithms
+status: published
+updated: 2026-06-13
+category: 字符串算法
+order: 48
+field: 计算机科学 · 算法 · 字符串处理
+tags:
+  - 编辑距离
+  - 动态规划
+  - Levenshtein距离
+  - 字符串相似性
+  - 生物信息学
+related:
+  - dynamic-programming
+  - suffix-trees-and-arrays
+  - string-matching
+---
+
+# 编辑距离算法
+
+"您是要搜索 'Alber Einstien'？"
+
+搜索引擎能识别你的拼写错误，文本编辑器能自动纠错，DNA 序列能被比对到参考基因组——这些背后都有同一个算法：**编辑距离（Edit Distance）**，或称 **Levenshtein 距离**。
+
+## 问题定义
+
+**编辑距离**：将字符串 $s$ 变换为字符串 $t$ 所需要的最少编辑操作次数。标准操作集（Levenshtein, 1966）：
+
+- **插入（Insertion）**：在任意位置插入一个字符
+- **删除（Deletion）**：删除一个字符
+- **替换（Substitution）**：将一个字符替换为另一个字符
+
+例：将 "kitten" 变为 "sitting"：
+
+```
+kitten → sitten（k→s，替换）
+sitten → sittin（e→i，替换）
+sittin → sitting（插入 g）
+```
+
+编辑距离 = 3。
+
+**变体**：不同应用场景用不同操作集：
+
+| 变体                  | 允许操作              | 应用场景              |
+|---------------------|---------------------|---------------------|
+| Levenshtein 距离      | 插入、删除、替换         | 拼写检查、模糊搜索       |
+| Hamming 距离          | 仅替换（等长字符串）      | 纠错码、密码学          |
+| Damerau-Levenshtein | 插入、删除、替换、相邻字符转置 | 键盘输入纠错（如 "teh"→"the"） |
+| 最长公共子序列（LCS）  | 插入、删除（无替换）      | diff 工具、版本控制      |
+
+## 动态规划求解
+
+编辑距离是动态规划（DP）的经典应用。定义：
+
+$dp[i][j]$ 表示 $s[0..i-1]$ 与 $t[0..j-1]$ 的编辑距离。
+
+**递推关系**：
+
+$$dp[i][j] = \begin{cases}
+i & \text{if } j = 0 \\
+j & \text{if } i = 0 \\
+dp[i-1][j-1] & \text{if } s[i-1] = t[j-1] \\
+1 + \min\begin{cases}
+dp[i-1][j]   & \text{(delete } s[i-1]\text{)} \\
+dp[i][j-1]   & \text{(insert } t[j-1]\text{)} \\
+dp[i-1][j-1] & \text{(replace)}
+\end{cases} & \text{otherwise}
+\end{cases}$$
+
+**示例**：$s = \text{"kitten"}$，$t = \text{"sitting"}$（$m=6$，$n=7$）
+
+|   |   | s | i | t | t | i | n | g |
+|---|---|---|---|---|---|---|---|---|
+|   | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+| k | 1 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+| i | 2 | 2 | 1 | 2 | 3 | 4 | 5 | 6 |
+| t | 3 | 3 | 2 | 1 | 2 | 3 | 4 | 5 |
+| t | 4 | 4 | 3 | 2 | 1 | 2 | 3 | 4 |
+| e | 5 | 5 | 4 | 3 | 2 | 2 | 3 | 4 |
+| n | 6 | 6 | 5 | 4 | 3 | 3 | 2 | 3 |
+
+右下角 $dp[6][7] = 3$，即编辑距离为 3。
+
+时间复杂度 $O(mn)$，空间复杂度 $O(mn)$（可优化为 $O(\min(m,n))$ 只存两行）。
+
+## 加速技巧
+
+**Unicode 小字母表**：若字符集小（如仅 26 个英文字母），可以预计算每行的位向量，利用 SIMD 指令并行处理，将常数因子减小到约 1/64。
+
+**Bit-Parallel 算法（Myers, 1999）**：将 DP 表编码为位向量，用位运算批量计算，时间复杂度 $O(mn/w)$（$w$ 为机器字长，通常 64），适合字符串不太长的场景。
+
+**Ukkonen 的 $O(kn)$ 算法（1985）**：若事先知道编辑距离上界为 $k$，只需计算 DP 表的对角带，时间 $O(kn)$，大幅加速拼写检查（通常 $k \leq 3$）。
+
+**近似编辑距离（LSH）**：对超大规模字符串集合（如数十亿 DNA 序列），精确计算两两编辑距离不可行。局部敏感哈希（Locality-Sensitive Hashing）能近似找到编辑距离小于 $k$ 的对，是基因组学中的重要工具。
+
+## 应用版图
+
+**拼写检查与自动纠错**：
+
+Peter Norvig 的著名拼写纠错器（2007 年发布，约 21 行 Python 代码）的核心就是枚举编辑距离为 1 和 2 的候选词，选概率最高者。现代输入法的候选词提示也基于类似原理。
+
+**DNA 序列比对**：
+
+将一段 DNA 测序读段比对到参考基因组，本质是找编辑距离最小的位置。Needleman-Wunsch 算法（1970，全局比对）和 Smith-Waterman 算法（1981，局部比对）是编辑距离 DP 的生物信息学定制版，是现代基因组学工具链的基础。
+
+**diff 与版本控制**：
+
+Unix `diff` 命令计算两个文件的最小差异（基于 LCS），`git diff` 的输出就是两个文件 LCS 意义下的最小编辑序列。Myers（1986）的 diff 算法是 `git diff` 使用的核心算法。
+
+**自然语言处理**：
+
+候选词生成（OCR 纠错、语音识别后处理）、词语相似性计算，都用编辑距离作为基本度量。
+
+**光学字符识别（OCR）**：
+
+OCR 输出的文本经常有字符替换、漏识别等错误，后处理阶段用编辑距离将可疑词语纠正为词典中编辑距离最近的词。
+
+## 代价与争议
+
+**$O(mn)$ 难以突破**：长期以来，研究者认为 $O(mn)$ 是编辑距离的理论下界（在经典模型下）。2015 年，巴克斯特罗姆（Backurs）和印德尔（Indyk）证明：在强指数时间假设（SETH）下，编辑距离没有 $O(n^{2-\epsilon})$ 的算法——即除非 SETH 为假，否则不能显著突破 $O(n^2)$。这是近年算法复杂度下界研究的重要成果。
+
+**相似性与语义**：编辑距离是**表面（Surface-Level）**的相似性度量，完全基于字符操作，不理解语义。"猫"和"狗"的编辑距离是 1，"猫"和"小猫咪"的编辑距离是 3，但后者语义更近。现代 NLP 用词嵌入（Word Embedding）距离衡量语义相似性，与编辑距离互补。
+
+## 跨域连接
+
+- **[[dynamic-programming]]**：编辑距离是 DP 最经典的应用之一，与矩阵链乘、最长公共子序列等并列为 DP 入门必学题目。
+- **[[suffix-trees-and-arrays]]**：后缀数组提供"子串是否存在"的快速查询；编辑距离提供"字符串有多相似"的度量，两者在基因组比对中相互配合。
+- **生物学**：DNA 序列的演化本质上就是基因的"编辑"过程——点突变（替换）、插入、缺失。进化距离与编辑距离在概念上有深刻的对应关系。
+- **信息论**：编辑距离与 Kolmogorov 复杂度有联系——两个字符串之间的编辑距离，在一定程度上反映了从一个到另一个所需的"信息量"。
+
+---
+
+## 延伸阅读
+
+- Levenshtein, V. I. *Binary Codes Capable of Correcting Deletions, Insertions, and Reversals.* Soviet Physics Doklady 10(8), 707–710 (1966).
+- Wagner, R. A. & Fischer, M. J. *The String-to-String Correction Problem.* JACM 21(1), 168–173 (1974).（首个完整的 DP 解法）
+- Needleman, S. B. & Wunsch, C. D. *A General Method Applicable to the Search for Similarities in the Amino Acid Sequence of Two Proteins.* J. Mol. Biol. 48(3), 443–453 (1970).
+- Backurs, A. & Indyk, P. *Edit Distance Cannot Be Computed in Strongly Subquadratic Time.* STOC 2015, pp. 51–58.

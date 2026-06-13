@@ -1,0 +1,143 @@
+---
+title: 芭芭拉·利斯科夫
+title_en: Barbara Liskov
+status: published
+updated: 2026-06-13
+category: 语言与系统先驱
+years: 1939–
+nationality: 美国
+field: 编程语言 · 抽象数据类型 · 分布式系统
+order: 11
+tags:
+  - 抽象数据类型
+  - Liskov替换原则
+  - CLU语言
+  - 面向对象
+  - 分布式计算
+related:
+  - grace-hopper
+  - edsger-dijkstra
+---
+
+# 芭芭拉·利斯科夫
+
+1968 年，芭芭拉·利斯科夫（Barbara Liskov）拿到了斯坦福大学的计算机科学博士学位。她是美国首位从正式计算机科学系获得博士学位的女性。
+
+五十五年后，她依然在 MIT 从事研究，仍然活跃。她留给编程世界的遗产，藏在你每次写下 `if (dog instanceof Animal)` 或设计一个接口的时候——你用的正是她定义的规则。
+
+## 破除误解：Liskov 替换原则不是"继承的语法规则"
+
+很多程序员知道"Liskov 替换原则"（Liskov Substitution Principle，LSP），但把它理解为一条关于类继承的语法规定。这是误解。
+
+利斯科夫的贡献远不止于此。她在 1974 年和 1980 年代的工作回答了一个更根本的问题：**什么是类型？子类型应该满足什么条件才是真正的子类型，而不只是碰巧用了同一个名字的另一个类型？**
+
+她的回答不是语法规则，而是**语义契约**：如果 S 是 T 的子类型，那么在程序中所有使用 T 的地方，替换为 S 之后，程序的行为必须与原来一致。这是一个关于程序**意义**的陈述，而非关于语法的规定。
+
+这个区分，在面向对象语言遍地泛滥、"继承"被滥用为代码复用工具的 1990 至 2010 年代，产生了深远的影响。
+
+## 现场：1974 年的 MIT，CLU 的诞生
+
+1974 年，利斯科夫在 MIT 开始领导设计 CLU 语言（取自 cluster，簇）。设计 CLU 的动机不是学术好奇，而是一个非常实际的工程问题：**为什么大型程序这么难维护、这么容易出 bug？**
+
+利斯科夫的诊断是：当时的编程语言把数据结构（如整数、数组）和操作这些数据的代码分离开来，程序的任意部分都可以直接操纵内部数据——没有边界，没有封装。一个函数修改了一个全局数组的某个字段，影响了完全不相干的另一个函数，这种错误极难追踪。
+
+她的解决方案是**抽象数据类型**（Abstract Data Types，ADT）：把数据和操作数据的方法**绑定在一起**，对外只暴露操作接口，隐藏内部实现细节。
+
+CLU 的核心语法单元叫做 `cluster`（簇）：
+
+```
+stack = cluster is push, pop, top, empty
+    rep = array[int]
+    push = proc(s: cvt, x: int)
+        array[int]$addh(s, x)
+    end push
+    pop = proc(s: cvt) returns (int)
+        ...
+    end pop
+end stack
+```
+
+这个设计在今天的程序员看来像极了 Java 的 `class` 或者 Python 的 `class`——那是因为几乎所有今天的面向对象语言，都在 CLU 奠定的思路上建造。
+
+CLU 的具体贡献包括：
+
+| 特性 | 说明 |
+|------|------|
+| 抽象数据类型 | 首个在语言层面系统支持 ADT 的语言 |
+| 迭代器（Iterator） | 首创受控遍历的迭代器模式，Python `for x in collection` 的先祖 |
+| 异常（Exception） | 把异常处理（exception handling）作为语言特性，而非临时约定 |
+| 多返回值 | 函数可以返回多个值（Go 语言继承了这一设计） |
+| 参数化类型 | 泛型（Generic）的早期形式 |
+
+## Liskov 替换原则：超越 OOP 的形式定义
+
+1987 年，利斯科夫在一篇题为《数据抽象与层次》（Data Abstraction and Hierarchy）的演讲中，首次清晰表述了后来以她命名的原则。1994 年，她与耶内特·温（Jeannette Wing）在论文中给出了更严格的形式化表述：
+
+> **直觉表述**：如果对于每一个类型 T 的对象 o₁，都有一个类型 S 的对象 o₂，使得对所有使用 T 的程序 P，当用 o₂ 替换 o₁ 时，P 的行为不变；那么 S 是 T 的子类型。
+
+用更简单的话说：**子类型的实例，必须能无感知地替换父类型的实例，且程序的正确性不受影响。**
+
+这个原则的力量，在反例中最清晰：
+
+**反例：正方形是矩形的子类吗？**
+
+几何上，正方形（Square）是矩形（Rectangle）的特例。但在面向对象设计中，如果让 `Square` 继承 `Rectangle`，问题就出现了：
+
+```python
+rect = Rectangle()
+rect.set_width(5)
+rect.set_height(3)
+assert rect.area() == 15  # 矩形：宽*高=15，正确
+
+# 如果把 Rectangle 替换为 Square：
+sq = Square()
+sq.set_width(5)   # Square 的 set_width 会同时改变高度
+sq.set_height(3)  # 把高度改为3，但同时也把宽度改为3
+assert sq.area() == 15  # 实际得到 9，断言失败！
+```
+
+`Square` 不满足 LSP，因为替换后程序行为改变了。结论：**几何上的"是"，不等于程序语义上的"是子类型"**。
+
+这个例子揭示了继承的深层陷阱：语法上的继承很容易，语义上的正确子类型关系却需要认真设计。
+
+## 分布式系统：Argus 与事务内存
+
+1980 年代，利斯科夫将注意力转向**分布式系统**，领导开发了 Argus 编程语言。Argus 的核心问题是：当计算分布在多台机器上，机器可能随时崩溃，如何保证程序的正确性？
+
+Argus 引入了**原子行为**（Atomic Actions）的概念——多个操作要么全部成功，要么全部回滚，即使中间有机器崩溃。这与数据库的事务（Transaction）概念高度相关，但应用到了更一般的分布式程序设计中。
+
+她还在 1990 年代研究了**拜占庭容错**（Byzantine Fault Tolerance）的实用化，与Miguel Castro合作提出了 PBFT 算法（Practical Byzantine Fault Tolerance，1999），这是第一个在实际系统中可用的拜占庭容错共识协议，成为今天区块链共识算法研究的基础。
+
+## 荣誉与影响
+
+| 年份 | 荣誉 |
+|------|------|
+| 1968 | 斯坦福大学计算机科学博士（美国首位获得计算机科学博士学位的女性） |
+| 2004 | IEEE John von Neumann 奖章 |
+| 2008 | ACM 图灵奖（"对编程语言和系统设计的变革性贡献，尤其是抽象数据类型和面向对象编程"） |
+| 2012 | 美国国家工程院院士 |
+
+利斯科夫是历史上第二位获得图灵奖的女性（第一位是 Frances Allen，2006 年），也是为数不多的将理论研究与实际系统实现相结合的获奖者之一——她不只是提出了 ADT 的思想，还把它实现成了 CLU 编译器。
+
+## 代价与争议
+
+利斯科夫曾指出，CLU 对工业界的直接影响不如预期——尽管它的思想通过 Simula、Smalltalk 等语言间接影响了 C++ 和 Java，但 CLU 本身并没有广泛部署。她将此部分归因于当时的"类型恐惧症"：工业界害怕强类型系统带来的复杂性，更偏爱 C 那样灵活但危险的弱类型风格。
+
+LSP 在实践中也面临批评：严格遵守 LSP 有时会让继承层次变得过于复杂，或强迫使用组合（Composition）而非继承——而这恰恰又是软件工程中著名的争论："继承 vs 组合"。利斯科夫的工作实际上为"优先使用组合"一派提供了理论支撑。
+
+还有一个微妙之处：LSP 在形式上定义了子类型关系，但实际的面向对象语言（Java、C++ 等）并不强制执行 LSP——语言的类型系统允许你用继承创造出违反 LSP 的子类，编译器不会警告你。这意味着 LSP 是一条**设计规则**，而非**语言约束**，执行依赖于程序员的训练和代码审查。
+
+## 跨域连接
+
+- **类型理论**：LSP 与范畴论中的协变（covariance）和逆变（contravariance）直接相关，见 [[lambda-calculus-type-theory]]。
+- **分布式系统**：PBFT 协议是区块链共识机制（PoW、PoS 之前的理论基础）的重要先驱，见 [[distributed-systems]]。
+- **[[edsger-dijkstra]]**：迪克斯特拉通过信号量和结构化编程追求程序正确性；利斯科夫通过抽象数据类型追求模块化正确性——两人是同一理想的不同路径。
+
+---
+
+## 延伸阅读
+
+- Liskov, B. & Zilles, S. *Programming with Abstract Data Types.* ACM SIGPLAN Notices 9(4), 1974.（ADT 概念的开创性论文）
+- Liskov, B. *Data Abstraction and Hierarchy.* ACM SIGPLAN Notices 23(5), 1988.（LSP 首次表述）
+- Liskov, B. & Wing, J. M. *A Behavioral Notion of Subtyping.* ACM TOPLAS 16(6), 1994.（LSP 的形式化定义）
+- Castro, M. & Liskov, B. *Practical Byzantine Fault Tolerance.* OSDI 1999.

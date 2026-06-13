@@ -38,6 +38,14 @@ function safeParseMatter(raw: string): {
   }
 }
 
+function decodeSlug(slug: string): string {
+  try {
+    return decodeURIComponent(slug);
+  } catch {
+    return slug;
+  }
+}
+
 function firstHeading(content: string): string | null {
   const match = content.match(/^#\s+(.+)$/m);
   return match ? match[1]!.trim() : null;
@@ -56,9 +64,12 @@ function extractExcerpt(content: string): string {
         !line.startsWith("#") &&
         !line.startsWith("|") &&
         !line.startsWith(">") &&
-        !line.startsWith("-"),
+        !line.startsWith("-")
     );
-  const text = lines.slice(0, 2).join(" ").replace(/[*_`#[\]]/g, "");
+  const text = lines
+    .slice(0, 2)
+    .join(" ")
+    .replace(/[*_`#[\]]/g, "");
   return text.length > 150 ? text.slice(0, 150) + "…" : text;
 }
 
@@ -86,22 +97,15 @@ export function createKnowledgeBase(domain: string): KnowledgeBase {
     return segments.length > 1 ? segments[0]! : "专题";
   };
 
-  const titleOf = (
-    rel: string,
-    data: Record<string, unknown>,
-    content: string,
-  ): string => {
+  const titleOf = (rel: string, data: Record<string, unknown>, content: string): string => {
     if (typeof data.title === "string" && data.title) return data.title;
     return firstHeading(content) ?? path.basename(rel, ".md");
   };
 
-  const slugOf = (rel: string): string =>
-    rel.replace(/\.md$/, "").replace(/\//g, "--");
+  const slugOf = (rel: string): string => rel.replace(/\.md$/, "").replace(/\//g, "--");
 
   const toArticle = (rel: string): KBArticle => {
-    const { data, content } = safeParseMatter(
-      fs.readFileSync(path.join(root, rel), "utf-8"),
-    );
+    const { data, content } = safeParseMatter(fs.readFileSync(path.join(root, rel), "utf-8"));
     return {
       slug: slugOf(rel),
       title: titleOf(rel, data, content),
@@ -116,21 +120,27 @@ export function createKnowledgeBase(domain: string): KnowledgeBase {
     cache = walkMarkdown(root)
       .map(toArticle)
       .sort(
-        (a, b) =>
-          a.category.localeCompare(b.category, "zh") ||
-          a.title.localeCompare(b.title, "zh"),
+        (a, b) => a.category.localeCompare(b.category, "zh") || a.title.localeCompare(b.title, "zh")
       );
     return cache;
   };
 
   const getArticleBySlug = (slug: string): KBArticleFull | null => {
-    if (slug.includes("..")) return null;
-    const rel = slug.replace(/--/g, "/") + ".md";
+    // CJK route params arrive percent-encoded (and possibly in a different
+    // Unicode normalization form than the on-disk filename). Decode + NFC, then
+    // match against the real readdir-derived slugs and rebuild the path from the
+    // filesystem's own form — otherwise every CJK-named article (暗物质与暗能量,
+    // 相对论--黑洞, 当代议题--第六次大灭绝) 404s. ASCII slugs are unaffected.
+    const wanted = decodeSlug(slug).normalize("NFC");
+    if (wanted.includes("..")) return null;
+    const match = getAllArticles().find((a) => a.slug.normalize("NFC") === wanted);
+    if (!match) return null;
+    const rel = match.slug.replace(/--/g, "/") + ".md";
     const full = path.resolve(root, rel);
     if (!full.startsWith(path.resolve(root)) || !fs.existsSync(full)) return null;
     const { data, content } = safeParseMatter(fs.readFileSync(full, "utf-8"));
     return {
-      slug,
+      slug: match.slug,
       title: titleOf(rel, data, content),
       category: categoryOf(rel, data),
       tags: Array.isArray(data.tags) ? (data.tags as string[]) : [],

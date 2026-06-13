@@ -1,0 +1,150 @@
+---
+title: 大数据系统
+title_en: Big Data Systems
+status: published
+updated: 2026-06-13
+category: 系统与架构
+order: 46
+field: 计算机科学 · 分布式系统
+tags:
+  - 大数据
+  - MapReduce
+  - 分布式计算
+  - 数据工程
+related:
+  - distributed-systems
+  - databases-transactions
+  - database-indexing-and-query-optimization
+---
+
+# 大数据系统
+
+2003 年，Google 内部工程师在每天爬取、索引数十亿网页，每周要处理数 PB 数据时，意识到已有的工具完全无法应对：单台服务器不够，商业数据库太贵且扩展性有限。
+
+他们需要一种全新的计算范式，能够把普通廉价服务器组成集群，分布式地处理这些数据。他们发明了**MapReduce**，并把底层存储叫做 **GFS（Google File System）**。两篇论文在 2003-2004 年发表，触发了整个"大数据"行业的爆炸。
+
+## 破除误解："大数据"不只是"很多数据"
+
+"大数据"在营销语境中泛滥成灾——"数据驱动"、"AI 赋能"……实际上，大数据系统工程解决的是具体的技术挑战：
+
+**3V 经典定义**（IDC，2001 年提出）：
+- **Volume（体量）**：数据量超出单台机器的处理能力（TB、PB 级别）
+- **Velocity（速度）**：数据生成和处理的速度要求（实时流处理 vs. 批处理）
+- **Variety（多样性）**：结构化数据（SQL 表）、半结构化数据（JSON、日志）、非结构化数据（图片、视频）
+
+后来有人加了第 4 个 V：**Veracity（真实性）**——数据质量和可信度的挑战。
+
+"大数据系统"在工程上意味着：如何在**有限预算、有限时间**内，对**超出单机容量的数据**进行**可靠、高效的处理和分析**。
+
+## MapReduce：分而治之的计算范式
+
+Google 的 MapReduce（Dean & Ghemawat，2004）把大规模数据处理抽象为两个函数：
+
+**Map 阶段**：对每个输入记录独立应用 Map 函数，输出 (key, value) 对：
+
+```
+Map(input_key, input_value) -> list of (intermediate_key, intermediate_value)
+```
+
+**Reduce 阶段**：对所有具有相同 intermediate_key 的值进行聚合：
+
+```
+Reduce(intermediate_key, list of values) -> output values
+```
+
+经典示例：单词计数
+
+```python
+# Map: 每个词输出 (word, 1)
+def map(document):
+    for word in document.split():
+        emit(word, 1)
+
+# Reduce: 对每个词的所有 1 求和
+def reduce(word, counts):
+    emit(word, sum(counts))
+```
+
+MapReduce 的关键：Map 任务可以并行运行在数百台机器上（数据本地性：任务调度到数据所在机器，减少网络传输）；Shuffle 阶段（框架自动完成）按 key 排序和分组；Reduce 任务可以并行处理不同的 key 分组。
+
+**Hadoop**：Yahoo 工程师基于 Google 的论文实现的开源版本（HDFS + Hadoop MapReduce），2006 年开源，成为大数据时代的基础设施。
+
+## 存储：分布式文件系统与列存储
+
+**HDFS（Hadoop Distributed File System）**：
+- 文件被切分为固定大小的块（默认 128MB），分布存储在不同节点
+- 每块保存 3 个副本（数据冗余），节点失效时自动恢复
+- NameNode（主节点）管理文件系统元数据；DataNode（数据节点）存储实际数据块
+- 适合大文件顺序读写，不适合小文件或随机访问
+
+**列存储（Columnar Storage）**：传统行存数据库把一行的所有字段存在一起；列存把同一列的所有值存在一起：
+
+```
+行存：[id=1, name="Alice", age=25, city="Beijing"], [id=2, name="Bob", age=30, city="Shanghai"], ...
+列存：[id: 1, 2, 3...], [name: "Alice", "Bob"...], [age: 25, 30...], [city: "Beijing", "Shanghai"...]
+```
+
+分析查询通常只访问少数列（`SELECT SUM(sales) FROM orders WHERE year=2024`），列存只读取需要的列，I/O 大幅减少。同一列的数据类型相同，压缩率更高（如整数列可以用 delta encoding）。
+
+主要列存格式：**ORC**（Hive 使用）、**Parquet**（Spark、Flink 的标准格式）——已成为大数据生态的标准。
+
+## Spark：MapReduce 的继任者
+
+Hadoop MapReduce 的主要问题：每次 Map-Reduce 阶段的中间结果都要写磁盘，多轮迭代（机器学习算法通常需要多次遍历数据）极慢。
+
+**Apache Spark**（Berkeley AMPLab，2009-2012 年，Matei Zaharia 等开发）：
+- 在内存中保存中间结果（RDD，Resilient Distributed Dataset）
+- 对迭代式计算（机器学习）快 10-100 倍
+- 统一了批处理（Spark Core）、SQL（Spark SQL）、机器学习（MLlib）、图计算（GraphX）、流处理（Structured Streaming）
+
+Spark 的关键抽象是**DAG（有向无环图）**执行：把一系列变换操作表示为 DAG，惰性求值（Lazy Evaluation，只有触发 action 才真正执行），优化器可以在执行前整体优化 DAG。
+
+## 流处理：处理实时数据
+
+批处理（Batch Processing）适合离线分析，不适合需要实时响应的场景。**流处理（Stream Processing）**处理持续产生的数据流：
+
+**Apache Kafka**（LinkedIn，2011 年开源）：
+- 分布式消息队列/事件流平台
+- 数据持久化到磁盘（不是传统消息队列的内存暂存），可以重放历史消息
+- 每秒处理数百万事件，延迟毫秒级
+- 解耦生产者和消费者，成为现代数据管道的核心组件
+
+**Apache Flink**（2014 年开源）：
+- 真正的有状态流处理，天然支持事件时间（Event Time，数据自带时间戳）
+- Exactly-once 语义（每条消息恰好处理一次，即使故障恢复）
+- Windowing（窗口操作）：对时间窗口内的数据做聚合（最近 5 分钟的点击次数）
+
+**批流一体（Lambda Architecture / Kappa Architecture）**：
+- Lambda 架构：批处理层（准确但慢）+ 速度层（快但近似）+ 服务层（合并结果）
+- Kappa 架构（LinkedIn，Jay Kreps，2014）：用统一的流处理系统处理历史和实时数据，简化架构
+
+## 数据仓库与湖仓一体
+
+**数据仓库（Data Warehouse）**：为分析查询优化的专用数据库，数据经过 ETL（Extract-Transform-Load）清洗整合后存入，以列存格式组织。典型产品：Snowflake、Google BigQuery、Amazon Redshift、阿里云 MaxCompute。
+
+**数据湖（Data Lake）**：以原始格式存储所有数据（结构化、半结构化、非结构化），延迟 Schema（Schema-on-Read，读取时再解析结构）。
+
+**湖仓一体（Lakehouse，Databricks，2020 年提出）**：在数据湖（低成本存储）之上添加数据仓库的功能（事务、Schema 管理、查询优化）。代表格式：Delta Lake、Apache Iceberg、Apache Hudi——支持数据湖上的 ACID 事务。
+
+## 代价与争议
+
+**大数据的"退烧"**：2010 年代"大数据"话题在商业界极度火热，但许多企业投入大量资源建设 Hadoop 集群，最终发现大多数查询用普通数据库加合理索引就能解决。"我们真的需要大数据系统吗？"成为越来越多工程师的反思。简单的 PostgreSQL + 物化视图，有时胜过复杂的 Spark 集群。
+
+**数据治理与隐私**：大数据系统的能力使大规模用户数据分析成为可能，也使隐私风险急剧上升。GDPR（欧盟）、CCPA（加州）等法规要求企业能够追踪、删除特定用户的数据——而 HDFS 不变式（数据只追加）使"删除"本身成为技术挑战。
+
+**AI 与大数据的融合**：大语言模型的训练依赖 PB 级别的文本语料，推理需要实时处理用户请求——大数据系统（数据处理管道、分布式存储）是 AI 基础设施的核心组成部分，两个领域的边界日益模糊。
+
+## 跨域连接
+
+- **[[distributed-systems]]**：大数据系统是大规模分布式系统——HDFS 的副本机制、Spark 的容错、Kafka 的一致性都是分布式系统核心问题的工程实现。
+- **[[database-indexing-and-query-optimization]]**：Spark SQL、Presto、BigQuery 的查询优化器，是关系数据库查询优化理论在分布式环境下的延伸和扩展。
+- **[[machine-learning-overview]]**：大规模机器学习（分布式训练、特征工程管道、模型服务）依赖大数据基础设施；Spark MLlib、Ray、Flink ML 是两个领域融合的典型。
+
+---
+
+## 延伸阅读
+
+- Dean, J. & Ghemawat, S. *MapReduce: Simplified Data Processing on Large Clusters.* OSDI, 2004. （MapReduce 原论文）
+- Ghemawat, S. et al. *The Google File System.* SOSP, 2003. （GFS 原论文，HDFS 的前身）
+- Zaharia, M. et al. *Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing.* NSDI, 2012. （Spark 原论文）
+- Kleppmann, M. *Designing Data-Intensive Applications.* O'Reilly, 2017. （大数据系统设计的最佳现代综合参考）

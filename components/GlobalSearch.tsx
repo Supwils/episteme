@@ -3,10 +3,7 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import type { SearchResult as MiniSearchResult } from "minisearch";
 import type { SearchDocument } from "@/lib/search-index";
-import {
-  getSearchHistory,
-  addToSearchHistory,
-} from "@/lib/search-history";
+import { getSearchHistory, addToSearchHistory } from "@/lib/search-history";
 import { trackEvent } from "@/lib/analytics";
 import type { Section, SearchResult, SearchEngine } from "./search/types";
 import { SECTION_META } from "./search/types";
@@ -15,6 +12,19 @@ import { SearchHistory } from "./search/SearchHistory";
 import { SearchResultItem } from "./search/SearchResultItem";
 
 let enginePromise: Promise<SearchEngine> | null = null;
+
+const SEARCH_SECTIONS: Section[] = [
+  "physics",
+  "cosmology",
+  "mathematics",
+  "history",
+  "philosophy",
+  "life-science",
+  "economics",
+  "psychology",
+  "computer-science",
+  "political-science",
+];
 
 function ensureEngine(): Promise<SearchEngine> {
   if (!enginePromise) {
@@ -130,6 +140,9 @@ export function GlobalSearch() {
       economics: [],
       psychology: [],
       cosmology: [],
+      mathematics: [],
+      "computer-science": [],
+      "political-science": [],
     };
     for (const result of results) {
       const section = result.doc.section as Section;
@@ -142,7 +155,7 @@ export function GlobalSearch() {
 
   const flatResults = useMemo(() => {
     const result: SearchResult[] = [];
-    for (const section of ["physics", "history", "philosophy", "life-science", "economics", "psychology"] as Section[]) {
+    for (const section of SEARCH_SECTIONS) {
       result.push(...grouped[section]);
     }
     return result;
@@ -218,7 +231,7 @@ export function GlobalSearch() {
       setOpen(false);
       window.location.href = url;
     },
-    [query, flatResults.length],
+    [query, flatResults.length]
   );
 
   useEffect(() => {
@@ -233,7 +246,9 @@ export function GlobalSearch() {
 
   if (!open) return null;
 
-  const activeId = flatResults[activeIndex] ? `gs-item-${flatResults[activeIndex].doc.id}` : undefined;
+  const activeId = flatResults[activeIndex]
+    ? `gs-item-${flatResults[activeIndex].doc.id}`
+    : undefined;
 
   return (
     <div
@@ -246,11 +261,7 @@ export function GlobalSearch() {
       }}
     >
       <div className="gs-panel">
-        <SearchInput
-          inputRef={inputRef}
-          activeId={activeId}
-          onChange={handleQueryChange}
-        />
+        <SearchInput inputRef={inputRef} activeId={activeId} onChange={handleQueryChange} />
 
         <div className="gs-results" ref={listRef} id="gs-result-list" role="listbox">
           {loading && <div className="gs-empty">正在加载搜索索引…</div>}
@@ -266,7 +277,9 @@ export function GlobalSearch() {
           {!loading && !query.trim() && !showHistory && (
             <div className="gs-empty">
               输入关键词开始搜索
-              <span className="gs-empty-hint">支持宇宙物理、人类历史、哲学思想、生命科学、经济学、心理学</span>
+              <span className="gs-empty-hint">
+                支持宇宙物理、宇宙学、人类历史、哲学思想、生命科学、经济学、心理学
+              </span>
             </div>
           )}
 
@@ -284,7 +297,7 @@ export function GlobalSearch() {
             </div>
           )}
 
-          {(["physics", "history", "philosophy", "life-science", "economics", "psychology"] as Section[]).map((section) => {
+          {SEARCH_SECTIONS.map((section) => {
             const sectionResults = grouped[section];
             if (sectionResults.length === 0) return null;
             const meta = SECTION_META[section];

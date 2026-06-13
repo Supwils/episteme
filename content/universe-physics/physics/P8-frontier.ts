@@ -12,7 +12,11 @@ const content: TierContent = {
     { label: "量子比特纪录", value: "1000+", hint: "超导 / 离子阱（2024）" },
     { label: "AdS/CFT", value: "Maldacena 1997", hint: "全息对偶" },
     { label: "Hubble 张力", value: "~ 5σ", hint: "局部 vs CMB 测量分歧" },
-    { label: "g−2 muon", value: "4.2σ", hint: "Fermilab E989 (2023)" },
+    {
+      label: "g−2 muon",
+      value: "≈0σ（已消解）",
+      hint: "Fermilab 2025 终值 127ppb；晶格 QCD 与实验一致",
+    },
     { label: "误码率门槛", value: "~ 10⁻⁴", hint: "Surface code 容错阈值" },
     {
       label: "Bekenstein bound",

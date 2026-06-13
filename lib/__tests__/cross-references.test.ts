@@ -1,15 +1,6 @@
 import { describe, it, expect } from "vitest";
-import {
-  CROSS_LINKS,
-  getLinkUrl,
-  type DomainApp,
-  type CrossLink,
-} from "@/lib/cross-links/api";
-import {
-  getAllContent,
-  getBackReferences,
-  findBySlug,
-} from "../cross-references";
+import { CROSS_LINKS, getLinkUrl, type DomainApp, type CrossLink } from "@/lib/cross-links/api";
+import { getAllContent, getBackReferences, findBySlug } from "../cross-references";
 import { APP_URLS } from "../urls";
 
 function getPhilosophySlugs(): Set<string> {
@@ -60,27 +51,21 @@ describe("cross-references", () => {
 
   it("no self-referencing links", () => {
     for (const link of CROSS_LINKS) {
-      const isSelfRef =
-        link.sourceApp === link.targetApp && link.sourceId === link.targetId;
+      const isSelfRef = link.sourceApp === link.targetApp && link.sourceId === link.targetId;
       expect(isSelfRef).toBe(false);
     }
   });
 
   it("cross-links are bidirectional", () => {
     const linkKeys = new Set(
-      CROSS_LINKS.map(
-        (l) =>
-          `${l.sourceApp}::${l.sourceId}::${l.targetApp}::${l.targetId}`,
-      ),
+      CROSS_LINKS.map((l) => `${l.sourceApp}::${l.sourceId}::${l.targetApp}::${l.targetId}`)
     );
 
     const missing: string[] = [];
     for (const link of CROSS_LINKS) {
       const reverseKey = `${link.targetApp}::${link.targetId}::${link.sourceApp}::${link.sourceId}`;
       if (!linkKeys.has(reverseKey)) {
-        missing.push(
-          `${link.sourceApp}/${link.sourceId} → ${link.targetApp}/${link.targetId}`,
-        );
+        missing.push(`${link.sourceApp}/${link.sourceId} → ${link.targetApp}/${link.targetId}`);
       }
     }
 
@@ -140,9 +125,7 @@ describe("philosophy cross-references", () => {
     for (const item of getAllContent()) {
       expect(item.slug.length).toBeGreaterThan(0);
       expect(item.title.length).toBeGreaterThan(0);
-      expect(item.category).toMatch(
-        /^(thinker|school|ism|experiment|question|concept)$/,
-      );
+      expect(item.category).toMatch(/^(thinker|school|ism|experiment|question|concept)$/);
       expect(Array.isArray(item.related)).toBe(true);
     }
   });
@@ -216,6 +199,7 @@ describe("URL constants", () => {
 
   it("APP_URLS has expected keys", () => {
     expect(Object.keys(APP_URLS).sort()).toEqual([
+      "computer-science",
       "cosmology",
       "economics",
       "human-history",
@@ -223,6 +207,7 @@ describe("URL constants", () => {
       "life-science",
       "mathematics",
       "philosophy",
+      "political-science",
       "psychology",
       "universe-physics",
     ]);

@@ -1,0 +1,163 @@
+---
+title: API 设计
+title_en: API Design
+status: published
+updated: 2026-06-13
+category: 软件工程实践
+order: 38
+field: 计算机科学 · 软件工程
+tags:
+  - API
+  - REST
+  - GraphQL
+  - 接口设计
+  - 软件架构
+related:
+  - software-engineering
+  - networking-protocols
+  - abstraction
+---
+
+# API 设计
+
+2006 年，亚马逊的 CEO 杰夫·贝索斯发出了一道著名的内部指令（后被一位离职员工公开）：
+
+> 所有团队必须通过服务接口（API）暴露数据和功能。团队之间只能通过这些接口通信。不允许任何其他形式的进程间通信……没有例外。任何不遵从这一规定的人都会被开除。
+
+这道"贝索斯备忘录"强制推行了一个架构原则：每个功能必须以 API 的形式存在，能够独立部署和消费。十年后，这个实践的副产品就是 AWS（亚马逊云计算）——一个把亚马逊内部服务 API 化后对外销售的产品，成为全球最大的云计算平台。
+
+## 破除误解：好 API 不是"功能齐全的 API"
+
+初级工程师常认为，好的 API 应该暴露尽可能多的功能，让调用者有最大的灵活性。这个直觉是错的。
+
+API 设计中最重要的原则之一来自 Joshua Bloch（Java 集合框架设计者）：
+
+> **API 的设计难点不在于增加功能，而在于知道哪些不应该加进来。每增加一个接口，就是一个你永远要维护的承诺。**
+
+API 一旦对外发布，改变它的成本极高——所有调用方需要同步更新。因此，**最小化暴露**（Minimal Surface Area）是 API 设计的黄金原则：只暴露必要的内容，延迟暴露那些不确定的内容。
+
+## REST：资源为中心的 Web API
+
+**REST（Representational State Transfer）** 是 Roy Fielding 在 2000 年博士论文中提出的一组架构约束，描述了什么样的 Web 服务是"设计良好"的。REST 的核心约束：
+
+- **无状态（Stateless）**：每个请求携带所有必要信息，服务器不保存客户端会话状态
+- **统一接口（Uniform Interface）**：资源用 URL 标识，用 HTTP 方法（GET/POST/PUT/DELETE/PATCH）表达操作
+- **客户端-服务器分离**：前后端可以独立演化
+- **可缓存（Cacheable）**：响应可以被缓存，提高性能
+
+**RESTful API 设计约定**：
+
+```
+GET    /users          → 获取用户列表
+GET    /users/42       → 获取 ID 为 42 的用户
+POST   /users          → 创建新用户（请求体包含数据）
+PUT    /users/42       → 完整更新 ID 为 42 的用户
+PATCH  /users/42       → 部分更新 ID 为 42 的用户
+DELETE /users/42       → 删除 ID 为 42 的用户
+```
+
+响应使用 HTTP 状态码传达结果：
+
+| 状态码 | 含义 |
+|--------|------|
+| 200 OK | 成功 |
+| 201 Created | 资源已创建 |
+| 400 Bad Request | 客户端请求格式错误 |
+| 401 Unauthorized | 需要身份验证 |
+| 403 Forbidden | 有身份但无权限 |
+| 404 Not Found | 资源不存在 |
+| 429 Too Many Requests | 限流 |
+| 500 Internal Server Error | 服务端错误 |
+
+**版本控制**：API 变化时，需要版本化以保持向后兼容。常见方式：URL 路径（`/v1/users`、`/v2/users`）或请求头（`Accept: application/vnd.myapi+json;version=2`）。
+
+## GraphQL：查询即接口
+
+**GraphQL** 由 Facebook 在 2012 年内部开发，2015 年开源，提供了一种完全不同的 API 设计思路：
+
+在 REST 中，服务器决定每个端点返回什么数据。客户端如果需要用户信息和他的帖子，可能需要发两个请求（`/users/42` 和 `/users/42/posts`）；或者单个请求返回了大量客户端不需要的字段（过度获取，Over-fetching）。
+
+GraphQL 让客户端精确声明它需要什么：
+
+```graphql
+query {
+  user(id: 42) {
+    name
+    email
+    posts(last: 5) {
+      title
+      createdAt
+    }
+  }
+}
+```
+
+服务器只返回请求的字段，单次请求获取跨多个"资源"的数据。
+
+**GraphQL 的优势**：
+- 消除过度获取和欠获取（Under-fetching）
+- 强类型 Schema，客户端可以利用 IDE 的自动补全和验证
+- 单一端点（通常是 `/graphql`），减少接口数量
+
+**GraphQL 的挑战**：
+- N+1 查询问题（为每个用户的每篇帖子单独查数据库）——需要用 DataLoader 批量化解决
+- 缓存比 REST 复杂（URL 不再是缓存键）
+- 任意查询可能触发复杂计算，需要查询复杂度限制
+
+Facebook、GitHub、Twitter（部分）、Shopify 使用 GraphQL。
+
+## gRPC：为服务间通信设计
+
+**gRPC**（Google Remote Procedure Call，2016 年开源）：
+
+面向服务间调用（微服务架构），而非浏览器-服务器通信。特点：
+- 使用 Protocol Buffers（二进制格式，比 JSON 更紧凑高效）定义接口
+- 支持服务器流、客户端流、双向流
+- 强类型 IDL（接口定义语言），自动生成多语言客户端
+- 基于 HTTP/2，支持多路复用
+
+```protobuf
+service UserService {
+  rpc GetUser (UserRequest) returns (UserResponse);
+  rpc ListUsers (ListUsersRequest) returns (stream UserResponse);
+}
+```
+
+gRPC 在微服务内部通信、IoT、移动后端等对性能要求高的场景被广泛采用。
+
+## API 设计的关键原则
+
+**向后兼容（Backward Compatibility）**：新版本 API 应该能处理为旧版本设计的客户端请求。实用原则：对新增字段保守（增加字段安全，删除字段危险）；不改变已有字段的含义；新功能用新端点或可选参数。
+
+**幂等性（Idempotency）**：PUT、DELETE 应该是幂等的——重复调用和单次调用效果相同。这使得客户端在网络失败时可以安全重试。POST 通常不幂等，需要通过幂等键（Idempotency Key）来防止重复创建。
+
+**限流（Rate Limiting）**：保护 API 不被单一客户端过度消耗。常用算法：令牌桶（Token Bucket）、漏桶（Leaky Bucket）、滑动窗口。响应头（`X-RateLimit-Limit`、`X-RateLimit-Remaining`、`Retry-After`）告知客户端限制状态。
+
+**错误信息的设计**：错误响应应该告诉客户端**为什么**失败，以及**如何修复**（如果可能）。好的错误响应包含：HTTP 状态码、机器可读的错误代码（如 `INVALID_EMAIL_FORMAT`）、人类可读的错误消息、指向文档的链接（可选）。
+
+**API 文档（Specification）**：OpenAPI（原 Swagger）是 REST API 的事实标准文档格式，可以自动生成交互式文档（Swagger UI）和客户端 SDK。
+
+## 代价与争议
+
+**REST vs GraphQL vs gRPC 的宗教战争**：三种方式各有生态，没有绝对优劣。REST 最简单、最通用；GraphQL 在数据需求复杂的前端适合；gRPC 在内部服务间高性能调用适合。混合使用（对外 REST/GraphQL，内部 gRPC）是常见方案。
+
+**API 版本化的艰难**：如何演进 API 而不破坏已有客户端，是 API 设计中最困难的长期工程问题。Stripe、Twilio 等公司维护了数十个并行版本的 API，这本身就是巨大的维护负担。
+
+**API 优先（API-First）设计**：先设计 API（写 OpenAPI 规范），再实现。与先实现后文档化相对。API-First 使得前后端可以并行开发（前端基于规范 mock 数据），但需要在设计阶段做更多决策。
+
+## 跨域连接
+
+- **[[abstraction]]**：API 是抽象的直接实现——隐藏实现细节，暴露整洁的接口。好的 API 设计是好的抽象设计。
+- **[[networking-protocols]]**：REST 建立在 HTTP 协议之上，HTTP 本身也是一个 API（服务器对客户端的接口）。
+- **[[software-engineering]]**：API 设计是软件工程的核心技能，好的 API 是降低系统复杂度的关键。
+- **经济学**：平台经济学（如 Stripe、Twilio 的 API 商业模式）表明，好的 API 可以直接成为产品，而非仅是技术实现细节。
+
+---
+
+## 延伸阅读
+
+- Fielding, R. *Architectural Styles and the Design of Network-based Software Architectures.* Ph.D. dissertation, UC Irvine, 2000. （REST 的来源）
+- Bloch, J. *How to Design a Good API and Why It Matters.* Google Tech Talks, 2007. （https://www.youtube.com/watch?v=aAb7hSCtvGw）
+- Kleppmann, M. *Designing Data-Intensive Applications.* O'Reilly, 2017. （第 4 章：编码和演化，讨论 API 向后兼容）
+- Richardson, L. & Amundsen, M. *RESTful Web APIs.* O'Reilly, 2013.
+- GraphQL Foundation. *GraphQL Specification.* spec.graphql.org.

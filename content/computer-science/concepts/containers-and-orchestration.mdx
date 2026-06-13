@@ -1,0 +1,106 @@
+---
+title: 容器与容器编排
+title_en: Containers and Orchestration
+status: published
+updated: 2026-06-13
+category: 系统与架构
+order: 56
+field: 计算机科学 · 云计算
+tags:
+  - 容器
+  - Docker
+  - Kubernetes
+  - DevOps
+  - 云原生
+related:
+  - microservices-architecture
+  - virtualization
+  - operating-systems
+---
+
+# 容器与容器编排
+
+2013 年 3 月，一家名不见经传的 PaaS 初创公司 dotCloud 在 PyCon 上发布了一个内部工具——**Docker**。演示视频里，工程师 Solomon Hykes 在台上用几行命令打包了一个应用，把它传到另一台机器上，一个命令运行起来：环境完全一致，没有任何"在我机器上能跑"的问题。
+
+那次演示被后来的开发者称为"容器革命的起点"。Docker 项目在 GitHub 上发布后，在接下来 18 个月里收获了 1.5 万个 Star——这个速度在当时前所未有。它用一种直观的体验，解决了软件分发和运行环境一致性这个困扰开发者数十年的问题。
+
+## 破除误解：容器不是轻量级虚拟机
+
+虚拟机（VM）在硬件上模拟一套完整的计算机——包括虚拟 CPU、虚拟内存、虚拟网卡，以及一个完整的操作系统内核。VM 隔离彻底，但每个 VM 通常占用几 GB 内存，启动需要数十秒。
+
+容器共享宿主机的 Linux 内核，只隔离**进程的视图**——用 Linux 内核的两个核心机制实现：
+
+- **命名空间（Namespaces）**：让进程看到一个独立的文件系统、网络栈、进程列表、主机名——实际上是内核提供的"视图隔离"
+- **控制组（cgroups）**：限制进程能使用的 CPU、内存、磁盘 I/O——资源的硬性上限
+
+结果是：容器镜像通常几十 MB，启动时间毫秒级，单台机器可以运行数百个容器。代价是：容器之间的内核隔离不如 VM 彻底——一个内核漏洞可能被容器内的恶意进程利用。
+
+## Docker 的三个核心概念
+
+**镜像（Image）**：一个只读的文件系统快照，包含应用代码和所有依赖。镜像是分层的（Union FS）——每条 Dockerfile 指令增加一层，层可以被共享和复用，节省存储和传输。
+
+**容器（Container）**：镜像的运行实例，在镜像基础上增加一个可写层。容器停止后，可写层消失；如需持久化数据，必须挂载外部卷（Volume）。
+
+**仓库（Registry）**：存储和分发镜像的服务。Docker Hub 是默认公共仓库，各云厂商也提供私有仓库（Amazon ECR、Google GCR）。
+
+## Kubernetes：编排的兴起
+
+Docker 解决了"打包"问题，但当你有数百个容器需要在几十台机器上运行，新问题来了：
+
+- 哪个容器运行在哪台机器上？
+- 一台机器宕机，上面的容器如何自动迁移？
+- 如何在流量高峰时自动扩容，低谷时缩容？
+- 容器之间如何互相发现和通信？
+
+这些问题属于**容器编排**的范畴。Google 在 2014 年开源了 Kubernetes（希腊语"舵手"），它脱胎于 Google 内部运行超过十年的 Borg 系统——管理着 Google 全球数据中心的几百万个任务。
+
+Kubernetes 的核心设计哲学是**声明式配置**：用户声明"我想要 10 个运行 nginx:1.20 的副本，其中端口 80 对外暴露"，Kubernetes 负责让集群状态收敛到这个声明。用户不命令机器"现在启动一个容器"，而是声明"期望状态是什么"——协调循环（Reconciliation Loop）持续把实际状态驱动向期望状态。
+
+### 关键抽象
+
+| 抽象 | 含义 |
+|------|------|
+| Pod | 一个或多个共享网络和存储的容器，是最小调度单元 |
+| Deployment | 声明 Pod 的副本数和更新策略 |
+| Service | 为一组 Pod 提供稳定的网络访问入口（DNS 名 + 负载均衡） |
+| ConfigMap / Secret | 配置数据和敏感数据与应用代码分离 |
+| Namespace | 在同一集群内做软隔离 |
+
+## 云原生生态
+
+Kubernetes 催生了整个**云原生（Cloud Native）**生态，由 CNCF（云原生计算基金会，2015 年成立）托管：
+
+**Helm**：Kubernetes 的包管理器，把一组资源打包为"Chart"，方便分发和重用。
+
+**Prometheus + Grafana**：监控和可视化，成为云原生监控的事实标准。
+
+**Istio / Linkerd**：服务网格，在 Pod 旁注入 Sidecar 代理，提供服务间 mTLS、流量管理、可观测性。
+
+**Argo CD / Flux**：GitOps 工具，以 Git 仓库为声明式配置的唯一真相源，自动同步到集群。
+
+## 代价与争议
+
+**复杂性被低估**：Kubernetes 的学习曲线极陡峭。一个完整的生产 Kubernetes 集群需要理解几十个概念，配置数百个选项。Kelsey Hightower（Google 工程师，Kubernetes 最有影响力的布道者之一）在 2023 年坦言，大多数小团队不需要 Kubernetes，一台配置优良的虚拟机足够了。
+
+**资源开销**：Kubernetes 的控制平面（API Server、etcd、Scheduler、Controller Manager）本身需要消耗相当资源，对中小规模集群来说比例较高。
+
+**安全基线低**：Kubernetes 默认配置的安全性较差——Pod 可以访问云厂商元数据 API、容器以 root 运行、网络策略默认是全开放的。生产加固需要大量额外配置。
+
+**替代方案复苏**：Nomad（HashiCorp）、AWS ECS/Fargate、托管 Lambda（Serverless）都是 Kubernetes 的替代路线，针对 Kubernetes 过于复杂的批评进行了取舍。
+
+## 跨域连接
+
+- **操作系统**：容器直接利用 Linux 内核的 namespaces 和 cgroups，是对操作系统抽象机制的重新组合，而非新技术。FreeBSD Jails（2000）和 Solaris Zones（2004）是更早的类似概念。
+- **[[virtualization]]**：容器和虚拟机是不同隔离粒度的解决方案，现代生产环境常常叠加使用（容器运行在 VM 上）。
+- **[[microservices-architecture]]**：容器是微服务在部署层面的使能技术；Kubernetes 是微服务编排的事实标准平台。
+- **[[operating-systems]]**：理解容器需要理解进程隔离、文件系统、网络栈等操作系统基础。
+
+---
+
+## 延伸阅读
+
+- Burns, B., Grant, B., Oppenheimer, D., Brewer, E., Wilkes, J. *Borg, Omega, and Kubernetes.* ACM Queue 14(1), 2016.（Google 三代集群管理系统的综述）
+- Merkel, D. *Docker: Lightweight Linux Containers for Consistent Development and Deployment.* Linux Journal, 2014.
+- Hightower, K., Burns, B., Beda, J. *Kubernetes: Up and Running.* 3rd ed., O'Reilly, 2022.
+- Richardson, C. *Pattern: Microservice Architecture.* microservices.io.（微服务与容器的模式参考）
+- Turnbull, J. *The Docker Book.* 自出版，2014.（早期 Docker 实践参考）

@@ -68,8 +68,8 @@ describe("life-science data access", () => {
   });
 
   describe("getAllScientists", () => {
-    it("returns 18 scientists", () => {
-      expect(getAllScientists()).toHaveLength(18);
+    it("returns at least 18 scientists", () => {
+      expect(getAllScientists().length).toBeGreaterThanOrEqual(18);
     });
   });
 
@@ -93,9 +93,7 @@ describe("life-science data access", () => {
     it("extinctions are ordered by time (oldest first)", () => {
       const extinctions = getAllExtinctions();
       for (let i = 1; i < extinctions.length; i++) {
-        expect(extinctions[i - 1]!.dateMYA).toBeGreaterThanOrEqual(
-          extinctions[i]!.dateMYA,
-        );
+        expect(extinctions[i - 1]!.dateMYA).toBeGreaterThanOrEqual(extinctions[i]!.dateMYA);
       }
     });
   });

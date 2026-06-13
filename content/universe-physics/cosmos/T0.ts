@@ -238,10 +238,10 @@ const content: TierContent = {
       name: { primary: "巨引源方向", latin: "Great Attractor" },
       position: [0.92, -0.1, 0.28],
       description:
-        "银河坐标 ℓ ≈ 307°, b ≈ +9° 方向，距离约 200 Mpc 处的大质量引力源。本星系群以 ~600 km/s 的速度向它坠落。它位于银河系的「隐带」内，X 射线巡天才揭示背后的 Norma 团和半人马座团。",
+        "银河坐标 ℓ ≈ 307°, b ≈ +9° 方向，距离约 65–80 Mpc 处的大质量引力源。本星系群以 ~600 km/s 的速度向它坠落。它位于银河系的「隐带」内，X 射线巡天才揭示背后的 Norma 团和半人马座团。",
       data: [
         { label: "方向", value: "ℓ = 307° · b = +9°" },
-        { label: "距离", value: "~200 Mpc" },
+        { label: "距离", value: "~65–80 Mpc" },
         { label: "本动速度", value: "~600 km/s" },
       ],
       color: "#ffb45a",

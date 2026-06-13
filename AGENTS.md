@@ -24,25 +24,25 @@
 
 如果要深入某个应用，再读其自己的文档：
 
-- 宇宙物理：`universe-physics/AGENTS.md` → `universe-physics/docs/develop/06-phase-1-plan.md`
-- 人类历史：`human-history/website/AGENTS.md` → `human-history/docs/开发规范.md`
+- 宇宙物理旧版参考：`reference/universe-physics/`
+- 人类历史旧版参考：`reference/human-history/`
 
 ### 第二步：运行自检命令（Read the environment）
 
 ```bash
-# 检查工作区基础设施
-ls package.json turbo.json pnpm-workspace.yaml 2>&1
+# 检查根应用基础设施
+ls package.json next.config.ts tsconfig.json vitest.config.ts 2>&1
 cat package.json
 
-# 检查 apps 目录实际状态
-ls apps/
-ls packages/ 2>/dev/null || echo "packages/ 目录不存在"
-ls packages/ui/package.json 2>/dev/null || echo "⚠️  @universe/ui 不存在 — 这会导致 pnpm install 报错"
-
-# 检查统一应用结构
-ls apps/portal/app/
-ls apps/portal/src-physics/ 2>/dev/null && echo "✅ 物理代码存在" || echo "⚠️  物理代码不存在"
+# 检查统一应用结构（当前 Next.js 应用在仓库根目录）
+ls app/
+ls subjects/
 ls content/ 2>/dev/null && echo "✅ 内容目录存在" || echo "⚠️  内容目录不存在"
+ls reference/ 2>/dev/null && echo "✅ 旧源码参考目录存在" || echo "⚠️  旧源码参考目录不存在"
+
+# 检查本地质量门配置
+ls scripts/physics/bundle-check.mjs
+ls .github/workflows 2>/dev/null || echo "✅ 未配置 GitHub Actions workflow"
 
 # 尝试 pnpm install，发现真实报错
 pnpm install 2>&1 | tail -20
@@ -52,7 +52,7 @@ pnpm install 2>&1 | tail -20
 
 把第二步发现的问题记录到 `docs/工作日志.md`（格式见第七节），然后：
 
-- 如果存在 P0 阻塞问题（如 `@universe/ui` 缺失）：**先解决阻塞，再做其他事**。
+- 如果存在 P0 阻塞问题（如 `pnpm install` 失败、根应用无法构建）：**先解决阻塞，再做其他事**。
 - 如果没有阻塞：按 `docs/任务清单.md` 的优先级从上往下取第一个"待开始"任务。
 
 ### 第四步：执行任务（一次只做一件事）
@@ -91,34 +91,23 @@ pnpm install 2>&1 | tail -20
 ## 2. 仓库结构
 
 ```
-universe-knowledge/                  ← Turborepo 根
-├── apps/
-│   └── portal/                      ← 唯一活跃应用（Next.js 15，统一入口）
-│       ├── app/                     ← App Router 路由（8 个知识领域 + 全局页面）
-│       │   ├── universe-physics/    ← 宇宙物理路由
-│       │   ├── human-history/       ← 人类历史路由
-│       │   ├── philosophy/          ← 哲学思想路由
-│       │   ├── life-science/        ← 生命科学路由
-│       │   ├── cosmology/           ← 宇宙学路由
-│       │   ├── mathematics/         ← 数学路由
-│       │   ├── economics/           ← 经济学路由
-│       │   ├── psychology/          ← 心理学路由
-│       │   ├── knowledge-graph/     ← 知识图谱路由
-│       │   └── daily/               ← 每日知识路由
-│       ├── src-physics/             ← 物理前端代码
-│       ├── src-history/             ← 历史前端代码
-│       ├── src-philosophy/          ← 哲学前端代码
-│       ├── src-life-science/        ← 生命科学前端代码
-│       ├── src-cosmology/           ← 宇宙学前端代码
-│       ├── src-mathematics/         ← 数学前端代码
-│       ├── src-economics/           ← 经济学前端代码
-│       ├── src-psychology/          ← 心理学前端代码
-│       ├── src-knowledge-graph/     ← 知识图谱前端代码
-│       └── content/                 ← 应用内知识内容（TS/JS/MDX）
-├── content/                         ← 平台级知识内容目录
-├── packages/
-│   ├── ui/                          ← @universe/ui（共享组件库，空壳）
-│   └── content/                     ← @universe/content（跨应用链接）
+universe-knowledge/                  ← Next.js 15 根应用
+├── app/                             ← App Router 路由（知识领域 + 全局页面/API）
+│   ├── universe-physics/            ← 宇宙物理路由
+│   ├── human-history/               ← 人类历史路由
+│   ├── philosophy/                  ← 哲学思想路由
+│   ├── life-science/                ← 生命科学路由
+│   ├── cosmology/                   ← 宇宙学路由
+│   ├── mathematics/                 ← 数学路由
+│   ├── economics/                   ← 经济学路由
+│   ├── psychology/                  ← 心理学路由
+│   ├── knowledge-graph/             ← 知识图谱路由
+│   ├── daily/                       ← 每日知识路由
+│   └── api/                         ← API 路由（daily/og）
+├── components/                      ← 全局与跨领域 UI 组件
+├── lib/                             ← 全局 loader、搜索、图引擎与工具
+├── subjects/                        ← 各知识领域的前端代码与领域逻辑
+├── content/                         ← 知识内容目录（TS/JS/MD/MDX）
 ├── docs/                            ← 平台级文档（代理读写区）
 │   ├── 任务清单.md                  ← ⭐ 任务状态真相源，每次会话后必须更新
 │   ├── 工作日志.md                  ← ⭐ 代理会话记录，每次会话后必须追加
@@ -126,19 +115,19 @@ universe-knowledge/                  ← Turborepo 根
 │   ├── 工程原则.md                  ← 代码质量铁律
 │   ├── 知识精神.md                  ← 内容创作标准
 │   └── 项目总览.md                  ← 平台全景介绍
-├── .archive/                        ← 旧应用归档（apps-universe-physics 等）
-├── universe-physics/                ← 旧位置源码（参考用，禁止删除）
-├── human-history/                   ← 旧位置源码 + 知识库（参考用，禁止删除）
+├── reference/                       ← 旧源码参考（禁止删除，不参与测试）
+│   ├── universe-physics/
+│   └── human-history/
+├── scripts/                         ← 本地质量脚本
 ├── AGENTS.md                        ← 本文件
-├── MIGRATION.md                     ← 英文草稿（归档），详见 docs/迁移计划.md
-├── package.json                     ← 工作区根
-├── turbo.json                       ← Turbo 流水线
-└── pnpm-workspace.yaml              ← pnpm 工作区声明
+├── package.json                     ← 根应用 package
+├── next.config.ts                   ← Next.js 配置
+└── vitest.config.ts                 ← Vitest 配置
 ```
 
-**当前架构**：所有知识领域已合并为 `apps/portal/` 单一 Next.js 应用，通过 `localhost:3000` 统一访问。内容与代码解耦，存放在 `content/` 和 `apps/portal/content/`。
+**当前架构**：所有知识领域已合并为仓库根目录的单一 Next.js 应用，通过 `localhost:3000` 统一访问。内容与代码解耦，知识内容存放在 `content/`，领域代码存放在 `subjects/`。
 
-**关键规则**：`universe-physics/`（旧）和 `human-history/website/`（旧）是参考代码，迁移已完成但保留供查阅。
+**关键规则**：`reference/` 是旧源码参考，迁移已完成但保留供查阅；不要删除，也不要让测试、构建或 lint 依赖它。
 
 ---
 
@@ -161,16 +150,15 @@ universe-knowledge/                  ← Turborepo 根
 1. `docs/任务清单.md` — 当前阶段有序任务与状态
 2. `docs/工作日志.md` — 最新一次代理的发现与遗留问题
 3. `docs/迁移计划.md` — 迁移步骤与风险
-4. `universe-physics/AGENTS.md` — universe-physics 应用级规范
-5. `human-history/website/AGENTS.md` — human-history 应用级规范
-6. `docs/工程原则.md` — 平台工程铁律
-7. 本文件（AGENTS.md）
+4. `docs/工程原则.md` — 平台工程铁律
+5. `docs/知识精神.md` — 内容创作标准
+6. 本文件（AGENTS.md）
 
 ---
 
 ## 5. 技术栈速查
 
-### 统一应用（apps/portal/）
+### 统一应用（根目录）
 
 - **框架**：Next.js 15，App Router
 - **3D**：React Three Fiber + drei + postprocessing + Three.js
@@ -179,29 +167,28 @@ universe-knowledge/                  ← Turborepo 根
 - **样式**：Tailwind CSS v4 + CSS Custom Properties
 - **内容**：MDX + gray-matter + Zod schema 校验
 - **语言**：TypeScript（strict mode + noUncheckedIndexedAccess）
-- **包管理**：pnpm 10 + Turborepo
+- **包管理**：pnpm 10
 - **测试**：Vitest + Testing Library + Playwright
 - **部署**：Vercel 就绪
 
 ### 知识领域路由
 
-| 领域     | 路由前缀            | src 目录               | 技术特点                 |
-| -------- | ------------------- | ---------------------- | ------------------------ |
-| 宇宙物理 | `/universe-physics` | `src-physics/`         | R3F 3D + Shaders + LOD   |
-| 人类历史 | `/human-history`    | `src-history/`         | Canvas + GSAP + SVG 地图 |
-| 哲学思想 | `/philosophy`       | `src-philosophy/`      | MDX + 交叉引用           |
-| 生命科学 | `/life-science`     | `src-life-science/`    | Zod schema + 系统发育树  |
-| 宇宙学   | `/cosmology`        | `src-cosmology/`       | 专题内容                 |
-| 数学     | `/mathematics`      | `src-mathematics/`     | 专题内容                 |
-| 经济学   | `/economics`        | `src-economics/`       | MDX + 模拟实验           |
-| 心理学   | `/psychology`       | `src-psychology/`      | MDX + 认知偏差           |
-| 知识图谱 | `/knowledge-graph`  | `src-knowledge-graph/` | Canvas 2D 力导向图       |
+| 领域     | 路由前缀            | 领域目录                    | 技术特点                 |
+| -------- | ------------------- | --------------------------- | ------------------------ |
+| 宇宙物理 | `/universe-physics` | `subjects/physics/`         | R3F 3D + Shaders + LOD   |
+| 人类历史 | `/human-history`    | `subjects/history/`         | Canvas + GSAP + SVG 地图 |
+| 哲学思想 | `/philosophy`       | `subjects/philosophy/`      | MDX + 交叉引用           |
+| 生命科学 | `/life-science`     | `subjects/life-science/`    | Zod schema + 系统发育树  |
+| 宇宙学   | `/cosmology`        | `subjects/cosmology/`       | 专题内容                 |
+| 数学     | `/mathematics`      | `subjects/mathematics/`     | 专题内容                 |
+| 经济学   | `/economics`        | `subjects/economics/`       | MDX + 模拟实验           |
+| 心理学   | `/psychology`       | `subjects/psychology/`      | MDX + 认知偏差           |
+| 知识图谱 | `/knowledge-graph`  | `subjects/knowledge-graph/` | Canvas 2D 力导向图       |
 
 ### 应用级文档
 
-- 物理板块：`universe-physics/AGENTS.md`（旧版参考，部分规范仍适用）
-- 历史板块：`human-history/website/AGENTS.md`（旧版参考，Vite 版规范）
-- Portal：`apps/portal/AGENTS.md`
+- 根应用：本文件 + `docs/工程原则.md`
+- 旧源码参考：`reference/universe-physics/`、`reference/human-history/`
 
 ---
 
@@ -254,38 +241,22 @@ universe-knowledge/                  ← Turborepo 根
 
 每个任务完成后，运行对应的验证命令确认真的完成了，不要只看代码写完了就算。
 
-### T-001：@universe/ui 创建完成验证
-
-```bash
-ls packages/ui/package.json                      # 文件必须存在
-grep '"name"' packages/ui/package.json            # 必须包含 @universe/ui
-pnpm install 2>&1 | grep -i "error" | head -5     # 不得有 @universe/ui 相关报错
-```
-
-### T-002：pnpm-workspace.yaml 验证
-
-```bash
-cat pnpm-workspace.yaml                           # 必须包含 apps/* 和 packages/*
-```
-
 ### 统一应用验证
 
 ```bash
-pnpm --filter @universe/portal build 2>&1 | tail -10  # 构建必须通过
-pnpm --filter @universe/portal typecheck 2>&1 | tail -5  # 类型检查必须通过
+pnpm typecheck                  # TypeScript 必须通过
+pnpm lint                       # ESLint 必须 0 warning
+pnpm test                       # Vitest 必须通过
+pnpm build                      # Next.js 构建必须通过
+pnpm bundle-check -- --skip-build  # 预算检查必须通过（可复用已有 .next）
 ```
 
 ### 内容完整性验证
 
 ```bash
-ls content/                                       # 6 个知识领域目录
-ls apps/portal/app/                               # 路由目录与 content 对应
-```
-
-### 通用：全工作区构建验证
-
-```bash
-pnpm build 2>&1 | tail -20                        # 所有 apps 构建通过
+ls content/                      # 8 个知识领域目录
+ls app/                          # 路由目录与 content 对应
+pnpm check-content               # 内容校验必须 0 error
 ```
 
 ---
@@ -297,12 +268,12 @@ pnpm build 2>&1 | tail -20                        # 所有 apps 构建通过
 ### 9.1 基础设施问题（每次接手都检查）
 
 ```bash
-# 检查工作区 install 状态
+# 检查 install 状态
 pnpm install --dry-run 2>&1 | grep -i "error"
 
 # 统一应用构建与类型检查
-pnpm --filter @universe/portal build 2>&1 | tail -5
-pnpm --filter @universe/portal typecheck 2>&1 | tail -5
+pnpm typecheck
+pnpm build
 ```
 
 ### 9.2 内容完整性问题（知识内容相关任务时检查）
@@ -310,16 +281,15 @@ pnpm --filter @universe/portal typecheck 2>&1 | tail -5
 ```bash
 # 检查各领域内容目录
 ls content/
-ls apps/portal/content/
 
 # 检查路由与内容对应关系
-ls apps/portal/app/
+ls app/
 ```
 
 ### 9.3 TypeScript 类型问题（新功能任务时检查）
 
 ```bash
-pnpm --filter @universe/portal typecheck 2>&1 | head -20
+pnpm typecheck 2>&1 | head -20
 ```
 
 ### 9.4 发现问题的处理流程
@@ -332,9 +302,9 @@ pnpm --filter @universe/portal typecheck 2>&1 | head -20
 
 ## 10. 禁止事项（代理不得自行做的事）
 
-- ❌ 删除 `universe-physics/`（旧位置）或 `human-history/website/`（旧 Vite 版本）——需用户明确授权
+- ❌ 删除 `reference/` 下旧源码参考——需用户明确授权
 - ❌ force push 到任何分支
 - ❌ 在没有验证的情况下声称任务已完成
 - ❌ 一次会话同时开多个无关的大任务
 - ❌ 修改 `human-history/docs/` 的历史内容而不说明理由（这是知识库，不是随意改的）
-- ❌ 在 TypeScript apps 里加 `// @ts-ignore` 或 `any` 类型而不写注释说明原因
+- ❌ 在 TypeScript 代码里加 `// @ts-ignore` 或 `any` 类型而不写注释说明原因

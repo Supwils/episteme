@@ -1,0 +1,100 @@
+---
+title: 罗纳德·里维斯特
+title_en: Ronald Rivest
+status: published
+updated: 2026-06-13
+category: 密码学
+years: 1947–
+nationality: 美国
+field: 密码学 · 算法 · 信息安全
+order: 35
+tags:
+  - 密码学
+  - RSA
+  - 公钥加密
+  - 图灵奖
+related:
+  - encryption-basics
+  - computer-security-principles
+  - alan-turing
+---
+
+# 罗纳德·里维斯特
+
+1977 年 4 月 2 日，《科学美国人》（Scientific American）专栏作家 Martin Gardner 在其"数学游戏"专栏里刊登了一道挑战题：破解一段用新密码加密的信息，奖励 100 美元。这段密码来自三位 MIT 教授的最新研究——Rivest、Shamir、Adleman——他们估计，用当时最快的计算机破解大约需要 **4 × 10^16 年**。
+
+1994 年，这道题被解开了。不是因为破解算法被找到，而是因为 RSA Security 公司（这三位教授联合创立）赞助了一场分布式计算竞赛，1600 名志愿者协作计算了 8 个月，把这个数分解出来。
+
+Gardner 的那道题验证了一件事：RSA 加密是可以被破解的，但需要极端的计算资源——而这正是它之所以安全的理由。
+
+## 破除误解：公钥加密不是 RSA 发明的
+
+RSA 算法（1977）是公钥密码的第一个**公开**实用实现，但公钥密码的**概念**是 Diffie 和 Hellman 在 1976 年提出的。Diffie-Hellman 密钥交换（DH）比 RSA 早一年，是"两个人通过不安全信道建立共享密钥"这一思想的首次公开发表。
+
+更早的是：英国政府通信总部（GCHQ）的密码学家 Clifford Cocks 在 1973 年就独立发现了与 RSA 等价的算法，但被列为机密，直到 1997 年才解密公开。RSA 是公钥密码的第一个*公开发表*的实用实现。
+
+Rivest 本人对这段历史非常坦诚，从不声称自己"发明了公钥密码"，而是"和同事实现了 Diffie-Hellman 的愿景"。
+
+## 现场：MIT 办公室里的一个夜晚
+
+1977 年，Diffie-Hellman 论文发表后不久，MIT 教授 Leonard Adleman 在一次讲座后向他的两位同事 Ron Rivest 和 Adi Shamir 介绍了这个新思想。三人都对公钥密码的具体实现问题着迷：Diffie 和 Hellman 提出了框架，但没有给出一个具体的单向函数。
+
+接下来的数月，Rivest 和 Shamir 每周都提出一个新方案，Adleman 负责找出每个方案的漏洞。1977 年 4 月的一个夜晚，Rivest 在聚会回家后辗转难眠，坐在沙发上开始推导，凌晨写完了 RSA 算法的初稿。第二天清晨，他把手稿交给了 Adleman，Adleman 找不到任何漏洞。
+
+RSA 的数学基础是两个大素数相乘容易，但给定乘积分解回两个素数极难（大整数分解问题，Integer Factorization Problem）：
+
+$$n = p \times q$$
+
+已知 $n$ 和公钥指数 $e$，加密：$c \equiv m^e \pmod{n}$；已知私钥指数 $d$（由 $p$、$q$ 确定），解密：$m \equiv c^d \pmod{n}$。
+
+1983 年，MIT 为 RSA 申请了专利（美国专利 4,405,829）；2000 年，专利到期，RSA 算法进入公共领域。
+
+## Rivest 的其他贡献
+
+**MD5（1991）和 MD4（1990）**：Rivest 设计的消息摘要（哈希）算法，用于数字签名和完整性验证。MD5 后来被证明存在碰撞漏洞（Wang et al., 2004），不再推荐用于安全场合，但仍广泛用于文件校验。
+
+**RC 系列密码（1987–2003）**：Rivest Cipher（RC2、RC4、RC5、RC6）是一系列对称密钥流密码。RC4 因为简单高效，被 SSL/TLS、WEP 等协议广泛采用，后来被发现存在统计偏差漏洞（2015 年，IETF RFC 7465 禁止在 TLS 中使用 RC4）。
+
+**选举安全**：Rivest 的后期研究转向了电子选举系统的安全性。他参与设计了 ThreeBallot 投票系统，该系统能让选民在不泄露投票内容的前提下验证自己的票被正确计数。他是"审计导向"（Audit-Based）选举安全流派的重要代表，强调可验证性而非仅凭信任。
+
+**算法教材**：Rivest 是《算法导论》（Introduction to Algorithms，CLRS，与 Cormen、Leiserson、Stein 共著）的联合作者之一。这本书被全球数千所大学用作算法课教材，是计算机科学教育史上最有影响力的教材之一。
+
+## 2002 年图灵奖
+
+Rivest 与 Adi Shamir 和 Leonard Adleman 共同获得 2002 年 ACM 图灵奖，表彰他们对公钥密码的贡献。值得注意的是，Diffie 和 Hellman 直到 2015 年才获得图灵奖——公钥密码概念的提出者获奖比实现者晚了 13 年，这在图灵奖历史上是罕见的时间差。
+
+Rivest 目前是 MIT 电气工程与计算机科学系 Viterbi 讲席教授，在 MIT 计算机科学与人工智能实验室（CSAIL）的密码与信息安全组工作。
+
+## 代价与争议
+
+**专利与加密民主化**：RSA 的专利（1983–2000）使得 RSA 的商业使用需要授权，这在 PGP（Pretty Good Privacy，Phil Zimmermann，1991）首次发布时引发了法律纠纷——PGP 绕过了 RSA 许可证要求，美国政府甚至以"出口加密软件"为由对 Zimmermann 展开调查（后撤销）。这场争论推动了"密码学无国界"运动，也加速了 RSA 专利的最终到期。
+
+**量子计算的威胁**：RSA 的安全性依赖大整数分解的计算困难性。Shor 算法（1994）证明，量子计算机能在多项式时间内完成大整数分解，从理论上破解 RSA。目前没有足够大的容错量子计算机来执行此任务，但 NIST（美国国家标准与技术研究院）已在 2022 年前后开始标准化后量子密码算法（Post-Quantum Cryptography），以替代 RSA 和椭圆曲线密码。Rivest 对这一议题持续关注，认为量子威胁是"值得认真对待的长期风险"。
+
+## 跨域连接
+
+- **数学**：RSA 的安全基础是数论（大整数分解）；Rivest 的工作把高等数学定理转化为了工程安全保证。欧拉定理（$a^{\phi(n)} \equiv 1 \pmod{n}$）是 RSA 正确性的数学核心。
+- **哲学**：密码学本质上是信息不对称的工程实现——一方能做到另一方做不到的事。这涉及"什么是计算困难"的哲学问题，与可计算性理论（图灵）深度相关。
+- **[[encryption-basics]]**：RSA 是理解现代加密体系的入口——所有 HTTPS 连接都依赖公钥密码握手，大多数场景用的正是 RSA 或基于类似原理的椭圆曲线密码（ECDH）。
+- **[[alan-turing]]**：图灵对可计算性的理论界定（哪些问题可以被算法解决）是密码学安全性分析的哲学前提。
+- **[[authentication-authorization]]**：RSA 是数字签名和 PKI（公钥基础设施）的数学基础，而 PKI 是互联网认证体系的骨架——HTTPS 的每次握手背后都有 RSA 或其后继者的影子。
+
+## 人物小记：密码学家与公民科学家
+
+Rivest 的职业生涯横跨密码学的商业化（RSA 专利与 RSA Security 公司）和学术化（MIT 教职与开放研究）两个世界，这在密码学界是不常见的双重身份。
+
+他对选举安全的关注体现了一种罕见的视野：密码学不只是网络安全的工具，也可以是民主制度的保障机制。他的 ThreeBallot 系统设计理念是，即使选举官员也不能操控结果，同时选民也无法向他人证明自己投了谁——在数字时代维持匿名投票的技术路径。
+
+RSA Security 公司（Rivest、Shamir、Adleman 1982 年联合创立）在 2006 年被 EMC 以 2.1 亿美元收购，2011 年遭受严重的网络攻击（RSA SecurID 令牌被盗），是互联网安全史上最受关注的安全事件之一，Rivest 亲历了从密码发明到密码体系被攻击的全过程——一种技术史的切身讽刺。
+
+---
+
+## 延伸阅读
+
+- Rivest, R., Shamir, A., Adleman, L. *A Method for Obtaining Digital Signatures and Public-Key Cryptosystems.* CACM 21(2), 1978.（RSA 原始论文）
+- Diffie, W. & Hellman, M. *New Directions in Cryptography.* IEEE Trans. Info. Theory 22(6), 1976.（公钥密码概念的首次公开发表）
+- Cormen, T., Leiserson, C., Rivest, R., Stein, C. *Introduction to Algorithms.* 4th ed., MIT Press, 2022.（CLRS，算法课标准教材）
+- Singh, S. *The Code Book.* Doubleday, 1999.（密码学历史叙事，包含 RSA 的故事，适合非专业读者）
+- NIST. *Post-Quantum Cryptography Standardization.* nist.gov, 2022.（后量子密码标准化进展）
+- Rivest, R. *The MD5 Message-Digest Algorithm.* RFC 1321, IETF, 1992.
+- Zimmermann, P. *PGP Source Code and Internals.* MIT Press, 1995.（密码民主化运动的实践记录）

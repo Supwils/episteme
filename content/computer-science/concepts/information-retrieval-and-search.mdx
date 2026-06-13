@@ -1,0 +1,102 @@
+---
+title: 信息检索与搜索
+title_en: Information Retrieval and Search
+status: published
+updated: 2026-06-13
+category: 数据与智能
+order: 52
+field: 计算机科学 · 信息系统
+tags:
+  - 搜索引擎
+  - 信息检索
+  - 倒排索引
+  - PageRank
+  - 向量空间模型
+related:
+  - recommender-systems
+  - machine-learning-overview
+  - databases-transactions
+---
+
+# 信息检索与搜索
+
+1998 年，两名斯坦福博士生在一篇论文的附录里描述了一个他们已经运行了十几个月的搜索引擎原型。附录的标题低调得不像话：*"Google 系统实现细节"*。那个原型当时已经在处理每天 1 万次查询——在 Alta Vista 和 Yahoo 统治搜索市场的时代，这对学生是个惊人的数字。
+
+那篇论文的核心思想——用网页之间的超链接来衡量权威性，而不只是统计关键词出现次数——是现代搜索引擎的起点，也是信息检索从图书馆学转型为大规模计算系统的标志时刻。
+
+## 破除误解：搜索不是"找到包含关键词的文档"
+
+最朴素的信息检索系统只做一件事：找出所有包含查询词的文档。但这忽略了用户真正想要的东西：**相关性**和**权威性**。
+
+- 一篇包含"苹果"100 次的文章可能是关于苹果公司，也可能是水果食谱。
+- 两篇同样相关的文章，一篇来自专业学术期刊，一篇来自匿名博客——用户需要的是前者。
+- 用户的查询"how do I fix this"背后的真实意图，可能完全无法从字面猜到。
+
+信息检索研究的核心是：如何在计算上捕捉"相关性"的人类直觉？
+
+## 基础架构：倒排索引
+
+现代搜索引擎的核心数据结构是**倒排索引（Inverted Index）**：
+
+- 正向索引：文档 → 它包含的词
+- 倒排索引：词 → 包含它的文档列表（含位置信息）
+
+对于一个包含数十亿文档的搜索引擎，倒排索引的大小和构建速度是根本的工程挑战。Google 在 2003 年发表的 GFS 和 2004 年发表的 MapReduce，本质上就是为了解决大规模倒排索引的构建和存储问题。
+
+## 相关性模型的演进
+
+**TF-IDF（词频-逆文档频率）**是经典的词项权重模型：
+
+$$\text{TF-IDF}(t, d) = \text{TF}(t,d) \times \log\frac{N}{\text{DF}(t)}$$
+
+其中 $\text{TF}(t,d)$ 是词 $t$ 在文档 $d$ 中出现的频率，$N$ 是总文档数，$\text{DF}(t)$ 是包含 $t$ 的文档数。一个词在少数文档中频繁出现，权重就高；如果它出现在几乎所有文档中（如"的"、"the"），权重接近零。
+
+**向量空间模型（Vector Space Model）**把每个文档表示为词项权重向量，用余弦相似度衡量文档与查询的相关性。这是 1970 年代 Gerard Salton 在康奈尔大学提出的框架，影响至今。
+
+**BM25（Best Match 25）**是 TF-IDF 的改进版，通过归一化处理解决了长文档被偏袒的问题。它在 2024 年仍是大多数搜索引擎的默认基线排名函数。
+
+**PageRank**（1998 年，Page 和 Brin）把网络链接结构引入排名：一个页面被许多重要页面链接，它本身就更重要。这是一个递归定义，数学上等价于计算网络邻接矩阵的主特征向量（随机游走的稳态分布）。
+
+## 神经检索：从稀疏到稠密
+
+传统检索依赖精确词项匹配——用户必须用上和文档一样的词。神经网络改变了这一点：
+
+**稠密检索（Dense Retrieval）**用深度学习（如 BERT 衍生模型）把查询和文档都编码为高维稠密向量，相似的含义在向量空间中距离相近。即使词汇不重叠，语义相似的文档也能被找到。
+
+**双编码器（Bi-Encoder）**分别编码查询和文档，离线预计算所有文档向量，检索时只需做近似最近邻搜索（ANN）——效率与效果都大幅提升。Facebook（Meta）的 DPR（Dense Passage Retrieval，2020）是这一范式的代表工作。
+
+**RAG（Retrieval-Augmented Generation）**在 2023 年将检索与大语言模型融合：先检索相关文档，再让语言模型根据这些文档生成回答。这是当前搜索与 AI 融合的主流路线。
+
+## 评估指标
+
+| 指标 | 含义 |
+|------|------|
+| Precision@K | 前 K 个结果中相关文档的比例 |
+| Recall@K | 相关文档中有多少被检索到 |
+| NDCG | 归一化折扣累积增益，考虑结果排名位置 |
+| MRR | 平均倒数排名，衡量第一个相关结果出现的位置 |
+
+## 代价与争议
+
+**过滤泡沫（Filter Bubble）**：个性化搜索让每个用户看到一个为自己定制的信息宇宙。Eli Pariser 在 2011 年《过滤泡沫》一书中警告，这会加剧信息茧房，强化既有偏见。反驳者认为，无个性化搜索同样存在偏见（只是偏向多数人的偏好）。
+
+**SEO 军备竞赛**：搜索引擎排名算法是黑箱，催生了整个搜索引擎优化（SEO）产业——数十亿美元的努力专门用于让内容在算法中排名靠前，而非让内容本身更好。这是信息检索系统对内容生态的负外部性。
+
+**查询理解的边界**：当用户问"我明天需要带伞吗"，正确回答需要知道用户的位置、时间、天气数据。语义搜索已经在理解意图，但与人类图书馆员的理解能力相比，差距仍然存在。
+
+## 跨域连接
+
+- **数学**：线性代数（奇异值分解 SVD 用于潜在语义分析）、概率论（语言模型）、图论（PageRank 本质上是图上的随机游走）。
+- **语言学**：词义消歧、同义词扩展、多语言检索都依赖语言学知识。
+- **[[recommender-systems]]**：推荐系统可以看作个性化信息检索——不是根据查询找文档，而是根据用户历史预测偏好。
+- **[[machine-learning-overview]]**：现代信息检索的核心已是机器学习问题。
+
+---
+
+## 延伸阅读
+
+- Page, L., Brin, S., Motwani, R., Winograd, T. *The PageRank Citation Ranking: Bringing Order to the Web.* Technical Report, Stanford, 1998.
+- Manning, C., Raghavan, P., Schutze, H. *Introduction to Information Retrieval.* Cambridge University Press, 2008.（可免费在线获取，信息检索入门经典）
+- Karpukhin, V. et al. *Dense Passage Retrieval for Open-Domain Question Answering.* EMNLP, 2020.（DPR 论文）
+- Lewis, P. et al. *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.* NeurIPS, 2020.（RAG 奠基论文）
+- Robertson, S. & Zaragoza, H. *The Probabilistic Relevance Framework: BM25 and Beyond.* Foundations and Trends in IR, 2009.
