@@ -1,11 +1,26 @@
 "use client";
 
-import { useState, useCallback } from "react";
-import katex from "katex";
+import { useState, useCallback, useEffect } from "react";
+import type Katex from "katex";
 
-function renderKatex(latex: string, displayMode: boolean): string {
-  return katex.renderToString(latex, { displayMode, throwOnError: false });
+// KaTeX is ~260KB; only load it when an article actually contains math.
+// Module-level cache so it loads once across all rendered articles.
+let katexLib: typeof Katex | null = null;
+let katexLoad: Promise<void> | null = null;
+function loadKatex(): Promise<void> {
+  if (katexLib) return Promise.resolve();
+  if (!katexLoad) katexLoad = import("katex").then((m) => void (katexLib = m.default));
+  return katexLoad;
 }
+
+// Returns rendered HTML, or null when KaTeX has not loaded yet (caller shows
+// the LaTeX source as a fallback until the component re-renders post-load).
+function renderKatex(latex: string, displayMode: boolean): string | null {
+  if (!katexLib) return null;
+  return katexLib.renderToString(latex, { displayMode, throwOnError: false });
+}
+
+const MATH_PATTERN = /\$\$[\s\S]*?\$\$|\$[^$\n]*[\\^_{][^$\n]*\$/;
 
 function slugify(text: string): string {
   return text
@@ -37,6 +52,13 @@ export function MarkdownRenderer({
   className,
 }: MarkdownRendererProps) {
   const footnotes = extractFootnotes(content);
+
+  // Lazy-load KaTeX only when this article has math; re-render once it lands.
+  const [, setKatexReady] = useState(false);
+  useEffect(() => {
+    if (katexLib) return;
+    if (MATH_PATTERN.test(content)) loadKatex().then(() => setKatexReady(true));
+  }, [content]);
 
   return (
     <div className={className ?? "prose prose-invert max-w-none"}>
@@ -366,14 +388,23 @@ function renderInline(text: string, footnotes: Map<string, string>): React.React
   while (remaining.length > 0) {
     const latexBlockMatch = remaining.match(/^\$\$[\s\S]*?\$\$/);
     if (latexBlockMatch) {
+      const tex = latexBlockMatch[0].slice(2, -2).trim();
+      const html = renderKatex(tex, true);
       parts.push(
-        <span
-          key={key++}
-          className="my-2 block overflow-x-auto"
-          dangerouslySetInnerHTML={{
-            __html: renderKatex(latexBlockMatch[0].slice(2, -2).trim(), true),
-          }}
-        />
+        html === null ? (
+          <span
+            key={key++}
+            className="text-fg-muted my-2 block overflow-x-auto font-mono text-[0.85em]"
+          >
+            {tex}
+          </span>
+        ) : (
+          <span
+            key={key++}
+            className="my-2 block overflow-x-auto"
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
+        )
       );
       remaining = remaining.slice(latexBlockMatch[0].length);
       continue;
@@ -387,13 +418,15 @@ function renderInline(text: string, footnotes: Map<string, string>): React.React
       /[\\^_{]/.test(latexInlineMatch[1]!) &&
       !/[一-鿿]/.test(latexInlineMatch[1]!)
     ) {
+      const html = renderKatex(latexInlineMatch[1]!, false);
       parts.push(
-        <span
-          key={key++}
-          dangerouslySetInnerHTML={{
-            __html: renderKatex(latexInlineMatch[1]!, false),
-          }}
-        />
+        html === null ? (
+          <span key={key++} className="text-fg-muted font-mono text-[0.9em]">
+            {latexInlineMatch[1]!}
+          </span>
+        ) : (
+          <span key={key++} dangerouslySetInnerHTML={{ __html: html }} />
+        )
       );
       remaining = remaining.slice(latexInlineMatch[0].length);
       continue;

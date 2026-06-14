@@ -37,12 +37,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   experimental: {
-    optimizePackageImports: [
-      "three",
-      "@react-three/drei",
-      "framer-motion",
-      "gsap",
-    ],
+    optimizePackageImports: ["three", "@react-three/drei", "framer-motion", "gsap", "katex"],
   },
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];
