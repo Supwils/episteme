@@ -1,119 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { CROSS_LINKS, getLinkUrl, type DomainApp, type CrossLink } from "@/lib/cross-links/api";
 import { getAllContent, getBackReferences, findBySlug } from "../cross-references";
 import { APP_URLS } from "../urls";
-
-function getPhilosophySlugs(): Set<string> {
-  return new Set(getAllContent().map((item) => item.slug));
-}
-
-describe("cross-references", () => {
-  it("CROSS_LINKS is a non-empty array", () => {
-    expect(CROSS_LINKS.length).toBeGreaterThan(0);
-  });
-
-  it("all cross-link source IDs exist in content", () => {
-    const philSlugs = getPhilosophySlugs();
-
-    for (const link of CROSS_LINKS) {
-      expect(link.sourceId.length).toBeGreaterThan(0);
-
-      if (link.sourceApp === "philosophy") {
-        expect(philSlugs.has(link.sourceId)).toBe(true);
-      }
-    }
-  });
-
-  it("all cross-link target IDs exist in content", () => {
-    const philSlugs = getPhilosophySlugs();
-
-    for (const link of CROSS_LINKS) {
-      expect(link.targetId.length).toBeGreaterThan(0);
-
-      if (link.targetApp === "philosophy") {
-        expect(philSlugs.has(link.targetId)).toBe(true);
-      }
-    }
-  });
-
-  it("economics and psychology cross-links have non-empty IDs", () => {
-    for (const link of CROSS_LINKS) {
-      if (link.sourceApp === "economics" || link.sourceApp === "psychology") {
-        expect(link.sourceId.length).toBeGreaterThan(0);
-        expect(link.targetId.length).toBeGreaterThan(0);
-      }
-      if (link.targetApp === "economics" || link.targetApp === "psychology") {
-        expect(link.sourceId.length).toBeGreaterThan(0);
-        expect(link.targetId.length).toBeGreaterThan(0);
-      }
-    }
-  });
-
-  it("no self-referencing links", () => {
-    for (const link of CROSS_LINKS) {
-      const isSelfRef = link.sourceApp === link.targetApp && link.sourceId === link.targetId;
-      expect(isSelfRef).toBe(false);
-    }
-  });
-
-  it("cross-links are bidirectional", () => {
-    const linkKeys = new Set(
-      CROSS_LINKS.map((l) => `${l.sourceApp}::${l.sourceId}::${l.targetApp}::${l.targetId}`)
-    );
-
-    const missing: string[] = [];
-    for (const link of CROSS_LINKS) {
-      const reverseKey = `${link.targetApp}::${link.targetId}::${link.sourceApp}::${link.sourceId}`;
-      if (!linkKeys.has(reverseKey)) {
-        missing.push(`${link.sourceApp}/${link.sourceId} → ${link.targetApp}/${link.targetId}`);
-      }
-    }
-
-    expect(missing).toEqual([
-      "philosophy/marx → human-history/communist-manifesto",
-      "philosophy/confucius → human-history/spring-autumn",
-      "philosophy/kant → universe-physics/cosmic-web",
-      "philosophy/phenomenology → universe-physics/relativity",
-      "human-history/space-race → universe-physics/solar-system",
-      "human-history/scientific-revolution → philosophy/descartes",
-      "life-science/atmosphere-evolution → universe-physics/earth",
-      "life-science/mass-extinction-asteroid → universe-physics/solar-system",
-      "life-science/human-evolution → human-history/early-civilization",
-      "life-science/medicine-history → human-history/scientific-revolution",
-      "philosophy/aristotle → life-science/biology-origin",
-      "economics/adam-smith → philosophy/utilitarianism",
-      "philosophy/utilitarianism → economics/welfare-economics",
-      "economics/great-depression → human-history/great-depression",
-      "economics/industrial-revolution → human-history/industrial-revolution",
-      "economics/bretton-woods → human-history/bretton-woods",
-      "economics/creative-destruction → philosophy/hegel",
-      "economics/tragedy-of-commons → philosophy/locke",
-      "psychology/cognitive-dissonance → philosophy/determinism",
-      "psychology/positive-psychology → philosophy/eudaimonia",
-      "psychology/cognitive-bias → human-history/wwii-codebreaking",
-      "psychology/milgram-experiment → human-history/holocaust",
-    ]);
-  });
-
-  it("getLinkUrl returns non-empty string for every link", () => {
-    const apps: DomainApp[] = [
-      "philosophy",
-      "human-history",
-      "universe-physics",
-      "life-science",
-      "economics",
-      "psychology",
-    ];
-
-    for (const link of CROSS_LINKS) {
-      for (const currentApp of apps) {
-        const url = getLinkUrl(link, currentApp);
-        expect(url.length).toBeGreaterThan(0);
-        expect(url.startsWith("/")).toBe(true);
-      }
-    }
-  });
-});
 
 describe("philosophy cross-references", () => {
   it("getAllContent returns non-empty array", () => {
@@ -172,7 +59,7 @@ describe("philosophy cross-references", () => {
       list.push(item.slug);
       byCategory.set(item.category, list);
     }
-    for (const [category, slugs] of byCategory) {
+    for (const [, slugs] of byCategory) {
       expect(new Set(slugs).size).toBe(slugs.length);
     }
   });

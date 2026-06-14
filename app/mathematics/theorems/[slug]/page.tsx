@@ -11,7 +11,6 @@ import { SITE_URL } from "@/lib/constants";
 import { createDefinedTermJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
-import CrossDomainLinks from "@/components/CrossDomainLinks";
 import { ArticleSidebar } from "@/components/ArticleSidebar";
 import { TableOfContents } from "@/components/TableOfContents";
 
@@ -154,12 +153,6 @@ export default async function TheoremDetailPage({ params }: { params: Promise<{ 
           <SafeRender>
             <RelatedContent slug={slug} domain="mathematics" entityId={slug} />
           </SafeRender>
-
-          <div className="mt-10">
-            <SafeRender>
-              <CrossDomainLinks currentApp="mathematics" entityId={slug} />
-            </SafeRender>
-          </div>
         </article>
 
         <ArticleSidebar>

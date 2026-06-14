@@ -12,7 +12,6 @@ import { SITE_URL } from "@/lib/constants";
 import { createDefinedTermJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
-import CrossDomainLinks from "@/components/CrossDomainLinks";
 import GeometryExplorer from "@/subjects/mathematics/components/visualizations/GeometryExplorer";
 import { FractalExplorer } from "@/subjects/mathematics/components/visualizations/FractalExplorer";
 
@@ -207,12 +206,6 @@ export default async function MathConceptDetailPage({
         <SafeRender>
           <RelatedContent slug={slug} domain="mathematics" entityId={slug} />
         </SafeRender>
-
-        <div className="mt-10">
-          <SafeRender>
-            <CrossDomainLinks currentApp="mathematics" entityId={slug} />
-          </SafeRender>
-        </div>
       </article>
 
       <nav className="border-border-faint mt-16 flex items-stretch justify-between gap-4 border-t pt-8">

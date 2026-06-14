@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import { getThinkerBySlug, getThinkerSlugs, getAllThinkers } from "@/lib/mdx";
 import Breadcrumb from "@/components/Breadcrumb";
-import CrossDomainLinks from "@/components/CrossDomainLinks";
 import RelatedContent from "@/components/RelatedContent";
 import SafeRender from "@/components/SafeRender";
 import { ERA_ACCENT, SITE_URL } from "@/lib/constants";
@@ -130,12 +129,6 @@ export default async function ThinkerDetailPage({ params }: { params: Promise<{ 
           <SafeRender>
             <RelatedContent slug={slug} domain="philosophy" entityId={slug} />
           </SafeRender>
-
-          <div className="mt-10">
-            <SafeRender>
-              <CrossDomainLinks currentApp="philosophy" entityId={slug} />
-            </SafeRender>
-          </div>
         </article>
 
         <ArticleSidebar>

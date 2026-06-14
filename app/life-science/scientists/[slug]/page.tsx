@@ -10,7 +10,6 @@ import { SITE_URL } from "@/lib/constants";
 import { createPersonJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
-import CrossDomainLinks from "@/components/CrossDomainLinks";
 import { TableOfContents } from "@/components/TableOfContents";
 import { ArticleSidebar } from "@/components/ArticleSidebar";
 
@@ -196,12 +195,6 @@ export default async function ScientistDetailPage({ params }: Props) {
           <SafeRender>
             <RelatedContent slug={slug} domain="life-science" entityId={slug} />
           </SafeRender>
-
-          <div className="mt-10">
-            <SafeRender>
-              <CrossDomainLinks currentApp="life-science" entityId={slug} />
-            </SafeRender>
-          </div>
         </article>
 
         <ArticleSidebar contentClassName="space-y-6">

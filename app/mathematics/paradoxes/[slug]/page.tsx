@@ -1,23 +1,22 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getMathParadoxBySlug, getMathParadoxSlugs, getAllMathParadoxes } from "@/subjects/mathematics/lib/paradoxes";
+import {
+  getMathParadoxBySlug,
+  getMathParadoxSlugs,
+  getAllMathParadoxes,
+} from "@/subjects/mathematics/lib/paradoxes";
 import { MATH_FIELD_COLORS } from "@/subjects/mathematics/lib/constants";
 import { MathMarkdownRenderer } from "@/subjects/mathematics/components/MathMarkdownRenderer";
 import { SITE_URL } from "@/lib/constants";
 import { createArticleJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
-import CrossDomainLinks from "@/components/CrossDomainLinks";
 
 export function generateStaticParams() {
   return getMathParadoxSlugs().map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const paradox = getMathParadoxBySlug(slug);
   if (!paradox) notFound();
@@ -26,7 +25,11 @@ export async function generateMetadata({
   return {
     title: `${paradox.title} — 数学悖论`,
     description,
-    openGraph: { title: `${paradox.title} — 数学悖论`, description, images: [{ url: ogImage, width: 1200, height: 630 }] },
+    openGraph: {
+      title: `${paradox.title} — 数学悖论`,
+      description,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
   };
 }
 
@@ -53,12 +56,18 @@ export default async function MathParadoxDetailPage({
     title: `${paradox.title}（${paradox.title_en}）`,
     description: `${paradox.title_en}：${paradox.field}。${paradox.tags.join("、")}`,
     url: `${SITE_URL}/mathematics/paradoxes/${slug}`,
-    author: paradox.key_figures[0] ?? 'Universe Knowledge',
-    keywords: [paradox.title, paradox.title_en, paradox.field, ...paradox.key_figures, ...paradox.tags],
+    author: paradox.key_figures[0] ?? "Universe Knowledge",
+    keywords: [
+      paradox.title,
+      paradox.title_en,
+      paradox.field,
+      ...paradox.key_figures,
+      ...paradox.tags,
+    ],
   });
 
   return (
-    <div className="w-full px-6 sm:px-10 lg:px-16 py-12">
+    <div className="w-full px-6 py-12 sm:px-10 lg:px-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -70,9 +79,9 @@ export default async function MathParadoxDetailPage({
         ← 返回悖论
       </Link>
 
-      <header className="relative mb-12 overflow-hidden border border-border-faint bg-bg-panel p-8 backdrop-blur-md">
+      <header className="border-border-faint bg-bg-panel relative mb-12 overflow-hidden border p-8 backdrop-blur-md">
         <div
-          className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full opacity-10 blur-3xl"
+          className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full opacity-10 blur-3xl"
           style={{ backgroundColor: fieldColor }}
         />
 
@@ -92,7 +101,7 @@ export default async function MathParadoxDetailPage({
           <h1 className="font-display text-fg-primary mb-2 text-[2rem] leading-tight font-semibold tracking-tight md:text-[2.8rem]">
             {paradox.title}
           </h1>
-          <p className="text-fg-muted font-display text-lg italic tracking-wide opacity-70">
+          <p className="text-fg-muted font-display text-lg tracking-wide italic opacity-70">
             {paradox.title_en}
           </p>
 
@@ -119,7 +128,7 @@ export default async function MathParadoxDetailPage({
               {paradox.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="border px-2.5 py-1 font-mono text-[10px] tracking-[0.22em] transition-colors hover:border-accent-indigo/30 hover:text-accent-indigo"
+                  className="hover:border-accent-indigo/30 hover:text-accent-indigo border px-2.5 py-1 font-mono text-[10px] tracking-[0.22em] transition-colors"
                   style={{
                     borderColor: `${fieldColor}20`,
                     color: `${fieldColor}cc`,
@@ -134,7 +143,7 @@ export default async function MathParadoxDetailPage({
         </div>
       </header>
 
-      <article className="min-w-0 max-w-[1200px]">
+      <article className="max-w-[1200px] min-w-0">
         {paradox.content ? (
           <MathMarkdownRenderer content={paradox.content} accentColor={fieldColor} />
         ) : (
@@ -146,24 +155,18 @@ export default async function MathParadoxDetailPage({
         <SafeRender>
           <RelatedContent slug={slug} domain="mathematics" entityId={slug} />
         </SafeRender>
-
-        <div className="mt-10">
-          <SafeRender>
-            <CrossDomainLinks currentApp="mathematics" entityId={slug} />
-          </SafeRender>
-        </div>
       </article>
 
       <nav className="border-border-faint mt-16 flex items-stretch justify-between gap-4 border-t pt-8">
         {prevParadox ? (
           <Link
             href={`/mathematics/paradoxes/${prevParadox.slug}`}
-            className="group flex flex-1 flex-col gap-1 border border-border-faint p-4 transition-all duration-300 hover:border-fg-disabled/30 hover:bg-bg-panel"
+            className="group border-border-faint hover:border-fg-disabled/30 hover:bg-bg-panel flex flex-1 flex-col gap-1 border p-4 transition-all duration-300"
           >
             <span className="text-fg-disabled font-mono text-[9px] tracking-[0.22em] uppercase">
               ← 上一个
             </span>
-            <span className="font-display text-fg-secondary text-sm font-medium transition-colors group-hover:text-accent-indigo">
+            <span className="font-display text-fg-secondary group-hover:text-accent-indigo text-sm font-medium transition-colors">
               {prevParadox.title}
             </span>
           </Link>
@@ -173,12 +176,12 @@ export default async function MathParadoxDetailPage({
         {nextParadox ? (
           <Link
             href={`/mathematics/paradoxes/${nextParadox.slug}`}
-            className="group flex flex-1 flex-col items-end gap-1 border border-border-faint p-4 text-right transition-all duration-300 hover:border-fg-disabled/30 hover:bg-bg-panel"
+            className="group border-border-faint hover:border-fg-disabled/30 hover:bg-bg-panel flex flex-1 flex-col items-end gap-1 border p-4 text-right transition-all duration-300"
           >
             <span className="text-fg-disabled font-mono text-[9px] tracking-[0.22em] uppercase">
               下一个 →
             </span>
-            <span className="font-display text-fg-secondary text-sm font-medium transition-colors group-hover:text-accent-indigo">
+            <span className="font-display text-fg-secondary group-hover:text-accent-indigo text-sm font-medium transition-colors">
               {nextParadox.title}
             </span>
           </Link>

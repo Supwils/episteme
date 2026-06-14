@@ -12,7 +12,6 @@ import { SITE_URL } from "@/lib/constants";
 import { createArticleJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
-import CrossDomainLinks from "@/components/CrossDomainLinks";
 import { CellExplorer } from "@/subjects/life-science/components/visualizations/CellExplorer";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -193,12 +192,6 @@ export default async function SpeciesDetailPage({ params }: Props) {
           <SafeRender>
             <RelatedContent slug={slug} domain="life-science" entityId={slug} />
           </SafeRender>
-
-          <div className="mt-10">
-            <SafeRender>
-              <CrossDomainLinks currentApp="life-science" entityId={slug} />
-            </SafeRender>
-          </div>
         </article>
 
         <ArticleSidebar contentClassName="space-y-6">

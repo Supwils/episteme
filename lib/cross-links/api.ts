@@ -1,12 +1,3 @@
-// Public cross-links API (formerly the @/lib/cross-links/api package entry point).
-export {
-  CROSS_LINKS,
-  type CrossLink,
-  type DomainApp,
-  getLinksForEntityBound as getLinksForEntity,
-  getLinksToAppBound as getLinksToApp,
-  getLinkedEntityIdsBound as getLinkedEntityIds,
-  getAppLabel,
-  getAppBasePath,
-  getLinkUrl,
-} from "./index";
+// Public cross-links API. Now exposes only the curated relationship pairs,
+// consumed by the knowledge graph for cross-domain edges.
+export { CROSS_LINKS, type CrossLink, type DomainApp } from "./index";

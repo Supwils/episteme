@@ -4,7 +4,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Close } from "@/subjects/physics/components/hud/icons";
-import CrossDomainLinks from "@/components/CrossDomainLinks";
 import { AtlasToc } from "./AtlasToc";
 import { DataCard } from "./DataCard";
 import { NarrativeSection } from "./NarrativeSection";
@@ -12,17 +11,8 @@ import { RelatedTiers } from "./RelatedTiers";
 import { SourcesList } from "./SourcesList";
 import { getContentForTier } from "@/subjects/physics/lib/tier-content";
 import { SECTIONS } from "@/subjects/physics/lib/section";
-import {
-  isPhysicsTierId,
-  PHYSICS_TIER_ROUTES,
-  type PhysicsTierId,
-} from "@/subjects/physics/lib/physics-tier";
-import {
-  TIER_ROUTES,
-  isUniverseTierId,
-  type AnyTierId,
-  type UniverseTierId,
-} from "@/subjects/physics/lib/tier";
+import { isPhysicsTierId } from "@/subjects/physics/lib/physics-tier";
+import { TIER_ROUTES, isUniverseTierId, type AnyTierId } from "@/subjects/physics/lib/tier";
 import { useUiStore } from "@/subjects/physics/store/useUiStore";
 
 const PRODUCT_EASE = [0.22, 0.61, 0.36, 1] as const;
@@ -154,10 +144,6 @@ export function KnowledgePanel() {
                 </Reveal>
 
                 <Reveal>
-                  <CrossDomainLinks currentApp="universe-physics" entityId={tierToEntityId(tier)} />
-                </Reveal>
-
-                <Reveal>
                   <Footer tier={tier} tierLabel={meta.tierLabel} tierUnit={meta.tierUnit} />
                 </Reveal>
               </motion.div>
@@ -176,14 +162,6 @@ function sectionMetaForTier(tier: AnyTierId): { tierLabel: string; tierUnit: str
   const meta = cfg.tiers[tier];
   if (!meta) return null;
   return { tierLabel: meta.label, tierUnit: meta.unit };
-}
-
-/** Map a tier ID to its cross-link entity slug. */
-function tierToEntityId(tier: AnyTierId): string {
-  if (isPhysicsTierId(tier)) {
-    return PHYSICS_TIER_ROUTES[tier as PhysicsTierId];
-  }
-  return TIER_ROUTES[tier as UniverseTierId];
 }
 
 function PanelHeader({

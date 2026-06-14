@@ -8,7 +8,6 @@ import { SITE_URL } from "@/lib/constants";
 import { createArticleJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
-import CrossDomainLinks from "@/components/CrossDomainLinks";
 import { TableOfContents } from "@/components/TableOfContents";
 import { ArticleSidebar } from "@/components/ArticleSidebar";
 
@@ -185,12 +184,6 @@ export default async function ExtinctionDetailPage({ params }: Props) {
           <SafeRender>
             <RelatedContent slug={slug} domain="life-science" entityId={slug} />
           </SafeRender>
-
-          <div className="mt-10">
-            <SafeRender>
-              <CrossDomainLinks currentApp="life-science" entityId={slug} />
-            </SafeRender>
-          </div>
 
           <div className="border-border-faint flex items-center justify-between gap-4 border-t pt-8">
             {prev ? (

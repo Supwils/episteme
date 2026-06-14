@@ -1,23 +1,22 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getMathDialogueBySlug, getMathDialogueSlugs, getAllMathDialogues } from "@/subjects/mathematics/lib/dialogues";
+import {
+  getMathDialogueBySlug,
+  getMathDialogueSlugs,
+  getAllMathDialogues,
+} from "@/subjects/mathematics/lib/dialogues";
 import { MATH_FIELD_COLORS, MATH_ERA_ACCENT } from "@/subjects/mathematics/lib/constants";
 import { MathMarkdownRenderer } from "@/subjects/mathematics/components/MathMarkdownRenderer";
 import { SITE_URL } from "@/lib/constants";
 import { createArticleJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
-import CrossDomainLinks from "@/components/CrossDomainLinks";
 
 export function generateStaticParams() {
   return getMathDialogueSlugs().map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const dialogue = getMathDialogueBySlug(slug);
   if (!dialogue) notFound();
@@ -26,7 +25,11 @@ export async function generateMetadata({
   return {
     title: `${dialogue.title} — 数学对话`,
     description,
-    openGraph: { title: `${dialogue.title} — 数学对话`, description, images: [{ url: ogImage, width: 1200, height: 630 }] },
+    openGraph: {
+      title: `${dialogue.title} — 数学对话`,
+      description,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
   };
 }
 
@@ -54,12 +57,18 @@ export default async function MathDialogueDetailPage({
     title: `${dialogue.title}（${dialogue.title_en}）`,
     description: `${dialogue.participants.join("、")}的对话：${dialogue.title_en}`,
     url: `${SITE_URL}/mathematics/dialogues/${slug}`,
-    author: dialogue.participants[0] ?? 'Universe Knowledge',
-    keywords: [dialogue.title, dialogue.title_en, dialogue.field, ...dialogue.participants, ...dialogue.tags],
+    author: dialogue.participants[0] ?? "Universe Knowledge",
+    keywords: [
+      dialogue.title,
+      dialogue.title_en,
+      dialogue.field,
+      ...dialogue.participants,
+      ...dialogue.tags,
+    ],
   });
 
   return (
-    <div className="w-full px-6 sm:px-10 lg:px-16 py-12">
+    <div className="w-full px-6 py-12 sm:px-10 lg:px-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -71,9 +80,9 @@ export default async function MathDialogueDetailPage({
         ← 返回数学对话
       </Link>
 
-      <header className="relative mb-12 overflow-hidden border border-border-faint bg-bg-panel p-8 backdrop-blur-md">
+      <header className="border-border-faint bg-bg-panel relative mb-12 overflow-hidden border p-8 backdrop-blur-md">
         <div
-          className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full opacity-10 blur-3xl"
+          className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full opacity-10 blur-3xl"
           style={{ backgroundColor: fieldColor }}
         />
         <div
@@ -103,7 +112,7 @@ export default async function MathDialogueDetailPage({
           <h1 className="font-display text-fg-primary mb-2 text-[2rem] leading-tight font-semibold tracking-tight md:text-[2.8rem]">
             {dialogue.title}
           </h1>
-          <p className="text-fg-muted font-display text-lg italic tracking-wide opacity-70">
+          <p className="text-fg-muted font-display text-lg tracking-wide italic opacity-70">
             {dialogue.title_en}
           </p>
 
@@ -127,7 +136,7 @@ export default async function MathDialogueDetailPage({
             {dialogue.tags.map((tag) => (
               <span
                 key={tag}
-                className="border-fg-disabled/30 text-fg-secondary border px-2.5 py-1 font-mono text-[10px] tracking-[0.22em] transition-colors hover:border-accent-indigo/30 hover:text-accent-indigo"
+                className="border-fg-disabled/30 text-fg-secondary hover:border-accent-indigo/30 hover:text-accent-indigo border px-2.5 py-1 font-mono text-[10px] tracking-[0.22em] transition-colors"
               >
                 {tag}
               </span>
@@ -136,7 +145,7 @@ export default async function MathDialogueDetailPage({
         </div>
       </header>
 
-      <article className="min-w-0 max-w-[1200px]">
+      <article className="max-w-[1200px] min-w-0">
         {dialogue.content ? (
           <MathMarkdownRenderer content={dialogue.content} accentColor={fieldColor} />
         ) : (
@@ -148,24 +157,18 @@ export default async function MathDialogueDetailPage({
         <SafeRender>
           <RelatedContent slug={slug} domain="mathematics" entityId={slug} />
         </SafeRender>
-
-        <div className="mt-10">
-          <SafeRender>
-            <CrossDomainLinks currentApp="mathematics" entityId={slug} />
-          </SafeRender>
-        </div>
       </article>
 
       <nav className="border-border-faint mt-16 flex items-stretch justify-between gap-4 border-t pt-8">
         {prevDialogue ? (
           <Link
             href={`/mathematics/dialogues/${prevDialogue.slug}`}
-            className="group flex flex-1 flex-col gap-1 border border-border-faint p-4 transition-all duration-300 hover:border-fg-disabled/30 hover:bg-bg-panel"
+            className="group border-border-faint hover:border-fg-disabled/30 hover:bg-bg-panel flex flex-1 flex-col gap-1 border p-4 transition-all duration-300"
           >
             <span className="text-fg-disabled font-mono text-[9px] tracking-[0.22em] uppercase">
               ← 上一篇
             </span>
-            <span className="font-display text-fg-secondary text-sm font-medium transition-colors group-hover:text-accent-indigo">
+            <span className="font-display text-fg-secondary group-hover:text-accent-indigo text-sm font-medium transition-colors">
               {prevDialogue.title}
             </span>
           </Link>
@@ -175,12 +178,12 @@ export default async function MathDialogueDetailPage({
         {nextDialogue ? (
           <Link
             href={`/mathematics/dialogues/${nextDialogue.slug}`}
-            className="group flex flex-1 flex-col items-end gap-1 border border-border-faint p-4 text-right transition-all duration-300 hover:border-fg-disabled/30 hover:bg-bg-panel"
+            className="group border-border-faint hover:border-fg-disabled/30 hover:bg-bg-panel flex flex-1 flex-col items-end gap-1 border p-4 text-right transition-all duration-300"
           >
             <span className="text-fg-disabled font-mono text-[9px] tracking-[0.22em] uppercase">
               下一篇 →
             </span>
-            <span className="font-display text-fg-secondary text-sm font-medium transition-colors group-hover:text-accent-indigo">
+            <span className="font-display text-fg-secondary group-hover:text-accent-indigo text-sm font-medium transition-colors">
               {nextDialogue.title}
             </span>
           </Link>
