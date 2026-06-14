@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { cn } from '@/subjects/physics/lib/cn';
+import { useCallback, useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/subjects/physics/lib/cn";
 
 type Step = {
   label: string;
@@ -11,23 +11,23 @@ type Step = {
 };
 
 const STEPS: Step[] = [
-  { label: '初始状态', description: '烧瓶中充满甲烷、氨、氢气和水蒸气', duration: 2000 },
-  { label: '电极放电', description: '模拟原始大气中的闪电', duration: 2500 },
-  { label: '化学反应', description: '无机分子在能量作用下重新组合', duration: 2000 },
-  { label: '冷凝收集', description: '产物随水蒸气冷凝到接收瓶中', duration: 2000 },
-  { label: '有机分子', description: '检测到氨基酸等有机分子！', duration: 3000 },
+  { label: "初始状态", description: "烧瓶中充满甲烷、氨、氢气和水蒸气", duration: 2000 },
+  { label: "电极放电", description: "模拟原始大气中的闪电", duration: 2500 },
+  { label: "化学反应", description: "无机分子在能量作用下重新组合", duration: 2000 },
+  { label: "冷凝收集", description: "产物随水蒸气冷凝到接收瓶中", duration: 2000 },
+  { label: "有机分子", description: "检测到氨基酸等有机分子！", duration: 3000 },
 ];
 
 const MOLECULES = [
-  { symbol: 'CH₄', name: '甲烷', color: '#6ad0ff' },
-  { symbol: 'NH₃', name: '氨', color: '#a78bfa' },
-  { symbol: 'H₂O', name: '水', color: '#60a5fa' },
-  { symbol: 'H₂', name: '氢气', color: '#f0abfc' },
+  { symbol: "CH₄", name: "甲烷", color: "#6ad0ff" },
+  { symbol: "NH₃", name: "氨", color: "#a78bfa" },
+  { symbol: "H₂O", name: "水", color: "#60a5fa" },
+  { symbol: "H₂", name: "氢气", color: "#f0abfc" },
 ];
 
 const PRODUCTS = [
-  { symbol: '氨基酸', name: '甘氨酸', color: '#ffb45a' },
-  { symbol: '尿素', name: '尿素', color: '#f97316' },
+  { symbol: "氨基酸", name: "甘氨酸", color: "#ffb45a" },
+  { symbol: "尿素", name: "尿素", color: "#f97316" },
 ];
 
 export function MillersUrey({ className }: { className?: string }) {
@@ -40,7 +40,7 @@ export function MillersUrey({ className }: { className?: string }) {
   const particlesRef = useRef<Particle[]>([]);
   const lightningRef = useRef(0);
   const prefersReducedMotion = useRef(
-    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+    typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
   );
 
   type Particle = {
@@ -51,7 +51,7 @@ export function MillersUrey({ className }: { className?: string }) {
     radius: number;
     color: string;
     alpha: number;
-    type: 'gas' | 'spark' | 'product';
+    type: "gas" | "spark" | "product";
   };
 
   const initParticles = useCallback((canvas: HTMLCanvasElement) => {
@@ -65,7 +65,7 @@ export function MillersUrey({ className }: { className?: string }) {
         radius: 3 + Math.random() * 3,
         color: MOLECULES[Math.floor(Math.random() * MOLECULES.length)]!.color,
         alpha: 0.8,
-        type: 'gas',
+        type: "gas",
       });
     }
     particlesRef.current = particles;
@@ -80,7 +80,7 @@ export function MillersUrey({ className }: { className?: string }) {
     const neckH = fh * 0.15;
 
     ctx.save();
-    ctx.strokeStyle = 'rgba(106, 208, 255, 0.4)';
+    ctx.strokeStyle = "rgba(106, 208, 255, 0.4)";
     ctx.lineWidth = 2;
 
     // Neck
@@ -99,7 +99,7 @@ export function MillersUrey({ className }: { className?: string }) {
 
     // Water level
     const waterY = fy + fh * 0.65;
-    ctx.fillStyle = 'rgba(96, 165, 250, 0.15)';
+    ctx.fillStyle = "rgba(96, 165, 250, 0.15)";
     ctx.beginPath();
     ctx.moveTo(fx + 2, waterY);
     ctx.lineTo(fx + fw - 2, waterY);
@@ -114,7 +114,7 @@ export function MillersUrey({ className }: { className?: string }) {
     const elTop = fy + fh * 0.1;
     const elBot = fy + fh * 0.45;
 
-    ctx.strokeStyle = 'rgba(168, 139, 250, 0.7)';
+    ctx.strokeStyle = "rgba(168, 139, 250, 0.7)";
     ctx.lineWidth = 3;
     ctx.beginPath();
     ctx.moveTo(elX1, elTop);
@@ -126,7 +126,7 @@ export function MillersUrey({ className }: { className?: string }) {
     ctx.stroke();
 
     // Electrode tips
-    ctx.fillStyle = '#a78bfa';
+    ctx.fillStyle = "#a78bfa";
     ctx.beginPath();
     ctx.arc(elX1, elBot, 4, 0, Math.PI * 2);
     ctx.fill();
@@ -139,14 +139,14 @@ export function MillersUrey({ className }: { className?: string }) {
     const cy = h * 0.55;
     const cr = w * 0.12;
 
-    ctx.strokeStyle = 'rgba(255, 180, 90, 0.4)';
+    ctx.strokeStyle = "rgba(255, 180, 90, 0.4)";
     ctx.lineWidth = 2;
     ctx.beginPath();
     ctx.ellipse(cx + cr, cy + cr * 0.5, cr, cr * 0.8, 0, 0, Math.PI * 2);
     ctx.stroke();
 
     // Connecting tube
-    ctx.strokeStyle = 'rgba(106, 208, 255, 0.3)';
+    ctx.strokeStyle = "rgba(106, 208, 255, 0.3)";
     ctx.lineWidth = 2;
     ctx.beginPath();
     ctx.moveTo(fx + fw, fy + fh * 0.8);
@@ -156,83 +156,89 @@ export function MillersUrey({ className }: { className?: string }) {
     ctx.restore();
   }, []);
 
-  const drawLightning = useCallback((ctx: CanvasRenderingContext2D, w: number, h: number, intensity: number) => {
-    if (intensity <= 0) return;
+  const drawLightning = useCallback(
+    (ctx: CanvasRenderingContext2D, w: number, h: number, intensity: number) => {
+      if (intensity <= 0) return;
 
-    const fw = w * 0.5;
-    const fx = w * 0.05;
-    const fy = h * 0.15;
-    const fh = h * 0.55;
-    const elX1 = fx + fw * 0.35;
-    const elX2 = fx + fw * 0.65;
-    const elBot = fy + fh * 0.45;
+      const fw = w * 0.5;
+      const fx = w * 0.05;
+      const fy = h * 0.15;
+      const fh = h * 0.55;
+      const elX1 = fx + fw * 0.35;
+      const elX2 = fx + fw * 0.65;
+      const elBot = fy + fh * 0.45;
 
-    ctx.save();
-    ctx.globalAlpha = intensity;
+      ctx.save();
+      ctx.globalAlpha = intensity;
 
-    for (let i = 0; i < 3; i++) {
-      const startX = elX1 + (elX2 - elX1) * Math.random();
-      const startY = elBot;
-      const endX = startX + (Math.random() - 0.5) * 30;
-      const endY = startY + 20 + Math.random() * 30;
+      for (let i = 0; i < 3; i++) {
+        const startX = elX1 + (elX2 - elX1) * Math.random();
+        const startY = elBot;
+        const endX = startX + (Math.random() - 0.5) * 30;
+        const endY = startY + 20 + Math.random() * 30;
 
-      ctx.strokeStyle = `rgba(167, 139, 250, ${0.5 + Math.random() * 0.5})`;
-      ctx.lineWidth = 1.5;
-      ctx.beginPath();
-      ctx.moveTo(startX, startY);
+        ctx.strokeStyle = `rgba(167, 139, 250, ${0.5 + Math.random() * 0.5})`;
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(startX, startY);
 
-      const midX = (startX + endX) / 2 + (Math.random() - 0.5) * 20;
-      const midY = (startY + endY) / 2;
-      ctx.quadraticCurveTo(midX, midY, endX, endY);
-      ctx.stroke();
+        const midX = (startX + endX) / 2 + (Math.random() - 0.5) * 20;
+        const midY = (startY + endY) / 2;
+        ctx.quadraticCurveTo(midX, midY, endX, endY);
+        ctx.stroke();
 
-      // Glow
-      ctx.shadowColor = '#a78bfa';
-      ctx.shadowBlur = 10;
-      ctx.strokeStyle = 'rgba(167, 139, 250, 0.3)';
-      ctx.lineWidth = 4;
-      ctx.stroke();
-      ctx.shadowBlur = 0;
-    }
+        // Glow
+        ctx.shadowColor = "#a78bfa";
+        ctx.shadowBlur = 10;
+        ctx.strokeStyle = "rgba(167, 139, 250, 0.3)";
+        ctx.lineWidth = 4;
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+      }
 
-    ctx.restore();
-  }, []);
+      ctx.restore();
+    },
+    []
+  );
 
-  const drawProducts = useCallback((ctx: CanvasRenderingContext2D, w: number, h: number, amount: number) => {
-    if (amount <= 0) return;
+  const drawProducts = useCallback(
+    (ctx: CanvasRenderingContext2D, w: number, h: number, amount: number) => {
+      if (amount <= 0) return;
 
-    const cx = w * 0.6;
-    const cy = h * 0.55;
-    const cr = w * 0.12;
+      const cx = w * 0.6;
+      const cy = h * 0.55;
+      const cr = w * 0.12;
 
-    ctx.save();
-    ctx.globalAlpha = amount;
+      ctx.save();
+      ctx.globalAlpha = amount;
 
-    for (let i = 0; i < Math.floor(amount * 8); i++) {
-      const angle = (i / 8) * Math.PI * 2;
-      const r = cr * 0.3 + Math.random() * cr * 0.3;
-      const px = cx + cr + Math.cos(angle) * r;
-      const py = cy + cr * 0.5 + Math.sin(angle) * r * 0.6;
+      for (let i = 0; i < Math.floor(amount * 8); i++) {
+        const angle = (i / 8) * Math.PI * 2;
+        const r = cr * 0.3 + Math.random() * cr * 0.3;
+        const px = cx + cr + Math.cos(angle) * r;
+        const py = cy + cr * 0.5 + Math.sin(angle) * r * 0.6;
 
-      const prod = PRODUCTS[i % PRODUCTS.length]!;
-      ctx.fillStyle = prod.color;
-      ctx.beginPath();
-      ctx.arc(px, py, 4, 0, Math.PI * 2);
-      ctx.fill();
+        const prod = PRODUCTS[i % PRODUCTS.length]!;
+        ctx.fillStyle = prod.color;
+        ctx.beginPath();
+        ctx.arc(px, py, 4, 0, Math.PI * 2);
+        ctx.fill();
 
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-      ctx.font = '10px sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText(prod.symbol, px, py - 6);
-    }
+        ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
+        ctx.font = "10px sans-serif";
+        ctx.textAlign = "center";
+        ctx.fillText(prod.symbol, px, py - 6);
+      }
 
-    ctx.restore();
-  }, []);
+      ctx.restore();
+    },
+    []
+  );
 
   const render = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     const w = canvas.width;
@@ -242,8 +248,8 @@ export function MillersUrey({ className }: { className?: string }) {
 
     // Background
     const grad = ctx.createLinearGradient(0, 0, 0, h);
-    grad.addColorStop(0, '#060814');
-    grad.addColorStop(1, '#0f1320');
+    grad.addColorStop(0, "#060814");
+    grad.addColorStop(1, "#0f1320");
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, w, h);
 
@@ -324,7 +330,7 @@ export function MillersUrey({ className }: { className?: string }) {
     const rect = canvas.getBoundingClientRect();
     canvas.width = rect.width * dpr;
     canvas.height = rect.height * dpr;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (ctx) ctx.scale(dpr, dpr);
 
     initParticles(canvas);
@@ -367,12 +373,14 @@ export function MillersUrey({ className }: { className?: string }) {
   const currentStepData = STEPS[currentStep]!;
 
   return (
-    <div className={cn('flex flex-col gap-4', className)}>
-      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-fg-disabled/30 bg-bg-deep">
+    <div className={cn("flex flex-col gap-4", className)}>
+      <div className="border-fg-disabled/30 bg-bg-deep relative aspect-[4/3] w-full overflow-hidden rounded-xl border">
         <canvas
           ref={canvasRef}
+          role="img"
+          aria-label="米勒-尤里实验模拟"
           className="h-full w-full"
-          style={{ imageRendering: 'auto' }}
+          style={{ imageRendering: "auto" }}
         />
 
         {/* Step indicator */}
@@ -382,15 +390,15 @@ export function MillersUrey({ className }: { className?: string }) {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute bottom-3 left-3 right-3 rounded-lg bg-bg-panel/90 p-3 backdrop-blur-sm"
+            className="bg-bg-panel/90 absolute right-3 bottom-3 left-3 rounded-lg p-3 backdrop-blur-sm"
           >
             <div className="flex items-center gap-2">
-              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-accent-cool/20 text-xs font-mono text-accent-cool">
+              <span className="bg-accent-cool/20 text-accent-cool flex h-6 w-6 items-center justify-center rounded-full font-mono text-xs">
                 {currentStep + 1}
               </span>
-              <span className="text-sm font-medium text-fg-primary">{currentStepData.label}</span>
+              <span className="text-fg-primary text-sm font-medium">{currentStepData.label}</span>
             </div>
-            <p className="mt-1 text-xs text-fg-secondary">{currentStepData.description}</p>
+            <p className="text-fg-secondary mt-1 text-xs">{currentStepData.description}</p>
           </motion.div>
         </AnimatePresence>
       </div>
@@ -401,15 +409,15 @@ export function MillersUrey({ className }: { className?: string }) {
           <div key={step.label} className="flex-1">
             <div
               className={cn(
-                'h-1.5 rounded-full transition-colors duration-300',
+                "h-1.5 rounded-full transition-colors duration-300",
                 i < currentStep || (i === currentStep && progress >= 1)
-                  ? 'bg-accent-cool'
+                  ? "bg-accent-cool"
                   : i === currentStep
-                    ? 'bg-accent-cool/40'
-                    : 'bg-fg-disabled/30',
+                    ? "bg-accent-cool/40"
+                    : "bg-fg-disabled/30"
               )}
             />
-            <span className="mt-1 block text-center text-[10px] text-fg-muted">{step.label}</span>
+            <span className="text-fg-muted mt-1 block text-center text-[10px]">{step.label}</span>
           </div>
         ))}
       </div>
@@ -418,13 +426,17 @@ export function MillersUrey({ className }: { className?: string }) {
       <div className="flex items-center gap-2">
         <button
           onClick={isPlaying ? () => setIsPlaying(false) : handlePlay}
-          className="rounded-lg bg-accent-cool/20 px-4 py-2 text-sm text-accent-cool transition-colors hover:bg-accent-cool/30"
+          className="bg-accent-cool/20 text-accent-cool hover:bg-accent-cool/30 rounded-lg px-4 py-2 text-sm transition-colors"
         >
-          {isPlaying ? '暂停' : currentStep >= STEPS.length - 1 && progress >= 1 ? '重新播放' : '播放'}
+          {isPlaying
+            ? "暂停"
+            : currentStep >= STEPS.length - 1 && progress >= 1
+              ? "重新播放"
+              : "播放"}
         </button>
         <button
           onClick={handleReset}
-          className="rounded-lg bg-fg-disabled/20 px-4 py-2 text-sm text-fg-secondary transition-colors hover:bg-fg-disabled/30"
+          className="bg-fg-disabled/20 text-fg-secondary hover:bg-fg-disabled/30 rounded-lg px-4 py-2 text-sm transition-colors"
         >
           重置
         </button>
@@ -435,13 +447,10 @@ export function MillersUrey({ className }: { className?: string }) {
         {MOLECULES.map((mol) => (
           <div
             key={mol.symbol}
-            className="flex items-center gap-2 rounded-lg bg-bg-panel/50 px-3 py-2"
+            className="bg-bg-panel/50 flex items-center gap-2 rounded-lg px-3 py-2"
           >
-            <span
-              className="h-2.5 w-2.5 rounded-full"
-              style={{ backgroundColor: mol.color }}
-            />
-            <span className="text-xs text-fg-secondary">
+            <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: mol.color }} />
+            <span className="text-fg-secondary text-xs">
               {mol.symbol} {mol.name}
             </span>
           </div>
@@ -449,9 +458,9 @@ export function MillersUrey({ className }: { className?: string }) {
       </div>
 
       {/* Key finding */}
-      <div className="rounded-lg border border-accent-warm/20 bg-accent-warm/5 p-3">
-        <p className="text-xs text-fg-secondary">
-          <span className="font-medium text-accent-warm">关键发现：</span>
+      <div className="border-accent-warm/20 bg-accent-warm/5 rounded-lg border p-3">
+        <p className="text-fg-secondary text-xs">
+          <span className="text-accent-warm font-medium">关键发现：</span>
           1953年，米勒和尤里证明了在模拟原始地球条件下，无机物可以自发形成有机分子（氨基酸），
           为生命起源的化学进化论提供了实验依据。
         </p>

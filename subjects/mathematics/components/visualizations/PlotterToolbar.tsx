@@ -26,11 +26,12 @@ export function PlotterToolbar({
   onReset,
 }: PlotterToolbarProps) {
   return (
-    <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border-faint px-4 py-3">
+    <div className="border-border-faint flex flex-wrap items-center justify-between gap-3 border-b px-4 py-3">
       <div className="flex flex-wrap items-center gap-2">
         <select
           value={presetIndex}
           onChange={(e) => onPresetChange(Number(e.target.value))}
+          aria-label="选择函数预设"
           className="border-border-subtle bg-bg-elevated text-fg-primary rounded border px-3 py-1.5 font-mono text-sm"
         >
           {PRESETS.map((p, i) => (
@@ -44,7 +45,7 @@ export function PlotterToolbar({
           onClick={onToggleDerivative}
           className={`rounded px-3 py-1.5 font-mono text-xs tracking-wide transition-colors ${
             showDerivative
-              ? "bg-[#ef4444]/15 text-[#ef4444] border border-[#ef4444]/30"
+              ? "border border-[#ef4444]/30 bg-[#ef4444]/15 text-[#ef4444]"
               : "border-border-faint text-fg-muted hover:text-fg-secondary border"
           }`}
         >
@@ -55,7 +56,7 @@ export function PlotterToolbar({
           onClick={onToggleIntegral}
           className={`rounded px-3 py-1.5 font-mono text-xs tracking-wide transition-colors ${
             showIntegral
-              ? "bg-[#22c55e]/15 text-[#22c55e] border border-[#22c55e]/30"
+              ? "border border-[#22c55e]/30 bg-[#22c55e]/15 text-[#22c55e]"
               : "border-border-faint text-fg-muted hover:text-fg-secondary border"
           }`}
         >

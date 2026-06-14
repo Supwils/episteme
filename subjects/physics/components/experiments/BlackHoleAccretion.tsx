@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { cn } from '@/subjects/physics/lib/cn';
+import { useCallback, useEffect, useRef, useState } from "react";
+import { cn } from "@/subjects/physics/lib/cn";
 
 const NUM_PARTICLES = 300;
 const JET_PARTICLES = 40;
@@ -36,7 +36,7 @@ export function BlackHoleAccretion({ className }: { className?: string }) {
   const timeRef = useRef(0);
 
   const prefersReducedMotion = useRef(
-    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+    typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
   );
 
   const initParticles = useCallback((w: number, h: number) => {
@@ -73,7 +73,7 @@ export function BlackHoleAccretion({ className }: { className?: string }) {
   const render = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     const w = canvas.width;
@@ -87,8 +87,8 @@ export function BlackHoleAccretion({ className }: { className?: string }) {
 
     // Background
     const bgGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.max(w, h) * 0.6);
-    bgGrad.addColorStop(0, '#0a0612');
-    bgGrad.addColorStop(1, '#060814');
+    bgGrad.addColorStop(0, "#0a0612");
+    bgGrad.addColorStop(1, "#060814");
     ctx.fillStyle = bgGrad;
     ctx.fillRect(0, 0, w, h);
 
@@ -108,9 +108,9 @@ export function BlackHoleAccretion({ className }: { className?: string }) {
     // Accretion disk glow
     const glowR = bhRadius * 4;
     const diskGlow = ctx.createRadialGradient(cx, cy, bhRadius, cx, cy, glowR);
-    diskGlow.addColorStop(0, 'rgba(255, 140, 50, 0.3)');
-    diskGlow.addColorStop(0.5, 'rgba(255, 80, 30, 0.1)');
-    diskGlow.addColorStop(1, 'transparent');
+    diskGlow.addColorStop(0, "rgba(255, 140, 50, 0.3)");
+    diskGlow.addColorStop(0.5, "rgba(255, 80, 30, 0.1)");
+    diskGlow.addColorStop(1, "transparent");
     ctx.fillStyle = diskGlow;
     ctx.beginPath();
     ctx.arc(cx, cy, glowR, 0, Math.PI * 2);
@@ -137,7 +137,13 @@ export function BlackHoleAccretion({ className }: { className?: string }) {
 
       ctx.fillStyle = `hsla(${Math.max(0, hue)}, 90%, ${lightness}%, ${alpha})`;
       ctx.beginPath();
-      ctx.arc(x + lensOffset * Math.sin(p.theta), y - lensOffset * Math.cos(p.theta), p.size, 0, Math.PI * 2);
+      ctx.arc(
+        x + lensOffset * Math.sin(p.theta),
+        y - lensOffset * Math.cos(p.theta),
+        p.size,
+        0,
+        Math.PI * 2
+      );
       ctx.fill();
 
       // Hot inner edge glow
@@ -150,7 +156,7 @@ export function BlackHoleAccretion({ className }: { className?: string }) {
     }
 
     // Photon ring (Einstein ring)
-    ctx.strokeStyle = 'rgba(255, 200, 100, 0.15)';
+    ctx.strokeStyle = "rgba(255, 200, 100, 0.15)";
     ctx.lineWidth = 2;
     ctx.beginPath();
     ctx.ellipse(cx, cy, bhRadius * 1.5, bhRadius * 1.5 * 0.4, 0, 0, Math.PI * 2);
@@ -181,32 +187,32 @@ export function BlackHoleAccretion({ className }: { className?: string }) {
 
     // Black hole (event horizon)
     const bhGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, bhRadius);
-    bhGrad.addColorStop(0, '#000000');
-    bhGrad.addColorStop(0.8, '#000000');
-    bhGrad.addColorStop(1, 'rgba(0, 0, 0, 0.9)');
+    bhGrad.addColorStop(0, "#000000");
+    bhGrad.addColorStop(0.8, "#000000");
+    bhGrad.addColorStop(1, "rgba(0, 0, 0, 0.9)");
     ctx.fillStyle = bhGrad;
     ctx.beginPath();
     ctx.arc(cx, cy, bhRadius, 0, Math.PI * 2);
     ctx.fill();
 
     // Shadow region
-    ctx.strokeStyle = 'rgba(255, 100, 30, 0.2)';
+    ctx.strokeStyle = "rgba(255, 100, 30, 0.2)";
     ctx.lineWidth = 1.5;
     ctx.beginPath();
     ctx.arc(cx, cy, bhRadius * 2.6, 0, Math.PI * 2);
     ctx.stroke();
 
     // Labels
-    ctx.fillStyle = 'rgba(168, 173, 189, 0.6)';
-    ctx.font = '10px monospace';
-    ctx.textAlign = 'left';
-    ctx.fillText('事件视界', cx + bhRadius + 8, cy - 4);
-    ctx.fillText('吸积盘', cx + bhRadius * 3, cy - bhRadius * 1.5);
+    ctx.fillStyle = "rgba(168, 173, 189, 0.6)";
+    ctx.font = "10px monospace";
+    ctx.textAlign = "left";
+    ctx.fillText("事件视界", cx + bhRadius + 8, cy - 4);
+    ctx.fillText("吸积盘", cx + bhRadius * 3, cy - bhRadius * 1.5);
 
     if (showJet) {
-      ctx.textAlign = 'center';
-      ctx.fillText('相对论性喷流', cx, cy - Math.min(w, h) * 0.35 - 8);
-      ctx.fillText('相对论性喷流', cx, cy + Math.min(w, h) * 0.35 + 16);
+      ctx.textAlign = "center";
+      ctx.fillText("相对论性喷流", cx, cy - Math.min(w, h) * 0.35 - 8);
+      ctx.fillText("相对论性喷流", cx, cy + Math.min(w, h) * 0.35 + 16);
     }
   }, [showJet]);
 
@@ -220,10 +226,8 @@ export function BlackHoleAccretion({ className }: { className?: string }) {
 
       // Re-spawn when absorbed
       if (p.r < 20) {
-        const maxR = Math.min(
-          canvasRef.current?.width ?? 800,
-          canvasRef.current?.height ?? 600,
-        ) * 0.4;
+        const maxR =
+          Math.min(canvasRef.current?.width ?? 800, canvasRef.current?.height ?? 600) * 0.4;
         p.r = 30 + Math.random() * maxR;
         p.theta = Math.random() * Math.PI * 2;
         p.dr = -0.05 - Math.random() * 0.15;
@@ -269,7 +273,7 @@ export function BlackHoleAccretion({ className }: { className?: string }) {
     const rect = canvas.getBoundingClientRect();
     canvas.width = rect.width * dpr;
     canvas.height = rect.height * dpr;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (ctx) ctx.scale(dpr, dpr);
 
     initParticles(canvas.width, canvas.height);
@@ -302,49 +306,45 @@ export function BlackHoleAccretion({ className }: { className?: string }) {
   };
 
   return (
-    <div className={cn('flex flex-col gap-4', className)}>
-      <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-fg-disabled/30 bg-bg-deep">
-        <canvas ref={canvasRef} className="h-full w-full" />
+    <div className={cn("flex flex-col gap-4", className)}>
+      <div className="border-fg-disabled/30 bg-bg-deep relative aspect-[16/9] w-full overflow-hidden rounded-xl border">
+        <canvas ref={canvasRef} role="img" aria-label="黑洞吸积盘模拟" className="h-full w-full" />
 
-        <div className="absolute right-3 top-3 rounded-lg bg-bg-panel/90 px-3 py-2 backdrop-blur-sm">
-          <p className="text-xs font-mono text-accent-warm">
-            黑洞吸积盘
-          </p>
-          <p className="mt-1 text-[10px] text-fg-muted">
-            {NUM_PARTICLES} 粒子模拟
-          </p>
+        <div className="bg-bg-panel/90 absolute top-3 right-3 rounded-lg px-3 py-2 backdrop-blur-sm">
+          <p className="text-accent-warm font-mono text-xs">黑洞吸积盘</p>
+          <p className="text-fg-muted mt-1 text-[10px]">{NUM_PARTICLES} 粒子模拟</p>
         </div>
       </div>
 
       <div className="flex items-center gap-2">
         <button
           onClick={isPlaying ? () => setIsPlaying(false) : handleStart}
-          className="rounded-lg bg-accent-warm/20 px-4 py-2 text-sm text-accent-warm transition-colors hover:bg-accent-warm/30"
+          className="bg-accent-warm/20 text-accent-warm hover:bg-accent-warm/30 rounded-lg px-4 py-2 text-sm transition-colors"
         >
-          {isPlaying ? '暂停' : '开始模拟'}
+          {isPlaying ? "暂停" : "开始模拟"}
         </button>
         <button
           onClick={() => setShowJet(!showJet)}
           className={cn(
-            'rounded-lg px-4 py-2 text-sm transition-colors',
+            "rounded-lg px-4 py-2 text-sm transition-colors",
             showJet
-              ? 'bg-accent-cool/20 text-accent-cool hover:bg-accent-cool/30'
-              : 'bg-fg-disabled/20 text-fg-secondary hover:bg-fg-disabled/30',
+              ? "bg-accent-cool/20 text-accent-cool hover:bg-accent-cool/30"
+              : "bg-fg-disabled/20 text-fg-secondary hover:bg-fg-disabled/30"
           )}
         >
-          {showJet ? '隐藏喷流' : '显示喷流'}
+          {showJet ? "隐藏喷流" : "显示喷流"}
         </button>
         <button
           onClick={handleReset}
-          className="rounded-lg bg-fg-disabled/20 px-4 py-2 text-sm text-fg-secondary transition-colors hover:bg-fg-disabled/30"
+          className="bg-fg-disabled/20 text-fg-secondary hover:bg-fg-disabled/30 rounded-lg px-4 py-2 text-sm transition-colors"
         >
           重置
         </button>
       </div>
 
-      <div className="rounded-lg border border-accent-warm/20 bg-accent-warm/5 p-3">
-        <p className="text-xs text-fg-secondary">
-          <span className="font-medium text-accent-warm">黑洞与吸积盘：</span>
+      <div className="border-accent-warm/20 bg-accent-warm/5 rounded-lg border p-3">
+        <p className="text-fg-secondary text-xs">
+          <span className="text-accent-warm font-medium">黑洞与吸积盘：</span>
           当物质落入黑洞时，由于角动量守恒，它不会直接掉入，而是形成一个旋转的吸积盘。
           盘内侧的物质运动更快、温度更高，发出强烈的 X 射线。部分物质沿黑洞自转轴被
           加速喷出，形成接近光速的相对论性喷流。事件视界之内，连光也无法逃脱。
