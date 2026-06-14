@@ -6,6 +6,8 @@ import {
   getTimelineEventById,
 } from "@/subjects/life-science/lib/timeline-events";
 import { DeepReading } from "@/subjects/life-science/components/DeepReading";
+import { getEventDetailForTimeline } from "@/subjects/life-science/lib/event-detail";
+import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { TableOfContents } from "@/components/TableOfContents";
 import { ArticleSidebar } from "@/components/ArticleSidebar";
 import { SITE_URL } from "@/lib/constants";
@@ -48,6 +50,7 @@ export default async function TimelineEventDetailPage({ params }: Props) {
   const event = getTimelineEventById(slug);
   if (!event) notFound();
 
+  const eventDetail = getEventDetailForTimeline(slug);
   const allEvents = getAllTimelineEvents();
   const currentIndex = allEvents.findIndex((e) => e.id === slug);
   const prev = currentIndex > 0 ? allEvents[currentIndex - 1] : null;
@@ -191,6 +194,18 @@ export default async function TimelineEventDetailPage({ params }: Props) {
                   </li>
                 ))}
               </ul>
+            </section>
+          )}
+
+          {eventDetail && (
+            <section className="mb-12">
+              <h2
+                className="font-display text-fg-primary mb-4 text-xl font-semibold"
+                id="deep-dive"
+              >
+                深入详解：{eventDetail.title}
+              </h2>
+              <MarkdownRenderer content={eventDetail.body} accentColor={event.accent} />
             </section>
           )}
 
