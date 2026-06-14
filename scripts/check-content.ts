@@ -35,7 +35,8 @@ const MIN_LINES: Record<string, number> = {
 
 const TODO_PATTERN = /\b(TODO|FIXME|HACK|XXX)\b/i;
 const HEADING_PATTERN = /^##\s+/m;
-const FURTHER_READING_PATTERN = /延伸阅读|进一步阅读|参考书目|推荐阅读|推荐阅读书目/;
+const FURTHER_READING_PATTERN =
+  /延伸阅读|进一步阅读|参考书目|参考文献|参考资料|参考来源|推荐阅读|推荐阅读书目/;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
