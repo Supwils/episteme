@@ -176,32 +176,135 @@ export const PHYSICS_NODES: PhysicsNode[] = [
 
 export const PHYSICS_EDGES: PhysicsEdge[] = [
   // ── Adjacent cosmos-tier edges (T0→T1→…→T7) ─────────────────
-  { source: "physics:T0", target: "physics:T1", relationship: "下钻: 可见宇宙 → 宇宙纤维", type: "adjacent-tier" },
-  { source: "physics:T1", target: "physics:T2", relationship: "下钻: 宇宙纤维 → 拉尼亚凯亚", type: "adjacent-tier" },
-  { source: "physics:T2", target: "physics:T3", relationship: "下钻: 拉尼亚凯亚 → 本星系群", type: "adjacent-tier" },
-  { source: "physics:T3", target: "physics:T4", relationship: "下钻: 本星系群 → 银河系", type: "adjacent-tier" },
-  { source: "physics:T4", target: "physics:T5", relationship: "下钻: 银河系 → 恒星邻域", type: "adjacent-tier" },
-  { source: "physics:T5", target: "physics:T6", relationship: "下钻: 恒星邻域 → 太阳系", type: "adjacent-tier" },
-  { source: "physics:T6", target: "physics:T7", relationship: "下钻: 太阳系 → 地球", type: "adjacent-tier" },
+  {
+    source: "physics:T0",
+    target: "physics:T1",
+    relationship: "下钻: 可见宇宙 → 宇宙纤维",
+    type: "adjacent-tier",
+  },
+  {
+    source: "physics:T1",
+    target: "physics:T2",
+    relationship: "下钻: 宇宙纤维 → 拉尼亚凯亚",
+    type: "adjacent-tier",
+  },
+  {
+    source: "physics:T2",
+    target: "physics:T3",
+    relationship: "下钻: 拉尼亚凯亚 → 本星系群",
+    type: "adjacent-tier",
+  },
+  {
+    source: "physics:T3",
+    target: "physics:T4",
+    relationship: "下钻: 本星系群 → 银河系",
+    type: "adjacent-tier",
+  },
+  {
+    source: "physics:T4",
+    target: "physics:T5",
+    relationship: "下钻: 银河系 → 恒星邻域",
+    type: "adjacent-tier",
+  },
+  {
+    source: "physics:T5",
+    target: "physics:T6",
+    relationship: "下钻: 恒星邻域 → 太阳系",
+    type: "adjacent-tier",
+  },
+  {
+    source: "physics:T6",
+    target: "physics:T7",
+    relationship: "下钻: 太阳系 → 地球",
+    type: "adjacent-tier",
+  },
 
   // ── Adjacent physics-tier edges (P0→P1→…→P8) ────────────────
-  { source: "physics:P0", target: "physics:P1", relationship: "学科递进: 经典力学 → 热力学", type: "adjacent-tier" },
-  { source: "physics:P1", target: "physics:P2", relationship: "学科递进: 热力学 → 电磁学", type: "adjacent-tier" },
-  { source: "physics:P2", target: "physics:P3", relationship: "学科递进: 电磁学 → 相对论", type: "adjacent-tier" },
-  { source: "physics:P3", target: "physics:P4", relationship: "学科递进: 相对论 → 量子力学", type: "adjacent-tier" },
-  { source: "physics:P4", target: "physics:P5", relationship: "学科递进: 量子力学 → 原子与分子", type: "adjacent-tier" },
-  { source: "physics:P5", target: "physics:P6", relationship: "学科递进: 原子与分子 → 原子核与粒子", type: "adjacent-tier" },
-  { source: "physics:P6", target: "physics:P7", relationship: "学科递进: 原子核与粒子 → 标准模型", type: "adjacent-tier" },
-  { source: "physics:P7", target: "physics:P8", relationship: "学科递进: 标准模型 → 前沿物理", type: "adjacent-tier" },
+  {
+    source: "physics:P0",
+    target: "physics:P1",
+    relationship: "学科递进: 经典力学 → 热力学",
+    type: "adjacent-tier",
+  },
+  {
+    source: "physics:P1",
+    target: "physics:P2",
+    relationship: "学科递进: 热力学 → 电磁学",
+    type: "adjacent-tier",
+  },
+  {
+    source: "physics:P2",
+    target: "physics:P3",
+    relationship: "学科递进: 电磁学 → 相对论",
+    type: "adjacent-tier",
+  },
+  {
+    source: "physics:P3",
+    target: "physics:P4",
+    relationship: "学科递进: 相对论 → 量子力学",
+    type: "adjacent-tier",
+  },
+  {
+    source: "physics:P4",
+    target: "physics:P5",
+    relationship: "学科递进: 量子力学 → 原子与分子",
+    type: "adjacent-tier",
+  },
+  {
+    source: "physics:P5",
+    target: "physics:P6",
+    relationship: "学科递进: 原子与分子 → 原子核与粒子",
+    type: "adjacent-tier",
+  },
+  {
+    source: "physics:P6",
+    target: "physics:P7",
+    relationship: "学科递进: 原子核与粒子 → 标准模型",
+    type: "adjacent-tier",
+  },
+  {
+    source: "physics:P7",
+    target: "physics:P8",
+    relationship: "学科递进: 标准模型 → 前沿物理",
+    type: "adjacent-tier",
+  },
 
   // ── Cross-reference edges from packages/content/src/cross-links.ts ──
   // (filtered to universe-physics ↔ life-science pairs with physics targets)
-  { source: "physics:T7", target: "lifescience:origin-of-life", relationship: "地球的形成为生命起源提供了条件", type: "cross-reference" },
-  { source: "physics:T6", target: "lifescience:end-cretaceous", relationship: "太阳系中小行星的运动导致了白垩纪大灭绝", type: "cross-reference" },
-  { source: "physics:T7", target: "lifescience:end-cretaceous", relationship: "地球大气层的演化影响了生命的进化方向", type: "cross-reference" },
-  { source: "physics:P0", target: "philosophy:descartes", relationship: "笛卡尔的机械论宇宙观", type: "cross-reference" },
-  { source: "physics:P1", target: "lifescience:atmosphere-evolution", relationship: "热力学原理驱动大气化学反应和气候系统", type: "cross-reference" },
-  { source: "physics:P3", target: "philosophy:phenomenology", relationship: "时空观的哲学讨论", type: "cross-reference" },
-  { source: "physics:P4", target: "philosophy:determinism", relationship: "量子不确定性挑战经典决定论", type: "cross-reference" },
-  { source: "physics:P6", target: "lifescience:radiation-mutations", relationship: "核物理揭示的辐射机制解释了生物突变的物理基础", type: "cross-reference" },
+  {
+    source: "physics:T7",
+    target: "lifescience:origin-of-life",
+    relationship: "地球的形成为生命起源提供了条件",
+    type: "cross-reference",
+  },
+  {
+    source: "physics:T6",
+    target: "lifescience:end-cretaceous",
+    relationship: "太阳系中小行星的运动导致了白垩纪大灭绝",
+    type: "cross-reference",
+  },
+  {
+    source: "physics:T7",
+    target: "lifescience:end-cretaceous",
+    relationship: "地球大气层的演化影响了生命的进化方向",
+    type: "cross-reference",
+  },
+  {
+    source: "physics:P0",
+    target: "philosophy:descartes",
+    relationship: "笛卡尔的机械论宇宙观",
+    type: "cross-reference",
+  },
+  {
+    source: "physics:P3",
+    target: "philosophy:phenomenology",
+    relationship: "时空观的哲学讨论",
+    type: "cross-reference",
+  },
+  {
+    source: "physics:P4",
+    target: "philosophy:determinism",
+    relationship: "量子不确定性挑战经典决定论",
+    type: "cross-reference",
+  },
 ];

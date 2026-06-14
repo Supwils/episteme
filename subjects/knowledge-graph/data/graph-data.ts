@@ -134,12 +134,23 @@ const physicsEdges: GraphEdge[] = PHYSICS_EDGES.map(mapEdge);
 const historyEdges: GraphEdge[] = HISTORY_EDGES.map(mapEdge);
 const lifeScienceEdges: GraphEdge[] = LIFESCIENCE_EDGES.map(mapEdge);
 
+// cross-links use app names (human-history/universe-physics/life-science) but
+// graph node ids are prefixed with the shorter domain key (history/physics/
+// lifescience). Without this map every cross-domain edge silently dangles.
+const APP_TO_DOMAIN: Record<string, string> = {
+  "human-history": "history",
+  "universe-physics": "physics",
+  "life-science": "lifescience",
+};
+const dp = (app: string) => APP_TO_DOMAIN[app] ?? app;
+
+const nodeIdSet = new Set(ALL_NODES.map((n) => n.id));
 const domainLinkEdges: GraphEdge[] = CROSS_LINKS.map((link) => ({
-  source: `${link.sourceApp}:${link.sourceId}`,
-  target: `${link.targetApp}:${link.targetId}`,
+  source: `${dp(link.sourceApp)}:${link.sourceId}`,
+  target: `${dp(link.targetApp)}:${link.targetId}`,
   type: "domain-link" as const,
   label: link.relationship,
-}));
+})).filter((e) => nodeIdSet.has(e.source) && nodeIdSet.has(e.target));
 
 export const ALL_EDGES: GraphEdge[] = [
   ...physicsEdges,

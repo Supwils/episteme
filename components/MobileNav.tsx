@@ -86,7 +86,7 @@ export function MobileNav({ links }: { links: NavLink[] }) {
   }, [open, closeMenu]);
 
   return (
-    <div className="md:hidden">
+    <div className="xl:hidden">
       <button
         ref={buttonRef}
         className="flex h-11 w-11 flex-col items-center justify-center gap-[5px]"
@@ -115,7 +115,7 @@ export function MobileNav({ links }: { links: NavLink[] }) {
       {open && (
         <div
           ref={menuRef}
-          className="absolute left-0 right-0 top-14 z-[60] border-b border-[#1e1e2e] bg-[rgba(10,10,15,0.97)] backdrop-blur-xl"
+          className="absolute top-14 right-0 left-0 z-[60] border-b border-[#1e1e2e] bg-[rgba(10,10,15,0.97)] backdrop-blur-xl"
         >
           <ul role="menu" className="m-0 flex list-none flex-col gap-1 p-4">
             {links.map((link) => (
@@ -123,7 +123,7 @@ export function MobileNav({ links }: { links: NavLink[] }) {
                 <Link
                   role="menuitem"
                   href={link.href}
-                  className={`block flex min-h-[44px] items-center rounded px-4 py-3 text-[0.95rem] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#818cf8] ${
+                  className={`block flex min-h-[44px] items-center rounded px-4 py-3 text-[0.95rem] transition-colors focus-visible:ring-1 focus-visible:ring-[#818cf8] focus-visible:outline-none ${
                     isActive(link.href)
                       ? "bg-white/[0.05] font-medium text-[#818cf8]"
                       : "text-[#9ca3af] hover:bg-white/[0.03] hover:text-[#818cf8]"

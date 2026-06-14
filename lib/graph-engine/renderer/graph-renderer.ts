@@ -29,7 +29,14 @@ import {
   drawSearchGlow,
 } from "./draw-layers";
 
-export type { RenderNode, RenderEdge, RenderConfig, InteractionCallbacks, ViewBounds, HighlightState } from "./types";
+export type {
+  RenderNode,
+  RenderEdge,
+  RenderConfig,
+  InteractionCallbacks,
+  ViewBounds,
+  HighlightState,
+} from "./types";
 export { DEFAULT_HIGHLIGHT } from "./types";
 
 export class GraphRenderer {
@@ -42,6 +49,7 @@ export class GraphRenderer {
   private height = 0;
   private dirty = true;
   private rafId: number | null = null;
+  private destroyed = false;
   private spatialGrid: SpatialGrid;
   private callbacks: InteractionCallbacks = {};
 
@@ -62,7 +70,12 @@ export class GraphRenderer {
   private selectedNode: RenderNode | null = null;
   private nodesRef: RenderNode[] = [];
   private edgesRef: RenderEdge[] = [];
-  private highlight: HighlightState = { ...DEFAULT_HIGHLIGHT, nodeIds: new Set(), edgeKeys: new Set(), pathNodes: [] };
+  private highlight: HighlightState = {
+    ...DEFAULT_HIGHLIGHT,
+    nodeIds: new Set(),
+    edgeKeys: new Set(),
+    pathNodes: [],
+  };
 
   private boundMouseMove: (e: MouseEvent) => void;
   private boundMouseDown: (e: MouseEvent) => void;
@@ -115,19 +128,19 @@ export class GraphRenderer {
     this.edgesRef = edges;
     this.spatialGrid.markDirty();
     this.spatialGrid.buildIfNeeded(nodes);
-    this.dirty = true;
+    this.markDirty();
   }
 
   setHighlight(highlight: HighlightState): void {
     this.highlight = highlight;
-    this.dirty = true;
+    this.markDirty();
   }
 
   setTransform(scale: number, offsetX: number, offsetY: number): void {
     this.transform.scale = Math.max(MIN_SCALE, Math.min(MAX_SCALE, scale));
     this.transform.offsetX = offsetX;
     this.transform.offsetY = offsetY;
-    this.dirty = true;
+    this.markDirty();
   }
 
   screenToWorld(sx: number, sy: number): { x: number; y: number } {
@@ -146,7 +159,12 @@ export class GraphRenderer {
     };
   }
 
-  getNodeAtPosition(sx: number, sy: number, nodes: RenderNode[], extraRadius = 0): RenderNode | null {
+  getNodeAtPosition(
+    sx: number,
+    sy: number,
+    nodes: RenderNode[],
+    extraRadius = 0
+  ): RenderNode | null {
     const world = this.screenToWorld(sx, sy);
     const maxRadius = this.getMaxNodeRadius() + extraRadius;
     const candidates = this.spatialGrid.query(world.x, world.y, maxRadius / this.transform.scale);
@@ -168,6 +186,7 @@ export class GraphRenderer {
   }
 
   destroy(): void {
+    this.destroyed = true;
     this.clearLongPressTimer();
     if (this.rafId !== null) {
       cancelAnimationFrame(this.rafId);
@@ -186,14 +205,22 @@ export class GraphRenderer {
   }
 
   private startLoop(): void {
+    if (this.destroyed || this.rafId !== null) return;
     const frame = () => {
       if (this.dirty) {
         this.dirty = false;
         this.drawFrame();
       }
-      this.rafId = requestAnimationFrame(frame);
+      // Idle when nothing changed (drawFrame re-dirties itself while an
+      // animation layer is active); restarted on demand via markDirty().
+      this.rafId = this.dirty ? requestAnimationFrame(frame) : null;
     };
     this.rafId = requestAnimationFrame(frame);
+  }
+
+  private markDirty(): void {
+    this.markDirty();
+    if (!this.destroyed && this.rafId === null) this.startLoop();
   }
 
   private getDrawContext(): DrawContext {
@@ -204,7 +231,9 @@ export class GraphRenderer {
       highlight: this.highlight,
       nodesRef: this.nodesRef,
       edgesRef: this.edgesRef,
-      markDirty: () => { this.dirty = true; },
+      markDirty: () => {
+        this.markDirty();
+      },
     };
   }
 
@@ -268,7 +297,7 @@ export class GraphRenderer {
     if (this.isDragging) {
       this.transform.offsetX = this.dragStartOffsetX + (sx - this.dragStartX);
       this.transform.offsetY = this.dragStartOffsetY + (sy - this.dragStartY);
-      this.dirty = true;
+      this.markDirty();
       this.callbacks.onPan?.(this.transform.offsetX, this.transform.offsetY);
       return;
     }
@@ -278,7 +307,7 @@ export class GraphRenderer {
       if (this.hoveredNode) this.hoveredNode.hovered = false;
       this.hoveredNode = node;
       if (node) node.hovered = true;
-      this.dirty = true;
+      this.markDirty();
       this.callbacks.onNodeHover?.(node);
       this.canvas.style.cursor = node ? "pointer" : "default";
     }
@@ -309,7 +338,7 @@ export class GraphRenderer {
         } else {
           this.selectedNode = null;
         }
-        this.dirty = true;
+        this.markDirty();
         this.callbacks.onNodeSelect?.(this.selectedNode);
       }
     }
@@ -329,7 +358,7 @@ export class GraphRenderer {
     this.transform.scale = newScale;
     this.transform.offsetX = sx - worldBefore.x * newScale;
     this.transform.offsetY = sy - worldBefore.y * newScale;
-    this.dirty = true;
+    this.markDirty();
     this.callbacks.onZoom?.(newScale, this.transform.offsetX, this.transform.offsetY);
   }
 
@@ -384,7 +413,7 @@ export class GraphRenderer {
       }
       this.transform.offsetX = this.dragStartOffsetX + (sx - this.dragStartX);
       this.transform.offsetY = this.dragStartOffsetY + (sy - this.dragStartY);
-      this.dirty = true;
+      this.markDirty();
       this.callbacks.onPan?.(this.transform.offsetX, this.transform.offsetY);
     }
 
@@ -406,7 +435,7 @@ export class GraphRenderer {
         this.transform.offsetX += center.x - this.lastPinchCenter.x;
         this.transform.offsetY += center.y - this.lastPinchCenter.y;
 
-        this.dirty = true;
+        this.markDirty();
         this.callbacks.onZoom?.(newScale, this.transform.offsetX, this.transform.offsetY);
       }
       this.lastPinchDist = dist;
@@ -436,7 +465,10 @@ export class GraphRenderer {
       if (moved < CLICK_THRESHOLD) {
         const node = this.getNodeAtPosition(sx, sy, this.nodesRef, TOUCH_HIT_EXTRA);
         const now = Date.now();
-        const isDoubleTap = now - this.lastTapTime < DOUBLE_TAP_MS && node != null && this.lastTapNode?.id === node?.id;
+        const isDoubleTap =
+          now - this.lastTapTime < DOUBLE_TAP_MS &&
+          node != null &&
+          this.lastTapNode?.id === node?.id;
 
         if (isDoubleTap) {
           this.clearLongPressTimer();
@@ -454,7 +486,7 @@ export class GraphRenderer {
           } else {
             this.selectedNode = null;
           }
-          this.dirty = true;
+          this.markDirty();
           this.callbacks.onNodeSelect?.(this.selectedNode);
         }
       }
@@ -479,7 +511,7 @@ export class GraphRenderer {
     this.height = rect.height;
     this.canvas.width = rect.width * this.dpr;
     this.canvas.height = rect.height * this.dpr;
-    this.dirty = true;
+    this.markDirty();
   }
 
   private pinchDist(e: TouchEvent): number {
