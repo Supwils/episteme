@@ -19,14 +19,17 @@ function formatYear(year: number): string {
   return `${year} 年`;
 }
 
-function decadeOf(year: number): string {
-  return `${Math.floor(year / 10) * 10}s`;
+function decadeOf(year: number): string | null {
+  return Number.isFinite(year) ? `${Math.floor(year / 10) * 10}s` : null;
 }
 
 export default function ExperimentsGrid({ experiments }: { experiments: Experiment[] }) {
   const decades = useMemo(() => {
-    const set = new Set(experiments.map((e) => decadeOf(e.year)));
-    return ["全部", ...[...set].sort()];
+    const set = new Set(
+      experiments.map((e) => decadeOf(e.year)).filter((d): d is string => d !== null)
+    );
+    const ordered = [...set].sort();
+    return ordered.length > 1 ? ["全部", ...ordered] : [];
   }, [experiments]);
 
   const [active, setActive] = useState("全部");
@@ -35,19 +38,21 @@ export default function ExperimentsGrid({ experiments }: { experiments: Experime
 
   return (
     <>
-      <div className="mb-8 flex flex-wrap gap-2">
-        {decades.map((d) => (
-          <button
-            key={d}
-            type="button"
-            onClick={() => setActive(d)}
-            className={`filter-tab ${d === active ? "active" : ""}`}
-            aria-pressed={d === active}
-          >
-            {d}
-          </button>
-        ))}
-      </div>
+      {decades.length > 0 && (
+        <div className="mb-8 flex flex-wrap gap-2">
+          {decades.map((d) => (
+            <button
+              key={d}
+              type="button"
+              onClick={() => setActive(d)}
+              className={`filter-tab ${d === active ? "active" : ""}`}
+              aria-pressed={d === active}
+            >
+              {d}
+            </button>
+          ))}
+        </div>
+      )}
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
         {visible.map((exp) => {

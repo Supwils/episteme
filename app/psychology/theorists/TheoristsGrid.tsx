@@ -19,7 +19,11 @@ const ERA_ORDER = ["经典", "现代", "当代"];
 export default function TheoristsGrid({ theorists }: { theorists: Theorist[] }) {
   const eras = useMemo(() => {
     const present = new Set(theorists.map((t) => t.era));
-    return ["全部", ...ERA_ORDER.filter((e) => present.has(e))];
+    const ordered = [
+      ...ERA_ORDER.filter((e) => present.has(e)),
+      ...[...present].filter((e) => !ERA_ORDER.includes(e)),
+    ];
+    return ordered.length > 1 ? ["全部", ...ordered] : [];
   }, [theorists]);
 
   const [active, setActive] = useState("全部");
@@ -27,19 +31,21 @@ export default function TheoristsGrid({ theorists }: { theorists: Theorist[] }) 
 
   return (
     <>
-      <div className="mb-8 flex flex-wrap gap-2">
-        {eras.map((era) => (
-          <button
-            key={era}
-            type="button"
-            onClick={() => setActive(era)}
-            className={`filter-tab ${era === active ? "active" : ""}`}
-            aria-pressed={era === active}
-          >
-            {era}
-          </button>
-        ))}
-      </div>
+      {eras.length > 0 && (
+        <div className="mb-8 flex flex-wrap gap-2">
+          {eras.map((era) => (
+            <button
+              key={era}
+              type="button"
+              onClick={() => setActive(era)}
+              className={`filter-tab ${era === active ? "active" : ""}`}
+              aria-pressed={era === active}
+            >
+              {era}
+            </button>
+          ))}
+        </div>
+      )}
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
         {visible.map((t) => {

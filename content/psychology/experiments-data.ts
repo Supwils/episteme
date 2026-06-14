@@ -27,7 +27,7 @@ export const PSYCHOLOGY_EXPERIMENTS_DATA = [
     title: "契克森米哈伊呼叫器实验",
     subtitle: "Csikszentmihalyi Pager Study",
     researcher: "Mihaly Csikszentmihalyi",
-    year: 1980,
+    year: 1987,
   },
   {
     slug: "darley-latane-1968",

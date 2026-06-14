@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Link from "next/link";
 import { CATEGORY_COLORS } from "@/subjects/psychology/lib/constants";
 
@@ -12,27 +12,40 @@ interface Phenomenon {
   tags: string[];
 }
 
-const CATEGORIES = ["全部", "认知", "社会", "发展", "情绪", "感知", "记忆", "决策"];
+// Canonical display order; only categories actually present are shown.
+const CANON = ["认知", "社会", "发展", "情绪", "感知", "记忆", "决策"];
 
 export default function PhenomenaGrid({ phenomena }: { phenomena: Phenomenon[] }) {
+  const categories = useMemo(() => {
+    const present = new Set(phenomena.map((p) => p.category));
+    const ordered = [
+      ...CANON.filter((c) => present.has(c)),
+      ...[...present].filter((c) => !CANON.includes(c)),
+    ];
+    // A single-category filter is just "全部" twice — not worth showing.
+    return ordered.length > 1 ? ["全部", ...ordered] : [];
+  }, [phenomena]);
+
   const [active, setActive] = useState("全部");
   const visible = active === "全部" ? phenomena : phenomena.filter((p) => p.category === active);
 
   return (
     <>
-      <div className="mb-8 flex flex-wrap gap-2">
-        {CATEGORIES.map((cat) => (
-          <button
-            key={cat}
-            type="button"
-            onClick={() => setActive(cat)}
-            className={`filter-tab ${cat === active ? "active" : ""}`}
-            aria-pressed={cat === active}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
+      {categories.length > 0 && (
+        <div className="mb-8 flex flex-wrap gap-2">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              type="button"
+              onClick={() => setActive(cat)}
+              className={`filter-tab ${cat === active ? "active" : ""}`}
+              aria-pressed={cat === active}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      )}
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
         {visible.map((p) => {
