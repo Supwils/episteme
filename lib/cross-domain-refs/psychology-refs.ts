@@ -12,7 +12,7 @@ export const PSYCHOLOGY_REFS: CrossReference[] = [
     toDomain: "philosophy",
     toId: "determinism",
     toTitle: "决定论",
-    toPath: "/philosophy/concepts/determinism",
+    toPath: "/philosophy/isms/determinism",
     relation: "认知失调理论挑战了理性决定论假设，揭示人类决策中的非理性机制",
   },
 ];

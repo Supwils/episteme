@@ -31,7 +31,7 @@ export const PHILOSOPHY_REFS: CrossReference[] = [
     fromDomain: "philosophy",
     fromId: "determinism",
     fromTitle: "决定论",
-    fromPath: "/philosophy/concepts/determinism",
+    fromPath: "/philosophy/isms/determinism",
     toDomain: "universe-physics",
     toId: "quantum-mechanics",
     toTitle: "量子力学",

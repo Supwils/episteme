@@ -90,7 +90,7 @@ export const PHYSICS_REFS: CrossReference[] = [
     toDomain: "philosophy",
     toId: "determinism",
     toTitle: "决定论",
-    toPath: "/philosophy/concepts/determinism",
+    toPath: "/philosophy/isms/determinism",
     relation: "量子力学的概率诠释对经典决定论构成根本挑战",
   },
   {
