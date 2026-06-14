@@ -346,9 +346,8 @@ function main() {
 
   for (const result of results) {
     const hasErrors = result.issues.some((i) => i.type === "error");
-    if (hasErrors) {
-      console.log(`\n\x1b[31mERROR\x1b[0m ${relPath(result.file)}`);
-    }
+    const tag = hasErrors ? "\x1b[31mERROR\x1b[0m" : "\x1b[33mWARN\x1b[0m";
+    console.log(`\n${tag} ${relPath(result.file)}`);
     for (const issue of result.issues) {
       const tag = issue.type === "error" ? "\x1b[31mERROR\x1b[0m" : "\x1b[33mWARN\x1b[0m";
       const loc = issue.line ? `:${issue.line}` : "";
