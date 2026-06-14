@@ -25,6 +25,7 @@ const NAV_LINKS: NavLink[] = [
   { href: "/psychology", label: "心理学" },
   { href: "/computer-science", label: "计算机科学" },
   { href: "/political-science", label: "政治学" },
+  { href: "/read", label: "阅读路线" },
   { href: "/knowledge-graph", label: "知识图谱" },
   { href: "/curiosities", label: "奇趣知识" },
 ];
@@ -40,6 +41,7 @@ const SECTION_PREFIXES = [
   "/psychology",
   "/computer-science",
   "/political-science",
+  "/read",
   "/knowledge-graph",
   "/curiosities",
 ];

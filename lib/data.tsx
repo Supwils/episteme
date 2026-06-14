@@ -292,6 +292,13 @@ export const DOMAINS = [
 
 export const FEATURES = [
   {
+    icon: "📖",
+    title: "阅读路线",
+    titleEn: "Reading Paths",
+    desc: "像读一本书那样探索知识：沿一条精心编排的路线，把一个主题从头读到尾。",
+    href: "/read",
+  },
+  {
     icon: "◈",
     title: "知识图谱",
     desc: "以节点与连线的方式呈现知识之间的深层关联，发现跨领域的隐性联系。",

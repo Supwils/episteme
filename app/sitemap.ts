@@ -34,11 +34,14 @@ import {
 import { createKnowledgeSection } from "@/lib/knowledge-domain";
 import { createFrontier, FRONTIER_DOMAINS } from "@/lib/frontier";
 import { KNOWLEDGE_DOMAINS } from "@/lib/new-domains";
+import { READING_PATHS } from "@/lib/reading-paths";
 
 const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: "", priority: 1 },
   // Daily
   { path: "/daily", priority: 0.8 },
+  // Reading paths
+  { path: "/read", priority: 0.7 },
   // Universe Physics
   { path: "/universe-physics", priority: 0.8 },
   { path: "/universe-physics/universe", priority: 0.8 },
@@ -401,8 +404,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
+  const readingPathEntries: MetadataRoute.Sitemap = READING_PATHS.map((p) => ({
+    url: `${SITE_URL}/read/${p.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
   return [
     ...staticEntries,
+    ...readingPathEntries,
     ...newDomainEntries,
     ...frontierEntries,
     ...thinkerEntries,
