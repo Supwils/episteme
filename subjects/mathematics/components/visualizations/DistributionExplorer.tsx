@@ -15,15 +15,38 @@ type DistributionConfig = {
 const DISTRIBUTIONS: DistributionConfig[] = [
   { type: "normal", label: "正态分布", labelEn: "Gaussian", color: "#6366f1", colorDim: "#4f46e5" },
   { type: "uniform", label: "均匀分布", labelEn: "Uniform", color: "#22d3ee", colorDim: "#06b6d4" },
-  { type: "exponential", label: "指数分布", labelEn: "Exponential", color: "#f472b6", colorDim: "#ec4899" },
-  { type: "binomial", label: "二项分布", labelEn: "Binomial", color: "#f59e0b", colorDim: "#d97706" },
+  {
+    type: "exponential",
+    label: "指数分布",
+    labelEn: "Exponential",
+    color: "#f472b6",
+    colorDim: "#ec4899",
+  },
+  {
+    type: "binomial",
+    label: "二项分布",
+    labelEn: "Binomial",
+    color: "#f59e0b",
+    colorDim: "#d97706",
+  },
 ];
 
-const REAL_WORLD_EXAMPLES: Record<DistributionType, { title: string; description: string; icon: string }[]> = {
+const REAL_WORLD_EXAMPLES: Record<
+  DistributionType,
+  { title: string; description: string; icon: string }[]
+> = {
   normal: [
-    { title: "身高分布", description: "成年人身高近似服从正态分布，均值约170cm，标准差约7cm", icon: "📏" },
+    {
+      title: "身高分布",
+      description: "成年人身高近似服从正态分布，均值约170cm，标准差约7cm",
+      icon: "📏",
+    },
     { title: "考试成绩", description: "大规模标准化考试分数通常呈钟形曲线分布", icon: "📝" },
-    { title: "测量误差", description: "重复测量的随机误差服从正态分布（高斯误差定律）", icon: "🔬" },
+    {
+      title: "测量误差",
+      description: "重复测量的随机误差服从正态分布（高斯误差定律）",
+      icon: "🔬",
+    },
   ],
   uniform: [
     { title: "掷骰子", description: "每个面出现的概率相等，均为1/6", icon: "🎲" },
@@ -31,7 +54,11 @@ const REAL_WORLD_EXAMPLES: Record<DistributionType, { title: string; description
     { title: "公交到站", description: "若班车严格按时刻表运行，乘客到达时间间隔均匀", icon: "🚌" },
   ],
   exponential: [
-    { title: "放射性衰变", description: "原子核衰变等待时间服从指数分布，参数为衰变常数λ", icon: "☢️" },
+    {
+      title: "放射性衰变",
+      description: "原子核衰变等待时间服从指数分布，参数为衰变常数λ",
+      icon: "☢️",
+    },
     { title: "客服等待时间", description: "电话呼叫中心两次来电之间的时间间隔", icon: "📞" },
     { title: "灯泡寿命", description: "电子元件在正常使用期间的故障间隔时间", icon: "💡" },
   ],
@@ -82,7 +109,11 @@ function normalCDF(x: number, mu: number, sigma: number): number {
 }
 
 function erf(x: number): number {
-  const a1 = 0.254829592, a2 = -0.284496736, a3 = 1.421413741, a4 = -1.453152027, a5 = 1.061405429;
+  const a1 = 0.254829592,
+    a2 = -0.284496736,
+    a3 = 1.421413741,
+    a4 = -1.453152027,
+    a5 = 1.061405429;
   const p = 0.3275911;
   const sign = x < 0 ? -1 : 1;
   const t = 1 / (1 + p * Math.abs(x));
@@ -94,14 +125,23 @@ type Range = { min: number; max: number };
 
 function getDistributionRange(type: DistributionType, params: DistributionParams): Range {
   switch (type) {
-    case "normal": return { min: params.mu - 4 * params.sigma, max: params.mu + 4 * params.sigma };
-    case "uniform": return { min: params.a - 0.5, max: params.b + 0.5 };
-    case "exponential": return { min: 0, max: 5 / params.lambda };
-    case "binomial": return { min: 0, max: params.n };
+    case "normal":
+      return { min: params.mu - 4 * params.sigma, max: params.mu + 4 * params.sigma };
+    case "uniform":
+      return { min: params.a - 0.5, max: params.b + 0.5 };
+    case "exponential":
+      return { min: 0, max: 5 / params.lambda };
+    case "binomial":
+      return { min: 0, max: params.n };
   }
 }
 
-function getDistributionPoints(type: DistributionType, params: DistributionParams, range: Range, count: number): { x: number; y: number }[] {
+function getDistributionPoints(
+  type: DistributionType,
+  params: DistributionParams,
+  range: Range,
+  count: number
+): { x: number; y: number }[] {
   const points: { x: number; y: number }[] = [];
   const step = (range.max - range.min) / count;
 
@@ -116,10 +156,17 @@ function getDistributionPoints(type: DistributionType, params: DistributionParam
     const x = range.min + i * step;
     let y: number;
     switch (type) {
-      case "normal": y = normalPDF(x, params.mu, params.sigma); break;
-      case "uniform": y = uniformPDF(x, params.a, params.b); break;
-      case "exponential": y = exponentialPDF(x, params.lambda); break;
-      default: y = 0;
+      case "normal":
+        y = normalPDF(x, params.mu, params.sigma);
+        break;
+      case "uniform":
+        y = uniformPDF(x, params.a, params.b);
+        break;
+      case "exponential":
+        y = exponentialPDF(x, params.lambda);
+        break;
+      default:
+        y = 0;
     }
     points.push({ x, y });
   }
@@ -136,13 +183,34 @@ type DistributionParams = {
   p: number;
 };
 
-const INITIAL_PARAMS: DistributionParams = { mu: 0, sigma: 1, a: 0, b: 1, lambda: 1, n: 20, p: 0.5 };
+const INITIAL_PARAMS: DistributionParams = {
+  mu: 0,
+  sigma: 1,
+  a: 0,
+  b: 1,
+  lambda: 1,
+  n: 20,
+  p: 0.5,
+};
 
 function Slider({
-  label, value, min, max, step, onChange, color, unit,
+  label,
+  value,
+  min,
+  max,
+  step,
+  onChange,
+  color,
+  unit,
 }: {
-  label: string; value: number; min: number; max: number; step: number;
-  onChange: (v: number) => void; color: string; unit?: string;
+  label: string;
+  value: number;
+  min: number;
+  max: number;
+  step: number;
+  onChange: (v: number) => void;
+  color: string;
+  unit?: string;
 }) {
   return (
     <div className="flex items-center gap-3">
@@ -151,6 +219,7 @@ function Slider({
       </span>
       <input
         type="range"
+        aria-label={label}
         min={min}
         max={max}
         step={step}
@@ -176,32 +245,43 @@ export default function DistributionExplorer() {
   const [showComparison, setShowComparison] = useState(false);
   const [sigmaRegion, setSigmaRegion] = useState<1 | 2 | 3>(1);
 
-  const updateParam = useCallback(<K extends keyof DistributionParams>(key: K, value: DistributionParams[K]) => {
-    setParams((prev) => ({ ...prev, [key]: value }));
-  }, []);
+  const updateParam = useCallback(
+    <K extends keyof DistributionParams>(key: K, value: DistributionParams[K]) => {
+      setParams((prev) => ({ ...prev, [key]: value }));
+    },
+    []
+  );
 
   const activeConfig = DISTRIBUTIONS.find((d) => d.type === activeType)!;
   const color = activeConfig.color;
 
   const range = useMemo(() => getDistributionRange(activeType, params), [activeType, params]);
-  const points = useMemo(() => getDistributionPoints(activeType, params, range, 200), [activeType, params, range]);
+  const points = useMemo(
+    () => getDistributionPoints(activeType, params, range, 200),
+    [activeType, params, range]
+  );
 
   const maxY = useMemo(() => {
     const peak = Math.max(...points.map((p) => p.y));
     return peak * 1.15 || 1;
   }, [points]);
 
-  const toSvgX = useCallback((x: number) => PADDING.left + ((x - range.min) / (range.max - range.min)) * PLOT_W, [range]);
+  const toSvgX = useCallback(
+    (x: number) => PADDING.left + ((x - range.min) / (range.max - range.min)) * PLOT_W,
+    [range]
+  );
   const toSvgY = useCallback((y: number) => PADDING.top + PLOT_H - (y / maxY) * PLOT_H, [maxY]);
 
   const pathD = useMemo(() => {
     if (activeType === "binomial") {
-      return points.map((p, i) => {
-        const cx = toSvgX(p.x);
-        const cy = toSvgY(p.y);
-        const barW = Math.max(2, (PLOT_W / (points.length + 1)) * 0.7);
-        return `M${cx - barW / 2},${toSvgY(0)} L${cx - barW / 2},${cy} L${cx + barW / 2},${cy} L${cx + barW / 2},${toSvgY(0)}Z`;
-      }).join(" ");
+      return points
+        .map((p, i) => {
+          const cx = toSvgX(p.x);
+          const cy = toSvgY(p.y);
+          const barW = Math.max(2, (PLOT_W / (points.length + 1)) * 0.7);
+          return `M${cx - barW / 2},${toSvgY(0)} L${cx - barW / 2},${cy} L${cx + barW / 2},${cy} L${cx + barW / 2},${toSvgY(0)}Z`;
+        })
+        .join(" ");
     }
     return points.map((p, i) => `${i === 0 ? "M" : "L"}${toSvgX(p.x)},${toSvgY(p.y)}`).join(" ");
   }, [points, toSvgX, toSvgY, activeType]);
@@ -215,19 +295,43 @@ export default function DistributionExplorer() {
   const sigmaShading = useMemo(() => {
     if (activeType !== "normal") return null;
     const { mu, sigma } = params;
-    const regions: { from: number; to: number; label: string; probability: number; opacity: number }[] = [];
+    const regions: {
+      from: number;
+      to: number;
+      label: string;
+      probability: number;
+      opacity: number;
+    }[] = [];
 
     if (sigmaRegion >= 1) {
       const p1 = normalCDF(mu + sigma, mu, sigma) - normalCDF(mu - sigma, mu, sigma);
-      regions.push({ from: mu - sigma, to: mu + sigma, label: "1σ", probability: p1, opacity: 0.25 });
+      regions.push({
+        from: mu - sigma,
+        to: mu + sigma,
+        label: "1σ",
+        probability: p1,
+        opacity: 0.25,
+      });
     }
     if (sigmaRegion >= 2) {
       const p2 = normalCDF(mu + 2 * sigma, mu, sigma) - normalCDF(mu - 2 * sigma, mu, sigma);
-      regions.push({ from: mu - 2 * sigma, to: mu + 2 * sigma, label: "2σ", probability: p2, opacity: 0.15 });
+      regions.push({
+        from: mu - 2 * sigma,
+        to: mu + 2 * sigma,
+        label: "2σ",
+        probability: p2,
+        opacity: 0.15,
+      });
     }
     if (sigmaRegion >= 3) {
       const p3 = normalCDF(mu + 3 * sigma, mu, sigma) - normalCDF(mu - 3 * sigma, mu, sigma);
-      regions.push({ from: mu - 3 * sigma, to: mu + 3 * sigma, label: "3σ", probability: p3, opacity: 0.08 });
+      regions.push({
+        from: mu - 3 * sigma,
+        to: mu + 3 * sigma,
+        label: "3σ",
+        probability: p3,
+        opacity: 0.08,
+      });
     }
     return regions;
   }, [activeType, params, sigmaRegion]);
@@ -240,15 +344,24 @@ export default function DistributionExplorer() {
         const p2 = normalCDF(mu + 2 * sigma, mu, sigma) - normalCDF(mu - 2 * sigma, mu, sigma);
         const p3 = normalCDF(mu + 3 * sigma, mu, sigma) - normalCDF(mu - 3 * sigma, mu, sigma);
         return [
-          { label: `P(${(mu - sigma).toFixed(1)} < X < ${(mu + sigma).toFixed(1)})`, value: (p1 * 100).toFixed(2) + "%" },
-          { label: `P(${(mu - 2 * sigma).toFixed(1)} < X < ${(mu + 2 * sigma).toFixed(1)})`, value: (p2 * 100).toFixed(2) + "%" },
-          { label: `P(${(mu - 3 * sigma).toFixed(1)} < X < ${(mu + 3 * sigma).toFixed(1)})`, value: (p3 * 100).toFixed(2) + "%" },
+          {
+            label: `P(${(mu - sigma).toFixed(1)} < X < ${(mu + sigma).toFixed(1)})`,
+            value: (p1 * 100).toFixed(2) + "%",
+          },
+          {
+            label: `P(${(mu - 2 * sigma).toFixed(1)} < X < ${(mu + 2 * sigma).toFixed(1)})`,
+            value: (p2 * 100).toFixed(2) + "%",
+          },
+          {
+            label: `P(${(mu - 3 * sigma).toFixed(1)} < X < ${(mu + 3 * sigma).toFixed(1)})`,
+            value: (p3 * 100).toFixed(2) + "%",
+          },
         ];
       }
       case "uniform": {
         const { a, b } = params;
         const mean = (a + b) / 2;
-        const variance = ((b - a) ** 2) / 12;
+        const variance = (b - a) ** 2 / 12;
         return [
           { label: "均值 E[X]", value: mean.toFixed(3) },
           { label: "方差 Var(X)", value: variance.toFixed(3) },
@@ -260,7 +373,10 @@ export default function DistributionExplorer() {
         return [
           { label: "均值 E[X]", value: (1 / lambda).toFixed(3) },
           { label: "方差 Var(X)", value: (1 / (lambda * lambda)).toFixed(3) },
-          { label: `P(X > ${(2 / lambda).toFixed(1)})`, value: (Math.exp(-2) * 100).toFixed(2) + "%" },
+          {
+            label: `P(X > ${(2 / lambda).toFixed(1)})`,
+            value: (Math.exp(-2) * 100).toFixed(2) + "%",
+          },
         ];
       }
       case "binomial": {
@@ -309,10 +425,14 @@ export default function DistributionExplorer() {
             onClick={() => handleDistributionSwitch(dist.type)}
             className={`cursor-pointer px-4 py-2 font-mono text-[11px] tracking-wider uppercase transition-all ${
               activeType === dist.type
-                ? "border-b-2 text-fg-primary"
+                ? "text-fg-primary border-b-2"
                 : "text-fg-muted hover:text-fg-secondary"
             }`}
-            style={activeType === dist.type ? { borderBottomColor: dist.color, color: dist.color } : undefined}
+            style={
+              activeType === dist.type
+                ? { borderBottomColor: dist.color, color: dist.color }
+                : undefined
+            }
           >
             {dist.label}
           </button>
@@ -321,7 +441,7 @@ export default function DistributionExplorer() {
 
       <div className="flex flex-col gap-6 p-6 lg:flex-row">
         {/* Chart area */}
-        <div className="flex-1 min-w-0">
+        <div className="min-w-0 flex-1">
           <svg
             viewBox={`0 0 ${SVG_WIDTH} ${SVG_HEIGHT}`}
             className="w-full"
@@ -433,15 +553,34 @@ export default function DistributionExplorer() {
                   const sigmaPoints = points.filter((p) => p.x >= fromX && p.x <= toX);
                   if (sigmaPoints.length === 0) return null;
 
-                  const fillPath = sigmaPoints
-                    .map((p, j) => `${j === 0 ? "M" : "L"}${toSvgX(p.x)},${toSvgY(p.y)}`)
-                    .join(" ") + ` L${toSx},${baseY} L${fromSx},${baseY}Z`;
+                  const fillPath =
+                    sigmaPoints
+                      .map((p, j) => `${j === 0 ? "M" : "L"}${toSvgX(p.x)},${toSvgY(p.y)}`)
+                      .join(" ") + ` L${toSx},${baseY} L${fromSx},${baseY}Z`;
 
                   return (
                     <g key={i}>
                       <path d={fillPath} fill={`url(#sigmaGrad${sigmaShading.length - 1 - i})`} />
-                      <line x1={fromSx} y1={PADDING.top} x2={fromSx} y2={baseY} stroke="#6366f1" strokeWidth="1" strokeDasharray="3,3" opacity="0.4" />
-                      <line x1={toSx} y1={PADDING.top} x2={toSx} y2={baseY} stroke="#6366f1" strokeWidth="1" strokeDasharray="3,3" opacity="0.4" />
+                      <line
+                        x1={fromSx}
+                        y1={PADDING.top}
+                        x2={fromSx}
+                        y2={baseY}
+                        stroke="#6366f1"
+                        strokeWidth="1"
+                        strokeDasharray="3,3"
+                        opacity="0.4"
+                      />
+                      <line
+                        x1={toSx}
+                        y1={PADDING.top}
+                        x2={toSx}
+                        y2={baseY}
+                        stroke="#6366f1"
+                        strokeWidth="1"
+                        strokeDasharray="3,3"
+                        opacity="0.4"
+                      />
                       <text
                         x={(fromSx + toSx) / 2}
                         y={PADDING.top + 16 + i * 16}
@@ -468,13 +607,16 @@ export default function DistributionExplorer() {
                 const compRange = getDistributionRange(dist.type, params);
                 const compPoints = getDistributionPoints(dist.type, params, compRange, 200);
                 const compMaxY = Math.max(...compPoints.map((p) => p.y)) * 1.15 || 1;
-                const scaleX = (x: number) => PADDING.left + ((x - range.min) / (range.max - range.min)) * PLOT_W;
+                const scaleX = (x: number) =>
+                  PADDING.left + ((x - range.min) / (range.max - range.min)) * PLOT_W;
                 const scaleY = (y: number) => PADDING.top + PLOT_H - (y / maxY) * PLOT_H;
 
                 if (dist.type === "binomial") {
                   return compPoints.map((p, i) => {
-                    const cx = scaleX(p.x * (range.max - range.min) / (compRange.max - compRange.min) + range.min);
-                    const cy = scaleY(p.y * maxY / compMaxY);
+                    const cx = scaleX(
+                      (p.x * (range.max - range.min)) / (compRange.max - compRange.min) + range.min
+                    );
+                    const cy = scaleY((p.y * maxY) / compMaxY);
                     const barW = Math.max(2, (PLOT_W / (compPoints.length + 1)) * 0.5);
                     return (
                       <rect
@@ -492,8 +634,10 @@ export default function DistributionExplorer() {
 
                 const dPath = compPoints
                   .map((p, i) => {
-                    const sx = scaleX(p.x * (range.max - range.min) / (compRange.max - compRange.min) + range.min);
-                    const sy = scaleY(p.y * maxY / compMaxY);
+                    const sx = scaleX(
+                      (p.x * (range.max - range.min)) / (compRange.max - compRange.min) + range.min
+                    );
+                    const sy = scaleY((p.y * maxY) / compMaxY);
                     return `${i === 0 ? "M" : "L"}${sx},${sy}`;
                   })
                   .join(" ");
@@ -512,20 +656,58 @@ export default function DistributionExplorer() {
               })}
 
             {/* Main curve */}
-            <path d={pathD} fill={activeType === "binomial" ? `${color}cc` : "none"} stroke={activeType === "binomial" ? "none" : color} strokeWidth="2.5" strokeLinejoin="round" />
+            <path
+              d={pathD}
+              fill={activeType === "binomial" ? `${color}cc` : "none"}
+              stroke={activeType === "binomial" ? "none" : color}
+              strokeWidth="2.5"
+              strokeLinejoin="round"
+            />
 
             {/* Axes */}
-            <line x1={PADDING.left} y1={PADDING.top} x2={PADDING.left} y2={PADDING.top + PLOT_H} stroke="rgba(99,102,241,0.2)" strokeWidth="1" />
-            <line x1={PADDING.left} y1={PADDING.top + PLOT_H} x2={PADDING.left + PLOT_W} y2={PADDING.top + PLOT_H} stroke="rgba(99,102,241,0.2)" strokeWidth="1" />
+            <line
+              x1={PADDING.left}
+              y1={PADDING.top}
+              x2={PADDING.left}
+              y2={PADDING.top + PLOT_H}
+              stroke="rgba(99,102,241,0.2)"
+              strokeWidth="1"
+            />
+            <line
+              x1={PADDING.left}
+              y1={PADDING.top + PLOT_H}
+              x2={PADDING.left + PLOT_W}
+              y2={PADDING.top + PLOT_H}
+              stroke="rgba(99,102,241,0.2)"
+              strokeWidth="1"
+            />
 
             {/* Legend for comparison */}
             {showComparison && (
               <g transform={`translate(${PADDING.left + PLOT_W - 160}, ${PADDING.top + 10})`}>
-                <rect x="-8" y="-8" width="165" height="85" rx="4" fill="rgba(6,6,15,0.85)" stroke="rgba(99,102,241,0.15)" />
+                <rect
+                  x="-8"
+                  y="-8"
+                  width="165"
+                  height="85"
+                  rx="4"
+                  fill="rgba(6,6,15,0.85)"
+                  stroke="rgba(99,102,241,0.15)"
+                />
                 {DISTRIBUTIONS.map((d, i) => (
                   <g key={d.type} transform={`translate(4, ${i * 18 + 4})`}>
-                    <line x1="0" y1="6" x2="20" y2="6" stroke={d.color} strokeWidth={d.type === activeType ? 2.5 : 1.5} strokeDasharray={d.type === activeType ? "none" : "6,4"} />
-                    <text x="26" y="10" fill="#a8a4c0" fontSize="10" fontFamily="var(--font-mono)">{d.label}</text>
+                    <line
+                      x1="0"
+                      y1="6"
+                      x2="20"
+                      y2="6"
+                      stroke={d.color}
+                      strokeWidth={d.type === activeType ? 2.5 : 1.5}
+                      strokeDasharray={d.type === activeType ? "none" : "6,4"}
+                    />
+                    <text x="26" y="10" fill="#a8a4c0" fontSize="10" fontFamily="var(--font-mono)">
+                      {d.label}
+                    </text>
                   </g>
                 ))}
               </g>
@@ -568,23 +750,79 @@ export default function DistributionExplorer() {
             <div className="space-y-3">
               {activeType === "normal" && (
                 <>
-                  <Slider label="μ" value={params.mu} min={-5} max={5} step={0.1} onChange={(v) => updateParam("mu", v)} color={color} />
-                  <Slider label="σ" value={params.sigma} min={0.1} max={3} step={0.1} onChange={(v) => updateParam("sigma", v)} color={color} />
+                  <Slider
+                    label="μ"
+                    value={params.mu}
+                    min={-5}
+                    max={5}
+                    step={0.1}
+                    onChange={(v) => updateParam("mu", v)}
+                    color={color}
+                  />
+                  <Slider
+                    label="σ"
+                    value={params.sigma}
+                    min={0.1}
+                    max={3}
+                    step={0.1}
+                    onChange={(v) => updateParam("sigma", v)}
+                    color={color}
+                  />
                 </>
               )}
               {activeType === "uniform" && (
                 <>
-                  <Slider label="a" value={params.a} min={-5} max={4} step={0.1} onChange={(v) => updateParam("a", v)} color={color} />
-                  <Slider label="b" value={params.b} min={params.a + 0.1} max={5} step={0.1} onChange={(v) => updateParam("b", v)} color={color} />
+                  <Slider
+                    label="a"
+                    value={params.a}
+                    min={-5}
+                    max={4}
+                    step={0.1}
+                    onChange={(v) => updateParam("a", v)}
+                    color={color}
+                  />
+                  <Slider
+                    label="b"
+                    value={params.b}
+                    min={params.a + 0.1}
+                    max={5}
+                    step={0.1}
+                    onChange={(v) => updateParam("b", v)}
+                    color={color}
+                  />
                 </>
               )}
               {activeType === "exponential" && (
-                <Slider label="λ" value={params.lambda} min={0.1} max={5} step={0.1} onChange={(v) => updateParam("lambda", v)} color={color} />
+                <Slider
+                  label="λ"
+                  value={params.lambda}
+                  min={0.1}
+                  max={5}
+                  step={0.1}
+                  onChange={(v) => updateParam("lambda", v)}
+                  color={color}
+                />
               )}
               {activeType === "binomial" && (
                 <>
-                  <Slider label="n" value={params.n} min={1} max={50} step={1} onChange={(v) => updateParam("n", v)} color={color} />
-                  <Slider label="p" value={params.p} min={0.01} max={0.99} step={0.01} onChange={(v) => updateParam("p", v)} color={color} />
+                  <Slider
+                    label="n"
+                    value={params.n}
+                    min={1}
+                    max={50}
+                    step={1}
+                    onChange={(v) => updateParam("n", v)}
+                    color={color}
+                  />
+                  <Slider
+                    label="p"
+                    value={params.p}
+                    min={0.01}
+                    max={0.99}
+                    step={0.01}
+                    onChange={(v) => updateParam("p", v)}
+                    color={color}
+                  />
                 </>
               )}
             </div>
@@ -653,8 +891,12 @@ export default function DistributionExplorer() {
               className="border-border-faint bg-bg-elevated group hover:border-fg-disabled/30 border p-4 transition-all duration-300"
             >
               <div className="mb-2 text-2xl">{example.icon}</div>
-              <h4 className="font-display text-fg-primary text-sm font-semibold">{example.title}</h4>
-              <p className="text-fg-muted mt-1 text-[12px] leading-relaxed">{example.description}</p>
+              <h4 className="font-display text-fg-primary text-sm font-semibold">
+                {example.title}
+              </h4>
+              <p className="text-fg-muted mt-1 text-[12px] leading-relaxed">
+                {example.description}
+              </p>
             </div>
           ))}
         </div>
