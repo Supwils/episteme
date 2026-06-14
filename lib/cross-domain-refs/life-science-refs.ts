@@ -1,85 +1,21 @@
 import type { CrossReference } from "./types";
 
+// Most legacy life-science refs pointed at pages that were never built
+// (ecology, genetic-engineering, consciousness-studies, evolution-theory,
+// human-evolution, mass-extinction, medicine-history) or duplicated refs
+// already declared from philosophy/history; they were removed. The darwin page
+// still receives incoming links from philosophy (nietzsche) and history
+// (scientific-revolution). Below is one accurate, both-ends-real bridge.
 export const LIFE_SCIENCE_REFS: CrossReference[] = [
   {
     fromDomain: "life-science",
-    fromId: "darwin",
-    fromTitle: "达尔文",
-    toDomain: "human-history",
-    toId: "scientific-revolution",
-    toTitle: "科学革命",
-    relation: "达尔文的进化论是科学革命以来最具颠覆性的科学理论之一",
-  },
-  {
-    fromDomain: "life-science",
-    fromId: "human-evolution",
-    fromTitle: "人类进化",
-    toDomain: "human-history",
-    toId: "prehistoric",
-    toTitle: "史前时代",
-    relation: "从直立行走 to 智人的进化历程构成了史前史的核心叙事",
-  },
-  {
-    fromDomain: "life-science",
-    fromId: "mass-extinction",
-    fromTitle: "物种大灭绝",
-    toDomain: "human-history",
-    toId: "climate-history",
-    toTitle: "气候变迁",
-    relation: "大灭绝事件揭示了气候对生物多样性的深远影响",
-  },
-  {
-    fromDomain: "life-science",
-    fromId: "medicine-history",
-    fromTitle: "医学发展",
-    toDomain: "human-history",
-    toId: "scientific-revolution",
-    toTitle: "科学革命",
-    relation: "哈维的血液循环理论是科学革命在医学领域的里程碑",
-  },
-  {
-    fromDomain: "life-science",
-    fromId: "darwin",
-    fromTitle: "达尔文",
-    toDomain: "philosophy",
-    toId: "nietzsche",
-    toTitle: "尼采",
-    relation: "尼采的权力意志概念与达尔文的自然选择存在深层思想对话",
-  },
-  {
-    fromDomain: "life-science",
-    fromId: "genetic-engineering",
-    fromTitle: "基因工程",
-    toDomain: "philosophy",
-    toId: "bioethics",
-    toTitle: "生命伦理学",
-    relation: "CRISPR 基因编辑技术引发了关于人类增强的伦理大讨论",
-  },
-  {
-    fromDomain: "life-science",
-    fromId: "consciousness-studies",
-    fromTitle: "意识研究",
-    toDomain: "philosophy",
-    toId: "philosophy-of-mind",
-    toTitle: "心灵哲学",
-    relation: "意识的「难问题」是神经科学与心灵哲学的共同前沿",
-  },
-  {
-    fromDomain: "life-science",
-    fromId: "ecology",
-    fromTitle: "生态学",
-    toDomain: "philosophy",
-    toId: "environmental-ethics",
-    toTitle: "环境伦理学",
-    relation: "生态学的发现为环境伦理学提供了科学基础",
-  },
-  {
-    fromDomain: "life-science",
-    fromId: "evolution-theory",
-    fromTitle: "进化论",
+    fromId: "mendel",
+    fromTitle: "孟德尔",
+    fromPath: "/life-science/scientists/mendel",
     toDomain: "mathematics",
-    toId: "population-genetics",
-    toTitle: "群体遗传学",
-    relation: "费希尔和霍尔丹用数学模型建立了群体遗传学，完成了进化论的现代综合",
+    toId: "probability",
+    toTitle: "概率论",
+    toPath: "/mathematics/concepts/probability",
+    relation: "孟德尔用豌豆杂交的统计比例揭示遗传规律，是概率论在生物学中的早期典范",
   },
 ];

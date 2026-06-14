@@ -13,7 +13,7 @@ export const PHYSICS_REFS: CrossReference[] = [
     toDomain: "human-history",
     toId: "prehistoric",
     toTitle: "史前时代",
-    toPath: "/human-history/eras/prehistoric",
+    toPath: "/human-history/timeline",
     relation: "地球 45 亿年的历史中，人类文明仅占最后 0.0007%",
   },
   {
@@ -33,9 +33,9 @@ export const PHYSICS_REFS: CrossReference[] = [
     fromTitle: "经典力学",
     fromPath: "/universe-physics/physics/classical-mechanics",
     toDomain: "mathematics",
-    toId: "calculus",
+    toId: "derivative",
     toTitle: "微积分",
-    toPath: "/mathematics/concepts/calculus",
+    toPath: "/mathematics/concepts/derivative",
     relation: "牛顿发明微积分正是为了描述力学运动方程",
   },
   {
@@ -55,9 +55,9 @@ export const PHYSICS_REFS: CrossReference[] = [
     fromTitle: "相对论",
     fromPath: "/universe-physics/physics/relativity",
     toDomain: "mathematics",
-    toId: "differential-equations",
+    toId: "differential-equation",
     toTitle: "微分方程",
-    toPath: "/mathematics/concepts/differential-equations",
+    toPath: "/mathematics/concepts/differential-equation",
     relation: "爱因斯坦场方程是一组非线性偏微分方程",
   },
   {
@@ -77,9 +77,9 @@ export const PHYSICS_REFS: CrossReference[] = [
     fromTitle: "电磁学",
     fromPath: "/universe-physics/physics/electromagnetism",
     toDomain: "mathematics",
-    toId: "vector-calculus",
+    toId: "multivariable-calculus",
     toTitle: "向量微积分",
-    toPath: "/mathematics/concepts/vector-calculus",
+    toPath: "/mathematics/concepts/multivariable-calculus",
     relation: "麦克斯韦方程组用向量微积分统一了电与磁",
   },
   {
@@ -90,7 +90,7 @@ export const PHYSICS_REFS: CrossReference[] = [
     toDomain: "philosophy",
     toId: "determinism",
     toTitle: "决定论",
-    toPath: "/philosophy/isms/determinism",
+    toPath: "/philosophy/concepts/determinism",
     relation: "量子力学的概率诠释对经典决定论构成根本挑战",
   },
   {
