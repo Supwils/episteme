@@ -12,7 +12,8 @@ const NAV_ITEMS = [
   { href: "/philosophy/concepts", label: "概念", num: "06", key: "concepts" },
   { href: "/philosophy/dialogues", label: "对话", num: "07", key: "dialogues" },
   { href: "/philosophy/timeline", label: "时间线", num: "08", key: "timeline" },
-  { href: "/philosophy/frontier", label: "前沿", num: "09", key: "frontier" },
+  { href: "/philosophy/tree", label: "传承树", num: "09", key: "tree" },
+  { href: "/philosophy/frontier", label: "前沿", num: "10", key: "frontier" },
 ];
 
 function getActiveKey(pathname: string): string {

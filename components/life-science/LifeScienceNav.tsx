@@ -7,10 +7,11 @@ const NAV_ITEMS = [
   { href: "/life-science/timeline", label: "进化时间线", num: "01", key: "timeline" },
   { href: "/life-science/tree", label: "生命之树", num: "02", key: "tree" },
   { href: "/life-science/species", label: "物种图鉴", num: "03", key: "species" },
-  { href: "/life-science/extinctions", label: "大灭绝", num: "04", key: "extinctions" },
-  { href: "/life-science/scientists", label: "科学家", num: "05", key: "scientists" },
-  { href: "/life-science/knowledge-base", label: "知识库", num: "06", key: "knowledge-base" },
-  { href: "/life-science/frontier", label: "前沿", num: "07", key: "frontier" },
+  { href: "/life-science/food-web", label: "食物网", num: "04", key: "food-web" },
+  { href: "/life-science/extinctions", label: "大灭绝", num: "05", key: "extinctions" },
+  { href: "/life-science/scientists", label: "科学家", num: "06", key: "scientists" },
+  { href: "/life-science/knowledge-base", label: "知识库", num: "07", key: "knowledge-base" },
+  { href: "/life-science/frontier", label: "前沿", num: "08", key: "frontier" },
 ];
 
 function getActiveKey(pathname: string): string {

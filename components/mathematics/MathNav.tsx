@@ -7,10 +7,11 @@ const NAV_ITEMS = [
   { href: "/mathematics/mathematicians", label: "数学家", num: "01", key: "mathematicians" },
   { href: "/mathematics/theorems", label: "定理", num: "02", key: "theorems" },
   { href: "/mathematics/concepts", label: "概念", num: "03", key: "concepts" },
-  { href: "/mathematics/paradoxes", label: "悖论", num: "04", key: "paradoxes" },
-  { href: "/mathematics/dialogues", label: "对话", num: "05", key: "dialogues" },
-  { href: "/mathematics/timeline", label: "时间线", num: "06", key: "timeline" },
-  { href: "/mathematics/frontier", label: "前沿", num: "07", key: "frontier" },
+  { href: "/mathematics/distributions", label: "概率分布", num: "04", key: "distributions" },
+  { href: "/mathematics/paradoxes", label: "悖论", num: "05", key: "paradoxes" },
+  { href: "/mathematics/dialogues", label: "对话", num: "06", key: "dialogues" },
+  { href: "/mathematics/timeline", label: "时间线", num: "07", key: "timeline" },
+  { href: "/mathematics/frontier", label: "前沿", num: "08", key: "frontier" },
 ];
 
 function getActiveKey(pathname: string): string {

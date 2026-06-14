@@ -13,9 +13,10 @@ const NAV_ITEMS = [
   { href: "/human-history/map", label: "大洲", num: "05", key: "map" },
   { href: "/human-history/figures", label: "人物", num: "06", key: "figures" },
   { href: "/human-history/lessons", label: "借鉴", num: "07", key: "lessons" },
-  { href: "/human-history/scholarly", label: "深度阅读", num: "08", key: "scholarly" },
-  { href: "/human-history/knowledge", label: "知识库", num: "09", key: "knowledge" },
-  { href: "/human-history/frontier", label: "研究前沿", num: "10", key: "frontier" },
+  { href: "/human-history/simulations", label: "模拟", num: "08", key: "simulations" },
+  { href: "/human-history/scholarly", label: "深度阅读", num: "09", key: "scholarly" },
+  { href: "/human-history/knowledge", label: "知识库", num: "10", key: "knowledge" },
+  { href: "/human-history/frontier", label: "研究前沿", num: "11", key: "frontier" },
 ];
 
 function getActiveKey(pathname: string): string {
