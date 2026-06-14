@@ -17,6 +17,7 @@ import {
   LABEL_COLOR,
   HIGHLIGHT_COLOR,
   NODE_TYPE_LABELS,
+  ALL_DOMAINS,
   computeNodeCounts,
   computeEdgeCounts,
 } from "../lib/constants";
@@ -47,9 +48,10 @@ export function useGraphState(nodes: GraphNode[], edges: GraphEdge[], isMobile: 
   const [isLoading, setIsLoading] = useState(true);
   const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null);
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
-  const [activeDomains, setActiveDomains] = useState<Set<string>>(
-    () => new Set(["physics", "history", "philosophy", "life-science"])
-  );
+  // Show all 10 domains by default (the old 4-domain default predated the
+  // economics/psychology/CS/political-science/cosmology/mathematics additions,
+  // which left 6 domains hidden until toggled). Users can filter down.
+  const [activeDomains, setActiveDomains] = useState<Set<string>>(() => new Set(ALL_DOMAINS));
   const [searchQuery, setSearchQuery] = useState("");
   const [zoom, setZoom] = useState(1);
   const [offsetX, setOffsetX] = useState(0);

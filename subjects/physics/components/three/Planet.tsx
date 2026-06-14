@@ -45,6 +45,7 @@ export function Planet({
   const map = useMemo(() => getPlanetTexture(textureKey), [textureKey]);
   const tiltRad = (axialTilt * Math.PI) / 180;
   const textureSwapped = useRef(false);
+  const lastOpacity = useRef(-1);
 
   useEffect(() => {
     textureSwapped.current = false;
@@ -55,7 +56,11 @@ export function Planet({
       meshRef.current.rotation.y += dt * spin;
     }
     if (matRef.current) {
-      matRef.current.opacity = opacity;
+      // opacity is usually a constant (1) — only touch the uniform on change.
+      if (lastOpacity.current !== opacity) {
+        matRef.current.opacity = opacity;
+        lastOpacity.current = opacity;
+      }
       if (!textureSwapped.current) {
         const fresh = getPlanetTexture(textureKey);
         if (fresh !== map) {
