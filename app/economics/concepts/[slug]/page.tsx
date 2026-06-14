@@ -112,7 +112,7 @@ export default async function ConceptDetailPage({ params }: { params: Promise<{ 
     >
       {slug === "gdp" && <GDPChartSection />}
       {slug === "gini-coefficient" && <LorenzCurveSection />}
-      {slug === "supply-demand" && (
+      {slug === "elasticity" && (
         <section className="border-border-faint bg-bg-panel mb-12 border p-6">
           <h2 className="text-fg-primary font-display mb-1 text-lg font-semibold tracking-tight">
             交互式供需模型

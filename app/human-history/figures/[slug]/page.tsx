@@ -1,8 +1,8 @@
-import { FIGURES } from '@/content/human-history/data/figures.js';
-import { ERAS } from '@/subjects/history/lib/eras';
-import { notFound } from 'next/navigation';
-import Link from 'next/link';
-import type { Metadata } from 'next';
+import { FIGURES } from "@/content/human-history/data/figures.js";
+import { ERAS } from "@/subjects/history/lib/eras";
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import type { Metadata } from "next";
 
 interface Figure {
   name: string;
@@ -25,34 +25,37 @@ interface Figure {
 type Props = { params: Promise<{ slug: string }> };
 
 const DOMAIN_LABELS: Record<string, string> = {
-  politics: '政治治理',
-  philosophy: '思想哲学',
-  science: '科学医学',
-  technology: '技术工程',
-  culture: '文化艺术',
-  economy: '经济商业',
-  military: '军事',
+  politics: "政治治理",
+  philosophy: "思想哲学",
+  science: "科学医学",
+  technology: "技术工程",
+  culture: "文化艺术",
+  economy: "经济商业",
+  military: "军事",
 };
 
 const REGION_LABELS: Record<string, string> = {
-  asia: '亚洲',
-  europe: '欧洲',
-  africa: '非洲',
-  americas: '美洲',
-  oceania: '大洋洲',
-  global: '全球',
+  asia: "亚洲",
+  europe: "欧洲",
+  africa: "非洲",
+  americas: "美洲",
+  oceania: "大洋洲",
+  global: "全球",
 };
 
 function formatYear(year: number | null): string {
-  if (year == null) return '未知';
+  if (year == null) return "未知";
   if (year <= -10000) return `约${Math.abs(year).toLocaleString()}年前`;
   if (year < 0) return `公元前${Math.abs(year)}年`;
-  if (year === 0) return '公元元年';
+  if (year === 0) return "公元元年";
   return `公元${year}年`;
 }
 
 function getFigureBySlug(slug: string): Figure | undefined {
-  return (FIGURES as Figure[]).find((f) => f.name === slug);
+  // Figure "slugs" are CJK names; Next can hand back the param percent-encoded,
+  // so match against the decoded form too (decode is a no-op when already plain).
+  const decoded = decodeURIComponent(slug);
+  return (FIGURES as Figure[]).find((f) => f.name === slug || f.name === decoded);
 }
 
 export async function generateStaticParams() {
@@ -64,12 +67,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const figure = getFigureBySlug(slug);
   if (!figure) notFound();
   const description = figure.desc;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://universe-knowledge.vercel.app';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://universe-knowledge.vercel.app";
   const ogImage = `${siteUrl}/api/og?title=${encodeURIComponent(figure.name)}&section=human-history&description=${encodeURIComponent(description)}`;
   return {
     title: `${figure.name} — 人类历史人物`,
     description,
-    openGraph: { title: `${figure.name} — 人类历史人物`, description, images: [{ url: ogImage, width: 1200, height: 630 }] },
+    openGraph: {
+      title: `${figure.name} — 人类历史人物`,
+      description,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
   };
 }
 
@@ -424,7 +431,7 @@ export default async function FigureDetailPage({ params }: Props) {
         <section className="figure-section">
           <h2 className="figure-section-title">生平</h2>
           <div className="figure-long-desc">
-            {figure.longDesc.split('\n\n').map((p, i) => (
+            {figure.longDesc.split("\n\n").map((p, i) => (
               <p key={i}>{p}</p>
             ))}
           </div>
@@ -465,7 +472,9 @@ export default async function FigureDetailPage({ params }: Props) {
             <h2 className="figure-section-title">历史影响</h2>
             <div className="figure-tags-grid">
               {figure.impact.map((tag, i) => (
-                <span key={i} className="figure-tag">{tag}</span>
+                <span key={i} className="figure-tag">
+                  {tag}
+                </span>
               ))}
             </div>
           </section>
@@ -476,7 +485,9 @@ export default async function FigureDetailPage({ params }: Props) {
             <h2 className="figure-section-title">争议与反思</h2>
             <div className="figure-list">
               {figure.controversies.map((c, i) => (
-                <div key={i} className="figure-controversy-item">{c}</div>
+                <div key={i} className="figure-controversy-item">
+                  {c}
+                </div>
               ))}
             </div>
           </section>
