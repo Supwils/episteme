@@ -3,6 +3,9 @@ import { getThinkerSlugs, getQuestionSlugs } from "@/lib/mdx";
 import { getSchoolSlugs } from "@/lib/schools";
 import { getIsmSlugs } from "@/lib/isms";
 import { getExperimentSlugs } from "@/lib/experiments";
+import { getConceptSlugs as getPhiloConceptSlugs } from "@/lib/concepts";
+import { getDialogueSlugs as getPhiloDialogueSlugs } from "@/lib/dialogues";
+import { getMathParadoxSlugs } from "@/subjects/mathematics/lib/paradoxes";
 import { getAllArticles } from "@/lib/knowledge-base";
 import { universePhysicsKB } from "@/lib/universe-physics-kb";
 import { cosmologyKB } from "@/lib/cosmology-kb";
@@ -42,6 +45,8 @@ const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: "/daily", priority: 0.8 },
   // Reading paths
   { path: "/read", priority: 0.7 },
+  // Curiosities
+  { path: "/curiosities", priority: 0.7 },
   // Universe Physics
   { path: "/universe-physics", priority: 0.8 },
   { path: "/universe-physics/universe", priority: 0.8 },
@@ -91,6 +96,8 @@ const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: "/philosophy/thinkers", priority: 0.7 },
   { path: "/philosophy/schools", priority: 0.7 },
   { path: "/philosophy/isms", priority: 0.7 },
+  { path: "/philosophy/concepts", priority: 0.7 },
+  { path: "/philosophy/dialogues", priority: 0.7 },
   { path: "/philosophy/experiments", priority: 0.7 },
   { path: "/philosophy/questions", priority: 0.7 },
   { path: "/philosophy/timeline", priority: 0.7 },
@@ -106,6 +113,7 @@ const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: "/mathematics/mathematicians", priority: 0.7 },
   { path: "/mathematics/theorems", priority: 0.7 },
   { path: "/mathematics/concepts", priority: 0.7 },
+  { path: "/mathematics/paradoxes", priority: 0.7 },
   { path: "/mathematics/dialogues", priority: 0.7 },
   { path: "/mathematics/timeline", priority: 0.7 },
   // Knowledge Graph
@@ -188,6 +196,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  const philoConceptEntries: MetadataRoute.Sitemap = getPhiloConceptSlugs().map((slug) => ({
+    url: `${SITE_URL}/philosophy/concepts/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  const philoDialogueEntries: MetadataRoute.Sitemap = getPhiloDialogueSlugs().map((slug) => ({
+    url: `${SITE_URL}/philosophy/dialogues/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
   const knowledgeEntries: MetadataRoute.Sitemap = getAllArticles().map((article) => ({
     url: `${SITE_URL}/human-history/knowledge/${article.slug}`,
     lastModified: new Date(),
@@ -253,6 +275,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const mathDialogueEntries: MetadataRoute.Sitemap = getMathDialogueSlugs().map((slug) => ({
     url: `${SITE_URL}/mathematics/dialogues/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  const mathParadoxEntries: MetadataRoute.Sitemap = getMathParadoxSlugs().map((slug) => ({
+    url: `${SITE_URL}/mathematics/paradoxes/${slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
@@ -421,6 +450,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...ismEntries,
     ...experimentEntries,
     ...questionEntries,
+    ...philoConceptEntries,
+    ...philoDialogueEntries,
     ...knowledgeEntries,
     ...physicsKbEntries,
     ...cosmologyKbEntries,
@@ -429,6 +460,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...mathematicianEntries,
     ...theoremEntries,
     ...mathConceptEntries,
+    ...mathParadoxEntries,
     ...mathDialogueEntries,
     ...economistEntries,
     ...econTheoryEntries,

@@ -13,7 +13,11 @@ const SECTION_PREFIXES = [
   "/life-science",
   "/economics",
   "/psychology",
+  "/computer-science",
+  "/political-science",
   "/knowledge-graph",
+  "/read",
+  "/curiosities",
 ];
 
 export function SectionAwareFooter() {
@@ -23,7 +27,7 @@ export function SectionAwareFooter() {
   if (inSection) return null;
 
   return (
-    <footer className="border-t border-white/[0.06] px-6 pb-8 pt-12" role="contentinfo">
+    <footer className="border-t border-white/[0.06] px-6 pt-12 pb-8" role="contentinfo">
       <div className="mx-auto max-w-6xl">
         <div className="mb-10 grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-8">
           <div>
@@ -48,55 +52,67 @@ export function SectionAwareFooter() {
             </h3>
             <nav aria-label="知识领域导航">
               <div className="flex flex-col gap-2">
-              <Link
-                href={APP_URLS["universe-physics"]}
-                className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
-              >
-                物理学
-              </Link>
-              <Link
-                href={APP_URLS["cosmology"]}
-                className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
-              >
-                宇宙学
-              </Link>
-              <Link
-                href={APP_URLS["human-history"]}
-                className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
-              >
-                人类历史
-              </Link>
-              <Link
-                href={APP_URLS["philosophy"]}
-                className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
-              >
-                哲学思想
-              </Link>
-              <Link
-                href={APP_URLS["life-science"]}
-                className="text-sm text-[#9ca3af] transition-colors hover:text-[#4a9e6f]"
-              >
-                生命科学
-              </Link>
-              <Link
-                href={APP_URLS["mathematics"]}
-                className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
-              >
-                数学与逻辑
-              </Link>
-              <Link
-                href={APP_URLS["economics"]}
-                className="text-sm text-[#9ca3af] transition-colors hover:text-[#e8b84a]"
-              >
-                经济学
-              </Link>
-              <Link
-                href={APP_URLS["psychology"]}
-                className="text-sm text-[#9ca3af] transition-colors hover:text-[#d4789c]"
-              >
-                心理学
-              </Link>
-            </div>
+                <Link
+                  href={APP_URLS["universe-physics"]}
+                  className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
+                >
+                  物理学
+                </Link>
+                <Link
+                  href={APP_URLS["cosmology"]}
+                  className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
+                >
+                  宇宙学
+                </Link>
+                <Link
+                  href={APP_URLS["human-history"]}
+                  className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
+                >
+                  人类历史
+                </Link>
+                <Link
+                  href={APP_URLS["philosophy"]}
+                  className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
+                >
+                  哲学思想
+                </Link>
+                <Link
+                  href={APP_URLS["life-science"]}
+                  className="text-sm text-[#9ca3af] transition-colors hover:text-[#4a9e6f]"
+                >
+                  生命科学
+                </Link>
+                <Link
+                  href={APP_URLS["mathematics"]}
+                  className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
+                >
+                  数学与逻辑
+                </Link>
+                <Link
+                  href={APP_URLS["economics"]}
+                  className="text-sm text-[#9ca3af] transition-colors hover:text-[#e8b84a]"
+                >
+                  经济学
+                </Link>
+                <Link
+                  href={APP_URLS["psychology"]}
+                  className="text-sm text-[#9ca3af] transition-colors hover:text-[#d4789c]"
+                >
+                  心理学
+                </Link>
+                <Link
+                  href={APP_URLS["computer-science"]}
+                  className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
+                >
+                  计算机科学
+                </Link>
+                <Link
+                  href={APP_URLS["political-science"]}
+                  className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
+                >
+                  政治学
+                </Link>
+              </div>
             </nav>
           </div>
           <div>
@@ -117,12 +133,23 @@ export function SectionAwareFooter() {
                 每日知识
               </Link>
               <Link
+                href="/read"
+                className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
+              >
+                阅读路线
+              </Link>
+              <Link
+                href="/curiosities"
+                className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
+              >
+                奇趣知识
+              </Link>
+              <Link
                 href={APP_URLS["human-history"] + "/timeline"}
                 className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
               >
                 时间线
               </Link>
-              <span className="text-sm text-[#9ca3af]">3D 可视化</span>
             </div>
           </div>
           <div>
@@ -208,7 +235,7 @@ export function SectionAwareFooter() {
               </svg>
               Built with Next.js
             </a>
-            <span className="text-[0.7rem] italic text-[#9ca3af]">让知识触手可及</span>
+            <span className="text-[0.7rem] text-[#9ca3af] italic">让知识触手可及</span>
           </div>
         </div>
       </div>

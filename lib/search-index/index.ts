@@ -10,6 +10,7 @@ import { indexCosmology } from "./cosmology-index";
 import { indexFrontier } from "./frontier-index";
 import { indexDomains } from "./domain-index";
 import { indexMathematics } from "./mathematics-index";
+import { indexCuriosities } from "./curiosities-index";
 
 export type { SearchDocument } from "./types";
 
@@ -76,6 +77,7 @@ export async function getSearchIndex(): Promise<{
       frontierDataMod,
       domainDataMod,
       mathDataMod,
+      curiositiesMod,
     ] = await Promise.all([
       Promise.all([
         import("@/content/universe-physics/cosmos/T0"),
@@ -132,6 +134,7 @@ export async function getSearchIndex(): Promise<{
       import("@/lib/search-index/frontier-data").catch(() => null),
       import("@/lib/search-index/domain-data").catch(() => null),
       import("@/lib/search-index/mathematics-data").catch(() => null),
+      import("@/lib/curiosities").catch(() => null),
     ]);
 
     /* eslint-disable @typescript-eslint/no-explicit-any -- dynamically imported modules have no shared static type at this boundary */
@@ -193,6 +196,7 @@ export async function getSearchIndex(): Promise<{
     docs.push(...indexFrontier(frontierDataMod));
     docs.push(...indexDomains(domainDataMod));
     docs.push(...indexMathematics(mathDataMod));
+    docs.push(...indexCuriosities(curiositiesMod));
 
     docs.push({
       id: "knowledge-graph",

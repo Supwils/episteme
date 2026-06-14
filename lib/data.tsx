@@ -321,7 +321,7 @@ export const FEATURES = [
 ];
 
 export const STATS = [
-  { value: 8, label: "知识领域", suffix: "" },
+  { value: 10, label: "知识领域", suffix: "" },
   { value: 1850, label: "知识单元", suffix: "+" },
   { value: 500, label: "深度文章", suffix: "+" },
 ];

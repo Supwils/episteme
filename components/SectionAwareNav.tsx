@@ -27,6 +27,7 @@ const NAV_LINKS: NavLink[] = [
   { href: "/political-science", label: "政治学" },
   { href: "/read", label: "阅读路线" },
   { href: "/knowledge-graph", label: "知识图谱" },
+  { href: "/daily", label: "每日知识" },
   { href: "/curiosities", label: "奇趣知识" },
 ];
 
