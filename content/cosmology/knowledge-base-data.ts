@@ -3,12 +3,6 @@
 export const COSMOLOGY_KB_DATA = [
   { slug: "大爆炸理论", title: "大爆炸理论", titleEn: "Big Bang Theory", category: "宇宙学基础" },
   {
-    slug: "early-universe",
-    title: "早期宇宙",
-    titleEn: "The Early Universe",
-    category: "宇宙学基础",
-  },
-  {
     slug: "cosmic-inflation",
     title: "宇宙暴胀",
     titleEn: "Cosmic Inflation",
@@ -27,21 +21,9 @@ export const COSMOLOGY_KB_DATA = [
     category: "宇宙学观测",
   },
   {
-    slug: "dark-matter-energy",
-    title: "暗物质与暗能量",
-    titleEn: "Dark Matter and Dark Energy",
-    category: "宇宙学前沿",
-  },
-  {
     slug: "宇宙的最终命运",
     title: "宇宙的最终命运",
     titleEn: "The Ultimate Fate of the Universe",
-    category: "宇宙学前沿",
-  },
-  {
-    slug: "multiverse-theories",
-    title: "多重宇宙理论",
-    titleEn: "Multiverse Theories",
     category: "宇宙学前沿",
   },
   {
@@ -63,7 +45,6 @@ export const COSMOLOGY_KB_DATA = [
     titleEn: "Exoplanet Detection Methods",
     category: "系外行星科学",
   },
-  { slug: "exoplanets", title: "系外行星", titleEn: "Exoplanets", category: "天体生物学" },
   {
     slug: "宇宙大尺度结构",
     title: "宇宙大尺度结构",
@@ -71,21 +52,9 @@ export const COSMOLOGY_KB_DATA = [
     category: "星系天文学",
   },
   {
-    slug: "galaxies-cosmic-structures",
-    title: "星系与宇宙大尺度结构",
-    titleEn: "Galaxies and Cosmic Structures",
-    category: "星系天文学",
-  },
-  {
     slug: "引力波天文学",
     title: "引力波天文学",
     titleEn: "Gravitational Wave Astronomy",
-    category: "多信使天文学",
-  },
-  {
-    slug: "gravitational-waves",
-    title: "引力波",
-    titleEn: "Gravitational Waves",
     category: "多信使天文学",
   },
   {
