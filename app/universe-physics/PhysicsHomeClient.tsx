@@ -2,7 +2,6 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
-
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BrandMark } from "@/subjects/physics/components/hud/BrandMark";
@@ -10,15 +9,15 @@ import { SplashStars } from "@/subjects/physics/components/splash/SplashStars";
 import { SITE_URL } from "@/lib/constants";
 
 const collectionJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'CollectionPage',
-  name: 'Physics',
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Physics",
   url: `${SITE_URL}/universe-physics`,
   description:
-    'From classical mechanics to quantum field theory — explore the fundamental laws governing the universe',
+    "From classical mechanics to quantum field theory — explore the fundamental laws governing the universe",
   isPartOf: {
-    '@type': 'WebSite',
-    name: 'Universe Knowledge',
+    "@type": "WebSite",
+    name: "Universe Knowledge",
     url: SITE_URL,
   },
 };
@@ -37,7 +36,7 @@ export default function PhysicsHomeClient() {
     if (reduce) return;
     const skipTimer = setTimeout(() => setSkipReady(true), SKIP_VISIBLE_AT_MS);
     const advanceTimer = setTimeout(() => {
-      router.push("/universe-physics/universe/observable");
+      router.push("/universe-physics/physics/classical-mechanics");
     }, AUTO_ADVANCE_AT_MS);
     return () => {
       clearTimeout(skipTimer);
@@ -45,7 +44,9 @@ export default function PhysicsHomeClient() {
     };
   }, [reduce, router]);
 
-  const handleEnter = () => router.push("/universe-physics/universe/observable");
+  // The splash is about physics laws → enter the physics tiers (P0). The cosmic
+  // 3D walker is a separate companion experience, offered as a secondary path.
+  const handleEnter = () => router.push("/universe-physics/physics/classical-mechanics");
 
   const d = (sec: number) => (reduce ? 0 : sec);
 
@@ -112,6 +113,17 @@ export default function PhysicsHomeClient() {
           >
             →
           </span>
+        </motion.button>
+
+        <motion.button
+          type="button"
+          onClick={() => router.push("/universe-physics/universe/observable")}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: d(4.0) }}
+          className="text-fg-muted hover:text-fg-secondary ease-product -mt-2 cursor-pointer font-mono text-[10px] tracking-[0.28em] uppercase transition-colors duration-300"
+        >
+          或 · 宇宙尺度 3D 漫游 →
         </motion.button>
 
         <motion.p

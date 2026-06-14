@@ -5,9 +5,11 @@ export const PHILOSOPHY_REFS: CrossReference[] = [
     fromDomain: "philosophy",
     fromId: "aristotle",
     fromTitle: "亚里士多德",
+    fromPath: "/philosophy/thinkers/aristotle",
     toDomain: "universe-physics",
     toId: "T7-earth",
     toTitle: "地球",
+    toPath: "/universe-physics/universe/earth",
     relation: "亚里士多德通过月食阴影推断地球是球形",
   },
   {

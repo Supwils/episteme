@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { BrandMark } from "./BrandMark";
 import { getSectionConfig } from "@/subjects/physics/lib/section";
 import { useUniverseStore } from "@/subjects/physics/store/useUniverseStore";
@@ -25,8 +26,14 @@ export function TopBar() {
         transition={{ duration: 0.6, delay: 0.05, ease: [0.22, 0.61, 0.36, 1] }}
         className="hud-capsule pointer-events-auto absolute top-4 left-4 z-30 flex items-center gap-3 px-3.5 py-2 md:top-5 md:left-6"
       >
-        <BrandMark className="text-accent-cool h-5 w-5 shrink-0" />
-        <span className="hud-meta text-fg-secondary">universe · physics</span>
+        <Link
+          href="/"
+          aria-label="返回首页"
+          className="hover:text-accent-cool flex items-center gap-3 transition-colors"
+        >
+          <BrandMark className="text-accent-cool h-5 w-5 shrink-0" />
+          <span className="hud-meta text-fg-secondary">universe · physics</span>
+        </Link>
         <span aria-hidden className="bg-fg-disabled mx-0.5 hidden h-3 w-px sm:inline-block" />
         <span className="hud-meta text-fg-muted hidden lg:inline">scale atlas / phase 0</span>
       </motion.div>
