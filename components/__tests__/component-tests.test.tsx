@@ -11,6 +11,11 @@ vi.mock("next/link", () => ({
   ),
 }));
 
+vi.mock("next/navigation", () => ({
+  useSearchParams: () => new URLSearchParams(),
+  usePathname: () => "/",
+}));
+
 vi.mock("framer-motion", () => ({
   useInView: () => true,
   useMotionValue: (init: number) => {
