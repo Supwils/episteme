@@ -71,6 +71,20 @@ const DOMAIN_META: Record<
     border: "border-rose-400/30",
     borderColor: "#c25b5b",
   },
+  cosmology: {
+    label: "宇宙学",
+    color: "text-sky-300",
+    bg: "bg-sky-500/20",
+    border: "border-sky-400/30",
+    borderColor: "#3b82f6",
+  },
+  mathematics: {
+    label: "数学",
+    color: "text-violet-300",
+    bg: "bg-violet-500/20",
+    border: "border-violet-400/30",
+    borderColor: "#8b5cf6",
+  },
 };
 
 const NODE_TYPE_LABEL: Record<GraphNodeType, string> = {
@@ -95,6 +109,9 @@ const NODE_TYPE_LABEL: Record<GraphNodeType, string> = {
   pioneer: "计算机先驱",
   algorithm: "算法",
   institution: "制度与政体",
+  mathematician: "数学家",
+  theorem: "数学定理",
+  cosmic: "宇宙学",
 };
 
 const OFFSET_X = 16;

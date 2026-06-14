@@ -595,6 +595,164 @@ export const READING_PATHS: ReadingPath[] = [
       },
     ],
   },
+  {
+    slug: "human-civilization",
+    title: "人类文明简史",
+    subtitle: "从远古到当代，再眺望未来",
+    description:
+      "一万两千年的人类故事，分成七个时代。从农业革命与最早的城市，经古典文明的轴心时代、中世纪的信仰与帝国，到近代的科学革命与工业化，再到塑造今日世界的现代与当代——这条路线按时间顺序走过每一个时代，最后停在对未来的眺望。",
+    domain: "human-history",
+    domainLabel: "人类历史",
+    accent: "#f59e0b",
+    steps: [
+      {
+        title: "远古时期",
+        href: "/human-history/eras/prehistoric",
+        blurb: "从直立行走到农业革命与最早的城市",
+      },
+      {
+        title: "古典时期",
+        href: "/human-history/eras/classical",
+        blurb: "轴心时代：希腊、罗马、波斯、印度与中国",
+      },
+      {
+        title: "中世纪",
+        href: "/human-history/eras/medieval",
+        blurb: "信仰、帝国与跨欧亚的交流网络",
+      },
+      { title: "近代", href: "/human-history/eras/earlyModern", blurb: "大航海、科学革命与启蒙" },
+      {
+        title: "现代",
+        href: "/human-history/eras/modern",
+        blurb: "工业化、民族国家与两次世界大战",
+      },
+      {
+        title: "当代",
+        href: "/human-history/eras/contemporary",
+        blurb: "冷战后的全球化与数字时代",
+      },
+      { title: "未来展望", href: "/human-history/eras/future", blurb: "人类文明可能走向何方" },
+    ],
+  },
+  {
+    slug: "life-on-earth",
+    title: "四十亿年生命史",
+    subtitle: "从第一个细胞到智人",
+    description:
+      "如果把地球的生命史压成一天，人类只在最后几秒登场。这条路线挑出十四个关键节点，串起这部四十亿年的演化史诗——从最初的细胞与大氧化事件，到寒武纪的生命大爆发、植物登陆、恐龙的兴亡，直到哺乳动物与我们自己的出现。",
+    domain: "life-science",
+    domainLabel: "生命科学",
+    accent: "#4a9e6f",
+    steps: [
+      {
+        title: "地球的形成",
+        href: "/life-science/timeline/earth-formation",
+        blurb: "约 46 亿年前，行星诞生",
+      },
+      {
+        title: "最早的生命",
+        href: "/life-science/timeline/earliest-life",
+        blurb: "原始海洋中出现第一批生命",
+      },
+      {
+        title: "最后共同祖先 LUCA",
+        href: "/life-science/timeline/luca",
+        blurb: "今天所有生物的共同源头",
+      },
+      {
+        title: "大氧化事件",
+        href: "/life-science/timeline/great-oxidation",
+        blurb: "蓝藻把氧气灌满大气，重塑地球",
+      },
+      {
+        title: "真核细胞的出现",
+        href: "/life-science/timeline/eukaryotes",
+        blurb: "内共生：复杂细胞的起点",
+      },
+      {
+        title: "多细胞生命",
+        href: "/life-science/timeline/first-multicellular",
+        blurb: "细胞开始协作，走向复杂",
+      },
+      {
+        title: "寒武纪大爆发",
+        href: "/life-science/timeline/cambrian-explosion",
+        blurb: "几乎所有动物门类在此涌现",
+      },
+      {
+        title: "植物登陆",
+        href: "/life-science/timeline/plant-landing",
+        blurb: "生命走出海洋，绿化大地",
+      },
+      {
+        title: "鱼类时代",
+        href: "/life-science/timeline/age-of-fish",
+        blurb: "脊椎动物的繁盛与登陆前夜",
+      },
+      {
+        title: "恐龙崛起",
+        href: "/life-science/timeline/dinosaur-rise",
+        blurb: "爬行动物主宰陆地一亿六千万年",
+      },
+      {
+        title: "哺乳动物登场",
+        href: "/life-science/timeline/mammals-appear",
+        blurb: "在恐龙阴影下蛰伏的祖先",
+      },
+      {
+        title: "白垩纪大灭绝",
+        href: "/life-science/timeline/kpg-extinction",
+        blurb: "小行星终结恐龙时代",
+      },
+      {
+        title: "灵长类的出现",
+        href: "/life-science/timeline/first-primates",
+        blurb: "大灭绝后哺乳动物的辐射演化",
+      },
+      {
+        title: "智人登场",
+        href: "/life-science/timeline/homo-sapiens",
+        blurb: "约 30 万年前，我们这一物种出现",
+      },
+    ],
+  },
+  {
+    slug: "great-extinctions",
+    title: "五次生物大灭绝",
+    subtitle: "地球生命的五次浩劫与重生",
+    description:
+      "演化不只是缓慢的积累，也包括瞬间的毁灭。地质史上有五次「大灭绝」，每一次都抹去了地球上大部分物种——却也每一次都为幸存者腾出舞台，催生新的生命格局。这条路线按时间顺序走过这五次浩劫，看灭绝如何反过来塑造了今天的生命世界。",
+    domain: "life-science",
+    domainLabel: "生命科学",
+    accent: "#c0603a",
+    steps: [
+      {
+        title: "奥陶纪-志留纪大灭绝",
+        href: "/life-science/extinctions/ordovician",
+        blurb: "约 4.45 亿年前：冰期与海平面骤降",
+      },
+      {
+        title: "晚泥盆纪大灭绝",
+        href: "/life-science/extinctions/devonian",
+        blurb: "海洋生态系统的长期崩溃",
+      },
+      {
+        title: "二叠纪-三叠纪大灭绝",
+        href: "/life-science/extinctions/permian",
+        blurb: "「大死亡」：约 96% 海洋物种消失",
+      },
+      {
+        title: "三叠纪-侏罗纪大灭绝",
+        href: "/life-science/extinctions/triassic-jurassic",
+        blurb: "为恐龙的统治扫清道路",
+      },
+      {
+        title: "白垩纪-古近纪大灭绝",
+        href: "/life-science/extinctions/cretaceous",
+        blurb: "小行星撞击，恐龙时代终结",
+      },
+    ],
+  },
 ];
 
 export function getReadingPath(slug: string): ReadingPath | undefined {

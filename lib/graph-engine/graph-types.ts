@@ -19,7 +19,10 @@ export type GraphNodeType =
   | "phenomenon"
   | "pioneer"
   | "algorithm"
-  | "institution";
+  | "institution"
+  | "mathematician"
+  | "theorem"
+  | "cosmic";
 
 export type GraphNode = {
   id: string;
@@ -32,7 +35,9 @@ export type GraphNode = {
     | "economics"
     | "psychology"
     | "computer-science"
-    | "political-science";
+    | "political-science"
+    | "cosmology"
+    | "mathematics";
   type: GraphNodeType;
   slug: string;
   era?: string;

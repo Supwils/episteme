@@ -6,6 +6,8 @@ import { economicsNodes, economicsEdges } from "./economics-nodes";
 import { psychologyNodes, psychologyEdges } from "./psychology-nodes";
 import { COMPUTER_SCIENCE_NODES, COMPUTER_SCIENCE_EDGES } from "./computer-science-nodes";
 import { POLITICAL_SCIENCE_NODES, POLITICAL_SCIENCE_EDGES } from "./political-science-nodes";
+import { COSMOLOGY_NODES, COSMOLOGY_EDGES } from "./cosmology-nodes";
+import { MATHEMATICS_NODES, MATHEMATICS_EDGES } from "./mathematics-nodes";
 import { CROSS_LINKS } from "@/lib/cross-links/api";
 import type { GraphNode, GraphEdge } from "./types";
 
@@ -124,6 +126,8 @@ export const ALL_NODES: GraphNode[] = [
   ...psychologyNodes.map((n) => ({ ...n, section: computeSection(n), url: computeUrl(n) })),
   ...COMPUTER_SCIENCE_NODES,
   ...POLITICAL_SCIENCE_NODES,
+  ...COSMOLOGY_NODES,
+  ...MATHEMATICS_NODES,
 ];
 
 const physicsEdges: GraphEdge[] = PHYSICS_EDGES.map(mapEdge);
@@ -146,6 +150,8 @@ export const ALL_EDGES: GraphEdge[] = [
   ...psychologyEdges,
   ...COMPUTER_SCIENCE_EDGES,
   ...POLITICAL_SCIENCE_EDGES,
+  ...COSMOLOGY_EDGES,
+  ...MATHEMATICS_EDGES,
   ...domainLinkEdges,
 ];
 

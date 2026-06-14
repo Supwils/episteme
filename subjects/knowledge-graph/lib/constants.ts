@@ -11,6 +11,8 @@ export const DOMAIN_COLORS: Record<string, string> = {
   psychology: "#d4789c",
   "computer-science": "#4f9cf0",
   "political-science": "#c25b5b",
+  cosmology: "#3b82f6",
+  mathematics: "#8b5cf6",
 };
 
 export const NODE_RADIUS: Record<string, number> = {
@@ -35,6 +37,9 @@ export const NODE_RADIUS: Record<string, number> = {
   pioneer: 18,
   algorithm: 14,
   institution: 16,
+  mathematician: 16,
+  theorem: 14,
+  cosmic: 16,
 };
 
 export const EDGE_COLOR = "rgba(255, 255, 255, 0.08)";
@@ -52,6 +57,8 @@ export const ALL_DOMAINS = [
   "psychology",
   "computer-science",
   "political-science",
+  "cosmology",
+  "mathematics",
 ] as const;
 
 export const NODE_TYPE_LABELS: Record<string, string> = {
@@ -76,6 +83,9 @@ export const NODE_TYPE_LABELS: Record<string, string> = {
   pioneer: "计算机先驱",
   algorithm: "算法",
   institution: "制度与政体",
+  mathematician: "数学家",
+  theorem: "数学定理",
+  cosmic: "宇宙学",
 };
 
 export const CLUSTER_RADIUS = 350;

@@ -11,6 +11,8 @@ const DOMAINS = [
   { id: "psychology", label: "心理学", color: "#d4789c" },
   { id: "computer-science", label: "计算机", color: "#4f9cf0" },
   { id: "political-science", label: "政治学", color: "#c25b5b" },
+  { id: "cosmology", label: "宇宙学", color: "#3b82f6" },
+  { id: "mathematics", label: "数学", color: "#8b5cf6" },
 ] as const;
 
 type DomainFiltersProps = {
