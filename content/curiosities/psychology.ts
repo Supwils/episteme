@@ -16,7 +16,7 @@ export const PSYCHOLOGY_CURIOSITIES: Curiosity[] = [
     detail:
       "视神经穿过视网膜的地方没有感光细胞，形成生理盲点。你平时察觉不到，是因为大脑用周围信息「脑补」了缺失的部分——你看到的世界，有一部分是被编造出来的。",
     tags: ["知觉", "盲点"],
-    url: "/psychology/phenomena/perception",
+    url: "/psychology/phenomena",
   },
   {
     id: "tip-of-tongue",

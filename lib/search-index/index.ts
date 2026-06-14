@@ -78,6 +78,7 @@ export async function getSearchIndex(): Promise<{
       domainDataMod,
       mathDataMod,
       curiositiesMod,
+      physicsDialoguesDataMod,
     ] = await Promise.all([
       Promise.all([
         import("@/content/universe-physics/cosmos/T0"),
@@ -135,6 +136,7 @@ export async function getSearchIndex(): Promise<{
       import("@/lib/search-index/domain-data").catch(() => null),
       import("@/lib/search-index/mathematics-data").catch(() => null),
       import("@/lib/curiosities").catch(() => null),
+      import("@/content/universe-physics/dialogues-data").catch(() => null),
     ]);
 
     /* eslint-disable @typescript-eslint/no-explicit-any -- dynamically imported modules have no shared static type at this boundary */
@@ -144,7 +146,7 @@ export async function getSearchIndex(): Promise<{
         physicsMods as any,
         experimentsDataMod as any,
         physicsSearchDataMod as any,
-        physicsSearchDataMod as any
+        physicsDialoguesDataMod as any
       )
     );
     docs.push(
