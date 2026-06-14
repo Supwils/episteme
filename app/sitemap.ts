@@ -34,6 +34,7 @@ import {
   getDisorderSlugs,
   getDebateSlugs as getPsyDebateSlugs,
   getDialogueSlugs as getPsyDialogueSlugs,
+  getKnowledgeBaseSlugs as getPsyKnowledgeBaseSlugs,
 } from "@/subjects/psychology/lib/mdx";
 import { createKnowledgeSection } from "@/lib/knowledge-domain";
 import { createFrontier, FRONTIER_DOMAINS } from "@/lib/frontier";
@@ -153,6 +154,7 @@ const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: "/psychology/disorders", priority: 0.7 },
   { path: "/psychology/debates", priority: 0.7 },
   { path: "/psychology/dialogues", priority: 0.7 },
+  { path: "/psychology/knowledge-base", priority: 0.7 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -398,6 +400,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  const psyKnowledgeBaseEntries: MetadataRoute.Sitemap = getPsyKnowledgeBaseSlugs().map((slug) => ({
+    url: `${SITE_URL}/psychology/knowledge-base/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
   const newDomainEntries: MetadataRoute.Sitemap = [];
   for (const config of Object.values(KNOWLEDGE_DOMAINS)) {
     newDomainEntries.push({
@@ -486,5 +495,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...disorderEntries,
     ...psyDebateEntries,
     ...psyDialogueEntries,
+    ...psyKnowledgeBaseEntries,
   ];
 }

@@ -10,6 +10,7 @@ import type {
   Disorder,
   Debate,
   Dialogue,
+  KnowledgeBaseArticle,
 } from "../types";
 import { getDomainContentDir } from "@/lib/content-paths";
 
@@ -23,6 +24,7 @@ export const DIRS = {
   disorders: path.join(CONTENT_ROOT, "disorders"),
   debates: path.join(CONTENT_ROOT, "debates"),
   dialogues: path.join(CONTENT_ROOT, "dialogues"),
+  knowledgeBase: path.join(CONTENT_ROOT, "knowledge-base"),
 } as const;
 
 export const caches = {
@@ -33,6 +35,7 @@ export const caches = {
   disorders: new Map<string, Disorder | null>(),
   debates: new Map<string, Debate | null>(),
   dialogues: new Map<string, Dialogue | null>(),
+  knowledgeBase: new Map<string, KnowledgeBaseArticle | null>(),
 } as const;
 
 export const listCaches: {
@@ -43,6 +46,7 @@ export const listCaches: {
   disorders: Disorder[] | null;
   debates: Debate[] | null;
   dialogues: Dialogue[] | null;
+  knowledgeBase: KnowledgeBaseArticle[] | null;
 } = {
   theorists: null,
   experiments: null,
@@ -51,6 +55,7 @@ export const listCaches: {
   disorders: null,
   debates: null,
   dialogues: null,
+  knowledgeBase: null,
 };
 
 const FIELD_MAP: Record<string, string> = {
@@ -67,7 +72,12 @@ const FIELD_MAP: Record<string, string> = {
 };
 
 const ARRAY_FIELDS = new Set([
-  "tags", "related", "key_figures", "key_contributions", "participants", "key_symptoms",
+  "tags",
+  "related",
+  "key_figures",
+  "key_contributions",
+  "participants",
+  "key_symptoms",
 ]);
 
 export function normalizeFrontmatter(data: Record<string, unknown>): Record<string, unknown> {

@@ -15,6 +15,7 @@ import { PHENOMENA_DATA } from "../content/psychology/phenomena-data.ts";
 import { DISORDERS_DATA } from "../content/psychology/disorders-data.ts";
 import { PSYCHOLOGY_SCHOOLS_DATA } from "../content/psychology/schools-data.ts";
 import { PSYCHOLOGY_DIALOGUES_DATA } from "../content/psychology/dialogues-data.ts";
+import { PSYCHOLOGY_KB_DATA } from "../content/psychology/knowledge-base-data.ts";
 
 const CONTENT = join(process.cwd(), "content", "psychology");
 
@@ -99,6 +100,12 @@ async function main(): Promise<void> {
     field: str(fm.field),
     participants: arr(fm.participants),
   }));
+  const knowledgeBase = merge("knowledge-base", PSYCHOLOGY_KB_DATA, (slug, fm) => ({
+    slug,
+    title: str(fm.title) || slug,
+    titleEn: titleEn(fm),
+    category: str(fm.category),
+  }));
 
   await emit("theorists-data.ts", "PSYCHOLOGY_THEORISTS_DATA", theorists);
   await emit("experiments-data.ts", "PSYCHOLOGY_EXPERIMENTS_DATA", experiments);
@@ -106,10 +113,12 @@ async function main(): Promise<void> {
   await emit("disorders-data.ts", "DISORDERS_DATA", disorders);
   await emit("schools-data.ts", "PSYCHOLOGY_SCHOOLS_DATA", schools);
   await emit("dialogues-data.ts", "PSYCHOLOGY_DIALOGUES_DATA", dialogues);
+  await emit("knowledge-base-data.ts", "PSYCHOLOGY_KB_DATA", knowledgeBase);
 
   console.log(
     `✅ theorists ${theorists.length}, experiments ${experiments.length}, phenomena ${phenomena.length}, ` +
-      `disorders ${disorders.length}, schools ${schools.length}, dialogues ${dialogues.length}`
+      `disorders ${disorders.length}, schools ${schools.length}, dialogues ${dialogues.length}, ` +
+      `knowledge-base ${knowledgeBase.length}`
   );
 }
 

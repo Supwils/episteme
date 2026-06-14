@@ -85,6 +85,20 @@ export type Disorder = DisorderFrontmatter & {
   content: string;
 };
 
+export type KnowledgeBaseFrontmatter = {
+  title: string;
+  title_en: string;
+  category: string;
+  tags: string[];
+  related: string[];
+  updated: string;
+};
+
+export type KnowledgeBaseArticle = KnowledgeBaseFrontmatter & {
+  slug: string;
+  content: string;
+};
+
 export type DebateFrontmatter = {
   title: string;
   topic: string;

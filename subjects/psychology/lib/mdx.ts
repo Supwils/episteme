@@ -20,4 +20,7 @@ export {
   getDialogueSlugs,
   getDialogueBySlug,
   getAllDialogues,
+  getKnowledgeBaseSlugs,
+  getKnowledgeBaseBySlug,
+  getAllKnowledgeBase,
 } from "./mdx/index";

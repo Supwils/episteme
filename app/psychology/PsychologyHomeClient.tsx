@@ -81,6 +81,16 @@ const SECTIONS = [
     accent: "#d4789c",
   },
   {
+    id: "knowledge-base",
+    icon: "📚",
+    title: "知识库",
+    titleEn: "Knowledge Base",
+    count: "13",
+    description: "CBT 自助、正念科学、情绪智力——把心理科学转化为日常方法",
+    href: "/psychology/knowledge-base",
+    accent: "#6b8fd6",
+  },
+  {
     id: "frontier",
     icon: "🛰️",
     title: "研究前沿",

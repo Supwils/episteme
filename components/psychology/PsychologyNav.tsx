@@ -11,7 +11,8 @@ const NAV_ITEMS = [
   { href: "/psychology/disorders", label: "心理障碍", num: "05", key: "disorders" },
   { href: "/psychology/debates", label: "大争论", num: "06", key: "debates" },
   { href: "/psychology/dialogues", label: "对话", num: "07", key: "dialogues" },
-  { href: "/psychology/frontier", label: "前沿", num: "08", key: "frontier" },
+  { href: "/psychology/knowledge-base", label: "知识库", num: "08", key: "knowledge-base" },
+  { href: "/psychology/frontier", label: "前沿", num: "09", key: "frontier" },
 ];
 
 function getActiveKey(pathname: string): string {
