@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useCallback } from "react";
+import { usePrefersReducedMotion } from "@/lib/use-prefers-reduced-motion";
 
 const SVG_W = 600;
 const SVG_H = 400;
@@ -114,6 +115,7 @@ function yTicks(): number[] {
 }
 
 export function PhillipsCurve() {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const [policy, setPolicy] = useState(0);
   const [showLongRun, setShowLongRun] = useState(true);
   const [hoveredPoint, setHoveredPoint] = useState<HistoricalPoint | null>(null);
@@ -125,10 +127,7 @@ export function PhillipsCurve() {
 
   const currentU = NAIRU;
 
-  const currentInflation = useMemo(
-    () => shortRunInflation(currentU, policy),
-    [currentU, policy],
-  );
+  const currentInflation = useMemo(() => shortRunInflation(currentU, policy), [currentU, policy]);
 
   const policyLabel = useMemo(() => {
     if (policy < -2) return "宽松政策";
@@ -138,12 +137,9 @@ export function PhillipsCurve() {
     return "紧缩政策";
   }, [policy]);
 
-  const handleSliderChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      setPolicy(parseFloat(e.target.value));
-    },
-    [],
-  );
+  const handleSliderChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setPolicy(parseFloat(e.target.value));
+  }, []);
 
   return (
     <div className="chart-container">
@@ -159,16 +155,12 @@ export function PhillipsCurve() {
             onChange={() => setShowLongRun(!showLongRun)}
             className="accent-accent-gold"
           />
-          <span className="text-fg-secondary font-mono text-xs">
-            显示长期菲利普斯曲线
-          </span>
+          <span className="text-fg-secondary font-mono text-xs">显示长期菲利普斯曲线</span>
         </label>
       </div>
 
       <div className="mb-4 flex items-center gap-4">
-        <span className="text-fg-muted font-mono text-[10px] tracking-wider uppercase">
-          紧缩
-        </span>
+        <span className="text-fg-muted font-mono text-[10px] tracking-wider uppercase">紧缩</span>
         <input
           type="range"
           min={-5}
@@ -179,17 +171,11 @@ export function PhillipsCurve() {
           className="slider-accent flex-1"
           aria-label="货币政策调节"
         />
-        <span className="text-fg-muted font-mono text-[10px] tracking-wider uppercase">
-          宽松
-        </span>
+        <span className="text-fg-muted font-mono text-[10px] tracking-wider uppercase">宽松</span>
       </div>
       <div className="mb-4 text-center">
-        <span className="text-fg-secondary font-mono text-xs">
-          货币政策：
-        </span>
-        <span className="text-accent-gold font-mono text-xs font-semibold">
-          {policyLabel}
-        </span>
+        <span className="text-fg-secondary font-mono text-xs">货币政策：</span>
+        <span className="text-accent-gold font-mono text-xs font-semibold">{policyLabel}</span>
         <span className="text-fg-muted ml-2 font-mono text-[10px]">
           (偏移 {policy > 0 ? "+" : ""}
           {policy.toFixed(1)})
@@ -379,20 +365,8 @@ export function PhillipsCurve() {
               onMouseLeave={() => setHoveredPoint(null)}
               style={{ cursor: "pointer" }}
             >
-              <circle
-                cx={cx}
-                cy={cy}
-                r={isHovered ? 10 : 7}
-                fill={pt.color}
-                opacity={0.15}
-              />
-              <circle
-                cx={cx}
-                cy={cy}
-                r={isHovered ? 6 : 4.5}
-                fill={pt.color}
-                opacity={0.9}
-              />
+              <circle cx={cx} cy={cy} r={isHovered ? 10 : 7} fill={pt.color} opacity={0.15} />
+              <circle cx={cx} cy={cy} r={isHovered ? 6 : 4.5} fill={pt.color} opacity={0.9} />
               <text
                 x={cx}
                 y={cy - (isHovered ? 16 : 12)}
@@ -416,35 +390,21 @@ export function PhillipsCurve() {
           opacity={0.2}
           filter="url(#pc-dot-glow)"
         >
-          <animate
-            attributeName="r"
-            values="8;12;8"
-            dur="2s"
-            repeatCount="indefinite"
-          />
-          <animate
-            attributeName="opacity"
-            values="0.2;0.1;0.2"
-            dur="2s"
-            repeatCount="indefinite"
-          />
+          {!prefersReducedMotion && (
+            <>
+              <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite" />
+              <animate
+                attributeName="opacity"
+                values="0.2;0.1;0.2"
+                dur="2s"
+                repeatCount="indefinite"
+              />
+            </>
+          )}
         </circle>
-        <circle
-          cx={toX(currentU)}
-          cy={toY(currentInflation)}
-          r={5}
-          fill="#3b82f6"
-        >
-          <animate
-            attributeName="cx"
-            dur="0.3s"
-            fill="freeze"
-          />
-          <animate
-            attributeName="cy"
-            dur="0.3s"
-            fill="freeze"
-          />
+        <circle cx={toX(currentU)} cy={toY(currentInflation)} r={5} fill="#3b82f6">
+          <animate attributeName="cx" dur="0.3s" fill="freeze" />
+          <animate attributeName="cy" dur="0.3s" fill="freeze" />
         </circle>
         <text
           x={toX(currentU) + 12}
@@ -479,12 +439,8 @@ export function PhillipsCurve() {
             </span>
           </div>
           <div className="text-fg-secondary mb-1 flex gap-4 font-mono text-xs">
-            <span>
-              失业率：{hoveredPoint.unemployment}%
-            </span>
-            <span>
-              通胀率：{hoveredPoint.inflation}%
-            </span>
+            <span>失业率：{hoveredPoint.unemployment}%</span>
+            <span>通胀率：{hoveredPoint.inflation}%</span>
           </div>
           <p className="text-fg-secondary mt-2 text-sm leading-relaxed">
             {hoveredPoint.description}
@@ -493,9 +449,9 @@ export function PhillipsCurve() {
       )}
 
       {!hoveredPoint && (
-        <div className="mt-4 rounded-lg border border-border-faint bg-bg-panel p-4">
+        <div className="border-border-faint bg-bg-panel mt-4 rounded-lg border p-4">
           <p className="text-fg-muted text-xs leading-relaxed">
-            <span className="font-mono text-[10px] tracking-wider text-accent-gold uppercase">
+            <span className="text-accent-gold font-mono text-[10px] tracking-wider uppercase">
               提示：
             </span>
             拖动上方滑块观察货币政策如何使经济沿短期菲利普斯曲线移动。
