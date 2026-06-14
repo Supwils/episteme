@@ -21,7 +21,8 @@ const SCALE_OBJECTS: ScaleObject[] = [
     nameCn: "普朗克长度",
     nameEn: "Planck Length",
     size: "1.6 × 10⁻³⁵ m",
-    description: "物理学中可测量的最小长度，量子引力的特征尺度。在此尺度下，时空本身的量子涨落变得显著。",
+    description:
+      "物理学中可测量的最小长度，量子引力的特征尺度。在此尺度下，时空本身的量子涨落变得显著。",
     icon: "✦",
     color: "#a78bfa",
   },
@@ -31,7 +32,8 @@ const SCALE_OBJECTS: ScaleObject[] = [
     nameCn: "质子",
     nameEn: "Proton",
     size: "1.7 × 10⁻¹⁵ m",
-    description: "原子核的组成部分，由三个夸克通过强相互作用束缚而成。质子的大小决定了原子核的尺度。",
+    description:
+      "原子核的组成部分，由三个夸克通过强相互作用束缚而成。质子的大小决定了原子核的尺度。",
     icon: "●",
     color: "#818cf8",
   },
@@ -131,7 +133,8 @@ const SCALE_OBJECTS: ScaleObject[] = [
     nameCn: "可观测宇宙",
     nameEn: "Observable Universe",
     size: "8.8 × 10²⁶ m",
-    description: "从地球出发，光在 138 亿年内能到达的最远距离。可观测宇宙直径约 930 亿光年。",
+    description:
+      "由于宇宙在光传播途中持续膨胀，可观测宇宙的共动直径约 930 亿光年——远大于「光速 × 宇宙年龄」给出的值。",
     icon: "◯",
     color: "#ec4899",
   },
@@ -151,11 +154,22 @@ function percentToExponent(pct: number): number {
 
 function formatExponent(exp: number): string {
   const superscripts: Record<string, string> = {
-    "0": "⁰", "1": "¹", "2": "²", "3": "³", "4": "⁴",
-    "5": "⁵", "6": "⁶", "7": "⁷", "8": "⁸", "9": "⁹",
+    "0": "⁰",
+    "1": "¹",
+    "2": "²",
+    "3": "³",
+    "4": "⁴",
+    "5": "⁵",
+    "6": "⁶",
+    "7": "⁷",
+    "8": "⁸",
+    "9": "⁹",
   };
   const absExp = Math.abs(exp);
-  const digits = String(absExp).split("").map((d) => superscripts[d] ?? d).join("");
+  const digits = String(absExp)
+    .split("")
+    .map((d) => superscripts[d] ?? d)
+    .join("");
   const sign = exp < 0 ? "⁻" : "";
   return `10${sign}${digits} m`;
 }
@@ -235,7 +249,9 @@ function SliderTrack({ value, onChange }: SliderTrackProps) {
   return (
     <div className="relative w-full">
       <svg
-        ref={(el) => { trackRef.current = el; }}
+        ref={(el) => {
+          trackRef.current = el;
+        }}
         className="w-full cursor-pointer select-none"
         height="100"
         viewBox="0 0 1000 100"
@@ -351,32 +367,29 @@ function DetailCard({ obj, onClose }: DetailCardProps) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 16 }}
       transition={{ duration: 0.25 }}
-      className="relative p-6 rounded-xl border border-white/[0.08] bg-[#0f1320]/90 backdrop-blur-xl max-w-md mx-auto"
+      className="relative mx-auto max-w-md rounded-xl border border-white/[0.08] bg-[#0f1320]/90 p-6 backdrop-blur-xl"
     >
       <button
         onClick={onClose}
-        className="absolute top-3 right-3 w-7 h-7 flex items-center justify-center rounded-full bg-white/[0.06] text-[#868da0] hover:text-white hover:bg-white/[0.12] transition-colors text-sm"
+        className="absolute top-3 right-3 flex h-7 w-7 items-center justify-center rounded-full bg-white/[0.06] text-sm text-[#868da0] transition-colors hover:bg-white/[0.12] hover:text-white"
         aria-label="关闭"
       >
         ✕
       </button>
       <div className="flex items-start gap-4">
         <div
-          className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl shrink-0"
+          className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl text-2xl"
           style={{ backgroundColor: `${obj.color}20`, color: obj.color }}
         >
           {obj.icon}
         </div>
         <div className="min-w-0">
-          <h3 className="text-lg font-semibold text-[#f5f6fa] mb-0.5">{obj.nameCn}</h3>
-          <p className="text-xs text-[#868da0] mb-2">{obj.nameEn}</p>
-          <p
-            className="text-sm font-mono font-medium mb-3"
-            style={{ color: obj.color }}
-          >
+          <h3 className="mb-0.5 text-lg font-semibold text-[#f5f6fa]">{obj.nameCn}</h3>
+          <p className="mb-2 text-xs text-[#868da0]">{obj.nameEn}</p>
+          <p className="mb-3 font-mono text-sm font-medium" style={{ color: obj.color }}>
             {obj.size}
           </p>
-          <p className="text-sm text-[#a8adbd] leading-relaxed">{obj.description}</p>
+          <p className="text-sm leading-relaxed text-[#a8adbd]">{obj.description}</p>
         </div>
       </div>
     </motion.div>
@@ -392,24 +405,20 @@ export function ScaleOfUniverse() {
 
   const nearbyObjects = useMemo(() => {
     const range = 6;
-    return SCALE_OBJECTS.filter(
-      (obj) => Math.abs(obj.exponent - exponent) <= range
-    ).sort((a, b) => Math.abs(a.exponent - exponent) - Math.abs(b.exponent - exponent));
+    return SCALE_OBJECTS.filter((obj) => Math.abs(obj.exponent - exponent) <= range).sort(
+      (a, b) => Math.abs(a.exponent - exponent) - Math.abs(b.exponent - exponent)
+    );
   }, [exponent]);
 
   return (
     <section className="w-full">
       <div className="mb-8 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-[#f5f6fa] mb-2">
-          宇宙尺度
-        </h2>
-        <p className="text-sm text-[#868da0]">
-          拖动滑块，从普朗克长度漫游到可观测宇宙
-        </p>
+        <h2 className="mb-2 text-2xl font-bold text-[#f5f6fa] md:text-3xl">宇宙尺度</h2>
+        <p className="text-sm text-[#868da0]">拖动滑块，从普朗克长度漫游到可观测宇宙</p>
       </div>
 
       {/* Visual representation */}
-      <div className="relative flex items-center justify-center h-64 mb-8">
+      <div className="relative mb-8 flex h-64 items-center justify-center">
         <AnimatePresence mode="wait">
           <motion.div
             key={closest.id}
@@ -417,11 +426,11 @@ export function ScaleOfUniverse() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 1.2, opacity: 0 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
-            className="flex flex-col items-center gap-3 cursor-pointer"
+            className="flex cursor-pointer flex-col items-center gap-3"
             onClick={() => setSelectedObject(closest)}
           >
             <div
-              className="rounded-full flex items-center justify-center transition-all duration-300"
+              className="flex items-center justify-center rounded-full transition-all duration-300"
               style={{
                 width: `${visualSize}%`,
                 aspectRatio: "1",
@@ -437,7 +446,7 @@ export function ScaleOfUniverse() {
             </div>
             <div className="text-center">
               <p className="text-lg font-semibold text-[#f5f6fa]">{closest.nameCn}</p>
-              <p className="text-sm font-mono" style={{ color: closest.color }}>
+              <p className="font-mono text-sm" style={{ color: closest.color }}>
                 {closest.size}
               </p>
             </div>
@@ -451,7 +460,7 @@ export function ScaleOfUniverse() {
       </div>
 
       {/* Nearby objects */}
-      <div className="flex flex-wrap justify-center gap-2 mb-8">
+      <div className="mb-8 flex flex-wrap justify-center gap-2">
         {nearbyObjects.map((obj) => (
           <button
             key={obj.id}
@@ -459,7 +468,7 @@ export function ScaleOfUniverse() {
               setSelectedObject(obj);
               setExponent(obj.exponent);
             }}
-            className="px-3 py-1.5 rounded-full text-xs font-medium transition-all border"
+            className="rounded-full border px-3 py-1.5 text-xs font-medium transition-all"
             style={{
               borderColor: obj.id === closest.id ? `${obj.color}60` : "rgba(255,255,255,0.06)",
               backgroundColor: obj.id === closest.id ? `${obj.color}15` : "rgba(255,255,255,0.02)",
@@ -472,8 +481,8 @@ export function ScaleOfUniverse() {
       </div>
 
       {/* Size comparison */}
-      <div className="max-w-lg mx-auto mb-8 p-4 rounded-xl border border-white/[0.06] bg-white/[0.02]">
-        <p className="text-xs text-[#868da0] uppercase tracking-wider mb-3">尺寸对比</p>
+      <div className="mx-auto mb-8 max-w-lg rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+        <p className="mb-3 text-xs tracking-wider text-[#868da0] uppercase">尺寸对比</p>
         <div className="space-y-2">
           {SCALE_OBJECTS.filter((obj) => {
             const diff = exponent - obj.exponent;
@@ -485,8 +494,8 @@ export function ScaleOfUniverse() {
               if (ratio === 0) return null;
               return (
                 <div key={obj.id} className="flex items-center gap-3 text-sm">
-                  <span className="text-[#868da0] w-20 shrink-0 text-right">{obj.nameCn}</span>
-                  <div className="flex-1 h-2 rounded-full bg-white/[0.04] overflow-hidden">
+                  <span className="w-20 shrink-0 text-right text-[#868da0]">{obj.nameCn}</span>
+                  <div className="h-2 flex-1 overflow-hidden rounded-full bg-white/[0.04]">
                     <motion.div
                       className="h-full rounded-full"
                       style={{ backgroundColor: obj.color }}
@@ -495,8 +504,8 @@ export function ScaleOfUniverse() {
                       transition={{ duration: 0.4 }}
                     />
                   </div>
-                  <span className="text-xs font-mono text-[#868da0] w-24">
-                    10{ratio}× 更小
+                  <span className="w-24 font-mono text-xs text-[#868da0]">
+                    10<sup>{ratio}</sup>× 更小
                   </span>
                 </div>
               );
@@ -507,15 +516,12 @@ export function ScaleOfUniverse() {
       {/* Detail card */}
       <AnimatePresence>
         {selectedObject && (
-          <DetailCard
-            obj={selectedObject}
-            onClose={() => setSelectedObject(null)}
-          />
+          <DetailCard obj={selectedObject} onClose={() => setSelectedObject(null)} />
         )}
       </AnimatePresence>
 
       {/* Legend */}
-      <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
+      <div className="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
         {SCALE_OBJECTS.map((obj) => (
           <button
             key={obj.id}
@@ -523,13 +529,13 @@ export function ScaleOfUniverse() {
               setExponent(obj.exponent);
               setSelectedObject(obj);
             }}
-            className="p-2 rounded-lg border border-white/[0.04] bg-white/[0.01] hover:bg-white/[0.04] hover:border-white/[0.08] transition-all text-left"
+            className="rounded-lg border border-white/[0.04] bg-white/[0.01] p-2 text-left transition-all hover:border-white/[0.08] hover:bg-white/[0.04]"
           >
             <div className="flex items-center gap-2">
               <span style={{ color: obj.color }}>{obj.icon}</span>
-              <span className="text-xs text-[#a8adbd] truncate">{obj.nameCn}</span>
+              <span className="truncate text-xs text-[#a8adbd]">{obj.nameCn}</span>
             </div>
-            <p className="text-[10px] font-mono text-[#4b5563] mt-1">{obj.size}</p>
+            <p className="mt-1 font-mono text-[10px] text-[#4b5563]">{obj.size}</p>
           </button>
         ))}
       </div>

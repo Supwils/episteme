@@ -62,7 +62,10 @@ function createDefaultBodies(): Body[] {
       x: SVG_SIZE / 2 + 170,
       y: SVG_SIZE / 2,
       vx: 0,
-      vy: 30800,
+      // Earth's orbital speed plus the circular speed for the Moon's (scaled)
+      // 2e10 m separation from Earth (~141 m/s) — otherwise the Moon's relative
+      // velocity exceeds escape and it flings away on the first frame.
+      vy: 29921,
       trail: [],
     },
   ];
@@ -142,8 +145,20 @@ function ForceArrow({
 
   return (
     <g>
-      <line x1={fromX} y1={fromY} x2={toX} y2={toY} stroke={color} strokeWidth={1.5} opacity={0.6} />
-      <polygon points={`${toX},${toY} ${ha1x},${ha1y} ${ha2x},${ha2y}`} fill={color} opacity={0.6} />
+      <line
+        x1={fromX}
+        y1={fromY}
+        x2={toX}
+        y2={toY}
+        stroke={color}
+        strokeWidth={1.5}
+        opacity={0.6}
+      />
+      <polygon
+        points={`${toX},${toY} ${ha1x},${ha1y} ${ha2x},${ha2y}`}
+        fill={color}
+        opacity={0.6}
+      />
     </g>
   );
 }
@@ -164,9 +179,10 @@ export function GravitySimulation({ className }: GravitySimulationProps) {
   const lastTimeRef = useRef<number>(0);
 
   const handleStart = useCallback(() => {
+    if (reduce) return; // honor prefers-reduced-motion: no auto-running physics
     setIsRunning(true);
     lastTimeRef.current = performance.now();
-  }, []);
+  }, [reduce]);
 
   const handleStop = useCallback(() => {
     setIsRunning(false);
@@ -189,30 +205,29 @@ export function GravitySimulation({ className }: GravitySimulationProps) {
       const delta = Math.min(time - lastTimeRef.current, 50);
       lastTimeRef.current = time;
       const steps = Math.ceil((delta / 16) * speedMult);
-      let current = bodies;
-      for (let s = 0; s < steps; s++) {
-        current = stepSimulation(current, TIME_STEP);
-      }
-      setBodies(current);
+      // Functional update keeps `bodies` out of the deps so the RAF loop isn't
+      // torn down and re-subscribed on every frame.
+      setBodies((prev) => {
+        let current = prev;
+        for (let s = 0; s < steps; s++) current = stepSimulation(current, TIME_STEP);
+        return current;
+      });
       rafRef.current = requestAnimationFrame(animate);
     };
 
     rafRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(rafRef.current);
-  }, [isRunning, bodies, speedMult]);
+  }, [isRunning, speedMult]);
 
-  const updateEarthMass = useCallback(
-    (mult: number) => {
-      setEarthMassMult(mult);
-      setBodies((prev) =>
-        prev.map((b) => {
-          if (b.id === "earth") return { ...b, mass: 5.972e24 * mult };
-          return b;
-        }),
-      );
-    },
-    [],
-  );
+  const updateEarthMass = useCallback((mult: number) => {
+    setEarthMassMult(mult);
+    setBodies((prev) =>
+      prev.map((b) => {
+        if (b.id === "earth") return { ...b, mass: 5.972e24 * mult };
+        return b;
+      })
+    );
+  }, []);
 
   const forceVectors = bodies.map((body, i) => {
     let fx = 0;
@@ -234,14 +249,16 @@ export function GravitySimulation({ className }: GravitySimulationProps) {
   return (
     <div className={className}>
       <div className="border-border-faint bg-bg-near relative overflow-hidden border">
-        <div className="flex items-center justify-between border-b border-border-faint px-4 py-2">
-          <span className="font-mono text-[10px] tracking-[0.28em] text-fg-muted uppercase">
+        <div className="border-border-faint flex items-center justify-between border-b px-4 py-2">
+          <span className="text-fg-muted font-mono text-[10px] tracking-[0.28em] uppercase">
             引力模拟 · gravity simulation
           </span>
           <div className="flex items-center gap-2">
             <button
               onClick={isRunning ? handleStop : handleStart}
-              className={`border px-3 py-1 font-mono text-[10px] tracking-[0.2em] uppercase transition-colors duration-200 ${
+              disabled={Boolean(reduce) && !isRunning}
+              title={reduce ? "已根据系统的减少动效偏好停用" : undefined}
+              className={`border px-3 py-1 font-mono text-[10px] tracking-[0.2em] uppercase transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-40 ${
                 isRunning
                   ? "border-red-500/40 bg-red-500/10 text-red-400"
                   : "border-accent-cool/40 bg-accent-cool/10 text-accent-cool"
@@ -316,15 +333,13 @@ export function GravitySimulation({ className }: GravitySimulationProps) {
               body.trail.length > 1 ? (
                 <path
                   key={`trail-${body.id}`}
-                  d={body.trail
-                    .map((p, i) => `${i === 0 ? "M" : "L"} ${p.x} ${p.y}`)
-                    .join(" ")}
+                  d={body.trail.map((p, i) => `${i === 0 ? "M" : "L"} ${p.x} ${p.y}`).join(" ")}
                   fill="none"
                   stroke={body.color}
                   strokeWidth={1}
                   opacity={0.3}
                 />
-              ) : null,
+              ) : null
             )}
 
           {showForces &&
@@ -375,23 +390,24 @@ export function GravitySimulation({ className }: GravitySimulationProps) {
           ))}
         </svg>
 
-        <div className="flex items-center justify-between border-t border-border-faint px-4 py-2">
+        <div className="border-border-faint flex items-center justify-between border-t px-4 py-2">
           <div className="flex items-center gap-4">
             {bodies.map((body) => (
               <div key={body.id} className="flex items-center gap-1.5">
-                <span className="inline-block h-2.5 w-2.5 rounded-full" style={{ backgroundColor: body.color }} />
-                <span className="font-mono text-[9px] text-fg-muted">{body.nameEn}</span>
+                <span
+                  className="inline-block h-2.5 w-2.5 rounded-full"
+                  style={{ backgroundColor: body.color }}
+                />
+                <span className="text-fg-muted font-mono text-[9px]">{body.nameEn}</span>
               </div>
             ))}
           </div>
-          <span className="font-mono text-[9px] text-fg-disabled">
-            F = GMm/r²
-          </span>
+          <span className="text-fg-disabled font-mono text-[9px]">F = GMm/r²</span>
         </div>
       </div>
 
       <div className="mt-3 grid grid-cols-2 gap-3">
-        <div className="border-border-faint bg-bg-near border p-4 space-y-3">
+        <div className="border-border-faint bg-bg-near space-y-3 border p-4">
           <h4 className="font-display text-fg-primary text-sm font-semibold">参数调节</h4>
           <div className="flex items-center gap-3">
             <label className="text-fg-muted w-20 shrink-0 text-xs">地球质量</label>
@@ -404,7 +420,7 @@ export function GravitySimulation({ className }: GravitySimulationProps) {
               onChange={(e) => updateEarthMass(Number(e.target.value))}
               className="flex-1 accent-blue-500"
             />
-            <span className="font-mono text-xs text-fg-muted w-16 text-right">
+            <span className="text-fg-muted w-16 text-right font-mono text-xs">
               ×{earthMassMult.toFixed(1)}
             </span>
           </div>
@@ -419,7 +435,7 @@ export function GravitySimulation({ className }: GravitySimulationProps) {
               onChange={(e) => setSpeedMult(Number(e.target.value))}
               className="flex-1 accent-purple-500"
             />
-            <span className="font-mono text-xs text-fg-muted w-16 text-right">
+            <span className="text-fg-muted w-16 text-right font-mono text-xs">
               ×{speedMult.toFixed(1)}
             </span>
           </div>
@@ -433,7 +449,7 @@ export function GravitySimulation({ className }: GravitySimulationProps) {
                 <span className="font-mono text-xs" style={{ color: body.color }}>
                   {body.name}
                 </span>
-                <span className="font-mono text-[10px] text-fg-muted">
+                <span className="text-fg-muted font-mono text-[10px]">
                   {(body.mass / 1e24).toFixed(2)} × 10²⁴ kg
                 </span>
               </div>

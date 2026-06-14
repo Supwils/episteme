@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
 type CosmicEvent = {
   id: string;
@@ -134,18 +134,18 @@ function DetailCard({ event, onClose }: DetailCardProps) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.25, ease: "easeOut" }}
-      className="relative p-6 rounded-xl border border-white/[0.08] bg-[#0f1320]/90 backdrop-blur-xl max-w-lg mx-auto"
+      className="relative mx-auto max-w-lg rounded-xl border border-white/[0.08] bg-[#0f1320]/90 p-6 backdrop-blur-xl"
     >
       <button
         onClick={onClose}
-        className="absolute top-3 right-3 w-7 h-7 flex items-center justify-center rounded-full bg-white/[0.06] text-[#868da0] hover:text-white hover:bg-white/[0.12] transition-colors text-sm"
+        className="absolute top-3 right-3 flex h-7 w-7 items-center justify-center rounded-full bg-white/[0.06] text-sm text-[#868da0] transition-colors hover:bg-white/[0.12] hover:text-white"
         aria-label="关闭"
       >
         ✕
       </button>
       <div className="flex items-start gap-4">
         <div
-          className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl shrink-0"
+          className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl text-2xl"
           style={{
             backgroundColor: `${event.color}20`,
             color: event.color,
@@ -154,19 +154,12 @@ function DetailCard({ event, onClose }: DetailCardProps) {
           {event.icon}
         </div>
         <div className="min-w-0">
-          <h3 className="text-lg font-semibold text-[#f5f6fa] mb-0.5">
-            {event.label}
-          </h3>
-          <p className="text-xs text-[#868da0] mb-2">{event.labelEn}</p>
-          <p
-            className="text-sm font-mono font-medium mb-3"
-            style={{ color: event.color }}
-          >
+          <h3 className="mb-0.5 text-lg font-semibold text-[#f5f6fa]">{event.label}</h3>
+          <p className="mb-2 text-xs text-[#868da0]">{event.labelEn}</p>
+          <p className="mb-3 font-mono text-sm font-medium" style={{ color: event.color }}>
             {formatTimeAgoFull(event.timeYearsAgo)}
           </p>
-          <p className="text-sm text-[#a8adbd] leading-relaxed">
-            {event.description}
-          </p>
+          <p className="text-sm leading-relaxed text-[#a8adbd]">{event.description}</p>
         </div>
       </div>
     </motion.div>
@@ -181,13 +174,8 @@ type TimelineMarkerProps = {
   onClick: () => void;
 };
 
-function TimelineMarker({
-  event,
-  x,
-  isAlternate,
-  isSelected,
-  onClick,
-}: TimelineMarkerProps) {
+function TimelineMarker({ event, x, isAlternate, isSelected, onClick }: TimelineMarkerProps) {
+  const reduce = useReducedMotion();
   const lineY1 = 60;
   const lineY2 = isAlternate ? 140 : 200;
   const labelY = isAlternate ? 155 : 215;
@@ -219,34 +207,30 @@ function TimelineMarker({
         strokeDasharray="3 3"
       />
 
-      {/* Pulse ring on selected */}
+      {/* Pulse ring on selected — animation gated by prefers-reduced-motion */}
       {isSelected && (
-        <>
-          <circle
-            cx={x}
-            cy={60}
-            r={18}
-            fill="none"
-            stroke={event.color}
-            strokeWidth={1}
-            opacity={0.2}
-          >
-            <animate
-              attributeName="r"
-              from="12"
-              to="24"
-              dur="2s"
-              repeatCount="indefinite"
-            />
-            <animate
-              attributeName="opacity"
-              from="0.3"
-              to="0"
-              dur="2s"
-              repeatCount="indefinite"
-            />
-          </circle>
-        </>
+        <circle
+          cx={x}
+          cy={60}
+          r={18}
+          fill="none"
+          stroke={event.color}
+          strokeWidth={1}
+          opacity={0.2}
+        >
+          {!reduce && (
+            <>
+              <animate attributeName="r" from="12" to="24" dur="2s" repeatCount="indefinite" />
+              <animate
+                attributeName="opacity"
+                from="0.3"
+                to="0"
+                dur="2s"
+                repeatCount="indefinite"
+              />
+            </>
+          )}
+        </circle>
       )}
 
       {/* Event marker */}
@@ -258,9 +242,7 @@ function TimelineMarker({
         stroke={event.color}
         strokeWidth={isSelected ? 2 : 1.5}
         style={{
-          filter: isSelected
-            ? `drop-shadow(0 0 8px ${event.color}80)`
-            : "none",
+          filter: isSelected ? `drop-shadow(0 0 8px ${event.color}80)` : "none",
           transition: "all 0.3s ease",
         }}
       />
@@ -309,8 +291,7 @@ export function CosmicTimeline() {
   const [selectedEvent, setSelectedEvent] = useState<CosmicEvent | null>(null);
 
   const sortedEvents = useMemo(
-    () =>
-      [...COSMIC_EVENTS].sort((a, b) => b.timeYearsAgo - a.timeYearsAgo),
+    () => [...COSMIC_EVENTS].sort((a, b) => b.timeYearsAgo - a.timeYearsAgo),
     []
   );
 
@@ -327,12 +308,9 @@ export function CosmicTimeline() {
     [sortedEvents, usableWidth, padding.left]
   );
 
-  const handleSelect = useCallback(
-    (event: CosmicEvent) => {
-      setSelectedEvent((prev) => (prev?.id === event.id ? null : event));
-    },
-    []
-  );
+  const handleSelect = useCallback((event: CosmicEvent) => {
+    setSelectedEvent((prev) => (prev?.id === event.id ? null : event));
+  }, []);
 
   const categoryColors: Record<CosmicEvent["category"], string> = {
     origin: "#f43f5e",
@@ -346,12 +324,10 @@ export function CosmicTimeline() {
   return (
     <section className="w-full">
       <div className="mb-6 text-center">
-        <p className="text-xs tracking-[0.32em] uppercase mb-3 text-[#3b82f6]">
+        <p className="mb-3 text-xs tracking-[0.32em] text-[#3b82f6] uppercase">
           Interactive Timeline
         </p>
-        <h2 className="text-2xl md:text-3xl font-bold text-[#f5f6fa] mb-2">
-          宇宙演化时间线
-        </h2>
+        <h2 className="mb-2 text-2xl font-bold text-[#f5f6fa] md:text-3xl">宇宙演化时间线</h2>
         <p className="text-sm text-[#868da0]">
           点击事件标记查看详细信息 · 对数刻度使近期事件更清晰
         </p>
@@ -431,9 +407,7 @@ export function CosmicTimeline() {
                   fontSize={8}
                   fontFamily="var(--font-mono)"
                 >
-                  {billionYears === 0
-                    ? "现在"
-                    : `${billionYears} Byr`}
+                  {billionYears === 0 ? "现在" : `${billionYears} Gyr`}
                 </text>
               </g>
             );
@@ -484,10 +458,7 @@ export function CosmicTimeline() {
           };
           return (
             <div key={cat} className="flex items-center gap-1.5">
-              <span
-                className="w-2.5 h-2.5 rounded-full"
-                style={{ backgroundColor: color }}
-              />
+              <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: color }} />
               <span className="text-xs text-[#868da0]">{labels[cat] ?? cat}</span>
             </div>
           );
@@ -495,30 +466,24 @@ export function CosmicTimeline() {
       </div>
 
       {/* Event list for small screens */}
-      <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
+      <div className="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
         {sortedEvents.map((event) => (
           <button
             key={event.id}
             onClick={() => handleSelect(event)}
-            className="p-3 rounded-xl border transition-all text-left"
+            className="rounded-xl border p-3 text-left transition-all"
             style={{
               borderColor:
-                selectedEvent?.id === event.id
-                  ? `${event.color}40`
-                  : "rgba(255,255,255,0.06)",
+                selectedEvent?.id === event.id ? `${event.color}40` : "rgba(255,255,255,0.06)",
               backgroundColor:
-                selectedEvent?.id === event.id
-                  ? `${event.color}10`
-                  : "rgba(255,255,255,0.02)",
+                selectedEvent?.id === event.id ? `${event.color}10` : "rgba(255,255,255,0.02)",
             }}
           >
-            <div className="flex items-center gap-2 mb-1">
+            <div className="mb-1 flex items-center gap-2">
               <span style={{ color: event.color }}>{event.icon}</span>
-              <span className="text-xs font-medium text-[#a8adbd] truncate">
-                {event.label}
-              </span>
+              <span className="truncate text-xs font-medium text-[#a8adbd]">{event.label}</span>
             </div>
-            <p className="text-[10px] font-mono text-[#4b5563]">
+            <p className="font-mono text-[10px] text-[#4b5563]">
               {formatTimeAgo(event.timeYearsAgo)}
             </p>
           </button>

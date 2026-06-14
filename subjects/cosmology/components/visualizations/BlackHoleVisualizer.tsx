@@ -45,22 +45,37 @@ export function BlackHoleVisualizer({ className }: BlackHoleVisualizerProps) {
     return () => cancelAnimationFrame(rafRef.current);
   }, [reduce]);
 
-  const accretionDiskPoints = useMemo(() => {
-    const points: { x: number; y: number; opacity: number; size: number }[] = [];
+  // Stable per-point data (radius, opacity, size, base angle) computed once —
+  // only the rotation offset changes each frame, so don't redo pseudoRandom &c.
+  const diskBase = useMemo(() => {
     const count = 200;
-    for (let i = 0; i < count; i++) {
-      const angle = (i / count) * Math.PI * 2 + rotation;
+    return Array.from({ length: count }, (_, i) => {
       const r = accretionInnerR + pseudoRandom(i) * (accretionOuterR - accretionInnerR);
-      const x = cx + Math.cos(angle) * r;
-      const y = cy + Math.sin(angle) * r * 0.3;
       const distFromCenter =
         Math.abs(r - (accretionInnerR + accretionOuterR) / 2) /
         ((accretionOuterR - accretionInnerR) / 2);
-      const opacity = Math.max(0.1, 1 - distFromCenter * 0.8);
-      points.push({ x, y, opacity, size: 1.5 + pseudoRandom(i + 0.5) });
-    }
-    return points;
-  }, [rotation, cx, cy, accretionInnerR, accretionOuterR]);
+      return {
+        baseAngle: (i / count) * Math.PI * 2,
+        r,
+        opacity: Math.max(0.1, 1 - distFromCenter * 0.8),
+        size: 1.5 + pseudoRandom(i + 0.5),
+      };
+    });
+  }, [accretionInnerR, accretionOuterR]);
+
+  const accretionDiskPoints = useMemo(
+    () =>
+      diskBase.map((p) => {
+        const angle = p.baseAngle + rotation;
+        return {
+          x: cx + Math.cos(angle) * p.r,
+          y: cy + Math.sin(angle) * p.r * 0.3,
+          opacity: p.opacity,
+          size: p.size,
+        };
+      }),
+    [diskBase, rotation, cx, cy]
+  );
 
   const lensingArcs = useMemo(() => {
     const arcs: { d: string; opacity: number }[] = [];

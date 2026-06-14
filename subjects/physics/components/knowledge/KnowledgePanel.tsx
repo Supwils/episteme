@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { Close } from "@/subjects/physics/components/hud/icons";
 import CrossDomainLinks from "@/components/CrossDomainLinks";
 import { AtlasToc } from "./AtlasToc";
@@ -11,8 +12,17 @@ import { RelatedTiers } from "./RelatedTiers";
 import { SourcesList } from "./SourcesList";
 import { getContentForTier } from "@/subjects/physics/lib/tier-content";
 import { SECTIONS } from "@/subjects/physics/lib/section";
-import { isPhysicsTierId, PHYSICS_TIER_ROUTES, type PhysicsTierId } from "@/subjects/physics/lib/physics-tier";
-import { TIER_ROUTES, type AnyTierId, type UniverseTierId } from "@/subjects/physics/lib/tier";
+import {
+  isPhysicsTierId,
+  PHYSICS_TIER_ROUTES,
+  type PhysicsTierId,
+} from "@/subjects/physics/lib/physics-tier";
+import {
+  TIER_ROUTES,
+  isUniverseTierId,
+  type AnyTierId,
+  type UniverseTierId,
+} from "@/subjects/physics/lib/tier";
 import { useUiStore } from "@/subjects/physics/store/useUiStore";
 
 const PRODUCT_EASE = [0.22, 0.61, 0.36, 1] as const;
@@ -47,7 +57,7 @@ export function KnowledgePanel() {
       }
       if (event.key !== "Tab" || !panelRef.current) return;
       const focusables = panelRef.current.querySelectorAll<HTMLElement>(
-        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"]), input, select, textarea',
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"]), input, select, textarea'
       );
       if (focusables.length === 0) return;
       const first = focusables[0];
@@ -144,10 +154,7 @@ export function KnowledgePanel() {
                 </Reveal>
 
                 <Reveal>
-                  <CrossDomainLinks
-                    currentApp="universe-physics"
-                    entityId={tierToEntityId(tier)}
-                  />
+                  <CrossDomainLinks currentApp="universe-physics" entityId={tierToEntityId(tier)} />
                 </Reveal>
 
                 <Reveal>
@@ -232,6 +239,15 @@ function Hero({ tier }: { tier: AnyTierId }) {
         <p className="text-fg-secondary/90 mt-2 text-[13px] leading-relaxed italic">
           「{content.whisper}」
         </p>
+      ) : null}
+      {/* Reciprocal of the cosmology→3D link: same scale, readable long-form. */}
+      {isUniverseTierId(tier) ? (
+        <Link
+          href={`/cosmology/universe/${TIER_ROUTES[tier]}`}
+          className="border-accent-cool/30 bg-accent-cool/[0.06] text-fg-secondary hover:bg-accent-cool/[0.12] hover:text-fg-primary ease-product mt-3 inline-flex w-fit items-center gap-2 border px-3 py-1.5 font-mono text-[11px] tracking-[0.18em] uppercase transition-colors duration-200"
+        >
+          阅读此尺度的图文详解 →
+        </Link>
       ) : null}
     </div>
   );

@@ -12,7 +12,6 @@ import { SkipLink } from "@/subjects/physics/components/hud/SkipLink";
 import { TierAriaLive } from "@/subjects/physics/components/hud/TierAriaLive";
 import { HoverTooltip } from "@/subjects/physics/components/knowledge/HoverTooltip";
 import { KnowledgePanel } from "@/subjects/physics/components/knowledge/KnowledgePanel";
-import { TierDeepReadingPanel } from "@/subjects/physics/components/TierDeepReadingPanel";
 import { PostFX } from "@/subjects/physics/components/post/PostFX";
 import { isHandwrittenPath } from "@/subjects/physics/lib/tier";
 import { startMonitoring, stopMonitoring } from "@/subjects/physics/lib/perf-monitor";
@@ -82,7 +81,6 @@ export function UniverseShell({ children }: { children: ReactNode }) {
       <HoverTooltip />
       <HudShell />
       <KnowledgePanel />
-      <TierDeepReadingPanel />
       <FloatingViewControl />
       <KeyboardNav />
 

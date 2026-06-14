@@ -31,7 +31,8 @@ const STARS: Star[] = [
     radius: 1,
     spectralClass: "G",
     region: "main-sequence",
-    description: "我们的恒星，一颗典型的 G 型主序星。已稳定燃烧约 46 亿年，预计还有约 50 亿年的主序寿命。",
+    description:
+      "我们的恒星，一颗典型的 G 型主序星。已稳定燃烧约 46 亿年，预计还有约 50 亿年的主序寿命。",
   },
   {
     id: "sirius-a",
@@ -55,7 +56,8 @@ const STARS: Star[] = [
     radius: 0.15,
     spectralClass: "M",
     region: "main-sequence",
-    description: "距离太阳最近的恒星（4.24 光年），一颗暗淡的红矮星。拥有至少一颗位于宜居带的行星。",
+    description:
+      "距离太阳最近的恒星（4.24 光年），一颗暗淡的红矮星。拥有至少一颗位于宜居带的行星。",
   },
   {
     id: "vega",
@@ -79,7 +81,8 @@ const STARS: Star[] = [
     radius: 887,
     spectralClass: "M",
     region: "red-giant",
-    description: "猎户座 α 星，一颗红超巨星。直径约为太阳的 887 倍，若置于太阳位置可吞没木星轨道。预计将在未来数十万年内爆发为超新星。",
+    description:
+      "猎户座 α 星，一颗红超巨星。半径约为太阳的 760–900 倍——若置于太阳位置，其表面将延伸到小行星带（约 4 天文单位），吞没水星、金星、地球与火星。预计将在未来数十万年内爆发为超新星。",
   },
   {
     id: "aldebaran",
@@ -245,7 +248,9 @@ function generateRedGiantRegion(): string {
     { temp: 5000, lum: 50 },
     { temp: 5000, lum: 100 },
   ];
-  return points.map((p, i) => `${i === 0 ? "M" : "L"} ${tempToX(p.temp)} ${lumToY(p.lum)}`).join(" ");
+  return points
+    .map((p, i) => `${i === 0 ? "M" : "L"} ${tempToX(p.temp)} ${lumToY(p.lum)}`)
+    .join(" ");
 }
 
 function generateMainSequencePath(): string {
@@ -293,63 +298,58 @@ function StarDetail({ star, onClose }: StarDetailProps) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 16 }}
       transition={{ duration: 0.25 }}
-      className="relative p-6 rounded-xl border border-white/[0.08] bg-[#0f1320]/90 backdrop-blur-xl max-w-md"
+      className="relative max-w-md rounded-xl border border-white/[0.08] bg-[#0f1320]/90 p-6 backdrop-blur-xl"
     >
       <button
         onClick={onClose}
-        className="absolute top-3 right-3 w-7 h-7 flex items-center justify-center rounded-full bg-white/[0.06] text-[#868da0] hover:text-white hover:bg-white/[0.12] transition-colors text-sm"
+        className="absolute top-3 right-3 flex h-7 w-7 items-center justify-center rounded-full bg-white/[0.06] text-sm text-[#868da0] transition-colors hover:bg-white/[0.12] hover:text-white"
         aria-label="关闭"
       >
         ✕
       </button>
       <div className="flex items-start gap-4">
         <div
-          className="w-12 h-12 rounded-full shrink-0 flex items-center justify-center"
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full"
           style={{
             backgroundColor: `${color}30`,
             boxShadow: `0 0 20px ${color}40`,
           }}
         >
-          <div
-            className="w-5 h-5 rounded-full"
-            style={{ backgroundColor: color }}
-          />
+          <div className="h-5 w-5 rounded-full" style={{ backgroundColor: color }} />
         </div>
         <div className="min-w-0">
-          <h3 className="text-lg font-semibold text-[#f5f6fa] mb-0.5">
+          <h3 className="mb-0.5 text-lg font-semibold text-[#f5f6fa]">
             {star.nameCn}
             {star.id === "sun" && (
-              <span className="ml-2 text-xs px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400">
+              <span className="ml-2 rounded-full bg-amber-500/20 px-2 py-0.5 text-xs text-amber-400">
                 我们的恒星
               </span>
             )}
           </h3>
-          <p className="text-xs text-[#868da0] mb-3">{star.nameEn}</p>
-          <div className="grid grid-cols-2 gap-3 mb-3">
+          <p className="mb-3 text-xs text-[#868da0]">{star.nameEn}</p>
+          <div className="mb-3 grid grid-cols-2 gap-3">
             <div>
-              <p className="text-[10px] uppercase tracking-wider text-[#4b5563]">温度</p>
-              <p className="text-sm font-mono" style={{ color }}>
+              <p className="text-[10px] tracking-wider text-[#4b5563] uppercase">温度</p>
+              <p className="font-mono text-sm" style={{ color }}>
                 {star.temperature.toLocaleString()} K
               </p>
             </div>
             <div>
-              <p className="text-[10px] uppercase tracking-wider text-[#4b5563]">光度</p>
-              <p className="text-sm font-mono text-[#a8adbd]">
-                {formatNumber(star.luminosity)} L☉
-              </p>
+              <p className="text-[10px] tracking-wider text-[#4b5563] uppercase">光度</p>
+              <p className="font-mono text-sm text-[#a8adbd]">{formatNumber(star.luminosity)} L☉</p>
             </div>
             <div>
-              <p className="text-[10px] uppercase tracking-wider text-[#4b5563]">质量</p>
-              <p className="text-sm font-mono text-[#a8adbd]">{formatNumber(star.mass)} M☉</p>
+              <p className="text-[10px] tracking-wider text-[#4b5563] uppercase">质量</p>
+              <p className="font-mono text-sm text-[#a8adbd]">{formatNumber(star.mass)} M☉</p>
             </div>
             <div>
-              <p className="text-[10px] uppercase tracking-wider text-[#4b5563]">半径</p>
-              <p className="text-sm font-mono text-[#a8adbd]">{formatNumber(star.radius)} R☉</p>
+              <p className="text-[10px] tracking-wider text-[#4b5563] uppercase">半径</p>
+              <p className="font-mono text-sm text-[#a8adbd]">{formatNumber(star.radius)} R☉</p>
             </div>
           </div>
-          <div className="flex gap-2 mb-3">
+          <div className="mb-3 flex gap-2">
             <span
-              className="text-xs px-2 py-0.5 rounded-full"
+              className="rounded-full px-2 py-0.5 text-xs"
               style={{
                 backgroundColor: `${regionColor(star.region)}20`,
                 color: regionColor(star.region),
@@ -357,11 +357,11 @@ function StarDetail({ star, onClose }: StarDetailProps) {
             >
               {regionLabel(star.region)}
             </span>
-            <span className="text-xs px-2 py-0.5 rounded-full bg-white/[0.06] text-[#868da0]">
+            <span className="rounded-full bg-white/[0.06] px-2 py-0.5 text-xs text-[#868da0]">
               {spectralLabel(star.spectralClass)}
             </span>
           </div>
-          <p className="text-sm text-[#a8adbd] leading-relaxed">{star.description}</p>
+          <p className="text-sm leading-relaxed text-[#a8adbd]">{star.description}</p>
         </div>
       </div>
     </motion.div>
@@ -389,7 +389,7 @@ export function HRDiagram() {
     <section className="w-full">
       <div className="mb-8 text-center">
         <h2
-          className="text-2xl md:text-3xl font-bold text-[#f5f6fa] mb-2"
+          className="mb-2 text-2xl font-bold text-[#f5f6fa] md:text-3xl"
           style={{ fontFamily: "var(--font-display)" }}
         >
           赫罗图
@@ -400,10 +400,10 @@ export function HRDiagram() {
       </div>
 
       {/* Region filter buttons */}
-      <div className="flex flex-wrap justify-center gap-2 mb-6">
+      <div className="mb-6 flex flex-wrap justify-center gap-2">
         <button
           onClick={() => setActiveRegion(null)}
-          className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all border ${
+          className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-all ${
             activeRegion === null
               ? "border-white/20 bg-white/[0.08] text-white"
               : "border-white/[0.06] bg-white/[0.02] text-[#868da0] hover:bg-white/[0.04]"
@@ -411,35 +411,31 @@ export function HRDiagram() {
         >
           全部恒星
         </button>
-        {(["main-sequence", "red-giant", "supergiant", "white-dwarf"] as const).map(
-          (region) => (
-            <button
-              key={region}
-              onClick={() =>
-                setActiveRegion((prev) => (prev === region ? null : region))
-              }
-              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all border ${
-                activeRegion === region
-                  ? "border-white/20 bg-white/[0.08] text-white"
-                  : "border-white/[0.06] bg-white/[0.02] text-[#868da0] hover:bg-white/[0.04]"
-              }`}
-            >
-              <span
-                className="inline-block w-2 h-2 rounded-full mr-1.5"
-                style={{ backgroundColor: regionColor(region) }}
-              />
-              {regionLabel(region)}
-            </button>
-          )
-        )}
+        {(["main-sequence", "red-giant", "supergiant", "white-dwarf"] as const).map((region) => (
+          <button
+            key={region}
+            onClick={() => setActiveRegion((prev) => (prev === region ? null : region))}
+            className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-all ${
+              activeRegion === region
+                ? "border-white/20 bg-white/[0.08] text-white"
+                : "border-white/[0.06] bg-white/[0.02] text-[#868da0] hover:bg-white/[0.04]"
+            }`}
+          >
+            <span
+              className="mr-1.5 inline-block h-2 w-2 rounded-full"
+              style={{ backgroundColor: regionColor(region) }}
+            />
+            {regionLabel(region)}
+          </button>
+        ))}
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-6 items-start">
+      <div className="flex flex-col items-start gap-6 lg:flex-row">
         {/* SVG Diagram */}
-        <div className="flex-1 w-full overflow-x-auto">
+        <div className="w-full flex-1 overflow-x-auto">
           <svg
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-            className="w-full max-w-[800px] mx-auto select-none"
+            className="mx-auto w-full max-w-[800px] select-none"
             style={{ minWidth: 480 }}
           >
             <defs>
@@ -491,10 +487,22 @@ export function HRDiagram() {
             })}
 
             {/* Main sequence band */}
-            <path d={mainSequencePath} fill="url(#ms-gradient)" stroke="#fbbf24" strokeOpacity="0.2" strokeWidth="1" />
+            <path
+              d={mainSequencePath}
+              fill="url(#ms-gradient)"
+              stroke="#fbbf24"
+              strokeOpacity="0.2"
+              strokeWidth="1"
+            />
 
             {/* Red giant region */}
-            <path d={redGiantPath} fill="url(#rg-gradient)" stroke="#ef4444" strokeOpacity="0.15" strokeWidth="1" />
+            <path
+              d={redGiantPath}
+              fill="url(#rg-gradient)"
+              stroke="#ef4444"
+              strokeOpacity="0.15"
+              strokeWidth="1"
+            />
 
             {/* Region labels */}
             <text
@@ -717,13 +725,28 @@ export function HRDiagram() {
             {/* Spectral class bar on top */}
             {(["O", "B", "A", "F", "G", "K", "M"] as SpectralClass[]).map((cls, i) => {
               const temps: Record<SpectralClass, number> = {
-                O: 35000, B: 15000, A: 8500, F: 6750, G: 5600, K: 4450, M: 3200,
+                O: 35000,
+                B: 15000,
+                A: 8500,
+                F: 6750,
+                G: 5600,
+                K: 4450,
+                M: 3200,
               };
               const nextTemps: Record<SpectralClass, number> = {
-                O: 40000, B: 30000, A: 10000, F: 7500, G: 6000, K: 5200, M: 3700,
+                O: 40000,
+                B: 30000,
+                A: 10000,
+                F: 7500,
+                G: 6000,
+                K: 5200,
+                M: 3700,
               };
               const x1 = tempToX(nextTemps[cls]);
-              const x2 = i < 6 ? tempToX(temps[(["O", "B", "A", "F", "G", "K", "M"] as const)[i + 1]!]) : PADDING.left + PLOT_W;
+              const x2 =
+                i < 6
+                  ? tempToX(temps[(["O", "B", "A", "F", "G", "K", "M"] as const)[i + 1]!])
+                  : PADDING.left + PLOT_W;
               const midX = (x1 + x2) / 2;
               return (
                 <g key={`sp-${cls}`}>
@@ -754,7 +777,7 @@ export function HRDiagram() {
         </div>
 
         {/* Detail panel */}
-        <div className="w-full lg:w-80 shrink-0">
+        <div className="w-full shrink-0 lg:w-80">
           <AnimatePresence mode="wait">
             {selectedStar ? (
               <StarDetail
@@ -767,9 +790,9 @@ export function HRDiagram() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="p-6 rounded-xl border border-white/[0.06] bg-white/[0.02]"
+                className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6"
               >
-                <p className="text-sm text-[#868da0] mb-4">点击图表中的恒星查看详细信息</p>
+                <p className="mb-4 text-sm text-[#868da0]">点击图表中的恒星查看详细信息</p>
                 <div className="space-y-2">
                   {filteredStars.map((star) => (
                     <button
@@ -777,14 +800,14 @@ export function HRDiagram() {
                       onClick={() => setSelectedStar(star)}
                       onMouseEnter={() => setHoveredStar(star)}
                       onMouseLeave={() => setHoveredStar(null)}
-                      className="w-full flex items-center gap-3 p-2 rounded-lg hover:bg-white/[0.04] transition-colors text-left"
+                      className="flex w-full items-center gap-3 rounded-lg p-2 text-left transition-colors hover:bg-white/[0.04]"
                     >
                       <div
-                        className="w-3 h-3 rounded-full shrink-0"
+                        className="h-3 w-3 shrink-0 rounded-full"
                         style={{ backgroundColor: tempToColor(star.temperature) }}
                       />
                       <span className="text-sm text-[#a8adbd]">{star.nameCn}</span>
-                      <span className="text-xs text-[#4b5563] ml-auto font-mono">
+                      <span className="ml-auto font-mono text-xs text-[#4b5563]">
                         {star.temperature.toLocaleString()}K
                       </span>
                     </button>
@@ -798,19 +821,17 @@ export function HRDiagram() {
 
       {/* Legend */}
       <div className="mt-8 flex flex-wrap justify-center gap-4">
-        {(["main-sequence", "red-giant", "supergiant", "white-dwarf"] as const).map(
-          (region) => (
-            <div key={region} className="flex items-center gap-2">
-              <div
-                className="w-2.5 h-2.5 rounded-full"
-                style={{ backgroundColor: regionColor(region) }}
-              />
-              <span className="text-xs text-[#868da0]">{regionLabel(region)}</span>
-            </div>
-          )
-        )}
+        {(["main-sequence", "red-giant", "supergiant", "white-dwarf"] as const).map((region) => (
+          <div key={region} className="flex items-center gap-2">
+            <div
+              className="h-2.5 w-2.5 rounded-full"
+              style={{ backgroundColor: regionColor(region) }}
+            />
+            <span className="text-xs text-[#868da0]">{regionLabel(region)}</span>
+          </div>
+        ))}
         <div className="flex items-center gap-2">
-          <div className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+          <div className="h-2.5 w-2.5 rounded-full bg-amber-400" />
           <span className="text-xs text-[#868da0]">太阳</span>
         </div>
       </div>

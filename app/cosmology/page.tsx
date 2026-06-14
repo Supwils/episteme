@@ -105,6 +105,30 @@ export default function CosmologyPage() {
               <h3 className="mb-2 text-lg font-semibold">对话</h3>
               <p className="text-sm text-[#a8adbd]">哈勃与勒梅特、彭罗斯与霍金的思想交锋</p>
             </Link>
+            <Link
+              href="/cosmology/stellar-evolution"
+              className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 transition-colors hover:bg-white/[0.04]"
+            >
+              <p className="mb-2 text-2xl">✦</p>
+              <h3 className="mb-2 text-lg font-semibold">恒星演化</h3>
+              <p className="text-sm text-[#a8adbd]">赫罗图与恒星从诞生到死亡的一生</p>
+            </Link>
+            <Link
+              href="/cosmology/frontier"
+              className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 transition-colors hover:bg-white/[0.04]"
+            >
+              <p className="mb-2 text-2xl">◈</p>
+              <h3 className="mb-2 text-lg font-semibold">研究前沿</h3>
+              <p className="text-sm text-[#a8adbd]">DESI、JWST 等 2020s 宇宙学前沿进展</p>
+            </Link>
+            <Link
+              href="/universe-physics/universe/observable"
+              className="rounded-xl border border-[#3b82f6]/30 bg-[#3b82f6]/[0.06] p-6 transition-colors hover:bg-[#3b82f6]/[0.12]"
+            >
+              <p className="mb-2 text-2xl">◉</p>
+              <h3 className="mb-2 text-lg font-semibold">3D 漫游</h3>
+              <p className="text-sm text-[#a8adbd]">沿同一尺度层级飞越的可交互三维场景</p>
+            </Link>
           </div>
         </section>
       </div>
