@@ -14,7 +14,7 @@ export function ThemeToggle() {
   if (!mounted) {
     return (
       <button
-        className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#1e1e2e] bg-transparent text-[#9ca3af] transition-colors hover:border-[#6366f1] hover:text-[#e8e8f0]"
+        className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#1e1e2e] bg-transparent text-[#9ca3af] transition-colors hover:border-[#6366f1] hover:text-[#e8e8f0]"
         aria-label="切换主题"
         disabled
       >
@@ -54,18 +54,12 @@ export function ThemeToggle() {
 
   return (
     <button
-      className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#1e1e2e] bg-transparent text-[#9ca3af] transition-colors hover:border-[#6366f1] hover:text-[#e8e8f0]"
+      className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#1e1e2e] bg-transparent text-[#9ca3af] transition-colors hover:border-[#6366f1] hover:text-[#e8e8f0]"
       onClick={cycleTheme}
       aria-label={
-        theme === "dark"
-          ? "切换为浅色主题"
-          : theme === "light"
-            ? "跟随系统主题"
-            : "切换为深色主题"
+        theme === "dark" ? "切换为浅色主题" : theme === "light" ? "跟随系统主题" : "切换为深色主题"
       }
-      title={
-        theme === "dark" ? "浅色主题" : theme === "light" ? "跟随系统" : "深色主题"
-      }
+      title={theme === "dark" ? "浅色主题" : theme === "light" ? "跟随系统" : "深色主题"}
     >
       {theme === "dark" ? (
         <svg
