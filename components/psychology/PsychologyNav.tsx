@@ -16,7 +16,7 @@ const NAV_ITEMS = [
 
 function getActiveKey(pathname: string): string {
   const segment = pathname.replace("/psychology/", "").replace("/psychology", "");
-  return segment || "";
+  return segment.split("/")[0] || "";
 }
 
 export default function PsychologyNav() {

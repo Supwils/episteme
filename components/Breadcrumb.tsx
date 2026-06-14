@@ -7,6 +7,7 @@ const CATEGORY_LABELS: Record<string, string> = {
   concepts: "概念",
   experiments: "思想实验",
   questions: "哲学大问题",
+  dialogues: "对话",
 };
 
 type BreadcrumbItem = {
@@ -17,6 +18,8 @@ type BreadcrumbItem = {
 type BreadcrumbLegacyProps = {
   category: string;
   currentTitle: string;
+  /** Domain prefix for the category link; the category form is philosophy-only today. */
+  domain?: string;
   items?: never;
 };
 
@@ -43,7 +46,7 @@ export default function Breadcrumb(props: BreadcrumbProps) {
     return (
       <nav
         aria-label="breadcrumb"
-        className="text-fg-muted mb-8 flex items-center gap-1.5 overflow-hidden font-mono text-[10px] uppercase tracking-[0.18em]"
+        className="text-fg-muted mb-8 flex items-center gap-1.5 overflow-hidden font-mono text-[10px] tracking-[0.18em] uppercase"
       >
         <Link
           href="/"
@@ -62,9 +65,7 @@ export default function Breadcrumb(props: BreadcrumbProps) {
                 {item.label}
               </Link>
             ) : (
-              <span className="text-fg-secondary min-w-0 truncate">
-                {item.label}
-              </span>
+              <span className="text-fg-secondary min-w-0 truncate">{item.label}</span>
             )}
           </span>
         ))}
@@ -72,13 +73,13 @@ export default function Breadcrumb(props: BreadcrumbProps) {
     );
   }
 
-  const { category, currentTitle } = props as BreadcrumbLegacyProps;
+  const { category, currentTitle, domain = "philosophy" } = props as BreadcrumbLegacyProps;
   const label = CATEGORY_LABELS[category] ?? category;
 
   return (
     <nav
       aria-label="breadcrumb"
-      className="text-fg-muted mb-8 flex items-center gap-1.5 overflow-hidden font-mono text-[10px] uppercase tracking-[0.18em]"
+      className="text-fg-muted mb-8 flex items-center gap-1.5 overflow-hidden font-mono text-[10px] tracking-[0.18em] uppercase"
     >
       <Link
         href="/"
@@ -90,7 +91,7 @@ export default function Breadcrumb(props: BreadcrumbProps) {
       {category && (
         <>
           <Link
-            href={`/${category}`}
+            href={`/${domain}/${category}`}
             className="hover:text-fg-secondary hover:decoration-accent-gold/30 shrink-0 transition-colors duration-200 hover:underline hover:underline-offset-4"
           >
             {label}

@@ -15,7 +15,7 @@ const NAV_ITEMS = [
 
 function getActiveKey(pathname: string): string {
   const segment = pathname.replace("/life-science/", "").replace("/life-science", "");
-  return segment || "";
+  return segment.split("/")[0] || "";
 }
 
 export default function LifeScienceNav() {

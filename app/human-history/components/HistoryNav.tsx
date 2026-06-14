@@ -20,7 +20,7 @@ const NAV_ITEMS = [
 
 function getActiveKey(pathname: string): string {
   const segment = pathname.replace("/human-history/", "").replace("/human-history", "");
-  return segment || "";
+  return segment.split("/")[0] || "";
 }
 
 export default function HistoryNav() {
