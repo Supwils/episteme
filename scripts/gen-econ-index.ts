@@ -16,6 +16,7 @@ import { THEORIES_DATA } from "../content/economics/theories-data.ts";
 import { ECONOMICS_CONCEPTS_DATA } from "../content/economics/concepts-data.ts";
 import { ECONOMICS_DEBATES_DATA } from "../content/economics/debates-data.ts";
 import { ECONOMICS_DIALOGUES_DATA } from "../content/economics/dialogues-data.ts";
+import { ECONOMICS_KB_DATA } from "../content/economics/knowledge-base-data.ts";
 
 const CONTENT = join(process.cwd(), "content", "economics");
 
@@ -96,6 +97,12 @@ async function main(): Promise<void> {
     field: str(fm.field),
     participants: arr(fm.participants),
   }));
+  const knowledgeBase = merge("knowledge-base", ECONOMICS_KB_DATA, (slug, fm) => ({
+    slug,
+    title: str(fm.title) || slug,
+    titleEn: str(fm.titleEn),
+    category: str(fm.category),
+  }));
 
   await emit("economists-data.ts", "ECONOMISTS_DATA", economists);
   await emit("schools-data.ts", "ECONOMICS_SCHOOLS_DATA", schools);
@@ -103,10 +110,12 @@ async function main(): Promise<void> {
   await emit("concepts-data.ts", "ECONOMICS_CONCEPTS_DATA", concepts);
   await emit("debates-data.ts", "ECONOMICS_DEBATES_DATA", debates);
   await emit("dialogues-data.ts", "ECONOMICS_DIALOGUES_DATA", dialogues);
+  await emit("knowledge-base-data.ts", "ECONOMICS_KB_DATA", knowledgeBase);
 
   console.log(
     `✅ economists ${economists.length}, schools ${schools.length}, theories ${theories.length}, ` +
-      `concepts ${concepts.length}, debates ${debates.length}, dialogues ${dialogues.length}`
+      `concepts ${concepts.length}, debates ${debates.length}, dialogues ${dialogues.length}, ` +
+      `knowledge-base ${knowledgeBase.length}`
   );
 }
 
