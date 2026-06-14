@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { useState, useRef, useEffect, useMemo, useCallback } from 'react';
-import type { GraphNode, GraphEdge } from '../data/types';
-import type { GraphRenderer, HighlightState, RenderConfig } from '@/lib/graph-engine';
-import type { ForceLayout } from '@/lib/graph-engine';
-import { buildAdjacency, getNodesWithinHops, findShortestPath } from '@/lib/graph-engine';
-import { searchNodes } from '@/lib/graph-engine';
-import type { GroupedSearchResult } from '../components/GraphFilterBar';
-import type { GraphA11yAnnouncerProps } from '../components/GraphA11yAnnouncer';
+import { useState, useRef, useEffect, useMemo, useCallback } from "react";
+import type { GraphNode, GraphEdge } from "../data/types";
+import type { GraphRenderer, HighlightState, RenderConfig } from "@/lib/graph-engine";
+import type { ForceLayout } from "@/lib/graph-engine";
+import { buildAdjacency, getNodesWithinHops, findShortestPath } from "@/lib/graph-engine";
+import { searchNodes } from "@/lib/graph-engine";
+import type { GroupedSearchResult } from "../components/GraphFilterBar";
+import type { GraphA11yAnnouncerProps } from "../components/GraphA11yAnnouncer";
 import {
   DOMAIN_COLORS,
   NODE_RADIUS,
@@ -19,16 +19,16 @@ import {
   NODE_TYPE_LABELS,
   computeNodeCounts,
   computeEdgeCounts,
-} from '../lib/constants';
+} from "../lib/constants";
 
 export function useIsMobile() {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
-    const mq = window.matchMedia('(max-width: 768px)');
+    const mq = window.matchMedia("(max-width: 768px)");
     setIsMobile(mq.matches);
     const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
-    mq.addEventListener('change', handler);
-    return () => mq.removeEventListener('change', handler);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
   }, []);
   return isMobile;
 }
@@ -48,9 +48,9 @@ export function useGraphState(nodes: GraphNode[], edges: GraphEdge[], isMobile: 
   const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null);
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
   const [activeDomains, setActiveDomains] = useState<Set<string>>(
-    () => new Set(['physics', 'history', 'philosophy', 'life-science']),
+    () => new Set(["physics", "history", "philosophy", "life-science"])
   );
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [zoom, setZoom] = useState(1);
   const [offsetX, setOffsetX] = useState(0);
   const [offsetY, setOffsetY] = useState(0);
@@ -66,17 +66,20 @@ export function useGraphState(nodes: GraphNode[], edges: GraphEdge[], isMobile: 
   const [pathEndId, setPathEndId] = useState<string | null>(null);
   const [pathResult, setPathResult] = useState<string[] | null>(null);
 
-  const renderConfig = useMemo<RenderConfig>(() => ({
-    nodeRadius: Object.fromEntries(
-      Object.entries(NODE_RADIUS).map(([k, v]) => [k, isMobile ? v * 1.5 : v]),
-    ),
-    domainColors: DOMAIN_COLORS,
-    edgeColor: EDGE_COLOR,
-    backgroundColor: BG_COLOR,
-    labelFont: LABEL_FONT,
-    labelColor: LABEL_COLOR,
-    highlightColor: HIGHLIGHT_COLOR,
-  }), [isMobile]);
+  const renderConfig = useMemo<RenderConfig>(
+    () => ({
+      nodeRadius: Object.fromEntries(
+        Object.entries(NODE_RADIUS).map(([k, v]) => [k, isMobile ? v * 1.5 : v])
+      ),
+      domainColors: DOMAIN_COLORS,
+      edgeColor: EDGE_COLOR,
+      backgroundColor: BG_COLOR,
+      labelFont: LABEL_FONT,
+      labelColor: LABEL_COLOR,
+      highlightColor: HIGHLIGHT_COLOR,
+    }),
+    [isMobile]
+  );
 
   const nodeMap = useMemo(() => {
     const map = new Map<string, GraphNode>();
@@ -90,11 +93,16 @@ export function useGraphState(nodes: GraphNode[], edges: GraphEdge[], isMobile: 
     return map;
   }, [nodes]);
 
-  const searchResults = useMemo<GroupedSearchResult[]>(() => {
+  // One search pass (top 30) feeds both the grouped result list (top 12) and
+  // the highlight id set — previously the same 960-node scan ran twice.
+  const searchRaw = useMemo(() => {
     if (!searchQuery.trim()) return [];
-    const raw = searchNodes(searchQuery, nodes, { maxResults: 12 });
+    return searchNodes(searchQuery, nodes, { maxResults: 30 });
+  }, [nodes, searchQuery]);
+
+  const searchResults = useMemo<GroupedSearchResult[]>(() => {
     const grouped = new Map<string, GroupedSearchResult>();
-    for (const result of raw) {
+    for (const result of searchRaw.slice(0, 12)) {
       const domain = result.node.domain;
       let group = grouped.get(domain);
       if (!group) {
@@ -102,29 +110,36 @@ export function useGraphState(nodes: GraphNode[], edges: GraphEdge[], isMobile: 
         grouped.set(domain, group);
       }
       group.items.push({
-        node: { id: result.node.id, label: result.node.label, domain: result.node.domain, type: result.node.type },
+        node: {
+          id: result.node.id,
+          label: result.node.label,
+          domain: result.node.domain,
+          type: result.node.type,
+        },
         score: result.score,
         matchField: result.matchField,
       });
     }
     return Array.from(grouped.values());
-  }, [nodes, searchQuery]);
+  }, [searchRaw]);
 
-  const searchMatchedIds = useMemo<Set<string>>(() => {
-    if (!searchQuery.trim()) return new Set();
-    const raw = searchNodes(searchQuery, nodes, { maxResults: 30 });
-    return new Set(raw.map((r) => r.node.id));
-  }, [nodes, searchQuery]);
+  const searchMatchedIds = useMemo<Set<string>>(
+    () => new Set(searchRaw.map((r) => r.node.id)),
+    [searchRaw]
+  );
 
   const adjacency = useMemo(() => buildAdjacency(edges), [edges]);
 
-  const handlePathFind = useCallback((startId: string, endId: string) => {
-    setPathStartId(startId);
-    setPathEndId(endId);
-    const path = findShortestPath(startId, endId, adjacency);
-    setPathResult(path);
-    setAnimatedPath(path ?? []);
-  }, [adjacency]);
+  const handlePathFind = useCallback(
+    (startId: string, endId: string) => {
+      setPathStartId(startId);
+      setPathEndId(endId);
+      const path = findShortestPath(startId, endId, adjacency);
+      setPathResult(path);
+      setAnimatedPath(path ?? []);
+    },
+    [adjacency]
+  );
 
   const handlePathClear = useCallback(() => {
     setPathStartId(null);
@@ -135,7 +150,7 @@ export function useGraphState(nodes: GraphNode[], edges: GraphEdge[], isMobile: 
 
   const filteredNodes = useMemo(
     () => nodes.filter((n) => activeDomains.has(n.domain)),
-    [nodes, activeDomains],
+    [nodes, activeDomains]
   );
 
   const filteredEdges = useMemo(
@@ -143,12 +158,14 @@ export function useGraphState(nodes: GraphNode[], edges: GraphEdge[], isMobile: 
       edges.filter((e) => {
         const sd = nodeDomainMap.get(e.source);
         const td = nodeDomainMap.get(e.target);
-        return sd !== undefined && td !== undefined && activeDomains.has(sd) && activeDomains.has(td);
+        return (
+          sd !== undefined && td !== undefined && activeDomains.has(sd) && activeDomains.has(td)
+        );
       }),
-    [edges, nodeDomainMap, activeDomains],
+    [edges, nodeDomainMap, activeDomains]
   );
 
-  const selectedNode = selectedNodeId ? nodeMap.get(selectedNodeId) ?? null : null;
+  const selectedNode = selectedNodeId ? (nodeMap.get(selectedNodeId) ?? null) : null;
 
   const connectedNodes = useMemo<GraphNode[]>(() => {
     if (!selectedNodeId) return [];
@@ -194,13 +211,13 @@ export function useGraphState(nodes: GraphNode[], edges: GraphEdge[], isMobile: 
     };
   }, [selectedNodeId, adjacency, edges, animatedPath]);
 
-  const nodeCounts = useMemo(
-    () => computeNodeCounts(nodes, activeDomains),
-    [nodes, activeDomains],
-  );
+  const nodeCounts = useMemo(() => computeNodeCounts(nodes, activeDomains), [nodes, activeDomains]);
 
   const edgeCounts = useMemo(() => computeEdgeCounts(edges), [edges]);
 
+  // Recompute once the force layout has populated positions (isLoading flips
+  // false after positionsRef is filled). With an empty-deps array this used to
+  // run only at mount on an empty Map, leaving Infinity bounds → NaN minimap.
   const worldBounds = useMemo(() => {
     let minX = Infinity;
     let maxX = -Infinity;
@@ -213,13 +230,19 @@ export function useGraphState(nodes: GraphNode[], edges: GraphEdge[], isMobile: 
       if (pos.y > maxY) maxY = pos.y;
     }
     const pad = 200;
+    // Positions not laid out yet — return a finite default so the minimap math
+    // (worldWidth = maxX - minX) never produces NaN.
+    if (!Number.isFinite(minX)) {
+      return { minX: -2000, maxX: 2000, minY: -2000, maxY: 2000 };
+    }
     return {
       minX: minX - pad,
       maxX: maxX + pad,
       minY: minY - pad,
       maxY: maxY + pad,
     };
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoading, nodes]);
 
   const viewport = useMemo(() => {
     const renderer = rendererRef.current;
@@ -227,7 +250,7 @@ export function useGraphState(nodes: GraphNode[], edges: GraphEdge[], isMobile: 
     const tl = renderer.screenToWorld(0, 0);
     const br = renderer.screenToWorld(
       containerRef.current?.clientWidth ?? 800,
-      containerRef.current?.clientHeight ?? 600,
+      containerRef.current?.clientHeight ?? 600
     );
     return { x: tl.x, y: tl.y, width: br.x - tl.x, height: br.y - tl.y };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -240,7 +263,7 @@ export function useGraphState(nodes: GraphNode[], edges: GraphEdge[], isMobile: 
         y: positionsRef.current.get(n.id)?.y ?? 0,
         domain: n.domain,
       })),
-    [filteredNodes],
+    [filteredNodes]
   );
 
   const hoveredNodeConnectedCount = useMemo(() => {
