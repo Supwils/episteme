@@ -5,8 +5,21 @@ export function indexLifeScience(
     ERAS?: ReadonlyArray<{ id: string; title: string; subtitle: string; description: string }>;
     SPECIES?: ReadonlyArray<{ id: string; name: string; era: string; description: string }>;
     SCIENTISTS?: ReadonlyArray<{ id: string; name: string; latin: string; field: string }>;
-    EXTINCTIONS?: ReadonlyArray<{ id: string; name: string; nameEn: string; dateDisplay: string; description: string }>;
+    EXTINCTIONS?: ReadonlyArray<{
+      id: string;
+      name: string;
+      nameEn: string;
+      dateDisplay: string;
+      description: string;
+    }>;
     LS_TIMELINE_EVENTS?: ReadonlyArray<{ id: string; event: string; era: string; detail: string }>;
+    LS_DIALOGUES?: ReadonlyArray<{
+      slug: string;
+      title: string;
+      participants: readonly string[];
+      question: string;
+      field: string;
+    }>;
   } | null
 ): SearchDocument[] {
   const docs: SearchDocument[] = [];
@@ -74,6 +87,19 @@ export function indexLifeScience(
       section: "life-science",
       url: `/life-science/timeline/${te.id}`,
       type: "timeline",
+    });
+  }
+
+  const dialogues = lifeScienceMod.LS_DIALOGUES ?? [];
+  for (const d of dialogues) {
+    docs.push({
+      id: `ls-dialogue-${d.slug}`,
+      title: d.title,
+      subtitle: d.question,
+      content: `${d.field} · ${d.participants.join("、")}`,
+      section: "life-science",
+      url: `/life-science/dialogues/${d.slug}`,
+      type: "dialogue",
     });
   }
 

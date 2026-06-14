@@ -10,8 +10,9 @@ const NAV_ITEMS = [
   { href: "/life-science/food-web", label: "食物网", num: "04", key: "food-web" },
   { href: "/life-science/extinctions", label: "大灭绝", num: "05", key: "extinctions" },
   { href: "/life-science/scientists", label: "科学家", num: "06", key: "scientists" },
-  { href: "/life-science/knowledge-base", label: "知识库", num: "07", key: "knowledge-base" },
-  { href: "/life-science/frontier", label: "前沿", num: "08", key: "frontier" },
+  { href: "/life-science/dialogues", label: "对话", num: "07", key: "dialogues" },
+  { href: "/life-science/knowledge-base", label: "知识库", num: "08", key: "knowledge-base" },
+  { href: "/life-science/frontier", label: "前沿", num: "09", key: "frontier" },
 ];
 
 function getActiveKey(pathname: string): string {

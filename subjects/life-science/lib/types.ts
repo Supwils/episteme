@@ -54,6 +54,17 @@ export type Scientist = {
   field: string;
 };
 
+export type LifeScienceDialogue = {
+  slug: string;
+  /** Scientist registry ids (resolve via getScientistById for display/links). */
+  participants: string[];
+  title: string;
+  question: string;
+  field: string;
+  tags: string[];
+  body: string;
+};
+
 export type PhylogeneticNode = {
   id: string;
   name: string;

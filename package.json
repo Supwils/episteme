@@ -18,6 +18,7 @@
     "gen-philo": "tsx scripts/gen-philo-index.ts",
     "gen-econ": "tsx scripts/gen-econ-index.ts",
     "gen-psych": "tsx scripts/gen-psych-index.ts",
+    "gen-life": "tsx scripts/gen-life-index.ts",
     "gen-frontier": "tsx scripts/gen-frontier-index.ts",
     "gen-domain": "tsx scripts/gen-domain-index.ts",
     "gen-math": "tsx scripts/gen-math-index.ts",

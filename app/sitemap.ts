@@ -6,6 +6,7 @@ import { getExperimentSlugs } from "@/lib/experiments";
 import { getConceptSlugs as getPhiloConceptSlugs } from "@/lib/concepts";
 import { getDialogueSlugs as getPhiloDialogueSlugs } from "@/lib/dialogues";
 import { getMathParadoxSlugs } from "@/subjects/mathematics/lib/paradoxes";
+import { getDialogueSlugs as getLifeDialogueSlugs } from "@/subjects/life-science/lib/dialogues";
 import { getAllArticles } from "@/lib/knowledge-base";
 import { universePhysicsKB } from "@/lib/universe-physics-kb";
 import { cosmologyKB } from "@/lib/cosmology-kb";
@@ -108,6 +109,7 @@ const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: "/life-science/scientists", priority: 0.7 },
   { path: "/life-science/extinctions", priority: 0.7 },
   { path: "/life-science/timeline", priority: 0.7 },
+  { path: "/life-science/dialogues", priority: 0.7 },
   // Mathematics
   { path: "/mathematics", priority: 0.8 },
   { path: "/mathematics/mathematicians", priority: 0.7 },
@@ -282,6 +284,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const mathParadoxEntries: MetadataRoute.Sitemap = getMathParadoxSlugs().map((slug) => ({
     url: `${SITE_URL}/mathematics/paradoxes/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  const lifeDialogueEntries: MetadataRoute.Sitemap = getLifeDialogueSlugs().map((slug) => ({
+    url: `${SITE_URL}/life-science/dialogues/${slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
@@ -462,6 +471,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...mathConceptEntries,
     ...mathParadoxEntries,
     ...mathDialogueEntries,
+    ...lifeDialogueEntries,
     ...economistEntries,
     ...econTheoryEntries,
     ...econConceptEntries,
