@@ -1,8 +1,9 @@
 /**
  * Builds the authoritative set of valid app routes from the filesystem +
  * content data — the source of truth for route-integrity checks (cross-domain
- * refs and search-index URLs). Pure node:fs, reads from process.cwd(); safe to
- * import from both tsx scripts and vitest (never from client code).
+ * refs and search-index URLs). Reads from process.cwd() via node:fs and imports
+ * the life-science registries; consumed by the vitest route-integrity test
+ * (uses @/ aliases, so run under vitest — never import from client code).
  */
 import { readdirSync, readFileSync, existsSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
