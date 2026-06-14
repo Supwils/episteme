@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
 import { KNOWLEDGE_DOMAINS } from "../lib/new-domains.ts";
+import { writeFormattedTs } from "./format-ts";
 
 /**
  * Mirrors the section content of engine-driven domains (computer-science,
@@ -70,6 +71,10 @@ ${rows}
 `;
 }
 
-const entries = collect();
-fs.writeFileSync(OUT, serialize(entries), "utf-8");
-console.log(`Wrote ${entries.length} domain entries to ${path.relative(process.cwd(), OUT)}`);
+async function main(): Promise<void> {
+  const entries = collect();
+  await writeFormattedTs(OUT, serialize(entries));
+  console.log(`Wrote ${entries.length} domain entries to ${path.relative(process.cwd(), OUT)}`);
+}
+
+void main();

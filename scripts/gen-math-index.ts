@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
+import { writeFormattedTs } from "./format-ts";
 
 /**
  * Mathematics content is filesystem-driven (no per-subtype data module), so it
@@ -69,6 +70,12 @@ ${rows}
 `;
 }
 
-const entries = collect();
-fs.writeFileSync(OUT, serialize(entries), "utf-8");
-console.log(`Wrote ${entries.length} mathematics entries to ${path.relative(process.cwd(), OUT)}`);
+async function main(): Promise<void> {
+  const entries = collect();
+  await writeFormattedTs(OUT, serialize(entries));
+  console.log(
+    `Wrote ${entries.length} mathematics entries to ${path.relative(process.cwd(), OUT)}`
+  );
+}
+
+void main();

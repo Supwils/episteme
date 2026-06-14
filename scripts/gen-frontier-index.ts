@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
 import { FRONTIER_DOMAINS } from "../lib/frontier.ts";
+import { writeFormattedTs } from "./format-ts";
 
 /**
  * The global search index runs in the client bundle and cannot read the
@@ -67,6 +68,10 @@ ${rows}
 `;
 }
 
-const entries = collect();
-fs.writeFileSync(OUT, serialize(entries), "utf-8");
-console.log(`Wrote ${entries.length} frontier entries to ${path.relative(process.cwd(), OUT)}`);
+async function main(): Promise<void> {
+  const entries = collect();
+  await writeFormattedTs(OUT, serialize(entries));
+  console.log(`Wrote ${entries.length} frontier entries to ${path.relative(process.cwd(), OUT)}`);
+}
+
+void main();

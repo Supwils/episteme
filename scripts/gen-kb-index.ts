@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
 import { COSMOLOGY_KB_DATA } from "../content/cosmology/knowledge-base-data.ts";
 import { UNIVERSE_PHYSICS_KB_DATA } from "../content/universe-physics/knowledge-base-data.ts";
+import { writeFormattedTs } from "./format-ts";
 
 /**
  * Knowledge-base search data mirrors the .md files for the client search index.
@@ -130,13 +131,15 @@ ${rows}
 `;
 }
 
-fs.writeFileSync(
-  path.join(CONTENT, "cosmology", "knowledge-base-data.ts"),
-  mergeCosmology(),
-  "utf-8"
-);
-fs.writeFileSync(
-  path.join(CONTENT, "universe-physics", "knowledge-base-data.ts"),
-  mergePhysics(),
-  "utf-8"
-);
+async function main(): Promise<void> {
+  await writeFormattedTs(
+    path.join(CONTENT, "cosmology", "knowledge-base-data.ts"),
+    mergeCosmology()
+  );
+  await writeFormattedTs(
+    path.join(CONTENT, "universe-physics", "knowledge-base-data.ts"),
+    mergePhysics()
+  );
+}
+
+void main();
