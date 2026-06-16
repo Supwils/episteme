@@ -24,7 +24,7 @@ function walk(dir: string, base = ""): string[] {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
     const rel = base ? `${base}/${e.name}` : e.name;
     if (e.isDirectory()) out.push(...walk(path.join(dir, e.name), rel));
-    else if (e.name.endsWith(".md")) out.push(rel);
+    else if (e.name.endsWith(".md") && !e.name.endsWith(".narration.md")) out.push(rel);
   }
   return out;
 }

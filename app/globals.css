@@ -672,3 +672,35 @@
     --page-padding: 6rem;
   }
 }
+
+/* Category dropdown nav (see NavDropdown.tsx). The global
+   prefers-reduced-motion block above zeroes these automatically. */
+@keyframes navDropdownIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -6px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+.nav-dropdown-panel {
+  animation: navDropdownIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes navItemIn {
+  from {
+    opacity: 0;
+    transform: translateX(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.nav-dropdown-item {
+  animation: navItemIn 0.25s both;
+}

@@ -2,33 +2,29 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { HOME_LINK, NAV_GROUPS } from "./nav-data";
+import { NavDropdown } from "./NavDropdown";
 
-interface NavLink {
-  href: string;
-  label: string;
-}
-
-export function DesktopNav({ links }: { links: NavLink[] }) {
+export function DesktopNav() {
   const pathname = usePathname();
-
-  function isActive(href: string) {
-    if (href === "/") return pathname === "/";
-    return pathname.startsWith(href);
-  }
+  const homeActive = pathname === "/";
 
   return (
-    <ul className="m-0 hidden list-none items-center gap-4 p-0 whitespace-nowrap xl:flex">
-      {links.map((link) => (
-        <li key={link.href}>
-          <Link
-            href={link.href}
-            aria-current={isActive(link.href) ? "page" : undefined}
-            className={`nav-link-item ${isActive(link.href) ? "nav-link-active" : ""}`}
-          >
-            {link.label}
-          </Link>
-        </li>
+    <div className="hidden items-center gap-1 lg:flex">
+      <Link
+        href={HOME_LINK.href}
+        aria-current={homeActive ? "page" : undefined}
+        className={`rounded-md px-2.5 py-1.5 text-sm transition-colors ${
+          homeActive
+            ? "text-[var(--accent-gold,#c8a45a)]"
+            : "text-fg-secondary hover:text-fg-primary"
+        }`}
+      >
+        {HOME_LINK.label}
+      </Link>
+      {NAV_GROUPS.map((group) => (
+        <NavDropdown key={group.label} group={group} />
       ))}
-    </ul>
+    </div>
   );
 }

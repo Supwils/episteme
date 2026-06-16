@@ -33,6 +33,7 @@ function collect(): Entry[] {
     if (!fs.existsSync(dir)) continue;
     for (const file of fs.readdirSync(dir).sort()) {
       if (!file.endsWith(".md")) continue;
+      if (file.endsWith(".narration.md")) continue; // spoken companion, not an article
       const raw = fs.readFileSync(path.join(dir, file), "utf-8");
       let data: Record<string, unknown> = {};
       try {

@@ -19,7 +19,9 @@ const CONTENT_ROOT = path.join(ROOT, "content");
 const AUDIO_DIR = path.join(ROOT, "public", "audio", "narration");
 const MANIFEST_PATH = path.join(ROOT, "lib", "narration-manifest.json");
 
-const VOICE_ID = process.env.ELEVENLABS_VOICE_ID || "zOU486alQL1w83ooSHNz"; // wilson (zh)
+// Adrian — "Chinese Mandarin Narration", standard-accent, purpose-built for
+// narration; usable directly from the shared voice library (no account add).
+const VOICE_ID = process.env.ELEVENLABS_VOICE_ID || "agczkAUlHLowaNnL72Cc";
 const MODEL_ID = process.env.ELEVENLABS_MODEL_ID || "eleven_multilingual_v2";
 const OUTPUT_FORMAT = "mp3_44100_128";
 

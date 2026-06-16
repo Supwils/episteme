@@ -1,26 +1,74 @@
 {
   "computer-science/concepts/abstraction": {
-    "hash": "82f65701975f18f6",
-    "file": "/audio/narration/82f65701975f18f6.mp3",
+    "hash": "bad7c71d840e3146",
+    "file": "/audio/narration/bad7c71d840e3146.mp3",
     "chars": 649,
-    "voiceId": "zOU486alQL1w83ooSHNz",
+    "voiceId": "agczkAUlHLowaNnL72Cc",
     "model": "eleven_multilingual_v2",
-    "generatedAt": "2026-06-16T12:22:29.585Z"
+    "generatedAt": "2026-06-16T12:54:21.807Z"
   },
   "computer-science/concepts/dns": {
-    "hash": "5fb6cb4ec7c1dcbb",
-    "file": "/audio/narration/5fb6cb4ec7c1dcbb.mp3",
+    "hash": "8fa5b9553d522d5b",
+    "file": "/audio/narration/8fa5b9553d522d5b.mp3",
     "chars": 625,
-    "voiceId": "zOU486alQL1w83ooSHNz",
+    "voiceId": "agczkAUlHLowaNnL72Cc",
     "model": "eleven_multilingual_v2",
-    "generatedAt": "2026-06-16T12:22:46.488Z"
+    "generatedAt": "2026-06-16T12:54:47.327Z"
+  },
+  "computer-science/concepts/encryption-basics": {
+    "hash": "c0e68c9f4ef21311",
+    "file": "/audio/narration/c0e68c9f4ef21311.mp3",
+    "chars": 495,
+    "voiceId": "agczkAUlHLowaNnL72Cc",
+    "model": "eleven_multilingual_v2",
+    "generatedAt": "2026-06-16T12:55:08.124Z"
+  },
+  "computer-science/concepts/neural-networks-concept": {
+    "hash": "078bb3b3d7966905",
+    "file": "/audio/narration/078bb3b3d7966905.mp3",
+    "chars": 504,
+    "voiceId": "agczkAUlHLowaNnL72Cc",
+    "model": "eleven_multilingual_v2",
+    "generatedAt": "2026-06-16T12:55:28.781Z"
   },
   "computer-science/pioneers/alan-turing": {
-    "hash": "db7d0281f6b3c458",
-    "file": "/audio/narration/db7d0281f6b3c458.mp3",
+    "hash": "bd2856a1e6d2d3fb",
+    "file": "/audio/narration/bd2856a1e6d2d3fb.mp3",
     "chars": 669,
-    "voiceId": "zOU486alQL1w83ooSHNz",
+    "voiceId": "agczkAUlHLowaNnL72Cc",
     "model": "eleven_multilingual_v2",
-    "generatedAt": "2026-06-16T12:23:04.568Z"
+    "generatedAt": "2026-06-16T12:55:56.607Z"
+  },
+  "computer-science/pioneers/claude-shannon": {
+    "hash": "7a0dcf911c287441",
+    "file": "/audio/narration/7a0dcf911c287441.mp3",
+    "chars": 509,
+    "voiceId": "agczkAUlHLowaNnL72Cc",
+    "model": "eleven_multilingual_v2",
+    "generatedAt": "2026-06-16T12:56:18.180Z"
+  },
+  "psychology/experiments/libet-free-will": {
+    "hash": "1a2f5f92bb6a60fc",
+    "file": "/audio/narration/1a2f5f92bb6a60fc.mp3",
+    "chars": 543,
+    "voiceId": "agczkAUlHLowaNnL72Cc",
+    "model": "eleven_multilingual_v2",
+    "generatedAt": "2026-06-16T12:56:40.579Z"
+  },
+  "psychology/experiments/marshmallow-test": {
+    "hash": "97b0b67524fbfa25",
+    "file": "/audio/narration/97b0b67524fbfa25.mp3",
+    "chars": 462,
+    "voiceId": "agczkAUlHLowaNnL72Cc",
+    "model": "eleven_multilingual_v2",
+    "generatedAt": "2026-06-16T12:57:00.173Z"
+  },
+  "psychology/experiments/milgram-obedience": {
+    "hash": "60fb413f9f2ba8ea",
+    "file": "/audio/narration/60fb413f9f2ba8ea.mp3",
+    "chars": 559,
+    "voiceId": "agczkAUlHLowaNnL72Cc",
+    "model": "eleven_multilingual_v2",
+    "generatedAt": "2026-06-16T12:57:23.515Z"
   }
 }

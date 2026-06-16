@@ -30,6 +30,7 @@ function frontmatter(dir: string): Map<string, Record<string, unknown>> {
   const map = new Map<string, Record<string, unknown>>();
   for (const f of readdirSync(join(CONTENT, dir))) {
     if (!f.endsWith(".mdx") && !f.endsWith(".md")) continue;
+    if (f.endsWith(".narration.md")) continue; // spoken companion, not an article
     map.set(f.replace(/\.mdx?$/, ""), matter(readFileSync(join(CONTENT, dir, f), "utf8")).data);
   }
   return map;

@@ -9,6 +9,8 @@ import { FIELD_COLORS } from "@/subjects/psychology/lib/constants";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { ArticleLayout } from "@/components/ArticleLayout";
 import { TableOfContents } from "@/components/TableOfContents";
+import { getNarration } from "@/lib/narration";
+import { NarrationButton } from "@/components/narration/NarrationButton";
 
 export function generateStaticParams() {
   return getExperimentSlugs().map((slug) => ({ slug }));
@@ -41,6 +43,7 @@ export default async function ExperimentDetailPage({
   if (!experiment) notFound();
 
   const fieldColor = FIELD_COLORS[experiment.field] || "#6b8fd6";
+  const narration = getNarration("psychology", "experiments", slug);
   const allExperiments = getAllExperiments();
   const related = allExperiments
     .filter(
@@ -119,6 +122,15 @@ export default async function ExperimentDetailPage({
         </>
       }
     >
+      {narration && (
+        <NarrationButton
+          id={`psychology/experiments/${slug}`}
+          title={narration.title}
+          script={narration.script}
+          audioUrl={narration.audioUrl}
+          accent={fieldColor}
+        />
+      )}
       <MarkdownRenderer content={experiment.content} accentColor={fieldColor} />
     </ArticleLayout>
   );
