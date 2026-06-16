@@ -354,6 +354,80 @@ function checkFrontier(): { errors: number; warnings: number } {
   return { errors, warnings };
 }
 
+// Canonical citation headings are 参考文献 (sources) and 延伸阅读 (further
+// reading); these are the off-spec variants to fold back in.
+const NONSTANDARD_CITATION_HEADING = /^#{2,4}[ \t]+(references?|推荐阅读(?:书目)?)[ \t]*$/i;
+
+/** Every prose article (.md + .mdx) under content/, for cross-cutting checks. */
+function findAllContentFiles(dir: string): string[] {
+  const results: string[] = [];
+  if (!fs.existsSync(dir)) return results;
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      // history renders from data/assets, not articles — skip those payloads.
+      if (entry.name === "assets" || entry.name === "lib") continue;
+      results.push(...findAllContentFiles(fullPath));
+    } else if (entry.name.endsWith(".md") || entry.name.endsWith(".mdx")) {
+      results.push(fullPath);
+    }
+  }
+  return results;
+}
+
+/**
+ * Cross-cutting prose hygiene over every article in every domain (.md + .mdx) —
+ * the narrative/citation bar from docs/叙事与引用规范.md that the per-domain
+ * frontmatter pass cannot see (it only scans the 7 .mdx domains). Warnings only:
+ * these guide content rework, they do not gate the build.
+ */
+function checkProseHygiene(): { errors: number; warnings: number } {
+  let warnings = 0;
+  console.log(`\n${"=".repeat(60)}`);
+  console.log(`Prose & Citation Hygiene`);
+  console.log(`${"=".repeat(60)}`);
+
+  let nonStandardHeading = 0;
+  let squashed = 0;
+  for (const file of findAllContentFiles(CONTENT_ROOT)) {
+    let body: string;
+    try {
+      body = matter(fs.readFileSync(file, "utf-8")).content;
+    } catch {
+      continue; // frontmatter parse errors are surfaced by the per-domain pass
+    }
+    const rel = path.relative(process.cwd(), file);
+
+    // 1) Citation section must use the canonical 参考文献 / 延伸阅读 heading.
+    const offSpec = body.split("\n").find((l) => NONSTANDARD_CITATION_HEADING.test(l));
+    if (offSpec) {
+      console.log(
+        `  \x1b[33mWARN\x1b[0m ${rel}: non-standard citation heading "${offSpec.replace(/^#+\s*/, "").trim()}" — use 参考文献 or 延伸阅读`
+      );
+      warnings++;
+      nonStandardHeading++;
+    }
+
+    // 2) "。 " (period + space mid-line) is the sentence-cramming artifact that
+    //    hurts readability (see economics early batch). Flag dense cases.
+    const runOns = body.match(/。[ 　]+(?=\S)/g);
+    if (runOns && runOns.length >= 3) {
+      console.log(
+        `  \x1b[33mWARN\x1b[0m ${rel}: ${runOns.length} run-on sentences crammed on one line (split for readability)`
+      );
+      warnings++;
+      squashed++;
+    }
+  }
+
+  if (warnings === 0) {
+    console.log(`  \x1b[32mAll prose passes citation/readability hygiene.\x1b[0m`);
+  } else {
+    console.log(`  ${nonStandardHeading} off-spec heading(s), ${squashed} run-on file(s).`);
+  }
+  return { errors: 0, warnings };
+}
+
 function main() {
   const domains: readonly string[] = MDX_DOMAINS;
 
@@ -430,6 +504,10 @@ function main() {
   const frontier = checkFrontier();
   errorCount += frontier.errors;
   warningCount += frontier.warnings;
+
+  const hygiene = checkProseHygiene();
+  errorCount += hygiene.errors;
+  warningCount += hygiene.warnings;
 
   if (errorCount > 0) {
     console.log(`\n\x1b[31mContent check FAILED with ${errorCount} error(s).\x1b[0m`);
