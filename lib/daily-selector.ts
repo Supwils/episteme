@@ -634,6 +634,21 @@ const POLITICAL_SCIENCE_FACTS: readonly DailySelectedFact[] = [
   },
 ];
 
+/**
+ * Pick one "on this day" event: prefer events matching today's date, else fall
+ * back to the full list, then project to the display shape. Seeded so a given
+ * (date, seedOffset) always yields the same pick.
+ */
+function pickDailyEvent<T extends DailySelectedEvent>(
+  todayMatches: readonly T[],
+  fullList: readonly T[],
+  seed: number
+): DailySelectedEvent {
+  const pool = todayMatches.length > 0 ? todayMatches : fullList;
+  const { title, description, year, url } = seededSelect(pool, seed);
+  return { title, description, year, url };
+}
+
 export function getDailySelected(date?: Date, seedOffset = 0): DailySelected {
   const now = date ?? new Date();
   const seed = dateSeed(now) + seedOffset * 7919;
@@ -648,60 +663,11 @@ export function getDailySelected(date?: Date, seedOffset = 0): DailySelected {
   const psychologyEvents = PSYCHOLOGY_TODAY.filter((e) => e.month === month && e.day === day);
   const onThisDayEvents = ON_THIS_DAY.filter((e) => e.month === month && e.day === day);
 
-  const physics: DailySelectedEvent =
-    physicsEvents.length > 0
-      ? (() => {
-          const e = seededSelect(physicsEvents, seed);
-          return { title: e.title, description: e.description, year: e.year, url: e.url };
-        })()
-      : (() => {
-          const e = seededSelect(PHYSICS_TODAY, seed);
-          return { title: e.title, description: e.description, year: e.year, url: e.url };
-        })();
-
-  const history: DailySelectedEvent =
-    historyEvents.length > 0
-      ? (() => {
-          const e = seededSelect(historyEvents, seed + 1);
-          return { title: e.title, description: e.description, year: e.year, url: e.url };
-        })()
-      : (() => {
-          const e = seededSelect(HISTORY_TODAY, seed + 1);
-          return { title: e.title, description: e.description, year: e.year, url: e.url };
-        })();
-
-  const philosophy: DailySelectedEvent =
-    philosophyEvents.length > 0
-      ? (() => {
-          const e = seededSelect(philosophyEvents, seed + 2);
-          return { title: e.title, description: e.description, year: e.year, url: e.url };
-        })()
-      : (() => {
-          const e = seededSelect(PHILOSOPHY_TODAY, seed + 2);
-          return { title: e.title, description: e.description, year: e.year, url: e.url };
-        })();
-
-  const economics: DailySelectedEvent =
-    economicsEvents.length > 0
-      ? (() => {
-          const e = seededSelect(economicsEvents, seed + 8);
-          return { title: e.title, description: e.description, year: e.year, url: e.url };
-        })()
-      : (() => {
-          const e = seededSelect(ECONOMICS_TODAY, seed + 8);
-          return { title: e.title, description: e.description, year: e.year, url: e.url };
-        })();
-
-  const psychology: DailySelectedEvent =
-    psychologyEvents.length > 0
-      ? (() => {
-          const e = seededSelect(psychologyEvents, seed + 9);
-          return { title: e.title, description: e.description, year: e.year, url: e.url };
-        })()
-      : (() => {
-          const e = seededSelect(PSYCHOLOGY_TODAY, seed + 9);
-          return { title: e.title, description: e.description, year: e.year, url: e.url };
-        })();
+  const physics = pickDailyEvent(physicsEvents, PHYSICS_TODAY, seed);
+  const history = pickDailyEvent(historyEvents, HISTORY_TODAY, seed + 1);
+  const philosophy = pickDailyEvent(philosophyEvents, PHILOSOPHY_TODAY, seed + 2);
+  const economics = pickDailyEvent(economicsEvents, ECONOMICS_TODAY, seed + 8);
+  const psychology = pickDailyEvent(psychologyEvents, PSYCHOLOGY_TODAY, seed + 9);
 
   const mathematics = seededSelect(MATH_FACTS, seed + 3);
   const lifeScience = seededSelect(LIFE_SCIENCE_FACTS, seed + 4);

@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
-import matter from "gray-matter";
 import { getDomainContentDir } from "./content-paths";
+import { safeParseMatter, firstHeading, stripLeadingHeading } from "./content-utils";
 
 export interface DialogueSummary {
   slug: string;
@@ -36,23 +36,6 @@ function parseParticipants(raw: unknown): string[] {
           : ""
     )
     .filter(Boolean);
-}
-
-function firstHeading(content: string): string | null {
-  const match = content.match(/^#\s+(.+)$/m);
-  return match ? match[1]!.trim() : null;
-}
-
-function stripLeadingHeading(content: string): string {
-  return content.replace(/^\s*#\s+.+\n+/, "");
-}
-
-function safeParseMatter(raw: string): { data: Record<string, unknown>; content: string } {
-  try {
-    return matter(raw);
-  } catch {
-    return { data: {}, content: raw };
-  }
 }
 
 export function createDialogues(domain: string): DialogueCollection {

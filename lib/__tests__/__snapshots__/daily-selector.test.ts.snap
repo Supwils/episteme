@@ -1,0 +1,465 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`getDailySelected (characterization) > is stable for 2026-01-15 offset 0 1`] = `
+{
+  "computerScience": {
+    "description": "Berners-Lee 1989 年用 HTTP/HTML/URL 三件套，把互联网变成了人人可读写的信息空间。",
+    "title": "万维网",
+    "url": "/computer-science/pioneers/tim-berners-lee",
+  },
+  "cosmology": {
+    "description": "星系构成纤维状结构和巨大空洞，形成宇宙网。",
+    "title": "宇宙大尺度结构",
+    "url": "/cosmology",
+  },
+  "curiosity": {
+    "detail": "菲利帕·富特（Philippa Foot）1967 年在一篇关于堕胎与双重效应原则的论文里举了这个例子。她大概没料到，半个世纪后它会成为自动驾驶伦理的标准考题。",
+    "title": "「电车难题」是一位女哲学家在讨论堕胎时顺手提出的",
+    "url": "/philosophy/experiments",
+  },
+  "date": "2026-01-15",
+  "economics": {
+    "description": "IMF正式成立，监督国际货币体系。",
+    "title": "国际货币基金组织成立",
+    "url": "/economics",
+    "year": 1947,
+  },
+  "fact": "1月是罗马神话中双面神雅努斯的月份，象征回顾过去与展望未来",
+  "history": {
+    "description": "德国共产党领导人被杀",
+    "title": "罗莎·卢森堡遇害",
+    "url": "/human-history/timeline",
+    "year": 1919,
+  },
+  "lifeScience": {
+    "description": "人体内寄居着约38万亿微生物，它们影响免疫、消化甚至情绪和行为。",
+    "title": "微生物组",
+    "url": "/life-science",
+  },
+  "mathematics": {
+    "description": "曼德博集合展示了简单迭代规则如何产生无限复杂的图案，揭示了混沌中的秩序。",
+    "title": "分形几何",
+    "url": "/mathematics",
+  },
+  "onThisDay": [
+    {
+      "day": 15,
+      "description": "免费在线百科全书诞生",
+      "domain": "人类历史",
+      "domainColor": "#f59e0b",
+      "month": 1,
+      "title": "维基百科上线",
+      "url": "/human-history/timeline",
+      "year": 2001,
+    },
+  ],
+  "philosophy": {
+    "description": "美国民权运动领袖诞生",
+    "title": "马丁·路德·金出生",
+    "url": "/philosophy/timeline",
+    "year": 1929,
+  },
+  "physics": {
+    "description": "苏联发射了第一颗人造地球卫星，开启了太空时代。",
+    "title": "斯普特尼克1号发射",
+    "url": "/universe-physics",
+    "year": 1957,
+  },
+  "politicalScience": {
+    "description": "V-Dem 等指标显示，21 世纪以来生活在专制化进程中的人口显著上升，民主并非单向前进。",
+    "title": "民主衰退",
+    "url": "/political-science/frontier/democratic-backsliding",
+  },
+  "psychology": {
+    "description": "所罗门·阿希进行经典的从众效应实验。",
+    "title": "阿希从众实验",
+    "url": "/psychology/experiments/asch-conformity-1951",
+    "year": 1951,
+  },
+  "question": "人工智能能真正理解美吗？",
+  "seed": 20260115,
+}
+`;
+
+exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 0 1`] = `
+{
+  "computerScience": {
+    "description": "一个函数调用自身——用有限的代码描述无限的结构，是计算思维最优雅的核心之一。",
+    "title": "递归",
+    "url": "/computer-science/concepts/recursion",
+  },
+  "cosmology": {
+    "description": "氢和氦在大爆炸中形成，其他元素在恒星内部和超新星爆发中合成。",
+    "title": "宇宙的元素起源",
+    "url": "/cosmology",
+  },
+  "curiosity": {
+    "detail": "1961 年，汉娜·阿伦特作为《纽约客》记者旁听了纳粹战犯艾希曼的审判。她震惊地发现，这个负责将数百万人送进毒气室的人，既不疯狂也不残忍，只是一个拒绝独立思考、只会执行命令的平庸小官员。她把这种现象称为「恶的平庸性」。",
+    "title": "「平庸之恶」——大屠杀不是因为怪物，而是因为一个不动脑子的普通官僚",
+    "url": "/philosophy",
+  },
+  "date": "2026-03-14",
+  "economics": {
+    "description": "约翰·梅纳德·凯恩斯发表《就业、利息和货币通论》。",
+    "title": "凯恩斯发表《通论》",
+    "url": "/economics/economists/john-maynard-keynes",
+    "year": 1936,
+  },
+  "fact": "春分通常在3月20日或21日，全球昼夜几乎等长",
+  "history": {
+    "description": "物理学家阿尔伯特·爱因斯坦诞生",
+    "title": "爱因斯坦出生",
+    "url": "/human-history/timeline",
+    "year": 1879,
+  },
+  "lifeScience": {
+    "description": "米勒-尤里实验证明，原始地球条件下无机物可以自发形成氨基酸等有机分子。",
+    "title": "生命的化学起源",
+    "url": "/life-science",
+  },
+  "mathematics": {
+    "description": "V - E + F = 2 揭示了多面体的顶点、边和面之间的基本关系。",
+    "title": "欧拉公式",
+    "url": "/mathematics",
+  },
+  "onThisDay": [
+    {
+      "day": 14,
+      "description": "理论物理学家斯蒂芬·霍金辞世",
+      "domain": "宇宙物理",
+      "domainColor": "#6366f1",
+      "month": 3,
+      "title": "霍金去世",
+      "url": "/universe-physics",
+      "year": 2018,
+    },
+  ],
+  "philosophy": {
+    "description": "相对论创立者，改变了人类对时空的哲学理解",
+    "title": "爱因斯坦出生",
+    "url": "/philosophy/timeline",
+    "year": 1879,
+  },
+  "physics": {
+    "description": "阿尔伯特·爱因斯坦出生于德国乌尔姆，后来提出了狭义和广义相对论。",
+    "title": "爱因斯坦出生",
+    "url": "/universe-physics",
+    "year": 1879,
+  },
+  "politicalScience": {
+    "description": "在没有世界政府的情况下，联合国、WTO、IMF 等机制如何协调一个相互依存却主权林立的世界？",
+    "title": "全球治理",
+    "url": "/political-science/international-relations/global-governance",
+  },
+  "psychology": {
+    "description": "丹尼尔·卡尼曼因行为经济学研究获得诺贝尔经济学奖。",
+    "title": "卡尼曼获诺贝尔奖",
+    "url": "/psychology/theorists/daniel-kahneman",
+    "year": 2002,
+  },
+  "question": "如果时间可以倒流，你最想见证哪个历史时刻？",
+  "seed": 20260314,
+}
+`;
+
+exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 1 1`] = `
+{
+  "computerScience": {
+    "description": "Berners-Lee 1989 年用 HTTP/HTML/URL 三件套，把互联网变成了人人可读写的信息空间。",
+    "title": "万维网",
+    "url": "/computer-science/pioneers/tim-berners-lee",
+  },
+  "cosmology": {
+    "description": "暗物质晕是星系形成的骨架，普通物质在引力作用下聚集形成恒星和星系。",
+    "title": "星系的形成",
+    "url": "/cosmology",
+  },
+  "curiosity": {
+    "detail": "亚当·斯密在《国富论》里提出了「钻石-水悖论」：水维持生命，钻石几乎无用，但价格却完全相反。斯密用劳动价值论解释，却遗漏了关键：稀缺性与边际效用。这个悖论直到一百年后才被奥地利经济学派真正解决。",
+    "title": "水比钻石有用，为什么钻石更贵？亚当·斯密提出这个悖论却答错了答案",
+    "url": "/economics",
+  },
+  "date": "2026-03-14",
+  "economics": {
+    "description": "卡尔·马克思的《资本论》第一卷在汉堡出版。",
+    "title": "《资本论》第一卷出版",
+    "url": "/economics/economists/karl-marx",
+    "year": 1867,
+  },
+  "fact": "3月的英文March来自罗马战神马尔斯",
+  "history": {
+    "description": "物理学家阿尔伯特·爱因斯坦诞生",
+    "title": "爱因斯坦出生",
+    "url": "/human-history/timeline",
+    "year": 1879,
+  },
+  "lifeScience": {
+    "description": "干细胞可以分化为人体200多种细胞类型中的任何一种，是再生医学的希望。",
+    "title": "干细胞的潜力",
+    "url": "/life-science",
+  },
+  "mathematics": {
+    "description": "纳什均衡揭示了在非合作博弈中，每个参与者都选择最优策略时的状态。",
+    "title": "博弈论",
+    "url": "/mathematics",
+  },
+  "onThisDay": [
+    {
+      "day": 14,
+      "description": "理论物理学家斯蒂芬·霍金辞世",
+      "domain": "宇宙物理",
+      "domainColor": "#6366f1",
+      "month": 3,
+      "title": "霍金去世",
+      "url": "/universe-physics",
+      "year": 2018,
+    },
+  ],
+  "philosophy": {
+    "description": "相对论创立者，改变了人类对时空的哲学理解",
+    "title": "爱因斯坦出生",
+    "url": "/philosophy/timeline",
+    "year": 1879,
+  },
+  "physics": {
+    "description": "斯蒂芬·霍金在剑桥去世，享年76岁。他关于黑洞和宇宙起源的研究改变了现代物理学。",
+    "title": "霍金逝世",
+    "url": "/universe-physics",
+    "year": 2018,
+  },
+  "politicalScience": {
+    "description": "V-Dem 等指标显示，21 世纪以来生活在专制化进程中的人口显著上升，民主并非单向前进。",
+    "title": "民主衰退",
+    "url": "/political-science/frontier/democratic-backsliding",
+  },
+  "psychology": {
+    "description": "米哈里·契克森米哈赖的心流理论被广泛接受。",
+    "title": "契克森米哈赖心流理论普及",
+    "url": "/psychology/theorists/mihaly-csikszentmihalyi",
+    "year": 2000,
+  },
+  "question": "人类探索太空的意义是什么？",
+  "seed": 20268233,
+}
+`;
+
+exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 0 1`] = `
+{
+  "computerScience": {
+    "description": "香农 1948 年用「比特」量化了信息，证明了任何信道都有不可逾越的容量上限。",
+    "title": "香农信息论",
+    "url": "/computer-science/pioneers/claude-shannon",
+  },
+  "cosmology": {
+    "description": "约占宇宙总能量的68%，是推动宇宙加速膨胀的神秘力量。",
+    "title": "暗能量",
+    "url": "/cosmology",
+  },
+  "curiosity": {
+    "detail": "哈勃定律告诉我们，距离越远，退行速度越快。红移大于约 1.5 的星系，其退行速度已超过光速——但这不违反相对论，因为不是星系在空间中移动，而是它们之间的空间本身在扩张。那些星系发出的光永远无法到达我们。",
+    "title": "此刻有无数星系正在以超过光速的速度「远离」我们，我们永远看不到它们",
+    "url": "/cosmology",
+  },
+  "date": "2026-06-16",
+  "economics": {
+    "description": "美国股市暴跌，大萧条开始。",
+    "title": "黑色星期二",
+    "url": "/economics/case-studies/great-depression",
+    "year": 1929,
+  },
+  "fact": "6月的英文June来自罗马婚姻女神朱诺",
+  "history": {
+    "description": "世界首位女宇航员进入太空",
+    "title": "瓦莲京娜·捷列什科娃",
+    "url": "/human-history/timeline",
+    "year": 1963,
+  },
+  "lifeScience": {
+    "description": "1953年沃森和克里克发现了DNA的双螺旋结构，开启了分子生物学时代。",
+    "title": "DNA的双螺旋",
+    "url": "/life-science",
+  },
+  "mathematics": {
+    "description": "罗素悖论动摇了朴素集合论的基础，推动了公理化集合论的发展。",
+    "title": "集合论悖论",
+    "url": "/mathematics",
+  },
+  "onThisDay": [],
+  "philosophy": {
+    "description": "美国作曲家，艺术与哲学的融合",
+    "title": "格什温出生",
+    "url": "/philosophy/timeline",
+    "year": 1898,
+  },
+  "physics": {
+    "description": "印尼喀拉喀托火山发生史上最猛烈的火山爆发之一。",
+    "title": "喀拉喀托火山爆发",
+    "url": "/universe-physics",
+    "year": 1883,
+  },
+  "politicalScience": {
+    "description": "在没有世界政府的无政府状态下，国家只能自助求存——这是理解大国博弈的经典视角之一。",
+    "title": "国际关系现实主义",
+    "url": "/political-science/international-relations/realism-ir",
+  },
+  "psychology": {
+    "description": "华生和雷纳进行经典条件反射情绪实验。",
+    "title": "小阿尔伯特实验",
+    "url": "/psychology/experiments/pavlov-classical-conditioning",
+    "year": 1920,
+  },
+  "question": "人类文明的下一个重大突破会是什么？",
+  "seed": 20260616,
+}
+`;
+
+exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 2 1`] = `
+{
+  "computerScience": {
+    "description": "没有任何程序能对所有「程序+输入」判断它会停机还是永远运行——计算机科学第一个不可能性定理。",
+    "title": "停机问题",
+    "url": "/computer-science/theory/computability",
+  },
+  "cosmology": {
+    "description": "氢和氦在大爆炸中形成，其他元素在恒星内部和超新星爆发中合成。",
+    "title": "宇宙的元素起源",
+    "url": "/cosmology",
+  },
+  "curiosity": {
+    "detail": "一副 52 张牌的排列数是 52!，约 8×10^67——比可观测宇宙的恒星数还多得多。即便全人类不停地洗牌至今，也只覆盖了其中微不足道的一角。",
+    "title": "你洗好的这副牌，几乎可以肯定是宇宙历史上第一次出现的顺序",
+    "url": "/mathematics",
+  },
+  "date": "2026-06-16",
+  "economics": {
+    "description": "约翰·梅纳德·凯恩斯发表《就业、利息和货币通论》。",
+    "title": "凯恩斯发表《通论》",
+    "url": "/economics/economists/john-maynard-keynes",
+    "year": 1936,
+  },
+  "fact": "夏至通常在6月21日，北半球白昼最长",
+  "history": {
+    "description": "世界首位女宇航员进入太空",
+    "title": "瓦莲京娜·捷列什科娃",
+    "url": "/human-history/timeline",
+    "year": 1963,
+  },
+  "lifeScience": {
+    "description": "米勒-尤里实验证明，原始地球条件下无机物可以自发形成氨基酸等有机分子。",
+    "title": "生命的化学起源",
+    "url": "/life-science",
+  },
+  "mathematics": {
+    "description": "V - E + F = 2 揭示了多面体的顶点、边和面之间的基本关系。",
+    "title": "欧拉公式",
+    "url": "/mathematics",
+  },
+  "onThisDay": [],
+  "philosophy": {
+    "description": "进化论奠基人，影响了哲学对生命与存在的思考",
+    "title": "达尔文出生",
+    "url": "/philosophy/timeline",
+    "year": 1809,
+  },
+  "physics": {
+    "description": "V-2火箭成为第一个到达太空边缘的人造物体。",
+    "title": "V-2火箭首次发射",
+    "url": "/universe-physics",
+    "year": 1945,
+  },
+  "politicalScience": {
+    "description": "谁拥有最终的、不可分割的决断权？从博丹到当代，主权概念一直是政治秩序的根问题。",
+    "title": "主权",
+    "url": "/political-science/concepts/sovereignty",
+  },
+  "psychology": {
+    "description": "伊万·巴甫洛夫因消化生理学研究获得诺贝尔奖。",
+    "title": "巴甫洛夫获诺贝尔奖",
+    "url": "/psychology/theorists/ivan-pavlov",
+    "year": 1904,
+  },
+  "question": "如果时间可以倒流，你最想见证哪个历史时刻？",
+  "seed": 20276454,
+}
+`;
+
+exports[`getDailySelected (characterization) > is stable for 2026-12-25 offset 0 1`] = `
+{
+  "computerScience": {
+    "description": "Transformer 架构 + 规模化，让机器在海量文本上「涌现」出推理与对话能力，也引发它是否真正理解的争论。",
+    "title": "大语言模型",
+    "url": "/computer-science/frontier/large-language-models",
+  },
+  "cosmology": {
+    "description": "暗物质晕是星系形成的骨架，普通物质在引力作用下聚集形成恒星和星系。",
+    "title": "星系的形成",
+    "url": "/cosmology",
+  },
+  "curiosity": {
+    "detail": "「上帝死了」首次出现在尼采 1882 年的《快乐的科学》里。尼采的意思是：欧洲文明赖以存在的价值体系已经崩塌，而人们还没有意识到这场危机。这是一个文化诊断，不是一句宗教宣言。",
+    "title": "尼采说「上帝死了」，根本不是在谈论无神论",
+    "url": "/philosophy",
+  },
+  "date": "2026-12-25",
+  "economics": {
+    "description": "IMF正式成立，监督国际货币体系。",
+    "title": "国际货币基金组织成立",
+    "url": "/economics",
+    "year": 1947,
+  },
+  "fact": "12月的英文December来自拉丁语decem（十）",
+  "history": {
+    "description": "诺曼征服完成",
+    "title": "威廉加冕英国国王",
+    "url": "/human-history/timeline",
+    "year": 1066,
+  },
+  "lifeScience": {
+    "description": "人体内寄居着约38万亿微生物，它们影响免疫、消化甚至情绪和行为。",
+    "title": "微生物组",
+    "url": "/life-science",
+  },
+  "mathematics": {
+    "description": "曼德博集合展示了简单迭代规则如何产生无限复杂的图案，揭示了混沌中的秩序。",
+    "title": "分形几何",
+    "url": "/mathematics",
+  },
+  "onThisDay": [
+    {
+      "day": 25,
+      "description": "戈尔巴乔夫辞职，苏联正式解体",
+      "domain": "人类历史",
+      "domainColor": "#f59e0b",
+      "month": 12,
+      "title": "苏联解体",
+      "url": "/human-history/timeline",
+      "year": 1991,
+    },
+  ],
+  "philosophy": {
+    "description": "经典物理学奠基人，自然哲学的革新者",
+    "title": "牛顿出生",
+    "url": "/philosophy/timeline",
+    "year": 1642,
+  },
+  "physics": {
+    "description": "NASA的维京2号探测器成功在火星着陆。",
+    "title": "维京2号登陆火星",
+    "url": "/universe-physics",
+    "year": 1976,
+  },
+  "politicalScience": {
+    "description": "把社会简化为「纯洁的人民」对「腐败的精英」——一种可左可右的「薄意识形态」。",
+    "title": "民粹主义",
+    "url": "/political-science/isms/populism",
+  },
+  "psychology": {
+    "description": "弗洛伊德出版《梦的解析》，开创精神分析学。",
+    "title": "《梦的解析》出版",
+    "url": "/psychology/theorists/sigmund-freud",
+    "year": 1900,
+  },
+  "question": "人工智能能真正理解美吗？",
+  "seed": 20261225,
+}
+`;

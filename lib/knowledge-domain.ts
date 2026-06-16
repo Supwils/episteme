@@ -1,7 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
-import matter from "gray-matter";
 import { getDomainContentDir } from "./content-paths";
+import {
+  safeParseMatter,
+  decodeSlug,
+  stripLeadingHeading,
+  firstHeading,
+  extractExcerpt,
+} from "./content-utils";
 
 /**
  * A generic typed-content engine for whole knowledge domains (computer-science,
@@ -51,49 +57,6 @@ const INFO_FIELDS: { key: string; label: string }[] = [
   { key: "field", label: "领域" },
   { key: "founder", label: "代表人物" },
 ];
-
-function safeParseMatter(raw: string): { data: Record<string, unknown>; content: string } {
-  try {
-    return matter(raw);
-  } catch {
-    return { data: {}, content: raw };
-  }
-}
-
-function decodeSlug(slug: string): string {
-  try {
-    return decodeURIComponent(slug);
-  } catch {
-    return slug;
-  }
-}
-
-function stripLeadingHeading(content: string): string {
-  return content.replace(/^\s*#\s+.+\n+/, "");
-}
-
-function firstHeading(content: string): string | null {
-  const match = content.match(/^#\s+(.+)$/m);
-  return match ? match[1]!.trim() : null;
-}
-
-function extractExcerpt(content: string): string {
-  const lines = content
-    .split("\n")
-    .filter(
-      (line) =>
-        line.trim() &&
-        !line.startsWith("#") &&
-        !line.startsWith("|") &&
-        !line.startsWith(">") &&
-        !line.startsWith("-")
-    );
-  const text = lines
-    .slice(0, 2)
-    .join(" ")
-    .replace(/[*_`#[\]]/g, "");
-  return text.length > 160 ? text.slice(0, 160) + "…" : text;
-}
 
 function strArray(value: unknown): string[] {
   return Array.isArray(value) ? value.filter((v): v is string => typeof v === "string") : [];

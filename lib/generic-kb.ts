@@ -1,7 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
-import matter from "gray-matter";
 import { getDomainContentDir } from "./content-paths";
+import {
+  safeParseMatter,
+  decodeSlug,
+  firstHeading,
+  stripLeadingHeading,
+  extractExcerpt,
+} from "./content-utils";
 
 export interface KBArticle {
   slug: string;
@@ -25,52 +31,6 @@ export interface KnowledgeBase {
   getArticleBySlug(slug: string): KBArticleFull | null;
   getArticlesByCategory(): KBCategoryGroup[];
   getSlugs(): string[];
-}
-
-function safeParseMatter(raw: string): {
-  data: Record<string, unknown>;
-  content: string;
-} {
-  try {
-    return matter(raw);
-  } catch {
-    return { data: {}, content: raw };
-  }
-}
-
-function decodeSlug(slug: string): string {
-  try {
-    return decodeURIComponent(slug);
-  } catch {
-    return slug;
-  }
-}
-
-function firstHeading(content: string): string | null {
-  const match = content.match(/^#\s+(.+)$/m);
-  return match ? match[1]!.trim() : null;
-}
-
-function stripLeadingHeading(content: string): string {
-  return content.replace(/^\s*#\s+.+\n+/, "");
-}
-
-function extractExcerpt(content: string): string {
-  const lines = content
-    .split("\n")
-    .filter(
-      (line) =>
-        line.trim() &&
-        !line.startsWith("#") &&
-        !line.startsWith("|") &&
-        !line.startsWith(">") &&
-        !line.startsWith("-")
-    );
-  const text = lines
-    .slice(0, 2)
-    .join(" ")
-    .replace(/[*_`#[\]]/g, "");
-  return text.length > 150 ? text.slice(0, 150) + "…" : text;
 }
 
 function walkMarkdown(dir: string, base = ""): string[] {
@@ -111,7 +71,7 @@ export function createKnowledgeBase(domain: string): KnowledgeBase {
       title: titleOf(rel, data, content),
       category: categoryOf(rel, data),
       tags: Array.isArray(data.tags) ? (data.tags as string[]) : [],
-      excerpt: extractExcerpt(content),
+      excerpt: extractExcerpt(content, 150),
     };
   };
 
@@ -144,7 +104,7 @@ export function createKnowledgeBase(domain: string): KnowledgeBase {
       title: titleOf(rel, data, content),
       category: categoryOf(rel, data),
       tags: Array.isArray(data.tags) ? (data.tags as string[]) : [],
-      excerpt: extractExcerpt(content),
+      excerpt: extractExcerpt(content, 150),
       content: stripLeadingHeading(content),
     };
   };
