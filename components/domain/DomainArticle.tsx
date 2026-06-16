@@ -11,6 +11,8 @@ import type { Domain } from "@/lib/cross-domain-refs";
 import { SITE_URL } from "@/lib/constants";
 import { createArticleJsonLd } from "@/lib/jsonld";
 import { bibliographyToJsonLd } from "@/lib/citations";
+import { getNarration } from "@/lib/narration";
+import { NarrationButton } from "@/components/narration/NarrationButton";
 
 export function DomainArticle({
   domain,
@@ -38,6 +40,8 @@ export function DomainArticle({
   const related = all
     .filter((a) => a.slug !== article.slug && article.related.includes(a.slug))
     .slice(0, 5);
+
+  const narration = getNarration(domain, section, slug);
 
   const jsonLd = createArticleJsonLd({
     title: article.title,
@@ -124,6 +128,15 @@ export function DomainArticle({
           </>
         }
       >
+        {narration && (
+          <NarrationButton
+            id={`${domain}/${section}/${slug}`}
+            title={narration.title}
+            script={narration.script}
+            audioUrl={narration.audioUrl}
+            accent={accent}
+          />
+        )}
         <MarkdownRenderer content={article.content} accentColor={accent} />
         <RelatedContent slug={slug} domain={domain as Domain} entityId={slug} />
       </ArticleLayout>

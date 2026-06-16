@@ -24,6 +24,7 @@
     "gen-math": "tsx scripts/gen-math-index.ts",
     "gen-kb": "tsx scripts/gen-kb-index.ts",
     "gen-all": "pnpm gen-philo && pnpm gen-econ && pnpm gen-psych && pnpm gen-life && pnpm gen-physics-dialogues && pnpm gen-frontier && pnpm gen-domain && pnpm gen-math && pnpm gen-kb",
+    "gen-narration": "tsx scripts/gen-narration-audio.ts",
     "prebuild": "pnpm gen-all",
     "clean": "rm -rf .next dist coverage",
     "prepare": "husky"

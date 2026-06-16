@@ -40,7 +40,7 @@ function walkMarkdown(dir: string, base = ""): string[] {
     const rel = base ? `${base}/${entry.name}` : entry.name;
     if (entry.isDirectory()) {
       results.push(...walkMarkdown(path.join(dir, entry.name), rel));
-    } else if (entry.name.endsWith(".md")) {
+    } else if (entry.name.endsWith(".md") && !entry.name.endsWith(".narration.md")) {
       results.push(rel);
     }
   }

@@ -368,7 +368,10 @@ function findAllContentFiles(dir: string): string[] {
       // history renders from data/assets, not articles — skip those payloads.
       if (entry.name === "assets" || entry.name === "lib") continue;
       results.push(...findAllContentFiles(fullPath));
-    } else if (entry.name.endsWith(".md") || entry.name.endsWith(".mdx")) {
+    } else if (
+      (entry.name.endsWith(".md") || entry.name.endsWith(".mdx")) &&
+      !entry.name.endsWith(".narration.md")
+    ) {
       results.push(fullPath);
     }
   }

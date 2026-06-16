@@ -1,0 +1,26 @@
+{
+  "computer-science/concepts/abstraction": {
+    "hash": "82f65701975f18f6",
+    "file": "/audio/narration/82f65701975f18f6.mp3",
+    "chars": 649,
+    "voiceId": "zOU486alQL1w83ooSHNz",
+    "model": "eleven_multilingual_v2",
+    "generatedAt": "2026-06-16T12:22:29.585Z"
+  },
+  "computer-science/concepts/dns": {
+    "hash": "5fb6cb4ec7c1dcbb",
+    "file": "/audio/narration/5fb6cb4ec7c1dcbb.mp3",
+    "chars": 625,
+    "voiceId": "zOU486alQL1w83ooSHNz",
+    "model": "eleven_multilingual_v2",
+    "generatedAt": "2026-06-16T12:22:46.488Z"
+  },
+  "computer-science/pioneers/alan-turing": {
+    "hash": "db7d0281f6b3c458",
+    "file": "/audio/narration/db7d0281f6b3c458.mp3",
+    "chars": 669,
+    "voiceId": "zOU486alQL1w83ooSHNz",
+    "model": "eleven_multilingual_v2",
+    "generatedAt": "2026-06-16T12:23:04.568Z"
+  }
+}

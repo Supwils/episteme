@@ -87,7 +87,10 @@ export function createKnowledgeSection(domain: string, section: string): Knowled
 
   const listFiles = (): string[] => {
     if (!fs.existsSync(root)) return [];
-    return fs.readdirSync(root).filter((f) => f.endsWith(".md") || f.endsWith(".mdx"));
+    // `<slug>.narration.md` are spoken companions, not articles — never list them.
+    return fs
+      .readdirSync(root)
+      .filter((f) => (f.endsWith(".md") || f.endsWith(".mdx")) && !f.endsWith(".narration.md"));
   };
 
   const slugOf = (file: string): string => file.replace(/\.mdx?$/, "");
@@ -125,6 +128,9 @@ export function createKnowledgeSection(domain: string, section: string): Knowled
     const wanted = decodeSlug(slug).normalize("NFC");
     if (!wanted || wanted.includes("..") || wanted.includes("/") || wanted.includes("\\"))
       return null;
+    // `<slug>.narration` would otherwise resolve to the sibling .narration.md and
+    // render a spoken script as a phantom article — block it explicitly.
+    if (wanted.endsWith(".narration")) return null;
     const file = fs.existsSync(path.join(root, `${wanted}.mdx`))
       ? `${wanted}.mdx`
       : fs.existsSync(path.join(root, `${wanted}.md`))

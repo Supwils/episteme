@@ -14,6 +14,10 @@ const VitalsReporter = dynamic(() => import("./VitalsReporter").then((m) => m.Vi
 const ReadingPathBar = dynamic(() => import("./ReadingPathBar").then((m) => m.ReadingPathBar), {
   ssr: false,
 });
+const NarrationPlayer = dynamic(
+  () => import("./narration/NarrationPlayer").then((m) => m.NarrationPlayer),
+  { ssr: false }
+);
 
 export function ClientShell() {
   return (
@@ -21,6 +25,7 @@ export function ClientShell() {
       <GlobalSearch />
       <ScrollToTop />
       <ReadingPathBar />
+      <NarrationPlayer />
       <VitalsReporter />
     </>
   );
