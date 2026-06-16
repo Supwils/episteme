@@ -10,9 +10,9 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-// Knowledge domains — each keeps its frontend code in its own src-* directory
-// and must not import another domain's src-* directly. Shared code belongs in
-// packages/ (see docs/工程原则.md §三 架构边界).
+// Knowledge domains — each keeps its frontend code in its own subjects/<name>
+// directory and must not import another domain's subjects/<name> directly.
+// Shared code belongs in lib/ or components/ (see docs/工程原则.md §三 架构边界).
 const DOMAINS = [
   "physics",
   "history",
@@ -26,7 +26,7 @@ const DOMAINS = [
 ];
 
 const domainBoundaryConfigs = DOMAINS.map((self) => ({
-  files: [`src-${self}/**/*.{ts,tsx}`],
+  files: [`subjects/${self}/**/*.{ts,tsx}`],
   rules: {
     "no-restricted-imports": [
       "error",
@@ -34,11 +34,11 @@ const domainBoundaryConfigs = DOMAINS.map((self) => ({
         patterns: [
           {
             group: DOMAINS.filter((d) => d !== self).flatMap((d) => [
-              `@/src-${d}`,
-              `@/src-${d}/**`,
+              `@/subjects/${d}`,
+              `@/subjects/${d}/**`,
             ]),
             message:
-              "跨知识领域 src-* 互相引用违反架构边界(docs/工程原则.md §三)。共享代码应抽到 packages/(如 @universe/graph-engine)。",
+              "跨知识领域 subjects/* 互相引用违反架构边界(docs/工程原则.md §三)。共享代码应抽到 lib/ 或 components/。",
           },
         ],
       },
@@ -57,7 +57,7 @@ const eslintConfig = [
   },
   {
     files: [
-      "src-*/**/*.{ts,tsx}",
+      "subjects/**/*.{ts,tsx}",
       "app/**/*.{ts,tsx}",
       "lib/**/*.{ts,tsx}",
       "components/**/*.{ts,tsx}",

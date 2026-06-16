@@ -2,12 +2,52 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
-import { ALL_SCHEMAS, FrontierSchema, type ContentType } from "../lib/content-schemas.ts";
+import type { z } from "zod";
+import { ALL_SCHEMAS, FrontierSchema } from "../lib/content-schemas.ts";
+import {
+  EconomistSchema,
+  ConceptSchema as EconConceptSchema,
+  CaseStudySchema as EconCaseStudySchema,
+  SchoolSchema as EconSchoolSchema,
+  DebateSchema as EconDebateSchema,
+  DialogueSchema as EconDialogueSchema,
+  KnowledgeBaseSchema as EconKnowledgeBaseSchema,
+} from "../subjects/economics/lib/schemas.ts";
 import { FRONTIER_DOMAINS } from "../lib/frontier.ts";
 import { createKnowledgeBase } from "../lib/generic-kb.ts";
 import { createDialogues } from "../lib/generic-dialogues.ts";
 import { COSMOLOGY_KB_DATA } from "../content/cosmology/knowledge-base-data.ts";
 import { COSMOLOGY_DIALOGUES_DATA } from "../content/cosmology/dialogues-data.ts";
+
+// Every domain whose .mdx frontmatter is structured enough for the universal
+// required-field / depth / citation checks. Domains without a Zod schema below
+// still get those universal checks — they just skip schema validation.
+// Legacy .md domains (human-history, cosmology/universe-physics KB) carry no
+// status/updated frontmatter yet and are validated by their own passes instead.
+const MDX_DOMAINS = [
+  "philosophy",
+  "mathematics",
+  "life-science",
+  "economics",
+  "psychology",
+  "computer-science",
+  "political-science",
+] as const;
+
+// Optional per-domain { subType -> Zod schema } maps. economics wires the
+// schemas that already drive its runtime loader; ALL_SCHEMAS covers the rest.
+const DOMAIN_SCHEMAS: Record<string, Record<string, z.ZodTypeAny>> = {
+  ...ALL_SCHEMAS,
+  economics: {
+    economists: EconomistSchema,
+    concepts: EconConceptSchema,
+    "case-studies": EconCaseStudySchema,
+    schools: EconSchoolSchema,
+    debates: EconDebateSchema,
+    dialogues: EconDialogueSchema,
+    "knowledge-base": EconKnowledgeBaseSchema,
+  },
+};
 
 interface Issue {
   type: "error" | "warning";
@@ -56,13 +96,10 @@ function findMdxFiles(dir: string): string[] {
   return results;
 }
 
-function getContentType(filePath: string): ContentType | null {
+function getDomain(filePath: string): string | null {
   const rel = path.relative(CONTENT_ROOT, filePath);
   const domain = rel.split(path.sep)[0];
-  if (domain === "philosophy" || domain === "mathematics" || domain === "life-science") {
-    return domain;
-  }
-  return null;
+  return domain && (MDX_DOMAINS as readonly string[]).includes(domain) ? domain : null;
 }
 
 function getSubType(filePath: string): string | null {
@@ -83,7 +120,7 @@ function findTodoLines(content: string): number[] {
   return lines;
 }
 
-function collectAllSlugs(domain: ContentType): Set<string> {
+function collectAllSlugs(domain: string): Set<string> {
   const slugs = new Set<string>();
   const domainDir = path.join(CONTENT_ROOT, domain);
   const files = findMdxFiles(domainDir);
@@ -94,10 +131,10 @@ function collectAllSlugs(domain: ContentType): Set<string> {
   return slugs;
 }
 
-function checkFile(filePath: string, allSlugs: Map<ContentType, Set<string>>): CheckResult {
+function checkFile(filePath: string, allSlugs: Map<string, Set<string>>): CheckResult {
   const issues: Issue[] = [];
   const raw = fs.readFileSync(filePath, "utf-8");
-  const contentType = getContentType(filePath);
+  const contentType = getDomain(filePath);
   const subType = getSubType(filePath);
 
   let parsed: matter.GrayMatterFile<string>;
@@ -115,7 +152,7 @@ function checkFile(filePath: string, allSlugs: Map<ContentType, Set<string>>): C
     return { file: filePath, issues };
   }
 
-  const schemas = ALL_SCHEMAS[contentType];
+  const schemas = DOMAIN_SCHEMAS[contentType];
   const schema = schemas?.[subType];
 
   if (schema) {
@@ -318,9 +355,9 @@ function checkFrontier(): { errors: number; warnings: number } {
 }
 
 function main() {
-  const domains: ContentType[] = ["philosophy", "mathematics", "life-science"];
+  const domains: readonly string[] = MDX_DOMAINS;
 
-  const allSlugs = new Map<ContentType, Set<string>>();
+  const allSlugs = new Map<string, Set<string>>();
   for (const domain of domains) {
     allSlugs.set(domain, collectAllSlugs(domain));
   }
@@ -370,7 +407,7 @@ function main() {
   if (results.length > 0) {
     const byDomain: Record<string, { errors: number; warnings: number; files: number }> = {};
     for (const r of results) {
-      const ct = getContentType(r.file) ?? "unknown";
+      const ct = getDomain(r.file) ?? "unknown";
       byDomain[ct] ??= { errors: 0, warnings: 0, files: 0 };
       byDomain[ct]!.files++;
       for (const i of r.issues) {

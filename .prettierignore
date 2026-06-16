@@ -4,3 +4,5 @@ dist
 coverage
 pnpm-lock.yaml
 *.mdx
+# AGENTS.md is a symlink to CLAUDE.md — prettier errors on symlinks
+AGENTS.md
