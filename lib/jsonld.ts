@@ -1,4 +1,4 @@
-import { SITE_URL } from './constants';
+import { SITE_URL } from "./constants";
 
 interface ArticleJsonLdParams {
   title: string;
@@ -9,36 +9,41 @@ interface ArticleJsonLdParams {
   image?: string;
   author?: string;
   keywords?: string[];
+  citations?: string[];
 }
 
 export function createArticleJsonLd({
   title,
   description,
   url,
-  datePublished = '2025-01-01',
+  datePublished = "2025-01-01",
   dateModified,
   image,
-  author = 'Universe Knowledge',
+  author = "Universe Knowledge",
   keywords,
+  citations,
 }: ArticleJsonLdParams): Record<string, unknown> {
   const ld: Record<string, unknown> = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
+    "@context": "https://schema.org",
+    "@type": "Article",
     headline: title,
     description,
     url,
-    author: { '@type': 'Organization', name: author },
+    author: { "@type": "Organization", name: author },
     publisher: {
-      '@type': 'Organization',
-      name: 'Universe Knowledge',
+      "@type": "Organization",
+      name: "Universe Knowledge",
       url: SITE_URL,
     },
     datePublished,
-    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
   };
   if (dateModified) ld.dateModified = dateModified;
   if (image) ld.image = image;
   if (keywords && keywords.length > 0) ld.keywords = keywords;
+  // Surface the article's bibliography to search engines as a credibility
+  // signal — a sourced article is a trustworthy one.
+  if (citations && citations.length > 0) ld.citation = citations;
   return ld;
 }
 
@@ -68,19 +73,19 @@ export function createPersonJsonLd({
   image,
 }: PersonJsonLdParams): Record<string, unknown> {
   const ld: Record<string, unknown> = {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
+    "@context": "https://schema.org",
+    "@type": "Person",
     name,
     description,
     url,
-    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
   };
   if (birthDate) ld.birthDate = birthDate;
   if (deathDate) ld.deathDate = deathDate;
-  if (nationality) ld.nationality = { '@type': 'Country', name: nationality };
+  if (nationality) ld.nationality = { "@type": "Country", name: nationality };
   if (jobTitle) ld.jobTitle = jobTitle;
   if (knowsAbout && knowsAbout.length > 0) ld.knowsAbout = knowsAbout;
-  if (memberOf) ld.memberOf = { '@type': 'Organization', name: memberOf };
+  if (memberOf) ld.memberOf = { "@type": "Organization", name: memberOf };
   if (image) ld.image = image;
   return ld;
 }
@@ -101,12 +106,12 @@ export function createDefinedTermJsonLd({
   keywords,
 }: DefinedTermJsonLdParams): Record<string, unknown> {
   const ld: Record<string, unknown> = {
-    '@context': 'https://schema.org',
-    '@type': 'DefinedTerm',
+    "@context": "https://schema.org",
+    "@type": "DefinedTerm",
     name,
     description,
     url,
-    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
   };
   if (inDefinedTermSet) ld.inDefinedTermSet = inDefinedTermSet;
   if (keywords && keywords.length > 0) ld.keywords = keywords;

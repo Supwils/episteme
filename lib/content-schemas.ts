@@ -10,11 +10,34 @@ const dateString = z.union([
   z.date().transform((d) => d.toISOString().slice(0, 10)),
 ]);
 
+/**
+ * A single bibliographic source. Kept deliberately small: only `title` is
+ * required so authors can adopt it incrementally, but a citation should carry
+ * at least one of year/doi/publisher to count as a real source (enforced in
+ * check-content, not here). `references` = sources that back the article's
+ * claims; `furtherReading` = recommended-but-not-load-bearing reading. Keeping
+ * them separate is what fixes the historical 参考文献/延伸阅读 conflation.
+ */
+export const CitationSchema = z.object({
+  title: z.string().min(1, "citation title is required"),
+  author: z.string().optional(),
+  publisher: z.string().optional(),
+  year: z.number().int().optional(),
+  doi: z.string().optional(),
+  url: z.string().url().optional(),
+  type: z.enum(["book", "paper", "report", "standard", "primary", "web"]).optional(),
+  note: z.string().optional(),
+});
+
+export type Citation = z.infer<typeof CitationSchema>;
+
 const BaseFrontmatter = z.object({
   title: z.string().min(1, "title is required"),
   status: statusEnum,
   updated: dateString,
   tags: z.array(z.string()).default([]),
+  references: z.array(CitationSchema).default([]),
+  furtherReading: z.array(CitationSchema).default([]),
 });
 
 export const PhilosophyThinkerSchema = BaseFrontmatter.extend({
