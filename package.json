@@ -23,6 +23,8 @@
     "gen-domain": "tsx scripts/gen-domain-index.ts",
     "gen-math": "tsx scripts/gen-math-index.ts",
     "gen-kb": "tsx scripts/gen-kb-index.ts",
+    "gen-all": "pnpm gen-philo && pnpm gen-econ && pnpm gen-psych && pnpm gen-life && pnpm gen-physics-dialogues && pnpm gen-frontier && pnpm gen-domain && pnpm gen-math && pnpm gen-kb",
+    "prebuild": "pnpm gen-all",
     "clean": "rm -rf .next dist coverage",
     "prepare": "husky"
   },

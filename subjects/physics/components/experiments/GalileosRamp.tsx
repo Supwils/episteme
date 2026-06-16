@@ -158,9 +158,8 @@ export function GalileosRamp({ className }: { className?: string }) {
       ctx.fill();
 
       ctx.restore();
-       
     },
-    []
+    [getLayout]
   );
 
   const drawTimer = useCallback(
