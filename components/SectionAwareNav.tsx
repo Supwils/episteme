@@ -33,13 +33,16 @@ export function SectionAwareNav() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#1e1e2e] bg-[rgba(10,10,15,0.85)] backdrop-blur-xl">
+    <header className="border-border-faint bg-bg-base/75 sticky top-0 z-50 border-b backdrop-blur-xl">
       <nav
         id="site-navigation"
         aria-label="主导航"
         className="mx-auto flex h-14 max-w-[1400px] items-center justify-between px-6"
       >
-        <Link href="/" className="text-lg font-bold tracking-tight text-[#e8e8f0]">
+        <Link
+          href="/"
+          className="text-fg-primary hover:text-accent-gold font-display text-lg font-semibold tracking-tight transition-colors"
+        >
           Universe Knowledge
         </Link>
         <DesktopNav />

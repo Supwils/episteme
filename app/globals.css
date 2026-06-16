@@ -4,6 +4,39 @@
   --animate-fade-slide-up: fadeSlideUp 0.6s ease-out both;
   --animate-corner-pulse: cornerPulse 3s ease-in-out infinite;
   --animate-shimmer: shimmer 1.5s ease-in-out 1;
+
+  /* ── Portal design tokens ─────────────────────────────────────────────
+     Mirrors app/domain-shared.css so the shared components (NavDropdown,
+     NarrationPlayer, …) resolve their utilities on the portal too. Dark is the
+     default here; the `.light` block below flips the theme-aware ones. Panels
+     are OPAQUE (unlike the domain translucent panel) so menus never bleed. */
+  --color-bg-deep: #06060d;
+  --color-bg-base: #08080f;
+  --color-bg-near: #0d0d18;
+  --color-bg-panel: #111119;
+  --color-bg-elevated: #16161f;
+  --color-bg-floating: #1c1c2b;
+  --color-bg-overlay: rgba(6, 6, 14, 0.86);
+
+  --color-fg-primary: #ece9f5;
+  --color-fg-secondary: #a8a4c0;
+  --color-fg-muted: #8d8aa0;
+  --color-fg-disabled: #4a4858;
+
+  --color-accent-gold: #c8a45a;
+  --color-accent-indigo: #6366f1;
+  --color-accent-violet: #8b5cf6;
+  --color-accent-cyan: #22d3ee;
+
+  --color-border-faint: rgba(150, 150, 210, 0.08);
+  --color-border-subtle: rgba(150, 150, 210, 0.14);
+  --color-border-strong: rgba(150, 150, 210, 0.28);
+
+  --font-sans:
+    var(--font-inter), "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui,
+    sans-serif;
+  --font-display: var(--font-fraunces), "Fraunces", "Noto Serif SC", "Songti SC", "STSong", serif;
+  --font-mono: var(--font-jetbrains-mono), "JetBrains Mono", ui-monospace, monospace;
 }
 
 @layer base {
@@ -46,6 +79,22 @@
     --highlight-text: #ca8a04;
     --scrollbar-thumb: rgba(0, 0, 0, 0.1);
     --scrollbar-thumb-hover: rgba(0, 0, 0, 0.18);
+
+    /* Theme-aware portal surfaces/foregrounds (warm paper light theme). */
+    --color-bg-deep: #ece8e0;
+    --color-bg-base: #f4f1ea;
+    --color-bg-near: #ffffff;
+    --color-bg-panel: #ffffff;
+    --color-bg-elevated: #ffffff;
+    --color-bg-floating: #ffffff;
+    --color-bg-overlay: rgba(245, 242, 235, 0.86);
+    --color-fg-primary: #1c1b26;
+    --color-fg-secondary: #4c4a5a;
+    --color-fg-muted: #6f6c80;
+    --color-fg-disabled: #b6b3c2;
+    --color-border-faint: rgba(40, 38, 70, 0.08);
+    --color-border-subtle: rgba(40, 38, 70, 0.14);
+    --color-border-strong: rgba(40, 38, 70, 0.24);
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -54,18 +103,58 @@
     }
   }
 
+  html {
+    /* Land in-page anchors below the sticky nav (h-14) instead of behind it. */
+    scroll-padding-top: 5rem;
+  }
+
   html,
   body {
     max-width: 100vw;
     /* clip (not hidden) prevents horizontal scroll WITHOUT creating a scroll
        container. */
     overflow-x: clip;
-    background-color: var(--background);
-    color: var(--foreground);
-    font-family:
-      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--color-bg-base, var(--background));
+    color: var(--color-fg-primary, var(--foreground));
+    font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Atmospheric backdrop — a fixed aurora/nebula mesh so the page reads as a
+     "knowledge cosmos" with depth rather than a flat fill. Theme-aware via the
+     surface tokens; pointer-transparent and behind all content. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background:
+      radial-gradient(60% 50% at 18% 8%, rgba(99, 102, 241, 0.16), transparent 60%),
+      radial-gradient(55% 45% at 85% 12%, rgba(139, 92, 246, 0.13), transparent 58%),
+      radial-gradient(70% 55% at 50% 100%, rgba(200, 164, 90, 0.08), transparent 60%),
+      radial-gradient(40% 35% at 92% 78%, rgba(34, 211, 238, 0.07), transparent 55%),
+      var(--color-bg-base);
+  }
+
+  .light body::before {
+    background:
+      radial-gradient(60% 50% at 18% 8%, rgba(99, 102, 241, 0.1), transparent 60%),
+      radial-gradient(55% 45% at 85% 12%, rgba(139, 92, 246, 0.08), transparent 58%),
+      radial-gradient(70% 55% at 50% 100%, rgba(200, 164, 90, 0.12), transparent 62%),
+      var(--color-bg-base);
+  }
+
+  /* Fine grain so large gradients don't band; near-invisible, fixed. */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
   a {

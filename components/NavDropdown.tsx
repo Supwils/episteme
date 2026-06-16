@@ -50,9 +50,7 @@ export function NavDropdown({ group }: { group: NavGroup }) {
         aria-haspopup="menu"
         onClick={() => setOpen((o) => !o)}
         className={`flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm transition-colors ${
-          isActive || open
-            ? "text-[var(--accent-gold,#c8a45a)]"
-            : "text-fg-secondary hover:text-fg-primary"
+          isActive || open ? "text-accent-gold" : "text-fg-secondary hover:text-accent-gold"
         }`}
       >
         {group.label}
@@ -75,46 +73,50 @@ export function NavDropdown({ group }: { group: NavGroup }) {
       </button>
 
       {open && (
-        <div
-          role="menu"
-          aria-label={group.label}
-          className="nav-dropdown-panel border-border-subtle bg-bg-panel/95 absolute top-[calc(100%+10px)] left-1/2 z-50 w-64 -translate-x-1/2 rounded-2xl border p-2 shadow-2xl backdrop-blur-xl"
-        >
+        // Wrapper spans the 10px gap as a transparent hover bridge so the cursor
+        // can travel from trigger to panel without crossing a dead zone.
+        <div className="absolute top-full left-1/2 z-50 w-64 -translate-x-1/2 pt-2.5">
           <div
-            aria-hidden
-            className="border-border-subtle bg-bg-panel/95 absolute -top-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border-t border-l"
-          />
-          <div className="text-fg-disabled px-3 pt-1 pb-2 font-mono text-[10px] tracking-[0.22em] uppercase">
-            {group.en}
-          </div>
-          {group.items.map((item, i) => {
-            const active = pathname.startsWith(item.href);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                role="menuitem"
-                onClick={() => setOpen(false)}
-                style={{ animationDelay: `${i * 35}ms` }}
-                className="nav-dropdown-item hover:bg-bg-elevated/70 group/item flex items-center gap-3 rounded-xl px-3 py-2 transition-colors"
-              >
-                <span
-                  className="h-7 w-[3px] shrink-0 rounded-full transition-all group-hover/item:h-8"
-                  style={{ backgroundColor: item.color, opacity: active ? 1 : 0.5 }}
-                />
-                <span className="flex min-w-0 flex-col">
+            role="menu"
+            aria-label={group.label}
+            className="nav-dropdown-panel border-border-subtle bg-bg-floating relative rounded-2xl border p-2 shadow-2xl backdrop-blur-xl"
+          >
+            <div
+              aria-hidden
+              className="border-border-subtle bg-bg-floating absolute -top-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border-t border-l"
+            />
+            <div className="text-fg-disabled px-3 pt-1 pb-2 font-mono text-[10px] tracking-[0.22em] uppercase">
+              {group.en}
+            </div>
+            {group.items.map((item, i) => {
+              const active = pathname.startsWith(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  role="menuitem"
+                  onClick={() => setOpen(false)}
+                  style={{ animationDelay: `${i * 35}ms` }}
+                  className="nav-dropdown-item hover:bg-bg-elevated group/item flex items-center gap-3 rounded-xl px-3 py-2 transition-all hover:translate-x-0.5"
+                >
                   <span
-                    className={`truncate text-sm transition-colors ${active ? "text-[var(--accent-gold,#c8a45a)]" : "text-fg-primary"}`}
-                  >
-                    {item.label}
+                    className="h-7 w-[3px] shrink-0 rounded-full transition-all group-hover/item:h-8"
+                    style={{ backgroundColor: item.color, opacity: active ? 1 : 0.5 }}
+                  />
+                  <span className="flex min-w-0 flex-col">
+                    <span
+                      className={`truncate text-sm transition-colors ${active ? "text-accent-gold" : "text-fg-primary group-hover/item:text-accent-gold"}`}
+                    >
+                      {item.label}
+                    </span>
+                    <span className="text-fg-muted truncate font-mono text-[10px] tracking-wide">
+                      {item.en}
+                    </span>
                   </span>
-                  <span className="text-fg-muted truncate font-mono text-[10px] tracking-wide">
-                    {item.en}
-                  </span>
-                </span>
-              </Link>
-            );
-          })}
+                </Link>
+              );
+            })}
+          </div>
         </div>
       )}
     </div>

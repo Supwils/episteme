@@ -9,13 +9,13 @@ export function HeroSection() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="relative w-full overflow-hidden pb-14 pt-24 text-center">
+    <section className="relative w-full overflow-hidden pt-24 pb-16 text-center">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% 20%, rgba(99,102,241,0.10) 0%, transparent 60%)",
+            "radial-gradient(ellipse 70% 55% at 50% 18%, color-mix(in oklab, var(--color-accent-gold) 9%, transparent) 0%, transparent 62%)",
           animation: reduce ? "none" : "heroGradientDrift 18s ease-in-out infinite",
         }}
       />
@@ -24,14 +24,14 @@ export function HeroSection() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 60% 50% at 30% 80%, rgba(139,92,246,0.06) 0%, transparent 50%)",
+            "radial-gradient(ellipse 55% 45% at 28% 82%, color-mix(in oklab, var(--color-accent-indigo) 6%, transparent) 0%, transparent 52%)",
           animation: reduce ? "none" : "heroGradientDrift2 22s ease-in-out infinite",
         }}
       />
 
-      <div className="z-1 relative px-6">
+      <div className="relative z-1 px-6">
         <motion.div
-          className="relative inline-block px-4 py-8 sm:px-10"
+          className="relative inline-block px-4 py-9 sm:px-12"
           initial={reduce ? false : { opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
@@ -41,34 +41,40 @@ export function HeroSection() {
           <CornerMark position="bl" />
           <CornerMark position="br" />
 
-          <motion.p
-            className="mb-5 text-xs font-semibold uppercase tracking-[0.25em] text-[#6366f1]"
+          <motion.div
+            className="mb-7 flex items-center justify-center gap-3"
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Universe Knowledge Platform
-          </motion.p>
+            <span aria-hidden="true" className="bg-accent-gold/45 h-px w-8" />
+            <p className="text-accent-gold font-mono text-[0.7rem] font-medium tracking-[0.38em] uppercase">
+              Universe Knowledge Platform
+            </p>
+            <span aria-hidden="true" className="bg-accent-gold/45 h-px w-8" />
+          </motion.div>
 
           <motion.h1
-            className="mb-4 text-[clamp(2.8rem,7.5vw,5rem)] font-extrabold leading-[1.05] tracking-tight"
-            style={{
-              background:
-                "linear-gradient(135deg, #e8e8f0 0%, #8b5cf6 40%, #6366f1 60%, #a78bfa 100%)",
-              backgroundSize: "200% 200%",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-            initial={reduce ? false : { opacity: 0, y: 20, backgroundPosition: "0% 50%" }}
-            animate={reduce ? { opacity: 1 } : { opacity: 1, y: 0, backgroundPosition: "100% 50%" }}
+            className="font-display text-fg-primary mb-5 text-[clamp(2.9rem,7.5vw,5.2rem)] leading-[1.04] font-semibold tracking-tight"
+            initial={reduce ? false : { opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 0.61, 0.36, 1] }}
           >
-            探索人类知识的边界
+            探索人类
+            <span
+              className="bg-clip-text text-transparent"
+              style={{
+                backgroundImage:
+                  "linear-gradient(118deg, var(--color-accent-gold) 0%, color-mix(in oklab, var(--color-accent-gold) 70%, var(--color-accent-indigo)) 100%)",
+              }}
+            >
+              知识
+            </span>
+            的边界
           </motion.h1>
 
           <motion.p
-            className="mx-auto mb-4 max-w-[560px] text-[1.15rem] font-medium leading-relaxed text-[#6366f1]/80"
+            className="text-fg-secondary mx-auto mb-4 max-w-[560px] text-[1.15rem] leading-relaxed font-medium"
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.25 }}
@@ -77,7 +83,7 @@ export function HeroSection() {
           </motion.p>
 
           <motion.p
-            className="mx-auto mb-10 max-w-[520px] text-[1.05rem] leading-relaxed text-[#8b8fa3]"
+            className="text-fg-muted mx-auto mb-10 max-w-[520px] text-[1.02rem] leading-relaxed"
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.35 }}
@@ -88,25 +94,24 @@ export function HeroSection() {
       </div>
 
       <motion.div
-        className="flex flex-wrap justify-center gap-6 px-4 sm:gap-12"
+        className="flex flex-wrap items-start justify-center gap-x-10 gap-y-6 px-4 sm:gap-x-16"
         initial={reduce ? false : { opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 0.61, 0.36, 1] }}
       >
-        {STATS.map((stat) => (
-          <div key={stat.label} className="text-center">
-            <div
-              className="text-3xl font-extrabold leading-tight"
-              style={{
-                background: "linear-gradient(135deg, #e8e8f0 0%, #6366f1 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              <AnimatedCounter target={stat.value} suffix={stat.suffix} />
+        {STATS.map((stat, i) => (
+          <div key={stat.label} className="flex items-center gap-x-10 sm:gap-x-16">
+            {i > 0 ? (
+              <span aria-hidden="true" className="bg-border-faint hidden h-9 w-px sm:block" />
+            ) : null}
+            <div className="text-center">
+              <div className="font-display text-fg-primary text-[2.1rem] leading-tight font-semibold tracking-tight">
+                <AnimatedCounter target={stat.value} suffix={stat.suffix} />
+              </div>
+              <div className="text-fg-muted mt-1.5 font-mono text-[0.68rem] tracking-[0.18em] uppercase">
+                {stat.label}
+              </div>
             </div>
-            <div className="mt-1 text-[0.72rem] tracking-wide text-[#9ca3af]">{stat.label}</div>
           </div>
         ))}
       </motion.div>

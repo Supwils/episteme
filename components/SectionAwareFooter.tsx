@@ -20,6 +20,32 @@ const SECTION_PREFIXES = [
   "/curiosities",
 ];
 
+const LINK_CLASS = "text-sm text-fg-secondary transition-colors hover:text-accent-gold";
+
+const COLUMN_HEADING_CLASS =
+  "mb-3 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-fg-muted";
+
+const DOMAIN_LINKS = [
+  { href: APP_URLS["universe-physics"], label: "物理学" },
+  { href: APP_URLS["cosmology"], label: "宇宙学" },
+  { href: APP_URLS["human-history"], label: "人类历史" },
+  { href: APP_URLS["philosophy"], label: "哲学思想" },
+  { href: APP_URLS["life-science"], label: "生命科学" },
+  { href: APP_URLS["mathematics"], label: "数学与逻辑" },
+  { href: APP_URLS["economics"], label: "经济学" },
+  { href: APP_URLS["psychology"], label: "心理学" },
+  { href: APP_URLS["computer-science"], label: "计算机科学" },
+  { href: APP_URLS["political-science"], label: "政治学" },
+];
+
+const EXPLORE_LINKS = [
+  { href: "/knowledge-graph", label: "知识图谱" },
+  { href: "/daily", label: "每日知识" },
+  { href: "/read", label: "阅读路线" },
+  { href: "/curiosities", label: "奇趣知识" },
+  { href: APP_URLS["human-history"] + "/timeline", label: "时间线" },
+];
+
 export function SectionAwareFooter() {
   const pathname = usePathname();
   const inSection = SECTION_PREFIXES.some((p) => pathname.startsWith(p));
@@ -27,139 +53,60 @@ export function SectionAwareFooter() {
   if (inSection) return null;
 
   return (
-    <footer className="border-t border-white/[0.06] px-6 pt-12 pb-8" role="contentinfo">
+    <footer className="bg-bg-base text-fg-secondary relative px-6 pt-14 pb-9" role="contentinfo">
+      {/* 顶部发丝线：克制的金色渐变分隔，暗/亮主题皆连贯 */}
+      <div
+        aria-hidden="true"
+        className="via-accent-gold/40 pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent to-transparent"
+      />
       <div className="mx-auto max-w-6xl">
-        <div className="mb-10 grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-8">
-          <div>
-            <div
-              className="mb-2 text-[1.05rem] font-bold"
-              style={{
-                background: "linear-gradient(135deg, #e8e8f0, #6366f1)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              Universe Knowledge
+        <div className="mb-12 grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-10">
+          <div className="max-w-xs">
+            <div className="mb-3 flex items-center gap-2">
+              <span aria-hidden="true" className="text-accent-gold">
+                ✦
+              </span>
+              <span className="font-display text-fg-primary text-[1.1rem] font-semibold tracking-tight">
+                Universe Knowledge
+              </span>
             </div>
-            <p className="m-0 text-[0.78rem] leading-relaxed text-[#9ca3af]">
+            <p className="text-fg-muted m-0 text-[0.8rem] leading-relaxed">
               知识即服务平台。以可视化、沉浸式的方式探索人类最重要的知识。
             </p>
           </div>
+
           <div>
-            <h3 className="mb-3 text-[0.78rem] font-semibold tracking-wide text-[#9ca3af]">
-              知识领域
-            </h3>
+            <h3 className={COLUMN_HEADING_CLASS}>知识领域</h3>
             <nav aria-label="知识领域导航">
-              <div className="flex flex-col gap-2">
-                <Link
-                  href={APP_URLS["universe-physics"]}
-                  className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
-                >
-                  物理学
-                </Link>
-                <Link
-                  href={APP_URLS["cosmology"]}
-                  className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
-                >
-                  宇宙学
-                </Link>
-                <Link
-                  href={APP_URLS["human-history"]}
-                  className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
-                >
-                  人类历史
-                </Link>
-                <Link
-                  href={APP_URLS["philosophy"]}
-                  className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
-                >
-                  哲学思想
-                </Link>
-                <Link
-                  href={APP_URLS["life-science"]}
-                  className="text-sm text-[#9ca3af] transition-colors hover:text-[#4a9e6f]"
-                >
-                  生命科学
-                </Link>
-                <Link
-                  href={APP_URLS["mathematics"]}
-                  className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
-                >
-                  数学与逻辑
-                </Link>
-                <Link
-                  href={APP_URLS["economics"]}
-                  className="text-sm text-[#9ca3af] transition-colors hover:text-[#e8b84a]"
-                >
-                  经济学
-                </Link>
-                <Link
-                  href={APP_URLS["psychology"]}
-                  className="text-sm text-[#9ca3af] transition-colors hover:text-[#d4789c]"
-                >
-                  心理学
-                </Link>
-                <Link
-                  href={APP_URLS["computer-science"]}
-                  className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
-                >
-                  计算机科学
-                </Link>
-                <Link
-                  href={APP_URLS["political-science"]}
-                  className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
-                >
-                  政治学
-                </Link>
+              <div className="flex flex-col gap-2.5">
+                {DOMAIN_LINKS.map((item) => (
+                  <Link key={item.href} href={item.href} className={LINK_CLASS}>
+                    {item.label}
+                  </Link>
+                ))}
               </div>
             </nav>
           </div>
+
           <div>
-            <h3 className="mb-3 text-[0.78rem] font-semibold tracking-wide text-[#9ca3af]">
-              探索方式
-            </h3>
-            <div className="flex flex-col gap-2">
-              <Link
-                href="/knowledge-graph"
-                className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
-              >
-                知识图谱
-              </Link>
-              <Link
-                href="/daily"
-                className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
-              >
-                每日知识
-              </Link>
-              <Link
-                href="/read"
-                className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
-              >
-                阅读路线
-              </Link>
-              <Link
-                href="/curiosities"
-                className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
-              >
-                奇趣知识
-              </Link>
-              <Link
-                href={APP_URLS["human-history"] + "/timeline"}
-                className="text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
-              >
-                时间线
-              </Link>
+            <h3 className={COLUMN_HEADING_CLASS}>探索方式</h3>
+            <div className="flex flex-col gap-2.5">
+              {EXPLORE_LINKS.map((item) => (
+                <Link key={item.href} href={item.href} className={LINK_CLASS}>
+                  {item.label}
+                </Link>
+              ))}
             </div>
           </div>
+
           <div>
-            <h3 className="mb-3 text-[0.78rem] font-semibold tracking-wide text-[#9ca3af]">关于</h3>
-            <div className="flex flex-col gap-2">
+            <h3 className={COLUMN_HEADING_CLASS}>关于</h3>
+            <div className="flex flex-col gap-2.5">
               <a
                 href="https://github.com/Kilo-Org/universe-knowledge"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm text-[#9ca3af] transition-colors hover:text-[#818cf8]"
+                className="text-fg-secondary hover:text-accent-gold inline-flex items-center gap-1.5 text-sm transition-colors"
               >
                 <svg
                   width="14"
@@ -172,21 +119,22 @@ export function SectionAwareFooter() {
                 </svg>
                 GitHub
               </a>
-              <span className="text-sm text-[#9ca3af]">工程原则</span>
-              <span className="text-sm text-[#9ca3af]">知识精神</span>
+              <span className="text-fg-muted text-sm">工程原则</span>
+              <span className="text-fg-muted text-sm">知识精神</span>
             </div>
           </div>
         </div>
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/[0.04] pt-5">
-          <span className="text-[0.7rem] text-[#9ca3af]">
+
+        <div className="border-border-faint flex flex-wrap items-center justify-between gap-3 border-t pt-6">
+          <span className="text-fg-disabled text-[0.72rem]">
             © {new Date().getFullYear()} Universe Knowledge. All rights reserved.
           </span>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <a
               href="https://nextjs.org"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-[0.7rem] text-[#9ca3af] transition-colors hover:text-[#818cf8]"
+              className="text-fg-muted hover:text-accent-gold inline-flex items-center gap-1.5 text-[0.72rem] transition-colors"
             >
               <svg width="12" height="12" viewBox="0 0 180 180" fill="none" aria-hidden="true">
                 <mask
@@ -198,10 +146,10 @@ export function SectionAwareFooter() {
                   width="180"
                   height="180"
                 >
-                  <circle cx="90" cy="90" r="90" fill="black" />
+                  <circle cx="90" cy="90" r="90" fill="currentColor" />
                 </mask>
                 <g mask="url(#a)">
-                  <circle cx="90" cy="90" r="90" fill="black" />
+                  <circle cx="90" cy="90" r="90" fill="currentColor" />
                   <path
                     d="M149.508 157.52L69.142 54H54v71.97h12.114V69.384l73.885 95.461A90.304 90.304 0 00149.508 157.52z"
                     fill="url(#b)"
@@ -217,8 +165,8 @@ export function SectionAwareFooter() {
                     y2="159.5"
                     gradientUnits="userSpaceOnUse"
                   >
-                    <stop stopColor="white" />
-                    <stop offset="1" stopColor="white" stopOpacity="0" />
+                    <stop stopColor="currentColor" />
+                    <stop offset="1" stopColor="currentColor" stopOpacity="0" />
                   </linearGradient>
                   <linearGradient
                     id="c"
@@ -228,14 +176,14 @@ export function SectionAwareFooter() {
                     y2="106.875"
                     gradientUnits="userSpaceOnUse"
                   >
-                    <stop stopColor="white" />
-                    <stop offset="1" stopColor="white" stopOpacity="0" />
+                    <stop stopColor="currentColor" />
+                    <stop offset="1" stopColor="currentColor" stopOpacity="0" />
                   </linearGradient>
                 </defs>
               </svg>
               Built with Next.js
             </a>
-            <span className="text-[0.7rem] text-[#9ca3af] italic">让知识触手可及</span>
+            <span className="text-fg-muted text-[0.72rem] italic">让知识触手可及</span>
           </div>
         </div>
       </div>

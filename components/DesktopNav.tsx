@@ -15,9 +15,7 @@ export function DesktopNav() {
         href={HOME_LINK.href}
         aria-current={homeActive ? "page" : undefined}
         className={`rounded-md px-2.5 py-1.5 text-sm transition-colors ${
-          homeActive
-            ? "text-[var(--accent-gold,#c8a45a)]"
-            : "text-fg-secondary hover:text-fg-primary"
+          homeActive ? "text-accent-gold" : "text-fg-secondary hover:text-accent-gold"
         }`}
       >
         {HOME_LINK.label}
