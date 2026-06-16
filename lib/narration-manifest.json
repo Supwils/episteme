@@ -47,6 +47,42 @@
     "model": "eleven_multilingual_v2",
     "generatedAt": "2026-06-16T12:56:18.180Z"
   },
+  "philosophy/concepts/absurd": {
+    "hash": "a7f5d4853d6e0199",
+    "file": "/audio/narration/a7f5d4853d6e0199.wav",
+    "chars": 461,
+    "provider": "xiaomi",
+    "voiceId": "茉莉",
+    "model": "mimo-v2.5-tts",
+    "generatedAt": "2026-06-16T13:24:30.418Z"
+  },
+  "philosophy/concepts/dao": {
+    "hash": "99fb97dd97785645",
+    "file": "/audio/narration/99fb97dd97785645.wav",
+    "chars": 447,
+    "provider": "xiaomi",
+    "voiceId": "茉莉",
+    "model": "mimo-v2.5-tts",
+    "generatedAt": "2026-06-16T13:24:52.553Z"
+  },
+  "philosophy/concepts/eudaimonia": {
+    "hash": "1933a9811846d1e8",
+    "file": "/audio/narration/1933a9811846d1e8.wav",
+    "chars": 509,
+    "provider": "xiaomi",
+    "voiceId": "茉莉",
+    "model": "mimo-v2.5-tts",
+    "generatedAt": "2026-06-16T13:25:13.464Z"
+  },
+  "philosophy/concepts/karma": {
+    "hash": "4261adf305f0eec4",
+    "file": "/audio/narration/4261adf305f0eec4.wav",
+    "chars": 502,
+    "provider": "xiaomi",
+    "voiceId": "茉莉",
+    "model": "mimo-v2.5-tts",
+    "generatedAt": "2026-06-16T13:25:38.685Z"
+  },
   "psychology/experiments/libet-free-will": {
     "hash": "1a2f5f92bb6a60fc",
     "file": "/audio/narration/1a2f5f92bb6a60fc.mp3",

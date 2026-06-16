@@ -8,6 +8,8 @@ import { FIELD_ACCENTS, SITE_URL } from "@/lib/constants";
 import { ArticleLayout } from "@/components/ArticleLayout";
 import { TableOfContents } from "@/components/TableOfContents";
 import { createDefinedTermJsonLd } from "@/lib/jsonld";
+import { getNarration } from "@/lib/narration";
+import { NarrationButton } from "@/components/narration/NarrationButton";
 
 export function generateStaticParams() {
   return getConceptSlugs().map((slug) => ({ slug }));
@@ -36,6 +38,7 @@ export default async function ConceptDetailPage({ params }: { params: Promise<{ 
   if (!concept) notFound();
 
   const fieldColor = FIELD_ACCENTS[concept.field] ?? "#c8a45a";
+  const narration = getNarration("philosophy", "concepts", slug);
 
   const allConcepts = getAllConcepts();
   const relatedConcepts = allConcepts
@@ -136,6 +139,15 @@ export default async function ConceptDetailPage({ params }: { params: Promise<{ 
           </>
         }
       >
+        {narration && (
+          <NarrationButton
+            id={`philosophy/concepts/${slug}`}
+            title={narration.title}
+            script={narration.script}
+            audioUrl={narration.audioUrl}
+            accent={fieldColor}
+          />
+        )}
         <MarkdownRenderer content={concept.content} accentColor={fieldColor} />
         <RelatedContent slug={slug} domain="philosophy" entityId={slug} />
       </ArticleLayout>
