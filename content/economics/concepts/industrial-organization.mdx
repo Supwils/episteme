@@ -4,8 +4,15 @@ subtitle: Industrial Organization
 field: 微观经济学
 tags: [市场结构, 反垄断, 进入壁垒, 竞争策略, 波特五力]
 relatedTheories: [market-failures, information-asymmetry, game-theory-basics]
+related:
+  - monopoly-oligopoly
+  - market-failures
+  - nash-equilibrium
+  - platform-economics
+  - network-effects
+  - price-discrimination
 status: published
-updated: 2026-06-13
+updated: 2026-06-16
 ---
 
 # 产业组织理论
@@ -31,6 +38,18 @@ updated: 2026-06-13
 - **绝对成本优势**：专利、秘方、稀有资源的控制
 - **资本需求**：进入市场需要的巨额初始投资（如芯片制造厂、机场）
 
+### 如何量化"集中度"：HHI 指数
+
+要把"市场有多集中"从直觉变成可比较的数字，IO 用的标准工具是**赫芬达尔-赫希曼指数**（Herfindahl-Hirschman Index, HHI）。
+
+它的算法很简单：把市场上每家企业的市场份额（按百分比）平方，再加总。
+
+举例：一个市场有 4 家企业，份额各为 40%、30%、20%、10%，则 HHI = 40² + 30² + 20² + 10² = 3000。
+
+平方这一步是关键——它放大了大企业的权重，因此 HHI 比"前四家份额"更能反映少数巨头主导的程度。极端情形下，独家垄断的 HHI = 100² = 10000；而完全分散的市场 HHI 趋近于 0。
+
+HHI 直接进入反垄断执法。美国司法部与联邦贸易委员会 2023 年发布的新版《合并指南》把"高度集中市场"的门槛从原来的 HHI > 2500 下调到 **HHI > 1800**，并把触发"结构性推定违法"的合并所需的 HHI 增幅从 200 降到 **100**（U.S. DOJ & FTC, 2023）。门槛收紧意味着监管者对市场集中重新转向警惕——这本身就是哈佛学派与芝加哥学派之争在政策上的钟摆摆动。
+
 ## 芝加哥学派的反驳
 
 1970年代，芝加哥大学的反垄断理论家（斯蒂格勒、波斯纳、德姆塞茨）对哈佛学派提出了系统性批评。
@@ -47,7 +66,7 @@ updated: 2026-06-13
 
 1980年代，博弈论工具的引入从根本上改造了产业组织理论，形成了"新产业组织"（New IO）学派。代表人物包括让·梯若尔（Jean Tirole，2014年诺贝尔经济学奖得主）。
 
-新IO的贡献在于：将企业之间的战略互动正式化。在只有少数几家企业（寡头垄断）的市场中，每家企业的决策不能孤立地做出，必须考虑竞争对手的可能反应。这正是博弈论的用武之地。
+新IO的贡献在于：将企业之间的战略互动正式化。在只有少数几家企业（[[monopoly-oligopoly|寡头垄断]]）的市场中，每家企业的决策不能孤立地做出，必须考虑竞争对手的可能反应。这正是[[game-theory-basics|博弈论]]的用武之地——纳什均衡（[[nash-equilibrium|Nash equilibrium]]）是分析寡头定价与产量博弈的基本工具。
 
 ### 进入阻止策略
 
@@ -83,8 +102,8 @@ updated: 2026-06-13
 
 传统企业向消费者销售产品。平台企业则在两个或多个用户群体之间创造价值——如支付平台连接消费者和商家，搜索引擎连接用户和广告主，应用商店连接开发者和用户。
 
-平台的经济特性与传统企业截然不同：
-- **网络效应**：平台对一侧用户的吸引力取决于另一侧用户的数量（间接网络效应）
+平台的经济特性与传统企业截然不同（详见[[platform-economics|平台经济]]）：
+- **网络效应**：平台对一侧用户的吸引力取决于另一侧用户的数量（间接[[network-effects|网络效应]]）
 - **多归属**：用户可以同时使用多个平台（如同时使用多个地图应用）
 - **零价格策略**：平台常常对一侧用户免费（如谷歌搜索、Facebook），以获取另一侧用户愿意付费的广告收入
 
@@ -116,9 +135,10 @@ updated: 2026-06-13
 
 ## 跨领域连接
 
-- **→ 技术史**：许多重大技术标准的确立（VHS对Betamax、Windows对Mac OS）是产业组织动态竞争的典型案例，揭示了网络效应和路径依赖如何决定技术命运。
-- **→ 法学**：反垄断法（美国的谢尔曼法、欧盟的竞争法）是产业组织理论最直接的制度实现，法经济学是产业组织与法律的交叉地带。
-- **→ 地缘政治**：半导体、人工智能、新能源等战略性产业的竞争，正在将产业组织分析从微观市场竞争扩展到国家间的战略博弈。
+- **→ 技术史**：许多重大技术标准的确立（VHS对Betamax、Windows对Mac OS）是产业组织动态竞争的典型案例，揭示了[[network-effects|网络效应]]和路径依赖如何决定技术命运。
+- **→ 法学**：反垄断法（美国的谢尔曼法、欧盟的竞争法）是产业组织理论最直接的制度实现，[[public-choice-theory|公共选择理论]]提醒我们规制本身也可能被利益集团俘获。
+- **→ 政治经济学**：半导体、人工智能、新能源等战略性产业的竞争，正在将产业组织分析从微观市场竞争扩展到国家间的战略博弈（[[political-economy|政治经济学]]）。
+- **→ 价格策略**：[[price-discrimination|价格歧视]]是拥有市场势力的企业攫取消费者剩余的核心手段，与市场结构密不可分。
 
 ## 参考文献
 
@@ -128,3 +148,4 @@ updated: 2026-06-13
 4. Baumol, W. J., Panzar, J. C., & Willig, R. D. (1982). *Contestable Markets and the Theory of Industry Structure*. Harcourt Brace Jovanovich.
 5. Rochet, J.-C., & Tirole, J. (2003). "Platform Competition in Two-Sided Markets." *Journal of the European Economic Association*, 1(4), 990-1029.
 6. Shapiro, C. (2019). "Protecting Competition in the American Economy: Merger Control, Tech Titans, Labor Markets." *Journal of Economic Perspectives*, 33(3), 69-93.
+7. U.S. Department of Justice & Federal Trade Commission. (2023). *Merger Guidelines*. Washington, D.C.

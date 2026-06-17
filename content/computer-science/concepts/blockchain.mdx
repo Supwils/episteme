@@ -15,6 +15,7 @@ related:
   - distributed-systems
   - encryption-basics
   - databases-transactions
+  - distributed-computing-theory
 ---
 
 # 区块链
@@ -115,6 +116,7 @@ $$\text{Hash}(\text{区块头} + \text{Nonce}) < \text{目标值}$$
 
 - **[[encryption-basics]]**：区块链依赖哈希函数（SHA-256）保证不可篡改性，依赖数字签名（ECDSA）验证交易授权，依赖公钥密码学实现地址/钱包系统。
 - **[[distributed-systems]]**：共识机制是分布式系统领域最核心的问题之一，区块链是这个问题在非可信环境下的工程答案（可与 Paxos、Raft 等传统共识协议对比）。
+- **[[distributed-computing-theory]]**：拜占庭将军问题的 $3f+1$ 下界、FLP 不可能性、数字签名如何打破下界——这些是理解区块链共识为何这样设计的理论根基。
 - **[[databases-transactions]]**：区块链是一种特殊的数据库，用共识代替事务隔离，用链式结构代替传统索引——理解两者的对比，有助于判断何时应该用区块链，何时用传统数据库。
 
 ---

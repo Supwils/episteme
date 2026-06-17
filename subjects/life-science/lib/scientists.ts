@@ -73,7 +73,7 @@ const SCIENTISTS: Scientist[] = [
     nameEn: "James Watson",
     era: "现代",
     birthYear: 1928,
-    deathYear: null,
+    deathYear: 2025,
     keyContribution: "DNA双螺旋结构的发现者之一",
     famousWork: "《双螺旋》",
     field: "分子生物学",
@@ -178,7 +178,7 @@ const SCIENTISTS: Scientist[] = [
     field: "细胞遗传学",
   },
   {
-    id: "wozniak-olson",
+    id: "wilson",
     name: "爱德华·威尔逊",
     nameEn: "Edward O. Wilson",
     era: "当代",

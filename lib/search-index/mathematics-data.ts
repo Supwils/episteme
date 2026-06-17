@@ -156,6 +156,13 @@ export const MATHEMATICS_DATA = [
     field: "英国",
   },
   {
+    slug: "zu-chongzhi",
+    title: "祖冲之",
+    titleEn: "Zu Chongzhi",
+    subtype: "mathematicians",
+    field: "中国（南北朝）",
+  },
+  {
     slug: "bayes-theorem",
     title: "贝叶斯定理",
     titleEn: "Bayes' Theorem",

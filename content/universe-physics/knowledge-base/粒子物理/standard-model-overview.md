@@ -16,6 +16,9 @@ tags:
     弱相互作用,
     电磁相互作用,
   ]
+status: published
+updated: 2026-06-16
+related: [muon-g2-self-correction, higgs-englert, dark-matter-direct-detection]
 ---
 
 # 标准模型概览
@@ -88,7 +91,7 @@ tags:
 
 **引力的缺席**：标准模型包含了自然界四种基本相互作用中的三种（强、弱、电磁），但**引力**不在其中。引力由广义相对论描述，至今没有成功的量子引力理论。引力极弱（氢原子中两个质子间的引力与电力之比约为 $10^{-36}$），在粒子物理实验能标下完全可以忽略；但在理论层面，量子场论与广义相对论的结合产生无法重整化的发散，是理论物理最深刻的未解问题之一。
 
-**暗物质**：宇宙学和天文学观测（星系转动曲线、引力透镜、宇宙微波背景辐射功率谱）强烈支持宇宙中存在大量不与光相互作用的"暗物质"，约占宇宙物质的27%。标准模型粒子（包括中微子）无法解释暗物质；最流行的候选者是WIMP（弱相互作用大质量粒子）和轴子，均超出标准模型范围，且LHC和直接探测实验均未发现信号。
+**暗物质**：宇宙学和天文学观测（星系转动曲线、引力透镜、宇宙微波背景辐射功率谱）强烈支持宇宙中存在大量不与光相互作用的"暗物质"，约占宇宙物质的27%。标准模型粒子（包括中微子）无法解释暗物质；最流行的候选者是WIMP（弱相互作用大质量粒子）和轴子，均超出标准模型范围，且LHC和直接探测实验均未发现信号（直接探测的现状见前沿专题 [[dark-matter-direct-detection|暗物质直接探测]]）。
 
 **中微子质量**：标准模型预言中微子是无质量粒子。但1998年超级神冈（Super-Kamiokande）实验（2015年诺贝尔物理学奖）证明了大气中微子振荡，意味着中微子有非零质量（三代中微子的质量本征态与味本征态不重合）。中微子是Dirac粒子（有独立反粒子）还是Majorana粒子（自身是反粒子），中微子的绝对质量标度（目前知道质量差，最大约0.05 eV），这些问题标准模型无法回答。
 
@@ -104,7 +107,7 @@ tags:
 
 **弱混合角**（Weinberg角，$\sin^2\theta_W \approx 0.231$）：由多个实验精确测定，内部一致性极高。
 
-**渺子反常磁矩（$g-2$）问题**：2021年，费米实验室的渺子 $g-2$ 实验（E989）公布首批结果，与标准模型理论预言（基于电子-正电子散射数据的强子真空极化估算）存在约4.2$\sigma$的偏差。然而这一张力在2025年得到了化解：2025年6月，费米实验室发布了精度达127 ppb的最终测量值，同时多个独立晶格QCD团队（BMW、Mainz等）完成了完整的强子真空极化格点计算，所得理论预言与实验值高度一致，张力从4$\sigma$以上收缩到约1—2$\sigma$之内——理论界现已基本认为"无新物理迹象"。问题的根源是早年传统估算方法（基于 $e^+e^-$ 散射数据）与格点QCD本身存在不一致，随着格点计算精度提升，这一分歧在计算层面得到了化解，是科学自我修正的典型案例。
+**渺子反常磁矩（$g-2$）问题**（完整始末见前沿专题 [[muon-g2-self-correction|μ子反常磁矩：标准模型的"自我修复"]]）：2021年，费米实验室的渺子 $g-2$ 实验（E989）公布首批结果，与标准模型理论预言（基于电子-正电子散射数据的强子真空极化估算）存在约4.2$\sigma$的偏差。然而这一张力在2025年得到了化解：2025年6月，费米实验室发布了精度达127 ppb的最终测量值，同时多个独立晶格QCD团队（BMW、Mainz等）完成了完整的强子真空极化格点计算，所得理论预言与实验值高度一致，张力从4$\sigma$以上收缩到约1—2$\sigma$之内——理论界现已基本认为"无新物理迹象"。问题的根源是早年传统估算方法（基于 $e^+e^-$ 散射数据）与格点QCD本身存在不一致，随着格点计算精度提升，这一分歧在计算层面得到了化解，是科学自我修正的典型案例。
 
 ---
 
@@ -121,11 +124,13 @@ tags:
 
 > "当我们发现了希格斯玻色子，我们完成了一幅拼图——但我们随即意识到这幅拼图其实只是更大图景的一个碎片。" — 吉安·弗朗切斯科·吉乌迪（Gian Francesco Giudice，CERN理论部主任，2012年）
 
-## 延伸阅读
+## 参考文献
 
 1. Weinberg, Steven. "A Model of Leptons." _Physical Review Letters_, 19(21): 1264–1266, 1967.
 2. Glashow, Sheldon L. "Partial-Symmetries of Weak Interactions." _Nuclear Physics_, 22(4): 579–588, 1961.
-3. Peskin, Michael E., and Daniel V. Schroeder. _An Introduction to Quantum Field Theory_. Addison-Wesley, 1995.
-4. Griffiths, David. _Introduction to Elementary Particles_ (2nd ed.). Wiley-VCH, 2008.
-5. Abi, B., et al. (Muon g-2 Collaboration). "Measurement of the Positive Muon Anomalous Magnetic Moment to 0.46 ppm." _Physical Review Letters_, 126(14): 141801, 2021.
-6. 段一士. 《规范场论》. 科学出版社, 2010.
+3. Abi, B., et al. (Muon g-2 Collaboration). "Measurement of the Positive Muon Anomalous Magnetic Moment to 0.46 ppm." _Physical Review Letters_, 126(14): 141801, 2021.
+
+## 延伸阅读
+
+- Peskin, Michael E., and Daniel V. Schroeder. _An Introduction to Quantum Field Theory_. Addison-Wesley, 1995.
+- Griffiths, David. _Introduction to Elementary Particles_ (2nd ed.). Wiley-VCH, 2008.

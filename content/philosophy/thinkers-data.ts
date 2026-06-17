@@ -22,7 +22,7 @@ export const THINKERS_DATA = [
   { slug: "derrida", title: "德里达", subtitle: "Jacques Derrida", era: "当代" },
   { slug: "descartes", title: "笛卡尔", subtitle: "René Descartes", era: "近代" },
   { slug: "dewey", title: "约翰·杜威", subtitle: "John Dewey", era: "现代" },
-  { slug: "dong-zhongshu", title: "董仲舒", subtitle: "Dong Zhongshu", era: "近代" },
+  { slug: "dong-zhongshu", title: "董仲舒", subtitle: "Dong Zhongshu", era: "古代" },
   { slug: "edward-said", title: "爱德华·萨义德", subtitle: "Edward Said", era: "当代" },
   { slug: "epictetus", title: "爱比克泰德", subtitle: "Epictetus", era: "古代" },
   { slug: "epicurus", title: "伊壁鸠鲁", subtitle: "Epicurus", era: "古代" },

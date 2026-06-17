@@ -81,6 +81,9 @@ export default function RootLayout({
           }}
         />
         <noscript>
+          {/* CJK fonts (Noto SC, LXGW) can't be subset via next/font; a plain
+              stylesheet link is the no-JS fallback for the idle-injected link above. */}
+          {/* eslint-disable-next-line @next/next/no-page-custom-font */}
           <link
             href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600&family=LXGW+WenKai+TC:wght@400&display=swap"
             rel="stylesheet"

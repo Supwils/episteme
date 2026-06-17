@@ -16,6 +16,7 @@ related:
   - networking-protocols
   - cloud-computing
   - concurrency
+  - distributed-computing-theory
 ---
 
 # 分布式系统
@@ -62,11 +63,11 @@ Lamport 在 1978 年提出了**逻辑时钟（Lamport Clocks）**：每个事件
 
 共识（Consensus）是分布式系统最核心的问题：如何让多个节点就某个值达成一致意见，即使部分节点宕机？
 
-1985 年，Fischer、Lynch、Paterson 证明了 **FLP 不可能定理**：在一个异步网络中，即使只有一个节点可能失败，也无法设计出一个始终能在有限时间内终止的共识算法。
+1985 年，Fischer、Lynch、Paterson 证明了 **FLP 不可能定理**：在一个异步网络中，即使只有一个节点可能失败，也无法设计出一个始终能在有限时间内终止的共识算法。共识、FLP、拜占庭容错、CAP 的完整理论脉络，见 [[distributed-computing-theory]]。
 
 这意味着实践中的共识算法必须做出妥协：
 
-- **Paxos**（Lamport，1989）：第一个实用的共识协议，理论上严格，但极难实现
+- **Paxos**（Lamport，论文 1998 年发表）：第一个被严格证明正确的实用共识协议，理论上严格，但极难实现
 - **Raft**（Ongaro & Ousterhout，2014）：为可理解性而设计，Etcd、CockroachDB 使用
 - **PBFT**（Castro & Liskov，1999）：拜占庭容错，可抵抗节点发送错误消息（用于区块链）
 

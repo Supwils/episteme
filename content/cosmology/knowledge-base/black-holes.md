@@ -3,7 +3,7 @@ title: 黑洞
 titleEn: Black Holes
 category: 宇宙学
 tags: [黑洞, 事件视界, 奇点, 霍金辐射, 信息悖论, EHT, 引力波]
-updated: 2026-06-06
+updated: 2026-06-16
 ---
 
 # 黑洞：时空的终极深渊
@@ -26,7 +26,7 @@ $$r_s = \frac{2GM}{c^2}$$
 
 在史瓦西解发表后的数十年里，许多物理学家——包括爱因斯坦本人——怀疑黑洞是否真的存在于自然界。反对的理由包括：
 
-- 完美球对称坍缩在现实中不可能出现（但彭罗斯在 1965 年证明了奇点定理，表明黑洞形成不需要对称性假设）
+- 完美球对称坍缩在现实中不可能出现（但彭罗斯在 1965 年证明了奇点定理，表明黑洞形成不需要对称性假设；他与霍金关于奇点的交锋见对话 [[penrose-hawking|彭罗斯与霍金]]）
 - 角动量会阻止坍缩（但克尔解描述了旋转黑洞）
 - 量子效应可能阻止奇点形成
 
@@ -36,7 +36,7 @@ $$r_s = \frac{2GM}{c^2}$$
 
 ### 恒星级黑洞（Stellar Black Holes）
 
-质量约 3-100 倍太阳质量，由大质量恒星（> 20 M☉）核燃料耗尽后引力坍缩形成。银河系中估计存在约 1 亿个恒星级黑洞。通过 X 射线双星系统（如天鹅座 X-1）和引力波探测（LIGO/Virgo）可以发现它们。
+质量约 3-100 倍太阳质量，由大质量恒星（> 20 M☉）核燃料耗尽后引力坍缩形成（恒星如何走到这一步，见 [[stellar-evolution|恒星演化]]）。银河系中估计存在约 1 亿个恒星级黑洞。通过 X 射线双星系统（如天鹅座 X-1）和引力波探测（LIGO/Virgo）可以发现它们——双黑洞并合正是地面引力波探测器最主要的信号源（见"引力波天文学"一文）。
 
 ### 中等质量黑洞（Intermediate-Mass Black Holes）
 
@@ -70,7 +70,7 @@ $$r_s = \frac{2GM}{c^2}$$
 
 $$T_H = \frac{\hbar c^3}{8\pi G M k_B}$$
 
-一个太阳质量黑洞的霍金辐射温度仅约 6 × 10⁻⁸ K——远低于宇宙微波背景辐射的 2.725 K，因此恒星级黑洞目前实际上在净吸收能量而非辐射。
+一个太阳质量黑洞的霍金辐射温度仅约 6 × 10⁻⁸ K——远低于宇宙微波背景辐射的 2.725 K，因此恒星级黑洞目前实际上在净吸收能量而非辐射。霍金辐射、贝肯斯坦熵与信息悖论的完整理论，见"黑洞热力学与霍金辐射"一文。
 
 ### 黑洞蒸发
 
@@ -98,11 +98,11 @@ $$t_{\text{evap}} \sim \frac{G^2 M^3}{\hbar c^4}$$
 
 ### 事件视界望远镜（EHT）
 
-2019 年 4 月 10 日，事件视界望远镜（Event Horizon Telescope, EHT）合作组发布了人类历史上第一张黑洞照片——M87 星系中心超大质量黑洞（M87*）的影像。EHT 并非单一望远镜，而是分布在全球各地的 8 个射电望远镜组成的干涉阵列，等效口径约地球直径，角分辨率约 20 微角秒。
+2019 年 4 月 10 日，事件视界望远镜（Event Horizon Telescope, EHT）合作组发布了人类历史上第一张黑洞照片——M87 星系中心超大质量黑洞（M87\*）的影像。EHT 并非单一望远镜，而是分布在全球各地的 8 个射电望远镜组成的干涉阵列，等效口径约地球直径，角分辨率约 20 微角秒。
 
 照片显示了一个明亮的环状结构（被黑洞引力弯曲的吸积盘辐射）围绕着一个暗的中心区域（黑洞的"影子"）。影子的大小和形状与广义相对论对 65 亿倍太阳质量黑洞的预言精确一致。
 
-2022 年，EHT 进一步发布了银河系中心黑洞 Sgr A* 的照片，再次验证了广义相对论的预言。
+2022 年，EHT 进一步发布了银河系中心黑洞 Sgr A\* 的照片，再次验证了广义相对论的预言。
 
 ## 2020 年诺贝尔物理学奖
 
@@ -116,8 +116,8 @@ $$t_{\text{evap}} \sim \frac{G^2 M^3}{\hbar c^4}$$
 
 ## 参考文献
 
-- Schwarzschild, K. (1916). Über das Gravitationsfeld eines Massenpunktes nach der Einsteinschen Theorie. *Sitzungsberichte der Königlich Preußischen Akademie der Wissenschaften*, 189.
-- Hawking, S.W. (1974). Black hole explosions? *Nature*, 248, 30.
-- Penrose, R. (1965). Gravitational collapse and space-time singularities. *Phys. Rev. Lett.*, 14, 57.
-- Event Horizon Telescope Collaboration (2019). First M87 Event Horizon Telescope Results. I. The Shadow of the Supermassive Black Hole. *ApJ*, 875, L1.
-- Hawking, S.W. (1975). Particle creation by black holes. *Commun. Math. Phys.*, 43, 199.
+- Schwarzschild, K. (1916). Über das Gravitationsfeld eines Massenpunktes nach der Einsteinschen Theorie. _Sitzungsberichte der Königlich Preußischen Akademie der Wissenschaften_, 189.
+- Hawking, S.W. (1974). Black hole explosions? _Nature_, 248, 30.
+- Penrose, R. (1965). Gravitational collapse and space-time singularities. _Phys. Rev. Lett._, 14, 57.
+- Event Horizon Telescope Collaboration (2019). First M87 Event Horizon Telescope Results. I. The Shadow of the Supermassive Black Hole. _ApJ_, 875, L1.
+- Hawking, S.W. (1975). Particle creation by black holes. _Commun. Math. Phys._, 43, 199.

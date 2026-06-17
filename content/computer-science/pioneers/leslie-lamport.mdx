@@ -16,6 +16,7 @@ tags:
 related:
   - alan-turing
   - john-von-neumann
+  - distributed-computing-theory
 ---
 
 # 莱斯利·兰波特
@@ -96,7 +97,7 @@ Amazon AWS 在 2015 年发表了一篇重要论文：他们用 TLA+ 规范了 AW
 
 ## 跨域连接
 
-- **[[distributed-systems]]**：逻辑时钟、Paxos、拜占庭容错、顺序一致性，几乎覆盖了分布式系统理论的核心命题；兰波特的论文是理解任何现代分布式系统设计决策的必要背景。
+- **[[distributed-systems]]**：逻辑时钟、Paxos、拜占庭容错、顺序一致性，几乎覆盖了分布式系统理论的核心命题；兰波特的论文是理解任何现代分布式系统设计决策的必要背景。这些结果的理论全景，见 [[distributed-computing-theory]]。
 - **[[databases-transactions]]**：分布式数据库的事务一致性（如 Google Spanner 的 TrueTime、CockroachDB 的 Serializable 隔离）直接建立在兰波特的理论基础上。
 - **[[blockchain]]**：区块链的共识机制（PoW、PoS、PBFT）都是拜占庭将军问题的不同工程解答；中本聪的比特币白皮书实际上是对"拜占庭容错共识"的一种新型实用解。
 
@@ -105,6 +106,6 @@ Amazon AWS 在 2015 年发表了一篇重要论文：他们用 TLA+ 规范了 AW
 ## 延伸阅读
 
 - Lamport, L. *Time, Clocks, and the Ordering of Events in a Distributed System.* CACM 21(7), 1978.
-- Lamport, L., Shostak, R., & Pease, M. *The Byzantine Generals Problem.* ACM TOCS 1(3), 1982.
+- Lamport, L., Shostak, R., & Pease, M. *The Byzantine Generals Problem.* ACM TOPLAS 4(3), 1982.
 - Lamport, L. *Paxos Made Simple.* ACM SIGACT News 32(4), 2001.
 - Newcombe, C. et al. *How Amazon Web Services Uses Formal Methods.* CACM 58(4), 2015. （TLA+ 工业应用的重要案例）

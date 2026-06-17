@@ -21,6 +21,8 @@ tags:
 related:
   - computability
   - cryptography-foundations
+  - approximation-algorithms
+  - algorithmic-game-theory
   - donald-knuth
 ---
 
@@ -70,7 +72,7 @@ P $\subseteq$ NP 是显然的（能解就能验证）。**P 是否真的等于 N
 1. $C \in$ NP（答案可多项式验证）
 2. 所有 NP 问题都可多项式规约到 $C$（即 $C$ 是 NP 中最难的）
 
-如果 P $\neq$ NP（主流信念），则 NP 完全问题没有多项式时间算法——这意味着对大规模输入，只能诉诸近似算法、启发式方法或随机化算法。
+如果 P $\neq$ NP（主流信念），则 NP 完全问题没有多项式时间算法——这意味着对大规模输入，只能诉诸近似算法（见 [[approximation-algorithms]]）、启发式方法或随机化算法（见 [[randomized-algorithms]]）。
 
 ## 核心三：复杂度类的层次
 
@@ -130,7 +132,7 @@ Adleman（1978）的定理已证明 BPP ⊆ P/poly（非均匀多项式时间）
 
 - **密码学**：公钥密码学的安全性实质上依赖于某些 NP 问题对 P 的不属性（虽然这是假设而非定理），见 [[cryptography-foundations]]。
 - **人工智能**：大量规划、约束满足、博弈求解问题是 NP 完全或更难；深度学习训练问题的复杂性类别至今仍有争议。
-- **经济学**：均衡计算、组合拍卖等问题的复杂性直接影响机制设计的可行性。
+- **经济学**：均衡计算、组合拍卖等问题的复杂性直接影响机制设计的可行性——纳什均衡被证明是 PPAD 完全的，详见 [[algorithmic-game-theory]]。
 - **可计算性**：P vs NP 只在可计算问题中有意义；可计算性理论处理的是更根本的"能否解"，见 [[computability]]。
 
 ---

@@ -15,6 +15,8 @@ tags:
 related:
   - dynamic-programming
   - backtracking
+  - computational-complexity
+  - approximation-algorithms
 ---
 
 # SAT 求解
@@ -106,10 +108,11 @@ SMT 求解器（如 Z3、CVC5）是程序验证、符号执行、软件分析的
 
 **相变现象**：随机 3-SAT 存在"相变"——子句数与变量数之比约为 4.267 时，问题从"几乎总是可满足"跳变到"几乎总是不可满足"，且相变点附近的实例最难求解。这个现象连接了统计物理与计算复杂度，是理论计算机科学的活跃研究方向。
 
-**P vs NP**：SAT 的 NP 完全性意味着它是 P vs NP 这一千禧年大奖难题的核心。证明 SAT 没有多项式时间算法，就证明了 P ≠ NP。目前两个方向（P = NP 或 P ≠ NP）都没有被证明。
+**P vs NP**：SAT 的 NP 完全性意味着它是 P vs NP 这一千禧年大奖难题的核心（见 [[computational-complexity]]）。证明 SAT 没有多项式时间算法，就证明了 P ≠ NP。目前两个方向（P = NP 或 P ≠ NP）都没有被证明。
 
 ## 跨域连接
 
+- **[[computational-complexity]]**：库克对 SAT 的 NP 完全性证明是整个复杂性理论的起点；它的近似版本 MAX-SAT 的硬度，见 [[approximation-algorithms]]。
 - **[[backtracking]]**：DPLL 和 CDCL 都是回溯搜索算法的特化形式，SAT 求解是回溯算法工程化的巅峰。
 - **[[dynamic-programming]]**：2-SAT（每子句 2 文字）可在多项式时间内用 DP（强连通分量）求解，展示了问题结构如何决定可解性。
 - **哲学**：P vs NP 问题不只是技术问题——若 P = NP，则"验证"与"发现"之间的鸿沟将消失，数学证明可以自动搜索，密码学基础将崩溃。

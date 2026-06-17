@@ -15,6 +15,7 @@ related:
   - dynamic-programming
   - greedy-algorithms
   - backtracking
+  - approximation-algorithms
 ---
 
 # 背包问题
@@ -125,7 +126,7 @@ for k in groups:
 
 若 $W$ 过大，可以用**完全多项式时间近似方案（FPTAS）**：对物品价值做缩放（除以一个因子并取整），将价值变小后用 DP 求解，再映射回原始价值。
 
-给定误差参数 $\varepsilon > 0$，FPTAS 在 $O(n^2 / \varepsilon)$ 时间内给出 $(1-\varepsilon)$ 近似解——价值至少是最优解的 $1-\varepsilon$ 倍。
+给定误差参数 $\varepsilon > 0$，FPTAS 在 $O(n^2 / \varepsilon)$ 时间内给出 $(1-\varepsilon)$ 近似解——价值至少是最优解的 $1-\varepsilon$ 倍。背包是少数能做到 FPTAS（可任意逼近）的 NP 难问题，处在近似难度层次的最顶端，对比见 [[approximation-algorithms]]。
 
 ## 子集和问题：背包的特殊情形
 

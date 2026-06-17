@@ -58,6 +58,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/algorithms/decision-trees": [
     {
+      url: "/economics/concepts/gini-coefficient",
+      title: "基尼系数",
+    },
+    {
       url: "/computer-science/algorithms/random-forests",
       title: "随机森林",
     },
@@ -161,6 +165,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/computer-science/algorithms/gradient-descent-backprop": [
+    {
+      url: "/economics/concepts/marginal-analysis",
+      title: "边际分析",
+    },
     {
       url: "/computer-science/algorithms/decision-trees",
       title: "决策树",
@@ -282,6 +290,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/algorithms/k-means-clustering": [
     {
+      url: "/computer-science/theory/approximation-algorithms",
+      title: "近似算法理论",
+    },
+    {
       url: "/computer-science/algorithms/decision-trees",
       title: "决策树",
     },
@@ -295,8 +307,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/computer-science/algorithms/backtracking",
       title: "回溯算法",
     },
+    {
+      url: "/computer-science/theory/approximation-algorithms",
+      title: "近似算法理论",
+    },
   ],
   "/computer-science/algorithms/linear-programming": [
+    {
+      url: "/computer-science/theory/approximation-algorithms",
+      title: "近似算法理论",
+    },
+    {
+      url: "/computer-science/theory/algorithmic-game-theory",
+      title: "算法博弈论",
+    },
     {
       url: "/computer-science/algorithms/network-flow",
       title: "网络流",
@@ -318,6 +342,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/algorithms/union-find",
       title: "并查集",
+    },
+    {
+      url: "/computer-science/theory/approximation-algorithms",
+      title: "近似算法理论",
     },
     {
       url: "/computer-science/algorithms/greedy-algorithms",
@@ -362,6 +390,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/frontier/zero-knowledge-proofs",
       title: "零知识证明与隐私计算",
+    },
+  ],
+  "/computer-science/algorithms/q-learning": [
+    {
+      url: "/computer-science/theory/algorithmic-game-theory",
+      title: "算法博弈论",
     },
   ],
   "/computer-science/algorithms/random-forests": [
@@ -423,6 +457,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/computer-science/algorithms/simulated-annealing": [
+    {
+      url: "/computer-science/theory/approximation-algorithms",
+      title: "近似算法理论",
+    },
     {
       url: "/computer-science/algorithms/monte-carlo-methods",
       title: "蒙特卡洛方法",
@@ -525,6 +563,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/computer-science/concepts/blockchain": [
+    {
+      url: "/computer-science/theory/distributed-computing-theory",
+      title: "分布式计算理论",
+    },
     {
       url: "/computer-science/pioneers/leslie-lamport",
       title: "莱斯利·兰波特",
@@ -1462,6 +1504,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "拉里·佩奇与谢尔盖·布林",
     },
   ],
+  "/computer-science/theory/algorithmic-game-theory": [
+    {
+      url: "/computer-science/theory/computational-complexity",
+      title: "计算复杂性理论",
+    },
+  ],
+  "/computer-science/theory/approximation-algorithms": [
+    {
+      url: "/computer-science/algorithms/knapsack-problem",
+      title: "背包问题",
+    },
+    {
+      url: "/computer-science/theory/computational-complexity",
+      title: "计算复杂性理论",
+    },
+    {
+      url: "/computer-science/algorithms/sat-solving",
+      title: "SAT 求解",
+    },
+  ],
   "/computer-science/theory/automata-formal-languages": [
     {
       url: "/computer-science/concepts/compilers",
@@ -1481,6 +1543,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/computer-science/theory/computability": [
+    {
+      url: "/computer-science/theory/distributed-computing-theory",
+      title: "分布式计算理论",
+    },
     {
       url: "/computer-science/theory/computational-complexity",
       title: "计算复杂性理论",
@@ -1516,8 +1582,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/theory/computational-complexity": [
     {
+      url: "/computer-science/theory/distributed-computing-theory",
+      title: "分布式计算理论",
+    },
+    {
       url: "/computer-science/theory/computational-geometry",
       title: "计算几何",
+    },
+    {
+      url: "/computer-science/theory/approximation-algorithms",
+      title: "近似算法理论",
     },
     {
       url: "/computer-science/theory/computability",
@@ -1532,6 +1606,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "密码学基础",
     },
     {
+      url: "/computer-science/theory/algorithmic-game-theory",
+      title: "算法博弈论",
+    },
+    {
       url: "/computer-science/theory/randomized-algorithms",
       title: "随机算法",
     },
@@ -1539,8 +1617,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/computer-science/algorithms/string-matching",
       title: "字符串匹配",
     },
+    {
+      url: "/computer-science/algorithms/sat-solving",
+      title: "SAT 求解",
+    },
   ],
   "/computer-science/theory/cryptography-foundations": [
+    {
+      url: "/computer-science/theory/distributed-computing-theory",
+      title: "分布式计算理论",
+    },
     {
       url: "/computer-science/theory/computational-complexity",
       title: "计算复杂性理论",
@@ -1562,7 +1648,25 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "信息论",
     },
   ],
+  "/computer-science/theory/distributed-computing-theory": [
+    {
+      url: "/computer-science/concepts/distributed-systems",
+      title: "分布式系统",
+    },
+    {
+      url: "/computer-science/pioneers/leslie-lamport",
+      title: "莱斯利·兰波特",
+    },
+    {
+      url: "/computer-science/concepts/blockchain",
+      title: "区块链",
+    },
+  ],
   "/computer-science/theory/information-theory": [
+    {
+      url: "/economics/concepts/gini-coefficient",
+      title: "基尼系数",
+    },
     {
       url: "/computer-science/theory/error-correcting-codes",
       title: "纠错码理论",
@@ -1626,14 +1730,786 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/theory/randomized-algorithms": [
     {
+      url: "/computer-science/theory/distributed-computing-theory",
+      title: "分布式计算理论",
+    },
+    {
+      url: "/computer-science/theory/computational-complexity",
+      title: "计算复杂性理论",
+    },
+    {
       url: "/computer-science/theory/computational-geometry",
       title: "计算几何",
+    },
+    {
+      url: "/computer-science/theory/approximation-algorithms",
+      title: "近似算法理论",
+    },
+  ],
+  "/cosmology/dialogues/penrose-hawking": [
+    {
+      url: "/cosmology/knowledge-base/black-holes",
+      title: "黑洞",
+    },
+  ],
+  "/cosmology/knowledge-base/stellar-evolution": [
+    {
+      url: "/cosmology/knowledge-base/black-holes",
+      title: "黑洞",
+    },
+  ],
+  "/economics/case-studies/financial-crisis-sequence": [
+    {
+      url: "/economics/theories/supply-demand",
+      title: "供需理论",
+    },
+  ],
+  "/economics/case-studies/great-depression": [
+    {
+      url: "/economics/theories/keynesian-economics",
+      title: "凯恩斯主义经济学",
+    },
+  ],
+  "/economics/case-studies/hyperinflation-cases": [
+    {
+      url: "/economics/case-studies/hyperinflation-zimbabwe",
+      title: "津巴布韦恶性通胀",
+    },
+  ],
+  "/economics/case-studies/tulip-mania": [
+    {
+      url: "/economics/theories/supply-demand",
+      title: "供需理论",
+    },
+  ],
+  "/economics/concepts/auction-theory": [
+    {
+      url: "/computer-science/theory/algorithmic-game-theory",
+      title: "算法博弈论",
+    },
+  ],
+  "/economics/concepts/consumer-surplus": [
+    {
+      url: "/economics/concepts/price-discrimination",
+      title: "价格歧视",
+    },
+  ],
+  "/economics/concepts/elasticity": [
+    {
+      url: "/economics/concepts/price-discrimination",
+      title: "价格歧视",
+    },
+  ],
+  "/economics/concepts/environmental-economics": [
+    {
+      url: "/economics/theories/supply-demand",
+      title: "供需理论",
+    },
+  ],
+  "/economics/concepts/gini-coefficient": [
+    {
+      url: "/economics/economists/karl-marx",
+      title: "卡尔·马克思",
+    },
+    {
+      url: "/economics/concepts/labor-economics",
+      title: "劳动经济学",
+    },
+  ],
+  "/economics/concepts/industrial-organization": [
+    {
+      url: "/economics/concepts/price-discrimination",
+      title: "价格歧视",
+    },
+  ],
+  "/economics/concepts/inflation-mechanism": [
+    {
+      url: "/economics/case-studies/hyperinflation-zimbabwe",
+      title: "津巴布韦恶性通胀",
+    },
+  ],
+  "/economics/concepts/interest-rates": [
+    {
+      url: "/economics/theories/keynesian-economics",
+      title: "凯恩斯主义经济学",
+    },
+  ],
+  "/economics/concepts/marginal-analysis": [
+    {
+      url: "/economics/theories/supply-demand",
+      title: "供需理论",
+    },
+  ],
+  "/economics/concepts/mechanism-design": [
+    {
+      url: "/computer-science/theory/distributed-computing-theory",
+      title: "分布式计算理论",
+    },
+    {
+      url: "/economics/concepts/price-discrimination",
+      title: "价格歧视",
+    },
+    {
+      url: "/computer-science/theory/algorithmic-game-theory",
+      title: "算法博弈论",
+    },
+  ],
+  "/economics/concepts/money-supply": [
+    {
+      url: "/economics/case-studies/hyperinflation-zimbabwe",
+      title: "津巴布韦恶性通胀",
+    },
+  ],
+  "/economics/concepts/monopoly-oligopoly": [
+    {
+      url: "/economics/concepts/industrial-organization",
+      title: "产业组织理论",
+    },
+    {
+      url: "/economics/concepts/price-discrimination",
+      title: "价格歧视",
+    },
+  ],
+  "/economics/concepts/nash-equilibrium": [
+    {
+      url: "/economics/concepts/industrial-organization",
+      title: "产业组织理论",
+    },
+    {
+      url: "/computer-science/theory/algorithmic-game-theory",
+      title: "算法博弈论",
+    },
+  ],
+  "/economics/concepts/network-effects": [
+    {
+      url: "/economics/concepts/industrial-organization",
+      title: "产业组织理论",
+    },
+    {
+      url: "/economics/economists/adam-smith",
+      title: "亚当·斯密",
+    },
+  ],
+  "/economics/concepts/opportunity-cost": [
+    {
+      url: "/economics/theories/comparative-advantage",
+      title: "比较优势理论",
+    },
+  ],
+  "/economics/concepts/platform-economics": [
+    {
+      url: "/economics/concepts/industrial-organization",
+      title: "产业组织理论",
+    },
+    {
+      url: "/economics/economists/karl-marx",
+      title: "卡尔·马克思",
+    },
+    {
+      url: "/economics/economists/adam-smith",
+      title: "亚当·斯密",
+    },
+  ],
+  "/economics/concepts/price-discrimination": [
+    {
+      url: "/economics/concepts/industrial-organization",
+      title: "产业组织理论",
+    },
+    {
+      url: "/economics/theories/supply-demand",
+      title: "供需理论",
+    },
+  ],
+  "/economics/concepts/public-choice-theory": [
+    {
+      url: "/economics/concepts/industrial-organization",
+      title: "产业组织理论",
+    },
+    {
+      url: "/economics/theories/keynesian-economics",
+      title: "凯恩斯主义经济学",
+    },
+  ],
+  "/economics/concepts/tragedy-of-commons": [
+    {
+      url: "/economics/concepts/environmental-economics",
+      title: "环境经济学",
+    },
+  ],
+  "/economics/debates/free-trade-fair-trade": [
+    {
+      url: "/economics/theories/comparative-advantage",
+      title: "比较优势理论",
+    },
+  ],
+  "/economics/debates/keynes-vs-hayek": [
+    {
+      url: "/economics/theories/keynesian-economics",
+      title: "凯恩斯主义经济学",
+    },
+  ],
+  "/economics/debates/rational-expectations": [
+    {
+      url: "/economics/theories/keynesian-economics",
+      title: "凯恩斯主义经济学",
+    },
+  ],
+  "/economics/economists/adam-smith": [
+    {
+      url: "/economics/theories/supply-demand",
+      title: "供需理论",
+    },
+  ],
+  "/economics/economists/alfred-marshall": [
+    {
+      url: "/economics/theories/supply-demand",
+      title: "供需理论",
+    },
+  ],
+  "/economics/economists/amartya-sen": [
+    {
+      url: "/economics/concepts/gini-coefficient",
+      title: "基尼系数",
+    },
+  ],
+  "/economics/economists/amos-tversky": [
+    {
+      url: "/economics/economists/daniel-kahneman",
+      title: "丹尼尔·卡尼曼",
+    },
+    {
+      url: "/economics/theories/prospect-theory-econ",
+      title: "前景理论与经济学",
+    },
+  ],
+  "/economics/economists/arthur-pigou": [
+    {
+      url: "/economics/concepts/environmental-economics",
+      title: "环境经济学",
+    },
+  ],
+  "/economics/economists/daniel-kahneman": [
+    {
+      url: "/economics/concepts/marginal-analysis",
+      title: "边际分析",
+    },
+    {
+      url: "/economics/theories/prospect-theory-econ",
+      title: "前景理论与经济学",
+    },
+    {
+      url: "/economics/economists/adam-smith",
+      title: "亚当·斯密",
+    },
+  ],
+  "/economics/economists/david-ricardo": [
+    {
+      url: "/economics/theories/comparative-advantage",
+      title: "比较优势理论",
+    },
+    {
+      url: "/economics/theories/supply-demand",
+      title: "供需理论",
+    },
+    {
+      url: "/economics/economists/karl-marx",
+      title: "卡尔·马克思",
+    },
+    {
+      url: "/economics/economists/adam-smith",
+      title: "亚当·斯密",
+    },
+  ],
+  "/economics/economists/douglass-north": [
+    {
+      url: "/economics/concepts/public-choice-theory",
+      title: "公共选择理论",
+    },
+  ],
+  "/economics/economists/elinor-ostrom": [
+    {
+      url: "/economics/concepts/environmental-economics",
+      title: "环境经济学",
+    },
+  ],
+  "/economics/economists/friedrich-hayek": [
+    {
+      url: "/economics/debates/keynes-vs-hayek",
+      title: "凯恩斯vs哈耶克：政府干预之争",
+    },
+  ],
+  "/economics/economists/john-maynard-keynes": [
+    {
+      url: "/economics/theories/keynesian-economics",
+      title: "凯恩斯主义经济学",
+    },
+    {
+      url: "/economics/debates/keynes-vs-hayek",
+      title: "凯恩斯vs哈耶克：政府干预之争",
+    },
+  ],
+  "/economics/economists/joseph-stiglitz": [
+    {
+      url: "/economics/theories/keynesian-economics",
+      title: "凯恩斯主义经济学",
+    },
+  ],
+  "/economics/economists/kenneth-arrow": [
+    {
+      url: "/economics/concepts/public-choice-theory",
+      title: "公共选择理论",
+    },
+  ],
+  "/economics/economists/leon-walras": [
+    {
+      url: "/economics/concepts/marginal-analysis",
+      title: "边际分析",
+    },
+    {
+      url: "/economics/theories/supply-demand",
+      title: "供需理论",
+    },
+  ],
+  "/economics/economists/michael-spence": [
+    {
+      url: "/economics/concepts/labor-economics",
+      title: "劳动经济学",
+    },
+  ],
+  "/economics/economists/paul-krugman": [
+    {
+      url: "/economics/theories/comparative-advantage",
+      title: "比较优势理论",
+    },
+  ],
+  "/economics/economists/richard-thaler": [
+    {
+      url: "/economics/economists/daniel-kahneman",
+      title: "丹尼尔·卡尼曼",
+    },
+  ],
+  "/economics/economists/ronald-coase": [
+    {
+      url: "/economics/concepts/environmental-economics",
+      title: "环境经济学",
+    },
+  ],
+  "/economics/economists/thomas-piketty": [
+    {
+      url: "/economics/concepts/gini-coefficient",
+      title: "基尼系数",
+    },
+    {
+      url: "/economics/economists/karl-marx",
+      title: "卡尔·马克思",
+    },
+  ],
+  "/economics/frontier/ai-labor-market": [
+    {
+      url: "/economics/concepts/labor-economics",
+      title: "劳动经济学",
+    },
+  ],
+  "/economics/frontier/climate-economics-carbon-pricing": [
+    {
+      url: "/economics/concepts/environmental-economics",
+      title: "环境经济学",
+    },
+  ],
+  "/economics/knowledge-base/behavioral-finance": [
+    {
+      url: "/economics/theories/prospect-theory-econ",
+      title: "前景理论与经济学",
+    },
+  ],
+  "/economics/knowledge-base/inequality-economics": [
+    {
+      url: "/economics/concepts/gini-coefficient",
+      title: "基尼系数",
+    },
+    {
+      url: "/economics/economists/karl-marx",
+      title: "卡尔·马克思",
+    },
+    {
+      url: "/economics/concepts/labor-economics",
+      title: "劳动经济学",
+    },
+  ],
+  "/economics/knowledge-base/time-discounting": [
+    {
+      url: "/economics/concepts/environmental-economics",
+      title: "环境经济学",
+    },
+  ],
+  "/economics/schools/austrian-school": [
+    {
+      url: "/economics/debates/keynes-vs-hayek",
+      title: "凯恩斯vs哈耶克：政府干预之争",
+    },
+  ],
+  "/economics/schools/keynesian-school": [
+    {
+      url: "/economics/debates/keynes-vs-hayek",
+      title: "凯恩斯vs哈耶克：政府干预之争",
+    },
+  ],
+  "/economics/theories/behavioral-economics-theory": [
+    {
+      url: "/economics/economists/daniel-kahneman",
+      title: "丹尼尔·卡尼曼",
+    },
+    {
+      url: "/economics/concepts/price-discrimination",
+      title: "价格歧视",
+    },
+    {
+      url: "/economics/theories/keynesian-economics",
+      title: "凯恩斯主义经济学",
+    },
+    {
+      url: "/psychology/phenomena/framing-effect",
+      title: "框架效应",
+    },
+    {
+      url: "/psychology/phenomena/cognitive-bias",
+      title: "认知偏误",
+    },
+    {
+      url: "/psychology/schools/behaviorism",
+      title: "行为主义",
+    },
+  ],
+  "/economics/theories/comparative-advantage": [
+    {
+      url: "/economics/economists/adam-smith",
+      title: "亚当·斯密",
+    },
+  ],
+  "/economics/theories/game-theory-basics": [
+    {
+      url: "/economics/concepts/industrial-organization",
+      title: "产业组织理论",
+    },
+    {
+      url: "/computer-science/theory/distributed-computing-theory",
+      title: "分布式计算理论",
+    },
+    {
+      url: "/economics/concepts/environmental-economics",
+      title: "环境经济学",
+    },
+    {
+      url: "/computer-science/theory/algorithmic-game-theory",
+      title: "算法博弈论",
+    },
+  ],
+  "/economics/theories/information-asymmetry": [
+    {
+      url: "/economics/concepts/price-discrimination",
+      title: "价格歧视",
+    },
+    {
+      url: "/economics/concepts/labor-economics",
+      title: "劳动经济学",
+    },
+  ],
+  "/economics/theories/institutional-economics": [
+    {
+      url: "/economics/concepts/public-choice-theory",
+      title: "公共选择理论",
+    },
+    {
+      url: "/economics/case-studies/hyperinflation-zimbabwe",
+      title: "津巴布韦恶性通胀",
+    },
+  ],
+  "/economics/theories/monetarism": [
+    {
+      url: "/economics/case-studies/hyperinflation-zimbabwe",
+      title: "津巴布韦恶性通胀",
+    },
+    {
+      url: "/economics/theories/keynesian-economics",
+      title: "凯恩斯主义经济学",
+    },
+  ],
+  "/economics/theories/prospect-theory-econ": [
+    {
+      url: "/economics/economists/daniel-kahneman",
+      title: "丹尼尔·卡尼曼",
+    },
+  ],
+  "/economics/theories/supply-demand": [
+    {
+      url: "/economics/theories/keynesian-economics",
+      title: "凯恩斯主义经济学",
+    },
+    {
+      url: "/economics/economists/adam-smith",
+      title: "亚当·斯密",
+    },
+  ],
+  "/human-history/frontier/ancient-dna-revolution": [
+    {
+      url: "/human-history/frontier/climate-and-history",
+      title: "气候如何终结王朝——历史气候学的前沿",
+    },
+    {
+      url: "/human-history/frontier/decolonial-global-history",
+      title: "全球史与去殖民史学——多中心的世界史书写",
+    },
+    {
+      url: "/human-history/frontier/lidar-remote-sensing-civilizations",
+      title: "LiDAR 重写古代文明——雨林之下的隐藏城市",
+    },
+  ],
+  "/human-history/frontier/climate-and-history": [
+    {
+      url: "/human-history/frontier/ancient-dna-revolution",
+      title: "古DNA革命——基因组重写人类迁徙史",
+    },
+    {
+      url: "/human-history/frontier/lidar-remote-sensing-civilizations",
+      title: "LiDAR 重写古代文明——雨林之下的隐藏城市",
+    },
+  ],
+  "/human-history/frontier/decolonial-global-history": [
+    {
+      url: "/human-history/frontier/historiography-methods-debate",
+      title: "史学方法之争——大历史的雄心与年鉴学派的遗产",
+    },
+  ],
+  "/human-history/frontier/digital-humanities-big-data-history": [
+    {
+      url: "/human-history/frontier/climate-and-history",
+      title: "气候如何终结王朝——历史气候学的前沿",
+    },
+    {
+      url: "/human-history/frontier/decolonial-global-history",
+      title: "全球史与去殖民史学——多中心的世界史书写",
+    },
+    {
+      url: "/human-history/frontier/historiography-methods-debate",
+      title: "史学方法之争——大历史的雄心与年鉴学派的遗产",
+    },
+  ],
+  "/life-science/dialogues/gould-dawkins": [
+    {
+      url: "/life-science/scientists/dawkins",
+      title: "理查德·道金斯",
+    },
+    {
+      url: "/life-science/scientists/gould",
+      title: "斯蒂芬·杰·古尔德",
+    },
+  ],
+  "/life-science/dialogues/margulis-dawkins": [
+    {
+      url: "/life-science/scientists/dawkins",
+      title: "理查德·道金斯",
+    },
+  ],
+  "/life-science/scientists/crick": [
+    {
+      url: "/life-science/scientists/watson",
+      title: "詹姆斯·沃森",
+    },
+    {
+      url: "/life-science/scientists/jennifer-doudna",
+      title: "珍妮弗·杜德纳",
+    },
+  ],
+  "/life-science/scientists/darwin": [
+    {
+      url: "/life-science/scientists/wallace",
+      title: "阿尔弗雷德·华莱士",
+    },
+    {
+      url: "/life-science/scientists/wilson",
+      title: "爱德华·威尔逊",
+    },
+    {
+      url: "/life-science/scientists/mcclintock",
+      title: "芭芭拉·麦克林托克",
+    },
+    {
+      url: "/life-science/scientists/mendel",
+      title: "格雷戈尔·孟德尔",
+    },
+    {
+      url: "/life-science/scientists/woese",
+      title: "卡尔·沃斯",
+    },
+    {
+      url: "/life-science/scientists/dawkins",
+      title: "理查德·道金斯",
+    },
+    {
+      url: "/life-science/scientists/gould",
+      title: "斯蒂芬·杰·古尔德",
+    },
+    {
+      url: "/life-science/scientists/svante-paabo",
+      title: "斯万特·帕博",
+    },
+    {
+      url: "/life-science/scientists/hamilton",
+      title: "威廉·汉密尔顿",
+    },
+  ],
+  "/life-science/scientists/dawkins": [
+    {
+      url: "/life-science/scientists/wallace",
+      title: "阿尔弗雷德·华莱士",
+    },
+    {
+      url: "/life-science/scientists/wilson",
+      title: "爱德华·威尔逊",
+    },
+    {
+      url: "/life-science/scientists/gould",
+      title: "斯蒂芬·杰·古尔德",
+    },
+    {
+      url: "/life-science/scientists/hamilton",
+      title: "威廉·汉密尔顿",
+    },
+  ],
+  "/life-science/scientists/franklin": [
+    {
+      url: "/life-science/scientists/mcclintock",
+      title: "芭芭拉·麦克林托克",
+    },
+    {
+      url: "/life-science/scientists/crick",
+      title: "弗朗西斯·克里克",
+    },
+    {
+      url: "/life-science/scientists/watson",
+      title: "詹姆斯·沃森",
+    },
+  ],
+  "/life-science/scientists/gould": [
+    {
+      url: "/life-science/scientists/wallace",
+      title: "阿尔弗雷德·华莱士",
+    },
+    {
+      url: "/life-science/scientists/dawkins",
+      title: "理查德·道金斯",
+    },
+  ],
+  "/life-science/scientists/hamilton": [
+    {
+      url: "/life-science/scientists/wilson",
+      title: "爱德华·威尔逊",
+    },
+    {
+      url: "/life-science/scientists/dawkins",
+      title: "理查德·道金斯",
+    },
+  ],
+  "/life-science/scientists/jennifer-doudna": [
+    {
+      url: "/life-science/scientists/crick",
+      title: "弗朗西斯·克里克",
+    },
+    {
+      url: "/life-science/scientists/svante-paabo",
+      title: "斯万特·帕博",
+    },
+    {
+      url: "/life-science/scientists/watson",
+      title: "詹姆斯·沃森",
+    },
+  ],
+  "/life-science/scientists/margulis": [
+    {
+      url: "/life-science/scientists/woese",
+      title: "卡尔·沃斯",
+    },
+    {
+      url: "/life-science/scientists/dawkins",
+      title: "理查德·道金斯",
+    },
+  ],
+  "/life-science/scientists/mcclintock": [
+    {
+      url: "/life-science/scientists/watson",
+      title: "詹姆斯·沃森",
+    },
+    {
+      url: "/life-science/scientists/jennifer-doudna",
+      title: "珍妮弗·杜德纳",
+    },
+  ],
+  "/life-science/scientists/mendel": [
+    {
+      url: "/life-science/scientists/crick",
+      title: "弗朗西斯·克里克",
+    },
+    {
+      url: "/life-science/scientists/watson",
+      title: "詹姆斯·沃森",
+    },
+  ],
+  "/life-science/scientists/wallace": [
+    {
+      url: "/life-science/scientists/gould",
+      title: "斯蒂芬·杰·古尔德",
+    },
+  ],
+  "/life-science/scientists/watson": [
+    {
+      url: "/life-science/scientists/crick",
+      title: "弗朗西斯·克里克",
+    },
+    {
+      url: "/life-science/scientists/jennifer-doudna",
+      title: "珍妮弗·杜德纳",
+    },
+  ],
+  "/life-science/scientists/wilson": [
+    {
+      url: "/life-science/scientists/hamilton",
+      title: "威廉·汉密尔顿",
+    },
+  ],
+  "/life-science/scientists/woese": [
+    {
+      url: "/life-science/scientists/crick",
+      title: "弗朗西斯·克里克",
+    },
+    {
+      url: "/life-science/scientists/svante-paabo",
+      title: "斯万特·帕博",
+    },
+    {
+      url: "/life-science/scientists/jennifer-doudna",
+      title: "珍妮弗·杜德纳",
     },
   ],
   "/life-science/species/tardigrade": [
     {
       url: "/life-science/scientists/margulis",
       title: "林恩·马古利斯",
+    },
+  ],
+  "/mathematics/concepts/algebraic-geometry": [
+    {
+      url: "/mathematics/concepts/ring",
+      title: "环",
+    },
+  ],
+  "/mathematics/concepts/axiom": [
+    {
+      url: "/mathematics/concepts/set-theory",
+      title: "集合论",
+    },
+    {
+      url: "/mathematics/concepts/proof",
+      title: "证明",
     },
   ],
   "/mathematics/concepts/category-theory": [
@@ -1660,10 +2536,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "三角函数",
     },
   ],
+  "/mathematics/concepts/complex-number": [
+    {
+      url: "/mathematics/concepts/field",
+      title: "域",
+    },
+  ],
+  "/mathematics/concepts/continuity": [
+    {
+      url: "/mathematics/concepts/limit",
+      title: "极限",
+    },
+  ],
+  "/mathematics/concepts/convergence": [
+    {
+      url: "/mathematics/concepts/limit",
+      title: "极限",
+    },
+  ],
   "/mathematics/concepts/derivative": [
     {
       url: "/mathematics/concepts/function",
       title: "函数",
+    },
+    {
+      url: "/mathematics/concepts/limit",
+      title: "极限",
     },
   ],
   "/mathematics/concepts/differential-equation": [
@@ -1688,10 +2586,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "米尔扎哈尼",
     },
   ],
+  "/mathematics/concepts/field": [
+    {
+      url: "/mathematics/concepts/ring",
+      title: "环",
+    },
+  ],
   "/mathematics/concepts/function": [
+    {
+      url: "/mathematics/concepts/set-theory",
+      title: "集合论",
+    },
     {
       url: "/mathematics/concepts/trigonometry",
       title: "三角函数",
+    },
+  ],
+  "/mathematics/concepts/galois-theory": [
+    {
+      url: "/mathematics/concepts/field",
+      title: "域",
     },
   ],
   "/mathematics/concepts/group": [
@@ -1699,11 +2613,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/mathematics/mathematicians/abel",
       title: "阿贝尔",
     },
+    {
+      url: "/mathematics/concepts/field",
+      title: "域",
+    },
   ],
   "/mathematics/concepts/integral": [
     {
       url: "/mathematics/mathematicians/liu-hui",
       title: "刘徽",
+    },
+    {
+      url: "/mathematics/mathematicians/zu-chongzhi",
+      title: "祖冲之",
     },
   ],
   "/mathematics/concepts/limit": [
@@ -1715,11 +2637,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/mathematics/mathematicians/liu-hui",
       title: "刘徽",
     },
+    {
+      url: "/mathematics/mathematicians/zu-chongzhi",
+      title: "祖冲之",
+    },
   ],
   "/mathematics/concepts/linear-algebra": [
     {
       url: "/mathematics/concepts/function",
       title: "函数",
+    },
+    {
+      url: "/mathematics/concepts/group",
+      title: "群",
     },
   ],
   "/mathematics/concepts/manifold": [
@@ -1738,8 +2668,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "华罗庚",
     },
     {
+      url: "/mathematics/concepts/ring",
+      title: "环",
+    },
+    {
       url: "/mathematics/mathematicians/sophie-germain",
       title: "索菲·热尔曼",
+    },
+    {
+      url: "/mathematics/concepts/field",
+      title: "域",
     },
   ],
   "/mathematics/concepts/optimization": [
@@ -1752,6 +2690,30 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/mathematicians/sophie-germain",
       title: "索菲·热尔曼",
+    },
+  ],
+  "/mathematics/concepts/proof": [
+    {
+      url: "/mathematics/concepts/set-theory",
+      title: "集合论",
+    },
+  ],
+  "/mathematics/concepts/representation-theory": [
+    {
+      url: "/mathematics/concepts/group",
+      title: "群",
+    },
+  ],
+  "/mathematics/concepts/ring": [
+    {
+      url: "/mathematics/concepts/field",
+      title: "域",
+    },
+  ],
+  "/mathematics/concepts/series": [
+    {
+      url: "/mathematics/concepts/limit",
+      title: "极限",
     },
   ],
   "/mathematics/concepts/set-theory": [
@@ -1782,10 +2744,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "复数",
     },
   ],
+  "/mathematics/mathematicians/abel": [
+    {
+      url: "/mathematics/concepts/group",
+      title: "群",
+    },
+  ],
   "/mathematics/mathematicians/archimedes": [
     {
       url: "/mathematics/mathematicians/liu-hui",
       title: "刘徽",
+    },
+    {
+      url: "/mathematics/mathematicians/zu-chongzhi",
+      title: "祖冲之",
     },
   ],
   "/mathematics/mathematicians/euler": [
@@ -1805,6 +2777,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/mathematics/mathematicians/abel",
       title: "阿贝尔",
     },
+    {
+      url: "/mathematics/concepts/group",
+      title: "群",
+    },
+    {
+      url: "/mathematics/concepts/field",
+      title: "域",
+    },
+  ],
+  "/mathematics/mathematicians/godel": [
+    {
+      url: "/mathematics/concepts/set-theory",
+      title: "集合论",
+    },
   ],
   "/mathematics/mathematicians/grothendieck": [
     {
@@ -1818,7 +2804,17 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "刘徽",
     },
   ],
+  "/mathematics/mathematicians/liu-hui": [
+    {
+      url: "/mathematics/mathematicians/zu-chongzhi",
+      title: "祖冲之",
+    },
+  ],
   "/mathematics/mathematicians/noether": [
+    {
+      url: "/mathematics/concepts/ring",
+      title: "环",
+    },
     {
       url: "/mathematics/mathematicians/sophie-germain",
       title: "索菲·热尔曼",
@@ -1834,6 +2830,646 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "米尔扎哈尼",
     },
   ],
+  "/mathematics/mathematicians/zu-chongzhi": [
+    {
+      url: "/mathematics/mathematicians/liu-hui",
+      title: "刘徽",
+    },
+  ],
+  "/mathematics/paradoxes/infinity-hotel": [
+    {
+      url: "/mathematics/concepts/set-theory",
+      title: "集合论",
+    },
+  ],
+  "/mathematics/paradoxes/russels-paradox": [
+    {
+      url: "/mathematics/concepts/set-theory",
+      title: "集合论",
+    },
+  ],
+  "/mathematics/theorems/cantors-theorem": [
+    {
+      url: "/mathematics/concepts/set-theory",
+      title: "集合论",
+    },
+  ],
+  "/mathematics/theorems/godel-incompleteness": [
+    {
+      url: "/mathematics/concepts/proof",
+      title: "证明",
+    },
+  ],
+  "/mathematics/theorems/noethers-theorem": [
+    {
+      url: "/mathematics/concepts/group",
+      title: "群",
+    },
+  ],
+  "/philosophy/concepts/digital-ethics": [
+    {
+      url: "/philosophy/thinkers/deleuze",
+      title: "德勒兹",
+    },
+    {
+      url: "/philosophy/thinkers/simone-weil",
+      title: "西蒙娜·薇依",
+    },
+  ],
+  "/philosophy/concepts/environmental-ethics": [
+    {
+      url: "/economics/concepts/environmental-economics",
+      title: "环境经济学",
+    },
+  ],
+  "/philosophy/concepts/eudaimonia": [
+    {
+      url: "/psychology/phenomena/flow-state",
+      title: "心流状态",
+    },
+  ],
+  "/philosophy/concepts/happiness": [
+    {
+      url: "/economics/economists/daniel-kahneman",
+      title: "丹尼尔·卡尼曼",
+    },
+  ],
+  "/philosophy/concepts/li": [
+    {
+      url: "/philosophy/thinkers/heraclitus",
+      title: "赫拉克利特",
+    },
+    {
+      url: "/philosophy/thinkers/xunzi-extended",
+      title: "荀子深度扩展",
+    },
+  ],
+  "/philosophy/concepts/logic": [
+    {
+      url: "/philosophy/thinkers/xunzi-extended",
+      title: "荀子深度扩展",
+    },
+  ],
+  "/philosophy/concepts/philosophy-of-ai": [
+    {
+      url: "/philosophy/thinkers/quine",
+      title: "蒯因",
+    },
+  ],
+  "/philosophy/concepts/philosophy-of-language": [
+    {
+      url: "/philosophy/thinkers/frege",
+      title: "弗雷格",
+    },
+  ],
+  "/philosophy/concepts/philosophy-of-science": [
+    {
+      url: "/philosophy/thinkers/quine",
+      title: "蒯因",
+    },
+  ],
+  "/philosophy/concepts/power": [
+    {
+      url: "/philosophy/thinkers/hannah-arendt",
+      title: "汉娜·阿伦特",
+    },
+  ],
+  "/philosophy/concepts/practical-wisdom": [
+    {
+      url: "/philosophy/concepts/knowledge",
+      title: "知识",
+    },
+  ],
+  "/philosophy/concepts/virtue": [
+    {
+      url: "/philosophy/concepts/knowledge",
+      title: "知识",
+    },
+  ],
+  "/philosophy/concepts/yin-yang": [
+    {
+      url: "/philosophy/thinkers/dong-zhongshu",
+      title: "董仲舒",
+    },
+  ],
+  "/philosophy/questions/do-we-have-free-will": [
+    {
+      url: "/philosophy/thinkers/hannah-arendt",
+      title: "汉娜·阿伦特",
+    },
+  ],
+  "/philosophy/schools/logical-positivism": [
+    {
+      url: "/philosophy/thinkers/quine",
+      title: "蒯因",
+    },
+  ],
+  "/philosophy/schools/philosophy-of-mathematics": [
+    {
+      url: "/philosophy/thinkers/quine",
+      title: "蒯因",
+    },
+  ],
+  "/philosophy/schools/philosophy-of-mind": [
+    {
+      url: "/philosophy/thinkers/frege",
+      title: "弗雷格",
+    },
+    {
+      url: "/philosophy/thinkers/quine",
+      title: "蒯因",
+    },
+  ],
+  "/philosophy/schools/utilitarianism": [
+    {
+      url: "/economics/theories/comparative-advantage",
+      title: "比较优势理论",
+    },
+  ],
+  "/philosophy/thinkers/aquinas": [
+    {
+      url: "/philosophy/thinkers/aristotle",
+      title: "亚里士多德",
+    },
+  ],
+  "/philosophy/thinkers/aristotle": [
+    {
+      url: "/philosophy/thinkers/plato",
+      title: "柏拉图",
+    },
+    {
+      url: "/philosophy/thinkers/thales",
+      title: "泰勒斯",
+    },
+    {
+      url: "/philosophy/thinkers/xunzi-extended",
+      title: "荀子深度扩展",
+    },
+    {
+      url: "/philosophy/concepts/knowledge",
+      title: "知识",
+    },
+  ],
+  "/philosophy/thinkers/averroes": [
+    {
+      url: "/philosophy/thinkers/aristotle",
+      title: "亚里士多德",
+    },
+  ],
+  "/philosophy/thinkers/avicenna": [
+    {
+      url: "/philosophy/thinkers/aristotle",
+      title: "亚里士多德",
+    },
+  ],
+  "/philosophy/thinkers/confucius": [
+    {
+      url: "/philosophy/thinkers/heraclitus",
+      title: "赫拉克利特",
+    },
+    {
+      url: "/philosophy/thinkers/xunzi-extended",
+      title: "荀子深度扩展",
+    },
+  ],
+  "/philosophy/thinkers/democritus": [
+    {
+      url: "/philosophy/thinkers/thales",
+      title: "泰勒斯",
+    },
+  ],
+  "/philosophy/thinkers/descartes": [
+    {
+      url: "/philosophy/concepts/knowledge",
+      title: "知识",
+    },
+  ],
+  "/philosophy/thinkers/dong-zhongshu": [
+    {
+      url: "/philosophy/thinkers/xunzi-extended",
+      title: "荀子深度扩展",
+    },
+  ],
+  "/philosophy/thinkers/edward-said": [
+    {
+      url: "/philosophy/thinkers/montesquieu",
+      title: "孟德斯鸠",
+    },
+    {
+      url: "/philosophy/thinkers/simone-weil",
+      title: "西蒙娜·薇依",
+    },
+  ],
+  "/philosophy/thinkers/epicurus": [
+    {
+      url: "/philosophy/thinkers/democritus",
+      title: "德谟克利特",
+    },
+  ],
+  "/philosophy/thinkers/foucault": [
+    {
+      url: "/philosophy/thinkers/deleuze",
+      title: "德勒兹",
+    },
+    {
+      url: "/philosophy/thinkers/hannah-arendt",
+      title: "汉娜·阿伦特",
+    },
+    {
+      url: "/philosophy/thinkers/socrates",
+      title: "苏格拉底",
+    },
+  ],
+  "/philosophy/thinkers/frege": [
+    {
+      url: "/philosophy/thinkers/voltaire",
+      title: "伏尔泰",
+    },
+  ],
+  "/philosophy/thinkers/gettier": [
+    {
+      url: "/philosophy/concepts/knowledge",
+      title: "知识",
+    },
+  ],
+  "/philosophy/thinkers/gorgias": [
+    {
+      url: "/philosophy/thinkers/plato",
+      title: "柏拉图",
+    },
+  ],
+  "/philosophy/thinkers/habermas": [
+    {
+      url: "/philosophy/thinkers/hannah-arendt",
+      title: "汉娜·阿伦特",
+    },
+  ],
+  "/philosophy/thinkers/han-feizi": [
+    {
+      url: "/philosophy/thinkers/hobbes",
+      title: "托马斯·霍布斯",
+    },
+    {
+      url: "/philosophy/thinkers/xunzi-extended",
+      title: "荀子深度扩展",
+    },
+  ],
+  "/philosophy/thinkers/hannah-arendt": [
+    {
+      url: "/philosophy/thinkers/simone-weil",
+      title: "西蒙娜·薇依",
+    },
+  ],
+  "/philosophy/thinkers/hegel": [
+    {
+      url: "/philosophy/thinkers/heraclitus",
+      title: "赫拉克利特",
+    },
+    {
+      url: "/economics/economists/karl-marx",
+      title: "卡尔·马克思",
+    },
+  ],
+  "/philosophy/thinkers/heidegger": [
+    {
+      url: "/philosophy/thinkers/voltaire",
+      title: "伏尔泰",
+    },
+    {
+      url: "/philosophy/thinkers/hannah-arendt",
+      title: "汉娜·阿伦特",
+    },
+    {
+      url: "/philosophy/thinkers/heraclitus",
+      title: "赫拉克利特",
+    },
+  ],
+  "/philosophy/thinkers/heraclitus": [
+    {
+      url: "/philosophy/thinkers/democritus",
+      title: "德谟克利特",
+    },
+    {
+      url: "/philosophy/thinkers/thales",
+      title: "泰勒斯",
+    },
+  ],
+  "/philosophy/thinkers/hobbes": [
+    {
+      url: "/philosophy/thinkers/xunzi-extended",
+      title: "荀子深度扩展",
+    },
+  ],
+  "/philosophy/thinkers/hume": [
+    {
+      url: "/philosophy/thinkers/rousseau",
+      title: "卢梭",
+    },
+    {
+      url: "/philosophy/concepts/knowledge",
+      title: "知识",
+    },
+  ],
+  "/philosophy/thinkers/ibn-khaldun": [
+    {
+      url: "/philosophy/thinkers/montesquieu",
+      title: "孟德斯鸠",
+    },
+  ],
+  "/philosophy/thinkers/kant": [
+    {
+      url: "/philosophy/thinkers/hannah-arendt",
+      title: "汉娜·阿伦特",
+    },
+    {
+      url: "/philosophy/thinkers/rousseau",
+      title: "卢梭",
+    },
+    {
+      url: "/philosophy/thinkers/hobbes",
+      title: "托马斯·霍布斯",
+    },
+  ],
+  "/philosophy/thinkers/kierkegaard": [
+    {
+      url: "/philosophy/thinkers/socrates",
+      title: "苏格拉底",
+    },
+  ],
+  "/philosophy/thinkers/kripke": [
+    {
+      url: "/philosophy/thinkers/frege",
+      title: "弗雷格",
+    },
+  ],
+  "/philosophy/thinkers/leibniz": [
+    {
+      url: "/philosophy/thinkers/voltaire",
+      title: "伏尔泰",
+    },
+    {
+      url: "/philosophy/concepts/knowledge",
+      title: "知识",
+    },
+  ],
+  "/philosophy/thinkers/locke": [
+    {
+      url: "/philosophy/thinkers/voltaire",
+      title: "伏尔泰",
+    },
+    {
+      url: "/philosophy/thinkers/montesquieu",
+      title: "孟德斯鸠",
+    },
+    {
+      url: "/philosophy/thinkers/hobbes",
+      title: "托马斯·霍布斯",
+    },
+    {
+      url: "/philosophy/concepts/knowledge",
+      title: "知识",
+    },
+  ],
+  "/philosophy/thinkers/lucretius": [
+    {
+      url: "/philosophy/thinkers/democritus",
+      title: "德谟克利特",
+    },
+  ],
+  "/philosophy/thinkers/marx": [
+    {
+      url: "/economics/economists/karl-marx",
+      title: "卡尔·马克思",
+    },
+  ],
+  "/philosophy/thinkers/mencius": [
+    {
+      url: "/philosophy/thinkers/dong-zhongshu",
+      title: "董仲舒",
+    },
+    {
+      url: "/philosophy/thinkers/xunzi-extended",
+      title: "荀子深度扩展",
+    },
+  ],
+  "/philosophy/thinkers/mozi": [
+    {
+      url: "/philosophy/thinkers/xunzi-extended",
+      title: "荀子深度扩展",
+    },
+  ],
+  "/philosophy/thinkers/nagarjuna": [
+    {
+      url: "/philosophy/concepts/knowledge",
+      title: "知识",
+    },
+  ],
+  "/philosophy/thinkers/nietzsche": [
+    {
+      url: "/philosophy/thinkers/deleuze",
+      title: "德勒兹",
+    },
+    {
+      url: "/philosophy/thinkers/heraclitus",
+      title: "赫拉克利特",
+    },
+    {
+      url: "/philosophy/thinkers/socrates",
+      title: "苏格拉底",
+    },
+  ],
+  "/philosophy/thinkers/parmenides": [
+    {
+      url: "/philosophy/thinkers/democritus",
+      title: "德谟克利特",
+    },
+    {
+      url: "/philosophy/thinkers/gorgias",
+      title: "高尔吉亚",
+    },
+    {
+      url: "/philosophy/thinkers/heraclitus",
+      title: "赫拉克利特",
+    },
+    {
+      url: "/philosophy/thinkers/thales",
+      title: "泰勒斯",
+    },
+  ],
+  "/philosophy/thinkers/peirce": [
+    {
+      url: "/philosophy/thinkers/dewey",
+      title: "约翰·杜威",
+    },
+  ],
+  "/philosophy/thinkers/plato": [
+    {
+      url: "/philosophy/thinkers/pythagoras",
+      title: "毕达哥拉斯",
+    },
+    {
+      url: "/philosophy/thinkers/gorgias",
+      title: "高尔吉亚",
+    },
+    {
+      url: "/philosophy/thinkers/socrates",
+      title: "苏格拉底",
+    },
+    {
+      url: "/philosophy/thinkers/aristotle",
+      title: "亚里士多德",
+    },
+    {
+      url: "/philosophy/concepts/knowledge",
+      title: "知识",
+    },
+  ],
+  "/philosophy/thinkers/protagoras": [
+    {
+      url: "/philosophy/thinkers/plato",
+      title: "柏拉图",
+    },
+    {
+      url: "/philosophy/thinkers/gorgias",
+      title: "高尔吉亚",
+    },
+    {
+      url: "/philosophy/thinkers/xunzi-extended",
+      title: "荀子深度扩展",
+    },
+  ],
+  "/philosophy/thinkers/quine": [
+    {
+      url: "/philosophy/concepts/knowledge",
+      title: "知识",
+    },
+  ],
+  "/philosophy/thinkers/rawls": [
+    {
+      url: "/philosophy/thinkers/hobbes",
+      title: "托马斯·霍布斯",
+    },
+  ],
+  "/philosophy/thinkers/rousseau": [
+    {
+      url: "/philosophy/thinkers/voltaire",
+      title: "伏尔泰",
+    },
+    {
+      url: "/philosophy/thinkers/hobbes",
+      title: "托马斯·霍布斯",
+    },
+    {
+      url: "/philosophy/thinkers/xunzi-extended",
+      title: "荀子深度扩展",
+    },
+  ],
+  "/philosophy/thinkers/russell": [
+    {
+      url: "/philosophy/thinkers/frege",
+      title: "弗雷格",
+    },
+    {
+      url: "/philosophy/thinkers/quine",
+      title: "蒯因",
+    },
+  ],
+  "/philosophy/thinkers/ryle": [
+    {
+      url: "/philosophy/concepts/knowledge",
+      title: "知识",
+    },
+  ],
+  "/philosophy/thinkers/sartre": [
+    {
+      url: "/philosophy/thinkers/hannah-arendt",
+      title: "汉娜·阿伦特",
+    },
+    {
+      url: "/philosophy/thinkers/simone-weil",
+      title: "西蒙娜·薇依",
+    },
+  ],
+  "/philosophy/thinkers/searle": [
+    {
+      url: "/philosophy/thinkers/quine",
+      title: "蒯因",
+    },
+  ],
+  "/philosophy/thinkers/simone-de-beauvoir": [
+    {
+      url: "/philosophy/thinkers/simone-weil",
+      title: "西蒙娜·薇依",
+    },
+  ],
+  "/philosophy/thinkers/simone-weil": [
+    {
+      url: "/philosophy/thinkers/hannah-arendt",
+      title: "汉娜·阿伦特",
+    },
+  ],
+  "/philosophy/thinkers/socrates": [
+    {
+      url: "/philosophy/thinkers/plato",
+      title: "柏拉图",
+    },
+    {
+      url: "/philosophy/thinkers/gorgias",
+      title: "高尔吉亚",
+    },
+    {
+      url: "/philosophy/thinkers/hannah-arendt",
+      title: "汉娜·阿伦特",
+    },
+    {
+      url: "/philosophy/concepts/knowledge",
+      title: "知识",
+    },
+  ],
+  "/philosophy/thinkers/spinoza": [
+    {
+      url: "/philosophy/thinkers/deleuze",
+      title: "德勒兹",
+    },
+    {
+      url: "/philosophy/concepts/knowledge",
+      title: "知识",
+    },
+  ],
+  "/philosophy/thinkers/voltaire": [
+    {
+      url: "/philosophy/thinkers/rousseau",
+      title: "卢梭",
+    },
+  ],
+  "/philosophy/thinkers/wang-yangming": [
+    {
+      url: "/philosophy/concepts/knowledge",
+      title: "知识",
+    },
+  ],
+  "/philosophy/thinkers/william-james": [
+    {
+      url: "/philosophy/thinkers/dewey",
+      title: "约翰·杜威",
+    },
+  ],
+  "/philosophy/thinkers/wittgenstein": [
+    {
+      url: "/philosophy/thinkers/frege",
+      title: "弗雷格",
+    },
+    {
+      url: "/philosophy/thinkers/quine",
+      title: "蒯因",
+    },
+  ],
+  "/philosophy/thinkers/xunzi": [
+    {
+      url: "/philosophy/thinkers/dong-zhongshu",
+      title: "董仲舒",
+    },
+  ],
   "/political-science/concepts/citizenship-rights": [
     {
       url: "/political-science/concepts/power",
@@ -1842,6 +3478,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/frontier/ai-governance-surveillance",
       title: "AI、算法治理与监控的政治",
+    },
+  ],
+  "/political-science/concepts/distributive-justice": [
+    {
+      url: "/economics/concepts/gini-coefficient",
+      title: "基尼系数",
     },
   ],
   "/political-science/concepts/hegemony": [
@@ -1880,6 +3522,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/concepts/sovereignty",
       title: "主权",
+    },
+  ],
+  "/political-science/concepts/liberty": [
+    {
+      url: "/political-science/thinkers/isaiah-berlin",
+      title: "以赛亚·柏林",
+    },
+  ],
+  "/political-science/concepts/political-corruption": [
+    {
+      url: "/economics/concepts/public-choice-theory",
+      title: "公共选择理论",
+    },
+  ],
+  "/political-science/concepts/political-economy": [
+    {
+      url: "/economics/concepts/industrial-organization",
+      title: "产业组织理论",
+    },
+    {
+      url: "/economics/concepts/public-choice-theory",
+      title: "公共选择理论",
     },
   ],
   "/political-science/concepts/sovereignty": [
@@ -1959,6 +3623,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/political-science/frontier/populism-polarization": [
+    {
+      url: "/economics/theories/comparative-advantage",
+      title: "比较优势理论",
+    },
+    {
+      url: "/economics/concepts/labor-economics",
+      title: "劳动经济学",
+    },
     {
       url: "/political-science/frontier/democratic-backsliding",
       title: "民主衰退：指标、争论与路径",
@@ -2078,6 +3750,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "一党制国家",
     },
     {
+      url: "/political-science/institutions/parliamentary-presidential",
+      title: "议会制与总统制",
+    },
+    {
       url: "/political-science/institutions/political-parties",
       title: "政党与政党制度",
     },
@@ -2144,6 +3820,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/institutions/local-and-municipal-government",
       title: "地方与市政政府",
+    },
+    {
+      url: "/economics/concepts/public-choice-theory",
+      title: "公共选择理论",
     },
   ],
   "/political-science/institutions/judiciary-and-judicial-review": [
@@ -2262,6 +3942,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/international-relations/alliances-and-nato",
       title: "联盟政治与北约",
+    },
+    {
+      url: "/political-science/international-relations/mutually-assured-destruction",
+      title: "相互确保毁灭",
     },
   ],
   "/political-science/international-relations/constructivism-ir": [
@@ -2443,6 +4127,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/political-science/international-relations/human-rights-regime",
       title: "国际人权体系",
     },
+    {
+      url: "/political-science/international-relations/mutually-assured-destruction",
+      title: "相互确保毁灭",
+    },
   ],
   "/political-science/international-relations/liberalism-ir": [
     {
@@ -2608,6 +4296,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "民主",
     },
   ],
+  "/political-science/isms/communism": [
+    {
+      url: "/economics/economists/karl-marx",
+      title: "卡尔·马克思",
+    },
+  ],
+  "/political-science/isms/liberalism": [
+    {
+      url: "/political-science/thinkers/isaiah-berlin",
+      title: "以赛亚·柏林",
+    },
+  ],
   "/political-science/isms/populism": [
     {
       url: "/political-science/institutions/democracy-authoritarianism",
@@ -2628,6 +4328,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "伊斯兰主义",
     },
   ],
+  "/political-science/isms/socialism": [
+    {
+      url: "/economics/economists/karl-marx",
+      title: "卡尔·马克思",
+    },
+  ],
+  "/political-science/isms/totalitarianism": [
+    {
+      url: "/political-science/thinkers/isaiah-berlin",
+      title: "以赛亚·柏林",
+    },
+  ],
   "/political-science/thinkers/carl-schmitt": [
     {
       url: "/political-science/concepts/the-state",
@@ -2646,10 +4358,302 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "公民身份与权利",
     },
   ],
+  "/political-science/thinkers/john-rawls": [
+    {
+      url: "/economics/concepts/gini-coefficient",
+      title: "基尼系数",
+    },
+  ],
+  "/political-science/thinkers/john-stuart-mill": [
+    {
+      url: "/political-science/thinkers/isaiah-berlin",
+      title: "以赛亚·柏林",
+    },
+  ],
+  "/political-science/thinkers/max-weber": [
+    {
+      url: "/political-science/thinkers/isaiah-berlin",
+      title: "以赛亚·柏林",
+    },
+  ],
+  "/political-science/thinkers/montesquieu": [
+    {
+      url: "/political-science/institutions/parliamentary-presidential",
+      title: "议会制与总统制",
+    },
+  ],
   "/political-science/thinkers/thomas-hobbes": [
     {
       url: "/political-science/concepts/sovereignty",
       title: "主权",
+    },
+  ],
+  "/psychology/disorders/borderline-personality": [
+    {
+      url: "/psychology/phenomena/narcissism",
+      title: "自恋",
+    },
+  ],
+  "/psychology/experiments/asch-conformity": [
+    {
+      url: "/psychology/phenomena/groupthink",
+      title: "群体思维",
+    },
+  ],
+  "/psychology/experiments/kahneman-tversky-1979": [
+    {
+      url: "/psychology/phenomena/framing-effect",
+      title: "框架效应",
+    },
+  ],
+  "/psychology/experiments/loftus-car-crash-1974": [
+    {
+      url: "/psychology/phenomena/false-memory",
+      title: "虚假记忆",
+    },
+  ],
+  "/psychology/experiments/pavlov-classical-conditioning": [
+    {
+      url: "/psychology/schools/behaviorism",
+      title: "行为主义",
+    },
+  ],
+  "/psychology/experiments/simons-levin-1998": [
+    {
+      url: "/psychology/phenomena/change-blindness",
+      title: "变化盲视",
+    },
+  ],
+  "/psychology/phenomena/anchoring-bias": [
+    {
+      url: "/economics/economists/daniel-kahneman",
+      title: "丹尼尔·卡尼曼",
+    },
+    {
+      url: "/economics/theories/supply-demand",
+      title: "供需理论",
+    },
+    {
+      url: "/psychology/phenomena/availability-heuristic",
+      title: "可得性启发",
+    },
+    {
+      url: "/psychology/phenomena/framing-effect",
+      title: "框架效应",
+    },
+    {
+      url: "/psychology/phenomena/cognitive-bias",
+      title: "认知偏误",
+    },
+  ],
+  "/psychology/phenomena/availability-heuristic": [
+    {
+      url: "/economics/economists/daniel-kahneman",
+      title: "丹尼尔·卡尼曼",
+    },
+    {
+      url: "/economics/concepts/environmental-economics",
+      title: "环境经济学",
+    },
+    {
+      url: "/psychology/phenomena/cognitive-bias",
+      title: "认知偏误",
+    },
+  ],
+  "/psychology/phenomena/bystander-effect": [
+    {
+      url: "/psychology/phenomena/social-identity",
+      title: "社会认同理论",
+    },
+  ],
+  "/psychology/phenomena/change-blindness": [
+    {
+      url: "/psychology/phenomena/false-memory",
+      title: "虚假记忆",
+    },
+  ],
+  "/psychology/phenomena/cognitive-bias": [
+    {
+      url: "/economics/economists/daniel-kahneman",
+      title: "丹尼尔·卡尼曼",
+    },
+    {
+      url: "/economics/concepts/public-choice-theory",
+      title: "公共选择理论",
+    },
+    {
+      url: "/psychology/phenomena/availability-heuristic",
+      title: "可得性启发",
+    },
+    {
+      url: "/psychology/phenomena/cognitive-biases-evolutionary",
+      title: "认知偏误的进化解释",
+    },
+  ],
+  "/psychology/phenomena/cognitive-biases-evolutionary": [
+    {
+      url: "/psychology/phenomena/cognitive-bias",
+      title: "认知偏误",
+    },
+  ],
+  "/psychology/phenomena/confirmation-bias": [
+    {
+      url: "/psychology/phenomena/availability-heuristic",
+      title: "可得性启发",
+    },
+    {
+      url: "/psychology/phenomena/cognitive-bias",
+      title: "认知偏误",
+    },
+  ],
+  "/psychology/phenomena/dopamine-system": [
+    {
+      url: "/economics/concepts/labor-economics",
+      title: "劳动经济学",
+    },
+    {
+      url: "/psychology/phenomena/flow-state",
+      title: "心流状态",
+    },
+  ],
+  "/psychology/phenomena/false-memory": [
+    {
+      url: "/psychology/phenomena/change-blindness",
+      title: "变化盲视",
+    },
+  ],
+  "/psychology/phenomena/false-self": [
+    {
+      url: "/psychology/phenomena/narcissism",
+      title: "自恋",
+    },
+  ],
+  "/psychology/phenomena/flow-state": [
+    {
+      url: "/psychology/schools/positive-psychology",
+      title: "积极心理学",
+    },
+  ],
+  "/psychology/phenomena/framing-effect": [
+    {
+      url: "/economics/economists/daniel-kahneman",
+      title: "丹尼尔·卡尼曼",
+    },
+    {
+      url: "/economics/theories/supply-demand",
+      title: "供需理论",
+    },
+    {
+      url: "/psychology/phenomena/cognitive-bias",
+      title: "认知偏误",
+    },
+  ],
+  "/psychology/phenomena/fundamental-attribution-error": [
+    {
+      url: "/psychology/phenomena/social-identity",
+      title: "社会认同理论",
+    },
+  ],
+  "/psychology/phenomena/groupthink": [
+    {
+      url: "/psychology/phenomena/social-identity",
+      title: "社会认同理论",
+    },
+  ],
+  "/psychology/phenomena/learned-helplessness": [
+    {
+      url: "/psychology/experiments/pavlov-classical-conditioning",
+      title: "巴甫洛夫经典条件反射",
+    },
+    {
+      url: "/psychology/schools/positive-psychology",
+      title: "积极心理学",
+    },
+  ],
+  "/psychology/phenomena/memory-systems": [
+    {
+      url: "/psychology/phenomena/false-memory",
+      title: "虚假记忆",
+    },
+    {
+      url: "/psychology/phenomena/serial-position-effect",
+      title: "序列位置效应",
+    },
+  ],
+  "/psychology/phenomena/mirror-neurons": [
+    {
+      url: "/psychology/phenomena/countertransference",
+      title: "反移情",
+    },
+    {
+      url: "/economics/economists/adam-smith",
+      title: "亚当·斯密",
+    },
+  ],
+  "/psychology/phenomena/obedience-authority": [
+    {
+      url: "/psychology/phenomena/groupthink",
+      title: "群体思维",
+    },
+  ],
+  "/psychology/phenomena/peak-end-rule": [
+    {
+      url: "/psychology/phenomena/serial-position-effect",
+      title: "序列位置效应",
+    },
+  ],
+  "/psychology/phenomena/projection": [
+    {
+      url: "/psychology/phenomena/countertransference",
+      title: "反移情",
+    },
+  ],
+  "/psychology/phenomena/social-identity": [
+    {
+      url: "/psychology/phenomena/groupthink",
+      title: "群体思维",
+    },
+  ],
+  "/psychology/phenomena/splitting": [
+    {
+      url: "/psychology/phenomena/narcissism",
+      title: "自恋",
+    },
+  ],
+  "/psychology/phenomena/sunk-cost-fallacy": [
+    {
+      url: "/economics/concepts/marginal-analysis",
+      title: "边际分析",
+    },
+  ],
+  "/psychology/phenomena/transference": [
+    {
+      url: "/psychology/phenomena/countertransference",
+      title: "反移情",
+    },
+  ],
+  "/psychology/schools/cognitive-behavioral-therapy": [
+    {
+      url: "/psychology/schools/behaviorism",
+      title: "行为主义",
+    },
+  ],
+  "/psychology/schools/gestalt": [
+    {
+      url: "/economics/economists/daniel-kahneman",
+      title: "丹尼尔·卡尼曼",
+    },
+  ],
+  "/psychology/schools/positive-psychology": [
+    {
+      url: "/economics/economists/karl-marx",
+      title: "卡尔·马克思",
+    },
+  ],
+  "/psychology/theorists/richard-thaler": [
+    {
+      url: "/psychology/phenomena/cognitive-bias",
+      title: "认知偏误",
     },
   ],
   "/universe-physics/frontier/quantum-error-correction": [
