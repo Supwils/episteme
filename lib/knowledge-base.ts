@@ -139,8 +139,16 @@ export function getAllArticles(): KBArticle[] {
 }
 
 export function getArticleBySlug(slug: string): KBArticleFull | null {
-  if (slug.includes("..")) return null;
-  const relPath = slug.replace(/--/g, "/") + ".md";
+  // CJK slugs arrive percent-encoded on on-demand (ISR) requests; decode + NFC so
+  // the on-disk lookup matches the prerendered raw-name behavior.
+  let wanted: string;
+  try {
+    wanted = decodeURIComponent(slug).normalize("NFC");
+  } catch {
+    wanted = slug.normalize("NFC");
+  }
+  if (wanted.includes("..")) return null;
+  const relPath = wanted.replace(/--/g, "/") + ".md";
   const fullPath = path.resolve(KB_ROOT, relPath);
   if (!fullPath.startsWith(path.resolve(KB_ROOT))) return null;
   let raw: string;

@@ -31,7 +31,7 @@ function getAccent(species: Species): string {
 }
 
 export function generateStaticParams() {
-  return getAllSpecies().map((s) => ({ slug: s.id }));
+  return []; // ISR: render on first request + cache; skip build prerender to bound deploy file count
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

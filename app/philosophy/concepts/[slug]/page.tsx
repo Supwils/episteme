@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getConceptBySlug, getConceptSlugs, getAllConcepts } from "@/lib/concepts";
+import { getConceptBySlug, getAllConcepts } from "@/lib/concepts";
 import Breadcrumb from "@/components/Breadcrumb";
 import RelatedContent from "@/components/RelatedContent";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
@@ -12,7 +12,7 @@ import { getNarration } from "@/lib/narration";
 import { NarrationButton } from "@/components/narration/NarrationButton";
 
 export function generateStaticParams() {
-  return getConceptSlugs().map((slug) => ({ slug }));
+  return []; // ISR: render on first request + cache; skip build prerender to bound deploy file count
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {

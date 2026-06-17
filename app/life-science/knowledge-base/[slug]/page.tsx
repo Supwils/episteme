@@ -11,7 +11,7 @@ interface Props {
 const ACCENT = "#4a9e6f";
 
 export function generateStaticParams() {
-  return lifeScienceKB.getSlugs().map((slug) => ({ slug }));
+  return []; // ISR: render on first request + cache; skip build prerender to bound deploy file count
 }
 
 export async function generateMetadata({ params }: Props) {

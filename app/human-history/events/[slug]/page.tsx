@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getAllEvents, getEventBySlug } from "@/subjects/history/lib/events";
+import { getEventBySlug } from "@/subjects/history/lib/events";
 import { ERAS } from "@/subjects/history/lib/eras";
 import { EVENT_DETAIL_STYLES } from "./EventDetailStyles";
 import {
@@ -19,7 +19,7 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  return getAllEvents().map((ev) => ({ slug: ev.title }));
+  return []; // ISR: render on first request + cache; skip build prerender to bound deploy file count
 }
 
 export async function generateMetadata({ params }: Props) {

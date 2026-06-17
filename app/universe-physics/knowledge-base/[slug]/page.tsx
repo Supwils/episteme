@@ -11,7 +11,7 @@ interface Props {
 const ACCENT = "#7c9fd6";
 
 export function generateStaticParams() {
-  return universePhysicsKB.getSlugs().map((slug) => ({ slug }));
+  return []; // ISR: render on first request + cache; skip build prerender to bound deploy file count
 }
 
 export async function generateMetadata({ params }: Props) {

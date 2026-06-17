@@ -11,7 +11,7 @@ interface Props {
 const ACCENT = "#6ea8d8";
 
 export function generateStaticParams() {
-  return cosmologyKB.getSlugs().map((slug) => ({ slug }));
+  return []; // ISR: render on first request + cache; skip build prerender to bound deploy file count
 }
 
 export async function generateMetadata({ params }: Props) {

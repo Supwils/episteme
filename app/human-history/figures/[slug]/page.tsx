@@ -58,8 +58,11 @@ function getFigureBySlug(slug: string): Figure | undefined {
   return (FIGURES as Figure[]).find((f) => f.name === slug || f.name === decoded);
 }
 
+// On-demand ISR: prerender nothing at build time. Pages render on first request
+// and are cached (dynamicParams defaults to true). This keeps the deployment file
+// count low for this high-cardinality route while serving all figures.
 export async function generateStaticParams() {
-  return (FIGURES as Figure[]).map((f) => ({ slug: f.name }));
+  return [];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

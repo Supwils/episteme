@@ -7,9 +7,7 @@ const DOMAIN = "political-science";
 const SECTION = "thinkers";
 
 export function generateStaticParams() {
-  return createKnowledgeSection(DOMAIN, SECTION)
-    .getSlugs()
-    .map((slug) => ({ slug }));
+  return []; // ISR: render on first request + cache; skip build prerender to bound deploy file count
 }
 
 export async function generateMetadata({

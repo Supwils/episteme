@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getThinkerBySlug, getThinkerSlugs, getAllThinkers } from "@/lib/mdx";
+import { getThinkerBySlug, getAllThinkers } from "@/lib/mdx";
 import Breadcrumb from "@/components/Breadcrumb";
 import RelatedContent from "@/components/RelatedContent";
 import SafeRender from "@/components/SafeRender";
@@ -12,7 +12,7 @@ import ThinkerNav from "@/components/thinker-detail/ThinkerNav";
 import { createPersonJsonLd } from "@/lib/jsonld";
 
 export function generateStaticParams() {
-  return getThinkerSlugs().map((slug) => ({ slug }));
+  return []; // ISR: render on first request + cache; skip build prerender to bound deploy file count
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {

@@ -22,8 +22,7 @@ const ERA_COLORS: Record<string, string> = {
 };
 
 export async function generateStaticParams() {
-  const articles = getAllArticles();
-  return articles.map((a) => ({ slug: a.slug }));
+  return []; // ISR: render on first request + cache; skip build prerender to bound deploy file count
 }
 
 export async function generateMetadata({ params }: Props) {
