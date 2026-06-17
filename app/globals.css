@@ -2,99 +2,116 @@
 
 @theme {
   --animate-fade-slide-up: fadeSlideUp 0.6s ease-out both;
-  --animate-corner-pulse: cornerPulse 3s ease-in-out infinite;
-  --animate-shimmer: shimmer 1.5s ease-in-out 1;
 
-  /* ── Portal design tokens ─────────────────────────────────────────────
+  /* ── Portal design tokens — Observatory (dark, default) ───────────────
      Mirrors app/domain-shared.css so the shared components (NavDropdown,
      NarrationPlayer, …) resolve their utilities on the portal too. Dark is the
-     default here; the `.light` block below flips the theme-aware ones. Panels
-     are OPAQUE (unlike the domain translucent panel) so menus never bleed. */
-  --color-bg-deep: #06060d;
-  --color-bg-base: #08080f;
-  --color-bg-near: #0d0d18;
-  --color-bg-panel: #111119;
-  --color-bg-elevated: #16161f;
-  --color-bg-floating: #1c1c2b;
-  --color-bg-overlay: rgba(6, 6, 14, 0.86);
+     default here; the `.light` (Notebook) block below flips the theme-aware
+     ones. Panels are OPAQUE (unlike the domain translucent panel) so menus
+     never bleed. Cards share the base surface and are separated by hairline
+     borders — no glow, no gradient. */
+  --color-bg-deep: #08080d;
+  --color-bg-base: #0e0f14;
+  --color-bg-near: #0e0f14;
+  --color-bg-panel: #14151c;
+  --color-bg-elevated: #14151c;
+  --color-bg-floating: #1c1c26;
+  --color-bg-overlay: rgba(8, 8, 13, 0.86);
 
-  --color-fg-primary: #ece9f5;
-  --color-fg-secondary: #a8a4c0;
-  --color-fg-muted: #8d8aa0;
+  --color-fg-primary: #e6e3da;
+  --color-fg-secondary: #a8a499;
+  --color-fg-muted: #7a766c;
   --color-fg-disabled: #4a4858;
 
-  --color-accent-gold: #c8a45a;
-  --color-accent-indigo: #6366f1;
-  --color-accent-violet: #8b5cf6;
-  --color-accent-cyan: #22d3ee;
+  --color-accent-gold: #d9a441;
+  /* Secondary accents are legacy (single-accent system); kept so existing
+     FeatureGrid / domain refs resolve. Desaturated to read as ink, not neon. */
+  --color-accent-indigo: #6a6fd0;
+  --color-accent-violet: #8b6fd0;
+  --color-accent-cyan: #5a93c0;
 
-  --color-border-faint: rgba(150, 150, 210, 0.08);
-  --color-border-subtle: rgba(150, 150, 210, 0.14);
-  --color-border-strong: rgba(150, 150, 210, 0.28);
+  --color-border-faint: rgba(255, 255, 255, 0.06);
+  --color-border-subtle: rgba(255, 255, 255, 0.1);
+  --color-border-strong: rgba(255, 255, 255, 0.2);
+
+  /* Card surface controls — flipped by .light into soft-shadowed paper cards. */
+  --card-radius: 12px;
+  --card-shadow: none;
 
   --font-sans:
-    var(--font-inter), "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui,
-    sans-serif;
-  --font-display: var(--font-fraunces), "Fraunces", "Noto Serif SC", "Songti SC", "STSong", serif;
-  --font-mono: var(--font-jetbrains-mono), "JetBrains Mono", ui-monospace, monospace;
+    var(--font-space-grotesk), "Space Grotesk", "Noto Sans SC", "PingFang SC", "Microsoft YaHei",
+    system-ui, sans-serif;
+  --font-display:
+    var(--font-space-grotesk), "Space Grotesk", "Noto Sans SC", "PingFang SC", sans-serif;
+  --font-body: "Noto Sans SC", system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, monospace;
 }
 
 @layer base {
   :root {
-    --background: #07070c;
-    --foreground: #e8e8f0;
-    --accent: #6366f1;
-    --accent-hover: #818cf8;
-    --card-bg: #111118;
-    --card-border: #1e1e2e;
-    --muted: #8b919a;
-    --nav-bg: rgba(10, 10, 15, 0.85);
-    --nav-border: #1e1e2e;
+    --background: #0e0f14;
+    --foreground: #e6e3da;
+    --accent: #d9a441; /* portal neutral accent; domains override per-domain */
+    --accent-hover: #e6b85a;
+    --card-bg: #14151c;
+    --card-border: rgba(255, 255, 255, 0.08);
+    --muted: #7a766c;
+    --nav-bg: rgba(14, 15, 20, 0.84);
+    --nav-border: rgba(255, 255, 255, 0.1);
     --input-bg: rgba(255, 255, 255, 0.04);
-    --input-border: #1e1e2e;
-    --input-hover-bg: rgba(99, 102, 241, 0.06);
-    --hover-bg: rgba(255, 255, 255, 0.06);
-    --highlight-bg: rgba(250, 204, 21, 0.2);
-    --highlight-text: #facc15;
+    --input-border: rgba(255, 255, 255, 0.1);
+    --input-hover-bg: rgba(217, 164, 65, 0.08);
+    --hover-bg: rgba(255, 255, 255, 0.05);
+    --highlight-bg: rgba(217, 164, 65, 0.18);
+    --highlight-text: #e6b85a;
     --scrollbar-thumb: rgba(255, 255, 255, 0.1);
     --scrollbar-thumb-hover: rgba(255, 255, 255, 0.18);
   }
 
   .light,
   [data-theme="light"] {
-    --background: #ffffff;
-    --foreground: #1a1a2e;
-    --accent: #4f46e5;
-    --accent-hover: #6366f1;
-    --card-bg: #f8f9fa;
-    --card-border: #e5e7eb;
-    --muted: #6b7280;
-    --nav-bg: rgba(255, 255, 255, 0.85);
-    --nav-border: #e5e7eb;
-    --input-bg: rgba(0, 0, 0, 0.04);
-    --input-border: #e5e7eb;
-    --input-hover-bg: rgba(79, 70, 229, 0.06);
-    --hover-bg: rgba(0, 0, 0, 0.04);
-    --highlight-bg: rgba(234, 179, 8, 0.2);
-    --highlight-text: #ca8a04;
+    --background: #faf6ef;
+    --foreground: #2c2a26;
+    --accent: #b8862f;
+    --accent-hover: #a07726;
+    --card-bg: #ffffff;
+    --card-border: #eee6d9;
+    --muted: #9a948a;
+    --nav-bg: rgba(250, 246, 239, 0.84);
+    --nav-border: #e8dfd0;
+    --input-bg: rgba(0, 0, 0, 0.03);
+    --input-border: #e8dfd0;
+    --input-hover-bg: rgba(184, 134, 47, 0.07);
+    --hover-bg: rgba(44, 42, 38, 0.04);
+    --highlight-bg: rgba(184, 134, 47, 0.18);
+    --highlight-text: #8a6420;
     --scrollbar-thumb: rgba(0, 0, 0, 0.1);
     --scrollbar-thumb-hover: rgba(0, 0, 0, 0.18);
 
-    /* Theme-aware portal surfaces/foregrounds (warm paper light theme). */
-    --color-bg-deep: #ece8e0;
-    --color-bg-base: #f4f1ea;
+    /* Theme-aware portal surfaces/foregrounds — Notebook (warm paper). */
+    --color-bg-deep: #efece4;
+    --color-bg-base: #faf6ef;
     --color-bg-near: #ffffff;
     --color-bg-panel: #ffffff;
-    --color-bg-elevated: #ffffff;
+    --color-bg-elevated: #fffdf8;
     --color-bg-floating: #ffffff;
     --color-bg-overlay: rgba(245, 242, 235, 0.86);
-    --color-fg-primary: #1c1b26;
-    --color-fg-secondary: #4c4a5a;
-    --color-fg-muted: #6f6c80;
+    --color-fg-primary: #2c2a26;
+    --color-fg-secondary: #5f5b54;
+    --color-fg-muted: #9a948a;
     --color-fg-disabled: #b6b3c2;
-    --color-border-faint: rgba(40, 38, 70, 0.08);
-    --color-border-subtle: rgba(40, 38, 70, 0.14);
-    --color-border-strong: rgba(40, 38, 70, 0.24);
+    --color-accent-gold: #b8862f;
+    --color-border-faint: #eee6d9;
+    --color-border-subtle: #e8dfd0;
+    --color-border-strong: #d8d0c0;
+
+    /* Paper cards: rounded + soft shadow (dark mode is hairline-only). */
+    --card-radius: 14px;
+    --card-shadow: 0 12px 28px -18px rgba(80, 60, 30, 0.28);
+
+    /* Notebook typography: 楷体 headings + serif body. */
+    --font-display: "LXGW WenKai TC", "Noto Serif SC", "Songti SC", serif;
+    --font-body: "Noto Serif SC", "Songti SC", serif;
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -116,45 +133,9 @@
     overflow-x: clip;
     background-color: var(--color-bg-base, var(--background));
     color: var(--color-fg-primary, var(--foreground));
-    font-family: var(--font-sans);
+    font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-
-  /* Atmospheric backdrop — a fixed aurora/nebula mesh so the page reads as a
-     "knowledge cosmos" with depth rather than a flat fill. Theme-aware via the
-     surface tokens; pointer-transparent and behind all content. */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-    pointer-events: none;
-    background:
-      radial-gradient(60% 50% at 18% 8%, rgba(99, 102, 241, 0.16), transparent 60%),
-      radial-gradient(55% 45% at 85% 12%, rgba(139, 92, 246, 0.13), transparent 58%),
-      radial-gradient(70% 55% at 50% 100%, rgba(200, 164, 90, 0.08), transparent 60%),
-      radial-gradient(40% 35% at 92% 78%, rgba(34, 211, 238, 0.07), transparent 55%),
-      var(--color-bg-base);
-  }
-
-  .light body::before {
-    background:
-      radial-gradient(60% 50% at 18% 8%, rgba(99, 102, 241, 0.1), transparent 60%),
-      radial-gradient(55% 45% at 85% 12%, rgba(139, 92, 246, 0.08), transparent 58%),
-      radial-gradient(70% 55% at 50% 100%, rgba(200, 164, 90, 0.12), transparent 62%),
-      var(--color-bg-base);
-  }
-
-  /* Fine grain so large gradients don't band; near-invisible, fixed. */
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    opacity: 0.04;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
   a {
@@ -235,7 +216,7 @@
 
 .nav-link-item {
   font-size: 0.9rem;
-  color: #9ca3af;
+  color: var(--color-fg-muted);
   transition: color 0.2s;
   padding: 2px 0;
   border-radius: 2px;
@@ -243,22 +224,12 @@
 
 .nav-link-item:hover,
 .nav-link-item:focus-visible {
-  color: #818cf8;
+  color: var(--accent);
 }
 
 .nav-link-item:focus-visible {
-  outline: 2px solid #6366f1;
+  outline: 2px solid var(--accent);
   outline-offset: 4px;
-}
-
-@keyframes dotPulse {
-  0%,
-  100% {
-    opacity: 0.15;
-  }
-  50% {
-    opacity: 0.35;
-  }
 }
 
 @keyframes fadeSlideUp {
@@ -272,69 +243,8 @@
   }
 }
 
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes cornerPulse {
-  0%,
-  100% {
-    opacity: 0.3;
-  }
-  50% {
-    opacity: 0.7;
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-@keyframes heroGradientDrift {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(30px, -20px) scale(1.05);
-  }
-  66% {
-    transform: translate(-20px, 15px) scale(0.98);
-  }
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-}
-
-@keyframes heroGradientDrift2 {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(-25px, 25px) scale(1.03);
-  }
-  66% {
-    transform: translate(15px, -10px) scale(0.97);
-  }
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-}
-
 .nav-link-active {
-  color: #818cf8 !important;
+  color: var(--accent) !important;
   position: relative;
 }
 
@@ -345,7 +255,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, #6366f1, #a78bfa);
+  background: var(--accent);
   border-radius: 1px;
 }
 
@@ -358,7 +268,7 @@
   padding: 5px 10px;
   min-height: 44px;
   border-radius: 6px;
-  border: 1px solid #1e1e2e;
+  border: 1px solid var(--color-border-subtle);
   background: rgba(255, 255, 255, 0.04);
   color: #9ca3af;
   font-size: 0.8rem;
@@ -370,9 +280,9 @@
 }
 
 .gs-trigger:hover {
-  border-color: #6366f1;
-  color: #e8e8f0;
-  background: rgba(99, 102, 241, 0.06);
+  border-color: var(--accent);
+  color: var(--color-fg-primary);
+  background: var(--input-hover-bg);
 }
 
 .gs-trigger-label {
@@ -385,8 +295,8 @@
   font-size: 0.7rem;
   padding: 1px 4px;
   border-radius: 3px;
-  border: 1px solid #2a2a3a;
-  background: #0f0f1a;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-deep);
   color: #9ca3af;
   line-height: 1.3;
 }
@@ -423,10 +333,10 @@
   display: flex;
   flex-direction: column;
   border-radius: 12px;
-  border: 1px solid #1e1e2e;
-  background: #111118;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-panel);
   box-shadow:
-    0 0 0 1px rgba(99, 102, 241, 0.08),
+    0 0 0 1px var(--color-border-faint),
     0 24px 80px rgba(0, 0, 0, 0.6);
   overflow: hidden;
 }
@@ -436,7 +346,7 @@
   align-items: center;
   gap: 10px;
   padding: 14px 16px;
-  border-bottom: 1px solid #1e1e2e;
+  border-bottom: 1px solid var(--color-border-subtle);
 }
 
 .gs-search-icon {
@@ -450,7 +360,7 @@
   border: none;
   outline: none;
   font-size: 0.95rem;
-  color: #e8e8f0;
+  color: var(--color-fg-primary);
   font-family: inherit;
 }
 
@@ -464,8 +374,8 @@
   font-size: 0.7rem;
   padding: 2px 6px;
   border-radius: 4px;
-  border: 1px solid #2a2a3a;
-  background: #0f0f1a;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-deep);
   color: #9ca3af;
   line-height: 1.4;
 }
@@ -486,7 +396,7 @@
 }
 
 .gs-results::-webkit-scrollbar-thumb {
-  background: #2a2a3a;
+  background: var(--color-border-subtle);
   border-radius: 2px;
 }
 
@@ -530,13 +440,13 @@
 
 .gs-item:hover,
 .gs-item[data-active="true"] {
-  background: rgba(99, 102, 241, 0.07);
+  background: var(--hover-bg);
 }
 
 .gs-item-title {
   font-size: 0.88rem;
   font-weight: 500;
-  color: #e8e8f0;
+  color: var(--color-fg-primary);
   line-height: 1.4;
 }
 
@@ -562,7 +472,7 @@
   align-items: center;
   gap: 16px;
   padding: 8px 16px;
-  border-top: 1px solid #1e1e2e;
+  border-top: 1px solid var(--color-border-subtle);
   font-size: 0.72rem;
   color: #9ca3af;
 }
@@ -572,8 +482,8 @@
   font-size: 0.68rem;
   padding: 1px 4px;
   border-radius: 3px;
-  border: 1px solid #2a2a3a;
-  background: #0f0f1a;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-deep);
   color: #9ca3af;
   line-height: 1.3;
   margin-right: 2px;
@@ -582,8 +492,8 @@
 /* ── Search Highlight ── */
 
 .gs-highlight {
-  background: rgba(250, 204, 21, 0.2);
-  color: #facc15;
+  background: var(--highlight-bg);
+  color: var(--highlight-text);
   border-radius: 2px;
   padding: 0 1px;
 }
@@ -596,8 +506,8 @@
   font-weight: 500;
   padding: 1px 5px;
   border-radius: 3px;
-  background: rgba(99, 102, 241, 0.12);
-  color: #818cf8;
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  color: var(--accent);
   letter-spacing: 0.02em;
   vertical-align: middle;
 }
@@ -625,7 +535,7 @@
 }
 
 .gs-clear-btn:hover {
-  color: #e8e8f0;
+  color: var(--color-fg-primary);
   background: rgba(255, 255, 255, 0.06);
 }
 
@@ -649,8 +559,8 @@
 }
 
 .gs-history-item:hover {
-  background: rgba(99, 102, 241, 0.07);
-  color: #e8e8f0;
+  background: var(--hover-bg);
+  color: var(--color-fg-primary);
 }
 
 .gs-history-icon {
@@ -668,7 +578,7 @@
 .gs-history-remove {
   flex-shrink: 0;
   font-size: 0.7rem;
-  color: #4b5563;
+  color: var(--color-fg-disabled);
   background: none;
   border: none;
   cursor: pointer;
@@ -692,62 +602,29 @@
   background: rgba(239, 68, 68, 0.1);
 }
 
-/* ── Domain Card ── */
+/* ── Domain Card — flat hairline (dark) / soft-shadow paper (light) ── */
+
+.domain-card {
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.28s,
+    box-shadow 0.28s;
+}
 
 .domain-card:hover,
 .domain-card:focus-visible {
-  background: rgba(255, 255, 255, 0.06) !important;
-  border-color: var(--domain-border) !important;
-  box-shadow:
-    0 20px 60px color-mix(in srgb, var(--domain-glow) 9%, transparent),
-    0 0 0 1px color-mix(in srgb, var(--domain-glow) 8%, transparent),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
-  transform: translateY(-6px) scale(1.02) !important;
+  transform: translateY(-3px);
+  border-color: var(--domain-color);
 }
 
 .domain-card:focus-visible {
-  outline: 2px solid var(--domain-glow);
+  outline: 2px solid var(--domain-color);
   outline-offset: 2px;
-}
-
-.domain-card:hover .domain-card__topline,
-.domain-card:focus-visible .domain-card__topline {
-  opacity: 1;
-}
-
-.domain-card:hover .domain-card__glow,
-.domain-card:focus-visible .domain-card__glow {
-  opacity: 1;
 }
 
 .domain-card:hover .domain-card__arrow,
 .domain-card:focus-visible .domain-card__arrow {
   transform: translateX(4px);
-}
-
-.domain-card:hover .domain-card__cta,
-.domain-card:focus-visible .domain-card__cta {
-  gap: 0.65rem;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .domain-card__shimmer {
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(
-      110deg,
-      transparent 30%,
-      rgba(255, 255, 255, 0.04) 45%,
-      rgba(255, 255, 255, 0.06) 50%,
-      rgba(255, 255, 255, 0.04) 55%,
-      transparent 70%
-    );
-    background-size: 200% 100%;
-    animation: shimmer 1.5s ease-in-out 1;
-    animation-delay: var(--domain-shimmer-delay, 0.15s);
-    pointer-events: none;
-  }
 }
 
 @media (min-width: 1920px) {
@@ -764,14 +641,18 @@
 
 /* Category dropdown nav (see NavDropdown.tsx). The global
    prefers-reduced-motion block above zeroes these automatically. */
+/* The dropdown's wrapper already centres it with -translate-x-1/2; the entrance
+   animation must only move on Y + scale, otherwise the keyframe's own
+   translateX(-50%) double-shifts the panel left for one frame before it snaps
+   back under the trigger. */
 @keyframes navDropdownIn {
   from {
     opacity: 0;
-    transform: translate(-50%, -6px) scale(0.97);
+    transform: translateY(-6px) scale(0.97);
   }
   to {
     opacity: 1;
-    transform: translate(-50%, 0) scale(1);
+    transform: translateY(0) scale(1);
   }
 }
 

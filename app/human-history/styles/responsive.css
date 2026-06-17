@@ -1,36 +1,5 @@
 /* === RESPONSIVE === */
 @media (max-width: 720px) {
-  .human-history-root .nav-bar {
-    flex-wrap: wrap;
-    height: auto;
-    min-height: var(--nav-h);
-    padding: 0 14px;
-    gap: 0;
-  }
-  .human-history-root .nav-links {
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    justify-content: flex-start;
-    gap: 0;
-    order: 3;
-    width: 100%;
-  }
-  .human-history-root .nav-links::-webkit-scrollbar {
-    display: none;
-  }
-  .human-history-root .nav-link {
-    padding: 10px 12px;
-    font-size: 0.82rem;
-    flex-shrink: 0;
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-  }
-  .human-history-root .nav-num {
-    display: none;
-  }
   .human-history-root .nav-subtitle {
     display: none;
   }

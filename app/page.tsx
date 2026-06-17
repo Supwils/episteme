@@ -51,44 +51,13 @@ export default function HomePage() {
   const daily = getDailyKnowledge();
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#07070c] text-[#e8e8f0]">
+    <div className="bg-bg-base text-fg-primary relative min-h-screen overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
       />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none fixed inset-0 z-0"
-        style={{
-          backgroundImage: "radial-gradient(circle, rgba(99,102,241,0.12) 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
-          animation: "dotPulse 6s ease-in-out infinite",
-        }}
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none fixed z-0 rounded-full"
-        style={{
-          top: "-30%",
-          left: "-10%",
-          width: "60%",
-          height: "60%",
-          background: "radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 60%)",
-        }}
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none fixed z-0 rounded-full"
-        style={{
-          bottom: "-20%",
-          right: "-10%",
-          width: "50%",
-          height: "50%",
-          background: "radial-gradient(circle, rgba(16,185,129,0.04) 0%, transparent 60%)",
-        }}
-      />
 
-      <div className="z-1 relative">
+      <div className="relative z-1">
         <HeroSection />
 
         <section className="grid grid-cols-1 gap-6 px-6 py-4 pb-20 md:grid-cols-2 lg:grid-cols-3">
@@ -98,7 +67,7 @@ export default function HomePage() {
         </section>
 
         <section className="w-full px-6 py-16 sm:px-10 lg:px-16">
-          <h2 className="mb-8 text-2xl font-bold text-white">每日知识</h2>
+          <h2 className="font-display text-fg-primary mb-8 text-2xl font-semibold">每日知识</h2>
           <DailyKnowledgeCard items={daily.items} fact={daily.fact} date={daily.date} />
         </section>
 

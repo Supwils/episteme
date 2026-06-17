@@ -8,7 +8,6 @@ import {
   COSMOLOGY_TIER_ROUTES,
   COSMOLOGY_TIERS,
 } from "@/subjects/cosmology/lib/tiers";
-import { CosmologyNav } from "@/subjects/cosmology/components/CosmologyNav";
 
 export function generateStaticParams() {
   return COSMOLOGY_TIER_ORDER.map((tierId) => ({ tier: COSMOLOGY_TIER_ROUTES[tierId] }));
@@ -54,7 +53,6 @@ export default async function CosmologyTierPage({ params }: { params: Promise<{ 
 
   return (
     <div className="min-h-screen px-6 py-12 sm:px-10 lg:px-16">
-      <CosmologyNav />
       <nav className="mb-8">
         <Link href="/cosmology" className="text-sm text-[#3b82f6] hover:underline">
           ← 返回宇宙学

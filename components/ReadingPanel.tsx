@@ -36,7 +36,7 @@ export function ReadingPanel() {
         type="button"
         onClick={() => setOpen(true)}
         aria-label="打开阅读面板"
-        className="relative flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.08] text-[#9ca3af] transition-colors hover:border-white/[0.15] hover:text-[#e8e8f0]"
+        className="border-border-faint text-fg-muted hover:border-border-strong hover:text-fg-primary relative flex h-10 w-10 items-center justify-center rounded-full border transition-colors"
       >
         <svg
           width="16"
@@ -70,7 +70,7 @@ export function ReadingPanel() {
             role="dialog"
             aria-modal="true"
             aria-label="阅读面板"
-            className="absolute top-0 right-0 h-full w-full max-w-md border-l border-white/[0.06] bg-[#0a0a0f] shadow-2xl"
+            className="border-border-faint bg-bg-panel absolute top-0 right-0 h-full w-full max-w-md border-l shadow-2xl"
           >
             <div className="flex h-full flex-col">
               <div className="flex items-center justify-between border-b border-white/[0.06] px-5 py-4">
@@ -94,7 +94,7 @@ export function ReadingPanel() {
                   type="button"
                   onClick={() => setOpen(false)}
                   aria-label="关闭"
-                  className="flex h-8 w-8 items-center justify-center rounded-full text-[#9ca3af] transition-colors hover:text-[#e8e8f0]"
+                  className="text-fg-muted hover:text-fg-primary flex h-8 w-8 items-center justify-center rounded-full transition-colors"
                 >
                   <svg
                     width="16"
@@ -156,7 +156,7 @@ function TabButton({
       aria-controls={ariaControls}
       onClick={onClick}
       className={`rounded-full px-3 py-1.5 font-mono text-[11px] tracking-[0.08em] transition-all duration-200 ${
-        active ? "bg-indigo-500/15 text-indigo-400" : "text-[#9ca3af] hover:text-[#e8e8f0]"
+        active ? "bg-hover-bg text-accent-gold" : "text-fg-muted hover:text-fg-primary"
       }`}
     >
       {children}

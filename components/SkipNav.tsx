@@ -19,7 +19,7 @@ export function SkipNav() {
         <Link
           key={target.id}
           href={`#${target.id}`}
-          className="rounded bg-[#1a1a2e] px-4 py-2 text-sm text-white focus:outline-2 focus:outline-offset-2 focus:outline-[#6366f1]"
+          className="bg-bg-floating text-fg-primary focus:outline-accent-gold rounded px-4 py-2 text-sm focus:outline-2 focus:outline-offset-2"
         >
           {target.label}
         </Link>

@@ -1,20 +1,18 @@
-import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
 
-export const fraunces = Fraunces({
+// Observatory/Notebook design system — Latin display + mono come from
+// next/font (self-hosted, no layout shift). CJK + 楷体 (Noto Sans SC /
+// Noto Serif SC / LXGW WenKai TC) are loaded via <link> in app/layout.tsx
+// because they are too large to subset through next/font/google.
+export const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-fraunces",
-  axes: ["SOFT", "opsz"],
+  variable: "--font-space-grotesk",
 });
 
-export const inter = Inter({
+export const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
-});
-
-export const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-jetbrains-mono",
+  weight: ["400", "500"],
+  variable: "--font-plex-mono",
 });

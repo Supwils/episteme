@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,400&family=Space+Grotesk:wght@400;500;600;700&family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=LXGW+WenKai+TC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  .frame { box-shadow: 0 1px 0 rgba(0,0,0,0.04), 0 24px 60px -28px rgba(20,18,30,0.4); }
+</style>
+</helmet>
+
+<div style="min-height:100vh; background:#d9d8d6; background-image:radial-gradient(rgba(0,0,0,0.045) 1px, transparent 1px); background-size:26px 26px; font-family:'Noto Sans SC','Space Grotesk',system-ui,sans-serif; padding:64px 40px 120px; color:#26242c;">
+
+  <!-- ░░ PAGE HEADER / DESIGN BRIEF ░░ -->
+  <div style="max-width:980px; margin:0 auto 72px;">
+    <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.32em; text-transform:uppercase; color:#8a857d; margin-bottom:18px;">Universe Knowledge · 视觉风格探索 / Visual Directions</div>
+    <h1 style="font-family:'Newsreader',serif; font-weight:500; font-size:46px; line-height:1.12; letter-spacing:-0.01em; margin:0 0 22px; max-width:18ch;">为知识库重新定调：四个方向</h1>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:28px 56px; max-width:840px;">
+      <p style="margin:0; font-size:15px; line-height:1.75; color:#46434c;">现版本是典型的「深空科技」皮肤——霓虹渐变、发光卡片、点阵网格、流光动画，加上 Fraunces + Inter。这套组合很「AI 生成感」：所有东西都在发光、漂浮、渐变。</p>
+      <p style="margin:0; font-size:15px; line-height:1.75; color:#46434c;">下面四个方向都拿掉了发光与渐变，回到真正「有设计」的基本功：克制的配色、讲究的字体搭配、清晰的栅格与留白、以及恰到好处的层级。每个方向都用首页（导航 + Hero + 领域入口）来呈现。</p>
+    </div>
+    <div style="margin-top:26px; display:flex; flex-wrap:wrap; gap:10px;">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; padding:6px 12px; border:1px solid #bfbdb8; border-radius:999px; color:#6b675f;">01 典籍 · 暖纸编辑</span>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; padding:6px 12px; border:1px solid #bfbdb8; border-radius:999px; color:#6b675f;">02 观测台 · 克制暗色</span>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; padding:6px 12px; border:1px solid #bfbdb8; border-radius:999px; color:#6b675f;">03 美术馆 · 色块瑞士</span>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; padding:6px 12px; border:1px solid #bfbdb8; border-radius:999px; color:#6b675f;">04 手记 · 温润亲和</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════ STYLE 01 — 典籍 / EDITORIAL ALMANAC ═══════════════ -->
+  <div style="max-width:1120px; margin:0 auto 96px;">
+    <div style="display:flex; align-items:baseline; gap:18px; margin-bottom:18px;">
+      <span style="font-family:'Newsreader',serif; font-size:30px; font-weight:500; color:#b5532f;">01</span>
+      <div>
+        <h2 style="font-family:'Newsreader',serif; font-size:24px; font-weight:500; margin:0; letter-spacing:-0.01em;">典籍 — 暖纸编辑风</h2>
+        <p style="margin:4px 0 0; font-size:13.5px; color:#6b675f; max-width:62ch; line-height:1.6;">像一本精心排版的百科典籍。暖纸底、墨黑正文、衬线标题，领域用「目录索引」的方式编号陈列。单一陶土色点缀，无发光、无渐变。安静、耐看、有学术分量。</p>
+      </div>
+    </div>
+
+    <div class="frame" style="border-radius:16px; overflow:hidden; background:#f4efe4;">
+      <!-- nav -->
+      <div style="display:flex; align-items:center; justify-content:space-between; padding:20px 40px; border-bottom:1px solid #ddd5c5;">
+        <div style="display:flex; align-items:baseline; gap:12px;">
+          <span style="font-family:'Newsreader',serif; font-size:20px; font-weight:600; letter-spacing:-0.01em; color:#1c1a17;">Universe Knowledge</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.18em; color:#a89f8c; text-transform:uppercase;">知识典籍</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:26px; font-size:13.5px; color:#5a554c;">
+          <span>领域</span><span>阅读路线</span><span>知识图谱</span><span>每日</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; padding:6px 12px; border:1px solid #cfc6b4; border-radius:6px; color:#8a8270;">⌘K 搜索</span>
+        </div>
+      </div>
+      <!-- hero -->
+      <div style="padding:64px 40px 52px; text-align:center; border-bottom:1px solid #ddd5c5;">
+        <div style="display:inline-flex; align-items:center; gap:14px; margin-bottom:26px;">
+          <span style="width:30px; height:1px; background:#c9683f;"></span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.34em; text-transform:uppercase; color:#b5532f;">Knowledge as a Service · Est. 2026</span>
+          <span style="width:30px; height:1px; background:#c9683f;"></span>
+        </div>
+        <h1 style="font-family:'Newsreader','Noto Serif SC',serif; font-weight:500; font-size:54px; line-height:1.1; letter-spacing:-0.015em; margin:0 auto 22px; color:#1c1a17; max-width:16ch;">探索人类知识的边界</h1>
+        <p style="font-family:'Noto Serif SC',serif; font-size:17px; line-height:1.8; color:#56514a; max-width:48ch; margin:0 auto 34px;">从宇宙的尺度到人类的思想——汇聚十大领域，构建一部系统化、可漫游的知识图谱。</p>
+        <div style="display:inline-flex; align-items:center; gap:30px; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.06em; color:#6b675f;">
+          <span><strong style="font-family:'Newsreader',serif; font-size:22px; color:#1c1a17;">10</strong>&nbsp; 领域</span>
+          <span style="color:#cabd9f;">·</span>
+          <span><strong style="font-family:'Newsreader',serif; font-size:22px; color:#1c1a17;">1850+</strong>&nbsp; 知识单元</span>
+          <span style="color:#cabd9f;">·</span>
+          <span><strong style="font-family:'Newsreader',serif; font-size:22px; color:#1c1a17;">500+</strong>&nbsp; 深度文章</span>
+        </div>
+      </div>
+      <!-- domain index -->
+      <div style="padding:40px 40px 48px;">
+        <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:18px;">
+          <h3 style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:#8a8270; margin:0;">领域索引 / Index of Domains</h3>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#a89f8c;">01 — 10</span>
+        </div>
+        <div>
+          <!-- rows -->
+          <a style="display:grid; grid-template-columns:48px 1fr auto; align-items:center; gap:24px; padding:18px 8px; border-top:1px solid #ddd5c5; text-decoration:none; color:inherit;">
+            <span style="font-family:'Newsreader',serif; font-size:22px; color:#b5532f;">01</span>
+            <div style="display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;">
+              <span style="font-family:'Newsreader','Noto Serif SC',serif; font-size:21px; font-weight:500; color:#1c1a17;">物理学</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#a89f8c;">Physics</span>
+              <span style="font-size:13.5px; color:#6b675f; flex:1; min-width:240px;">从经典力学到量子场论，支配宇宙的基本定律。</span>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#8a8270; white-space:nowrap;">9 物理层 →</span>
+          </a>
+          <a style="display:grid; grid-template-columns:48px 1fr auto; align-items:center; gap:24px; padding:18px 8px; border-top:1px solid #ddd5c5; text-decoration:none; color:inherit;">
+            <span style="font-family:'Newsreader',serif; font-size:22px; color:#b5532f;">02</span>
+            <div style="display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;">
+              <span style="font-family:'Newsreader','Noto Serif SC',serif; font-size:21px; font-weight:500; color:#1c1a17;">宇宙学</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#a89f8c;">Cosmology</span>
+              <span style="font-size:13.5px; color:#6b675f; flex:1; min-width:240px;">从可观测宇宙到地球，跨尺度的结构与位置关系。</span>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#8a8270; white-space:nowrap;">8 宇宙层 →</span>
+          </a>
+          <a style="display:grid; grid-template-columns:48px 1fr auto; align-items:center; gap:24px; padding:18px 8px; border-top:1px solid #ddd5c5; text-decoration:none; color:inherit;">
+            <span style="font-family:'Newsreader',serif; font-size:22px; color:#b5532f;">03</span>
+            <div style="display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;">
+              <span style="font-family:'Newsreader','Noto Serif SC',serif; font-size:21px; font-weight:500; color:#1c1a17;">人类历史</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#a89f8c;">Human History</span>
+              <span style="font-size:13.5px; color:#6b675f; flex:1; min-width:240px;">公元前一万年到今天，六大洲的事件、人物与文明。</span>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#8a8270; white-space:nowrap;">219 事件 →</span>
+          </a>
+          <a style="display:grid; grid-template-columns:48px 1fr auto; align-items:center; gap:24px; padding:18px 8px; border-top:1px solid #ddd5c5; text-decoration:none; color:inherit;">
+            <span style="font-family:'Newsreader',serif; font-size:22px; color:#b5532f;">04</span>
+            <div style="display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;">
+              <span style="font-family:'Newsreader','Noto Serif SC',serif; font-size:21px; font-weight:500; color:#1c1a17;">哲学思想</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#a89f8c;">Philosophy</span>
+              <span style="font-size:13.5px; color:#6b675f; flex:1; min-width:240px;">存在、知识与价值的根本问题，从古希腊到当代。</span>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#8a8270; white-space:nowrap;">68 哲学家 →</span>
+          </a>
+          <a style="display:grid; grid-template-columns:48px 1fr auto; align-items:center; gap:24px; padding:18px 8px; border-top:1px solid #ddd5c5; text-decoration:none; color:inherit;">
+            <span style="font-family:'Newsreader',serif; font-size:22px; color:#b5532f;">05</span>
+            <div style="display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;">
+              <span style="font-family:'Newsreader','Noto Serif SC',serif; font-size:21px; font-weight:500; color:#1c1a17;">生命科学与进化</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#a89f8c;">Life Science</span>
+              <span style="font-size:13.5px; color:#6b675f; flex:1; min-width:240px;">从第一个有机分子到人类意识，四十亿年的演化。</span>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#8a8270; white-space:nowrap;">84 物种 →</span>
+          </a>
+          <a style="display:grid; grid-template-columns:48px 1fr auto; align-items:center; gap:24px; padding:18px 8px; border-top:1px solid #ddd5c5; border-bottom:1px solid #ddd5c5; text-decoration:none; color:inherit;">
+            <span style="font-family:'Newsreader',serif; font-size:22px; color:#b5532f;">06</span>
+            <div style="display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;">
+              <span style="font-family:'Newsreader','Noto Serif SC',serif; font-size:21px; font-weight:500; color:#1c1a17;">数学与逻辑</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#a89f8c;">Mathematics</span>
+              <span style="font-size:13.5px; color:#6b675f; flex:1; min-width:240px;">从计数到范畴论，人类思维最纯粹的形式。</span>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#8a8270; white-space:nowrap;">5 时代 →</span>
+          </a>
+        </div>
+        <div style="margin-top:18px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#a89f8c;">07 经济学 · 08 心理学 · 09 计算机科学 · 10 政治学 ……</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ STYLE 02 — 观测台 / OBSERVATORY (DARK) ═══════════════ -->
+  <div style="max-width:1120px; margin:0 auto 96px;">
+    <div style="display:flex; align-items:baseline; gap:18px; margin-bottom:18px;">
+      <span style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:600; color:#46434c;">02</span>
+      <div>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:600; margin:0;">观测台 — 克制暗色</h2>
+        <p style="margin:4px 0 0; font-size:13.5px; color:#6b675f; max-width:62ch; line-height:1.6;">保留「宇宙」的暗色气质，但纪律严明：纯哑光近黑、无任何发光与渐变，发丝级描边，等宽字体做元数据标签，一抹琥珀色点缀。像天文台的观测日志 / 航天技术文档。深邃但不喧哗。</p>
+      </div>
+    </div>
+
+    <div class="frame" style="border-radius:16px; overflow:hidden; background:#0e0f14; color:#e6e3da;">
+      <!-- nav -->
+      <div style="display:flex; align-items:center; justify-content:space-between; padding:20px 40px; border-bottom:1px solid rgba(217,164,65,0.16);">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <span style="width:9px; height:9px; border:1.5px solid #d9a441; border-radius:50%;"></span>
+          <span style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; letter-spacing:0.01em;">Universe Knowledge</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:26px; font-size:13px; color:#9a968c;">
+          <span>领域</span><span>阅读路线</span><span>知识图谱</span><span>每日</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; padding:6px 12px; border:1px solid rgba(255,255,255,0.12); border-radius:6px; color:#9a968c;">⌘K</span>
+        </div>
+      </div>
+      <!-- hero -->
+      <div style="padding:62px 40px 52px; border-bottom:1px solid rgba(255,255,255,0.07);">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.3em; text-transform:uppercase; color:#d9a441; margin-bottom:24px;">N 47°·E 08° &nbsp;//&nbsp; Knowledge Archive — Field Log 2026</div>
+        <h1 style="font-family:'Space Grotesk','Noto Sans SC',sans-serif; font-weight:600; font-size:52px; line-height:1.08; letter-spacing:-0.02em; margin:0 0 8px; max-width:18ch;">探索人类知识的边界</h1>
+        <div style="width:56px; height:2px; background:#d9a441; margin:22px 0 24px;"></div>
+        <p style="font-size:16px; line-height:1.8; color:#a8a499; max-width:50ch; margin:0 0 36px;">从宇宙的尺度到人类的思想，汇聚十大领域，构建一部可漫游、可检索、互相链接的知识图谱。</p>
+        <div style="display:flex; gap:48px; font-family:'IBM Plex Mono',monospace;">
+          <div><div style="font-size:30px; font-weight:600; color:#fff;">10</div><div style="font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:#7a766c; margin-top:5px;">Domains</div></div>
+          <div><div style="font-size:30px; font-weight:600; color:#fff;">1850+</div><div style="font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:#7a766c; margin-top:5px;">Units</div></div>
+          <div><div style="font-size:30px; font-weight:600; color:#fff;">500+</div><div style="font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:#7a766c; margin-top:5px;">Articles</div></div>
+        </div>
+      </div>
+      <!-- domains grid -->
+      <div style="padding:36px 40px 46px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:#7a766c; margin-bottom:20px;">— 领域目录 / Catalogue</div>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.07);">
+          <div style="background:#0e0f14; padding:24px 22px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; color:#7a766c;">DOMAIN 01</span><span style="width:6px; height:6px; background:#d9a441; border-radius:50%;"></span></div>
+            <h3 style="font-family:'Space Grotesk','Noto Sans SC',sans-serif; font-size:19px; font-weight:600; margin:0 0 3px;">物理学</h3>
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#6e6a60; margin-bottom:12px;">Physics</div>
+            <p style="font-size:12.5px; line-height:1.7; color:#928e84; margin:0 0 16px;">从经典力学到量子场论，支配宇宙的基本定律。</p>
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:#d9a441;">9 物理层 →</div>
+          </div>
+          <div style="background:#0e0f14; padding:24px 22px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; color:#7a766c;">DOMAIN 02</span><span style="width:6px; height:6px; background:#d9a441; border-radius:50%;"></span></div>
+            <h3 style="font-family:'Space Grotesk','Noto Sans SC',sans-serif; font-size:19px; font-weight:600; margin:0 0 3px;">宇宙学</h3>
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#6e6a60; margin-bottom:12px;">Cosmology</div>
+            <p style="font-size:12.5px; line-height:1.7; color:#928e84; margin:0 0 16px;">从可观测宇宙到地球，跨尺度的结构与位置关系。</p>
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:#d9a441;">8 宇宙层 →</div>
+          </div>
+          <div style="background:#0e0f14; padding:24px 22px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; color:#7a766c;">DOMAIN 03</span><span style="width:6px; height:6px; background:#d9a441; border-radius:50%;"></span></div>
+            <h3 style="font-family:'Space Grotesk','Noto Sans SC',sans-serif; font-size:19px; font-weight:600; margin:0 0 3px;">人类历史</h3>
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#6e6a60; margin-bottom:12px;">Human History</div>
+            <p style="font-size:12.5px; line-height:1.7; color:#928e84; margin:0 0 16px;">公元前一万年到今天，六大洲的事件、人物与文明。</p>
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:#d9a441;">219 事件 →</div>
+          </div>
+          <div style="background:#0e0f14; padding:24px 22px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; color:#7a766c;">DOMAIN 04</span><span style="width:6px; height:6px; background:#d9a441; border-radius:50%;"></span></div>
+            <h3 style="font-family:'Space Grotesk','Noto Sans SC',sans-serif; font-size:19px; font-weight:600; margin:0 0 3px;">哲学思想</h3>
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#6e6a60; margin-bottom:12px;">Philosophy</div>
+            <p style="font-size:12.5px; line-height:1.7; color:#928e84; margin:0 0 16px;">存在、知识与价值的根本问题，从古希腊到当代。</p>
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:#d9a441;">68 哲学家 →</div>
+          </div>
+          <div style="background:#0e0f14; padding:24px 22px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; color:#7a766c;">DOMAIN 05</span><span style="width:6px; height:6px; background:#d9a441; border-radius:50%;"></span></div>
+            <h3 style="font-family:'Space Grotesk','Noto Sans SC',sans-serif; font-size:19px; font-weight:600; margin:0 0 3px;">生命科学</h3>
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#6e6a60; margin-bottom:12px;">Life Science</div>
+            <p style="font-size:12.5px; line-height:1.7; color:#928e84; margin:0 0 16px;">从第一个有机分子到人类意识，四十亿年的演化。</p>
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:#d9a441;">84 物种 →</div>
+          </div>
+          <div style="background:#0e0f14; padding:24px 22px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; color:#7a766c;">DOMAIN 06</span><span style="width:6px; height:6px; background:#d9a441; border-radius:50%;"></span></div>
+            <h3 style="font-family:'Space Grotesk','Noto Sans SC',sans-serif; font-size:19px; font-weight:600; margin:0 0 3px;">数学与逻辑</h3>
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#6e6a60; margin-bottom:12px;">Mathematics</div>
+            <p style="font-size:12.5px; line-height:1.7; color:#928e84; margin:0 0 16px;">从计数到范畴论，人类思维最纯粹的形式。</p>
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:#d9a441;">5 时代 →</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ STYLE 03 — 美术馆 / MODERN MUSEUM ═══════════════ -->
+  <div style="max-width:1120px; margin:0 auto 96px;">
+    <div style="display:flex; align-items:baseline; gap:18px; margin-bottom:18px;">
+      <span style="font-family:'Archivo',sans-serif; font-size:30px; font-weight:800; color:#46434c;">03</span>
+      <div>
+        <h2 style="font-family:'Archivo',sans-serif; font-size:22px; font-weight:700; margin:0;">美术馆 — 色块瑞士风</h2>
+        <p style="margin:4px 0 0; font-size:13.5px; color:#6b675f; max-width:62ch; line-height:1.6;">画廊灰底、超大粗体标题、强栅格。每个领域是一块沉稳的实色（不是霓虹），配大号编号。色彩作为「平涂色域」而非渐变。像当代美术馆的导视系统，自信、现代、信息层级分明。</p>
+      </div>
+    </div>
+
+    <div class="frame" style="border-radius:16px; overflow:hidden; background:#ededeb; color:#1a1a1a;">
+      <!-- nav -->
+      <div style="display:flex; align-items:center; justify-content:space-between; padding:20px 40px; background:#fff; border-bottom:1px solid #e2e2e0;">
+        <span style="font-family:'Archivo',sans-serif; font-size:18px; font-weight:800; letter-spacing:-0.02em; text-transform:uppercase;">Universe Knowledge</span>
+        <div style="display:flex; align-items:center; gap:26px; font-size:13px; font-weight:500; color:#444;">
+          <span>领域</span><span>阅读路线</span><span>图谱</span><span>每日</span>
+          <span style="font-size:12px; font-weight:600; padding:7px 14px; background:#1a1a1a; color:#fff; border-radius:6px;">搜索 ⌘K</span>
+        </div>
+      </div>
+      <!-- hero -->
+      <div style="padding:60px 40px 48px; background:#fff;">
+        <div style="font-family:'Archivo',sans-serif; font-size:12px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:#999; margin-bottom:18px;">知识即服务 / Knowledge as a Service</div>
+        <h1 style="font-family:'Archivo','Noto Sans SC',sans-serif; font-weight:900; font-size:72px; line-height:0.98; letter-spacing:-0.035em; margin:0 0 24px; max-width:14ch;">探索人类<br>知识的边界</h1>
+        <div style="display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:24px;">
+          <p style="font-size:16px; line-height:1.7; color:#555; max-width:46ch; margin:0;">从宇宙的尺度到人类的思想，十大领域、一千八百多个知识单元，构成一座可漫游的知识美术馆。</p>
+          <div style="display:flex; gap:36px;">
+            <div><div style="font-family:'Archivo',sans-serif; font-size:34px; font-weight:800; line-height:1;">10</div><div style="font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#999; margin-top:6px;">领域</div></div>
+            <div><div style="font-family:'Archivo',sans-serif; font-size:34px; font-weight:800; line-height:1;">1850+</div><div style="font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#999; margin-top:6px;">知识单元</div></div>
+          </div>
+        </div>
+      </div>
+      <!-- domain color blocks -->
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:14px; padding:24px;">
+        <a style="position:relative; aspect-ratio:4/3.1; background:#3c3f73; color:#fff; border-radius:12px; padding:22px; display:flex; flex-direction:column; justify-content:space-between; text-decoration:none; overflow:hidden;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start;"><span style="font-family:'Archivo',sans-serif; font-size:42px; font-weight:800; line-height:0.8; opacity:0.35;">01</span><span style="font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; opacity:0.7;">Physics</span></div>
+          <div><h3 style="font-family:'Archivo','Noto Sans SC',sans-serif; font-size:24px; font-weight:700; margin:0 0 6px;">物理学</h3><p style="font-size:12.5px; line-height:1.6; opacity:0.82; margin:0;">从经典力学到量子场论，支配宇宙的基本定律。</p></div>
+        </a>
+        <a style="position:relative; aspect-ratio:4/3.1; background:#3a5779; color:#fff; border-radius:12px; padding:22px; display:flex; flex-direction:column; justify-content:space-between; text-decoration:none; overflow:hidden;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start;"><span style="font-family:'Archivo',sans-serif; font-size:42px; font-weight:800; line-height:0.8; opacity:0.35;">02</span><span style="font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; opacity:0.7;">Cosmology</span></div>
+          <div><h3 style="font-family:'Archivo','Noto Sans SC',sans-serif; font-size:24px; font-weight:700; margin:0 0 6px;">宇宙学</h3><p style="font-size:12.5px; line-height:1.6; opacity:0.82; margin:0;">从可观测宇宙到地球，跨尺度的结构与位置。</p></div>
+        </a>
+        <a style="position:relative; aspect-ratio:4/3.1; background:#9a6738; color:#fff; border-radius:12px; padding:22px; display:flex; flex-direction:column; justify-content:space-between; text-decoration:none; overflow:hidden;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start;"><span style="font-family:'Archivo',sans-serif; font-size:42px; font-weight:800; line-height:0.8; opacity:0.35;">03</span><span style="font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; opacity:0.7;">History</span></div>
+          <div><h3 style="font-family:'Archivo','Noto Sans SC',sans-serif; font-size:24px; font-weight:700; margin:0 0 6px;">人类历史</h3><p style="font-size:12.5px; line-height:1.6; opacity:0.82; margin:0;">公元前一万年到今天，六大洲的事件与人物。</p></div>
+        </a>
+        <a style="position:relative; aspect-ratio:4/3.1; background:#3f6b54; color:#fff; border-radius:12px; padding:22px; display:flex; flex-direction:column; justify-content:space-between; text-decoration:none; overflow:hidden;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start;"><span style="font-family:'Archivo',sans-serif; font-size:42px; font-weight:800; line-height:0.8; opacity:0.35;">04</span><span style="font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; opacity:0.7;">Philosophy</span></div>
+          <div><h3 style="font-family:'Archivo','Noto Sans SC',sans-serif; font-size:24px; font-weight:700; margin:0 0 6px;">哲学思想</h3><p style="font-size:12.5px; line-height:1.6; opacity:0.82; margin:0;">存在、知识与价值的根本问题，古希腊到当代。</p></div>
+        </a>
+        <a style="position:relative; aspect-ratio:4/3.1; background:#4a7c5f; color:#fff; border-radius:12px; padding:22px; display:flex; flex-direction:column; justify-content:space-between; text-decoration:none; overflow:hidden;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start;"><span style="font-family:'Archivo',sans-serif; font-size:42px; font-weight:800; line-height:0.8; opacity:0.35;">05</span><span style="font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; opacity:0.7;">Life</span></div>
+          <div><h3 style="font-family:'Archivo','Noto Sans SC',sans-serif; font-size:24px; font-weight:700; margin:0 0 6px;">生命科学</h3><p style="font-size:12.5px; line-height:1.6; opacity:0.82; margin:0;">从有机分子到人类意识，四十亿年的演化。</p></div>
+        </a>
+        <a style="position:relative; aspect-ratio:4/3.1; background:#5a4b7a; color:#fff; border-radius:12px; padding:22px; display:flex; flex-direction:column; justify-content:space-between; text-decoration:none; overflow:hidden;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start;"><span style="font-family:'Archivo',sans-serif; font-size:42px; font-weight:800; line-height:0.8; opacity:0.35;">06</span><span style="font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; opacity:0.7;">Math</span></div>
+          <div><h3 style="font-family:'Archivo','Noto Sans SC',sans-serif; font-size:24px; font-weight:700; margin:0 0 6px;">数学与逻辑</h3><p style="font-size:12.5px; line-height:1.6; opacity:0.82; margin:0;">从计数到范畴论，人类思维最纯粹的形式。</p></div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ STYLE 04 — 手记 / SOFT NOTEBOOK ═══════════════ -->
+  <div style="max-width:1120px; margin:0 auto 40px;">
+    <div style="display:flex; align-items:baseline; gap:18px; margin-bottom:18px;">
+      <span style="font-family:'LXGW WenKai TC',serif; font-size:32px; font-weight:700; color:#2f7d6b;">04</span>
+      <div>
+        <h2 style="font-family:'LXGW WenKai TC',serif; font-size:24px; font-weight:700; margin:0;">手记 — 温润亲和</h2>
+        <p style="margin:4px 0 0; font-size:13.5px; color:#6b675f; max-width:62ch; line-height:1.6;">最平易近人的方向。暖白纸感、楷体标题（落霞文楷，手写般的温度，最不「AI」），真实而克制的柔和投影，一抹安静的青绿。像一款做得很讲究的阅读 App。亲切、放松，适合长时间阅读。</p>
+      </div>
+    </div>
+
+    <div class="frame" style="border-radius:16px; overflow:hidden; background:#faf6ef; color:#2c2a26;">
+      <!-- nav -->
+      <div style="display:flex; align-items:center; justify-content:space-between; padding:20px 40px; border-bottom:1px solid #ece5da;">
+        <div style="display:flex; align-items:center; gap:11px;">
+          <span style="width:26px; height:26px; border-radius:9px; background:#2f7d6b; display:flex; align-items:center; justify-content:center; color:#fff; font-family:'LXGW WenKai TC',serif; font-size:15px; font-weight:700;">universe</span>
+          <span style="font-family:'LXGW WenKai TC',serif; font-size:18px; font-weight:700;">知识宇宙</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:24px; font-size:13.5px; color:#5f5b54;">
+          <span>领域</span><span>阅读路线</span><span>知识图谱</span><span>每日</span>
+          <span style="font-size:12px; padding:7px 13px; background:#fff; border:1px solid #e4ddd0; border-radius:999px; color:#8a857a;">🔍 搜索</span>
+        </div>
+      </div>
+      <!-- hero -->
+      <div style="padding:58px 40px 46px; text-align:center;">
+        <span style="display:inline-block; font-size:12.5px; padding:6px 15px; background:#e9f1ee; color:#2f7d6b; border-radius:999px; margin-bottom:24px;">每天，以美好的方式接触人类最重要的知识</span>
+        <h1 style="font-family:'LXGW WenKai TC',serif; font-weight:700; font-size:52px; line-height:1.15; margin:0 auto 20px; max-width:16ch;">探索人类知识的边界</h1>
+        <p style="font-size:16px; line-height:1.85; color:#5f5b54; max-width:44ch; margin:0 auto 30px;">从宇宙的尺度到人类的思想，把十大领域整理成一座温暖、可漫游的知识花园。</p>
+        <div style="display:inline-flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+          <span style="font-size:13px; padding:8px 18px; background:#2f7d6b; color:#fff; border-radius:999px;">开始探索</span>
+          <span style="font-size:13px; padding:8px 18px; background:#fff; border:1px solid #e4ddd0; color:#5f5b54; border-radius:999px;">今日知识 →</span>
+        </div>
+      </div>
+      <!-- domain soft cards -->
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; padding:8px 32px 44px;">
+        <a style="background:#fff; border:1px solid #eee6d9; border-radius:18px; padding:22px; text-decoration:none; color:inherit; box-shadow:0 10px 24px -16px rgba(80,60,30,0.22);">
+          <span style="display:inline-flex; width:34px; height:34px; border-radius:11px; background:#eef0fb; align-items:center; justify-content:center; margin-bottom:14px;"><span style="width:11px; height:11px; border-radius:50%; background:#5b5fc4;"></span></span>
+          <h3 style="font-family:'LXGW WenKai TC',serif; font-size:20px; font-weight:700; margin:0 0 7px;">物理学</h3>
+          <p style="font-size:13px; line-height:1.7; color:#6f6a61; margin:0 0 14px;">从经典力学到量子场论，支配宇宙的基本定律。</p>
+          <span style="font-size:12px; color:#9a948a;">9 物理层 · 力学到量子场论</span>
+        </a>
+        <a style="background:#fff; border:1px solid #eee6d9; border-radius:18px; padding:22px; text-decoration:none; color:inherit; box-shadow:0 10px 24px -16px rgba(80,60,30,0.22);">
+          <span style="display:inline-flex; width:34px; height:34px; border-radius:11px; background:#e7eefb; align-items:center; justify-content:center; margin-bottom:14px;"><span style="width:11px; height:11px; border-radius:50%; background:#3f72c4;"></span></span>
+          <h3 style="font-family:'LXGW WenKai TC',serif; font-size:20px; font-weight:700; margin:0 0 7px;">宇宙学</h3>
+          <p style="font-size:13px; line-height:1.7; color:#6f6a61; margin:0 0 14px;">从可观测宇宙到地球，跨尺度的结构与位置关系。</p>
+          <span style="font-size:12px; color:#9a948a;">8 宇宙层 · 可观测宇宙到地球</span>
+        </a>
+        <a style="background:#fff; border:1px solid #eee6d9; border-radius:18px; padding:22px; text-decoration:none; color:inherit; box-shadow:0 10px 24px -16px rgba(80,60,30,0.22);">
+          <span style="display:inline-flex; width:34px; height:34px; border-radius:11px; background:#faf0df; align-items:center; justify-content:center; margin-bottom:14px;"><span style="width:11px; height:11px; border-radius:50%; background:#c98a3a;"></span></span>
+          <h3 style="font-family:'LXGW WenKai TC',serif; font-size:20px; font-weight:700; margin:0 0 7px;">人类历史</h3>
+          <p style="font-size:13px; line-height:1.7; color:#6f6a61; margin:0 0 14px;">公元前一万年到今天，六大洲的事件、人物与文明。</p>
+          <span style="font-size:12px; color:#9a948a;">219 事件 · 235 人物</span>
+        </a>
+        <a style="background:#fff; border:1px solid #eee6d9; border-radius:18px; padding:22px; text-decoration:none; color:inherit; box-shadow:0 10px 24px -16px rgba(80,60,30,0.22);">
+          <span style="display:inline-flex; width:34px; height:34px; border-radius:11px; background:#e7f3ec; align-items:center; justify-content:center; margin-bottom:14px;"><span style="width:11px; height:11px; border-radius:50%; background:#3f9468;"></span></span>
+          <h3 style="font-family:'LXGW WenKai TC',serif; font-size:20px; font-weight:700; margin:0 0 7px;">哲学思想</h3>
+          <p style="font-size:13px; line-height:1.7; color:#6f6a61; margin:0 0 14px;">存在、知识与价值的根本问题，从古希腊到当代。</p>
+          <span style="font-size:12px; color:#9a948a;">68 哲学家 · 38 流派</span>
+        </a>
+        <a style="background:#fff; border:1px solid #eee6d9; border-radius:18px; padding:22px; text-decoration:none; color:inherit; box-shadow:0 10px 24px -16px rgba(80,60,30,0.22);">
+          <span style="display:inline-flex; width:34px; height:34px; border-radius:11px; background:#e6f2ec; align-items:center; justify-content:center; margin-bottom:14px;"><span style="width:11px; height:11px; border-radius:50%; background:#4a9e6f;"></span></span>
+          <h3 style="font-family:'LXGW WenKai TC',serif; font-size:20px; font-weight:700; margin:0 0 7px;">生命科学</h3>
+          <p style="font-size:13px; line-height:1.7; color:#6f6a61; margin:0 0 14px;">从第一个有机分子到人类意识，四十亿年的演化。</p>
+          <span style="font-size:12px; color:#9a948a;">84 物种 · 8 时代</span>
+        </a>
+        <a style="background:#fff; border:1px solid #eee6d9; border-radius:18px; padding:22px; text-decoration:none; color:inherit; box-shadow:0 10px 24px -16px rgba(80,60,30,0.22);">
+          <span style="display:inline-flex; width:34px; height:34px; border-radius:11px; background:#eef0fb; align-items:center; justify-content:center; margin-bottom:14px;"><span style="width:11px; height:11px; border-radius:50%; background:#6a5fc4;"></span></span>
+          <h3 style="font-family:'LXGW WenKai TC',serif; font-size:20px; font-weight:700; margin:0 0 7px;">数学与逻辑</h3>
+          <p style="font-size:13px; line-height:1.7; color:#6f6a61; margin:0 0 14px;">从计数到范畴论，人类思维最纯粹的形式。</p>
+          <span style="font-size:12px; color:#9a948a;">5 时代 · 定理 · 概念</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer note -->
+  <div style="max-width:980px; margin:64px auto 0; padding-top:28px; border-top:1px solid #c4c2be; font-size:13.5px; line-height:1.7; color:#56524b;">
+    <strong style="font-weight:600;">下一步：</strong>告诉我你最有感觉的方向（可以是「01 的索引排版 + 04 的字体温度」这种混搭），我就基于它把首页做成完整的高保真版本，再逐步推广到导航、文章页、知识图谱等其它界面。
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

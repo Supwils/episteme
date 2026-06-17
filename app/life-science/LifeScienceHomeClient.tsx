@@ -2,28 +2,45 @@
 
 import { motion, useReducedMotion, useInView } from "framer-motion";
 
-
 import Link from "next/link";
 import { useRef, useEffect, useState, useCallback, lazy, Suspense } from "react";
 import { PRODUCT_EASE } from "@/subjects/life-science/lib/constants";
-import { ERAS, FEATURED_SPECIES, QUICK_LINKS, STATS, FLOATING_SYMBOLS } from "@/subjects/life-science/lib/home-data";
+import {
+  ERAS,
+  FEATURED_SPECIES,
+  QUICK_LINKS,
+  STATS,
+  FLOATING_SYMBOLS,
+} from "@/subjects/life-science/lib/home-data";
 import { SITE_URL } from "@/lib/constants";
 
 const DNAHelix = lazy(() => import("@/subjects/life-science/components/visualizations/DNAHelix"));
-const ProteinFolding = lazy(() => import("@/subjects/life-science/components/visualizations/ProteinFolding").then(m => ({ default: m.ProteinFolding })));
-const EcosystemEnergyFlow = lazy(() => import("@/subjects/life-science/components/visualizations/EcosystemEnergyFlow").then(m => ({ default: m.EcosystemEnergyFlow })));
-const GeneExpression = lazy(() => import("@/subjects/life-science/components/visualizations/GeneExpression").then(m => ({ default: m.GeneExpression })));
+const ProteinFolding = lazy(() =>
+  import("@/subjects/life-science/components/visualizations/ProteinFolding").then((m) => ({
+    default: m.ProteinFolding,
+  }))
+);
+const EcosystemEnergyFlow = lazy(() =>
+  import("@/subjects/life-science/components/visualizations/EcosystemEnergyFlow").then((m) => ({
+    default: m.EcosystemEnergyFlow,
+  }))
+);
+const GeneExpression = lazy(() =>
+  import("@/subjects/life-science/components/visualizations/GeneExpression").then((m) => ({
+    default: m.GeneExpression,
+  }))
+);
 
 const collectionJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'CollectionPage',
-  name: 'Life Science',
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Life Science",
   url: `${SITE_URL}/life-science`,
   description:
-    '4 billion years of life on Earth — from self-replicating molecules to the Cambrian explosion, from dinosaurs to the rise of humankind',
+    "4 billion years of life on Earth — from self-replicating molecules to the Cambrian explosion, from dinosaurs to the rise of humankind",
   isPartOf: {
-    '@type': 'WebSite',
-    name: 'Universe Knowledge',
+    "@type": "WebSite",
+    name: "Universe Knowledge",
     url: SITE_URL,
   },
 };
@@ -59,12 +76,21 @@ function FloatingSymbols({ reduce }: { reduce: boolean }) {
       {FLOATING_SYMBOLS.map((sym, i) => (
         <motion.span
           key={i}
-          className="absolute font-mono text-fg-disabled/20 select-none"
-          style={{ left: `${8 + i * 12.5}%`, top: `${10 + (i * 37) % 80}%`, fontSize: `${18 + (i % 3) * 10}px` }}
+          className="text-fg-disabled/20 absolute font-mono select-none"
+          style={{
+            left: `${8 + i * 12.5}%`,
+            top: `${10 + ((i * 37) % 80)}%`,
+            fontSize: `${18 + (i % 3) * 10}px`,
+          }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: [0, -8, 0] }}
-          transition={{ opacity: { duration: 1.2, delay: 1 + i * 0.15 }, y: { duration: 4 + i * 0.5, repeat: Infinity, ease: "easeInOut" } }}
-        >{sym}</motion.span>
+          transition={{
+            opacity: { duration: 1.2, delay: 1 + i * 0.15 },
+            y: { duration: 4 + i * 0.5, repeat: Infinity, ease: "easeInOut" },
+          }}
+        >
+          {sym}
+        </motion.span>
       ))}
     </div>
   );
@@ -74,7 +100,11 @@ function DotGrid() {
   return (
     <div className="pointer-events-none absolute inset-0 opacity-[0.04]" aria-hidden>
       <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-        <defs><pattern id="dot-grid-ls" width="32" height="32" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.8" fill="currentColor" /></pattern></defs>
+        <defs>
+          <pattern id="dot-grid-ls" width="32" height="32" patternUnits="userSpaceOnUse">
+            <circle cx="1" cy="1" r="0.8" fill="currentColor" />
+          </pattern>
+        </defs>
         <rect width="100%" height="100%" fill="url(#dot-grid-ls)" />
       </svg>
     </div>
@@ -86,14 +116,25 @@ function StatCounter({ value, label, suffix }: { value: number; label: string; s
   return (
     <div className="flex flex-col items-center gap-1" ref={ref}>
       <span className="font-display text-accent-green text-3xl font-semibold tabular-nums md:text-4xl">
-        {count}<span className="text-fg-muted ml-0.5 text-lg">{suffix}</span>
+        {count}
+        <span className="text-fg-muted ml-0.5 text-lg">{suffix}</span>
       </span>
-      <span className="text-fg-muted font-mono text-[10px] tracking-[0.28em] uppercase">{label}</span>
+      <span className="text-fg-muted font-mono text-[10px] tracking-[0.28em] uppercase">
+        {label}
+      </span>
     </div>
   );
 }
 
-function EraCard({ era, index, reduce }: { era: (typeof ERAS)[number]; index: number; reduce: boolean }) {
+function EraCard({
+  era,
+  index,
+  reduce,
+}: {
+  era: (typeof ERAS)[number];
+  index: number;
+  reduce: boolean;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
@@ -112,18 +153,27 @@ function EraCard({ era, index, reduce }: { era: (typeof ERAS)[number]; index: nu
           >
             {era.eraLabel}
           </span>
-          <span className="text-fg-disabled font-mono text-[9px] tracking-[0.22em]">
-            {era.era}
-          </span>
+          <span className="text-fg-disabled font-mono text-[9px] tracking-[0.22em]">{era.era}</span>
         </div>
         <div className="flex flex-col gap-1">
-          <h2 className="font-display text-fg-primary text-2xl font-semibold leading-tight transition-colors duration-300 group-hover:text-accent-green">{era.title}</h2>
-          <p className="text-fg-muted font-mono text-[11px] italic tracking-wider">{era.subtitle}</p>
+          <h2 className="font-display text-fg-primary group-hover:text-accent-green text-2xl leading-tight font-semibold transition-colors duration-300">
+            {era.title}
+          </h2>
+          <p className="text-fg-muted font-mono text-[11px] tracking-wider italic">
+            {era.subtitle}
+          </p>
         </div>
         <p className="text-fg-secondary flex-1 text-sm leading-relaxed">{era.description}</p>
-        <div className="flex flex-wrap gap-2">{era.markers.map((name) => (
-            <span key={name} className="border-fg-disabled/30 text-fg-muted rounded-none border px-2 py-0.5 font-mono text-[9px] tracking-[0.22em] uppercase transition-colors duration-300 group-hover:border-border-subtle">{name}</span>
-        ))}</div>
+        <div className="flex flex-wrap gap-2">
+          {era.markers.map((name) => (
+            <span
+              key={name}
+              className="border-fg-disabled/30 text-fg-muted group-hover:border-border-subtle rounded-none border px-2 py-0.5 font-mono text-[9px] tracking-[0.22em] uppercase transition-colors duration-300"
+            >
+              {name}
+            </span>
+          ))}
+        </div>
         <span
           aria-hidden
           className="text-fg-disabled group-hover:text-accent-green absolute right-5 bottom-5 font-mono text-xs transition-all duration-300 group-hover:translate-x-1"
@@ -140,7 +190,15 @@ function EraCard({ era, index, reduce }: { era: (typeof ERAS)[number]; index: nu
   );
 }
 
-function SpeciesCard({ species, index, reduce }: { species: (typeof FEATURED_SPECIES)[number]; index: number; reduce: boolean }) {
+function SpeciesCard({
+  species,
+  index,
+  reduce,
+}: {
+  species: (typeof FEATURED_SPECIES)[number];
+  index: number;
+  reduce: boolean;
+}) {
   return (
     <motion.div
       className="min-w-[220px] shrink-0 snap-start"
@@ -150,12 +208,23 @@ function SpeciesCard({ species, index, reduce }: { species: (typeof FEATURED_SPE
     >
       <div className="group border-border-faint bg-bg-near hover:bg-bg-elevated relative flex h-full flex-col gap-4 border p-5 transition-all duration-500 hover:shadow-[0_0_30px_-10px_rgba(74,158,111,0.1)]">
         <div className="flex items-start justify-between">
-          <div className="flex h-10 w-10 items-center justify-center border border-border-subtle text-xl" style={{ color: species.accent }}>{species.icon}</div>
-          <span className="text-fg-disabled font-mono text-[9px] tracking-[0.2em]">{species.period}</span>
+          <div
+            className="border-border-subtle flex h-10 w-10 items-center justify-center border text-xl"
+            style={{ color: species.accent }}
+          >
+            {species.icon}
+          </div>
+          <span className="text-fg-disabled font-mono text-[9px] tracking-[0.2em]">
+            {species.period}
+          </span>
         </div>
         <div>
-          <h3 className="font-display text-fg-primary text-lg font-semibold leading-snug transition-colors duration-300 group-hover:text-accent-green">{species.name}</h3>
-          <p className="text-fg-muted font-mono text-[10px] italic tracking-wider">{species.latin}</p>
+          <h3 className="font-display text-fg-primary group-hover:text-accent-green text-lg leading-snug font-semibold transition-colors duration-300">
+            {species.name}
+          </h3>
+          <p className="text-fg-muted font-mono text-[10px] tracking-wider italic">
+            {species.latin}
+          </p>
         </div>
         <p className="text-fg-secondary font-mono text-sm">{species.era}</p>
         <span
@@ -183,15 +252,19 @@ export default function LifeScienceHomeClient() {
 
       <div
         className="pointer-events-none fixed inset-0 z-[1] opacity-[0.03] mix-blend-overlay"
-        style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")" }}
-        aria-hidden />
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+        }}
+        aria-hidden
+      />
 
       <div className="border-fg-disabled/30 pointer-events-none absolute top-16 left-6 h-3 w-3 border-t border-l" />
       <div className="border-fg-disabled/30 pointer-events-none absolute top-16 right-6 h-3 w-3 border-t border-r" />
       <div className="border-fg-disabled/30 pointer-events-none absolute bottom-6 left-6 h-3 w-3 border-b border-l" />
       <div className="border-fg-disabled/30 pointer-events-none absolute right-6 bottom-6 h-3 w-3 border-r border-b" />
 
-      <section className="relative flex w-full flex-col items-start gap-8 px-6 sm:px-10 lg:px-16 pt-28 pb-24 md:pt-36 md:pb-32">
+      <section className="relative flex w-full flex-col items-start gap-8 px-6 pt-28 pb-24 sm:px-10 md:pt-36 md:pb-32 lg:px-16">
         <motion.p
           className="text-fg-muted font-mono text-[10px] tracking-[0.42em] uppercase"
           initial={{ opacity: 0 }}
@@ -208,8 +281,9 @@ export default function LifeScienceHomeClient() {
           transition={{ duration: 0.9, delay: d(0.4), ease: PRODUCT_EASE }}
         >
           <h1 className="font-display text-[3.2rem] leading-[1.02] tracking-tight md:text-[5rem]">
-            <span className="text-fg-primary">生命的</span><br />
-            <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(135deg, #4a9e6f 0%, #5ec488 40%, #4a9e6f 60%, #8b5e3c 100%)", backgroundSize: "200% 200%", animation: reduce ? "none" : "gradient-shift-ls 6s ease infinite" }}>演化</span>
+            <span className="text-fg-primary">生命的</span>
+            <br />
+            <span style={{ color: "#5ec488" }}>演化</span>
           </h1>
           <p className="text-fg-secondary max-w-xl text-sm leading-relaxed md:text-base">
             40 亿年的故事，从分子到意识——从第一个自我复制的有机分子，到寒武纪的生命大爆发，
@@ -224,12 +298,17 @@ export default function LifeScienceHomeClient() {
           transition={{ duration: 0.7, delay: d(0.8), ease: PRODUCT_EASE }}
         >
           {STATS.map((stat) => (
-            <StatCounter key={stat.label} value={stat.value} label={stat.label} suffix={stat.suffix} />
+            <StatCounter
+              key={stat.label}
+              value={stat.value}
+              label={stat.label}
+              suffix={stat.suffix}
+            />
           ))}
         </motion.div>
       </section>
 
-      <section className="relative z-[2] w-full px-6 sm:px-10 lg:px-16 pb-20">
+      <section className="relative z-[2] w-full px-6 pb-20 sm:px-10 lg:px-16">
         <motion.p
           className="text-fg-muted mb-8 font-mono text-[10px] tracking-[0.38em] uppercase"
           initial={{ opacity: 0 }}
@@ -245,7 +324,7 @@ export default function LifeScienceHomeClient() {
         </div>
       </section>
 
-      <section className="relative z-[2] w-full px-6 sm:px-10 lg:px-16 pb-20">
+      <section className="relative z-[2] w-full px-6 pb-20 sm:px-10 lg:px-16">
         <motion.p
           className="text-fg-muted mb-8 font-mono text-[10px] tracking-[0.38em] uppercase"
           initial={{ opacity: 0 }}
@@ -254,14 +333,17 @@ export default function LifeScienceHomeClient() {
         >
           代表性物种 · featured species
         </motion.p>
-        <div className="scrollbar-none flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4" role="list">
+        <div
+          className="flex snap-x snap-mandatory scrollbar-none gap-4 overflow-x-auto pb-4"
+          role="list"
+        >
           {FEATURED_SPECIES.map((species, i) => (
             <SpeciesCard key={species.latin} species={species} index={i} reduce={!!reduce} />
           ))}
         </div>
       </section>
 
-      <section className="relative z-[2] w-full px-6 sm:px-10 lg:px-16 pb-20">
+      <section className="relative z-[2] w-full px-6 pb-20 sm:px-10 lg:px-16">
         <motion.p
           className="text-fg-muted mb-8 font-mono text-[10px] tracking-[0.38em] uppercase"
           initial={{ opacity: 0 }}
@@ -275,13 +357,15 @@ export default function LifeScienceHomeClient() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: d(1.8), ease: PRODUCT_EASE }}
         >
-          <Suspense fallback={<div className="border-border-faint bg-bg-near h-48 animate-pulse border" />}>
+          <Suspense
+            fallback={<div className="border-border-faint bg-bg-near h-48 animate-pulse border" />}
+          >
             <DNAHelix />
           </Suspense>
         </motion.div>
       </section>
 
-      <section className="relative z-[2] w-full px-6 sm:px-10 lg:px-16 pb-20">
+      <section className="relative z-[2] w-full px-6 pb-20 sm:px-10 lg:px-16">
         <motion.p
           className="text-fg-muted mb-8 font-mono text-[10px] tracking-[0.38em] uppercase"
           initial={{ opacity: 0 }}
@@ -295,13 +379,15 @@ export default function LifeScienceHomeClient() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: d(2.0), ease: PRODUCT_EASE }}
         >
-          <Suspense fallback={<div className="border-border-faint bg-bg-near h-48 animate-pulse border" />}>
+          <Suspense
+            fallback={<div className="border-border-faint bg-bg-near h-48 animate-pulse border" />}
+          >
             <ProteinFolding />
           </Suspense>
         </motion.div>
       </section>
 
-      <section className="relative z-[2] w-full px-6 sm:px-10 lg:px-16 pb-20">
+      <section className="relative z-[2] w-full px-6 pb-20 sm:px-10 lg:px-16">
         <motion.p
           className="text-fg-muted mb-8 font-mono text-[10px] tracking-[0.38em] uppercase"
           initial={{ opacity: 0 }}
@@ -315,13 +401,15 @@ export default function LifeScienceHomeClient() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: d(2.2), ease: PRODUCT_EASE }}
         >
-          <Suspense fallback={<div className="border-border-faint bg-bg-near h-48 animate-pulse border" />}>
+          <Suspense
+            fallback={<div className="border-border-faint bg-bg-near h-48 animate-pulse border" />}
+          >
             <GeneExpression />
           </Suspense>
         </motion.div>
       </section>
 
-      <section className="relative z-[2] w-full px-6 sm:px-10 lg:px-16 pb-20">
+      <section className="relative z-[2] w-full px-6 pb-20 sm:px-10 lg:px-16">
         <motion.p
           className="text-fg-muted mb-8 font-mono text-[10px] tracking-[0.38em] uppercase"
           initial={{ opacity: 0 }}
@@ -335,13 +423,15 @@ export default function LifeScienceHomeClient() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: d(2.4), ease: PRODUCT_EASE }}
         >
-          <Suspense fallback={<div className="border-border-faint bg-bg-near h-48 animate-pulse border" />}>
+          <Suspense
+            fallback={<div className="border-border-faint bg-bg-near h-48 animate-pulse border" />}
+          >
             <EcosystemEnergyFlow />
           </Suspense>
         </motion.div>
       </section>
 
-      <section className="relative z-[2] w-full px-6 sm:px-10 lg:px-16 pb-24">
+      <section className="relative z-[2] w-full px-6 pb-24 sm:px-10 lg:px-16">
         <motion.p
           className="text-fg-muted mb-8 font-mono text-[10px] tracking-[0.38em] uppercase"
           initial={{ opacity: 0 }}
@@ -388,7 +478,7 @@ export default function LifeScienceHomeClient() {
         </div>
       </section>
 
-      <section className="relative z-[2] w-full px-6 sm:px-10 lg:px-16 pb-24">
+      <section className="relative z-[2] w-full px-6 pb-24 sm:px-10 lg:px-16">
         <motion.div
           className="border-accent-green/20 border-l-2 pl-8"
           initial={{ opacity: 0, x: -20 }}
@@ -406,18 +496,19 @@ export default function LifeScienceHomeClient() {
       </section>
 
       <section className="border-border-faint border-t border-b">
-        <div className="flex w-full flex-wrap items-center justify-center gap-12 px-6 sm:px-10 lg:px-16 py-12 md:justify-between">
+        <div className="flex w-full flex-wrap items-center justify-center gap-12 px-6 py-12 sm:px-10 md:justify-between lg:px-16">
           {STATS.map((stat) => (
-            <StatCounter key={stat.label} value={stat.value} label={stat.label} suffix={stat.suffix} />
+            <StatCounter
+              key={stat.label}
+              value={stat.value}
+              label={stat.label}
+              suffix={stat.suffix}
+            />
           ))}
         </div>
       </section>
 
       <style>{`
-        @keyframes gradient-shift-ls {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
         .scrollbar-none::-webkit-scrollbar { display: none; }
         .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>

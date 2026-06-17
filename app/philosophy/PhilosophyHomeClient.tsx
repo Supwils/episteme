@@ -2,25 +2,30 @@
 
 import { motion, useReducedMotion, useInView } from "framer-motion";
 
-
 import Link from "next/link";
 import { useRef, useEffect, useState, useCallback } from "react";
 import { PRODUCT_EASE } from "@/subjects/philosophy/lib/constants";
-import { SCHOOLS, THINKERS, QUICK_LINKS, STATS, FLOATING_SYMBOLS } from "@/subjects/philosophy/lib/home-data";
+import {
+  SCHOOLS,
+  THINKERS,
+  QUICK_LINKS,
+  STATS,
+  FLOATING_SYMBOLS,
+} from "@/subjects/philosophy/lib/home-data";
 import { ThinkerCarousel } from "@/subjects/philosophy/components/ThinkerCarousel";
 import QuotesTimeline from "@/subjects/philosophy/components/visualizations/QuotesTimeline";
 import { SITE_URL } from "@/lib/constants";
 
 const collectionJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'CollectionPage',
-  name: 'Philosophy',
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Philosophy",
   url: `${SITE_URL}/philosophy`,
   description:
-    'Philosophers and history of thought — a knowledge graph spanning ancient Greek philosophy to contemporary analytic philosophy',
+    "Philosophers and history of thought — a knowledge graph spanning ancient Greek philosophy to contemporary analytic philosophy",
   isPartOf: {
-    '@type': 'WebSite',
-    name: 'Universe Knowledge',
+    "@type": "WebSite",
+    name: "Universe Knowledge",
     url: SITE_URL,
   },
 };
@@ -56,12 +61,21 @@ function FloatingSymbols({ reduce }: { reduce: boolean }) {
       {FLOATING_SYMBOLS.map((sym, i) => (
         <motion.span
           key={i}
-          className="absolute font-display text-fg-disabled/20 select-none"
-          style={{ left: `${8 + i * 12.5}%`, top: `${10 + (i * 37) % 80}%`, fontSize: `${20 + (i % 3) * 12}px` }}
+          className="font-display text-fg-disabled/20 absolute select-none"
+          style={{
+            left: `${8 + i * 12.5}%`,
+            top: `${10 + ((i * 37) % 80)}%`,
+            fontSize: `${20 + (i % 3) * 12}px`,
+          }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: [0, -8, 0] }}
-          transition={{ opacity: { duration: 1.2, delay: 1 + i * 0.15 }, y: { duration: 4 + i * 0.5, repeat: Infinity, ease: "easeInOut" } }}
-        >{sym}</motion.span>
+          transition={{
+            opacity: { duration: 1.2, delay: 1 + i * 0.15 },
+            y: { duration: 4 + i * 0.5, repeat: Infinity, ease: "easeInOut" },
+          }}
+        >
+          {sym}
+        </motion.span>
       ))}
     </div>
   );
@@ -71,7 +85,11 @@ function DotGrid() {
   return (
     <div className="pointer-events-none absolute inset-0 opacity-[0.04]" aria-hidden>
       <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-        <defs><pattern id="dot-grid" width="32" height="32" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.8" fill="currentColor" /></pattern></defs>
+        <defs>
+          <pattern id="dot-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+            <circle cx="1" cy="1" r="0.8" fill="currentColor" />
+          </pattern>
+        </defs>
         <rect width="100%" height="100%" fill="url(#dot-grid)" />
       </svg>
     </div>
@@ -83,14 +101,25 @@ function StatCounter({ value, label, suffix }: { value: number; label: string; s
   return (
     <div className="flex flex-col items-center gap-1" ref={ref}>
       <span className="font-display text-accent-gold text-3xl font-semibold tabular-nums md:text-4xl">
-        {count}<span className="text-fg-muted ml-0.5 text-lg">{suffix}</span>
+        {count}
+        <span className="text-fg-muted ml-0.5 text-lg">{suffix}</span>
       </span>
-      <span className="text-fg-muted font-mono text-[10px] tracking-[0.28em] uppercase">{label}</span>
+      <span className="text-fg-muted font-mono text-[10px] tracking-[0.28em] uppercase">
+        {label}
+      </span>
     </div>
   );
 }
 
-function SchoolCard({ school, index, reduce }: { school: (typeof SCHOOLS)[number]; index: number; reduce: boolean }) {
+function SchoolCard({
+  school,
+  index,
+  reduce,
+}: {
+  school: (typeof SCHOOLS)[number];
+  index: number;
+  reduce: boolean;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
@@ -114,13 +143,24 @@ function SchoolCard({ school, index, reduce }: { school: (typeof SCHOOLS)[number
           </span>
         </div>
         <div className="flex flex-col gap-1">
-          <h2 className="font-display text-fg-primary text-2xl font-semibold leading-tight transition-colors duration-300 group-hover:text-accent-gold">{school.title}</h2>
-          <p className="text-fg-muted font-mono text-[11px] italic tracking-wider">{school.subtitle}</p>
+          <h2 className="font-display text-fg-primary group-hover:text-accent-gold text-2xl leading-tight font-semibold transition-colors duration-300">
+            {school.title}
+          </h2>
+          <p className="text-fg-muted font-mono text-[11px] tracking-wider italic">
+            {school.subtitle}
+          </p>
         </div>
         <p className="text-fg-secondary flex-1 text-sm leading-relaxed">{school.description}</p>
-        <div className="flex flex-wrap gap-2">{school.figures.map((name) => (
-            <span key={name} className="border-fg-disabled/30 text-fg-muted rounded-none border px-2 py-0.5 font-mono text-[9px] tracking-[0.22em] uppercase transition-colors duration-300 group-hover:border-border-subtle">{name}</span>
-        ))}</div>
+        <div className="flex flex-wrap gap-2">
+          {school.figures.map((name) => (
+            <span
+              key={name}
+              className="border-fg-disabled/30 text-fg-muted group-hover:border-border-subtle rounded-none border px-2 py-0.5 font-mono text-[9px] tracking-[0.22em] uppercase transition-colors duration-300"
+            >
+              {name}
+            </span>
+          ))}
+        </div>
         <span
           aria-hidden
           className="text-fg-disabled group-hover:text-accent-gold absolute right-5 bottom-5 font-mono text-xs transition-all duration-300 group-hover:translate-x-1"
@@ -152,15 +192,19 @@ export default function PhilosophyHomeClient() {
 
       <div
         className="pointer-events-none fixed inset-0 z-[1] opacity-[0.03] mix-blend-overlay"
-        style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")" }}
-        aria-hidden />
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+        }}
+        aria-hidden
+      />
 
       <div className="border-fg-disabled/30 pointer-events-none absolute top-16 left-6 h-3 w-3 border-t border-l" />
       <div className="border-fg-disabled/30 pointer-events-none absolute top-16 right-6 h-3 w-3 border-t border-r" />
       <div className="border-fg-disabled/30 pointer-events-none absolute bottom-6 left-6 h-3 w-3 border-b border-l" />
       <div className="border-fg-disabled/30 pointer-events-none absolute right-6 bottom-6 h-3 w-3 border-r border-b" />
 
-      <section className="relative flex w-full flex-col items-start gap-8 px-6 sm:px-10 lg:px-16 pt-28 pb-24 md:pt-36 md:pb-32">
+      <section className="relative flex w-full flex-col items-start gap-8 px-6 pt-28 pb-24 sm:px-10 md:pt-36 md:pb-32 lg:px-16">
         <motion.p
           className="text-fg-muted font-mono text-[10px] tracking-[0.42em] uppercase"
           initial={{ opacity: 0 }}
@@ -177,8 +221,9 @@ export default function PhilosophyHomeClient() {
           transition={{ duration: 0.9, delay: d(0.4), ease: PRODUCT_EASE }}
         >
           <h1 className="font-display text-[3.2rem] leading-[1.02] tracking-tight md:text-[5rem]">
-            <span className="text-fg-primary">思想的</span><br />
-            <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(135deg, #c8a45a 0%, #e8d5a0 40%, #c8a45a 60%, #7aaa8a 100%)", backgroundSize: "200% 200%", animation: reduce ? "none" : "gradient-shift 6s ease infinite" }}>地图</span>
+            <span className="text-fg-primary">思想的</span>
+            <br />
+            <span className="text-accent-gold">地图</span>
           </h1>
           <p className="text-fg-secondary max-w-xl text-sm leading-relaxed md:text-base">
             从古希腊广场的问答到当代语言哲学的边界，从孔子的仁礼到尼采的权力意志——
@@ -193,12 +238,17 @@ export default function PhilosophyHomeClient() {
           transition={{ duration: 0.7, delay: d(0.8), ease: PRODUCT_EASE }}
         >
           {STATS.map((stat) => (
-            <StatCounter key={stat.label} value={stat.value} label={stat.label} suffix={stat.suffix} />
+            <StatCounter
+              key={stat.label}
+              value={stat.value}
+              label={stat.label}
+              suffix={stat.suffix}
+            />
           ))}
         </motion.div>
       </section>
 
-      <section className="relative z-[2] w-full px-6 sm:px-10 lg:px-16 pb-20">
+      <section className="relative z-[2] w-full px-6 pb-20 sm:px-10 lg:px-16">
         <motion.p
           className="text-fg-muted mb-8 font-mono text-[10px] tracking-[0.38em] uppercase"
           initial={{ opacity: 0 }}
@@ -214,7 +264,7 @@ export default function PhilosophyHomeClient() {
         </div>
       </section>
 
-      <section className="relative z-[2] w-full px-6 sm:px-10 lg:px-16 pb-20">
+      <section className="relative z-[2] w-full px-6 pb-20 sm:px-10 lg:px-16">
         <motion.p
           className="text-fg-muted mb-8 font-mono text-[10px] tracking-[0.38em] uppercase"
           initial={{ opacity: 0 }}
@@ -228,7 +278,7 @@ export default function PhilosophyHomeClient() {
 
       <QuotesTimeline />
 
-      <section className="relative z-[2] w-full px-6 sm:px-10 lg:px-16 pb-24">
+      <section className="relative z-[2] w-full px-6 pb-24 sm:px-10 lg:px-16">
         <motion.p
           className="text-fg-muted mb-8 font-mono text-[10px] tracking-[0.38em] uppercase"
           initial={{ opacity: 0 }}
@@ -293,18 +343,19 @@ export default function PhilosophyHomeClient() {
       </section>
 
       <section className="border-border-faint border-t border-b">
-        <div className="flex w-full flex-wrap items-center justify-center gap-12 px-6 sm:px-10 lg:px-16 py-12 md:justify-between">
+        <div className="flex w-full flex-wrap items-center justify-center gap-12 px-6 py-12 sm:px-10 md:justify-between lg:px-16">
           {STATS.map((stat) => (
-            <StatCounter key={stat.label} value={stat.value} label={stat.label} suffix={stat.suffix} />
+            <StatCounter
+              key={stat.label}
+              value={stat.value}
+              label={stat.label}
+              suffix={stat.suffix}
+            />
           ))}
         </div>
       </section>
 
       <style>{`
-        @keyframes gradient-shift {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
         .scrollbar-none::-webkit-scrollbar { display: none; }
         .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>

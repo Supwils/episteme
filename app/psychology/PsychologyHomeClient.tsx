@@ -232,17 +232,7 @@ export default function PsychologyHomeClient() {
           <h1 className="font-display text-[3.2rem] leading-[1.02] tracking-tight md:text-[5rem]">
             <span className="text-fg-primary">心灵的</span>
             <br />
-            <span
-              className="bg-clip-text text-transparent"
-              style={{
-                backgroundImage:
-                  "linear-gradient(135deg, #9b7dc4 0%, #b99de4 40%, #6b8fd6 60%, #d4789c 100%)",
-                backgroundSize: "200% 200%",
-                animation: reduce ? "none" : "gradient-shift 6s ease infinite",
-              }}
-            >
-              地图
-            </span>
+            <span className="text-accent-pink">地图</span>
           </h1>
           <p className="text-fg-secondary max-w-xl text-sm leading-relaxed md:text-base">
             从弗洛伊德的潜意识到卡尼曼的双系统，从米尔格拉姆的服从实验到斯坦福监狱——
@@ -333,10 +323,6 @@ export default function PsychologyHomeClient() {
       </section>
 
       <style>{`
-        @keyframes gradient-shift {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
         .scrollbar-none::-webkit-scrollbar { display: none; }
         .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>

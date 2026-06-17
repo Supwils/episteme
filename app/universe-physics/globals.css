@@ -3,9 +3,15 @@
 @theme {
   /* Backgrounds */
   --color-bg-deep: #000000;
+  --color-bg-base: #000000;
   --color-bg-near: #060814;
   --color-bg-panel: rgba(8, 10, 18, 0.72);
   --color-bg-elevated: #0f1320;
+  --color-bg-overlay: rgba(0, 0, 0, 0.72);
+
+  /* Hairline borders for the shared SubjectHeader. */
+  --color-border-faint: rgba(255, 255, 255, 0.08);
+  --color-border-subtle: rgba(255, 255, 255, 0.14);
 
   /* Foregrounds */
   --color-fg-primary: #f5f6fa;
@@ -22,13 +28,13 @@
      bundled but PingFang SC / Songti SC ship on macOS / iOS by default
      and Microsoft YaHei on Windows). */
   --font-sans:
-    var(--font-inter), "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui,
-    sans-serif;
+    var(--font-space-grotesk), "Space Grotesk", "Noto Sans SC", "PingFang SC", "Microsoft YaHei",
+    system-ui, sans-serif;
   --font-display:
-    var(--font-fraunces), "Fraunces", "Noto Serif SC", "Songti SC", "STSong", "PingFang SC", serif;
-  --font-mono:
-    var(--font-jetbrains-mono), "JetBrains Mono Variable", "JetBrains Mono", ui-monospace,
-    "Cascadia Code", monospace;
+    var(--font-space-grotesk), "Space Grotesk", "Noto Sans SC", "PingFang SC", "Songti SC",
+    sans-serif;
+  --font-body: "Noto Sans SC", system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, "Cascadia Code", monospace;
 
   /* Easing — house curve. */
   --ease-product: cubic-bezier(0.22, 0.61, 0.36, 1);

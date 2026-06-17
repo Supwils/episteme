@@ -2,29 +2,30 @@
 @import "../shared-animations.css";
 
 @theme {
-  /* ── Surface hierarchy ────────────────────────────────────────────── */
-  --color-bg-deep: #06060f;
-  --color-bg-near: #0d0d1a;
-  --color-bg-panel: rgba(12, 12, 26, 0.78);
-  --color-bg-elevated: #131320;
-  --color-bg-floating: #1a1a30;
-  --color-bg-overlay: rgba(6, 6, 15, 0.85);
+  /* ── Surface hierarchy — Observatory (dark, default) ──────────────── */
+  --color-bg-deep: #08080d;
+  --color-bg-base: #0e0f14;
+  --color-bg-near: #0e0f14;
+  --color-bg-panel: #14151c;
+  --color-bg-elevated: #14151c;
+  --color-bg-floating: #1c1c26;
+  --color-bg-overlay: rgba(8, 8, 13, 0.85);
 
   /* ── Foregrounds ──────────────────────────────────────────────────── */
-  --color-fg-primary: #eceaf5;
-  --color-fg-secondary: #a8a4c0;
-  --color-fg-muted: #9490a8;
-  --color-fg-disabled: #36343e;
-  --color-fg-inverse: #06060f;
+  --color-fg-primary: #e6e3da;
+  --color-fg-secondary: #a8a499;
+  --color-fg-muted: #7a766c;
+  --color-fg-disabled: #4a4858;
+  --color-fg-inverse: #08080d;
 
-  /* ── Accents ──────────────────────────────────────────────────────── */
-  --color-accent-indigo: #6366f1;
+  /* ── Accents — mathematics = violet (primary) ─────────────────────── */
+  --color-accent-indigo: #6a6fd0;
   --color-accent-indigo-dim: #4f46e5;
   --color-accent-indigo-bright: #818cf8;
-  --color-accent-violet: #8b5cf6;
+  --color-accent-violet: #8b6fd0;
   --color-accent-violet-dim: #7c3aed;
   --color-accent-violet-bright: #a78bfa;
-  --color-accent-cyan: #22d3ee;
+  --color-accent-cyan: #5a93c0;
   --color-accent-cyan-dim: #06b6d4;
   --color-accent-cyan-bright: #67e8f9;
 
@@ -38,34 +39,50 @@
   --color-danger: #d85a5a;
   --color-danger-dim: rgba(216, 90, 90, 0.15);
 
-  /* ── Borders ──────────────────────────────────────────────────────── */
-  --color-border-subtle: rgba(99, 102, 241, 0.15);
-  --color-border-faint: rgba(99, 102, 241, 0.08);
-  --color-border-strong: rgba(99, 102, 241, 0.30);
-  --color-border-violet: rgba(139, 92, 246, 0.20);
+  /* ── Borders — hairline (theme-aware) ─────────────────────────────── */
+  --color-border-subtle: rgba(255, 255, 255, 0.1);
+  --color-border-faint: rgba(255, 255, 255, 0.06);
+  --color-border-strong: rgba(255, 255, 255, 0.2);
+  --color-border-violet: rgba(139, 92, 246, 0.2);
 
-  /* ── Glow / Accent Effects ────────────────────────────────────────── */
-  --glow-indigo: 0 0 20px rgba(99, 102, 241, 0.25), 0 0 60px rgba(99, 102, 241, 0.08);
-  --glow-indigo-intense: 0 0 30px rgba(99, 102, 241, 0.40), 0 0 80px rgba(99, 102, 241, 0.15);
-  --glow-violet: 0 0 20px rgba(139, 92, 246, 0.25), 0 0 60px rgba(139, 92, 246, 0.08);
-  --glow-violet-intense: 0 0 30px rgba(139, 92, 246, 0.40), 0 0 80px rgba(139, 92, 246, 0.15);
+  /* ── Glow effects neutralised (observatory has no glow) ───────────── */
+  --glow-indigo: none;
+  --glow-indigo-intense: none;
+  --glow-violet: none;
+  --glow-violet-intense: none;
 
   /* ── Gradients ────────────────────────────────────────────────────── */
-  --gradient-radial-indigo: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
-  --gradient-radial-violet: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.10) 0%, transparent 70%);
+  --gradient-radial-indigo: radial-gradient(
+    ellipse at center,
+    rgba(99, 102, 241, 0.12) 0%,
+    transparent 70%
+  );
+  --gradient-radial-violet: radial-gradient(
+    ellipse at center,
+    rgba(139, 92, 246, 0.1) 0%,
+    transparent 70%
+  );
   --gradient-fade-down: linear-gradient(to bottom, transparent 0%, var(--color-bg-deep) 100%);
   --gradient-fade-up: linear-gradient(to top, transparent 0%, var(--color-bg-deep) 100%);
-  --gradient-indigo-border: linear-gradient(135deg, rgba(99, 102, 241, 0.30), rgba(139, 92, 246, 0.15));
+  --gradient-indigo-border: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.3),
+    rgba(139, 92, 246, 0.15)
+  );
 
   /* ── Typography stacks ────────────────────────────────────────────── */
   --font-sans:
-    var(--font-inter), "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui,
-    sans-serif;
+    var(--font-space-grotesk), "Space Grotesk", "Noto Sans SC", "PingFang SC", "Microsoft YaHei",
+    system-ui, sans-serif;
   --font-display:
-    var(--font-fraunces), "Fraunces", "Noto Serif SC", "Songti SC", "STSong", "PingFang SC", serif;
-  --font-mono:
-    var(--font-jetbrains-mono), "JetBrains Mono Variable", "JetBrains Mono", ui-monospace,
-    "Cascadia Code", monospace;
+    var(--font-space-grotesk), "Space Grotesk", "Noto Sans SC", "PingFang SC", "Songti SC",
+    sans-serif;
+  --font-body: "Noto Sans SC", system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, "Cascadia Code", monospace;
+
+  /* ── Card surface controls (flipped by .light into paper cards) ───── */
+  --card-radius: 12px;
+  --card-shadow: none;
 
   /* ── Type Scale ───────────────────────────────────────────────────── */
   --text-display-hero: 4.5rem;
@@ -152,14 +169,42 @@
 .math-root {
   background-color: var(--color-bg-deep);
   color: var(--color-fg-primary);
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: var(--text-body-base);
   line-height: var(--leading-normal);
   letter-spacing: var(--tracking-normal);
-  font-feature-settings: "ss01" on, "cv11" on;
+  font-feature-settings:
+    "ss01" on,
+    "cv11" on;
   width: 100%;
   overflow-x: clip;
   min-height: 100vh;
+}
+
+/* Notebook (light) — warm paper. next-themes adds `.light` to <html>. */
+.light .math-root,
+.math-root.light {
+  color-scheme: light;
+  --color-bg-deep: #efece4;
+  --color-bg-base: #faf6ef;
+  --color-bg-near: #ffffff;
+  --color-bg-panel: #ffffff;
+  --color-bg-elevated: #fffdf8;
+  --color-bg-floating: #ffffff;
+  --color-bg-overlay: rgba(245, 242, 235, 0.86);
+  --color-fg-primary: #2c2a26;
+  --color-fg-secondary: #5f5b54;
+  --color-fg-muted: #9a948a;
+  --color-fg-disabled: #b6b3c2;
+  --color-accent-violet: #6d52b0;
+  --color-accent-indigo: #5a52b0;
+  --color-border-faint: #eee6d9;
+  --color-border-subtle: #e8dfd0;
+  --color-border-strong: #d8d0c0;
+  --card-radius: 14px;
+  --card-shadow: 0 12px 28px -18px rgba(80, 60, 30, 0.28);
+  --font-display: "LXGW WenKai TC", "Noto Serif SC", "Songti SC", serif;
+  --font-body: "Noto Serif SC", "Songti SC", serif;
 }
 
 @layer base {
@@ -181,16 +226,25 @@
   .math-root .font-display {
     font-family: var(--font-display);
     font-optical-sizing: auto;
-    font-variation-settings: "SOFT" 30;
     line-height: var(--leading-tight);
     letter-spacing: var(--tracking-tight);
     color: var(--color-fg-primary);
   }
 
-  .math-root h1 { font-size: var(--text-display-lg); letter-spacing: var(--tracking-tighter); }
-  .math-root h2 { font-size: var(--text-display-md); }
-  .math-root h3 { font-size: var(--text-display-sm); }
-  .math-root h4 { font-size: var(--text-body-lg); line-height: var(--leading-snug); }
+  .math-root h1 {
+    font-size: var(--text-display-lg);
+    letter-spacing: var(--tracking-tighter);
+  }
+  .math-root h2 {
+    font-size: var(--text-display-md);
+  }
+  .math-root h3 {
+    font-size: var(--text-display-sm);
+  }
+  .math-root h4 {
+    font-size: var(--text-body-lg);
+    line-height: var(--leading-snug);
+  }
 
   .math-root [data-num],
   .math-root .font-mono {
@@ -209,7 +263,7 @@
   }
 
   .math-root ::selection {
-    background: rgba(99, 102, 241, 0.30);
+    background: rgba(99, 102, 241, 0.3);
     color: var(--color-fg-primary);
   }
 
@@ -247,21 +301,20 @@
    ═══════════════════════════════════════════════════════════════════════ */
 
 @layer components {
-
   /* ── Glass Morphism ───────────────────────────────────────────────── */
 
   .math-root .glass {
     background: color-mix(in oklab, var(--color-bg-panel) 60%, transparent);
     border: 1px solid var(--color-border-faint);
-    backdrop-filter: blur(20px) saturate(140%);
-    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
   }
 
   .math-root .glass-strong {
     background: color-mix(in oklab, var(--color-bg-elevated) 75%, transparent);
     border: 1px solid var(--color-border-subtle);
-    backdrop-filter: blur(30px) saturate(160%);
-    -webkit-backdrop-filter: blur(30px) saturate(160%);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
   }
 
   /* ── Surface Effects ──────────────────────────────────────────────── */
@@ -281,88 +334,17 @@
 
   /* ── Glow Effects ─────────────────────────────────────────────────── */
 
-  .glow-indigo { box-shadow: var(--glow-indigo); }
-  .glow-indigo-intense { box-shadow: var(--glow-indigo-intense); }
-  .glow-violet { box-shadow: var(--glow-violet); }
-  .glow-violet-intense { box-shadow: var(--glow-violet-intense); }
-
-  /* ── Navigation Bar ─────────────────────────────────────────────── */
-
-  .math-nav-bar {
-    width: 100%;
-    height: var(--nav-h, 64px);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 24px;
-    border-bottom: 1px solid var(--color-border-faint);
-    background: color-mix(in oklab, var(--color-bg-deep) 92%, transparent);
-    backdrop-filter: blur(16px) saturate(130%);
-    -webkit-backdrop-filter: blur(16px) saturate(130%);
-    position: sticky;
-    top: 0;
-    z-index: 49;
+  .glow-indigo {
+    box-shadow: var(--glow-indigo);
   }
-
-  .math-nav-brand {
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    color: var(--color-accent-indigo);
-    text-decoration: none;
-    font-weight: 700;
-    font-style: italic;
-    letter-spacing: 0.04em;
+  .glow-indigo-intense {
+    box-shadow: var(--glow-indigo-intense);
   }
-
-  .math-nav-links {
-    display: flex;
-    gap: 24px;
-    list-style: none;
+  .glow-violet {
+    box-shadow: var(--glow-violet);
   }
-
-  .math-nav-link {
-    color: var(--color-fg-muted);
-    text-decoration: none;
-    font-size: 0.88rem;
-    padding: 8px 12px;
-    transition: color 0.2s;
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-  }
-
-  .math-nav-link:hover, .math-nav-link.active {
-    color: var(--color-accent-indigo);
-  }
-
-  .math-nav-num {
-    font-size: 0.72rem;
-    opacity: 0.5;
-    margin-right: 4px;
-    font-family: var(--font-mono);
-  }
-
-  @media (max-width: 720px) {
-    .math-nav-bar {
-      flex-wrap: wrap;
-      height: auto;
-      min-height: var(--nav-h, 64px);
-      padding: 0 14px;
-      gap: 0;
-    }
-    .math-nav-links {
-      overflow-x: auto;
-      flex-wrap: nowrap;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      justify-content: flex-start;
-      gap: 0;
-      order: 3;
-      width: 100%;
-    }
-    .math-nav-links::-webkit-scrollbar { display: none; }
-    .math-nav-link { padding: 10px 12px; font-size: 0.82rem; flex-shrink: 0; }
-    .math-nav-num { display: none; }
+  .glow-violet-intense {
+    box-shadow: var(--glow-violet-intense);
   }
 
   /* ── Badge / Tag ──────────────────────────────────────────────────── */
@@ -378,28 +360,36 @@
     text-transform: uppercase;
     padding: 0.2em 0.6em;
     border-radius: var(--radius-full);
-    background: rgba(99, 102, 241, 0.10);
+    background: rgba(99, 102, 241, 0.1);
     color: var(--color-accent-indigo);
-    border: 1px solid rgba(99, 102, 241, 0.20);
+    border: 1px solid rgba(99, 102, 241, 0.2);
   }
 
   .math-root .badge-violet {
-    background: rgba(139, 92, 246, 0.10);
+    background: rgba(139, 92, 246, 0.1);
     color: var(--color-accent-violet);
-    border-color: rgba(139, 92, 246, 0.20);
+    border-color: rgba(139, 92, 246, 0.2);
   }
 
   .math-root .badge-cyan {
-    background: rgba(34, 211, 238, 0.10);
+    background: rgba(34, 211, 238, 0.1);
     color: var(--color-accent-cyan);
-    border-color: rgba(34, 211, 238, 0.20);
+    border-color: rgba(34, 211, 238, 0.2);
   }
 
   /* ── Utility ─────────────────────────────────────────────────────── */
 
-  .math-root .scrollbar-hide::-webkit-scrollbar { display: none; }
-  .math-root .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-  .math-root .touch-target { min-width: 44px; min-height: 44px; }
+  .math-root .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .math-root .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .math-root .touch-target {
+    min-width: 44px;
+    min-height: 44px;
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════
@@ -429,25 +419,45 @@
     color: var(--color-fg-secondary);
   }
 
-  .math-root .prose > * + * { margin-top: var(--space-lg); }
+  .math-root .prose > * + * {
+    margin-top: var(--space-lg);
+  }
 
-  .math-root .prose h1, .math-root .prose h2, .math-root .prose h3, .math-root .prose h4 {
+  .math-root .prose h1,
+  .math-root .prose h2,
+  .math-root .prose h3,
+  .math-root .prose h4 {
     color: var(--color-fg-primary);
     margin-top: var(--space-3xl);
     margin-bottom: var(--space-md);
   }
 
-  .math-root .prose h1 { font-size: var(--text-display-lg); letter-spacing: var(--tracking-tighter); }
-  .math-root .prose h2 { font-size: var(--text-display-md); padding-bottom: var(--space-sm); border-bottom: 1px solid var(--color-border-faint); }
-  .math-root .prose h3 { font-size: var(--text-display-sm); }
-  .math-root .prose h4 { font-size: var(--text-body-lg); line-height: var(--leading-snug); }
+  .math-root .prose h1 {
+    font-size: var(--text-display-lg);
+    letter-spacing: var(--tracking-tighter);
+  }
+  .math-root .prose h2 {
+    font-size: var(--text-display-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--color-border-faint);
+  }
+  .math-root .prose h3 {
+    font-size: var(--text-display-sm);
+  }
+  .math-root .prose h4 {
+    font-size: var(--text-body-lg);
+    line-height: var(--leading-snug);
+  }
 
-  .math-root .prose p { margin-top: var(--space-md); margin-bottom: var(--space-md); }
+  .math-root .prose p {
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
 
   .math-root .prose a {
     color: var(--color-accent-indigo);
     text-decoration: underline;
-    text-decoration-color: rgba(99, 102, 241, 0.30);
+    text-decoration-color: rgba(99, 102, 241, 0.3);
     text-underline-offset: 3px;
   }
 
@@ -456,21 +466,34 @@
     text-decoration-color: var(--color-accent-indigo);
   }
 
-  .math-root .prose strong { color: var(--color-fg-primary); font-weight: 600; }
-  .math-root .prose em { font-style: italic; color: var(--color-fg-secondary); }
+  .math-root .prose strong {
+    color: var(--color-fg-primary);
+    font-weight: 600;
+  }
+  .math-root .prose em {
+    font-style: italic;
+    color: var(--color-fg-secondary);
+  }
 
   .math-root .prose blockquote {
     border-left: 3px solid var(--color-accent-indigo);
     padding: var(--space-md) var(--space-lg);
     color: var(--color-fg-primary);
     font-style: italic;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.04) 0%, transparent 50%);
     border-radius: 0 var(--radius-md) var(--radius-md) 0;
   }
 
-  .math-root .prose ul, .math-root .prose ol { padding-left: var(--space-lg); }
-  .math-root .prose li { margin-top: var(--space-xs); margin-bottom: var(--space-xs); }
-  .math-root .prose li::marker { color: var(--color-fg-muted); }
+  .math-root .prose ul,
+  .math-root .prose ol {
+    padding-left: var(--space-lg);
+  }
+  .math-root .prose li {
+    margin-top: var(--space-xs);
+    margin-bottom: var(--space-xs);
+  }
+  .math-root .prose li::marker {
+    color: var(--color-fg-muted);
+  }
 
   .math-root .prose code {
     font-family: var(--font-mono);
@@ -498,8 +521,15 @@
     line-height: var(--leading-relaxed);
   }
 
-  .math-root .prose hr { border: none; border-top: 1px solid var(--color-border-subtle); margin: var(--space-3xl) 0; }
-  .math-root .prose img { border-radius: var(--radius-lg); margin: var(--space-2xl) 0; }
+  .math-root .prose hr {
+    border: none;
+    border-top: 1px solid var(--color-border-subtle);
+    margin: var(--space-3xl) 0;
+  }
+  .math-root .prose img {
+    border-radius: var(--radius-lg);
+    margin: var(--space-2xl) 0;
+  }
 
   .math-root .prose figcaption {
     text-align: center;
@@ -547,8 +577,13 @@
    ═══════════════════════════════════════════════════════════════════════ */
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 15px rgba(99, 102, 241, 0.15); }
-  50% { box-shadow: 0 0 30px rgba(99, 102, 241, 0.30); }
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════
@@ -556,11 +591,21 @@
    ═══════════════════════════════════════════════════════════════════════ */
 
 @layer utilities {
-  .math-root .animate-fade-in { animation: fade-in var(--duration-normal) var(--ease-smooth) both; }
-  .math-root .animate-slide-up { animation: slide-up var(--duration-slow) var(--ease-product) both; }
-  .math-root .animate-slide-down { animation: slide-down var(--duration-slow) var(--ease-product) both; }
-  .math-root .animate-float { animation: float 4s var(--ease-smooth) infinite; }
-  .math-root .animate-pulse-glow { animation: pulse-glow 3s var(--ease-smooth) infinite; }
+  .math-root .animate-fade-in {
+    animation: fade-in var(--duration-normal) var(--ease-smooth) both;
+  }
+  .math-root .animate-slide-up {
+    animation: slide-up var(--duration-slow) var(--ease-product) both;
+  }
+  .math-root .animate-slide-down {
+    animation: slide-down var(--duration-slow) var(--ease-product) both;
+  }
+  .math-root .animate-float {
+    animation: float 4s var(--ease-smooth) infinite;
+  }
+  .math-root .animate-pulse-glow {
+    animation: pulse-glow 3s var(--ease-smooth) infinite;
+  }
 
   .math-root .full-width {
     width: 100%;
@@ -580,16 +625,30 @@
    ═══════════════════════════════════════════════════════════════════════ */
 
 @layer base {
-  .math-root ::-webkit-scrollbar { width: 8px; height: 8px; }
-  .math-root ::-webkit-scrollbar-track { background: var(--color-bg-deep); }
+  .math-root ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  .math-root ::-webkit-scrollbar-track {
+    background: var(--color-bg-deep);
+  }
   .math-root ::-webkit-scrollbar-thumb {
     background: var(--color-accent-indigo);
     border-radius: 8px;
     border: 2px solid var(--color-bg-deep);
   }
-  .math-root ::-webkit-scrollbar-thumb:hover { background: var(--color-accent-indigo-bright); }
-  .math-root ::-webkit-scrollbar-corner { background: var(--color-bg-deep); }
+  .math-root ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-indigo-bright);
+  }
+  .math-root ::-webkit-scrollbar-corner {
+    background: var(--color-bg-deep);
+  }
 
-  .math-root { scrollbar-color: var(--color-accent-indigo) transparent; }
-  .math-root * { scrollbar-width: thin; scrollbar-color: var(--color-accent-indigo) var(--color-bg-deep); }
+  .math-root {
+    scrollbar-color: var(--color-accent-indigo) transparent;
+  }
+  .math-root * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent-indigo) var(--color-bg-deep);
+  }
 }

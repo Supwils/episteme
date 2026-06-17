@@ -35,6 +35,18 @@
   --radius-lg: 14px;
   --radius-xl: 22px;
   --nav-h: 64px;
+
+  /* Bridge to the platform-wide --color-* tokens so the shared SubjectHeader
+     renders here too. These reference the parchment vars above, so the header
+     automatically follows human-history's own light/dark theme. */
+  --color-bg-base: var(--bg);
+  --color-bg-overlay: color-mix(in srgb, var(--bg) 84%, transparent);
+  --color-fg-primary: var(--parchment);
+  --color-fg-secondary: var(--parchment-dim);
+  --color-fg-muted: var(--parchment-mute);
+  --color-border-faint: var(--border-soft);
+  --color-border-subtle: var(--border);
+  --color-border-strong: var(--border-hover);
 }
 
 .human-history-root.light {

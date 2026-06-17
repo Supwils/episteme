@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Script from "next/script";
-import HistoryNav from "./components/HistoryNav";
+import { SubjectHeader } from "@/components/SubjectHeader";
 import GlobalSearch from "./components/GlobalSearch";
 import PageTransition from "./components/PageTransition";
 import "./globals.css";
@@ -35,7 +35,7 @@ export default function HumanHistoryLayout({ children }: { children: ReactNode }
         src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"
         strategy="afterInteractive"
       />
-      <HistoryNav />
+      <SubjectHeader subject="human-history" />
       <main>
         <PageTransition>{children}</PageTransition>
       </main>

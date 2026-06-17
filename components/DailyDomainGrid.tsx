@@ -76,9 +76,9 @@ const DOMAIN_CONFIGS = [
     key: "cosmology" as const,
     icon: "🌌",
     label: "宇宙学",
-    color: "#818cf8",
-    bg: "rgba(129,140,248,0.08)",
-    border: "rgba(129,140,248,0.18)",
+    color: "#5a8fc0",
+    bg: "rgba(90,143,192,0.08)",
+    border: "rgba(90,143,192,0.18)",
     url: "/cosmology",
   },
   {
@@ -154,7 +154,7 @@ export function DailyDomainGrid({ daily }: DailyDomainGridProps) {
                     {config.label}
                   </span>
                 </div>
-                <h4 className="mb-1 line-clamp-2 text-[0.85rem] leading-snug font-semibold text-[#e8e8f0] transition-colors group-hover:text-[#818cf8]">
+                <h4 className="text-fg-primary group-hover:text-accent-gold mb-1 line-clamp-2 text-[0.85rem] leading-snug font-semibold transition-colors">
                   {item.title}
                 </h4>
                 <p className="m-0 line-clamp-2 text-[0.72rem] leading-relaxed text-[#8b8fa3]">

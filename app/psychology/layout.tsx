@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { fraunces, inter, jetbrainsMono } from "./fonts";
-import PsychologyNav from "@/components/psychology/PsychologyNav";
+import { spaceGrotesk, plexMono } from "./fonts";
+import { SubjectHeader } from "@/components/SubjectHeader";
 import { PageTransition } from "@/components/PageTransition";
 import "./globals.css";
 
@@ -20,19 +20,19 @@ export const metadata: Metadata = {
 };
 
 export default function PsychologyLayout({ children }: { children: React.ReactNode }) {
-  const fontVars = `${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable}`;
+  const fontVars = `${spaceGrotesk.variable} ${plexMono.variable}`;
 
   return (
     <div className={`psychology-root ${fontVars}`}>
-      <PsychologyNav />
+      <SubjectHeader subject="psychology" />
 
-      <main className="pt-16">
+      <main>
         <PageTransition>{children}</PageTransition>
       </main>
 
       <footer className="border-border-faint border-t px-4 py-6 sm:px-6">
         <div className="flex w-full flex-col items-center gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <span className="text-fg-muted font-mono text-[10px] uppercase tracking-[0.32em]">
+          <span className="text-fg-muted font-mono text-[10px] tracking-[0.32em] uppercase">
             psychology · cognitive science
           </span>
         </div>

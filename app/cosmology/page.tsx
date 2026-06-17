@@ -4,7 +4,6 @@ import { COSMOLOGY_TIER_ORDER, COSMOLOGY_TIER_ROUTES } from "@/subjects/cosmolog
 import { COSMOLOGY_TIERS } from "@/subjects/cosmology/lib/tiers";
 import { COSMOLOGY_ERAS } from "@/subjects/cosmology/lib/eras";
 import { TierCard } from "@/subjects/cosmology/components/TierCard";
-import { CosmologyNav } from "@/subjects/cosmology/components/CosmologyNav";
 import { ScaleOfUniverse } from "@/subjects/cosmology/components/visualizations";
 import { CosmologyVisualizations } from "./CosmologyVisualizations";
 
@@ -20,8 +19,7 @@ export const metadata: Metadata = {
 
 export default function CosmologyPage() {
   return (
-    <div className="min-h-screen bg-[#07070c] text-[#e8e8f0]">
-      <CosmologyNav />
+    <div className="bg-bg-deep text-fg-primary min-h-screen">
       <div className="px-6 py-12 sm:px-10 lg:px-16">
         <header className="mb-12">
           <p className="mb-4 text-xs tracking-[0.32em] uppercase" style={{ color: "#3b82f6" }}>

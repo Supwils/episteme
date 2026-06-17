@@ -7,28 +7,29 @@
    shared components (ArticleLayout, MarkdownRenderer, …) to resolve. */
 
 @theme {
-  /* ── Surface hierarchy ────────────────────────────────────────────── */
-  --color-bg-deep: #06060f;
-  --color-bg-near: #0d0d1a;
-  --color-bg-panel: rgba(12, 12, 26, 0.78);
-  --color-bg-elevated: #131320;
-  --color-bg-floating: #1a1a30;
-  --color-bg-overlay: rgba(6, 6, 15, 0.85);
+  /* ── Surface hierarchy — Observatory (dark, default) ──────────────── */
+  --color-bg-deep: #08080d;
+  --color-bg-base: #0e0f14;
+  --color-bg-near: #0e0f14;
+  --color-bg-panel: #14151c; /* opaque so menus/headers never bleed */
+  --color-bg-elevated: #14151c;
+  --color-bg-floating: #1c1c26;
+  --color-bg-overlay: rgba(8, 8, 13, 0.85);
 
   /* ── Foregrounds ──────────────────────────────────────────────────── */
-  --color-fg-primary: #eceaf5;
-  --color-fg-secondary: #a8a4c0;
-  --color-fg-muted: #9490a8;
-  --color-fg-disabled: #36343e;
-  --color-fg-inverse: #06060f;
+  --color-fg-primary: #e6e3da;
+  --color-fg-secondary: #a8a499;
+  --color-fg-muted: #7a766c;
+  --color-fg-disabled: #4a4858;
+  --color-fg-inverse: #08080d;
 
-  /* ── Accents ──────────────────────────────────────────────────────── */
-  --color-accent-gold: #c8a45a;
+  /* ── Accents (single-accent system; per-domain overrides --accent) ── */
+  --color-accent-gold: #d9a441;
   --color-accent-sage: #8aa37b;
-  --color-accent-cool: #6ad0ff;
-  --color-accent-indigo: #6366f1;
-  --color-accent-violet: #8b5cf6;
-  --color-accent-cyan: #22d3ee;
+  --color-accent-cool: #6a9ec0;
+  --color-accent-indigo: #6a6fd0;
+  --color-accent-violet: #8b6fd0;
+  --color-accent-cyan: #5a93c0;
 
   /* ── Semantic ─────────────────────────────────────────────────────── */
   --color-success: #5cb87a;
@@ -36,20 +37,24 @@
   --color-info: #5a9ad8;
   --color-danger: #d85a5a;
 
-  /* ── Borders ──────────────────────────────────────────────────────── */
-  --color-border-subtle: rgba(99, 102, 241, 0.15);
-  --color-border-faint: rgba(99, 102, 241, 0.08);
-  --color-border-strong: rgba(99, 102, 241, 0.3);
+  /* ── Borders — hairline (theme-aware) ─────────────────────────────── */
+  --color-border-subtle: rgba(255, 255, 255, 0.1);
+  --color-border-faint: rgba(255, 255, 255, 0.06);
+  --color-border-strong: rgba(255, 255, 255, 0.2);
+
+  /* ── Card surface controls (flipped by .light into paper cards) ───── */
+  --card-radius: 12px;
+  --card-shadow: none;
 
   /* ── Typography stacks ────────────────────────────────────────────── */
   --font-sans:
-    var(--font-inter), "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui,
-    sans-serif;
+    var(--font-space-grotesk), "Space Grotesk", "Noto Sans SC", "PingFang SC", "Microsoft YaHei",
+    system-ui, sans-serif;
   --font-display:
-    var(--font-fraunces), "Fraunces", "Noto Serif SC", "Songti SC", "STSong", "PingFang SC", serif;
-  --font-mono:
-    var(--font-jetbrains-mono), "JetBrains Mono Variable", "JetBrains Mono", ui-monospace,
-    "Cascadia Code", monospace;
+    var(--font-space-grotesk), "Space Grotesk", "Noto Sans SC", "PingFang SC", "Songti SC",
+    sans-serif;
+  --font-body: "Noto Sans SC", system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, "Cascadia Code", monospace;
 
   /* ── Type Scale ───────────────────────────────────────────────────── */
   --text-display-hero: 4.5rem;
@@ -82,7 +87,7 @@
 .domain-root {
   background-color: var(--color-bg-deep);
   color: var(--color-fg-primary);
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   line-height: var(--leading-normal);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -91,6 +96,31 @@
   min-height: 100vh;
   color-scheme: dark;
   --article-max-width: 56rem;
+}
+
+/* Notebook (light) — engine/content domains flip to warm paper. Immersive
+   domains keep their own dark-only globals.css and never reach this block. */
+.light .domain-root,
+.domain-root.light {
+  color-scheme: light;
+  --color-bg-deep: #efece4;
+  --color-bg-base: #faf6ef;
+  --color-bg-near: #ffffff;
+  --color-bg-panel: #ffffff;
+  --color-bg-elevated: #fffdf8;
+  --color-bg-floating: #ffffff;
+  --color-bg-overlay: rgba(245, 242, 235, 0.86);
+  --color-fg-primary: #2c2a26;
+  --color-fg-secondary: #5f5b54;
+  --color-fg-muted: #9a948a;
+  --color-fg-disabled: #b6b3c2;
+  --color-border-faint: #eee6d9;
+  --color-border-subtle: #e8dfd0;
+  --color-border-strong: #d8d0c0;
+  --card-radius: 14px;
+  --card-shadow: 0 12px 28px -18px rgba(80, 60, 30, 0.28);
+  --font-display: "LXGW WenKai TC", "Noto Serif SC", "Songti SC", serif;
+  --font-body: "Noto Serif SC", "Songti SC", serif;
 }
 
 .domain-root h1,

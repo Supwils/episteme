@@ -12,10 +12,10 @@ export interface SectionHeaderProps {
 const accentColors: Record<NonNullable<SectionHeaderProps["accent"]>, string> = {
   default: "#9ca3af",
   gold: "#c8a45a",
-  cool: "#6ad0ff",
+  cool: "#5a93c0",
   sage: "#7aaa8a",
   cinnabar: "#c8443a",
-  indigo: "#6366f1",
+  indigo: "#6a6fd0",
 };
 
 export function SectionHeader({
@@ -35,9 +35,7 @@ export function SectionHeader({
           {title}
         </h2>
         {count !== undefined && (
-          <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">
-            {count}
-          </span>
+          <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">{count}</span>
         )}
         <span
           aria-hidden
@@ -49,7 +47,7 @@ export function SectionHeader({
         {action && (
           <a
             href={action.href}
-            className="font-mono text-[11px] tracking-[0.16em] transition-opacity hover:opacity-80 no-underline"
+            className="font-mono text-[11px] tracking-[0.16em] no-underline transition-opacity hover:opacity-80"
             style={{ color }}
           >
             {action.label} →
@@ -57,9 +55,7 @@ export function SectionHeader({
         )}
       </div>
       {description && (
-        <p className="text-fg-secondary mt-1.5 text-[0.85rem] leading-relaxed">
-          {description}
-        </p>
+        <p className="text-fg-secondary mt-1.5 text-[0.85rem] leading-relaxed">{description}</p>
       )}
     </div>
   );

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@500;600;700&family=LXGW+WenKai+TC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  .uk-card { transition: transform .28s cubic-bezier(.22,1,.36,1), border-color .28s, box-shadow .28s; }
+  .uk-card:hover { transform: translateY(-3px); border-color: var(--accent) !important; }
+  .uk-arrow { transition: transform .25s; display:inline-block; }
+  .uk-card:hover .uk-arrow { transform: translateX(4px); }
+  .uk-nav a { transition: color .2s; }
+  .uk-nav a:hover { color: var(--accent) !important; }
+  .uk-btn { transition: transform .2s, opacity .2s; }
+  .uk-btn:hover { transform: translateY(-2px); }
+  .uk-toggle { transition: background .25s, border-color .25s; }
+</style>
+</helmet>
+
+<div ref="{{ rootRef }}" style="--bg:#0e0f14; --surface:#0e0f14; --surface-2:#14151c; --text:#e6e3da; --text-soft:#a8a499; --text-mute:#7a766c; --border:rgba(255,255,255,0.1); --card-border:transparent; --grid-line:rgba(255,255,255,0.08); --grid-gap:1px; --card-radius:0px; --card-shadow:none; --accent:#d9a441; --accent-soft:rgba(217,164,65,0.12); --on-accent:#15110a; --font-display:'Space Grotesk','Noto Sans SC',sans-serif; font-family:'Noto Sans SC','Space Grotesk',system-ui,sans-serif;">
+<div style="min-height:100vh; background-color:var(--bg); color:var(--text);">
+
+  <!-- ░░ NAV ░░ -->
+  <nav class="uk-nav" style="position:sticky; top:0; z-index:50; backdrop-filter:blur(12px); background:color-mix(in srgb, var(--bg) 82%, transparent); border-bottom:1px solid var(--border);">
+    <div style="max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:16px 32px;">
+      <div style="display:flex; align-items:center; gap:11px;">
+        <span style="width:9px; height:9px; border:1.6px solid var(--accent); border-radius:50%; display:inline-block;"></span>
+        <span style="font-family:var(--font-display); font-size:17px; font-weight:600; letter-spacing:0.01em; color:var(--text);">Universe Knowledge</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:28px;">
+        <div style="display:flex; align-items:center; gap:24px; font-size:13.5px; color:var(--text-soft);">
+          <a href="#domains" style="color:var(--text-soft); text-decoration:none;">领域</a>
+          <a href="#" style="color:var(--text-soft); text-decoration:none;">阅读路线</a>
+          <a href="#" style="color:var(--text-soft); text-decoration:none;">知识图谱</a>
+          <a href="#" style="color:var(--text-soft); text-decoration:none;">每日</a>
+        </div>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; padding:7px 12px; border:1px solid var(--border); border-radius:7px; color:var(--text-mute); cursor:pointer;">⌘K</span>
+        <button class="uk-toggle" onClick="{{ toggleTheme }}" style="display:flex; align-items:center; gap:7px; font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; padding:7px 12px; border:1px solid var(--border); border-radius:7px; color:var(--text-soft); background:transparent; cursor:pointer;">
+          <span style="font-size:13px; line-height:1;">{{ themeIcon }}</span>{{ themeLabel }}
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ░░ HERO ░░ -->
+  <header style="max-width:1200px; margin:0 auto; padding:78px 32px 56px;">
+    <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent); margin-bottom:26px;">{{ heroEyebrow }}</div>
+    <h1 style="font-family:var(--font-display); font-weight:600; font-size:clamp(40px,6vw,68px); line-height:1.08; letter-spacing:-0.02em; margin:0; max-width:18ch; color:var(--text);">探索人类知识的边界</h1>
+    <div style="width:60px; height:2px; background:var(--accent); margin:26px 0;"></div>
+    <p style="font-size:17px; line-height:1.85; color:var(--text-soft); max-width:52ch; margin:0 0 36px;">从宇宙的尺度到人类的思想，汇聚十大领域，构建一部可漫游、可检索、彼此链接的知识图谱。让任何人随时以美好的方式接触人类最重要的知识。</p>
+    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:14px; margin-bottom:52px;">
+      <a href="#domains" class="uk-btn" style="font-size:14px; font-weight:500; padding:12px 24px; background:var(--accent); color:var(--on-accent); border-radius:999px; text-decoration:none;">开始探索</a>
+      <a href="#" class="uk-btn" style="font-size:14px; font-weight:500; padding:12px 24px; border:1px solid var(--border); color:var(--text-soft); border-radius:999px; text-decoration:none;">今日知识 →</a>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; gap:48px;">
+      <div><div style="font-family:var(--font-display); font-size:34px; font-weight:600; line-height:1; color:var(--text);">10</div><div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-mute); margin-top:7px;">知识领域 · Domains</div></div>
+      <div><div style="font-family:var(--font-display); font-size:34px; font-weight:600; line-height:1; color:var(--text);">1850+</div><div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-mute); margin-top:7px;">知识单元 · Units</div></div>
+      <div><div style="font-family:var(--font-display); font-size:34px; font-weight:600; line-height:1; color:var(--text);">500+</div><div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-mute); margin-top:7px;">深度文章 · Articles</div></div>
+    </div>
+  </header>
+
+  <!-- ░░ DOMAIN CATALOGUE ░░ -->
+  <section id="domains" style="max-width:1200px; margin:0 auto; padding:24px 32px 64px;">
+    <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:22px;">
+      <h2 style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--text-mute); margin:0;">领域目录 / Catalogue of Domains</h2>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-mute);">01 — 10</span>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(338px,1fr)); gap:var(--grid-gap); background:var(--grid-line); border:1px solid var(--grid-line);">
+
+      <a href="#" class="uk-card" style="background:var(--surface); border:1px solid var(--card-border); border-radius:var(--card-radius); box-shadow:var(--card-shadow); padding:24px 24px 22px; text-decoration:none; color:inherit; display:flex; flex-direction:column; gap:13px;">
+        <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.16em; color:var(--text-mute);">DOMAIN 01</span><span style="width:9px; height:9px; border-radius:50%; background:#6a6fd0;"></span></div>
+        <div><h3 style="font-family:var(--font-display); font-size:20px; font-weight:600; margin:0 0 3px; color:var(--text);">物理学</h3><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-mute);">Physics</span></div>
+        <p style="font-size:13px; line-height:1.72; color:var(--text-soft); margin:0; flex:1;">从经典力学到量子场论，探索支配宇宙的基本定律。</p>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--accent);">9 物理层 <span class="uk-arrow">→</span></div>
+      </a>
+
+      <a href="#" class="uk-card" style="background:var(--surface); border:1px solid var(--card-border); border-radius:var(--card-radius); box-shadow:var(--card-shadow); padding:24px 24px 22px; text-decoration:none; color:inherit; display:flex; flex-direction:column; gap:13px;">
+        <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.16em; color:var(--text-mute);">DOMAIN 02</span><span style="width:9px; height:9px; border-radius:50%; background:#4f7fd0;"></span></div>
+        <div><h3 style="font-family:var(--font-display); font-size:20px; font-weight:600; margin:0 0 3px; color:var(--text);">宇宙学</h3><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-mute);">Cosmology</span></div>
+        <p style="font-size:13px; line-height:1.72; color:var(--text-soft); margin:0; flex:1;">从可观测宇宙到地球，跨尺度的结构与位置关系。</p>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--accent);">8 宇宙层 <span class="uk-arrow">→</span></div>
+      </a>
+
+      <a href="#" class="uk-card" style="background:var(--surface); border:1px solid var(--card-border); border-radius:var(--card-radius); box-shadow:var(--card-shadow); padding:24px 24px 22px; text-decoration:none; color:inherit; display:flex; flex-direction:column; gap:13px;">
+        <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.16em; color:var(--text-mute);">DOMAIN 03</span><span style="width:9px; height:9px; border-radius:50%; background:#c08a3e;"></span></div>
+        <div><h3 style="font-family:var(--font-display); font-size:20px; font-weight:600; margin:0 0 3px; color:var(--text);">人类历史</h3><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-mute);">Human History</span></div>
+        <p style="font-size:13px; line-height:1.72; color:var(--text-soft); margin:0; flex:1;">公元前一万年到今天，六大洲的事件、人物与文明。</p>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--accent);">219 事件 · 235 人物 <span class="uk-arrow">→</span></div>
+      </a>
+
+      <a href="#" class="uk-card" style="background:var(--surface); border:1px solid var(--card-border); border-radius:var(--card-radius); box-shadow:var(--card-shadow); padding:24px 24px 22px; text-decoration:none; color:inherit; display:flex; flex-direction:column; gap:13px;">
+        <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.16em; color:var(--text-mute);">DOMAIN 04</span><span style="width:9px; height:9px; border-radius:50%; background:#4a9e74;"></span></div>
+        <div><h3 style="font-family:var(--font-display); font-size:20px; font-weight:600; margin:0 0 3px; color:var(--text);">哲学思想</h3><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-mute);">Philosophy</span></div>
+        <p style="font-size:13px; line-height:1.72; color:var(--text-soft); margin:0; flex:1;">存在、知识与价值的根本问题，从古希腊到当代。</p>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--accent);">68 哲学家 · 38 流派 <span class="uk-arrow">→</span></div>
+      </a>
+
+      <a href="#" class="uk-card" style="background:var(--surface); border:1px solid var(--card-border); border-radius:var(--card-radius); box-shadow:var(--card-shadow); padding:24px 24px 22px; text-decoration:none; color:inherit; display:flex; flex-direction:column; gap:13px;">
+        <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.16em; color:var(--text-mute);">DOMAIN 05</span><span style="width:9px; height:9px; border-radius:50%; background:#5b9e52;"></span></div>
+        <div><h3 style="font-family:var(--font-display); font-size:20px; font-weight:600; margin:0 0 3px; color:var(--text);">生命科学与进化</h3><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-mute);">Life Science</span></div>
+        <p style="font-size:13px; line-height:1.72; color:var(--text-soft); margin:0; flex:1;">从第一个有机分子到人类意识，四十亿年生命的演化。</p>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--accent);">84 物种 · 8 时代 <span class="uk-arrow">→</span></div>
+      </a>
+
+      <a href="#" class="uk-card" style="background:var(--surface); border:1px solid var(--card-border); border-radius:var(--card-radius); box-shadow:var(--card-shadow); padding:24px 24px 22px; text-decoration:none; color:inherit; display:flex; flex-direction:column; gap:13px;">
+        <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.16em; color:var(--text-mute);">DOMAIN 06</span><span style="width:9px; height:9px; border-radius:50%; background:#8b6fd0;"></span></div>
+        <div><h3 style="font-family:var(--font-display); font-size:20px; font-weight:600; margin:0 0 3px; color:var(--text);">数学与逻辑</h3><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-mute);">Mathematics</span></div>
+        <p style="font-size:13px; line-height:1.72; color:var(--text-soft); margin:0; flex:1;">从计数到范畴论，探索人类思维最纯粹的形式。</p>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--accent);">5 时代 · 定理 · 概念 <span class="uk-arrow">→</span></div>
+      </a>
+
+      <a href="#" class="uk-card" style="background:var(--surface); border:1px solid var(--card-border); border-radius:var(--card-radius); box-shadow:var(--card-shadow); padding:24px 24px 22px; text-decoration:none; color:inherit; display:flex; flex-direction:column; gap:13px;">
+        <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.16em; color:var(--text-mute);">DOMAIN 07</span><span style="width:9px; height:9px; border-radius:50%; background:#c9a23e;"></span></div>
+        <div><h3 style="font-family:var(--font-display); font-size:20px; font-weight:600; margin:0 0 3px; color:var(--text);">经济学</h3><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-mute);">Economics</span></div>
+        <p style="font-size:13px; line-height:1.72; color:var(--text-soft); margin:0; flex:1;">从古典政治经济学到行为经济学，市场与政策的规律。</p>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--accent);">29 经济学家 · 9 流派 <span class="uk-arrow">→</span></div>
+      </a>
+
+      <a href="#" class="uk-card" style="background:var(--surface); border:1px solid var(--card-border); border-radius:var(--card-radius); box-shadow:var(--card-shadow); padding:24px 24px 22px; text-decoration:none; color:inherit; display:flex; flex-direction:column; gap:13px;">
+        <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.16em; color:var(--text-mute);">DOMAIN 08</span><span style="width:9px; height:9px; border-radius:50%; background:#cc7a9e;"></span></div>
+        <div><h3 style="font-family:var(--font-display); font-size:20px; font-weight:600; margin:0 0 3px; color:var(--text);">心理学</h3><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-mute);">Psychology</span></div>
+        <p style="font-size:13px; line-height:1.72; color:var(--text-soft); margin:0; flex:1;">从精神分析到认知神经科学，探索心智与行为的机制。</p>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--accent);">36 理论家 · 26 实验 <span class="uk-arrow">→</span></div>
+      </a>
+
+      <a href="#" class="uk-card" style="background:var(--surface); border:1px solid var(--card-border); border-radius:var(--card-radius); box-shadow:var(--card-shadow); padding:24px 24px 22px; text-decoration:none; color:inherit; display:flex; flex-direction:column; gap:13px;">
+        <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.16em; color:var(--text-mute);">DOMAIN 09</span><span style="width:9px; height:9px; border-radius:50%; background:#4f9cd0;"></span></div>
+        <div><h3 style="font-family:var(--font-display); font-size:20px; font-weight:600; margin:0 0 3px; color:var(--text);">计算机科学</h3><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-mute);">Computer Science</span></div>
+        <p style="font-size:13px; line-height:1.72; color:var(--text-soft); margin:0; flex:1;">从图灵机到大语言模型，探索计算这门新的语言。</p>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--accent);">概念 · 算法 · 前沿 <span class="uk-arrow">→</span></div>
+      </a>
+
+      <a href="#" class="uk-card" style="background:var(--surface); border:1px solid var(--card-border); border-radius:var(--card-radius); box-shadow:var(--card-shadow); padding:24px 24px 22px; text-decoration:none; color:inherit; display:flex; flex-direction:column; gap:13px;">
+        <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.16em; color:var(--text-mute);">DOMAIN 10</span><span style="width:9px; height:9px; border-radius:50%; background:#c66a5e;"></span></div>
+        <div><h3 style="font-family:var(--font-display); font-size:20px; font-weight:600; margin:0 0 3px; color:var(--text);">政治学</h3><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-mute);">Political Science</span></div>
+        <p style="font-size:13px; line-height:1.72; color:var(--text-soft); margin:0; flex:1;">权力如何被获得、约束与正当化——制度、政体与国际关系。</p>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--accent);">思想家 · 制度 · 国关 <span class="uk-arrow">→</span></div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ░░ DAILY KNOWLEDGE ░░ -->
+  <section style="max-width:1200px; margin:0 auto; padding:24px 32px 56px;">
+    <h2 style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--text-mute); margin:0 0 22px;">每日知识 / Daily</h2>
+    <div style="display:grid; grid-template-columns:1.6fr 1fr; gap:20px;">
+      <div style="background:var(--surface-2); border:1px solid var(--border); border-radius:var(--card-radius); box-shadow:var(--card-shadow); padding:32px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); margin-bottom:16px;">今日知识 · 混沌理论</div>
+        <h3 style="font-family:var(--font-display); font-size:26px; font-weight:600; margin:0 0 14px; color:var(--text);">蝴蝶效应</h3>
+        <p style="font-size:15px; line-height:1.85; color:var(--text-soft); margin:0; max-width:54ch;">一只蝴蝶在巴西扇动翅膀，可能在数周后引发得克萨斯的一场龙卷风——微小的初始差异，在非线性系统中被指数级放大。这是确定性系统中不可预测性的根源。</p>
+      </div>
+      <div style="background:var(--surface-2); border:1px solid var(--border); border-radius:var(--card-radius); box-shadow:var(--card-shadow); padding:32px; display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); margin-bottom:16px;">今日一问</div>
+          <p style="font-family:var(--font-display); font-size:21px; font-weight:600; line-height:1.5; margin:0; color:var(--text);">如果时间可以倒流，因果关系还成立吗？</p>
+        </div>
+        <a href="#" style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--accent); text-decoration:none; margin-top:20px;">前往哲学领域思考 <span class="uk-arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ FEATURES ░░ -->
+  <section style="max-width:1200px; margin:0 auto; padding:24px 32px 72px;">
+    <h2 style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--text-mute); margin:0 0 22px;">平台特色 / How it works</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px;">
+      <div style="background:var(--surface-2); border:1px solid var(--border); border-radius:var(--card-radius); box-shadow:var(--card-shadow); padding:24px;">
+        <div style="font-family:var(--font-display); font-size:13px; font-weight:600; letter-spacing:0.12em; color:var(--accent); margin-bottom:14px;">01</div>
+        <h3 style="font-family:var(--font-display); font-size:17px; font-weight:600; margin:0 0 8px; color:var(--text);">阅读路线</h3>
+        <p style="font-size:12.5px; line-height:1.7; color:var(--text-soft); margin:0;">像读一本书那样，沿一条编排好的路线把一个主题从头读到尾。</p>
+      </div>
+      <div style="background:var(--surface-2); border:1px solid var(--border); border-radius:var(--card-radius); box-shadow:var(--card-shadow); padding:24px;">
+        <div style="font-family:var(--font-display); font-size:13px; font-weight:600; letter-spacing:0.12em; color:var(--accent); margin-bottom:14px;">02</div>
+        <h3 style="font-family:var(--font-display); font-size:17px; font-weight:600; margin:0 0 8px; color:var(--text);">知识图谱</h3>
+        <p style="font-size:12.5px; line-height:1.7; color:var(--text-soft); margin:0;">以节点与连线呈现知识的深层关联，发现跨领域的隐性联系。</p>
+      </div>
+      <div style="background:var(--surface-2); border:1px solid var(--border); border-radius:var(--card-radius); box-shadow:var(--card-shadow); padding:24px;">
+        <div style="font-family:var(--font-display); font-size:13px; font-weight:600; letter-spacing:0.12em; color:var(--accent); margin-bottom:14px;">03</div>
+        <h3 style="font-family:var(--font-display); font-size:17px; font-weight:600; margin:0 0 8px; color:var(--text);">沉浸式探索</h3>
+        <p style="font-size:12.5px; line-height:1.7; color:var(--text-soft); margin:0;">WebGL 3D 场景与流畅动画，在视觉交互中理解复杂概念。</p>
+      </div>
+      <div style="background:var(--surface-2); border:1px solid var(--border); border-radius:var(--card-radius); box-shadow:var(--card-shadow); padding:24px;">
+        <div style="font-family:var(--font-display); font-size:13px; font-weight:600; letter-spacing:0.12em; color:var(--accent); margin-bottom:14px;">04</div>
+        <h3 style="font-family:var(--font-display); font-size:17px; font-weight:600; margin:0 0 8px; color:var(--text);">每日知识</h3>
+        <p style="font-size:12.5px; line-height:1.7; color:var(--text-soft); margin:0;">每天一点新知识，从历史到科学，让学习成为一种日常。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ FOOTER ░░ -->
+  <footer style="border-top:1px solid var(--border); margin-top:24px;">
+    <div style="max-width:1200px; margin:0 auto; padding:40px 32px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:20px;">
+      <div style="display:flex; align-items:center; gap:11px;">
+        <span style="width:9px; height:9px; border:1.6px solid var(--accent); border-radius:50%; display:inline-block;"></span>
+        <span style="font-family:var(--font-display); font-size:15px; font-weight:600; color:var(--text);">Universe Knowledge</span>
+      </div>
+      <p style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-mute); margin:0;">让任何人随时以美好的方式接触人类最重要的知识 · © 2026</p>
+    </div>
+  </footer>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:900},&quot;defaultTheme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;\&quot;dark\&quot;|\&quot;light\&quot;&quot;},&quot;darkAccent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#d9a441&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;lightAccent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#2f7d6b&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { theme: props.defaultTheme === "light" ? "light" : "dark" };
+  }
+
+  themeVars(theme) {
+    const darkAccent = this.props.darkAccent || "#d9a441";
+    const lightAccent = this.props.lightAccent || "#2f7d6b";
+    if (theme === "light") {
+      return {
+        "--bg": "#faf6ef",
+        "--surface": "#ffffff",
+        "--surface-2": "#ffffff",
+        "--text": "#2c2a26",
+        "--text-soft": "#5f5b54",
+        "--text-mute": "#9a948a",
+        "--border": "#e8dfd0",
+        "--card-border": "#eee6d9",
+        "--grid-line": "transparent",
+        "--grid-gap": "16px",
+        "--card-radius": "18px",
+        "--card-shadow": "0 12px 28px -18px rgba(80,60,30,0.28)",
+        "--accent": lightAccent,
+        "--accent-soft": "#e9f1ee",
+        "--on-accent": "#ffffff",
+        "--font-display": "'LXGW WenKai TC','Noto Serif SC',serif",
+      };
+    }
+    return {
+      "--bg": "#0e0f14",
+      "--surface": "#0e0f14",
+      "--surface-2": "#14151c",
+      "--text": "#e6e3da",
+      "--text-soft": "#a8a499",
+      "--text-mute": "#7a766c",
+      "--border": "rgba(255,255,255,0.1)",
+      "--card-border": "transparent",
+      "--grid-line": "rgba(255,255,255,0.08)",
+      "--grid-gap": "1px",
+      "--card-radius": "0px",
+      "--card-shadow": "none",
+      "--accent": darkAccent,
+      "--accent-soft": "rgba(217,164,65,0.12)",
+      "--on-accent": "#15110a",
+      "--font-display": "'Space Grotesk','Noto Sans SC',sans-serif",
+    };
+  }
+
+  applyTheme(theme) {
+    const el = this.rootEl;
+    if (!el) return;
+    const v = this.themeVars(theme);
+    Object.keys(v).forEach((k) => el.style.setProperty(k, v[k]));
+    const wrap = el.firstElementChild;
+    if (wrap) { wrap.style.backgroundColor = v["--bg"]; wrap.style.color = v["--text"]; }
+  }
+
+  componentDidMount() {
+    let theme = this.state.theme;
+    try {
+      const saved = localStorage.getItem("uk-theme");
+      if (saved === "light" || saved === "dark") theme = saved;
+    } catch (e) {}
+    if (theme !== this.state.theme) this.setState({ theme });
+    this.applyTheme(theme);
+  }
+
+  componentDidUpdate() {
+    this.applyTheme(this.state.theme);
+  }
+
+  renderVals() {
+    const t = this.state.theme;
+    return {
+      rootRef: (el) => {
+        this.rootEl = el;
+        if (el) this.applyTheme(this.state.theme);
+      },
+      toggleTheme: () => {
+        const next = this.state.theme === "dark" ? "light" : "dark";
+        try { localStorage.setItem("uk-theme", next); } catch (e) {}
+        this.setState({ theme: next });
+      },
+      themeIcon: t === "dark" ? "☾" : "☀",
+      themeLabel: t === "dark" ? "DARK" : "LIGHT",
+      heroEyebrow:
+        t === "dark"
+          ? "N 47°·E 08° // Knowledge Archive · 2026"
+          : "知识即服务 · Knowledge as a Service",
+    };
+  }
+}
+</script>
+</body>
+</html>

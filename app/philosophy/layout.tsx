@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { fraunces, inter, jetbrainsMono } from "./fonts";
-import PhilosophyNav from "@/components/philosophy/PhilosophyNav";
+import { spaceGrotesk, plexMono } from "./fonts";
+import { SubjectHeader } from "@/components/SubjectHeader";
 import { PageTransition } from "@/components/PageTransition";
 import { PhilosophyProgressWrapper } from "@/subjects/philosophy/components/PhilosophyProgressWrapper";
 import "./globals.css";
@@ -21,20 +21,20 @@ export const metadata: Metadata = {
 };
 
 export default function PhilosophyLayout({ children }: { children: React.ReactNode }) {
-  const fontVars = `${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable}`;
+  const fontVars = `${spaceGrotesk.variable} ${plexMono.variable}`;
 
   return (
     <div className={`philosophy-root ${fontVars}`}>
       <PhilosophyProgressWrapper />
-      <PhilosophyNav />
+      <SubjectHeader subject="philosophy" />
 
-      <main className="pt-16">
+      <main>
         <PageTransition>{children}</PageTransition>
       </main>
 
       <footer className="border-border-faint border-t px-4 py-6 sm:px-6">
         <div className="flex w-full flex-col items-center gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <span className="text-fg-muted font-mono text-[10px] uppercase tracking-[0.32em]">
+          <span className="text-fg-muted font-mono text-[10px] tracking-[0.32em] uppercase">
             philosophy · ideas atlas
           </span>
         </div>

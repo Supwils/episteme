@@ -61,7 +61,10 @@ export function MarkdownRenderer({
   }, [content]);
 
   return (
-    <div className={className ?? "prose prose-invert max-w-none"}>
+    <div
+      className={className ?? "prose prose-invert max-w-none"}
+      style={{ fontFamily: "var(--font-body, inherit)" }}
+    >
       {content.split("\n\n").map((para, i) => {
         const text = para.trim();
         if (!text) return null;
@@ -129,11 +132,8 @@ export function MarkdownRenderer({
           return (
             <blockquote
               key={i}
-              className="my-6 rounded-r-lg border-l-3 py-4 pr-4 pl-5"
-              style={{
-                borderColor: accentColor,
-                background: `linear-gradient(135deg, ${accentColor}0a, ${accentColor}04)`,
-              }}
+              className="my-6 border-l-2 py-1 pl-5"
+              style={{ borderColor: accentColor }}
             >
               <p className="font-display text-fg-primary text-lg leading-relaxed italic">
                 {renderInline(quoteText, footnotes)}
@@ -466,7 +466,10 @@ function renderInline(text: string, footnotes: Map<string, string>): React.React
     const codeMatch = remaining.match(/^`([^`]+)`/);
     if (codeMatch) {
       parts.push(
-        <code key={key++} className="rounded bg-[#1a1a2e] px-1 font-mono text-sm text-[#e8b84a]">
+        <code
+          key={key++}
+          className="bg-bg-elevated text-accent-gold rounded px-1 font-mono text-sm"
+        >
           {codeMatch[1]}
         </code>
       );
@@ -495,7 +498,7 @@ function renderInline(text: string, footnotes: Map<string, string>): React.React
         <a
           key={key++}
           href={linkMatch[2]}
-          className="text-[#6366f1] underline hover:text-[#818cf8]"
+          className="text-accent-gold underline underline-offset-2 transition-opacity hover:opacity-80"
         >
           {linkMatch[1]}
         </a>
@@ -510,8 +513,7 @@ function renderInline(text: string, footnotes: Map<string, string>): React.React
         <a
           key={key++}
           href={`#fn-${footnoteRefMatch[1]}`}
-          className="align-super font-mono text-xs"
-          style={{ color: "#6366f1" }}
+          className="text-accent-gold align-super font-mono text-xs"
           title={footnotes.get(footnoteRefMatch[1]!)!}
         >
           [{footnoteRefMatch[1]}]

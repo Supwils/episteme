@@ -202,17 +202,7 @@ export default function EconomicsHomeClient() {
           <h1 className="font-display text-[3.2rem] leading-[1.02] tracking-tight md:text-[5rem]">
             <span className="text-fg-primary">经济学、</span>
             <br />
-            <span
-              className="bg-clip-text text-transparent"
-              style={{
-                backgroundImage:
-                  "linear-gradient(135deg, #c8a45a 0%, #e8d5a0 40%, #d47850 70%, #c8a45a 100%)",
-                backgroundSize: "200% 200%",
-                animation: reduce ? "none" : "gradient-shift 6s ease infinite",
-              }}
-            >
-              金融与博弈论
-            </span>
+            <span className="text-accent-gold">金融与博弈论</span>
           </h1>
           <p className="text-fg-secondary max-w-xl text-sm leading-relaxed md:text-base">
             从亚当·斯密的看不见的手到纳什均衡的博弈智慧，从凯恩斯的宏观调控到行为经济学的心理洞察——
@@ -343,13 +333,6 @@ export default function EconomicsHomeClient() {
           ))}
         </div>
       </section>
-
-      <style>{`
-        @keyframes gradient-shift {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-      `}</style>
     </div>
   );
 }

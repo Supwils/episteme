@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { spaceGrotesk, plexMono } from "@/lib/fonts";
 import { ThemeProvider } from "../components/ThemeProvider";
 import { SectionAwareNav } from "../components/SectionAwareNav";
 import { SectionAwareFooter } from "../components/SectionAwareFooter";
@@ -59,8 +60,32 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-Hans" suppressHydrationWarning>
+    <html
+      lang="zh-Hans"
+      className={`${spaceGrotesk.variable} ${plexMono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
+        {/* CJK + 楷体 via Google Fonts (too large to subset through next/font).
+            Space Grotesk / IBM Plex Mono are self-hosted by next/font above.
+            The stylesheet is injected after the page is interactive so the
+            multi-megabyte CJK subset requests never block first paint or the
+            window `load` event; `display=swap` shows the system-CJK fallback
+            (PingFang / Songti / YaHei) until the web fonts arrive. */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){function f(){var l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600&family=LXGW+WenKai+TC:wght@400&display=swap';document.head.appendChild(l);}if('requestIdleCallback'in window){requestIdleCallback(f,{timeout:2000})}else{addEventListener('load',f)}})()",
+          }}
+        />
+        <noscript>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600&family=LXGW+WenKai+TC:wght@400&display=swap"
+            rel="stylesheet"
+          />
+        </noscript>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

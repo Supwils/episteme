@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  html { scroll-behavior: smooth; }
+  .uk-card { transition: transform .28s cubic-bezier(.22,1,.36,1), border-color .28s, box-shadow .28s; }
+  .uk-card:hover { transform: translateY(-3px); border-color: var(--accent) !important; }
+  .uk-chip { transition: border-color .2s, color .2s; }
+  .uk-chip:hover { border-color: var(--accent); color: var(--accent); }
+  .uk-link { transition: color .2s; }
+  .uk-link:hover { color: var(--accent); }
+</style>
+</helmet>
+
+<div ref="{{ rootRef }}" style="--bg:#0e0f14; --surface:#0e0f14; --surface-2:#14151c; --text:#e6e3da; --text-soft:#a8a499; --text-mute:#7a766c; --border:rgba(255,255,255,0.1); --card-radius:12px; --card-shadow:none; --accent:#4a9e74; --accent-soft:rgba(74,158,116,0.16); --on-accent:#0a0a10; --font-display:'Space Grotesk','Noto Sans SC',sans-serif; --font-body:'Noto Sans SC',system-ui,sans-serif; font-family:var(--font-body);">
+<div style="min-height:100vh; background-color:var(--bg); color:var(--text);">
+
+  <!-- ░░ NAV ░░ -->
+  <nav style="position:sticky; top:0; z-index:50; backdrop-filter:blur(12px); background:color-mix(in srgb, var(--bg) 84%, transparent); border-bottom:1px solid var(--border);">
+    <div style="max-width:1080px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:18px; padding:13px 28px;">
+      <div style="display:flex; align-items:center; gap:14px; min-width:0;">
+        <a href="领域页.dc.html" style="flex-shrink:0; white-space:nowrap; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.08em; color:var(--text-mute); text-decoration:none;">‹ 哲学家</a>
+        <span style="flex-shrink:0; width:1px; height:16px; background:var(--border);"></span>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.06em; color:var(--text-mute); white-space:nowrap;">哲学思想 / 哲学家</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:12px; flex-shrink:0;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; padding:6px 11px; border:1px solid var(--border); border-radius:7px; color:var(--text-mute); cursor:pointer;">⌘K</span>
+        <button onClick="{{ toggleTheme }}" style="display:flex; align-items:center; gap:6px; font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.12em; padding:6px 11px; border:1px solid var(--border); border-radius:7px; color:var(--text-soft); background:transparent; cursor:pointer;"><span style="font-size:13px; line-height:1;">{{ themeIcon }}</span>{{ themeLabel }}</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ░░ HERO — identity ░░ -->
+  <header style="max-width:1080px; margin:0 auto; padding:52px 28px 8px; display:flex; gap:40px; flex-wrap:wrap; align-items:flex-start;">
+    <!-- portrait placeholder -->
+    <div style="flex-shrink:0; width:176px;">
+      <div style="position:relative; width:176px; height:212px; border-radius:var(--card-radius); border:1px solid var(--border); background:radial-gradient(120% 90% at 50% 0%, var(--accent-soft) 0%, var(--surface-2) 65%); display:flex; align-items:center; justify-content:center; overflow:hidden;">
+        <span style="font-family:var(--font-display); font-size:78px; font-weight:600; color:var(--accent); opacity:0.92;">苏</span>
+        <span style="position:absolute; bottom:8px; left:0; right:0; text-align:center; font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--text-mute);">肖像 · Portrait</span>
+      </div>
+    </div>
+    <!-- identity -->
+    <div style="flex:1; min-width:280px;">
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent); margin-bottom:16px;">古典哲学 · 雅典学派</div>
+      <h1 style="font-family:var(--font-display); font-weight:600; font-size:clamp(38px,5.5vw,58px); line-height:1.04; letter-spacing:-0.02em; margin:0 0 6px; color:var(--text);">苏格拉底</h1>
+      <p style="font-family:var(--font-display); font-size:19px; font-style:italic; color:var(--text-mute); margin:0 0 18px;">Socrates</p>
+      <p style="font-size:16px; line-height:1.7; color:var(--text-soft); margin:0 0 22px; max-width:52ch;">西方哲学的奠基者之一。他不著一字，却用一生的提问，把哲学从仰望星空拉回到「人应当如何生活」。</p>
+      <div style="display:flex; flex-wrap:wrap; gap:10px 22px; font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--text-mute);">
+        <span><span style="color:var(--text-soft);">生卒</span>&nbsp; 约前 470 – 前 399</span>
+        <span><span style="color:var(--text-soft);">地区</span>&nbsp; 古希腊 · 雅典</span>
+        <span><span style="color:var(--text-soft);">领域</span>&nbsp; 伦理学 · 认识论</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- lifespan axis -->
+  <section style="max-width:1080px; margin:0 auto; padding:34px 28px 8px;">
+    <div style="border-top:1px dashed var(--border); padding-top:26px; display:flex; justify-content:space-between; gap:10px;">
+      <sc-for list="{{ life }}" as="ev" hint-placeholder-count="5">
+        <div style="position:relative; display:flex; flex-direction:column; align-items:center; gap:6px; flex:1; min-width:0;">
+          <span style="position:absolute; top:-31px; width:9px; height:9px; border-radius:50%; background:var(--accent);"></span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--accent); white-space:nowrap;">{{ ev.y }}</span>
+          <span style="font-size:11px; color:var(--text-mute); text-align:center; line-height:1.4;">{{ ev.c }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ░░ KEY IDEAS ░░ -->
+  <section style="max-width:1080px; margin:0 auto; padding:40px 28px 8px;">
+    <h2 style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--text-mute); margin:0 0 20px;">核心思想 / Key Ideas</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px;">
+      <div class="uk-card" style="background:var(--surface-2); border:1px solid var(--border); border-radius:var(--card-radius); box-shadow:var(--card-shadow); padding:22px 24px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); margin-bottom:10px;">Maieutics</div>
+        <h3 style="font-family:var(--font-display); font-size:19px; font-weight:600; margin:0 0 8px; color:var(--text);">产婆术</h3>
+        <p style="font-size:13.5px; line-height:1.75; color:var(--text-soft); margin:0;">如同助产士接生婴儿，他通过连续提问，帮助对方「生出」本就潜藏在心中的知识，而非灌输。</p>
+      </div>
+      <div class="uk-card" style="background:var(--surface-2); border:1px solid var(--border); border-radius:var(--card-radius); box-shadow:var(--card-shadow); padding:22px 24px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); margin-bottom:10px;">Elenchus</div>
+        <h3 style="font-family:var(--font-display); font-size:19px; font-weight:600; margin:0 0 8px; color:var(--text);">诘问法</h3>
+        <p style="font-size:13.5px; line-height:1.75; color:var(--text-soft); margin:0;">不断追问对方的定义与前提，暴露其信念中的自相矛盾——真理在反复的辩驳中浮现。</p>
+      </div>
+      <div class="uk-card" style="background:var(--surface-2); border:1px solid var(--border); border-radius:var(--card-radius); box-shadow:var(--card-shadow); padding:22px 24px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); margin-bottom:10px;">Virtue is Knowledge</div>
+        <h3 style="font-family:var(--font-display); font-size:19px; font-weight:600; margin:0 0 8px; color:var(--text);">知德合一</h3>
+        <p style="font-size:13.5px; line-height:1.75; color:var(--text-soft); margin:0;">没有人明知故犯——一切恶行都源于无知。若真正懂得何为善，人必然会行善。</p>
+      </div>
+      <div class="uk-card" style="background:var(--surface-2); border:1px solid var(--border); border-radius:var(--card-radius); box-shadow:var(--card-shadow); padding:22px 24px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); margin-bottom:10px;">Docta Ignorantia</div>
+        <h3 style="font-family:var(--font-display); font-size:19px; font-weight:600; margin:0 0 8px; color:var(--text);">无知之知</h3>
+        <p style="font-size:13.5px; line-height:1.75; color:var(--text-soft); margin:0;">「我知道我一无所知。」自觉无知，正是一切智慧与求知的真正起点。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- quote -->
+  <section style="max-width:1080px; margin:0 auto; padding:38px 28px 8px;">
+    <blockquote style="margin:0; padding:6px 0 6px 26px; border-left:2px solid var(--accent); font-family:var(--font-display); font-size:clamp(22px,3vw,30px); line-height:1.45; font-style:italic; color:var(--text);">未经省察的人生不值得过。<span style="display:block; margin-top:14px; font-family:'IBM Plex Mono',monospace; font-size:12px; font-style:normal; letter-spacing:0.12em; color:var(--text-mute);">—— 苏格拉底，于雅典的审判（柏拉图《申辩篇》）</span></blockquote>
+  </section>
+
+  <!-- ░░ LINEAGE ░░ -->
+  <section style="max-width:1080px; margin:0 auto; padding:42px 28px 8px;">
+    <h2 style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--text-mute); margin:0 0 22px;">师承与影响 / Lineage</h2>
+    <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+      <div style="border:1px dashed var(--border); border-radius:var(--card-radius); padding:14px 18px; min-width:120px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--text-mute); margin-bottom:5px;">师承</div>
+        <div style="font-size:14px; color:var(--text-soft);">无明确师承 · 自学</div>
+      </div>
+      <span style="font-family:'IBM Plex Mono',monospace; color:var(--accent);">→</span>
+      <div style="border:1px solid var(--accent); border-radius:var(--card-radius); padding:14px 20px; background:var(--accent-soft); min-width:120px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); margin-bottom:5px;">本人</div>
+        <div style="font-family:var(--font-display); font-size:17px; font-weight:600; color:var(--text);">苏格拉底</div>
+      </div>
+      <span style="font-family:'IBM Plex Mono',monospace; color:var(--accent);">→</span>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <a href="#" class="uk-card" style="border:1px solid var(--border); border-radius:var(--card-radius); padding:14px 18px; min-width:120px; text-decoration:none;"><div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--text-mute); margin-bottom:5px;">学生</div><div style="font-family:var(--font-display); font-size:16px; font-weight:600; color:var(--text);">柏拉图</div></a>
+        <a href="#" class="uk-card" style="border:1px solid var(--border); border-radius:var(--card-radius); padding:14px 18px; min-width:120px; text-decoration:none;"><div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--text-mute); margin-bottom:5px;">学生</div><div style="font-family:var(--font-display); font-size:16px; font-weight:600; color:var(--text);">色诺芬</div></a>
+        <div style="border:1px dashed var(--border); border-radius:var(--card-radius); padding:14px 18px; min-width:120px;"><div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--text-mute); margin-bottom:5px;">再传</div><div style="font-size:14px; color:var(--text-soft);">亚里士多德 · 斯多葛 · 犬儒</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ TIMELINE OF LIFE ░░ -->
+  <section style="max-width:1080px; margin:0 auto; padding:42px 28px 8px;">
+    <h2 style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--text-mute); margin:0 0 22px;">生平大事 / Life</h2>
+    <div style="display:flex; flex-direction:column;">
+      <sc-for list="{{ timeline }}" as="t" hint-placeholder-count="5">
+        <div style="display:grid; grid-template-columns:96px 1fr; gap:20px; padding:14px 0; border-top:1px solid var(--border);">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--accent); white-space:nowrap;">{{ t.y }}</span>
+          <span style="font-size:14.5px; line-height:1.7; color:var(--text);">{{ t.c }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ░░ WORKS / SOURCES ░░ -->
+  <section style="max-width:1080px; margin:0 auto; padding:42px 28px 8px;">
+    <h2 style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--text-mute); margin:0 0 16px;">思想来源 / Sources</h2>
+    <div style="border:1px solid var(--border); border-radius:var(--card-radius); background:var(--surface-2); box-shadow:var(--card-shadow); padding:22px 24px;">
+      <p style="font-size:14.5px; line-height:1.85; color:var(--text-soft); margin:0;">苏格拉底本人<strong style="color:var(--text); font-weight:600;">未留下任何著作</strong>。我们对他的全部认识，来自三类「二手」记述——这本身就成了哲学史上著名的「苏格拉底问题」：</p>
+      <ul style="font-size:14px; line-height:1.7; color:var(--text-soft); margin:14px 0 0; padding-left:20px; display:flex; flex-direction:column; gap:7px;">
+        <li><strong style="color:var(--text); font-weight:600;">柏拉图《对话录》</strong>——《申辩》《克里同》《斐多》《会饮》等，最具哲学深度，但难辨何处是柏拉图的发挥。</li>
+        <li><strong style="color:var(--text); font-weight:600;">色诺芬《回忆苏格拉底》</strong>——更朴实、更贴近日常的苏格拉底。</li>
+        <li><strong style="color:var(--text); font-weight:600;">阿里斯托芬《云》</strong>——喜剧中被讽刺的形象，一个反面的旁证。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ░░ RELATED ░░ -->
+  <section style="max-width:1080px; margin:0 auto; padding:42px 28px 16px;">
+    <h2 style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--text-mute); margin:0 0 16px;">相关 / Related</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:18px;">
+      <a href="#" class="uk-chip" style="font-size:13px; padding:6px 13px; border:1px solid var(--border); border-radius:999px; color:var(--text-soft); text-decoration:none;">柏拉图</a>
+      <a href="#" class="uk-chip" style="font-size:13px; padding:6px 13px; border:1px solid var(--border); border-radius:999px; color:var(--text-soft); text-decoration:none;">亚里士多德</a>
+      <a href="#" class="uk-chip" style="font-size:13px; padding:6px 13px; border:1px solid var(--border); border-radius:999px; color:var(--text-soft); text-decoration:none;">色诺芬</a>
+      <a href="#" class="uk-chip" style="font-size:13px; padding:6px 13px; border:1px solid var(--border); border-radius:999px; color:var(--text-soft); text-decoration:none;">智者学派</a>
+    </div>
+    <a href="文章页.dc.html" class="uk-card" style="display:flex; align-items:center; justify-content:space-between; gap:16px; background:var(--surface-2); border:1px solid var(--border); border-radius:var(--card-radius); box-shadow:var(--card-shadow); padding:18px 22px; text-decoration:none;">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--text-mute); margin-bottom:5px;">延伸阅读 · 思想实验</div>
+        <div style="font-family:var(--font-display); font-size:17px; font-weight:600; color:var(--text);">柏拉图洞穴比喻</div>
+      </div>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--accent);">→</span>
+    </a>
+  </section>
+
+  <footer style="border-top:1px solid var(--border);">
+    <div style="max-width:1080px; margin:0 auto; padding:28px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px;">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-mute);">universe · knowledge / philosophy / thinkers</span>
+      <a href="首页.dc.html" class="uk-link" style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--accent); text-decoration:none;">‹ 返回知识平台</a>
+    </div>
+  </footer>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1080,&quot;height&quot;:900},&quot;defaultTheme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;\&quot;dark\&quot;|\&quot;light\&quot;&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#4a9e74&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { theme: props.defaultTheme === "light" ? "light" : "dark" };
+  }
+
+  get ACCENT() { return this.props.accent || "#4a9e74"; }
+
+  hexToRgba(hex, a) {
+    const h = hex.replace("#", "");
+    const r = parseInt(h.slice(0, 2), 16), g = parseInt(h.slice(2, 4), 16), b = parseInt(h.slice(4, 6), 16);
+    return `rgba(${r},${g},${b},${a})`;
+  }
+
+  themeBase(theme) {
+    if (theme === "light") {
+      return { "--bg":"#faf6ef","--surface":"#ffffff","--surface-2":"#fffdf8","--text":"#2c2a26","--text-soft":"#5f5b54","--text-mute":"#9a948a","--border":"#e8dfd0","--card-radius":"14px","--card-shadow":"0 12px 28px -18px rgba(80,60,30,0.28)","--on-accent":"#ffffff","--font-display":"'LXGW WenKai TC','Noto Serif SC',serif","--font-body":"'Noto Serif SC',serif" };
+    }
+    return { "--bg":"#0e0f14","--surface":"#0e0f14","--surface-2":"#14151c","--text":"#e6e3da","--text-soft":"#a8a499","--text-mute":"#7a766c","--border":"rgba(255,255,255,0.1)","--card-radius":"12px","--card-shadow":"none","--on-accent":"#0a0a10","--font-display":"'Space Grotesk','Noto Sans SC',sans-serif","--font-body":"'Noto Sans SC',system-ui,sans-serif" };
+  }
+
+  applyTheme() {
+    const el = this.rootEl;
+    if (!el) return;
+    const base = this.themeBase(this.state.theme);
+    Object.keys(base).forEach((k) => el.style.setProperty(k, base[k]));
+    const wrap = el.firstElementChild;
+    if (wrap) { wrap.style.backgroundColor = base["--bg"]; wrap.style.color = base["--text"]; }
+    el.style.setProperty("--accent", this.ACCENT);
+    el.style.setProperty("--accent-soft", this.hexToRgba(this.ACCENT, this.state.theme === "light" ? 0.1 : 0.16));
+  }
+
+  componentDidMount() {
+    let theme = this.state.theme;
+    try { const s = localStorage.getItem("uk-theme"); if (s === "light" || s === "dark") theme = s; } catch (e) {}
+    if (theme !== this.state.theme) this.setState({ theme });
+    this.applyTheme();
+  }
+
+  componentDidUpdate() { this.applyTheme(); }
+
+  renderVals() {
+    const t = this.state.theme;
+    return {
+      rootRef: (el) => { this.rootEl = el; if (el) this.applyTheme(); },
+      toggleTheme: () => {
+        const next = t === "dark" ? "light" : "dark";
+        try { localStorage.setItem("uk-theme", next); } catch (e) {}
+        this.setState({ theme: next });
+      },
+      themeIcon: t === "dark" ? "☾" : "☀",
+      themeLabel: t === "dark" ? "DARK" : "LIGHT",
+      life: [
+        { y: "前 470", c: "生于雅典" },
+        { y: "前 450s", c: "师从智者" },
+        { y: "前 431", c: "从军参战" },
+        { y: "前 399", c: "受审定罪" },
+        { y: "前 399", c: "饮鸩而亡" },
+      ],
+      timeline: [
+        { y: "约前 470", c: "生于雅典，父亲是石匠，母亲是助产士——「产婆术」之名或源于此。" },
+        { y: "前 431–404", c: "伯罗奔尼撒战争期间三次从军，以勇敢与坚忍著称。" },
+        { y: "中年", c: "终日在雅典街头与市集，与青年、政客、智者辩论，从不收取学费。" },
+        { y: "前 399", c: "以「不敬城邦诸神、腐蚀青年」之罪受审，在五百人陪审团前为自己辩护。" },
+        { y: "前 399", c: "被判死刑。拒绝学生安排的逃亡，从容饮下毒堇汁而逝——见《克里同》《斐多》。" },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -36,14 +36,14 @@ const CATEGORY_ACCENT: Record<ContentCategory, string> = {
 };
 
 const DOMAIN_COLORS: Record<Domain, string> = {
-  "universe-physics": "#6366f1",
-  "human-history": "#ef4444",
-  philosophy: "#f59e0b",
-  "life-science": "#10b981",
-  cosmology: "#8b5cf6",
-  mathematics: "#0ea5e9",
-  economics: "#f97316",
-  psychology: "#ec4899",
+  "universe-physics": "#6a6fd0",
+  "human-history": "#c08a3e",
+  philosophy: "#4a9e74",
+  "life-science": "#5b9e52",
+  cosmology: "#4f7fd0",
+  mathematics: "#8b6fd0",
+  economics: "#c9a23e",
+  psychology: "#cc7a9e",
   "computer-science": "#4f9cf0",
   "political-science": "#c25b5b",
 };

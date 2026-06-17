@@ -1,1 +1,11 @@
 @import "../domain-shared.css";
+
+/* political-science = terracotta red. Override the single accent token so
+   token-driven utilities (code, links, hover) match in both themes. */
+.domain-root {
+  --color-accent-gold: #c25b5b;
+}
+.light .domain-root,
+.domain-root.light {
+  --color-accent-gold: #a84444;
+}

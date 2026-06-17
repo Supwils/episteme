@@ -83,11 +83,7 @@ export function ArticleLayout({
 
       {breadcrumb}
 
-      <header className="border-border-faint bg-bg-panel relative mb-12 overflow-hidden border p-8 backdrop-blur-md">
-        <div
-          className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full opacity-10 blur-3xl"
-          style={{ backgroundColor: accent }}
-        />
+      <header className="border-border-faint bg-bg-panel relative mb-12 overflow-hidden border p-8">
         <div className="relative">
           <div className="mb-3 flex flex-wrap items-center gap-3">
             <span

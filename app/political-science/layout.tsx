@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { fraunces, inter, jetbrainsMono } from "@/lib/fonts";
+import { spaceGrotesk, plexMono } from "@/lib/fonts";
 import { DomainNav } from "@/components/domain/DomainNav";
 import { PageTransition } from "@/components/PageTransition";
 import { getDomainConfig } from "@/lib/new-domains";
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 };
 
 export default function DomainLayout({ children }: { children: React.ReactNode }) {
-  const fontVars = `${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable}`;
+  const fontVars = `${spaceGrotesk.variable} ${plexMono.variable}`;
   return (
     <div className={`domain-root ${fontVars}`}>
       <DomainNav domain={DOMAIN} />

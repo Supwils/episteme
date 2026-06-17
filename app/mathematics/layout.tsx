@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { fraunces, inter, jetbrainsMono } from "./fonts";
-import MathNav from "@/components/mathematics/MathNav";
+import { spaceGrotesk, plexMono } from "./fonts";
+import { SubjectHeader } from "@/components/SubjectHeader";
 import { PageTransition } from "@/components/PageTransition";
 import "katex/dist/katex.min.css";
 import "./globals.css";
@@ -21,15 +21,17 @@ export const metadata: Metadata = {
 };
 
 export default function MathematicsLayout({ children }: { children: React.ReactNode }) {
-  const fontVars = `${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable}`;
+  const fontVars = `${spaceGrotesk.variable} ${plexMono.variable}`;
 
   return (
     <div className={`math-root ${fontVars}`}>
-      <MathNav />
+      <SubjectHeader subject="mathematics" />
 
-      <main className="pt-16"><PageTransition>{children}</PageTransition></main>
+      <main>
+        <PageTransition>{children}</PageTransition>
+      </main>
 
-      <footer className="border-border-faint border-t px-4 sm:px-6 py-6">
+      <footer className="border-border-faint border-t px-4 py-6 sm:px-6">
         <div className="flex w-full flex-col items-center gap-2 sm:flex-row sm:items-center sm:justify-between">
           <span className="text-fg-muted font-mono text-[10px] tracking-[0.32em] uppercase">
             mathematics · logic atlas

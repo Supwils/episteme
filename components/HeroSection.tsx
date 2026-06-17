@@ -2,33 +2,13 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { AnimatedCounter } from "./AnimatedCounter";
-import { CornerMark } from "./CornerMark";
 import { STATS } from "../lib/data";
 
 export function HeroSection() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="relative w-full overflow-hidden pt-24 pb-16 text-center">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 55% at 50% 18%, color-mix(in oklab, var(--color-accent-gold) 9%, transparent) 0%, transparent 62%)",
-          animation: reduce ? "none" : "heroGradientDrift 18s ease-in-out infinite",
-        }}
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 55% 45% at 28% 82%, color-mix(in oklab, var(--color-accent-indigo) 6%, transparent) 0%, transparent 52%)",
-          animation: reduce ? "none" : "heroGradientDrift2 22s ease-in-out infinite",
-        }}
-      />
-
+    <section className="relative w-full pt-24 pb-16 text-center">
       <div className="relative z-1 px-6">
         <motion.div
           className="relative inline-block px-4 py-9 sm:px-12"
@@ -36,11 +16,6 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
         >
-          <CornerMark position="tl" />
-          <CornerMark position="tr" />
-          <CornerMark position="bl" />
-          <CornerMark position="br" />
-
           <motion.div
             className="mb-7 flex items-center justify-center gap-3"
             initial={reduce ? false : { opacity: 0, y: 16 }}
@@ -61,15 +36,7 @@ export function HeroSection() {
             transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 0.61, 0.36, 1] }}
           >
             探索人类
-            <span
-              className="bg-clip-text text-transparent"
-              style={{
-                backgroundImage:
-                  "linear-gradient(118deg, var(--color-accent-gold) 0%, color-mix(in oklab, var(--color-accent-gold) 70%, var(--color-accent-indigo)) 100%)",
-              }}
-            >
-              知识
-            </span>
+            <span className="text-accent-gold">知识</span>
             的边界
           </motion.h1>
 

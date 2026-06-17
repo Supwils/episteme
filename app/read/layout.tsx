@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { fraunces, inter, jetbrainsMono } from "@/lib/fonts";
+import { spaceGrotesk, plexMono } from "@/lib/fonts";
 import { PageTransition } from "@/components/PageTransition";
 import "../domain-shared.css";
 
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 export default function ReadLayout({ children }: { children: React.ReactNode }) {
-  const fontVars = `${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable}`;
+  const fontVars = `${spaceGrotesk.variable} ${plexMono.variable}`;
   return (
     <div className={`domain-root ${fontVars}`}>
       <nav className="domain-nav-bar">

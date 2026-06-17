@@ -2,28 +2,30 @@
 @import "../shared-animations.css";
 
 @theme {
-  /* ── Surface hierarchy ────────────────────────────────────────────── */
-  --color-bg-deep: #0a0908;
-  --color-bg-near: #14120e;
-  --color-bg-panel: rgba(20, 18, 14, 0.78);
-  --color-bg-elevated: #1c1914;
-  --color-bg-floating: #242018;
-  --color-bg-overlay: rgba(10, 9, 8, 0.85);
+  /* ── Surface hierarchy — Observatory (dark, default) ──────────────── */
+  --color-bg-deep: #08080d;
+  --color-bg-base: #0e0f14;
+  --color-bg-near: #0e0f14;
+  --color-bg-panel: #14151c;
+  --color-bg-elevated: #14151c;
+  --color-bg-floating: #1c1c26;
+  --color-bg-overlay: rgba(8, 8, 13, 0.85);
 
   /* ── Foregrounds ──────────────────────────────────────────────────── */
-  --color-fg-primary: #f0ece4;
-  --color-fg-secondary: #b0a898;
-  --color-fg-muted: #9a9488;
-  --color-fg-disabled: #3a3630;
-  --color-fg-inverse: #0a0908;
+  --color-fg-primary: #e6e3da;
+  --color-fg-secondary: #a8a499;
+  --color-fg-muted: #7a766c;
+  --color-fg-disabled: #4a4858;
+  --color-fg-inverse: #08080d;
 
-  /* ── Accents ──────────────────────────────────────────────────────── */
-  --color-accent-gold: #c8a45a;
-  --color-accent-gold-dim: #8a7038;
-  --color-accent-gold-bright: #e8c46a;
-  --color-accent-copper: #d47850;
-  --color-accent-copper-dim: #a05838;
-  --color-accent-copper-bright: #e89060;
+  /* ── Accent — economics = gold (single accent) ────────────────────── */
+  --color-accent-gold: #c9a23e;
+  --color-accent-gold-dim: #8f7228;
+  --color-accent-gold-bright: #e0b94e;
+  /* Secondary accents kept (lower-saturation) so existing class refs resolve. */
+  --color-accent-copper: #c07a52;
+  --color-accent-copper-dim: #95583a;
+  --color-accent-copper-bright: #d08a62;
   --color-accent-green: #6bae8a;
   --color-accent-green-dim: #4a7a5a;
   --color-accent-green-bright: #8ace9a;
@@ -38,18 +40,18 @@
   --color-danger: #d85a5a;
   --color-danger-dim: rgba(216, 90, 90, 0.15);
 
-  /* ── Borders ──────────────────────────────────────────────────────── */
-  --color-border-subtle: rgba(200, 164, 90, 0.15);
-  --color-border-faint: rgba(200, 164, 90, 0.08);
-  --color-border-strong: rgba(200, 164, 90, 0.3);
-  --color-border-copper: rgba(212, 120, 80, 0.2);
+  /* ── Borders — hairline (theme-aware) ─────────────────────────────── */
+  --color-border-subtle: rgba(255, 255, 255, 0.1);
+  --color-border-faint: rgba(255, 255, 255, 0.06);
+  --color-border-strong: rgba(255, 255, 255, 0.2);
+  --color-border-copper: rgba(255, 255, 255, 0.12);
 
-  /* ── Glow / Accent Effects ────────────────────────────────────────── */
-  --glow-gold: 0 0 20px rgba(200, 164, 90, 0.25), 0 0 60px rgba(200, 164, 90, 0.08);
-  --glow-gold-intense: 0 0 30px rgba(200, 164, 90, 0.4), 0 0 80px rgba(200, 164, 90, 0.15);
-  --glow-copper: 0 0 20px rgba(212, 120, 80, 0.25), 0 0 60px rgba(212, 120, 80, 0.08);
-  --glow-copper-intense: 0 0 30px rgba(212, 120, 80, 0.4), 0 0 80px rgba(212, 120, 80, 0.15);
-  --glow-green: 0 0 20px rgba(107, 174, 138, 0.25), 0 0 60px rgba(107, 174, 138, 0.08);
+  /* ── Glow effects neutralised (observatory has no glow) ───────────── */
+  --glow-gold: none;
+  --glow-gold-intense: none;
+  --glow-copper: none;
+  --glow-copper-intense: none;
+  --glow-green: none;
 
   /* ── Gradients ────────────────────────────────────────────────────── */
   --gradient-radial-gold: radial-gradient(
@@ -72,13 +74,17 @@
 
   /* ── Typography stacks ────────────────────────────────────────────── */
   --font-sans:
-    var(--font-inter), "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui,
-    sans-serif;
+    var(--font-space-grotesk), "Space Grotesk", "Noto Sans SC", "PingFang SC", "Microsoft YaHei",
+    system-ui, sans-serif;
   --font-display:
-    var(--font-fraunces), "Fraunces", "Noto Serif SC", "Songti SC", "STSong", "PingFang SC", serif;
-  --font-mono:
-    var(--font-jetbrains-mono), "JetBrains Mono Variable", "JetBrains Mono", ui-monospace,
-    "Cascadia Code", monospace;
+    var(--font-space-grotesk), "Space Grotesk", "Noto Sans SC", "PingFang SC", "Songti SC",
+    sans-serif;
+  --font-body: "Noto Sans SC", system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, "Cascadia Code", monospace;
+
+  /* ── Card surface controls (flipped by .light into paper cards) ───── */
+  --card-radius: 12px;
+  --card-shadow: none;
 
   /* ── Type Scale ───────────────────────────────────────────────────── */
   --text-display-hero: 4.5rem;
@@ -168,7 +174,7 @@
 .economics-root {
   background-color: var(--color-bg-deep);
   color: var(--color-fg-primary);
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: var(--text-body-base);
   line-height: var(--leading-normal);
   letter-spacing: var(--tracking-normal);
@@ -180,6 +186,34 @@
   min-height: 100vh;
 }
 
+/* Notebook (light) — warm paper. next-themes adds `.light` to <html>. */
+.light .economics-root,
+.economics-root.light {
+  color-scheme: light;
+  --color-bg-deep: #efece4;
+  --color-bg-base: #faf6ef;
+  --color-bg-near: #ffffff;
+  --color-bg-panel: #ffffff;
+  --color-bg-elevated: #fffdf8;
+  --color-bg-floating: #ffffff;
+  --color-bg-overlay: rgba(245, 242, 235, 0.86);
+  --color-fg-primary: #2c2a26;
+  --color-fg-secondary: #5f5b54;
+  --color-fg-muted: #9a948a;
+  --color-fg-disabled: #b6b3c2;
+  --color-accent-gold: #a07f24;
+  --color-accent-gold-dim: #7c6320;
+  --color-accent-gold-bright: #b8902c;
+  --color-border-faint: #eee6d9;
+  --color-border-subtle: #e8dfd0;
+  --color-border-strong: #d8d0c0;
+  --color-border-copper: #e3d6c2;
+  --card-radius: 14px;
+  --card-shadow: 0 12px 28px -18px rgba(80, 60, 30, 0.28);
+  --font-display: "LXGW WenKai TC", "Noto Serif SC", "Songti SC", serif;
+  --font-body: "Noto Serif SC", "Songti SC", serif;
+}
+
 @layer base {
   .economics-root {
     color-scheme: dark;
@@ -188,7 +222,7 @@
 
   .economics-root {
     height: 100%;
-    font-family: var(--font-sans);
+    font-family: var(--font-body);
     font-size: var(--text-body-base);
     line-height: var(--leading-normal);
     letter-spacing: var(--tracking-normal);
@@ -208,7 +242,6 @@
   .economics-root .font-display {
     font-family: var(--font-display);
     font-optical-sizing: auto;
-    font-variation-settings: "SOFT" 30;
     line-height: var(--leading-tight);
     letter-spacing: var(--tracking-tight);
     color: var(--color-fg-primary);
@@ -292,22 +325,22 @@
   .economics-root .glass {
     background: color-mix(in oklab, var(--color-bg-panel) 60%, transparent);
     border: 1px solid var(--color-border-faint);
-    backdrop-filter: blur(20px) saturate(140%);
-    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
   }
 
   .economics-root .glass-strong {
     background: color-mix(in oklab, var(--color-bg-elevated) 75%, transparent);
     border: 1px solid var(--color-border-subtle);
-    backdrop-filter: blur(30px) saturate(160%);
-    -webkit-backdrop-filter: blur(30px) saturate(160%);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
   }
 
   .economics-root .glass-subtle {
     background: color-mix(in oklab, var(--color-bg-near) 40%, transparent);
     border: 1px solid var(--color-border-faint);
-    backdrop-filter: blur(12px) saturate(120%);
-    -webkit-backdrop-filter: blur(12px) saturate(120%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
 
   /* ── Surface Effects ──────────────────────────────────────────────── */
@@ -356,109 +389,18 @@
   }
 
   .glow-gold-text {
-    text-shadow: 0 0 20px rgba(200, 164, 90, 0.3);
+    text-shadow: none;
   }
 
   .glow-copper-text {
-    text-shadow: 0 0 20px rgba(212, 120, 80, 0.3);
-  }
-
-  /* ── Navigation Bar ─────────────────────────────────────────────── */
-
-  .economics-nav-bar {
-    width: 100%;
-    height: var(--nav-h, 64px);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 24px;
-    border-bottom: 1px solid var(--color-border-faint);
-    background: color-mix(in oklab, var(--color-bg-deep) 92%, transparent);
-    backdrop-filter: blur(16px) saturate(130%);
-    -webkit-backdrop-filter: blur(16px) saturate(130%);
-    position: sticky;
-    top: 0;
-    z-index: 49;
-  }
-
-  .economics-nav-brand {
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    color: var(--color-accent-gold);
-    text-decoration: none;
-    font-weight: 700;
-    font-style: italic;
-    letter-spacing: 0.04em;
-  }
-
-  .economics-nav-links {
-    display: flex;
-    gap: 24px;
-    list-style: none;
-  }
-
-  .economics-nav-link {
-    color: var(--color-fg-muted);
-    text-decoration: none;
-    font-size: 0.88rem;
-    padding: 8px 12px;
-    transition: color 0.2s;
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-  }
-
-  .economics-nav-link:hover,
-  .economics-nav-link.active {
-    color: var(--color-accent-gold);
-  }
-
-  .economics-nav-num {
-    font-size: 0.72rem;
-    opacity: 0.5;
-    margin-right: 4px;
-    font-family: var(--font-mono);
-  }
-
-  @media (max-width: 720px) {
-    .economics-nav-bar {
-      flex-wrap: wrap;
-      height: auto;
-      min-height: var(--nav-h, 64px);
-      padding: 0 14px;
-      gap: 0;
-    }
-    .economics-nav-links {
-      overflow-x: auto;
-      flex-wrap: nowrap;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      justify-content: flex-start;
-      gap: 0;
-      order: 3;
-      width: 100%;
-    }
-    .economics-nav-links::-webkit-scrollbar {
-      display: none;
-    }
-    .economics-nav-link {
-      padding: 10px 12px;
-      font-size: 0.82rem;
-      flex-shrink: 0;
-      min-height: 44px;
-      display: flex;
-      align-items: center;
-    }
-    .economics-nav-num {
-      display: none;
-    }
+    text-shadow: none;
   }
 
   .economics-root .nav-capsule {
     background: color-mix(in oklab, var(--color-bg-deep) 60%, transparent);
     border: 1px solid color-mix(in oklab, var(--color-fg-disabled) 35%, transparent);
-    backdrop-filter: blur(16px) saturate(130%);
-    -webkit-backdrop-filter: blur(16px) saturate(130%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
   }
 
   /* ── Pull Quote ───────────────────────────────────────────────────── */
@@ -468,7 +410,6 @@
     padding: var(--space-xl) var(--space-2xl);
     margin: var(--space-3xl) 0;
     border-left: 3px solid var(--color-accent-gold);
-    background: linear-gradient(135deg, rgba(200, 164, 90, 0.04) 0%, transparent 50%);
     border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
   }
 
@@ -572,9 +513,8 @@
 
   .economics-root .badge-nobel {
     background: rgba(200, 164, 90, 0.15);
-    color: #e8c46a;
+    color: var(--color-accent-gold-bright);
     border: 1px solid rgba(200, 164, 90, 0.3);
-    text-shadow: 0 0 8px rgba(200, 164, 90, 0.2);
   }
 
   /* ── Decorative Divider ───────────────────────────────────────────── */
@@ -650,7 +590,8 @@
     color: var(--color-fg-primary);
     font-family: var(--font-sans);
     font-size: var(--text-body-sm);
-    transition: border-color var(--duration-fast) var(--ease-smooth),
+    transition:
+      border-color var(--duration-fast) var(--ease-smooth),
       box-shadow var(--duration-fast) var(--ease-smooth);
   }
 
@@ -1034,18 +975,32 @@
    ═══════════════════════════════════════════════════════════════════════ */
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 15px rgba(200, 164, 90, 0.15); }
-  50% { box-shadow: 0 0 30px rgba(200, 164, 90, 0.3); }
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(200, 164, 90, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(200, 164, 90, 0.3);
+  }
 }
 
 @keyframes pulse-glow-copper {
-  0%, 100% { box-shadow: 0 0 15px rgba(212, 120, 80, 0.15); }
-  50% { box-shadow: 0 0 30px rgba(212, 120, 80, 0.3); }
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(212, 120, 80, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(212, 120, 80, 0.3);
+  }
 }
 
 @keyframes ticker-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════
@@ -1139,14 +1094,30 @@
     animation: ticker-scroll 30s linear infinite;
   }
 
-  .economics-root .stagger-1 { animation-delay: 50ms; }
-  .economics-root .stagger-2 { animation-delay: 100ms; }
-  .economics-root .stagger-3 { animation-delay: 150ms; }
-  .economics-root .stagger-4 { animation-delay: 200ms; }
-  .economics-root .stagger-5 { animation-delay: 250ms; }
-  .economics-root .stagger-6 { animation-delay: 300ms; }
-  .economics-root .stagger-7 { animation-delay: 350ms; }
-  .economics-root .stagger-8 { animation-delay: 400ms; }
+  .economics-root .stagger-1 {
+    animation-delay: 50ms;
+  }
+  .economics-root .stagger-2 {
+    animation-delay: 100ms;
+  }
+  .economics-root .stagger-3 {
+    animation-delay: 150ms;
+  }
+  .economics-root .stagger-4 {
+    animation-delay: 200ms;
+  }
+  .economics-root .stagger-5 {
+    animation-delay: 250ms;
+  }
+  .economics-root .stagger-6 {
+    animation-delay: 300ms;
+  }
+  .economics-root .stagger-7 {
+    animation-delay: 350ms;
+  }
+  .economics-root .stagger-8 {
+    animation-delay: 400ms;
+  }
 
   .economics-root .full-width {
     width: 100%;

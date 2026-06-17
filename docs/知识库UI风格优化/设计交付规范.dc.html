@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  html { scroll-behavior: smooth; }
+  .uk-link { transition: color .2s; }
+  .uk-link:hover { color: var(--accent); }
+  .tok-row:nth-child(even) { background: var(--surface-2); }
+</style>
+</helmet>
+
+<div ref="{{ rootRef }}" style="--bg:#0e0f14; --surface:#0e0f14; --surface-2:#14151c; --text:#e6e3da; --text-soft:#a8a499; --text-mute:#7a766c; --border:rgba(255,255,255,0.1); --card-radius:12px; --card-shadow:none; --accent:#d9a441; --accent-soft:rgba(217,164,65,0.16); --on-accent:#0a0a10; --font-display:'Space Grotesk','Noto Sans SC',sans-serif; --font-body:'Noto Sans SC',system-ui,sans-serif; --mono:'IBM Plex Mono',monospace; font-family:var(--font-body);">
+<div style="min-height:100vh; background-color:var(--bg); color:var(--text);">
+
+  <!-- NAV -->
+  <nav style="position:sticky; top:0; z-index:50; backdrop-filter:blur(12px); background:color-mix(in srgb, var(--bg) 84%, transparent); border-bottom:1px solid var(--border);">
+    <div style="max-width:1000px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:18px; padding:13px 28px;">
+      <span style="font-family:var(--mono); font-size:11px; letter-spacing:0.1em; color:var(--text-mute);">设计交付规范 · Design Spec v1</span>
+      <button onClick="{{ toggleTheme }}" style="display:flex; align-items:center; gap:6px; font-family:var(--mono); font-size:10.5px; letter-spacing:0.12em; padding:6px 11px; border:1px solid var(--border); border-radius:7px; color:var(--text-soft); background:transparent; cursor:pointer;"><span style="font-size:13px; line-height:1;">{{ themeIcon }}</span>{{ themeLabel }}</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header style="max-width:1000px; margin:0 auto; padding:60px 28px 34px;">
+    <div style="font-family:var(--mono); font-size:10.5px; letter-spacing:0.34em; text-transform:uppercase; color:var(--accent); margin-bottom:20px;">Universe Knowledge · 视觉系统重构</div>
+    <h1 style="font-family:var(--font-display); font-weight:600; font-size:clamp(34px,5vw,52px); line-height:1.08; letter-spacing:-0.02em; margin:0 0 18px; color:var(--text); max-width:20ch;">设计系统交付规范</h1>
+    <p style="font-size:16px; line-height:1.8; color:var(--text-soft); max-width:60ch; margin:0 0 22px;">本文是给工程 agent 的落地依据。它把新的「观测台 / 手记」双主题视觉，对应到 codebase 里<strong style="color:var(--text);">真实存在的令牌名、字体与文件</strong>——照表替换即可完成迁移，无需逐页重写。</p>
+    <div style="display:flex; flex-wrap:wrap; gap:10px;">
+      <span style="font-family:var(--mono); font-size:11px; padding:6px 13px; border:1px solid var(--border); border-radius:999px; color:var(--text-soft);">令牌驱动 · 低风险</span>
+      <span style="font-family:var(--mono); font-size:11px; padding:6px 13px; border:1px solid var(--border); border-radius:999px; color:var(--text-soft);">双主题</span>
+      <span style="font-family:var(--mono); font-size:11px; padding:6px 13px; border:1px solid var(--border); border-radius:999px; color:var(--text-soft);">10 领域强调色</span>
+    </div>
+  </header>
+
+  <div style="max-width:1000px; margin:0 auto; padding:0 28px 80px;">
+
+    <!-- 0. 如何使用 -->
+    <section style="border:1px solid var(--accent); border-radius:var(--card-radius); background:var(--accent-soft); padding:22px 24px; margin-bottom:48px;">
+      <h2 style="font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin:0 0 12px;">给 Agent：如何使用本规范</h2>
+      <ol style="font-size:14px; line-height:1.85; color:var(--text); margin:0; padding-left:20px; display:flex; flex-direction:column; gap:6px;">
+        <li>第 ③ 节「令牌映射」是核心——共享组件（<code style="font-family:var(--mono); font-size:12.5px; color:var(--accent);">ArticleLayout</code>、<code style="font-family:var(--mono); font-size:12.5px; color:var(--accent);">MarkdownRenderer</code>）都读这些令牌，改值即可全站生效。</li>
+        <li>按第 ⑦ 节「文件清单」逐个文件落地；先改门户 + 一个内容领域验证，再推广。</li>
+        <li>定制领域（物理/宇宙/历史/生命科学）<strong style="color:var(--accent);">保持暗色</strong>，只接入新令牌与单行导航，不动其可视化引擎。</li>
+      </ol>
+    </section>
+
+    <!-- 1. 设计原则 -->
+    <h2 id="s1" style="font-family:var(--font-display); font-size:26px; font-weight:600; color:var(--text); margin:0 0 8px;"><span style="color:var(--accent); font-family:var(--mono); font-size:15px; margin-right:12px;">01</span>设计原则</h2>
+    <p style="font-size:14px; color:var(--text-mute); margin:0 0 20px;">为什么改 —— 去掉「AI 生成感」，回到真正有设计的基本功。</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--card-radius); overflow:hidden; margin-bottom:52px;">
+      <div style="background:var(--surface-2); padding:20px 22px;"><div style="font-family:var(--mono); font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:#c66a5e; margin-bottom:10px;">移除 · Remove</div><ul style="font-size:13.5px; line-height:1.8; color:var(--text-soft); margin:0; padding-left:18px;"><li>霓虹渐变背景、星云 mesh、点阵网格</li><li>发光卡片、shimmer、glow 阴影</li><li>渐变文字（bg-clip-text）</li><li>Fraunces + Inter 字体</li></ul></div>
+      <div style="background:var(--surface-2); padding:20px 22px;"><div style="font-family:var(--mono); font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:#5b9e52; margin-bottom:10px;">采用 · Adopt</div><ul style="font-size:13.5px; line-height:1.8; color:var(--text-soft); margin:0; padding-left:18px;"><li>平整表面 + 发丝级描边（暗）/ 柔和投影（亮）</li><li>克制的单一领域强调色</li><li>等宽元数据标签 + 大量留白</li><li>双主题：观测台（暗）/ 手记（亮）</li></ul></div>
+    </div>
+
+    <!-- 2. 调色板 -->
+    <h2 style="font-family:var(--font-display); font-size:26px; font-weight:600; color:var(--text); margin:0 0 8px;"><span style="color:var(--accent); font-family:var(--mono); font-size:15px; margin-right:12px;">02</span>调色板</h2>
+    <p style="font-size:14px; color:var(--text-mute); margin:0 0 20px;">两套表面 / 前景 + 十个领域强调色（明暗共用色相）。</p>
+
+    <div style="font-family:var(--mono); font-size:10.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-mute); margin-bottom:12px;">观测台 · Dark</div>
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:24px;">
+      <sc-for list="{{ darkSwatches }}" as="sw" hint-placeholder-count="6">
+        <div style="width:118px;"><div style="height:54px; border-radius:8px; border:1px solid var(--border); background:{{ sw.hex }};"></div><div style="font-size:11px; color:var(--text); margin-top:7px;">{{ sw.label }}</div><div style="font-family:var(--mono); font-size:10px; color:var(--text-mute);">{{ sw.hex }}</div></div>
+      </sc-for>
+    </div>
+
+    <div style="font-family:var(--mono); font-size:10.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-mute); margin-bottom:12px;">手记 · Light</div>
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:24px;">
+      <sc-for list="{{ lightSwatches }}" as="sw" hint-placeholder-count="6">
+        <div style="width:118px;"><div style="height:54px; border-radius:8px; border:1px solid var(--border); background:{{ sw.hex }};"></div><div style="font-size:11px; color:var(--text); margin-top:7px;">{{ sw.label }}</div><div style="font-family:var(--mono); font-size:10px; color:var(--text-mute);">{{ sw.hex }}</div></div>
+      </sc-for>
+    </div>
+
+    <div style="font-family:var(--mono); font-size:10.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-mute); margin-bottom:12px;">领域强调色 · Subject Accents</div>
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:52px;">
+      <sc-for list="{{ subjectSwatches }}" as="sw" hint-placeholder-count="10">
+        <div style="width:104px;"><div style="height:44px; border-radius:8px; border:1px solid var(--border); background:{{ sw.hex }};"></div><div style="font-size:11px; color:var(--text); margin-top:7px;">{{ sw.label }}</div><div style="font-family:var(--mono); font-size:10px; color:var(--text-mute);">{{ sw.hex }}</div></div>
+      </sc-for>
+    </div>
+
+    <!-- 3. 令牌映射 -->
+    <h2 id="s3" style="font-family:var(--font-display); font-size:26px; font-weight:600; color:var(--text); margin:0 0 8px;"><span style="color:var(--accent); font-family:var(--mono); font-size:15px; margin-right:12px;">03</span>令牌映射（核心）</h2>
+    <p style="font-size:14px; color:var(--text-mute); margin:0 0 20px;">沿用现有令牌名，只替换其值。改 <code style="font-family:var(--mono); font-size:12.5px; color:var(--accent);">@theme</code> 与 <code style="font-family:var(--mono); font-size:12.5px; color:var(--accent);">.light</code> 块即可。</p>
+    <div style="border:1px solid var(--border); border-radius:var(--card-radius); overflow:hidden; margin-bottom:14px;">
+      <div style="display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:12px; padding:11px 18px; background:var(--surface-2); border-bottom:1px solid var(--border); font-family:var(--mono); font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-mute);">
+        <span>令牌名</span><span>旧值</span><span>新 · Dark</span><span>新 · Light</span>
+      </div>
+      <sc-for list="{{ tokens }}" as="tk" hint-placeholder-count="14">
+        <div class="tok-row" style="display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:12px; padding:11px 18px; font-family:var(--mono); font-size:11.5px; align-items:center; border-bottom:1px solid var(--border);">
+          <span style="color:var(--accent); word-break:break-all;">{{ tk.name }}</span>
+          <span style="color:var(--text-mute); word-break:break-all;">{{ tk.old }}</span>
+          <span style="color:var(--text-soft); word-break:break-all;">{{ tk.dark }}</span>
+          <span style="color:var(--text-soft); word-break:break-all;">{{ tk.light }}</span>
+        </div>
+      </sc-for>
+    </div>
+    <p style="font-size:12.5px; color:var(--text-mute); margin:0 0 52px; line-height:1.7;">注：<code style="font-family:var(--mono); color:var(--accent);">--accent</code>（legacy <code style="font-family:var(--mono); color:var(--accent);">:root</code>）在领域页/文章页应由 JS 在根元素上设为<strong style="color:var(--text);">当前领域色</strong>（见第 04 节）。门户用 <code style="font-family:var(--mono); color:var(--accent);">--color-accent-gold</code> 作中性主色。</p>
+
+    <!-- 4. 字体 -->
+    <h2 style="font-family:var(--font-display); font-size:26px; font-weight:600; color:var(--text); margin:0 0 8px;"><span style="color:var(--accent); font-family:var(--mono); font-size:15px; margin-right:12px;">04</span>字体</h2>
+    <p style="font-size:14px; color:var(--text-mute); margin:0 0 18px;">改 <code style="font-family:var(--mono); font-size:12.5px; color:var(--accent);">lib/fonts.ts</code> 的加载，与各 css 里 <code style="font-family:var(--mono); font-size:12.5px; color:var(--accent);">--font-*</code> 栈。<code style="font-family:var(--mono); font-size:12.5px; color:var(--accent);">--font-display</code> 在 <code style="font-family:var(--mono); font-size:12.5px; color:var(--accent);">.light</code> 下切到楷体。</p>
+    <div style="border:1px solid var(--border); border-radius:var(--card-radius); overflow:hidden; margin-bottom:14px;">
+      <sc-for list="{{ fonts }}" as="ft" hint-placeholder-count="4">
+        <div class="tok-row" style="padding:15px 18px; border-bottom:1px solid var(--border);">
+          <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:6px;"><span style="font-family:var(--mono); font-size:11px; color:var(--accent);">{{ ft.role }}</span><span style="font-family:var(--mono); font-size:11px; color:var(--text-mute);">{{ ft.old }} → {{ ft.now }}</span></div>
+          <div style="font-size:13px; color:var(--text-soft); line-height:1.6;">{{ ft.note }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <p style="font-size:12.5px; color:var(--text-mute); margin:0 0 52px; line-height:1.7;">LXGW WenKai 不在 next/font/google，用 <code style="font-family:var(--mono); color:var(--accent);">&lt;link&gt;</code> 引 Google Fonts 或自托管 woff2。其余四款可走 <code style="font-family:var(--mono); color:var(--accent);">next/font/google</code>，变量名改为 <code style="font-family:var(--mono); color:var(--accent);">--font-space-grotesk / --font-noto-sans-sc / --font-noto-serif-sc / --font-plex-mono</code>。</p>
+
+    <!-- 5. 组件改动 -->
+    <h2 style="font-family:var(--font-display); font-size:26px; font-weight:600; color:var(--text); margin:0 0 18px;"><span style="color:var(--accent); font-family:var(--mono); font-size:15px; margin-right:12px;">05</span>组件改动</h2>
+    <div style="display:flex; flex-direction:column; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--card-radius); overflow:hidden; margin-bottom:52px;">
+      <sc-for list="{{ components }}" as="cp" hint-placeholder-count="6">
+        <div style="background:var(--surface-2); padding:16px 20px; display:grid; grid-template-columns:200px 1fr; gap:18px;">
+          <span style="font-family:var(--mono); font-size:12px; color:var(--accent); word-break:break-all;">{{ cp.file }}</span>
+          <span style="font-size:13.5px; line-height:1.7; color:var(--text-soft);">{{ cp.change }}</span>
+        </div>
+      </sc-for>
+    </div>
+
+    <!-- 6. 定制领域 -->
+    <h2 style="font-family:var(--font-display); font-size:26px; font-weight:600; color:var(--text); margin:0 0 18px;"><span style="color:var(--accent); font-family:var(--mono); font-size:15px; margin-right:12px;">06</span>定制 vs 内容领域</h2>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:52px;">
+      <div style="border:1px solid var(--border); border-radius:var(--card-radius); background:var(--surface-2); padding:20px 22px;">
+        <div style="font-family:var(--mono); font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--text-mute); margin-bottom:10px;">定制 · 保留暗色</div>
+        <p style="font-size:13.5px; line-height:1.75; color:var(--text-soft); margin:0 0 10px;">物理 · 宇宙学 · 人类历史 · 生命科学</p>
+        <p style="font-size:13px; line-height:1.7; color:var(--text-mute); margin:0;">有自己的 3D / 时间线 / 地图引擎。只接入新令牌与单行导航壳；<code style="font-family:var(--mono); color:var(--accent);">color-scheme: dark</code> 保持，不加亮色块。沉浸式画布不动。</p>
+      </div>
+      <div style="border:1px solid var(--border); border-radius:var(--card-radius); background:var(--surface-2); padding:20px 22px;">
+        <div style="font-family:var(--mono); font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--text-mute); margin-bottom:10px;">内容 · 支持双主题</div>
+        <p style="font-size:13.5px; line-height:1.75; color:var(--text-soft); margin:0 0 10px;">哲学 · 数学 · 经济 · 心理 · 计算机 · 政治</p>
+        <p style="font-size:13px; line-height:1.7; color:var(--text-mute); margin:0;">走完整模板。各自 <code style="font-family:var(--mono); color:var(--accent);">globals.css</code> 加 <code style="font-family:var(--mono); color:var(--accent);">.light</code> 令牌块；移除 glow / glass 重度用法；领域色作为 <code style="font-family:var(--mono); color:var(--accent);">--accent</code>。</p>
+      </div>
+    </div>
+
+    <!-- 7. 文件清单 -->
+    <h2 style="font-family:var(--font-display); font-size:26px; font-weight:600; color:var(--text); margin:0 0 18px;"><span style="color:var(--accent); font-family:var(--mono); font-size:15px; margin-right:12px;">07</span>迁移文件清单</h2>
+    <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:52px;">
+      <sc-for list="{{ files }}" as="fl" hint-placeholder-count="8">
+        <div style="display:grid; grid-template-columns:24px 1fr; gap:14px; align-items:start; padding:13px 18px; border:1px solid var(--border); border-radius:var(--card-radius); background:var(--surface-2);">
+          <span style="font-family:var(--mono); font-size:11px; color:var(--accent);">{{ fl.n }}</span>
+          <div><div style="font-family:var(--mono); font-size:12.5px; color:var(--text); margin-bottom:4px; word-break:break-all;">{{ fl.path }}</div><div style="font-size:13px; line-height:1.6; color:var(--text-soft);">{{ fl.todo }}</div></div>
+        </div>
+      </sc-for>
+    </div>
+
+    <!-- 8. 参考实现 -->
+    <h2 style="font-family:var(--font-display); font-size:26px; font-weight:600; color:var(--text); margin:0 0 18px;"><span style="color:var(--accent); font-family:var(--mono); font-size:15px; margin-right:12px;">08</span>参考实现（高保真原型）</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px; margin-bottom:20px;">
+      <a href="首页.dc.html" class="uk-link" style="border:1px solid var(--border); border-radius:var(--card-radius); background:var(--surface-2); padding:18px 20px; text-decoration:none; color:inherit; display:block;"><div style="font-family:var(--font-display); font-size:16px; font-weight:600; color:var(--text); margin-bottom:5px;">首页</div><div style="font-size:12.5px; color:var(--text-mute);">门户 · 双主题 · 10 领域目录</div></a>
+      <a href="领域页.dc.html" class="uk-link" style="border:1px solid var(--border); border-radius:var(--card-radius); background:var(--surface-2); padding:18px 20px; text-decoration:none; color:inherit; display:block;"><div style="font-family:var(--font-display); font-size:16px; font-weight:600; color:var(--text); margin-bottom:5px;">领域页</div><div style="font-size:12.5px; color:var(--text-mute);">定制/内容两类 · 可切 10 领域</div></a>
+      <a href="文章页.dc.html" class="uk-link" style="border:1px solid var(--border); border-radius:var(--card-radius); background:var(--surface-2); padding:18px 20px; text-decoration:none; color:inherit; display:block;"><div style="font-family:var(--font-display); font-size:16px; font-weight:600; color:var(--text); margin-bottom:5px;">文章页</div><div style="font-size:12.5px; color:var(--text-mute);">正文排版 · 目录 · 进度</div></a>
+      <a href="人物传记.dc.html" class="uk-link" style="border:1px solid var(--border); border-radius:var(--card-radius); background:var(--surface-2); padding:18px 20px; text-decoration:none; color:inherit; display:block;"><div style="font-family:var(--font-display); font-size:16px; font-weight:600; color:var(--text); margin-bottom:5px;">人物传记</div><div style="font-size:12.5px; color:var(--text-mute);">身份 · 生命轴 · 师承</div></a>
+    </div>
+
+  </div>
+
+  <footer style="border-top:1px solid var(--border);">
+    <div style="max-width:1000px; margin:0 auto; padding:28px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px;">
+      <span style="font-family:var(--mono); font-size:11px; color:var(--text-mute);">Universe Knowledge · Design System Spec v1 · 2026</span>
+      <a href="首页.dc.html" class="uk-link" style="font-family:var(--mono); font-size:11px; color:var(--accent); text-decoration:none;">‹ 返回首页原型</a>
+    </div>
+  </footer>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1000,&quot;height&quot;:900},&quot;defaultTheme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;\&quot;dark\&quot;|\&quot;light\&quot;&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { theme: props.defaultTheme === "light" ? "light" : "dark" };
+  }
+  hexToRgba(hex, a) {
+    const h = hex.replace("#", "");
+    const r = parseInt(h.slice(0, 2), 16), g = parseInt(h.slice(2, 4), 16), b = parseInt(h.slice(4, 6), 16);
+    return `rgba(${r},${g},${b},${a})`;
+  }
+  themeBase(theme) {
+    if (theme === "light") {
+      return { "--bg":"#faf6ef","--surface":"#ffffff","--surface-2":"#fffdf8","--text":"#2c2a26","--text-soft":"#5f5b54","--text-mute":"#9a948a","--border":"#e8dfd0","--card-radius":"14px","--card-shadow":"0 12px 28px -18px rgba(80,60,30,0.28)","--accent":"#b8862f","--accent-soft":"rgba(184,134,47,0.1)","--on-accent":"#ffffff","--font-display":"'LXGW WenKai TC','Noto Serif SC',serif","--font-body":"'Noto Serif SC',serif" };
+    }
+    return { "--bg":"#0e0f14","--surface":"#0e0f14","--surface-2":"#14151c","--text":"#e6e3da","--text-soft":"#a8a499","--text-mute":"#7a766c","--border":"rgba(255,255,255,0.1)","--card-radius":"12px","--card-shadow":"none","--accent":"#d9a441","--accent-soft":"rgba(217,164,65,0.16)","--on-accent":"#0a0a10","--font-display":"'Space Grotesk','Noto Sans SC',sans-serif","--font-body":"'Noto Sans SC',system-ui,sans-serif" };
+  }
+  applyTheme() {
+    const el = this.rootEl;
+    if (!el) return;
+    const base = this.themeBase(this.state.theme);
+    Object.keys(base).forEach((k) => el.style.setProperty(k, base[k]));
+    const wrap = el.firstElementChild;
+    if (wrap) { wrap.style.backgroundColor = base["--bg"]; wrap.style.color = base["--text"]; }
+  }
+  componentDidMount() {
+    let theme = this.state.theme;
+    try { const s = localStorage.getItem("uk-theme"); if (s === "light" || s === "dark") theme = s; } catch (e) {}
+    if (theme !== this.state.theme) this.setState({ theme });
+    this.applyTheme();
+  }
+  componentDidUpdate() { this.applyTheme(); }
+  renderVals() {
+    const t = this.state.theme;
+    return {
+      rootRef: (el) => { this.rootEl = el; if (el) this.applyTheme(); },
+      toggleTheme: () => {
+        const next = t === "dark" ? "light" : "dark";
+        try { localStorage.setItem("uk-theme", next); } catch (e) {}
+        this.setState({ theme: next });
+      },
+      themeIcon: t === "dark" ? "☾" : "☀",
+      themeLabel: t === "dark" ? "DARK" : "LIGHT",
+      darkSwatches: [
+        { label: "bg-base", hex: "#0e0f14" },
+        { label: "bg-near 卡片", hex: "#14151c" },
+        { label: "fg-primary", hex: "#e6e3da" },
+        { label: "fg-secondary", hex: "#a8a499" },
+        { label: "fg-muted", hex: "#7a766c" },
+        { label: "border", hex: "#26272e" },
+      ],
+      lightSwatches: [
+        { label: "bg-base", hex: "#faf6ef" },
+        { label: "surface 卡片", hex: "#ffffff" },
+        { label: "fg-primary", hex: "#2c2a26" },
+        { label: "fg-secondary", hex: "#5f5b54" },
+        { label: "fg-muted", hex: "#9a948a" },
+        { label: "border", hex: "#e8dfd0" },
+      ],
+      subjectSwatches: [
+        { label: "物理", hex: "#6a6fd0" },
+        { label: "宇宙学", hex: "#4f7fd0" },
+        { label: "历史", hex: "#c08a3e" },
+        { label: "哲学", hex: "#4a9e74" },
+        { label: "生命科学", hex: "#5b9e52" },
+        { label: "数学", hex: "#8b6fd0" },
+        { label: "经济", hex: "#c9a23e" },
+        { label: "心理", hex: "#cc7a9e" },
+        { label: "计算机", hex: "#4f9cd0" },
+        { label: "政治", hex: "#c66a5e" },
+      ],
+      tokens: [
+        { name: "--color-bg-base", old: "#08080f", dark: "#0e0f14", light: "#faf6ef" },
+        { name: "--color-bg-deep", old: "#06060d", dark: "#08080d", light: "#efece4" },
+        { name: "--color-bg-near", old: "#0d0d18", dark: "#0e0f14", light: "#ffffff" },
+        { name: "--color-bg-panel", old: "#111119", dark: "#14151c", light: "#ffffff" },
+        { name: "--color-bg-elevated", old: "#16161f", dark: "#14151c", light: "#fffdf8" },
+        { name: "--color-fg-primary", old: "#ece9f5", dark: "#e6e3da", light: "#2c2a26" },
+        { name: "--color-fg-secondary", old: "#a8a4c0", dark: "#a8a499", light: "#5f5b54" },
+        { name: "--color-fg-muted", old: "#8d8aa0", dark: "#7a766c", light: "#9a948a" },
+        { name: "--color-border-faint", old: "rgba(150,150,210,.08)", dark: "rgba(255,255,255,.06)", light: "#eee6d9" },
+        { name: "--color-border-subtle", old: "rgba(150,150,210,.14)", dark: "rgba(255,255,255,.10)", light: "#e8dfd0" },
+        { name: "--color-border-strong", old: "rgba(150,150,210,.28)", dark: "rgba(255,255,255,.20)", light: "#d8d0c0" },
+        { name: "--color-accent-gold", old: "#c8a45a", dark: "#d9a441", light: "#b8862f" },
+        { name: "--accent (:root)", old: "#6366f1", dark: "领域色", light: "领域色" },
+        { name: "--card-bg / --card-border", old: "#111118 / #1e1e2e", dark: "#14151c / —", light: "#ffffff / #eee6d9" },
+      ],
+      fonts: [
+        { role: "--font-sans", old: "Inter", now: "Noto Sans SC", note: "正文/UI 无衬线。Inter 是被点名的「AI 感」字体，移除。" },
+        { role: "--font-display", old: "Fraunces", now: "Space Grotesk (暗) / LXGW WenKai (亮)", note: "标题。暗色用 grotesk 的技术冷感，亮色用楷体的人文温度——在 .light 块覆写。" },
+        { role: "--font-body (新增)", old: "—", now: "Noto Sans SC (暗) / Noto Serif SC (亮)", note: "正文阅读专用：亮色衬线书感，暗色无衬线。" },
+        { role: "--font-mono", old: "JetBrains Mono", now: "IBM Plex Mono", note: "元数据标签、编号、坐标。统一用它做 kicker。" },
+      ],
+      components: [
+        { file: "HeroSection.tsx", change: "移除 heroGradientDrift 双层径向渐变与 CornerMark；标题去掉渐变文字，改纯 fg-primary，关键词用 accent 实色；统计数字保留。" },
+        { file: "DomainCard.tsx", change: "删除 shimmer / glow / 渐变左栏 / gradient 顶线；改为平整卡片：mono「DOMAIN 0X」+ 领域色圆点 + 标题 + 描述 + accent CTA。hover 仅描边变色 + 微上移。" },
+        { file: "page.tsx (门户)", change: "移除 dotPulse 点阵层与两块径向光晕 div；body::before/after 的星云 mesh + 噪点在 globals.css 内删除。" },
+        { file: "DesktopNav + 领域 nav", change: "收成单行：返回 + 可横向滚动领域标签 + 搜索 + 主题切换；激活标签用领域色胶囊。" },
+        { file: "ArticleLayout.tsx", change: "header 去掉 blur 光晕圆；保留 eyebrow 徽章 / 标题 / titleEn / tags；底部加 1px accent 分隔线。令牌生效即焕新。" },
+        { file: "MarkdownRenderer.tsx", change: "h2 用 accent（已是）；blockquote 去掉渐变底，改纯 2px 左边框 + 斜体 display；其余靠令牌自动适配明暗。" },
+      ],
+      files: [
+        { n: "01", path: "lib/fonts.ts", todo: "换四款字体加载（Space Grotesk / Noto Sans SC / Noto Serif SC / IBM Plex Mono），LXGW WenKai 用 link 引入。" },
+        { n: "02", path: "app/globals.css", todo: "@theme 与 :root 改新令牌值；已有 .light 块更新为「手记」值；删除 body::before 星云 / body::after 噪点 / dotPulse 等 keyframes。" },
+        { n: "03", path: "app/domain-shared.css", todo: "@theme 令牌值同步；.domain-root 增加 .light 令牌支持与 --font-body。" },
+        { n: "04", path: "app/{philosophy,economics,psychology,mathematics,computer-science,political-science}/globals.css", todo: "内容领域：令牌改值 + 新增 .light 块；移除 glow-*/glass/grid-paper 等重度装饰；--accent 设为领域色。" },
+        { n: "05", path: "app/{universe-physics,cosmology,human-history,life-science}/globals.css", todo: "定制领域：仅同步令牌值与字体，保持 color-scheme: dark，沉浸式可视化不动。" },
+        { n: "06", path: "components/ThemeToggle + ThemeProvider", todo: "确保门户与各领域共用同一 localStorage key 与 .light class，跨页主题一致。" },
+        { n: "07", path: "components/{HeroSection,DomainCard,FeatureGrid,DesktopNav}.tsx", todo: "按第 05 节移除发光/渐变/点阵，落地单行导航与平整卡片。" },
+        { n: "08", path: "tailwind / 全局", todo: "全局搜索移除 glow / shimmer / gradient-text 工具类用法；统一 kicker 用 mono。" },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

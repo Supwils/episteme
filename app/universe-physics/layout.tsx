@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { fraunces, inter, jetbrainsMono } from "./fonts";
+import { spaceGrotesk, plexMono } from "./fonts";
+import { SubjectHeader } from "@/components/SubjectHeader";
 import { PageTransition } from "../../components/PageTransition";
 import "./globals.css";
 
@@ -26,9 +27,8 @@ export const viewport: Viewport = {
 
 export default function PhysicsLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div
-      className={`${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable} physics-root`}
-    >
+    <div className={`${spaceGrotesk.variable} ${plexMono.variable} physics-root`}>
+      <SubjectHeader subject="universe-physics" />
       <PageTransition>{children}</PageTransition>
     </div>
   );

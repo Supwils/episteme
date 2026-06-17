@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  .gs-item { transition: background .14s; }
+  .gs-item:hover, .gs-item[data-active="true"] { background: var(--accent-soft) !important; }
+  .gs-chip { transition: border-color .2s, color .2s; }
+  .gs-chip:hover { border-color: var(--accent); color: var(--accent); }
+  .gs-results::-webkit-scrollbar { width: 6px; }
+  .gs-results::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+</style>
+</helmet>
+
+<div ref="{{ rootRef }}" style="--bg:#0e0f14; --surface-2:#14151c; --text:#e6e3da; --text-soft:#a8a499; --text-mute:#7a766c; --border:rgba(255,255,255,0.1); --panel:#16161f; --panel-radius:14px; --accent:#d9a441; --accent-soft:rgba(217,164,65,0.14); --on-accent:#0a0a10; --font-display:'Space Grotesk','Noto Sans SC',sans-serif; --font-body:'Noto Sans SC',system-ui,sans-serif; --mono:'IBM Plex Mono',monospace; font-family:var(--font-body);">
+<div style="position:relative; min-height:100vh; background-color:var(--bg); color:var(--text); overflow:hidden;">
+
+  <!-- faint page behind, for context -->
+  <div style="position:absolute; inset:0; padding:60px 40px; opacity:0.4; filter:blur(1px); pointer-events:none;">
+    <div style="font-family:var(--mono); font-size:11px; letter-spacing:0.3em; text-transform:uppercase; color:var(--text-mute); margin-bottom:18px;">Universe Knowledge</div>
+    <div style="font-family:var(--font-display); font-size:52px; font-weight:600; color:var(--text); max-width:16ch; line-height:1.1;">探索人类知识的边界</div>
+  </div>
+
+  <!-- theme toggle (demo) -->
+  <button onClick="{{ toggleTheme }}" style="position:absolute; top:18px; right:24px; z-index:5; display:flex; align-items:center; gap:6px; font-family:var(--mono); font-size:10.5px; letter-spacing:0.12em; padding:6px 11px; border:1px solid var(--border); border-radius:7px; color:var(--text-soft); background:transparent; cursor:pointer;"><span style="font-size:13px; line-height:1;">{{ themeIcon }}</span>{{ themeLabel }}</button>
+
+  <!-- overlay -->
+  <div style="position:absolute; inset:0; z-index:10; background:color-mix(in srgb, var(--bg) 55%, rgba(0,0,0,0.55)); backdrop-filter:blur(6px); display:flex; align-items:flex-start; justify-content:center; padding:13vh 16px 16px;">
+    <div style="width:100%; max-width:580px; background:var(--panel); border:1px solid var(--border); border-radius:var(--panel-radius); overflow:hidden; box-shadow:0 30px 80px -20px rgba(0,0,0,0.6);">
+
+      <!-- input -->
+      <div style="display:flex; align-items:center; gap:12px; padding:16px 18px; border-bottom:1px solid var(--border);">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" style="flex-shrink:0; color:var(--text-mute);"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M21 21l-4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <input value="{{ query }}" onInput="{{ onQuery }}" placeholder="搜索领域、文章、人物、概念……" style="flex:1; background:transparent; border:none; outline:none; font-family:var(--font-body); font-size:15px; color:var(--text);" />
+        <span style="flex-shrink:0; font-family:var(--mono); font-size:10px; padding:3px 7px; border:1px solid var(--border); border-radius:5px; color:var(--text-mute);">ESC</span>
+      </div>
+
+      <!-- results -->
+      <div class="gs-results" style="max-height:56vh; overflow-y:auto; padding:8px 0;">
+
+        <!-- empty state -->
+        <sc-if value="{{ isEmpty }}" hint-placeholder-val="{{ true }}">
+          <div style="padding:8px 18px 14px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+              <span style="font-family:var(--mono); font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-mute);">最近搜索</span>
+              <span style="font-family:var(--mono); font-size:10px; color:var(--text-mute); cursor:pointer;">清除</span>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px;">
+              <span class="gs-chip" style="font-size:13px; padding:5px 12px; border:1px solid var(--border); border-radius:999px; color:var(--text-soft); cursor:pointer;">苏格拉底</span>
+              <span class="gs-chip" style="font-size:13px; padding:5px 12px; border:1px solid var(--border); border-radius:999px; color:var(--text-soft); cursor:pointer;">熵</span>
+              <span class="gs-chip" style="font-size:13px; padding:5px 12px; border:1px solid var(--border); border-radius:999px; color:var(--text-soft); cursor:pointer;">博弈论</span>
+            </div>
+            <div style="font-family:var(--mono); font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-mute); margin-bottom:8px;">快捷入口</div>
+            <div style="display:flex; flex-direction:column;">
+              <sc-for list="{{ shortcuts }}" as="sc" hint-placeholder-count="3">
+                <a href="#" class="gs-item" style="display:flex; align-items:center; gap:12px; padding:9px 10px; border-radius:8px; text-decoration:none; color:inherit;">
+                  <span style="width:8px; height:8px; border-radius:50%; background:{{ sc.color }}; flex-shrink:0;"></span>
+                  <span style="font-size:14px; color:var(--text);">{{ sc.title }}</span>
+                  <span style="margin-left:auto; font-family:var(--mono); font-size:10px; color:var(--text-mute);">领域</span>
+                </a>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+
+        <!-- grouped results -->
+        <sc-if value="{{ hasResults }}" hint-placeholder-val="{{ true }}">
+          <sc-for list="{{ groups }}" as="grp" hint-placeholder-count="3">
+            <div style="padding:4px 0 8px;">
+              <div style="padding:6px 18px 4px; font-family:var(--mono); font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--text-mute);">{{ grp.type }}</div>
+              <sc-for list="{{ grp.items }}" as="r" hint-placeholder-count="3">
+                <a href="#" class="gs-item" data-active="{{ r.active }}" style="display:flex; align-items:center; gap:12px; padding:9px 18px; text-decoration:none; color:inherit;">
+                  <span style="width:8px; height:8px; border-radius:50%; background:{{ r.color }}; flex-shrink:0;"></span>
+                  <span style="font-size:14px; color:var(--text);">{{ r.title }}</span>
+                  <span style="font-size:12.5px; color:var(--text-mute);">{{ r.sub }}</span>
+                  <span style="margin-left:auto; font-family:var(--mono); font-size:9.5px; letter-spacing:0.06em; padding:2px 7px; border-radius:4px; background:var(--accent-soft); color:var(--accent);">{{ r.badge }}</span>
+                </a>
+              </sc-for>
+            </div>
+          </sc-for>
+        </sc-if>
+
+        <!-- no match -->
+        <sc-if value="{{ noMatch }}" hint-placeholder-val="{{ true }}">
+          <div style="padding:36px 18px; text-align:center;">
+            <div style="font-size:14px; color:var(--text-soft); margin-bottom:4px;">没有找到「{{ query }}」</div>
+            <div style="font-size:12.5px; color:var(--text-mute);">试试「苏格拉底」「熵」「博弈论」</div>
+          </div>
+        </sc-if>
+
+      </div>
+
+      <!-- footer -->
+      <div style="display:flex; align-items:center; gap:18px; padding:9px 18px; border-top:1px solid var(--border); font-family:var(--mono); font-size:10.5px; color:var(--text-mute);">
+        <span><span style="padding:1px 5px; border:1px solid var(--border); border-radius:4px; margin-right:5px;">↑↓</span>选择</span>
+        <span><span style="padding:1px 5px; border:1px solid var(--border); border-radius:4px; margin-right:5px;">↵</span>打开</span>
+        <span style="margin-left:auto;">跨 10 领域 · 1850+ 知识单元</span>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:900,&quot;height&quot;:760},&quot;defaultTheme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;\&quot;dark\&quot;|\&quot;light\&quot;&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { theme: props.defaultTheme === "light" ? "light" : "dark", query: "" };
+  }
+  themeBase(theme) {
+    if (theme === "light") {
+      return { "--bg":"#faf6ef","--surface-2":"#ffffff","--text":"#2c2a26","--text-soft":"#5f5b54","--text-mute":"#9a948a","--border":"#e8dfd0","--panel":"#ffffff","--accent":"#b8862f","--accent-soft":"rgba(184,134,47,0.12)","--on-accent":"#ffffff","--font-display":"'LXGW WenKai TC','Noto Serif SC',serif","--font-body":"'Noto Serif SC',serif" };
+    }
+    return { "--bg":"#0e0f14","--surface-2":"#14151c","--text":"#e6e3da","--text-soft":"#a8a499","--text-mute":"#7a766c","--border":"rgba(255,255,255,0.1)","--panel":"#16161f","--accent":"#d9a441","--accent-soft":"rgba(217,164,65,0.14)","--on-accent":"#0a0a10","--font-display":"'Space Grotesk','Noto Sans SC',sans-serif","--font-body":"'Noto Sans SC',system-ui,sans-serif" };
+  }
+  applyTheme() {
+    const el = this.rootEl;
+    if (!el) return;
+    const base = this.themeBase(this.state.theme);
+    Object.keys(base).forEach((k) => el.style.setProperty(k, base[k]));
+    const wrap = el.firstElementChild;
+    if (wrap) { wrap.style.backgroundColor = base["--bg"]; wrap.style.color = base["--text"]; }
+  }
+  componentDidMount() {
+    let theme = this.state.theme;
+    try { const s = localStorage.getItem("uk-theme"); if (s === "light" || s === "dark") theme = s; } catch (e) {}
+    if (theme !== this.state.theme) this.setState({ theme });
+    this.applyTheme();
+  }
+  componentDidUpdate() { this.applyTheme(); }
+
+  get DATA() {
+    return [
+      { type: "领域", title: "哲学思想", sub: "Philosophy", color: "#4a9e74", badge: "DOMAIN" },
+      { type: "领域", title: "经济学", sub: "Economics", color: "#c9a23e", badge: "DOMAIN" },
+      { type: "人物", title: "苏格拉底", sub: "Socrates · 古希腊", color: "#4a9e74", badge: "THINKER" },
+      { type: "人物", title: "亚当·斯密", sub: "Adam Smith · 古典经济学", color: "#c9a23e", badge: "THINKER" },
+      { type: "人物", title: "阿兰·图灵", sub: "Alan Turing · 计算机科学", color: "#4f9cd0", badge: "THINKER" },
+      { type: "文章", title: "柏拉图洞穴比喻", sub: "思想实验 · 哲学", color: "#4a9e74", badge: "ARTICLE" },
+      { type: "文章", title: "看不见的手", sub: "概念 · 经济学", color: "#c9a23e", badge: "ARTICLE" },
+      { type: "文章", title: "黑洞：时空的深渊", sub: "物理学", color: "#6a6fd0", badge: "ARTICLE" },
+      { type: "概念", title: "认知失调", sub: "心理学", color: "#cc7a9e", badge: "CONCEPT" },
+      { type: "概念", title: "纳什均衡", sub: "博弈论 · 经济学", color: "#c9a23e", badge: "CONCEPT" },
+      { type: "概念", title: "熵", sub: "热力学 · 物理学", color: "#6a6fd0", badge: "CONCEPT" },
+    ];
+  }
+
+  renderVals() {
+    const t = this.state.theme;
+    const q = this.state.query.trim();
+    const order = ["领域", "人物", "文章", "概念"];
+    let groups = [];
+    if (q) {
+      const matched = this.DATA.filter((d) => d.title.includes(q) || d.sub.includes(q));
+      let firstFlag = true;
+      groups = order.map((type) => ({
+        type,
+        items: matched.filter((d) => d.type === type).map((d) => {
+          const active = firstFlag; firstFlag = false;
+          return { title: d.title, sub: d.sub, color: d.color, badge: d.badge, active: active };
+        }),
+      })).filter((g) => g.items.length > 0);
+    }
+    return {
+      rootRef: (el) => { this.rootEl = el; if (el) this.applyTheme(); },
+      toggleTheme: () => {
+        const next = t === "dark" ? "light" : "dark";
+        try { localStorage.setItem("uk-theme", next); } catch (e) {}
+        this.setState({ theme: next });
+      },
+      themeIcon: t === "dark" ? "☾" : "☀",
+      themeLabel: t === "dark" ? "DARK" : "LIGHT",
+      onQuery: (e) => this.setState({ query: e.target.value }),
+      query: this.state.query,
+      isEmpty: q.length === 0,
+      hasResults: q.length > 0 && groups.length > 0,
+      noMatch: q.length > 0 && groups.length === 0,
+      groups,
+      shortcuts: [
+        { title: "哲学思想", color: "#4a9e74" },
+        { title: "经济学", color: "#c9a23e" },
+        { title: "物理学", color: "#6a6fd0" },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,1 +1,11 @@
 @import "../domain-shared.css";
+
+/* computer-science = blue. Override the single accent token so token-driven
+   utilities (code, links, hover) match the domain color in both themes. */
+.domain-root {
+  --color-accent-gold: #4f9cf0;
+}
+.light .domain-root,
+.domain-root.light {
+  --color-accent-gold: #2f6fb0;
+}
