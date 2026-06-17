@@ -1,0 +1,5 @@
+# Kept in git, excluded from Vercel deployments (not part of the build or runtime).
+# reference/ is legacy source excluded from tsconfig; docs/ and e2e/ are dev-only.
+reference/
+docs/
+e2e/

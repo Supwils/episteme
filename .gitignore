@@ -6,6 +6,9 @@ node_modules/
 .next/
 out/
 
+# Vercel
+.vercel/
+
 # Build
 dist/
 build/
