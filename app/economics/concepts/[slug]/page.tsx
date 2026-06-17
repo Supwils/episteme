@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getConceptBySlug, getConceptSlugs, getAllConcepts } from "@/subjects/economics/lib/mdx";
+import { getConceptBySlug, getAllConcepts } from "@/subjects/economics/lib/mdx";
 import { CATEGORY_COLORS } from "@/subjects/economics/lib/constants";
 import { ArticleLayout } from "@/components/ArticleLayout";
 import { TableOfContents } from "@/components/TableOfContents";
@@ -12,7 +12,9 @@ import { GDPChartSection } from "./GDPChartSection";
 import { LorenzCurveSection } from "./LorenzCurveSection";
 
 export function generateStaticParams() {
-  return getConceptSlugs().map((slug) => ({ slug }));
+  // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
+  // on first request and is cached. Keeps build output small as content grows.
+  return [];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {

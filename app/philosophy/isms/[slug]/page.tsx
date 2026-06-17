@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getIsmBySlug, getIsmSlugs, buildSlugByTitleMap, getAllIsms } from "@/lib/isms";
+import { getIsmBySlug, buildSlugByTitleMap, getAllIsms } from "@/lib/isms";
 import Breadcrumb from "@/components/Breadcrumb";
 import RelatedContent from "@/components/RelatedContent";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
@@ -11,7 +11,9 @@ import { FadeInSection } from "@/components/FadeInSection";
 import { createArticleJsonLd } from "@/lib/jsonld";
 
 export function generateStaticParams() {
-  return getIsmSlugs().map((slug) => ({ slug }));
+  // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
+  // on first request and is cached. Keeps build output small as content grows.
+  return [];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {

@@ -1,17 +1,15 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import {
-  getDisorderBySlug,
-  getDisorderSlugs,
-  getAllDisorders,
-} from "@/subjects/psychology/lib/mdx";
+import { getDisorderBySlug, getAllDisorders } from "@/subjects/psychology/lib/mdx";
 import { DISORDER_CATEGORY_COLORS } from "@/subjects/psychology/lib/constants";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { ArticleLayout } from "@/components/ArticleLayout";
 import { TableOfContents } from "@/components/TableOfContents";
 
 export function generateStaticParams() {
-  return getDisorderSlugs().map((slug) => ({ slug }));
+  // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
+  // on first request and is cached. Keeps build output small as content grows.
+  return [];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {

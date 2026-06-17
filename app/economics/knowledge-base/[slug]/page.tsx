@@ -1,9 +1,5 @@
 import { notFound } from "next/navigation";
-import {
-  getKnowledgeBaseBySlug,
-  getKnowledgeBaseSlugs,
-  getAllKnowledgeBase,
-} from "@/subjects/economics/lib/mdx";
+import { getKnowledgeBaseBySlug, getAllKnowledgeBase } from "@/subjects/economics/lib/mdx";
 import { ArticleLayout } from "@/components/ArticleLayout";
 import { TableOfContents } from "@/components/TableOfContents";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
@@ -20,7 +16,9 @@ const CATEGORY_COLORS: Record<string, string> = {
 };
 
 export function generateStaticParams() {
-  return getKnowledgeBaseSlugs().map((slug) => ({ slug }));
+  // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
+  // on first request and is cached. Keeps build output small as content grows.
+  return [];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {

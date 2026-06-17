@@ -1,10 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import {
-  getEconomistBySlug,
-  getEconomistSlugs,
-  getAllEconomists,
-} from "@/subjects/economics/lib/mdx";
+import { getEconomistBySlug, getAllEconomists } from "@/subjects/economics/lib/mdx";
 import { ERA_COLORS } from "@/subjects/economics/lib/constants";
 import { ArticleLayout } from "@/components/ArticleLayout";
 import { TableOfContents } from "@/components/TableOfContents";
@@ -13,7 +9,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 
 export function generateStaticParams() {
-  return getEconomistSlugs().map((slug) => ({ slug }));
+  // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
+  // on first request and is cached. Keeps build output small as content grows.
+  return [];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {

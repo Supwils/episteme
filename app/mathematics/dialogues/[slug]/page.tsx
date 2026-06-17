@@ -1,10 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import {
-  getMathDialogueBySlug,
-  getMathDialogueSlugs,
-  getAllMathDialogues,
-} from "@/subjects/mathematics/lib/dialogues";
+import { getMathDialogueBySlug, getAllMathDialogues } from "@/subjects/mathematics/lib/dialogues";
 import { MATH_FIELD_COLORS, MATH_ERA_ACCENT } from "@/subjects/mathematics/lib/constants";
 import { MathMarkdownRenderer } from "@/subjects/mathematics/components/MathMarkdownRenderer";
 import { SITE_URL } from "@/lib/constants";
@@ -13,7 +9,9 @@ import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
 
 export function generateStaticParams() {
-  return getMathDialogueSlugs().map((slug) => ({ slug }));
+  // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
+  // on first request and is cached. Keeps build output small as content grows.
+  return [];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {

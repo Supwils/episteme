@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getSchoolBySlug, getSchoolSlugs, getAllSchools } from "@/lib/schools";
+import { getSchoolBySlug, getAllSchools } from "@/lib/schools";
 import Breadcrumb from "@/components/Breadcrumb";
 import RelatedContent from "@/components/RelatedContent";
 import { CornerMarks, OrnamentalDivider } from "@/components/school-detail/Decorations";
@@ -12,7 +12,9 @@ import { TableOfContents } from "@/components/TableOfContents";
 import { createArticleJsonLd } from "@/lib/jsonld";
 
 export function generateStaticParams() {
-  return getSchoolSlugs().map((slug) => ({ slug }));
+  // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
+  // on first request and is cached. Keeps build output small as content grows.
+  return [];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {

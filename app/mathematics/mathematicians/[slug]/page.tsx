@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import {
   getMathematicianBySlug,
-  getMathematicianSlugs,
   getAllMathematicians,
 } from "@/subjects/mathematics/lib/mathematicians";
 import { MATH_ERA_ACCENT } from "@/subjects/mathematics/lib/constants";
@@ -15,7 +14,9 @@ import { ArticleSidebar } from "@/components/ArticleSidebar";
 import { TableOfContents } from "@/components/TableOfContents";
 
 export function generateStaticParams() {
-  return getMathematicianSlugs().map((slug) => ({ slug }));
+  // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
+  // on first request and is cached. Keeps build output small as content grows.
+  return [];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {

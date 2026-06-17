@@ -5,9 +5,9 @@ import { createFrontier, FRONTIER_DOMAIN_CONFIG } from "@/lib/frontier";
 const DOMAIN = "universe-physics" as const;
 
 export function generateStaticParams() {
-  return createFrontier(DOMAIN)
-    .getSlugs()
-    .map((slug) => ({ slug }));
+  // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
+  // on first request and is cached. Keeps build output small as content grows.
+  return [];
 }
 
 export async function generateMetadata({

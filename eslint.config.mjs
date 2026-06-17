@@ -49,7 +49,7 @@ const domainBoundaryConfigs = DOMAINS.map((self) => ({
 const eslintConfig = [
   // docs/ holds documentation and design-handoff artifacts (e.g. downloaded
   // design-tool support.js), not application source — not linted as code.
-  { ignores: [".next/", "node_modules/", "coverage/", "playwright-report/", "docs/"] },
+  { ignores: [".next/", ".vercel/", "node_modules/", "coverage/", "playwright-report/", "docs/"] },
   ...compat.extends("next/core-web-vitals"),
   {
     files: ["**/MarkdownRenderer.tsx"],

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { getExperimentSlugs } from "@/lib/experiments";
 import InteractiveExperimentClient from "./InteractiveExperimentClient";
 
 export function generateStaticParams() {
-  return getExperimentSlugs().map((slug) => ({ slug }));
+  // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
+  // on first request and is cached. Keeps build output small as content grows.
+  return [];
 }
 
 export const metadata: Metadata = {

@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getQuestionBySlug, getQuestionSlugs, getAllQuestions } from "@/lib/mdx";
+import { getQuestionBySlug, getAllQuestions } from "@/lib/mdx";
 import Breadcrumb from "@/components/Breadcrumb";
 import RelatedContent from "@/components/RelatedContent";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
@@ -10,7 +10,9 @@ import { ArticleLayout } from "@/components/ArticleLayout";
 import { TableOfContents } from "@/components/TableOfContents";
 
 export function generateStaticParams() {
-  return getQuestionSlugs().map((slug) => ({ slug }));
+  // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
+  // on first request and is cached. Keeps build output small as content grows.
+  return [];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {

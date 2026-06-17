@@ -1,10 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import {
-  getKnowledgeBaseBySlug,
-  getKnowledgeBaseSlugs,
-  getAllKnowledgeBase,
-} from "@/subjects/psychology/lib/mdx";
+import { getKnowledgeBaseBySlug, getAllKnowledgeBase } from "@/subjects/psychology/lib/mdx";
 import { ArticleLayout } from "@/components/ArticleLayout";
 import { TableOfContents } from "@/components/TableOfContents";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
@@ -14,7 +10,9 @@ import { createArticleJsonLd } from "@/lib/jsonld";
 const ACCENT = "#9b7dc4";
 
 export function generateStaticParams() {
-  return getKnowledgeBaseSlugs().map((slug) => ({ slug }));
+  // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
+  // on first request and is cached. Keeps build output small as content grows.
+  return [];
 }
 
 export async function generateMetadata({

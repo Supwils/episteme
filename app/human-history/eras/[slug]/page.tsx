@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ERAS, getEraBySlug, getAdjacentEras } from "@/subjects/history/lib/eras";
+import { getEraBySlug, getAdjacentEras } from "@/subjects/history/lib/eras";
 import { EVENTS } from "@/content/human-history/data/events.js";
 import { FIGURES } from "@/content/human-history/data/figures.js";
 import { ERA_DETAIL_STYLES } from "./EraDetailStyles";
@@ -41,7 +41,9 @@ interface HistoryFigure {
 }
 
 export async function generateStaticParams() {
-  return ERAS.map((era) => ({ slug: era.id }));
+  // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
+  // on first request and is cached. Keeps build output small as content grows.
+  return [];
 }
 
 export async function generateMetadata({ params }: Props) {

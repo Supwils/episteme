@@ -1,11 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import {
-  getDialogueBySlug,
-  getDialogueSlugs,
-  getAllDialogues,
-} from "@/subjects/life-science/lib/dialogues";
+import { getDialogueBySlug, getAllDialogues } from "@/subjects/life-science/lib/dialogues";
 import { getScientistById } from "@/subjects/life-science/lib/scientists";
 import Breadcrumb from "@/components/Breadcrumb";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
@@ -16,7 +12,9 @@ import { createArticleJsonLd } from "@/lib/jsonld";
 const ACCENT = "#4a9e6f";
 
 export function generateStaticParams() {
-  return getDialogueSlugs().map((slug) => ({ slug }));
+  // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
+  // on first request and is cached. Keeps build output small as content grows.
+  return [];
 }
 
 function participantName(id: string): string {

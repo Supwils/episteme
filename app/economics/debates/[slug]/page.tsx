@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getDebateBySlug, getDebateSlugs, getAllDebates } from "@/subjects/economics/lib/mdx";
+import { getDebateBySlug, getAllDebates } from "@/subjects/economics/lib/mdx";
 import { ERA_COLORS } from "@/subjects/economics/lib/constants";
 import { ArticleLayout } from "@/components/ArticleLayout";
 import { TableOfContents } from "@/components/TableOfContents";
@@ -8,7 +8,9 @@ import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export function generateStaticParams() {
-  return getDebateSlugs().map((slug) => ({ slug }));
+  // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
+  // on first request and is cached. Keeps build output small as content grows.
+  return [];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {

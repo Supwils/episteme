@@ -27,6 +27,7 @@
     "gen-all": "pnpm gen-philo && pnpm gen-econ && pnpm gen-psych && pnpm gen-life && pnpm gen-physics-dialogues && pnpm gen-frontier && pnpm gen-domain && pnpm gen-math && pnpm gen-kb && pnpm gen-links",
     "gen-narration": "tsx scripts/gen-narration-audio.ts",
     "prebuild": "pnpm gen-all",
+    "deploy": "vercel build --prod && vercel deploy --prebuilt --prod --archive=tgz",
     "clean": "rm -rf .next dist coverage",
     "prepare": "husky"
   },

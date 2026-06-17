@@ -1,10 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import {
-  getMathConceptBySlug,
-  getMathConceptSlugs,
-  getAllMathConcepts,
-} from "@/subjects/mathematics/lib/concepts";
+import { getMathConceptBySlug, getAllMathConcepts } from "@/subjects/mathematics/lib/concepts";
 import { MATH_FIELD_COLORS } from "@/subjects/mathematics/lib/constants";
 import { MathMarkdownRenderer } from "@/subjects/mathematics/components/MathMarkdownRenderer";
 import { FunctionPlotter } from "@/subjects/mathematics/components/visualizations";
@@ -18,7 +14,9 @@ import { FractalExplorer } from "@/subjects/mathematics/components/visualization
 const INTERACTIVE_CONCEPTS = new Set(["derivative", "integral", "limit"]);
 
 export function generateStaticParams() {
-  return getMathConceptSlugs().map((slug) => ({ slug }));
+  // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
+  // on first request and is cached. Keeps build output small as content grows.
+  return [];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {

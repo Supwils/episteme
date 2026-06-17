@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getDialogueBySlug, getDialogueSlugs, getAllDialogues } from "@/lib/dialogues";
+import { getDialogueBySlug, getAllDialogues } from "@/lib/dialogues";
 import Breadcrumb from "@/components/Breadcrumb";
 import RelatedContent from "@/components/RelatedContent";
 import SafeRender from "@/components/SafeRender";
@@ -11,7 +11,9 @@ import { ArticleLayout } from "@/components/ArticleLayout";
 import { TableOfContents } from "@/components/TableOfContents";
 
 export function generateStaticParams() {
-  return getDialogueSlugs().map((slug) => ({ slug }));
+  // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
+  // on first request and is cached. Keeps build output small as content grows.
+  return [];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {

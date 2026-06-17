@@ -11,7 +11,9 @@ interface Props {
 const ACCENT = "#7c9fd6";
 
 export function generateStaticParams() {
-  return universePhysicsDialogues.getSlugs().map((slug) => ({ slug }));
+  // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
+  // on first request and is cached. Keeps build output small as content grows.
+  return [];
 }
 
 export async function generateMetadata({ params }: Props) {

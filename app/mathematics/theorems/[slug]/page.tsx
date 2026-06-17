@@ -1,10 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import {
-  getTheoremBySlug,
-  getTheoremSlugs,
-  getAllTheorems,
-} from "@/subjects/mathematics/lib/theorems";
+import { getTheoremBySlug, getAllTheorems } from "@/subjects/mathematics/lib/theorems";
 import { MATH_FIELD_COLORS, MATH_DIFFICULTY_COLORS } from "@/subjects/mathematics/lib/constants";
 import { MathMarkdownRenderer } from "@/subjects/mathematics/components/MathMarkdownRenderer";
 import { SITE_URL } from "@/lib/constants";
@@ -15,7 +11,9 @@ import { ArticleSidebar } from "@/components/ArticleSidebar";
 import { TableOfContents } from "@/components/TableOfContents";
 
 export function generateStaticParams() {
-  return getTheoremSlugs().map((slug) => ({ slug }));
+  // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
+  // on first request and is cached. Keeps build output small as content grows.
+  return [];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {

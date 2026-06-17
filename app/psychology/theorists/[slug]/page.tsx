@@ -1,10 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import {
-  getTheoristBySlug,
-  getTheoristSlugs,
-  getAllTheorists,
-} from "@/subjects/psychology/lib/mdx";
+import { getTheoristBySlug, getAllTheorists } from "@/subjects/psychology/lib/mdx";
 import { ERA_COLORS } from "@/subjects/psychology/lib/constants";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { ArticleLayout } from "@/components/ArticleLayout";
@@ -12,7 +8,9 @@ import { TableOfContents } from "@/components/TableOfContents";
 import { MaslowHierarchy } from "@/subjects/psychology/components/visualizations/MaslowHierarchy";
 
 export function generateStaticParams() {
-  return getTheoristSlugs().map((slug) => ({ slug }));
+  // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
+  // on first request and is cached. Keeps build output small as content grows.
+  return [];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {

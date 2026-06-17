@@ -7,9 +7,9 @@ const DOMAIN = "political-science";
 const SECTION = "isms";
 
 export function generateStaticParams() {
-  return createKnowledgeSection(DOMAIN, SECTION)
-    .getSlugs()
-    .map((slug) => ({ slug }));
+  // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
+  // on first request and is cached. Keeps build output small as content grows.
+  return [];
 }
 
 export async function generateMetadata({
