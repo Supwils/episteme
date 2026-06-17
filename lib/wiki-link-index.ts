@@ -30,8 +30,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "ai-alignment-philosophy": "/philosophy/frontier/ai-alignment-philosophy",
   "ai-ethics": "/philosophy/concepts/ai-ethics",
   "ai-formal-proof": "/mathematics/frontier/ai-formal-proof",
-  "ai-governance-surveillance":
-    "/political-science/frontier/ai-governance-surveillance",
+  "ai-governance-surveillance": "/political-science/frontier/ai-governance-surveillance",
   "ai-interpretability": "/computer-science/frontier/ai-interpretability",
   "ai-labor-market": "/economics/frontier/ai-labor-market",
   "al-ghazali": "/philosophy/thinkers/al-ghazali",
@@ -43,8 +42,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "alfred-marshall": "/economics/economists/alfred-marshall",
   "algebraic-geometry": "/mathematics/concepts/algebraic-geometry",
   "algorithmic-game-theory": "/computer-science/theory/algorithmic-game-theory",
-  "alliances-and-nato":
-    "/political-science/international-relations/alliances-and-nato",
+  "alliances-and-nato": "/political-science/international-relations/alliances-and-nato",
   "amartya-sen": "/economics/economists/amartya-sen",
   "amos-tversky": {
     economics: "/economics/economists/amos-tversky",
@@ -62,8 +60,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "antonio-gramsci": "/political-science/thinkers/antonio-gramsci",
   "api-design": "/computer-science/concepts/api-design",
   apology: "/philosophy/dialogues/apology",
-  "approximation-algorithms":
-    "/computer-science/theory/approximation-algorithms",
+  "approximation-algorithms": "/computer-science/theory/approximation-algorithms",
   aquinas: "/philosophy/thinkers/aquinas",
   archimedes: "/mathematics/mathematicians/archimedes",
   argument: "/philosophy/concepts/argument",
@@ -78,20 +75,17 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "asteroid-belt": "/cosmology/knowledge-base/太阳系--asteroid-belt",
   "atomic-spectra": "/universe-physics/knowledge-base/原子物理--atomic-spectra",
   "attachment-styles": "/psychology/phenomena/attachment-styles",
-  "attention-and-transformers":
-    "/computer-science/algorithms/attention-and-transformers",
+  "attention-and-transformers": "/computer-science/algorithms/attention-and-transformers",
   "attosecond-physics": "/universe-physics/frontier/attosecond-physics",
   "auction-theory": "/economics/concepts/auction-theory",
   augustine: "/philosophy/thinkers/augustine",
   austin: "/philosophy/thinkers/austin",
   "austrian-school": "/economics/schools/austrian-school",
-  "authentication-authorization":
-    "/computer-science/concepts/authentication-authorization",
+  "authentication-authorization": "/computer-science/concepts/authentication-authorization",
   authoritarianism: "/political-science/isms/authoritarianism",
   authority: "/political-science/concepts/authority",
   "autism-spectrum": "/psychology/disorders/autism-spectrum",
-  "automata-formal-languages":
-    "/computer-science/theory/automata-formal-languages",
+  "automata-formal-languages": "/computer-science/theory/automata-formal-languages",
   "availability-heuristic": "/psychology/phenomena/availability-heuristic",
   averroes: "/philosophy/thinkers/averroes",
   avicenna: "/philosophy/thinkers/avicenna",
@@ -99,19 +93,16 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   ayer: "/philosophy/thinkers/ayer",
   "b-f-skinner": "/psychology/theorists/b-f-skinner",
   backtracking: "/computer-science/algorithms/backtracking",
-  "balance-of-power":
-    "/political-science/international-relations/balance-of-power",
+  "balance-of-power": "/political-science/international-relations/balance-of-power",
   "banach-tarski": "/mathematics/paradoxes/banach-tarski",
   "barbara-liskov": "/computer-science/pioneers/barbara-liskov",
   baudrillard: "/philosophy/thinkers/baudrillard",
   "bayes-theorem": "/mathematics/theorems/bayes-theorem",
   "bayesian-inference": "/mathematics/concepts/bayesian-inference",
   beauty: "/philosophy/concepts/beauty",
-  "behavioral-economics-school":
-    "/economics/schools/behavioral-economics-school",
-  "behavioral-economics-theory":
-    "/economics/theories/behavioral-economics-theory",
-  "behavioral-finance": "/economics/concepts/behavioral-finance",
+  "behavioral-economics-daily": "/economics/knowledge-base/behavioral-economics-daily",
+  "behavioral-economics-school": "/economics/schools/behavioral-economics-school",
+  "behavioral-economics-theory": "/economics/theories/behavioral-economics-theory",
   "behavioral-genetics-polygenic-scores":
     "/psychology/frontier/behavioral-genetics-polygenic-scores",
   behaviorism: "/psychology/schools/behaviorism",
@@ -127,10 +118,8 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "binary-neutron-star-merger-kilonova":
     "/cosmology/knowledge-base/多信使天文学--binary-neutron-star-merger-kilonova",
   "binary-search": "/computer-science/algorithms/binary-search",
-  "binary-star-evolution":
-    "/cosmology/knowledge-base/恒星物理--binary-star-evolution",
-  "binary-star-systems":
-    "/cosmology/knowledge-base/恒星物理--binary-star-systems",
+  "binary-star-evolution": "/cosmology/knowledge-base/恒星物理--binary-star-evolution",
+  "binary-star-systems": "/cosmology/knowledge-base/恒星物理--binary-star-systems",
   "binding-energy-mass-defect":
     "/universe-physics/knowledge-base/核物理--binding-energy-mass-defect",
   bioethics: "/philosophy/concepts/bioethics",
@@ -138,24 +127,24 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   biosignatures: "/cosmology/knowledge-base/天体生物学--biosignatures",
   bipolar: "/psychology/disorders/bipolar",
   "bjarne-stroustrup": "/computer-science/pioneers/bjarne-stroustrup",
-  "black-hole-spin-measurement":
-    "/cosmology/knowledge-base/致密天体--black-hole-spin-measurement",
+  "black-hole-spin-measurement": "/cosmology/knowledge-base/致密天体--black-hole-spin-measurement",
   "black-holes": "/cosmology/knowledge-base/black-holes",
   blockchain: "/computer-science/concepts/blockchain",
   "bloom-filter": "/computer-science/algorithms/bloom-filter",
   "bobo-doll": "/psychology/experiments/bobo-doll",
-  "bohr-atom-model":
-    "/universe-physics/knowledge-base/原子物理--bohr-atom-model",
+  "bohr-atom-model": "/universe-physics/knowledge-base/原子物理--bohr-atom-model",
   "bohr-heisenberg": "/universe-physics/dialogues/bohr-heisenberg",
   "bohr-nagarjuna": "/universe-physics/dialogues/bohr-nagarjuna",
   "bond-market": "/economics/concepts/bond-market",
   "bond-market-explained": "/economics/knowledge-base/bond-market-explained",
+  "bond-yield-curve": "/economics/knowledge-base/bond-yield-curve",
   "borderline-personality": "/psychology/disorders/borderline-personality",
   "bose-einstein-condensate":
     "/universe-physics/knowledge-base/凝聚态物理--bose-einstein-condensate",
   "bourbaki-poincare": "/mathematics/dialogues/bourbaki-poincare",
   "bowlby-psychoanalysis": "/psychology/dialogues/bowlby-psychoanalysis",
   "brain-in-vat": "/philosophy/experiments/brain-in-vat",
+  "brain-plasticity-guide": "/psychology/knowledge-base/brain-plasticity-guide",
   "bretton-woods": "/economics/case-studies/bretton-woods",
   buddha: "/philosophy/thinkers/buddha",
   bureaucracy: "/political-science/institutions/bureaucracy",
@@ -168,6 +157,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "cantors-theorem": "/mathematics/theorems/cantors-theorem",
   "capacitance-and-inductance":
     "/universe-physics/knowledge-base/电磁学--capacitance-and-inductance",
+  "capital-asset-pricing-model": "/economics/knowledge-base/capital-asset-pricing-model",
   "carl-jung": "/psychology/theorists/carl-jung",
   "carl-rogers": "/psychology/theorists/carl-rogers",
   "carl-schmitt": "/political-science/thinkers/carl-schmitt",
@@ -179,17 +169,17 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "causal-inference-credibility-revolution":
     "/economics/frontier/causal-inference-credibility-revolution",
   causation: "/philosophy/concepts/causation",
-  "central-bank-independence":
-    "/political-science/institutions/central-bank-independence",
+  "cbt-self-help": "/psychology/knowledge-base/cbt-self-help",
+  "central-bank-independence": "/political-science/institutions/central-bank-independence",
+  "central-banking-monetary-transmission":
+    "/economics/knowledge-base/central-banking-monetary-transmission",
   "central-limit-theorem": "/mathematics/theorems/central-limit-theorem",
-  "cepheids-variable-stars":
-    "/cosmology/knowledge-base/恒星物理--cepheids-variable-stars",
+  "cepheids-variable-stars": "/cosmology/knowledge-base/恒星物理--cepheids-variable-stars",
   chalmers: "/philosophy/thinkers/chalmers",
   "change-blindness": "/psychology/phenomena/change-blindness",
   "chantal-mouffe": "/political-science/thinkers/chantal-mouffe",
   "chaos-theory": "/mathematics/concepts/chaos-theory",
-  "chaos-three-body-problem":
-    "/universe-physics/knowledge-base/经典物理--chaos-three-body-problem",
+  "chaos-three-body-problem": "/universe-physics/knowledge-base/经典物理--chaos-three-body-problem",
   "charles-babbage": "/computer-science/pioneers/charles-babbage",
   "checks-and-balances": "/political-science/concepts/checks-and-balances",
   chern: "/mathematics/mathematicians/chern",
@@ -203,22 +193,17 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "classical-economics": "/economics/schools/classical-economics",
   "claude-shannon": "/computer-science/pioneers/claude-shannon",
   "climate-and-history": "/human-history/frontier/climate-and-history",
-  "climate-economics-carbon-pricing":
-    "/economics/frontier/climate-economics-carbon-pricing",
+  "climate-economics-carbon-pricing": "/economics/frontier/climate-economics-carbon-pricing",
   "cloud-computing": "/computer-science/concepts/cloud-computing",
   "cmb-inflation-tests": "/cosmology/frontier/cmb-inflation-tests",
-  "coalition-government":
-    "/political-science/institutions/coalition-government",
+  "coalition-government": "/political-science/institutions/coalition-government",
   coastline: "/mathematics/paradoxes/coastline",
   cognitive: "/psychology/schools/cognitive",
-  "cognitive-behavioral-therapy":
-    "/psychology/schools/cognitive-behavioral-therapy",
+  "cognitive-behavioral-therapy": "/psychology/schools/cognitive-behavioral-therapy",
   "cognitive-bias": "/psychology/phenomena/cognitive-bias",
-  "cognitive-biases-evolutionary":
-    "/psychology/phenomena/cognitive-biases-evolutionary",
+  "cognitive-biases-evolutionary": "/psychology/phenomena/cognitive-biases-evolutionary",
   "cognitive-dissonance": "/psychology/phenomena/cognitive-dissonance",
-  "cognitive-dissonance-detail":
-    "/psychology/phenomena/cognitive-dissonance-detail",
+  "cognitive-dissonance-detail": "/psychology/phenomena/cognitive-dissonance-detail",
   combinatorics: "/mathematics/concepts/combinatorics",
   comets: "/cosmology/knowledge-base/太阳系--comets",
   communism: "/political-science/isms/communism",
@@ -233,13 +218,11 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
     "computer-science": "/computer-science/theory/computability",
     mathematics: "/mathematics/concepts/computability",
   },
-  "computational-complexity":
-    "/computer-science/theory/computational-complexity",
+  "computational-complexity": "/computer-science/theory/computational-complexity",
   "computational-geometry": "/computer-science/theory/computational-geometry",
   "computer-architecture": "/computer-science/concepts/computer-architecture",
   "computer-graphics": "/computer-science/concepts/computer-graphics",
-  "computer-security-principles":
-    "/computer-science/concepts/computer-security-principles",
+  "computer-security-principles": "/computer-science/concepts/computer-security-principles",
   "computer-vision": "/computer-science/concepts/computer-vision",
   concurrency: "/computer-science/concepts/concurrency",
   "confirmation-bias": "/psychology/phenomena/confirmation-bias",
@@ -247,46 +230,38 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "confucianism-extended": "/philosophy/schools/confucianism-extended",
   "confucianism-ism": "/philosophy/isms/confucianism-ism",
   confucius: "/philosophy/thinkers/confucius",
-  "confucius-political-thought":
-    "/political-science/thinkers/confucius-political-thought",
+  "confucius-political-thought": "/political-science/thinkers/confucius-political-thought",
   "confucius-socrates": "/philosophy/dialogues/confucius-socrates",
-  "consciousness-hard-problem":
-    "/psychology/debates/consciousness-hard-problem",
+  "consciousness-hard-problem": "/psychology/debates/consciousness-hard-problem",
   "consciousness-iit-gnw": "/philosophy/frontier/consciousness-iit-gnw",
   conservatism: "/political-science/isms/conservatism",
   "consistent-hashing": "/computer-science/algorithms/consistent-hashing",
   constitution: "/political-science/concepts/constitution",
-  "constitutional-courts":
-    "/political-science/institutions/constitutional-courts",
+  "constitutional-courts": "/political-science/institutions/constitutional-courts",
   "constitutionalism-separation-of-powers":
     "/political-science/institutions/constitutionalism-separation-of-powers",
   constructivism: "/philosophy/isms/constructivism",
-  "constructivism-ir":
-    "/political-science/international-relations/constructivism-ir",
+  "constructivism-ir": "/political-science/international-relations/constructivism-ir",
   "consumer-surplus": "/economics/concepts/consumer-surplus",
-  "containers-and-orchestration":
-    "/computer-science/concepts/containers-and-orchestration",
+  "containers-and-orchestration": "/computer-science/concepts/containers-and-orchestration",
   containment: "/political-science/international-relations/containment",
   "continental-philosophy": "/philosophy/schools/continental-philosophy",
   continuity: "/mathematics/concepts/continuity",
   "control-theory": "/mathematics/concepts/control-theory",
   convergence: "/mathematics/concepts/convergence",
   "convex-hull": "/computer-science/algorithms/convex-hull",
-  "convolutional-neural-networks":
-    "/computer-science/algorithms/convolutional-neural-networks",
+  "convolutional-neural-networks": "/computer-science/algorithms/convolutional-neural-networks",
+  "cooperation-science": "/psychology/knowledge-base/cooperation-science",
   coral: "/life-science/species/coral",
-  "core-collapse-supernovae":
-    "/cosmology/knowledge-base/恒星物理--core-collapse-supernovae",
+  "core-collapse-supernovae": "/cosmology/knowledge-base/恒星物理--core-collapse-supernovae",
+  "corporate-finance-valuation": "/economics/knowledge-base/corporate-finance-valuation",
   "cosmic-inflation": "/cosmology/knowledge-base/cosmic-inflation",
-  "cosmic-neutrino-background":
-    "/cosmology/knowledge-base/宇宙学前沿--cosmic-neutrino-background",
+  "cosmic-neutrino-background": "/cosmology/knowledge-base/宇宙学前沿--cosmic-neutrino-background",
   "cosmic-rays": "/cosmology/knowledge-base/多信使天文学--cosmic-rays",
   "cosmic-reionization": "/cosmology/frontier/cosmic-reionization",
-  "cosmic-thermal-history":
-    "/cosmology/knowledge-base/宇宙学基础--cosmic-thermal-history",
+  "cosmic-thermal-history": "/cosmology/knowledge-base/宇宙学基础--cosmic-thermal-history",
   "cosmology-crisis": "/cosmology/dialogues/cosmology-crisis",
-  "cosmology-history":
-    "/cosmology/knowledge-base/宇宙学基础--cosmology-history",
+  "cosmology-history": "/cosmology/knowledge-base/宇宙学基础--cosmology-history",
   cosmopolitanism: "/political-science/isms/cosmopolitanism",
   "coulomb-law-electrostatics":
     "/universe-physics/knowledge-base/电磁学--coulomb-law-electrostatics",
@@ -296,16 +271,13 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "cpu-pipelining": "/computer-science/concepts/cpu-pipelining",
   "creative-destruction": "/economics/concepts/creative-destruction",
   crick: "/life-science/scientists/crick",
-  "crispr-clinical-revolution":
-    "/life-science/frontier/crispr-clinical-revolution",
+  "crispr-clinical-revolution": "/life-science/frontier/crispr-clinical-revolution",
   "critical-theory": "/philosophy/schools/critical-theory",
   crito: "/philosophy/dialogues/crito",
-  "crypto-cbdc-monetary-economics":
-    "/economics/frontier/crypto-cbdc-monetary-economics",
+  "crypto-cbdc-monetary-economics": "/economics/frontier/crypto-cbdc-monetary-economics",
   "crypto-chronicles": "/economics/case-studies/crypto-chronicles",
   "cryptocurrency-debate": "/economics/debates/cryptocurrency-debate",
-  "cryptography-foundations":
-    "/computer-science/theory/cryptography-foundations",
+  "cryptography-foundations": "/computer-science/theory/cryptography-foundations",
   "crystal-structure-bragg-diffraction":
     "/universe-physics/knowledge-base/凝聚态物理--crystal-structure-bragg-diffraction",
   "csikszentmihalyi-pagers": "/psychology/experiments/csikszentmihalyi-pagers",
@@ -319,10 +291,8 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   dao: "/philosophy/concepts/dao",
   "dark-matter-debate": "/cosmology/dialogues/dark-matter-debate",
   "dark-matter-direct-detection": {
-    cosmology:
-      "/cosmology/knowledge-base/宇宙学前沿--dark-matter-direct-detection",
-    "universe-physics":
-      "/universe-physics/frontier/dark-matter-direct-detection",
+    cosmology: "/cosmology/knowledge-base/宇宙学前沿--dark-matter-direct-detection",
+    "universe-physics": "/universe-physics/frontier/dark-matter-direct-detection",
   },
   "dark-matter-halo": "/cosmology/knowledge-base/星系天文学--dark-matter-halo",
   "dark-matter-indirect-detection":
@@ -343,25 +313,20 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "david-ricardo": "/economics/economists/david-ricardo",
   dawkins: "/life-science/scientists/dawkins",
   "decision-trees": "/computer-science/algorithms/decision-trees",
-  "decolonial-global-history":
-    "/human-history/frontier/decolonial-global-history",
+  "decolonial-global-history": "/human-history/frontier/decolonial-global-history",
   deconstruction: "/philosophy/concepts/deconstruction",
-  "deep-learning-architectures":
-    "/computer-science/concepts/deep-learning-architectures",
+  "deep-learning-architectures": "/computer-science/concepts/deep-learning-architectures",
   "defense-mechanisms": "/psychology/phenomena/defense-mechanisms",
   "degrasse-tyson-sagan": "/cosmology/dialogues/degrasse-tyson-sagan",
   deleuze: "/philosophy/thinkers/deleuze",
-  "deliberative-democracy":
-    "/political-science/concepts/deliberative-democracy",
+  "deliberative-democracy": "/political-science/concepts/deliberative-democracy",
   dementia: "/psychology/disorders/dementia",
   democracy: {
     philosophy: "/philosophy/concepts/democracy",
     "political-science": "/political-science/concepts/democracy",
   },
-  "democracy-authoritarianism":
-    "/political-science/institutions/democracy-authoritarianism",
-  "democratic-backsliding":
-    "/political-science/frontier/democratic-backsliding",
+  "democracy-authoritarianism": "/political-science/institutions/democracy-authoritarianism",
+  "democratic-backsliding": "/political-science/frontier/democratic-backsliding",
   democritus: "/philosophy/thinkers/democritus",
   dennett: "/philosophy/thinkers/dennett",
   "dennis-ritchie": "/computer-science/pioneers/dennis-ritchie",
@@ -385,8 +350,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "digital-identity": "/philosophy/concepts/digital-identity",
   "dirac-feynman": "/universe-physics/dialogues/dirac-feynman",
   "dissociative-disorders": "/psychology/disorders/dissociative-disorders",
-  "distributed-computing-theory":
-    "/computer-science/theory/distributed-computing-theory",
+  "distributed-computing-theory": "/computer-science/theory/distributed-computing-theory",
   "distributed-systems": "/computer-science/concepts/distributed-systems",
   "distributive-justice": "/political-science/concepts/distributive-justice",
   "divergence-theorem": "/mathematics/theorems/divergence-theorem",
@@ -402,8 +366,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "dot-com-bubble": "/economics/case-studies/dot-com-bubble",
   "douglas-engelbart": "/computer-science/pioneers/douglas-engelbart",
   "douglass-north": "/economics/economists/douglass-north",
-  "dream-analysis-technique":
-    "/psychology/experiments/dream-analysis-technique",
+  "dream-analysis-technique": "/psychology/experiments/dream-analysis-technique",
   "dream-interpretation": "/psychology/phenomena/dream-interpretation",
   dualism: "/philosophy/isms/dualism",
   "dunning-kruger": "/psychology/phenomena/dunning-kruger",
@@ -414,19 +377,17 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "east-asian-miracle": "/economics/case-studies/east-asian-miracle",
   "eating-disorders": "/psychology/disorders/eating-disorders",
   "economic-growth": "/economics/theories/economic-growth",
-  "economic-indicators-guide":
-    "/economics/knowledge-base/economic-indicators-guide",
-  "economic-sanctions":
-    "/political-science/international-relations/economic-sanctions",
+  "economic-indicators-guide": "/economics/knowledge-base/economic-indicators-guide",
+  "economic-sanctions": "/political-science/international-relations/economic-sanctions",
   "edgar-codd": "/computer-science/pioneers/edgar-codd",
-  "edit-distance-algorithms":
-    "/computer-science/algorithms/edit-distance-algorithms",
+  "edit-distance-algorithms": "/computer-science/algorithms/edit-distance-algorithms",
   "edmund-burke": "/political-science/thinkers/edmund-burke",
   "edsger-dijkstra": "/computer-science/pioneers/edsger-dijkstra",
   "edward-said": "/philosophy/thinkers/edward-said",
   "edward-thorndike": "/psychology/theorists/edward-thorndike",
   "effective-altruism": "/philosophy/isms/effective-altruism",
   "effective-altruism-detail": "/philosophy/concepts/effective-altruism-detail",
+  "efficient-market-hypothesis": "/economics/knowledge-base/efficient-market-hypothesis",
   eigenvalue: "/mathematics/concepts/eigenvalue",
   "einstein-bohr": "/philosophy/dialogues/einstein-bohr",
   "einstein-kant": "/universe-physics/dialogues/einstein-kant",
@@ -436,11 +397,11 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
     "/universe-physics/knowledge-base/原子物理--electron-orbitals-quantum-numbers",
   "elinor-ostrom": "/economics/economists/elinor-ostrom",
   "elizabeth-loftus": "/psychology/theorists/elizabeth-loftus",
-  "elliptical-galaxies":
-    "/cosmology/knowledge-base/星系天文学--elliptical-galaxies",
+  "elliptical-galaxies": "/cosmology/knowledge-base/星系天文学--elliptical-galaxies",
   "embedded-systems": "/computer-science/concepts/embedded-systems",
   emergence: "/philosophy/concepts/emergence",
   "emotion-theories": "/psychology/phenomena/emotion-theories",
+  "emotional-intelligence-practice": "/psychology/knowledge-base/emotional-intelligence-practice",
   empiricism: "/philosophy/schools/empiricism",
   "empiricism-ism": "/philosophy/isms/empiricism-ism",
   "encryption-basics": "/computer-science/concepts/encryption-basics",
@@ -469,16 +430,15 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "euler-singularity": "/mathematics/frontier/euler-singularity",
   "eurozone-crisis": "/economics/case-studies/eurozone-crisis",
   euthyphro: "/philosophy/dialogues/euthyphro",
-  "event-horizon-telescope":
-    "/cosmology/knowledge-base/多信使天文学--event-horizon-telescope",
+  "event-horizon-telescope": "/cosmology/knowledge-base/多信使天文学--event-horizon-telescope",
   "evolutionary-psychology": "/psychology/schools/evolutionary-psychology",
+  "evolutionary-psychology-guide": "/psychology/knowledge-base/evolutionary-psychology-guide",
   "executive-power": "/political-science/institutions/executive-power",
   existentialism: "/philosophy/schools/existentialism",
   "existentialism-detail": "/philosophy/concepts/existentialism-detail",
   "existentialism-early": "/philosophy/schools/existentialism-early",
   "existentialism-ism": "/philosophy/isms/existentialism-ism",
-  "exoplanet-atmosphere":
-    "/cosmology/knowledge-base/天体生物学--exoplanet-atmosphere",
+  "exoplanet-atmosphere": "/cosmology/knowledge-base/天体生物学--exoplanet-atmosphere",
   "experience-machine": "/philosophy/experiments/experience-machine",
   "experimental-philosophy": "/philosophy/frontier/experimental-philosophy",
   externalities: "/economics/concepts/externalities",
@@ -488,10 +448,8 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "false-self": "/psychology/phenomena/false-self",
   falsification: "/philosophy/concepts/falsification",
   fascism: "/political-science/isms/fascism",
-  "fast-fourier-transform":
-    "/computer-science/algorithms/fast-fourier-transform",
-  "fast-radio-bursts":
-    "/cosmology/knowledge-base/多信使天文学--fast-radio-bursts",
+  "fast-fourier-transform": "/computer-science/algorithms/fast-fourier-transform",
+  "fast-radio-bursts": "/cosmology/knowledge-base/多信使天文学--fast-radio-bursts",
   federalism: "/political-science/institutions/federalism",
   feminism: {
     philosophy: "/philosophy/isms/feminism",
@@ -501,8 +459,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   fermat: "/mathematics/mathematicians/fermat",
   "fermat-last-theorem": "/mathematics/theorems/fermat-last-theorem",
   "fermi-paradox": "/cosmology/knowledge-base/天体生物学--fermi-paradox",
-  "festinger-carlsmith-1959":
-    "/psychology/experiments/festinger-carlsmith-1959",
+  "festinger-carlsmith-1959": "/psychology/experiments/festinger-carlsmith-1959",
   "feynman-diagrams-perturbation":
     "/universe-physics/knowledge-base/粒子物理--feynman-diagrams-perturbation",
   "feynman-oppenheimer": "/universe-physics/dialogues/feynman-oppenheimer",
@@ -510,10 +467,9 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "fibonacci-al-khwarizmi": "/mathematics/dialogues/fibonacci-al-khwarizmi",
   field: "/mathematics/concepts/field",
   "file-systems": "/computer-science/concepts/file-systems",
-  "financial-crisis-sequence":
-    "/economics/case-studies/financial-crisis-sequence",
-  "firewalls-and-network-security":
-    "/computer-science/concepts/firewalls-and-network-security",
+  "financial-crises-anatomy": "/economics/knowledge-base/financial-crises-anatomy",
+  "financial-crisis-sequence": "/economics/case-studies/financial-crisis-sequence",
+  "firewalls-and-network-security": "/computer-science/concepts/firewalls-and-network-security",
   "flow-state": "/psychology/phenomena/flow-state",
   "floyd-warshall": "/computer-science/algorithms/floyd-warshall",
   "fluid-mechanics-bernoulli":
@@ -522,10 +478,8 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
     "/political-science/international-relations/foreign-aid-and-development",
   "foreign-exchange": "/economics/concepts/foreign-exchange",
   "forex-basics": "/economics/knowledge-base/forex-basics",
-  "formal-grammars-chomsky-hierarchy":
-    "/computer-science/theory/formal-grammars-chomsky-hierarchy",
-  "formal-methods-and-verification":
-    "/computer-science/concepts/formal-methods-and-verification",
+  "formal-grammars-chomsky-hierarchy": "/computer-science/theory/formal-grammars-chomsky-hierarchy",
+  "formal-methods-and-verification": "/computer-science/concepts/formal-methods-and-verification",
   "formal-verification": "/computer-science/frontier/formal-verification",
   foucault: "/philosophy/thinkers/foucault",
   "four-color-theorem": "/mathematics/theorems/four-color-theorem",
@@ -537,8 +491,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "franklin-wilkins": "/life-science/dialogues/franklin-wilkins",
   "frantz-fanon": "/political-science/thinkers/frantz-fanon",
   "free-association": "/psychology/experiments/free-association",
-  "free-market-vs-intervention":
-    "/economics/debates/free-market-vs-intervention",
+  "free-market-vs-intervention": "/economics/debates/free-market-vs-intervention",
   "free-trade-fair-trade": "/economics/debates/free-trade-fair-trade",
   "free-will-debate": "/psychology/debates/free-will-debate",
   "free-will-neuroscience": "/philosophy/frontier/free-will-neuroscience",
@@ -549,18 +502,14 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "freud-jung-divergence": "/psychology/dialogues/freud-jung-divergence",
   "freud-jung-unconscious": "/psychology/dialogues/freud-jung-unconscious",
   "freud-wars": "/psychology/debates/freud-wars",
-  "friedman-kaldor-monetarism":
-    "/economics/dialogues/friedman-kaldor-monetarism",
+  "friedman-kaldor-monetarism": "/economics/dialogues/friedman-kaldor-monetarism",
   "friedrich-hayek": "/economics/economists/friedrich-hayek",
   function: "/mathematics/concepts/function",
   "functional-analysis": "/mathematics/concepts/functional-analysis",
   "functional-programming": "/computer-science/concepts/functional-programming",
-  "fundamental-attribution-error":
-    "/psychology/phenomena/fundamental-attribution-error",
-  "fundamental-theorem-of-algebra":
-    "/mathematics/theorems/fundamental-theorem-of-algebra",
-  "fundamental-theorem-of-calculus":
-    "/mathematics/theorems/fundamental-theorem-of-calculus",
+  "fundamental-attribution-error": "/psychology/phenomena/fundamental-attribution-error",
+  "fundamental-theorem-of-algebra": "/mathematics/theorems/fundamental-theorem-of-algebra",
+  "fundamental-theorem-of-calculus": "/mathematics/theorems/fundamental-theorem-of-calculus",
   "fusion-ignition-era": "/universe-physics/frontier/fusion-ignition-era",
   "gabriele-oettingen": "/psychology/theorists/gabriele-oettingen",
   gadamer: "/philosophy/thinkers/gadamer",
@@ -570,8 +519,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "galois-theory": "/mathematics/concepts/galois-theory",
   "game-theory": "/mathematics/concepts/game-theory",
   "game-theory-basics": "/economics/theories/game-theory-basics",
-  "gamma-ray-bursts":
-    "/cosmology/knowledge-base/多信使天文学--gamma-ray-bursts",
+  "gamma-ray-bursts": "/cosmology/knowledge-base/多信使天文学--gamma-ray-bursts",
   "garbage-collection": "/computer-science/concepts/garbage-collection",
   "gas-giants": "/cosmology/knowledge-base/太阳系--gas-giants",
   gauss: "/mathematics/mathematicians/gauss",
@@ -595,25 +543,20 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "gettier-dialogue": "/philosophy/dialogues/gettier-dialogue",
   "gettier-problem": "/philosophy/experiments/gettier-problem",
   "gini-coefficient": "/economics/concepts/gini-coefficient",
-  "global-governance":
-    "/political-science/international-relations/global-governance",
-  "global-governance-crisis":
-    "/political-science/frontier/global-governance-crisis",
+  "global-governance": "/political-science/international-relations/global-governance",
+  "global-governance-crisis": "/political-science/frontier/global-governance-crisis",
   godel: "/mathematics/mathematicians/godel",
   "godel-turing": "/mathematics/dialogues/godel-turing",
   goodall: "/life-science/scientists/goodall",
   "gorilla-invisibility": "/psychology/experiments/gorilla-invisibility",
   gould: "/life-science/scientists/gould",
   "gould-dawkins": "/life-science/dialogues/gould-dawkins",
-  "gpu-and-parallel-computing":
-    "/computer-science/concepts/gpu-and-parallel-computing",
+  "gpu-and-parallel-computing": "/computer-science/concepts/gpu-and-parallel-computing",
   "grace-hopper": "/computer-science/pioneers/grace-hopper",
   "gradient-boosting": "/computer-science/algorithms/gradient-boosting",
-  "gradient-descent-backprop":
-    "/computer-science/algorithms/gradient-descent-backprop",
+  "gradient-descent-backprop": "/computer-science/algorithms/gradient-descent-backprop",
   "graph-theory": "/mathematics/concepts/graph-theory",
-  "graph-theory-applications":
-    "/mathematics/concepts/graph-theory-applications",
+  "graph-theory-applications": "/mathematics/concepts/graph-theory-applications",
   "graph-traversal": "/computer-science/algorithms/graph-traversal",
   "gravitational-wave-detectors-ligo-lisa":
     "/cosmology/knowledge-base/多信使天文学--gravitational-wave-detectors-ligo-lisa",
@@ -640,40 +583,33 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   happiness: "/philosophy/concepts/happiness",
   hashing: "/computer-science/algorithms/hashing",
   "hawking-penrose": "/universe-physics/dialogues/hawking-penrose",
-  "heaps-and-priority-queues":
-    "/computer-science/algorithms/heaps-and-priority-queues",
+  "heaps-and-priority-queues": "/computer-science/algorithms/heaps-and-priority-queues",
   hegel: "/philosophy/thinkers/hegel",
   "hegel-nietzsche": "/philosophy/dialogues/hegel-nietzsche",
   hegemony: "/political-science/concepts/hegemony",
   heidegger: "/philosophy/thinkers/heidegger",
   "heinz-kohut": "/psychology/theorists/heinz-kohut",
-  "heisenberg-schrodinger":
-    "/universe-physics/dialogues/heisenberg-schrodinger",
+  "heisenberg-schrodinger": "/universe-physics/dialogues/heisenberg-schrodinger",
   heraclitus: "/philosophy/thinkers/heraclitus",
-  "hertzsprung-russell-diagram":
-    "/cosmology/knowledge-base/恒星物理--hertzsprung-russell-diagram",
+  "hertzsprung-russell-diagram": "/cosmology/knowledge-base/恒星物理--hertzsprung-russell-diagram",
   "higgs-englert": "/universe-physics/dialogues/higgs-englert",
-  "higgs-mechanism":
-    "/universe-physics/knowledge-base/粒子物理--higgs-mechanism",
+  "higgs-mechanism": "/universe-physics/knowledge-base/粒子物理--higgs-mechanism",
   hilbert: "/mathematics/mathematicians/hilbert",
   "hilbert-brouwer": "/mathematics/dialogues/hilbert-brouwer",
   "hilbert-godel": "/mathematics/dialogues/hilbert-godel",
   "hilbert-poincare": "/mathematics/dialogues/hilbert-poincare",
   "hindu-philosophy": "/philosophy/schools/hindu-philosophy",
   "hippocrates-sima-qian": "/philosophy/dialogues/hippocrates-sima-qian",
-  "historiography-methods-debate":
-    "/human-history/frontier/historiography-methods-debate",
+  "historiography-methods-debate": "/human-history/frontier/historiography-methods-debate",
   hobbes: "/philosophy/thinkers/hobbes",
-  "how-does-science-progress":
-    "/philosophy/questions/how-does-science-progress",
+  "how-does-science-progress": "/philosophy/questions/how-does-science-progress",
   "how-should-we-live": "/philosophy/questions/how-should-we-live",
   "how-to-live-meaningfully": "/philosophy/questions/how-to-live-meaningfully",
   "hua-luogeng": "/mathematics/mathematicians/hua-luogeng",
   "hubble-lemaitre": "/cosmology/dialogues/hubble-lemaitre",
   "hubble-tension": "/cosmology/frontier/hubble-tension",
   "huffman-coding": "/computer-science/algorithms/huffman-coding",
-  "human-rights-regime":
-    "/political-science/international-relations/human-rights-regime",
+  "human-rights-regime": "/political-science/international-relations/human-rights-regime",
   humanism: "/philosophy/isms/humanism",
   humanistic: "/psychology/schools/humanistic",
   hume: "/philosophy/thinkers/hume",
@@ -693,12 +629,11 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
     "/universe-physics/knowledge-base/量子物理--identical-particles-statistics",
   identity: "/philosophy/concepts/identity",
   ideology: "/political-science/concepts/ideology",
-  "impeachment-and-recall":
-    "/political-science/institutions/impeachment-and-recall",
+  "impeachment-and-recall": "/political-science/institutions/impeachment-and-recall",
   imperialism: "/political-science/isms/imperialism",
   "industrial-organization": "/economics/concepts/industrial-organization",
-  "inequality-global-wealth-tax":
-    "/economics/frontier/inequality-global-wealth-tax",
+  "inequality-economics": "/economics/knowledge-base/inequality-economics",
+  "inequality-global-wealth-tax": "/economics/frontier/inequality-global-wealth-tax",
   "inequality-growth": "/economics/debates/inequality-growth",
   "infinity-hotel": "/mathematics/paradoxes/infinity-hotel",
   inflation: "/economics/concepts/inflation",
@@ -706,8 +641,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "inflation-mechanism": "/economics/concepts/inflation-mechanism",
   "information-asymmetry": "/economics/theories/information-asymmetry",
   "information-philosophy": "/philosophy/concepts/information-philosophy",
-  "information-retrieval-and-search":
-    "/computer-science/concepts/information-retrieval-and-search",
+  "information-retrieval-and-search": "/computer-science/concepts/information-retrieval-and-search",
   "information-theory": {
     "computer-science": "/computer-science/theory/information-theory",
     mathematics: "/mathematics/concepts/information-theory",
@@ -718,14 +652,12 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "intelligence-and-espionage":
     "/political-science/international-relations/intelligence-and-espionage",
   "intelligence-theories": "/psychology/phenomena/intelligence-theories",
-  "interest-groups-and-lobbying":
-    "/political-science/institutions/interest-groups-and-lobbying",
+  "interest-groups-and-lobbying": "/political-science/institutions/interest-groups-and-lobbying",
   "interest-rate-guide": "/economics/knowledge-base/interest-rate-guide",
   "interest-rates": "/economics/concepts/interest-rates",
   "interference-and-diffraction":
     "/universe-physics/knowledge-base/光学--interference-and-diffraction",
-  "international-law":
-    "/political-science/international-relations/international-law",
+  "international-law": "/political-science/international-relations/international-law",
   "international-order-hegemony":
     "/political-science/international-relations/international-order-hegemony",
   irrationalism: "/philosophy/isms/irrationalism",
@@ -751,19 +683,16 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "john-von-neumann": "/computer-science/pioneers/john-von-neumann",
   "john-watson": "/psychology/theorists/john-watson",
   "joseph-stiglitz": "/economics/economists/joseph-stiglitz",
-  "judiciary-and-judicial-review":
-    "/political-science/institutions/judiciary-and-judicial-review",
+  "judiciary-and-judicial-review": "/political-science/institutions/judiciary-and-judicial-review",
   "jurgen-habermas": "/political-science/thinkers/jurgen-habermas",
-  "just-war-theory":
-    "/political-science/international-relations/just-war-theory",
+  "just-war-theory": "/political-science/international-relations/just-war-theory",
   justice: {
     philosophy: "/philosophy/concepts/justice",
     "political-science": "/political-science/concepts/justice",
   },
   "jwst-early-galaxies": "/cosmology/frontier/jwst-early-galaxies",
   "k-means-clustering": "/computer-science/algorithms/k-means-clustering",
-  "kahneman-gladwell-intuition":
-    "/psychology/dialogues/kahneman-gladwell-intuition",
+  "kahneman-gladwell-intuition": "/psychology/dialogues/kahneman-gladwell-intuition",
   "kahneman-thaler-nudge": "/economics/dialogues/kahneman-thaler-nudge",
   "kahneman-tversky-1979": "/psychology/experiments/kahneman-tversky-1979",
   kant: "/philosophy/thinkers/kant",
@@ -781,35 +710,27 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "keynesian-economics": "/economics/theories/keynesian-economics",
   "keynesian-school": "/economics/schools/keynesian-school",
   kierkegaard: "/philosophy/thinkers/kierkegaard",
-  "kilonova-r-process":
-    "/cosmology/knowledge-base/多信使天文学--kilonova-r-process",
-  "kinetic-theory-of-gases":
-    "/universe-physics/knowledge-base/热力学--kinetic-theory-of-gases",
+  "kilonova-r-process": "/cosmology/knowledge-base/多信使天文学--kilonova-r-process",
+  "kinetic-theory-of-gases": "/universe-physics/knowledge-base/热力学--kinetic-theory-of-gases",
   "klein-winnicott-play": "/psychology/dialogues/klein-winnicott-play",
   "knapsack-problem": "/computer-science/algorithms/knapsack-problem",
   knowledge: "/philosophy/concepts/knowledge",
-  "kohut-kernberg-narcissism":
-    "/psychology/dialogues/kohut-kernberg-narcissism",
+  "kohut-kernberg-narcissism": "/psychology/dialogues/kohut-kernberg-narcissism",
   "kolmogorov-complexity": "/computer-science/theory/kolmogorov-complexity",
   kripke: "/philosophy/thinkers/kripke",
-  "kuiper-belt-oort-cloud":
-    "/cosmology/knowledge-base/太阳系--kuiper-belt-oort-cloud",
+  "kuiper-belt-oort-cloud": "/cosmology/knowledge-base/太阳系--kuiper-belt-oort-cloud",
   "labor-economics": "/economics/concepts/labor-economics",
   "lagrangian-hamiltonian-mechanics":
     "/universe-physics/knowledge-base/经典物理--lagrangian-hamiltonian-mechanics",
-  "lambda-calculus-type-theory":
-    "/computer-science/theory/lambda-calculus-type-theory",
+  "lambda-calculus-type-theory": "/computer-science/theory/lambda-calculus-type-theory",
   laozi: "/philosophy/thinkers/laozi",
   "laozi-thoreau": "/philosophy/dialogues/laozi-thoreau",
   "large-language-models": "/computer-science/frontier/large-language-models",
-  "larry-page-and-sergey-brin":
-    "/computer-science/pioneers/larry-page-and-sergey-brin",
-  "latin-america-debt-crisis":
-    "/economics/case-studies/latin-america-debt-crisis",
+  "larry-page-and-sergey-brin": "/computer-science/pioneers/larry-page-and-sergey-brin",
+  "latin-america-debt-crisis": "/economics/case-studies/latin-america-debt-crisis",
   "lawrence-kohlberg": "/psychology/theorists/lawrence-kohlberg",
   laws: "/philosophy/dialogues/laws",
-  "laws-of-thermodynamics":
-    "/universe-physics/knowledge-base/热力学--laws-of-thermodynamics",
+  "laws-of-thermodynamics": "/universe-physics/knowledge-base/热力学--laws-of-thermodynamics",
   legalism: "/philosophy/schools/legalism",
   legislatures: "/political-science/institutions/legislatures",
   legitimacy: "/political-science/concepts/legitimacy",
@@ -821,8 +742,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "leon-walras": "/economics/economists/leon-walras",
   "leslie-lamport": "/computer-science/pioneers/leslie-lamport",
   "lev-vygotsky": "/psychology/theorists/lev-vygotsky",
-  "leverage-and-systemic-risk":
-    "/economics/concepts/leverage-and-systemic-risk",
+  "leverage-and-systemic-risk": "/economics/concepts/leverage-and-systemic-risk",
   levinas: "/philosophy/thinkers/levinas",
   li: "/philosophy/concepts/li",
   liberalism: "/political-science/isms/liberalism",
@@ -841,10 +761,8 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "linus-torvalds": "/computer-science/pioneers/linus-torvalds",
   "lisa-feldman-barrett": "/psychology/theorists/lisa-feldman-barrett",
   "liu-hui": "/mathematics/mathematicians/liu-hui",
-  "llm-as-cognitive-science-tool":
-    "/psychology/frontier/llm-as-cognitive-science-tool",
-  "llm-language-understanding":
-    "/philosophy/frontier/llm-language-understanding",
+  "llm-as-cognitive-science-tool": "/psychology/frontier/llm-as-cognitive-science-tool",
+  "llm-language-understanding": "/philosophy/frontier/llm-language-understanding",
   "local-and-municipal-government":
     "/political-science/institutions/local-and-municipal-government",
   locke: "/philosophy/thinkers/locke",
@@ -852,21 +770,17 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   logic: "/philosophy/concepts/logic",
   "logic-and-computation": "/computer-science/theory/logic-and-computation",
   "logical-positivism": "/philosophy/schools/logical-positivism",
-  "longtermism-existential-risk":
-    "/philosophy/frontier/longtermism-existential-risk",
+  "longtermism-existential-risk": "/philosophy/frontier/longtermism-existential-risk",
   "lru-cache-eviction": "/computer-science/algorithms/lru-cache-eviction",
   lucretius: "/philosophy/thinkers/lucretius",
-  "machine-learning-overview":
-    "/computer-science/concepts/machine-learning-overview",
+  "machine-learning-overview": "/computer-science/concepts/machine-learning-overview",
   "magnetar-flares": "/cosmology/knowledge-base/致密天体--magnetar-flares",
   magnetars: "/cosmology/knowledge-base/致密天体--magnetars",
-  "main-sequence-stars":
-    "/cosmology/knowledge-base/恒星物理--main-sequence-stars",
+  "main-sequence-stars": "/cosmology/knowledge-base/恒星物理--main-sequence-stars",
   "major-depressive": "/psychology/disorders/major-depressive",
   "mandelbrot-julia": "/mathematics/dialogues/mandelbrot-julia",
   manifold: "/mathematics/concepts/manifold",
-  "mao-zedong-political-thought":
-    "/political-science/thinkers/mao-zedong-political-thought",
+  "mao-zedong-political-thought": "/political-science/thinkers/mao-zedong-political-thought",
   mapreduce: "/computer-science/algorithms/mapreduce",
   "marcus-aurelius": "/philosophy/thinkers/marcus-aurelius",
   "marcus-epictetus": "/philosophy/dialogues/marcus-epictetus",
@@ -877,10 +791,10 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "margulis-dawkins": "/life-science/dialogues/margulis-dawkins",
   "market-design-frontier": "/economics/frontier/market-design-frontier",
   "market-efficiency": "/economics/concepts/market-efficiency",
-  "market-failure-public-goods":
-    "/economics/concepts/market-failure-public-goods",
+  "market-failure-public-goods": "/economics/concepts/market-failure-public-goods",
   "market-failures": "/economics/theories/market-failures",
   "market-makers": "/economics/concepts/market-makers",
+  "market-microstructure": "/economics/knowledge-base/market-microstructure",
   "marshmallow-test": "/psychology/experiments/marshmallow-test",
   "martin-seligman": "/psychology/theorists/martin-seligman",
   "marvin-minsky": "/computer-science/pioneers/marvin-minsky",
@@ -892,8 +806,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "marxism-philosophy": "/philosophy/schools/marxism-philosophy",
   "mary-wollstonecraft": "/political-science/thinkers/mary-wollstonecraft",
   "marys-room": "/philosophy/experiments/marys-room",
-  "massive-star-evolution":
-    "/cosmology/knowledge-base/恒星物理--massive-star-evolution",
+  "massive-star-evolution": "/cosmology/knowledge-base/恒星物理--massive-star-evolution",
   materialism: "/philosophy/isms/materialism",
   matrix: "/mathematics/concepts/matrix",
   "max-weber": "/political-science/thinkers/max-weber",
@@ -904,8 +817,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "measure-theory": "/mathematics/concepts/measure-theory",
   "mechanism-design": "/economics/concepts/mechanism-design",
   "melanie-klein": "/psychology/theorists/melanie-klein",
-  "memory-hierarchy-caching":
-    "/computer-science/concepts/memory-hierarchy-caching",
+  "memory-hierarchy-caching": "/computer-science/concepts/memory-hierarchy-caching",
   "memory-systems": "/psychology/phenomena/memory-systems",
   mencius: "/philosophy/thinkers/mencius",
   mendel: "/life-science/scientists/mendel",
@@ -913,23 +825,22 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   meno: "/philosophy/dialogues/meno",
   "mere-exposure-effect": "/psychology/phenomena/mere-exposure-effect",
   "merleau-ponty": "/philosophy/thinkers/merleau-ponty",
-  "message-queues-and-streaming":
-    "/computer-science/concepts/message-queues-and-streaming",
+  "message-queues-and-streaming": "/computer-science/concepts/message-queues-and-streaming",
+  "metacognition-training": "/psychology/knowledge-base/metacognition-training",
   "michael-sandel": "/political-science/thinkers/michael-sandel",
   "michael-spence": "/economics/economists/michael-spence",
   "michael-walzer": "/political-science/thinkers/michael-walzer",
   "michel-foucault": "/political-science/thinkers/michel-foucault",
   "microfinance-experiment": "/economics/case-studies/microfinance-experiment",
-  "microservices-architecture":
-    "/computer-science/concepts/microservices-architecture",
+  "microservices-architecture": "/computer-science/concepts/microservices-architecture",
   "migration-and-refugee-politics":
     "/political-science/international-relations/migration-and-refugee-politics",
   "mihaly-csikszentmihalyi": "/psychology/theorists/mihaly-csikszentmihalyi",
   "milgram-obedience": "/psychology/experiments/milgram-obedience",
-  "milky-way-structure":
-    "/cosmology/knowledge-base/星系天文学--milky-way-structure",
+  "milky-way-structure": "/cosmology/knowledge-base/星系天文学--milky-way-structure",
   mill: "/philosophy/thinkers/mill",
   "milton-friedman": "/economics/economists/milton-friedman",
+  "mindfulness-science": "/psychology/knowledge-base/mindfulness-science",
   "minimum-spanning-tree": "/computer-science/algorithms/minimum-spanning-tree",
   "mirror-neurons": "/psychology/phenomena/mirror-neurons",
   "mirror-stage": "/psychology/phenomena/mirror-stage",
@@ -937,14 +848,14 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "ml-guided-mathematics": "/mathematics/frontier/ml-guided-mathematics",
   "modal-logic": "/philosophy/concepts/modal-logic",
   "modern-monetary-theory": "/economics/schools/modern-monetary-theory",
-  "modified-gravity-mond":
-    "/cosmology/knowledge-base/宇宙学前沿--modified-gravity-mond",
+  "modified-gravity-mond": "/cosmology/knowledge-base/宇宙学前沿--modified-gravity-mond",
   mohism: "/philosophy/schools/mohism",
   "momentum-conservation-collisions":
     "/universe-physics/knowledge-base/经典物理--momentum-conservation-collisions",
   monarchy: "/political-science/institutions/monarchy",
   monetarism: "/economics/theories/monetarism",
   "monetarist-school": "/economics/schools/monetarist-school",
+  "money-and-happiness": "/economics/knowledge-base/money-and-happiness",
   "money-supply": "/economics/concepts/money-supply",
   monism: "/philosophy/isms/monism",
   "monopoly-oligopoly": "/economics/concepts/monopoly-oligopoly",
@@ -961,8 +872,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
     "/cosmology/knowledge-base/多信使天文学--multimessenger-astronomy-overview",
   "multipolar-world": "/political-science/frontier/multipolar-world",
   "multivariable-calculus": "/mathematics/concepts/multivariable-calculus",
-  "muon-g2-self-correction":
-    "/universe-physics/frontier/muon-g2-self-correction",
+  "muon-g2-self-correction": "/universe-physics/frontier/muon-g2-self-correction",
   "murdock-1962": "/psychology/experiments/murdock-1962",
   "mutually-assured-destruction":
     "/political-science/international-relations/mutually-assured-destruction",
@@ -972,15 +882,12 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "naked-mole-rat": "/life-science/species/naked-mole-rat",
   "nanograv-pta-gw-background":
     "/cosmology/knowledge-base/多信使天文学--nanograv-pta-gw-background",
-  "nanohertz-gravitational-waves":
-    "/cosmology/frontier/nanohertz-gravitational-waves",
+  "nanohertz-gravitational-waves": "/cosmology/frontier/nanohertz-gravitational-waves",
   narcissism: "/psychology/phenomena/narcissism",
   "nash-equilibrium": "/economics/concepts/nash-equilibrium",
-  "nation-and-nationalism":
-    "/political-science/concepts/nation-and-nationalism",
+  "nation-and-nationalism": "/political-science/concepts/nation-and-nationalism",
   nationalism: "/political-science/isms/nationalism",
-  "natural-language-processing":
-    "/computer-science/concepts/natural-language-processing",
+  "natural-language-processing": "/computer-science/concepts/natural-language-processing",
   "natural-religion": "/philosophy/dialogues/natural-religion",
   "nature-vs-nurture": "/psychology/debates/nature-vs-nurture",
   "neo-confucianism": "/philosophy/schools/neo-confucianism",
@@ -992,16 +899,13 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "network-flow": "/computer-science/algorithms/network-flow",
   "network-science": "/mathematics/concepts/network-science",
   "networking-protocols": "/computer-science/concepts/networking-protocols",
-  "neural-networks-concept":
-    "/computer-science/concepts/neural-networks-concept",
+  "neural-networks-concept": "/computer-science/concepts/neural-networks-concept",
   neuron: "/life-science/species/neuron",
   neuroplasticity: "/psychology/phenomena/neuroplasticity",
-  "neutrino-physics":
-    "/universe-physics/knowledge-base/粒子物理--neutrino-physics",
+  "neutrino-physics": "/universe-physics/knowledge-base/粒子物理--neutrino-physics",
   "neutron-capture-nucleosynthesis":
     "/universe-physics/knowledge-base/核物理--neutron-capture-nucleosynthesis",
-  "neutron-star-interior-eos":
-    "/cosmology/knowledge-base/致密天体--neutron-star-interior-eos",
+  "neutron-star-interior-eos": "/cosmology/knowledge-base/致密天体--neutron-star-interior-eos",
   "new-classical-school": "/economics/schools/new-classical-school",
   "newcomb-problem": "/philosophy/experiments/newcomb-problem",
   newton: "/mathematics/mathematicians/newton",
@@ -1009,8 +913,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
     mathematics: "/mathematics/dialogues/newton-leibniz",
     philosophy: "/philosophy/dialogues/newton-leibniz",
   },
-  "newtons-method-numerical":
-    "/computer-science/algorithms/newtons-method-numerical",
+  "newtons-method-numerical": "/computer-science/algorithms/newtons-method-numerical",
   "niccolo-machiavelli": "/political-science/thinkers/niccolo-machiavelli",
   nietzsche: "/philosophy/thinkers/nietzsche",
   "nietzsche-buddha": "/philosophy/dialogues/nietzsche-buddha",
@@ -1027,32 +930,30 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "nuclear-fission": "/universe-physics/knowledge-base/核物理--nuclear-fission",
   "nuclear-magnetic-resonance":
     "/universe-physics/knowledge-base/核物理--nuclear-magnetic-resonance",
-  "nuclear-proliferation":
-    "/political-science/international-relations/nuclear-proliferation",
+  "nuclear-proliferation": "/political-science/international-relations/nuclear-proliferation",
   "nuclear-shell-liquid-drop-models":
     "/universe-physics/knowledge-base/核物理--nuclear-shell-liquid-drop-models",
   "number-theory": "/mathematics/concepts/number-theory",
   "numerical-methods": "/mathematics/concepts/numerical-methods",
   "obedience-authority": "/psychology/phenomena/obedience-authority",
   "object-constancy": "/psychology/phenomena/object-constancy",
-  "object-oriented-programming":
-    "/computer-science/concepts/object-oriented-programming",
+  "object-oriented-programming": "/computer-science/concepts/object-oriented-programming",
   "object-relations": "/psychology/phenomena/object-relations",
   ocd: "/psychology/disorders/ocd",
   octopus: "/life-science/species/octopus",
   ode: "/mathematics/concepts/ode",
   "oedipus-complex": "/psychology/phenomena/oedipus-complex",
-  "ombudsman-institutions":
-    "/political-science/institutions/ombudsman-institutions",
+  "ombudsman-institutions": "/political-science/institutions/ombudsman-institutions",
   "one-party-states": "/political-science/institutions/one-party-states",
   "operating-systems": "/computer-science/concepts/operating-systems",
   "opportunity-cost": "/economics/concepts/opportunity-cost",
   "optical-fiber-and-total-internal-reflection":
     "/universe-physics/knowledge-base/光学--optical-fiber-and-total-internal-reflection",
   optimization: "/mathematics/concepts/optimization",
+  "options-derivatives-black-scholes":
+    "/economics/knowledge-base/options-derivatives-black-scholes",
   "order-book": "/economics/concepts/order-book",
-  "organoids-and-brain-intelligence":
-    "/life-science/frontier/organoids-and-brain-intelligence",
+  "organoids-and-brain-intelligence": "/life-science/frontier/organoids-and-brain-intelligence",
   "original-position": "/philosophy/experiments/original-position",
   other: "/philosophy/concepts/other",
   "otto-kernberg": "/psychology/theorists/otto-kernberg",
@@ -1060,10 +961,8 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   pagerank: "/computer-science/algorithms/pagerank",
   paradigm: "/philosophy/concepts/paradigm",
   paradox: "/philosophy/concepts/paradox",
-  "parliamentary-presidential":
-    "/political-science/institutions/parliamentary-presidential",
-  "particle-accelerators":
-    "/universe-physics/knowledge-base/粒子物理--particle-accelerators",
+  "parliamentary-presidential": "/political-science/institutions/parliamentary-presidential",
+  "particle-accelerators": "/universe-physics/knowledge-base/粒子物理--particle-accelerators",
   "pascals-wager": "/philosophy/experiments/pascals-wager",
   pasteur: "/life-science/scientists/pasteur",
   "paul-krugman": "/economics/economists/paul-krugman",
@@ -1071,14 +970,12 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "paul-samuelson": "/economics/economists/paul-samuelson",
   "pauli-exclusion-principle":
     "/universe-physics/knowledge-base/量子物理--pauli-exclusion-principle",
-  "pavlov-classical-conditioning":
-    "/psychology/experiments/pavlov-classical-conditioning",
+  "pavlov-classical-conditioning": "/psychology/experiments/pavlov-classical-conditioning",
   pde: "/mathematics/concepts/pde",
   "peak-end-rule": "/psychology/phenomena/peak-end-rule",
   peirce: "/philosophy/thinkers/peirce",
   "penrose-hawking": "/cosmology/dialogues/penrose-hawking",
-  "penrose-hawking-singularity":
-    "/cosmology/dialogues/penrose-hawking-singularity",
+  "penrose-hawking-singularity": "/cosmology/dialogues/penrose-hawking-singularity",
   "penrose-wheeler": "/universe-physics/dialogues/penrose-wheeler",
   perception: "/philosophy/concepts/perception",
   phaedo: "/philosophy/dialogues/phaedo",
@@ -1100,8 +997,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
     "/universe-physics/knowledge-base/凝聚态物理--phonons-lattice-vibrations",
   "piaget-stages": "/psychology/phenomena/piaget-stages",
   "piketty-mankiw-inequality": "/economics/dialogues/piketty-mankiw-inequality",
-  "piketty-milanovic-inequality":
-    "/economics/dialogues/piketty-milanovic-inequality",
+  "piketty-milanovic-inequality": "/economics/dialogues/piketty-milanovic-inequality",
   "placebo-effect": "/psychology/phenomena/placebo-effect",
   "planck-einstein": "/universe-physics/dialogues/planck-einstein",
   "planck-mendel": "/universe-physics/dialogues/planck-mendel",
@@ -1111,8 +1007,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   plato: "/philosophy/thinkers/plato",
   "plato-aristotle-math": "/mathematics/dialogues/plato-aristotle-math",
   "plato-confucius": "/philosophy/dialogues/plato-confucius",
-  "plato-political-philosophy":
-    "/political-science/thinkers/plato-political-philosophy",
+  "plato-political-philosophy": "/political-science/thinkers/plato-political-philosophy",
   platonism: "/philosophy/schools/platonism",
   "platos-cave": "/philosophy/experiments/platos-cave",
   plotinus: "/philosophy/thinkers/plotinus",
@@ -1124,12 +1019,12 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "political-economy": "/political-science/concepts/political-economy",
   "political-parties": "/political-science/institutions/political-parties",
   "political-philosophy": "/philosophy/schools/political-philosophy",
-  "political-representation":
-    "/political-science/concepts/political-representation",
+  "political-representation": "/political-science/concepts/political-representation",
   "political-violence": "/political-science/concepts/political-violence",
   popper: "/philosophy/thinkers/popper",
   populism: "/political-science/isms/populism",
   "populism-polarization": "/political-science/frontier/populism-polarization",
+  "portfolio-theory-diversification": "/economics/knowledge-base/portfolio-theory-diversification",
   "positive-psychology": "/psychology/schools/positive-psychology",
   positivism: "/philosophy/isms/positivism",
   "post-keynesian-school": "/economics/schools/post-keynesian-school",
@@ -1144,69 +1039,53 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "practical-wisdom": "/philosophy/concepts/practical-wisdom",
   pragmatism: "/philosophy/schools/pragmatism",
   "pragmatism-ism": "/philosophy/isms/pragmatism-ism",
-  "predictive-processing-psychiatry":
-    "/psychology/frontier/predictive-processing-psychiatry",
+  "predictive-processing-psychiatry": "/psychology/frontier/predictive-processing-psychiatry",
   presocratics: "/philosophy/schools/presocratics",
   "price-discrimination": "/economics/concepts/price-discrimination",
   "price-formation": "/economics/concepts/price-formation",
   "prime-number-theorem": "/mathematics/theorems/prime-number-theorem",
-  "primordial-black-holes":
-    "/cosmology/knowledge-base/宇宙学前沿--primordial-black-holes",
-  "principal-component-analysis":
-    "/computer-science/algorithms/principal-component-analysis",
+  "primordial-black-holes": "/cosmology/knowledge-base/宇宙学前沿--primordial-black-holes",
+  "principal-component-analysis": "/computer-science/algorithms/principal-component-analysis",
   probability: "/mathematics/concepts/probability",
-  "programming-language-design":
-    "/computer-science/concepts/programming-language-design",
+  "programming-language-design": "/computer-science/concepts/programming-language-design",
   progressivism: "/political-science/isms/progressivism",
   projection: "/psychology/phenomena/projection",
   proof: "/mathematics/concepts/proof",
   "prospect-theory-econ": "/economics/theories/prospect-theory-econ",
   protagoras: "/philosophy/thinkers/protagoras",
-  "protein-design-revolution":
-    "/life-science/frontier/protein-design-revolution",
-  "psychedelic-therapy-revival":
-    "/psychology/frontier/psychedelic-therapy-revival",
+  "protein-design-revolution": "/life-science/frontier/protein-design-revolution",
+  "psychedelic-therapy-revival": "/psychology/frontier/psychedelic-therapy-revival",
   "psychic-causality": "/psychology/phenomena/psychic-causality",
   "psychic-determinism": "/psychology/phenomena/psychic-determinism",
   psychoanalysis: "/psychology/schools/psychoanalysis",
   "psychoanalysis-culture": "/psychology/phenomena/psychoanalysis-culture",
   "psychoanalysis-efficacy": "/psychology/debates/psychoanalysis-efficacy",
   "psychodynamic-therapy": "/psychology/phenomena/psychodynamic-therapy",
+  "psychology-of-decisions": "/psychology/knowledge-base/psychology-of-decisions",
   ptsd: "/psychology/disorders/ptsd",
   "public-choice-theory": "/economics/concepts/public-choice-theory",
   "public-key-rsa": "/computer-science/algorithms/public-key-rsa",
-  "public-opinion-and-propaganda":
-    "/political-science/concepts/public-opinion-and-propaganda",
-  "pulsar-timing-array":
-    "/cosmology/knowledge-base/致密天体--pulsar-timing-array",
+  "public-opinion-and-propaganda": "/political-science/concepts/public-opinion-and-propaganda",
+  "pulsar-timing-array": "/cosmology/knowledge-base/致密天体--pulsar-timing-array",
   putnam: "/philosophy/thinkers/putnam",
   pythagoras: "/philosophy/thinkers/pythagoras",
   "pythagorean-theorem": "/mathematics/theorems/pythagorean-theorem",
   "q-learning": "/computer-science/algorithms/q-learning",
   qi: "/philosophy/concepts/qi",
   "quantum-algorithms": "/computer-science/frontier/quantum-algorithms",
-  "quantum-chromodynamics":
-    "/universe-physics/knowledge-base/粒子物理--quantum-chromodynamics",
-  "quantum-computing-theory":
-    "/computer-science/theory/quantum-computing-theory",
-  "quantum-decoherence":
-    "/universe-physics/knowledge-base/量子物理--quantum-decoherence",
-  "quantum-error-correction":
-    "/universe-physics/frontier/quantum-error-correction",
-  "quantum-hall-effect":
-    "/universe-physics/knowledge-base/凝聚态物理--quantum-hall-effect",
+  "quantum-chromodynamics": "/universe-physics/knowledge-base/粒子物理--quantum-chromodynamics",
+  "quantum-computing-theory": "/computer-science/theory/quantum-computing-theory",
+  "quantum-decoherence": "/universe-physics/knowledge-base/量子物理--quantum-decoherence",
+  "quantum-error-correction": "/universe-physics/frontier/quantum-error-correction",
+  "quantum-hall-effect": "/universe-physics/knowledge-base/凝聚态物理--quantum-hall-effect",
   "quantum-harmonic-oscillator":
     "/universe-physics/knowledge-base/量子物理--quantum-harmonic-oscillator",
-  "quantum-measurement":
-    "/universe-physics/knowledge-base/量子物理--quantum-measurement",
+  "quantum-measurement": "/universe-physics/knowledge-base/量子物理--quantum-measurement",
   "quantum-spin": "/universe-physics/knowledge-base/量子物理--quantum-spin",
-  "quarks-and-leptons":
-    "/universe-physics/knowledge-base/粒子物理--quarks-and-leptons",
+  "quarks-and-leptons": "/universe-physics/knowledge-base/粒子物理--quarks-and-leptons",
   quine: "/philosophy/thinkers/quine",
-  "radioactive-decay":
-    "/universe-physics/knowledge-base/核物理--radioactive-decay",
-  "radioactive-decay-chains":
-    "/universe-physics/knowledge-base/核物理--radioactive-decay-chains",
+  "radioactive-decay": "/universe-physics/knowledge-base/核物理--radioactive-decay",
+  "radioactive-decay-chains": "/universe-physics/knowledge-base/核物理--radioactive-decay-chains",
   ramanuja: "/philosophy/thinkers/ramanuja",
   ramanujan: "/mathematics/mathematicians/ramanujan",
   "ramanujan-hardy": "/mathematics/dialogues/ramanujan-hardy",
@@ -1223,28 +1102,25 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "realism-ir": "/political-science/international-relations/realism-ir",
   reason: "/philosophy/concepts/reason",
   "recommender-systems": "/computer-science/concepts/recommender-systems",
-  "recurrent-neural-networks":
-    "/computer-science/algorithms/recurrent-neural-networks",
+  "recurrent-neural-networks": "/computer-science/algorithms/recurrent-neural-networks",
   recursion: "/computer-science/concepts/recursion",
-  "red-blue-supergiants":
-    "/cosmology/knowledge-base/恒星物理--red-blue-supergiants",
+  "red-blue-supergiants": "/cosmology/knowledge-base/恒星物理--red-blue-supergiants",
   "red-giants-agb": "/cosmology/knowledge-base/恒星物理--red-giants-agb",
   "referendums-and-direct-democracy":
     "/political-science/institutions/referendums-and-direct-democracy",
-  "regional-organizations":
-    "/political-science/international-relations/regional-organizations",
-  "reinforcement-learning-concept":
-    "/computer-science/concepts/reinforcement-learning-concept",
+  "regional-organizations": "/political-science/international-relations/regional-organizations",
+  "reinforcement-learning-concept": "/computer-science/concepts/reinforcement-learning-concept",
+  "relationship-psychology": "/psychology/knowledge-base/relationship-psychology",
   relativism: "/philosophy/isms/relativism",
   ren: "/philosophy/concepts/ren",
   "repetition-compulsion": "/psychology/phenomena/repetition-compulsion",
   "replication-crisis": "/psychology/experiments/replication-crisis",
-  "replication-crisis-open-science":
-    "/psychology/frontier/replication-crisis-open-science",
+  "replication-crisis-open-science": "/psychology/frontier/replication-crisis-open-science",
   "replication-debate": "/psychology/debates/replication-debate",
   "representation-theory": "/mathematics/concepts/representation-theory",
   republicanism: "/political-science/isms/republicanism",
   "repugnant-conclusion": "/philosophy/experiments/repugnant-conclusion",
+  "resilience-science": "/psychology/knowledge-base/resilience-science",
   responsibility: "/philosophy/concepts/responsibility",
   "retirement-planning": "/economics/knowledge-base/retirement-planning",
   revolution: "/political-science/concepts/revolution",
@@ -1256,8 +1132,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   riemann: "/mathematics/mathematicians/riemann",
   "riemann-hypothesis": "/mathematics/theorems/riemann-hypothesis",
   rights: "/philosophy/concepts/rights",
-  "rigid-body-rotation":
-    "/universe-physics/knowledge-base/经典物理--rigid-body-rotation",
+  "rigid-body-rotation": "/universe-physics/knowledge-base/经典物理--rigid-body-rotation",
   ring: "/mathematics/concepts/ring",
   "risk-and-uncertainty": "/economics/concepts/risk-and-uncertainty",
   "robert-nozick": "/political-science/thinkers/robert-nozick",
@@ -1266,8 +1141,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "robert-tarjan": "/computer-science/pioneers/robert-tarjan",
   "ron-rivest": "/computer-science/pioneers/ron-rivest",
   "ronald-coase": "/economics/economists/ronald-coase",
-  "room-temperature-superconductor":
-    "/universe-physics/frontier/room-temperature-superconductor",
+  "room-temperature-superconductor": "/universe-physics/frontier/room-temperature-superconductor",
   "rorschach-test": "/psychology/experiments/rorschach-test",
   "rosenthal-jacobson-1968": "/psychology/experiments/rosenthal-jacobson-1968",
   rousseau: "/philosophy/thinkers/rousseau",
@@ -1285,19 +1159,18 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   schizophrenia: "/psychology/disorders/schizophrenia",
   schopenhauer: "/philosophy/thinkers/schopenhauer",
   "schrodinger-darwin": "/universe-physics/dialogues/schrodinger-darwin",
-  "schrodinger-equation":
-    "/universe-physics/knowledge-base/量子物理--schrodinger-equation",
+  "schrodinger-equation": "/universe-physics/knowledge-base/量子物理--schrodinger-equation",
   searle: "/philosophy/thinkers/searle",
   secularism: "/political-science/concepts/secularism",
   "secure-base": "/psychology/phenomena/secure-base",
   "security-dilemma-war-peace":
     "/political-science/international-relations/security-dilemma-war-peace",
   "segment-trees": "/computer-science/algorithms/segment-trees",
+  "self-analysis-guide": "/psychology/knowledge-base/self-analysis-guide",
   "self-fulfilling-prophecy": "/psychology/phenomena/self-fulfilling-prophecy",
   "seligman-csikszentmihalyi-happiness":
     "/psychology/dialogues/seligman-csikszentmihalyi-happiness",
-  "semiconductor-physics":
-    "/universe-physics/knowledge-base/凝聚态物理--semiconductor-physics",
+  "semiconductor-physics": "/universe-physics/knowledge-base/凝聚态物理--semiconductor-physics",
   seneca: "/philosophy/thinkers/seneca",
   "serial-position-effect": "/psychology/phenomena/serial-position-effect",
   series: "/mathematics/concepts/series",
@@ -1305,37 +1178,33 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   shankara: "/philosophy/thinkers/shankara",
   "ship-of-theseus": "/philosophy/experiments/ship-of-theseus",
   "short-selling": "/economics/concepts/short-selling",
-  "shortest-path-dijkstra":
-    "/computer-science/algorithms/shortest-path-dijkstra",
+  "shortest-path-dijkstra": "/computer-science/algorithms/shortest-path-dijkstra",
   "should-ai-have-rights": "/philosophy/questions/should-ai-have-rights",
   "sigmund-freud": "/psychology/theorists/sigmund-freud",
   "signal-processing": "/mathematics/concepts/signal-processing",
   "simone-de-beauvoir": "/philosophy/thinkers/simone-de-beauvoir",
   "simone-weil": "/philosophy/thinkers/simone-weil",
   "simons-levin-1998": "/psychology/experiments/simons-levin-1998",
-  "simple-harmonic-motion":
-    "/universe-physics/knowledge-base/经典物理--simple-harmonic-motion",
+  "simple-harmonic-motion": "/universe-physics/knowledge-base/经典物理--simple-harmonic-motion",
   "simpsons-paradox": "/mathematics/paradoxes/simpsons-paradox",
   "simulated-annealing": "/computer-science/algorithms/simulated-annealing",
-  "single-cell-human-cell-atlas":
-    "/life-science/frontier/single-cell-human-cell-atlas",
+  "single-cell-human-cell-atlas": "/life-science/frontier/single-cell-human-cell-atlas",
   "skinner-chomsky-language": "/psychology/dialogues/skinner-chomsky-language",
   "skip-lists": "/computer-science/algorithms/skip-lists",
+  "sleep-and-mind": "/psychology/knowledge-base/sleep-and-mind",
   "smith-marx-capitalism": "/economics/dialogues/smith-marx-capitalism",
   "social-anxiety": "/psychology/disorders/social-anxiety",
   "social-contract": "/political-science/concepts/social-contract",
   "social-democracy": "/political-science/isms/social-democracy",
   "social-identity": "/psychology/phenomena/social-identity",
-  "social-media-teen-mental-health":
-    "/psychology/frontier/social-media-teen-mental-health",
+  "social-media-teen-mental-health": "/psychology/frontier/social-media-teen-mental-health",
   "social-psychology": "/psychology/schools/social-psychology",
   socialism: "/political-science/isms/socialism",
   socrates: "/philosophy/thinkers/socrates",
   "soft-power": "/political-science/international-relations/soft-power",
   "software-engineering": "/computer-science/concepts/software-engineering",
   "software-testing": "/computer-science/concepts/software-testing",
-  "solar-structure-activity":
-    "/cosmology/knowledge-base/太阳系--solar-structure-activity",
+  "solar-structure-activity": "/cosmology/knowledge-base/太阳系--solar-structure-activity",
   "solomon-asch": "/psychology/theorists/solomon-asch",
   "sophie-germain": "/mathematics/mathematicians/sophie-germain",
   sophist: "/philosophy/dialogues/sophist",
@@ -1348,8 +1217,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "spiral-galaxies": "/cosmology/knowledge-base/星系天文学--spiral-galaxies",
   splitting: "/psychology/phenomena/splitting",
   "stagflation-1970s": "/economics/case-studies/stagflation-1970s",
-  "standard-model-overview":
-    "/universe-physics/knowledge-base/粒子物理--standard-model-overview",
+  "standard-model-overview": "/universe-physics/knowledge-base/粒子物理--standard-model-overview",
   "stanford-prison": "/psychology/experiments/stanford-prison",
   "stanley-milgram": "/psychology/theorists/stanley-milgram",
   "star-formation": "/cosmology/knowledge-base/恒星物理--star-formation",
@@ -1359,12 +1227,10 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
     "/universe-physics/knowledge-base/热力学--statistical-mechanics-boltzmann",
   statistics: "/mathematics/concepts/statistics",
   "stellar-evolution": "/cosmology/knowledge-base/stellar-evolution",
-  "stellar-mass-black-holes":
-    "/cosmology/knowledge-base/致密天体--stellar-mass-black-holes",
+  "stellar-mass-black-holes": "/cosmology/knowledge-base/致密天体--stellar-mass-black-holes",
   "stellar-metallicity-chemical-evolution":
     "/cosmology/knowledge-base/恒星物理--stellar-metallicity-chemical-evolution",
-  "stellar-populations":
-    "/cosmology/knowledge-base/恒星物理--stellar-populations",
+  "stellar-populations": "/cosmology/knowledge-base/恒星物理--stellar-populations",
   "stellar-structure-hydrostatic-equilibrium":
     "/cosmology/knowledge-base/恒星物理--stellar-structure-hydrostatic-equilibrium",
   "steve-wozniak": "/computer-science/pioneers/steve-wozniak",
@@ -1376,50 +1242,42 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "stokes-theorem": "/mathematics/theorems/stokes-theorem",
   "strange-situation": "/psychology/experiments/strange-situation",
   strawson: "/philosophy/thinkers/strawson",
+  "stress-and-brain": "/psychology/knowledge-base/stress-and-brain",
   "string-matching": "/computer-science/algorithms/string-matching",
   structuralism: "/philosophy/schools/structuralism",
   "structuralism-ism": "/philosophy/isms/structuralism-ism",
-  "structuralism-poststructuralism":
-    "/philosophy/schools/structuralism-poststructuralism",
+  "structuralism-poststructuralism": "/philosophy/schools/structuralism-poststructuralism",
   sublime: "/philosophy/concepts/sublime",
   substance: "/philosophy/concepts/substance",
-  "suffix-trees-and-arrays":
-    "/computer-science/algorithms/suffix-trees-and-arrays",
+  "suffix-trees-and-arrays": "/computer-science/algorithms/suffix-trees-and-arrays",
   "sun-yat-sen": "/political-science/thinkers/sun-yat-sen",
   "sunk-cost-fallacy": "/psychology/phenomena/sunk-cost-fallacy",
   superfluidity: "/universe-physics/knowledge-base/凝聚态物理--superfluidity",
-  "supermassive-black-holes":
-    "/cosmology/knowledge-base/致密天体--supermassive-black-holes",
+  "supermassive-black-holes": "/cosmology/knowledge-base/致密天体--supermassive-black-holes",
   "supply-demand": "/economics/theories/supply-demand",
   "supply-side-school": "/economics/schools/supply-side-school",
-  "support-vector-machines":
-    "/computer-science/algorithms/support-vector-machines",
+  "support-vector-machines": "/computer-science/algorithms/support-vector-machines",
   "svante-paabo": "/life-science/scientists/svante-paabo",
   swampman: "/philosophy/experiments/swampman",
   symposium: "/philosophy/dialogues/symposium",
-  "synthetic-genome-mirror-life":
-    "/life-science/frontier/synthetic-genome-mirror-life",
+  "synthetic-genome-mirror-life": "/life-science/frontier/synthetic-genome-mirror-life",
   taoism: "/philosophy/schools/taoism",
   tardigrade: "/life-science/species/tardigrade",
   "taylor-theorem": "/mathematics/theorems/taylor-theorem",
-  "tcp-and-reliable-transport":
-    "/computer-science/concepts/tcp-and-reliable-transport",
-  "terrestrial-planets":
-    "/cosmology/knowledge-base/太阳系--terrestrial-planets",
+  "tcp-and-reliable-transport": "/computer-science/concepts/tcp-and-reliable-transport",
+  "terrestrial-planets": "/cosmology/knowledge-base/太阳系--terrestrial-planets",
   "terrorism-and-counterterrorism":
     "/political-science/international-relations/terrorism-and-counterterrorism",
   "tesla-edison": "/universe-physics/dialogues/tesla-edison",
   thales: "/philosophy/thinkers/thales",
-  "the-electoral-college":
-    "/political-science/institutions/the-electoral-college",
+  "the-electoral-college": "/political-science/institutions/the-electoral-college",
   "the-republic": "/philosophy/dialogues/the-republic",
   "the-state": "/political-science/concepts/the-state",
   "the-un-system": "/political-science/international-relations/the-un-system",
   "the-web-and-http": "/computer-science/concepts/the-web-and-http",
   theaetetus: "/philosophy/dialogues/theaetetus",
   theocracy: "/political-science/institutions/theocracy",
-  "thomas-aquinas-politics":
-    "/political-science/thinkers/thomas-aquinas-politics",
+  "thomas-aquinas-politics": "/political-science/thinkers/thomas-aquinas-politics",
   "thomas-hobbes": "/political-science/thinkers/thomas-hobbes",
   "thomas-jefferson": "/political-science/thinkers/thomas-jefferson",
   "thomas-kuhn": "/philosophy/thinkers/thomas-kuhn",
@@ -1428,21 +1286,18 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "thomas-schelling": "/economics/economists/thomas-schelling",
   thomson: "/philosophy/thinkers/thomson",
   "three-dialogues": "/philosophy/dialogues/three-dialogues",
-  "tidal-disruption-events":
-    "/cosmology/knowledge-base/致密天体--tidal-disruption-events",
+  "tidal-disruption-events": "/cosmology/knowledge-base/致密天体--tidal-disruption-events",
   "tim-berners-lee": "/computer-science/pioneers/tim-berners-lee",
   timaeus: "/philosophy/dialogues/timaeus",
   time: "/philosophy/concepts/time",
+  "time-discounting": "/economics/knowledge-base/time-discounting",
   toegye: "/philosophy/thinkers/toegye",
-  "topological-insulators":
-    "/universe-physics/knowledge-base/凝聚态物理--topological-insulators",
-  "topological-qubits-majorana":
-    "/universe-physics/frontier/topological-qubits-majorana",
+  "topological-insulators": "/universe-physics/knowledge-base/凝聚态物理--topological-insulators",
+  "topological-qubits-majorana": "/universe-physics/frontier/topological-qubits-majorana",
   "topological-sort": "/computer-science/algorithms/topological-sort",
   topology: "/mathematics/concepts/topology",
   totalitarianism: "/political-science/isms/totalitarianism",
-  "trade-politics-and-wto":
-    "/political-science/international-relations/trade-politics-and-wto",
+  "trade-politics-and-wto": "/political-science/international-relations/trade-politics-and-wto",
   "trade-theory": "/economics/theories/trade-theory",
   "tragedy-of-commons": "/economics/concepts/tragedy-of-commons",
   transcendentalism: "/philosophy/isms/transcendentalism",
@@ -1457,12 +1312,11 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "twin-earth": "/philosophy/experiments/twin-earth",
   "two-envelope": "/mathematics/paradoxes/two-envelope",
   "two-new-sciences": "/philosophy/dialogues/two-new-sciences",
-  "type-ia-supernovae":
-    "/cosmology/knowledge-base/恒星物理--type-ia-supernovae",
+  "type-ia-supernovae": "/cosmology/knowledge-base/恒星物理--type-ia-supernovae",
   "type-systems": "/computer-science/concepts/type-systems",
   unconscious: "/psychology/phenomena/unconscious",
-  "unicode-and-text-encoding":
-    "/computer-science/concepts/unicode-and-text-encoding",
+  "understanding-bubbles": "/economics/knowledge-base/understanding-bubbles",
+  "unicode-and-text-encoding": "/computer-science/concepts/unicode-and-text-encoding",
   "union-find": "/computer-science/algorithms/union-find",
   "utility-monster": "/philosophy/experiments/utility-monster",
   "vector-space": "/mathematics/concepts/vector-space",
@@ -1484,8 +1338,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "watson-franklin": "/philosophy/dialogues/watson-franklin",
   "wave-function-probability":
     "/universe-physics/knowledge-base/量子物理--wave-function-probability",
-  "waves-and-acoustics":
-    "/universe-physics/knowledge-base/经典物理--waves-and-acoustics",
+  "waves-and-acoustics": "/universe-physics/knowledge-base/经典物理--waves-and-acoustics",
   "web-security-xss-csrf": "/computer-science/concepts/web-security-xss-csrf",
   "what-can-we-know": "/philosophy/questions/what-can-we-know",
   "what-is-beauty": "/philosophy/questions/what-is-beauty",
@@ -1517,8 +1370,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "yen-carry-trade": "/economics/case-studies/yen-carry-trade",
   "yin-yang": "/philosophy/concepts/yin-yang",
   "yoshua-bengio": "/computer-science/pioneers/yoshua-bengio",
-  "zajonc-chinese-characters":
-    "/psychology/experiments/zajonc-chinese-characters",
+  "zajonc-chinese-characters": "/psychology/experiments/zajonc-chinese-characters",
   "zeno-paradoxes": "/mathematics/paradoxes/zeno-paradoxes",
   "zero-knowledge-proofs": "/computer-science/frontier/zero-knowledge-proofs",
   "zhou-dunyi": "/philosophy/thinkers/zhou-dunyi",
@@ -1527,13 +1379,11 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "zu-chongzhi": "/mathematics/mathematicians/zu-chongzhi",
   一战: "/human-history/knowledge/事件--一战",
   万有引力: "/universe-physics/knowledge-base/经典物理--万有引力",
-  万有引力与开普勒定律:
-    "/universe-physics/knowledge-base/经典物理--万有引力与开普勒定律",
+  万有引力与开普勒定律: "/universe-physics/knowledge-base/经典物理--万有引力与开普勒定律",
   万隆会议: "/human-history/knowledge/当代--万隆会议",
   不确定性原理: "/universe-physics/knowledge-base/量子物理--不确定性原理",
   东南亚: "/human-history/knowledge/文明--东南亚",
-  丝绸之路上的文化融合:
-    "/human-history/knowledge/文化交流--丝绸之路上的文化融合",
+  丝绸之路上的文化融合: "/human-history/knowledge/文化交流--丝绸之路上的文化融合",
   两河流域早期: "/human-history/knowledge/远古时期--亚洲--两河流域早期",
   "中世纪--亚洲--唐朝": "/human-history/knowledge/中世纪--亚洲--唐朝",
   "中世纪--亚洲--宋朝": "/human-history/knowledge/中世纪--亚洲--宋朝",
@@ -1542,10 +1392,8 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "中世纪--十字军东征": "/human-history/knowledge/中世纪--十字军东征",
   "中世纪--拜占庭帝国": "/human-history/knowledge/中世纪--拜占庭帝国",
   "中世纪--概述": "/human-history/knowledge/中世纪--概述",
-  "中世纪--欧洲--十字军东征":
-    "/human-history/knowledge/中世纪--欧洲--十字军东征",
-  "中世纪--欧洲--拜占庭帝国":
-    "/human-history/knowledge/中世纪--欧洲--拜占庭帝国",
+  "中世纪--欧洲--十字军东征": "/human-history/knowledge/中世纪--欧洲--十字军东征",
+  "中世纪--欧洲--拜占庭帝国": "/human-history/knowledge/中世纪--欧洲--拜占庭帝国",
   "中世纪--维京人": "/human-history/knowledge/中世纪--维京人",
   "中世纪--蒙古帝国": "/human-history/knowledge/中世纪--蒙古帝国",
   "中世纪--非洲--马里帝国": "/human-history/knowledge/中世纪--非洲--马里帝国",
@@ -1556,8 +1404,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   中央银行的诞生: "/human-history/knowledge/经济史--中央银行的诞生",
   中子星与脉冲星: "/cosmology/knowledge-base/中子星与脉冲星",
   中微子探测器: "/cosmology/knowledge-base/宇宙学观测--中微子探测器",
-  临界密度与宇宙几何:
-    "/cosmology/knowledge-base/宇宙学基础--临界密度与宇宙几何",
+  临界密度与宇宙几何: "/cosmology/knowledge-base/宇宙学基础--临界密度与宇宙几何",
   乔布斯: "/human-history/knowledge/人物--乔布斯",
   "事件--一战": "/human-history/knowledge/事件--一战",
   "事件--丝绸之路": "/human-history/knowledge/事件--丝绸之路",
@@ -1622,17 +1469,13 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "光学--optical-fiber-and-total-internal-reflection":
     "/universe-physics/knowledge-base/光学--optical-fiber-and-total-internal-reflection",
   "光学--polarization": "/universe-physics/knowledge-base/光学--polarization",
-  "光学--光的色散与彩虹":
-    "/universe-physics/knowledge-base/光学--光的色散与彩虹",
+  "光学--光的色散与彩虹": "/universe-physics/knowledge-base/光学--光的色散与彩虹",
   "光学--全息术": "/universe-physics/knowledge-base/光学--全息术",
-  "光学--激光冷却与原子阱":
-    "/universe-physics/knowledge-base/光学--激光冷却与原子阱",
-  "光学--激光原理与应用":
-    "/universe-physics/knowledge-base/光学--激光原理与应用",
+  "光学--激光冷却与原子阱": "/universe-physics/knowledge-base/光学--激光冷却与原子阱",
+  "光学--激光原理与应用": "/universe-physics/knowledge-base/光学--激光原理与应用",
   "光学--非线性光学": "/universe-physics/knowledge-base/光学--非线性光学",
   光学望远镜: "/cosmology/knowledge-base/宇宙学观测--光学望远镜",
-  光电效应与量子化光:
-    "/universe-physics/knowledge-base/原子物理--光电效应与量子化光",
+  光电效应与量子化光: "/universe-physics/knowledge-base/原子物理--光电效应与量子化光",
   光的本质: "/universe-physics/knowledge-base/电磁学--光的本质",
   光的色散与彩虹: "/universe-physics/knowledge-base/光学--光的色散与彩虹",
   克尔转动黑洞: "/universe-physics/knowledge-base/相对论--克尔转动黑洞",
@@ -1642,21 +1485,15 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   全球化: "/human-history/knowledge/概念--全球化",
   全球化三次浪潮: "/human-history/knowledge/经济史--全球化三次浪潮",
   全球化与本土化: "/human-history/knowledge/文化交流--全球化与本土化",
-  共动距离与宇宙学红移:
-    "/cosmology/knowledge-base/宇宙学基础--共动距离与宇宙学红移",
+  共动距离与宇宙学红移: "/cosmology/knowledge-base/宇宙学基础--共动距离与宇宙学红移",
   共生: "/life-science/knowledge-base/生态学--共生",
-  "关键事件--二叠纪大灭绝":
-    "/life-science/knowledge-base/关键事件--二叠纪大灭绝",
-  "关键事件--人类走出非洲":
-    "/life-science/knowledge-base/关键事件--人类走出非洲",
+  "关键事件--二叠纪大灭绝": "/life-science/knowledge-base/关键事件--二叠纪大灭绝",
+  "关键事件--人类走出非洲": "/life-science/knowledge-base/关键事件--人类走出非洲",
   "关键事件--内共生起源": "/life-science/knowledge-base/关键事件--内共生起源",
-  "关键事件--寒武纪大爆发":
-    "/life-science/knowledge-base/关键事件--寒武纪大爆发",
+  "关键事件--寒武纪大爆发": "/life-science/knowledge-base/关键事件--寒武纪大爆发",
   "关键事件--登陆": "/life-science/knowledge-base/关键事件--登陆",
-  "关键事件--白垩纪大灭绝":
-    "/life-science/knowledge-base/关键事件--白垩纪大灭绝",
-  "关键事件--真核细胞起源":
-    "/life-science/knowledge-base/关键事件--真核细胞起源",
+  "关键事件--白垩纪大灭绝": "/life-science/knowledge-base/关键事件--白垩纪大灭绝",
+  "关键事件--真核细胞起源": "/life-science/knowledge-base/关键事件--真核细胞起源",
   "关键事件--陆地化": "/life-science/knowledge-base/关键事件--陆地化",
   内共生起源: "/life-science/knowledge-base/关键事件--内共生起源",
   内容深度规范: "/human-history/knowledge/内容深度规范",
@@ -1675,22 +1512,17 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
     "/universe-physics/knowledge-base/凝聚态物理--quantum-hall-effect",
   "凝聚态物理--semiconductor-physics":
     "/universe-physics/knowledge-base/凝聚态物理--semiconductor-physics",
-  "凝聚态物理--superfluidity":
-    "/universe-physics/knowledge-base/凝聚态物理--superfluidity",
+  "凝聚态物理--superfluidity": "/universe-physics/knowledge-base/凝聚态物理--superfluidity",
   "凝聚态物理--topological-insulators":
     "/universe-physics/knowledge-base/凝聚态物理--topological-insulators",
-  "凝聚态物理--磁性与铁磁体":
-    "/universe-physics/knowledge-base/凝聚态物理--磁性与铁磁体",
-  凝聚态物理与量子材料:
-    "/universe-physics/knowledge-base/前沿物理--凝聚态物理与量子材料",
+  "凝聚态物理--磁性与铁磁体": "/universe-physics/knowledge-base/凝聚态物理--磁性与铁磁体",
+  凝聚态物理与量子材料: "/universe-physics/knowledge-base/前沿物理--凝聚态物理与量子材料",
   凯撒: "/human-history/knowledge/人物--凯撒",
   "分子生物学--基因调控": "/life-science/knowledge-base/分子生物学--基因调控",
   "分子生物学--干细胞": "/life-science/knowledge-base/分子生物学--干细胞",
   "分子生物学--细胞信号": "/life-science/knowledge-base/分子生物学--细胞信号",
-  "分子生物学--蛋白质折叠":
-    "/life-science/knowledge-base/分子生物学--蛋白质折叠",
-  "分子生物学--蛋白质组学":
-    "/life-science/knowledge-base/分子生物学--蛋白质组学",
+  "分子生物学--蛋白质折叠": "/life-science/knowledge-base/分子生物学--蛋白质折叠",
+  "分子生物学--蛋白质组学": "/life-science/knowledge-base/分子生物学--蛋白质组学",
   "分子生物学--表观遗传": "/life-science/knowledge-base/分子生物学--表观遗传",
   制冷与热泵: "/universe-physics/knowledge-base/热力学--制冷与热泵",
   "制度--封建制度": "/human-history/knowledge/制度--封建制度",
@@ -1701,14 +1533,11 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "前沿物理--凝聚态物理与量子材料":
     "/universe-physics/knowledge-base/前沿物理--凝聚态物理与量子材料",
   "前沿物理--宇宙暴胀": "/universe-physics/knowledge-base/前沿物理--宇宙暴胀",
-  "前沿物理--希格斯玻色子":
-    "/universe-physics/knowledge-base/前沿物理--希格斯玻色子",
+  "前沿物理--希格斯玻色子": "/universe-physics/knowledge-base/前沿物理--希格斯玻色子",
   "前沿物理--弦理论": "/universe-physics/knowledge-base/前沿物理--弦理论",
   "前沿物理--暗物质": "/universe-physics/knowledge-base/前沿物理--暗物质",
-  "前沿物理--核聚变与恒星能源":
-    "/universe-physics/knowledge-base/前沿物理--核聚变与恒星能源",
-  "前沿物理--量子场论导论":
-    "/universe-physics/knowledge-base/前沿物理--量子场论导论",
+  "前沿物理--核聚变与恒星能源": "/universe-physics/knowledge-base/前沿物理--核聚变与恒星能源",
+  "前沿物理--量子场论导论": "/universe-physics/knowledge-base/前沿物理--量子场论导论",
   "前沿物理--量子计算": "/universe-physics/knowledge-base/前沿物理--量子计算",
   "医学--器官移植": "/life-science/knowledge-base/医学--器官移植",
   "医学--抗生素": "/life-science/knowledge-base/医学--抗生素",
@@ -1720,16 +1549,13 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   印度思想传统: "/human-history/knowledge/古典时期--亚洲--印度思想传统",
   印度文明: "/human-history/knowledge/文明--印度文明",
   原初引力波与B模式: "/cosmology/knowledge-base/宇宙学基础--原初引力波与B模式",
-  "原子物理--atomic-spectra":
-    "/universe-physics/knowledge-base/原子物理--atomic-spectra",
-  "原子物理--bohr-atom-model":
-    "/universe-physics/knowledge-base/原子物理--bohr-atom-model",
+  "原子物理--atomic-spectra": "/universe-physics/knowledge-base/原子物理--atomic-spectra",
+  "原子物理--bohr-atom-model": "/universe-physics/knowledge-base/原子物理--bohr-atom-model",
   "原子物理--electron-orbitals-quantum-numbers":
     "/universe-physics/knowledge-base/原子物理--electron-orbitals-quantum-numbers",
   "原子物理--hydrogen-atom-quantum-theory":
     "/universe-physics/knowledge-base/原子物理--hydrogen-atom-quantum-theory",
-  "原子物理--光电效应与量子化光":
-    "/universe-physics/knowledge-base/原子物理--光电效应与量子化光",
+  "原子物理--光电效应与量子化光": "/universe-physics/knowledge-base/原子物理--光电效应与量子化光",
   原子论演变: "/human-history/knowledge/科学史--原子论演变",
   去殖民化浪潮: "/human-history/knowledge/当代--去殖民化浪潮",
   参考系与惯性: "/universe-physics/knowledge-base/物理学--参考系与惯性",
@@ -1740,24 +1566,16 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "古代文明--腓尼基": "/human-history/knowledge/古代文明--腓尼基",
   "古代文明--苏美尔": "/human-history/knowledge/古代文明--苏美尔",
   "古代文明--赫梯": "/human-history/knowledge/古代文明--赫梯",
-  "古典时期--亚洲--印度思想传统":
-    "/human-history/knowledge/古典时期--亚洲--印度思想传统",
-  "古典时期--亚洲--春秋战国":
-    "/human-history/knowledge/古典时期--亚洲--春秋战国",
-  "古典时期--亚洲--波斯帝国":
-    "/human-history/knowledge/古典时期--亚洲--波斯帝国",
-  "古典时期--亚洲--秦汉帝国":
-    "/human-history/knowledge/古典时期--亚洲--秦汉帝国",
+  "古典时期--亚洲--印度思想传统": "/human-history/knowledge/古典时期--亚洲--印度思想传统",
+  "古典时期--亚洲--春秋战国": "/human-history/knowledge/古典时期--亚洲--春秋战国",
+  "古典时期--亚洲--波斯帝国": "/human-history/knowledge/古典时期--亚洲--波斯帝国",
+  "古典时期--亚洲--秦汉帝国": "/human-history/knowledge/古典时期--亚洲--秦汉帝国",
   "古典时期--概述": "/human-history/knowledge/古典时期--概述",
   "古典时期--欧洲--古希腊": "/human-history/knowledge/古典时期--欧洲--古希腊",
-  "古典时期--欧洲--希腊城邦":
-    "/human-history/knowledge/古典时期--欧洲--希腊城邦",
-  "古典时期--欧洲--罗马共和国与帝国":
-    "/human-history/knowledge/古典时期--欧洲--罗马共和国与帝国",
-  "古典时期--美洲--特奥蒂瓦坎":
-    "/human-history/knowledge/古典时期--美洲--特奥蒂瓦坎",
-  "古典时期--非洲--阿克苏姆王国":
-    "/human-history/knowledge/古典时期--非洲--阿克苏姆王国",
+  "古典时期--欧洲--希腊城邦": "/human-history/knowledge/古典时期--欧洲--希腊城邦",
+  "古典时期--欧洲--罗马共和国与帝国": "/human-history/knowledge/古典时期--欧洲--罗马共和国与帝国",
+  "古典时期--美洲--特奥蒂瓦坎": "/human-history/knowledge/古典时期--美洲--特奥蒂瓦坎",
+  "古典时期--非洲--阿克苏姆王国": "/human-history/knowledge/古典时期--非洲--阿克苏姆王国",
   古印度: "/human-history/knowledge/古代文明--古印度",
   古埃及前王朝: "/human-history/knowledge/远古时期--非洲--古埃及前王朝",
   古希腊: "/human-history/knowledge/古典时期--欧洲--古希腊",
@@ -1769,71 +1587,52 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   唐朝: "/human-history/knowledge/中世纪--亚洲--唐朝",
   器官移植: "/life-science/knowledge-base/医学--器官移植",
   图灵: "/human-history/knowledge/人物--图灵",
-  地球物理与地震波:
-    "/universe-physics/knowledge-base/应用物理--地球物理与地震波",
+  地球物理与地震波: "/universe-physics/knowledge-base/应用物理--地球物理与地震波",
   城市生态: "/life-science/knowledge-base/生态学--城市生态",
   基因测序: "/life-science/knowledge-base/生物技术--基因测序",
   基因编辑: "/life-science/knowledge-base/当代议题--基因编辑",
   基因调控: "/life-science/knowledge-base/分子生物学--基因调控",
-  声学与多普勒效应:
-    "/universe-physics/knowledge-base/经典物理--声学与多普勒效应",
-  复合时期与最后散射面:
-    "/cosmology/knowledge-base/宇宙学基础--复合时期与最后散射面",
+  声学与多普勒效应: "/universe-physics/knowledge-base/经典物理--声学与多普勒效应",
+  复合时期与最后散射面: "/cosmology/knowledge-base/宇宙学基础--复合时期与最后散射面",
   "多信使天文学--binary-neutron-star-merger-kilonova":
     "/cosmology/knowledge-base/多信使天文学--binary-neutron-star-merger-kilonova",
-  "多信使天文学--cosmic-rays":
-    "/cosmology/knowledge-base/多信使天文学--cosmic-rays",
+  "多信使天文学--cosmic-rays": "/cosmology/knowledge-base/多信使天文学--cosmic-rays",
   "多信使天文学--event-horizon-telescope":
     "/cosmology/knowledge-base/多信使天文学--event-horizon-telescope",
-  "多信使天文学--fast-radio-bursts":
-    "/cosmology/knowledge-base/多信使天文学--fast-radio-bursts",
-  "多信使天文学--gamma-ray-bursts":
-    "/cosmology/knowledge-base/多信使天文学--gamma-ray-bursts",
+  "多信使天文学--fast-radio-bursts": "/cosmology/knowledge-base/多信使天文学--fast-radio-bursts",
+  "多信使天文学--gamma-ray-bursts": "/cosmology/knowledge-base/多信使天文学--gamma-ray-bursts",
   "多信使天文学--gravitational-wave-detectors-ligo-lisa":
     "/cosmology/knowledge-base/多信使天文学--gravitational-wave-detectors-ligo-lisa",
-  "多信使天文学--kilonova-r-process":
-    "/cosmology/knowledge-base/多信使天文学--kilonova-r-process",
+  "多信使天文学--kilonova-r-process": "/cosmology/knowledge-base/多信使天文学--kilonova-r-process",
   "多信使天文学--multimessenger-astronomy-overview":
     "/cosmology/knowledge-base/多信使天文学--multimessenger-astronomy-overview",
   "多信使天文学--nanograv-pta-gw-background":
     "/cosmology/knowledge-base/多信使天文学--nanograv-pta-gw-background",
-  多普勒效应与相对论多普勒:
-    "/universe-physics/knowledge-base/物理学--多普勒效应与相对论多普勒",
+  多普勒效应与相对论多普勒: "/universe-physics/knowledge-base/物理学--多普勒效应与相对论多普勒",
   多波段天文学: "/cosmology/knowledge-base/宇宙学观测--多波段天文学",
   多重宇宙假说: "/cosmology/knowledge-base/多重宇宙假说",
-  大型巡天SDSS与DESI:
-    "/cosmology/knowledge-base/宇宙学观测--大型巡天SDSS与DESI",
+  大型巡天SDSS与DESI: "/cosmology/knowledge-base/宇宙学观测--大型巡天SDSS与DESI",
   大尺度结构形成: "/cosmology/knowledge-base/宇宙学观测--大尺度结构形成",
   大洋洲: "/human-history/knowledge/文明--大洋洲",
   大爆炸理论: "/cosmology/knowledge-base/大爆炸理论",
   大脑: "/life-science/knowledge-base/人体--大脑",
-  大航海时代的物种交换:
-    "/human-history/knowledge/文化交流--大航海时代的物种交换",
+  大航海时代的物种交换: "/human-history/knowledge/文化交流--大航海时代的物种交换",
   大西洋奴隶贸易: "/human-history/knowledge/近代--大西洋奴隶贸易",
-  天体测量与盖亚卫星:
-    "/cosmology/knowledge-base/宇宙学观测--天体测量与盖亚卫星",
-  "天体生物学--biosignatures":
-    "/cosmology/knowledge-base/天体生物学--biosignatures",
-  "天体生物学--exoplanet-atmosphere":
-    "/cosmology/knowledge-base/天体生物学--exoplanet-atmosphere",
-  "天体生物学--fermi-paradox":
-    "/cosmology/knowledge-base/天体生物学--fermi-paradox",
-  "天体生物学--habitable-zone":
-    "/cosmology/knowledge-base/天体生物学--habitable-zone",
+  天体测量与盖亚卫星: "/cosmology/knowledge-base/宇宙学观测--天体测量与盖亚卫星",
+  "天体生物学--biosignatures": "/cosmology/knowledge-base/天体生物学--biosignatures",
+  "天体生物学--exoplanet-atmosphere": "/cosmology/knowledge-base/天体生物学--exoplanet-atmosphere",
+  "天体生物学--fermi-paradox": "/cosmology/knowledge-base/天体生物学--fermi-paradox",
+  "天体生物学--habitable-zone": "/cosmology/knowledge-base/天体生物学--habitable-zone",
   天文光谱学方法: "/cosmology/knowledge-base/宇宙学观测--天文光谱学方法",
   天线与电磁辐射: "/universe-physics/knowledge-base/电磁学--天线与电磁辐射",
   太初核合成: "/cosmology/knowledge-base/宇宙学基础--太初核合成",
   "太阳系--asteroid-belt": "/cosmology/knowledge-base/太阳系--asteroid-belt",
   "太阳系--comets": "/cosmology/knowledge-base/太阳系--comets",
   "太阳系--gas-giants": "/cosmology/knowledge-base/太阳系--gas-giants",
-  "太阳系--kuiper-belt-oort-cloud":
-    "/cosmology/knowledge-base/太阳系--kuiper-belt-oort-cloud",
-  "太阳系--planetary-moons":
-    "/cosmology/knowledge-base/太阳系--planetary-moons",
-  "太阳系--solar-structure-activity":
-    "/cosmology/knowledge-base/太阳系--solar-structure-activity",
-  "太阳系--terrestrial-planets":
-    "/cosmology/knowledge-base/太阳系--terrestrial-planets",
+  "太阳系--kuiper-belt-oort-cloud": "/cosmology/knowledge-base/太阳系--kuiper-belt-oort-cloud",
+  "太阳系--planetary-moons": "/cosmology/knowledge-base/太阳系--planetary-moons",
+  "太阳系--solar-structure-activity": "/cosmology/knowledge-base/太阳系--solar-structure-activity",
+  "太阳系--terrestrial-planets": "/cosmology/knowledge-base/太阳系--terrestrial-planets",
   奥斯曼帝国: "/human-history/knowledge/近代--奥斯曼帝国",
   女性主义: "/human-history/knowledge/思想史--女性主义",
   威斯特伐利亚和约: "/human-history/knowledge/近代--威斯特伐利亚和约",
@@ -1852,83 +1651,57 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
     "/cosmology/knowledge-base/宇宙学前沿--primordial-black-holes",
   "宇宙学基础--cosmic-thermal-history":
     "/cosmology/knowledge-base/宇宙学基础--cosmic-thermal-history",
-  "宇宙学基础--cosmology-history":
-    "/cosmology/knowledge-base/宇宙学基础--cosmology-history",
-  "宇宙学基础--临界密度与宇宙几何":
-    "/cosmology/knowledge-base/宇宙学基础--临界密度与宇宙几何",
-  "宇宙学基础--共动距离与宇宙学红移":
-    "/cosmology/knowledge-base/宇宙学基础--共动距离与宇宙学红移",
-  "宇宙学基础--原初引力波与B模式":
-    "/cosmology/knowledge-base/宇宙学基础--原初引力波与B模式",
-  "宇宙学基础--复合时期与最后散射面":
-    "/cosmology/knowledge-base/宇宙学基础--复合时期与最后散射面",
+  "宇宙学基础--cosmology-history": "/cosmology/knowledge-base/宇宙学基础--cosmology-history",
+  "宇宙学基础--临界密度与宇宙几何": "/cosmology/knowledge-base/宇宙学基础--临界密度与宇宙几何",
+  "宇宙学基础--共动距离与宇宙学红移": "/cosmology/knowledge-base/宇宙学基础--共动距离与宇宙学红移",
+  "宇宙学基础--原初引力波与B模式": "/cosmology/knowledge-base/宇宙学基础--原初引力波与B模式",
+  "宇宙学基础--复合时期与最后散射面": "/cosmology/knowledge-base/宇宙学基础--复合时期与最后散射面",
   "宇宙学基础--太初核合成": "/cosmology/knowledge-base/宇宙学基础--太初核合成",
   "宇宙学基础--宇宙再电离": "/cosmology/knowledge-base/宇宙学基础--宇宙再电离",
-  "宇宙学基础--宇宙学常数问题":
-    "/cosmology/knowledge-base/宇宙学基础--宇宙学常数问题",
-  "宇宙学基础--宇宙的年龄测定":
-    "/cosmology/knowledge-base/宇宙学基础--宇宙的年龄测定",
-  "宇宙学基础--宇宙网与纤维状结构":
-    "/cosmology/knowledge-base/宇宙学基础--宇宙网与纤维状结构",
-  "宇宙学基础--宇宙黑暗时代":
-    "/cosmology/knowledge-base/宇宙学基础--宇宙黑暗时代",
+  "宇宙学基础--宇宙学常数问题": "/cosmology/knowledge-base/宇宙学基础--宇宙学常数问题",
+  "宇宙学基础--宇宙的年龄测定": "/cosmology/knowledge-base/宇宙学基础--宇宙的年龄测定",
+  "宇宙学基础--宇宙网与纤维状结构": "/cosmology/knowledge-base/宇宙学基础--宇宙网与纤维状结构",
+  "宇宙学基础--宇宙黑暗时代": "/cosmology/knowledge-base/宇宙学基础--宇宙黑暗时代",
   "宇宙学基础--暗物质候选粒子WIMP与轴子":
     "/cosmology/knowledge-base/宇宙学基础--暗物质候选粒子WIMP与轴子",
-  "宇宙学基础--暗能量与状态方程":
-    "/cosmology/knowledge-base/宇宙学基础--暗能量与状态方程",
-  "宇宙学基础--暴胀模型比较":
-    "/cosmology/knowledge-base/宇宙学基础--暴胀模型比较",
+  "宇宙学基础--暗能量与状态方程": "/cosmology/knowledge-base/宇宙学基础--暗能量与状态方程",
+  "宇宙学基础--暴胀模型比较": "/cosmology/knowledge-base/宇宙学基础--暴胀模型比较",
   "宇宙学基础--第一代恒星PopulationIII":
     "/cosmology/knowledge-base/宇宙学基础--第一代恒星PopulationIII",
   宇宙学常数问题: "/cosmology/knowledge-base/宇宙学基础--宇宙学常数问题",
   宇宙学红移与膨胀: "/universe-physics/knowledge-base/物理学--宇宙学红移与膨胀",
-  "宇宙学观测--X射线天文学":
-    "/cosmology/knowledge-base/宇宙学观测--X射线天文学",
-  "宇宙学观测--中微子探测器":
-    "/cosmology/knowledge-base/宇宙学观测--中微子探测器",
+  "宇宙学观测--X射线天文学": "/cosmology/knowledge-base/宇宙学观测--X射线天文学",
+  "宇宙学观测--中微子探测器": "/cosmology/knowledge-base/宇宙学观测--中微子探测器",
   "宇宙学观测--光学望远镜": "/cosmology/knowledge-base/宇宙学观测--光学望远镜",
-  "宇宙学观测--哈勃空间望远镜":
-    "/cosmology/knowledge-base/宇宙学观测--哈勃空间望远镜",
-  "宇宙学观测--多波段天文学":
-    "/cosmology/knowledge-base/宇宙学观测--多波段天文学",
-  "宇宙学观测--大型巡天SDSS与DESI":
-    "/cosmology/knowledge-base/宇宙学观测--大型巡天SDSS与DESI",
-  "宇宙学观测--大尺度结构形成":
-    "/cosmology/knowledge-base/宇宙学观测--大尺度结构形成",
-  "宇宙学观测--天体测量与盖亚卫星":
-    "/cosmology/knowledge-base/宇宙学观测--天体测量与盖亚卫星",
-  "宇宙学观测--天文光谱学方法":
-    "/cosmology/knowledge-base/宇宙学观测--天文光谱学方法",
-  "宇宙学观测--宇宙距离阶梯":
-    "/cosmology/knowledge-base/宇宙学观测--宇宙距离阶梯",
+  "宇宙学观测--哈勃空间望远镜": "/cosmology/knowledge-base/宇宙学观测--哈勃空间望远镜",
+  "宇宙学观测--多波段天文学": "/cosmology/knowledge-base/宇宙学观测--多波段天文学",
+  "宇宙学观测--大型巡天SDSS与DESI": "/cosmology/knowledge-base/宇宙学观测--大型巡天SDSS与DESI",
+  "宇宙学观测--大尺度结构形成": "/cosmology/knowledge-base/宇宙学观测--大尺度结构形成",
+  "宇宙学观测--天体测量与盖亚卫星": "/cosmology/knowledge-base/宇宙学观测--天体测量与盖亚卫星",
+  "宇宙学观测--天文光谱学方法": "/cosmology/knowledge-base/宇宙学观测--天文光谱学方法",
+  "宇宙学观测--宇宙距离阶梯": "/cosmology/knowledge-base/宇宙学观测--宇宙距离阶梯",
   "宇宙学观测--射电望远镜": "/cosmology/knowledge-base/宇宙学观测--射电望远镜",
-  "宇宙学观测--弱引力透镜与宇宙剪切":
-    "/cosmology/knowledge-base/宇宙学观测--弱引力透镜与宇宙剪切",
+  "宇宙学观测--弱引力透镜与宇宙剪切": "/cosmology/knowledge-base/宇宙学观测--弱引力透镜与宇宙剪切",
   "宇宙学观测--时域天文学": "/cosmology/knowledge-base/宇宙学观测--时域天文学",
   "宇宙学观测--星系际介质": "/cosmology/knowledge-base/宇宙学观测--星系际介质",
   "宇宙学观测--标准烛光与Ia超新星测距":
     "/cosmology/knowledge-base/宇宙学观测--标准烛光与Ia超新星测距",
-  "宇宙学观测--甚长基线干涉":
-    "/cosmology/knowledge-base/宇宙学观测--甚长基线干涉",
+  "宇宙学观测--甚长基线干涉": "/cosmology/knowledge-base/宇宙学观测--甚长基线干涉",
   "宇宙学观测--红外天文学": "/cosmology/knowledge-base/宇宙学观测--红外天文学",
   "宇宙学观测--红移巡天与宇宙三维制图":
     "/cosmology/knowledge-base/宇宙学观测--红移巡天与宇宙三维制图",
   "宇宙学观测--自适应光学": "/cosmology/knowledge-base/宇宙学观测--自适应光学",
-  "宇宙学观测--莱曼alpha森林":
-    "/cosmology/knowledge-base/宇宙学观测--莱曼alpha森林",
-  "宇宙学观测--詹姆斯韦伯空间望远镜":
-    "/cosmology/knowledge-base/宇宙学观测--詹姆斯韦伯空间望远镜",
+  "宇宙学观测--莱曼alpha森林": "/cosmology/knowledge-base/宇宙学观测--莱曼alpha森林",
+  "宇宙学观测--詹姆斯韦伯空间望远镜": "/cosmology/knowledge-base/宇宙学观测--詹姆斯韦伯空间望远镜",
   宇宙微波背景: "/cosmology/knowledge-base/宇宙微波背景",
   宇宙微波背景辐射: "/universe-physics/knowledge-base/物理学--宇宙微波背景辐射",
   宇宙暴胀: "/universe-physics/knowledge-base/前沿物理--宇宙暴胀",
   宇宙的年龄测定: "/cosmology/knowledge-base/宇宙学基础--宇宙的年龄测定",
   宇宙的最终命运: {
     cosmology: "/cosmology/knowledge-base/宇宙的最终命运",
-    "universe-physics":
-      "/universe-physics/knowledge-base/物理学--宇宙的最终命运",
+    "universe-physics": "/universe-physics/knowledge-base/物理学--宇宙的最终命运",
   },
-  宇宙网与纤维状结构:
-    "/cosmology/knowledge-base/宇宙学基础--宇宙网与纤维状结构",
+  宇宙网与纤维状结构: "/cosmology/knowledge-base/宇宙学基础--宇宙网与纤维状结构",
   宇宙黑暗时代: "/cosmology/knowledge-base/宇宙学基础--宇宙黑暗时代",
   安培定律与磁场: "/universe-physics/knowledge-base/电磁学--安培定律与磁场",
   宋朝: "/human-history/knowledge/中世纪--亚洲--宋朝",
@@ -1947,31 +1720,23 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   希腊罗马文明: "/human-history/knowledge/文明--希腊罗马文明",
   干细胞: "/life-science/knowledge-base/分子生物学--干细胞",
   广义相对论: "/universe-physics/knowledge-base/相对论--广义相对论",
-  广义相对论的实验检验:
-    "/universe-physics/knowledge-base/相对论--广义相对论的实验检验",
-  "应用物理--地球物理与地震波":
-    "/universe-physics/knowledge-base/应用物理--地球物理与地震波",
-  "应用物理--晶体管与半导体器件":
-    "/universe-physics/knowledge-base/应用物理--晶体管与半导体器件",
-  "应用物理--核磁共振成像MRI原理":
-    "/universe-physics/knowledge-base/应用物理--核磁共振成像MRI原理",
-  "应用物理--生物物理导论":
-    "/universe-physics/knowledge-base/应用物理--生物物理导论",
-  "应用物理--电子学与放大器电路":
-    "/universe-physics/knowledge-base/应用物理--电子学与放大器电路",
+  广义相对论的实验检验: "/universe-physics/knowledge-base/相对论--广义相对论的实验检验",
+  "应用物理--地球物理与地震波": "/universe-physics/knowledge-base/应用物理--地球物理与地震波",
+  "应用物理--晶体管与半导体器件": "/universe-physics/knowledge-base/应用物理--晶体管与半导体器件",
+  "应用物理--核磁共振成像MRI原理": "/universe-physics/knowledge-base/应用物理--核磁共振成像MRI原理",
+  "应用物理--生物物理导论": "/universe-physics/knowledge-base/应用物理--生物物理导论",
+  "应用物理--电子学与放大器电路": "/universe-physics/knowledge-base/应用物理--电子学与放大器电路",
   开发规范: "/human-history/knowledge/开发规范",
   引力波: "/universe-physics/knowledge-base/相对论--引力波",
   引力波天文学: {
     cosmology: "/cosmology/knowledge-base/引力波天文学",
     "universe-physics": "/universe-physics/knowledge-base/物理学--引力波天文学",
   },
-  引力红移与引力时间膨胀:
-    "/universe-physics/knowledge-base/相对论--引力红移与引力时间膨胀",
+  引力红移与引力时间膨胀: "/universe-physics/knowledge-base/相对论--引力红移与引力时间膨胀",
   引力透镜: "/cosmology/knowledge-base/引力透镜",
   引力透镜的物理: "/universe-physics/knowledge-base/相对论--引力透镜的物理",
   弦理论: "/universe-physics/knowledge-base/前沿物理--弦理论",
-  弱引力透镜与宇宙剪切:
-    "/cosmology/knowledge-base/宇宙学观测--弱引力透镜与宇宙剪切",
+  弱引力透镜与宇宙剪切: "/cosmology/knowledge-base/宇宙学观测--弱引力透镜与宇宙剪切",
   弹性与材料力学: "/universe-physics/knowledge-base/经典物理--弹性与材料力学",
   "当代--万隆会议": "/human-history/knowledge/当代--万隆会议",
   "当代--去殖民化浪潮": "/human-history/knowledge/当代--去殖民化浪潮",
@@ -1981,11 +1746,9 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "当代--苏联解体": "/human-history/knowledge/当代--苏联解体",
   "当代议题--合成生物学": "/life-science/knowledge-base/当代议题--合成生物学",
   "当代议题--基因编辑": "/life-science/knowledge-base/当代议题--基因编辑",
-  "当代议题--生命起源研究":
-    "/life-science/knowledge-base/当代议题--生命起源研究",
+  "当代议题--生命起源研究": "/life-science/knowledge-base/当代议题--生命起源研究",
   "当代议题--生物多样性": "/life-science/knowledge-base/当代议题--生物多样性",
-  "当代议题--第六次大灭绝":
-    "/life-science/knowledge-base/当代议题--第六次大灭绝",
+  "当代议题--第六次大灭绝": "/life-science/knowledge-base/当代议题--第六次大灭绝",
   微引力透镜法: "/cosmology/knowledge-base/系外行星--微引力透镜法",
   微生物组: "/life-science/knowledge-base/人体--微生物组",
   "思想史--后殖民主义": "/human-history/knowledge/思想史--后殖民主义",
@@ -1996,37 +1759,27 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   性选择: "/life-science/knowledge-base/进化机制--性选择",
   恒星核合成: "/cosmology/knowledge-base/恒星核合成",
   恒星流与星系晕: "/cosmology/knowledge-base/星系天文学--恒星流与星系晕",
-  "恒星物理--binary-star-evolution":
-    "/cosmology/knowledge-base/恒星物理--binary-star-evolution",
-  "恒星物理--binary-star-systems":
-    "/cosmology/knowledge-base/恒星物理--binary-star-systems",
+  "恒星物理--binary-star-evolution": "/cosmology/knowledge-base/恒星物理--binary-star-evolution",
+  "恒星物理--binary-star-systems": "/cosmology/knowledge-base/恒星物理--binary-star-systems",
   "恒星物理--cepheids-variable-stars":
     "/cosmology/knowledge-base/恒星物理--cepheids-variable-stars",
   "恒星物理--core-collapse-supernovae":
     "/cosmology/knowledge-base/恒星物理--core-collapse-supernovae",
   "恒星物理--hertzsprung-russell-diagram":
     "/cosmology/knowledge-base/恒星物理--hertzsprung-russell-diagram",
-  "恒星物理--main-sequence-stars":
-    "/cosmology/knowledge-base/恒星物理--main-sequence-stars",
-  "恒星物理--massive-star-evolution":
-    "/cosmology/knowledge-base/恒星物理--massive-star-evolution",
-  "恒星物理--red-blue-supergiants":
-    "/cosmology/knowledge-base/恒星物理--red-blue-supergiants",
-  "恒星物理--red-giants-agb":
-    "/cosmology/knowledge-base/恒星物理--red-giants-agb",
-  "恒星物理--star-formation":
-    "/cosmology/knowledge-base/恒星物理--star-formation",
+  "恒星物理--main-sequence-stars": "/cosmology/knowledge-base/恒星物理--main-sequence-stars",
+  "恒星物理--massive-star-evolution": "/cosmology/knowledge-base/恒星物理--massive-star-evolution",
+  "恒星物理--red-blue-supergiants": "/cosmology/knowledge-base/恒星物理--red-blue-supergiants",
+  "恒星物理--red-giants-agb": "/cosmology/knowledge-base/恒星物理--red-giants-agb",
+  "恒星物理--star-formation": "/cosmology/knowledge-base/恒星物理--star-formation",
   "恒星物理--stellar-metallicity-chemical-evolution":
     "/cosmology/knowledge-base/恒星物理--stellar-metallicity-chemical-evolution",
-  "恒星物理--stellar-populations":
-    "/cosmology/knowledge-base/恒星物理--stellar-populations",
+  "恒星物理--stellar-populations": "/cosmology/knowledge-base/恒星物理--stellar-populations",
   "恒星物理--stellar-structure-hydrostatic-equilibrium":
     "/cosmology/knowledge-base/恒星物理--stellar-structure-hydrostatic-equilibrium",
-  "恒星物理--type-ia-supernovae":
-    "/cosmology/knowledge-base/恒星物理--type-ia-supernovae",
+  "恒星物理--type-ia-supernovae": "/cosmology/knowledge-base/恒星物理--type-ia-supernovae",
   "恒星物理--white-dwarfs": "/cosmology/knowledge-base/恒星物理--white-dwarfs",
-  "恒星物理--wolf-rayet-stars":
-    "/cosmology/knowledge-base/恒星物理--wolf-rayet-stars",
+  "恒星物理--wolf-rayet-stars": "/cosmology/knowledge-base/恒星物理--wolf-rayet-stars",
   成吉思汗: "/human-history/knowledge/人物--成吉思汗",
   抗生素: "/life-science/knowledge-base/医学--抗生素",
   拜占庭: "/human-history/knowledge/文明--拜占庭",
@@ -2036,15 +1789,11 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   摩擦与耗散: "/universe-physics/knowledge-base/经典物理--摩擦与耗散",
   改革开放: "/human-history/knowledge/当代--改革开放",
   数字革命与互联网: "/human-history/knowledge/当代--数字革命与互联网",
-  "文化交流--丝绸之路上的文化融合":
-    "/human-history/knowledge/文化交流--丝绸之路上的文化融合",
-  "文化交流--伊斯兰科学传播":
-    "/human-history/knowledge/文化交流--伊斯兰科学传播",
+  "文化交流--丝绸之路上的文化融合": "/human-history/knowledge/文化交流--丝绸之路上的文化融合",
+  "文化交流--伊斯兰科学传播": "/human-history/knowledge/文化交流--伊斯兰科学传播",
   "文化交流--佛教东传": "/human-history/knowledge/文化交流--佛教东传",
-  "文化交流--全球化与本土化":
-    "/human-history/knowledge/文化交流--全球化与本土化",
-  "文化交流--大航海时代的物种交换":
-    "/human-history/knowledge/文化交流--大航海时代的物种交换",
+  "文化交流--全球化与本土化": "/human-history/knowledge/文化交流--全球化与本土化",
+  "文化交流--大航海时代的物种交换": "/human-history/knowledge/文化交流--大航海时代的物种交换",
   "文化交流--纸的西传": "/human-history/knowledge/文化交流--纸的西传",
   "文化交流--翻译运动": "/human-history/knowledge/文化交流--翻译运动",
   "文化交流--茶的传播": "/human-history/knowledge/文化交流--茶的传播",
@@ -2067,40 +1816,26 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   文艺复兴: "/human-history/knowledge/事件--文艺复兴",
   时域天文学: "/cosmology/knowledge-base/宇宙学观测--时域天文学",
   时空弯曲与测地线: "/universe-physics/knowledge-base/相对论--时空弯曲与测地线",
-  时间膨胀与长度收缩:
-    "/universe-physics/knowledge-base/物理学--时间膨胀与长度收缩",
+  时间膨胀与长度收缩: "/universe-physics/knowledge-base/物理学--时间膨胀与长度收缩",
   明治维新: "/human-history/knowledge/事件--明治维新",
   星暴星系: "/cosmology/knowledge-base/星系天文学--星暴星系",
-  星系合并与相互作用:
-    "/cosmology/knowledge-base/星系天文学--星系合并与相互作用",
-  "星系天文学--agn-and-quasars":
-    "/cosmology/knowledge-base/星系天文学--agn-and-quasars",
-  "星系天文学--dark-matter-halo":
-    "/cosmology/knowledge-base/星系天文学--dark-matter-halo",
-  "星系天文学--dwarf-galaxies":
-    "/cosmology/knowledge-base/星系天文学--dwarf-galaxies",
-  "星系天文学--elliptical-galaxies":
-    "/cosmology/knowledge-base/星系天文学--elliptical-galaxies",
-  "星系天文学--galaxy-clusters":
-    "/cosmology/knowledge-base/星系天文学--galaxy-clusters",
-  "星系天文学--milky-way-structure":
-    "/cosmology/knowledge-base/星系天文学--milky-way-structure",
-  "星系天文学--spiral-galaxies":
-    "/cosmology/knowledge-base/星系天文学--spiral-galaxies",
-  "星系天文学--哈勃星系形态序列":
-    "/cosmology/knowledge-base/星系天文学--哈勃星系形态序列",
-  "星系天文学--恒星流与星系晕":
-    "/cosmology/knowledge-base/星系天文学--恒星流与星系晕",
+  星系合并与相互作用: "/cosmology/knowledge-base/星系天文学--星系合并与相互作用",
+  "星系天文学--agn-and-quasars": "/cosmology/knowledge-base/星系天文学--agn-and-quasars",
+  "星系天文学--dark-matter-halo": "/cosmology/knowledge-base/星系天文学--dark-matter-halo",
+  "星系天文学--dwarf-galaxies": "/cosmology/knowledge-base/星系天文学--dwarf-galaxies",
+  "星系天文学--elliptical-galaxies": "/cosmology/knowledge-base/星系天文学--elliptical-galaxies",
+  "星系天文学--galaxy-clusters": "/cosmology/knowledge-base/星系天文学--galaxy-clusters",
+  "星系天文学--milky-way-structure": "/cosmology/knowledge-base/星系天文学--milky-way-structure",
+  "星系天文学--spiral-galaxies": "/cosmology/knowledge-base/星系天文学--spiral-galaxies",
+  "星系天文学--哈勃星系形态序列": "/cosmology/knowledge-base/星系天文学--哈勃星系形态序列",
+  "星系天文学--恒星流与星系晕": "/cosmology/knowledge-base/星系天文学--恒星流与星系晕",
   "星系天文学--星暴星系": "/cosmology/knowledge-base/星系天文学--星暴星系",
-  "星系天文学--星系合并与相互作用":
-    "/cosmology/knowledge-base/星系天文学--星系合并与相互作用",
-  "星系天文学--蝎虎座BL天体":
-    "/cosmology/knowledge-base/星系天文学--蝎虎座BL天体",
+  "星系天文学--星系合并与相互作用": "/cosmology/knowledge-base/星系天文学--星系合并与相互作用",
+  "星系天文学--蝎虎座BL天体": "/cosmology/knowledge-base/星系天文学--蝎虎座BL天体",
   "星系天文学--赛弗特星系": "/cosmology/knowledge-base/星系天文学--赛弗特星系",
   星系形成与演化: "/cosmology/knowledge-base/星系形成与演化",
   星系际介质: "/cosmology/knowledge-base/宇宙学观测--星系际介质",
-  "星际介质--星际介质与分子云":
-    "/cosmology/knowledge-base/星际介质--星际介质与分子云",
+  "星际介质--星际介质与分子云": "/cosmology/knowledge-base/星际介质--星际介质与分子云",
   "星际介质--球状星团": "/cosmology/knowledge-base/星际介质--球状星团",
   "星际介质--疏散星团": "/cosmology/knowledge-base/星际介质--疏散星团",
   "星际介质--行星状星云": "/cosmology/knowledge-base/星际介质--行星状星云",
@@ -2108,43 +1843,34 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "星际介质--超新星遗迹": "/cosmology/knowledge-base/星际介质--超新星遗迹",
   星际介质与分子云: "/cosmology/knowledge-base/星际介质--星际介质与分子云",
   春秋战国: "/human-history/knowledge/古典时期--亚洲--春秋战国",
-  普朗克常数与量子化:
-    "/universe-physics/knowledge-base/物理学--普朗克常数与量子化",
-  晶体管与半导体器件:
-    "/universe-physics/knowledge-base/应用物理--晶体管与半导体器件",
+  普朗克常数与量子化: "/universe-physics/knowledge-base/物理学--普朗克常数与量子化",
+  晶体管与半导体器件: "/universe-physics/knowledge-base/应用物理--晶体管与半导体器件",
   暗物质: "/universe-physics/knowledge-base/前沿物理--暗物质",
   暗物质与暗能量: {
     cosmology: "/cosmology/knowledge-base/暗物质与暗能量",
-    "universe-physics":
-      "/universe-physics/knowledge-base/物理学--暗物质与暗能量",
+    "universe-physics": "/universe-physics/knowledge-base/物理学--暗物质与暗能量",
   },
-  暗物质候选粒子WIMP与轴子:
-    "/cosmology/knowledge-base/宇宙学基础--暗物质候选粒子WIMP与轴子",
+  暗物质候选粒子WIMP与轴子: "/cosmology/knowledge-base/宇宙学基础--暗物质候选粒子WIMP与轴子",
   暗能量与状态方程: "/cosmology/knowledge-base/宇宙学基础--暗能量与状态方程",
   暴胀模型比较: "/cosmology/knowledge-base/宇宙学基础--暴胀模型比较",
   "未来展望--概述": "/human-history/knowledge/未来展望--概述",
   极地生态: "/life-science/knowledge-base/生态学--极地生态",
   标准模型与超越: "/universe-physics/knowledge-base/物理学--标准模型与超越",
-  标准烛光与Ia超新星测距:
-    "/cosmology/knowledge-base/宇宙学观测--标准烛光与Ia超新星测距",
+  标准烛光与Ia超新星测距: "/cosmology/knowledge-base/宇宙学观测--标准烛光与Ia超新星测距",
   "核物理--binding-energy-mass-defect":
     "/universe-physics/knowledge-base/核物理--binding-energy-mass-defect",
   "核物理--neutron-capture-nucleosynthesis":
     "/universe-physics/knowledge-base/核物理--neutron-capture-nucleosynthesis",
-  "核物理--nuclear-fission":
-    "/universe-physics/knowledge-base/核物理--nuclear-fission",
+  "核物理--nuclear-fission": "/universe-physics/knowledge-base/核物理--nuclear-fission",
   "核物理--nuclear-magnetic-resonance":
     "/universe-physics/knowledge-base/核物理--nuclear-magnetic-resonance",
   "核物理--nuclear-shell-liquid-drop-models":
     "/universe-physics/knowledge-base/核物理--nuclear-shell-liquid-drop-models",
-  "核物理--radioactive-decay":
-    "/universe-physics/knowledge-base/核物理--radioactive-decay",
+  "核物理--radioactive-decay": "/universe-physics/knowledge-base/核物理--radioactive-decay",
   "核物理--radioactive-decay-chains":
     "/universe-physics/knowledge-base/核物理--radioactive-decay-chains",
-  核磁共振成像MRI原理:
-    "/universe-physics/knowledge-base/应用物理--核磁共振成像MRI原理",
-  核聚变与恒星能源:
-    "/universe-physics/knowledge-base/前沿物理--核聚变与恒星能源",
+  核磁共振成像MRI原理: "/universe-physics/knowledge-base/应用物理--核磁共振成像MRI原理",
+  核聚变与恒星能源: "/universe-physics/knowledge-base/前沿物理--核聚变与恒星能源",
   "概念--丝绸之路": "/human-history/knowledge/概念--丝绸之路",
   "概念--全球化": "/human-history/knowledge/概念--全球化",
   "概念--大航海时代": "/human-history/knowledge/概念--大航海时代",
@@ -2162,8 +1888,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   波斯帝国: "/human-history/knowledge/古典时期--亚洲--波斯帝国",
   波粒二象性: "/universe-physics/knowledge-base/量子物理--波粒二象性",
   洛伦兹变换: "/universe-physics/knowledge-base/物理学--洛伦兹变换",
-  流体湍流与雷诺数:
-    "/universe-physics/knowledge-base/经典物理--流体湍流与雷诺数",
+  流体湍流与雷诺数: "/universe-physics/knowledge-base/经典物理--流体湍流与雷诺数",
   深海热泉: "/life-science/knowledge-base/生态系统--深海热泉",
   深海生态: "/life-science/knowledge-base/生态学--深海生态",
   激光冷却与原子阱: "/universe-physics/knowledge-base/光学--激光冷却与原子阱",
@@ -2182,54 +1907,36 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "热力学--statistical-mechanics-boltzmann":
     "/universe-physics/knowledge-base/热力学--statistical-mechanics-boltzmann",
   "热力学--制冷与热泵": "/universe-physics/knowledge-base/热力学--制冷与热泵",
-  "热力学--热传导对流与辐射":
-    "/universe-physics/knowledge-base/热力学--热传导对流与辐射",
-  "热力学--熵与时间之箭":
-    "/universe-physics/knowledge-base/热力学--熵与时间之箭",
+  "热力学--热传导对流与辐射": "/universe-physics/knowledge-base/热力学--热传导对流与辐射",
+  "热力学--熵与时间之箭": "/universe-physics/knowledge-base/热力学--熵与时间之箭",
   "热力学--相变": "/universe-physics/knowledge-base/热力学--相变",
   "热力学--绝对零度": "/universe-physics/knowledge-base/热力学--绝对零度",
-  "热力学--自由能与化学势":
-    "/universe-physics/knowledge-base/热力学--自由能与化学势",
-  "热力学--非平衡态热力学":
-    "/universe-physics/knowledge-base/热力学--非平衡态热力学",
+  "热力学--自由能与化学势": "/universe-physics/knowledge-base/热力学--自由能与化学势",
+  "热力学--非平衡态热力学": "/universe-physics/knowledge-base/热力学--非平衡态热力学",
   "热力学--麦克斯韦妖": "/universe-physics/knowledge-base/热力学--麦克斯韦妖",
   热木星: "/cosmology/knowledge-base/系外行星--热木星",
   熵与时间之箭: "/universe-physics/knowledge-base/热力学--熵与时间之箭",
   爱因斯坦: "/human-history/knowledge/人物--爱因斯坦",
   牛顿: "/human-history/knowledge/人物--牛顿",
   牛顿三大定律: "/universe-physics/knowledge-base/经典物理--牛顿三大定律",
-  "物理学--参考系与惯性":
-    "/universe-physics/knowledge-base/物理学--参考系与惯性",
+  "物理学--参考系与惯性": "/universe-physics/knowledge-base/物理学--参考系与惯性",
   "物理学--多普勒效应与相对论多普勒":
     "/universe-physics/knowledge-base/物理学--多普勒效应与相对论多普勒",
-  "物理学--宇宙学红移与膨胀":
-    "/universe-physics/knowledge-base/物理学--宇宙学红移与膨胀",
-  "物理学--宇宙微波背景辐射":
-    "/universe-physics/knowledge-base/物理学--宇宙微波背景辐射",
-  "物理学--宇宙的最终命运":
-    "/universe-physics/knowledge-base/物理学--宇宙的最终命运",
-  "物理学--对称性与群论基础":
-    "/universe-physics/knowledge-base/物理学--对称性与群论基础",
-  "物理学--对称性与诺特定理":
-    "/universe-physics/knowledge-base/物理学--对称性与诺特定理",
-  "物理学--引力波天文学":
-    "/universe-physics/knowledge-base/物理学--引力波天文学",
-  "物理学--时间膨胀与长度收缩":
-    "/universe-physics/knowledge-base/物理学--时间膨胀与长度收缩",
-  "物理学--普朗克常数与量子化":
-    "/universe-physics/knowledge-base/物理学--普朗克常数与量子化",
-  "物理学--暗物质与暗能量":
-    "/universe-physics/knowledge-base/物理学--暗物质与暗能量",
-  "物理学--标准模型与超越":
-    "/universe-physics/knowledge-base/物理学--标准模型与超越",
+  "物理学--宇宙学红移与膨胀": "/universe-physics/knowledge-base/物理学--宇宙学红移与膨胀",
+  "物理学--宇宙微波背景辐射": "/universe-physics/knowledge-base/物理学--宇宙微波背景辐射",
+  "物理学--宇宙的最终命运": "/universe-physics/knowledge-base/物理学--宇宙的最终命运",
+  "物理学--对称性与群论基础": "/universe-physics/knowledge-base/物理学--对称性与群论基础",
+  "物理学--对称性与诺特定理": "/universe-physics/knowledge-base/物理学--对称性与诺特定理",
+  "物理学--引力波天文学": "/universe-physics/knowledge-base/物理学--引力波天文学",
+  "物理学--时间膨胀与长度收缩": "/universe-physics/knowledge-base/物理学--时间膨胀与长度收缩",
+  "物理学--普朗克常数与量子化": "/universe-physics/knowledge-base/物理学--普朗克常数与量子化",
+  "物理学--暗物质与暗能量": "/universe-physics/knowledge-base/物理学--暗物质与暗能量",
+  "物理学--标准模型与超越": "/universe-physics/knowledge-base/物理学--标准模型与超越",
   "物理学--洛伦兹变换": "/universe-physics/knowledge-base/物理学--洛伦兹变换",
-  "物理学--相对论性动量与能量":
-    "/universe-physics/knowledge-base/物理学--相对论性动量与能量",
-  "物理学--粒子物理与加速器":
-    "/universe-physics/knowledge-base/物理学--粒子物理与加速器",
+  "物理学--相对论性动量与能量": "/universe-physics/knowledge-base/物理学--相对论性动量与能量",
+  "物理学--粒子物理与加速器": "/universe-physics/knowledge-base/物理学--粒子物理与加速器",
   "物理学--质能等价": "/universe-physics/knowledge-base/物理学--质能等价",
-  "物理学--量子力学诠释":
-    "/universe-physics/knowledge-base/物理学--量子力学诠释",
+  "物理学--量子力学诠释": "/universe-physics/knowledge-base/物理学--量子力学诠释",
   特奥蒂瓦坎: "/human-history/knowledge/古典时期--美洲--特奥蒂瓦坎",
   狭义相对论: "/universe-physics/knowledge-base/相对论--狭义相对论",
   环保主义: "/human-history/knowledge/思想史--环保主义",
@@ -2244,8 +1951,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "生态学--农业生态": "/life-science/knowledge-base/生态学--农业生态",
   "生态学--城市生态": "/life-science/knowledge-base/生态学--城市生态",
   "生态学--极地生态": "/life-science/knowledge-base/生态学--极地生态",
-  "生态学--气候变化与生态":
-    "/life-science/knowledge-base/生态学--气候变化与生态",
+  "生态学--气候变化与生态": "/life-science/knowledge-base/生态学--气候变化与生态",
   "生态学--深海生态": "/life-science/knowledge-base/生态学--深海生态",
   "生态学--热带雨林": "/life-science/knowledge-base/生态学--热带雨林",
   "生态学--生物地理": "/life-science/knowledge-base/生态学--生物地理",
@@ -2266,8 +1972,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   生物物理导论: "/universe-physics/knowledge-base/应用物理--生物物理导论",
   甲午战争: "/human-history/knowledge/事件--甲午战争",
   电力革命: "/human-history/knowledge/科技史--电力革命",
-  电子学与放大器电路:
-    "/universe-physics/knowledge-base/应用物理--电子学与放大器电路",
+  电子学与放大器电路: "/universe-physics/knowledge-base/应用物理--电子学与放大器电路",
   电的历史: "/human-history/knowledge/科学史--电的历史",
   "电磁学--capacitance-and-inductance":
     "/universe-physics/knowledge-base/电磁学--capacitance-and-inductance",
@@ -2275,28 +1980,20 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
     "/universe-physics/knowledge-base/电磁学--coulomb-law-electrostatics",
   "电磁学--dielectrics-and-polarization":
     "/universe-physics/knowledge-base/电磁学--dielectrics-and-polarization",
-  "电磁学--plasma-physics":
-    "/universe-physics/knowledge-base/电磁学--plasma-physics",
+  "电磁学--plasma-physics": "/universe-physics/knowledge-base/电磁学--plasma-physics",
   "电磁学--光的本质": "/universe-physics/knowledge-base/电磁学--光的本质",
-  "电磁学--天线与电磁辐射":
-    "/universe-physics/knowledge-base/电磁学--天线与电磁辐射",
-  "电磁学--安培定律与磁场":
-    "/universe-physics/knowledge-base/电磁学--安培定律与磁场",
-  "电磁学--法拉第与电磁感应":
-    "/universe-physics/knowledge-base/电磁学--法拉第与电磁感应",
-  "电磁学--电磁波的产生与传播":
-    "/universe-physics/knowledge-base/电磁学--电磁波的产生与传播",
+  "电磁学--天线与电磁辐射": "/universe-physics/knowledge-base/电磁学--天线与电磁辐射",
+  "电磁学--安培定律与磁场": "/universe-physics/knowledge-base/电磁学--安培定律与磁场",
+  "电磁学--法拉第与电磁感应": "/universe-physics/knowledge-base/电磁学--法拉第与电磁感应",
+  "电磁学--电磁波的产生与传播": "/universe-physics/knowledge-base/电磁学--电磁波的产生与传播",
   "电磁学--电磁波谱": "/universe-physics/knowledge-base/电磁学--电磁波谱",
   "电磁学--电路分析与基尔霍夫定律":
     "/universe-physics/knowledge-base/电磁学--电路分析与基尔霍夫定律",
   "电磁学--超导体": "/universe-physics/knowledge-base/电磁学--超导体",
-  "电磁学--麦克斯韦方程组":
-    "/universe-physics/knowledge-base/电磁学--麦克斯韦方程组",
-  电磁波的产生与传播:
-    "/universe-physics/knowledge-base/电磁学--电磁波的产生与传播",
+  "电磁学--麦克斯韦方程组": "/universe-physics/knowledge-base/电磁学--麦克斯韦方程组",
+  电磁波的产生与传播: "/universe-physics/knowledge-base/电磁学--电磁波的产生与传播",
   电磁波谱: "/universe-physics/knowledge-base/电磁学--电磁波谱",
-  电路分析与基尔霍夫定律:
-    "/universe-physics/knowledge-base/电磁学--电路分析与基尔霍夫定律",
+  电路分析与基尔霍夫定律: "/universe-physics/knowledge-base/电磁学--电路分析与基尔霍夫定律",
   疏散星团: "/cosmology/knowledge-base/星际介质--疏散星团",
   疫苗原理: "/life-science/knowledge-base/医学--疫苗原理",
   癌症生物学: "/life-science/knowledge-base/医学--癌症生物学",
@@ -2304,20 +2001,16 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   白垩纪大灭绝: "/life-science/knowledge-base/关键事件--白垩纪大灭绝",
   直接成像法: "/cosmology/knowledge-base/系外行星--直接成像法",
   相变: "/universe-physics/knowledge-base/热力学--相变",
-  "相对论--克尔转动黑洞":
-    "/universe-physics/knowledge-base/相对论--克尔转动黑洞",
+  "相对论--克尔转动黑洞": "/universe-physics/knowledge-base/相对论--克尔转动黑洞",
   "相对论--双生子佯谬": "/universe-physics/knowledge-base/相对论--双生子佯谬",
   "相对论--史瓦西黑洞": "/universe-physics/knowledge-base/相对论--史瓦西黑洞",
   "相对论--广义相对论": "/universe-physics/knowledge-base/相对论--广义相对论",
-  "相对论--广义相对论的实验检验":
-    "/universe-physics/knowledge-base/相对论--广义相对论的实验检验",
+  "相对论--广义相对论的实验检验": "/universe-physics/knowledge-base/相对论--广义相对论的实验检验",
   "相对论--引力波": "/universe-physics/knowledge-base/相对论--引力波",
   "相对论--引力红移与引力时间膨胀":
     "/universe-physics/knowledge-base/相对论--引力红移与引力时间膨胀",
-  "相对论--引力透镜的物理":
-    "/universe-physics/knowledge-base/相对论--引力透镜的物理",
-  "相对论--时空弯曲与测地线":
-    "/universe-physics/knowledge-base/相对论--时空弯曲与测地线",
+  "相对论--引力透镜的物理": "/universe-physics/knowledge-base/相对论--引力透镜的物理",
+  "相对论--时空弯曲与测地线": "/universe-physics/knowledge-base/相对论--时空弯曲与测地线",
   "相对论--狭义相对论": "/universe-physics/knowledge-base/相对论--狭义相对论",
   "相对论--相对论性动力学与四维力":
     "/universe-physics/knowledge-base/相对论--相对论性动力学与四维力",
@@ -2325,10 +2018,8 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "相对论--闵可夫斯基时空与四维矢量":
     "/universe-physics/knowledge-base/相对论--闵可夫斯基时空与四维矢量",
   "相对论--黑洞": "/universe-physics/knowledge-base/相对论--黑洞",
-  相对论性动力学与四维力:
-    "/universe-physics/knowledge-base/相对论--相对论性动力学与四维力",
-  相对论性动量与能量:
-    "/universe-physics/knowledge-base/物理学--相对论性动量与能量",
+  相对论性动力学与四维力: "/universe-physics/knowledge-base/相对论--相对论性动力学与四维力",
+  相对论性动量与能量: "/universe-physics/knowledge-base/物理学--相对论性动量与能量",
   真核细胞起源: "/life-science/knowledge-base/关键事件--真核细胞起源",
   眼睛的进化: "/life-science/knowledge-base/进化专题--眼睛的进化",
   磁性与铁磁体: "/universe-physics/knowledge-base/凝聚态物理--磁性与铁磁体",
@@ -2349,47 +2040,38 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "科技史--电力革命": "/human-history/knowledge/科技史--电力革命",
   秦始皇: "/human-history/knowledge/人物--秦始皇",
   秦汉帝国: "/human-history/knowledge/古典时期--亚洲--秦汉帝国",
-  第一代恒星PopulationIII:
-    "/cosmology/knowledge-base/宇宙学基础--第一代恒星PopulationIII",
+  第一代恒星PopulationIII: "/cosmology/knowledge-base/宇宙学基础--第一代恒星PopulationIII",
   第一代恒星与宇宙黎明: "/cosmology/knowledge-base/第一代恒星与宇宙黎明",
   第六次大灭绝: "/life-science/knowledge-base/当代议题--第六次大灭绝",
   等效原理: "/universe-physics/knowledge-base/相对论--等效原理",
-  "粒子物理--antimatter":
-    "/universe-physics/knowledge-base/粒子物理--antimatter",
+  "粒子物理--antimatter": "/universe-physics/knowledge-base/粒子物理--antimatter",
   "粒子物理--cp-violation-matter-antimatter":
     "/universe-physics/knowledge-base/粒子物理--cp-violation-matter-antimatter",
   "粒子物理--feynman-diagrams-perturbation":
     "/universe-physics/knowledge-base/粒子物理--feynman-diagrams-perturbation",
-  "粒子物理--higgs-mechanism":
-    "/universe-physics/knowledge-base/粒子物理--higgs-mechanism",
-  "粒子物理--neutrino-physics":
-    "/universe-physics/knowledge-base/粒子物理--neutrino-physics",
+  "粒子物理--higgs-mechanism": "/universe-physics/knowledge-base/粒子物理--higgs-mechanism",
+  "粒子物理--neutrino-physics": "/universe-physics/knowledge-base/粒子物理--neutrino-physics",
   "粒子物理--particle-accelerators":
     "/universe-physics/knowledge-base/粒子物理--particle-accelerators",
   "粒子物理--quantum-chromodynamics":
     "/universe-physics/knowledge-base/粒子物理--quantum-chromodynamics",
-  "粒子物理--quarks-and-leptons":
-    "/universe-physics/knowledge-base/粒子物理--quarks-and-leptons",
+  "粒子物理--quarks-and-leptons": "/universe-physics/knowledge-base/粒子物理--quarks-and-leptons",
   "粒子物理--standard-model-overview":
     "/universe-physics/knowledge-base/粒子物理--standard-model-overview",
   粒子物理与加速器: "/universe-physics/knowledge-base/物理学--粒子物理与加速器",
-  "系外行星--SETI地外文明搜寻":
-    "/cosmology/knowledge-base/系外行星--SETI地外文明搜寻",
+  "系外行星--SETI地外文明搜寻": "/cosmology/knowledge-base/系外行星--SETI地外文明搜寻",
   "系外行星--凌星法": "/cosmology/knowledge-base/系外行星--凌星法",
   "系外行星--微引力透镜法": "/cosmology/knowledge-base/系外行星--微引力透镜法",
   "系外行星--热木星": "/cosmology/knowledge-base/系外行星--热木星",
   "系外行星--直接成像法": "/cosmology/knowledge-base/系外行星--直接成像法",
-  "系外行星--系外行星宜居性":
-    "/cosmology/knowledge-base/系外行星--系外行星宜居性",
+  "系外行星--系外行星宜居性": "/cosmology/knowledge-base/系外行星--系外行星宜居性",
   "系外行星--视向速度法": "/cosmology/knowledge-base/系外行星--视向速度法",
-  "系外行星--超级地球与迷你海王星":
-    "/cosmology/knowledge-base/系外行星--超级地球与迷你海王星",
+  "系外行星--超级地球与迷你海王星": "/cosmology/knowledge-base/系外行星--超级地球与迷你海王星",
   系外行星宜居性: "/cosmology/knowledge-base/系外行星--系外行星宜居性",
   系外行星探测: "/cosmology/knowledge-base/系外行星探测",
   索引: "/human-history/knowledge/索引",
   红外天文学: "/cosmology/knowledge-base/宇宙学观测--红外天文学",
-  红移巡天与宇宙三维制图:
-    "/cosmology/knowledge-base/宇宙学观测--红移巡天与宇宙三维制图",
+  红移巡天与宇宙三维制图: "/cosmology/knowledge-base/宇宙学观测--红移巡天与宇宙三维制图",
   纸的西传: "/human-history/knowledge/文化交流--纸的西传",
   细胞信号: "/life-science/knowledge-base/分子生物学--细胞信号",
   "经典物理--chaos-three-body-problem":
@@ -2400,41 +2082,28 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
     "/universe-physics/knowledge-base/经典物理--lagrangian-hamiltonian-mechanics",
   "经典物理--momentum-conservation-collisions":
     "/universe-physics/knowledge-base/经典物理--momentum-conservation-collisions",
-  "经典物理--rigid-body-rotation":
-    "/universe-physics/knowledge-base/经典物理--rigid-body-rotation",
+  "经典物理--rigid-body-rotation": "/universe-physics/knowledge-base/经典物理--rigid-body-rotation",
   "经典物理--simple-harmonic-motion":
     "/universe-physics/knowledge-base/经典物理--simple-harmonic-motion",
-  "经典物理--waves-and-acoustics":
-    "/universe-physics/knowledge-base/经典物理--waves-and-acoustics",
+  "经典物理--waves-and-acoustics": "/universe-physics/knowledge-base/经典物理--waves-and-acoustics",
   "经典物理--万有引力": "/universe-physics/knowledge-base/经典物理--万有引力",
   "经典物理--万有引力与开普勒定律":
     "/universe-physics/knowledge-base/经典物理--万有引力与开普勒定律",
-  "经典物理--声学与多普勒效应":
-    "/universe-physics/knowledge-base/经典物理--声学与多普勒效应",
-  "经典物理--弹性与材料力学":
-    "/universe-physics/knowledge-base/经典物理--弹性与材料力学",
-  "经典物理--振动与简正模式":
-    "/universe-physics/knowledge-base/经典物理--振动与简正模式",
-  "经典物理--摩擦与耗散":
-    "/universe-physics/knowledge-base/经典物理--摩擦与耗散",
-  "经典物理--波动与振动":
-    "/universe-physics/knowledge-base/经典物理--波动与振动",
-  "经典物理--流体湍流与雷诺数":
-    "/universe-physics/knowledge-base/经典物理--流体湍流与雷诺数",
-  "经典物理--牛顿三大定律":
-    "/universe-physics/knowledge-base/经典物理--牛顿三大定律",
+  "经典物理--声学与多普勒效应": "/universe-physics/knowledge-base/经典物理--声学与多普勒效应",
+  "经典物理--弹性与材料力学": "/universe-physics/knowledge-base/经典物理--弹性与材料力学",
+  "经典物理--振动与简正模式": "/universe-physics/knowledge-base/经典物理--振动与简正模式",
+  "经典物理--摩擦与耗散": "/universe-physics/knowledge-base/经典物理--摩擦与耗散",
+  "经典物理--波动与振动": "/universe-physics/knowledge-base/经典物理--波动与振动",
+  "经典物理--流体湍流与雷诺数": "/universe-physics/knowledge-base/经典物理--流体湍流与雷诺数",
+  "经典物理--牛顿三大定律": "/universe-physics/knowledge-base/经典物理--牛顿三大定律",
   "经典物理--能量守恒": "/universe-physics/knowledge-base/经典物理--能量守恒",
-  "经典物理--表面张力与毛细现象":
-    "/universe-physics/knowledge-base/经典物理--表面张力与毛细现象",
-  "经典物理--角动量与守恒律":
-    "/universe-physics/knowledge-base/经典物理--角动量与守恒律",
+  "经典物理--表面张力与毛细现象": "/universe-physics/knowledge-base/经典物理--表面张力与毛细现象",
+  "经典物理--角动量与守恒律": "/universe-physics/knowledge-base/经典物理--角动量与守恒律",
   "经济史--中央银行的诞生": "/human-history/knowledge/经济史--中央银行的诞生",
   "经济史--全球化三次浪潮": "/human-history/knowledge/经济史--全球化三次浪潮",
-  "经济史--工业革命的经济根源":
-    "/human-history/knowledge/经济史--工业革命的经济根源",
+  "经济史--工业革命的经济根源": "/human-history/knowledge/经济史--工业革命的经济根源",
   "经济史--货币的演变": "/human-history/knowledge/经济史--货币的演变",
-  "经济史--郁金香泡沫与早期投机":
-    "/human-history/knowledge/经济史--郁金香泡沫与早期投机",
+  "经济史--郁金香泡沫与早期投机": "/human-history/knowledge/经济史--郁金香泡沫与早期投机",
   绝对零度: "/universe-physics/knowledge-base/热力学--绝对零度",
   维京人: "/human-history/knowledge/中世纪--维京人",
   罗马共和国与帝国: "/human-history/knowledge/古典时期--欧洲--罗马共和国与帝国",
@@ -2453,21 +2122,18 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
     "/cosmology/knowledge-base/致密天体--accretion-disks-relativistic-jets",
   "致密天体--black-hole-spin-measurement":
     "/cosmology/knowledge-base/致密天体--black-hole-spin-measurement",
-  "致密天体--magnetar-flares":
-    "/cosmology/knowledge-base/致密天体--magnetar-flares",
+  "致密天体--magnetar-flares": "/cosmology/knowledge-base/致密天体--magnetar-flares",
   "致密天体--magnetars": "/cosmology/knowledge-base/致密天体--magnetars",
   "致密天体--neutron-star-interior-eos":
     "/cosmology/knowledge-base/致密天体--neutron-star-interior-eos",
-  "致密天体--pulsar-timing-array":
-    "/cosmology/knowledge-base/致密天体--pulsar-timing-array",
+  "致密天体--pulsar-timing-array": "/cosmology/knowledge-base/致密天体--pulsar-timing-array",
   "致密天体--stellar-mass-black-holes":
     "/cosmology/knowledge-base/致密天体--stellar-mass-black-holes",
   "致密天体--supermassive-black-holes":
     "/cosmology/knowledge-base/致密天体--supermassive-black-holes",
   "致密天体--tidal-disruption-events":
     "/cosmology/knowledge-base/致密天体--tidal-disruption-events",
-  "致密天体--x-ray-binaries":
-    "/cosmology/knowledge-base/致密天体--x-ray-binaries",
+  "致密天体--x-ray-binaries": "/cosmology/knowledge-base/致密天体--x-ray-binaries",
   苏格拉底: "/human-history/knowledge/人物--苏格拉底",
   苏美尔: "/human-history/knowledge/古代文明--苏美尔",
   苏联解体: "/human-history/knowledge/当代--苏联解体",
@@ -2480,15 +2146,13 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   蝎虎座BL天体: "/cosmology/knowledge-base/星系天文学--蝎虎座BL天体",
   行星状星云: "/cosmology/knowledge-base/星际介质--行星状星云",
   表观遗传: "/life-science/knowledge-base/分子生物学--表观遗传",
-  表面张力与毛细现象:
-    "/universe-physics/knowledge-base/经典物理--表面张力与毛细现象",
+  表面张力与毛细现象: "/universe-physics/knowledge-base/经典物理--表面张力与毛细现象",
   衰老: "/life-science/knowledge-base/人体--衰老",
   褐矮星: "/cosmology/knowledge-base/星际介质--褐矮星",
   视向速度法: "/cosmology/knowledge-base/系外行星--视向速度法",
   角动量与守恒律: "/universe-physics/knowledge-base/经典物理--角动量与守恒律",
   解剖学革命: "/human-history/knowledge/科学史--解剖学革命",
-  詹姆斯韦伯空间望远镜:
-    "/cosmology/knowledge-base/宇宙学观测--詹姆斯韦伯空间望远镜",
+  詹姆斯韦伯空间望远镜: "/cosmology/knowledge-base/宇宙学观测--詹姆斯韦伯空间望远镜",
   语言的进化: "/life-science/knowledge-base/进化专题--语言的进化",
   货币制度: "/human-history/knowledge/制度--货币制度",
   货币的演变: "/human-history/knowledge/经济史--货币的演变",
@@ -2497,8 +2161,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   赫梯: "/human-history/knowledge/古代文明--赫梯",
   超导体: "/universe-physics/knowledge-base/电磁学--超导体",
   超新星遗迹: "/cosmology/knowledge-base/星际介质--超新星遗迹",
-  超级地球与迷你海王星:
-    "/cosmology/knowledge-base/系外行星--超级地球与迷你海王星",
+  超级地球与迷你海王星: "/cosmology/knowledge-base/系外行星--超级地球与迷你海王星",
   转基因: "/life-science/knowledge-base/生物技术--转基因",
   达尔文: "/human-history/knowledge/人物--达尔文",
   迁徙: "/life-science/knowledge-base/生态学--迁徙",
@@ -2509,29 +2172,23 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "近代--概述": "/human-history/knowledge/近代--概述",
   "近代--荷兰东印度公司": "/human-history/knowledge/近代--荷兰东印度公司",
   "进化专题--眼睛的进化": "/life-science/knowledge-base/进化专题--眼睛的进化",
-  "进化专题--社会性的进化":
-    "/life-science/knowledge-base/进化专题--社会性的进化",
+  "进化专题--社会性的进化": "/life-science/knowledge-base/进化专题--社会性的进化",
   "进化专题--语言的进化": "/life-science/knowledge-base/进化专题--语言的进化",
   "进化专题--飞行的进化": "/life-science/knowledge-base/进化专题--飞行的进化",
   "进化专题--驯化": "/life-science/knowledge-base/进化专题--驯化",
   进化心理学基础: "/life-science/knowledge-base/进化心理学基础",
   "进化机制--协同进化": "/life-science/knowledge-base/进化机制--协同进化",
   "进化机制--性选择": "/life-science/knowledge-base/进化机制--性选择",
-  "进化机制--水平基因转移":
-    "/life-science/knowledge-base/进化机制--水平基因转移",
+  "进化机制--水平基因转移": "/life-science/knowledge-base/进化机制--水平基因转移",
   "进化机制--自然选择": "/life-science/knowledge-base/进化机制--自然选择",
   "进化机制--遗传漂变": "/life-science/knowledge-base/进化机制--遗传漂变",
-  "远古时期--亚洲--两河流域早期":
-    "/human-history/knowledge/远古时期--亚洲--两河流域早期",
-  "远古时期--亚洲--黄河文明萌芽":
-    "/human-history/knowledge/远古时期--亚洲--黄河文明萌芽",
+  "远古时期--亚洲--两河流域早期": "/human-history/knowledge/远古时期--亚洲--两河流域早期",
+  "远古时期--亚洲--黄河文明萌芽": "/human-history/knowledge/远古时期--亚洲--黄河文明萌芽",
   "远古时期--人类起源": "/human-history/knowledge/远古时期--人类起源",
   "远古时期--农业革命": "/human-history/knowledge/远古时期--农业革命",
-  "远古时期--大洋洲--波利尼西亚航海":
-    "/human-history/knowledge/远古时期--大洋洲--波利尼西亚航海",
+  "远古时期--大洋洲--波利尼西亚航海": "/human-history/knowledge/远古时期--大洋洲--波利尼西亚航海",
   "远古时期--概述": "/human-history/knowledge/远古时期--概述",
-  "远古时期--非洲--古埃及前王朝":
-    "/human-history/knowledge/远古时期--非洲--古埃及前王朝",
+  "远古时期--非洲--古埃及前王朝": "/human-history/knowledge/远古时期--非洲--古埃及前王朝",
   遗传漂变: "/life-science/knowledge-base/进化机制--遗传漂变",
   郁金香泡沫与早期投机: "/human-history/knowledge/经济史--郁金香泡沫与早期投机",
   释迦牟尼: "/human-history/knowledge/人物--释迦牟尼",
@@ -2542,29 +2199,23 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
     "/universe-physics/knowledge-base/量子物理--identical-particles-statistics",
   "量子物理--pauli-exclusion-principle":
     "/universe-physics/knowledge-base/量子物理--pauli-exclusion-principle",
-  "量子物理--quantum-decoherence":
-    "/universe-physics/knowledge-base/量子物理--quantum-decoherence",
+  "量子物理--quantum-decoherence": "/universe-physics/knowledge-base/量子物理--quantum-decoherence",
   "量子物理--quantum-harmonic-oscillator":
     "/universe-physics/knowledge-base/量子物理--quantum-harmonic-oscillator",
-  "量子物理--quantum-measurement":
-    "/universe-physics/knowledge-base/量子物理--quantum-measurement",
-  "量子物理--quantum-spin":
-    "/universe-physics/knowledge-base/量子物理--quantum-spin",
+  "量子物理--quantum-measurement": "/universe-physics/knowledge-base/量子物理--quantum-measurement",
+  "量子物理--quantum-spin": "/universe-physics/knowledge-base/量子物理--quantum-spin",
   "量子物理--schrodinger-equation":
     "/universe-physics/knowledge-base/量子物理--schrodinger-equation",
   "量子物理--wave-function-probability":
     "/universe-physics/knowledge-base/量子物理--wave-function-probability",
-  "量子物理--不确定性原理":
-    "/universe-physics/knowledge-base/量子物理--不确定性原理",
-  "量子物理--波粒二象性":
-    "/universe-physics/knowledge-base/量子物理--波粒二象性",
+  "量子物理--不确定性原理": "/universe-physics/knowledge-base/量子物理--不确定性原理",
+  "量子物理--波粒二象性": "/universe-physics/knowledge-base/量子物理--波粒二象性",
   "量子物理--量子纠缠": "/universe-physics/knowledge-base/量子物理--量子纠缠",
   "量子物理--量子隧穿": "/universe-physics/knowledge-base/量子物理--量子隧穿",
   量子纠缠: "/universe-physics/knowledge-base/量子物理--量子纠缠",
   量子计算: "/universe-physics/knowledge-base/前沿物理--量子计算",
   量子隧穿: "/universe-physics/knowledge-base/量子物理--量子隧穿",
-  闵可夫斯基时空与四维矢量:
-    "/universe-physics/knowledge-base/相对论--闵可夫斯基时空与四维矢量",
+  闵可夫斯基时空与四维矢量: "/universe-physics/knowledge-base/相对论--闵可夫斯基时空与四维矢量",
   阿克苏姆王国: "/human-history/knowledge/古典时期--非洲--阿克苏姆王国",
   阿拉伯数字: "/human-history/knowledge/文化交流--阿拉伯数字",
   陆地化: "/life-science/knowledge-base/关键事件--陆地化",

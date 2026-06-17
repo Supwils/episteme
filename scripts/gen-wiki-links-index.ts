@@ -95,14 +95,19 @@ function walkMarkdown(dir: string, base = ""): string[] {
   for (const e of readdirSync(dir, { withFileTypes: true })) {
     const rel = base ? `${base}/${e.name}` : e.name;
     if (e.isDirectory()) out.push(...walkMarkdown(join(dir, e.name), rel));
-    else if (e.name.endsWith(".md") && !e.name.endsWith(".narration.md")) out.push(rel);
+    else if (
+      (e.name.endsWith(".md") || e.name.endsWith(".mdx")) &&
+      !e.name.endsWith(".narration.md")
+    )
+      out.push(rel);
   }
   return out;
 }
 
-/** Knowledge bases: nested, CJK-named .md served at a single [slug] route. The
- *  slug joins the path with `--` (matching lib/generic-kb.ts and the history
- *  loader). Keyed by full slug + bare file name for natural `[[名]]` links. */
+/** Knowledge bases: nested .md (CJK-named, physics/cosmology/history/life) or
+ *  flat .mdx (economics/psychology) served at a single [slug] route. The slug
+ *  joins the path with `--` (matching lib/generic-kb.ts and the history loader).
+ *  Keyed by full slug + bare file name for natural `[[名]]` links. */
 function collectKbArticles(): Article[] {
   const out: Article[] = [];
   for (const domain of readdirSync(CONTENT)) {
@@ -114,8 +119,11 @@ function collectKbArticles(): Article[] {
     if (!route) continue;
 
     for (const rel of walkMarkdown(kbDir)) {
-      const slug = rel.replace(/\.md$/, "").replace(/\//g, "--");
-      const bare = rel.replace(/\.md$/, "").split("/").pop()!;
+      const slug = rel.replace(/\.mdx?$/, "").replace(/\//g, "--");
+      const bare = rel
+        .replace(/\.mdx?$/, "")
+        .split("/")
+        .pop()!;
       const parsed = safeMatter(readFileSync(join(kbDir, rel), "utf8"));
       const title = typeof parsed.data.title === "string" ? parsed.data.title : bare;
       out.push({

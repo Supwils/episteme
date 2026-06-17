@@ -1974,12 +1974,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "算法博弈论",
     },
   ],
-  "/economics/concepts/behavioral-finance": [
-    {
-      url: "/economics/theories/prospect-theory-econ",
-      title: "前景理论与经济学",
-    },
-  ],
   "/economics/concepts/consumer-surplus": [
     {
       url: "/economics/concepts/price-discrimination",
@@ -2303,6 +2297,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/economics/frontier/climate-economics-carbon-pricing": [
+    {
+      url: "/economics/concepts/environmental-economics",
+      title: "环境经济学",
+    },
+  ],
+  "/economics/knowledge-base/inequality-economics": [
+    {
+      url: "/economics/concepts/gini-coefficient",
+      title: "基尼系数",
+    },
+    {
+      url: "/economics/economists/karl-marx",
+      title: "卡尔·马克思",
+    },
+    {
+      url: "/economics/concepts/labor-economics",
+      title: "劳动经济学",
+    },
+  ],
+  "/economics/knowledge-base/time-discounting": [
     {
       url: "/economics/concepts/environmental-economics",
       title: "环境经济学",
