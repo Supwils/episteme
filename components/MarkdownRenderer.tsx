@@ -1,7 +1,10 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type Katex from "katex";
+import { resolveWikiLink } from "@/lib/wiki-link-index";
 
 // KaTeX is ~260KB; only load it when an article actually contains math.
 // Module-level cache so it loads once across all rendered articles.
@@ -52,6 +55,9 @@ export function MarkdownRenderer({
   className,
 }: MarkdownRendererProps) {
   const footnotes = extractFootnotes(content);
+  // First path segment is the domain — used to disambiguate a `[[slug]]` that
+  // is routable in more than one domain (prefer the one the reader is in).
+  const domain = (usePathname() ?? "").split("/")[1] ?? "";
 
   // Lazy-load KaTeX only when this article has math; re-render once it lands.
   const [, setKatexReady] = useState(false);
@@ -136,7 +142,7 @@ export function MarkdownRenderer({
               style={{ borderColor: accentColor }}
             >
               <p className="font-display text-fg-primary text-lg leading-relaxed italic">
-                {renderInline(quoteText, footnotes)}
+                {renderInline(quoteText, footnotes, domain)}
               </p>
             </blockquote>
           );
@@ -158,7 +164,7 @@ export function MarkdownRenderer({
                             key={ci}
                             className="text-fg-primary px-4 py-3 text-left font-semibold"
                           >
-                            {renderInline(cell, footnotes)}
+                            {renderInline(cell, footnotes, domain)}
                           </th>
                         ))}
                     </tr>
@@ -177,7 +183,7 @@ export function MarkdownRenderer({
                       >
                         {cells.map((cell, ci) => (
                           <td key={ci} className="text-fg-secondary px-4 py-2.5">
-                            {renderInline(cell, footnotes)}
+                            {renderInline(cell, footnotes, domain)}
                           </td>
                         ))}
                       </tr>
@@ -232,7 +238,7 @@ export function MarkdownRenderer({
             >
               {items.map((item, li) => (
                 <li key={li} className="leading-relaxed">
-                  {renderInline(item.replace(/^[-\d.]+\s*/, ""), footnotes)}
+                  {renderInline(item.replace(/^[-\d.]+\s*/, ""), footnotes, domain)}
                 </li>
               ))}
             </Tag>
@@ -240,11 +246,13 @@ export function MarkdownRenderer({
         }
         return (
           <p key={i} className="text-fg-secondary my-4 text-[15px] leading-[1.85]">
-            {renderInline(text, footnotes)}
+            {renderInline(text, footnotes, domain)}
           </p>
         );
       })}
-      {footnotes.size > 0 && <FootnotesSection footnotes={footnotes} accentColor={accentColor} />}
+      {footnotes.size > 0 && (
+        <FootnotesSection footnotes={footnotes} accentColor={accentColor} domain={domain} />
+      )}
     </div>
   );
 }
@@ -262,9 +270,11 @@ function extractFootnotes(content: string): Map<string, string> {
 function FootnotesSection({
   footnotes,
   accentColor,
+  domain,
 }: {
   footnotes: Map<string, string>;
   accentColor: string;
+  domain: string;
 }) {
   return (
     <footer className="border-border-subtle mt-12 border-t pt-6">
@@ -273,7 +283,7 @@ function FootnotesSection({
         {Array.from(footnotes.entries()).map(([id, text]) => (
           <li key={id} id={`fn-${id}`} className="text-fg-secondary leading-relaxed">
             <span className="text-fg-disabled mr-1 font-mono text-xs">[{id}]</span>
-            {renderInline(text, footnotes)}
+            {renderInline(text, footnotes, domain)}
           </li>
         ))}
       </ol>
@@ -380,7 +390,11 @@ function ZoomableImage({
   );
 }
 
-function renderInline(text: string, footnotes: Map<string, string>): React.ReactNode[] {
+function renderInline(
+  text: string,
+  footnotes: Map<string, string>,
+  domain: string
+): React.ReactNode[] {
   const parts: React.ReactNode[] = [];
   let remaining = text;
   let key = 0;
@@ -436,7 +450,7 @@ function renderInline(text: string, footnotes: Map<string, string>): React.React
     if (boldItalicMatch) {
       parts.push(
         <strong key={key++} className="text-fg-primary font-semibold">
-          <em>{boldItalicMatch[1]}</em>
+          <em>{renderInline(boldItalicMatch[1]!, footnotes, domain)}</em>
         </strong>
       );
       remaining = remaining.slice(boldItalicMatch[0].length);
@@ -447,7 +461,7 @@ function renderInline(text: string, footnotes: Map<string, string>): React.React
     if (boldMatch) {
       parts.push(
         <strong key={key++} className="text-fg-primary font-semibold">
-          {boldMatch[1]}
+          {renderInline(boldMatch[1]!, footnotes, domain)}
         </strong>
       );
       remaining = remaining.slice(boldMatch[0].length);
@@ -458,7 +472,7 @@ function renderInline(text: string, footnotes: Map<string, string>): React.React
     const italicMatch2 = remaining.match(/^_(.+?)_/);
     const italic = italicMatch || italicMatch2;
     if (italic) {
-      parts.push(<em key={key++}>{italic[1]}</em>);
+      parts.push(<em key={key++}>{renderInline(italic[1]!, footnotes, domain)}</em>);
       remaining = remaining.slice(italic[0].length);
       continue;
     }
@@ -477,16 +491,30 @@ function renderInline(text: string, footnotes: Map<string, string>): React.React
       continue;
     }
 
-    // `[[概念]]` wiki-links annotate a concept graph (the "连接节点" lines in
-    // physics KB). Many targets have no page, so render the name as an
-    // emphasized non-link chip rather than risk dead links. Checked before the
-    // `[label](url)` rule since both start with `[`.
-    const wikiMatch = remaining.match(/^\[\[([^\]|]+)(?:\|[^\]]+)?\]\]/);
+    // `[[slug]]` / `[[slug|label]]` wiki-links annotate the concept graph. When
+    // the slug resolves to a routable article (lib/wiki-link-index) we make it a
+    // real internal link, preferring the reader's current domain for slugs that
+    // exist in several. Unresolved targets stay an emphasized non-link chip so a
+    // dead reference never becomes a broken link. Checked before `[label](url)`.
+    const wikiMatch = remaining.match(/^\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/);
     if (wikiMatch) {
+      const target = wikiMatch[1]!.trim();
+      const label = (wikiMatch[2] ?? wikiMatch[1])!.trim();
+      const href = resolveWikiLink(target, domain);
       parts.push(
-        <span key={key++} className="text-fg-primary font-medium">
-          {wikiMatch[1]!.trim()}
-        </span>
+        href ? (
+          <Link
+            key={key++}
+            href={href}
+            className="text-accent-gold font-medium underline decoration-dotted decoration-from-font underline-offset-2 transition-opacity hover:opacity-80"
+          >
+            {label}
+          </Link>
+        ) : (
+          <span key={key++} className="text-fg-primary font-medium">
+            {label}
+          </span>
+        )
       );
       remaining = remaining.slice(wikiMatch[0].length);
       continue;
