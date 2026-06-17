@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Script from "next/script";
 import { SubjectHeader } from "@/components/SubjectHeader";
-import GlobalSearch from "./components/GlobalSearch";
 import PageTransition from "./components/PageTransition";
 import "./globals.css";
 
@@ -24,13 +23,9 @@ export const metadata: Metadata = {
 export default function HumanHistoryLayout({ children }: { children: ReactNode }) {
   return (
     <div className="human-history-root">
-      <Script
-        id="history-theme-init"
-        strategy="beforeInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `try{var t=localStorage.getItem('history-theme');if(t==='light'||(!t&&matchMedia('(prefers-color-scheme:light)').matches))document.documentElement.classList.add('light')}catch(e){}`,
-        }}
-      />
+      {/* Theme is driven by next-themes globally (html.light); human-history's
+          .light .human-history-root rules respond to it. Search is the shared
+          ⌘K global search (root ClientShell), which indexes history content. */}
       <Script
         src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"
         strategy="afterInteractive"
@@ -39,7 +34,6 @@ export default function HumanHistoryLayout({ children }: { children: ReactNode }
       <main>
         <PageTransition>{children}</PageTransition>
       </main>
-      <GlobalSearch />
     </div>
   );
 }
