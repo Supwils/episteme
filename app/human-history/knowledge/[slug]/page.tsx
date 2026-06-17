@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllArticles, getArticleBySlug } from "@/lib/knowledge-base";
+import { resolveWikiLink } from "@/lib/wiki-link-index";
 import { SITE_URL } from "@/lib/constants";
 
 interface Props {
@@ -34,7 +35,11 @@ export async function generateMetadata({ params }: Props) {
   return {
     title: `${article.title} — 知识库`,
     description,
-    openGraph: { title: `${article.title} — 知识库`, description, images: [{ url: ogImage, width: 1200, height: 630 }] },
+    openGraph: {
+      title: `${article.title} — 知识库`,
+      description,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
   };
 }
 
@@ -42,10 +47,28 @@ type LinkResolver = (target: string) => string | null;
 
 function renderMarkdown(content: string, resolveLink: LinkResolver): React.ReactNode {
   const renderInline = (text: string): React.ReactNode => {
-    const parts = text.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g);
+    const parts = text.split(/(\*\*[^*]+\*\*|\[\[[^\]]+\]\]|\[[^\]]+\]\([^)]+\))/g);
     return parts.map((part, i) => {
       if (part.startsWith("**") && part.endsWith("**")) {
         return <strong key={i}>{part.slice(2, -2)}</strong>;
+      }
+      // `[[name]]` / `[[name|label]]` wiki-links resolve against the cross-domain
+      // index (KB articles included). Unresolved targets render as plain text.
+      const wiki = part.match(/^\[\[([^\]|]+)(?:\|([^\]]+))?\]\]$/);
+      if (wiki) {
+        const label = (wiki[2] ?? wiki[1])!.trim();
+        const href = resolveWikiLink(wiki[1]!.trim(), "human-history");
+        return href ? (
+          <Link
+            key={i}
+            href={href}
+            style={{ color: "#7fb2dd", textDecoration: "underline", textUnderlineOffset: "2px" }}
+          >
+            {label}
+          </Link>
+        ) : (
+          label
+        );
       }
       const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
       if (link) {

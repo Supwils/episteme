@@ -14,6 +14,12 @@
  * never 404. When the same slug exists in several domains (e.g. `justice`) the
  * forward value is a { domain: url } map and the reader's current domain wins.
  *
+ * Knowledge bases (`content/<domain>/knowledge-base/**.md`, nested + CJK names,
+ * served at /<domain>/knowledge or /<domain>/knowledge-base) are indexed too:
+ * keyed by both the full `dir--dir--name` slug and the bare file name, so an
+ * author can write `[[特奥蒂瓦坎]]`. A bare name shared by two files in the same
+ * domain is dropped (a non-link chip beats a wrong link).
+ *
  * Output is prettier-formatted so re-running is idempotent and commit-clean.
  *
  * Run: pnpm gen-links
@@ -32,20 +38,33 @@ const OUT_BACKLINKS = join(ROOT, "lib", "backlinks-index.ts");
 const isDir = (p: string): boolean => existsSync(p) && statSync(p).isDirectory();
 const isAsciiSlug = (s: string): boolean => /^[a-z][a-z0-9-]*$/.test(s);
 
+/** Parse frontmatter, tolerating malformed YAML so one bad file can't crash the
+ *  whole index (mirrors lib/content-utils.ts::safeParseMatter at runtime). */
+function safeMatter(raw: string): { data: Record<string, unknown>; content: string } {
+  try {
+    const p = matter(raw);
+    return { data: p.data as Record<string, unknown>, content: p.content };
+  } catch {
+    return { data: {}, content: raw.replace(/^---\n[\s\S]*?\n---\n?/, "") };
+  }
+}
+
 interface Article {
   domain: string;
-  slug: string;
   url: string;
   title: string;
   body: string;
+  /** Wiki-link keys that should resolve to this article (slug, plus aliases). */
+  keys: string[];
 }
 
-/** Every routable article (its section has a `[slug]` detail page). */
-function collectArticles(): Article[] {
+/** Flat sections: content/<domain>/<section>/<ascii-slug>.(md|mdx) with a [slug] route. */
+function collectFlatArticles(): Article[] {
   const out: Article[] = [];
   for (const domain of readdirSync(CONTENT)) {
     if (!isDir(join(CONTENT, domain))) continue;
     for (const section of readdirSync(join(CONTENT, domain))) {
+      if (section === "knowledge-base") continue; // handled by collectKbArticles
       const sectionDir = join(CONTENT, domain, section);
       if (!isDir(sectionDir)) continue;
       if (!existsSync(join(APP, domain, section, "[slug]", "page.tsx"))) continue;
@@ -56,16 +75,56 @@ function collectArticles(): Article[] {
         const slug = m[1]!;
         if (!isAsciiSlug(slug)) continue;
 
-        const parsed = matter(readFileSync(join(sectionDir, file), "utf8"));
+        const parsed = safeMatter(readFileSync(join(sectionDir, file), "utf8"));
         const title = typeof parsed.data.title === "string" ? parsed.data.title : slug;
         out.push({
           domain,
-          slug,
           url: `/${domain}/${section}/${slug}`,
           title,
           body: parsed.content,
+          keys: [slug],
         });
       }
+    }
+  }
+  return out;
+}
+
+function walkMarkdown(dir: string, base = ""): string[] {
+  const out: string[] = [];
+  for (const e of readdirSync(dir, { withFileTypes: true })) {
+    const rel = base ? `${base}/${e.name}` : e.name;
+    if (e.isDirectory()) out.push(...walkMarkdown(join(dir, e.name), rel));
+    else if (e.name.endsWith(".md") && !e.name.endsWith(".narration.md")) out.push(rel);
+  }
+  return out;
+}
+
+/** Knowledge bases: nested, CJK-named .md served at a single [slug] route. The
+ *  slug joins the path with `--` (matching lib/generic-kb.ts and the history
+ *  loader). Keyed by full slug + bare file name for natural `[[名]]` links. */
+function collectKbArticles(): Article[] {
+  const out: Article[] = [];
+  for (const domain of readdirSync(CONTENT)) {
+    const kbDir = join(CONTENT, domain, "knowledge-base");
+    if (!isDir(kbDir)) continue;
+    const route = ["knowledge", "knowledge-base"].find((r) =>
+      existsSync(join(APP, domain, r, "[slug]", "page.tsx"))
+    );
+    if (!route) continue;
+
+    for (const rel of walkMarkdown(kbDir)) {
+      const slug = rel.replace(/\.md$/, "").replace(/\//g, "--");
+      const bare = rel.replace(/\.md$/, "").split("/").pop()!;
+      const parsed = safeMatter(readFileSync(join(kbDir, rel), "utf8"));
+      const title = typeof parsed.data.title === "string" ? parsed.data.title : bare;
+      out.push({
+        domain,
+        url: `/${domain}/${route}/${slug}`,
+        title,
+        body: parsed.content,
+        keys: bare === slug ? [slug] : [slug, bare],
+      });
     }
   }
   return out;
@@ -74,16 +133,35 @@ function collectArticles(): Article[] {
 type Forward = Record<string, string | Record<string, string>>;
 
 function buildForward(articles: Article[]): Forward {
-  const bySlug = new Map<string, Map<string, string>>();
+  const byKey = new Map<string, Map<string, Set<string>>>(); // key → domain → urls
   for (const a of articles) {
-    const dm = bySlug.get(a.slug) ?? new Map<string, string>();
-    dm.set(a.domain, a.url);
-    bySlug.set(a.slug, dm);
+    for (const key of a.keys) {
+      const dm = byKey.get(key) ?? new Map<string, Set<string>>();
+      const set = dm.get(a.domain) ?? new Set<string>();
+      set.add(a.url);
+      dm.set(a.domain, set);
+      byKey.set(key, dm);
+    }
   }
+
   const index: Forward = {};
-  for (const [slug, dm] of [...bySlug.entries()].sort()) {
-    index[slug] =
-      dm.size === 1 ? [...dm.values()][0]! : Object.fromEntries([...dm.entries()].sort());
+  for (const [key, dm] of [...byKey.entries()].sort()) {
+    // A key that maps to two different URLs within one domain is ambiguous
+    // (e.g. a bare KB name reused in two folders) — skip it so it stays a chip.
+    const domainUrl = new Map<string, string>();
+    let ambiguous = false;
+    for (const [domain, urls] of dm) {
+      if (urls.size > 1) {
+        ambiguous = true;
+        break;
+      }
+      domainUrl.set(domain, [...urls][0]!);
+    }
+    if (ambiguous) continue;
+
+    const urls = new Set(domainUrl.values());
+    index[key] =
+      urls.size === 1 ? [...urls][0]! : Object.fromEntries([...domainUrl.entries()].sort());
   }
   return index;
 }
@@ -106,7 +184,6 @@ function buildBacklinks(
     const seen = new Set<string>();
     for (const m of a.body.matchAll(WIKI_RE)) {
       const ref = m[1]!.trim();
-      if (!isAsciiSlug(ref)) continue;
       const target = resolve(forward, ref, a.domain);
       if (!target || target === a.url || seen.has(target)) continue;
       seen.add(target);
@@ -129,7 +206,7 @@ async function emit(file: string, body: string): Promise<void> {
 }
 
 async function main(): Promise<void> {
-  const articles = collectArticles();
+  const articles = [...collectFlatArticles(), ...collectKbArticles()];
   const forward = buildForward(articles);
   const backlinks = buildBacklinks(articles, forward);
 

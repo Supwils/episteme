@@ -1746,16 +1746,202 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "近似算法理论",
     },
   ],
+  "/cosmology/dialogues/cosmology-crisis": [
+    {
+      url: "/cosmology/knowledge-base/暗物质与暗能量",
+      title: "暗物质与暗能量",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙距离阶梯",
+      title: "宇宙距离阶梯",
+    },
+  ],
+  "/cosmology/dialogues/dark-matter-debate": [
+    {
+      url: "/universe-physics/knowledge-base/前沿物理--暗物质",
+      title: "暗物质",
+    },
+    {
+      url: "/cosmology/knowledge-base/暗物质与暗能量",
+      title: "暗物质与暗能量",
+    },
+  ],
+  "/cosmology/dialogues/hubble-lemaitre": [
+    {
+      url: "/cosmology/knowledge-base/暗物质与暗能量",
+      title: "暗物质与暗能量",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--宇宙学红移与膨胀",
+      title: "宇宙学红移与膨胀",
+    },
+  ],
   "/cosmology/dialogues/penrose-hawking": [
     {
       url: "/cosmology/knowledge-base/black-holes",
       title: "黑洞",
+    },
+    {
+      url: "/cosmology/knowledge-base/黑洞热力学与霍金辐射",
+      title: "黑洞热力学与霍金辐射",
+    },
+  ],
+  "/cosmology/frontier/cmb-inflation-tests": [
+    {
+      url: "/universe-physics/knowledge-base/前沿物理--暗物质",
+      title: "暗物质",
+    },
+    {
+      url: "/cosmology/knowledge-base/多重宇宙假说",
+      title: "多重宇宙假说",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--引力波",
+      title: "引力波",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙微波背景",
+      title: "宇宙微波背景辐射",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--宇宙学红移与膨胀",
+      title: "宇宙学红移与膨胀",
+    },
+  ],
+  "/cosmology/frontier/cosmic-reionization": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--詹姆斯韦伯空间望远镜",
+      title: "詹姆斯·韦伯空间望远镜",
+    },
+  ],
+  "/cosmology/frontier/desi-dark-energy": [
+    {
+      url: "/universe-physics/knowledge-base/前沿物理--暗物质",
+      title: "暗物质",
+    },
+    {
+      url: "/cosmology/knowledge-base/大爆炸理论",
+      title: "大爆炸理论",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙大尺度结构",
+      title: "宇宙大尺度结构",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙的最终命运",
+      title: "宇宙的最终命运",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--宇宙学红移与膨胀",
+      title: "宇宙学红移与膨胀",
+    },
+  ],
+  "/cosmology/frontier/hubble-tension": [
+    {
+      url: "/cosmology/knowledge-base/暗物质与暗能量",
+      title: "暗物质与暗能量",
+    },
+    {
+      url: "/cosmology/knowledge-base/大爆炸理论",
+      title: "大爆炸理论",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--引力波",
+      title: "引力波",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙距离阶梯",
+      title: "宇宙距离阶梯",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙微波背景",
+      title: "宇宙微波背景辐射",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--宇宙学红移与膨胀",
+      title: "宇宙学红移与膨胀",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--詹姆斯韦伯空间望远镜",
+      title: "詹姆斯·韦伯空间望远镜",
+    },
+  ],
+  "/cosmology/frontier/jwst-early-galaxies": [
+    {
+      url: "/cosmology/knowledge-base/宇宙大尺度结构",
+      title: "宇宙大尺度结构",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--詹姆斯韦伯空间望远镜",
+      title: "詹姆斯·韦伯空间望远镜",
+    },
+  ],
+  "/cosmology/frontier/nanohertz-gravitational-waves": [
+    {
+      url: "/cosmology/knowledge-base/引力波天文学",
+      title: "引力波天文学",
+    },
+  ],
+  "/cosmology/knowledge-base/black-holes": [
+    {
+      url: "/universe-physics/knowledge-base/相对论--黑洞",
+      title: "黑洞",
+    },
+    {
+      url: "/cosmology/knowledge-base/黑洞热力学与霍金辐射",
+      title: "黑洞热力学与霍金辐射",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--引力波",
+      title: "引力波",
+    },
+    {
+      url: "/cosmology/knowledge-base/引力波天文学",
+      title: "引力波天文学",
+    },
+  ],
+  "/cosmology/knowledge-base/cosmic-inflation": [
+    {
+      url: "/cosmology/knowledge-base/大爆炸理论",
+      title: "大爆炸理论",
+    },
+    {
+      url: "/cosmology/knowledge-base/多重宇宙假说",
+      title: "多重宇宙假说",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--引力波",
+      title: "引力波",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙大尺度结构",
+      title: "宇宙大尺度结构",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙微波背景",
+      title: "宇宙微波背景辐射",
     },
   ],
   "/cosmology/knowledge-base/stellar-evolution": [
     {
       url: "/cosmology/knowledge-base/black-holes",
       title: "黑洞",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--黑洞",
+      title: "黑洞",
+    },
+    {
+      url: "/cosmology/knowledge-base/恒星核合成",
+      title: "恒星核合成",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙大尺度结构",
+      title: "宇宙大尺度结构",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙距离阶梯",
+      title: "宇宙距离阶梯",
     },
   ],
   "/economics/case-studies/financial-crisis-sequence": [
@@ -1786,6 +1972,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/theory/algorithmic-game-theory",
       title: "算法博弈论",
+    },
+  ],
+  "/economics/concepts/behavioral-finance": [
+    {
+      url: "/economics/theories/prospect-theory-econ",
+      title: "前景理论与经济学",
     },
   ],
   "/economics/concepts/consumer-surplus": [
@@ -2111,32 +2303,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/economics/frontier/climate-economics-carbon-pricing": [
-    {
-      url: "/economics/concepts/environmental-economics",
-      title: "环境经济学",
-    },
-  ],
-  "/economics/knowledge-base/behavioral-finance": [
-    {
-      url: "/economics/theories/prospect-theory-econ",
-      title: "前景理论与经济学",
-    },
-  ],
-  "/economics/knowledge-base/inequality-economics": [
-    {
-      url: "/economics/concepts/gini-coefficient",
-      title: "基尼系数",
-    },
-    {
-      url: "/economics/economists/karl-marx",
-      title: "卡尔·马克思",
-    },
-    {
-      url: "/economics/concepts/labor-economics",
-      title: "劳动经济学",
-    },
-  ],
-  "/economics/knowledge-base/time-discounting": [
     {
       url: "/economics/concepts/environmental-economics",
       title: "环境经济学",
@@ -2576,6 +2742,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "陈省身",
     },
     {
+      url: "/universe-physics/knowledge-base/相对论--广义相对论",
+      title: "广义相对论",
+    },
+    {
       url: "/mathematics/mathematicians/mirzakhani",
       title: "米尔扎哈尼",
     },
@@ -2692,6 +2862,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "索菲·热尔曼",
     },
   ],
+  "/mathematics/concepts/probability": [
+    {
+      url: "/cosmology/knowledge-base/暗物质与暗能量",
+      title: "暗物质与暗能量",
+    },
+    {
+      url: "/cosmology/knowledge-base/多重宇宙假说",
+      title: "多重宇宙假说",
+    },
+  ],
   "/mathematics/concepts/proof": [
     {
       url: "/mathematics/concepts/set-theory",
@@ -2728,6 +2908,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "三角函数",
     },
   ],
+  "/mathematics/concepts/statistics": [
+    {
+      url: "/cosmology/knowledge-base/暗物质与暗能量",
+      title: "暗物质与暗能量",
+    },
+  ],
   "/mathematics/concepts/topology": [
     {
       url: "/mathematics/mathematicians/chern",
@@ -2742,6 +2928,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/complex-number",
       title: "复数",
+    },
+  ],
+  "/mathematics/dialogues/noether-einstein": [
+    {
+      url: "/universe-physics/knowledge-base/物理学--对称性与诺特定理",
+      title: "对称性与诺特定理",
     },
   ],
   "/mathematics/mathematicians/abel": [
@@ -2854,13 +3046,11 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "集合论",
     },
   ],
-  "/mathematics/theorems/godel-incompleteness": [
-    {
-      url: "/mathematics/concepts/proof",
-      title: "证明",
-    },
-  ],
   "/mathematics/theorems/noethers-theorem": [
+    {
+      url: "/universe-physics/knowledge-base/物理学--对称性与诺特定理",
+      title: "对称性与诺特定理",
+    },
     {
       url: "/mathematics/concepts/group",
       title: "群",
@@ -2886,6 +3076,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/phenomena/flow-state",
       title: "心流状态",
+    },
+  ],
+  "/philosophy/concepts/falsification": [
+    {
+      url: "/cosmology/knowledge-base/多重宇宙假说",
+      title: "多重宇宙假说",
     },
   ],
   "/philosophy/concepts/happiness": [
@@ -2927,6 +3123,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/philosophy/thinkers/quine",
       title: "蒯因",
     },
+    {
+      url: "/universe-physics/knowledge-base/前沿物理--弦理论",
+      title: "弦理论",
+    },
   ],
   "/philosophy/concepts/power": [
     {
@@ -2952,6 +3152,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "董仲舒",
     },
   ],
+  "/philosophy/dialogues/einstein-bohr": [
+    {
+      url: "/universe-physics/knowledge-base/物理学--量子力学诠释",
+      title: "量子力学诠释",
+    },
+  ],
   "/philosophy/questions/do-we-have-free-will": [
     {
       url: "/philosophy/thinkers/hannah-arendt",
@@ -2968,22 +3174,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/quine",
       title: "蒯因",
-    },
-  ],
-  "/philosophy/schools/philosophy-of-mind": [
-    {
-      url: "/philosophy/thinkers/frege",
-      title: "弗雷格",
-    },
-    {
-      url: "/philosophy/thinkers/quine",
-      title: "蒯因",
-    },
-  ],
-  "/philosophy/schools/utilitarianism": [
-    {
-      url: "/economics/theories/comparative-advantage",
-      title: "比较优势理论",
     },
   ],
   "/philosophy/thinkers/aquinas": [
@@ -3090,12 +3280,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/concepts/knowledge",
       title: "知识",
-    },
-  ],
-  "/philosophy/thinkers/gorgias": [
-    {
-      url: "/philosophy/thinkers/plato",
-      title: "柏拉图",
     },
   ],
   "/philosophy/thinkers/habermas": [
@@ -3276,24 +3460,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/socrates",
       title: "苏格拉底",
-    },
-  ],
-  "/philosophy/thinkers/parmenides": [
-    {
-      url: "/philosophy/thinkers/democritus",
-      title: "德谟克利特",
-    },
-    {
-      url: "/philosophy/thinkers/gorgias",
-      title: "高尔吉亚",
-    },
-    {
-      url: "/philosophy/thinkers/heraclitus",
-      title: "赫拉克利特",
-    },
-    {
-      url: "/philosophy/thinkers/thales",
-      title: "泰勒斯",
     },
   ],
   "/philosophy/thinkers/peirce": [
@@ -4560,16 +4726,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "社会认同理论",
     },
   ],
-  "/psychology/phenomena/learned-helplessness": [
-    {
-      url: "/psychology/experiments/pavlov-classical-conditioning",
-      title: "巴甫洛夫经典条件反射",
-    },
-    {
-      url: "/psychology/schools/positive-psychology",
-      title: "积极心理学",
-    },
-  ],
   "/psychology/phenomena/memory-systems": [
     {
       url: "/psychology/phenomena/false-memory",
@@ -4656,10 +4812,1016 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "认知偏误",
     },
   ],
+  "/universe-physics/dialogues/bohr-heisenberg": [
+    {
+      url: "/universe-physics/knowledge-base/量子物理--量子纠缠",
+      title: "量子纠缠",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--量子力学诠释",
+      title: "量子力学诠释",
+    },
+  ],
+  "/universe-physics/dialogues/bohr-nagarjuna": [
+    {
+      url: "/universe-physics/knowledge-base/物理学--量子力学诠释",
+      title: "量子力学诠释",
+    },
+  ],
+  "/universe-physics/dialogues/dirac-feynman": [
+    {
+      url: "/universe-physics/knowledge-base/相对论--狭义相对论",
+      title: "狭义相对论",
+    },
+  ],
+  "/universe-physics/dialogues/einstein-kant": [
+    {
+      url: "/universe-physics/knowledge-base/相对论--广义相对论",
+      title: "广义相对论",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--狭义相对论",
+      title: "狭义相对论",
+    },
+  ],
+  "/universe-physics/dialogues/hawking-penrose": [
+    {
+      url: "/universe-physics/knowledge-base/相对论--广义相对论",
+      title: "广义相对论",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--黑洞",
+      title: "黑洞",
+    },
+    {
+      url: "/universe-physics/knowledge-base/前沿物理--弦理论",
+      title: "弦理论",
+    },
+  ],
+  "/universe-physics/dialogues/heisenberg-schrodinger": [
+    {
+      url: "/universe-physics/knowledge-base/量子物理--量子纠缠",
+      title: "量子纠缠",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--量子力学诠释",
+      title: "量子力学诠释",
+    },
+  ],
+  "/universe-physics/dialogues/higgs-englert": [
+    {
+      url: "/universe-physics/knowledge-base/物理学--对称性与诺特定理",
+      title: "对称性与诺特定理",
+    },
+    {
+      url: "/universe-physics/knowledge-base/前沿物理--希格斯玻色子",
+      title: "希格斯玻色子",
+    },
+  ],
+  "/universe-physics/dialogues/maxwell-faraday": [
+    {
+      url: "/universe-physics/knowledge-base/相对论--狭义相对论",
+      title: "狭义相对论",
+    },
+  ],
+  "/universe-physics/dialogues/penrose-wheeler": [
+    {
+      url: "/universe-physics/knowledge-base/相对论--广义相对论",
+      title: "广义相对论",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--黑洞",
+      title: "黑洞",
+    },
+    {
+      url: "/universe-physics/knowledge-base/前沿物理--弦理论",
+      title: "弦理论",
+    },
+  ],
+  "/universe-physics/dialogues/planck-mendel": [
+    {
+      url: "/universe-physics/knowledge-base/应用物理--生物物理导论",
+      title: "生物物理导论",
+    },
+  ],
+  "/universe-physics/dialogues/schrodinger-darwin": [
+    {
+      url: "/universe-physics/knowledge-base/应用物理--生物物理导论",
+      title: "生物物理导论",
+    },
+  ],
+  "/universe-physics/frontier/dark-matter-direct-detection": [
+    {
+      url: "/universe-physics/knowledge-base/前沿物理--暗物质",
+      title: "暗物质",
+    },
+    {
+      url: "/universe-physics/knowledge-base/粒子物理--standard-model-overview",
+      title: "标准模型概览",
+    },
+    {
+      url: "/universe-physics/knowledge-base/前沿物理--希格斯玻色子",
+      title: "希格斯玻色子",
+    },
+  ],
+  "/universe-physics/frontier/fusion-ignition-era": [
+    {
+      url: "/universe-physics/knowledge-base/量子物理--量子隧穿",
+      title: "量子隧穿",
+    },
+  ],
+  "/universe-physics/frontier/muon-g2-self-correction": [
+    {
+      url: "/universe-physics/knowledge-base/粒子物理--standard-model-overview",
+      title: "标准模型概览",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--对称性与诺特定理",
+      title: "对称性与诺特定理",
+    },
+    {
+      url: "/universe-physics/knowledge-base/前沿物理--希格斯玻色子",
+      title: "希格斯玻色子",
+    },
+  ],
   "/universe-physics/frontier/quantum-error-correction": [
+    {
+      url: "/universe-physics/knowledge-base/前沿物理--量子计算",
+      title: "量子计算",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--量子纠缠",
+      title: "量子纠缠",
+    },
     {
       url: "/computer-science/frontier/quantum-algorithms",
       title: "量子算法：Shor 与 Grover 之后的软件边界",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--量子隧穿",
+      title: "量子隧穿",
+    },
+  ],
+  "/universe-physics/frontier/room-temperature-superconductor": [
+    {
+      url: "/universe-physics/knowledge-base/量子物理--量子隧穿",
+      title: "量子隧穿",
+    },
+  ],
+  "/universe-physics/frontier/topological-qubits-majorana": [
+    {
+      url: "/universe-physics/knowledge-base/前沿物理--量子计算",
+      title: "量子计算",
+    },
+    {
+      url: "/universe-physics/knowledge-base/凝聚态物理--topological-insulators",
+      title: "拓扑绝缘体",
+    },
+  ],
+  "/universe-physics/knowledge-base/光学--光的色散与彩虹": [
+    {
+      url: "/universe-physics/knowledge-base/电磁学--电磁波的产生与传播",
+      title: "电磁波的产生与传播",
+    },
+  ],
+  "/universe-physics/knowledge-base/光学--激光原理与应用": [
+    {
+      url: "/universe-physics/knowledge-base/光学--非线性光学",
+      title: "非线性光学",
+    },
+    {
+      url: "/universe-physics/knowledge-base/光学--全息术",
+      title: "全息术",
+    },
+  ],
+  "/universe-physics/knowledge-base/光学--非线性光学": [
+    {
+      url: "/universe-physics/knowledge-base/光学--光的色散与彩虹",
+      title: "光的色散与彩虹",
+    },
+    {
+      url: "/universe-physics/knowledge-base/光学--激光原理与应用",
+      title: "激光原理与应用",
+    },
+  ],
+  "/universe-physics/knowledge-base/前沿物理--凝聚态物理与量子材料": [
+    {
+      url: "/universe-physics/knowledge-base/电磁学--超导体",
+      title: "超导体",
+    },
+  ],
+  "/universe-physics/knowledge-base/前沿物理--宇宙暴胀": [
+    {
+      url: "/universe-physics/knowledge-base/热力学--phase-transitions-and-critical-phenomena",
+      title: "相变与临界现象",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--宇宙微波背景辐射",
+      title: "宇宙微波背景辐射",
+    },
+  ],
+  "/universe-physics/knowledge-base/前沿物理--希格斯玻色子": [
+    {
+      url: "/universe-physics/knowledge-base/物理学--对称性与群论基础",
+      title: "对称性与群论基础",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--粒子物理与加速器",
+      title: "粒子物理与加速器",
+    },
+  ],
+  "/universe-physics/knowledge-base/前沿物理--弦理论": [
+    {
+      url: "/universe-physics/knowledge-base/前沿物理--宇宙暴胀",
+      title: "宇宙暴胀",
+    },
+  ],
+  "/universe-physics/knowledge-base/前沿物理--量子计算": [
+    {
+      url: "/universe-physics/knowledge-base/量子物理--不确定性原理",
+      title: "不确定性原理",
+    },
+    {
+      url: "/universe-physics/knowledge-base/电磁学--超导体",
+      title: "超导体",
+    },
+    {
+      url: "/universe-physics/knowledge-base/前沿物理--凝聚态物理与量子材料",
+      title: "凝聚态物理与量子材料",
+    },
+  ],
+  "/universe-physics/knowledge-base/原子物理--光电效应与量子化光": [
+    {
+      url: "/universe-physics/knowledge-base/物理学--普朗克常数与量子化",
+      title: "普朗克常数与量子化",
+    },
+  ],
+  "/universe-physics/knowledge-base/应用物理--晶体管与半导体器件": [
+    {
+      url: "/universe-physics/knowledge-base/电磁学--电路分析与基尔霍夫定律",
+      title: "电路分析与基尔霍夫定律",
+    },
+    {
+      url: "/universe-physics/knowledge-base/应用物理--电子学与放大器电路",
+      title: "电子学与放大器电路",
+    },
+  ],
+  "/universe-physics/knowledge-base/热力学--制冷与热泵": [
+    {
+      url: "/universe-physics/knowledge-base/热力学--热传导对流与辐射",
+      title: "热传导对流与辐射",
+    },
+  ],
+  "/universe-physics/knowledge-base/热力学--热传导对流与辐射": [
+    {
+      url: "/universe-physics/knowledge-base/热力学--制冷与热泵",
+      title: "制冷与热泵",
+    },
+  ],
+  "/universe-physics/knowledge-base/热力学--熵与时间之箭": [
+    {
+      url: "/universe-physics/knowledge-base/热力学--非平衡态热力学",
+      title: "非平衡态热力学",
+    },
+    {
+      url: "/universe-physics/knowledge-base/热力学--麦克斯韦妖",
+      title: "麦克斯韦妖",
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--摩擦与耗散",
+      title: "摩擦与耗散",
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--能量守恒",
+      title: "能量守恒",
+    },
+    {
+      url: "/universe-physics/knowledge-base/热力学--热传导对流与辐射",
+      title: "热传导对流与辐射",
+    },
+    {
+      url: "/universe-physics/knowledge-base/热力学--相变",
+      title: "相变",
+    },
+  ],
+  "/universe-physics/knowledge-base/热力学--相变": [
+    {
+      url: "/universe-physics/knowledge-base/热力学--绝对零度",
+      title: "绝对零度",
+    },
+  ],
+  "/universe-physics/knowledge-base/热力学--绝对零度": [
+    {
+      url: "/universe-physics/knowledge-base/电磁学--超导体",
+      title: "超导体",
+    },
+  ],
+  "/universe-physics/knowledge-base/热力学--自由能与化学势": [
+    {
+      url: "/universe-physics/knowledge-base/热力学--非平衡态热力学",
+      title: "非平衡态热力学",
+    },
+  ],
+  "/universe-physics/knowledge-base/热力学--非平衡态热力学": [
+    {
+      url: "/universe-physics/knowledge-base/热力学--自由能与化学势",
+      title: "自由能与化学势",
+    },
+  ],
+  "/universe-physics/knowledge-base/物理学--参考系与惯性": [
+    {
+      url: "/universe-physics/knowledge-base/物理学--洛伦兹变换",
+      title: "洛伦兹变换",
+    },
+  ],
+  "/universe-physics/knowledge-base/物理学--多普勒效应与相对论多普勒": [
+    {
+      url: "/universe-physics/knowledge-base/经典物理--声学与多普勒效应",
+      title: "声学与多普勒效应",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--时间膨胀与长度收缩",
+      title: "时间膨胀与长度收缩",
+    },
+  ],
+  "/universe-physics/knowledge-base/物理学--宇宙学红移与膨胀": [
+    {
+      url: "/universe-physics/knowledge-base/物理学--多普勒效应与相对论多普勒",
+      title: "多普勒效应与相对论多普勒",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--引力透镜的物理",
+      title: "引力透镜的物理",
+    },
+  ],
+  "/universe-physics/knowledge-base/物理学--宇宙微波背景辐射": [
+    {
+      url: "/universe-physics/knowledge-base/电磁学--plasma-physics",
+      title: "等离子体物理",
+    },
+  ],
+  "/universe-physics/knowledge-base/物理学--宇宙的最终命运": [
+    {
+      url: "/universe-physics/knowledge-base/物理学--暗物质与暗能量",
+      title: "暗物质与暗能量",
+    },
+    {
+      url: "/universe-physics/knowledge-base/前沿物理--核聚变与恒星能源",
+      title: "核聚变与恒星能源",
+    },
+    {
+      url: "/universe-physics/knowledge-base/热力学--熵与时间之箭",
+      title: "熵与时间之箭",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--宇宙微波背景辐射",
+      title: "宇宙微波背景辐射",
+    },
+  ],
+  "/universe-physics/knowledge-base/物理学--对称性与群论基础": [
+    {
+      url: "/universe-physics/knowledge-base/前沿物理--量子场论导论",
+      title: "量子场论导论",
+    },
+  ],
+  "/universe-physics/knowledge-base/物理学--对称性与诺特定理": [
+    {
+      url: "/universe-physics/knowledge-base/经典物理--角动量与守恒律",
+      title: "角动量与守恒律",
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--lagrangian-hamiltonian-mechanics",
+      title: "拉格朗日与哈密顿力学",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--粒子物理与加速器",
+      title: "粒子物理与加速器",
+    },
+    {
+      url: "/universe-physics/knowledge-base/电磁学--麦克斯韦方程组",
+      title: "麦克斯韦方程组",
+    },
+    {
+      url: "/universe-physics/knowledge-base/前沿物理--凝聚态物理与量子材料",
+      title: "凝聚态物理与量子材料",
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--牛顿三大定律",
+      title: "牛顿三大定律",
+    },
+  ],
+  "/universe-physics/knowledge-base/物理学--引力波天文学": [
+    {
+      url: "/universe-physics/knowledge-base/经典物理--万有引力",
+      title: "万有引力",
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--万有引力与开普勒定律",
+      title: "万有引力与开普勒定律",
+    },
+  ],
+  "/universe-physics/knowledge-base/物理学--时间膨胀与长度收缩": [
+    {
+      url: "/universe-physics/knowledge-base/物理学--多普勒效应与相对论多普勒",
+      title: "多普勒效应与相对论多普勒",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--洛伦兹变换",
+      title: "洛伦兹变换",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--闵可夫斯基时空与四维矢量",
+      title: "闵可夫斯基时空与四维矢量",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--双生子佯谬",
+      title: "双生子佯谬",
+    },
+  ],
+  "/universe-physics/knowledge-base/物理学--暗物质与暗能量": [
+    {
+      url: "/universe-physics/knowledge-base/物理学--标准模型与超越",
+      title: "标准模型与超越",
+    },
+    {
+      url: "/universe-physics/knowledge-base/前沿物理--核聚变与恒星能源",
+      title: "核聚变与恒星能源",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--引力波天文学",
+      title: "引力波天文学",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--引力透镜的物理",
+      title: "引力透镜的物理",
+    },
+    {
+      url: "/universe-physics/knowledge-base/前沿物理--宇宙暴胀",
+      title: "宇宙暴胀",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--宇宙的最终命运",
+      title: "宇宙的最终命运",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--宇宙微波背景辐射",
+      title: "宇宙微波背景辐射",
+    },
+  ],
+  "/universe-physics/knowledge-base/物理学--标准模型与超越": [
+    {
+      url: "/universe-physics/knowledge-base/物理学--暗物质与暗能量",
+      title: "暗物质与暗能量",
+    },
+    {
+      url: "/universe-physics/frontier/dark-matter-direct-detection",
+      title: '暗物质直接探测的"沉默"',
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--粒子物理与加速器",
+      title: "粒子物理与加速器",
+    },
+    {
+      url: "/universe-physics/knowledge-base/前沿物理--量子场论导论",
+      title: "量子场论导论",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--引力波天文学",
+      title: "引力波天文学",
+    },
+  ],
+  "/universe-physics/knowledge-base/物理学--洛伦兹变换": [
+    {
+      url: "/universe-physics/knowledge-base/物理学--参考系与惯性",
+      title: "参考系与惯性",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--闵可夫斯基时空与四维矢量",
+      title: "闵可夫斯基时空与四维矢量",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--时间膨胀与长度收缩",
+      title: "时间膨胀与长度收缩",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--相对论性动量与能量",
+      title: "相对论性动量与能量",
+    },
+  ],
+  "/universe-physics/knowledge-base/物理学--相对论性动量与能量": [
+    {
+      url: "/universe-physics/knowledge-base/物理学--洛伦兹变换",
+      title: "洛伦兹变换",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--闵可夫斯基时空与四维矢量",
+      title: "闵可夫斯基时空与四维矢量",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--质能等价",
+      title: "质能等价 E=mc²",
+    },
+  ],
+  "/universe-physics/knowledge-base/物理学--粒子物理与加速器": [
+    {
+      url: "/universe-physics/knowledge-base/电磁学--安培定律与磁场",
+      title: "安培定律与磁场",
+    },
+  ],
+  "/universe-physics/knowledge-base/物理学--质能等价": [
+    {
+      url: "/universe-physics/knowledge-base/相对论--相对论性动力学与四维力",
+      title: "相对论性动力学与四维力",
+    },
+  ],
+  "/universe-physics/knowledge-base/物理学--量子力学诠释": [
+    {
+      url: "/universe-physics/knowledge-base/物理学--标准模型与超越",
+      title: "标准模型与超越",
+    },
+    {
+      url: "/universe-physics/knowledge-base/光学--非线性光学",
+      title: "非线性光学",
+    },
+    {
+      url: "/universe-physics/knowledge-base/应用物理--核磁共振成像MRI原理",
+      title: "核磁共振成像MRI原理",
+    },
+    {
+      url: "/universe-physics/knowledge-base/应用物理--晶体管与半导体器件",
+      title: "晶体管与半导体器件",
+    },
+    {
+      url: "/universe-physics/knowledge-base/热力学--麦克斯韦妖",
+      title: "麦克斯韦妖",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--宇宙的最终命运",
+      title: "宇宙的最终命运",
+    },
+  ],
+  "/universe-physics/knowledge-base/电磁学--光的本质": [
+    {
+      url: "/universe-physics/knowledge-base/经典物理--波动与振动",
+      title: "波动与振动",
+    },
+    {
+      url: "/universe-physics/knowledge-base/电磁学--电磁波谱",
+      title: "电磁波谱",
+    },
+    {
+      url: "/universe-physics/knowledge-base/电磁学--法拉第与电磁感应",
+      title: "法拉第与电磁感应",
+    },
+    {
+      url: "/universe-physics/knowledge-base/光学--interference-and-diffraction",
+      title: "光的干涉与衍射",
+    },
+    {
+      url: "/universe-physics/knowledge-base/光学--激光原理与应用",
+      title: "激光原理与应用",
+    },
+    {
+      url: "/universe-physics/knowledge-base/电磁学--麦克斯韦方程组",
+      title: "麦克斯韦方程组",
+    },
+  ],
+  "/universe-physics/knowledge-base/电磁学--法拉第与电磁感应": [
+    {
+      url: "/universe-physics/knowledge-base/电磁学--安培定律与磁场",
+      title: "安培定律与磁场",
+    },
+    {
+      url: "/universe-physics/knowledge-base/电磁学--超导体",
+      title: "超导体",
+    },
+    {
+      url: "/universe-physics/knowledge-base/凝聚态物理--磁性与铁磁体",
+      title: "磁性与铁磁体",
+    },
+    {
+      url: "/universe-physics/knowledge-base/电磁学--电磁波谱",
+      title: "电磁波谱",
+    },
+    {
+      url: "/universe-physics/knowledge-base/电磁学--电路分析与基尔霍夫定律",
+      title: "电路分析与基尔霍夫定律",
+    },
+    {
+      url: "/universe-physics/knowledge-base/电磁学--麦克斯韦方程组",
+      title: "麦克斯韦方程组",
+    },
+  ],
+  "/universe-physics/knowledge-base/电磁学--电磁波的产生与传播": [
+    {
+      url: "/universe-physics/knowledge-base/光学--光的色散与彩虹",
+      title: "光的色散与彩虹",
+    },
+    {
+      url: "/universe-physics/knowledge-base/电磁学--天线与电磁辐射",
+      title: "天线与电磁辐射",
+    },
+  ],
+  "/universe-physics/knowledge-base/电磁学--电磁波谱": [
+    {
+      url: "/universe-physics/knowledge-base/经典物理--波动与振动",
+      title: "波动与振动",
+    },
+    {
+      url: "/universe-physics/knowledge-base/电磁学--光的本质",
+      title: "光的本质",
+    },
+  ],
+  "/universe-physics/knowledge-base/电磁学--电路分析与基尔霍夫定律": [
+    {
+      url: "/universe-physics/knowledge-base/应用物理--晶体管与半导体器件",
+      title: "晶体管与半导体器件",
+    },
+  ],
+  "/universe-physics/knowledge-base/电磁学--超导体": [
+    {
+      url: "/universe-physics/knowledge-base/电磁学--capacitance-and-inductance",
+      title: "电容与电感",
+    },
+    {
+      url: "/universe-physics/knowledge-base/电磁学--法拉第与电磁感应",
+      title: "法拉第与电磁感应",
+    },
+    {
+      url: "/universe-physics/knowledge-base/应用物理--核磁共振成像MRI原理",
+      title: "核磁共振成像MRI原理",
+    },
+    {
+      url: "/universe-physics/knowledge-base/热力学--绝对零度",
+      title: "绝对零度",
+    },
+    {
+      url: "/universe-physics/knowledge-base/前沿物理--凝聚态物理与量子材料",
+      title: "凝聚态物理与量子材料",
+    },
+    {
+      url: "/universe-physics/knowledge-base/热力学--相变",
+      title: "相变",
+    },
+    {
+      url: "/universe-physics/knowledge-base/热力学--phase-transitions-and-critical-phenomena",
+      title: "相变与临界现象",
+    },
+  ],
+  "/universe-physics/knowledge-base/电磁学--麦克斯韦方程组": [
+    {
+      url: "/universe-physics/knowledge-base/电磁学--plasma-physics",
+      title: "等离子体物理",
+    },
+    {
+      url: "/universe-physics/knowledge-base/电磁学--电磁波的产生与传播",
+      title: "电磁波的产生与传播",
+    },
+    {
+      url: "/universe-physics/knowledge-base/电磁学--capacitance-and-inductance",
+      title: "电容与电感",
+    },
+    {
+      url: "/universe-physics/knowledge-base/电磁学--光的本质",
+      title: "光的本质",
+    },
+    {
+      url: "/universe-physics/knowledge-base/电磁学--coulomb-law-electrostatics",
+      title: "库仑定律与静电场",
+    },
+    {
+      url: "/universe-physics/knowledge-base/电磁学--天线与电磁辐射",
+      title: "天线与电磁辐射",
+    },
+  ],
+  "/universe-physics/knowledge-base/相对论--克尔转动黑洞": [
+    {
+      url: "/universe-physics/knowledge-base/相对论--史瓦西黑洞",
+      title: "史瓦西黑洞",
+    },
+  ],
+  "/universe-physics/knowledge-base/相对论--双生子佯谬": [
+    {
+      url: "/universe-physics/knowledge-base/物理学--时间膨胀与长度收缩",
+      title: "时间膨胀与长度收缩",
+    },
+  ],
+  "/universe-physics/knowledge-base/相对论--史瓦西黑洞": [
+    {
+      url: "/universe-physics/knowledge-base/相对论--广义相对论的实验检验",
+      title: "广义相对论的实验检验",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--克尔转动黑洞",
+      title: "克尔转动黑洞",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--时空弯曲与测地线",
+      title: "时空弯曲与测地线",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--引力红移与引力时间膨胀",
+      title: "引力红移与引力时间膨胀",
+    },
+  ],
+  "/universe-physics/knowledge-base/相对论--广义相对论": [
+    {
+      url: "/universe-physics/knowledge-base/相对论--等效原理",
+      title: "等效原理",
+    },
+  ],
+  "/universe-physics/knowledge-base/相对论--广义相对论的实验检验": [
+    {
+      url: "/universe-physics/knowledge-base/相对论--等效原理",
+      title: "等效原理",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--克尔转动黑洞",
+      title: "克尔转动黑洞",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--时空弯曲与测地线",
+      title: "时空弯曲与测地线",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--引力红移与引力时间膨胀",
+      title: "引力红移与引力时间膨胀",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--引力透镜的物理",
+      title: "引力透镜的物理",
+    },
+  ],
+  "/universe-physics/knowledge-base/相对论--引力波": [
+    {
+      url: "/universe-physics/knowledge-base/前沿物理--宇宙暴胀",
+      title: "宇宙暴胀",
+    },
+  ],
+  "/universe-physics/knowledge-base/相对论--引力红移与引力时间膨胀": [
+    {
+      url: "/universe-physics/knowledge-base/相对论--等效原理",
+      title: "等效原理",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--多普勒效应与相对论多普勒",
+      title: "多普勒效应与相对论多普勒",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--广义相对论的实验检验",
+      title: "广义相对论的实验检验",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--史瓦西黑洞",
+      title: "史瓦西黑洞",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--双生子佯谬",
+      title: "双生子佯谬",
+    },
+  ],
+  "/universe-physics/knowledge-base/相对论--引力透镜的物理": [
+    {
+      url: "/universe-physics/knowledge-base/相对论--广义相对论的实验检验",
+      title: "广义相对论的实验检验",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--时空弯曲与测地线",
+      title: "时空弯曲与测地线",
+    },
+  ],
+  "/universe-physics/knowledge-base/相对论--时空弯曲与测地线": [
+    {
+      url: "/universe-physics/knowledge-base/物理学--参考系与惯性",
+      title: "参考系与惯性",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--等效原理",
+      title: "等效原理",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--史瓦西黑洞",
+      title: "史瓦西黑洞",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--引力透镜的物理",
+      title: "引力透镜的物理",
+    },
+  ],
+  "/universe-physics/knowledge-base/相对论--狭义相对论": [
+    {
+      url: "/universe-physics/knowledge-base/电磁学--麦克斯韦方程组",
+      title: "麦克斯韦方程组",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--相对论性动力学与四维力",
+      title: "相对论性动力学与四维力",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--质能等价",
+      title: "质能等价 E=mc²",
+    },
+  ],
+  "/universe-physics/knowledge-base/相对论--等效原理": [
+    {
+      url: "/universe-physics/knowledge-base/物理学--参考系与惯性",
+      title: "参考系与惯性",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--广义相对论的实验检验",
+      title: "广义相对论的实验检验",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--双生子佯谬",
+      title: "双生子佯谬",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--引力红移与引力时间膨胀",
+      title: "引力红移与引力时间膨胀",
+    },
+  ],
+  "/universe-physics/knowledge-base/相对论--闵可夫斯基时空与四维矢量": [
+    {
+      url: "/universe-physics/knowledge-base/物理学--洛伦兹变换",
+      title: "洛伦兹变换",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--双生子佯谬",
+      title: "双生子佯谬",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--相对论性动量与能量",
+      title: "相对论性动量与能量",
+    },
+  ],
+  "/universe-physics/knowledge-base/经典物理--万有引力": [
+    {
+      url: "/universe-physics/knowledge-base/经典物理--牛顿三大定律",
+      title: "牛顿三大定律",
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--万有引力与开普勒定律",
+      title: "万有引力与开普勒定律",
+    },
+  ],
+  "/universe-physics/knowledge-base/经典物理--弹性与材料力学": [
+    {
+      url: "/universe-physics/knowledge-base/经典物理--表面张力与毛细现象",
+      title: "表面张力与毛细现象",
+    },
+  ],
+  "/universe-physics/knowledge-base/经典物理--波动与振动": [
+    {
+      url: "/universe-physics/knowledge-base/经典物理--弹性与材料力学",
+      title: "弹性与材料力学",
+    },
+    {
+      url: "/universe-physics/knowledge-base/应用物理--地球物理与地震波",
+      title: "地球物理与地震波",
+    },
+    {
+      url: "/universe-physics/knowledge-base/电磁学--光的本质",
+      title: "光的本质",
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--声学与多普勒效应",
+      title: "声学与多普勒效应",
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--振动与简正模式",
+      title: "振动与简正模式",
+    },
+  ],
+  "/universe-physics/knowledge-base/经典物理--牛顿三大定律": [
+    {
+      url: "/universe-physics/knowledge-base/经典物理--momentum-conservation-collisions",
+      title: "动量守恒与碰撞",
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--rigid-body-rotation",
+      title: "刚体转动与转动惯量",
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--simple-harmonic-motion",
+      title: "简谐振动与共振",
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--角动量与守恒律",
+      title: "角动量与守恒律",
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--lagrangian-hamiltonian-mechanics",
+      title: "拉格朗日与哈密顿力学",
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--fluid-mechanics-bernoulli",
+      title: "流体力学与伯努利原理",
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--能量守恒",
+      title: "能量守恒",
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--万有引力",
+      title: "万有引力",
+    },
+  ],
+  "/universe-physics/knowledge-base/经典物理--能量守恒": [
+    {
+      url: "/universe-physics/knowledge-base/经典物理--摩擦与耗散",
+      title: "摩擦与耗散",
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--牛顿三大定律",
+      title: "牛顿三大定律",
+    },
+    {
+      url: "/universe-physics/knowledge-base/热力学--熵与时间之箭",
+      title: "熵与时间之箭",
+    },
+  ],
+  "/universe-physics/knowledge-base/经典物理--表面张力与毛细现象": [
+    {
+      url: "/universe-physics/knowledge-base/经典物理--弹性与材料力学",
+      title: "弹性与材料力学",
+    },
+  ],
+  "/universe-physics/knowledge-base/经典物理--角动量与守恒律": [
+    {
+      url: "/universe-physics/knowledge-base/经典物理--rigid-body-rotation",
+      title: "刚体转动与转动惯量",
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--牛顿三大定律",
+      title: "牛顿三大定律",
+    },
+  ],
+  "/universe-physics/knowledge-base/量子物理--不确定性原理": [
+    {
+      url: "/universe-physics/knowledge-base/量子物理--波粒二象性",
+      title: "波粒二象性",
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--角动量与守恒律",
+      title: "角动量与守恒律",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--普朗克常数与量子化",
+      title: "普朗克常数与量子化",
+    },
+  ],
+  "/universe-physics/knowledge-base/量子物理--波粒二象性": [
+    {
+      url: "/universe-physics/knowledge-base/量子物理--不确定性原理",
+      title: "不确定性原理",
+    },
+    {
+      url: "/universe-physics/knowledge-base/电磁学--光的本质",
+      title: "光的本质",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--光电效应与量子化光",
+      title: "光电效应与量子化光",
+    },
+  ],
+  "/universe-physics/knowledge-base/量子物理--量子纠缠": [
+    {
+      url: "/universe-physics/knowledge-base/量子物理--wave-function-probability",
+      title: "波函数与概率诠释",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--波粒二象性",
+      title: "波粒二象性",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--quantum-measurement",
+      title: "量子测量问题",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--quantum-decoherence",
+      title: "量子退相干",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--quantum-spin",
+      title: "量子自旋",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--identical-particles-statistics",
+      title: "全同粒子与量子统计",
+    },
+  ],
+  "/universe-physics/knowledge-base/量子物理--量子隧穿": [
+    {
+      url: "/universe-physics/knowledge-base/量子物理--不确定性原理",
+      title: "不确定性原理",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--radioactive-decay",
+      title: "放射性衰变",
+    },
+    {
+      url: "/universe-physics/knowledge-base/前沿物理--核聚变与恒星能源",
+      title: "核聚变与恒星能源",
     },
   ],
 };
