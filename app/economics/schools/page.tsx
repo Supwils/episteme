@@ -4,7 +4,7 @@ import { getAllSchools } from "@/subjects/economics/lib/mdx";
 import { ERA_COLORS } from "@/subjects/economics/lib/constants";
 
 export const metadata: Metadata = {
-  title: "经济学派 — Universe Knowledge",
+  title: "经济学派 — Episteme · 格致",
   description: "古典、新古典、凯恩斯、奥地利、行为经济学等思想流派",
 };
 
@@ -22,7 +22,7 @@ export default function SchoolsPage() {
   return (
     <div className="w-full px-6 py-16 sm:px-10 lg:px-16">
       <header className="mb-12">
-        <p className="text-fg-muted mb-3 font-mono text-[10px] uppercase tracking-[0.42em]">
+        <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
           economics / schools
         </p>
         <h1 className="font-display text-fg-primary text-[2.4rem] leading-tight tracking-tight md:text-[3.2rem]">
@@ -34,7 +34,7 @@ export default function SchoolsPage() {
       </header>
 
       <div className="relative">
-        <div className="absolute left-4 top-0 bottom-0 w-px bg-border-faint md:left-8" />
+        <div className="bg-border-faint absolute top-0 bottom-0 left-4 w-px md:left-8" />
 
         {eras.map((era) => {
           const items = grouped[era] ?? [];
@@ -43,15 +43,12 @@ export default function SchoolsPage() {
 
           return (
             <section key={era} className="mb-16">
-              <div className="relative pl-12 md:pl-20 mb-8">
+              <div className="relative mb-8 pl-12 md:pl-20">
                 <div
-                  className="absolute left-2 top-1 h-5 w-5 rounded-full border-2 md:left-6"
+                  className="absolute top-1 left-2 h-5 w-5 rounded-full border-2 md:left-6"
                   style={{ borderColor: color, backgroundColor: "var(--color-bg-deep)" }}
                 />
-                <h2
-                  className="font-display text-xl font-semibold"
-                  style={{ color }}
-                >
+                <h2 className="font-display text-xl font-semibold" style={{ color }}>
                   {era}
                 </h2>
                 <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">
@@ -59,7 +56,7 @@ export default function SchoolsPage() {
                 </span>
               </div>
 
-              <div className="grid grid-cols-1 gap-4 pl-12 md:pl-20 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid grid-cols-1 gap-4 pl-12 sm:grid-cols-2 md:pl-20 lg:grid-cols-3">
                 {items.map((school) => (
                   <Link
                     key={school.slug}
@@ -67,7 +64,7 @@ export default function SchoolsPage() {
                     className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative flex h-full flex-col gap-3 overflow-hidden border p-5 backdrop-blur-md transition-all duration-500 hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(200,164,90,0.06)]"
                   >
                     <div
-                      className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-20"
+                      className="pointer-events-none absolute -top-8 -right-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-20"
                       style={{ backgroundColor: color }}
                     />
 
@@ -80,19 +77,17 @@ export default function SchoolsPage() {
                       </span>
                     </div>
 
-                    <h3 className="font-display text-fg-primary group-hover:text-accent-gold text-base font-semibold leading-tight transition-colors duration-300">
+                    <h3 className="font-display text-fg-primary group-hover:text-accent-gold text-base leading-tight font-semibold transition-colors duration-300">
                       {school.title}
                     </h3>
                     {school.title_en && (
-                      <p className="text-fg-muted font-mono text-[10px] italic tracking-wider">
+                      <p className="text-fg-muted font-mono text-[10px] tracking-wider italic">
                         {school.title_en}
                       </p>
                     )}
 
                     {school.founder && (
-                      <p className="text-fg-secondary text-sm">
-                        创始人：{school.founder}
-                      </p>
+                      <p className="text-fg-secondary text-sm">创始人：{school.founder}</p>
                     )}
 
                     {school.key_figures.length > 0 && (
@@ -127,9 +122,7 @@ export default function SchoolsPage() {
           <p className="text-fg-muted font-mono text-[11px] tracking-[0.22em] uppercase">
             暂无学派内容
           </p>
-          <p className="text-fg-secondary mt-2 text-sm">
-            经济学派文章正在撰写中，敬请期待。
-          </p>
+          <p className="text-fg-secondary mt-2 text-sm">经济学派文章正在撰写中，敬请期待。</p>
         </div>
       )}
     </div>

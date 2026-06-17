@@ -4,10 +4,10 @@ import { getAllTheorems, getTheoremsByField } from "@/subjects/mathematics/lib/t
 import { MATH_FIELD_COLORS, MATH_DIFFICULTY_COLORS } from "@/subjects/mathematics/lib/constants";
 
 export const metadata: Metadata = {
-  title: "定理 — Universe Knowledge",
+  title: "定理 — Episteme · 格致",
   description: "从勾股定理到费马大定理，探索数学中最优美、最深刻的定理",
   openGraph: {
-    title: "定理 — Universe Knowledge",
+    title: "定理 — Episteme · 格致",
     description: "从勾股定理到费马大定理，探索数学中最优美、最深刻的定理",
     type: "website",
   },
@@ -19,7 +19,7 @@ export default function TheoremsPage() {
   const fields = Object.keys(grouped);
 
   return (
-    <div className="w-full px-6 sm:px-10 lg:px-16 py-12 sm:py-16">
+    <div className="w-full px-6 py-12 sm:px-10 sm:py-16 lg:px-16">
       <header className="mb-12">
         <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
           mathematics / theorems
@@ -64,7 +64,7 @@ export default function TheoremsPage() {
                       className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative overflow-hidden border p-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5"
                     >
                       <div
-                        className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-10"
+                        className="pointer-events-none absolute -top-8 -right-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-10"
                         style={{ backgroundColor: fieldColor }}
                       />
 
@@ -93,10 +93,10 @@ export default function TheoremsPage() {
                           </span>
                         </div>
 
-                        <h3 className="font-display text-fg-primary text-base font-semibold transition-colors group-hover:text-accent-indigo">
+                        <h3 className="font-display text-fg-primary group-hover:text-accent-indigo text-base font-semibold transition-colors">
                           {theorem.title}
                         </h3>
-                        <p className="text-fg-muted mt-0.5 font-display text-sm italic tracking-wide opacity-60">
+                        <p className="text-fg-muted font-display mt-0.5 text-sm tracking-wide italic opacity-60">
                           {theorem.title_en}
                         </p>
 
@@ -117,9 +117,7 @@ export default function TheoremsPage() {
           <p className="text-fg-muted font-mono text-[11px] tracking-[0.22em] uppercase">
             暂无定理内容
           </p>
-          <p className="text-fg-secondary mt-2 text-sm">
-            定理文章正在撰写中，敬请期待。
-          </p>
+          <p className="text-fg-secondary mt-2 text-sm">定理文章正在撰写中，敬请期待。</p>
         </div>
       )}
     </div>

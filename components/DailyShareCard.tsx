@@ -202,7 +202,7 @@ export function DailyShareCard({ daily }: DailyShareCardProps) {
     y += 100;
     ctx.fillStyle = "#8b919a";
     ctx.font = "12px sans-serif";
-    ctx.fillText("Universe Knowledge · universe-knowledge.vercel.app", 40, y + 20);
+    ctx.fillText("Episteme · 格致 · episteme.vercel.app", 40, y + 20);
 
     const link = document.createElement("a");
     link.download = `daily-knowledge-${daily.date}.png`;

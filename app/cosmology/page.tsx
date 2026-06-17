@@ -8,10 +8,10 @@ import { ScaleOfUniverse } from "@/subjects/cosmology/components/visualizations"
 import { CosmologyVisualizations } from "./CosmologyVisualizations";
 
 export const metadata: Metadata = {
-  title: "宇宙学 — Universe Knowledge",
+  title: "宇宙学 — Episteme · 格致",
   description: "从可见宇宙的整体结构出发，沿尺度由大到小展开：超星系团、星系群、太阳系、行星与天体",
   openGraph: {
-    title: "宇宙学 — Universe Knowledge",
+    title: "宇宙学 — Episteme · 格致",
     description: "从可见宇宙的整体结构出发，沿尺度由大到小展开",
     type: "website",
   },

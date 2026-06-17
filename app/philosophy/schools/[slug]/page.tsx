@@ -56,7 +56,7 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
     title: school.title,
     description: founder || school.school || school.title,
     url: `${SITE_URL}/philosophy/schools/${slug}`,
-    author: founder || "Universe Knowledge",
+    author: founder || "Episteme · 格致",
     keywords: [school.title, school.school ?? "", ...keyFigures, ...school.tags],
   });
 

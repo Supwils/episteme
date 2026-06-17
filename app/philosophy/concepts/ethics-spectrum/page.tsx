@@ -1,9 +1,10 @@
-import type { Metadata } from 'next';
-import EthicsSpectrum from '@/subjects/philosophy/components/visualizations/EthicsSpectrum';
+import type { Metadata } from "next";
+import EthicsSpectrum from "@/subjects/philosophy/components/visualizations/EthicsSpectrum";
 
 export const metadata: Metadata = {
-  title: '伦理学光谱 — Universe Knowledge',
-  description: '交互式伦理学理论光谱图，比较功利主义、义务论、美德伦理、关怀伦理、社会契约论与存在主义伦理',
+  title: "伦理学光谱 — Episteme · 格致",
+  description:
+    "交互式伦理学理论光谱图，比较功利主义、义务论、美德伦理、关怀伦理、社会契约论与存在主义伦理",
 };
 
 export default function EthicsSpectrumPage() {
@@ -25,12 +26,11 @@ export default function EthicsSpectrumPage() {
       <EthicsSpectrum />
 
       <section className="border-border-faint mt-12 border-t pt-8">
-        <h2 className="font-display text-fg-primary mb-4 text-lg font-semibold">
-          关于此图谱
-        </h2>
+        <h2 className="font-display text-fg-primary mb-4 text-lg font-semibold">关于此图谱</h2>
         <div className="text-fg-secondary max-w-2xl space-y-3 text-sm leading-relaxed">
           <p>
-            这张光谱图将六大伦理学理论放置在两个核心维度上：横向是「关注后果 vs 关注义务」，纵向是「关注个体 vs 关注集体」。
+            这张光谱图将六大伦理学理论放置在两个核心维度上：横向是「关注后果 vs
+            关注义务」，纵向是「关注个体 vs 关注集体」。
             每个理论的位置是近似的——许多理论跨越多个象限，这里展示的是它们的核心倾向。
           </p>
           <p>

@@ -17,7 +17,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const path = getReadingPath(slug);
-  if (!path) return { title: "阅读路线 — Universe Knowledge" };
+  if (!path) return { title: "阅读路线 — Episteme · 格致" };
   return {
     title: `${path.title} — 阅读路线`,
     description: path.subtitle,

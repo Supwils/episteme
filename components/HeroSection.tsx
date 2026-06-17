@@ -24,7 +24,7 @@ export function HeroSection() {
           >
             <span aria-hidden="true" className="bg-accent-gold/45 h-px w-8" />
             <p className="text-accent-gold font-mono text-[0.7rem] font-medium tracking-[0.38em] uppercase">
-              Universe Knowledge Platform
+              Episteme · 格致 Platform
             </p>
             <span aria-hidden="true" className="bg-accent-gold/45 h-px w-8" />
           </motion.div>

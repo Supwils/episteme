@@ -3,16 +3,16 @@ import { getAllSchools } from "@/lib/schools";
 import { SchoolsList } from "@/components/SchoolsList";
 
 export const metadata: Metadata = {
-  title: "哲学流派 — Universe Knowledge",
+  title: "哲学流派 — Episteme · 格致",
   description: "跨越东西方的哲学流派，从柏拉图学院到当代分析哲学与后现代思潮",
   openGraph: {
-    title: "哲学流派 — Universe Knowledge",
+    title: "哲学流派 — Episteme · 格致",
     description: "跨越东西方的哲学流派，从柏拉图学院到当代分析哲学与后现代思潮",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "哲学流派 — Universe Knowledge",
+    title: "哲学流派 — Episteme · 格致",
     description: "跨越东西方的哲学流派，从柏拉图学院到当代分析哲学与后现代思潮",
   },
 };
@@ -23,7 +23,7 @@ export default function SchoolsPage() {
   return (
     <div className="w-full px-6 py-16 sm:px-10 lg:px-16">
       <header className="mb-12">
-        <p className="text-fg-muted mb-3 font-mono text-[10px] uppercase tracking-[0.42em]">
+        <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
           philosophy / schools
         </p>
         <h1 className="font-display text-fg-primary text-[2.4rem] leading-tight tracking-tight md:text-[3.2rem]">

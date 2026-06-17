@@ -1,9 +1,9 @@
-import type { Metadata } from 'next';
-import NumberLineConcepts from '@/subjects/mathematics/components/visualizations/NumberLineConcepts';
+import type { Metadata } from "next";
+import NumberLineConcepts from "@/subjects/mathematics/components/visualizations/NumberLineConcepts";
 
 export const metadata: Metadata = {
-  title: '数轴概念 — Universe Knowledge',
-  description: '交互式数轴可视化——探索整数、有理数、无理数和特殊常数在数轴上的分布',
+  title: "数轴概念 — Episteme · 格致",
+  description: "交互式数轴可视化——探索整数、有理数、无理数和特殊常数在数轴上的分布",
 };
 
 export default function NumberLineConceptsPage() {
@@ -17,17 +17,15 @@ export default function NumberLineConceptsPage() {
           数轴<em className="text-accent-indigo italic"> 概念</em>
         </h1>
         <p className="text-fg-secondary mt-3 max-w-2xl text-sm leading-relaxed">
-          数轴是理解数系的基础工具。切换不同图层，观察整数、有理数、无理数和特殊常数如何分布在 -10 到 10 的数轴上。
-          点击任意点查看其数学性质。
+          数轴是理解数系的基础工具。切换不同图层，观察整数、有理数、无理数和特殊常数如何分布在 -10
+          到 10 的数轴上。 点击任意点查看其数学性质。
         </p>
       </header>
 
       <NumberLineConcepts />
 
       <section className="border-border-faint mt-12 border-t pt-8">
-        <h2 className="font-display text-fg-primary mb-4 text-lg font-semibold">
-          关于数系
-        </h2>
+        <h2 className="font-display text-fg-primary mb-4 text-lg font-semibold">关于数系</h2>
         <div className="text-fg-secondary max-w-2xl space-y-3 text-sm leading-relaxed">
           <p>
             数学中的数系是逐步扩展的：从自然数 ℕ（计数）到整数 ℤ（加法逆元）到有理数 ℚ（除法逆元）

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { FrontierListView } from "@/components/frontier/FrontierListView";
 
 export const metadata: Metadata = {
-  title: "研究前沿 — 人类历史 — Universe Knowledge",
+  title: "研究前沿 — 人类历史 — Episteme · 格致",
   description:
     "人类历史领域当下正在推进的研究前沿：尚未解决的开放问题、攻关的团队与机构、近年的突破，以及仍然未知的边界。",
 };

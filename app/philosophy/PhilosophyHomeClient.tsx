@@ -25,7 +25,7 @@ const collectionJsonLd = {
     "Philosophers and history of thought — a knowledge graph spanning ancient Greek philosophy to contemporary analytic philosophy",
   isPartOf: {
     "@type": "WebSite",
-    name: "Universe Knowledge",
+    name: "Episteme · 格致",
     url: SITE_URL,
   },
 };

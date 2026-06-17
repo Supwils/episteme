@@ -17,7 +17,7 @@ const collectionJsonLd = {
     "From classical mechanics to quantum field theory — explore the fundamental laws governing the universe",
   isPartOf: {
     "@type": "WebSite",
-    name: "Universe Knowledge",
+    name: "Episteme · 格致",
     url: SITE_URL,
   },
 };

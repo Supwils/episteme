@@ -4,10 +4,9 @@ import DistributionExplorer from "@/subjects/mathematics/components/visualizatio
 
 export const metadata: Metadata = {
   title: "概率分布探索器 — 数学可视化",
-  description:
-    "交互式探索正态分布、均匀分布、指数分布与二项分布，理解 68-95-99.7 法则与概率计算",
+  description: "交互式探索正态分布、均匀分布、指数分布与二项分布，理解 68-95-99.7 法则与概率计算",
   openGraph: {
-    title: "概率分布探索器 — Universe Knowledge",
+    title: "概率分布探索器 — Episteme · 格致",
     description: "交互式概率分布可视化工具",
     type: "website",
   },
@@ -15,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function DistributionsPage() {
   return (
-    <div className="w-full px-6 sm:px-10 lg:px-16 py-12 sm:py-16">
+    <div className="w-full px-6 py-12 sm:px-10 sm:py-16 lg:px-16">
       <Link
         href="/mathematics/concepts"
         className="text-fg-muted hover:text-accent-indigo mb-6 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] uppercase transition-colors"

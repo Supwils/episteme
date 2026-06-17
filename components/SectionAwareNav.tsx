@@ -43,7 +43,7 @@ export function SectionAwareNav() {
           href="/"
           className="text-fg-primary hover:text-accent-gold font-display text-lg font-semibold tracking-tight transition-colors"
         >
-          Universe Knowledge
+          Episteme · 格致
         </Link>
         <DesktopNav />
         <div className="flex items-center gap-3">

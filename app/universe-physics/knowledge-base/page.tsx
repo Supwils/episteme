@@ -6,16 +6,16 @@ const DESCRIPTION =
   "经典力学、电磁学、热力学、相对论、量子物理与前沿物理——从牛顿到标准模型的深度专题文章";
 
 export const metadata: Metadata = {
-  title: "物理学知识库 — Universe Knowledge",
+  title: "物理学知识库 — Episteme · 格致",
   description: DESCRIPTION,
   openGraph: {
-    title: "物理学知识库 — Universe Knowledge",
+    title: "物理学知识库 — Episteme · 格致",
     description: DESCRIPTION,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "物理学知识库 — Universe Knowledge",
+    title: "物理学知识库 — Episteme · 格致",
     description: DESCRIPTION,
   },
 };

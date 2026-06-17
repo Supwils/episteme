@@ -764,7 +764,7 @@ export function buildShareText(daily: DailySelected): string {
     "",
     `💡 ${daily.fact}`,
     "",
-    `— Universe Knowledge`,
+    `— Episteme · 格致`,
   ];
 
   return lines.join("\n");

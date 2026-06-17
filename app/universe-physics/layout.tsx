@@ -5,16 +5,16 @@ import { PageTransition } from "../../components/PageTransition";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "物理学 — Universe Knowledge",
+  title: "物理学 — Episteme · 格致",
   description: "从经典力学到量子场论，探索支配宇宙的基本定律",
   openGraph: {
-    title: "物理学 — Universe Knowledge",
+    title: "物理学 — Episteme · 格致",
     description: "从经典力学到量子场论，探索支配宇宙的基本定律",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "物理学 — Universe Knowledge",
+    title: "物理学 — Episteme · 格致",
     description: "从经典力学到量子场论，探索支配宇宙的基本定律",
   },
 };

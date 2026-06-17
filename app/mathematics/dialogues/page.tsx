@@ -4,10 +4,10 @@ import { getAllMathDialogues } from "@/subjects/mathematics/lib/dialogues";
 import { MATH_FIELD_COLORS, MATH_ERA_ACCENT } from "@/subjects/mathematics/lib/constants";
 
 export const metadata: Metadata = {
-  title: "数学对话 — Universe Knowledge",
+  title: "数学对话 — Episteme · 格致",
   description: "数学家之间的思想交锋——从欧拉与达朗贝尔到希尔伯特与布劳威尔",
   openGraph: {
-    title: "数学对话 — Universe Knowledge",
+    title: "数学对话 — Episteme · 格致",
     description: "数学家之间的思想交锋——从欧拉与达朗贝尔到希尔伯特与布劳威尔",
     type: "website",
   },
@@ -17,7 +17,7 @@ export default function MathDialoguesPage() {
   const dialogues = getAllMathDialogues();
 
   return (
-    <div className="w-full px-6 sm:px-10 lg:px-16 py-12 sm:py-16">
+    <div className="w-full px-6 py-12 sm:px-10 sm:py-16 lg:px-16">
       <header className="mb-12">
         <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
           mathematics / dialogues
@@ -41,10 +41,10 @@ export default function MathDialoguesPage() {
               <Link
                 key={d.slug}
                 href={`/mathematics/dialogues/${d.slug}`}
-                className="group border-border-faint bg-bg-panel relative flex h-full flex-col gap-4 overflow-hidden border p-6 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-fg-disabled/30 hover:shadow-[0_8px_32px_rgba(99,102,241,0.06)]"
+                className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative flex h-full flex-col gap-4 overflow-hidden border p-6 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(99,102,241,0.06)]"
               >
                 <div
-                  className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-25"
+                  className="pointer-events-none absolute -top-10 -right-10 h-28 w-28 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-25"
                   style={{ backgroundColor: fieldColor }}
                 />
 
@@ -64,17 +64,15 @@ export default function MathDialoguesPage() {
                 </div>
 
                 <div className="relative flex flex-col gap-1.5">
-                  <h2 className="font-display text-fg-primary text-lg font-semibold leading-tight transition-colors duration-300 group-hover:text-accent-indigo">
+                  <h2 className="font-display text-fg-primary group-hover:text-accent-indigo text-lg leading-tight font-semibold transition-colors duration-300">
                     {d.title}
                   </h2>
-                  <p className="text-fg-muted font-mono text-[11px] italic tracking-wider">
+                  <p className="text-fg-muted font-mono text-[11px] tracking-wider italic">
                     {d.title_en}
                   </p>
                 </div>
 
-                <p className="text-fg-secondary relative text-sm">
-                  {d.participants.join(" · ")}
-                </p>
+                <p className="text-fg-secondary relative text-sm">{d.participants.join(" · ")}</p>
 
                 <div className="relative mt-auto flex flex-wrap gap-1.5">
                   {d.tags.slice(0, 3).map((tag) => (
@@ -108,9 +106,7 @@ export default function MathDialoguesPage() {
           <p className="text-fg-muted font-mono text-[11px] tracking-[0.22em] uppercase">
             暂无对话内容
           </p>
-          <p className="text-fg-secondary mt-2 text-sm">
-            对话文章正在撰写中，敬请期待。
-          </p>
+          <p className="text-fg-secondary mt-2 text-sm">对话文章正在撰写中，敬请期待。</p>
         </div>
       )}
     </div>

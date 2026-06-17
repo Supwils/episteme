@@ -4,7 +4,7 @@ import { getAllDebates } from "@/subjects/psychology/lib/mdx";
 import { ERA_COLORS } from "@/subjects/psychology/lib/constants";
 
 export const metadata: Metadata = {
-  title: "经典论辩 — Universe Knowledge",
+  title: "经典论辩 — Episteme · 格致",
   description: "先天vs后天、自由意志vs决定论等心理学核心争论",
 };
 
@@ -14,7 +14,7 @@ export default function DebatesPage() {
   return (
     <div className="w-full px-6 py-16 sm:px-10 lg:px-16">
       <header className="mb-12">
-        <p className="text-fg-muted mb-4 font-mono text-[10px] uppercase tracking-[0.42em]">
+        <p className="text-fg-muted mb-4 font-mono text-[10px] tracking-[0.42em] uppercase">
           psychology / debates
         </p>
         <h1 className="font-display text-fg-primary mb-3 text-[2.4rem] leading-[1.05] tracking-tight md:text-[3.2rem]">
@@ -25,7 +25,7 @@ export default function DebatesPage() {
         </p>
       </header>
 
-      <p className="text-fg-disabled mb-8 font-mono text-[10px] uppercase tracking-[0.38em]">
+      <p className="text-fg-disabled mb-8 font-mono text-[10px] tracking-[0.38em] uppercase">
         {debates.length} 个论题 · debates
       </p>
 
@@ -39,29 +39,26 @@ export default function DebatesPage() {
               className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 card-hover relative flex h-full flex-col gap-4 overflow-hidden border p-6 backdrop-blur-md"
             >
               <div
-                className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-25"
+                className="pointer-events-none absolute -top-10 -right-10 h-28 w-28 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-25"
                 style={{ backgroundColor: eraColor }}
               />
               <div className="relative flex items-center justify-between">
                 <span
-                  className="border px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.32em]"
+                  className="border px-2 py-0.5 font-mono text-[10px] tracking-[0.32em] uppercase"
                   style={{ borderColor: `${eraColor}50`, color: eraColor }}
                 >
                   {d.era}
                 </span>
               </div>
               <div className="relative flex flex-col gap-1.5">
-                <h2 className="font-display text-fg-primary group-hover:text-accent-purple text-lg font-semibold leading-tight transition-colors duration-300">
+                <h2 className="font-display text-fg-primary group-hover:text-accent-purple text-lg leading-tight font-semibold transition-colors duration-300">
                   {d.title}
                 </h2>
                 <p className="text-fg-secondary text-sm">{d.topic}</p>
               </div>
               <div className="relative flex flex-wrap gap-1.5">
                 {d.key_figures.slice(0, 3).map((fig) => (
-                  <span
-                    key={fig}
-                    className="text-fg-muted font-mono text-[9px] tracking-[0.16em]"
-                  >
+                  <span key={fig} className="text-fg-muted font-mono text-[9px] tracking-[0.16em]">
                     {fig}
                   </span>
                 ))}

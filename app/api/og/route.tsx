@@ -32,7 +32,7 @@ async function loadFont(): Promise<ArrayBuffer> {
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const title = searchParams.get("title") ?? "Universe Knowledge";
+  const title = searchParams.get("title") ?? "Episteme · 格致";
   const section = searchParams.get("section") ?? "";
   const description = searchParams.get("description") ?? "";
 
@@ -49,157 +49,155 @@ export async function GET(request: Request) {
   const hasFont = fontData.byteLength > 0;
 
   return new ImageResponse(
-    (
+    <div
+      style={{
+        width: "1200px",
+        height: "630px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        background: "#0a0a0f",
+        padding: "60px",
+        fontFamily: hasFont ? "'Noto Sans SC', sans-serif" : "sans-serif",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {/* Accent glow */}
       <div
         style={{
-          width: "1200px",
-          height: "630px",
+          position: "absolute",
+          top: "-120px",
+          right: "-80px",
+          width: "400px",
+          height: "400px",
+          borderRadius: "50%",
+          background: accent,
+          opacity: 0.08,
+          filter: "blur(80px)",
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          background: "#0a0a0f",
-          padding: "60px",
-          fontFamily: hasFont ? "'Noto Sans SC', sans-serif" : "sans-serif",
-          position: "relative",
-          overflow: "hidden",
         }}
-      >
-        {/* Accent glow */}
-        <div
-          style={{
-            position: "absolute",
-            top: "-120px",
-            right: "-80px",
-            width: "400px",
-            height: "400px",
-            borderRadius: "50%",
-            background: accent,
-            opacity: 0.08,
-            filter: "blur(80px)",
-            display: "flex",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: "-60px",
-            left: "-40px",
-            width: "240px",
-            height: "240px",
-            borderRadius: "50%",
-            background: accent,
-            opacity: 0.05,
-            filter: "blur(60px)",
-            display: "flex",
-          }}
-        />
+      />
+      <div
+        style={{
+          position: "absolute",
+          bottom: "-60px",
+          left: "-40px",
+          width: "240px",
+          height: "240px",
+          borderRadius: "50%",
+          background: accent,
+          opacity: 0.05,
+          filter: "blur(60px)",
+          display: "flex",
+        }}
+      />
 
-        {/* Top accent line */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            height: "4px",
-            background: `linear-gradient(90deg, transparent, ${accent}, transparent)`,
-            display: "flex",
-          }}
-        />
+      {/* Top accent line */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "4px",
+          background: `linear-gradient(90deg, transparent, ${accent}, transparent)`,
+          display: "flex",
+        }}
+      />
 
-        {/* Content */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "20px", zIndex: 1 }}>
-          {sectionLabel && (
+      {/* Content */}
+      <div style={{ display: "flex", flexDirection: "column", gap: "20px", zIndex: 1 }}>
+        {sectionLabel && (
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+            }}
+          >
             <div
               style={{
+                width: "8px",
+                height: "8px",
+                borderRadius: "50%",
+                backgroundColor: accent,
                 display: "flex",
-                alignItems: "center",
-                gap: "10px",
+              }}
+            />
+            <span
+              style={{
+                fontSize: "18px",
+                color: accent,
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
               }}
             >
-              <div
-                style={{
-                  width: "8px",
-                  height: "8px",
-                  borderRadius: "50%",
-                  backgroundColor: accent,
-                  display: "flex",
-                }}
-              />
-              <span
-                style={{
-                  fontSize: "18px",
-                  color: accent,
-                  letterSpacing: "0.15em",
-                  textTransform: "uppercase",
-                }}
-              >
-                {sectionLabel}
-              </span>
-            </div>
-          )}
+              {sectionLabel}
+            </span>
+          </div>
+        )}
 
-          <h1
+        <h1
+          style={{
+            fontSize: title.length > 30 ? "42px" : title.length > 20 ? "52px" : "64px",
+            fontWeight: 700,
+            color: "#f0f0f5",
+            lineHeight: 1.15,
+            margin: 0,
+            maxWidth: "900px",
+            display: "flex",
+          }}
+        >
+          {title}
+        </h1>
+
+        {description && (
+          <p
             style={{
-              fontSize: title.length > 30 ? "42px" : title.length > 20 ? "52px" : "64px",
-              fontWeight: 700,
-              color: "#f0f0f5",
-              lineHeight: 1.15,
+              fontSize: "22px",
+              color: "#8888a0",
+              lineHeight: 1.5,
               margin: 0,
-              maxWidth: "900px",
+              maxWidth: "800px",
               display: "flex",
             }}
           >
-            {title}
-          </h1>
+            {description.length > 120 ? `${description.slice(0, 120)}…` : description}
+          </p>
+        )}
+      </div>
 
-          {description && (
-            <p
-              style={{
-                fontSize: "22px",
-                color: "#8888a0",
-                lineHeight: 1.5,
-                margin: 0,
-                maxWidth: "800px",
-                display: "flex",
-              }}
-            >
-              {description.length > 120 ? `${description.slice(0, 120)}…` : description}
-            </p>
-          )}
-        </div>
-
-        {/* Bottom brand */}
-        <div
+      {/* Bottom brand */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          zIndex: 1,
+        }}
+      >
+        <span
           style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            zIndex: 1,
+            fontSize: "16px",
+            color: "#555570",
+            letterSpacing: "0.3em",
+            textTransform: "uppercase",
           }}
         >
-          <span
-            style={{
-              fontSize: "16px",
-              color: "#555570",
-              letterSpacing: "0.3em",
-              textTransform: "uppercase",
-            }}
-          >
-            Universe Knowledge
-          </span>
-          <span
-            style={{
-              fontSize: "14px",
-              color: "#333348",
-              letterSpacing: "0.12em",
-            }}
-          >
-            universe-knowledge.vercel.app
-          </span>
-        </div>
+          Episteme · 格致
+        </span>
+        <span
+          style={{
+            fontSize: "14px",
+            color: "#333348",
+            letterSpacing: "0.12em",
+          }}
+        >
+          episteme.vercel.app
+        </span>
       </div>
-    ),
+    </div>,
     {
       width: 1200,
       height: 630,

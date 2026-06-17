@@ -8,7 +8,7 @@ const StroopEffect = lazy(
 );
 
 export const metadata: Metadata = {
-  title: "经典实验 — Universe Knowledge",
+  title: "经典实验 — Episteme · 格致",
   description: "改变心理学进程的里程碑实验与发现",
 };
 

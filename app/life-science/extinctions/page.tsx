@@ -5,16 +5,16 @@ import { FadeInSection } from "@/components/FadeInSection";
 import { StaggerGrid, StaggerItem } from "@/components/StaggerGrid";
 
 export const metadata: Metadata = {
-  title: "大灭绝事件 — Universe Knowledge",
+  title: "大灭绝事件 — Episteme · 格致",
   description: "地球历史上 5 次大灭绝事件的原因、过程与后果",
   openGraph: {
-    title: "大灭绝事件 — Universe Knowledge",
+    title: "大灭绝事件 — Episteme · 格致",
     description: "地球历史上 5 次大灭绝事件的原因、过程与后果",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "大灭绝事件 — Universe Knowledge",
+    title: "大灭绝事件 — Episteme · 格致",
     description: "地球历史上 5 次大灭绝事件的原因、过程与后果",
   },
 };
@@ -71,7 +71,7 @@ const CURRENT_EXTINCTION = {
 
 export default function ExtinctionsPage() {
   return (
-    <div className="w-full px-6 sm:px-10 lg:px-16 py-12 sm:py-16">
+    <div className="w-full px-6 py-12 sm:px-10 sm:py-16 lg:px-16">
       <header className="mb-16">
         <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
           life science / mass extinctions
@@ -84,47 +84,63 @@ export default function ExtinctionsPage() {
         </p>
       </header>
 
-      <StaggerGrid className="space-y-8 mb-16">
+      <StaggerGrid className="mb-16 space-y-8">
         {EXTINCTIONS.map((ext) => {
           const supp = SUPPLEMENT[ext.id] ?? { victims: "", aftermath: "", accent: "#5a9ad8" };
           return (
             <StaggerItem key={ext.id}>
               <Link
                 href={`/life-science/extinctions/${ext.id}`}
-                className="group border-border-faint bg-bg-near hover:bg-bg-elevated block border p-6 sm:p-8 transition-all duration-500 hover:shadow-[0_0_40px_-12px_rgba(74,158,111,0.12)]"
+                className="group border-border-faint bg-bg-near hover:bg-bg-elevated block border p-6 transition-all duration-500 hover:shadow-[0_0_40px_-12px_rgba(74,158,111,0.12)] sm:p-8"
               >
                 <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-8">
-                  <div className="flex flex-col items-center sm:items-start sm:min-w-[140px]">
+                  <div className="flex flex-col items-center sm:min-w-[140px] sm:items-start">
                     <span
                       className="font-display text-4xl font-bold tabular-nums"
                       style={{ color: supp.accent }}
                     >
                       {ext.speciesLostPercent}%
                     </span>
-                    <span className="text-fg-muted font-mono text-[9px] tracking-[0.22em] uppercase mt-1">
+                    <span className="text-fg-muted mt-1 font-mono text-[9px] tracking-[0.22em] uppercase">
                       物种灭绝率
                     </span>
                   </div>
 
                   <div className="flex-1">
-                    <div className="flex flex-wrap items-center gap-3 mb-2">
-                      <h2 className="font-display text-fg-primary text-xl font-semibold leading-snug transition-colors duration-300 group-hover:text-accent-green">
+                    <div className="mb-2 flex flex-wrap items-center gap-3">
+                      <h2 className="font-display text-fg-primary group-hover:text-accent-green text-xl leading-snug font-semibold transition-colors duration-300">
                         {ext.name}
                       </h2>
-                      <span className="text-fg-disabled font-mono text-[9px] italic">{ext.nameEn}</span>
+                      <span className="text-fg-disabled font-mono text-[9px] italic">
+                        {ext.nameEn}
+                      </span>
                     </div>
-                    <span className="font-mono text-[10px] tracking-[0.22em] uppercase mb-4 block" style={{ color: supp.accent }}>
+                    <span
+                      className="mb-4 block font-mono text-[10px] tracking-[0.22em] uppercase"
+                      style={{ color: supp.accent }}
+                    >
                       {ext.dateDisplay}
                     </span>
-                    <p className="text-fg-secondary text-sm leading-relaxed mb-4">{ext.description}</p>
+                    <p className="text-fg-secondary mb-4 text-sm leading-relaxed">
+                      {ext.description}
+                    </p>
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                       <div className="info-card" style={{ borderLeftColor: "var(--color-danger)" }}>
-                        <div className="info-card-title" style={{ color: "var(--color-danger)" }}>受害者</div>
+                        <div className="info-card-title" style={{ color: "var(--color-danger)" }}>
+                          受害者
+                        </div>
                         <p className="text-fg-secondary text-sm leading-relaxed">{supp.victims}</p>
                       </div>
                       <div className="info-card info-card-green">
-                        <div className="info-card-title" style={{ color: "var(--color-accent-green)" }}>后果</div>
-                        <p className="text-fg-secondary text-sm leading-relaxed">{supp.aftermath}</p>
+                        <div
+                          className="info-card-title"
+                          style={{ color: "var(--color-accent-green)" }}
+                        >
+                          后果
+                        </div>
+                        <p className="text-fg-secondary text-sm leading-relaxed">
+                          {supp.aftermath}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -137,7 +153,7 @@ export default function ExtinctionsPage() {
 
       <FadeInSection className="border-border-faint border-t pt-16">
         <div className="mb-8">
-          <h2 className="font-display text-fg-primary text-2xl font-semibold mb-2">
+          <h2 className="font-display text-fg-primary mb-2 text-2xl font-semibold">
             {CURRENT_EXTINCTION.name}
           </h2>
           <p className="text-fg-muted font-mono text-[10px] tracking-[0.22em] uppercase">
@@ -146,28 +162,30 @@ export default function ExtinctionsPage() {
         </div>
 
         <div className="info-card" style={{ borderLeftColor: "var(--color-danger)" }}>
-          <div className="info-card-title" style={{ color: "var(--color-danger)" }}>灭绝速率</div>
+          <div className="info-card-title" style={{ color: "var(--color-danger)" }}>
+            灭绝速率
+          </div>
           <p className="text-fg-primary text-sm font-medium">{CURRENT_EXTINCTION.rate}</p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 mt-8">
+        <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2">
           <div>
-            <h3 className="font-display text-fg-primary text-lg font-semibold mb-4">主要原因</h3>
+            <h3 className="font-display text-fg-primary mb-4 text-lg font-semibold">主要原因</h3>
             <ul className="space-y-3">
               {CURRENT_EXTINCTION.causes.map((cause) => (
                 <li key={cause} className="flex items-start gap-3">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-danger" />
+                  <span className="bg-danger mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" />
                   <span className="text-fg-secondary text-sm leading-relaxed">{cause}</span>
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <h3 className="font-display text-fg-primary text-lg font-semibold mb-4">关键数据</h3>
+            <h3 className="font-display text-fg-primary mb-4 text-lg font-semibold">关键数据</h3>
             <ul className="space-y-3">
               {CURRENT_EXTINCTION.facts.map((fact) => (
                 <li key={fact} className="flex items-start gap-3">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-green" />
+                  <span className="bg-accent-green mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" />
                   <span className="text-fg-secondary text-sm leading-relaxed">{fact}</span>
                 </li>
               ))}

@@ -4,22 +4,25 @@ import { getAllScientists } from "@/subjects/life-science/lib/scientists";
 import { StaggerGrid, StaggerItem } from "@/components/StaggerGrid";
 
 export const metadata: Metadata = {
-  title: "科学家 — Universe Knowledge",
+  title: "科学家 — Episteme · 格致",
   description: "改变我们理解生命的伟大科学家，从达尔文到珍·古道尔",
   openGraph: {
-    title: "科学家 — Universe Knowledge",
+    title: "科学家 — Episteme · 格致",
     description: "改变我们理解生命的伟大科学家，从达尔文到珍·古道尔",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "科学家 — Universe Knowledge",
+    title: "科学家 — Episteme · 格致",
     description: "改变我们理解生命的伟大科学家，从达尔文到珍·古道尔",
   },
 };
 
 const SUPPLEMENT: Record<string, { quote: string; accent: string }> = {
-  darwin: { quote: "能够生存下来的物种，不是最强壮的，也不是最聪明的，而是最能适应变化的。", accent: "#4a9e6f" },
+  darwin: {
+    quote: "能够生存下来的物种，不是最强壮的，也不是最聪明的，而是最能适应变化的。",
+    accent: "#4a9e6f",
+  },
   wallace: { quote: "大自然的每一个角落都充满了奇迹。", accent: "#4a9e6f" },
   mendel: { quote: "我的时代会到来的。", accent: "#c8a45a" },
   huxley: { quote: "人类在自然界中的位置，是所有问题中最重要的。", accent: "#4a9e6f" },
@@ -40,7 +43,7 @@ const SCIENTISTS = getAllScientists();
 
 export default function ScientistsPage() {
   return (
-    <div className="w-full px-6 sm:px-10 lg:px-16 py-12 sm:py-16">
+    <div className="w-full px-6 py-12 sm:px-10 sm:py-16 lg:px-16">
       <header className="mb-12">
         <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
           life science / scientists
@@ -68,21 +71,34 @@ export default function ScientistsPage() {
                 <div className="flex items-center justify-between">
                   <span
                     className="badge"
-                    style={{ backgroundColor: `${supp.accent}15`, color: supp.accent, borderColor: `${supp.accent}30` }}
+                    style={{
+                      backgroundColor: `${supp.accent}15`,
+                      color: supp.accent,
+                      borderColor: `${supp.accent}30`,
+                    }}
                   >
                     {scientist.field}
                   </span>
-                  <span className="text-fg-disabled font-mono text-[9px] tracking-[0.2em]">{lifespan}</span>
+                  <span className="text-fg-disabled font-mono text-[9px] tracking-[0.2em]">
+                    {lifespan}
+                  </span>
                 </div>
                 <div>
-                  <h3 className="font-display text-fg-primary text-xl font-semibold leading-snug transition-colors duration-300 group-hover:text-accent-green">
+                  <h3 className="font-display text-fg-primary group-hover:text-accent-green text-xl leading-snug font-semibold transition-colors duration-300">
                     {scientist.name}
                   </h3>
-                  <p className="text-fg-muted font-mono text-[10px] italic tracking-wider">{scientist.nameEn}</p>
+                  <p className="text-fg-muted font-mono text-[10px] tracking-wider italic">
+                    {scientist.nameEn}
+                  </p>
                 </div>
-                <p className="text-fg-secondary text-sm leading-relaxed">{scientist.keyContribution}</p>
+                <p className="text-fg-secondary text-sm leading-relaxed">
+                  {scientist.keyContribution}
+                </p>
                 {supp.quote && (
-                  <blockquote className="text-fg-muted border-l-2 pl-4 text-sm italic" style={{ borderColor: `${supp.accent}40` }}>
+                  <blockquote
+                    className="text-fg-muted border-l-2 pl-4 text-sm italic"
+                    style={{ borderColor: `${supp.accent}40` }}
+                  >
                     &ldquo;{supp.quote}&rdquo;
                   </blockquote>
                 )}

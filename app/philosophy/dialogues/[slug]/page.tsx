@@ -61,7 +61,7 @@ export default async function DialogueDetailPage({
     title: `${dialogue.title}（${dialogue.title_en}）`,
     description: `${dialogue.participants.join("、")}的对话：${dialogue.title_en}`,
     url: `${SITE_URL}/philosophy/dialogues/${slug}`,
-    author: dialogue.participants[0] ?? "Universe Knowledge",
+    author: dialogue.participants[0] ?? "Episteme · 格致",
     keywords: [
       dialogue.title,
       dialogue.title_en,

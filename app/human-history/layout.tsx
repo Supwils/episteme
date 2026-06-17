@@ -6,16 +6,16 @@ import PageTransition from "./components/PageTransition";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "人类历史 — Universe Knowledge",
+  title: "人类历史 — Episteme · 格致",
   description: "交互式人类历史知识图谱，从公元前10000年到公元2025年",
   openGraph: {
-    title: "人类历史 — Universe Knowledge",
+    title: "人类历史 — Episteme · 格致",
     description: "交互式人类历史知识图谱，从公元前10000年到公元2025年",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "人类历史 — Universe Knowledge",
+    title: "人类历史 — Episteme · 格致",
     description: "交互式人类历史知识图谱，从公元前10000年到公元2025年",
   },
 };

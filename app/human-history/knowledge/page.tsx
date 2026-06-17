@@ -3,16 +3,16 @@ import Link from "next/link";
 import { getAllArticles, type KBArticle } from "@/lib/knowledge-base";
 
 export const metadata: Metadata = {
-  title: "知识库 — Universe Knowledge",
+  title: "知识库 — Episteme · 格致",
   description: "人类历史知识库，涵盖从远古到当代的重大事件、文明与人物",
   openGraph: {
-    title: "知识库 — Universe Knowledge",
+    title: "知识库 — Episteme · 格致",
     description: "人类历史知识库，涵盖从远古到当代的重大事件、文明与人物",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "知识库 — Universe Knowledge",
+    title: "知识库 — Episteme · 格致",
     description: "人类历史知识库，涵盖从远古到当代的重大事件、文明与人物",
   },
 };

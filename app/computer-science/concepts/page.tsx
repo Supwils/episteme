@@ -6,7 +6,7 @@ const sc = getSectionConfig("computer-science", "concepts");
 const dc = getDomainConfig("computer-science");
 
 export const metadata: Metadata = {
-  title: `${sc?.label ?? ""} — ${dc?.label ?? ""} — Universe Knowledge`,
+  title: `${sc?.label ?? ""} — ${dc?.label ?? ""} — Episteme · 格致`,
   description: sc?.description ?? "",
 };
 

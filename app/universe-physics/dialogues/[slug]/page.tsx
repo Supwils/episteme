@@ -41,8 +41,8 @@ export default async function PhysicsDialogueDetailPage({ params }: Props) {
     headline: dialogue.title,
     description: dialogue.description || dialogue.title,
     url: `${SITE_URL}/universe-physics/dialogues/${slug}`,
-    author: { "@type": "Organization", name: "Universe Knowledge" },
-    publisher: { "@type": "Organization", name: "Universe Knowledge", url: SITE_URL },
+    author: { "@type": "Organization", name: "Episteme · 格致" },
+    publisher: { "@type": "Organization", name: "Episteme · 格致", url: SITE_URL },
     keywords: dialogue.tags.join(", "),
   };
 

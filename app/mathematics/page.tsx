@@ -9,10 +9,10 @@ import { getAllMathEras } from "@/subjects/mathematics/lib/eras";
 import { MATH_ERA_ACCENT, MATH_FIELD_COLORS } from "@/subjects/mathematics/lib/constants";
 
 export const metadata: Metadata = {
-  title: "数学与逻辑 — Universe Knowledge",
+  title: "数学与逻辑 — Episteme · 格致",
   description: "从计数到范畴论，探索人类思维的最纯粹形式——数学家、定理、概念与对话",
   openGraph: {
-    title: "数学与逻辑 — Universe Knowledge",
+    title: "数学与逻辑 — Episteme · 格致",
     description: "从计数到范畴论，探索人类思维的最纯粹形式",
     type: "website",
   },
@@ -37,7 +37,7 @@ export default function MathematicsHomePage() {
   return (
     <div className="w-full">
       {/* Hero */}
-      <section className="relative overflow-hidden px-6 sm:px-10 lg:px-16 py-20 sm:py-28">
+      <section className="relative overflow-hidden px-6 py-20 sm:px-10 sm:py-28 lg:px-16">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0"
@@ -45,7 +45,7 @@ export default function MathematicsHomePage() {
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute right-0 top-0 h-96 w-96 rounded-full opacity-20 blur-3xl"
+          className="pointer-events-none absolute top-0 right-0 h-96 w-96 rounded-full opacity-20 blur-3xl"
           style={{ background: "var(--color-accent-violet)" }}
         />
 
@@ -65,7 +65,8 @@ export default function MathematicsHomePage() {
             {stats.map((stat) => (
               <div key={stat.label} className="flex flex-col">
                 <span className="font-display text-accent-indigo text-2xl font-semibold">
-                  {stat.value || "—"}{stat.suffix}
+                  {stat.value || "—"}
+                  {stat.suffix}
                 </span>
                 <span className="text-fg-muted mt-1 font-mono text-[10px] tracking-[0.22em] uppercase">
                   {stat.label}
@@ -77,7 +78,7 @@ export default function MathematicsHomePage() {
       </section>
 
       {/* Eras */}
-      <section className="px-6 sm:px-10 lg:px-16 py-16">
+      <section className="px-6 py-16 sm:px-10 lg:px-16">
         <header className="mb-10">
           <p className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.32em] uppercase">
             mathematical eras
@@ -91,15 +92,19 @@ export default function MathematicsHomePage() {
           {eras.map((era) => (
             <div
               key={era.id}
-              className="group border-border-faint bg-bg-panel relative overflow-hidden border p-5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-fg-disabled/30"
+              className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative overflow-hidden border p-5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1"
             >
               <div
-                className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-20"
-                style={{ backgroundColor: era.glowColor.replace("rgba(", "").split(",")[0] ? era.gradient.match(/#[a-f0-9]+/i)?.[0] : "#6366f1" }}
+                className="pointer-events-none absolute -top-8 -right-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-20"
+                style={{
+                  backgroundColor: era.glowColor.replace("rgba(", "").split(",")[0]
+                    ? era.gradient.match(/#[a-f0-9]+/i)?.[0]
+                    : "#6366f1",
+                }}
               />
               <div className="relative">
                 <span className="text-2xl">{era.icon}</span>
-                <h3 className="font-display text-fg-primary mt-2 text-base font-semibold transition-colors group-hover:text-accent-indigo">
+                <h3 className="font-display text-fg-primary group-hover:text-accent-indigo mt-2 text-base font-semibold transition-colors">
                   {era.name}
                 </h3>
                 <p className="text-fg-muted mt-0.5 font-mono text-[10px] tracking-wider">
@@ -108,9 +113,7 @@ export default function MathematicsHomePage() {
                 <p className="text-fg-disabled mt-1 font-mono text-[9px] tracking-[0.18em]">
                   {era.period}
                 </p>
-                <p className="text-fg-secondary mt-3 text-sm leading-relaxed">
-                  {era.keyFact}
-                </p>
+                <p className="text-fg-secondary mt-3 text-sm leading-relaxed">{era.keyFact}</p>
               </div>
             </div>
           ))}
@@ -119,7 +122,7 @@ export default function MathematicsHomePage() {
 
       {/* Featured Mathematicians */}
       {mathematicians.length > 0 && (
-        <section className="px-6 sm:px-10 lg:px-16 py-16">
+        <section className="px-6 py-16 sm:px-10 lg:px-16">
           <header className="mb-10 flex items-end justify-between">
             <div>
               <p className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.32em] uppercase">
@@ -144,10 +147,10 @@ export default function MathematicsHomePage() {
                 <Link
                   key={m.slug}
                   href={`/mathematics/mathematicians/${m.slug}`}
-                  className="group border-border-faint bg-bg-panel relative overflow-hidden border p-5 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-fg-disabled/30"
+                  className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative overflow-hidden border p-5 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5"
                 >
                   <div
-                    className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-15"
+                    className="pointer-events-none absolute -top-8 -right-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-15"
                     style={{ backgroundColor: eraColor }}
                   />
                   <div className="relative">
@@ -157,10 +160,10 @@ export default function MathematicsHomePage() {
                     >
                       {m.era}
                     </span>
-                    <h3 className="font-display text-fg-primary mt-3 text-base font-semibold transition-colors group-hover:text-accent-indigo">
+                    <h3 className="font-display text-fg-primary group-hover:text-accent-indigo mt-3 text-base font-semibold transition-colors">
                       {m.title}
                     </h3>
-                    <p className="text-fg-muted mt-1 font-mono text-[11px] italic tracking-wider">
+                    <p className="text-fg-muted mt-1 font-mono text-[11px] tracking-wider italic">
                       {m.name}
                     </p>
                     <p className="text-fg-disabled mt-1 font-mono text-[10px] tracking-wider">
@@ -176,7 +179,7 @@ export default function MathematicsHomePage() {
 
       {/* Featured Theorems */}
       {theorems.length > 0 && (
-        <section className="px-6 sm:px-10 lg:px-16 py-16">
+        <section className="px-6 py-16 sm:px-10 lg:px-16">
           <header className="mb-10 flex items-end justify-between">
             <div>
               <p className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.32em] uppercase">
@@ -201,10 +204,10 @@ export default function MathematicsHomePage() {
                 <Link
                   key={t.slug}
                   href={`/mathematics/theorems/${t.slug}`}
-                  className="group border-border-faint bg-bg-panel relative overflow-hidden border p-5 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-fg-disabled/30"
+                  className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative overflow-hidden border p-5 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5"
                 >
                   <div
-                    className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-15"
+                    className="pointer-events-none absolute -top-8 -right-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-15"
                     style={{ backgroundColor: fieldColor }}
                   />
                   <div className="relative">
@@ -214,10 +217,10 @@ export default function MathematicsHomePage() {
                     >
                       {t.field}
                     </span>
-                    <h3 className="font-display text-fg-primary mt-3 text-base font-semibold transition-colors group-hover:text-accent-indigo">
+                    <h3 className="font-display text-fg-primary group-hover:text-accent-indigo mt-3 text-base font-semibold transition-colors">
                       {t.title}
                     </h3>
-                    <p className="text-fg-muted mt-0.5 font-mono text-[10px] italic tracking-wider opacity-60">
+                    <p className="text-fg-muted mt-0.5 font-mono text-[10px] tracking-wider italic opacity-60">
                       {t.title_en}
                     </p>
                     <p className="text-fg-disabled mt-2 font-mono text-[10px] tracking-wider">
@@ -233,7 +236,7 @@ export default function MathematicsHomePage() {
 
       {/* Featured Paradoxes */}
       {paradoxes.length > 0 && (
-        <section className="px-6 sm:px-10 lg:px-16 py-16">
+        <section className="px-6 py-16 sm:px-10 lg:px-16">
           <header className="mb-10 flex items-end justify-between">
             <div>
               <p className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.32em] uppercase">
@@ -258,10 +261,10 @@ export default function MathematicsHomePage() {
                 <Link
                   key={p.slug}
                   href={`/mathematics/paradoxes/${p.slug}`}
-                  className="group border-border-faint bg-bg-panel relative overflow-hidden border p-5 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-fg-disabled/30"
+                  className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative overflow-hidden border p-5 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5"
                 >
                   <div
-                    className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-15"
+                    className="pointer-events-none absolute -top-8 -right-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-15"
                     style={{ backgroundColor: fieldColor }}
                   />
                   <div className="relative">
@@ -271,10 +274,10 @@ export default function MathematicsHomePage() {
                     >
                       {p.field}
                     </span>
-                    <h3 className="font-display text-fg-primary mt-3 text-base font-semibold transition-colors group-hover:text-accent-indigo">
+                    <h3 className="font-display text-fg-primary group-hover:text-accent-indigo mt-3 text-base font-semibold transition-colors">
                       {p.title}
                     </h3>
-                    <p className="text-fg-muted mt-0.5 font-mono text-[10px] italic tracking-wider opacity-60">
+                    <p className="text-fg-muted mt-0.5 font-mono text-[10px] tracking-wider italic opacity-60">
                       {p.title_en}
                     </p>
                   </div>
@@ -287,7 +290,7 @@ export default function MathematicsHomePage() {
 
       {/* Empty state */}
       {mathematicians.length === 0 && theorems.length === 0 && paradoxes.length === 0 && (
-        <section className="px-6 sm:px-10 lg:px-16 py-16">
+        <section className="px-6 py-16 sm:px-10 lg:px-16">
           <div className="border-border-faint bg-bg-panel border p-12 text-center">
             <p className="text-fg-muted font-mono text-[11px] tracking-[0.22em] uppercase">
               内容正在建设中

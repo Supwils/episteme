@@ -6,7 +6,7 @@ const sc = getSectionConfig("political-science", "concepts");
 const dc = getDomainConfig("political-science");
 
 export const metadata: Metadata = {
-  title: `${sc?.label ?? ""} — ${dc?.label ?? ""} — Universe Knowledge`,
+  title: `${sc?.label ?? ""} — ${dc?.label ?? ""} — Episteme · 格致`,
   description: sc?.description ?? "",
 };
 

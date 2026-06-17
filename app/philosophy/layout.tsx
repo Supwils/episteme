@@ -6,16 +6,16 @@ import { PhilosophyProgressWrapper } from "@/subjects/philosophy/components/Phil
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "哲学思想 — Universe Knowledge",
+  title: "哲学思想 — Episteme · 格致",
   description: "从古希腊到当代的哲学知识图谱，探索东西方思想的脉络与传承",
   openGraph: {
-    title: "哲学思想 — Universe Knowledge",
+    title: "哲学思想 — Episteme · 格致",
     description: "从古希腊到当代的哲学知识图谱，探索东西方思想的脉络与传承",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "哲学思想 — Universe Knowledge",
+    title: "哲学思想 — Episteme · 格致",
     description: "从古希腊到当代的哲学知识图谱，探索东西方思想的脉络与传承",
   },
 };

@@ -4,7 +4,7 @@ import { COSMOLOGY_ERAS } from "@/subjects/cosmology/lib/eras";
 import { CosmicTimeline } from "@/subjects/cosmology/components/visualizations/CosmicTimeline";
 
 export const metadata: Metadata = {
-  title: "宇宙时间线 — 宇宙学 — Universe Knowledge",
+  title: "宇宙时间线 — 宇宙学 — Episteme · 格致",
   description: "从大爆炸到今天，138 亿年宇宙演化史的时间线",
   openGraph: {
     title: "宇宙时间线 — 宇宙学",

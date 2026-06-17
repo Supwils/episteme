@@ -4,7 +4,7 @@ import { getAllDisorders } from "@/subjects/psychology/lib/mdx";
 import { DISORDER_CATEGORY_COLORS } from "@/subjects/psychology/lib/constants";
 
 export const metadata: Metadata = {
-  title: "心理障碍 — Universe Knowledge",
+  title: "心理障碍 — Episteme · 格致",
   description: "DSM分类体系中的主要心理障碍与诊断",
 };
 
@@ -15,7 +15,7 @@ export default function DisordersPage() {
   return (
     <div className="w-full px-6 py-16 sm:px-10 lg:px-16">
       <header className="mb-12">
-        <p className="text-fg-muted mb-4 font-mono text-[10px] uppercase tracking-[0.42em]">
+        <p className="text-fg-muted mb-4 font-mono text-[10px] tracking-[0.42em] uppercase">
           psychology / disorders
         </p>
         <h1 className="font-display text-fg-primary mb-3 text-[2.4rem] leading-[1.05] tracking-tight md:text-[3.2rem]">
@@ -53,21 +53,21 @@ export default function DisordersPage() {
                   className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 card-hover relative flex h-full flex-col gap-3 overflow-hidden border p-6 backdrop-blur-md"
                 >
                   <div
-                    className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-20"
+                    className="pointer-events-none absolute -top-8 -right-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-20"
                     style={{ backgroundColor: catColor }}
                   />
                   <div className="relative flex items-center justify-between">
                     <span
-                      className="border px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.22em]"
+                      className="border px-2 py-0.5 font-mono text-[10px] tracking-[0.22em] uppercase"
                       style={{ borderColor: `${catColor}50`, color: catColor }}
                     >
                       {d.dsm_code}
                     </span>
                   </div>
-                  <h2 className="font-display text-fg-primary group-hover:text-accent-purple text-lg font-semibold leading-tight transition-colors duration-300">
+                  <h2 className="font-display text-fg-primary group-hover:text-accent-purple text-lg leading-tight font-semibold transition-colors duration-300">
                     {d.title}
                   </h2>
-                  <p className="text-fg-muted font-mono text-[11px] italic tracking-wider">
+                  <p className="text-fg-muted font-mono text-[11px] tracking-wider italic">
                     {d.title_en}
                   </p>
                   <div className="relative mt-auto flex flex-wrap gap-1.5">

@@ -27,12 +27,16 @@ export async function generateMetadata({ params }: Props) {
   const event = getEventBySlug(slug);
   if (!event) notFound();
   const description = event.desc;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://universe-knowledge.vercel.app';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://episteme.vercel.app";
   const ogImage = `${siteUrl}/api/og?title=${encodeURIComponent(event.title)}&section=human-history&description=${encodeURIComponent(description)}`;
   return {
     title: `${event.title} — 人类历史事件`,
     description,
-    openGraph: { title: `${event.title} — 人类历史事件`, description, images: [{ url: ogImage, width: 1200, height: 630 }] },
+    openGraph: {
+      title: `${event.title} — 人类历史事件`,
+      description,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
   };
 }
 

@@ -18,7 +18,7 @@ function inferDepth(q: { content: string; tags: string[] }): number {
 }
 
 export const metadata: Metadata = {
-  title: "哲学大问题 — Universe Knowledge",
+  title: "哲学大问题 — Episteme · 格致",
   description: "贯穿哲学史的根本问题，从古希腊到当代前沿",
 };
 
@@ -28,7 +28,7 @@ export default function QuestionsPage() {
   return (
     <div className="w-full px-6 py-16 sm:px-10 lg:px-16">
       <header className="mb-12">
-        <p className="text-fg-muted mb-4 font-mono text-[10px] uppercase tracking-[0.42em]">
+        <p className="text-fg-muted mb-4 font-mono text-[10px] tracking-[0.42em] uppercase">
           philosophy / big questions
         </p>
         <h1 className="font-display text-fg-primary mb-3 text-[2.4rem] leading-[1.05] tracking-tight md:text-[3.2rem]">
@@ -53,13 +53,13 @@ export default function QuestionsPage() {
                 className="border-border-faint bg-bg-panel hover:border-fg-disabled/30 group relative flex flex-col gap-4 overflow-hidden border p-6 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(200,164,90,0.06)]"
               >
                 <div
-                  className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-20"
+                  className="pointer-events-none absolute -top-12 -right-12 h-32 w-32 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-20"
                   style={{ backgroundColor: fieldColor }}
                 />
 
                 <div className="relative flex items-start justify-between gap-3">
                   <span
-                    className="shrink-0 border px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.32em]"
+                    className="shrink-0 border px-2 py-0.5 font-mono text-[10px] tracking-[0.32em] uppercase"
                     style={{ borderColor: `${fieldColor}50`, color: fieldColor }}
                   >
                     {q.field}
@@ -82,7 +82,7 @@ export default function QuestionsPage() {
                   </div>
                 </div>
 
-                <h2 className="font-display text-fg-primary group-hover:text-accent-gold relative text-xl font-semibold leading-snug transition-colors duration-300">
+                <h2 className="font-display text-fg-primary group-hover:text-accent-gold relative text-xl leading-snug font-semibold transition-colors duration-300">
                   {q.title}
                 </h2>
 

@@ -74,7 +74,7 @@ export default async function LifeScienceDialoguePage({
     title: dialogue.title,
     description: dialogue.question || `${names.join("、")}的对话`,
     url: `${SITE_URL}/life-science/dialogues/${slug}`,
-    author: names[0] ?? "Universe Knowledge",
+    author: names[0] ?? "Episteme · 格致",
     keywords: [dialogue.title, dialogue.field, ...names, ...dialogue.tags],
   });
 

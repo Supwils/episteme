@@ -1,9 +1,9 @@
-import type { Metadata } from 'next';
-import MatrixTransformer from '@/subjects/mathematics/components/visualizations/MatrixTransformer';
+import type { Metadata } from "next";
+import MatrixTransformer from "@/subjects/mathematics/components/visualizations/MatrixTransformer";
 
 export const metadata: Metadata = {
-  title: '矩阵变换 — Universe Knowledge',
-  description: '交互式矩阵变换可视化——观察2x2矩阵如何旋转、缩放、剪切和反射二维空间',
+  title: "矩阵变换 — Episteme · 格致",
+  description: "交互式矩阵变换可视化——观察2x2矩阵如何旋转、缩放、剪切和反射二维空间",
 };
 
 export default function MatrixTransformerPage() {
@@ -25,13 +25,11 @@ export default function MatrixTransformerPage() {
       <MatrixTransformer />
 
       <section className="border-border-faint mt-12 border-t pt-8">
-        <h2 className="font-display text-fg-primary mb-4 text-lg font-semibold">
-          关于线性变换
-        </h2>
+        <h2 className="font-display text-fg-primary mb-4 text-lg font-semibold">关于线性变换</h2>
         <div className="text-fg-secondary max-w-2xl space-y-3 text-sm leading-relaxed">
           <p>
-            线性代数的核心思想是：矩阵表示线性变换。一个 2×2 矩阵将二维空间中的每个点映射到另一个点，
-            同时保持原点不动、直线不变、比例关系不变。
+            线性代数的核心思想是：矩阵表示线性变换。一个 2×2
+            矩阵将二维空间中的每个点映射到另一个点， 同时保持原点不动、直线不变、比例关系不变。
           </p>
           <p>
             行列式（det）表示变换对面积的缩放因子。当行列式为零时，空间被&ldquo;压扁&rdquo;到一条线或一个点，

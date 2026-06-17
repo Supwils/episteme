@@ -4,10 +4,10 @@ import { getAllMathConcepts, getMathConceptsByField } from "@/subjects/mathemati
 import { MATH_FIELD_COLORS } from "@/subjects/mathematics/lib/constants";
 
 export const metadata: Metadata = {
-  title: "数学概念 — Universe Knowledge",
+  title: "数学概念 — Episteme · 格致",
   description: "从群论到拓扑，探索数学中最核心的概念与思想工具",
   openGraph: {
-    title: "数学概念 — Universe Knowledge",
+    title: "数学概念 — Episteme · 格致",
     description: "从群论到拓扑，探索数学中最核心的概念与思想工具",
     type: "website",
   },
@@ -19,7 +19,7 @@ export default function MathConceptsPage() {
   const fields = Object.keys(grouped);
 
   return (
-    <div className="w-full px-6 sm:px-10 lg:px-16 py-12 sm:py-16">
+    <div className="w-full px-6 py-12 sm:px-10 sm:py-16 lg:px-16">
       <header className="mb-12">
         <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
           mathematics / concepts
@@ -40,7 +40,13 @@ export default function MathConceptsPage() {
               href="/mathematics/concepts/probability"
               className="group flex items-center gap-2 rounded-lg border border-[var(--color-accent-gold)]/20 bg-[var(--color-accent-gold)]/10 px-4 py-2.5 text-sm text-[var(--color-accent-gold)] transition-all hover:border-[var(--color-accent-gold)]/40 hover:bg-[var(--color-accent-gold)]/20"
             >
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-4 w-4">
+              <svg
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                className="h-4 w-4"
+              >
                 <rect x="3" y="3" width="10" height="10" rx="1" />
                 <circle cx="6" cy="6" r="1" fill="currentColor" />
                 <circle cx="10" cy="10" r="1" fill="currentColor" />
@@ -51,7 +57,13 @@ export default function MathConceptsPage() {
               href="/mathematics/concepts/matrix-transformer"
               className="group flex items-center gap-2 rounded-lg border border-indigo-400/20 bg-indigo-500/10 px-4 py-2.5 text-sm text-indigo-300 transition-all hover:border-indigo-400/40 hover:bg-indigo-500/20"
             >
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-4 w-4">
+              <svg
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                className="h-4 w-4"
+              >
                 <rect x="2" y="2" width="5" height="5" rx="0.5" />
                 <rect x="9" y="9" width="5" height="5" rx="0.5" transform="rotate(15 11.5 11.5)" />
               </svg>
@@ -61,7 +73,13 @@ export default function MathConceptsPage() {
               href="/mathematics/concepts/number-line"
               className="group flex items-center gap-2 rounded-lg border border-emerald-400/20 bg-emerald-500/10 px-4 py-2.5 text-sm text-emerald-300 transition-all hover:border-emerald-400/40 hover:bg-emerald-500/20"
             >
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-4 w-4">
+              <svg
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                className="h-4 w-4"
+              >
                 <line x1="2" y1="8" x2="14" y2="8" />
                 <circle cx="5" cy="8" r="1" fill="currentColor" />
                 <circle cx="8" cy="8" r="1" fill="currentColor" />
@@ -101,7 +119,7 @@ export default function MathConceptsPage() {
                     className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative overflow-hidden border p-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5"
                   >
                     <div
-                      className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-10"
+                      className="pointer-events-none absolute -top-8 -right-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-10"
                       style={{ backgroundColor: fieldColor }}
                     />
 
@@ -119,10 +137,10 @@ export default function MathConceptsPage() {
                         </span>
                       </div>
 
-                      <h3 className="font-display text-fg-primary text-base font-semibold transition-colors group-hover:text-accent-indigo">
+                      <h3 className="font-display text-fg-primary group-hover:text-accent-indigo text-base font-semibold transition-colors">
                         {concept.title}
                       </h3>
-                      <p className="text-fg-muted mt-0.5 font-display text-sm italic tracking-wide opacity-60">
+                      <p className="text-fg-muted font-display mt-0.5 text-sm tracking-wide italic opacity-60">
                         {concept.title_en}
                       </p>
 
@@ -143,9 +161,7 @@ export default function MathConceptsPage() {
           <p className="text-fg-muted font-mono text-[11px] tracking-[0.22em] uppercase">
             暂无概念内容
           </p>
-          <p className="text-fg-secondary mt-2 text-sm">
-            概念文章正在撰写中，敬请期待。
-          </p>
+          <p className="text-fg-secondary mt-2 text-sm">概念文章正在撰写中，敬请期待。</p>
         </div>
       )}
     </div>

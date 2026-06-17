@@ -1,9 +1,9 @@
-import type { Metadata } from 'next';
-import VirtueRadar from '@/subjects/philosophy/components/visualizations/VirtueRadar';
+import type { Metadata } from "next";
+import VirtueRadar from "@/subjects/philosophy/components/visualizations/VirtueRadar";
 
 export const metadata: Metadata = {
-  title: '美德雷达图 — Universe Knowledge',
-  description: '亚里士多德美德伦理交互式雷达图——探索中庸之道与十对美德',
+  title: "美德雷达图 — Episteme · 格致",
+  description: "亚里士多德美德伦理交互式雷达图——探索中庸之道与十对美德",
 };
 
 export default function VirtueRadarPage() {
@@ -25,9 +25,7 @@ export default function VirtueRadarPage() {
       <VirtueRadar />
 
       <section className="border-border-faint mt-12 border-t pt-8">
-        <h2 className="font-display text-fg-primary mb-4 text-lg font-semibold">
-          关于美德伦理
-        </h2>
+        <h2 className="font-display text-fg-primary mb-4 text-lg font-semibold">关于美德伦理</h2>
         <div className="text-fg-secondary max-w-2xl space-y-3 text-sm leading-relaxed">
           <p>
             亚里士多德在《尼各马可伦理学》中提出，道德的核心不是规则或后果，而是品格。

@@ -67,7 +67,7 @@ export function SectionAwareFooter() {
                 ✦
               </span>
               <span className="font-display text-fg-primary text-[1.1rem] font-semibold tracking-tight">
-                Universe Knowledge
+                Episteme · 格致
               </span>
             </div>
             <p className="text-fg-muted m-0 text-[0.8rem] leading-relaxed">
@@ -127,7 +127,7 @@ export function SectionAwareFooter() {
 
         <div className="border-border-faint flex flex-wrap items-center justify-between gap-3 border-t pt-6">
           <span className="text-fg-disabled text-[0.72rem]">
-            © {new Date().getFullYear()} Universe Knowledge. All rights reserved.
+            © {new Date().getFullYear()} Episteme · 格致. All rights reserved.
           </span>
           <div className="flex items-center gap-4">
             <a

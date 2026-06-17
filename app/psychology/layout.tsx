@@ -5,16 +5,16 @@ import { PageTransition } from "@/components/PageTransition";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "心理学与认知科学 — Universe Knowledge",
+  title: "心理学与认知科学 — Episteme · 格致",
   description: "从弗洛伊德到卡尼曼，探索心理学的理论、实验与思想流派",
   openGraph: {
-    title: "心理学与认知科学 — Universe Knowledge",
+    title: "心理学与认知科学 — Episteme · 格致",
     description: "从弗洛伊德到卡尼曼，探索心理学的理论、实验与思想流派",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "心理学与认知科学 — Universe Knowledge",
+    title: "心理学与认知科学 — Episteme · 格致",
     description: "从弗洛伊德到卡尼曼，探索心理学的理论、实验与思想流派",
   },
 };

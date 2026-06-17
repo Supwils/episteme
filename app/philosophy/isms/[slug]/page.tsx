@@ -51,7 +51,7 @@ export default async function IsmDetailPage({ params }: { params: Promise<{ slug
     title: `${ism.title}（${ism.title_en}）`,
     description: `${ism.category} · ${ism.title}`,
     url: `${SITE_URL}/philosophy/isms/${slug}`,
-    author: ism.key_figures[0] ?? "Universe Knowledge",
+    author: ism.key_figures[0] ?? "Episteme · 格致",
     keywords: [ism.title, ism.title_en, ism.category, ...ism.key_figures],
   });
 

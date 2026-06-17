@@ -1,9 +1,9 @@
-import type { Metadata } from 'next';
-import PhilosophyQuiz from '@/subjects/philosophy/components/visualizations/PhilosophyQuiz';
+import type { Metadata } from "next";
+import PhilosophyQuiz from "@/subjects/philosophy/components/visualizations/PhilosophyQuiz";
 
 export const metadata: Metadata = {
-  title: '哲学思想实验测试 — Universe Knowledge',
-  description: '通过10个经典思想实验发现你的哲学立场——电车难题、忒修斯之船、缸中之脑等',
+  title: "哲学思想实验测试 — Episteme · 格致",
+  description: "通过10个经典思想实验发现你的哲学立场——电车难题、忒修斯之船、缸中之脑等",
 };
 
 export default function PhilosophyQuizPage() {
@@ -25,9 +25,7 @@ export default function PhilosophyQuizPage() {
       <PhilosophyQuiz />
 
       <section className="border-border-faint mt-12 border-t pt-8">
-        <h2 className="font-display text-fg-primary mb-4 text-lg font-semibold">
-          关于思想实验
-        </h2>
+        <h2 className="font-display text-fg-primary mb-4 text-lg font-semibold">关于思想实验</h2>
         <div className="text-fg-secondary max-w-2xl space-y-3 text-sm leading-relaxed">
           <p>
             思想实验是哲学家最重要的工具之一。通过构造极端或简化的情境，思想实验帮助我们揭示隐藏的直觉、检验理论的一致性、

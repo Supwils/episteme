@@ -11,7 +11,7 @@ function formatYear(year: number): string {
 }
 
 export const metadata: Metadata = {
-  title: "思想实验 — Universe Knowledge",
+  title: "思想实验 — Episteme · 格致",
   description: "哲学家们用思想实验来检验概念、挑战直觉、揭示悖论",
 };
 
@@ -21,7 +21,7 @@ export default function ExperimentsPage() {
   return (
     <div className="w-full px-6 py-16 sm:px-10 lg:px-16">
       <header className="mb-12">
-        <p className="text-fg-muted mb-4 font-mono text-[10px] uppercase tracking-[0.42em]">
+        <p className="text-fg-muted mb-4 font-mono text-[10px] tracking-[0.42em] uppercase">
           philosophy / experiments
         </p>
         <h1 className="font-display text-fg-primary mb-3 text-[2.4rem] leading-[1.05] tracking-tight md:text-[3.2rem]">
@@ -33,13 +33,13 @@ export default function ExperimentsPage() {
       </header>
 
       <section className="mb-16">
-        <p className="text-fg-disabled mb-4 font-mono text-[10px] uppercase tracking-[0.38em]">
+        <p className="text-fg-disabled mb-4 font-mono text-[10px] tracking-[0.38em] uppercase">
           interactive · 决策树
         </p>
         <ThoughtExperimentSection />
       </section>
 
-      <p className="text-fg-disabled mb-8 font-mono text-[10px] uppercase tracking-[0.38em]">
+      <p className="text-fg-disabled mb-8 font-mono text-[10px] tracking-[0.38em] uppercase">
         {experiments.length} 个思想实验 · thought experiments
       </p>
 
@@ -53,13 +53,13 @@ export default function ExperimentsPage() {
                 className="border-border-faint bg-bg-panel hover:border-fg-disabled/30 group relative flex h-full flex-col gap-4 overflow-hidden border p-6 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(200,164,90,0.06)]"
               >
                 <div
-                  className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-25"
+                  className="pointer-events-none absolute -top-10 -right-10 h-28 w-28 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-25"
                   style={{ backgroundColor: fieldColor }}
                 />
 
                 <div className="relative flex items-center justify-between">
                   <span
-                    className="border px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.32em] transition-colors duration-300"
+                    className="border px-2 py-0.5 font-mono text-[10px] tracking-[0.32em] uppercase transition-colors duration-300"
                     style={{
                       borderColor: `${fieldColor}50`,
                       color: fieldColor,
@@ -73,10 +73,10 @@ export default function ExperimentsPage() {
                 </div>
 
                 <div className="relative flex flex-col gap-1.5">
-                  <h2 className="font-display text-fg-primary group-hover:text-accent-gold text-lg font-semibold leading-tight transition-colors duration-300">
+                  <h2 className="font-display text-fg-primary group-hover:text-accent-gold text-lg leading-tight font-semibold transition-colors duration-300">
                     {exp.title}
                   </h2>
-                  <p className="text-fg-muted font-mono text-[11px] italic tracking-wider">
+                  <p className="text-fg-muted font-mono text-[11px] tracking-wider italic">
                     {exp.title_en}
                   </p>
                 </div>
@@ -96,7 +96,7 @@ export default function ExperimentsPage() {
 
                 <span
                   aria-hidden
-                  className="text-fg-disabled group-hover:text-accent-gold absolute bottom-4 right-4 font-mono text-xs opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100"
+                  className="text-fg-disabled group-hover:text-accent-gold absolute right-4 bottom-4 font-mono text-xs opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100"
                 >
                   →
                 </span>

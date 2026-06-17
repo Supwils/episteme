@@ -14,7 +14,7 @@ export function generateStaticParams() {
 }
 
 export const metadata: Metadata = {
-  title: "宇宙尺度 — 宇宙学 — Universe Knowledge",
+  title: "宇宙尺度 — 宇宙学 — Episteme · 格致",
   description: "探索不同宇宙尺度层级的结构与特征，从可观测宇宙到地球",
   openGraph: {
     title: "宇宙尺度 — 宇宙学",

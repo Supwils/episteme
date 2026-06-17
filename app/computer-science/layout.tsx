@@ -9,10 +9,10 @@ const DOMAIN = "computer-science";
 const config = getDomainConfig(DOMAIN)!;
 
 export const metadata: Metadata = {
-  title: `${config.label} — Universe Knowledge`,
+  title: `${config.label} — Episteme · 格致`,
   description: config.tagline,
   openGraph: {
-    title: `${config.label} — Universe Knowledge`,
+    title: `${config.label} — Episteme · 格致`,
     description: config.tagline,
     type: "website",
   },

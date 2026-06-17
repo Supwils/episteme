@@ -19,7 +19,7 @@ export function createArticleJsonLd({
   datePublished = "2025-01-01",
   dateModified,
   image,
-  author = "Universe Knowledge",
+  author = "Episteme · 格致",
   keywords,
   citations,
 }: ArticleJsonLdParams): Record<string, unknown> {
@@ -32,7 +32,7 @@ export function createArticleJsonLd({
     author: { "@type": "Organization", name: author },
     publisher: {
       "@type": "Organization",
-      name: "Universe Knowledge",
+      name: "Episteme · 格致",
       url: SITE_URL,
     },
     datePublished,

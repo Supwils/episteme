@@ -4,7 +4,7 @@ import { getAllTheories } from "@/subjects/economics/lib/mdx";
 import { CATEGORY_COLORS } from "@/subjects/economics/lib/constants";
 
 export const metadata: Metadata = {
-  title: "经济理论 — Universe Knowledge",
+  title: "经济理论 — Episteme · 格致",
   description: "微观、宏观、国际、发展、行为经济学等核心理论体系",
 };
 
@@ -16,7 +16,7 @@ export default function TheoriesPage() {
   return (
     <div className="w-full px-6 py-16 sm:px-10 lg:px-16">
       <header className="mb-12">
-        <p className="text-fg-muted mb-3 font-mono text-[10px] uppercase tracking-[0.42em]">
+        <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
           economics / theories
         </p>
         <h1 className="font-display text-fg-primary text-[2.4rem] leading-tight tracking-tight md:text-[3.2rem]">
@@ -55,7 +55,7 @@ export default function TheoriesPage() {
               className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative flex h-full flex-col gap-4 overflow-hidden border p-6 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(200,164,90,0.06)]"
             >
               <div
-                className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-25"
+                className="pointer-events-none absolute -top-10 -right-10 h-28 w-28 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-25"
                 style={{ backgroundColor: color }}
               />
 
@@ -72,10 +72,10 @@ export default function TheoriesPage() {
               </div>
 
               <div className="relative flex flex-col gap-1.5">
-                <h2 className="font-display text-fg-primary group-hover:text-accent-gold text-lg font-semibold leading-tight transition-colors duration-300">
+                <h2 className="font-display text-fg-primary group-hover:text-accent-gold text-lg leading-tight font-semibold transition-colors duration-300">
                   {theory.title}
                 </h2>
-                <p className="text-fg-muted font-mono text-[11px] italic tracking-wider">
+                <p className="text-fg-muted font-mono text-[11px] tracking-wider italic">
                   {theory.title_en}
                 </p>
               </div>
@@ -119,9 +119,7 @@ export default function TheoriesPage() {
           <p className="text-fg-muted font-mono text-[11px] tracking-[0.22em] uppercase">
             暂无理论内容
           </p>
-          <p className="text-fg-secondary mt-2 text-sm">
-            经济理论文章正在撰写中，敬请期待。
-          </p>
+          <p className="text-fg-secondary mt-2 text-sm">经济理论文章正在撰写中，敬请期待。</p>
         </div>
       )}
     </div>

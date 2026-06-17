@@ -4,16 +4,16 @@ import { SubjectHeader } from "@/components/SubjectHeader";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "经济学、金融与博弈论 — Universe Knowledge",
+  title: "经济学、金融与博弈论 — Episteme · 格致",
   description: "探索市场机制与经济思想，从亚当·斯密到行为经济学——经济学、金融与博弈论知识平台",
   openGraph: {
-    title: "经济学、金融与博弈论 — Universe Knowledge",
+    title: "经济学、金融与博弈论 — Episteme · 格致",
     description: "探索市场机制与经济思想，从亚当·斯密到行为经济学",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "经济学、金融与博弈论 — Universe Knowledge",
+    title: "经济学、金融与博弈论 — Episteme · 格致",
     description: "探索市场机制与经济思想，从亚当·斯密到行为经济学",
   },
 };

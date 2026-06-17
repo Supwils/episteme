@@ -4,7 +4,7 @@ import { getAllConcepts } from "@/subjects/economics/lib/mdx";
 import { CATEGORY_COLORS } from "@/subjects/economics/lib/constants";
 
 export const metadata: Metadata = {
-  title: "经济学概念 — Universe Knowledge",
+  title: "经济学概念 — Episteme · 格致",
   description: "GDP、通货膨胀、边际效用、机会成本等基础与进阶经济学概念",
 };
 
@@ -20,7 +20,7 @@ export default function ConceptsPage() {
   const categories = Object.keys(grouped).sort();
 
   return (
-    <div className="w-full px-6 sm:px-10 lg:px-16 py-16">
+    <div className="w-full px-6 py-16 sm:px-10 lg:px-16">
       <header className="mb-12">
         <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
           economics / concepts
@@ -60,7 +60,7 @@ export default function ConceptsPage() {
                   className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative overflow-hidden border p-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5"
                 >
                   <div
-                    className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-10"
+                    className="pointer-events-none absolute -top-8 -right-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-10"
                     style={{ backgroundColor: accent }}
                   />
 
@@ -78,10 +78,10 @@ export default function ConceptsPage() {
                       </span>
                     </div>
 
-                    <h3 className="font-display text-fg-primary text-base font-semibold transition-colors group-hover:text-accent-gold">
+                    <h3 className="font-display text-fg-primary group-hover:text-accent-gold text-base font-semibold transition-colors">
                       {concept.title}
                     </h3>
-                    <p className="text-fg-muted mt-0.5 font-display text-sm italic tracking-wide opacity-60">
+                    <p className="text-fg-muted font-display mt-0.5 text-sm tracking-wide italic opacity-60">
                       {concept.title_en}
                     </p>
 
@@ -103,9 +103,7 @@ export default function ConceptsPage() {
           <p className="text-fg-muted font-mono text-[11px] tracking-[0.22em] uppercase">
             暂无概念内容
           </p>
-          <p className="text-fg-secondary mt-2 text-sm">
-            经济学概念文章正在撰写中，敬请期待。
-          </p>
+          <p className="text-fg-secondary mt-2 text-sm">经济学概念文章正在撰写中，敬请期待。</p>
         </div>
       )}
     </div>

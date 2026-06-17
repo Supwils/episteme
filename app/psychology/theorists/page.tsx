@@ -3,7 +3,7 @@ import { getAllTheorists } from "@/subjects/psychology/lib/mdx";
 import TheoristsGrid from "./TheoristsGrid";
 
 export const metadata: Metadata = {
-  title: "心理学家 — Universe Knowledge",
+  title: "心理学家 — Episteme · 格致",
   description: "从弗洛伊德到卡尼曼，心理学巨匠的生平、理论与贡献",
 };
 

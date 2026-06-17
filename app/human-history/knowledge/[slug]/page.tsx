@@ -221,11 +221,11 @@ export default async function KnowledgeArticlePage({ params }: Props) {
     url: `${SITE_URL}/human-history/knowledge/${slug}`,
     author: {
       "@type": "Organization",
-      name: "Universe Knowledge",
+      name: "Episteme · 格致",
     },
     publisher: {
       "@type": "Organization",
-      name: "Universe Knowledge",
+      name: "Episteme · 格致",
       url: SITE_URL,
     },
     mainEntityOfPage: {

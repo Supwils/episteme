@@ -6,16 +6,16 @@ import "katex/dist/katex.min.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "数学与逻辑 — Universe Knowledge",
+  title: "数学与逻辑 — Episteme · 格致",
   description: "从计数到范畴论，探索人类思维的最纯粹形式",
   openGraph: {
-    title: "数学与逻辑 — Universe Knowledge",
+    title: "数学与逻辑 — Episteme · 格致",
     description: "从计数到范畴论，探索人类思维的最纯粹形式",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "数学与逻辑 — Universe Knowledge",
+    title: "数学与逻辑 — Episteme · 格致",
     description: "从计数到范畴论，探索人类思维的最纯粹形式",
   },
 };

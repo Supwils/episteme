@@ -5,11 +5,11 @@ import { getScientistById } from "@/subjects/life-science/lib/scientists";
 import { StaggerGrid, StaggerItem } from "@/components/StaggerGrid";
 
 export const metadata: Metadata = {
-  title: "生命科学对话 — Universe Knowledge",
+  title: "生命科学对话 — Episteme · 格致",
   description:
     "达尔文与莱尔、孟德尔与达尔文……跨越时代的生物学思想交锋，用对话照亮进化、遗传与生命起源的关键问题。",
   openGraph: {
-    title: "生命科学对话 — Universe Knowledge",
+    title: "生命科学对话 — Episteme · 格致",
     description: "跨越时代的生物学思想交锋，用对话照亮进化、遗传与生命起源的关键问题。",
     type: "website",
   },

@@ -2,13 +2,11 @@ import type { Metadata } from "next";
 import { PhilosophyTree } from "@/subjects/philosophy/components/visualizations";
 
 export const metadata: Metadata = {
-  title: "哲学传承树 — 哲学思想 — Universe Knowledge",
-  description:
-    "交互式哲学家影响传承时间线——从苏格拉底到维特根斯坦的思想脉络可视化",
+  title: "哲学传承树 — 哲学思想 — Episteme · 格致",
+  description: "交互式哲学家影响传承时间线——从苏格拉底到维特根斯坦的思想脉络可视化",
   openGraph: {
     title: "哲学传承树 — 哲学思想",
-    description:
-      "交互式哲学家影响传承时间线——从苏格拉底到维特根斯坦的思想脉络可视化",
+    description: "交互式哲学家影响传承时间线——从苏格拉底到维特根斯坦的思想脉络可视化",
     type: "website",
   },
 };
@@ -17,7 +15,7 @@ export default function PhilosophyTreePage() {
   return (
     <div className="w-full px-4 py-12 sm:px-10 sm:py-16 lg:px-16">
       <header className="mb-8">
-        <p className="text-fg-muted mb-3 font-mono text-[10px] uppercase tracking-[0.42em]">
+        <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
           philosophy / tree
         </p>
         <h1 className="font-display text-fg-primary text-[2.4rem] leading-tight tracking-tight md:text-[3.2rem]">
@@ -34,9 +32,7 @@ export default function PhilosophyTreePage() {
       </div>
 
       <div className="border-border-faint mt-8 border-l-2 pl-6">
-        <p className="text-fg-muted font-mono text-[10px] uppercase tracking-[0.22em]">
-          操作提示
-        </p>
+        <p className="text-fg-muted font-mono text-[10px] tracking-[0.22em] uppercase">操作提示</p>
         <ul className="text-fg-secondary mt-2 space-y-1 text-xs leading-relaxed">
           <li>• 滚轮缩放，拖拽平移</li>
           <li>• 点击节点查看哲学家简介</li>

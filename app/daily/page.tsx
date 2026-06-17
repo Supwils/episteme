@@ -4,10 +4,10 @@ import { DailyShuffle } from "@/components/DailyShuffle";
 import { OnThisDay } from "@/components/OnThisDay";
 
 export const metadata: Metadata = {
-  title: "每日知识 — Universe Knowledge",
+  title: "每日知识 — Episteme · 格致",
   description: "今天的历史、科学与哲学，每天一点新知识，还可随时「换一批」探索更多",
   openGraph: {
-    title: "每日知识 — Universe Knowledge",
+    title: "每日知识 — Episteme · 格致",
     description: "今天的历史、科学与哲学",
     type: "website",
   },

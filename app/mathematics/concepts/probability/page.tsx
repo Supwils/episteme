@@ -1,9 +1,9 @@
-import type { Metadata } from 'next';
-import ProbabilityVisualizer from '@/subjects/mathematics/components/visualizations/ProbabilityVisualizer';
+import type { Metadata } from "next";
+import ProbabilityVisualizer from "@/subjects/mathematics/components/visualizations/ProbabilityVisualizer";
 
 export const metadata: Metadata = {
-  title: '概率可视化 — Universe Knowledge',
-  description: '交互式概率模拟器——抛硬币、掷骰子、抽牌，观察大数定律如何让实验概率收敛到理论值',
+  title: "概率可视化 — Episteme · 格致",
+  description: "交互式概率模拟器——抛硬币、掷骰子、抽牌，观察大数定律如何让实验概率收敛到理论值",
 };
 
 export default function ProbabilityVisualizerPage() {
@@ -25,9 +25,7 @@ export default function ProbabilityVisualizerPage() {
       <ProbabilityVisualizer />
 
       <section className="border-border-faint mt-12 border-t pt-8">
-        <h2 className="font-display text-fg-primary mb-4 text-lg font-semibold">
-          关于大数定律
-        </h2>
+        <h2 className="font-display text-fg-primary mb-4 text-lg font-semibold">关于大数定律</h2>
         <div className="text-fg-secondary max-w-2xl space-y-3 text-sm leading-relaxed">
           <p>
             大数定律（Law of Large Numbers）是概率论中最重要的定理之一。它指出：

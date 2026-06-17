@@ -41,8 +41,8 @@ export default async function CosmologyKnowledgeArticlePage({ params }: Props) {
     headline: article.title,
     description: article.excerpt,
     url: `${SITE_URL}/cosmology/knowledge-base/${slug}`,
-    author: { "@type": "Organization", name: "Universe Knowledge" },
-    publisher: { "@type": "Organization", name: "Universe Knowledge", url: SITE_URL },
+    author: { "@type": "Organization", name: "Episteme · 格致" },
+    publisher: { "@type": "Organization", name: "Episteme · 格致", url: SITE_URL },
     keywords: article.tags.join(", "),
   };
 
@@ -66,7 +66,7 @@ export default async function CosmologyKnowledgeArticlePage({ params }: Props) {
 
       <article>
         <header className="mb-10">
-          <h1 className="text-fg-primary mb-4 text-3xl font-semibold leading-tight sm:text-4xl">
+          <h1 className="text-fg-primary mb-4 text-3xl leading-tight font-semibold sm:text-4xl">
             {article.title}
           </h1>
           {article.tags.length > 0 && (

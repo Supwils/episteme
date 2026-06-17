@@ -6,16 +6,16 @@ const DESCRIPTION =
   "大爆炸、宇宙微波背景、暗物质与暗能量、引力波天文学、恒星核合成、系外行星探测——宇宙学的深度专题文章";
 
 export const metadata: Metadata = {
-  title: "宇宙学知识库 — Universe Knowledge",
+  title: "宇宙学知识库 — Episteme · 格致",
   description: DESCRIPTION,
   openGraph: {
-    title: "宇宙学知识库 — Universe Knowledge",
+    title: "宇宙学知识库 — Episteme · 格致",
     description: DESCRIPTION,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "宇宙学知识库 — Universe Knowledge",
+    title: "宇宙学知识库 — Episteme · 格致",
     description: DESCRIPTION,
   },
 };
@@ -36,12 +36,8 @@ export default function CosmologyKnowledgeBasePage() {
         <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
           cosmology / knowledge base
         </p>
-        <h1 className="text-fg-primary mb-4 text-3xl font-semibold sm:text-4xl">
-          宇宙学知识库
-        </h1>
-        <p className="text-fg-secondary max-w-2xl text-[15px] leading-relaxed">
-          {DESCRIPTION}
-        </p>
+        <h1 className="text-fg-primary mb-4 text-3xl font-semibold sm:text-4xl">宇宙学知识库</h1>
+        <p className="text-fg-secondary max-w-2xl text-[15px] leading-relaxed">{DESCRIPTION}</p>
       </header>
 
       <div className="space-y-12">

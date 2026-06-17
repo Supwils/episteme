@@ -6,16 +6,16 @@ const DESCRIPTION =
   "跨越时代的物理学家对话——爱因斯坦与康德、玻尔与海森堡、特斯拉与爱迪生，在思想交锋中理解物理学的核心争论";
 
 export const metadata: Metadata = {
-  title: "物理学对话 — Universe Knowledge",
+  title: "物理学对话 — Episteme · 格致",
   description: DESCRIPTION,
   openGraph: {
-    title: "物理学对话 — Universe Knowledge",
+    title: "物理学对话 — Episteme · 格致",
     description: DESCRIPTION,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "物理学对话 — Universe Knowledge",
+    title: "物理学对话 — Episteme · 格致",
     description: DESCRIPTION,
   },
 };

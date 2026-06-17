@@ -6,16 +6,16 @@ const DESCRIPTION =
   "宇宙学家的思想对话——哈勃与勒梅特、彭罗斯与霍金、泰森与萨根，在交锋中理解宇宙膨胀、奇点与暗物质的核心争论";
 
 export const metadata: Metadata = {
-  title: "宇宙学对话 — Universe Knowledge",
+  title: "宇宙学对话 — Episteme · 格致",
   description: DESCRIPTION,
   openGraph: {
-    title: "宇宙学对话 — Universe Knowledge",
+    title: "宇宙学对话 — Episteme · 格致",
     description: DESCRIPTION,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "宇宙学对话 — Universe Knowledge",
+    title: "宇宙学对话 — Episteme · 格致",
     description: DESCRIPTION,
   },
 };

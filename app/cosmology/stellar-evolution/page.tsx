@@ -3,7 +3,7 @@ import Link from "next/link";
 import { HRDiagram } from "@/subjects/cosmology/components/visualizations";
 
 export const metadata: Metadata = {
-  title: "恒星演化 — 宇宙学 — Universe Knowledge",
+  title: "恒星演化 — 宇宙学 — Episteme · 格致",
   description: "通过赫罗图探索恒星的生命周期：从主序星到红巨星、白矮星的演化路径",
   openGraph: {
     title: "恒星演化 — 宇宙学",

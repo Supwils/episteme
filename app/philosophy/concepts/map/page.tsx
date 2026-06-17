@@ -1,9 +1,9 @@
-import type { Metadata } from 'next';
-import { ConceptMap } from '@/subjects/philosophy/components/visualizations/ConceptMap';
+import type { Metadata } from "next";
+import { ConceptMap } from "@/subjects/philosophy/components/visualizations/ConceptMap";
 
 export const metadata: Metadata = {
-  title: '哲学概念图谱 — Universe Knowledge',
-  description: '交互式哲学概念关系图谱，可视化展示概念之间的对立、依赖与关联',
+  title: "哲学概念图谱 — Episteme · 格致",
+  description: "交互式哲学概念关系图谱，可视化展示概念之间的对立、依赖与关联",
 };
 
 export default function ConceptMapPage() {

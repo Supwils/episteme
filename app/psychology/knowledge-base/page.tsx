@@ -3,10 +3,10 @@ import Link from "next/link";
 import { getAllKnowledgeBase } from "@/subjects/psychology/lib/mdx";
 
 export const metadata: Metadata = {
-  title: "知识库 — 心理学 — Universe Knowledge",
+  title: "知识库 — 心理学 — Episteme · 格致",
   description: "CBT 自助、正念科学、情绪智力、决策心理学等实用心理学指南。",
   openGraph: {
-    title: "知识库 — 心理学 — Universe Knowledge",
+    title: "知识库 — 心理学 — Episteme · 格致",
     description: "CBT 自助、正念科学、情绪智力、决策心理学等实用心理学指南。",
     type: "website",
   },

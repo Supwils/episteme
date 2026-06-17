@@ -49,19 +49,21 @@ export async function generateMetadata({ params }: Props) {
   const era = getEraBySlug(slug);
   if (!era) notFound();
   const description = era.desc;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://universe-knowledge.vercel.app';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://episteme.vercel.app";
   const ogImage = `${siteUrl}/api/og?title=${encodeURIComponent(era.name)}&section=human-history&description=${encodeURIComponent(description)}`;
   return {
     title: `${era.name} — 人类历史`,
     description,
-    openGraph: { title: `${era.name} — 人类历史`, description, images: [{ url: ogImage, width: 1200, height: 630 }] },
+    openGraph: {
+      title: `${era.name} — 人类历史`,
+      description,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
   };
 }
 
 function getEraEvents(eraId: string): HistoryEvent[] {
-  return (EVENTS as HistoryEvent[])
-    .filter((e) => e.era === eraId)
-    .sort((a, b) => a.year - b.year);
+  return (EVENTS as HistoryEvent[]).filter((e) => e.era === eraId).sort((a, b) => a.year - b.year);
 }
 
 function getEraFigures(eraId: string): HistoryFigure[] {

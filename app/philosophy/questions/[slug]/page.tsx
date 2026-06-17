@@ -55,7 +55,7 @@ export default async function QuestionDetailPage({
     title: question.title,
     description: `${question.field}：${question.key_figures.join("、")}`,
     url: `${SITE_URL}/philosophy/questions/${slug}`,
-    author: question.key_figures[0] ?? "Universe Knowledge",
+    author: question.key_figures[0] ?? "Episteme · 格致",
     keywords: [question.title, question.field, ...question.key_figures],
   });
 

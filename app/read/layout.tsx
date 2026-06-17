@@ -5,10 +5,10 @@ import { PageTransition } from "@/components/PageTransition";
 import "../domain-shared.css";
 
 export const metadata: Metadata = {
-  title: "阅读路线 — Universe Knowledge",
+  title: "阅读路线 — Episteme · 格致",
   description: "像读一本书那样探索知识：沿一条精心编排的路线，把一个主题从头读到尾。",
   openGraph: {
-    title: "阅读路线 — Universe Knowledge",
+    title: "阅读路线 — Episteme · 格致",
     description: "像读一本书那样，沿一条精心编排的路线读完一个主题。",
     type: "website",
   },

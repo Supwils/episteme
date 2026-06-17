@@ -5,16 +5,16 @@ import { PageTransition } from "@/components/PageTransition";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "生命科学与进化 — Universe Knowledge",
+  title: "生命科学与进化 — Episteme · 格致",
   description: "从第一个有机分子到人类意识，探索40亿年生命演化的壮阔历程",
   openGraph: {
-    title: "生命科学与进化 — Universe Knowledge",
+    title: "生命科学与进化 — Episteme · 格致",
     description: "从第一个有机分子到人类意识，探索40亿年生命演化的壮阔历程",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "生命科学与进化 — Universe Knowledge",
+    title: "生命科学与进化 — Episteme · 格致",
     description: "从第一个有机分子到人类意识，探索40亿年生命演化的壮阔历程",
   },
 };

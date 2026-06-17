@@ -12,17 +12,17 @@ import { SITE_URL } from "../lib/constants";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Universe Knowledge — 知识即服务平台",
+  title: "Episteme · 格致 — 重现人类认识世界的旅程",
   description:
     "以可视化、沉浸式的方式探索人类最重要的知识，涵盖物理学、宇宙学、人类历史、哲学思想、生命科学、经济学和心理学",
   openGraph: {
-    title: "Universe Knowledge — 知识即服务平台",
+    title: "Episteme · 格致 — 重现人类认识世界的旅程",
     description:
       "以可视化、沉浸式的方式探索人类最重要的知识，涵盖物理学、宇宙学、人类历史、哲学思想、生命科学、经济学和心理学",
     type: "website",
     images: [
       {
-        url: `/api/og?title=${encodeURIComponent("Universe Knowledge")}&description=${encodeURIComponent("知识即服务平台")}`,
+        url: `/api/og?title=${encodeURIComponent("Episteme · 格致")}&description=${encodeURIComponent("知识即服务平台")}`,
         width: 1200,
         height: 630,
       },
@@ -33,10 +33,10 @@ export const metadata: Metadata = {
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Universe Knowledge",
+  name: "Episteme · 格致",
   url: SITE_URL,
   description:
-    "A knowledge platform covering physics, cosmology, human history, philosophy, life science, economics, and psychology",
+    "重现人类认识世界的旅程——以可视化、沉浸式的方式探索宇宙物理、宇宙学、人类历史、哲学思想、生命科学、数学、经济学、心理学、计算机科学、政治学等领域的深度知识。",
   potentialAction: {
     "@type": "SearchAction",
     target: {

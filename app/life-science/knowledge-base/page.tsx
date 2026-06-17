@@ -2,20 +2,19 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { lifeScienceKB } from "@/lib/life-science-kb";
 
-const DESCRIPTION =
-  "分子生物学、遗传学、生物技术、进化机制、医学、生态学——生命科学的深度专题文章";
+const DESCRIPTION = "分子生物学、遗传学、生物技术、进化机制、医学、生态学——生命科学的深度专题文章";
 
 export const metadata: Metadata = {
-  title: "生命科学知识库 — Universe Knowledge",
+  title: "生命科学知识库 — Episteme · 格致",
   description: DESCRIPTION,
   openGraph: {
-    title: "生命科学知识库 — Universe Knowledge",
+    title: "生命科学知识库 — Episteme · 格致",
     description: DESCRIPTION,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "生命科学知识库 — Universe Knowledge",
+    title: "生命科学知识库 — Episteme · 格致",
     description: DESCRIPTION,
   },
 };
@@ -36,12 +35,8 @@ export default function LifeScienceKnowledgeBasePage() {
         <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
           life-science / knowledge base
         </p>
-        <h1 className="text-fg-primary mb-4 text-3xl font-semibold sm:text-4xl">
-          生命科学知识库
-        </h1>
-        <p className="text-fg-secondary max-w-2xl text-[15px] leading-relaxed">
-          {DESCRIPTION}
-        </p>
+        <h1 className="text-fg-primary mb-4 text-3xl font-semibold sm:text-4xl">生命科学知识库</h1>
+        <p className="text-fg-secondary max-w-2xl text-[15px] leading-relaxed">{DESCRIPTION}</p>
       </header>
 
       <div className="space-y-12">

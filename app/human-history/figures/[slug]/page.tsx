@@ -67,7 +67,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const figure = getFigureBySlug(slug);
   if (!figure) notFound();
   const description = figure.desc;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://universe-knowledge.vercel.app";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://episteme.vercel.app";
   const ogImage = `${siteUrl}/api/og?title=${encodeURIComponent(figure.name)}&section=human-history&description=${encodeURIComponent(description)}`;
   return {
     title: `${figure.name} — 人类历史人物`,

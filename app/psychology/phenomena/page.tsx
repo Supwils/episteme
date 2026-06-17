@@ -13,7 +13,7 @@ const DecisionMatrix = lazy(
 );
 
 export const metadata: Metadata = {
-  title: "心理现象 — Universe Knowledge",
+  title: "心理现象 — Episteme · 格致",
   description: "认知偏差、社会效应与令人惊奇的心理规律",
 };
 

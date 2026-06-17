@@ -56,7 +56,7 @@ export default async function MathParadoxDetailPage({
     title: `${paradox.title}（${paradox.title_en}）`,
     description: `${paradox.title_en}：${paradox.field}。${paradox.tags.join("、")}`,
     url: `${SITE_URL}/mathematics/paradoxes/${slug}`,
-    author: paradox.key_figures[0] ?? "Universe Knowledge",
+    author: paradox.key_figures[0] ?? "Episteme · 格致",
     keywords: [
       paradox.title,
       paradox.title_en,

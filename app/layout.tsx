@@ -15,20 +15,18 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://universe-knowledge.vercel.app"
-  ),
-  title: "Universe Knowledge",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://episteme.vercel.app"),
+  title: "Episteme · 格致 — 重现人类认识世界的旅程",
   description:
-    "A knowledge platform covering human history, universe physics, philosophy, and life science",
+    "重现人类认识世界的旅程——宇宙物理、人类历史、哲学思想、生命科学、数学、经济学、心理学、计算机科学、政治学等领域的深度知识平台。",
   manifest: "/manifest.json",
   openGraph: {
-    title: "Universe Knowledge",
+    title: "Episteme · 格致 — 重现人类认识世界的旅程",
     description: "探索人类知识的边界：宇宙物理、人类历史、哲学思想、生命科学",
     type: "website",
     images: [
       {
-        url: `/api/og?title=${encodeURIComponent("Universe Knowledge")}&description=${encodeURIComponent("探索人类知识的边界")}`,
+        url: `/api/og?title=${encodeURIComponent("Episteme · 格致")}&description=${encodeURIComponent("探索人类知识的边界")}`,
         width: 1200,
         height: 630,
       },
@@ -36,10 +34,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Universe Knowledge",
+    title: "Episteme · 格致 — 重现人类认识世界的旅程",
     description: "探索人类知识的边界：宇宙物理、人类历史、哲学思想、生命科学",
     images: [
-      `/api/og?title=${encodeURIComponent("Universe Knowledge")}&description=${encodeURIComponent("探索人类知识的边界")}`,
+      `/api/og?title=${encodeURIComponent("Episteme · 格致")}&description=${encodeURIComponent("探索人类知识的边界")}`,
     ],
   },
 };
@@ -47,10 +45,10 @@ export const metadata: Metadata = {
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Universe Knowledge",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://universe-knowledge.vercel.app",
+  name: "Episteme · 格致",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://episteme.vercel.app",
   description:
-    "A knowledge platform covering human history, universe physics, philosophy, and life science",
+    "重现人类认识世界的旅程——宇宙物理、人类历史、哲学思想、生命科学、数学、经济学、心理学、计算机科学、政治学等领域的深度知识平台。",
   sameAs: [],
 };
 

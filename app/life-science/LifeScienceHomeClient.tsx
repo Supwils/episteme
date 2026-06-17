@@ -40,7 +40,7 @@ const collectionJsonLd = {
     "4 billion years of life on Earth — from self-replicating molecules to the Cambrian explosion, from dinosaurs to the rise of humankind",
   isPartOf: {
     "@type": "WebSite",
-    name: "Universe Knowledge",
+    name: "Episteme · 格致",
     url: SITE_URL,
   },
 };

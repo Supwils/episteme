@@ -1,9 +1,9 @@
-import type { Metadata } from 'next';
-import DialecticTriangle from '@/subjects/philosophy/components/visualizations/DialecticTriangle';
+import type { Metadata } from "next";
+import DialecticTriangle from "@/subjects/philosophy/components/visualizations/DialecticTriangle";
 
 export const metadata: Metadata = {
-  title: '辩证三角 — Universe Knowledge',
-  description: '黑格尔辩证法交互式可视化——正题、反题、合题的动态三角关系',
+  title: "辩证三角 — Episteme · 格致",
+  description: "黑格尔辩证法交互式可视化——正题、反题、合题的动态三角关系",
 };
 
 export default function DialecticTrianglePage() {
@@ -25,9 +25,7 @@ export default function DialecticTrianglePage() {
       <DialecticTriangle />
 
       <section className="border-border-faint mt-12 border-t pt-8">
-        <h2 className="font-display text-fg-primary mb-4 text-lg font-semibold">
-          关于辩证法
-        </h2>
+        <h2 className="font-display text-fg-primary mb-4 text-lg font-semibold">关于辩证法</h2>
         <div className="text-fg-secondary max-w-2xl space-y-3 text-sm leading-relaxed">
           <p>
             黑格尔的辩证法是西方哲学最重要的思维工具之一。它认为真理不是静态的，而是通过矛盾的运动不断发展的。

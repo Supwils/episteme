@@ -6,16 +6,16 @@ import "katex/dist/katex.min.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "宇宙学 — Universe Knowledge",
+  title: "宇宙学 — Episteme · 格致",
   description: "从可见宇宙的整体结构出发，探索宇宙的起源、演化与最终命运",
   openGraph: {
-    title: "宇宙学 — Universe Knowledge",
+    title: "宇宙学 — Episteme · 格致",
     description: "从可见宇宙的整体结构出发，探索宇宙的起源、演化与最终命运",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "宇宙学 — Universe Knowledge",
+    title: "宇宙学 — Episteme · 格致",
     description: "从可见宇宙的整体结构出发，探索宇宙的起源、演化与最终命运",
   },
 };
