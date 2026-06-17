@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { cn } from "@/components/ui/utils/cn";
 import { ArticleSidebar } from "@/components/ArticleSidebar";
+import { Backlinks } from "@/components/Backlinks";
 import { readingMinutes } from "@/lib/reading-time";
 
 interface PrevNextLink {
@@ -134,6 +135,8 @@ export function ArticleLayout({
         <article className={cn("min-w-0 flex-1", articleClassName)}>{children}</article>
         <ArticleSidebar contentClassName={sidebarClassName}>{sidebar}</ArticleSidebar>
       </div>
+
+      <Backlinks />
 
       {(prev || next) && (
         <nav className="border-border-faint mt-16 flex items-stretch justify-between gap-4 border-t pt-8">

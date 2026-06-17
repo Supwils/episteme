@@ -1,77 +1,147 @@
 /**
- * Regenerates lib/wiki-link-index.ts — the slug → URL map that turns inline
- * `[[wiki-links]]` in prose into clickable cross-references.
+ * Regenerates the two cross-reference indexes that bring the prose knowledge
+ * web to life:
  *
- * Content authors write `[[distributed-systems]]` to reference another article;
- * MarkdownRenderer (a client component) can't read the filesystem, so it
- * consumes this precomputed map. We only emit a slug when the section it lives
- * in is actually routable (an `app/<domain>/<section>/[slug]/page.tsx` exists),
- * so a resolved wiki-link can never 404. When the same slug exists in more than
- * one domain (e.g. `justice` in philosophy and political-science) the value is
- * a { domain: url } map and the renderer prefers the reader's current domain.
+ *   lib/wiki-link-index.ts — slug → URL, so inline `[[wiki-links]]` become
+ *     clickable internal links (forward direction).
+ *   lib/backlinks-index.ts — URL → the articles that link to it, so each page
+ *     can show a "referenced by" panel (reverse direction).
+ *
+ * MarkdownRenderer / Backlinks are client components and can't read the
+ * filesystem, so they consume these precomputed maps. We only emit a slug when
+ * the section it lives in is actually routable (an
+ * `app/<domain>/<section>/[slug]/page.tsx` exists), so a resolved link can
+ * never 404. When the same slug exists in several domains (e.g. `justice`) the
+ * forward value is a { domain: url } map and the reader's current domain wins.
  *
  * Output is prettier-formatted so re-running is idempotent and commit-clean.
  *
  * Run: pnpm gen-links
  */
-import { readdirSync, existsSync, statSync, writeFileSync } from "node:fs";
+import { readdirSync, readFileSync, existsSync, statSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import matter from "gray-matter";
 import prettier from "prettier";
 
 const ROOT = process.cwd();
 const CONTENT = join(ROOT, "content");
 const APP = join(ROOT, "app");
-const OUT = join(ROOT, "lib", "wiki-link-index.ts");
+const OUT_LINKS = join(ROOT, "lib", "wiki-link-index.ts");
+const OUT_BACKLINKS = join(ROOT, "lib", "backlinks-index.ts");
 
 const isDir = (p: string): boolean => existsSync(p) && statSync(p).isDirectory();
 const isAsciiSlug = (s: string): boolean => /^[a-z][a-z0-9-]*$/.test(s);
 
-/** slug → (domain → url). A slug routable in one domain collapses to a string. */
-function build(): Record<string, string | Record<string, string>> {
-  const bySlug = new Map<string, Map<string, string>>();
+interface Article {
+  domain: string;
+  slug: string;
+  url: string;
+  title: string;
+  body: string;
+}
 
+/** Every routable article (its section has a `[slug]` detail page). */
+function collectArticles(): Article[] {
+  const out: Article[] = [];
   for (const domain of readdirSync(CONTENT)) {
-    const domainDir = join(CONTENT, domain);
-    if (!isDir(domainDir)) continue;
-
-    for (const section of readdirSync(domainDir)) {
-      const sectionDir = join(domainDir, section);
+    if (!isDir(join(CONTENT, domain))) continue;
+    for (const section of readdirSync(join(CONTENT, domain))) {
+      const sectionDir = join(CONTENT, domain, section);
       if (!isDir(sectionDir)) continue;
-      // Only sections whose detail pages exist — guarantees no dead links.
       if (!existsSync(join(APP, domain, section, "[slug]", "page.tsx"))) continue;
 
       for (const file of readdirSync(sectionDir)) {
         const m = file.match(/^(.+)\.(mdx|md)$/);
         if (!m) continue;
         const slug = m[1]!;
-        if (!isAsciiSlug(slug)) continue; // CJK / data-only files aren't link targets
+        if (!isAsciiSlug(slug)) continue;
 
-        const domainMap = bySlug.get(slug) ?? new Map<string, string>();
-        domainMap.set(domain, `/${domain}/${section}/${slug}`);
-        bySlug.set(slug, domainMap);
+        const parsed = matter(readFileSync(join(sectionDir, file), "utf8"));
+        const title = typeof parsed.data.title === "string" ? parsed.data.title : slug;
+        out.push({
+          domain,
+          slug,
+          url: `/${domain}/${section}/${slug}`,
+          title,
+          body: parsed.content,
+        });
       }
     }
   }
+  return out;
+}
 
-  const index: Record<string, string | Record<string, string>> = {};
-  for (const [slug, domainMap] of [...bySlug.entries()].sort()) {
+type Forward = Record<string, string | Record<string, string>>;
+
+function buildForward(articles: Article[]): Forward {
+  const bySlug = new Map<string, Map<string, string>>();
+  for (const a of articles) {
+    const dm = bySlug.get(a.slug) ?? new Map<string, string>();
+    dm.set(a.domain, a.url);
+    bySlug.set(a.slug, dm);
+  }
+  const index: Forward = {};
+  for (const [slug, dm] of [...bySlug.entries()].sort()) {
     index[slug] =
-      domainMap.size === 1
-        ? [...domainMap.values()][0]!
-        : Object.fromEntries([...domainMap.entries()].sort());
+      dm.size === 1 ? [...dm.values()][0]! : Object.fromEntries([...dm.entries()].sort());
   }
   return index;
 }
 
+function resolve(forward: Forward, slug: string, domain: string): string | null {
+  const e = forward[slug];
+  if (!e) return null;
+  if (typeof e === "string") return e;
+  return e[domain] || Object.values(e)[0] || null;
+}
+
+const WIKI_RE = /\[\[([^\]|]+?)(?:\|[^\]]+)?\]\]/g;
+
+function buildBacklinks(
+  articles: Article[],
+  forward: Forward
+): Record<string, { url: string; title: string }[]> {
+  const back = new Map<string, Map<string, string>>(); // targetUrl → (sourceUrl → title)
+  for (const a of articles) {
+    const seen = new Set<string>();
+    for (const m of a.body.matchAll(WIKI_RE)) {
+      const ref = m[1]!.trim();
+      if (!isAsciiSlug(ref)) continue;
+      const target = resolve(forward, ref, a.domain);
+      if (!target || target === a.url || seen.has(target)) continue;
+      seen.add(target);
+      const sources = back.get(target) ?? new Map<string, string>();
+      sources.set(a.url, a.title);
+      back.set(target, sources);
+    }
+  }
+  const index: Record<string, { url: string; title: string }[]> = {};
+  for (const [target, sources] of [...back.entries()].sort()) {
+    index[target] = [...sources.entries()]
+      .map(([url, title]) => ({ url, title }))
+      .sort((x, y) => x.title.localeCompare(y.title, "zh"));
+  }
+  return index;
+}
+
+async function emit(file: string, body: string): Promise<void> {
+  writeFileSync(file, await prettier.format(body, { parser: "typescript" }));
+}
+
 async function main(): Promise<void> {
-  const index = build();
-  const body = `// AUTO-GENERATED by scripts/gen-wiki-links-index.ts — do not edit by hand.
+  const articles = collectArticles();
+  const forward = buildForward(articles);
+  const backlinks = buildBacklinks(articles, forward);
+
+  await emit(
+    OUT_LINKS,
+    `// AUTO-GENERATED by scripts/gen-wiki-links-index.ts — do not edit by hand.
 // Run \`pnpm gen-links\` to regenerate. Maps a wiki-link slug to its article
 // URL; a { domain: url } value means the slug is routable in several domains.
 
 export type WikiLinkTarget = string | Record<string, string>;
 
-export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = ${JSON.stringify(index, null, 2)};
+export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = ${JSON.stringify(forward, null, 2)};
 
 /** Resolve a \`[[slug]]\` to a URL, preferring the reader's current domain. */
 export function resolveWikiLink(slug: string, domain?: string): string | null {
@@ -80,14 +150,35 @@ export function resolveWikiLink(slug: string, domain?: string): string | null {
   if (typeof entry === "string") return entry;
   return (domain && entry[domain]) || Object.values(entry)[0] || null;
 }
-`;
+`
+  );
 
-  const formatted = await prettier.format(body, { parser: "typescript" });
-  writeFileSync(OUT, formatted);
+  await emit(
+    OUT_BACKLINKS,
+    `// AUTO-GENERATED by scripts/gen-wiki-links-index.ts — do not edit by hand.
+// Run \`pnpm gen-links\` to regenerate. Maps an article URL to the articles that
+// reference it through inline \`[[wiki-links]]\` (the reverse of wiki-link-index).
 
-  const total = Object.keys(index).length;
-  const collisions = Object.values(index).filter((v) => typeof v !== "string").length;
-  console.log(`✅ wiki-link index: ${total} slugs (${collisions} multi-domain) → ${OUT}`);
+export interface Backlink {
+  url: string;
+  title: string;
+}
+
+export const BACKLINKS_INDEX: Record<string, Backlink[]> = ${JSON.stringify(backlinks, null, 2)};
+
+export function getBacklinks(url: string): Backlink[] {
+  return BACKLINKS_INDEX[url] ?? [];
+}
+`
+  );
+
+  const collisions = Object.values(forward).filter((v) => typeof v !== "string").length;
+  const targets = Object.keys(backlinks).length;
+  const edges = Object.values(backlinks).reduce((n, list) => n + list.length, 0);
+  console.log(
+    `✅ wiki-links: ${Object.keys(forward).length} slugs (${collisions} multi-domain); ` +
+      `backlinks: ${targets} targets, ${edges} edges`
+  );
 }
 
 void main();
