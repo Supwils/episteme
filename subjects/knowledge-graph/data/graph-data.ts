@@ -9,6 +9,7 @@ import { POLITICAL_SCIENCE_NODES, POLITICAL_SCIENCE_EDGES } from "./political-sc
 import { COSMOLOGY_NODES, COSMOLOGY_EDGES } from "./cosmology-nodes";
 import { MATHEMATICS_NODES, MATHEMATICS_EDGES } from "./mathematics-nodes";
 import { CROSS_LINKS } from "@/lib/cross-links/api";
+import { BACKLINKS_INDEX } from "@/lib/backlinks-index";
 import type { GraphNode, GraphEdge } from "./types";
 
 export type { GraphNodeType, GraphNode, GraphEdge } from "./types";
@@ -152,7 +153,7 @@ const domainLinkEdges: GraphEdge[] = CROSS_LINKS.map((link) => ({
   label: link.relationship,
 })).filter((e) => nodeIdSet.has(e.source) && nodeIdSet.has(e.target));
 
-export const ALL_EDGES: GraphEdge[] = [
+const baseEdges: GraphEdge[] = [
   ...physicsEdges,
   ...philosophyEdges,
   ...historyEdges,
@@ -165,6 +166,39 @@ export const ALL_EDGES: GraphEdge[] = [
   ...MATHEMATICS_EDGES,
   ...domainLinkEdges,
 ];
+
+// Real prose cross-references: the inline `[[wiki-links]]` authors wrote are
+// inverted into graph edges (lib/backlinks-index). They map onto graph nodes by
+// URL, are deduped against the curated edges above, and densify the graph with
+// authentic connections rather than hand-picked ones. Same-domain references
+// are `cross-reference`; cross-domain ones join the curated `domain-link`s.
+const urlToNodeId = new Map<string, string>();
+for (const n of ALL_NODES) if (n.url) urlToNodeId.set(n.url, n.id);
+
+const pairKey = (a: string, b: string): string => (a < b ? `${a}|${b}` : `${b}|${a}`);
+const existingPairs = new Set(baseEdges.map((e) => pairKey(e.source, e.target)));
+
+const wikiReferenceEdges: GraphEdge[] = [];
+for (const [targetUrl, sources] of Object.entries(BACKLINKS_INDEX)) {
+  const targetId = urlToNodeId.get(targetUrl);
+  if (!targetId) continue;
+  for (const { url } of sources) {
+    const sourceId = urlToNodeId.get(url);
+    if (!sourceId || sourceId === targetId) continue;
+    const key = pairKey(sourceId, targetId);
+    if (existingPairs.has(key)) continue;
+    existingPairs.add(key);
+    const sameDomain = sourceId.split(":")[0] === targetId.split(":")[0];
+    wikiReferenceEdges.push({
+      source: sourceId,
+      target: targetId,
+      type: sameDomain ? "cross-reference" : "domain-link",
+      label: "引用",
+    });
+  }
+}
+
+export const ALL_EDGES: GraphEdge[] = [...baseEdges, ...wikiReferenceEdges];
 
 export function getNodeById(id: string): GraphNode | undefined {
   return ALL_NODES.find((n) => n.id === id);
