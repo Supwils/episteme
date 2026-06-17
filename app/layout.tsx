@@ -11,7 +11,11 @@ import "./globals.css";
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#6366f1",
+  // Match the brand gold accent in each theme (观测台 dark / 手记 light).
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#d9a441" },
+    { media: "(prefers-color-scheme: light)", color: "#b8862f" },
+  ],
 };
 
 export const metadata: Metadata = {
