@@ -42,13 +42,6 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];
   },
-  webpack(config) {
-    config.module.rules.push({
-      test: /\.(glsl|vs|fs|vert|frag)$/,
-      type: "asset/source",
-    });
-    return config;
-  },
 };
 
 const withMDX = createMDX({ options: {} });
