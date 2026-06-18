@@ -3,6 +3,9 @@ name: CI
 on:
   push:
     branches: [main]
+    # Doc-only changes (docs/ is dev-only, .vercelignore'd) don't need a build or redeploy.
+    paths-ignore:
+      - "docs/**"
   pull_request:
     branches: [main]
   workflow_dispatch: {}
