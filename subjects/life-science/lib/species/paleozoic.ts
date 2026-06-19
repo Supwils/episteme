@@ -23,6 +23,7 @@ export const PALEOZOIC_SPECIES: Species[] = [
   },
   {
     id: "eurypterid",
+    story: "广翅鲎是史上最大的节肢动物之一，最大的莱茵蝎体长超过 2.5 米，是古生代海洋的恐怖猎手。",
     name: "广翅鲎",
     nameEn: "Eurypterid",
     era: "古生代",
@@ -33,6 +34,8 @@ export const PALEOZOIC_SPECIES: Species[] = [
   },
   {
     id: "horseshoe-crab",
+    story:
+      "鲎的蓝色血液含独特的凝血因子，至今仍被制药业用来检测疫苗与注射剂中的细菌内毒素——几乎每一支上市疫苗都受过这种 4 亿年古老血液的检验。",
     name: "鲎",
     nameEn: "Horseshoe Crab",
     era: "古生代",
@@ -93,6 +96,8 @@ export const PALEOZOIC_SPECIES: Species[] = [
   },
   {
     id: "tiktaalik",
+    story:
+      "“鱼类登陆”的关键过渡化石：既有鳃和鳞，又长出能撑起身体的肢状鳍。2004 年在加拿大北极的发现，完美填补了水生到陆生的演化空缺。",
     name: "提塔利克鱼",
     nameEn: "Tiktaalik",
     era: "古生代",
@@ -153,6 +158,8 @@ export const PALEOZOIC_SPECIES: Species[] = [
   },
   {
     id: "meganeura",
+    story:
+      "石炭纪的高氧大气催生了翼展近 70 厘米的巨脉蜻蜓——史上最大的飞行昆虫，它的体型本身就是远古氧气浓度的活记录。",
     name: "巨脉蜻蜓",
     nameEn: "Meganeura",
     era: "古生代",
@@ -193,6 +200,7 @@ export const PALEOZOIC_SPECIES: Species[] = [
   },
   {
     id: "helicoprion",
+    story: "下颌长着一圈螺旋排列的牙齿“齿轮”，其复原方式曾困惑学界整整一个世纪。",
     name: "旋齿鲨",
     nameEn: "Helicoprion",
     era: "古生代",

@@ -92,14 +92,6 @@ $$\frac{dn}{dM} \propto \left|\frac{d\ln\sigma}{dM}\right| \exp\left(-\frac{\del
 
 大尺度结构的统计特征（功率谱、三点相关函数）是约束宇宙学参数、暗物质性质和原始非高斯性的精密宇宙学探针。
 
-## 延伸阅读
-
-- Voit, G.M. (2005). Tracing cosmic evolution with clusters of galaxies. _Reviews of Modern Physics_, 77, 207–258.
-- Clowe, D. et al. (2006). A direct empirical proof of the existence of dark matter. _Astrophysical Journal Letters_, 648, L109–L113.
-- Tully, R.B. et al. (2014). The Laniakea supercluster of galaxies. _Nature_, 513, 71–73.
-- Kravtsov, A.V. & Borgani, S. (2012). Formation of galaxy clusters. _Annual Review of Astronomy and Astrophysics_, 50, 353–409.
-- Planck Collaboration (2016). Planck 2015 results. XXIV. Cosmology from Sunyaev-Zeldovich cluster counts. _Astronomy & Astrophysics_, 594, A24.
-
 ## 星系团作为引力透镜
 
 大质量星系团产生强引力透镜效应，将后方更遥远星系的光线弯曲，形成弧状或多像结构。这既是约束星系团质量分布的精密工具，也是探测背景高红移星系的"宇宙放大镜"：
@@ -132,3 +124,11 @@ $$\frac{dn}{dM} \propto \left|\frac{d\ln\sigma}{dM}\right| \exp\left(-\frac{\del
 - 宇宙重子质量比（$f_b$）：星系团给出 $f_b \approx 0.15$，与 CMB 约束一致
 - eROSITA 预期发现：约 $10^5$ 个 X 射线星系团（全天巡天，2024 年数据发布）
 - 已知最大星系团：El Gordo（ACT-CL J0102-4915），质量约 $2 \times 10^{15} M_\odot$
+
+## 延伸阅读
+
+- Voit, G.M. (2005). Tracing cosmic evolution with clusters of galaxies. _Reviews of Modern Physics_, 77, 207–258.
+- Clowe, D. et al. (2006). A direct empirical proof of the existence of dark matter. _Astrophysical Journal Letters_, 648, L109–L113.
+- Tully, R.B. et al. (2014). The Laniakea supercluster of galaxies. _Nature_, 513, 71–73.
+- Kravtsov, A.V. & Borgani, S. (2012). Formation of galaxy clusters. _Annual Review of Astronomy and Astrophysics_, 50, 353–409.
+- Planck Collaboration (2016). Planck 2015 results. XXIV. Cosmology from Sunyaev-Zeldovich cluster counts. _Astronomy & Astrophysics_, 594, A24.

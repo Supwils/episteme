@@ -25,8 +25,8 @@ import {
 
 describe("economics data access", () => {
   describe("getAllEconomists", () => {
-    it("returns 29 economists", () => {
-      expect(getAllEconomists()).toHaveLength(29);
+    it("returns 30 economists", () => {
+      expect(getAllEconomists()).toHaveLength(30);
     });
 
     it("each economist has required fields (title, slug, content)", () => {

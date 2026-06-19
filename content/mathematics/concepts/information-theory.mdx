@@ -9,7 +9,16 @@ status: published
 updated: 2026-06-04
 ---
 
+
 # 信息论
+
+## 破除误解：信息量衡量的不是"内容多重要"，而是"你有多意外"
+
+我们日常说的"信息"，总和重要性、意义挂钩。但信息论里的"信息量"，是另一回事——它衡量的是**意外的程度**。"明天太阳照常升起"这句话再重要，也几乎不带信息，因为它板上钉钉、毫无悬念；而"明天本市下雪"在六月却信息量十足，因为它出人意料。一个事件越是不可能、越让你吃惊，它一旦发生，携带的信息就越多。香农把这个朴素的直觉，钉死成了一条公式。
+
+由此引出了**熵**这个核心概念：$H(X)=-\sum p_i\log_2 p_i$。它度量的是一整个随机来源平均有多"不确定"。抛一枚均匀硬币，结果完全猜不准，熵最大，恰好是 $1$ 比特；而一枚两面都是正面的硬币，结果毫无悬念，熵为零——确定的事不含信息。"比特"这个我们天天挂在嘴边的词，本质就是"消除一次五五开的不确定"所需的信息量。
+
+这套看似抽象的语言，却划下了通信世界里两条不可逾越的红线。**信源编码定理**说：一段消息能被压缩的极限，恰好就是它的熵——再聪明的压缩算法也不可能突破。**信道编码定理**则说：哪怕线路充满噪声，只要传输速率不超过"信道容量"，就一定存在某种编码，能让出错率压到要多低有多低。今天的每一次文件压缩、每一格手机信号、每一段星际探测器传回的图像，背后都站着这两条定理。
 
 ## 定义
 
@@ -109,16 +118,6 @@ $$H(X) = -\sum_{i=1}^n p_i \log_2 p_i$$
 
 **信息论与金融**：Kelly 准则——最优投资比例 $f^* = \arg\max E[\log(1 + fX)]$——最大化财富的对数增长率。这与信息论中的增长率定理有深刻联系。
 
-## 延伸阅读
-
-1. Claude Shannon, "A Mathematical Theory of Communication" (1948).
-2. Thomas Cover & Joy Thomas, *Elements of Information Theory* (2nd ed., 2006).
-3. Andrey Kolmogorov, "Three Approaches to the Quantitative Definition of Information" (1965).
-4. 仇佩亮, 《信息论基础》, 高等教育出版社, 2003.
-5. David MacKay, *Information Theory, Inference, and Learning Algorithms* (2003).
-
-> 「信息论是数字时代的数学基石——没有它，就没有互联网、没有移动通信、没有数字媒体。」
-
 ## 跨领域连接
 
 - **生命科学**：信息论在基因编码和神经编码中的应用
@@ -148,4 +147,12 @@ $$H(X) = -\sum_{i=1}^n p_i \log_2 p_i$$
 
 信息论的原理隐藏在你每天使用的技术中。当你用ZIP压缩文件时，你使用的是Lempel-Ziv算法——它逼近了香农的信源编码定理给出的压缩极限。当你用手机观看视频时，视频数据经过H.264/H.265编码压缩——利用了信息论中有损压缩的率失真理论。当你连接Wi-Fi时，数据经过LDPC码或Turbo码的纠错编码——这些编码方案逼近了香农的信道容量极限。当你发送消息时，端到端加密确保只有接收者能读取消息——信息论中的完美保密（一次一密）提供了理论基础。信息论不是抽象的数学——它是数字文明的基础设施。
 
+## 延伸阅读
 
+1. Claude Shannon, "A Mathematical Theory of Communication" (1948).
+2. Thomas Cover & Joy Thomas, *Elements of Information Theory* (2nd ed., 2006).
+3. Andrey Kolmogorov, "Three Approaches to the Quantitative Definition of Information" (1965).
+4. 仇佩亮, 《信息论基础》, 高等教育出版社, 2003.
+5. David MacKay, *Information Theory, Inference, and Learning Algorithms* (2003).
+
+> 「信息论是数字时代的数学基石——没有它，就没有互联网、没有移动通信、没有数字媒体。」

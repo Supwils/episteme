@@ -3,6 +3,7 @@ import type { Species } from "./types";
 export const CENOZOIC_MODERN_SPECIES: Species[] = [
   {
     id: "megalodon",
+    story: "史上最大的掠食性鲨鱼，牙齿可达 18 厘米，体长估计 15–18 米，约在 360 万年前灭绝。",
     name: "巨齿鲨",
     nameEn: "Megalodon",
     era: "新生代",
@@ -63,6 +64,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "blue-whale",
+    story:
+      "地球有史以来已知最大的动物，体长超 30 米、重达 170 吨，心脏就有一辆小汽车大——比任何恐龙都大。",
     name: "蓝鲸",
     nameEn: "Blue Whale",
     era: "新生代",
@@ -73,6 +76,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "platypus",
+    story:
+      "少数会下蛋的哺乳动物之一，还能用喙感知猎物的电场；首批标本送到欧洲时，博物学家一度以为是有人把鸭嘴缝在兽身上的骗局。",
     name: "鸭嘴兽",
     nameEn: "Platypus",
     era: "新生代",
@@ -93,6 +98,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "tardigrade",
+    story:
+      "能在脱水后进入“隐生”状态，挺过真空、极端辐射甚至太空暴露——2007 年它成为首批被证实能在外太空存活的动物。",
     name: "水熊虫",
     nameEn: "Tardigrade",
     era: "新生代",
@@ -133,6 +140,7 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "smilodon",
+    story: "犬齿长达 28 厘米却很脆，靠强壮的前肢按住猎物再精准切入要害——并非靠蛮力撕咬。",
     name: "剑齿虎",
     nameEn: "Smilodon",
     era: "新生代",
@@ -143,6 +151,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "mammoth",
+    story:
+      "西伯利亚永久冻土里的遗骸如此完整，连胃中的食物都还在——这使它成为“去灭绝”基因工程最热门的候选。",
     name: "猛犸象",
     nameEn: "Woolly Mammoth",
     era: "新生代",
@@ -233,6 +243,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "neanderthalensis",
+    story:
+      "今天非非洲裔人类基因组里仍带着约 1–2% 的尼安德特 DNA——他们并未完全消失，而是活在我们体内。",
     name: "尼安德特人",
     nameEn: "Homo Neanderthalensis",
     era: "第四纪",
@@ -253,6 +265,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "denisovan",
+    story:
+      "最初仅凭西伯利亚一根指骨的 DNA 被发现，却揭示出一个全新人类支系；藏族人的高原适应基因 EPAS1 正来自他们。",
     name: "丹尼索瓦人",
     nameEn: "Denisovan",
     era: "第四纪",
@@ -293,6 +307,7 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "moa",
+    story: "新西兰的恐鸟最高可达 3.6 米，在毛利人抵达后约一两百年内被猎至灭绝。",
     name: "恐鸟",
     nameEn: "Moa",
     era: "全新世",
@@ -303,6 +318,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "dodo",
+    story:
+      "在毛里求斯没有天敌、不惧人类，水手登岛后不到一个世纪就将其猎杀殆尽，从此“渡渡鸟”成了灭绝的代名词。",
     name: "渡渡鸟",
     nameEn: "Dodo",
     era: "全新世",
@@ -313,6 +330,7 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "stellers-sea-cow",
+    story: "1741 年才被科学描述，仅 27 年后就被毛皮猎人捕杀殆尽。",
     name: "斯特拉大海牛",
     nameEn: "Steller's Sea Cow",
     era: "全新世",
@@ -323,6 +341,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "great-auk",
+    story:
+      "最后一对大海雀 1844 年在冰岛被捕杀，连同它们正在孵的蛋——人类亲手终结了北大西洋的“企鹅”。",
     name: "大海雀",
     nameEn: "Great Auk",
     era: "全新世",
@@ -343,6 +363,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "thylacine",
+    story:
+      "最后一只袋狼 1936 年死于霍巴特动物园，距它被列为保护动物仅 59 天——人为灭绝的标志性悲剧。",
     name: "袋狼",
     nameEn: "Thylacine",
     era: "全新世",
@@ -393,6 +415,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "coelacanth-living",
+    story:
+      "曾被认为随恐龙一同灭绝，直到 1938 年南非渔民在渔获中发现一条活体——20 世纪最轰动的“活化石”发现，证明这一支系默默存续了上亿年。",
     name: "腔棘鱼",
     nameEn: "Coelacanth",
     era: "新生代",

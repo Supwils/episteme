@@ -85,14 +85,6 @@ $\Lambda$CDM 的 NFW 暗物质密度轮廓在中心有尖峰（cusp，$\rho \pro
 
 Fermi-LAT 卫星对 40+ 个矮椭球星系的 $\gamma$ 射线联合分析（Ackermann et al. 2015，_Physical Review Letters_）已设定了目前最严格的 WIMP 质量-截面限制，将质量在 $\sim 100$ GeV 处的 WIMP-反 WIMP 湮灭截面限制在 $< 3 \times 10^{-26}$ cm³/s——约等于理论预期的"热遗迹截面"（thermal relic cross-section），意味着 100 GeV 级 WIMP 已基本被排除（如果暗物质均匀分布符合 NFW 预期）。
 
-## 延伸阅读
-
-- Mateo, M.L. (1998). Dwarf galaxies of the Local Group. _Annual Review of Astronomy and Astrophysics_, 36, 435–506.
-- Boylan-Kolchin, M., Bullock, J.S. & Kaplinghat, M. (2011). Too big to fail? The puzzling darkness of massive Milky Way subhalos. _MNRAS Letters_, 415, L40–L44.
-- Pontzen, A. & Governato, F. (2014). Cold dark matter heats up. _Nature_, 506, 171–178.
-- Ackermann, M. et al. (2015). Searching for dark matter annihilation from Milky Way dwarf spheroidal galaxies. _Physical Review Letters_, 115, 231301.
-- Frebel, A. & Norris, J.E. (2015). Near-field cosmology with extremely metal-poor stars. _Annual Review of Astronomy and Astrophysics_, 53, 631–688.
-
 ## 矮星系的潮汐演化
 
 矮星系在宿主星系（如银河系）的引力势中运动时，遭受潮汐力的持续作用。当矮星系接近银河系时，潮汐力将矮星系外区物质剥离，形成**潮汐流**（tidal streams）——延伸于矮星系轨道前后的弧形恒星带。最著名的例子是**射手座矮星系流**，缠绕银河系超过一圈，包含数亿颗恒星，是目前发现的最大天文结构之一（Majewski et al. 2003，_Astrophysical Journal_）。
@@ -125,3 +117,11 @@ Fermi-LAT 卫星对 40+ 个矮椭球星系的 $\gamma$ 射线联合分析（Acke
 - 大麦哲伦云（LMC）：最近的大型矮星系，距地球约 50 kpc，质量约 $1.5 \times 10^{11} M_\odot$
 - TRAPPIST-1 距离参考：相比之下，矮星系通常在数十至数百 kpc 距离
 - Vera Rubin 天文台预期新发现：约 100–300 个新矮星系（10 年科学运行）
+
+## 延伸阅读
+
+- Mateo, M.L. (1998). Dwarf galaxies of the Local Group. _Annual Review of Astronomy and Astrophysics_, 36, 435–506.
+- Boylan-Kolchin, M., Bullock, J.S. & Kaplinghat, M. (2011). Too big to fail? The puzzling darkness of massive Milky Way subhalos. _MNRAS Letters_, 415, L40–L44.
+- Pontzen, A. & Governato, F. (2014). Cold dark matter heats up. _Nature_, 506, 171–178.
+- Ackermann, M. et al. (2015). Searching for dark matter annihilation from Milky Way dwarf spheroidal galaxies. _Physical Review Letters_, 115, 231301.
+- Frebel, A. & Norris, J.E. (2015). Near-field cosmology with extremely metal-poor stars. _Annual Review of Astronomy and Astrophysics_, 53, 631–688.

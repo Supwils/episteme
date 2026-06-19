@@ -75,14 +75,6 @@ status: published
 | 野 2 彗星（Stardust）  | 2006 年      | 收集彗星尘埃样本并返回地球，发现甘氨酸             |
 | 罗塞塔/菲莱任务        | 2014–2016 年 | 人类首次在彗星表面着陆，在 67P 上原位分析有机分子  |
 
-## 延伸阅读
-
-- Altwegg, K. et al. (2016). Prebiotic chemicals—amino acid and phosphorus—in the coma of comet 67P/Churyumov-Gerasimenko. _Science Advances_, 2, e1600285.
-- Hartogh, P. et al. (2011). Ocean-like water in the Jupiter-family comet 103P/Hartley 2. _Nature_, 478, 218–220.
-- A'Hearn, M.F. (2011). Comets as building blocks. _Annual Review of Astronomy and Astrophysics_, 49, 281–299.
-- Elsila, J.E. et al. (2009). Cometary glycine detected in samples returned by Stardust. _Meteoritics & Planetary Science_, 44, 1323–1330.
-- Weissman, P.R. (1996). The Oort cloud. _Scientific American_, 274(3), 84–89.
-
 ## 彗星的演化与消亡
 
 一颗长周期彗星进入内太阳系后，每次近日点过境都会失去一部分质量（升华和喷射）。短周期彗星在数百到数千次过境后耗尽挥发性物质，最终变为活动停止的"休眠彗核"——与普通近地小行星在视觉上难以区分。部分近地小行星（如 3200 法厄同）可能是已"死亡"的彗星核。
@@ -121,3 +113,11 @@ status: published
   **彗星命名规则**：彗星按发现顺序用字母+数字编码（如 C/2023 A3），周期 $< 200$ 年的短周期彗星以 P/ 开头加序号和发现者姓名（如 1P/Halley 哈雷彗星），长周期或一次性彗星以 C/ 开头。
   彗星研究的终极目标是解答三个关联问题：太阳系内部的水从哪里来？地球生命的有机分子原材料从哪里来？太阳系早期的物质如何在行星之间传输？每一颗被探测的彗星，都是在向这些问题逐步接近的证据碎片。
   彗星可见时的结构组成：彗核（nucleus，固态冰岩混合体）→ 彗发（coma，升华气体和尘埃包层，直径可达 $10^5$–$10^6$ km）→ 氢云（hydrogen corona，Ly$\alpha$ 紫外线辐射的中性氢，直径可达 $10^7$ km）→ 离子尾（ion tail，由太阳风吹走的电离气体，始终背对太阳）→ 尘埃尾（dust tail，由辐射压力推动的尘埃，呈弯曲弧形）。
+
+## 延伸阅读
+
+- Altwegg, K. et al. (2016). Prebiotic chemicals—amino acid and phosphorus—in the coma of comet 67P/Churyumov-Gerasimenko. _Science Advances_, 2, e1600285.
+- Hartogh, P. et al. (2011). Ocean-like water in the Jupiter-family comet 103P/Hartley 2. _Nature_, 478, 218–220.
+- A'Hearn, M.F. (2011). Comets as building blocks. _Annual Review of Astronomy and Astrophysics_, 49, 281–299.
+- Elsila, J.E. et al. (2009). Cometary glycine detected in samples returned by Stardust. _Meteoritics & Planetary Science_, 44, 1323–1330.
+- Weissman, P.R. (1996). The Oort cloud. _Scientific American_, 274(3), 84–89.

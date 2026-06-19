@@ -10,6 +10,7 @@ status: published
 updated: 2026-06-16
 ---
 
+
 # 群
 
 ## 一个直觉：群就是"对称性的集合"
@@ -127,16 +128,6 @@ $$|G| = k \cdot |H|.$$
 - **→ 密码学**：椭圆曲线群 $E(\mathbb{F}_p)$ 是公钥密码学的基础——离散对数问题的困难性正是建立在群结构之上（详见 [[abel]]）。
 - **→ 艺术与建筑**：壁纸群（17 种）和晶体群（230 种）分类了所有可能的平面/空间重复图案。伊斯兰几何纹样与埃舍尔的镶嵌作品，都是对称群的可视化。
 
-## 延伸阅读
-
-1. Évariste Galois, "Mémoire sur les conditions de résolubilité des équations par radicaux" (1831).
-2. Arthur Cayley, "On the theory of groups" (1854).
-3. John S. Rose, *A Course on Group Theory* (1978).
-4. 丘维声, 《抽象代数讲义》, 高等教育出版社, 2005.
-5. Marcus du Sautoy, *Symmetry: A Journey into the Patterns of Nature* (2008).
-
-> 「群论是数学的语言——它描述的是对称性，而对称性是自然界最基本的原理。」
-
 ## 具体例子与直觉
 
 **对称群 $S_3$ 的完整分析**。$S_3$ 是最小的非阿贝尔群——包含6个元素：恒等 $e$、三个对换 $(12), (13), (23)$ 和两个三轮换 $(123), (132)$。$S_3$ 有三个正规子群：$\{e\}$、$A_3 = \{e, (123), (132)\}$ 和 $S_3$ 本身。商群 $S_3/A_3 \cong \mathbb{Z}/2\mathbb{Z}$。$S_3$ 的子群格展示了群论的基本结构：子群、正规子群、商群和群同态之间的关系。$S_3$ 也是最小的可解非阿贝尔群——它有一个正规子群链 $S_3 \triangleright A_3 \triangleright \{e\}$，使得每个商群都是阿贝尔群。
@@ -176,3 +167,13 @@ $$|G| = k \cdot |H|.$$
 **Hanna Neumann猜想与群的几何群论**。Hanna Neumann猜想（2011年由Friedman和Mineyev独立证明）说：两个自由群子群的交的"元数"（rank）满足特定不等式。几何群论将群视为几何对象——通过凯莱图来研究群的性质。双曲群、自动群和CAT(0)群是几何群论的核心研究对象。
 
 **概率群论与随机群**。随机群在"密度"参数 $d < 1/2$ 时几乎必然具有双曲性质，在 $d > 1/2$ 时几乎必然坍缩为平凡群。这个相变现象与统计力学中的相变有深刻的类比。概率群论研究群的"典型"性质——随机选择的群通常具有什么结构？这个问题在理论计算机科学（随机算法）和密码学（随机群上的密码系统）中有应用。
+
+## 延伸阅读
+
+1. Évariste Galois, "Mémoire sur les conditions de résolubilité des équations par radicaux" (1831).
+2. Arthur Cayley, "On the theory of groups" (1854).
+3. John S. Rose, *A Course on Group Theory* (1978).
+4. 丘维声, 《抽象代数讲义》, 高等教育出版社, 2005.
+5. Marcus du Sautoy, *Symmetry: A Journey into the Patterns of Nature* (2008).
+
+> 「群论是数学的语言——它描述的是对称性，而对称性是自然界最基本的原理。」

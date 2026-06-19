@@ -9,7 +9,16 @@ status: published
 updated: 2026-06-06
 ---
 
+
 # 网络科学
+
+## 一个直觉：为什么你和任何陌生人之间只隔六个人
+
+随手画一个由 $n$ 个人组成的社交圈，每人平均认识 $k$ 个朋友。你或许会想：要从北京的我连到智利的某个渔民，得经过多少层转介绍？凭直觉，应该非常多。但事实恰恰相反——一个人认识 $k$ 个，每个人又各认识 $k$ 个，于是"几步之外"能触及的人数大约是 $k^d$，随步数 $d$ **指数级膨胀**。只要 $k$ 是几十量级，五六步就足以覆盖整个地球的人口。这就是著名的"六度分隔"背后的算术。
+
+网络科学正是抓住了这种"局部看平平无奇、全局却暗藏惊人规律"的现象。它要研究的不是某一个具体的图长什么样，而是当节点成千上万时，整个系统涌现出的**统计规律**：度怎么分布、小圈子有多紧、任意两点平均隔多远。
+
+这里藏着一个常被误解的灵魂：把互联网、蛋白质相互作用、航空航线、引文关系画成图，它们的全局形态竟惊人地相似——都不是均匀的随机网，而是少数"枢纽"统治、多数节点零星相连的**无标度结构**。看似毫不相干的系统共享同一套数学骨架，这种普适性才是网络科学真正想破解的谜。
 
 ## 定义
 
@@ -122,16 +131,6 @@ $$PR(i) = \frac{1-d}{n} + d \sum_{j \in B(i)} \frac{PR(j)}{L(j)}$$
 
 **神经科学**：大脑的连接组（connectome）是一个小世界网络——局部密集、全局快捷。这一拓扑结构支持高效的信号处理和信息整合。人脑连接组计划正在绘制大脑的完整网络图。
 
-## 延伸阅读
-
-1. Albert-László Barabási, *Network Science* (2016). [免费在线版](http://networksciencebook.com/)
-2. Duncan Watts & Steven Strogatz, "Collective Dynamics of 'Small-World' Networks," *Nature* (1998).
-3. Albert-László Barabási & Réka Albert, "Emergence of Scaling in Random Networks," *Science* (1999).
-4. M.E.J. Newman, *Networks: An Introduction* (2010).
-5. 郭雷, 《复杂网络与复杂系统》, 科学出版社, 2009.
-
-> 「网络是复杂系统的骨架——理解网络，就理解了复杂世界的基本语法。」
-
 ## 时序网络与高阶交互
 
 传统网络假设边是静态的，但真实网络往往是动态的——边随时间出现和消失。**时序网络**（Temporal Network）将时间维度引入网络分析：边带有时间戳，路径必须遵循时间顺序。时序网络中的传播动力学与静态网络截然不同——接触序列的时间异质性会显著降低传播速度。
@@ -156,3 +155,13 @@ $$PR(i) = \frac{1-d}{n} + d \sum_{j \in B(i)} \frac{PR(j)}{L(j)}$$
 - **经济学**：网络科学在金融系统性风险和社会网络经济中的应用
 - **心理学**：网络科学在社会心理学和认知网络分析中的应用
 - **哲学**：网络科学与复杂性哲学——涌现性的网络视角
+
+## 延伸阅读
+
+1. Albert-László Barabási, *Network Science* (2016). [免费在线版](http://networksciencebook.com/)
+2. Duncan Watts & Steven Strogatz, "Collective Dynamics of 'Small-World' Networks," *Nature* (1998).
+3. Albert-László Barabási & Réka Albert, "Emergence of Scaling in Random Networks," *Science* (1999).
+4. M.E.J. Newman, *Networks: An Introduction* (2010).
+5. 郭雷, 《复杂网络与复杂系统》, 科学出版社, 2009.
+
+> 「网络是复杂系统的骨架——理解网络，就理解了复杂世界的基本语法。」

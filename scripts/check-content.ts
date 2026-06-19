@@ -392,6 +392,15 @@ function checkProseHygiene(): { errors: number; warnings: number } {
 
   let nonStandardHeading = 0;
   let squashed = 0;
+  let appendedAfterRefs = 0;
+  // A bibliography heading (any accepted variant; tolerant of `{#anchor}`).
+  const isCitationHeading = (line: string): boolean =>
+    /^(参考文献|延伸阅读|进一步阅读|参考书目|参考资料|参考来源|引用|学术文献|推荐阅读|推荐阅读书目|references?|further\s+reading)$/i.test(
+      line
+        .replace(/^#{2,4}\s+/, "")
+        .replace(/\s*\{#[^}]*\}\s*$/, "")
+        .trim()
+    );
   for (const file of findAllContentFiles(CONTENT_ROOT)) {
     let body: string;
     try {
@@ -421,12 +430,31 @@ function checkProseHygiene(): { errors: number; warnings: number } {
       warnings++;
       squashed++;
     }
+
+    // 3) Bibliography must be last: flag a non-citation `## ` section that
+    //    appears AFTER a citation heading (the "append-after-references" debt).
+    const h2s = body.split("\n").filter((l) => /^##\s+/.test(l) && !/^###/.test(l));
+    let seenCite = false;
+    let appended: string | null = null;
+    for (const h of h2s) {
+      if (isCitationHeading(h)) seenCite = true;
+      else if (seenCite && appended === null) appended = h.replace(/^#+\s*/, "").trim();
+    }
+    if (appended) {
+      console.log(
+        `  \x1b[33mWARN\x1b[0m ${rel}: content section "${appended}" appears after the bibliography — move 参考文献/延伸阅读 to the end`
+      );
+      warnings++;
+      appendedAfterRefs++;
+    }
   }
 
   if (warnings === 0) {
     console.log(`  \x1b[32mAll prose passes citation/readability hygiene.\x1b[0m`);
   } else {
-    console.log(`  ${nonStandardHeading} off-spec heading(s), ${squashed} run-on file(s).`);
+    console.log(
+      `  ${nonStandardHeading} off-spec heading(s), ${squashed} run-on file(s), ${appendedAfterRefs} appended-after-refs file(s).`
+    );
   }
   return { errors: 0, warnings };
 }

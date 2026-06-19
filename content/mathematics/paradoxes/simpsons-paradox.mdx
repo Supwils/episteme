@@ -9,6 +9,7 @@ status: published
 updated: 2026-06-04
 ---
 
+
 # 辛普森悖论
 
 ## 悖论描述
@@ -67,16 +68,6 @@ $$P(A > B | C) > 0.5, \quad P(A > B | \bar{C}) > 0.5$$
 - **混淆变量 vs 中介变量**：混淆变量是同时影响处理和结果的外部变量，中介变量是处理影响结果的路径上的变量。控制混淆变量是必要的，控制中介变量是错误的。
 - **边际关联 vs 条件关联**：辛普森悖论是两者的不一致——正确的选择取决于因果结构。
 - **观察性研究 vs 随机实验**：随机实验通过随机分配处理来消除混淆，观察性研究需要通过统计调整来控制混淆。
-
-## 延伸阅读
-
-1. E.H. Simpson, "The Interpretation of Interaction in Contingency Tables" (1951).
-2. Judea Pearl, *Causality: Models, Reasoning, and Inference* (2000, 2009).
-3. Judea Pearl, "Understanding Simpson's Paradox" (2014).
-4. C.R. Blyth, "On Simpson's Paradox and the Sure-Thing Principle" (1972).
-5. 朱迪亚·珀尔, 《为什么：因果关系的新科学》, 中信出版社, 2019.
-
-> 「辛普森悖论不是一个数学笑话——它是统计学中最重要的警告。」——朱迪亚·珀尔
 
 ## 总结
 
@@ -147,3 +138,12 @@ $$P(Y | do(X)) = \sum_z P(Y | X, Z=z) P(Z=z)$$
 
 3. **高维数据中的检测**：在大数据中，辛普森悖论可能隐藏在任意维度的子组中——如何系统地检测和报告辛普森悖论是一个活跃的研究方向。
 
+## 延伸阅读
+
+1. E.H. Simpson, "The Interpretation of Interaction in Contingency Tables" (1951).
+2. Judea Pearl, *Causality: Models, Reasoning, and Inference* (2000, 2009).
+3. Judea Pearl, "Understanding Simpson's Paradox" (2014).
+4. C.R. Blyth, "On Simpson's Paradox and the Sure-Thing Principle" (1972).
+5. 朱迪亚·珀尔, 《为什么：因果关系的新科学》, 中信出版社, 2019.
+
+> 「辛普森悖论不是一个数学笑话——它是统计学中最重要的警告。」——朱迪亚·珀尔

@@ -13,6 +13,8 @@ export const MESOZOIC_SPECIES: Species[] = [
   },
   {
     id: "tuatara",
+    story:
+      "喙头目唯一的现存代表，这一支系可追溯到 2.5 亿年前；它头顶还保留着一只能感光的“第三只眼”。",
     name: "楔齿蜥",
     nameEn: "Tuatara",
     era: "中生代",
@@ -43,6 +45,8 @@ export const MESOZOIC_SPECIES: Species[] = [
   },
   {
     id: "ginkgo",
+    story:
+      "真正的“活化石”，与 2 亿年前侏罗纪的化石几乎无异；野生种群一度近乎灭绝，靠中国寺庙的栽培才幸存至今。",
     name: "银杏",
     nameEn: "Ginkgo",
     era: "中生代",
@@ -63,6 +67,8 @@ export const MESOZOIC_SPECIES: Species[] = [
   },
   {
     id: "archaeopteryx",
+    story:
+      "兼具恐龙的牙齿、爪和长尾，又有鸟类的羽毛。1861 年的发现恰在达尔文《物种起源》出版两年后，成为演化论最著名的过渡化石。",
     name: "始祖鸟",
     nameEn: "Archaeopteryx",
     era: "中生代",
@@ -103,6 +109,7 @@ export const MESOZOIC_SPECIES: Species[] = [
   },
   {
     id: "welwitschia",
+    story: "一生只长两片叶子，却能在纳米布沙漠存活上千年。",
     name: "百岁兰",
     nameEn: "Welwitschia",
     era: "中生代",
