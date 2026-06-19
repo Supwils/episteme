@@ -3170,6 +3170,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "荀子深度扩展",
     },
   ],
+  "/philosophy/concepts/modal-logic": [
+    {
+      url: "/philosophy/thinkers/david-lewis",
+      title: "大卫·刘易斯",
+    },
+  ],
   "/philosophy/concepts/philosophy-of-ai": [
     {
       url: "/philosophy/thinkers/quine",
@@ -3242,6 +3248,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/thinkers/aquinas": [
     {
+      url: "/philosophy/thinkers/william-of-ockham",
+      title: "奥卡姆的威廉",
+    },
+    {
+      url: "/philosophy/thinkers/duns-scotus",
+      title: "邓斯·司各脱",
+    },
+    {
       url: "/philosophy/thinkers/aristotle",
       title: "亚里士多德",
     },
@@ -3286,22 +3300,54 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "荀子深度扩展",
     },
   ],
+  "/philosophy/thinkers/david-lewis": [
+    {
+      url: "/philosophy/thinkers/duns-scotus",
+      title: "邓斯·司各脱",
+    },
+  ],
   "/philosophy/thinkers/democritus": [
     {
       url: "/philosophy/thinkers/thales",
       title: "泰勒斯",
     },
   ],
+  "/philosophy/thinkers/derrida": [
+    {
+      url: "/philosophy/thinkers/richard-rorty",
+      title: "理查德·罗蒂",
+    },
+  ],
   "/philosophy/thinkers/descartes": [
+    {
+      url: "/philosophy/thinkers/william-of-ockham",
+      title: "奥卡姆的威廉",
+    },
+    {
+      url: "/philosophy/thinkers/richard-rorty",
+      title: "理查德·罗蒂",
+    },
     {
       url: "/philosophy/concepts/knowledge",
       title: "知识",
+    },
+  ],
+  "/philosophy/thinkers/dewey": [
+    {
+      url: "/philosophy/thinkers/richard-rorty",
+      title: "理查德·罗蒂",
     },
   ],
   "/philosophy/thinkers/dong-zhongshu": [
     {
       url: "/philosophy/thinkers/xunzi-extended",
       title: "荀子深度扩展",
+    },
+  ],
+  "/philosophy/thinkers/duns-scotus": [
+    {
+      url: "/philosophy/thinkers/william-of-ockham",
+      title: "奥卡姆的威廉",
     },
   ],
   "/philosophy/thinkers/edward-said": [
@@ -3410,6 +3456,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/thinkers/hume": [
     {
+      url: "/philosophy/thinkers/william-of-ockham",
+      title: "奥卡姆的威廉",
+    },
+    {
+      url: "/philosophy/thinkers/david-lewis",
+      title: "大卫·刘易斯",
+    },
+    {
       url: "/philosophy/thinkers/rousseau",
       title: "卢梭",
     },
@@ -3446,8 +3500,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/thinkers/kripke": [
     {
+      url: "/philosophy/thinkers/david-lewis",
+      title: "大卫·刘易斯",
+    },
+    {
       url: "/philosophy/thinkers/frege",
       title: "弗雷格",
+    },
+    {
+      url: "/philosophy/thinkers/donald-davidson",
+      title: "唐纳德·戴维森",
     },
   ],
   "/philosophy/thinkers/leibniz": [
@@ -3570,6 +3632,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/thinkers/quine": [
     {
+      url: "/philosophy/thinkers/william-of-ockham",
+      title: "奥卡姆的威廉",
+    },
+    {
+      url: "/philosophy/thinkers/david-lewis",
+      title: "大卫·刘易斯",
+    },
+    {
+      url: "/philosophy/thinkers/richard-rorty",
+      title: "理查德·罗蒂",
+    },
+    {
+      url: "/philosophy/thinkers/donald-davidson",
+      title: "唐纳德·戴维森",
+    },
+    {
       url: "/philosophy/concepts/knowledge",
       title: "知识",
     },
@@ -3605,6 +3683,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/philosophy/thinkers/ryle": [
+    {
+      url: "/philosophy/thinkers/donald-davidson",
+      title: "唐纳德·戴维森",
+    },
     {
       url: "/philosophy/concepts/knowledge",
       title: "知识",
@@ -3680,8 +3762,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/thinkers/william-james": [
     {
+      url: "/philosophy/thinkers/richard-rorty",
+      title: "理查德·罗蒂",
+    },
+    {
       url: "/philosophy/thinkers/dewey",
       title: "约翰·杜威",
+    },
+  ],
+  "/philosophy/thinkers/william-of-ockham": [
+    {
+      url: "/philosophy/thinkers/duns-scotus",
+      title: "邓斯·司各脱",
     },
   ],
   "/philosophy/thinkers/wittgenstein": [
@@ -3692,6 +3784,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/quine",
       title: "蒯因",
+    },
+    {
+      url: "/philosophy/thinkers/donald-davidson",
+      title: "唐纳德·戴维森",
     },
   ],
   "/philosophy/thinkers/xunzi": [

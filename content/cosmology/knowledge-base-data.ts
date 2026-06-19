@@ -756,4 +756,10 @@ export const COSMOLOGY_KB_DATA = [
     titleEn: "21-cm Cosmology and Reionization",
     category: "宇宙学前沿",
   },
+  {
+    slug: "星系天文学--星系光度函数",
+    title: "星系光度函数",
+    titleEn: "Galaxy Luminosity Function",
+    category: "星系天文学",
+  },
 ];
