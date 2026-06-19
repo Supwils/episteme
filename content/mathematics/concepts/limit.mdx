@@ -10,6 +10,7 @@ status: published
 updated: 2026-06-16
 ---
 
+
 # 极限
 
 ## 破除误解：极限不是"运动"，而是"逼近的保证"
@@ -108,16 +109,6 @@ updated: 2026-06-16
 - **→ 计算机科学**：算法复杂度用极限比较增长率——$O(n^2)$ 与 $O(n\log n)$ 的差别只在 $n\to\infty$ 时才显现；迭代算法的收敛性也直接用极限刻画。
 - **→ 哲学**：极限引发了"实无穷 vs 潜无穷"之争。直觉主义者（布劳威尔）只接受构造性的极限过程，形式主义者（希尔伯特）则把实无穷当作方便工具——这正是 20 世纪数学基础大争论的一条主线。
 
-## 延伸阅读
-
-1. Carl B. Boyer, *The History of the Calculus and Its Conceptual Development* (1949).
-2. Judith V. Grabiner, *The Origins of Cauchy's Rigorous Calculus* (1981).
-3. 刘徽, 《九章算术注》, 约263年.
-4. Karl Weierstrass, "Über die analytische Darstellbarkeit sogenannter willkürlicher Functionen" (1885).
-5. 齐民友, 《重温微积分》, 高等教育出版社, 2004.
-
-> 「极限概念是微积分的灵魂——没有它，微积分就只是一堆技巧的集合。」
-
 ## 具体例子与直觉
 
 **$0.999\ldots = 1$ 的严格证明**。$0.999\ldots$ 是级数 $\sum_{n=1}^{\infty} 9/10^n = 9/10 + 9/100 + 9/1000 + \cdots$ 的和。部分和为 $S_n = 1 - 1/10^n$。当 $n \to \infty$ 时，$S_n \to 1$——因此 $0.999\ldots = 1$ 是精确等式，不是近似。另一个证明：设 $x = 0.999\ldots$，则 $10x = 9.999\ldots$，$10x - x = 9$，$9x = 9$，$x = 1$。这个等式困扰了许多学生——它表明同一个实数可以有多种十进制表示。
@@ -165,3 +156,13 @@ updated: 2026-06-16
 
 
 **极限与分形维数**。分形维数的定义依赖于极限——豪斯多夫维数 $D = \lim_{\epsilon \to 0} \frac{\log N(\epsilon)}{\log(1/\epsilon)}$。这个极限描述了分形在无穷小尺度上的"占据空间的方式"——介于拓扑维数和嵌入维数之间。科赫雪花的维数 $\log 4/\log 3 \approx 1.262$ 说：它比一维的线"更多"，但比二维的面"更少"。分形维数将极限理论与几何学联系起来——展示了极限概念在描述自然界复杂性中的核心作用。
+
+## 延伸阅读
+
+1. Carl B. Boyer, *The History of the Calculus and Its Conceptual Development* (1949).
+2. Judith V. Grabiner, *The Origins of Cauchy's Rigorous Calculus* (1981).
+3. 刘徽, 《九章算术注》, 约263年.
+4. Karl Weierstrass, "Über die analytische Darstellbarkeit sogenannter willkürlicher Functionen" (1885).
+5. 齐民友, 《重温微积分》, 高等教育出版社, 2004.
+
+> 「极限概念是微积分的灵魂——没有它，微积分就只是一堆技巧的集合。」

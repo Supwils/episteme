@@ -69,14 +69,6 @@ status: published
 
 类地行星的比较行星学为解读系外行星提供了基准。Kepler 和 TESS 探测到的"超级地球"（Super-Earths，半径 1–4 $R_\oplus$）是太阳系中不存在的行星类型，其内部结构、大气性质和宜居潜力，只能在理解太阳系类地行星的基础上推断。
 
-## 延伸阅读
-
-- Canup, R.M. & Asphaug, E. (2001). Origin of the Moon in a giant impact near the end of the Earth's formation. _Nature_, 412, 708–712.
-- Ingersoll, A.P. (1969). The runaway greenhouse: A history of water on Venus. _Journal of Atmospheric Sciences_, 26, 1191–1198.
-- Lawrence, D.J. et al. (2013). Evidence for water ice near Mercury's north pole from MESSENGER neutron spectrometer measurements. _Science_, 339, 292–296.
-- Walker, J.C.G., Hays, P.B. & Kasting, J.F. (1981). A negative feedback mechanism for the long-term stabilization of Earth's surface temperature. _Journal of Geophysical Research_, 86, 9776–9782.
-- Grotzinger, J.P. et al. (2014). A habitable fluvio-lacustrine environment at Yellowknife Bay, Gale Crater, Mars. _Science_, 343, 1242777.
-
 ## 类地行星的大气演化
 
 四颗类地行星的大气层演化走向了截然不同的方向：
@@ -88,7 +80,7 @@ status: published
 | 地球 | 火山排气   | N₂+O₂ 各 78%/21%   | 光合生命产生 O₂，碳循环 |
 | 火星 | 早期厚 CO₂ | 95% CO₂，0.006 bar | 磁场消失，太阳风剥蚀    |
 
-地球大气是唯一大量含氧气的行星大气——这完全归功于约 27 亿年前出现的光合生物（蓝藻）通过大氧化事件（Great Oxidation Event，GOE，约 2.4 亿年前）将大气氧含量从 $< 0.001\%$ 提升至今天的约 21%，从而触发了真核生物演化的爆发。
+地球大气是唯一大量含氧气的行星大气——这完全归功于约 27 亿年前出现的光合生物（蓝藻）通过大氧化事件（Great Oxidation Event，GOE，约 24 亿年前）将大气氧含量从 $< 0.001\%$ 提升至今天的约 21%，从而触发了真核生物演化的爆发。
 
 ## 跨学科连接
 
@@ -116,3 +108,11 @@ status: published
 - 2030 年代：火星样本返回任务（MSR）计划将毅力号采集的样本带回地球
   地球是太阳系四颗类地行星中的"意外赢家"——在相近的形成条件下，因为板块构造、大型月球和适当轨道位置等若干偶然因素的叠加，成为已知宇宙中唯一一个发展出复杂生物圈的行星。这一认识不是地球中心主义的回归，而是对宜居性苛刻条件的清醒认识——也是我们珍视和保护地球的最深刻的科学依据。
   **水星的 BepiColombo 任务新发现**：欧空局/JAXA 联合任务 BepiColombo（2018 年发射）已于 2021–2025 年间进行了多次水星飞越，正式进入轨道预计在 2025–2026 年。BepiColombo 携带的粒子、磁场和光谱仪器将高精度测量水星磁场（其内源磁场强度约为地球的 1%，但相对于水星体积而言仍强得出乎意料）、表面成分（MESSENGER 发现的高硫含量将被验证）、以及水星极地水冰的分布和来源——是否为彗星/小行星输送还是本地火山排气的水被极地永久阴影捕获。
+
+## 延伸阅读
+
+- Canup, R.M. & Asphaug, E. (2001). Origin of the Moon in a giant impact near the end of the Earth's formation. _Nature_, 412, 708–712.
+- Ingersoll, A.P. (1969). The runaway greenhouse: A history of water on Venus. _Journal of Atmospheric Sciences_, 26, 1191–1198.
+- Lawrence, D.J. et al. (2013). Evidence for water ice near Mercury's north pole from MESSENGER neutron spectrometer measurements. _Science_, 339, 292–296.
+- Walker, J.C.G., Hays, P.B. & Kasting, J.F. (1981). A negative feedback mechanism for the long-term stabilization of Earth's surface temperature. _Journal of Geophysical Research_, 86, 9776–9782.
+- Grotzinger, J.P. et al. (2014). A habitable fluvio-lacustrine environment at Yellowknife Bay, Gale Crater, Mars. _Science_, 343, 1242777.

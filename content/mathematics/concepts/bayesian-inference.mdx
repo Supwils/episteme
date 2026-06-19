@@ -9,7 +9,16 @@ status: published
 updated: 2026-06-06
 ---
 
+
 # 贝叶斯推断
+
+## 一个直觉：你其实每天都在做贝叶斯推断
+
+听到隔壁房间"砰"的一声，你脑子里会闪过几个可能：猫打翻了花瓶？有人进来了？还是楼上掉了东西？你不会立刻断定是哪一个，而是根据它们平时各有多常见，先有个大致的"心里有数"。这个"事先的看法"，就是**先验**。
+
+接着你转头看了一眼——发现猫正若无其事地舔爪子，地上没有碎片。这条新证据立刻改变了你的判断："猫打翻花瓶"的可能性骤降，"楼上掉东西"升上来了。**用新证据去修正旧看法**——这正是贝叶斯推断的全部精神，那个看起来吓人的公式 $P(A|B)=\dfrac{P(B|A)\,P(A)}{P(B)}$，只是把这个再自然不过的过程写成了可以计算的形式。
+
+这里藏着它最深刻、也最容易被误解的一点：贝叶斯把概率看作**信念的强度**，而不只是"长期重复的频率"。所以它敢回答一个频率派回避的问题——"看到这些数据后，这个假设成立的概率是多少？"代价是你必须先把"事先的看法"摆上台面（先验从哪来？）。但好处是，它给了我们一套数学化的、可以随证据不断更新的认知方式：信念不是一锤定音，而是终生被数据反复打磨。
 
 ## 定义
 
@@ -120,16 +129,6 @@ AutoML 系统大量使用贝叶斯优化。
 
 **概率编程**：Stan、PyMC、Edward 等概率编程语言使得贝叶斯建模变得 accessible——用户只需指定模型（先验 + 似然），推断由引擎自动完成。这降低了贝叶斯方法的使用门槛，使得非统计学家也能进行贝叶斯分析。
 
-## 延伸阅读
-
-1. Thomas Bayes, "An Essay towards Solving a Problem in the Doctrine of Chances" (1763).
-2. Richard McElreath, *Statistical Rethinking* (2nd ed., 2020).
-3. Edwin Jaynes, *Probability Theory: The Logic of Science* (2003).
-4. David Barber, *Bayesian Reasoning and Machine Learning* (2012).
-5. 陈希孺, 《数理统计学简史》, 湖南教育出版社, 2002.
-
-> 「贝叶斯定理不仅是一个数学公式——它是一种思维方式，一种在不确定世界中理性更新信念的方法。」
-
 ## 贝叶斯与信息论
 
 贝叶斯推断与信息论之间存在深刻的联系。贝叶斯更新等价于最小化 KL 散度：
@@ -164,3 +163,13 @@ $$D_{KL}(P_{\text{post}} \| P_{\text{prior}}) = \int P_{\text{post}}(\theta) \ln
 - **经济学**：贝叶斯决策理论在不确定条件下的经济决策
 - **生命科学**：贝叶斯方法在基因组学和流行病学中的应用
 - **哲学**：贝叶斯主义与归纳推理的哲学基础
+
+## 延伸阅读
+
+1. Thomas Bayes, "An Essay towards Solving a Problem in the Doctrine of Chances" (1763).
+2. Richard McElreath, *Statistical Rethinking* (2nd ed., 2020).
+3. Edwin Jaynes, *Probability Theory: The Logic of Science* (2003).
+4. David Barber, *Bayesian Reasoning and Machine Learning* (2012).
+5. 陈希孺, 《数理统计学简史》, 湖南教育出版社, 2002.
+
+> 「贝叶斯定理不仅是一个数学公式——它是一种思维方式，一种在不确定世界中理性更新信念的方法。」

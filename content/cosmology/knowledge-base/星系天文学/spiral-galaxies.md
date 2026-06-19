@@ -95,14 +95,6 @@ $$\Sigma_\text{SFR} \propto \Sigma_\text{gas}^{1.4}$$
 - **暗物质晕与旋转曲线**（`dark-matter-halo.md`）：旋涡星系的平坦旋转曲线是暗物质研究的历史起点
 - **恒星核合成**（`../恒星核合成.md`）：旋涡星系的旋臂是宇宙元素铸造厂——大质量恒星在旋臂中形成、演化、死亡，将重元素散播到星际介质
 
-## 延伸阅读
-
-- Lin, C.C. & Shu, F.H. (1964). On the spiral structure of disk galaxies. _Astrophysical Journal_, 140, 646–655.
-- Rubin, V.C., Ford, W.K. & Thonnard, N. (1980). Rotational properties of 21 Sc galaxies with a large range of luminosities. _Astrophysical Journal_, 238, 471–487.
-- Kennicutt, R.C. (1998). The global Schmidt law in star-forming galaxies. _Astrophysical Journal_, 498, 541–552.
-- Kormendy, J. & Kennicutt, R.C. (2004). Secular evolution and the formation of pseudobulges. _Annual Review of Astronomy and Astrophysics_, 42, 603–683.
-- Bosma, A. (1978). The distribution and kinematics of neutral hydrogen in spiral galaxies (PhD thesis). University of Groningen.
-
 ## 旋涡星系的磁场
 
 旋涡星系的星际介质中存在有组织的大尺度磁场，典型强度约 $1$–$10~\mu$G，通过以下方式维持：
@@ -126,3 +118,11 @@ $$\Sigma_\text{SFR} \propto \Sigma_\text{gas}^{1.4}$$
 - 银河系总恒星质量：约 $(5 \pm 1) \times 10^{10} M_\odot$
 - 仙女座星系（M31）恒星质量：约 $10^{11} M_\odot$，约为银河系 2 倍
 - 宇宙中旋涡星系数量：约占明亮星系的 60–70%（质量 $> 10^{10} M_\odot$）
+
+## 延伸阅读
+
+- Lin, C.C. & Shu, F.H. (1964). On the spiral structure of disk galaxies. _Astrophysical Journal_, 140, 646–655.
+- Rubin, V.C., Ford, W.K. & Thonnard, N. (1980). Rotational properties of 21 Sc galaxies with a large range of luminosities. _Astrophysical Journal_, 238, 471–487.
+- Kennicutt, R.C. (1998). The global Schmidt law in star-forming galaxies. _Astrophysical Journal_, 498, 541–552.
+- Kormendy, J. & Kennicutt, R.C. (2004). Secular evolution and the formation of pseudobulges. _Annual Review of Astronomy and Astrophysics_, 42, 603–683.
+- Bosma, A. (1978). The distribution and kinematics of neutral hydrogen in spiral galaxies (PhD thesis). University of Groningen.

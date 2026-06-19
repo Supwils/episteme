@@ -25,8 +25,10 @@ import {
 
 describe("economics data access", () => {
   describe("getAllEconomists", () => {
-    it("returns 29 economists", () => {
-      expect(getAllEconomists()).toHaveLength(29);
+    it("has at least the core economist set", () => {
+      // Floor, not exact: adding economists should never break CI; this still
+      // catches accidental deletion below the known baseline.
+      expect(getAllEconomists().length).toBeGreaterThanOrEqual(30);
     });
 
     it("each economist has required fields (title, slug, content)", () => {
@@ -71,8 +73,8 @@ describe("economics data access", () => {
   });
 
   describe("getAllTheories", () => {
-    it("returns 13 theories", () => {
-      expect(getAllTheories()).toHaveLength(13);
+    it("has at least the core theory set", () => {
+      expect(getAllTheories().length).toBeGreaterThanOrEqual(13);
     });
 
     it("each theory has required fields (title, slug, content)", () => {

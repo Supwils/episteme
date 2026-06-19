@@ -1,0 +1,96 @@
+---
+title: 同调与上同调
+title_en: Homology and Cohomology
+field: 代数拓扑
+key_figures: [poincare, noether, derham, cartan]
+tags: [代数拓扑, 同调, 上同调, Betti数, Euler示性数]
+key_terms: ['同调群', '上同调群', 'Betti数', 'Euler示性数', '链复形', 'de Rham上同调']
+related: ["topology", "manifold", "differential-geometry", "group", "category-theory"]
+status: published
+updated: 2026-06-19
+---
+
+
+# 同调与上同调
+
+## 一个直觉：用"数洞"来分辨形状
+
+把一个甜甜圈和一个球放在面前，凭肉眼你就知道它们不一样——甜甜圈中间有个洞，球没有。但"有个洞"这句话，怎么变成数学能计算的东西？
+
+同调（homology）做的就是这件事：**它给一个空间的每一种维度的"洞"派一个代数对象，去数有多少个、什么样的洞。** 零维的洞是"连通块"（空间分成几片），一维的洞是"绕得过去的圈"（甜甜圈的洞），二维的洞是"包得住的空腔"（球面内部那个空腔），以此类推。
+
+关键的精妙之处在于如何定义"洞"。直观上，一个圈如果能在空间里连续收缩成一个点，它就没圈住任何东西；如果收不回去（比如套在甜甜圈孔上的橡皮筋），它就圈住了一个洞。同调把这句话翻译成代数：**"边界"一定不圈洞，"圈住洞的东西本身没有边界"。于是洞 = 没有边界的东西 ÷ 是别人边界的东西。** 这个"商"正是同调群。
+
+上同调（cohomology）则是把这套构造"反过来"——不再问"哪些东西圈住了洞"，而是问"哪些函数能在洞上积分出非零的值"。它和同调互为对偶，却额外带了一个乘法结构（杯积），让它比同调"信息更丰富"。微积分里的格林公式、斯托克斯公式，本质上就是上同调在低维的影子。
+
+## 定义
+
+设有一列阿贝尔群和群同态构成的序列，称为**链复形**（chain complex）：
+
+$$\cdots \xrightarrow{\partial_{n+1}} C_n \xrightarrow{\partial_n} C_{n-1} \xrightarrow{\partial_{n-1}} \cdots$$
+
+其中边界算子 $\partial_n$ 满足核心关系 $\partial_n \circ \partial_{n+1} = 0$——**"边界的边界为零"**（一个曲面的边界是闭合曲线，闭合曲线没有端点）。
+
+由 $\partial_n \circ \partial_{n+1} = 0$ 可知 $\operatorname{im}\,\partial_{n+1} \subseteq \ker \partial_n$。定义 $n$ 维**同调群**为商群：
+
+$$H_n = \ker \partial_n \,/\, \operatorname{im}\,\partial_{n+1}$$
+
+其中 $\ker \partial_n$ 的元素称为 $n$ 维**闭链**（cycle，"没有边界的链"，对应"圈住洞的候选者"），$\operatorname{im}\,\partial_{n+1}$ 的元素称为 $n$ 维**边缘**（boundary，"是某高维链的边界"，对应"没真正圈住洞"）。同调群度量的正是"闭链中真正圈住了洞的那部分"。
+
+**上同调**则取链复形的对偶：把链群 $C_n$ 换成它的对偶 $C^n = \operatorname{Hom}(C_n, R)$（系数取自环 $R$），边界算子 $\partial$ 换成方向相反的上边界算子 $d$，得到
+
+$$H^n = \ker d^n \,/\, \operatorname{im}\, d^{n-1}.$$
+
+## 核心内容
+
+**单纯同调与奇异同调。** 最早的同调由**单纯复形**（simplicial complex）定义：把空间剖分成点、线段、三角形、四面体等"单纯形"，链就是这些单纯形的形式线性组合。它直观可算，但依赖剖分方式。**奇异同调**（singular homology）则把"从标准单纯形到空间的连续映射"当作链，无须剖分，对任意拓扑空间都有定义，且可证明与单纯同调在能剖分时一致。这是现代代数拓扑的标准框架。
+
+**Betti 数。** 第 $n$ 个 **Betti 数** $b_n$ 定义为同调群 $H_n$ 自由部分的秩（直观地说，$b_n$ = 第 $n$ 维"独立的洞"的个数）：$b_0$ 是连通分支数，$b_1$ 是独立"圈"的个数，$b_2$ 是独立"空腔"的个数。环面 $T^2$ 的 Betti 数是 $b_0=1,\ b_1=2,\ b_2=1$——一个连通块、两个独立方向的圈、一个内部空腔。
+
+**Euler 示性数。** 各维 Betti 数的交错和给出一个极其稳健的拓扑不变量：
+
+$$\chi = \sum_{n} (-1)^n b_n = b_0 - b_1 + b_2 - \cdots$$
+
+对多面体，它等于"顶点数减棱数加面数"$V - E + F$（欧拉公式），凸多面体一律得 $\chi = 2$。这个数完全由拓扑决定，与几何形变无关——这正是 Gauss-Bonnet 定理把曲率积分等同于 $2\pi\chi$ 时所依赖的不变量。
+
+**上同调环与 de Rham 上同调。** 上同调的额外结构是**杯积**（cup product）：两个上同调类可以"相乘"，使 $H^*(X) = \bigoplus_n H^n(X)$ 成为一个分次环。这个环结构能区分一些同调群相同、却本质不同的空间。在光滑流形上，**de Rham 上同调**用微分形式实现上同调：闭形式（$d\omega = 0$）模去恰当形式（$\omega = d\eta$），杯积就是微分形式的外积。德拉姆定理断言它与系数取实数的奇异上同调同构——这把"微积分里的积分"与"拓扑里的洞"严丝合缝地对接起来。斯托克斯公式 $\int_M d\omega = \int_{\partial M} \omega$ 正是同调与上同调对偶配对的解析表达。
+
+## 历史
+
+同调思想的源头是**亨利·庞加莱**（Henri Poincaré）。他在 1895 年的论文《位置分析》（Analysis Situs）及随后的五篇补遗中，为研究流形引入了"同调"的概念，并定义了 Betti 数（以意大利数学家 Enrico Betti 命名，后者在 1870 年代研究过类似不变量）。庞加莱起初用直观的几何语言，后来引入了"挠率"（torsion）来修正 Betti 数无法捕捉的现象。
+
+但庞加莱的同调还不是"群"。把同调真正代数化的，是**埃米·诺特**（Emmy Noether）。1920 年代她在哥廷根指出：Betti 数和挠率系数其实是阿贝尔群（同调群）的数值阴影，真正的不变量应当是群本身，而边界算子是群同态。这一观点彻底重塑了拓扑学——从"数洞"变成"研究同调群之间的代数结构与映射"。
+
+上同调与对偶随后由多人发展。**乔治·德拉姆**（Georges de Rham）在 1931 年的博士论文中证明了微分形式的上同调与拓扑不变量的对应（德拉姆定理）。**埃利·嘉当**（Élie Cartan）发展的微分形式外微分演算，为 de Rham 理论提供了运算工具。1940 年代，层论（sheaf）与谱序列的引入，使上同调成为现代几何与数论的通用语言。
+
+## 关键人物
+
+**亨利·庞加莱**（1854—1912）是代数拓扑的奠基者。他在《位置分析》中开创性地用代数手段研究空间的整体形状，提出 Betti 数、挠率、基本群等概念，并留下了困扰数学界近百年的庞加莱猜想（2003 年由佩雷尔曼证明）。他坚信"拓扑学研究的是连续变形下不变的性质"——这正是同调论的灵魂。
+
+**埃米·诺特**（1882—1935）以抽象代数闻名，但她对拓扑的关键贡献是看穿了同调的代数本质：不变量应是群而非数。这一洞见经亚历山德罗夫、霍普夫等人传播，确立了"用代数对象（群、环、模）研究拓扑空间"的范式。诺特同时是物理学中诺特定理的提出者，将对称性与守恒律联系起来。
+
+**乔治·德拉姆**（1903—1990）证明了同名定理：光滑流形上由微分形式定义的上同调，与纯拓扑定义的（实系数）上同调同构。这一结果是连接分析、几何与拓扑的桥梁，让物理学家能用微分形式直接"读出"空间的拓扑信息。
+
+**埃利·嘉当**（1869—1951）发展了微分形式的外微分演算与活动标架法，既为 de Rham 上同调提供工具，也直接催生了陈省身对 Gauss-Bonnet 定理的内蕴证明。
+
+## 跨领域连接
+
+- **→ [[differential-geometry]] 微分几何**：Gauss-Bonnet 定理 $\int_M K\, dA = 2\pi\chi(M)$ 把曲面的曲率积分等同于 Euler 示性数。陈省身 1944 年在仅 6 页的论文《A Simple Intrinsic Proof of the Gauss-Bonnet Formula for Closed Riemannian Manifolds》（Annals of Mathematics）中给出内蕴证明，把曲率引入拓扑，并开创了"超渡"（transgression）技术与陈类（Chern class）——后者是纤维丛的上同调示性类。**没有同调与上同调，就没有"几何量等于拓扑不变量"这类深刻定理的语言。**
+- **→ [[manifold]] 流形 与 [[topology]] 拓扑**：同调群是流形最重要的拓扑不变量之一，庞加莱对偶把流形的 $H_n$ 与 $H^{n-k}$ 联系起来。
+- **→ 物理学**：规范场论中，电磁势的物理可观测量本质上是上同调类（Aharonov-Bohm 效应正是 $H^1$ 非平凡的体现）；拓扑相、瞬子数、磁单极都用上同调与示性类刻画。
+- **→ [[category-theory]] 范畴论**：同调是从拓扑空间范畴到阿贝尔群范畴的函子，这一视角催生了同调代数与导出函子。
+
+## 参考文献
+
+1. Allen Hatcher, *Algebraic Topology*, Cambridge University Press, 2002.
+2. Henri Poincaré, "Analysis Situs", *Journal de l'École Polytechnique*, 1895.
+3. Raoul Bott, Loring W. Tu, *Differential Forms in Algebraic Topology*, Graduate Texts in Mathematics 82, Springer, 1982.
+4. Shiing-Shen Chern, "A Simple Intrinsic Proof of the Gauss-Bonnet Formula for Closed Riemannian Manifolds", *Annals of Mathematics*, 45 (4): 747–752, 1944.
+5. Georges de Rham, *Variétés différentiables: formes, courants, formes harmoniques*, Hermann, 1955.
+
+## 延伸阅读
+
+1. John M. Lee, *Introduction to Smooth Manifolds*, Springer, 2012.
+2. 陈省身, 《微分几何讲义》, 北京大学出版社.
+
+> 「同调论教会我们：形状的本质不在于它长什么样，而在于它有几个、什么样的洞——而这些洞，可以用代数精确地数出来。」

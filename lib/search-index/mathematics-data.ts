@@ -463,6 +463,13 @@ export const MATHEMATICS_DATA = [
   },
   { slug: "group", title: "群", titleEn: "Group", subtype: "concepts", field: "代数" },
   {
+    slug: "homology-cohomology",
+    title: "同调与上同调",
+    titleEn: "Homology and Cohomology",
+    subtype: "concepts",
+    field: "代数拓扑",
+  },
+  {
     slug: "information-theory",
     title: "信息论",
     titleEn: "Information Theory",
@@ -470,6 +477,13 @@ export const MATHEMATICS_DATA = [
     field: "应用数学",
   },
   { slug: "integral", title: "积分", titleEn: "Integral", subtype: "concepts", field: "分析" },
+  {
+    slug: "lie-group-lie-algebra",
+    title: "李群与李代数",
+    titleEn: "Lie Group and Lie Algebra",
+    subtype: "concepts",
+    field: "群论与微分几何",
+  },
   { slug: "limit", title: "极限", titleEn: "Limit", subtype: "concepts", field: "分析" },
   {
     slug: "linear-algebra",
@@ -593,6 +607,13 @@ export const MATHEMATICS_DATA = [
     titleEn: "Statistics",
     subtype: "concepts",
     field: "应用数学",
+  },
+  {
+    slug: "stochastic-process",
+    title: "随机过程",
+    titleEn: "Stochastic Process",
+    subtype: "concepts",
+    field: "概率论",
   },
   { slug: "topology", title: "拓扑学", titleEn: "Topology", subtype: "concepts", field: "几何" },
   {

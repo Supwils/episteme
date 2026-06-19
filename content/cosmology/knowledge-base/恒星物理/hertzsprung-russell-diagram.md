@@ -113,14 +113,6 @@ updated: 2026-06-13
 - **白矮星**（`white-dwarfs.md`）：赫罗图左下方，由电子简并压力支撑
 - **造父变星与变星**（`cepheids-variable-stars.md`）：脉动变星在赫罗图上的不稳定带是宇宙距离阶梯的关键梯级
 
-## 参考文献
-
-- Hertzsprung, E. (1911). Über die Verwendung photographischer effektiver Wellenlaengen zur Bestimmung von Farbenaequivalenten. _Publikationen des Astrophysikalischen Observatoriums zu Potsdam_, 22, 1.
-- Russell, H.N. (1914). Relations Between the Spectra and Other Characteristics of the Stars. _Popular Astronomy_, 22, 275–294.
-- VandenBerg, D.A. et al. (2013). The Ages of 55 Globular Clusters as Determined Using an Improved $\Delta V^{HB}_{TO}$ Method along with Color-Magnitude Diagram Constraints. _The Astrophysical Journal_, 775, 134.
-- Gaia Collaboration (2018). Gaia Data Release 2. Observational Hertzsprung-Russell diagrams. _Astronomy & Astrophysics_, 616, A10.
-- Tremblay, P.-E. et al. (2019). Core crystallization and pile-up in the cooling sequence of evolving white dwarfs. _Nature_, 565, 202–205.
-
 ## 盖亚 HR 图的新发现
 
 盖亚时代的 HR 图不只是精度更高的老图，而是展示了一系列以前无法分辨的新特征：
@@ -140,6 +132,14 @@ updated: 2026-06-13
 ### 绕后 RGB（eSRP）与亚矮星
 
 盖亚还揭示了赫罗图上此前被遮蔽的稀有天体分支，如**极端水平支**（EHB）恒星（即亚矮 B 型星，sdB），以及双星相互作用产生的特殊演化产物，为恒星演化理论提供了更精细的检验。
+
+## 参考文献
+
+- Hertzsprung, E. (1911). Über die Verwendung photographischer effektiver Wellenlaengen zur Bestimmung von Farbenaequivalenten. _Publikationen des Astrophysikalischen Observatoriums zu Potsdam_, 22, 1.
+- Russell, H.N. (1914). Relations Between the Spectra and Other Characteristics of the Stars. _Popular Astronomy_, 22, 275–294.
+- VandenBerg, D.A. et al. (2013). The Ages of 55 Globular Clusters as Determined Using an Improved $\Delta V^{HB}_{TO}$ Method along with Color-Magnitude Diagram Constraints. _The Astrophysical Journal_, 775, 134.
+- Gaia Collaboration (2018). Gaia Data Release 2. Observational Hertzsprung-Russell diagrams. _Astronomy & Astrophysics_, 616, A10.
+- Tremblay, P.-E. et al. (2019). Core crystallization and pile-up in the cooling sequence of evolving white dwarfs. _Nature_, 565, 202–205.
 
 ## 延伸阅读
 

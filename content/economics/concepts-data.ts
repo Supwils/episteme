@@ -21,6 +21,12 @@ export const ECONOMICS_CONCEPTS_DATA = [
     subtitle: "Creative Destruction",
     field: "经济发展与创新",
   },
+  {
+    slug: "econometrics-foundations",
+    title: "计量经济学基础",
+    subtitle: "Foundations of Econometrics",
+    field: "实证经济学方法",
+  },
   { slug: "elasticity", title: "弹性", subtitle: "Elasticity", field: "微观经济学" },
   {
     slug: "environmental-economics",
@@ -146,6 +152,12 @@ export const ECONOMICS_CONCEPTS_DATA = [
     title: "风险与不确定性",
     subtitle: "Risk and Uncertainty",
     field: "决策理论",
+  },
+  {
+    slug: "search-matching-theory",
+    title: "搜寻与匹配理论",
+    subtitle: "Search and Matching Theory",
+    field: "劳动经济学与宏观",
   },
   { slug: "short-selling", title: "做空", subtitle: "Short Selling", field: "金融经济学" },
   { slug: "sovereign-debt", title: "主权债务", subtitle: "Sovereign Debt", field: "国际金融" },

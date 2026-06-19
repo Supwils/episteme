@@ -86,14 +86,6 @@ status: published
 
 反对意见：一些研究者认为观测偏差（望远镜偏向搜寻某些方向）可以解释 ETNO 的轨道聚集，不需要第九行星（Shankman et al. 2017，_Astronomical Journal_）。Vera Rubin 天文台（LSST）开始巡天后将在约 5–10 年内提供更好的统计样本，大幅检验第九行星假说。
 
-## 延伸阅读
-
-- Oort, J.H. (1950). The structure of the cloud of comets surrounding the Solar System and a hypothesis concerning its origin. _Bulletin of the Astronomical Institutes of the Netherlands_, 11, 91–110.
-- Stern, S.A. et al. (2015). The Pluto system: Initial results from its exploration by New Horizons. _Science_, 350, aad1815.
-- Batygin, K. & Brown, M.E. (2016). Evidence for a distant giant planet in the solar system. _Astronomical Journal_, 151, 22.
-- Jewitt, D. & Luu, J. (1993). Discovery of the candidate Kuiper belt object 1992 QB1. _Nature_, 362, 730–732.
-- Stern, S.A. et al. (2019). Initial results from the New Horizons exploration of 2014 MU69. _Science_, 364, aaw9771.
-
 ## 跨学科连接
 
 - **彗星起源**：柯伊伯带是短周期彗星的"供应库"，奥尔特云是长周期彗星的来源，两者合称太阳系的"彗星水库"
@@ -125,3 +117,11 @@ status: published
 
 太阳系外围的柯伊伯带和奥尔特云，是太阳系形成历史的冰冻档案库，也是地球宜居性历史（彗星撞击贡献的水和有机物）的关键组成部分，未来巡天任务将把这一档案库的已知内容拓展数倍。
 太阳系卫星系统——从月球到木卫二再到土卫六——不仅是行星科学的研究对象，更是 21 世纪寻找地外生命最有希望的目标地，每一颗带液态水的卫星都是一个等待解答的大问号。
+
+## 延伸阅读
+
+- Oort, J.H. (1950). The structure of the cloud of comets surrounding the Solar System and a hypothesis concerning its origin. _Bulletin of the Astronomical Institutes of the Netherlands_, 11, 91–110.
+- Stern, S.A. et al. (2015). The Pluto system: Initial results from its exploration by New Horizons. _Science_, 350, aad1815.
+- Batygin, K. & Brown, M.E. (2016). Evidence for a distant giant planet in the solar system. _Astronomical Journal_, 151, 22.
+- Jewitt, D. & Luu, J. (1993). Discovery of the candidate Kuiper belt object 1992 QB1. _Nature_, 362, 730–732.
+- Stern, S.A. et al. (2019). Initial results from the New Horizons exploration of 2014 MU69. _Science_, 364, aaw9771.

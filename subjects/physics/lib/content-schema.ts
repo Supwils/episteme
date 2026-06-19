@@ -110,6 +110,10 @@ export const tierContentSchema = z
       .max(8),
     sources: z.array(sourceRefSchema).min(2, "tier needs at least 2 cited sources").max(10),
     markers: z.array(sceneMarkerSchema).min(1).max(20).optional(),
+    relatedArticles: z
+      .array(z.object({ href: z.string().min(1), title: z.string().min(1) }))
+      .max(8)
+      .optional(),
   })
   .superRefine((content, ctx) => {
     if (!content.markers) return;

@@ -7,6 +7,7 @@ import { Close } from "@/subjects/physics/components/hud/icons";
 import { AtlasToc } from "./AtlasToc";
 import { DataCard } from "./DataCard";
 import { NarrativeSection } from "./NarrativeSection";
+import { RelatedReading } from "./RelatedReading";
 import { RelatedTiers } from "./RelatedTiers";
 import { SourcesList } from "./SourcesList";
 import { getContentForTier } from "@/subjects/physics/lib/tier-content";
@@ -138,6 +139,10 @@ export function KnowledgePanel() {
                     <NarrativeSection section={section} index={i} id={`atlas-section-${i}`} />
                   </Reveal>
                 ))}
+
+                <Reveal>
+                  <RelatedReading tier={tier} articles={content.relatedArticles} />
+                </Reveal>
 
                 <Reveal>
                   <SourcesList sources={content.sources} />

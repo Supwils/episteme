@@ -21,18 +21,19 @@ export function SpeciesCard({ species }: { species: Species }) {
       <div className="flex flex-1 flex-col gap-2.5 p-4 pt-3">
         <div className="flex items-start justify-between gap-2">
           <div className="min-w-0 flex-1">
-            <h3 className="text-[1.05rem] font-semibold leading-snug text-[#e8e8f0]">
+            <h3 className="text-[1.05rem] leading-snug font-semibold text-[#e8e8f0]">
               {species.name}
             </h3>
             <p
-              className="mt-0.5 font-mono text-[10px] italic tracking-wider"
+              className="mt-0.5 font-mono text-[10px] tracking-wider italic"
               style={{ color: `${kingdomColor}cc` }}
             >
               {species.nameEn}
             </p>
           </div>
           {species.extinct && (
-            <span className="shrink-0 rounded-full border px-2 py-0.5 font-mono text-[8px] tracking-widest text-[#ff6b6b]"
+            <span
+              className="shrink-0 rounded-full border px-2 py-0.5 font-mono text-[8px] tracking-widest text-[#ff6b6b]"
               style={{ borderColor: "rgba(255,107,107,0.2)", background: "rgba(255,107,107,0.06)" }}
             >
               已灭绝
@@ -51,7 +52,8 @@ export function SpeciesCard({ species }: { species: Species }) {
           >
             {species.era}
           </span>
-          <span className="rounded-full border px-2 py-0.5 font-mono text-[9px] tracking-[0.12em] text-[#888]"
+          <span
+            className="rounded-full border px-2 py-0.5 font-mono text-[9px] tracking-[0.12em] text-[#888]"
             style={{ borderColor: "rgba(255,255,255,0.06)" }}
           >
             {species.period}
@@ -69,6 +71,10 @@ export function SpeciesCard({ species }: { species: Species }) {
             </span>
           ))}
         </div>
+
+        {species.story && (
+          <p className="text-[12px] leading-relaxed text-[#a8a8b3]">{species.story}</p>
+        )}
 
         <div className="mt-auto border-t pt-2" style={{ borderColor: "rgba(255,255,255,0.04)" }}>
           <span className="font-mono text-[9px] tracking-wider text-[#666]">

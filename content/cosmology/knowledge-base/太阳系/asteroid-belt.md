@@ -75,14 +75,6 @@ status: published
 - **隼鸟 2 号（Hayabusa2，JAXA 2014–2020）**：访问 C 型小行星龙宫（Ryugu），带回约 5.4 克样本（Watanabe et al. 2019，_Science_），在样本中检测到氨基酸和液态水的证据
 - **OSIRIS-REx（NASA 2016–2023）**：采集 C 型小行星贝努（Bennu）的表面样本，2023 年返回约 121 克样本——是美国历史上最大的太空样本返回量
 
-## 延伸阅读
-
-- Bottke, W.F. et al. (2006). The primordial excitation and clearing of the asteroid belt. _Icarus_, 179, 63–94.
-- Thomas, C.A. et al. (2023). Orbital period change of Dimorphos due to the DART kinetic impact. _Nature_, 616, 448–451.
-- Raponi, A. et al. (2019). Variations in the amount of water ice on Ceres' surface suggest a seasonal water cycle. _Science Advances_, 5, eaav3731.
-- Watanabe, S. et al. (2019). Hayabusa2 arrives at the carbonaceous asteroid 162173 Ryugu. _Science_, 364, 268–272.
-- Walsh, K.J. et al. (2011). A low mass for Mars from Jupiter's early gas-driven migration. _Nature_, 475, 206–209.
-
 ## 小行星的内部结构
 
 小行星的内部结构差异极大：
@@ -119,3 +111,11 @@ YORP 效应（辐射扭矩）会使小行星自转加速——当小行星自转
 - C 型（碳质）：约 75% 的主带小行星，富含碳，吸收率低，位于外主带，类似碳质球粒陨石
 - S 型（硅质）：约 17%，富含硅酸盐和铁-镍，位于内主带，来源为地壳/地幔分异天体碎片
 - M 型（金属质）：少量，富含铁-镍金属，可能是古老天体的铁质核心暴露残片，如灵神星（Psyche，NASA 正在探测中）
+
+## 延伸阅读
+
+- Bottke, W.F. et al. (2006). The primordial excitation and clearing of the asteroid belt. _Icarus_, 179, 63–94.
+- Thomas, C.A. et al. (2023). Orbital period change of Dimorphos due to the DART kinetic impact. _Nature_, 616, 448–451.
+- Raponi, A. et al. (2019). Variations in the amount of water ice on Ceres' surface suggest a seasonal water cycle. _Science Advances_, 5, eaav3731.
+- Watanabe, S. et al. (2019). Hayabusa2 arrives at the carbonaceous asteroid 162173 Ryugu. _Science_, 364, 268–272.
+- Walsh, K.J. et al. (2011). A low mass for Mars from Jupiter's early gas-driven migration. _Nature_, 475, 206–209.

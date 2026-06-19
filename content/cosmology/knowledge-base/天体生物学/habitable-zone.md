@@ -77,14 +77,6 @@ TRAPPIST-1（距离约 39 光年，超冷红矮星，7 颗行星系统，其中 
 
 JWST（詹姆斯·韦布空间望远镜，2021 年发射）的近红外光谱仪已开始尝试探测 TRAPPIST-1 行星大气，目前（截至 2024–2025 年）初步结果尚未发现大气的明确证据，但上限约束正在逐步改善。
 
-## 延伸阅读
-
-- Kasting, J.F., Whitmire, D.P. & Reynolds, R.T. (1993). Habitable zones around main sequence stars. _Icarus_, 101, 108–128.
-- Kopparapu, R.K. et al. (2013). Habitable zones around main-sequence stars: Dependence on planetary mass. _Astrophysical Journal_, 765, 131.
-- Gillon, M. et al. (2017). Seven temperate terrestrial planets around the nearby ultracool dwarf star TRAPPIST-1. _Nature_, 542, 456–460.
-- Yang, J. et al. (2013). Stabilizing cloud feedback dramatically expands the habitable zone of tidally locked planets. _Astrophysical Journal Letters_, 771, L45.
-- Shields, A.L. et al. (2016). The habitability of planets orbiting M-dwarf stars. _Physics Reports_, 663, 1–38.
-
 ## 宜居带研究的最新进展
 
 TESS（凌星系外行星巡天卫星，NASA，2018 年至今）已对太阳附近数十万颗恒星进行全天凌星搜寻，发现了数千颗系外行星候选者。TESS 对 M 型恒星宜居带行星的探测效率特别高，因为 M 矮星周期短的宜居带轨道（约 10–30 天）可被 TESS 的 27 天观测窗口捕获。
@@ -125,3 +117,11 @@ $$\text{ESI} = \prod_i \left(1 - \left|\frac{p_i - p_{i,\oplus}}{p_i + p_{i,\opl
 宜居带研究将在未来二十年经历革命性的变化：PLATO（2026 年）将精确测量宜居带候选星的年龄（通过日震学），ELT（2028 年）将对最近的宜居带行星进行高分辨率光谱，HWO（2040 年代）将尝试直接成像太阳型星旁的宜居带类地行星并获取其光谱——如果一切顺利，21 世纪中期的人类将第一次有能力回答"宇宙中有多少颗真正宜居的行星"这个问题，而宜居带概念正是这场伟大探索的导航坐标系。
 宇宙演化中的宜居性"时间窗口"：对于质量 $< 0.5 M_\odot$ 的红矮星，其主序寿命超过 1 万亿年（远超宇宙当前年龄 138 亿年），这意味着大多数红矮星的宜居带行星仍处于演化的早期。地球花了约 40 亿年演化出复杂多细胞生命；若生命在红矮星宜居带行星上以类似速度演化，未来数万亿年内宇宙将有机会孕育远比今天更多的生命形式——这是宇宙生命潜力在时间维度上最令人震撼的视角（Loeb et al. 2016，_Journal of Cosmology and Astroparticle Physics_）。
 总而言之，宜居带概念从 Kasting 1993 年的经典定义，经过 Kopparapu 的更新、TRAPPIST-1 的实际检验、JWST 的首次大气约束，已经发展为一个成熟且不断精细化的科学框架，引领着人类对宇宙中"适合生命的地方"的认识持续深化。
+
+## 延伸阅读
+
+- Kasting, J.F., Whitmire, D.P. & Reynolds, R.T. (1993). Habitable zones around main sequence stars. _Icarus_, 101, 108–128.
+- Kopparapu, R.K. et al. (2013). Habitable zones around main-sequence stars: Dependence on planetary mass. _Astrophysical Journal_, 765, 131.
+- Gillon, M. et al. (2017). Seven temperate terrestrial planets around the nearby ultracool dwarf star TRAPPIST-1. _Nature_, 542, 456–460.
+- Yang, J. et al. (2013). Stabilizing cloud feedback dramatically expands the habitable zone of tidally locked planets. _Astrophysical Journal Letters_, 771, L45.
+- Shields, A.L. et al. (2016). The habitability of planets orbiting M-dwarf stars. _Physics Reports_, 663, 1–38.
