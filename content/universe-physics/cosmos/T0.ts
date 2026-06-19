@@ -278,6 +278,11 @@ const content: TierContent = {
       size: 0.02,
     },
   ],
+  relatedArticles: [
+    { href: "/cosmology/knowledge-base/大爆炸理论", title: "大爆炸理论" },
+    { href: "/cosmology/knowledge-base/宇宙微波背景", title: "宇宙微波背景" },
+    { href: "/cosmology/knowledge-base/宇宙大尺度结构", title: "宇宙大尺度结构" },
+  ],
 };
 
 export default content;

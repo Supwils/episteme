@@ -277,6 +277,11 @@ const content: TierContent = {
       size: 0.022,
     },
   ],
+  relatedArticles: [
+    { href: "/cosmology/knowledge-base/太阳系--terrestrial-planets", title: "类地行星" },
+    { href: "/cosmology/knowledge-base/太阳系--gas-giants", title: "气态巨行星" },
+    { href: "/cosmology/knowledge-base/太阳系--solar-structure-activity", title: "太阳结构与活动" },
+  ],
 };
 
 export default content;

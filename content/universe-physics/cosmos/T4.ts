@@ -294,6 +294,11 @@ const content: TierContent = {
       size: 0.018,
     },
   ],
+  relatedArticles: [
+    { href: "/cosmology/knowledge-base/星系天文学--milky-way-structure", title: "银河系结构" },
+    { href: "/cosmology/knowledge-base/星系天文学--spiral-galaxies", title: "旋涡星系" },
+    { href: "/cosmology/knowledge-base/星系形成与演化", title: "星系形成与演化" },
+  ],
 };
 
 export default content;

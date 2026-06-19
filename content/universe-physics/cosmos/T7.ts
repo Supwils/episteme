@@ -272,6 +272,10 @@ const content: TierContent = {
       size: 0.085,
     },
   ],
+  relatedArticles: [
+    { href: "/cosmology/knowledge-base/太阳系--terrestrial-planets", title: "类地行星" },
+    { href: "/cosmology/knowledge-base/太阳系--planetary-moons", title: "行星的卫星" },
+  ],
 };
 
 export default content;
