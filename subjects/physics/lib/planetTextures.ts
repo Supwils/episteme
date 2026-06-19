@@ -12,18 +12,18 @@ import {
 
 /** Public-relative paths to the 12 planet/moon textures. */
 export const PLANET_TEXTURE_PATHS = {
-  mercury: "/textures/planets/mercury.jpg",
-  venus: "/textures/planets/venus.jpg",
-  earthDay: "/textures/planets/earth-day.jpg",
-  earthNight: "/textures/planets/earth-night.jpg",
-  earthClouds: "/textures/planets/earth-clouds.jpg",
-  mars: "/textures/planets/mars.jpg",
-  jupiter: "/textures/planets/jupiter.jpg",
-  saturn: "/textures/planets/saturn.jpg",
+  mercury: "/textures/planets/mercury.webp",
+  venus: "/textures/planets/venus.webp",
+  earthDay: "/textures/planets/earth-day.webp",
+  earthNight: "/textures/planets/earth-night.webp",
+  earthClouds: "/textures/planets/earth-clouds.webp",
+  mars: "/textures/planets/mars.webp",
+  jupiter: "/textures/planets/jupiter.webp",
+  saturn: "/textures/planets/saturn.webp",
   saturnRing: "/textures/planets/saturn-ring.png",
-  uranus: "/textures/planets/uranus.jpg",
-  neptune: "/textures/planets/neptune.jpg",
-  moon: "/textures/planets/moon.jpg",
+  uranus: "/textures/planets/uranus.webp",
+  neptune: "/textures/planets/neptune.webp",
+  moon: "/textures/planets/moon.webp",
 } as const;
 
 export type PlanetTextureKey = keyof typeof PLANET_TEXTURE_PATHS;
