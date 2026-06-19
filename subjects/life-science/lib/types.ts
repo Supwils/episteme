@@ -28,6 +28,12 @@ export type Species = {
   };
   extinct: boolean;
   imagePlaceholder?: string;
+  /**
+   * One- to two-sentence narrative hook — the story that makes this species
+   * memorable, not just a taxonomic card. Optional; rendered on the card when
+   * present. Keep it factual and specific.
+   */
+  story?: string;
 };
 
 export type ExtinctionEvent = {

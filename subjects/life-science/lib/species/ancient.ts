@@ -3,6 +3,8 @@ import type { Species } from "./types";
 export const ANCIENT_SPECIES: Species[] = [
   {
     id: "stromatolite",
+    story:
+      "现今仍在澳大利亚鲨鱼湾的高盐海湾里生长——地球最古老的生命形态至今未断的活见证，它们释放的氧气最终改写了整个大气。",
     name: "叠层石",
     nameEn: "Stromatolite",
     era: "太古宙",
@@ -53,6 +55,8 @@ export const ANCIENT_SPECIES: Species[] = [
   },
   {
     id: "anomalocaris",
+    story:
+      "寒武纪海洋的顶级掠食者，体长可达半米。它的圆形口器化石曾被误认作水母、前肢被当成虾的身体，“奇虾”之名正源于这场百年误会。",
     name: "奇虾",
     nameEn: "Anomalocaris",
     era: "古生代",
@@ -73,6 +77,7 @@ export const ANCIENT_SPECIES: Species[] = [
   },
   {
     id: "pikaia",
+    story: "只有几厘米长，却带有一条脊索——它是包括人类在内所有脊椎动物已知最古老的近亲之一。",
     name: "皮卡虫",
     nameEn: "Pikaia",
     era: "古生代",
@@ -83,6 +88,8 @@ export const ANCIENT_SPECIES: Species[] = [
   },
   {
     id: "hallucigenia",
+    story:
+      "化石让古生物学家足足搞反了两次——先把背刺当成腿，再把头尾颠倒，直到 2015 年才确认哪端是头。",
     name: "怪诞虫",
     nameEn: "Hallucigenia",
     era: "古生代",
