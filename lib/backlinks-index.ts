@@ -2697,6 +2697,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/mathematics/concepts/function",
       title: "函数",
     },
+    {
+      url: "/mathematics/concepts/homology-cohomology",
+      title: "同调与上同调",
+    },
   ],
   "/mathematics/concepts/complex-analysis": [
     {
@@ -2749,6 +2753,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/mathematics/concepts/trigonometry",
       title: "三角函数",
     },
+    {
+      url: "/mathematics/concepts/stochastic-process",
+      title: "随机过程",
+    },
   ],
   "/mathematics/concepts/differential-geometry": [
     {
@@ -2760,8 +2768,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "广义相对论",
     },
     {
+      url: "/mathematics/concepts/lie-group-lie-algebra",
+      title: "李群与李代数",
+    },
+    {
       url: "/mathematics/mathematicians/mirzakhani",
       title: "米尔扎哈尼",
+    },
+    {
+      url: "/mathematics/concepts/homology-cohomology",
+      title: "同调与上同调",
     },
   ],
   "/mathematics/concepts/dynamical-systems": [
@@ -2788,6 +2804,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/mathematics/concepts/galois-theory": [
     {
+      url: "/mathematics/concepts/lie-group-lie-algebra",
+      title: "李群与李代数",
+    },
+    {
       url: "/mathematics/concepts/field",
       title: "域",
     },
@@ -2796,6 +2816,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/mathematicians/abel",
       title: "阿贝尔",
+    },
+    {
+      url: "/mathematics/concepts/lie-group-lie-algebra",
+      title: "李群与李代数",
     },
     {
       url: "/mathematics/concepts/field",
@@ -2841,6 +2865,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/mathematics/mathematicians/chern",
       title: "陈省身",
     },
+    {
+      url: "/mathematics/concepts/lie-group-lie-algebra",
+      title: "李群与李代数",
+    },
+    {
+      url: "/mathematics/concepts/homology-cohomology",
+      title: "同调与上同调",
+    },
+  ],
+  "/mathematics/concepts/measure-theory": [
+    {
+      url: "/mathematics/concepts/stochastic-process",
+      title: "随机过程",
+    },
   ],
   "/mathematics/concepts/number-theory": [
     {
@@ -2885,6 +2923,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/cosmology/knowledge-base/多重宇宙假说",
       title: "多重宇宙假说",
     },
+    {
+      url: "/mathematics/concepts/stochastic-process",
+      title: "随机过程",
+    },
   ],
   "/mathematics/concepts/proof": [
     {
@@ -2893,6 +2935,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/mathematics/concepts/representation-theory": [
+    {
+      url: "/mathematics/concepts/lie-group-lie-algebra",
+      title: "李群与李代数",
+    },
     {
       url: "/mathematics/concepts/group",
       title: "群",
@@ -2936,6 +2982,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/mathematicians/mirzakhani",
       title: "米尔扎哈尼",
+    },
+    {
+      url: "/mathematics/concepts/homology-cohomology",
+      title: "同调与上同调",
     },
   ],
   "/mathematics/concepts/trigonometry": [
@@ -3725,6 +3775,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/economics/concepts/public-choice-theory",
       title: "公共选择理论",
     },
+    {
+      url: "/political-science/concepts/political-methodology-behavioralism",
+      title: "政治学方法论与行为主义革命",
+    },
+  ],
+  "/political-science/concepts/political-methodology-behavioralism": [
+    {
+      url: "/political-science/thinkers/robert-dahl",
+      title: "罗伯特·达尔",
+    },
+  ],
+  "/political-science/concepts/power": [
+    {
+      url: "/political-science/thinkers/kautilya",
+      title: "考底利耶",
+    },
+    {
+      url: "/political-science/thinkers/robert-dahl",
+      title: "罗伯特·达尔",
+    },
   ],
   "/political-science/concepts/sovereignty": [
     {
@@ -3748,6 +3818,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/concepts/legitimacy",
       title: "合法性与正当性",
+    },
+    {
+      url: "/political-science/thinkers/kautilya",
+      title: "考底利耶",
     },
   ],
   "/political-science/frontier/ai-governance-surveillance": [
@@ -5046,6 +5120,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/universe-physics/knowledge-base/前沿物理--弦理论": [
     {
+      url: "/universe-physics/knowledge-base/前沿物理--量子场论与重整化",
+      title: "量子场论与重整化",
+    },
+    {
       url: "/universe-physics/knowledge-base/前沿物理--宇宙暴胀",
       title: "宇宙暴胀",
     },
@@ -5096,6 +5174,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/热力学--非平衡态热力学",
       title: "非平衡态热力学",
+    },
+    {
+      url: "/universe-physics/knowledge-base/前沿物理--量子场论与重整化",
+      title: "量子场论与重整化",
     },
     {
       url: "/universe-physics/knowledge-base/热力学--麦克斯韦妖",
@@ -5292,12 +5374,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: '暗物质直接探测的"沉默"',
     },
     {
+      url: "/universe-physics/knowledge-base/天体物理--恒星结构与演化",
+      title: "恒星结构与演化",
+    },
+    {
       url: "/universe-physics/knowledge-base/物理学--粒子物理与加速器",
       title: "粒子物理与加速器",
     },
     {
       url: "/universe-physics/knowledge-base/前沿物理--量子场论导论",
       title: "量子场论导论",
+    },
+    {
+      url: "/universe-physics/knowledge-base/前沿物理--量子场论与重整化",
+      title: "量子场论与重整化",
     },
     {
       url: "/universe-physics/knowledge-base/物理学--引力波天文学",
@@ -5524,6 +5614,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/相对论--广义相对论的实验检验",
       title: "广义相对论的实验检验",
+    },
+    {
+      url: "/universe-physics/knowledge-base/天体物理--恒星结构与演化",
+      title: "恒星结构与演化",
     },
     {
       url: "/universe-physics/knowledge-base/相对论--克尔转动黑洞",
@@ -5836,6 +5930,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/前沿物理--核聚变与恒星能源",
       title: "核聚变与恒星能源",
+    },
+    {
+      url: "/universe-physics/knowledge-base/天体物理--恒星结构与演化",
+      title: "恒星结构与演化",
     },
   ],
 };

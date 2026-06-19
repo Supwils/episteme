@@ -750,4 +750,10 @@ export const COSMOLOGY_KB_DATA = [
     titleEn: "Seyfert Galaxies",
     category: "星系天文学",
   },
+  {
+    slug: "宇宙学前沿--21cm宇宙学与再电离",
+    title: "21cm 宇宙学与再电离",
+    titleEn: "21-cm Cosmology and Reionization",
+    category: "宇宙学前沿",
+  },
 ];

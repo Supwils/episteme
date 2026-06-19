@@ -23,6 +23,7 @@ export const ECONOMISTS_DATA = [
     subtitle: "Friedrich Hayek",
     era: "新古典",
   },
+  { slug: "gary-becker", title: "加里·贝克尔", subtitle: "Gary S. Becker", era: "当代" },
   { slug: "george-akerlof", title: "乔治·阿克洛夫", subtitle: "George A. Akerlof", era: "当代" },
   {
     slug: "john-maynard-keynes",
