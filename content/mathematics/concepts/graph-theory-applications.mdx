@@ -11,6 +11,7 @@ status: published
 updated: 2026-06-07
 ---
 
+
 # 图论应用
 
 ## 一个直觉：先把现实"画成点和线"，难题就化了一半
@@ -168,16 +169,6 @@ $$\max \text{flow} = \min_{S \subseteq V, s \in S, t \notin S} \sum_{u \in S, v 
 - **→ 社会学**：社交网络分析（社区发现、中心性、信息扩散）、六度分隔理论、小世界网络
 - **→ 历史学**：丝绸之路和贸易网络可以用图论分析。历史人物之间的关系网络揭示了权力结构和信息流动。
 
-## 延伸阅读
-
-1. Edsger Dijkstra, "A Note on Two Problems in Connexion with Graphs" (1956).
-2. Lester Ford & Delbert Fulkerson, *Flows in Networks* (1962).
-3. David Easley & Jon Kleinberg, *Networks, Crowds, and Markets* (2010).
-4. 殷剑宏, 《图论及其算法》, 中国科学技术大学出版社, 2003.
-5. Alvin Roth, *Who Gets What — and Why* (2015).
-
-> 「图论是描述关系的数学语言——在图的世界中，万物皆顶点，万联皆边。应用图论的力量在于：将实际问题转化为图问题，然后让算法解决一切。」
-
 ## 常见误区
 
 - **"Dijkstra算法可以处理负权边"**：不能。Dijkstra算法假设非负权——负权边会导致贪心策略失效。含负权边时应使用Bellman-Ford算法。
@@ -187,3 +178,13 @@ $$\max \text{flow} = \min_{S \subseteq V, s \in S, t \notin S} \sum_{u \in S, v 
 ## 历史注记
 
 图论应用中最有趣的故事之一是稳定匹配理论的产业化。Gale和Shapley在1962年发表的论文起初被认为是纯数学研究——直到Alvin Roth在1980年代发现美国的NRMP住院医匹配系统实际上在使用一个有缺陷的算法。Roth用稳定匹配理论重新设计了匹配系统，随后又将匹配理论应用于肾脏交换捐赠和纽约市的高中入学分配。这一从纯数学到影响数百万人生活的旅程，是应用数学最动人的故事之一。
+
+## 延伸阅读
+
+1. Edsger Dijkstra, "A Note on Two Problems in Connexion with Graphs" (1956).
+2. Lester Ford & Delbert Fulkerson, *Flows in Networks* (1962).
+3. David Easley & Jon Kleinberg, *Networks, Crowds, and Markets* (2010).
+4. 殷剑宏, 《图论及其算法》, 中国科学技术大学出版社, 2003.
+5. Alvin Roth, *Who Gets What — and Why* (2015).
+
+> 「图论是描述关系的数学语言——在图的世界中，万物皆顶点，万联皆边。应用图论的力量在于：将实际问题转化为图问题，然后让算法解决一切。」

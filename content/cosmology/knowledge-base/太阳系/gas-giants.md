@@ -73,14 +73,6 @@ status: published
 
 在系外行星研究中发现的大量"热木星"（Hot Jupiters，在 $\sim 0.05$ AU 轨道的气态巨行星）显示，巨行星可能在雪线以外形成后向内迁移。
 
-## 延伸阅读
-
-- Bolton, S.J. et al. (2017). Jupiter's interior and deep atmosphere: The initial pole-to-pole passes with the Juno spacecraft. _Science_, 356, 821–825.
-- Kempf, S. et al. (2023). Saturn's rings are only 400 million years old. _Science Advances_, 9, eadf8537.
-- Pollack, J.B. et al. (1996). Formation of the giant planets by concurrent accretion of solids and gas. _Icarus_, 124, 62–85.
-- Liu, S.-F. et al. (2019). The formation of Jupiter's diluted core by a giant impact. _Nature_, 572, 355–357.
-- Horner, J. & Jones, B.W. (2008). Jupiter—friend or foe? I: The asteroids. _International Journal of Astrobiology_, 7, 251–261.
-
 ## 行星磁场的比较
 
 气态巨行星的磁场远强于类地行星，来源于内部导电液体（金属氢或高压水-氨混合物）的对流发电机：
@@ -123,3 +115,11 @@ status: published
 理解太阳系天体的演化，既是纯粹的科学追求，也是人类在太阳系中长期生存的战略需求——从行星防御（小行星撞击预警）到深空资源利用（小行星采矿、月球水冰），再到未来人类或机器人的太阳系殖民，太阳系天体的详细知识图谱是人类太空时代的基础设施之一。
 
 木星、土星、天王星、海王星——四颗气态巨行星各自代表了不同的行星形成和演化轨迹，它们的对比研究是理解系外行星多样性（热木星、温热木星、亚海王星等）的基准框架。
+
+## 延伸阅读
+
+- Bolton, S.J. et al. (2017). Jupiter's interior and deep atmosphere: The initial pole-to-pole passes with the Juno spacecraft. _Science_, 356, 821–825.
+- Kempf, S. et al. (2023). Saturn's rings are only 400 million years old. _Science Advances_, 9, eadf8537.
+- Pollack, J.B. et al. (1996). Formation of the giant planets by concurrent accretion of solids and gas. _Icarus_, 124, 62–85.
+- Liu, S.-F. et al. (2019). The formation of Jupiter's diluted core by a giant impact. _Nature_, 572, 355–357.
+- Horner, J. & Jones, B.W. (2008). Jupiter—friend or foe? I: The asteroids. _International Journal of Astrobiology_, 7, 251–261.

@@ -9,6 +9,7 @@ status: published
 updated: 2026-06-04
 ---
 
+
 # 流形
 
 ## 一个直觉：地球是圆的，地图却是平的
@@ -103,16 +104,6 @@ updated: 2026-06-04
 - **→ 机器学习**：流形学习算法（Isomap、LLE、t-SNE、UMAP）假设数据分布在低维流形上。黎曼优化在流形上做梯度下降——用于训练正交矩阵值的神经网络。
 - **→ 机器人学**：刚体的构型空间是特殊欧氏群 $SE(3)$——一个6维李群（特殊的流形）。多关节机器人的构型空间是环面 $T^n$ 的子流形。
 
-## 延伸阅读
-
-1. Bernhard Riemann, "Über die Hypothesen, welche der Geometrie zu Grunde liegen" (1854).
-2. Henri Poincaré, *Analysis Situs* (1895).
-3. John Milnor, *Topology from the Differentiable Viewpoint* (1965).
-4. 陈省身, 陈维桓, 《微分几何讲义》, 北京大学出版社, 2001.
-5. Loring Tu, *An Introduction to Manifolds* (2nd ed., 2011).
-
-> 「流形是现代几何学的舞台——所有几何和物理现象都在这个舞台上演出。」
-
 ## 具体例子与直觉
 
 **环面与咖啡杯**。在拓扑学中，环面（甜甜圈的表面）与带一个把手的咖啡杯是同胚的——你可以连续变形一个成为另一个，不需要撕裂或粘合。环面可以参数化为 $(\theta, \phi) \mapsto ((R + r\cos\phi)\cos\theta, (R + r\cos\phi)\sin\theta, r\sin\phi)$，其中 $R$ 是大半径，$r$ 是小半径。环面的拓扑不变量是亏格（$g = 1$），而球面的亏格是 $0$。亏格是拓扑流形最基本的分类不变量之一——它告诉你流形上有多少个"洞"。
@@ -154,3 +145,13 @@ updated: 2026-06-04
 **辛填充与辛嵌入问题**。给定两个辛流形，一个能否辛嵌入另一个？Gromov的非挤压定理是辛几何的基本结果——但一般的辛嵌入问题远未解决。辛填充问题问：一个给定的接触流形有多少种不同的辛填充？这个问题在三维接触几何中有丰富的结构——但高维情况仍然开放。
 
 **里奇流在高维的行为**。佩雷尔曼在三维中完全理解了里奇流的奇点结构——但高维里奇流的行为远未被理解。高维奇点的分类是几何分析的核心开放问题。Hamilton的里奇流程序试图在四维中构造爱因斯坦度量——但奇点的形成和手术过程比三维复杂得多。
+
+## 延伸阅读
+
+1. Bernhard Riemann, "Über die Hypothesen, welche der Geometrie zu Grunde liegen" (1854).
+2. Henri Poincaré, *Analysis Situs* (1895).
+3. John Milnor, *Topology from the Differentiable Viewpoint* (1965).
+4. 陈省身, 陈维桓, 《微分几何讲义》, 北京大学出版社, 2001.
+5. Loring Tu, *An Introduction to Manifolds* (2nd ed., 2011).
+
+> 「流形是现代几何学的舞台——所有几何和物理现象都在这个舞台上演出。」

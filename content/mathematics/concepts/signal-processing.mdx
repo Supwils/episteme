@@ -11,6 +11,7 @@ status: published
 updated: 2026-06-07
 ---
 
+
 # 信号处理
 
 ## 一个直觉：你的耳朵，天生就是一台傅里叶分析仪
@@ -141,16 +142,6 @@ DFT将离散时域信号变换为离散频域表示。快速傅里叶变换（FF
 - **→ 经济学**：金融时间序列分析使用频谱分析识别周期性模式。经济周期的检测和预测可以使用信号处理工具。
 - **→ 音乐**：音频合成和效果处理（混响、均衡、压缩）基于信号处理原理。MIDI和数字音频工作站（DAW）是信号处理在音乐创作中的应用。
 
-## 延伸阅读
-
-1. Alan Oppenheim & Ronald Willsky, *Signals and Systems* (2nd ed., 1996).
-2. Ronald Bracewell, *The Fourier Transform and Its Applications* (3rd ed., 2000).
-3. Emmanuel Candès & Michael Wakin, "An Introduction to Compressive Sampling" (2008).
-4. 柳重堪, 《信号处理的数学方法》, 国防工业出版社, 2004.
-5. Stephane Mallat, *A Wavelet Tour of Signal Processing* (3rd ed., 2008).
-
-> 「傅里叶变换是数学中最伟大的工具之一——它将复杂的时域信号转化为简单的频率分量。」
-
 ## 常见误区
 
 - **"更高采样率总是更好"**：超过奈奎斯特率后，更高采样率不会增加信息量——只是增加了数据量。过采样可以简化抗混叠滤波器设计，但有其实际极限。
@@ -160,3 +151,13 @@ DFT将离散时域信号变换为离散频域表示。快速傅里叶变换（FF
 ## 历史注记
 
 傅里叶在1807年向法兰西学院提交关于三角级数的论文时，拉格朗日、拉普拉斯和勒让德都持怀疑态度——他们质疑不连续函数能否表示为连续的正弦函数之和。这一争议推动了19世纪数学分析的严格化——狄利克雷条件、黎曼积分和勒贝格积分理论都部分源于对傅里叶级数收敛性的研究。FFT算法的发现也充满戏剧性——库利和图基在1965年发表后，人们发现高斯在1805年就已使用过类似方法，但未被广泛知晓。
+
+## 延伸阅读
+
+1. Alan Oppenheim & Ronald Willsky, *Signals and Systems* (2nd ed., 1996).
+2. Ronald Bracewell, *The Fourier Transform and Its Applications* (3rd ed., 2000).
+3. Emmanuel Candès & Michael Wakin, "An Introduction to Compressive Sampling" (2008).
+4. 柳重堪, 《信号处理的数学方法》, 国防工业出版社, 2004.
+5. Stephane Mallat, *A Wavelet Tour of Signal Processing* (3rd ed., 2008).
+
+> 「傅里叶变换是数学中最伟大的工具之一——它将复杂的时域信号转化为简单的频率分量。」

@@ -10,6 +10,7 @@ status: published
 updated: 2026-06-16
 ---
 
+
 # 环
 
 ## 一个直觉：环就是"能加减乘、但不一定能除"的数系
@@ -104,16 +105,6 @@ updated: 2026-06-16
 - **→ 编码理论**：循环码（如 BCH 码、里德-所罗门码）基于多项式环 $F[x]/(x^n - 1)$ 的理想理论——你扫二维码时就在用环论纠错。
 - **→ 密码学**：后量子格密码使用多项式环 $R_q = \mathbb{Z}_q[x]/(x^n + 1)$ 的结构，全同态加密也依赖多项式环的代数性质。
 
-## 延伸阅读
-
-1. Richard Dedekind, *Über die Theorie der ganzen algebraischen Zahlen* (1877).
-2. Emmy Noether, "Idealtheorie in Ringbereichen" (1921).
-3. David S. Dummit & Richard M. Foote, *Abstract Algebra* (2004).
-4. 丘维声, 《抽象代数讲义》, 高等教育出版社, 2005.
-5. Michael Atiyah & Ian Macdonald, *Introduction to Commutative Algebra* (1969).
-
-> 「理想的引入是代数学中最深刻的抽象之一——它将数论、几何和代数统一在一个框架下。」
-
 ## 具体例子与直觉
 
 **整数环的唯一分解**。$\mathbb{Z}$ 是唯一分解整环——每个非零非单位整数可以唯一分解为素数的乘积（算术基本定理）。$12 = 2^2 \times 3$，$100 = 2^2 \times 5^2$，$-60 = -1 \times 2^2 \times 3 \times 5$。唯一分解在更一般的环中可能失败——例如在 $\mathbb{Z}[\sqrt{-5}]$ 中，$6 = 2 \times 3 = (1+\sqrt{-5})(1-\sqrt{-5})$ 有两种本质上不同的分解。这促使戴德金引入了"理想"的概念——通过理想，唯一分解在更抽象的层面上恢复了。
@@ -155,3 +146,13 @@ updated: 2026-06-16
 **非交换代数几何**。传统代数几何研究交换环的谱——但非交换环也有丰富的几何结构。非交换代数几何（如Artin-Zhang的非交换射影几何）试图将几何方法应用于非交换环。量子群是非交换环的重要例子——它们在量子可积系统和拓扑量子场论中有核心应用。
 
 **计算交换代数的前沿**。Gröbner基的计算复杂性是开放问题——最坏情况下可能需要双指数时间。签名算法（signature-based algorithms）改善了Gröbner基的平均性能。模空间的计算（如希尔伯特概形的构造）需要新的算法——这是计算代数几何的前沿。
+
+## 延伸阅读
+
+1. Richard Dedekind, *Über die Theorie der ganzen algebraischen Zahlen* (1877).
+2. Emmy Noether, "Idealtheorie in Ringbereichen" (1921).
+3. David S. Dummit & Richard M. Foote, *Abstract Algebra* (2004).
+4. 丘维声, 《抽象代数讲义》, 高等教育出版社, 2005.
+5. Michael Atiyah & Ian Macdonald, *Introduction to Commutative Algebra* (1969).
+
+> 「理想的引入是代数学中最深刻的抽象之一——它将数论、几何和代数统一在一个框架下。」

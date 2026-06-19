@@ -9,6 +9,7 @@ status: published
 updated: 2026-06-04
 ---
 
+
 # 导数
 
 ## 定义
@@ -96,16 +97,6 @@ $$f'(x_0) = \lim_{h \to 0} \frac{f(x_0 + h) - f(x_0)}{h}$$
 - **→ 工程学**：PID控制器使用误差的比例（P）、积分（I）和导数（D）来控制系统的响应。导数项预测误差的未来趋势——提供"阻尼"作用。
 - **→ 医学**：心电图（ECG）信号的导数用于检测QRS波群——心率分析的基础。脑电图（EEG）信号的导数用于检测癫痫发作。
 
-## 延伸阅读
-
-1. Isaac Newton, *De Analysi per AEquationes Numero Terminorum Infinitas* (1669).
-2. Gottfried Wilhelm Leibniz, "Nova Methodus pro Maximis et Minimis" (1684).
-3. Carl B. Boyer, *The History of the Calculus and Its Conceptual Development* (1949).
-4. Michael Spivak, *Calculus* (4th ed., 2008).
-5. 陈纪修等, 《数学分析》, 高等教育出版社, 2004.
-
-> 「微分学是人类智慧最伟大的成就之一。」
-
 ## 具体例子与直觉
 
 **指数函数的特殊地位**。$e^x$ 是唯一（差一个常数因子）满足 $f'(x) = f(x)$ 的函数——它的导数等于它本身。这个性质使得 $e^x$ 在微分方程中无处不在：放射性衰变 $N'(t) = -\lambda N(t)$ 的解是 $N(t) = N_0 e^{-\lambda t}$，人口增长 $P'(t) = rP(t)$ 的解是 $P(t) = P_0 e^{rt}$，RC电路中电荷 $Q'(t) = -Q(t)/RC$ 的解也是指数函数。$e$ 的定义可以从多个等价角度给出：$\lim_{n\to\infty}(1+1/n)^n$、$\sum_{n=0}^{\infty} 1/n!$、使得 $\int_1^e (1/t)dt = 1$ 的唯一正数。
@@ -145,3 +136,13 @@ $$f'(x_0) = \lim_{h \to 0} \frac{f(x_0 + h) - f(x_0)}{h}$$
 **正则性猜想与部分正则性**。Caffarelli-Kohn-Nirenberg定理（1982）证明了纳维-斯托克斯方程的奇异集的一维豪斯多夫测度为零——这意味着奇点即使存在，也是非常"稀疏"的。但完全的正则性（光滑解对所有时间存在）仍未被证明。部分正则性理论是偏微分方程中最深刻的技术成就之一——它将调和分析、几何测度论和流体力学统一在一个框架下。
 
 **随机微分方程与伊藤积分**。伊藤积分将导数推广到随机过程——$\int_0^t f(s) \, dW_s$（其中 $W_s$ 是维纳过程）。伊藤引理说：$df(W_t) = f'(W_t) \, dW_t + \frac{1}{2}f''(W_t) \, dt$——比普通链式法则多了一个二阶修正项。这个"额外的 $dt$ 项"是随机微积分与普通微积分的根本区别——它反映了布朗运动的路径虽然连续但处处不可导的性质。随机微分方程在金融数学（期权定价）、物理学（朗之万方程）和生物学（种群动力学）中有核心应用。
+
+## 延伸阅读
+
+1. Isaac Newton, *De Analysi per AEquationes Numero Terminorum Infinitas* (1669).
+2. Gottfried Wilhelm Leibniz, "Nova Methodus pro Maximis et Minimis" (1684).
+3. Carl B. Boyer, *The History of the Calculus and Its Conceptual Development* (1949).
+4. Michael Spivak, *Calculus* (4th ed., 2008).
+5. 陈纪修等, 《数学分析》, 高等教育出版社, 2004.
+
+> 「微分学是人类智慧最伟大的成就之一。」

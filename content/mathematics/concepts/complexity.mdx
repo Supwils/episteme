@@ -9,6 +9,7 @@ status: published
 updated: 2026-06-04
 ---
 
+
 # 计算复杂性
 
 ## 定义
@@ -84,16 +85,6 @@ updated: 2026-06-04
 - **→ 经济学**：机制设计中的计算复杂性——设计一个「最优」的拍卖机制可能是计算上不可行的。这为「次优但可计算」的机制设计提供了理论依据。
 - **→ 哲学**：P vs NP问题触及了知识和创造力的本质——如果P=NP，那么「创造性地发现一个解」和「机械地验证一个解」之间没有本质区别。这对我们理解人类智能和人工智能的关系有深刻含义。
 
-## 延伸阅读
-
-1. Stephen Cook, "The Complexity of Theorem-Proving Procedures" (1971).
-2. Richard Karp, "Reducibility Among Combinatorial Problems" (1972).
-3. Michael Sipser, *Introduction to the Theory of Computation* (3rd ed., 2013).
-4. 堵丁柱, 葛可一, 《计算复杂性导论》, 高等教育出版社, 2002.
-5. Scott Aaronson, *Quantum Computing Since Democritus* (2013).
-
-> 「P vs NP问题是计算机科学的圣杯——解决它将改变我们对计算本质的理解。」
-
 ## 具体例子与直觉
 
 **SAT问题的直观理解**。布尔可满足性问题（SAT）：给定一个由"与"、"或"、"非"连接的布尔公式，是否存在一组变量赋值使得公式为真？例如 $(x_1 \vee \neg x_2) \wedge (\neg x_1 \vee x_3) \wedge (x_2 \vee x_3)$ 是可满足的（$x_1 = T, x_2 = T, x_3 = T$）。库克定理说：所有NP问题都可以多项式归约到SAT——这意味着SAT是"NP中最难的问题"。现代SAT求解器（如MiniSat、Z3）使用冲突驱动子句学习（CDCL）算法，能够高效处理数百万变量的SAT实例——在硬件验证和软件测试中有广泛应用。
@@ -145,6 +136,12 @@ updated: 2026-06-04
 
 **去随机化与伪随机数**。如果 $P = BPP$，则所有随机化算法都可以确定性地执行——随机性不是计算的必需品。已知如果存在足够强的伪随机数生成器，则 $P = BPP$。Nisan-Wigderson生成器利用计算困难问题来构造伪随机数——这建立了复杂性理论不同分支之间的深刻联系。去随机化的进展表明：真正的随机性可能比我们想象的更不重要——好的伪随机数就足够了。
 
+## 延伸阅读
 
+1. Stephen Cook, "The Complexity of Theorem-Proving Procedures" (1971).
+2. Richard Karp, "Reducibility Among Combinatorial Problems" (1972).
+3. Michael Sipser, *Introduction to the Theory of Computation* (3rd ed., 2013).
+4. 堵丁柱, 葛可一, 《计算复杂性导论》, 高等教育出版社, 2002.
+5. Scott Aaronson, *Quantum Computing Since Democritus* (2013).
 
-
+> 「P vs NP问题是计算机科学的圣杯——解决它将改变我们对计算本质的理解。」

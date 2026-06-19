@@ -9,6 +9,7 @@ status: published
 updated: 2026-06-04
 ---
 
+
 # 信封悖论
 
 ## 悖论描述
@@ -66,15 +67,6 @@ $$P(x = a | x) = \frac{p(x)}{p(x) + p(x/2)/2}$$
 在金融市场中，投资者面临的"换仓"决策与信封悖论有相似的结构：已知当前持仓的收益，但不知道另一只股票是否更好。正确的决策需要先验信息（如市场模型）。
 
 在拍卖理论中，"赢者诅咒"（winner's curse）与信封悖论相关：赢得拍卖意味着你的估值可能是所有竞标者中最高的——这暗示你可能高估了物品的价值。
-
-## 延伸阅读
-
-1. Maurice Kraitchik, *Mathematical Recreations* (1930).
-2. Thomas Cover, "Pick the Largest Number." *Open Problems in Communication and Computation*, 1987.
-3. Clark, M. & Shackel, N. "The Two-Envelope Paradox." *Mind* 109(435), 415–442 (2000).
-4. Meacham, C. & Weisberg, J. "Whatever Happened to Bayesian Decision Theory?" (2003).
-
-> 信封悖论的核心教训：没有先验分布，"理性决策"就是未定义的。期望值最大化不能在真空中应用——它始终依赖关于世界状态的概率假设。（这一洞见见于决策论文献，如 Clark & Shackel, *Mind* 109, 2000。）
 
 ## 总结
 
@@ -137,3 +129,11 @@ $$P(x = a | x) = \frac{p(x)}{p(x) + p(x/2)/2}$$
 
 **探索-利用困境**。强化学习中的探索-利用困境与信封悖论有相同的数学结构：是否应该"换信封"（探索新策略）还是"留在原地"（利用已知最优策略）？UCB（Upper Confidence Bound）算法和Thompson采样提供了理性的解决方案——它们在贝叶斯框架下平衡探索和利用。这些算法在临床试验（选择最佳治疗方案）和在线广告（选择最佳广告）中有广泛应用。
 
+## 延伸阅读
+
+1. Maurice Kraitchik, *Mathematical Recreations* (1930).
+2. Thomas Cover, "Pick the Largest Number." *Open Problems in Communication and Computation*, 1987.
+3. Clark, M. & Shackel, N. "The Two-Envelope Paradox." *Mind* 109(435), 415–442 (2000).
+4. Meacham, C. & Weisberg, J. "Whatever Happened to Bayesian Decision Theory?" (2003).
+
+> 信封悖论的核心教训：没有先验分布，"理性决策"就是未定义的。期望值最大化不能在真空中应用——它始终依赖关于世界状态的概率假设。（这一洞见见于决策论文献，如 Clark & Shackel, *Mind* 109, 2000。）

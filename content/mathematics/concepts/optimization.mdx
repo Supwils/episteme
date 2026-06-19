@@ -9,6 +9,7 @@ status: published
 updated: 2026-06-04
 ---
 
+
 # 最优化
 
 ## 一个直觉：你的人生，无时无刻不在求解最优化
@@ -95,16 +96,6 @@ $$\min_{x \in \mathcal{X}} f(x) \quad \text{s.t.} \quad g_i(x) \leq 0, \; h_j(x)
 - **→ 哲学**：功利主义（最大化总体幸福）本质上是一个优化问题。但阿罗不可能定理告诉我们：在某些条件下，不存在满足所有「合理」条件的社会优化方案——优化可能在原则上就是不可能的。
 - **→ 运筹学**：丹齐格的单纯形法不仅是一种算法，更是一种思维方式——将复杂的实际问题抽象为数学模型，然后用系统化的方法求解。这种「优化思维」是现代管理科学的基础。
 
-## 延伸阅读
-
-1. George Dantzig, *Linear Programming and Extensions* (1963).
-2. Stephen Boyd & Lieven Vandenberghe, *Convex Optimization* (2004).
-3. Jorge Nocedal & Stephen Wright, *Numerical Optimization* (2nd ed., 2006).
-4. 袁亚湘, 孙文瑜, 《最优化理论与方法》, 科学出版社, 1997.
-5. Dimitri Bertsekas, *Nonlinear Programming* (3rd ed., 2016).
-
-> 「最优化是应用数学的核心——它将数学的力量转化为实际的决策。」
-
 ## 常见误区
 
 - **"优化就是找到最好的"**：在非凸优化问题中，找到全局最优可能是NP困难的。实际中，我们通常满足于"足够好"的局部最优或近似解。
@@ -120,7 +111,6 @@ $$\min_{x \in \mathcal{X}} f(x) \quad \text{s.t.} \quad g_i(x) \leq 0, \; h_j(x)
 ## 优化思维在日常生活中的应用
 
 优化思维是一种强大的问题解决框架。职业选择可以建模为多目标优化——最大化收入、满足感和工作生活平衡。时间管理是资源分配优化——在有限的时间中分配注意力给不同的任务。学习策略的选择也是优化——间隔重复（spaced repetition）是最小化遗忘率的学习调度算法，Anki等软件正是基于此原理。理解优化理论不仅是数学训练——它培养了一种系统化思考问题的方式，帮助我们在约束条件下做出更好的决策。
-
 
 ## 历史注记
 
@@ -150,9 +140,12 @@ $$\min_{x \in \mathcal{X}} f(x) \quad \text{s.t.} \quad g_i(x) \leq 0, \; h_j(x)
 
 **对抗鲁棒性**：深度学习模型对微小的输入扰动极其脆弱。对抗鲁棒性优化——$\min_\theta \max_{\|\delta\| \leq \epsilon} \mathcal{L}(f_\theta(x + \delta), y)$——是一个极小极大优化问题，连接了优化理论与博弈论。
 
+## 延伸阅读
 
+1. George Dantzig, *Linear Programming and Extensions* (1963).
+2. Stephen Boyd & Lieven Vandenberghe, *Convex Optimization* (2004).
+3. Jorge Nocedal & Stephen Wright, *Numerical Optimization* (2nd ed., 2006).
+4. 袁亚湘, 孙文瑜, 《最优化理论与方法》, 科学出版社, 1997.
+5. Dimitri Bertsekas, *Nonlinear Programming* (3rd ed., 2016).
 
-
-
-
-
+> 「最优化是应用数学的核心——它将数学的力量转化为实际的决策。」

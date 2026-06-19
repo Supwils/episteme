@@ -103,14 +103,6 @@ Robin Hanson（1998）提出**大过滤器**（Great Filter）概念：从宇宙
 
 更深层的意义在于：如果大过滤器在前方，了解它的性质可能关乎我们自身的生存——是技术灾难、环境崩溃还是宇宙自然机制，答案将指导人类如何在宇宙中延续。
 
-## 延伸阅读
-
-- Fermi, E. (1950). 关于外星人的非正式讨论（重建记录），洛斯阿拉莫斯会议记录。
-- Drake, F. (1965). The radio search for intelligent extraterrestrial life. _Current Aspects of Exobiology_, 323–345.
-- Ward, P.D. & Brownlee, D. (2000). _Rare Earth: Why Complex Life Is Uncommon in the Universe_. Copernicus Books.
-- Hanson, R. (1998). The great filter—are we almost past it? _Working paper_. George Mason University.
-- Price, D.C. et al. (2020). The Breakthrough Listen search for intelligent life: Searching for extraterrestrial intelligence with the Parkes MeerKAT Telescope. _Astronomical Journal_, 159, 86.
-
 ## 跨学科连接
 
 - **天体生物学**：费米悖论是所有生物标志物和 SETI 研究背后的驱动问题——如果生命普遍，为什么我们还没发现证据？
@@ -132,3 +124,11 @@ Robin Hanson（1998）提出**大过滤器**（Great Filter）概念：从宇宙
 - **泛星巡天异常信号分析**：从 Gaia、SDSS 等巡天项目的海量数据中，用机器学习自动识别异常恒星变化模式（如戴森球的红外超量或异常凌星信号）
 
 这些方向的统一特点是：即使至今无发现，上限约束本身就是科学成果，正在显著压缩"外星文明存在但我们没看到"的参数空间。
+
+## 延伸阅读
+
+- Fermi, E. (1950). 关于外星人的非正式讨论（重建记录），洛斯阿拉莫斯会议记录。
+- Drake, F. (1965). The radio search for intelligent extraterrestrial life. _Current Aspects of Exobiology_, 323–345.
+- Ward, P.D. & Brownlee, D. (2000). _Rare Earth: Why Complex Life Is Uncommon in the Universe_. Copernicus Books.
+- Hanson, R. (1998). The great filter—are we almost past it? _Working paper_. George Mason University.
+- Price, D.C. et al. (2020). The Breakthrough Listen search for intelligent life: Searching for extraterrestrial intelligence with the Parkes MeerKAT Telescope. _Astronomical Journal_, 159, 86.

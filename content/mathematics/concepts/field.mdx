@@ -10,6 +10,7 @@ status: published
 updated: 2026-06-16
 ---
 
+
 # 域
 
 ## 一个直觉：域就是"能放心做加减乘除的地方"
@@ -103,16 +104,6 @@ updated: 2026-06-16
 - **→ [[number-theory]] 数论**：类域论描述了数域的阿贝尔扩张，朗兰兹纲领试图将域的伽罗瓦表示与自守形式统一起来，被称为"数学的大统一理论"。
 - **→ 密码学**：有限域 $\mathbb{F}_{2^8}$ 是 AES 加密的工作场所，$\mathbb{F}_p$ 上的椭圆曲线群支撑着你每天用的 HTTPS。
 
-## 延伸阅读
-
-1. Ernst Steinitz, "Algebraische Theorie der Körper" (1910).
-2. Emil Artin, *Galois Theory* (1942).
-3. David S. Dummit & Richard M. Foote, *Abstract Algebra* (2004).
-4. 莫宗坚, 《代数学》, 北京大学出版社, 2002.
-5. Ian Stewart, *Galois Theory* (4th ed., 2015).
-
-> 「域是代数学中最自然的舞台——它为线性代数、多项式理论和几何学提供了统一的框架。」
-
 ## 具体例子与直觉
 
 **有限域 $\mathbb{F}_p$ 的算术**。$\mathbb{F}_5 = \{0, 1, 2, 3, 4\}$，加法和乘法模5。$3 + 4 = 2$（因为 $7 \mod 5 = 2$），$3 \times 4 = 2$（因为 $12 \mod 5 = 2$）。$3$ 的乘法逆元是 $2$（因为 $3 \times 2 = 6 \equiv 1 \mod 5$）。有限域的一个惊人性质：$a^{p-1} = 1$ 对所有非零 $a$ 成立（费马小定理）。这个性质是RSA加密算法的基础。
@@ -158,3 +149,12 @@ updated: 2026-06-16
 
 **有限域上的椭圆曲线**。有限域 $\mathbb{F}_p$ 上的椭圆曲线 $E: y^2 = x^3 + ax + b$ 的有理点构成一个有限阿贝尔群——阶数在 $p+1-2\sqrt{p}$ 和 $p+1+2\sqrt{p}$ 之间（Hasse定理）。这个群的阶数在密码学中至关重要——需要足够大以抵抗暴力攻击。Schoof算法可以在多项式时间内计算椭圆曲线的阶——这使得选择安全的椭圆曲线参数成为可能。
 
+## 延伸阅读
+
+1. Ernst Steinitz, "Algebraische Theorie der Körper" (1910).
+2. Emil Artin, *Galois Theory* (1942).
+3. David S. Dummit & Richard M. Foote, *Abstract Algebra* (2004).
+4. 莫宗坚, 《代数学》, 北京大学出版社, 2002.
+5. Ian Stewart, *Galois Theory* (4th ed., 2015).
+
+> 「域是代数学中最自然的舞台——它为线性代数、多项式理论和几何学提供了统一的框架。」

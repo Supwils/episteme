@@ -79,14 +79,6 @@ $$P \approx \frac{21}{2} \frac{k_2}{Q} \frac{G M_p^2 R^5 e^2}{a^6}$$
 
 其中 $k_2$ 是 Love 数（天体形变的弹性响应）、$Q$ 是潮汐质量因子（耗散效率）、$M_p$ 是母行星质量、$R$ 和 $a$ 是卫星半径和轨道半长轴、$e$ 是轨道偏心率。在拉普拉斯共振作用下，木卫一的轨道偏心率维持在约 0.004，使得潮汐加热持续不断。
 
-## 延伸阅读
-
-- Canup, R.M. & Asphaug, E. (2001). Origin of the Moon in a giant impact. _Nature_, 412, 708–712.
-- Waite, J.H. et al. (2017). Cassini finds molecular hydrogen in the Enceladus plume. _Science_, 356, 155–159.
-- Roth, L. et al. (2014). Transient water vapor at Europa's south pole. _Science_, 343, 171–174.
-- Saur, J. et al. (2015). The search for a subsurface ocean in Ganymede. _Journal of Geophysical Research: Space Physics_, 120, 1715–1737.
-- Nimmo, F. & Pappalardo, R.T. (2016). Ocean worlds in the outer solar system. _Journal of Geophysical Research: Planets_, 121, 1378–1399.
-
 ## 卫星的形成机制
 
 太阳系的天然卫星通过多种机制形成：
@@ -125,3 +117,11 @@ $$P \approx \frac{21}{2} \frac{k_2}{Q} \frac{G M_p^2 R^5 e^2}{a^6}$$
 理解太阳系天体的演化，既是纯粹的科学追求，也是人类在太阳系中长期生存的战略需求——从行星防御（小行星撞击预警）到深空资源利用（小行星采矿、月球水冰），再到未来人类或机器人的太阳系殖民，太阳系天体的详细知识图谱是人类太空时代的基础设施之一。
 
 太阳系卫星是行星科学和天体生物学的交汇点——从伽利略四百年前第一次看到木星的卫星，到今天 Europa Clipper 飞向木卫二寻找液态水海洋，这一旅程是人类认知宇宙能力的缩影。
+
+## 延伸阅读
+
+- Canup, R.M. & Asphaug, E. (2001). Origin of the Moon in a giant impact. _Nature_, 412, 708–712.
+- Waite, J.H. et al. (2017). Cassini finds molecular hydrogen in the Enceladus plume. _Science_, 356, 155–159.
+- Roth, L. et al. (2014). Transient water vapor at Europa's south pole. _Science_, 343, 171–174.
+- Saur, J. et al. (2015). The search for a subsurface ocean in Ganymede. _Journal of Geophysical Research: Space Physics_, 120, 1715–1737.
+- Nimmo, F. & Pappalardo, R.T. (2016). Ocean worlds in the outer solar system. _Journal of Geophysical Research: Planets_, 121, 1378–1399.

@@ -9,6 +9,7 @@ status: published
 updated: 2026-06-04
 ---
 
+
 # 收敛性
 
 ## 定义
@@ -110,16 +111,6 @@ updated: 2026-06-04
 
 **遍历定理**：保测度变换的遍历性保证了时间平均等于空间平均——这是统计力学的基础。Birkhoff 遍历定理和 von Neumann 遍历定理是收敛性在动力系统中的深刻应用。
 
-## 延伸阅读
-
-1. Augustin-Louis Cauchy, *Cours d'analyse* (1821).
-2. Stefan Banach, *Théorie des opérations linéaires* (1932).
-3. Walter Rudin, *Functional Analysis* (1973).
-4. 张恭庆, 林源渠, 《泛函分析讲义》, 北京大学出版社, 2005.
-5. H.L. Royden, *Real Analysis* (4th ed., 2010).
-
-> 「完备性是分析学的基石——没有它，极限理论就建立不起来。」
-
 ## 跨领域连接
 
 - **物理学**：收敛性在量子场论重整化中的核心作用
@@ -149,4 +140,12 @@ updated: 2026-06-04
 
 在计算机科学中，迭代算法的收敛性分析是算法设计的核心。梯度下降法的收敛速率取决于目标函数的性质——凸函数为 $O(1/n)$，强凸函数为线性收敛 $O(c^n)$。坐标下降法每次只更新一个变量——在高维问题中更高效。EM算法（期望最大化）用于含有隐变量的概率模型——每次迭代保证似然函数增加但可能收敛到局部最优。随机梯度下降（SGD）的收敛性分析涉及随机逼近理论——罗宾斯-蒙罗算法（1951）是这一理论的先驱。收敛速率的精确刻画决定了算法的实际效率——从 $O(1/n)$ 到 $O(1/n^2)$ 的改进可能意味着数小时与数分钟的差距。
 
+## 延伸阅读
 
+1. Augustin-Louis Cauchy, *Cours d'analyse* (1821).
+2. Stefan Banach, *Théorie des opérations linéaires* (1932).
+3. Walter Rudin, *Functional Analysis* (1973).
+4. 张恭庆, 林源渠, 《泛函分析讲义》, 北京大学出版社, 2005.
+5. H.L. Royden, *Real Analysis* (4th ed., 2010).
+
+> 「完备性是分析学的基石——没有它，极限理论就建立不起来。」

@@ -90,14 +90,6 @@ $$M_\text{BH} \approx 2 \times 10^8 M_\odot \left(\frac{\sigma}{200 \text{ km/s}
 - **暗物质晕的形状**：内区是否存在 NFW 轮廓的尖峰（cusp），还是被 AGN 反馈削平为核（core）？
 - **超低面亮度椭圆星系**：近年 Dragonfly 望远镜阵列发现大量极低面亮度的超弥散星系（UDGs），其中一些驻留于椭圆星系周围，性质仍不清楚
 
-## 延伸阅读
-
-- Kormendy, J. & Ho, L.C. (2013). Coevolution (or not) of supermassive black holes and host galaxies. _Annual Review of Astronomy and Astrophysics_, 51, 511–653.
-- Cappellari, M. et al. (2011). The ATLAS3D project. _Monthly Notices of the Royal Astronomical Society_, 413, 813–836.
-- van Dokkum, P.G. et al. (2010). The growing giant: the size evolution of massive galaxies. _Astrophysical Journal Letters_, 709, L74–L78.
-- EHT Collaboration (2019). First M87 Event Horizon Telescope results. _Astrophysical Journal Letters_, 875, L1.
-- Faber, S.M. & Jackson, R.E. (1976). Velocity dispersions and mass-to-light ratios for elliptical galaxies. _Astrophysical Journal_, 204, 668–683.
-
 ## 椭圆星系的多波段图像
 
 现代大型巡天（SDSS、DES、HSC）提供了前所未有的椭圆星系大样本：
@@ -125,3 +117,11 @@ $$M_\text{BH} \approx 2 \times 10^8 M_\odot \left(\frac{\sigma}{200 \text{ km/s}
 - cD 型星系（brightest cluster galaxy）：星系团中心最亮者，有弥散恒星包层，可延伸至数 Mpc
 - 椭圆星系中的古老星族：典型年龄约 10–13 Gyr（宇宙年龄的 70–90%）
 - 恒星速度弥散 $\sigma$：从约 50 km/s（矮椭圆）到约 350 km/s（最大 cD 星系）
+
+## 延伸阅读
+
+- Kormendy, J. & Ho, L.C. (2013). Coevolution (or not) of supermassive black holes and host galaxies. _Annual Review of Astronomy and Astrophysics_, 51, 511–653.
+- Cappellari, M. et al. (2011). The ATLAS3D project. _Monthly Notices of the Royal Astronomical Society_, 413, 813–836.
+- van Dokkum, P.G. et al. (2010). The growing giant: the size evolution of massive galaxies. _Astrophysical Journal Letters_, 709, L74–L78.
+- EHT Collaboration (2019). First M87 Event Horizon Telescope results. _Astrophysical Journal Letters_, 875, L1.
+- Faber, S.M. & Jackson, R.E. (1976). Velocity dispersions and mass-to-light ratios for elliptical galaxies. _Astrophysical Journal_, 204, 668–683.
