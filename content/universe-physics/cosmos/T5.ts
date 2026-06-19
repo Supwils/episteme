@@ -276,6 +276,14 @@ const content: TierContent = {
       size: 0.05,
     },
   ],
+  relatedArticles: [
+    { href: "/cosmology/knowledge-base/恒星物理--main-sequence-stars", title: "主序星" },
+    { href: "/cosmology/knowledge-base/恒星物理--star-formation", title: "恒星形成" },
+    {
+      href: "/cosmology/knowledge-base/恒星物理--stellar-structure-hydrostatic-equilibrium",
+      title: "恒星结构与流体静力平衡",
+    },
+  ],
 };
 
 export default content;

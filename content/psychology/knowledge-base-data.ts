@@ -32,6 +32,12 @@ export const PSYCHOLOGY_KB_DATA = [
     category: "进化心理学",
   },
   {
+    slug: "intelligence-theories",
+    title: "智力理论：一个数字能装下一个人吗",
+    titleEn: "Theories of Intelligence: Can One Number Hold a Whole Mind?",
+    category: "认知心理学",
+  },
+  {
     slug: "metacognition-training",
     title: "元认知：思考你的思考",
     titleEn: "Metacognition: Thinking About Your Thinking",
@@ -48,6 +54,12 @@ export const PSYCHOLOGY_KB_DATA = [
     title: "决策心理学：如何做出更好的选择",
     titleEn: "The Psychology of Decision-Making",
     category: "实用心理学",
+  },
+  {
+    slug: "psychometrics-reliability-validity",
+    title: "心理测量学：信度、效度与如何相信一个测验",
+    titleEn: "Psychometrics: Reliability, Validity, and How to Trust a Test",
+    category: "研究方法",
   },
   {
     slug: "relationship-psychology",

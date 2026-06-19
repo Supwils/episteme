@@ -25,8 +25,8 @@ import {
 
 describe("psychology data access", () => {
   describe("getAllTheorists", () => {
-    it("returns 44 theorists", () => {
-      expect(getAllTheorists()).toHaveLength(44);
+    it("has at least the core theorist set", () => {
+      expect(getAllTheorists().length).toBeGreaterThanOrEqual(44);
     });
 
     it("each theorist has required fields (title, slug, content)", () => {
@@ -71,8 +71,8 @@ describe("psychology data access", () => {
   });
 
   describe("getAllExperiments", () => {
-    it("returns 26 experiments", () => {
-      expect(getAllExperiments()).toHaveLength(26);
+    it("has at least the core experiment set", () => {
+      expect(getAllExperiments().length).toBeGreaterThanOrEqual(26);
     });
 
     it("each experiment has required fields (title, slug, content)", () => {

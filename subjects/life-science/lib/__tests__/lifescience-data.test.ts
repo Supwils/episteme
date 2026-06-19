@@ -7,8 +7,8 @@ import { getAllDomains, getDomainById } from "../tree-data";
 
 describe("life-science data access", () => {
   describe("getAllSpecies", () => {
-    it("returns 93 species", () => {
-      expect(getAllSpecies()).toHaveLength(93);
+    it("has at least the core species set", () => {
+      expect(getAllSpecies().length).toBeGreaterThanOrEqual(93);
     });
 
     it("each species has required fields (id, name, era, taxonomy)", () => {

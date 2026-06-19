@@ -277,6 +277,11 @@ const content: TierContent = {
       size: 0.028,
     },
   ],
+  relatedArticles: [
+    { href: "/cosmology/knowledge-base/暗物质与暗能量", title: "暗物质与暗能量" },
+    { href: "/cosmology/knowledge-base/宇宙大尺度结构", title: "宇宙大尺度结构" },
+    { href: "/cosmology/knowledge-base/星系形成与演化", title: "星系形成与演化" },
+  ],
 };
 
 export default content;

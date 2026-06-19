@@ -54,4 +54,10 @@ export type TierContent = {
   sources: SourceRef[];
   /** Interactive 3D markers with hover tooltips. */
   markers?: SceneMarker[];
+  /**
+   * Curated "深入阅读" links from the 3D scene into the prose knowledge base,
+   * so viewers can drill from the visual tier into a full article. When absent,
+   * the panel falls back to the tier's section knowledge-base index.
+   */
+  relatedArticles?: { href: string; title: string }[];
 };

@@ -285,6 +285,11 @@ const content: TierContent = {
       size: 0.012,
     },
   ],
+  relatedArticles: [
+    { href: "/cosmology/knowledge-base/星系形成与演化", title: "星系形成与演化" },
+    { href: "/cosmology/knowledge-base/星系天文学--galaxy-clusters", title: "星系团" },
+    { href: "/cosmology/knowledge-base/星系天文学--dwarf-galaxies", title: "矮星系" },
+  ],
 };
 
 export default content;

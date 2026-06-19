@@ -261,6 +261,11 @@ const content: TierContent = {
       size: 0.034,
     },
   ],
+  relatedArticles: [
+    { href: "/cosmology/knowledge-base/宇宙大尺度结构", title: "宇宙大尺度结构" },
+    { href: "/cosmology/knowledge-base/星系天文学--galaxy-clusters", title: "星系团" },
+    { href: "/cosmology/knowledge-base/星系形成与演化", title: "星系形成与演化" },
+  ],
 };
 
 export default content;

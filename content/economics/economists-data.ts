@@ -25,6 +25,7 @@ export const ECONOMISTS_DATA = [
   },
   { slug: "gary-becker", title: "加里·贝克尔", subtitle: "Gary S. Becker", era: "当代" },
   { slug: "george-akerlof", title: "乔治·阿克洛夫", subtitle: "George A. Akerlof", era: "当代" },
+  { slug: "jean-tirole", title: "让·梯若尔", subtitle: "Jean Tirole", era: "当代" },
   {
     slug: "john-maynard-keynes",
     title: "约翰·梅纳德·凯恩斯",
@@ -47,6 +48,8 @@ export const ECONOMISTS_DATA = [
   { slug: "paul-romer", title: "保罗·罗默", subtitle: "Paul M. Romer", era: "当代" },
   { slug: "paul-samuelson", title: "保罗·萨缪尔森", subtitle: "Paul Samuelson", era: "新古典" },
   { slug: "richard-thaler", title: "理查德·塞勒", subtitle: "Richard H. Thaler", era: "当代" },
+  { slug: "robert-lucas", title: "罗伯特·卢卡斯", subtitle: "Robert E. Lucas Jr.", era: "当代" },
+  { slug: "robert-mundell", title: "罗伯特·蒙代尔", subtitle: "Robert A. Mundell", era: "当代" },
   { slug: "robert-solow", title: "罗伯特·索洛", subtitle: "Robert M. Solow", era: "当代" },
   { slug: "ronald-coase", title: "罗纳德·科斯", subtitle: "Ronald H. Coase", era: "当代" },
   { slug: "thomas-piketty", title: "托马斯·皮凯蒂", subtitle: "Thomas Piketty", era: "现代" },
