@@ -128,6 +128,14 @@ function collectAllSlugs(domain: string): Set<string> {
     const slug = path.basename(f, ".mdx");
     slugs.add(slug);
   }
+  // Frontier articles are `.md` (not `.mdx`) and are valid `related:` targets,
+  // so include their slugs or every cross-link to a frontier piece reads as broken.
+  const frontierDir = path.join(domainDir, "frontier");
+  if (fs.existsSync(frontierDir)) {
+    for (const entry of fs.readdirSync(frontierDir)) {
+      if (entry.endsWith(".md")) slugs.add(path.basename(entry, ".md"));
+    }
+  }
   return slugs;
 }
 

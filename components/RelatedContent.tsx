@@ -46,6 +46,9 @@ const DOMAIN_COLORS: Record<Domain, string> = {
   psychology: "#cc7a9e",
   "computer-science": "#4f9cf0",
   "political-science": "#c25b5b",
+  "earth-science": "#4f9d76",
+  medicine: "#d9544d",
+  chemistry: "#e08a3c",
 };
 
 function CategoryGroup({
@@ -190,6 +193,9 @@ export default function RelatedContent({ slug, domain, entityId }: RelatedConten
     "psychology",
     "computer-science",
     "political-science",
+    "earth-science",
+    "medicine",
+    "chemistry",
   ];
 
   return (

@@ -32,6 +32,12 @@ export const THEORIES_DATA = [
     category: "博弈论",
   },
   {
+    slug: "heckscher-ohlin-model",
+    title: "赫克歇尔-俄林模型",
+    subtitle: "Heckscher-Ohlin Model",
+    category: "国际",
+  },
+  {
     slug: "information-asymmetry",
     title: "信息不对称理论",
     subtitle: "Information Asymmetry Theory",

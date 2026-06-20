@@ -288,6 +288,74 @@ export const DOMAINS = [
     ),
     stats: "思想家 · 主义 · 概念 · 制度 · 国关 · 前沿",
   },
+  {
+    id: "earth-science" as const,
+    title: "地球科学",
+    titleEn: "Earth Science",
+    description:
+      "从地核到大气，从板块漂移到气候临界点——地球如何运转，又如何成为唯一的家园。涵盖先驱、核心概念、地质气候过程、重大事件与研究前沿。",
+    gradient: "linear-gradient(135deg, #4f9d76 0%, #3a7d5e 50%, #6fb894 100%)",
+    glowColor: "#4f9d76",
+    bgAccent: "rgba(79, 157, 118, 0.08)",
+    borderAccent: "rgba(79, 157, 118, 0.2)",
+    icon: (
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+        <circle cx="18" cy="18" r="12" stroke="#4f9d76" strokeWidth="1.5" opacity="0.5" />
+        <ellipse cx="18" cy="18" rx="5" ry="12" stroke="#6fb894" strokeWidth="1.5" opacity="0.4" />
+        <path d="M6.5 14h23M6.5 22h23" stroke="#6fb894" strokeWidth="1.5" opacity="0.4" />
+        <circle cx="18" cy="18" r="3.2" fill="#4f9d76" opacity="0.3" />
+      </svg>
+    ),
+    stats: "先驱 · 核心概念 · 地质气候过程 · 重大事件 · 前沿",
+  },
+  {
+    id: "medicine" as const,
+    title: "医学与公共卫生",
+    titleEn: "Medicine & Public Health",
+    description:
+      "人类如何认识并修复自己的身体——从体液学说到分子医学，从放血疗法到 mRNA 疫苗。唯一直接关乎每个人生死的知识，科学自我纠错最动人的舞台。涵盖医学人物、疾病、核心概念、医学技术、公共卫生里程碑与研究前沿。",
+    gradient: "linear-gradient(135deg, #d9544d 0%, #b13f43 50%, #e87a72 100%)",
+    glowColor: "#d9544d",
+    bgAccent: "rgba(217, 84, 77, 0.08)",
+    borderAccent: "rgba(217, 84, 77, 0.2)",
+    icon: (
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+        <path
+          d="M18 6 C13 6 9 10 9 15 c0 7 9 15 9 15 s9-8 9-15 c0-5-4-9-9-9z"
+          stroke="#d9544d"
+          strokeWidth="1.5"
+          opacity="0.5"
+        />
+        <path d="M18 12v8M14 16h8" stroke="#e87a72" strokeWidth="1.8" opacity="0.6" />
+      </svg>
+    ),
+    stats: "医学人物 · 疾病 · 核心概念 · 医学技术 · 公共卫生里程碑 · 前沿",
+  },
+  {
+    id: "chemistry" as const,
+    title: "化学",
+    titleEn: "Chemistry",
+    description:
+      "万物由什么构成、又如何相互转化——从原子与化学键到燃烧、合成与催化。连接物理与生命的「中心科学」，也是人类改造物质世界的语言。涵盖化学家、核心概念、物质与材料、反应与过程、里程碑与研究前沿。",
+    gradient: "linear-gradient(135deg, #e08a3c 0%, #b96a22 50%, #f0a85a 100%)",
+    glowColor: "#e08a3c",
+    bgAccent: "rgba(224, 138, 60, 0.08)",
+    borderAccent: "rgba(224, 138, 60, 0.2)",
+    icon: (
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+        <path
+          d="M15 5v9l-6.5 11.5A2.5 2.5 0 0 0 10.7 29h14.6a2.5 2.5 0 0 0 2.2-3.5L21 14V5"
+          stroke="#e08a3c"
+          strokeWidth="1.5"
+          opacity="0.55"
+        />
+        <path d="M13 5h10" stroke="#f0a85a" strokeWidth="1.8" opacity="0.6" />
+        <circle cx="16" cy="23" r="1.4" fill="#f0a85a" opacity="0.6" />
+        <circle cx="21" cy="25" r="1.1" fill="#e08a3c" opacity="0.5" />
+      </svg>
+    ),
+    stats: "化学家 · 核心概念 · 物质与材料 · 反应与过程 · 里程碑 · 前沿",
+  },
 ];
 
 export const FEATURES = [
@@ -303,6 +371,13 @@ export const FEATURES = [
     title: "知识图谱",
     desc: "以节点与连线的方式呈现知识之间的深层关联，发现跨领域的隐性联系。",
     href: "/knowledge-graph",
+  },
+  {
+    icon: "⬡",
+    title: "分子图鉴",
+    titleEn: "Molecules",
+    desc: "用真实的实验测定结构，在浏览器里旋转探索胰岛素、DNA、新冠刺突蛋白等分子——准确，而非想象。",
+    href: "/molecules",
   },
   { icon: "◎", title: "沉浸式探索", desc: "WebGL 3D 场景与流畅动画，在视觉交互中理解复杂概念。" },
   {

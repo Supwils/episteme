@@ -103,9 +103,7 @@ $$V(\phi) = -\mu^2 |\phi|^2 + \lambda |\phi|^4$$
 
 ## 引用
 
-> "我们有了一个粒子，看起来与希格斯玻色子一致。我一生中从未见过如此激动人心的实验结果。" — 彼得·希格斯（2012年7月4日，CERN宣布发现后）
-
-> "希格斯玻色子的发现是粒子物理学的一个时代的终结，也是下一个时代的开始。" — 法比奥拉·吉亚诺蒂（Fabiola Gianotti，ATLAS发言人，2012年7月4日）
+> "It is an incredible thing that it has happened in my lifetime."（"它能在我有生之年发生，真是不可思议。"） — 彼得·希格斯（Peter Higgs，2012年7月4日 CERN 宣布发现后的记者会上）
 
 ## 延伸阅读
 

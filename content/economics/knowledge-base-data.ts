@@ -95,6 +95,12 @@ export const ECONOMICS_KB_DATA = [
     category: "金融市场",
   },
   {
+    slug: "money-and-central-banking-history",
+    title: "货币与中央银行史：从贝壳到数字央行",
+    titleEn: "A History of Money and Central Banking: From Shells to Digital Currency",
+    category: "货币金融史",
+  },
+  {
     slug: "money-and-happiness",
     title: "金钱与幸福：科学怎么说",
     titleEn: "Money and Happiness: What Science Says",

@@ -8,6 +8,1090 @@ export interface Backlink {
 }
 
 export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
+  "/chemistry/concepts/acids-and-bases": [
+    {
+      url: "/chemistry/concepts/functional-groups",
+      title: "官能团",
+    },
+    {
+      url: "/earth-science/concepts/ocean-acidification",
+      title: "海洋酸化",
+    },
+    {
+      url: "/chemistry/concepts/analytical-titration",
+      title: "化学分析与滴定",
+    },
+    {
+      url: "/chemistry/concepts/chemical-equilibrium",
+      title: "化学平衡",
+    },
+    {
+      url: "/earth-science/concepts/karst-landforms",
+      title: "喀斯特地貌",
+    },
+  ],
+  "/chemistry/concepts/aromaticity": [
+    {
+      url: "/chemistry/reactions/diels-alder-reaction",
+      title: "狄尔斯-阿尔德反应",
+    },
+    {
+      url: "/chemistry/substances/nucleic-acids-chemistry",
+      title: "核酸的化学",
+    },
+    {
+      url: "/chemistry/concepts/bonding-theory",
+      title: "价键理论与分子轨道理论",
+    },
+  ],
+  "/chemistry/concepts/atomic-structure": [
+    {
+      url: "/chemistry/concepts/spectroscopy",
+      title: "光谱学",
+    },
+    {
+      url: "/chemistry/concepts/nuclear-chemistry",
+      title: "核化学与放射化学",
+    },
+    {
+      url: "/chemistry/concepts/bonding-theory",
+      title: "价键理论与分子轨道理论",
+    },
+    {
+      url: "/chemistry/concepts/the-mole",
+      title: "摩尔与物质的量",
+    },
+    {
+      url: "/chemistry/concepts/periodic-table",
+      title: "元素周期表",
+    },
+  ],
+  "/chemistry/concepts/bonding-theory": [
+    {
+      url: "/chemistry/concepts/chemical-bond",
+      title: "化学键",
+    },
+    {
+      url: "/chemistry/concepts/coordination-chemistry",
+      title: "配位化学",
+    },
+  ],
+  "/chemistry/concepts/chemical-bond": [
+    {
+      url: "/chemistry/concepts/aromaticity",
+      title: "芳香性",
+    },
+    {
+      url: "/chemistry/concepts/intermolecular-forces",
+      title: "分子间作用力",
+    },
+    {
+      url: "/chemistry/concepts/functional-groups",
+      title: "官能团",
+    },
+    {
+      url: "/chemistry/concepts/spectroscopy",
+      title: "光谱学",
+    },
+    {
+      url: "/chemistry/concepts/bonding-theory",
+      title: "价键理论与分子轨道理论",
+    },
+    {
+      url: "/earth-science/concepts/minerals",
+      title: "矿物",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--pauli-exclusion-principle",
+      title: "泡利不相容原理",
+    },
+    {
+      url: "/chemistry/concepts/coordination-chemistry",
+      title: "配位化学",
+    },
+    {
+      url: "/chemistry/concepts/isomerism",
+      title: "同分异构",
+    },
+    {
+      url: "/chemistry/concepts/redox-reactions",
+      title: "氧化还原反应",
+    },
+    {
+      url: "/chemistry/concepts/periodic-table",
+      title: "元素周期表",
+    },
+    {
+      url: "/chemistry/concepts/atomic-structure",
+      title: "原子结构",
+    },
+  ],
+  "/chemistry/concepts/chemical-equilibrium": [
+    {
+      url: "/chemistry/concepts/reaction-kinetics",
+      title: "反应速率",
+    },
+    {
+      url: "/earth-science/concepts/ocean-acidification",
+      title: "海洋酸化",
+    },
+    {
+      url: "/chemistry/concepts/analytical-titration",
+      title: "化学分析与滴定",
+    },
+    {
+      url: "/earth-science/concepts/karst-landforms",
+      title: "喀斯特地貌",
+    },
+    {
+      url: "/chemistry/concepts/the-mole",
+      title: "摩尔与物质的量",
+    },
+    {
+      url: "/chemistry/concepts/thermochemistry",
+      title: "热化学",
+    },
+    {
+      url: "/chemistry/concepts/solutions-and-solubility",
+      title: "溶液与溶解度",
+    },
+    {
+      url: "/chemistry/concepts/acids-and-bases",
+      title: "酸与碱",
+    },
+  ],
+  "/chemistry/concepts/chirality": [
+    {
+      url: "/chemistry/substances/proteins-chemistry",
+      title: "蛋白质的化学",
+    },
+    {
+      url: "/medicine/concepts/pharmacology",
+      title: "药理学基础",
+    },
+    {
+      url: "/medicine/concepts/drug-development",
+      title: "药物研发与临床试验",
+    },
+    {
+      url: "/chemistry/concepts/reaction-mechanisms",
+      title: "有机反应机理",
+    },
+  ],
+  "/chemistry/concepts/chromatography": [
+    {
+      url: "/chemistry/concepts/analytical-titration",
+      title: "化学分析与滴定",
+    },
+  ],
+  "/chemistry/concepts/coordination-chemistry": [
+    {
+      url: "/chemistry/figures/robert-woodward",
+      title: "罗伯特·伍德沃德",
+    },
+    {
+      url: "/medicine/concepts/pharmacology",
+      title: "药理学基础",
+    },
+  ],
+  "/chemistry/concepts/electrochemistry": [
+    {
+      url: "/chemistry/concepts/reaction-kinetics",
+      title: "反应速率",
+    },
+    {
+      url: "/earth-science/frontier/deep-sea-hydrothermal-frontiers",
+      title: "深海前沿：生命起点、地下生物圈与海底采矿的争夺",
+    },
+    {
+      url: "/chemistry/concepts/redox-reactions",
+      title: "氧化还原反应",
+    },
+  ],
+  "/chemistry/concepts/functional-groups": [
+    {
+      url: "/chemistry/substances/proteins-chemistry",
+      title: "蛋白质的化学",
+    },
+    {
+      url: "/chemistry/reactions/diels-alder-reaction",
+      title: "狄尔斯-阿尔德反应",
+    },
+    {
+      url: "/chemistry/reactions/grignard-reaction",
+      title: "格氏反应",
+    },
+    {
+      url: "/chemistry/concepts/spectroscopy",
+      title: "光谱学",
+    },
+    {
+      url: "/chemistry/concepts/bonding-theory",
+      title: "价键理论与分子轨道理论",
+    },
+    {
+      url: "/medicine/concepts/endocrine-system",
+      title: "内分泌系统",
+    },
+    {
+      url: "/chemistry/concepts/chirality",
+      title: "手性与对映异构",
+    },
+    {
+      url: "/chemistry/substances/carbohydrates-and-lipids",
+      title: "糖类与脂质",
+    },
+    {
+      url: "/chemistry/concepts/isomerism",
+      title: "同分异构",
+    },
+    {
+      url: "/chemistry/concepts/reaction-mechanisms",
+      title: "有机反应机理",
+    },
+  ],
+  "/chemistry/concepts/intermolecular-forces": [
+    {
+      url: "/chemistry/substances/proteins-chemistry",
+      title: "蛋白质的化学",
+    },
+    {
+      url: "/chemistry/substances/nucleic-acids-chemistry",
+      title: "核酸的化学",
+    },
+    {
+      url: "/chemistry/concepts/solutions-and-solubility",
+      title: "溶液与溶解度",
+    },
+    {
+      url: "/chemistry/concepts/chromatography",
+      title: "色谱分离",
+    },
+    {
+      url: "/chemistry/substances/carbohydrates-and-lipids",
+      title: "糖类与脂质",
+    },
+  ],
+  "/chemistry/concepts/isomerism": [
+    {
+      url: "/chemistry/concepts/chirality",
+      title: "手性与对映异构",
+    },
+  ],
+  "/chemistry/concepts/nuclear-chemistry": [
+    {
+      url: "/universe-physics/knowledge-base/核物理--radioactive-decay",
+      title: "放射性衰变",
+    },
+    {
+      url: "/cosmology/knowledge-base/恒星核合成",
+      title: "恒星核合成",
+    },
+    {
+      url: "/life-science/species/deinococcus",
+      title: "耐辐射球菌",
+    },
+  ],
+  "/chemistry/concepts/periodic-table": [
+    {
+      url: "/universe-physics/knowledge-base/原子物理--electron-orbitals-quantum-numbers",
+      title: "电子轨道与量子数",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--radioactive-decay",
+      title: "放射性衰变",
+    },
+    {
+      url: "/chemistry/concepts/nuclear-chemistry",
+      title: "核化学与放射化学",
+    },
+    {
+      url: "/cosmology/knowledge-base/恒星核合成",
+      title: "恒星核合成",
+    },
+    {
+      url: "/earth-science/concepts/minerals",
+      title: "矿物",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--pauli-exclusion-principle",
+      title: "泡利不相容原理",
+    },
+    {
+      url: "/chemistry/concepts/atomic-structure",
+      title: "原子结构",
+    },
+  ],
+  "/chemistry/concepts/reaction-kinetics": [
+    {
+      url: "/chemistry/concepts/electrochemistry",
+      title: "电化学",
+    },
+    {
+      url: "/chemistry/concepts/photochemistry",
+      title: "光化学",
+    },
+    {
+      url: "/chemistry/concepts/chemical-equilibrium",
+      title: "化学平衡",
+    },
+    {
+      url: "/chemistry/concepts/thermochemistry",
+      title: "热化学",
+    },
+    {
+      url: "/chemistry/concepts/reaction-mechanisms",
+      title: "有机反应机理",
+    },
+  ],
+  "/chemistry/concepts/reaction-mechanisms": [
+    {
+      url: "/medicine/concepts/pharmacology",
+      title: "药理学基础",
+    },
+    {
+      url: "/medicine/concepts/drug-development",
+      title: "药物研发与临床试验",
+    },
+  ],
+  "/chemistry/concepts/redox-reactions": [
+    {
+      url: "/chemistry/concepts/electrochemistry",
+      title: "电化学",
+    },
+    {
+      url: "/earth-science/processes/weathering-soil",
+      title: "风化与成土",
+    },
+    {
+      url: "/chemistry/concepts/nuclear-chemistry",
+      title: "核化学与放射化学",
+    },
+    {
+      url: "/chemistry/concepts/chemical-bond",
+      title: "化学键",
+    },
+    {
+      url: "/life-science/species/deinococcus",
+      title: "耐辐射球菌",
+    },
+    {
+      url: "/chemistry/concepts/acids-and-bases",
+      title: "酸与碱",
+    },
+  ],
+  "/chemistry/concepts/spectroscopy": [
+    {
+      url: "/chemistry/concepts/photochemistry",
+      title: "光化学",
+    },
+    {
+      url: "/chemistry/concepts/coordination-chemistry",
+      title: "配位化学",
+    },
+    {
+      url: "/chemistry/concepts/chromatography",
+      title: "色谱分离",
+    },
+  ],
+  "/chemistry/concepts/thermochemistry": [
+    {
+      url: "/chemistry/concepts/electrochemistry",
+      title: "电化学",
+    },
+    {
+      url: "/chemistry/concepts/reaction-kinetics",
+      title: "反应速率",
+    },
+    {
+      url: "/chemistry/concepts/photochemistry",
+      title: "光化学",
+    },
+    {
+      url: "/chemistry/concepts/chemical-equilibrium",
+      title: "化学平衡",
+    },
+    {
+      url: "/earth-science/concepts/minerals",
+      title: "矿物",
+    },
+    {
+      url: "/chemistry/concepts/the-mole",
+      title: "摩尔与物质的量",
+    },
+  ],
+  "/chemistry/figures/berzelius": [
+    {
+      url: "/chemistry/figures/lavoisier",
+      title: "安托万·拉瓦锡",
+    },
+    {
+      url: "/chemistry/figures/kekule",
+      title: "奥古斯特·凯库勒",
+    },
+    {
+      url: "/chemistry/figures/dalton",
+      title: "约翰·道尔顿",
+    },
+  ],
+  "/chemistry/figures/dalton": [
+    {
+      url: "/chemistry/figures/lavoisier",
+      title: "安托万·拉瓦锡",
+    },
+    {
+      url: "/chemistry/figures/mendeleev",
+      title: "德米特里·门捷列夫",
+    },
+    {
+      url: "/chemistry/figures/robert-boyle",
+      title: "罗伯特·波义耳",
+    },
+    {
+      url: "/chemistry/figures/berzelius",
+      title: "永斯·贝采利乌斯",
+    },
+  ],
+  "/chemistry/figures/dorothy-hodgkin": [
+    {
+      url: "/chemistry/figures/frederick-sanger",
+      title: "弗雷德里克·桑格",
+    },
+    {
+      url: "/chemistry/figures/robert-woodward",
+      title: "罗伯特·伍德沃德",
+    },
+  ],
+  "/chemistry/figures/frederick-sanger": [
+    {
+      url: "/medicine/figures/banting-and-best",
+      title: "班廷与贝斯特",
+    },
+    {
+      url: "/chemistry/figures/robert-woodward",
+      title: "罗伯特·伍德沃德",
+    },
+  ],
+  "/chemistry/figures/fritz-haber": [
+    {
+      url: "/chemistry/figures/svante-arrhenius",
+      title: "斯万特·阿伦尼乌斯",
+    },
+  ],
+  "/chemistry/figures/kekule": [
+    {
+      url: "/chemistry/figures/linus-pauling",
+      title: "莱纳斯·鲍林",
+    },
+    {
+      url: "/chemistry/figures/robert-woodward",
+      title: "罗伯特·伍德沃德",
+    },
+  ],
+  "/chemistry/figures/lavoisier": [
+    {
+      url: "/chemistry/figures/fritz-haber",
+      title: "弗里茨·哈伯",
+    },
+    {
+      url: "/chemistry/figures/robert-boyle",
+      title: "罗伯特·波义耳",
+    },
+    {
+      url: "/chemistry/figures/dalton",
+      title: "约翰·道尔顿",
+    },
+  ],
+  "/chemistry/figures/linus-pauling": [
+    {
+      url: "/chemistry/figures/kekule",
+      title: "奥古斯特·凯库勒",
+    },
+    {
+      url: "/chemistry/figures/dorothy-hodgkin",
+      title: "多萝西·霍奇金",
+    },
+    {
+      url: "/chemistry/figures/frederick-sanger",
+      title: "弗雷德里克·桑格",
+    },
+    {
+      url: "/chemistry/figures/gilbert-lewis",
+      title: "吉尔伯特·路易斯",
+    },
+    {
+      url: "/chemistry/figures/robert-woodward",
+      title: "罗伯特·伍德沃德",
+    },
+    {
+      url: "/chemistry/figures/marie-curie",
+      title: "玛丽·居里",
+    },
+  ],
+  "/chemistry/figures/marie-curie": [
+    {
+      url: "/chemistry/figures/dorothy-hodgkin",
+      title: "多萝西·霍奇金",
+    },
+    {
+      url: "/chemistry/figures/frederick-sanger",
+      title: "弗雷德里克·桑格",
+    },
+    {
+      url: "/chemistry/figures/linus-pauling",
+      title: "莱纳斯·鲍林",
+    },
+    {
+      url: "/chemistry/figures/michael-faraday",
+      title: "迈克尔·法拉第",
+    },
+  ],
+  "/chemistry/figures/mendeleev": [
+    {
+      url: "/chemistry/figures/marie-curie",
+      title: "玛丽·居里",
+    },
+    {
+      url: "/chemistry/figures/svante-arrhenius",
+      title: "斯万特·阿伦尼乌斯",
+    },
+    {
+      url: "/chemistry/figures/berzelius",
+      title: "永斯·贝采利乌斯",
+    },
+  ],
+  "/chemistry/figures/svante-arrhenius": [
+    {
+      url: "/chemistry/figures/mendeleev",
+      title: "德米特里·门捷列夫",
+    },
+    {
+      url: "/chemistry/figures/fritz-haber",
+      title: "弗里茨·哈伯",
+    },
+    {
+      url: "/chemistry/figures/gilbert-lewis",
+      title: "吉尔伯特·路易斯",
+    },
+    {
+      url: "/chemistry/figures/michael-faraday",
+      title: "迈克尔·法拉第",
+    },
+    {
+      url: "/earth-science/concepts/greenhouse-effect",
+      title: "温室效应",
+    },
+  ],
+  "/chemistry/frontier/beyond-lithium-batteries": [
+    {
+      url: "/chemistry/frontier/computational-materials-design",
+      title: '计算材料设计：从试错炼金到按需求"算"出材料',
+    },
+    {
+      url: "/chemistry/frontier/green-hydrogen",
+      title: "绿氢：用电、水和催化剂把能源链条重写一遍",
+    },
+  ],
+  "/chemistry/frontier/carbon-capture-chemistry": [
+    {
+      url: "/chemistry/frontier/single-atom-catalysis",
+      title: "单原子催化：当催化剂被拆到一个原子",
+    },
+    {
+      url: "/chemistry/frontier/computational-materials-design",
+      title: '计算材料设计：从试错炼金到按需求"算"出材料',
+    },
+    {
+      url: "/chemistry/frontier/green-hydrogen",
+      title: "绿氢：用电、水和催化剂把能源链条重写一遍",
+    },
+  ],
+  "/chemistry/frontier/computational-materials-design": [
+    {
+      url: "/chemistry/frontier/beyond-lithium-batteries",
+      title: "超越锂离子：当电池开始重新选择元素",
+    },
+    {
+      url: "/chemistry/frontier/single-atom-catalysis",
+      title: "单原子催化：当催化剂被拆到一个原子",
+    },
+    {
+      url: "/chemistry/frontier/carbon-capture-chemistry",
+      title: '碳捕集与转化：从空气里把二氧化碳"抓"回来，再让它有用',
+    },
+  ],
+  "/chemistry/frontier/green-hydrogen": [
+    {
+      url: "/chemistry/frontier/beyond-lithium-batteries",
+      title: "超越锂离子：当电池开始重新选择元素",
+    },
+    {
+      url: "/chemistry/frontier/single-atom-catalysis",
+      title: "单原子催化：当催化剂被拆到一个原子",
+    },
+    {
+      url: "/chemistry/frontier/carbon-capture-chemistry",
+      title: '碳捕集与转化：从空气里把二氧化碳"抓"回来，再让它有用',
+    },
+  ],
+  "/chemistry/frontier/single-atom-catalysis": [
+    {
+      url: "/chemistry/frontier/computational-materials-design",
+      title: '计算材料设计：从试错炼金到按需求"算"出材料',
+    },
+    {
+      url: "/chemistry/frontier/green-hydrogen",
+      title: "绿氢：用电、水和催化剂把能源链条重写一遍",
+    },
+    {
+      url: "/chemistry/frontier/carbon-capture-chemistry",
+      title: '碳捕集与转化：从空气里把二氧化碳"抓"回来，再让它有用',
+    },
+  ],
+  "/chemistry/milestones/daltons-atomic-theory": [
+    {
+      url: "/chemistry/milestones/discovery-of-radioactivity",
+      title: "放射性的发现（1896）",
+    },
+    {
+      url: "/chemistry/milestones/lavoisier-oxygen-revolution",
+      title: "拉瓦锡的氧化学革命（1789）",
+    },
+    {
+      url: "/chemistry/milestones/mendeleev-periodic-law",
+      title: "门捷列夫周期律（1869）",
+    },
+  ],
+  "/chemistry/milestones/discovery-of-radioactivity": [
+    {
+      url: "/chemistry/milestones/daltons-atomic-theory",
+      title: "道尔顿原子论（1808）",
+    },
+  ],
+  "/chemistry/milestones/green-chemistry": [
+    {
+      url: "/chemistry/milestones/haber-bosch-process",
+      title: "哈伯-博施合成氨（1913）",
+    },
+    {
+      url: "/chemistry/milestones/synthetic-dyes-industry",
+      title: "合成染料工业（1856）",
+    },
+    {
+      url: "/chemistry/milestones/the-plastics-age",
+      title: "塑料时代（1907）",
+    },
+  ],
+  "/chemistry/milestones/haber-bosch-process": [
+    {
+      url: "/chemistry/milestones/synthetic-dyes-industry",
+      title: "合成染料工业（1856）",
+    },
+    {
+      url: "/chemistry/milestones/green-chemistry",
+      title: "绿色化学（1998）",
+    },
+  ],
+  "/chemistry/milestones/lavoisier-oxygen-revolution": [
+    {
+      url: "/chemistry/milestones/daltons-atomic-theory",
+      title: "道尔顿原子论（1808）",
+    },
+    {
+      url: "/chemistry/milestones/mendeleev-periodic-law",
+      title: "门捷列夫周期律（1869）",
+    },
+  ],
+  "/chemistry/milestones/mendeleev-periodic-law": [
+    {
+      url: "/chemistry/milestones/daltons-atomic-theory",
+      title: "道尔顿原子论（1808）",
+    },
+    {
+      url: "/chemistry/milestones/discovery-of-radioactivity",
+      title: "放射性的发现（1896）",
+    },
+    {
+      url: "/chemistry/milestones/lavoisier-oxygen-revolution",
+      title: "拉瓦锡的氧化学革命（1789）",
+    },
+  ],
+  "/chemistry/milestones/synthetic-dyes-industry": [
+    {
+      url: "/chemistry/milestones/haber-bosch-process",
+      title: "哈伯-博施合成氨（1913）",
+    },
+    {
+      url: "/chemistry/milestones/the-plastics-age",
+      title: "塑料时代（1907）",
+    },
+  ],
+  "/chemistry/milestones/the-plastics-age": [
+    {
+      url: "/chemistry/milestones/synthetic-dyes-industry",
+      title: "合成染料工业（1856）",
+    },
+    {
+      url: "/chemistry/milestones/green-chemistry",
+      title: "绿色化学（1998）",
+    },
+  ],
+  "/chemistry/reactions/acid-base-neutralization": [
+    {
+      url: "/chemistry/reactions/precipitation-reactions",
+      title: "沉淀反应",
+    },
+  ],
+  "/chemistry/reactions/catalysis-reaction": [
+    {
+      url: "/chemistry/reactions/precipitation-reactions",
+      title: "沉淀反应",
+    },
+    {
+      url: "/chemistry/reactions/electrolysis",
+      title: "电解",
+    },
+    {
+      url: "/chemistry/reactions/fermentation",
+      title: "发酵",
+    },
+    {
+      url: "/chemistry/reactions/grignard-reaction",
+      title: "格氏反应",
+    },
+    {
+      url: "/chemistry/reactions/polymerization",
+      title: "聚合反应",
+    },
+    {
+      url: "/chemistry/reactions/combustion",
+      title: "燃烧",
+    },
+    {
+      url: "/chemistry/reactions/organic-synthesis",
+      title: "有机合成",
+    },
+  ],
+  "/chemistry/reactions/combustion": [
+    {
+      url: "/chemistry/reactions/catalysis-reaction",
+      title: "催化作用",
+    },
+    {
+      url: "/chemistry/reactions/electrolysis",
+      title: "电解",
+    },
+    {
+      url: "/chemistry/reactions/fermentation",
+      title: "发酵",
+    },
+    {
+      url: "/chemistry/reactions/acid-base-neutralization",
+      title: "酸碱中和",
+    },
+  ],
+  "/chemistry/reactions/electrolysis": [
+    {
+      url: "/chemistry/reactions/precipitation-reactions",
+      title: "沉淀反应",
+    },
+    {
+      url: "/chemistry/reactions/combustion",
+      title: "燃烧",
+    },
+    {
+      url: "/chemistry/reactions/acid-base-neutralization",
+      title: "酸碱中和",
+    },
+  ],
+  "/chemistry/reactions/fermentation": [
+    {
+      url: "/chemistry/reactions/catalysis-reaction",
+      title: "催化作用",
+    },
+    {
+      url: "/chemistry/reactions/polymerization",
+      title: "聚合反应",
+    },
+    {
+      url: "/chemistry/reactions/combustion",
+      title: "燃烧",
+    },
+    {
+      url: "/chemistry/reactions/organic-synthesis",
+      title: "有机合成",
+    },
+  ],
+  "/chemistry/reactions/organic-synthesis": [
+    {
+      url: "/chemistry/reactions/catalysis-reaction",
+      title: "催化作用",
+    },
+    {
+      url: "/chemistry/reactions/diels-alder-reaction",
+      title: "狄尔斯-阿尔德反应",
+    },
+    {
+      url: "/chemistry/reactions/fermentation",
+      title: "发酵",
+    },
+    {
+      url: "/chemistry/reactions/grignard-reaction",
+      title: "格氏反应",
+    },
+    {
+      url: "/chemistry/reactions/polymerization",
+      title: "聚合反应",
+    },
+    {
+      url: "/medicine/technologies/anesthesia",
+      title: "麻醉",
+    },
+    {
+      url: "/medicine/concepts/drug-development",
+      title: "药物研发与临床试验",
+    },
+  ],
+  "/chemistry/reactions/polymerization": [
+    {
+      url: "/chemistry/reactions/organic-synthesis",
+      title: "有机合成",
+    },
+  ],
+  "/chemistry/reactions/precipitation-reactions": [
+    {
+      url: "/chemistry/reactions/electrolysis",
+      title: "电解",
+    },
+    {
+      url: "/chemistry/reactions/acid-base-neutralization",
+      title: "酸碱中和",
+    },
+  ],
+  "/chemistry/substances/ammonia": [
+    {
+      url: "/chemistry/substances/catalysts",
+      title: "催化剂",
+    },
+    {
+      url: "/chemistry/substances/water",
+      title: "水",
+    },
+    {
+      url: "/chemistry/substances/hydrocarbons",
+      title: "烃类",
+    },
+    {
+      url: "/chemistry/substances/noble-gases",
+      title: "稀有气体",
+    },
+  ],
+  "/chemistry/substances/carbohydrates-and-lipids": [
+    {
+      url: "/medicine/diseases/obesity",
+      title: "肥胖",
+    },
+    {
+      url: "/medicine/technologies/blood-transfusion",
+      title: "输血",
+    },
+  ],
+  "/chemistry/substances/carbon-allotropes": [
+    {
+      url: "/chemistry/substances/semiconductors-materials",
+      title: "半导体材料",
+    },
+    {
+      url: "/chemistry/substances/polymers",
+      title: "高分子与聚合物",
+    },
+    {
+      url: "/chemistry/substances/metals-and-alloys",
+      title: "金属与合金",
+    },
+    {
+      url: "/chemistry/substances/hydrocarbons",
+      title: "烃类",
+    },
+  ],
+  "/chemistry/substances/catalysts": [
+    {
+      url: "/chemistry/substances/ammonia",
+      title: "氨",
+    },
+    {
+      url: "/chemistry/substances/hydrocarbons",
+      title: "烃类",
+    },
+  ],
+  "/chemistry/substances/glass-and-ceramics": [
+    {
+      url: "/chemistry/substances/semiconductors-materials",
+      title: "半导体材料",
+    },
+    {
+      url: "/chemistry/substances/metals-and-alloys",
+      title: "金属与合金",
+    },
+  ],
+  "/chemistry/substances/hydrocarbons": [
+    {
+      url: "/chemistry/substances/ammonia",
+      title: "氨",
+    },
+    {
+      url: "/chemistry/substances/catalysts",
+      title: "催化剂",
+    },
+    {
+      url: "/chemistry/concepts/aromaticity",
+      title: "芳香性",
+    },
+    {
+      url: "/chemistry/concepts/intermolecular-forces",
+      title: "分子间作用力",
+    },
+    {
+      url: "/chemistry/substances/polymers",
+      title: "高分子与聚合物",
+    },
+    {
+      url: "/chemistry/concepts/functional-groups",
+      title: "官能团",
+    },
+    {
+      url: "/medicine/technologies/anesthesia",
+      title: "麻醉",
+    },
+    {
+      url: "/chemistry/substances/water",
+      title: "水",
+    },
+    {
+      url: "/chemistry/substances/carbon-allotropes",
+      title: "碳的同素异形体",
+    },
+    {
+      url: "/chemistry/concepts/isomerism",
+      title: "同分异构",
+    },
+  ],
+  "/chemistry/substances/metals-and-alloys": [
+    {
+      url: "/chemistry/substances/semiconductors-materials",
+      title: "半导体材料",
+    },
+    {
+      url: "/chemistry/substances/glass-and-ceramics",
+      title: "玻璃与陶瓷",
+    },
+    {
+      url: "/chemistry/substances/polymers",
+      title: "高分子与聚合物",
+    },
+    {
+      url: "/chemistry/substances/carbon-allotropes",
+      title: "碳的同素异形体",
+    },
+    {
+      url: "/chemistry/substances/noble-gases",
+      title: "稀有气体",
+    },
+  ],
+  "/chemistry/substances/noble-gases": [
+    {
+      url: "/universe-physics/knowledge-base/原子物理--electron-orbitals-quantum-numbers",
+      title: "电子轨道与量子数",
+    },
+  ],
+  "/chemistry/substances/polymers": [
+    {
+      url: "/chemistry/substances/water",
+      title: "水",
+    },
+    {
+      url: "/chemistry/substances/hydrocarbons",
+      title: "烃类",
+    },
+  ],
+  "/chemistry/substances/proteins-chemistry": [
+    {
+      url: "/medicine/figures/banting-and-best",
+      title: "班廷与贝斯特",
+    },
+    {
+      url: "/chemistry/substances/nucleic-acids-chemistry",
+      title: "核酸的化学",
+    },
+    {
+      url: "/medicine/concepts/immune-system",
+      title: "免疫系统",
+    },
+    {
+      url: "/chemistry/concepts/coordination-chemistry",
+      title: "配位化学",
+    },
+  ],
+  "/chemistry/substances/semiconductors-materials": [
+    {
+      url: "/universe-physics/knowledge-base/凝聚态物理--semiconductor-physics",
+      title: "半导体物理",
+    },
+    {
+      url: "/chemistry/substances/glass-and-ceramics",
+      title: "玻璃与陶瓷",
+    },
+    {
+      url: "/chemistry/substances/metals-and-alloys",
+      title: "金属与合金",
+    },
+    {
+      url: "/chemistry/substances/carbon-allotropes",
+      title: "碳的同素异形体",
+    },
+    {
+      url: "/chemistry/substances/noble-gases",
+      title: "稀有气体",
+    },
+  ],
+  "/chemistry/substances/water": [
+    {
+      url: "/chemistry/substances/ammonia",
+      title: "氨",
+    },
+    {
+      url: "/chemistry/substances/semiconductors-materials",
+      title: "半导体材料",
+    },
+    {
+      url: "/chemistry/concepts/intermolecular-forces",
+      title: "分子间作用力",
+    },
+    {
+      url: "/chemistry/substances/polymers",
+      title: "高分子与聚合物",
+    },
+    {
+      url: "/chemistry/concepts/solutions-and-solubility",
+      title: "溶液与溶解度",
+    },
+    {
+      url: "/chemistry/concepts/chromatography",
+      title: "色谱分离",
+    },
+    {
+      url: "/chemistry/substances/carbohydrates-and-lipids",
+      title: "糖类与脂质",
+    },
+    {
+      url: "/chemistry/substances/hydrocarbons",
+      title: "烃类",
+    },
+    {
+      url: "/chemistry/substances/noble-gases",
+      title: "稀有气体",
+    },
+  ],
   "/computer-science/algorithms/attention-and-transformers": [
     {
       url: "/computer-science/algorithms/convolutional-neural-networks",
@@ -153,6 +1237,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/computer-science/algorithms/genetic-algorithms": [
+    {
+      url: "/life-science/species/slime-mould",
+      title: "多头绒泡菌",
+    },
     {
       url: "/computer-science/algorithms/simulated-annealing",
       title: "模拟退火",
@@ -368,6 +1456,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/algorithms/network-flow": [
     {
+      url: "/life-science/species/slime-mould",
+      title: "多头绒泡菌",
+    },
+    {
       url: "/computer-science/algorithms/linear-programming",
       title: "线性规划",
     },
@@ -426,6 +1518,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/algorithms/heaps-and-priority-queues",
       title: "堆与优先队列",
+    },
+    {
+      url: "/life-science/species/slime-mould",
+      title: "多头绒泡菌",
     },
     {
       url: "/computer-science/algorithms/topological-sort",
@@ -577,6 +1673,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/computer-science/concepts/distributed-systems",
       title: "分布式系统",
     },
+    {
+      url: "/computer-science/concepts/load-balancing",
+      title: "负载均衡",
+    },
   ],
   "/computer-science/concepts/compilers": [
     {
@@ -654,6 +1754,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "数据库与事务",
     },
   ],
+  "/computer-science/concepts/consensus-algorithms": [
+    {
+      url: "/life-science/species/honeybee",
+      title: "西方蜜蜂",
+    },
+  ],
   "/computer-science/concepts/containers-and-orchestration": [
     {
       url: "/computer-science/concepts/microservices-architecture",
@@ -671,6 +1777,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/computer-science/concepts/data-structures": [
+    {
+      url: "/computer-science/concepts/b-trees-and-lsm-trees",
+      title: "存储引擎：B 树与 LSM 树",
+    },
     {
       url: "/computer-science/concepts/recursion",
       title: "递归",
@@ -698,6 +1808,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/concepts/database-indexing-and-query-optimization": [
     {
+      url: "/computer-science/concepts/b-trees-and-lsm-trees",
+      title: "存储引擎：B 树与 LSM 树",
+    },
+    {
       url: "/computer-science/concepts/big-data-systems",
       title: "大数据系统",
     },
@@ -707,6 +1821,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/computer-science/concepts/databases-transactions": [
+    {
+      url: "/computer-science/concepts/b-trees-and-lsm-trees",
+      title: "存储引擎：B 树与 LSM 树",
+    },
+    {
+      url: "/computer-science/concepts/consensus-algorithms",
+      title: "分布式共识算法",
+    },
     {
       url: "/computer-science/concepts/caching-strategies",
       title: "缓存策略",
@@ -758,6 +1880,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/concepts/distributed-systems": [
     {
+      url: "/life-science/species/honey-fungus",
+      title: "奥氏蜜环菌",
+    },
+    {
       url: "/computer-science/pioneers/barbara-liskov",
       title: "芭芭拉·利斯科夫",
     },
@@ -770,12 +1896,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "大数据系统",
     },
     {
+      url: "/life-science/species/slime-mould",
+      title: "多头绒泡菌",
+    },
+    {
       url: "/computer-science/concepts/firewalls-and-network-security",
       title: "防火墙与网络安全",
     },
     {
+      url: "/computer-science/concepts/consensus-algorithms",
+      title: "分布式共识算法",
+    },
+    {
+      url: "/computer-science/concepts/load-balancing",
+      title: "负载均衡",
+    },
+    {
       url: "/computer-science/concepts/caching-strategies",
       title: "缓存策略",
+    },
+    {
+      url: "/life-science/species/mycorrhiza",
+      title: "菌根",
+    },
+    {
+      url: "/computer-science/concepts/observability-and-monitoring",
+      title: "可观测性与监控",
     },
     {
       url: "/computer-science/pioneers/leslie-lamport",
@@ -816,6 +1962,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/file-systems",
       title: "文件系统",
+    },
+    {
+      url: "/life-science/species/honeybee",
+      title: "西方蜜蜂",
     },
     {
       url: "/computer-science/concepts/message-queues-and-streaming",
@@ -876,6 +2026,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "身份验证与授权",
     },
   ],
+  "/computer-science/concepts/file-systems": [
+    {
+      url: "/computer-science/concepts/b-trees-and-lsm-trees",
+      title: "存储引擎：B 树与 LSM 树",
+    },
+  ],
   "/computer-science/concepts/functional-programming": [
     {
       url: "/computer-science/pioneers/guido-van-rossum",
@@ -916,6 +2072,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/recommender-systems",
       title: "推荐系统",
+    },
+  ],
+  "/computer-science/concepts/load-balancing": [
+    {
+      url: "/computer-science/algorithms/rate-limiting-algorithms",
+      title: "限流算法",
     },
   ],
   "/computer-science/concepts/machine-learning-overview": [
@@ -982,6 +2144,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/concepts/microservices-architecture": [
     {
+      url: "/computer-science/concepts/observability-and-monitoring",
+      title: "可观测性与监控",
+    },
+    {
       url: "/computer-science/concepts/containers-and-orchestration",
       title: "容器与容器编排",
     },
@@ -1012,6 +2178,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/firewalls-and-network-security",
       title: "防火墙与网络安全",
+    },
+    {
+      url: "/computer-science/concepts/load-balancing",
+      title: "负载均衡",
     },
     {
       url: "/computer-science/concepts/routing-and-switching",
@@ -1047,6 +2217,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/computer-science/concepts/neural-networks-concept": [
+    {
+      url: "/life-science/species/slime-mould",
+      title: "多头绒泡菌",
+    },
     {
       url: "/computer-science/concepts/machine-learning-overview",
       title: "机器学习概览",
@@ -1183,6 +2357,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/computer-science/concepts/the-web-and-http": [
+    {
+      url: "/computer-science/concepts/load-balancing",
+      title: "负载均衡",
+    },
     {
       url: "/computer-science/concepts/web-security-xss-csrf",
       title: "Web 安全：XSS 与 CSRF",
@@ -1391,6 +2569,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/computer-science/pioneers/donald-knuth",
       title: "唐纳德·克努特",
     },
+    {
+      url: "/computer-science/pioneers/tony-hoare",
+      title: "托尼·霍尔",
+    },
   ],
   "/computer-science/pioneers/frances-allen": [
     {
@@ -1454,6 +2636,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/pioneers/dennis-ritchie",
       title: "丹尼斯·里奇",
+    },
+  ],
+  "/computer-science/pioneers/leslie-lamport": [
+    {
+      url: "/computer-science/pioneers/tony-hoare",
+      title: "托尼·霍尔",
     },
   ],
   "/computer-science/pioneers/linus-torvalds": [
@@ -1649,6 +2837,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/computer-science/theory/distributed-computing-theory": [
+    {
+      url: "/computer-science/concepts/consensus-algorithms",
+      title: "分布式共识算法",
+    },
     {
       url: "/computer-science/concepts/distributed-systems",
       title: "分布式系统",
@@ -1892,6 +3084,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "黑洞热力学与霍金辐射",
     },
     {
+      url: "/cosmology/knowledge-base/stellar-evolution",
+      title: "恒星演化",
+    },
+    {
+      url: "/cosmology/knowledge-base/活动星系核与类星体",
+      title: "活动星系核与类星体",
+    },
+    {
       url: "/universe-physics/knowledge-base/相对论--引力波",
       title: "引力波",
     },
@@ -1944,6 +3144,474 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "宇宙距离阶梯",
     },
   ],
+  "/cosmology/knowledge-base/中子星与脉冲星": [
+    {
+      url: "/cosmology/knowledge-base/快速射电暴",
+      title: "快速射电暴",
+    },
+  ],
+  "/cosmology/knowledge-base/太阳系--planetary-moons": [
+    {
+      url: "/earth-science/concepts/tides",
+      title: "潮汐",
+    },
+    {
+      url: "/earth-science/events/chicxulub-impact",
+      title: "希克苏鲁伯撞击与白垩纪末灭绝",
+    },
+  ],
+  "/cosmology/knowledge-base/太阳系--terrestrial-planets": [
+    {
+      url: "/earth-science/processes/plate-tectonics",
+      title: "板块构造",
+    },
+    {
+      url: "/earth-science/concepts/earths-magnetic-field",
+      title: "地球磁场",
+    },
+    {
+      url: "/earth-science/concepts/earth-interior",
+      title: "地球内部结构",
+    },
+    {
+      url: "/earth-science/concepts/greenhouse-effect",
+      title: "温室效应",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙学前沿--S8结构增长张力": [
+    {
+      url: "/cosmology/knowledge-base/宇宙大尺度结构",
+      title: "宇宙大尺度结构",
+    },
+  ],
+  "/cosmology/knowledge-base/引力波天文学": [
+    {
+      url: "/cosmology/knowledge-base/stellar-evolution",
+      title: "恒星演化",
+    },
+  ],
+  "/earth-science/concepts/carbon-cycle": [
+    {
+      url: "/life-science/species/honey-fungus",
+      title: "奥氏蜜环菌",
+    },
+    {
+      url: "/life-science/knowledge-base/分子生物学--photosynthesis",
+      title: "光合作用：一台把阳光拆进糖里的分子机器",
+    },
+    {
+      url: "/chemistry/concepts/photochemistry",
+      title: "光化学",
+    },
+    {
+      url: "/life-science/species/mycorrhiza",
+      title: "菌根",
+    },
+    {
+      url: "/chemistry/frontier/carbon-capture-chemistry",
+      title: '碳捕集与转化：从空气里把二氧化碳"抓"回来，再让它有用',
+    },
+  ],
+  "/earth-science/concepts/earth-interior": [
+    {
+      url: "/universe-physics/knowledge-base/经典物理--waves-and-acoustics",
+      title: "波动与声学",
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--波动与振动",
+      title: "波动与振动",
+    },
+    {
+      url: "/universe-physics/knowledge-base/应用物理--地球物理与地震波",
+      title: "地球物理与地震波",
+    },
+    {
+      url: "/earth-science/concepts/geologic-time-scale",
+      title: "地质年代表",
+    },
+    {
+      url: "/chemistry/concepts/nuclear-chemistry",
+      title: "核化学与放射化学",
+    },
+    {
+      url: "/cosmology/knowledge-base/太阳系--terrestrial-planets",
+      title: "类地行星",
+    },
+  ],
+  "/earth-science/concepts/earths-magnetic-field": [
+    {
+      url: "/universe-physics/knowledge-base/电磁学--plasma-physics",
+      title: "等离子体物理",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--radioactive-decay",
+      title: "放射性衰变",
+    },
+    {
+      url: "/cosmology/knowledge-base/太阳系--terrestrial-planets",
+      title: "类地行星",
+    },
+    {
+      url: "/cosmology/knowledge-base/系外行星--系外行星宜居性",
+      title: "系外行星宜居性",
+    },
+  ],
+  "/earth-science/concepts/geologic-time-scale": [
+    {
+      url: "/chemistry/concepts/nuclear-chemistry",
+      title: "核化学与放射化学",
+    },
+    {
+      url: "/life-science/species/horseshoe-crab",
+      title: "鲎",
+    },
+  ],
+  "/earth-science/concepts/greenhouse-effect": [
+    {
+      url: "/chemistry/frontier/carbon-capture-chemistry",
+      title: '碳捕集与转化：从空气里把二氧化碳"抓"回来，再让它有用',
+    },
+    {
+      url: "/cosmology/knowledge-base/天体生物学--habitable-zone",
+      title: "宜居带",
+    },
+  ],
+  "/earth-science/concepts/ocean-acidification": [
+    {
+      url: "/chemistry/frontier/carbon-capture-chemistry",
+      title: '碳捕集与转化：从空气里把二氧化碳"抓"回来，再让它有用',
+    },
+  ],
+  "/earth-science/concepts/rock-cycle": [
+    {
+      url: "/earth-science/concepts/geologic-time-scale",
+      title: "地质年代表",
+    },
+  ],
+  "/earth-science/concepts/thermohaline-circulation": [
+    {
+      url: "/earth-science/processes/coastal-processes",
+      title: "海岸过程",
+    },
+  ],
+  "/earth-science/concepts/water-cycle": [
+    {
+      url: "/earth-science/processes/groundwater-aquifers",
+      title: "地下水与含水层",
+    },
+  ],
+  "/earth-science/events/chicxulub-impact": [
+    {
+      url: "/life-science/knowledge-base/关键事件--白垩纪大灭绝",
+      title: "白垩纪大灭绝：恐龙的终结与哺乳动物的黎明",
+    },
+    {
+      url: "/cosmology/knowledge-base/太阳系--asteroid-belt",
+      title: "小行星带",
+    },
+  ],
+  "/earth-science/events/great-oxidation-event": [
+    {
+      url: "/life-science/knowledge-base/分子生物学--photosynthesis",
+      title: "光合作用：一台把阳光拆进糖里的分子机器",
+    },
+  ],
+  "/earth-science/events/lisbon-1755": [
+    {
+      url: "/human-history/knowledge/人物--伏尔泰",
+      title: "伏尔泰",
+    },
+  ],
+  "/earth-science/events/tambora-1815": [
+    {
+      url: "/human-history/frontier/climate-and-history",
+      title: "气候如何终结王朝——历史气候学的前沿",
+    },
+  ],
+  "/earth-science/frontier/carbon-capture-geoengineering": [
+    {
+      url: "/earth-science/frontier/paleoclimate-ice-cores",
+      title: "冰芯里的百万年：从 Beyond EPICA 读取最古老的大气",
+    },
+    {
+      url: "/earth-science/frontier/climate-tipping-points",
+      title: "气候临界点：地球系统的不可逆开关",
+    },
+    {
+      url: "/earth-science/frontier/deep-sea-hydrothermal-frontiers",
+      title: "深海前沿：生命起点、地下生物圈与海底采矿的争夺",
+    },
+  ],
+  "/earth-science/frontier/climate-tipping-points": [
+    {
+      url: "/earth-science/frontier/paleoclimate-ice-cores",
+      title: "冰芯里的百万年：从 Beyond EPICA 读取最古老的大气",
+    },
+    {
+      url: "/earth-science/frontier/earthquake-forecasting",
+      title: "地震预测：为什么我们能预报飓风却预测不了地震",
+    },
+    {
+      url: "/earth-science/frontier/carbon-capture-geoengineering",
+      title: '碳捕集与地球工程：能不能把气候"修"回去',
+    },
+    {
+      url: "/chemistry/frontier/carbon-capture-chemistry",
+      title: '碳捕集与转化：从空气里把二氧化碳"抓"回来，再让它有用',
+    },
+  ],
+  "/earth-science/frontier/deep-sea-hydrothermal-frontiers": [
+    {
+      url: "/earth-science/frontier/carbon-capture-geoengineering",
+      title: '碳捕集与地球工程：能不能把气候"修"回去',
+    },
+  ],
+  "/earth-science/frontier/paleoclimate-ice-cores": [
+    {
+      url: "/earth-science/frontier/climate-tipping-points",
+      title: "气候临界点：地球系统的不可逆开关",
+    },
+    {
+      url: "/earth-science/frontier/carbon-capture-geoengineering",
+      title: '碳捕集与地球工程：能不能把气候"修"回去',
+    },
+  ],
+  "/earth-science/pioneers/alfred-wegener": [
+    {
+      url: "/earth-science/pioneers/harry-hess",
+      title: "哈里·赫斯",
+    },
+    {
+      url: "/earth-science/pioneers/marie-tharp",
+      title: "玛丽·撒普",
+    },
+    {
+      url: "/earth-science/pioneers/milutin-milankovitch",
+      title: "米卢廷·米兰科维奇",
+    },
+  ],
+  "/earth-science/pioneers/charles-keeling": [
+    {
+      url: "/earth-science/pioneers/milutin-milankovitch",
+      title: "米卢廷·米兰科维奇",
+    },
+    {
+      url: "/earth-science/pioneers/vilhelm-bjerknes",
+      title: "威廉·皮叶克尼斯",
+    },
+    {
+      url: "/earth-science/pioneers/wallace-broecker",
+      title: "沃利·布罗克",
+    },
+    {
+      url: "/earth-science/pioneers/eunice-foote",
+      title: "尤妮斯·富特",
+    },
+  ],
+  "/earth-science/pioneers/charles-lyell": [
+    {
+      url: "/earth-science/pioneers/james-hutton",
+      title: "詹姆斯·赫顿",
+    },
+  ],
+  "/earth-science/pioneers/inge-lehmann": [
+    {
+      url: "/earth-science/pioneers/marie-tharp",
+      title: "玛丽·撒普",
+    },
+  ],
+  "/earth-science/pioneers/james-hutton": [
+    {
+      url: "/earth-science/pioneers/charles-lyell",
+      title: "查尔斯·莱伊尔",
+    },
+  ],
+  "/earth-science/pioneers/marie-tharp": [
+    {
+      url: "/earth-science/pioneers/alfred-wegener",
+      title: "阿尔弗雷德·魏格纳",
+    },
+    {
+      url: "/earth-science/pioneers/harry-hess",
+      title: "哈里·赫斯",
+    },
+    {
+      url: "/earth-science/pioneers/inge-lehmann",
+      title: "英厄·莱曼",
+    },
+  ],
+  "/earth-science/pioneers/milutin-milankovitch": [
+    {
+      url: "/earth-science/pioneers/charles-keeling",
+      title: "查尔斯·基林",
+    },
+    {
+      url: "/earth-science/pioneers/vilhelm-bjerknes",
+      title: "威廉·皮叶克尼斯",
+    },
+    {
+      url: "/earth-science/pioneers/wallace-broecker",
+      title: "沃利·布罗克",
+    },
+    {
+      url: "/earth-science/pioneers/eunice-foote",
+      title: "尤妮斯·富特",
+    },
+  ],
+  "/earth-science/processes/earthquakes": [
+    {
+      url: "/earth-science/processes/plate-tectonics",
+      title: "板块构造",
+    },
+    {
+      url: "/earth-science/processes/volcanism",
+      title: "火山作用",
+    },
+    {
+      url: "/earth-science/processes/erosion-deposition",
+      title: "侵蚀与沉积",
+    },
+    {
+      url: "/earth-science/processes/orogeny-mountain-building",
+      title: "造山运动",
+    },
+  ],
+  "/earth-science/processes/el-nino-enso": [
+    {
+      url: "/earth-science/processes/weather-systems",
+      title: "天气系统",
+    },
+  ],
+  "/earth-science/processes/erosion-deposition": [
+    {
+      url: "/earth-science/processes/glaciation-ice-ages",
+      title: "冰期与冰川作用",
+    },
+    {
+      url: "/earth-science/processes/groundwater-aquifers",
+      title: "地下水与含水层",
+    },
+    {
+      url: "/earth-science/processes/weathering-soil",
+      title: "风化与成土",
+    },
+    {
+      url: "/earth-science/processes/coastal-processes",
+      title: "海岸过程",
+    },
+    {
+      url: "/earth-science/processes/mass-wasting",
+      title: "块体运动与滑坡",
+    },
+    {
+      url: "/earth-science/processes/orogeny-mountain-building",
+      title: "造山运动",
+    },
+  ],
+  "/earth-science/processes/glaciation-ice-ages": [
+    {
+      url: "/earth-science/processes/orogeny-mountain-building",
+      title: "造山运动",
+    },
+  ],
+  "/earth-science/processes/orogeny-mountain-building": [
+    {
+      url: "/earth-science/processes/plate-tectonics",
+      title: "板块构造",
+    },
+    {
+      url: "/earth-science/processes/glaciation-ice-ages",
+      title: "冰期与冰川作用",
+    },
+    {
+      url: "/earth-science/processes/erosion-deposition",
+      title: "侵蚀与沉积",
+    },
+  ],
+  "/earth-science/processes/plate-tectonics": [
+    {
+      url: "/universe-physics/knowledge-base/应用物理--地球物理与地震波",
+      title: "地球物理与地震波",
+    },
+    {
+      url: "/earth-science/processes/earthquakes",
+      title: "地震",
+    },
+    {
+      url: "/earth-science/concepts/geologic-time-scale",
+      title: "地质年代表",
+    },
+    {
+      url: "/earth-science/pioneers/harry-hess",
+      title: "哈里·赫斯",
+    },
+    {
+      url: "/chemistry/concepts/nuclear-chemistry",
+      title: "核化学与放射化学",
+    },
+    {
+      url: "/earth-science/processes/volcanism",
+      title: "火山作用",
+    },
+    {
+      url: "/cosmology/knowledge-base/太阳系--terrestrial-planets",
+      title: "类地行星",
+    },
+    {
+      url: "/earth-science/processes/erosion-deposition",
+      title: "侵蚀与沉积",
+    },
+    {
+      url: "/cosmology/knowledge-base/系外行星--系外行星宜居性",
+      title: "系外行星宜居性",
+    },
+    {
+      url: "/earth-science/processes/orogeny-mountain-building",
+      title: "造山运动",
+    },
+  ],
+  "/earth-science/processes/volcanism": [
+    {
+      url: "/earth-science/processes/plate-tectonics",
+      title: "板块构造",
+    },
+    {
+      url: "/human-history/knowledge/远古时期--人类起源",
+      title: "人类起源",
+    },
+    {
+      url: "/earth-science/processes/orogeny-mountain-building",
+      title: "造山运动",
+    },
+  ],
+  "/earth-science/processes/weather-systems": [
+    {
+      url: "/earth-science/processes/el-nino-enso",
+      title: "厄尔尼诺与 ENSO",
+    },
+  ],
+  "/earth-science/processes/weathering-soil": [
+    {
+      url: "/earth-science/processes/groundwater-aquifers",
+      title: "地下水与含水层",
+    },
+    {
+      url: "/earth-science/processes/coastal-processes",
+      title: "海岸过程",
+    },
+    {
+      url: "/earth-science/processes/mass-wasting",
+      title: "块体运动与滑坡",
+    },
+    {
+      url: "/earth-science/processes/erosion-deposition",
+      title: "侵蚀与沉积",
+    },
+    {
+      url: "/earth-science/processes/orogeny-mountain-building",
+      title: "造山运动",
+    },
+  ],
   "/economics/case-studies/financial-crisis-sequence": [
     {
       url: "/economics/theories/supply-demand",
@@ -1954,6 +3622,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/theories/keynesian-economics",
       title: "凯恩斯主义经济学",
+    },
+    {
+      url: "/earth-science/events/dust-bowl-1930s",
+      title: "美国黑风暴（1930 年代）",
     },
   ],
   "/economics/case-studies/hyperinflation-cases": [
@@ -1990,6 +3662,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/theories/supply-demand",
       title: "供需理论",
+    },
+  ],
+  "/economics/concepts/externalities": [
+    {
+      url: "/earth-science/frontier/carbon-capture-geoengineering",
+      title: '碳捕集与地球工程：能不能把气候"修"回去',
     },
   ],
   "/economics/concepts/gini-coefficient": [
@@ -2096,6 +3774,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "亚当·斯密",
     },
   ],
+  "/economics/concepts/poverty-trap": [
+    {
+      url: "/economics/concepts/growth-diagnostics",
+      title: "增长诊断",
+    },
+  ],
   "/economics/concepts/price-discrimination": [
     {
       url: "/economics/concepts/industrial-organization",
@@ -2174,6 +3858,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "环境经济学",
     },
   ],
+  "/economics/economists/bertil-ohlin": [
+    {
+      url: "/economics/theories/heckscher-ohlin-model",
+      title: "赫克歇尔-俄林模型",
+    },
+  ],
   "/economics/economists/daniel-kahneman": [
     {
       url: "/economics/concepts/marginal-analysis",
@@ -2226,6 +3916,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/economics/economists/john-maynard-keynes": [
     {
+      url: "/economics/knowledge-base/money-and-central-banking-history",
+      title: "货币与中央银行史：从贝壳到数字央行",
+    },
+    {
       url: "/economics/theories/keynesian-economics",
       title: "凯恩斯主义经济学",
     },
@@ -2262,10 +3956,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "劳动经济学",
     },
   ],
+  "/economics/economists/milton-friedman": [
+    {
+      url: "/economics/knowledge-base/money-and-central-banking-history",
+      title: "货币与中央银行史：从贝壳到数字央行",
+    },
+  ],
   "/economics/economists/paul-krugman": [
     {
       url: "/economics/theories/comparative-advantage",
       title: "比较优势理论",
+    },
+  ],
+  "/economics/economists/paul-samuelson": [
+    {
+      url: "/economics/theories/heckscher-ohlin-model",
+      title: "赫克歇尔-俄林模型",
     },
   ],
   "/economics/economists/richard-thaler": [
@@ -2300,6 +4006,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/concepts/environmental-economics",
       title: "环境经济学",
+    },
+    {
+      url: "/earth-science/frontier/climate-tipping-points",
+      title: "气候临界点：地球系统的不可逆开关",
+    },
+    {
+      url: "/earth-science/frontier/carbon-capture-geoengineering",
+      title: '碳捕集与地球工程：能不能把气候"修"回去',
+    },
+  ],
+  "/economics/knowledge-base/central-banking-monetary-transmission": [
+    {
+      url: "/economics/knowledge-base/money-and-central-banking-history",
+      title: "货币与中央银行史：从贝壳到数字央行",
     },
   ],
   "/economics/knowledge-base/inequality-economics": [
@@ -2362,8 +4082,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/economics/theories/comparative-advantage": [
     {
+      url: "/economics/theories/heckscher-ohlin-model",
+      title: "赫克歇尔-俄林模型",
+    },
+    {
       url: "/economics/economists/adam-smith",
       title: "亚当·斯密",
+    },
+  ],
+  "/economics/theories/development-economics": [
+    {
+      url: "/economics/concepts/growth-diagnostics",
+      title: "增长诊断",
     },
   ],
   "/economics/theories/game-theory-basics": [
@@ -2419,6 +4149,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/economics/economists/daniel-kahneman",
       title: "丹尼尔·卡尼曼",
     },
+    {
+      url: "/economics/concepts/loss-aversion-anchoring",
+      title: "损失厌恶与锚定",
+    },
   ],
   "/economics/theories/supply-demand": [
     {
@@ -2430,7 +4164,17 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "亚当·斯密",
     },
   ],
+  "/economics/theories/trade-theory": [
+    {
+      url: "/economics/knowledge-base/money-and-central-banking-history",
+      title: "货币与中央银行史：从贝壳到数字央行",
+    },
+  ],
   "/human-history/frontier/ancient-dna-revolution": [
+    {
+      url: "/earth-science/frontier/paleoclimate-ice-cores",
+      title: "冰芯里的百万年：从 Beyond EPICA 读取最古老的大气",
+    },
     {
       url: "/human-history/frontier/climate-and-history",
       title: "气候如何终结王朝——历史气候学的前沿",
@@ -2448,6 +4192,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/frontier/ancient-dna-revolution",
       title: "古DNA革命——基因组重写人类迁徙史",
+    },
+    {
+      url: "/earth-science/events/tambora-1815",
+      title: "坦博拉火山爆发（1815）",
     },
     {
       url: "/human-history/frontier/lidar-remote-sensing-civilizations",
@@ -2474,6 +4222,36 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "史学方法之争——大历史的雄心与年鉴学派的遗产",
     },
   ],
+  "/human-history/knowledge/事件--启蒙运动": [
+    {
+      url: "/earth-science/events/lisbon-1755",
+      title: "里斯本大地震（1755）",
+    },
+  ],
+  "/human-history/knowledge/古典时期--欧洲--罗马共和国与帝国": [
+    {
+      url: "/earth-science/events/pompeii-vesuvius-79",
+      title: "维苏威火山爆发与庞贝（公元 79 年）",
+    },
+  ],
+  "/human-history/knowledge/文明--美索不达米亚": [
+    {
+      url: "/earth-science/processes/weathering-soil",
+      title: "风化与成土",
+    },
+  ],
+  "/human-history/knowledge/概念--大航海时代": [
+    {
+      url: "/earth-science/concepts/earths-magnetic-field",
+      title: "地球磁场",
+    },
+  ],
+  "/human-history/knowledge/远古时期--农业革命": [
+    {
+      url: "/earth-science/processes/weathering-soil",
+      title: "风化与成土",
+    },
+  ],
   "/life-science/dialogues/gould-dawkins": [
     {
       url: "/life-science/scientists/dawkins",
@@ -2488,6 +4266,312 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/scientists/dawkins",
       title: "理查德·道金斯",
+    },
+  ],
+  "/life-science/knowledge-base/人体--免疫系统": [
+    {
+      url: "/medicine/diseases/sepsis",
+      title: "败血症（脓毒症）",
+    },
+    {
+      url: "/chemistry/substances/proteins-chemistry",
+      title: "蛋白质的化学",
+    },
+    {
+      url: "/life-science/species/mycorrhiza",
+      title: "菌根",
+    },
+    {
+      url: "/medicine/concepts/immune-system",
+      title: "免疫系统",
+    },
+  ],
+  "/life-science/knowledge-base/人体--大脑": [
+    {
+      url: "/life-science/knowledge-base/人体--免疫系统",
+      title: "免疫系统：先天与适应性防御网络",
+    },
+    {
+      url: "/life-science/knowledge-base/神经可塑性",
+      title: "神经可塑性",
+    },
+    {
+      url: "/life-science/knowledge-base/人体--微生物组",
+      title: "微生物组：肠道菌群与人体共生",
+    },
+  ],
+  "/life-science/knowledge-base/人体--衰老": [
+    {
+      url: "/life-science/species/immortal-jellyfish",
+      title: "灯塔水母",
+    },
+    {
+      url: "/life-science/species/deinococcus",
+      title: "耐辐射球菌",
+    },
+  ],
+  "/life-science/knowledge-base/关键事件--二叠纪大灭绝": [
+    {
+      url: "/earth-science/events/chicxulub-impact",
+      title: "希克苏鲁伯撞击与白垩纪末灭绝",
+    },
+  ],
+  "/life-science/knowledge-base/关键事件--内共生起源": [
+    {
+      url: "/life-science/knowledge-base/分子生物学--photosynthesis",
+      title: "光合作用：一台把阳光拆进糖里的分子机器",
+    },
+  ],
+  "/life-science/knowledge-base/关键事件--寒武纪大爆发": [
+    {
+      url: "/earth-science/events/snowball-earth",
+      title: "雪球地球",
+    },
+  ],
+  "/life-science/knowledge-base/关键事件--白垩纪大灭绝": [
+    {
+      url: "/earth-science/events/chicxulub-impact",
+      title: "希克苏鲁伯撞击与白垩纪末灭绝",
+    },
+  ],
+  "/life-science/knowledge-base/关键事件--真核细胞起源": [
+    {
+      url: "/life-science/knowledge-base/分子生物学--photosynthesis",
+      title: "光合作用：一台把阳光拆进糖里的分子机器",
+    },
+  ],
+  "/life-science/knowledge-base/分子生物学--photosynthesis": [
+    {
+      url: "/earth-science/events/great-oxidation-event",
+      title: "大氧化事件",
+    },
+    {
+      url: "/chemistry/concepts/photochemistry",
+      title: "光化学",
+    },
+    {
+      url: "/earth-science/concepts/ocean-acidification",
+      title: "海洋酸化",
+    },
+    {
+      url: "/chemistry/concepts/coordination-chemistry",
+      title: "配位化学",
+    },
+    {
+      url: "/earth-science/concepts/carbon-cycle",
+      title: "碳循环",
+    },
+  ],
+  "/life-science/knowledge-base/分子生物学--中心法则与基因表达": [
+    {
+      url: "/chemistry/figures/frederick-sanger",
+      title: "弗雷德里克·桑格",
+    },
+    {
+      url: "/chemistry/substances/nucleic-acids-chemistry",
+      title: "核酸的化学",
+    },
+  ],
+  "/life-science/knowledge-base/分子生物学--干细胞": [
+    {
+      url: "/life-science/species/immortal-jellyfish",
+      title: "灯塔水母",
+    },
+    {
+      url: "/life-science/species/axolotl",
+      title: "美西螈",
+    },
+  ],
+  "/life-science/knowledge-base/分子生物学--细胞信号": [
+    {
+      url: "/medicine/concepts/endocrine-system",
+      title: "内分泌系统",
+    },
+    {
+      url: "/medicine/concepts/pharmacology",
+      title: "药理学基础",
+    },
+  ],
+  "/life-science/knowledge-base/分子生物学--蛋白质折叠": [
+    {
+      url: "/chemistry/substances/proteins-chemistry",
+      title: "蛋白质的化学",
+    },
+  ],
+  "/life-science/knowledge-base/分子生物学--酶与生物催化": [
+    {
+      url: "/chemistry/substances/proteins-chemistry",
+      title: "蛋白质的化学",
+    },
+    {
+      url: "/medicine/concepts/pharmacology",
+      title: "药理学基础",
+    },
+  ],
+  "/life-science/knowledge-base/医学--疫苗原理": [
+    {
+      url: "/medicine/figures/jonas-salk",
+      title: "乔纳斯·萨尔克",
+    },
+  ],
+  "/life-science/knowledge-base/医学--神经退行性疾病": [
+    {
+      url: "/chemistry/substances/proteins-chemistry",
+      title: "蛋白质的化学",
+    },
+  ],
+  "/life-science/knowledge-base/当代议题--基因编辑": [
+    {
+      url: "/chemistry/figures/frederick-sanger",
+      title: "弗雷德里克·桑格",
+    },
+  ],
+  "/life-science/knowledge-base/当代议题--生命起源研究": [
+    {
+      url: "/earth-science/frontier/deep-sea-hydrothermal-frontiers",
+      title: "深海前沿：生命起点、地下生物圈与海底采矿的争夺",
+    },
+  ],
+  "/life-science/knowledge-base/当代议题--生物多样性": [
+    {
+      url: "/life-science/species/axolotl",
+      title: "美西螈",
+    },
+    {
+      url: "/life-science/species/honeybee",
+      title: "西方蜜蜂",
+    },
+  ],
+  "/life-science/knowledge-base/当代议题--病毒学": [
+    {
+      url: "/medicine/figures/jonas-salk",
+      title: "乔纳斯·萨尔克",
+    },
+  ],
+  "/life-science/knowledge-base/生态学--共生": [
+    {
+      url: "/life-science/species/mycorrhiza",
+      title: "菌根",
+    },
+    {
+      url: "/life-science/knowledge-base/人体--微生物组",
+      title: "微生物组：肠道菌群与人体共生",
+    },
+  ],
+  "/life-science/knowledge-base/生态学--城市生态": [
+    {
+      url: "/life-science/species/axolotl",
+      title: "美西螈",
+    },
+  ],
+  "/life-science/knowledge-base/生态学--气候变化与生态": [
+    {
+      url: "/earth-science/frontier/climate-tipping-points",
+      title: "气候临界点：地球系统的不可逆开关",
+    },
+  ],
+  "/life-science/knowledge-base/生态学--生物地理": [
+    {
+      url: "/earth-science/events/krakatoa-1883",
+      title: "喀拉喀托火山爆发（1883）",
+    },
+  ],
+  "/life-science/knowledge-base/生态学--迁徙": [
+    {
+      url: "/life-science/species/horseshoe-crab",
+      title: "鲎",
+    },
+  ],
+  "/life-science/knowledge-base/生态学--食物网": [
+    {
+      url: "/life-science/species/horseshoe-crab",
+      title: "鲎",
+    },
+  ],
+  "/life-science/knowledge-base/生态系统--深海热泉": [
+    {
+      url: "/earth-science/frontier/deep-sea-hydrothermal-frontiers",
+      title: "深海前沿：生命起点、地下生物圈与海底采矿的争夺",
+    },
+  ],
+  "/life-science/knowledge-base/生态系统--珊瑚礁": [
+    {
+      url: "/earth-science/frontier/climate-tipping-points",
+      title: "气候临界点：地球系统的不可逆开关",
+    },
+  ],
+  "/life-science/knowledge-base/生物技术--PCR技术": [
+    {
+      url: "/chemistry/substances/nucleic-acids-chemistry",
+      title: "核酸的化学",
+    },
+  ],
+  "/life-science/knowledge-base/生物技术--基因测序": [
+    {
+      url: "/chemistry/figures/frederick-sanger",
+      title: "弗雷德里克·桑格",
+    },
+    {
+      url: "/chemistry/substances/nucleic-acids-chemistry",
+      title: "核酸的化学",
+    },
+    {
+      url: "/life-science/species/axolotl",
+      title: "美西螈",
+    },
+  ],
+  "/life-science/knowledge-base/生理学--内分泌系统与激素调节": [
+    {
+      url: "/medicine/concepts/endocrine-system",
+      title: "内分泌系统",
+    },
+  ],
+  "/life-science/knowledge-base/生理学--神经递质与突触传递": [
+    {
+      url: "/medicine/technologies/anesthesia",
+      title: "麻醉",
+    },
+    {
+      url: "/medicine/concepts/nervous-system",
+      title: "神经系统",
+    },
+  ],
+  "/life-science/knowledge-base/神经可塑性": [
+    {
+      url: "/medicine/concepts/nervous-system",
+      title: "神经系统",
+    },
+    {
+      url: "/medicine/diseases/stroke",
+      title: "中风（脑卒中）",
+    },
+  ],
+  "/life-science/knowledge-base/进化专题--动物行为与本能": [
+    {
+      url: "/life-science/species/honeybee",
+      title: "西方蜜蜂",
+    },
+  ],
+  "/life-science/knowledge-base/进化专题--社会性的进化": [
+    {
+      url: "/life-science/species/honeybee",
+      title: "西方蜜蜂",
+    },
+  ],
+  "/life-science/knowledge-base/进化机制--水平基因转移": [
+    {
+      url: "/life-science/knowledge-base/医学--抗生素",
+      title: "抗生素：从青霉素奇迹到耐药性危机",
+    },
+  ],
+  "/life-science/knowledge-base/进化机制--自然选择": [
+    {
+      url: "/life-science/knowledge-base/医学--癌症生物学",
+      title: "癌症生物学：基因突变、肿瘤微环境与免疫疗法",
+    },
+    {
+      url: "/life-science/knowledge-base/医学--抗生素",
+      title: "抗生素：从青霉素奇迹到耐药性危机",
     },
   ],
   "/life-science/scientists/crick": [
@@ -2670,10 +4754,88 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "珍妮弗·杜德纳",
     },
   ],
+  "/life-science/species/coral": [
+    {
+      url: "/life-science/species/honey-fungus",
+      title: "奥氏蜜环菌",
+    },
+    {
+      url: "/earth-science/concepts/ocean-acidification",
+      title: "海洋酸化",
+    },
+  ],
+  "/life-science/species/honey-fungus": [
+    {
+      url: "/life-science/species/mycorrhiza",
+      title: "菌根",
+    },
+  ],
+  "/life-science/species/immortal-jellyfish": [
+    {
+      url: "/life-science/species/axolotl",
+      title: "美西螈",
+    },
+  ],
+  "/life-science/species/mycorrhiza": [
+    {
+      url: "/life-science/species/honey-fungus",
+      title: "奥氏蜜环菌",
+    },
+  ],
+  "/life-science/species/neuron": [
+    {
+      url: "/life-science/knowledge-base/神经可塑性",
+      title: "神经可塑性",
+    },
+    {
+      url: "/medicine/concepts/nervous-system",
+      title: "神经系统",
+    },
+    {
+      url: "/life-science/species/honeybee",
+      title: "西方蜜蜂",
+    },
+  ],
+  "/life-science/species/octopus": [
+    {
+      url: "/life-science/species/slime-mould",
+      title: "多头绒泡菌",
+    },
+    {
+      url: "/life-science/species/horseshoe-crab",
+      title: "鲎",
+    },
+    {
+      url: "/life-science/species/honeybee",
+      title: "西方蜜蜂",
+    },
+  ],
+  "/life-science/species/slime-mould": [
+    {
+      url: "/life-science/species/honey-fungus",
+      title: "奥氏蜜环菌",
+    },
+    {
+      url: "/life-science/species/mycorrhiza",
+      title: "菌根",
+    },
+    {
+      url: "/life-science/species/honeybee",
+      title: "西方蜜蜂",
+    },
+  ],
   "/life-science/species/tardigrade": [
+    {
+      url: "/life-science/species/immortal-jellyfish",
+      title: "灯塔水母",
+    },
     {
       url: "/life-science/scientists/margulis",
       title: "林恩·马古利斯",
+    },
+    {
+      url: "/life-science/species/deinococcus",
+      title: "耐辐射球菌",
     },
   ],
   "/mathematics/concepts/algebraic-geometry": [
@@ -2700,6 +4862,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/homology-cohomology",
       title: "同调与上同调",
+    },
+  ],
+  "/mathematics/concepts/chaos-theory": [
+    {
+      url: "/earth-science/frontier/climate-tipping-points",
+      title: "气候临界点：地球系统的不可逆开关",
     },
   ],
   "/mathematics/concepts/complex-analysis": [
@@ -2785,11 +4953,25 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/mathematics/mathematicians/mirzakhani",
       title: "米尔扎哈尼",
     },
+    {
+      url: "/earth-science/frontier/climate-tipping-points",
+      title: "气候临界点：地球系统的不可逆开关",
+    },
   ],
   "/mathematics/concepts/field": [
     {
       url: "/mathematics/concepts/ring",
       title: "环",
+    },
+  ],
+  "/mathematics/concepts/fourier-analysis": [
+    {
+      url: "/earth-science/frontier/paleoclimate-ice-cores",
+      title: "冰芯里的百万年：从 Beyond EPICA 读取最古老的大气",
+    },
+    {
+      url: "/mathematics/concepts/trigonometry",
+      title: "三角函数",
     },
   ],
   "/mathematics/concepts/function": [
@@ -3120,6 +5302,1388 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "群",
     },
   ],
+  "/medicine/concepts/antibiotic-resistance": [
+    {
+      url: "/medicine/diseases/sepsis",
+      title: "败血症（脓毒症）",
+    },
+    {
+      url: "/life-science/knowledge-base/医学--抗生素",
+      title: "抗生素：从青霉素奇迹到耐药性危机",
+    },
+    {
+      url: "/medicine/concepts/germ-theory",
+      title: "细菌致病论",
+    },
+    {
+      url: "/medicine/concepts/pharmacology",
+      title: "药理学基础",
+    },
+    {
+      url: "/medicine/concepts/vaccination",
+      title: "疫苗原理",
+    },
+  ],
+  "/medicine/concepts/drug-development": [
+    {
+      url: "/life-science/species/horseshoe-crab",
+      title: "鲎",
+    },
+    {
+      url: "/chemistry/figures/robert-woodward",
+      title: "罗伯特·伍德沃德",
+    },
+    {
+      url: "/chemistry/concepts/coordination-chemistry",
+      title: "配位化学",
+    },
+    {
+      url: "/medicine/concepts/pharmacology",
+      title: "药理学基础",
+    },
+  ],
+  "/medicine/concepts/endocrine-system": [
+    {
+      url: "/medicine/figures/banting-and-best",
+      title: "班廷与贝斯特",
+    },
+    {
+      url: "/medicine/diseases/obesity",
+      title: "肥胖",
+    },
+    {
+      url: "/medicine/concepts/nervous-system",
+      title: "神经系统",
+    },
+  ],
+  "/medicine/concepts/epidemiology": [
+    {
+      url: "/medicine/concepts/public-health",
+      title: "公共卫生",
+    },
+    {
+      url: "/medicine/concepts/antibiotic-resistance",
+      title: "抗生素耐药性",
+    },
+    {
+      url: "/medicine/concepts/germ-theory",
+      title: "细菌致病论",
+    },
+    {
+      url: "/medicine/concepts/evidence-based-medicine",
+      title: "循证医学",
+    },
+    {
+      url: "/medicine/concepts/vaccination",
+      title: "疫苗原理",
+    },
+    {
+      url: "/medicine/concepts/informed-consent",
+      title: "知情同意",
+    },
+  ],
+  "/medicine/concepts/evidence-based-medicine": [
+    {
+      url: "/medicine/diseases/liver-disease",
+      title: "肝硬化与慢性肝病",
+    },
+    {
+      url: "/medicine/concepts/public-health",
+      title: "公共卫生",
+    },
+    {
+      url: "/medicine/concepts/epidemiology",
+      title: "流行病学",
+    },
+    {
+      url: "/medicine/diseases/chronic-kidney-disease",
+      title: "慢性肾病",
+    },
+    {
+      url: "/medicine/figures/jonas-salk",
+      title: "乔纳斯·萨尔克",
+    },
+    {
+      url: "/medicine/concepts/humoral-theory",
+      title: "体液学说",
+    },
+    {
+      url: "/medicine/concepts/pharmacology",
+      title: "药理学基础",
+    },
+    {
+      url: "/medicine/concepts/drug-development",
+      title: "药物研发与临床试验",
+    },
+    {
+      url: "/medicine/concepts/informed-consent",
+      title: "知情同意",
+    },
+  ],
+  "/medicine/concepts/germ-theory": [
+    {
+      url: "/medicine/concepts/antibiotic-resistance",
+      title: "抗生素耐药性",
+    },
+    {
+      url: "/medicine/concepts/epidemiology",
+      title: "流行病学",
+    },
+    {
+      url: "/medicine/concepts/immune-system",
+      title: "免疫系统",
+    },
+    {
+      url: "/medicine/concepts/humoral-theory",
+      title: "体液学说",
+    },
+    {
+      url: "/medicine/concepts/microbiome-and-health",
+      title: "微生物组与健康",
+    },
+    {
+      url: "/medicine/concepts/inflammation",
+      title: "炎症",
+    },
+  ],
+  "/medicine/concepts/homeostasis": [
+    {
+      url: "/medicine/diseases/anxiety-disorders",
+      title: "焦虑障碍",
+    },
+    {
+      url: "/medicine/concepts/endocrine-system",
+      title: "内分泌系统",
+    },
+    {
+      url: "/medicine/diseases/parkinsons-disease",
+      title: "帕金森病",
+    },
+    {
+      url: "/medicine/concepts/pain-and-analgesia",
+      title: "疼痛与镇痛",
+    },
+    {
+      url: "/medicine/concepts/humoral-theory",
+      title: "体液学说",
+    },
+    {
+      url: "/medicine/concepts/inflammation",
+      title: "炎症",
+    },
+    {
+      url: "/medicine/concepts/pharmacology",
+      title: "药理学基础",
+    },
+  ],
+  "/medicine/concepts/humoral-theory": [
+    {
+      url: "/human-history/knowledge/中世纪--黑死病",
+      title: "黑死病",
+    },
+    {
+      url: "/medicine/concepts/homeostasis",
+      title: "内稳态",
+    },
+    {
+      url: "/medicine/concepts/germ-theory",
+      title: "细菌致病论",
+    },
+    {
+      url: "/medicine/diseases/depression",
+      title: "抑郁症",
+    },
+  ],
+  "/medicine/concepts/immune-system": [
+    {
+      url: "/medicine/diseases/sepsis",
+      title: "败血症（脓毒症）",
+    },
+    {
+      url: "/medicine/concepts/antibiotic-resistance",
+      title: "抗生素耐药性",
+    },
+    {
+      url: "/medicine/concepts/endocrine-system",
+      title: "内分泌系统",
+    },
+    {
+      url: "/medicine/concepts/homeostasis",
+      title: "内稳态",
+    },
+    {
+      url: "/medicine/figures/jonas-salk",
+      title: "乔纳斯·萨尔克",
+    },
+    {
+      url: "/medicine/technologies/blood-transfusion",
+      title: "输血",
+    },
+    {
+      url: "/medicine/concepts/microbiome-and-health",
+      title: "微生物组与健康",
+    },
+    {
+      url: "/medicine/diseases/asthma-and-copd",
+      title: "哮喘与慢阻肺",
+    },
+    {
+      url: "/medicine/concepts/inflammation",
+      title: "炎症",
+    },
+    {
+      url: "/medicine/concepts/vaccination",
+      title: "疫苗原理",
+    },
+    {
+      url: "/medicine/diseases/autoimmune-diseases",
+      title: "自身免疫病",
+    },
+  ],
+  "/medicine/concepts/inflammation": [
+    {
+      url: "/medicine/diseases/alzheimers-disease",
+      title: "阿尔茨海默病",
+    },
+    {
+      url: "/medicine/diseases/sepsis",
+      title: "败血症（脓毒症）",
+    },
+    {
+      url: "/medicine/diseases/anxiety-disorders",
+      title: "焦虑障碍",
+    },
+    {
+      url: "/medicine/concepts/immune-system",
+      title: "免疫系统",
+    },
+    {
+      url: "/medicine/concepts/homeostasis",
+      title: "内稳态",
+    },
+    {
+      url: "/medicine/diseases/parkinsons-disease",
+      title: "帕金森病",
+    },
+    {
+      url: "/medicine/concepts/pain-and-analgesia",
+      title: "疼痛与镇痛",
+    },
+    {
+      url: "/medicine/concepts/microbiome-and-health",
+      title: "微生物组与健康",
+    },
+    {
+      url: "/medicine/diseases/asthma-and-copd",
+      title: "哮喘与慢阻肺",
+    },
+    {
+      url: "/medicine/diseases/depression",
+      title: "抑郁症",
+    },
+    {
+      url: "/medicine/diseases/autoimmune-diseases",
+      title: "自身免疫病",
+    },
+  ],
+  "/medicine/concepts/informed-consent": [
+    {
+      url: "/medicine/diseases/schizophrenia",
+      title: "精神分裂症",
+    },
+    {
+      url: "/medicine/concepts/pain-and-analgesia",
+      title: "疼痛与镇痛",
+    },
+    {
+      url: "/medicine/concepts/evidence-based-medicine",
+      title: "循证医学",
+    },
+  ],
+  "/medicine/concepts/microbiome-and-health": [
+    {
+      url: "/life-science/knowledge-base/人体--微生物组",
+      title: "微生物组：肠道菌群与人体共生",
+    },
+  ],
+  "/medicine/concepts/nervous-system": [
+    {
+      url: "/chemistry/concepts/photochemistry",
+      title: "光化学",
+    },
+    {
+      url: "/medicine/concepts/endocrine-system",
+      title: "内分泌系统",
+    },
+    {
+      url: "/life-science/knowledge-base/神经可塑性",
+      title: "神经可塑性",
+    },
+    {
+      url: "/medicine/diseases/stroke",
+      title: "中风（脑卒中）",
+    },
+  ],
+  "/medicine/concepts/pain-and-analgesia": [
+    {
+      url: "/medicine/concepts/nervous-system",
+      title: "神经系统",
+    },
+  ],
+  "/medicine/concepts/pharmacology": [
+    {
+      url: "/life-science/knowledge-base/人体--微生物组",
+      title: "微生物组：肠道菌群与人体共生",
+    },
+    {
+      url: "/medicine/concepts/drug-development",
+      title: "药物研发与临床试验",
+    },
+  ],
+  "/medicine/concepts/public-health": [
+    {
+      url: "/life-science/knowledge-base/医学--癌症生物学",
+      title: "癌症生物学：基因突变、肿瘤微环境与免疫疗法",
+    },
+    {
+      url: "/human-history/knowledge/事件--黑死病",
+      title: "黑死病",
+    },
+    {
+      url: "/life-science/knowledge-base/医学--抗生素",
+      title: "抗生素：从青霉素奇迹到耐药性危机",
+    },
+    {
+      url: "/human-history/knowledge/人物--毛泽东",
+      title: "毛泽东",
+    },
+    {
+      url: "/medicine/figures/jonas-salk",
+      title: "乔纳斯·萨尔克",
+    },
+    {
+      url: "/medicine/diseases/stroke",
+      title: "中风（脑卒中）",
+    },
+  ],
+  "/medicine/concepts/vaccination": [
+    {
+      url: "/life-science/knowledge-base/医学--癌症生物学",
+      title: "癌症生物学：基因突变、肿瘤微环境与免疫疗法",
+    },
+    {
+      url: "/medicine/diseases/liver-disease",
+      title: "肝硬化与慢性肝病",
+    },
+    {
+      url: "/medicine/concepts/public-health",
+      title: "公共卫生",
+    },
+    {
+      url: "/life-science/species/horseshoe-crab",
+      title: "鲎",
+    },
+    {
+      url: "/medicine/concepts/epidemiology",
+      title: "流行病学",
+    },
+    {
+      url: "/medicine/concepts/immune-system",
+      title: "免疫系统",
+    },
+    {
+      url: "/life-science/knowledge-base/人体--免疫系统",
+      title: "免疫系统：先天与适应性防御网络",
+    },
+    {
+      url: "/medicine/figures/jonas-salk",
+      title: "乔纳斯·萨尔克",
+    },
+    {
+      url: "/medicine/concepts/germ-theory",
+      title: "细菌致病论",
+    },
+    {
+      url: "/medicine/concepts/evidence-based-medicine",
+      title: "循证医学",
+    },
+    {
+      url: "/medicine/concepts/informed-consent",
+      title: "知情同意",
+    },
+  ],
+  "/medicine/diseases/alzheimers-disease": [
+    {
+      url: "/chemistry/substances/proteins-chemistry",
+      title: "蛋白质的化学",
+    },
+    {
+      url: "/medicine/diseases/parkinsons-disease",
+      title: "帕金森病",
+    },
+  ],
+  "/medicine/diseases/anxiety-disorders": [
+    {
+      url: "/medicine/diseases/schizophrenia",
+      title: "精神分裂症",
+    },
+  ],
+  "/medicine/diseases/cancer": [
+    {
+      url: "/life-science/knowledge-base/医学--癌症生物学",
+      title: "癌症生物学：基因突变、肿瘤微环境与免疫疗法",
+    },
+    {
+      url: "/chemistry/concepts/nuclear-chemistry",
+      title: "核化学与放射化学",
+    },
+    {
+      url: "/life-science/species/deinococcus",
+      title: "耐辐射球菌",
+    },
+    {
+      url: "/chemistry/concepts/coordination-chemistry",
+      title: "配位化学",
+    },
+    {
+      url: "/medicine/diseases/cardiovascular-disease",
+      title: "心血管疾病",
+    },
+  ],
+  "/medicine/diseases/cardiovascular-disease": [
+    {
+      url: "/medicine/diseases/alzheimers-disease",
+      title: "阿尔茨海默病",
+    },
+    {
+      url: "/medicine/diseases/cancer",
+      title: "癌症",
+    },
+    {
+      url: "/medicine/diseases/obesity",
+      title: "肥胖",
+    },
+    {
+      url: "/medicine/diseases/liver-disease",
+      title: "肝硬化与慢性肝病",
+    },
+    {
+      url: "/medicine/diseases/chronic-kidney-disease",
+      title: "慢性肾病",
+    },
+    {
+      url: "/chemistry/substances/carbohydrates-and-lipids",
+      title: "糖类与脂质",
+    },
+    {
+      url: "/medicine/diseases/diabetes",
+      title: "糖尿病",
+    },
+    {
+      url: "/medicine/diseases/asthma-and-copd",
+      title: "哮喘与慢阻肺",
+    },
+    {
+      url: "/medicine/diseases/depression",
+      title: "抑郁症",
+    },
+    {
+      url: "/medicine/diseases/stroke",
+      title: "中风（脑卒中）",
+    },
+  ],
+  "/medicine/diseases/cholera": [
+    {
+      url: "/human-history/knowledge/事件--工业革命",
+      title: "工业革命",
+    },
+    {
+      url: "/human-history/knowledge/概念--工业革命",
+      title: "工业革命",
+    },
+    {
+      url: "/human-history/knowledge/经济史--工业革命的经济根源",
+      title: "工业革命的经济根源：为什么是英国？",
+    },
+    {
+      url: "/medicine/diseases/tuberculosis",
+      title: "结核病",
+    },
+    {
+      url: "/medicine/diseases/plague",
+      title: "鼠疫",
+    },
+    {
+      url: "/medicine/diseases/covid-19",
+      title: "COVID-19",
+    },
+  ],
+  "/medicine/diseases/chronic-kidney-disease": [
+    {
+      url: "/medicine/diseases/liver-disease",
+      title: "肝硬化与慢性肝病",
+    },
+  ],
+  "/medicine/diseases/covid-19": [
+    {
+      url: "/medicine/diseases/influenza",
+      title: "流感",
+    },
+  ],
+  "/medicine/diseases/depression": [
+    {
+      url: "/medicine/diseases/anxiety-disorders",
+      title: "焦虑障碍",
+    },
+    {
+      url: "/medicine/diseases/schizophrenia",
+      title: "精神分裂症",
+    },
+  ],
+  "/medicine/diseases/diabetes": [
+    {
+      url: "/medicine/diseases/cancer",
+      title: "癌症",
+    },
+    {
+      url: "/medicine/figures/banting-and-best",
+      title: "班廷与贝斯特",
+    },
+    {
+      url: "/medicine/diseases/obesity",
+      title: "肥胖",
+    },
+    {
+      url: "/chemistry/figures/frederick-sanger",
+      title: "弗雷德里克·桑格",
+    },
+    {
+      url: "/medicine/diseases/liver-disease",
+      title: "肝硬化与慢性肝病",
+    },
+    {
+      url: "/medicine/diseases/chronic-kidney-disease",
+      title: "慢性肾病",
+    },
+    {
+      url: "/medicine/concepts/endocrine-system",
+      title: "内分泌系统",
+    },
+    {
+      url: "/chemistry/substances/carbohydrates-and-lipids",
+      title: "糖类与脂质",
+    },
+    {
+      url: "/medicine/diseases/cardiovascular-disease",
+      title: "心血管疾病",
+    },
+    {
+      url: "/medicine/diseases/stroke",
+      title: "中风（脑卒中）",
+    },
+    {
+      url: "/medicine/diseases/autoimmune-diseases",
+      title: "自身免疫病",
+    },
+  ],
+  "/medicine/diseases/hiv-aids": [
+    {
+      url: "/medicine/diseases/tuberculosis",
+      title: "结核病",
+    },
+    {
+      url: "/medicine/technologies/blood-transfusion",
+      title: "输血",
+    },
+  ],
+  "/medicine/diseases/influenza": [
+    {
+      url: "/medicine/diseases/covid-19",
+      title: "COVID-19",
+    },
+  ],
+  "/medicine/diseases/liver-disease": [
+    {
+      url: "/medicine/diseases/obesity",
+      title: "肥胖",
+    },
+  ],
+  "/medicine/diseases/malaria": [
+    {
+      url: "/chemistry/figures/robert-woodward",
+      title: "罗伯特·伍德沃德",
+    },
+  ],
+  "/medicine/diseases/obesity": [
+    {
+      url: "/chemistry/substances/carbohydrates-and-lipids",
+      title: "糖类与脂质",
+    },
+  ],
+  "/medicine/diseases/parkinsons-disease": [
+    {
+      url: "/medicine/diseases/alzheimers-disease",
+      title: "阿尔茨海默病",
+    },
+    {
+      url: "/chemistry/substances/proteins-chemistry",
+      title: "蛋白质的化学",
+    },
+  ],
+  "/medicine/diseases/plague": [
+    {
+      url: "/human-history/knowledge/文明--拜占庭",
+      title: "拜占庭",
+    },
+    {
+      url: "/human-history/knowledge/中世纪--欧洲--拜占庭帝国",
+      title: "拜占庭帝国",
+    },
+    {
+      url: "/human-history/knowledge/中世纪--黑死病",
+      title: "黑死病",
+    },
+    {
+      url: "/human-history/knowledge/事件--黑死病",
+      title: "黑死病",
+    },
+    {
+      url: "/medicine/diseases/cholera",
+      title: "霍乱",
+    },
+    {
+      url: "/medicine/diseases/smallpox",
+      title: "天花",
+    },
+  ],
+  "/medicine/diseases/smallpox": [
+    {
+      url: "/human-history/knowledge/美洲--阿兹特克帝国",
+      title: "阿兹特克帝国",
+    },
+    {
+      url: "/human-history/knowledge/远古时期--大洋洲--澳大利亚原住民",
+      title: "澳大利亚原住民",
+    },
+    {
+      url: "/human-history/knowledge/事件--大航海时代",
+      title: "大航海时代",
+    },
+    {
+      url: "/human-history/knowledge/概念--大航海时代",
+      title: "大航海时代",
+    },
+    {
+      url: "/human-history/knowledge/文化交流--大航海时代的物种交换",
+      title: "大航海时代的物种交换",
+    },
+    {
+      url: "/human-history/knowledge/人物--哥伦布",
+      title: "哥伦布",
+    },
+    {
+      url: "/human-history/knowledge/近代--荷兰东印度公司",
+      title: "荷兰东印度公司",
+    },
+    {
+      url: "/medicine/diseases/influenza",
+      title: "流感",
+    },
+    {
+      url: "/human-history/knowledge/文明--美洲文明",
+      title: "美洲文明",
+    },
+    {
+      url: "/human-history/knowledge/中世纪--美洲--塔伊诺人",
+      title: "塔伊诺人",
+    },
+    {
+      url: "/human-history/knowledge/中世纪--伊斯兰黄金时代",
+      title: "伊斯兰黄金时代",
+    },
+    {
+      url: "/human-history/knowledge/文明--伊斯兰文明",
+      title: "伊斯兰文明",
+    },
+    {
+      url: "/human-history/knowledge/美洲--印加帝国",
+      title: "印加帝国",
+    },
+  ],
+  "/medicine/diseases/stroke": [
+    {
+      url: "/medicine/concepts/nervous-system",
+      title: "神经系统",
+    },
+  ],
+  "/medicine/diseases/tuberculosis": [
+    {
+      url: "/medicine/diseases/hiv-aids",
+      title: "艾滋病",
+    },
+    {
+      url: "/medicine/diseases/malaria",
+      title: "疟疾",
+    },
+    {
+      url: "/medicine/diseases/diabetes",
+      title: "糖尿病",
+    },
+  ],
+  "/medicine/ethics/clinical-trial-ethics": [
+    {
+      url: "/medicine/ethics/euthanasia-and-assisted-dying",
+      title: "安乐死与协助死亡",
+    },
+    {
+      url: "/medicine/ethics/henrietta-lacks-hela",
+      title: "海拉细胞与亨丽埃塔·拉克斯",
+    },
+    {
+      url: "/medicine/ethics/he-jiankui-crispr-babies",
+      title: "贺建奎与基因编辑婴儿事件",
+    },
+    {
+      url: "/medicine/ethics/organ-allocation-ethics",
+      title: "器官分配伦理",
+    },
+    {
+      url: "/medicine/concepts/drug-development",
+      title: "药物研发与临床试验",
+    },
+  ],
+  "/medicine/ethics/euthanasia-and-assisted-dying": [
+    {
+      url: "/medicine/ethics/organ-allocation-ethics",
+      title: "器官分配伦理",
+    },
+  ],
+  "/medicine/ethics/genetic-testing-and-privacy": [
+    {
+      url: "/medicine/ethics/henrietta-lacks-hela",
+      title: "海拉细胞与亨丽埃塔·拉克斯",
+    },
+    {
+      url: "/medicine/ethics/he-jiankui-crispr-babies",
+      title: "贺建奎与基因编辑婴儿事件",
+    },
+  ],
+  "/medicine/ethics/he-jiankui-crispr-babies": [
+    {
+      url: "/medicine/ethics/genetic-testing-and-privacy",
+      title: "基因检测与隐私",
+    },
+  ],
+  "/medicine/ethics/henrietta-lacks-hela": [
+    {
+      url: "/medicine/ethics/genetic-testing-and-privacy",
+      title: "基因检测与隐私",
+    },
+    {
+      url: "/medicine/ethics/clinical-trial-ethics",
+      title: "临床试验伦理",
+    },
+  ],
+  "/medicine/ethics/organ-allocation-ethics": [
+    {
+      url: "/medicine/ethics/euthanasia-and-assisted-dying",
+      title: "安乐死与协助死亡",
+    },
+    {
+      url: "/medicine/diseases/liver-disease",
+      title: "肝硬化与慢性肝病",
+    },
+    {
+      url: "/medicine/ethics/clinical-trial-ethics",
+      title: "临床试验伦理",
+    },
+    {
+      url: "/medicine/diseases/chronic-kidney-disease",
+      title: "慢性肾病",
+    },
+  ],
+  "/medicine/events/antibiotic-era": [
+    {
+      url: "/medicine/events/tuskegee-syphilis-study",
+      title: "塔斯基吉梅毒研究（1932–1972）",
+    },
+    {
+      url: "/medicine/events/germ-theory-revolution",
+      title: "细菌理论革命（19 世纪后半叶）",
+    },
+  ],
+  "/medicine/events/covid-19-pandemic": [
+    {
+      url: "/medicine/events/hiv-aids-pandemic",
+      title: "艾滋病大流行（1981 起）",
+    },
+    {
+      url: "/medicine/events/tobacco-control-movement",
+      title: "控烟运动（1964 起）",
+    },
+    {
+      url: "/medicine/events/smallpox-eradication",
+      title: "天花根除（1980）",
+    },
+  ],
+  "/medicine/events/germ-theory-revolution": [
+    {
+      url: "/chemistry/milestones/lavoisier-oxygen-revolution",
+      title: "拉瓦锡的氧化学革命（1789）",
+    },
+    {
+      url: "/medicine/events/snow-cholera-broad-street",
+      title: "斯诺与宽街水泵（1854）",
+    },
+  ],
+  "/medicine/events/hiv-aids-pandemic": [
+    {
+      url: "/medicine/events/covid-19-pandemic",
+      title: "COVID-19 大流行（2020 起）",
+    },
+  ],
+  "/medicine/events/jenner-smallpox-vaccination": [
+    {
+      url: "/medicine/events/smallpox-eradication",
+      title: "天花根除（1980）",
+    },
+  ],
+  "/medicine/events/smallpox-eradication": [
+    {
+      url: "/medicine/events/jenner-smallpox-vaccination",
+      title: "詹纳与牛痘接种（1796）",
+    },
+    {
+      url: "/medicine/events/covid-19-pandemic",
+      title: "COVID-19 大流行（2020 起）",
+    },
+  ],
+  "/medicine/events/snow-cholera-broad-street": [
+    {
+      url: "/medicine/events/tobacco-control-movement",
+      title: "控烟运动（1964 起）",
+    },
+    {
+      url: "/medicine/events/germ-theory-revolution",
+      title: "细菌理论革命（19 世纪后半叶）",
+    },
+  ],
+  "/medicine/events/thalidomide-tragedy": [
+    {
+      url: "/medicine/concepts/drug-development",
+      title: "药物研发与临床试验",
+    },
+  ],
+  "/medicine/events/tobacco-control-movement": [
+    {
+      url: "/medicine/events/snow-cholera-broad-street",
+      title: "斯诺与宽街水泵（1854）",
+    },
+  ],
+  "/medicine/events/tuskegee-syphilis-study": [
+    {
+      url: "/medicine/events/thalidomide-tragedy",
+      title: "反应停悲剧（1957）",
+    },
+    {
+      url: "/medicine/concepts/public-health",
+      title: "公共卫生",
+    },
+    {
+      url: "/medicine/events/antibiotic-era",
+      title: "抗生素时代的开启（1942）",
+    },
+    {
+      url: "/medicine/events/jenner-smallpox-vaccination",
+      title: "詹纳与牛痘接种（1796）",
+    },
+  ],
+  "/medicine/figures/alexander-fleming": [
+    {
+      url: "/medicine/figures/banting-and-best",
+      title: "班廷与贝斯特",
+    },
+    {
+      url: "/medicine/figures/paul-ehrlich",
+      title: "保罗·埃尔利希",
+    },
+    {
+      url: "/medicine/figures/tu-youyou",
+      title: "屠呦呦",
+    },
+  ],
+  "/medicine/figures/banting-and-best": [
+    {
+      url: "/chemistry/figures/frederick-sanger",
+      title: "弗雷德里克·桑格",
+    },
+    {
+      url: "/medicine/concepts/endocrine-system",
+      title: "内分泌系统",
+    },
+    {
+      url: "/medicine/figures/jonas-salk",
+      title: "乔纳斯·萨尔克",
+    },
+  ],
+  "/medicine/figures/edward-jenner": [
+    {
+      url: "/medicine/figures/louis-pasteur",
+      title: "路易·巴斯德",
+    },
+    {
+      url: "/medicine/figures/jonas-salk",
+      title: "乔纳斯·萨尔克",
+    },
+  ],
+  "/medicine/figures/florence-nightingale": [
+    {
+      url: "/medicine/figures/vesalius",
+      title: "安德烈亚斯·维萨里",
+    },
+    {
+      url: "/medicine/figures/ignaz-semmelweis",
+      title: "伊格纳茨·塞麦尔维斯",
+    },
+  ],
+  "/medicine/figures/hippocrates": [
+    {
+      url: "/medicine/figures/vesalius",
+      title: "安德烈亚斯·维萨里",
+    },
+    {
+      url: "/medicine/figures/zhang-zhongjing",
+      title: "张仲景",
+    },
+  ],
+  "/medicine/figures/ignaz-semmelweis": [
+    {
+      url: "/medicine/figures/edward-jenner",
+      title: "爱德华·詹纳",
+    },
+    {
+      url: "/medicine/figures/florence-nightingale",
+      title: "弗洛伦斯·南丁格尔",
+    },
+    {
+      url: "/medicine/figures/louis-pasteur",
+      title: "路易·巴斯德",
+    },
+    {
+      url: "/medicine/figures/robert-koch",
+      title: "罗伯特·科赫",
+    },
+  ],
+  "/medicine/figures/louis-pasteur": [
+    {
+      url: "/medicine/figures/edward-jenner",
+      title: "爱德华·詹纳",
+    },
+    {
+      url: "/medicine/figures/paul-ehrlich",
+      title: "保罗·埃尔利希",
+    },
+    {
+      url: "/medicine/figures/florence-nightingale",
+      title: "弗洛伦斯·南丁格尔",
+    },
+    {
+      url: "/medicine/figures/robert-koch",
+      title: "罗伯特·科赫",
+    },
+    {
+      url: "/medicine/figures/alexander-fleming",
+      title: "亚历山大·弗莱明",
+    },
+    {
+      url: "/medicine/figures/ignaz-semmelweis",
+      title: "伊格纳茨·塞麦尔维斯",
+    },
+  ],
+  "/medicine/figures/robert-koch": [
+    {
+      url: "/medicine/figures/edward-jenner",
+      title: "爱德华·詹纳",
+    },
+    {
+      url: "/medicine/figures/paul-ehrlich",
+      title: "保罗·埃尔利希",
+    },
+    {
+      url: "/medicine/figures/louis-pasteur",
+      title: "路易·巴斯德",
+    },
+    {
+      url: "/medicine/figures/william-harvey",
+      title: "威廉·哈维",
+    },
+    {
+      url: "/medicine/figures/alexander-fleming",
+      title: "亚历山大·弗莱明",
+    },
+    {
+      url: "/medicine/figures/ignaz-semmelweis",
+      title: "伊格纳茨·塞麦尔维斯",
+    },
+  ],
+  "/medicine/figures/tu-youyou": [
+    {
+      url: "/medicine/figures/banting-and-best",
+      title: "班廷与贝斯特",
+    },
+    {
+      url: "/medicine/figures/jonas-salk",
+      title: "乔纳斯·萨尔克",
+    },
+    {
+      url: "/medicine/figures/alexander-fleming",
+      title: "亚历山大·弗莱明",
+    },
+    {
+      url: "/medicine/figures/zhang-zhongjing",
+      title: "张仲景",
+    },
+  ],
+  "/medicine/figures/vesalius": [
+    {
+      url: "/medicine/figures/florence-nightingale",
+      title: "弗洛伦斯·南丁格尔",
+    },
+    {
+      url: "/medicine/figures/william-harvey",
+      title: "威廉·哈维",
+    },
+    {
+      url: "/medicine/figures/hippocrates",
+      title: "希波克拉底",
+    },
+  ],
+  "/medicine/figures/william-harvey": [
+    {
+      url: "/medicine/figures/vesalius",
+      title: "安德烈亚斯·维萨里",
+    },
+    {
+      url: "/medicine/figures/robert-koch",
+      title: "罗伯特·科赫",
+    },
+    {
+      url: "/medicine/figures/hippocrates",
+      title: "希波克拉底",
+    },
+  ],
+  "/medicine/figures/zhang-zhongjing": [
+    {
+      url: "/medicine/figures/tu-youyou",
+      title: "屠呦呦",
+    },
+    {
+      url: "/medicine/figures/hippocrates",
+      title: "希波克拉底",
+    },
+  ],
+  "/medicine/frontier/ai-in-medical-diagnosis": [
+    {
+      url: "/medicine/frontier/cancer-immunotherapy",
+      title: "癌症免疫疗法：松开免疫系统的刹车，让身体自己打癌细胞",
+    },
+    {
+      url: "/medicine/frontier/antimicrobial-resistance",
+      title: "抗微生物耐药：当抗生素一个接一个失效的那一天",
+    },
+    {
+      url: "/medicine/frontier/crispr-clinical-therapy",
+      title: "CRISPR 进入临床：当基因编辑第一次真正治好了一种病",
+    },
+    {
+      url: "/medicine/frontier/mrna-therapeutics",
+      title: "mRNA 疗法：当新冠疫苗只是这项技术的第一幕",
+    },
+  ],
+  "/medicine/frontier/antimicrobial-resistance": [
+    {
+      url: "/medicine/frontier/ai-in-medical-diagnosis",
+      title: "AI 读片：机器能比医生更早看见癌症吗",
+    },
+  ],
+  "/medicine/frontier/cancer-immunotherapy": [
+    {
+      url: "/life-science/knowledge-base/医学--癌症生物学",
+      title: "癌症生物学：基因突变、肿瘤微环境与免疫疗法",
+    },
+    {
+      url: "/life-science/knowledge-base/人体--免疫系统",
+      title: "免疫系统：先天与适应性防御网络",
+    },
+    {
+      url: "/medicine/frontier/ai-in-medical-diagnosis",
+      title: "AI 读片：机器能比医生更早看见癌症吗",
+    },
+    {
+      url: "/medicine/frontier/crispr-clinical-therapy",
+      title: "CRISPR 进入临床：当基因编辑第一次真正治好了一种病",
+    },
+    {
+      url: "/medicine/frontier/mrna-therapeutics",
+      title: "mRNA 疗法：当新冠疫苗只是这项技术的第一幕",
+    },
+  ],
+  "/medicine/frontier/crispr-clinical-therapy": [
+    {
+      url: "/medicine/frontier/cancer-immunotherapy",
+      title: "癌症免疫疗法：松开免疫系统的刹车，让身体自己打癌细胞",
+    },
+    {
+      url: "/medicine/frontier/mrna-therapeutics",
+      title: "mRNA 疗法：当新冠疫苗只是这项技术的第一幕",
+    },
+  ],
+  "/medicine/frontier/mrna-therapeutics": [
+    {
+      url: "/medicine/frontier/cancer-immunotherapy",
+      title: "癌症免疫疗法：松开免疫系统的刹车，让身体自己打癌细胞",
+    },
+    {
+      url: "/medicine/frontier/ai-in-medical-diagnosis",
+      title: "AI 读片：机器能比医生更早看见癌症吗",
+    },
+    {
+      url: "/medicine/frontier/crispr-clinical-therapy",
+      title: "CRISPR 进入临床：当基因编辑第一次真正治好了一种病",
+    },
+  ],
+  "/medicine/technologies/anesthesia": [
+    {
+      url: "/medicine/technologies/antisepsis",
+      title: "无菌术",
+    },
+  ],
+  "/medicine/technologies/antibiotics": [
+    {
+      url: "/medicine/diseases/sepsis",
+      title: "败血症（脓毒症）",
+    },
+    {
+      url: "/life-science/knowledge-base/医学--抗生素",
+      title: "抗生素：从青霉素奇迹到耐药性危机",
+    },
+    {
+      url: "/chemistry/figures/robert-woodward",
+      title: "罗伯特·伍德沃德",
+    },
+    {
+      url: "/medicine/technologies/antisepsis",
+      title: "无菌术",
+    },
+  ],
+  "/medicine/technologies/antisepsis": [
+    {
+      url: "/medicine/technologies/antibiotics",
+      title: "抗生素",
+    },
+    {
+      url: "/medicine/technologies/anesthesia",
+      title: "麻醉",
+    },
+    {
+      url: "/medicine/technologies/blood-transfusion",
+      title: "输血",
+    },
+  ],
+  "/medicine/technologies/crispr-gene-editing": [
+    {
+      url: "/chemistry/substances/nucleic-acids-chemistry",
+      title: "核酸的化学",
+    },
+    {
+      url: "/medicine/technologies/organ-transplantation",
+      title: "器官移植",
+    },
+    {
+      url: "/medicine/technologies/mrna-vaccine",
+      title: "mRNA 疫苗",
+    },
+  ],
+  "/medicine/technologies/ct-mri": [
+    {
+      url: "/medicine/technologies/ultrasound",
+      title: "超声成像",
+    },
+    {
+      url: "/medicine/technologies/stethoscope",
+      title: "听诊器",
+    },
+    {
+      url: "/medicine/diseases/stroke",
+      title: "中风（脑卒中）",
+    },
+    {
+      url: "/medicine/technologies/x-ray-imaging",
+      title: "X 射线影像",
+    },
+  ],
+  "/medicine/technologies/dialysis": [
+    {
+      url: "/medicine/diseases/chronic-kidney-disease",
+      title: "慢性肾病",
+    },
+    {
+      url: "/medicine/technologies/organ-transplantation",
+      title: "器官移植",
+    },
+  ],
+  "/medicine/technologies/mrna-vaccine": [
+    {
+      url: "/chemistry/substances/nucleic-acids-chemistry",
+      title: "核酸的化学",
+    },
+    {
+      url: "/medicine/technologies/crispr-gene-editing",
+      title: "CRISPR 基因编辑",
+    },
+  ],
+  "/medicine/technologies/organ-transplantation": [
+    {
+      url: "/medicine/diseases/liver-disease",
+      title: "肝硬化与慢性肝病",
+    },
+    {
+      url: "/life-science/species/mycorrhiza",
+      title: "菌根",
+    },
+    {
+      url: "/medicine/technologies/anesthesia",
+      title: "麻醉",
+    },
+    {
+      url: "/medicine/diseases/chronic-kidney-disease",
+      title: "慢性肾病",
+    },
+    {
+      url: "/medicine/technologies/blood-transfusion",
+      title: "输血",
+    },
+    {
+      url: "/medicine/technologies/dialysis",
+      title: "透析",
+    },
+    {
+      url: "/medicine/technologies/crispr-gene-editing",
+      title: "CRISPR 基因编辑",
+    },
+  ],
+  "/medicine/technologies/stethoscope": [
+    {
+      url: "/medicine/technologies/ultrasound",
+      title: "超声成像",
+    },
+  ],
+  "/medicine/technologies/x-ray-imaging": [
+    {
+      url: "/medicine/technologies/ultrasound",
+      title: "超声成像",
+    },
+    {
+      url: "/medicine/technologies/stethoscope",
+      title: "听诊器",
+    },
+    {
+      url: "/medicine/technologies/ct-mri",
+      title: "CT 与 MRI",
+    },
+  ],
+  "/medicine/traditions/ayurveda": [
+    {
+      url: "/medicine/traditions/tibetan-medicine",
+      title: "藏医",
+    },
+    {
+      url: "/medicine/traditions/traditional-african-medicine",
+      title: "非洲传统医学",
+    },
+    {
+      url: "/medicine/traditions/homeopathy-evidence",
+      title: "顺势疗法与循证",
+    },
+    {
+      url: "/medicine/traditions/unani-medicine",
+      title: "尤纳尼医学",
+    },
+    {
+      url: "/medicine/traditions/traditional-chinese-medicine",
+      title: "中医",
+    },
+  ],
+  "/medicine/traditions/homeopathy-evidence": [
+    {
+      url: "/medicine/traditions/ayurveda",
+      title: "阿育吠陀",
+    },
+    {
+      url: "/medicine/traditions/tibetan-medicine",
+      title: "藏医",
+    },
+    {
+      url: "/medicine/traditions/traditional-african-medicine",
+      title: "非洲传统医学",
+    },
+    {
+      url: "/medicine/traditions/unani-medicine",
+      title: "尤纳尼医学",
+    },
+    {
+      url: "/medicine/traditions/traditional-chinese-medicine",
+      title: "中医",
+    },
+  ],
+  "/medicine/traditions/tibetan-medicine": [
+    {
+      url: "/medicine/traditions/homeopathy-evidence",
+      title: "顺势疗法与循证",
+    },
+    {
+      url: "/medicine/traditions/traditional-chinese-medicine",
+      title: "中医",
+    },
+  ],
+  "/medicine/traditions/traditional-chinese-medicine": [
+    {
+      url: "/medicine/traditions/ayurveda",
+      title: "阿育吠陀",
+    },
+    {
+      url: "/medicine/traditions/tibetan-medicine",
+      title: "藏医",
+    },
+    {
+      url: "/medicine/traditions/traditional-african-medicine",
+      title: "非洲传统医学",
+    },
+    {
+      url: "/medicine/traditions/homeopathy-evidence",
+      title: "顺势疗法与循证",
+    },
+    {
+      url: "/medicine/traditions/unani-medicine",
+      title: "尤纳尼医学",
+    },
+  ],
+  "/medicine/traditions/unani-medicine": [
+    {
+      url: "/medicine/traditions/ayurveda",
+      title: "阿育吠陀",
+    },
+    {
+      url: "/medicine/traditions/tibetan-medicine",
+      title: "藏医",
+    },
+  ],
+  "/philosophy/concepts/dao": [
+    {
+      url: "/philosophy/concepts/wu-wei",
+      title: "无为",
+    },
+  ],
   "/philosophy/concepts/digital-ethics": [
     {
       url: "/philosophy/thinkers/deleuze",
@@ -3128,6 +6692,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/simone-weil",
       title: "西蒙娜·薇依",
+    },
+  ],
+  "/philosophy/concepts/emergence": [
+    {
+      url: "/life-science/species/slime-mould",
+      title: "多头绒泡菌",
     },
   ],
   "/philosophy/concepts/environmental-ethics": [
@@ -3152,6 +6722,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/economists/daniel-kahneman",
       title: "丹尼尔·卡尼曼",
+    },
+  ],
+  "/philosophy/concepts/identity": [
+    {
+      url: "/life-science/species/honey-fungus",
+      title: "奥氏蜜环菌",
+    },
+    {
+      url: "/life-science/species/immortal-jellyfish",
+      title: "灯塔水母",
+    },
+    {
+      url: "/life-science/species/mycorrhiza",
+      title: "菌根",
     },
   ],
   "/philosophy/concepts/li": [
@@ -3210,6 +6794,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "知识",
     },
   ],
+  "/philosophy/concepts/recognition": [
+    {
+      url: "/philosophy/concepts/ubuntu",
+      title: "乌班图",
+    },
+  ],
+  "/philosophy/concepts/ren": [
+    {
+      url: "/philosophy/concepts/ubuntu",
+      title: "乌班图",
+    },
+  ],
   "/philosophy/concepts/virtue": [
     {
       url: "/philosophy/concepts/knowledge",
@@ -3246,6 +6842,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "蒯因",
     },
   ],
+  "/philosophy/thinkers/al-ghazali": [
+    {
+      url: "/philosophy/thinkers/al-farabi",
+      title: "法拉比",
+    },
+  ],
   "/philosophy/thinkers/aquinas": [
     {
       url: "/philosophy/thinkers/william-of-ockham",
@@ -3266,6 +6868,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "柏拉图",
     },
     {
+      url: "/philosophy/thinkers/al-farabi",
+      title: "法拉比",
+    },
+    {
       url: "/philosophy/thinkers/thales",
       title: "泰勒斯",
     },
@@ -3280,11 +6886,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/thinkers/averroes": [
     {
+      url: "/philosophy/thinkers/al-farabi",
+      title: "法拉比",
+    },
+    {
       url: "/philosophy/thinkers/aristotle",
       title: "亚里士多德",
     },
   ],
   "/philosophy/thinkers/avicenna": [
+    {
+      url: "/philosophy/thinkers/al-farabi",
+      title: "法拉比",
+    },
     {
       url: "/philosophy/thinkers/aristotle",
       title: "亚里士多德",
@@ -3326,6 +6940,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/richard-rorty",
       title: "理查德·罗蒂",
+    },
+    {
+      url: "/philosophy/concepts/ubuntu",
+      title: "乌班图",
+    },
+    {
+      url: "/philosophy/thinkers/zera-yacob",
+      title: "泽拉·雅各布",
     },
     {
       url: "/philosophy/concepts/knowledge",
@@ -3484,6 +7106,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "汉娜·阿伦特",
     },
     {
+      url: "/earth-science/events/lisbon-1755",
+      title: "里斯本大地震（1755）",
+    },
+    {
       url: "/philosophy/thinkers/rousseau",
       title: "卢梭",
     },
@@ -3510,6 +7136,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/donald-davidson",
       title: "唐纳德·戴维森",
+    },
+  ],
+  "/philosophy/thinkers/kwasi-wiredu": [
+    {
+      url: "/philosophy/thinkers/zera-yacob",
+      title: "泽拉·雅各布",
     },
   ],
   "/philosophy/thinkers/leibniz": [
@@ -3600,6 +7232,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "毕达哥拉斯",
     },
     {
+      url: "/philosophy/thinkers/al-farabi",
+      title: "法拉比",
+    },
+    {
       url: "/philosophy/thinkers/gorgias",
       title: "高尔吉亚",
     },
@@ -3614,6 +7250,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/concepts/knowledge",
       title: "知识",
+    },
+  ],
+  "/philosophy/thinkers/plotinus": [
+    {
+      url: "/philosophy/thinkers/al-farabi",
+      title: "法拉比",
     },
   ],
   "/philosophy/thinkers/protagoras": [
@@ -3656,6 +7298,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/hobbes",
       title: "托马斯·霍布斯",
+    },
+  ],
+  "/philosophy/thinkers/richard-rorty": [
+    {
+      url: "/philosophy/concepts/ubuntu",
+      title: "乌班图",
     },
   ],
   "/philosophy/thinkers/rousseau": [
@@ -3744,11 +7392,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "德勒兹",
     },
     {
+      url: "/philosophy/thinkers/zera-yacob",
+      title: "泽拉·雅各布",
+    },
+    {
       url: "/philosophy/concepts/knowledge",
       title: "知识",
     },
   ],
   "/philosophy/thinkers/voltaire": [
+    {
+      url: "/earth-science/events/lisbon-1755",
+      title: "里斯本大地震（1755）",
+    },
     {
       url: "/philosophy/thinkers/rousseau",
       title: "卢梭",
@@ -3798,12 +7454,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/political-science/concepts/citizenship-rights": [
     {
-      url: "/political-science/concepts/power",
-      title: "权力",
+      url: "/political-science/institutions/welfare-state",
+      title: "福利国家",
     },
     {
       url: "/political-science/frontier/ai-governance-surveillance",
       title: "AI、算法治理与监控的政治",
+    },
+  ],
+  "/political-science/concepts/civil-society": [
+    {
+      url: "/political-science/concepts/social-movements",
+      title: "社会运动与集体行动",
+    },
+  ],
+  "/political-science/concepts/democracy": [
+    {
+      url: "/political-science/thinkers/amartya-sen",
+      title: "阿马蒂亚·森",
     },
   ],
   "/political-science/concepts/distributive-justice": [
@@ -3852,6 +7520,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/political-science/concepts/liberty": [
     {
+      url: "/political-science/concepts/power",
+      title: "权力",
+    },
+    {
       url: "/political-science/thinkers/isaiah-berlin",
       title: "以赛亚·柏林",
     },
@@ -3892,6 +7564,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "罗伯特·达尔",
     },
   ],
+  "/political-science/concepts/revolution": [
+    {
+      url: "/political-science/concepts/social-movements",
+      title: "社会运动与集体行动",
+    },
+  ],
   "/political-science/concepts/sovereignty": [
     {
       url: "/political-science/concepts/the-state",
@@ -3911,6 +7589,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/political-science/concepts/the-state": [
+    {
+      url: "/political-science/concepts/state-capacity",
+      title: "国家能力",
+    },
     {
       url: "/political-science/concepts/legitimacy",
       title: "合法性与正当性",
@@ -3987,6 +7669,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/political-science/institutions/bureaucracy": [
+    {
+      url: "/political-science/concepts/state-capacity",
+      title: "国家能力",
+    },
     {
       url: "/political-science/institutions/ombudsman-institutions",
       title: "监察专员制度",
@@ -4336,8 +8022,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "对外援助与发展",
     },
     {
+      url: "/political-science/concepts/state-capacity",
+      title: "国家能力",
+    },
+    {
       url: "/political-science/international-relations/terrorism-and-counterterrorism",
       title: "恐怖主义与反恐",
+    },
+    {
+      url: "/political-science/international-relations/peacekeeping",
+      title: "联合国维和行动",
     },
     {
       url: "/political-science/international-relations/migration-and-refugee-politics",
@@ -4402,6 +8096,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "恐怖主义与反恐",
     },
     {
+      url: "/political-science/international-relations/peacekeeping",
+      title: "联合国维和行动",
+    },
+    {
       url: "/political-science/international-relations/migration-and-refugee-politics",
       title: "移民与难民政治",
     },
@@ -4428,6 +8126,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/international-relations/the-un-system",
       title: "联合国体系",
+    },
+    {
+      url: "/earth-science/frontier/deep-sea-hydrothermal-frontiers",
+      title: "深海前沿：生命起点、地下生物圈与海底采矿的争夺",
     },
     {
       url: "/political-science/international-relations/just-war-theory",
@@ -4476,6 +8178,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/international-relations/human-rights-regime",
       title: "国际人权体系",
+    },
+    {
+      url: "/political-science/international-relations/peacekeeping",
+      title: "联合国维和行动",
     },
     {
       url: "/political-science/international-relations/mutually-assured-destruction",
@@ -4550,6 +8256,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/international-relations/mutually-assured-destruction",
       title: "相互确保毁灭",
+    },
+  ],
+  "/political-science/international-relations/peacekeeping": [
+    {
+      url: "/political-science/international-relations/the-un-system",
+      title: "联合国体系",
     },
   ],
   "/political-science/international-relations/realism-ir": [
@@ -4630,6 +8342,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "国际法",
     },
     {
+      url: "/political-science/international-relations/peacekeeping",
+      title: "联合国维和行动",
+    },
+    {
       url: "/political-science/international-relations/migration-and-refugee-politics",
       title: "移民与难民政治",
     },
@@ -4678,6 +8394,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "伊斯兰主义",
     },
   ],
+  "/political-science/isms/social-democracy": [
+    {
+      url: "/political-science/institutions/welfare-state",
+      title: "福利国家",
+    },
+  ],
   "/political-science/isms/socialism": [
     {
       url: "/economics/economists/karl-marx",
@@ -4695,6 +8417,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/political-science/concepts/the-state",
       title: "国家",
     },
+    {
+      url: "/political-science/thinkers/thomas-hobbes",
+      title: "托马斯·霍布斯",
+    },
   ],
   "/political-science/thinkers/francis-fukuyama": [
     {
@@ -4709,6 +8435,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/political-science/thinkers/john-rawls": [
+    {
+      url: "/political-science/thinkers/amartya-sen",
+      title: "阿马蒂亚·森",
+    },
     {
       url: "/economics/concepts/gini-coefficient",
       title: "基尼系数",
@@ -4736,6 +8466,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/concepts/sovereignty",
       title: "主权",
+    },
+  ],
+  "/psychology/debates/consciousness-hard-problem": [
+    {
+      url: "/psychology/knowledge-base/neuropsychology-brain-behavior",
+      title: "神经心理学：大脑如何造就心灵",
+    },
+  ],
+  "/psychology/debates/nature-vs-nurture": [
+    {
+      url: "/psychology/knowledge-base/developmental-psychology",
+      title: '发展心理学：人是如何"长"成的',
     },
   ],
   "/psychology/disorders/borderline-personality": [
@@ -4774,6 +8516,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "变化盲视",
     },
   ],
+  "/psychology/experiments/strange-situation": [
+    {
+      url: "/psychology/knowledge-base/attachment-theory",
+      title: "依恋理论：爱的科学",
+    },
+  ],
+  "/psychology/knowledge-base/attachment-theory": [
+    {
+      url: "/psychology/knowledge-base/developmental-psychology",
+      title: '发展心理学：人是如何"长"成的',
+    },
+  ],
+  "/psychology/knowledge-base/resilience-science": [
+    {
+      url: "/psychology/knowledge-base/trauma-and-ptsd",
+      title: "创伤与 PTSD：当记忆无法过去",
+    },
+  ],
   "/psychology/phenomena/anchoring-bias": [
     {
       url: "/economics/economists/daniel-kahneman",
@@ -4794,6 +8554,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/phenomena/cognitive-bias",
       title: "认知偏误",
+    },
+    {
+      url: "/economics/concepts/loss-aversion-anchoring",
+      title: "损失厌恶与锚定",
+    },
+  ],
+  "/psychology/phenomena/attachment-styles": [
+    {
+      url: "/psychology/knowledge-base/attachment-theory",
+      title: "依恋理论：爱的科学",
     },
   ],
   "/psychology/phenomena/availability-heuristic": [
@@ -4871,6 +8641,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/psychology/phenomena/change-blindness",
       title: "变化盲视",
     },
+    {
+      url: "/psychology/knowledge-base/trauma-and-ptsd",
+      title: "创伤与 PTSD：当记忆无法过去",
+    },
   ],
   "/psychology/phenomena/false-self": [
     {
@@ -4896,6 +8670,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/phenomena/cognitive-bias",
       title: "认知偏误",
+    },
+    {
+      url: "/economics/concepts/loss-aversion-anchoring",
+      title: "损失厌恶与锚定",
     },
   ],
   "/psychology/phenomena/fundamental-attribution-error": [
@@ -4928,6 +8706,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/economists/adam-smith",
       title: "亚当·斯密",
+    },
+  ],
+  "/psychology/phenomena/moral-judgment": [
+    {
+      url: "/psychology/knowledge-base/developmental-psychology",
+      title: '发展心理学：人是如何"长"成的',
+    },
+  ],
+  "/psychology/phenomena/neuroplasticity": [
+    {
+      url: "/psychology/knowledge-base/neuropsychology-brain-behavior",
+      title: "神经心理学：大脑如何造就心灵",
     },
   ],
   "/psychology/phenomena/obedience-authority": [
@@ -4988,6 +8778,46 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/economists/karl-marx",
       title: "卡尔·马克思",
+    },
+  ],
+  "/psychology/theorists/antonio-damasio": [
+    {
+      url: "/psychology/knowledge-base/neuropsychology-brain-behavior",
+      title: "神经心理学：大脑如何造就心灵",
+    },
+  ],
+  "/psychology/theorists/elizabeth-loftus": [
+    {
+      url: "/psychology/knowledge-base/trauma-and-ptsd",
+      title: "创伤与 PTSD：当记忆无法过去",
+    },
+  ],
+  "/psychology/theorists/erik-erikson": [
+    {
+      url: "/psychology/knowledge-base/developmental-psychology",
+      title: '发展心理学：人是如何"长"成的',
+    },
+  ],
+  "/psychology/theorists/jean-piaget": [
+    {
+      url: "/psychology/knowledge-base/developmental-psychology",
+      title: '发展心理学：人是如何"长"成的',
+    },
+  ],
+  "/psychology/theorists/john-bowlby": [
+    {
+      url: "/psychology/knowledge-base/developmental-psychology",
+      title: '发展心理学：人是如何"长"成的',
+    },
+    {
+      url: "/psychology/knowledge-base/attachment-theory",
+      title: "依恋理论：爱的科学",
+    },
+  ],
+  "/psychology/theorists/lev-vygotsky": [
+    {
+      url: "/psychology/knowledge-base/developmental-psychology",
+      title: '发展心理学：人是如何"长"成的',
     },
   ],
   "/psychology/theorists/richard-thaler": [
@@ -5167,6 +8997,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/universe-physics/knowledge-base/电磁学--电磁波的产生与传播",
       title: "电磁波的产生与传播",
     },
+    {
+      url: "/universe-physics/knowledge-base/光学--瑞利散射与天空的颜色",
+      title: "瑞利散射与天空的颜色",
+    },
   ],
   "/universe-physics/knowledge-base/光学--激光原理与应用": [
     {
@@ -5224,6 +9058,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "宇宙暴胀",
     },
   ],
+  "/universe-physics/knowledge-base/前沿物理--量子场论导论": [
+    {
+      url: "/universe-physics/knowledge-base/量子物理--卡西米尔效应与真空能",
+      title: "卡西米尔效应与真空能",
+    },
+  ],
   "/universe-physics/knowledge-base/前沿物理--量子计算": [
     {
       url: "/universe-physics/knowledge-base/量子物理--不确定性原理",
@@ -5244,6 +9084,44 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "普朗克常数与量子化",
     },
   ],
+  "/universe-physics/knowledge-base/天体物理--恒星结构与演化": [
+    {
+      url: "/universe-physics/knowledge-base/天体物理--致密星——白矮星与中子星",
+      title: "致密星——白矮星与中子星",
+    },
+  ],
+  "/universe-physics/knowledge-base/天体物理--脉冲星与磁星": [
+    {
+      url: "/universe-physics/knowledge-base/天体物理--超新星与重元素起源",
+      title: "超新星与重元素起源",
+    },
+  ],
+  "/universe-physics/knowledge-base/天体物理--致密星——白矮星与中子星": [
+    {
+      url: "/universe-physics/knowledge-base/天体物理--超新星与重元素起源",
+      title: "超新星与重元素起源",
+    },
+    {
+      url: "/universe-physics/knowledge-base/天体物理--脉冲星与磁星",
+      title: "脉冲星与磁星",
+    },
+  ],
+  "/universe-physics/knowledge-base/天体物理--超新星与重元素起源": [
+    {
+      url: "/universe-physics/knowledge-base/天体物理--脉冲星与磁星",
+      title: "脉冲星与磁星",
+    },
+    {
+      url: "/universe-physics/knowledge-base/天体物理--致密星——白矮星与中子星",
+      title: "致密星——白矮星与中子星",
+    },
+  ],
+  "/universe-physics/knowledge-base/应用物理--地球物理与地震波": [
+    {
+      url: "/earth-science/processes/earthquakes",
+      title: "地震",
+    },
+  ],
   "/universe-physics/knowledge-base/应用物理--晶体管与半导体器件": [
     {
       url: "/universe-physics/knowledge-base/电磁学--电路分析与基尔霍夫定律",
@@ -5252,6 +9130,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/应用物理--电子学与放大器电路",
       title: "电子学与放大器电路",
+    },
+  ],
+  "/universe-physics/knowledge-base/核物理--radioactive-decay": [
+    {
+      url: "/earth-science/concepts/earth-interior",
+      title: "地球内部结构",
     },
   ],
   "/universe-physics/knowledge-base/热力学--制冷与热泵": [
@@ -5404,6 +9288,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/universe-physics/knowledge-base/物理学--引力波天文学": [
     {
+      url: "/universe-physics/knowledge-base/天体物理--超新星与重元素起源",
+      title: "超新星与重元素起源",
+    },
+    {
+      url: "/universe-physics/knowledge-base/天体物理--脉冲星与磁星",
+      title: "脉冲星与磁星",
+    },
+    {
       url: "/universe-physics/knowledge-base/经典物理--万有引力",
       title: "万有引力",
     },
@@ -5438,6 +9330,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/前沿物理--核聚变与恒星能源",
       title: "核聚变与恒星能源",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--卡西米尔效应与真空能",
+      title: "卡西米尔效应与真空能",
     },
     {
       url: "/universe-physics/knowledge-base/物理学--引力波天文学",
@@ -5860,12 +9756,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/universe-physics/knowledge-base/经典物理--万有引力": [
     {
+      url: "/earth-science/concepts/tides",
+      title: "潮汐",
+    },
+    {
       url: "/universe-physics/knowledge-base/经典物理--牛顿三大定律",
       title: "牛顿三大定律",
     },
     {
       url: "/universe-physics/knowledge-base/经典物理--万有引力与开普勒定律",
       title: "万有引力与开普勒定律",
+    },
+  ],
+  "/universe-physics/knowledge-base/经典物理--万有引力与开普勒定律": [
+    {
+      url: "/earth-science/frontier/paleoclimate-ice-cores",
+      title: "冰芯里的百万年：从 Beyond EPICA 读取最古老的大气",
     },
   ],
   "/universe-physics/knowledge-base/经典物理--弹性与材料力学": [
@@ -5968,6 +9874,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/经典物理--角动量与守恒律",
       title: "角动量与守恒律",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--卡西米尔效应与真空能",
+      title: "卡西米尔效应与真空能",
     },
     {
       url: "/universe-physics/knowledge-base/物理学--普朗克常数与量子化",

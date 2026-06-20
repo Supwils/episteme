@@ -14,8 +14,8 @@
   /* ── Foregrounds ──────────────────────────────────────────────────── */
   --color-fg-primary: #e6e3da;
   --color-fg-secondary: #a8a499;
-  --color-fg-muted: #7a766c;
-  --color-fg-disabled: #4a4858;
+  --color-fg-muted: #8c887d;
+  --color-fg-disabled: #8a8693;
   --color-fg-inverse: #08080d;
 
   /* ── Accent — philosophy = green (primary) ────────────────────────── */
@@ -195,8 +195,8 @@
   --color-bg-overlay: rgba(245, 242, 235, 0.86);
   --color-fg-primary: #2c2a26;
   --color-fg-secondary: #5f5b54;
-  --color-fg-muted: #9a948a;
-  --color-fg-disabled: #b6b3c2;
+  --color-fg-muted: #6e6a61;
+  --color-fg-disabled: #6d6a79;
   --color-accent-gold: #3a7d5a;
   --color-accent-gold-dim: #2f6649;
   --color-accent-gold-bright: #4a9e74;

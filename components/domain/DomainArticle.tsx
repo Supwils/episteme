@@ -1,10 +1,14 @@
 import { notFound } from "next/navigation";
+import type { ComponentType } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { createKnowledgeSection } from "@/lib/knowledge-domain";
+import { createFrontier } from "@/lib/frontier";
 import { getDomainConfig, getSectionConfig } from "@/lib/new-domains";
 import { ArticleLayout } from "@/components/ArticleLayout";
 import { TableOfContents } from "@/components/TableOfContents";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
+import { MoleculeViewer } from "@/components/molecule/MoleculeViewer";
 import Breadcrumb from "@/components/Breadcrumb";
 import RelatedContent from "@/components/RelatedContent";
 import type { Domain } from "@/lib/cross-domain-refs";
@@ -13,6 +17,60 @@ import { createArticleJsonLd } from "@/lib/jsonld";
 import { bibliographyToJsonLd } from "@/lib/citations";
 import { getNarration } from "@/lib/narration";
 import { NarrationButton } from "@/components/narration/NarrationButton";
+
+// `interactive: <id>` in an article's frontmatter renders a matching explorer
+// inline. Lazy-loaded so each interactive ships only on the pages that use it.
+const INTERACTIVES: Record<string, ComponentType> = {
+  "plate-boundaries": dynamic(() =>
+    import("@/components/earth-science/PlateBoundaries").then((m) => m.PlateBoundaries)
+  ),
+  "political-compass": dynamic(() =>
+    import("@/components/political-science/PoliticalCompass").then((m) => m.PoliticalCompass)
+  ),
+  "em-spectrum": dynamic(() =>
+    import("@/components/diagrams/ElectromagneticSpectrum").then((m) => m.ElectromagneticSpectrum)
+  ),
+  "reaction-energy": dynamic(() =>
+    import("@/components/diagrams/ReactionEnergyProfile").then((m) => m.ReactionEnergyProfile)
+  ),
+};
+
+type RelatedLink = { slug: string; href: string; title: string };
+
+// `related:` slugs can point to any section of the domain (or a frontier `.md`),
+// not just the current one — so resolve them against a domain-wide index instead
+// of the current section, or cross-section links (e.g. an institution → a frontier
+// piece) silently vanish. Cached per domain since it scans every section's files.
+const domainRelatedIndexCache = new Map<string, Map<string, RelatedLink>>();
+
+function getDomainRelatedIndex(domain: string): Map<string, RelatedLink> {
+  const cached = domainRelatedIndexCache.get(domain);
+  if (cached) return cached;
+  const index = new Map<string, RelatedLink>();
+  const config = getDomainConfig(domain);
+  for (const sec of config?.sections ?? []) {
+    for (const item of createKnowledgeSection(domain, sec.key).getAll()) {
+      if (!index.has(item.slug)) {
+        index.set(item.slug, {
+          slug: item.slug,
+          href: `/${domain}/${sec.key}/${item.slug}`,
+          title: item.title,
+        });
+      }
+    }
+  }
+  for (const fa of createFrontier(domain).getAllArticles()) {
+    if (!index.has(fa.slug)) {
+      index.set(fa.slug, {
+        slug: fa.slug,
+        href: `/${domain}/frontier/${fa.slug}`,
+        title: fa.title,
+      });
+    }
+  }
+  domainRelatedIndexCache.set(domain, index);
+  return index;
+}
 
 export function DomainArticle({
   domain,
@@ -37,9 +95,14 @@ export function DomainArticle({
   const next = currentIndex < all.length - 1 ? all[currentIndex + 1] : null;
   const accent = sectionConfig.accent;
 
-  const related = all
-    .filter((a) => a.slug !== article.slug && article.related.includes(a.slug))
-    .slice(0, 5);
+  const relatedIndex = getDomainRelatedIndex(domain);
+  const related: RelatedLink[] = [];
+  for (const relSlug of article.related) {
+    if (relSlug === article.slug) continue;
+    const hit = relatedIndex.get(relSlug);
+    if (hit && !related.some((r) => r.slug === hit.slug)) related.push(hit);
+    if (related.length >= 5) break;
+  }
 
   const narration = getNarration(domain, section, slug);
 
@@ -110,7 +173,7 @@ export function DomainArticle({
                   {related.map((r) => (
                     <Link
                       key={r.slug}
-                      href={`/${domain}/${section}/${r.slug}`}
+                      href={r.href}
                       className="group flex items-center gap-2 transition-colors"
                     >
                       <div
@@ -138,6 +201,15 @@ export function DomainArticle({
           />
         )}
         <MarkdownRenderer content={article.content} accentColor={accent} />
+        {article.molecule && (
+          <MoleculeViewer pdbId={article.molecule} title={article.title} accent={accent} />
+        )}
+        {article.interactive &&
+          INTERACTIVES[article.interactive] &&
+          (() => {
+            const Interactive = INTERACTIVES[article.interactive]!;
+            return <Interactive />;
+          })()}
         <RelatedContent slug={slug} domain={domain as Domain} entityId={slug} />
       </ArticleLayout>
     </>

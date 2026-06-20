@@ -104,7 +104,7 @@ export default async function TheoremDetailPage({ params }: { params: Promise<{ 
           <h1 className="font-display text-fg-primary mb-2 text-[2rem] leading-tight font-semibold tracking-tight md:text-[2.8rem]">
             {theorem.title}
           </h1>
-          <p className="text-fg-muted font-display text-lg tracking-wide italic opacity-70">
+          <p className="text-fg-muted font-display text-lg tracking-wide italic">
             {theorem.title_en}
           </p>
 

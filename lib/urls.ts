@@ -9,5 +9,8 @@ export const APP_URLS = {
   psychology: "/psychology",
   "computer-science": "/computer-science",
   "political-science": "/political-science",
+  "earth-science": "/earth-science",
+  medicine: "/medicine",
+  chemistry: "/chemistry",
   "knowledge-graph": "/knowledge-graph",
 } as const;

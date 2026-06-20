@@ -2,6 +2,12 @@
 // Search mirror of content/psychology/*/*.mdx.
 export const PSYCHOLOGY_KB_DATA = [
   {
+    slug: "attachment-theory",
+    title: "依恋理论：爱的科学",
+    titleEn: "Attachment Theory: The Science of Bonds",
+    category: "发展心理学",
+  },
+  {
     slug: "brain-plasticity-guide",
     title: "大脑可塑性实用指南",
     titleEn: "Brain Plasticity Practical Guide",
@@ -20,6 +26,18 @@ export const PSYCHOLOGY_KB_DATA = [
     category: "进化心理学",
   },
   {
+    slug: "cultural-psychology",
+    title: "文化心理学：心智是文化的产物吗",
+    titleEn: "Cultural Psychology: Is the Mind a Cultural Product?",
+    category: "文化心理学",
+  },
+  {
+    slug: "developmental-psychology",
+    title: '发展心理学：人是如何"长"成的',
+    titleEn: "Developmental Psychology: How a Person Comes to Be",
+    category: "发展心理学",
+  },
+  {
     slug: "emotional-intelligence-practice",
     title: "情绪智力的科学与实践",
     titleEn: "The Science and Practice of Emotional Intelligence",
@@ -30,6 +48,12 @@ export const PSYCHOLOGY_KB_DATA = [
     title: "进化心理学入门：为什么我们这样做",
     titleEn: "Evolutionary Psychology Guide: Why We Do What We Do",
     category: "进化心理学",
+  },
+  {
+    slug: "health-psychology",
+    title: "健康心理学：身体与心灵的双向道",
+    titleEn: "Health Psychology: The Two-Way Street Between Body and Mind",
+    category: "健康心理学",
   },
   {
     slug: "intelligence-theories",
@@ -48,6 +72,12 @@ export const PSYCHOLOGY_KB_DATA = [
     title: "正念的神经科学",
     titleEn: "The Neuroscience of Mindfulness",
     category: "实用心理学",
+  },
+  {
+    slug: "neuropsychology-brain-behavior",
+    title: "神经心理学：大脑如何造就心灵",
+    titleEn: "Neuropsychology: How the Brain Makes the Mind",
+    category: "神经心理学",
   },
   {
     slug: "psychology-of-decisions",
@@ -80,6 +110,12 @@ export const PSYCHOLOGY_KB_DATA = [
     category: "实用心理学",
   },
   {
+    slug: "self-determination-theory",
+    title: "自我决定论：什么真正驱动人",
+    titleEn: "Self-Determination Theory: What Truly Drives People",
+    category: "动机心理学",
+  },
+  {
     slug: "sleep-and-mind",
     title: "睡眠与心智",
     titleEn: "Sleep and the Mind",
@@ -90,5 +126,11 @@ export const PSYCHOLOGY_KB_DATA = [
     title: "压力如何改变你的大脑",
     titleEn: "How Stress Changes Your Brain",
     category: "神经科学",
+  },
+  {
+    slug: "trauma-and-ptsd",
+    title: "创伤与 PTSD：当记忆无法过去",
+    titleEn: "Trauma and PTSD: When Memory Cannot Become the Past",
+    category: "临床心理学",
   },
 ];

@@ -150,7 +150,13 @@ export function MarkdownRenderer({
         if (text.startsWith("| ")) {
           const rows = text.split("\n").filter((r) => !r.match(/^\|[\s-:|]+\|$/));
           return (
-            <div key={i} className="border-border-faint my-6 overflow-x-auto rounded-lg border">
+            <div
+              key={i}
+              tabIndex={0}
+              role="region"
+              aria-label="表格"
+              className="border-border-faint my-6 overflow-x-auto rounded-lg border"
+            >
               <table className="w-full text-sm">
                 <thead>
                   {rows.length > 0 && (
@@ -321,7 +327,7 @@ function CodeBlock({
           </span>
         </div>
       )}
-      <pre className="bg-bg-elevated overflow-x-auto p-4">
+      <pre tabIndex={0} className="bg-bg-elevated overflow-x-auto p-4">
         <code className="text-fg-primary font-mono text-sm leading-relaxed">{code}</code>
       </pre>
       <button
@@ -408,6 +414,9 @@ function renderInline(
         html === null ? (
           <span
             key={key++}
+            tabIndex={0}
+            role="math"
+            aria-label={tex}
             className="text-fg-muted my-2 block overflow-x-auto font-mono text-[0.85em]"
           >
             {tex}
@@ -415,6 +424,8 @@ function renderInline(
         ) : (
           <span
             key={key++}
+            tabIndex={0}
+            role="math"
             className="my-2 block overflow-x-auto"
             dangerouslySetInnerHTML={{ __html: html }}
           />

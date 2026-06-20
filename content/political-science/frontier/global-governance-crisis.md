@@ -127,10 +127,10 @@ related:
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Weiss, T. G. _What's Wrong with the United Nations and How to Fix It._ 3rd ed. Polity (2016).
 - Woods, N. _The Globalizers: The IMF, the World Bank, and Their Borrowers._ Cornell University Press (2006).
 - UNEP. _Emissions Gap Report 2023._ United Nations Environment Programme. 可从 UNEP 官网免费下载。
-- Raustiala, K. & Victor, D. G. "The Regime Complex for Plant Genetic Resources." _International Organization_ 58(2), 2004. 关于"制度丛林"的奠基性论文。
+- Raustiala, K. & Victor, D. G. "The Regime Complex for Plant Genetic Resources." _International Organization_ 58(2), 2004. doi:10.1017/S0020818304582036 关于"制度丛林"的奠基性论文。
 - Slaughter, A.-M. _A New World Order._ Princeton University Press (2004). 关于跨政府网络治理的重要论述。

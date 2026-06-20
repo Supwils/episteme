@@ -58,13 +58,13 @@ related:
 
 三个地理上分散的领先实验：
 
-| 实验             | 场址                              | 氙质量       | 最新灵敏度                                |
-| ---------------- | --------------------------------- | ------------ | ----------------------------------------- |
-| LZ（LUX-ZEPLIN） | 美国 SURF（南达科他地下 1.5 km）  | 7.0 吨活性氙 | $1.8\times10^{-47}$ cm²（约 40 GeV WIMP） |
-| XENONnT          | 意大利格兰萨索（1.4 km 地下）     | 5.9 吨活性氙 | $1.7\times10^{-47}$ cm²（约 30 GeV WIMP） |
-| PandaX-4T        | 中国锦屏（2.4 km 地下，全球最深） | 3.7 吨活性氙 | 与上两者可比                              |
+| 实验             | 场址                              | 氙质量       | 最新灵敏度                                           |
+| ---------------- | --------------------------------- | ------------ | ---------------------------------------------------- |
+| LZ（LUX-ZEPLIN） | 美国 SURF（南达科他地下 1.5 km）  | 7.0 吨活性氙 | $2.2\times10^{-48}$ cm²（约 40 GeV WIMP，2024 最佳） |
+| XENONnT          | 意大利格兰萨索（1.4 km 地下）     | 5.9 吨活性氙 | $1.7\times10^{-47}$ cm²（约 30 GeV WIMP，3.1 吨·年） |
+| PandaX-4T        | 中国锦屏（2.4 km 地下，全球最深） | 3.7 吨活性氙 | 与上两者可比                                         |
 
-2025 年 12 月，LZ 公布了利用 417 天数据（2023–2025）的最新结果——这是有史以来规模最大的暗物质探测数据集。结论：**零发现，新的最强上限**。在 5 GeV 以上的 WIMP 质量范围内，LZ 设置了迄今最严格的自旋无关散射截面限制[^lz-2025]。
+2024 年 8 月，LZ 公布了 280 天数据（2023 年 3 月–2024 年 4 月，约 4.2 吨·年曝光）的结果——结论：**零发现，世界最强上限**。在 40 GeV 处给出约 $2.2\times10^{-48}$ cm² 的自旋无关散射截面限制，比此前最佳公开结果灵敏约 5 倍，并排除了 9 GeV 以上 WIMP 的大片参数空间[^lz-2024]。LZ 还在持续积累更大数据集（计划总曝光约 1000 天），预计将进一步压低上限。
 
 ## 零结果是一种知识
 
@@ -82,7 +82,7 @@ related:
 
 2025 年，液氙实验迎来了一个历史性时刻，尽管这个时刻在外表上有些讽刺。
 
-LZ 探测器在 2025 年底分析中报告了太阳中微子的**相干弹性散射（CEvNS）**的最强证据——来自太阳核心的氘-质子反应链（pp 链）和 ⁸B 衰变产生的中微子，与氙核相互作用，产生了可测的信号[^lz-neutrino]。XENONnT 和 PandaX-4T 也独立报告了 ⁸B 太阳中微子的迹象。
+2024 年，XENONnT 首次用暗物质探测器直接测量到太阳中微子的**相干弹性散射（CEvNS）**核反冲信号——来自太阳核心 ⁸B 衰变产生的中微子，与氙核相互作用，产生了可测的信号[^lz-neutrino]。LZ 和 PandaX-4T 也独立报告了 ⁸B 太阳中微子的迹象。
 
 这意味着：**液氙探测器已经灵敏到足以"看见"太阳中微子**——而太阳中微子本身就是一种与 WIMP 几乎完全相同的信号特征（核反冲）的背景。
 
@@ -122,13 +122,14 @@ LZ 探测器在 2025 年底分析中报告了太阳中微子的**相干弹性散
 
 ## 延伸阅读
 
-- LZ Collaboration. _First Dark Matter Search Results from the LUX-ZEPLIN (LZ) Experiment._ Physical Review Letters 131, 041002 (2023).（2023 年首批 LZ 结果）
-- LZ Collaboration. _New Results from LZ: World's Best Sensitivity and First Detection of Solar Neutrinos via CEvNS._ Lawrence Berkeley National Laboratory press release, December 2025.
+- LZ Collaboration. _First Dark Matter Search Results from the LUX-ZEPLIN (LZ) Experiment._ Physical Review Letters 131, 041002 (2023).（2022/2023 年首批 LZ 结果）
+- LZ Collaboration. _Dark Matter Search Results from 4.2 Tonne-Years of Exposure of the LUX-ZEPLIN (LZ) Experiment._ Physical Review Letters (2024). arXiv:2410.17036.（2024 年世界最佳上限）
+- XENON Collaboration. _WIMP Dark Matter Search using a 3.1 Tonne-Year Exposure of the XENONnT Experiment._ Physical Review Letters (2025). arXiv:2502.18005.（含太阳中微子 CEvNS 直接测量）
 - XENON Collaboration. _First Dark Matter Search with XENONnT._ Physical Review Letters 131, 041003 (2023).
 - Billard, J., et al. _Direct Detection of Dark Matter—APPEC Committee Report._ Reports on Progress in Physics 85, 056201 (2022).（欧洲粒子物理战略综述）
 - Schumann, M. _Direct detection of WIMP dark matter: concepts and status._ Journal of Physics G 46, 103003 (2019).（液氙技术综述）
 - Baudis, L. _The search for dark matter._ European Review 26, 70 (2018).（面向非专业读者的综述）
 
-[^lz-2025]: LZ Collaboration 2025 年 12 月结果：417 天数据，零 WIMP 发现，5 GeV 以上最强上限；同时报告 ⁸B 太阳中微子 CEvNS 最强证据。见 Lawrence Berkeley National Laboratory 新闻稿 2025-12-08。
+[^lz-2024]: LZ Collaboration (2024)，280 天数据（4.2 吨·年），零 WIMP 发现，40 GeV 处约 $2.2\times10^{-48}$ cm²，排除 9 GeV 以上大片参数空间。Phys. Rev. Lett.（arXiv:2410.17036），2024 年 8 月 26 日于 TeVPA / LIDINE 会议首发。
 
-[^lz-neutrino]: LZ 2025 December results; 同时由 XENONnT（2.73σ 迹象，ICRC 2025 报告）和 PandaX-4T（2.64σ，独立报告）确认了太阳中微子的 CEvNS 信号。
+[^lz-neutrino]: 太阳中微子 CEvNS 探测：XENONnT（2024，3.1 吨·年数据中报告首次直接测量太阳中微子核反冲，约 2.7σ）与 LZ、PandaX-4T 独立给出 ⁸B 太阳中微子迹象，标志液氙探测器已触及"中微子雾"灵敏度。

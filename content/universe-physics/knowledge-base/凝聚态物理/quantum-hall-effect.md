@@ -102,12 +102,6 @@ $$\Psi_m = \prod_{j<k}(z_j - z_k)^m \exp\!\left(-\sum_j \frac{|z_j|^2}{4l_B^2}\r
 - **卡3**：分数量子霍尔效应（1982年，崔、施特默）显示准粒子携带分数电荷（如 $e/3$），满足分数统计（任意子），崔、施特默、劳林获1998年诺贝尔物理学奖。
 - **卡4**：TKNN（1982年）证明量子霍尔电导的量子化来自陈数（Chern number），是拓扑凝聚态物理的奠基论文。
 
-## 引用
-
-> "自然界将物理常数的精确值馈赠给了我们，这让我极为震撼。我们从来没有预期会有如此精确的量子化。" — 克劳斯·冯·克利青（1985年诺贝尔奖演讲）
-
-> "分数量子霍尔效应是凝聚态物理中最难以置信的现象——它不在任何经典直觉的预期范围之内。" — 菲利普·安德森（Philip W. Anderson）
-
 ## 延伸阅读
 
 1. von Klitzing, Klaus, Gerhard Dorda, and Michael Pepper. "New Method for High-Accuracy Determination of the Fine-Structure Constant Based on Quantized Hall Resistance." _Physical Review Letters_, 45(6): 494–497, 1980.

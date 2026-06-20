@@ -38,6 +38,11 @@ export interface KnowledgeItem {
 export interface KnowledgeItemFull extends KnowledgeItem {
   content: string;
   updated: string;
+  /** Optional RCSB PDB id; when set, the article renders a 3D molecule viewer. */
+  molecule?: string;
+  /** Optional interactive id; when set, the article renders a matching explorer
+   * (see the registry in components/domain/DomainArticle). */
+  interactive?: string;
 }
 
 export interface KnowledgeSection {
@@ -144,6 +149,8 @@ export function createKnowledgeSection(domain: string, section: string): Knowled
       ...toItem(file),
       updated: str(data.updated),
       content: stripLeadingHeading(content),
+      molecule: str(data.molecule) || undefined,
+      interactive: str(data.interactive) || undefined,
     };
   };
 

@@ -108,20 +108,23 @@ related:
 - **民主衰退**：民粹主义领导人的上台往往是民主衰退的启动器（见 [[democratic-backsliding]]）。
 - **AI 与信息生态**：社交媒体算法与极化的关系是两个领域的交叉前沿（见 [[ai-governance-surveillance]]）。
 - **选举制度**：不同选举制度对极化程度的影响（比例制 vs. 多数制）是重要的制度变量（见 [[electoral-systems]]）。
+- **心理学**：情感极化（affective polarization）的根源在于群体认同与"我群/他群"偏见，这把政治极化与社会心理学的内群体偏好、动机性推理直接联系起来。
+- **经济学**：去工业化、地区间不平等与"被甩在后面"的经济地理，是解释民粹支持的关键变量之一——经济地理与选举地理在此交汇。
 
 ## 未知的边界
 
 - 极化一旦深化到一定程度，是否存在"自我强化"机制（政治精英、媒体、选民行为相互强化）使其难以逆转？触发这种不可逆性的条件是什么？
 - 人工智能生成内容和深度伪造（deepfakes）对信息真实性的破坏，是否会制造新的民主空洞——公众无法区分真实与虚假，进而放弃理性判断？
 - 极化研究大量集中于美国和西欧，对全球南方的民粹主义（印度、巴西、菲律宾）的比较研究仍不充分。
+- "情感极化"与"议题极化"在多大程度上是两回事？人们究竟是因为政策分歧而对立，还是因为厌恶对方阵营才反过来调整自己的政策立场？因果方向至今没有定论，而它决定了任何"去极化"干预该从何处下手。
 - 民粹主义的跨国扩散是否存在组织性的推动力量？还是各国民粹主义的兴起在本质上是对本地条件的独立响应？全球民粹主义是一个连贯的现象，还是共享话语外壳的不同政治运动的集合？这个问题的答案对"反民粹战略"具有根本性含义。
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Mudde, C. & Kaltwasser, C. R. _Populism: A Very Short Introduction._ Oxford University Press (2017). 权威入门。
 - Norris, P. & Inglehart, R. _Cultural Backlash: Trump, Brexit, and Authoritarian Populism._ Cambridge University Press (2019).
 - Mason, L. _Uncivil Agreement: How Politics Became Our Identity._ University of Chicago Press (2018).
-- Iyengar, S. et al. "The Origins and Consequences of Affective Polarization in the United States." _Annual Review of Political Science_ 22, 2019.
-- Nyhan, B. et al. "Like-Minded Sources on Facebook Are Prevalent but Not Polarizing." _Nature_ 620, 2023. 及同期系列研究——关于算法与极化关系的重要近期证据。
+- Iyengar, S. et al. "The Origins and Consequences of Affective Polarization in the United States." _Annual Review of Political Science_ 22, 2019. doi:10.1146/annurev-polisci-051117-073034
+- Nyhan, B. et al. "Like-Minded Sources on Facebook Are Prevalent but Not Polarizing." _Nature_ 620, 2023. doi:10.1038/s41586-023-06297-w 及同期系列研究——关于算法与极化关系的重要近期证据。

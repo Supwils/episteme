@@ -18,6 +18,12 @@ export const ECONOMISTS_DATA = [
   { slug: "elinor-ostrom", title: "埃莉诺·奥斯特罗姆", subtitle: "Elinor Ostrom", era: "现代" },
   { slug: "esther-duflo", title: "埃斯特·迪弗洛", subtitle: "Esther Duflo", era: "现代" },
   {
+    slug: "franco-modigliani",
+    title: "弗兰科·莫迪利安尼",
+    subtitle: "Franco Modigliani",
+    era: "当代",
+  },
+  {
     slug: "friedrich-hayek",
     title: "弗里德里希·哈耶克",
     subtitle: "Friedrich Hayek",

@@ -22,6 +22,11 @@ export type GraphNodeType =
   | "institution"
   | "mathematician"
   | "theorem"
+  | "process"
+  | "disease"
+  | "technology"
+  | "substance"
+  | "reaction"
   | "cosmic";
 
 export type GraphNode = {
@@ -37,7 +42,10 @@ export type GraphNode = {
     | "computer-science"
     | "political-science"
     | "cosmology"
-    | "mathematics";
+    | "mathematics"
+    | "earth-science"
+    | "medicine"
+    | "chemistry";
   type: GraphNodeType;
   slug: string;
   era?: string;

@@ -16,6 +16,13 @@ export const CONCEPTS = [
     key_figures: ["Nick Bostrom", "Timnit Gebru", "Stuart Russell"],
   },
   {
+    slug: "alienation",
+    title: "异化",
+    title_en: "Alienation / Entfremdung",
+    field: "社会与政治哲学",
+    key_figures: ["hegel", "marx", "rousseau", "fromm"],
+  },
+  {
     slug: "argument",
     title: "论证",
     title_en: "Argument",
@@ -91,6 +98,13 @@ export const CONCEPTS = [
     title_en: "Democracy",
     field: "政治哲学",
     key_figures: ["aristotle", "rousseau", "tocqueville", "habermas"],
+  },
+  {
+    slug: "dependent-origination",
+    title: "缘起",
+    title_en: "Dependent Origination / Pratītyasamutpāda",
+    field: "印度哲学",
+    key_figures: ["buddha", "nagarjuna", "shankara"],
   },
   {
     slug: "dharma",
@@ -338,6 +352,13 @@ export const CONCEPTS = [
     key_figures: ["plato", "descartes", "kant", "hegel"],
   },
   {
+    slug: "recognition",
+    title: "承认",
+    title_en: "Recognition / Anerkennung",
+    field: "社会与政治哲学",
+    key_figures: ["hegel", "honneth", "taylor", "fanon"],
+  },
+  {
     slug: "ren",
     title: "仁",
     title_en: "Benevolence / Ren",
@@ -401,6 +422,13 @@ export const CONCEPTS = [
     key_figures: ["aristotle", "tarski", "james", "defoe"],
   },
   {
+    slug: "ubuntu",
+    title: "乌班图",
+    title_en: "Ubuntu",
+    field: "非洲哲学",
+    key_figures: ["kwasi-wiredu", "Desmond Tutu", "Mogobe Ramose", "John Mbiti", "Thaddeus Metz"],
+  },
+  {
     slug: "virtue",
     title: "德性",
     title_en: "Virtue",
@@ -408,10 +436,24 @@ export const CONCEPTS = [
     key_figures: ["aristotle", "confucius", "aquinas", "macintyre"],
   },
   {
+    slug: "wu-wei",
+    title: "无为",
+    title_en: "Wu-wei / Effortless Action",
+    field: "中国哲学",
+    key_figures: ["laozi", "zhuangzi", "confucius", "wangbi"],
+  },
+  {
     slug: "yin-yang",
     title: "阴阳",
     title_en: "Yin-Yang",
     field: "中国哲学",
     key_figures: ["zouyan", "dongzhongshu", "zhuxi", "jungsynchronicity"],
+  },
+  {
+    slug: "zhengming",
+    title: "正名",
+    title_en: "Rectification of Names / Zhengming",
+    field: "中国哲学",
+    key_figures: ["confucius", "xunzi", "hanfeizi", "gongsunlong"],
   },
 ];

@@ -19,6 +19,9 @@ export interface DailySelected {
   cosmology: DailySelectedFact;
   computerScience: DailySelectedFact;
   politicalScience: DailySelectedFact;
+  earthScience: DailySelectedFact;
+  medicine: DailySelectedFact;
+  chemistry: DailySelectedFact;
   curiosity: { title: string; detail: string; url?: string };
   question: string;
   fact: string;
@@ -634,6 +637,155 @@ const POLITICAL_SCIENCE_FACTS: readonly DailySelectedFact[] = [
   },
 ];
 
+const EARTH_SCIENCE_FACTS: readonly DailySelectedFact[] = [
+  {
+    title: "大陆漂移",
+    description:
+      "魏格纳 1912 年提出大陆曾连成一体，因拿不出移动机制被嘲笑半个世纪，直到板块构造为他平反。",
+    url: "/earth-science/pioneers/alfred-wegener",
+  },
+  {
+    title: "板块边界",
+    description: "地球表层裂成约十几块板块，它们的汇聚、离散与错动，塑造了地震带、火山链与高山。",
+    url: "/earth-science/concepts/plate-boundaries",
+  },
+  {
+    title: "科里奥利效应",
+    description: "地球自转让运动物体偏转——它决定了气旋的旋向与信风的走向，却管不了你家的马桶。",
+    url: "/earth-science/concepts/coriolis-effect",
+  },
+  {
+    title: "碳循环",
+    description:
+      "碳在大气、海洋、岩石与生命之间流动；硅酸盐风化这台「慢恒温器」让地球气候在亿年尺度上保持宜居。",
+    url: "/earth-science/concepts/carbon-cycle",
+  },
+  {
+    title: "坦博拉火山 1815",
+    description:
+      "史上最大喷发之一，平流层硫气溶胶让 1816 成为北半球「无夏之年」，饥荒与迁徙改写了历史。",
+    url: "/earth-science/events/tambora-1815",
+  },
+  {
+    title: "大氧化事件",
+    description: "约 24 亿年前，蓝藻的产氧光合作用第一次大规模改造了行星大气——生命重塑了地球。",
+    url: "/earth-science/events/great-oxidation-event",
+  },
+  {
+    title: "气候临界点",
+    description:
+      "AMOC、冰盖、雨林等系统可能存在不可逆的「临界点」——高后果但充满不确定，是当下最受关注的前沿。",
+    url: "/earth-science/frontier/climate-tipping-points",
+  },
+  {
+    title: "地球内部",
+    description: "我们钻不到地心，却靠地震波的「影区」听出了地壳、地幔、液态外核与固态内核的分层。",
+    url: "/earth-science/concepts/earth-interior",
+  },
+];
+
+const MEDICINE_FACTS: readonly DailySelectedFact[] = [
+  {
+    title: "细菌致病论",
+    description:
+      "在巴斯德与科赫之前，人们以为疾病源自「瘴气」。证明微生物才是元凶，是医学史上最救命的范式转换之一。",
+    url: "/medicine/concepts/germ-theory",
+  },
+  {
+    title: "牛痘接种 1796",
+    description:
+      "詹纳发现挤奶女工不得天花，用牛痘为一个男孩接种——人类第一支疫苗，最终让天花成为唯一被根除的传染病。",
+    url: "/medicine/events/jenner-smallpox-vaccination",
+  },
+  {
+    title: "斯诺与宽街水泵",
+    description:
+      "1854 年伦敦霍乱，斯诺用一张点子地图把疫情锁定到一口水井，移走泵柄——流行病学就此诞生。",
+    url: "/medicine/events/snow-cholera-broad-street",
+  },
+  {
+    title: "抗生素耐药性",
+    description:
+      "弗莱明在领诺奖时就警告：滥用青霉素会逼出耐药菌。这是达尔文的自然选择在医院里实时上演。",
+    url: "/medicine/concepts/antibiotic-resistance",
+  },
+  {
+    title: "青蒿素",
+    description:
+      "屠呦呦从东晋葛洪《肘后备急方》获得灵感，用低温乙醚提取出青蒿素——古人的观察 + 现代的验证，挽救数百万生命。",
+    url: "/medicine/figures/tu-youyou",
+  },
+  {
+    title: "循证医学",
+    description:
+      "凭名医经验还是凭随机对照试验？循证医学主张让证据而非权威说话——这场静悄悄的革命重塑了现代临床。",
+    url: "/medicine/concepts/evidence-based-medicine",
+  },
+  {
+    title: "mRNA 疫苗",
+    description:
+      "卡里科与魏斯曼坐了几十年冷板凳的 mRNA 技术，在 COVID 中数月内变成疫苗，并赢得 2023 年诺贝尔奖。",
+    url: "/medicine/technologies/mrna-vaccine",
+  },
+  {
+    title: "塔斯基吉梅毒研究",
+    description:
+      "美国一项持续 40 年、刻意不予治疗的研究，是医学伦理最黑暗的一页，直接催生了「知情同意」制度。",
+    url: "/medicine/events/tuskegee-syphilis-study",
+  },
+];
+
+const CHEMISTRY_FACTS: readonly DailySelectedFact[] = [
+  {
+    title: "门捷列夫的周期表",
+    description:
+      "1869 年门捷列夫排出周期表时，故意留下空格并预言了未知元素的性质——后来镓、锗的发现一一应验，堪称化学最漂亮的预言。",
+    url: "/chemistry/milestones/mendeleev-periodic-law",
+  },
+  {
+    title: "拉瓦锡的氧化学革命",
+    description:
+      "在他之前，人们以为燃烧是物质释放「燃素」。拉瓦锡用天平证明燃烧其实是与氧结合——化学从此进入定量时代。",
+    url: "/chemistry/milestones/lavoisier-oxygen-revolution",
+  },
+  {
+    title: "哈伯-博施合成氨",
+    description:
+      "把空气里惰性的氮变成肥料，养活了今天近一半的人口；同样的技术也造出了炸药——一项发明的两副面孔。",
+    url: "/chemistry/milestones/haber-bosch-process",
+  },
+  {
+    title: "为什么水这么反常",
+    description:
+      "冰会浮在水上、水的沸点高得离谱——这些「反常」都源于水分子的极性与氢键，也正是它们让地球宜居。",
+    url: "/chemistry/substances/water",
+  },
+  {
+    title: "碳的多副面孔",
+    description:
+      "同样是碳原子：排成一种结构是坚硬的金刚石，换一种就是柔软的石墨，再换是只有一个原子厚的石墨烯。",
+    url: "/chemistry/substances/carbon-allotropes",
+  },
+  {
+    title: "催化剂：化学的「媒人」",
+    description:
+      "它降低反应的「门槛」（活化能）、加速反应，自己却毫发无损。从汽车尾气净化到体内的酶，催化无处不在。",
+    url: "/chemistry/substances/catalysts",
+  },
+  {
+    title: "氧化还原：电子的搬运",
+    description:
+      "呼吸、生锈、电池、燃烧，本质上都是电子从一处搬到另一处。氧化还原把这些看似无关的现象统一了起来。",
+    url: "/chemistry/concepts/redox-reactions",
+  },
+  {
+    title: "摩尔：化学家怎么数原子",
+    description:
+      "原子太小没法一个个数，于是化学家用「摩尔」打包：1 摩尔就是约 6.022×10²³ 个粒子——阿伏伽德罗常数。",
+    url: "/chemistry/concepts/the-mole",
+  },
+];
+
 /**
  * Pick one "on this day" event: prefer events matching today's date, else fall
  * back to the full list, then project to the display shape. Seeded so a given
@@ -674,6 +826,9 @@ export function getDailySelected(date?: Date, seedOffset = 0): DailySelected {
   const cosmology = seededSelect(COSMOLOGY_FACTS, seed + 5);
   const computerScience = seededSelect(COMPUTER_SCIENCE_FACTS, seed + 12);
   const politicalScience = seededSelect(POLITICAL_SCIENCE_FACTS, seed + 13);
+  const earthScience = seededSelect(EARTH_SCIENCE_FACTS, seed + 14);
+  const medicine = seededSelect(MEDICINE_FACTS, seed + 15);
+  const chemistry = seededSelect(CHEMISTRY_FACTS, seed + 16);
 
   const curiosityItem = seededSelect(getAllCuriosities(), seed + 14);
   const curiosity = {
@@ -714,6 +869,9 @@ export function getDailySelected(date?: Date, seedOffset = 0): DailySelected {
     cosmology,
     computerScience,
     politicalScience,
+    earthScience,
+    medicine,
+    chemistry,
     curiosity,
     question,
     fact,
@@ -759,6 +917,9 @@ export function buildShareText(daily: DailySelected): string {
     `🌌 宇宙：${daily.cosmology.title}`,
     `💻 计算机：${daily.computerScience.title}`,
     `⚖️ 政治：${daily.politicalScience.title}`,
+    `🌍 地球科学：${daily.earthScience.title}`,
+    `⚕️ 医学：${daily.medicine.title}`,
+    `⚗️ 化学：${daily.chemistry.title}`,
     "",
     `❓ 今日一问：${daily.question}`,
     "",

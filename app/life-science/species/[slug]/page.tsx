@@ -13,6 +13,8 @@ import { createArticleJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
 import { CellExplorer } from "@/subjects/life-science/components/visualizations/CellExplorer";
+import { MarkdownRenderer } from "@/components/MarkdownRenderer";
+import { getSpeciesProse, type SpeciesProse } from "@/lib/species-prose";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -37,14 +39,19 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const species = getSpeciesById(slug);
-  if (!species) notFound();
-  const description = `${species.era} ${species.period}。${species.keyTraits.join("、")}`;
-  const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(species.name)}&section=life-science&description=${encodeURIComponent(description)}`;
+  const prose = getSpeciesProse(slug);
+  if (!species && !prose) notFound();
+  const name = species ? species.name : prose!.title;
+  const nameEn = species ? species.nameEn : prose!.latinName;
+  const description = species
+    ? `${species.era} ${species.period}。${species.keyTraits.join("、")}`
+    : `${prose!.category}。${prose!.tags.join("、")}`;
+  const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(name)}&section=life-science&description=${encodeURIComponent(description)}`;
   return {
-    title: `${species.name}（${species.nameEn}） — 生命科学`,
+    title: `${name}（${nameEn}） — 生命科学`,
     description,
     openGraph: {
-      title: `${species.name}（${species.nameEn}） — 生命科学`,
+      title: `${name}（${nameEn}） — 生命科学`,
       description,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
@@ -54,7 +61,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function SpeciesDetailPage({ params }: Props) {
   const { slug } = await params;
   const species = getSpeciesById(slug);
-  if (!species) notFound();
+  const prose = getSpeciesProse(slug);
+  if (!species && !prose) notFound();
+
+  // Essay-only species (curated prose, no structured record yet) get a prose page.
+  if (!species) return <SpeciesProsePage prose={prose!} slug={slug} />;
 
   const accent = getAccent(species);
   const allSpecies = getAllSpecies();
@@ -189,6 +200,12 @@ export default async function SpeciesDetailPage({ params }: Props) {
 
           {deepReading && <DeepReading {...deepReading} />}
 
+          {prose && (
+            <FadeInSection className="mb-12">
+              <MarkdownRenderer content={prose.content} accentColor={accent} />
+            </FadeInSection>
+          )}
+
           <SafeRender>
             <RelatedContent slug={slug} domain="life-science" entityId={slug} />
           </SafeRender>
@@ -232,14 +249,14 @@ export default async function SpeciesDetailPage({ params }: Props) {
 
 function FactCard({ label, value, accent }: { label: string; value: string; accent: string }) {
   return (
-    <div className="border-border-faint bg-bg-near border p-4">
+    <dl className="border-border-faint bg-bg-near border p-4">
       <dt className="text-fg-muted mb-1 font-mono text-[9px] tracking-[0.22em] uppercase">
         {label}
       </dt>
       <dd className="font-display text-fg-primary text-sm font-medium" style={{ color: accent }}>
         {value}
       </dd>
-    </div>
+    </dl>
   );
 }
 
@@ -248,6 +265,70 @@ function TaxonomyEntry({ label, value }: { label: string; value: string }) {
     <div>
       <dt className="text-fg-muted font-mono text-[9px] tracking-[0.22em] uppercase">{label}</dt>
       <dd className="text-fg-secondary mt-0.5 text-sm">{value}</dd>
+    </div>
+  );
+}
+
+function SpeciesProsePage({ prose, slug }: { prose: SpeciesProse; slug: string }) {
+  const accent = "#4a9e6f";
+  const jsonLd = createArticleJsonLd({
+    title: prose.titleEn ? `${prose.title}（${prose.titleEn}）` : prose.title,
+    description: `${prose.category}。${prose.tags.join("、")}`,
+    url: `${SITE_URL}/life-science/species/${slug}`,
+    keywords: [prose.title, prose.titleEn, prose.latinName, prose.category, ...prose.tags].filter(
+      (k): k is string => Boolean(k)
+    ),
+  });
+  return (
+    <div className="w-full px-6 py-12 sm:px-10 lg:px-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="flex flex-col gap-12 lg:flex-row">
+        <article className="max-w-[900px] min-w-0 flex-1">
+          <header className="mb-10">
+            <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
+              life-science / species
+            </p>
+            <div className="mb-4 flex flex-wrap items-center gap-2.5">
+              <span
+                className="rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.2em] uppercase"
+                style={{
+                  borderColor: `${accent}30`,
+                  color: accent,
+                  backgroundColor: `${accent}10`,
+                }}
+              >
+                {prose.category}
+              </span>
+              {prose.era && (
+                <span className="border-fg-disabled/20 text-fg-muted rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.16em]">
+                  {prose.era}
+                </span>
+              )}
+            </div>
+            <h1 className="font-display text-fg-primary text-[2.4rem] leading-tight tracking-tight md:text-[3.2rem]">
+              {prose.title}
+            </h1>
+            {(prose.latinName || prose.titleEn) && (
+              <p className="text-fg-muted mt-2 font-mono text-sm tracking-wider italic">
+                {prose.latinName || prose.titleEn}
+              </p>
+            )}
+          </header>
+
+          <MarkdownRenderer content={prose.content} accentColor={accent} />
+
+          <SafeRender>
+            <RelatedContent slug={slug} domain="life-science" entityId={slug} />
+          </SafeRender>
+        </article>
+
+        <ArticleSidebar contentClassName="space-y-6">
+          <TableOfContents accentColor={accent} />
+        </ArticleSidebar>
+      </div>
     </div>
   );
 }

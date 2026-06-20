@@ -67,6 +67,7 @@ export const PHENOMENA_DATA = [
     subtitle: "Dunning-Kruger Effect",
     category: "认知",
   },
+  { slug: "ego-depletion", title: "自我损耗", subtitle: "Ego Depletion", category: "认知" },
   {
     slug: "emotion-theories",
     title: "情绪理论",
@@ -117,6 +118,12 @@ export const PHENOMENA_DATA = [
   },
   { slug: "mirror-neurons", title: "镜像神经元", subtitle: "Mirror Neurons", category: "神经科学" },
   { slug: "mirror-stage", title: "镜像阶段", subtitle: "Mirror Stage", category: "精神分析" },
+  {
+    slug: "moral-judgment",
+    title: "道德判断的心理学",
+    subtitle: "The Psychology of Moral Judgment",
+    category: "社会心理学",
+  },
   { slug: "narcissism", title: "自恋", subtitle: "Narcissism", category: "精神分析" },
   {
     slug: "neuroplasticity",
@@ -149,6 +156,12 @@ export const PHENOMENA_DATA = [
     category: "精神分析",
   },
   { slug: "peak-end-rule", title: "峰终定律", subtitle: "Peak-End Rule", category: "记忆" },
+  {
+    slug: "perception-physiology",
+    title: "感觉与知觉的生理基础",
+    subtitle: "The Physiology of Sensation and Perception",
+    category: "认知神经科学",
+  },
   {
     slug: "piaget-stages",
     title: "皮亚杰认知发展阶段",

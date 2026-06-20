@@ -10,6 +10,9 @@ import { PSYCHOLOGY_REFS } from "./psychology-refs";
 import { COMPUTER_SCIENCE_REFS } from "./computer-science-refs";
 import { POLITICAL_SCIENCE_REFS } from "./political-science-refs";
 import { MATHEMATICS_REFS } from "./mathematics-refs";
+import { EARTH_SCIENCE_REFS } from "./earth-science-refs";
+import { MEDICINE_REFS } from "./medicine-refs";
+import { CHEMISTRY_REFS } from "./chemistry-refs";
 
 export type { Domain, CrossReference } from "./types";
 export { DOMAIN_LABELS, DOMAIN_ROUTES } from "./types";
@@ -25,6 +28,9 @@ const CROSS_REFERENCES: CrossReference[] = [
   ...COMPUTER_SCIENCE_REFS,
   ...POLITICAL_SCIENCE_REFS,
   ...MATHEMATICS_REFS,
+  ...EARTH_SCIENCE_REFS,
+  ...MEDICINE_REFS,
+  ...CHEMISTRY_REFS,
 ];
 
 export { CROSS_REFERENCES };

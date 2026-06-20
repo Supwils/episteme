@@ -103,17 +103,20 @@ NMR的影响早已超出核物理和医学：
 - **卡3**：全球约40000台MRI扫描仪，每年进行超过4亿次扫描；MRI临床常用场强为1.5 T和3 T，最高研究型扫描仪已达10.5 T。
 - **卡4**：恩斯特因傅里叶变换NMR获1991年诺贝尔化学奖；劳特伯和曼斯菲尔德因MRI技术获2003年诺贝尔生理学或医学奖。
 
-## 引用
+## 关键洞察
 
-> "核磁共振是上帝给了我们一个窗口，让我们无损地看进物质的内部结构——包括活体组织。" — 费利克斯·布洛赫（Felix Bloch，1952年诺贝尔奖演讲）
+核磁共振把原子核的量子自旋变成了无损透视人体的工具。
 
-> "核磁共振成像不仅是一项医学技术，它是量子力学进入人体的入口。" — 理查德·恩斯特（Richard Ernst，1991年诺贝尔化学奖演讲）
+它探测的是原子核（主要是人体内丰富的氢核）在强磁场中按拉莫尔频率进动、并对射频脉冲产生共振吸收的量子效应；不同组织中氢核的弛豫时间（T1、T2）不同，于是磁共振成像（MRI）能在不使用电离辐射、不切开身体的情况下分辨软组织。从 1938 年拉比的分子束实验，到 1946 年布洛赫与珀塞尔在液/固态中直接探测，再到 1973 年劳特伯实现成像——一个最初纯属基础物理的现象，最终成了现代医学最重要的诊断手段之一。
+
+## 参考文献
+
+1. Rabi, Isidor I., et al. "A New Method of Measuring Nuclear Magnetic Moment." _Physical Review_, 53(4): 318, 1938.
+2. Bloch, Felix. "Nuclear Induction." _Physical Review_, 70(7–8): 460–474, 1946. DOI: 10.1103/PhysRev.70.460
+3. Purcell, Edward M., Henry C. Torrey, and Robert V. Pound. "Resonance Absorption by Nuclear Magnetic Moments in a Solid." _Physical Review_, 69(1–2): 37–38, 1946.
+4. Lauterbur, Paul C. "Image Formation by Induced Local Interactions: Examples Employing Nuclear Magnetic Resonance." _Nature_, 242(5394): 190–191, 1973. DOI: 10.1038/242190a0
 
 ## 延伸阅读
 
-1. Rabi, Isidor I., et al. "A New Method of Measuring Nuclear Magnetic Moment." _Physical Review_, 53(4): 318, 1938.
-2. Bloch, Felix. "Nuclear Induction." _Physical Review_, 70(7–8): 460–474, 1946.
-3. Purcell, Edward M., Henry C. Torrey, and Robert V. Pound. "Resonance Absorption by Nuclear Magnetic Moments in a Solid." _Physical Review_, 69(1–2): 37–38, 1946.
-4. Lauterbur, Paul C. "Image Formation by Induced Local Interactions: Examples Employing Nuclear Magnetic Resonance." _Nature_, 242(5394): 190–191, 1973.
-5. Levitt, Malcolm H. _Spin Dynamics: Basics of Nuclear Magnetic Resonance_ (2nd ed.). Wiley, 2008.
-6. 赵南明, 周海梦. 《生物物理学》. 高等教育出版社, 2000. （包含NMR生物医学应用章节）
+1. Levitt, Malcolm H. _Spin Dynamics: Basics of Nuclear Magnetic Resonance_ (2nd ed.). Wiley, 2008.
+2. 赵南明, 周海梦. 《生物物理学》. 高等教育出版社, 2000. （包含NMR生物医学应用章节）

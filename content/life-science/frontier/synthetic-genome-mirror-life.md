@@ -134,7 +134,7 @@ Sc2.0 基因组的战略价值不只是证明"我们能写"：它内置了 SCRaM
 
 - Hutchison, C.A. et al. "Design and synthesis of a minimal bacterial genome." _Science_ 351, aad6253 (2016). DOI: 10.1126/science.aad6253.（JCVI-syn3.0 奠基论文）
 - Pelletier, J.F. et al. "Genetic requirements for cell division in a genomically minimal cell." _Cell_ 184, 2460–2476 (2021). DOI: 10.1016/j.cell.2021.03.008.（syn3A 与细胞分裂基因）
-- Laos, R. et al. "Confronting risks of mirror life." _Science_ 386, eads9158 (2024). DOI: 10.1126/science.ads9158.（38 位科学家联署的镜像生命安全警告）
+- Adamala, K.P. et al. "Confronting risks of mirror life." _Science_ 386, eads9158 (2024). DOI: 10.1126/science.ads9158.（38 位科学家联署的镜像生命安全警告）
 - Richardson, S.M. et al. "Design of a synthetic yeast genome." _Science_ 355, 1040–1044 (2017). DOI: 10.1126/science.aaf4557.（Sc2.0 设计原则）
 - Cello, J., Paul, A.V. & Wimmer, E. "Chemical synthesis of poliovirus cDNA: generation of infectious virus in the absence of natural template." _Science_ 297, 1016–1018 (2002).（早期合成病毒基因组先例）
 
@@ -142,10 +142,10 @@ Sc2.0 基因组的战略价值不只是证明"我们能写"：它内置了 SCRaM
 
 [^syn3a]: Pelletier et al., _Cell_ 184 (2021)：在 syn3.0 基础上加入 7 个基因得到 syn3A，恢复了正常细胞分裂形态，明确了此前未知的细胞分裂相关基因功能。
 
-[^mirror]: Laos et al., _Science_ 386, eads9158 (2024)：38 位联署科学家的技术报告，详述了镜像细菌的可行性评估和生态风险，发表于 2024 年 12 月《科学》。
+[^mirror]: Adamala et al., _Science_ 386, eads9158 (2024)：38 位联署科学家的技术报告，详述了镜像细菌的可行性评估和生态风险，发表于 2024 年 12 月《科学》。
 
 [^sc2]: Sc2.0 国际联盟 2023 年前后陆续宣告酿酒酵母全部 16 条染色体完成从头合成，具体发表时间线跨越多年（2017–2023）。
 
 [^sc2_2023]: Sc2.0 2023 年 11 月联合发表：多篇论文同日发表于《Cell》和《Cell Genomics》，描述 SynVIII、SynXI 等染色体的完成；整体项目历时约 15 年，参与国覆盖英、美、中、新加坡、法、澳等。
 
-[^mirror_2024]: Laos, R. et al. "Confronting risks of mirror life." _Science_ 386, eads9158 (2024). DOI: 10.1126/science.ads9158. 联署作者约 40 人，含 2 位诺贝尔奖得主和 16 位科学院院士；附 299 页技术报告，2024 年 12 月发表。
+[^mirror_2024]: Adamala, K.P. et al. "Confronting risks of mirror life." _Science_ 386, eads9158 (2024). DOI: 10.1126/science.ads9158. 联署作者约 40 人，含 2 位诺贝尔奖得主和 16 位科学院院士；附约 300 页技术报告，2024 年 12 月发表。

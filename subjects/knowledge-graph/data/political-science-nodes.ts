@@ -64,6 +64,79 @@ export const POLITICAL_SCIENCE_NODES: GraphNode[] = [
     "国家",
     "暴力垄断",
   ]),
+  // ── more thinkers ──
+  n(
+    "niccolo-machiavelli",
+    "马基雅维利",
+    "thinker",
+    "thinkers",
+    "《君主论》与政治现实主义的开端。",
+    ["君主论", "现实主义"]
+  ),
+  n("john-rawls", "罗尔斯", "thinker", "thinkers", "《正义论》、无知之幕与作为公平的正义。", [
+    "正义论",
+    "无知之幕",
+  ]),
+  n("max-weber", "马克斯·韦伯", "thinker", "thinkers", "国家=暴力垄断、合法性类型与科层制。", [
+    "合法性",
+    "科层制",
+  ]),
+  n("john-stuart-mill", "约翰·密尔", "thinker", "thinkers", "《论自由》、伤害原则与代议政府。", [
+    "论自由",
+    "伤害原则",
+  ]),
+  n("michel-foucault", "福柯", "thinker", "thinkers", "权力/知识、规训与生命政治。", [
+    "权力",
+    "规训",
+  ]),
+  // ── more isms ──
+  n("fascism", "法西斯主义", "ism", "isms", "极端民族主义、领袖崇拜与对自由民主的否定。", [
+    "极权",
+    "民族主义",
+  ]),
+  n("feminism", "女性主义", "ism", "isms", "追问性别权力结构与平等的政治思想谱系。", [
+    "性别",
+    "平等",
+  ]),
+  // ── more concepts ──
+  n("democracy", "民主", "concept", "concepts", "人民统治的理念与制度，从雅典到代议制。", [
+    "民主",
+    "代议制",
+  ]),
+  n("social-contract", "社会契约", "concept", "concepts", "政治权威源于被治者同意的思想传统。", [
+    "契约",
+    "同意",
+  ]),
+  n("social-movements", "社会运动", "concept", "concepts", "集体行动如何挑战与重塑权力结构。", [
+    "集体行动",
+    "动员",
+  ]),
+  n("state-capacity", "国家能力", "concept", "concepts", "国家征税、执法与提供公共品的实际能力。", [
+    "国家能力",
+    "治理",
+  ]),
+  // ── institutions ──
+  n("federalism", "联邦制", "institution", "institutions", "中央与地方分权的制度安排。", [
+    "分权",
+    "联邦",
+  ]),
+  n(
+    "welfare-state",
+    "福利国家",
+    "institution",
+    "institutions",
+    "国家承担社会保障与再分配的制度。",
+    ["社会保障", "再分配"]
+  ),
+  // ── international relations ──
+  n(
+    "realism-ir",
+    "现实主义（国关）",
+    "concept",
+    "international-relations",
+    "无政府状态下国家追求权力与安全。",
+    ["权力政治", "无政府"]
+  ),
 ];
 
 const e = (from: string, to: string, label: string): GraphEdge => ({
@@ -81,11 +154,35 @@ export const POLITICAL_SCIENCE_EDGES: GraphEdge[] = [
   e("karl-marx", "socialism", "理论化"),
   e("john-locke", "power", "限制"),
   e("justice", "liberalism", "内核"),
+  // new node web
+  e("niccolo-machiavelli", "power", "直面"),
+  e("john-rawls", "justice", "重构"),
+  e("max-weber", "the-state", "定义"),
+  e("max-weber", "power", "类型学"),
+  e("john-stuart-mill", "liberalism", "深化"),
+  e("john-locke", "social-contract", "奠基"),
+  e("thomas-hobbes", "social-contract", "奠基"),
+  e("jean-jacques-rousseau", "social-contract", "重述"),
+  e("social-contract", "democracy", "正当性来源"),
+  e("michel-foucault", "power", "重新理解"),
+  e("nationalism", "fascism", "极端化"),
+  e("feminism", "justice", "性别维度"),
+  e("the-state", "state-capacity", "其实际能力"),
+  e("social-movements", "democracy", "推动"),
+  e("federalism", "the-state", "结构形态"),
+  e("welfare-state", "socialism", "部分实践"),
+  e("realism-ir", "power", "国关版本"),
   // cross-domain bridge: Marx the political theorist ↔ Marx the political economist
   {
     source: "political-science:karl-marx",
     target: "economics:karl-marx",
     type: "domain-link",
     label: "政治经济学",
+  },
+  {
+    source: "political-science:welfare-state",
+    target: "economics:keynesian-economics",
+    type: "domain-link",
+    label: "凯恩斯式干预",
   },
 ];

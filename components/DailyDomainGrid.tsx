@@ -99,6 +99,33 @@ const DOMAIN_CONFIGS = [
     border: "rgba(194,91,91,0.18)",
     url: "/political-science",
   },
+  {
+    key: "earthScience" as const,
+    icon: "🌍",
+    label: "地球科学",
+    color: "#4f9d76",
+    bg: "rgba(79,157,118,0.08)",
+    border: "rgba(79,157,118,0.18)",
+    url: "/earth-science",
+  },
+  {
+    key: "medicine" as const,
+    icon: "⚕️",
+    label: "医学与公共卫生",
+    color: "#d9544d",
+    bg: "rgba(217,84,77,0.08)",
+    border: "rgba(217,84,77,0.18)",
+    url: "/medicine",
+  },
+  {
+    key: "chemistry" as const,
+    icon: "⚗️",
+    label: "化学",
+    color: "#e08a3c",
+    bg: "rgba(224,138,60,0.08)",
+    border: "rgba(224,138,60,0.18)",
+    url: "/chemistry",
+  },
 ] as const;
 
 const containerVariants = {

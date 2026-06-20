@@ -91,7 +91,7 @@ Labbé 团队在论文中直接写道：若测量正确，这些天体"在宇宙
 
 到2024–2025年，多批高红移星系已经通过 JWST 光谱（NIRSpec）确认了红移。JWST 在 $z > 10$ 发现的已确认星系数量已经远超此前预期。
 
-值得一提的是，2024年发现的 JADES-GS-z14-0 以光谱方式确认红移 $z = 14.32$，对应宇宙年龄约2.9亿年，是当时已确认最远的星系，且其亮度也超过了预期。[^jades]
+值得一提的是，2024年发现的 JADES-GS-z14-0 以 JWST/NIRSpec 光谱方式确认红移 $z \approx 14.32$（Carniani et al. 2024 的初始值），随后 ALMA 探测到 [O III] 88μm 谱线将红移精化为 $z = 14.1793 \pm 0.0007$（Schouws et al. 2024），对应宇宙年龄约2.9亿年，是它发现时已确认最远的星系，且其亮度也超过了预期。[^jades] 这一纪录在2025年被 MoM-z14（$z \approx 14.44$，宇宙年龄约2.8亿年）超越——后者于2026年1月通过同行评审正式确认。[^momz14]
 
 ### 不同解释路线
 
@@ -141,10 +141,15 @@ Labbé 团队在论文中直接写道：若测量正确，这些天体"在宇宙
 - Labbé, I. et al. _A population of red candidate massive galaxies ~600 Myr after the Big Bang._ Nature 616, 266–269 (2023). arXiv:2207.09436.
 - Finkelstein, S. L. et al. _A Long Time Ago in a Galaxy Far, Far Away: A Candidate z ∼ 12 Galaxy in Early JWST CEERS Imaging._ ApJL 940, L55 (2022). arXiv:2207.12474.
 - Curtis-Lake, E. et al. _Spectroscopic confirmation of four metal-poor galaxies at z = 10.3–13.2._ Nature Astronomy 7, 622–632 (2023). arXiv:2212.04568.（JADES 光谱确认高红移星系）
+- Carniani, S. et al. _Spectroscopic confirmation of two luminous galaxies at a redshift of 14._ Nature 633, 318–322 (2024). arXiv:2405.18485.（JADES-GS-z14-0）
+- Schouws, S. et al. _Detection of [OIII]88μm in JADES-GS-z14-0 at z=14.1793._ arXiv:2409.20549 (2024).（ALMA 精化红移）
+- Naidu, R. P. et al. _A Cosmic Miracle: A Remarkably Luminous Galaxy at z=14.44 Confirmed with JWST._ The Open Journal of Astrophysics (2026). arXiv:2505.11263.（MoM-z14，目前已确认最远星系）
 - Steinhardt, C. L. et al. _The Impossibly Early Galaxy Problem._ ApJ 824, 21 (2016).（JWST 前的早期预警）
 - Boylan-Kolchin, M. _Stress testing ΛCDM with high-redshift galaxy candidates._ Nature Astronomy 7, 731–735 (2023). arXiv:2208.01612.（理论分析早期大质量星系问题）
 - Robertson, B. E. _Galaxy Formation and Reionization: Key Unknowns and Expected Discoveries._ ARA&A 60, 121 (2022). arXiv:2110.13168.
 
 [^labbe2023]: Labbé et al. (2023), Nature 616, 266. 6个候选高红移大质量星系，恒星质量约 $10^{10}$–$10^{11} M_\odot$，红移 $z \approx 7.4$–9.1。
 
-[^jades]: Carniani et al. (2024)：JADES-GS-z14-0 光谱确认红移 $z = 14.32$，arXiv:2405.18485，为当时已确认最远星系。
+[^jades]: Carniani, S. et al. (2024)：JADES-GS-z14-0，JWST/NIRSpec 初始红移 $z = 14.32$，Nature 633, 318，arXiv:2405.18485。ALMA [O III] 88μm 后续将红移精化为 $z = 14.1793$（Schouws, S. et al. 2024，arXiv:2409.20549）。
+
+[^momz14]: Naidu, R. P. et al. (2025/2026)：MoM-z14，光谱确认红移 $z \approx 14.44$（宇宙年龄约2.8亿年），2025年4月 JWST 观测，2026年1月经同行评审发表于 The Open Journal of Astrophysics，为目前已确认最远的星系。

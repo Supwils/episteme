@@ -2,6 +2,11 @@
 
 exports[`getDailySelected (characterization) > is stable for 2026-01-15 offset 0 1`] = `
 {
+  "chemistry": {
+    "description": "冰会浮在水上、水的沸点高得离谱——这些「反常」都源于水分子的极性与氢键，也正是它们让地球宜居。",
+    "title": "为什么水这么反常",
+    "url": "/chemistry/substances/water",
+  },
   "computerScience": {
     "description": "Berners-Lee 1989 年用 HTTP/HTML/URL 三件套，把互联网变成了人人可读写的信息空间。",
     "title": "万维网",
@@ -18,6 +23,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-01-15 offset 0
     "url": "/philosophy/experiments",
   },
   "date": "2026-01-15",
+  "earthScience": {
+    "description": "地球表层裂成约十几块板块，它们的汇聚、离散与错动，塑造了地震带、火山链与高山。",
+    "title": "板块边界",
+    "url": "/earth-science/concepts/plate-boundaries",
+  },
   "economics": {
     "description": "IMF正式成立，监督国际货币体系。",
     "title": "国际货币基金组织成立",
@@ -40,6 +50,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-01-15 offset 0
     "description": "曼德博集合展示了简单迭代规则如何产生无限复杂的图案，揭示了混沌中的秩序。",
     "title": "分形几何",
     "url": "/mathematics",
+  },
+  "medicine": {
+    "description": "1854 年伦敦霍乱，斯诺用一张点子地图把疫情锁定到一口水井，移走泵柄——流行病学就此诞生。",
+    "title": "斯诺与宽街水泵",
+    "url": "/medicine/events/snow-cholera-broad-street",
   },
   "onThisDay": [
     {
@@ -83,6 +98,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-01-15 offset 0
 
 exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 0 1`] = `
 {
+  "chemistry": {
+    "description": "把空气里惰性的氮变成肥料，养活了今天近一半的人口；同样的技术也造出了炸药——一项发明的两副面孔。",
+    "title": "哈伯-博施合成氨",
+    "url": "/chemistry/milestones/haber-bosch-process",
+  },
   "computerScience": {
     "description": "一个函数调用自身——用有限的代码描述无限的结构，是计算思维最优雅的核心之一。",
     "title": "递归",
@@ -99,6 +119,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 0
     "url": "/philosophy",
   },
   "date": "2026-03-14",
+  "earthScience": {
+    "description": "魏格纳 1912 年提出大陆曾连成一体，因拿不出移动机制被嘲笑半个世纪，直到板块构造为他平反。",
+    "title": "大陆漂移",
+    "url": "/earth-science/pioneers/alfred-wegener",
+  },
   "economics": {
     "description": "约翰·梅纳德·凯恩斯发表《就业、利息和货币通论》。",
     "title": "凯恩斯发表《通论》",
@@ -121,6 +146,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 0
     "description": "V - E + F = 2 揭示了多面体的顶点、边和面之间的基本关系。",
     "title": "欧拉公式",
     "url": "/mathematics",
+  },
+  "medicine": {
+    "description": "詹纳发现挤奶女工不得天花，用牛痘为一个男孩接种——人类第一支疫苗，最终让天花成为唯一被根除的传染病。",
+    "title": "牛痘接种 1796",
+    "url": "/medicine/events/jenner-smallpox-vaccination",
   },
   "onThisDay": [
     {
@@ -164,6 +194,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 0
 
 exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 1 1`] = `
 {
+  "chemistry": {
+    "description": "在他之前，人们以为燃烧是物质释放「燃素」。拉瓦锡用天平证明燃烧其实是与氧结合——化学从此进入定量时代。",
+    "title": "拉瓦锡的氧化学革命",
+    "url": "/chemistry/milestones/lavoisier-oxygen-revolution",
+  },
   "computerScience": {
     "description": "Berners-Lee 1989 年用 HTTP/HTML/URL 三件套，把互联网变成了人人可读写的信息空间。",
     "title": "万维网",
@@ -180,6 +215,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 1
     "url": "/economics",
   },
   "date": "2026-03-14",
+  "earthScience": {
+    "description": "我们钻不到地心，却靠地震波的「影区」听出了地壳、地幔、液态外核与固态内核的分层。",
+    "title": "地球内部",
+    "url": "/earth-science/concepts/earth-interior",
+  },
   "economics": {
     "description": "卡尔·马克思的《资本论》第一卷在汉堡出版。",
     "title": "《资本论》第一卷出版",
@@ -202,6 +242,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 1
     "description": "纳什均衡揭示了在非合作博弈中，每个参与者都选择最优策略时的状态。",
     "title": "博弈论",
     "url": "/mathematics",
+  },
+  "medicine": {
+    "description": "在巴斯德与科赫之前，人们以为疾病源自「瘴气」。证明微生物才是元凶，是医学史上最救命的范式转换之一。",
+    "title": "细菌致病论",
+    "url": "/medicine/concepts/germ-theory",
   },
   "onThisDay": [
     {
@@ -245,6 +290,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 1
 
 exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 0 1`] = `
 {
+  "chemistry": {
+    "description": "1869 年门捷列夫排出周期表时，故意留下空格并预言了未知元素的性质——后来镓、锗的发现一一应验，堪称化学最漂亮的预言。",
+    "title": "门捷列夫的周期表",
+    "url": "/chemistry/milestones/mendeleev-periodic-law",
+  },
   "computerScience": {
     "description": "香农 1948 年用「比特」量化了信息，证明了任何信道都有不可逾越的容量上限。",
     "title": "香农信息论",
@@ -261,6 +311,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 0
     "url": "/cosmology",
   },
   "date": "2026-06-16",
+  "earthScience": {
+    "description": "AMOC、冰盖、雨林等系统可能存在不可逆的「临界点」——高后果但充满不确定，是当下最受关注的前沿。",
+    "title": "气候临界点",
+    "url": "/earth-science/frontier/climate-tipping-points",
+  },
   "economics": {
     "description": "美国股市暴跌，大萧条开始。",
     "title": "黑色星期二",
@@ -283,6 +338,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 0
     "description": "罗素悖论动摇了朴素集合论的基础，推动了公理化集合论的发展。",
     "title": "集合论悖论",
     "url": "/mathematics",
+  },
+  "medicine": {
+    "description": "美国一项持续 40 年、刻意不予治疗的研究，是医学伦理最黑暗的一页，直接催生了「知情同意」制度。",
+    "title": "塔斯基吉梅毒研究",
+    "url": "/medicine/events/tuskegee-syphilis-study",
   },
   "onThisDay": [],
   "philosophy": {
@@ -315,6 +375,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 0
 
 exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 2 1`] = `
 {
+  "chemistry": {
+    "description": "呼吸、生锈、电池、燃烧，本质上都是电子从一处搬到另一处。氧化还原把这些看似无关的现象统一了起来。",
+    "title": "氧化还原：电子的搬运",
+    "url": "/chemistry/concepts/redox-reactions",
+  },
   "computerScience": {
     "description": "没有任何程序能对所有「程序+输入」判断它会停机还是永远运行——计算机科学第一个不可能性定理。",
     "title": "停机问题",
@@ -331,6 +396,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 2
     "url": "/mathematics",
   },
   "date": "2026-06-16",
+  "earthScience": {
+    "description": "史上最大喷发之一，平流层硫气溶胶让 1816 成为北半球「无夏之年」，饥荒与迁徙改写了历史。",
+    "title": "坦博拉火山 1815",
+    "url": "/earth-science/events/tambora-1815",
+  },
   "economics": {
     "description": "约翰·梅纳德·凯恩斯发表《就业、利息和货币通论》。",
     "title": "凯恩斯发表《通论》",
@@ -353,6 +423,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 2
     "description": "V - E + F = 2 揭示了多面体的顶点、边和面之间的基本关系。",
     "title": "欧拉公式",
     "url": "/mathematics",
+  },
+  "medicine": {
+    "description": "凭名医经验还是凭随机对照试验？循证医学主张让证据而非权威说话——这场静悄悄的革命重塑了现代临床。",
+    "title": "循证医学",
+    "url": "/medicine/concepts/evidence-based-medicine",
   },
   "onThisDay": [],
   "philosophy": {
@@ -385,6 +460,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 2
 
 exports[`getDailySelected (characterization) > is stable for 2026-12-25 offset 0 1`] = `
 {
+  "chemistry": {
+    "description": "在他之前，人们以为燃烧是物质释放「燃素」。拉瓦锡用天平证明燃烧其实是与氧结合——化学从此进入定量时代。",
+    "title": "拉瓦锡的氧化学革命",
+    "url": "/chemistry/milestones/lavoisier-oxygen-revolution",
+  },
   "computerScience": {
     "description": "Transformer 架构 + 规模化，让机器在海量文本上「涌现」出推理与对话能力，也引发它是否真正理解的争论。",
     "title": "大语言模型",
@@ -401,6 +481,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-12-25 offset 0
     "url": "/philosophy",
   },
   "date": "2026-12-25",
+  "earthScience": {
+    "description": "我们钻不到地心，却靠地震波的「影区」听出了地壳、地幔、液态外核与固态内核的分层。",
+    "title": "地球内部",
+    "url": "/earth-science/concepts/earth-interior",
+  },
   "economics": {
     "description": "IMF正式成立，监督国际货币体系。",
     "title": "国际货币基金组织成立",
@@ -424,6 +509,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-12-25 offset 0
     "title": "分形几何",
     "url": "/mathematics",
   },
+  "medicine": {
+    "description": "在巴斯德与科赫之前，人们以为疾病源自「瘴气」。证明微生物才是元凶，是医学史上最救命的范式转换之一。",
+    "title": "细菌致病论",
+    "url": "/medicine/concepts/germ-theory",
+  },
   "onThisDay": [
     {
       "day": 25,
@@ -434,6 +524,16 @@ exports[`getDailySelected (characterization) > is stable for 2026-12-25 offset 0
       "title": "苏联解体",
       "url": "/human-history/timeline",
       "year": 1991,
+    },
+    {
+      "day": 25,
+      "description": "人类迄今最强大的太空望远镜升空",
+      "domain": "宇宙学",
+      "domainColor": "#a88adf",
+      "month": 12,
+      "title": "詹姆斯·韦伯空间望远镜发射",
+      "url": "/cosmology",
+      "year": 2021,
     },
   ],
   "philosophy": {

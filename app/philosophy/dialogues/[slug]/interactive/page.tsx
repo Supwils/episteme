@@ -106,7 +106,7 @@ export default async function InteractiveDialoguePage({
           <h1 className="font-display text-fg-primary mt-3 text-[1.8rem] leading-tight font-semibold tracking-tight md:text-[2.4rem]">
             {dialogue.title}
           </h1>
-          <p className="text-fg-muted font-display text-base tracking-wide italic opacity-70">
+          <p className="text-fg-muted font-display text-base tracking-wide italic">
             {dialogue.title_en}
           </p>
         </div>

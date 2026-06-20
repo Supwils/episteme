@@ -14,6 +14,12 @@ export const ECONOMICS_CONCEPTS_DATA = [
     field: "金融经济学",
   },
   { slug: "bond-market", title: "债券市场", subtitle: "The Bond Market", field: "固定收益" },
+  {
+    slug: "coase-theorem",
+    title: "科斯定理",
+    subtitle: "The Coase Theorem",
+    field: "法律经济学与制度经济学",
+  },
   { slug: "consumer-surplus", title: "消费者剩余", subtitle: "Consumer Surplus", field: "" },
   {
     slug: "creative-destruction",
@@ -22,10 +28,22 @@ export const ECONOMICS_CONCEPTS_DATA = [
     field: "经济发展与创新",
   },
   {
+    slug: "developmental-state",
+    title: "发展型国家",
+    subtitle: "The Developmental State",
+    field: "发展经济学与政治经济学",
+  },
+  {
     slug: "econometrics-foundations",
     title: "计量经济学基础",
     subtitle: "Foundations of Econometrics",
     field: "实证经济学方法",
+  },
+  {
+    slug: "efficiency-wages",
+    title: "效率工资",
+    subtitle: "Efficiency Wages",
+    field: "劳动经济学",
   },
   { slug: "elasticity", title: "弹性", subtitle: "Elasticity", field: "微观经济学" },
   {
@@ -48,10 +66,22 @@ export const ECONOMICS_CONCEPTS_DATA = [
     field: "宏观经济学",
   },
   {
+    slug: "general-equilibrium",
+    title: "一般均衡与阿罗-德布鲁模型",
+    subtitle: "General Equilibrium and the Arrow-Debreu Model",
+    field: "微观经济理论",
+  },
+  {
     slug: "gini-coefficient",
     title: "基尼系数",
     subtitle: "Gini Coefficient",
     field: "收入分配与不平等",
+  },
+  {
+    slug: "growth-diagnostics",
+    title: "增长诊断",
+    subtitle: "Growth Diagnostics",
+    field: "发展经济学",
   },
   {
     slug: "industrial-organization",
@@ -84,6 +114,12 @@ export const ECONOMICS_CONCEPTS_DATA = [
     subtitle: "Leverage and Systemic Risk",
     field: "",
   },
+  {
+    slug: "loss-aversion-anchoring",
+    title: "损失厌恶与锚定",
+    subtitle: "Loss Aversion and Anchoring",
+    field: "行为经济学",
+  },
   { slug: "marginal-analysis", title: "边际分析", subtitle: "Marginal Analysis", field: "" },
   {
     slug: "market-efficiency",
@@ -115,12 +151,24 @@ export const ECONOMICS_CONCEPTS_DATA = [
   { slug: "nash-equilibrium", title: "纳什均衡", subtitle: "Nash Equilibrium", field: "博弈论" },
   { slug: "network-effects", title: "网络效应", subtitle: "Network Effects", field: "产业经济学" },
   {
+    slug: "nudge-libertarian-paternalism",
+    title: "助推与自由家长主义",
+    subtitle: "Nudge and Libertarian Paternalism",
+    field: "行为经济学",
+  },
+  {
     slug: "opportunity-cost",
     title: "机会成本",
     subtitle: "Opportunity Cost",
     field: "微观经济学",
   },
   { slug: "order-book", title: "订单簿", subtitle: "The Order Book", field: "市场微观结构" },
+  {
+    slug: "phillips-curve",
+    title: "菲利普斯曲线",
+    subtitle: "The Phillips Curve",
+    field: "宏观经济学",
+  },
   {
     slug: "platform-economics",
     title: "平台经济学",
@@ -160,6 +208,12 @@ export const ECONOMICS_CONCEPTS_DATA = [
     field: "劳动经济学与宏观",
   },
   { slug: "short-selling", title: "做空", subtitle: "Short Selling", field: "金融经济学" },
+  {
+    slug: "social-choice-theory",
+    title: "社会选择与阿罗不可能定理",
+    subtitle: "Social Choice and Arrow's Impossibility Theorem",
+    field: "福利经济学与公共选择",
+  },
   { slug: "sovereign-debt", title: "主权债务", subtitle: "Sovereign Debt", field: "国际金融" },
   { slug: "stock-valuation", title: "股票估值", subtitle: "Stock Valuation", field: "金融经济学" },
   {

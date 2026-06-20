@@ -247,6 +247,13 @@ export const MATHEMATICS_DATA = [
     field: "向量分析",
   },
   {
+    slug: "law-of-large-numbers",
+    title: "大数定律",
+    titleEn: "Law of Large Numbers",
+    subtype: "theorems",
+    field: "概率论",
+  },
+  {
     slug: "noethers-theorem",
     title: "诺特定理",
     titleEn: "Noether's Theorem",
@@ -316,6 +323,13 @@ export const MATHEMATICS_DATA = [
     titleEn: "Bayesian Inference",
     subtype: "concepts",
     field: "概率论/统计学",
+  },
+  {
+    slug: "calculus-of-variations",
+    title: "变分法",
+    titleEn: "Calculus of Variations",
+    subtype: "concepts",
+    field: "分析",
   },
   {
     slug: "category-theory",
@@ -417,6 +431,13 @@ export const MATHEMATICS_DATA = [
     field: "代数",
   },
   {
+    slug: "ergodic-theory",
+    title: "遍历理论",
+    titleEn: "Ergodic Theory",
+    subtype: "concepts",
+    field: "分析",
+  },
+  {
     slug: "euclidean-geometry",
     title: "欧氏几何",
     titleEn: "Euclidean Geometry",
@@ -424,6 +445,13 @@ export const MATHEMATICS_DATA = [
     field: "几何",
   },
   { slug: "field", title: "域", titleEn: "Field", subtype: "concepts", field: "代数" },
+  {
+    slug: "fourier-analysis",
+    title: "傅里叶分析",
+    titleEn: "Fourier Analysis",
+    subtype: "concepts",
+    field: "分析",
+  },
   { slug: "fractal", title: "分形", titleEn: "Fractal", subtype: "concepts", field: "几何" },
   { slug: "function", title: "函数", titleEn: "Function", subtype: "concepts", field: "基础概念" },
   {
@@ -470,6 +498,13 @@ export const MATHEMATICS_DATA = [
     field: "代数拓扑",
   },
   {
+    slug: "information-geometry",
+    title: "信息几何",
+    titleEn: "Information Geometry",
+    subtype: "concepts",
+    field: "应用数学",
+  },
+  {
     slug: "information-theory",
     title: "信息论",
     titleEn: "Information Theory",
@@ -477,6 +512,13 @@ export const MATHEMATICS_DATA = [
     field: "应用数学",
   },
   { slug: "integral", title: "积分", titleEn: "Integral", subtype: "concepts", field: "分析" },
+  {
+    slug: "knot-theory",
+    title: "纽结理论",
+    titleEn: "Knot Theory",
+    subtype: "concepts",
+    field: "几何",
+  },
   {
     slug: "lie-group-lie-algebra",
     title: "李群与李代数",
@@ -543,6 +585,13 @@ export const MATHEMATICS_DATA = [
     field: "代数",
   },
   {
+    slug: "numerical-linear-algebra",
+    title: "数值线性代数",
+    titleEn: "Numerical Linear Algebra",
+    subtype: "concepts",
+    field: "应用数学",
+  },
+  {
     slug: "numerical-methods",
     title: "数值方法",
     titleEn: "Numerical Methods",
@@ -602,6 +651,13 @@ export const MATHEMATICS_DATA = [
     field: "应用数学",
   },
   {
+    slug: "spectral-graph-theory",
+    title: "谱图理论",
+    titleEn: "Spectral Graph Theory",
+    subtype: "concepts",
+    field: "代数与组合",
+  },
+  {
     slug: "statistics",
     title: "统计学",
     titleEn: "Statistics",
@@ -614,6 +670,13 @@ export const MATHEMATICS_DATA = [
     titleEn: "Stochastic Process",
     subtype: "concepts",
     field: "概率论",
+  },
+  {
+    slug: "topological-data-analysis",
+    title: "拓扑数据分析",
+    titleEn: "Topological Data Analysis",
+    subtype: "concepts",
+    field: "应用数学",
   },
   { slug: "topology", title: "拓扑学", titleEn: "Topology", subtype: "concepts", field: "几何" },
   {

@@ -85,6 +85,27 @@ const DOMAIN_META: Record<
     border: "border-violet-400/30",
     borderColor: "#8b5cf6",
   },
+  "earth-science": {
+    label: "地球科学",
+    color: "text-green-300",
+    bg: "bg-green-500/20",
+    border: "border-green-400/30",
+    borderColor: "#4f9d76",
+  },
+  medicine: {
+    label: "医学与公共卫生",
+    color: "text-rose-300",
+    bg: "bg-rose-500/20",
+    border: "border-rose-400/30",
+    borderColor: "#d9544d",
+  },
+  chemistry: {
+    label: "化学",
+    color: "text-orange-300",
+    bg: "bg-orange-500/20",
+    border: "border-orange-400/30",
+    borderColor: "#e08a3c",
+  },
 };
 
 const NODE_TYPE_LABEL: Record<GraphNodeType, string> = {
@@ -111,6 +132,11 @@ const NODE_TYPE_LABEL: Record<GraphNodeType, string> = {
   institution: "制度与政体",
   mathematician: "数学家",
   theorem: "数学定理",
+  process: "地质过程",
+  disease: "疾病",
+  technology: "医学技术",
+  substance: "物质与材料",
+  reaction: "化学反应",
   cosmic: "宇宙学",
 };
 

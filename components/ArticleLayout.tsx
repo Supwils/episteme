@@ -106,9 +106,7 @@ export function ArticleLayout({
             {title}
           </h1>
           {titleEn && (
-            <p className="text-fg-muted font-display text-lg tracking-wide italic opacity-70">
-              {titleEn}
-            </p>
+            <p className="text-fg-muted font-display text-lg tracking-wide italic">{titleEn}</p>
           )}
           {meta && <div className="text-fg-secondary mt-3">{meta}</div>}
           {tags && tags.length > 0 && (

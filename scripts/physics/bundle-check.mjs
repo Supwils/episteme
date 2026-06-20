@@ -38,7 +38,12 @@ const BUDGET = {
   sharedInitialJs: 180 * 1024, // 180 KB — root+polyfill shared by every route
   largestRouteCss: 40 * 1024, // 40 KB — largest single section stylesheet (per-route)
   singleChunkMax: 285 * 1024, // 285 KB — accommodates the Three.js / R3F vendor chunk
-  totalChunksWarn: 3000 * 1024, // 3000 KB — full 9-domain app surface (warn only)
+  // Sum of ALL route chunks — scales with the number of domains, so it is an
+  // informational warn, not a hard gate. The page-load budgets that actually
+  // matter (sharedInitialJs + singleChunkMax) stay well within limits. Raised
+  // from 3000 KB (9-domain era) to 3400 KB now the app spans 12 domains plus
+  // the molecule viewer (CDN, zero bundle) and SIR simulator.
+  totalChunksWarn: 3400 * 1024, // 3400 KB — full 12-domain app surface (warn only)
 };
 
 // ---------------------------------------------------------------------------

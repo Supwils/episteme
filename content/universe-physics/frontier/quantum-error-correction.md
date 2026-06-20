@@ -21,7 +21,7 @@ institutions:
   - 哈佛–MIT 冷原子阵列
   - IBM T.J. Watson 研究中心
 related:
-  - muon-g-2-anomaly
+  - muon-g2-self-correction
 ---
 
 # 量子纠错跨过门槛

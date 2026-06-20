@@ -121,7 +121,7 @@ Shoshana Zuboff 的《监控资本主义时代》（_The Age of Surveillance Cap
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Eubanks, V. _Automating Inequality._ St. Martin's Press (2018).
 - Zuboff, S. _The Age of Surveillance Capitalism._ PublicAffairs (2019).
@@ -129,3 +129,4 @@ Shoshana Zuboff 的《监控资本主义时代》（_The Age of Surveillance Cap
 - Crawford, K. _Atlas of AI._ Yale University Press (2021).
 - European Union. _Regulation (EU) 2024/1689 — Artificial Intelligence Act._ 2024. （欧盟官方法律文本）
 - Buolamwini, J. & Gebru, T. "Gender Shades: Intersectional Accuracy Disparities in Commercial Gender Classification." _Proceedings of Machine Learning Research_ 81, 2018.
+- Nyhan, B. et al. "Like-Minded Sources on Facebook Are Prevalent but Not Polarizing." _Nature_ 620, 2023. doi:10.1038/s41586-023-06297-w 关于平台推荐算法与政治极化关系的大规模实验研究。

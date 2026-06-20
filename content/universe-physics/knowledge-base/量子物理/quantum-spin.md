@@ -115,19 +115,22 @@ $$\sigma_x = \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}, \quad \sigma_y = \begin
 
 连接节点（补充）：[[量子自旋]] → [[量子退相干]]（自旋退相干时间与环境耦合）；[[量子自旋]] → [[泡利不相容原理]]（自旋决定粒子统计类型）
 
-## 引用
+## 关键洞察
 
-> "自旋是量子力学中最纯粹的量子性质，因为它完全没有经典对应。" — 费利克斯·布洛赫
->
-> "我们发现物理定律中有一种令人惊叹的规律性：凡是具有整数自旋的粒子，都服从玻色统计；半整数自旋的粒子，服从费米统计——而这不是假设，而是可以从相对论性场论推导出来的。" — 沃尔夫冈·泡利
+自旋是最"纯粹"的量子性质：它完全没有经典对应。
 
-## 延伸阅读
+电子的自旋常被想象成"小球在自转"，但这个图像是错的——把电子当成有限大小的旋转球，会得出表面线速度超过光速的荒谬结论。自旋是一种内禀角动量，只能取 $\pm\hbar/2$ 两个值，无法用任何经典转动来还原。更深刻的是泡利在 1940 年证明的自旋-统计定理：整数自旋的粒子服从玻色统计、半整数自旋的粒子服从费米统计——这不是经验假设，而是相对论性量子场论的必然结论，也正是泡利不相容原理的根源。
+
+## 参考文献
 
 1. Uhlenbeck, George E., and Samuel Goudsmit. "Spinning Electrons and the Structure of Spectra." _Nature_, 117: 264–265, 1926.
 2. Dirac, P. A. M. "The Quantum Theory of the Electron." _Proceedings of the Royal Society A_, 117(778): 610–624, 1928.
-3. Werner, S. A., R. Colella, A. W. Overhauser, and C. F. Eagen. "Observation of the Phase Shift of a Neutron due to Precession in a Magnetic Field." _Physical Review Letters_, 35(16): 1053–1055, 1975.
-4. Fert, Albert. "Nobel Lecture: Origin, Development, and Future of Spintronics." _Reviews of Modern Physics_, 80(4): 1517–1530, 2008.
-5. Hanneke, D., S. Fogwell, and G. Gabrielse. "New Measurement of the Electron Magnetic Moment and the Fine Structure Constant." _Physical Review Letters_, 100(12): 120801, 2008.
-6. 杨泽森. 《量子力学》. 北京大学出版社, 2015.
+3. Pauli, Wolfgang. "The Connection Between Spin and Statistics." _Physical Review_, 58: 716–722, 1940. DOI: 10.1103/PhysRev.58.716
+4. Hanneke, D., S. Fogwell, and G. Gabrielse. "New Measurement of the Electron Magnetic Moment and the Fine Structure Constant." _Physical Review Letters_, 100(12): 120801, 2008.
+
+## 延伸阅读
+
+1. Fert, Albert. "Nobel Lecture: Origin, Development, and Future of Spintronics." _Reviews of Modern Physics_, 80(4): 1517–1530, 2008.
+2. 杨泽森. 《量子力学》. 北京大学出版社, 2015.
 
 ---

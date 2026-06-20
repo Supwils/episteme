@@ -14,6 +14,13 @@ const DOMAIN_ITEMS = [
   { id: "life-science", label: "生命科学", color: "#ec4899" },
   { id: "economics", label: "经济学", color: "#e8b84a" },
   { id: "psychology", label: "心理学", color: "#d4789c" },
+  { id: "computer-science", label: "计算机", color: "#4f9cf0" },
+  { id: "political-science", label: "政治学", color: "#c25b5b" },
+  { id: "cosmology", label: "宇宙学", color: "#3b82f6" },
+  { id: "mathematics", label: "数学", color: "#8b5cf6" },
+  { id: "earth-science", label: "地球科学", color: "#4f9d76" },
+  { id: "medicine", label: "医学", color: "#d9544d" },
+  { id: "chemistry", label: "化学", color: "#e08a3c" },
 ] as const;
 
 const NODE_TYPE_ITEMS = [
@@ -37,21 +44,27 @@ export function GraphLegend({ nodeCounts, edgeCounts }: GraphLegendProps) {
       initial={reducedMotion ? false : { opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: reducedMotion ? 0 : 0.3, ease: "easeOut" }}
-      className="inline-flex flex-col gap-2.5 px-4 py-3 rounded-xl border border-white/[0.06] bg-[#111118]/80 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.03)]"
+      className="inline-flex flex-col gap-2.5 rounded-xl border border-white/[0.06] bg-[#111118]/80 px-4 py-3 shadow-[0_4px_24px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.03)] backdrop-blur-xl"
       role="region"
       aria-label="图谱图例"
     >
       {/* Domain row */}
       <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
         {DOMAIN_ITEMS.map((domain) => (
-          <div key={domain.id} className="flex items-center gap-1.5" title={`${domain.label}: ${nodeCounts[domain.id] ?? 0} 个节点`}>
+          <div
+            key={domain.id}
+            className="flex items-center gap-1.5"
+            title={`${domain.label}: ${nodeCounts[domain.id] ?? 0} 个节点`}
+          >
             <span
-              className="h-2.5 w-2.5 rounded-full shrink-0"
+              className="h-2.5 w-2.5 shrink-0 rounded-full"
               style={{ backgroundColor: domain.color }}
             />
             <span className="text-[0.7rem] text-white/60">{domain.label}</span>
             {(nodeCounts[domain.id] ?? 0) > 0 && (
-              <span className="text-[0.6rem] text-white/40 tabular-nums">{nodeCounts[domain.id]}</span>
+              <span className="text-[0.6rem] text-white/40 tabular-nums">
+                {nodeCounts[domain.id]}
+              </span>
             )}
           </div>
         ))}
@@ -63,9 +76,13 @@ export function GraphLegend({ nodeCounts, edgeCounts }: GraphLegendProps) {
       {/* Node type row */}
       <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
         {NODE_TYPE_ITEMS.map((nodeType) => (
-          <div key={nodeType.id} className="flex items-center gap-1.5" title={`${nodeType.label}: ${nodeCounts[nodeType.id] ?? 0} 个节点`}>
+          <div
+            key={nodeType.id}
+            className="flex items-center gap-1.5"
+            title={`${nodeType.label}: ${nodeCounts[nodeType.id] ?? 0} 个节点`}
+          >
             <span
-              className="h-2 w-2 rounded-full border shrink-0"
+              className="h-2 w-2 shrink-0 rounded-full border"
               style={{
                 borderColor: nodeType.color,
                 backgroundColor: "transparent",
@@ -73,7 +90,9 @@ export function GraphLegend({ nodeCounts, edgeCounts }: GraphLegendProps) {
             />
             <span className="text-[0.7rem] text-white/50">{nodeType.label}</span>
             {(nodeCounts[nodeType.id] ?? 0) > 0 && (
-              <span className="text-[0.6rem] text-white/40 tabular-nums">{nodeCounts[nodeType.id]}</span>
+              <span className="text-[0.6rem] text-white/40 tabular-nums">
+                {nodeCounts[nodeType.id]}
+              </span>
             )}
           </div>
         ))}

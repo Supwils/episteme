@@ -103,12 +103,6 @@ $$k_B T_c \approx 1.13\hbar\omega_D \exp\!\left(-\frac{1}{\lambda - \mu^*}\right
 - **卡3**：BCS超导（1957年，巴丁、库珀、施里弗，1972年诺贝尔物理学奖）的核心机制是电子通过交换声子形成Cooper对，转变温度由电声子耦合常数决定。
 - **卡4**：固体热导率的有限性来自Umklapp声子-声子散射（非谐效应），金刚石热导率约2200 W/(m·K)，是常见固体中最高的。
 
-## 引用
-
-> "声子的概念是量子力学对固体热物理的最优美贡献之一——它让我们用一个词统一了比热、热导和超导的机制。" — 约翰·巴丁（John Bardeen，1972年诺贝尔奖演讲）
-
-> "把声子的语言交给固体物理，就像把波动语言交给光学一样自然。" — 彼得·德拜（Peter Debye，1930年代讲稿）
-
 ## 延伸阅读
 
 1. Einstein, Albert. "Die Plancksche Theorie der Strahlung und die Theorie der spezifischen Wärme." _Annalen der Physik_, 22(1): 180–190, 1907.

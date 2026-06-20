@@ -19,9 +19,11 @@ related:
 
 # 线段树
 
-线段树（Segment Tree）是解决**区间问题**的经典数据结构：给定一个数组，支持在 $O(\log n)$ 时间内回答区间查询（如区间最大值、区间和），并在 $O(\log n)$ 时间内更新单点或区间的值。
+考虑一个百万元素的数组，要回答几十万次这样的问询："第 30000 到 80000 个元素之和是多少？"——而且元素的值还会不断被修改。
 
-这类问题在竞技编程、数据库、游戏引擎、计算几何中频繁出现。线段树优雅地在查询和更新之间取得平衡，是算法工程师工具箱中最常用的高级数据结构之一。
+朴素地每次从头加一遍，单次查询要扫 $n$ 个元素；一百万元素、十万次查询就是 $10^{11}$ 次加法，普通 CPU 要跑上分钟。线段树把单次查询和单次修改都压到 $\log_2 10^6 \approx 20$ 步，同样的工作量降到约 $2\times10^6$ 次操作——快了五个数量级。
+
+这个数据结构由乔恩·本特利（Jon Bentley）在 1977 年提出，最初的用途不是数组求和，而是计算几何里的一个问题：给定平面上一堆线段，问一个点落在其中多少条线段内（stabbing query）。今天它在竞技编程、数据库、游戏引擎里随处可见。
 
 ## 问题背景
 
@@ -125,9 +127,12 @@ query(node, l, r):
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Fenwick, P. M. *A New Data Structure for Cumulative Frequency Tables.* Software: Practice and Experience 24(3), 327–336 (1994).（树状数组原始论文）
+
+## 延伸阅读
+
 - Bentley, J. *Programming Pearls.* 2nd ed. Addison-Wesley, 2000.（第3章讨论区间查询问题）
 - CP-Algorithms. *Segment Tree.* https://cp-algorithms.com/data_structures/segment_tree.html（最完整的中英文参考之一）
 - Codeforces Blog. *Chtholly Tree and Segment Tree Beats.* （高级线段树技术集合）

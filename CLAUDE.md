@@ -4,6 +4,19 @@
 
 ---
 
+## ⛔ Git 与部署纪律（最高优先 · 默认行为）
+
+> 这是默认规则，除非用户在**当次会话中**明确另行要求。代理只管"改 + 本地验证"，**commit / merge / push 三个动作都由用户口令触发**。
+
+1. **默认不 commit、不 merge、不 push、不开 PR。** 把工作做在工作树里，用本地命令验证质量即可；要不要落库、合并、上线，全部等用户发话。
+2. **`git commit` 只在用户明确说"commit / 提交"时执行。** 平时不要一边做一边频繁提交；等用户喊 commit 时，再把当前工作收敛成**最小数量**的 commit（理想 1 个，最多一两个有意义的逻辑 commit；零碎的先 `git reset --soft` 合并）。
+3. **集成到 `main` 用本地 merge，绝不用 PR。** 用户说"merge"时执行 `git checkout main && git merge <branch>`（本地合并），**不要 `gh pr create`**。
+4. **`git push` 只在用户明确说"push / 部署 / 上线 / deploy"时执行。** 本仓库 `main` 一旦被 push，GitHub Actions 会自动触发生产部署（`vercel deploy --prebuilt --prod`）；用户不希望部署被频繁触发。
+5. **验证靠本地命令，不靠 push 触发 CI。** 用 `pnpm typecheck / lint / check-content / test / build / bundle-check` 本地确认质量，不要为了"看 CI 绿不绿"而 push。
+6. 历史改写（`reset` / force-push）属重操作，仍需用户明确授权（见第十节）。
+
+---
+
 ## 第零节：代理自主接手协议（Agent Onboarding Protocol）
 
 > 如果你是刚接手本仓库的自主代理，按以下顺序执行，不要跳过任何一步。

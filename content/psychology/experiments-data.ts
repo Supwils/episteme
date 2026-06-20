@@ -170,6 +170,13 @@ export const PSYCHOLOGY_EXPERIMENTS_DATA = [
     year: 1970,
   },
   {
+    slug: "stroop-1935",
+    title: "斯特鲁普实验",
+    subtitle: "The Stroop Experiment",
+    researcher: "John Ridley Stroop",
+    year: 1935,
+  },
+  {
     slug: "wason-selection-task",
     title: "沃森选择任务",
     subtitle: "Wason Selection Task",

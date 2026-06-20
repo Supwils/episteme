@@ -95,17 +95,20 @@ $$i\hbar \frac{\partial \Psi}{\partial t} = \left(-\frac{\hbar^2}{2m}\nabla^2 + 
 - **卡3**：BEC的临界条件是相空间密度 $n\lambda_{dB}^3 \gtrsim 2.612$，典型实验中临界温度约100—200 nK。
 - **卡4**：通过Feshbach共振，冷原子实验可以连续调节原子间相互作用强度，实现BEC到BCS超导态的跨越（BEC-BCS crossover）。
 
-## 引用
+## 关键洞察
 
-> "这是量子力学历史上最壮丽的时刻之一——你直接看到了一个宏观波函数出现在你眼前。" — 埃里克·科内尔（1995年6月，BEC实验实现后）
+玻色-爱因斯坦凝聚把量子力学"放大"到了肉眼可见的尺度。
 
-> "一种新的物质状态被预言已七十年，现在它终于诞生在实验室里——爱因斯坦会高兴的。" — 卡尔·维曼（1995年6月）
+通常，单个原子的波函数是抽象的数学对象；但当上千个玻色子被冷却到接近绝对零度、全部坍缩进同一个最低能态时，它们共享同一个宏观波函数，整团原子像一个"超级原子"一样集体行动。1995 年 6 月 5 日，科内尔与维曼在约 170 nK 下首次在稀薄铷气体中看到这一现象——从玻色与爱因斯坦 1924—1925 年的预言到实验室实现，整整隔了 70 年。
 
-## 延伸阅读
+## 参考文献
 
 1. Bose, Satyendra Nath. "Plancks Gesetz und Lichtquantenhypothese." _Zeitschrift für Physik_, 26: 178–181, 1924.
 2. Einstein, Albert. "Quantentheorie des einatomigen idealen Gases. Zweite Abhandlung." _Sitzungsberichte der Preussischen Akademie der Wissenschaften_, 1925: 3–14.
-3. Anderson, Mike H., et al. "Observation of Bose-Einstein Condensation in a Dilute Atomic Vapor." _Science_, 269(5221): 198–201, 1995.
-4. Ketterle, Wolfgang. "Nobel Lecture: When Atoms Behave as Waves: Bose-Einstein Condensation and the Atom Laser." _Reviews of Modern Physics_, 74(4): 1131–1151, 2002.
-5. Pethick, Christopher J., and Henrik Smith. _Bose-Einstein Condensation in Dilute Gases_ (2nd ed.). Cambridge University Press, 2008.
-6. 陆坤权, 刘寄星. 《软物质物理学导论》. 北京大学出版社, 2006.
+3. Anderson, Mike H., et al. "Observation of Bose-Einstein Condensation in a Dilute Atomic Vapor." _Science_, 269(5221): 198–201, 1995. DOI: 10.1126/science.269.5221.198
+4. Ketterle, Wolfgang. "Nobel Lecture: When Atoms Behave as Waves: Bose-Einstein Condensation and the Atom Laser." _Reviews of Modern Physics_, 74(4): 1131–1151, 2002. DOI: 10.1103/RevModPhys.74.1131
+
+## 延伸阅读
+
+1. Pethick, Christopher J., and Henrik Smith. _Bose-Einstein Condensation in Dilute Gases_ (2nd ed.). Cambridge University Press, 2008.
+2. 陆坤权, 刘寄星. 《软物质物理学导论》. 北京大学出版社, 2006.

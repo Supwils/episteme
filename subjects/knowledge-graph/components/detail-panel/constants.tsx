@@ -78,6 +78,27 @@ export const DOMAIN_META: Record<
     border: "border-violet-500/30",
     dot: "bg-violet-400",
   },
+  "earth-science": {
+    label: "地球科学",
+    color: "text-green-400",
+    bg: "bg-green-500/15",
+    border: "border-green-500/30",
+    dot: "bg-green-400",
+  },
+  medicine: {
+    label: "医学与公共卫生",
+    color: "text-rose-400",
+    bg: "bg-rose-500/15",
+    border: "border-rose-500/30",
+    dot: "bg-rose-400",
+  },
+  chemistry: {
+    label: "化学",
+    color: "text-orange-400",
+    bg: "bg-orange-500/15",
+    border: "border-orange-500/30",
+    dot: "bg-orange-400",
+  },
 };
 
 export const NODE_TYPE_LABEL: Record<GraphNodeType, string> = {
@@ -104,6 +125,11 @@ export const NODE_TYPE_LABEL: Record<GraphNodeType, string> = {
   institution: "制度与政体",
   mathematician: "数学家",
   theorem: "数学定理",
+  process: "地质过程",
+  disease: "疾病",
+  technology: "医学技术",
+  substance: "物质与材料",
+  reaction: "化学反应",
   cosmic: "宇宙学",
 };
 
@@ -118,6 +144,9 @@ export const DOMAIN_ACCENT_GRADIENT: Record<Domain, string> = {
   "political-science": "linear-gradient(90deg, #c25b5b 0%, #d67676 100%)",
   cosmology: "linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%)",
   mathematics: "linear-gradient(90deg, #8b5cf6 0%, #a78bfa 100%)",
+  "earth-science": "linear-gradient(90deg, #4f9d76 0%, #6fbf96 100%)",
+  medicine: "linear-gradient(90deg, #d9544d 0%, #e87a72 100%)",
+  chemistry: "linear-gradient(90deg, #e08a3c 0%, #f0a85a 100%)",
 };
 
 export function resolveNodeUrl(node: GraphNode): string | null {
@@ -169,6 +198,11 @@ export function resolveNodeUrl(node: GraphNode): string | null {
     case "pioneer":
     case "algorithm":
     case "institution":
+    case "process":
+    case "disease":
+    case "technology":
+    case "substance":
+    case "reaction":
       return null;
   }
 }

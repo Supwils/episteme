@@ -80,7 +80,7 @@ $$T(n) = a \cdot T\!\left(\frac{n}{b}\right) + f(n)$$
 
 将大矩阵分块为 $2 \times 2$ 的子矩阵，递归运用 7 乘法方案，总代价从朴素的 $O(n^3)$ 降至 $O(n^{2.807})$。
 
-虽然常数大、实现复杂，但 Strassen 证明了矩阵乘法的理论下界不是 $n^3$，开启了整个矩阵乘法算法的研究方向。目前已知最优的矩阵乘法算法由 Coppersmith-Winograd（1987）及后续改进达到约 $O(n^{2.37})$，但常数巨大，实用价值有限。
+虽然常数大、实现复杂，但 Strassen 第一次证明矩阵乘法的复杂度**上界**可以低于朴素的 $n^3$，开启了整个矩阵乘法算法的研究方向（值得强调：这是把上界往下压，而非给出下界——矩阵乘法的真实下界至今仍是开放问题，目前只有平凡的 $\Omega(n^2)$）。沿着这条路，Coppersmith-Winograd（1990，常引作 1987）把指数降到约 $2.376$，此后经 Williams（2012）、Alman-Williams（2020）等一系列改进，当前最优记录约为 $O(n^{2.371})$，但这些算法常数巨大，实用价值有限。
 
 ### 最近点对问题
 
@@ -146,7 +146,7 @@ Karatsuba 的发现让苏联数学家 Kolmogorov 大吃一惊——他曾猜测 
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Cormen, T. et al. *Introduction to Algorithms (CLRS).* 4th ed. MIT Press, 2022. （第2、4章）
 - Karatsuba, A. & Ofman, Y. "Multiplication of Many-Digital Numbers by Automatic Computers." *Soviet Physics Doklady* 7, 1963.

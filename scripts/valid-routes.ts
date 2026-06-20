@@ -29,6 +29,9 @@ const DOMAINS = [
   "psychology",
   "computer-science",
   "political-science",
+  "earth-science",
+  "medicine",
+  "chemistry",
 ];
 
 function dirSlugs(rel: string): string[] {
@@ -146,8 +149,14 @@ export function buildValidRoutes(): Set<string> {
   add("/universe-physics/dialogues", dirSlugs("universe-physics/dialogues"));
   add("/cosmology/dialogues", dirSlugs("cosmology/dialogues"));
 
-  // Generic-domain sections (computer-science, political-science)
-  for (const domain of ["computer-science", "political-science"]) {
+  // Generic-domain sections (computer-science, political-science, earth-science, medicine)
+  for (const domain of [
+    "computer-science",
+    "political-science",
+    "earth-science",
+    "medicine",
+    "chemistry",
+  ]) {
     const root = join(CONTENT, domain);
     if (!existsSync(root)) continue;
     for (const section of readdirSync(root)) {

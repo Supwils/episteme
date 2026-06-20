@@ -20,11 +20,11 @@ related:
 
 # API 设计
 
-2006 年，亚马逊的 CEO 杰夫·贝索斯发出了一道著名的内部指令（后被一位离职员工公开）：
+2002 年前后，亚马逊的 CEO 杰夫·贝索斯发出了一道著名的内部指令（其内容直到 2011 年才被前亚马逊、时任 Google 工程师 Steve Yegge 在一篇广为流传的随笔中公开转述）：
 
-> 所有团队必须通过服务接口（API）暴露数据和功能。团队之间只能通过这些接口通信。不允许任何其他形式的进程间通信……没有例外。任何不遵从这一规定的人都会被开除。
+> 所有团队必须通过服务接口（API）暴露数据和功能。团队之间只能通过这些接口通信。不允许任何其他形式的进程间通信……没有例外。
 
-这道"贝索斯备忘录"强制推行了一个架构原则：每个功能必须以 API 的形式存在，能够独立部署和消费。十年后，这个实践的副产品就是 AWS（亚马逊云计算）——一个把亚马逊内部服务 API 化后对外销售的产品，成为全球最大的云计算平台。
+按 Yegge 的转述，备忘录末尾还附了一句威胁："任何不遵从这一规定的人都会被开除。"这道"贝索斯备忘录"强制推行了一个架构原则：每个功能必须以 API 的形式存在，能够独立部署和消费。十年后，这个实践的副产品就是 AWS（亚马逊云计算）——一个把亚马逊内部服务 API 化后对外销售的产品，成为全球最大的云计算平台。
 
 ## 破除误解：好 API 不是"功能齐全的 API"
 
@@ -154,10 +154,13 @@ gRPC 在微服务内部通信、IoT、移动后端等对性能要求高的场景
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Fielding, R. *Architectural Styles and the Design of Network-based Software Architectures.* Ph.D. dissertation, UC Irvine, 2000. （REST 的来源）
+- GraphQL Foundation. *GraphQL Specification.* spec.graphql.org.
+
+## 延伸阅读
+
 - Bloch, J. *How to Design a Good API and Why It Matters.* Google Tech Talks, 2007. （https://www.youtube.com/watch?v=aAb7hSCtvGw）
 - Kleppmann, M. *Designing Data-Intensive Applications.* O'Reilly, 2017. （第 4 章：编码和演化，讨论 API 向后兼容）
 - Richardson, L. & Amundsen, M. *RESTful Web APIs.* O'Reilly, 2013.
-- GraphQL Foundation. *GraphQL Specification.* spec.graphql.org.

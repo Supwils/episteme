@@ -115,7 +115,7 @@ Anthropic 的早期工作（Elhage 等, 2021，《A Mathematical Framework for T
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Elhage, N. et al. _Toy Models of Superposition._ Anthropic, 2022. transformer-circuits.pub/2022/toy_model.
 - Bricken, T. et al. _Towards Monosemanticity: Decomposing Language Models With Dictionary Learning._ Anthropic, 2023. transformer-circuits.pub/2023/monosemantic-features.

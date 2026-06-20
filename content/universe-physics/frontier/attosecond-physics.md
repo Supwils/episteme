@@ -139,6 +139,6 @@ related:
 
 [^krausz2001]: Hentschel et al., Nature 414, 509 (2001)；首个孤立阿秒脉冲，650 as，用于测量氦原子电离时间延迟。
 
-[^shortest-pulse]: Phys.org, "Shortest light pulse ever created captures ultrafast electron dynamics," December 2025；19.2 as 软 X 射线脉冲记录。
+[^shortest-pulse]: ICFO 团队，2025 年发表于 _Ultrafast Science_：19.2 as 孤立软 X 射线脉冲，是迄今最短，且短于原子时间单位（约 24.2 as）。另见 ICFO/EurekAlert 新闻稿（2025-12）。
 
 [^slac-nano]: Phys.org, "A new frontier in understanding electron dynamics: Imaging with attosecond short X-ray flashes," January 2025；汉堡大学 / SLAC 实验结果。

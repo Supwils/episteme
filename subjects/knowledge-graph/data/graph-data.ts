@@ -8,6 +8,10 @@ import { COMPUTER_SCIENCE_NODES, COMPUTER_SCIENCE_EDGES } from "./computer-scien
 import { POLITICAL_SCIENCE_NODES, POLITICAL_SCIENCE_EDGES } from "./political-science-nodes";
 import { COSMOLOGY_NODES, COSMOLOGY_EDGES } from "./cosmology-nodes";
 import { MATHEMATICS_NODES, MATHEMATICS_EDGES } from "./mathematics-nodes";
+import { EARTH_SCIENCE_NODES, EARTH_SCIENCE_EDGES } from "./earth-science-nodes";
+import { MEDICINE_NODES, MEDICINE_EDGES } from "./medicine-nodes";
+import { PHYSICS_KB_NODES, PHYSICS_KB_EDGES } from "./physics-kb-nodes";
+import { CHEMISTRY_NODES, CHEMISTRY_EDGES } from "./chemistry-nodes";
 import { CROSS_LINKS } from "@/lib/cross-links/api";
 import { BACKLINKS_INDEX } from "@/lib/backlinks-index";
 import type { GraphNode, GraphEdge } from "./types";
@@ -129,6 +133,10 @@ export const ALL_NODES: GraphNode[] = [
   ...POLITICAL_SCIENCE_NODES,
   ...COSMOLOGY_NODES,
   ...MATHEMATICS_NODES,
+  ...EARTH_SCIENCE_NODES,
+  ...MEDICINE_NODES,
+  ...PHYSICS_KB_NODES,
+  ...CHEMISTRY_NODES,
 ];
 
 const physicsEdges: GraphEdge[] = PHYSICS_EDGES.map(mapEdge);
@@ -164,6 +172,10 @@ const baseEdges: GraphEdge[] = [
   ...POLITICAL_SCIENCE_EDGES,
   ...COSMOLOGY_EDGES,
   ...MATHEMATICS_EDGES,
+  ...EARTH_SCIENCE_EDGES,
+  ...MEDICINE_EDGES,
+  ...PHYSICS_KB_EDGES,
+  ...CHEMISTRY_EDGES,
   ...domainLinkEdges,
 ];
 

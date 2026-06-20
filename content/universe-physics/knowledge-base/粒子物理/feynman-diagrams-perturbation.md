@@ -113,15 +113,18 @@ $$a_e^\text{th} = 1\,159\,652\,181.606(11)(12)(229) \times 10^{-12}$$
 
 ## 引用
 
-> "一张图胜过千言万语；一张费曼图胜过千个方程。" — 弗里曼·戴森（对费曼图方法的评价）
+> "他们的头脑是分析式的，而他的是图像式的。" — 弗里曼·戴森评价费曼（"Their minds were analytical; his was pictorial."，戴森回忆费曼用图像而非方程直接写出答案）
 >
-> "我可以轻松地告诉你物理学的规则，但我知道你无法真正理解它——因为没有人真正理解量子力学。" — 理查德·费曼（《QED》序言）
+> "我想我可以有把握地说，没有人真正理解量子力学。" — 理查德·费曼（"I think I can safely say that nobody understands quantum mechanics."，出自 1964 年梅辛杰讲座，后收入《物理定律的本性》)
+
+## 参考文献
+
+1. Feynman, Richard P. "Space-Time Approach to Quantum Electrodynamics." _Physical Review_, 76(6): 769–789, 1949. DOI: 10.1103/PhysRev.76.769
+2. Dyson, Freeman J. "The Radiation Theories of Tomonaga, Schwinger, and Feynman." _Physical Review_, 75(3): 486–502, 1949. DOI: 10.1103/PhysRev.75.486
+3. Aoyama, Tatsumi, et al. "Tenth-Order QED Contribution to the Electron g-2 and an Improved Value of the Fine Structure Constant." _Physical Review Letters_, 109(11): 111807, 2012. DOI: 10.1103/PhysRevLett.109.111807
+4. Peskin, Michael E., and Daniel V. Schroeder. _An Introduction to Quantum Field Theory_. Addison-Wesley, 1995.
 
 ## 延伸阅读
 
-1. Feynman, Richard P. "Space-Time Approach to Quantum Electrodynamics." _Physical Review_, 76(6): 769–789, 1949.
-2. Dyson, Freeman J. "The Radiation Theories of Tomonaga, Schwinger, and Feynman." _Physical Review_, 75(3): 486–502, 1949.
-3. Aoyama, Tatsumi, et al. "Tenth-Order QED Contribution to the Electron g-2 and an Improved Value of the Fine Structure Constant." _Physical Review Letters_, 109(11): 111807, 2012.
-4. Peskin, Michael E., and Daniel V. Schroeder. _An Introduction to Quantum Field Theory_. Addison-Wesley, 1995.
-5. Feynman, Richard P. _QED: The Strange Theory of Light and Matter_. Princeton University Press, 1985.
-6. 张邦固. 《量子场论》. 科学出版社, 2004.
+1. Feynman, Richard P. _QED: The Strange Theory of Light and Matter_. Princeton University Press, 1985.
+2. 张邦固. 《量子场论》. 科学出版社, 2004.

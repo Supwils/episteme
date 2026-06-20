@@ -125,11 +125,12 @@ related:
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Allison, G. _Destined for War: Can America and China Escape Thucydides's Trap?_ Houghton Mifflin Harcourt (2017). 需注意其论证的简化之处，建议结合批评文献阅读。
 - Ikenberry, G. J. _A World Safe for Democracy._ Yale University Press (2020).
 - 阎学通. _世界权力的转移：政治领导与战略竞争._ 北京大学出版社 (2015). 英文版: _Leadership and the Rise of Great Powers._ Princeton University Press (2019).
 - Doshi, R. _The Long Game: China's Grand Strategy to Displace American Order._ Oxford University Press (2021).
+- Goldstein, A. "China's Grand Strategy under Xi Jinping: Reassurance, Reform, and Resistance." _International Security_ 45(1), 2020. doi:10.1162/isec_a_00383 同行评审的实证分析，对"中国寻求颠覆现有秩序"的简化论断提供了更细致的判断。
 - 赵汀阳. _天下的当代性：世界秩序的实践与想象._ 中信出版集团 (2016).
 - 王缉思 & 李侃如. _中美战略互疑：解析与应对._ 布鲁金斯学会报告 (2012). 中美学者合著，提供双方视角。

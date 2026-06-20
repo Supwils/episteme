@@ -13,6 +13,9 @@ export const DOMAIN_COLORS: Record<string, string> = {
   "political-science": "#c25b5b",
   cosmology: "#3b82f6",
   mathematics: "#8b5cf6",
+  "earth-science": "#4f9d76",
+  medicine: "#d9544d",
+  chemistry: "#e08a3c",
 };
 
 export const NODE_RADIUS: Record<string, number> = {
@@ -39,6 +42,11 @@ export const NODE_RADIUS: Record<string, number> = {
   institution: 16,
   mathematician: 16,
   theorem: 14,
+  process: 16,
+  disease: 16,
+  technology: 14,
+  substance: 15,
+  reaction: 14,
   cosmic: 16,
 };
 
@@ -59,6 +67,9 @@ export const ALL_DOMAINS = [
   "political-science",
   "cosmology",
   "mathematics",
+  "earth-science",
+  "medicine",
+  "chemistry",
 ] as const;
 
 export const NODE_TYPE_LABELS: Record<string, string> = {
@@ -85,6 +96,11 @@ export const NODE_TYPE_LABELS: Record<string, string> = {
   institution: "制度与政体",
   mathematician: "数学家",
   theorem: "数学定理",
+  process: "地质过程",
+  disease: "疾病",
+  technology: "医学技术",
+  substance: "物质与材料",
+  reaction: "化学反应",
   cosmic: "宇宙学",
 };
 

@@ -119,12 +119,6 @@ $$\tau_{dec} \approx \tau_{relax} \left(\frac{\lambda_{th}}{\Delta x}\right)^2$$
 
 连接节点（补充）：[[量子退相干]] → [[量子纠缠]]（退相干与环境纠缠的关联）；[[量子退相干]] → [[量子自旋]]（自旋退相干时间的物理来源）
 
-## 引用
-
-> "退相干不解决测量问题，它只是将问题推移到了一个更难看清的地方。" — 约翰·贝尔
->
-> "环境是一个不间断的监视器。在现实中，没有任何宏观系统能与其环境隔离。" — 沃伊切赫·祖雷克
-
 ## 延伸阅读
 
 1. Zeh, H. D. "On the Interpretation of Measurement in Quantum Theory." _Foundations of Physics_, 1(1): 69–76, 1970.
