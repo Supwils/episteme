@@ -83,7 +83,7 @@ $$f' = f\frac{v \pm v_{\rm obs}}{v \mp v_{\rm src}}$$
 
 ## 引用
 
-> "音乐是算术在无意识中的练习，灵魂在算数却不知道它在算。" — 戈特弗里德·莱布尼茨，约1712年（致克里斯蒂安·戈尔德巴赫的信中）
+> "音乐是灵魂隐秘的算术练习，而灵魂并不知道自己在计数。" — 戈特弗里德·莱布尼茨，1712年4月17日致克里斯蒂安·戈尔德巴赫的信（拉丁原文：Musica est exercitium arithmeticae occultum nescientis se numerare animi）
 
 ## 延伸阅读
 

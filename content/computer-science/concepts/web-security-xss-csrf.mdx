@@ -22,7 +22,7 @@ related:
 
 2005 年 10 月，一个 19 岁的 Myspace 用户 Samy Kamkar 发现他无法在自己的个人页面里加 CSS 样式——网站过滤掉了大多数 HTML 标签。他花了几天时间找漏洞，最终找到了一个可以注入 JavaScript 的方法，并写了一个自动添加他为好友的蠕虫脚本。
 
-18 小时后，Samy 拥有了 100 万个好友，Myspace 被迫关闭服务。这是历史上传播最快的蠕虫之一，而攻击媒介只是一段被注入到 HTML 页面里的 JavaScript——**跨站脚本攻击（XSS）** 的教科书案例。
+约 20 小时后，超过 100 万用户的页面执行了这段脚本、把 Samy 加为好友，Myspace 被迫关闭服务。这是历史上传播最快的蠕虫之一，而攻击媒介只是一段被注入到 HTML 页面里的 JavaScript——**跨站脚本攻击（XSS）** 的教科书案例。
 
 ## Web 安全的根本问题：信任边界
 
@@ -104,7 +104,7 @@ Chrome 80（2020）起将 SameSite 默认值改为 `Lax`，这一改变大幅降
 
 **移动端 API 的 CSRF**：纯 JSON API 不使用表单提交，通常用 Bearer Token（而非 Cookie）认证，天然免疫 CSRF——但也带来了 Token 存储安全的新问题（LocalStorage 可被 XSS 读取；Cookie 又需要防 CSRF）。
 
-**第三方脚本的供应链风险**：2018 年 British Airways 数据泄露事件，攻击者污染了第三方支付页面的 JavaScript 文件，导致 50 万客户的信用卡信息被盗——XSS 变种中最难防范的是供应链攻击。
+**第三方脚本的供应链风险**：2018 年 British Airways 数据泄露事件，攻击者篡改了支付页面用到的第三方 JavaScript 库（Modernizr），把约 38 万名客户提交的信用卡信息实时回传到攻击者服务器（监管认定受影响个人逾 40 万）——XSS 变种中最难防范的是这类供应链攻击（Magecart）。
 
 ## 跨域连接
 

@@ -20,7 +20,7 @@ related:
 
 1965 年，James Cooley 和 John Tukey 在 *Mathematics of Computation* 上发表了一篇五页的论文"An Algorithm for the Machine Calculation of Complex Fourier Series"，提出了快速傅里叶变换（FFT）算法。
 
-IBM 研究员 Cooley 后来回忆，这个算法的灵感来自 John Tukey——他在一次白宫科学顾问委员会会议上，为了监测苏联核试验，随手在便条纸上推导出了这个算法的雏形。
+据 IBM 研究员 Cooley 回忆，算法的关键思路来自统计学家 John Tukey——1963 年，Tukey 在肯尼迪总统科学顾问委员会（PSAC）讨论"如何用环绕苏联的传感器探测其地下核试验"的会议上，把这套快速计算傅里叶变换的想法写了下来；随后 IBM 的 Cooley 将其整理成可在计算机上运行的算法并发表。
 
 几十年后，IEEE 将 FFT 列为 20 世纪十大算法之一。从 MP3 音频压缩，到 JPEG 图像、5G 通信、医学 MRI 图像重建、天文信号处理——FFT 无处不在，是数字时代基础设施的核心算法之一。
 
@@ -89,7 +89,7 @@ FFT 方法：
 总计 $O(n \log n)$！
 
 这不仅用于数学计算，还直接影响：
-- **大整数乘法**：数字可以看成多项式系数，$n$ 位乘法由 $O(n^2)$（Karatsuba $O(n^{1.585})$）进一步降至 $O(n \log n \log \log n)$（Schönhage–Strassen 1971）
+- **大整数乘法**：数字可以看成多项式系数，$n$ 位乘法由 $O(n^2)$（Karatsuba $O(n^{1.585})$）进一步降至 $O(n \log n \log \log n)$（Schönhage–Strassen 1971，自 1971 年起保持渐近最快纪录达数十年）。2019 年 Harvey 与 van der Hoeven 终于给出 $O(n \log n)$ 的算法，恰好达到了 Schönhage 和 Strassen 当年猜想的理论下界形式。
 - **卷积**：数字信号处理的核心操作（滤波、互相关）本质是多项式乘法，FFT 加速后称为**快速卷积**
 
 ## 改变世界的应用

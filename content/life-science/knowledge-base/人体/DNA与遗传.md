@@ -17,7 +17,7 @@ updated: "2026-06-02"
 
 DNA由四种核苷酸组成——腺嘌呤（A）、胸腺嘧啶（T）、鸟嘌呤（G）、胞嘧啶（C）。碱基配对规则（A-T, G-C）是半保留复制的分子基础：每条链都可以作为模板合成互补链。人类基因组包含约32亿个碱基对，如果拉直一条DNA分子，长度约为2米——但通过多层次的压缩包装（核小体→染色质纤维→环状结构域→染色体），它被塞进直径仅6微米的细胞核中。
 
-DNA复制是一个令人惊叹的分子机器过程。DNA聚合酶以每秒约1000个碱基的速度合成新链，同时具有校对功能（3'→5'外切酶活性），将错误率从约10⁻⁴降低到约10⁻⁷。错配修复系统进一步将最终错误率降低到约10⁻⁹至10⁻¹⁰——意味着人类每次细胞分裂只产生约0.1-1个突变。2021年，Liu等人在*Nature*上利用单分子实时测序技术，首次在单分子水平观察了DNA聚合酶的校对过程，发现校对不仅发生在错配之后，还可能在错配之前通过"预校对"机制预防错误。
+DNA 复制是一个令人惊叹的分子机器过程。人类的复制型 DNA 聚合酶以每秒约 50 个碱基的速度延伸新链（细菌的复制酶可快得多，每秒近 1000 个），同时具有校对功能（3'→5' 外切酶活性），把单纯靠碱基配对的错误率从约 10⁻⁴–10⁻⁵ 进一步压低。复制后的错配修复系统再接力一道，使最终错误率降到约 10⁻⁹–10⁻¹⁰——也就是说，每复制约十亿个碱基才出一个错。把三道防线（碱基选择性、聚合酶校对、错配修复）叠加起来，正是遗传信息能跨越亿万年世代保持稳定的物理基础。
 
 ## 中心法则与基因表达
 
@@ -27,22 +27,23 @@ DNA复制是一个令人惊叹的分子机器过程。DNA聚合酶以每秒约10
 
 **翻译**：核体读取mRNA上的三联体密码子，每三个碱基对应一个氨基酸。20种氨基酸的不同组合构成了蛋白质的无限多样性。tRNA充当"适配器"，一端识别密码子，另一端携带对应的氨基酸。
 
-2020年代的研究大幅扩展了我们对转录后调控的理解。2022年，Jia等人在*Cell*上利用长读长测序技术（PacBio和Oxford Nanopore）对人类转录组进行了全面重测序，发现了超过10万个此前未注释的转录本异构体。这一发现表明，选择性剪接的复杂性远超此前估计——人类基因组的"蛋白质编码潜力"可能被严重低估了。
+2020年代的研究大幅扩展了我们对转录后调控的理解。借助长读长测序技术（PacBio、Oxford Nanopore 等能一口气读完整条转录本的方法），多个团队对人类转录组做了系统重测序，发现了大量此前未注释的转录本异构体——同一个基因可被剪接成数十种不同 mRNA。这意味着选择性剪接的复杂性远超此前估计，人类基因组的"蛋白质编码潜力"长期被低估。这种复杂性在癌症中尤为突出：肿瘤常通过异常剪接产生正常组织里见不到的蛋白变体，这些"癌症特异性异构体"正成为新的诊断标志物与药物靶点。
 
-mRNA修饰（"表观转录组学"，epitranscriptomics）是另一个快速发展的领域。N⁶-甲基腺苷（m⁶A）是mRNA上最丰富的内部修饰，影响mRNA的稳定性、翻译效率和亚细胞定位。2023年，Wei等人在*Nature*上发现，m⁶A修饰在胚胎干细胞分化过程中经历动态重编程，是细胞命运决定的关键调控层。
+mRNA 修饰（"表观转录组学"，epitranscriptomics）是另一个快速发展的领域。N⁶-甲基腺苷（m⁶A）是 mRNA 上最丰富的内部修饰，由专门的"写入"酶（如 METTL3/METTL14 复合体）添加、"擦除"酶移除、"读取"蛋白识别，从而影响 mRNA 的稳定性、翻译效率和亚细胞定位。研究发现 m⁶A 修饰在胚胎干细胞分化过程中会动态重编程——这提示遗传信息的调控不止于 DNA 和染色质，连信使 RNA 这一"中间产物"本身也带着一层可读写的化学注释。
 
 ## 基因调控：比基因本身更重要
 
-人类与黑猩猩的基因组序列差异仅约1.4%，与香蕉共享约60%的基因。物种间的差异很大程度上不在于基因本身，而在于**基因调控**——哪些基因在何时、何地、以何种水平被表达。
+人类与黑猩猩的基因组在单碱基替换层面只差约 1.2%（若把插入/缺失等结构变异也算进来，总差异约 4%）；这个"约 1%"的数字常被引用，却容易让人误以为差异微不足道——实际上数千万个碱基的不同，足以造就两个截然不同的物种。更关键的是：物种间的差异很大程度上不在于基因本身，而在于**基因调控**——哪些基因在何时、何地、以何种水平被表达。
 
 基因调控发生在多个层次：
+
 - **转录水平**：转录因子结合基因上游的调控序列（启动子、增强子、沉默子），激活或抑制转录。
 - **转录后水平**：microRNA和RNA结合蛋白调控mRNA的稳定性和翻译效率。
 - **翻译后水平**：蛋白质的磷酸化、泛素化等修饰调控其活性和降解。
 
-**三维基因组学**（3D genomics）是2020年代基因调控研究的核心突破。2023年，Su等人在*Science*上利用Hi-C和Micro-C技术，以单核小体分辨率绘制了人类细胞核内染色质的三维折叠图谱。他们发现，染色质并非随机折叠，而是形成层级化的三维结构：A/B区室→拓扑关联域（TAD）→染色质环。增强子与启动子之间的物理接触——而非线性距离——决定了基因的表达水平。这一发现彻底改变了我们对"非编码DNA"功能的理解：许多疾病相关的遗传变异位于非编码区域，它们可能通过改变染色质三维结构来影响远端基因的表达。
+**三维基因组学**（3D genomics）是近年基因调控研究的核心突破。一方面，Hi-C、Micro-C 等"染色质构象捕获"技术通过测量基因组上哪些位点彼此靠得近，揭示出染色质并非随机缠绕，而是形成层级化的三维结构：A/B 区室 → 拓扑关联域（TAD）→ 染色质环。另一方面，2020 年 Su 等人在 _Cell_ 上用 MERFISH 多重荧光成像技术，直接"拍下"了单个细胞核里上千个基因座的三维排布与转录活性。两条技术路线得出同一个结论：增强子与启动子之间的**物理接触**——而非 DNA 链上的线性距离——决定了基因的表达水平。这彻底改变了我们对"非编码 DNA"的理解：许多疾病相关的遗传变异位于非编码区，它们可能通过改变染色质三维折叠来影响远端基因。
 
-CRISPR筛选技术使基因调控研究进入了高通量时代。2022年，Gasperini等人在*Cell*上利用CRISPRi（CRISPR干扰）筛选，系统鉴定了人类基因组中数万个增强子的功能。他们的结果表明，许多"孤儿增强子"（不与已知基因关联的调控序列）实际上调控着远端基因，而这些关联此前完全被忽视。
+CRISPR 筛选让基因调控研究进入高通量时代。2019 年，Gasperini 等人在 _Cell_ 上用 CRISPRi（dCas9-KRAB 干扰）一次性扰动了近 6000 个候选增强子，再用单细胞 RNA 测序读出每个增强子被关掉后哪些基因变化。结果表明，许多增强子调控的是 DNA 链上相隔很远的"远端"基因，而不是离它最近的那个——这类长程关联此前很容易被忽视。
 
 ## 表观遗传：不改变DNA序列的遗传
 
@@ -52,9 +53,9 @@ CRISPR筛选技术使基因调控研究进入了高通量时代。2022年，Gasp
 - **组蛋白修饰**：组蛋白尾巴上的乙酰化、甲基化、磷酸化等修饰改变染色质的开放状态，影响转录机器的可及性。
 - **非编码RNA**：长链非编码RNA（lncRNA）参与染色质重塑和基因沉默。
 
-著名的"荷兰饥荒冬季"研究揭示了表观遗传的代际效应：1944-1945年荷兰饥荒期间怀孕的妇女，其子女成年后肥胖和代谢疾病风险显著升高，且这种效应传递到了第三代——尽管后代并未经历饥荒。这些改变与特定基因位点的DNA甲基化差异相关。
+著名的"荷兰饥荒冬季"研究揭示了表观遗传的代际效应：1944-1945 年荷兰饥荒期间在母亲子宫内度过孕早期的人，成年后肥胖和代谢疾病风险显著升高，且这一效应与 _IGF2_ 等特定印记基因位点的 DNA 甲基化差异稳定相关——即使在饥荒结束六十年后仍可检出。需要谨慎的是：第二代（直接在子宫内暴露者）的关联证据最扎实；至于影响是否真能跨过生殖细胞重编程传到**第三代**（孙辈），目前仍属"有提示、未定论"的活跃研究前沿，不宜当作既定事实。这正是科普中常被夸大的地方——表观遗传的代际传递在哺乳动物中远比"获得性遗传"的通俗叙事要受限。
 
-2020年代，单细胞表观基因组学（single-cell epigenomics）技术使我们能够在单个细胞水平追踪表观遗传修饰。2022年，Li等人在*Nature*上利用单细胞多组学技术（同时测量单个细胞的DNA甲基化、染色质可及性和基因表达），发现即使是同一组织中的细胞，表观遗传状态也存在显著异质性。这种"表观遗传噪声"可能是细胞命运决定的基础——在干细胞分化过程中，表观遗传噪声推动细胞向不同谱系"跳跃"，而选择性压力随后筛选出功能最优的表观遗传状态。
+近年来，单细胞表观基因组学（single-cell epigenomics）技术使我们能在单个细胞的水平追踪表观遗传修饰。利用单细胞多组学（同时测量同一个细胞的 DNA 甲基化、染色质可及性和基因表达），研究者发现即便是同一组织中的细胞，表观遗传状态也存在显著异质性。这种"表观遗传噪声"可能是细胞命运决定的一个来源——在干细胞分化过程中，噪声推动不同细胞偏向不同谱系，后续的选择压力再筛选出功能合适的状态。
 
 ## 基因组暗物质
 
@@ -67,23 +68,25 @@ CRISPR筛选技术使基因调控研究进入了高通量时代。2022年，Gasp
 ## 延伸阅读
 
 **推荐书籍**：
-- Watson, J.D. *The Double Helix* (1968) — DNA结构发现的亲历叙事
-- Mukherjee, S. *The Gene: An Intimate History* (2016) — 基因科学的全景式叙述
-- Carey, N. *The Epigenetics Revolution* (2012) — 表观遗传学入门
+
+- Watson, J.D. _The Double Helix_ (1968) — DNA结构发现的亲历叙事
+- Mukherjee, S. _The Gene: An Intimate History_ (2016) — 基因科学的全景式叙述
+- Carey, N. _The Epigenetics Revolution_ (2012) — 表观遗传学入门
 
 **推荐论文**：
-- ENCODE Project Consortium (2020). Perspectives on ENCODE. *Nature*, 583(7818), 693–698.
-- Su, J.H. et al. (2023). Genome-scale imaging of the 3D organization and transcriptional activity of chromatin. *Cell*, 186(11), 2451–2466.
+
+- ENCODE Project Consortium (2020). Perspectives on ENCODE. _Nature_, 583(7818), 693–698.
+- Su, J.H. et al. (2020). Genome-scale imaging of the 3D organization and transcriptional activity of chromatin. _Cell_, 182(6), 1641–1659.
 
 ---
 
 ## 参考文献
 
-1. Watson, J.D. & Crick, F.H.C. (1953). Molecular structure of nucleic acids. *Nature*, 171(4356), 737–738.
-2. Lander, E.S. et al. (2001). Initial sequencing and analysis of the human genome. *Nature*, 409(6822), 860–921.
-3. Wang, E.T. et al. (2008). Alternative isoform regulation in human tissue transcriptomes. *Nature*, 456(7221), 470–476.
-4. Heijmans, B.T. et al. (2008). Persistent epigenetic differences associated with prenatal exposure to famine in humans. *PNAS*, 105(44), 17046–17049.
-5. Bird, A. (2007). Perceptions of epigenetics. *Nature*, 447(7143), 396–398.
-6. ENCODE Project Consortium (2012). An integrated encyclopedia of DNA elements in the human genome. *Nature*, 489(7414), 57–74.
-7. Jia, C. et al. (2022). The expanding landscape of alternative splicing in cancer. *Cell*, 185(20), 3721–3739.
-8. Su, J.H. et al. (2023). Genome-scale imaging of the 3D organization and transcriptional activity of chromatin. *Cell*, 186(11), 2451–2466.
+1. Watson, J.D. & Crick, F.H.C. (1953). Molecular structure of nucleic acids. _Nature_, 171(4356), 737–738.
+2. Lander, E.S. et al. (2001). Initial sequencing and analysis of the human genome. _Nature_, 409(6822), 860–921.
+3. Wang, E.T. et al. (2008). Alternative isoform regulation in human tissue transcriptomes. _Nature_, 456(7221), 470–476.
+4. Heijmans, B.T. et al. (2008). Persistent epigenetic differences associated with prenatal exposure to famine in humans. _PNAS_, 105(44), 17046–17049.
+5. Bird, A. (2007). Perceptions of epigenetics. _Nature_, 447(7143), 396–398.
+6. ENCODE Project Consortium (2012). An integrated encyclopedia of DNA elements in the human genome. _Nature_, 489(7414), 57–74.
+7. Su, J.H. et al. (2020). Genome-scale imaging of the 3D organization and transcriptional activity of chromatin. _Cell_, 182(6), 1641–1659.
+8. Gasperini, M. et al. (2019). A genome-wide framework for mapping gene regulation via cellular genetic screens. _Cell_, 176(1–2), 377–390.

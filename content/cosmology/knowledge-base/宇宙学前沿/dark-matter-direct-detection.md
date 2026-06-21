@@ -59,11 +59,11 @@ WIMP-核散射可以是：
 
 然而，COSINE-100（韩国）、ANAIS-112（西班牙）等使用相同材料的实验，在 DAMA 声称的参数区间内，均未看到调制信号（Adhikari et al. 2019）。两者的不一致至今未解决，是暗物质探测领域最持久的争议之一。
 
-## 无信号的含义："神经微量"本底与实验极限
+## 无信号的含义：中微子本底与实验极限
 
 经过数十年的搜索，直接探测实验至今**没有发现令人信服的 WIMP 信号**。每次新实验均将 SI 截面上限下推约一个数量级。
 
-目前的限制曲线已逼近**"神经微量"本底**（neutrino floor / neutrino fog）：太阳、大气和宇宙中微子与靶核的相干散射（coherent elastic neutrino-nucleus scattering, CE$\nu$NS）产生不可区分的背景。这一背景对于 $m_\chi \sim 6$ GeV 处的 SI 截面约为 $\sim 10^{-48}$ cm$^2$。
+目前的限制曲线已逼近**中微子本底**（neutrino floor / neutrino fog）：太阳、大气和宇宙中微子与靶核的相干散射（coherent elastic neutrino-nucleus scattering, CE$\nu$NS）产生不可区分的背景。这一背景对于 $m_\chi \sim 6$ GeV 处的 SI 截面约为 $\sim 10^{-48}$ cm$^2$。
 
 超越中微子本底需要：
 

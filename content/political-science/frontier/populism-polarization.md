@@ -17,7 +17,7 @@ researchers:
   - Ronald Inglehart（已故，密歇根大学）
   - Lilliana Mason（约翰斯·霍普金斯大学）
 institutions:
-  - Global Populism Database（团队：Kyle Dropp, Cas Mudde 等）
+  - Global Populism Database / Team Populism（Kirk Hawkins 等，与《卫报》合作）
   - 皮尤研究中心（Pew Research Center）
   - V-Dem 研究院
 related:
@@ -36,7 +36,9 @@ related:
 
 "民粹主义"在政治话语中是一个高度情绪化的词——在倡导者那里是"真正代表人民"，在批评者那里是"煽动仇恨的蛊惑"。政治学对它有更严格的定义。
 
-卡斯·穆德（Cas Mudde）的经典界定：民粹主义是一种将社会视为"道德纯洁的人民"与"腐败的精英"之间根本对立的**稀薄意识形态**（thin ideology）。"稀薄"是指它本身不包含完整的经济或社会纲领，可以与不同的"宿主"意识形态（左翼民粹/右翼民粹、民族主义/社会主义）结合。
+卡斯·穆德（Cas Mudde）的经典界定：民粹主义是一种将社会视为"道德纯洁的人民"（the pure people）与"腐败的精英"（the corrupt elite）之间根本对立、并主张政治应当表达人民"公意"（volonté générale）的**稀薄意识形态**（thin-centered ideology）。"稀薄"是指它本身不包含完整的经济或社会纲领，可以与不同的"宿主"意识形态（左翼民粹/右翼民粹、民族主义/社会主义）结合。
+
+穆德定义中最常被忽略、却最具解释力的一点是它的**道德二元（Manichean）维度**：民粹主义不只是说"精英无能"，而是说"精英腐败、人民纯洁"——这是一种道德对立而非利益分歧。这一点解释了民粹政治为何天然抗拒妥协：如果你这一方是"纯洁"的，对方是"腐败"的，那么任何妥协都等于被腐化。正是这种道德框架，使民粹主义比普通的利益党争更容易侵蚀民主政治赖以运转的"对手而非敌人"的规范。这也把民粹主义与卢梭"公意"概念的诠释难题直接相连（见 [[social-contract]]）：谁有资格宣称自己代表"真正的人民"？
 
 民粹主义不自动等于威权，也不自动等于右翼。查韦斯的委内瑞拉民粹主义是左翼的；波兰法律与正义党（PiS）是右翼的；伯尼·桑德斯的部分话语也含有民粹主义要素。区分民粹主义的稀薄内核与其特定政治载体，是准确分析的前提。
 
@@ -127,4 +129,5 @@ related:
 - Norris, P. & Inglehart, R. _Cultural Backlash: Trump, Brexit, and Authoritarian Populism._ Cambridge University Press (2019).
 - Mason, L. _Uncivil Agreement: How Politics Became Our Identity._ University of Chicago Press (2018).
 - Iyengar, S. et al. "The Origins and Consequences of Affective Polarization in the United States." _Annual Review of Political Science_ 22, 2019. doi:10.1146/annurev-polisci-051117-073034
-- Nyhan, B. et al. "Like-Minded Sources on Facebook Are Prevalent but Not Polarizing." _Nature_ 620, 2023. doi:10.1038/s41586-023-06297-w 及同期系列研究——关于算法与极化关系的重要近期证据。
+- Nyhan, B. et al. "Like-Minded Sources on Facebook Are Prevalent but Not Polarizing." _Nature_ 620, 2023. doi:10.1038/s41586-023-06297-w 及同期发表于《科学》的系列研究——关于算法与极化关系的重要近期证据。
+- Hawkins, K. A. et al. "Measuring Populist Discourse: The Global Populism Database." Paper, EPSA Annual Conference (2019). 数据集见 Harvard Dataverse。

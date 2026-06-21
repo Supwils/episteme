@@ -58,7 +58,7 @@ $$\text{server} = \text{hash}(key) \bmod n$$
 
 | 系统         | 一致性哈希的用途                      |
 |------------|-----------------------------------|
-| Amazon DynamoDB（2007）| 数据分区与副本放置，是"Dynamo 论文"的核心技术 |
+| Amazon Dynamo（2007）| 数据分区与副本放置，是"Dynamo 论文"的核心技术（注：2012 年推出的托管产品 DynamoDB 是另一套独立系统，仅共享设计理念） |
 | Apache Cassandra | 数据分片（Token Ring）              |
 | Memcached 客户端 | 将缓存键分配到服务器                   |
 | Nginx/HAProxy | 基于一致性哈希的上游负载均衡              |

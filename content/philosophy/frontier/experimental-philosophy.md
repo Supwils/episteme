@@ -34,7 +34,7 @@ related:
 
 结果让他们吃了一惊。来自不同文化背景（西欧裔、东亚裔、南亚裔）的受试者，在认识论经典案例上给出了系统性不同的判断。
 
-这篇 2001 年发表于《哲学研究》的论文，通常被视为实验哲学运动（experimental philosophy，简称 x-phi）的正式宣言。
+这篇 2001 年发表于《哲学论题》（_Philosophical Topics_）的论文，通常被视为实验哲学运动（experimental philosophy，简称 x-phi）的正式宣言。
 
 ## 破除误解：实验哲学不是心理学
 

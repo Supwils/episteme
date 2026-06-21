@@ -68,6 +68,8 @@ Planck 的方法截然不同：它测量的是宇宙诞生 38 万年时留下的
 
 两套方法的根本区别在于：**一个测的是今天，一个推的是今天**。如果 ΛCDM 模型对早期到今天的演化描述是正确的，两者应该一致。如果不一致，要么有某一侧存在未被发现的系统误差，要么宇宙的演化历史与 ΛCDM 的预言有偏差。
 
+**专家视角：张力其实"锁定"在声视界上。** 近十年的分析逐渐把问题收窄到一个具体的物理量——重组时的**声视界尺度** $r_d$（约 147 Mpc）。Planck 路径与 BAO 路径都不直接"看见" $H_0$，而是先用早期宇宙物理算出 $r_d$，再把它当作"标准尺"反推膨胀历史；本地阶梯则完全不依赖 $r_d$。一个广为引用的诊断（Verde, Treu & Riess 2019）指出：若把 $r_d$ 当作自由参数让数据自己定，本地数据偏好的 $r_d$ 比早期宇宙算出的小约 7%。换句话说，**化解张力的新物理多半得作用在重组之前、改变 $r_d$**（早期暗能量、额外辐射自由度都是这一类），而非笼统地"在某处加点暗能量"。这是普通科普很少讲清、却是判断各类方案是否可行的关键标尺。
+
 ## 谁在做、做到了哪一步
 
 ### SH0ES 与哈勃/JWST 校准
@@ -78,19 +80,19 @@ JWST 入场后，多个团队迅速展开对距离阶梯各级的独立核查。
 
 ### 红巨星尖端（TRGB）路径
 
-Wendy Freedman 领导的芝加哥-卡内基哈勃计划（CCHP）用红巨星亮度最大值（TRGB）作为替代标准烛光，给出的值约为 $H_0 \approx 69.8 \pm 1.7$ km/s/Mpc，介于两方之间，但与 Planck 的张力也已超过 2σ。[^cchp] 2024年 CCHP 用 JWST 重新校准后给出 $H_0 = 70.4 \pm 2.0$ km/s/Mpc，仍居中间地带，引发了校准方法的新一轮讨论。
+Wendy Freedman 领导的芝加哥-卡内基哈勃计划（CCHP）用红巨星亮度最大值（TRGB）作为替代标准烛光，2019–2021 年用 HST 数据给出的值约为 $H_0 \approx 69.8 \pm 1.7$ km/s/Mpc，介于两方之间。[^cchp] 2025年 CCHP 用 JWST 联合 HST 重新校准后，TRGB 给出 $H_0 = 70.39 \pm 1.22\,(\text{stat}) \pm 1.33\,(\text{sys})$ km/s/Mpc（即约 $70.4 \pm 1.8$），仍居中间地带——与 Planck 的张力约 $1.5\sigma$，与 SH0ES 的张力约 $1.2\sigma$，两边都不强。[^cchp] CCHP 同时用 JAGB（J 区渐近巨星支星）和造父变星三种独立指示物互校，这种"中间值"成为校准方法争论的焦点：SH0ES 团队反驳称 CCHP 的 TRGB 与 JAGB 校准存在选样和锚定差异，双方至今未达成一致。
 
 ### 引力透镜时延：H0LiCOW / TDCOSMO
 
 另一条完全独立的路径是通过测量类星体被星系引力透镜后不同像之间的光程时延推断哈勃常数。H0LiCOW 合作组（后演化为 TDCOSMO）早期给出约 73 km/s/Mpc，但一旦引入更复杂的透镜质量模型，结果会向中间偏移，不确定度也扩大。这条路线的系统误差尚未充分理解。
 
-| 测量路线                   | 代表团队             | 近年结果（km/s/Mpc）  | 张力程度（vs. Planck） |
-| -------------------------- | -------------------- | --------------------- | ---------------------- |
-| 造父变星+超新星（SH0ES）   | Riess et al.         | 73.04 ± 1.04          | >5σ                    |
-| 红巨星尖端（TRGB）         | Freedman et al.      | 70.4 ± 2.0（JWST）    | ~1.5σ                  |
-| 引力透镜时延（TDCOSMO）    | Millon et al.        | 约 74（质量模型依赖） | >4σ                    |
-| 引力波标准汽笛（GW170817） | LIGO-Virgo           | 70 +12/−8（单事件）   | ~1σ（误差大）          |
-| CMB + ΛCDM（Planck 2018）  | Planck Collaboration | 67.4 ± 0.5            | —                      |
+| 测量路线                   | 代表团队             | 近年结果（km/s/Mpc）    | 张力程度（vs. Planck） |
+| -------------------------- | -------------------- | ----------------------- | ---------------------- |
+| 造父变星+超新星（SH0ES）   | Riess et al.         | 73.04 ± 1.04            | >5σ                    |
+| 红巨星尖端（TRGB）         | Freedman et al.      | 70.39 ± 1.8（HST+JWST） | ~1.5σ                  |
+| 引力透镜时延（TDCOSMO）    | Millon et al.        | 约 74（质量模型依赖）   | >4σ                    |
+| 引力波标准汽笛（GW170817） | LIGO-Virgo           | 70 +12/−8（单事件）     | ~1σ（误差大）          |
+| CMB + ΛCDM（Planck 2018）  | Planck Collaboration | 67.4 ± 0.5              | —                      |
 
 ## 代价与争议：是系统误差，还是新物理？
 
@@ -132,7 +134,7 @@ Wendy Freedman 领导的芝加哥-卡内基哈勃计划（CCHP）用红巨星亮
 
 - Riess, A. G. et al. (SH0ES). _A Comprehensive Measurement of the Local Value of the Hubble Constant with 1 km s⁻¹ Mpc⁻¹ Uncertainty from the Hubble Space Telescope and the SH0ES Team._ ApJ Letters 934, L7 (2022). arXiv:2112.04510.
 - Planck Collaboration. _Planck 2018 results. VI. Cosmological parameters._ A&A 641, A6 (2020). arXiv:1807.06209.
-- Freedman, W. L. et al. (CCHP). _Status Report on the Chicago-Carnegie Hubble Program: Measurement of the Hubble Constant Using the Hubble and James Webb Space Telescopes._ ApJ 961, 32 (2024). arXiv:2408.06153.
+- Freedman, W. L. et al. (CCHP). _Status Report on the Chicago-Carnegie Hubble Program: Measurement of the Hubble Constant Using the Hubble and James Webb Space Telescopes._ ApJ 985, 203 (2025). arXiv:2408.06153.
 - Verde, L., Treu, T. & Riess, A. G. _Tensions between the Early and Late Universe._ Nature Astronomy 3, 891–895 (2019). arXiv:1907.10625.
 - Ginolin, M. et al. _Stretch to stretch, dust to dust: Lower-value local H0 measurements from the two-population modelling of Type Ia supernovae._ A&A 697, A56 (2025). doi:10.1051/0004-6361/202456288.
 - Di Valentino, E. et al. _Snowmass 2021 — Letter of Interest: Cosmological tensions and future experiments._ arXiv:2009.11285.
@@ -143,4 +145,4 @@ Wendy Freedman 领导的芝加哥-卡内基哈勃计划（CCHP）用红巨星亮
 
 [^jwst_ceph]: Riess et al. (2023), ApJL 956, L18（arXiv:2307.15806）：JWST 重测造父变星，确认 HST 校准无拥挤效应系统误差。
 
-[^cchp]: Freedman et al. (2024), ApJ 961, 32（arXiv:2408.06153）：JWST TRGB 校准后 H0 = 70.4 ± 2.0 km/s/Mpc。
+[^cchp]: Freedman et al. (2025), ApJ 985, 203（arXiv:2408.06153）：HST+JWST 的 TRGB 校准给出 H0 = 70.39 ± 1.22(stat) ± 1.33(sys) km/s/Mpc。早期 HST-only TRGB（Freedman 2021, ApJ 919, 16）给出 69.8 ± 1.7。

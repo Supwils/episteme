@@ -126,7 +126,7 @@ Altos Labs（一家 2021 年成立、获得超过 30 亿美元投资的衰老生
 
 [^sinclair2020]: Lu et al., _Nature_ 588 (2020)：AAV 载 OSK 在青光眼损伤和正常老年小鼠中均恢复视网膜神经节细胞功能，表观遗传时钟显示年龄回拨。
 
-[^lifespan]: Gill et al., _Cellular Reprogramming_ 25 (2023)（bioRxiv 2023）：124 周龄小鼠全身 OSK 治疗，中位剩余寿命延长约 109%；该研究发表于相对较小的期刊，需独立重复验证。
+[^lifespan]: Cano Macip, C. et al. "Gene Therapy-Mediated Partial Reprogramming Extends Lifespan and Reverses Age-Related Changes in Aged Mice." _Cellular Reprogramming_ 26 (2024). DOI: 10.1089/cell.2023.0072（Rejuvenate Bio；先以 bioRxiv 2023 发布）：124 周龄雄性小鼠全身 AAV-OSK 治疗，中位剩余寿命延长约 109%，虚弱评分改善；该研究发表于相对较小的期刊，需独立重复验证。
 
 [^neuro]: 关于 2024 年神经元部分重编程研究：Abe et al., _Communications Biology_ 7 (2024)：神经元特异性 Yamanaka 因子周期性表达改善老年小鼠认知功能。
 

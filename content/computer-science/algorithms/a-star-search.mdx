@@ -117,7 +117,7 @@ $$h(n) \leq cost(n, n') + h(n')$$
 
 **机器人学**：机器人路径规划在连续空间中用 RRT（Rapidly-exploring Random Trees）和 PRM（Probabilistic Roadmap），但离散化后的 A* 仍是基础工具。
 
-**解谜与 AI**：在 15 数码、魔方等状态空间搜索问题中，IDA* 是标准解法。Deep Blue（IBM 国际象棋 AI）的搜索树也用了带剪枝的 A* 类方法。
+**解谜与 AI**：在 15 数码、魔方等状态空间搜索问题中，IDA* 是标准解法。需要区分的是：对抗性博弈（如 Deep Blue 国际象棋 AI）用的是 minimax + alpha-beta 剪枝，而非 A*——A* 解决的是单智能体的代价最小化路径问题，博弈树搜索面对的是对手的对抗，两者属于不同的搜索范式。
 
 ## A* 的变种与继承者
 

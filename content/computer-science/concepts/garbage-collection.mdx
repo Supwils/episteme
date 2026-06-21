@@ -102,7 +102,7 @@ Java（HotSpot JVM）、Go、JavaScript V8 都使用分代 GC。分代 GC 大幅
 
 **增量 GC（Incremental GC）**：把 GC 工作分成小块，穿插在程序执行之间，每次只做一小步，将停顿分散。
 
-Go 语言（1.5 版本开始）采用并发三色标记清除算法，把 STW 时间控制到 0.5ms 以内。Java G1 GC（Garbage First）把堆分成等大的 Region，优先回收垃圾最多的 Region，降低停顿时间。Java ZGC 和 Shenandoah 把 STW 时间进一步压缩到 1ms 以下。
+Go 语言从 1.5 版本起改用并发三色标记清除算法，此后几个版本持续优化，到 1.8 之后已把 STW 停顿压到亚毫秒级。Java G1 GC（Garbage First）把堆分成等大的 Region，优先回收垃圾最多的 Region，降低停顿时间。Java ZGC 和 Shenandoah 把 STW 时间进一步压缩到 1ms 以下。
 
 ## Rust 的另一条路：所有权系统
 

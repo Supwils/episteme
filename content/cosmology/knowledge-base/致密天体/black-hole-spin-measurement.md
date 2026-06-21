@@ -47,7 +47,7 @@ $$T_{peak} \propto \left(\frac{M}{\dot{M}}\right)^{-1/4} \cdot f(a^*)$$
 **已测量的 X 射线双星黑洞自旋（连续谱法）：**
 
 - **GRS 1915+105**：$a^* > 0.98$（McClintock et al. 2006，_The Astrophysical Journal_，652，518）——迄今测量最高的黑洞自旋之一
-- **Cygnus X-1**：$a^* > 0.98$（Gou et al. 2011，_The Astrophysical Journal_，742，85）
+- **Cygnus X-1**：$a^* > 0.95$（3σ，Gou et al. 2011，_The Astrophysical Journal_，742，85），2014 年用更高质量数据进一步收紧到 $a^* > 0.983$（Gou et al. 2014，_ApJ_，790，29）——近极端克尔黑洞
 - **A0620-00**：$a^* = 0.12 \pm 0.19$（Gou et al. 2010）——相对较低的自旋
 
 **该方法的局限性**：需要精确已知黑洞质量、距离和倾角，这些量本身有不确定性；且仅适用于热软 X 射线谱状态（标准薄盘状态），硬态黑洞无法使用。

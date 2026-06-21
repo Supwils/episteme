@@ -29,7 +29,7 @@ WIMP 之所以成为最受关注的候选者，是因为"WIMP 奇迹"（WIMP Mir
 
 这种"不谋而合"——弱相互作用的自然强度恰好给出正确的暗物质丰度——被称为 WIMP 奇迹，是 WIMP 假说最主要的理论动机。
 
-超对称理论（SUSY）自然地预言了最轻的超对称粒子（LSP，通常是中性子 neutralino）作为 WIMP 候选者，其质量和耦合强度恰好在 WIMP 奇迹的范围内。
+超对称理论（SUSY）自然地预言了最轻的超对称粒子（LSP，通常是中性微子 neutralino——注意它是费米子超伴侣的混合态，与中子无关）作为 WIMP 候选者，其质量和耦合强度恰好在 WIMP 奇迹的范围内。
 
 ### WIMP 的探测策略
 
@@ -51,7 +51,7 @@ WIMP 之所以成为最受关注的候选者，是因为"WIMP 奇迹"（WIMP Mir
 **对撞机产生（Collider Production）**：在大型强子对撞机（LHC）等加速器中尝试直接产生 WIMP（表现为"丢失横动量"信号）：
 
 - LHC 的单喷流+丢失横动量搜寻对 WIMP 的耦合强度给出约束
-- 目前未发现超对称粒子（在 LHC Run 1+2 中 neutralino 质量约束超过 1.5 TeV in simplified models）
+- 目前未发现超对称粒子（在 LHC Run 1+2 中，简化模型下 neutralino（中性微子）质量约束已推至约 1 TeV 量级以上）
 
 **当前状态**：三类探测均未发现 WIMP，已使大部分传统 WIMP 参数空间被排除，促使学界重新思考暗物质候选者。下一代实验（XLZD 合作，20 吨级液氙）将在 2030 年代覆盖"有效"WIMP 参数空间的接近全部区域，至"中微子地板"——届时 WIMP 或被发现，或被基本排除。
 
@@ -117,6 +117,6 @@ $$\Omega_a h^2 \approx 0.18 \left(\frac{f_a}{10^{12} \text{ GeV}}\right)^{7/6} \
 
 - Feng, J.L. (2010). Dark Matter Candidates from Particle Physics and Methods of Detection. _Annual Review of Astronomy and Astrophysics_, 48, 495.
 - Peccei, R.D. & Quinn, H.R. (1977). CP Conservation in the Presence of Pseudoparticles. _Physical Review Letters_, 38, 1440.
-- Akerib, D.S. et al. (LUX-ZEPLIN Collaboration, 2023). First dark matter search results from the LUX-ZEPLIN experiment. _Physical Review Letters_, 131, 041002.
+- Aalbers, J., Akerib, D.S. et al. (LUX-ZEPLIN Collaboration, 2023). First Dark Matter Search Results from the LUX-ZEPLIN (LZ) Experiment. _Physical Review Letters_, 131, 041002.
 - Preskill, J., Wise, M.B. & Wilczek, F. (1983). Cosmology of the Invisible Axion. _Physics Letters B_, 120, 127.
 - Planck Collaboration (2018). Planck 2018 results. VI. Cosmological parameters. _A&A_, 641, A6.

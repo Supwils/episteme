@@ -38,7 +38,12 @@ related:
 
 任何讨论共识的文章，都必须先承认一个残酷的事实。1985 年，Fischer、Lynch 和 Paterson 证明了著名的 **FLP 不可能定理**：在一个**完全异步**的网络中（消息延迟没有上界），只要哪怕一个节点可能崩溃，就**不存在**一个既保证安全（绝不出错）又保证一定在有限时间内终止的确定性共识算法。
 
-这听起来像是判了死刑，但工程上有出路。FLP 说的是"安全 + 活性"不能在异步下同时绝对保证。现实中的解法是：**永远不牺牲安全性（绝不产生矛盾的结果），而把活性做成"在网络恢复正常后大概率终止"**。换句话说，真实系统在网络疯狂时可以暂时停摆（不可用），但绝不会给出错误答案。理解这个取舍，是理解所有实用共识算法的钥匙。FLP、共识与 [[distributed-computing-theory]] 的完整理论脉络可进一步展开。
+这听起来像是判了死刑，但工程上有出路——而且出路不止一条。关键要看清 FLP 的前提：它针对的是**确定性**算法，断言"安全 + 保证终止"不能在纯异步下同时绝对成立。绕开它有两条经典路径：
+
+- **加时间假设**：Paxos、Raft 走这条路。它们永远不牺牲安全性（绝不产生矛盾结果），而把活性放宽成"在网络恢复正常（部分同步）后大概率终止"。真实系统在网络疯狂时可以暂时停摆（不可用），但绝不会给出错误答案。
+- **加随机性**：Ben-Or（1983）证明，只要允许节点掷硬币，就能在纯异步下实现"以概率 1 终止"的共识——随机性让 FLP 论证里那个"对抗性调度总能拖住确定性算法"的构造失效。比特币的中本聪共识（PoW）正是这条路的工程化变体：它不保证某个区块"立刻最终确定"，而是让一笔交易被推翻的概率随确认数指数衰减。
+
+理解"绝不牺牲安全、只在活性上让步"这个取舍，是理解所有实用共识算法的钥匙。FLP、共识与 [[distributed-computing-theory]] 的完整理论脉络可进一步展开。
 
 ## Paxos：正确但难懂的奠基者
 
@@ -92,5 +97,6 @@ Raft 不追求比 Paxos 更强，它追求一件被长期忽视的事：**可理
 - Lamport, L. *Paxos Made Simple.* ACM SIGACT News 32(4), 2001. （兰波特本人对 Paxos 的"简化"再解释）
 - Ongaro, D. & Ousterhout, J. *In Search of an Understandable Consensus Algorithm.* USENIX ATC, 2014. （Raft 论文）
 - Fischer, M., Lynch, N., Paterson, M. *Impossibility of Distributed Consensus with One Faulty Process.* JACM 32(2), 1985. （FLP 不可能定理）
+- Ben-Or, M. *Another Advantage of Free Choice: Completely Asynchronous Agreement Protocols.* PODC 1983. （随机化绕开 FLP 的奠基工作）
 - Castro, M. & Liskov, B. *Practical Byzantine Fault Tolerance.* OSDI, 1999. （PBFT 论文）
 - Lamport, L., Shostak, R., Pease, M. *The Byzantine Generals Problem.* ACM TOPLAS 4(3), 1982.

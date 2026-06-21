@@ -123,7 +123,7 @@ related:
 ## 延伸阅读
 
 - LZ Collaboration. _First Dark Matter Search Results from the LUX-ZEPLIN (LZ) Experiment._ Physical Review Letters 131, 041002 (2023).（2022/2023 年首批 LZ 结果）
-- LZ Collaboration. _Dark Matter Search Results from 4.2 Tonne-Years of Exposure of the LUX-ZEPLIN (LZ) Experiment._ Physical Review Letters (2024). arXiv:2410.17036.（2024 年世界最佳上限）
+- LZ Collaboration. _Dark Matter Search Results from 4.2 Tonne-Years of Exposure of the LUX-ZEPLIN (LZ) Experiment._ Physical Review Letters 135, 011802 (2025). arXiv:2410.17036.（2024 年 8 月首发于会议，2025 年正式发表；世界最佳上限）
 - XENON Collaboration. _WIMP Dark Matter Search using a 3.1 Tonne-Year Exposure of the XENONnT Experiment._ Physical Review Letters (2025). arXiv:2502.18005.（含太阳中微子 CEvNS 直接测量）
 - XENON Collaboration. _First Dark Matter Search with XENONnT._ Physical Review Letters 131, 041003 (2023).
 - Billard, J., et al. _Direct Detection of Dark Matter—APPEC Committee Report._ Reports on Progress in Physics 85, 056201 (2022).（欧洲粒子物理战略综述）

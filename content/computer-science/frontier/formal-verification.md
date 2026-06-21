@@ -51,7 +51,9 @@ related:
 
 Xavier Leroy（INRIA）领导开发的 **CompCert** 是第一个在 Coq 证明系统中被**完整形式化验证**的优化 C 编译器。CompCert 的机器可读证明保证：编译前后的程序在语义上等价——源码做什么，机器码就做什么，没有编译器引入的语义错误。
 
-CompCert（2009 年首次发表完整版）已被航空、汽车、核电等安全关键领域采用。更重要的是，它证明了对一个复杂的实用系统（约 10 万行 Coq 证明），完整形式化验证是可行的。
+CompCert（2009 年首次发表完整版）已被航空、汽车、核电等安全关键领域采用。它的证明约 10 万行 Coq、耗费约 6 个人年——证明了对一个复杂的实用系统，完整形式化验证是可行的。
+
+这里有一个堪称"实证"的旁证：Yang 等人（PLDI 2011）用随机程序生成器 CSmith 去"轰炸"主流 C 编译器，在 GCC 中找出 79 个、在 LLVM 中找出 202 个能让编译器静默生成错误代码的 bug——而在 CompCert **被形式化验证的那部分**，他们一个错误代码 bug 都没找到。换句话说，形式化验证不是纸上谈兵，它确实把一整类 bug 从根上消除了。值得精确指出的是：CompCert 早期发现的极少数缺陷，都落在**没有被证明覆盖的边缘部分**（如早期版本的源码解析前端）——这也点出了形式化验证的一条铁律：**证明只对它所覆盖的范围负责**，没纳入证明的代码（解析器、运行时、汇编器）仍可能出错。
 
 ## Lean 4 与数学证明的新生态
 
@@ -107,7 +109,7 @@ IMO 2024 测试：六道题，DeepMind 系统合计解出 4 道——AlphaProof 
 - AlphaProof 类的系统目前只在有精确形式化表述的数学问题上有效（如 IMO 竞赛题）。对于数学研究中典型的"模糊的直觉驱动的探索"，AI 能否胜任仍完全未知。
 - 如何在 Lean / Coq 等不同证明系统之间迁移已有的形式化知识，是基础设施层面的长期挑战，目前各生态相互割裂。
 - 程序合成的"意图鸿沟"（intent gap）：从用户意图到精确规约，本身就需要人类介入。如何让非专家用户用自然语言描述需求，自动转化为可验证的形式规约，是连接 LLM 能力和形式化方法的关键未解问题。
-- 超大规模软件系统（如 Linux 内核、浏览器）的完整形式化验证，在工程量上是否存在根本性障碍，还是只是时间和工具问题？现有的最大形式化验证项目（seL4 微内核，约 1 万行 C 代码）相比工业级系统仍小得多。
+- 超大规模软件系统（如 Linux 内核、浏览器）的完整形式化验证，在工程量上是否存在根本性障碍，还是只是时间和工具问题？最经典的全功能形式化验证项目（seL4 微内核，约 8,700 行 C 代码、用 Isabelle/HOL 证明，Klein 等, 2009）相比工业级系统仍小得多。
 - AI 辅助程序合成能否可靠地生成安全关键代码（航空、医疗设备），还是幻觉问题始终让其无法通过安全认证标准？
 - 形式化验证在硬件设计（RTL 验证）中已较为成熟（Intel、AMD、Arm 都使用等价性检查和模型检查工具），但软件侧尤其是并发软件的全面验证，仍是工业上的未解挑战。
 
@@ -127,4 +129,6 @@ IMO 2024 测试：六道题，DeepMind 系统合计解出 4 道——AlphaProof 
 - de Moura, L. & Ullrich, S. _The Lean 4 Theorem Prover and Programming Language._ CADE 2021.
 - AlphaProof 团队. _AI Achieves Silver-Medal Standard Solving International Mathematical Olympiad Problems._ Google DeepMind 博客, 2024. （deepmind.google）
 - Gulwani, S. _Automating String Processing in Spreadsheets Using Input-Output Examples._ POPL 2011. （FlashFill 的学术论文）
+- Yang, X., Chen, Y., Eide, E. & Regehr, J. _Finding and Understanding Bugs in C Compilers._ PLDI 2011. （CSmith：在 GCC/LLVM 中找到大量 bug，CompCert 验证部分无错码 bug）
+- Klein, G. et al. _seL4: Formal Verification of an OS Kernel._ SOSP 2009. （首个全功能验证的操作系统微内核）
 - Avigad, J. _Mathematics and the Formal Turn._ 2023. arXiv:2311.00012.

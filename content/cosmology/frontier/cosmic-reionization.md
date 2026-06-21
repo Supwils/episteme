@@ -17,7 +17,7 @@ researchers:
   - Volker Bromm（德克萨斯大学奥斯汀分校）
   - Steven Furlanetto（UCLA）
   - Charlotte Mason（哥本哈根大学）
-  - Callum Witten（剑桥大学，LAP1-B 研究相关团队成员）
+  - Eli Visbal（托莱多大学，LAP1-B 研究主导者）
 institutions:
   - 詹姆斯·韦布空间望远镜（JWST）
   - 德克萨斯大学奥斯汀分校
@@ -99,7 +99,7 @@ JWST 早期几年已经陆续光谱确认了一批 $z > 10$ 的星系（见 `jws
 
 2025年，一个令人振奋但须审慎对待的发现出现了。
 
-van Mierlo 等人（2025）分析了 JWST 对星系团 MACS J0416 的引力透镜观测，发现了一个位于 $z = 6.6$（宇宙约8亿年）的天体 **LAP1-B**。[^lap1b]
+Visbal 等人（2025）分析了 JWST 对星系团 MACS J0416 的引力透镜观测，论证了一个位于 $z = 6.6$（宇宙约8亿年）、被透镜放大的天体 **LAP1-B**。[^lap1b]
 
 LAP1-B 的特征极为不寻常：
 
@@ -165,7 +165,7 @@ JWST 发现高红移处有比预期更多的明亮星系，这意味着可能有
 
 - Robertson, B. E. et al. _New Constraints on Cosmic Reionization from the 2012 Hubble Ultra Deep Field Campaign._ ApJ 768, 71 (2013).（再电离约束的早期经典框架）
 - Planck Collaboration. _Planck 2018 results. VI. Cosmological parameters._ A&A 641, A6 (2020). arXiv:1807.06209.（$\tau = 0.054 \pm 0.007$）
-- van Mierlo, S. E. et al. _LAP1-B is the First Observed System Consistent with Theoretical Predictions for Population III Stars._ ApJL 993, L17 (2025). arXiv:2508.03842.
+- Visbal, E. et al. _LAP1-B is the First Observed System Consistent with Theoretical Predictions for Population III Stars._ ApJL 993, L17 (2025). arXiv:2508.03842.
 - Bromm, V. & Larson, R. B. _The First Stars._ ARA&A 42, 79 (2004).（Pop III 恒星理论综述经典）
 - Mason, C. A. et al. _The Universe is Reionizing at z~7: Bayesian Inference of the IGM Neutral Fraction Using Lyman-α Emission from Galaxies._ ApJ 856, 2 (2018). arXiv:1709.05356.
 - HERA Collaboration. _Improved Constraints on Reionization from 21-cm Observations of the Epoch of Reionization._ ApJ 945, 124 (2023). arXiv:2210.04912.
@@ -173,4 +173,4 @@ JWST 发现高红移处有比预期更多的明亮星系，这意味着可能有
 
 [^planck_tau]: Planck 2018 results VI（arXiv:1807.06209）：$\tau = 0.0544 \pm 0.0073$，对应再电离中间时刻 $z_{\rm re} \approx 7.7 \pm 0.7$（68% CL）。
 
-[^lap1b]: van Mierlo et al. (2025), ApJL 993, L17（arXiv:2508.03842）：LAP1-B 位于 $z=6.6$，候选 Pop III 恒星团，质量约 $\lesssim 2700 M_\odot$。
+[^lap1b]: Visbal, E. et al. (2025), ApJL 993, L17（arXiv:2508.03842）：LAP1-B 位于 $z=6.6$，候选 Pop III 恒星团，massive Pop III 恒星质量约 $\lesssim 2700 M_\odot$。

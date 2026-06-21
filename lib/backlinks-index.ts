@@ -294,10 +294,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/chemistry/concepts/periodic-table": [
     {
-      url: "/universe-physics/knowledge-base/原子物理--electron-orbitals-quantum-numbers",
-      title: "电子轨道与量子数",
-    },
-    {
       url: "/universe-physics/knowledge-base/核物理--radioactive-decay",
       title: "放射性衰变",
     },
@@ -998,12 +994,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "稀有气体",
     },
   ],
-  "/chemistry/substances/noble-gases": [
-    {
-      url: "/universe-physics/knowledge-base/原子物理--electron-orbitals-quantum-numbers",
-      title: "电子轨道与量子数",
-    },
-  ],
   "/chemistry/substances/polymers": [
     {
       url: "/chemistry/substances/water",
@@ -1033,10 +1023,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/chemistry/substances/semiconductors-materials": [
-    {
-      url: "/universe-physics/knowledge-base/凝聚态物理--semiconductor-physics",
-      title: "半导体物理",
-    },
     {
       url: "/chemistry/substances/glass-and-ceramics",
       title: "玻璃与陶瓷",
@@ -2510,10 +2496,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/pioneers/claude-shannon": [
     {
-      url: "/computer-science/pioneers/john-von-neumann",
-      title: "冯·诺伊曼",
-    },
-    {
       url: "/computer-science/pioneers/george-boole",
       title: "乔治·布尔",
     },
@@ -3108,6 +3090,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/多重宇宙假说",
       title: "多重宇宙假说",
+    },
+    {
+      url: "/cosmology/frontier/cmb-inflation-tests",
+      title: "下一代 CMB 实验对暴胀的检验：寻找宇宙最初的引力波",
     },
     {
       url: "/universe-physics/knowledge-base/相对论--引力波",
@@ -5802,10 +5788,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "工业革命",
     },
     {
-      url: "/human-history/knowledge/经济史--工业革命的经济根源",
-      title: "工业革命的经济根源：为什么是英国？",
-    },
-    {
       url: "/medicine/diseases/tuberculosis",
       title: "结核病",
     },
@@ -5936,10 +5918,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "拜占庭",
     },
     {
-      url: "/human-history/knowledge/中世纪--欧洲--拜占庭帝国",
-      title: "拜占庭帝国",
-    },
-    {
       url: "/human-history/knowledge/中世纪--黑死病",
       title: "黑死病",
     },
@@ -5980,10 +5958,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/人物--哥伦布",
       title: "哥伦布",
-    },
-    {
-      url: "/human-history/knowledge/近代--荷兰东印度公司",
-      title: "荷兰东印度公司",
     },
     {
       url: "/medicine/diseases/influenza",
@@ -6704,12 +6678,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/concepts/environmental-economics",
       title: "环境经济学",
-    },
-  ],
-  "/philosophy/concepts/eudaimonia": [
-    {
-      url: "/psychology/phenomena/flow-state",
-      title: "心流状态",
     },
   ],
   "/philosophy/concepts/falsification": [
@@ -7568,6 +7536,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/concepts/social-movements",
       title: "社会运动与集体行动",
+    },
+  ],
+  "/political-science/concepts/social-contract": [
+    {
+      url: "/political-science/frontier/populism-polarization",
+      title: "民粹主义与政治极化的成因之争",
     },
   ],
   "/political-science/concepts/sovereignty": [

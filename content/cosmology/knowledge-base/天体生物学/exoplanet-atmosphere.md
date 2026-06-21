@@ -39,7 +39,7 @@ status: published
 
 ### 热木星 WASP-39b 全面解剖
 
-2022 年 12 月，JWST Early Release Science 团队发布 WASP-39b 的透射光谱，一次观测同时清晰检测到 $H_2O$、$CO_2$、$CO$、$SO_2$、$K$ 等多种成分（Tsiaras et al. 2022；JWST Transiting Exoplanet Community Early Release Science Team，_Nature_，2023）。
+2022 年底，JWST Early Release Science 团队发布 WASP-39b 的透射光谱，一系列观测同时清晰检测到 $H_2O$、$CO_2$、$CO$、$SO_2$、$K$ 等多种成分（JWST Transiting Exoplanet Community Early Release Science Team 2023，_Nature_，614，649；Rustamkulov et al. 2023，_Nature_，614，659；Alderson et al. 2023，_Nature_，614，664）。
 
 特别是 $SO_2$（二氧化硫）的检测是完全意外的发现：$SO_2$ 是硫磺被光化学过程氧化的产物，此前从未在系外行星大气中预期到，暗示热木星大气的光化学复杂性超出模型预测。
 

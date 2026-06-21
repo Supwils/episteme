@@ -53,7 +53,7 @@ PCR在一个热循环仪中进行，每个循环包含三个步骤：
 
 **基因克隆与测序**：PCR是从基因组中特异性扩增目标基因片段的首选方法，为后续的克隆、测序和功能研究提供材料。
 
-**古DNA研究**：PCR技术使从数万年前的化石和遗骸中提取和分析微量降解DNA成为可能。斯万特·帕博（Svante Pääbo）利用包括PCR在内的技术对尼安德特人基因组进行测序，获得2012年诺贝尔生理学或医学奖。
+**古DNA研究**：PCR技术使从数万年前的化石和遗骸中提取和分析微量降解DNA成为可能。斯万特·帕博（Svante Pääbo）利用包括PCR在内的技术对尼安德特人基因组进行测序，获得2022年诺贝尔生理学或医学奖。
 
 PCR是一项看似简单却深刻改变了生物学和医学的技术。从法医鉴定到疫情监测，从基因研究到精准医疗，PCR的影响力渗透到生命科学的每一个角落。
 
@@ -73,10 +73,10 @@ PCR技术是现代分子生物学和医学诊断的基石。COVID-19大流行中
 
 ## 参考文献
 
-1. Saiki, R.K. et al. (1988). Primer-directed enzymatic amplification of DNA with a thermostable DNA polymerase. *Science*, 239(4839), 487–491.
-2. Mullis, K.B. (1990). The unusual origin of the polymerase chain reaction. *Scientific American*, 262(4), 56–65.
-3. Heid, C.A. et al. (1996). Real time quantitative PCR. *Genome Research*, 6(10), 986–994.
-4. Chien, A. et al. (1976). Deoxyribonucleic acid polymerase from the extreme thermophile *Thermus aquaticus*. *Journal of Bacteriology*, 127(3), 1550–1557.
-5. Vogelstein, B. & Kinzler, K.W. (1999). Digital PCR. *Proceedings of the National Academy of Sciences*, 96(16), 9236–9241.
-6. Bustin, S.A. et al. (2009). The MIQE guidelines: minimum information for publication of quantitative real-time PCR experiments. *Clinical Chemistry*, 55(4), 611–622.
-7. Pääbo, S. (2014). The human condition—a molecular approach. *Cell*, 157(1), 216–226.
+1. Saiki, R.K. et al. (1988). Primer-directed enzymatic amplification of DNA with a thermostable DNA polymerase. _Science_, 239(4839), 487–491.
+2. Mullis, K.B. (1990). The unusual origin of the polymerase chain reaction. _Scientific American_, 262(4), 56–65.
+3. Heid, C.A. et al. (1996). Real time quantitative PCR. _Genome Research_, 6(10), 986–994.
+4. Chien, A. et al. (1976). Deoxyribonucleic acid polymerase from the extreme thermophile _Thermus aquaticus_. _Journal of Bacteriology_, 127(3), 1550–1557.
+5. Vogelstein, B. & Kinzler, K.W. (1999). Digital PCR. _Proceedings of the National Academy of Sciences_, 96(16), 9236–9241.
+6. Bustin, S.A. et al. (2009). The MIQE guidelines: minimum information for publication of quantitative real-time PCR experiments. _Clinical Chemistry_, 55(4), 611–622.
+7. Pääbo, S. (2014). The human condition—a molecular approach. _Cell_, 157(1), 216–226.

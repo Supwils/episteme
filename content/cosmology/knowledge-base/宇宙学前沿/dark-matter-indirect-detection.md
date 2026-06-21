@@ -52,7 +52,7 @@ $$\Phi \propto \langle \sigma v \rangle \int \rho_\chi^2 \, dl$$
 
 国际空间站上的 **AMS-02**（Alpha Magnetic Spectrometer-02）从 2011 年持续测量宇宙射线成分。在 $\sim 10$–$300$ GeV 能段，正电子比例（$e^+/(e^+ + e^-)$）远高于标准宇宙射线传播模型的预测（Aguilar et al. 2013，_Physical Review Letters_，110，141102）。这一"正电子超出"最初被认为是暗物质湮灭的信号。
 
-然而，**脉冲星**（尤其是近邻年轻脉冲星如 Geminga 和 Monogem）也是强烈的正电子源。HAWC 高海拔水切伦科夫观测站（Lopez-Cobia et al. 2017，_Science_，358，911）对 Geminga 和 Monogem 周围 TeV 电子/正电子云（TeV 光晕）的观测，揭示了脉冲星可以产生足够解释 AMS-02 超出的正电子通量。目前，脉冲星起源和暗物质湮灭仍是正电子超出的两种竞争解释。
+然而，**脉冲星**（尤其是近邻年轻脉冲星如 Geminga 和 Monogem）也是强烈的正电子源。HAWC 高海拔水切伦科夫观测站（Abeysekara et al. 2017，_Science_，358，911）对 Geminga 和 Monogem 周围 TeV 电子/正电子云（TeV 光晕）的观测，揭示了脉冲星可以产生足够解释 AMS-02 超出的正电子通量。目前，脉冲星起源和暗物质湮灭仍是正电子超出的两种竞争解释。
 
 ### AMS-02 反质子
 
@@ -86,7 +86,7 @@ AMS-02 还发现约 $300$–$400$ GeV 处的反质子谱可能存在超出（Cuo
 - Ackermann, M. et al. (Fermi-LAT Collaboration) (2015). Searching for Dark Matter Annihilation from Milky Way Dwarf Spheroidal Galaxies with Six Years of Fermi Large Area Telescope Data. _Physical Review Letters_, 115, 231301.
 - Aguilar, M. et al. (AMS Collaboration) (2013). First Result from the Alpha Magnetic Spectrometer on the International Space Station: Precision Measurement of the Positron Fraction in Primary Cosmic Rays. _Physical Review Letters_, 110, 141102.
 - Bartels, R., Krishnamurthy, S., & Weniger, C. (2016). Strong support for the millisecond pulsar origin of the Galactic center GeV excess. _Nature Physics_, 12, 133.
-- Lopez-Cobia, H.A. et al. (HAWC Collaboration) (2017). Observation of the Geminga pulsar wind nebula above 100 TeV with HAWC. _Science_, 358, 911.
+- Abeysekara, A.U. et al. (HAWC Collaboration) (2017). Extended gamma-ray sources around pulsars constrain the origin of the positron flux at Earth. _Science_, 358, 911–914.
 
 ## 延伸阅读
 

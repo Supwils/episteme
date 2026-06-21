@@ -1,5 +1,6 @@
 import { chromium } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+const BASE = process.env.SCAN_BASE || 'http://localhost:3067';
 const PAGES = [
   ['portal','/'],
   ['earth plate-boundaries','/earth-science/concepts/plate-boundaries'],
@@ -8,12 +9,12 @@ const PAGES = [
   ['species','/life-science/species/octopus'],
   ['frontier','/computer-science/frontier/large-language-models'],
 ];
-for(let i=0;i<40;i++){ try{ const r=await fetch('http://localhost:3000'); if(r.ok) break; }catch{} await new Promise(r=>setTimeout(r,2000)); }
+for(let i=0;i<40;i++){ try{ const r=await fetch(BASE); if(r.ok) break; }catch{} await new Promise(r=>setTimeout(r,2000)); }
 const browser = await chromium.launch();
 const seen = {};
 for(const [name,path] of PAGES){
   const context = await browser.newContext(); const page = await context.newPage();
-  await page.goto('http://localhost:3000'+path,{waitUntil:'domcontentloaded'});
+  await page.goto(BASE+path,{waitUntil:'domcontentloaded'});
   await page.waitForTimeout(1500);
   const r = await new AxeBuilder({page}).exclude("header").exclude(".domain-card").withTags(['wcag2a','wcag2aa']).analyze();
   const ser = r.violations.filter(v=>v.impact==='serious'||v.impact==='critical');

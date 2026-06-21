@@ -175,9 +175,9 @@ updated: 2026-06-06
 
 在平台经济、算法博弈和AI决策的时代，纳什均衡的概念比以往任何时候都更加重要。
 谷歌的广告拍卖、Uber的动态定价、频谱分配和区块链共识机制的设计，本质上都是在构造一个博弈，使其纳什均衡产生最优的资源配置。
-算法博弈论——一个博弈论与计算机科学的交叉领域——的核心问题之一就是计算纳什均衡的复杂性，以及设计使自私参与者的行为趋向于社会最优的机制。
+一个尤其活跃的前沿是多智能体强化学习（multi-agent RL）：当多个AI系统互相学习、互相博弈时，它们的训练目标常常被显式地表述为"逼近某个纳什均衡"——AlphaGo 之后的自我对弈训练、以及对抗性生成网络（GAN）的博弈式训练，都可以在纳什均衡的框架下理解。
 
-纳什的个人故事也具有深刻的社会意义。他的经历打破了"精神疾病等于人生终结"的社会偏见，为精神健康倡导提供了最有力的案例之一。在COVID-19大流行后心理健康危机加剧的背景下，纳什的故事提醒我们：康复是可能的，社会支持和宽容环境至关重要。
+纳什的个人故事也具有深刻的社会意义。他的经历打破了"精神疾病等于人生终结"的社会偏见，为精神健康倡导提供了最有力的案例之一——康复是可能的，社会支持和宽容环境至关重要。
 
 ## 关键洞察
 
@@ -194,23 +194,12 @@ updated: 2026-06-06
 - **与心理学的连接**：实验博弈论的发现表明，人们在实际博弈中往往偏离纳什均衡——表现出公平偏好、互惠和有限理性。这促使行为博弈论的发展。
 - **与历史的连接**：纳什的精神分裂症经历与冷战时期的兰德公司形成了鲜明对比——同一个人，既能为核战略做出理论贡献，又被精神疾病折磨了三十年。
 
-## 纳什均衡的计算复杂性
-
-纳什均衡在计算上可能是困难的。
-在大型博弈中找到所有纳什均衡是一个PPAD完全问题。
-这意味着在最坏情况下，即使是计算机也难以高效求解。
-这一计算复杂性对机制设计有重要启示：
-如果我们无法高效计算均衡，那么设计使均衡产生最优结果的机制就更加困难。
-算法博弈论——CS与经济学的交叉领域——的核心挑战之一就是理解这种计算约束对市场设计的影响。
-
 ## 纳什与兰德公司
 
-纳什在博士毕业后曾在兰德公司工作。
-兰德公司是冷战时期美国最重要的智库之一。
-纳什在这里将博弈论应用于核战略分析。
-他的工作帮助战略家理解了"相互确保毁灭"（MAD）的逻辑。
-这段经历也展示了纯数学理论如何在极端条件下应用于现实世界。
-纳什的精神分裂症部分可能与这段高压工作环境有关联。
+纳什在博士毕业后曾在兰德公司（RAND Corporation）担任顾问——兰德是冷战时期美国最重要的国防智库之一。
+博弈论在这里被广泛用于核战略分析，纳什均衡等概念为理解"相互确保毁灭"（MAD）的战略逻辑提供了形式化工具。
+这段经历展示了纯数学理论如何在极端条件下被应用于现实世界的战略决策。
+不过需要澄清的是，并无可靠证据表明纳什的精神分裂症与这段工作有因果关联——精神分裂症的病因主要是神经生物学与遗传因素，其首次发作（1959年前后）距他离开兰德已有数年。
 
 ## 参考文献
 
@@ -223,9 +212,6 @@ updated: 2026-06-06
 
 ## 延伸阅读
 
-1. Nash, J. F. (1950). Equilibrium Points in N-Person Games. *Proceedings of the National Academy of Sciences*, 36(1), 48-49.
-2. Nash, J. F. (1950b). The Bargaining Problem. *Econometrica*, 18(2), 155-162.
-3. Nasar, S. (1998). *A Beautiful Mind: A Biography of John Forbes Nash Jr.* Simon & Schuster.
-4. Osborne, M. J., & Rubinstein, A. (1994). *A Course in Game Theory*. MIT Press.
-5. Myerson, R. B. (1999). Nash Equilibrium and the History of Economic Theory. *Journal of Economic Literature*, 37(3), 1067-1082.
-6. Braess, D. (1968). Über ein Paradoxon aus der Verkehrsplanung. *Unternehmensforschung*, 12, 258-268.
+7. Nash, J. F. (1951). Non-Cooperative Games. *Annals of Mathematics*, 54(2), 286-295.
+8. Holt, C. A., & Roth, A. E. (2004). The Nash Equilibrium: A Perspective. *Proceedings of the National Academy of Sciences*, 101(12), 3999-4002.
+9. Daskalakis, C., Goldberg, P. W., & Papadimitriou, C. H. (2009). The Complexity of Computing a Nash Equilibrium. *SIAM Journal on Computing*, 39(1), 195-259.

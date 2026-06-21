@@ -130,7 +130,7 @@ related:
 
 [^bmw]: Borsanyi et al., Nature 593, 51 (2021)。BMW 用晶格 QCD 得到的 HVP 贡献比数据驱动法高约 2σ，使理论-实验张力从约 4σ 降至约 1.7σ。
 
-[^theory-status]: 见 Muon g-2 Theory Initiative 2025 年更新：多个独立格点团队计算结果一致，理论界工作组修订推荐值使其与实验吻合。参见 Physics World 2025 报道及 arXiv:2512.02209（Abi et al., 2025 review）。
+[^theory-status]: 见 Muon g-2 Theory Initiative 2025 年白皮书更新（Aliberti et al., _The anomalous magnetic moment of the muon in the Standard Model: an update_, arXiv:2505.21476，2025-05-27）：因数据驱动法内部分歧（CMD-3）已无法有意义地合并，新推荐值完全基于格点 QCD，多个独立团队结果一致（LO HVP 精度约 0.9%），修订后的预言与实验基本吻合。另见 CERN Courier、Physics World 2025 报道。
 
 [^fermilab2025]: Fermilab 新闻稿，2025 年 6 月：最终精度 127 ppb（单次实验），世界综合平均 124 ppb。见 https://news.fnal.gov/2025/06/muon-g-2-most-precise-measurement-of-muon-magnetic-anomaly/
 

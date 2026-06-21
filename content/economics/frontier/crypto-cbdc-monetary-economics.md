@@ -90,7 +90,7 @@ CBDC 是由中央银行直接发行的数字形式货币，与纸币一样，是
 
 ### 货币政策传导
 
-CBDC 理论上可以让央行绕过商业银行，直接向消费者实施利率——包括负利率（"数字现金"无法像实物纸币一样"塞进床垫"）。这可能大幅提高货币政策传导效率，但也意味着前所未有的货币政策干预能力。Brunnermeier 和 Niepelt（2019）等人建立了模型分析这一传导机制（Brunnermeier et al., 2019）。
+CBDC 理论上可以让央行绕过商业银行，直接向消费者实施利率——包括负利率（"数字现金"无法像实物纸币一样"塞进床垫"）。这可能大幅提高货币政策传导效率，但也意味着前所未有的货币政策干预能力。Brunnermeier 和 Niepelt（2019）建立了"公共货币与私人货币等价性"模型来分析这一问题，论证在央行配套"直通式融资"（pass-through funding）的条件下，CBDC 未必引发信贷紧缩或损害金融稳定（Brunnermeier & Niepelt, 2019）。
 
 ### 金融脱媒风险
 
@@ -146,6 +146,7 @@ CBDC 和智能合约（smart contracts，基于以太坊等区块链平台）共
 
 - Nakamoto, S. (2008). _Bitcoin: A Peer-to-Peer Electronic Cash System_. [bitcoin.org]
 - Brunnermeier, M. K., James, H., & Landau, J.-P. (2019). The Digitalization of Money. _NBER Working Paper_ No. 26300.
+- Brunnermeier, M. K., & Niepelt, D. (2019). On the Equivalence of Private and Public Money. _Journal of Monetary Economics_, 106, 27–41.
 - BIS. (2023). _Annual Economic Report: Making Headway – Results of the 2022 BIS Survey on Central Bank Digital Currencies and Crypto_. Bank for International Settlements.
 - IMF. (2022). _Global Financial Stability Report: Crypto Ecosystem and Financial Stability Challenges_. International Monetary Fund.
 - Prasad, E. S. (2021). _The Future of Money: How the Digital Revolution Is Transforming Currencies and Finance_. Harvard University Press.
