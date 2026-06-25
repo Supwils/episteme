@@ -1,3 +1,29 @@
+html[data-reading-mode="focus"] .article-reading-surface {
+  max-width: 46rem;
+}
+
+html[data-reading-mode="focus"] .article-reading-surface p {
+  font-size: 1rem;
+  line-height: 1.95;
+}
+
+html[data-reading-mode="focus"] .article-reading-chrome {
+  opacity: 0.72;
+}
+
+html[data-reading-mode="spacious"] .article-reading-surface {
+  max-width: 54rem;
+}
+
+html[data-reading-mode="spacious"] .article-reading-surface p {
+  font-size: 1.06rem;
+  line-height: 2.1;
+}
+
+html[data-reading-mode="spacious"] .article-reading-surface h2 {
+  margin-top: 3rem;
+}
+
 @import "tailwindcss";
 
 @theme {
@@ -615,8 +641,9 @@
 
 .domain-card:hover,
 .domain-card:focus-visible {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   border-color: var(--domain-color);
+  box-shadow: 0 14px 34px -16px color-mix(in srgb, var(--domain-color) 55%, transparent);
 }
 
 .domain-card:focus-visible {
@@ -624,9 +651,67 @@
   outline-offset: 2px;
 }
 
+/* Icon tile lifts and warms toward its domain colour on hover. */
+.domain-card__icon {
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+
+.domain-card:hover .domain-card__icon,
+.domain-card:focus-visible .domain-card__icon {
+  transform: scale(1.07) translateY(-1px);
+  border-color: color-mix(in srgb, var(--domain-color) 45%, transparent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--domain-color) 9%, transparent);
+}
+
+/* Status dot gains a soft halo on hover. */
+.domain-card__dot {
+  transition: box-shadow 0.3s;
+}
+
+.domain-card:hover .domain-card__dot,
+.domain-card:focus-visible .domain-card__dot {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--domain-color) 18%, transparent);
+}
+
 .domain-card:hover .domain-card__arrow,
 .domain-card:focus-visible .domain-card__arrow {
   transform: translateX(4px);
+}
+
+/* ── Reusable lift-on-hover card (latest updates, featured content) ──
+   Set --card-accent inline to colour the lift glow per domain. */
+.lift-card {
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.28s,
+    box-shadow 0.28s;
+}
+
+.lift-card:hover,
+.lift-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--card-accent, var(--color-fg-disabled)) 40%, transparent);
+  box-shadow: 0 14px 32px -18px
+    color-mix(in srgb, var(--card-accent, var(--color-fg-disabled)) 55%, transparent);
+}
+
+/* Left accent stripe that grows in on hover. */
+.lift-card__stripe {
+  transform: scaleY(0.5);
+  transform-origin: center;
+  opacity: 0.7;
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.28s;
+}
+
+.lift-card:hover .lift-card__stripe,
+.lift-card:focus-visible .lift-card__stripe {
+  transform: scaleY(1);
+  opacity: 1;
 }
 
 @media (min-width: 1920px) {

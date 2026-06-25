@@ -15,6 +15,8 @@ export const ANCIENT_SPECIES: Species[] = [
   },
   {
     id: "charnia",
+    story:
+      "它是人类确认的第一块前寒武纪复杂生物化石，由一名 15 岁的中学生在英国查恩伍德森林发现，一举推翻了“复杂生命始于寒武纪”的旧观念，为埃迪卡拉生物群的研究奠定了基础。",
     name: "查恩海笔",
     nameEn: "Charnia",
     era: "元古宙",
@@ -25,6 +27,8 @@ export const ANCIENT_SPECIES: Species[] = [
   },
   {
     id: "dickinsonia",
+    story:
+      "争论了 75 年它究竟是动物、地衣还是巨型变形虫，直到 2018 年科学家在 5.58 亿年的化石里检出胆固醇分子——这种动物专属的脂肪，把它钉成了地球已知最古老的动物之一。",
     name: "狄更逊水母",
     nameEn: "Dickinsonia",
     era: "元古宙",
@@ -35,6 +39,8 @@ export const ANCIENT_SPECIES: Species[] = [
   },
   {
     id: "cambrian-explosion-fauna",
+    story:
+      "在仅仅两三千万年的地质瞬间里，二十到三十多个动物门几乎同时登场——今天几乎所有动物的身体蓝图，都是在这场“寒武纪大爆发”中奠定的。",
     name: "寒武纪生物群",
     nameEn: "Cambrian Fauna",
     era: "古生代",
@@ -45,6 +51,8 @@ export const ANCIENT_SPECIES: Species[] = [
   },
   {
     id: "trilobite",
+    story:
+      "它长着用方解石矿物晶体造的眼睛——可能是化石记录中最古老的成像眼睛之一；正因镜片是“石头”做的，常被完好保存。三叶虫在地球上繁衍了约 2.7 亿年才灭绝。",
     name: "三叶虫",
     nameEn: "Trilobite",
     era: "古生代",
@@ -67,6 +75,8 @@ export const ANCIENT_SPECIES: Species[] = [
   },
   {
     id: "marrella",
+    story:
+      "它是沃尔科特在伯吉斯页岩采到的第一块化石，也是那里最常见的物种——已采集出两万多枚标本，因纤巧的轮廓被昵称为“花边蟹”。",
     name: "马尔三叶形虫",
     nameEn: "Marrella",
     era: "古生代",
@@ -100,6 +110,8 @@ export const ANCIENT_SPECIES: Species[] = [
   },
   {
     id: "opabinia",
+    story:
+      "五只眼睛配一根末端带爪的长鼻子，模样太离奇——1972 年惠廷顿在牛津的会议上展示复原图时，台下学者当场哄堂大笑。",
     name: "欧巴宾海蝎",
     nameEn: "Opabinia",
     era: "古生代",
@@ -110,6 +122,8 @@ export const ANCIENT_SPECIES: Species[] = [
   },
   {
     id: "wiwaxia",
+    story:
+      "全身覆满鳞片状骨片和背刺，像披了铠甲的小刺猬；它究竟该归入软体动物还是环节动物，古生物学家至今仍争论不休。",
     name: "威瓦西亚虫",
     nameEn: "Wiwaxia",
     era: "古生代",
@@ -120,6 +134,8 @@ export const ANCIENT_SPECIES: Species[] = [
   },
   {
     id: "sanctacaris",
+    story:
+      "因头部那对抓握爪，野外考察时被戏称为“圣诞老人之爪（Santa Claws）”，这个玩笑后来直接定格为它的拉丁学名 Sanctacaris（意为“神圣之虾”）；它可能是螯肢动物的早期亲戚，即蜘蛛和鲎的远祖一系。",
     name: "圣诞虾",
     nameEn: "Sanctacaris",
     era: "古生代",
@@ -130,6 +146,8 @@ export const ANCIENT_SPECIES: Species[] = [
   },
   {
     id: "aegirocassis",
+    story:
+      "奥陶纪海洋中体长超过 2 米的巨兽，是已知最大的射齿动物（奇虾近亲），却从凶猛掠食者演化成温和的滤食者——比鲸和鲸鲨提前了数亿年走上同一条“滤食巨化”之路。",
     name: "埃吉尔虾",
     nameEn: "Aegirocassis",
     era: "古生代",

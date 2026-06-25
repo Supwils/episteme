@@ -709,6 +709,8 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "guido-van-rossum": "/computer-science/pioneers/guido-van-rossum",
   "haber-bosch-process": "/chemistry/milestones/haber-bosch-process",
   habermas: "/philosophy/thinkers/habermas",
+  "habitable-worlds-observatory":
+    "/cosmology/knowledge-base/天体生物学--habitable-worlds-observatory",
   "habitable-zone": "/cosmology/knowledge-base/天体生物学--habitable-zone",
   hamilton: "/life-science/scientists/hamilton",
   "han-feizi": "/philosophy/thinkers/han-feizi",
@@ -1069,6 +1071,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
     "political-science": "/political-science/thinkers/montesquieu",
   },
   "monty-hall": "/mathematics/paradoxes/monty-hall",
+  "moon-to-mars-architecture": "/cosmology/knowledge-base/太空探索--moon-to-mars-architecture",
   "moral-hazard": "/economics/concepts/moral-hazard",
   "moral-judgment": "/psychology/phenomena/moral-judgment",
   mozi: "/philosophy/thinkers/mozi",
@@ -1157,6 +1160,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "observability-and-monitoring": "/computer-science/concepts/observability-and-monitoring",
   ocd: "/psychology/disorders/ocd",
   "ocean-acidification": "/earth-science/concepts/ocean-acidification",
+  "ocean-worlds": "/cosmology/knowledge-base/天体生物学--ocean-worlds",
   octopus: "/life-science/species/octopus",
   ode: "/mathematics/concepts/ode",
   "oedipus-complex": "/psychology/phenomena/oedipus-complex",
@@ -1489,6 +1493,8 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "sorting-algorithms": "/computer-science/algorithms/sorting-algorithms",
   "sovereign-debt": "/economics/concepts/sovereign-debt",
   sovereignty: "/political-science/concepts/sovereignty",
+  "space-telescopes-as-time-machines":
+    "/cosmology/knowledge-base/太空探索--space-telescopes-as-time-machines",
   "spectral-graph-theory": "/mathematics/concepts/spectral-graph-theory",
   spectroscopy: "/chemistry/concepts/spectroscopy",
   "spin-glass": "/universe-physics/knowledge-base/凝聚态物理--spin-glass",
@@ -1987,10 +1993,17 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "天体生物学--biosignatures": "/cosmology/knowledge-base/天体生物学--biosignatures",
   "天体生物学--exoplanet-atmosphere": "/cosmology/knowledge-base/天体生物学--exoplanet-atmosphere",
   "天体生物学--fermi-paradox": "/cosmology/knowledge-base/天体生物学--fermi-paradox",
+  "天体生物学--habitable-worlds-observatory":
+    "/cosmology/knowledge-base/天体生物学--habitable-worlds-observatory",
   "天体生物学--habitable-zone": "/cosmology/knowledge-base/天体生物学--habitable-zone",
+  "天体生物学--ocean-worlds": "/cosmology/knowledge-base/天体生物学--ocean-worlds",
   天文光谱学方法: "/cosmology/knowledge-base/宇宙学观测--天文光谱学方法",
   天线与电磁辐射: "/universe-physics/knowledge-base/电磁学--天线与电磁辐射",
   太初核合成: "/cosmology/knowledge-base/宇宙学基础--太初核合成",
+  "太空探索--moon-to-mars-architecture":
+    "/cosmology/knowledge-base/太空探索--moon-to-mars-architecture",
+  "太空探索--space-telescopes-as-time-machines":
+    "/cosmology/knowledge-base/太空探索--space-telescopes-as-time-machines",
   "太阳系--asteroid-belt": "/cosmology/knowledge-base/太阳系--asteroid-belt",
   "太阳系--comets": "/cosmology/knowledge-base/太阳系--comets",
   "太阳系--gas-giants": "/cosmology/knowledge-base/太阳系--gas-giants",

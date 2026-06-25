@@ -23,6 +23,7 @@ import {
   drawEdges,
   drawNodes,
   drawLabels,
+  drawEdgeLabels,
   drawHoverGlow,
   drawSelectionPulse,
   drawPathAnimation,
@@ -76,6 +77,7 @@ export class GraphRenderer {
     edgeKeys: new Set(),
     pathNodes: [],
   };
+  private crossDomainOnly = false;
 
   private boundMouseMove: (e: MouseEvent) => void;
   private boundMouseDown: (e: MouseEvent) => void;
@@ -133,6 +135,13 @@ export class GraphRenderer {
 
   setHighlight(highlight: HighlightState): void {
     this.highlight = highlight;
+    this.markDirty();
+  }
+
+  // When true, only edges that bridge two different domains are drawn — turning
+  // the whole graph into a pure interdisciplinary map.
+  setCrossDomainOnly(value: boolean): void {
+    this.crossDomainOnly = value;
     this.markDirty();
   }
 
@@ -219,7 +228,7 @@ export class GraphRenderer {
   }
 
   private markDirty(): void {
-    this.markDirty();
+    this.dirty = true;
     if (!this.destroyed && this.rafId === null) this.startLoop();
   }
 
@@ -231,6 +240,7 @@ export class GraphRenderer {
       highlight: this.highlight,
       nodesRef: this.nodesRef,
       edgesRef: this.edgesRef,
+      crossDomainOnly: this.crossDomainOnly,
       markDirty: () => {
         this.markDirty();
       },
@@ -257,6 +267,7 @@ export class GraphRenderer {
     drawEdges(dc, bounds);
     drawNodes(dc, bounds);
     drawLabels(dc, bounds);
+    drawEdgeLabels(dc, bounds);
 
     for (let i = 0; i < this.nodesRef.length; i++) {
       const node = this.nodesRef[i]!;

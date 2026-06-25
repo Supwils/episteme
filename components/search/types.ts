@@ -11,7 +11,10 @@ export type Section =
   | "cosmology"
   | "mathematics"
   | "computer-science"
-  | "political-science";
+  | "political-science"
+  | "earth-science"
+  | "medicine"
+  | "chemistry";
 
 export const SECTION_META: Record<Section, { label: string; color: string }> = {
   physics: { label: "宇宙物理", color: "#6ad0ff" },
@@ -24,6 +27,9 @@ export const SECTION_META: Record<Section, { label: string; color: string }> = {
   mathematics: { label: "数学", color: "#5fb3a3" },
   "computer-science": { label: "计算机科学", color: "#4f9cf0" },
   "political-science": { label: "政治学", color: "#c25b5b" },
+  "earth-science": { label: "地球科学", color: "#4f9d76" },
+  medicine: { label: "医学与公共卫生", color: "#d9544d" },
+  chemistry: { label: "化学", color: "#e08a3c" },
 };
 
 export const TYPE_LABELS: Record<string, string> = {

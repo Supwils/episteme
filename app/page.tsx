@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { HeroSection } from "../components/HeroSection";
+import { HeroBackdrop } from "../components/HeroBackdrop";
 import { FeatureGrid } from "../components/FeatureGrid";
 import { DomainCard } from "../components/DomainCard";
 import { LatestUpdates } from "../components/LatestUpdates";
@@ -56,6 +57,8 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
       />
+
+      <HeroBackdrop />
 
       <div className="relative z-1">
         <HeroSection />

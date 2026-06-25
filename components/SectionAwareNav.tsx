@@ -12,10 +12,13 @@ import { NAV_LINKS_FLAT } from "./nav-data";
 const SECTION_PREFIXES = [
   "/universe-physics",
   "/cosmology",
+  "/earth-science",
   "/human-history",
   "/philosophy",
   "/mathematics",
   "/life-science",
+  "/medicine",
+  "/chemistry",
   "/economics",
   "/psychology",
   "/computer-science",

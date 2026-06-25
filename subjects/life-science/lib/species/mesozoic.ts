@@ -3,6 +3,8 @@ import type { Species } from "./types";
 export const MESOZOIC_SPECIES: Species[] = [
   {
     id: "ichthyosaur",
+    story:
+      "鱼龙演化出酷似海豚的流线型身体，却是不折不扣的爬行动物；最大的萨斯特鱼龙体长可达 21 米，几乎逼近蓝鲸。",
     name: "鱼龙",
     nameEn: "Ichthyosaur",
     era: "中生代",
@@ -25,6 +27,8 @@ export const MESOZOIC_SPECIES: Species[] = [
   },
   {
     id: "plateosaurus",
+    story:
+      "板龙是三叠纪晚期最常见的恐龙，是欧洲出土化石最多的恐龙之一（逾百具）；德国特罗辛根的“恐龙墓地”历经多次发掘累计出土数十具骨架。",
     name: "板龙",
     nameEn: "Plateosaurus",
     era: "中生代",
@@ -35,6 +39,8 @@ export const MESOZOIC_SPECIES: Species[] = [
   },
   {
     id: "plesiosaur",
+    story:
+      "薄板龙的脖子由多达 72 节颈椎组成，是所有已知脊椎动物中最多的；1869 年古生物学家科普误把头装到了尾巴一端，成了“骨头战争”里最著名的乌龙。",
     name: "蛇颈龙",
     nameEn: "Plesiosaur",
     era: "中生代",
@@ -57,6 +63,8 @@ export const MESOZOIC_SPECIES: Species[] = [
   },
   {
     id: "ammonite",
+    story:
+      "菊石演化极快、分布极广，是地质学家给中生代岩层断代的“标准化石”；它们熬过了多次大灭绝，最终却和恐龙一起消失在 6600 万年前的白垩纪末。",
     name: "菊石",
     nameEn: "Ammonite",
     era: "中生代",
@@ -79,6 +87,8 @@ export const MESOZOIC_SPECIES: Species[] = [
   },
   {
     id: "stegosaurus",
+    story:
+      "剑龙身长可达 9 米、体重数吨，脑子却只有约 80 克，是脑体比最低的恐龙之一；背上的骨板布满血管，可能用来散热或炫耀求偶。",
     name: "剑龙",
     nameEn: "Stegosaurus",
     era: "中生代",
@@ -89,6 +99,8 @@ export const MESOZOIC_SPECIES: Species[] = [
   },
   {
     id: "brachiosaurus",
+    story:
+      "和大多数恐龙相反，腕龙的前肢比后肢更长，加上超长的脖子，让它像长颈鹿一样昂首，能把头探到离地 9 米以上的高处取食。",
     name: "腕龙",
     nameEn: "Brachiosaurus",
     era: "中生代",
@@ -99,6 +111,8 @@ export const MESOZOIC_SPECIES: Species[] = [
   },
   {
     id: "pliosaurus",
+    story:
+      "上龙是侏罗纪海洋的顶级杀手，绰号“掠食者X”的芬氏上龙体长约 10–12 米，光头骨就有 2 米多长，2009 年在北极斯瓦尔巴群岛被发现。",
     name: "上龙",
     nameEn: "Pliosaurus",
     era: "中生代",
@@ -120,6 +134,8 @@ export const MESOZOIC_SPECIES: Species[] = [
   },
   {
     id: "spinosaurus",
+    story:
+      "棘龙是已知最大的肉食恐龙，背帆由约 1.65 米长的骨棘撑起；它最初的化石 1944 年毁于盟军对慕尼黑的轰炸，如今只剩绘图与照片为证。",
     name: "棘龙",
     nameEn: "Spinosaurus",
     era: "中生代",
@@ -130,6 +146,8 @@ export const MESOZOIC_SPECIES: Species[] = [
   },
   {
     id: "parasaurolophus",
+    story:
+      "副栉龙头顶那根长管其实是中空的，内部弯折的气道与鼻腔相通；CT 扫描显示它像一件天然管乐器，能发出低沉如号角的共鸣声。",
     name: "副栉龙",
     nameEn: "Parasaurolophus",
     era: "中生代",
@@ -140,6 +158,8 @@ export const MESOZOIC_SPECIES: Species[] = [
   },
   {
     id: "velociraptor",
+    story:
+      "真实的伶盗龙只有火鸡大小、全身披羽，远非电影里的庞然大物；蒙古曾出土一具与原角龙“扭打中”同归于尽的化石，把它的镰刀爪永远定格在猎物颈间。",
     name: "伶盗龙",
     nameEn: "Velociraptor",
     era: "中生代",
@@ -150,6 +170,8 @@ export const MESOZOIC_SPECIES: Species[] = [
   },
   {
     id: "pteranodon",
+    story:
+      "无齿翼龙的喙完全没有牙齿，雄性翼展可达 7 米；它由“骨头战争”名将马什于 19 世纪 70 年代在美国堪萨斯的白垩沉积中首次发现，以捕鱼为生。",
     name: "无齿翼龙",
     nameEn: "Pteranodon",
     era: "中生代",
@@ -160,6 +182,8 @@ export const MESOZOIC_SPECIES: Species[] = [
   },
   {
     id: "tyrannosaurus",
+    story:
+      "霸王龙的咬合力估计高达近 1.3 万磅，是已知陆地动物中最强的；它那一口又粗又弯的牙齿被古生物学家戏称为“致命香蕉”，足以咬碎骨头。",
     name: "霸王龙",
     nameEn: "Tyrannosaurus Rex",
     era: "中生代",
@@ -170,6 +194,8 @@ export const MESOZOIC_SPECIES: Species[] = [
   },
   {
     id: "triceratops",
+    story:
+      "三角龙的头骨连同颈盾可长达 2.5 米，是所有陆生动物中最大的头骨之一；作为白垩纪末最后的恐龙之一，它一直生存到 6600 万年前那场大灭绝。",
     name: "三角龙",
     nameEn: "Triceratops",
     era: "中生代",
@@ -180,6 +206,8 @@ export const MESOZOIC_SPECIES: Species[] = [
   },
   {
     id: "ankylosaurus",
+    story:
+      "甲龙浑身披着骨板铠甲，连眼皮上都有一块护骨；尾端融合成的骨锤挥动起来足以击碎掠食者的骨头——它的名字在希腊语里正是“融合的蜥蜴”。",
     name: "甲龙",
     nameEn: "Ankylosaurus",
     era: "中生代",
@@ -190,6 +218,8 @@ export const MESOZOIC_SPECIES: Species[] = [
   },
   {
     id: "edselosaurus",
+    story:
+      "埃德蒙顿龙的颌中密布上千颗牙齿组成的“齿系”，专磨坚韧植物；1908 年出土的著名“木乃伊”化石保留了皮肤印痕，还有标本头骨里嵌着霸王龙的断牙。",
     name: "埃德蒙顿龙",
     nameEn: "Edmontosaurus",
     era: "中生代",

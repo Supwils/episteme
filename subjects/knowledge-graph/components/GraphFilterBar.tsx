@@ -5,11 +5,13 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { clsx } from "clsx";
 import { DomainFilters } from "./DomainFilters";
 import { ClusterToggle } from "./ClusterToggle";
+import { CrossDomainToggle } from "./CrossDomainToggle";
 import { ZoomControls } from "./ZoomControls";
 import { GraphSearch } from "./GraphSearch";
 import { PathFinder } from "./PathFinder";
 import type { SearchMatchField, GroupedSearchResult } from "./GraphSearch";
 import type { GraphNode as FullGraphNode } from "../data/types";
+import type { ThoughtTour } from "../data/thought-tours";
 
 export type { SearchMatchField, GroupedSearchResult };
 export type { FullGraphNode as GraphNode };
@@ -42,6 +44,8 @@ type GraphFilterBarProps = {
   onFitToScreen: () => void;
   clusterMode: boolean;
   onClusterToggle: () => void;
+  crossDomainOnly: boolean;
+  onCrossDomainToggle: () => void;
   isMobile?: boolean;
   searchInputRef?: React.RefObject<HTMLInputElement | null>;
   nodes: FullGraphNode[];
@@ -51,6 +55,9 @@ type GraphFilterBarProps = {
   onPathFind: (startId: string, endId: string) => void;
   onPathClear: () => void;
   nodeMap: Map<string, FullGraphNode>;
+  edgeLabelMap: Map<string, string>;
+  tours: ThoughtTour[];
+  onTourSelect: (waypoints: string[]) => void;
 };
 
 export function GraphFilterBar({
@@ -66,6 +73,8 @@ export function GraphFilterBar({
   onFitToScreen,
   clusterMode,
   onClusterToggle,
+  crossDomainOnly,
+  onCrossDomainToggle,
   isMobile = false,
   searchInputRef,
   nodes,
@@ -75,6 +84,9 @@ export function GraphFilterBar({
   onPathFind,
   onPathClear,
   nodeMap,
+  edgeLabelMap,
+  tours,
+  onTourSelect,
 }: GraphFilterBarProps) {
   const [selectedType, setSelectedType] = useState<string | null>(null);
   const [isTypeDropdownOpen, setIsTypeDropdownOpen] = useState(false);
@@ -89,7 +101,13 @@ export function GraphFilterBar({
           className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.06] bg-[#111118]/80 text-white/50 backdrop-blur-xl transition-colors hover:text-white/80"
           aria-label="搜索"
         >
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-4 w-4">
+          <svg
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            className="h-4 w-4"
+          >
             <circle cx="7" cy="7" r="4.5" />
             <path d="M10.5 10.5L14 14" strokeLinecap="round" />
           </svg>
@@ -100,7 +118,13 @@ export function GraphFilterBar({
           className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.06] bg-[#111118]/80 text-white/50 backdrop-blur-xl transition-colors hover:text-white/80"
           aria-label="筛选"
         >
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-4 w-4">
+          <svg
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            className="h-4 w-4"
+          >
             <path d="M2 4h12M4 8h8M6 12h4" strokeLinecap="round" />
           </svg>
         </button>
@@ -123,10 +147,10 @@ export function GraphFilterBar({
   return (
     <div
       className={clsx(
-        "flex flex-wrap items-center gap-2 sm:gap-3 px-3 py-2 sm:px-4 sm:py-2.5",
+        "flex flex-wrap items-center gap-2 px-3 py-2 sm:gap-3 sm:px-4 sm:py-2.5",
         "rounded-xl border border-white/[0.06]",
         "bg-[#111118]/80 backdrop-blur-xl",
-        "shadow-[0_4px_24px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.03)]",
+        "shadow-[0_4px_24px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.03)]"
       )}
     >
       <DomainFilters
@@ -137,10 +161,7 @@ export function GraphFilterBar({
         onClose={() => setMobileExpanded(false)}
       />
 
-      <div
-        className="h-5 w-px bg-white/[0.08] hidden sm:block"
-        aria-hidden="true"
-      />
+      <div className="hidden h-5 w-px bg-white/[0.08] sm:block" aria-hidden="true" />
 
       <TypeFilterDropdown
         selectedType={selectedType}
@@ -150,10 +171,7 @@ export function GraphFilterBar({
         isMobile={isMobile}
       />
 
-      <div
-        className="h-5 w-px bg-white/[0.08] hidden sm:block"
-        aria-hidden="true"
-      />
+      <div className="hidden h-5 w-px bg-white/[0.08] sm:block" aria-hidden="true" />
 
       <ClusterToggle
         clusterMode={clusterMode}
@@ -161,10 +179,13 @@ export function GraphFilterBar({
         isMobile={isMobile}
       />
 
-      <div
-        className="h-5 w-px bg-white/[0.08] hidden sm:block"
-        aria-hidden="true"
+      <CrossDomainToggle
+        active={crossDomainOnly}
+        onToggle={onCrossDomainToggle}
+        isMobile={isMobile}
       />
+
+      <div className="hidden h-5 w-px bg-white/[0.08] sm:block" aria-hidden="true" />
 
       <GraphSearch
         searchQuery={searchQuery}
@@ -175,10 +196,7 @@ export function GraphFilterBar({
         searchInputRef={searchInputRef}
       />
 
-      <div
-        className="h-5 w-px bg-white/[0.08] hidden sm:block"
-        aria-hidden="true"
-      />
+      <div className="hidden h-5 w-px bg-white/[0.08] sm:block" aria-hidden="true" />
 
       <PathFinder
         nodes={nodes}
@@ -188,6 +206,9 @@ export function GraphFilterBar({
         onPathFind={onPathFind}
         onPathClear={onPathClear}
         nodeMap={nodeMap}
+        edgeLabelMap={edgeLabelMap}
+        tours={tours}
+        onTourSelect={onTourSelect}
         isMobile={isMobile}
       />
 
@@ -221,10 +242,7 @@ function TypeFilterDropdown({
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(e.target as Node)
-      ) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setIsOpen(false);
       }
     }
@@ -238,12 +256,12 @@ function TypeFilterDropdown({
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
         className={clsx(
-          "flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs",
+          "flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs",
           "border transition-all duration-200",
           "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6366f1]",
           isOpen
-            ? "border-white/10 text-white/80 bg-white/[0.04]"
-            : "border-white/[0.04] text-white/40 hover:text-white/60 hover:border-white/[0.08]",
+            ? "border-white/10 bg-white/[0.04] text-white/80"
+            : "border-white/[0.04] text-white/40 hover:border-white/[0.08] hover:text-white/60"
         )}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
@@ -257,10 +275,8 @@ function TypeFilterDropdown({
         >
           <path d="M2 4h12M4 8h8M6 12h4" strokeLinecap="round" />
         </svg>
-        <span className={isMobile ? 'inline' : 'hidden sm:inline'}>
-          {selectedType
-            ? NODE_TYPES.find((t) => t.id === selectedType)?.label ?? "类型"
-            : "类型"}
+        <span className={isMobile ? "inline" : "hidden sm:inline"}>
+          {selectedType ? (NODE_TYPES.find((t) => t.id === selectedType)?.label ?? "类型") : "类型"}
         </span>
       </button>
 
@@ -271,7 +287,7 @@ function TypeFilterDropdown({
             animate={reducedMotion ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1 }}
             exit={reducedMotion ? { opacity: 0 } : { opacity: 0, y: -4, scale: 0.95 }}
             transition={{ duration: reducedMotion ? 0 : 0.15 }}
-            className="absolute top-full left-0 mt-1 z-50 min-w-[120px] py-1 rounded-lg border border-white/[0.08] bg-[#111118]/95 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
+            className="absolute top-full left-0 z-50 mt-1 min-w-[120px] rounded-lg border border-white/[0.08] bg-[#111118]/95 py-1 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl"
             role="listbox"
             aria-label="节点类型筛选"
           >
@@ -284,10 +300,10 @@ function TypeFilterDropdown({
                 setIsOpen(false);
               }}
               className={clsx(
-                "w-full text-left px-3 py-1.5 text-xs transition-colors duration-150",
+                "w-full px-3 py-1.5 text-left text-xs transition-colors duration-150",
                 selectedType === null
-                  ? "text-white bg-white/[0.06]"
-                  : "text-white/50 hover:text-white/80 hover:bg-white/[0.03]",
+                  ? "bg-white/[0.06] text-white"
+                  : "text-white/50 hover:bg-white/[0.03] hover:text-white/80"
               )}
             >
               全部类型
@@ -299,16 +315,14 @@ function TypeFilterDropdown({
                 role="option"
                 aria-selected={selectedType === nodeType.id}
                 onClick={() => {
-                  setSelectedType(
-                    nodeType.id === selectedType ? null : nodeType.id,
-                  );
+                  setSelectedType(nodeType.id === selectedType ? null : nodeType.id);
                   setIsOpen(false);
                 }}
                 className={clsx(
-                  "w-full text-left px-3 py-1.5 text-xs transition-colors duration-150",
+                  "w-full px-3 py-1.5 text-left text-xs transition-colors duration-150",
                   selectedType === nodeType.id
-                    ? "text-white bg-white/[0.06]"
-                    : "text-white/50 hover:text-white/80 hover:bg-white/[0.03]",
+                    ? "bg-white/[0.06] text-white"
+                    : "text-white/50 hover:bg-white/[0.03] hover:text-white/80"
                 )}
               >
                 {nodeType.label}

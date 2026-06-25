@@ -16,10 +16,13 @@ let enginePromise: Promise<SearchEngine> | null = null;
 const SEARCH_SECTIONS: Section[] = [
   "physics",
   "cosmology",
+  "earth-science",
   "mathematics",
   "history",
   "philosophy",
   "life-science",
+  "medicine",
+  "chemistry",
   "economics",
   "psychology",
   "computer-science",
@@ -140,9 +143,12 @@ export function GlobalSearch() {
       economics: [],
       psychology: [],
       cosmology: [],
+      "earth-science": [],
       mathematics: [],
       "computer-science": [],
       "political-science": [],
+      medicine: [],
+      chemistry: [],
     };
     for (const result of results) {
       const section = result.doc.section as Section;
@@ -278,7 +284,7 @@ export function GlobalSearch() {
             <div className="gs-empty">
               输入关键词开始搜索
               <span className="gs-empty-hint">
-                支持宇宙物理、宇宙学、人类历史、哲学思想、生命科学、经济学、心理学
+                支持宇宙物理、宇宙学、地球科学、生命科学、医学、化学、人类历史等领域
               </span>
             </div>
           )}

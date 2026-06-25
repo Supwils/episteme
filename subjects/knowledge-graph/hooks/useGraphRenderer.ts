@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { useEffect, useCallback } from 'react';
-import type { GraphNode, GraphEdge } from '../data/types';
-import type { GraphRenderer, RenderNode, HighlightState, RenderConfig } from '@/lib/graph-engine';
-import { GraphRenderer as GraphRendererClass } from '@/lib/graph-engine';
-import type { ForceLayout } from '@/lib/graph-engine';
-import { animateEntrance, animateFocus, animateNodePositions } from '@/lib/graph-engine';
+import { useEffect, useCallback } from "react";
+import type { GraphNode, GraphEdge } from "../data/types";
+import type { GraphRenderer, RenderNode, HighlightState, RenderConfig } from "@/lib/graph-engine";
+import { GraphRenderer as GraphRendererClass } from "@/lib/graph-engine";
+import type { ForceLayout } from "@/lib/graph-engine";
+import { animateEntrance, animateFocus, animateNodePositions } from "@/lib/graph-engine";
 import {
   buildLayoutNodes,
   buildLayoutEdges,
@@ -13,7 +13,7 @@ import {
   toRenderEdges,
   NODE_RADIUS,
   DOMAIN_COLORS,
-} from '../lib/constants';
+} from "../lib/constants";
 
 type RendererDeps = {
   canvasRef: React.RefObject<HTMLCanvasElement | null>;
@@ -49,7 +49,7 @@ export function useGraphRenderer(
   initialFocus: string | undefined,
   onNodeClick: ((node: GraphNode) => void) | undefined,
   onNodeHover: ((node: GraphNode | null) => void) | undefined,
-  deps: RendererDeps,
+  deps: RendererDeps
 ) {
   const {
     canvasRef,
@@ -82,11 +82,31 @@ export function useGraphRenderer(
   const pushRenderData = useCallback(() => {
     const renderer = rendererRef.current;
     if (!renderer) return;
-    const rNodes = toRenderNodes(nodes, positionsRef.current, hoveredNodeId, selectedNodeId, activeDomains, spreadOffsetsRef.current, searchMatchedIds);
+    const rNodes = toRenderNodes(
+      nodes,
+      positionsRef.current,
+      hoveredNodeId,
+      selectedNodeId,
+      activeDomains,
+      spreadOffsetsRef.current,
+      searchMatchedIds
+    );
     const rEdges = toRenderEdges(edges, positionsRef.current, activeDomains, nodeDomainMap);
     renderer.render(rNodes, rEdges);
     renderer.setHighlight(highlightState);
-  }, [nodes, edges, hoveredNodeId, selectedNodeId, activeDomains, nodeDomainMap, highlightState, rendererRef, positionsRef, spreadOffsetsRef, searchMatchedIds]);
+  }, [
+    nodes,
+    edges,
+    hoveredNodeId,
+    selectedNodeId,
+    activeDomains,
+    nodeDomainMap,
+    highlightState,
+    rendererRef,
+    positionsRef,
+    spreadOffsetsRef,
+    searchMatchedIds,
+  ]);
 
   useEffect(() => {
     pushRenderData();
@@ -128,15 +148,10 @@ export function useGraphRenderer(
       startOffsets.set(id, { x: 0, y: 0 });
     }
 
-    animateNodePositions(
-      startOffsets,
-      targetOffsets,
-      300,
-      (offsets) => {
-        spreadOffsetsRef.current = offsets;
-        pushRenderData();
-      },
-    );
+    animateNodePositions(startOffsets, targetOffsets, 300, (offsets) => {
+      spreadOffsetsRef.current = offsets;
+      pushRenderData();
+    });
   }, [selectedNodeId, edges, pushRenderData, spreadOffsetsRef, positionsRef]);
 
   useEffect(() => {
@@ -162,7 +177,7 @@ export function useGraphRenderer(
           const id = renderNode?.id ?? null;
           setHoveredNodeId(id);
           if (onNodeHover) {
-            onNodeHover(id ? nodeMap.get(id) ?? null : null);
+            onNodeHover(id ? (nodeMap.get(id) ?? null) : null);
           }
         },
         onNodeSelect: (renderNode) => {
@@ -202,7 +217,11 @@ export function useGraphRenderer(
               const w = container.clientWidth;
               const h = container.clientHeight;
               const targetScale = 1.5;
-              renderer.setTransform(targetScale, w / 2 - pos.x * targetScale, h / 2 - pos.y * targetScale);
+              renderer.setTransform(
+                targetScale,
+                w / 2 - pos.x * targetScale,
+                h / 2 - pos.y * targetScale
+              );
               setZoom(targetScale);
             }
             setSelectedNodeId(id);
@@ -239,7 +258,7 @@ export function useGraphRenderer(
                 domain: node.domain,
                 type: node.type,
                 radius: NODE_RADIUS[node.type] ?? 16,
-                color: DOMAIN_COLORS[node.domain] ?? '#9ca3af',
+                color: DOMAIN_COLORS[node.domain] ?? "#9ca3af",
                 hovered: false,
                 selected: false,
                 searchMatched: false,
@@ -252,7 +271,15 @@ export function useGraphRenderer(
         () => {
           if (cancelled) return;
           positionsRef.current = finalPositions;
-          const rNodes = toRenderNodes(nodes, finalPositions, null, null, activeDomains, undefined, searchMatchedIds);
+          const rNodes = toRenderNodes(
+            nodes,
+            finalPositions,
+            null,
+            null,
+            activeDomains,
+            undefined,
+            searchMatchedIds
+          );
           const rEdges = toRenderEdges(edges, finalPositions, activeDomains, nodeDomainMap);
           renderer.render(rNodes, rEdges);
 
@@ -275,18 +302,52 @@ export function useGraphRenderer(
                     setZoom(t.scale);
                     setOffsetX(t.offsetX);
                     setOffsetY(t.offsetY);
-                  },
+                  }
                 );
                 setSelectedNodeId(initialFocus);
               }
             }
+          } else {
+            // Auto-fit the whole graph into view on first load so it opens
+            // centered instead of clustered against the top-left corner.
+            const container = containerRef.current;
+            if (container) {
+              let minX = Infinity,
+                minY = Infinity,
+                maxX = -Infinity,
+                maxY = -Infinity;
+              for (const pos of finalPositions.values()) {
+                if (pos.x < minX) minX = pos.x;
+                if (pos.y < minY) minY = pos.y;
+                if (pos.x > maxX) maxX = pos.x;
+                if (pos.y > maxY) maxY = pos.y;
+              }
+              if (Number.isFinite(minX)) {
+                const w = container.clientWidth;
+                const h = container.clientHeight;
+                const pad = 80;
+                const scale = Math.min(
+                  (w - pad * 2) / Math.max(maxX - minX, 1),
+                  (h - pad * 2) / Math.max(maxY - minY, 1),
+                  1.2
+                );
+                const cx = (minX + maxX) / 2;
+                const cy = (minY + maxY) / 2;
+                const offsetX = w / 2 - cx * scale;
+                const offsetY = h / 2 - cy * scale;
+                renderer.setTransform(scale, offsetX, offsetY);
+                setZoom(scale);
+                setOffsetX(offsetX);
+                setOffsetY(offsetY);
+              }
+            }
           }
-        },
+        }
       );
     };
 
     const runSync = async () => {
-      const { ForceLayout: ForceLayoutClass } = await import('@/lib/graph-engine');
+      const { ForceLayout: ForceLayoutClass } = await import("@/lib/graph-engine");
       if (cancelled) return;
       const layout = new ForceLayoutClass(layoutNodes, layoutEdges);
       layoutRef.current = layout;
@@ -295,22 +356,26 @@ export function useGraphRenderer(
     };
 
     let worker: Worker | null = null;
-    if (typeof Worker !== 'undefined' && !reducedMotion) {
+    if (typeof Worker !== "undefined" && !reducedMotion) {
       try {
-        worker = new Worker(
-          new URL('../engine/force-layout.worker.ts', import.meta.url),
-        );
-        worker.onmessage = (e: MessageEvent<{ type: string; positions: [string, { x: number; y: number }][] }>) => {
-          if (e.data.type === 'result') {
+        worker = new Worker(new URL("../engine/force-layout.worker.ts", import.meta.url));
+        worker.onmessage = (
+          e: MessageEvent<{ type: string; positions: [string, { x: number; y: number }][] }>
+        ) => {
+          if (e.data.type === "result") {
             const positions = new Map(e.data.positions);
             initRenderer(positions);
           }
         };
-        worker.onerror = () => {
+        worker.onerror = (event) => {
+          // Don't let the ErrorEvent bubble to the global handler (the dev
+          // overlay renders it as `[object Event]`); fall back to sync layout.
+          event.preventDefault();
+          worker?.terminate();
           runSync();
         };
         worker.postMessage({
-          type: 'run',
+          type: "run",
           nodes: layoutNodes,
           edges: layoutEdges,
         });
@@ -335,4 +400,3 @@ export function useGraphRenderer(
 
   return { pushRenderData };
 }
-

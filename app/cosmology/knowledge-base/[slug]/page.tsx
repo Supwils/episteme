@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cosmologyKB } from "@/lib/cosmology-kb";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
+import { ReadingModeControls } from "@/components/ReadingModeControls";
 import { SITE_URL } from "@/lib/constants";
 
 interface Props {
@@ -52,7 +53,7 @@ export default async function CosmologyKnowledgeArticlePage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <nav className="mb-8 flex items-center justify-between">
+      <nav className="article-reading-chrome mb-8 flex items-center justify-between gap-4">
         <Link
           href="/cosmology/knowledge-base"
           className="text-fg-muted hover:text-fg-primary inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] uppercase transition-colors"
@@ -64,8 +65,11 @@ export default async function CosmologyKnowledgeArticlePage({ params }: Props) {
         </span>
       </nav>
 
-      <article>
+      <article className="article-reading-surface mx-auto transition-[max-width] duration-300">
         <header className="mb-10">
+          <div className="mb-6 flex justify-end">
+            <ReadingModeControls />
+          </div>
           <h1 className="text-fg-primary mb-4 text-3xl leading-tight font-semibold sm:text-4xl">
             {article.title}
           </h1>

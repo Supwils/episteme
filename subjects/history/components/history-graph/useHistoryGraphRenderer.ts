@@ -1,15 +1,12 @@
-'use client';
+"use client";
 
-import { useEffect, useCallback } from 'react';
-import { ForceLayout, GraphRenderer, animateEntrance } from '@/lib/graph-engine';
-import type { LayoutNode, LayoutEdge, RenderNode, RenderEdge } from '@/lib/graph-engine';
-import type { HistoryGraphState } from './useHistoryGraphState';
-import { NODE_RADIUS, NODE_COLORS, EDGE_COLORS, EDGE_WIDTHS } from './constants';
+import { useEffect, useCallback } from "react";
+import { ForceLayout, GraphRenderer, animateEntrance } from "@/lib/graph-engine";
+import type { LayoutNode, LayoutEdge, RenderNode, RenderEdge } from "@/lib/graph-engine";
+import type { HistoryGraphState } from "./useHistoryGraphState";
+import { NODE_RADIUS, NODE_COLORS, EDGE_COLORS, EDGE_WIDTHS } from "./constants";
 
-export function useHistoryGraphRenderer(
-  state: HistoryGraphState,
-  reducedMotion: boolean | null,
-) {
+export function useHistoryGraphRenderer(state: HistoryGraphState, reducedMotion: boolean | null) {
   const {
     canvasRef,
     containerRef,
@@ -42,10 +39,10 @@ export function useHistoryGraphRenderer(
           x: pos?.x ?? 0,
           y: pos?.y ?? 0,
           label: node.label,
-          domain: 'history',
+          domain: "history",
           type: node.type,
           radius: NODE_RADIUS[node.type] ?? 12,
-          color: NODE_COLORS[node.type] ?? '#f59e0b',
+          color: NODE_COLORS[node.type] ?? "#f59e0b",
           hovered: node.id === hoveredNodeId,
           selected: node.id === selectedNodeId,
           searchMatched: false,
@@ -53,7 +50,7 @@ export function useHistoryGraphRenderer(
         };
       });
     },
-    [filteredNodes, hoveredNodeId, selectedNodeId],
+    [filteredNodes, hoveredNodeId, selectedNodeId]
   );
 
   const toRenderEdgesFn = useCallback(
@@ -66,7 +63,7 @@ export function useHistoryGraphRenderer(
           y1: s?.y ?? 0,
           x2: t?.x ?? 0,
           y2: t?.y ?? 0,
-          color: EDGE_COLORS[edge.type] ?? 'rgba(255, 255, 255, 0.06)',
+          color: EDGE_COLORS[edge.type] ?? "rgba(255, 255, 255, 0.06)",
           width: EDGE_WIDTHS[edge.type] ?? 0.8,
           alpha: 0.6,
           sourceId: edge.source,
@@ -74,7 +71,7 @@ export function useHistoryGraphRenderer(
         };
       });
     },
-    [filteredEdges],
+    [filteredEdges]
   );
 
   const pushRenderData = useCallback(() => {
@@ -98,9 +95,9 @@ export function useHistoryGraphRenderer(
             .filter(
               (e) =>
                 (e.source === selectedNodeId && connected.has(e.target)) ||
-                (e.target === selectedNodeId && connected.has(e.source)),
+                (e.target === selectedNodeId && connected.has(e.source))
             )
-            .map((e) => `${e.source}->${e.target}`),
+            .map((e) => `${e.source}->${e.target}`)
         ),
         pathNodes: [],
         dimAlpha: 0.25,
@@ -124,10 +121,9 @@ export function useHistoryGraphRenderer(
     if (!canvas) return;
 
     const layoutNodes: LayoutNode[] = filteredNodes.map((node) => {
-      const eraIndex = node.era
-        ? filterOptions.eras.findIndex((e) => e.id === node.era)
-        : 0;
-      const angle = (2 * Math.PI * (eraIndex >= 0 ? eraIndex : 0)) / Math.max(filterOptions.eras.length, 1);
+      const eraIndex = node.era ? filterOptions.eras.findIndex((e) => e.id === node.era) : 0;
+      const angle =
+        (2 * Math.PI * (eraIndex >= 0 ? eraIndex : 0)) / Math.max(filterOptions.eras.length, 1);
       const jitterR = 80 + Math.random() * 200;
       const jitterA = angle + (Math.random() - 0.5) * 1.2;
       return {
@@ -136,14 +132,14 @@ export function useHistoryGraphRenderer(
         y: Math.sin(jitterA) * jitterR,
         vx: 0,
         vy: 0,
-        domain: 'history',
+        domain: "history",
       };
     });
 
     const layoutEdges: LayoutEdge[] = filteredEdges.map((e) => ({
       source: e.source,
       target: e.target,
-      strength: e.type === 'era-seq' ? 0.5 : e.type === 'figure-event' ? 1.2 : 0.8,
+      strength: e.type === "era-seq" ? 0.5 : e.type === "figure-event" ? 1.2 : 0.8,
     }));
 
     setIsLoading(true);
@@ -199,7 +195,11 @@ export function useHistoryGraphRenderer(
               const w = container.clientWidth;
               const h = container.clientHeight;
               const targetScale = 1.5;
-              renderer.setTransform(targetScale, w / 2 - pos.x * targetScale, h / 2 - pos.y * targetScale);
+              renderer.setTransform(
+                targetScale,
+                w / 2 - pos.x * targetScale,
+                h / 2 - pos.y * targetScale
+              );
               setZoom(targetScale);
             }
             setSelectedNodeId(id);
@@ -232,10 +232,10 @@ export function useHistoryGraphRenderer(
               x: pos.x,
               y: pos.y,
               label: node.label,
-              domain: 'history',
+              domain: "history",
               type: node.type,
               radius: NODE_RADIUS[node.type] ?? 12,
-              color: NODE_COLORS[node.type] ?? '#f59e0b',
+              color: NODE_COLORS[node.type] ?? "#f59e0b",
               hovered: false,
               selected: false,
               searchMatched: false,
@@ -251,7 +251,7 @@ export function useHistoryGraphRenderer(
           const rNodes = toRenderNodesFn(positions);
           const rEdges = toRenderEdgesFn(positions);
           renderer.render(rNodes, rEdges);
-        },
+        }
       );
     };
 
@@ -271,22 +271,31 @@ export function useHistoryGraphRenderer(
     };
 
     let worker: Worker | null = null;
-    if (typeof Worker !== 'undefined' && !reducedMotion) {
+    if (typeof Worker !== "undefined" && !reducedMotion) {
       try {
+        // Must be a RELATIVE specifier — bundlers don't resolve the `@/` alias
+        // inside `new URL(..., import.meta.url)`, which silently fails to load
+        // the worker and surfaces as an `[object Event]` error overlay.
         worker = new Worker(
-          new URL('@/subjects/knowledge-graph/engine/force-layout.worker.ts', import.meta.url),
+          new URL("../../../knowledge-graph/engine/force-layout.worker.ts", import.meta.url)
         );
-        worker.onmessage = (e: MessageEvent<{ type: string; positions: [string, { x: number; y: number }][] }>) => {
-          if (e.data.type === 'result') {
+        worker.onmessage = (
+          e: MessageEvent<{ type: string; positions: [string, { x: number; y: number }][] }>
+        ) => {
+          if (e.data.type === "result") {
             const positions = new Map(e.data.positions);
             initRenderer(positions);
           }
         };
-        worker.onerror = () => {
+        worker.onerror = (event) => {
+          // Stop the ErrorEvent from bubbling to the global handler (dev overlay
+          // would otherwise render it as `[object Event]`); fall back to sync.
+          event.preventDefault();
+          worker?.terminate();
           runSync();
         };
         worker.postMessage({
-          type: 'run',
+          type: "run",
           nodes: layoutNodes,
           edges: layoutEdges,
         });

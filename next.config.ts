@@ -14,7 +14,9 @@ const csp = [
   "img-src 'self' data: blob: https://cdn.jsdelivr.net",
   "font-src 'self' data: https://fonts.gstatic.com",
   "connect-src 'self' https://api.iconify.design https://api.unisvg.com https://api.simpleicons.org https://vitals.vercel-insights.com https://vitals.vercel-insights.com/v1/",
-  "worker-src 'self'",
+  // Turbopack dev serves bundled web workers from blob: URLs; prod emits them
+  // as same-origin /_next chunks, so blob: is only needed in development.
+  `worker-src 'self'${isProd ? "" : " blob:"}`,
   "manifest-src 'self'",
 ].join("; ");
 

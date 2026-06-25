@@ -185,21 +185,31 @@ export function toRenderEdges(
     .map((edge) => {
       const s = positions.get(edge.source);
       const t = positions.get(edge.target);
+      const sd = nodeDomainMap.get(edge.source);
+      const td = nodeDomainMap.get(edge.target);
+      const crossDomain = sd !== undefined && td !== undefined && sd !== td;
+      // Cross-domain edges are the interdisciplinary "bridges" that make this
+      // graph more than a pile of silos — render them brighter so they pop.
+      const color = crossDomain
+        ? "rgba(216, 180, 110, 0.42)"
+        : edge.type === "cross-reference"
+          ? "rgba(200, 164, 90, 0.2)"
+          : edge.type === "domain-link"
+            ? "rgba(255, 255, 255, 0.12)"
+            : "rgba(255, 255, 255, 0.06)";
       return {
         x1: s?.x ?? 0,
         y1: s?.y ?? 0,
         x2: t?.x ?? 0,
         y2: t?.y ?? 0,
-        color:
-          edge.type === "cross-reference"
-            ? "rgba(200, 164, 90, 0.2)"
-            : edge.type === "domain-link"
-              ? "rgba(255, 255, 255, 0.12)"
-              : "rgba(255, 255, 255, 0.06)",
-        width: edge.type === "cross-reference" || edge.type === "domain-link" ? 1.5 : 0.8,
+        color,
+        width:
+          crossDomain || edge.type === "cross-reference" || edge.type === "domain-link" ? 1.5 : 0.8,
         alpha: 0.6,
         sourceId: edge.source,
         targetId: edge.target,
+        label: edge.label,
+        crossDomain,
       };
     });
 }

@@ -55,8 +55,14 @@ function FeaturedItem({ item }: { item: (typeof FEATURED_CONTENT)[0] }) {
   return (
     <Link
       href={item.href}
-      className="group block h-full rounded-xl border border-white/[0.05] bg-white/[0.02] p-5 no-underline backdrop-blur-lg transition-all duration-300 hover:border-white/[0.1] hover:bg-white/[0.05]"
+      className="lift-card group relative block h-full overflow-hidden rounded-xl border border-white/[0.05] bg-white/[0.02] p-5 pl-6 no-underline backdrop-blur-lg"
+      style={{ "--card-accent": item.domainColor } as React.CSSProperties}
     >
+      <span
+        aria-hidden="true"
+        className="lift-card__stripe absolute inset-y-3 left-0 w-[3px] rounded-full"
+        style={{ background: item.domainColor }}
+      />
       <div className="mb-3 flex items-center gap-2">
         <span className="text-lg" style={{ color: item.domainColor }}>
           {item.icon}

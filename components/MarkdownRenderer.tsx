@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type Katex from "katex";
@@ -24,6 +24,92 @@ function renderKatex(latex: string, displayMode: boolean): string | null {
 }
 
 const MATH_PATTERN = /\$\$[\s\S]*?\$\$|\$[^$\n]*[\\^_{][^$\n]*\$/;
+
+// Hover previews for `[[wiki-links]]`: a reader can see where a link goes —
+// title, one-line gist, and domain — without leaving the page. The ~600KB map
+// is a static asset fetched once on the first hover (never in any bundle).
+type LinkPreview = { t: string; e: string; d: string };
+let previewCache: Record<string, LinkPreview> | null = null;
+let previewPromise: Promise<Record<string, LinkPreview>> | null = null;
+function loadPreviews(): Promise<Record<string, LinkPreview>> {
+  if (previewCache) return Promise.resolve(previewCache);
+  if (!previewPromise) {
+    previewPromise = fetch("/link-previews.json")
+      .then((r) => (r.ok ? r.json() : {}))
+      .then((d: Record<string, LinkPreview>) => (previewCache = d))
+      .catch(() => (previewCache = {}));
+  }
+  return previewPromise;
+}
+
+const DOMAIN_LABEL: Record<string, string> = {
+  philosophy: "哲学",
+  history: "历史",
+  "universe-physics": "宇宙物理",
+  physics: "物理",
+  "life-science": "生命科学",
+  economics: "经济学",
+  psychology: "心理学",
+  "computer-science": "计算机",
+  "political-science": "政治学",
+  cosmology: "宇宙学",
+  mathematics: "数学",
+  "earth-science": "地球科学",
+  medicine: "医学",
+  chemistry: "化学",
+};
+
+function WikiLink({ href, label }: { href: string; label: string }) {
+  const [preview, setPreview] = useState<LinkPreview | null>(null);
+  const [open, setOpen] = useState(false);
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const show = useCallback(() => {
+    if (timer.current) clearTimeout(timer.current);
+    timer.current = setTimeout(() => {
+      void loadPreviews().then((p) => {
+        setPreview(p[href] ?? null);
+        setOpen(true);
+      });
+    }, 200);
+  }, [href]);
+
+  const hide = useCallback(() => {
+    if (timer.current) clearTimeout(timer.current);
+    setOpen(false);
+  }, []);
+
+  return (
+    <span className="relative inline-block" onMouseEnter={show} onMouseLeave={hide}>
+      <Link
+        href={href}
+        onFocus={show}
+        onBlur={hide}
+        className="text-accent-gold font-medium underline decoration-dotted decoration-from-font underline-offset-2 transition-opacity hover:opacity-80"
+      >
+        {label}
+      </Link>
+      {open && preview && (
+        <span
+          role="tooltip"
+          className="border-border-subtle bg-bg-elevated/95 pointer-events-none absolute top-full left-0 z-50 mt-1.5 block w-[min(20rem,80vw)] rounded-xl border p-3 text-left shadow-[0_8px_32px_rgba(0,0,0,0.45)] backdrop-blur-xl"
+        >
+          <span className="mb-1 flex items-center gap-1.5">
+            <span className="bg-bg-panel text-fg-muted rounded px-1.5 py-0.5 text-[10px] font-medium tracking-wide">
+              {DOMAIN_LABEL[preview.d] ?? preview.d}
+            </span>
+            <span className="text-fg-primary text-[13px] leading-tight font-semibold">
+              {preview.t}
+            </span>
+          </span>
+          {preview.e && (
+            <span className="text-fg-secondary block text-[12px] leading-relaxed">{preview.e}</span>
+          )}
+        </span>
+      )}
+    </span>
+  );
+}
 
 function slugify(text: string): string {
   return text
@@ -514,13 +600,7 @@ function renderInline(
       const href = resolveWikiLink(target, domain);
       parts.push(
         href ? (
-          <Link
-            key={key++}
-            href={href}
-            className="text-accent-gold font-medium underline decoration-dotted decoration-from-font underline-offset-2 transition-opacity hover:opacity-80"
-          >
-            {label}
-          </Link>
+          <WikiLink key={key++} href={href} label={label} />
         ) : (
           <span key={key++} className="text-fg-primary font-medium">
             {label}

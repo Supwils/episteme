@@ -49,6 +49,7 @@ import { DomainCard } from "../DomainCard";
 import { AnimatedCounter } from "../AnimatedCounter";
 import { ScrollToTop } from "../ScrollToTop";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
+import { ReadingModeControls } from "@/components/ReadingModeControls";
 import { DeepReading } from "@/subjects/life-science/components/DeepReading";
 import { LifeStats } from "@/subjects/life-science/components/LifeStats";
 
@@ -217,6 +218,21 @@ describe("MarkdownRenderer", () => {
     const { container } = render(<MarkdownRenderer content="---" />);
     const hr = container.querySelector("[aria-hidden]");
     expect(hr).not.toBeNull();
+  });
+});
+
+describe("ReadingModeControls", () => {
+  it("switches the page reading mode", () => {
+    render(<ReadingModeControls />);
+
+    fireEvent.click(screen.getByRole("button", { name: "专注阅读模式" }));
+    expect(document.documentElement.dataset.readingMode).toBe("focus");
+
+    fireEvent.click(screen.getByRole("button", { name: "宽松阅读模式" }));
+    expect(document.documentElement.dataset.readingMode).toBe("spacious");
+
+    fireEvent.click(screen.getByRole("button", { name: "标准阅读模式" }));
+    expect(document.documentElement.dataset.readingMode).toBe("standard");
   });
 });
 

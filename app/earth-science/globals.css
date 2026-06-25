@@ -1,0 +1,9 @@
+@import "../domain-shared.css";
+
+.domain-root {
+  --color-accent-gold: #4f9d76;
+}
+.light .domain-root,
+.domain-root.light {
+  --color-accent-gold: #2f7a59;
+}

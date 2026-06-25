@@ -12,13 +12,16 @@ const KIND_LABEL: Record<SourceRef["kind"], string> = {
 };
 
 export function SourcesList({ sources }: Props) {
+  // Same URL = same source, so collapse duplicates — a repeated reference must
+  // not appear twice, nor collide on its React key.
+  const unique = Array.from(new Map(sources.map((s) => [s.url, s])).values());
   return (
     <section className="border-fg-disabled/25 flex flex-col gap-3 border-t pt-6">
       <h3 className="text-fg-muted font-mono text-[10px] tracking-[0.32em] uppercase">
         sources · 引用
       </h3>
       <ul className="flex flex-col">
-        {sources.map((src) => (
+        {unique.map((src) => (
           <li
             key={src.url}
             className="border-fg-disabled/15 hover:border-fg-secondary/50 ease-product border-b transition-colors duration-200 last:border-b-0"

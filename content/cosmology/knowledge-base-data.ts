@@ -829,4 +829,28 @@ export const COSMOLOGY_KB_DATA = [
     titleEn: "Matter-Antimatter Asymmetry and Baryogenesis",
     category: "宇宙学基础",
   },
+  {
+    slug: "天体生物学--habitable-worlds-observatory",
+    title: "宜居世界天文台：把生命问题变成光谱问题",
+    titleEn: "Habitable Worlds Observatory",
+    category: "天体生物学",
+  },
+  {
+    slug: "天体生物学--ocean-worlds",
+    title: "海洋世界：太阳系内寻找生命的第二条路线",
+    titleEn: "Ocean Worlds",
+    category: "天体生物学",
+  },
+  {
+    slug: "太空探索--moon-to-mars-architecture",
+    title: "月球到火星架构",
+    titleEn: "Moon to Mars Architecture",
+    category: "太空探索",
+  },
+  {
+    slug: "太空探索--space-telescopes-as-time-machines",
+    title: "空间望远镜：把宇宙变成时间机器",
+    titleEn: "Space Telescopes as Time Machines",
+    category: "太空探索",
+  },
 ];

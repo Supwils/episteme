@@ -68,6 +68,57 @@ export default function CosmologyPage() {
 
         <CosmologyVisualizations />
 
+        <section className="mb-16 overflow-hidden rounded-2xl border border-[#3b82f6]/20 bg-[#06111f] p-6 sm:p-8">
+          <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div>
+              <p className="mb-3 text-xs tracking-[0.32em] text-[#7eb8da] uppercase">
+                Mission Layer
+              </p>
+              <h2 className="mb-4 text-2xl font-bold md:text-3xl">从宇宙结构走向可抵达的世界</h2>
+              <p className="max-w-xl text-sm leading-relaxed text-[#a8adbd]">
+                宇宙学不只回答「宇宙如何演化」，也把问题推到更近的尺度：人类如何离开地球，
+                如何在月球与火星建立长期探索能力，又如何在系外行星和冰卫星上寻找生命迹象。
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link
+                  href="/universe-physics/universe/observable"
+                  className="rounded-full bg-[#3b82f6] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#2563eb]"
+                >
+                  进入 3D 宇宙漫游
+                </Link>
+                <Link
+                  href="/cosmology/knowledge-base"
+                  className="rounded-full border border-white/10 px-4 py-2 text-sm text-[#dbeafe] transition-colors hover:bg-white/[0.06]"
+                >
+                  阅读太空探索与天体生物学
+                </Link>
+              </div>
+            </div>
+            <div className="relative min-h-64 rounded-xl border border-white/[0.08] bg-black/30 p-5">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(59,130,246,0.25),transparent_32%),radial-gradient(circle_at_78%_64%,rgba(52,211,153,0.16),transparent_28%)]" />
+              <div className="relative h-56">
+                <div className="absolute top-1/2 left-4 h-px w-[82%] -rotate-12 bg-gradient-to-r from-[#3b82f6] via-[#7dd3fc] to-[#34d399]" />
+                {[
+                  ["地球轨道", "left-[8%] top-[58%]", "#3b82f6"],
+                  ["月球南极", "left-[34%] top-[44%]", "#7dd3fc"],
+                  ["火星转移", "left-[58%] top-[34%]", "#f97316"],
+                  ["宜居世界", "left-[80%] top-[22%]", "#34d399"],
+                ].map(([label, position, color]) => (
+                  <div key={label} className={`absolute ${position}`}>
+                    <span
+                      className="block h-3 w-3 rounded-full shadow-[0_0_24px_currentColor]"
+                      style={{ color, backgroundColor: color }}
+                    />
+                    <span className="mt-2 block font-mono text-[10px] tracking-[0.16em] whitespace-nowrap text-[#cbd5e1] uppercase">
+                      {label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="mb-16">
           <h2 className="mb-6 text-2xl font-bold">探索方式</h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">

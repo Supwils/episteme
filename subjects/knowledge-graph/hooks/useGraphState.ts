@@ -132,6 +132,19 @@ export function useGraphState(nodes: GraphNode[], edges: GraphEdge[], isMobile: 
 
   const adjacency = useMemo(() => buildAdjacency(edges), [edges]);
 
+  // Lookup for the relationship label on the edge between two nodes (both
+  // directions). This is the "why" behind a connection — populated for the
+  // hand-authored edges, empty for auto-generated wiki-reference edges.
+  const edgeLabelMap = useMemo(() => {
+    const map = new Map<string, string>();
+    for (const edge of edges) {
+      if (!edge.label) continue;
+      map.set(`${edge.source}|${edge.target}`, edge.label);
+      map.set(`${edge.target}|${edge.source}`, edge.label);
+    }
+    return map;
+  }, [edges]);
+
   const handlePathFind = useCallback(
     (startId: string, endId: string) => {
       setPathStartId(startId);
@@ -141,6 +154,29 @@ export function useGraphState(nodes: GraphNode[], edges: GraphEdge[], isMobile: 
       setAnimatedPath(path ?? []);
     },
     [adjacency]
+  );
+
+  // Stitch a curated thought tour into one real path by shortest-pathing
+  // between consecutive existing waypoints. Resilient: missing waypoints or
+  // unreachable segments are skipped rather than breaking the whole tour.
+  const handleTourSelect = useCallback(
+    (waypoints: string[]) => {
+      const present = waypoints.filter((id) => nodeMap.has(id));
+      if (present.length < 2) return;
+      const full: string[] = [];
+      for (let i = 0; i < present.length - 1; i++) {
+        const seg = findShortestPath(present[i]!, present[i + 1]!, adjacency);
+        if (!seg) continue;
+        const piece = full.length === 0 ? seg : seg.slice(1);
+        full.push(...piece);
+      }
+      if (full.length < 2) return;
+      setPathStartId(full[0]!);
+      setPathEndId(full[full.length - 1]!);
+      setPathResult(full);
+      setAnimatedPath(full);
+    },
+    [adjacency, nodeMap]
   );
 
   const handlePathClear = useCallback(() => {
@@ -185,20 +221,25 @@ export function useGraphState(nodes: GraphNode[], edges: GraphEdge[], isMobile: 
   }, [selectedNodeId, edges]);
 
   const highlightState = useMemo<HighlightState>(() => {
-    if (!selectedNodeId) {
+    const hasPath = animatedPath.length > 1;
+    if (!selectedNodeId && !hasPath) {
       return { nodeIds: new Set(), edgeKeys: new Set(), pathNodes: [], dimAlpha: 1 };
     }
-    const highlightedNodeIds = getNodesWithinHops(selectedNodeId, 1, adjacency);
+    const highlightedNodeIds = selectedNodeId
+      ? getNodesWithinHops(selectedNodeId, 1, adjacency)
+      : new Set<string>();
     const highlightedEdgeKeys = new Set<string>();
-    for (const edge of edges) {
-      if (
-        (edge.source === selectedNodeId && highlightedNodeIds.has(edge.target)) ||
-        (edge.target === selectedNodeId && highlightedNodeIds.has(edge.source))
-      ) {
-        highlightedEdgeKeys.add(`${edge.source}->${edge.target}`);
+    if (selectedNodeId) {
+      for (const edge of edges) {
+        if (
+          (edge.source === selectedNodeId && highlightedNodeIds.has(edge.target)) ||
+          (edge.target === selectedNodeId && highlightedNodeIds.has(edge.source))
+        ) {
+          highlightedEdgeKeys.add(`${edge.source}->${edge.target}`);
+        }
       }
     }
-    if (animatedPath.length > 1) {
+    if (hasPath) {
       for (let i = 0; i < animatedPath.length - 1; i++) {
         highlightedEdgeKeys.add(`${animatedPath[i]}->${animatedPath[i + 1]}`);
         highlightedEdgeKeys.add(`${animatedPath[i + 1]}->${animatedPath[i]}`);
@@ -364,5 +405,7 @@ export function useGraphState(nodes: GraphNode[], edges: GraphEdge[], isMobile: 
     pathResult,
     handlePathFind,
     handlePathClear,
+    handleTourSelect,
+    edgeLabelMap,
   };
 }

@@ -34,6 +34,10 @@ const CONTENT = join(ROOT, "content");
 const APP = join(ROOT, "app");
 const OUT_LINKS = join(ROOT, "lib", "wiki-link-index.ts");
 const OUT_BACKLINKS = join(ROOT, "lib", "backlinks-index.ts");
+// Static asset, lazy-fetched on first wiki-link hover — never enters any page
+// bundle. Maps an article URL to a compact { t:title, e:excerpt, d:domain }
+// so a reader can preview where a `[[link]]` goes without losing their place.
+const OUT_PREVIEWS = join(ROOT, "public", "link-previews.json");
 
 const isDir = (p: string): boolean => existsSync(p) && statSync(p).isDirectory();
 const isAsciiSlug = (s: string): boolean => /^[a-z][a-z0-9-]*$/.test(s);
@@ -213,6 +217,36 @@ async function emit(file: string, body: string): Promise<void> {
   writeFileSync(file, await prettier.format(body, { parser: "typescript" }));
 }
 
+/** First substantial prose sentence of a body, stripped of markdown, for a
+ *  hover preview. Skips headings, lists, tables, quotes and code. */
+function excerpt(body: string): string {
+  for (const raw of body.split("\n")) {
+    const t = raw.trim();
+    if (!t || /^[#>\-*|`:]/.test(t) || /^\d+\.\s/.test(t)) continue;
+    const s = t
+      .replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, "$2")
+      .replace(/\[\[([^\]]+)\]\]/g, "$1")
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+      .replace(/\*\*([^*]+)\*\*/g, "$1")
+      .replace(/\*([^*]+)\*/g, "$1")
+      .replace(/`([^`]+)`/g, "$1")
+      .replace(/\$\$?([^$]*)\$\$?/g, "$1")
+      .trim();
+    if (s.length < 12) continue;
+    return s.length > 96 ? s.slice(0, 96) + "…" : s;
+  }
+  return "";
+}
+
+function buildPreviews(articles: Article[]): Record<string, { t: string; e: string; d: string }> {
+  const out: Record<string, { t: string; e: string; d: string }> = {};
+  for (const a of articles) {
+    if (out[a.url]) continue;
+    out[a.url] = { t: a.title, e: excerpt(a.body), d: a.domain };
+  }
+  return out;
+}
+
 async function main(): Promise<void> {
   const articles = [...collectFlatArticles(), ...collectKbArticles()];
   const forward = buildForward(articles);
@@ -257,12 +291,16 @@ export function getBacklinks(url: string): Backlink[] {
 `
   );
 
+  const previews = buildPreviews(articles);
+  writeFileSync(OUT_PREVIEWS, JSON.stringify(previews));
+
   const collisions = Object.values(forward).filter((v) => typeof v !== "string").length;
   const targets = Object.keys(backlinks).length;
   const edges = Object.values(backlinks).reduce((n, list) => n + list.length, 0);
   console.log(
     `✅ wiki-links: ${Object.keys(forward).length} slugs (${collisions} multi-domain); ` +
-      `backlinks: ${targets} targets, ${edges} edges`
+      `backlinks: ${targets} targets, ${edges} edges; ` +
+      `previews: ${Object.keys(previews).length} articles`
   );
 }
 

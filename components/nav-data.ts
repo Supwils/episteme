@@ -22,7 +22,10 @@ export const NAV_GROUPS: NavGroup[] = [
     items: [
       { href: "/universe-physics", label: "物理学", en: "Physics", color: "#6366f1" },
       { href: "/cosmology", label: "宇宙学", en: "Cosmology", color: "#3b82f6" },
+      { href: "/earth-science", label: "地球科学", en: "Earth Science", color: "#4f9d76" },
       { href: "/life-science", label: "生命科学", en: "Life Science", color: "#10b981" },
+      { href: "/medicine", label: "医学与公共卫生", en: "Medicine", color: "#d9544d" },
+      { href: "/chemistry", label: "化学", en: "Chemistry", color: "#e08a3c" },
       { href: "/mathematics", label: "数学与逻辑", en: "Mathematics & Logic", color: "#22d3ee" },
       { href: "/computer-science", label: "计算机科学", en: "Computer Science", color: "#4f9cf0" },
     ],

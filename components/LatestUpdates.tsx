@@ -45,8 +45,14 @@ export function LatestUpdates() {
           <motion.div key={update.id} variants={item}>
             <Link
               href={update.href}
-              className="group block rounded-xl border border-white/[0.05] bg-white/[0.02] p-5 no-underline backdrop-blur-lg transition-all duration-300 hover:border-white/[0.1] hover:bg-white/[0.05]"
+              className="lift-card group relative block overflow-hidden rounded-xl border border-white/[0.05] bg-white/[0.02] p-5 pl-6 no-underline backdrop-blur-lg"
+              style={{ "--card-accent": update.domainColor } as React.CSSProperties}
             >
+              <span
+                aria-hidden="true"
+                className="lift-card__stripe absolute inset-y-3 left-0 w-[3px] rounded-full"
+                style={{ background: update.domainColor }}
+              />
               <div className="mb-2.5 flex items-center gap-2">
                 <span
                   className="rounded-full px-2 py-0.5 text-[0.68rem] font-semibold"

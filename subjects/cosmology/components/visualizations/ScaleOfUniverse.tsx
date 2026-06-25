@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useCallback, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useCallback, useMemo, useRef } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
 type ScaleObject = {
   id: string;
@@ -198,7 +198,7 @@ type SliderTrackProps = {
 };
 
 function SliderTrack({ value, onChange }: SliderTrackProps) {
-  const trackRef = useMemo(() => ({ current: null as SVGSVGElement | null }), []);
+  const trackRef = useRef<SVGSVGElement | null>(null);
 
   const handlePointer = useCallback(
     (clientX: number) => {
@@ -208,7 +208,7 @@ function SliderTrack({ value, onChange }: SliderTrackProps) {
       const pct = Math.max(0, Math.min(100, ((clientX - rect.left) / rect.width) * 100));
       onChange(percentToExponent(pct));
     },
-    [onChange, trackRef]
+    [onChange]
   );
 
   const handleMouseDown = useCallback(
@@ -236,9 +236,11 @@ function SliderTrack({ value, onChange }: SliderTrackProps) {
       const onEnd = () => {
         window.removeEventListener("touchmove", onMove);
         window.removeEventListener("touchend", onEnd);
+        window.removeEventListener("touchcancel", onEnd);
       };
       window.addEventListener("touchmove", onMove);
       window.addEventListener("touchend", onEnd);
+      window.addEventListener("touchcancel", onEnd);
     },
     [handlePointer]
   );
@@ -263,6 +265,7 @@ function SliderTrack({ value, onChange }: SliderTrackProps) {
         aria-valuemin={MIN_EXPONENT}
         aria-valuemax={MAX_EXPONENT}
         aria-valuenow={Math.round(value)}
+        aria-valuetext={`${formatExponent(Math.round(value))}，接近${closest.nameCn}`}
         tabIndex={0}
         onKeyDown={(e) => {
           const step = e.shiftKey ? 5 : 1;
@@ -272,6 +275,12 @@ function SliderTrack({ value, onChange }: SliderTrackProps) {
           } else if (e.key === "ArrowLeft" || e.key === "ArrowDown") {
             e.preventDefault();
             onChange(Math.max(MIN_EXPONENT, value - step));
+          } else if (e.key === "Home") {
+            e.preventDefault();
+            onChange(MIN_EXPONENT);
+          } else if (e.key === "End") {
+            e.preventDefault();
+            onChange(MAX_EXPONENT);
           }
         }}
       >
@@ -397,6 +406,7 @@ function DetailCard({ obj, onClose }: DetailCardProps) {
 }
 
 export function ScaleOfUniverse() {
+  const reduceMotion = useReducedMotion();
   const [exponent, setExponent] = useState(0);
   const [selectedObject, setSelectedObject] = useState<ScaleObject | null>(null);
 
@@ -425,7 +435,7 @@ export function ScaleOfUniverse() {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 1.2, opacity: 0 }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
+            transition={{ duration: reduceMotion ? 0 : 0.35, ease: "easeOut" }}
             className="flex cursor-pointer flex-col items-center gap-3"
             onClick={() => setSelectedObject(closest)}
           >
@@ -501,7 +511,7 @@ export function ScaleOfUniverse() {
                       style={{ backgroundColor: obj.color }}
                       initial={{ width: 0 }}
                       animate={{ width: `${Math.max(2, 100 - ratio * 8)}%` }}
-                      transition={{ duration: 0.4 }}
+                      transition={{ duration: reduceMotion ? 0 : 0.4 }}
                     />
                   </div>
                   <span className="w-24 font-mono text-xs text-[#868da0]">

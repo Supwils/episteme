@@ -23,6 +23,10 @@ export type RenderEdge = {
   alpha: number;
   sourceId?: string;
   targetId?: string;
+  /** The relationship label ("why" two ideas connect), if the edge carries one. */
+  label?: string;
+  /** True when the edge bridges two different knowledge domains. */
+  crossDomain?: boolean;
 };
 
 export type RenderConfig = {

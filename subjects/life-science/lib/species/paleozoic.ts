@@ -3,6 +3,8 @@ import type { Species } from "./types";
 export const PALEOZOIC_SPECIES: Species[] = [
   {
     id: "coral",
+    story:
+      "每只珊瑚虫只有米粒大小，却能层层堆叠出地球上最大的生命建筑——大堡礁绵延 2000 多公里，是唯一能从太空肉眼看见的生物结构。",
     name: "珊瑚",
     nameEn: "Coral",
     era: "古生代",
@@ -13,6 +15,8 @@ export const PALEOZOIC_SPECIES: Species[] = [
   },
   {
     id: "nautilus",
+    story:
+      "鹦鹉螺的外壳是一条完美的对数螺线，内部隔成数十个气室，靠调节气体浮沉于深海——这套设计已沿用五亿多年几乎未变。",
     name: "鹦鹉螺",
     nameEn: "Nautilus",
     era: "古生代",
@@ -46,6 +50,8 @@ export const PALEOZOIC_SPECIES: Species[] = [
   },
   {
     id: "coelacanth",
+    story:
+      "学界以为腔棘鱼随恐龙在 6600 万年前一同灭绝，直到 1938 年一条活体在南非渔获中被认出——这被誉为 20 世纪最轰动的动物学发现。",
     name: "腔棘鱼",
     nameEn: "Coelacanth",
     era: "古生代",
@@ -56,6 +62,8 @@ export const PALEOZOIC_SPECIES: Species[] = [
   },
   {
     id: "austColobus",
+    story:
+      "澳洲肺鱼所属的属一亿多年来几乎没有改变，是地球上最古老的脊椎动物属之一，水质恶化时它还能用一片单肺直接呼吸空气。",
     name: "澳洲肺鱼",
     nameEn: "Australian Lungfish",
     era: "古生代",
@@ -66,6 +74,8 @@ export const PALEOZOIC_SPECIES: Species[] = [
   },
   {
     id: "octopus",
+    story:
+      "章鱼约三分之二的神经元不在脑中，而是分散在八条腕里，每条腕几乎能独立感知与决策——相当于身上带着九个互相协作的“大脑”。",
     name: "章鱼",
     nameEn: "Octopus",
     era: "古生代",
@@ -76,6 +86,8 @@ export const PALEOZOIC_SPECIES: Species[] = [
   },
   {
     id: "jaekelopterus",
+    story:
+      "科学家仅凭德国出土的一只 46 厘米长的螯肢化石，便推算出莱茵蝎体长可达 2.5 米——它一度被认定为有史以来最大的节肢动物。",
     name: "莱茵蝎",
     nameEn: "Jaekelopterus",
     era: "古生代",
@@ -86,6 +98,8 @@ export const PALEOZOIC_SPECIES: Species[] = [
   },
   {
     id: "bothriolepis",
+    story:
+      "沟鳞鱼是史上分布最广的盾皮鱼，超过 100 个种的化石几乎遍布每一块大陆，连南极洲也有它的踪迹，胸鳍还包在一对骨质长管里。",
     name: "沟鳞鱼",
     nameEn: "Bothriolepis",
     era: "古生代",
@@ -108,6 +122,8 @@ export const PALEOZOIC_SPECIES: Species[] = [
   },
   {
     id: "ichthyostega",
+    story:
+      "鱼石螈是最早长出四肢的脊椎动物之一，但它其实还不会真正“走路”——桨状的四肢更适合划水，上岸时只能像海豹一样拖着身子蹭行。",
     name: "鱼石螈",
     nameEn: "Ichthyostega",
     era: "古生代",
@@ -118,6 +134,8 @@ export const PALEOZOIC_SPECIES: Species[] = [
   },
   {
     id: "dunkleosteus",
+    story:
+      "邓氏鱼没有真正的牙齿，靠上下颌两对自我磨锐的骨质刃片像断头台一样剪碎猎物，是泥盆纪海洋当之无愧的顶级杀手。",
     name: "邓氏鱼",
     nameEn: "Dunkleosteus",
     era: "古生代",
@@ -128,6 +146,8 @@ export const PALEOZOIC_SPECIES: Species[] = [
   },
   {
     id: "dunkleosteus-terrelli",
+    story:
+      "泰瑞尔邓氏鱼咬合力约 5300 牛顿，是已测得最强的鱼类咬合，可与大型鳄鱼乃至霸王龙相提并论，能瞬间把猎物拦腰咬断。",
     name: "邓氏鱼（泰瑞尔种）",
     nameEn: "Dunkleosteus terrelli",
     era: "古生代",
@@ -138,6 +158,8 @@ export const PALEOZOIC_SPECIES: Species[] = [
   },
   {
     id: "carboniferous-scorpion",
+    story:
+      "石炭纪的肺蝎体长可达 70 厘米，是当时巨型陆地掠食者之一——石炭纪富氧的大气支持了节肢动物的巨型化，让蝎子也能长到如此惊人的尺寸。",
     name: "石炭纪蝎子",
     nameEn: "Carboniferous Scorpion",
     era: "古生代",
@@ -148,6 +170,8 @@ export const PALEOZOIC_SPECIES: Species[] = [
   },
   {
     id: "lepidodendron",
+    story:
+      "鳞木其实不是真正的树，而是一种高达数十米的巨型石松，体内几乎没有木质、全靠软组织支撑，它们倒下堆积成了今天大量的煤炭。",
     name: "鳞木",
     nameEn: "Lepidodendron",
     era: "古生代",
@@ -170,6 +194,8 @@ export const PALEOZOIC_SPECIES: Species[] = [
   },
   {
     id: "arthropleura",
+    story:
+      "节胸蜈蚣是史上最大的陆地无脊椎动物，体长约 2.6 米、体重近 50 公斤，几乎和一辆小汽车一样长，超越海蝎成为这一纪录的保持者。",
     name: "节胸蜈蚣",
     nameEn: "Arthropleura",
     era: "古生代",
@@ -180,6 +206,8 @@ export const PALEOZOIC_SPECIES: Species[] = [
   },
   {
     id: "edaphosaurus",
+    story:
+      "基龙是最早的大型植食性陆生脊椎动物之一，背帆上还长着异齿龙没有的横向小棘——它代表了哺乳类祖先里最早“吃素”的一批先驱。",
     name: "基龙",
     nameEn: "Edaphosaurus",
     era: "古生代",
@@ -190,6 +218,8 @@ export const PALEOZOIC_SPECIES: Species[] = [
   },
   {
     id: "dimetrodon",
+    story:
+      "异齿龙常被误当成恐龙，其实它是更接近哺乳动物的合弓纲，而且早在第一批恐龙登场前约 4000 万年就已灭绝。",
     name: "异齿龙",
     nameEn: "Dimetrodon",
     era: "古生代",
@@ -211,6 +241,8 @@ export const PALEOZOIC_SPECIES: Species[] = [
   },
   {
     id: "gorgonopsid",
+    story:
+      "丽齿兽是地球上最早演化出剑齿的掠食者，犬齿长达十几厘米，称霸二叠纪末，最终随“大灭绝”——史上最惨烈的物种灭绝事件——一同消失。",
     name: "丽齿兽",
     nameEn: "Gorgonopsid",
     era: "古生代",

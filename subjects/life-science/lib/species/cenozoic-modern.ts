@@ -14,6 +14,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "livyatan",
+    story:
+      "利维坦鲸的牙齿长达 36 厘米，是已知动物中最大的咬合牙——比霸王龙的牙还长一倍多，它甚至以其他鲸类为食。",
     name: "利维坦鲸",
     nameEn: "Livyatan",
     era: "新生代",
@@ -24,6 +26,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "terror-bird",
+    story:
+      "恐鹤靠巨大的钩状喙撕咬猎物，其中凯伦肯鹤的头骨长达 71 厘米，是已知最大的鸟类头骨，几乎和马头一样大。",
     name: "恐鹤",
     nameEn: "Terror Bird",
     era: "新生代",
@@ -34,6 +38,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "proconsul",
+    story:
+      "原康修尔猿是非洲发现的第一种化石猿，它的名字意为“在 Consul 之前”——Consul 是 20 世纪初一只会骑车演杂技的著名表演黑猩猩。",
     name: "原康修尔猿",
     nameEn: "Proconsul",
     era: "新生代",
@@ -44,6 +50,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "basilosaurus",
+    story:
+      "龙王鲸的学名意为“帝王蜥蜴”——发现者最初误以为这具蛇形巨骨属于一条远古海洋爬行动物，后来才认出它其实是一头早期鲸。",
     name: "龙王鲸",
     nameEn: "Basilosaurus",
     era: "新生代",
@@ -54,6 +62,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "ambulocetus",
+    story:
+      "游走鲸的学名意为“会走路的鲸”，它有四条能撑地的腿和带蹼的脚，是记录鲸类从陆地走向海洋的关键过渡化石。",
     name: "游走鲸",
     nameEn: "Ambulocetus",
     era: "新生代",
@@ -88,6 +98,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "pangolin",
+    story:
+      "穿山甲是世界上唯一一种全身覆盖鳞片的哺乳动物，鳞片由角蛋白构成（和人的指甲一样），也因此成为全球被走私最多的野生哺乳动物。",
     name: "穿山甲",
     nameEn: "Pangolin",
     era: "新生代",
@@ -110,6 +122,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "sivatherium",
+    story:
+      "西瓦兽是有史以来体型最大的长颈鹿科动物之一，体重可达一吨，却长着鹿一样粗短的脖子和宽大的鹿角状骨突。",
     name: "西瓦兽",
     nameEn: "Sivatherium",
     era: "新生代",
@@ -120,6 +134,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "megatherium",
+    story:
+      "大地懒站起来有大象那么大、重达约 4 吨；达尔文在小猎犬号航行途中亲手挖到它的化石，这正是促使他思考演化的线索之一。",
     name: "大地懒",
     nameEn: "Megatherium",
     era: "新生代",
@@ -130,6 +146,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "glyptodon",
+    story:
+      "雕齿兽是甲壳虫汽车般大小的史前犰狳，背上顶着上千块骨板拼成的圆顶硬壳，有些种类的尾巴还带着布满骨刺的狼牙棒般的尾锤。",
     name: "雕齿兽",
     nameEn: "Glyptodon",
     era: "新生代",
@@ -163,6 +181,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "columbian-mammoth",
+    story:
+      "哥伦比亚猛犸象比披毛的猛犸象更大，肩高近 4 米、象牙可弯曲伸展到约 5 米长，生活在北美较温暖的开阔草原上。",
     name: "哥伦比亚猛犸象",
     nameEn: "Columbian Mammoth",
     era: "第四纪",
@@ -173,6 +193,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "australopithecus",
+    story:
+      "最著名的标本“露西”1974 年在埃塞俄比亚出土，团队当晚反复播放披头士的《Lucy in the Sky with Diamonds》庆祝，名字由此而来。",
     name: "南方古猿",
     nameEn: "Australopithecus",
     era: "第四纪",
@@ -183,6 +205,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "ardipithecus",
+    story:
+      "约 440 万年前的“阿尔迪”脚上还长着像拇指一样能抓握的大脚趾，能直立行走又能攀树，说明人类祖先是在林地里、而非草原上学会直立的。",
     name: "地猿",
     nameEn: "Ardipithecus",
     era: "第四纪",
@@ -193,6 +217,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "woolly-rhinoceros",
+    story:
+      "披毛犀前角扁平如铲，化石上的磨损痕迹显示它会左右摆头、用角扫开积雪去吃下面的草——西伯利亚冻土里还出土过保存完好的木乃伊。",
     name: "披毛犀",
     nameEn: "Woolly Rhinoceros",
     era: "第四纪",
@@ -203,6 +229,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "homo-habilis",
+    story:
+      "能人的学名意为“手巧的人”，正是因为在它的化石旁发现了人类最早的奥杜威石器——最早被命名为“人属”的成员之一。",
     name: "能人",
     nameEn: "Homo Habilis",
     era: "第四纪",
@@ -213,6 +241,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "homo-erectus",
+    story:
+      "直立人是已知最早走出非洲、并最早学会用火的人属，作为一个物种存续了约 170 万年，是迄今最长寿的人类种。",
     name: "直立人",
     nameEn: "Homo Erectus",
     era: "第四纪",
@@ -223,6 +253,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "saber-tooth-cat",
+    story:
+      "洛杉矶拉布雷亚沥青坑里出土的刃齿虎化石超过 16 万件、代表两千多个个体，是世界上最大的剑齿虎标本库。",
     name: "刃齿虎",
     nameEn: "Smilodon fatalis",
     era: "第四纪",
@@ -233,6 +265,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "gigantopithecus",
+    story:
+      "巨猿是有史以来最大的灵长类，身高可达 3 米、体重约 200–300 公斤；它最早是 1935 年从香港一家药铺当作“龙骨”出售的巨大牙齿中被发现的。",
     name: "巨猿",
     nameEn: "Gigantopithecus",
     era: "第四纪",
@@ -255,6 +289,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "cave-bear",
+    story:
+      "洞熊虽体型比棕熊更大，主食却几乎都是植物；瑞士的龙洞一处遗址就出土过三万多具洞熊骨骸，是它们世代越冬留下的。",
     name: "洞熊",
     nameEn: "Cave Bear",
     era: "第四纪",
@@ -277,6 +313,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "homo-floresiensis",
+    story:
+      "弗洛勒斯人身高仅约 1 米，绰号“霍比特人”，是岛屿隔离导致体型缩小的产物；它们在岛上猎捕同样矮化的侏儒象，还要躲避巨型科莫多巨蜥。",
     name: "弗洛勒斯人",
     nameEn: "Homo Floresiensis",
     era: "第四纪",
@@ -287,6 +325,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "irish-elk",
+    story:
+      "大角鹿长着鹿类有史以来最大的角，跨度超过 3.6 米、重达约 40 公斤；这对夸张巨角很可能是雌性择偶的性选择压力一路“吹大”的。",
     name: "大角鹿",
     nameEn: "Irish Elk",
     era: "第四纪",
@@ -297,6 +337,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "homo-sapiens",
+    story:
+      "目前已知最古老的智人化石出土于摩洛哥的杰贝尔伊罗，距今约 30 万年——把我们这个物种的起源时间一下子往前推了约 10 万年。",
     name: "智人",
     nameEn: "Homo Sapiens",
     era: "全新世",
@@ -353,6 +395,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "quagga",
+    story:
+      "斑驴只有前半身有斑马条纹、后半身则是纯棕色；1984 年它成为史上第一种被成功测出 DNA 的灭绝动物，由此开创了古 DNA 研究。",
     name: "斑驴",
     nameEn: "Quagga",
     era: "全新世",
@@ -375,6 +419,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "homo-naledi",
+    story:
+      "纳莱迪人脑容量很小，遗骸却密集出现在南非“新星”洞系极深的暗室里，引发了一场至今未决的争论：它们是否会有意处理同伴的遗体。",
     name: "纳莱迪人",
     nameEn: "Homo Naledi",
     era: "第四纪",
@@ -385,6 +431,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "elasmotherium",
+    story:
+      "板齿犀被称为“西伯利亚独角兽”，额头上可能顶着一根近 1 米长的巨角，而且它一直存活到约 3.9 万年前，曾与早期人类共处一片大陆。",
     name: "板齿犀",
     nameEn: "Elasmotherium",
     era: "第四纪",
@@ -395,6 +443,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "haasts-eagle",
+    story:
+      "哈斯特鹰是已知最大的鹰，利爪长达约 9 厘米、堪比老虎的爪，能俯冲扑杀比自己重得多的恐鸟；随着毛利人猎尽恐鸟，它也在约 1445 年随之灭绝。",
     name: "哈斯特鹰",
     nameEn: "Haast's Eagle",
     era: "全新世",
@@ -405,6 +455,8 @@ export const CENOZOIC_MODERN_SPECIES: Species[] = [
   },
   {
     id: "okapi",
+    story:
+      "霍加狓是长颈鹿在世上唯一的现存近亲，直到 1901 年才被科学界正式认识，被称为“非洲独角兽”；它那条约 30 厘米长的灵活舌头，足以舔到自己的眼睛和耳朵。",
     name: "霍加狓",
     nameEn: "Okapi",
     era: "新生代",

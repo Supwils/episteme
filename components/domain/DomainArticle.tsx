@@ -33,6 +33,24 @@ const INTERACTIVES: Record<string, ComponentType> = {
   "reaction-energy": dynamic(() =>
     import("@/components/diagrams/ReactionEnergyProfile").then((m) => m.ReactionEnergyProfile)
   ),
+  "sorting-visualizer": dynamic(() =>
+    import("@/components/computer-science/SortingVisualizer").then((m) => m.SortingVisualizer)
+  ),
+  "complexity-growth": dynamic(() =>
+    import("@/components/computer-science/ComplexityChart").then((m) => m.ComplexityChart)
+  ),
+  "periodic-table": dynamic(() =>
+    import("@/components/chemistry/PeriodicTable").then((m) => m.PeriodicTable)
+  ),
+  "geologic-time-scale": dynamic(() =>
+    import("@/components/earth-science/GeologicTimeScale").then((m) => m.GeologicTimeScale)
+  ),
+  "epidemic-curve": dynamic(() =>
+    import("@/components/medicine/EpidemicCurve").then((m) => m.EpidemicCurve)
+  ),
+  "graph-traversal": dynamic(() =>
+    import("@/components/computer-science/GraphTraversal").then((m) => m.GraphTraversal)
+  ),
 };
 
 type RelatedLink = { slug: string; href: string; title: string };

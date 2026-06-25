@@ -144,11 +144,6 @@ const content: TierContent = {
       kind: "encyclopedia",
     },
     {
-      label: "Clay · Navier-Stokes Millennium Problem",
-      url: "https://www.claymath.org/millennium/navier-stokes-equation/",
-      kind: "encyclopedia",
-    },
-    {
       label: "Frisch 1995 · Turbulence (Kolmogorov legacy)",
       url: "https://www.cambridge.org/core/books/turbulence/2A55D32FB137F7F44CDF8F4475DC1AE3",
       kind: "encyclopedia",

@@ -29,7 +29,7 @@ related: [muon-g2-self-correction, higgs-englert, dark-matter-direct-detection]
 
 ---
 
-## 第1页 · 破除误解
+## 标准模型不是万物理论——它自己知道自己不完整
 
 **标题："标准模型是'万物理论'"——它是迄今最精确的理论，但它本身知道自己不完整**
 
@@ -39,7 +39,7 @@ related: [muon-g2-self-correction, higgs-englert, dark-matter-direct-detection]
 
 ---
 
-## 第2页 · 现场还原
+## 从"粒子动物园"到SU(3)×SU(2)×U(1)：二十年积木拼出一座大厦
 
 **标题：1960—1974年：从"粒子动物园"到标准模型框架的确立**
 
@@ -57,7 +57,7 @@ related: [muon-g2-self-correction, higgs-englert, dark-matter-direct-detection]
 
 ---
 
-## 第3页 · 结构解释
+## 61种粒子、三种规范对称性与19个无法推导的自由参数
 
 **标题：标准模型的"粒子目录"与规范对称性**
 
@@ -85,7 +85,7 @@ related: [muon-g2-self-correction, higgs-englert, dark-matter-direct-detection]
 
 ---
 
-## 第4页 · 代价与争议
+## 引力、暗物质与中微子质量：标准模型故意留下的三个空位
 
 **标题：缺失的引力、暗物质与中微子质量——标准模型的三大空缺**
 
@@ -97,7 +97,7 @@ related: [muon-g2-self-correction, higgs-englert, dark-matter-direct-detection]
 
 ---
 
-## 第5页 · 长期遗产
+## 十位有效数字的精度，以及渺子g-2如何完成了一次科学自我修正
 
 **标题：精密测试、反常磁矩与超出标准模型新物理的寻迹**
 

@@ -29,15 +29,24 @@ export function DomainCard({ domain, index }: { domain: Domain; index: number })
         } as React.CSSProperties
       }
     >
-      <div className="flex items-center justify-between">
-        <span className="text-fg-muted font-mono text-[10px] tracking-[0.16em] uppercase">
-          DOMAIN {String(index + 1).padStart(2, "0")}
-        </span>
+      <div className="flex items-start justify-between">
         <span
           aria-hidden="true"
-          className="h-[9px] w-[9px] rounded-full"
-          style={{ background: domain.glowColor }}
-        />
+          className="domain-card__icon grid h-12 w-12 place-items-center rounded-[10px] border border-[var(--color-border-faint)]"
+          style={{ background: domain.bgAccent }}
+        >
+          {domain.icon}
+        </span>
+        <div className="flex items-center gap-2 pt-1">
+          <span className="text-fg-muted font-mono text-[10px] tracking-[0.16em] uppercase">
+            DOMAIN {String(index + 1).padStart(2, "0")}
+          </span>
+          <span
+            aria-hidden="true"
+            className="domain-card__dot h-[9px] w-[9px] rounded-full"
+            style={{ background: domain.glowColor }}
+          />
+        </div>
       </div>
 
       <div>
