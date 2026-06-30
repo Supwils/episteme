@@ -1,0 +1,101 @@
+---
+title: 全球大气环流
+title_en: Global Atmospheric Circulation
+status: published
+updated: 2026-06-28
+category: 气候过程
+order: 6
+field: 地球科学 · 大气科学
+tags:
+  - Hadley 环流
+  - Ferrel 环流
+  - 极地环流
+  - 信风
+  - 西风带
+related:
+  - weather-systems
+  - coriolis-effect
+  - el-nino-enso
+  - ocean-surface-circulation
+---
+
+# 全球大气环流
+
+1735 年，英国律师兼气象学家**哈德莱**（George Hadley）盯着一张贸易风地图，问了一个朴素的问题：赤道那么热、极地那么冷，热量怎么从低纬搬到高纬？他画出了第一个答案——一个从赤道上升到副热带再下沉的巨大环流圈。这个模型把大陆漂移和信风都解释错了，但**把"热量必须被搬运"这件事说对了**——今天以他命名的 **Hadley 环流**，仍是理解全球气候的骨架。
+
+大气不是静止的保温毯，而是一台**行星尺度的热机**：赤道吸收净辐射，极地向外太空散失更多——若不做经向（南北向）搬运，赤道会烤焦、极地会冻僵。全球大气环流，就是这台热机的可见形态。
+
+## 破除误解：三圈环流不是三个独立的"传送带"
+
+中学地理常教"哈-费-极"三圈环流，仿佛三个齿轮 neatly 咬合。真实大气比这 messy，但骨架仍有用：
+
+| 环流 cell | 纬度带（约） | 热力学性质 | 主导机制 |
+|----------|-------------|-----------|---------|
+| **Hadley** | 0°–30° | 直接环流（暖处上升） | 赤道加热 + 科里奥利偏转 |
+| **Ferrel** | 30°–60° | 间接环流（暖处下沉） | **中纬度涡旋**（气旋/反气旋） |
+| **Polar** | 60°–90° | 直接环流 | 极地冷却下沉 |
+
+关键修正：**Ferrel 环流不能当作轴对称的闭合圈来理解**。19 世纪费雷尔（William Ferrel）和汤姆森（Lord Kelvin）的"间接 cell"在平均场上存在，但角动量守恒要求它的上支必须穿越等角动量线——这只有靠**涡旋输送**（cyclones/anticyclones）才能实现（Schneider, 2006, *Annu. Rev. Fluid Mech.*）。换句话说，中纬度"环流"的主体不是平滑的经向流，而是 [[weather-systems|锋面气旋]] 组成的风暴带——你在天气图里看到的低压槽，才是 Ferrel cell 的真正"工质"。
+
+Hadley 环流则相对"轴对称"：赤道附近强烈加热，空气上升形成 **ITCZ（热带辐合带）**；在高空向极移动，于副热带（约 20°–35°）下沉，形成副热带高压带——撒哈拉、澳大利亚内陆、墨西哥北部等干旱区，正是这一下沉支抑制成云的结果。
+
+## Hadley 环流：信风、季风与"环流扩张"
+
+近地面，Hadley 环流的返回支形成**信风**——北半球东北信风、南半球东南信风，曾把哥伦布的船队推向美洲。上升支所在的 ITCZ 随太阳直射点季节摆动：北半球夏天 ITCZ 偏北，南亚出现**西南季风**；冬天偏南，澳大利亚北部则受季风控制。
+
+赤道地区科里奥利力 $\propto \sin\varphi$ 在 $\varphi \to 0$ 时趋于零——这就是为什么**热带气旋无法在赤道 5° 以内生成**：即便有 warm 海水，也缺少把涡旋"竖起来"的科里奥利偏转。
+
+21 世纪以来，多个观测数据集与 IPCC 评估指出：**Hadley 环流很可能自 1980 年代以来向两极扩张**（每十年约 0.1°–0.5° 量级，不同指标差异大）。扩张意味着副热带干旱带可能随气候变化向更高纬度延伸——澳大利亚、美国西南部、地中海型气候区的"变干"讨论，都与此挂钩。但"扩张速率"在 reanalysis 与 CMIP 模式间仍有争议：用 500 hPa 流函数零线（PSI500）与用地表西风带（USFC）两种指标，给出的趋势可差近一倍（Grise & Davis, 2020; IPCC AR6）。
+
+## Ferrel 环流与西风急流：天气的"主战场"
+
+30°–60° 是地球上天气最激烈的地带。这里盛行**西风**（westerlies）——不是 because 风"喜欢"向东，而是 because 高空的角动量输送与地表摩擦平衡，使平均风向沿等压线吹。
+
+高空有一条特别强的**西风急流（jet stream）**：风速可达 100 m/s 以上，像一条空中河流，把锋面气旋向东"推"着走。急流的南北摆动（ridge/trough），直接决定某年冬天欧洲是"暖湿"还是"寒潮"——2018 年"野兽来自东方"的欧洲寒潮，就与急流异常南压有关。
+
+Polar cell 规模最小，但在极地形成下沉的**极地高压**和近地面的**极地东风**。极地 cell 与 Hadley cell 之间的交界，就是**极锋（polar front）**——温带气旋沿此生成，是全球中纬度降水的主引擎。
+
+## 角动量：环流背后的守恒律
+
+为什么低纬东风、高纬西风？深层答案是**角动量守恒**。
+
+赤道大气随地球自转，已拥有较大的向东角动量。Hadley 环流把低纬空气带到高纬时，为保持角动量，必须加速向东——这贡献于西风带。反之，极地下沉气流向赤道流动时角动量相对不足，形成东风。
+
+这套逻辑把"风向玫瑰图"从经验归纳，变成了流体方程的推论。它也解释了一个反直觉事实：**西风带不是"风从西边来"，而是"风向东吹，而我们在地面感受到的是相对于旋转地球的方向"**——日常语言里的"西风"，指的是从西向东吹的风。
+
+## 与海气耦合：环流不是孤立的
+
+大气环流与 [[ocean-surface-circulation|表层洋流]] 是耦合系统：
+
+- 信风与西风驱动 Ekman 输送，塑造副热带环流。
+- 洋面温度异常（如 ENSO）改变 ITCZ 位置与 Hadley 强度，反馈到降水带。
+- AMOC 强弱通过北大西洋海温，影响急流路径与欧洲气候——但"湾流一停欧洲就冰封"的简化说法已被过度使用（见 [[thermohaline-circulation]] 中的讨论）。
+
+## 观测、争议与前沿
+
+- **Hadley 扩张是否人为？** CMIP6 模式在 4×CO₂ 强迫下，Hadley 环流边缘平均向极移动约 0.5°–2°，但观测趋势的自然变率太大，尚难把过去四十年扩张完全归因于温室气体（Grise & Polvani, 2014; IPCC AR6 WG1）。
+- **ITCZ 为什么偏北？** 即使对称强迫，ITCZ 也常年位于赤道以北——可能与北大西洋的 deep water formation、安第斯-落基山脉对南半球信风的屏蔽、以及"能量输运向热力学更敏感半球集中"的机制有关。这是热带气候学未完全解决的经典问题。
+- **AI 天气预报**：GraphCast 等模型在 2023 年后中短期预报 skill 上逼近或超越传统物理模式，但它们对**气候态环流变化**（如 Hadley 扩张）的外推能力仍受质疑——物理约束与数据驱动的融合，是大气科学当前最前沿之一（Lam et al., 2023, *Science*）。
+
+## 跨域连接
+
+- **物理**：环流是旋转球体上热对流 + 科里奥利力的组合；与木星大红斑、土星极地六边形一样，属于"行星流体"家族。
+- **化学**：Hadley 下沉支控制的干旱带，是**风化与沉积**格局的边界；ITCZ 位置决定热带雨林与萨赫勒过渡带的纬度。
+- **人类历史**：信风与季风决定了跨洋贸易路线、水稻种植边界与疟疾分布——大气环流是文明的隐形地理。
+- **宇宙学**：系外行星"宜居带"不只算距离，还要问：该行星是否有类似 Hadley 环流的有效热量再分配？潮汐锁定行星可能只有单一环流圈，昼面与夜面温差极端。
+
+---
+
+## 参考文献
+
+- Hadley, G. *Concerning the Cause of the General Trade-Winds.* Philosophical Transactions of the Royal Society 39, 1735.
+- Ferrel, W. *An Essay on the Winds and the Currents of the Ocean.* Nashville Journal of Medicine and Surgery 11, 1856.
+- Schneider, T. *The General Circulation of the Atmosphere.* Annual Review of Fluid Mechanics 38, 2006. doi:10.1146/annurev.fluid.38.050905.092300
+- Grise, K. M. & Davis, S. M. *Hadley Cell Expansion in CMIP6 Models.* Atmospheric Chemistry and Physics 20, 2020. doi:10.5194/acp-20-5249-2020
+- IPCC. *Climate Change 2021: The Physical Science Basis.* AR6 WG1, Chapter 2 & 8. Cambridge University Press, 2021.
+- Lam, R. et al. *Learning Skillful Medium-range Global Weather Forecasting (GraphCast).* Science 382(6677), 2023. doi:10.1126/science.adi2336
+
+## 延伸阅读
+
+- Wallace, J. M. & Hobbs, P. V. *Atmospheric Science: An Introductory Survey.* 2nd ed. Academic Press, 2006.
+- Hartmann, D. L. *Global Physical Climatology.* 2nd ed. Elsevier, 2016.

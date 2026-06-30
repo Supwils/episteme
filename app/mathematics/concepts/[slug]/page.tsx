@@ -5,7 +5,7 @@ import { MATH_FIELD_COLORS } from "@/subjects/mathematics/lib/constants";
 import { MathMarkdownRenderer } from "@/subjects/mathematics/components/MathMarkdownRenderer";
 import { FunctionPlotter } from "@/subjects/mathematics/components/visualizations";
 import { SITE_URL } from "@/lib/constants";
-import { createDefinedTermJsonLd } from "@/lib/jsonld";
+import { serializeJsonLd, createDefinedTermJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
 import GeometryExplorer from "@/subjects/mathematics/components/visualizations/GeometryExplorer";
@@ -73,7 +73,7 @@ export default async function MathConceptDetailPage({
     <div className="w-full px-6 py-12 sm:px-10 lg:px-16">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <Link
         href="/mathematics/concepts"

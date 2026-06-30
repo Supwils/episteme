@@ -11,7 +11,7 @@ import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { TableOfContents } from "@/components/TableOfContents";
 import { ArticleSidebar } from "@/components/ArticleSidebar";
 import { SITE_URL } from "@/lib/constants";
-import { createArticleJsonLd } from "@/lib/jsonld";
+import { serializeJsonLd, createArticleJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
 
@@ -78,7 +78,7 @@ export default async function TimelineEventDetailPage({ params }: Props) {
     <div className="w-full px-6 py-12 sm:px-10 lg:px-16">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <div className="flex flex-col gap-12 lg:flex-row">
         <article className="max-w-[1200px] min-w-0 flex-1">

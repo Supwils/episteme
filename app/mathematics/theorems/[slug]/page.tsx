@@ -4,7 +4,7 @@ import { getTheoremBySlug, getAllTheorems } from "@/subjects/mathematics/lib/the
 import { MATH_FIELD_COLORS, MATH_DIFFICULTY_COLORS } from "@/subjects/mathematics/lib/constants";
 import { MathMarkdownRenderer } from "@/subjects/mathematics/components/MathMarkdownRenderer";
 import { SITE_URL } from "@/lib/constants";
-import { createDefinedTermJsonLd } from "@/lib/jsonld";
+import { serializeJsonLd, createDefinedTermJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
 import { ArticleSidebar } from "@/components/ArticleSidebar";
@@ -67,7 +67,7 @@ export default async function TheoremDetailPage({ params }: { params: Promise<{ 
     <div className="w-full px-6 py-12 sm:px-10 lg:px-16">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <Link
         href="/mathematics/theorems"

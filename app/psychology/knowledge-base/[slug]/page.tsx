@@ -5,7 +5,7 @@ import { ArticleLayout } from "@/components/ArticleLayout";
 import { TableOfContents } from "@/components/TableOfContents";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { SITE_URL } from "@/lib/constants";
-import { createArticleJsonLd } from "@/lib/jsonld";
+import { serializeJsonLd, createArticleJsonLd } from "@/lib/jsonld";
 
 const ACCENT = "#9b7dc4";
 
@@ -61,7 +61,7 @@ export default async function PsychologyKnowledgeBaseDetailPage({
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <ArticleLayout
         backHref="/psychology/knowledge-base"

@@ -7,7 +7,7 @@ import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import type { Scientist } from "@/subjects/life-science/lib/types";
 import { FadeInSection } from "@/components/FadeInSection";
 import { SITE_URL } from "@/lib/constants";
-import { createPersonJsonLd } from "@/lib/jsonld";
+import { serializeJsonLd, createPersonJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
 import { TableOfContents } from "@/components/TableOfContents";
@@ -125,7 +125,7 @@ export default async function ScientistDetailPage({ params }: Props) {
     <div className="w-full px-6 py-12 sm:px-10 lg:px-16">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <div className="flex flex-col gap-12 lg:flex-row">
         <article className="max-w-[1200px] min-w-0 flex-1">

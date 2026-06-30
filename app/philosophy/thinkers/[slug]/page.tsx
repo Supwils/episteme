@@ -9,7 +9,7 @@ import RenderBlocks from "@/components/thinker-detail/RenderBlocks";
 import ThinkerSidebar from "@/components/thinker-detail/ThinkerSidebar";
 import { ArticleSidebar } from "@/components/ArticleSidebar";
 import ThinkerNav from "@/components/thinker-detail/ThinkerNav";
-import { createPersonJsonLd } from "@/lib/jsonld";
+import { serializeJsonLd, createPersonJsonLd } from "@/lib/jsonld";
 
 export function generateStaticParams() {
   return []; // ISR: render on first request + cache; skip build prerender to bound deploy file count
@@ -72,7 +72,7 @@ export default async function ThinkerDetailPage({ params }: { params: Promise<{ 
     <div className="w-full px-6 py-12 sm:px-10 lg:px-16">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(personJsonLd) }}
       />
       <header className="mb-12">
         <Breadcrumb category="thinkers" currentTitle={thinker.title} />

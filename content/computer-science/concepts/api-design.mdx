@@ -2,7 +2,7 @@
 title: API 设计
 title_en: API Design
 status: published
-updated: 2026-06-13
+updated: 2026-06-28
 category: 软件工程实践
 order: 38
 field: 计算机科学 · 软件工程
@@ -71,6 +71,18 @@ DELETE /users/42       → 删除 ID 为 42 的用户
 
 **版本控制**：API 变化时，需要版本化以保持向后兼容。常见方式：URL 路径（`/v1/users`、`/v2/users`）或请求头（`Accept: application/vnd.myapi+json;version=2`）。
 
+### 破除误解：REST ≠ "用 JSON 的 HTTP 接口"
+
+人们口中的"REST API"，绝大多数并不符合 Fielding 的本意。2008 年，Fielding 专门写了一篇博文 *REST APIs must be hypertext-driven*，对"把任何基于 HTTP 的接口都叫 REST"表达了不满。他给出的判据很硬：
+
+> 如果应用状态的引擎（也就是 API）不是由超文本（hypertext）驱动的，那它就不能算 RESTful，也不是 REST API。
+
+换句话说，Fielding 眼中真正的 REST 还有一条常被忽略的约束——**HATEOAS（Hypermedia as the Engine of Application State，超媒体作为应用状态引擎）**：响应里不只返回数据，还要返回"下一步能做什么"的链接，客户端靠这些链接在状态间导航，而不是把 URL 规则硬编码进代码。
+
+Leonard Richardson 在 2008 年提出、经 Martin Fowler 推广的 **Richardson 成熟度模型** 把这条光谱分成四级：Level 0（只把 HTTP 当传输隧道，单一端点）、Level 1（引入资源 URL）、Level 2（正确使用 HTTP 方法与状态码）、Level 3（HATEOAS）。今天业界所谓的"RESTful"，绝大多数停在 Level 2。
+
+这不意味着 Level 2 是错的——它在工程上简单、好用、够好。但要明白：**"REST"在日常语境里已经漂移成"资源风格的 HTTP+JSON 接口"，和 Fielding 论文里的严格定义并不是一回事**。知道这层区别，能让你在读规范、和较真的人讨论时不至于各说各话。
+
 ## GraphQL：查询即接口
 
 **GraphQL** 由 Facebook 在 2012 年内部开发，2015 年开源，提供了一种完全不同的 API 设计思路：
@@ -108,7 +120,9 @@ Facebook、GitHub、Twitter（部分）、Shopify 使用 GraphQL。
 
 ## gRPC：为服务间通信设计
 
-**gRPC**（Google Remote Procedure Call，2016 年开源）：
+RPC（Remote Procedure Call，远程过程调用）的思路比 REST 古老得多：让调用远程服务"看起来像调用本地函数"。这一范式的奠基之作是 Birrell 与 Nelson 1984 年的论文 *Implementing Remote Procedure Calls*，它被 1994 年 ACM 软件系统奖誉为"关于 RPC 的那篇论文"。RPC 长期有一个被反复诟病的陷阱：它假装网络是透明的，而网络其实会延迟、会丢包、会部分失败——这正是"分布式计算的谬误（Fallacies of Distributed Computing）"所警告的。好的 RPC 框架不掩盖这些现实，而是把超时、重试、流控显式暴露出来。
+
+**gRPC**（Google Remote Procedure Call，2015 年 2 月开源；1.0 稳定版于 2016 年 8 月发布）正是现代 RPC 的代表：
 
 面向服务间调用（微服务架构），而非浏览器-服务器通信。特点：
 - 使用 Protocol Buffers（二进制格式，比 JSON 更紧凑高效）定义接口
@@ -129,26 +143,36 @@ gRPC 在微服务内部通信、IoT、移动后端等对性能要求高的场景
 
 **向后兼容（Backward Compatibility）**：新版本 API 应该能处理为旧版本设计的客户端请求。实用原则：对新增字段保守（增加字段安全，删除字段危险）；不改变已有字段的含义；新功能用新端点或可选参数。
 
-**幂等性（Idempotency）**：PUT、DELETE 应该是幂等的——重复调用和单次调用效果相同。这使得客户端在网络失败时可以安全重试。POST 通常不幂等，需要通过幂等键（Idempotency Key）来防止重复创建。
+**幂等性（Idempotency）**：HTTP 的方法语义把两个常被混淆的概念分得很清（RFC 9110）。**安全（safe）** 指方法本质只读、不改变服务器状态——GET、HEAD、OPTIONS 属于此类。**幂等（idempotent）** 指重复调用与单次调用效果相同——GET、HEAD、PUT、DELETE 都是幂等的。两者的关系是：所有安全方法都幂等，但反过来不成立（PUT、DELETE 幂等却不安全，因为它们会改状态）。**POST 和 PATCH 既不安全也不幂等**。幂等性的工程价值在于：客户端在网络失败、不确定请求是否到达时，可以安全重试。对天然不幂等的 POST（如"创建一笔支付"），业界用**幂等键（Idempotency Key）**——客户端生成一个唯一键随请求发送，服务器对同一键只执行一次、后续重试直接返回首次结果（Stripe 的支付 API 即如此）。
+
+**分页（Pagination）**：列表接口不能一次返回全部数据，必须分页。两种主流策略各有取舍。**基于偏移（offset/limit，如 `?page=3&size=20`）** 直观、可跳页，但数据在翻页途中被插入或删除时会漏读或重读，且大 offset 在数据库里要扫过并丢弃前面所有行，越往后越慢。**基于游标（cursor/keyset，如 `?after=<id>`）** 用上一页最后一条记录的稳定排序键作为锚点，避免了上述问题，性能随页码恒定，代价是不能随机跳页。需要稳定、深翻的大数据集（信息流、导出）几乎都选游标分页。
 
 **限流（Rate Limiting）**：保护 API 不被单一客户端过度消耗。常用算法：令牌桶（Token Bucket）、漏桶（Leaky Bucket）、滑动窗口。响应头（`X-RateLimit-Limit`、`X-RateLimit-Remaining`、`Retry-After`）告知客户端限制状态。
 
 **错误信息的设计**：错误响应应该告诉客户端**为什么**失败，以及**如何修复**（如果可能）。好的错误响应包含：HTTP 状态码、机器可读的错误代码（如 `INVALID_EMAIL_FORMAT`）、人类可读的错误消息、指向文档的链接（可选）。
 
-**API 文档（Specification）**：OpenAPI（原 Swagger）是 REST API 的事实标准文档格式，可以自动生成交互式文档（Swagger UI）和客户端 SDK。
+**API 文档（Specification）**：OpenAPI（原 Swagger）是 REST API 的事实标准文档格式，可以自动生成交互式文档（Swagger UI）和客户端 SDK。Swagger 由 Tony Tam 于 2011 年创建并开源；2015 年 11 月，规范在 Linux 基金会下成立的 OpenAPI Initiative（Google、IBM、微软等为创始成员）接手，2016 年初更名为 OpenAPI Specification，2017 年 7 月发布了大幅重构的 OpenAPI 3.0。今天"OpenAPI 是规范、Swagger 是工具集"已成共识。
 
 ## 代价与争议
 
 **REST vs GraphQL vs gRPC 的宗教战争**：三种方式各有生态，没有绝对优劣。REST 最简单、最通用；GraphQL 在数据需求复杂的前端适合；gRPC 在内部服务间高性能调用适合。混合使用（对外 REST/GraphQL，内部 gRPC）是常见方案。
 
-**API 版本化的艰难**：如何演进 API 而不破坏已有客户端，是 API 设计中最困难的长期工程问题。Stripe、Twilio 等公司维护了数十个并行版本的 API，这本身就是巨大的维护负担。
+**Hyrum 定律：你没承诺的，也会被依赖**：API 是永久承诺，但承诺的范围其实比你写进文档的更大。Google 工程师 Hyrum Wright 提出了一条经验定律（经 Titus Winters 命名、收录于《Software Engineering at Google》而流传）：
+
+> 当一个 API 的使用者足够多时，你在契约里承诺了什么已经不重要了——系统所有可观察的行为，都会被某个人依赖上。
+
+这意味着：返回字段的顺序、错误信息的具体措辞、未文档化的响应延迟，哪怕你从没保证过，只要有人观察到并依赖了，改动它就是一次破坏性变更。Hyrum 定律和前文 Bloch 的"最小化暴露"互为表里：Bloch 教你**少暴露**，Hyrum 提醒你**暴露的远比你以为的多**。这也是为什么严肃的 API 要尽早隐藏一切非必要细节——一旦泄漏，就再也收不回来了。
+
+**API 版本化的艰难**：如何演进 API 而不破坏已有客户端，是 API 设计中最困难的长期工程问题。Stripe、Twilio 等公司维护了数十个并行版本的 API，这本身就是巨大的维护负担。Stripe 的做法颇具代表性：版本号以发布日期命名（如 `2020-08-27`），账号在首次调用时被自动"钉"在当时的最新版本上，此后所有请求隐式沿用该版本，除非显式通过 `Stripe-Version` 请求头覆盖或在后台升级。这样 Stripe 可以持续改动新版本对象结构，而老集成"活在它被钉住的那一天"，完全不受影响——把"不破坏已有客户端"这一难题，转化成了可控的、用户自主节奏的迁移。
 
 **API 优先（API-First）设计**：先设计 API（写 OpenAPI 规范），再实现。与先实现后文档化相对。API-First 使得前后端可以并行开发（前端基于规范 mock 数据），但需要在设计阶段做更多决策。
 
 ## 跨域连接
 
 - **[[abstraction]]**：API 是抽象的直接实现——隐藏实现细节，暴露整洁的接口。好的 API 设计是好的抽象设计。
-- **[[networking-protocols]]**：REST 建立在 HTTP 协议之上，HTTP 本身也是一个 API（服务器对客户端的接口）。
+- **[[the-web-and-http]]**：REST 直接建立在 HTTP 的方法、状态码、缓存语义之上；理解 HTTP 本身就是一个 API（服务器对浏览器的接口），是理解 REST 的前提。
+- **[[microservices-architecture]]**：贝索斯备忘录推动的"一切皆服务"正是微服务的雏形；服务间的契约就是 API，gRPC 等正为这种内部通信而生。
+- **[[distributed-systems]]**：RPC 假装网络透明，而分布式系统的核心难题恰恰是网络不可靠——幂等性、重试、超时这些 API 设计决策，本质都是在应对分布式现实。
 - **[[software-engineering]]**：API 设计是软件工程的核心技能，好的 API 是降低系统复杂度的关键。
 - **经济学**：平台经济学（如 Stripe、Twilio 的 API 商业模式）表明，好的 API 可以直接成为产品，而非仅是技术实现细节。
 
@@ -157,7 +181,14 @@ gRPC 在微服务内部通信、IoT、移动后端等对性能要求高的场景
 ## 参考文献
 
 - Fielding, R. *Architectural Styles and the Design of Network-based Software Architectures.* Ph.D. dissertation, UC Irvine, 2000. （REST 的来源）
+- Fielding, R. *REST APIs must be hypertext-driven.* 2008. （https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven ，破除"HTTP+JSON 即 REST"的误解，HATEOAS 约束）
+- Fowler, M. *Richardson Maturity Model.* martinfowler.com, 2010. （REST 成熟度四级模型）
+- Fielding, R., Nottingham, M., & Reschke, J. (Eds.) *RFC 9110: HTTP Semantics.* IETF, 2022. （https://www.rfc-editor.org/rfc/rfc9110 ，safe / idempotent 方法语义的权威定义）
+- Birrell, A. D. & Nelson, B. J. *Implementing Remote Procedure Calls.* ACM Transactions on Computer Systems, 2(1), 1984. （RPC 范式的奠基论文）
+- Winters, T., Manshreck, T., & Wright, H. *Software Engineering at Google.* O'Reilly, 2020. （Hyrum 定律的出处与论述）
 - GraphQL Foundation. *GraphQL Specification.* spec.graphql.org.
+- Google. *Introducing gRPC, a new open source HTTP/2 RPC Framework.* Google Open Source Blog, 2015. （gRPC 开源公告，HTTP/2 + Protocol Buffers）
+- Stripe. *APIs as infrastructure: future-proofing Stripe with versioning.* stripe.com/blog/api-versioning. （日期版本号 + 账号钉版机制）
 
 ## 延伸阅读
 

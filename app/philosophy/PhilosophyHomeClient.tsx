@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion, useInView } from "framer-motion";
+import { serializeJsonLd } from "@/lib/jsonld";
 
 import Link from "next/link";
 import { useRef, useEffect, useState, useCallback } from "react";
@@ -185,7 +186,7 @@ export default function PhilosophyHomeClient() {
     <div className="relative min-h-dvh overflow-hidden">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(collectionJsonLd) }}
       />
       <DotGrid />
       <FloatingSymbols reduce={!!reduce} />

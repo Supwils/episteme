@@ -4,13 +4,14 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 // Mol* (molstar) is a multi-MB WebGL library. To keep it entirely OUT of our
 // webpack bundle (bundle-check caps any single chunk at 285 KB gzip) AND off
-// the initial page load, we (1) load it from a pinned CDN build, and (2) only
-// inject it when the user explicitly clicks "view 3D" on a given molecule.
-// The structures themselves are real, experimentally-determined coordinates
-// from the RCSB Protein Data Bank — accurate, not AI-generated.
-const MOLSTAR_VERSION = "4.9.0";
-const MOLSTAR_JS = `https://cdn.jsdelivr.net/npm/molstar@${MOLSTAR_VERSION}/build/viewer/molstar.js`;
-const MOLSTAR_CSS = `https://cdn.jsdelivr.net/npm/molstar@${MOLSTAR_VERSION}/build/viewer/molstar.css`;
+// the initial page load, we (1) self-host a pinned build under /public, and (2)
+// only inject it when the user explicitly clicks "view 3D" on a given molecule.
+// Self-hosting (rather than a CDN) removes the third-party supply-chain / SRI
+// surface and keeps our same-origin CSP strict. The structures themselves are
+// real, experimentally-determined coordinates from the RCSB Protein Data Bank.
+const MOLSTAR_VERSION = "4.9.0"; // public/vendor/molstar/ — update both together
+const MOLSTAR_JS = "/vendor/molstar/molstar.js";
+const MOLSTAR_CSS = "/vendor/molstar/molstar.css";
 
 // `molstar` is a CDN-injected UMD global with no bundled types; `any` is the
 // honest shape of an untyped runtime global loaded outside the build.
@@ -47,7 +48,7 @@ function loadMolstar(): Promise<MolstarGlobal> {
     };
     script.onerror = () => {
       molstarPromise = null; // allow retry
-      reject(new Error("molstar CDN load failed"));
+      reject(new Error("molstar load failed"));
     };
     document.head.appendChild(script);
   });

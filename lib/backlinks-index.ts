@@ -26,8 +26,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "化学平衡",
     },
     {
+      url: "/chemistry/concepts/buffer-systems",
+      title: "缓冲体系",
+    },
+    {
       url: "/earth-science/concepts/karst-landforms",
       title: "喀斯特地貌",
+    },
+  ],
+  "/chemistry/concepts/analytical-titration": [
+    {
+      url: "/chemistry/concepts/buffer-systems",
+      title: "缓冲体系",
     },
   ],
   "/chemistry/concepts/aromaticity": [
@@ -58,12 +68,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "价键理论与分子轨道理论",
     },
     {
+      url: "/chemistry/concepts/quantum-chemistry",
+      title: "量子化学",
+    },
+    {
       url: "/chemistry/concepts/the-mole",
       title: "摩尔与物质的量",
     },
     {
       url: "/chemistry/concepts/periodic-table",
       title: "元素周期表",
+    },
+    {
+      url: "/chemistry/concepts/mass-spectrometry",
+      title: "质谱法",
     },
   ],
   "/chemistry/concepts/bonding-theory": [
@@ -74,6 +92,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/coordination-chemistry",
       title: "配位化学",
+    },
+    {
+      url: "/chemistry/concepts/organometallic-chemistry",
+      title: "有机金属化学",
     },
   ],
   "/chemistry/concepts/chemical-bond": [
@@ -128,6 +150,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/chemistry/concepts/chemical-equilibrium": [
     {
+      url: "/chemistry/concepts/surface-and-colloid-chemistry",
+      title: "表面与胶体化学",
+    },
+    {
       url: "/chemistry/concepts/reaction-kinetics",
       title: "反应速率",
     },
@@ -138,6 +164,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/analytical-titration",
       title: "化学分析与滴定",
+    },
+    {
+      url: "/chemistry/concepts/buffer-systems",
+      title: "缓冲体系",
     },
     {
       url: "/earth-science/concepts/karst-landforms",
@@ -177,11 +207,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/chemistry/concepts/reaction-mechanisms",
       title: "有机反应机理",
     },
+    {
+      url: "/chemistry/reactions/sn1-sn2-nucleophilic-substitution",
+      title: "SN1 与 SN2 亲核取代",
+    },
   ],
   "/chemistry/concepts/chromatography": [
     {
       url: "/chemistry/concepts/analytical-titration",
       title: "化学分析与滴定",
+    },
+    {
+      url: "/chemistry/concepts/mass-spectrometry",
+      title: "质谱法",
     },
   ],
   "/chemistry/concepts/coordination-chemistry": [
@@ -193,11 +231,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/medicine/concepts/pharmacology",
       title: "药理学基础",
     },
+    {
+      url: "/chemistry/concepts/organometallic-chemistry",
+      title: "有机金属化学",
+    },
   ],
   "/chemistry/concepts/electrochemistry": [
     {
       url: "/chemistry/concepts/reaction-kinetics",
       title: "反应速率",
+    },
+    {
+      url: "/earth-science/concepts/mineral-resources-and-critical-metals",
+      title: "矿产资源与关键金属",
     },
     {
       url: "/earth-science/frontier/deep-sea-hydrothermal-frontiers",
@@ -249,8 +295,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/chemistry/concepts/reaction-mechanisms",
       title: "有机反应机理",
     },
+    {
+      url: "/chemistry/concepts/organometallic-chemistry",
+      title: "有机金属化学",
+    },
   ],
   "/chemistry/concepts/intermolecular-forces": [
+    {
+      url: "/chemistry/concepts/surface-and-colloid-chemistry",
+      title: "表面与胶体化学",
+    },
     {
       url: "/chemistry/substances/proteins-chemistry",
       title: "蛋白质的化学",
@@ -277,6 +331,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/chemistry/concepts/chirality",
       title: "手性与对映异构",
     },
+    {
+      url: "/chemistry/concepts/mass-spectrometry",
+      title: "质谱法",
+    },
+    {
+      url: "/chemistry/reactions/sn1-sn2-nucleophilic-substitution",
+      title: "SN1 与 SN2 亲核取代",
+    },
   ],
   "/chemistry/concepts/nuclear-chemistry": [
     {
@@ -290,6 +352,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/species/deinococcus",
       title: "耐辐射球菌",
+    },
+  ],
+  "/chemistry/concepts/organometallic-chemistry": [
+    {
+      url: "/chemistry/reactions/cross-coupling-reactions",
+      title: "交叉偶联反应",
     },
   ],
   "/chemistry/concepts/periodic-table": [
@@ -339,6 +407,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/chemistry/concepts/reaction-mechanisms",
       title: "有机反应机理",
     },
+    {
+      url: "/chemistry/reactions/sn1-sn2-nucleophilic-substitution",
+      title: "SN1 与 SN2 亲核取代",
+    },
   ],
   "/chemistry/concepts/reaction-mechanisms": [
     {
@@ -348,6 +420,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/drug-development",
       title: "药物研发与临床试验",
+    },
+    {
+      url: "/chemistry/reactions/sn1-sn2-nucleophilic-substitution",
+      title: "SN1 与 SN2 亲核取代",
     },
   ],
   "/chemistry/concepts/redox-reactions": [
@@ -368,6 +444,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "化学键",
     },
     {
+      url: "/earth-science/concepts/mineral-resources-and-critical-metals",
+      title: "矿产资源与关键金属",
+    },
+    {
       url: "/life-science/species/deinococcus",
       title: "耐辐射球菌",
     },
@@ -376,10 +456,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "酸与碱",
     },
   ],
+  "/chemistry/concepts/solutions-and-solubility": [
+    {
+      url: "/chemistry/concepts/surface-and-colloid-chemistry",
+      title: "表面与胶体化学",
+    },
+    {
+      url: "/chemistry/concepts/buffer-systems",
+      title: "缓冲体系",
+    },
+  ],
   "/chemistry/concepts/spectroscopy": [
     {
       url: "/chemistry/concepts/photochemistry",
       title: "光化学",
+    },
+    {
+      url: "/chemistry/concepts/quantum-chemistry",
+      title: "量子化学",
     },
     {
       url: "/chemistry/concepts/coordination-chemistry",
@@ -388,6 +482,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/chromatography",
       title: "色谱分离",
+    },
+    {
+      url: "/chemistry/concepts/mass-spectrometry",
+      title: "质谱法",
+    },
+  ],
+  "/chemistry/concepts/the-mole": [
+    {
+      url: "/chemistry/concepts/buffer-systems",
+      title: "缓冲体系",
+    },
+    {
+      url: "/chemistry/concepts/mass-spectrometry",
+      title: "质谱法",
     },
   ],
   "/chemistry/concepts/thermochemistry": [
@@ -740,6 +848,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/chemistry/reactions/catalysis-reaction": [
     {
+      url: "/chemistry/concepts/surface-and-colloid-chemistry",
+      title: "表面与胶体化学",
+    },
+    {
       url: "/chemistry/reactions/precipitation-reactions",
       title: "沉淀反应",
     },
@@ -756,6 +868,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "格氏反应",
     },
     {
+      url: "/chemistry/reactions/cross-coupling-reactions",
+      title: "交叉偶联反应",
+    },
+    {
       url: "/chemistry/reactions/polymerization",
       title: "聚合反应",
     },
@@ -766,6 +882,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/reactions/organic-synthesis",
       title: "有机合成",
+    },
+    {
+      url: "/chemistry/concepts/organometallic-chemistry",
+      title: "有机金属化学",
     },
   ],
   "/chemistry/reactions/combustion": [
@@ -818,6 +938,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "有机合成",
     },
   ],
+  "/chemistry/reactions/grignard-reaction": [
+    {
+      url: "/chemistry/concepts/organometallic-chemistry",
+      title: "有机金属化学",
+    },
+  ],
   "/chemistry/reactions/organic-synthesis": [
     {
       url: "/chemistry/reactions/catalysis-reaction",
@@ -840,6 +966,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "聚合反应",
     },
     {
+      url: "/chemistry/concepts/polymer-chemistry",
+      title: "聚合物化学",
+    },
+    {
       url: "/medicine/technologies/anesthesia",
       title: "麻醉",
     },
@@ -849,6 +979,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/chemistry/reactions/polymerization": [
+    {
+      url: "/chemistry/concepts/polymer-chemistry",
+      title: "聚合物化学",
+    },
     {
       url: "/chemistry/reactions/organic-synthesis",
       title: "有机合成",
@@ -1014,6 +1148,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "核酸的化学",
     },
     {
+      url: "/chemistry/concepts/buffer-systems",
+      title: "缓冲体系",
+    },
+    {
       url: "/medicine/concepts/immune-system",
       title: "免疫系统",
     },
@@ -1048,6 +1186,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/substances/semiconductors-materials",
       title: "半导体材料",
+    },
+    {
+      url: "/chemistry/concepts/surface-and-colloid-chemistry",
+      title: "表面与胶体化学",
     },
     {
       url: "/chemistry/concepts/intermolecular-forces",
@@ -1620,6 +1762,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "API 设计",
     },
   ],
+  "/computer-science/concepts/api-design": [
+    {
+      url: "/computer-science/concepts/microservices-architecture",
+      title: "微服务架构",
+    },
+  ],
   "/computer-science/concepts/authentication-authorization": [
     {
       url: "/computer-science/concepts/computer-security-principles",
@@ -1652,6 +1800,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/pioneers/leslie-lamport",
       title: "莱斯利·兰波特",
+    },
+  ],
+  "/computer-science/concepts/caching-strategies": [
+    {
+      url: "/computer-science/concepts/load-balancing",
+      title: "负载均衡",
     },
   ],
   "/computer-science/concepts/cloud-computing": [
@@ -1962,6 +2116,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "云计算",
     },
     {
+      url: "/computer-science/concepts/api-design",
+      title: "API 设计",
+    },
+    {
       url: "/computer-science/concepts/dns",
       title: "DNS：互联网的命名系统",
     },
@@ -2141,6 +2299,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/computer-science/concepts/message-queues-and-streaming",
       title: "消息队列与流处理",
     },
+    {
+      url: "/computer-science/concepts/api-design",
+      title: "API 设计",
+    },
   ],
   "/computer-science/concepts/natural-language-processing": [
     {
@@ -2180,10 +2342,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/virtualization",
       title: "虚拟化与容器",
-    },
-    {
-      url: "/computer-science/concepts/api-design",
-      title: "API 设计",
     },
     {
       url: "/computer-science/concepts/dns",
@@ -2342,10 +2500,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "形式化方法与程序验证",
     },
   ],
+  "/computer-science/concepts/tcp-and-reliable-transport": [
+    {
+      url: "/computer-science/concepts/the-web-and-http",
+      title: "万维网与 HTTP",
+    },
+  ],
   "/computer-science/concepts/the-web-and-http": [
     {
       url: "/computer-science/concepts/load-balancing",
       title: "负载均衡",
+    },
+    {
+      url: "/computer-science/concepts/api-design",
+      title: "API 设计",
     },
     {
       url: "/computer-science/concepts/web-security-xss-csrf",
@@ -2408,6 +2576,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/cloud-computing",
       title: "云计算",
+    },
+  ],
+  "/computer-science/concepts/web-security-xss-csrf": [
+    {
+      url: "/computer-science/concepts/the-web-and-http",
+      title: "万维网与 HTTP",
     },
   ],
   "/computer-science/frontier/ai-interpretability": [
@@ -3190,12 +3364,48 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "光化学",
     },
     {
+      url: "/earth-science/processes/marine-biogeochemistry",
+      title: "海洋生物地球化学",
+    },
+    {
+      url: "/earth-science/concepts/environmental-geology",
+      title: "环境地质学",
+    },
+    {
       url: "/life-science/species/mycorrhiza",
       title: "菌根",
     },
     {
+      url: "/earth-science/processes/watershed-hydrology",
+      title: "流域水文",
+    },
+    {
+      url: "/earth-science/processes/climate-modeling",
+      title: "气候建模",
+    },
+    {
       url: "/chemistry/frontier/carbon-capture-chemistry",
       title: '碳捕集与转化：从空气里把二氧化碳"抓"回来，再让它有用',
+    },
+    {
+      url: "/earth-science/concepts/soil-science-and-pedology",
+      title: "土壤学与土壤发生学",
+    },
+    {
+      url: "/earth-science/concepts/remote-sensing-and-gis",
+      title: "遥感与地理信息系统",
+    },
+  ],
+  "/earth-science/concepts/coriolis-effect": [
+    {
+      url: "/earth-science/processes/ocean-surface-circulation",
+      title: "表层洋流与风成环流",
+    },
+  ],
+  "/earth-science/concepts/cryosphere": [
+    {
+      url: "/earth-science/processes/climate-modeling",
+      title: "气候建模",
     },
   ],
   "/earth-science/concepts/earth-interior": [
@@ -3242,6 +3452,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "系外行星宜居性",
     },
   ],
+  "/earth-science/concepts/environmental-geology": [
+    {
+      url: "/chemistry/concepts/polymer-chemistry",
+      title: "聚合物化学",
+    },
+    {
+      url: "/earth-science/concepts/mineral-resources-and-critical-metals",
+      title: "矿产资源与关键金属",
+    },
+  ],
   "/earth-science/concepts/geologic-time-scale": [
     {
       url: "/chemistry/concepts/nuclear-chemistry",
@@ -3254,6 +3474,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/concepts/greenhouse-effect": [
     {
+      url: "/earth-science/concepts/cryosphere",
+      title: "冰冻圈",
+    },
+    {
+      url: "/earth-science/processes/climate-modeling",
+      title: "气候建模",
+    },
+    {
       url: "/chemistry/frontier/carbon-capture-chemistry",
       title: '碳捕集与转化：从空气里把二氧化碳"抓"回来，再让它有用',
     },
@@ -3262,10 +3490,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "宜居带",
     },
   ],
+  "/earth-science/concepts/map-projections": [
+    {
+      url: "/earth-science/concepts/remote-sensing-and-gis",
+      title: "遥感与地理信息系统",
+    },
+  ],
   "/earth-science/concepts/ocean-acidification": [
+    {
+      url: "/earth-science/processes/marine-biogeochemistry",
+      title: "海洋生物地球化学",
+    },
     {
       url: "/chemistry/frontier/carbon-capture-chemistry",
       title: '碳捕集与转化：从空气里把二氧化碳"抓"回来，再让它有用',
+    },
+  ],
+  "/earth-science/concepts/remote-sensing-and-gis": [
+    {
+      url: "/earth-science/concepts/cryosphere",
+      title: "冰冻圈",
     },
   ],
   "/earth-science/concepts/rock-cycle": [
@@ -3273,17 +3517,61 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/earth-science/concepts/geologic-time-scale",
       title: "地质年代表",
     },
+    {
+      url: "/earth-science/concepts/mineral-resources-and-critical-metals",
+      title: "矿产资源与关键金属",
+    },
   ],
   "/earth-science/concepts/thermohaline-circulation": [
     {
+      url: "/earth-science/processes/ocean-surface-circulation",
+      title: "表层洋流与风成环流",
+    },
+    {
+      url: "/earth-science/concepts/cryosphere",
+      title: "冰冻圈",
+    },
+    {
       url: "/earth-science/processes/coastal-processes",
       title: "海岸过程",
+    },
+    {
+      url: "/earth-science/processes/marine-biogeochemistry",
+      title: "海洋生物地球化学",
+    },
+    {
+      url: "/earth-science/processes/climate-modeling",
+      title: "气候建模",
+    },
+    {
+      url: "/earth-science/processes/global-atmospheric-circulation",
+      title: "全球大气环流",
     },
   ],
   "/earth-science/concepts/water-cycle": [
     {
       url: "/earth-science/processes/groundwater-aquifers",
       title: "地下水与含水层",
+    },
+    {
+      url: "/earth-science/processes/marine-biogeochemistry",
+      title: "海洋生物地球化学",
+    },
+    {
+      url: "/earth-science/concepts/environmental-geology",
+      title: "环境地质学",
+    },
+    {
+      url: "/earth-science/processes/watershed-hydrology",
+      title: "流域水文",
+    },
+    {
+      url: "/earth-science/concepts/soil-science-and-pedology",
+      title: "土壤学与土壤发生学",
+    },
+    {
+      url: "/earth-science/concepts/remote-sensing-and-gis",
+      title: "遥感与地理信息系统",
     },
   ],
   "/earth-science/events/chicxulub-impact": [
@@ -3444,10 +3732,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "尤妮斯·富特",
     },
   ],
+  "/earth-science/processes/climate-modeling": [
+    {
+      url: "/earth-science/concepts/cryosphere",
+      title: "冰冻圈",
+    },
+  ],
   "/earth-science/processes/earthquakes": [
     {
       url: "/earth-science/processes/plate-tectonics",
       title: "板块构造",
+    },
+    {
+      url: "/earth-science/concepts/environmental-geology",
+      title: "环境地质学",
     },
     {
       url: "/earth-science/processes/volcanism",
@@ -3458,11 +3756,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "侵蚀与沉积",
     },
     {
+      url: "/earth-science/concepts/remote-sensing-and-gis",
+      title: "遥感与地理信息系统",
+    },
+    {
       url: "/earth-science/processes/orogeny-mountain-building",
       title: "造山运动",
     },
   ],
   "/earth-science/processes/el-nino-enso": [
+    {
+      url: "/earth-science/processes/ocean-surface-circulation",
+      title: "表层洋流与风成环流",
+    },
     {
       url: "/earth-science/processes/weather-systems",
       title: "天气系统",
@@ -3490,14 +3796,88 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "块体运动与滑坡",
     },
     {
+      url: "/earth-science/processes/watershed-hydrology",
+      title: "流域水文",
+    },
+    {
+      url: "/earth-science/concepts/soil-science-and-pedology",
+      title: "土壤学与土壤发生学",
+    },
+    {
       url: "/earth-science/processes/orogeny-mountain-building",
       title: "造山运动",
+    },
+  ],
+  "/earth-science/processes/fluvial-processes": [
+    {
+      url: "/earth-science/processes/watershed-hydrology",
+      title: "流域水文",
+    },
+    {
+      url: "/earth-science/concepts/soil-science-and-pedology",
+      title: "土壤学与土壤发生学",
     },
   ],
   "/earth-science/processes/glaciation-ice-ages": [
     {
       url: "/earth-science/processes/orogeny-mountain-building",
       title: "造山运动",
+    },
+  ],
+  "/earth-science/processes/global-atmospheric-circulation": [
+    {
+      url: "/earth-science/processes/marine-biogeochemistry",
+      title: "海洋生物地球化学",
+    },
+    {
+      url: "/earth-science/processes/watershed-hydrology",
+      title: "流域水文",
+    },
+    {
+      url: "/earth-science/processes/climate-modeling",
+      title: "气候建模",
+    },
+    {
+      url: "/earth-science/concepts/soil-science-and-pedology",
+      title: "土壤学与土壤发生学",
+    },
+    {
+      url: "/earth-science/concepts/remote-sensing-and-gis",
+      title: "遥感与地理信息系统",
+    },
+  ],
+  "/earth-science/processes/groundwater-aquifers": [
+    {
+      url: "/earth-science/concepts/environmental-geology",
+      title: "环境地质学",
+    },
+    {
+      url: "/earth-science/processes/watershed-hydrology",
+      title: "流域水文",
+    },
+  ],
+  "/earth-science/processes/mass-wasting": [
+    {
+      url: "/earth-science/concepts/environmental-geology",
+      title: "环境地质学",
+    },
+  ],
+  "/earth-science/processes/ocean-surface-circulation": [
+    {
+      url: "/earth-science/processes/marine-biogeochemistry",
+      title: "海洋生物地球化学",
+    },
+    {
+      url: "/earth-science/processes/watershed-hydrology",
+      title: "流域水文",
+    },
+    {
+      url: "/earth-science/processes/global-atmospheric-circulation",
+      title: "全球大气环流",
+    },
+    {
+      url: "/earth-science/concepts/remote-sensing-and-gis",
+      title: "遥感与地理信息系统",
     },
   ],
   "/earth-science/processes/orogeny-mountain-building": [
@@ -3532,24 +3912,48 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "哈里·赫斯",
     },
     {
+      url: "/earth-science/processes/marine-biogeochemistry",
+      title: "海洋生物地球化学",
+    },
+    {
       url: "/chemistry/concepts/nuclear-chemistry",
       title: "核化学与放射化学",
+    },
+    {
+      url: "/earth-science/concepts/environmental-geology",
+      title: "环境地质学",
     },
     {
       url: "/earth-science/processes/volcanism",
       title: "火山作用",
     },
     {
+      url: "/earth-science/concepts/mineral-resources-and-critical-metals",
+      title: "矿产资源与关键金属",
+    },
+    {
       url: "/cosmology/knowledge-base/太阳系--terrestrial-planets",
       title: "类地行星",
+    },
+    {
+      url: "/earth-science/processes/watershed-hydrology",
+      title: "流域水文",
     },
     {
       url: "/earth-science/processes/erosion-deposition",
       title: "侵蚀与沉积",
     },
     {
+      url: "/earth-science/concepts/soil-science-and-pedology",
+      title: "土壤学与土壤发生学",
+    },
+    {
       url: "/cosmology/knowledge-base/系外行星--系外行星宜居性",
       title: "系外行星宜居性",
+    },
+    {
+      url: "/earth-science/concepts/remote-sensing-and-gis",
+      title: "遥感与地理信息系统",
     },
     {
       url: "/earth-science/processes/orogeny-mountain-building",
@@ -3566,14 +3970,40 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "人类起源",
     },
     {
+      url: "/earth-science/concepts/remote-sensing-and-gis",
+      title: "遥感与地理信息系统",
+    },
+    {
       url: "/earth-science/processes/orogeny-mountain-building",
       title: "造山运动",
     },
   ],
+  "/earth-science/processes/watershed-hydrology": [
+    {
+      url: "/earth-science/concepts/soil-science-and-pedology",
+      title: "土壤学与土壤发生学",
+    },
+    {
+      url: "/earth-science/concepts/remote-sensing-and-gis",
+      title: "遥感与地理信息系统",
+    },
+  ],
   "/earth-science/processes/weather-systems": [
+    {
+      url: "/earth-science/processes/ocean-surface-circulation",
+      title: "表层洋流与风成环流",
+    },
     {
       url: "/earth-science/processes/el-nino-enso",
       title: "厄尔尼诺与 ENSO",
+    },
+    {
+      url: "/earth-science/processes/watershed-hydrology",
+      title: "流域水文",
+    },
+    {
+      url: "/earth-science/processes/global-atmospheric-circulation",
+      title: "全球大气环流",
     },
   ],
   "/earth-science/processes/weathering-soil": [
@@ -3586,12 +4016,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "海岸过程",
     },
     {
+      url: "/earth-science/concepts/environmental-geology",
+      title: "环境地质学",
+    },
+    {
       url: "/earth-science/processes/mass-wasting",
       title: "块体运动与滑坡",
     },
     {
+      url: "/earth-science/processes/watershed-hydrology",
+      title: "流域水文",
+    },
+    {
       url: "/earth-science/processes/erosion-deposition",
       title: "侵蚀与沉积",
+    },
+    {
+      url: "/earth-science/concepts/soil-science-and-pedology",
+      title: "土壤学与土壤发生学",
+    },
+    {
+      url: "/earth-science/concepts/remote-sensing-and-gis",
+      title: "遥感与地理信息系统",
     },
     {
       url: "/earth-science/processes/orogeny-mountain-building",
@@ -4930,6 +5376,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "米尔扎哈尼",
     },
     {
+      url: "/mathematics/mathematicians/sophie-germain",
+      title: "索菲·热尔曼",
+    },
+    {
       url: "/mathematics/concepts/homology-cohomology",
       title: "同调与上同调",
     },
@@ -5294,6 +5744,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "败血症（脓毒症）",
     },
     {
+      url: "/medicine/concepts/respiratory-system",
+      title: "呼吸系统",
+    },
+    {
       url: "/life-science/knowledge-base/医学--抗生素",
       title: "抗生素：从青霉素奇迹到耐药性危机",
     },
@@ -5308,6 +5762,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/vaccination",
       title: "疫苗原理",
+    },
+  ],
+  "/medicine/concepts/cardiovascular-system": [
+    {
+      url: "/medicine/concepts/pathology",
+      title: "病理学",
+    },
+    {
+      url: "/medicine/concepts/respiratory-system",
+      title: "呼吸系统",
+    },
+    {
+      url: "/medicine/concepts/musculoskeletal-system",
+      title: "肌肉骨骼系统",
+    },
+    {
+      url: "/medicine/concepts/renal-physiology",
+      title: "肾脏生理",
+    },
+    {
+      url: "/medicine/concepts/hematology",
+      title: "血液学",
     },
   ],
   "/medicine/concepts/drug-development": [
@@ -5338,22 +5814,58 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "肥胖",
     },
     {
+      url: "/medicine/concepts/musculoskeletal-system",
+      title: "肌肉骨骼系统",
+    },
+    {
       url: "/medicine/concepts/nervous-system",
       title: "神经系统",
+    },
+    {
+      url: "/medicine/concepts/renal-physiology",
+      title: "肾脏生理",
+    },
+    {
+      url: "/medicine/concepts/reproductive-system",
+      title: "生殖系统",
+    },
+    {
+      url: "/medicine/concepts/digestive-system",
+      title: "消化系统",
     },
   ],
   "/medicine/concepts/epidemiology": [
     {
+      url: "/medicine/concepts/pathology",
+      title: "病理学",
+    },
+    {
       url: "/medicine/concepts/public-health",
       title: "公共卫生",
+    },
+    {
+      url: "/medicine/concepts/respiratory-system",
+      title: "呼吸系统",
     },
     {
       url: "/medicine/concepts/antibiotic-resistance",
       title: "抗生素耐药性",
     },
     {
+      url: "/medicine/concepts/clinical-diagnosis",
+      title: "临床诊断",
+    },
+    {
       url: "/medicine/concepts/germ-theory",
       title: "细菌致病论",
+    },
+    {
+      url: "/medicine/concepts/digestive-system",
+      title: "消化系统",
+    },
+    {
+      url: "/medicine/concepts/cardiovascular-system",
+      title: "心血管系统",
     },
     {
       url: "/medicine/concepts/evidence-based-medicine",
@@ -5378,6 +5890,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "公共卫生",
     },
     {
+      url: "/medicine/concepts/clinical-diagnosis",
+      title: "临床诊断",
+    },
+    {
       url: "/medicine/concepts/epidemiology",
       title: "流行病学",
     },
@@ -5388,6 +5904,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/figures/jonas-salk",
       title: "乔纳斯·萨尔克",
+    },
+    {
+      url: "/medicine/concepts/reproductive-system",
+      title: "生殖系统",
     },
     {
       url: "/medicine/concepts/humoral-theory",
@@ -5407,6 +5927,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/medicine/concepts/germ-theory": [
+    {
+      url: "/medicine/concepts/pathology",
+      title: "病理学",
+    },
     {
       url: "/medicine/concepts/antibiotic-resistance",
       title: "抗生素耐药性",
@@ -5428,11 +5952,33 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "微生物组与健康",
     },
     {
+      url: "/medicine/concepts/digestive-system",
+      title: "消化系统",
+    },
+    {
       url: "/medicine/concepts/inflammation",
       title: "炎症",
     },
   ],
+  "/medicine/concepts/hematology": [
+    {
+      url: "/medicine/concepts/renal-physiology",
+      title: "肾脏生理",
+    },
+  ],
   "/medicine/concepts/homeostasis": [
+    {
+      url: "/medicine/concepts/pathology",
+      title: "病理学",
+    },
+    {
+      url: "/medicine/concepts/respiratory-system",
+      title: "呼吸系统",
+    },
+    {
+      url: "/medicine/concepts/musculoskeletal-system",
+      title: "肌肉骨骼系统",
+    },
     {
       url: "/medicine/diseases/anxiety-disorders",
       title: "焦虑障碍",
@@ -5446,12 +5992,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "帕金森病",
     },
     {
+      url: "/medicine/concepts/renal-physiology",
+      title: "肾脏生理",
+    },
+    {
       url: "/medicine/concepts/pain-and-analgesia",
       title: "疼痛与镇痛",
     },
     {
       url: "/medicine/concepts/humoral-theory",
       title: "体液学说",
+    },
+    {
+      url: "/medicine/concepts/digestive-system",
+      title: "消化系统",
+    },
+    {
+      url: "/medicine/concepts/cardiovascular-system",
+      title: "心血管系统",
+    },
+    {
+      url: "/medicine/concepts/hematology",
+      title: "血液学",
     },
     {
       url: "/medicine/concepts/inflammation",
@@ -5463,6 +6025,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/medicine/concepts/humoral-theory": [
+    {
+      url: "/medicine/concepts/pathology",
+      title: "病理学",
+    },
     {
       url: "/human-history/knowledge/中世纪--黑死病",
       title: "黑死病",
@@ -5486,6 +6052,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "败血症（脓毒症）",
     },
     {
+      url: "/medicine/concepts/pathology",
+      title: "病理学",
+    },
+    {
+      url: "/medicine/concepts/respiratory-system",
+      title: "呼吸系统",
+    },
+    {
       url: "/medicine/concepts/antibiotic-resistance",
       title: "抗生素耐药性",
     },
@@ -5502,6 +6076,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "乔纳斯·萨尔克",
     },
     {
+      url: "/medicine/concepts/renal-physiology",
+      title: "肾脏生理",
+    },
+    {
       url: "/medicine/technologies/blood-transfusion",
       title: "输血",
     },
@@ -5510,8 +6088,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "微生物组与健康",
     },
     {
+      url: "/medicine/concepts/digestive-system",
+      title: "消化系统",
+    },
+    {
       url: "/medicine/diseases/asthma-and-copd",
       title: "哮喘与慢阻肺",
+    },
+    {
+      url: "/medicine/concepts/hematology",
+      title: "血液学",
     },
     {
       url: "/medicine/concepts/inflammation",
@@ -5536,6 +6122,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "败血症（脓毒症）",
     },
     {
+      url: "/medicine/concepts/pathology",
+      title: "病理学",
+    },
+    {
+      url: "/medicine/concepts/respiratory-system",
+      title: "呼吸系统",
+    },
+    {
+      url: "/medicine/concepts/musculoskeletal-system",
+      title: "肌肉骨骼系统",
+    },
+    {
       url: "/medicine/diseases/anxiety-disorders",
       title: "焦虑障碍",
     },
@@ -5552,6 +6150,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "帕金森病",
     },
     {
+      url: "/medicine/concepts/renal-physiology",
+      title: "肾脏生理",
+    },
+    {
       url: "/medicine/concepts/pain-and-analgesia",
       title: "疼痛与镇痛",
     },
@@ -5560,8 +6162,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "微生物组与健康",
     },
     {
+      url: "/medicine/concepts/digestive-system",
+      title: "消化系统",
+    },
+    {
       url: "/medicine/diseases/asthma-and-copd",
       title: "哮喘与慢阻肺",
+    },
+    {
+      url: "/medicine/concepts/cardiovascular-system",
+      title: "心血管系统",
+    },
+    {
+      url: "/medicine/concepts/hematology",
+      title: "血液学",
     },
     {
       url: "/medicine/diseases/depression",
@@ -5578,6 +6192,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "精神分裂症",
     },
     {
+      url: "/medicine/concepts/reproductive-system",
+      title: "生殖系统",
+    },
+    {
       url: "/medicine/concepts/pain-and-analgesia",
       title: "疼痛与镇痛",
     },
@@ -5590,6 +6208,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/人体--微生物组",
       title: "微生物组：肠道菌群与人体共生",
+    },
+    {
+      url: "/medicine/concepts/digestive-system",
+      title: "消化系统",
     },
   ],
   "/medicine/concepts/nervous-system": [
@@ -5606,6 +6228,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "神经可塑性",
     },
     {
+      url: "/medicine/concepts/digestive-system",
+      title: "消化系统",
+    },
+    {
       url: "/medicine/diseases/stroke",
       title: "中风（脑卒中）",
     },
@@ -5614,6 +6240,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/nervous-system",
       title: "神经系统",
+    },
+  ],
+  "/medicine/concepts/pathology": [
+    {
+      url: "/medicine/concepts/clinical-diagnosis",
+      title: "临床诊断",
     },
   ],
   "/medicine/concepts/pharmacology": [
@@ -5640,6 +6272,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "抗生素：从青霉素奇迹到耐药性危机",
     },
     {
+      url: "/medicine/concepts/clinical-diagnosis",
+      title: "临床诊断",
+    },
+    {
       url: "/human-history/knowledge/人物--毛泽东",
       title: "毛泽东",
     },
@@ -5648,8 +6284,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "乔纳斯·萨尔克",
     },
     {
+      url: "/medicine/concepts/reproductive-system",
+      title: "生殖系统",
+    },
+    {
       url: "/medicine/diseases/stroke",
       title: "中风（脑卒中）",
+    },
+  ],
+  "/medicine/concepts/renal-physiology": [
+    {
+      url: "/medicine/concepts/hematology",
+      title: "血液学",
     },
   ],
   "/medicine/concepts/vaccination": [
@@ -7436,6 +8082,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "社会运动与集体行动",
     },
   ],
+  "/political-science/concepts/deliberative-democracy": [
+    {
+      url: "/political-science/concepts/social-movements",
+      title: "社会运动与集体行动",
+    },
+  ],
   "/political-science/concepts/democracy": [
     {
       url: "/political-science/thinkers/amartya-sen",
@@ -7542,6 +8194,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/frontier/populism-polarization",
       title: "民粹主义与政治极化的成因之争",
+    },
+  ],
+  "/political-science/concepts/social-movements": [
+    {
+      url: "/political-science/concepts/deliberative-democracy",
+      title: "协商民主",
     },
   ],
   "/political-science/concepts/sovereignty": [

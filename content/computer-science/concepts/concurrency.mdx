@@ -2,7 +2,7 @@
 title: 并发与并行
 title_en: Concurrency and Parallelism
 status: published
-updated: 2026-06-13
+updated: 2026-06-28
 category: 系统与架构
 order: 4
 field: 计算机科学 · 操作系统 · 分布式系统
@@ -26,6 +26,8 @@ related:
 2004 年，Intel 宣布放弃 4GHz 的 Pentium 4 计划，转向多核处理器。不是因为不想更快，而是因为功耗和散热的物理极限已经到来。从那时起，计算机的性能提升主要来自"更多核心"，而不是"更快的单核"。
 
 这意味着，不理解并发与并行的程序员，写出的程序只能用到处理器能力的一小部分。
+
+2005 年 3 月，C++ 专家 Herb Sutter 在《Dr. Dobb's Journal》发表《免费午餐结束了》（The Free Lunch Is Over），给这件事起了一个流传至今的名字。他的论点很直接：过去几十年程序员什么都不用做，光靠新一代 CPU 主频提升，软件每年就自动变快——这是"免费午餐"。如今主频被功耗墙锁死，免费午餐结束；想吃到多核的红利，就必须主动写并发程序。Sutter 称这是面向对象革命以来软件开发最大的一次范式转变。
 
 ## 破除误解：并发不等于并行
 
@@ -72,6 +74,10 @@ with lock:
     count = count + 1  # 这段代码每次只有一个线程执行
 ```
 
+互斥锁其实是更一般机制的特例。1965 年，Dijkstra 在手稿 EWD123《协作的顺序进程》（Cooperating Sequential Processes，1968 年正式发表）中提出了**信号量（semaphore）**——历史上第一个进程同步原语。信号量是一个带两个原子操作的计数器：P（申请，计数减一，为零则阻塞）和 V（释放，计数加一）。当计数上限为 1 时，信号量退化成互斥锁；上限大于 1 时，它可以限制同时进入临界区的线程数（例如"最多 10 个数据库连接"）。
+
+**破除一个常见混淆：数据竞争（data race）不等于竞态条件（race condition）。** 数据竞争是一种具体的执行性质——多个线程无同步地访问同一内存且至少一个在写。竞态条件更抽象——程序结果依赖事件的相对时序。两者可以各自独立出现：你可能用锁消除了所有数据竞争，却因为加锁的粒度或顺序设计错了，仍然得到错误结果（竞态条件）；反过来，某些刻意设计的无锁算法存在数据竞争却逻辑正确。一句话：**"加了锁"不等于"并发正确"。**
+
 ## 死锁：锁带来的锁
 
 锁引入了新的风险：**死锁（Deadlock）**。
@@ -90,6 +96,22 @@ with lock:
 
 破坏任何一个条件，死锁就不会发生。常见策略：规定所有线程必须按固定顺序请求锁（破坏循环等待）。
 
+**哲学家就餐问题**是死锁最经典的隐喻，同样出自 Dijkstra（1965 年作为考试题提出，后被改写成五位哲学家围桌的形象）。相邻两人之间只有一只叉子，每人要同时拿起左右两只叉子才能进餐。如果所有人都先拿起左手的叉子、再去等右手那只，就会全体卡死——恰好凑齐上面四个条件。它还顺带演示了另一个并发陷阱：**饥饿（starvation）**——即使没有死锁，某个哲学家也可能因为邻座总抢先而永远吃不上饭。
+
+## 锁的隐性代价：优先级反转
+
+死锁不是锁唯一的麻烦。**优先级反转（priority inversion）**更隐蔽：一个低优先级线程持有锁，恰好被一个中优先级线程抢占了 CPU，于是真正需要这把锁的高优先级线程只能干等——优先级的语义被彻底颠倒。
+
+这不是教科书里的假想。1997 年，火星探路者号（Mars Pathfinder）登陆火星后频繁自动重启，险些葬送任务。事后查明：一个高优先级的总线管理任务和一个低优先级的气象数据任务共享同一个 mutex，而这个 mutex 在 VxWorks 系统里关掉了**优先级继承（priority inheritance）**。当低优先级任务持锁、又被中优先级任务长期抢占时，高优先级任务超时，看门狗就重启了系统。修复办法是远程打开那个 mutex 的优先级继承标志——让持锁的低优先级任务临时"借用"高优先级，尽快把锁还回去。
+
+教训是：锁不只关乎正确性，还和调度纠缠在一起。这也解释了为什么实时系统对锁格外谨慎。
+
+## 不用锁：原子操作与无锁编程
+
+既然锁这么麻烦，能不能不用？现代 CPU 提供了**原子指令**，最核心的是 CAS（Compare-And-Swap，比较并交换）：硬件保证"读取某地址的值，若等于期望值就写入新值"这一整步不可分割。基于 CAS 可以构造**无锁（lock-free）**数据结构——线程不阻塞，操作失败就重试。
+
+无锁不是免费的午餐。权衡很清晰：争用低时，无锁结构省掉了加锁与上下文切换的开销，吞吐更高、延迟更稳，还天然免疫死锁；但争用高时，大量线程的 CAS 不断失败重试，CPU 空转做无用功，反而可能比锁更慢，也容易让个别线程长期重试不成（活锁、饥饿）。而且无锁算法极难写对——ABA 问题、内存何时安全回收都是出名的坑。结论和并发的其他部分一样：没有银弹，只有针对争用程度与延迟要求的取舍。
+
 ## 并发模型的演化
 
 锁和线程是"共享内存"并发模型，是最底层也是最容易出错的方式。学界和工业界发展了更高层次的并发模型：
@@ -103,6 +125,8 @@ with lock:
 | CSP（通信顺序进程） | 通过通道（channel）同步而非共享状态 | Go |
 
 Go 语言的设计哲学体现了 CSP 思想："不要通过共享内存来通信，而要通过通信来共享内存。"这并不是说锁就不对，而是把通信作为首选的同步机制，可以减少许多并发错误。
+
+表中的 Actor 与 CSP 都不是新发明，各有明确出处。**Actor 模型**由 Carl Hewitt 与 Bishop、Steiger 在 1973 年的论文《A Universal Modular ACTOR Formalism for Artificial Intelligence》中提出，最初是为人工智能设计的计算模型。它真正落地靠工业界：1986 年，Joe Armstrong 在爱立信（Ericsson）创造了 Erlang——每个 actor（Erlang 里叫进程）独享状态、只靠消息通信、可以单独崩溃重启而不拖垮别人。这套"让它崩溃"（let it crash）的容错哲学，至今仍是电信级高可用系统的范本。**CSP（通信顺序进程）**则由 Tony Hoare 在 1978 年提出，把同步建立在通道（channel）而非共享内存上，正是上文 Go 设计哲学的理论源头。
 
 ## 并行：GPU 与数据并行
 
@@ -130,7 +154,11 @@ $$\text{对每个像素}\ i: \quad \text{color}[i] = f(\text{input}[i])$$
 ## 参考文献
 
 - Dijkstra, E. W. *Solution of a Problem in Concurrent Programming Control.* CACM 8(9), 1965.
+- Dijkstra, E. W. *Cooperating Sequential Processes (EWD123).* 1965 手稿，1968 年发表（信号量与 P/V 操作）。
 - Hoare, C. A. R. *Communicating Sequential Processes.* CACM 21(8), 1978.
+- Hewitt, C., Bishop, P. & Steiger, R. *A Universal Modular ACTOR Formalism for Artificial Intelligence.* Proc. IJCAI, 1973.
+- Sutter, H. *The Free Lunch Is Over: A Fundamental Turn Toward Concurrency in Software.* Dr. Dobb's Journal 30(3), 2005.
+- Jones, M. B. *What Really Happened on Mars Rover Pathfinder.*（基于 JPL Glenn Reeves 的事故复盘，1997，优先级反转案例）
 - Herlihy, M. & Shavit, N. *The Art of Multiprocessor Programming.* Revised ed. Morgan Kaufmann, 2012.
 
 ## 延伸阅读

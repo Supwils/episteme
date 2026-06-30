@@ -2,7 +2,7 @@
 title: 缓存策略
 title_en: Caching Strategies
 status: published
-updated: 2026-06-13
+updated: 2026-06-28
 category: 系统与架构
 order: 19
 field: 计算机科学 · 系统
@@ -22,7 +22,7 @@ related:
 
 2010 年，Facebook 的工程师们面临一个危机：随着用户增长，MySQL 数据库承受不住负载，页面响应时间大幅上升。解决方案是什么？不是更换数据库，而是在数据库前面加了一层——使用 Memcached（一个分布式内存缓存系统）把热点数据存在内存里，大量请求根本不需要到达数据库。
 
-2013 年，Facebook 在一篇论文中描述了他们的 Memcached 集群：数千台机器，存储着数十 TB 的缓存数据，每秒处理数十亿次请求。这个集群的存在使得 Facebook 的数据库负载降低了 99%。
+2013 年，Facebook 在 NSDI 会议上发表论文《Scaling Memcache at Facebook》，披露了这套缓存集群的规模：数千台机器协同工作，每秒处理数十亿次请求（仅读取就超过每秒 10 亿次），为超过十亿名用户存储数万亿个缓存对象。绝大多数读请求在这一层就被消化，根本不会到达后端的 MySQL。
 
 缓存是性能工程中最强大、也最危险的工具之一。
 
@@ -76,17 +76,27 @@ related:
 
 缓存容量有限，如何决定保留哪些数据？
 
+理论上的最优解早在 1966 年就由 IBM 的 László Bélády 给出：**OPT（又称 MIN，Bélády 最优算法）**——每次都淘汰"未来最久才会被再次访问"的数据。它能产生最少的缺失，但需要预知未来，无法在线实现，只能作为衡量其他算法的天花板。换句话说，现实中所有淘汰策略，本质上都是在用不同的启发式去逼近这个不可知的最优。
+
 **TTL（Time-To-Live，生存时间）**：为每个缓存项设置过期时间，过期后自动删除（或下次访问时发现过期并刷新）。最简单的过期方式，但选择合适的 TTL 需要平衡：太短频繁穿透到后端，太长数据可能过时。
 
 **LRU（Least Recently Used，最近最少使用）**：淘汰最长时间未被访问的数据。符合时间局部性假设，是最常用的淘汰算法。实现通常用哈希表 + 双向链表。
 
 **LFU（Least Frequently Used，最不经常使用）**：淘汰访问频率最低的数据。更准确地体现"热点"概念，但实现更复杂，且新加入的数据在频率上会处于劣势（冷启动问题）。
 
-**FIFO（先进先出）**：淘汰最早进入缓存的数据。简单，但不考虑访问频率，性能通常不如 LRU。
+**FIFO（先进先出）**：淘汰最早进入缓存的数据。简单，但不考虑访问频率，性能通常不如 LRU。FIFO 还会触发反直觉的 **Belady 异常（Belady's Anomaly）**：1969 年 Bélády、Nelson 与 Shedler 构造出某些访问序列，在 FIFO 下**增大缓存容量反而导致缺失次数上升**。这打破了"缓存越大命中率越高"的朴素假设（后续研究证明这种恶化的倍数没有上界），也是 FIFO 在工程中被冷落的原因之一——LRU、LFU 等"栈式"算法则不会出现该异常。
 
-**ARC（Adaptive Replacement Cache）**：ZFS 文件系统使用，结合 LRU 和 LFU，自动适应访问模式。
+**ARC（Adaptive Replacement Cache，自适应替换缓存）**：IBM 的 Megiddo 与 Modha 于 2003 年提出，同时维护"最近用过一次"和"最近用过多次"两个 LRU 链表，并用记录刚被淘汰 Key 的"幽灵列表"反馈，动态调整两个链表的配比，在近因（recency）与频率（frequency）之间自动平衡。它**抗扫描**，空间开销仅约缓存大小的 0.75%，被 ZFS 文件系统和 PostgreSQL 采用。
 
 **Random Replacement**：随机淘汰。在实践中有时效果不亚于 LRU，且实现简单，CPU 缓存有时使用这种策略的近似。
+
+## 抗扫描与准入控制：LRU 不够用的地方
+
+经典 LRU 有个致命弱点：**一次大范围顺序扫描会污染整个缓存**。一条全表扫描的 SQL 会把成千上万个只读一次的页面塞进缓存，把真正的热点数据全部挤出去；扫描结束后命中率断崖式下跌。工业界用两条思路应对。
+
+**第一条是改造淘汰位置（抗扫描）**。MySQL 的 InnoDB 缓冲池不用严格 LRU，而是"中点插入"：新读入的页面默认插入到 LRU 链表尾部 3/8 处（参数 `innodb_old_blocks_pct` 默认值 37），落在"冷区"；只有在停留一段时间后又被访问的页面，才会被提升到链表头部的"热区"。这样全表扫描带来的一次性页面会很快从冷区被淘汰，碰不到真正的热点。
+
+**第二条是改造准入而非淘汰（admission control）**。传统算法只决定"淘汰谁"，现代缓存还决定"是否值得放进来"。Java 的 Caffeine 库采用的 **W-TinyLFU**（Einziger、Friedman、Manes，2017）是代表：它用一个基于 Count-Min Sketch（一种类似布隆过滤器的概率计数结构）的轻量频率草图，估计新来 Key 的历史访问频率，只有当它"比将被淘汰的 Key 更热"时才准予进入。论文报告 W-TinyLFU 在多种真实负载上能达到理论最优命中率的约 99%，而内存开销极小。
 
 ## 缓存穿透、击穿与雪崩
 
@@ -117,9 +127,11 @@ related:
 
 **单写主从（Leader-Follower）**：一个主节点接受写入，同步到从节点，读取从从节点（或主节点）进行。主节点故障时进行选举，期间可能有短暂不一致。
 
-**一致性哈希（Consistent Hashing）**：把 Key 映射到虚拟节点环，每个物理节点负责环的一段。增减节点时只需迁移相邻节点的数据，避免全量重新分配。Redis Cluster、Memcached 集群使用此方案。
+**一致性哈希（Consistent Hashing）**：把 Key 映射到虚拟节点环，每个物理节点负责环的一段。增减节点时只需迁移相邻节点的数据，避免全量重新分配。这一思想由 MIT 的 Karger 等人在 1997 年 STOC 论文中提出，最初正是为了缓解万维网的"热点"问题；其中两位作者随后联合创办了 Akamai，把它用在 CDN 的边缘服务器选择上。今天 Redis Cluster、Memcached 集群也用此方案。
 
 **应用层一致性保证**：缓存和数据库的一致性是个经典难题。常见策略"Cache-Aside + TTL"：应用直接管理缓存读写，TTL 保证最终一致性。对于强一致性要求，需要用分布式锁或消息队列保证更新的顺序性。
+
+这里有一条反直觉的最佳实践：**更新数据时应"删除缓存"而非"更新缓存"，且顺序是"先写数据库、再删缓存"**。直接改写缓存会让两个并发写互相覆盖出脏值；而先删缓存再写库，则可能被一个并发读请求用旧值重新填回。即便顺序正确，"读缺失回填"与"写后删缓存"之间仍存在一个竞态窗口，可能残留短暂的旧值——生产中通常靠 TTL 兜底，或引入版本号、"延迟双删"等手段把这个窗口收窄。
 
 ## HTTP 缓存与 CDN
 
@@ -134,7 +146,7 @@ Last-Modified: Sat, 01 Jan 2024 00:00:00 GMT
 
 **条件请求（Conditional Request）**：客户端带着上次的 ETag（`If-None-Match`）或最后修改时间（`If-Modified-Since`）发请求，服务器判断内容是否变化。若未变化，返回 304 Not Modified（空响应体），节省带宽。
 
-**CDN（内容分发网络）**：在全球各地部署边缘节点，把静态内容（图片、视频、CSS、JS）缓存在靠近用户的位置。Cloudflare 在全球有超过 310 个数据中心，确保用户请求由距离最近的节点响应，延迟降低 70-90%。
+**CDN（内容分发网络）**：在全球各地部署边缘节点，把静态内容（图片、视频、CSS、JS）缓存在靠近用户的位置。以 Cloudflare 为例，其网络已覆盖 125 个以上国家、330 多座城市，用户请求由距离最近的节点响应，省去了跨洲回源的往返时延。
 
 ## 代价与争议
 
@@ -142,7 +154,7 @@ Last-Modified: Sat, 01 Jan 2024 00:00:00 GMT
 
 **缓存预热与冷启动**：新部署的缓存是空的，初始一段时间内命中率极低，大量请求穿透到数据库，可能导致数据库过载。解决方案是"预热"（warm-up）：在切流量前，提前把热点数据加载到缓存。
 
-**Redis 的争议**：Redis 在 2024 年修改了许可证（从 BSD 改为 SSPL/RSALv2），不再是严格意义上的开源软件，引发了社区的强烈反应。Valkey（Redis 7.2 的开源分叉，由 AWS、Alibaba 等支持）成为许多企业的替代选择。
+**Redis 的许可证拉锯**：Redis 在 2024 年 3 月把许可证从宽松的 BSD 改为 SSPL/RSALv2 双许可，不再是 OSI 认可的开源软件，引发社区强烈反弹；由 AWS、Google、Oracle 等支持、基于 Redis 7.2.4 的开源分叉 **Valkey**（托管于 Linux 基金会）随即出现，成为许多企业的替代选择。剧情在 2025 年又反转：原作者 antirez（Salvatore Sanfilippo）重返公司后，Redis 8 于 2025 年 5 月新增 AGPLv3 选项，重新成为 OSI 认可的开源软件，形成 RSALv2 / SSPLv1 / AGPLv3 三许可并存的局面。这段反复也提醒我们：把关键基础设施押注在单一厂商的开源承诺上，本身就是一种需要管理的风险。
 
 ## 跨域连接
 
@@ -150,14 +162,22 @@ Last-Modified: Sat, 01 Jan 2024 00:00:00 GMT
 - **[[distributed-systems]]**：分布式缓存面临分布式系统的所有挑战（一致性、分区、容错）。
 - **[[databases-transactions]]**：数据库的 Buffer Pool 是数据库内部的缓存层，事务隔离需要与缓存协调。
 - **数学**：布隆过滤器使用 $k$ 个哈希函数和一个 $m$ 位的位数组，误报率为 $(1-e^{-kn/m})^k$，其中 $n$ 是插入元素数。
+- **理论计算机科学**：在线缓存算法的好坏，用它与"预知未来的最优算法"OPT 的差距来衡量。Sleator 与 Tarjan 1985 年用这个思路证明 LRU 是 $k$-竞争的（$k$ 为缓存容量），由此开创了**竞争分析（competitive analysis）** 这一在线算法领域。
 
 ---
 
 ## 参考文献
 
 - Nishtala, R. et al. *Scaling Memcache at Facebook.* NSDI, 2013. （Facebook 亿级缓存实践）
-- Brewer, E. *Lessons from Giant-Scale Services.* IEEE Internet Computing 5(4), 2001.
+- Belady, L. A. *A Study of Replacement Algorithms for a Virtual-Storage Computer.* IBM Systems Journal 5(2), 1966. （OPT/MIN 最优淘汰算法）
+- Belady, L. A., Nelson, R. A., Shedler, G. S. *An Anomaly in Space-Time Characteristics of Certain Programs Running in a Paging Machine.* Communications of the ACM 12(6), 1969. （Belady 异常）
+- Sleator, D. D., Tarjan, R. E. *Amortized Efficiency of List Update and Paging Rules.* Communications of the ACM 28(2), 1985. （竞争分析，LRU 的 $k$-竞争性）
+- Karger, D. et al. *Consistent Hashing and Random Trees: Distributed Caching Protocols for Relieving Hot Spots on the World Wide Web.* STOC, 1997. （一致性哈希）
+- Megiddo, N., Modha, D. S. *ARC: A Self-Tuning, Low Overhead Replacement Cache.* USENIX FAST, 2003.
+- Einziger, G., Friedman, R., Manes, B. *TinyLFU: A Highly Efficient Cache Admission Policy.* ACM Transactions on Storage 13(4), 2017. （W-TinyLFU / Caffeine）
 - Fan, L. et al. *Summary Cache: A Scalable Wide-Area Web Cache Sharing Protocol.* IEEE/ACM ToN 8(3), 2000. （布隆过滤器在缓存中的应用）
+- Brewer, E. *Lessons from Giant-Scale Services.* IEEE Internet Computing 5(4), 2001.
+- MySQL 8.0 Reference Manual. *Making the Buffer Pool Scan Resistant.* dev.mysql.com. （InnoDB 中点插入 LRU，`innodb_old_blocks_pct`）
 
 ## 延伸阅读
 

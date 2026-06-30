@@ -2,7 +2,7 @@
 title: 计算机图形学
 title_en: Computer Graphics
 status: published
-updated: 2026-06-13
+updated: 2026-06-28
 category: 计算机科学应用
 order: 26
 field: 计算机科学 · 图形学
@@ -19,11 +19,19 @@ related:
 
 # 计算机图形学
 
-1995 年，《玩具总动员》上映，这是第一部完全由计算机生成的长篇动画电影。导演约翰·拉塞特和皮克斯的工程师们花了四年时间，渲染了 800 多个场景，动用了 117 台工作站。
+1995 年，《玩具总动员》（Toy Story）上映，这是第一部完全由计算机生成的长篇动画电影。导演约翰·拉塞特（John Lasseter）和皮克斯团队用了约四年完成制作，全片 11.4 万帧画面由一个 117 台 Sun 工作站组成的"渲染农场"算出，累计耗费约 80 万机时（machine-hour）——平均每帧要算上数小时。
 
 今天，一部电影里的单帧画面可能包含数百亿条光线路径的模拟，而你的手机 GPU 每秒能渲染数十亿个像素。
 
 这背后是计算机图形学（Computer Graphics）半个世纪的发展。
+
+## 这门学科的起点，比游戏早得多
+
+人们常把计算机图形学和电子游戏、好莱坞特效划等号，以为它是 1980 年代之后才有的东西。它的真正源头要早得多。
+
+1963 年，麻省理工学院的伊万·萨瑟兰（Ivan Sutherland）在 TX-2 计算机上完成博士论文 Sketchpad：用户拿光笔直接在 CRT 屏幕上画线、施加几何约束、复制图元。这是第一个真正交互式的图形程序，被公认为现代 CAD 软件与图形界面的共同祖先，萨瑟兰也因此获得 1988 年图灵奖。
+
+十余年后，犹他大学成了这门学科的孵化器。爱德温·卡特穆尔（Edwin Catmull）在 1974 年的博士论文里同时发明了**纹理映射（Texture Mapping）**和 **Z 缓冲（Z-buffer，深度缓冲，几乎同期由 Wolfgang Straßer 独立提出）**——前者把二维图案贴到三维表面，后者用一张"深度图"逐像素记录最近的物体、解决"谁挡住谁"的可见性难题。今天几乎每一块 GPU 都内置 Z 缓冲。卡特穆尔后来联合创办皮克斯，并在 2019 年与帕特·汉拉恩（Pat Hanrahan）共获图灵奖。开篇那部《玩具总动员》，正是这条犹他血脉结出的果实。
 
 ## 破除误解：图形学不只是"画图"
 
@@ -59,7 +67,9 @@ related:
   ↓   输出到屏幕
 ```
 
-这条管线中，**着色器（Shader）** 是可编程的部分——开发者用 GLSL 或 HLSL 编写 GPU 程序，控制顶点变换和像素着色。1980 年代之前，管线是完全固定的（fixed-function）；1990 年代末，可编程着色器的出现彻底改变了图形的表现力。
+这条管线中，**着色器（Shader）** 是可编程的部分——开发者用 GLSL 或 HLSL 编写 GPU 程序，控制顶点变换和像素着色。
+
+消费级图形硬件的可编程化有两个关键节点。1999 年，NVIDIA 把几何变换与光照（transform & lighting）整合进单芯片、宣称每秒至少处理 1000 万个多边形，并用"GPU"（图形处理器）一词为 GeForce 256 命名，这个缩写从此固定下来。但 GeForce 256 仍是固定管线（fixed-function），开发者只能调参数、不能改算法。真正的转折是 2000 年的 DirectX 8 与 2001 年的 GeForce 3——可编程的顶点与片段着色器第一次进入消费级硬件。而"着色器"概念其实更早：1984 年罗布·库克（Rob Cook）提出"着色树"（shade trees），1988 年皮克斯 RenderMan 规范正式引入 shader，只不过那都是为离线电影渲染服务的。
 
 ## 坐标变换与矩阵
 
@@ -92,9 +102,21 @@ $$I = k_a I_a + k_d (L \cdot N) I_d + k_s (R \cdot V)^n I_s$$
 
 **光线追踪（Ray Tracing）**：对每个像素，沿视线向场景发射光线，追踪光线与物体的交叉，递归地跟踪反射、折射和阴影光线。物理上更正确，自然产生逼真的阴影、反射和全局光照。计算量极大，传统上只用于离线渲染（电影）。
 
-2018 年，NVIDIA 推出了支持硬件光线追踪的 RTX 系列 GPU（基于 BVH 树加速结构），使实时光线追踪成为可能，开始在高端游戏中应用。
+一个常见误解是：光线追踪是 RTX 显卡带来的"新技术"。其实它的历史几乎和这门学科一样长。1968 年，IBM 的阿瑟·阿佩尔（Arthur Appel）就用"光线投射"（ray casting）求解可见面与阴影；1980 年，贝尔实验室的特纳·惠特德（Turner Whitted）发表递归光线追踪，第一次让镜面反射、玻璃折射和阴影从同一个算法里自然涌现。2018 年 NVIDIA 的 RTX 系列（用 BVH 包围盒层级树加速光线求交）改变的不是思想，而是算力——它把这套已存在数十年、过去只能离线计算的算法，第一次塞进了能跑 60 帧的实时硬件里。
 
 **路径追踪（Path Tracing）**：光线追踪的随机版本。每条光线在交点处随机选择散射方向，通过大量采样（Monte Carlo 方法）收敛到物理正确的结果。这是皮克斯、迪士尼等电影制作公司的主流离线渲染方法。
+
+## 渲染方程：所有渲染算法的共同目标
+
+1986 年，吉姆·卡吉雅（Jim Kajiya）在 SIGGRAPH 提出**渲染方程（The Rendering Equation）**，用一个积分方程概括了几乎所有渲染算法到底在求什么：
+
+$$L_o(\mathbf{x}, \omega_o) = L_e(\mathbf{x}, \omega_o) + \int_{\Omega} f_r(\mathbf{x}, \omega_i, \omega_o)\, L_i(\mathbf{x}, \omega_i)\, (\omega_i \cdot \mathbf{n})\, \mathrm{d}\omega_i$$
+
+它说的是：从一点 $\mathbf{x}$ 沿方向 $\omega_o$ 射出的光 $L_o$，等于该点自身发出的光 $L_e$，加上从四面八方（半球 $\Omega$）射来、再被表面反射出去的那部分光的总和。其中 $f_r$ 是描述"材质如何反射光"的双向反射分布函数（BRDF）。
+
+这个方程的关键在于：积分号里嵌着 $L_i$——照到这一点的光，本身又来自别处的表面，是同一个方程的解。光在场景里无穷次互相弹射，方程因此是递归的、没有解析解。
+
+由此看，光栅化、光线追踪、路径追踪并不是三种割裂的技术，而是用不同精度去逼近同一个积分。路径追踪用蒙特卡洛随机采样估计它，代价是结果带噪点，往往要每像素成千上万次采样才能收敛干净——这正是电影单帧要算上几小时的根本原因。
 
 ## 抗锯齿
 
@@ -126,6 +148,12 @@ $$I = k_a I_a + k_d (L \cdot N) I_d + k_s (R \cdot V)^n I_s$$
 - Akenine-Möller, T. et al. *Real-Time Rendering, 4th Ed.* CRC Press, 2018.
 - Foley, J. et al. *Computer Graphics: Principles and Practice.* Addison-Wesley, 1995. （经典教材）
 - Mildenhall, B. et al. *NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis.* ECCV, 2020.
+- Sutherland, I. E. *Sketchpad: A Man-Machine Graphical Communication System.* PhD thesis, MIT, 1963.
+- Catmull, E. *A Subdivision Algorithm for Computer Display of Curved Surfaces.* PhD thesis, University of Utah, 1974.
+- Appel, A. "Some Techniques for Shading Machine Renderings of Solids." *AFIPS Spring Joint Computer Conference*, vol. 32, 1968, pp. 37–45.
+- Phong, B. T. "Illumination for Computer Generated Pictures." *Communications of the ACM*, 18(6):311–317, 1975.
+- Whitted, T. "An Improved Illumination Model for Shaded Display." *Communications of the ACM*, 23(6):343–349, 1980.
+- Kajiya, J. T. "The Rendering Equation." *Computer Graphics (SIGGRAPH '86 Proceedings)*, 20(4):143–150, 1986.
 
 ## 延伸阅读
 

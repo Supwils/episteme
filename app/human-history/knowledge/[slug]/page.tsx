@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { serializeJsonLd } from "@/lib/jsonld";
 import { notFound } from "next/navigation";
 import { getAllArticles, getArticleBySlug } from "@/lib/knowledge-base";
 import { resolveWikiLink } from "@/lib/wiki-link-index";
@@ -240,7 +241,7 @@ export default async function KnowledgeArticlePage({ params }: Props) {
     <div className="kb-detail-page">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(articleJsonLd) }}
       />
       <nav className="kb-detail-nav">
         <Link href="/human-history/knowledge" className="kb-back-link">

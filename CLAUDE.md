@@ -17,6 +17,37 @@
 
 ---
 
+## 🚀 构建 / ISR / CI-CD 机制（部署如何工作）
+
+> 与上方"Git 与部署纪律"配套：纪律讲"何时、由谁触发"，本节讲"机制上怎么跑"。**改动任何构建/部署/CI 配置前必读。** 完整事故复盘见 `docs/复盘-从一次Vercel部署翻车到CICD最优解.md`。
+
+### 构建（`pnpm build`）
+
+- **`prebuild` 钩子先跑 `pnpm gen-all`**：从 `content/` 重新生成**全部搜索镜像/索引**（`gen-philo/econ/psych/life/frontier/domain/math/kb/links`，产出如 `lib/wiki-link-index.ts`、`public/link-previews.json`、各域 `*-data.ts`）。**改了内容就要 gen-all**（CI 构建会自动跑；本地验证或提交前也应跑，保证索引与内容一致；提交时把重生的索引文件一并提交）。
+- 然后 `next build --turbopack`（生产构建用 **Turbopack**），带 `NODE_OPTIONS=--max-old-space-size=8192`（内容量大、需大堆，否则 OOM）。
+
+### ISR（关键：别把高基数路由全静态化）
+
+- 各 `[slug]` 内容路由用 `generateStaticParams` 只返回**一小部分**精选 slug + 默认 `dynamicParams: true` → 未覆盖的 slug **按需渲染（ISR / on-demand）**，不在构建期全量产出。
+- 这是**刻意设计**：Vercel 部署有 **15000 文件上限**，~2000 篇内容 × 多路由若全静态会超限。**不要**给这些路由返回全部 slug、也别关掉 `dynamicParams`。
+- 新增高基数内容路由时，沿用"少量 `generateStaticParams` + 按需"的模式。
+
+### CI-CD（`.github/workflows/ci.yml`，push 到 `main` 触发）
+
+- **触发**：push 到 `main`（**`docs/**`改动被`paths-ignore`，不构建不部署**）、PR、手动 `workflow_dispatch`。
+- **三个 job**：**quality**（typecheck → lint → check-content → test）→ **build**（`pnpm build` → `bundle-check` JS 预算）→ **deploy**（仅 `main`，且 quality+build 都过后才跑）。
+- **部署方式**：`vercel pull` → `vercel build --prod` → **`vercel deploy --prebuilt --prod --archive=tgz`**。需仓库 secret `VERCEL_TOKEN`（org/project id 写在 workflow 的 env）。
+- **为什么不用 Vercel 原生 git 集成**：`vercel.json` 里 `git.deploymentEnabled.main = false` 是**故意关掉**的——原生集成的 deploy 会拒绝 Next 的 serverless 函数去重**符号链接**；`--prebuilt --archive` 是当前唯一可靠路径（同时绕开 15000 文件上限的校验）。**别重新打开它。**
+
+### 代理注意事项（部署相关）
+
+- **push = 生产部署**（受 quality+build 门禁）。按上方纪律，只在用户明确说 push / 部署 / 上线时执行。
+- **push 前在本地跑完整套门禁**（`typecheck / lint / check-content / test / build / bundle-check`），与 CI 一致——别靠 push 看 CI 红绿。
+- `pnpm lint = eslint . --max-warnings 0` 扫全仓；**自托管 / vendored 资产**（如 `public/` 下的压缩版 molstar.js）必须在 `eslint.config.mjs` 的 `ignores` 里排除，否则压缩代码会误报、挂 CI 的 quality job。
+- 只改 `docs/**` 时不会触发部署；改 `CLAUDE.md`（根目录）或任何代码/内容则会。
+
+---
+
 ## 第零节：代理自主接手协议（Agent Onboarding Protocol）
 
 > 如果你是刚接手本仓库的自主代理，按以下顺序执行，不要跳过任何一步。

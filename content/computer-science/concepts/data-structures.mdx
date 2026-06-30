@@ -2,7 +2,7 @@
 title: 数据结构
 title_en: Data Structures
 status: published
-updated: 2026-06-13
+updated: 2026-06-28
 category: 计算机科学基础
 order: 3
 field: 计算机科学 · 算法与数据结构
@@ -64,6 +64,10 @@ related:
 
 链表的价值在于动态性——大小完全灵活，插入删除不移动数据。
 
+破除误解：链表"插入是 $O(1)$"常被误读。只改指针确实是 $O(1)$，但前提是你**已经握着那个位置的节点指针**。如果你只知道"在第 k 个元素后面插入"，得先从头走 k 步找到它，这一步仍是 $O(n)$。所以链表真正占便宜的场景，是在遍历过程中顺手删除或插入当前节点，而不是按下标随机插入。
+
+还有一个现代硬件带来的反直觉结论：即便理论复杂度相同，链表在真实机器上常常**慢于**数组。原因是缓存局部性（cache locality）——数组元素紧挨着排在内存里，CPU 的预取器（prefetcher）能提前把后续数据装进缓存；链表节点散落在堆的各处，每跳一次指针都可能触发一次 cache miss。Bjarne Stroustrup 用一个经典基准测试说明这点：顺序遍历 `std::list` 可能比遍历 `std::vector` 慢上百倍。"理论最优"的链表，在很多场景里就这样输给了"理论更差"的数组。
+
 ### 树（Tree）
 
 分层的非线性结构：
@@ -80,10 +84,14 @@ related:
 
 树家族包括：
 - **二叉搜索树**：有序字典操作
-- **AVL 树 / 红黑树**：自平衡 BST，保证 $O(\log n)$ 最坏情况（Java 的 TreeMap、Linux 内核调度器使用红黑树）
+- **AVL 树 / 红黑树**：自平衡 BST，保证 $O(\log n)$ 最坏情况（Java 的 TreeMap、Linux 内核调度器使用红黑树）。AVL 树由苏联学者 Adelson-Velsky 与 Landis 在 1962 年提出，是历史上第一种自平衡二叉搜索树；红黑树则由 Guibas 与 Sedgewick 在 1978 年的论文《A Dichromatic Framework for Balanced Trees》中定型，它放松了平衡约束，换取更快的插入与删除。
 - **堆（Heap）**：父节点总大于（或小于）子节点，支持 $O(\log n)$ 插入和 $O(\log n)$ 取最值
-- **Trie（前缀树）**：字符串字典，自动补全的内核数据结构
+- **Trie（前缀树）**：字符串字典，自动补全的内核数据结构。"trie" 这个词由 Edward Fredkin 在 1960 年取自 re**trie**val（检索）的中间音节。
 - **B-Tree / B+ Tree**：数据库索引的基础，为磁盘访问模式优化
+
+B-Tree 值得单独说一句，因为它是"数据结构必须为硬件而设计"的范例。它由 Rudolf Bayer 与 Edward McCreight 在波音研究实验室提出，论文《Organization and Maintenance of Large Ordered Indices》1970 年 7 月首次流传、1972 年正式发表于《Acta Informatica》。
+
+他们的出发点是：索引大到只有一小块能放进内存，其余必须留在磁盘上。磁盘一次寻道的代价是内存访问的成千上万倍，所以 B-Tree 让每个节点都"很胖"——一个节点容纳成百上千个键，恰好对应磁盘上的一页。这样树高极矮，查一条记录只需几次磁盘 I/O。今天 MySQL 的 InnoDB、PostgreSQL 的默认索引用的都是 B+ Tree，正是这套五十多年前的设计。
 
 ### 哈希表（Hash Table）
 
@@ -101,6 +109,22 @@ table[3] = {name: "Alice", age: 28}
 - 代价：需要好的哈希函数；哈希碰撞需要处理；空间利用率有上限
 
 哈希表是现代编程中最常用的数据结构之一，几乎所有高级语言都内置它（Python 的 `dict`，Java 的 `HashMap`）。
+
+哈希的思想可以追溯到 1953 年 1 月，IBM 的 Hans Peter Luhn 在一份内部备忘录里提出：把数据丢进若干"桶（bucket）"，用一个由键算出的索引直接定位到桶，从而加速检索。这份备忘录同时也是已知最早提到链表的文献之一。
+
+哈希表绕不开的核心问题是**碰撞**：两个不同的键算出同一个位置。两大解决流派各有取舍。**链地址法（separate chaining）**在每个桶挂一条链表，装填因子（load factor）可以接近甚至超过 1，删除也简单，代价是链表的缓存不友好。**开放寻址法（open addressing）**则在碰撞时探测表内的下一个空位，数据都留在连续数组里、对缓存友好，但通常装填因子超过 0.5 就得扩容重散列，删除也更麻烦。
+
+这又是一个没有标准答案的权衡：Java 的 `HashMap` 走链地址法，而 CPython 的 `dict` 走开放寻址。
+
+## 摊还分析：为什么"末尾追加"敢说 $O(1)$
+
+前面说数组末尾追加是"$O(1)$ 均摊"，这个"均摊"值得展开，因为它是理解动态数组（Python 的 `list`、Java 的 `ArrayList`、C++ 的 `vector`）的关键。
+
+数组容量是固定的，装满后再追加就得申请一块更大的内存、把旧元素整体搬过去——这一次搬迁是 $O(n)$。如果每次只多要一格，那么连续追加 n 个元素的总搬迁成本会累积到 $O(n^2)$，慢得不可接受。
+
+工程上的做法是**容量翻倍**：满了就扩到两倍。这样搬迁很少发生，n 次追加的总搬迁成本是 $n + n/2 + n/4 + \cdots < 2n$，即 $O(n)$；平摊到每一次追加，就是 $O(1)$。注意这是"平均到每次操作"的均摊 $O(1)$，不是"每次都 $O(1)$"——某一次具体的追加仍可能触发一次昂贵的 $O(n)$ 搬迁。
+
+这种"把偶尔的昂贵操作摊到大量廉价操作上"的分析方法叫**摊还分析（amortized analysis）**，由 Robert Tarjan 在 1985 年的论文《Amortized Computational Complexity》中系统化，他提出的"势能法（potential method）"至今是分析这类自调整数据结构的标准工具。
 
 ## 图：关系的数学语言
 
@@ -147,7 +171,7 @@ C   D--E
 ## 跨域连接
 
 - **数学**：图论是数据结构中"图"的理论基础，由欧拉在 1736 年的哥尼斯堡七桥问题中奠基。树是无环连通图的特殊情况。
-- **数据库**：B-Tree 索引结构决定了关系数据库（MySQL、PostgreSQL）的查询性能；NoSQL 数据库 Redis 内部使用跳表（skip list）实现有序集合。
+- **数据库**：B-Tree 索引结构决定了关系数据库（MySQL、PostgreSQL）的查询性能；NoSQL 数据库 Redis 内部使用跳表（skip list）实现有序集合——跳表由 William Pugh 于 1990 年提出，用概率随机的"层数"替代严格平衡，代码远比平衡树简单，平均性能却相当。
 - **[[recursion]]**：树和图的大多数操作（遍历、搜索）天然用递归实现；链表也可以递归定义。
 - **操作系统**：文件系统是树形结构；进程调度队列是优先级队列（堆）；内存管理器使用红黑树。
 
@@ -157,6 +181,10 @@ C   D--E
 
 - Sedgewick, R. & Wayne, K. *Algorithms.* 4th ed. Addison-Wesley, 2011.
 - Goodrich, M. & Tamassia, R. *Data Structures and Algorithms in Python.* Wiley, 2013.
+- Bayer, R. & McCreight, E. "Organization and Maintenance of Large Ordered Indices." *Acta Informatica* 1(3), 1972.（B-Tree 原始论文）
+- Pugh, W. "Skip Lists: A Probabilistic Alternative to Balanced Trees." *Communications of the ACM* 33(6), 1990.（跳表原始论文）
+- Tarjan, R. E. "Amortized Computational Complexity." *SIAM Journal on Algebraic and Discrete Methods* 6(2), 1985.（摊还分析与势能法）
+- Guibas, L. J. & Sedgewick, R. "A Dichromatic Framework for Balanced Trees." *Proc. 19th Annual Symposium on Foundations of Computer Science (FOCS)*, 1978.（红黑树原始论文）
 
 ## 延伸阅读
 

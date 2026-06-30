@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { serializeJsonLd } from "@/lib/jsonld";
 import { HeroSection } from "../components/HeroSection";
 import { HeroBackdrop } from "../components/HeroBackdrop";
 import { FeatureGrid } from "../components/FeatureGrid";
@@ -55,7 +56,7 @@ export default function HomePage() {
     <div className="bg-bg-base text-fg-primary relative min-h-screen overflow-hidden">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(websiteJsonLd) }}
       />
 
       <HeroBackdrop />

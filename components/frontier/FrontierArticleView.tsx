@@ -7,7 +7,7 @@ import RelatedContent from "@/components/RelatedContent";
 import Breadcrumb from "@/components/Breadcrumb";
 import type { Domain } from "@/lib/cross-domain-refs";
 import { SITE_URL } from "@/lib/constants";
-import { createArticleJsonLd } from "@/lib/jsonld";
+import { serializeJsonLd, createArticleJsonLd } from "@/lib/jsonld";
 import { bibliographyToJsonLd } from "@/lib/citations";
 
 /** Domains that participate in the cross-domain reference graph. */
@@ -67,7 +67,7 @@ export function FrontierArticleView({ domain, slug }: { domain: FrontierDomain; 
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <ArticleLayout
         backHref={`/${domain}/frontier`}

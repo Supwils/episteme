@@ -5,7 +5,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import RelatedContent from "@/components/RelatedContent";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { FIELD_COLORS, SITE_URL } from "@/lib/constants";
-import { createArticleJsonLd } from "@/lib/jsonld";
+import { serializeJsonLd, createArticleJsonLd } from "@/lib/jsonld";
 import { ArticleLayout } from "@/components/ArticleLayout";
 import { TableOfContents } from "@/components/TableOfContents";
 
@@ -75,7 +75,7 @@ export default async function ExperimentDetailPage({
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <ArticleLayout
         backHref="/philosophy/experiments"

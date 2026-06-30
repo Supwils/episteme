@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { serializeJsonLd } from "@/lib/jsonld";
 import PageWrapper from "@/subjects/history/components/PageWrapper";
 import { SITE_URL } from "@/lib/constants";
 
@@ -35,7 +36,7 @@ export default function HumanHistoryClient() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(collectionJsonLd) }}
       />
       <PageWrapper render={renderHome} />
       <section style={{ padding: "48px 0", background: "rgba(0,0,0,0.3)" }}>

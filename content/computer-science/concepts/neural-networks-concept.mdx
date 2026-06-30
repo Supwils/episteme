@@ -2,7 +2,7 @@
 title: 神经网络
 title_en: Neural Networks
 status: published
-updated: 2026-06-13
+updated: 2026-06-28
 category: 人工智能
 order: 40
 field: 计算机科学 · 机器学习
@@ -28,10 +28,16 @@ related:
 
 在几乎所有具体细节上，两者截然不同：
 - 生物神经元通过离散的电脉冲（脉冲频率编码）通信；人工神经元输出连续值
-- 人脑有约 860 亿个神经元，约 $10^{15}$ 个突触；最大的 AI 模型有数千亿参数，但组织方式完全不同
+- 人脑有约 860 亿个神经元、约 $10^{14}$ 个突触（百万亿量级，常见估计）；最大的 AI 模型有数千亿参数，但组织方式完全不同
 - 生物学习机制至今未完全理解；反向传播是否在生物神经系统中发生，仍有争议
 
 现代神经网络是数学优化工具，不是大脑的仿真。
+
+为什么说反向传播"不像大脑"？一个具体障碍是**权重传输问题（Weight Transport Problem）**。反向传播在计算梯度时，反向通路必须精确复用前向通路的权重矩阵（两者对称）。
+
+但真实神经元的前向突触与反向连接在物理上是分离的，没有已知机制能让它们时刻保持权重同步。
+
+2016 年 Lillicrap 等人在《自然·通讯》提出**反馈对齐（Feedback Alignment）**作为回应：他们证明，即使反向通路用一组固定的随机权重，网络也能在训练中让前向权重逐渐"对齐"到有用方向，在 MNIST、CIFAR 等小数据集上接近反向传播——但在 ImageNet 这类大规模任务上仍明显逊色。这说明大脑即便不用标准反向传播，也可能存在别的高效误差传播机制，这是计算神经科学的活跃前沿。
 
 ## 核心：单个神经元
 
@@ -96,25 +102,44 @@ $$\mathbf{w} \leftarrow \mathbf{w} - \eta \frac{\partial L}{\partial \mathbf{w}}
 
 **随机梯度下降（SGD）**：每次只用一个（或一小批）样本计算梯度，而非整个数据集。噪声更大，但更新更快，且噪声有时帮助跳出局部极小值。**Adam**（Adaptive Moment Estimation，2014 年，Kingma & Ba 提出）是目前最常用的优化器，自适应调整每个参数的学习率。
 
+## 深层网络为何长期难以训练：梯度消失
+
+反向传播在数学上是优雅的，但它曾有一个致命的实践难题：**梯度消失（Vanishing Gradient）**。
+
+1991 年，Sepp Hochreiter 在慕尼黑工业大学的毕业论文里给出了严格分析。链式法则把浅层参数的梯度写成一长串导数的连乘；只要每一项都小于 1，连乘的结果就会随层数指数级地缩小。
+
+Sigmoid 激活函数恰好是重灾区：它的导数最大值只有 0.25。在一个十几层的网络里，前几层收到的梯度会被压缩到几乎为零，权重基本不再更新——网络的浅层"学不动"。
+
+这正是上面激活函数表里 Sigmoid"现已少用于隐藏层"的真正原因，也是神经网络在 1990 年代一度停滞的技术根源之一。
+
+ReLU 的流行很大程度上就是对这个问题的回应：当输入为正时它的导数恒为 1，连乘不再衰减，梯度能畅通地传回浅层。后来的残差连接（ResNet，2015）、批归一化（Batch Normalization，2015）等技巧进一步缓解了梯度消失及其反面"梯度爆炸"，才让上百层的网络真正可以训练。
+
 ## 神经网络的历史：两次寒冬与两次春天
 
 | 时期 | 事件 |
 |------|------|
 | 1943–1969 | McCulloch-Pitts 神经元，Rosenblatt 感知机（1958），热情高涨 |
-| 1969–1986 | Minsky & Papert 的《感知机》书指出线性感知机的局限，第一次 AI 寒冬 |
+| 1969–1986 | Minsky & Papert 的《感知机》证明单层感知机连 XOR 都算不了（非线性可分问题），第一次 AI 寒冬 |
 | 1986 | 反向传播重新被重视，神经网络复苏 |
 | 1995–2006 | SVM 等方法性能更好，第二次低潮 |
 | 2006 | Hinton 提出深度信念网络预训练，深度学习重新兴起 |
-| 2012 | AlexNet 在 ImageNet 竞赛中大幅领先，深度学习时代开始 |
+| 2012 | AlexNet 把 ImageNet top-5 错误率从亚军的 26.2% 一举降到 15.3%，深度学习时代开始 |
 | 2017–今 | Transformer 架构，大规模语言模型（GPT、BERT、LLaMA），AI 新纪元 |
+| 2018 / 2024 | Bengio、Hinton、LeCun 共获图灵奖（2018）；Hopfield 与 Hinton 因神经网络的奠基性贡献共获诺贝尔物理学奖（2024） |
 
 ## 代价与争议
 
 **可解释性问题**：神经网络是"黑箱"——难以理解为什么它对某个输入给出某个输出。特别在医疗、法律、金融等高风险领域，这是重大障碍。可解释 AI（XAI）方法（LIME、SHAP、Grad-CAM）提供部分解释，但没有根本解决。
 
-**对抗样本（Adversarial Examples）**：2013 年，Szegedy 等发现对图像添加人眼不可见的微小扰动，可以让高性能图像分类器输出完全错误的结果（如把熊猫分类为长臂猿）。这揭示了神经网络的鲁棒性缺陷，对自动驾驶等安全关键应用是严峻威胁。
+**对抗样本（Adversarial Examples）**：2013 年，Szegedy 等在《Intriguing Properties of Neural Networks》中发现，给图像添加人眼几乎不可见的微小扰动，就能让高性能分类器输出完全错误的结果。
 
-**计算成本与能耗**：大型神经网络训练需要数百到数千块 GPU 运行数天乃至数月。GPT-4 的训练成本估计超过 1 亿美元。这种规模的计算需求使 AI 研究逐渐向大公司集中，引发公平获取和环境影响的担忧。
+次年，Goodfellow、Shlens 与 Szegedy 给出了最著名的例子：一张原本被以 57.7% 置信度判为"熊猫"的照片，叠加一层精心设计的噪声后，人眼看仍是熊猫，模型却以 99.3% 的置信度判成"长臂猿"。他们指出，这种脆弱性恰恰源于网络近乎线性的性质，而非过度复杂。这揭示了神经网络的鲁棒性缺陷，对自动驾驶等安全关键应用是严峻威胁。
+
+**计算成本与能耗**：大型神经网络训练需要数百到数千块 GPU 运行数天乃至数月。GPT-4 的训练成本估计超过 1 亿美元（OpenAI 的 Sam Altman 在 2023 年的公开场合被问及是否花了 1 亿美元时，回答"不止这个数"）。这种规模的计算需求使 AI 研究逐渐向大公司集中，引发公平获取和环境影响的担忧。
+
+"越大越好"的趋势本身也有争议。Kaplan 等人 2020 年提出，模型性能随参数量、数据量、算力按平滑的幂律提升（"缩放定律"）。
+
+但 2022 年 DeepMind 的 Chinchilla 工作（Hoffmann 等，训练了 400 多个模型）反驳道：在固定算力下，当时多数大模型其实"训练不足"——参数和数据应当同比例增长，经验上每个参数约配 20 个训练 token。按此标准，一个 700 亿参数的模型应训练约 1.4 万亿 token 才算算力最优。这场"把算力花在更大的模型，还是更多的数据上"的辩论，直接重塑了此后大模型的设计取向。
 
 ## 跨域连接
 
@@ -126,9 +151,19 @@ $$\mathbf{w} \leftarrow \mathbf{w} - \eta \frac{\partial L}{\partial \mathbf{w}}
 
 ## 参考文献
 
+- McCulloch, W. & Pitts, W. *A Logical Calculus of the Ideas Immanent in Nervous Activity.* Bulletin of Mathematical Biophysics 5, 1943.
+- Minsky, M. & Papert, S. *Perceptrons: An Introduction to Computational Geometry.* MIT Press, 1969.
 - Rumelhart, D., Hinton, G., & Williams, R. *Learning Representations by Back-propagating Errors.* Nature 323, 1986.
+- Hochreiter, S. *Untersuchungen zu dynamischen neuronalen Netzen.* Diploma thesis, Technische Universität München, 1991.（梯度消失问题的首次系统分析）
+- Krizhevsky, A., Sutskever, I., & Hinton, G. *ImageNet Classification with Deep Convolutional Neural Networks.* NeurIPS, 2012.
+- Szegedy, C. et al. *Intriguing Properties of Neural Networks.* ICLR, 2014.
+- Goodfellow, I., Shlens, J., & Szegedy, C. *Explaining and Harnessing Adversarial Examples.* ICLR, 2015.
 - LeCun, Y., Bengio, Y., & Hinton, G. *Deep Learning.* Nature 521, 2015.
+- Lillicrap, T., Cownden, D., Tweed, D., & Akerman, C. *Random Synaptic Feedback Weights Support Error Backpropagation for Deep Learning.* Nature Communications 7, 2016.
 - Goodfellow, I., Bengio, Y., & Courville, A. *Deep Learning.* MIT Press, 2016. （免费在线版）
+- Kaplan, J. et al. *Scaling Laws for Neural Language Models.* arXiv:2001.08361, 2020.
+- Hoffmann, J. et al. *Training Compute-Optimal Large Language Models (Chinchilla).* NeurIPS, 2022.
+- The Royal Swedish Academy of Sciences. *The Nobel Prize in Physics 2024 — John J. Hopfield and Geoffrey E. Hinton.* Scientific Background, 2024.
 
 ## 延伸阅读
 

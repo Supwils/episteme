@@ -2,7 +2,7 @@
 title: 数据库索引与查询优化
 title_en: Database Indexing and Query Optimization
 status: published
-updated: 2026-06-13
+updated: 2026-06-28
 category: 系统与架构
 order: 45
 field: 计算机科学 · 数据库
@@ -43,6 +43,8 @@ SELECT * FROM users WHERE email = 'alice@example.com';
 
 **B+ 树（B-Plus Tree）**是关系数据库（MySQL InnoDB、PostgreSQL）索引的标准数据结构。
 
+它的来历比多数人想象的要早。B 树由 Rudolf Bayer 与 Edward McCreight 在 1972 年的论文《Organization and Maintenance of Large Ordered Indexes》中提出，发表于《Acta Informatica》创刊卷。半个多世纪过去，它和它的变体 B+ 树仍是几乎所有关系数据库索引的默认结构。
+
 B+ 树是一种平衡多路搜索树：
 - **所有叶子节点在同一层**（平衡）
 - **所有实际数据只存在叶子节点**（B+ 树特点，B 树内节点也存数据）
@@ -54,6 +56,10 @@ B+ 树是一种平衡多路搜索树：
 **为什么不用红黑树（每个节点 2 个子节点）？**
 
 红黑树对 10 亿行数据深度约 $\log_2 10^9 \approx 30$，与 B+ 树相比没有决定性差距。但 B+ 树每个节点可以存储一个磁盘页（通常 4KB 或 16KB）的数据——一次磁盘读取可以加载几百个键。磁盘 I/O 的时间（毫秒级）远超 CPU 计算（纳秒级），所以减少 I/O 次数才是关键。
+
+上面用 4 阶只是为了和红黑树对比，真实的 B+ 树扇出（fanout，一个节点的子节点数）要大得多。InnoDB 默认页 16KB、PostgreSQL 默认页 8KB，一个内部节点能放下几百个键（PostgreSQL 一个 8KB 页常容纳约 200 到 400 个索引项）。
+
+扇出几百，意味着 10 亿行的 B+ 树通常只有 3 到 4 层。所以一次点查只要 3 到 4 次页访问，而且最上面一两层几乎总是常驻内存缓存，真正落到磁盘的往往只剩一两次——这才是 B+ 树相对二叉树的真正威力。
 
 ## 索引类型
 
@@ -92,6 +98,8 @@ SELECT * FROM users WHERE age > 18;
 
 你写 SQL 只是说"我想要什么"，查询优化器（Query Optimizer）决定"怎么去取"。这是数据库中最复杂的组件之一。
 
+现代基于代价的优化器源自 IBM 的 System R 项目。Patricia Selinger 等人 1979 年的论文《Access Path Selection in a Relational Database Management System》首次系统地提出：用一个代价模型为每条查询挑选访问路径，并用动态规划把 JOIN 顺序的枚举规模从 $n!$ 压到可接受的范围。今天 MySQL、PostgreSQL、Oracle 的优化器骨架，仍沿用这套四十多年前的思路。
+
 优化器的主要工作：
 
 **1. 解析与重写**：把 SQL 转化为逻辑查询计划（关系代数表达式），应用等价变换规则（如谓词下推、列裁剪）。
@@ -125,6 +133,7 @@ EXPLAIN SELECT * FROM users WHERE email = 'alice@example.com';
 ## 慢查询的常见原因
 
 - **未使用索引**：条件列没有索引，或索引被函数/表达式使该列失效（如 `WHERE YEAR(created_at) = 2024` 无法用 `created_at` 上的 B+ 树索引）
+- **隐式类型转换**：列是字符串类型却用数字去比较（如 `phone` 是 VARCHAR，却写 `WHERE phone = 13800138000`），数据库会对整列做类型转换，等同于给列套了函数，索引照样失效——这是最隐蔽、也最常被忽视的一种
 - **索引选择性低**：性别字段（只有"男"/"女"）上的索引几乎没用，优化器可能选择全表扫描
 - **回表代价高**：非聚集索引查询返回大量行时，大量随机 I/O 回表比全表扫描更慢
 - **JOIN 笛卡尔积**：忘记 JOIN 条件导致结果集爆炸
@@ -134,20 +143,31 @@ EXPLAIN SELECT * FROM users WHERE email = 'alice@example.com';
 
 **统计信息与实际分布的偏差**：优化器依赖统计信息，但统计信息更新有延迟，数据分布倾斜（Skew）时直方图可能失效。错误的代价估计导致次优的执行计划，而 DBA 往往很难诊断原因。
 
+这不只是工程上的抱怨，而有实证支撑。2015 年 Viktor Leis 等人的论文《How Good Are Query Optimizers, Really?》用一套专门设计的连接顺序基准（Join Order Benchmark）做了拆解实验，结论相当尖锐：基数估计（cardinality estimation，即预测每一步中间结果有多少行）才是糟糕计划的主因，代价模型和计划枚举的影响相对小得多；而且基数估计的误差会随参与连接的表增多而成倍放大。换句话说，优化器最薄弱的环节不是"怎么搜"，而是"估得准不准"。
+
 **学习型查询优化器**：传统优化器是基于规则和统计模型的——用机器学习代替传统统计估计，预测更准确的代价。这是活跃的研究方向（Neo、Bao 等系统），但生产部署仍以传统方法为主。
 
 **云原生数据库的变化**：Aurora、Spanner 等云数据库将存储与计算分离、多副本、Serverless——这些架构变化使传统的 B+ 树假设（磁盘 I/O 是瓶颈）不再完全适用，新的索引结构（LSM 树、ALEX 学习型索引）正在崛起。
+
+**写优化结构的崛起**：B+ 树是为"就地更新"设计的，随机写较多。日志结构合并树（LSM-Tree，由 O'Neil 等人 1996 年提出）换了个思路：写入先攒在内存的有序结构里，再批量顺序刷到磁盘，后台逐层合并，把昂贵的随机写变成廉价的顺序写。代价是一次读取可能要查多个层级（读放大），后台合并又带来写放大。RocksDB、Cassandra、HBase 以及 MySQL 的 MyRocks 引擎都建立在 LSM 之上，专门服务写密集场景。这恰好印证了开头那条权衡：没有"最好的索引"，只有"对这种读写比例最好的索引"。
 
 ## 跨域连接
 
 - **[[databases-transactions]]**：索引是数据库存储引擎的核心组件；MVCC（多版本并发控制）和 WAL（预写日志）与索引维护的交互，决定了事务性能。
 - **[[data-structures]]**：B+ 树、哈希表、跳表（MemTable 使用）都是数据结构在数据库中的关键应用，选择合适的数据结构直接决定查询性能。
 - **[[big-data-systems]]**：当数据量超出单机 B+ 树能有效处理的规模，需要分布式索引（Elasticsearch 的倒排索引、HBase 的 LSM 树）和查询优化（Spark/Presto 的分布式查询计划）。
+- **统计学与运筹学**：基数估计本质上是用直方图与抽样去估计数据的概率分布，属于应用统计学；JOIN 顺序搜索则是一个组合优化问题（$n!$ 量级的搜索空间），与运筹学里的排程、装箱同源。查询优化器，可以看作这两门学科在系统工程里的一次大规模落地。
 
 ---
 
 ## 参考文献
 
+- Bayer, R. & McCreight, E. "Organization and Maintenance of Large Ordered Indexes." *Acta Informatica*, vol. 1, no. 3 (1972): 173–189.
+- Selinger, P. G., Astrahan, M. M., Chamberlin, D. D., Lorie, R. A. & Price, T. G. "Access Path Selection in a Relational Database Management System." *Proc. ACM SIGMOD*, 1979: 23–34.
+- O'Neil, P., Cheng, E., Gawlick, D. & O'Neil, E. "The Log-Structured Merge-Tree (LSM-Tree)." *Acta Informatica*, vol. 33, no. 4 (1996): 351–385.
+- Leis, V., Gubichev, A., Mirchev, A., Boncz, P., Kemper, A. & Neumann, T. "How Good Are Query Optimizers, Really?" *Proc. VLDB Endowment (PVLDB)*, vol. 9, no. 3 (2015): 204–215.
+- Kraska, T., Beutel, A., Chi, E. H., Dean, J. & Polyzotis, N. "The Case for Learned Index Structures." *Proc. ACM SIGMOD*, 2018.
+- Marcus, R., Negi, P., Mao, H., Tatbul, N., Alizadeh, M. & Kraska, T. "Bao: Making Learned Query Optimization Practical." *Proc. ACM SIGMOD*, 2021: 1275–1288.
 - Ramakrishnan, R. & Gehrke, J. *Database Management Systems.* 3rd ed. McGraw-Hill, 2002.
 - Mohan, C. et al. *ARIES: A Transaction Recovery Method Supporting Fine-Granularity Locking and Partial Rollbacks Using Write-Ahead Logging.* ACM TODS, 1992.
 - Graefe, G. *Modern B-tree Techniques.* Foundations and Trends in Databases, 2011.

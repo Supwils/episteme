@@ -1,70 +1,50 @@
-"use client";
-
-import { motion, useReducedMotion } from "framer-motion";
 import { AnimatedCounter } from "./AnimatedCounter";
 import { STATS } from "../lib/data";
 
 export function HeroSection() {
-  const reduce = useReducedMotion();
-
   return (
     <section className="relative w-full pt-24 pb-16 text-center">
       <div className="relative z-1 px-6">
-        <motion.div
-          className="relative inline-block px-4 py-9 sm:px-12"
-          initial={reduce ? false : { opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
-        >
-          <motion.div
-            className="mb-7 flex items-center justify-center gap-3"
-            initial={reduce ? false : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+        <div className="animate-fade-slide-up relative inline-block px-4 py-9 sm:px-12">
+          <div
+            className="animate-fade-slide-up mb-7 flex items-center justify-center gap-3"
+            style={{ animationDelay: "0.1s" }}
           >
             <span aria-hidden="true" className="bg-accent-gold/45 h-px w-8" />
             <p className="text-accent-gold font-mono text-[0.7rem] font-medium tracking-[0.38em] uppercase">
               Episteme · 格致 Platform
             </p>
             <span aria-hidden="true" className="bg-accent-gold/45 h-px w-8" />
-          </motion.div>
+          </div>
 
-          <motion.h1
-            className="font-display text-fg-primary mb-5 text-[clamp(2.9rem,7.5vw,5.2rem)] leading-[1.04] font-semibold tracking-tight"
-            initial={reduce ? false : { opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 0.61, 0.36, 1] }}
+          <h1
+            className="animate-fade-slide-up font-display text-fg-primary mb-5 text-[clamp(2.9rem,7.5vw,5.2rem)] leading-[1.04] font-semibold tracking-tight"
+            style={{ animationDelay: "0.15s" }}
           >
             探索人类
             <span className="text-accent-gold">知识</span>
             的边界
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            className="text-fg-secondary mx-auto mb-4 max-w-[560px] text-[1.15rem] leading-relaxed font-medium"
-            initial={reduce ? false : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.25 }}
+          <p
+            className="animate-fade-slide-up text-fg-secondary mx-auto mb-4 max-w-[560px] text-[1.15rem] leading-relaxed font-medium"
+            style={{ animationDelay: "0.25s" }}
           >
             从宇宙的尺度到人类的思想，一站式探索
-          </motion.p>
+          </p>
 
-          <motion.p
-            className="text-fg-muted mx-auto mb-10 max-w-[520px] text-[1.02rem] leading-relaxed"
-            initial={reduce ? false : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.35 }}
+          <p
+            className="animate-fade-slide-up text-fg-muted mx-auto mb-10 max-w-[520px] text-[1.02rem] leading-relaxed"
+            style={{ animationDelay: "0.35s" }}
           >
             汇聚宇宙物理、宇宙学、人类历史、哲学思想、生命科学与数学逻辑，构建系统化的知识图谱。让任何人随时以美好的方式接触到人类最重要的知识。
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
       </div>
 
-      <motion.div
-        className="flex flex-wrap items-start justify-center gap-x-10 gap-y-6 px-4 sm:gap-x-16"
-        initial={reduce ? false : { opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 0.61, 0.36, 1] }}
+      <div
+        className="animate-fade-slide-up flex flex-wrap items-start justify-center gap-x-10 gap-y-6 px-4 sm:gap-x-16"
+        style={{ animationDelay: "0.45s" }}
       >
         {STATS.map((stat, i) => (
           <div key={stat.label} className="flex items-center gap-x-10 sm:gap-x-16">
@@ -81,7 +61,7 @@ export function HeroSection() {
             </div>
           </div>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 }

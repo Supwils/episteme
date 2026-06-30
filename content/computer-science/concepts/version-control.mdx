@@ -2,7 +2,7 @@
 title: 版本控制
 title_en: Version Control
 status: published
-updated: 2026-06-13
+updated: 2026-06-28
 category: 软件工程实践
 order: 22
 field: 计算机科学 · 软件工程
@@ -23,7 +23,7 @@ related:
 
 这种方式在全球数千名开发者同时贡献代码时完全行不通。
 
-2005 年，Linux 社区与 BitKeeper（当时使用的专有版本控制工具）决裂。Torvalds 花了两周时间写出了 Git——一个专为大规模分布式协作设计的版本控制系统。今天，Git 是地球上使用最广泛的软件开发工具之一。
+2005 年 4 月，Linux 社区与 BitKeeper（当时使用的专有版本控制工具）决裂。Torvalds 只用了几天就写出 Git 的雏形——一个专为大规模分布式协作设计的版本控制系统。第一个提交记录的时间戳是 2005 年 4 月 7 日；约三个月后，他就把日常维护权交给了沿用至今的维护者滨野纯（Junio Hamano）。今天，Git 是地球上使用最广泛的软件开发工具之一。
 
 ## 破除误解：版本控制不是"存档"
 
@@ -51,15 +51,19 @@ A --- B --- C --- D  (main)
 
 **历史是不可篡改的**：每个节点的 ID 是其内容的 SHA-1 哈希（Git 2.29 起可选 SHA-256）。改变任何内容会导致哈希变化，从而连锁改变所有后续节点的哈希。这使得 Git 仓库本质上是一个**内容寻址的不可变数据结构**。
 
+不过"不可篡改"是有前提的：它依赖底层哈希的抗碰撞性，而 SHA-1 的这道防线在 2017 年被攻破。2017 年 2 月 23 日，荷兰 CWI 研究所与 Google 公布了 SHA-1 的首个实际碰撞（代号 SHAttered），构造出两个内容不同、SHA-1 却完全相同的 PDF。这次碰撞耗费约 2 的 63 次方次哈希运算，折合 6500 个 CPU 年加 110 个 GPU 年的算力。
+
+这意味着理论上有人能伪造一个与正常提交同哈希的恶意对象。Git 的回应不是连夜更换算法，而是在 2.13.0 版（2017 年 5 月）默认启用 Marc Stevens 与 Dan Shumow 的 sha1collisiondetection——一种能嗅出碰撞攻击痕迹、一旦发现就主动报错的强化版 SHA-1。彻底迁移到 SHA-256 的工作至今仍未完成，因为全球海量仓库的对象哈希都要重算，是一次牵一发而动全身的迁移。
+
 **分支极其廉价**：一个分支只是 40 字节的哈希值（一个指针），创建分支的代价几乎为零。这与 SVN 等早期工具形成对比——在 SVN 中，创建分支需要复制整个项目目录。
 
-**合并是一等公民**：Git 的合并算法（三路合并，three-way merge）理解"我在哪里分叉"，能自动合并两个人在不同地方做的修改，只在真正冲突时要求人工介入。
+**合并是一等公民**：Git 的合并算法（三路合并，three-way merge）理解"我在哪里分叉"，能自动合并两个人在不同地方做的修改，只在真正冲突时要求人工介入。这套算法本身仍在进化：2021 年的 Git 2.34 把沿用了二十年的默认合并策略 recursive 换成了 Elijah Newren 重写的 ort（名字意为 "Ostensibly Recursive's Twin"），在某些大型仓库的合并上快出三个数量级。
 
 ## 工作流演进
 
 **集中式工作流**：所有人直接推送到 main 分支，适合个人项目或极小团队。
 
-**功能分支工作流（Feature Branch）**：每个新功能在独立分支开发，完成后通过 Pull Request / Merge Request 合并。这是当今最主流的开源协作模式，GitHub 在 2008 年推出 Pull Request 功能后将其普及。
+**功能分支工作流（Feature Branch）**：每个新功能在独立分支开发，完成后通过 Pull Request / Merge Request 合并。这是当今最主流的开源协作模式，GitHub 在 2008 年推出 Pull Request 功能后将其普及。有意思的是，2008 年最初的 Pull Request 不过是 `git request-pull` 命令的网页包装——发一条"请拉取我的提交"的通知而已；真正接近今天形态（带代码审查与行内评论的协作界面）的版本，要到 2010 年 8 月的 "Pull Request 2.0"。
 
 **GitFlow**：Vincent Driessen 在 2010 年提出的规范化分支策略，定义了 main、develop、feature、release、hotfix 五类分支及其交互规则。适合有计划发布节奏的产品。
 
@@ -82,13 +86,13 @@ Git 和 Mercurial（2005 年，同期由 Matt Mackall 开发）属于**分布式
 
 **SCCS（Source Code Control System，1972）**：贝尔实验室 Marc Rochkind 开发，世界上第一个版本控制系统。只支持单文件锁定（一次只有一人可以编辑一个文件），避免冲突的方式是强制串行化。
 
-**RCS（Revision Control System，1982）**：GNU 版本，也是文件锁定模型，但存储方式更高效（用差分存储历史，而不是全量快照）。
+**RCS（Revision Control System，1982）**：Walter Tichy 在普渡大学开发，目标是给当时收费的 SCCS 提供一个免费替代（RCS 后来才并入 GNU 项目）。它同样是文件锁定模型，但存储方式更高效——用"反向差分"（reverse delta）只完整保存最新版本，旧版本靠逐步回退的编辑指令还原。
 
 **CVS（Concurrent Versions System，1986）**：革命性地引入了**乐观并发**——多人可以同时编辑同一文件，提交时系统尝试自动合并，有冲突时提示人工解决。这使团队协作不再需要严格协调。
 
 **Subversion（SVN，2000）**：CVS 的替代，改进了目录移动、原子提交等操作，成为 2000 年代开源项目的主流版本控制系统。Apache、GCC、Python 等都曾使用 SVN。
 
-**BitKeeper（商业，1998）**：Linux 内核 2002-2005 年使用，是第一个大规模应用的分布式版本控制系统，对 Linux 贡献者免费。2005 年因许可证争议（一位内核开发者试图逆向工程 BitKeeper 协议）撤销了免费使用权，直接导致 Torvalds 写出了 Git。
+**BitKeeper（商业，2000 年首次公开发布）**：由 Larry McVoy 的 BitMover 公司开发，Linux 内核于 2002 年至 2005 年初使用，是第一个大规模应用的分布式版本控制系统，对 Linux 贡献者免费。2005 年因许可证争议（一位内核开发者试图逆向工程 BitKeeper 协议）撤销了免费使用权，直接导致 Torvalds 写出了 Git。
 
 **Git（2005）** 和 **Mercurial（2005）**：几乎同时诞生于 Linux 社区，两者设计目标类似，但 Git 赢得了市场（GitHub 的支持是关键因素），Mercurial 在 Facebook 等少数公司使用。
 
@@ -102,7 +106,11 @@ Git 和 Mercurial（2005 年，同期由 Matt Mackall 开发）属于**分布式
 
 **历史重写的伦理**：`git rebase` 和 `git push --force` 允许重写已发布的历史，这在团队环境中可能导致他人工作丢失。何时应该保留"真实历史"（包括所有混乱的中间提交），何时应该整理为整洁的叙事，是持续的工程文化争论。
 
-**Monorepo vs Polyrepo**：Google、Facebook、Twitter 把公司所有代码存在一个超大 Git 仓库（Monorepo），声称有利于跨项目代码复用和原子性变更。反对者认为这带来了工具链复杂性和不必要的耦合。两种方式都有成功案例。
+**Monorepo vs Polyrepo**：把公司几乎所有代码存进一个超大仓库（Monorepo），声称有利于跨项目代码复用和原子性变更。Google 是最著名的例子：据 Potvin 与 Levenberg 2016 年的论文，其单一代码库约有 20 亿行代码、约 900 万个源文件、占用 86 TB，每个工作日逾 1 万名工程师提交约 4 万次。
+
+这里有个常被误传的细节：这种量级的 Monorepo 大多并不跑在 Git 上。Google 的代码库由自研系统 Piper 管理（在 Piper 之前，它靠单台机器上的一个 Perforce 实例撑了十多年）；Meta 用的是从 Mercurial 演化、2022 年才开源的 Sapling。真正"用 Git 装下整个公司主干"的标杆是微软：2017 年它把约 350 万个文件、约 300 GB 的 Windows 源码迁上 Git，成为当时地球上最大的 Git 仓库，还为此专门造了虚拟文件系统 VFS for Git（按需下载文件，免得每个开发者一次拉取整个仓库）。
+
+反对者认为 Monorepo 带来了工具链复杂性和不必要的耦合——上面这些公司无一例外都得自研基础设施才能让它跑起来，这本身就是一种成本信号。两种方式都有成功案例。
 
 ## 跨域连接
 
@@ -115,7 +123,11 @@ Git 和 Mercurial（2005 年，同期由 Matt Mackall 开发）属于**分布式
 
 ## 参考文献
 
-- Potvin, R. & Levenberg, J. *Why Google Stores Billions of Lines of Code in a Single Repository.* CACM 59(7), 2016. （Google Monorepo 实践的权威描述）
+- Potvin, R. & Levenberg, J. *Why Google Stores Billions of Lines of Code in a Single Repository.* Communications of the ACM 59(7), 2016. （Google Monorepo 实践与规模数据的权威描述）
+- Stevens, M., Bursztein, E., Karpman, P., Albertini, A. & Markov, Y. *The First Collision for Full SHA-1.* Advances in Cryptology – CRYPTO 2017, LNCS 10401. （SHAttered 攻击的原始论文）
+- Tichy, W. F. *RCS — A System for Version Control.* Software: Practice and Experience 15(7), 1985. （RCS 反向差分设计的一手论文）
+- Harry, B. *The Largest Git Repo on the Planet.* Microsoft DevBlogs, 2017-05-24. （Windows 源码迁移到 Git 与 VFS for Git 的工程记录）
+- Meta Engineering. *Sapling: Source Control That's User-Friendly and Scalable.* engineering.fb.com, 2022-11-15. （Meta Monorepo 版本控制系统 Sapling 的官方介绍）
 
 ## 延伸阅读
 

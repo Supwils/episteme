@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { serializeJsonLd } from "@/lib/jsonld";
 import { spaceGrotesk, plexMono } from "@/lib/fonts";
 import { ThemeProvider } from "../components/ThemeProvider";
 import { SectionAwareNav } from "../components/SectionAwareNav";
@@ -94,7 +95,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationJsonLd),
+            __html: serializeJsonLd(organizationJsonLd),
           }}
         />
       </head>

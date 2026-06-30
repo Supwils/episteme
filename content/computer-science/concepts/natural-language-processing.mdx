@@ -2,7 +2,7 @@
 title: 自然语言处理
 title_en: Natural Language Processing
 status: published
-updated: 2026-06-13
+updated: 2026-06-28
 category: 人工智能
 order: 43
 field: 计算机科学 · 人工智能
@@ -40,7 +40,7 @@ related:
 
 **上下文依赖**：理解一个词或句子往往需要整个对话甚至文化背景的知识。
 
-**组合性（Compositionality）**：语言意义通过有限元素（词汇、句法）的组合产生无限表达——"无色绿色的想法在沉睡中愤怒地燃烧"在语法上完全正确，在语义上毫无意义。
+**组合性（Compositionality）**：语言意义通过有限元素（词汇、句法）的组合产生无限表达——"无色绿色的想法在沉睡中愤怒地燃烧"在语法上完全正确，在语义上毫无意义。这个例子出自 Chomsky 1957 年的《句法结构》（Syntactic Structures），他用它论证句法与语义相互独立，并质疑纯统计的语言模型无法把握语法。颇具讽刺的是，今天主导 NLP 的恰恰是统计方法。
 
 **隐含语用信息（Pragmatics）**："你能把盐递给我吗？"不是在询问能力，而是请求行为。语言在使用中远比字面意思复杂。
 
@@ -57,6 +57,12 @@ related:
 | 文本摘要 | 提取/生成文本要点 | 长文档 → 关键段落 |
 | 问答（QA） | 基于知识回答问题 | 阅读理解、开放域问答 |
 | 文本生成 | 生成连贯文本 | 故事创作、代码生成 |
+
+需要纠正一个常见误解：现代大语言模型其实**不按"词"切分**，而是按**子词（Subword）**。
+
+2016 年 Sennrich 等人把数据压缩算法**字节对编码（BPE，Byte Pair Encoding）**引入翻译模型：从单个字符出发，反复合并出现频率最高的相邻片段，直到达到设定的词表大小。常见词被保留为完整符号，生僻词则被拆成更小的单元。
+
+这样模型只用几万个子词就能覆盖任意文本，也基本告别了"未登录词"（训练时没见过的词）。今天 GPT、BERT 用的都是这一类子词分词，"strawberry 有几个 r"之类的笑话，根源正是模型看到的并不是字母而是子词块。
 
 ## 语言模型：预测下一个词
 
@@ -84,11 +90,23 @@ $$\text{vec}(\text{"King"}) - \text{vec}(\text{"Man"}) + \text{vec}(\text{"Woman
 
 **GloVe（Stanford，2014）**和**FastText（Facebook，2016）**是 Word2Vec 的重要后继，各有改进（GloVe 利用全局统计；FastText 基于子词，处理词形变化和未登录词）。
 
+## Transformer：自注意力机制
+
+词嵌入解决了"单个词怎么表示"，但句子是序列，模型还得理解词与词之间的关系。
+
+2017 年，Google 团队（Vaswani 等）发表《Attention Is All You Need》，提出 **Transformer** 架构。它抛弃了此前主流的循环神经网络（RNN，逐词顺序处理序列的网络），完全依靠**自注意力机制（Self-Attention）**来建模序列。
+
+自注意力的核心思想是：序列里每个词都去"查询"其余所有词，按相关程度加权汇总信息。这样"it"可以直接关注到几十个词之外的"trophy"，不必像 RNN 那样逐步传递、层层衰减。
+
+这个改动的工程意义常被低估：注意力可以**并行计算**整个序列，而 RNN 必须一个词一个词地算。并行化让模型得以在更大的数据和算力上训练，直接催生了后来的大模型。原论文在 WMT 2014 英德翻译任务上取得 28.4 BLEU，比当时最好结果高出 2 个 BLEU 以上，训练还更快。
+
+今天几乎所有主流语言模型——BERT、GPT、T5——都是 Transformer 的变体。
+
 ## Transformer 时代：BERT 与 GPT
 
-词嵌入的问题是**静态的**——"bank"在所有上下文中有相同的向量表示，无法区分"银行"和"河岸"。
+静态词嵌入还有一个根本问题——"bank"在所有上下文里都是同一个向量，无法区分"银行"和"河岸"。
 
-Transformer 的出现彻底改变了这一点，带来了**上下文化的词表示**：
+基于 Transformer 的预训练模型带来了**上下文化的词表示**（同一个词在不同句子里得到不同向量）：
 
 **BERT（Bidirectional Encoder Representations from Transformers，Google，2018）**：
 - 用 Transformer 编码器，同时看词的左边和右边上下文
@@ -105,6 +123,14 @@ Transformer 的出现彻底改变了这一点，带来了**上下文化的词表
 
 **T5（Google，2019）**：把所有 NLP 任务统一为"文本到文本"格式，简化了多任务学习框架。
 
+## 对齐：让模型听话
+
+预训练只教会模型"预测下一个词"，并不保证它按人类期望来回答。**RLHF（基于人类反馈的强化学习，Reinforcement Learning from Human Feedback）**是弥合这道鸿沟的关键技术。
+
+OpenAI 的 InstructGPT（Ouyang 等，2022）分三步：先用人工示范做监督微调；再让标注者对模型的多个回答按质量排序，训练一个"奖励模型"；最后用强化学习（PPO 算法）让模型去最大化这个奖励。
+
+结果很有说服力：仅 13 亿参数的 InstructGPT，其输出在人类盲评中比 1750 亿参数的原始 GPT-3 更受偏好，而且事实错误和有害内容都更少。这说明**对齐**有时比单纯堆参数更重要。ChatGPT 正是这套方法的产物。
+
 ## 机器翻译的演化
 
 **规则翻译 → 统计机器翻译 → 神经机器翻译**：
@@ -114,13 +140,25 @@ Transformer 的出现彻底改变了这一点，带来了**上下文化的词表
 - 2017：Transformer 让 NMT 性能再度飞跃，Google 翻译全面切换
 - 今天：大语言模型（如 GPT-4）在多数语言对上接近或超越专用翻译系统
 
+**怎么给翻译打分？** 2002 年 Papineni 等人提出 **BLEU** 指标，比较机器译文与人工参考译文的 n 元词组（1 到 4 元）重叠度，再用"过短惩罚"防止系统靠输出极短句子刷分。BLEU 第一次让翻译质量可以自动、快速地评估，主导了机器翻译研究二十年。但它只看表面词形重叠，对同义改写和语序灵活的语言并不公平——这也是近年评测越来越多转向基于神经模型的语义级指标的原因。
+
+## 多大才够？规模法则之争
+
+大模型时代的核心经验是**规模法则（Scaling Laws）**：模型的损失随参数量、数据量、算力以幂律平滑下降（Kaplan 等，2020）。这把"做大"变成了一条可预测的工程路线。
+
+但"算力该花在哪"长期被搞错了。Kaplan 的工作倾向于把算力主要投到更多参数上。2022 年 DeepMind 的 Hoffmann 等人提出 **Chinchilla** 结论：在固定算力下，参数量和训练数据量应当**同比例增长**，经验比例约为每个参数配 20 个训练词元。
+
+按这个标准，当时的大模型其实都"训练不足"——它们太大、喂的数据太少。DeepMind 据此训练了 700 亿参数、1.4 万亿词元的 Chinchilla，反而在多项基准上超过了 2800 亿参数的 Gopher 和 1750 亿参数的 GPT-3。这一结论重塑了之后几乎所有大模型的训练配方。
+
 ## 代价与争议
 
 **幻觉（Hallucination）**：大语言模型经常用流利的语言生成事实错误的内容，且表达得同样自信。原因在于训练目标（最大化文本预测概率）与"输出真实信息"之间没有对齐。检索增强生成（RAG）是缓解方案之一。
 
 **文化偏见与语言不平等**：训练数据以英文为主，其他语言的 NLP 性能差距显著。全球约 7000 种语言中，只有不到 100 种有足够的 NLP 资源。语言模型中可能编码了训练数据来源文化的偏见。
 
-**"鹦鹉随机"假说（Stochastic Parrot）**：2021 年 Emily Bender 等人发表论文，提出大语言模型只是在根据训练过的文本做复杂的形式匹配（"随机鹦鹉"），没有真正的语言理解和意图。这引发了 NLP 学界关于大语言模型本质的激烈辩论，也导致了 Google 对 Timnit Gebru 的解雇风波（发表该论文的作者之一）。
+**"随机鹦鹉"假说（Stochastic Parrot）**：2021 年 Emily Bender 等人发表论文，提出大语言模型只是在根据训练过的文本做复杂的形式匹配（"随机鹦鹉"），没有真正的语言理解和意图。这引发了 NLP 学界关于大语言模型本质的激烈辩论，也牵连出 Google 对 Timnit Gebru 的解雇风波（她是该论文作者之一）。
+
+**"涌现能力"是真是假？** 2022 年 Wei 等人提出大语言模型存在**涌现能力（Emergent Abilities）**：某些任务在模型较小时几乎是随机水平，规模越过某个门槛后能力突然出现，无法靠小模型外推预测。这被视为"规模带来质变"的证据。但 2023 年 Schaeffer 等人反驳：这种"突现"很可能是**评测指标造成的假象**——一旦换用平滑连续的指标（而非"全部正确才算对"这类非线性指标），能力其实是渐进、可预测地提升的。这场争论直指一个根本问题：扩大规模究竟是量变，还是真的产生了质变？
 
 **版权与内容安全**：训练数据中包含大量网络内容；生成的内容可能造成错误信息传播、版权侵犯或有害内容。内容安全过滤是大规模 NLP 系统部署的核心工程挑战。
 
@@ -135,6 +173,14 @@ Transformer 的出现彻底改变了这一点，带来了**上下文化的词表
 ## 参考文献
 
 - Jurafsky, D. & Martin, J. *Speech and Language Processing.* 3rd ed. 草稿在线免费. （NLP 最全面的教材）
+- Chomsky, N. *Syntactic Structures.* Mouton, 1957. （"无色绿色的想法"句子出处）
+- Papineni, K. et al. *BLEU: a Method for Automatic Evaluation of Machine Translation.* ACL, 2002.
 - Mikolov, T. et al. *Distributed Representations of Words and Phrases and their Compositionality.* NeurIPS, 2013. （Word2Vec）
+- Sennrich, R., Haddow, B. & Birch, A. *Neural Machine Translation of Rare Words with Subword Units.* ACL, 2016. （BPE 子词分词）
+- Vaswani, A. et al. *Attention Is All You Need.* NeurIPS, 2017. （Transformer）
 - Devlin, J. et al. *BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding.* NAACL, 2019.
+- Ouyang, L. et al. *Training Language Models to Follow Instructions with Human Feedback.* NeurIPS, 2022. （InstructGPT / RLHF）
+- Hoffmann, J. et al. *Training Compute-Optimal Large Language Models.* NeurIPS, 2022. （Chinchilla 规模法则）
+- Wei, J. et al. *Emergent Abilities of Large Language Models.* TMLR, 2022.
+- Schaeffer, R., Miranda, B. & Koyejo, S. *Are Emergent Abilities of Large Language Models a Mirage?* NeurIPS, 2023.
 - Bender, E. et al. *On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?* FAccT, 2021.

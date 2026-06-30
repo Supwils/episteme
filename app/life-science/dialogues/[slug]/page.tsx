@@ -7,7 +7,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { ArticleLayout } from "@/components/ArticleLayout";
 import { SITE_URL } from "@/lib/constants";
-import { createArticleJsonLd } from "@/lib/jsonld";
+import { serializeJsonLd, createArticleJsonLd } from "@/lib/jsonld";
 
 const ACCENT = "#4a9e6f";
 
@@ -80,7 +80,7 @@ export default async function LifeScienceDialoguePage({
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <ArticleLayout
         backHref="/life-science/dialogues"

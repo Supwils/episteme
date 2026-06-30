@@ -2,7 +2,7 @@
 title: GPU 与并行计算
 title_en: GPU and Parallel Computing
 status: published
-updated: 2026-06-13
+updated: 2026-06-28
 category: 计算机科学基础
 order: 34
 field: 计算机科学 · 体系结构
@@ -36,13 +36,29 @@ CPU 和 GPU 是面向完全不同问题的两种解决方案：
 
 简单比喻：CPU 是少数几位能解任何题的天才教授；GPU 是数以千计只会做乘法的小学生，但同时做乘法。
 
+## 并行的分类法：Flynn、SIMD 与 SIMT
+
+要说清 GPU 的"并行"到底是哪一种并行，先看一张经典地图。1966 年，Michael Flynn 按"指令流"和"数据流"的数量，把计算机分成四类（**Flynn 分类法**，1972 年又作扩充）：
+
+- **SISD**（单指令单数据）：传统冯·诺依曼单核 CPU，一条指令处理一份数据。
+- **SIMD**（单指令多数据）：一条指令同时作用于一批数据，如 CPU 的 SSE / AVX 向量指令。
+- **MISD**（多指令单数据）：几乎没有真实硬件实现，多作为理论占位。
+- **MIMD**（多指令多数据）：多核 CPU、计算集群，每个核心独立执行不同指令、处理不同数据。
+
+GPU 既不完全是 SIMD，也不完全是 MIMD。NVIDIA 为它造了一个词：**SIMT（Single Instruction, Multiple Threads）**。两者的区别很关键：
+
+- **SIMD** 是"一个线程发一条向量指令，作用在一条定长数据向量上"——向量宽度要由程序员显式管理。
+- **SIMT** 是"许多独立线程各自执行同一条指令"——每个线程有自己的程序计数器和寄存器，可以读写不同地址、走不同的分支路径。
+
+换句话说，SIMD 把并行暴露给程序员（你得手写向量化），SIMT 把并行藏在线程抽象背后（你只写单个线程的代码，硬件负责把成千上万个线程批量调度）。这种抽象让 GPU 编程门槛大降，但代价藏在后面：当同一批线程真的走了不同分支，SIMT 的"独立"只是假象，硬件仍要逐条路径串行跑完（见下文 Warp 与分支发散）。
+
 ## GPU 的起源：图形渲染的数学
 
 GPU 的历史根植于实时三维图形。渲染一帧游戏画面，需要对数百万个三角形的每个顶点做相同的矩阵变换，对数百万个像素做相同的着色计算。这种"同样的操作作用于大量数据"的模式，完美匹配了大规模并行架构。
 
 1999 年，NVIDIA 发布 GeForce 256，首次使用"GPU"这个词。早期 GPU 是固定功能管线；2001 年的 GeForce 3 引入了可编程顶点着色器，开始允许程序员自定义 GPU 计算。
 
-2006 年，NVIDIA 发布了 CUDA（Compute Unified Device Architecture）编程框架，让开发者可以用 C 语言扩展编写通用程序在 GPU 上运行，GPU 从此从图形处理器变成了通用并行计算平台——称为 **GPGPU（General-Purpose GPU Computing）**。
+2006 年底，NVIDIA 随 G80 架构（GeForce 8800）发布了 CUDA（Compute Unified Device Architecture）编程框架（首个公开工具包于 2007 年发布），让开发者可以用 C 语言扩展编写通用程序在 GPU 上运行，GPU 从此从图形处理器变成了通用并行计算平台——称为 **GPGPU（General-Purpose GPU Computing）**。
 
 ## CUDA 编程模型：SIMT
 
@@ -67,6 +83,12 @@ doubleArray<<<1000, 1024>>>(deviceArray, 1000000);
 ```
 
 GPU 内部，32 个线程组成一个 **Warp**（NVIDIA 术语，AMD 叫 Wavefront），Warp 内的所有线程同步执行相同指令。如果 Warp 内部出现分支（if-else），NVIDIA 使用**谓词执行**：两条路径都执行，不相关线程的结果被屏蔽。这使得分支在 GPU 上代价极高——"避免分支"是 GPU 编程的重要优化原则。
+
+## CUDA 不是唯一选择：OpenCL 与开放标准
+
+CUDA 只能跑在 NVIDIA 自家硬件上。为打破这种绑定，由 Apple 发起、提交给行业联盟 Khronos Group 的 **OpenCL（Open Computing Language）** 应运而生：1.0 规范于 2008 年 12 月获批，2009 年随 Mac OS X Snow Leopard 首发。OpenCL 的目标是"一次编写、跨设备运行"——同一份代码可以跑在 NVIDIA、AMD、Intel 的 GPU，甚至 CPU、FPGA 上。
+
+理想很美，权衡却很现实：开放标准要照顾各家硬件，往往落后于 CUDA 暴露最新特性（如 Tensor Core）的节奏，极致调优也更难。结果是深度学习的科研与工业界至今高度依赖 CUDA——这正是后文"GPU 垄断与依赖"的技术根源。AMD 的 ROCm / HIP、Intel 的 oneAPI、以及 OpenAI 主导的 Triton，都是近年试图在"可移植"和"高性能"之间重新找平衡的尝试。
 
 ## 矩阵乘法：为什么 GPU 天生适合深度学习
 
@@ -100,7 +122,19 @@ $$\text{Speedup} \leq \frac{1}{s + \frac{1-s}{n}}$$
 
 **内存带宽瓶颈**：GPU 计算速度很快，但内存访问常是瓶颈。许多运算是"内存带宽受限"（Memory-Bound）而非"计算受限"（Compute-Bound）。优化 GPU 程序往往意味着减少内存访问次数、提高缓存利用率、使用高带宽内存（HBM）。
 
+判断一个运算到底卡在哪，有个经典工具——**Roofline 模型**（Williams、Waterman、Patterson，UC Berkeley，2009）。它以"算术强度"（每读写 1 字节数据所做的浮点运算数，FLOPs/Byte）为横轴、可达性能为纵轴，画出两道"屋顶"：一道是内存带宽决定的斜顶，一道是峰值算力决定的平顶。算术强度低的运算（如向量加、逐元素激活函数）撞在斜顶上，是内存受限；算术强度高的运算（如大矩阵乘）才够得到平顶，是计算受限。这解释了为什么深度学习要把许多小算子"融合"（Kernel Fusion）成大算子——减少往返显存的次数、把算术强度推高，免得昂贵的 Tensor Core 饿着等数据。
+
 **通信开销**：多 GPU 并行训练时，梯度同步（All-Reduce）的通信开销随 GPU 数量增加，可能成为主要瓶颈。
+
+## 误区：GPU 并不能让一切都变快
+
+GPU 是吞吐机器，不是万能加速器。一个任务能不能从 GPU 获益，取决于它有没有**大量彼此独立、做相同操作**的工作。下面几类任务在 GPU 上往往不快，甚至更慢：
+
+- **强串行依赖**：每一步都要等上一步结果（如递归、状态机、指针追逐式的图遍历），没有可并行的宽度，数千个核心只能闲着。
+- **分支发散严重**：同一个 Warp 内线程走向天差地别的代码路径，硬件被迫逐条分支串行跑完，并行优势被吃光。
+- **数据量太小**：把数据从主机内存搬到显存、再启动 kernel 本身就有固定开销；任务太小，搬运和启动的时间会盖过计算节省下来的时间。
+
+这正呼应 Amdahl 定律：决定一段程序能不能"上 GPU"的，往往不是它的计算量有多大，而是其中有多大比例**真正可并行**。
 
 ## 代价与争议
 
@@ -115,6 +149,8 @@ $$\text{Speedup} \leq \frac{1}{s + \frac{1-s}{n}}$$
 - **[[computer-graphics]]**：GPU 起源于图形渲染，图形学是 GPU 发展的原始驱动力。
 - **[[cpu-pipelining]]**：CPU 和 GPU 是互补的计算架构，各自针对不同问题优化。
 - **[[distributed-systems]]**：大规模 GPU 集群本身是分布式系统，需要解决通信、容错等问题。
+- **机器学习**：深度学习的训练与推理几乎全部跑在 GPU 上，可用算力的多寡直接决定了模型能做多大——这是"算法进步"之外推动 AI 的另一条暗线。
+- **数学（线性代数）**：GPU 的看家本领就是稠密矩阵运算，矩阵乘法与卷积本质都是线性代数；理解 BLAS 与算术强度，就理解了 GPU 性能的来源。
 - **经济学**：GPU 短缺（2020-2023）是供需失衡的典型案例，揭示了关键技术组件的地缘政治敏感性。
 
 ---
@@ -124,7 +160,10 @@ $$\text{Speedup} \leq \frac{1}{s + \frac{1-s}{n}}$$
 - Kirk, D. & Hwu, W. *Programming Massively Parallel Processors: A Hands-on Approach.* Morgan Kaufmann, 2022.
 - Nickolls, J. et al. *Scalable Parallel Programming with CUDA.* Queue 6(2), 2008. （CUDA 的奠基性论文）
 - Amdahl, G. *Validity of the Single Processor Approach to Achieving Large Scale Computing Capabilities.* AFIPS, 1967.
+- Flynn, M. J. *Very High-Speed Computing Systems.* Proceedings of the IEEE 54(12), 1966. （Flynn 分类法的提出）
+- Williams, S., Waterman, A., Patterson, D. *Roofline: An Insightful Visual Performance Model for Multicore Architectures.* Communications of the ACM 52(4), 2009.
 - Krizhevsky, A., Sutskever, I., Hinton, G. *ImageNet Classification with Deep Convolutional Neural Networks.* NIPS, 2012. （AlexNet 论文）
+- Khronos Group. *The OpenCL Specification (v1.0).* 2008. （OpenCL 开放标准）
 
 ## 延伸阅读
 

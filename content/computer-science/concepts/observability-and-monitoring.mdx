@@ -2,7 +2,7 @@
 title: 可观测性与监控
 title_en: Observability and Monitoring
 status: published
-updated: 2026-06-13
+updated: 2026-06-28T00:00:00.000Z
 category: 系统与架构
 order: 62
 field: 计算机科学 · 分布式系统 · 运维
@@ -17,7 +17,6 @@ related:
   - microservices-architecture
   - message-queues-and-streaming
 ---
-
 # 可观测性与监控
 
 凌晨三点，一个电商网站的下单接口突然变慢。表面只是"慢了一点"，但背后这一次下单，可能穿过了几十个互相调用的微服务、几个数据库、一个消息队列和两个外部支付接口。问题出在哪一环？在单台服务器的年代，工程师登录机器看看日志就行。在今天这种分布式系统里，"看看日志"几乎等于在一座迷宫里找一根针。
@@ -40,7 +39,21 @@ related:
 
 **指标（Metrics）**：对某类事件随时间聚合后的数值——"过去一分钟，下单接口的 P99 延迟是 850 毫秒""当前每秒请求数是 1200"。指标占用空间小、便于绘制趋势图和设置告警，但它是聚合的，丢失了单次请求的细节：你知道"整体变慢了"，却不知道"是哪一类请求慢了"。
 
-**追踪（Traces）**：这是分布式系统的关键武器。一次用户请求在穿过几十个服务时，每一跳都打上同一个"追踪 ID"，并记录各自的耗时与上下游关系。把这些片段（span）拼起来，就得到一张这次请求的完整"旅程图"：在哪个服务停留了多久、在哪一跳卡住了。Google 2010 年的内部系统 **Dapper** 是大规模分布式追踪的开创者，奠定了这一领域的基本范式。
+**追踪（Traces）**：这是分布式系统的关键武器。一次用户请求在穿过几十个服务时，每一跳都打上同一个"追踪 ID"，并记录各自的耗时与上下游关系。Google 2010 年的内部系统 **Dapper** 是大规模分布式追踪的开创者，奠定了这一领域的基本范式。Dapper 论文报告，生产集群每天产生超过 **1 TB** 的采样追踪数据，默认采样率约 **1/1024**——即便如此，数据量仍惊人，说明全量追踪在规模上的不可能性。
+
+## SLI、SLO 与 SLA：从数据到决策
+
+Google SRE（Site Reliability Engineering）团队把可观测性数据组织成一套**目标语言**（Beyer et al., 2016）：
+
+- **SLI**（Service Level Indicator，服务级别指标）：一个可测量的服务质量指标，如"请求延迟 < 200ms 的比例"。
+- **SLO**（Service Level Objective，服务级别目标）：SLI 的目标值，如"99.9% 的请求在 200ms 内返回"。
+- **SLA**（Service Level Agreement，服务级别协议）：SLO 的合同化版本，违约可能有赔偿。
+
+这套框架的意义在于：可观测性不是"收集一切数据"，而是**为已定义的目标收集证据**。没有 SLO，仪表盘只是漂亮的噪声；有了 SLO，告警才有意义——"我们偏离了对用户承诺的目标"而非"CPU 高了 5%"。
+
+## eBPF：内核级可观测性
+
+传统监控依赖在应用里埋点——改代码、发版、承担性能开销。**eBPF**（extended Berkeley Packet Filter，Linux 内核 4.x 起成熟）允许在内核中安全运行沙箱程序，**无需修改应用代码**即可采集网络、系统调用、函数延迟等数据。Cilium、Pixie、Parca 等工具用 eBPF 实现零侵入追踪，正在改变"可观测性必须侵入业务代码"的默认假设。这与 Charity Majors 强调的"高基数、任意切片"方向一致——内核级数据天然带有进程、容器、网络五元组等丰富维度。
 
 ## 为什么"三支柱"说法有人反对
 
@@ -54,11 +67,60 @@ related:
 
 ## 代价与争议
 
-**成本与采样**：全量记录每一次请求的追踪数据，开销可能高得离谱（存储、网络、计算）。于是必须"采样"——只记录一部分请求。但采样带来两难：随机采样可能恰好漏掉那个出错的请求；而"尾部采样"（只保留出错或慢的请求）又需要先把全部数据缓存一段时间才能决定保留谁。如何在成本与覆盖之间取舍，没有标准答案。
+**成本与采样**：全量记录每一次请求的追踪数据，开销可能高得离谱（存储、网络、计算）。Dapper 论文估计，若对每次请求做全量追踪，存储与网络开销可能使集群成本增加 **数个数量级**。于是必须"采样"——只记录一部分请求。但采样带来两难：随机采样可能恰好漏掉那个出错的请求；而"尾部采样"（只保留出错或慢的请求）又需要先把全部数据缓存一段时间才能决定保留谁。如何在成本与覆盖之间取舍，没有标准答案。
 
-**可观测性不等于理解**：海量的仪表盘和告警，可能制造一种"我们看得很清楚"的错觉，实则淹没在噪声里。著名的"告警疲劳"——值班工程师被太多无关紧要的告警轰炸，最终对真正重要的告警也麻木了——是运维领域反复出现的失败模式。数据多，不等于洞察多。
+**可观测性不等于理解**：海量的仪表盘和告警，可能制造一种"我们看得很清楚"的错觉，实则淹没在噪声里。著名的"告警疲劳"——值班工程师被太多无关紧要的告警轰炸，最终对真正重要的告警也麻木了——是运维领域反复出现的失败模式。Google SRE 手册建议：每个 on-call 轮值周期，** actionable 告警应控制在每天个位数**——超过此阈值，说明 SLO 定义或告警规则需要重新设计。数据多，不等于洞察多。
 
-**隐私与合规**：日志和追踪里常常无意中记录了敏感信息（用户邮箱、令牌、身份证号）。可观测性系统因此成了数据泄露的高风险地带，需要专门的脱敏与访问控制。
+**隐私与合规**：日志和追踪里常常无意中记录了敏感信息（用户邮箱、令牌、身份证号）。可观测性系统因此成了数据泄露的高风险地带，需要专门的脱敏与访问控制。GDPR 与《个人信息保护法》对日志保留期限、跨境传输的限制，正迫使企业重新设计可观测性架构——"能记录一切"与"合法记录"之间的张力日益尖锐。
+
+## 典型故障排查流程
+
+一次真实的生产事故，可观测性数据如何串联？假设下单接口 P99 延迟从 200ms 飙到 3s：
+
+1. **指标告警**触发——SLO 违反，on-call 工程师被唤醒。
+2. 查看 **Dashboard**，发现延迟集中在 `payment-service`，而非 `cart-service`。
+3. 打开 **Trace 查询**，过滤 `duration > 2s AND service=payment-service`，找到慢请求的 trace ID。
+4. 沿 trace 查看 span 瀑布图，发现 `call-external-gateway` 这一跳耗时 2.8s——根因是外部支付网关超时。
+5. 切换到 **Logs**，用 trace ID 关联，看到网关返回 `503 Service Unavailable` 与上游超时日志。
+6. 确认根因后，触发熔断或切换备用网关——**MTTR**（Mean Time To Recovery）取决于上述链条有多顺畅。
+
+没有追踪，步骤 3–4 不可能在分钟级完成——工程师只能逐台机器 grep 日志，在分布式系统中近乎大海捞针。
+
+## 可观测性成熟度模型
+
+Google SRE 与 CNCF 社区归纳出可观测性实践的**成熟度阶梯**：
+
+| 阶段 | 特征 | 典型问题 |
+|------|------|---------|
+| 0 — 监控 | 预设指标 + 阈值告警 | 告警风暴、未知故障模式 |
+| 1 — 可观测 | 三信号统一 + 关联查询 | 数据孤岛、高基数受限 |
+| 2 — 分析驱动 | SLO + 错误预算 + 事后复盘 | 缺乏业务上下文 |
+| 3 — 预测性 | 异常检测 + 自动根因 | 模型误报、成本失控 |
+
+大多数团队停在 0–1 之间——不是工具不够，而是**组织流程**（on-call 轮值、事后复盘 blameless postmortem、错误预算文化）未跟上。
+
+## 与 DevOps / SRE 的关系
+
+可观测性不是运维部门的私产。DevOps 强调"你构建，你运行"（You build it, you run it）——开发团队必须能读懂自己服务的 traces 和 metrics，否则把可观测性丢给运维就是制造瓶颈。SRE 则把可观测性作为**可靠性工程**的输入：SLO 定义目标，错误预算（error budget）决定"可以发布多快"——预算耗尽则冻结功能发布、专注稳定性。
+
+## 主流工具生态
+
+| 类型 | 代表工具 | 特点 |
+|------|---------|------|
+| 指标 | Prometheus + Grafana | 拉模型、PromQL、开源标准 |
+| 追踪 | Jaeger, Zipkin, Tempo | OpenTelemetry 兼容 |
+| 日志 | Loki, ELK Stack | 标签索引 vs 全文搜索 |
+| 统一 | Datadog, Honeycomb, New Relic | 商业 SaaS、高基数分析 |
+
+Honeycomb 和 Lightstep（现 ServiceNow）代表 Charity Majors 路线——强调**高基数查询**（按任意字段切片），而非预聚合仪表盘。这与 Prometheus 的"先聚合再查询"哲学形成对照。
+
+## 生产事故的文化维度
+
+Google SRE 强调 **blameless postmortem**（无责复盘）：事故后追问"系统为何允许这发生"，而非"谁犯了错"。可观测性数据是复盘的证据基础——没有 trace ID 关联的日志，复盘会退化为互相指责。可观测性因此不仅是技术，更是**组织学习**的基础设施。
+
+## 小结：从数据到洞察
+
+可观测性的目标不是"监控一切"，而是**在未知故障发生时仍能提问**。日志给细节，指标给趋势，追踪给因果链——三者关联，才构成现代分布式系统的"神经系统"。OpenTelemetry 的统一、SLO 的目标语言、eBPF 的内核透视，都在降低"问出正确问题"的成本。但工具永远代替不了文化：无责复盘、错误预算、合理的 on-call 轮换，才是让数据变成洞察的最后一步。
 
 ## 跨域连接
 
@@ -68,11 +130,54 @@ related:
 
 ---
 
+## OpenTelemetry 实践要点
+用 OTel SDK 在代码中创建 span，propagate trace context（W3C traceparent header）跨服务边界。
+Metrics 用 histogram 记录延迟分布，而非仅 average——P99 藏在 histogram 里。
+Logs 必须结构化（JSON），并注入 trace_id 字段以便与 span 关联。
+
+## 阅读建议
+Google Dapper 论文 (2010)——分布式追踪的开山之作。
+Majors et al. (2022) Observability Engineering——实践派系统阐述。
+Google SRE Book 第 6 章——监控分布式系统。
+
+## 成本治理
+可观测性 SaaS 账单常随 log volume 线性增长——**采样**、**TTL 压缩**、**聚合降采样**是 FinOps 必备技能。
+**Cardinality explosion**：高基数 label（如 user_id）使 Prometheus 存储爆炸——需 relabel 丢弃或 aggregate at ingest。
+
+## 分布式追踪上下文传播
+W3C Trace Context 标准定义 traceparent/tracestate headers——跨 HTTP/gRPC/message queue 必须一致 propagate。
+Broken trace（链路断裂）通常因某服务未 forward header——是 onboarding 新服务的最 common 故障。
+
+## 可观测性反模式
+
+**Dashboard 堆砌**：数十个 panel 无人看——应围绕 SLO 组织，而非 metric 可得性。 **Alert on every error**：1% 错误率 on 1M QPS = 10k errors/min，若全告警则 fatigue。 **Log everything forever**：成本与 GDPR Retention 双重压力——需 tiered storage 与 sampling policy。
+
+## 成本治理
+
+SaaS 账单随 log volume 线性增长——采样、TTL、聚合降采样是 FinOps 必备。**Cardinality explosion**（如 user_id label）可使 Prometheus 存储爆炸，需 relabel 或 ingest 端 aggregate。
+
+## 进一步思考
+
+成熟度标志：未知故障时能否用 trace 串起因果链、用 SLO 量化 user impact、用 blameless postmortem 防复发——而非 dashboard 数量。
+
+## W3C Trace Context
+
+traceparent header 必须跨 HTTP/gRPC/queue 一致 propagate——broken trace 是 onboarding 新服务最常见故障之一。
+
+## 错误预算与发布节奏
+
+Google SRE 的 **error budget** 把 SLO 违反额度量化为可消耗预算：若 30 天 SLO 为 99.9%，则约 **43 分钟** downtime 或等价错误预算是"可接受"的。预算耗尽时，团队应冻结功能发布、专注稳定性——把可观测性数据直接接入**组织决策**，而非只供事后 grep。
+
+**Blameless postmortem** 模板通常要求：时间线（用 trace ID 串联）、根因（系统允许什么发生）、行动项（防复发）。没有 trace-log 关联，复盘退化为"谁点了 deploy"——可观测性因此是 DevOps 文化的硬基础设施，而非运维私产。
+
+Honeycomb 与 Lightstep 路线强调**高基数查询**——按 user_id、app_version、region 任意切片，而非预聚合仪表盘；Prometheus 的"先聚合再查询"哲学在 cardinality 受限时更安全，但可能漏掉细粒度根因——工具选择即哲学选择。
+
 ## 参考文献
 
 - Sigelman, B. H. et al. *Dapper, a Large-Scale Distributed Systems Tracing Infrastructure.* Google Technical Report (2010).
 - OpenTelemetry Authors. *OpenTelemetry Specification.* Cloud Native Computing Foundation (持续更新；opentelemetry.io）.
 - Majors, C., Fong-Jones, L. & Miranda, G. *Observability Engineering.* O'Reilly (2022).
+- Beyer, B. et al. (eds.) *Site Reliability Engineering: How Google Runs Production Systems.* O'Reilly (2016).
 
 ## 延伸阅读
 

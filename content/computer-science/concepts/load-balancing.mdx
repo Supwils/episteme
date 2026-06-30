@@ -2,7 +2,7 @@
 title: 负载均衡
 title_en: Load Balancing
 status: published
-updated: 2026-06-19
+updated: 2026-06-28T00:00:00.000Z
 category: 系统与架构
 order: 22
 field: 计算机科学 · 系统
@@ -18,7 +18,6 @@ related:
   - caching-strategies
   - cloud-computing
 ---
-
 # 负载均衡
 
 每年"双十一"零点，或者一场热门演唱会开票的瞬间，海量请求在一秒内涌向同一组服务器。没有任何一台机器能独自扛住这种流量。让网站不至于当场崩溃的，是一个安静地站在用户和服务器之间、把潮水般的请求分摊到一排机器上的角色——**负载均衡器**（load balancer）。它是现代大规模互联网服务最不起眼、却最不可或缺的基础设施之一。
@@ -55,7 +54,23 @@ related:
 
 **一致性哈希（Consistent Hashing）**：根据请求的某个键（如用户 ID）计算哈希，决定落到哪台机器。它的关键优势是：当增减机器时，只有一小部分键需要重新映射，而非全部重排。这对依赖[缓存](/computer-science/concepts/caching-strategies)的系统至关重要——它能让同一用户的请求尽量命中同一台机器的本地缓存。一致性哈希由 Karger 等人 1997 年提出，是分布式缓存和数据分片的基石。
 
-**"两个随机选择"（Power of Two Choices）**：一个出人意料地高效的策略——随机挑两台机器，把请求发给其中负载较轻的那台。理论上（Mitzenmacher 的经典结果），仅仅从"随机一台"升级到"随机两台取较轻者"，就能把最大负载从对数级骤降到双对数级。它以极小的代价逼近了"最少连接"的效果，被许多大规模系统采用。
+**"两个随机选择"（Power of Two Choices）**：一个出人意料地高效的策略——随机挑两台机器，把请求发给其中负载较轻的那台。Mitzenmacher (1996, 2001) 证明，从"随机一台"升级到"随机两台取较轻者"，最大负载从 $O(\log n / \log\log n)$ 量级骤降到 $O(\log\log n)$——以极小的代价逼近了"最少连接"的效果。AWS 的 Application Load Balancer 等系统在实践中采用类似启发式。
+
+## 云时代的负载均衡架构
+
+现代云平台的负载均衡已远非单一软件进程。以 **AWS Elastic Load Balancing** 为例，提供三层产品：**CLB**（Classic，L4/L7 混合）、**ALB**（Application，纯 L7，支持基于路径/主机的路由）、**NLB**（Network，超高性能 L4，每秒数百万请求）。Google 的 **Maglev**（Eisenbud et al., NSDI 2016）是软件实现的 L4 负载均衡器，在 Google 生产网络中处理 **100 万+ QPS** 量级流量——证明软件 LB 可以匹敌专用硬件。
+
+**DNS 负载均衡** 是更前端的层次：把同一域名解析到多个 IP（轮询或地理就近），让用户分散到不同数据中心。Cloudflare、Route 53 的**地理路由**（geo-routing）与**延迟路由**（latency-based routing）把"最近"定义为网络 RTT 而非物理距离——这与 [[distributed-systems]] 的全球一致性难题纠缠：用户被导向新加坡节点，但写入的数据可能要在美国主库确认，延迟与一致性之间的权衡（CAP 定理）直接体现在路由策略里。
+
+**服务网格（Service Mesh）** 如 Istio/Envoy 把负载均衡推入 sidecar 代理：每个微服务实例旁运行一个 Envoy，由控制平面（Istiod）下发后端列表与负载均衡策略。这是"客户端负载均衡"的大规模工程化——消除了集中式 LB 的单跳，但把复杂度分散到成千上万个 sidecar。与集中式 LB 孰优孰劣，仍是微服务架构的活跃争论。
+
+## 真实世界的规模
+
+**Cloudflare** 在 2023 年 Q2 报告其网络平均每秒处理约 **2500 万** DNS 查询（权威 DNS 与解析器合计），约合每天 **2.1 万亿** 次——DNS 负载均衡是用户请求的第一道分发。
+
+**Google Maglev**（Eisenbud et al., NSDI 2016）在 Google 生产网络中作为 L4 负载均衡器，设计目标包括：**每包一致哈希**（connection affinity）、**快速故障切换**（毫秒级）、**线性扩展**（加机器即加容量）。Maglev 用**一致性哈希的改进版**（Maglev hashing）实现最小扰动映射——与 Karger 1997 年原始一致性哈希相比，Maglev 哈希在 backend 变化时提供更均匀的负载分布。
+
+**AWS Application Load Balancer** 支持基于路径的路由（`/api/*` → API 目标组，`/static/*` → S3），以及 **Target Group 健康检查**（默认每 30 秒探测一次，连续 2–10 次失败则摘除）。这些参数看似琐碎，却直接决定故障切换速度与"惊群"幅度——`healthy threshold` 设太低会导致抖动，设太高则故障发现慢。
 
 ## 微妙之处：会话保持、惊群与单点风险
 
@@ -71,6 +86,34 @@ related:
 
 **全局负载均衡的难题**：当服务部署在全球多个数据中心，"把请求发给最近的数据中心"听起来理所当然，但"最近"是按地理距离、网络延迟、还是当前负载来算？跨洲的健康检查和流量调度涉及复杂的权衡，且与 [[distributed-systems]] 的一致性问题纠缠在一起——这正是 CDN 和全球流量管理（GTM）系统的核心难题。
 
+## 负载均衡与 CAP 定理
+
+在分布式数据库与缓存系统中，负载均衡决策与**一致性**深度纠缠。若写请求被路由到不同副本，而读请求被路由到尚未同步的副本，用户会看到"刚写入的数据消失了"——**会话一致性**（session consistency）要求同一客户端的读写尽量命中同一副本或同步组。
+
+Dynamo（Amazon, 2007）论文提出：**一致性哈希 + 向量时钟 + 可调 Quorum**——在可用性与一致性之间滑动。Cassandra、Riak 继承了这一哲学：负载均衡不是"均匀分片"那么简单，而是**数据局部性、复制因子、一致性级别**的联合优化。
+
+## 性能测试与容量规划
+
+负载均衡策略必须在**压测**中验证。常见错误：只测轮询下的平均延迟，忽略 P99 尾延迟——某台机器分到重请求时，P99 可能飙到平均值的 10 倍。正确做法：用真实流量分布（或 Zipf 分布模拟）压测，观察各 backend 的 CPU、连接数、队列深度，再调整权重或算法。
+
+**自动伸缩**（Auto Scaling）与 LB 联动：CloudWatch/ Prometheus 指标触发 scale-out，新实例注册到 Target Group，LB 开始分发流量——**warm-up period** 必须配置，否则新实例在 JVM 未预热、缓存未填充时就接到全量流量，造成"扩容反而更慢"的悖论。
+
+## 连接池与负载均衡的协同
+
+数据库连接池（如 HikariCP、PgBouncer）限制每台应用服务器对 DB 的并发连接数——负载均衡把请求分散到 N 台应用，总连接数约为 N × pool_size。若 LB 不均，某台应用可能耗尽连接池而其他闲置——**最少连接**算法在此与 DB 连接管理直接相关。DB 侧也可能用 **PgPool-II** 等做连接 multiplexing，形成"LB → App → DB Proxy → DB"的多层分发。
+
+## Anycast 与边缘负载均衡
+
+Cloudflare、Google Cloud Load Balancing 使用 **Anycast**：同一 IP 在全球多个 PoP 广播，BGP 把用户路由到"最近"节点——负载均衡发生在**网络层**，用户无感知。这与 DNS 轮询不同：Anycast 对 TCP 连接更友好，故障切换更快（BGP 收敛），但配置复杂且依赖 ISP 路由策略。
+
+## 零停机部署模式
+
+**蓝绿部署**：两套完整环境，LB 一键切换流量——简单但双倍资源。**滚动部署**：逐台替换，LB 配合健康检查摘除旧实例——资源效率高但版本共存期长。**金丝雀发布**：LB 把 1–5% 流量导向新版本，观察错误率再扩大——需要 L7 LB 的精细权重控制。三种模式的选择，本质是负载均衡器在**发布策略**中的角色问题。
+
+## 小结：隐形的基础设施
+
+用户从不直接看到负载均衡器，却每一次点击都在依赖它。从双十一零点的高峰，到某台服务器悄悄宕机时的无感切换，LB 是**可用性与扩展性的守门人**。理解 L4/L7 分工、一致性哈希、最少连接与"两个随机选择"，不只是通过面试——更是设计任何大规模系统时的基本功。下一层问题永远是：LB 自己如何冗余？数据如何一致？发布如何零停机？——负载均衡从来不是孤立组件，而是架构叙事的开场白。
+
 ## 跨域连接
 
 - **数学**：调度算法的性能分析根植于概率论与排队论；"两个随机选择"的优越性是一个漂亮的概率论结果。
@@ -79,6 +122,76 @@ related:
 - **[[cloud-computing]]**：云平台把负载均衡作为托管服务（如 AWS ELB、GCP Cloud Load Balancing）提供，它是云上弹性伸缩的开关。
 
 ---
+
+## 常见故障模式
+健康检查配置过 aggressive：新实例未 ready 即接流量→5xx 错误。
+会话粘性与缓存不一致：用户被路由到无缓存实例→性能骤降。
+哈希环热点：某些 key 分布不均→单点过载，需 virtual nodes 缓解。
+
+## 阅读建议
+Mitzenmacher (2001) "Power of Two Choices"——短而美的概率论结果。
+Kleppmann DDIA 第 6–8 章——负载、分区、复制的工程综合。
+Google Maglev 论文 (NSDI 2016)——工业级 L4 LB 设计。
+
+## HTTP/2 与 HTTP/3 对 LB 的影响
+HTTP/2 多路复用使单 TCP 连接承载多请求——L7 LB 需在连接级而非请求级做决策，**连接迁移**与 **GOAWAY** 帧处理成为新复杂度。
+HTTP/3 基于 QUIC（UDP），连接 ID 独立于 IP——Anycast + QUIC 负载均衡需 **connection ID routing**，传统四元组哈希失效。
+
+## 健康检查最佳实践
+HTTP health check 应 lightweight（/health 端点），与 readiness/liveness 分离（Kubernetes 模式）。
+TCP check 只验证端口 open，不验证应用 logic——可能把"僵尸"进程标记为 healthy。
+
+## gRPC 与客户端 LB
+
+gRPC 内置 **pick_first**、**round_robin**、**weighted round_robin** 等负载均衡 policy，依赖 name resolver 从 etcd/Consul 获取 backend 列表——无 central LB 时，client 直接连接 pod IP。Kubernetes headless service + gRPC 是 microservices 常见 pattern；与 Ingress L7 LB 形成 architecture 选择分叉。
+
+## HTTP/3 与 QUIC
+
+HTTP/3 基于 QUIC（UDP），连接 ID 独立于 IP——Anycast + QUIC 需 **connection ID routing**，传统四元组哈希失效。L7 LB 须处理连接迁移与 0-RTT 安全权衡。
+
+## 进一步思考
+
+负载均衡在 networking、分布式系统与 SRE 交叉：algorithm 只是起点，health check、session 策略、CAP 与发布流程集成才决定 production resilience。
+
+## gRPC 客户端 LB
+
+headless service + gRPC round_robin 是 Kubernetes 常见 pattern——与 Ingress L7 形成 architecture 分叉，各有利弊。
+
+## 全局流量管理与 CDN 边缘
+
+**Geo-DNS** 与 **Anycast** 是负载均衡在广域网上的延伸：Cloudflare 2023 年 Q2 报告平均约 **2500 万** DNS 查询/秒（约合每天 **2.1 万亿** 次）——用户请求的第一跳分发发生在 DNS 层，早于任何应用 LB。Anycast 用 BGP 把同一 IP 广播到全球 PoP，故障切换依赖路由收敛，比 DNS TTL 轮询对长连接更友好，却受 ISP 路由策略制约。
+
+CDN 边缘缓存把静态资源推到离用户更近的节点——LB 决策与 [[caching-strategies]] 纠缠：一致性哈希保证同一用户命中同一边缘节点，减少 origin 回源。HTTP/3（QUIC）使连接 ID 独立于 IP，L7 LB 必须做 **connection ID routing**，传统四元组哈希失效——协议演进持续改写 LB 设计假设。
+
+## 发布策略与 LB 联动
+
+**蓝绿部署** 两套完整环境，LB 一键切换——简单但双倍资源。**滚动部署** 逐台替换，LB 配合 health check 摘除旧实例——资源效率高但版本共存期长。**金丝雀发布** 把 1–5% 流量导向新版本，观察错误率再扩大——需 L7 精细权重。AWS Target Group 默认每 **30 秒** health check，连续 2–10 次失败才摘除——阈值过低抖动，过高则故障发现慢。
+
+**惊群效应**（Thundering Herd）在缓存失效或机器恢复时，大量请求同时涌向同一 backend——需 **slow start** 让恢复实例逐步接流量。**会话粘滞**（sticky session）与无状态架构的 tension：现代设计倾向 Redis 外置 session，让任何 backend 可处理任何请求，从根本上绕开粘性会话的单点风险。
+
+Mitzenmacher 的 **Power of Two Choices** 证明：随机选两台取负载较轻者，最大负载从 $O(\log n / \log\log n)$ 降到 $O(\log\log n)$——AWS ALB 等系统采用类似启发式。Google **Maglev**（NSDI 2016）在 production 处理 **100 万+ QPS**，用改进一致性哈希实现最小扰动映射——软件 LB 可匹敌专用硬件。
+
+**Dynamo 与 CAP**：负载均衡决策与分布式一致性纠缠——写请求路由到不同副本而读从未同步副本，用户会看到"刚写入的数据消失"。Dynamo (2007) 用一致性哈希 + 可调 Quorum 在可用性与一致性间滑动——Cassandra、Riak 继承此哲学。LB 因此 never 孤立组件：health check 参数、session 策略、发布流程与数据复制因子共同决定 production resilience。
+
+**连接池协同**：HikariCP/PgBouncer 限制每 app 对 DB 并发连接——LB 不均时某台 app 可能耗尽 pool。DB 侧 PgPool-II 做 connection multiplexing，形成"LB → App → DB Proxy → DB"多层分发——每层都在做在线分配问题。
+
+gRPC **客户端负载均衡**（headless service + round_robin）与 Ingress L7 集中式 LB 是 architecture 分叉：前者消除 central hop，后者统一 TLS 与路由——选择取决于团队运维能力与 scale。用户从不直接看到 LB，却每一次点击都在依赖它——从双十一高峰到单台宕机无感切换，LB 是可用性与扩展性的守门人。
+
+**一致性哈希**（Karger et al., 1997）在增减 backend 时只重映射一小部分 key——对缓存系统至关重要。虚拟节点（virtual nodes）缓解哈希环热点。压测时用 Zipf 分布模拟真实流量，观察 P99 尾延迟——平均延迟掩盖 tail 风险，是 capacity planning 的常见陷阱。LB 自身须冗余：DNS Anycast、主备或多活 edge LB，避免单点成为整个系统的咽喉——大型架构往往是"DNS → 多层 LB → 后端"的级联分发。Service Mesh（Istio/Envoy）把 LB 推入 sidecar：每微服务实例旁运行代理，控制平面下发策略——集中式与客户端 LB 的争论，本质是复杂度放在哪里、由谁运维的 architecture 选择。
+
+## 小结：隐形守门人
+
+LB 分摊负载、摘除故障节点、使水平扩展成为可能——L4/L7 分工、一致性哈希、Power of Two Choices、Maglev 百万 QPS，是设计任何大规模系统的基本功。LB 从不孤立：与 CAP、session、发布策略、连接池协同，才构成 production resilience。
+
+## 延伸阅读指引
+
+理论：Mitzenmacher (2001) Power of Two Choices、Karger (1997) 一致性哈希。工程：Google Maglev (NSDI 2016)、Kleppmann DDIA 第 6–8 章。实践：压测看 P99 而非均值；health check 阈值防抖动；发布策略（蓝绿/金丝雀）与 LB 权重联动。
+
+Kleppmann 指出：负载均衡与分区、复制三位一体——读 LB 必须同时读 Dynamo 与 CAP，否则只见分发不见一致性代价。
+
+AWS NLB 设计目标包括每秒数百万请求与超低延迟——与 ALB 的 L7 精细路由形成产品矩阵：选 LB 层级即选 trade-off  between 性能与语义理解深度。
+
+会话粘滞 vs Redis 外置 session：现代架构倾向后者，从根本上绕开 sticky session 的单点与 failover 难题。
 
 ## 参考文献
 

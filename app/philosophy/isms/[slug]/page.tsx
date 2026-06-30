@@ -8,7 +8,7 @@ import { CATEGORY_ACCENTS, SITE_URL } from "@/lib/constants";
 import { ArticleLayout } from "@/components/ArticleLayout";
 import { TableOfContents } from "@/components/TableOfContents";
 import { FadeInSection } from "@/components/FadeInSection";
-import { createArticleJsonLd } from "@/lib/jsonld";
+import { serializeJsonLd, createArticleJsonLd } from "@/lib/jsonld";
 
 export function generateStaticParams() {
   // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
@@ -61,7 +61,7 @@ export default async function IsmDetailPage({ params }: { params: Promise<{ slug
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <ArticleLayout
         backHref="/philosophy/isms"

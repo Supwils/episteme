@@ -2,7 +2,7 @@
 title: 抽象与分层
 title_en: Abstraction and Layering
 status: published
-updated: 2026-06-13
+updated: 2026-06-28
 category: 计算机科学基础
 order: 1
 field: 计算机科学 · 软件工程
@@ -29,6 +29,10 @@ related:
 人们常把"抽象"理解为"把复杂的东西变简单"。这是误解。
 
 抽象的本质是**隐藏细节，暴露接口**。细节并没有消失——它只是被封装在另一层里。调用 `fetch()` 的程序员不需要知道 TCP 握手，但 TCP 握手依然发生。抽象不消灭复杂性，它重新分配复杂性：把它从"使用者需要理解的"变成"实现者需要理解的"。
+
+还有一个更隐蔽的误解：把"抽象"等同于"说得含糊"。恰恰相反。Edsger Dijkstra 在 1972 年图灵奖演讲《谦卑的程序员》（The Humble Programmer，编号 EWD 340）中写道：抽象的目的不是为了含糊，而是为了创造一个新的语义层级，让人在其中能够绝对精确。
+
+换句话说，好的抽象不是把话说得更模糊，而是换一套更精确的词汇重新描述问题——"栈""进程""文件"这些词每一个都是被严格定义的新概念，而不是对底层的随手简化。
 
 这个区分至关重要。每当一个抽象泄漏——也就是说，内部实现的细节不可避免地渗透到使用者那里——就意味着这个抽象没有做到位。Joel Spolsky 在 2002 年提出了著名的"抽象泄漏定律"（Law of Leaky Abstractions）：所有重要的抽象，在某些条件下都会泄漏。
 
@@ -60,6 +64,10 @@ CPU 指令集架构（x86-64 / ARM64）
 
 这种分层架构有一个正式的名字——**分层模型（Layered Architecture）**。网络领域有 OSI 七层模型，计算机体系结构领域有 ISA（指令集架构）这一关键分层——正是因为有 ISA，英特尔可以每隔几年更新微架构（处理器内部实现），而同样的 Windows 软件继续运行。
 
+值得澄清的是，OSI 七层主要是一套教学与参考模型，从未被完整实现；真正跑在互联网上的，是更精简的四层 TCP/IP 模型。
+
+分层并非可以随意切。Jerome Saltzer、David Reed 和 David Clark 在 1984 年的论文《End-to-End Arguments in System Design》中提出了著名的"端到端原则"：可靠性、加密这类功能放在底层往往是徒劳的，因为底层无法判断应用真正需要什么，最终还得由两端的应用层自己保证。这条原则直接塑造了互联网"底层只管尽力转发、智能集中在边缘"的分层取舍。
+
 ## 抽象的三种形态
 
 ### 1. 过程抽象（Procedural Abstraction）
@@ -72,6 +80,8 @@ sorted_list = sort(my_list)
 ```
 
 函数是最基础的抽象单元。一旦函数被命名，它就成为一个"黑箱"，可以被组合进更大的系统。
+
+这种能力并非与生俱来。1951 年，剑桥 EDSAC 团队的 Maurice Wilkes、David Wheeler 和 Stanley Gill 在《The Preparation of Programs for an Electronic Digital Computer》（公认的第一本面向程序员的书）里提出了"闭子程序"（closed subroutine）和可复用的子程序库。在此之前，每段重复的逻辑都要手工重抄一遍——过程抽象第一次被工程化，就是从这里开始的。
 
 ### 2. 数据抽象（Data Abstraction）
 
@@ -87,6 +97,12 @@ value = stack.pop()
 
 面向对象编程的核心正是数据抽象，即"封装"（encapsulation）。
 
+数据抽象有清晰的思想源头。1972 年，David Parnas 在论文《On the Criteria To Be Used in Decomposing Systems into Modules》（CACM 15 卷 12 期，1053–1058 页）里提出"信息隐藏"（information hiding）原则：模块不该按执行步骤来切，而该按"每个模块向外隐藏了哪个未来可能改变的决策"来切。这样内部表示一旦改变，外部代码无需跟着改。
+
+几年后，Barbara Liskov 把这个思想做成了语言机制。她和 Stephen Zilles 在 1974 年发表《Programming with Abstract Data Types》，随后她在 1973–1978 年间设计的 CLU 语言用"簇"（cluster）直接支持抽象数据类型，并一并引入了迭代器、参数多态与异常处理。Liskov 因在数据抽象上的奠基性工作获得 2008 年图灵奖。
+
+她后来提出的"里氏替换原则"（Liskov Substitution Principle，1987 年提出、1994 年与 Jeannette Wing 形式化）把抽象推进了一步：子类型必须能在调用者无感知的情况下替换父类型，否则继承就破坏了抽象。
+
 ### 3. 控制抽象（Control Abstraction）
 
 把控制流程封装起来。操作系统对进程的抽象就是一例：进程以为自己独占 CPU，实际上 CPU 在无数进程间快速切换——调度细节被内核完全隐藏。
@@ -101,11 +117,13 @@ value = stack.pop()
 
 **过度抽象**：有些系统为了"好的设计"堆砌了过多的抽象层，结果难以理解、难以维护。这在软件工程界有个专门的批评词——"过度工程化"（over-engineering）。实用的工程判断力在于：什么时候应该抽象，什么时候应该直接处理细节。
 
+业界有句广为流传的格言："计算机科学中任何问题都可以通过增加一层间接性来解决。"它常被归于子程序发明者 David Wheeler——Butler Lampson 在图灵奖演讲中正是这样转述的。但 Wheeler 自己补了下半句："不过这通常又会制造出另一个问题。"这后半句，正是对无节制分层的提醒：每多一层，都在借未来的理解成本和性能。
+
 ## 代价与争议：没有一个抽象能永远成立
 
 计算机科学历史上有几次重大的"抽象破裂"：
 
-- **Meltdown 与 Spectre（2018）**：CPU 微架构优化（分支预测、乱序执行）的细节，通过缓存时序侧信道，泄漏到了操作系统隔离之上的应用层。这意味着 CPU-OS-应用三层的抽象边界是有漏洞的。
+- **Meltdown 与 Spectre（2018 年 1 月公开披露）**：CPU 微架构优化（分支预测、乱序执行）的细节，通过缓存时序侧信道，泄漏到了操作系统隔离之上的应用层。这意味着 CPU-OS-应用三层的抽象边界是有漏洞的。为堵住 Meltdown，操作系统不得不引入内核页表隔离（KPTI），重新把内核地址空间和用户态彻底分开——代价是每次系统调用都要多一次地址空间切换。多数生产负载的性能损失在个位数百分比内，但系统调用密集的数据库类负载更明显。修补一道破裂的抽象边界，本身要花真金白银的性能。
 - **网络中立性争议**：互联网分层设计假设每一层对上一层透明，但现实中，ISP 可以根据应用层内容（流媒体、P2P）区别对待流量——这本是底层不该"看到"的信息。
 - **虚拟机逃逸**：虚拟化层（hypervisor）本应完全隔离客户机和宿主机，但真实系统中不断发现逃逸漏洞，说明虚拟化抽象也会泄漏。
 
@@ -124,6 +142,11 @@ value = stack.pop()
 ## 参考文献
 
 - Dijkstra, E. W. *The Structure of the "THE"-Multiprogramming System.* CACM 11(5), 1968. （分层操作系统设计的奠基论文）
+- Dijkstra, E. W. *The Humble Programmer.* CACM 15(10), 1972（1972 年图灵奖演讲，EWD 340）。（"抽象不是为了含糊，而是为了在新语义层级上精确"的出处）
+- Parnas, D. L. *On the Criteria To Be Used in Decomposing Systems into Modules.* CACM 15(12), 1972, 1053–1058. （"信息隐藏"原则的奠基论文）
+- Liskov, B. & Zilles, S. *Programming with Abstract Data Types.* ACM SIGPLAN Notices 9(4), 1974, 50–59. （抽象数据类型的开创性论文）
+- Wilkes, M. V., Wheeler, D. J. & Gill, S. *The Preparation of Programs for an Electronic Digital Computer.* Addison-Wesley, 1951. （第一本面向程序员的书，提出闭子程序与子程序库）
+- Saltzer, J. H., Reed, D. P. & Clark, D. D. *End-to-End Arguments in System Design.* ACM TOCS 2(4), 1984, 277–288. （网络分层取舍的经典论证）
 - Abelson, H. & Sussman, G. *Structure and Interpretation of Computer Programs.* MIT Press, 1996. （SICP，第2章系统讲述数据抽象）
 - Patterson, D. & Hennessy, J. *Computer Organization and Design.* （ISA 与微架构分层的标准教材）
 

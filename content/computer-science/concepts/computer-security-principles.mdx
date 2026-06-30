@@ -2,7 +2,7 @@
 title: 计算机安全原则
 title_en: Computer Security Principles
 status: published
-updated: 2026-06-13
+updated: 2026-06-28
 category: 安全与隐私
 order: 29
 field: 计算机科学 · 安全
@@ -34,6 +34,16 @@ WannaCry 利用的是 Windows 的一个漏洞（EternalBlue），这个漏洞由
 
 原因在于：攻击者和防御者处于持续的"猫鼠游戏"中。每个新的防御机制都会催生新的攻击手段，每个发现的漏洞背后都有未知的同类漏洞。绝对的安全不存在；目标是**把攻击的代价提高到超过收益**，以及**把被攻击后的损失控制到可接受范围**。
 
+## 破除误解：把系统藏起来不等于安全
+
+另一个常见误解是"只要把算法和源码藏好，攻击者就攻不进来"。这叫"隐晦式安全"（security through obscurity），在专业领域被视为脆弱的策略。
+
+荷兰裔密码学家奥古斯特·柯克霍夫斯（Auguste Kerckhoffs）早在 1883 年的《军事密码学》（La Cryptographie Militaire）中就提出：一套加密系统即使整体设计落入敌手，也应当依然安全——安全只应依赖于密钥的保密，而非算法的保密。
+
+信息论奠基人香农（Claude Shannon）后来把它凝练成一句话："敌人了解系统"（the enemy knows the system）。
+
+这正是现代密码学（如 AES、RSA）公开算法、只保护密钥的根本理由：公开的算法经得起全世界的审视，藏起来的算法只是把已知的漏洞推迟到被发现的那一天。隐晦可以作为深度防御的一层，但绝不能是唯一的一层。
+
 ## 安全的三角：CIA
 
 计算机安全有三个核心目标，简称 **CIA 三角**：
@@ -50,7 +60,7 @@ WannaCry 利用的是 Windows 的一个漏洞（EternalBlue），这个漏洞由
 
 常用的威胁建模框架：
 
-**STRIDE**（微软提出）：
+**STRIDE**（微软的 Loren Kohnfelder 与 Praerit Garg 于 1999 年在内部文章《The Threats to Our Products》中提出）：
 
 | 威胁类型 | 含义 | 破坏的安全属性 |
 |---------|------|-------------|
@@ -68,6 +78,8 @@ WannaCry 利用的是 Windows 的一个漏洞（EternalBlue），这个漏洞由
 > 每个主体（用户、程序、系统）只应该拥有完成其任务所需的最少权限，不多一点。
 
 这个原则的推论在于：即使某个组件被攻陷，攻击者获得的权限也是受限的，无法横向移动到其他系统。
+
+值得一提的是，同一篇 1975 年论文一口气提出了八条设计原则，最小权限只是其中之一。另外几条同样常被引用：默认拒绝（fail-safe defaults，没有明确授权就一律拒绝）、开放设计（open design，安全不依赖设计的保密，与上文柯克霍夫原则呼应）、以及心理可接受性（psychological acceptability，安全机制必须易用，否则用户会主动绕开它）。半个世纪过去，这八条几乎原封不动地仍是安全设计的公认起点。
 
 实际应用：
 - 数据库账户应只有当前应用需要的操作权限（读/写特定表），不应是管理员
@@ -98,13 +110,27 @@ WannaCry 利用的是 Windows 的一个漏洞（EternalBlue），这个漏洞由
 
 **缓冲区溢出（Buffer Overflow）**：写入超过缓冲区大小的数据，覆盖相邻内存，可以劫持程序执行流。C/C++ 代码的经典漏洞。防御：边界检查、使用内存安全语言（Rust）、Address Space Layout Randomization（ASLR）。
 
+这类内存安全漏洞的分量超出多数人想象。微软安全工程师 Matt Miller 在 2019 年 BlueHat 大会上披露：过去 12 年里，微软约 70% 的安全补丁都在修复内存安全问题。Google 对 Chrome 的统计也得出相近比例。正因如此，美国网络安全和基础设施安全局（CISA）近年公开呼吁用内存安全语言（如 Rust）重写关键系统——这是一个"换语言比打补丁更治本"的罕见行业共识。
+
 **社会工程学（Social Engineering）**：不攻击技术，而是利用人的心理——冒充 IT 部门要求提供密码、发送钓鱼邮件等。技术防御无法完全阻止，需要安全意识培训。
+
+Verizon 的《2024 年数据泄露调查报告》给出了量化证据：约 68% 的数据泄露涉及非恶意的人为因素——有人犯了错，或落入社会工程陷阱；而被窃取的凭据是 38% 数据泄露的最初突破口。开篇 WannaCry 揭示的悖论在这里再次得到印证：最薄弱的环节常常是人，而非机器。
+
+## 软件供应链：现代防御的新前沿
+
+WannaCry 暴露的是"没及时打补丁"，而 2021 年底的 Log4Shell 暴露的是另一类更棘手的问题：你依赖的开源组件出了漏洞，而你甚至不知道自己用了它。
+
+Log4j 是一个极其普及的 Java 日志库。它的漏洞 CVE-2021-44228 在 2021 年 12 月初公开，CVSS 评分拿到满分 10.0——攻击者只需让服务器记录一行精心构造的日志，就能远程执行任意代码。
+
+这个漏洞由阿里云安全团队的陈兆军（Chen Zhaojun）发现并上报，而它其实自 2013 年起就潜伏在代码里，多年无人察觉。由于 Log4j 被无数应用间接依赖，潜在受影响设备以亿计。
+
+它的教训是：现代软件是层层依赖堆叠出来的，你的安全边界不止于自己写的代码，还包括你所有的依赖、以及依赖的依赖。这催生了"软件物料清单"（SBOM，列出软件包含的全部组件，让漏洞排查有据可查）等供应链安全实践。
 
 ## 零信任架构
 
 传统安全模型假设：内网是安全的，外网是危险的。"城堡与护城河"模型——只要攻入边界，内部是可信的。
 
-**零信任（Zero Trust）**：假设内网同样不可信，对每次访问都进行身份验证和授权。核心原则：
+**零信任（Zero Trust）**：假设内网同样不可信，对每次访问都进行身份验证和授权。这个术语由 Forrester 分析师 John Kindervag 在 2010 年的报告《No More Chewy Centers》（标题讽刺传统架构外硬内软、像一颗软心糖）中正式提出。核心原则：
 
 - 不信任任何人，无论在内网还是外网
 - 最小权限访问，始终验证
@@ -136,6 +162,10 @@ WannaCry 利用的是 Windows 的一个漏洞（EternalBlue），这个漏洞由
 - Anderson, R. *Security Engineering: A Guide to Building Dependable Distributed Systems, 3rd Ed.* Wiley, 2020. （全面的安全工程教材，作者提供在线阅读）
 - Google. *BeyondCorp: A New Approach to Enterprise Security.* ;login: USENIX, 2014.
 - OWASP. *OWASP Top Ten.* owasp.org. （每年更新的 Web 安全十大风险）
+- Kerckhoffs, A. *La Cryptographie Militaire.* Journal des sciences militaires, 1883. （隐晦式安全批判与开放设计原则的源头）
+- Kindervag, J. *No More Chewy Centers: Introducing The Zero Trust Model of Information Security.* Forrester Research, 2010. （零信任术语首次提出）
+- Miller, M. *Trends, Challenges, and Strategic Shifts in the Software Vulnerability Mitigation Landscape.* BlueHat IL, 2019. （微软约 70% 补丁为内存安全问题的来源）
+- Verizon. *2024 Data Breach Investigations Report.* Verizon Business, 2024. （人为因素与凭据窃取占比的来源）
 
 ## 延伸阅读
 

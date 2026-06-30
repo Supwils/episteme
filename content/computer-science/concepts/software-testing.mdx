@@ -2,7 +2,7 @@
 title: 软件测试
 title_en: Software Testing
 status: published
-updated: 2026-06-13
+updated: 2026-06-28
 category: 软件工程实践
 order: 28
 field: 计算机科学 · 软件工程
@@ -23,6 +23,12 @@ related:
 1962 年 7 月 22 日，NASA 的水手 1 号（Mariner 1）火箭在发射约 290 多秒后被地面安全官引爆销毁。最被广泛接受的说法是：导引方程在手工誊抄到程序规格时漏掉了一个上划线（overbar），把一个本应取平均值的量当成了瞬时量，导致制导逻辑在地面信标失效时做出错误修正、火箭偏离航向。这个失误让 NASA 损失了约 1850 万美元（约合今天 1.8 亿美元），被阿瑟·克拉克称为"历史上最昂贵的连字符"。
 
 1999 年，NASA 火星气候轨道器（Mars Climate Orbiter）丢失，原因同样是代码错误：一个模块用英制单位（磅力·秒）计算推力冲量，另一个用公制单位（牛顿·秒），两者没有经过转换。9 个月的飞行，最终因为单位错误功亏一篑。
+
+这些还只是金钱损失。1985 到 1987 年，加拿大原子能公司的 Therac-25 放疗机至少 6 次向患者发出超出处方上百倍的辐射剂量，导致多人死亡或重伤。
+
+事后调查发现，祸根是一个并发竞态（race condition，指多个操作的先后顺序未受控制而产生的错误）：当熟练的操作员快速修改治疗参数时，软件会在防护靶尚未到位的情况下打出高能电子束，安全检查被绕过。
+
+与前代机型不同，Therac-25 把原本由硬件联锁负责的安全保护挪到了软件上，却没有为这套软件做相应严格的测试与评审。Nancy Leveson 与 Clark Turner 1993 年的调查报告，至今是软件安全领域的必读案例。
 
 软件 bug 的代价从来不只是烦人——它可以关乎生死，关乎数十亿美元。这就是软件测试存在的理由。
 
@@ -72,7 +78,7 @@ TDD 的反直觉之处在于：**先写测试，后写代码**。这带来了几
 - 每个功能都有对应测试，测试覆盖率天然较高
 - 重构时有安全网，不担心破坏现有功能
 
-**TDD 的争议**：TDD 有显著的支持者（Kent Beck、Robert Martin）和批评者。批评集中在：TDD 增加了短期开发时间；对于探索性代码或需求不明确的场景，先写测试反而是浪费；过度遵循 TDD 会导致为了可测试性而扭曲设计。DHH（Rails 作者）在 2014 年公开宣称 TDD 已死（"TDD is dead"），引发了与 Kent Beck 的著名公开辩论。
+**TDD 的争议**：TDD 有显著的支持者（Kent Beck、Robert Martin）和批评者。批评集中在：TDD 增加了短期开发时间；对于探索性代码或需求不明确的场景，先写测试反而是浪费；过度遵循 TDD 会导致为了可测试性而扭曲设计。DHH（Rails 作者）在 2014 年 RailsConf 主题演讲后公开宣称 TDD 已死（"TDD is dead"），随后 Martin Fowler 主持了他与 Kent Beck 的系列公开辩论《Is TDD Dead?》。
 
 ## Mock 与依赖注入
 
@@ -94,9 +100,21 @@ TDD 的反直觉之处在于：**先写测试，后写代码**。这带来了几
 - 输出元素是输入元素的排列（没有增删）
 - 输出是有序的
 
-Haskell 的 QuickCheck（1999）开创了属性测试，Python 的 Hypothesis、JavaScript 的 fast-check 是流行实现。属性测试往往发现手工测试遗漏的边界情况。
+Haskell 的 QuickCheck（Claessen 与 Hughes，2000）开创了属性测试，Python 的 Hypothesis、JavaScript 的 fast-check 是流行实现。属性测试往往发现手工测试遗漏的边界情况。
 
-**模糊测试（Fuzzing）**：向程序输入大量随机、畸形的数据，寻找崩溃和安全漏洞。American Fuzzy Lop（AFL）和 libFuzzer 是两个著名工具。Google 的 OSS-Fuzz 项目对开源软件持续运行模糊测试，已发现数万个安全漏洞。
+**模糊测试（Fuzzing）**：向程序输入大量随机、畸形的数据，寻找崩溃和安全漏洞。American Fuzzy Lop（AFL）和 libFuzzer 是两个著名工具。Google 的 OSS-Fuzz 项目自 2016 年起对上千个开源项目持续运行模糊测试，截至 2025 年已帮助修复逾 1.3 万个安全漏洞、5 万多个 bug。
+
+## 谁来测试测试：变异测试
+
+覆盖率高不等于测试有效。覆盖率只说明代码被执行过，没说断言会不会在出错时真的失败。极端情况下，一个完全没有 assert 的测试也能跑出 100% 覆盖率，却什么都没验证。
+
+变异测试（Mutation Testing）正面回答"测试本身够不够好"。它故意在源码里植入微小改动——把 `+` 改成 `-`、把 `>` 改成 `>=`——制造一个"变异体"（mutant），然后看测试套件能不能"杀死"它（即至少有一个测试因此失败）。
+
+如果代码被改坏了，所有测试却照样通过，说明这段逻辑其实没被真正测到。
+
+这个思路最早由 DeMillo、Lipton、Sayward 在 1978 年的论文《Hints on Test Data Selection》中提出。他们还提出了著名的"耦合效应"（coupling effect）猜想：能发现简单错误的测试，往往也能发现复杂错误——这正是只植入单点小改动就有意义的理论依据。
+
+变异测试一度因计算量过大（每个变异体都要重跑整套测试）难以落地。Google、Meta 近年改用增量、抽样的方式把它接入持续集成：只对本次改动相关的代码生成变异体，在 code review 时直接提示"这行被改坏了却没有测试报警"。
 
 ## 性能测试与混沌工程
 
@@ -104,17 +122,29 @@ Haskell 的 QuickCheck（1999）开创了属性测试，Python 的 Hypothesis、
 
 **混沌工程（Chaos Engineering）**：主动在生产环境注入故障（随机关闭服务器、引入网络延迟），验证系统的容错能力。Netflix 的 Chaos Monkey（2011）是开创性实践——它随机关闭生产服务器，强迫工程团队建立真正具有弹性的系统。
 
+## 大规模下的麻烦：脆弱测试
+
+脆弱测试（flaky test）指同样的代码、同样的输入，有时通过、有时失败的测试。它通常源于对时间、并发顺序、网络或随机数的隐含依赖。
+
+在小项目里脆弱测试只是恼人，在大规模持续集成里却是系统性负担。Google 在《Taming Google-Scale Continuous Testing》（Memon 等，2017）中报告：其约 420 万个测试中，近 16% 表现出某种程度的脆弱性。
+
+更棘手的是信噪比：在所有从"通过"翻转为"失败"的结果里，约 84% 牵涉脆弱测试，而非真正的回归。为此 Google 要花掉 2% 到 16% 的测试计算资源专门用来重跑这些不稳定的测试。
+
+危害不只是浪费算力。脆弱测试会侵蚀团队对测试的信任——当"红色"不再可靠地意味着"真有 bug"，工程师就会习惯性地重跑、忽略，真正的回归也可能被一起放过。
+
 ## 代价与争议
 
 **测试维护成本**：测试代码同样需要维护。需求变化时，测试也要更新。如果测试和实现高度耦合（测试了太多内部细节），每次重构都要修改大量测试，反而阻碍改进。良好的测试应该测试**行为**而非**实现细节**。
 
-**100% 覆盖率的幻象**：许多组织把代码覆盖率作为质量门禁，但高覆盖率不等于高质量。Google 的研究发现，边际覆盖率（从 80% 到 100%）带来的 bug 发现率回报递减，而维护代价线性增长。
+**100% 覆盖率的幻象**：许多组织把代码覆盖率作为质量门禁，但高覆盖率不等于高质量。边际覆盖率（从 80% 提到 100%）发现 bug 的回报往往递减，维护代价却仍在上升；前面说的变异测试，正是为了补上"覆盖率测不到测试质量"这块短板。
+
+**"修得越晚贵 100 倍"的传说**：软件工程里流传最广的一条数据，是"生产环境里修 bug 的成本是需求阶段的 100 倍"，常被用来论证早测试、早发现的价值。但 Laurent Bossavit 在《The Leprechauns of Software Engineering》（2015）中层层追查，发现这个倍数最终指向一份据称来自"IBM Systems Sciences Institute"、却几乎无人见过原始数据的研究——很可能从未以可核查的形式存在过。早发现 bug 确实更省事，方向没错；但用一个来历不明的精确倍数去吓人，本身就是该被证伪的"folklore"。
 
 **测试 vs 类型系统**：静态类型语言（Haskell、Rust、TypeScript）通过类型检查在编译时捕获许多原本需要测试发现的错误。有人认为足够强大的类型系统可以替代大量单元测试。这个观点有一定道理，但类型系统和测试是互补的，不是竞争关系。
 
 ## 跨域连接
 
-- **数学**：属性测试与数学归纳法类似——陈述性质，由工具验证所有情况。形式验证（Formal Verification）是用数学证明程序正确性的终极方法，用于飞行控制、密码学等高安全领域。
+- **数学**：属性测试与数学归纳法类似——陈述性质，由工具验证所有情况。更彻底的是形式验证（Formal Verification）：不靠抽样测试，而是用数学证明覆盖所有输入。代表成果有 seL4——首个被完整证明功能正确性的通用操作系统内核，约 8700 行 C 代码，配套约 20 万行机器检查证明；以及 CompCert——经 Coq 证明其生成的汇编严格符合 C 源码语义的编译器，约 10 万行证明、约 6 人年。代价极高，因此仍主要用于内核、编译器、航空与密码学等失败成本极高的领域。
 - **[[software-engineering]]**：测试是软件工程质量保障的核心工具，见软件工程条目。
 - **[[type-systems]]**：类型系统与测试共同保障软件正确性，见类型系统条目。
 - **哲学**：Dijkstra 的格言体现了波普尔的证伪主义——科学理论只能被证伪，不能被证实。
@@ -124,6 +154,12 @@ Haskell 的 QuickCheck（1999）开创了属性测试，Python 的 Hypothesis、
 ## 参考文献
 
 - Claessen, K. & Hughes, J. *QuickCheck: A Lightweight Tool for Random Testing of Haskell Programs.* ICFP, 2000. （属性测试开山之作）
+- DeMillo, R. A., Lipton, R. J. & Sayward, F. G. *Hints on Test Data Selection: Help for the Practicing Programmer.* IEEE Computer, 11(4):34–41, 1978. （变异测试与"耦合效应"的源头）
+- Leveson, N. G. & Turner, C. S. *An Investigation of the Therac-25 Accidents.* IEEE Computer, 26(7):18–41, 1993. （软件安全失败的经典剖析）
+- Memon, A. et al. *Taming Google-Scale Continuous Testing.* ICSE-SEIP, 2017. （脆弱测试的大规模实证数据）
+- Klein, G. et al. *seL4: Formal Verification of an OS Kernel.* SOSP, 2009. （首个完整验证的通用 OS 内核）
+- Leroy, X. *Formal Verification of a Realistic Compiler.* Communications of the ACM, 52(7):107–115, 2009. （CompCert 验证编译器）
+- Bossavit, L. *The Leprechauns of Software Engineering.* Leanpub, 2015. （考据"修 bug 成本 100 倍"等流传数据的真实来历）
 
 ## 延伸阅读
 

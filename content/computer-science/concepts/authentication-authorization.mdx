@@ -2,7 +2,7 @@
 title: 身份验证与授权
 title_en: Authentication and Authorization
 status: published
-updated: 2026-06-13
+updated: 2026-06-28
 category: 安全与隐私
 order: 31
 field: 计算机科学 · 安全
@@ -36,6 +36,12 @@ related:
 - 使用易猜的密码（"123456"每年都是最常用密码）
 - 把密码写在便利贴上（绕过所有技术防护）
 
+还有两条流传更广的"安全常识"其实早已被标准制定者否定：强密码必须混合大小写、数字和符号，以及每隔几十天就强制更换。
+
+美国国家标准与技术研究院（NIST，National Institute of Standards and Technology）在 2017 年的《数字身份指南》中明确反对这两条做法，并在 2025 年 7 月定稿的第 4 版（SP 800-63B-4）里再次重申。
+
+理由是：强制复杂度只会逼出"Password1!"这类可预测的变体，强制定期更换则让人把"Summer2024"改成"Summer2025"，安全收益甚微。新标准转向长度优先——单因子使用的密码至少 15 个字符，鼓励易记的长口令句（passphrase），不到有泄露证据就不强制更换。
+
 更根本的问题是：密码是一种"你知道什么"（something you know）的验证方式，只有一个因子。
 
 **多因素认证（Multi-Factor Authentication，MFA）** 要求同时提供至少两种不同类型的凭据：
@@ -46,7 +52,11 @@ related:
 | 你拥有什么（Possession） | 手机、硬件安全密钥（YubiKey） |
 | 你是什么（Inherence） | 指纹、人脸识别 |
 
-Google 内部研究（2019）显示，强制所有员工使用硬件安全密钥（FIDO2 标准）后，账户钓鱼攻击降至零。
+但"第二个因子"之间强弱悬殊。最常见的短信验证码（SMS OTP）其实相当脆弱：攻击者可以用"SIM 卡交换"（SIM swap，冒充机主向运营商补办手机卡）把验证码截走。NIST 在 2025 年的新版指南里正式把短信列为"受限"（restricted）认证方式，要求继续使用它的机构必须向用户提示风险并提供替代方案。
+
+更可靠的是验证器 App 生成的动态码：基于 RFC 6238 的 TOTP（Time-based One-Time Password，基于时间的一次性口令）用设备与服务器共享的密钥加上当前时间，算出每 30 秒变化的 6 位数字，全程无需联网。
+
+无论选哪种第二因子，开启 MFA 本身就把门槛抬高了一个数量级。2017 年初，Google 要求全部约 8.5 万名员工改用 FIDO U2F 硬件安全密钥（FIDO2/WebAuthn 的前身）后，到 2018 年安全记者 Brian Krebs 披露时，公司没有出现一例被钓鱼攻陷的账户。微软的统计同样直白：其身份安全团队 2019 年报告，开启 MFA 能挡下约 99.9% 的自动化账户入侵尝试——哪怕攻击者已经拿到了你的密码。
 
 ## 身份验证的技术实现
 
@@ -60,6 +70,8 @@ Google 内部研究（2019）显示，强制所有员工使用硬件安全密钥
 - **bcrypt**（1999）：内置成本因子，可以随硬件提升调整计算量
 - **Argon2**（2015）：密码哈希竞赛冠军，抗 GPU 并行攻击，OWASP 推荐首选
 
+一个常被忽视的坑：bcrypt 因底层 Blowfish 算法的结构，只对密码的前 72 个字节生效，多出的部分被静默丢弃——两个仅在第 72 字节之后才不同的长密码，会被当成同一个；Argon2 没有这个限制。
+
 ### 会话管理与 Cookie
 
 HTTP 协议是无状态的——每个请求独立，服务器不记得之前的请求。如何维持登录状态？
@@ -67,6 +79,14 @@ HTTP 协议是无状态的——每个请求独立，服务器不记得之前的
 **会话（Session）**：登录成功后，服务器生成一个随机的会话 ID，返回给客户端（通常通过 Cookie），客户端后续请求携带此 ID。服务器在内存或数据库中维护会话状态。
 
 **JWT（JSON Web Token）**：把用户信息和权限直接编码到令牌中（经过服务器私钥签名），客户端持有令牌，服务器无需查询数据库即可验证。适合分布式系统。注意：JWT 令牌一旦签发，在过期前无法无效化（除非维护黑名单）——这是与有状态会话的根本权衡。
+
+### Kerberos：早于 Web 的身份验证
+
+身份验证不是随着网页登录框才出现的。1988 年，麻省理工学院（MIT）为校园计算环境 Project Athena 开发了 Kerberos，它建立在 Roger Needham 与 Michael Schroeder 1978 年提出的对称密钥认证思想之上。
+
+Kerberos 引入一个可信第三方——密钥分发中心（Key Distribution Center, KDC）——来签发有时限的"票据"（ticket）。用户只登录一次，换得一张"票据授予票据"，之后访问各个服务时凭它再换取服务票据，密码本身从不在网络上传输。
+
+这套机制至今仍是 Windows 域（Active Directory）的默认登录协议，支撑着全球企业每天数以十亿计的登录。它的名字取自希腊神话中守卫冥界之门的三头犬刻耳柏洛斯（Cerberus），三个头常被用来比喻认证涉及的三方：客户端、服务器与 KDC。
 
 ## OAuth 2.0：授权的工业标准
 
@@ -90,6 +110,10 @@ OAuth 解决的问题：**在不共享密码的情况下，让第三方应用访
 关键点：第三方应用**始终不知道你的 GitHub 密码**。你可以随时在 GitHub 设置中撤销该应用的访问权限。
 
 **OpenID Connect（OIDC）**：建立在 OAuth 2.0 之上，专门用于身份认证（OAuth 本身只定义了授权）。OIDC 在 OAuth 的访问令牌之外，还提供了 ID Token（包含用户身份信息的 JWT），成为"用 xxx 账号登录"功能的标准实现。
+
+OAuth 早期还有一个"隐式流程"（implicit flow），允许单页应用和手机 App 直接从重定向 URL 里取得令牌，但令牌会残留在浏览器历史和服务器日志中，容易泄露。
+
+2015 年的 PKCE（Proof Key for Code Exchange，RFC 7636，读作"pixy"）补上了这个洞：客户端先生成一个随机秘密，授权时只发送它的哈希，事后换令牌时才出示原值；半路截获授权码的攻击者因为拿不出原值，无法兑换令牌。正在制定中的 OAuth 2.1 干脆删除了隐式流程，并要求所有客户端——无论能否安全保管密钥——一律改用带 PKCE 的授权码流程。
 
 ## 授权模型
 
@@ -118,6 +142,7 @@ OAuth 解决的问题：**在不共享密码的情况下，让第三方应用访
 - **[[encryption-basics]]**：数字签名、公钥密码学是现代身份验证的技术基础。
 - **[[computer-security-principles]]**：身份验证与授权是最小权限原则和零信任架构的核心实现。
 - **法律**：身份验证强度与合规要求（PCI-DSS、HIPAA）密切相关；生物特征数据的收集受 GDPR、中国《个人信息保护法》的严格规范。
+- **操作系统理论**：授权的根本难题"混淆代理"（confused deputy problem）由 Norm Hardy 在 1988 年正式提出——一个握有较高权限的程序被低权限调用者诱骗，替对方做了不该做的事。OAuth 的委托授权、CSRF 攻击，乃至今天 AI 智能体手握用户的 OAuth 令牌却被恶意内容"借刀杀人"，本质上都是这个老问题的新变体。
 - **哲学**："你是谁"是一个比密码学更深的哲学问题——数字身份认同、匿名权与可问责性之间的张力是数字时代的核心伦理议题。
 
 ---
@@ -129,3 +154,10 @@ OAuth 解决的问题：**在不共享密码的情况下，让第三方应用访
 - NIST. *Digital Identity Guidelines (SP 800-63-3).* 2017. （权威的身份认证标准）
 - W3C. *Web Authentication: An API for Accessing Public Key Credentials (WebAuthn).* w3.org, 2019.
 - OWASP. *Authentication Cheat Sheet.* cheatsheetseries.owasp.org.
+- NIST. *Digital Identity Guidelines — Authentication and Authenticator Management (SP 800-63B-4).* 2025.（取消密码复杂度与定期更换要求，将短信列为受限认证）
+- Steiner, J. G., Neuman, B. C. & Schiller, J. I. *Kerberos: An Authentication Service for Open Network Systems.* USENIX Winter Conference, 1988.
+- Needham, R. M. & Schroeder, M. D. *Using Encryption for Authentication in Large Networks of Computers.* Communications of the ACM, 21(12), 1978.
+- M'Raihi, D., Machani, S., Pei, M. & Rydell, J. *TOTP: Time-Based One-Time Password Algorithm.* RFC 6238, IETF, 2011.
+- Sakimura, N., Bradley, J. & Agarwal, N. *Proof Key for Code Exchange by OAuth Public Clients.* RFC 7636, IETF, 2015.
+- Hardy, N. *The Confused Deputy (or why capabilities might have been invented).* ACM SIGOPS Operating Systems Review, 22(4), 1988.
+- Weinert, A. *One Simple Action You Can Take to Prevent 99.9 Percent of Attacks on Your Accounts.* Microsoft Security Blog, 2019.

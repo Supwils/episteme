@@ -1,6 +1,3 @@
-"use client";
-
-import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import type { DailyItem } from "../lib/daily-knowledge";
 
@@ -60,37 +57,15 @@ function getDomainStyle(domain: string) {
   return DOMAIN_STYLES[domain] ?? DEFAULT_STYLE;
 }
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08, delayChildren: 0.15 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 16 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.45, ease: [0.22, 0.61, 0.36, 1] as const },
-  },
-};
-
 export function DailyKnowledgeCard({ items, fact, date }: DailyKnowledgeCardProps) {
-  const reduce = useReducedMotion();
-
   return (
-    <motion.section
-      className="mx-auto w-full max-w-3xl overflow-hidden rounded-2xl backdrop-blur-xl"
+    <section
+      className="animate-fade-slide-up mx-auto w-full max-w-3xl overflow-hidden rounded-2xl backdrop-blur-xl"
       style={{
         background: "rgba(255, 255, 255, 0.03)",
         border: "1px solid rgba(255, 255, 255, 0.06)",
         boxShadow: "0 4px 24px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.03)",
       }}
-      initial={reduce ? false : { opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
     >
       <div
         aria-hidden="true"
@@ -106,19 +81,18 @@ export function DailyKnowledgeCard({ items, fact, date }: DailyKnowledgeCardProp
           <p className="text-fg-muted text-[0.78rem]">{date}</p>
         </div>
 
-        <motion.div
-          className="flex flex-col gap-3"
-          variants={reduce ? undefined : containerVariants}
-          initial="hidden"
-          animate="show"
-        >
-          {items.map((item) => {
+        <div className="flex flex-col gap-3">
+          {items.map((item, index) => {
             const style = getDomainStyle(item.domain);
             return (
-              <motion.div key={item.id} variants={itemVariants}>
+              <div
+                key={item.id}
+                className="animate-fade-slide-up"
+                style={{ animationDelay: `${0.15 + index * 0.08}s` }}
+              >
                 <Link
                   href={item.url}
-                  className="group block rounded-xl p-4 no-underline transition-all duration-300 hover:bg-white/[0.04]"
+                  className="group block rounded-xl p-4 no-underline transition-all duration-300 hover:bg-white/4"
                   style={{
                     background: "rgba(255, 255, 255, 0.02)",
                     border: "1px solid rgba(255, 255, 255, 0.05)",
@@ -159,10 +133,10 @@ export function DailyKnowledgeCard({ items, fact, date }: DailyKnowledgeCardProp
                     </span>
                   </div>
                 </Link>
-              </motion.div>
+              </div>
             );
           })}
-        </motion.div>
+        </div>
 
         <div
           className="mt-5 flex items-start gap-2 pt-4"
@@ -175,6 +149,6 @@ export function DailyKnowledgeCard({ items, fact, date }: DailyKnowledgeCardProp
           </p>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

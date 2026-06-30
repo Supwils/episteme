@@ -7,7 +7,7 @@ import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { FIELD_ACCENTS, SITE_URL } from "@/lib/constants";
 import { ArticleLayout } from "@/components/ArticleLayout";
 import { TableOfContents } from "@/components/TableOfContents";
-import { createDefinedTermJsonLd } from "@/lib/jsonld";
+import { serializeJsonLd, createDefinedTermJsonLd } from "@/lib/jsonld";
 import { getNarration } from "@/lib/narration";
 import { NarrationButton } from "@/components/narration/NarrationButton";
 
@@ -68,7 +68,7 @@ export default async function ConceptDetailPage({ params }: { params: Promise<{ 
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <ArticleLayout
         backHref="/philosophy/concepts"

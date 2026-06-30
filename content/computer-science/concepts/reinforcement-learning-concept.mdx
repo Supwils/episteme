@@ -2,7 +2,7 @@
 title: 强化学习
 title_en: Reinforcement Learning
 status: published
-updated: 2026-06-13
+updated: 2026-06-28
 category: 人工智能
 order: 42
 field: 计算机科学 · 机器学习
@@ -69,6 +69,22 @@ $$V^{\pi}(s) = \sum_a \pi(a|s) \sum_{s'} P(s'|s,a) \left[R(s,a) + \gamma V^{\pi}
 
 $$V^*(s) = \max_a \sum_{s'} P(s'|s,a) \left[R(s,a) + \gamma V^*(s')\right]$$
 
+## 探索与利用：强化学习独有的两难
+
+监督学习的数据是事先给定的，强化学习的数据却要靠智能体自己采集——它当下选什么动作，决定了它下一步能看到什么经验。
+
+这带来一个监督学习里不存在的矛盾：**探索（Exploration）与利用（Exploitation）**。
+
+利用，是按目前已知最优的动作行事，立刻拿到尽量高的奖励。探索，是去尝试还没充分了解的动作，看看有没有更好的选择。
+
+两者天然冲突。只利用，可能永远困在次优解里；只探索，又永远兑现不了已经学到的知识。
+
+最纯粹的形式是**多臂老虎机（Multi-armed Bandit）**问题：面对一排回报未知的老虎机，每次只能拉一台，如何在有限次数里赚得最多？这是只有一个状态的退化版强化学习，却把探索与利用的张力暴露得最清楚。
+
+最常用的应对策略是 **$\epsilon$-贪婪（epsilon-greedy）**：以 $1-\epsilon$ 的概率选当前最优动作，以 $\epsilon$ 的概率随机探索。更精细的方法（如上置信界 UCB、汤普森采样）会优先探索"不确定性高"的动作，把有限的探索花在最有信息量的地方。
+
+如何平衡这对矛盾，至今没有放之四海皆准的答案，这是强化学习区别于其他学习范式的标志性难题。
+
 ## 主要算法分类
 
 **基于模型（Model-Based）vs. 无模型（Model-Free）**：
@@ -85,6 +101,10 @@ $$V^*(s) = \max_a \sum_{s'} P(s'|s,a) \left[R(s,a) + \gamma V^*(s')\right]$$
 $$Q(s, a) \leftarrow Q(s, a) + \alpha \left[r + \gamma \max_{a'} Q(s', a') - Q(s, a)\right]$$
 
 Q-Learning 是**离策略（Off-Policy）**方法：学习最优策略，但可以用任意策略探索。
+
+与之相对的是**同策略（On-Policy）**方法，代表是 **SARSA**（Rummery 与 Niranjan 于 1994 年提出，名字来自 state-action-reward-state-action 这一更新所用的五元组）。两者更新式几乎一样，差别只在方括号里：Q-Learning 用下一状态的最优动作 $\max_{a'} Q(s', a')$ 来更新，SARSA 用智能体**实际采取**的那个下一动作 $Q(s', a')$。
+
+这点差别带来不同的"性格"。在经典的"悬崖行走"任务里，SARSA 学到的是自己正在执行（含探索）的策略的价值，因而更保守，会主动绕开悬崖边；Q-Learning 假设未来总走最优，于是更激进地贴着悬崖边走最短路。
 
 **策略梯度（Policy Gradient）**：直接对策略参数 $\theta$ 求梯度，最大化期望奖励：
 
@@ -116,9 +136,23 @@ $$\nabla_\theta J(\theta) = \mathbb{E}_{\pi_\theta} \left[\nabla_\theta \log \pi
 | 2019 | AlphaStar 击败职业星际争霸 II 玩家（实时策略游戏）|
 | 2022 | ChatGPT 使用 RLHF 对齐人类偏好，强化学习进入大语言模型时代 |
 
+## 走出棋盘：真实世界的强化学习
+
+一个常见误解是强化学习"只在游戏和模拟器里管用"。
+
+游戏确实是理想试验场——规则明确、奖励清晰、可以无限次重来——但近年它已开始进入真实的科学与工程系统。
+
+**核聚变等离子体控制**：2022 年，DeepMind 与瑞士洛桑联邦理工学院（EPFL）等离子体中心合作，用深度强化学习实时操控托卡马克装置 TCV 的磁场，把上亿摄氏度的等离子体约束并塑造成多种形态，包括"雪花"位形和同时维持两团等离子体的"液滴"。这是强化学习首次直接控制一台真实的托卡马克，成果发表于《自然》。
+
+**发现更快的算法**：同年，AlphaTensor 把矩阵相乘当成一种单人游戏来玩——每一步是一次张量分解，目标是用尽量少的乘法算出乘积。它在二元有限域（模 2 运算）上找到了只需 47 次乘法的 4×4 矩阵乘法算法，打破了递归套用 1969 年施特拉森（Strassen）算法所需的 49 次，是这个问题 50 多年来的首次改进。
+
+这些案例的共同点是：当一个问题能被表述成"反复决策、并能对结果打分"，强化学习就可能找到人类没想到的解法。
+
+代价是它对模拟器精度、奖励定义和安全约束极为敏感，离"开箱即用"还很远。
+
 ## 代价与争议
 
-**样本效率**：强化学习通常需要巨量交互才能学会简单任务。AlphaGo Zero 训练约 490 万局；人类专业棋手可能只下过几万局。对现实世界应用（机器人），采集如此多交互数据代价极高。
+**样本效率**：强化学习通常需要巨量交互才能学会简单任务。AlphaGo Zero 在最初三天的训练里就自我对弈约 490 万局；人类职业棋手一生可能只下过几万局。对现实世界应用（如机器人），采集如此多交互数据代价极高。
 
 **奖励设计（Reward Shaping）**：设计一个能引导智能体达成目标的奖励函数，比看起来难得多。"奖励黑客（Reward Hacking）"屡见不鲜：智能体找到了优化奖励函数的捷径，但完全不符合人类意图。例如，一个被要求在游戏中得分的智能体发现了某个让自己原地重复动作快速得分的漏洞，而非真正完成任务。
 
@@ -131,6 +165,8 @@ $$\nabla_\theta J(\theta) = \mathbb{E}_{\pi_\theta} \left[\nabla_\theta \log \pi
 - **[[machine-learning-overview]]**：强化学习是机器学习三大范式之一，与监督学习、无监督学习并列，但问题设定截然不同——没有标注数据，只有奖励信号。
 - **博弈论**：多智能体强化学习（MARL）与博弈论密切相关；纳什均衡、合作博弈等概念在 MARL 中有直接应用。AlphaZero 的自我对弈训练，可以视为寻找零和博弈纳什均衡的过程。
 - **[[neural-networks-concept]]**：深度强化学习用神经网络近似价值函数或策略，将深度学习的表示能力与强化学习的试错学习框架结合。
+- **神经科学**：1997 年，舒尔茨（Wolfram Schultz）、达扬（Peter Dayan）与蒙塔古（Read Montague）在《科学》上指出，大脑中多巴胺神经元编码的正是**奖励预测误差**——奖励超出预期时放电增强，完全符合预期时几乎无反应，预期的奖励落空时放电被抑制。这恰好对应时序差分学习的误差项 $r + \gamma V(s') - V(s)$。换句话说，Q-Learning 更新式方括号里的那一项，可能正是大脑在做的计算，这成为计算神经科学最有影响的跨学科假说之一。
+- **心理学**：强化学习的思想根源之一是动物学习心理学。桑代克（Edward Thorndike）的"效果律"——带来满足的行为更可能被重复——与斯金纳（B. F. Skinner）的操作性条件反射，正是"通过奖惩塑造行为"这一核心直觉的源头。Sutton 与 Barto 在领域奠基教材里，明确把试错学习这条线索追溯到这些心理学工作。
 
 ---
 
@@ -140,3 +176,7 @@ $$\nabla_\theta J(\theta) = \mathbb{E}_{\pi_\theta} \left[\nabla_\theta \log \pi
 - Mnih, V. et al. *Human-level Control through Deep Reinforcement Learning.* Nature 518, 2015. （DQN）
 - Silver, D. et al. *Mastering the Game of Go without Human Knowledge.* Nature 550, 2017. （AlphaGo Zero）
 - Schulman, J. et al. *Proximal Policy Optimization Algorithms.* arXiv, 2017. （PPO）
+- Schultz, W., Dayan, P. & Montague, P. R. *A Neural Substrate of Prediction and Reward.* Science 275, 1593–1599, 1997. （多巴胺与奖励预测误差）
+- Rummery, G. A. & Niranjan, M. *On-line Q-learning Using Connectionist Systems.* Technical Report CUED/F-INFENG/TR 166, Cambridge University, 1994. （SARSA）
+- Degrave, J., Felici, F., Buchli, J. et al. *Magnetic Control of Tokamak Plasmas through Deep Reinforcement Learning.* Nature 602, 414–419, 2022. （托卡马克等离子体控制）
+- Fawzi, A. et al. *Discovering Faster Matrix Multiplication Algorithms with Reinforcement Learning.* Nature 610, 47–53, 2022. （AlphaTensor）

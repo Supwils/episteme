@@ -7,7 +7,7 @@ import {
 import { MATH_ERA_ACCENT } from "@/subjects/mathematics/lib/constants";
 import { MathMarkdownRenderer } from "@/subjects/mathematics/components/MathMarkdownRenderer";
 import { SITE_URL } from "@/lib/constants";
-import { createPersonJsonLd } from "@/lib/jsonld";
+import { serializeJsonLd, createPersonJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
 import { ArticleSidebar } from "@/components/ArticleSidebar";
@@ -72,7 +72,7 @@ export default async function MathematicianDetailPage({
     <div className="w-full px-6 py-12 sm:px-10 lg:px-16">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <Link
         href="/mathematics/mathematicians"

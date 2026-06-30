@@ -73,6 +73,24 @@ const MIN_LINES: Record<string, number> = {
   paradoxes: 80,
 };
 
+// Real depth is CJK character count, not physical non-empty lines. A complete,
+// readable CJK article written in the spec-mandated short-paragraph style lands
+// around ~50-60 lines / ~2500+ chars; the line metric alone mis-flags dense
+// long-paragraph prose as "too short" and rewards padding to hit the line bar.
+// We treat a file as too short only when it is thin by BOTH measures (see below).
+const MIN_CJK_CHARS: Record<string, number> = {
+  concepts: 2200,
+  thinkers: 2200,
+  mathematicians: 2200,
+  theorems: 1700,
+  schools: 2200,
+  isms: 1700,
+  experiments: 1700,
+  questions: 1300,
+  dialogues: 1700,
+  paradoxes: 1700,
+};
+
 const TODO_PATTERN = /\b(TODO|FIXME|HACK|XXX)\b/i;
 const HEADING_PATTERN = /^##\s+/m;
 const FURTHER_READING_PATTERN =
@@ -110,6 +128,10 @@ function getSubType(filePath: string): string | null {
 
 function countNonEmptyLines(content: string): number {
   return content.split("\n").filter((l) => l.trim().length > 0).length;
+}
+
+function countCjkChars(content: string): number {
+  return (content.match(/[一-鿿]/g) || []).length;
 }
 
 function findTodoLines(content: string): number[] {
@@ -186,11 +208,16 @@ function checkFile(filePath: string, allSlugs: Map<string, Set<string>>): CheckR
   }
 
   const bodyLineCount = countNonEmptyLines(content);
+  const cjkChars = countCjkChars(content);
   const minLines = MIN_LINES[subType];
-  if (minLines && bodyLineCount < minLines) {
+  const minChars = MIN_CJK_CHARS[subType];
+  // Thin by BOTH measures = genuinely too short. A file with enough lines OR
+  // enough CJK depth passes — this clears the dense-paragraph false positives
+  // (real article, low line count) without rewarding padding to a line target.
+  if (minLines && bodyLineCount < minLines && (!minChars || cjkChars < minChars)) {
     issues.push({
       type: "warning",
-      message: `Content too short: ${bodyLineCount} non-empty lines (minimum ${minLines} for ${subType})`,
+      message: `Content too short: ${bodyLineCount} non-empty lines / ${cjkChars} CJK chars (need ${minLines} lines or ${minChars ?? "—"} chars for ${subType})`,
     });
   }
 

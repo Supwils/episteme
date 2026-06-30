@@ -2,7 +2,7 @@
 title: 函数式编程
 title_en: Functional Programming
 status: published
-updated: 2026-06-13
+updated: 2026-06-28
 category: 编程范式
 order: 23
 field: 计算机科学 · 编程语言
@@ -75,7 +75,7 @@ sumSquaresOfEvens xs = foldr (+) 0 (map (^2) (filter even xs))
 
 **函数组合（Function Composition）**：把多个函数串联，一个函数的输出成为下一个函数的输入。数学上写作 $(f \circ g)(x) = f(g(x))$，代码中是管道操作符或 compose 函数。这是构建复杂功能的主要方式。
 
-**柯里化（Currying）**：以 Haskell Curry 命名（Curry 本人并未发明，但系统研究了它）。把一个接受多个参数的函数转换为一系列每次接受一个参数的函数：$f(x, y) \rightarrow f(x)(y)$。柯里化使部分应用（partial application）成为可能。
+**柯里化（Currying）**：以 Haskell Curry 命名（Curry 本人并未发明，但系统研究了它）。把一个接受多个参数的函数转换为一系列每次接受一个参数的函数：$f(x, y) \rightarrow f(x)(y)$。柯里化使部分应用（partial application）成为可能。更准确的出处是：这个思想最早见于 Gottlob Frege（1893），由 Moses Schönfinkel 在 1924 年的论文里系统化，Curry 再加以发展；"currying"这个名字其实是 Christopher Strachey 在 1967 年所造，Curry 晚年得知后曾表示这本应归功于 Schönfinkel。
 
 **惰性求值（Lazy Evaluation）**：直到真正需要值时才计算它。Haskell 默认使用惰性求值，这使得处理无限列表成为可能：
 
@@ -98,6 +98,34 @@ take 10 [1..]  -- [1,2,3,4,5,6,7,8,9,10]
 | Elm | 2012 | 前端函数式，无运行时异常 |
 
 许多主流语言（Python、JavaScript、Java、C++）也在逐步引入函数式特性，如 lambda 表达式、stream API、不可变数据类型。
+
+## 函数式如何进入主流
+
+很长一段时间里，函数式编程被当作学术界的玩具。真正的转折发生在 2010 年前后：不是哪一门纯函数式语言赢了，而是函数式的**思想**被主流语言逐个吸收。
+
+**Java 8（2014 年 3 月发布）** 是标志性事件。它一次性引入了 lambda 表达式、函数式接口（functional interface）和 Stream API，让 `list.stream().filter(...).map(...).collect(...)` 这样的写法第一次进入企业级 Java。一门十几年里以"啰嗦"著称的语言，开始鼓励用函数组合替代显式循环。
+
+**C# 的 LINQ**（随 C# 3.0 / .NET 3.5 在 2007 年推出）更早一步，把 `Where`、`Select`、`Aggregate` 连同延迟求值（deferred execution）带进了 .NET。这些名字换了壳，本质就是 filter、map、reduce。
+
+**JavaScript 与 React** 则把函数式带到了最大的开发者群体。React 官方明确要求：组件必须是**纯函数**——给定相同的 props 和 state，必须返回相同的 UI，渲染期间不得产生副作用，副作用只能放进事件处理器或 Effect。这条纪律不是洁癖，而是 React 并发渲染（concurrent rendering）的前提：因为框架可能多次渲染、甚至中途暂停同一个组件，只有纯函数才不会因此出错。
+
+配套的 **Redux** 把同样的原则用于状态管理：reducer 必须是纯函数，状态不可变，每次更新返回一个**新**状态对象。这带来两个直接好处——React 能用浅比较（shallow equality）廉价地判断"变没变、要不要重渲染"，以及"时间旅行调试"（time-travel debugging）能精确地在历史状态间跳转，因为没有隐藏的副作用。
+
+这才是函数式真正的胜利方式：不是让所有人改用 Haskell，而是让纯函数、不可变、高阶函数成为每个主流语言里的常识。
+
+## 不可变性与并发：被低估的价值
+
+初学者最大的误解是："数据不能改，那程序还怎么干活？"在单线程时代，这个质疑听起来有道理。但到了多核与分布式时代，结论反了过来。
+
+并发 bug 的根源几乎总是同一个：**可变的共享状态**（shared mutable state）。两个线程同时读写同一块数据，就会出现竞态条件（race condition）。命令式编程对付它的办法是加锁（mutex、信号量），而锁本身又带来死锁、性能下降和极难复现的 bug。
+
+不可变性从根上消除了这个问题：**如果数据永不改变，多个线程就能同时读它，完全不需要加锁**；一个不可变对象可以安全地按引用传给任意线程。麻省理工的并发课程把"实现线程安全"归纳为三条路——封闭（confinement）、不可变（immutability）、加锁（locks）——其中不可变是最省心的一条。
+
+**Erlang** 把这个思想推到了极致。Joe Armstrong 在爱立信为电信交换机设计的 Erlang，进程之间不共享任何内存，只通过传递**不可变消息**通信（actor 模型）。没有共享状态，就没有锁，也就没有那一整类并发 bug；配合"任它崩溃"（let it crash）的监督树哲学，造出了能跑多年不停机的系统。今天 WhatsApp 等大规模实时服务的后端正建立在这套模型之上。
+
+**MapReduce** 是另一个被低估的例子。Google 的 Jeffrey Dean 与 Sanjay Ghemawat 在 2004 年的论文里直言：他们的抽象"受到 Lisp 及许多函数式语言中 map 和 reduce 原语的启发"。正因为 map 阶段的函数是纯的、无副作用，框架才能放心地把同一个计算自动切分到上千台机器上并行执行——这正是后来 Hadoop、Spark 这条大数据技术栈的思想源头。
+
+至于"每次创建新副本会不会太慢"的担心，函数式社区早有答案：**持久化数据结构**（persistent data structures）通过**结构共享**（structural sharing），让"修改"只复制变化的那一小部分，其余与旧版本共享，从而把开销降到对数级。Chris Okasaki 1998 年的《Purely Functional Data Structures》是这一领域的奠基之作，Clojure、Scala 的不可变集合都用了同类技术。
 
 ## 单子：函数式处理副作用
 
@@ -136,6 +164,9 @@ process = filter (> 0) . map (*2) . take 100
 - Abelson, H. & Sussman, G. *Structure and Interpretation of Computer Programs.* MIT Press, 1996. （SICP，最好的函数式入门之一）
 - Wadler, P. *Monads for Functional Programming.* 收录于 *Advanced Functional Programming*, Springer, 1995.
 - Church, A. *A Formulation of the Simple Theory of Types.* Journal of Symbolic Logic 5(2), 1940. （Lambda 演算的基础论文）
+- Dean, J. & Ghemawat, S. *MapReduce: Simplified Data Processing on Large Clusters.* OSDI, 2004. （明言其抽象受 Lisp 等函数式语言 map/reduce 原语启发）
+- Okasaki, C. *Purely Functional Data Structures.* Cambridge University Press, 1998. （持久化数据结构与结构共享的奠基之作）
+- React 官方文档. *Keeping Components Pure.* react.dev. （组件必须是纯函数，并发渲染的前提）
 
 ## 延伸阅读
 

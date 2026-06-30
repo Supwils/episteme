@@ -1,51 +1,26 @@
-"use client";
-
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
 import { LATEST_UPDATES } from "../lib/data";
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
-  },
-} as const;
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 0.61, 0.36, 1] as const } },
-};
-
 export function LatestUpdates() {
-  const reduce = useReducedMotion();
-
   return (
     <section className="px-6 py-20">
-      <motion.div
-        initial={reduce ? false : { opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.5 }}
-      >
+      <div className="animate-fade-slide-up">
         <h2 className="font-display text-fg-primary mb-2 text-center text-2xl font-semibold">
           最新更新
         </h2>
         <p className="text-fg-muted mb-10 text-center text-[0.88rem]">近期新增的内容与功能</p>
-      </motion.div>
+      </div>
 
-      <motion.div
-        className="mx-auto grid max-w-4xl grid-cols-1 gap-4 md:grid-cols-2"
-        variants={reduce ? undefined : container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-60px" }}
-      >
-        {LATEST_UPDATES.map((update) => (
-          <motion.div key={update.id} variants={item}>
+      <div className="mx-auto grid max-w-4xl grid-cols-1 gap-4 md:grid-cols-2">
+        {LATEST_UPDATES.map((update, index) => (
+          <div
+            key={update.id}
+            className="animate-fade-slide-up"
+            style={{ animationDelay: `${0.1 + index * 0.1}s` }}
+          >
             <Link
               href={update.href}
-              className="lift-card group relative block overflow-hidden rounded-xl border border-white/[0.05] bg-white/[0.02] p-5 pl-6 no-underline backdrop-blur-lg"
+              className="lift-card group relative block overflow-hidden rounded-xl border border-white/5 bg-white/2 p-5 pl-6 no-underline backdrop-blur-lg"
               style={{ "--card-accent": update.domainColor } as React.CSSProperties}
             >
               <span
@@ -73,9 +48,9 @@ export function LatestUpdates() {
                 {update.description}
               </p>
             </Link>
-          </motion.div>
+          </div>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 }

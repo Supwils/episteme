@@ -1,0 +1,175 @@
+---
+title: 缓冲体系
+title_en: Buffer Systems
+status: published
+updated: 2026-06-28
+category: 反应原理
+order: 26
+tags:
+  - 缓冲溶液
+  - 亨德森-哈塞尔巴尔赫
+  - pH
+  - 弱酸共轭碱
+  - 酸碱平衡
+related:
+  - acids-and-bases
+  - chemical-equilibrium
+  - solutions-and-solubility
+  - the-mole
+  - proteins-chemistry
+---
+
+# 缓冲体系
+
+1908 年前后，美国生理化学家 Lawrence Henderson 研究血液时注意到：尽管代谢不断产生酸，血液的 pH 却稳定在 7.35–7.45 附近。
+
+瑞典生理学家 Karl Hasselbalch 把 Henderson 的思路写成对数形式，后人称之为**亨德森–哈塞尔巴尔赫方程**（Henderson–Hasselbalch equation）。
+
+这条式子背后，是一套极其朴素却极其强大的化学装置：**缓冲体系**（buffer system）——用少量弱酸与其共轭碱（或弱碱与其共轭酸）的共存，把 pH "钉"在一个窄范围内。
+
+你的血液、细胞培养基、实验室 pH 计校准液、甚至某些抗酸药，都在靠它活着。
+
+## 破除误解：缓冲 ≠ "把 pH 固定成某个魔法数字"
+
+很多人以为缓冲溶液的 pH 永远不变——加多少酸加多少碱都纹丝不动。
+
+错。
+
+缓冲只能**抵抗** pH 变化，不能消灭变化。
+
+当加入的强酸或强碱**远超过**缓冲对的容量（buffer capacity）时，pH 仍会剧烈漂移——缓冲"破"了。
+
+第二个误解：以为任何酸碱混合物都能缓冲。
+
+有效缓冲需要**弱电解质及其共轭对**，且两者浓度都不能太低。
+
+强酸（如 HCl）加其共轭碱（Cl⁻）不是缓冲——Cl⁻ 几乎不结合质子；NaCl 溶液更谈不上缓冲 pH。
+
+## 它是什么：共轭酸碱对的协同防御
+
+以弱酸 HA 与其共轭碱 A⁻ 为例：
+
+HA ⇌ H⁺ + A⁻
+
+**加入少量强酸（H⁺）**：A⁻ 接住质子 → HA，H⁺ 被"吃掉"，pH 上升有限。
+
+**加入少量强碱（OH⁻）**：OH⁻ 夺走 HA 的质子 → A⁻ + H₂O，OH⁻ 被中和，pH 下降有限。
+
+关键：溶液里同时有足够多的 HA **和** A⁻，才能既挡酸又挡碱。
+
+这就是[[acids-and-bases]]质子理论在[[chemical-equilibrium]]里的实战形态。
+
+## 亨德森–哈塞尔巴尔赫方程
+
+对弱酸缓冲体系：
+
+**pH = pKa + log([A⁻] / [HA])**
+
+含义直观：
+
+- 当 [A⁻] = [HA] 时，log(1) = 0，**pH = pKa**——缓冲对在 pKa 附近效力最强。
+- 有效缓冲范围通常约为 **pKa ± 1**（有些教材取 ± 1.5）。
+
+选择缓冲剂时，应让目标 pH 落在所选弱酸的 pKa 附近：要 pH ≈ 7 用磷酸盐（pKa₂ ≈ 7.2），要 pH ≈ 4–5 用乙酸盐（pKa ≈ 4.76）。
+
+血液中最重要的是**碳酸–碳酸氢盐缓冲对**：
+
+CO₂(aq) + H₂O ⇌ H₂CO₃ ⇌ H⁺ + HCO₃⁻
+
+其 pKa ≈ 6.1（37 °C），单独看并非在 pH 7.4 的最佳缓冲点——但生物体还有一招。
+
+## 血液缓冲：肺与肾的联合作战
+
+人体 pH 7.4 时，[HCO₃⁻] 与 [H₂CO₃]（与溶解 CO₂ 成正比）之比约 **20:1**。
+
+代入方程：pH = 6.1 + log(20) ≈ 7.4。
+
+若代谢产生 extra H⁺：
+
+- HCO₃⁻ 缓冲消耗，比值下降，pH 略降。
+- **呼吸补偿**：脑干化学感受器加快通气，呼出 CO₂，推动平衡左移，[H₂CO₃] 下降，pH 回升。
+- **肾补偿**（较慢）：肾小管调节 HCO₃⁻ 重吸收与 H⁺ 分泌，恢复比值。
+
+因此碳酸缓冲的"有效"，不仅靠化学平衡，还靠**开放系统**——CO₂ 可与大气交换，[HCO₃⁻] 与 pCO₂ 可被生理机制分别调控（见 [[chemical-equilibrium]] 勒夏特列原理的生物学版）。
+
+其他缓冲组分：血红蛋白、血浆蛋白质、磷酸盐——共同构成多层防御。
+
+## 缓冲容量与配制实践
+
+**缓冲容量 β**：衡量单位 pH 变化所需外加酸碱的量；当 [HA] ≈ [A⁻] 且总浓度较高时，β 最大。
+
+实验室配制磷酸盐缓冲（pH 7.0）：按 Henderson–Hasselbalch 计算 NaH₂PO₄ 与 Na₂HPO₄ 摩尔比，或滴定法微调。
+
+细胞培养常用 HEPES（pKa ≈ 7.5，不在代谢途径中）——避免传统碳酸缓冲对 CO₂ 孵箱的依赖。
+
+分析化学中，缓冲溶液也维持滴定曲线平台区、酶反应最适 pH——与[[analytical-titration]]、[[solutions-and-solubility]]紧密相关。
+
+## 常见缓冲体系一览
+
+| 缓冲对 | pKa（约） | 常用 pH 范围 | 典型用途 |
+|--------|-----------|--------------|----------|
+| 乙酸 / 乙酸盐 | 4.76 | 3.7–5.7 | 生物化学沉淀、弱酸性反应 |
+| 磷酸一/二氢盐 | 7.2 | 6.2–8.2 | 生理盐水、细胞培养 |
+| Tris / Tris-HCl | 8.1 | 7.1–9.1 | 酶反应、电泳 |
+| HEPES | 7.5 | 6.5–8.5 | 需隔绝 CO₂ 的细胞实验 |
+| 碳酸 / 碳酸氢盐 | 6.1 | 依赖 pCO₂ | 血液、CO₂ 孵箱培养 |
+| 甘氨酸 / HCl | 2.3 | 1.3–3.3 | 低 pH 电泳、某些色谱 |
+
+选择缓冲剂时除 pKa 外，还要问：是否干扰后续分析？是否螯合金属离子？是否被细胞代谢？
+
+## 滴定曲线上的"缓冲区域"
+
+酸碱滴定曲线平坦段对应缓冲作用最强处。
+
+用 0.1 M NaOH 滴定 0.1 M 弱酸 HA：在 pKa 附近，每加 0.5 当量碱，pH 只变约 0.3 单位——这就是曲线"平台"的化学含义。
+
+强酸–强碱滴定没有这样的平台，因为没有共轭对共存。
+
+理解这一点，就把[[analytical-titration]]、[[chemical-equilibrium]]与缓冲概念连成一条线。
+
+## 开放系统 vs 封闭系统
+
+封闭瓶里的醋酸–醋酸盐缓冲，加酸加碱到一定量就会失效——总量有限。
+
+**开放系统**（如血液）可不断调节：肺呼出 CO₂、肾调节 HCO₃⁻，相当于动态补充缓冲组分。
+
+这也是碳酸缓冲在 pH 7.4 仍"够用"的原因：不是靠单一 pKa 匹配，而是靠**生理反馈**维持开放平衡。
+
+实验室细胞培养若用 HEPES 缓冲，则更接近封闭系统——需定期换液，避免缓冲耗尽与 pH 漂移。
+
+## 为什么重要：生命不能容忍 pH 失控
+
+酶活性、蛋白质折叠（见 [[proteins-chemistry]]）、膜电位、血红蛋白氧合曲线——几乎都敏感于 pH。
+
+酸中毒（pH < 7.35）与碱中毒（pH > 7.45）可致命；缓冲是第一道化学防线。
+
+工业上，发酵、电镀、废水处理同样依赖缓冲控制反应环境。
+
+## 局限与误区
+
+- **缓冲范围有限**：超出 pKa ± 1 左右，缓冲能力急剧下降；多种缓冲剂串联可拓宽范围，但增加复杂度。
+- **温度与离子强度影响 pKa**：严格工作需查表校正；生物体系 37 °C 与室温 pKa 略有差别。
+- **"碳酸缓冲在 pH 7.4 不是最优 pKa"**：这是事实，但开放系统 + 呼吸/肾调节弥补了这一"缺陷"——勿简单说"碳酸不是好缓冲"。
+- **缓冲不等于无毒**：砷酸盐、叠氮化物等也曾被用作缓冲，但毒性限制应用；HEPES、Tris 等也有各自禁忌。
+- **Henderson 与 Hasselbalch 并非合作者**：方程形式由 Hasselbalch 在 Henderson 工作基础上整理，历史常被合并叙述。
+
+## 跨域连接
+
+- **生理学与医学**：酸碱平衡、呼吸衰竭、肾衰竭、糖尿病酮症酸中毒——临床诊断离不开血气分析与缓冲补偿判断。
+- **生物化学**：酶促反应 pH 依赖性、蛋白质等电点、二维凝胶电泳缓冲体系。
+- **环境科学**：土壤缓冲能力决定酸雨影响；海洋碳酸盐缓冲与全球 CO₂ 吸收（与气候变化相关）。
+- **化学工程**：生物反应器 pH 控制、聚合物乳液聚合的稳定 pH 窗口。
+- **[[the-mole]]计量**：配制缓冲需精确摩尔浓度与[[solutions-and-solubility]]溶解度知识——理论与实验操作的交汇点。
+
+## 参考文献
+
+- Hasselbalch, K. A. "Die Berechnung der Wasserstoffzahl des Blutes aus der Kohlensäurebindung des Blutes und der Kohlensäurespannung des Blutes." *Biochemische Zeitschrift*, 1917, 78, 112–144.
+- Henderson, L. J. "The theory of neutrality regulation in the animal organism." *American Journal of Physiology*, 1908, 21, 403–417.
+- Atkins, P. & de Paula, J. *Atkins' Physical Chemistry*, 11th ed., Oxford University Press, 2018, Chapter 5.
+- Stewart, P. A. *How to Understand Acid-Base*, Oxford University Press, 1981.
+- NIST. "pH Measurement and Buffer Standards." NIST Special Publication, buffer reference materials.
+
+## 延伸阅读
+
+- 《生物化学》，王镜岩 等 编，高等教育出版社，2002，酸碱平衡章节。
+- Alberty, R. A. *Physical Biochemistry*, Wiley, 2003.

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { serializeJsonLd } from "@/lib/jsonld";
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -54,7 +55,7 @@ export default function PhysicsHomeClient() {
     <main className="bg-bg-deep relative flex min-h-dvh flex-col items-center justify-center overflow-hidden px-6">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(collectionJsonLd) }}
       />
       <div className="border-fg-disabled/40 absolute top-6 left-6 h-3 w-3 border-t border-l" />
       <div className="border-fg-disabled/40 absolute top-6 right-6 h-3 w-3 border-t border-r" />

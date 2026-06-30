@@ -9,7 +9,7 @@ import { KeyFiguresSection, RelatedSchoolsSection } from "@/components/school-de
 import { ERA_ACCENT, SITE_URL } from "@/lib/constants";
 import { ArticleSidebar } from "@/components/ArticleSidebar";
 import { TableOfContents } from "@/components/TableOfContents";
-import { createArticleJsonLd } from "@/lib/jsonld";
+import { serializeJsonLd, createArticleJsonLd } from "@/lib/jsonld";
 
 export function generateStaticParams() {
   // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
@@ -66,7 +66,7 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
     <div className="mx-auto w-full max-w-[1800px] px-6 py-12 sm:px-10 lg:px-16">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <Link
         href="/philosophy/schools"

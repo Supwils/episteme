@@ -2,7 +2,7 @@
 title: 计算机体系结构
 title_en: Computer Architecture
 status: published
-updated: 2026-06-13
+updated: 2026-06-28
 category: 计算机科学基础
 order: 32
 field: 计算机科学 · 体系结构
@@ -25,6 +25,12 @@ related:
 这个"存储程序"（Stored-Program）概念是革命性的。在此之前，ENIAC 等早期计算机通过手动插拔电缆来改变程序——改变程序意味着物理重接电路。冯·诺伊曼架构使程序成为数据，可以被加载、存储、修改，从而诞生了现代计算机。
 
 今天，从手机芯片到超级计算机，几乎所有处理器都是某种形式的冯·诺伊曼架构的后裔。
+
+不过，"冯·诺伊曼架构"这个名字本身就是一桩公案。
+
+这份报告只署了冯·诺伊曼一个人的名字，于是存储程序的功劳几乎都归到了他头上。但报告里的许多想法来自 ENIAC 团队的集体工作，其中 J. Presper Eckert 和 John Mauchly 一直主张存储程序的核心构想本属于他们。
+
+1945 年 6 月 30 日，项目管理者 Herman Goldstine 在未经其他成员同意的情况下，把这份还带着草稿性质的报告分发到了美国和英国的多个机构。法律上，这次分发被认定为"公开披露"，且早于 EDVAC 专利申请超过一年，结果直接导致后来的专利无法获得法律保护。一个命名与分发上的疏忽，改写了早期计算机的商业格局。
 
 ## 破除误解：体系结构不只是硬件
 
@@ -68,6 +74,10 @@ related:
 
 **RISC（Reduced Instruction Set Computer）**：指令集精简，每条指令只做简单操作，通常能在单个时钟周期内完成。David Patterson 和 John Hennessy 在 1980 年代的研究表明，实测中 80% 的程序时间花在 20% 的简单指令上，RISC 通过简化这些常用指令、让硬件实现更高效来提升性能。ARM（手机、苹果 M 芯片）、RISC-V 是 RISC 的代表。
 
+RISC 的源头其实不在伯克利，而在 IBM。1974 年起，John Cocke 带领的团队在 IBM 的 801 项目中提出：与其堆砌复杂指令，不如让每条指令都简单到能在一个时钟周期内完成，把复杂度交给编译器。这台原型机 1980 年问世，被公认为第一台 RISC 机器。
+
+"RISC"这个术语本身则是 David Patterson 1980 年在加州大学伯克利提出的。他领导的 Berkeley RISC-I 处理器 1982 年用不到对手一半的晶体管跑赢了传统设计；同一时期 John Hennessy 在斯坦福做的 MIPS 是另一条独立的 RISC 路线。两人后来合写的两本教材定义了一代体系结构教育。
+
 有趣的历史：x86 的芯片内部（微架构层）实际上把 CISC 指令翻译成类似 RISC 的微操作（micro-ops）执行。表面是 CISC，内部是 RISC。
 
 **RISC-V**：2010 年 UC Berkeley 发布的开源 ISA。不属于任何公司，任何人都可以免费设计和生产 RISC-V 处理器。正在快速获得学术界和工业界的支持，被视为打破 x86 和 ARM 寡头的可能路径。
@@ -75,6 +85,10 @@ related:
 ## 内存层次与局部性
 
 CPU 和内存之间存在巨大的速度差距——CPU 每个时钟周期可以执行多条指令，但访问主内存（DRAM）需要数百个时钟周期。这个"内存墙"（Memory Wall）是现代处理器设计的核心挑战。
+
+"内存墙"这个说法出自 William Wulf 和 Sally McKee 1995 年的短文《Hitting the Memory Wall》。他们指出一个朴素却致命的事实：处理器速度和内存速度都在按指数改善，但前者快得多，两条指数曲线之间的差距会指数级地拉大。
+
+更早，图灵奖得主 John Backus 在 1977 年的图灵奖演讲里，把 CPU 与内存之间那根来回搬运数据的通道称为"冯·诺伊曼瓶颈"（von Neumann Bottleneck）。他的批评很尖锐：整个计算被迫一次一个字地穿过这根管子，这不仅限制了性能，还框住了程序员的思维方式——他以此为由呼吁用函数式编程摆脱这种风格。这是体系结构与编程语言设计交汇的著名一幕。
 
 解决方案是**多级缓存（Cache）**，利用了程序访问的**局部性原理**：
 
@@ -113,7 +127,21 @@ CPU 和内存之间存在巨大的速度差距——CPU 每个时钟周期可以
 
 **摩尔定律的终结**：戈登·摩尔（Gordon Moore，Intel 联合创始人）1965 年预测集成电路上的晶体管数量每年翻倍，并在 1975 年修订为约每两年翻倍（业界常引用的"每18个月翻倍"出自 Intel 高管 David House，并非摩尔本人的说法）。这个规律维持了约50年，推动了计算能力的指数级增长。但随着晶体管接近原子尺度（2nm、1nm），物理极限正在使摩尔定律减缓。未来的性能提升必须依赖新架构（GPU/TPU/神经网络处理器）和新材料（碳纳米管、光子计算），而非单纯缩小晶体管。
 
+**Dennard 缩放定律才是关键**：人们常把"CPU 主频不再飞涨"归咎于摩尔定律放缓，但这混淆了两件事。摩尔定律说的是晶体管数量，真正让主频一路狂飙的是另一条规律——1974 年 Robert Dennard 等人提出的 Dennard 缩放：晶体管变小，功率密度保持不变，于是每代都能在不增加功耗的前提下提高频率。
+
+问题是，这条规律大约在 2005—2007 年间失效了。当栅长缩到约 90 纳米，电压无法继续随尺寸下降，漏电流和发热急剧上升。后果是主频从此卡在 4—6 GHz、单芯片功耗卡在约 100 瓦的"功耗墙"（Power Wall）上。摩尔定律给的晶体管还在增多，但单核已经榨不出更多速度——这才是多核时代到来的直接导火索。
+
+**多核的转向与 Amdahl 定律**：既然单核撞墙，工业界就把多出来的晶体管用来堆核心。但加核心不等于线性加速。早在 1967 年，Gene Amdahl 就给出了上界：若程序里有比例 $P$ 的部分能并行、其余必须串行，那么哪怕用无穷多个处理器，总加速比也不会超过 $1/(1-P)$。
+
+换句话说，只要有 10% 的代码无法并行，最大加速比就锁死在 10 倍。这条"Amdahl 定律"至今是多核与并行计算无法绕开的天花板。
+
+**优化带来的安全代价**：为了榨取性能，现代 CPU 大量使用乱序执行和"推测执行"（speculative execution，提前猜测分支结果并抢先计算）。2018 年 1 月公开的 Spectre 与 Meltdown 漏洞揭示了它的阴暗面：处理器在推测执行时会在缓存里留下可观测的痕迹，攻击者借此能读取本不该访问的内存。
+
+这类漏洞几乎波及当时所有主流处理器，且根植于微架构设计本身，软件补丁往往要以性能下降为代价。性能与安全在体系结构层面第一次如此尖锐地对立。
+
 **能效比的新战场**：当时钟频率无法再大幅提升（"功耗墙"，Power Wall），处理器设计转向多核、专用加速器（GPU、NPU）、和优化能效比（性能/瓦特）。苹果 M 系列芯片通过统一内存架构（Unified Memory Architecture）和高度异构设计（CPU + GPU + NPU 紧密集成）实现了突破性的能效比。
+
+**"体系结构的新黄金时代"**：2017 年，正是 Hennessy 与 Patterson 因把定量、系统化的方法引入体系结构而共获图灵奖。他们在图灵奖演讲中宣告体系结构正迎来"新的黄金时代"：当单纯靠通用处理器变快的老路走到尽头，领域专用架构（如 TPU、NPU）、开放指令集（RISC-V）、敏捷芯片开发与硬件级安全，会取而代之成为下一波创新的主战场。
 
 ## 跨域连接
 
@@ -131,3 +159,9 @@ CPU 和内存之间存在巨大的速度差距——CPU 每个时钟周期可以
 - Hennessy, J. & Patterson, D. *Computer Architecture: A Quantitative Approach.* Morgan Kaufmann. （高级版本，图灵奖作者）
 - von Neumann, J. *First Draft of a Report on the EDVAC.* 1945. （奠基文献）
 - Tanenbaum, A. *Structured Computer Organization.* Prentice Hall.
+- Backus, J. "Can Programming Be Liberated from the von Neumann Style? A Functional Style and Its Algebra of Programs." *Communications of the ACM*, 21(8), 1978. （"冯·诺伊曼瓶颈"出处，图灵奖演讲）
+- Amdahl, G. M. "Validity of the Single Processor Approach to Achieving Large Scale Computing Capabilities." *AFIPS Spring Joint Computer Conference*, 1967. （Amdahl 定律原始论文）
+- Wulf, W. A. & McKee, S. A. "Hitting the Memory Wall: Implications of the Obvious." *ACM SIGARCH Computer Architecture News*, 23(1), 1995. （"内存墙"出处）
+- Dennard, R. H. et al. "Design of Ion-Implanted MOSFET's with Very Small Physical Dimensions." *IEEE Journal of Solid-State Circuits*, 9(5), 1974. （Dennard 缩放定律原始论文）
+- Kocher, P. et al. "Spectre Attacks: Exploiting Speculative Execution." *40th IEEE Symposium on Security and Privacy (S&P)*, 2019.
+- Hennessy, J. & Patterson, D. "A New Golden Age for Computer Architecture." *Communications of the ACM*, 62(2), 2019. （2017 图灵奖演讲整理稿）

@@ -2,7 +2,7 @@
 title: 微服务架构
 title_en: Microservices Architecture
 status: published
-updated: 2026-06-13
+updated: 2026-06-28
 category: 系统与架构
 order: 54
 field: 计算机科学 · 软件架构
@@ -20,9 +20,17 @@ related:
 
 # 微服务架构
 
-2009 年，Netflix 的工程师们面临一个危机：他们的单体 Java 应用（所有功能打包在一个巨大的程序里）变得脆弱而笨重——一个推荐算法的 bug 可以让整个网站宕机，一次小功能上线需要协调数百名工程师同时停工。他们做了一个痛苦的决定：花三年时间，把整个系统拆成几百个独立的小服务。
+2008 年 8 月，Netflix 的单体 Oracle 数据库损坏，导致连续三天无法发货 DVD。这场事故让他们看清了单体 Java 应用（所有功能打包在一个巨大的程序里）的脆弱：一个模块的 bug 可以拖垮整个网站，一次小功能上线需要协调数百名工程师同时停工。2009 年，他们做了一个痛苦的决定——迁上云、把整个系统拆成几百个独立的小服务。这场迁移花了约七年，直到 2016 年 1 月关闭最后一个自有数据中心才彻底完成，最终演化成上千个松耦合的微服务。
 
 这场迁移让 Netflix 成为了微服务架构最有影响力的布道者，也确立了这种架构风格作为"互联网规模软件"的工业标准。
+
+## 一个名字的由来
+
+"microservices"这个词比它指代的实践年轻得多。2011 年 5 月，一群软件架构师在威尼斯附近的研讨会上，用 microservice 给他们各自都在探索的一种共同风格命名；这个词在 2012 年 5 月被正式采纳。同年，James Lewis 在克拉科夫的 33rd Degree 大会做了题为《Microservices — Java, the Unix Way》的案例分享。2014 年 3 月，James Lewis 与 Martin Fowler 合写了《Microservices: a definition of this new architectural term》，给出此后被反复引用的定义：把单个应用做成一套小服务，每个服务跑在自己的进程里、用轻量机制（通常是 HTTP API）通信、围绕业务能力构建、可独立部署、可各用不同语言和数据存储、几乎不需要中心化管理。
+
+但实践远早于命名。最常被引用的源头是亚马逊：2002 年前后，贝索斯发出著名的"API 强制令"——所有团队只能通过服务接口暴露数据与功能，团队之间只能通过这些接口通信，禁止直接读对方数据库、禁止共享内存、禁止任何后门，而且每个接口从设计起就要做到"可对外开放"。这条铁律逼出了面向服务的内部架构，也直接孕育了后来的 AWS。
+
+拆分的方法论同样早有准备。Eric Evans 在 2003 年的《领域驱动设计》提出限界上下文（bounded context）：每个上下文有清晰的边界和明确的语言，边界之外的概念与它无关。微服务边界常常沿着限界上下文来划——但 Evans 本人提醒，把"一个 bounded context = 一个微服务"当成铁律是一种过度简化：限界上下文界定的是"最大可能的服务"，一个上下文内部还可以再细分出更小的服务。
 
 ## 破除误解：微服务不是"把单体切开"
 
@@ -76,7 +84,9 @@ related:
 
 ## 代价与争议
 
-**复杂性爆炸**：Sam Newman（《构建微服务》作者）在 2022 年明确警告：大多数组织过早采用微服务，在系统规模和团队规模还不足以支撑的时候引入了所有分布式系统的复杂性，却没得到多少好处。他建议以单体开始，在遇到真实瓶颈时再逐步拆分。
+微服务把进程内的函数调用换成了跨网络的远程调用，于是一头撞进"分布式计算的谬误"（Fallacies of Distributed Computing）。这份清单源自 Sun Microsystems：L. Peter Deutsch 在 1994 年前后列出七条，James Gosling（Java 之父）约 1997 年补上第八条。八条假设——网络可靠、延迟为零、带宽无限、网络安全、拓扑不变、只有一个管理员、传输成本为零、网络同质——逐条都是错的。单体里的函数调用恰好可以装作它们成立；把单体拆成微服务，本质上是把这八个谎言从"可以忽略"变成"每一条都得正面处理"。
+
+**复杂性爆炸**：Sam Newman（《构建微服务》作者）在 2022 年明确警告：大多数组织过早采用微服务，在系统规模和团队规模还不足以支撑的时候引入了所有分布式系统的复杂性，却没得到多少好处。他建议以单体开始，在遇到真实瓶颈时再逐步拆分。Martin Fowler 在 2015 年的《MonolithFirst》里给出同样的经验法则：几乎所有成功的微服务案例，都是从一个长大到难以维护的单体演化拆分而来；而几乎所有"一开始就按微服务从零搭建"的系统都陷入了严重麻烦。他的建议是先把单体的模块边界和数据存储设计干净，让日后切分变得简单。
 
 **"纳米服务"反模式**：服务拆得过细——每个服务只有几百行代码——网络通信开销超过了业务逻辑本身，形成"分布式单体"（Distributed Monolith）：拆开了但没法独立部署。
 
@@ -85,6 +95,7 @@ related:
 ## 跨域连接
 
 - **组织管理**：Conway 定律是微服务架构的理论基础之一——技术架构与组织架构必须协调。亚马逊的"两个披萨团队"原则（一个团队的规模不超过两个披萨能喂饱的人数）正是微服务组织论的实践。
+- **[[api-design]]**：服务之间靠 API 契约通信，接口的版本化、向后兼容与契约测试是微服务能否真正独立部署的关键——接口设计得不好，拆开的服务又会被隐式耦合回去。
 - **[[distributed-systems]]**：微服务本质上是一种分布式系统，所有分布式系统的挑战（CAP、一致性、网络分区）都适用。
 - **[[containers-and-orchestration]]**：容器（Docker）和容器编排（Kubernetes）是微服务架构在部署层面的使能技术。
 - **[[message-queues-and-streaming]]**：服务间异步通信大量使用消息队列，解耦生产者和消费者。
@@ -93,7 +104,11 @@ related:
 
 ## 参考文献
 
-- Fowler, M. & Lewis, J. *Microservices.* martinfowler.com, 2014.（定义微服务架构的奠基文章）
+- Fowler, M. & Lewis, J. *Microservices: a definition of this new architectural term.* martinfowler.com, 2014.（定义微服务架构的奠基文章，并记述了 2011 年威尼斯研讨会的命名经过）
+- Evans, E. *Domain-Driven Design: Tackling Complexity in the Heart of Software.* Addison-Wesley, 2003.（限界上下文的原始出处）
+- Fowler, M. *MonolithFirst.* martinfowler.com, 2015.（"先单体后微服务"经验法则）
+- Deutsch, L. P. & Gosling, J. *The Fallacies of Distributed Computing.* Sun Microsystems, 1994–1997.（分布式计算的八条谬误）
+- Izrailevsky, Y. *Completing the Netflix Cloud Migration.* Netflix Technology Blog, 2016.（Netflix 七年迁移完成的官方记述）
 - Burns, B. et al. *Design Patterns for Container-Based Distributed Systems.* USENIX HotCloud, 2016.（边车等容器模式的学术来源）
 
 ## 延伸阅读

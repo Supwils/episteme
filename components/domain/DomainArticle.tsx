@@ -13,7 +13,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import RelatedContent from "@/components/RelatedContent";
 import type { Domain } from "@/lib/cross-domain-refs";
 import { SITE_URL } from "@/lib/constants";
-import { createArticleJsonLd } from "@/lib/jsonld";
+import { serializeJsonLd, createArticleJsonLd } from "@/lib/jsonld";
 import { bibliographyToJsonLd } from "@/lib/citations";
 import { getNarration } from "@/lib/narration";
 import { NarrationButton } from "@/components/narration/NarrationButton";
@@ -138,7 +138,7 @@ export function DomainArticle({
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <ArticleLayout
         backHref={`/${domain}/${section}`}

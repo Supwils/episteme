@@ -1,5 +1,20 @@
 import { SITE_URL } from "./constants";
 
+/**
+ * Serialize an object for safe injection into a `<script type="application/ld+json">`
+ * via dangerouslySetInnerHTML. Plain JSON.stringify does NOT escape `<`, so any value
+ * containing the literal `</script>` would close the tag early and let the remainder
+ * be parsed as HTML. Escaping `<`/`>`/`&` makes the payload inert while keeping it
+ * valid JSON (the content is parsed as JSON-LD, not JS, so the U+2028/U+2029 JS-string
+ * hazard does not apply here).
+ */
+export function serializeJsonLd(data: unknown): string {
+  return JSON.stringify(data)
+    .replace(/</g, "\\u003c")
+    .replace(/>/g, "\\u003e")
+    .replace(/&/g, "\\u0026");
+}
+
 interface ArticleJsonLdParams {
   title: string;
   description: string;

@@ -2,7 +2,7 @@
 title: 计算机视觉
 title_en: Computer Vision
 status: published
-updated: 2026-06-13
+updated: 2026-06-28
 category: 人工智能
 order: 44
 field: 计算机科学 · 人工智能
@@ -19,9 +19,11 @@ related:
 
 # 计算机视觉
 
-1966 年夏天，MIT 人工智能实验室将"计算机视觉"作为一个暑期作业项目布置给一名本科生：让计算机描述一张图片。
+1966 年夏天，MIT 人工智能实验室的 Seymour Papert 发起了"夏季视觉项目（The Summer Vision Project）"。在 7 月 7 日的备忘录里，他计划用一个暑假、组织一批暑期学生，搭建一个能把物体从背景中分离出来、并加以识别的视觉系统。
 
-研究者们以为这会是相对容易的起点——毕竟视觉对人类来说是瞬间完成的自动化过程，应该不难。五十多年后，我们才真正明白这个问题有多难，以及当我们最终让机器"看见"时，用的是什么样的思路。
+后世常把它演绎成"一个暑假、一名本科生就能解决视觉"，这其实是夸张的简化；但它准确地反映了当时的乐观——研究者以为视觉是个简单的起点，毕竟"看东西"对人来说是一瞬间、毫不费力的事。
+
+半个多世纪后，我们才真正明白这个问题有多难，以及当机器最终"看见"时，靠的是一套与人类直觉相当不同的思路。
 
 ## 破除误解：人眼看到的和计算机处理的是完全不同的东西
 
@@ -54,6 +56,16 @@ related:
 
 **词袋模型（Bag of Visual Words）**：类比 NLP 中的词袋模型，用视觉词典将图像表示为视觉词的频率直方图。配合 SVM 分类，2010 年前后的 ImageNet 竞赛主流方法。
 
+## 从视觉皮层到卷积网络：一条跨学科的血脉
+
+今天统治视觉领域的卷积神经网络，源头其实在神经科学。
+
+1959 年起，David Hubel 与 Torsten Wiesel 用微电极记录猫的初级视觉皮层，发现其中的神经元对特定朝向的边缘最敏感。他们在 1962 年的经典论文里区分了两类细胞：**简单细胞（simple cell）**只对某个朝向、某个位置的线条放电；**复杂细胞（complex cell）**对同样的朝向放电，但容许位置有所偏移。两人因此获得 1981 年诺贝尔生理学或医学奖。
+
+这套"先检测局部朝向、再逐层容许位移"的层级结构，被日本学者福岛邦彦（Kunihiko Fukushima）在 1980 年抽象成"神经认知机（Neocognitron）"：用 S 细胞做特征检测、C 细胞做空间池化，交替堆叠。
+
+1989 年，Yann LeCun 在贝尔实验室把反向传播算法用到这种结构上，训练网络识别美国邮政的手写邮编；1998 年的 LeNet-5 进一步确立了"局部感受野 + 权重共享 + 下采样"的卷积网络范式。卷积层的"权重共享"正对应生物视觉的核心直觉——同一个边缘检测器应该在图像每个位置都管用。
+
 ## AlexNet 后的深度学习革命
 
 2012 年 AlexNet 的成功（见 [[deep-learning-architectures]]）后，计算机视觉迅速被深度学习统治。
@@ -65,6 +77,18 @@ related:
 - 2014 年：6.7%（GoogLeNet）
 - 2015 年：3.57%（ResNet-152）——**超越人类 5.1% 的错误率**
 - 2017 年竞赛结束，人类水平已被全面超越
+
+补一个常被忽略的细节：第一个越过人类 5.1% 错误率（这个人类基线由 Russakovsky 等人测得，标注者之一是 Andrej Karpathy）的，并不是同年底夺冠的 ResNet，而是 2015 年 2 月何恺明等人提出 PReLU 时报告的 4.94%。
+
+## 破除误解："超越人类"不等于"像人一样看"
+
+"在 ImageNet 上超越人类"是一句很容易被误读的话。它的真实含义很窄：在 1000 个固定类别、判定"前五个猜测里有没有正确答案"（top-5）的这一项任务上，模型的错误率低于人类标注者。它并不意味着机器获得了人类那种稳健、可迁移的视觉理解。
+
+最有力的反证是**对抗样本（adversarial example）**。2013 年 Szegedy 等人在《Intriguing properties of neural networks》中首次系统地指出：给一张被正确分类的图像叠加一层人眼几乎察觉不到的微小扰动，就能让网络以高置信度给出完全错误的答案。
+
+2015 年 Goodfellow 等人用一个著名例子把这件事讲透了：一张被识别为"熊猫"（置信度 57.7%）的图片，加上一层精心计算、肉眼看不出区别的噪声后，同一个网络以 99.3% 的置信度判定它是"长臂猿"。他们提出的快速梯度符号法（FGSM）只需沿损失梯度的符号方向给每个像素加一点点扰动即可。
+
+这说明深度网络往往依赖人类不会注意的统计纹理和高频特征来做判断，而非真正"看懂"物体。由此引出一个持续至今的权衡：**鲁棒性与准确率常常此消彼长**——为抵抗对抗扰动而做的鲁棒训练，往往要牺牲一部分干净样本上的准确率。这也是个安全问题：研究者已证明，在停车标志上贴几张特制贴纸，就可能让自动驾驶的识别系统把它读成限速牌。
 
 ## 目标检测：定位与识别
 
@@ -79,6 +103,8 @@ related:
 - **YOLO（You Only Look Once，2016）**：实时检测（45 FPS），把检测视为回归问题。后续版本（YOLOv5 到 YOLOv9）持续改进，是工业部署的主流。
 - **SSD（Single Shot MultiBox Detector，2016）**：在多个尺度的特征图上检测不同大小的目标。
 - **DETR（Detection Transformer，Facebook，2020）**：用 Transformer 做目标检测，去除了 NMS（非极大值抑制）等手工设计的后处理步骤。
+
+**这些方法好不好，怎么量？** 检测的标准答案是边界框，因此先用**交并比（IoU，Intersection over Union）**衡量预测框与真实框的重叠程度：两框交集面积除以并集面积，1 表示完全重合。再据此算**平均精度均值（mAP，mean Average Precision）**——综合各类别在不同置信度阈值下的查准率与查全率。自 2014 年微软发布 COCO 数据集后，业界主流指标变成更严苛的 mAP@0.5:0.95：在 IoU 阈值从 0.5 到 0.95（步长 0.05）的十档上分别评估再求平均。论文里光报一个准确率数字往往不够，必须说清在哪个数据集、用哪种 IoU 口径。
 
 ## 图像分割
 
@@ -107,6 +133,16 @@ related:
 
 ViT 在大规模数据预训练后，性能超越 CNN，且可扩展性更好（遵循与 LLM 相似的 Scaling Law）。目前 ViT 系列（DeiT、Swin Transformer、MAE）与 CNN 共存，在不同场景各有优势。
 
+## 基础模型：从"一任务一模型"到"一模型多任务"
+
+2020 年前，计算机视觉的常态是"一个任务训练一个模型"——分类、检测、分割各自标注、各自训练。2021 年后，**视觉基础模型**开始打破这种格局：用海量数据预训练一个通用模型，再靠语言或提示（prompt）零样本迁移到新任务。
+
+**CLIP（OpenAI，2021）**：在从互联网收集的 4 亿对"图像-文字"上做对比学习，把图像和文字映射到同一个向量空间。它最颠覆的能力是**零样本分类**——不用为新类别再训练，只要把类别名写成文字（如"一张猫的照片"），看哪段文字的向量与图像最接近即可。这把图像识别从"封闭的固定类别表"变成了"开放词表"。
+
+**SAM（Segment Anything Model，Meta，2023）**：把"可提示"思路用到分割上。给一张图配一个提示（点一下、画个框，或一段文字），它就实时输出对应物体的高质量掩码，无需针对新数据再训练。它的训练集 SA-1B 包含 1100 万张图像上的约 11 亿个掩码，绝大多数由模型在数据采集循环中自动生成。
+
+这条路线与大语言模型的逻辑高度一致：规模化预训练 + 提示驱动的通用性，正是 [[natural-language-processing]] 的语言范式向视觉的迁移。
+
 ## 应用全景
 
 | 领域 | 应用 | 现状 |
@@ -120,7 +156,7 @@ ViT 在大规模数据预训练后，性能超越 CNN，且可扩展性更好（
 
 ## 代价与争议
 
-**人脸识别与隐私**：准确率的提升使人脸识别大规模部署成为现实，但也带来前所未有的监控风险。研究发现，主要商业人脸识别系统对深肤色女性的错误率显著高于浅肤色男性（MIT 媒体实验室 Joy Buolamwini 的研究，2018）。美国多个城市（旧金山、波士顿）已立法禁止政府使用人脸识别。
+**人脸识别与隐私**：准确率的提升使人脸识别大规模部署成为现实，但也带来前所未有的监控风险。2018 年 Joy Buolamwini 与 Timnit Gebru 的《Gender Shades》研究测试了 IBM、微软、Face++ 的商用性别分类系统，发现它们对深肤色女性的错误率高达 34.7%，而对浅肤色男性最高仅 0.8%——同一个"客观"系统在不同人群上的表现相差几十倍。美国多个城市（旧金山、波士顿）已立法禁止政府使用人脸识别。
 
 **Deepfake 的威胁**：基于深度学习的图像和视频伪造（Deepfake）技术使视觉内容的真实性不再可靠。政治操纵、色情恶意内容、诈骗是主要威胁。检测 Deepfake 本身也成为一个重要的计算机视觉子领域。
 
@@ -137,6 +173,17 @@ ViT 在大规模数据预训练后，性能超越 CNN，且可扩展性更好（
 ## 参考文献
 
 - Szeliski, R. *Computer Vision: Algorithms and Applications.* 2nd ed. Springer, 2022. （免费在线版）
-- Goodfellow, I. et al. *Generative Adversarial Nets.* NeurIPS, 2014. （GAN 原论文）
-- Dosovitskiy, A. et al. *An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale.* ICLR, 2021. （ViT）
+- Hubel, D. H. & Wiesel, T. N. *Receptive Fields, Binocular Interaction and Functional Architecture in the Cat's Visual Cortex.* The Journal of Physiology, 160(1): 106–154, 1962. （简单/复杂细胞）
+- Fukushima, K. *Neocognitron: A Self-organizing Neural Network Model for a Mechanism of Pattern Recognition Unaffected by Shift in Position.* Biological Cybernetics, 36(4): 193–202, 1980. （CNN 的前身）
+- Krizhevsky, A., Sutskever, I. & Hinton, G. *ImageNet Classification with Deep Convolutional Neural Networks.* NeurIPS, 2012. （AlexNet）
+- He, K., Zhang, X., Ren, S. & Sun, J. *Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification.* ICCV, 2015. （PReLU，首次越过人类基线）
+- Szegedy, C. et al. *Intriguing Properties of Neural Networks.* ICLR, 2014. （首次系统提出对抗样本）
+- Goodfellow, I., Shlens, J. & Szegedy, C. *Explaining and Harnessing Adversarial Examples.* ICLR, 2015. （FGSM、熊猫→长臂猿）
+- Eykholt, K. et al. *Robust Physical-World Attacks on Deep Learning Visual Classification.* CVPR, 2018. （停车标志贴纸攻击）
+- Lin, T.-Y. et al. *Microsoft COCO: Common Objects in Context.* ECCV, 2014. （检测/分割基准与 mAP 口径）
 - He, K. et al. *Mask R-CNN.* ICCV, 2017. （实例分割标杆）
+- Dosovitskiy, A. et al. *An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale.* ICLR, 2021. （ViT）
+- Radford, A. et al. *Learning Transferable Visual Models From Natural Language Supervision.* ICML, 2021. （CLIP）
+- Kirillov, A. et al. *Segment Anything.* ICCV, 2023. （SAM 与 SA-1B 数据集）
+- Buolamwini, J. & Gebru, T. *Gender Shades: Intersectional Accuracy Disparities in Commercial Gender Classification.* Proceedings of Machine Learning Research (FAccT), 81: 77–91, 2018.
+- Goodfellow, I. et al. *Generative Adversarial Nets.* NeurIPS, 2014. （GAN 原论文）

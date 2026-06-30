@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { serializeJsonLd } from "@/lib/jsonld";
 import { notFound } from "next/navigation";
 import { universePhysicsDialogues } from "@/lib/universe-physics-dialogues";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
@@ -52,7 +53,7 @@ export default async function PhysicsDialogueDetailPage({ params }: Props) {
     <div className="mx-auto w-full max-w-3xl px-6 py-12 sm:px-10">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <nav className="mb-8 flex items-center justify-between">
         <Link

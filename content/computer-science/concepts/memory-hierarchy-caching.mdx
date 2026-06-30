@@ -2,7 +2,7 @@
 title: 存储层级与缓存
 title_en: Memory Hierarchy and Caching
 status: published
-updated: 2026-06-13
+updated: 2026-06-28
 category: 系统与架构
 order: 5
 field: 计算机科学 · 计算机体系结构
@@ -80,6 +80,16 @@ L1 分为数据缓存和指令缓存（避免取指令和取数据竞争）。L3
 
 数据以**缓存行（Cache Line）**为单位移动，通常 64 字节。访问一个字节会把周围 64 字节都载入缓存——这正是空间局部性的利用。
 
+## 缓存不是新发明：一段简史
+
+缓存常被当作现代芯片的产物，其实概念出现得很早。
+
+1965 年，剑桥大学的 Maurice Wilkes 在论文《Slave Memories and Dynamic Storage Allocation》中提出：用一小块快速存储作为大块慢速存储的"从属存储"（slave memory），让有效访问时间接近快存储而非慢存储。这正是缓存的雏形。
+
+三年后，IBM 把它做进了产品。System/360 Model 85（1968 年发布、1969 年交付）是第一台带主存缓存的商用计算机，缓存容量 16 KB。
+
+"内存墙"（memory wall）这个词反而出现得更晚。1995 年，William Wulf 与 Sally McKee 在《Hitting the Memory Wall: Implications of the Obvious》中指出：处理器速度与 DRAM 速度都在指数增长，但前者指数更大，于是两者的差距也在指数级拉大。他们的尖锐结论是——缓存能缓解，却无法根本消除这道墙。三十年过去，这个判断依然成立。
+
 ## 缓存对程序性能的影响
 
 缓存不透明——程序员通常感觉不到它的存在。但精心设计的代码，性能可以与忽视缓存的代码相差 10-100 倍。
@@ -105,6 +115,10 @@ for (i ...) for (j ...) for (k ...)
 
 对程序来说，这一切是透明的。代价是：一旦发生页面置换（访问了被换出去的页），等待磁盘 I/O 的时间以毫秒计，而 CPU 的时间以纳秒计——系统会明显卡顿，即俗称的"内存不够时开始抖动"（thrashing）。
 
+虚拟内存自己也需要缓存。每次访问内存，CPU 都要先把虚拟地址翻译成物理地址，翻译规则存在内存里的"页表"中——如果每次翻译都去查页表，就把一次访问变成了多次。x86-64 的页表是四级结构，一次完整查表（page table walk）最多要读四次内存。
+
+为此 CPU 内部有一块专门缓存翻译结果的小硬件，叫 **TLB（Translation Lookaside Buffer，地址翻译后备缓冲）**。命中时翻译几乎不花时间（约 1 个时钟周期），未命中才去走页表。缓存的思想在这里又套了一层：连"怎么找数据"本身都要缓存。
+
 ## 缓存无处不在
 
 缓存思想超越了 CPU 硬件，在整个计算机系统中无处不在：
@@ -121,9 +135,17 @@ for (i ...) for (j ...) for (k ...)
 
 **缓存一致性（Cache Coherence）**：多核处理器中，每个核有自己的 L1/L2 缓存。如果核 A 修改了一个变量，核 B 的缓存里还存着旧值怎么办？维护多核缓存一致性（MESI 等协议）是多核处理器设计中最复杂的部分之一，也是[[concurrency]]中某些内存模型问题的根源。
 
+**伪共享（False Sharing）**：这是缓存一致性带来的一个反直觉陷阱。两个线程各自只改两个毫不相干的变量，按理互不影响——可一旦这两个变量恰好落在同一条 64 字节缓存行里，MESI 协议以缓存行为单位工作，一个核写入就会让另一个核的整条缓存行失效。结果是两个"独立"的线程被硬件强行同步，性能可能因此暴跌一个数量级。解决办法常常荒诞而有效：给变量加上填充字节（padding），把它们挤到不同的缓存行上。
+
 **Spectre/Meltdown 漏洞（2018）**：CPU 通过测量缓存访问的时间差，攻击者可以推断出本应隔离的内存内容。这揭示了缓存这层"透明"的抽象有安全裂缝——硬件优化机制与安全隔离假设发生了冲突。
 
 **内存数据库的挑战**：Redis 等把所有数据放在 RAM 里的数据库速度极快，但 RAM 是易失性存储（断电丢失）。持久化（写到磁盘）本身成了瓶颈，如何在速度和持久性间取得平衡是工程核心问题。
+
+**替换策略没有最优解**：缓存满了要踢出一个旧条目，踢谁？理论上的最优解早在 1966 年就由 IBM 的 László Bélády 给出——踢掉"将来最久不会再被用到"的那个。但它需要预知未来，现实中无法实现，只能作为衡量其他算法好坏的上界。
+
+实际系统只能退而求其次。最常见的是 LRU（最近最少使用，踢掉最久没碰过的条目），但它并非万能：一次性扫描一个大文件，就会把真正的热数据整批冲掉。LFU（最不经常使用）偏好高频数据，又对突发流量反应迟钝。Bélády 等人还在 1969 年证明了反直觉的"Bélády 异常"——用 FIFO 策略时，给的内存帧更多，缺页次数反而可能更多。
+
+2003 年，IBM 的 Nimrod Megiddo 与 Dharmendra Modha 提出 ARC（自适应替换缓存），同时维护"按新近度"和"按频率"两份列表，并根据实际命中情况自动调整两者的权重，在多种负载下都稳定优于 LRU。没有哪一种替换策略能在所有负载下都最好，这正是缓存设计长期争论的核心。
 
 ## 跨域连接
 
@@ -135,6 +157,12 @@ for (i ...) for (j ...) for (k ...)
 
 ## 参考文献
 
+- Wilkes, M. V. "Slave Memories and Dynamic Storage Allocation." *IEEE Transactions on Electronic Computers*, EC-14(2), 1965. （缓存概念最早的正式提出）
+- Liptay, J. S. "Structural Aspects of the System/360 Model 85, II: The Cache." *IBM Systems Journal*, 7(1), 1968. （第一台商用缓存机的设计文档）
+- Bélády, L. A. "A Study of Replacement Algorithms for a Virtual-Storage Computer." *IBM Systems Journal*, 5(2), 1966. （最优替换算法 MIN/OPT 的出处）
+- Wulf, W. A. & McKee, S. A. "Hitting the Memory Wall: Implications of the Obvious." *ACM SIGARCH Computer Architecture News*, 23(1), 1995. （"内存墙"一词的出处）
+- Megiddo, N. & Modha, D. S. "ARC: A Self-Tuning, Low Overhead Replacement Cache." *USENIX Conf. on File and Storage Technologies (FAST)*, 2003. （自适应替换缓存）
+- Lipp, M. et al. "Meltdown: Reading Kernel Memory from User Space." *USENIX Security Symposium*, 2018；Kocher, P. et al. "Spectre Attacks: Exploiting Speculative Execution." *IEEE Symposium on Security and Privacy*, 2019. （缓存时序侧信道攻击）
 - Patterson, D. & Hennessy, J. *Computer Organization and Design.* 5th ed. Morgan Kaufmann. （第5章系统讲述存储层级）
 - Luk, C. et al. *Pin: Building Customized Program Analysis Tools with Dynamic Instrumentation.* PLDI, 2005. （动态插桩工具框架论文，可用于分析缓存行为）
 

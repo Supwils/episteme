@@ -8,7 +8,7 @@ key_terms: ['保测变换', '遍历性', 'Birkhoff 遍历定理', '混合性', '
 related: ['measure-theory', 'dynamical-systems', 'probability', 'chaos-theory']
 difficulty: 进阶
 status: published
-updated: 2026-06-19
+updated: 2026-06-28
 ---
 
 
@@ -30,7 +30,11 @@ updated: 2026-06-19
 
 遍历理论起源于 19 世纪末的统计力学。路德维希·玻尔兹曼（Ludwig Boltzmann）在试图从牛顿力学推导热力学时，做了一个大胆假设：一个孤立的力学系统，只要时间足够长，其运动轨迹会"遍历"能量曲面上的每一个可达状态——这就是 "ergodic"（来自希腊语 *ergon* 功 + *hodos* 路）一词的由来。基于这个假设，他论证了"时间平均"可以替换为对所有状态的"系综平均"，从而奠定了统计物理的基础。
 
-但玻尔兹曼的原始假设（轨迹真的逐点经过每个状态）在数学上其实是错的：一条一维曲线不可能填满一个高维曲面。这个困难悬而未决了几十年，直到 1931—1932 年迎来转机。乔治·伯克霍夫（George Birkhoff）和约翰·冯·诺伊曼（John von Neumann）几乎同时，用刚刚成熟的[测度论](/mathematics/concepts/measure-theory)给出了正确的表述和严格证明。他们意识到：不必要求轨迹经过每一个点，只需要求它在"几乎处处"的意义下、在统计上访问每个区域的频率正比于该区域的测度。这一步把一个物理假设，变成了一个可证明的数学定理。
+但玻尔兹曼的原始假设（轨迹真的逐点经过每个状态）在数学上其实是错的：一条一维曲线不可能填满一个高维曲面。这个困难悬而未决了几十年，直到 1931—1932 年迎来转机。乔治·伯克霍夫（George Birkhoff）和约翰·冯·诺伊曼（John von Neumann）几乎同时，用刚刚成熟的[测度论](/mathematics/concepts/measure-theory)给出了正确的表述和严格证明。
+
+值得澄清的是，二人证明的并非同一个定理。冯·诺伊曼受库普曼（B. Koopman）与韦伊（A. Weil）的提示启发，率先在 1931 年证明了 $L^2$ 范数意义下收敛的**平均遍历定理**；伯克霍夫则用不同方法证明了更强的、几乎处处逐点收敛的**逐点遍历定理**，并抢先于 1931 年 12 月发表（论文 12 月 1 日投出），而冯·诺伊曼的论文延至 1932 年 1 月才刊出。
+
+这里还有一段优先权插曲：伯克霍夫起初没有充分提及冯·诺伊曼的在先工作，后来库普曼与伯克霍夫联名撰文，才把功劳归属讲清楚。撇开这段恩怨，他们共同完成的飞跃是：不必要求轨迹经过每一个点，只需要求它在"几乎处处"的意义下、在统计上访问每个区域的频率正比于该区域的测度。这一步把一个物理假设，变成了一个可证明的数学定理。
 
 ## 核心机制：保测变换与 Birkhoff 遍历定理
 
@@ -69,6 +73,26 @@ $$\bar{f}(x) = \int_X f \, d\mu \quad (\text{几乎处处 } x)$$
 
 更上一层是**Kolmogorov 系统**，以及由测度熵刻画的更强随机性。这里登场的是遍历理论最深刻的工具之一——**Kolmogorov-Sinai 熵**（柯尔莫哥洛夫与西奈，1958—1959）。它度量系统每单位时间产生多少"新信息"或"不可预测性"，是把信息论中的[熵](/mathematics/concepts/information-theory)概念引入动力系统的杰作。正熵意味着真正的[混沌](/mathematics/concepts/chaos-theory)：再精确的初始测量，也会在有限时间后失去全部预测能力。熵还是一个"同构不变量"——奥恩斯坦（Ornstein）证明，对一大类系统，熵相等就意味着系统在测度论意义下本质相同，这解决了遍历理论中一个长期悬而未决的分类问题。
 
+## 一个被低估的真相：真实物理系统大多并不遍历
+
+有一个流行的误解：既然伯克霍夫和冯·诺伊曼已经严格证明了遍历定理，统计力学的根基就此被牢牢钉死了。事实远没有这么干净。
+
+遍历定理是一个**条件命题**——它说的是"如果系统遍历，那么时间平均等于空间平均"。它没有、也无法告诉你某个具体的物理系统到底遍不遍历。而验证后者，恰恰极其困难。
+
+1953 年起，恩里科·费米、约翰·帕斯塔、斯坦尼斯瓦夫·乌拉姆，连同负责编程的玛丽·青格（Mary Tsingou），在洛斯阿拉莫斯的 MANIAC 计算机上做了人类最早的数值实验之一。他们模拟一条由 64 个质点、靠弱非线性弹簧相连的链，把全部能量注入最低频的振动模式，然后等着看能量如何"热化"。
+
+按照遍历直觉，能量应当逐渐均分到所有模式上，趋向热平衡。结果却令人震惊：能量并没有均分，而是在几个低频模式间来回流动；约 157 个基本周期之后，竟有约 97% 的能量回到了最初的模式，系统几乎回到了出发点（结果记录于 1955 年的洛斯阿拉莫斯报告 LA-1940）。
+
+这个"费米-帕斯塔-乌拉姆-青格问题"成了 20 世纪数学物理最深刻的意外之一：弱非线性并不足以保证遍历与热化。物理学家约瑟夫·福特（Joseph Ford）称之为"悖论变成了发现"——它直接催生了孤立子与可积系统的研究。
+
+更釜底抽薪的是 **KAM 定理**。柯尔莫哥洛夫 1954 年在国际数学家大会上提出、莫泽（1962）与阿诺尔德（1963）完成证明：一个接近可积的哈密顿系统受到足够小的扰动时，绝大多数（一个正测度集合的）"不变环面"不会被破坏，只是略微变形后存留下来。轨道被永远囚禁在这些低维环面上，根本跑不遍整个能量曲面。
+
+换句话说，**典型的近可积系统不是遍历的**——这与"所有孤立力学系统终将遍历"的玻尔兹曼式断言正面冲突。
+
+那么遍历假设是否就此破产？也不尽然。1963 年，雅科夫·西奈（Yakov Sinai）把玻尔兹曼的设想重新精确化为"玻尔兹曼-西奈遍历假设"，并在 1970 年的论文《带弹性反射的动力系统》中给出第一个严格成果：在环面上做弹性碰撞的硬球气体（最简单情形是两个圆盘）确实是遍历的，而且是混合的、K-系统、正熵——拥有最强的混沌性质。这类边界处处外凸的"西奈台球"成了证明物理系统遍历性的范本，后续工作（如西曼伊对一般 $N$ 个硬球的条件性证明）把这条路线推进至今。
+
+于是真相是一种微妙的两分：对玻尔兹曼心目中那种"硬球相互碰撞的气体"，遍历性大体成立；但对稍微温和、接近可积的系统（行星运动、弱耦合振子链），遍历性往往失败。统计力学之所以行得通，靠的不是一条普适的遍历定理，而是大量微妙的、需逐个系统才能回答的数学事实——这也正是遍历理论至今仍然活跃的原因。
+
 ## 跨域连接
 
 遍历理论坐落在多个数学分支的交汇处。它的语言完全建立在[测度论](/mathematics/concepts/measure-theory)之上——没有 Lebesgue 积分和 $\sigma$-代数，"几乎处处"和"保测"都无从谈起。它是[动力系统](/mathematics/concepts/dynamical-systems)的统计侧面：动力系统问"轨道往哪走"，遍历理论问"轨道在各处停留多久"。它与[概率论](/mathematics/concepts/probability)血脉相通——Birkhoff 遍历定理可看作强大数定律对"非独立、有记忆"过程的推广，这正是它比经典大数定律深刻之处。
@@ -81,6 +105,10 @@ $$\bar{f}(x) = \int_X f \, d\mu \quad (\text{几乎处处 } x)$$
 - von Neumann, J. (1932). "Proof of the Quasi-ergodic Hypothesis." *Proceedings of the National Academy of Sciences*, 18(1), 70–82. DOI: 10.1073/pnas.18.1.70
 - Walters, P. (1982). *An Introduction to Ergodic Theory*. Graduate Texts in Mathematics 79. Springer-Verlag. DOI: 10.1007/978-1-4612-5775-2
 - Ornstein, D. S. (1970). "Bernoulli Shifts with the Same Entropy Are Isomorphic." *Advances in Mathematics*, 4(3), 337–352. DOI: 10.1016/0001-8708(70)90029-0
+- Fermi, E., Pasta, J., & Ulam, S. (1955). *Studies of Nonlinear Problems*. Los Alamos Scientific Laboratory Report LA-1940.（费米-帕斯塔-乌拉姆-青格数值实验的原始报告；编程由 Mary Tsingou 完成）
+- Sinai, Ya. G. (1970). "Dynamical Systems with Elastic Reflections. Ergodic Properties of Dispersing Billiards." *Russian Mathematical Surveys*, 25(2), 137–189. DOI: 10.1070/RM1970v025n02ABEH003794
+- Kolmogorov, A. N. (1954). "On the Conservation of Conditionally Periodic Motions for a Small Change in Hamilton's Function." *Doklady Akademii Nauk SSSR*, 98, 527–530.（KAM 定理的原始公告）
+- Zund, J. D. (2002). "George David Birkhoff and John von Neumann: A Question of Priority and the Ergodic Theorems, 1931–1932." *Historia Mathematica*, 29(2), 138–156. DOI: 10.1006/hmat.2001.2338
 
 ## 延伸阅读
 

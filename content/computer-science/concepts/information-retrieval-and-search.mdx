@@ -2,7 +2,7 @@
 title: 信息检索与搜索
 title_en: Information Retrieval and Search
 status: published
-updated: 2026-06-13
+updated: 2026-06-28
 category: 数据与智能
 order: 52
 field: 计算机科学 · 信息系统
@@ -51,9 +51,11 @@ $$\text{TF-IDF}(t, d) = \text{TF}(t,d) \times \log\frac{N}{\text{DF}(t)}$$
 
 其中 $\text{TF}(t,d)$ 是词 $t$ 在文档 $d$ 中出现的频率，$N$ 是总文档数，$\text{DF}(t)$ 是包含 $t$ 的文档数。一个词在少数文档中频繁出现，权重就高；如果它出现在几乎所有文档中（如"的"、"the"），权重接近零。
 
-**向量空间模型（Vector Space Model）**把每个文档表示为词项权重向量，用余弦相似度衡量文档与查询的相关性。这是 1970 年代 Gerard Salton 在康奈尔大学提出的框架，影响至今。
+IDF 这一半并非凭空而来。1972 年，英国学者 Karen Spärck Jones 在《Journal of Documentation》发表《A statistical interpretation of term specificity and its application in retrieval》，提出**词的"专指度"应当统计地度量**——一个词出现在越少的文档里，它对区分文档就越有价值。这就是 IDF 的思想源头。有意思的是，IDF 作为启发式用了几十年都很有效，但它的理论根基（为什么恰好是 $\log(N/\text{DF})$）此后几十年里始终是研究者反复追问、试图用信息论重新解释的对象——一个"先有用、后有理论"的典型案例。
 
-**BM25（Best Match 25）**是 TF-IDF 的改进版，通过归一化处理解决了长文档被偏袒的问题。它在 2024 年仍是大多数搜索引擎的默认基线排名函数。
+**向量空间模型（Vector Space Model）**把每个文档表示为词项权重向量，用余弦相似度衡量文档与查询的相关性。这是 Gerard Salton 在康奈尔大学主导的工作：他被称为"信息检索之父"，其团队从 1960 年代起开发的 **SMART 系统**（System for the Mechanical Analysis and Retrieval of Text）是第一个采用向量空间模型的检索系统，标志性的论文《A Vector Space Model for Automatic Indexing》（Salton、Wong、Yang）于 1975 年发表。向量空间模型、相关性反馈、Rocchio 分类等一批沿用至今的概念，都诞生于 SMART 项目。
+
+**BM25（Best Match 25）**是 TF-IDF 的改进版，通过文档长度归一化和词频饱和处理，解决了长文档被偏袒、以及词频线性叠加带来的失真问题。它并非凭经验拼凑，而是出自 **概率相关性框架（Probabilistic Relevance Framework）**——Stephen Robertson 与 Karen Spärck Jones 等人在 1970–80 年代发展的概率检索理论，并在伦敦城市大学的 **Okapi 系统** 中实现，于 1992 年首届 TREC 评测中得到验证（"BM"即 Best Matching，"25"是该系列权重方案的第 25 号迭代）。尽管理论更现代的神经模型层出不穷，BM25 至今仍是大多数搜索引擎和检索基准的默认基线排名函数——一个三十多年不倒的工程标杆。
 
 **PageRank**（1998 年，Page 和 Brin）把网络链接结构引入排名：一个页面被许多重要页面链接，它本身就更重要。这是一个递归定义，数学上等价于计算网络邻接矩阵的主特征向量（随机游走的稳态分布）。
 
@@ -61,20 +63,25 @@ $$\text{TF-IDF}(t, d) = \text{TF}(t,d) \times \log\frac{N}{\text{DF}(t)}$$
 
 传统检索依赖精确词项匹配——用户必须用上和文档一样的词。神经网络改变了这一点：
 
-**稠密检索（Dense Retrieval）**用深度学习（如 BERT 衍生模型）把查询和文档都编码为高维稠密向量，相似的含义在向量空间中距离相近。即使词汇不重叠，语义相似的文档也能被找到。
+**稠密检索（Dense Retrieval）**用深度学习把查询和文档都编码为高维稠密向量，相似的含义在向量空间中距离相近。即使词汇不重叠（用户搜"狗"，文档写"犬"），语义相似的文档也能被找到——这正是 BM25 这类稀疏词项模型做不到的。这条路线的技术拐点是 BERT（Devlin 等，2018 年提出、2019 年正式发表）：预训练语言模型让"把一段文字压成一个有语义的向量"第一次变得既准又通用。
 
-**双编码器（Bi-Encoder）**分别编码查询和文档，离线预计算所有文档向量，检索时只需做近似最近邻搜索（ANN）——效率与效果都大幅提升。Facebook（Meta）的 DPR（Dense Passage Retrieval，2020）是这一范式的代表工作。
+**双编码器（Bi-Encoder）**分别编码查询和文档，离线预计算所有文档向量，检索时只需做近似最近邻搜索（Approximate Nearest Neighbor，ANN）——效率与效果都大幅提升。Facebook（Meta）的 DPR（Dense Passage Retrieval，2020）是这一范式的代表工作。但稠密检索带来一个新的工程难题：在数十亿个高维向量里精确找最近邻，代价高到不可行。Meta 在 2017 年开源的 **FAISS**（Facebook AI Similarity Search）正是为此而生——它用量化、倒排等手段在"内存—速度—精度"三者间权衡，把十亿级向量的相似检索做到可用，是今天几乎所有向量数据库背后的基础设施。
 
-**RAG（Retrieval-Augmented Generation）**在 2023 年将检索与大语言模型融合：先检索相关文档，再让语言模型根据这些文档生成回答。这是当前搜索与 AI 融合的主流路线。
+**学习排序（Learning to Rank, LTR）**则换了个思路：与其手工设计一个排名公式，不如把排序当成监督学习问题——用大量"查询—文档—人工相关性标注"训练一个模型，让它从成百上千个特征（BM25 得分、PageRank、点击率……）里学出排名。微软研究院的 RankNet（2005）、LambdaMART 是这条线的代表，后者长期是工业界搜索排序的主力，也直接把信息检索接入了 [[machine-learning-overview]] 的方法论。
+
+**RAG（Retrieval-Augmented Generation）**由 Lewis 等人在 2020 年提出，2023 年随着大语言模型的爆发才真正成为主流：先检索相关文档，再让语言模型根据这些文档生成回答。它让信息检索从"返回一串链接"升级为"返回一个有出处的答案"，是当前搜索与 AI 融合的主线。
 
 ## 评估指标
 
 | 指标 | 含义 |
 |------|------|
-| Precision@K | 前 K 个结果中相关文档的比例 |
-| Recall@K | 相关文档中有多少被检索到 |
+| Precision@K | 前 K 个结果中相关文档的比例（查准） |
+| Recall@K | 相关文档中有多少被检索到（查全） |
+| MAP | 平均精度均值，对每个查询在各相关文档处的精度求平均，再跨查询取均值 |
 | NDCG | 归一化折扣累积增益，考虑结果排名位置 |
 | MRR | 平均倒数排名，衡量第一个相关结果出现的位置 |
+
+这里藏着信息检索最根本的一对张力：**查准率（precision）与查全率（recall）的权衡**。想把所有相关文档都捞回来（高 recall），就难免混进无关结果（低 precision）；想让返回的每一条都精准（高 precision），又容易漏掉一部分相关文档（低 recall）。一个搜医学文献的研究者宁可多看几篇无关的，也不能漏掉关键论文（偏 recall）；而一个搜"今天天气"的普通用户只想要最靠谱的那一条（偏 precision）。正因为单一指标会掩盖这种权衡，MAP 和 NDCG 这类**对整个排序列表打分**的指标才成为现代检索评测（如 TREC）的主力——它们同时奖励"把相关文档排在前面"和"别漏掉相关文档"。
 
 ## 代价与争议
 
@@ -95,6 +102,8 @@ $$\text{TF-IDF}(t, d) = \text{TF}(t,d) \times \log\frac{N}{\text{DF}(t)}$$
 
 ## 参考文献
 
+- Spärck Jones, K. *A Statistical Interpretation of Term Specificity and Its Application in Retrieval.* Journal of Documentation, 28(1), 1972.（IDF 思想源头）
+- Salton, G., Wong, A., Yang, C. S. *A Vector Space Model for Automatic Indexing.* Communications of the ACM, 18(11), 1975.（向量空间模型奠基论文，源自 SMART 系统）
 - Page, L., Brin, S., Motwani, R., Winograd, T. *The PageRank Citation Ranking: Bringing Order to the Web.* Technical Report, Stanford, 1998.
 - Manning, C., Raghavan, P., Schutze, H. *Introduction to Information Retrieval.* Cambridge University Press, 2008.（可免费在线获取，信息检索入门经典）
 - Karpukhin, V. et al. *Dense Passage Retrieval for Open-Domain Question Answering.* EMNLP, 2020.（DPR 论文）
