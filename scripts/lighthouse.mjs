@@ -6,6 +6,7 @@ import * as chromeLauncher from "chrome-launcher";
 import {
   LIGHTHOUSE_ROUTE_BUDGETS,
   evaluateLighthouseBudget,
+  hasValidLighthouseMetrics,
   readLighthouseMetrics,
 } from "./performance/lighthouse-budget.mjs";
 
@@ -27,10 +28,7 @@ try {
   console.log(`${"route".padEnd(46)} perf  a11y  best  seo      LCP      TBT    CLS  budget`);
 
   for (const budget of LIGHTHOUSE_ROUTE_BUDGETS) {
-    const result = await lighthouse(BASE + budget.route, options);
-    if (!result) throw new Error(`Lighthouse returned no result for ${budget.route}`);
-
-    const metrics = readLighthouseMetrics(result.lhr);
+    const metrics = await measureRoute(budget.route, options);
     const routeViolations = evaluateLighthouseBudget(metrics, budget, globalMinPerformance);
     violations.push(...routeViolations.map((message) => `${budget.route}: ${message}`));
 
@@ -49,3 +47,14 @@ if (violations.length > 0) {
 }
 
 console.log("\nPASS: all representative routes are within their performance budgets.");
+
+async function measureRoute(route, options) {
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    const result = await lighthouse(BASE + route, options);
+    if (!result) throw new Error(`Lighthouse returned no result for ${route}`);
+    const metrics = readLighthouseMetrics(result.lhr);
+    if (hasValidLighthouseMetrics(metrics) || attempt === 2) return metrics;
+    console.warn(`${route}: invalid performance trace, retrying once`);
+  }
+  throw new Error(`Lighthouse exhausted attempts for ${route}`);
+}

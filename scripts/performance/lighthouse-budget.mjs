@@ -61,3 +61,12 @@ export function evaluateLighthouseBudget(metrics, budget, globalMinPerformance) 
 
   return violations;
 }
+
+export function hasValidLighthouseMetrics(metrics) {
+  return (
+    metrics.performance > 0 &&
+    Number.isFinite(metrics.lcpMs) &&
+    Number.isFinite(metrics.tbtMs) &&
+    Number.isFinite(metrics.cls)
+  );
+}

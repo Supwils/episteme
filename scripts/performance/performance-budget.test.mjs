@@ -2,12 +2,8 @@ import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
-import {
-  analyzeRouteAssets,
-  getRouteCssBudget,
-  isGenericArticleRoute,
-} from "./bundle-budget.mjs";
-import { evaluateLighthouseBudget } from "./lighthouse-budget.mjs";
+import { analyzeRouteAssets, getRouteCssBudget, isGenericArticleRoute } from "./bundle-budget.mjs";
+import { evaluateLighthouseBudget, hasValidLighthouseMetrics } from "./lighthouse-budget.mjs";
 
 const temporaryDirectories = [];
 
@@ -62,6 +58,15 @@ describe("performance budgets", () => {
 
     expect(violations).toHaveLength(4);
     expect(violations[0]).toContain("performance 79 < 85");
+  });
+
+  it("distinguishes an invalid trace from a finite budget regression", () => {
+    expect(
+      hasValidLighthouseMetrics({ performance: 0, lcpMs: Infinity, tbtMs: Infinity, cls: Infinity })
+    ).toBe(false);
+    expect(hasValidLighthouseMetrics({ performance: 79, lcpMs: 4100, tbtMs: 350, cls: 0.12 })).toBe(
+      true
+    );
   });
 
   it("keeps the portal CSS budget tighter than the explicit legacy domain baseline", () => {
