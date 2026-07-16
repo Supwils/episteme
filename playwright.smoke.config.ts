@@ -7,6 +7,7 @@ export default defineConfig({
   testMatch: "smoke.spec.ts",
   fullyParallel: false,
   forbidOnly: isCI,
+  failOnFlakyTests: isCI,
   retries: isCI ? 1 : 0,
   workers: 1,
   reporter: isCI

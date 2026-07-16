@@ -51,29 +51,29 @@ export function GlobalSearch() {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
+  const [engine, setEngine] = useState<SearchEngine | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [history, setHistory] = useState<string[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const engineRef = useRef<SearchEngine | null>(null);
 
   const loadHistory = useCallback(() => {
     setHistory(getSearchHistory());
   }, []);
 
   const ensureIndex = useCallback(() => {
-    if (engineRef.current) return;
+    if (engine) return;
     setLoading(true);
     ensureEngine()
-      .then((engine) => {
-        engineRef.current = engine;
+      .then((loadedEngine) => {
+        setEngine(loadedEngine);
         setLoading(false);
       })
       .catch(() => {
         setLoading(false);
       });
-  }, []);
+  }, [engine]);
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
@@ -109,10 +109,10 @@ export function GlobalSearch() {
 
   const results = useMemo((): SearchResult[] => {
     const trimmed = query.trim();
-    if (!trimmed || !engineRef.current) return [];
+    if (!trimmed || !engine) return [];
 
-    const searchResults = engineRef.current.index.search(trimmed).slice(0, 30);
-    const docMap = new Map(engineRef.current.documents.map((d) => [d.id, d]));
+    const searchResults = engine.index.search(trimmed).slice(0, 30);
+    const docMap = new Map(engine.documents.map((d) => [d.id, d]));
 
     return searchResults
       .map((r) => {
@@ -132,7 +132,7 @@ export function GlobalSearch() {
         };
       })
       .filter((r): r is SearchResult => r !== null);
-  }, [query]);
+  }, [engine, query]);
 
   const grouped = useMemo(() => {
     const groups: Record<Section, SearchResult[]> = {
