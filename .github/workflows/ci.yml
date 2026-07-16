@@ -10,6 +10,9 @@ on:
     branches: [main]
   workflow_dispatch: {}
 
+permissions:
+  contents: read
+
 # Cancel superseded runs on the same ref to save CI minutes.
 concurrency:
   group: ci-${{ github.ref }}
@@ -19,6 +22,7 @@ jobs:
   quality:
     name: Typecheck · Lint · Content · Test
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v5
 
@@ -32,14 +36,28 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Generated indexes are current
+        run: |
+          pnpm gen-all
+          if [ -n "$(git status --porcelain)" ]; then
+            git status --short
+            git diff --exit-code
+            exit 1
+          fi
+
       - name: Typecheck
         run: pnpm typecheck
 
       - name: Lint
         run: pnpm lint
 
-      - name: Content integrity
-        run: pnpm check-content
+      - name: Content and knowledge integrity
+        run: |
+          pnpm check-content
+          pnpm audit-graph-coverage
+          pnpm audit-learning-continuum
+          pnpm audit-subject-candidates
+          pnpm audit-linguistics-foundation
 
       - name: Unit tests
         run: pnpm test
@@ -47,6 +65,7 @@ jobs:
   build:
     name: Build · Bundle budget
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
 
@@ -65,6 +84,9 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: SSG and ISR strategy
+        run: pnpm audit-rendering
+
       # Enforce the JS gzip budget documented in CLAUDE.md §6.
       - name: Bundle budget
         run: pnpm bundle-check -- --skip-build
@@ -75,7 +97,11 @@ jobs:
           server_pid=$!
           trap 'kill $server_pid' EXIT
           for attempt in {1..30}; do
-            if curl --fail --silent http://localhost:3000 > /dev/null; then
+            if ! kill -0 "$server_pid" 2>/dev/null; then
+              cat /tmp/episteme-next.log
+              exit 1
+            fi
+            if curl --fail --silent http://127.0.0.1:3000 > /dev/null; then
               break
             fi
             if [ "$attempt" = 30 ]; then
@@ -84,7 +110,7 @@ jobs:
             fi
             sleep 1
           done
-          pnpm lighthouse
+          LH_BASE=http://127.0.0.1:3000 pnpm lighthouse
 
   # Deploy ONLY after quality + build both pass, and only on main (never on PRs).
   # Native Vercel git-integration is disabled (vercel.json git.deploymentEnabled.main=false)
@@ -95,9 +121,11 @@ jobs:
     needs: [quality, build]
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     env:
       VERCEL_ORG_ID: team_ds5C6k3BjI7cH3mPthTVu53v
       VERCEL_PROJECT_ID: prj_tjMBARDNE97j5MXMaApXQ5zZtbXi
+      VERCEL_CLI_VERSION: 56.2.1
     steps:
       - uses: actions/checkout@v5
 
@@ -109,7 +137,7 @@ jobs:
           cache: pnpm
 
       - name: Install Vercel CLI
-        run: npm i -g vercel@latest
+        run: npm i -g "vercel@$VERCEL_CLI_VERSION"
 
       - name: Pull Vercel project settings (production)
         run: vercel pull --yes --environment=production --token="$VERCEL_TOKEN"

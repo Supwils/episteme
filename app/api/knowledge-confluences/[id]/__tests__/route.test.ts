@@ -1,5 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { GET } from "@/app/api/knowledge-confluences/[id]/route";
+import {
+  GET,
+  dynamic,
+  dynamicParams,
+  generateStaticParams,
+  revalidate,
+} from "@/app/api/knowledge-confluences/[id]/route";
+import { KNOWLEDGE_CONTINUUM_CACHE_CONTROL } from "@/lib/knowledge-continuum-payload";
 
 function getConfluence(id: string) {
   return GET(new Request(`https://episteme.test/api/knowledge-confluences/${id}`), {
@@ -8,13 +15,19 @@ function getConfluence(id: string) {
 }
 
 describe("knowledge confluence API", () => {
-  it("returns one complete, cacheable confluence on demand", async () => {
+  it("prebuilds the fixed catalog with a daily ISR contract", () => {
+    expect(dynamic).toBe("force-static");
+    expect(dynamicParams).toBe(false);
+    expect(revalidate).toBe(86400);
+    expect(generateStaticParams()).toHaveLength(5);
+    expect(generateStaticParams()).toContainEqual({ id: "urban-climate-adaptation" });
+  });
+
+  it("returns one complete, cacheable confluence", async () => {
     const response = await getConfluence("urban-climate-adaptation");
     expect(response.status).toBe(200);
-    expect(response.headers.get("cache-control")).toBe(
-      "public, max-age=3600, stale-while-revalidate=86400"
-    );
-    expect(response.headers.get("x-content-strategy")).toBe("on-demand");
+    expect(response.headers.get("cache-control")).toBe(KNOWLEDGE_CONTINUUM_CACHE_CONTROL);
+    expect(response.headers.get("x-content-strategy")).toBe("static-isr");
 
     const payload = (await response.json()) as {
       confluence: {

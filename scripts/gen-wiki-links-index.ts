@@ -214,7 +214,8 @@ function buildBacklinks(
 }
 
 async function emit(file: string, body: string): Promise<void> {
-  writeFileSync(file, await prettier.format(body, { parser: "typescript" }));
+  const config = await prettier.resolveConfig(file);
+  writeFileSync(file, await prettier.format(body, { ...config, parser: "typescript" }));
 }
 
 /** First substantial prose sentence of a body, stripped of markdown, for a
@@ -292,7 +293,11 @@ export function getBacklinks(url: string): Backlink[] {
   );
 
   const previews = buildPreviews(articles);
-  writeFileSync(OUT_PREVIEWS, JSON.stringify(previews));
+  const previewConfig = await prettier.resolveConfig(OUT_PREVIEWS);
+  writeFileSync(
+    OUT_PREVIEWS,
+    await prettier.format(JSON.stringify(previews), { ...previewConfig, parser: "json" })
+  );
 
   const collisions = Object.values(forward).filter((v) => typeof v !== "string").length;
   const targets = Object.keys(backlinks).length;

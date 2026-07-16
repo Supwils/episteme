@@ -20,6 +20,7 @@
     "audit-learning-continuum": "tsx scripts/audit-learning-continuum.ts",
     "audit-subject-candidates": "tsx scripts/audit-subject-candidates.ts",
     "audit-linguistics-foundation": "tsx scripts/audit-linguistics-foundation.ts",
+    "audit-rendering": "node scripts/performance/rendering-strategy-audit.mjs",
     "gen-philo": "tsx scripts/gen-philo-index.ts",
     "gen-econ": "tsx scripts/gen-econ-index.ts",
     "gen-psych": "tsx scripts/gen-psych-index.ts",

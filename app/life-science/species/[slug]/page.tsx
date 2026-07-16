@@ -33,7 +33,7 @@ function getAccent(species: Species): string {
 }
 
 export function generateStaticParams() {
-  return []; // ISR: render on first request + cache; skip build prerender to bound deploy file count
+  return []; // On-demand SSG: build on first request, then cache until the next deployment
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
