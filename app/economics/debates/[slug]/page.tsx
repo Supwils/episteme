@@ -104,7 +104,7 @@ export default async function DebateDetailPage({ params }: { params: Promise<{ s
         </>
       }
     >
-      <MarkdownRenderer content={debate.content} accentColor="#c8a45a" />
+      <MarkdownRenderer domain="economics" content={debate.content} accentColor="#c8a45a" />
     </ArticleLayout>
   );
 }

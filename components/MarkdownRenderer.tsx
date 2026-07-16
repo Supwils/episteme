@@ -1,115 +1,10 @@
-"use client";
-
-import { useState, useCallback, useEffect, useRef } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import type Katex from "katex";
+import katex from "katex";
 import { resolveWikiLink } from "@/lib/wiki-link-index";
-
-// KaTeX is ~260KB; only load it when an article actually contains math.
-// Module-level cache so it loads once across all rendered articles.
-let katexLib: typeof Katex | null = null;
-let katexLoad: Promise<void> | null = null;
-function loadKatex(): Promise<void> {
-  if (katexLib) return Promise.resolve();
-  if (!katexLoad) katexLoad = import("katex").then((m) => void (katexLib = m.default));
-  return katexLoad;
-}
-
-// Returns rendered HTML, or null when KaTeX has not loaded yet (caller shows
-// the LaTeX source as a fallback until the component re-renders post-load).
-function renderKatex(latex: string, displayMode: boolean): string | null {
-  if (!katexLib) return null;
-  return katexLib.renderToString(latex, { displayMode, throwOnError: false });
-}
-
-const MATH_PATTERN = /\$\$[\s\S]*?\$\$|\$[^$\n]*[\\^_{][^$\n]*\$/;
-
-// Hover previews for `[[wiki-links]]`: a reader can see where a link goes —
-// title, one-line gist, and domain — without leaving the page. The ~600KB map
-// is a static asset fetched once on the first hover (never in any bundle).
-type LinkPreview = { t: string; e: string; d: string };
-let previewCache: Record<string, LinkPreview> | null = null;
-let previewPromise: Promise<Record<string, LinkPreview>> | null = null;
-function loadPreviews(): Promise<Record<string, LinkPreview>> {
-  if (previewCache) return Promise.resolve(previewCache);
-  if (!previewPromise) {
-    previewPromise = fetch("/link-previews.json")
-      .then((r) => (r.ok ? r.json() : {}))
-      .then((d: Record<string, LinkPreview>) => (previewCache = d))
-      .catch(() => (previewCache = {}));
-  }
-  return previewPromise;
-}
-
-const DOMAIN_LABEL: Record<string, string> = {
-  philosophy: "哲学",
-  history: "历史",
-  "universe-physics": "宇宙物理",
-  physics: "物理",
-  "life-science": "生命科学",
-  economics: "经济学",
-  psychology: "心理学",
-  "computer-science": "计算机",
-  "political-science": "政治学",
-  cosmology: "宇宙学",
-  mathematics: "数学",
-  "earth-science": "地球科学",
-  medicine: "医学",
-  chemistry: "化学",
-};
-
-function WikiLink({ href, label }: { href: string; label: string }) {
-  const [preview, setPreview] = useState<LinkPreview | null>(null);
-  const [open, setOpen] = useState(false);
-  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const show = useCallback(() => {
-    if (timer.current) clearTimeout(timer.current);
-    timer.current = setTimeout(() => {
-      void loadPreviews().then((p) => {
-        setPreview(p[href] ?? null);
-        setOpen(true);
-      });
-    }, 200);
-  }, [href]);
-
-  const hide = useCallback(() => {
-    if (timer.current) clearTimeout(timer.current);
-    setOpen(false);
-  }, []);
-
-  return (
-    <span className="relative inline-block" onMouseEnter={show} onMouseLeave={hide}>
-      <Link
-        href={href}
-        onFocus={show}
-        onBlur={hide}
-        className="text-accent-gold font-medium underline decoration-dotted decoration-from-font underline-offset-2 transition-opacity hover:opacity-80"
-      >
-        {label}
-      </Link>
-      {open && preview && (
-        <span
-          role="tooltip"
-          className="border-border-subtle bg-bg-elevated/95 pointer-events-none absolute top-full left-0 z-50 mt-1.5 block w-[min(20rem,80vw)] rounded-xl border p-3 text-left shadow-[0_8px_32px_rgba(0,0,0,0.45)] backdrop-blur-xl"
-        >
-          <span className="mb-1 flex items-center gap-1.5">
-            <span className="bg-bg-panel text-fg-muted rounded px-1.5 py-0.5 text-[10px] font-medium tracking-wide">
-              {DOMAIN_LABEL[preview.d] ?? preview.d}
-            </span>
-            <span className="text-fg-primary text-[13px] leading-tight font-semibold">
-              {preview.t}
-            </span>
-          </span>
-          {preview.e && (
-            <span className="text-fg-secondary block text-[12px] leading-relaxed">{preview.e}</span>
-          )}
-        </span>
-      )}
-    </span>
-  );
-}
+import {
+  MarkdownCodeBlock,
+  MarkdownZoomableImage,
+  WikiLinkPreview,
+} from "@/components/markdown/MarkdownInteractions";
 
 function slugify(text: string): string {
   return text
@@ -133,24 +28,16 @@ interface MarkdownRendererProps {
   content: string;
   accentColor?: string;
   className?: string;
+  domain?: string;
 }
 
 export function MarkdownRenderer({
   content,
   accentColor = "#c8a45a",
   className,
+  domain = "",
 }: MarkdownRendererProps) {
   const footnotes = extractFootnotes(content);
-  // First path segment is the domain — used to disambiguate a `[[slug]]` that
-  // is routable in more than one domain (prefer the one the reader is in).
-  const domain = (usePathname() ?? "").split("/")[1] ?? "";
-
-  // Lazy-load KaTeX only when this article has math; re-render once it lands.
-  const [, setKatexReady] = useState(false);
-  useEffect(() => {
-    if (katexLib) return;
-    if (MATH_PATTERN.test(content)) loadKatex().then(() => setKatexReady(true));
-  }, [content]);
 
   return (
     <div
@@ -214,7 +101,9 @@ export function MarkdownRenderer({
           const lines = text.split("\n");
           const lang = lines[0]!.slice(3).trim();
           const code = lines.slice(1).join("\n");
-          return <CodeBlock key={i} code={code} language={lang} accentColor={accentColor} />;
+          return (
+            <MarkdownCodeBlock key={i} code={code} language={lang} accentColor={accentColor} />
+          );
         }
         if (text.startsWith("> ")) {
           const quoteText = text
@@ -290,7 +179,7 @@ export function MarkdownRenderer({
           const imgMatch = text.match(/^!\[([^\]]*)\]\(([^)]+)\)/);
           if (imgMatch) {
             return (
-              <ZoomableImage
+              <MarkdownZoomableImage
                 key={i}
                 src={imgMatch[2]!}
                 alt={imgMatch[1]!}
@@ -383,105 +272,6 @@ function FootnotesSection({
   );
 }
 
-function CodeBlock({
-  code,
-  language,
-  accentColor,
-}: {
-  code: string;
-  language: string;
-  accentColor: string;
-}) {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = useCallback(() => {
-    navigator.clipboard.writeText(code).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  }, [code]);
-
-  return (
-    <div className="group/code border-border-faint relative my-6 overflow-hidden rounded-lg border">
-      {language && (
-        <div className="border-border-faint bg-bg-elevated/50 border-b px-4 py-1.5">
-          <span
-            className="font-mono text-[10px] tracking-[0.15em] uppercase"
-            style={{ color: accentColor }}
-          >
-            {language}
-          </span>
-        </div>
-      )}
-      <pre tabIndex={0} className="bg-bg-elevated overflow-x-auto p-4">
-        <code className="text-fg-primary font-mono text-sm leading-relaxed">{code}</code>
-      </pre>
-      <button
-        type="button"
-        onClick={handleCopy}
-        className="border-border-faint bg-bg-panel/80 hover:bg-bg-elevated absolute top-2 right-2 rounded-md border px-2.5 py-1 font-mono text-[10px] tracking-wider uppercase opacity-0 backdrop-blur-sm transition-opacity group-hover/code:opacity-100"
-        style={{ color: copied ? "#6bae8a" : accentColor }}
-        aria-label={copied ? "已复制" : "复制代码"}
-      >
-        {copied ? "已复制 ✓" : "复制"}
-      </button>
-    </div>
-  );
-}
-
-function ZoomableImage({
-  src,
-  alt,
-  accentColor,
-}: {
-  src: string;
-  alt: string;
-  accentColor: string;
-}) {
-  const [zoomed, setZoomed] = useState(false);
-
-  return (
-    <>
-      <figure className="my-8">
-        <button
-          type="button"
-          onClick={() => setZoomed(true)}
-          className="group/img border-border-faint hover:border-border-subtle relative block w-full cursor-zoom-in overflow-hidden rounded-lg border transition-all"
-        >
-          <img
-            src={src}
-            alt={alt}
-            loading="lazy"
-            decoding="async"
-            className="w-full transition-transform duration-300 group-hover/img:scale-[1.02]"
-          />
-          <span
-            className="bg-bg-panel/80 absolute right-2 bottom-2 rounded-md px-2 py-1 font-mono text-[10px] tracking-wider uppercase opacity-0 backdrop-blur-sm transition-opacity group-hover/img:opacity-100"
-            style={{ color: accentColor }}
-          >
-            点击放大
-          </span>
-        </button>
-        {alt && <figcaption className="text-fg-muted mt-2 text-center text-sm">{alt}</figcaption>}
-      </figure>
-      {zoomed && (
-        <div
-          className="fixed inset-0 z-[500] flex cursor-zoom-out items-center justify-center bg-black/80 p-8 backdrop-blur-sm"
-          onClick={() => setZoomed(false)}
-          role="dialog"
-          aria-label={alt || "图片预览"}
-        >
-          <img
-            src={src}
-            alt={alt}
-            className="max-h-[90vh] max-w-[90vw] rounded-lg object-contain shadow-2xl"
-          />
-        </div>
-      )}
-    </>
-  );
-}
-
 function renderInline(
   text: string,
   footnotes: Map<string, string>,
@@ -495,27 +285,16 @@ function renderInline(
     const latexBlockMatch = remaining.match(/^\$\$[\s\S]*?\$\$/);
     if (latexBlockMatch) {
       const tex = latexBlockMatch[0].slice(2, -2).trim();
-      const html = renderKatex(tex, true);
+      const html = katex.renderToString(tex, { displayMode: true, throwOnError: false });
       parts.push(
-        html === null ? (
-          <span
-            key={key++}
-            tabIndex={0}
-            role="math"
-            aria-label={tex}
-            className="text-fg-muted my-2 block overflow-x-auto font-mono text-[0.85em]"
-          >
-            {tex}
-          </span>
-        ) : (
-          <span
-            key={key++}
-            tabIndex={0}
-            role="math"
-            className="my-2 block overflow-x-auto"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
-        )
+        <span
+          key={key++}
+          tabIndex={0}
+          role="math"
+          aria-label={tex}
+          className="my-2 block overflow-x-auto"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
       );
       remaining = remaining.slice(latexBlockMatch[0].length);
       continue;
@@ -529,15 +308,15 @@ function renderInline(
       /[\\^_{]/.test(latexInlineMatch[1]!) &&
       !/[一-鿿]/.test(latexInlineMatch[1]!)
     ) {
-      const html = renderKatex(latexInlineMatch[1]!, false);
+      const latex = latexInlineMatch[1]!;
+      const html = katex.renderToString(latex, { displayMode: false, throwOnError: false });
       parts.push(
-        html === null ? (
-          <span key={key++} className="text-fg-muted font-mono text-[0.9em]">
-            {latexInlineMatch[1]!}
-          </span>
-        ) : (
-          <span key={key++} dangerouslySetInnerHTML={{ __html: html }} />
-        )
+        <span
+          key={key++}
+          role="math"
+          aria-label={latex}
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
       );
       remaining = remaining.slice(latexInlineMatch[0].length);
       continue;
@@ -600,7 +379,7 @@ function renderInline(
       const href = resolveWikiLink(target, domain);
       parts.push(
         href ? (
-          <WikiLink key={key++} href={href} label={label} />
+          <WikiLinkPreview key={key++} href={href} label={label} />
         ) : (
           <span key={key++} className="text-fg-primary font-medium">
             {label}

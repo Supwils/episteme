@@ -73,6 +73,9 @@ function str(value: unknown): string {
 
 function buildInfo(data: Record<string, unknown>): KnowledgeInfo[] {
   const info: KnowledgeInfo[] = [];
+  if (typeof data.knowledge_level === "number") {
+    info.push({ label: "认知阶段", value: `L${data.knowledge_level}` });
+  }
   for (const { key, label } of INFO_FIELDS) {
     const value = data[key];
     if (typeof value === "string" && value.trim()) {

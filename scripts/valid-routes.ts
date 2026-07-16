@@ -13,6 +13,7 @@ import { getAllSpecies } from "@/subjects/life-science/lib/species";
 import { getAllScientists } from "@/subjects/life-science/lib/scientists";
 import { getAllExtinctions } from "@/subjects/life-science/lib/extinctions";
 import { getAllTimelineEvents } from "@/subjects/life-science/lib/timeline-events";
+import { KNOWLEDGE_DOMAINS } from "@/lib/new-domains";
 
 const ROOT = process.cwd();
 const CONTENT = join(ROOT, "content");
@@ -27,11 +28,7 @@ const DOMAINS = [
   "mathematics",
   "economics",
   "psychology",
-  "computer-science",
-  "political-science",
-  "earth-science",
-  "medicine",
-  "chemistry",
+  ...Object.keys(KNOWLEDGE_DOMAINS),
 ];
 
 function dirSlugs(rel: string): string[] {
@@ -149,14 +146,9 @@ export function buildValidRoutes(): Set<string> {
   add("/universe-physics/dialogues", dirSlugs("universe-physics/dialogues"));
   add("/cosmology/dialogues", dirSlugs("cosmology/dialogues"));
 
-  // Generic-domain sections (computer-science, political-science, earth-science, medicine)
-  for (const domain of [
-    "computer-science",
-    "political-science",
-    "earth-science",
-    "medicine",
-    "chemistry",
-  ]) {
+  // Generic-domain sections are derived from lib/new-domains.ts so route tests
+  // follow new subject registrations instead of needing a second whitelist.
+  for (const domain of Object.keys(KNOWLEDGE_DOMAINS)) {
     const root = join(CONTENT, domain);
     if (!existsSync(root)) continue;
     for (const section of readdirSync(root)) {

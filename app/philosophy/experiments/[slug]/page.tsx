@@ -147,7 +147,11 @@ export default async function ExperimentDetailPage({
           </>
         }
       >
-        <MarkdownRenderer content={experiment.content} accentColor={fieldColor} />
+        <MarkdownRenderer
+          domain="philosophy"
+          content={experiment.content}
+          accentColor={fieldColor}
+        />
         <RelatedContent slug={slug} domain="philosophy" entityId={slug} />
       </ArticleLayout>
     </>

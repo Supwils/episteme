@@ -38,6 +38,12 @@ export const PSYCHOLOGY_KB_DATA = [
     category: "发展心理学",
   },
   {
+    slug: "effect-size-and-power",
+    title: "效应量与统计功效",
+    titleEn: "Effect Size and Statistical Power",
+    category: "方法论",
+  },
+  {
     slug: "emotional-intelligence-practice",
     title: "情绪智力的科学与实践",
     titleEn: "The Science and Practice of Emotional Intelligence",
@@ -54,6 +60,18 @@ export const PSYCHOLOGY_KB_DATA = [
     title: "健康心理学：身体与心灵的双向道",
     titleEn: "Health Psychology: The Two-Way Street Between Body and Mind",
     category: "健康心理学",
+  },
+  {
+    slug: "inflation-expectations-and-trust",
+    title: "通胀预期与信任",
+    titleEn: "Inflation Expectations and Trust",
+    category: "经济心理学",
+  },
+  {
+    slug: "inflation-psychology",
+    title: "通胀心理",
+    titleEn: "Inflation Psychology",
+    category: "经济心理学",
   },
   {
     slug: "intelligence-theories",
@@ -80,6 +98,18 @@ export const PSYCHOLOGY_KB_DATA = [
     category: "神经心理学",
   },
   {
+    slug: "political-polarization-psychology",
+    title: "政治极化心理",
+    titleEn: "The Psychology of Political Polarization",
+    category: "社会心理学",
+  },
+  {
+    slug: "political-psychology-of-fiscal-austerity",
+    title: "财政紧缩的政治心理",
+    titleEn: "Political Psychology of Fiscal Austerity",
+    category: "政治心理学",
+  },
+  {
     slug: "psychology-of-decisions",
     title: "决策心理学：如何做出更好的选择",
     titleEn: "The Psychology of Decision-Making",
@@ -102,6 +132,12 @@ export const PSYCHOLOGY_KB_DATA = [
     title: "心理韧性的科学",
     titleEn: "The Science of Psychological Resilience",
     category: "实用心理学",
+  },
+  {
+    slug: "risk-perception-and-macro-decisions",
+    title: "风险感知与宏观决策",
+    titleEn: "Risk Perception and Macro Decisions",
+    category: "经济心理学",
   },
   {
     slug: "self-analysis-guide",

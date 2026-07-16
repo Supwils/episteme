@@ -46,7 +46,8 @@ vi.mock("framer-motion", () => ({
 }));
 
 import { DomainCard } from "../DomainCard";
-import { AnimatedCounter } from "../AnimatedCounter";
+import { HeroSection } from "../HeroSection";
+import { PageTransition } from "../PageTransition";
 import { ScrollToTop } from "../ScrollToTop";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { ReadingModeControls } from "@/components/ReadingModeControls";
@@ -103,20 +104,29 @@ describe("DomainCard", () => {
   });
 });
 
-describe("AnimatedCounter", () => {
-  it("renders with target value", () => {
-    render(<AnimatedCounter target={42} />);
-    expect(screen.getByLabelText("42")).toBeDefined();
-  });
+describe("HeroSection", () => {
+  it("renders final statistics in the initial markup without a delayed animation", () => {
+    render(<HeroSection />);
 
-  it("renders with suffix", () => {
-    render(<AnimatedCounter target={100} suffix="+" />);
-    expect(screen.getByLabelText("100+")).toBeDefined();
+    const statistics = screen.getByRole("list", { name: "平台内容统计" });
+    expect(statistics.classList.contains("animate-fade-slide-up")).toBe(false);
+    expect(screen.getByText("14")).toBeDefined();
+    expect(screen.getByText("1850+")).toBeDefined();
+    expect(screen.getByText("500+")).toBeDefined();
   });
+});
 
-  it("renders the aria-label correctly", () => {
-    render(<AnimatedCounter target={50} suffix="亿年" />);
-    expect(screen.getByLabelText("50亿年")).toBeDefined();
+describe("PageTransition", () => {
+  it("keeps initial page content visible without a hydration-gated wrapper", () => {
+    render(
+      <PageTransition>
+        <h1>Initial article title</h1>
+      </PageTransition>
+    );
+
+    const heading = screen.getByRole("heading", { name: "Initial article title" });
+    expect(heading.parentElement?.style.opacity).toBe("");
+    expect(heading.parentElement?.style.transform).toBe("");
   });
 });
 
@@ -218,6 +228,21 @@ describe("MarkdownRenderer", () => {
     const { container } = render(<MarkdownRenderer content="---" />);
     const hr = container.querySelector("[aria-hidden]");
     expect(hr).not.toBeNull();
+  });
+
+  it("resolves ambiguous wiki links against the explicit server domain", () => {
+    render(<MarkdownRenderer content="[[bureaucracy|科层制]]" domain="sociology" />);
+
+    expect(screen.getByRole("link", { name: "科层制" }).getAttribute("href")).toBe(
+      "/sociology/institutions/bureaucracy"
+    );
+  });
+
+  it("renders formulas to KaTeX markup in the initial output", () => {
+    const { container } = render(<MarkdownRenderer content="$E = mc^2$" />);
+
+    expect(container.querySelector(".katex")).not.toBeNull();
+    expect(container.querySelector('[role="math"][aria-label="E = mc^2"]')).not.toBeNull();
   });
 });
 

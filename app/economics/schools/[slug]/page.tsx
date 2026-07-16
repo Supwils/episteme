@@ -143,7 +143,7 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
         </>
       }
     >
-      <MarkdownRenderer content={school.content} accentColor="#61afef" />
+      <MarkdownRenderer domain="economics" content={school.content} accentColor="#61afef" />
     </ArticleLayout>
   );
 }

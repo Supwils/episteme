@@ -1,18 +1,13 @@
-import { Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
+import { IBM_Plex_Mono } from "next/font/google";
+export { spaceGrotesk } from "@/lib/display-font";
 
-// Observatory/Notebook design system — Latin display + mono come from
-// next/font (self-hosted, no layout shift). CJK + 楷体 (Noto Sans SC /
-// Noto Serif SC / LXGW WenKai TC) are loaded via <link> in app/layout.tsx
-// because they are too large to subset through next/font/google.
-export const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-space-grotesk",
-});
-
+// Observatory/Notebook design system — the compact Latin display face is
+// self-hosted. Utility labels use the platform monospace stack so they do not
+// compete with critical CSS through extra font preloads.
 export const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   display: "swap",
+  preload: false,
   weight: ["400", "500"],
   variable: "--font-plex-mono",
 });

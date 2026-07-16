@@ -207,7 +207,11 @@ export default async function TimelineEventDetailPage({ params }: Props) {
               >
                 深入详解：{eventDetail.title}
               </h2>
-              <MarkdownRenderer content={eventDetail.body} accentColor={event.accent} />
+              <MarkdownRenderer
+                domain="life-science"
+                content={eventDetail.body}
+                accentColor={event.accent}
+              />
             </section>
           )}
 

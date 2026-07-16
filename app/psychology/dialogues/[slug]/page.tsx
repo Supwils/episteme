@@ -139,7 +139,7 @@ export default async function DialogueDetailPage({
         </>
       }
     >
-      <MarkdownRenderer content={dialogue.content} accentColor={eraColor} />
+      <MarkdownRenderer domain="psychology" content={dialogue.content} accentColor={eraColor} />
     </ArticleLayout>
   );
 }

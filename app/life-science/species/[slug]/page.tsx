@@ -202,7 +202,11 @@ export default async function SpeciesDetailPage({ params }: Props) {
 
           {prose && (
             <FadeInSection className="mb-12">
-              <MarkdownRenderer content={prose.content} accentColor={accent} />
+              <MarkdownRenderer
+                domain="life-science"
+                content={prose.content}
+                accentColor={accent}
+              />
             </FadeInSection>
           )}
 
@@ -318,7 +322,7 @@ function SpeciesProsePage({ prose, slug }: { prose: SpeciesProse; slug: string }
             )}
           </header>
 
-          <MarkdownRenderer content={prose.content} accentColor={accent} />
+          <MarkdownRenderer domain="life-science" content={prose.content} accentColor={accent} />
 
           <SafeRender>
             <RelatedContent slug={slug} domain="life-science" entityId={slug} />

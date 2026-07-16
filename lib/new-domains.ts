@@ -108,6 +108,13 @@ export const POLITICAL_SCIENCE: DomainConfig = {
       icon: "🌍",
       description: "国际秩序、地缘政治、全球治理、战争与和平、大国博弈",
     },
+    {
+      key: "methods",
+      label: "研究方法",
+      accent: "#5b9da0",
+      icon: "🔎",
+      description: "比较、过程追踪、案例选择、调查、实验、形式模型与政治文本分析",
+    },
   ],
 };
 
@@ -147,6 +154,13 @@ export const EARTH_SCIENCE: DomainConfig = {
       icon: "🌊",
       description: "坦博拉1815、里斯本1755、2004印度洋海啸、雪球地球、泛大陆裂解",
     },
+    {
+      key: "climate-risks",
+      label: "气候风险与归因",
+      accent: "#cf7656",
+      icon: "⚠",
+      description: "极端事件归因、复合灾害、集合预测、城市热、海平面适应与碳预算",
+    },
   ],
 };
 
@@ -178,6 +192,14 @@ export const MEDICINE: DomainConfig = {
       accent: "#5b9bd1",
       icon: "💡",
       description: "细菌致病论、免疫、炎症、循证医学、流行病学、抗生素耐药性、知情同意",
+    },
+    {
+      key: "public-health",
+      label: "公共卫生与卫生系统",
+      accent: "#4f9d76",
+      icon: "🌐",
+      description:
+        "疾病负担、卫生经济学、全民健康覆盖、疫情监测、实施科学、健康公平、环境与职业健康、妇幼健康和疫苗政策",
     },
     {
       key: "technologies",
@@ -233,6 +255,13 @@ export const CHEMISTRY: DomainConfig = {
       description: "原子结构、化学键、周期表、摩尔、酸碱、氧化还原、平衡、热化学、电化学",
     },
     {
+      key: "methods",
+      label: "证据与实验方法",
+      accent: "#c97a55",
+      icon: "🔬",
+      description: "NMR、晶体学、电子显微与表面表征、逆合成、反应优化、工艺放大与过程安全",
+    },
+    {
       key: "substances",
       label: "物质与材料",
       accent: "#5fb3a3",
@@ -256,12 +285,125 @@ export const CHEMISTRY: DomainConfig = {
   ],
 };
 
+export const SOCIOLOGY: DomainConfig = {
+  domain: "sociology",
+  label: "社会学",
+  labelEn: "Sociology",
+  tagline:
+    "社会如何塑造个人，个人又如何改变社会——从家庭、阶层、组织、城市到文化、网络与现代性。社会学把宏大结构与日常生活接在一起，是理解现代世界的中观透镜。",
+  accent: "#7a8f5a",
+  sections: [
+    {
+      key: "thinkers",
+      label: "社会学家",
+      accent: "#7a8f5a",
+      icon: "👤",
+      description: "涂尔干、韦伯、马克思、齐美尔、杜波依斯、布迪厄、戈夫曼——解释社会秩序的人",
+    },
+    {
+      key: "concepts",
+      label: "核心概念",
+      accent: "#5b9da0",
+      icon: "💡",
+      description: "社会结构、社会资本、阶层、规范、角色、身份、现代性、社会网络",
+    },
+    {
+      key: "institutions",
+      label: "制度与生活",
+      accent: "#c08a52",
+      icon: "🏙",
+      description: "家庭、教育、组织、城市、媒体、宗教、劳动与消费——社会如何进入日常",
+    },
+    {
+      key: "methods",
+      label: "研究方法",
+      accent: "#8a78bd",
+      icon: "🔎",
+      description: "民族志、访谈、调查、比较历史、内容分析、统计模型、实验与计算方法",
+    },
+  ],
+};
+
+export const PSYCHOLOGY_METHODS: DomainConfig = {
+  domain: "psychology",
+  label: "心理学",
+  labelEn: "Psychology",
+  tagline:
+    "如何把不可直接观察的心智变成可信证据——从测量、追踪与层级结构，到贝叶斯推断、证据综合和开放科学。",
+  accent: "#9b7dc4",
+  sections: [
+    {
+      key: "methods",
+      label: "现代研究方法",
+      accent: "#8a78bd",
+      icon: "🔎",
+      description: "测量等值性、纵向与多层模型、贝叶斯建模、元分析、预注册和数字表型伦理",
+    },
+  ],
+};
+
+export const LINGUISTICS: DomainConfig = {
+  domain: "linguistics",
+  label: "语言学",
+  labelEn: "Linguistics",
+  tagline:
+    "人类如何用声音、手势与文字组织意义——从发音和词句的基本结构，到语言习得、历史变化与全球文字系统。语言既是心智能力，也是社会关系和数字基础设施。",
+  accent: "#3f8f8a",
+  sections: [
+    {
+      key: "sounds-and-signs",
+      label: "声音与手势",
+      accent: "#3f8f8a",
+      icon: "◉",
+      description: "语言、言语与手语，发音机制、语音学、国际音标、音位和音系系统",
+    },
+    {
+      key: "words-sentences-meaning",
+      label: "词句与意义",
+      accent: "#b0783c",
+      icon: "文",
+      description: "词怎样形成、句子怎样组织、表达怎样获得意义——形态、句法与语义",
+    },
+    {
+      key: "acquisition-and-mind",
+      label: "习得与心智",
+      accent: "#7086b8",
+      icon: "⌁",
+      description: "儿童如何从互动中建立声音、词义和语法，并逐步成为语言共同体成员",
+    },
+    {
+      key: "history-typology-society",
+      label: "历史、类型与社会",
+      accent: "var(--linguistics-history-accent)",
+      icon: "↝",
+      description: "语言为什么变化、分化和接触，以及变体如何记录迁移、身份与社会关系",
+    },
+    {
+      key: "writing-systems",
+      label: "文字系统",
+      accent: "#7f7862",
+      icon: "字",
+      description: "语言与文字的区别，以及字母、辅音音素、元音附标、音节和语素音节文字",
+    },
+    {
+      key: "methods-and-frontiers",
+      label: "方法与前沿",
+      accent: "var(--linguistics-methods-accent)",
+      icon: "※",
+      description: "从社区协作、录音和转写建立可复核语料，理解语言证据如何被产生与保存",
+    },
+  ],
+};
+
 export const KNOWLEDGE_DOMAINS: Record<string, DomainConfig> = {
   "computer-science": COMPUTER_SCIENCE,
   "political-science": POLITICAL_SCIENCE,
   "earth-science": EARTH_SCIENCE,
   medicine: MEDICINE,
   chemistry: CHEMISTRY,
+  sociology: SOCIOLOGY,
+  psychology: PSYCHOLOGY_METHODS,
+  linguistics: LINGUISTICS,
 };
 
 export function getDomainConfig(domain: string): DomainConfig | null {

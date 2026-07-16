@@ -27,14 +27,16 @@ export function DomainHome({ domain }: { domain: string }) {
   }));
 
   const frontierCount = createFrontier(domain).getAllArticles().length;
-  cards.push({
-    href: `/${domain}/frontier`,
-    icon: "🛰",
-    title: "研究前沿",
-    description: "该领域当下正在推进的 2020s 前沿——开放问题、攻关团队、近年突破",
-    accent: "#e06c75",
-    count: frontierCount,
-  });
+  if (frontierCount > 0) {
+    cards.push({
+      href: `/${domain}/frontier`,
+      icon: "🛰",
+      title: "研究前沿",
+      description: "该领域当下正在推进的 2020s 前沿——开放问题、攻关团队、近年突破",
+      accent: "#e06c75",
+      count: frontierCount,
+    });
+  }
 
   const total = cards.reduce((sum, c) => sum + c.count, 0);
 

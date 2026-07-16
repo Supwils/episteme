@@ -2,6 +2,12 @@
 // Search mirror of content/economics/*/*.mdx.
 export const THEORIES_DATA = [
   {
+    slug: "african-development-economics",
+    title: "非洲发展经济学",
+    subtitle: "African Development Economics",
+    category: "发展经济学",
+  },
+  {
     slug: "behavioral-economics-theory",
     title: "行为经济学理论",
     subtitle: "Behavioral Economics Theory",
@@ -38,6 +44,12 @@ export const THEORIES_DATA = [
     category: "国际",
   },
   {
+    slug: "indian-institutional-economics",
+    title: "印度制度经济学",
+    subtitle: "Indian Institutional Economics",
+    category: "制度经济学",
+  },
+  {
     slug: "information-asymmetry",
     title: "信息不对称理论",
     subtitle: "Information Asymmetry Theory",
@@ -54,6 +66,12 @@ export const THEORIES_DATA = [
     title: "凯恩斯主义经济学",
     subtitle: "Keynesian Economics",
     category: "宏观",
+  },
+  {
+    slug: "latin-american-structuralism-dependency",
+    title: "拉美结构主义与依附理论",
+    subtitle: "Latin American Structuralism and Dependency Theory",
+    category: "发展经济学",
   },
   {
     slug: "market-failures",

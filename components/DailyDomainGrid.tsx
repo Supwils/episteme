@@ -126,6 +126,15 @@ const DOMAIN_CONFIGS = [
     border: "rgba(224,138,60,0.18)",
     url: "/chemistry",
   },
+  {
+    key: "sociology" as const,
+    icon: "🏙",
+    label: "社会学",
+    color: "#7a8f5a",
+    bg: "rgba(122,143,90,0.08)",
+    border: "rgba(122,143,90,0.18)",
+    url: "/sociology",
+  },
 ] as const;
 
 const containerVariants = {

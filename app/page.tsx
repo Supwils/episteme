@@ -7,6 +7,7 @@ import { DomainCard } from "../components/DomainCard";
 import { LatestUpdates } from "../components/LatestUpdates";
 import { FeaturedContent } from "../components/FeaturedContent";
 import { DailyKnowledgeCard } from "../components/DailyKnowledgeCard";
+import { DeferredHomeKnowledgeContinuum } from "../components/DeferredHomeKnowledgeContinuum";
 import { getDailyKnowledge } from "../lib/daily-knowledge";
 import { DOMAINS } from "../lib/data";
 import { SITE_URL } from "../lib/constants";
@@ -16,11 +17,11 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Episteme · 格致 — 重现人类认识世界的旅程",
   description:
-    "以可视化、沉浸式的方式探索人类最重要的知识，涵盖物理学、宇宙学、人类历史、哲学思想、生命科学、经济学和心理学",
+    "以可视化、沉浸式的方式探索人类最重要的知识，涵盖自然科学、形式科学、人文与社会科学等 15 个领域。",
   openGraph: {
     title: "Episteme · 格致 — 重现人类认识世界的旅程",
     description:
-      "以可视化、沉浸式的方式探索人类最重要的知识，涵盖物理学、宇宙学、人类历史、哲学思想、生命科学、经济学和心理学",
+      "以可视化、沉浸式的方式探索人类最重要的知识，涵盖自然科学、形式科学、人文与社会科学等 15 个领域。",
     type: "website",
     images: [
       {
@@ -38,7 +39,7 @@ const websiteJsonLd = {
   name: "Episteme · 格致",
   url: SITE_URL,
   description:
-    "重现人类认识世界的旅程——以可视化、沉浸式的方式探索宇宙物理、宇宙学、人类历史、哲学思想、生命科学、数学、经济学、心理学、计算机科学、政治学等领域的深度知识。",
+    "重现人类认识世界的旅程——以可视化、沉浸式的方式探索物理学、宇宙学、化学、地球科学、生命科学、医学、数学、计算机科学、心理学、哲学、人类历史、社会学、经济学、政治学与语言学。",
   potentialAction: {
     "@type": "SearchAction",
     target: {
@@ -69,6 +70,8 @@ export default function HomePage() {
             <DomainCard key={domain.id} domain={domain} index={i} />
           ))}
         </section>
+
+        <DeferredHomeKnowledgeContinuum />
 
         <section className="w-full px-6 py-16 sm:px-10 lg:px-16">
           <h2 className="font-display text-fg-primary mb-8 text-2xl font-semibold">每日知识</h2>

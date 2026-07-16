@@ -152,7 +152,7 @@ export default async function EconomistDetailPage({
         </>
       }
     >
-      <MarkdownRenderer content={economist.content} accentColor="#e8b84a" />
+      <MarkdownRenderer domain="economics" content={economist.content} accentColor="#e8b84a" />
       <RelatedContent slug={slug} domain="economics" entityId={slug} />
     </ArticleLayout>
   );

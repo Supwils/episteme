@@ -16,6 +16,8 @@ const DOMAINS = [
   { id: "earth-science", label: "地球科学", color: "#4f9d76" },
   { id: "medicine", label: "医学", color: "#d9544d" },
   { id: "chemistry", label: "化学", color: "#e08a3c" },
+  { id: "sociology", label: "社会学", color: "#7a8f5a" },
+  { id: "linguistics", label: "语言学", color: "#3f8f8a" },
 ] as const;
 
 type DomainFiltersProps = {
@@ -34,12 +36,21 @@ export function DomainFilters({
   onClose,
 }: DomainFiltersProps) {
   return (
-    <div className="flex items-center gap-1.5">
+    <div
+      className={clsx(
+        "flex items-center gap-1.5",
+        isMobile && "w-full max-w-full min-w-0 overflow-x-auto overscroll-x-contain pb-1"
+      )}
+      data-testid="domain-filters"
+    >
       {showCloseButton && onClose && (
         <button
           type="button"
           onClick={onClose}
-          className="flex h-7 w-7 items-center justify-center rounded-lg text-white/40 transition-colors hover:text-white/70"
+          className={clsx(
+            "flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-white/40 transition-colors hover:text-white/70",
+            isMobile && "sticky left-0 z-10 bg-[#111118]"
+          )}
           aria-label="收起筛选栏"
         >
           <svg
@@ -61,7 +72,7 @@ export function DomainFilters({
             type="button"
             onClick={() => onDomainToggle(domain.id)}
             className={clsx(
-              "flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium",
+              "flex shrink-0 items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium",
               "border transition-all duration-200",
               "focus-visible:outline-2 focus-visible:outline-offset-2",
               isActive

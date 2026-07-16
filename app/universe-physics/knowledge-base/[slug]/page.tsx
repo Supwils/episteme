@@ -84,7 +84,11 @@ export default async function PhysicsKnowledgeArticlePage({ params }: Props) {
           )}
         </header>
 
-        <MarkdownRenderer content={article.content} accentColor={ACCENT} />
+        <MarkdownRenderer
+          domain="universe-physics"
+          content={article.content}
+          accentColor={ACCENT}
+        />
       </article>
 
       <footer className="border-border-subtle mt-12 border-t pt-6">

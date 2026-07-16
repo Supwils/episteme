@@ -88,6 +88,12 @@ export const ECONOMICS_KB_DATA = [
     category: "货币政策",
   },
   {
+    slug: "macro-diagnostics-matrix-guide",
+    title: "宏观诊断矩阵读图手册",
+    titleEn: "How to Read a Macro Diagnostics Matrix",
+    category: "宏观经济学",
+  },
+  {
     slug: "market-microstructure",
     title: "市场微观结构：做市商、高频交易与价格发现的内部机制",
     titleEn:

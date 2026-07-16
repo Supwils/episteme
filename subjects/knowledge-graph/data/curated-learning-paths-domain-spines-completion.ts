@@ -1,0 +1,270 @@
+import type { CuratedLearningPath } from "./curated-learning-paths";
+
+export const COMPLETION_DOMAIN_SPINE_PATHS: readonly CuratedLearningPath[] = [
+  {
+    id: "medicine-health-priority-spine",
+    scope: "domain-spine",
+    title: "从疾病负担到公平卫生组合",
+    question: "有限卫生预算怎样在效果、公平与可实施性之间作出可复核选择？",
+    steps: [
+      {
+        nodeId: "medicine:smallpox-eradication",
+        level: 1,
+        evidenceMode: "observation",
+        transition: "从天花根除观察预防项目怎样把集体资源转化为可见健康结果。",
+      },
+      {
+        nodeId: "medicine:burden-of-disease-daly-qaly",
+        level: 2,
+        evidenceMode: "formal",
+        transition: "疾病负担尺度把早逝与带病生存变成可比较、但仍需价值判断的指标。",
+      },
+      {
+        nodeId: "medicine:health-systems-universal-health-coverage",
+        level: 3,
+        evidenceMode: "comparative",
+        transition: "卫生系统比较人口覆盖、服务可及与财务保护，界定组合必须面对的制度约束。",
+      },
+      {
+        nodeId: "medicine:health-economic-evaluation-priority-setting",
+        level: 4,
+        evidenceMode: "synthesis",
+        transition: "经济评价同时检查增量效果、机会成本、预算影响、公平与实施能力。",
+      },
+      {
+        nodeId: "medicine:fair-health-priority-setting",
+        level: 5,
+        evidenceMode: "synthesis",
+        transition: "研究前沿要求把不确定性、分配价值、公众参与和问责程序汇成可修订的决策。",
+      },
+    ],
+  },
+  {
+    id: "cosmology-compact-spacetime-spine",
+    scope: "domain-spine",
+    title: "从黑洞想象到量子视界",
+    question: "看不见的致密天体，怎样被测量并把我们带到量子时空问题？",
+    steps: [
+      {
+        nodeId: "cosmology:black-holes",
+        level: 1,
+        evidenceMode: "observation",
+        transition: "从光无法逃出的直观问题辨认事件视界与引力坍缩。",
+      },
+      {
+        nodeId: "cosmology:中子星与脉冲星",
+        level: 2,
+        evidenceMode: "comparative",
+        transition: "比较白矮星、中子星与黑洞，理解质量怎样决定恒星残骸。",
+      },
+      {
+        nodeId: "cosmology:引力波天文学",
+        level: 3,
+        evidenceMode: "experimental",
+        transition: "干涉仪把致密天体并合产生的时空扰动变成可检验信号。",
+      },
+      {
+        nodeId: "cosmology:引力透镜",
+        level: 4,
+        evidenceMode: "observation",
+        transition: "透镜统计以光路弯曲重建不可见质量和时空几何。",
+      },
+      {
+        nodeId: "cosmology:黑洞热力学与霍金辐射",
+        level: 5,
+        evidenceMode: "synthesis",
+        transition: "黑洞温度、熵与信息悖论迫使相对论、量子论和热力学共同解释。",
+      },
+    ],
+  },
+  {
+    id: "chemistry-green-hydrogen-spine",
+    scope: "domain-spine",
+    title: "从一杯水到绿氢系统",
+    question: "水分子怎样经过电子转移、工程放大与生命周期核算成为能源方案？",
+    steps: [
+      {
+        nodeId: "chemistry:water",
+        level: 1,
+        evidenceMode: "observation",
+        transition: "从水的相变、溶解和导电现象建立分子与物质直觉。",
+      },
+      {
+        nodeId: "chemistry:redox-reactions",
+        level: 2,
+        evidenceMode: "formal",
+        transition: "氧化还原用电子转移和氧化态记账解释能量变化。",
+      },
+      {
+        nodeId: "chemistry:electrolysis",
+        level: 3,
+        evidenceMode: "experimental",
+        transition: "电解实验把电势、反应速率与水分解产物联系起来。",
+      },
+      {
+        nodeId: "chemistry:process-scale-up",
+        level: 4,
+        evidenceMode: "simulation",
+        transition: "工业放大同时处理传热、传质、材料衰减、安全与操作窗口。",
+      },
+      {
+        nodeId: "chemistry:green-hydrogen",
+        level: 5,
+        evidenceMode: "synthesis",
+        transition: "绿氢判断必须综合电源、催化、储运、终端用途和全生命周期排放。",
+      },
+    ],
+  },
+  {
+    id: "earth-science-earthquake-spine",
+    scope: "domain-spine",
+    title: "从一次震动到概率预警",
+    question: "人类怎样从地震灾难走到测量地壳运动，并诚实表达预测边界？",
+    steps: [
+      {
+        nodeId: "earth-science:lisbon-1755",
+        level: 1,
+        evidenceMode: "observation",
+        transition: "从里斯本地震的摇晃、海啸和破坏提出地球为何突然释放能量。",
+      },
+      {
+        nodeId: "earth-science:earth-interior",
+        level: 2,
+        evidenceMode: "interpretation",
+        transition: "地震波让地壳、地幔与地核成为可由间接证据推断的结构。",
+      },
+      {
+        nodeId: "earth-science:earthquakes",
+        level: 3,
+        evidenceMode: "formal",
+        transition: "断层摩擦、弹性回跳和震级模型解释能量积累与释放。",
+      },
+      {
+        nodeId: "earth-science:geodesy-and-geoid",
+        level: 4,
+        evidenceMode: "observation",
+        transition: "GNSS 与 InSAR 把板块运动和震间形变测到毫米尺度。",
+      },
+      {
+        nodeId: "earth-science:earthquake-forecasting",
+        level: 5,
+        evidenceMode: "synthesis",
+        transition: "预测前沿综合目录、形变、概率验证与预警治理，并区分不能承诺的确定性。",
+      },
+    ],
+  },
+  {
+    id: "psychology-reliable-evidence-spine",
+    scope: "domain-spine",
+    title: "从记忆观察到可靠证据",
+    question: "一个心理现象怎样经过测量、效应量、重复检验与证据综合变得可信？",
+    steps: [
+      {
+        nodeId: "psychology:william-james",
+        level: 1,
+        evidenceMode: "observation",
+        transition: "从日常意识、注意和记忆经验形成可以研究的心理问题。",
+      },
+      {
+        nodeId: "psychology:memory-systems",
+        level: 2,
+        evidenceMode: "interpretation",
+        transition: "记忆系统区分工作、情景、语义和程序记忆，建立可测构念。",
+      },
+      {
+        nodeId: "psychology:effect-size-and-power",
+        level: 3,
+        evidenceMode: "formal",
+        transition: "效应量与统计功效区分结果有多大、估计多精确和研究是否看得见它。",
+      },
+      {
+        nodeId: "psychology:replication-crisis",
+        level: 4,
+        evidenceMode: "experimental",
+        transition: "直接重复与多实验室研究检查发现能否跨样本和程序再现。",
+      },
+      {
+        nodeId: "psychology:meta-analysis-evidence-synthesis",
+        level: 5,
+        evidenceMode: "synthesis",
+        transition: "元分析综合异质性、偏倚、研究质量与不确定性，而不是只计算一个平均数。",
+      },
+    ],
+  },
+  {
+    id: "history-global-evidence-spine",
+    scope: "domain-spine",
+    title: "从洞窟痕迹到去殖民化",
+    question: "历史学怎样从一件遗存逐步重建生计转型、传播网络、强制体系与全球秩序？",
+    steps: [
+      {
+        nodeId: "history:event-洞窟壁画",
+        level: 1,
+        evidenceMode: "observation",
+        transition: "从一幅壁画学习区分遗存本身、年代判断与我们赋予它的解释。",
+      },
+      {
+        nodeId: "history:agricultural-revolution",
+        level: 2,
+        evidenceMode: "comparative",
+        transition: "跨地区比较遗址、种子、骨骼和定居证据，重建多中心农业转型。",
+      },
+      {
+        nodeId: "history:paper-transmission",
+        level: 3,
+        evidenceMode: "interpretation",
+        transition: "纸的西传把单点发明改写为跨地区传播、改造与制度吸收过程。",
+      },
+      {
+        nodeId: "history:atlantic-slave-trade",
+        level: 4,
+        evidenceMode: "comparative",
+        transition: "航次数据库、账簿和人口材料把分散记录连接为强制迁移的全球系统。",
+      },
+      {
+        nodeId: "history:decolonization-wave",
+        level: 5,
+        evidenceMode: "synthesis",
+        transition: "去殖民化综合地方行动、帝国退却、冷战干预、国家建设与持续经济依附。",
+      },
+    ],
+  },
+  {
+    id: "linguistics-multilingual-ai-spine",
+    scope: "domain-spine",
+    title: "从词句结构到多语人工智能",
+    question: "有限单位怎样组合成语言，机器又怎样公平地处理不同语言？",
+    steps: [
+      {
+        nodeId: "linguistics:words-and-sentences",
+        level: 1,
+        evidenceMode: "comparative",
+        transition: "从熟悉的词和句子发现语言不是词语排队，而是单位之间的层级组合。",
+      },
+      {
+        nodeId: "linguistics:syntax",
+        level: 2,
+        evidenceMode: "formal",
+        transition: "句法用成分、依存和论元结构提出可检验的组合模型。",
+      },
+      {
+        nodeId: "linguistics:linguistic-typology",
+        level: 3,
+        evidenceMode: "comparative",
+        transition: "类型学把单一语言的结构放进跨语言样本，并控制系谱、地区和抽样偏差。",
+      },
+      {
+        nodeId: "linguistics:computational-linguistics",
+        level: 4,
+        evidenceMode: "formal",
+        transition: "计算语言学把结构表示、训练任务和评估标准转化为可执行模型。",
+      },
+      {
+        nodeId: "linguistics:multilingual-ai",
+        level: 5,
+        evidenceMode: "synthesis",
+        transition: "多语人工智能综合语料覆盖、跨语迁移、基准偏差、文字基础设施与社区治理。",
+      },
+    ],
+  },
+];

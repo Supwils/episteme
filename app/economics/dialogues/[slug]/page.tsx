@@ -131,7 +131,7 @@ export default async function DialogueDetailPage({
         </>
       }
     >
-      <MarkdownRenderer content={dialogue.content} accentColor="#61afef" />
+      <MarkdownRenderer domain="economics" content={dialogue.content} accentColor="#61afef" />
     </ArticleLayout>
   );
 }

@@ -62,7 +62,7 @@ export default async function CaseStudyDetailPage({
       next={next ? { href: `/economics/case-studies/${next.slug}`, title: next.title } : null}
       sidebar={<TableOfContents accentColor="#e8b84a" />}
     >
-      <MarkdownRenderer content={cs.content} accentColor="#e8b84a" />
+      <MarkdownRenderer domain="economics" content={cs.content} accentColor="#e8b84a" />
     </ArticleLayout>
   );
 }

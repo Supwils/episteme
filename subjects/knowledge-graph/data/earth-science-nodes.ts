@@ -1,4 +1,8 @@
 import type { GraphNode, GraphEdge } from "./types";
+import {
+  EARTH_SCIENCE_COVERAGE_EDGES,
+  EARTH_SCIENCE_COVERAGE_NODES,
+} from "./earth-science-coverage";
 
 const n = (
   slug: string,
@@ -239,6 +243,7 @@ export const EARTH_SCIENCE_NODES: GraphNode[] = [
     "苏门答腊 9.1 级地震引发史上最致命海啸之一。",
     ["海啸", "苏门答腊"]
   ),
+  ...EARTH_SCIENCE_COVERAGE_NODES,
 ];
 
 const e = (from: string, to: string, label: string): GraphEdge => ({
@@ -307,4 +312,5 @@ export const EARTH_SCIENCE_EDGES: GraphEdge[] = [
     type: "domain-link",
     label: "地球的内部",
   },
+  ...EARTH_SCIENCE_COVERAGE_EDGES,
 ];

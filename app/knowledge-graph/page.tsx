@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { KnowledgeGraphClient } from "./KnowledgeGraphClient";
 import "./globals.css";
 
@@ -8,5 +9,19 @@ export const metadata: Metadata = {
 };
 
 export default function KnowledgeGraphPage() {
-  return <KnowledgeGraphClient />;
+  return (
+    <Suspense
+      fallback={
+        <div
+          className="flex h-screen w-full items-center justify-center bg-[#08080f] text-sm text-white/45"
+          role="status"
+          aria-live="polite"
+        >
+          正在加载知识图谱…
+        </div>
+      }
+    >
+      <KnowledgeGraphClient />
+    </Suspense>
+  );
 }

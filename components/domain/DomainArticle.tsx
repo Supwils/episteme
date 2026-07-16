@@ -1,14 +1,12 @@
 import { notFound } from "next/navigation";
-import type { ComponentType } from "react";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import { createKnowledgeSection } from "@/lib/knowledge-domain";
 import { createFrontier } from "@/lib/frontier";
 import { getDomainConfig, getSectionConfig } from "@/lib/new-domains";
 import { ArticleLayout } from "@/components/ArticleLayout";
 import { TableOfContents } from "@/components/TableOfContents";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
-import { MoleculeViewer } from "@/components/molecule/MoleculeViewer";
+import { DomainArticleExtras } from "@/components/domain/DomainArticleExtras";
 import Breadcrumb from "@/components/Breadcrumb";
 import RelatedContent from "@/components/RelatedContent";
 import type { Domain } from "@/lib/cross-domain-refs";
@@ -17,41 +15,6 @@ import { serializeJsonLd, createArticleJsonLd } from "@/lib/jsonld";
 import { bibliographyToJsonLd } from "@/lib/citations";
 import { getNarration } from "@/lib/narration";
 import { NarrationButton } from "@/components/narration/NarrationButton";
-
-// `interactive: <id>` in an article's frontmatter renders a matching explorer
-// inline. Lazy-loaded so each interactive ships only on the pages that use it.
-const INTERACTIVES: Record<string, ComponentType> = {
-  "plate-boundaries": dynamic(() =>
-    import("@/components/earth-science/PlateBoundaries").then((m) => m.PlateBoundaries)
-  ),
-  "political-compass": dynamic(() =>
-    import("@/components/political-science/PoliticalCompass").then((m) => m.PoliticalCompass)
-  ),
-  "em-spectrum": dynamic(() =>
-    import("@/components/diagrams/ElectromagneticSpectrum").then((m) => m.ElectromagneticSpectrum)
-  ),
-  "reaction-energy": dynamic(() =>
-    import("@/components/diagrams/ReactionEnergyProfile").then((m) => m.ReactionEnergyProfile)
-  ),
-  "sorting-visualizer": dynamic(() =>
-    import("@/components/computer-science/SortingVisualizer").then((m) => m.SortingVisualizer)
-  ),
-  "complexity-growth": dynamic(() =>
-    import("@/components/computer-science/ComplexityChart").then((m) => m.ComplexityChart)
-  ),
-  "periodic-table": dynamic(() =>
-    import("@/components/chemistry/PeriodicTable").then((m) => m.PeriodicTable)
-  ),
-  "geologic-time-scale": dynamic(() =>
-    import("@/components/earth-science/GeologicTimeScale").then((m) => m.GeologicTimeScale)
-  ),
-  "epidemic-curve": dynamic(() =>
-    import("@/components/medicine/EpidemicCurve").then((m) => m.EpidemicCurve)
-  ),
-  "graph-traversal": dynamic(() =>
-    import("@/components/computer-science/GraphTraversal").then((m) => m.GraphTraversal)
-  ),
-};
 
 type RelatedLink = { slug: string; href: string; title: string };
 
@@ -218,16 +181,15 @@ export function DomainArticle({
             accent={accent}
           />
         )}
-        <MarkdownRenderer content={article.content} accentColor={accent} />
-        {article.molecule && (
-          <MoleculeViewer pdbId={article.molecule} title={article.title} accent={accent} />
-        )}
-        {article.interactive &&
-          INTERACTIVES[article.interactive] &&
-          (() => {
-            const Interactive = INTERACTIVES[article.interactive]!;
-            return <Interactive />;
-          })()}
+        <MarkdownRenderer content={article.content} accentColor={accent} domain={domain} />
+        {article.molecule || article.interactive ? (
+          <DomainArticleExtras
+            accent={accent}
+            interactive={article.interactive}
+            molecule={article.molecule}
+            title={article.title}
+          />
+        ) : null}
         <RelatedContent slug={slug} domain={domain as Domain} entityId={slug} />
       </ArticleLayout>
     </>

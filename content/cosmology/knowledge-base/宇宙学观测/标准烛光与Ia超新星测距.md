@@ -11,7 +11,7 @@ status: published
 
 ## 概述
 
-1998年，两个独立的观测团队——超新星宇宙学项目（Supernova Cosmology Project，Perlmutter 等）和高红移超新星搜索组（High-z Supernova Search Team，Schmidt 和 Riess 等）——几乎同时宣布，通过测量高红移（$z \sim 0.5$）的 Ia 型超新星距离，发现宇宙膨胀正在**加速**。这一发现颠覆了此前认为宇宙膨胀在减速的预期，暗示宇宙中存在一种未知的"**暗能量**"（dark energy）。
+1998年，两个独立的观测团队——超新星宇宙学项目（Supernova Cosmology Project，Perlmutter 等）和高红移超新星搜索组（High-z Supernova Search Team，Schmidt 和 Riess 等）——几乎同时宣布，通过测量高红移（$z \sim 0.5$）的 Ia 型超新星距离，发现宇宙膨胀正在**加速**。这一发现颠覆了此前认为宇宙膨胀在减速的预期，暗示宇宙中存在一种未知的"**[[暗能量与状态方程|暗能量]]**"（dark energy）。
 
 三位主导者 Saul Perlmutter、Brian Schmidt 和 Adam Riess 因此获得2011年诺贝尔物理学奖。这一发现的核心工具——经过校准的 Ia 型超新星——是迄今最精确的宇宙学距离指示器之一。
 
@@ -19,13 +19,13 @@ status: published
 
 ## 什么是 Ia 型超新星？
 
-Ia 型超新星是**热核超新星**（thermonuclear supernova），其爆炸源于白矮星（carbon-oxygen white dwarf，CO WD）吸积伴星物质（或双白矮星并合），当白矮星质量接近**钱德拉塞卡极限**（Chandrasekhar limit，约 $1.44 M_\odot$）时，中心碳核聚变被引发，在毫秒级时间内摧毁整个白矮星：
+Ia 型超新星是**热核超新星**（thermonuclear supernova），其爆炸源于[[white-dwarfs|白矮星]]（carbon-oxygen white dwarf，CO WD）吸积伴星物质（或双白矮星并合），当白矮星质量接近**钱德拉塞卡极限**（Chandrasekhar limit，约 $1.44 M_\odot$）时，中心碳核聚变被引发，在毫秒级时间内摧毁整个白矮星：
 
 $$^{12}\mathrm{C} + ^{12}\mathrm{C} \to ^{24}\mathrm{Mg} + \gamma, \quad ^{24}\mathrm{Mg} \to \mathrm{Si, S, Ar, Ca, Fe, Ni}$$
 
 爆炸核合成产生约 $0.4$–$0.8 M_\odot$ 的 $^{56}$Ni，其衰变链（$^{56}$Ni $\to ^{56}$Co $\to ^{56}$Fe，半衰期分别为 6.1 天和 77.3 天）为光变曲线提供能量。
 
-Ia 型超新星的光谱特征是没有氢（H）发射线，但有硅（Si II 6150 Å）等中等质量元素的吸收线——这与核坍缩超新星（II、Ib、Ic 型）区分开来。
+Ia 型超新星的光谱特征是没有氢（H）发射线，但有硅（Si II 6150 Å）等中等质量元素的吸收线——这与[[core-collapse-supernovae|核坍缩超新星]]（II、Ib、Ic 型）区分开来。
 
 ---
 
@@ -79,7 +79,7 @@ Perlmutter et al.（1999，_ApJ_ 517，565，42 个高红移超新星）和 Ries
 
 ### 双简并前身星（DD，Double Degenerate）
 
-两个 CO 白矮星因引力波辐射减少轨道角动量，最终并合。并合后的质量超过钱德拉塞卡极限，触发核爆炸。2010年代以来 DD 图景得到更多观测支持（如 D6 型超新星后星场——爆炸后甩出的高速伴白矮星，Shen et al. 2018，_ApJ_ 865，L15）。
+两个 CO 白矮星因[[引力波]]辐射减少轨道角动量，最终并合。并合后的质量超过钱德拉塞卡极限，触发核爆炸。2010年代以来 DD 图景得到更多观测支持（如 D6 型超新星后星场——爆炸后甩出的高速伴白矮星，Shen et al. 2018，_ApJ_ 865，L15）。
 
 **次钱德拉塞卡质量爆炸**：有理论认为，双简并系统中轻微较小的白矮星在并合前被撕裂，通过"引燃壳"机制（double-detonation）使主白矮星在低于钱德拉塞卡质量时爆炸，这也可解释一部分低光度 Ia 超新星。
 

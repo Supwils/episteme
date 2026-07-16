@@ -99,6 +99,20 @@ export const DOMAIN_META: Record<
     border: "border-orange-500/30",
     dot: "bg-orange-400",
   },
+  sociology: {
+    label: "社会学",
+    color: "text-lime-400",
+    bg: "bg-lime-500/15",
+    border: "border-lime-500/30",
+    dot: "bg-lime-400",
+  },
+  linguistics: {
+    label: "语言学",
+    color: "text-teal-400",
+    bg: "bg-teal-500/15",
+    border: "border-teal-500/30",
+    dot: "bg-teal-400",
+  },
 };
 
 export const NODE_TYPE_LABEL: Record<GraphNodeType, string> = {
@@ -147,6 +161,8 @@ export const DOMAIN_ACCENT_GRADIENT: Record<Domain, string> = {
   "earth-science": "linear-gradient(90deg, #4f9d76 0%, #6fbf96 100%)",
   medicine: "linear-gradient(90deg, #d9544d 0%, #e87a72 100%)",
   chemistry: "linear-gradient(90deg, #e08a3c 0%, #f0a85a 100%)",
+  sociology: "linear-gradient(90deg, #7a8f5a 0%, #9db36f 100%)",
+  linguistics: "linear-gradient(90deg, #3f8f8a 0%, #64b4ae 100%)",
 };
 
 export function resolveNodeUrl(node: GraphNode): string | null {

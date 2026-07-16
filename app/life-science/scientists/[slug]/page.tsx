@@ -177,7 +177,11 @@ export default async function ScientistDetailPage({ params }: Props) {
 
           {articleBody && (
             <FadeInSection className="mb-12">
-              <MarkdownRenderer content={articleBody} accentColor={supp.accent} />
+              <MarkdownRenderer
+                domain="life-science"
+                content={articleBody}
+                accentColor={supp.accent}
+              />
             </FadeInSection>
           )}
 

@@ -4,7 +4,7 @@ import { useEffect, useCallback } from "react";
 import type { GraphNode, GraphEdge } from "../data/types";
 import type { GraphRenderer, RenderNode, HighlightState, RenderConfig } from "@/lib/graph-engine";
 import { GraphRenderer as GraphRendererClass } from "@/lib/graph-engine";
-import type { ForceLayout } from "@/lib/graph-engine";
+import type { ForceLayout, LayoutConfig } from "@/lib/graph-engine";
 import { animateEntrance, animateFocus, animateNodePositions } from "@/lib/graph-engine";
 import {
   buildLayoutNodes,
@@ -47,6 +47,8 @@ export function useGraphRenderer(
   nodes: GraphNode[],
   edges: GraphEdge[],
   initialFocus: string | undefined,
+  positionOverride: Map<string, { x: number; y: number }> | undefined,
+  layoutConfig: Partial<LayoutConfig> | undefined,
   onNodeClick: ((node: GraphNode) => void) | undefined,
   onNodeHover: ((node: GraphNode | null) => void) | undefined,
   deps: RendererDeps
@@ -164,10 +166,12 @@ export function useGraphRenderer(
     setIsLoading(true);
 
     let cancelled = false;
+    let resizeObserver: ResizeObserver | null = null;
+    let resizeFrame = 0;
 
     const initRenderer = (positions: Map<string, { x: number; y: number }>) => {
       if (cancelled) return;
-      const finalPositions = positions;
+      const finalPositions = positionOverride ?? positions;
 
       const renderer = new GraphRendererClass(canvas, renderConfig);
       rendererRef.current = renderer;
@@ -229,6 +233,60 @@ export function useGraphRenderer(
           }
         },
       });
+
+      const fitGraphToView = () => {
+        const container = containerRef.current;
+        if (!container) return;
+
+        let minX = Infinity;
+        let minY = Infinity;
+        let maxX = -Infinity;
+        let maxY = -Infinity;
+        for (const pos of finalPositions.values()) {
+          minX = Math.min(minX, pos.x);
+          minY = Math.min(minY, pos.y);
+          maxX = Math.max(maxX, pos.x);
+          maxY = Math.max(maxY, pos.y);
+        }
+        if (!Number.isFinite(minX)) return;
+
+        const width = container.clientWidth;
+        const height = container.clientHeight;
+        const isSmallScreen = width < 640;
+        const paddingLeft = isSmallScreen ? 72 : 80;
+        const paddingRight = isSmallScreen ? 72 : 80;
+        const paddingTop = isSmallScreen ? 60 : 80;
+        const paddingBottom = isSmallScreen ? 150 : 80;
+        const availableWidth = width - paddingLeft - paddingRight;
+        const availableHeight = height - paddingTop - paddingBottom;
+        const scale = Math.min(
+          availableWidth / Math.max(maxX - minX, 1),
+          availableHeight / Math.max(maxY - minY, 1),
+          1.2
+        );
+        const centerX = (minX + maxX) / 2;
+        const centerY = (minY + maxY) / 2;
+        const offsetX = paddingLeft + availableWidth / 2 - centerX * scale;
+        const offsetY = paddingTop + availableHeight / 2 - centerY * scale;
+        renderer.setTransform(scale, offsetX, offsetY);
+        setZoom(scale);
+        setOffsetX(offsetX);
+        setOffsetY(offsetY);
+      };
+
+      // Deterministic layouts already know their full bounds. Fit them before
+      // entrance animation so the staged map never flashes or settles off-screen.
+      if (positionOverride && !initialFocus) {
+        fitGraphToView();
+        const container = containerRef.current;
+        if (container && typeof ResizeObserver !== "undefined") {
+          resizeObserver = new ResizeObserver(() => {
+            cancelAnimationFrame(resizeFrame);
+            resizeFrame = requestAnimationFrame(fitGraphToView);
+          });
+          resizeObserver.observe(container);
+        }
+      }
 
       const nodesByDomain = new Map<string, string[]>();
       for (const node of nodes) {
@@ -308,39 +366,7 @@ export function useGraphRenderer(
               }
             }
           } else {
-            // Auto-fit the whole graph into view on first load so it opens
-            // centered instead of clustered against the top-left corner.
-            const container = containerRef.current;
-            if (container) {
-              let minX = Infinity,
-                minY = Infinity,
-                maxX = -Infinity,
-                maxY = -Infinity;
-              for (const pos of finalPositions.values()) {
-                if (pos.x < minX) minX = pos.x;
-                if (pos.y < minY) minY = pos.y;
-                if (pos.x > maxX) maxX = pos.x;
-                if (pos.y > maxY) maxY = pos.y;
-              }
-              if (Number.isFinite(minX)) {
-                const w = container.clientWidth;
-                const h = container.clientHeight;
-                const pad = 80;
-                const scale = Math.min(
-                  (w - pad * 2) / Math.max(maxX - minX, 1),
-                  (h - pad * 2) / Math.max(maxY - minY, 1),
-                  1.2
-                );
-                const cx = (minX + maxX) / 2;
-                const cy = (minY + maxY) / 2;
-                const offsetX = w / 2 - cx * scale;
-                const offsetY = h / 2 - cy * scale;
-                renderer.setTransform(scale, offsetX, offsetY);
-                setZoom(scale);
-                setOffsetX(offsetX);
-                setOffsetY(offsetY);
-              }
-            }
+            fitGraphToView();
           }
         }
       );
@@ -349,14 +375,16 @@ export function useGraphRenderer(
     const runSync = async () => {
       const { ForceLayout: ForceLayoutClass } = await import("@/lib/graph-engine");
       if (cancelled) return;
-      const layout = new ForceLayoutClass(layoutNodes, layoutEdges);
+      const layout = new ForceLayoutClass(layoutNodes, layoutEdges, layoutConfig);
       layoutRef.current = layout;
       layout.runToStability();
       initRenderer(layout.getPositions());
     };
 
     let worker: Worker | null = null;
-    if (typeof Worker !== "undefined" && !reducedMotion) {
+    if (positionOverride) {
+      initRenderer(positionOverride);
+    } else if (typeof Worker !== "undefined" && !reducedMotion) {
       try {
         worker = new Worker(new URL("../engine/force-layout.worker.ts", import.meta.url));
         worker.onmessage = (
@@ -378,6 +406,7 @@ export function useGraphRenderer(
           type: "run",
           nodes: layoutNodes,
           edges: layoutEdges,
+          config: layoutConfig,
         });
       } catch {
         runSync();
@@ -390,13 +419,15 @@ export function useGraphRenderer(
     return () => {
       cancelAnimationFrame(currentAnimFrame);
       cancelAnimRef.current?.();
+      cancelAnimationFrame(resizeFrame);
+      resizeObserver?.disconnect();
       worker?.terminate();
       rendererRef.current?.destroy();
       rendererRef.current = null;
       layoutRef.current = null;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [nodes, edges]);
+  }, [nodes, edges, positionOverride, layoutConfig]);
 
   return { pushRenderData };
 }

@@ -179,7 +179,7 @@ export default async function LifeScienceDialoguePage({
           </>
         }
       >
-        <MarkdownRenderer content={dialogue.body} accentColor={ACCENT} />
+        <MarkdownRenderer domain="life-science" content={dialogue.body} accentColor={ACCENT} />
       </ArticleLayout>
     </>
   );

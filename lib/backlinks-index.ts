@@ -26,6 +26,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "化学平衡",
     },
     {
+      url: "/chemistry/concepts/chemical-thermodynamics",
+      title: "化学热力学",
+    },
+    {
       url: "/chemistry/concepts/buffer-systems",
       title: "缓冲体系",
     },
@@ -82,6 +86,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/mass-spectrometry",
       title: "质谱法",
+    },
+  ],
+  "/chemistry/concepts/bioenergetics-and-metabolism": [
+    {
+      url: "/chemistry/concepts/cofactors-and-coenzymes",
+      title: "辅酶与辅因子",
+    },
+    {
+      url: "/chemistry/reactions/photosynthesis",
+      title: "光合作用",
     },
   ],
   "/chemistry/concepts/bonding-theory": [
@@ -166,6 +180,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "化学分析与滴定",
     },
     {
+      url: "/chemistry/concepts/chemical-thermodynamics",
+      title: "化学热力学",
+    },
+    {
       url: "/chemistry/concepts/buffer-systems",
       title: "缓冲体系",
     },
@@ -190,6 +208,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "酸与碱",
     },
   ],
+  "/chemistry/concepts/chemical-thermodynamics": [
+    {
+      url: "/chemistry/reactions/photosynthesis",
+      title: "光合作用",
+    },
+    {
+      url: "/chemistry/reactions/enzymatic-catalysis",
+      title: "酶催化",
+    },
+    {
+      url: "/chemistry/concepts/gas-laws",
+      title: "气体定律与理想气体",
+    },
+    {
+      url: "/chemistry/concepts/bioenergetics-and-metabolism",
+      title: "生物能学与代谢",
+    },
+  ],
   "/chemistry/concepts/chirality": [
     {
       url: "/chemistry/substances/proteins-chemistry",
@@ -198,6 +234,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/pharmacology",
       title: "药理学基础",
+    },
+    {
+      url: "/chemistry/concepts/medicinal-chemistry",
+      title: "药物化学",
     },
     {
       url: "/medicine/concepts/drug-development",
@@ -224,6 +264,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/chemistry/concepts/coordination-chemistry": [
     {
+      url: "/chemistry/concepts/cofactors-and-coenzymes",
+      title: "辅酶与辅因子",
+    },
+    {
+      url: "/chemistry/reactions/photosynthesis",
+      title: "光合作用",
+    },
+    {
       url: "/chemistry/figures/robert-woodward",
       title: "罗伯特·伍德沃德",
     },
@@ -240,6 +288,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/reaction-kinetics",
       title: "反应速率",
+    },
+    {
+      url: "/chemistry/concepts/chemical-thermodynamics",
+      title: "化学热力学",
     },
     {
       url: "/earth-science/concepts/mineral-resources-and-critical-metals",
@@ -292,6 +344,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "同分异构",
     },
     {
+      url: "/chemistry/concepts/medicinal-chemistry",
+      title: "药物化学",
+    },
+    {
       url: "/chemistry/concepts/reaction-mechanisms",
       title: "有机反应机理",
     },
@@ -314,6 +370,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "核酸的化学",
     },
     {
+      url: "/chemistry/concepts/gas-laws",
+      title: "气体定律与理想气体",
+    },
+    {
       url: "/chemistry/concepts/solutions-and-solubility",
       title: "溶液与溶解度",
     },
@@ -324,6 +384,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/substances/carbohydrates-and-lipids",
       title: "糖类与脂质",
+    },
+    {
+      url: "/chemistry/concepts/medicinal-chemistry",
+      title: "药物化学",
     },
   ],
   "/chemistry/concepts/isomerism": [
@@ -386,6 +450,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "原子结构",
     },
   ],
+  "/chemistry/concepts/photochemistry": [
+    {
+      url: "/chemistry/reactions/photosynthesis",
+      title: "光合作用",
+    },
+  ],
   "/chemistry/concepts/reaction-kinetics": [
     {
       url: "/chemistry/concepts/electrochemistry",
@@ -398,6 +468,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/chemical-equilibrium",
       title: "化学平衡",
+    },
+    {
+      url: "/chemistry/concepts/chemical-thermodynamics",
+      title: "化学热力学",
+    },
+    {
+      url: "/chemistry/reactions/enzymatic-catalysis",
+      title: "酶催化",
+    },
+    {
+      url: "/chemistry/concepts/gas-laws",
+      title: "气体定律与理想气体",
     },
     {
       url: "/chemistry/concepts/thermochemistry",
@@ -436,6 +518,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "风化与成土",
     },
     {
+      url: "/chemistry/concepts/cofactors-and-coenzymes",
+      title: "辅酶与辅因子",
+    },
+    {
+      url: "/chemistry/reactions/photosynthesis",
+      title: "光合作用",
+    },
+    {
       url: "/chemistry/concepts/nuclear-chemistry",
       title: "核化学与放射化学",
     },
@@ -450,6 +540,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/species/deinococcus",
       title: "耐辐射球菌",
+    },
+    {
+      url: "/chemistry/concepts/bioenergetics-and-metabolism",
+      title: "生物能学与代谢",
     },
     {
       url: "/chemistry/concepts/acids-and-bases",
@@ -492,6 +586,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/buffer-systems",
       title: "缓冲体系",
+    },
+    {
+      url: "/chemistry/concepts/gas-laws",
+      title: "气体定律与理想气体",
     },
     {
       url: "/chemistry/concepts/mass-spectrometry",
@@ -920,6 +1018,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "酸碱中和",
     },
   ],
+  "/chemistry/reactions/enzymatic-catalysis": [
+    {
+      url: "/chemistry/concepts/cofactors-and-coenzymes",
+      title: "辅酶与辅因子",
+    },
+    {
+      url: "/chemistry/concepts/bioenergetics-and-metabolism",
+      title: "生物能学与代谢",
+    },
+  ],
   "/chemistry/reactions/fermentation": [
     {
       url: "/chemistry/reactions/catalysis-reaction",
@@ -978,6 +1086,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "药物研发与临床试验",
     },
   ],
+  "/chemistry/reactions/photosynthesis": [
+    {
+      url: "/earth-science/events/great-oxidation-event",
+      title: "大氧化事件",
+    },
+    {
+      url: "/chemistry/concepts/photochemistry",
+      title: "光化学",
+    },
+    {
+      url: "/earth-science/concepts/ocean-acidification",
+      title: "海洋酸化",
+    },
+    {
+      url: "/chemistry/concepts/coordination-chemistry",
+      title: "配位化学",
+    },
+    {
+      url: "/chemistry/concepts/bioenergetics-and-metabolism",
+      title: "生物能学与代谢",
+    },
+    {
+      url: "/earth-science/concepts/carbon-cycle",
+      title: "碳循环",
+    },
+  ],
   "/chemistry/reactions/polymerization": [
     {
       url: "/chemistry/concepts/polymer-chemistry",
@@ -1024,6 +1158,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/technologies/blood-transfusion",
       title: "输血",
+    },
+    {
+      url: "/medicine/concepts/nutrition-science",
+      title: "营养学",
     },
   ],
   "/chemistry/substances/carbon-allotropes": [
@@ -1128,6 +1266,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "稀有气体",
     },
   ],
+  "/chemistry/substances/nucleic-acids-chemistry": [
+    {
+      url: "/medicine/concepts/medical-genetics-and-genomics",
+      title: "医学遗传学与基因组医学",
+    },
+  ],
   "/chemistry/substances/polymers": [
     {
       url: "/chemistry/substances/water",
@@ -1144,6 +1288,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "班廷与贝斯特",
     },
     {
+      url: "/chemistry/concepts/cofactors-and-coenzymes",
+      title: "辅酶与辅因子",
+    },
+    {
       url: "/chemistry/substances/nucleic-acids-chemistry",
       title: "核酸的化学",
     },
@@ -1152,12 +1300,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "缓冲体系",
     },
     {
+      url: "/chemistry/reactions/enzymatic-catalysis",
+      title: "酶催化",
+    },
+    {
       url: "/medicine/concepts/immune-system",
       title: "免疫系统",
     },
     {
       url: "/chemistry/concepts/coordination-chemistry",
       title: "配位化学",
+    },
+    {
+      url: "/chemistry/concepts/bioenergetics-and-metabolism",
+      title: "生物能学与代谢",
+    },
+    {
+      url: "/chemistry/concepts/medicinal-chemistry",
+      title: "药物化学",
+    },
+    {
+      url: "/medicine/concepts/nutrition-science",
+      title: "营养学",
     },
   ],
   "/chemistry/substances/semiconductors-materials": [
@@ -3255,6 +3419,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/cosmology/knowledge-base/引力波天文学",
       title: "引力波天文学",
     },
+    {
+      url: "/cosmology/knowledge-base/中子星与脉冲星",
+      title: "中子星与脉冲星",
+    },
   ],
   "/cosmology/knowledge-base/cosmic-inflation": [
     {
@@ -3262,8 +3430,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "大爆炸理论",
     },
     {
+      url: "/cosmology/knowledge-base/宇宙学观测--大尺度结构形成",
+      title: "大尺度结构形成",
+    },
+    {
       url: "/cosmology/knowledge-base/多重宇宙假说",
       title: "多重宇宙假说",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--复合时期与最后散射面",
+      title: "复合时期与最后散射面",
     },
     {
       url: "/cosmology/frontier/cmb-inflation-tests",
@@ -3278,8 +3454,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "宇宙大尺度结构",
     },
     {
+      url: "/cosmology/knowledge-base/宇宙学基础--cosmic-thermal-history",
+      title: "宇宙的热历史",
+    },
+    {
       url: "/cosmology/knowledge-base/宇宙微波背景",
       title: "宇宙微波背景辐射",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--宇宙学原理与可观测宇宙",
+      title: "宇宙学原理与可观测宇宙",
     },
   ],
   "/cosmology/knowledge-base/stellar-evolution": [
@@ -3306,8 +3490,94 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/cosmology/knowledge-base/中子星与脉冲星": [
     {
+      url: "/cosmology/knowledge-base/恒星物理--white-dwarfs",
+      title: "白矮星",
+    },
+    {
+      url: "/cosmology/knowledge-base/致密天体--stellar-mass-black-holes",
+      title: "恒星级黑洞",
+    },
+    {
       url: "/cosmology/knowledge-base/快速射电暴",
       title: "快速射电暴",
+    },
+  ],
+  "/cosmology/knowledge-base/多信使天文学--binary-neutron-star-merger-kilonova": [
+    {
+      url: "/cosmology/knowledge-base/多信使天文学--multimessenger-astronomy-overview",
+      title: "多信使天文学",
+    },
+  ],
+  "/cosmology/knowledge-base/多信使天文学--event-horizon-telescope": [
+    {
+      url: "/cosmology/knowledge-base/致密天体--supermassive-black-holes",
+      title: "超大质量黑洞",
+    },
+    {
+      url: "/cosmology/knowledge-base/星系天文学--agn-and-quasars",
+      title: "活动星系核与类星体",
+    },
+    {
+      url: "/cosmology/knowledge-base/星系天文学--milky-way-structure",
+      title: "银河系结构",
+    },
+  ],
+  "/cosmology/knowledge-base/多信使天文学--gamma-ray-bursts": [
+    {
+      url: "/cosmology/knowledge-base/多信使天文学--multimessenger-astronomy-overview",
+      title: "多信使天文学",
+    },
+    {
+      url: "/cosmology/knowledge-base/恒星物理--core-collapse-supernovae",
+      title: "核心坍缩超新星",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙射线",
+      title: "宇宙射线",
+    },
+  ],
+  "/cosmology/knowledge-base/多信使天文学--gravitational-wave-detectors-ligo-lisa": [
+    {
+      url: "/cosmology/knowledge-base/致密天体--stellar-mass-black-holes",
+      title: "恒星级黑洞",
+    },
+  ],
+  "/cosmology/knowledge-base/多信使天文学--kilonova-r-process": [
+    {
+      url: "/cosmology/knowledge-base/中子星与脉冲星",
+      title: "中子星与脉冲星",
+    },
+  ],
+  "/cosmology/knowledge-base/多信使天文学--nanograv-pta-gw-background": [
+    {
+      url: "/cosmology/knowledge-base/致密天体--supermassive-black-holes",
+      title: "超大质量黑洞",
+    },
+  ],
+  "/cosmology/knowledge-base/多重宇宙假说": [
+    {
+      url: "/cosmology/knowledge-base/cosmic-inflation",
+      title: "宇宙暴胀",
+    },
+  ],
+  "/cosmology/knowledge-base/大爆炸理论": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--太初核合成",
+      title: "太初核合成",
+    },
+    {
+      url: "/cosmology/knowledge-base/cosmic-inflation",
+      title: "宇宙暴胀",
+    },
+  ],
+  "/cosmology/knowledge-base/天体生物学--habitable-zone": [
+    {
+      url: "/cosmology/knowledge-base/天体生物学--biosignatures",
+      title: "生物标志物",
+    },
+    {
+      url: "/cosmology/knowledge-base/系外行星探测",
+      title: "系外行星探测",
     },
   ],
   "/cosmology/knowledge-base/太阳系--planetary-moons": [
@@ -3338,10 +3608,230 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "温室效应",
     },
   ],
+  "/cosmology/knowledge-base/宇宙大尺度结构": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--暗物质候选粒子WIMP与轴子",
+      title: "暗物质候选粒子：WIMP 与轴子",
+    },
+    {
+      url: "/cosmology/knowledge-base/星系天文学--galaxy-clusters",
+      title: "星系团与超星系团",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙学前沿--21cm宇宙学与再电离": [
+    {
+      url: "/cosmology/knowledge-base/第一代恒星与宇宙黎明",
+      title: "第一代恒星与宇宙黎明",
+    },
+  ],
   "/cosmology/knowledge-base/宇宙学前沿--S8结构增长张力": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--哈勃张力",
+      title: "哈勃张力",
+    },
     {
       url: "/cosmology/knowledge-base/宇宙大尺度结构",
       title: "宇宙大尺度结构",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙学前沿--cosmic-neutrino-background": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--复合时期与最后散射面",
+      title: "复合时期与最后散射面",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--cosmic-thermal-history",
+      title: "宇宙的热历史",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙学前沿--modified-gravity-mond": [
+    {
+      url: "/cosmology/knowledge-base/星系天文学--dark-matter-halo",
+      title: "暗物质晕与星系旋转曲线",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙学前沿--primordial-black-holes": [
+    {
+      url: "/cosmology/knowledge-base/星系天文学--dark-matter-halo",
+      title: "暗物质晕与星系旋转曲线",
+    },
+    {
+      url: "/cosmology/knowledge-base/引力透镜",
+      title: "引力透镜",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙学前沿--标准汽笛与引力波宇宙学": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--哈勃张力",
+      title: "哈勃张力",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙学基础--共动距离与宇宙学红移": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--宇宙学原理与可观测宇宙",
+      title: "宇宙学原理与可观测宇宙",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙学基础--原初引力波与B模式": [
+    {
+      url: "/cosmology/knowledge-base/cosmic-inflation",
+      title: "宇宙暴胀",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙学基础--哈勃张力": [
+    {
+      url: "/cosmology/knowledge-base/星系天文学--galaxy-clusters",
+      title: "星系团与超星系团",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--宇宙距离阶梯",
+      title: "宇宙距离阶梯",
+    },
+    {
+      url: "/cosmology/knowledge-base/重子声学振荡",
+      title: "重子声学振荡",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙学基础--复合时期与最后散射面": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--宇宙再电离",
+      title: "宇宙再电离",
+    },
+    {
+      url: "/cosmology/knowledge-base/重子声学振荡",
+      title: "重子声学振荡",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙学基础--太初核合成": [
+    {
+      url: "/cosmology/knowledge-base/重子声学振荡",
+      title: "重子声学振荡",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙学基础--宇宙再电离": [
+    {
+      url: "/cosmology/knowledge-base/第一代恒星与宇宙黎明",
+      title: "第一代恒星与宇宙黎明",
+    },
+    {
+      url: "/cosmology/knowledge-base/星系天文学--agn-and-quasars",
+      title: "活动星系核与类星体",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙学基础--宇宙学常数问题": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--暗能量与状态方程",
+      title: "暗能量与状态方程",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙学基础--宇宙网与纤维状结构": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--大尺度结构形成",
+      title: "大尺度结构形成",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙学基础--宇宙黑暗时代": [
+    {
+      url: "/cosmology/knowledge-base/第一代恒星与宇宙黎明",
+      title: "第一代恒星与宇宙黎明",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--cosmic-thermal-history",
+      title: "宇宙的热历史",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--宇宙再电离",
+      title: "宇宙再电离",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙学基础--暗物质候选粒子WIMP与轴子": [
+    {
+      url: "/cosmology/knowledge-base/星系天文学--dark-matter-halo",
+      title: "暗物质晕与星系旋转曲线",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙学基础--暗能量与状态方程": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--标准烛光与Ia超新星测距",
+      title: "标准烛光与Ia型超新星测距",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--宇宙学原理与可观测宇宙",
+      title: "宇宙学原理与可观测宇宙",
+    },
+    {
+      url: "/cosmology/knowledge-base/恒星物理--type-ia-supernovae",
+      title: "Ia型超新星",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙学观测--宇宙距离阶梯": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--哈勃张力",
+      title: "哈勃张力",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙学观测--弱引力透镜与宇宙剪切": [
+    {
+      url: "/cosmology/knowledge-base/引力透镜",
+      title: "引力透镜",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙学观测--自适应光学": [
+    {
+      url: "/cosmology/knowledge-base/系外行星探测",
+      title: "系外行星探测",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙学观测--苏尼亚耶夫-泽尔多维奇效应": [
+    {
+      url: "/cosmology/knowledge-base/星系天文学--galaxy-clusters",
+      title: "星系团与超星系团",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙射线": [
+    {
+      url: "/cosmology/knowledge-base/恒星物理--core-collapse-supernovae",
+      title: "核心坍缩超新星",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙微波背景": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--大尺度结构形成",
+      title: "大尺度结构形成",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--复合时期与最后散射面",
+      title: "复合时期与最后散射面",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--哈勃张力",
+      title: "哈勃张力",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--太初核合成",
+      title: "太初核合成",
+    },
+    {
+      url: "/cosmology/knowledge-base/cosmic-inflation",
+      title: "宇宙暴胀",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--宇宙距离阶梯",
+      title: "宇宙距离阶梯",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙射线",
+      title: "宇宙射线",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--宇宙学原理与可观测宇宙",
+      title: "宇宙学原理与可观测宇宙",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙的最终命运": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--暗能量与状态方程",
+      title: "暗能量与状态方程",
     },
   ],
   "/cosmology/knowledge-base/引力波天文学": [
@@ -3350,10 +3840,326 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "恒星演化",
     },
   ],
+  "/cosmology/knowledge-base/引力透镜": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--暗物质候选粒子WIMP与轴子",
+      title: "暗物质候选粒子：WIMP 与轴子",
+    },
+    {
+      url: "/cosmology/knowledge-base/星系天文学--galaxy-clusters",
+      title: "星系团与超星系团",
+    },
+  ],
+  "/cosmology/knowledge-base/恒星核合成": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--太初核合成",
+      title: "太初核合成",
+    },
+  ],
+  "/cosmology/knowledge-base/恒星物理--cepheids-variable-stars": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--宇宙距离阶梯",
+      title: "宇宙距离阶梯",
+    },
+  ],
+  "/cosmology/knowledge-base/恒星物理--core-collapse-supernovae": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--标准烛光与Ia超新星测距",
+      title: "标准烛光与Ia型超新星测距",
+    },
+    {
+      url: "/cosmology/knowledge-base/第一代恒星与宇宙黎明",
+      title: "第一代恒星与宇宙黎明",
+    },
+    {
+      url: "/cosmology/knowledge-base/多信使天文学--multimessenger-astronomy-overview",
+      title: "多信使天文学",
+    },
+    {
+      url: "/cosmology/knowledge-base/中子星与脉冲星",
+      title: "中子星与脉冲星",
+    },
+    {
+      url: "/cosmology/knowledge-base/恒星物理--type-ia-supernovae",
+      title: "Ia型超新星",
+    },
+  ],
+  "/cosmology/knowledge-base/恒星物理--hertzsprung-russell-diagram": [
+    {
+      url: "/cosmology/knowledge-base/恒星物理--star-formation",
+      title: "恒星形成",
+    },
+    {
+      url: "/cosmology/knowledge-base/恒星物理--main-sequence-stars",
+      title: "主序星",
+    },
+  ],
+  "/cosmology/knowledge-base/恒星物理--main-sequence-stars": [
+    {
+      url: "/cosmology/knowledge-base/恒星物理--core-collapse-supernovae",
+      title: "核心坍缩超新星",
+    },
+    {
+      url: "/cosmology/knowledge-base/恒星物理--hertzsprung-russell-diagram",
+      title: "赫罗图",
+    },
+    {
+      url: "/cosmology/knowledge-base/恒星物理--star-formation",
+      title: "恒星形成",
+    },
+  ],
+  "/cosmology/knowledge-base/恒星物理--red-giants-agb": [
+    {
+      url: "/cosmology/knowledge-base/恒星物理--white-dwarfs",
+      title: "白矮星",
+    },
+    {
+      url: "/cosmology/knowledge-base/恒星物理--hertzsprung-russell-diagram",
+      title: "赫罗图",
+    },
+    {
+      url: "/cosmology/knowledge-base/恒星物理--main-sequence-stars",
+      title: "主序星",
+    },
+  ],
+  "/cosmology/knowledge-base/恒星物理--type-ia-supernovae": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--暗能量与状态方程",
+      title: "暗能量与状态方程",
+    },
+    {
+      url: "/cosmology/knowledge-base/恒星物理--white-dwarfs",
+      title: "白矮星",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--宇宙距离阶梯",
+      title: "宇宙距离阶梯",
+    },
+    {
+      url: "/cosmology/knowledge-base/重子声学振荡",
+      title: "重子声学振荡",
+    },
+  ],
+  "/cosmology/knowledge-base/恒星物理--white-dwarfs": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--标准烛光与Ia超新星测距",
+      title: "标准烛光与Ia型超新星测距",
+    },
+    {
+      url: "/cosmology/knowledge-base/恒星物理--hertzsprung-russell-diagram",
+      title: "赫罗图",
+    },
+    {
+      url: "/cosmology/knowledge-base/多信使天文学--gravitational-wave-detectors-ligo-lisa",
+      title: "引力波探测器LIGO与LISA",
+    },
+    {
+      url: "/cosmology/knowledge-base/恒星物理--main-sequence-stars",
+      title: "主序星",
+    },
+    {
+      url: "/cosmology/knowledge-base/恒星物理--type-ia-supernovae",
+      title: "Ia型超新星",
+    },
+  ],
+  "/cosmology/knowledge-base/星系天文学--dark-matter-halo": [
+    {
+      url: "/cosmology/knowledge-base/星系形成与演化",
+      title: "星系形成与演化",
+    },
+    {
+      url: "/cosmology/knowledge-base/星系天文学--milky-way-structure",
+      title: "银河系结构",
+    },
+  ],
+  "/cosmology/knowledge-base/星系天文学--galaxy-clusters": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--大尺度结构形成",
+      title: "大尺度结构形成",
+    },
+    {
+      url: "/cosmology/knowledge-base/星系天文学--agn-and-quasars",
+      title: "活动星系核与类星体",
+    },
+    {
+      url: "/cosmology/knowledge-base/星系形成与演化",
+      title: "星系形成与演化",
+    },
+  ],
+  "/cosmology/knowledge-base/星系天文学--milky-way-structure": [
+    {
+      url: "/cosmology/knowledge-base/恒星物理--star-formation",
+      title: "恒星形成",
+    },
+  ],
+  "/cosmology/knowledge-base/星际介质--星际介质与分子云": [
+    {
+      url: "/cosmology/knowledge-base/恒星物理--star-formation",
+      title: "恒星形成",
+    },
+  ],
+  "/cosmology/knowledge-base/星际介质--球状星团": [
+    {
+      url: "/cosmology/knowledge-base/恒星物理--hertzsprung-russell-diagram",
+      title: "赫罗图",
+    },
+    {
+      url: "/cosmology/knowledge-base/星系天文学--milky-way-structure",
+      title: "银河系结构",
+    },
+  ],
+  "/cosmology/knowledge-base/星际介质--行星状星云": [
+    {
+      url: "/cosmology/knowledge-base/恒星物理--white-dwarfs",
+      title: "白矮星",
+    },
+  ],
+  "/cosmology/knowledge-base/星际介质--褐矮星": [
+    {
+      url: "/cosmology/knowledge-base/恒星物理--main-sequence-stars",
+      title: "主序星",
+    },
+  ],
+  "/cosmology/knowledge-base/星际介质--超新星遗迹": [
+    {
+      url: "/cosmology/knowledge-base/恒星物理--core-collapse-supernovae",
+      title: "核心坍缩超新星",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙射线",
+      title: "宇宙射线",
+    },
+  ],
+  "/cosmology/knowledge-base/暗物质与暗能量": [
+    {
+      url: "/cosmology/knowledge-base/星系天文学--dark-matter-halo",
+      title: "暗物质晕与星系旋转曲线",
+    },
+    {
+      url: "/cosmology/knowledge-base/引力透镜",
+      title: "引力透镜",
+    },
+  ],
+  "/cosmology/knowledge-base/活动星系核与类星体": [
+    {
+      url: "/cosmology/knowledge-base/致密天体--supermassive-black-holes",
+      title: "超大质量黑洞",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--太初核合成",
+      title: "太初核合成",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙射线",
+      title: "宇宙射线",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--宇宙再电离",
+      title: "宇宙再电离",
+    },
+  ],
+  "/cosmology/knowledge-base/第一代恒星与宇宙黎明": [
+    {
+      url: "/cosmology/knowledge-base/致密天体--supermassive-black-holes",
+      title: "超大质量黑洞",
+    },
+    {
+      url: "/cosmology/knowledge-base/星系形成与演化",
+      title: "星系形成与演化",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--宇宙再电离",
+      title: "宇宙再电离",
+    },
+  ],
+  "/cosmology/knowledge-base/系外行星--SETI地外文明搜寻": [
+    {
+      url: "/cosmology/knowledge-base/天体生物学--biosignatures",
+      title: "生物标志物",
+    },
+  ],
+  "/cosmology/knowledge-base/系外行星--凌星法": [
+    {
+      url: "/cosmology/knowledge-base/系外行星探测",
+      title: "系外行星探测",
+    },
+  ],
+  "/cosmology/knowledge-base/系外行星--微引力透镜法": [
+    {
+      url: "/cosmology/knowledge-base/致密天体--stellar-mass-black-holes",
+      title: "恒星级黑洞",
+    },
+  ],
+  "/cosmology/knowledge-base/系外行星--视向速度法": [
+    {
+      url: "/cosmology/knowledge-base/系外行星探测",
+      title: "系外行星探测",
+    },
+  ],
+  "/cosmology/knowledge-base/系外行星--超级地球与迷你海王星": [
+    {
+      url: "/cosmology/knowledge-base/天体生物学--biosignatures",
+      title: "生物标志物",
+    },
+  ],
+  "/cosmology/knowledge-base/致密天体--magnetars": [
+    {
+      url: "/cosmology/knowledge-base/中子星与脉冲星",
+      title: "中子星与脉冲星",
+    },
+  ],
+  "/cosmology/knowledge-base/致密天体--pulsar-timing-array": [
+    {
+      url: "/cosmology/knowledge-base/多信使天文学--multimessenger-astronomy-overview",
+      title: "多信使天文学",
+    },
+  ],
+  "/cosmology/knowledge-base/致密天体--supermassive-black-holes": [
+    {
+      url: "/cosmology/knowledge-base/星系天文学--agn-and-quasars",
+      title: "活动星系核与类星体",
+    },
+    {
+      url: "/cosmology/knowledge-base/星系形成与演化",
+      title: "星系形成与演化",
+    },
+    {
+      url: "/cosmology/knowledge-base/星系天文学--milky-way-structure",
+      title: "银河系结构",
+    },
+    {
+      url: "/cosmology/knowledge-base/多信使天文学--gravitational-wave-detectors-ligo-lisa",
+      title: "引力波探测器LIGO与LISA",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙射线",
+      title: "宇宙射线",
+    },
+  ],
+  "/cosmology/knowledge-base/致密天体--x-ray-binaries": [
+    {
+      url: "/cosmology/knowledge-base/致密天体--stellar-mass-black-holes",
+      title: "恒星级黑洞",
+    },
+  ],
+  "/cosmology/knowledge-base/重子声学振荡": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--暗能量与状态方程",
+      title: "暗能量与状态方程",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--复合时期与最后散射面",
+      title: "复合时期与最后散射面",
+    },
+  ],
   "/earth-science/concepts/carbon-cycle": [
     {
       url: "/life-science/species/honey-fungus",
       title: "奥氏蜜环菌",
+    },
+    {
+      url: "/earth-science/concepts/geodesy-and-geoid",
+      title: "大地测量与大地水准面",
     },
     {
       url: "/life-science/knowledge-base/分子生物学--photosynthesis",
@@ -3392,6 +4198,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "土壤学与土壤发生学",
     },
     {
+      url: "/cosmology/knowledge-base/系外行星探测",
+      title: "系外行星探测",
+    },
+    {
       url: "/earth-science/concepts/remote-sensing-and-gis",
       title: "遥感与地理信息系统",
     },
@@ -3403,6 +4213,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/earth-science/concepts/cryosphere": [
+    {
+      url: "/earth-science/processes/sea-level-change",
+      title: "海平面变化",
+    },
     {
       url: "/earth-science/processes/climate-modeling",
       title: "气候建模",
@@ -3416,6 +4230,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/经典物理--波动与振动",
       title: "波动与振动",
+    },
+    {
+      url: "/earth-science/concepts/geodesy-and-geoid",
+      title: "大地测量与大地水准面",
     },
     {
       url: "/universe-physics/knowledge-base/应用物理--地球物理与地震波",
@@ -3432,6 +4250,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/太阳系--terrestrial-planets",
       title: "类地行星",
+    },
+    {
+      url: "/earth-science/concepts/planetary-geology",
+      title: "行星地质学",
     },
   ],
   "/earth-science/concepts/earths-magnetic-field": [
@@ -3451,6 +4273,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/cosmology/knowledge-base/系外行星--系外行星宜居性",
       title: "系外行星宜居性",
     },
+    {
+      url: "/earth-science/concepts/planetary-geology",
+      title: "行星地质学",
+    },
   ],
   "/earth-science/concepts/environmental-geology": [
     {
@@ -3462,7 +4288,21 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "矿产资源与关键金属",
     },
   ],
+  "/earth-science/concepts/geodesy-and-geoid": [
+    {
+      url: "/earth-science/concepts/planetary-geology",
+      title: "行星地质学",
+    },
+  ],
   "/earth-science/concepts/geologic-time-scale": [
+    {
+      url: "/earth-science/concepts/paleontology-and-stratigraphy",
+      title: "古生物学与地层学",
+    },
+    {
+      url: "/earth-science/concepts/paleontology-and-fossils",
+      title: "古生物学与化石记录",
+    },
     {
       url: "/chemistry/concepts/nuclear-chemistry",
       title: "核化学与放射化学",
@@ -3470,6 +4310,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/species/horseshoe-crab",
       title: "鲎",
+    },
+    {
+      url: "/earth-science/concepts/planetary-geology",
+      title: "行星地质学",
     },
   ],
   "/earth-science/concepts/greenhouse-effect": [
@@ -3486,11 +4330,29 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: '碳捕集与转化：从空气里把二氧化碳"抓"回来，再让它有用',
     },
     {
+      url: "/earth-science/concepts/planetary-geology",
+      title: "行星地质学",
+    },
+    {
       url: "/cosmology/knowledge-base/天体生物学--habitable-zone",
       title: "宜居带",
     },
   ],
+  "/earth-science/concepts/igneous-sedimentary-metamorphic-rocks": [
+    {
+      url: "/earth-science/concepts/paleontology-and-stratigraphy",
+      title: "古生物学与地层学",
+    },
+    {
+      url: "/earth-science/concepts/paleontology-and-fossils",
+      title: "古生物学与化石记录",
+    },
+  ],
   "/earth-science/concepts/map-projections": [
+    {
+      url: "/earth-science/concepts/geodesy-and-geoid",
+      title: "大地测量与大地水准面",
+    },
     {
       url: "/earth-science/concepts/remote-sensing-and-gis",
       title: "遥感与地理信息系统",
@@ -3506,16 +4368,30 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: '碳捕集与转化：从空气里把二氧化碳"抓"回来，再让它有用',
     },
   ],
+  "/earth-science/concepts/paleontology-and-stratigraphy": [
+    {
+      url: "/earth-science/concepts/paleontology-and-fossils",
+      title: "古生物学与化石记录",
+    },
+  ],
   "/earth-science/concepts/remote-sensing-and-gis": [
     {
       url: "/earth-science/concepts/cryosphere",
       title: "冰冻圈",
+    },
+    {
+      url: "/earth-science/concepts/geodesy-and-geoid",
+      title: "大地测量与大地水准面",
     },
   ],
   "/earth-science/concepts/rock-cycle": [
     {
       url: "/earth-science/concepts/geologic-time-scale",
       title: "地质年代表",
+    },
+    {
+      url: "/earth-science/concepts/paleontology-and-stratigraphy",
+      title: "古生物学与地层学",
     },
     {
       url: "/earth-science/concepts/mineral-resources-and-critical-metals",
@@ -3536,6 +4412,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "海岸过程",
     },
     {
+      url: "/earth-science/processes/sea-level-change",
+      title: "海平面变化",
+    },
+    {
       url: "/earth-science/processes/marine-biogeochemistry",
       title: "海洋生物地球化学",
     },
@@ -3546,6 +4426,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/processes/global-atmospheric-circulation",
       title: "全球大气环流",
+    },
+  ],
+  "/earth-science/concepts/tides": [
+    {
+      url: "/earth-science/processes/sea-level-change",
+      title: "海平面变化",
     },
   ],
   "/earth-science/concepts/water-cycle": [
@@ -3560,6 +4446,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/concepts/environmental-geology",
       title: "环境地质学",
+    },
+    {
+      url: "/earth-science/processes/monsoon-systems",
+      title: "季风系统",
     },
     {
       url: "/earth-science/processes/watershed-hydrology",
@@ -3580,11 +4470,27 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "白垩纪大灭绝：恐龙的终结与哺乳动物的黎明",
     },
     {
+      url: "/earth-science/concepts/paleontology-and-stratigraphy",
+      title: "古生物学与地层学",
+    },
+    {
+      url: "/earth-science/concepts/paleontology-and-fossils",
+      title: "古生物学与化石记录",
+    },
+    {
       url: "/cosmology/knowledge-base/太阳系--asteroid-belt",
       title: "小行星带",
     },
   ],
   "/earth-science/events/great-oxidation-event": [
+    {
+      url: "/earth-science/concepts/paleontology-and-stratigraphy",
+      title: "古生物学与地层学",
+    },
+    {
+      url: "/earth-science/concepts/paleontology-and-fossils",
+      title: "古生物学与化石记录",
+    },
     {
       url: "/life-science/knowledge-base/分子生物学--photosynthesis",
       title: "光合作用：一台把阳光拆进糖里的分子机器",
@@ -3684,6 +4590,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/pioneers/charles-lyell": [
     {
+      url: "/earth-science/concepts/paleontology-and-stratigraphy",
+      title: "古生物学与地层学",
+    },
+    {
       url: "/earth-science/pioneers/james-hutton",
       title: "詹姆斯·赫顿",
     },
@@ -3698,6 +4608,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/pioneers/charles-lyell",
       title: "查尔斯·莱伊尔",
+    },
+    {
+      url: "/earth-science/concepts/paleontology-and-stratigraphy",
+      title: "古生物学与地层学",
     },
   ],
   "/earth-science/pioneers/marie-tharp": [
@@ -3738,6 +4652,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "冰冻圈",
     },
   ],
+  "/earth-science/processes/coastal-processes": [
+    {
+      url: "/earth-science/processes/sea-level-change",
+      title: "海平面变化",
+    },
+  ],
   "/earth-science/processes/earthquakes": [
     {
       url: "/earth-science/processes/plate-tectonics",
@@ -3768,6 +4688,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/processes/ocean-surface-circulation",
       title: "表层洋流与风成环流",
+    },
+    {
+      url: "/earth-science/processes/monsoon-systems",
+      title: "季风系统",
     },
     {
       url: "/earth-science/processes/weather-systems",
@@ -3820,6 +4744,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/processes/glaciation-ice-ages": [
     {
+      url: "/earth-science/processes/sea-level-change",
+      title: "海平面变化",
+    },
+    {
       url: "/earth-science/processes/orogeny-mountain-building",
       title: "造山运动",
     },
@@ -3828,6 +4756,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/processes/marine-biogeochemistry",
       title: "海洋生物地球化学",
+    },
+    {
+      url: "/earth-science/processes/monsoon-systems",
+      title: "季风系统",
     },
     {
       url: "/earth-science/processes/watershed-hydrology",
@@ -3868,6 +4800,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "海洋生物地球化学",
     },
     {
+      url: "/earth-science/processes/monsoon-systems",
+      title: "季风系统",
+    },
+    {
       url: "/earth-science/processes/watershed-hydrology",
       title: "流域水文",
     },
@@ -3896,6 +4832,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/processes/plate-tectonics": [
     {
+      url: "/earth-science/concepts/geodesy-and-geoid",
+      title: "大地测量与大地水准面",
+    },
+    {
       url: "/universe-physics/knowledge-base/应用物理--地球物理与地震波",
       title: "地球物理与地震波",
     },
@@ -3906,6 +4846,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/concepts/geologic-time-scale",
       title: "地质年代表",
+    },
+    {
+      url: "/earth-science/concepts/paleontology-and-stratigraphy",
+      title: "古生物学与地层学",
     },
     {
       url: "/earth-science/pioneers/harry-hess",
@@ -3948,8 +4892,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "土壤学与土壤发生学",
     },
     {
+      url: "/cosmology/knowledge-base/系外行星探测",
+      title: "系外行星探测",
+    },
+    {
       url: "/cosmology/knowledge-base/系外行星--系外行星宜居性",
       title: "系外行星宜居性",
+    },
+    {
+      url: "/earth-science/concepts/planetary-geology",
+      title: "行星地质学",
     },
     {
       url: "/earth-science/concepts/remote-sensing-and-gis",
@@ -3968,6 +4920,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/远古时期--人类起源",
       title: "人类起源",
+    },
+    {
+      url: "/earth-science/concepts/planetary-geology",
+      title: "行星地质学",
     },
     {
       url: "/earth-science/concepts/remote-sensing-and-gis",
@@ -4084,6 +5040,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "价格歧视",
     },
   ],
+  "/economics/concepts/country-macro-diagnostics-forecasting": [
+    {
+      url: "/economics/concepts/expectations-credibility-policy-transmission",
+      title: "预期、可信度与政策传导",
+    },
+  ],
+  "/economics/concepts/debt-sustainability-macro-framework": [
+    {
+      url: "/political-science/concepts/fiscal-rules-democratic-legitimacy",
+      title: "财政规则与民主合法性",
+    },
+    {
+      url: "/economics/concepts/expectations-credibility-policy-transmission",
+      title: "预期、可信度与政策传导",
+    },
+  ],
   "/economics/concepts/elasticity": [
     {
       url: "/economics/concepts/price-discrimination",
@@ -4148,6 +5120,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/theory/algorithmic-game-theory",
       title: "算法博弈论",
+    },
+  ],
+  "/economics/concepts/modern-money-fiscal-deficits": [
+    {
+      url: "/economics/concepts/expectations-credibility-policy-transmission",
+      title: "预期、可信度与政策传导",
     },
   ],
   "/economics/concepts/money-supply": [
@@ -4260,6 +5238,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/theories/supply-demand",
       title: "供需理论",
+    },
+    {
+      url: "/human-history/knowledge/事件--启蒙运动",
+      title: "启蒙运动",
     },
   ],
   "/economics/economists/alfred-marshall": [
@@ -4654,16 +5636,306 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "史学方法之争——大历史的雄心与年鉴学派的遗产",
     },
   ],
+  "/human-history/knowledge/中世纪--亚洲--唐朝": [
+    {
+      url: "/human-history/knowledge/制度--科举制度",
+      title: "科举制度",
+    },
+    {
+      url: "/human-history/knowledge/文明--中华文明",
+      title: "中华文明",
+    },
+  ],
+  "/human-history/knowledge/中世纪--亚洲--蒙古帝国": [
+    {
+      url: "/human-history/knowledge/事件--丝绸之路",
+      title: "丝绸之路",
+    },
+  ],
+  "/human-history/knowledge/中世纪--伊斯兰黄金时代": [
+    {
+      url: "/human-history/knowledge/事件--科学革命",
+      title: "科学革命",
+    },
+  ],
+  "/human-history/knowledge/中世纪--欧洲--十字军东征": [
+    {
+      url: "/human-history/knowledge/事件--文艺复兴",
+      title: "文艺复兴",
+    },
+  ],
+  "/human-history/knowledge/中世纪--黑死病": [
+    {
+      url: "/human-history/knowledge/制度--封建制度",
+      title: "封建制度",
+    },
+    {
+      url: "/human-history/knowledge/事件--丝绸之路",
+      title: "丝绸之路",
+    },
+    {
+      url: "/human-history/knowledge/事件--宗教改革",
+      title: "宗教改革",
+    },
+  ],
+  "/human-history/knowledge/事件--二战": [
+    {
+      url: "/human-history/knowledge/事件--明治维新",
+      title: "明治维新",
+    },
+  ],
+  "/human-history/knowledge/事件--冷战": [
+    {
+      url: "/human-history/knowledge/事件--二战",
+      title: "第二次世界大战",
+    },
+    {
+      url: "/human-history/knowledge/思想史--马克思主义",
+      title: "马克思主义",
+    },
+  ],
   "/human-history/knowledge/事件--启蒙运动": [
+    {
+      url: "/human-history/knowledge/事件--法国大革命",
+      title: "法国大革命",
+    },
+    {
+      url: "/human-history/knowledge/事件--科学革命",
+      title: "科学革命",
+    },
     {
       url: "/earth-science/events/lisbon-1755",
       title: "里斯本大地震（1755）",
     },
+    {
+      url: "/human-history/knowledge/事件--美国革命",
+      title: "美国革命",
+    },
+    {
+      url: "/human-history/knowledge/人物--牛顿",
+      title: "牛顿",
+    },
+  ],
+  "/human-history/knowledge/事件--明治维新": [
+    {
+      url: "/human-history/knowledge/事件--鸦片战争",
+      title: "鸦片战争",
+    },
+  ],
+  "/human-history/knowledge/事件--法国大革命": [
+    {
+      url: "/human-history/knowledge/人物--拿破仑",
+      title: "拿破仑",
+    },
+  ],
+  "/human-history/knowledge/事件--甲午战争": [
+    {
+      url: "/human-history/knowledge/事件--明治维新",
+      title: "明治维新",
+    },
+  ],
+  "/human-history/knowledge/事件--科学革命": [
+    {
+      url: "/human-history/knowledge/人物--牛顿",
+      title: "牛顿",
+    },
+    {
+      url: "/human-history/knowledge/事件--启蒙运动",
+      title: "启蒙运动",
+    },
+    {
+      url: "/human-history/knowledge/思想史--启蒙运动",
+      title: "启蒙运动",
+    },
+  ],
+  "/human-history/knowledge/事件--美国革命": [
+    {
+      url: "/human-history/knowledge/事件--宗教改革",
+      title: "宗教改革",
+    },
+  ],
+  "/human-history/knowledge/事件--鸦片战争": [
+    {
+      url: "/human-history/knowledge/事件--明治维新",
+      title: "明治维新",
+    },
+  ],
+  "/human-history/knowledge/人物--亚历山大大帝": [
+    {
+      url: "/human-history/knowledge/人物--亚里士多德",
+      title: "亚里士多德",
+    },
+  ],
+  "/human-history/knowledge/人物--亚里士多德": [
+    {
+      url: "/human-history/knowledge/文明--希腊罗马文明",
+      title: "希腊罗马文明",
+    },
+  ],
+  "/human-history/knowledge/人物--伏尔泰": [
+    {
+      url: "/human-history/knowledge/事件--法国大革命",
+      title: "法国大革命",
+    },
+    {
+      url: "/human-history/knowledge/事件--启蒙运动",
+      title: "启蒙运动",
+    },
+    {
+      url: "/human-history/knowledge/思想史--启蒙运动",
+      title: "启蒙运动",
+    },
+  ],
+  "/human-history/knowledge/人物--拿破仑": [
+    {
+      url: "/human-history/knowledge/事件--法国大革命",
+      title: "法国大革命",
+    },
+  ],
+  "/human-history/knowledge/人物--毛泽东": [
+    {
+      url: "/human-history/knowledge/事件--冷战",
+      title: "冷战",
+    },
+  ],
+  "/human-history/knowledge/人物--牛顿": [
+    {
+      url: "/human-history/knowledge/事件--科学革命",
+      title: "科学革命",
+    },
+    {
+      url: "/human-history/knowledge/思想史--启蒙运动",
+      title: "启蒙运动",
+    },
+  ],
+  "/human-history/knowledge/人物--秦始皇": [
+    {
+      url: "/human-history/knowledge/文明--中华文明",
+      title: "中华文明",
+    },
+  ],
+  "/human-history/knowledge/人物--苏格拉底": [
+    {
+      url: "/human-history/knowledge/人物--孔子",
+      title: "孔子",
+    },
+    {
+      url: "/human-history/knowledge/文明--希腊罗马文明",
+      title: "希腊罗马文明",
+    },
+  ],
+  "/human-history/knowledge/人物--释迦牟尼": [
+    {
+      url: "/human-history/knowledge/人物--孔子",
+      title: "孔子",
+    },
+  ],
+  "/human-history/knowledge/人物--马克思": [
+    {
+      url: "/human-history/knowledge/思想史--马克思主义",
+      title: "马克思主义",
+    },
+  ],
+  "/human-history/knowledge/制度--科举制度": [
+    {
+      url: "/human-history/knowledge/人物--孔子",
+      title: "孔子",
+    },
+    {
+      url: "/human-history/knowledge/文明--中华文明",
+      title: "中华文明",
+    },
+  ],
+  "/human-history/knowledge/古典时期--亚洲--春秋战国": [
+    {
+      url: "/human-history/knowledge/人物--秦始皇",
+      title: "秦始皇",
+    },
+  ],
+  "/human-history/knowledge/古典时期--欧洲--希腊城邦": [
+    {
+      url: "/human-history/knowledge/制度--民主制度",
+      title: "民主制度",
+    },
+    {
+      url: "/human-history/knowledge/人物--亚里士多德",
+      title: "亚里士多德",
+    },
   ],
   "/human-history/knowledge/古典时期--欧洲--罗马共和国与帝国": [
     {
+      url: "/human-history/knowledge/人物--凯撒",
+      title: "凯撒",
+    },
+    {
+      url: "/human-history/knowledge/制度--民主制度",
+      title: "民主制度",
+    },
+    {
       url: "/earth-science/events/pompeii-vesuvius-79",
       title: "维苏威火山爆发与庞贝（公元 79 年）",
+    },
+  ],
+  "/human-history/knowledge/当代--去殖民化浪潮": [
+    {
+      url: "/human-history/knowledge/事件--二战",
+      title: "第二次世界大战",
+    },
+  ],
+  "/human-history/knowledge/当代--苏联解体": [
+    {
+      url: "/human-history/knowledge/当代--改革开放",
+      title: "改革开放",
+    },
+    {
+      url: "/human-history/knowledge/事件--冷战",
+      title: "冷战",
+    },
+  ],
+  "/human-history/knowledge/思想史--马克思主义": [
+    {
+      url: "/human-history/knowledge/人物--马克思",
+      title: "马克思",
+    },
+  ],
+  "/human-history/knowledge/文化交流--佛教东传": [
+    {
+      url: "/human-history/knowledge/事件--丝绸之路",
+      title: "丝绸之路",
+    },
+    {
+      url: "/human-history/knowledge/文明--中华文明",
+      title: "中华文明",
+    },
+  ],
+  "/human-history/knowledge/文化交流--茶的传播": [
+    {
+      url: "/human-history/knowledge/事件--鸦片战争",
+      title: "鸦片战争",
+    },
+  ],
+  "/human-history/knowledge/文明--中世纪欧洲": [
+    {
+      url: "/human-history/knowledge/制度--封建制度",
+      title: "封建制度",
+    },
+  ],
+  "/human-history/knowledge/文明--中亚": [
+    {
+      url: "/human-history/knowledge/文化交流--佛教东传",
+      title: "佛教东传",
+    },
+  ],
+  "/human-history/knowledge/文明--印度文明": [
+    {
+      url: "/human-history/knowledge/文化交流--佛教东传",
+      title: "佛教东传",
+    },
+  ],
+  "/human-history/knowledge/文明--拜占庭": [
+    {
+      url: "/human-history/knowledge/事件--文艺复兴",
+      title: "文艺复兴",
     },
   ],
   "/human-history/knowledge/文明--美索不达米亚": [
@@ -4672,10 +5944,80 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "风化与成土",
     },
   ],
+  "/human-history/knowledge/概念--丝绸之路": [
+    {
+      url: "/human-history/knowledge/文化交流--佛教东传",
+      title: "佛教东传",
+    },
+  ],
+  "/human-history/knowledge/概念--全球化": [
+    {
+      url: "/human-history/knowledge/当代--改革开放",
+      title: "改革开放",
+    },
+  ],
   "/human-history/knowledge/概念--大航海时代": [
     {
       url: "/earth-science/concepts/earths-magnetic-field",
       title: "地球磁场",
+    },
+    {
+      url: "/human-history/knowledge/事件--丝绸之路",
+      title: "丝绸之路",
+    },
+  ],
+  "/human-history/knowledge/概念--工业革命": [
+    {
+      url: "/human-history/knowledge/经济史--工业革命的经济根源",
+      title: "工业革命的经济根源：为什么是英国？",
+    },
+    {
+      url: "/human-history/knowledge/事件--科学革命",
+      title: "科学革命",
+    },
+    {
+      url: "/human-history/knowledge/人物--马克思",
+      title: "马克思",
+    },
+  ],
+  "/human-history/knowledge/科技史--印刷术": [
+    {
+      url: "/human-history/knowledge/事件--文艺复兴",
+      title: "文艺复兴",
+    },
+    {
+      url: "/human-history/knowledge/事件--宗教改革",
+      title: "宗教改革",
+    },
+  ],
+  "/human-history/knowledge/近代--大西洋奴隶贸易": [
+    {
+      url: "/human-history/knowledge/经济史--工业革命的经济根源",
+      title: "工业革命的经济根源：为什么是英国？",
+    },
+  ],
+  "/human-history/knowledge/近代--奥斯曼帝国": [
+    {
+      url: "/human-history/knowledge/事件--一战",
+      title: "第一次世界大战",
+    },
+    {
+      url: "/human-history/knowledge/事件--明治维新",
+      title: "明治维新",
+    },
+    {
+      url: "/human-history/knowledge/事件--文艺复兴",
+      title: "文艺复兴",
+    },
+  ],
+  "/human-history/knowledge/近代--美洲--海地革命": [
+    {
+      url: "/human-history/knowledge/事件--法国大革命",
+      title: "法国大革命",
+    },
+    {
+      url: "/human-history/knowledge/人物--拿破仑",
+      title: "拿破仑",
     },
   ],
   "/human-history/knowledge/远古时期--农业革命": [
@@ -4698,6 +6040,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/scientists/dawkins",
       title: "理查德·道金斯",
+    },
+  ],
+  "/life-science/knowledge-base/人体--DNA与遗传": [
+    {
+      url: "/medicine/concepts/medical-genetics-and-genomics",
+      title: "医学遗传学与基因组医学",
     },
   ],
   "/life-science/knowledge-base/人体--免疫系统": [
@@ -4772,28 +6120,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "光合作用：一台把阳光拆进糖里的分子机器",
     },
   ],
-  "/life-science/knowledge-base/分子生物学--photosynthesis": [
-    {
-      url: "/earth-science/events/great-oxidation-event",
-      title: "大氧化事件",
-    },
-    {
-      url: "/chemistry/concepts/photochemistry",
-      title: "光化学",
-    },
-    {
-      url: "/earth-science/concepts/ocean-acidification",
-      title: "海洋酸化",
-    },
-    {
-      url: "/chemistry/concepts/coordination-chemistry",
-      title: "配位化学",
-    },
-    {
-      url: "/earth-science/concepts/carbon-cycle",
-      title: "碳循环",
-    },
-  ],
   "/life-science/knowledge-base/分子生物学--中心法则与基因表达": [
     {
       url: "/chemistry/figures/frederick-sanger",
@@ -4802,6 +6128,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/substances/nucleic-acids-chemistry",
       title: "核酸的化学",
+    },
+    {
+      url: "/medicine/concepts/medical-genetics-and-genomics",
+      title: "医学遗传学与基因组医学",
+    },
+  ],
+  "/life-science/knowledge-base/分子生物学--基因调控": [
+    {
+      url: "/medicine/concepts/medical-genetics-and-genomics",
+      title: "医学遗传学与基因组医学",
     },
   ],
   "/life-science/knowledge-base/分子生物学--干细胞": [
@@ -4862,6 +6198,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/frontier/deep-sea-hydrothermal-frontiers",
       title: "深海前沿：生命起点、地下生物圈与海底采矿的争夺",
+    },
+    {
+      url: "/cosmology/knowledge-base/天体生物学--biosignatures",
+      title: "生物标志物",
     },
   ],
   "/life-science/knowledge-base/当代议题--生物多样性": [
@@ -5000,6 +6340,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/医学--癌症生物学",
       title: "癌症生物学：基因突变、肿瘤微环境与免疫疗法",
+    },
+    {
+      url: "/human-history/knowledge/人物--达尔文",
+      title: "达尔文",
     },
     {
       url: "/life-science/knowledge-base/医学--抗生素",
@@ -5268,6 +6612,200 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/species/deinococcus",
       title: "耐辐射球菌",
+    },
+  ],
+  "/linguistics/acquisition-and-mind/children-learn-language": [
+    {
+      url: "/linguistics/sounds-and-signs/language-speech-and-sign",
+      title: "语言、言语与手语",
+    },
+  ],
+  "/linguistics/history-typology-society/language-contact": [
+    {
+      url: "/linguistics/history-typology-society/language-families",
+      title: "语系与比较方法",
+    },
+    {
+      url: "/linguistics/history-typology-society/linguistic-typology",
+      title: "语言类型学与跨语言共性",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/linguistic-fieldwork",
+      title: "语言田野调查与社区协作",
+    },
+  ],
+  "/linguistics/history-typology-society/language-families": [
+    {
+      url: "/linguistics/history-typology-society/linguistic-typology",
+      title: "语言类型学与跨语言共性",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/linguistic-fieldwork",
+      title: "语言田野调查与社区协作",
+    },
+  ],
+  "/linguistics/history-typology-society/languages-change": [
+    {
+      url: "/linguistics/sounds-and-signs/phonemes-and-sound-systems",
+      title: "音位与音系系统",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/language-speech-and-sign",
+      title: "语言、言语与手语",
+    },
+  ],
+  "/linguistics/history-typology-society/linguistic-typology": [
+    {
+      url: "/linguistics/history-typology-society/language-families",
+      title: "语系与比较方法",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/linguistic-fieldwork",
+      title: "语言田野调查与社区协作",
+    },
+  ],
+  "/linguistics/methods-and-frontiers/linguistic-fieldwork": [
+    {
+      url: "/linguistics/history-typology-society/language-identity-power",
+      title: "语言、身份与权力",
+    },
+    {
+      url: "/linguistics/history-typology-society/language-contact",
+      title: "语言接触、借词与混合",
+    },
+    {
+      url: "/linguistics/words-sentences-meaning/pragmatics",
+      title: "语用学：语境、意图与会话",
+    },
+  ],
+  "/linguistics/sounds-and-signs/how-speech-is-made": [
+    {
+      url: "/linguistics/sounds-and-signs/language-speech-and-sign",
+      title: "语言、言语与手语",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/phonetics-and-ipa",
+      title: "语音学与国际音标",
+    },
+  ],
+  "/linguistics/sounds-and-signs/phonemes-and-sound-systems": [
+    {
+      url: "/linguistics/acquisition-and-mind/children-learn-language",
+      title: "儿童怎样学会语言",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/how-speech-is-made",
+      title: "人怎样发出语音",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/language-speech-and-sign",
+      title: "语言、言语与手语",
+    },
+    {
+      url: "/linguistics/history-typology-society/languages-change",
+      title: "语言为什么会变化",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/phonetics-and-ipa",
+      title: "语音学与国际音标",
+    },
+  ],
+  "/linguistics/sounds-and-signs/phonetics-and-ipa": [
+    {
+      url: "/linguistics/sounds-and-signs/how-speech-is-made",
+      title: "人怎样发出语音",
+    },
+    {
+      url: "/linguistics/writing-systems/writing-system-types",
+      title: "文字系统的主要类型",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/phonemes-and-sound-systems",
+      title: "音位与音系系统",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/language-speech-and-sign",
+      title: "语言、言语与手语",
+    },
+  ],
+  "/linguistics/words-sentences-meaning/morphology": [
+    {
+      url: "/linguistics/words-sentences-meaning/words-and-sentences",
+      title: "词如何组成句子",
+    },
+    {
+      url: "/linguistics/words-sentences-meaning/syntax",
+      title: "句法学：结构与依存",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/language-speech-and-sign",
+      title: "语言、言语与手语",
+    },
+    {
+      url: "/linguistics/history-typology-society/languages-change",
+      title: "语言为什么会变化",
+    },
+  ],
+  "/linguistics/words-sentences-meaning/semantics": [
+    {
+      url: "/linguistics/words-sentences-meaning/words-and-sentences",
+      title: "词如何组成句子",
+    },
+    {
+      url: "/linguistics/words-sentences-meaning/syntax",
+      title: "句法学：结构与依存",
+    },
+    {
+      url: "/linguistics/words-sentences-meaning/morphology",
+      title: "形态学：词的内部结构",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/language-speech-and-sign",
+      title: "语言、言语与手语",
+    },
+  ],
+  "/linguistics/words-sentences-meaning/syntax": [
+    {
+      url: "/linguistics/words-sentences-meaning/words-and-sentences",
+      title: "词如何组成句子",
+    },
+    {
+      url: "/linguistics/words-sentences-meaning/morphology",
+      title: "形态学：词的内部结构",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/language-speech-and-sign",
+      title: "语言、言语与手语",
+    },
+    {
+      url: "/linguistics/words-sentences-meaning/semantics",
+      title: "语义学：表达如何承载意义",
+    },
+  ],
+  "/linguistics/words-sentences-meaning/words-and-sentences": [
+    {
+      url: "/linguistics/sounds-and-signs/language-speech-and-sign",
+      title: "语言、言语与手语",
+    },
+    {
+      url: "/linguistics/words-sentences-meaning/semantics",
+      title: "语义学：表达如何承载意义",
+    },
+  ],
+  "/linguistics/writing-systems/language-and-writing": [
+    {
+      url: "/linguistics/sounds-and-signs/language-speech-and-sign",
+      title: "语言、言语与手语",
+    },
+    {
+      url: "/linguistics/history-typology-society/languages-change",
+      title: "语言为什么会变化",
+    },
+  ],
+  "/linguistics/writing-systems/writing-system-types": [
+    {
+      url: "/linguistics/writing-systems/language-and-writing",
+      title: "语言与文字不是一回事",
     },
   ],
   "/mathematics/concepts/algebraic-geometry": [
@@ -5678,6 +7216,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "刘徽",
     },
   ],
+  "/mathematics/mathematicians/leibniz": [
+    {
+      url: "/human-history/knowledge/人物--牛顿",
+      title: "牛顿",
+    },
+  ],
   "/mathematics/mathematicians/liu-hui": [
     {
       url: "/mathematics/mathematicians/zu-chongzhi",
@@ -5760,6 +7304,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "药理学基础",
     },
     {
+      url: "/chemistry/concepts/medicinal-chemistry",
+      title: "药物化学",
+    },
+    {
       url: "/medicine/concepts/vaccination",
       title: "疫苗原理",
     },
@@ -5786,6 +7334,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "血液学",
     },
   ],
+  "/medicine/concepts/clinical-trials": [
+    {
+      url: "/medicine/concepts/surgery",
+      title: "外科学",
+    },
+  ],
+  "/medicine/concepts/digestive-system": [
+    {
+      url: "/medicine/concepts/nutrition-science",
+      title: "营养学",
+    },
+  ],
   "/medicine/concepts/drug-development": [
     {
       url: "/life-science/species/horseshoe-crab",
@@ -5802,6 +7362,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/pharmacology",
       title: "药理学基础",
+    },
+    {
+      url: "/chemistry/concepts/medicinal-chemistry",
+      title: "药物化学",
     },
   ],
   "/medicine/concepts/endocrine-system": [
@@ -5840,6 +7404,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "病理学",
     },
     {
+      url: "/medicine/public-health/infectious-disease-modeling-surveillance",
+      title: "传染病建模、监测与公共卫生情报",
+    },
+    {
       url: "/medicine/concepts/public-health",
       title: "公共卫生",
     },
@@ -5850,6 +7418,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/antibiotic-resistance",
       title: "抗生素耐药性",
+    },
+    {
+      url: "/medicine/concepts/clinical-trials",
+      title: "临床试验",
     },
     {
       url: "/medicine/concepts/clinical-diagnosis",
@@ -5876,6 +7448,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "疫苗原理",
     },
     {
+      url: "/medicine/concepts/nutrition-science",
+      title: "营养学",
+    },
+    {
       url: "/medicine/concepts/informed-consent",
       title: "知情同意",
     },
@@ -5888,6 +7464,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/public-health",
       title: "公共卫生",
+    },
+    {
+      url: "/medicine/concepts/clinical-trials",
+      title: "临床试验",
     },
     {
       url: "/medicine/concepts/clinical-diagnosis",
@@ -5912,6 +7492,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/humoral-theory",
       title: "体液学说",
+    },
+    {
+      url: "/medicine/concepts/surgery",
+      title: "外科学",
     },
     {
       url: "/medicine/concepts/pharmacology",
@@ -5946,6 +7530,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/humoral-theory",
       title: "体液学说",
+    },
+    {
+      url: "/medicine/concepts/surgery",
+      title: "外科学",
     },
     {
       url: "/medicine/concepts/microbiome-and-health",
@@ -6022,6 +7610,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/pharmacology",
       title: "药理学基础",
+    },
+    {
+      url: "/medicine/concepts/nutrition-science",
+      title: "营养学",
     },
   ],
   "/medicine/concepts/humoral-theory": [
@@ -6188,8 +7780,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/medicine/concepts/informed-consent": [
     {
+      url: "/medicine/ethics/palliative-care",
+      title: "姑息治疗",
+    },
+    {
       url: "/medicine/diseases/schizophrenia",
       title: "精神分裂症",
+    },
+    {
+      url: "/medicine/concepts/clinical-trials",
+      title: "临床试验",
     },
     {
       url: "/medicine/concepts/reproductive-system",
@@ -6200,8 +7800,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "疼痛与镇痛",
     },
     {
+      url: "/medicine/concepts/surgery",
+      title: "外科学",
+    },
+    {
       url: "/medicine/concepts/evidence-based-medicine",
       title: "循证医学",
+    },
+    {
+      url: "/medicine/concepts/medical-genetics-and-genomics",
+      title: "医学遗传学与基因组医学",
     },
   ],
   "/medicine/concepts/microbiome-and-health": [
@@ -6212,6 +7820,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/digestive-system",
       title: "消化系统",
+    },
+    {
+      url: "/medicine/concepts/nutrition-science",
+      title: "营养学",
     },
   ],
   "/medicine/concepts/nervous-system": [
@@ -6238,6 +7850,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/medicine/concepts/pain-and-analgesia": [
     {
+      url: "/medicine/ethics/palliative-care",
+      title: "姑息治疗",
+    },
+    {
       url: "/medicine/concepts/nervous-system",
       title: "神经系统",
     },
@@ -6254,8 +7870,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "微生物组：肠道菌群与人体共生",
     },
     {
+      url: "/chemistry/concepts/medicinal-chemistry",
+      title: "药物化学",
+    },
+    {
       url: "/medicine/concepts/drug-development",
       title: "药物研发与临床试验",
+    },
+    {
+      url: "/medicine/concepts/medical-genetics-and-genomics",
+      title: "医学遗传学与基因组医学",
     },
   ],
   "/medicine/concepts/public-health": [
@@ -6340,6 +7964,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "循证医学",
     },
     {
+      url: "/medicine/public-health/vaccine-policy-programs-hesitancy",
+      title: "疫苗政策、免疫项目与接种行为",
+    },
+    {
       url: "/medicine/concepts/informed-consent",
       title: "知情同意",
     },
@@ -6380,6 +8008,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/diseases/cardiovascular-disease",
       title: "心血管疾病",
+    },
+    {
+      url: "/medicine/concepts/medical-genetics-and-genomics",
+      title: "医学遗传学与基因组医学",
     },
   ],
   "/medicine/diseases/cardiovascular-disease": [
@@ -6547,6 +8179,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/chemistry/substances/carbohydrates-and-lipids",
       title: "糖类与脂质",
     },
+    {
+      url: "/medicine/concepts/nutrition-science",
+      title: "营养学",
+    },
   ],
   "/medicine/diseases/parkinsons-disease": [
     {
@@ -6664,6 +8300,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "贺建奎与基因编辑婴儿事件",
     },
     {
+      url: "/medicine/concepts/clinical-trials",
+      title: "临床试验",
+    },
+    {
       url: "/medicine/ethics/organ-allocation-ethics",
       title: "器官分配伦理",
     },
@@ -6673,6 +8313,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/medicine/ethics/euthanasia-and-assisted-dying": [
+    {
+      url: "/medicine/ethics/palliative-care",
+      title: "姑息治疗",
+    },
     {
       url: "/medicine/ethics/organ-allocation-ethics",
       title: "器官分配伦理",
@@ -6687,11 +8331,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/medicine/ethics/he-jiankui-crispr-babies",
       title: "贺建奎与基因编辑婴儿事件",
     },
+    {
+      url: "/medicine/concepts/medical-genetics-and-genomics",
+      title: "医学遗传学与基因组医学",
+    },
   ],
   "/medicine/ethics/he-jiankui-crispr-babies": [
     {
       url: "/medicine/ethics/genetic-testing-and-privacy",
       title: "基因检测与隐私",
+    },
+    {
+      url: "/medicine/concepts/medical-genetics-and-genomics",
+      title: "医学遗传学与基因组医学",
     },
   ],
   "/medicine/ethics/henrietta-lacks-hela": [
@@ -6789,6 +8441,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/medicine/events/thalidomide-tragedy": [
+    {
+      url: "/chemistry/concepts/medicinal-chemistry",
+      title: "药物化学",
+    },
     {
       url: "/medicine/concepts/drug-development",
       title: "药物研发与临床试验",
@@ -6893,6 +8549,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/medicine/figures/robert-koch",
       title: "罗伯特·科赫",
     },
+    {
+      url: "/medicine/concepts/surgery",
+      title: "外科学",
+    },
   ],
   "/medicine/figures/louis-pasteur": [
     {
@@ -6910,6 +8570,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/figures/robert-koch",
       title: "罗伯特·科赫",
+    },
+    {
+      url: "/medicine/concepts/surgery",
+      title: "外科学",
     },
     {
       url: "/medicine/figures/alexander-fleming",
@@ -7072,7 +8736,147 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "CRISPR 进入临床：当基因编辑第一次真正治好了一种病",
     },
   ],
+  "/medicine/public-health/burden-of-disease-daly-qaly": [
+    {
+      url: "/medicine/public-health/environmental-occupational-health",
+      title: "环境与职业健康：从暴露到预防",
+    },
+    {
+      url: "/medicine/public-health/global-health-inequality-coloniality",
+      title: "全球健康不平等、权力与殖民性",
+    },
+    {
+      url: "/medicine/public-health/health-economic-evaluation-priority-setting",
+      title: "卫生经济学与优先排序",
+    },
+    {
+      url: "/medicine/public-health/health-systems-universal-health-coverage",
+      title: "卫生系统与全民健康覆盖",
+    },
+  ],
+  "/medicine/public-health/global-health-inequality-coloniality": [
+    {
+      url: "/medicine/public-health/maternal-child-health-life-course",
+      title: "妇幼健康与生命周期方法",
+    },
+    {
+      url: "/medicine/frontier/fair-health-priority-setting",
+      title: "公平卫生优先排序：从项目排名到可复审组合",
+    },
+    {
+      url: "/medicine/public-health/environmental-occupational-health",
+      title: "环境与职业健康：从暴露到预防",
+    },
+    {
+      url: "/medicine/public-health/burden-of-disease-daly-qaly",
+      title: "疾病负担、DALY 与 QALY",
+    },
+    {
+      url: "/medicine/public-health/health-economic-evaluation-priority-setting",
+      title: "卫生经济学与优先排序",
+    },
+    {
+      url: "/medicine/public-health/health-systems-universal-health-coverage",
+      title: "卫生系统与全民健康覆盖",
+    },
+  ],
+  "/medicine/public-health/health-economic-evaluation-priority-setting": [
+    {
+      url: "/medicine/frontier/fair-health-priority-setting",
+      title: "公平卫生优先排序：从项目排名到可复审组合",
+    },
+  ],
+  "/medicine/public-health/health-systems-universal-health-coverage": [
+    {
+      url: "/medicine/public-health/maternal-child-health-life-course",
+      title: "妇幼健康与生命周期方法",
+    },
+    {
+      url: "/medicine/frontier/fair-health-priority-setting",
+      title: "公平卫生优先排序：从项目排名到可复审组合",
+    },
+    {
+      url: "/medicine/public-health/environmental-occupational-health",
+      title: "环境与职业健康：从暴露到预防",
+    },
+    {
+      url: "/medicine/public-health/burden-of-disease-daly-qaly",
+      title: "疾病负担、DALY 与 QALY",
+    },
+    {
+      url: "/medicine/public-health/global-health-inequality-coloniality",
+      title: "全球健康不平等、权力与殖民性",
+    },
+    {
+      url: "/medicine/public-health/implementation-science-health-policy",
+      title: "实施科学：从有效干预到真实世界",
+    },
+    {
+      url: "/medicine/public-health/health-economic-evaluation-priority-setting",
+      title: "卫生经济学与优先排序",
+    },
+  ],
+  "/medicine/public-health/implementation-science-health-policy": [
+    {
+      url: "/medicine/public-health/infectious-disease-modeling-surveillance",
+      title: "传染病建模、监测与公共卫生情报",
+    },
+    {
+      url: "/medicine/frontier/fair-health-priority-setting",
+      title: "公平卫生优先排序：从项目排名到可复审组合",
+    },
+    {
+      url: "/medicine/public-health/health-economic-evaluation-priority-setting",
+      title: "卫生经济学与优先排序",
+    },
+    {
+      url: "/medicine/public-health/health-systems-universal-health-coverage",
+      title: "卫生系统与全民健康覆盖",
+    },
+    {
+      url: "/medicine/public-health/vaccine-policy-programs-hesitancy",
+      title: "疫苗政策、免疫项目与接种行为",
+    },
+  ],
+  "/medicine/public-health/infectious-disease-modeling-surveillance": [
+    {
+      url: "/medicine/public-health/implementation-science-health-policy",
+      title: "实施科学：从有效干预到真实世界",
+    },
+    {
+      url: "/medicine/public-health/vaccine-policy-programs-hesitancy",
+      title: "疫苗政策、免疫项目与接种行为",
+    },
+  ],
+  "/medicine/public-health/maternal-child-health-life-course": [
+    {
+      url: "/medicine/public-health/burden-of-disease-daly-qaly",
+      title: "疾病负担、DALY 与 QALY",
+    },
+    {
+      url: "/medicine/public-health/global-health-inequality-coloniality",
+      title: "全球健康不平等、权力与殖民性",
+    },
+  ],
+  "/medicine/public-health/vaccine-policy-programs-hesitancy": [
+    {
+      url: "/medicine/public-health/infectious-disease-modeling-surveillance",
+      title: "传染病建模、监测与公共卫生情报",
+    },
+    {
+      url: "/medicine/public-health/maternal-child-health-life-course",
+      title: "妇幼健康与生命周期方法",
+    },
+    {
+      url: "/medicine/public-health/implementation-science-health-policy",
+      title: "实施科学：从有效干预到真实世界",
+    },
+  ],
   "/medicine/technologies/anesthesia": [
+    {
+      url: "/medicine/concepts/surgery",
+      title: "外科学",
+    },
     {
       url: "/medicine/technologies/antisepsis",
       title: "无菌术",
@@ -7109,6 +8913,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/medicine/technologies/blood-transfusion",
       title: "输血",
     },
+    {
+      url: "/medicine/concepts/surgery",
+      title: "外科学",
+    },
+  ],
+  "/medicine/technologies/blood-transfusion": [
+    {
+      url: "/medicine/concepts/surgery",
+      title: "外科学",
+    },
   ],
   "/medicine/technologies/crispr-gene-editing": [
     {
@@ -7118,6 +8932,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/technologies/organ-transplantation",
       title: "器官移植",
+    },
+    {
+      url: "/medicine/concepts/medical-genetics-and-genomics",
+      title: "医学遗传学与基因组医学",
     },
     {
       url: "/medicine/technologies/mrna-vaccine",
@@ -7186,6 +9004,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/technologies/dialysis",
       title: "透析",
+    },
+    {
+      url: "/medicine/concepts/surgery",
+      title: "外科学",
     },
     {
       url: "/medicine/technologies/crispr-gene-editing",
@@ -7302,6 +9124,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/concepts/wu-wei",
       title: "无为",
+    },
+  ],
+  "/philosophy/concepts/democracy": [
+    {
+      url: "/human-history/knowledge/人物--苏格拉底",
+      title: "苏格拉底",
     },
   ],
   "/philosophy/concepts/digital-ethics": [
@@ -7442,6 +9270,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/hannah-arendt",
       title: "汉娜·阿伦特",
+    },
+  ],
+  "/philosophy/schools/confucianism": [
+    {
+      url: "/human-history/knowledge/制度--科举制度",
+      title: "科举制度",
+    },
+    {
+      url: "/human-history/knowledge/人物--孔子",
+      title: "孔子",
+    },
+  ],
+  "/philosophy/schools/legalism": [
+    {
+      url: "/human-history/knowledge/人物--秦始皇",
+      title: "秦始皇",
     },
   ],
   "/philosophy/schools/logical-positivism": [
@@ -7636,6 +9480,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/thinkers/han-feizi": [
     {
+      url: "/human-history/knowledge/人物--秦始皇",
+      title: "秦始皇",
+    },
+    {
       url: "/philosophy/thinkers/hobbes",
       title: "托马斯·霍布斯",
     },
@@ -7658,6 +9506,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/economists/karl-marx",
       title: "卡尔·马克思",
+    },
+    {
+      url: "/human-history/knowledge/人物--马克思",
+      title: "马克思",
+    },
+    {
+      url: "/human-history/knowledge/思想史--马克思主义",
+      title: "马克思主义",
     },
   ],
   "/philosophy/thinkers/heidegger": [
@@ -7808,6 +9664,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "荀子深度扩展",
     },
   ],
+  "/philosophy/thinkers/montesquieu": [
+    {
+      url: "/human-history/knowledge/事件--美国革命",
+      title: "美国革命",
+    },
+  ],
   "/philosophy/thinkers/mozi": [
     {
       url: "/philosophy/thinkers/xunzi-extended",
@@ -7821,6 +9683,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/philosophy/thinkers/nietzsche": [
+    {
+      url: "/human-history/knowledge/人物--达尔文",
+      title: "达尔文",
+    },
     {
       url: "/philosophy/thinkers/deleuze",
       title: "德勒兹",
@@ -7858,7 +9724,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "苏格拉底",
     },
     {
+      url: "/human-history/knowledge/人物--苏格拉底",
+      title: "苏格拉底",
+    },
+    {
+      url: "/human-history/knowledge/文明--希腊罗马文明",
+      title: "希腊罗马文明",
+    },
+    {
       url: "/philosophy/thinkers/aristotle",
+      title: "亚里士多德",
+    },
+    {
+      url: "/human-history/knowledge/人物--亚里士多德",
       title: "亚里士多德",
     },
     {
@@ -7924,6 +9802,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/voltaire",
       title: "伏尔泰",
+    },
+    {
+      url: "/human-history/knowledge/事件--启蒙运动",
+      title: "启蒙运动",
     },
     {
       url: "/philosophy/thinkers/hobbes",
@@ -8066,6 +9948,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "董仲舒",
     },
   ],
+  "/political-science/concepts/budget-governance": [
+    {
+      url: "/political-science/concepts/fiscal-rules-democratic-legitimacy",
+      title: "财政规则与民主合法性",
+    },
+    {
+      url: "/psychology/knowledge-base/political-psychology-of-fiscal-austerity",
+      title: "财政紧缩的政治心理",
+    },
+    {
+      url: "/psychology/knowledge-base/inflation-expectations-and-trust",
+      title: "通胀预期与信任",
+    },
+    {
+      url: "/political-science/institutions/central-bank-communication-public-understanding",
+      title: "央行沟通与公众理解",
+    },
+    {
+      url: "/economics/concepts/expectations-credibility-policy-transmission",
+      title: "预期、可信度与政策传导",
+    },
+  ],
   "/political-science/concepts/citizenship-rights": [
     {
       url: "/political-science/institutions/welfare-state",
@@ -8098,6 +10002,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/concepts/gini-coefficient",
       title: "基尼系数",
+    },
+  ],
+  "/political-science/concepts/fiscal-state": [
+    {
+      url: "/political-science/concepts/fiscal-rules-democratic-legitimacy",
+      title: "财政规则与民主合法性",
+    },
+    {
+      url: "/psychology/knowledge-base/political-psychology-of-fiscal-austerity",
+      title: "财政紧缩的政治心理",
+    },
+    {
+      url: "/political-science/institutions/central-bank-communication-public-understanding",
+      title: "央行沟通与公众理解",
     },
   ],
   "/political-science/concepts/hegemony": [
@@ -8312,6 +10230,30 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/institutions/executive-power",
       title: "行政权与行政首长",
+    },
+  ],
+  "/political-science/institutions/central-bank-communication-public-understanding": [
+    {
+      url: "/political-science/concepts/fiscal-rules-democratic-legitimacy",
+      title: "财政规则与民主合法性",
+    },
+    {
+      url: "/economics/concepts/expectations-credibility-policy-transmission",
+      title: "预期、可信度与政策传导",
+    },
+  ],
+  "/political-science/institutions/central-bank-independence-political-economy": [
+    {
+      url: "/political-science/concepts/fiscal-rules-democratic-legitimacy",
+      title: "财政规则与民主合法性",
+    },
+    {
+      url: "/psychology/knowledge-base/inflation-expectations-and-trust",
+      title: "通胀预期与信任",
+    },
+    {
+      url: "/political-science/institutions/central-bank-communication-public-understanding",
+      title: "央行沟通与公众理解",
     },
   ],
   "/political-science/institutions/constitutionalism-separation-of-powers": [
@@ -8896,6 +10838,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "联合国体系",
     },
   ],
+  "/political-science/international-relations/postcolonial-state-building": [
+    {
+      url: "/political-science/concepts/fiscal-rules-democratic-legitimacy",
+      title: "财政规则与民主合法性",
+    },
+  ],
   "/political-science/international-relations/realism-ir": [
     {
       url: "/political-science/international-relations/security-dilemma-war-peace",
@@ -9000,10 +10948,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "卡尔·马克思",
     },
   ],
+  "/political-science/isms/imperialism": [
+    {
+      url: "/human-history/knowledge/事件--一战",
+      title: "第一次世界大战",
+    },
+  ],
   "/political-science/isms/liberalism": [
     {
       url: "/political-science/thinkers/isaiah-berlin",
       title: "以赛亚·柏林",
+    },
+  ],
+  "/political-science/isms/nationalism": [
+    {
+      url: "/human-history/knowledge/人物--拿破仑",
+      title: "拿破仑",
     },
   ],
   "/political-science/isms/populism": [
@@ -9066,6 +11026,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "公民身份与权利",
     },
   ],
+  "/political-science/thinkers/john-locke": [
+    {
+      url: "/human-history/knowledge/事件--美国革命",
+      title: "美国革命",
+    },
+    {
+      url: "/human-history/knowledge/思想史--启蒙运动",
+      title: "启蒙运动",
+    },
+  ],
   "/political-science/thinkers/john-rawls": [
     {
       url: "/political-science/thinkers/amartya-sen",
@@ -9086,6 +11056,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/thinkers/isaiah-berlin",
       title: "以赛亚·柏林",
+    },
+    {
+      url: "/human-history/knowledge/事件--宗教改革",
+      title: "宗教改革",
     },
   ],
   "/political-science/thinkers/montesquieu": [
@@ -9160,10 +11134,54 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: '发展心理学：人是如何"长"成的',
     },
   ],
+  "/psychology/knowledge-base/inflation-expectations-and-trust": [
+    {
+      url: "/political-science/institutions/central-bank-communication-public-understanding",
+      title: "央行沟通与公众理解",
+    },
+    {
+      url: "/economics/concepts/expectations-credibility-policy-transmission",
+      title: "预期、可信度与政策传导",
+    },
+  ],
+  "/psychology/knowledge-base/inflation-psychology": [
+    {
+      url: "/psychology/knowledge-base/inflation-expectations-and-trust",
+      title: "通胀预期与信任",
+    },
+  ],
+  "/psychology/knowledge-base/political-polarization-psychology": [
+    {
+      url: "/psychology/knowledge-base/political-psychology-of-fiscal-austerity",
+      title: "财政紧缩的政治心理",
+    },
+    {
+      url: "/psychology/knowledge-base/inflation-expectations-and-trust",
+      title: "通胀预期与信任",
+    },
+    {
+      url: "/economics/concepts/expectations-credibility-policy-transmission",
+      title: "预期、可信度与政策传导",
+    },
+  ],
   "/psychology/knowledge-base/resilience-science": [
     {
       url: "/psychology/knowledge-base/trauma-and-ptsd",
       title: "创伤与 PTSD：当记忆无法过去",
+    },
+  ],
+  "/psychology/knowledge-base/risk-perception-and-macro-decisions": [
+    {
+      url: "/psychology/knowledge-base/political-psychology-of-fiscal-austerity",
+      title: "财政紧缩的政治心理",
+    },
+    {
+      url: "/psychology/knowledge-base/inflation-expectations-and-trust",
+      title: "通胀预期与信任",
+    },
+    {
+      url: "/economics/concepts/expectations-credibility-policy-transmission",
+      title: "预期、可信度与政策传导",
     },
   ],
   "/psychology/phenomena/anchoring-bias": [
@@ -10261,6 +12279,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/universe-physics/knowledge-base/相对论--等效原理",
       title: "等效原理",
     },
+    {
+      url: "/cosmology/knowledge-base/多信使天文学--gravitational-wave-detectors-ligo-lisa",
+      title: "引力波探测器LIGO与LISA",
+    },
+    {
+      url: "/cosmology/knowledge-base/引力透镜",
+      title: "引力透镜",
+    },
   ],
   "/universe-physics/knowledge-base/相对论--广义相对论的实验检验": [
     {
@@ -10286,8 +12312,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/universe-physics/knowledge-base/相对论--引力波": [
     {
+      url: "/cosmology/knowledge-base/宇宙学观测--标准烛光与Ia超新星测距",
+      title: "标准烛光与Ia型超新星测距",
+    },
+    {
+      url: "/cosmology/knowledge-base/多信使天文学--gravitational-wave-detectors-ligo-lisa",
+      title: "引力波探测器LIGO与LISA",
+    },
+    {
       url: "/universe-physics/knowledge-base/前沿物理--宇宙暴胀",
       title: "宇宙暴胀",
+    },
+    {
+      url: "/cosmology/knowledge-base/恒星物理--type-ia-supernovae",
+      title: "Ia型超新星",
     },
   ],
   "/universe-physics/knowledge-base/相对论--引力红移与引力时间膨胀": [
@@ -10384,6 +12422,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/物理学--相对论性动量与能量",
       title: "相对论性动量与能量",
+    },
+  ],
+  "/universe-physics/knowledge-base/粒子物理--quantum-chromodynamics": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--暗物质候选粒子WIMP与轴子",
+      title: "暗物质候选粒子：WIMP 与轴子",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--cosmic-thermal-history",
+      title: "宇宙的热历史",
     },
   ],
   "/universe-physics/knowledge-base/经典物理--万有引力": [

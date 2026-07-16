@@ -134,7 +134,7 @@ export default async function QuestionDetailPage({
           </>
         }
       >
-        <MarkdownRenderer content={question.content} accentColor={fieldColor} />
+        <MarkdownRenderer domain="philosophy" content={question.content} accentColor={fieldColor} />
         <RelatedContent slug={slug} domain="philosophy" entityId={slug} />
       </ArticleLayout>
     </>

@@ -21,9 +21,14 @@ import {
   computeNodeCounts,
   computeEdgeCounts,
 } from "../lib/constants";
+import { buildPrimaryPrerequisitePath } from "../data/cognitive-metadata";
+
+const EMPTY_EMPHASIZED_IDS: ReadonlySet<string> = new Set();
 
 export function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window === "undefined" ? false : window.matchMedia("(max-width: 768px)").matches
+  );
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 768px)");
     setIsMobile(mq.matches);
@@ -34,7 +39,14 @@ export function useIsMobile() {
   return isMobile;
 }
 
-export function useGraphState(nodes: GraphNode[], edges: GraphEdge[], isMobile: boolean) {
+export function useGraphState(
+  nodes: GraphNode[],
+  edges: GraphEdge[],
+  isMobile: boolean,
+  emphasizedNodeIds: ReadonlySet<string> = EMPTY_EMPHASIZED_IDS,
+  emphasizedEdgeKeys: ReadonlySet<string> = EMPTY_EMPHASIZED_IDS,
+  enablePrerequisitePath = false
+) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const rendererRef = useRef<GraphRenderer | null>(null);
@@ -125,10 +137,11 @@ export function useGraphState(nodes: GraphNode[], edges: GraphEdge[], isMobile: 
     return Array.from(grouped.values());
   }, [searchRaw]);
 
-  const searchMatchedIds = useMemo<Set<string>>(
-    () => new Set(searchRaw.map((r) => r.node.id)),
-    [searchRaw]
-  );
+  const searchMatchedIds = useMemo<Set<string>>(() => {
+    const matched = new Set(emphasizedNodeIds);
+    for (const result of searchRaw) matched.add(result.node.id);
+    return matched;
+  }, [emphasizedNodeIds, searchRaw]);
 
   const adjacency = useMemo(() => buildAdjacency(edges), [edges]);
 
@@ -205,6 +218,19 @@ export function useGraphState(nodes: GraphNode[], edges: GraphEdge[], isMobile: 
 
   const selectedNode = selectedNodeId ? (nodeMap.get(selectedNodeId) ?? null) : null;
 
+  const prerequisitePathIds = useMemo(
+    () =>
+      enablePrerequisitePath && selectedNodeId
+        ? buildPrimaryPrerequisitePath(selectedNodeId, nodes)
+        : [],
+    [enablePrerequisitePath, nodes, selectedNodeId]
+  );
+  const prerequisitePathNodes = useMemo(
+    () => prerequisitePathIds.flatMap((id) => (nodeMap.has(id) ? [nodeMap.get(id)!] : [])),
+    [nodeMap, prerequisitePathIds]
+  );
+  const activePath = prerequisitePathIds.length > 1 ? prerequisitePathIds : animatedPath;
+
   const connectedNodes = useMemo<GraphNode[]>(() => {
     if (!selectedNodeId) return [];
     const ids = new Set<string>();
@@ -221,14 +247,22 @@ export function useGraphState(nodes: GraphNode[], edges: GraphEdge[], isMobile: 
   }, [selectedNodeId, edges]);
 
   const highlightState = useMemo<HighlightState>(() => {
-    const hasPath = animatedPath.length > 1;
-    if (!selectedNodeId && !hasPath) {
+    const hasPath = activePath.length > 1;
+    if (
+      !selectedNodeId &&
+      !hasPath &&
+      emphasizedNodeIds.size === 0 &&
+      emphasizedEdgeKeys.size === 0
+    ) {
       return { nodeIds: new Set(), edgeKeys: new Set(), pathNodes: [], dimAlpha: 1 };
     }
-    const highlightedNodeIds = selectedNodeId
-      ? getNodesWithinHops(selectedNodeId, 1, adjacency)
-      : new Set<string>();
-    const highlightedEdgeKeys = new Set<string>();
+    const highlightedNodeIds = new Set(emphasizedNodeIds);
+    if (selectedNodeId) {
+      for (const nodeId of getNodesWithinHops(selectedNodeId, 1, adjacency)) {
+        highlightedNodeIds.add(nodeId);
+      }
+    }
+    const highlightedEdgeKeys = new Set(emphasizedEdgeKeys);
     if (selectedNodeId) {
       for (const edge of edges) {
         if (
@@ -240,19 +274,19 @@ export function useGraphState(nodes: GraphNode[], edges: GraphEdge[], isMobile: 
       }
     }
     if (hasPath) {
-      for (let i = 0; i < animatedPath.length - 1; i++) {
-        highlightedEdgeKeys.add(`${animatedPath[i]}->${animatedPath[i + 1]}`);
-        highlightedEdgeKeys.add(`${animatedPath[i + 1]}->${animatedPath[i]}`);
+      for (let i = 0; i < activePath.length - 1; i++) {
+        highlightedEdgeKeys.add(`${activePath[i]}->${activePath[i + 1]}`);
+        highlightedEdgeKeys.add(`${activePath[i + 1]}->${activePath[i]}`);
       }
-      for (const id of animatedPath) highlightedNodeIds.add(id);
+      for (const id of activePath) highlightedNodeIds.add(id);
     }
     return {
       nodeIds: highlightedNodeIds,
       edgeKeys: highlightedEdgeKeys,
-      pathNodes: animatedPath,
+      pathNodes: activePath,
       dimAlpha: 0.3,
     };
-  }, [selectedNodeId, adjacency, edges, animatedPath]);
+  }, [selectedNodeId, adjacency, edges, activePath, emphasizedNodeIds, emphasizedEdgeKeys]);
 
   const nodeCounts = useMemo(() => computeNodeCounts(nodes, activeDomains), [nodes, activeDomains]);
 
@@ -392,6 +426,7 @@ export function useGraphState(nodes: GraphNode[], edges: GraphEdge[], isMobile: 
     selectedNode,
     connectedNodes,
     connectedEdges,
+    prerequisitePathNodes,
     adjacency,
     highlightState,
     nodeCounts,

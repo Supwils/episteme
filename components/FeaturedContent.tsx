@@ -42,14 +42,12 @@ function FeaturedItem({ item }: { item: (typeof FEATURED_CONTENT)[0] }) {
         <span className="text-lg" style={{ color: item.domainColor }}>
           {item.icon}
         </span>
-        <span className="text-[0.68rem] font-semibold" style={{ color: item.domainColor }}>
-          {item.domain}
-        </span>
+        <span className="text-fg-secondary text-[0.68rem] font-semibold">{item.domain}</span>
       </div>
       <h3 className="text-fg-primary group-hover:text-accent-gold mb-1.5 text-[0.95rem] font-semibold transition-colors">
         {item.title}
       </h3>
-      <p className="m-0 text-[0.82rem] leading-relaxed text-[#8b8fa3]">{item.description}</p>
+      <p className="text-fg-secondary m-0 text-[0.82rem] leading-relaxed">{item.description}</p>
     </Link>
   );
 }

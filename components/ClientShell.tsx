@@ -1,14 +1,9 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { GlobalSearch } from "./GlobalSearch";
 
-const GlobalSearch = dynamic(() => import("./GlobalSearch").then((m) => m.GlobalSearch), {
-  ssr: false,
-});
 const ScrollToTop = dynamic(() => import("./ScrollToTop").then((m) => m.ScrollToTop), {
-  ssr: false,
-});
-const VitalsReporter = dynamic(() => import("./VitalsReporter").then((m) => m.VitalsReporter), {
   ssr: false,
 });
 const ReadingPathBar = dynamic(() => import("./ReadingPathBar").then((m) => m.ReadingPathBar), {
@@ -26,7 +21,6 @@ export function ClientShell() {
       <ScrollToTop />
       <ReadingPathBar />
       <NarrationPlayer />
-      <VitalsReporter />
     </>
   );
 }

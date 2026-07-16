@@ -84,7 +84,7 @@ export default async function LifeScienceKnowledgeArticlePage({ params }: Props)
           )}
         </header>
 
-        <MarkdownRenderer content={article.content} accentColor={ACCENT} />
+        <MarkdownRenderer domain="life-science" content={article.content} accentColor={ACCENT} />
       </article>
 
       <footer className="border-border-subtle mt-12 border-t pt-6">

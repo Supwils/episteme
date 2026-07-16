@@ -9,9 +9,26 @@ import { POLITICAL_SCIENCE_NODES, POLITICAL_SCIENCE_EDGES } from "./political-sc
 import { COSMOLOGY_NODES, COSMOLOGY_EDGES } from "./cosmology-nodes";
 import { MATHEMATICS_NODES, MATHEMATICS_EDGES } from "./mathematics-nodes";
 import { EARTH_SCIENCE_NODES, EARTH_SCIENCE_EDGES } from "./earth-science-nodes";
+import { EARTH_SCIENCE_RISK_EDGES, EARTH_SCIENCE_RISK_NODES } from "./earth-science-risk-coverage";
 import { MEDICINE_NODES, MEDICINE_EDGES } from "./medicine-nodes";
 import { PHYSICS_KB_NODES, PHYSICS_KB_EDGES } from "./physics-kb-nodes";
 import { CHEMISTRY_NODES, CHEMISTRY_EDGES } from "./chemistry-nodes";
+import { SOCIOLOGY_NODES, SOCIOLOGY_EDGES } from "./sociology-nodes";
+import { LINGUISTICS_NODES, LINGUISTICS_EDGES } from "./linguistics-nodes";
+import { LIFESCIENCE_COVERAGE_EDGES, LIFESCIENCE_COVERAGE_NODES } from "./lifescience-coverage";
+import { DOMAIN_SPINE_COVERAGE_EDGES, DOMAIN_SPINE_COVERAGE_NODES } from "./domain-spine-coverage";
+import {
+  DOMAIN_SPINE_COMPLETION_EDGES,
+  DOMAIN_SPINE_COMPLETION_NODES,
+} from "./domain-spine-coverage-completion";
+import { annotateCognitiveMetadata } from "./cognitive-metadata";
+import { CURATED_PREREQUISITE_EDGES } from "./curated-learning-paths";
+import { CONTINUUM_ANCHOR_EDGES, CONTINUUM_ANCHOR_NODES } from "./continuum-anchor-nodes";
+import { FULL_GRAPH_ATTACHMENT_EDGES } from "./full-graph-attachments";
+import {
+  FRONTIER_FOUNDATION_NODES,
+  REVIEWED_LEARNING_RELATION_EDGES,
+} from "./frontier-prerequisite-relations";
 import { CROSS_LINKS } from "@/lib/cross-links/api";
 import { BACKLINKS_INDEX } from "@/lib/backlinks-index";
 import type { GraphNode, GraphEdge } from "./types";
@@ -82,6 +99,7 @@ function computeUrl(node: { domain: string; type: string; slug: string }): strin
       if (node.type === "thinker") return `/philosophy/thinkers/${node.slug}`;
       if (node.type === "school") return `/philosophy/schools/${node.slug}`;
       if (node.type === "concept") return `/philosophy/concepts/${node.slug}`;
+      if (node.type === "experiment") return `/philosophy/experiments/${node.slug}`;
       return undefined;
     case "life-science":
       if (node.type === "species") return `/life-science/species`;
@@ -91,7 +109,8 @@ function computeUrl(node: { domain: string; type: string; slug: string }): strin
     case "economics":
       if (node.type === "economist") return `/economics/economists/${node.slug}`;
       if (node.type === "theory") return `/economics/theories/${node.slug}`;
-      return `/economics`;
+      if (node.type === "concept") return `/economics/concepts/${node.slug}`;
+      return "/economics";
     case "psychology":
       if (node.type === "theorist") return `/psychology/theorists/${node.slug}`;
       if (node.type === "experiment") return `/psychology/experiments/${node.slug}`;
@@ -116,7 +135,8 @@ const lifeScienceNodes: GraphNode[] = LIFESCIENCE_NODES.map((n) => ({
   url: computeUrl(n),
 }));
 
-export const ALL_NODES: GraphNode[] = [
+const BASE_NODES: GraphNode[] = [
+  ...FRONTIER_FOUNDATION_NODES,
   ...physicsNodes,
   ...philosophyNodes.map((n) => ({
     ...n,
@@ -127,21 +147,38 @@ export const ALL_NODES: GraphNode[] = [
     (n) => ({ ...n, section: computeSection(n), url: computeUrl(n) }) as GraphNode
   ),
   ...lifeScienceNodes,
-  ...economicsNodes.map((n) => ({ ...n, section: computeSection(n), url: computeUrl(n) })),
-  ...psychologyNodes.map((n) => ({ ...n, section: computeSection(n), url: computeUrl(n) })),
+  ...economicsNodes.map((n) => ({
+    ...n,
+    section: n.section ?? computeSection(n),
+    url: n.url ?? computeUrl(n),
+  })),
+  ...psychologyNodes.map((n) => ({
+    ...n,
+    section: n.section ?? computeSection(n),
+    url: n.url ?? computeUrl(n),
+  })),
   ...COMPUTER_SCIENCE_NODES,
   ...POLITICAL_SCIENCE_NODES,
   ...COSMOLOGY_NODES,
   ...MATHEMATICS_NODES,
   ...EARTH_SCIENCE_NODES,
+  ...EARTH_SCIENCE_RISK_NODES,
   ...MEDICINE_NODES,
   ...PHYSICS_KB_NODES,
   ...CHEMISTRY_NODES,
+  ...SOCIOLOGY_NODES,
+  ...LINGUISTICS_NODES,
+  ...LIFESCIENCE_COVERAGE_NODES,
+  ...DOMAIN_SPINE_COVERAGE_NODES,
+  ...DOMAIN_SPINE_COMPLETION_NODES,
+  ...CONTINUUM_ANCHOR_NODES,
 ];
 
 const physicsEdges: GraphEdge[] = PHYSICS_EDGES.map(mapEdge);
 const historyEdges: GraphEdge[] = HISTORY_EDGES.map(mapEdge);
 const lifeScienceEdges: GraphEdge[] = LIFESCIENCE_EDGES.map(mapEdge);
+const pairKey = (left: string, right: string): string =>
+  left < right ? `${left}|${right}` : `${right}|${left}`;
 
 // cross-links use app names (human-history/universe-physics/life-science) but
 // graph node ids are prefixed with the shorter domain key (history/physics/
@@ -153,7 +190,7 @@ const APP_TO_DOMAIN: Record<string, string> = {
 };
 const dp = (app: string) => APP_TO_DOMAIN[app] ?? app;
 
-const nodeIdSet = new Set(ALL_NODES.map((n) => n.id));
+const nodeIdSet = new Set(BASE_NODES.map((n) => n.id));
 const domainLinkEdges: GraphEdge[] = CROSS_LINKS.map((link) => ({
   source: `${dp(link.sourceApp)}:${link.sourceId}`,
   target: `${dp(link.targetApp)}:${link.targetId}`,
@@ -173,11 +210,30 @@ const baseEdges: GraphEdge[] = [
   ...COSMOLOGY_EDGES,
   ...MATHEMATICS_EDGES,
   ...EARTH_SCIENCE_EDGES,
+  ...EARTH_SCIENCE_RISK_EDGES,
   ...MEDICINE_EDGES,
   ...PHYSICS_KB_EDGES,
   ...CHEMISTRY_EDGES,
+  ...SOCIOLOGY_EDGES,
+  ...LINGUISTICS_EDGES,
+  ...LIFESCIENCE_COVERAGE_EDGES,
+  ...DOMAIN_SPINE_COVERAGE_EDGES,
+  ...DOMAIN_SPINE_COMPLETION_EDGES,
   ...domainLinkEdges,
+  ...CONTINUUM_ANCHOR_EDGES,
+  ...FULL_GRAPH_ATTACHMENT_EDGES,
+  ...REVIEWED_LEARNING_RELATION_EDGES,
 ];
+
+const baseEdgePairs = new Set(baseEdges.map((edge) => pairKey(edge.source, edge.target)));
+for (const edge of CURATED_PREREQUISITE_EDGES) {
+  const key = pairKey(edge.source, edge.target);
+  if (!nodeIdSet.has(edge.source) || !nodeIdSet.has(edge.target) || baseEdgePairs.has(key)) {
+    continue;
+  }
+  baseEdges.push(edge);
+  baseEdgePairs.add(key);
+}
 
 // Real prose cross-references: the inline `[[wiki-links]]` authors wrote are
 // inverted into graph edges (lib/backlinks-index). They map onto graph nodes by
@@ -185,9 +241,8 @@ const baseEdges: GraphEdge[] = [
 // authentic connections rather than hand-picked ones. Same-domain references
 // are `cross-reference`; cross-domain ones join the curated `domain-link`s.
 const urlToNodeId = new Map<string, string>();
-for (const n of ALL_NODES) if (n.url) urlToNodeId.set(n.url, n.id);
+for (const n of BASE_NODES) if (n.url) urlToNodeId.set(n.url, n.id);
 
-const pairKey = (a: string, b: string): string => (a < b ? `${a}|${b}` : `${b}|${a}`);
 const existingPairs = new Set(baseEdges.map((e) => pairKey(e.source, e.target)));
 
 const wikiReferenceEdges: GraphEdge[] = [];
@@ -211,6 +266,7 @@ for (const [targetUrl, sources] of Object.entries(BACKLINKS_INDEX)) {
 }
 
 export const ALL_EDGES: GraphEdge[] = [...baseEdges, ...wikiReferenceEdges];
+export const ALL_NODES: GraphNode[] = annotateCognitiveMetadata(BASE_NODES, ALL_EDGES);
 
 export function getNodeById(id: string): GraphNode | undefined {
   return ALL_NODES.find((n) => n.id === id);

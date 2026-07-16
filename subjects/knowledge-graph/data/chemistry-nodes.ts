@@ -1,4 +1,5 @@
 import type { GraphNode, GraphEdge } from "./types";
+import { CHEMISTRY_COVERAGE_EDGES, CHEMISTRY_COVERAGE_NODES } from "./chemistry-coverage";
 
 const n = (
   slug: string,
@@ -193,6 +194,7 @@ export const CHEMISTRY_NODES: GraphNode[] = [
     "从酚醛树脂到今日无处不在的塑料与塑料危机。",
     ["塑料", "高分子"]
   ),
+  ...CHEMISTRY_COVERAGE_NODES,
 ];
 
 const e = (from: string, to: string, label: string): GraphEdge => ({
@@ -255,4 +257,5 @@ export const CHEMISTRY_EDGES: GraphEdge[] = [
     type: "domain-link",
     label: "水的化学性质驱动水循环",
   },
+  ...CHEMISTRY_COVERAGE_EDGES,
 ];

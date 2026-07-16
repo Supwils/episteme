@@ -23,6 +23,7 @@ const SECTION_PREFIXES = [
   "/psychology",
   "/computer-science",
   "/political-science",
+  "/linguistics",
   "/read",
   "/knowledge-graph",
   "/curiosities",

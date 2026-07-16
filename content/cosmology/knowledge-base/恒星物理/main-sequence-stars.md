@@ -10,7 +10,7 @@ updated: 2026-06-13
 
 ## 概述
 
-在赫罗图（Hertzsprung-Russell diagram）上，约 $90\%$ 的恒星聚集在一条从左上角（高温高光度）延伸到右下角（低温低光度）的对角带上，这条带被称为**主序**（main sequence）。处于主序阶段的恒星称为主序星，它们正在核心通过氢聚变为氦来产生能量，处于流体静力平衡的稳定状态。我们的太阳就是一颗典型的主序星，目前年龄约 $46$ 亿年，预计还有约 $50$ 亿年的主序寿命（Sackmann et al. 1993，_The Astrophysical Journal_，418，457）。
+在[[hertzsprung-russell-diagram|赫罗图]]（Hertzsprung-Russell diagram）上，约 $90\%$ 的恒星聚集在一条从左上角（高温高光度）延伸到右下角（低温低光度）的对角带上，这条带被称为**主序**（main sequence）。处于主序阶段的恒星称为主序星，它们正在核心通过氢聚变为氦来产生能量，处于流体静力平衡的稳定状态。我们的太阳就是一颗典型的主序星，目前年龄约 $46$ 亿年，预计还有约 $50$ 亿年的主序寿命（Sackmann et al. 1993，_The Astrophysical Journal_，418，457）。
 
 ## 主序的物理本质
 
@@ -19,7 +19,7 @@ updated: 2026-06-13
 - 质量越大的恒星，核心温度越高（需要更大的压力对抗更强的引力），核聚变速率越快，光度越高，表面温度越高（颜色越蓝）
 - 质量越小的恒星，与之相反，光度越低，表面越冷（颜色越红）
 
-主序在赫罗图上的宽度（而非一条细线）反映了恒星在主序上的演化：随着氢的消耗，氦核逐渐积累，恒星缓慢地向红巨星方向移动，光度略有增大。
+主序在赫罗图上的宽度（而非一条细线）反映了恒星在主序上的演化：随着氢的消耗，氦核逐渐积累，恒星缓慢地向[[red-giants-agb|红巨星]]方向移动，光度略有增大。
 
 ## 质光关系与质量-寿命关系
 
@@ -96,7 +96,7 @@ $$\tau_{MS} \approx \frac{0.1 \times M c^2 \times 0.007}{L} \approx 10^{10}\,\te
 
 ### 质量下限：氢燃烧极限
 
-恒星需要足够高的核心温度才能点燃氢聚变（约 $10^7$ K）。这要求最小质量约为 $0.08\,M_\odot$（约 $80$ 倍木星质量）。低于这一质量的天体是**棕矮星**，无法维持稳定的氢燃烧，只能短暂燃烧氘，然后缓慢冷却。
+恒星需要足够高的核心温度才能点燃氢聚变（约 $10^7$ K）。这要求最小质量约为 $0.08\,M_\odot$（约 $80$ 倍木星质量）。低于这一质量的天体是**[[褐矮星|棕矮星]]**，无法维持稳定的氢燃烧，只能短暂燃烧氘，然后缓慢冷却。
 
 ### 质量上限：爱丁顿极限
 
@@ -112,7 +112,7 @@ $$L_{Edd} = \frac{4\pi G M c}{\kappa_{es}} \approx 1.3 \times 10^{31}\left(\frac
 
 - 测量宇宙中遥远恒星的距离（通过光谱型推断光度，比较视亮度）
 - 确定星团和星系的年龄
-- 理解恒星死亡后留下何种遗迹（白矮星、中子星、黑洞）
+- 理解恒星死亡后留下何种遗迹（[[white-dwarfs|白矮星]]、中子星、黑洞）
 - 评估系外行星宿主星的稳定性和宜居带位置
 
 恒星物理不是抽象的学术问题——太阳在主序上的稳定燃烧，是地球上生命在数十亿年间得以繁衍的物理基础。
@@ -128,7 +128,7 @@ $$L_{Edd} = \frac{4\pi G M c}{\kappa_{es}} \approx 1.3 \times 10^{31}\left(\frac
 
 - Sackmann, I.-J., Boothroyd, A.I., & Kraemer, K.E. (1993). Our Sun. III. Present and Future. _The Astrophysical Journal_, 418, 457–468.
 - Ledrew, G. (2001). The Real Starry Sky. _Journal of the Royal Astronomical Society of Canada_, 95, 32–33.
-- Crowther, P.A. et al. (2010). The R136 star cluster hosts several stars whose individual masses greatly exceed the accepted 150 M_sun stellar mass limit. _Monthly Notices of the Royal Astronomical Society_, 408, 731–751.
+- Crowther, P.A. et al. (2010). The R136 star cluster hosts several stars whose individual masses greatly exceed the accepted 150 M*sun stellar mass limit. \_Monthly Notices of the Royal Astronomical Society*, 408, 731–751.
 - Bressan, A. et al. (2012). PARSEC: stellar tracks and isochrones with the PAdova and TRieste Stellar Evolution code. _Monthly Notices of the Royal Astronomical Society_, 427, 127–145.
 - Baraffe, I., Homeier, D., Allard, F., & Chabrier, G. (2015). New evolutionary models for pre-main sequence and main sequence stars down to the hydrogen-burning limit. _Astronomy & Astrophysics_, 577, A42.
 

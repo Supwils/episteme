@@ -86,7 +86,11 @@ export default async function PhysicsDialogueDetailPage({ params }: Props) {
           )}
         </header>
 
-        <MarkdownRenderer content={dialogue.content} accentColor={ACCENT} />
+        <MarkdownRenderer
+          domain="universe-physics"
+          content={dialogue.content}
+          accentColor={ACCENT}
+        />
       </article>
 
       <footer className="border-border-subtle mt-12 border-t pt-6">

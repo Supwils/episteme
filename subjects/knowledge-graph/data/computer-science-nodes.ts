@@ -1,4 +1,8 @@
 import type { GraphNode, GraphEdge } from "./types";
+import {
+  COMPUTER_SCIENCE_COVERAGE_EDGES,
+  COMPUTER_SCIENCE_COVERAGE_NODES,
+} from "./computer-science-coverage";
 
 const n = (
   slug: string,
@@ -181,6 +185,7 @@ export const COMPUTER_SCIENCE_NODES: GraphNode[] = [
     "排序",
     "图算法",
   ]),
+  ...COMPUTER_SCIENCE_COVERAGE_NODES,
 ];
 
 const e = (from: string, to: string, label: string): GraphEdge => ({
@@ -231,4 +236,5 @@ export const COMPUTER_SCIENCE_EDGES: GraphEdge[] = [
     type: "domain-link",
     label: "数论的应用",
   },
+  ...COMPUTER_SCIENCE_COVERAGE_EDGES,
 ];

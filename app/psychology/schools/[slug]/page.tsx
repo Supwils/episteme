@@ -117,7 +117,7 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
         </>
       }
     >
-      <MarkdownRenderer content={school.content} />
+      <MarkdownRenderer domain="psychology" content={school.content} />
     </ArticleLayout>
   );
 }

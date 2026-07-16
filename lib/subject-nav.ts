@@ -77,6 +77,7 @@ export const SUBJECT_NAV: Record<string, SubjectNavConfig> = {
       { href: "/psychology/debates", label: "大争论" },
       { href: "/psychology/dialogues", label: "对话" },
       { href: "/psychology/knowledge-base", label: "知识库" },
+      { href: "/psychology/methods", label: "研究方法" },
       { href: "/psychology/frontier", label: "前沿" },
     ],
   },

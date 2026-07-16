@@ -1,0 +1,186 @@
+import type { GraphEdge } from "./types";
+
+// Editorial semantic links for previously isolated graph components. These are
+// related-knowledge edges, never prerequisites in a curated learning path.
+export const FULL_GRAPH_ATTACHMENT_EDGES: readonly GraphEdge[] = [
+  {
+    source: "philosophy:ai-ethics",
+    target: "computer-science:ai-interpretability",
+    type: "domain-link",
+    label: "AI系统的解释责任与伦理治理",
+  },
+  {
+    source: "philosophy:complexity-philosophy",
+    target: "mathematics:complexity",
+    type: "domain-link",
+    label: "复杂性概念的形式基础与哲学解释",
+  },
+  {
+    source: "philosophy:digital-identity",
+    target: "philosophy:identity",
+    type: "cross-reference",
+    label: "数字环境中的人格同一性",
+  },
+  {
+    source: "philosophy:effective-altruism-detail",
+    target: "philosophy:effective-altruism",
+    type: "cross-reference",
+    label: "思想运动与论证详解",
+  },
+  {
+    source: "philosophy:effective-altruism",
+    target: "philosophy:utilitarianism",
+    type: "cross-reference",
+    label: "结果主义传统与资源优先排序",
+  },
+  {
+    source: "philosophy:epistemic-justice",
+    target: "philosophy:decolonial-epistemology",
+    type: "cross-reference",
+    label: "知识权威、证言不公与解殖民",
+  },
+  {
+    source: "philosophy:indian-buddhist-epistemology",
+    target: "philosophy:buddhism-philosophy",
+    type: "cross-reference",
+    label: "佛教哲学中的知识与推理传统",
+  },
+  {
+    source: "philosophy:information-philosophy",
+    target: "mathematics:information-theory",
+    type: "domain-link",
+    label: "信息概念的形式化与本体论解释",
+  },
+  {
+    source: "philosophy:how-to-live-meaningfully",
+    target: "philosophy:existentialism",
+    type: "cross-reference",
+    label: "生活意义与存在主义回应",
+  },
+  {
+    source: "philosophy:should-ai-have-rights",
+    target: "philosophy:what-is-consciousness",
+    type: "cross-reference",
+    label: "意识标准与人工主体的道德地位",
+  },
+  {
+    source: "philosophy:environmentalism",
+    target: "philosophy:environmental-ethics",
+    type: "cross-reference",
+    label: "环境主义与非人类自然的道德价值",
+  },
+  {
+    source: "philosophy:feminism",
+    target: "sociology:gender-and-society",
+    type: "domain-link",
+    label: "女性主义论证与社会性别结构",
+  },
+  {
+    source: "philosophy:transhumanism",
+    target: "medicine:crispr-gene-editing",
+    type: "domain-link",
+    label: "人类增强理想与基因技术边界",
+  },
+  {
+    source: "lifescience:multicellular-life",
+    target: "lifescience:cambrian-explosion",
+    type: "temporal",
+    label: "多细胞生命与寒武纪生态扩张",
+  },
+  {
+    source: "lifescience:huxley",
+    target: "lifescience:darwin",
+    type: "cross-reference",
+    label: "进化论的提出与公共辩护",
+  },
+  {
+    source: "lifescience:youyou",
+    target: "medicine:malaria",
+    type: "domain-link",
+    label: "青蒿素发现与疟疾治疗",
+  },
+  {
+    source: "economics:development-economics",
+    target: "economics:african-development-economics",
+    type: "cross-reference",
+    label: "发展理论与非洲结构转型经验",
+  },
+  {
+    source: "psychology:arkes-blumer-1985",
+    target: "psychology:sunk-cost-fallacy",
+    type: "cross-reference",
+    label: "沉没成本偏差的实验检验",
+  },
+  {
+    source: "psychology:libet-free-will",
+    target: "philosophy:do-we-have-free-will",
+    type: "domain-link",
+    label: "准备电位实验与自由意志争论",
+  },
+  {
+    source: "psychology:rorschach-test",
+    target: "psychology:psychometrics-reliability-validity",
+    type: "cross-reference",
+    label: "投射测验的信度与效度争议",
+  },
+  {
+    source: "psychology:rosenthal-jacobson-1968",
+    target: "psychology:self-fulfilling-prophecy",
+    type: "cross-reference",
+    label: "课堂期望的实验与自我实现预言",
+  },
+  {
+    source: "psychology:self-fulfilling-prophecy",
+    target: "sociology:education-and-credentialism",
+    type: "domain-link",
+    label: "教育期望、标签与制度性机会",
+  },
+  {
+    source: "psychology:stroop-1935",
+    target: "psychology:gorilla-invisibility",
+    type: "cross-reference",
+    label: "选择性注意与认知控制实验",
+  },
+  {
+    source: "psychology:mere-exposure-effect",
+    target: "psychology:cognitive-bias",
+    type: "cross-reference",
+    label: "熟悉性偏好与自动判断偏差",
+  },
+  {
+    source: "psychology:placebo-effect",
+    target: "medicine:clinical-trials",
+    type: "domain-link",
+    label: "期望效应与临床对照设计",
+  },
+  {
+    source: "political-science:hannah-arendt",
+    target: "psychology:obedience-authority",
+    type: "domain-link",
+    label: "平庸之恶、服从与制度责任",
+  },
+  {
+    source: "political-science:conservatism",
+    target: "political-science:liberalism",
+    type: "cross-reference",
+    label: "现代政治意识形态的制度争论",
+  },
+  {
+    source: "mathematics:pythagorean-theorem",
+    target: "history:figure-欧几里得",
+    type: "domain-link",
+    label: "古典几何传统与勾股关系证明",
+  },
+  {
+    source: "medicine:x-ray-imaging",
+    target: "chemistry:x-ray-crystallography",
+    type: "domain-link",
+    label: "X射线从医学成像到结构测定",
+  },
+  {
+    source: "physics:粒子物理--quarks-and-leptons",
+    target: "physics:P7",
+    type: "cross-reference",
+    label: "基本粒子分类与标准模型",
+  },
+];

@@ -1,4 +1,3 @@
-import { AnimatedCounter } from "./AnimatedCounter";
 import { STATS } from "../lib/data";
 
 export function HeroSection() {
@@ -42,26 +41,27 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div
-        className="animate-fade-slide-up flex flex-wrap items-start justify-center gap-x-10 gap-y-6 px-4 sm:gap-x-16"
-        style={{ animationDelay: "0.45s" }}
+      <ul
+        aria-label="平台内容统计"
+        className="flex flex-wrap items-start justify-center gap-x-10 gap-y-6 px-4 sm:gap-x-16"
       >
         {STATS.map((stat, i) => (
-          <div key={stat.label} className="flex items-center gap-x-10 sm:gap-x-16">
+          <li key={stat.label} className="flex items-center gap-x-10 sm:gap-x-16">
             {i > 0 ? (
               <span aria-hidden="true" className="bg-border-faint hidden h-9 w-px sm:block" />
             ) : null}
             <div className="text-center">
-              <div className="font-display text-fg-primary text-[2.1rem] leading-tight font-semibold tracking-tight">
-                <AnimatedCounter target={stat.value} suffix={stat.suffix} />
-              </div>
-              <div className="text-fg-muted mt-1.5 font-mono text-[0.68rem] tracking-[0.18em] uppercase">
+              <span className="font-display text-fg-primary block text-[2.1rem] leading-tight font-semibold tracking-tight">
+                {stat.value}
+                {stat.suffix}
+              </span>
+              <span className="text-fg-muted mt-1.5 block font-mono text-[0.68rem] tracking-[0.18em] uppercase">
                 {stat.label}
-              </div>
+              </span>
             </div>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 }

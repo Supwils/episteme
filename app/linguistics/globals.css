@@ -1,0 +1,14 @@
+@import "../domain-shared.css";
+
+.domain-root {
+  --color-accent-gold: #3f8f8a;
+  --linguistics-history-accent: #b06b64;
+  --linguistics-methods-accent: #829c7a;
+}
+
+.light .domain-root,
+.domain-root.light {
+  --color-accent-gold: #28746f;
+  --linguistics-history-accent: #944944;
+  --linguistics-methods-accent: #4e6b49;
+}

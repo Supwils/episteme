@@ -67,7 +67,24 @@ jobs:
 
       # Enforce the JS gzip budget documented in CLAUDE.md §6.
       - name: Bundle budget
-        run: pnpm bundle-check
+        run: pnpm bundle-check -- --skip-build
+
+      - name: Lighthouse performance budget
+        run: |
+          pnpm start > /tmp/episteme-next.log 2>&1 &
+          server_pid=$!
+          trap 'kill $server_pid' EXIT
+          for attempt in {1..30}; do
+            if curl --fail --silent http://localhost:3000 > /dev/null; then
+              break
+            fi
+            if [ "$attempt" = 30 ]; then
+              cat /tmp/episteme-next.log
+              exit 1
+            fi
+            sleep 1
+          done
+          pnpm lighthouse
 
   # Deploy ONLY after quality + build both pass, and only on main (never on PRs).
   # Native Vercel git-integration is disabled (vercel.json git.deploymentEnabled.main=false)

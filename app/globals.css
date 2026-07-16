@@ -65,13 +65,15 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
   --card-radius: 12px;
   --card-shadow: none;
 
+  /* Subject layouts replace this token with their self-hosted display face. */
+  --font-space-grotesk: system-ui;
   --font-sans:
     var(--font-space-grotesk), "Space Grotesk", "Noto Sans SC", "PingFang SC", "Microsoft YaHei",
     system-ui, sans-serif;
   --font-display:
     var(--font-space-grotesk), "Space Grotesk", "Noto Sans SC", "PingFang SC", sans-serif;
   --font-body: "Noto Sans SC", system-ui, sans-serif;
-  --font-mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, monospace;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 }
 
 @layer base {

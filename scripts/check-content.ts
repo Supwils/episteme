@@ -18,6 +18,7 @@ import { createKnowledgeBase } from "../lib/generic-kb.ts";
 import { createDialogues } from "../lib/generic-dialogues.ts";
 import { COSMOLOGY_KB_DATA } from "../content/cosmology/knowledge-base-data.ts";
 import { COSMOLOGY_DIALOGUES_DATA } from "../content/cosmology/dialogues-data.ts";
+import { LinguisticsArticleSchema } from "../subjects/linguistics/lib/schema.ts";
 
 // Every domain whose .mdx frontmatter is structured enough for the universal
 // required-field / depth / citation checks. Domains without a Zod schema below
@@ -30,8 +31,11 @@ const MDX_DOMAINS = [
   "life-science",
   "economics",
   "psychology",
+  "earth-science",
   "computer-science",
   "political-science",
+  "sociology",
+  "linguistics",
 ] as const;
 
 // Optional per-domain { subType -> Zod schema } maps. economics wires the
@@ -46,6 +50,13 @@ const DOMAIN_SCHEMAS: Record<string, Record<string, z.ZodTypeAny>> = {
     debates: EconDebateSchema,
     dialogues: EconDialogueSchema,
     "knowledge-base": EconKnowledgeBaseSchema,
+  },
+  linguistics: {
+    "sounds-and-signs": LinguisticsArticleSchema,
+    "words-sentences-meaning": LinguisticsArticleSchema,
+    "acquisition-and-mind": LinguisticsArticleSchema,
+    "history-typology-society": LinguisticsArticleSchema,
+    "writing-systems": LinguisticsArticleSchema,
   },
 };
 
@@ -67,10 +78,16 @@ const MIN_LINES: Record<string, number> = {
   theorems: 80,
   schools: 100,
   isms: 80,
+  methods: 100,
   experiments: 80,
   questions: 60,
   dialogues: 80,
   paradoxes: 80,
+  "sounds-and-signs": 100,
+  "words-sentences-meaning": 100,
+  "acquisition-and-mind": 100,
+  "history-typology-society": 100,
+  "writing-systems": 100,
 };
 
 // Real depth is CJK character count, not physical non-empty lines. A complete,
@@ -85,13 +102,19 @@ const MIN_CJK_CHARS: Record<string, number> = {
   theorems: 1700,
   schools: 2200,
   isms: 1700,
+  methods: 2200,
   experiments: 1700,
   questions: 1300,
   dialogues: 1700,
   paradoxes: 1700,
+  "sounds-and-signs": 2200,
+  "words-sentences-meaning": 2200,
+  "acquisition-and-mind": 2200,
+  "history-typology-society": 2200,
+  "writing-systems": 2200,
 };
 
-const TODO_PATTERN = /\b(TODO|FIXME|HACK|XXX)\b/i;
+const TODO_PATTERN = /(?:^|[\s([{<])(?:TODO|FIXME|HACK|XXX)(?:\s*[:：)\]}>\-]|$)|待补|待完善/;
 const HEADING_PATTERN = /^##\s+/m;
 const FURTHER_READING_PATTERN =
   /延伸阅读|进一步阅读|参考书目|参考文献|参考资料|参考来源|推荐阅读|推荐阅读书目/;

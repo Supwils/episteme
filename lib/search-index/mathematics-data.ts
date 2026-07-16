@@ -578,6 +578,13 @@ export const MATHEMATICS_DATA = [
     field: "几何",
   },
   {
+    slug: "number-line",
+    title: "数轴",
+    titleEn: "Number Line",
+    subtype: "concepts",
+    field: "数学基础",
+  },
+  {
     slug: "number-theory",
     title: "数论",
     titleEn: "Number Theory",

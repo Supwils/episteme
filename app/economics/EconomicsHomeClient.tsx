@@ -3,6 +3,7 @@
 import { motion, useReducedMotion, useInView } from "framer-motion";
 import Link from "next/link";
 import { useRef, useEffect, useState, useCallback } from "react";
+import { MacroDiagnosticsMatrix } from "./MacroDiagnosticsMatrix";
 
 const PRODUCT_EASE: [number, number, number, number] = [0.22, 0.61, 0.36, 1];
 
@@ -11,7 +12,7 @@ const SECTIONS = [
     id: "economists",
     icon: "👤",
     title: "经济学家",
-    count: "29",
+    count: "34",
     description: "从亚当·斯密到现代诺贝尔奖得主，经济学巨匠的生平与思想",
     href: "/economics/economists",
     accent: "#c8a45a",
@@ -20,7 +21,7 @@ const SECTIONS = [
     id: "theories",
     icon: "📖",
     title: "经济理论",
-    count: "13",
+    count: "17",
     description: "微观、宏观、国际、发展、行为经济学等核心理论体系",
     href: "/economics/theories",
     accent: "#61afef",
@@ -29,7 +30,7 @@ const SECTIONS = [
     id: "concepts",
     icon: "💡",
     title: "经济学概念",
-    count: "40",
+    count: "55",
     description: "GDP、通货膨胀、边际效用、机会成本等基础与进阶概念",
     href: "/economics/concepts",
     accent: "#e5c07b",
@@ -38,8 +39,8 @@ const SECTIONS = [
     id: "case-studies",
     icon: "📊",
     title: "经济案例",
-    count: "18",
-    description: "大萧条、金融危机、日本泡沫——真实经济事件深度分析",
+    count: "32",
+    description: "大萧条、金融危机、日本泡沫、国家宏观诊断——真实经济事件深度分析",
     href: "/economics/case-studies",
     accent: "#d47850",
   },
@@ -83,7 +84,7 @@ const SECTIONS = [
     id: "knowledge-base",
     icon: "📚",
     title: "知识库",
-    count: "15",
+    count: "25",
     description: "外汇、股票、债券、房产、退休规划等实用经济学指南",
     href: "/economics/knowledge-base",
     accent: "#56b6c2",
@@ -100,8 +101,8 @@ const SECTIONS = [
 ];
 
 const STATS = [
-  { value: 150, label: "知识条目", suffix: "+" },
-  { value: 29, label: "经济学家", suffix: "" },
+  { value: 193, label: "知识条目", suffix: "+" },
+  { value: 34, label: "经济学家", suffix: "" },
   { value: 12, label: "经济学派", suffix: "" },
   { value: 10, label: "互动模拟", suffix: "" },
 ];
@@ -301,6 +302,8 @@ export default function EconomicsHomeClient() {
           ))}
         </div>
       </section>
+
+      <MacroDiagnosticsMatrix />
 
       {/* Quote */}
       <section className="relative z-[2] mx-auto max-w-3xl px-6 pb-24">

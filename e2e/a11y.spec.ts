@@ -12,15 +12,52 @@ const PAGES: { name: string; path: string }[] = [
     path: "/earth-science/concepts/plate-boundaries",
   },
   { name: "political-science (compass interactive)", path: "/political-science/concepts/ideology" },
+  {
+    name: "linguistics (IPA explorer)",
+    path: "/linguistics/sounds-and-signs/phonetics-and-ipa",
+  },
+  {
+    name: "linguistics (syntax builder)",
+    path: "/linguistics/words-sentences-meaning/syntax",
+  },
+  {
+    name: "linguistics (family and typology map)",
+    path: "/linguistics/history-typology-society/linguistic-typology",
+  },
+  {
+    name: "linguistics (multilingual mind prose)",
+    path: "/linguistics/acquisition-and-mind/multilingual-mind",
+  },
+  {
+    name: "linguistics (global scripts prose)",
+    path: "/linguistics/writing-systems/arabic-and-african-scripts",
+  },
+  {
+    name: "linguistics (global writing timeline)",
+    path: "/linguistics/writing-systems/unicode-and-digital-writing",
+  },
+  {
+    name: "linguistics (sound change lab)",
+    path: "/linguistics/history-typology-society/languages-change",
+  },
+  {
+    name: "linguistics (multilingual AI synthesis)",
+    path: "/linguistics/methods-and-frontiers/multilingual-ai",
+  },
   { name: "philosophy thinker", path: "/philosophy/thinkers/socrates" },
   { name: "life-science species prose", path: "/life-science/species/octopus" },
   { name: "frontier article", path: "/computer-science/frontier/large-language-models" },
+  {
+    name: "knowledge confluence evidence page",
+    path: "/knowledge-confluence/public-health-priority",
+  },
   // NB: /knowledge-graph (a canvas force-graph tool) is intentionally out of this
   // reading-experience gate — its control-panel labels are a separate surface.
 ];
 
 for (const p of PAGES) {
   test(`a11y: ${p.name}`, async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto(p.path, { waitUntil: "domcontentloaded" });
     // let client islands (interactives, canvas) mount + fade-in animations settle
     await page.waitForTimeout(1500);
@@ -44,3 +81,113 @@ for (const p of PAGES) {
     ).toEqual([]);
   });
 }
+
+test("a11y: portal knowledge confluence", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/?confluence=urban-climate-adaptation&confluenceMinutes=45");
+  const continuum = page.getByTestId("home-knowledge-continuum");
+  await continuum.scrollIntoViewIfNeeded();
+  await continuum.evaluate((element) => {
+    const expand = Array.from(element.querySelectorAll("button")).find(
+      (button) => button.textContent?.trim() === "展开交互图谱"
+    );
+    expand?.click();
+  });
+  await expect(continuum.getByRole("button", { name: "05 综合前沿", exact: true })).toBeVisible({
+    timeout: 15_000,
+  });
+  const explorer = continuum.getByTestId("knowledge-confluence-explorer");
+  await explorer.scrollIntoViewIfNeeded();
+  const load = explorer.getByRole("button", { name: "立即载入" });
+  const loadHandle = (await load.count()) > 0 ? await load.elementHandle() : null;
+  if (loadHandle && (await loadHandle.isVisible())) {
+    await loadHandle.evaluate((element) => (element as HTMLButtonElement).click());
+  }
+  await expect(explorer.getByTestId("knowledge-confluence-evidence-ledger")).toBeVisible({
+    timeout: 15_000,
+  });
+  await explorer.scrollIntoViewIfNeeded();
+
+  const results = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa"])
+    .include('[data-testid="knowledge-confluence-explorer"]')
+    .analyze();
+  const serious = results.violations.filter(
+    (violation) => violation.impact === "serious" || violation.impact === "critical"
+  );
+  expect(
+    serious,
+    serious
+      .map(
+        (violation) =>
+          `[${violation.impact}] ${violation.id}: ${violation.help} (${violation.nodes.length})`
+      )
+      .join("\n")
+  ).toEqual([]);
+});
+
+test("a11y: portal reachable knowledge frontier", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  await page.evaluate(() => window.localStorage.removeItem("uk-knowledge-profile-v1"));
+  await page.reload({ waitUntil: "domcontentloaded" });
+  const lab = page.getByTestId("knowledge-frontier-lab");
+  await lab.scrollIntoViewIfNeeded();
+  await expect(lab.getByTestId("frontier-result-computer-science:abstraction")).toBeVisible();
+  const relationReview = lab.getByTestId("knowledge-relation-review");
+  await relationReview.getByRole("button", { name: "打开审校台" }).click();
+  await expect(relationReview.getByText("2.1.0", { exact: true })).toBeVisible();
+
+  const results = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa"])
+    .include('[data-testid="knowledge-frontier-lab"]')
+    .analyze();
+  const serious = results.violations.filter(
+    (violation) => violation.impact === "serious" || violation.impact === "critical"
+  );
+  expect(
+    serious,
+    serious
+      .map(
+        (violation) =>
+          `[${violation.impact}] ${violation.id}: ${violation.help} (${violation.nodes.length})`
+      )
+      .join("\n")
+  ).toEqual([]);
+});
+
+test("a11y: portal full-graph learning branch", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  const planner = page.getByTestId("knowledge-learning-planner");
+  await planner.scrollIntoViewIfNeeded();
+  await planner.getByRole("button", { name: "全部节点" }).click();
+  const search = planner.getByRole("combobox", { name: "搜索全部知识节点" });
+  await search.fill("AI 伦理");
+  await search.press("ArrowDown");
+  await search.press("Enter");
+  await expect(planner.getByText("直接旁支", { exact: true })).toBeVisible();
+  await search.fill("身体、疾病与证据");
+  await planner
+    .getByRole("option", { name: /从身体、疾病与证据开始/ })
+    .filter({ hasText: "18条等距来路" })
+    .click();
+  await expect(planner.getByRole("heading", { name: "同距锚点比较" })).toBeVisible();
+
+  const results = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa"])
+    .include('[data-testid="knowledge-learning-planner"]')
+    .analyze();
+  const serious = results.violations.filter(
+    (violation) => violation.impact === "serious" || violation.impact === "critical"
+  );
+  expect(
+    serious,
+    serious
+      .map(
+        (violation) =>
+          `[${violation.impact}] ${violation.id}: ${violation.help} (${violation.nodes.length})`
+      )
+      .join("\n")
+  ).toEqual([]);
+});

@@ -4,6 +4,17 @@ import { clsx } from "clsx";
 import type { GraphNode } from "../../data/types";
 import { DOMAIN_META, NODE_TYPE_LABEL } from "./constants";
 import { Reveal } from "./Reveal";
+import { KNOWLEDGE_LEVELS } from "@/lib/knowledge-levels";
+
+const EVIDENCE_MODE_LABELS: Record<NonNullable<GraphNode["evidenceMode"]>, string> = {
+  observation: "观察",
+  interpretation: "解释",
+  formal: "形式推理",
+  experimental: "实验",
+  comparative: "比较",
+  simulation: "模拟",
+  synthesis: "综合证据",
+};
 
 type NodeInfoProps = {
   node: GraphNode;
@@ -12,6 +23,7 @@ type NodeInfoProps = {
 
 export function NodeInfo({ node, connectedCount }: NodeInfoProps) {
   const meta = DOMAIN_META[node.domain];
+  const knowledgeLevel = KNOWLEDGE_LEVELS.find((level) => level.id === node.knowledgeLevel);
 
   return (
     <>
@@ -23,12 +35,12 @@ export function NodeInfo({ node, connectedCount }: NodeInfoProps) {
               meta.bg,
               meta.color,
               meta.border,
-              "border",
+              "border"
             )}
           >
             {meta.label}
           </span>
-          <h2 className="text-[1.5rem] font-bold leading-tight text-white/95 md:text-[1.75rem]">
+          <h2 className="text-[1.5rem] leading-tight font-bold text-white/95 md:text-[1.75rem]">
             {node.label}
           </h2>
           <div className="flex flex-wrap items-center gap-3 text-[12px] text-white/40">
@@ -47,6 +59,32 @@ export function NodeInfo({ node, connectedCount }: NodeInfoProps) {
                   ·
                 </span>
                 <span>分类：{node.section}</span>
+              </>
+            ) : null}
+            {knowledgeLevel ? (
+              <>
+                <span aria-hidden className="text-white/20">
+                  ·
+                </span>
+                <span>
+                  阶段 L{knowledgeLevel.id} · {knowledgeLevel.label}
+                </span>
+              </>
+            ) : null}
+            {node.evidenceMode ? (
+              <>
+                <span aria-hidden className="text-white/20">
+                  ·
+                </span>
+                <span>证据：{EVIDENCE_MODE_LABELS[node.evidenceMode]}</span>
+              </>
+            ) : null}
+            {node.prerequisiteIds && node.prerequisiteIds.length > 0 ? (
+              <>
+                <span aria-hidden className="text-white/20">
+                  ·
+                </span>
+                <span>{node.prerequisiteIds.length} 个前置节点</span>
               </>
             ) : null}
             {connectedCount > 0 ? (
@@ -77,9 +115,7 @@ export function NodeInfo({ node, connectedCount }: NodeInfoProps) {
       ) : null}
 
       <Reveal>
-        <p className="text-[13px] leading-relaxed text-white/60">
-          {node.description}
-        </p>
+        <p className="text-[13px] leading-relaxed text-white/60">{node.description}</p>
       </Reveal>
     </>
   );

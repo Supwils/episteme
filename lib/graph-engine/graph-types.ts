@@ -45,7 +45,9 @@ export type GraphNode = {
     | "mathematics"
     | "earth-science"
     | "medicine"
-    | "chemistry";
+    | "chemistry"
+    | "sociology"
+    | "linguistics";
   type: GraphNodeType;
   slug: string;
   era?: string;
@@ -54,6 +56,17 @@ export type GraphNode = {
   description: string;
   section?: string;
   url?: string;
+  knowledgeLevel?: 1 | 2 | 3 | 4 | 5;
+  knowledgeLevelSource?: "curated" | "inferred";
+  prerequisiteIds?: string[];
+  evidenceMode?:
+    | "observation"
+    | "interpretation"
+    | "formal"
+    | "experimental"
+    | "comparative"
+    | "simulation"
+    | "synthesis";
 };
 
 export type GraphEdge = {

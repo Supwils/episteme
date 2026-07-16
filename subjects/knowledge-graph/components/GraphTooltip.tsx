@@ -106,6 +106,20 @@ const DOMAIN_META: Record<
     border: "border-orange-400/30",
     borderColor: "#e08a3c",
   },
+  sociology: {
+    label: "社会学",
+    color: "text-lime-300",
+    bg: "bg-lime-500/20",
+    border: "border-lime-400/30",
+    borderColor: "#7a8f5a",
+  },
+  linguistics: {
+    label: "语言学",
+    color: "text-teal-300",
+    bg: "bg-teal-500/20",
+    border: "border-teal-400/30",
+    borderColor: "#3f8f8a",
+  },
 };
 
 const NODE_TYPE_LABEL: Record<GraphNodeType, string> = {

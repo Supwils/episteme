@@ -127,7 +127,7 @@ export default async function TheoristDetailPage({
       }
     >
       {slug === "abraham-maslow" && <MaslowHierarchy />}
-      <MarkdownRenderer content={theorist.content} accentColor={eraColor} />
+      <MarkdownRenderer domain="psychology" content={theorist.content} accentColor={eraColor} />
     </ArticleLayout>
   );
 }

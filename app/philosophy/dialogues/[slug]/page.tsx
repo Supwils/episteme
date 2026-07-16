@@ -184,7 +184,7 @@ export default async function DialogueDetailPage({
           </>
         }
       >
-        <MarkdownRenderer content={dialogue.content} accentColor={fieldColor} />
+        <MarkdownRenderer domain="philosophy" content={dialogue.content} accentColor={fieldColor} />
         <SafeRender>
           <RelatedContent slug={slug} domain="philosophy" entityId={slug} />
         </SafeRender>

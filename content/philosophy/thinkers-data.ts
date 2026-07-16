@@ -66,6 +66,7 @@ export const THINKERS_DATA = [
   { slug: "locke", title: "洛克", subtitle: "John Locke", era: "近代" },
   { slug: "lucretius", title: "卢克莱修", subtitle: "Titus Lucretius Carus", era: "古代" },
   { slug: "marcus-aurelius", title: "马可·奥勒留", subtitle: "Marcus Aurelius", era: "古代" },
+  { slug: "martha-nussbaum", title: "玛莎·努斯鲍姆", subtitle: "Martha Nussbaum", era: "当代" },
   { slug: "marx", title: "马克思", subtitle: "Karl Marx", era: "近代" },
   { slug: "mencius", title: "孟子", subtitle: "Mencius", era: "古代" },
   { slug: "merleau-ponty", title: "梅洛-庞蒂", subtitle: "Maurice Merleau-Ponty", era: "当代" },

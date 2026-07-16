@@ -91,6 +91,16 @@ const SECTIONS = [
     accent: "#6b8fd6",
   },
   {
+    id: "methods",
+    icon: "🔎",
+    title: "现代研究方法",
+    titleEn: "Research Methods",
+    count: "6",
+    description: "从测量等值性、纵向模型到开放科学与数字表型",
+    href: "/psychology/methods",
+    accent: "#8a78bd",
+  },
+  {
     id: "frontier",
     icon: "🛰️",
     title: "研究前沿",

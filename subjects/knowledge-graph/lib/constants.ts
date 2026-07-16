@@ -16,6 +16,8 @@ export const DOMAIN_COLORS: Record<string, string> = {
   "earth-science": "#4f9d76",
   medicine: "#d9544d",
   chemistry: "#e08a3c",
+  sociology: "#7a8f5a",
+  linguistics: "#3f8f8a",
 };
 
 export const NODE_RADIUS: Record<string, number> = {
@@ -70,6 +72,8 @@ export const ALL_DOMAINS = [
   "earth-science",
   "medicine",
   "chemistry",
+  "sociology",
+  "linguistics",
 ] as const;
 
 export const NODE_TYPE_LABELS: Record<string, string> = {

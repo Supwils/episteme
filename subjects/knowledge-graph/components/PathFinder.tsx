@@ -1,11 +1,13 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback, useMemo } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { clsx } from "clsx";
 import type { GraphNode } from "../data/types";
 import type { ThoughtTour } from "../data/thought-tours";
 import { DOMAIN_COLORS } from "../lib/constants";
+import { buildTourUrl, resolveTourUrlState } from "../lib/tour-url-state";
 
 type PathFinderProps = {
   nodes: GraphNode[];
@@ -18,6 +20,8 @@ type PathFinderProps = {
   edgeLabelMap: Map<string, string>;
   tours: ThoughtTour[];
   onTourSelect: (waypoints: string[]) => void;
+  onTourStepSelect: (nodeId: string) => void;
+  isGraphReady: boolean;
   isMobile?: boolean;
 };
 
@@ -133,12 +137,59 @@ export function PathFinder({
   edgeLabelMap,
   tours,
   onTourSelect,
+  onTourStepSelect,
+  isGraphReady,
   isMobile = false,
 }: PathFinderProps) {
+  const pathname = usePathname();
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
   const [localStart, setLocalStart] = useState<string | null>(pathStartId);
   const [localEnd, setLocalEnd] = useState<string | null>(pathEndId);
+  const [activeTourId, setActiveTourId] = useState<string | null>(null);
+  const [activeStepIndex, setActiveStepIndex] = useState(0);
   const reducedMotion = useReducedMotion();
+  const onTourSelectRef = useRef(onTourSelect);
+  const onTourStepSelectRef = useRef(onTourStepSelect);
+  const onPathClearRef = useRef(onPathClear);
+  const appliedUrlTourIdRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    onTourSelectRef.current = onTourSelect;
+    onTourStepSelectRef.current = onTourStepSelect;
+    onPathClearRef.current = onPathClear;
+  }, [onPathClear, onTourSelect, onTourStepSelect]);
+
+  const tourDescriptors = useMemo(
+    () =>
+      tours.map((tour) => ({
+        id: tour.id,
+        stepCount: tour.steps?.length ?? tour.waypoints.length,
+      })),
+    [tours]
+  );
+
+  const resolvedUrlState = useMemo(
+    () => resolveTourUrlState(new URLSearchParams(searchParams.toString()), tourDescriptors),
+    [searchParams, tourDescriptors]
+  );
+
+  const navigateToTourState = useCallback(
+    (tourId: string | null, stepIndex = 0, replace = false) => {
+      const href = buildTourUrl(
+        pathname,
+        new URLSearchParams(searchParams.toString()),
+        tourId ? { tourId, stepIndex } : null
+      );
+      if (replace) {
+        router.replace(href, { scroll: false });
+      } else {
+        router.push(href, { scroll: false });
+      }
+    },
+    [pathname, router, searchParams]
+  );
 
   useEffect(() => {
     setLocalStart(pathStartId);
@@ -150,9 +201,31 @@ export function PathFinder({
 
   const handleFind = useCallback(() => {
     if (localStart && localEnd) {
+      setActiveTourId(null);
+      setActiveStepIndex(0);
+      appliedUrlTourIdRef.current = null;
+      navigateToTourState(null);
       onPathFind(localStart, localEnd);
     }
-  }, [localStart, localEnd, onPathFind]);
+  }, [localStart, localEnd, navigateToTourState, onPathFind]);
+
+  const handleTourClick = useCallback(
+    (tour: ThoughtTour) => {
+      setActiveTourId(tour.id);
+      setActiveStepIndex(0);
+      onTourSelect(tour.waypoints);
+      navigateToTourState(tour.id);
+    },
+    [navigateToTourState, onTourSelect]
+  );
+
+  const handleClear = useCallback(() => {
+    setActiveTourId(null);
+    setActiveStepIndex(0);
+    appliedUrlTourIdRef.current = null;
+    navigateToTourState(null);
+    onPathClear();
+  }, [navigateToTourState, onPathClear]);
 
   // Build the explained chain: each step carries the relationship label (the
   // "why") on the edge to the next node, turning a node list into a genealogy.
@@ -171,6 +244,95 @@ export function PathFinder({
       };
     });
   }, [pathResult, nodeMap, edgeLabelMap]);
+
+  const activeTour = activeTourId ? (tours.find((tour) => tour.id === activeTourId) ?? null) : null;
+
+  const activeTourSteps = useMemo(() => {
+    if (!activeTour) return [];
+    if (activeTour.steps && activeTour.steps.length > 0) return activeTour.steps;
+    return activeTour.waypoints.map((nodeId) => {
+      const node = nodeMap.get(nodeId);
+      return {
+        nodeId,
+        title: node?.label ?? nodeId,
+        summary: activeTour.subtitle,
+        focus: node?.domain ?? "路径节点",
+      };
+    });
+  }, [activeTour, nodeMap]);
+
+  useEffect(() => {
+    if (activeStepIndex >= activeTourSteps.length) {
+      setActiveStepIndex(Math.max(0, activeTourSteps.length - 1));
+    }
+  }, [activeStepIndex, activeTourSteps.length]);
+
+  useEffect(() => {
+    const urlState = resolvedUrlState.state;
+
+    if (!urlState) {
+      if (appliedUrlTourIdRef.current !== null) {
+        appliedUrlTourIdRef.current = null;
+        setActiveTourId(null);
+        setActiveStepIndex(0);
+        onPathClearRef.current();
+      }
+      if (resolvedUrlState.needsNormalization) {
+        navigateToTourState(null, 0, true);
+      }
+      return;
+    }
+
+    const tour = tours.find((candidate) => candidate.id === urlState.tourId);
+    if (!tour) return;
+
+    setIsOpen(true);
+    appliedUrlTourIdRef.current = urlState.tourId;
+    setActiveTourId(urlState.tourId);
+    setActiveStepIndex(urlState.stepIndex);
+    onTourSelectRef.current(tour.waypoints);
+
+    if (isGraphReady) {
+      const steps =
+        tour.steps ??
+        tour.waypoints.map((nodeId) => ({
+          nodeId,
+          title: nodeMap.get(nodeId)?.label ?? nodeId,
+          summary: tour.subtitle,
+          focus: nodeMap.get(nodeId)?.domain ?? "路径节点",
+        }));
+      const step = steps[urlState.stepIndex];
+      if (step) onTourStepSelectRef.current(step.nodeId);
+    }
+
+    if (resolvedUrlState.needsNormalization) {
+      navigateToTourState(urlState.tourId, urlState.stepIndex, true);
+    }
+  }, [isGraphReady, navigateToTourState, nodeMap, resolvedUrlState, tours]);
+
+  const activeStepProgress =
+    activeTourSteps.length > 1
+      ? `${(activeStepIndex / (activeTourSteps.length - 1)) * 100}%`
+      : "100%";
+
+  const handleTourStepSelect = useCallback(
+    (idx: number) => {
+      const step = activeTourSteps[idx];
+      if (!step) return;
+      setActiveStepIndex(idx);
+      onTourStepSelect(step.nodeId);
+      if (activeTourId) navigateToTourState(activeTourId, idx);
+    },
+    [activeTourId, activeTourSteps, navigateToTourState, onTourStepSelect]
+  );
+
+  const handlePreviousStep = useCallback(() => {
+    handleTourStepSelect(Math.max(0, activeStepIndex - 1));
+  }, [activeStepIndex, handleTourStepSelect]);
+
+  const handleNextStep = useCallback(() => {
+    handleTourStepSelect(Math.min(activeTourSteps.length - 1, activeStepIndex + 1));
+  }, [activeStepIndex, activeTourSteps.length, handleTourStepSelect]);
 
   return (
     <div className="relative">
@@ -208,7 +370,10 @@ export function PathFinder({
             animate={reducedMotion ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1 }}
             exit={reducedMotion ? { opacity: 0 } : { opacity: 0, y: -4, scale: 0.95 }}
             transition={{ duration: reducedMotion ? 0 : 0.15 }}
-            className="absolute top-full left-0 z-50 mt-2 w-[320px] max-w-[calc(100vw-2rem)] rounded-xl border border-white/[0.08] bg-[#111118]/95 p-3 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl"
+            className={clsx(
+              "absolute top-full z-50 mt-2 max-h-[72vh] w-[320px] max-w-[calc(100vw-2rem)] overflow-y-auto rounded-xl border border-white/[0.08] bg-[#111118]/95 p-3 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl",
+              isMobile ? "right-0" : "left-0"
+            )}
           >
             <div className="flex flex-col gap-3">
               {/* Curated thought lines */}
@@ -222,8 +387,13 @@ export function PathFinder({
                       <button
                         key={tour.id}
                         type="button"
-                        onClick={() => onTourSelect(tour.waypoints)}
-                        className="group rounded-lg border border-white/[0.05] bg-white/[0.02] px-2.5 py-1.5 text-left transition-colors hover:border-indigo-500/30 hover:bg-indigo-500/[0.06]"
+                        onClick={() => handleTourClick(tour)}
+                        className={clsx(
+                          "group rounded-lg border px-2.5 py-1.5 text-left transition-colors",
+                          activeTourId === tour.id
+                            ? "border-indigo-500/35 bg-indigo-500/[0.08]"
+                            : "border-white/[0.05] bg-white/[0.02] hover:border-indigo-500/30 hover:bg-indigo-500/[0.06]"
+                        )}
                       >
                         <span className="block text-[11px] font-medium text-white/80 group-hover:text-white">
                           {tour.title}
@@ -233,6 +403,110 @@ export function PathFinder({
                         </span>
                       </button>
                     ))}
+                  </div>
+                </div>
+              )}
+
+              {activeTour && activeTourSteps.length > 0 && (
+                <div className="rounded-lg border border-indigo-500/15 bg-indigo-500/[0.04] p-2.5">
+                  <div className="mb-2">
+                    <span className="block text-[10px] font-medium tracking-wider text-indigo-300/70 uppercase">
+                      路线解释
+                    </span>
+                    <div className="mt-0.5 flex items-center justify-between gap-2">
+                      <span className="min-w-0 text-[11px] leading-snug text-white/65">
+                        {activeTour.title} · {activeStepIndex + 1}/{activeTourSteps.length}
+                      </span>
+                      <div className="flex shrink-0 items-center gap-1">
+                        <button
+                          type="button"
+                          onClick={handlePreviousStep}
+                          disabled={activeStepIndex === 0}
+                          className={clsx(
+                            "h-6 rounded-md border px-2 text-[10px] transition-colors",
+                            activeStepIndex === 0
+                              ? "cursor-not-allowed border-white/[0.04] text-white/20"
+                              : "border-white/[0.08] text-white/50 hover:border-indigo-400/40 hover:text-indigo-200"
+                          )}
+                        >
+                          上一步
+                        </button>
+                        <button
+                          type="button"
+                          onClick={handleNextStep}
+                          disabled={activeStepIndex >= activeTourSteps.length - 1}
+                          className={clsx(
+                            "h-6 rounded-md border px-2 text-[10px] transition-colors",
+                            activeStepIndex >= activeTourSteps.length - 1
+                              ? "cursor-not-allowed border-white/[0.04] text-white/20"
+                              : "border-white/[0.08] text-white/50 hover:border-indigo-400/40 hover:text-indigo-200"
+                          )}
+                        >
+                          下一步
+                        </button>
+                      </div>
+                    </div>
+                    <div
+                      className="mt-2 h-1 overflow-hidden rounded-full bg-white/[0.06]"
+                      aria-hidden="true"
+                    >
+                      <div
+                        className="h-full rounded-full bg-indigo-300/70 transition-[width] duration-200"
+                        style={{ width: activeStepProgress }}
+                      />
+                    </div>
+                  </div>
+                  <div className="max-h-[260px] overflow-y-auto pr-1">
+                    {activeTourSteps.map((step, idx) => {
+                      const node = nodeMap.get(step.nodeId);
+                      const isActiveStep = idx === activeStepIndex;
+                      return (
+                        <button
+                          key={`${activeTour.id}-${step.nodeId}-${idx}`}
+                          type="button"
+                          onClick={() => handleTourStepSelect(idx)}
+                          className={clsx(
+                            "group grid w-full grid-cols-[1.25rem_minmax(0,1fr)] gap-2 rounded-md border px-1 py-1.5 text-left transition-colors focus-visible:outline focus-visible:outline-1 focus-visible:outline-indigo-300/60",
+                            isActiveStep
+                              ? "border-indigo-400/30 bg-indigo-400/[0.08]"
+                              : "border-transparent hover:bg-white/[0.04]"
+                          )}
+                          aria-label={`聚焦路线步骤：${step.title}`}
+                          aria-current={isActiveStep ? "step" : undefined}
+                        >
+                          <span className="relative flex justify-center pt-0.5">
+                            <span
+                              className={clsx(
+                                "h-2.5 w-2.5 rounded-full ring-2",
+                                isActiveStep ? "ring-indigo-200/50" : "ring-white/10"
+                              )}
+                              style={{
+                                backgroundColor: domainColor(node?.domain ?? ""),
+                              }}
+                            />
+                            {idx < activeTourSteps.length - 1 && (
+                              <span
+                                className="absolute top-3 bottom-[-0.5rem] w-px bg-white/10"
+                                aria-hidden="true"
+                              />
+                            )}
+                          </span>
+                          <span className="min-w-0">
+                            <span className="flex items-center gap-1.5">
+                              <span className="truncate text-[11px] font-medium text-white/85 group-hover:text-white">
+                                {step.title}
+                              </span>
+                              <span className="shrink-0 rounded-full border border-white/[0.06] px-1.5 py-0.5 text-[9px] text-white/35">
+                                {step.focus}
+                              </span>
+                            </span>
+                            <span className="mt-0.5 block text-[10.5px] leading-snug text-white/42">
+                              {step.summary}
+                            </span>
+                          </span>
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
               )}
@@ -275,7 +549,7 @@ export function PathFinder({
                   {pathResult && (
                     <button
                       type="button"
-                      onClick={onPathClear}
+                      onClick={handleClear}
                       className="rounded-lg border border-white/[0.04] px-3 py-1.5 text-xs text-white/40 transition-all duration-200 hover:border-white/[0.08] hover:text-white/60"
                     >
                       清除

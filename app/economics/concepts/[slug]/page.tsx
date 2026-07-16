@@ -125,7 +125,7 @@ export default async function ConceptDetailPage({ params }: { params: Promise<{ 
           <SupplyDemandChart />
         </section>
       )}
-      <MarkdownRenderer content={concept.content} accentColor="#c8a45a" />
+      <MarkdownRenderer domain="economics" content={concept.content} accentColor="#c8a45a" />
       <RelatedContent slug={slug} domain="economics" entityId={slug} />
     </ArticleLayout>
   );

@@ -128,7 +128,7 @@ export function FrontierArticleView({ domain, slug }: { domain: FrontierDomain; 
           </>
         }
       >
-        <MarkdownRenderer content={article.content} accentColor={accent} />
+        <MarkdownRenderer content={article.content} accentColor={accent} domain={domain} />
         {CROSS_DOMAINS.has(domain) && (
           <RelatedContent slug={slug} domain={domain as Domain} entityId={slug} />
         )}

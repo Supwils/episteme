@@ -148,7 +148,7 @@ export default async function ConceptDetailPage({ params }: { params: Promise<{ 
             accent={fieldColor}
           />
         )}
-        <MarkdownRenderer content={concept.content} accentColor={fieldColor} />
+        <MarkdownRenderer domain="philosophy" content={concept.content} accentColor={fieldColor} />
         <RelatedContent slug={slug} domain="philosophy" entityId={slug} />
       </ArticleLayout>
     </>

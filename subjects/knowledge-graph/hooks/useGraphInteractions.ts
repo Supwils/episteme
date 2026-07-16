@@ -1,10 +1,11 @@
-'use client';
+"use client";
 
-import { useCallback, useEffect } from 'react';
-import type { GraphNode, GraphEdge } from '../data/types';
-import type { GraphRenderer } from '@/lib/graph-engine';
-import { animateFocus } from '@/lib/graph-engine';
-import { toRenderNodes, toRenderEdges } from '../lib/constants';
+import { useCallback, useEffect } from "react";
+import type { GraphNode, GraphEdge } from "../data/types";
+import type { GraphRenderer } from "@/lib/graph-engine";
+import { animateFocus } from "@/lib/graph-engine";
+import { toRenderNodes, toRenderEdges } from "../lib/constants";
+import { buildPrimaryPrerequisitePath } from "../data/cognitive-metadata";
 
 type InteractionDeps = {
   canvasRef: React.RefObject<HTMLCanvasElement | null>;
@@ -24,6 +25,8 @@ type InteractionDeps = {
   setShowMinimap: (v: boolean | ((prev: boolean) => boolean)) => void;
   nodeDomainMap: Map<string, string>;
   filteredNodes: GraphNode[];
+  isMobile: boolean;
+  stablePositions?: Map<string, { x: number; y: number }>;
 };
 
 export function useGraphInteractions(
@@ -35,7 +38,8 @@ export function useGraphInteractions(
   offsetY: number,
   focusedNodeIndex: number,
   selectedNodeId: string | null,
-  deps: InteractionDeps,
+  focusPrerequisitePath: boolean,
+  deps: InteractionDeps
 ) {
   const {
     canvasRef,
@@ -54,43 +58,119 @@ export function useGraphInteractions(
     setCursorPos,
     nodeDomainMap,
     filteredNodes,
+    isMobile,
+    stablePositions,
   } = deps;
 
-  const handleSearchChange = useCallback((query: string) => {
-    setSearchQuery(query);
-  }, [setSearchQuery]);
+  const getFocusTarget = useCallback(
+    (nodeId: string) => {
+      const focusPositions = stablePositions ?? positionsRef.current;
+      const fallback = focusPositions.get(nodeId);
+      const container = containerRef.current;
+      if (!fallback || !container) return null;
+
+      const pathIds = focusPrerequisitePath ? buildPrimaryPrerequisitePath(nodeId, nodes) : [];
+      const pathPositions = pathIds.flatMap((id) => {
+        const position = focusPositions.get(id);
+        return position ? [position] : [];
+      });
+      if (pathPositions.length < 2) {
+        return {
+          position: fallback,
+          scale: 1.5,
+          viewport: { width: container.clientWidth, height: container.clientHeight },
+        };
+      }
+
+      const minX = Math.min(...pathPositions.map((position) => position.x));
+      const maxX = Math.max(...pathPositions.map((position) => position.x));
+      const minY = Math.min(...pathPositions.map((position) => position.y));
+      const maxY = Math.max(...pathPositions.map((position) => position.y));
+      const availableWidth = isMobile
+        ? container.clientWidth
+        : Math.max(container.clientWidth - 440, 360);
+      const availableHeight = container.clientHeight;
+      const padding = isMobile ? 100 : 72;
+      const scale = Math.min(
+        (availableWidth - padding * 2) / Math.max(maxX - minX, 1),
+        (availableHeight - padding * 2) / Math.max(maxY - minY, 1),
+        1.1
+      );
+      return {
+        position: { x: (minX + maxX) / 2, y: (minY + maxY) / 2 },
+        scale,
+        viewport: { width: availableWidth, height: availableHeight },
+      };
+    },
+    [containerRef, focusPrerequisitePath, isMobile, nodes, positionsRef, stablePositions]
+  );
+
+  const restoreStablePositions = useCallback(() => {
+    const renderer = rendererRef.current;
+    if (!stablePositions || !renderer) return;
+    positionsRef.current = stablePositions;
+    renderer.render(
+      toRenderNodes(nodes, stablePositions, null, selectedNodeId, activeDomains),
+      toRenderEdges(edges, stablePositions, activeDomains, nodeDomainMap)
+    );
+  }, [
+    activeDomains,
+    edges,
+    nodeDomainMap,
+    nodes,
+    positionsRef,
+    rendererRef,
+    selectedNodeId,
+    stablePositions,
+  ]);
+
+  const handleSearchChange = useCallback(
+    (query: string) => {
+      setSearchQuery(query);
+    },
+    [setSearchQuery]
+  );
 
   const handleSearchSelect = useCallback(
     (nodeId: string) => {
-      const pos = positionsRef.current.get(nodeId);
+      setSelectedNodeId(nodeId);
+      setSearchQuery("");
+
       const renderer = rendererRef.current;
-      const container = containerRef.current;
-      if (!pos || !renderer || !container) return;
+      const focusTarget = getFocusTarget(nodeId);
+      if (!renderer || !focusTarget) return;
 
       cancelAnimRef.current?.();
-
-      const w = container.clientWidth;
-      const h = container.clientHeight;
-      const targetScale = 1.5;
+      restoreStablePositions();
 
       cancelAnimRef.current = animateFocus(
         { scale: zoom, offsetX, offsetY },
-        pos,
-        targetScale,
+        focusTarget.position,
+        focusTarget.scale,
         400,
-        { width: w, height: h },
+        focusTarget.viewport,
         (t) => {
           renderer.setTransform(t.scale, t.offsetX, t.offsetY);
           setZoom(t.scale);
           setOffsetX(t.offsetX);
           setOffsetY(t.offsetY);
-        },
+        }
       );
-
-      setSelectedNodeId(nodeId);
-      setSearchQuery('');
     },
-    [zoom, offsetX, offsetY, positionsRef, rendererRef, containerRef, cancelAnimRef, setSelectedNodeId, setSearchQuery, setZoom, setOffsetX, setOffsetY],
+    [
+      zoom,
+      offsetX,
+      offsetY,
+      rendererRef,
+      cancelAnimRef,
+      setSelectedNodeId,
+      setSearchQuery,
+      setZoom,
+      setOffsetX,
+      setOffsetY,
+      getFocusTarget,
+      restoreStablePositions,
+    ]
   );
 
   const handleZoomIn = useCallback(() => {
@@ -163,7 +243,7 @@ export function useGraphInteractions(
       const h = container.clientHeight;
       renderer.setTransform(zoom, w / 2 - worldX * zoom, h / 2 - worldY * zoom);
     },
-    [zoom, rendererRef, containerRef],
+    [zoom, rendererRef, containerRef]
   );
 
   const handleDetailPanelClose = useCallback(() => {
@@ -173,41 +253,50 @@ export function useGraphInteractions(
 
   const handleDetailNodeClick = useCallback(
     (nodeId: string) => {
-      const pos = positionsRef.current.get(nodeId);
       const renderer = rendererRef.current;
-      const container = containerRef.current;
-      if (!pos || !renderer || !container) return;
+      const focusTarget = getFocusTarget(nodeId);
+      if (!renderer || !focusTarget) return;
 
       cancelAnimRef.current?.();
-
-      const w = container.clientWidth;
-      const h = container.clientHeight;
-      const targetScale = 1.5;
+      restoreStablePositions();
 
       cancelAnimRef.current = animateFocus(
         { scale: zoom, offsetX, offsetY },
-        pos,
-        targetScale,
+        focusTarget.position,
+        focusTarget.scale,
         400,
-        { width: w, height: h },
+        focusTarget.viewport,
         (t) => {
           renderer.setTransform(t.scale, t.offsetX, t.offsetY);
           setZoom(t.scale);
           setOffsetX(t.offsetX);
           setOffsetY(t.offsetY);
-        },
+        }
       );
 
       setSelectedNodeId(nodeId);
     },
-    [zoom, offsetX, offsetY, positionsRef, rendererRef, containerRef, cancelAnimRef, setSelectedNodeId, setZoom, setOffsetX, setOffsetY],
+    [
+      zoom,
+      offsetX,
+      offsetY,
+      rendererRef,
+      cancelAnimRef,
+      setSelectedNodeId,
+      setZoom,
+      setOffsetX,
+      setOffsetY,
+      getFocusTarget,
+      restoreStablePositions,
+    ]
   );
 
   const focusNodeByIndex = useCallback(
     (index: number) => {
       const visibleNodes = filteredNodes;
       if (visibleNodes.length === 0) return;
-      const clampedIndex = ((index % visibleNodes.length) + visibleNodes.length) % visibleNodes.length;
+      const clampedIndex =
+        ((index % visibleNodes.length) + visibleNodes.length) % visibleNodes.length;
       setFocusedNodeIndex(clampedIndex);
       const node = visibleNodes[clampedIndex];
       if (!node) return;
@@ -217,15 +306,26 @@ export function useGraphInteractions(
       setHoveredNodeId(node.id);
       rendererRef.current?.render(
         toRenderNodes(nodes, positionsRef.current, node.id, selectedNodeId, activeDomains),
-        toRenderEdges(edges, positionsRef.current, activeDomains, nodeDomainMap),
+        toRenderEdges(edges, positionsRef.current, activeDomains, nodeDomainMap)
       );
     },
-    [filteredNodes, nodes, edges, selectedNodeId, activeDomains, nodeDomainMap, positionsRef, rendererRef, setFocusedNodeIndex, setHoveredNodeId],
+    [
+      filteredNodes,
+      nodes,
+      edges,
+      selectedNodeId,
+      activeDomains,
+      nodeDomainMap,
+      positionsRef,
+      rendererRef,
+      setFocusedNodeIndex,
+      setHoveredNodeId,
+    ]
   );
 
   const handleCanvasKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
-      if (e.key === 'Escape') {
+      if (e.key === "Escape") {
         e.preventDefault();
         if (selectedNodeId) {
           setSelectedNodeId(null);
@@ -238,18 +338,18 @@ export function useGraphInteractions(
       if (selectedNodeId) return;
 
       switch (e.key) {
-        case 'ArrowRight':
-        case 'ArrowDown':
+        case "ArrowRight":
+        case "ArrowDown":
           e.preventDefault();
           focusNodeByIndex(focusedNodeIndex + 1);
           break;
-        case 'ArrowLeft':
-        case 'ArrowUp':
+        case "ArrowLeft":
+        case "ArrowUp":
           e.preventDefault();
           focusNodeByIndex(focusedNodeIndex - 1);
           break;
-        case 'Enter':
-        case ' ':
+        case "Enter":
+        case " ":
           e.preventDefault();
           if (focusedNodeIndex >= 0 && focusedNodeIndex < filteredNodes.length) {
             const node = filteredNodes[focusedNodeIndex];
@@ -262,19 +362,36 @@ export function useGraphInteractions(
                 const w = container.clientWidth;
                 const h = container.clientHeight;
                 const targetScale = 1.5;
-                renderer.setTransform(targetScale, w / 2 - pos.x * targetScale, h / 2 - pos.y * targetScale);
+                renderer.setTransform(
+                  targetScale,
+                  w / 2 - pos.x * targetScale,
+                  h / 2 - pos.y * targetScale
+                );
                 setZoom(targetScale);
               }
             }
           }
           break;
-        case '/':
+        case "/":
           e.preventDefault();
           searchInputRef.current?.focus();
           break;
       }
     },
-    [selectedNodeId, focusedNodeIndex, filteredNodes, focusNodeByIndex, setSelectedNodeId, setZoom, setFocusedNodeIndex, setHoveredNodeId, searchInputRef, positionsRef, rendererRef, containerRef],
+    [
+      selectedNodeId,
+      focusedNodeIndex,
+      filteredNodes,
+      focusNodeByIndex,
+      setSelectedNodeId,
+      setZoom,
+      setFocusedNodeIndex,
+      setHoveredNodeId,
+      searchInputRef,
+      positionsRef,
+      rendererRef,
+      containerRef,
+    ]
   );
 
   useEffect(() => {
@@ -283,26 +400,26 @@ export function useGraphInteractions(
     const onMouseMove = (e: MouseEvent) => {
       setCursorPos({ x: e.clientX, y: e.clientY });
     };
-    container.addEventListener('mousemove', onMouseMove);
-    return () => container.removeEventListener('mousemove', onMouseMove);
+    container.addEventListener("mousemove", onMouseMove);
+    return () => container.removeEventListener("mousemove", onMouseMove);
   }, [containerRef, setCursorPos]);
 
   useEffect(() => {
     const handleGlobalKeyDown = (e: KeyboardEvent) => {
       if (
-        e.key === '/' &&
+        e.key === "/" &&
         !e.ctrlKey &&
         !e.metaKey &&
         !e.altKey &&
-        document.activeElement?.tagName !== 'INPUT' &&
-        document.activeElement?.tagName !== 'TEXTAREA'
+        document.activeElement?.tagName !== "INPUT" &&
+        document.activeElement?.tagName !== "TEXTAREA"
       ) {
         e.preventDefault();
         searchInputRef.current?.focus();
       }
     };
-    window.addEventListener('keydown', handleGlobalKeyDown);
-    return () => window.removeEventListener('keydown', handleGlobalKeyDown);
+    window.addEventListener("keydown", handleGlobalKeyDown);
+    return () => window.removeEventListener("keydown", handleGlobalKeyDown);
   }, [searchInputRef]);
 
   return {

@@ -86,6 +86,18 @@ export const CONCEPTS = [
     key_figures: ["laozi", "zhuangzi", "wangbi", "heidegger"],
   },
   {
+    slug: "decolonial-epistemology",
+    title: "解殖民知识论",
+    title_en: "",
+    field: "认识论 / 政治哲学 / 后殖民理论",
+    key_figures: [
+      "Anibal Quijano",
+      "Walter Mignolo",
+      "Linda Tuhiwai Smith",
+      "Boaventura de Sousa Santos",
+    ],
+  },
+  {
     slug: "deconstruction",
     title: "解构",
     title_en: "Deconstruction",
@@ -198,6 +210,13 @@ export const CONCEPTS = [
     key_figures: ["leibniz", "locke", "hume", "kripke"],
   },
   {
+    slug: "indian-buddhist-epistemology",
+    title: "印度佛教知识论",
+    title_en: "",
+    field: "印度哲学 / 认识论 / 逻辑",
+    key_figures: ["Dignaga", "Dharmakirti", "Vasubandhu", "Nagarjuna"],
+  },
+  {
     slug: "information-philosophy",
     title: "信息哲学",
     title_en: "",
@@ -252,6 +271,13 @@ export const CONCEPTS = [
     title_en: "Modal Logic",
     field: "逻辑学",
     key_figures: ["lewis", "kripke", "aristotle", "carneap", "hintikka"],
+  },
+  {
+    slug: "modern-chinese-thought",
+    title: "中国近现代思想",
+    title_en: "",
+    field: "中国哲学 / 政治哲学 / 现代思想",
+    key_figures: ["Kang Youwei", "Liang Qichao", "Yan Fu", "Zhang Taiyan", "Hu Shi", "Lu Xun"],
   },
   {
     slug: "other",

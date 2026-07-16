@@ -124,7 +124,7 @@ export default async function TheoryDetailPage({ params }: { params: Promise<{ s
         </>
       }
     >
-      <MarkdownRenderer content={theory.content} accentColor="#61afef" />
+      <MarkdownRenderer domain="economics" content={theory.content} accentColor="#61afef" />
     </ArticleLayout>
   );
 }

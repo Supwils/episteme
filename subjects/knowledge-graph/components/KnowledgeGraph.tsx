@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { clsx } from "clsx";
 import type { GraphNode, GraphEdge } from "../data/types";
 import { GraphFilterBar } from "./GraphFilterBar";
@@ -9,11 +10,32 @@ import { GraphLegend } from "./GraphLegend";
 import { GraphDetailPanel } from "./GraphDetailPanel";
 import { GraphA11yAnnouncer } from "./GraphA11yAnnouncer";
 import { GraphTooltip } from "./GraphTooltip";
+import { CognitiveLevelAxis } from "./CognitiveLevelAxis";
 import { THOUGHT_TOURS } from "../data/thought-tours";
 import { useGraphState, useIsMobile } from "../hooks/useGraphState";
 import { useGraphRenderer } from "../hooks/useGraphRenderer";
 import { useGraphAnimations } from "../hooks/useGraphAnimations";
 import { useGraphInteractions } from "../hooks/useGraphInteractions";
+import { parseKnowledgeLevel, type KnowledgeLevel } from "@/lib/knowledge-levels";
+import { buildCognitiveSubgraph } from "../data/cognitive-metadata";
+import { buildCognitiveLayoutPositions, type GraphLayoutMode } from "../lib/cognitive-layout";
+import { CLUSTER_CENTERS } from "../lib/constants";
+import type { LayoutConfig } from "@/lib/graph-engine";
+import { CURATED_LEARNING_PATHS } from "../data/curated-learning-paths";
+import {
+  getCuratedConfluenceNodeIds,
+  getCuratedConfluenceEdgeKeys,
+  getCuratedConfluenceBridgeEdges,
+  getCuratedConfluenceTargetNodeId,
+  getCuratedKnowledgeConfluence,
+} from "../data/curated-confluences";
+import { ConfluenceGraphNotice } from "./ConfluenceGraphNotice";
+import {
+  buildKnowledgeFrontierSnapshot,
+  KNOWLEDGE_FRONTIER_STATUS_META,
+  type KnowledgeFrontierStatus,
+} from "@/lib/knowledge-frontier";
+import { setKnowledgeNodeMastered, useKnowledgeProfile } from "@/lib/knowledge-profile";
 
 function useReducedMotion(): boolean {
   const [reduced, setReduced] = useState(false);
@@ -25,6 +47,12 @@ function useReducedMotion(): boolean {
     return () => mq.removeEventListener("change", handler);
   }, []);
   return reduced;
+}
+
+function parseFrontierStatus(value: string | null): KnowledgeFrontierStatus | null {
+  return value && value in KNOWLEDGE_FRONTIER_STATUS_META
+    ? (value as KnowledgeFrontierStatus)
+    : null;
 }
 
 export type KnowledgeGraphProps = {
@@ -44,13 +72,251 @@ export function KnowledgeGraph({
 }: KnowledgeGraphProps) {
   const reducedMotion = useReducedMotion();
   const isMobile = useIsMobile();
+  const pathname = usePathname();
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const requestedCuratedPathId = searchParams.get("path");
+  const requestedFocusNodeId = searchParams.get("focus");
+  const requestedDomainId = searchParams.get("domain");
+  const requestedConfluenceId = searchParams.get("confluence");
+  const requestedFrontierValue = searchParams.get("frontier");
+  const requestedFrontierStatus = parseFrontierStatus(requestedFrontierValue);
+  const profile = useKnowledgeProfile();
+  const knownIds = useMemo(() => profile.entries.map((entry) => entry.nodeId), [profile.entries]);
+  const frontierSnapshot = useMemo(
+    () => buildKnowledgeFrontierSnapshot(nodes, knownIds),
+    [knownIds, nodes]
+  );
+  const activeConfluence = getCuratedKnowledgeConfluence(requestedConfluenceId);
+  const activeConfluenceNodeIds = useMemo(
+    () => (activeConfluence ? getCuratedConfluenceNodeIds(activeConfluence) : []),
+    [activeConfluence]
+  );
+  const activeConfluenceNodeIdSet = useMemo(
+    () => new Set(activeConfluenceNodeIds),
+    [activeConfluenceNodeIds]
+  );
+  const activeConfluenceEdgeKeys = useMemo(
+    () => (activeConfluence ? getCuratedConfluenceEdgeKeys(activeConfluence) : new Set<string>()),
+    [activeConfluence]
+  );
+  const activeConfluenceTargetNodeId = activeConfluence
+    ? getCuratedConfluenceTargetNodeId(activeConfluence)
+    : null;
+  const requestedDomainIsValid = requestedDomainId
+    ? nodes.some((node) => node.domain === requestedDomainId)
+    : false;
+  const activeCuratedPath = activeConfluence
+    ? undefined
+    : CURATED_LEARNING_PATHS.find((path) => path.id === requestedCuratedPathId);
+  const activeCuratedFocusStep = activeCuratedPath?.steps.find(
+    (step) => step.nodeId === requestedFocusNodeId
+  );
+  const activeCuratedTargetStep = activeCuratedFocusStep ?? activeCuratedPath?.steps.at(-1);
+  const frontierStatus = activeConfluence || activeCuratedPath ? null : requestedFrontierStatus;
+  const frontierNodes = useMemo(
+    () =>
+      frontierStatus
+        ? nodes.filter((node) => frontierSnapshot.states.get(node.id)?.status === frontierStatus)
+        : nodes,
+    [frontierSnapshot.states, frontierStatus, nodes]
+  );
+  const activeCuratedTraceNodes = useMemo(() => {
+    if (!activeCuratedPath || !activeCuratedTargetStep) return null;
+    const targetIndex = activeCuratedPath.steps.indexOf(activeCuratedTargetStep);
+    const nodeMap = new Map(nodes.map((node) => [node.id, node]));
+    return activeCuratedPath.steps
+      .slice(0, targetIndex + 1)
+      .map((step) => nodeMap.get(step.nodeId))
+      .filter((node): node is GraphNode => Boolean(node));
+  }, [activeCuratedPath, activeCuratedTargetStep, nodes]);
+  const knowledgeLevel = activeConfluence
+    ? 5
+    : activeCuratedPath
+      ? (activeCuratedTargetStep?.level ?? 5)
+      : parseKnowledgeLevel(searchParams.get("level"));
+  const [selectedType, setSelectedType] = useState<GraphNode["type"] | null>(null);
+  const [layoutMode, setLayoutMode] = useState<GraphLayoutMode>(() =>
+    knowledgeLevel ? "cognitive" : "force"
+  );
 
-  const state = useGraphState(nodes, edges, isMobile);
+  const cognitiveSubgraph = useMemo(
+    () => buildCognitiveSubgraph(frontierNodes, knowledgeLevel, selectedType),
+    [frontierNodes, knowledgeLevel, selectedType]
+  );
+  const visibleNodes = cognitiveSubgraph.nodes;
+  const visibleNodeIds = useMemo(
+    () => new Set(visibleNodes.map((node) => node.id)),
+    [visibleNodes]
+  );
+  const visibleEdges = useMemo(() => {
+    const filtered = edges.filter(
+      (edge) => visibleNodeIds.has(edge.source) && visibleNodeIds.has(edge.target)
+    );
+    if (!activeConfluence) return filtered;
+    const pairKeys = new Set(
+      filtered.map((edge) =>
+        edge.source < edge.target
+          ? `${edge.source}|${edge.target}`
+          : `${edge.target}|${edge.source}`
+      )
+    );
+    for (const edge of getCuratedConfluenceBridgeEdges(activeConfluence)) {
+      const key =
+        edge.source < edge.target
+          ? `${edge.source}|${edge.target}`
+          : `${edge.target}|${edge.source}`;
+      if (pairKeys.has(key)) continue;
+      filtered.push(edge);
+      pairKeys.add(key);
+    }
+    return filtered;
+  }, [activeConfluence, edges, visibleNodeIds]);
+  const cognitivePositions = useMemo(
+    () =>
+      layoutMode === "cognitive"
+        ? buildCognitiveLayoutPositions(
+            visibleNodes,
+            visibleEdges,
+            isMobile ? "vertical" : "horizontal"
+          )
+        : undefined,
+    [isMobile, layoutMode, visibleEdges, visibleNodes]
+  );
+  const forceLayoutConfig = useMemo<Partial<LayoutConfig> | undefined>(
+    () =>
+      layoutMode === "cluster"
+        ? {
+            clusterMode: true,
+            clusterCenters: CLUSTER_CENTERS,
+            clusterStrength: 0.5,
+          }
+        : undefined,
+    [layoutMode]
+  );
+  const emphasizedNodeIds = useMemo(() => {
+    if (activeConfluence) return activeConfluenceNodeIdSet;
+    return knowledgeLevel ? cognitiveSubgraph.targetNodeIds : new Set<string>();
+  }, [
+    activeConfluence,
+    activeConfluenceNodeIdSet,
+    cognitiveSubgraph.targetNodeIds,
+    knowledgeLevel,
+  ]);
+
+  const state = useGraphState(
+    visibleNodes,
+    visibleEdges,
+    isMobile,
+    emphasizedNodeIds,
+    activeConfluenceEdgeKeys,
+    layoutMode === "cognitive" && !activeConfluence
+  );
+  const selectedNodeId = state.selectedNodeId;
+  const setSelectedNodeId = state.setSelectedNodeId;
+  const setActiveDomains = state.setActiveDomains;
+  const allNodeMap = useMemo(() => new Map(nodes.map((node) => [node.id, node])), [nodes]);
+  const selectedFrontierState = selectedNodeId
+    ? frontierSnapshot.states.get(selectedNodeId)
+    : undefined;
+  const selectedFrontierGapNodes = selectedFrontierState
+    ? selectedFrontierState.gapIds
+        .slice(0, 5)
+        .flatMap((id) => (allNodeMap.has(id) ? [allNodeMap.get(id)!] : []))
+    : [];
+  const appliedCuratedPathRef = useRef<string | null>(null);
+  const appliedFocusNodeRef = useRef<string | null>(null);
+  const appliedDomainRef = useRef<string | null>(null);
+  const appliedConfluenceRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    if (!requestedFrontierValue || requestedFrontierStatus) return;
+    const nextParams = new URLSearchParams(searchParams.toString());
+    nextParams.delete("frontier");
+    if (nextParams.get("source") === "knowledge-frontier") nextParams.delete("source");
+    const query = nextParams.toString();
+    router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
+  }, [pathname, requestedFrontierStatus, requestedFrontierValue, router, searchParams]);
+
+  useEffect(() => {
+    if (requestedConfluenceId && !activeConfluence) {
+      const nextParams = new URLSearchParams(searchParams.toString());
+      nextParams.delete("confluence");
+      if (nextParams.get("source") === "knowledge-confluence") nextParams.delete("source");
+      const query = nextParams.toString();
+      router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
+      return;
+    }
+    if (!activeConfluence || !activeConfluenceTargetNodeId) {
+      appliedConfluenceRef.current = null;
+      return;
+    }
+
+    const requestedFocusIsValid = requestedFocusNodeId
+      ? activeConfluenceNodeIdSet.has(requestedFocusNodeId)
+      : false;
+    const nextFocus = requestedFocusIsValid ? requestedFocusNodeId! : activeConfluenceTargetNodeId;
+    if (
+      searchParams.get("level") !== "5" ||
+      searchParams.get("focus") !== nextFocus ||
+      searchParams.has("path")
+    ) {
+      const nextParams = new URLSearchParams(searchParams.toString());
+      nextParams.set("level", "5");
+      nextParams.set("focus", nextFocus);
+      nextParams.delete("path");
+      nextParams.set("source", "knowledge-confluence");
+      router.replace(`${pathname}?${nextParams.toString()}`, { scroll: false });
+      return;
+    }
+
+    setLayoutMode("cognitive");
+    if (appliedConfluenceRef.current !== activeConfluence.id) {
+      const domains = new Set(
+        nodes.filter((node) => activeConfluenceNodeIdSet.has(node.id)).map((node) => node.domain)
+      );
+      if (domains.size > 0) setActiveDomains(domains);
+      appliedConfluenceRef.current = activeConfluence.id;
+    }
+  }, [
+    activeConfluence,
+    activeConfluenceNodeIdSet,
+    activeConfluenceTargetNodeId,
+    nodes,
+    pathname,
+    requestedConfluenceId,
+    requestedFocusNodeId,
+    router,
+    searchParams,
+    setActiveDomains,
+  ]);
+
+  useEffect(() => {
+    if (requestedDomainId && !requestedDomainIsValid) {
+      const nextParams = new URLSearchParams(searchParams.toString());
+      nextParams.delete("domain");
+      if (nextParams.get("source") === "terrain-diagnostic") nextParams.delete("source");
+      const query = nextParams.toString();
+      router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
+      return;
+    }
+    if (!requestedDomainId || appliedDomainRef.current === requestedDomainId) return;
+    appliedDomainRef.current = requestedDomainId;
+    setActiveDomains(new Set([requestedDomainId]));
+  }, [pathname, requestedDomainId, requestedDomainIsValid, router, searchParams, setActiveDomains]);
+
+  useEffect(() => {
+    if (selectedNodeId && !visibleNodeIds.has(selectedNodeId)) {
+      setSelectedNodeId(null);
+    }
+  }, [selectedNodeId, setSelectedNodeId, visibleNodeIds]);
 
   const { pushRenderData } = useGraphRenderer(
-    nodes,
-    edges,
+    visibleNodes,
+    visibleEdges,
     initialFocus,
+    cognitivePositions,
+    forceLayoutConfig,
     onNodeClick,
     onNodeHover,
     {
@@ -82,9 +348,9 @@ export function KnowledgeGraph({
     }
   );
 
-  const { handleDomainToggle, handleClusterToggle } = useGraphAnimations(
-    nodes,
-    edges,
+  const { handleDomainToggle } = useGraphAnimations(
+    visibleNodes,
+    visibleEdges,
     state.hoveredNodeId,
     state.selectedNodeId,
     {
@@ -102,14 +368,15 @@ export function KnowledgeGraph({
   );
 
   const interactions = useGraphInteractions(
-    nodes,
-    edges,
+    visibleNodes,
+    visibleEdges,
     state.activeDomains,
     state.zoom,
     state.offsetX,
     state.offsetY,
     state.focusedNodeIndex,
     state.selectedNodeId,
+    layoutMode === "cognitive",
     {
       canvasRef: state.canvasRef,
       containerRef: state.containerRef,
@@ -128,14 +395,198 @@ export function KnowledgeGraph({
       setShowMinimap: state.setShowMinimap,
       nodeDomainMap: state.nodeDomainMap,
       filteredNodes: state.filteredNodes,
+      isMobile,
+      stablePositions: cognitivePositions,
     }
   );
+  const focusCuratedPathTarget = interactions.handleSearchSelect;
+
+  useEffect(() => {
+    if (requestedCuratedPathId && !activeCuratedPath) {
+      const nextParams = new URLSearchParams(searchParams.toString());
+      nextParams.delete("path");
+      if (nextParams.get("source") === "curated-path") nextParams.delete("source");
+      const query = nextParams.toString();
+      router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
+      return;
+    }
+
+    if (
+      activeCuratedPath &&
+      (searchParams.get("level") !== String(activeCuratedTargetStep?.level ?? 5) ||
+        (requestedFocusNodeId && !activeCuratedFocusStep))
+    ) {
+      const nextParams = new URLSearchParams(searchParams.toString());
+      nextParams.set("level", String(activeCuratedTargetStep?.level ?? 5));
+      if (requestedFocusNodeId && !activeCuratedFocusStep) nextParams.delete("focus");
+      nextParams.set("source", "curated-path");
+      const query = nextParams.toString();
+      router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
+      return;
+    }
+
+    if (!activeCuratedPath) {
+      appliedCuratedPathRef.current = null;
+      return;
+    }
+    const targetNodeId = activeCuratedTargetStep?.nodeId;
+    const appliedKey = targetNodeId ? `${activeCuratedPath.id}:${targetNodeId}` : null;
+    if (state.isLoading || !appliedKey || appliedCuratedPathRef.current === appliedKey) return;
+
+    if (!targetNodeId || !visibleNodeIds.has(targetNodeId)) return;
+    appliedCuratedPathRef.current = appliedKey;
+    focusCuratedPathTarget(targetNodeId);
+  }, [
+    activeCuratedPath,
+    activeCuratedFocusStep,
+    activeCuratedTargetStep,
+    focusCuratedPathTarget,
+    pathname,
+    requestedCuratedPathId,
+    requestedFocusNodeId,
+    router,
+    searchParams,
+    state.isLoading,
+    visibleNodeIds,
+  ]);
+
+  useEffect(() => {
+    if (activeCuratedPath) return;
+    if (!requestedFocusNodeId) {
+      appliedFocusNodeRef.current = null;
+      return;
+    }
+
+    const focusNode = nodes.find((node) => node.id === requestedFocusNodeId);
+    if (!focusNode) {
+      const nextParams = new URLSearchParams(searchParams.toString());
+      nextParams.delete("focus");
+      if (nextParams.get("source") === "continuum-node") nextParams.delete("source");
+      const query = nextParams.toString();
+      router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
+      return;
+    }
+    if (!activeConfluence && focusNode.knowledgeLevel !== knowledgeLevel) {
+      const nextParams = new URLSearchParams(searchParams.toString());
+      nextParams.set("level", String(focusNode.knowledgeLevel));
+      router.replace(`${pathname}?${nextParams.toString()}`, { scroll: false });
+      return;
+    }
+    if (
+      state.isLoading ||
+      appliedFocusNodeRef.current === requestedFocusNodeId ||
+      !visibleNodeIds.has(requestedFocusNodeId)
+    ) {
+      return;
+    }
+    appliedFocusNodeRef.current = requestedFocusNodeId;
+    focusCuratedPathTarget(requestedFocusNodeId);
+  }, [
+    activeCuratedPath,
+    activeConfluence,
+    focusCuratedPathTarget,
+    knowledgeLevel,
+    nodes,
+    pathname,
+    requestedFocusNodeId,
+    router,
+    searchParams,
+    state.isLoading,
+    visibleNodeIds,
+  ]);
 
   const [crossDomainOnly, setCrossDomainOnly] = useState(false);
   const handleCrossDomainToggle = () => {
     const next = !crossDomainOnly;
     setCrossDomainOnly(next);
     state.rendererRef.current?.setCrossDomainOnly(next);
+  };
+
+  const handleKnowledgeLevelChange = (level: KnowledgeLevel | null) => {
+    if (level) setLayoutMode("cognitive");
+    const nextParams = new URLSearchParams(searchParams.toString());
+    nextParams.delete("path");
+    nextParams.delete("focus");
+    nextParams.delete("confluence");
+    if (
+      ["curated-path", "continuum-node", "knowledge-confluence"].includes(
+        nextParams.get("source") ?? ""
+      )
+    ) {
+      nextParams.delete("source");
+    }
+    if (level) nextParams.set("level", String(level));
+    else nextParams.delete("level");
+    const query = nextParams.toString();
+    router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
+  };
+
+  const handleFrontierStatusChange = (status: KnowledgeFrontierStatus | null) => {
+    const nextParams = new URLSearchParams(searchParams.toString());
+    setSelectedType(null);
+    setSelectedNodeId(null);
+    if (status) {
+      nextParams.set("frontier", status);
+      nextParams.delete("path");
+      nextParams.delete("confluence");
+      nextParams.delete("focus");
+      nextParams.set("source", "knowledge-frontier");
+    } else {
+      nextParams.delete("frontier");
+      if (nextParams.get("source") === "knowledge-frontier") nextParams.delete("source");
+    }
+    const query = nextParams.toString();
+    router.push(query ? `${pathname}?${query}` : pathname, { scroll: false });
+  };
+
+  const handleCuratedPathChange = (pathId: string | null) => {
+    const nextParams = new URLSearchParams(searchParams.toString());
+    setSelectedType(null);
+    if (pathId) {
+      setLayoutMode("cognitive");
+      nextParams.delete("focus");
+      nextParams.delete("domain");
+      nextParams.delete("confluence");
+      nextParams.delete("frontier");
+      nextParams.set("path", pathId);
+      nextParams.set("level", "5");
+      nextParams.set("source", "curated-path");
+    } else {
+      nextParams.delete("path");
+      if (nextParams.get("source") === "curated-path") nextParams.delete("source");
+    }
+    const query = nextParams.toString();
+    router.push(query ? `${pathname}?${query}` : pathname, { scroll: false });
+  };
+
+  const handleLayoutModeChange = (mode: GraphLayoutMode) => {
+    setLayoutMode(mode);
+    if (mode !== "cognitive" && (activeCuratedPath || activeConfluence || requestedFocusNodeId)) {
+      const nextParams = new URLSearchParams(searchParams.toString());
+      nextParams.delete("path");
+      nextParams.delete("focus");
+      nextParams.delete("confluence");
+      if (
+        ["curated-path", "continuum-node", "knowledge-confluence"].includes(
+          nextParams.get("source") ?? ""
+        )
+      ) {
+        nextParams.delete("source");
+      }
+      const query = nextParams.toString();
+      router.push(query ? `${pathname}?${query}` : pathname, { scroll: false });
+    }
+  };
+
+  const handleConfluenceExit = () => {
+    const nextParams = new URLSearchParams(searchParams.toString());
+    nextParams.delete("confluence");
+    nextParams.delete("focus");
+    if (nextParams.get("source") === "knowledge-confluence") nextParams.delete("source");
+    appliedConfluenceRef.current = null;
+    setSelectedNodeId(null);
+    const query = nextParams.toString();
+    router.push(query ? `${pathname}?${query}` : pathname, { scroll: false });
   };
 
   const onDomainToggleWithAnimation = (domain: string) => {
@@ -149,6 +600,14 @@ export function KnowledgeGraph({
     }
     state.setActiveDomains(next);
     handleDomainToggle(domain, prev, next);
+    if (requestedDomainId) {
+      const nextParams = new URLSearchParams(searchParams.toString());
+      nextParams.delete("domain");
+      if (nextParams.get("source") === "terrain-diagnostic") nextParams.delete("source");
+      const query = nextParams.toString();
+      router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
+      appliedDomainRef.current = null;
+    }
   };
 
   return (
@@ -162,10 +621,17 @@ export function KnowledgeGraph({
         filteredNodeCount={state.announcerProps.filteredNodeCount}
       />
 
-      <div className="relative z-30 shrink-0 px-3 py-2 sm:px-4 sm:py-2.5">
+      <div className="relative z-[60] shrink-0 px-3 py-2 sm:px-4 sm:py-2.5">
         <GraphFilterBar
           activeDomains={state.activeDomains}
           onDomainToggle={onDomainToggleWithAnimation}
+          selectedType={selectedType}
+          onTypeChange={setSelectedType}
+          knowledgeLevel={knowledgeLevel}
+          onKnowledgeLevelChange={handleKnowledgeLevelChange}
+          frontierStatus={frontierStatus}
+          frontierSummary={frontierSnapshot.summary}
+          onFrontierStatusChange={handleFrontierStatusChange}
           searchQuery={state.searchQuery}
           onSearchChange={interactions.handleSearchChange}
           searchResults={state.searchResults}
@@ -174,13 +640,16 @@ export function KnowledgeGraph({
           onZoomIn={interactions.handleZoomIn}
           onZoomOut={interactions.handleZoomOut}
           onFitToScreen={interactions.handleFitToScreen}
-          clusterMode={state.clusterMode}
-          onClusterToggle={handleClusterToggle}
           crossDomainOnly={crossDomainOnly}
           onCrossDomainToggle={handleCrossDomainToggle}
+          layoutMode={layoutMode}
+          onLayoutModeChange={handleLayoutModeChange}
+          curatedPaths={CURATED_LEARNING_PATHS}
+          activeCuratedPathId={activeCuratedPath?.id ?? null}
+          onCuratedPathChange={handleCuratedPathChange}
           isMobile={isMobile}
           searchInputRef={state.searchInputRef}
-          nodes={nodes}
+          nodes={visibleNodes}
           pathStartId={state.pathStartId}
           pathEndId={state.pathEndId}
           pathResult={state.pathResult}
@@ -190,8 +659,18 @@ export function KnowledgeGraph({
           edgeLabelMap={state.edgeLabelMap}
           tours={THOUGHT_TOURS}
           onTourSelect={state.handleTourSelect}
+          onTourStepSelect={interactions.handleSearchSelect}
+          isGraphReady={!state.isLoading}
         />
       </div>
+
+      {activeConfluence ? (
+        <ConfluenceGraphNotice
+          confluence={activeConfluence}
+          highlightedNodeCount={activeConfluenceNodeIds.length}
+          onExit={handleConfluenceExit}
+        />
+      ) : null}
 
       <div className="relative flex min-h-0 flex-1">
         <div
@@ -201,13 +680,16 @@ export function KnowledgeGraph({
           aria-label="知识图谱可视化区域"
           aria-roledescription="交互式知识图谱"
         >
+          {layoutMode === "cognitive" ? (
+            <CognitiveLevelAxis activeLevel={knowledgeLevel} isMobile={isMobile} />
+          ) : null}
           <canvas
             ref={state.canvasRef}
             className="absolute inset-0 h-full w-full"
             style={{ touchAction: "none" }}
             tabIndex={0}
             role="img"
-            aria-label={`知识图谱，包含 ${nodes.length} 个节点和 ${edges.length} 条边。使用方向键浏览节点，回车键查看详情，斜杠键搜索。`}
+            aria-label={`知识图谱，包含 ${visibleNodes.length} 个节点和 ${visibleEdges.length} 条边。使用方向键浏览节点，回车键查看详情，斜杠键搜索。`}
             onKeyDown={interactions.handleCanvasKeyDown}
             onFocus={() => {
               if (state.focusedNodeIndex < 0 && state.filteredNodes.length > 0) {
@@ -339,13 +821,26 @@ export function KnowledgeGraph({
           node={state.selectedNode}
           connectedNodes={state.connectedNodes}
           connectedEdges={state.connectedEdges}
+          prerequisitePathNodes={activeCuratedTraceNodes ?? state.prerequisitePathNodes}
+          frontierState={selectedFrontierState}
+          frontierGapNodes={selectedFrontierGapNodes}
+          onSetMastered={(mastered) => {
+            if (state.selectedNodeId) setKnowledgeNodeMastered(state.selectedNodeId, mastered);
+          }}
+          curatedPath={activeCuratedPath}
           onClose={interactions.handleDetailPanelClose}
           onNodeClick={interactions.handleDetailNodeClick}
+          isMobile={isMobile}
         />
       </div>
 
       <div className="hidden shrink-0 px-3 py-2 sm:px-4 sm:py-2.5 md:block">
-        <GraphLegend nodeCounts={state.nodeCounts} edgeCounts={state.edgeCounts} />
+        <GraphLegend
+          nodeCounts={state.nodeCounts}
+          edgeCounts={state.edgeCounts}
+          knowledgeLevel={knowledgeLevel}
+          targetNodeCount={cognitiveSubgraph.targetNodeIds.size}
+        />
       </div>
     </div>
   );

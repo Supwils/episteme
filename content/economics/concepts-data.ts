@@ -20,12 +20,30 @@ export const ECONOMICS_CONCEPTS_DATA = [
     subtitle: "The Coase Theorem",
     field: "法律经济学与制度经济学",
   },
+  {
+    slug: "commons-governance",
+    title: "公地治理",
+    subtitle: "Commons Governance",
+    field: "制度经济学与公共经济学",
+  },
   { slug: "consumer-surplus", title: "消费者剩余", subtitle: "Consumer Surplus", field: "" },
+  {
+    slug: "country-macro-diagnostics-forecasting",
+    title: "国家宏观诊断与经济预测",
+    subtitle: "Country Macro Diagnostics and Economic Forecasting",
+    field: "宏观经济学",
+  },
   {
     slug: "creative-destruction",
     title: "创造性破坏",
     subtitle: "Creative Destruction",
     field: "经济发展与创新",
+  },
+  {
+    slug: "debt-sustainability-macro-framework",
+    title: "债务可持续性与宏观框架",
+    subtitle: "Debt Sustainability and Macro Frameworks",
+    field: "宏观经济学",
   },
   {
     slug: "developmental-state",
@@ -40,6 +58,12 @@ export const ECONOMICS_CONCEPTS_DATA = [
     field: "实证经济学方法",
   },
   {
+    slug: "economic-vitals-growth-prices-jobs",
+    title: "经济的三个体征：增长、物价与工作",
+    subtitle: "",
+    field: "宏观经济学入门",
+  },
+  {
     slug: "efficiency-wages",
     title: "效率工资",
     subtitle: "Efficiency Wages",
@@ -51,6 +75,12 @@ export const ECONOMICS_CONCEPTS_DATA = [
     title: "环境经济学",
     subtitle: "Environmental Economics",
     field: "微观经济学",
+  },
+  {
+    slug: "expectations-credibility-policy-transmission",
+    title: "预期、可信度与政策传导",
+    subtitle: "Expectations, Credibility, and Policy Transmission",
+    field: "宏观经济学",
   },
   { slug: "externalities", title: "外部性", subtitle: "Externalities", field: "微观经济学" },
   {
@@ -139,6 +169,12 @@ export const ECONOMICS_CONCEPTS_DATA = [
     title: "机制设计",
     subtitle: "Mechanism Design",
     field: "博弈论与市场设计",
+  },
+  {
+    slug: "modern-money-fiscal-deficits",
+    title: "现代货币、财政赤字与通胀约束",
+    subtitle: "Modern Money, Fiscal Deficits, and Inflation Constraints",
+    field: "宏观经济学",
   },
   { slug: "money-supply", title: "货币供应", subtitle: "Money Supply", field: "货币经济学" },
   {

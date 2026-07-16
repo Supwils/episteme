@@ -110,7 +110,7 @@ export default async function DebateDetailPage({ params }: { params: Promise<{ s
         </>
       }
     >
-      <MarkdownRenderer content={debate.content} accentColor={eraColor} />
+      <MarkdownRenderer domain="psychology" content={debate.content} accentColor={eraColor} />
     </ArticleLayout>
   );
 }

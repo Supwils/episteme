@@ -87,7 +87,7 @@ export default async function KnowledgeBaseDetailPage({
         </>
       }
     >
-      <MarkdownRenderer content={article.content} accentColor={accent} />
+      <MarkdownRenderer domain="economics" content={article.content} accentColor={accent} />
     </ArticleLayout>
   );
 }

@@ -30,9 +30,8 @@ export function LatestUpdates() {
               />
               <div className="mb-2.5 flex items-center gap-2">
                 <span
-                  className="rounded-full px-2 py-0.5 text-[0.68rem] font-semibold"
+                  className="text-fg-secondary rounded-full px-2 py-0.5 text-[0.68rem] font-semibold"
                   style={{
-                    color: update.domainColor,
                     background: `${update.domainColor}14`,
                     border: `1px solid ${update.domainColor}33`,
                   }}

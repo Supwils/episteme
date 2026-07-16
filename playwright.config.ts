@@ -9,6 +9,7 @@ export default defineConfig({
   reporter: "html",
   use: {
     baseURL: "http://localhost:3067",
+    serviceWorkers: "block",
     trace: "on-first-retry",
   },
   projects: [

@@ -93,6 +93,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-01-15 offset 0
   },
   "question": "人工智能能真正理解美吗？",
   "seed": 20260115,
+  "sociology": {
+    "description": "杜波依斯指出，被支配群体常被迫同时用自己的眼睛和支配者的眼睛看自己。",
+    "title": "双重意识",
+    "url": "/sociology/thinkers/w-e-b-du-bois",
+  },
 }
 `;
 
@@ -189,6 +194,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 0
   },
   "question": "如果时间可以倒流，你最想见证哪个历史时刻？",
   "seed": 20260314,
+  "sociology": {
+    "description": "统计模型要同时说明变量、样本、效应大小和不确定性；相关关系不能自动变成因果解释。",
+    "title": "统计模型不是显著星号",
+    "url": "/sociology/methods/statistical-modeling",
+  },
 }
 `;
 
@@ -285,6 +295,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 1
   },
   "question": "人类探索太空的意义是什么？",
   "seed": 20268233,
+  "sociology": {
+    "description": "费孝通用水波纹比喻中国社会关系：责任和信任常按亲疏远近展开，而不是只按组织边界划分。",
+    "title": "差序格局",
+    "url": "/sociology/concepts/chinese-social-thought",
+  },
 }
 `;
 
@@ -370,6 +385,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 0
   },
   "question": "人类文明的下一个重大突破会是什么？",
   "seed": 20260616,
+  "sociology": {
+    "description": "韦伯看到现代组织越来越依赖计算、规则和程序；它提高效率，也可能把人困进制度铁笼。",
+    "title": "理性化与铁笼",
+    "url": "/sociology/thinkers/max-weber-sociology",
+  },
 }
 `;
 
@@ -455,6 +475,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 2
   },
   "question": "如果时间可以倒流，你最想见证哪个历史时刻？",
   "seed": 20276454,
+  "sociology": {
+    "description": "分层不只是收入差距，还包括教育、资产、健康、关系网络和失败后能否重新开始的机会。",
+    "title": "社会分层",
+    "url": "/sociology/concepts/social-stratification",
+  },
 }
 `;
 
@@ -561,5 +586,10 @@ exports[`getDailySelected (characterization) > is stable for 2026-12-25 offset 0
   },
   "question": "人工智能能真正理解美吗？",
   "seed": 20261225,
+  "sociology": {
+    "description": "韦伯看到现代组织越来越依赖计算、规则和程序；它提高效率，也可能把人困进制度铁笼。",
+    "title": "理性化与铁笼",
+    "url": "/sociology/thinkers/max-weber-sociology",
+  },
 }
 `;

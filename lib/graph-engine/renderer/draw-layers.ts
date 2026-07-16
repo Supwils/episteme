@@ -134,7 +134,8 @@ export function drawLabels(dc: DrawContext, bounds: ViewBounds): void {
   // Semantic LOD: at low zoom show only the most prominent nodes' labels so the
   // 1000-node constellation stays legible instead of collapsing into label soup;
   // reveal progressively more as the reader zooms in.
-  const labelMinRadius = scale < 0.55 ? 17 : scale < 0.9 ? 14 : 0;
+  const denseGraphMinRadius = nodesRef.length > 60 && scale < 1.2 ? 20 : 0;
+  const labelMinRadius = Math.max(denseGraphMinRadius, scale < 0.55 ? 17 : scale < 0.9 ? 14 : 0);
 
   for (let i = 0; i < nodesRef.length; i++) {
     const node = nodesRef[i]!;

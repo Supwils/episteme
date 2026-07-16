@@ -136,7 +136,7 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
 
       <div className="flex flex-col gap-12 lg:flex-row">
         <article className="max-w-[1200px] min-w-0 flex-1">
-          <MarkdownRenderer content={school.content} />
+          <MarkdownRenderer domain="philosophy" content={school.content} />
 
           {keyFigures.length > 0 && (
             <>

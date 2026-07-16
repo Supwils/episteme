@@ -53,6 +53,7 @@ export const FRONTIER_DOMAINS = [
   "earth-science",
   "medicine",
   "chemistry",
+  "sociology",
 ] as const;
 
 export type FrontierDomain = (typeof FRONTIER_DOMAINS)[number];
@@ -71,6 +72,7 @@ export const FRONTIER_DOMAIN_CONFIG: Record<FrontierDomain, FrontierDomainConfig
   "earth-science": { label: "地球科学", accent: "#4f9d76", backHref: "/earth-science" },
   medicine: { label: "医学与公共卫生", accent: "#d9544d", backHref: "/medicine" },
   chemistry: { label: "化学", accent: "#e08a3c", backHref: "/chemistry" },
+  sociology: { label: "社会学", accent: "#7a8f5a", backHref: "/sociology" },
 };
 
 function safeParseMatter(raw: string): { data: Record<string, unknown>; content: string } {

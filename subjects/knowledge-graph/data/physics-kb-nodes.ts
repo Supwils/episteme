@@ -95,6 +95,13 @@ export const PHYSICS_KB_NODES: GraphNode[] = [
     "接近绝对零度时物质进入的第五态，宏观量子现象。",
     ["BEC", "超冷原子"]
   ),
+  // 前沿物理
+  n(
+    "前沿物理--弦理论",
+    "弦理论与量子引力",
+    "尝试在同一量子框架中描述粒子、相互作用与引力，并公开面对可检验性和理论景观问题。",
+    ["弦理论", "量子引力", "统一理论", "可检验性"]
+  ),
 ];
 
 const e = (from: string, to: string, label: string): GraphEdge => ({
@@ -118,6 +125,7 @@ export const PHYSICS_KB_EDGES: GraphEdge[] = [
   e("粒子物理--quarks-and-leptons", "粒子物理--higgs-mechanism", "获得质量"),
   e("量子物理--不确定性原理", "凝聚态物理--bose-einstein-condensate", "支配"),
   e("经典物理--lagrangian-hamiltonian-mechanics", "量子物理--波粒二象性", "通往量子"),
+  e("P7", "前沿物理--弦理论", "走向量子引力边界"),
 
   // ── cross-domain bridges (verified existing node ids) ──
   {

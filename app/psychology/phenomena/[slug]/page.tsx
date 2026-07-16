@@ -115,7 +115,7 @@ export default async function PhenomenonDetailPage({
       }
     >
       {slug === "attachment-styles" && <AttachmentStyles />}
-      <MarkdownRenderer content={phenomenon.content} accentColor={catColor} />
+      <MarkdownRenderer domain="psychology" content={phenomenon.content} accentColor={catColor} />
     </ArticleLayout>
   );
 }

@@ -1,10 +1,13 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import type { KnowledgeLevel } from "@/lib/knowledge-levels";
 
 export type GraphLegendProps = {
   nodeCounts: Record<string, number>;
   edgeCounts: Record<string, number>;
+  knowledgeLevel?: KnowledgeLevel | null;
+  targetNodeCount?: number;
 };
 
 const DOMAIN_ITEMS = [
@@ -21,6 +24,8 @@ const DOMAIN_ITEMS = [
   { id: "earth-science", label: "地球科学", color: "#4f9d76" },
   { id: "medicine", label: "医学", color: "#d9544d" },
   { id: "chemistry", label: "化学", color: "#e08a3c" },
+  { id: "sociology", label: "社会学", color: "#7a8f5a" },
+  { id: "linguistics", label: "语言学", color: "#3f8f8a" },
 ] as const;
 
 const NODE_TYPE_ITEMS = [
@@ -34,9 +39,14 @@ const NODE_TYPE_ITEMS = [
   { id: "phenomenon", label: "心理现象", color: "#e8a0bf" },
 ] as const;
 
-export function GraphLegend({ nodeCounts, edgeCounts }: GraphLegendProps) {
+export function GraphLegend({
+  nodeCounts,
+  edgeCounts,
+  knowledgeLevel,
+  targetNodeCount = 0,
+}: GraphLegendProps) {
   const reducedMotion = useReducedMotion();
-  const totalNodes = Object.values(nodeCounts).reduce((sum, n) => sum + n, 0);
+  const totalNodes = DOMAIN_ITEMS.reduce((sum, domain) => sum + (nodeCounts[domain.id] ?? 0), 0);
   const totalEdges = Object.values(edgeCounts).reduce((sum, n) => sum + n, 0);
 
   return (
@@ -105,6 +115,12 @@ export function GraphLegend({ nodeCounts, edgeCounts }: GraphLegendProps) {
           <div className="flex items-center gap-3 text-[0.6rem] text-white/40">
             {totalNodes > 0 && <span>{totalNodes} 个节点</span>}
             {totalEdges > 0 && <span>{totalEdges} 条关系</span>}
+            {knowledgeLevel ? (
+              <span className="flex items-center gap-1.5">
+                <span className="h-2 w-2 rounded-full border border-amber-400" aria-hidden="true" />
+                L{knowledgeLevel} 目标 {targetNodeCount} · 前置 {totalNodes - targetNodeCount}
+              </span>
+            ) : null}
           </div>
         </>
       )}

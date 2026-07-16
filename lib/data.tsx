@@ -356,6 +356,34 @@ export const DOMAINS = [
     ),
     stats: "化学家 · 核心概念 · 物质与材料 · 反应与过程 · 里程碑 · 前沿",
   },
+  {
+    id: "sociology" as const,
+    title: "社会学",
+    titleEn: "Sociology",
+    description:
+      "社会如何塑造个人，个人又如何改变社会。涵盖社会学家、核心概念、制度与生活、研究方法与研究前沿。",
+    gradient: "linear-gradient(135deg, #7a8f5a 0%, #5b7f86 50%, #a0a86b 100%)",
+    glowColor: "#7a8f5a",
+    bgAccent: "rgba(122, 143, 90, 0.08)",
+    borderAccent: "rgba(122, 143, 90, 0.2)",
+    icon: (
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+        <circle cx="18" cy="10" r="4" stroke="#7a8f5a" strokeWidth="1.5" opacity="0.55" />
+        <circle cx="10" cy="24" r="4" stroke="#5b9da0" strokeWidth="1.5" opacity="0.5" />
+        <circle cx="26" cy="24" r="4" stroke="#a0a86b" strokeWidth="1.5" opacity="0.5" />
+        <path
+          d="M16 13.5 11.8 20.5M20 13.5l4.2 7M14 24h8"
+          stroke="#7a8f5a"
+          strokeWidth="1.3"
+          opacity="0.45"
+        />
+        <circle cx="18" cy="10" r="1.4" fill="#a0a86b" opacity="0.7" />
+        <circle cx="10" cy="24" r="1.2" fill="#5b9da0" opacity="0.65" />
+        <circle cx="26" cy="24" r="1.2" fill="#7a8f5a" opacity="0.65" />
+      </svg>
+    ),
+    stats: "社会学家 · 核心概念 · 制度与生活 · 方法",
+  },
 ];
 
 export const FEATURES = [
@@ -396,7 +424,7 @@ export const FEATURES = [
 ];
 
 export const STATS = [
-  { value: 10, label: "知识领域", suffix: "" },
+  { value: 14, label: "知识领域", suffix: "" },
   { value: 1850, label: "知识单元", suffix: "+" },
   { value: 500, label: "深度文章", suffix: "+" },
 ];

@@ -115,7 +115,7 @@ export default async function DisorderDetailPage({
         </>
       }
     >
-      <MarkdownRenderer content={disorder.content} accentColor={catColor} />
+      <MarkdownRenderer domain="psychology" content={disorder.content} accentColor={catColor} />
     </ArticleLayout>
   );
 }

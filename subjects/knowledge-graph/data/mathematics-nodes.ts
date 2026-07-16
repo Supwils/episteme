@@ -1,4 +1,5 @@
 import type { GraphNode, GraphEdge } from "./types";
+import { MATHEMATICS_COVERAGE_EDGES, MATHEMATICS_COVERAGE_NODES } from "./mathematics-coverage";
 
 const n = (
   slug: string,
@@ -161,6 +162,7 @@ export const MATHEMATICS_NODES: GraphNode[] = [
     "随时间演化的系统，混沌与分岔的家园。",
     ["混沌", "分岔"]
   ),
+  ...MATHEMATICS_COVERAGE_NODES,
 ];
 
 const e = (from: string, to: string, label: string): GraphEdge => ({
@@ -233,4 +235,5 @@ export const MATHEMATICS_EDGES: GraphEdge[] = [
     type: "domain-link",
     label: "广义相对论的语言",
   },
+  ...MATHEMATICS_COVERAGE_EDGES,
 ];

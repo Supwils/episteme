@@ -4,7 +4,8 @@ import { useState, useRef, useEffect } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { clsx } from "clsx";
 import { DomainFilters } from "./DomainFilters";
-import { ClusterToggle } from "./ClusterToggle";
+import { GraphLayoutModeControl } from "./GraphLayoutModeControl";
+import { CuratedPathSelect } from "./CuratedPathSelect";
 import { CrossDomainToggle } from "./CrossDomainToggle";
 import { ZoomControls } from "./ZoomControls";
 import { GraphSearch } from "./GraphSearch";
@@ -12,6 +13,12 @@ import { PathFinder } from "./PathFinder";
 import type { SearchMatchField, GroupedSearchResult } from "./GraphSearch";
 import type { GraphNode as FullGraphNode } from "../data/types";
 import type { ThoughtTour } from "../data/thought-tours";
+import { KNOWLEDGE_LEVELS, type KnowledgeLevel } from "@/lib/knowledge-levels";
+import type { GraphNodeType } from "../data/types";
+import type { GraphLayoutMode } from "../lib/cognitive-layout";
+import type { CuratedLearningPath } from "../data/curated-learning-paths";
+import type { KnowledgeFrontierStatus, KnowledgeFrontierSummary } from "@/lib/knowledge-frontier";
+import { LearningFrontierFilter } from "./LearningFrontierFilter";
 
 export type { SearchMatchField, GroupedSearchResult };
 export type { FullGraphNode as GraphNode };
@@ -34,6 +41,13 @@ const DOMAINS = [
 type GraphFilterBarProps = {
   activeDomains: Set<string>;
   onDomainToggle: (domain: string) => void;
+  selectedType: GraphNodeType | null;
+  onTypeChange: (type: GraphNodeType | null) => void;
+  knowledgeLevel: KnowledgeLevel | null;
+  onKnowledgeLevelChange: (level: KnowledgeLevel | null) => void;
+  frontierStatus: KnowledgeFrontierStatus | null;
+  frontierSummary: KnowledgeFrontierSummary;
+  onFrontierStatusChange: (status: KnowledgeFrontierStatus | null) => void;
   searchQuery: string;
   onSearchChange: (query: string) => void;
   searchResults: GroupedSearchResult[];
@@ -42,8 +56,11 @@ type GraphFilterBarProps = {
   onZoomIn: () => void;
   onZoomOut: () => void;
   onFitToScreen: () => void;
-  clusterMode: boolean;
-  onClusterToggle: () => void;
+  layoutMode: GraphLayoutMode;
+  onLayoutModeChange: (mode: GraphLayoutMode) => void;
+  curatedPaths: readonly CuratedLearningPath[];
+  activeCuratedPathId: string | null;
+  onCuratedPathChange: (pathId: string | null) => void;
   crossDomainOnly: boolean;
   onCrossDomainToggle: () => void;
   isMobile?: boolean;
@@ -58,11 +75,20 @@ type GraphFilterBarProps = {
   edgeLabelMap: Map<string, string>;
   tours: ThoughtTour[];
   onTourSelect: (waypoints: string[]) => void;
+  onTourStepSelect: (nodeId: string) => void;
+  isGraphReady: boolean;
 };
 
 export function GraphFilterBar({
   activeDomains,
   onDomainToggle,
+  selectedType,
+  onTypeChange,
+  knowledgeLevel,
+  onKnowledgeLevelChange,
+  frontierStatus,
+  frontierSummary,
+  onFrontierStatusChange,
   searchQuery,
   onSearchChange,
   searchResults,
@@ -71,8 +97,11 @@ export function GraphFilterBar({
   onZoomIn,
   onZoomOut,
   onFitToScreen,
-  clusterMode,
-  onClusterToggle,
+  layoutMode,
+  onLayoutModeChange,
+  curatedPaths,
+  activeCuratedPathId,
+  onCuratedPathChange,
   crossDomainOnly,
   onCrossDomainToggle,
   isMobile = false,
@@ -87,8 +116,9 @@ export function GraphFilterBar({
   edgeLabelMap,
   tours,
   onTourSelect,
+  onTourStepSelect,
+  isGraphReady,
 }: GraphFilterBarProps) {
-  const [selectedType, setSelectedType] = useState<string | null>(null);
   const [isTypeDropdownOpen, setIsTypeDropdownOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState(false);
 
@@ -128,7 +158,36 @@ export function GraphFilterBar({
             <path d="M2 4h12M4 8h8M6 12h4" strokeLinecap="round" />
           </svg>
         </button>
+        <PathFinder
+          nodes={nodes}
+          pathStartId={pathStartId}
+          pathEndId={pathEndId}
+          pathResult={pathResult}
+          onPathFind={onPathFind}
+          onPathClear={onPathClear}
+          nodeMap={nodeMap}
+          edgeLabelMap={edgeLabelMap}
+          tours={tours}
+          onTourSelect={onTourSelect}
+          onTourStepSelect={onTourStepSelect}
+          isGraphReady={isGraphReady}
+          isMobile
+        />
         <div className="flex-1" />
+        {knowledgeLevel ? (
+          <span className="border border-white/[0.08] px-2 py-1 font-mono text-[10px] text-white/55">
+            L{knowledgeLevel}
+          </span>
+        ) : null}
+        {frontierStatus ? (
+          <span className="border border-white/[0.08] px-2 py-1 font-mono text-[10px] text-white/55">
+            {frontierStatus === "mastered"
+              ? "已掌握"
+              : frontierStatus === "ready"
+                ? "可学习"
+                : "被阻塞"}
+          </span>
+        ) : null}
         {Array.from(activeDomains).map((domainId) => {
           const domain = DOMAINS.find((d) => d.id === domainId);
           if (!domain) return null;
@@ -150,7 +209,8 @@ export function GraphFilterBar({
         "flex flex-wrap items-center gap-2 px-3 py-2 sm:gap-3 sm:px-4 sm:py-2.5",
         "rounded-xl border border-white/[0.06]",
         "bg-[#111118]/80 backdrop-blur-xl",
-        "shadow-[0_4px_24px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.03)]"
+        "shadow-[0_4px_24px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.03)]",
+        isMobile && "w-full max-w-full min-w-0 overflow-hidden"
       )}
     >
       <DomainFilters
@@ -165,17 +225,33 @@ export function GraphFilterBar({
 
       <TypeFilterDropdown
         selectedType={selectedType}
-        setSelectedType={setSelectedType}
+        setSelectedType={onTypeChange}
         isOpen={isTypeDropdownOpen}
         setIsOpen={setIsTypeDropdownOpen}
         isMobile={isMobile}
       />
 
+      <KnowledgeLevelSelect
+        value={knowledgeLevel}
+        onChange={onKnowledgeLevelChange}
+        isMobile={isMobile}
+      />
+
+      <LearningFrontierFilter
+        value={frontierStatus}
+        summary={frontierSummary}
+        onChange={onFrontierStatusChange}
+        isMobile={isMobile}
+      />
+
       <div className="hidden h-5 w-px bg-white/[0.08] sm:block" aria-hidden="true" />
 
-      <ClusterToggle
-        clusterMode={clusterMode}
-        onClusterToggle={onClusterToggle}
+      <GraphLayoutModeControl value={layoutMode} onChange={onLayoutModeChange} />
+
+      <CuratedPathSelect
+        paths={curatedPaths}
+        value={activeCuratedPathId}
+        onChange={onCuratedPathChange}
         isMobile={isMobile}
       />
 
@@ -209,6 +285,8 @@ export function GraphFilterBar({
         edgeLabelMap={edgeLabelMap}
         tours={tours}
         onTourSelect={onTourSelect}
+        onTourStepSelect={onTourStepSelect}
+        isGraphReady={isGraphReady}
         isMobile={isMobile}
       />
 
@@ -224,6 +302,38 @@ export function GraphFilterBar({
   );
 }
 
+function KnowledgeLevelSelect({
+  value,
+  onChange,
+  isMobile,
+}: {
+  value: KnowledgeLevel | null;
+  onChange: (level: KnowledgeLevel | null) => void;
+  isMobile: boolean;
+}) {
+  return (
+    <label className="text-white/45">
+      <span className="sr-only">认知阶段筛选</span>
+      <select
+        value={value ?? ""}
+        onChange={(event) => {
+          const next = Number(event.target.value);
+          onChange(next >= 1 && next <= 5 ? (next as KnowledgeLevel) : null);
+        }}
+        className="h-8 border border-white/[0.06] bg-[#111118] px-2 text-xs text-white/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6366f1]"
+        aria-label="认知阶段筛选"
+      >
+        <option value="">{isMobile ? "全部阶段" : "认知阶段：全部"}</option>
+        {KNOWLEDGE_LEVELS.map((level) => (
+          <option key={level.id} value={level.id}>
+            L{level.id} · {level.label}
+          </option>
+        ))}
+      </select>
+    </label>
+  );
+}
+
 function TypeFilterDropdown({
   selectedType,
   setSelectedType,
@@ -231,8 +341,8 @@ function TypeFilterDropdown({
   setIsOpen,
   isMobile,
 }: {
-  selectedType: string | null;
-  setSelectedType: (v: string | null) => void;
+  selectedType: GraphNodeType | null;
+  setSelectedType: (v: GraphNodeType | null) => void;
   isOpen: boolean;
   setIsOpen: (v: boolean | ((prev: boolean) => boolean)) => void;
   isMobile: boolean;

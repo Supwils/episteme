@@ -74,6 +74,54 @@ const DOMAIN_CARDS = [
     bg: "rgba(129,140,248,0.1)",
     border: "rgba(129,140,248,0.2)",
   },
+  {
+    key: "computerScience" as const,
+    icon: "💻",
+    label: "计算机科学",
+    color: "#4f9cf0",
+    bg: "rgba(79,156,240,0.1)",
+    border: "rgba(79,156,240,0.2)",
+  },
+  {
+    key: "politicalScience" as const,
+    icon: "⚖️",
+    label: "政治学",
+    color: "#c25b5b",
+    bg: "rgba(194,91,91,0.1)",
+    border: "rgba(194,91,91,0.2)",
+  },
+  {
+    key: "earthScience" as const,
+    icon: "🌍",
+    label: "地球科学",
+    color: "#4f9d76",
+    bg: "rgba(79,157,118,0.1)",
+    border: "rgba(79,157,118,0.2)",
+  },
+  {
+    key: "medicine" as const,
+    icon: "⚕️",
+    label: "医学与公共卫生",
+    color: "#d9544d",
+    bg: "rgba(217,84,77,0.1)",
+    border: "rgba(217,84,77,0.2)",
+  },
+  {
+    key: "chemistry" as const,
+    icon: "⚗️",
+    label: "化学",
+    color: "#e08a3c",
+    bg: "rgba(224,138,60,0.1)",
+    border: "rgba(224,138,60,0.2)",
+  },
+  {
+    key: "sociology" as const,
+    icon: "🏙",
+    label: "社会学",
+    color: "#7a8f5a",
+    bg: "rgba(122,143,90,0.1)",
+    border: "rgba(122,143,90,0.2)",
+  },
 ] as const;
 
 export function DailyShareCard({ daily }: DailyShareCardProps) {
@@ -113,7 +161,8 @@ export function DailyShareCard({ daily }: DailyShareCardProps) {
     if (!canvas) return;
 
     const width = 800;
-    const height = 1220;
+    const itemHeight = 110;
+    const height = 130 + DOMAIN_CARDS.length * itemHeight + 220;
     canvas.width = width;
     canvas.height = height;
     const ctx = canvas.getContext("2d");
@@ -148,8 +197,6 @@ export function DailyShareCard({ daily }: DailyShareCardProps) {
     ctx.fillText(`${displayDate} ${weekday}`, 40, 90);
 
     let y = 130;
-    const itemHeight = 110;
-
     for (const card of DOMAIN_CARDS) {
       const item = daily[card.key];
 

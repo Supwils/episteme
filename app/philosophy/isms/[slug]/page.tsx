@@ -134,7 +134,7 @@ export default async function IsmDetailPage({ params }: { params: Promise<{ slug
           </>
         }
       >
-        <MarkdownRenderer content={ism.content} accentColor={accent} />
+        <MarkdownRenderer domain="philosophy" content={ism.content} accentColor={accent} />
 
         {ism.opposing.length > 0 && (
           <FadeInSection className="border-border-faint mt-12 border-t pt-8">

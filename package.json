@@ -2,7 +2,7 @@
   "name": "episteme",
   "version": "0.0.0",
   "private": true,
-  "description": "Episteme · 格致 — 重现人类认识世界的旅程. A visual, immersive knowledge platform spanning ten subjects.",
+  "description": "Episteme · 格致 — 重现人类认识世界的旅程. A visual, immersive knowledge platform spanning fifteen subjects.",
   "packageManager": "pnpm@10.27.0",
   "scripts": {
     "dev": "next dev --turbopack -p 3067",
@@ -16,6 +16,10 @@
     "lighthouse": "node scripts/lighthouse.mjs",
     "a11y-scan": "node scripts/a11y-scan.mjs",
     "check-content": "tsx scripts/check-content.ts",
+    "audit-graph-coverage": "tsx scripts/audit-graph-coverage.ts",
+    "audit-learning-continuum": "tsx scripts/audit-learning-continuum.ts",
+    "audit-subject-candidates": "tsx scripts/audit-subject-candidates.ts",
+    "audit-linguistics-foundation": "tsx scripts/audit-linguistics-foundation.ts",
     "gen-philo": "tsx scripts/gen-philo-index.ts",
     "gen-econ": "tsx scripts/gen-econ-index.ts",
     "gen-psych": "tsx scripts/gen-psych-index.ts",
@@ -52,7 +56,6 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "three": "^0.170.0",
-    "web-vitals": "^5.3.0",
     "zod": "^3.23.0",
     "zustand": "^5.0.0"
   },

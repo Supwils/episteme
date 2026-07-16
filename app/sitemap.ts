@@ -40,6 +40,7 @@ import { createKnowledgeSection } from "@/lib/knowledge-domain";
 import { createFrontier, FRONTIER_DOMAINS } from "@/lib/frontier";
 import { KNOWLEDGE_DOMAINS } from "@/lib/new-domains";
 import { READING_PATHS } from "@/lib/reading-paths";
+import { CURATED_KNOWLEDGE_CONFLUENCES } from "@/subjects/knowledge-graph/data/curated-confluences";
 
 const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: "", priority: 1 },
@@ -458,9 +459,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  const knowledgeConfluenceEntries: MetadataRoute.Sitemap = CURATED_KNOWLEDGE_CONFLUENCES.map(
+    (confluence) => ({
+      url: `${SITE_URL}/knowledge-confluence/${confluence.id}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })
+  );
+
   return [
     ...staticEntries,
     ...readingPathEntries,
+    ...knowledgeConfluenceEntries,
     ...newDomainEntries,
     ...frontierEntries,
     ...thinkerEntries,

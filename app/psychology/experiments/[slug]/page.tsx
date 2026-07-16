@@ -129,7 +129,7 @@ export default async function ExperimentDetailPage({
           accent={fieldColor}
         />
       )}
-      <MarkdownRenderer content={experiment.content} accentColor={fieldColor} />
+      <MarkdownRenderer domain="psychology" content={experiment.content} accentColor={fieldColor} />
     </ArticleLayout>
   );
 }

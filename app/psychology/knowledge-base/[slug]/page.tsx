@@ -102,7 +102,7 @@ export default async function PsychologyKnowledgeBaseDetailPage({
           </>
         }
       >
-        <MarkdownRenderer content={article.content} accentColor={ACCENT} />
+        <MarkdownRenderer domain="psychology" content={article.content} accentColor={ACCENT} />
       </ArticleLayout>
     </>
   );

@@ -3,6 +3,7 @@ import { PHYSICS_TODAY } from "./daily-physics";
 import { PHILOSOPHY_TODAY } from "./philosophy-today";
 import { ECONOMICS_TODAY } from "./daily-economics";
 import { PSYCHOLOGY_TODAY } from "./daily-psychology";
+import { SOCIOLOGY_FACTS } from "./daily-sociology";
 import { ON_THIS_DAY } from "./on-this-day";
 import { getAllCuriosities } from "./curiosities";
 
@@ -22,6 +23,7 @@ export interface DailySelected {
   earthScience: DailySelectedFact;
   medicine: DailySelectedFact;
   chemistry: DailySelectedFact;
+  sociology: DailySelectedFact;
   curiosity: { title: string; detail: string; url?: string };
   question: string;
   fact: string;
@@ -829,6 +831,7 @@ export function getDailySelected(date?: Date, seedOffset = 0): DailySelected {
   const earthScience = seededSelect(EARTH_SCIENCE_FACTS, seed + 14);
   const medicine = seededSelect(MEDICINE_FACTS, seed + 15);
   const chemistry = seededSelect(CHEMISTRY_FACTS, seed + 16);
+  const sociology = seededSelect(SOCIOLOGY_FACTS, seed + 17);
 
   const curiosityItem = seededSelect(getAllCuriosities(), seed + 14);
   const curiosity = {
@@ -872,6 +875,7 @@ export function getDailySelected(date?: Date, seedOffset = 0): DailySelected {
     earthScience,
     medicine,
     chemistry,
+    sociology,
     curiosity,
     question,
     fact,
@@ -920,6 +924,7 @@ export function buildShareText(daily: DailySelected): string {
     `🌍 地球科学：${daily.earthScience.title}`,
     `⚕️ 医学：${daily.medicine.title}`,
     `⚗️ 化学：${daily.chemistry.title}`,
+    `🏙 社会学：${daily.sociology.title}`,
     "",
     `❓ 今日一问：${daily.question}`,
     "",

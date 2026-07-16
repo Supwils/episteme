@@ -322,10 +322,7 @@ export function CellExplorer() {
     [cellType]
   );
 
-  const selected = useMemo(
-    () => ORGANELLES.find((o) => o.id === selectedId) ?? null,
-    [selectedId]
-  );
+  const selected = useMemo(() => ORGANELLES.find((o) => o.id === selectedId) ?? null, [selectedId]);
 
   const handleSelect = useCallback((id: string) => {
     setSelectedId((prev) => (prev === id ? null : id));
@@ -342,9 +339,7 @@ export function CellExplorer() {
     <div className="w-full">
       <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h3 className="font-display text-fg-primary text-lg font-semibold">
-            细胞结构探索器
-          </h3>
+          <h3 className="font-display text-fg-primary text-lg font-semibold">细胞结构探索器</h3>
           <p className="text-fg-muted mt-1 font-mono text-[11px] tracking-wide">
             点击细胞器查看详细信息
           </p>
@@ -359,7 +354,8 @@ export function CellExplorer() {
             style={{
               background: cellType === "animal" ? "rgba(224,122,95,0.15)" : "transparent",
               color: cellType === "animal" ? "#e07a5f" : "var(--color-fg-muted)",
-              border: cellType === "animal" ? "1px solid rgba(224,122,95,0.3)" : "1px solid transparent",
+              border:
+                cellType === "animal" ? "1px solid rgba(224,122,95,0.3)" : "1px solid transparent",
             }}
           >
             动物细胞
@@ -370,7 +366,8 @@ export function CellExplorer() {
             style={{
               background: cellType === "plant" ? "rgba(129,178,154,0.15)" : "transparent",
               color: cellType === "plant" ? "#81b29a" : "var(--color-fg-muted)",
-              border: cellType === "plant" ? "1px solid rgba(129,178,154,0.3)" : "1px solid transparent",
+              border:
+                cellType === "plant" ? "1px solid rgba(129,178,154,0.3)" : "1px solid transparent",
             }}
           >
             植物细胞
@@ -410,7 +407,13 @@ export function CellExplorer() {
                       </feMerge>
                     </filter>
                     <filter id="soft-shadow">
-                      <feDropShadow dx="0" dy="1" stdDeviation="2" floodColor="#000" floodOpacity="0.3" />
+                      <feDropShadow
+                        dx="0"
+                        dy="1"
+                        stdDeviation="2"
+                        floodColor="#000"
+                        floodOpacity="0.3"
+                      />
                     </filter>
                   </defs>
 
@@ -420,7 +423,10 @@ export function CellExplorer() {
                     const isSelected = selectedId === shape.id;
                     const isHovered = hoveredId === shape.id;
                     const isHighlighted = isSelected || isHovered;
-                    const isBackground = shape.id === "cytoplasm" || shape.id === "membrane" || shape.id === "cellwall";
+                    const isBackground =
+                      shape.id === "cytoplasm" ||
+                      shape.id === "membrane" ||
+                      shape.id === "cellwall";
 
                     return (
                       <g key={shape.id}>
@@ -462,7 +468,9 @@ export function CellExplorer() {
                   {shapes
                     .filter((s) => {
                       const o = ORGANELLES.find((org) => org.id === s.id);
-                      return o && s.id !== "cytoplasm" && s.id !== "membrane" && s.id !== "cellwall";
+                      return (
+                        o && s.id !== "cytoplasm" && s.id !== "membrane" && s.id !== "cellwall"
+                      );
                     })
                     .map((shape) => {
                       const organelle = ORGANELLES.find((o) => o.id === shape.id);
@@ -490,17 +498,11 @@ export function CellExplorer() {
             </AnimatePresence>
 
             <div className="mt-4 flex items-center justify-center gap-2">
-              <div
-                className="h-px flex-1"
-                style={{ background: "rgba(255,255,255,0.1)" }}
-              />
-              <span className="font-mono text-[10px] tracking-wider text-[#666]">
+              <div className="h-px flex-1" style={{ background: "rgba(255,255,255,0.1)" }} />
+              <span className="text-fg-muted font-mono text-[10px] tracking-wider">
                 比例尺: {size.label}
               </span>
-              <div
-                className="h-px flex-1"
-                style={{ background: "rgba(255,255,255,0.1)" }}
-              />
+              <div className="h-px flex-1" style={{ background: "rgba(255,255,255,0.1)" }} />
             </div>
           </div>
 
@@ -549,7 +551,7 @@ export function CellExplorer() {
                     >
                       {selected.name}
                     </h4>
-                    <p className="font-mono text-[10px] italic tracking-wider text-[#888]">
+                    <p className="font-mono text-[10px] tracking-wider text-[#888] italic">
                       {selected.nameEn}
                     </p>
                   </div>
@@ -559,14 +561,17 @@ export function CellExplorer() {
                     aria-label="关闭详情"
                   >
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                      <path d="M3 3l8 8M11 3l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                      <path
+                        d="M3 3l8 8M11 3l-8 8"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                      />
                     </svg>
                   </button>
                 </div>
 
-                <p className="mb-4 text-sm leading-relaxed text-[#b0b0c0]">
-                  {selected.function}
-                </p>
+                <p className="mb-4 text-sm leading-relaxed text-[#b0b0c0]">{selected.function}</p>
 
                 <div className="space-y-2">
                   {selected.details.map((detail, i) => (
@@ -585,9 +590,7 @@ export function CellExplorer() {
                         className="mt-1.5 h-1 w-1 shrink-0 rounded-full"
                         style={{ backgroundColor: selected.color }}
                       />
-                      <span className="text-[12px] leading-relaxed text-[#9ca3af]">
-                        {detail}
-                      </span>
+                      <span className="text-[12px] leading-relaxed text-[#9ca3af]">{detail}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -604,7 +607,7 @@ export function CellExplorer() {
                   background: "rgba(255,255,255,0.02)",
                 }}
               >
-                <p className="text-center font-mono text-[11px] tracking-wide text-[#555]">
+                <p className="text-fg-muted text-center font-mono text-[11px] tracking-wide">
                   点击左侧细胞器
                   <br />
                   查看结构与功能详情
