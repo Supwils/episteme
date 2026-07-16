@@ -21,29 +21,25 @@ if (globalMinPerformance !== undefined && !Number.isFinite(globalMinPerformance)
 const formatScore = (score) => String(score).padStart(3);
 const formatMs = (value) => `${Math.round(value)}ms`.padStart(7);
 const violations = [];
-const chrome = await chromeLauncher.launch({ chromeFlags: ["--headless=new", "--no-sandbox"] });
 
-try {
-  const options = { port: chrome.port, output: "json", logLevel: "error" };
-  console.log(`Lighthouse @ ${BASE}`);
-  console.log(`${"route".padEnd(46)} perf  a11y  best  seo      LCP      TBT    CLS  budget`);
+console.log(`Lighthouse @ ${BASE}`);
+console.log(`${"route".padEnd(46)} perf  a11y  best  seo      LCP      TBT    CLS  budget`);
 
-  for (const budget of LIGHTHOUSE_ROUTE_BUDGETS) {
-    let metrics = await measureRoute(budget.route, options);
-    let routeViolations = evaluateLighthouseBudget(metrics, budget, globalMinPerformance);
-    if (shouldConfirmLighthouseBudget(metrics, budget, globalMinPerformance)) {
-      console.warn(`${budget.route}: budget miss, running one confirmation trace`);
-      metrics = await measureRoute(budget.route, options);
-      routeViolations = evaluateLighthouseBudget(metrics, budget, globalMinPerformance);
-    }
-    violations.push(...routeViolations.map((message) => `${budget.route}: ${message}`));
-
-    console.log(
-      `${budget.route.padEnd(46)} ${formatScore(metrics.performance)}  ${formatScore(metrics.accessibility)}  ${formatScore(metrics.bestPractices)}  ${formatScore(metrics.seo)}  ${formatMs(metrics.lcpMs)}  ${formatMs(metrics.tbtMs)}  ${metrics.cls.toFixed(3).padStart(5)}  ${routeViolations.length === 0 ? "PASS" : "FAIL"}`
+for (const budget of LIGHTHOUSE_ROUTE_BUDGETS) {
+  let metrics = await measureRoute(budget.route);
+  let routeViolations = evaluateLighthouseBudget(metrics, budget, globalMinPerformance);
+  if (shouldConfirmLighthouseBudget(metrics, budget, globalMinPerformance)) {
+    console.warn(
+      `${budget.route}: ${routeViolations.join(", ") || "invalid trace"}; running one confirmation trace`
     );
+    metrics = await measureRoute(budget.route);
+    routeViolations = evaluateLighthouseBudget(metrics, budget, globalMinPerformance);
   }
-} finally {
-  await chrome.kill();
+  violations.push(...routeViolations.map((message) => `${budget.route}: ${message}`));
+
+  console.log(
+    `${budget.route.padEnd(46)} ${formatScore(metrics.performance)}  ${formatScore(metrics.accessibility)}  ${formatScore(metrics.bestPractices)}  ${formatScore(metrics.seo)}  ${formatMs(metrics.lcpMs)}  ${formatMs(metrics.tbtMs)}  ${metrics.cls.toFixed(3).padStart(5)}  ${routeViolations.length === 0 ? "PASS" : "FAIL"}`
+  );
 }
 
 if (violations.length > 0) {
@@ -54,11 +50,23 @@ if (violations.length > 0) {
 
 console.log("\nPASS: all representative routes are within their performance budgets.");
 
-async function measureRoute(route, options) {
+async function measureRoute(route) {
   for (let attempt = 1; attempt <= 2; attempt++) {
-    const result = await lighthouse(BASE + route, options);
-    if (!result) throw new Error(`Lighthouse returned no result for ${route}`);
-    const metrics = readLighthouseMetrics(result.lhr);
+    const chrome = await chromeLauncher.launch({
+      chromeFlags: ["--headless=new", "--no-sandbox", "--disable-dev-shm-usage"],
+    });
+    let metrics;
+    try {
+      const result = await lighthouse(BASE + route, {
+        port: chrome.port,
+        output: "json",
+        logLevel: "error",
+      });
+      if (!result) throw new Error(`Lighthouse returned no result for ${route}`);
+      metrics = readLighthouseMetrics(result.lhr);
+    } finally {
+      await chrome.kill();
+    }
     if (hasValidLighthouseMetrics(metrics) || attempt === 2) return metrics;
     console.warn(`${route}: invalid performance trace, retrying once`);
   }
