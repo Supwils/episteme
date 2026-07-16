@@ -91,6 +91,20 @@ jobs:
       - name: Bundle budget
         run: pnpm bundle-check -- --skip-build
 
+      - name: Playwright production smoke
+        run: pnpm test:e2e:smoke
+
+      - name: Upload Playwright smoke report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-smoke-report
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore
+          retention-days: 7
+
       - name: Lighthouse performance budget
         run: |
           pnpm start > /tmp/episteme-next.log 2>&1 &

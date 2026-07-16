@@ -4,11 +4,11 @@
 
 GitHub Actions 的唯一生产工作流是`.github/workflows/ci.yml`，在`main`推送、面向`main`的PR和手动触发时运行。仅修改`docs/`不会触发部署。
 
-| 作业    | 职责                                                   | 生产门禁               |
-| ------- | ------------------------------------------------------ | ---------------------- |
-| Quality | 生成索引幂等性、类型、Lint、内容与图谱审计、单元测试   | 是                     |
-| Build   | Next生产构建、SSG/ISR manifest、bundle与Lighthouse预算 | 是                     |
-| Deploy  | Vercel生产环境构建与预构建产物部署                     | 同时依赖Quality与Build |
+| 作业    | 职责                                                          | 生产门禁               |
+| ------- | ------------------------------------------------------------- | ---------------------- |
+| Quality | 生成索引幂等性、类型、Lint、内容与图谱审计、单元测试          | 是                     |
+| Build   | Next生产构建、SSG/ISR manifest、bundle、smoke与Lighthouse预算 | 是                     |
+| Deploy  | Vercel生产环境构建与预构建产物部署                            | 同时依赖Quality与Build |
 
 Quality与Build并行以缩短反馈时间。Deploy只在非PR的`main`运行；任一上游失败都禁止生产部署。工作流只有`contents: read`权限，Vercel CLI固定版本，所有作业都有超时。
 
@@ -41,6 +41,8 @@ Quality与Build并行以缩短反馈时间。Deploy只在非PR的`main`运行；
 
 Lighthouse保留逐路由固定预算。每条路由和每次确认采样都启动独立Chrome进程，避免长时共享浏览器在最后一条路由累积缓存、内存与主线程状态。有效首测直接决定通过；仅当trace无效或超预算时执行一次独立确认采样，两次都失败才阻断部署。这样不放宽预算，同时避免共享CI runner的单次调度抖动制造假失败。
 
+Playwright smoke在同一Build作业内复用已完成的`.next`生产产物，不重复构建，不使用Turbopack开发服务器。门禁用runner已有Chrome执行桌面和移动端各两次核心旅程：门户搜索到首次请求SSG文章，以及知识图谱深链恢复与步骤推进。失败时上传HTML报告、截图和trace并保留7天；完整E2E仍留在本地或专项回归，避免每次push运行138项造成慢反馈。
+
 ## 五、Vercel部署
 
 原生Vercel Git部署在`vercel.json`中关闭，避免同一次`main`推送产生重复部署。GitHub Actions使用以下顺序：
@@ -68,6 +70,7 @@ pnpm test
 pnpm build
 pnpm audit-rendering
 pnpm bundle-check -- --skip-build
+CI=1 pnpm test:e2e:smoke
 ```
 
 生产Lighthouse必须指向当前项目的独占端口。若本机`3000`已被其他应用占用，使用其他端口启动Next并设置`LH_BASE`，不能把其他应用的结果当成本项目指标。

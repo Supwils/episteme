@@ -12,6 +12,7 @@
     "lint": "eslint . --max-warnings 0",
     "test": "vitest run",
     "test:e2e": "playwright test",
+    "test:e2e:smoke": "playwright test --config=playwright.smoke.config.ts",
     "bundle-check": "node scripts/physics/bundle-check.mjs",
     "lighthouse": "node scripts/lighthouse.mjs",
     "a11y-scan": "node scripts/a11y-scan.mjs",
