@@ -91,20 +91,6 @@ jobs:
       - name: Bundle budget
         run: pnpm bundle-check -- --skip-build
 
-      - name: Playwright production smoke
-        run: pnpm test:e2e:smoke
-
-      - name: Upload Playwright smoke report
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: playwright-smoke-report
-          path: |
-            playwright-report/
-            test-results/
-          if-no-files-found: ignore
-          retention-days: 7
-
       - name: Lighthouse performance budget
         run: |
           pnpm start > /tmp/episteme-next.log 2>&1 &
@@ -125,6 +111,20 @@ jobs:
             sleep 1
           done
           LH_BASE=http://127.0.0.1:3000 pnpm lighthouse
+
+      - name: Playwright production smoke
+        run: pnpm test:e2e:smoke
+
+      - name: Upload Playwright smoke report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-smoke-report
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore
+          retention-days: 7
 
   # Deploy ONLY after quality + build both pass, and only on main (never on PRs).
   # Native Vercel git-integration is disabled (vercel.json git.deploymentEnabled.main=false)
