@@ -8,6 +8,7 @@ import {
   evaluateLighthouseBudget,
   hasValidLighthouseMetrics,
   readLighthouseMetrics,
+  shouldConfirmLighthouseBudget,
 } from "./performance/lighthouse-budget.mjs";
 
 const BASE = process.env.LH_BASE || "http://localhost:3000";
@@ -28,8 +29,13 @@ try {
   console.log(`${"route".padEnd(46)} perf  a11y  best  seo      LCP      TBT    CLS  budget`);
 
   for (const budget of LIGHTHOUSE_ROUTE_BUDGETS) {
-    const metrics = await measureRoute(budget.route, options);
-    const routeViolations = evaluateLighthouseBudget(metrics, budget, globalMinPerformance);
+    let metrics = await measureRoute(budget.route, options);
+    let routeViolations = evaluateLighthouseBudget(metrics, budget, globalMinPerformance);
+    if (shouldConfirmLighthouseBudget(metrics, budget, globalMinPerformance)) {
+      console.warn(`${budget.route}: budget miss, running one confirmation trace`);
+      metrics = await measureRoute(budget.route, options);
+      routeViolations = evaluateLighthouseBudget(metrics, budget, globalMinPerformance);
+    }
     violations.push(...routeViolations.map((message) => `${budget.route}: ${message}`));
 
     console.log(

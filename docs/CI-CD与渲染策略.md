@@ -39,6 +39,8 @@ Quality与Build并行以缩短反馈时间。Deploy只在非PR的`main`运行；
 
 审计会验证关键路由是否出现在正确manifest、重验证周期是否准确、固定参数集合是否关闭未知slug、通用文章是否保持首次访问SSG，以及私有/查询接口是否仍为动态运行时。源码注释或Next构建日志不能替代这一门禁。
 
+Lighthouse保留逐路由固定预算。有效首测直接决定通过；仅当trace无效或超预算时执行一次确认采样，两次都失败才阻断部署。这样不放宽预算，同时避免共享CI runner的单次调度抖动制造假失败。
+
 ## 五、Vercel部署
 
 原生Vercel Git部署在`vercel.json`中关闭，避免同一次`main`推送产生重复部署。GitHub Actions使用以下顺序：

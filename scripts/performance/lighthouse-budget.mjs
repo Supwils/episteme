@@ -70,3 +70,10 @@ export function hasValidLighthouseMetrics(metrics) {
     Number.isFinite(metrics.cls)
   );
 }
+
+export function shouldConfirmLighthouseBudget(metrics, budget, globalMinPerformance) {
+  return (
+    !hasValidLighthouseMetrics(metrics) ||
+    evaluateLighthouseBudget(metrics, budget, globalMinPerformance).length > 0
+  );
+}

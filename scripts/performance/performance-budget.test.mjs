@@ -3,7 +3,11 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
 import { analyzeRouteAssets, getRouteCssBudget, isGenericArticleRoute } from "./bundle-budget.mjs";
-import { evaluateLighthouseBudget, hasValidLighthouseMetrics } from "./lighthouse-budget.mjs";
+import {
+  evaluateLighthouseBudget,
+  hasValidLighthouseMetrics,
+  shouldConfirmLighthouseBudget,
+} from "./lighthouse-budget.mjs";
 
 const temporaryDirectories = [];
 
@@ -67,6 +71,17 @@ describe("performance budgets", () => {
     expect(hasValidLighthouseMetrics({ performance: 79, lcpMs: 4100, tbtMs: 350, cls: 0.12 })).toBe(
       true
     );
+  });
+
+  it("confirms only invalid or over-budget Lighthouse samples", () => {
+    const budget = { minPerformance: 85, maxLcpMs: 3800, maxTbtMs: 250, maxCls: 0.1 };
+
+    expect(
+      shouldConfirmLighthouseBudget({ performance: 98, lcpMs: 2400, tbtMs: 12, cls: 0 }, budget)
+    ).toBe(false);
+    expect(
+      shouldConfirmLighthouseBudget({ performance: 64, lcpMs: 3325, tbtMs: 1954, cls: 0 }, budget)
+    ).toBe(true);
   });
 
   it("keeps the portal CSS budget tighter than the explicit legacy domain baseline", () => {
