@@ -1,3 +1,4 @@
+import "../../styles/pages/figures.css";
 import { FIGURES } from "@/content/human-history/data/figures.js";
 import { ERAS } from "@/subjects/history/lib/eras";
 import { notFound } from "next/navigation";

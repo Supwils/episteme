@@ -16,6 +16,7 @@ import { fileURLToPath } from "node:url";
 import { gzipSync } from "node:zlib";
 import {
   analyzeRouteAssets,
+  findTailwindEntrypoints,
   getRouteCssBudget,
   isGenericArticleRoute,
 } from "../performance/bundle-budget.mjs";
@@ -49,7 +50,7 @@ const BUDGET = {
   genericArticleJs: 220 * 1024,
   routeCss: {
     portal: 40 * 1024, // 40 KB — homepage regression budget
-    domain: 68 * 1024, // 68 KB — explicit baseline while domain CSS remains layered
+    domain: 40 * 1024, // 40 KB — root utilities + route-scoped domain styles
   },
   singleChunkMax: 285 * 1024, // 285 KB — accommodates the Three.js / R3F vendor chunk
   // Sum of ALL route chunks — scales with the number of subjects, so it is an
@@ -178,12 +179,14 @@ const cssEntries = cssFiles.map((f) => ({
 const totalJsGzip = jsEntries.reduce((s, e) => s + e.gzip, 0);
 const totalCssGzip = cssEntries.reduce((s, e) => s + e.gzip, 0);
 const routeEntries = analyzeRouteAssets(NEXT_DIR);
+const tailwindEntrypoints = findTailwindEntrypoints(join(ROOT, "app"));
 const topRoutesByJs = [...routeEntries].sort((a, b) => b.jsGzip - a.jsGzip).slice(0, 10);
 const topRoutesByCss = [...routeEntries].sort((a, b) => b.cssGzip - a.cssGzip).slice(0, 10);
 const largestRouteJs = topRoutesByJs[0] ?? null;
 const largestRouteCss = topRoutesByCss[0] ?? null;
 const genericArticleRoutes = routeEntries.filter((entry) => isGenericArticleRoute(entry.route));
-const largestGenericArticle = [...genericArticleRoutes].sort((a, b) => b.jsGzip - a.jsGzip)[0] ?? null;
+const largestGenericArticle =
+  [...genericArticleRoutes].sort((a, b) => b.jsGzip - a.jsGzip)[0] ?? null;
 
 /**
  * Sum the gzip size of the chunks listed under `rootMainFiles` +
@@ -288,12 +291,19 @@ console.log(
 console.log(
   `    Total chunks (all)  : ${fmt(totalJsGzip)}   (warn at ${fmt(BUDGET.totalChunksWarn)})`
 );
+console.log(`    Tailwind entries    : ${tailwindEntrypoints.join(", ") || "none"}`);
 console.log("");
 
 /** @type {string[]} */
 const violations = [];
 /** @type {string[]} */
 const warnings = [];
+
+if (tailwindEntrypoints.length !== 1 || tailwindEntrypoints[0] !== "globals.css") {
+  violations.push(
+    `Tailwind must be compiled only by app/globals.css; found: ${tailwindEntrypoints.join(", ") || "none"}`
+  );
+}
 
 if (routeEntries.length === 0) {
   violations.push("No App Router manifests found; route JS/CSS budgets cannot be verified");
@@ -342,7 +352,9 @@ if (routeCssViolations.length > 10) {
   violations.push(`${routeCssViolations.length - 10} additional routes exceed their CSS budget`);
 }
 
-for (const entry of genericArticleRoutes.filter((route) => route.jsGzip > BUDGET.genericArticleJs)) {
+for (const entry of genericArticleRoutes.filter(
+  (route) => route.jsGzip > BUDGET.genericArticleJs
+)) {
   violations.push(
     `Generic article JS ${entry.route} (${fmt(entry.jsGzip)}) exceeds budget (${fmt(BUDGET.genericArticleJs)})`
   );

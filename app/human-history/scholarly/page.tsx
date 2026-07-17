@@ -1,3 +1,4 @@
+import "../styles/pages/scholarly.css";
 import type { Metadata } from "next";
 import ScholarlyClient from "./ScholarlyClient";
 

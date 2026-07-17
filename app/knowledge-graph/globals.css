@@ -1,5 +1,3 @@
-@import "tailwindcss";
-
 .knowledge-graph-page {
   --kg-bg: #06060a;
   --kg-surface: rgba(255, 255, 255, 0.03);
@@ -81,7 +79,10 @@
   color: var(--kg-text-muted);
   font-size: 0.82rem;
   cursor: pointer;
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  transition:
+    border-color 0.2s,
+    color 0.2s,
+    background 0.2s;
   font-family: inherit;
 }
 

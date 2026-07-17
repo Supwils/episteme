@@ -1,3 +1,4 @@
+import "../styles/pages/simulations.css";
 import type { Metadata } from "next";
 import SimulationsClient from "./SimulationsClient";
 

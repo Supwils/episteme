@@ -1,3 +1,4 @@
+import "../styles/pages/knowledge.css";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllArticles, type KBArticle } from "@/lib/knowledge-base";

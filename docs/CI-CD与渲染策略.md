@@ -41,6 +41,8 @@ Quality与Build并行以缩短反馈时间。Deploy只在非PR的`main`运行；
 
 Lighthouse保留逐路由固定预算。每条路由和每次确认采样都启动独立Chrome进程，避免长时共享浏览器在最后一条路由累积缓存、内存与主线程状态。有效首测直接决定通过；仅当trace无效或超预算时执行一次独立确认采样，两次都失败才阻断部署。这样不放宽预算，同时避免共享CI runner的单次调度抖动制造假失败。
 
+Bundle门禁按App Router的逐路由manifest对JS与CSS资源去重求和，不使用全目录总量替代用户实际加载量。门户和所有领域路由CSS均不得超过40 KB gzip；`app/globals.css`必须是`app/`下唯一Tailwind编译入口，领域样式通过`@reference`向根入口注册主题token。该约束防止新学科再次生成一份完整工具类，同时允许领域变量和页面组件样式继续按路由加载。
+
 Playwright smoke在同一Build作业内复用已完成的`.next`生产产物，不重复构建，不使用Turbopack开发服务器。门禁用runner已有Chrome执行桌面和移动端各两次核心旅程：门户搜索到首次请求SSG文章，以及知识图谱深链恢复与步骤推进。Lighthouse先于smoke执行，避免性能基准继承功能浏览器测试的runner资源压力；两者仍都是部署硬门禁。CI保留一次重试以生成trace，但启用`failOnFlakyTests`，任何依赖重试的用例仍会阻断部署。smoke失败时上传HTML报告、截图和trace并保留7天；完整E2E仍留在本地或专项回归，避免每次push运行138项造成慢反馈。
 
 ## 五、Vercel部署

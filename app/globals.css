@@ -25,6 +25,14 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
 }
 
 @import "tailwindcss";
+@reference "./domain-shared.css";
+@reference "./economics/globals.css";
+@reference "./life-science/globals.css";
+@reference "./mathematics/globals.css";
+@reference "./philosophy/globals.css";
+@reference "./psychology/globals.css";
+@reference "./cosmology/globals.css";
+@reference "./universe-physics/globals.css";
 
 @theme {
   --animate-fade-slide-up: fadeSlideUp 0.6s ease-out both;

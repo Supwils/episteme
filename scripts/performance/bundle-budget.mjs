@@ -1,5 +1,5 @@
 import { readdirSync, readFileSync, statSync } from "node:fs";
-import { join } from "node:path";
+import { join, relative } from "node:path";
 import { gzipSync } from "node:zlib";
 
 function collectManifestFiles(dir) {
@@ -11,6 +11,22 @@ function collectManifestFiles(dir) {
     if (entry.isDirectory()) {
       files.push(...collectManifestFiles(fullPath));
     } else if (entry.name === "app-build-manifest.json") {
+      files.push(fullPath);
+    }
+  }
+
+  return files;
+}
+
+function collectCssFiles(dir) {
+  const files = [];
+  if (!statSync(dir, { throwIfNoEntry: false })) return files;
+
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const fullPath = join(dir, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...collectCssFiles(fullPath));
+    } else if (entry.name.endsWith(".css")) {
       files.push(fullPath);
     }
   }
@@ -58,6 +74,13 @@ export function analyzeRouteAssets(nextDir) {
 
 export function getRouteCssBudget(route, budgets) {
   return route === "/page" ? budgets.portal : budgets.domain;
+}
+
+export function findTailwindEntrypoints(appDir) {
+  return collectCssFiles(appDir)
+    .filter((file) => /^\s*@import\s+["']tailwindcss["'];/m.test(readFileSync(file, "utf8")))
+    .map((file) => relative(appDir, file))
+    .sort();
 }
 
 const GENERIC_ARTICLE_DOMAINS = [

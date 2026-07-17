@@ -1,3 +1,4 @@
+import "./styles/pages/home.css";
 import type { Metadata } from "next";
 import HumanHistoryClient from "./HumanHistoryClient";
 import { SITE_URL } from "@/lib/constants";

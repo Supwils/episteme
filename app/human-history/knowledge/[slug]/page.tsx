@@ -1,3 +1,4 @@
+import "../../styles/pages/knowledge.css";
 import Link from "next/link";
 import { serializeJsonLd } from "@/lib/jsonld";
 import { notFound } from "next/navigation";

@@ -1,3 +1,4 @@
+import "../styles/pages/map.css";
 import type { Metadata } from "next";
 import MapClient from "./MapClient";
 

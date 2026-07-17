@@ -2,7 +2,12 @@ import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
-import { analyzeRouteAssets, getRouteCssBudget, isGenericArticleRoute } from "./bundle-budget.mjs";
+import {
+  analyzeRouteAssets,
+  findTailwindEntrypoints,
+  getRouteCssBudget,
+  isGenericArticleRoute,
+} from "./bundle-budget.mjs";
 import {
   evaluateLighthouseBudget,
   hasValidLighthouseMetrics,
@@ -84,11 +89,25 @@ describe("performance budgets", () => {
     ).toBe(true);
   });
 
-  it("keeps the portal CSS budget tighter than the explicit legacy domain baseline", () => {
-    const budgets = { portal: 40 * 1024, domain: 68 * 1024 };
+  it("applies the 40 KB CSS budget to portal and domain routes", () => {
+    const budgets = { portal: 40 * 1024, domain: 40 * 1024 };
 
     expect(getRouteCssBudget("/page", budgets)).toBe(40 * 1024);
-    expect(getRouteCssBudget("/mathematics/page", budgets)).toBe(68 * 1024);
+    expect(getRouteCssBudget("/mathematics/page", budgets)).toBe(40 * 1024);
+  });
+
+  it("finds duplicate Tailwind compilation entrypoints", () => {
+    const root = mkdtempSync(join(tmpdir(), "episteme-css-entrypoints-"));
+    temporaryDirectories.push(root);
+    mkdirSync(join(root, "mathematics"), { recursive: true });
+    writeFileSync(join(root, "globals.css"), '@import "tailwindcss";\n');
+    writeFileSync(join(root, "mathematics", "globals.css"), '@import "tailwindcss";\n');
+    writeFileSync(join(root, "domain-shared.css"), "@theme { --color-accent: red; }\n");
+
+    expect(findTailwindEntrypoints(root)).toEqual([
+      "globals.css",
+      join("mathematics", "globals.css"),
+    ]);
   });
 
   it("identifies shared domain articles without classifying bespoke or index routes", () => {

@@ -1,3 +1,4 @@
+import "../styles/pages/atlas.css";
 import type { Metadata } from "next";
 import AtlasClient from "./AtlasClient";
 

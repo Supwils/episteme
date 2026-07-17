@@ -1,3 +1,4 @@
+import "../styles/pages/lessons.css";
 import type { Metadata } from "next";
 import LessonsClient from "./LessonsClient";
 

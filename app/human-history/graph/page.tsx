@@ -1,3 +1,4 @@
+import "../styles/pages/graph.css";
 import type { Metadata } from "next";
 import GraphWrapper from "./GraphWrapper";
 

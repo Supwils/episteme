@@ -1,3 +1,4 @@
+import "../styles/pages/civilizations.css";
 import type { Metadata } from "next";
 import CivilizationsClient from "./CivilizationsClient";
 

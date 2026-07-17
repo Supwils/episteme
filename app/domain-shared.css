@@ -1,10 +1,8 @@
-@import "tailwindcss";
 @import "./shared-animations.css";
 
 /* Shared design tokens + base scope for engine-driven domains
-   (computer-science, political-science). Each domain's globals.css is its own
-   Tailwind entry point, so the token set must be self-contained here for the
-   shared components (ArticleLayout, MarkdownRenderer, …) to resolve. */
+   (computer-science, political-science). The root Tailwind entry references
+   this token set while each domain route loads only these scoped styles. */
 
 @theme {
   /* ── Surface hierarchy — Observatory (dark, default) ──────────────── */

@@ -1,3 +1,4 @@
+import "../styles/pages/timeline.css";
 import type { Metadata } from "next";
 import TimelineClient from "./TimelineClient";
 
