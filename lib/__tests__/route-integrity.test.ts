@@ -5,6 +5,20 @@ import { getSearchIndex } from "@/lib/search-index";
 
 const valid = buildValidRoutes();
 
+describe("route integrity: registry-driven history pages", () => {
+  it("includes exact event, figure, and era detail routes", () => {
+    expect(
+      valid.has(
+        `/human-history/events/${encodeURIComponent("洞窟壁画")}`,
+      ),
+    ).toBe(true);
+    expect(
+      valid.has(`/human-history/figures/${encodeURIComponent("孔子")}`),
+    ).toBe(true);
+    expect(valid.has("/human-history/eras/earlyModern")).toBe(true);
+  });
+});
+
 describe("route integrity: cross-domain references", () => {
   it("every cross-domain ref resolves to a real route (both directions)", () => {
     const broken: string[] = [];

@@ -1,6 +1,7 @@
 import type {
   RenderNode,
   RenderEdge,
+  RenderGuide,
   RenderConfig,
   Transform,
   InteractionCallbacks,
@@ -21,6 +22,7 @@ import type { DrawContext } from "./draw-layers";
 import {
   isInBounds,
   drawEdges,
+  drawGuides,
   drawNodes,
   drawLabels,
   drawEdgeLabels,
@@ -71,6 +73,7 @@ export class GraphRenderer {
   private selectedNode: RenderNode | null = null;
   private nodesRef: RenderNode[] = [];
   private edgesRef: RenderEdge[] = [];
+  private guidesRef: RenderGuide[] = [];
   private highlight: HighlightState = {
     ...DEFAULT_HIGHLIGHT,
     nodeIds: new Set(),
@@ -138,6 +141,11 @@ export class GraphRenderer {
     this.markDirty();
   }
 
+  setGuides(guides: readonly RenderGuide[]): void {
+    this.guidesRef = [...guides];
+    this.markDirty();
+  }
+
   // When true, only edges that bridge two different domains are drawn — turning
   // the whole graph into a pure interdisciplinary map.
   setCrossDomainOnly(value: boolean): void {
@@ -175,8 +183,9 @@ export class GraphRenderer {
     extraRadius = 0
   ): RenderNode | null {
     const world = this.screenToWorld(sx, sy);
-    const maxRadius = this.getMaxNodeRadius() + extraRadius;
-    const candidates = this.spatialGrid.query(world.x, world.y, maxRadius / this.transform.scale);
+    const worldExtraRadius = extraRadius / this.transform.scale;
+    const maxRadius = this.getMaxNodeRadius(nodes) + worldExtraRadius;
+    const candidates = this.spatialGrid.query(world.x, world.y, maxRadius);
 
     let closest: RenderNode | null = null;
     let closestDist = Infinity;
@@ -186,7 +195,7 @@ export class GraphRenderer {
       const dx = node.x - world.x;
       const dy = node.y - world.y;
       const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist <= node.radius + extraRadius && dist < closestDist) {
+      if (dist <= node.radius + worldExtraRadius && dist < closestDist) {
         closest = node;
         closestDist = dist;
       }
@@ -240,6 +249,7 @@ export class GraphRenderer {
       highlight: this.highlight,
       nodesRef: this.nodesRef,
       edgesRef: this.edgesRef,
+      guidesRef: this.guidesRef,
       crossDomainOnly: this.crossDomainOnly,
       markDirty: () => {
         this.markDirty();
@@ -264,6 +274,7 @@ export class GraphRenderer {
     const now = performance.now();
     const dc = this.getDrawContext();
 
+    drawGuides(dc, bounds);
     drawEdges(dc, bounds);
     drawNodes(dc, bounds);
     drawLabels(dc, bounds);
@@ -288,12 +299,10 @@ export class GraphRenderer {
     return { minX: tl.x - 100, minY: tl.y - 100, maxX: br.x + 100, maxY: br.y + 100 };
   }
 
-  private getMaxNodeRadius(): number {
+  private getMaxNodeRadius(nodes: readonly RenderNode[]): number {
     let max = 20;
-    const radii = this.config.nodeRadius;
-    for (const key in radii) {
-      const val = radii[key];
-      if (val !== undefined && val > max) max = val;
+    for (const node of nodes) {
+      if (node.radius > max) max = node.radius;
     }
     return max;
   }

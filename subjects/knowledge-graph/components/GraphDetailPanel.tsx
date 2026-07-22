@@ -49,14 +49,14 @@ export const GraphDetailPanel = memo(function GraphDetailPanel({
   const isDraggingRef = useRef(false);
 
   useEffect(() => {
-    if (!node) return;
+    if (!node || !isMobile) return;
     previousFocusRef.current = document.activeElement as HTMLElement | null;
     const id = window.setTimeout(() => closeButtonRef.current?.focus(), reducedMotion ? 0 : 360);
     return () => {
       window.clearTimeout(id);
       previousFocusRef.current?.focus?.();
     };
-  }, [node, reducedMotion]);
+  }, [isMobile, node, reducedMotion]);
 
   const handleKeyDown = useCallback(
     (event: KeyboardEvent) => {
@@ -64,7 +64,7 @@ export const GraphDetailPanel = memo(function GraphDetailPanel({
         onClose();
         return;
       }
-      if (event.key !== "Tab" || !panelRef.current) return;
+      if (!isMobile || event.key !== "Tab" || !panelRef.current) return;
       const focusables = panelRef.current.querySelectorAll<HTMLElement>(
         'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
       );
@@ -80,7 +80,7 @@ export const GraphDetailPanel = memo(function GraphDetailPanel({
         first.focus();
       }
     },
-    [onClose]
+    [isMobile, onClose]
   );
 
   useEffect(() => {
@@ -140,20 +140,28 @@ export const GraphDetailPanel = memo(function GraphDetailPanel({
           <motion.aside
             key="detail-panel"
             ref={panelRef}
-            role="dialog"
-            aria-modal="true"
+            role={isMobile ? "dialog" : "complementary"}
+            aria-modal={isMobile ? true : undefined}
             aria-label={`${node.label} 详情`}
             className={clsx(
               "fixed z-[70] flex flex-col overflow-hidden md:z-50",
               isMobile
                 ? "inset-x-0 top-12 bottom-0 rounded-t-2xl"
-                : "inset-0 md:inset-auto md:top-[110px] md:right-0 md:h-[calc(100%-110px)] md:max-w-[420px] md:border-l",
+                : "inset-0 md:inset-auto md:top-[110px] md:right-0 md:h-[calc(100%-110px)] md:w-[420px] md:border-l",
               "border-white/[0.08] shadow-[0_0_60px_rgba(0,0,0,0.45)]"
             )}
             style={{
               background: "rgba(15, 15, 25, 0.85)",
               backdropFilter: "blur(24px) saturate(1.2)",
               WebkitBackdropFilter: "blur(24px) saturate(1.2)",
+              ...(isMobile
+                ? {}
+                : {
+                    top: 110,
+                    right: 0,
+                    width: 420,
+                    height: "calc(100% - 110px)",
+                  }),
               transform: isMobile && dragY > 0 ? `translateY(${dragY}px)` : undefined,
             }}
             initial={reducedMotion ? { opacity: 0 } : isMobile ? { y: "100%" } : { x: "102%" }}

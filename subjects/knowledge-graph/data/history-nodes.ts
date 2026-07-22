@@ -1,6 +1,6 @@
 import { ERAS } from '@/content/human-history/data/eras';
-import { EVENTS } from '@/content/human-history/data/events';
-import { FIGURES } from '@/content/human-history/data/figures';
+import { EVENT_CATALOG } from '@/content/human-history/data/generated/event-catalog.js';
+import { FIGURE_CATALOG } from '@/content/human-history/data/generated/figure-catalog.js';
 import { CROSS_LINKS } from '@/lib/cross-links/api';
 
 type HistoryNode = {
@@ -159,8 +159,8 @@ function eraNodeId(eraId: string): string {
 }
 
 const eras = ERAS as unknown as EraRecord[];
-const events = EVENTS as unknown as EventRecord[];
-const figures = FIGURES as unknown as FigureRecord[];
+const events = EVENT_CATALOG as unknown as EventRecord[];
+const figures = FIGURE_CATALOG as unknown as FigureRecord[];
 
 const ERA_NAMES: Record<string, string> = {};
 for (const era of eras) {

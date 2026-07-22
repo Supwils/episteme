@@ -1,7 +1,7 @@
 import type { GraphEdge, GraphNode } from "../data/types";
 import type { KnowledgeLevel } from "@/lib/knowledge-levels";
 
-export type GraphLayoutMode = "force" | "cluster" | "cognitive";
+export type GraphLayoutMode = "force" | "cluster" | "cognitive" | "spatial";
 export type CognitiveLayoutOrientation = "horizontal" | "vertical";
 
 export const COGNITIVE_LANES = [

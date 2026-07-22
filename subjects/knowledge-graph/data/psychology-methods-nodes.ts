@@ -48,6 +48,13 @@ export const PSYCHOLOGY_METHOD_NODES: GraphNode[] = [
     ["纵向研究", "多层模型", "发展轨迹"]
   ),
   methodNode(
+    "causal-inference-experiments-observational-studies",
+    "心理学因果推断：实验与观察研究",
+    "methods",
+    "从随机实验、纵向观察、自然实验和因果图中识别反事实问题，并说明每种设计仍依赖的假设。",
+    ["因果推断", "随机实验", "观察研究", "因果图"]
+  ),
+  methodNode(
     "bayesian-modeling-psychology",
     "贝叶斯建模与心理科学",
     "methods",
@@ -102,6 +109,16 @@ export const PSYCHOLOGY_METHOD_EDGES: GraphEdge[] = [
     "longitudinal-multilevel-models",
     "保证变化可解释"
   ),
+  methodEdge(
+    "longitudinal-multilevel-models",
+    "causal-inference-experiments-observational-studies",
+    "从变化轨迹走向因果识别"
+  ),
+  methodEdge(
+    "causal-inference-experiments-observational-studies",
+    "meta-analysis-evidence-synthesis",
+    "按识别假设综合证据"
+  ),
   methodEdge("longitudinal-multilevel-models", "bayesian-modeling-psychology", "层级不确定性"),
   methodEdge("bayesian-modeling-psychology", "effect-size-and-power", "校准效应证据"),
   methodEdge("effect-size-and-power", "meta-analysis-evidence-synthesis", "统一效应尺度"),
@@ -149,5 +166,11 @@ export const PSYCHOLOGY_METHOD_EDGES: GraphEdge[] = [
     target: "computer-science:machine-learning-overview",
     type: "domain-link",
     label: "行为预测模型",
+  },
+  {
+    source: "psychology:causal-inference-experiments-observational-studies",
+    target: "sociology:platform-governance",
+    type: "domain-link",
+    label: "用自然实验与审计检验平台干预",
   },
 ];

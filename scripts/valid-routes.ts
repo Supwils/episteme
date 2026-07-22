@@ -14,6 +14,9 @@ import { getAllScientists } from "@/subjects/life-science/lib/scientists";
 import { getAllExtinctions } from "@/subjects/life-science/lib/extinctions";
 import { getAllTimelineEvents } from "@/subjects/life-science/lib/timeline-events";
 import { KNOWLEDGE_DOMAINS } from "@/lib/new-domains";
+import { ERAS } from "@/content/human-history/data/eras.js";
+import { EVENT_CATALOG } from "@/content/human-history/data/generated/event-catalog.js";
+import { FIGURE_CATALOG } from "@/content/human-history/data/generated/figure-catalog.js";
 
 const ROOT = process.cwd();
 const CONTENT = join(ROOT, "content");
@@ -84,6 +87,24 @@ export function buildValidRoutes(): Set<string> {
   const valid = new Set<string>(staticRoutes());
   const add = (prefix: string, slugs: string[]) =>
     slugs.forEach((s) => valid.add(`${prefix}/${s}`));
+
+  // Human-history detail routes are registry-driven on-demand SSG.
+  add(
+    "/human-history/events",
+    (EVENT_CATALOG as { title: string }[]).map((event) =>
+      encodeURIComponent(event.title),
+    ),
+  );
+  add(
+    "/human-history/figures",
+    (FIGURE_CATALOG as { name: string }[]).map((figure) =>
+      encodeURIComponent(figure.name),
+    ),
+  );
+  add(
+    "/human-history/eras",
+    (ERAS as { id: string }[]).map((era) => era.id),
+  );
 
   // Philosophy
   add("/philosophy/thinkers", dirSlugs("philosophy/thinkers"));

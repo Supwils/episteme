@@ -120,6 +120,10 @@ const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: "/mathematics/paradoxes", priority: 0.7 },
   { path: "/mathematics/dialogues", priority: 0.7 },
   { path: "/mathematics/timeline", priority: 0.7 },
+  // Interactive medicine teaching labs
+  { path: "/medicine/adolescent-service-lab", priority: 0.7 },
+  { path: "/medicine/mental-health-access", priority: 0.7 },
+  { path: "/medicine/priority-setting", priority: 0.7 },
   // Knowledge Graph
   { path: "/knowledge-graph", priority: 0.7 },
   // Cosmology

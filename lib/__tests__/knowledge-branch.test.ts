@@ -12,20 +12,20 @@ const learningCatalog = buildLearningPlanCatalog();
 describe("full graph branch attachments", () => {
   it("attaches every graph node to one traceable curated anchor", () => {
     expect(branchCatalog.summary).toEqual({
-      nodeCount: 1362,
+      nodeCount: 1381,
       anchorCount: 230,
-      inferredBranchCount: 1132,
+      inferredBranchCount: 1151,
       maximumDistance: 5,
-      ambiguousTargetCount: 674,
-      maximumCandidateCount: 18,
+      ambiguousTargetCount: 692,
+      maximumCandidateCount: 24,
       confidenceCounts: {
         curated: 230,
-        direct: 458,
-        contextual: 537,
-        exploratory: 137,
+        direct: 474,
+        contextual: 542,
+        exploratory: 135,
       },
     });
-    expect(new Set(branchCatalog.targets.map((target) => target.id)).size).toBe(1362);
+    expect(new Set(branchCatalog.targets.map((target) => target.id)).size).toBe(1381);
     const goalIds = new Set(learningCatalog.goals.map((goal) => goal.id));
     for (const target of branchCatalog.targets) {
       expect(goalIds.has(target.anchorPathId), target.id).toBe(true);
@@ -46,7 +46,7 @@ describe("full graph branch attachments", () => {
     const target = branchCatalog.targets.find(
       (item) => item.id === "medicine:body-disease-evidence"
     )!;
-    expect(target.candidateCount).toBe(18);
+    expect(target.candidateCount).toBe(24);
     expect(target.anchorCandidates).toHaveLength(3);
     const alternative = selectKnowledgeTargetAnchor(
       target,
@@ -54,7 +54,7 @@ describe("full graph branch attachments", () => {
     );
     expect(alternative.anchorNodeId).not.toBe(target.anchorNodeId);
     expect(alternative.distance).toBe(target.distance);
-    expect(alternative.anchorCandidates[1]?.selectionReason).toContain("18个最短候选等距");
+    expect(alternative.anchorCandidates[1]?.selectionReason).toContain("24个最短候选等距");
     const plan = buildKnowledgeTargetPlan(learningCatalog, alternative, {
       startLevel: 1,
       minutes: 45,

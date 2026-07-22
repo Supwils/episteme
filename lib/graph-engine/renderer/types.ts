@@ -11,6 +11,8 @@ export type RenderNode = {
   selected: boolean;
   searchMatched: boolean;
   alpha: number;
+  /** Percentile rank (0..1) used for semantic level-of-detail. */
+  importance?: number;
 };
 
 export type RenderEdge = {
@@ -27,7 +29,42 @@ export type RenderEdge = {
   label?: string;
   /** True when the edge bridges two different knowledge domains. */
   crossDomain?: boolean;
+  /** Endpoint prominence used to reduce overview clutter. */
+  importance?: number;
 };
+
+export type RenderGuide =
+  | {
+      kind: "ellipse";
+      x: number;
+      y: number;
+      radiusX: number;
+      radiusY: number;
+      color: string;
+      alpha: number;
+      width: number;
+      dash?: number[];
+    }
+  | {
+      kind: "line";
+      x1: number;
+      y1: number;
+      x2: number;
+      y2: number;
+      color: string;
+      alpha: number;
+      width: number;
+      dash?: number[];
+    }
+  | {
+      kind: "label";
+      x: number;
+      y: number;
+      text: string;
+      color: string;
+      alpha: number;
+      align?: CanvasTextAlign;
+    };
 
 export type RenderConfig = {
   nodeRadius: Record<string, number>;

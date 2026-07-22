@@ -1,8 +1,12 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getEraBySlug, getAdjacentEras } from "@/subjects/history/lib/eras";
-import { EVENTS } from "@/content/human-history/data/events.js";
-import { FIGURES } from "@/content/human-history/data/figures.js";
+import {
+  HISTORY_EVENT_CATALOG,
+  HISTORY_FIGURE_CATALOG,
+  type HistoryEventSummary,
+  type HistoryFigureSummary,
+} from "@/subjects/history/lib/history-catalog";
 import { ERA_DETAIL_STYLES } from "./EraDetailStyles";
 import {
   formatYear,
@@ -17,27 +21,6 @@ import {
 
 interface Props {
   params: Promise<{ slug: string }>;
-}
-
-interface HistoryEvent {
-  year: number;
-  title: string;
-  desc: string;
-  era: string;
-  region: string;
-  cat: string;
-}
-
-interface HistoryFigure {
-  name: string;
-  birth: number | null;
-  death: number | null;
-  title: string;
-  desc: string;
-  era: string;
-  region: string;
-  domain: string;
-  quote: string;
 }
 
 export async function generateStaticParams() {
@@ -64,12 +47,14 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
-function getEraEvents(eraId: string): HistoryEvent[] {
-  return (EVENTS as HistoryEvent[]).filter((e) => e.era === eraId).sort((a, b) => a.year - b.year);
+function getEraEvents(eraId: string): HistoryEventSummary[] {
+  return HISTORY_EVENT_CATALOG.filter((event) => event.era === eraId).sort(
+    (left, right) => left.year - right.year,
+  );
 }
 
-function getEraFigures(eraId: string): HistoryFigure[] {
-  return (FIGURES as HistoryFigure[]).filter((f) => f.era === eraId);
+function getEraFigures(eraId: string): HistoryFigureSummary[] {
+  return HISTORY_FIGURE_CATALOG.filter((figure) => figure.era === eraId);
 }
 
 export default async function EraDetailPage({ params }: Props) {

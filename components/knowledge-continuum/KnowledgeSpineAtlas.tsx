@@ -10,7 +10,12 @@ import type {
 } from "@/lib/knowledge-spine-atlas";
 import { rankKnowledgeSpineBridges } from "@/lib/knowledge-spine-atlas";
 import { KnowledgeSpineBridgeExplorer } from "./KnowledgeSpineBridgeExplorer";
+import { KnowledgeSpineOrbit } from "./KnowledgeSpineOrbit";
 import { DesktopSpineGrid, MobileSpineRoute } from "./KnowledgeSpineRoutes";
+import { FeaturedKnowledgeTours } from "./FeaturedKnowledgeTours";
+import { MentalHealthTourComparison } from "./MentalHealthTourComparison";
+
+type SpineViewMode = "orbit" | "matrix";
 
 function graphHref(row: KnowledgeSpineAtlasRow, nodeId: string): string {
   const params = new URLSearchParams({ path: row.pathId, focus: nodeId, source: "spine-atlas" });
@@ -26,6 +31,7 @@ export function KnowledgeSpineAtlas({
 }) {
   const [selectedDomainId, setSelectedDomainId] = useState(atlas.rows[0]!.domainId);
   const [selectedLevel, setSelectedLevel] = useState<KnowledgeStageId>(1);
+  const [viewMode, setViewMode] = useState<SpineViewMode>("orbit");
   const [bridgeSelection, setBridgeSelection] = useState<{
     domainId: KnowledgeSpineAtlasRow["domainId"];
     level: KnowledgeStageId;
@@ -91,7 +97,7 @@ export function KnowledgeSpineAtlas({
             15 门学科，从第一问走到研究边界
           </h3>
           <p className="text-fg-muted mt-2 max-w-3xl text-xs leading-5">
-            每行是一条人工核验的学科主干。横向读取同一学科的五级前置关系，纵向比较同一阶段不同学科在学习什么。
+            五层空间视图展示学科主干如何向研究边界收束；矩阵视图用于逐行核对同一学科的五级前置关系。
           </p>
         </div>
         <div className="text-fg-disabled text-[10px] leading-5 lg:text-right">
@@ -102,6 +108,41 @@ export function KnowledgeSpineAtlas({
       </header>
 
       <div className="border-border-faint border-b px-4 py-3 sm:px-6">
+        <div className="mb-3 flex items-center justify-between gap-3">
+          <p className="text-fg-disabled font-mono text-[9px] tracking-[0.18em] uppercase">
+            atlas view
+          </p>
+          <div
+            className="border-border-faint flex min-h-9 border"
+            role="group"
+            aria-label="主干地图视图"
+          >
+            {(
+              [
+                ["orbit", "空间主干"],
+                ["matrix", "矩阵对照"],
+              ] as const
+            ).map(([mode, label]) => {
+              const active = viewMode === mode;
+              return (
+                <button
+                  key={mode}
+                  type="button"
+                  aria-pressed={active}
+                  onClick={() => setViewMode(mode)}
+                  className={`border-border-faint min-w-20 border-r px-3 text-[10px] transition-colors last:border-r-0 motion-reduce:transition-none ${
+                    active
+                      ? "bg-fg-primary"
+                      : "text-fg-muted hover:bg-bg-panel hover:text-fg-primary"
+                  }`}
+                  style={active ? { color: "var(--color-bg-base)" } : undefined}
+                >
+                  {label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
         <div
           className="grid grid-cols-2 border-t border-l border-[var(--color-border-faint)] sm:grid-cols-5"
           role="group"
@@ -130,19 +171,30 @@ export function KnowledgeSpineAtlas({
         </div>
       </div>
 
-      <DesktopSpineGrid
-        atlas={atlas}
-        selectedDomainId={selectedRow.domainId}
-        selectedLevel={selectedLevel}
-        activeBridge={activeBridge}
-        onSelect={selectStep}
-      />
-      <MobileSpineRoute
-        atlas={atlas}
-        selectedRow={selectedRow}
-        selectedLevel={selectedLevel}
-        onSelect={selectStep}
-      />
+      {viewMode === "orbit" ? (
+        <KnowledgeSpineOrbit
+          atlas={atlas}
+          selectedRow={selectedRow}
+          selectedLevel={selectedLevel}
+          onSelect={selectStep}
+        />
+      ) : (
+        <>
+          <DesktopSpineGrid
+            atlas={atlas}
+            selectedDomainId={selectedRow.domainId}
+            selectedLevel={selectedLevel}
+            activeBridge={activeBridge}
+            onSelect={selectStep}
+          />
+          <MobileSpineRoute
+            atlas={atlas}
+            selectedRow={selectedRow}
+            selectedLevel={selectedLevel}
+            onSelect={selectStep}
+          />
+        </>
+      )}
 
       <KnowledgeSpineBridgeExplorer
         row={selectedRow}
@@ -152,6 +204,9 @@ export function KnowledgeSpineAtlas({
         onSelect={selectBridge}
         onSwitchDomain={switchBridgeDomain}
       />
+
+      <FeaturedKnowledgeTours />
+      <MentalHealthTourComparison />
 
       <div className="border-border-faint border-t px-4 py-5 sm:px-6">
         <div aria-live="polite">

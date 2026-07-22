@@ -125,6 +125,89 @@ test("traces a selected subject bridge across stages and domains", async ({ page
   expect(overflow).toBeLessThanOrEqual(1);
 });
 
+test("offers the mental-health evidence route from the rotating subject spine", async ({
+  page,
+}) => {
+  await page.goto("/");
+  const continuum = page.getByTestId("home-knowledge-continuum");
+  await continuum.scrollIntoViewIfNeeded();
+  await continuum.evaluate((element) => {
+    const expand = Array.from(element.querySelectorAll("button")).find(
+      (button) => button.textContent?.trim() === "展开交互图谱"
+    );
+    expand?.click();
+  });
+  await expect(continuum.getByRole("button", { name: "05 综合前沿", exact: true })).toBeVisible({
+    timeout: 15_000,
+  });
+  const atlas = page.getByTestId("knowledge-spine-atlas");
+  await atlas.scrollIntoViewIfNeeded();
+  const load = atlas.getByRole("button", { name: "立即载入" });
+  if (await load.isVisible()) {
+    await load.click();
+  }
+
+  await expect(atlas.getByRole("heading", { name: "跨域专题游览" })).toBeVisible({
+    timeout: 15_000,
+  });
+  const mentalHealthTour = atlas.getByTestId(
+    "featured-tour-from-distress-to-rights-based-mental-health-care"
+  );
+  await expect(mentalHealthTour.getByText("从心理困扰到可持续照护")).toBeVisible();
+  await expect(mentalHealthTour.getByRole("link", { name: "进入空间路线 →" })).toHaveAttribute(
+    "href",
+    "/knowledge-graph?layout=spatial&tourId=from-distress-to-rights-based-mental-health-care&step=0&source=spine-atlas"
+  );
+  await expect(
+    mentalHealthTour.getByRole("link", { name: "打开服务可及性实验室 →" })
+  ).toHaveAttribute(
+    "href",
+    "/medicine/mental-health-access"
+  );
+
+  const adolescentTour = atlas.getByTestId(
+    "featured-tour-from-adolescent-development-to-continuous-support"
+  );
+  await expect(adolescentTour.getByText("从青春期发展到连续支持")).toBeVisible();
+  await expect(adolescentTour.getByRole("link", { name: "进入空间路线 →" })).toHaveAttribute(
+    "href",
+    "/knowledge-graph?layout=spatial&tourId=from-adolescent-development-to-continuous-support&step=0&source=spine-atlas"
+  );
+  await expect(
+    adolescentTour.getByRole("link", { name: "打开学校与社区服务实验室 →" })
+  ).toHaveAttribute("href", "/medicine/adolescent-service-lab");
+
+  const comparison = atlas.getByTestId("mental-health-tour-comparison");
+  await expect(
+    comparison.getByRole("heading", {
+      name: "个体照护与青少年支持系统，双路线核对",
+    })
+  ).toBeVisible();
+  await expect(comparison.getByTestId("mental-health-route-comparison-diagram")).toBeVisible();
+  await comparison.getByRole("button", { name: "共同锚点" }).click();
+  await comparison.getByRole("button", { name: "选择比较检查点：连续照护" }).click();
+  await expect(comparison.getByText("服务从哪里进入并不相同，但为什么都必须审计转介后的流失？")).toBeVisible();
+  await expect(comparison.getByRole("link", { name: "阅读正文 →" }).first()).toHaveAttribute(
+    "href",
+    "/medicine/public-health/community-mental-health-access-continuity"
+  );
+  await comparison.getByRole("checkbox", { name: "已核对这个共同锚点" }).check();
+  const comparisonProgress = await page.evaluate(() =>
+    JSON.parse(window.localStorage.getItem("uk-mental-health-tour-comparison-v1") ?? "{}")
+  );
+  expect(comparisonProgress).toMatchObject({
+    schemaVersion: 1,
+    checkedIds: ["care-continuity"],
+  });
+  const overflow = await page.evaluate(
+    () => document.documentElement.scrollWidth - window.innerWidth
+  );
+  expect(overflow).toBeLessThanOrEqual(1);
+
+  await expect(atlas.getByLabel("空间主干纵深")).toBeVisible();
+  await expect(atlas.getByRole("link", { name: /^阅读/ }).first()).toBeVisible();
+});
+
 test("filters the aggregate knowledge terrain and switches an equal-distance anchor", async ({
   page,
 }) => {

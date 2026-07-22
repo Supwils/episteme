@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { FloatingViewControl } from "@/subjects/physics/components/hud/FloatingViewControl";
 import { KeyboardNav } from "@/subjects/physics/components/hud/KeyboardNav";
@@ -12,6 +13,7 @@ import { TierAriaLive } from "@/subjects/physics/components/hud/TierAriaLive";
 import { TierRail } from "@/subjects/physics/components/hud/TierRail";
 import { TopBar } from "@/subjects/physics/components/hud/TopBar";
 import { HW_VIEWBOX_STRING } from "@/subjects/physics/lib/handwritten-coords";
+import { tierFromPathname, type UniverseTierId } from "@/subjects/physics/lib/tier";
 import { ActiveHandwrittenScene } from "@/subjects/physics/scenes-handwritten/ActiveHandwrittenScene";
 import { HandwrittenDefs } from "@/subjects/physics/scenes-handwritten/shared/HandwrittenDefs";
 import { PaperBackground } from "@/subjects/physics/scenes-handwritten/shared/PaperBackground";
@@ -25,8 +27,10 @@ import { useHandwrittenStore } from "@/subjects/physics/store/useHandwrittenStor
  * since that also renders TunnelOverlay, which is camera-coupled.
  */
 export function HandwrittenShell({ children }: { children: ReactNode }) {
+  const pathname = usePathname() ?? "";
   const theme = useHandwrittenStore((s) => s.theme);
   const backdrop = useHandwrittenStore((s) => s.universeBackdrop);
+  const routeTier = tierFromPathname(pathname) ?? ("T0" satisfies UniverseTierId);
 
   return (
     <div
@@ -51,7 +55,7 @@ export function HandwrittenShell({ children }: { children: ReactNode }) {
         {/* Optional engineering-grid overlay. When active, the per-scene
            StarSpeck stays but recedes visually under the grid. */}
         {backdrop === "grid" ? <PaperGrid excludeInnerRadius={0} /> : null}
-        <ActiveHandwrittenScene />
+        <ActiveHandwrittenScene initialTier={routeTier} />
       </svg>
 
       {/* HUD layer — reuses 3D-version components as floating islands. */}

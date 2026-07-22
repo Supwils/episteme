@@ -29,6 +29,8 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "adam-smith": "/economics/economists/adam-smith",
   addiction: "/psychology/disorders/addiction",
   adhd: "/psychology/disorders/adhd",
+  "adolescent-mental-health-school-community-services":
+    "/medicine/public-health/adolescent-mental-health-school-community-services",
   "aeolian-processes": "/earth-science/processes/aeolian-processes",
   "african-development-economics": "/economics/theories/african-development-economics",
   "african-philosophy": "/philosophy/schools/african-philosophy",
@@ -141,6 +143,8 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "banach-tarski": "/mathematics/paradoxes/banach-tarski",
   "banting-and-best": "/medicine/figures/banting-and-best",
   "barbara-liskov": "/computer-science/pioneers/barbara-liskov",
+  "battery-performance-safety-and-circularity":
+    "/chemistry/concepts/battery-performance-safety-and-circularity",
   baudrillard: "/philosophy/thinkers/baudrillard",
   "bayes-theorem": "/mathematics/theorems/bayes-theorem",
   "bayesian-inference": "/mathematics/concepts/bayesian-inference",
@@ -239,6 +243,8 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "category-theory": "/mathematics/concepts/category-theory",
   "causal-inference-credibility-revolution":
     "/economics/frontier/causal-inference-credibility-revolution",
+  "causal-inference-experiments-observational-studies":
+    "/psychology/methods/causal-inference-experiments-observational-studies",
   causation: "/philosophy/concepts/causation",
   "cbt-self-help": "/psychology/knowledge-base/cbt-self-help",
   "central-bank-communication-public-understanding":
@@ -313,6 +319,8 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "commons-governance": "/economics/concepts/commons-governance",
   communism: "/political-science/isms/communism",
   communitarianism: "/political-science/isms/communitarianism",
+  "community-mental-health-access-continuity":
+    "/medicine/public-health/community-mental-health-access-continuity",
   "comparative-advantage": "/economics/theories/comparative-advantage",
   "comparative-historical-analysis": "/sociology/methods/comparative-historical-analysis",
   "comparative-method": "/political-science/methods/comparative-method",
@@ -1484,6 +1492,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "prime-number-theorem": "/mathematics/theorems/prime-number-theorem",
   "primordial-black-holes": "/cosmology/knowledge-base/宇宙学前沿--primordial-black-holes",
   "principal-component-analysis": "/computer-science/algorithms/principal-component-analysis",
+  "privacy-engineering": "/computer-science/concepts/privacy-engineering",
   probability: "/mathematics/concepts/probability",
   "process-safety": "/chemistry/methods/process-safety",
   "process-scale-up": "/chemistry/methods/process-scale-up",
@@ -1634,6 +1643,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   schopenhauer: "/philosophy/thinkers/schopenhauer",
   "schrodinger-darwin": "/universe-physics/dialogues/schrodinger-darwin",
   "schrodinger-equation": "/universe-physics/knowledge-base/量子物理--schrodinger-equation",
+  "screening-and-early-detection": "/medicine/concepts/screening-and-early-detection",
   "sea-level-adaptation-pathways": "/earth-science/climate-risks/sea-level-adaptation-pathways",
   "sea-level-change": "/earth-science/processes/sea-level-change",
   "search-matching-theory": "/economics/concepts/search-matching-theory",
@@ -1694,10 +1704,12 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "social-psychology": "/psychology/schools/social-psychology",
   "social-stratification": "/sociology/concepts/social-stratification",
   "social-structure": "/sociology/concepts/social-structure",
+  "social-support-mental-health": "/sociology/concepts/social-support-mental-health",
   socialism: "/political-science/isms/socialism",
   socrates: "/philosophy/thinkers/socrates",
   "soft-power": "/political-science/international-relations/soft-power",
   "software-engineering": "/computer-science/concepts/software-engineering",
+  "software-supply-chain-security": "/computer-science/concepts/software-supply-chain-security",
   "software-testing": "/computer-science/concepts/software-testing",
   "soil-science-and-pedology": "/earth-science/concepts/soil-science-and-pedology",
   "solar-structure-activity": "/cosmology/knowledge-base/太阳系--solar-structure-activity",

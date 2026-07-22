@@ -100,10 +100,14 @@ export const CHEMISTRY_NODES: GraphNode[] = [
     "熵",
     "自由能",
   ]),
-  n("electrochemistry", "电化学", "concept", "concepts", "电能与化学能互换：电池与电解的科学。", [
-    "电池",
-    "电解",
-  ]),
+  n(
+    "electrochemistry",
+    "电化学",
+    "concept",
+    "concepts",
+    "用自由能、电势、界面动力学和传质闭合电子、物料、能量与热的账。",
+    ["电势", "过电位", "电池", "电解"]
+  ),
 
   // ── substances ────────────────────────────────────────────
   n("water", "水", "substance", "substances", "极性与氢键造就的反常物性，生命之基。", [
@@ -138,10 +142,14 @@ export const CHEMISTRY_NODES: GraphNode[] = [
     "硅与掺杂、能带——信息时代的物质基础。",
     ["硅", "能带"]
   ),
-  n("catalysts", "催化剂", "substance", "substances", "降低活化能、加速反应却不被消耗。", [
-    "催化",
-    "活化能",
-  ]),
+  n(
+    "catalysts",
+    "催化剂",
+    "substance",
+    "substances",
+    "由活性相、载体、助剂和孔结构组成，在循环中再生，也会中毒、积碳、烧结或流失。",
+    ["活性位", "载体", "失活"]
+  ),
 
   // ── reactions ─────────────────────────────────────────────
   n("combustion", "燃烧", "reaction", "reactions", "氧化放热，火的化学与能源的起点。", [
@@ -152,14 +160,34 @@ export const CHEMISTRY_NODES: GraphNode[] = [
     "加聚",
     "缩聚",
   ]),
-  n("catalysis-reaction", "催化作用", "reaction", "reactions", "催化剂如何在不被消耗下加速反应。", [
-    "催化",
-    "工业",
-  ]),
+  n(
+    "catalysis-reaction",
+    "催化作用",
+    "reaction",
+    "reactions",
+    "以催化循环重组反应路径，并把本征速率、选择性、传递限制与寿命连成可比较证据。",
+    ["催化循环", "周转频率", "选择性"]
+  ),
   n("electrolysis", "电解", "reaction", "reactions", "电能驱动非自发反应，电解水/铝/食盐水。", [
     "电解",
     "电能",
   ]),
+  n(
+    "precipitation-reactions",
+    "沉淀反应",
+    "reaction",
+    "reactions",
+    "以活度积、过饱和与成核生长控制溶液中的固相分离。",
+    ["溶度积", "结晶", "水处理"]
+  ),
+  n(
+    "grignard-reaction",
+    "格氏反应",
+    "reaction",
+    "reactions",
+    "以有机镁试剂构筑碳碳键，并把分子机理连接到引发、量热与放大安全。",
+    ["有机镁", "碳碳键", "过程安全"]
+  ),
 
   // ── milestones ────────────────────────────────────────────
   n(
@@ -224,10 +252,24 @@ export const CHEMISTRY_EDGES: GraphEdge[] = [
   e("thermochemistry", "chemical-equilibrium", "支配"),
   e("electrochemistry", "electrolysis", "应用"),
   e("acids-and-bases", "chemical-equilibrium", "电离平衡"),
+  e("chemical-equilibrium", "precipitation-reactions", "溶解平衡"),
+  e("acids-and-bases", "precipitation-reactions", "控制物种分布"),
+  e("precipitation-reactions", "electrochemistry", "共享溶液物种控制"),
   // substances ↔ reactions
   e("catalysts", "catalysis-reaction", "实现"),
+  e("reaction-mechanisms", "catalysts", "定位势垒与活性位"),
+  e("catalysts", "electron-microscopy-and-surface-analysis", "测量位点结构与失活"),
+  e("catalysis-reaction", "process-scale-up", "耦合动力学与传递"),
+  e("catalysis-reaction", "process-safety", "约束热点与失控路径"),
   e("polymers", "polymerization", "由其生成"),
   e("metals-and-alloys", "electrolysis", "冶炼"),
+  e("electrolysis", "process-scale-up", "依赖传质传热放大"),
+  e("reaction-mechanisms", "grignard-reaction", "解释极性与副反应"),
+  e("grignard-reaction", "organic-synthesis", "构筑碳碳键"),
+  e("organic-synthesis", "polymerization", "扩展为链增长设计"),
+  e("polymerization", "polymer-chemistry", "控制链结构与分布"),
+  e("polymers", "electron-microscopy-and-surface-analysis", "表征形态与界面"),
+  e("electron-microscopy-and-surface-analysis", "process-scale-up", "验证放大后材料结构"),
   e("haber-bosch-process", "catalysis-reaction", "依赖催化"),
   e("the-plastics-age", "polymers", "造就"),
   e("carbon-allotropes", "semiconductors-materials", "材料家族"),

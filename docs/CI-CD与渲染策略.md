@@ -35,13 +35,13 @@ Quality与Build并行以缩短反馈时间。Deploy只在非PR的`main`运行；
 
 ## 四、自动渲染审计
 
-`pnpm audit-rendering`读取生产构建的`.next/prerender-manifest.json`和`.next/server/app-paths-manifest.json`。
+`pnpm audit-rendering`优先读取生产构建的聚合`.next/prerender-manifest.json`。本地若在生产构建后继续使用同一`.next`启动Next 15.5 Turbopack开发服务器，聚合清单可能被局部覆盖为空；此时审计自动切换到分散产物模式：核对静态HTML/API body、完整`app-path-routes-manifest.json`，并通过TypeScript AST读取页面模块的`revalidate`、`dynamicParams`和`generateStaticParams`契约。CI在构建后直接审计，正常使用聚合模式。
 
-审计会验证关键路由是否出现在正确manifest、重验证周期是否准确、固定参数集合是否关闭未知slug、通用文章是否保持首次访问SSG，以及私有/查询接口是否仍为动态运行时。源码注释或Next构建日志不能替代这一门禁。
+审计会验证关键路由是否产生正确构建产物、重验证周期是否准确、固定参数集合是否关闭未知slug、通用文章是否保持首次访问SSG，以及私有/查询接口是否仍为动态运行时。源码注释或Next构建日志不能替代这一门禁；源码AST只负责补足Turbopack空聚合清单不再携带的路由配置，静态与动态判定仍必须有生产产物佐证。
 
 Lighthouse保留逐路由固定预算。每条路由和每次确认采样都启动独立Chrome进程，避免长时共享浏览器在最后一条路由累积缓存、内存与主线程状态。有效首测直接决定通过；仅当trace无效或超预算时执行一次独立确认采样，两次都失败才阻断部署。这样不放宽预算，同时避免共享CI runner的单次调度抖动制造假失败。
 
-Bundle门禁按App Router的逐路由manifest对JS与CSS资源去重求和，不使用全目录总量替代用户实际加载量。门户和所有领域路由CSS均不得超过40 KB gzip；`app/globals.css`必须是`app/`下唯一Tailwind编译入口，领域样式通过`@reference`向根入口注册主题token。该约束防止新学科再次生成一份完整工具类，同时允许领域变量和页面组件样式继续按路由加载。
+Bundle门禁按App Router的逐路由manifest对JS与CSS资源去重求和，不使用全目录总量替代用户实际加载量。全目录JS只作为库存，并拆分报告“路由引用资产”和“延迟资产”；真正阻断部署的是共享首载、通用文章、逐路由CSS与最大单块预算。门户和所有领域路由CSS均不得超过40 KB gzip；`app/globals.css`必须是`app/`下唯一Tailwind编译入口，领域样式通过`@reference`向根入口注册主题token。该约束防止新学科再次生成一份完整工具类，同时允许领域变量和页面组件样式继续按路由加载。
 
 Playwright smoke在同一Build作业内复用已完成的`.next`生产产物，不重复构建，不使用Turbopack开发服务器。门禁用runner已有Chrome执行桌面和移动端各两次核心旅程：门户搜索到首次请求SSG文章，以及知识图谱深链恢复与步骤推进。Lighthouse先于smoke执行，避免性能基准继承功能浏览器测试的runner资源压力；两者仍都是部署硬门禁。CI保留一次重试以生成trace，但启用`failOnFlakyTests`，任何依赖重试的用例仍会阻断部署。smoke失败时上传HTML报告、截图和trace并保留7天；完整E2E仍留在本地或专项回归，避免每次push运行138项造成慢反馈。
 

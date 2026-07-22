@@ -88,6 +88,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "质谱法",
     },
   ],
+  "/chemistry/concepts/battery-performance-safety-and-circularity": [
+    {
+      url: "/chemistry/frontier/beyond-lithium-batteries",
+      title: "超越锂离子：从材料承诺到可制造电池",
+    },
+    {
+      url: "/chemistry/concepts/electrochemistry",
+      title: "电化学",
+    },
+    {
+      url: "/earth-science/concepts/mineral-resources-and-critical-metals",
+      title: "矿产资源与关键金属",
+    },
+  ],
   "/chemistry/concepts/bioenergetics-and-metabolism": [
     {
       url: "/chemistry/concepts/cofactors-and-coenzymes",
@@ -168,10 +182,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "表面与胶体化学",
     },
     {
-      url: "/chemistry/concepts/reaction-kinetics",
-      title: "反应速率",
-    },
-    {
       url: "/earth-science/concepts/ocean-acidification",
       title: "海洋酸化",
     },
@@ -209,6 +219,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/chemistry/concepts/chemical-thermodynamics": [
+    {
+      url: "/chemistry/concepts/electrochemistry",
+      title: "电化学",
+    },
     {
       url: "/chemistry/reactions/photosynthesis",
       title: "光合作用",
@@ -254,8 +268,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/chemistry/concepts/chromatography": [
     {
+      url: "/chemistry/concepts/intermolecular-forces",
+      title: "分子间作用力",
+    },
+    {
+      url: "/chemistry/concepts/spectroscopy",
+      title: "光谱学",
+    },
+    {
       url: "/chemistry/concepts/analytical-titration",
       title: "化学分析与滴定",
+    },
+    {
+      url: "/chemistry/reactions/polymerization",
+      title: "聚合反应",
     },
     {
       url: "/chemistry/concepts/mass-spectrometry",
@@ -286,8 +312,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/chemistry/concepts/electrochemistry": [
     {
-      url: "/chemistry/concepts/reaction-kinetics",
-      title: "反应速率",
+      url: "/chemistry/frontier/beyond-lithium-batteries",
+      title: "超越锂离子：从材料承诺到可制造电池",
+    },
+    {
+      url: "/chemistry/concepts/battery-performance-safety-and-circularity",
+      title: "电池评价：性能、安全与循环",
     },
     {
       url: "/chemistry/concepts/chemical-thermodynamics",
@@ -370,6 +400,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "核酸的化学",
     },
     {
+      url: "/chemistry/reactions/polymerization",
+      title: "聚合反应",
+    },
+    {
       url: "/chemistry/concepts/gas-laws",
       title: "气体定律与理想气体",
     },
@@ -402,6 +436,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/reactions/sn1-sn2-nucleophilic-substitution",
       title: "SN1 与 SN2 亲核取代",
+    },
+  ],
+  "/chemistry/concepts/mass-spectrometry": [
+    {
+      url: "/chemistry/concepts/spectroscopy",
+      title: "光谱学",
+    },
+    {
+      url: "/chemistry/concepts/chromatography",
+      title: "色谱分离",
     },
   ],
   "/chemistry/concepts/nuclear-chemistry": [
@@ -458,6 +502,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/chemistry/concepts/reaction-kinetics": [
     {
+      url: "/chemistry/substances/catalysts",
+      title: "催化剂",
+    },
+    {
+      url: "/chemistry/reactions/catalysis-reaction",
+      title: "催化作用",
+    },
+    {
+      url: "/chemistry/concepts/battery-performance-safety-and-circularity",
+      title: "电池评价：性能、安全与循环",
+    },
+    {
       url: "/chemistry/concepts/electrochemistry",
       title: "电化学",
     },
@@ -510,10 +566,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/chemistry/concepts/redox-reactions": [
     {
-      url: "/chemistry/concepts/electrochemistry",
-      title: "电化学",
-    },
-    {
       url: "/earth-science/processes/weathering-soil",
       title: "风化与成土",
     },
@@ -562,8 +614,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/chemistry/concepts/spectroscopy": [
     {
+      url: "/chemistry/concepts/intermolecular-forces",
+      title: "分子间作用力",
+    },
+    {
       url: "/chemistry/concepts/photochemistry",
       title: "光化学",
+    },
+    {
+      url: "/chemistry/reactions/polymerization",
+      title: "聚合反应",
     },
     {
       url: "/chemistry/concepts/quantum-chemistry",
@@ -597,14 +657,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/chemistry/concepts/thermochemistry": [
-    {
-      url: "/chemistry/concepts/electrochemistry",
-      title: "电化学",
-    },
-    {
-      url: "/chemistry/concepts/reaction-kinetics",
-      title: "反应速率",
-    },
     {
       url: "/chemistry/concepts/photochemistry",
       title: "光化学",
@@ -790,6 +842,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: '计算材料设计：从试错炼金到按需求"算"出材料',
     },
     {
+      url: "/earth-science/concepts/mineral-resources-and-critical-metals",
+      title: "矿产资源与关键金属",
+    },
+    {
       url: "/chemistry/frontier/green-hydrogen",
       title: "绿氢：用电、水和催化剂把能源链条重写一遍",
     },
@@ -811,7 +867,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   "/chemistry/frontier/computational-materials-design": [
     {
       url: "/chemistry/frontier/beyond-lithium-batteries",
-      title: "超越锂离子：当电池开始重新选择元素",
+      title: "超越锂离子：从材料承诺到可制造电池",
     },
     {
       url: "/chemistry/frontier/single-atom-catalysis",
@@ -825,7 +881,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   "/chemistry/frontier/green-hydrogen": [
     {
       url: "/chemistry/frontier/beyond-lithium-batteries",
-      title: "超越锂离子：当电池开始重新选择元素",
+      title: "超越锂离子：从材料承诺到可制造电池",
     },
     {
       url: "/chemistry/frontier/single-atom-catalysis",
@@ -838,6 +894,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/chemistry/frontier/single-atom-catalysis": [
     {
+      url: "/chemistry/substances/catalysts",
+      title: "催化剂",
+    },
+    {
       url: "/chemistry/frontier/computational-materials-design",
       title: '计算材料设计：从试错炼金到按需求"算"出材料',
     },
@@ -848,6 +908,50 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/frontier/carbon-capture-chemistry",
       title: '碳捕集与转化：从空气里把二氧化碳"抓"回来，再让它有用',
+    },
+  ],
+  "/chemistry/methods/electron-microscopy-and-surface-analysis": [
+    {
+      url: "/chemistry/substances/catalysts",
+      title: "催化剂",
+    },
+    {
+      url: "/chemistry/reactions/catalysis-reaction",
+      title: "催化作用",
+    },
+    {
+      url: "/chemistry/concepts/battery-performance-safety-and-circularity",
+      title: "电池评价：性能、安全与循环",
+    },
+  ],
+  "/chemistry/methods/nmr-spectroscopy-structure-elucidation": [
+    {
+      url: "/chemistry/concepts/spectroscopy",
+      title: "光谱学",
+    },
+  ],
+  "/chemistry/methods/process-safety": [
+    {
+      url: "/chemistry/concepts/battery-performance-safety-and-circularity",
+      title: "电池评价：性能、安全与循环",
+    },
+    {
+      url: "/chemistry/concepts/reaction-kinetics",
+      title: "反应速率",
+    },
+    {
+      url: "/chemistry/milestones/green-chemistry",
+      title: "绿色化学（1998）",
+    },
+  ],
+  "/chemistry/methods/process-scale-up": [
+    {
+      url: "/chemistry/reactions/catalysis-reaction",
+      title: "催化作用",
+    },
+    {
+      url: "/chemistry/concepts/reaction-kinetics",
+      title: "反应速率",
     },
   ],
   "/chemistry/milestones/daltons-atomic-theory": [
@@ -872,6 +976,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/chemistry/milestones/green-chemistry": [
     {
+      url: "/chemistry/frontier/beyond-lithium-batteries",
+      title: "超越锂离子：从材料承诺到可制造电池",
+    },
+    {
+      url: "/chemistry/concepts/battery-performance-safety-and-circularity",
+      title: "电池评价：性能、安全与循环",
+    },
+    {
       url: "/chemistry/milestones/haber-bosch-process",
       title: "哈伯-博施合成氨（1913）",
     },
@@ -888,10 +1000,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/milestones/synthetic-dyes-industry",
       title: "合成染料工业（1856）",
-    },
-    {
-      url: "/chemistry/milestones/green-chemistry",
-      title: "绿色化学（1998）",
     },
   ],
   "/chemistry/milestones/lavoisier-oxygen-revolution": [
@@ -933,10 +1041,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/chemistry/milestones/synthetic-dyes-industry",
       title: "合成染料工业（1856）",
     },
-    {
-      url: "/chemistry/milestones/green-chemistry",
-      title: "绿色化学（1998）",
-    },
   ],
   "/chemistry/reactions/acid-base-neutralization": [
     {
@@ -954,12 +1058,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "沉淀反应",
     },
     {
+      url: "/chemistry/substances/catalysts",
+      title: "催化剂",
+    },
+    {
       url: "/chemistry/reactions/electrolysis",
       title: "电解",
     },
     {
       url: "/chemistry/reactions/fermentation",
       title: "发酵",
+    },
+    {
+      url: "/chemistry/concepts/reaction-kinetics",
+      title: "反应速率",
     },
     {
       url: "/chemistry/reactions/grignard-reaction",
@@ -972,6 +1084,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/reactions/polymerization",
       title: "聚合反应",
+    },
+    {
+      url: "/chemistry/milestones/green-chemistry",
+      title: "绿色化学（1998）",
     },
     {
       url: "/chemistry/reactions/combustion",
@@ -987,10 +1103,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/chemistry/reactions/combustion": [
-    {
-      url: "/chemistry/reactions/catalysis-reaction",
-      title: "催化作用",
-    },
     {
       url: "/chemistry/reactions/electrolysis",
       title: "电解",
@@ -1010,6 +1122,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "沉淀反应",
     },
     {
+      url: "/chemistry/concepts/electrochemistry",
+      title: "电化学",
+    },
+    {
       url: "/chemistry/reactions/combustion",
       title: "燃烧",
     },
@@ -1020,6 +1136,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/chemistry/reactions/enzymatic-catalysis": [
     {
+      url: "/chemistry/reactions/catalysis-reaction",
+      title: "催化作用",
+    },
+    {
       url: "/chemistry/concepts/cofactors-and-coenzymes",
       title: "辅酶与辅因子",
     },
@@ -1029,10 +1149,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/chemistry/reactions/fermentation": [
-    {
-      url: "/chemistry/reactions/catalysis-reaction",
-      title: "催化作用",
-    },
     {
       url: "/chemistry/reactions/polymerization",
       title: "聚合反应",
@@ -1053,10 +1169,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/chemistry/reactions/organic-synthesis": [
-    {
-      url: "/chemistry/reactions/catalysis-reaction",
-      title: "催化作用",
-    },
     {
       url: "/chemistry/reactions/diels-alder-reaction",
       title: "狄尔斯-阿尔德反应",
@@ -1114,8 +1226,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/chemistry/reactions/polymerization": [
     {
+      url: "/chemistry/concepts/intermolecular-forces",
+      title: "分子间作用力",
+    },
+    {
       url: "/chemistry/concepts/polymer-chemistry",
       title: "聚合物化学",
+    },
+    {
+      url: "/chemistry/concepts/chromatography",
+      title: "色谱分离",
     },
     {
       url: "/chemistry/reactions/organic-synthesis",
@@ -1133,10 +1253,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/chemistry/substances/ammonia": [
-    {
-      url: "/chemistry/substances/catalysts",
-      title: "催化剂",
-    },
     {
       url: "/chemistry/substances/water",
       title: "水",
@@ -1208,16 +1324,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "氨",
     },
     {
-      url: "/chemistry/substances/catalysts",
-      title: "催化剂",
-    },
-    {
       url: "/chemistry/concepts/aromaticity",
       title: "芳香性",
-    },
-    {
-      url: "/chemistry/concepts/intermolecular-forces",
-      title: "分子间作用力",
     },
     {
       url: "/chemistry/substances/polymers",
@@ -1252,10 +1360,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/substances/glass-and-ceramics",
       title: "玻璃与陶瓷",
-    },
-    {
-      url: "/chemistry/substances/polymers",
-      title: "高分子与聚合物",
     },
     {
       url: "/chemistry/substances/carbon-allotropes",
@@ -1354,10 +1458,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/surface-and-colloid-chemistry",
       title: "表面与胶体化学",
-    },
-    {
-      url: "/chemistry/concepts/intermolecular-forces",
-      title: "分子间作用力",
     },
     {
       url: "/chemistry/substances/polymers",
@@ -1942,6 +2042,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "罗纳德·里维斯特",
     },
     {
+      url: "/computer-science/concepts/software-supply-chain-security",
+      title: "软件供应链安全",
+    },
+    {
+      url: "/computer-science/concepts/privacy-engineering",
+      title: "隐私工程",
+    },
+    {
       url: "/computer-science/concepts/web-security-xss-csrf",
       title: "Web 安全：XSS 与 CSRF",
     },
@@ -2014,8 +2122,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "加密基础",
     },
     {
+      url: "/computer-science/concepts/software-supply-chain-security",
+      title: "软件供应链安全",
+    },
+    {
       url: "/computer-science/concepts/authentication-authorization",
       title: "身份验证与授权",
+    },
+    {
+      url: "/computer-science/concepts/privacy-engineering",
+      title: "隐私工程",
     },
     {
       url: "/computer-science/concepts/dns",
@@ -2065,6 +2181,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/computer-science/concepts/containers-and-orchestration": [
+    {
+      url: "/computer-science/concepts/software-supply-chain-security",
+      title: "软件供应链安全",
+    },
     {
       url: "/computer-science/concepts/microservices-architecture",
       title: "微服务架构",
@@ -2330,14 +2450,36 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "区块链",
     },
     {
+      url: "/computer-science/concepts/software-supply-chain-security",
+      title: "软件供应链安全",
+    },
+    {
       url: "/computer-science/concepts/authentication-authorization",
       title: "身份验证与授权",
+    },
+    {
+      url: "/computer-science/concepts/privacy-engineering",
+      title: "隐私工程",
     },
   ],
   "/computer-science/concepts/file-systems": [
     {
       url: "/computer-science/concepts/b-trees-and-lsm-trees",
       title: "存储引擎：B 树与 LSM 树",
+    },
+  ],
+  "/computer-science/concepts/formal-methods-and-verification": [
+    {
+      url: "/computer-science/concepts/consensus-algorithms",
+      title: "分布式共识算法",
+    },
+    {
+      url: "/computer-science/frontier/ai-interpretability",
+      title: "机制可解释性：从可命名特征到因果机制",
+    },
+    {
+      url: "/computer-science/concepts/software-testing",
+      title: "软件测试",
     },
   ],
   "/computer-science/concepts/functional-programming": [
@@ -2412,6 +2554,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/information-retrieval-and-search",
       title: "信息检索与搜索",
+    },
+    {
+      url: "/computer-science/concepts/privacy-engineering",
+      title: "隐私工程",
     },
     {
       url: "/computer-science/pioneers/yoshua-bengio",
@@ -2590,6 +2736,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Unicode 与文本编码",
     },
   ],
+  "/computer-science/concepts/privacy-engineering": [
+    {
+      url: "/computer-science/concepts/encryption-basics",
+      title: "加密基础",
+    },
+    {
+      url: "/computer-science/concepts/authentication-authorization",
+      title: "身份验证与授权",
+    },
+  ],
   "/computer-science/concepts/programming-language-design": [
     {
       url: "/computer-science/pioneers/bjarne-stroustrup",
@@ -2646,6 +2802,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "软件测试",
     },
     {
+      url: "/computer-science/concepts/software-supply-chain-security",
+      title: "软件供应链安全",
+    },
+    {
       url: "/computer-science/concepts/design-patterns",
       title: "设计模式",
     },
@@ -2654,7 +2814,33 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "API 设计",
     },
   ],
+  "/computer-science/concepts/software-supply-chain-security": [
+    {
+      url: "/computer-science/concepts/encryption-basics",
+      title: "加密基础",
+    },
+    {
+      url: "/computer-science/concepts/authentication-authorization",
+      title: "身份验证与授权",
+    },
+    {
+      url: "/computer-science/concepts/privacy-engineering",
+      title: "隐私工程",
+    },
+  ],
   "/computer-science/concepts/software-testing": [
+    {
+      url: "/computer-science/concepts/consensus-algorithms",
+      title: "分布式共识算法",
+    },
+    {
+      url: "/computer-science/concepts/distributed-systems",
+      title: "分布式系统",
+    },
+    {
+      url: "/computer-science/frontier/ai-interpretability",
+      title: "机制可解释性：从可命名特征到因果机制",
+    },
     {
       url: "/computer-science/concepts/software-engineering",
       title: "软件工程",
@@ -2763,7 +2949,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   "/computer-science/frontier/large-language-models": [
     {
       url: "/computer-science/frontier/ai-interpretability",
-      title: "机制可解释性：理解神经网络内部",
+      title: "机制可解释性：从可命名特征到因果机制",
     },
     {
       url: "/computer-science/frontier/formal-verification",
@@ -4358,6 +4544,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "遥感与地理信息系统",
     },
   ],
+  "/earth-science/concepts/mineral-resources-and-critical-metals": [
+    {
+      url: "/chemistry/frontier/beyond-lithium-batteries",
+      title: "超越锂离子：从材料承诺到可制造电池",
+    },
+    {
+      url: "/chemistry/concepts/battery-performance-safety-and-circularity",
+      title: "电池评价：性能、安全与循环",
+    },
+    {
+      url: "/chemistry/concepts/electrochemistry",
+      title: "电化学",
+    },
+  ],
   "/earth-science/concepts/ocean-acidification": [
     {
       url: "/earth-science/processes/marine-biogeochemistry",
@@ -4998,6 +5198,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/processes/orogeny-mountain-building",
       title: "造山运动",
+    },
+  ],
+  "/economics/case-studies/commodity-exporters-macro-diagnosis-2026": [
+    {
+      url: "/chemistry/concepts/battery-performance-safety-and-circularity",
+      title: "电池评价：性能、安全与循环",
     },
   ],
   "/economics/case-studies/financial-crisis-sequence": [
@@ -7334,10 +7540,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "血液学",
     },
   ],
+  "/medicine/concepts/clinical-diagnosis": [
+    {
+      url: "/medicine/concepts/screening-and-early-detection",
+      title: "筛查与早期发现",
+    },
+  ],
   "/medicine/concepts/clinical-trials": [
+    {
+      url: "/medicine/diseases/cancer",
+      title: "癌症",
+    },
     {
       url: "/medicine/concepts/surgery",
       title: "外科学",
+    },
+    {
+      url: "/medicine/diseases/depression",
+      title: "抑郁症",
     },
   ],
   "/medicine/concepts/digestive-system": [
@@ -7428,6 +7648,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "临床诊断",
     },
     {
+      url: "/medicine/concepts/screening-and-early-detection",
+      title: "筛查与早期发现",
+    },
+    {
       url: "/medicine/concepts/germ-theory",
       title: "细菌致病论",
     },
@@ -7458,12 +7682,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/medicine/concepts/evidence-based-medicine": [
     {
-      url: "/medicine/diseases/liver-disease",
-      title: "肝硬化与慢性肝病",
-    },
-    {
-      url: "/medicine/concepts/public-health",
-      title: "公共卫生",
+      url: "/medicine/diseases/cancer",
+      title: "癌症",
     },
     {
       url: "/medicine/concepts/clinical-trials",
@@ -7484,6 +7704,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/figures/jonas-salk",
       title: "乔纳斯·萨尔克",
+    },
+    {
+      url: "/medicine/concepts/screening-and-early-detection",
+      title: "筛查与早期发现",
     },
     {
       url: "/medicine/concepts/reproductive-system",
@@ -7584,10 +7808,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "肾脏生理",
     },
     {
-      url: "/medicine/concepts/pain-and-analgesia",
-      title: "疼痛与镇痛",
-    },
-    {
       url: "/medicine/concepts/humoral-theory",
       title: "体液学说",
     },
@@ -7632,10 +7852,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/germ-theory",
       title: "细菌致病论",
-    },
-    {
-      url: "/medicine/diseases/depression",
-      title: "抑郁症",
     },
   ],
   "/medicine/concepts/immune-system": [
@@ -7703,6 +7919,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/medicine/diseases/autoimmune-diseases",
       title: "自身免疫病",
     },
+    {
+      url: "/medicine/technologies/mrna-vaccine",
+      title: "mRNA 疫苗",
+    },
   ],
   "/medicine/concepts/inflammation": [
     {
@@ -7747,7 +7967,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
     {
       url: "/medicine/concepts/pain-and-analgesia",
-      title: "疼痛与镇痛",
+      title: "疼痛、镇痛与阿片决策",
     },
     {
       url: "/medicine/concepts/microbiome-and-health",
@@ -7770,15 +7990,15 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "血液学",
     },
     {
-      url: "/medicine/diseases/depression",
-      title: "抑郁症",
-    },
-    {
       url: "/medicine/diseases/autoimmune-diseases",
       title: "自身免疫病",
     },
   ],
   "/medicine/concepts/informed-consent": [
+    {
+      url: "/psychology/knowledge-base/risk-perception-and-macro-decisions",
+      title: "风险感知、心理健康与宏观决策",
+    },
     {
       url: "/medicine/ethics/palliative-care",
       title: "姑息治疗",
@@ -7792,12 +8012,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "临床试验",
     },
     {
+      url: "/medicine/public-health/community-mental-health-access-continuity",
+      title: "社区精神卫生、可及性与连续照护",
+    },
+    {
       url: "/medicine/concepts/reproductive-system",
       title: "生殖系统",
     },
     {
       url: "/medicine/concepts/pain-and-analgesia",
-      title: "疼痛与镇痛",
+      title: "疼痛、镇痛与阿片决策",
     },
     {
       url: "/medicine/concepts/surgery",
@@ -7810,6 +8034,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/medical-genetics-and-genomics",
       title: "医学遗传学与基因组医学",
+    },
+    {
+      url: "/medicine/diseases/depression",
+      title: "抑郁症",
     },
   ],
   "/medicine/concepts/microbiome-and-health": [
@@ -7857,6 +8085,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/medicine/concepts/nervous-system",
       title: "神经系统",
     },
+    {
+      url: "/medicine/diseases/depression",
+      title: "抑郁症",
+    },
   ],
   "/medicine/concepts/pathology": [
     {
@@ -7865,6 +8097,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/medicine/concepts/pharmacology": [
+    {
+      url: "/medicine/concepts/pain-and-analgesia",
+      title: "疼痛、镇痛与阿片决策",
+    },
     {
       url: "/life-science/knowledge-base/人体--微生物组",
       title: "微生物组：肠道菌群与人体共生",
@@ -7920,6 +8156,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/hematology",
       title: "血液学",
+    },
+  ],
+  "/medicine/concepts/screening-and-early-detection": [
+    {
+      url: "/medicine/diseases/cancer",
+      title: "癌症",
     },
   ],
   "/medicine/concepts/vaccination": [
@@ -7987,6 +8229,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/medicine/diseases/schizophrenia",
       title: "精神分裂症",
     },
+    {
+      url: "/medicine/diseases/depression",
+      title: "抑郁症",
+    },
   ],
   "/medicine/diseases/cancer": [
     {
@@ -8006,6 +8252,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "配位化学",
     },
     {
+      url: "/medicine/concepts/screening-and-early-detection",
+      title: "筛查与早期发现",
+    },
+    {
       url: "/medicine/diseases/cardiovascular-disease",
       title: "心血管疾病",
     },
@@ -8020,10 +8270,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "阿尔茨海默病",
     },
     {
-      url: "/medicine/diseases/cancer",
-      title: "癌症",
-    },
-    {
       url: "/medicine/diseases/obesity",
       title: "肥胖",
     },
@@ -8034,6 +8280,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/diseases/chronic-kidney-disease",
       title: "慢性肾病",
+    },
+    {
+      url: "/medicine/technologies/blood-transfusion",
+      title: "输血",
     },
     {
       url: "/chemistry/substances/carbohydrates-and-lipids",
@@ -8048,12 +8298,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "哮喘与慢阻肺",
     },
     {
-      url: "/medicine/diseases/depression",
-      title: "抑郁症",
-    },
-    {
       url: "/medicine/diseases/stroke",
       title: "中风（脑卒中）",
+    },
+    {
+      url: "/medicine/technologies/ct-mri",
+      title: "CT 与 MRI",
     },
   ],
   "/medicine/diseases/cholera": [
@@ -8089,6 +8339,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/medicine/diseases/influenza",
       title: "流感",
     },
+    {
+      url: "/medicine/technologies/mrna-vaccine",
+      title: "mRNA 疫苗",
+    },
   ],
   "/medicine/diseases/depression": [
     {
@@ -8099,12 +8353,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/medicine/diseases/schizophrenia",
       title: "精神分裂症",
     },
+    {
+      url: "/medicine/concepts/pain-and-analgesia",
+      title: "疼痛、镇痛与阿片决策",
+    },
+    {
+      url: "/psychology/disorders/major-depressive",
+      title: "重度抑郁障碍：心理模型与证据",
+    },
   ],
   "/medicine/diseases/diabetes": [
-    {
-      url: "/medicine/diseases/cancer",
-      title: "癌症",
-    },
     {
       url: "/medicine/figures/banting-and-best",
       title: "班廷与贝斯特",
@@ -8150,10 +8408,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/diseases/tuberculosis",
       title: "结核病",
-    },
-    {
-      url: "/medicine/technologies/blood-transfusion",
-      title: "输血",
     },
   ],
   "/medicine/diseases/influenza": [
@@ -8372,6 +8626,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/diseases/chronic-kidney-disease",
       title: "慢性肾病",
+    },
+  ],
+  "/medicine/ethics/palliative-care": [
+    {
+      url: "/medicine/diseases/cancer",
+      title: "癌症",
     },
   ],
   "/medicine/events/antibiotic-era": [
@@ -8772,6 +9032,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "疾病负担、DALY 与 QALY",
     },
     {
+      url: "/medicine/public-health/community-mental-health-access-continuity",
+      title: "社区精神卫生、可及性与连续照护",
+    },
+    {
       url: "/medicine/public-health/health-economic-evaluation-priority-setting",
       title: "卫生经济学与优先排序",
     },
@@ -8808,6 +9072,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "全球健康不平等、权力与殖民性",
     },
     {
+      url: "/medicine/public-health/community-mental-health-access-continuity",
+      title: "社区精神卫生、可及性与连续照护",
+    },
+    {
       url: "/medicine/public-health/implementation-science-health-policy",
       title: "实施科学：从有效干预到真实世界",
     },
@@ -8824,6 +9092,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/frontier/fair-health-priority-setting",
       title: "公平卫生优先排序：从项目排名到可复审组合",
+    },
+    {
+      url: "/medicine/public-health/community-mental-health-access-continuity",
+      title: "社区精神卫生、可及性与连续照护",
     },
     {
       url: "/medicine/public-health/health-economic-evaluation-priority-setting",
@@ -8892,10 +9164,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "抗生素：从青霉素奇迹到耐药性危机",
     },
     {
-      url: "/chemistry/figures/robert-woodward",
-      title: "罗伯特·伍德沃德",
-    },
-    {
       url: "/medicine/technologies/antisepsis",
       title: "无菌术",
     },
@@ -8922,6 +9190,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/surgery",
       title: "外科学",
+    },
+    {
+      url: "/medicine/diseases/cardiovascular-disease",
+      title: "心血管疾病",
     },
   ],
   "/medicine/technologies/crispr-gene-editing": [
@@ -8950,6 +9222,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/technologies/stethoscope",
       title: "听诊器",
+    },
+    {
+      url: "/medicine/diseases/cardiovascular-disease",
+      title: "心血管疾病",
     },
     {
       url: "/medicine/diseases/stroke",
@@ -9018,6 +9294,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/technologies/ultrasound",
       title: "超声成像",
+    },
+  ],
+  "/medicine/technologies/ultrasound": [
+    {
+      url: "/medicine/technologies/ct-mri",
+      title: "CT 与 MRI",
     },
   ],
   "/medicine/technologies/x-ray-imaging": [
@@ -9126,6 +9408,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "无为",
     },
   ],
+  "/philosophy/concepts/decolonial-epistemology": [
+    {
+      url: "/philosophy/concepts/epistemic-justice",
+      title: "认识正义",
+    },
+    {
+      url: "/philosophy/concepts/modern-chinese-thought",
+      title: "中国近现代思想",
+    },
+  ],
   "/philosophy/concepts/democracy": [
     {
       url: "/human-history/knowledge/人物--苏格拉底",
@@ -9154,6 +9446,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "环境经济学",
     },
   ],
+  "/philosophy/concepts/epistemic-justice": [
+    {
+      url: "/philosophy/concepts/decolonial-epistemology",
+      title: "解殖民知识论",
+    },
+    {
+      url: "/philosophy/concepts/indian-buddhist-epistemology",
+      title: "印度佛教知识论",
+    },
+    {
+      url: "/philosophy/concepts/modern-chinese-thought",
+      title: "中国近现代思想",
+    },
+  ],
   "/philosophy/concepts/falsification": [
     {
       url: "/cosmology/knowledge-base/多重宇宙假说",
@@ -9180,6 +9486,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "菌根",
     },
   ],
+  "/philosophy/concepts/indian-buddhist-epistemology": [
+    {
+      url: "/philosophy/concepts/epistemic-justice",
+      title: "认识正义",
+    },
+    {
+      url: "/philosophy/concepts/modern-chinese-thought",
+      title: "中国近现代思想",
+    },
+  ],
+  "/philosophy/concepts/knowledge": [
+    {
+      url: "/philosophy/concepts/indian-buddhist-epistemology",
+      title: "印度佛教知识论",
+    },
+    {
+      url: "/philosophy/concepts/modern-chinese-thought",
+      title: "中国近现代思想",
+    },
+  ],
   "/philosophy/concepts/li": [
     {
       url: "/philosophy/thinkers/heraclitus",
@@ -9200,6 +9526,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/david-lewis",
       title: "大卫·刘易斯",
+    },
+  ],
+  "/philosophy/concepts/modern-chinese-thought": [
+    {
+      url: "/philosophy/concepts/decolonial-epistemology",
+      title: "解殖民知识论",
+    },
+    {
+      url: "/philosophy/concepts/epistemic-justice",
+      title: "认识正义",
+    },
+    {
+      url: "/philosophy/concepts/indian-buddhist-epistemology",
+      title: "印度佛教知识论",
     },
   ],
   "/philosophy/concepts/philosophy-of-ai": [
@@ -9298,6 +9638,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/quine",
       title: "蒯因",
+    },
+  ],
+  "/philosophy/schools/pragmatism": [
+    {
+      url: "/philosophy/concepts/modern-chinese-thought",
+      title: "中国近现代思想",
     },
   ],
   "/philosophy/thinkers/al-ghazali": [
@@ -11128,6 +11474,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "依恋理论：爱的科学",
     },
   ],
+  "/psychology/frontier/social-media-teen-mental-health": [
+    {
+      url: "/medicine/public-health/adolescent-mental-health-school-community-services",
+      title: "青少年心理健康：学校、社区与连续服务",
+    },
+  ],
   "/psychology/knowledge-base/attachment-theory": [
     {
       url: "/psychology/knowledge-base/developmental-psychology",
@@ -11182,6 +11534,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/concepts/expectations-credibility-policy-transmission",
       title: "预期、可信度与政策传导",
+    },
+    {
+      url: "/psychology/disorders/major-depressive",
+      title: "重度抑郁障碍：心理模型与证据",
+    },
+  ],
+  "/psychology/knowledge-base/sleep-and-mind": [
+    {
+      url: "/medicine/public-health/adolescent-mental-health-school-community-services",
+      title: "青少年心理健康：学校、社区与连续服务",
+    },
+    {
+      url: "/psychology/frontier/social-media-teen-mental-health",
+      title: "社交媒体与青少年心理健康：从屏幕时间争论到机制证据",
+    },
+  ],
+  "/psychology/methods/causal-inference-experiments-observational-studies": [
+    {
+      url: "/psychology/frontier/social-media-teen-mental-health",
+      title: "社交媒体与青少年心理健康：从屏幕时间争论到机制证据",
     },
   ],
   "/psychology/phenomena/anchoring-bias": [
@@ -11430,6 +11802,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "卡尔·马克思",
     },
   ],
+  "/psychology/theorists/aaron-beck": [
+    {
+      url: "/psychology/disorders/major-depressive",
+      title: "重度抑郁障碍：心理模型与证据",
+    },
+  ],
   "/psychology/theorists/antonio-damasio": [
     {
       url: "/psychology/knowledge-base/neuropsychology-brain-behavior",
@@ -11474,6 +11852,30 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/phenomena/cognitive-bias",
       title: "认知偏误",
+    },
+  ],
+  "/sociology/concepts/social-capital": [
+    {
+      url: "/sociology/concepts/social-support-mental-health",
+      title: "社会支持、孤独与心理健康",
+    },
+  ],
+  "/sociology/concepts/social-network-analysis": [
+    {
+      url: "/sociology/concepts/social-support-mental-health",
+      title: "社会支持、孤独与心理健康",
+    },
+  ],
+  "/sociology/concepts/social-support-mental-health": [
+    {
+      url: "/psychology/frontier/social-media-teen-mental-health",
+      title: "社交媒体与青少年心理健康：从屏幕时间争论到机制证据",
+    },
+  ],
+  "/sociology/frontier/platform-governance": [
+    {
+      url: "/psychology/frontier/social-media-teen-mental-health",
+      title: "社交媒体与青少年心理健康：从屏幕时间争论到机制证据",
     },
   ],
   "/universe-physics/dialogues/bohr-heisenberg": [

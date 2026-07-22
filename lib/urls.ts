@@ -13,5 +13,6 @@ export const APP_URLS = {
   medicine: "/medicine",
   chemistry: "/chemistry",
   sociology: "/sociology",
+  linguistics: "/linguistics",
   "knowledge-graph": "/knowledge-graph",
 } as const;

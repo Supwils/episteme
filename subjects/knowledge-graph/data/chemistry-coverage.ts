@@ -56,8 +56,8 @@ export const CHEMISTRY_COVERAGE_NODES: GraphNode[] = [
     "反应速率",
     "concept",
     "concepts",
-    "研究反应发生多快，以及温度、浓度和催化剂如何改变速率。",
-    ["速率方程", "活化能"]
+    "从时间序列识别速率方程、活化参数和受控步骤，并排除混合、传质与传热伪象。",
+    ["速率方程", "活化参数", "机理推断"]
   ),
   node(
     "reaction-mechanisms",
@@ -144,16 +144,24 @@ export const CHEMISTRY_COVERAGE_NODES: GraphNode[] = [
     "绿色化学（1998）",
     "event",
     "milestones",
-    "从源头减少有害物质、废物和能耗的化学设计原则。",
-    ["原子经济性", "过程安全"]
+    "以原子经济性、PMI、危害、能量和生命周期边界审查化学产品与过程。",
+    ["原子经济性", "过程质量强度", "本质安全"]
   ),
   node(
     "beyond-lithium-batteries",
-    "超越锂离子的电池化学",
+    "超越锂离子：可制造电池",
     "concept",
     "frontier",
-    "在钠、锂硫和固态体系中权衡能量密度、资源、安全与寿命。",
-    ["储能", "电池材料"]
+    "用材料、电极、电芯、电池包和系统五层口径审查钠离子、固态、锂硫与长时储能。",
+    ["储能", "电池材料", "制造验证"]
+  ),
+  node(
+    "battery-performance-safety-and-circularity",
+    "电池评价：性能、安全与循环",
+    "concept",
+    "concepts",
+    "把容量、能量、功率、寿命、热失控、制造边界和回收质量组织成可审计证据链。",
+    ["电池评价", "热失控", "生命周期", "回收"]
   ),
   node(
     "computational-materials-design",
@@ -232,6 +240,25 @@ export const CHEMISTRY_COVERAGE_EDGES: GraphEdge[] = [
   edge("green-chemistry", "organic-synthesis", "重构合成路线"),
   edge("green-chemistry", "catalysis-reaction", "减少能耗与废物"),
   edge("electrochemistry", "beyond-lithium-batteries", "储能原理"),
+  edge("chemical-thermodynamics", "electrochemistry", "把自由能映射为电势"),
+  edge("electrochemistry", "battery-performance-safety-and-circularity", "定义电压容量与效率"),
+  edge(
+    "battery-performance-safety-and-circularity",
+    "beyond-lithium-batteries",
+    "用统一边界比较候选体系"
+  ),
+  edge(
+    "battery-performance-safety-and-circularity",
+    "electron-microscopy-and-surface-analysis",
+    "诊断界面与失效"
+  ),
+  edge(
+    "electron-microscopy-and-surface-analysis",
+    "process-safety",
+    "把失效证据送入安全设计"
+  ),
+  edge("process-safety", "beyond-lithium-batteries", "约束新体系规模化"),
+  edge("battery-performance-safety-and-circularity", "green-chemistry", "核算全生命周期"),
   edge("semiconductors-materials", "computational-materials-design", "材料筛选对象"),
   edge("quantum-chemistry", "computational-materials-design", "电子结构计算"),
   edge("atomic-structure", "quantum-chemistry", "量子描述"),
@@ -285,5 +312,29 @@ export const CHEMISTRY_COVERAGE_EDGES: GraphEdge[] = [
     target: "medicine:environmental-occupational-health",
     type: "domain-link",
     label: "保护工人与社区",
+  },
+  {
+    source: "chemistry:beyond-lithium-batteries",
+    target: "earth-science:mineral-resources-and-critical-metals",
+    type: "domain-link",
+    label: "技术替代重排矿产需求",
+  },
+  {
+    source: "chemistry:battery-performance-safety-and-circularity",
+    target: "earth-science:mineral-resources-and-critical-metals",
+    type: "domain-link",
+    label: "生命周期追溯原料与回收",
+  },
+  {
+    source: "earth-science:mineral-resources-and-critical-metals",
+    target: "economics:commodity-exporters-macro-diagnosis-2026",
+    type: "domain-link",
+    label: "矿产需求进入资源经济周期",
+  },
+  {
+    source: "economics:commodity-exporters-macro-diagnosis-2026",
+    target: "chemistry:green-chemistry",
+    type: "domain-link",
+    label: "资源收益接受生命周期约束",
   },
 ];

@@ -34,6 +34,22 @@ function collectCssFiles(dir) {
   return files;
 }
 
+function collectJsFiles(dir) {
+  const files = [];
+  if (!statSync(dir, { throwIfNoEntry: false })) return files;
+
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const fullPath = join(dir, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...collectJsFiles(fullPath));
+    } else if (entry.name.endsWith(".js")) {
+      files.push(fullPath);
+    }
+  }
+
+  return files;
+}
+
 function gzipAsset(nextDir, asset) {
   const assetPath = join(nextDir, asset);
   if (!statSync(assetPath, { throwIfNoEntry: false })) {
@@ -70,6 +86,22 @@ export function analyzeRouteAssets(nextDir) {
       };
     })
     .sort((a, b) => a.route.localeCompare(b.route));
+}
+
+export function analyzeJsAssetOwnership(nextDir, routeEntries) {
+  const routeReferencedAssets = new Set(routeEntries.flatMap((entry) => entry.js));
+  const allAssets = collectJsFiles(join(nextDir, "static", "chunks")).map((file) =>
+    relative(nextDir, file)
+  );
+  const summarize = (assets) => ({
+    assets: assets.sort(),
+    gzip: assets.reduce((total, asset) => total + gzipAsset(nextDir, asset), 0),
+  });
+
+  return {
+    routeReferenced: summarize(allAssets.filter((asset) => routeReferencedAssets.has(asset))),
+    deferredOnly: summarize(allAssets.filter((asset) => !routeReferencedAssets.has(asset))),
+  };
 }
 
 export function getRouteCssBudget(route, budgets) {

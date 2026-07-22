@@ -367,4 +367,12 @@ export const RANKED_SUBJECT_CANDIDATES = [...SUBJECT_CANDIDATES].sort(
   (left, right) => calculateCandidateScore(right.scores) - calculateCandidateScore(left.scores)
 );
 
-export const RECOMMENDED_SUBJECT_CANDIDATE = RANKED_SUBJECT_CANDIDATES[0]!;
+export const LAUNCHED_SUBJECT_CANDIDATE_IDS: ReadonlySet<SubjectCandidateId> = new Set([
+  "linguistics",
+]);
+
+export const RANKED_NEXT_SUBJECT_CANDIDATES = RANKED_SUBJECT_CANDIDATES.filter(
+  (candidate) => !LAUNCHED_SUBJECT_CANDIDATE_IDS.has(candidate.id)
+);
+
+export const RECOMMENDED_SUBJECT_CANDIDATE = RANKED_NEXT_SUBJECT_CANDIDATES[0]!;

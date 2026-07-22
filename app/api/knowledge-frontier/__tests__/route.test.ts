@@ -19,7 +19,7 @@ describe("knowledge frontier API", () => {
     expect(response.status).toBe(200);
     expect(response.headers.get("Cache-Control")).toBe("private, no-store");
     expect(response.headers.get("X-Profile-Storage")).toBe("local-only");
-    expect(data.summary.nodeCount).toBe(1362);
+    expect(data.summary.nodeCount).toBe(1381);
     expect(data.summary.readyCount).toBeGreaterThan(0);
     expect(data.results).toHaveLength(3);
   });

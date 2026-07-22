@@ -150,13 +150,19 @@ export function toRenderNodes(
   selectedId: string | null,
   activeDomains: Set<string>,
   spreadOffsets?: Map<string, { x: number; y: number }>,
-  searchMatchedIds?: Set<string>
+  searchMatchedIds?: Set<string>,
+  nodeDepth?: ReadonlyMap<string, number>,
+  nodeImportance?: ReadonlyMap<string, number>
 ): RenderNode[] {
-  return nodes
+  const rendered = nodes
     .filter((n) => activeDomains.has(n.domain))
     .map((node) => {
       const pos = positions.get(node.id);
       const spread = spreadOffsets?.get(node.id);
+      const depth = nodeDepth?.get(node.id);
+      const depthScale = depth === undefined ? 1 : 0.7 + (depth + 1) * 0.18;
+      const depthOpacity = depth === undefined ? 1 : 0.38 + (depth + 1) * 0.29;
+      const prominent = node.id === hoveredId || node.id === selectedId;
       return {
         id: node.id,
         x: (pos?.x ?? 0) + (spread?.x ?? 0),
@@ -164,21 +170,27 @@ export function toRenderNodes(
         label: node.label,
         domain: node.domain,
         type: node.type,
-        radius: NODE_RADIUS[node.type] ?? 16,
+        radius: (NODE_RADIUS[node.type] ?? 16) * depthScale,
         color: DOMAIN_COLORS[node.domain] ?? "#9ca3af",
         hovered: node.id === hoveredId,
         selected: node.id === selectedId,
         searchMatched: searchMatchedIds?.has(node.id) ?? false,
-        alpha: 1,
+        alpha: prominent ? 1 : depthOpacity,
+        importance: nodeImportance?.get(node.id),
       };
     });
+  return nodeDepth
+    ? rendered.sort((left, right) => (nodeDepth.get(left.id) ?? 0) - (nodeDepth.get(right.id) ?? 0))
+    : rendered;
 }
 
 export function toRenderEdges(
   edges: GraphEdge[],
   positions: Map<string, { x: number; y: number }>,
   activeDomains: Set<string>,
-  nodeDomainMap: Map<string, string>
+  nodeDomainMap: Map<string, string>,
+  nodeDepth?: ReadonlyMap<string, number>,
+  nodeImportance?: ReadonlyMap<string, number>
 ): RenderEdge[] {
   return edges
     .filter((e) => {
@@ -192,6 +204,10 @@ export function toRenderEdges(
       const sd = nodeDomainMap.get(edge.source);
       const td = nodeDomainMap.get(edge.target);
       const crossDomain = sd !== undefined && td !== undefined && sd !== td;
+      const averageDepth =
+        nodeDepth && nodeDepth.has(edge.source) && nodeDepth.has(edge.target)
+          ? ((nodeDepth.get(edge.source) ?? 0) + (nodeDepth.get(edge.target) ?? 0)) / 2
+          : undefined;
       // Cross-domain edges are the interdisciplinary "bridges" that make this
       // graph more than a pile of silos — render them brighter so they pop.
       const color = crossDomain
@@ -209,11 +225,18 @@ export function toRenderEdges(
         color,
         width:
           crossDomain || edge.type === "cross-reference" || edge.type === "domain-link" ? 1.5 : 0.8,
-        alpha: 0.6,
+        alpha: averageDepth === undefined ? 0.6 : 0.28 + (averageDepth + 1) * 0.22,
         sourceId: edge.source,
         targetId: edge.target,
         label: edge.label,
         crossDomain,
+        importance: nodeImportance
+          ? Math.max(
+              nodeImportance.get(edge.source) ?? 0,
+              nodeImportance.get(edge.target) ?? 0,
+              crossDomain ? 0.94 : 0
+            )
+          : undefined,
       };
     });
 }

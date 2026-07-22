@@ -10,8 +10,8 @@ const nodeMap = new Map(ALL_NODES.map((node) => [node.id, node]));
 
 describe("reviewed frontier prerequisite relations", () => {
   it("keeps every reviewed relation attached and auditable", () => {
-    expect(REVIEWED_LEARNING_RELATIONS).toHaveLength(188);
-    expect(new Set(REVIEWED_LEARNING_RELATIONS.map((relation) => relation.id)).size).toBe(188);
+    expect(REVIEWED_LEARNING_RELATIONS).toHaveLength(197);
+    expect(new Set(REVIEWED_LEARNING_RELATIONS.map((relation) => relation.id)).size).toBe(197);
     for (const relation of REVIEWED_LEARNING_RELATIONS) {
       expect(nodeMap.has(relation.sourceId), relation.sourceId).toBe(true);
       expect(nodeMap.has(relation.targetId), relation.targetId).toBe(true);

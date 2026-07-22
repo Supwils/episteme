@@ -18,6 +18,8 @@ const SECTION_PREFIXES = [
   "/psychology",
   "/computer-science",
   "/political-science",
+  "/sociology",
+  "/linguistics",
   "/knowledge-graph",
   "/read",
   "/curiosities",
@@ -42,6 +44,8 @@ const DOMAIN_LINKS = [
   { href: APP_URLS["psychology"], label: "心理学" },
   { href: APP_URLS["computer-science"], label: "计算机科学" },
   { href: APP_URLS["political-science"], label: "政治学" },
+  { href: APP_URLS.sociology, label: "社会学" },
+  { href: APP_URLS.linguistics, label: "语言学" },
 ];
 
 const EXPLORE_LINKS = [
@@ -109,7 +113,7 @@ export function SectionAwareFooter() {
             <h3 className={COLUMN_HEADING_CLASS}>关于</h3>
             <div className="flex flex-col gap-2.5">
               <a
-                href="https://github.com/Kilo-Org/universe-knowledge"
+                href="https://github.com/Supwils/episteme"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-fg-secondary hover:text-accent-gold inline-flex items-center gap-1.5 text-sm transition-colors"

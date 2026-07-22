@@ -265,8 +265,9 @@ export const FRONTIER_DATA = [
   },
   {
     slug: "llm-as-cognitive-science-tool",
-    title: "大语言模型：认知科学的新工具与新研究对象",
-    titleEn: "Large Language Models as a New Tool and Subject of Cognitive Science",
+    title: "大语言模型：认知科学的预测模型、研究工具与研究对象",
+    titleEn:
+      "Large Language Models as Predictive Models, Research Tools, and Objects of Cognitive Science",
     domain: "psychology",
     category: "认知科学与人工智能",
   },
@@ -293,8 +294,8 @@ export const FRONTIER_DATA = [
   },
   {
     slug: "social-media-teen-mental-health",
-    title: "社交媒体与青少年心理健康：因果迷雾中的证据战争",
-    titleEn: "Social Media and Teen Mental Health: Evidence Wars in the Causal Fog",
+    title: "社交媒体与青少年心理健康：从屏幕时间争论到机制证据",
+    titleEn: "Social Media and Adolescent Mental Health: From Screen Time to Mechanism",
     domain: "psychology",
     category: "发展心理学与数字媒体",
   },
@@ -343,8 +344,8 @@ export const FRONTIER_DATA = [
   },
   {
     slug: "ai-interpretability",
-    title: "机制可解释性：理解神经网络内部",
-    titleEn: "Mechanistic Interpretability — Understanding What Happens Inside Neural Networks",
+    title: "机制可解释性：从可命名特征到因果机制",
+    titleEn: "Mechanistic Interpretability from Named Features to Causal Mechanisms",
     domain: "computer-science",
     category: "人工智能",
   },
@@ -491,8 +492,8 @@ export const FRONTIER_DATA = [
   },
   {
     slug: "beyond-lithium-batteries",
-    title: "超越锂离子：当电池开始重新选择元素",
-    titleEn: "Beyond Lithium-Ion — When Batteries Start Reconsidering Their Elements",
+    title: "超越锂离子：从材料承诺到可制造电池",
+    titleEn: "Beyond Lithium-Ion — From Materials Promise to Manufacturable Batteries",
     domain: "chemistry",
     category: "能源化学",
   },

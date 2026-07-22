@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { clsx } from "clsx";
 import type { GraphNode, GraphEdge } from "../data/types";
@@ -11,6 +11,8 @@ import { GraphDetailPanel } from "./GraphDetailPanel";
 import { GraphA11yAnnouncer } from "./GraphA11yAnnouncer";
 import { GraphTooltip } from "./GraphTooltip";
 import { CognitiveLevelAxis } from "./CognitiveLevelAxis";
+import { SpatialGraphControls } from "./SpatialGraphControls";
+import { SpatialClusterSummary } from "./SpatialClusterSummary";
 import { THOUGHT_TOURS } from "../data/thought-tours";
 import { useGraphState, useIsMobile } from "../hooks/useGraphState";
 import { useGraphRenderer } from "../hooks/useGraphRenderer";
@@ -19,6 +21,13 @@ import { useGraphInteractions } from "../hooks/useGraphInteractions";
 import { parseKnowledgeLevel, type KnowledgeLevel } from "@/lib/knowledge-levels";
 import { buildCognitiveSubgraph } from "../data/cognitive-metadata";
 import { buildCognitiveLayoutPositions, type GraphLayoutMode } from "../lib/cognitive-layout";
+import { buildSpatialGraphProjection, rotationForSpatialDomain } from "../lib/spatial-layout";
+import { buildSpatialDomainSummary } from "../lib/spatial-aggregation";
+import {
+  graphViewUrlKey,
+  parseGraphViewUrlState,
+  writeGraphViewUrlState,
+} from "../lib/graph-view-url-state";
 import { CLUSTER_CENTERS } from "../lib/constants";
 import type { LayoutConfig } from "@/lib/graph-engine";
 import { CURATED_LEARNING_PATHS } from "../data/curated-learning-paths";
@@ -75,6 +84,13 @@ export function KnowledgeGraph({
   const pathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();
+  const requestedGraphView = useMemo(() => {
+    const params = new URLSearchParams(searchParams.toString());
+    return {
+      key: graphViewUrlKey(params),
+      state: parseGraphViewUrlState(params),
+    };
+  }, [searchParams]);
   const requestedCuratedPathId = searchParams.get("path");
   const requestedFocusNodeId = searchParams.get("focus");
   const requestedDomainId = searchParams.get("domain");
@@ -135,14 +151,22 @@ export function KnowledgeGraph({
     : activeCuratedPath
       ? (activeCuratedTargetStep?.level ?? 5)
       : parseKnowledgeLevel(searchParams.get("level"));
+  const defaultLayoutMode: GraphLayoutMode = knowledgeLevel ? "cognitive" : "force";
   const [selectedType, setSelectedType] = useState<GraphNode["type"] | null>(null);
-  const [layoutMode, setLayoutMode] = useState<GraphLayoutMode>(() =>
-    knowledgeLevel ? "cognitive" : "force"
+  const [layoutMode, setLayoutMode] = useState<GraphLayoutMode>(
+    () => requestedGraphView.state.layoutMode ?? defaultLayoutMode
   );
+  const [spatialRotation, setSpatialRotation] = useState(
+    () => requestedGraphView.state.spatialRotation
+  );
+  const [spatialLevel, setSpatialLevel] = useState<KnowledgeLevel | null>(
+    () => requestedGraphView.state.spatialLevel
+  );
+  const graphFilterLevel = layoutMode === "spatial" ? null : knowledgeLevel;
 
   const cognitiveSubgraph = useMemo(
-    () => buildCognitiveSubgraph(frontierNodes, knowledgeLevel, selectedType),
-    [frontierNodes, knowledgeLevel, selectedType]
+    () => buildCognitiveSubgraph(frontierNodes, graphFilterLevel, selectedType),
+    [frontierNodes, graphFilterLevel, selectedType]
   );
   const visibleNodes = cognitiveSubgraph.nodes;
   const visibleNodeIds = useMemo(
@@ -183,6 +207,27 @@ export function KnowledgeGraph({
         : undefined,
     [isMobile, layoutMode, visibleEdges, visibleNodes]
   );
+  const spatialProjection = useMemo(
+    () =>
+      layoutMode === "spatial"
+        ? buildSpatialGraphProjection(visibleNodes, visibleEdges, spatialRotation)
+        : undefined,
+    [layoutMode, spatialRotation, visibleEdges, visibleNodes]
+  );
+  const spatialFrontDomainId = spatialProjection?.frontDomainId ?? null;
+  const spatialSummary = useMemo(
+    () =>
+      spatialProjection && spatialFrontDomainId
+        ? buildSpatialDomainSummary(
+            visibleNodes,
+            visibleEdges,
+            spatialFrontDomainId,
+            spatialProjection.importanceByNode
+          )
+        : null,
+    [spatialFrontDomainId, spatialProjection, visibleEdges, visibleNodes]
+  );
+  const deterministicPositions = spatialProjection?.positions ?? cognitivePositions;
   const forceLayoutConfig = useMemo<Partial<LayoutConfig> | undefined>(
     () =>
       layoutMode === "cluster"
@@ -195,13 +240,33 @@ export function KnowledgeGraph({
     [layoutMode]
   );
   const emphasizedNodeIds = useMemo(() => {
-    if (activeConfluence) return activeConfluenceNodeIdSet;
-    return knowledgeLevel ? cognitiveSubgraph.targetNodeIds : new Set<string>();
+    const emphasized = new Set<string>(
+      activeConfluence
+        ? activeConfluenceNodeIdSet
+        : layoutMode === "cognitive" && knowledgeLevel
+          ? cognitiveSubgraph.targetNodeIds
+          : []
+    );
+    if (layoutMode === "spatial" && spatialFrontDomainId && spatialLevel) {
+      for (const node of visibleNodes) {
+        if (
+          node.domain === spatialFrontDomainId &&
+          (node.knowledgeLevel ?? 2) === spatialLevel
+        ) {
+          emphasized.add(node.id);
+        }
+      }
+    }
+    return emphasized;
   }, [
     activeConfluence,
     activeConfluenceNodeIdSet,
     cognitiveSubgraph.targetNodeIds,
     knowledgeLevel,
+    layoutMode,
+    spatialFrontDomainId,
+    spatialLevel,
+    visibleNodes,
   ]);
 
   const state = useGraphState(
@@ -228,6 +293,55 @@ export function KnowledgeGraph({
   const appliedFocusNodeRef = useRef<string | null>(null);
   const appliedDomainRef = useRef<string | null>(null);
   const appliedConfluenceRef = useRef<string | null>(null);
+  const appliedGraphViewKeyRef = useRef(requestedGraphView.key);
+
+  useEffect(() => {
+    if (appliedGraphViewKeyRef.current === requestedGraphView.key) return;
+    appliedGraphViewKeyRef.current = requestedGraphView.key;
+    setLayoutMode(requestedGraphView.state.layoutMode ?? defaultLayoutMode);
+    if (requestedGraphView.state.layoutMode === "spatial") {
+      setSpatialRotation(requestedGraphView.state.spatialRotation);
+      setSpatialLevel(requestedGraphView.state.spatialLevel);
+    } else {
+      setSpatialLevel(null);
+    }
+  }, [defaultLayoutMode, requestedGraphView]);
+
+  useEffect(() => {
+    if (
+      layoutMode !== "spatial" ||
+      requestedGraphView.state.layoutMode !== "spatial" ||
+      !spatialProjection
+    ) {
+      return;
+    }
+    const timeout = window.setTimeout(
+      () => {
+        const currentParams = new URLSearchParams(searchParams.toString());
+        const nextParams = writeGraphViewUrlState(
+          currentParams,
+          "spatial",
+          spatialRotation,
+          spatialProjection.frontDomainId,
+          spatialLevel
+        );
+        if (nextParams.toString() === currentParams.toString()) return;
+        router.replace(`${pathname}?${nextParams.toString()}`, { scroll: false });
+      },
+      reducedMotion ? 0 : 160
+    );
+    return () => window.clearTimeout(timeout);
+  }, [
+    layoutMode,
+    pathname,
+    reducedMotion,
+    requestedGraphView.state.layoutMode,
+    router,
+    searchParams,
+    spatialProjection,
+    spatialLevel,
+    spatialRotation,
+  ]);
 
   useEffect(() => {
     if (!requestedFrontierValue || requestedFrontierStatus) return;
@@ -256,21 +370,36 @@ export function KnowledgeGraph({
       ? activeConfluenceNodeIdSet.has(requestedFocusNodeId)
       : false;
     const nextFocus = requestedFocusIsValid ? requestedFocusNodeId! : activeConfluenceTargetNodeId;
+    const spatialViewRequested = requestedGraphView.state.layoutMode === "spatial";
     if (
-      searchParams.get("level") !== "5" ||
+      (spatialViewRequested
+        ? searchParams.has("level")
+        : searchParams.get("level") !== "5") ||
       searchParams.get("focus") !== nextFocus ||
-      searchParams.has("path")
+      searchParams.has("path") ||
+      (requestedGraphView.state.layoutMode !== null &&
+        requestedGraphView.state.layoutMode !== "cognitive" &&
+        requestedGraphView.state.layoutMode !== "spatial")
     ) {
-      const nextParams = new URLSearchParams(searchParams.toString());
-      nextParams.set("level", "5");
+      let nextParams = new URLSearchParams(searchParams.toString());
+      if (spatialViewRequested) {
+        nextParams.delete("level");
+      } else {
+        nextParams.set("level", "5");
+      }
       nextParams.set("focus", nextFocus);
       nextParams.delete("path");
       nextParams.set("source", "knowledge-confluence");
+      if (requestedGraphView.state.layoutMode !== "spatial") {
+        nextParams = writeGraphViewUrlState(nextParams, "cognitive", 0, null);
+      }
       router.replace(`${pathname}?${nextParams.toString()}`, { scroll: false });
       return;
     }
 
-    setLayoutMode("cognitive");
+    if (requestedGraphView.state.layoutMode !== "spatial") {
+      setLayoutMode("cognitive");
+    }
     if (appliedConfluenceRef.current !== activeConfluence.id) {
       const domains = new Set(
         nodes.filter((node) => activeConfluenceNodeIdSet.has(node.id)).map((node) => node.domain)
@@ -286,6 +415,7 @@ export function KnowledgeGraph({
     pathname,
     requestedConfluenceId,
     requestedFocusNodeId,
+    requestedGraphView.state.layoutMode,
     router,
     searchParams,
     setActiveDomains,
@@ -315,7 +445,10 @@ export function KnowledgeGraph({
     visibleNodes,
     visibleEdges,
     initialFocus,
-    cognitivePositions,
+    deterministicPositions,
+    spatialProjection?.depthByNode,
+    spatialProjection?.importanceByNode,
+    spatialProjection?.guides,
     forceLayoutConfig,
     onNodeClick,
     onNodeHover,
@@ -345,6 +478,7 @@ export function KnowledgeGraph({
       selectedNodeId: state.selectedNodeId,
       reducedMotion: reducedMotion ?? false,
       searchMatchedIds: state.searchMatchedIds,
+      fitScaleMultiplier: layoutMode === "spatial" && isMobile ? 1.7 : 1,
     }
   );
 
@@ -364,6 +498,8 @@ export function KnowledgeGraph({
       pushRenderData,
       reducedMotion: reducedMotion ?? false,
       searchMatchedIds: state.searchMatchedIds,
+      nodeDepth: spatialProjection?.depthByNode,
+      nodeImportance: spatialProjection?.importanceByNode,
     }
   );
 
@@ -396,10 +532,28 @@ export function KnowledgeGraph({
       nodeDomainMap: state.nodeDomainMap,
       filteredNodes: state.filteredNodes,
       isMobile,
-      stablePositions: cognitivePositions,
+      stablePositions: deterministicPositions,
+      nodeDepth: spatialProjection?.depthByNode,
+      nodeImportance: spatialProjection?.importanceByNode,
+      fitScaleMultiplier: layoutMode === "spatial" && isMobile ? 1.7 : 1,
     }
   );
   const focusCuratedPathTarget = interactions.handleSearchSelect;
+  const focusTourStep = useCallback(
+    (nodeId: string) => {
+      focusCuratedPathTarget(nodeId);
+      if (isMobile) setSelectedNodeId(null);
+    },
+    [focusCuratedPathTarget, isMobile, setSelectedNodeId]
+  );
+  const fitToScreenRef = useRef(interactions.handleFitToScreen);
+  fitToScreenRef.current = interactions.handleFitToScreen;
+
+  useEffect(() => {
+    if (layoutMode !== "cognitive" && layoutMode !== "spatial") return;
+    const timeout = window.setTimeout(() => fitToScreenRef.current(), reducedMotion ? 0 : 320);
+    return () => window.clearTimeout(timeout);
+  }, [isMobile, layoutMode, reducedMotion]);
 
   useEffect(() => {
     if (requestedCuratedPathId && !activeCuratedPath) {
@@ -413,11 +567,17 @@ export function KnowledgeGraph({
 
     if (
       activeCuratedPath &&
-      (searchParams.get("level") !== String(activeCuratedTargetStep?.level ?? 5) ||
+      ((requestedGraphView.state.layoutMode === "spatial"
+        ? searchParams.has("level")
+        : searchParams.get("level") !== String(activeCuratedTargetStep?.level ?? 5)) ||
         (requestedFocusNodeId && !activeCuratedFocusStep))
     ) {
       const nextParams = new URLSearchParams(searchParams.toString());
-      nextParams.set("level", String(activeCuratedTargetStep?.level ?? 5));
+      if (requestedGraphView.state.layoutMode === "spatial") {
+        nextParams.delete("level");
+      } else {
+        nextParams.set("level", String(activeCuratedTargetStep?.level ?? 5));
+      }
       if (requestedFocusNodeId && !activeCuratedFocusStep) nextParams.delete("focus");
       nextParams.set("source", "curated-path");
       const query = nextParams.toString();
@@ -444,6 +604,7 @@ export function KnowledgeGraph({
     pathname,
     requestedCuratedPathId,
     requestedFocusNodeId,
+    requestedGraphView.state.layoutMode,
     router,
     searchParams,
     state.isLoading,
@@ -466,7 +627,11 @@ export function KnowledgeGraph({
       router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
       return;
     }
-    if (!activeConfluence && focusNode.knowledgeLevel !== knowledgeLevel) {
+    if (
+      layoutMode !== "spatial" &&
+      !activeConfluence &&
+      focusNode.knowledgeLevel !== knowledgeLevel
+    ) {
       const nextParams = new URLSearchParams(searchParams.toString());
       nextParams.set("level", String(focusNode.knowledgeLevel));
       router.replace(`${pathname}?${nextParams.toString()}`, { scroll: false });
@@ -486,6 +651,7 @@ export function KnowledgeGraph({
     activeConfluence,
     focusCuratedPathTarget,
     knowledgeLevel,
+    layoutMode,
     nodes,
     pathname,
     requestedFocusNodeId,
@@ -504,7 +670,7 @@ export function KnowledgeGraph({
 
   const handleKnowledgeLevelChange = (level: KnowledgeLevel | null) => {
     if (level) setLayoutMode("cognitive");
-    const nextParams = new URLSearchParams(searchParams.toString());
+    let nextParams = new URLSearchParams(searchParams.toString());
     nextParams.delete("path");
     nextParams.delete("focus");
     nextParams.delete("confluence");
@@ -515,10 +681,14 @@ export function KnowledgeGraph({
     ) {
       nextParams.delete("source");
     }
-    if (level) nextParams.set("level", String(level));
-    else nextParams.delete("level");
+    if (level) {
+      nextParams.set("level", String(level));
+      nextParams = writeGraphViewUrlState(nextParams, "cognitive", 0, null);
+    } else {
+      nextParams.delete("level");
+    }
     const query = nextParams.toString();
-    router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
+    router.push(query ? `${pathname}?${query}` : pathname, { scroll: false });
   };
 
   const handleFrontierStatusChange = (status: KnowledgeFrontierStatus | null) => {
@@ -540,7 +710,7 @@ export function KnowledgeGraph({
   };
 
   const handleCuratedPathChange = (pathId: string | null) => {
-    const nextParams = new URLSearchParams(searchParams.toString());
+    let nextParams = new URLSearchParams(searchParams.toString());
     setSelectedType(null);
     if (pathId) {
       setLayoutMode("cognitive");
@@ -551,6 +721,7 @@ export function KnowledgeGraph({
       nextParams.set("path", pathId);
       nextParams.set("level", "5");
       nextParams.set("source", "curated-path");
+      nextParams = writeGraphViewUrlState(nextParams, "cognitive", 0, null);
     } else {
       nextParams.delete("path");
       if (nextParams.get("source") === "curated-path") nextParams.delete("source");
@@ -561,8 +732,18 @@ export function KnowledgeGraph({
 
   const handleLayoutModeChange = (mode: GraphLayoutMode) => {
     setLayoutMode(mode);
-    if (mode !== "cognitive" && (activeCuratedPath || activeConfluence || requestedFocusNodeId)) {
-      const nextParams = new URLSearchParams(searchParams.toString());
+    const nextParams = writeGraphViewUrlState(
+      new URLSearchParams(searchParams.toString()),
+      mode,
+      spatialRotation,
+      mode === "spatial" ? (spatialProjection?.frontDomainId ?? null) : null,
+      mode === "spatial" ? spatialLevel : null
+    );
+    if (
+      mode !== "cognitive" &&
+      mode !== "spatial" &&
+      (activeCuratedPath || activeConfluence || requestedFocusNodeId)
+    ) {
       nextParams.delete("path");
       nextParams.delete("focus");
       nextParams.delete("confluence");
@@ -573,9 +754,22 @@ export function KnowledgeGraph({
       ) {
         nextParams.delete("source");
       }
-      const query = nextParams.toString();
-      router.push(query ? `${pathname}?${query}` : pathname, { scroll: false });
     }
+    const query = nextParams.toString();
+    router.push(query ? `${pathname}?${query}` : pathname, { scroll: false });
+  };
+
+  const handleSpatialLevelChange = (level: KnowledgeLevel | null) => {
+    if (!spatialProjection) return;
+    setSpatialLevel(level);
+    const nextParams = writeGraphViewUrlState(
+      new URLSearchParams(searchParams.toString()),
+      "spatial",
+      spatialRotation,
+      spatialProjection.frontDomainId,
+      level
+    );
+    router.push(`${pathname}?${nextParams.toString()}`, { scroll: false });
   };
 
   const handleConfluenceExit = () => {
@@ -609,6 +803,29 @@ export function KnowledgeGraph({
       appliedDomainRef.current = null;
     }
   };
+
+  const spatialMinimap = useMemo(() => {
+    if (!spatialProjection) return null;
+    const nodes = state.filteredNodes.flatMap((node) => {
+      const position = spatialProjection.positions.get(node.id);
+      return position ? [{ ...position, domain: node.domain }] : [];
+    });
+    if (nodes.length === 0) return null;
+    const minX = Math.min(...nodes.map((node) => node.x));
+    const maxX = Math.max(...nodes.map((node) => node.x));
+    const minY = Math.min(...nodes.map((node) => node.y));
+    const maxY = Math.max(...nodes.map((node) => node.y));
+    const padding = 200;
+    return {
+      nodes,
+      bounds: {
+        minX: minX - padding,
+        maxX: maxX + padding,
+        minY: minY - padding,
+        maxY: maxY + padding,
+      },
+    };
+  }, [spatialProjection, state.filteredNodes]);
 
   return (
     <div className="flex min-h-0 w-full flex-1 flex-col bg-[#08080f] text-white">
@@ -659,8 +876,9 @@ export function KnowledgeGraph({
           edgeLabelMap={state.edgeLabelMap}
           tours={THOUGHT_TOURS}
           onTourSelect={state.handleTourSelect}
-          onTourStepSelect={interactions.handleSearchSelect}
+          onTourStepSelect={focusTourStep}
           isGraphReady={!state.isLoading}
+          detailPanelOpen={Boolean(state.selectedNode)}
         />
       </div>
 
@@ -682,6 +900,27 @@ export function KnowledgeGraph({
         >
           {layoutMode === "cognitive" ? (
             <CognitiveLevelAxis activeLevel={knowledgeLevel} isMobile={isMobile} />
+          ) : null}
+          {spatialProjection ? (
+            <>
+              <SpatialGraphControls
+                rotation={spatialRotation}
+                frontDomainId={spatialProjection.frontDomainId}
+                activeDomains={state.activeDomains}
+                onRotationChange={setSpatialRotation}
+                onFocusDomain={(domainId) => setSpatialRotation(rotationForSpatialDomain(domainId))}
+                isMobile={isMobile}
+              />
+              {spatialSummary ? (
+                <SpatialClusterSummary
+                  summary={spatialSummary}
+                  selectedLevel={spatialLevel}
+                  onLevelSelect={handleSpatialLevelChange}
+                  onNodeFocus={interactions.handleSearchSelect}
+                  isMobile={isMobile}
+                />
+              ) : null}
+            </>
           ) : null}
           <canvas
             ref={state.canvasRef}
@@ -750,9 +989,9 @@ export function KnowledgeGraph({
               ) : null}
               {(state.showMinimap || !isMobile) && (
                 <GraphMinimap
-                  nodes={state.minimapNodes}
+                  nodes={spatialMinimap?.nodes ?? state.minimapNodes}
                   viewport={state.viewport}
-                  worldBounds={state.worldBounds}
+                  worldBounds={spatialMinimap?.bounds ?? state.worldBounds}
                   onNavigate={interactions.handleMinimapNavigate}
                 />
               )}

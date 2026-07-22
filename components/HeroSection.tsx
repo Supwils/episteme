@@ -36,7 +36,7 @@ export function HeroSection() {
             className="animate-fade-slide-up text-fg-muted mx-auto mb-10 max-w-[520px] text-[1.02rem] leading-relaxed"
             style={{ animationDelay: "0.35s" }}
           >
-            汇聚宇宙物理、宇宙学、人类历史、哲学思想、生命科学与数学逻辑，构建系统化的知识图谱。让任何人随时以美好的方式接触到人类最重要的知识。
+            贯通自然科学、形式科学、社会科学与人文学科，构建可追踪、可游览的知识图谱。让任何人随时以美好的方式接触到人类最重要的知识。
           </p>
         </div>
       </div>

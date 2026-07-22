@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useEffect } from "react";
 import type Katex from "katex";
+import "katex/dist/katex.min.css";
 
 // KaTeX is ~260KB; load it only when an article actually contains math (every
 // math article does, but deferring it keeps it out of First Load JS and shared

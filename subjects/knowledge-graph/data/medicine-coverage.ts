@@ -155,6 +155,38 @@ export const MEDICINE_COVERAGE_NODES: GraphNode[] = [
     "算法读片和风险预测必须跨越数据偏移、校准、临床工作流与责任边界。",
     ["医学 AI", "临床验证"]
   ),
+  node(
+    "screening-and-early-detection",
+    "筛查与早期发现",
+    "concept",
+    "concepts",
+    "把无症状人群中的风险信号连接到确认诊断、严重结局、过度诊断与项目净获益。",
+    ["筛查", "过度诊断", "净获益"]
+  ),
+  node(
+    "pain-and-analgesia",
+    "疼痛、镇痛与阿片决策",
+    "concept",
+    "concepts",
+    "从疼痛机制、功能目标和多模式治疗评估阿片获益、减量、过量与使用障碍风险。",
+    ["疼痛", "阿片", "功能目标"]
+  ),
+  node(
+    "depression",
+    "抑郁症",
+    "disease",
+    "diseases",
+    "把症状、功能、自杀风险、治疗反应、失访、复发与患者偏好纳入持续照护。",
+    ["抑郁症", "心理治疗", "共同决策"]
+  ),
+  node(
+    "informed-consent",
+    "知情同意",
+    "concept",
+    "concepts",
+    "以可理解的信息、自愿和决策能力，让患者参与筛查、治疗和研究选择。",
+    ["知情同意", "共同决策"]
+  ),
 ];
 
 export const MEDICINE_COVERAGE_EDGES: GraphEdge[] = [
@@ -183,6 +215,19 @@ export const MEDICINE_COVERAGE_EDGES: GraphEdge[] = [
   edge("stroke", "clinical-diagnosis", "依赖快速识别与影像分流"),
   edge("clinical-diagnosis", "ai-in-medical-diagnosis", "引入算法支持"),
   edge("ai-in-medical-diagnosis", "evidence-based-medicine", "需要外部验证"),
+  edge("epidemiology", "screening-and-early-detection", "界定目标人群与基础风险"),
+  edge("screening-and-early-detection", "clinical-diagnosis", "阳性后进入确认诊断"),
+  edge("screening-and-early-detection", "cancer", "检验早发现的净获益"),
+  edge("clinical-diagnosis", "cancer", "完成分型与分期"),
+  edge("cancer", "clinical-trials", "以预设终点评价治疗"),
+  edge("evidence-based-medicine", "pain-and-analgesia", "比较功能获益与伤害"),
+  edge("pain-and-analgesia", "depression", "形成双向症状与风险链"),
+  edge("depression", "informed-consent", "要求共同选择与持续复核"),
+  edge(
+    "informed-consent",
+    "health-economic-evaluation-priority-setting",
+    "连接个人价值与人群资源决策"
+  ),
   {
     source: "medicine:clinical-diagnosis",
     target: "mathematics:bayesian-inference",

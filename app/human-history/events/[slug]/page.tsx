@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getEventBySlug } from "@/subjects/history/lib/events";
+import { getEventRouteRecord } from "@/subjects/history/lib/event-route-data";
 import { ERAS } from "@/subjects/history/lib/eras";
 import { EVENT_DETAIL_STYLES } from "./EventDetailStyles";
 import {
@@ -42,7 +43,7 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function EventDetailPage({ params }: Props) {
   const { slug } = await params;
-  const event = getEventBySlug(decodeURIComponent(slug));
+  const event = await getEventRouteRecord(slug);
   if (!event) notFound();
 
   const eraForBg = ERAS.find((e) => e.id === event.era);

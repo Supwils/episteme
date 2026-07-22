@@ -94,6 +94,7 @@ describe("URL constants", () => {
       "human-history",
       "knowledge-graph",
       "life-science",
+      "linguistics",
       "mathematics",
       "medicine",
       "philosophy",

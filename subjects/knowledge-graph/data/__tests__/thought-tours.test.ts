@@ -23,6 +23,14 @@ const toursRequiringExplanationSteps = new Set([
   "how-psychology-builds-evidence",
   "from-climate-signal-to-fair-adaptation",
   "from-molecular-evidence-to-safe-process",
+  "from-data-entry-to-auditable-trust",
+  "from-outbreak-data-to-public-health-action",
+  "from-ion-equilibrium-to-safe-separation",
+  "from-carbon-bond-to-polymer-performance",
+  "from-rate-data-to-defensible-green-process",
+  "from-electron-to-circular-energy-storage",
+  "from-early-signal-to-net-benefit",
+  "from-distress-to-rights-based-mental-health-care",
 ]);
 
 describe("thought tours", () => {

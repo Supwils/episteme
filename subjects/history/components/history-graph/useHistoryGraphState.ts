@@ -33,11 +33,11 @@ function toGraphNode(node: HistoryGraphNode): GraphNode {
 export function resolveNodeUrl(node: HistoryGraphNode): string | null {
   switch (node.type) {
     case 'figure':
-      return `/human-history/figures`;
+      return `/human-history/figures/${encodeURIComponent(node.label)}`;
     case 'event':
-      return `/human-history/timeline`;
+      return `/human-history/events/${encodeURIComponent(node.label)}`;
     case 'era':
-      return `/human-history/timeline`;
+      return `/human-history/eras/${node.slug === 'early-modern' ? 'earlyModern' : node.slug}`;
   }
 }
 

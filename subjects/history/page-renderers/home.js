@@ -1,28 +1,37 @@
-import { gsap } from 'gsap';
-import { ERAS, EVENTS, FIGURES, formatYear } from '@/content/human-history/data/index.js';
-import { el, clearApp, createParticleCanvas, prefersReducedMotion } from '../lib/dom.js';
-import { icon } from '../lib/icons.js';
-import { createEraDetailPanel } from '../components/history/era-detail.js';
-import { escapeHtml } from '../lib/escape-html';
+import { gsap } from "gsap";
+import { ERAS } from "@/content/human-history/data/eras.js";
+import {
+  HISTORY_HOME_COUNTS,
+  HOME_FEATURED_FIGURES,
+  HOME_TIMELINE_EVENTS,
+  formatHomeYear,
+} from "@/content/human-history/data/home-summary.js";
+import { el, clearApp, createParticleCanvas, prefersReducedMotion } from "../lib/dom.js";
+import { icon } from "../lib/icons.js";
+import { createEraDetailPanel } from "../components/history/era-detail.js";
+import { escapeHtml } from "../lib/escape-html";
 
 let _particleCleanup = null;
 let _observers = [];
 
-const STEM_GLYPHS = ['壹', '貳', '叁', '肆', '伍', '陸', '柒'];
+const STEM_GLYPHS = ["壹", "貳", "叁", "肆", "伍", "陸", "柒"];
 const ERA_LATIN = {
-  prehistoric: 'Prehistorica',
-  classical: 'Antiquitas',
-  medieval: 'Medii Aevi',
-  earlyModern: 'Aetas Nova',
-  modern: 'Modernitas',
-  contemporary: 'Hodierna',
-  future: 'Futurum',
+  prehistoric: "Prehistorica",
+  classical: "Antiquitas",
+  medieval: "Medii Aevi",
+  earlyModern: "Aetas Nova",
+  modern: "Modernitas",
+  contemporary: "Hodierna",
+  future: "Futurum",
 };
 
 export function cleanupHome() {
-  if (_particleCleanup) { _particleCleanup(); _particleCleanup = null; }
+  if (_particleCleanup) {
+    _particleCleanup();
+    _particleCleanup = null;
+  }
   // Kill all GSAP tweens to prevent infinite animations from leaking
-  gsap.killTweensOf('*');
+  gsap.killTweensOf("*");
   // Disconnect scroll/counter IntersectionObservers so they don't linger
   // after the home page is torn down on navigation.
   for (const obs of _observers) obs.disconnect();
@@ -30,14 +39,14 @@ export function cleanupHome() {
 }
 
 function buildHero() {
-  const hero = el('section', { class: 'hero' });
+  const hero = el("section", { class: "hero" });
   _particleCleanup = createParticleCanvas(hero);
 
-  const watermark = el('span', { class: 'hero-watermark', 'aria-hidden': 'true' });
-  watermark.textContent = '史';
+  const watermark = el("span", { class: "hero-watermark", "aria-hidden": "true" });
+  watermark.textContent = "史";
   hero.appendChild(watermark);
 
-  const content = el('div', { class: 'hero-side' });
+  const content = el("div", { class: "hero-side" });
   content.innerHTML = `
     <div class="hero-marker">
       <span>CODEX HUMANITATIS</span>
@@ -70,18 +79,18 @@ function buildHero() {
         <div class="hero-vital-label">历史篇章</div>
       </div>
       <div class="hero-vital">
-        <div class="hero-vital-val" data-counter="${EVENTS.length}" data-suffix="+">0</div>
+        <div class="hero-vital-val" data-counter="${HISTORY_HOME_COUNTS.events}" data-suffix="+">0</div>
         <div class="hero-vital-label">关键事件</div>
       </div>
       <div class="hero-vital">
-        <div class="hero-vital-val" data-counter="${FIGURES.length}" data-suffix="+">0</div>
+        <div class="hero-vital-val" data-counter="${HISTORY_HOME_COUNTS.figures}" data-suffix="+">0</div>
         <div class="hero-vital-label">塑造者</div>
       </div>
     </div>
   `;
   hero.appendChild(content);
 
-  const aside = el('aside', { class: 'hero-aside' });
+  const aside = el("aside", { class: "hero-aside" });
   aside.innerHTML = `
     <div class="hero-aside-head">
       <strong>七幕剧 · The Seven Acts</strong>
@@ -89,17 +98,17 @@ function buildHero() {
     </div>
     <div class="hero-era-strip"></div>
   `;
-  const strip = aside.querySelector('.hero-era-strip');
+  const strip = aside.querySelector(".hero-era-strip");
   ERAS.forEach((era, i) => {
-    const row = el('a', {
-      class: 'hero-era-row',
+    const row = el("a", {
+      class: "hero-era-row",
       href: `/human-history/timeline#${era.id}`,
-      style: { '--era-color': era.color },
+      style: { "--era-color": era.color },
     });
     row.innerHTML = `
-      <span class="hero-era-num">${String(i + 1).padStart(2, '0')}</span>
-      <span class="hero-era-name">${escapeHtml(era.name)}<em>${ERA_LATIN[era.id] || ''}</em></span>
-      <span class="hero-era-range">${formatYear(era.startYear)} — ${formatYear(era.endYear)}</span>
+      <span class="hero-era-num">${String(i + 1).padStart(2, "0")}</span>
+      <span class="hero-era-name">${escapeHtml(era.name)}<em>${ERA_LATIN[era.id] || ""}</em></span>
+      <span class="hero-era-range">${formatHomeYear(era.startYear)} — ${formatHomeYear(era.endYear)}</span>
     `;
     strip.appendChild(row);
   });
@@ -109,13 +118,13 @@ function buildHero() {
 }
 
 function ornament() {
-  const div = el('div', { class: 'section-divider' });
+  const div = el("div", { class: "section-divider" });
   div.innerHTML = `<span class="section-divider-glyph">❖</span>`;
   return div;
 }
 
 function buildEraSection() {
-  const frame = el('section', { class: 'section-frame' });
+  const frame = el("section", { class: "section-frame" });
   frame.innerHTML = `
     <div class="section-eyebrow">CHAPTER ATLAS <span>历七幕 · 览七彩</span></div>
     <h2 class="section-title">七大时代 · <em>The Seven Eras</em></h2>
@@ -123,46 +132,52 @@ function buildEraSection() {
       从远古的篝火到未来的星辰——每一幕都重塑了人类自我认识的边界。点击进入相应的时间线锚点。
     </p>
   `;
-  const list = el('div', { class: 'era-list' });
+  const list = el("div", { class: "era-list" });
   ERAS.forEach((era, i) => {
-    const card = el('div', {
-      class: 'era-card',
-      style: { '--era-color': era.color },
-      'data-stem': STEM_GLYPHS[i] || '',
+    const card = el("div", {
+      class: "era-card",
+      style: { "--era-color": era.color },
+      "data-stem": STEM_GLYPHS[i] || "",
     });
     card.innerHTML = `
-      <div class="era-stem"><strong>${STEM_GLYPHS[i] || ''}</strong>0${i + 1}</div>
+      <div class="era-stem"><strong>${STEM_GLYPHS[i] || ""}</strong>0${i + 1}</div>
       <a href="/human-history/timeline#${era.id}" class="era-card-link">
         <div class="era-card-head">
           <div class="era-icon">${icon(era.icon, 20)}</div>
           <div class="era-name-wrap">
-            <span class="era-name">${escapeHtml(era.name)}<em>${ERA_LATIN[era.id] || ''}</em></span>
+            <span class="era-name">${escapeHtml(era.name)}<em>${ERA_LATIN[era.id] || ""}</em></span>
           </div>
-          <span class="era-date">${formatYear(era.startYear)} ╱ ${formatYear(era.endYear)}</span>
+          <span class="era-date">${formatHomeYear(era.startYear)} ╱ ${formatHomeYear(era.endYear)}</span>
         </div>
         <p class="era-desc">${escapeHtml(era.desc)}</p>
-        <div class="era-tags">${era.highlights.slice(0, 5).map(h => `<span class="tag" style="color:${era.color};border-color:${era.color}40;background:${era.color}10">${escapeHtml(h)}</span>`).join('')}</div>
+        <div class="era-tags">${era.highlights
+          .slice(0, 5)
+          .map(
+            (h) =>
+              `<span class="tag" style="color:${era.color};border-color:${era.color}40;background:${era.color}10">${escapeHtml(h)}</span>`
+          )
+          .join("")}</div>
       </a>
       <button class="era-expand-btn" aria-label="展开详情">深入探索 ▾</button>
       <div class="era-expand-body"></div>
     `;
-    const expandBtn = card.querySelector('.era-expand-btn');
-    const expandBody = card.querySelector('.era-expand-body');
+    const expandBtn = card.querySelector(".era-expand-btn");
+    const expandBody = card.querySelector(".era-expand-body");
     let expanded = false;
-    expandBtn.addEventListener('click', (e) => {
+    expandBtn.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
       expanded = !expanded;
       if (expanded) {
-        expandBody.innerHTML = '';
+        expandBody.innerHTML = "";
         expandBody.appendChild(createEraDetailPanel(era));
-        expandBody.style.display = 'block';
-        expandBtn.textContent = '收起 ▴';
-        card.classList.add('era-card-expanded');
+        expandBody.style.display = "block";
+        expandBtn.textContent = "收起 ▴";
+        card.classList.add("era-card-expanded");
       } else {
-        expandBody.style.display = 'none';
-        expandBtn.textContent = '深入探索 ▾';
-        card.classList.remove('era-card-expanded');
+        expandBody.style.display = "none";
+        expandBtn.textContent = "深入探索 ▾";
+        card.classList.remove("era-card-expanded");
       }
     });
     list.appendChild(card);
@@ -172,7 +187,7 @@ function buildEraSection() {
 }
 
 function buildMiniTimeline() {
-  const frame = el('section', { class: 'section-frame' });
+  const frame = el("section", { class: "section-frame" });
   frame.innerHTML = `
     <div class="section-eyebrow">RIVER <span>历史长河</span></div>
     <h2 class="section-title">关键节点 · <em>moments that bent the arc</em></h2>
@@ -180,12 +195,11 @@ function buildMiniTimeline() {
       从智人诞生到 ChatGPT 上线——挑选了改变人类命运走向的关键时刻，沿河流溯源。
     </p>
   `;
-  const track = el('div', { class: 'mini-tl' });
-  const majorEvents = EVENTS.filter((_, i) => i % 3 === 0).slice(0, 12);
-  for (const ev of majorEvents) {
-    const item = el('div', { class: 'mini-tl-item' });
+  const track = el("div", { class: "mini-tl" });
+  for (const ev of HOME_TIMELINE_EVENTS) {
+    const item = el("div", { class: "mini-tl-item" });
     item.innerHTML = `
-      <span class="mini-tl-year">${formatYear(ev.year)}</span>
+      <span class="mini-tl-year">${formatHomeYear(ev.year)}</span>
       <span class="mini-tl-dot"></span>
       <div class="mini-tl-content">
         <h3>${escapeHtml(ev.title)}</h3>
@@ -199,7 +213,7 @@ function buildMiniTimeline() {
 }
 
 function buildFiguresSection() {
-  const frame = el('section', { class: 'section-frame' });
+  const frame = el("section", { class: "section-frame" });
   frame.innerHTML = `
     <div class="section-eyebrow">CAST <span>塑造历史的人</span></div>
     <h2 class="section-title">关键人物 · <em>they bent the world</em></h2>
@@ -207,9 +221,9 @@ function buildFiguresSection() {
       从孔子到爱因斯坦——这些人的思想或行动让人类朝着新的方向跃迁。
     </p>
   `;
-  const grid = el('div', { class: 'figures-grid' });
-  for (const f of FIGURES.slice(0, 6)) {
-    const card = el('a', { class: 'figure-card', href: `/human-history/figures` });
+  const grid = el("div", { class: "figures-grid" });
+  for (const f of HOME_FEATURED_FIGURES) {
+    const card = el("a", { class: "figure-card", href: `/human-history/figures` });
     card.innerHTML = `
       <div class="figure-head">
         <div class="figure-avatar">${escapeHtml(f.name[0])}</div>
@@ -227,7 +241,7 @@ function buildFiguresSection() {
 }
 
 function buildQuote() {
-  const quote = el('div', { class: 'quote-section' });
+  const quote = el("div", { class: "quote-section" });
   quote.innerHTML = `
     <div class="section-eyebrow" style="justify-content:center">EPIGRAPH <span>以史为镜</span></div>
     <blockquote>以铜为镜，可以正衣冠；以史为镜，可以知兴替。</blockquote>
@@ -241,9 +255,9 @@ function buildQuote() {
 function animateCounter(elNode) {
   const target = parseInt(elNode.dataset.counter, 10);
   if (!Number.isFinite(target)) return;
-  const suffix = elNode.dataset.suffix || '';
-  const supMatch = elNode.querySelector('sup');
-  const sup = supMatch ? supMatch.outerHTML : '';
+  const suffix = elNode.dataset.suffix || "";
+  const supMatch = elNode.querySelector("sup");
+  const sup = supMatch ? supMatch.outerHTML : "";
   if (prefersReducedMotion()) {
     elNode.innerHTML = target.toLocaleString() + suffix + sup;
     return;
@@ -253,7 +267,7 @@ function animateCounter(elNode) {
   gsap.to(state, {
     v: target,
     duration,
-    ease: 'power2.out',
+    ease: "power2.out",
     onUpdate: () => {
       elNode.innerHTML = Math.round(state.v).toLocaleString() + suffix + sup;
     },
@@ -275,16 +289,16 @@ export function renderHome() {
       y: 28,
       stagger: 0.08,
       duration: 0.85,
-      ease: 'power3.out',
+      ease: "power3.out",
       delay: 0.2,
     });
     // Float watermark gently
-    gsap.to(hero.querySelector('.hero-watermark'), {
-      y: '-=18',
+    gsap.to(hero.querySelector(".hero-watermark"), {
+      y: "-=18",
       duration: 6,
       yoyo: true,
       repeat: -1,
-      ease: 'sine.inOut',
+      ease: "sine.inOut",
     });
   }
 
@@ -304,41 +318,53 @@ export function renderHome() {
   app.appendChild(buildQuote());
 
   // Animate counters in hero when scrolled or immediately if already in view
-  const counterEls = [...app.querySelectorAll('[data-counter]')];
-  const counterObs = new IntersectionObserver((entries) => {
-    for (const entry of entries) {
-      if (entry.isIntersecting) {
-        animateCounter(entry.target);
-        counterObs.unobserve(entry.target);
+  const counterEls = [...app.querySelectorAll("[data-counter]")];
+  const counterObs = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObs.unobserve(entry.target);
+        }
       }
-    }
-  }, { threshold: 0.4 });
+    },
+    { threshold: 0.4 }
+  );
   _observers.push(counterObs);
   for (const c of counterEls) counterObs.observe(c);
 
   // Reveal sections on scroll
   if (!prefersReducedMotion()) {
-    const revealTargets = [...app.querySelectorAll('.section-frame, .quote-section')];
-    const observer = new IntersectionObserver((entries) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          const children = [
-            ...entry.target.querySelectorAll('.section-eyebrow, .section-title, .section-sub, .era-card, .mini-tl-item, .figure-card, blockquote, cite, .quote-seal'),
-          ];
-          gsap.fromTo(
-            children.length ? children : entry.target,
-            { opacity: 0, y: 22 },
-            { opacity: 1, y: 0, duration: 0.7, stagger: 0.04, ease: 'power2.out' }
-          );
-          observer.unobserve(entry.target);
+    const revealTargets = [...app.querySelectorAll(".section-frame, .quote-section")];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const children = [
+              ...entry.target.querySelectorAll(
+                ".section-eyebrow, .section-title, .section-sub, .era-card, .mini-tl-item, .figure-card, blockquote, cite, .quote-seal"
+              ),
+            ];
+            gsap.fromTo(
+              children.length ? children : entry.target,
+              { opacity: 0, y: 22 },
+              { opacity: 1, y: 0, duration: 0.7, stagger: 0.04, ease: "power2.out" }
+            );
+            observer.unobserve(entry.target);
+          }
         }
-      }
-    }, { threshold: 0.12 });
+      },
+      { threshold: 0.12 }
+    );
     _observers.push(observer);
     for (const t of revealTargets) {
-      t.style.opacity = '1';
-      const init = t.querySelectorAll('.section-eyebrow, .section-title, .section-sub, .era-card, .mini-tl-item, .figure-card, blockquote, cite, .quote-seal');
-      init.forEach(c => { c.style.opacity = '0'; });
+      t.style.opacity = "1";
+      const init = t.querySelectorAll(
+        ".section-eyebrow, .section-title, .section-sub, .era-card, .mini-tl-item, .figure-card, blockquote, cite, .quote-seal"
+      );
+      init.forEach((c) => {
+        c.style.opacity = "0";
+      });
       observer.observe(t);
     }
   }

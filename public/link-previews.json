@@ -19,6 +19,11 @@
     "e": "如果把一个原子放大到一座足球场那么大，原子核只有场地正中的一颗豌豆，而电子是在看台外缘掠过的几粒尘埃——其余全是空荡荡的真空。",
     "d": "chemistry"
   },
+  "/chemistry/concepts/battery-performance-safety-and-circularity": {
+    "t": "电池评价：性能、安全与循环",
+    "e": "一枚实验室电池“循环 1000 次后保持 80% 容量”，听起来已经足够好。",
+    "d": "chemistry"
+  },
   "/chemistry/concepts/bioenergetics-and-metabolism": {
     "t": "生物能学与代谢",
     "e": "你此刻读这句话，脑细胞正在以每秒难以计数的速度消耗一种叫 ATP 的分子。",
@@ -56,7 +61,7 @@
   },
   "/chemistry/concepts/chromatography": {
     "t": "色谱分离",
-    "e": "1900 年前后，俄国植物学家茨维特把一片绿叶的提取物倒进一根装满白色粉末的玻璃柱，再用石油醚冲淋。",
+    "e": "20 世纪初，植物学家 Mikhail Tswett 把叶片色素提取物装入吸附剂柱，再用溶剂洗脱。",
     "d": "chemistry"
   },
   "/chemistry/concepts/cofactors-and-coenzymes": {
@@ -71,7 +76,7 @@
   },
   "/chemistry/concepts/electrochemistry": {
     "t": "电化学",
-    "e": "你口袋里手机能亮一整天，电动车能跑几百公里，背后是同一个朴素的把戏：把化学反应里\"电子搬家\"这件事，从分子内部拽出来，逼着电子绕一大圈走外部电路——这一圈，就是电流。",
+    "e": "手机接通电路后，负极材料中的电子不会直接穿过电解质跑到正极。",
     "d": "chemistry"
   },
   "/chemistry/concepts/functional-groups": {
@@ -86,7 +91,7 @@
   },
   "/chemistry/concepts/intermolecular-forces": {
     "t": "分子间作用力",
-    "e": "如果分子之间毫无吸引，世界会是什么样？",
+    "e": "如果中性分子之间只有短程排斥而没有吸引，多数分子物质就很难形成今天所见的液体、分子晶体、膜和有序组装体。离子晶体、金属和共价网络固体还有别的凝聚机制，因此不能把整个物质世界都归给一种“弱力”。",
     "d": "chemistry"
   },
   "/chemistry/concepts/isomerism": {
@@ -136,7 +141,7 @@
   },
   "/chemistry/concepts/reaction-kinetics": {
     "t": "反应速率",
-    "e": "一块木头放在空气里，理论上它\"想要\"和氧气结合、变成二氧化碳和水——这个反应是自发的、放能的。可它就摆在那儿，几十年都纹丝不动。划一根火柴点一下，几分钟就烧没了。",
+    "e": "一瓶氢气和氧气可以在室温下共存很久，也可以被一个火花触发，在极短时间内放出大量热。两种状态的起点和终点没有变，变化的是体系穿过反应路径的速度。",
     "d": "chemistry"
   },
   "/chemistry/concepts/reaction-mechanisms": {
@@ -156,7 +161,7 @@
   },
   "/chemistry/concepts/spectroscopy": {
     "t": "光谱学",
-    "e": "化学家从来没有\"看见\"过一个分子。",
+    "e": "常规结构鉴定不是给孤立分子拍一张可见光照片。扫描探针、电子显微和 X 射线方法在特定条件下能提供实空间结构信息，但多数化学问题仍要从物质对外加能量的响应反推出组成与结构。",
     "d": "chemistry"
   },
   "/chemistry/concepts/surface-and-colloid-chemistry": {
@@ -250,8 +255,8 @@
     "d": "chemistry"
   },
   "/chemistry/frontier/beyond-lithium-batteries": {
-    "t": "超越锂离子：当电池开始重新选择元素",
-    "e": "2023 年 4 月，中国电池巨头宁德时代（CATL）宣布量产钠离子电池，并把它装进了奇瑞的一款电动车里。这是一件容易被忽略却意味深长的事：自 1991 年索尼把锂离子电池商业化以来，主导路线…",
+    "t": "超越锂离子：从材料承诺到可制造电池",
+    "e": "“下一代电池”新闻常把一个高容量材料、一枚实验室扣式电池和一条可制造的吉瓦时产线写成同一件事。",
     "d": "chemistry"
   },
   "/chemistry/frontier/carbon-capture-chemistry": {
@@ -316,7 +321,7 @@
   },
   "/chemistry/milestones/green-chemistry": {
     "t": "绿色化学（1998）",
-    "e": "20 世纪末，化学已经造出了化肥、药品、塑料和数不清的新材料，却也留下了一长串触目惊心的事故清单：印度博帕尔毒气泄漏、各地被污染的河流、难以降解的农药残留、堆积如山的有毒废料。",
+    "e": "处理废水、焚烧废物和安装尾气装置都很重要，但它们面对的是已经形成的危害。绿色化学把问题向前移动：能否在分子、反应路线和产品设计阶段，就减少有害物质的使用与生成？",
     "d": "chemistry"
   },
   "/chemistry/milestones/haber-bosch-process": {
@@ -346,12 +351,12 @@
   },
   "/chemistry/reactions/acid-base-neutralization": {
     "t": "酸碱中和",
-    "e": "胃里泛酸，吃一片苏打片就舒服了；被蜜蜂蜇了，抹点碱性的小苏打能减轻刺痛。",
+    "e": "抗酸药可以消耗一部分胃酸，工业废水也常要在排放前调节酸碱度。这些场景都利用酸与碱之间的反应，但绝不能据此推导出\"接触了酸就涂碱、接触了碱就涂酸\"。",
     "d": "chemistry"
   },
   "/chemistry/reactions/catalysis-reaction": {
     "t": "催化作用",
-    "e": "人类今天能养活八十亿人，很大程度上要感谢一块铁。",
+    "e": "把氮气和氢气混合，并不意味着它们会在有用时间内变成氨。氮氮三键很稳定，反应还同时受到平衡、表面吸附、传质与放热管理的约束。工业合成氨之所以成立，不是因为铁“赋予了反应可能性”，而是铁表面提供了…",
     "d": "chemistry"
   },
   "/chemistry/reactions/combustion": {
@@ -371,7 +376,7 @@
   },
   "/chemistry/reactions/electrolysis": {
     "t": "电解",
-    "e": "有些化学反应天生\"不情愿\"。",
+    "e": "水不会在常温下自行大量变成氢气和氧气，氧化铝也不会主动释放金属铝。要让这些热力学上不利的变化持续发生，必须从外界输入功。",
     "d": "chemistry"
   },
   "/chemistry/reactions/enzymatic-catalysis": {
@@ -386,7 +391,7 @@
   },
   "/chemistry/reactions/grignard-reaction": {
     "t": "格氏反应",
-    "e": "有机化学最核心、也最难的一件事，是把两块碳骨架接到一起——造一根新的碳碳键。",
+    "e": "有机合成经常需要把两段碳骨架接成一根新的碳碳键。困难不在于“碳天生安分”，而在于两个富电子中心彼此排斥、两个缺电子中心也无法互补；路线设计要制造一个富电子碳和一个缺电子碳，使二者极性匹配。",
     "d": "chemistry"
   },
   "/chemistry/reactions/organic-synthesis": {
@@ -406,7 +411,7 @@
   },
   "/chemistry/reactions/precipitation-reactions": {
     "t": "沉淀反应",
-    "e": "把两杯清澈透明的盐水一倒，瞬间冒出一团乳白的固体，像变魔术一样从虚无中凝出。",
+    "e": "把两杯澄清溶液混合，液体突然浑浊并出现固体。原子并非凭空产生：它们原本以溶剂化离子或分子的形式分散在水中，现在重新组合成了一个稳定的固相。",
     "d": "chemistry"
   },
   "/chemistry/reactions/sn1-sn2-nucleophilic-substitution": {
@@ -431,7 +436,7 @@
   },
   "/chemistry/substances/catalysts": {
     "t": "催化剂",
-    "e": "你身体里此刻正发生着成千上万个化学反应：消化食物、分解酒精、传递神经信号。",
+    "e": "“铂催化剂”听起来像一种成分明确的物质，真实工业催化剂却更像一个经过设计的微型反应环境。铂可能只占很少一部分，它被分散在氧化铝或碳载体上，周围还有改变电子状态的助剂、控制孔结构的成型组分，以及…",
     "d": "chemistry"
   },
   "/chemistry/substances/glass-and-ceramics": {
@@ -461,7 +466,7 @@
   },
   "/chemistry/substances/polymers": {
     "t": "高分子与聚合物",
-    "e": "环顾你此刻所在的房间：手机外壳、电脑键盘、椅子、衣服上的化纤、矿泉水瓶、电线外皮、墙上的乳胶漆——它们几乎都来自同一类物质。",
+    "e": "手机外壳、轮胎、输液管、建筑保温层、涂料和衣物纤维都可能以聚合物为主体，但它们不是同一种“塑料”。聚合物是由大量重复或相关结构单元组成的高摩尔质量分子；聚合物材料则是在这些大分子之外，还包含填…",
     "d": "chemistry"
   },
   "/chemistry/substances/proteins-chemistry": {
@@ -741,7 +746,7 @@
   },
   "/computer-science/concepts/authentication-authorization": {
     "t": "身份验证与授权",
-    "e": "每次你登录一个网站，后台都在运行两个截然不同的问题：",
+    "e": "每次你登录一个网站，系统至少要处理四个不同问题：",
     "d": "computer-science"
   },
   "/computer-science/concepts/b-trees-and-lsm-trees": {
@@ -801,7 +806,7 @@
   },
   "/computer-science/concepts/consensus-algorithms": {
     "t": "分布式共识算法",
-    "e": "2013 年前后，斯坦福的两位研究者 Diego Ongaro 和 John Ousterhout 发表了一篇论文（正式发表于 2014 年 USENIX ATC），标题里藏着一句近乎抱怨的话…",
+    "e": "2014 年，Diego Ongaro 和 John Ousterhout 在 USENIX ATC 发表《In Search of an Understandable Consensus A…",
     "d": "computer-science"
   },
   "/computer-science/concepts/containers-and-orchestration": {
@@ -856,7 +861,7 @@
   },
   "/computer-science/concepts/encryption-basics": {
     "t": "加密基础",
-    "e": "1977 年，三位麻省理工学院的研究员——Ron Rivest、Adi Shamir、Leonard Adleman——提出了一个令人意外的数学事实：有一类问题，正向计算极其简单，而逆向求解需…",
+    "e": "1977 年，Ron Rivest、Adi Shamir、Leonard Adleman 设计了后来以三人姓氏首字母命名的 RSA，并于次年发表。它利用模幂运算易算、从公开参数恢复私钥在已知经…",
     "d": "computer-science"
   },
   "/computer-science/concepts/file-systems": {
@@ -871,7 +876,7 @@
   },
   "/computer-science/concepts/formal-methods-and-verification": {
     "t": "形式化方法与程序验证",
-    "e": "1996 年 6 月 4 日，欧洲航天局的阿丽亚娜 5 号运载火箭在发射 37 秒后爆炸。事故原因是一个 64 位浮点数在转换为 16 位整数时溢出，触发了未处理的异常，导致控制系统崩溃。这个…",
+    "e": "1996 年 6 月 4 日，阿丽亚娜 5 号首飞在点火序列开始约 40 秒后解体。调查委员会追溯出一条比\"整数溢出\"更完整的失效链：惯性基准系统仍在执行一段升空后已无必要的对准软件；阿丽亚娜…",
     "d": "computer-science"
   },
   "/computer-science/concepts/functional-programming": {
@@ -954,6 +959,11 @@
     "e": "1969 年夏天，贝尔实验室的肯·汤普森（Ken Thompson）发现了一台被闲置在角落里的老旧 PDP-7 计算机。他用了三周时间，在上面写下了一个简单的操作系统内核、一个 shell、一…",
     "d": "computer-science"
   },
+  "/computer-science/concepts/privacy-engineering": {
+    "t": "隐私工程",
+    "e": "一个系统可以从未发生数据泄露，却仍然严重侵犯隐私：它可能收集完成任务不需要的数据，把用户预期中的单次用途变成长期画像，允许员工合法查询敏感记录，或用准确模型对人做不透明且不公平的决定。",
+    "d": "computer-science"
+  },
   "/computer-science/concepts/programming-language-design": {
     "t": "程序设计语言设计",
     "e": "1972 年，Dennis Ritchie 在贝尔实验室用 C 语言重写了 Unix 操作系统。在此之前，操作系统只能用汇编语言写——每换一台新机器，代码全部报废。C 的出现让同一份源代码能跑…",
@@ -989,9 +999,14 @@
     "e": "1968 年，北大西洋公约组织（NATO）在西德加尔米施举办了一次研讨会，议题只有一个：软件危机（Software Crisis）。",
     "d": "computer-science"
   },
+  "/computer-science/concepts/software-supply-chain-security": {
+    "t": "软件供应链安全",
+    "e": "现代软件很少从空白开始。一个应用可能依赖操作系统镜像、编译器、包管理器、数百个直接与传递依赖、CI 插件、制品仓库、部署脚本和自动更新服务。攻击者不一定要攻破最终应用；只要控制其中一个被信任环…",
+    "d": "computer-science"
+  },
   "/computer-science/concepts/software-testing": {
     "t": "软件测试",
-    "e": "1962 年 7 月 22 日，NASA 的水手 1 号（Mariner 1）火箭在发射约 290 多秒后被地面安全官引爆销毁。最被广泛接受的说法是：导引方程在手工誊抄到程序规格时漏掉了一个上…",
+    "e": "1962 年 7 月 22 日，水手 1 号（Mariner 1）的 Atlas-Agena 火箭偏离航向，地面安全官在发射后 294.5 秒发出自毁指令。NASA 的任务史把失败归因于两个共…",
     "d": "computer-science"
   },
   "/computer-science/concepts/tcp-and-reliable-transport": {
@@ -1030,8 +1045,8 @@
     "d": "computer-science"
   },
   "/computer-science/frontier/ai-interpretability": {
-    "t": "机制可解释性：理解神经网络内部",
-    "e": "2021 年，OpenAI 的研究人员在多模态模型 CLIP 中发现了一个奇特的神经元：它会对\"蜘蛛侠\"这个概念产生强烈反应——无论给它看蜘蛛侠的照片、一幅蜘蛛侠的素描，还是仅仅写着\"spid…",
+    "t": "机制可解释性：从可命名特征到因果机制",
+    "e": "2021 年，OpenAI 研究者在 CLIP 中观察到一个“蜘蛛侠神经元”：蜘蛛图像、单词 spider 的图像和蜘蛛侠角色都会激活它。这说明模型内部可能出现跨文字、符号和视觉形式的抽象响应…",
     "d": "computer-science"
   },
   "/computer-science/frontier/formal-verification": {
@@ -1596,7 +1611,7 @@
   },
   "/earth-science/events/valdivia-1960": {
     "t": "智利大地震（1960 · 瓦尔迪维亚）",
-    "e": "1960 年 5 月 22 日下午，智利南部的大地剧烈摇晃了好几分钟。这是人类用仪器记录到的最大一次地震，矩震级 M_w 9.5——这个纪录保持至今，超过半个世纪无人打破。它释放的能量，比 2…",
+    "e": "1960 年 5 月 22 日下午，智利南部的大地剧烈摇晃了好几分钟。这是现代地震目录中矩震级最大的一次地震，M_w 9.5——这个纪录保持至今。按震级—能量的经验关系估算，它释放的地震波能量…",
     "d": "earth-science"
   },
   "/earth-science/frontier/carbon-capture-geoengineering": {
@@ -3836,7 +3851,7 @@
   },
   "/medicine/concepts/drug-development": {
     "t": "药物研发与临床试验",
-    "e": "一颗新药从实验室走到药房的货架，平均要花十年以上、烧掉数亿美元，而且一路上九成以上的候选药物会半途夭折。",
+    "e": "一颗新药从实验室走到药房的货架，常需多年，许多进入人体研究的候选物也无法获批。研发时间、成功率与成本会随疾病领域、分子类型、统计口径和是否计入失败项目及资本机会成本而大幅变化，因此不存在适用于…",
     "d": "medicine"
   },
   "/medicine/concepts/endocrine-system": {
@@ -3915,8 +3930,8 @@
     "d": "medicine"
   },
   "/medicine/concepts/pain-and-analgesia": {
-    "t": "疼痛与镇痛",
-    "e": "把手放到滚烫的炉子上，你会在意识到\"烫\"之前就缩回了手。疼痛是身体最古老、最有效的警报：它告诉你\"这里出问题了，快保护它\"。一个天生感觉不到疼的人，反而活得格外危险——他们常常伤痕累累而不自知…",
+    "t": "疼痛、镇痛与阿片决策",
+    "e": "疼痛是一种真实的感觉与情绪体验，却不是组织损伤的简单仪表读数。它可以保护身体，也可以在原始损伤愈合后持续，改变睡眠、活动、情绪、工作和家庭关系。",
     "d": "medicine"
   },
   "/medicine/concepts/pathology": {
@@ -3931,7 +3946,7 @@
   },
   "/medicine/concepts/public-health": {
     "t": "公共卫生",
-    "e": "过去一百多年，人类平均寿命大幅延长。很多人下意识把功劳归给医院、手术和新药。但翻开数据会发现一个反直觉的事实：让人类活得更久的，更多是没看病时发生的事——干净的饮用水、污水处理、疫苗接种、控烟…",
+    "e": "过去一百多年，人类平均寿命大幅延长。医院、手术和新药贡献巨大，但许多人口层面的健康增益也来自没看病时发生的事——干净的饮用水、污水处理、疫苗接种、控烟、营养改善、更安全的工作与道路。不同国家、…",
     "d": "medicine"
   },
   "/medicine/concepts/renal-physiology": {
@@ -3947,6 +3962,11 @@
   "/medicine/concepts/respiratory-system": {
     "t": "呼吸系统",
     "e": "你此刻大约每分钟呼吸 12–16 次，每次吸入约 500 毫升空气——看起来只是胸口起伏。但在肺泡里，一层仅 0.2 微米厚的薄膜正把氧气送进血液、把二氧化碳送出去；这套交换若停转 4–6 分…",
+    "d": "medicine"
+  },
+  "/medicine/concepts/screening-and-early-detection": {
+    "t": "筛查与早期发现",
+    "e": "一个没有症状的人接受检查，结果提示“可能有病”。这不是诊断完成，而是一条决策链的起点。",
     "d": "medicine"
   },
   "/medicine/concepts/surgery": {
@@ -3981,12 +4001,12 @@
   },
   "/medicine/diseases/cancer": {
     "t": "癌症",
-    "e": "公元前 1600 年左右的一卷古埃及纸草书里，已经记载了乳房肿块的病例，作者在治疗一栏写下了令人沮丧的结论：\"无药可治。\"",
+    "e": "“癌症”不是一个统一敌人，而是许多在起源组织、驱动改变、扩散方式、治疗敏感性和自然史上不同的疾病。即使病理名称相同，两个患者的分子亚型、分期、身体状况与治疗目标也可能不同。",
     "d": "medicine"
   },
   "/medicine/diseases/cardiovascular-disease": {
     "t": "心血管疾病",
-    "e": "如果要问，当今世界什么疾病杀死的人最多，答案既不是癌症，也不是任何一种传染病，而是心血管疾病。WHO 估计，它每年夺走约一千八百万人的生命，稳居全球头号死因。",
+    "e": "心血管疾病不是一种病，而是一组累及心脏和血管的疾病。WHO 2025 年资料估计，2022 年全球约有 1980 万人死于心血管疾病，约占全部死亡的 32%；其中约 85% 与心肌梗死和脑卒中…",
     "d": "medicine"
   },
   "/medicine/diseases/cholera": {
@@ -3996,7 +4016,7 @@
   },
   "/medicine/diseases/chronic-kidney-disease": {
     "t": "慢性肾病",
-    "e": "你的两个肾，每天默默过滤约 180 升血液——相当于把你全身的血反复清洗几十遍，挑出代谢废物和多余水分，再精确平衡钠、钾、酸碱，还顺手分泌调节血压和造血的激素。",
+    "e": "你的两个肾每天从血浆中形成约 180 升肾小球滤液（原尿）。绝大部分水和有用小分子随后被肾小管重吸收，最终排出的尿液通常只有其中很小一部分。把 180 升说成\"每天排出的尿\"或\"过滤了 180…",
     "d": "medicine"
   },
   "/medicine/diseases/covid-19": {
@@ -4006,7 +4026,7 @@
   },
   "/medicine/diseases/depression": {
     "t": "抑郁症",
-    "e": "一个人可以在外人看来\"什么都好\"——有工作、有家庭、会笑——却在每个清晨醒来时被一种沉重的空洞攫住，仿佛世界被抽走了颜色和重量。",
+    "e": "抑郁症不是普通悲伤的另一个名字，也不是一项血液或脑扫描能单独确认的异常。它是一组在情绪、兴趣、动力、睡眠、食欲、认知、自我评价和身体活动上形成持续模式，并造成明显痛苦或功能受损的临床综合征。",
     "d": "medicine"
   },
   "/medicine/diseases/diabetes": {
@@ -4026,12 +4046,12 @@
   },
   "/medicine/diseases/liver-disease": {
     "t": "肝硬化与慢性肝病",
-    "e": "肝脏是人体内最沉默、也最能干的器官之一。它身兼数百项工作：解毒、合成蛋白、储存能量、生产凝血因子、代谢药物和酒精。更惊人的是，它还是少数能自我再生的器官——切掉一大半，剩下的能慢慢长回来。",
+    "e": "肝脏参与解毒、合成蛋白和凝血因子、储存与调配能量、代谢药物和酒精。它还拥有显著的再生能力：在合适条件下，剩余组织可以通过细胞增殖恢复所需体积和功能，但并不是把切除部分按原形“长回来”，慢性炎症…",
     "d": "medicine"
   },
   "/medicine/diseases/malaria": {
     "t": "疟疾",
-    "e": "有一种动物，杀死的人类比任何战争、任何猛兽都多。它不是鲨鱼，也不是毒蛇，而是蚊子——确切地说，是一种叫\"按蚊\"的蚊子，以及它体内携带的微小寄生虫。",
+    "e": "疟疾不是“蚊子有毒”，而是按蚊、疟原虫与人类三个环节共同构成的传播系统。蚊子是媒介，真正进入肝细胞和红细胞复制的是疟原虫；没有适合的媒介、寄生虫和易感人群同时存在，传播链就无法维持。",
     "d": "medicine"
   },
   "/medicine/diseases/obesity": {
@@ -4056,17 +4076,17 @@
   },
   "/medicine/diseases/sepsis": {
     "t": "败血症（脓毒症）",
-    "e": "很多人以为，感染最可怕的是细菌本身在体内\"作乱\"。但败血症（医学规范名为\"脓毒症\"）告诉我们一个更黑暗的真相：很多时候，杀死病人的不是细菌，而是身体对细菌的过度反应。",
+    "e": "很多人以为，感染的危险只取决于病原体有多\"凶\"。脓毒症（旧称\"败血症\"）纠正了这种单因果图像：病原体造成的损伤，与机体失调的防御反应会相互放大。不能把它简化成\"细菌杀人\"或\"免疫系统杀人\"二选…",
     "d": "medicine"
   },
   "/medicine/diseases/smallpox": {
     "t": "天花",
-    "e": "1977 年 10 月，一位名叫阿里·马奥·马林（Ali Maow Maalin）的索马里医院厨师出现了高烧和皮疹。他后来康复了。在那之后，世界上再也没有出现过一例自然感染的天花。",
+    "e": "1977 年 10 月，一位名叫阿里·马奥·马阿林（Ali Maow Maalin）的索马里医院厨师出现了高烧和皮疹。他后来康复了。在那之后，世界上再也没有出现过一例自然感染的天花。",
     "d": "medicine"
   },
   "/medicine/diseases/stroke": {
     "t": "中风（脑卒中）",
-    "e": "大脑只占体重的约 2%，却消耗你约 20% 的血液供氧。它几乎没有能量储备，一旦断供，神经元在几分钟内就开始大批死亡。这就是为什么中风如此凶险——它不是慢慢恶化，而是大脑在你眼前缺氧窒息。",
+    "e": "大脑只占体重的约 2%，静息时却消耗全身约五分之一的氧，并获得约 15% 的心输出量。它几乎没有可长期调用的能量储备，一旦局部血供中断，神经功能会在几分钟内受损。这就是为什么中风如此凶险——它…",
     "d": "medicine"
   },
   "/medicine/diseases/tuberculosis": {
@@ -4259,9 +4279,19 @@
     "e": "2023 年 10 月 2 日，斯德哥尔摩宣布把当年的诺贝尔生理学或医学奖授予 Katalin Karikó 与 Drew Weissman，表彰他们关于核苷碱基修饰的发现——正是这项发现，让…",
     "d": "medicine"
   },
+  "/medicine/public-health/adolescent-mental-health-school-community-services": {
+    "t": "青少年心理健康：学校、社区与连续服务",
+    "e": "青少年每天生活在家庭、学校、社区和数字平台之间。心理健康服务如果只在专科医院等待求助，就会漏掉尚未被识别、无法承担费用、担心污名、离开学校或不信任机构的人。",
+    "d": "medicine"
+  },
   "/medicine/public-health/burden-of-disease-daly-qaly": {
     "t": "疾病负担、DALY 与 QALY",
     "e": "死亡人数最多的疾病，不一定造成最大的健康损失。",
+    "d": "medicine"
+  },
+  "/medicine/public-health/community-mental-health-access-continuity": {
+    "t": "社区精神卫生、可及性与连续照护",
+    "e": "精神卫生服务“存在”与需要帮助的人“得到有效、可持续并受尊重的照护”之间，隔着一条很长的路径。",
     "d": "medicine"
   },
   "/medicine/public-health/environmental-occupational-health": {
@@ -4316,7 +4346,7 @@
   },
   "/medicine/technologies/antisepsis": {
     "t": "无菌术",
-    "e": "19 世纪中叶的外科病房里弥漫着一种被医生称为\"美好的实验室气味\"的脓臭——那其实是伤口化脓的恶臭。手术也许成功了，但接下来几天，伤口往往红肿、流脓、发黑、坏死，病人在高烧中死去。这种现象常被…",
+    "e": "19 世纪中叶，外科切开人体的能力已因麻醉而提升，但伤口感染仍使许多患者在术后死亡。1860 年代，格拉斯哥外科医生约瑟夫·李斯特（Joseph Lister）把微生物相关理论转化为石炭酸处理…",
     "d": "medicine"
   },
   "/medicine/technologies/blood-transfusion": {
@@ -4341,7 +4371,7 @@
   },
   "/medicine/technologies/mrna-vaccine": {
     "t": "mRNA 疫苗",
-    "e": "2020 年初,一种全新的病毒(SARS-CoV-2)正以惊人的速度席卷全球。在过去,研发一款全新疫苗通常需要五到十年。但这一次,中国科学家在 1 月初公布病毒基因序列后仅仅 48 小时,美国…",
+    "e": "2020 年 1 月 SARS-CoV-2 基因序列公布后，研究团队很快确定候选抗原序列；同年，两款 mRNA 疫苗进入大规模随机试验并获得监管授权。速度来自多年积累的平台、全球资金投入、并行…",
     "d": "medicine"
   },
   "/medicine/technologies/organ-transplantation": {
@@ -4356,7 +4386,7 @@
   },
   "/medicine/technologies/ultrasound": {
     "t": "超声成像",
-    "e": "蝙蝠在黑暗中发出人耳听不见的高频声波，靠回声判断前方有没有飞蛾、有没有墙壁。医学超声做的事，本质上一模一样：向身体里发出高频声波，再\"听\"它从不同组织反弹回来的回声，据此画出体内的图像。",
+    "e": "蝙蝠回声定位是理解医学超声的一个入口：都从发射声波与接收回声推断空间结构。但诊断超声不是生物声呐的简单复制，它还要控制波束、估计组织中的声速、补偿深度衰减，并把大量脉冲重建为二维、三维或血流图…",
     "d": "medicine"
   },
   "/medicine/technologies/x-ray-imaging": {
@@ -4506,7 +4536,7 @@
   },
   "/philosophy/concepts/epistemic-justice": {
     "t": "认识正义",
-    "e": "认识正义的核心洞察是：知识实践不是价值中立的。谁的话被相信、谁的概念被使用、谁的经验被承认为\"真实\"——这些认识论问题同时也是权力和正义问题。认识不公（epistemic injustice）…",
+    "e": "认识正义的核心洞察是：知识实践有规范，也有社会结构。谁的话被相信、谁参与创造概念、谁能保存和解释资料，既影响我们是否得到真知识，也可能构成对人的不公。认识不公（epistemic injust…",
     "d": "philosophy"
   },
   "/philosophy/concepts/eudaimonia": {
@@ -5276,7 +5306,7 @@
   },
   "/philosophy/questions/how-does-science-progress": {
     "t": "科学如何进步？",
-    "e": "牛顿力学统治了物理学两百年，然后爱因斯坦推翻了它。拉瓦锡的氧化理论取代了燃素说。达尔文的进化论推翻了物种不变论。科学史充满了这样的革命性时刻——但这些时刻意味着什么？科学是在稳步积累真理，还是…",
+    "e": "牛顿力学在相对论出现后没有停止工作：桥梁、卫星轨道的许多近似计算仍然使用它，但我们更清楚它在哪些速度、尺度和精度下失效。拉瓦锡的燃烧理论重组了化学语言与测量实践；进化论也不是一句话取代另一句话…",
     "d": "philosophy"
   },
   "/philosophy/questions/how-should-we-live": {
@@ -7100,8 +7130,8 @@
     "d": "psychology"
   },
   "/psychology/disorders/major-depressive": {
-    "t": "重度抑郁症",
-    "e": "重度抑郁症（Major Depressive Disorder, MDD）是最常见的精神障碍之一，以持续的情绪低落、",
+    "t": "重度抑郁障碍：心理模型与证据",
+    "e": "悲伤是面对丧失和挫折的常见情绪，抑郁症状可以在许多压力和疾病中出现，而重度抑郁障碍（Major Depressive Disorder, MDD）是依据症状组合、持续时间、痛苦或功能损害，并排…",
     "d": "psychology"
   },
   "/psychology/disorders/ocd": {
@@ -7265,8 +7295,8 @@
     "d": "psychology"
   },
   "/psychology/frontier/llm-as-cognitive-science-tool": {
-    "t": "大语言模型：认知科学的新工具与新研究对象",
-    "e": "2023 年，一篇题为《大型语言模型通过了通用语言理解评估（GLUE）的所有子任务》的论文受到广泛关注——不是因为它的结论令人惊喜，而是因为它让认知科学家面临了一个奇怪的处境：我们设计的用来测…",
+    "t": "大语言模型：认知科学的预测模型、研究工具与研究对象",
+    "e": "大语言模型能回答心理测验、预测部分实验结果，也能生成看似具有年龄、职业或政治立场的调查回答。这些表现容易诱发两个相反结论：一方把任务成功直接解释为人类式理解，另一方则认为统计学习系统不可能为认…",
     "d": "psychology"
   },
   "/psychology/frontier/predictive-processing-psychiatry": {
@@ -7281,17 +7311,22 @@
   },
   "/psychology/frontier/replication-crisis-open-science": {
     "t": "复制危机之后：开放科学如何重塑心理学",
-    "e": "2011 年，心理学史上最奇特的一篇论文被接受发表在顶级期刊《人格与社会心理学杂志》。作者 Daryl Bem 声称用严格的实验程序证明了\"预知未来\"（precognition）的存在——被试…",
+    "e": "2011 年，心理学史上最奇特的一篇论文被接受发表在顶级期刊《人格与社会心理学杂志》。作者 Daryl Bem 报告了支持\"未来事件反向影响当前认知\"的统计结果——例如，被试在刺激由计算机随机…",
     "d": "psychology"
   },
   "/psychology/frontier/social-media-teen-mental-health": {
-    "t": "社交媒体与青少年心理健康：因果迷雾中的证据战争",
-    "e": "2012 年前后，一条清晰的折线出现在美国青少年心理健康数据中。",
+    "t": "社交媒体与青少年心理健康：从屏幕时间争论到机制证据",
+    "e": "“社交媒体会不会伤害青少年”听起来像一个问题，实际混合了许多不同问题。",
     "d": "psychology"
   },
   "/psychology/methods/bayesian-modeling-psychology": {
     "t": "贝叶斯建模与心理科学",
     "e": "心理学研究常把结论压缩成一个问题：p 值是否小于 0.05。",
+    "d": "psychology"
+  },
+  "/psychology/methods/causal-inference-experiments-observational-studies": {
+    "t": "因果推断：从实验到观察研究",
+    "e": "青少年使用社交媒体的时间越长，抑郁得分越高。这可能表示社交媒体增加心理风险，也可能是情绪低落者更常转向线上互动，或家庭压力同时影响两者。",
     "d": "psychology"
   },
   "/psychology/methods/digital-phenotyping-computational-ethics": {
@@ -7927,6 +7962,11 @@
   "/sociology/concepts/social-structure": {
     "t": "社会结构",
     "e": "\"社会结构\"听起来像一个抽象大词，很容易被误解成某种看不见的巨物，仿佛个人只是被结构牵着走的棋子。另一种相反误解是认为社会不过是许多个人选择的总和，只要理解个人心理和利益，就能解释一切。",
+    "d": "sociology"
+  },
+  "/sociology/concepts/social-support-mental-health": {
+    "t": "社会支持、孤独与心理健康",
+    "e": "一个人可以独居却不孤独，也可以每天被许多人围绕却感到无人理解。研究社会关系与心理健康，首先要把几个经常混用的概念分开。",
     "d": "sociology"
   },
   "/sociology/frontier/ageing-societies": {
@@ -10400,8 +10440,8 @@
     "d": "psychology"
   },
   "/psychology/knowledge-base/risk-perception-and-macro-decisions": {
-    "t": "风险感知与宏观决策",
-    "e": "风险不是人脑里的一张概率表。",
+    "t": "风险感知、心理健康与宏观决策",
+    "e": "风险通常指某些结果及其发生概率可以被描述的情形；不确定性则可能连结果集合、机制或概率都不清楚。现实决策往往介于两者之间，而人的判断也从来不只是读取一个百分比。",
     "d": "psychology"
   },
   "/psychology/knowledge-base/self-analysis-guide": {
@@ -10416,7 +10456,7 @@
   },
   "/psychology/knowledge-base/sleep-and-mind": {
     "t": "睡眠与心智",
-    "e": "人的一生中大约有三分之一的时间花在睡眠上。从进化的角度看，这极其不合理——睡眠中的动物无法觅食、交配或防御捕食者。如果自然选择保留了如此\"昂贵\"的行为，那么睡眠一定承担着至关重要的功能。",
+    "e": "睡眠不是被动休息，也不是每晚严格重复的九十分钟循环。它是由昼夜节律、清醒时间积累的睡眠压力、年龄、光照、健康状态、药物与环境共同塑造的动态过程。",
     "d": "psychology"
   },
   "/psychology/knowledge-base/stress-and-brain": {

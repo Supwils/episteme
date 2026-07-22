@@ -7,6 +7,13 @@ import { MATURE_CONTENT_TOURS } from "./mature-content-tours";
 import { EARTH_SCIENCE_RISK_TOUR } from "./earth-science-risk-tour";
 import { CHEMISTRY_METHODS_TOUR } from "./chemistry-methods-tour";
 import { PSYCHOLOGY_METHODS_TOUR } from "./psychology-methods-tour";
+import { COMPUTER_SECURITY_TOUR } from "./computer-security-tour";
+import { PANDEMIC_EVIDENCE_TOUR } from "./pandemic-evidence-tour";
+import { CHEMISTRY_TRANSFORMATION_TOURS } from "./chemistry-transformation-tours";
+import { CLINICAL_NET_BENEFIT_TOUR } from "./clinical-net-benefit-tour";
+import { ENERGY_STORAGE_SYSTEM_TOUR } from "./energy-storage-system-tour";
+import { MENTAL_HEALTH_CARE_TOUR } from "./mental-health-care-tour";
+import { ADOLESCENT_MENTAL_HEALTH_TOUR } from "./adolescent-mental-health-tour";
 
 export type ThoughtTour = {
   id: string;
@@ -35,8 +42,14 @@ export const THOUGHT_TOURS: ThoughtTour[] = [
     ],
   },
   ...MATURE_CONTENT_TOURS,
+  COMPUTER_SECURITY_TOUR,
   EARTH_SCIENCE_RISK_TOUR,
   CHEMISTRY_METHODS_TOUR,
+  ...CHEMISTRY_TRANSFORMATION_TOURS,
+  ENERGY_STORAGE_SYSTEM_TOUR,
+  CLINICAL_NET_BENEFIT_TOUR,
+  MENTAL_HEALTH_CARE_TOUR,
+  ADOLESCENT_MENTAL_HEALTH_TOUR,
   {
     id: "limits-of-reason",
     title: "理性的极限",
@@ -105,6 +118,7 @@ export const THOUGHT_TOURS: ThoughtTour[] = [
     ],
   },
   PSYCHOLOGY_METHODS_TOUR,
+  PANDEMIC_EVIDENCE_TOUR,
   {
     id: "how-to-study-politics",
     title: "如何研究政治",

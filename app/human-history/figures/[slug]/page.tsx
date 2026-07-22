@@ -1,27 +1,16 @@
 import "../../styles/pages/figures.css";
-import { FIGURES } from "@/content/human-history/data/figures.js";
 import { ERAS } from "@/subjects/history/lib/eras";
+import {
+  HISTORY_FIGURE_CATALOG,
+  getHistoryFigureSummary,
+} from "@/subjects/history/lib/history-catalog";
+import {
+  getFigureRouteRecord,
+  type HistoryFigure,
+} from "@/subjects/history/lib/figure-route-data";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-
-interface Figure {
-  name: string;
-  birth: number | null;
-  death: number | null;
-  title: string;
-  desc: string;
-  longDesc: string;
-  era: string;
-  region: string;
-  domain: string;
-  quote: string;
-  impact: string[];
-  achievements: string[];
-  controversies: string[];
-  keyEvents: { year: number; title: string }[];
-  references: string[];
-}
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -52,13 +41,6 @@ function formatYear(year: number | null): string {
   return `公元${year}年`;
 }
 
-function getFigureBySlug(slug: string): Figure | undefined {
-  // Figure "slugs" are CJK names; Next can hand back the param percent-encoded,
-  // so match against the decoded form too (decode is a no-op when already plain).
-  const decoded = decodeURIComponent(slug);
-  return (FIGURES as Figure[]).find((f) => f.name === slug || f.name === decoded);
-}
-
 // On-demand ISR: prerender nothing at build time. Pages render on first request
 // and are cached (dynamicParams defaults to true). This keeps the deployment file
 // count low for this high-cardinality route while serving all figures.
@@ -68,7 +50,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const figure = getFigureBySlug(slug);
+  const figure = getHistoryFigureSummary(slug);
   if (!figure) notFound();
   const description = figure.desc;
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://episteme.vercel.app";
@@ -84,17 +66,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-function getEraName(eraId: string): string {
+function getEraName(eraId: HistoryFigure["era"]): string {
   const era = ERAS.find((e) => e.id === eraId);
   return era?.name ?? eraId;
 }
 
 export default async function FigureDetailPage({ params }: Props) {
   const { slug } = await params;
-  const figure = getFigureBySlug(slug);
+  const figure = await getFigureRouteRecord(slug);
   if (!figure) notFound();
 
-  const relatedFigures = (FIGURES as Figure[])
+  const relatedFigures = HISTORY_FIGURE_CATALOG
     .filter((f) => f.era === figure.era && f.name !== figure.name)
     .slice(0, 5);
 

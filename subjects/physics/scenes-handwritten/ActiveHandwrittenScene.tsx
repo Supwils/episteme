@@ -25,8 +25,7 @@ const SCENES: Record<UniverseTierId, ReturnType<typeof lazy>> = {
  * opacities driven by useUniverseStore.transition.progress. Otherwise we
  * render only the active tier.
  */
-export function ActiveHandwrittenScene() {
-  const currentTier = useUniverseStore((s) => s.currentTier);
+export function ActiveHandwrittenScene({ initialTier }: { initialTier: UniverseTierId }) {
   const transition = useUniverseStore((s) => s.transition);
 
   if (
@@ -50,8 +49,7 @@ export function ActiveHandwrittenScene() {
     );
   }
 
-  if (!isUniverseTierId(currentTier)) return null;
-  const Current = SCENES[currentTier];
+  const Current = SCENES[initialTier];
   return (
     <Suspense fallback={null}>
       <Current />

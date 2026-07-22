@@ -7,6 +7,7 @@ const MODES: readonly { id: GraphLayoutMode; label: string }[] = [
   { id: "force", label: "关系" },
   { id: "cluster", label: "学科" },
   { id: "cognitive", label: "阶段" },
+  { id: "spatial", label: "空间" },
 ];
 
 export function GraphLayoutModeControl({
@@ -31,7 +32,7 @@ export function GraphLayoutModeControl({
             aria-pressed={active}
             onClick={() => onChange(mode.id)}
             className={clsx(
-              "min-w-11 border-r border-white/[0.06] px-2 text-[11px] transition-colors last:border-r-0",
+              "min-w-10 border-r border-white/[0.06] px-1.5 text-[11px] transition-colors last:border-r-0 sm:min-w-11 sm:px-2",
               active
                 ? "bg-indigo-500/15 text-indigo-200"
                 : "text-white/40 hover:bg-white/[0.03] hover:text-white/65"

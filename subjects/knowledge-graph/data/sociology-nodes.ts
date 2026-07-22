@@ -51,6 +51,14 @@ export const SOCIOLOGY_NODES: GraphNode[] = [
     "信任",
   ]),
   n(
+    "social-support-mental-health",
+    "社会支持、孤独与心理健康",
+    "concept",
+    "concepts",
+    "区分孤立、孤独、支持与归属，并追踪关系质量如何影响压力、求助和持续照护。",
+    ["社会支持", "孤独", "心理健康", "社会网络"]
+  ),
+  n(
     "social-stratification",
     "社会分层",
     "concept",
@@ -301,6 +309,8 @@ export const SOCIOLOGY_EDGES: GraphEdge[] = [
   e("w-e-b-du-bois", "social-stratification", "种族分层"),
   e("social-structure", "social-stratification", "分配机会"),
   e("social-capital", "social-network-analysis", "关系资源"),
+  e("social-capital", "social-support-mental-health", "从关系资源到健康支持"),
+  e("social-support-mental-health", "social-network-analysis", "测量结构与关系质量"),
   e("chinese-social-thought", "family-and-kinship", "家国与亲属"),
   e("chinese-social-thought", "comparative-historical-analysis", "帝国与现代性"),
   e("indian-social-thought", "social-stratification", "种姓与分层"),
@@ -315,6 +325,7 @@ export const SOCIOLOGY_EDGES: GraphEdge[] = [
     "中心外围路径"
   ),
   e("family-and-kinship", "gender-and-society", "照护分工"),
+  e("family-and-kinship", "social-support-mental-health", "家庭关系与支持质量"),
   e("education-and-credentialism", "social-stratification", "流动与再生产"),
   e("urbanization", "social-network-analysis", "城市弱关系"),
   e("african-urbanization", "urbanization", "非洲城市理论"),
@@ -401,6 +412,12 @@ export const SOCIOLOGY_EDGES: GraphEdge[] = [
     target: "earth-science:greenhouse-effect",
     type: "domain-link",
     label: "城市气候风险",
+  },
+  {
+    source: "sociology:social-support-mental-health",
+    target: "medicine:depression",
+    type: "domain-link",
+    label: "关系机制进入症状与照护",
   },
   ...SOCIOLOGY_COVERAGE_EDGES,
 ];

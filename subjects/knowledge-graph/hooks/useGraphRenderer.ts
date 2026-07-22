@@ -1,19 +1,12 @@
 "use client";
 
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useRef } from "react";
 import type { GraphNode, GraphEdge } from "../data/types";
-import type { GraphRenderer, RenderNode, HighlightState, RenderConfig } from "@/lib/graph-engine";
+import type { GraphRenderer, RenderGuide, HighlightState, RenderConfig } from "@/lib/graph-engine";
 import { GraphRenderer as GraphRendererClass } from "@/lib/graph-engine";
 import type { ForceLayout, LayoutConfig } from "@/lib/graph-engine";
 import { animateEntrance, animateFocus, animateNodePositions } from "@/lib/graph-engine";
-import {
-  buildLayoutNodes,
-  buildLayoutEdges,
-  toRenderNodes,
-  toRenderEdges,
-  NODE_RADIUS,
-  DOMAIN_COLORS,
-} from "../lib/constants";
+import { buildLayoutNodes, buildLayoutEdges, toRenderNodes, toRenderEdges } from "../lib/constants";
 
 type RendererDeps = {
   canvasRef: React.RefObject<HTMLCanvasElement | null>;
@@ -41,6 +34,7 @@ type RendererDeps = {
   selectedNodeId: string | null;
   reducedMotion: boolean;
   searchMatchedIds: Set<string>;
+  fitScaleMultiplier?: number;
 };
 
 export function useGraphRenderer(
@@ -48,6 +42,9 @@ export function useGraphRenderer(
   edges: GraphEdge[],
   initialFocus: string | undefined,
   positionOverride: Map<string, { x: number; y: number }> | undefined,
+  nodeDepth: ReadonlyMap<string, number> | undefined,
+  nodeImportance: ReadonlyMap<string, number> | undefined,
+  guides: readonly RenderGuide[] | undefined,
   layoutConfig: Partial<LayoutConfig> | undefined,
   onNodeClick: ((node: GraphNode) => void) | undefined,
   onNodeHover: ((node: GraphNode | null) => void) | undefined,
@@ -79,7 +76,18 @@ export function useGraphRenderer(
     selectedNodeId,
     reducedMotion,
     searchMatchedIds,
+    fitScaleMultiplier = 1,
   } = deps;
+  const positionOverrideRef = useRef(positionOverride);
+  const nodeDepthRef = useRef(nodeDepth);
+  const nodeImportanceRef = useRef(nodeImportance);
+  const guidesRef = useRef(guides);
+  const appliedOverrideRef = useRef(positionOverride);
+  positionOverrideRef.current = positionOverride;
+  nodeDepthRef.current = nodeDepth;
+  nodeImportanceRef.current = nodeImportance;
+  guidesRef.current = guides;
+  const hasPositionOverride = positionOverride !== undefined;
 
   const pushRenderData = useCallback(() => {
     const renderer = rendererRef.current;
@@ -91,9 +99,18 @@ export function useGraphRenderer(
       selectedNodeId,
       activeDomains,
       spreadOffsetsRef.current,
-      searchMatchedIds
+      searchMatchedIds,
+      nodeDepth,
+      nodeImportance
     );
-    const rEdges = toRenderEdges(edges, positionsRef.current, activeDomains, nodeDomainMap);
+    const rEdges = toRenderEdges(
+      edges,
+      positionsRef.current,
+      activeDomains,
+      nodeDomainMap,
+      nodeDepth,
+      nodeImportance
+    );
     renderer.render(rNodes, rEdges);
     renderer.setHighlight(highlightState);
   }, [
@@ -108,6 +125,8 @@ export function useGraphRenderer(
     positionsRef,
     spreadOffsetsRef,
     searchMatchedIds,
+    nodeDepth,
+    nodeImportance,
   ]);
 
   useEffect(() => {
@@ -171,10 +190,13 @@ export function useGraphRenderer(
 
     const initRenderer = (positions: Map<string, { x: number; y: number }>) => {
       if (cancelled) return;
-      const finalPositions = positionOverride ?? positions;
+      const currentOverride = positionOverrideRef.current;
+      const finalPositions = currentOverride ?? positions;
+      appliedOverrideRef.current = currentOverride;
 
       const renderer = new GraphRendererClass(canvas, renderConfig);
       rendererRef.current = renderer;
+      renderer.setGuides(guidesRef.current ?? []);
 
       renderer.setCallbacks({
         onNodeHover: (renderNode) => {
@@ -260,8 +282,10 @@ export function useGraphRenderer(
         const availableWidth = width - paddingLeft - paddingRight;
         const availableHeight = height - paddingTop - paddingBottom;
         const scale = Math.min(
-          availableWidth / Math.max(maxX - minX, 1),
-          availableHeight / Math.max(maxY - minY, 1),
+          Math.min(
+            availableWidth / Math.max(maxX - minX, 1),
+            availableHeight / Math.max(maxY - minY, 1)
+          ) * fitScaleMultiplier,
           1.2
         );
         const centerX = (minX + maxX) / 2;
@@ -276,7 +300,7 @@ export function useGraphRenderer(
 
       // Deterministic layouts already know their full bounds. Fit them before
       // entrance animation so the staged map never flashes or settles off-screen.
-      if (positionOverride && !initialFocus) {
+      if (currentOverride && !initialFocus) {
         fitGraphToView();
         const container = containerRef.current;
         if (container && typeof ResizeObserver !== "undefined") {
@@ -304,26 +328,28 @@ export function useGraphRenderer(
         (posMap, alphas) => {
           if (cancelled) return;
           positionsRef.current = posMap;
-          const rNodes: RenderNode[] = nodes
-            .filter((n) => activeDomains.has(n.domain))
-            .map((node) => {
-              const pos = posMap.get(node.id) ?? { x: 0, y: 0 };
-              return {
-                id: node.id,
-                x: pos.x,
-                y: pos.y,
-                label: node.label,
-                domain: node.domain,
-                type: node.type,
-                radius: NODE_RADIUS[node.type] ?? 16,
-                color: DOMAIN_COLORS[node.domain] ?? "#9ca3af",
-                hovered: false,
-                selected: false,
-                searchMatched: false,
-                alpha: alphas.get(node.id) ?? 0,
-              };
-            });
-          const rEdges = toRenderEdges(edges, posMap, activeDomains, nodeDomainMap);
+          const rNodes = toRenderNodes(
+            nodes,
+            posMap,
+            null,
+            null,
+            activeDomains,
+            undefined,
+            undefined,
+            nodeDepthRef.current,
+            nodeImportanceRef.current
+          ).map((node) => ({
+            ...node,
+            alpha: node.alpha * (alphas.get(node.id) ?? 0),
+          }));
+          const rEdges = toRenderEdges(
+            edges,
+            posMap,
+            activeDomains,
+            nodeDomainMap,
+            nodeDepthRef.current,
+            nodeImportanceRef.current
+          );
           renderer.render(rNodes, rEdges);
         },
         () => {
@@ -336,9 +362,18 @@ export function useGraphRenderer(
             null,
             activeDomains,
             undefined,
-            searchMatchedIds
+            searchMatchedIds,
+            nodeDepthRef.current,
+            nodeImportanceRef.current
           );
-          const rEdges = toRenderEdges(edges, finalPositions, activeDomains, nodeDomainMap);
+          const rEdges = toRenderEdges(
+            edges,
+            finalPositions,
+            activeDomains,
+            nodeDomainMap,
+            nodeDepthRef.current,
+            nodeImportanceRef.current
+          );
           renderer.render(rNodes, rEdges);
 
           if (initialFocus) {
@@ -382,8 +417,8 @@ export function useGraphRenderer(
     };
 
     let worker: Worker | null = null;
-    if (positionOverride) {
-      initRenderer(positionOverride);
+    if (positionOverrideRef.current) {
+      initRenderer(positionOverrideRef.current);
     } else if (typeof Worker !== "undefined" && !reducedMotion) {
       try {
         worker = new Worker(new URL("../engine/force-layout.worker.ts", import.meta.url));
@@ -427,7 +462,43 @@ export function useGraphRenderer(
       layoutRef.current = null;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [nodes, edges, positionOverride, layoutConfig]);
+  }, [nodes, edges, fitScaleMultiplier, hasPositionOverride, layoutConfig]);
+
+  useEffect(() => {
+    const renderer = rendererRef.current;
+    if (!renderer) return;
+    renderer.setGuides(guides ?? []);
+  }, [guides, rendererRef]);
+
+  useEffect(() => {
+    const renderer = rendererRef.current;
+    if (!renderer || !positionOverride || positionOverride === appliedOverrideRef.current) {
+      return;
+    }
+
+    appliedOverrideRef.current = positionOverride;
+    cancelAnimRef.current?.();
+    const applyPositions = (positions: Map<string, { x: number; y: number }>) => {
+      positionsRef.current = positions;
+      pushRenderData();
+    };
+
+    if (reducedMotion) {
+      applyPositions(new Map(positionOverride));
+      return;
+    }
+
+    cancelAnimRef.current = animateNodePositions(
+      new Map(positionsRef.current),
+      positionOverride,
+      280,
+      applyPositions,
+      () => {
+        positionsRef.current = positionOverride;
+        pushRenderData();
+      }
+    );
+  }, [cancelAnimRef, positionOverride, positionsRef, pushRenderData, reducedMotion, rendererRef]);
 
   return { pushRenderData };
 }

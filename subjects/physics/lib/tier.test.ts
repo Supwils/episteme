@@ -4,6 +4,7 @@ import {
   prevTier,
   TIER_ORDER,
   TIERS,
+  tierFromPathname,
   tierIndex,
   transitionKind,
   type TierId,
@@ -30,6 +31,12 @@ describe("tier ordering", () => {
     expect(prevTier("T0")).toBeNull();
     expect(prevTier("T1")).toBe("T0");
     expect(prevTier("T7")).toBe("T6");
+  });
+
+  it("derives the initial tier from 3D and handwritten paths", () => {
+    expect(tierFromPathname("/universe-physics/universe/earth")).toBe("T7");
+    expect(tierFromPathname("/universe-physics/universe/handwritten/cosmic-web/")).toBe("T1");
+    expect(tierFromPathname("/universe-physics/universe")).toBeNull();
   });
 
   it("scale decreases monotonically T0..T7", () => {

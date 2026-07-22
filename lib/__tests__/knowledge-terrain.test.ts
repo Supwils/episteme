@@ -6,14 +6,14 @@ const terrain = buildKnowledgeTerrainSnapshot(buildKnowledgeBranchCatalog());
 
 describe("full graph knowledge terrain", () => {
   it("conserves every node across domain, level and confidence aggregates", () => {
-    expect(terrain.summary.nodeCount).toBe(1362);
-    expect(terrain.summary.ambiguousTargetCount).toBe(674);
-    expect(terrain.summary.maximumCandidateCount).toBe(18);
+    expect(terrain.summary.nodeCount).toBe(1381);
+    expect(terrain.summary.ambiguousTargetCount).toBe(692);
+    expect(terrain.summary.maximumCandidateCount).toBe(24);
     expect(terrain.summary.diagnosticCount).toBe(11);
     expect(terrain.summary.highPriorityDiagnosticCount).toBe(5);
     expect(terrain.domains).toHaveLength(15);
-    expect(terrain.domains.reduce((sum, domain) => sum + domain.total, 0)).toBe(1362);
-    expect(terrain.summary.levelCounts.reduce((sum, count) => sum + count, 0)).toBe(1362);
+    expect(terrain.domains.reduce((sum, domain) => sum + domain.total, 0)).toBe(1381);
+    expect(terrain.summary.levelCounts.reduce((sum, count) => sum + count, 0)).toBe(1381);
 
     const confidenceTotals = terrain.domains
       .flatMap((domain) => domain.cells)

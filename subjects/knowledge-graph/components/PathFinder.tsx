@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
@@ -22,6 +23,7 @@ type PathFinderProps = {
   onTourSelect: (waypoints: string[]) => void;
   onTourStepSelect: (nodeId: string) => void;
   isGraphReady: boolean;
+  detailPanelOpen: boolean;
   isMobile?: boolean;
 };
 
@@ -139,16 +141,19 @@ export function PathFinder({
   onTourSelect,
   onTourStepSelect,
   isGraphReady,
+  detailPanelOpen,
   isMobile = false,
 }: PathFinderProps) {
   const pathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();
+  const searchParamsString = searchParams.toString();
   const [isOpen, setIsOpen] = useState(false);
   const [localStart, setLocalStart] = useState<string | null>(pathStartId);
   const [localEnd, setLocalEnd] = useState<string | null>(pathEndId);
   const [activeTourId, setActiveTourId] = useState<string | null>(null);
   const [activeStepIndex, setActiveStepIndex] = useState(0);
+  const [isTourPlaying, setIsTourPlaying] = useState(false);
   const reducedMotion = useReducedMotion();
   const onTourSelectRef = useRef(onTourSelect);
   const onTourStepSelectRef = useRef(onTourStepSelect);
@@ -171,15 +176,15 @@ export function PathFinder({
   );
 
   const resolvedUrlState = useMemo(
-    () => resolveTourUrlState(new URLSearchParams(searchParams.toString()), tourDescriptors),
-    [searchParams, tourDescriptors]
+    () => resolveTourUrlState(new URLSearchParams(searchParamsString), tourDescriptors),
+    [searchParamsString, tourDescriptors]
   );
 
   const navigateToTourState = useCallback(
     (tourId: string | null, stepIndex = 0, replace = false) => {
       const href = buildTourUrl(
         pathname,
-        new URLSearchParams(searchParams.toString()),
+        new URLSearchParams(searchParamsString),
         tourId ? { tourId, stepIndex } : null
       );
       if (replace) {
@@ -188,7 +193,7 @@ export function PathFinder({
         router.push(href, { scroll: false });
       }
     },
-    [pathname, router, searchParams]
+    [pathname, router, searchParamsString]
   );
 
   useEffect(() => {
@@ -211,6 +216,7 @@ export function PathFinder({
 
   const handleTourClick = useCallback(
     (tour: ThoughtTour) => {
+      setIsTourPlaying(false);
       setActiveTourId(tour.id);
       setActiveStepIndex(0);
       onTourSelect(tour.waypoints);
@@ -220,6 +226,7 @@ export function PathFinder({
   );
 
   const handleClear = useCallback(() => {
+    setIsTourPlaying(false);
     setActiveTourId(null);
     setActiveStepIndex(0);
     appliedUrlTourIdRef.current = null;
@@ -260,6 +267,9 @@ export function PathFinder({
       };
     });
   }, [activeTour, nodeMap]);
+  const activeTourNode = activeTourSteps[activeStepIndex]
+    ? (nodeMap.get(activeTourSteps[activeStepIndex]!.nodeId) ?? null)
+    : null;
 
   useEffect(() => {
     if (activeStepIndex >= activeTourSteps.length) {
@@ -273,6 +283,7 @@ export function PathFinder({
     if (!urlState) {
       if (appliedUrlTourIdRef.current !== null) {
         appliedUrlTourIdRef.current = null;
+        setIsTourPlaying(false);
         setActiveTourId(null);
         setActiveStepIndex(0);
         onPathClearRef.current();
@@ -316,26 +327,81 @@ export function PathFinder({
       : "100%";
 
   const handleTourStepSelect = useCallback(
-    (idx: number) => {
+    (idx: number, replace = false) => {
       const step = activeTourSteps[idx];
       if (!step) return;
       setActiveStepIndex(idx);
-      onTourStepSelect(step.nodeId);
-      if (activeTourId) navigateToTourState(activeTourId, idx);
+      onTourStepSelectRef.current(step.nodeId);
+      if (activeTourId) navigateToTourState(activeTourId, idx, replace);
     },
-    [activeTourId, activeTourSteps, navigateToTourState, onTourStepSelect]
+    [activeTourId, activeTourSteps, navigateToTourState]
   );
 
   const handlePreviousStep = useCallback(() => {
+    setIsTourPlaying(false);
     handleTourStepSelect(Math.max(0, activeStepIndex - 1));
   }, [activeStepIndex, handleTourStepSelect]);
 
   const handleNextStep = useCallback(() => {
+    setIsTourPlaying(false);
     handleTourStepSelect(Math.min(activeTourSteps.length - 1, activeStepIndex + 1));
   }, [activeStepIndex, activeTourSteps.length, handleTourStepSelect]);
 
+  const handleManualTourStepSelect = useCallback(
+    (index: number) => {
+      setIsTourPlaying(false);
+      handleTourStepSelect(index);
+    },
+    [handleTourStepSelect]
+  );
+
+  const handlePlaybackToggle = useCallback(() => {
+    if (reducedMotion || activeTourSteps.length < 2) return;
+    if (isTourPlaying) {
+      setIsTourPlaying(false);
+      return;
+    }
+    if (activeStepIndex >= activeTourSteps.length - 1) {
+      handleTourStepSelect(0, true);
+    }
+    setIsTourPlaying(true);
+  }, [
+    activeStepIndex,
+    activeTourSteps.length,
+    handleTourStepSelect,
+    isTourPlaying,
+    reducedMotion,
+  ]);
+
+  useEffect(() => {
+    if (reducedMotion && isTourPlaying) setIsTourPlaying(false);
+  }, [isTourPlaying, reducedMotion]);
+
+  useEffect(() => {
+    if (!isTourPlaying || !activeTour || activeTourSteps.length < 2) return;
+    if (activeStepIndex >= activeTourSteps.length - 1) {
+      setIsTourPlaying(false);
+      return;
+    }
+
+    const timeout = window.setTimeout(() => {
+      if (document.hidden) {
+        setIsTourPlaying(false);
+        return;
+      }
+      handleTourStepSelect(activeStepIndex + 1, true);
+    }, 4_500);
+    return () => window.clearTimeout(timeout);
+  }, [
+    activeStepIndex,
+    activeTour,
+    activeTourSteps.length,
+    handleTourStepSelect,
+    isTourPlaying,
+  ]);
+
   return (
-    <div className="relative">
+    <div className={clsx(!isMobile && detailPanelOpen ? "static" : "relative")}>
       <button
         type="button"
         onClick={() => setIsOpen((v) => !v)}
@@ -371,9 +437,20 @@ export function PathFinder({
             exit={reducedMotion ? { opacity: 0 } : { opacity: 0, y: -4, scale: 0.95 }}
             transition={{ duration: reducedMotion ? 0 : 0.15 }}
             className={clsx(
-              "absolute top-full z-50 mt-2 max-h-[72vh] w-[320px] max-w-[calc(100vw-2rem)] overflow-y-auto rounded-xl border border-white/[0.08] bg-[#111118]/95 p-3 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl",
-              isMobile ? "right-0" : "left-0"
+              "absolute z-50 w-[320px] max-w-[calc(100vw-2rem)] overflow-y-auto rounded-xl border border-white/[0.08] bg-[#111118]/95 p-3 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl",
+              isMobile
+                ? "top-full right-0 mt-2 max-h-[72vh]"
+                : detailPanelOpen
+                  ? "top-full z-[70] mt-2"
+                  : "top-full left-0 mt-2 max-h-[72vh]"
             )}
+            style={
+              !isMobile && detailPanelOpen
+                ? { right: 436, maxHeight: "calc(100dvh - 126px)" }
+                : undefined
+            }
+            role="region"
+            aria-label="连接引擎面板"
           >
             <div className="flex flex-col gap-3">
               {/* Curated thought lines */}
@@ -408,7 +485,7 @@ export function PathFinder({
               )}
 
               {activeTour && activeTourSteps.length > 0 && (
-                <div className="rounded-lg border border-indigo-500/15 bg-indigo-500/[0.04] p-2.5">
+                <div className="order-first rounded-lg border border-indigo-500/15 bg-indigo-500/[0.04] p-2.5">
                   <div className="mb-2">
                     <span className="block text-[10px] font-medium tracking-wider text-indigo-300/70 uppercase">
                       路线解释
@@ -423,38 +500,121 @@ export function PathFinder({
                           onClick={handlePreviousStep}
                           disabled={activeStepIndex === 0}
                           className={clsx(
-                            "h-6 rounded-md border px-2 text-[10px] transition-colors",
+                            "flex h-6 w-7 items-center justify-center rounded-md border transition-colors",
                             activeStepIndex === 0
                               ? "cursor-not-allowed border-white/[0.04] text-white/20"
                               : "border-white/[0.08] text-white/50 hover:border-indigo-400/40 hover:text-indigo-200"
                           )}
+                          aria-label="上一步"
+                          title="上一步"
                         >
-                          上一步
+                          <svg
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            className="h-3.5 w-3.5"
+                            aria-hidden="true"
+                          >
+                            <path d="M10 3L5 8l5 5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={handlePlaybackToggle}
+                          disabled={Boolean(reducedMotion) || activeTourSteps.length < 2}
+                          className={clsx(
+                            "flex h-6 w-7 items-center justify-center rounded-md border transition-colors",
+                            reducedMotion || activeTourSteps.length < 2
+                              ? "cursor-not-allowed border-white/[0.04] text-white/20"
+                              : isTourPlaying
+                                ? "border-indigo-300/40 bg-indigo-300/10 text-indigo-200"
+                                : "border-white/[0.08] text-white/50 hover:border-indigo-400/40 hover:text-indigo-200"
+                          )}
+                          aria-label={
+                            reducedMotion
+                              ? "自动播放已因减少动态效果关闭"
+                              : isTourPlaying
+                                ? "暂停路线"
+                                : "播放路线"
+                          }
+                          aria-pressed={isTourPlaying}
+                          title={
+                            reducedMotion
+                              ? "减少动态效果时不自动推进"
+                              : isTourPlaying
+                                ? "暂停路线"
+                                : "播放路线"
+                          }
+                        >
+                          {isTourPlaying ? (
+                            <svg
+                              viewBox="0 0 16 16"
+                              fill="currentColor"
+                              className="h-3 w-3"
+                              aria-hidden="true"
+                            >
+                              <path d="M4 3h3v10H4zM9 3h3v10H9z" />
+                            </svg>
+                          ) : (
+                            <svg
+                              viewBox="0 0 16 16"
+                              fill="currentColor"
+                              className="h-3 w-3"
+                              aria-hidden="true"
+                            >
+                              <path d="M5 3.2v9.6L12.5 8z" />
+                            </svg>
+                          )}
                         </button>
                         <button
                           type="button"
                           onClick={handleNextStep}
                           disabled={activeStepIndex >= activeTourSteps.length - 1}
                           className={clsx(
-                            "h-6 rounded-md border px-2 text-[10px] transition-colors",
+                            "flex h-6 w-7 items-center justify-center rounded-md border transition-colors",
                             activeStepIndex >= activeTourSteps.length - 1
                               ? "cursor-not-allowed border-white/[0.04] text-white/20"
                               : "border-white/[0.08] text-white/50 hover:border-indigo-400/40 hover:text-indigo-200"
                           )}
+                          aria-label="下一步"
+                          title="下一步"
                         >
-                          下一步
+                          <svg
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            className="h-3.5 w-3.5"
+                            aria-hidden="true"
+                          >
+                            <path d="M6 3l5 5-5 5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
                         </button>
                       </div>
                     </div>
                     <div
                       className="mt-2 h-1 overflow-hidden rounded-full bg-white/[0.06]"
-                      aria-hidden="true"
+                      role="progressbar"
+                      aria-label="路线播放进度"
+                      aria-valuemin={1}
+                      aria-valuemax={activeTourSteps.length}
+                      aria-valuenow={activeStepIndex + 1}
                     >
                       <div
                         className="h-full rounded-full bg-indigo-300/70 transition-[width] duration-200"
                         style={{ width: activeStepProgress }}
+                        aria-hidden="true"
                       />
                     </div>
+                    {activeTourNode?.url ? (
+                      <Link
+                        href={activeTourNode.url}
+                        className="mt-2 inline-flex min-h-8 items-center border-b border-indigo-300/40 text-[10px] text-indigo-200 transition-colors hover:border-indigo-200 hover:text-white"
+                      >
+                        阅读当前文章 →
+                      </Link>
+                    ) : null}
                   </div>
                   <div className="max-h-[260px] overflow-y-auto pr-1">
                     {activeTourSteps.map((step, idx) => {
@@ -464,7 +624,7 @@ export function PathFinder({
                         <button
                           key={`${activeTour.id}-${step.nodeId}-${idx}`}
                           type="button"
-                          onClick={() => handleTourStepSelect(idx)}
+                          onClick={() => handleManualTourStepSelect(idx)}
                           className={clsx(
                             "group grid w-full grid-cols-[1.25rem_minmax(0,1fr)] gap-2 rounded-md border px-1 py-1.5 text-left transition-colors focus-visible:outline focus-visible:outline-1 focus-visible:outline-indigo-300/60",
                             isActiveStep

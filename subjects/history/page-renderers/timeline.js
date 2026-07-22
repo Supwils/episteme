@@ -1,13 +1,6 @@
 import { gsap } from 'gsap';
-import { ERAS, EVENTS, CAT_LABELS, CAT_COLORS, REGION_LABELS, formatYear } from '@/content/human-history/data/index.js';
-import { PARALLEL_EVENTS } from '@/content/human-history/data/parallel-events.js';
-import { GEO_EVENTS } from '@/content/human-history/data/geo-events.js';
-import { EVENT_DETAILS } from '@/content/human-history/data/event-details.js';
-import { EXTRA_DETAILS } from '@/content/human-history/data/extra-details.js';
-import { FINAL_DETAILS } from '@/content/human-history/data/final-details.js';
-import { LAST_DETAILS } from '@/content/human-history/data/last-details.js';
-import { GEO_ENRICHMENT_1 } from '@/content/human-history/data/geo-enrichment-ancient.js';
-import { GEO_ENRICHMENT_2 } from '@/content/human-history/data/geo-enrichment-modern.js';
+import { ERAS } from '@/content/human-history/data/eras.js';
+import { TIMELINE_EVENT_CATALOG } from '@/content/human-history/data/generated/timeline-catalog.js';
 import { SCHOLARLY_TITLES } from '@/content/human-history/data/scholarly-titles.js';
 import { el, clearApp, animateIn, prefersReducedMotion } from '../lib/dom.js';
 import { openScholarlyModal, hasScholarlyDetail, cleanupScholarlyModal } from '../components/history/scholarly-modal.js';
@@ -15,40 +8,45 @@ import { addSwipeGesture } from '../lib/gesture.js';
 import { getQuery } from '../lib/router.js';
 import { getReadingProgress, clearReadingProgress, estimateReadMinutes, saveReadingProgress } from '../lib/reading-progress.js';
 import { getSimulationId } from '../lib/simulation-links.js';
-
-const ALL_DETAILS = { ...EVENT_DETAILS, ...EXTRA_DETAILS, ...FINAL_DETAILS, ...LAST_DETAILS, ...GEO_ENRICHMENT_1, ...GEO_ENRICHMENT_2 };
+import { loadTimelineDetail } from '../lib/timeline-detail-loader';
 import { icon, DETAIL_ICONS, CAT_ICONS } from '../lib/icons.js';
-
 import { escapeHtml } from '../lib/escape-html';
 
-function truncateText(text, length = 92) {
-  if (!text) return '';
-  const cleaned = String(text).replace(/\s+/g, ' ').trim();
-  return cleaned.length > length ? `${cleaned.slice(0, length)}...` : cleaned;
+const CAT_LABELS = {
+  politics: '政治',
+  military: '军事',
+  economy: '经济',
+  culture: '文化',
+  science: '科技',
+  technology: '技术',
+};
+
+const CAT_COLORS = {
+  politics: '#C8A951',
+  military: '#8B1A1A',
+  economy: '#2D6A4F',
+  culture: '#1E3A5F',
+  science: '#4A148C',
+  technology: '#8B4513',
+};
+
+const REGION_LABELS = {
+  asia: '亚洲',
+  europe: '欧洲',
+  africa: '非洲',
+  americas: '美洲',
+  oceania: '大洋洲',
+  global: '全球',
+};
+
+function formatYear(year) {
+  if (year <= -10000) return `约${Math.abs(year).toLocaleString()}年前`;
+  if (year < 0) return `公元前${Math.abs(year)}年`;
+  if (year === 0) return '公元元年';
+  return `公元${year}年`;
 }
 
-function buildGeoEventDesc(ev) {
-  const detail = ALL_DETAILS[ev.title];
-  if (detail?.pages?.[0]?.body) return truncateText(detail.pages[0].body);
-  return `${REGION_LABELS[ev.region] || ev.region} · ${CAT_LABELS[ev.cat] || ev.cat}节点，用于补足世界历史地图与时间线的连续性。`;
-}
-
-function mergeTimelineEvents() {
-  const base = [...EVENTS, ...PARALLEL_EVENTS].map(ev => ({ ...ev, source: ev.source || 'timeline' }));
-  const seenTitles = new Set(base.map(ev => ev.title));
-  const additions = GEO_EVENTS
-    .filter(ev => !seenTitles.has(ev.title))
-    .map(ev => ({
-      ...ev,
-      desc: buildGeoEventDesc(ev),
-      longDesc: ALL_DETAILS[ev.title]?.pages?.map(p => `${p.title}：${p.body}`).join('\n\n') || buildGeoEventDesc(ev),
-      source: 'map',
-    }));
-
-  return [...base, ...additions].sort((a, b) => a.year - b.year);
-}
-
-const ALL_EVENTS = mergeTimelineEvents();
+const ALL_EVENTS = TIMELINE_EVENT_CATALOG;
 
 const REGION_TABS = [
   { id: 'all', name: '全部', color: '#c8a951', icon: 'mdi:earth' },
@@ -66,16 +64,17 @@ let searchQuery = '';
 let detailOnly = false;
 const activeRegionPerEra = {};
 let _swipeCleanup = null;
+let detailRequestId = 0;
 
 // ============================================================
 //  PAGINATED DETAIL CARD
 // ============================================================
-function renderPaginatedCard(ev) {
-  const detail = ALL_DETAILS[ev.title];
+function renderPaginatedCard(ev, record) {
+  const detail = record?.detail;
   const catColor = CAT_COLORS[ev.cat] || '#c8a951';
   const era = ERAS.find(r => r.id === ev.era);
 
-  const pages = detail?.pages || [{ title: ev.title, body: ev.longDesc || ev.desc }];
+  const pages = detail?.pages || [{ title: ev.title, body: record?.longDesc || ev.desc }];
   const hasFacts = detail?.facts && detail.facts.length > 0;
   const hasQuote = !!detail?.quote;
   const totalPages = pages.length + (hasFacts ? 1 : 0) + (hasQuote ? 1 : 0);
@@ -162,7 +161,34 @@ function renderPaginatedCard(ev) {
   return card;
 }
 
+function renderDetailLoadingCard(ev) {
+  const card = el('div', { class: 'paginated-card timeline-detail-loading' });
+  card.setAttribute('role', 'status');
+  card.setAttribute('aria-live', 'polite');
+  card.innerHTML = `
+    <div class="pc-body" style="min-height:180px;display:grid;place-items:center">
+      <div style="display:flex;align-items:center;gap:10px;color:var(--parchment-dim)">
+        <span class="loading-spinner" aria-hidden="true"></span>
+        <span>正在载入「${escapeHtml(ev.title)}」的时代资料…</span>
+      </div>
+    </div>`;
+  return card;
+}
+
+function animateExpandedCard(card) {
+  card.setAttribute('tabindex', '-1');
+  card.focus();
+  if (prefersReducedMotion()) return;
+  card.style.willChange = 'height, opacity';
+  gsap.fromTo(card, { height: 0, opacity: 0 }, {
+    height: '55vh', opacity: 1, duration: 0.45, ease: 'power2.out',
+    onComplete: () => { card.style.willChange = 'auto'; },
+  });
+  setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+}
+
 function collapseCard() {
+  detailRequestId += 1;
   const existing = document.querySelector('.paginated-card');
   if (existing) {
     const reduce = prefersReducedMotion();
@@ -181,13 +207,12 @@ function collapseCard() {
 }
 
 function eventMatchesGlobalFilters(ev) {
-  if (detailOnly && !ALL_DETAILS[ev.title] && !hasScholarlyDetail(ev.title)) return false;
+  if (detailOnly && !ev.hasDetail && !hasScholarlyDetail(ev.title)) return false;
   if (!searchQuery) return true;
 
   const haystack = [
     ev.title,
     ev.desc,
-    ev.longDesc,
     CAT_LABELS[ev.cat],
     REGION_LABELS[ev.region],
     ERAS.find(era => era.id === ev.era)?.name,
@@ -244,24 +269,48 @@ function buildContinueBanner() {
   return banner;
 }
 
-function expandCard(ev, eventEl) {
+async function expandCard(ev, eventEl) {
   if (expandedTitle === ev.title) { collapseCard(); return; }
   collapseCard();
   expandedTitle = ev.title;
   currentPage = 0;
+  const requestId = detailRequestId;
   eventEl.classList.add('expanded');
-  const card = renderPaginatedCard(ev);
-  eventEl.after(card);
-  card.setAttribute('tabindex', '-1');
-  card.focus();
-  const reduce = prefersReducedMotion();
-  if (reduce) return;
-  card.style.willChange = 'height, opacity';
-  gsap.fromTo(card, { height: 0, opacity: 0 }, {
-    height: '55vh', opacity: 1, duration: 0.45, ease: 'power2.out',
-    onComplete: () => { card.style.willChange = 'auto'; },
-  });
-  setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+  const loadingCard = renderDetailLoadingCard(ev);
+  eventEl.after(loadingCard);
+  animateExpandedCard(loadingCard);
+
+  try {
+    const record = await loadTimelineDetail(ev.era, ev.title);
+    if (
+      requestId !== detailRequestId ||
+      expandedTitle !== ev.title ||
+      !loadingCard.isConnected
+    ) return;
+    const card = renderPaginatedCard(ev, record);
+    gsap.killTweensOf(loadingCard);
+    loadingCard.replaceWith(card);
+    card.setAttribute('tabindex', '-1');
+    card.focus();
+  } catch {
+    if (
+      requestId !== detailRequestId ||
+      expandedTitle !== ev.title ||
+      !loadingCard.isConnected
+    ) return;
+    loadingCard.setAttribute('role', 'alert');
+    loadingCard.innerHTML = `
+      <div class="pc-body" style="min-height:180px;display:grid;place-items:center;text-align:center">
+        <div>
+          <p style="color:var(--parchment-dim);margin-bottom:12px">时代资料载入失败，请重试。</p>
+          <button type="button" class="timeline-detail-retry">重新载入</button>
+        </div>
+      </div>`;
+    loadingCard.querySelector('.timeline-detail-retry').addEventListener('click', () => {
+      expandedTitle = null;
+      void expandCard(ev, eventEl);
+    });
+  }
 }
 
 // ============================================================
@@ -314,9 +363,8 @@ function buildScrubber() {
 //  EVENT CARD (single item in the vertical list)
 // ============================================================
 function renderEventCard(ev) {
-  const hasDetail = !!ALL_DETAILS[ev.title];
-  const detail = ALL_DETAILS[ev.title];
-  const pageCount = detail ? (detail.pages?.length || 1) + (detail.facts?.length ? 1 : 0) + (detail.quote ? 1 : 0) : 0;
+  const hasDetail = ev.hasDetail;
+  const pageCount = ev.detailPageCount;
   const readMins = hasDetail ? estimateReadMinutes(pageCount) : 0;
   const catColor = CAT_COLORS[ev.cat] || '#c8a951';
   const item = el('div', { class: `tl-event${hasDetail ? ' has-detail' : ''}` });
@@ -350,7 +398,7 @@ function renderEventCard(ev) {
       e.stopPropagation();
       return;
     }
-    expandCard(ev, item);
+    void expandCard(ev, item);
   });
   return item;
 }
@@ -505,7 +553,9 @@ export function renderTimeline() {
     expandedTitle = null;
 
     const visibleEvents = ALL_EVENTS.filter(eventMatchesGlobalFilters);
-    const visibleDetailed = visibleEvents.filter(ev => !!ALL_DETAILS[ev.title]).length;
+    const visibleDetailed = visibleEvents.filter(
+      ev => ev.hasDetail || hasScholarlyDetail(ev.title),
+    ).length;
     const visibleRegions = new Set(visibleEvents.map(ev => ev.region)).size;
     summary.innerHTML = `
       <div><span>事件总量</span><strong>${visibleEvents.length}</strong></div>
@@ -585,6 +635,7 @@ export function renderTimeline() {
 }
 
 export function cleanupTimeline() {
+  detailRequestId += 1;
   if (_swipeCleanup) { _swipeCleanup(); _swipeCleanup = null; }
   cleanupScholarlyModal();
   // Kill all GSAP tweens to prevent height/opacity animations from leaking

@@ -246,6 +246,12 @@ function buildPsychologyGraph(): { nodes: GraphNode[]; edges: GraphEdge[] } {
     "可得性启发"
   );
   addEdge(
+    "psychology:major-depressive",
+    "psychology:risk-perception-and-macro-decisions",
+    "cross-reference",
+    "控制感、风险判断与求助"
+  );
+  addEdge(
     "psychology:political-polarization-psychology",
     "psychology:social-identity",
     "cross-reference",
@@ -262,6 +268,12 @@ function buildPsychologyGraph(): { nodes: GraphNode[]; edges: GraphEdge[] } {
     "economics:country-macro-diagnostics-forecasting",
     "domain-link",
     "信心与情景分析"
+  );
+  addEdge(
+    "psychology:risk-perception-and-macro-decisions",
+    "sociology:social-support-mental-health",
+    "domain-link",
+    "关系网络重塑控制感与求助"
   );
   addEdge(
     "psychology:political-polarization-psychology",

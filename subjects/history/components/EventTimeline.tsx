@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useRef, useMemo, useCallback, useState } from 'react';
-import { EVENTS } from '@/content/human-history/data/events';
 import { ERAS } from '@/content/human-history/data/eras';
+import { HISTORY_EVENT_CATALOG } from '@/subjects/history/lib/history-catalog';
 import {
   getEventRelationships,
   getFigureLinksByEvent,
@@ -170,7 +170,10 @@ export default function EventTimeline({
   const [hoveredEvent, setHoveredEvent] = useState<string | null>(null);
   const [hoveredRelation, setHoveredRelation] = useState<number | null>(null);
 
-  const allEvents = useMemo(() => EVENTS as unknown as TimelineEvent[], []);
+  const allEvents = useMemo(
+    () => HISTORY_EVENT_CATALOG as unknown as TimelineEvent[],
+    [],
+  );
 
   const { nodes, lines, totalHeight } = useTimelineLayout(
     allEvents,

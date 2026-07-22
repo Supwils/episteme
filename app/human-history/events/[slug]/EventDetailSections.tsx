@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getAllEvents, formatYear, getCatLabel, getRegionLabel } from "@/subjects/history/lib/events";
-import type { EnrichedEvent } from "@/subjects/history/lib/events";
+import type { EnrichedEvent } from "@/subjects/history/lib/event-route-data";
 
 const ROLE_LABELS: Record<string, string> = {
   initiated: "发起",

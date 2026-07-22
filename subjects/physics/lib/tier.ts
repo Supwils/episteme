@@ -138,6 +138,12 @@ export function tierFromSlug(slug: string): TierId | null {
   return ROUTE_TO_TIER.get(slug) ?? null;
 }
 
+export function tierFromPathname(pathname: string): TierId | null {
+  const normalizedPath = pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;
+  const slug = normalizedPath.slice(normalizedPath.lastIndexOf("/") + 1);
+  return tierFromSlug(slug);
+}
+
 export function tierIndex(id: TierId): number {
   return TIER_ORDER.indexOf(id);
 }

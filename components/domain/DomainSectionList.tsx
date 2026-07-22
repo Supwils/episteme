@@ -20,7 +20,7 @@ export function DomainSectionList({ domain, section }: { domain: string; section
   }
 
   return (
-    <div className="w-full px-6 py-16 sm:px-10 lg:px-16">
+    <div data-testid="domain-section-list" className="w-full px-6 py-16 sm:px-10 lg:px-16">
       <header className="mb-12 max-w-3xl">
         <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
           {domain} / {section}

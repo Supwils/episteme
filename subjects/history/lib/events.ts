@@ -1,50 +1,13 @@
-import { EVENTS } from '@/content/human-history/data/events.js';
-import { EVENT_DETAILS } from '@/content/human-history/data/event-details.js';
-import { REFERENCES } from '@/content/human-history/data/references.js';
 import { ERAS } from '@/subjects/history/lib/eras';
 import {
-  getEventRelationsByTitle,
-  getFigureLinksByEvent,
-} from '@/subjects/history/lib/event-relationships';
-import type { EventRelation } from '@/subjects/history/lib/event-relationships';
+  HISTORY_EVENT_CATALOG,
+  getHistoryEventSummary,
+  type HistoryEventSummary,
+} from '@/subjects/history/lib/history-catalog';
 
-export interface EventPage {
-  title: string;
-  body: string;
-}
-
-export interface EventDetailData {
-  pages: EventPage[];
-  facts: string[];
-  quote: { text: string; author: string };
-}
-
-export interface EnrichedEvent {
-  year: number;
-  title: string;
-  desc: string;
-  longDesc: string;
-  era: string;
-  region: string;
-  cat: string;
-  references: string[];
-  detail: EventDetailData | null;
+export interface CatalogEvent extends HistoryEventSummary {
   eraName: string;
   eraColor: string;
-  relatedEvents: EventRelation[];
-  figureLinks: { figureId: string; role: string }[];
-  resolvedReferences: { id: string; author: string; title: string; titleEn?: string; year: number }[];
-}
-
-interface RawEvent {
-  year: number;
-  title: string;
-  desc: string;
-  longDesc?: string;
-  era: string;
-  region: string;
-  cat: string;
-  references?: string[];
 }
 
 const CAT_LABELS: Record<string, string> = {
@@ -80,44 +43,20 @@ export function formatYear(year: number): string {
   return `公元${year}年`;
 }
 
-export function getAllEvents(): EnrichedEvent[] {
-  return (EVENTS as RawEvent[]).map((ev) => enrichEvent(ev));
+export function getAllEvents(): CatalogEvent[] {
+  return HISTORY_EVENT_CATALOG.map((event) => enrichEventSummary(event));
 }
 
-export function getEventBySlug(title: string): EnrichedEvent | undefined {
-  const raw = (EVENTS as RawEvent[]).find((e) => e.title === title);
-  if (!raw) return undefined;
-  return enrichEvent(raw);
+export function getEventBySlug(title: string): CatalogEvent | undefined {
+  const event = getHistoryEventSummary(title);
+  return event ? enrichEventSummary(event) : undefined;
 }
 
-function enrichEvent(ev: RawEvent): EnrichedEvent {
-  const detail = (EVENT_DETAILS as Record<string, EventDetailData>)[ev.title] ?? null;
-  const era = ERAS.find((e) => e.id === ev.era);
-  const relations = getEventRelationsByTitle(ev.title);
-  const figureLinks = getFigureLinksByEvent(ev.title);
-
-  const refRecords = (REFERENCES as Record<string, { author: string; title: string; titleEn?: string; year: number }>);
-  const resolvedReferences = (ev.references ?? [])
-    .map((id) => ({
-      id,
-      ...(refRecords[id] ?? { author: '', title: id, year: 0 }),
-    }))
-    .filter((r) => r.title);
-
+function enrichEventSummary(event: HistoryEventSummary): CatalogEvent {
+  const era = ERAS.find((candidate) => candidate.id === event.era);
   return {
-    year: ev.year,
-    title: ev.title,
-    desc: ev.desc,
-    longDesc: ev.longDesc ?? '',
-    era: ev.era,
-    region: ev.region,
-    cat: ev.cat,
-    references: ev.references ?? [],
-    detail,
-    eraName: era?.name ?? ev.era,
+    ...event,
+    eraName: era?.name ?? event.era,
     eraColor: era?.color ?? '#C8A951',
-    relatedEvents: relations,
-    figureLinks: figureLinks.map((l) => ({ figureId: l.figureId, role: l.role })),
-    resolvedReferences,
   };
 }

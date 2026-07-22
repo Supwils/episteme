@@ -41,16 +41,16 @@ export function SectionAwareNav() {
       <nav
         id="site-navigation"
         aria-label="主导航"
-        className="mx-auto flex h-14 max-w-[1400px] items-center justify-between px-6"
+        className="mx-auto flex h-14 max-w-[1400px] items-center justify-between px-4 sm:px-6"
       >
         <Link
           href="/"
-          className="text-fg-primary hover:text-accent-gold font-display text-lg font-semibold tracking-tight transition-colors"
+          className="text-fg-primary hover:text-accent-gold font-display shrink-0 whitespace-nowrap text-base font-semibold tracking-tight transition-colors sm:text-lg"
         >
           Episteme · 格致
         </Link>
         <DesktopNav />
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <ReadingPanel />
           <SearchTrigger />
           <ThemeToggle />

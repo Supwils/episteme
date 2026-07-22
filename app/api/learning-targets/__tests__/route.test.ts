@@ -11,7 +11,7 @@ describe("learning target API", () => {
       summary: { nodeCount: number };
       results: { id: string; distance: number; candidateCount: number }[];
     };
-    expect(search.summary.nodeCount).toBe(1362);
+    expect(search.summary.nodeCount).toBe(1381);
     expect(search.results[0]).toMatchObject({
       id: "philosophy:ai-ethics",
       distance: 1,

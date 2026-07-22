@@ -77,6 +77,11 @@ export const MEDICINE_NODES: GraphNode[] = [
     "HIV",
     "抗逆转录病毒",
   ]),
+  n("influenza", "流感", "disease", "diseases", "从季节性负担到1918大流行，理解监测、变异与疫苗效果。", [
+    "流感",
+    "大流行",
+    "疫苗效果",
+  ]),
   n("covid-19", "COVID-19", "disease", "diseases", "SARS-CoV-2 大流行，mRNA 疫苗的首秀。", [
     "SARS-CoV-2",
     "大流行",
@@ -152,6 +157,22 @@ export const MEDICINE_NODES: GraphNode[] = [
     "public-health",
     "从人口、服务和费用三条轴理解有效覆盖、财务保护与系统能力。",
     ["卫生系统", "UHC", "财务保护"]
+  ),
+  n(
+    "community-mental-health-access-continuity",
+    "社区精神卫生、可及性与连续照护",
+    "concept",
+    "public-health",
+    "把需要、识别、首次接触、匹配治疗、持续参与、权利与恢复组织为可审计的照护级联。",
+    ["社区精神卫生", "可及性", "连续照护", "人权"]
+  ),
+  n(
+    "adolescent-mental-health-school-community-services",
+    "青少年心理健康：学校、社区与连续服务",
+    "concept",
+    "public-health",
+    "把发展促进、学校环境、家庭支持、早期识别、适龄转诊、数字服务与权利保障组织为连续服务系统。",
+    ["青少年心理健康", "学校健康", "社区服务", "连续照护"]
   ),
   n(
     "infectious-disease-modeling-surveillance",
@@ -273,6 +294,14 @@ export const MEDICINE_NODES: GraphNode[] = [
     ["研究伦理", "知情同意"]
   ),
   n(
+    "antibiotic-era",
+    "抗生素时代的开启（1942）",
+    "event",
+    "events",
+    "从青霉素量产到耐药反事实，治疗革命同时创造新的治理责任。",
+    ["抗生素", "青霉素", "耐药性"]
+  ),
+  n(
     "covid-19-pandemic",
     "COVID-19 大流行（2020）",
     "event",
@@ -314,8 +343,15 @@ export const MEDICINE_EDGES: GraphEdge[] = [
   e("antibiotics", "tuberculosis", "治疗"),
   e("vaccination", "smallpox-eradication", "实现"),
   e("smallpox", "smallpox-eradication", "被根除"),
+  e("epidemiology", "influenza", "估计季节性负担"),
+  e("influenza", "covid-19-pandemic", "提供大流行比较基线"),
   e("covid-19", "covid-19-pandemic", "引发"),
   e("covid-19", "mrna-vaccine", "催生应用"),
+  e("covid-19-pandemic", "infectious-disease-modeling-surveillance", "暴露监测与反事实难题"),
+  e("vaccine-policy-programs-hesitancy", "smallpox-eradication", "连接覆盖与传播链控制"),
+  e("smallpox-eradication", "antibiotic-era", "对照预防与治疗两类工具"),
+  e("antibiotic-era", "antibiotics", "推动临床应用"),
+  e("antibiotic-era", "antibiotic-resistance", "留下选择压力"),
   e("vaccination", "mrna-vaccine", "新形态"),
   e("evidence-based-medicine", "epidemiology", "方法相通"),
   e("tuskegee-syphilis-study", "evidence-based-medicine", "伦理教训"),
@@ -339,6 +375,26 @@ export const MEDICINE_EDGES: GraphEdge[] = [
     "health-systems-universal-health-coverage",
     "implementation-science-health-policy",
     "落实制度设计"
+  ),
+  e(
+    "depression",
+    "community-mental-health-access-continuity",
+    "从个体需要进入照护级联"
+  ),
+  e(
+    "adolescent-mental-health-school-community-services",
+    "community-mental-health-access-continuity",
+    "把学校入口接入分级转诊与连续照护"
+  ),
+  e(
+    "community-mental-health-access-continuity",
+    "health-systems-universal-health-coverage",
+    "检验有效覆盖与财务保护"
+  ),
+  e(
+    "community-mental-health-access-continuity",
+    "informed-consent",
+    "以支持性决策守住服务权利"
   ),
   e(
     "implementation-science-health-policy",
@@ -407,6 +463,18 @@ export const MEDICINE_EDGES: GraphEdge[] = [
     label: "卫生预算与问责",
   },
   {
+    source: "medicine:health-systems-universal-health-coverage",
+    target: "political-science:public-policy",
+    type: "domain-link",
+    label: "把有效覆盖写入公共项目",
+  },
+  {
+    source: "political-science:public-policy",
+    target: "medicine:informed-consent",
+    type: "domain-link",
+    label: "以规则保障自主与申诉",
+  },
+  {
     source: "medicine:global-health-inequality-coloniality",
     target: "sociology:social-stratification",
     type: "domain-link",
@@ -423,6 +491,42 @@ export const MEDICINE_EDGES: GraphEdge[] = [
     target: "sociology:family-and-kinship",
     type: "domain-link",
     label: "照护与生命周期",
+  },
+  {
+    source: "medicine:infectious-disease-modeling-surveillance",
+    target: "psychology:risk-perception-and-macro-decisions",
+    type: "domain-link",
+    label: "数据经风险感知进入行为",
+  },
+  {
+    source: "psychology:risk-perception-and-macro-decisions",
+    target: "political-science:state-capacity",
+    type: "domain-link",
+    label: "风险沟通影响行动合法性",
+  },
+  {
+    source: "medicine:community-mental-health-access-continuity",
+    target: "political-science:public-policy",
+    type: "domain-link",
+    label: "把照护缺口转为公共项目",
+  },
+  {
+    source: "sociology:platform-governance",
+    target: "medicine:adolescent-mental-health-school-community-services",
+    type: "domain-link",
+    label: "把平台系统风险接入学校与卫生服务",
+  },
+  {
+    source: "medicine:informed-consent",
+    target: "philosophy:bioethics",
+    type: "domain-link",
+    label: "自主、能力与最少限制",
+  },
+  {
+    source: "political-science:state-capacity",
+    target: "medicine:vaccine-policy-programs-hesitancy",
+    type: "domain-link",
+    label: "把政策转成可达项目",
   },
   ...MEDICINE_COVERAGE_EDGES,
 ];

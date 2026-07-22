@@ -15,6 +15,7 @@ import { join, dirname, extname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { gzipSync } from "node:zlib";
 import {
+  analyzeJsAssetOwnership,
   analyzeRouteAssets,
   findTailwindEntrypoints,
   getRouteCssBudget,
@@ -48,16 +49,13 @@ const BUDGET = {
   homepageHtmlGzip: 80 * 1024,
   homepageRscRaw: 100 * 1024,
   genericArticleJs: 220 * 1024,
+  historyTimelineShell: 12 * 1024,
+  historyTimelineCatalog: 32 * 1024,
   routeCss: {
     portal: 40 * 1024, // 40 KB — homepage regression budget
     domain: 40 * 1024, // 40 KB — root utilities + route-scoped domain styles
   },
   singleChunkMax: 285 * 1024, // 285 KB — accommodates the Three.js / R3F vendor chunk
-  // Sum of ALL route chunks — scales with the number of subjects, so it is an
-  // informational warn, not a hard gate. The page-load budgets that actually
-  // matter (sharedInitialJs + singleChunkMax) stay well within limits. Raised
-  // from 3000 KB (9-subject era) to 3400 KB as the platform expanded.
-  totalChunksWarn: 3400 * 1024, // 3400 KB — full platform surface (warn only)
 };
 
 // ---------------------------------------------------------------------------
@@ -102,6 +100,19 @@ function gzipSize(filePath) {
  */
 function fmt(bytes) {
   return (bytes / 1024).toFixed(1) + " KB";
+}
+
+/**
+ * Find built chunks containing every marker. Marker combinations identify
+ * generated history assets without relying on unstable content hashes.
+ * @param {string[]} markers
+ * @returns {{ path: string; raw: number; gzip: number }[]}
+ */
+function findJsEntriesContaining(markers) {
+  return jsEntries.filter((entry) => {
+    const content = readFileSync(join(ROOT, entry.path));
+    return markers.every((marker) => content.includes(Buffer.from(marker)));
+  });
 }
 
 // ---------------------------------------------------------------------------
@@ -179,6 +190,7 @@ const cssEntries = cssFiles.map((f) => ({
 const totalJsGzip = jsEntries.reduce((s, e) => s + e.gzip, 0);
 const totalCssGzip = cssEntries.reduce((s, e) => s + e.gzip, 0);
 const routeEntries = analyzeRouteAssets(NEXT_DIR);
+const jsOwnership = analyzeJsAssetOwnership(NEXT_DIR, routeEntries);
 const tailwindEntrypoints = findTailwindEntrypoints(join(ROOT, "app"));
 const topRoutesByJs = [...routeEntries].sort((a, b) => b.jsGzip - a.jsGzip).slice(0, 10);
 const topRoutesByCss = [...routeEntries].sort((a, b) => b.cssGzip - a.cssGzip).slice(0, 10);
@@ -187,6 +199,18 @@ const largestRouteCss = topRoutesByCss[0] ?? null;
 const genericArticleRoutes = routeEntries.filter((entry) => isGenericArticleRoute(entry.route));
 const largestGenericArticle =
   [...genericArticleRoutes].sort((a, b) => b.jsGzip - a.jsGzip)[0] ?? null;
+const historyTimelineShellChunks = findJsEntriesContaining([
+  "从三十万年前智人诞生到公元2100年",
+  "正在载入",
+]);
+const historyTimelineCatalogChunks = findJsEntriesContaining([
+  "控制用火",
+  "星际文明雏形",
+  "detailPageCount",
+]);
+const historyTimelineShell = historyTimelineShellChunks[0] ?? null;
+const historyTimelineCatalog = historyTimelineCatalogChunks[0] ?? null;
+const historyLongProseMarker = "摩洛哥Jebel Irhoud遗址";
 
 /**
  * Sum the gzip size of the chunks listed under `rootMainFiles` +
@@ -284,13 +308,23 @@ console.log(
 console.log(
   `    Generic article JS : ${fmt(largestGenericArticle?.jsGzip ?? 0)}   (budget ${fmt(BUDGET.genericArticleJs)})${largestGenericArticle ? `  ${largestGenericArticle.route}` : ""}`
 );
+console.log(
+  `    History timeline shell: ${historyTimelineShell ? fmt(historyTimelineShell.gzip) : "n/a"}   (budget ${fmt(BUDGET.historyTimelineShell)})`
+);
+console.log(
+  `    History timeline catalog: ${historyTimelineCatalog ? fmt(historyTimelineCatalog.gzip) : "n/a"}   (budget ${fmt(BUDGET.historyTimelineCatalog)})`
+);
 console.log(`    Total CSS (all)    : ${fmt(totalCssGzip)}   (informational)`);
 console.log(
   `    Largest single chunk: ${fmt(topJs[0]?.gzip ?? 0)}   (budget ${fmt(BUDGET.singleChunkMax)})`
 );
 console.log(
-  `    Total chunks (all)  : ${fmt(totalJsGzip)}   (warn at ${fmt(BUDGET.totalChunksWarn)})`
+  `    Route-referenced JS : ${fmt(jsOwnership.routeReferenced.gzip)} across ${jsOwnership.routeReferenced.assets.length} unique chunks`
 );
+console.log(
+  `    Deferred-only JS    : ${fmt(jsOwnership.deferredOnly.gzip)} across ${jsOwnership.deferredOnly.assets.length} unique chunks`
+);
+console.log(`    Total chunks (all)  : ${fmt(totalJsGzip)}   (inventory only)`);
 console.log(`    Tailwind entries    : ${tailwindEntrypoints.join(", ") || "none"}`);
 console.log("");
 
@@ -311,6 +345,41 @@ if (routeEntries.length === 0) {
 
 if (genericArticleRoutes.length === 0) {
   violations.push("No generic article routes found; article JS budget cannot be verified");
+}
+
+if (historyTimelineShellChunks.length !== 1) {
+  violations.push(
+    `Expected one human-history timeline shell chunk; found ${historyTimelineShellChunks.length}`
+  );
+} else if (historyTimelineShell.gzip > BUDGET.historyTimelineShell) {
+  violations.push(
+    `History timeline shell (${fmt(historyTimelineShell.gzip)}) exceeds budget (${fmt(BUDGET.historyTimelineShell)})`
+  );
+}
+
+if (historyTimelineCatalogChunks.length !== 1) {
+  violations.push(
+    `Expected one human-history timeline catalog chunk; found ${historyTimelineCatalogChunks.length}`
+  );
+} else if (historyTimelineCatalog.gzip > BUDGET.historyTimelineCatalog) {
+  violations.push(
+    `History timeline catalog (${fmt(historyTimelineCatalog.gzip)}) exceeds budget (${fmt(BUDGET.historyTimelineCatalog)})`
+  );
+}
+
+if (
+  historyTimelineShell &&
+  historyTimelineCatalog &&
+  historyTimelineShell.path === historyTimelineCatalog.path
+) {
+  violations.push("History timeline shell and catalog must remain separate chunks");
+}
+
+for (const entry of [historyTimelineShell, historyTimelineCatalog].filter(Boolean)) {
+  const content = readFileSync(join(ROOT, entry.path), "utf8");
+  if (content.includes(historyLongProseMarker)) {
+    violations.push(`History long-form prose leaked into initial chunk ${entry.path}`);
+  }
 }
 
 if (sharedJsGzip !== null && sharedJsGzip > BUDGET.sharedInitialJs) {
@@ -364,12 +433,6 @@ const largeChunks = jsEntries.filter((e) => e.gzip > BUDGET.singleChunkMax);
 for (const chunk of largeChunks) {
   violations.push(
     `Single chunk ${chunk.path} = ${fmt(chunk.gzip)} > ${fmt(BUDGET.singleChunkMax)}`
-  );
-}
-
-if (totalJsGzip > BUDGET.totalChunksWarn) {
-  warnings.push(
-    `Total chunks (${fmt(totalJsGzip)}) above warn threshold (${fmt(BUDGET.totalChunksWarn)}) — review tree-shaking / lazy boundaries`
   );
 }
 

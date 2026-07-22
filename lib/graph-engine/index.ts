@@ -17,6 +17,7 @@ export {
 export type {
   RenderNode,
   RenderEdge,
+  RenderGuide,
   RenderConfig,
   InteractionCallbacks,
   ViewBounds,

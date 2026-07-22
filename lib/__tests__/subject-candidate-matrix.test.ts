@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { KNOWLEDGE_DOMAINS } from "@/lib/knowledge-continuum";
 import {
+  LAUNCHED_SUBJECT_CANDIDATE_IDS,
+  RANKED_NEXT_SUBJECT_CANDIDATES,
   RANKED_SUBJECT_CANDIDATES,
   RECOMMENDED_SUBJECT_CANDIDATE,
   SUBJECT_CANDIDATES,
@@ -57,13 +59,18 @@ describe("new subject candidate matrix", () => {
     }
   });
 
-  it("selects the highest weighted candidate rather than a hard-coded label", () => {
+  it("selects the highest weighted unlaunched candidate", () => {
     const scores = RANKED_SUBJECT_CANDIDATES.map((candidate) =>
       calculateCandidateScore(candidate.scores)
     );
     expect(scores).toEqual([...scores].sort((left, right) => right - left));
-    expect(RECOMMENDED_SUBJECT_CANDIDATE.id).toBe("linguistics");
-    expect(calculateCandidateScore(RECOMMENDED_SUBJECT_CANDIDATE.scores)).toBeCloseTo(4.8);
+    expect(LAUNCHED_SUBJECT_CANDIDATE_IDS).toEqual(new Set(["linguistics"]));
+    expect(RANKED_NEXT_SUBJECT_CANDIDATES.map((candidate) => candidate.id)).toEqual([
+      "arts-aesthetics",
+      "comparative-law",
+    ]);
+    expect(RECOMMENDED_SUBJECT_CANDIDATE.id).toBe("arts-aesthetics");
+    expect(calculateCandidateScore(RECOMMENDED_SUBJECT_CANDIDATE.scores)).toBeCloseTo(4.1);
   });
 });
 
@@ -94,7 +101,10 @@ describe("linguistics release plan", () => {
     const represented = new Set(
       ALL_LINGUISTICS_ARTICLES.flatMap((article) => article.bridgeDomains)
     );
-    for (const domain of RECOMMENDED_SUBJECT_CANDIDATE.bridgeDomains) {
+    const linguisticsCandidate = SUBJECT_CANDIDATES.find(
+      (candidate) => candidate.id === "linguistics"
+    )!;
+    for (const domain of linguisticsCandidate.bridgeDomains) {
       expect(represented.has(domain), domain).toBe(true);
     }
   });

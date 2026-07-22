@@ -39,9 +39,8 @@ test.describe("production smoke", () => {
     );
     if (isMobile) {
       const detailPanel = page.getByRole("dialog", { name: /详情$/ });
-      await expect(detailPanel).toBeVisible();
-      await detailPanel.getByRole("button", { name: "关闭详情面板" }).click();
-      await expect(detailPanel).toBeHidden();
+      await expect(detailPanel).toHaveCount(0);
+      await expect(page.getByRole("link", { name: "阅读当前文章 →" })).toBeVisible();
     }
     await expect(page.getByRole("button", { name: "下一步" })).toBeEnabled();
     await page.getByRole("button", { name: "下一步" }).click();

@@ -1,34 +1,68 @@
 "use client";
 
-import React, { Suspense, type ReactNode } from "react";
-import type { AnyTierId, UniverseTierId } from "@/subjects/physics/lib/tier";
-import { isUniverseTierId } from "@/subjects/physics/lib/tier";
+import React, { Suspense, useEffect, type ReactNode } from "react";
+import {
+  isUniverseTierId,
+  nextTier,
+  prevTier,
+  type AnyTierId,
+  type UniverseTierId,
+} from "@/subjects/physics/lib/tier";
 import { useUniverseStore } from "@/subjects/physics/store/useUniverseStore";
 
-const Tier0Scene = React.lazy(() =>
-  import("./tier0-observable/Tier0Scene").then((m) => ({ default: m.Tier0Scene }))
-);
-const Tier1Scene = React.lazy(() =>
-  import("./tier1-cosmic-web/Tier1Scene").then((m) => ({ default: m.Tier1Scene }))
-);
-const Tier2Scene = React.lazy(() =>
-  import("./tier2-supercluster/Tier2Scene").then((m) => ({ default: m.Tier2Scene }))
-);
-const Tier3Scene = React.lazy(() =>
-  import("./tier3-local-group/Tier3Scene").then((m) => ({ default: m.Tier3Scene }))
-);
-const Tier4Scene = React.lazy(() =>
-  import("./tier4-milky-way/Tier4Scene").then((m) => ({ default: m.Tier4Scene }))
-);
-const Tier5Scene = React.lazy(() =>
-  import("./tier5-stellar-neighborhood/Tier5Scene").then((m) => ({ default: m.Tier5Scene }))
-);
-const Tier6Scene = React.lazy(() =>
-  import("./tier6-solar-system/Tier6Scene").then((m) => ({ default: m.Tier6Scene }))
-);
-const Tier7Scene = React.lazy(() =>
-  import("./tier7-earth/Tier7Scene").then((m) => ({ default: m.Tier7Scene }))
-);
+type SceneModule = {
+  default: React.ComponentType<{ opacity?: number }>;
+};
+
+const SCENE_LOADERS: Record<UniverseTierId, () => Promise<SceneModule>> = {
+  T0: () =>
+    import("./tier0-observable/Tier0Scene").then((module) => ({ default: module.Tier0Scene })),
+  T1: () =>
+    import("./tier1-cosmic-web/Tier1Scene").then((module) => ({ default: module.Tier1Scene })),
+  T2: () =>
+    import("./tier2-supercluster/Tier2Scene").then((module) => ({ default: module.Tier2Scene })),
+  T3: () =>
+    import("./tier3-local-group/Tier3Scene").then((module) => ({ default: module.Tier3Scene })),
+  T4: () =>
+    import("./tier4-milky-way/Tier4Scene").then((module) => ({ default: module.Tier4Scene })),
+  T5: () =>
+    import("./tier5-stellar-neighborhood/Tier5Scene").then((module) => ({
+      default: module.Tier5Scene,
+    })),
+  T6: () =>
+    import("./tier6-solar-system/Tier6Scene").then((module) => ({ default: module.Tier6Scene })),
+  T7: () => import("./tier7-earth/Tier7Scene").then((module) => ({ default: module.Tier7Scene })),
+};
+
+function loadScene(tier: UniverseTierId): Promise<SceneModule> {
+  performance.mark(`universe:scene-load:${tier}`);
+  return SCENE_LOADERS[tier]();
+}
+
+const SCENES: Record<UniverseTierId, React.LazyExoticComponent<SceneModule["default"]>> = {
+  T0: React.lazy(() => loadScene("T0")),
+  T1: React.lazy(() => loadScene("T1")),
+  T2: React.lazy(() => loadScene("T2")),
+  T3: React.lazy(() => loadScene("T3")),
+  T4: React.lazy(() => loadScene("T4")),
+  T5: React.lazy(() => loadScene("T5")),
+  T6: React.lazy(() => loadScene("T6")),
+  T7: React.lazy(() => loadScene("T7")),
+};
+
+export function preloadAdjacentUniverseScene(tier: UniverseTierId): void {
+  const adjacentTier = nextTier(tier) ?? prevTier(tier);
+  if (!adjacentTier) return;
+  performance.mark(`universe:scene-preload:${adjacentTier}`);
+  void SCENE_LOADERS[adjacentTier]().catch(() => {
+    performance.mark(`universe:scene-preload-failed:${adjacentTier}`);
+  });
+}
+
+function SceneReadySignal({ onReady }: { onReady: () => void }) {
+  useEffect(onReady, [onReady]);
+  return null;
+}
 
 /**
  * Scene router with cross-fade support.
@@ -40,20 +74,42 @@ const Tier7Scene = React.lazy(() =>
  * reconciles the opacity prop but the heavy geometry is memoised so
  * only the materials' .opacity values actually mutate.
  */
-export function ActiveScene() {
-  const currentTier = useUniverseStore((state) => state.currentTier);
+export function ActiveScene({
+  initialTier,
+  onSceneReady,
+}: {
+  initialTier: UniverseTierId;
+  onSceneReady: () => void;
+}) {
   const transition = useUniverseStore((state) => state.transition);
 
   if (transition.active && transition.kind === "dissolve" && transition.from && transition.to) {
     return (
       <>
-        <Suspense fallback={null}>{renderScene(transition.from, 1 - transition.progress)}</Suspense>
+        <Suspense fallback={null}>
+          {renderScene(transition.from, 1 - transition.progress)}
+          <SceneReadySignal onReady={onSceneReady} />
+        </Suspense>
         <Suspense fallback={null}>{renderScene(transition.to, transition.progress)}</Suspense>
       </>
     );
   }
 
-  return <Suspense fallback={null}>{renderScene(currentTier, 1)}</Suspense>;
+  if (transition.active && transition.from) {
+    return (
+      <Suspense fallback={null}>
+        {renderScene(transition.from, 1)}
+        <SceneReadySignal onReady={onSceneReady} />
+      </Suspense>
+    );
+  }
+
+  return (
+    <Suspense fallback={null}>
+      {renderScene(initialTier, 1)}
+      <SceneReadySignal onReady={onSceneReady} />
+    </Suspense>
+  );
 }
 
 function renderScene(tier: AnyTierId, opacity: number): ReactNode {
@@ -62,24 +118,6 @@ function renderScene(tier: AnyTierId, opacity: number): ReactNode {
 }
 
 function renderUniverseScene(tier: UniverseTierId, opacity: number): ReactNode {
-  switch (tier) {
-    case "T0":
-      return <Tier0Scene key={tier} opacity={opacity} />;
-    case "T1":
-      return <Tier1Scene key={tier} opacity={opacity} />;
-    case "T2":
-      return <Tier2Scene key={tier} opacity={opacity} />;
-    case "T3":
-      return <Tier3Scene key={tier} opacity={opacity} />;
-    case "T4":
-      return <Tier4Scene key={tier} opacity={opacity} />;
-    case "T5":
-      return <Tier5Scene key={tier} opacity={opacity} />;
-    case "T6":
-      return <Tier6Scene key={tier} opacity={opacity} />;
-    case "T7":
-      return <Tier7Scene key={tier} opacity={opacity} />;
-    default:
-      return null;
-  }
+  const Scene = SCENES[tier];
+  return <Scene key={tier} opacity={opacity} />;
 }

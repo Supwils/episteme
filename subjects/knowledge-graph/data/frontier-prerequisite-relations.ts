@@ -161,6 +161,8 @@ const REQUIRED_RELATIONS: readonly ReviewedLearningRelation[] = [
       "psychology:inflation-expectations-and-trust",
       "psychology:political-psychology-of-fiscal-austerity",
       "psychology:cultural-psychology",
+      "psychology:sleep-and-mind",
+      "psychology:causal-inference-experiments-observational-studies",
     ],
     "解释心理现象前，需要区分行为、体验、测量与理论推断。"
   ),
@@ -259,8 +261,9 @@ const REQUIRED_RELATIONS: readonly ReviewedLearningRelation[] = [
       "earth-science:ocean-acidification",
       "earth-science:climate-modeling",
       "earth-science:sea-level-change",
+      "earth-science:mineral-resources-and-critical-metals",
     ],
-    "圈层交换、尺度和观测误差是这些地球过程的共同基础。"
+    "圈层交换、尺度、物质来源和观测误差是这些地球过程与资源判断的共同基础。"
   ),
   ...reviewedGroup(
     "earth-science:plate-boundaries",
@@ -285,6 +288,11 @@ const REQUIRED_RELATIONS: readonly ReviewedLearningRelation[] = [
       "medicine:inflammation",
       "medicine:pathology",
       "medicine:nutrition-science",
+      "medicine:screening-and-early-detection",
+      "medicine:pain-and-analgesia",
+      "medicine:informed-consent",
+      "medicine:community-mental-health-access-continuity",
+      "medicine:adolescent-mental-health-school-community-services",
     ],
     "这些主题都要求区分正常功能、疾病机制和可评价的健康结局。"
   ),
@@ -327,6 +335,7 @@ const REQUIRED_RELATIONS: readonly ReviewedLearningRelation[] = [
       "sociology:indian-social-thought",
       "sociology:islamic-social-thought",
       "sociology:latin-american-dependency-liberation-sociology",
+      "sociology:social-support-mental-health",
     ],
     "理解社会理论与制度问题前，需要先能从互动中识别结构性模式。"
   ),

@@ -47,8 +47,10 @@ vi.mock("framer-motion", () => ({
 
 import { DomainCard } from "../DomainCard";
 import { HeroSection } from "../HeroSection";
+import { DOMAINS } from "@/lib/data";
 import { PageTransition } from "../PageTransition";
 import { ScrollToTop } from "../ScrollToTop";
+import { SectionAwareFooter } from "../SectionAwareFooter";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { ReadingModeControls } from "@/components/ReadingModeControls";
 import { DeepReading } from "@/subjects/life-science/components/DeepReading";
@@ -110,9 +112,25 @@ describe("HeroSection", () => {
 
     const statistics = screen.getByRole("list", { name: "平台内容统计" });
     expect(statistics.classList.contains("animate-fade-slide-up")).toBe(false);
-    expect(screen.getByText("14")).toBeDefined();
-    expect(screen.getByText("1850+")).toBeDefined();
-    expect(screen.getByText("500+")).toBeDefined();
+    expect(screen.getByText(String(DOMAINS.length))).toBeDefined();
+    expect(screen.getByText("2200+")).toBeDefined();
+    expect(screen.getByText("1300+")).toBeDefined();
+  });
+});
+
+describe("SectionAwareFooter", () => {
+  it("links every launched subject and the current repository", () => {
+    render(<SectionAwareFooter />);
+
+    expect(screen.getByRole("link", { name: "社会学" }).getAttribute("href")).toBe(
+      "/sociology"
+    );
+    expect(screen.getByRole("link", { name: "语言学" }).getAttribute("href")).toBe(
+      "/linguistics"
+    );
+    expect(screen.getByRole("link", { name: "GitHub" }).getAttribute("href")).toBe(
+      "https://github.com/Supwils/episteme"
+    );
   });
 });
 

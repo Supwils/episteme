@@ -384,6 +384,37 @@ export const DOMAINS = [
     ),
     stats: "社会学家 · 核心概念 · 制度与生活 · 方法",
   },
+  {
+    id: "linguistics" as const,
+    title: "语言学",
+    titleEn: "Linguistics",
+    description:
+      "人类如何用声音、手势与文字组织意义。探索语音、词句、语言习得、历史变化、社会身份、文字系统与计算语言学。",
+    gradient: "linear-gradient(135deg, #3f8f8a 0%, #b0783c 52%, #7086b8 100%)",
+    glowColor: "#3f8f8a",
+    bgAccent: "rgba(63, 143, 138, 0.08)",
+    borderAccent: "rgba(63, 143, 138, 0.2)",
+    icon: (
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+        <path
+          d="M8 7h12v15H14l-5 5v-5H8V7Z"
+          stroke="#3f8f8a"
+          strokeWidth="1.5"
+          strokeLinejoin="round"
+          opacity="0.58"
+        />
+        <path
+          d="M18 14h10v13h-2v4l-4-4h-4"
+          stroke="#7086b8"
+          strokeWidth="1.5"
+          strokeLinejoin="round"
+          opacity="0.52"
+        />
+        <path d="M12 12h5M12 16h4M22 19h3M22 23h2" stroke="#b0783c" opacity="0.68" />
+      </svg>
+    ),
+    stats: "声音与手势 · 词句与意义 · 习得 · 社会 · 文字 · 方法",
+  },
 ];
 
 export const FEATURES = [
@@ -413,7 +444,11 @@ export const FEATURES = [
     title: "跨文明连接",
     desc: "跨越地域与时代，将不同文明的知识串联成统一的认知网络。",
   },
-  { icon: "▣", title: "深度内容", desc: "400+ 篇深度文章与 40 对话，兼顾学术严谨与大众可读性。" },
+  {
+    icon: "▣",
+    title: "深度内容",
+    desc: "1300+ 篇深度文章与跨学科对话，兼顾学术严谨与大众可读性。",
+  },
   {
     icon: "📅",
     title: "每日知识",
@@ -424,9 +459,9 @@ export const FEATURES = [
 ];
 
 export const STATS = [
-  { value: 14, label: "知识领域", suffix: "" },
-  { value: 1850, label: "知识单元", suffix: "+" },
-  { value: 500, label: "深度文章", suffix: "+" },
+  { value: DOMAINS.length, label: "知识领域", suffix: "" },
+  { value: 2200, label: "知识单元", suffix: "+" },
+  { value: 1300, label: "深度文章", suffix: "+" },
 ];
 
 export const LATEST_UPDATES = [

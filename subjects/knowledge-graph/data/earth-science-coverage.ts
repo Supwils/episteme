@@ -84,6 +84,14 @@ export const EARTH_SCIENCE_COVERAGE_NODES: GraphNode[] = [
     ["地下水", "含水层"]
   ),
   node(
+    "mineral-resources-and-critical-metals",
+    "矿产资源与关键金属",
+    "concept",
+    "concepts",
+    "从矿床、精炼和副产品供给解释关键性，并把能源转型连接到社区、回收与供应链风险。",
+    ["关键矿产", "经济地质", "供应链", "回收"]
+  ),
+  node(
     "chicxulub-impact",
     "希克苏鲁伯撞击",
     "event",
@@ -108,6 +116,8 @@ export const EARTH_SCIENCE_COVERAGE_EDGES: GraphEdge[] = [
   edge("monsoon-systems", "el-nino-enso", "海气遥相关"),
   edge("groundwater-aquifers", "water-cycle", "地下储存与补给"),
   edge("groundwater-aquifers", "weathering-soil", "地质介质控制渗流"),
+  edge("rock-cycle", "mineral-resources-and-critical-metals", "形成并富集矿产"),
+  edge("plate-tectonics", "mineral-resources-and-critical-metals", "控制成矿环境"),
   {
     source: "earth-science:chicxulub-impact",
     target: "lifescience:end-cretaceous",

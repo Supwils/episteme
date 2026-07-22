@@ -1,13 +1,12 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import { lazy, Suspense, useState } from "react";
 import { serializeJsonLd } from "@/lib/jsonld";
 import PageWrapper from "@/subjects/history/components/PageWrapper";
 import { SITE_URL } from "@/lib/constants";
 
-const EventTimeline = dynamic(
-  () => import("@/subjects/history/components/visualizations/EventTimeline"),
-  { ssr: false }
+const EventTimeline = lazy(
+  () => import("@/subjects/history/components/visualizations/EventTimeline")
 );
 
 const collectionJsonLd = {
@@ -32,6 +31,8 @@ const renderHome = async () => {
 };
 
 export default function HumanHistoryClient() {
+  const [timelineVisible, setTimelineVisible] = useState(false);
+
   return (
     <>
       <script
@@ -59,7 +60,74 @@ export default function HumanHistoryClient() {
               从金字塔到登月——改变人类命运的关键时刻
             </p>
           </div>
-          <EventTimeline />
+          {!timelineVisible && (
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 12,
+                padding: "22px 0 8px",
+              }}
+            >
+              <button
+                type="button"
+                aria-expanded="false"
+                aria-controls="history-interactive-timeline"
+                onClick={() => setTimelineVisible(true)}
+                style={{
+                  minHeight: 44,
+                  padding: "0 18px",
+                  border: "1px solid rgba(200,169,81,0.55)",
+                  borderRadius: 4,
+                  background: "rgba(200,169,81,0.12)",
+                  color: "#e6cf84",
+                  fontSize: 14,
+                  fontWeight: 700,
+                  cursor: "pointer",
+                }}
+              >
+                展开交互时间线
+              </button>
+              <a
+                href="/human-history/timeline"
+                style={{
+                  minHeight: 44,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  padding: "0 18px",
+                  color: "rgba(255,255,255,0.7)",
+                  fontSize: 14,
+                  textDecoration: "none",
+                }}
+              >
+                进入完整时间线 →
+              </a>
+            </div>
+          )}
+          <div id="history-interactive-timeline">
+            {timelineVisible && (
+              <Suspense
+                fallback={
+                  <div
+                    role="status"
+                    style={{
+                      minHeight: 180,
+                      display: "grid",
+                      placeItems: "center",
+                      color: "rgba(255,255,255,0.55)",
+                      fontSize: 14,
+                    }}
+                  >
+                    正在准备交互时间线…
+                  </div>
+                }
+              >
+                <EventTimeline />
+              </Suspense>
+            )}
+          </div>
         </div>
       </section>
     </>

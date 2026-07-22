@@ -27,6 +27,9 @@ type InteractionDeps = {
   filteredNodes: GraphNode[];
   isMobile: boolean;
   stablePositions?: Map<string, { x: number; y: number }>;
+  nodeDepth?: ReadonlyMap<string, number>;
+  nodeImportance?: ReadonlyMap<string, number>;
+  fitScaleMultiplier?: number;
 };
 
 export function useGraphInteractions(
@@ -60,6 +63,9 @@ export function useGraphInteractions(
     filteredNodes,
     isMobile,
     stablePositions,
+    nodeDepth,
+    nodeImportance,
+    fitScaleMultiplier = 1,
   } = deps;
 
   const getFocusTarget = useCallback(
@@ -110,13 +116,25 @@ export function useGraphInteractions(
     if (!stablePositions || !renderer) return;
     positionsRef.current = stablePositions;
     renderer.render(
-      toRenderNodes(nodes, stablePositions, null, selectedNodeId, activeDomains),
-      toRenderEdges(edges, stablePositions, activeDomains, nodeDomainMap)
+      toRenderNodes(
+        nodes,
+        stablePositions,
+        null,
+        selectedNodeId,
+        activeDomains,
+        undefined,
+        undefined,
+        nodeDepth,
+        nodeImportance
+      ),
+      toRenderEdges(edges, stablePositions, activeDomains, nodeDomainMap, nodeDepth, nodeImportance)
     );
   }, [
     activeDomains,
     edges,
     nodeDomainMap,
+    nodeDepth,
+    nodeImportance,
     nodes,
     positionsRef,
     rendererRef,
@@ -227,12 +245,24 @@ export function useGraphInteractions(
     const worldH = maxY - minY + pad * 2 || 1;
     const w = container.clientWidth;
     const h = container.clientHeight;
-    const scale = Math.min(w / worldW, h / worldH, 2);
+    const scale = Math.min(Math.min(w / worldW, h / worldH) * fitScaleMultiplier, 2);
     const centerX = (minX + maxX) / 2;
     const centerY = (minY + maxY) / 2;
-    renderer.setTransform(scale, w / 2 - centerX * scale, h / 2 - centerY * scale);
+    const nextOffsetX = w / 2 - centerX * scale;
+    const nextOffsetY = h / 2 - centerY * scale;
+    renderer.setTransform(scale, nextOffsetX, nextOffsetY);
     setZoom(scale);
-  }, [rendererRef, containerRef, positionsRef, setZoom]);
+    setOffsetX(nextOffsetX);
+    setOffsetY(nextOffsetY);
+  }, [
+    containerRef,
+    fitScaleMultiplier,
+    positionsRef,
+    rendererRef,
+    setOffsetX,
+    setOffsetY,
+    setZoom,
+  ]);
 
   const handleMinimapNavigate = useCallback(
     (worldX: number, worldY: number) => {
@@ -305,8 +335,25 @@ export function useGraphInteractions(
       if (!pos || !renderer) return;
       setHoveredNodeId(node.id);
       rendererRef.current?.render(
-        toRenderNodes(nodes, positionsRef.current, node.id, selectedNodeId, activeDomains),
-        toRenderEdges(edges, positionsRef.current, activeDomains, nodeDomainMap)
+        toRenderNodes(
+          nodes,
+          positionsRef.current,
+          node.id,
+          selectedNodeId,
+          activeDomains,
+          undefined,
+          undefined,
+          nodeDepth,
+          nodeImportance
+        ),
+        toRenderEdges(
+          edges,
+          positionsRef.current,
+          activeDomains,
+          nodeDomainMap,
+          nodeDepth,
+          nodeImportance
+        )
       );
     },
     [
@@ -316,6 +363,8 @@ export function useGraphInteractions(
       selectedNodeId,
       activeDomains,
       nodeDomainMap,
+      nodeDepth,
+      nodeImportance,
       positionsRef,
       rendererRef,
       setFocusedNodeIndex,

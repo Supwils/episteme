@@ -77,6 +77,7 @@ type GraphFilterBarProps = {
   onTourSelect: (waypoints: string[]) => void;
   onTourStepSelect: (nodeId: string) => void;
   isGraphReady: boolean;
+  detailPanelOpen: boolean;
 };
 
 export function GraphFilterBar({
@@ -118,6 +119,7 @@ export function GraphFilterBar({
   onTourSelect,
   onTourStepSelect,
   isGraphReady,
+  detailPanelOpen,
 }: GraphFilterBarProps) {
   const [isTypeDropdownOpen, setIsTypeDropdownOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState(false);
@@ -171,6 +173,7 @@ export function GraphFilterBar({
           onTourSelect={onTourSelect}
           onTourStepSelect={onTourStepSelect}
           isGraphReady={isGraphReady}
+          detailPanelOpen={detailPanelOpen}
           isMobile
         />
         <div className="flex-1" />
@@ -287,6 +290,7 @@ export function GraphFilterBar({
         onTourSelect={onTourSelect}
         onTourStepSelect={onTourStepSelect}
         isGraphReady={isGraphReady}
+        detailPanelOpen={detailPanelOpen}
         isMobile={isMobile}
       />
 

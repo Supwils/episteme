@@ -6,7 +6,8 @@ const node = (
   type: GraphNode["type"],
   section: string,
   description: string,
-  tags: string[]
+  tags: string[],
+  metadata: Pick<GraphNode, "knowledgeLevel" | "prerequisiteIds"> = {}
 ): GraphNode => ({
   id: `computer-science:${slug}`,
   label,
@@ -17,6 +18,7 @@ const node = (
   url: `/computer-science/${section}/${slug}`,
   description,
   tags,
+  ...metadata,
 });
 
 const edge = (source: string, target: string, label: string): GraphEdge => ({
@@ -74,6 +76,54 @@ export const COMPUTER_SCIENCE_COVERAGE_NODES: GraphNode[] = [
     "concepts",
     "从威胁模型、最小权限和纵深防御建立可验证的安全边界。",
     ["威胁模型", "最小权限"]
+  ),
+  node(
+    "encryption-basics",
+    "加密协议基础",
+    "concept",
+    "concepts",
+    "把加密、认证、完整性和密钥生命周期组合成面向具体对手的通信控制。",
+    ["AEAD", "密钥交换", "TLS"],
+    {
+      knowledgeLevel: 3,
+      prerequisiteIds: ["computer-science:computer-security-principles"],
+    }
+  ),
+  node(
+    "authentication-authorization",
+    "身份验证与授权",
+    "concept",
+    "concepts",
+    "区分身份核验、认证、授权和会话，并在对象与租户边界执行策略。",
+    ["身份验证", "OAuth", "访问控制"],
+    {
+      knowledgeLevel: 4,
+      prerequisiteIds: ["computer-science:encryption-basics"],
+    }
+  ),
+  node(
+    "software-supply-chain-security",
+    "软件供应链安全",
+    "concept",
+    "concepts",
+    "用依赖锁定、隔离构建、来源证明、SBOM、签名和透明日志保护交付链。",
+    ["SBOM", "SLSA", "来源证明"],
+    {
+      knowledgeLevel: 5,
+      prerequisiteIds: ["computer-science:authentication-authorization"],
+    }
+  ),
+  node(
+    "privacy-engineering",
+    "隐私工程",
+    "concept",
+    "concepts",
+    "从数据流、处理目的和可链接性风险出发设计最小化、匿名化与可审计控制。",
+    ["数据最小化", "差分隐私", "隐私风险"],
+    {
+      knowledgeLevel: 5,
+      prerequisiteIds: ["computer-science:formal-methods-and-verification"],
+    }
   ),
   node(
     "formal-methods-and-verification",
@@ -165,6 +215,13 @@ export const COMPUTER_SCIENCE_COVERAGE_EDGES: GraphEdge[] = [
   edge("compilers", "formal-methods-and-verification", "验证语义与实现"),
   edge("formal-methods-and-verification", "computer-security-principles", "证明关键安全性质"),
   edge("computer-security-principles", "cryptography-foundations", "组合安全机制"),
+  edge("networking-protocols", "computer-security-principles", "暴露通信信任边界"),
+  edge("cryptography-foundations", "encryption-basics", "从原语进入协议组合"),
+  edge("computer-security-principles", "encryption-basics", "按威胁模型选择控制"),
+  edge("encryption-basics", "authentication-authorization", "保护主体与会话"),
+  edge("authentication-authorization", "software-supply-chain-security", "约束构建与发布身份"),
+  edge("software-supply-chain-security", "privacy-engineering", "治理依赖与数据处理"),
+  edge("privacy-engineering", "formal-methods-and-verification", "验证信息流与隐私性质"),
   edge("computer-security-principles", "distributed-systems", "扩大威胁边界"),
   edge("tim-berners-lee", "networking-protocols", "建立在互联网协议之上"),
   edge("networking-protocols", "distributed-systems", "提供通信基础"),

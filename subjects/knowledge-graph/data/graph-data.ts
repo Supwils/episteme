@@ -85,16 +85,26 @@ function computeSection(node: { domain: string; type: string; id: string }): str
   }
 }
 
-function computeUrl(node: { domain: string; type: string; slug: string }): string | undefined {
+function computeUrl(node: {
+  domain: string;
+  type: string;
+  slug: string;
+  label: string;
+}): string | undefined {
   switch (node.domain) {
     case "physics":
       return node.type === "cosmos-tier"
         ? `/universe-physics/universe/${node.slug}`
         : `/universe-physics/physics/${node.slug}`;
     case "history":
-      if (node.type === "era") return `/human-history/timeline`;
-      if (node.type === "figure") return `/human-history/figures`;
-      return `/human-history/timeline`;
+      if (node.type === "era") {
+        const eraSlug = node.slug === "early-modern" ? "earlyModern" : node.slug;
+        return `/human-history/eras/${eraSlug}`;
+      }
+      if (node.type === "figure") {
+        return `/human-history/figures/${encodeURIComponent(node.label)}`;
+      }
+      return `/human-history/events/${encodeURIComponent(node.label)}`;
     case "philosophy":
       if (node.type === "thinker") return `/philosophy/thinkers/${node.slug}`;
       if (node.type === "school") return `/philosophy/schools/${node.slug}`;

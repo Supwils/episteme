@@ -44,6 +44,14 @@ export const PSYCHOLOGY_COVERAGE_NODES: GraphNode[] = [
     ["认知发展", "毕生发展"]
   ),
   node(
+    "sleep-and-mind",
+    "睡眠与心智",
+    "concept",
+    "knowledge-base",
+    "从睡眠稳态、昼夜节律和社会时间理解睡眠如何关联学习、情绪与青少年发展，并区分机制证据与健康建议。",
+    ["睡眠稳态", "昼夜节律", "青少年睡眠"]
+  ),
+  node(
     "cultural-psychology",
     "文化心理学",
     "concept",
@@ -100,6 +108,7 @@ export const PSYCHOLOGY_COVERAGE_EDGES: GraphEdge[] = [
   edge("developmental-psychology", "jean-piaget", "认知发展"),
   edge("developmental-psychology", "lev-vygotsky", "社会文化发展"),
   edge("developmental-psychology", "erik-erikson", "生命历程"),
+  edge("developmental-psychology", "sleep-and-mind", "青春期节律与社会时间"),
   edge("cultural-psychology", "social-identity", "文化与群体自我"),
   edge("cultural-psychology", "measurement-invariance-fair-comparison", "检验跨文化可比性"),
   edge("psychology-of-decisions", "daniel-kahneman", "判断与决策研究"),
@@ -110,6 +119,24 @@ export const PSYCHOLOGY_COVERAGE_EDGES: GraphEdge[] = [
   edge("ptsd", "emotion-theories", "威胁与情绪调节"),
   edge("social-media-teen-mental-health", "social-identity", "同伴比较与身份"),
   edge("social-media-teen-mental-health", "developmental-psychology", "青少年发展阶段"),
+  edge("social-media-teen-mental-health", "sleep-and-mind", "夜间使用、睡眠置换与双向影响"),
+  edge(
+    "social-media-teen-mental-health",
+    "causal-inference-experiments-observational-studies",
+    "区分选择效应、机制与因果影响"
+  ),
   edge("predictive-processing-psychiatry", "bayesian-modeling-psychology", "生成模型与更新"),
   edge("predictive-processing-psychiatry", "perception-physiology", "知觉预测误差"),
+  {
+    source: "psychology:sleep-and-mind",
+    target: "sociology:family-and-kinship",
+    type: "domain-link",
+    label: "家庭作息、照护与社会时间",
+  },
+  {
+    source: "psychology:social-media-teen-mental-health",
+    target: "sociology:social-support-mental-health",
+    type: "domain-link",
+    label: "线上联结既可能支持也可能施压",
+  },
 ];

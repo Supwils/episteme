@@ -1,20 +1,11 @@
 import "../styles/pages/figures.css";
-import { FIGURES } from "@/content/human-history/data/figures.js";
 import { ERAS } from "@/subjects/history/lib/eras";
+import {
+  HISTORY_FIGURE_CATALOG,
+  type HistoryFigureSummary,
+} from "@/subjects/history/lib/history-catalog";
 import Link from "next/link";
 import type { Metadata } from "next";
-
-interface Figure {
-  name: string;
-  birth: number | null;
-  death: number | null;
-  title: string;
-  desc: string;
-  era: string;
-  region: string;
-  domain: string;
-  quote: string;
-}
 
 const DOMAIN_LABELS: Record<string, string> = {
   politics: "政治治理",
@@ -48,13 +39,13 @@ function formatYear(year: number | null): string {
   return `公元${year}年`;
 }
 
-function getEraName(eraId: string): string {
+function getEraName(eraId: HistoryFigureSummary["era"]): string {
   const era = ERAS.find((e) => e.id === eraId);
   return era?.name ?? eraId;
 }
 
 export default function FiguresPage() {
-  const figures = FIGURES as Figure[];
+  const figures = HISTORY_FIGURE_CATALOG;
   const sorted = [...figures].sort((a, b) => (a.birth ?? 0) - (b.birth ?? 0));
 
   return (
