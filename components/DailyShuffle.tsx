@@ -75,7 +75,7 @@ export function DailyShuffle({ initial }: { initial: DailySelected }) {
   return (
     <div>
       <div className="mb-6 flex items-center justify-between gap-4">
-        <p className="font-mono text-xs tracking-widest text-white/30 uppercase">
+        <p className="font-mono text-xs tracking-widest text-white/55 uppercase">
           {offsetRef.current === 0 ? "今日精选" : "随机一组"}
         </p>
         <button

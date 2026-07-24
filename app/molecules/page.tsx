@@ -13,7 +13,7 @@ export default function MoleculesPage() {
   return (
     <main className="mx-auto w-full max-w-5xl px-5 py-16 sm:px-8">
       <header className="mb-12">
-        <p className="mb-3 font-mono text-[11px] tracking-[0.3em] text-white/40 uppercase">
+        <p className="mb-3 font-mono text-[11px] tracking-[0.3em] text-white/55 uppercase">
           Molecule Gallery
         </p>
         <h1 className="text-fg-primary mb-4 text-3xl font-bold sm:text-4xl">分子图鉴</h1>
@@ -31,7 +31,7 @@ export default function MoleculesPage() {
           </a>
           。点开任意一个，就能在浏览器里亲手旋转、缩放，看清生命与药物的分子机器到底长什么样。
         </p>
-        <p className="mt-3 max-w-2xl text-[12px] leading-relaxed text-white/35">
+        <p className="mt-3 max-w-2xl text-[12px] leading-relaxed text-white/55">
           性能说明：3D 渲染引擎（Mol*）仅在你点击「查看 3D 结构」时才按需加载，不影响页面打开速度。
         </p>
       </header>
@@ -53,7 +53,7 @@ export default function MoleculesPage() {
                   {MOLECULE_DOMAIN_LABEL[m.domain]}
                 </span>
                 <h2 className="text-fg-primary text-lg font-semibold">{m.title}</h2>
-                <span className="font-mono text-[11px] text-white/30">{m.titleEn}</span>
+                <span className="font-mono text-[11px] text-white/55">{m.titleEn}</span>
               </div>
 
               <MoleculeViewer pdbId={m.pdbId} title={m.title} accent={accent} />

@@ -126,7 +126,7 @@ export function MoleculeViewer({
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-6 text-center">
             <div className="text-sm text-white/70">
               <span className="font-semibold text-white/90">{title}</span>
-              <span className="ml-2 font-mono text-[11px] text-white/40">PDB {pdbId}</span>
+              <span className="ml-2 font-mono text-[11px] text-white/55">PDB {pdbId}</span>
             </div>
             {status === "idle" && (
               <button
@@ -162,7 +162,7 @@ export function MoleculeViewer({
           </div>
         )}
       </div>
-      <figcaption className="border-t border-white/10 px-4 py-2 text-[11px] text-white/40">
+      <figcaption className="border-t border-white/10 px-4 py-2 text-[11px] text-white/55">
         实验测定的三维结构 · 数据来自 RCSB Protein Data Bank（PDB {pdbId}）· 由 Mol* 渲染
       </figcaption>
     </figure>

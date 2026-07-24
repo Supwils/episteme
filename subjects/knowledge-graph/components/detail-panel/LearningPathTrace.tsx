@@ -78,7 +78,7 @@ export function LearningPathTrace({
                     {node.label}
                   </button>
                   {step ? (
-                    <p className="mt-0.5 text-[11px] leading-relaxed text-white/35">
+                    <p className="mt-0.5 text-[11px] leading-relaxed text-white/55">
                       {step.transition}
                     </p>
                   ) : null}

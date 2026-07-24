@@ -21,7 +21,7 @@ export function CrossDomainToggle({ active, onToggle, isMobile = false }: CrossD
         "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6366f1]",
         active
           ? "border-[#d9a441]/40 bg-[#d9a441]/10 text-[#e8c879]"
-          : "border-white/[0.04] text-white/40 hover:border-white/[0.08] hover:text-white/60"
+          : "border-white/[0.04] text-white/60 hover:border-white/[0.08] hover:text-white/60"
       )}
       aria-pressed={active}
       aria-label={active ? "显示全部连接" : "只看跨学科连接"}

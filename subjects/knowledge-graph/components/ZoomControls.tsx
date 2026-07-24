@@ -7,18 +7,13 @@ type ZoomControlsProps = {
   onFitToScreen: () => void;
 };
 
-export function ZoomControls({
-  zoom,
-  onZoomIn,
-  onZoomOut,
-  onFitToScreen,
-}: ZoomControlsProps) {
+export function ZoomControls({ zoom, onZoomIn, onZoomOut, onFitToScreen }: ZoomControlsProps) {
   return (
-    <div className="hidden md:flex items-center gap-1">
+    <div className="hidden items-center gap-1 md:flex">
       <button
         type="button"
         onClick={onZoomOut}
-        className="flex items-center justify-center h-7 w-7 rounded-lg border border-white/[0.04] text-white/40 hover:text-white/70 hover:border-white/[0.08] hover:bg-white/[0.03] transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6366f1]"
+        className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/[0.04] text-white/60 transition-all duration-200 hover:border-white/[0.08] hover:bg-white/[0.03] hover:text-white/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6366f1]"
         aria-label="缩小"
       >
         <svg
@@ -42,7 +37,7 @@ export function ZoomControls({
       <button
         type="button"
         onClick={onZoomIn}
-        className="flex items-center justify-center h-7 w-7 rounded-lg border border-white/[0.04] text-white/40 hover:text-white/70 hover:border-white/[0.08] hover:bg-white/[0.03] transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6366f1]"
+        className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/[0.04] text-white/60 transition-all duration-200 hover:border-white/[0.08] hover:bg-white/[0.03] hover:text-white/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6366f1]"
         aria-label="放大"
       >
         <svg
@@ -56,15 +51,12 @@ export function ZoomControls({
         </svg>
       </button>
 
-      <div
-        className="h-5 w-px bg-white/[0.08] mx-0.5"
-        aria-hidden="true"
-      />
+      <div className="mx-0.5 h-5 w-px bg-white/[0.08]" aria-hidden="true" />
 
       <button
         type="button"
         onClick={onFitToScreen}
-        className="flex items-center justify-center h-7 w-7 rounded-lg border border-white/[0.04] text-white/40 hover:text-white/70 hover:border-white/[0.08] hover:bg-white/[0.03] transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6366f1]"
+        className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/[0.04] text-white/60 transition-all duration-200 hover:border-white/[0.08] hover:bg-white/[0.03] hover:text-white/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6366f1]"
         aria-label="适应屏幕"
       >
         <svg

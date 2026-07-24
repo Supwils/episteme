@@ -136,7 +136,7 @@ export function SIRSimulator() {
         <Legend color={S_COLOR} label="易感 S" />
         <Legend color={I_COLOR} label="感染 I" />
         <Legend color={R_COLOR} label="康复/免疫 R" />
-        <span className="text-white/30">— — 群体免疫阈值</span>
+        <span className="text-white/55">— — 群体免疫阈值</span>
       </div>
 
       <canvas
@@ -248,7 +248,7 @@ function Slider({
         onChange={(e) => onChange(parseFloat(e.target.value))}
         className="w-full accent-[#d9544d]"
       />
-      <span className="mt-1 block text-[10.5px] leading-snug text-white/35">{hint}</span>
+      <span className="mt-1 block text-[10.5px] leading-snug text-white/55">{hint}</span>
     </label>
   );
 }
@@ -256,9 +256,9 @@ function Slider({
 function Metric({ label, value, sub }: { label: string; value: string; sub: string }) {
   return (
     <div className="rounded-lg border border-white/8 bg-white/[0.02] px-3 py-2.5">
-      <div className="text-[10.5px] tracking-wide text-white/40">{label}</div>
+      <div className="text-[10.5px] tracking-wide text-white/55">{label}</div>
       <div className="text-fg-primary text-lg font-semibold">{value}</div>
-      <div className="text-[10px] leading-snug text-white/40">{sub}</div>
+      <div className="text-[10px] leading-snug text-white/55">{sub}</div>
     </div>
   );
 }

@@ -56,7 +56,7 @@ export function SpatialGraphControls({
         aria-hidden="true"
       />
       <label className="flex h-full min-w-0 items-center gap-2 border-r border-white/[0.07] px-2.5">
-        <span className="hidden text-[10px] text-white/35 sm:inline">正面</span>
+        <span className="hidden text-[10px] text-white/55 sm:inline">正面</span>
         <select
           aria-label="空间图谱正面学科"
           value={frontDomainId}

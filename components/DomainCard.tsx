@@ -71,7 +71,9 @@ export function DomainCard({ domain, index }: { domain: Domain; index: number })
         </span>
         <span
           className="domain-card__cta inline-flex items-center gap-1.5 font-mono text-[0.7rem] font-medium tracking-[0.04em]"
-          style={{ color: domain.glowColor }}
+          // Lighten each domain's accent toward the page's light foreground so the
+          // CTA keeps its domain hue but clears WCAG AA on the dark card.
+          style={{ color: `color-mix(in oklab, ${domain.glowColor} 58%, #f5f2ea)` }}
         >
           进入探索
           <span

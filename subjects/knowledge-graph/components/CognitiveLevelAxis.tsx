@@ -19,7 +19,7 @@ export function CognitiveLevelAxis({
             className={`border px-1.5 py-1 font-mono text-[9px] ${
               level.id === activeLevel
                 ? "border-amber-400/50 bg-[#08080f]/90 text-amber-200"
-                : "border-white/[0.06] bg-[#08080f]/75 text-white/30"
+                : "border-white/[0.06] bg-[#08080f]/75 text-white/55"
             }`}
           >
             L{level.id}

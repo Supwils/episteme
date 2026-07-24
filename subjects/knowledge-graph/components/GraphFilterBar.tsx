@@ -375,7 +375,7 @@ function TypeFilterDropdown({
           "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6366f1]",
           isOpen
             ? "border-white/10 bg-white/[0.04] text-white/80"
-            : "border-white/[0.04] text-white/40 hover:border-white/[0.08] hover:text-white/60"
+            : "border-white/[0.04] text-white/60 hover:border-white/[0.08] hover:text-white/60"
         )}
         aria-expanded={isOpen}
         aria-haspopup="listbox"

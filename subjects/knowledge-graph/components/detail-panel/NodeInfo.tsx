@@ -43,7 +43,7 @@ export function NodeInfo({ node, connectedCount }: NodeInfoProps) {
           <h2 className="text-[1.5rem] leading-tight font-bold text-white/95 md:text-[1.75rem]">
             {node.label}
           </h2>
-          <div className="flex flex-wrap items-center gap-3 text-[12px] text-white/40">
+          <div className="flex flex-wrap items-center gap-3 text-[12px] text-white/60">
             <span>类型：{NODE_TYPE_LABEL[node.type]}</span>
             {node.era ? (
               <>

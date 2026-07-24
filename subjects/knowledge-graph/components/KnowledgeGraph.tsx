@@ -249,10 +249,7 @@ export function KnowledgeGraph({
     );
     if (layoutMode === "spatial" && spatialFrontDomainId && spatialLevel) {
       for (const node of visibleNodes) {
-        if (
-          node.domain === spatialFrontDomainId &&
-          (node.knowledgeLevel ?? 2) === spatialLevel
-        ) {
+        if (node.domain === spatialFrontDomainId && (node.knowledgeLevel ?? 2) === spatialLevel) {
           emphasized.add(node.id);
         }
       }
@@ -372,9 +369,7 @@ export function KnowledgeGraph({
     const nextFocus = requestedFocusIsValid ? requestedFocusNodeId! : activeConfluenceTargetNodeId;
     const spatialViewRequested = requestedGraphView.state.layoutMode === "spatial";
     if (
-      (spatialViewRequested
-        ? searchParams.has("level")
-        : searchParams.get("level") !== "5") ||
+      (spatialViewRequested ? searchParams.has("level") : searchParams.get("level") !== "5") ||
       searchParams.get("focus") !== nextFocus ||
       searchParams.has("path") ||
       (requestedGraphView.state.layoutMode !== null &&
@@ -950,7 +945,7 @@ export function KnowledgeGraph({
                 }}
               >
                 <div className="h-8 w-8 animate-spin rounded-full border-2 border-white/10 border-t-indigo-400" />
-                <p className="text-sm text-white/40">正在计算力导向布局…</p>
+                <p className="text-sm text-white/60">正在计算力导向布局…</p>
               </div>
             </div>
           )}

@@ -35,7 +35,7 @@ export function DailyQuestionCard({ question }: DailyQuestionCardProps) {
           <div>
             <h3 className="font-display text-fg-primary mb-3 text-lg font-semibold">今日一问</h3>
             <p className="text-fg-secondary m-0 text-[0.95rem] leading-relaxed">{question}</p>
-            <p className="m-0 mt-3 text-[0.75rem] text-[#6b7280]">
+            <p className="m-0 mt-3 text-[0.75rem] text-white/55">
               思考这个问题，和朋友分享你的答案
             </p>
           </div>

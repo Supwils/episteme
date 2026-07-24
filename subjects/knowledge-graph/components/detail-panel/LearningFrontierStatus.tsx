@@ -20,7 +20,7 @@ export function LearningFrontierStatus({
         <div>
           <p
             id="node-frontier-title"
-            className="text-[10px] tracking-[0.18em] text-white/35 uppercase"
+            className="text-[10px] tracking-[0.18em] text-white/55 uppercase"
           >
             我的学习前沿
           </p>

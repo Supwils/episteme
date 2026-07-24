@@ -70,7 +70,7 @@ function NodeSelector({
 
   return (
     <div className="flex flex-col gap-1" ref={ref}>
-      <span className="text-[10px] font-medium tracking-wider text-white/30 uppercase">
+      <span className="text-[10px] font-medium tracking-wider text-white/55 uppercase">
         {label}
       </span>
       <div className="relative">
@@ -365,13 +365,7 @@ export function PathFinder({
       handleTourStepSelect(0, true);
     }
     setIsTourPlaying(true);
-  }, [
-    activeStepIndex,
-    activeTourSteps.length,
-    handleTourStepSelect,
-    isTourPlaying,
-    reducedMotion,
-  ]);
+  }, [activeStepIndex, activeTourSteps.length, handleTourStepSelect, isTourPlaying, reducedMotion]);
 
   useEffect(() => {
     if (reducedMotion && isTourPlaying) setIsTourPlaying(false);
@@ -392,13 +386,7 @@ export function PathFinder({
       handleTourStepSelect(activeStepIndex + 1, true);
     }, 4_500);
     return () => window.clearTimeout(timeout);
-  }, [
-    activeStepIndex,
-    activeTour,
-    activeTourSteps.length,
-    handleTourStepSelect,
-    isTourPlaying,
-  ]);
+  }, [activeStepIndex, activeTour, activeTourSteps.length, handleTourStepSelect, isTourPlaying]);
 
   return (
     <div className={clsx(!isMobile && detailPanelOpen ? "static" : "relative")}>
@@ -410,7 +398,7 @@ export function PathFinder({
           "border transition-all duration-200",
           isOpen
             ? "border-indigo-500/30 bg-indigo-500/10 text-white"
-            : "border-white/[0.04] text-white/40 hover:border-white/[0.08] hover:text-white/60"
+            : "border-white/[0.04] text-white/60 hover:border-white/[0.08] hover:text-white/60"
         )}
         aria-expanded={isOpen}
         aria-label="连接引擎"
@@ -456,7 +444,7 @@ export function PathFinder({
               {/* Curated thought lines */}
               {tours.length > 0 && (
                 <div className="flex flex-col gap-1.5">
-                  <span className="text-[10px] font-medium tracking-wider text-white/30 uppercase">
+                  <span className="text-[10px] font-medium tracking-wider text-white/55 uppercase">
                     思想之线
                   </span>
                   <div className="flex flex-col gap-1">
@@ -475,7 +463,7 @@ export function PathFinder({
                         <span className="block text-[11px] font-medium text-white/80 group-hover:text-white">
                           {tour.title}
                         </span>
-                        <span className="block text-[10px] leading-snug text-white/35">
+                        <span className="block text-[10px] leading-snug text-white/55">
                           {tour.subtitle}
                         </span>
                       </button>
@@ -656,7 +644,7 @@ export function PathFinder({
                               <span className="truncate text-[11px] font-medium text-white/85 group-hover:text-white">
                                 {step.title}
                               </span>
-                              <span className="shrink-0 rounded-full border border-white/[0.06] px-1.5 py-0.5 text-[9px] text-white/35">
+                              <span className="shrink-0 rounded-full border border-white/[0.06] px-1.5 py-0.5 text-[9px] text-white/55">
                                 {step.focus}
                               </span>
                             </span>
@@ -674,7 +662,7 @@ export function PathFinder({
               <div className="h-px bg-white/[0.06]" aria-hidden="true" />
 
               <div className="flex flex-col gap-2.5">
-                <span className="text-[10px] font-medium tracking-wider text-white/30 uppercase">
+                <span className="text-[10px] font-medium tracking-wider text-white/55 uppercase">
                   自选两个概念，看它们如何相连
                 </span>
                 <NodeSelector
@@ -710,7 +698,7 @@ export function PathFinder({
                     <button
                       type="button"
                       onClick={handleClear}
-                      className="rounded-lg border border-white/[0.04] px-3 py-1.5 text-xs text-white/40 transition-all duration-200 hover:border-white/[0.08] hover:text-white/60"
+                      className="rounded-lg border border-white/[0.04] px-3 py-1.5 text-xs text-white/60 transition-all duration-200 hover:border-white/[0.08] hover:text-white/60"
                     >
                       清除
                     </button>
@@ -721,7 +709,7 @@ export function PathFinder({
               {pathResult && chain.length > 0 && (
                 <div className="border-t border-white/[0.06] pt-2.5">
                   <div className="mb-2 flex items-center gap-1.5">
-                    <span className="text-[10px] font-medium tracking-wider text-white/30 uppercase">
+                    <span className="text-[10px] font-medium tracking-wider text-white/55 uppercase">
                       连接路径
                     </span>
                     <span className="text-[10px] text-indigo-400">
@@ -764,7 +752,7 @@ export function PathFinder({
 
               {pathResult && chain.length === 0 && (
                 <div className="border-t border-white/[0.06] pt-2.5">
-                  <p className="text-center text-[11px] text-white/30">未找到路径</p>
+                  <p className="text-center text-[11px] text-white/55">未找到路径</p>
                 </div>
               )}
             </div>

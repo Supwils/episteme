@@ -43,11 +43,11 @@ const DOMAINS = [
 ] as const;
 
 const TYPE_LABEL_MAP: Record<string, string> = Object.fromEntries(
-  NODE_TYPES.map((t) => [t.id, t.label]),
+  NODE_TYPES.map((t) => [t.id, t.label])
 );
 
 const DOMAIN_LABEL_MAP: Record<string, string> = Object.fromEntries(
-  DOMAINS.map((d) => [d.id, d.label]),
+  DOMAINS.map((d) => [d.id, d.label])
 );
 
 function getDomainColor(domainId: string): string {
@@ -63,7 +63,7 @@ function highlightMatch(text: string, query: string): React.ReactNode {
   return (
     <>
       {text.slice(0, idx)}
-      <mark className="bg-indigo-400/30 text-indigo-200 rounded-sm px-0.5">
+      <mark className="rounded-sm bg-indigo-400/30 px-0.5 text-indigo-200">
         {text.slice(idx, idx + qLower.length)}
       </mark>
       {text.slice(idx + qLower.length)}
@@ -110,8 +110,7 @@ export function GraphSearch({
   const listRef = useRef<HTMLDivElement>(null);
 
   const flatResults = flattenResults(searchResults);
-  const showAutocomplete =
-    isSearchFocused && searchQuery.length > 0 && flatResults.length > 0;
+  const showAutocomplete = isSearchFocused && searchQuery.length > 0 && flatResults.length > 0;
 
   useEffect(() => {
     setActiveIndex(-1);
@@ -126,10 +125,7 @@ export function GraphSearch({
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
-      if (
-        (e.key === "/" || (e.key === "k" && (e.metaKey || e.ctrlKey))) &&
-        !e.defaultPrevented
-      ) {
+      if ((e.key === "/" || (e.key === "k" && (e.metaKey || e.ctrlKey))) && !e.defaultPrevented) {
         const target = e.target as HTMLElement;
         if (
           target.tagName === "INPUT" ||
@@ -148,10 +144,7 @@ export function GraphSearch({
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
-      if (
-        searchRef.current &&
-        !searchRef.current.contains(e.target as Node)
-      ) {
+      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
         setIsSearchFocused(false);
       }
     }
@@ -165,7 +158,7 @@ export function GraphSearch({
       setIsSearchFocused(false);
       setActiveIndex(-1);
     },
-    [onSearchSelect],
+    [onSearchSelect]
   );
 
   const handleKeyDown = useCallback(
@@ -181,15 +174,11 @@ export function GraphSearch({
       switch (e.key) {
         case "ArrowDown":
           e.preventDefault();
-          setActiveIndex((prev) =>
-            prev < flatResults.length - 1 ? prev + 1 : 0,
-          );
+          setActiveIndex((prev) => (prev < flatResults.length - 1 ? prev + 1 : 0));
           break;
         case "ArrowUp":
           e.preventDefault();
-          setActiveIndex((prev) =>
-            prev > 0 ? prev - 1 : flatResults.length - 1,
-          );
+          setActiveIndex((prev) => (prev > 0 ? prev - 1 : flatResults.length - 1));
           break;
         case "Enter":
           e.preventDefault();
@@ -206,22 +195,19 @@ export function GraphSearch({
           break;
       }
     },
-    [showAutocomplete, flatResults, activeIndex, handleSearchSelect, onSearchChange],
+    [showAutocomplete, flatResults, activeIndex, handleSearchSelect, onSearchChange]
   );
 
   let flatIdx = 0;
 
   return (
-    <div
-      className="relative flex-1 min-w-[140px] max-w-[280px]"
-      ref={searchRef}
-    >
+    <div className="relative max-w-[280px] min-w-[140px] flex-1" ref={searchRef}>
       <div
         className={clsx(
-          "flex items-center gap-2 px-2.5 py-1.5 rounded-lg border transition-all duration-200",
+          "flex items-center gap-2 rounded-lg border px-2.5 py-1.5 transition-all duration-200",
           isSearchFocused
             ? "border-[#6366f1]/40 shadow-[0_0_0_2px_rgba(99,102,241,0.1)]"
-            : "border-white/[0.04] hover:border-white/[0.08]",
+            : "border-white/[0.04] hover:border-white/[0.08]"
         )}
       >
         <svg
@@ -229,7 +215,7 @@ export function GraphSearch({
           fill="none"
           stroke="currentColor"
           strokeWidth="1.5"
-          className="h-3.5 w-3.5 shrink-0 text-white/30"
+          className="h-3.5 w-3.5 shrink-0 text-white/55"
         >
           <circle cx="7" cy="7" r="4.5" />
           <path d="M10.5 10.5L14 14" strokeLinecap="round" />
@@ -238,7 +224,8 @@ export function GraphSearch({
           type="text"
           ref={(el) => {
             (inputRef as React.MutableRefObject<HTMLInputElement | null>).current = el;
-            if (searchInputRef) (searchInputRef as React.MutableRefObject<HTMLInputElement | null>).current = el;
+            if (searchInputRef)
+              (searchInputRef as React.MutableRefObject<HTMLInputElement | null>).current = el;
           }}
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
@@ -255,7 +242,7 @@ export function GraphSearch({
           <button
             type="button"
             onClick={() => onSearchChange("")}
-            className="shrink-0 text-white/30 hover:text-white/60 transition-colors duration-150"
+            className="shrink-0 text-white/55 transition-colors duration-150 hover:text-white/60"
             aria-label="清除搜索"
           >
             <svg
@@ -270,7 +257,7 @@ export function GraphSearch({
           </button>
         )}
         {!isSearchFocused && (
-          <kbd className="hidden sm:inline-flex items-center gap-0.5 px-1 py-0.5 rounded text-[0.6rem] text-white/20 border border-white/[0.06] bg-white/[0.02]">
+          <kbd className="hidden items-center gap-0.5 rounded border border-white/[0.06] bg-white/[0.02] px-1 py-0.5 text-[0.6rem] text-white/20 sm:inline-flex">
             /
           </kbd>
         )}
@@ -283,34 +270,29 @@ export function GraphSearch({
             animate={reducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
             exit={reducedMotion ? { opacity: 0 } : { opacity: 0, y: -4 }}
             transition={{ duration: reducedMotion ? 0 : 0.15 }}
-            className="absolute top-full left-0 right-0 mt-1 z-50 max-h-[280px] overflow-y-auto overscroll-contain rounded-lg border border-white/[0.08] bg-[#111118]/95 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
+            className="absolute top-full right-0 left-0 z-50 mt-1 max-h-[280px] overflow-y-auto overscroll-contain rounded-lg border border-white/[0.08] bg-[#111118]/95 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl"
             id="search-results"
             role="listbox"
             aria-label="搜索结果"
           >
             {searchResults.map((group) => {
               const domainColor = getDomainColor(group.domain);
-              const domainLabel =
-                DOMAIN_LABEL_MAP[group.domain] ?? group.domain;
+              const domainLabel = DOMAIN_LABEL_MAP[group.domain] ?? group.domain;
               return (
                 <div key={group.domain}>
-                  <div
-                    className="flex items-center gap-1.5 px-3 pt-2 pb-1"
-                    role="presentation"
-                  >
+                  <div className="flex items-center gap-1.5 px-3 pt-2 pb-1" role="presentation">
                     <span
-                      className="h-1.5 w-1.5 rounded-full shrink-0"
+                      className="h-1.5 w-1.5 shrink-0 rounded-full"
                       style={{ backgroundColor: domainColor }}
                     />
-                    <span className="text-[0.6rem] font-medium text-white/30 uppercase tracking-wider">
+                    <span className="text-[0.6rem] font-medium tracking-wider text-white/55 uppercase">
                       {domainLabel}
                     </span>
                   </div>
                   {group.items.map((item) => {
                     const idx = flatIdx++;
                     const isActive = idx === activeIndex;
-                    const typeLabel =
-                      TYPE_LABEL_MAP[item.node.type] ?? item.node.type;
+                    const typeLabel = TYPE_LABEL_MAP[item.node.type] ?? item.node.type;
                     return (
                       <button
                         key={item.node.id}
@@ -322,31 +304,23 @@ export function GraphSearch({
                         onClick={() => handleSearchSelect(item.node.id)}
                         onMouseEnter={() => setActiveIndex(idx)}
                         className={clsx(
-                          "w-full flex items-center gap-2 px-3 py-2 text-left text-xs transition-colors duration-100",
-                          isActive
-                            ? "bg-white/[0.08]"
-                            : "hover:bg-white/[0.05]",
+                          "flex w-full items-center gap-2 px-3 py-2 text-left text-xs transition-colors duration-100",
+                          isActive ? "bg-white/[0.08]" : "hover:bg-white/[0.05]"
                         )}
                       >
-                        <span className="text-white/80 truncate flex-1">
+                        <span className="flex-1 truncate text-white/80">
                           {highlightMatch(item.node.label, searchQuery)}
                         </span>
-                        <span className="text-white/20 shrink-0 text-[0.65rem]">
-                          {typeLabel}
-                        </span>
+                        <span className="shrink-0 text-[0.65rem] text-white/20">{typeLabel}</span>
                       </button>
                     );
                   })}
                 </div>
               );
             })}
-            <div className="flex items-center justify-between px-3 py-1.5 border-t border-white/[0.04]">
-              <span className="text-[0.6rem] text-white/20">
-                {flatResults.length} 个结果
-              </span>
-              <span className="text-[0.6rem] text-white/15">
-                ↑↓ 导航 · Enter 选择
-              </span>
+            <div className="flex items-center justify-between border-t border-white/[0.04] px-3 py-1.5">
+              <span className="text-[0.6rem] text-white/20">{flatResults.length} 个结果</span>
+              <span className="text-[0.6rem] text-white/15">↑↓ 导航 · Enter 选择</span>
             </div>
           </motion.div>
         )}

@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState, useMemo, useCallback } from 'react';
-import { useRouter } from 'next/navigation';
-import { usePrefersReducedMotion } from '@/lib/use-prefers-reduced-motion';
-import type { ConceptRelationType } from '../../lib/concept-relationships';
+import { useEffect, useRef, useState, useMemo, useCallback } from "react";
+import { useRouter } from "next/navigation";
+import { usePrefersReducedMotion } from "@/lib/use-prefers-reduced-motion";
+import type { ConceptRelationType } from "../../lib/concept-relationships";
 import {
   CONCEPT_NODES,
   CONCEPT_RELATIONS,
   FIELD_COLORS,
   RELATION_COLORS,
-} from '../../lib/concept-relationships';
+} from "../../lib/concept-relationships";
 
 type ConceptNode = (typeof CONCEPT_NODES)[number];
 
@@ -53,8 +53,8 @@ function initNodes(): SimNode[] {
   return CONCEPT_NODES.map((node) => {
     const fieldIdx = fields.indexOf(node.field);
     const fieldAngle = (2 * Math.PI * fieldIdx) / fields.length;
-    const jitterR = 80 + seededRandom(node.id + ':r') * 180;
-    const jitterA = fieldAngle + (seededRandom(node.id + ':a') - 0.5) * 1.0;
+    const jitterR = 80 + seededRandom(node.id + ":r") * 180;
+    const jitterA = fieldAngle + (seededRandom(node.id + ":a") - 0.5) * 1.0;
     return {
       id: node.id,
       x: Math.cos(jitterA) * jitterR,
@@ -79,12 +79,22 @@ function computeDomainCenters(): Map<string, { x: number; y: number }> {
   return centers;
 }
 
-function simulationTick(nodes: SimNode[], edges: { si: number; ti: number; strength: number }[], domainCenters: Map<string, { x: number; y: number }>) {
+function simulationTick(
+  nodes: SimNode[],
+  edges: { si: number; ti: number; strength: number }[],
+  domainCenters: Map<string, { x: number; y: number }>
+) {
   const n = nodes.length;
 
   for (let i = 0; i < n; i++) {
     const a = nodes[i]!;
-    if (a.fx !== null) { a.x = a.fx; a.y = a.fy!; a.vx = 0; a.vy = 0; continue; }
+    if (a.fx !== null) {
+      a.x = a.fx;
+      a.y = a.fy!;
+      a.vx = 0;
+      a.vy = 0;
+      continue;
+    }
 
     let fx = 0;
     let fy = 0;
@@ -131,8 +141,14 @@ function simulationTick(nodes: SimNode[], edges: { si: number; ti: number; stren
     const fx = (dx / dist) * force;
     const fy = (dy / dist) * force;
 
-    if (a.fx === null) { a.vx += fx; a.vy += fy; }
-    if (b.fx === null) { b.vx -= fx; b.vy -= fy; }
+    if (a.fx === null) {
+      a.vx += fx;
+      a.vy += fy;
+    }
+    if (b.fx === null) {
+      b.vx -= fx;
+      b.vy -= fy;
+    }
   }
 
   for (let i = 0; i < n; i++) {
@@ -153,8 +169,14 @@ function simulationTick(nodes: SimNode[], edges: { si: number; ti: number; stren
         const overlap = (MIN_DIST - dist) / 2;
         const nx = dx / dist;
         const ny = dy / dist;
-        if (a.fx === null) { a.x -= nx * overlap; a.y -= ny * overlap; }
-        if (b.fx === null) { b.x += nx * overlap; b.y += ny * overlap; }
+        if (a.fx === null) {
+          a.x -= nx * overlap;
+          a.y -= ny * overlap;
+        }
+        if (b.fx === null) {
+          b.x += nx * overlap;
+          b.y += ny * overlap;
+        }
       }
     }
   }
@@ -166,7 +188,7 @@ function buildEdges(): { si: number; ti: number; strength: number }[] {
   return CONCEPT_RELATIONS.map((r) => ({
     si: nodeMap.get(r.source) ?? 0,
     ti: nodeMap.get(r.target) ?? 0,
-    strength: r.type === 'opposes' ? 0.5 : r.type === 'requires' ? 1.2 : 0.8,
+    strength: r.type === "opposes" ? 0.5 : r.type === "requires" ? 1.2 : 0.8,
   })).filter((e) => e.si !== e.ti);
 }
 
@@ -187,9 +209,9 @@ export function ConceptMap({ className }: ConceptMapProps) {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [activeFields, setActiveFields] = useState<Set<string>>(
-    () => new Set([...new Set(CONCEPT_NODES.map((n) => n.field))]),
+    () => new Set([...new Set(CONCEPT_NODES.map((n) => n.field))])
   );
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [isPanning, setIsPanning] = useState(false);
   const panStartRef = useRef({ x: 0, y: 0, panX: 0, panY: 0 });
 
@@ -222,10 +244,7 @@ export function ConceptMap({ className }: ConceptMapProps) {
     return () => cancelAnimationFrame(animFrameRef.current);
   }, [reduce]);
 
-  const fields = useMemo(
-    () => [...new Set(CONCEPT_NODES.map((n) => n.field))],
-    [],
-  );
+  const fields = useMemo(() => [...new Set(CONCEPT_NODES.map((n) => n.field))], []);
 
   const filteredNodes = useMemo(
     () =>
@@ -234,22 +253,19 @@ export function ConceptMap({ className }: ConceptMapProps) {
           activeFields.has(n.field) &&
           (!searchQuery ||
             n.label.includes(searchQuery) ||
-            n.label_en.toLowerCase().includes(searchQuery.toLowerCase())),
+            n.label_en.toLowerCase().includes(searchQuery.toLowerCase()))
       ),
-    [activeFields, searchQuery],
+    [activeFields, searchQuery]
   );
 
-  const filteredNodeIds = useMemo(
-    () => new Set(filteredNodes.map((n) => n.id)),
-    [filteredNodes],
-  );
+  const filteredNodeIds = useMemo(() => new Set(filteredNodes.map((n) => n.id)), [filteredNodes]);
 
   const filteredRelations = useMemo(
     () =>
       CONCEPT_RELATIONS.filter(
-        (r) => filteredNodeIds.has(r.source) && filteredNodeIds.has(r.target),
+        (r) => filteredNodeIds.has(r.source) && filteredNodeIds.has(r.target)
       ),
-    [filteredNodeIds],
+    [filteredNodeIds]
   );
 
   const connectedIds = useMemo(() => {
@@ -283,7 +299,7 @@ export function ConceptMap({ className }: ConceptMapProps) {
     (id: string) => {
       router.push(`/philosophy/concepts/${id}`);
     },
-    [router],
+    [router]
   );
 
   const handleFitToScreen = useCallback(() => {
@@ -292,7 +308,10 @@ export function ConceptMap({ className }: ConceptMapProps) {
     const w = container.clientWidth;
     const h = container.clientHeight;
 
-    let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+    let minX = Infinity,
+      maxX = -Infinity,
+      minY = Infinity,
+      maxY = -Infinity;
     for (const node of nodesRef.current) {
       if (node.x < minX) minX = node.x;
       if (node.x > maxX) maxX = node.x;
@@ -323,11 +342,11 @@ export function ConceptMap({ className }: ConceptMapProps) {
       const delta = e.deltaY > 0 ? 0.9 : 1.1;
       setZoom((prev) => Math.min(5, Math.max(0.2, prev * delta)));
     };
-    el.addEventListener('wheel', handler, { passive: false });
-    return () => el.removeEventListener('wheel', handler);
+    el.addEventListener("wheel", handler, { passive: false });
+    return () => el.removeEventListener("wheel", handler);
   }, []);
 
-  const [viewBox, setViewBox] = useState('0 0 800 600');
+  const [viewBox, setViewBox] = useState("0 0 800 600");
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -354,15 +373,15 @@ export function ConceptMap({ className }: ConceptMapProps) {
         y: (py - panY) / zoom,
       };
     },
-    [panX, panY, zoom],
+    [panX, panY, zoom]
   );
 
   const handlePointerDown = useCallback(
     (e: React.PointerEvent) => {
       const target = e.target as SVGElement;
-      const nodeGroup = target.closest('[data-node]');
+      const nodeGroup = target.closest("[data-node]");
       if (nodeGroup) {
-        const nodeId = nodeGroup.getAttribute('data-node-id');
+        const nodeId = nodeGroup.getAttribute("data-node-id");
         if (nodeId) {
           draggingRef.current = nodeId;
           const node = nodesRef.current.find((n) => n.id === nodeId);
@@ -378,7 +397,7 @@ export function ConceptMap({ className }: ConceptMapProps) {
       panStartRef.current = { x: e.clientX, y: e.clientY, panX, panY };
       (e.target as HTMLElement).setPointerCapture(e.pointerId);
     },
-    [panX, panY],
+    [panX, panY]
   );
 
   const handlePointerMove = useCallback(
@@ -401,7 +420,7 @@ export function ConceptMap({ className }: ConceptMapProps) {
       setPanX(panStartRef.current.panX + dx);
       setPanY(panStartRef.current.panY + dy);
     },
-    [isPanning, getPointerGraphPos],
+    [isPanning, getPointerGraphPos]
   );
 
   const handlePointerUp = useCallback(() => {
@@ -431,7 +450,7 @@ export function ConceptMap({ className }: ConceptMapProps) {
       <div className="flex flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-wrap gap-1.5">
           {fields.map((field) => {
-            const color = FIELD_COLORS[field] ?? '#9ca3af';
+            const color = FIELD_COLORS[field] ?? "#9ca3af";
             const active = activeFields.has(field);
             return (
               <button
@@ -440,9 +459,9 @@ export function ConceptMap({ className }: ConceptMapProps) {
                 onClick={() => handleFieldToggle(field)}
                 className="rounded-full border px-2.5 py-1 font-mono text-[10px] tracking-wider transition-all"
                 style={{
-                  borderColor: active ? color : 'rgba(255,255,255,0.1)',
-                  backgroundColor: active ? `${color}20` : 'transparent',
-                  color: active ? color : 'rgba(255,255,255,0.4)',
+                  borderColor: active ? color : "rgba(255,255,255,0.1)",
+                  backgroundColor: active ? `${color}20` : "transparent",
+                  color: active ? color : "rgba(255,255,255,0.4)",
                 }}
               >
                 {field}
@@ -457,7 +476,7 @@ export function ConceptMap({ className }: ConceptMapProps) {
               fill="none"
               stroke="currentColor"
               strokeWidth="1.5"
-              className="absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-white/30"
+              className="absolute top-1/2 left-2.5 h-3.5 w-3.5 -translate-y-1/2 text-white/55"
             >
               <circle cx="7" cy="7" r="4.5" />
               <path d="M10.5 10.5L14 14" strokeLinecap="round" />
@@ -467,38 +486,59 @@ export function ConceptMap({ className }: ConceptMapProps) {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="搜索概念…"
-              className="w-36 rounded-lg border border-white/10 bg-white/5 py-1.5 pl-8 pr-3 text-xs text-white/80 placeholder:text-white/25 focus:border-indigo-400/40 focus:outline-none sm:w-48"
+              className="w-36 rounded-lg border border-white/10 bg-white/5 py-1.5 pr-3 pl-8 text-xs text-white/80 placeholder:text-white/25 focus:border-indigo-400/40 focus:outline-none sm:w-48"
             />
           </div>
           <button
             type="button"
             onClick={handleFitToScreen}
-            className="flex h-11 w-11 md:h-8 md:w-8 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white/50 transition-colors hover:text-white/80"
+            className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white/50 transition-colors hover:text-white/80 md:h-8 md:w-8"
             aria-label="适应屏幕"
           >
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-3.5 w-3.5">
+            <svg
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              className="h-3.5 w-3.5"
+            >
               <rect x="3" y="3" width="10" height="10" rx="1.5" />
-              <path d="M3 6V4a1 1 0 011-1h2M10 3h2a1 1 0 011 1v2M13 10v2a1 1 0 01-1 1h-2M6 13H4a1 1 0 01-1-1v-2" strokeLinecap="round" />
+              <path
+                d="M3 6V4a1 1 0 011-1h2M10 3h2a1 1 0 011 1v2M13 10v2a1 1 0 01-1 1h-2M6 13H4a1 1 0 01-1-1v-2"
+                strokeLinecap="round"
+              />
             </svg>
           </button>
           <div className="flex items-center gap-1">
             <button
               type="button"
               onClick={() => setZoom((z) => Math.min(5, z * 1.2))}
-              className="flex h-11 w-11 md:h-8 md:w-8 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white/50 transition-colors hover:text-white/80"
+              className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white/50 transition-colors hover:text-white/80 md:h-8 md:w-8"
               aria-label="放大"
             >
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-3.5 w-3.5">
+              <svg
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                className="h-3.5 w-3.5"
+              >
                 <path d="M8 4v8M4 8h8" strokeLinecap="round" />
               </svg>
             </button>
             <button
               type="button"
               onClick={() => setZoom((z) => Math.max(0.2, z * 0.8))}
-              className="flex h-11 w-11 md:h-8 md:w-8 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white/50 transition-colors hover:text-white/80"
+              className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white/50 transition-colors hover:text-white/80 md:h-8 md:w-8"
               aria-label="缩小"
             >
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-3.5 w-3.5">
+              <svg
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                className="h-3.5 w-3.5"
+              >
                 <path d="M4 8h8" strokeLinecap="round" />
               </svg>
             </button>
@@ -509,7 +549,7 @@ export function ConceptMap({ className }: ConceptMapProps) {
       <div
         ref={containerRef}
         className="relative flex-1 overflow-hidden"
-        style={{ height: 'calc(100vh - 220px)', minHeight: 400, touchAction: 'none' }}
+        style={{ height: "calc(100vh - 220px)", minHeight: 400, touchAction: "none" }}
       >
         <svg
           ref={svgRef}
@@ -544,8 +584,7 @@ export function ConceptMap({ className }: ConceptMapProps) {
               if (!sPos || !tPos) return null;
 
               const isHighlighted =
-                selectedId &&
-                (rel.source === selectedId || rel.target === selectedId);
+                selectedId && (rel.source === selectedId || rel.target === selectedId);
               const dimmed =
                 selectedId &&
                 !isHighlighted &&
@@ -569,9 +608,9 @@ export function ConceptMap({ className }: ConceptMapProps) {
                     stroke={color}
                     strokeWidth={isHighlighted ? 2 : 1}
                     strokeOpacity={opacity}
-                    strokeDasharray={rel.type === 'opposes' ? '4,3' : undefined}
+                    strokeDasharray={rel.type === "opposes" ? "4,3" : undefined}
                     markerEnd={
-                      rel.type === 'extends' || rel.type === 'requires'
+                      rel.type === "extends" || rel.type === "requires"
                         ? `url(#arrow-${rel.type})`
                         : undefined
                     }
@@ -595,11 +634,10 @@ export function ConceptMap({ className }: ConceptMapProps) {
             {filteredNodes.map((node) => {
               const pos = nodePositions.get(node.id);
               if (!pos) return null;
-              const color = FIELD_COLORS[node.field] ?? '#9ca3af';
+              const color = FIELD_COLORS[node.field] ?? "#9ca3af";
               const isHovered = hoveredId === node.id;
               const isSelected = selectedId === node.id;
-              const dimmed =
-                selectedId && !isSelected && !connectedIds.has(node.id);
+              const dimmed = selectedId && !isSelected && !connectedIds.has(node.id);
               const r = isSelected ? NODE_RADIUS + 4 : isHovered ? NODE_RADIUS + 2 : NODE_RADIUS;
 
               return (
@@ -619,7 +657,7 @@ export function ConceptMap({ className }: ConceptMapProps) {
                     e.stopPropagation();
                     handleNavigate(node.id);
                   }}
-                  style={{ cursor: draggingRef.current === node.id ? 'grabbing' : 'grab' }}
+                  style={{ cursor: draggingRef.current === node.id ? "grabbing" : "grab" }}
                 >
                   <circle
                     r={r + 6}
@@ -638,7 +676,7 @@ export function ConceptMap({ className }: ConceptMapProps) {
                   <text
                     textAnchor="middle"
                     dy="-2"
-                    fill={dimmed ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.9)'}
+                    fill={dimmed ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.9)"}
                     fontSize="13"
                     fontWeight="600"
                     fontFamily={LABEL_FONT}
@@ -649,7 +687,7 @@ export function ConceptMap({ className }: ConceptMapProps) {
                   <text
                     textAnchor="middle"
                     dy="12"
-                    fill={dimmed ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.35)'}
+                    fill={dimmed ? "rgba(255,255,255,0.1)" : "rgba(255,255,255,0.35)"}
                     fontSize="8"
                     fontFamily={LABEL_FONT}
                     className="pointer-events-none select-none"
@@ -667,25 +705,26 @@ export function ConceptMap({ className }: ConceptMapProps) {
             {(() => {
               const node = CONCEPT_NODES.find((n) => n.id === selectedId);
               if (!node) return null;
-              const color = FIELD_COLORS[node.field] ?? '#9ca3af';
+              const color = FIELD_COLORS[node.field] ?? "#9ca3af";
               const rels = CONCEPT_RELATIONS.filter(
-                (r) => r.source === selectedId || r.target === selectedId,
+                (r) => r.source === selectedId || r.target === selectedId
               );
               return (
                 <>
                   <div className="mb-2 flex items-center gap-2">
                     <div className="h-3 w-0.5 rounded-full" style={{ backgroundColor: color }} />
-                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color }}>
+                    <span
+                      className="font-mono text-[9px] tracking-[0.2em] uppercase"
+                      style={{ color }}
+                    >
                       {node.field}
                     </span>
                   </div>
                   <h3 className="font-display text-base font-semibold text-white">
                     {node.label}
-                    <span className="ml-2 text-xs font-normal text-white/40">{node.label_en}</span>
+                    <span className="ml-2 text-xs font-normal text-white/55">{node.label_en}</span>
                   </h3>
-                  <p className="mt-1 font-mono text-[10px] text-white/30">
-                    {rels.length} 个关联
-                  </p>
+                  <p className="mt-1 font-mono text-[10px] text-white/55">{rels.length} 个关联</p>
                   <div className="mt-3 flex gap-2">
                     <button
                       type="button"
@@ -710,28 +749,28 @@ export function ConceptMap({ className }: ConceptMapProps) {
       </div>
 
       <div className="flex flex-wrap items-center gap-4 px-4 py-3">
-        {(
-          Object.entries(RELATION_COLORS) as [ConceptRelationType, string][]
-        ).map(([type, color]) => (
-          <div key={type} className="flex items-center gap-1.5">
-            <div
-              className="h-px w-4"
-              style={{
-                backgroundColor: color,
-                borderTop: type === 'opposes' ? `1px dashed ${color}` : undefined,
-              }}
-            />
-            <span className="font-mono text-[9px] text-white/40">
-              {type === 'opposes'
-                ? '对立'
-                : type === 'requires'
-                  ? '依赖'
-                  : type === 'extends'
-                    ? '延伸'
-                    : '关联'}
-            </span>
-          </div>
-        ))}
+        {(Object.entries(RELATION_COLORS) as [ConceptRelationType, string][]).map(
+          ([type, color]) => (
+            <div key={type} className="flex items-center gap-1.5">
+              <div
+                className="h-px w-4"
+                style={{
+                  backgroundColor: color,
+                  borderTop: type === "opposes" ? `1px dashed ${color}` : undefined,
+                }}
+              />
+              <span className="font-mono text-[9px] text-white/55">
+                {type === "opposes"
+                  ? "对立"
+                  : type === "requires"
+                    ? "依赖"
+                    : type === "extends"
+                      ? "延伸"
+                      : "关联"}
+              </span>
+            </div>
+          )
+        )}
       </div>
     </div>
   );

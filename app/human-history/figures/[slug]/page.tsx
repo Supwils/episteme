@@ -135,7 +135,7 @@ export default async function FigureDetailPage({ params }: Props) {
           letter-spacing: 0.2em;
           text-transform: uppercase;
           color: var(--gold);
-          opacity: 0.6;
+          opacity: 0.85;
           margin-bottom: 8px;
         }
 
@@ -385,7 +385,7 @@ export default async function FigureDetailPage({ params }: Props) {
           font-variant-numeric: tabular-nums;
         }
         .figure-reference-en {
-          color: color-mix(in oklab, var(--parchment-dim) 65%, transparent);
+          color: var(--parchment-dim);
         }
 
         @media (max-width: 640px) {

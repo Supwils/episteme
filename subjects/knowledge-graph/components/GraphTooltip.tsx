@@ -236,7 +236,7 @@ export const GraphTooltip = memo(function GraphTooltip({
             <h4 className="text-[14px] leading-tight font-semibold text-white/95">{node.label}</h4>
 
             {/* Type + era */}
-            <div className="flex flex-wrap items-center gap-2 text-[11px] text-white/40">
+            <div className="flex flex-wrap items-center gap-2 text-[11px] text-white/60">
               <span>{typeLabel}</span>
               {node.era ? (
                 <>
@@ -262,7 +262,7 @@ export const GraphTooltip = memo(function GraphTooltip({
             ) : null}
 
             {/* Click hint */}
-            <span className="mt-0.5 text-[10px] text-white/40">点击查看详情</span>
+            <span className="mt-0.5 text-[10px] text-white/60">点击查看详情</span>
           </div>
         </motion.div>
       ) : null}

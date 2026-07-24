@@ -35,7 +35,7 @@ export function GraphLayoutModeControl({
               "min-w-10 border-r border-white/[0.06] px-1.5 text-[11px] transition-colors last:border-r-0 sm:min-w-11 sm:px-2",
               active
                 ? "bg-indigo-500/15 text-indigo-200"
-                : "text-white/40 hover:bg-white/[0.03] hover:text-white/65"
+                : "text-white/60 hover:bg-white/[0.03] hover:text-white/65"
             )}
           >
             {mode.label}

@@ -72,7 +72,7 @@ export function GraphLegend({
             />
             <span className="text-[0.7rem] text-white/60">{domain.label}</span>
             {(nodeCounts[domain.id] ?? 0) > 0 && (
-              <span className="text-[0.6rem] text-white/40 tabular-nums">
+              <span className="text-[0.6rem] text-white/60 tabular-nums">
                 {nodeCounts[domain.id]}
               </span>
             )}
@@ -100,7 +100,7 @@ export function GraphLegend({
             />
             <span className="text-[0.7rem] text-white/50">{nodeType.label}</span>
             {(nodeCounts[nodeType.id] ?? 0) > 0 && (
-              <span className="text-[0.6rem] text-white/40 tabular-nums">
+              <span className="text-[0.6rem] text-white/60 tabular-nums">
                 {nodeCounts[nodeType.id]}
               </span>
             )}
@@ -112,7 +112,7 @@ export function GraphLegend({
       {(totalNodes > 0 || totalEdges > 0) && (
         <>
           <div className="h-px bg-white/[0.06]" aria-hidden="true" />
-          <div className="flex items-center gap-3 text-[0.6rem] text-white/40">
+          <div className="flex items-center gap-3 text-[0.6rem] text-white/60">
             {totalNodes > 0 && <span>{totalNodes} 个节点</span>}
             {totalEdges > 0 && <span>{totalEdges} 条关系</span>}
             {knowledgeLevel ? (

@@ -29,12 +29,12 @@ export default function DailyPage() {
   return (
     <div className="min-h-screen w-full">
       <section className="w-full px-6 py-16 sm:px-10 lg:px-16">
-        <p className="mb-4 font-mono text-xs tracking-widest text-white/30 uppercase">每日知识</p>
+        <p className="mb-4 font-mono text-xs tracking-widest text-white/55 uppercase">每日知识</p>
         <h1 className="mb-2 text-4xl font-bold text-white md:text-5xl">今天学点什么</h1>
         <p className="mb-2 text-lg text-white/50">
           每天一点新知识，从历史到科学，从哲学到生命——想看更多就「换一批」
         </p>
-        <p className="font-mono text-sm text-white/30">
+        <p className="font-mono text-sm text-white/55">
           {displayDate} · {weekday}
         </p>
       </section>

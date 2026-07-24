@@ -48,7 +48,7 @@ export function DomainFilters({
           type="button"
           onClick={onClose}
           className={clsx(
-            "flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-white/40 transition-colors hover:text-white/70",
+            "flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-white/60 transition-colors hover:text-white/70",
             isMobile && "sticky left-0 z-10 bg-[#111118]"
           )}
           aria-label="收起筛选栏"
@@ -77,7 +77,7 @@ export function DomainFilters({
               "focus-visible:outline-2 focus-visible:outline-offset-2",
               isActive
                 ? "border-white/10 text-white"
-                : "border-white/[0.04] text-white/40 hover:border-white/[0.08] hover:text-white/60"
+                : "border-white/[0.04] text-white/60 hover:border-white/[0.08] hover:text-white/60"
             )}
             style={{
               background: isActive ? `${domain.color}20` : "transparent",

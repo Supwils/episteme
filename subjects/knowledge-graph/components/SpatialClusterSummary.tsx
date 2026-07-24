@@ -76,7 +76,7 @@ export function SpatialClusterSummary({
           <span className="block truncate text-[11px] font-medium text-white/80">
             {domainMeta.label}
           </span>
-          <span className="block text-[9px] text-white/35">
+          <span className="block text-[9px] text-white/55">
             {summary.nodeCount} 个节点 · {summary.articleCount} 篇可读内容 ·{" "}
             {summary.crossDomainEdgeCount} 条跨学科关系
           </span>
@@ -86,7 +86,7 @@ export function SpatialClusterSummary({
           fill="none"
           stroke="currentColor"
           strokeWidth="1.5"
-          className={clsx("h-3.5 w-3.5 shrink-0 text-white/35", expanded && "rotate-180")}
+          className={clsx("h-3.5 w-3.5 shrink-0 text-white/55", expanded && "rotate-180")}
           aria-hidden="true"
         >
           <path d="M4 6l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
@@ -98,7 +98,11 @@ export function SpatialClusterSummary({
           id="spatial-cluster-summary-content"
           className="min-h-0 flex-1 overflow-y-auto border-t border-white/[0.07] px-3 pt-2.5 pb-3"
         >
-          <div className="grid grid-cols-5 border border-white/[0.07]" role="group" aria-label="空间阶段聚焦">
+          <div
+            className="grid grid-cols-5 border border-white/[0.07]"
+            role="group"
+            aria-label="空间阶段聚焦"
+          >
             {summary.stages.map((stage) => {
               const selected = selectedLevel === stage.level;
               return (
@@ -140,7 +144,7 @@ export function SpatialClusterSummary({
                 </p>
               </div>
               {selectedStage ? (
-                <span className="shrink-0 text-right text-[9px] leading-snug text-white/30">
+                <span className="shrink-0 text-right text-[9px] leading-snug text-white/55">
                   {selectedStage.articleCount} 篇内容
                   <br />
                   {selectedStage.crossDomainEdgeCount} 条跨域关系
@@ -168,7 +172,7 @@ export function SpatialClusterSummary({
                     {node.url ? (
                       <a
                         href={node.url}
-                        className="flex h-8 w-8 items-center justify-center text-white/35 hover:bg-white/[0.05] hover:text-white/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-400"
+                        className="flex h-8 w-8 items-center justify-center text-white/55 hover:bg-white/[0.05] hover:text-white/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-400"
                         aria-label={`阅读${node.label}`}
                         title={`阅读${node.label}`}
                       >
@@ -180,7 +184,7 @@ export function SpatialClusterSummary({
                   </div>
                 ))
               ) : (
-                <p className="py-2 text-[10px] text-white/30">该阶段暂无可显示节点。</p>
+                <p className="py-2 text-[10px] text-white/55">该阶段暂无可显示节点。</p>
               )}
             </div>
           </div>

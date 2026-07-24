@@ -12,7 +12,7 @@ export default function SimulatorPage() {
   return (
     <main className="mx-auto w-full max-w-3xl px-5 py-16 sm:px-8">
       <header className="mb-8">
-        <p className="mb-3 font-mono text-[11px] tracking-[0.3em] text-white/40 uppercase">
+        <p className="mb-3 font-mono text-[11px] tracking-[0.3em] text-white/55 uppercase">
           Epidemic Simulator · SIR Model
         </p>
         <h1 className="text-fg-primary mb-4 text-3xl font-bold sm:text-4xl">流行病模拟器</h1>
@@ -51,7 +51,7 @@ export default function SimulatorPage() {
             把疫苗接种率滑块往右拉，会看到感染峰急剧变矮，累计感染人数大幅下降——这就是疫苗保护整个社区的方式。
           </li>
         </ul>
-        <p className="text-[13px] text-white/40">
+        <p className="text-[13px] text-white/55">
           说明：这是一个用于建立直觉的教学模型，刻意做了简化（人群均匀混合、不考虑潜伏期、年龄结构、
           变异株等）。真实的流行病预测要复杂得多——但「Rₑ 是否小于 1」这个核心判据是真实而普适的。
         </p>

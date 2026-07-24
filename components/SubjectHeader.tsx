@@ -88,7 +88,9 @@ export function SubjectHeader({ subject }: { subject: string }) {
                 style={
                   active
                     ? {
-                        color: accent,
+                        // Lighten the accent so the active pill text clears WCAG AA
+                        // over its own tinted background on the dark header.
+                        color: `color-mix(in oklab, ${accent} 62%, #f5f2ea)`,
                         backgroundColor: `color-mix(in srgb, ${accent} 14%, transparent)`,
                       }
                     : undefined
