@@ -39,6 +39,12 @@
 - **部署方式**：`vercel pull` → `vercel build --prod` → **`vercel deploy --prebuilt --prod --archive=tgz`**。需仓库 secret `VERCEL_TOKEN`（org/project id 写在 workflow 的 env）。
 - **为什么不用 Vercel 原生 git 集成**：`vercel.json` 里 `git.deploymentEnabled.main = false` 是**故意关掉**的——原生集成的 deploy 会拒绝 Next 的 serverless 函数去重**符号链接**；`--prebuilt --archive` 是当前唯一可靠路径（同时绕开 15000 文件上限的校验）。**别重新打开它。**
 
+### 本地 pre-push 门禁（`.husky/pre-push`）
+
+- 每次 `git push` 前自动跑 `pnpm prepush`（= `typecheck && lint && check-content && test`），**精确镜像 CI 的 `quality` job**——把第 5 条"验证靠本地命令"变成强制执行，broken tree 到不了 GitHub/Vercel。
+- **刻意不跑** `build` job 那套（`next build` / `bundle-check` / **Lighthouse** / Playwright）：太重，且 Lighthouse 性能预算会抖动（CI 上就因它反复红），绝不能卡本地 push。完整 build + 性能预算留给云端。
+- husky 已激活（`prepare` 脚本）。紧急绕过：`git push --no-verify`。
+
 ### 代理注意事项（部署相关）
 
 - **push = 生产部署**（受 quality+build 门禁）。按上方纪律，只在用户明确说 push / 部署 / 上线时执行。

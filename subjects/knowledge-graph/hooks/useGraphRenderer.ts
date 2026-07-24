@@ -7,6 +7,7 @@ import { GraphRenderer as GraphRendererClass } from "@/lib/graph-engine";
 import type { ForceLayout, LayoutConfig } from "@/lib/graph-engine";
 import { animateEntrance, animateFocus, animateNodePositions } from "@/lib/graph-engine";
 import { buildLayoutNodes, buildLayoutEdges, toRenderNodes, toRenderEdges } from "../lib/constants";
+import { shouldAnimateGraphEntrance } from "../lib/initial-render-policy";
 
 type RendererDeps = {
   canvasRef: React.RefObject<HTMLCanvasElement | null>;
@@ -318,8 +319,69 @@ export function useGraphRenderer(
         nodesByDomain.get(node.domain)!.push(node.id);
       }
 
-      setIsLoading(false);
+      const completeInitialRender = () => {
+        if (cancelled) return;
+        positionsRef.current = finalPositions;
+        const rNodes = toRenderNodes(
+          nodes,
+          finalPositions,
+          null,
+          null,
+          activeDomains,
+          undefined,
+          searchMatchedIds,
+          nodeDepthRef.current,
+          nodeImportanceRef.current
+        );
+        const rEdges = toRenderEdges(
+          edges,
+          finalPositions,
+          activeDomains,
+          nodeDomainMap,
+          nodeDepthRef.current,
+          nodeImportanceRef.current
+        );
+        renderer.render(rNodes, rEdges);
 
+        if (initialFocus) {
+          const pos = finalPositions.get(initialFocus);
+          if (pos) {
+            const container = containerRef.current;
+            if (container) {
+              const w = container.clientWidth;
+              const h = container.clientHeight;
+              const targetScale = 1.5;
+              animateFocus(
+                { scale: 1, offsetX: 0, offsetY: 0 },
+                pos,
+                targetScale,
+                400,
+                { width: w, height: h },
+                (t) => {
+                  renderer.setTransform(t.scale, t.offsetX, t.offsetY);
+                  setZoom(t.scale);
+                  setOffsetX(t.offsetX);
+                  setOffsetY(t.offsetY);
+                }
+              );
+              setSelectedNodeId(initialFocus);
+            }
+          }
+        } else {
+          fitGraphToView();
+        }
+      };
+
+      // Rebuilding thousands of render objects and repainting the full canvas on
+      // every entrance frame creates long tasks. Dense graphs become interactive
+      // sooner with one complete frame; filtered views retain the staged reveal.
+      if (!shouldAnimateGraphEntrance(nodes.length, edges.length, reducedMotion)) {
+        completeInitialRender();
+        setIsLoading(false);
+        return;
+      }
+
+      setIsLoading(false);
       cancelAnimRef.current = animateEntrance(
         nodesByDomain,
         finalPositions,
@@ -352,58 +414,7 @@ export function useGraphRenderer(
           );
           renderer.render(rNodes, rEdges);
         },
-        () => {
-          if (cancelled) return;
-          positionsRef.current = finalPositions;
-          const rNodes = toRenderNodes(
-            nodes,
-            finalPositions,
-            null,
-            null,
-            activeDomains,
-            undefined,
-            searchMatchedIds,
-            nodeDepthRef.current,
-            nodeImportanceRef.current
-          );
-          const rEdges = toRenderEdges(
-            edges,
-            finalPositions,
-            activeDomains,
-            nodeDomainMap,
-            nodeDepthRef.current,
-            nodeImportanceRef.current
-          );
-          renderer.render(rNodes, rEdges);
-
-          if (initialFocus) {
-            const pos = finalPositions.get(initialFocus);
-            if (pos) {
-              const container = containerRef.current;
-              if (container) {
-                const w = container.clientWidth;
-                const h = container.clientHeight;
-                const targetScale = 1.5;
-                animateFocus(
-                  { scale: 1, offsetX: 0, offsetY: 0 },
-                  pos,
-                  targetScale,
-                  400,
-                  { width: w, height: h },
-                  (t) => {
-                    renderer.setTransform(t.scale, t.offsetX, t.offsetY);
-                    setZoom(t.scale);
-                    setOffsetX(t.offsetX);
-                    setOffsetY(t.offsetY);
-                  }
-                );
-                setSelectedNodeId(initialFocus);
-              }
-            }
-          } else {
-            fitGraphToView();
-          }
-        }
+        completeInitialRender
       );
     };
 

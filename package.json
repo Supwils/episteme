@@ -14,6 +14,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --max-warnings 0",
     "test": "vitest run",
+    "prepush": "pnpm typecheck && pnpm lint && pnpm check-content && pnpm test",
     "test:e2e": "playwright test",
     "test:e2e:smoke": "playwright test --config=playwright.smoke.config.ts",
     "test:e2e:physics": "playwright test --config=playwright.physics.config.ts",
