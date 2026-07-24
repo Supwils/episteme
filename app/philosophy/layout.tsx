@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { spaceGrotesk, plexMono } from "./fonts";
 import { SubjectHeader } from "@/components/SubjectHeader";
 import { PageTransition } from "@/components/PageTransition";
-import { PhilosophyProgressWrapper } from "@/subjects/philosophy/components/PhilosophyProgressWrapper";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -25,7 +24,6 @@ export default function PhilosophyLayout({ children }: { children: React.ReactNo
 
   return (
     <div className={`philosophy-root ${fontVars}`}>
-      <PhilosophyProgressWrapper />
       <SubjectHeader subject="philosophy" />
 
       <main>

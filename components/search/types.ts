@@ -1,6 +1,3 @@
-import type MiniSearch from "minisearch";
-import type { SearchDocument } from "@/lib/search-index";
-
 export type Section =
   | "physics"
   | "history"
@@ -14,7 +11,9 @@ export type Section =
   | "political-science"
   | "earth-science"
   | "medicine"
-  | "chemistry";
+  | "chemistry"
+  | "sociology"
+  | "linguistics";
 
 export const SECTION_META: Record<Section, { label: string; color: string }> = {
   physics: { label: "宇宙物理", color: "#6ad0ff" },
@@ -30,7 +29,13 @@ export const SECTION_META: Record<Section, { label: string; color: string }> = {
   "earth-science": { label: "地球科学", color: "#4f9d76" },
   medicine: { label: "医学与公共卫生", color: "#d9544d" },
   chemistry: { label: "化学", color: "#e08a3c" },
+  sociology: { label: "社会学", color: "#b07cc6" },
+  linguistics: { label: "语言学", color: "#6fa8c7" },
 };
+
+/** Order results are listed in. Every key of SECTION_META must appear — a
+ *  section missing here is a section whose articles are unreachable by search. */
+export const SEARCH_SECTIONS: Section[] = Object.keys(SECTION_META) as Section[];
 
 export const TYPE_LABELS: Record<string, string> = {
   thinker: "思想家",
@@ -62,15 +67,15 @@ export const TYPE_LABELS: Record<string, string> = {
   entry: "条目",
 };
 
+/** One row in the results list, from either tier. */
 export interface SearchResult {
-  doc: SearchDocument;
-  score: number;
-  titleMatches: string[];
-  subtitleMatches: string[];
-  contentMatches: string[];
-}
-
-export interface SearchEngine {
-  index: MiniSearch<SearchDocument>;
-  documents: SearchDocument[];
+  title: string;
+  subtitle: string;
+  url: string;
+  section: string;
+  kind: string;
+  /** Prose around the match. Present only for body-phrase hits. */
+  snippet?: string;
+  /** Where the match starts inside `snippet`. */
+  matchStart?: number;
 }

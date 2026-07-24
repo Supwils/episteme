@@ -5,7 +5,6 @@ import type { DailySelected } from "@/lib/daily-selector";
 import { DailyDomainGrid } from "./DailyDomainGrid";
 import { DailyKnowledgeCard } from "./DailyKnowledgeCard";
 import { DailyQuestionCard } from "./DailyQuestionCard";
-import { DailyShareCard } from "./DailyShareCard";
 
 function toLegacyItems(daily: DailySelected) {
   return [
@@ -138,10 +137,6 @@ export function DailyShuffle({ initial }: { initial: DailySelected }) {
             更多奇趣知识 →
           </span>
         </a>
-      </div>
-
-      <div className="mt-8">
-        <DailyShareCard daily={daily} />
       </div>
     </div>
   );

@@ -121,11 +121,7 @@ function buildTimelineEvents(): RawEvent[] {
 
 function pageCount(detail: EventDetail | undefined): number {
   if (!detail) return 0;
-  return (
-    (detail.pages?.length ?? 1) +
-    (detail.facts?.length ? 1 : 0) +
-    (detail.quote ? 1 : 0)
-  );
+  return (detail.pages?.length ?? 1) + (detail.facts?.length ? 1 : 0) + (detail.quote ? 1 : 0);
 }
 
 function exportModule(name: string, value: unknown): string {
@@ -156,43 +152,36 @@ async function main(): Promise<void> {
   const figures = FIGURES as Figure[];
   const timelineEvents = buildTimelineEvents();
   const eraById = new Map(
-    (ERAS as { id: EraId; name: string; color: string }[]).map((era) => [
-      era.id,
-      era,
-    ]),
+    (ERAS as { id: EraId; name: string; color: string }[]).map((era) => [era.id, era])
   );
   const referenceById = REFERENCES as Record<string, Reference>;
   const eventRelations = getEventRelationships();
   const figureEventLinks = getFigureEventLinks();
 
-  assertUnique(events.map((event) => event.title), "EVENTS");
-  assertUnique(figures.map((figure) => figure.name), "FIGURES");
-  assertUnique(timelineEvents.map((event) => event.title), "timeline events");
-
-  const eventCatalog = events.map(
-    ({ year, title, desc, era, region, cat, references = [] }) => ({
-      year,
-      title,
-      desc,
-      era,
-      region,
-      cat,
-      references,
-    }),
+  assertUnique(
+    events.map((event) => event.title),
+    "EVENTS"
   );
+  assertUnique(
+    figures.map((figure) => figure.name),
+    "FIGURES"
+  );
+  assertUnique(
+    timelineEvents.map((event) => event.title),
+    "timeline events"
+  );
+
+  const eventCatalog = events.map(({ year, title, desc, era, region, cat, references = [] }) => ({
+    year,
+    title,
+    desc,
+    era,
+    region,
+    cat,
+    references,
+  }));
   const figureCatalog = figures.map(
-    ({
-      name,
-      birth,
-      death,
-      title,
-      desc,
-      era,
-      region,
-      domain,
-      quote,
-      impact,
-    }) => ({
+    ({ name, birth, death, title, desc, era, region, domain, quote, impact }) => ({
       name,
       birth,
       death,
@@ -203,49 +192,47 @@ async function main(): Promise<void> {
       domain,
       quote,
       impact: impact.slice(0, 3),
-    }),
+    })
   );
-  const timelineCatalog = timelineEvents.map(
-    ({ year, title, desc, era, region, cat, source }) => {
-      const detail = allDetails[title];
-      return {
-        year,
-        title,
-        desc,
-        era,
-        region,
-        cat,
-        source,
-        hasDetail: Boolean(detail),
-        detailPageCount: pageCount(detail),
-      };
-    },
-  );
+  const timelineCatalog = timelineEvents.map(({ year, title, desc, era, region, cat, source }) => {
+    const detail = allDetails[title];
+    return {
+      year,
+      title,
+      desc,
+      era,
+      region,
+      cat,
+      source,
+      hasDetail: Boolean(detail),
+      detailPageCount: pageCount(detail),
+    };
+  });
 
   await Promise.all([
     writeGenerated(
       join(OUTPUT_DIR, "event-catalog.js"),
-      exportModule("EVENT_CATALOG", eventCatalog),
+      exportModule("EVENT_CATALOG", eventCatalog)
     ),
     writeGenerated(
       join(OUTPUT_DIR, "event-catalog.d.ts"),
-      "export const EVENT_CATALOG: unknown[];\n",
+      "export const EVENT_CATALOG: unknown[];\n"
     ),
     writeGenerated(
       join(OUTPUT_DIR, "figure-catalog.js"),
-      exportModule("FIGURE_CATALOG", figureCatalog),
+      exportModule("FIGURE_CATALOG", figureCatalog)
     ),
     writeGenerated(
       join(OUTPUT_DIR, "figure-catalog.d.ts"),
-      "export const FIGURE_CATALOG: unknown[];\n",
+      "export const FIGURE_CATALOG: unknown[];\n"
     ),
     writeGenerated(
       join(OUTPUT_DIR, "timeline-catalog.js"),
-      exportModule("TIMELINE_EVENT_CATALOG", timelineCatalog),
+      exportModule("TIMELINE_EVENT_CATALOG", timelineCatalog)
     ),
     writeGenerated(
       join(OUTPUT_DIR, "timeline-catalog.d.ts"),
-      "export const TIMELINE_EVENT_CATALOG: unknown[];\n",
+      "export const TIMELINE_EVENT_CATALOG: unknown[];\n"
     ),
   ]);
 
@@ -267,15 +254,11 @@ async function main(): Promise<void> {
               ...event,
               longDesc: event.longDesc ?? "",
               references: event.references ?? [],
-              detail:
-                (EVENT_DETAILS as Record<string, EventDetail>)[event.title] ??
-                null,
+              detail: (EVENT_DETAILS as Record<string, EventDetail>)[event.title] ?? null,
               eraName: era.name,
               eraColor: era.color,
               relatedEvents: eventRelations.filter(
-                (relation) =>
-                  relation.source === event.title ||
-                  relation.target === event.title,
+                (relation) => relation.source === event.title || relation.target === event.title
               ),
               figureLinks: figureEventLinks
                 .filter((link) => link.eventId === event.title)
@@ -286,7 +269,7 @@ async function main(): Promise<void> {
               resolvedReferences,
             },
           ];
-        }),
+        })
     );
     const timelineDetailRecords = Object.fromEntries(
       timelineEvents
@@ -297,42 +280,51 @@ async function main(): Promise<void> {
             longDesc: event.longDesc ?? "",
             detail: allDetails[event.title] ?? null,
           },
-        ]),
+        ])
     );
     const figureRouteRecords = Object.fromEntries(
       figures
         .filter((figure) => figure.era === eraId)
-        .map((figure) => [figure.name, figure]),
+        .map((figure) => [
+          figure.name,
+          {
+            ...figure,
+            resolvedReferences: (figure.references ?? []).map((id) => ({
+              id,
+              ...(referenceById[id] ?? { author: "", title: id, year: 0 }),
+            })),
+          },
+        ])
     );
 
     await writeGenerated(
       join(OUTPUT_DIR, `event-route-${eraId}.js`),
-      exportModule("EVENT_ROUTE_RECORDS", eventRouteRecords),
+      exportModule("EVENT_ROUTE_RECORDS", eventRouteRecords)
     );
     await writeGenerated(
       join(OUTPUT_DIR, `event-route-${eraId}.d.ts`),
-      "export const EVENT_ROUTE_RECORDS: Record<string, unknown>;\n",
+      "export const EVENT_ROUTE_RECORDS: Record<string, unknown>;\n"
     );
     await writeGenerated(
       join(OUTPUT_DIR, `timeline-details-${eraId}.js`),
-      exportModule("TIMELINE_DETAIL_RECORDS", timelineDetailRecords),
+      exportModule("TIMELINE_DETAIL_RECORDS", timelineDetailRecords)
     );
     await writeGenerated(
       join(OUTPUT_DIR, `timeline-details-${eraId}.d.ts`),
-      "export const TIMELINE_DETAIL_RECORDS: Record<string, unknown>;\n",
+      "export const TIMELINE_DETAIL_RECORDS: Record<string, unknown>;\n"
     );
     await writeGenerated(
       join(OUTPUT_DIR, `figure-route-${eraId}.js`),
-      exportModule("FIGURE_ROUTE_RECORDS", figureRouteRecords),
+      exportModule("FIGURE_ROUTE_RECORDS", figureRouteRecords)
     );
     await writeGenerated(
       join(OUTPUT_DIR, `figure-route-${eraId}.d.ts`),
-      "export const FIGURE_ROUTE_RECORDS: Record<string, unknown>;\n",
+      "export const FIGURE_ROUTE_RECORDS: Record<string, unknown>;\n"
     );
   }
 
   console.log(
-    `History route data: ${eventCatalog.length} events, ${timelineCatalog.length} timeline nodes, ${figureCatalog.length} figures, ${ERA_IDS.length} era shards`,
+    `History route data: ${eventCatalog.length} events, ${timelineCatalog.length} timeline nodes, ${figureCatalog.length} figures, ${ERA_IDS.length} era shards`
   );
 }
 

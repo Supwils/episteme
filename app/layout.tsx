@@ -24,6 +24,14 @@ export const metadata: Metadata = {
   description:
     "重现人类认识世界的旅程——宇宙物理、人类历史、哲学思想、生命科学、数学、经济学、心理学、计算机科学、政治学等领域的深度知识平台。",
   manifest: "/manifest.json",
+  icons: {
+    icon: [
+      { url: "/icons/icon.svg", type: "image/svg+xml" },
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    // iOS home-screen icon — ignores the manifest and needs an explicit PNG.
+    apple: [{ url: "/icons/icon-192.png", sizes: "192x192" }],
+  },
   openGraph: {
     title: "Episteme · 格致 — 重现人类认识世界的旅程",
     description: "探索人类知识的边界：宇宙物理、人类历史、哲学思想、生命科学",

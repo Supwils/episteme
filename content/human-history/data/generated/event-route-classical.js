@@ -9,6 +9,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "africa",
     "cat": "politics",
     "references": [
+      "wilkinson-egypt",
       "herodotus-histories"
     ],
     "detail": {
@@ -151,6 +152,14 @@ export const EVENT_ROUTE_RECORDS = {
     ],
     "resolvedReferences": [
       {
+        "id": "wilkinson-egypt",
+        "author": "托比·威尔金森",
+        "title": "《古埃及的兴衰》",
+        "titleEn": "The Rise and Fall of Ancient Egypt",
+        "year": 2010,
+        "lang": "en"
+      },
+      {
         "id": "herodotus-histories",
         "author": "希罗多德",
         "title": "《历史》",
@@ -169,7 +178,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "asia",
     "cat": "politics",
     "references": [
-      "needham-science"
+      "chang-ancient-china"
     ],
     "detail": {
       "pages": [
@@ -220,11 +229,11 @@ export const EVENT_ROUTE_RECORDS = {
     "figureLinks": [],
     "resolvedReferences": [
       {
-        "id": "needham-science",
-        "author": "李约瑟",
-        "title": "《中国科学技术史》",
-        "titleEn": "Science and Civilisation in China",
-        "year": 1954,
+        "id": "chang-ancient-china",
+        "author": "张光直",
+        "title": "《古代中国考古学》",
+        "titleEn": "The Archaeology of Ancient China",
+        "year": 1986,
         "lang": "en"
       }
     ]
@@ -238,7 +247,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "asia",
     "cat": "politics",
     "references": [
-      "gilgamesh-epic"
+      "vandemieroop-hammurabi"
     ],
     "detail": {
       "pages": [
@@ -285,11 +294,12 @@ export const EVENT_ROUTE_RECORDS = {
     "figureLinks": [],
     "resolvedReferences": [
       {
-        "id": "gilgamesh-epic",
-        "author": "苏美尔人",
-        "title": "《吉尔伽美什史诗》",
-        "year": -2100,
-        "lang": "akk"
+        "id": "vandemieroop-hammurabi",
+        "author": "马克·范德米罗普",
+        "title": "《巴比伦王汉谟拉比传》",
+        "titleEn": "King Hammurabi of Babylon: A Biography",
+        "year": 2005,
+        "lang": "en"
       }
     ]
   },
@@ -466,6 +476,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "asia",
     "cat": "culture",
     "references": [
+      "gombrich-theravada",
       "jaspers-axis"
     ],
     "detail": {
@@ -527,6 +538,14 @@ export const EVENT_ROUTE_RECORDS = {
       }
     ],
     "resolvedReferences": [
+      {
+        "id": "gombrich-theravada",
+        "author": "理查德·贡布里希",
+        "title": "《上座部佛教社会史》",
+        "titleEn": "Theravada Buddhism: A Social History",
+        "year": 1988,
+        "lang": "en"
+      },
       {
         "id": "jaspers-axis",
         "author": "卡尔·雅斯贝尔斯",
@@ -629,7 +648,8 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "europe",
     "cat": "politics",
     "references": [
-      "finley-politics"
+      "finley-politics",
+      "beard-spqr"
     ],
     "detail": {
       "pages": [
@@ -707,6 +727,14 @@ export const EVENT_ROUTE_RECORDS = {
         "titleEn": "Politics in the Ancient World",
         "year": 1983,
         "lang": "en"
+      },
+      {
+        "id": "beard-spqr",
+        "author": "玛丽·比尔德",
+        "title": "《SPQR：古罗马史》",
+        "titleEn": "SPQR: A History of Ancient Rome",
+        "year": 2015,
+        "lang": "en"
       }
     ]
   },
@@ -719,7 +747,8 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "europe",
     "cat": "military",
     "references": [
-      "aristotle-politics"
+      "lanefox-alexander",
+      "briant-cyrus"
     ],
     "detail": {
       "pages": [
@@ -787,12 +816,20 @@ export const EVENT_ROUTE_RECORDS = {
     ],
     "resolvedReferences": [
       {
-        "id": "aristotle-politics",
-        "author": "亚里士多德",
-        "title": "《政治学》",
-        "titleEn": "Politics",
-        "year": -350,
-        "lang": "gr"
+        "id": "lanefox-alexander",
+        "author": "罗宾·莱恩·福克斯",
+        "title": "《亚历山大大帝》",
+        "titleEn": "Alexander the Great",
+        "year": 1973,
+        "lang": "en"
+      },
+      {
+        "id": "briant-cyrus",
+        "author": "皮埃尔·布里昂",
+        "title": "《从居鲁士到亚历山大：波斯帝国史》",
+        "titleEn": "From Cyrus to Alexander: A History of the Persian Empire",
+        "year": 2002,
+        "lang": "en"
       }
     ]
   },
@@ -805,7 +842,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "asia",
     "cat": "politics",
     "references": [
-      "jaspers-axis"
+      "ashoka-thapar"
     ],
     "detail": null,
     "eraName": "古典时期",
@@ -833,12 +870,12 @@ export const EVENT_ROUTE_RECORDS = {
     "figureLinks": [],
     "resolvedReferences": [
       {
-        "id": "jaspers-axis",
-        "author": "卡尔·雅斯贝尔斯",
-        "title": "《历史的起源与目标》",
-        "titleEn": "The Origin and Goal of History",
-        "year": 1949,
-        "lang": "de"
+        "id": "ashoka-thapar",
+        "author": "罗米拉·塔帕尔",
+        "title": "《阿育王与孔雀王朝的衰落》",
+        "titleEn": "Aśoka and the Decline of the Mauryas",
+        "year": 1961,
+        "lang": "en"
       }
     ]
   },
@@ -962,6 +999,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "asia",
     "cat": "economy",
     "references": [
+      "simaqian-shiji",
       "hansen-silk-road"
     ],
     "detail": {
@@ -1021,6 +1059,13 @@ export const EVENT_ROUTE_RECORDS = {
       }
     ],
     "resolvedReferences": [
+      {
+        "id": "simaqian-shiji",
+        "author": "司马迁",
+        "title": "《史记》",
+        "year": -91,
+        "lang": "zh"
+      },
       {
         "id": "hansen-silk-road",
         "author": "瓦莱丽·汉森",
@@ -1364,7 +1409,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "asia",
     "cat": "politics",
     "references": [
-      "simaqian-shiji"
+      "chenshou-sanguozhi"
     ],
     "detail": null,
     "eraName": "古典时期",
@@ -1398,10 +1443,10 @@ export const EVENT_ROUTE_RECORDS = {
     "figureLinks": [],
     "resolvedReferences": [
       {
-        "id": "simaqian-shiji",
-        "author": "司马迁",
-        "title": "《史记》",
-        "year": -91,
+        "id": "chenshou-sanguozhi",
+        "author": "陈寿",
+        "title": "《三国志》",
+        "year": 289,
         "lang": "zh"
       }
     ]
@@ -1415,7 +1460,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "africa",
     "cat": "culture",
     "references": [
-      "diamond-germs"
+      "iliffe-africans"
     ],
     "detail": {
       "pages": [
@@ -1468,11 +1513,11 @@ export const EVENT_ROUTE_RECORDS = {
     "figureLinks": [],
     "resolvedReferences": [
       {
-        "id": "diamond-germs",
-        "author": "贾雷德·戴蒙德",
-        "title": "《枪炮、病菌与钢铁》",
-        "titleEn": "Guns, Germs, and Steel",
-        "year": 1997,
+        "id": "iliffe-africans",
+        "author": "约翰·伊利夫",
+        "title": "《非洲人：一个大陆的历史》",
+        "titleEn": "Africans: The History of a Continent",
+        "year": 1995,
         "lang": "en"
       }
     ]

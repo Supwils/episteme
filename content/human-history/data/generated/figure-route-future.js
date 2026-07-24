@@ -57,6 +57,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "harari-sapiens"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "harari-sapiens",
+        "author": "尤瓦尔·赫拉利",
+        "title": "《人类简史》",
+        "titleEn": "Sapiens: A Brief History of Humankind",
+        "year": 2011,
+        "lang": "en"
+      }
     ]
   },
   "黄仁勋": {
@@ -112,6 +122,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "harari-sapiens"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "harari-sapiens",
+        "author": "尤瓦尔·赫拉利",
+        "title": "《人类简史》",
+        "titleEn": "Sapiens: A Brief History of Humankind",
+        "year": 2011,
+        "lang": "en"
+      }
     ]
   },
   "杰弗里·辛顿": {
@@ -170,7 +190,17 @@ export const FIGURE_ROUTE_RECORDS = {
       }
     ],
     "references": [
-      "harari-sapiens"
+      "isaacson-innovators"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "isaacson-innovators",
+        "author": "沃尔特·艾萨克森",
+        "title": "《创新者》",
+        "titleEn": "The Innovators",
+        "year": 2014,
+        "lang": "en"
+      }
     ]
   },
   "李飞飞": {
@@ -226,6 +256,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "lee-ai-superpowers"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "lee-ai-superpowers",
+        "author": "李开复",
+        "title": "《AI·未来》",
+        "titleEn": "AI Superpowers: China, Silicon Valley, and the New World Order",
+        "year": 2018,
+        "lang": "en"
+      }
     ]
   },
   "戴密斯·哈萨比斯": {
@@ -282,6 +322,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "harari-sapiens",
       "lee-ai-superpowers"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "harari-sapiens",
+        "author": "尤瓦尔·赫拉利",
+        "title": "《人类简史》",
+        "titleEn": "Sapiens: A Brief History of Humankind",
+        "year": 2011,
+        "lang": "en"
+      },
+      {
+        "id": "lee-ai-superpowers",
+        "author": "李开复",
+        "title": "《AI·未来》",
+        "titleEn": "AI Superpowers: China, Silicon Valley, and the New World Order",
+        "year": 2018,
+        "lang": "en"
+      }
     ]
   }
 };

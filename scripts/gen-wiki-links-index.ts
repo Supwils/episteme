@@ -24,123 +24,18 @@
  *
  * Run: pnpm gen-links
  */
-import { readdirSync, readFileSync, existsSync, statSync, writeFileSync } from "node:fs";
+import { writeFileSync } from "node:fs";
 import { join } from "node:path";
-import matter from "gray-matter";
 import prettier from "prettier";
+import { collectArticles, type Article } from "../lib/search/articles";
 
 const ROOT = process.cwd();
-const CONTENT = join(ROOT, "content");
-const APP = join(ROOT, "app");
 const OUT_LINKS = join(ROOT, "lib", "wiki-link-index.ts");
 const OUT_BACKLINKS = join(ROOT, "lib", "backlinks-index.ts");
 // Static asset, lazy-fetched on first wiki-link hover — never enters any page
 // bundle. Maps an article URL to a compact { t:title, e:excerpt, d:domain }
 // so a reader can preview where a `[[link]]` goes without losing their place.
 const OUT_PREVIEWS = join(ROOT, "public", "link-previews.json");
-
-const isDir = (p: string): boolean => existsSync(p) && statSync(p).isDirectory();
-const isAsciiSlug = (s: string): boolean => /^[a-z][a-z0-9-]*$/.test(s);
-
-/** Parse frontmatter, tolerating malformed YAML so one bad file can't crash the
- *  whole index (mirrors lib/content-utils.ts::safeParseMatter at runtime). */
-function safeMatter(raw: string): { data: Record<string, unknown>; content: string } {
-  try {
-    const p = matter(raw);
-    return { data: p.data as Record<string, unknown>, content: p.content };
-  } catch {
-    return { data: {}, content: raw.replace(/^---\n[\s\S]*?\n---\n?/, "") };
-  }
-}
-
-interface Article {
-  domain: string;
-  url: string;
-  title: string;
-  body: string;
-  /** Wiki-link keys that should resolve to this article (slug, plus aliases). */
-  keys: string[];
-}
-
-/** Flat sections: content/<domain>/<section>/<ascii-slug>.(md|mdx) with a [slug] route. */
-function collectFlatArticles(): Article[] {
-  const out: Article[] = [];
-  for (const domain of readdirSync(CONTENT)) {
-    if (!isDir(join(CONTENT, domain))) continue;
-    for (const section of readdirSync(join(CONTENT, domain))) {
-      if (section === "knowledge-base") continue; // handled by collectKbArticles
-      const sectionDir = join(CONTENT, domain, section);
-      if (!isDir(sectionDir)) continue;
-      if (!existsSync(join(APP, domain, section, "[slug]", "page.tsx"))) continue;
-
-      for (const file of readdirSync(sectionDir)) {
-        const m = file.match(/^(.+)\.(mdx|md)$/);
-        if (!m) continue;
-        const slug = m[1]!;
-        if (!isAsciiSlug(slug)) continue;
-
-        const parsed = safeMatter(readFileSync(join(sectionDir, file), "utf8"));
-        const title = typeof parsed.data.title === "string" ? parsed.data.title : slug;
-        out.push({
-          domain,
-          url: `/${domain}/${section}/${slug}`,
-          title,
-          body: parsed.content,
-          keys: [slug],
-        });
-      }
-    }
-  }
-  return out;
-}
-
-function walkMarkdown(dir: string, base = ""): string[] {
-  const out: string[] = [];
-  for (const e of readdirSync(dir, { withFileTypes: true })) {
-    const rel = base ? `${base}/${e.name}` : e.name;
-    if (e.isDirectory()) out.push(...walkMarkdown(join(dir, e.name), rel));
-    else if (
-      (e.name.endsWith(".md") || e.name.endsWith(".mdx")) &&
-      !e.name.endsWith(".narration.md")
-    )
-      out.push(rel);
-  }
-  return out;
-}
-
-/** Knowledge bases: nested .md (CJK-named, physics/cosmology/history/life) or
- *  flat .mdx (economics/psychology) served at a single [slug] route. The slug
- *  joins the path with `--` (matching lib/generic-kb.ts and the history loader).
- *  Keyed by full slug + bare file name for natural `[[名]]` links. */
-function collectKbArticles(): Article[] {
-  const out: Article[] = [];
-  for (const domain of readdirSync(CONTENT)) {
-    const kbDir = join(CONTENT, domain, "knowledge-base");
-    if (!isDir(kbDir)) continue;
-    const route = ["knowledge", "knowledge-base"].find((r) =>
-      existsSync(join(APP, domain, r, "[slug]", "page.tsx"))
-    );
-    if (!route) continue;
-
-    for (const rel of walkMarkdown(kbDir)) {
-      const slug = rel.replace(/\.mdx?$/, "").replace(/\//g, "--");
-      const bare = rel
-        .replace(/\.mdx?$/, "")
-        .split("/")
-        .pop()!;
-      const parsed = safeMatter(readFileSync(join(kbDir, rel), "utf8"));
-      const title = typeof parsed.data.title === "string" ? parsed.data.title : bare;
-      out.push({
-        domain,
-        url: `/${domain}/${route}/${slug}`,
-        title,
-        body: parsed.content,
-        keys: bare === slug ? [slug] : [slug, bare],
-      });
-    }
-  }
-  return out;
-}
 
 type Forward = Record<string, string | Record<string, string>>;
 
@@ -249,7 +144,7 @@ function buildPreviews(articles: Article[]): Record<string, { t: string; e: stri
 }
 
 async function main(): Promise<void> {
-  const articles = [...collectFlatArticles(), ...collectKbArticles()];
+  const articles = collectArticles();
   const forward = buildForward(articles);
   const backlinks = buildBacklinks(articles, forward);
 

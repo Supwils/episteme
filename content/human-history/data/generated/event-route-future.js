@@ -8,9 +8,7 @@ export const EVENT_ROUTE_RECORDS = {
     "era": "future",
     "region": "global",
     "cat": "science",
-    "references": [
-      "harari-sapiens"
-    ],
+    "references": [],
     "detail": {
       "pages": [
         {
@@ -45,16 +43,7 @@ export const EVENT_ROUTE_RECORDS = {
     "eraColor": "#00897B",
     "relatedEvents": [],
     "figureLinks": [],
-    "resolvedReferences": [
-      {
-        "id": "harari-sapiens",
-        "author": "尤瓦尔·赫拉利",
-        "title": "《人类简史》",
-        "titleEn": "Sapiens: A Brief History of Humankind",
-        "year": 2011,
-        "lang": "en"
-      }
-    ]
+    "resolvedReferences": []
   },
   "碳中和关键节点": {
     "year": 2035,
@@ -65,7 +54,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "global",
     "cat": "economy",
     "references": [
-      "harari-sapiens"
+      "ipcc-ar6"
     ],
     "detail": {
       "pages": [
@@ -103,11 +92,11 @@ export const EVENT_ROUTE_RECORDS = {
     "figureLinks": [],
     "resolvedReferences": [
       {
-        "id": "harari-sapiens",
-        "author": "尤瓦尔·赫拉利",
-        "title": "《人类简史》",
-        "titleEn": "Sapiens: A Brief History of Humankind",
-        "year": 2011,
+        "id": "ipcc-ar6",
+        "author": "联合国政府间气候变化专门委员会（IPCC）",
+        "title": "第六次评估报告综合报告：气候变化 2023",
+        "titleEn": "AR6 Synthesis Report: Climate Change 2023",
+        "year": 2023,
         "lang": "en"
       }
     ]
@@ -120,9 +109,7 @@ export const EVENT_ROUTE_RECORDS = {
     "era": "future",
     "region": "global",
     "cat": "science",
-    "references": [
-      "harari-sapiens"
-    ],
+    "references": [],
     "detail": {
       "pages": [
         {
@@ -157,16 +144,7 @@ export const EVENT_ROUTE_RECORDS = {
     "eraColor": "#00897B",
     "relatedEvents": [],
     "figureLinks": [],
-    "resolvedReferences": [
-      {
-        "id": "harari-sapiens",
-        "author": "尤瓦尔·赫拉利",
-        "title": "《人类简史》",
-        "titleEn": "Sapiens: A Brief History of Humankind",
-        "year": 2011,
-        "lang": "en"
-      }
-    ]
+    "resolvedReferences": []
   },
   "量子计算突破": {
     "year": 2045,
@@ -176,9 +154,7 @@ export const EVENT_ROUTE_RECORDS = {
     "era": "future",
     "region": "global",
     "cat": "science",
-    "references": [
-      "harari-sapiens"
-    ],
+    "references": [],
     "detail": {
       "pages": [
         {
@@ -213,16 +189,7 @@ export const EVENT_ROUTE_RECORDS = {
     "eraColor": "#00897B",
     "relatedEvents": [],
     "figureLinks": [],
-    "resolvedReferences": [
-      {
-        "id": "harari-sapiens",
-        "author": "尤瓦尔·赫拉利",
-        "title": "《人类简史》",
-        "titleEn": "Sapiens: A Brief History of Humankind",
-        "year": 2011,
-        "lang": "en"
-      }
-    ]
+    "resolvedReferences": []
   },
   "火星殖民": {
     "year": 2050,
@@ -232,9 +199,7 @@ export const EVENT_ROUTE_RECORDS = {
     "era": "future",
     "region": "global",
     "cat": "science",
-    "references": [
-      "harari-sapiens"
-    ],
+    "references": [],
     "detail": {
       "pages": [
         {
@@ -274,16 +239,7 @@ export const EVENT_ROUTE_RECORDS = {
         "role": "participated"
       }
     ],
-    "resolvedReferences": [
-      {
-        "id": "harari-sapiens",
-        "author": "尤瓦尔·赫拉利",
-        "title": "《人类简史》",
-        "titleEn": "Sapiens: A Brief History of Humankind",
-        "year": 2011,
-        "lang": "en"
-      }
-    ]
+    "resolvedReferences": []
   },
   "核聚变商业化": {
     "year": 2060,
@@ -293,9 +249,7 @@ export const EVENT_ROUTE_RECORDS = {
     "era": "future",
     "region": "global",
     "cat": "science",
-    "references": [
-      "harari-sapiens"
-    ],
+    "references": [],
     "detail": {
       "pages": [
         {
@@ -330,16 +284,7 @@ export const EVENT_ROUTE_RECORDS = {
     "eraColor": "#00897B",
     "relatedEvents": [],
     "figureLinks": [],
-    "resolvedReferences": [
-      {
-        "id": "harari-sapiens",
-        "author": "尤瓦尔·赫拉利",
-        "title": "《人类简史》",
-        "titleEn": "Sapiens: A Brief History of Humankind",
-        "year": 2011,
-        "lang": "en"
-      }
-    ]
+    "resolvedReferences": []
   },
   "脑机接口普及": {
     "year": 2080,
@@ -349,9 +294,7 @@ export const EVENT_ROUTE_RECORDS = {
     "era": "future",
     "region": "global",
     "cat": "science",
-    "references": [
-      "harari-sapiens"
-    ],
+    "references": [],
     "detail": {
       "pages": [
         {
@@ -386,16 +329,7 @@ export const EVENT_ROUTE_RECORDS = {
     "eraColor": "#00897B",
     "relatedEvents": [],
     "figureLinks": [],
-    "resolvedReferences": [
-      {
-        "id": "harari-sapiens",
-        "author": "尤瓦尔·赫拉利",
-        "title": "《人类简史》",
-        "titleEn": "Sapiens: A Brief History of Humankind",
-        "year": 2011,
-        "lang": "en"
-      }
-    ]
+    "resolvedReferences": []
   },
   "星际文明雏形": {
     "year": 2100,
@@ -405,9 +339,7 @@ export const EVENT_ROUTE_RECORDS = {
     "era": "future",
     "region": "global",
     "cat": "science",
-    "references": [
-      "harari-sapiens"
-    ],
+    "references": [],
     "detail": {
       "pages": [
         {
@@ -442,15 +374,6 @@ export const EVENT_ROUTE_RECORDS = {
     "eraColor": "#00897B",
     "relatedEvents": [],
     "figureLinks": [],
-    "resolvedReferences": [
-      {
-        "id": "harari-sapiens",
-        "author": "尤瓦尔·赫拉利",
-        "title": "《人类简史》",
-        "titleEn": "Sapiens: A Brief History of Humankind",
-        "year": 2011,
-        "lang": "en"
-      }
-    ]
+    "resolvedReferences": []
   }
 };

@@ -53,6 +53,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "johanson-lucy",
       "harari-sapiens"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "johanson-lucy",
+        "author": "唐纳德·约翰森 / 梅特兰·伊迪",
+        "title": "《露西：人类的起源》",
+        "titleEn": "Lucy: The Beginnings of Humankind",
+        "year": 1981,
+        "lang": "en"
+      },
+      {
+        "id": "harari-sapiens",
+        "author": "尤瓦尔·赫拉利",
+        "title": "《人类简史》",
+        "titleEn": "Sapiens: A Brief History of Humankind",
+        "year": 2011,
+        "lang": "en"
+      }
     ]
   },
   "路易斯·李基": {
@@ -108,6 +126,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "leakey-disclosing",
       "harari-sapiens"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "leakey-disclosing",
+        "author": "玛丽·李基",
+        "title": "《揭开过去：自传》",
+        "titleEn": "Disclosing the Past: An Autobiography",
+        "year": 1984,
+        "lang": "en"
+      },
+      {
+        "id": "harari-sapiens",
+        "author": "尤瓦尔·赫拉利",
+        "title": "《人类简史》",
+        "titleEn": "Sapiens: A Brief History of Humankind",
+        "year": 2011,
+        "lang": "en"
+      }
     ]
   },
   "玛丽·李基": {
@@ -166,6 +202,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "leakey-disclosing",
       "harari-sapiens"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "leakey-disclosing",
+        "author": "玛丽·李基",
+        "title": "《揭开过去：自传》",
+        "titleEn": "Disclosing the Past: An Autobiography",
+        "year": 1984,
+        "lang": "en"
+      },
+      {
+        "id": "harari-sapiens",
+        "author": "尤瓦尔·赫拉利",
+        "title": "《人类简史》",
+        "titleEn": "Sapiens: A Brief History of Humankind",
+        "year": 2011,
+        "lang": "en"
+      }
     ]
   },
   "尤金·杜布瓦": {
@@ -221,6 +275,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "harari-sapiens",
       "diamond-germs"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "harari-sapiens",
+        "author": "尤瓦尔·赫拉利",
+        "title": "《人类简史》",
+        "titleEn": "Sapiens: A Brief History of Humankind",
+        "year": 2011,
+        "lang": "en"
+      },
+      {
+        "id": "diamond-germs",
+        "author": "贾雷德·戴蒙德",
+        "title": "《枪炮、病菌与钢铁》",
+        "titleEn": "Guns, Germs, and Steel",
+        "year": 1997,
+        "lang": "en"
+      }
     ]
   },
   "斯万特·帕博": {
@@ -276,6 +348,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "paabo-neanderthal",
       "harari-sapiens"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "paabo-neanderthal",
+        "author": "斯万特·帕博",
+        "title": "《尼安德特人：寻找失落的基因组》",
+        "titleEn": "Neanderthal Man: In Search of Lost Genomes",
+        "year": 2014,
+        "lang": "en"
+      },
+      {
+        "id": "harari-sapiens",
+        "author": "尤瓦尔·赫拉利",
+        "title": "《人类简史》",
+        "titleEn": "Sapiens: A Brief History of Humankind",
+        "year": 2011,
+        "lang": "en"
+      }
     ]
   },
   "柴尔德": {
@@ -331,6 +421,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "childe-man",
       "harari-sapiens"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "childe-man",
+        "author": "维尔·戈登·柴尔德",
+        "title": "《人类创造自身》",
+        "titleEn": "Man Makes Himself",
+        "year": 1936,
+        "lang": "en"
+      },
+      {
+        "id": "harari-sapiens",
+        "author": "尤瓦尔·赫拉利",
+        "title": "《人类简史》",
+        "titleEn": "Sapiens: A Brief History of Humankind",
+        "year": 2011,
+        "lang": "en"
+      }
     ]
   },
   "凯瑟琳·凯尼恩": {
@@ -385,6 +493,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "kenyon-jericho",
       "harari-sapiens"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "kenyon-jericho",
+        "author": "凯瑟琳·凯尼恩",
+        "title": "《挖掘杰里科》",
+        "titleEn": "Digging Up Jericho",
+        "year": 1957,
+        "lang": "en"
+      },
+      {
+        "id": "harari-sapiens",
+        "author": "尤瓦尔·赫拉利",
+        "title": "《人类简史》",
+        "titleEn": "Sapiens: A Brief History of Humankind",
+        "year": 2011,
+        "lang": "en"
+      }
     ]
   }
 };

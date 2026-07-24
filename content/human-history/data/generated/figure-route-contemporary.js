@@ -56,6 +56,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "marx-capital"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "marx-capital",
+        "author": "卡尔·马克思",
+        "title": "《资本论》",
+        "titleEn": "Das Kapital",
+        "year": 1867,
+        "lang": "de"
+      }
     ]
   },
   "乔布斯": {
@@ -119,6 +129,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "isaacson-innovators"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "isaacson-innovators",
+        "author": "沃尔特·艾萨克森",
+        "title": "《创新者》",
+        "titleEn": "The Innovators",
+        "year": 2014,
+        "lang": "en"
+      }
     ]
   },
   "曼德拉": {
@@ -181,7 +201,17 @@ export const FIGURE_ROUTE_RECORDS = {
       }
     ],
     "references": [
-      "diamond-spirit"
+      "mandela-long-walk"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "mandela-long-walk",
+        "author": "纳尔逊·曼德拉",
+        "title": "《漫漫自由路》",
+        "titleEn": "Long Walk to Freedom",
+        "year": 1994,
+        "lang": "en"
+      }
     ]
   },
   "马丁·路德·金": {
@@ -235,7 +265,17 @@ export const FIGURE_ROUTE_RECORDS = {
       }
     ],
     "references": [
-      "diamond-spirit"
+      "branch-king"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "branch-king",
+        "author": "泰勒·布兰奇",
+        "title": "《分水岭：金的年代，1954–63》",
+        "titleEn": "Parting the Waters: America in the King Years 1954-63",
+        "year": 1988,
+        "lang": "en"
+      }
     ]
   },
   "邓小平": {
@@ -295,6 +335,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "rodrik-globalization"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "rodrik-globalization",
+        "author": "丹尼·罗德里克",
+        "title": "《全球化悖论》",
+        "titleEn": "The Globalization Paradox",
+        "year": 2011,
+        "lang": "en"
+      }
     ]
   },
   "屠呦呦": {
@@ -349,7 +399,17 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "needham-science"
     ],
-    "quote": "青蒿素是传统中医药给世界的一份礼物。"
+    "quote": "青蒿素是传统中医药给世界的一份礼物。",
+    "resolvedReferences": [
+      {
+        "id": "needham-science",
+        "author": "李约瑟",
+        "title": "《中国科学技术史》",
+        "titleEn": "Science and Civilisation in China",
+        "year": 1954,
+        "lang": "en"
+      }
+    ]
   },
   "蒂姆·伯纳斯-李": {
     "name": "蒂姆·伯纳斯-李",
@@ -399,7 +459,17 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "pariser-filter"
     ],
-    "quote": "万维网的力量在于它的普遍性。"
+    "quote": "万维网的力量在于它的普遍性。",
+    "resolvedReferences": [
+      {
+        "id": "pariser-filter",
+        "author": "伊利·帕里泽",
+        "title": "《过滤泡》",
+        "titleEn": "The Filter Bubble",
+        "year": 2011,
+        "lang": "en"
+      }
+    ]
   },
   "恩克鲁玛": {
     "name": "恩克鲁玛",
@@ -461,6 +531,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "diamond-spirit"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "diamond-spirit",
+        "author": "拉里·戴蒙德",
+        "title": "《民主的精神》",
+        "titleEn": "The Spirit of Democracy",
+        "year": 2008,
+        "lang": "en"
+      }
     ]
   },
   "罗莎·帕克斯": {
@@ -515,6 +595,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "diamond-spirit"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "diamond-spirit",
+        "author": "拉里·戴蒙德",
+        "title": "《民主的精神》",
+        "titleEn": "The Spirit of Democracy",
+        "year": 2008,
+        "lang": "en"
+      }
     ]
   },
   "旺加里·马塔伊": {
@@ -570,6 +660,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "diamond-germs",
       "piketty-capital"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "diamond-germs",
+        "author": "贾雷德·戴蒙德",
+        "title": "《枪炮、病菌与钢铁》",
+        "titleEn": "Guns, Germs, and Steel",
+        "year": 1997,
+        "lang": "en"
+      },
+      {
+        "id": "piketty-capital",
+        "author": "托马斯·皮凯蒂",
+        "title": "《21世纪资本论》",
+        "titleEn": "Capital in the Twenty-First Century",
+        "year": 2013,
+        "lang": "fr"
+      }
     ]
   },
   "袁隆平": {
@@ -624,6 +732,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "needham-science"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "needham-science",
+        "author": "李约瑟",
+        "title": "《中国科学技术史》",
+        "titleEn": "Science and Civilisation in China",
+        "year": 1954,
+        "lang": "en"
+      }
     ]
   },
   "诺曼·博洛格": {
@@ -683,6 +801,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "diamond-germs"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "diamond-germs",
+        "author": "贾雷德·戴蒙德",
+        "title": "《枪炮、病菌与钢铁》",
+        "titleEn": "Guns, Germs, and Steel",
+        "year": 1997,
+        "lang": "en"
+      }
     ]
   },
   "瓦茨拉夫·哈维尔": {
@@ -742,6 +870,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "brown-gorbachev"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "brown-gorbachev",
+        "author": "阿奇·布朗",
+        "title": "《戈尔巴乔夫因素》",
+        "titleEn": "The Gorbachev Factor",
+        "year": 1996,
+        "lang": "en"
+      }
     ]
   },
   "马拉拉·尤萨夫扎伊": {
@@ -795,7 +933,17 @@ export const FIGURE_ROUTE_RECORDS = {
       }
     ],
     "references": [
-      "diamond-spirit"
+      "yousafzai-malala"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "yousafzai-malala",
+        "author": "马拉拉·尤萨夫扎伊",
+        "title": "《我是马拉拉》",
+        "titleEn": "I Am Malala",
+        "year": 2013,
+        "lang": "en"
+      }
     ]
   },
   "富兰克林·罗斯福": {
@@ -856,6 +1004,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "kershaw-to-hell",
       "judt-postwar"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "kershaw-to-hell",
+        "author": "伊恩·克肖",
+        "title": "《地狱之行：欧洲 1914—1949》",
+        "titleEn": "To Hell and Back: Europe 1914-1949",
+        "year": 2015,
+        "lang": "en"
+      },
+      {
+        "id": "judt-postwar",
+        "author": "托尼·朱特",
+        "title": "《战后欧洲史》",
+        "titleEn": "Postwar: A History of Europe Since 1945",
+        "year": 2005,
+        "lang": "en"
+      }
     ]
   },
   "戴高乐": {
@@ -915,6 +1081,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "judt-postwar"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "judt-postwar",
+        "author": "托尼·朱特",
+        "title": "《战后欧洲史》",
+        "titleEn": "Postwar: A History of Europe Since 1945",
+        "year": 2005,
+        "lang": "en"
+      }
     ]
   },
   "戈尔巴乔夫": {
@@ -975,6 +1151,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "brown-gorbachev",
       "westad-cold-war"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "brown-gorbachev",
+        "author": "阿奇·布朗",
+        "title": "《戈尔巴乔夫因素》",
+        "titleEn": "The Gorbachev Factor",
+        "year": 1996,
+        "lang": "en"
+      },
+      {
+        "id": "westad-cold-war",
+        "author": "文安立",
+        "title": "《冷战：一部世界史》",
+        "titleEn": "The Cold War: A World History",
+        "year": 2017,
+        "lang": "en"
+      }
     ]
   },
   "肯尼迪": {
@@ -1031,6 +1225,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "allison-essence",
       "westad-cold-war"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "allison-essence",
+        "author": "格雷厄姆·艾利森",
+        "title": "《决策的本质》",
+        "titleEn": "Essence of Decision: Explaining the Cuban Missile Crisis",
+        "year": 1971,
+        "lang": "en"
+      },
+      {
+        "id": "westad-cold-war",
+        "author": "文安立",
+        "title": "《冷战：一部世界史》",
+        "titleEn": "The Cold War: A World History",
+        "year": 2017,
+        "lang": "en"
+      }
     ]
   },
   "尼赫鲁": {
@@ -1091,6 +1303,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "guha-india",
       "prashad-darker-nations"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "guha-india",
+        "author": "拉马钱德拉·古哈",
+        "title": "《甘地之后的印度》",
+        "titleEn": "India After Gandhi",
+        "year": 2007,
+        "lang": "en"
+      },
+      {
+        "id": "prashad-darker-nations",
+        "author": "维杰伊·普拉沙德",
+        "title": "《较暗的诸国：第三世界人民史》",
+        "titleEn": "The Darker Nations: A People's History of the Third World",
+        "year": 2007,
+        "lang": "en"
+      }
     ]
   },
   "纳赛尔": {
@@ -1151,6 +1381,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "prashad-darker-nations",
       "westad-cold-war"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "prashad-darker-nations",
+        "author": "维杰伊·普拉沙德",
+        "title": "《较暗的诸国：第三世界人民史》",
+        "titleEn": "The Darker Nations: A People's History of the Third World",
+        "year": 2007,
+        "lang": "en"
+      },
+      {
+        "id": "westad-cold-war",
+        "author": "文安立",
+        "title": "《冷战：一部世界史》",
+        "titleEn": "The Cold War: A World History",
+        "year": 2017,
+        "lang": "en"
+      }
     ]
   },
   "费曼": {
@@ -1210,6 +1458,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "kumar-quantum"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "kumar-quantum",
+        "author": "曼吉特·库马尔",
+        "title": "《量子：爱因斯坦、玻尔与实在本质之争》",
+        "titleEn": "Quantum: Einstein, Bohr, and the Great Debate About the Nature of Reality",
+        "year": 2008,
+        "lang": "en"
+      }
     ]
   },
   "霍金": {
@@ -1269,6 +1527,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "kumar-quantum"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "kumar-quantum",
+        "author": "曼吉特·库马尔",
+        "title": "《量子：爱因斯坦、玻尔与实在本质之争》",
+        "titleEn": "Quantum: Einstein, Bohr, and the Great Debate About the Nature of Reality",
+        "year": 2008,
+        "lang": "en"
+      }
     ]
   },
   "冯·诺依曼": {
@@ -1325,6 +1593,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "isaacson-innovators",
       "alperovitz-atomic"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "isaacson-innovators",
+        "author": "沃尔特·艾萨克森",
+        "title": "《创新者》",
+        "titleEn": "The Innovators",
+        "year": 2014,
+        "lang": "en"
+      },
+      {
+        "id": "alperovitz-atomic",
+        "author": "加尔·阿尔佩罗维茨",
+        "title": "《原子弹的决策》",
+        "titleEn": "The Decision to Use the Atomic Bomb",
+        "year": 1995,
+        "lang": "en"
+      }
     ]
   },
   "蕾切尔·卡森": {
@@ -1381,6 +1667,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "kolbert-field-notes",
       "klein-changes-everything"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "kolbert-field-notes",
+        "author": "伊丽莎白·科尔伯特",
+        "title": "《灾变手记》",
+        "titleEn": "Field Notes from a Catastrophe",
+        "year": 2006,
+        "lang": "en"
+      },
+      {
+        "id": "klein-changes-everything",
+        "author": "娜奥米·克莱因",
+        "title": "《改变一切：资本主义与气候》",
+        "titleEn": "This Changes Everything: Capitalism vs. the Climate",
+        "year": 2014,
+        "lang": "en"
+      }
     ]
   },
   "简·古道尔": {
@@ -1441,6 +1745,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "leakey-disclosing",
       "kolbert-field-notes"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "leakey-disclosing",
+        "author": "玛丽·李基",
+        "title": "《揭开过去：自传》",
+        "titleEn": "Disclosing the Past: An Autobiography",
+        "year": 1984,
+        "lang": "en"
+      },
+      {
+        "id": "kolbert-field-notes",
+        "author": "伊丽莎白·科尔伯特",
+        "title": "《灾变手记》",
+        "titleEn": "Field Notes from a Catastrophe",
+        "year": 2006,
+        "lang": "en"
+      }
     ]
   },
   "杜波依斯": {
@@ -1501,6 +1823,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "diamond-spirit",
       "foner-fiery-trial"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "diamond-spirit",
+        "author": "拉里·戴蒙德",
+        "title": "《民主的精神》",
+        "titleEn": "The Spirit of Democracy",
+        "year": 2008,
+        "lang": "en"
+      },
+      {
+        "id": "foner-fiery-trial",
+        "author": "埃里克·方纳",
+        "title": "《烈火考验：林肯与美国奴隶制》",
+        "titleEn": "The Fiery Trial: Abraham Lincoln and American Slavery",
+        "year": 2010,
+        "lang": "en"
+      }
     ]
   },
   "萨特": {
@@ -1560,6 +1900,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "judt-postwar"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "judt-postwar",
+        "author": "托尼·朱特",
+        "title": "《战后欧洲史》",
+        "titleEn": "Postwar: A History of Europe Since 1945",
+        "year": 2005,
+        "lang": "en"
+      }
     ]
   },
   "埃迪·马博": {
@@ -1615,6 +1965,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "crosby-exchange",
       "diamond-germs"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "crosby-exchange",
+        "author": "阿尔弗雷德·克罗斯比",
+        "title": "《哥伦布大交换》",
+        "titleEn": "The Columbian Exchange",
+        "year": 1972,
+        "lang": "en"
+      },
+      {
+        "id": "diamond-germs",
+        "author": "贾雷德·戴蒙德",
+        "title": "《枪炮、病菌与钢铁》",
+        "titleEn": "Guns, Germs, and Steel",
+        "year": 1997,
+        "lang": "en"
+      }
     ]
   },
   "切·格瓦拉": {
@@ -1670,6 +2038,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "marx-capital",
       "huntington-clash"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "marx-capital",
+        "author": "卡尔·马克思",
+        "title": "《资本论》",
+        "titleEn": "Das Kapital",
+        "year": 1867,
+        "lang": "de"
+      },
+      {
+        "id": "huntington-clash",
+        "author": "塞缪尔·亨廷顿",
+        "title": "《文明的冲突》",
+        "titleEn": "The Clash of Civilizations",
+        "year": 1996,
+        "lang": "en"
+      }
     ]
   },
   "李光耀": {
@@ -1729,6 +2115,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "rodrik-globalization",
       "huntington-wave"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "rodrik-globalization",
+        "author": "丹尼·罗德里克",
+        "title": "《全球化悖论》",
+        "titleEn": "The Globalization Paradox",
+        "year": 2011,
+        "lang": "en"
+      },
+      {
+        "id": "huntington-wave",
+        "author": "塞缪尔·亨廷顿",
+        "title": "《第三波》",
+        "titleEn": "The Third Wave",
+        "year": 1991,
+        "lang": "en"
+      }
     ]
   },
   "杜鲁门": {
@@ -1788,6 +2192,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "alperovitz-atomic",
       "kennedy-rise"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "alperovitz-atomic",
+        "author": "加尔·阿尔佩罗维茨",
+        "title": "《原子弹的决策》",
+        "titleEn": "The Decision to Use the Atomic Bomb",
+        "year": 1995,
+        "lang": "en"
+      },
+      {
+        "id": "kennedy-rise",
+        "author": "保罗·肯尼迪",
+        "title": "《大国的兴衰》",
+        "titleEn": "The Rise and Fall of the Great Powers",
+        "year": 1987,
+        "lang": "en"
+      }
     ]
   }
 };

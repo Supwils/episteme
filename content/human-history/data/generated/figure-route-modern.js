@@ -56,7 +56,17 @@ export const FIGURE_ROUTE_RECORDS = {
       }
     ],
     "references": [
-      "tocqueville-democracy"
+      "roberts-napoleon"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "roberts-napoleon",
+        "author": "安德鲁·罗伯茨",
+        "title": "《拿破仑大帝》",
+        "titleEn": "Napoleon: A Life",
+        "year": 2014,
+        "lang": "en"
+      }
     ]
   },
   "爱因斯坦": {
@@ -115,6 +125,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "alperovitz-atomic"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "alperovitz-atomic",
+        "author": "加尔·阿尔佩罗维茨",
+        "title": "《原子弹的决策》",
+        "titleEn": "The Decision to Use the Atomic Bomb",
+        "year": 1995,
+        "lang": "en"
+      }
     ]
   },
   "图灵": {
@@ -177,6 +197,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "hodges-turing"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "hodges-turing",
+        "author": "安德鲁·霍奇斯",
+        "title": "《艾伦·图灵传：如谜的解谜者》",
+        "titleEn": "Alan Turing: The Enigma",
+        "year": 1983,
+        "lang": "en"
+      }
     ]
   },
   "达尔文": {
@@ -231,6 +261,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "darwin-origin"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "darwin-origin",
+        "author": "查尔斯·达尔文",
+        "title": "《物种起源》",
+        "titleEn": "On the Origin of Species",
+        "year": 1859,
+        "lang": "en"
+      }
     ]
   },
   "居里夫人": {
@@ -289,6 +329,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "merton-science"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "merton-science",
+        "author": "罗伯特·默顿",
+        "title": "《十七世纪英格兰的科学、技术与社会》",
+        "titleEn": "Science, Technology and Society in Seventeenth-Century England",
+        "year": 1938,
+        "lang": "en"
+      }
     ]
   },
   "甘地": {
@@ -351,7 +401,17 @@ export const FIGURE_ROUTE_RECORDS = {
       }
     ],
     "references": [
-      "diamond-spirit"
+      "guha-gandhi"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "guha-gandhi",
+        "author": "拉马钱德拉·古哈",
+        "title": "《甘地：改变世界的岁月，1914–1948》",
+        "titleEn": "Gandhi: The Years That Changed the World, 1914–1948",
+        "year": 2018,
+        "lang": "en"
+      }
     ]
   },
   "马克思": {
@@ -407,6 +467,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "marx-capital",
       "smith-wealth"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "marx-capital",
+        "author": "卡尔·马克思",
+        "title": "《资本论》",
+        "titleEn": "Das Kapital",
+        "year": 1867,
+        "lang": "de"
+      },
+      {
+        "id": "smith-wealth",
+        "author": "亚当·斯密",
+        "title": "《国富论》",
+        "titleEn": "The Wealth of Nations",
+        "year": 1776,
+        "lang": "en"
+      }
     ]
   },
   "孙中山": {
@@ -469,7 +547,17 @@ export const FIGURE_ROUTE_RECORDS = {
       }
     ],
     "references": [
-      "tocqueville-democracy"
+      "bergere-sun"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "bergere-sun",
+        "author": "白吉尔",
+        "title": "《孙中山》",
+        "titleEn": "Sun Yat-sen",
+        "year": 1998,
+        "lang": "en"
+      }
     ]
   },
   "贝多芬": {
@@ -528,6 +616,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "swafford-beethoven"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "swafford-beethoven",
+        "author": "扬·斯瓦福德",
+        "title": "《贝多芬：苦难与辉煌》",
+        "titleEn": "Beethoven: Anguish and Triumph",
+        "year": 2014,
+        "lang": "en"
+      }
     ]
   },
   "诺贝尔": {
@@ -582,7 +680,17 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "merton-science"
     ],
-    "quote": "我的理想是为人类过上更好的生活而做出尽可能大的贡献。"
+    "quote": "我的理想是为人类过上更好的生活而做出尽可能大的贡献。",
+    "resolvedReferences": [
+      {
+        "id": "merton-science",
+        "author": "罗伯特·默顿",
+        "title": "《十七世纪英格兰的科学、技术与社会》",
+        "titleEn": "Science, Technology and Society in Seventeenth-Century England",
+        "year": 1938,
+        "lang": "en"
+      }
+    ]
   },
   "弗莱明": {
     "name": "弗莱明",
@@ -636,6 +744,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "mcneil-plagues"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "mcneil-plagues",
+        "author": "威廉·麦克尼尔",
+        "title": "《瘟疫与人》",
+        "titleEn": "Plagues and Peoples",
+        "year": 1976,
+        "lang": "en"
+      }
     ]
   },
   "黑格尔": {
@@ -690,6 +808,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "marx-capital"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "marx-capital",
+        "author": "卡尔·马克思",
+        "title": "《资本论》",
+        "titleEn": "Das Kapital",
+        "year": 1867,
+        "lang": "de"
+      }
     ]
   },
   "恩格斯": {
@@ -744,7 +872,17 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "marx-capital"
     ],
-    "quote": "全世界无产者，联合起来！"
+    "quote": "全世界无产者，联合起来！",
+    "resolvedReferences": [
+      {
+        "id": "marx-capital",
+        "author": "卡尔·马克思",
+        "title": "《资本论》",
+        "titleEn": "Das Kapital",
+        "year": 1867,
+        "lang": "de"
+      }
+    ]
   },
   "丘吉尔": {
     "name": "丘吉尔",
@@ -799,6 +937,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "evans-coming",
       "kershaw-myth"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "evans-coming",
+        "author": "理查德·埃文斯",
+        "title": "《第三帝国的到来》",
+        "titleEn": "The Coming of the Third Reich",
+        "year": 2003,
+        "lang": "en"
+      },
+      {
+        "id": "kershaw-myth",
+        "author": "伊恩·克肖",
+        "title": "《希特勒神话》",
+        "titleEn": "The \"Hitler Myth\"",
+        "year": 1987,
+        "lang": "en"
+      }
     ]
   },
   "阿达·洛夫莱斯": {
@@ -849,6 +1005,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "isaacson-innovators"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "isaacson-innovators",
+        "author": "沃尔特·艾萨克森",
+        "title": "《创新者》",
+        "titleEn": "The Innovators",
+        "year": 2014,
+        "lang": "en"
+      }
     ]
   },
   "亚伯拉罕·林肯": {
@@ -902,7 +1068,17 @@ export const FIGURE_ROUTE_RECORDS = {
       }
     ],
     "references": [
-      "tocqueville-democracy"
+      "foner-fiery-trial"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "foner-fiery-trial",
+        "author": "埃里克·方纳",
+        "title": "《烈火考验：林肯与美国奴隶制》",
+        "titleEn": "The Fiery Trial: Abraham Lincoln and American Slavery",
+        "year": 2010,
+        "lang": "en"
+      }
     ]
   },
   "尼古拉·特斯拉": {
@@ -957,6 +1133,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "merton-science"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "merton-science",
+        "author": "罗伯特·默顿",
+        "title": "《十七世纪英格兰的科学、技术与社会》",
+        "titleEn": "Science, Technology and Society in Seventeenth-Century England",
+        "year": 1938,
+        "lang": "en"
+      }
     ]
   },
   "弗雷德里克·道格拉斯": {
@@ -1011,6 +1197,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "tocqueville-democracy"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "tocqueville-democracy",
+        "author": "托克维尔",
+        "title": "《论美国的民主》",
+        "titleEn": "Democracy in America",
+        "year": 1835,
+        "lang": "fr"
+      }
     ]
   },
   "海尔·塞拉西": {
@@ -1070,6 +1266,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "huntington-clash",
       "diamond-spirit"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "huntington-clash",
+        "author": "塞缪尔·亨廷顿",
+        "title": "《文明的冲突》",
+        "titleEn": "The Clash of Civilizations",
+        "year": 1996,
+        "lang": "en"
+      },
+      {
+        "id": "diamond-spirit",
+        "author": "拉里·戴蒙德",
+        "title": "《民主的精神》",
+        "titleEn": "The Spirit of Democracy",
+        "year": 2008,
+        "lang": "en"
+      }
     ]
   },
   "罗莎琳·富兰克林": {
@@ -1125,6 +1339,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "darwin-origin"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "darwin-origin",
+        "author": "查尔斯·达尔文",
+        "title": "《物种起源》",
+        "titleEn": "On the Origin of Species",
+        "year": 1859,
+        "lang": "en"
+      }
     ]
   },
   "法拉第": {
@@ -1179,6 +1403,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "merton-science"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "merton-science",
+        "author": "罗伯特·默顿",
+        "title": "《十七世纪英格兰的科学、技术与社会》",
+        "titleEn": "Science, Technology and Society in Seventeenth-Century England",
+        "year": 1938,
+        "lang": "en"
+      }
     ]
   },
   "麦克斯韦": {
@@ -1233,6 +1467,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "merton-science"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "merton-science",
+        "author": "罗伯特·默顿",
+        "title": "《十七世纪英格兰的科学、技术与社会》",
+        "titleEn": "Science, Technology and Society in Seventeenth-Century England",
+        "year": 1938,
+        "lang": "en"
+      }
     ]
   },
   "巴斯德": {
@@ -1287,6 +1531,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "mcneil-plagues"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "mcneil-plagues",
+        "author": "威廉·麦克尼尔",
+        "title": "《瘟疫与人》",
+        "titleEn": "Plagues and Peoples",
+        "year": 1976,
+        "lang": "en"
+      }
     ]
   },
   "门捷列夫": {
@@ -1341,6 +1595,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "merton-science"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "merton-science",
+        "author": "罗伯特·默顿",
+        "title": "《十七世纪英格兰的科学、技术与社会》",
+        "titleEn": "Science, Technology and Society in Seventeenth-Century England",
+        "year": 1938,
+        "lang": "en"
+      }
     ]
   },
   "孟德尔": {
@@ -1395,6 +1659,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "darwin-origin"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "darwin-origin",
+        "author": "查尔斯·达尔文",
+        "title": "《物种起源》",
+        "titleEn": "On the Origin of Species",
+        "year": 1859,
+        "lang": "en"
+      }
     ]
   },
   "弗洛伊德": {
@@ -1454,6 +1728,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "darwin-origin"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "darwin-origin",
+        "author": "查尔斯·达尔文",
+        "title": "《物种起源》",
+        "titleEn": "On the Origin of Species",
+        "year": 1859,
+        "lang": "en"
+      }
     ]
   },
   "梵高": {
@@ -1508,6 +1792,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "swafford-beethoven"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "swafford-beethoven",
+        "author": "扬·斯瓦福德",
+        "title": "《贝多芬：苦难与辉煌》",
+        "titleEn": "Beethoven: Anguish and Triumph",
+        "year": 2014,
+        "lang": "en"
+      }
     ]
   },
   "哈丽特·塔布曼": {
@@ -1562,6 +1856,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "tocqueville-democracy"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "tocqueville-democracy",
+        "author": "托克维尔",
+        "title": "《论美国的民主》",
+        "titleEn": "Democracy in America",
+        "year": 1835,
+        "lang": "fr"
+      }
     ]
   },
   "霍尼·赫基": {
@@ -1621,6 +1925,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "crosby-exchange",
       "diamond-germs"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "crosby-exchange",
+        "author": "阿尔弗雷德·克罗斯比",
+        "title": "《哥伦布大交换》",
+        "titleEn": "The Columbian Exchange",
+        "year": 1972,
+        "lang": "en"
+      },
+      {
+        "id": "diamond-germs",
+        "author": "贾雷德·戴蒙德",
+        "title": "《枪炮、病菌与钢铁》",
+        "titleEn": "Guns, Germs, and Steel",
+        "year": 1997,
+        "lang": "en"
+      }
     ]
   },
   "特·拉乌帕拉哈": {
@@ -1680,6 +2002,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "crosby-exchange",
       "diamond-germs"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "crosby-exchange",
+        "author": "阿尔弗雷德·克罗斯比",
+        "title": "《哥伦布大交换》",
+        "titleEn": "The Columbian Exchange",
+        "year": 1972,
+        "lang": "en"
+      },
+      {
+        "id": "diamond-germs",
+        "author": "贾雷德·戴蒙德",
+        "title": "《枪炮、病菌与钢铁》",
+        "titleEn": "Guns, Germs, and Steel",
+        "year": 1997,
+        "lang": "en"
+      }
     ]
   },
   "南丁格尔": {
@@ -1735,6 +2075,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "mcneil-plagues",
       "merton-science"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "mcneil-plagues",
+        "author": "威廉·麦克尼尔",
+        "title": "《瘟疫与人》",
+        "titleEn": "Plagues and Peoples",
+        "year": 1976,
+        "lang": "en"
+      },
+      {
+        "id": "merton-science",
+        "author": "罗伯特·默顿",
+        "title": "《十七世纪英格兰的科学、技术与社会》",
+        "titleEn": "Science, Technology and Society in Seventeenth-Century England",
+        "year": 1938,
+        "lang": "en"
+      }
     ]
   },
   "弗里达·卡罗": {
@@ -1792,7 +2150,17 @@ export const FIGURE_ROUTE_RECORDS = {
       }
     ],
     "references": [
-      "harari-sapiens"
+      "herrera-frida"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "herrera-frida",
+        "author": "海登·埃雷拉",
+        "title": "《弗里达：弗里达·卡罗传》",
+        "titleEn": "Frida: A Biography of Frida Kahlo",
+        "year": 1983,
+        "lang": "en"
+      }
     ]
   },
   "海伦·凯勒": {
@@ -1856,6 +2224,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "tocqueville-democracy",
       "flexner-century-struggle"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "tocqueville-democracy",
+        "author": "托克维尔",
+        "title": "《论美国的民主》",
+        "titleEn": "Democracy in America",
+        "year": 1835,
+        "lang": "fr"
+      },
+      {
+        "id": "flexner-century-struggle",
+        "author": "埃莉诺·弗莱克斯纳",
+        "title": "《抗争的世纪：美国妇女权利运动》",
+        "titleEn": "Century of Struggle",
+        "year": 1959,
+        "lang": "en"
+      }
     ]
   },
   "薛定谔": {
@@ -1915,6 +2301,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "merton-science",
       "harari-sapiens"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "merton-science",
+        "author": "罗伯特·默顿",
+        "title": "《十七世纪英格兰的科学、技术与社会》",
+        "titleEn": "Science, Technology and Society in Seventeenth-Century England",
+        "year": 1938,
+        "lang": "en"
+      },
+      {
+        "id": "harari-sapiens",
+        "author": "尤瓦尔·赫拉利",
+        "title": "《人类简史》",
+        "titleEn": "Sapiens: A Brief History of Humankind",
+        "year": 2011,
+        "lang": "en"
+      }
     ]
   },
   "罗莎·卢森堡": {
@@ -1970,6 +2374,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "marx-capital",
       "furet-revolution"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "marx-capital",
+        "author": "卡尔·马克思",
+        "title": "《资本论》",
+        "titleEn": "Das Kapital",
+        "year": 1867,
+        "lang": "de"
+      },
+      {
+        "id": "furet-revolution",
+        "author": "弗朗索瓦·傅勒",
+        "title": "《思考法国大革命》",
+        "titleEn": "Interpreting the French Revolution",
+        "year": 1978,
+        "lang": "fr"
+      }
     ]
   },
   "坐牛": {
@@ -2029,6 +2451,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "hamalainen-lakota",
       "crosby-exchange"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "hamalainen-lakota",
+        "author": "佩卡·哈梅莱宁",
+        "title": "《拉科塔的美洲：原住民权力新史》",
+        "titleEn": "Lakota America: A New History of Indigenous Power",
+        "year": 2019,
+        "lang": "en"
+      },
+      {
+        "id": "crosby-exchange",
+        "author": "阿尔弗雷德·克罗斯比",
+        "title": "《哥伦布大交换》",
+        "titleEn": "The Columbian Exchange",
+        "year": 1972,
+        "lang": "en"
+      }
     ]
   },
   "孟尼利克二世": {
@@ -2084,6 +2524,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "reader-africa",
       "pakenham-scramble"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "reader-africa",
+        "author": "约翰·里德",
+        "title": "《非洲：一部大陆传记》",
+        "titleEn": "Africa: A Biography of the Continent",
+        "year": 1997,
+        "lang": "en"
+      },
+      {
+        "id": "pakenham-scramble",
+        "author": "托马斯·帕克南",
+        "title": "《瓜分非洲》",
+        "titleEn": "The Scramble for Africa",
+        "year": 1991,
+        "lang": "en"
+      }
     ]
   }
 };

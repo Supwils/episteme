@@ -9,6 +9,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "global",
     "cat": "economy",
     "references": [
+      "steil-bretton-woods",
       "kennedy-rise"
     ],
     "detail": {
@@ -103,6 +104,14 @@ export const EVENT_ROUTE_RECORDS = {
     ],
     "figureLinks": [],
     "resolvedReferences": [
+      {
+        "id": "steil-bretton-woods",
+        "author": "本·斯泰尔",
+        "title": "《布雷顿森林之战》",
+        "titleEn": "The Battle of Bretton Woods",
+        "year": 2013,
+        "lang": "en"
+      },
       {
         "id": "kennedy-rise",
         "author": "保罗·肯尼迪",
@@ -367,15 +376,19 @@ export const EVENT_ROUTE_RECORDS = {
     "resolvedReferences": [
       {
         "id": "guha-gandhi",
-        "author": "",
-        "title": "guha-gandhi",
-        "year": 0
+        "author": "拉马钱德拉·古哈",
+        "title": "《甘地：改变世界的岁月，1914–1948》",
+        "titleEn": "Gandhi: The Years That Changed the World, 1914–1948",
+        "year": 2018,
+        "lang": "en"
       },
       {
         "id": "khan-partition",
-        "author": "",
-        "title": "khan-partition",
-        "year": 0
+        "author": "雅斯明·汗",
+        "title": "《大分裂：印度与巴基斯坦的诞生》",
+        "titleEn": "The Great Partition: The Making of India and Pakistan",
+        "year": 2007,
+        "lang": "en"
       }
     ]
   },
@@ -485,9 +498,11 @@ export const EVENT_ROUTE_RECORDS = {
     "resolvedReferences": [
       {
         "id": "gaddis-cold-war",
-        "author": "",
-        "title": "gaddis-cold-war",
-        "year": 0
+        "author": "约翰·刘易斯·加迪斯",
+        "title": "《冷战：一部新的历史》",
+        "titleEn": "The Cold War: A New History",
+        "year": 2005,
+        "lang": "en"
       },
       {
         "id": "westad-cold-war",
@@ -508,7 +523,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "asia",
     "cat": "politics",
     "references": [
-      "marx-capital"
+      "spence-modern-china"
     ],
     "detail": {
       "pages": [
@@ -648,12 +663,12 @@ export const EVENT_ROUTE_RECORDS = {
     ],
     "resolvedReferences": [
       {
-        "id": "marx-capital",
-        "author": "卡尔·马克思",
-        "title": "《资本论》",
-        "titleEn": "Das Kapital",
-        "year": 1867,
-        "lang": "de"
+        "id": "spence-modern-china",
+        "author": "史景迁",
+        "title": "《追寻现代中国》",
+        "titleEn": "The Search for Modern China",
+        "year": 1990,
+        "lang": "en"
       }
     ]
   },
@@ -666,7 +681,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "europe",
     "cat": "science",
     "references": [
-      "kennedy-rise"
+      "mcdougall-space-age"
     ],
     "detail": {
       "pages": [
@@ -789,11 +804,11 @@ export const EVENT_ROUTE_RECORDS = {
     "figureLinks": [],
     "resolvedReferences": [
       {
-        "id": "kennedy-rise",
-        "author": "保罗·肯尼迪",
-        "title": "《大国的兴衰》",
-        "titleEn": "The Rise and Fall of the Great Powers",
-        "year": 1987,
+        "id": "mcdougall-space-age",
+        "author": "沃尔特·麦克杜格尔",
+        "title": "《天与地：太空时代的政治史》",
+        "titleEn": "The Heavens and the Earth: A Political History of the Space Age",
+        "year": 1985,
         "lang": "en"
       }
     ]
@@ -807,7 +822,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "americas",
     "cat": "science",
     "references": [
-      "kennedy-rise"
+      "chaikin-man-moon"
     ],
     "detail": {
       "pages": [
@@ -933,11 +948,11 @@ export const EVENT_ROUTE_RECORDS = {
     ],
     "resolvedReferences": [
       {
-        "id": "kennedy-rise",
-        "author": "保罗·肯尼迪",
-        "title": "《大国的兴衰》",
-        "titleEn": "The Rise and Fall of the Great Powers",
-        "year": 1987,
+        "id": "chaikin-man-moon",
+        "author": "安德鲁·蔡金",
+        "title": "《登月之人：阿波罗宇航员的航程》",
+        "titleEn": "A Man on the Moon: The Voyages of the Apollo Astronauts",
+        "year": 1994,
         "lang": "en"
       }
     ]
@@ -951,6 +966,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "asia",
     "cat": "economy",
     "references": [
+      "vogel-deng",
       "rodrik-globalization"
     ],
     "detail": {
@@ -1086,6 +1102,14 @@ export const EVENT_ROUTE_RECORDS = {
       }
     ],
     "resolvedReferences": [
+      {
+        "id": "vogel-deng",
+        "author": "傅高义",
+        "title": "《邓小平时代》",
+        "titleEn": "Deng Xiaoping and the Transformation of China",
+        "year": 2011,
+        "lang": "en"
+      },
       {
         "id": "rodrik-globalization",
         "author": "丹尼·罗德里克",
@@ -1513,7 +1537,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "global",
     "cat": "technology",
     "references": [
-      "harari-sapiens"
+      "isaacson-innovators"
     ],
     "detail": {
       "pages": [
@@ -1608,11 +1632,11 @@ export const EVENT_ROUTE_RECORDS = {
     "figureLinks": [],
     "resolvedReferences": [
       {
-        "id": "harari-sapiens",
-        "author": "尤瓦尔·赫拉利",
-        "title": "《人类简史》",
-        "titleEn": "Sapiens: A Brief History of Humankind",
-        "year": 2011,
+        "id": "isaacson-innovators",
+        "author": "沃尔特·艾萨克森",
+        "title": "《创新者》",
+        "titleEn": "The Innovators",
+        "year": 2014,
         "lang": "en"
       }
     ]
@@ -1626,6 +1650,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "americas",
     "cat": "military",
     "references": [
+      "wright-looming-tower",
       "huntington-clash"
     ],
     "detail": {
@@ -1748,6 +1773,14 @@ export const EVENT_ROUTE_RECORDS = {
     ],
     "figureLinks": [],
     "resolvedReferences": [
+      {
+        "id": "wright-looming-tower",
+        "author": "劳伦斯·赖特",
+        "title": "《巨塔杀机》",
+        "titleEn": "The Looming Tower: Al-Qaeda and the Road to 9/11",
+        "year": 2006,
+        "lang": "en"
+      },
       {
         "id": "huntington-clash",
         "author": "塞缪尔·亨廷顿",
@@ -1893,7 +1926,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "global",
     "cat": "science",
     "references": [
-      "harari-sapiens"
+      "lee-ai-superpowers"
     ],
     "detail": {
       "pages": [
@@ -1999,11 +2032,11 @@ export const EVENT_ROUTE_RECORDS = {
     ],
     "resolvedReferences": [
       {
-        "id": "harari-sapiens",
-        "author": "尤瓦尔·赫拉利",
-        "title": "《人类简史》",
-        "titleEn": "Sapiens: A Brief History of Humankind",
-        "year": 2011,
+        "id": "lee-ai-superpowers",
+        "author": "李开复",
+        "title": "《AI·未来》",
+        "titleEn": "AI Superpowers: China, Silicon Valley, and the New World Order",
+        "year": 2018,
         "lang": "en"
       }
     ]
@@ -2017,6 +2050,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "africa",
     "cat": "politics",
     "references": [
+      "cooper-africa-1940",
       "huntington-wave"
     ],
     "detail": {
@@ -2143,6 +2177,14 @@ export const EVENT_ROUTE_RECORDS = {
     ],
     "figureLinks": [],
     "resolvedReferences": [
+      {
+        "id": "cooper-africa-1940",
+        "author": "弗雷德里克·库珀",
+        "title": "《1940年以来的非洲：当下的过去》",
+        "titleEn": "Africa since 1940: The Past of the Present",
+        "year": 2002,
+        "lang": "en"
+      },
       {
         "id": "huntington-wave",
         "author": "塞缪尔·亨廷顿",

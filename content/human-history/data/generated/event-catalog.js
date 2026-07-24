@@ -8,7 +8,8 @@ export const EVENT_CATALOG = [
     "region": "africa",
     "cat": "science",
     "references": [
-      "harari-sapiens"
+      "harari-sapiens",
+      "hublin-jebel-irhoud"
     ]
   },
   {
@@ -19,7 +20,8 @@ export const EVENT_CATALOG = [
     "region": "africa",
     "cat": "technology",
     "references": [
-      "harari-sapiens"
+      "harari-sapiens",
+      "wrangham-catching-fire"
     ]
   },
   {
@@ -30,7 +32,8 @@ export const EVENT_CATALOG = [
     "region": "africa",
     "cat": "science",
     "references": [
-      "harari-sapiens"
+      "harari-sapiens",
+      "dunbar-neocortex"
     ]
   },
   {
@@ -53,7 +56,9 @@ export const EVENT_CATALOG = [
     "region": "europe",
     "cat": "science",
     "references": [
-      "harari-sapiens"
+      "harari-sapiens",
+      "paabo-neanderthal",
+      "green-neanderthal-genome"
     ]
   },
   {
@@ -64,7 +69,8 @@ export const EVENT_CATALOG = [
     "region": "europe",
     "cat": "culture",
     "references": [
-      "harari-sapiens"
+      "harari-sapiens",
+      "oktaviana-sulawesi"
     ]
   },
   {
@@ -75,6 +81,7 @@ export const EVENT_CATALOG = [
     "region": "americas",
     "cat": "culture",
     "references": [
+      "mann-1491",
       "diamond-germs"
     ]
   },
@@ -86,7 +93,7 @@ export const EVENT_CATALOG = [
     "region": "oceania",
     "cat": "culture",
     "references": [
-      "diamond-germs"
+      "kirch-winds"
     ]
   },
   {
@@ -109,7 +116,7 @@ export const EVENT_CATALOG = [
     "region": "asia",
     "cat": "culture",
     "references": [
-      "harari-sapiens"
+      "kenyon-jericho"
     ]
   },
   {
@@ -120,7 +127,7 @@ export const EVENT_CATALOG = [
     "region": "asia",
     "cat": "culture",
     "references": [
-      "harari-sapiens"
+      "hodder-catalhoyuk"
     ]
   },
   {
@@ -131,7 +138,7 @@ export const EVENT_CATALOG = [
     "region": "asia",
     "cat": "culture",
     "references": [
-      "needham-science"
+      "chang-ancient-china"
     ]
   },
   {
@@ -142,7 +149,7 @@ export const EVENT_CATALOG = [
     "region": "asia",
     "cat": "technology",
     "references": [
-      "harari-sapiens"
+      "scarre-human-past"
     ]
   },
   {
@@ -153,6 +160,7 @@ export const EVENT_CATALOG = [
     "region": "asia",
     "cat": "politics",
     "references": [
+      "vandemieroop-ancient-near-east",
       "gilgamesh-epic"
     ]
   },
@@ -164,6 +172,7 @@ export const EVENT_CATALOG = [
     "region": "asia",
     "cat": "culture",
     "references": [
+      "vandemieroop-ancient-near-east",
       "gilgamesh-epic"
     ]
   },
@@ -175,6 +184,7 @@ export const EVENT_CATALOG = [
     "region": "africa",
     "cat": "politics",
     "references": [
+      "wilkinson-egypt",
       "herodotus-histories"
     ]
   },
@@ -186,7 +196,7 @@ export const EVENT_CATALOG = [
     "region": "asia",
     "cat": "politics",
     "references": [
-      "needham-science"
+      "chang-ancient-china"
     ]
   },
   {
@@ -197,7 +207,7 @@ export const EVENT_CATALOG = [
     "region": "asia",
     "cat": "politics",
     "references": [
-      "gilgamesh-epic"
+      "vandemieroop-hammurabi"
     ]
   },
   {
@@ -231,6 +241,7 @@ export const EVENT_CATALOG = [
     "region": "asia",
     "cat": "culture",
     "references": [
+      "gombrich-theravada",
       "jaspers-axis"
     ]
   },
@@ -254,7 +265,8 @@ export const EVENT_CATALOG = [
     "region": "europe",
     "cat": "politics",
     "references": [
-      "finley-politics"
+      "finley-politics",
+      "beard-spqr"
     ]
   },
   {
@@ -265,7 +277,8 @@ export const EVENT_CATALOG = [
     "region": "europe",
     "cat": "military",
     "references": [
-      "aristotle-politics"
+      "lanefox-alexander",
+      "briant-cyrus"
     ]
   },
   {
@@ -276,7 +289,7 @@ export const EVENT_CATALOG = [
     "region": "asia",
     "cat": "politics",
     "references": [
-      "jaspers-axis"
+      "ashoka-thapar"
     ]
   },
   {
@@ -299,6 +312,7 @@ export const EVENT_CATALOG = [
     "region": "asia",
     "cat": "economy",
     "references": [
+      "simaqian-shiji",
       "hansen-silk-road"
     ]
   },
@@ -344,7 +358,7 @@ export const EVENT_CATALOG = [
     "region": "asia",
     "cat": "politics",
     "references": [
-      "simaqian-shiji"
+      "chenshou-sanguozhi"
     ]
   },
   {
@@ -355,7 +369,7 @@ export const EVENT_CATALOG = [
     "region": "africa",
     "cat": "culture",
     "references": [
-      "diamond-germs"
+      "iliffe-africans"
     ]
   },
   {
@@ -403,6 +417,7 @@ export const EVENT_CATALOG = [
     "region": "asia",
     "cat": "politics",
     "references": [
+      "twitchett-tang",
       "needham-science"
     ]
   },
@@ -414,7 +429,8 @@ export const EVENT_CATALOG = [
     "region": "asia",
     "cat": "culture",
     "references": [
-      "quran"
+      "quran",
+      "kennedy-baghdad"
     ]
   },
   {
@@ -437,7 +453,7 @@ export const EVENT_CATALOG = [
     "region": "europe",
     "cat": "military",
     "references": [
-      "diamond-germs"
+      "price-vikings"
     ]
   },
   {
@@ -460,6 +476,7 @@ export const EVENT_CATALOG = [
     "region": "asia",
     "cat": "politics",
     "references": [
+      "kuhn-confucian",
       "needham-science"
     ]
   },
@@ -483,7 +500,7 @@ export const EVENT_CATALOG = [
     "region": "asia",
     "cat": "culture",
     "references": [
-      "needham-science"
+      "higham-angkor"
     ]
   },
   {
@@ -518,7 +535,7 @@ export const EVENT_CATALOG = [
     "region": "africa",
     "cat": "culture",
     "references": [
-      "diamond-germs"
+      "garlake-zimbabwe"
     ]
   },
   {
@@ -529,7 +546,7 @@ export const EVENT_CATALOG = [
     "region": "africa",
     "cat": "politics",
     "references": [
-      "diamond-germs"
+      "niane-sundiata"
     ]
   },
   {
@@ -565,7 +582,7 @@ export const EVENT_CATALOG = [
     "region": "asia",
     "cat": "military",
     "references": [
-      "asbridge-crusades"
+      "levathes-china-seas"
     ]
   },
   {
@@ -576,7 +593,7 @@ export const EVENT_CATALOG = [
     "region": "europe",
     "cat": "military",
     "references": [
-      "asbridge-crusades"
+      "finkel-osmans-dream"
     ]
   },
   {
@@ -599,6 +616,7 @@ export const EVENT_CATALOG = [
     "region": "europe",
     "cat": "culture",
     "references": [
+      "macculloch-reformation",
       "weber-protestant"
     ]
   },
@@ -635,6 +653,7 @@ export const EVENT_CATALOG = [
     "region": "asia",
     "cat": "economy",
     "references": [
+      "gaastra-voc",
       "kennedy-rise"
     ]
   },
@@ -670,7 +689,8 @@ export const EVENT_CATALOG = [
     "region": "europe",
     "cat": "technology",
     "references": [
-      "smith-wealth"
+      "smith-wealth",
+      "allen-industrial"
     ]
   },
   {
@@ -706,7 +726,8 @@ export const EVENT_CATALOG = [
     "region": "africa",
     "cat": "economy",
     "references": [
-      "diamond-germs"
+      "klein-atlantic-slave",
+      "nunn-america"
     ]
   },
   {
@@ -729,7 +750,8 @@ export const EVENT_CATALOG = [
     "region": "asia",
     "cat": "military",
     "references": [
-      "kennedy-rise"
+      "lovell-opium",
+      "spence-modern-china"
     ]
   },
   {
@@ -740,6 +762,7 @@ export const EVENT_CATALOG = [
     "region": "europe",
     "cat": "culture",
     "references": [
+      "marx-engels-manifesto",
       "marx-capital"
     ]
   },
@@ -787,7 +810,7 @@ export const EVENT_CATALOG = [
     "region": "asia",
     "cat": "politics",
     "references": [
-      "tocqueville-democracy"
+      "spence-modern-china"
     ]
   },
   {
@@ -798,6 +821,7 @@ export const EVENT_CATALOG = [
     "region": "europe",
     "cat": "military",
     "references": [
+      "clark-sleepwalkers",
       "kennedy-rise"
     ]
   },
@@ -809,7 +833,7 @@ export const EVENT_CATALOG = [
     "region": "europe",
     "cat": "politics",
     "references": [
-      "marx-capital"
+      "figes-tragedy"
     ]
   },
   {
@@ -820,6 +844,7 @@ export const EVENT_CATALOG = [
     "region": "global",
     "cat": "economy",
     "references": [
+      "kindleberger-depression",
       "kennedy-rise"
     ]
   },
@@ -843,6 +868,7 @@ export const EVENT_CATALOG = [
     "region": "global",
     "cat": "economy",
     "references": [
+      "steil-bretton-woods",
       "kennedy-rise"
     ]
   },
@@ -890,7 +916,7 @@ export const EVENT_CATALOG = [
     "region": "asia",
     "cat": "politics",
     "references": [
-      "marx-capital"
+      "spence-modern-china"
     ]
   },
   {
@@ -901,7 +927,7 @@ export const EVENT_CATALOG = [
     "region": "europe",
     "cat": "science",
     "references": [
-      "kennedy-rise"
+      "mcdougall-space-age"
     ]
   },
   {
@@ -912,7 +938,7 @@ export const EVENT_CATALOG = [
     "region": "americas",
     "cat": "science",
     "references": [
-      "kennedy-rise"
+      "chaikin-man-moon"
     ]
   },
   {
@@ -923,6 +949,7 @@ export const EVENT_CATALOG = [
     "region": "asia",
     "cat": "economy",
     "references": [
+      "vogel-deng",
       "rodrik-globalization"
     ]
   },
@@ -969,7 +996,7 @@ export const EVENT_CATALOG = [
     "region": "global",
     "cat": "technology",
     "references": [
-      "harari-sapiens"
+      "isaacson-innovators"
     ]
   },
   {
@@ -980,6 +1007,7 @@ export const EVENT_CATALOG = [
     "region": "americas",
     "cat": "military",
     "references": [
+      "wright-looming-tower",
       "huntington-clash"
     ]
   },
@@ -1003,7 +1031,7 @@ export const EVENT_CATALOG = [
     "region": "global",
     "cat": "science",
     "references": [
-      "harari-sapiens"
+      "lee-ai-superpowers"
     ]
   },
   {
@@ -1014,6 +1042,7 @@ export const EVENT_CATALOG = [
     "region": "africa",
     "cat": "politics",
     "references": [
+      "cooper-africa-1940",
       "huntington-wave"
     ]
   },
@@ -1063,9 +1092,7 @@ export const EVENT_CATALOG = [
     "era": "future",
     "region": "global",
     "cat": "science",
-    "references": [
-      "harari-sapiens"
-    ]
+    "references": []
   },
   {
     "year": 2035,
@@ -1075,7 +1102,7 @@ export const EVENT_CATALOG = [
     "region": "global",
     "cat": "economy",
     "references": [
-      "harari-sapiens"
+      "ipcc-ar6"
     ]
   },
   {
@@ -1085,9 +1112,7 @@ export const EVENT_CATALOG = [
     "era": "future",
     "region": "global",
     "cat": "science",
-    "references": [
-      "harari-sapiens"
-    ]
+    "references": []
   },
   {
     "year": 2045,
@@ -1096,9 +1121,7 @@ export const EVENT_CATALOG = [
     "era": "future",
     "region": "global",
     "cat": "science",
-    "references": [
-      "harari-sapiens"
-    ]
+    "references": []
   },
   {
     "year": 2050,
@@ -1107,9 +1130,7 @@ export const EVENT_CATALOG = [
     "era": "future",
     "region": "global",
     "cat": "science",
-    "references": [
-      "harari-sapiens"
-    ]
+    "references": []
   },
   {
     "year": 2060,
@@ -1118,9 +1139,7 @@ export const EVENT_CATALOG = [
     "era": "future",
     "region": "global",
     "cat": "science",
-    "references": [
-      "harari-sapiens"
-    ]
+    "references": []
   },
   {
     "year": 2080,
@@ -1129,9 +1148,7 @@ export const EVENT_CATALOG = [
     "era": "future",
     "region": "global",
     "cat": "science",
-    "references": [
-      "harari-sapiens"
-    ]
+    "references": []
   },
   {
     "year": 2100,
@@ -1140,8 +1157,6 @@ export const EVENT_CATALOG = [
     "era": "future",
     "region": "global",
     "cat": "science",
-    "references": [
-      "harari-sapiens"
-    ]
+    "references": []
   }
 ];

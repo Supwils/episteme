@@ -21,7 +21,7 @@ export const FIGURES_EXPANSION_B = [
     achievements: ['创作约200幅绘画以自画像著称', '融合民间艺术与超现实个人叙事', '成为20世纪最具辨识度的女性艺术家', '推动墨西哥民族艺术国际认知'],
     controversies: ['形象被商业过度消费', '与里维拉关系的浪漫化', '共产主义立场与精英艺术圈的张力'],
     keyEvents: [{ year: 1907, title: '出生于墨西哥城' }, { year: 1925, title: '车祸重伤后开始绘画' }, { year: 1929, title: '与迭戈·里维拉结婚' }, { year: 1939, title: '创作《两个弗里达》' }, { year: 1953, title: '在墨西哥举办首次个展' }, { year: 1954, title: '在蓝房子中去世' }],
-    references: ['harari-sapiens'],
+    references: ['herrera-frida'],
   },
   {
     name: '切·格瓦拉', birth: 1928, death: 1967, title: '古巴革命偶像',

@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { DesktopNav } from "./DesktopNav";
 import { MobileNav } from "./MobileNav";
 import { SearchTrigger } from "./SearchTrigger";
-import { ReadingPanel } from "./ReadingPanel";
 import { ThemeToggle } from "./ThemeToggle";
 import { NAV_LINKS_FLAT } from "./nav-data";
 
@@ -45,13 +44,12 @@ export function SectionAwareNav() {
       >
         <Link
           href="/"
-          className="text-fg-primary hover:text-accent-gold font-display shrink-0 whitespace-nowrap text-base font-semibold tracking-tight transition-colors sm:text-lg"
+          className="text-fg-primary hover:text-accent-gold font-display shrink-0 text-base font-semibold tracking-tight whitespace-nowrap transition-colors sm:text-lg"
         >
           Episteme · 格致
         </Link>
         <DesktopNav />
         <div className="flex items-center gap-2 sm:gap-3">
-          <ReadingPanel />
           <SearchTrigger />
           <ThemeToggle />
           <MobileNav links={NAV_LINKS_FLAT} />

@@ -50,6 +50,7 @@ function fixture({ omitCoverage = false } = {}) {
   const appPaths = Object.fromEntries(
     [
       "/api/daily/shuffle/route",
+      "/api/search/route",
       "/api/knowledge-frontier/route",
       "/api/knowledge-frontier/journeys/route",
       "/api/knowledge-frontier/plan/route",
@@ -94,6 +95,7 @@ function splitTurbopackFixture() {
   const routeManifest = {};
   for (const route of [
     "/api/daily/shuffle/route",
+    "/api/search/route",
     "/api/knowledge-frontier/route",
     "/api/knowledge-frontier/journeys/route",
     "/api/knowledge-frontier/plan/route",
@@ -149,6 +151,13 @@ function splitTurbopackFixture() {
   ]) {
     writeSource(route, "page", "export function generateStaticParams() { return []; }");
     const serverModule = join(nextDir, "server", "app", route.slice(1), "page.js");
+    mkdirSync(join(serverModule, ".."), { recursive: true });
+    writeFileSync(serverModule, "module");
+  }
+
+  // Query-dependent page: a server module but deliberately no prerendered HTML.
+  {
+    const serverModule = join(nextDir, "server", "app", "search", "page.js");
     mkdirSync(join(serverModule, ".."), { recursive: true });
     writeFileSync(serverModule, "module");
   }

@@ -52,6 +52,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "isaacson-leonardo"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "isaacson-leonardo",
+        "author": "沃尔特·艾萨克森",
+        "title": "《列奥纳多·达·芬奇传》",
+        "titleEn": "Leonardo da Vinci",
+        "year": 2017,
+        "lang": "en"
+      }
     ]
   },
   "牛顿": {
@@ -107,6 +117,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "newton-principia",
       "merton-science"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "newton-principia",
+        "author": "艾萨克·牛顿",
+        "title": "《自然哲学的数学原理》",
+        "titleEn": "Philosophiæ Naturalis Principia Mathematica",
+        "year": 1687,
+        "lang": "la"
+      },
+      {
+        "id": "merton-science",
+        "author": "罗伯特·默顿",
+        "title": "《十七世纪英格兰的科学、技术与社会》",
+        "titleEn": "Science, Technology and Society in Seventeenth-Century England",
+        "year": 1938,
+        "lang": "en"
+      }
     ]
   },
   "哥伦布": {
@@ -161,7 +189,25 @@ export const FIGURE_ROUTE_RECORDS = {
       "crosby-exchange",
       "diamond-germs"
     ],
-    "quote": "海洋是连接世界的桥梁，不是隔绝世界的屏障。"
+    "quote": "海洋是连接世界的桥梁，不是隔绝世界的屏障。",
+    "resolvedReferences": [
+      {
+        "id": "crosby-exchange",
+        "author": "阿尔弗雷德·克罗斯比",
+        "title": "《哥伦布大交换》",
+        "titleEn": "The Columbian Exchange",
+        "year": 1972,
+        "lang": "en"
+      },
+      {
+        "id": "diamond-germs",
+        "author": "贾雷德·戴蒙德",
+        "title": "《枪炮、病菌与钢铁》",
+        "titleEn": "Guns, Germs, and Steel",
+        "year": 1997,
+        "lang": "en"
+      }
+    ]
   },
   "伽利略": {
     "name": "伽利略",
@@ -215,6 +261,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "merton-science"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "merton-science",
+        "author": "罗伯特·默顿",
+        "title": "《十七世纪英格兰的科学、技术与社会》",
+        "titleEn": "Science, Technology and Society in Seventeenth-Century England",
+        "year": 1938,
+        "lang": "en"
+      }
     ]
   },
   "伏尔泰": {
@@ -269,6 +325,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "montesquieu-spirit"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "montesquieu-spirit",
+        "author": "孟德斯鸠",
+        "title": "《论法的精神》",
+        "titleEn": "The Spirit of the Laws",
+        "year": 1748,
+        "lang": "fr"
+      }
     ]
   },
   "图森·卢维杜尔": {
@@ -328,7 +394,25 @@ export const FIGURE_ROUTE_RECORDS = {
       "james-black-jacobins",
       "crosby-exchange"
     ],
-    "quote": "他们只推倒了树干，但根深扎在地下。"
+    "quote": "他们只推倒了树干，但根深扎在地下。",
+    "resolvedReferences": [
+      {
+        "id": "james-black-jacobins",
+        "author": "C.L.R. 詹姆斯",
+        "title": "《黑色雅各宾派》",
+        "titleEn": "The Black Jacobins",
+        "year": 1938,
+        "lang": "en"
+      },
+      {
+        "id": "crosby-exchange",
+        "author": "阿尔弗雷德·克罗斯比",
+        "title": "《哥伦布大交换》",
+        "titleEn": "The Columbian Exchange",
+        "year": 1972,
+        "lang": "en"
+      }
+    ]
   },
   "莎士比亚": {
     "name": "莎士比亚",
@@ -387,6 +471,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "greenblatt-shakespeare",
       "pettegree-book"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "greenblatt-shakespeare",
+        "author": "斯蒂芬·格林布拉特",
+        "title": "《俗世威尔：莎士比亚新传》",
+        "titleEn": "Will in the World: How Shakespeare Became Shakespeare",
+        "year": 2004,
+        "lang": "en"
+      },
+      {
+        "id": "pettegree-book",
+        "author": "安德鲁·佩蒂格里",
+        "title": "《印刷书的诞生》",
+        "titleEn": "The Book in the Renaissance",
+        "year": 2010,
+        "lang": "en"
+      }
     ]
   },
   "哥白尼": {
@@ -436,7 +538,17 @@ export const FIGURE_ROUTE_RECORDS = {
       }
     ],
     "references": [
-      "merton-science"
+      "kuhn-copernican"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "kuhn-copernican",
+        "author": "托马斯·库恩",
+        "title": "《哥白尼革命》",
+        "titleEn": "The Copernican Revolution",
+        "year": 1957,
+        "lang": "en"
+      }
     ]
   },
   "洛克": {
@@ -491,6 +603,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "locke-government"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "locke-government",
+        "author": "约翰·洛克",
+        "title": "《政府论》",
+        "titleEn": "Two Treatises of Government",
+        "year": 1689,
+        "lang": "en"
+      }
     ]
   },
   "卢梭": {
@@ -549,6 +671,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "rousseau-social"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "rousseau-social",
+        "author": "让-雅克·卢梭",
+        "title": "《社会契约论》",
+        "titleEn": "The Social Contract",
+        "year": 1762,
+        "lang": "fr"
+      }
     ]
   },
   "郑成功": {
@@ -604,6 +736,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "hansen-silk-road",
       "kennedy-rise"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "hansen-silk-road",
+        "author": "瓦莱丽·汉森",
+        "title": "《丝绸之路新史》",
+        "titleEn": "The Silk Road: A New History",
+        "year": 2012,
+        "lang": "en"
+      },
+      {
+        "id": "kennedy-rise",
+        "author": "保罗·肯尼迪",
+        "title": "《大国的兴衰》",
+        "titleEn": "The Rise and Fall of the Great Powers",
+        "year": 1987,
+        "lang": "en"
+      }
     ]
   },
   "玛丽·沃斯通克拉夫特": {
@@ -658,6 +808,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "rousseau-social"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "rousseau-social",
+        "author": "让-雅克·卢梭",
+        "title": "《社会契约论》",
+        "titleEn": "The Social Contract",
+        "year": 1762,
+        "lang": "fr"
+      }
     ]
   },
   "图帕克·阿马鲁二世": {
@@ -708,6 +868,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "mann-1491",
       "crosby-exchange"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "mann-1491",
+        "author": "查尔斯·C·曼",
+        "title": "《1491：哥伦布之前的美洲》",
+        "titleEn": "1491: New Revelations of the Americas Before Columbus",
+        "year": 2005,
+        "lang": "en"
+      },
+      {
+        "id": "crosby-exchange",
+        "author": "阿尔弗雷德·克罗斯比",
+        "title": "《哥伦布大交换》",
+        "titleEn": "The Columbian Exchange",
+        "year": 1972,
+        "lang": "en"
+      }
     ]
   },
   "西蒙·玻利瓦尔": {
@@ -763,6 +941,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "fukuyama-end",
       "tocqueville-democracy"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "fukuyama-end",
+        "author": "弗朗西斯·福山",
+        "title": "《历史的终结？》",
+        "titleEn": "The End of History?",
+        "year": 1989,
+        "lang": "en"
+      },
+      {
+        "id": "tocqueville-democracy",
+        "author": "托克维尔",
+        "title": "《论美国的民主》",
+        "titleEn": "Democracy in America",
+        "year": 1835,
+        "lang": "fr"
+      }
     ]
   },
   "莫克特苏马二世": {
@@ -815,6 +1011,32 @@ export const FIGURE_ROUTE_RECORDS = {
       "mann-1491",
       "crosby-exchange",
       "nunn-america"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "mann-1491",
+        "author": "查尔斯·C·曼",
+        "title": "《1491：哥伦布之前的美洲》",
+        "titleEn": "1491: New Revelations of the Americas Before Columbus",
+        "year": 2005,
+        "lang": "en"
+      },
+      {
+        "id": "crosby-exchange",
+        "author": "阿尔弗雷德·克罗斯比",
+        "title": "《哥伦布大交换》",
+        "titleEn": "The Columbian Exchange",
+        "year": 1972,
+        "lang": "en"
+      },
+      {
+        "id": "nunn-america",
+        "author": "内森·纳恩",
+        "title": "《非洲奴隶贸易的长期影响》",
+        "titleEn": "The Long-Term Effects of Africa's Slave Trades",
+        "year": 2008,
+        "lang": "en"
+      }
     ]
   },
   "塞万提斯": {
@@ -870,6 +1092,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "pettegree-book",
       "eisenstein-printing"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "pettegree-book",
+        "author": "安德鲁·佩蒂格里",
+        "title": "《印刷书的诞生》",
+        "titleEn": "The Book in the Renaissance",
+        "year": 2010,
+        "lang": "en"
+      },
+      {
+        "id": "eisenstein-printing",
+        "author": "伊丽莎白·爱森斯坦",
+        "title": "《作为变革动因的印刷术》",
+        "titleEn": "The Printing Press as an Agent of Change",
+        "year": 1979,
+        "lang": "en"
+      }
     ]
   },
   "夏卡·祖鲁": {
@@ -921,6 +1161,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "diamond-germs",
       "huntington-clash"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "diamond-germs",
+        "author": "贾雷德·戴蒙德",
+        "title": "《枪炮、病菌与钢铁》",
+        "titleEn": "Guns, Germs, and Steel",
+        "year": 1997,
+        "lang": "en"
+      },
+      {
+        "id": "huntington-clash",
+        "author": "塞缪尔·亨廷顿",
+        "title": "《文明的冲突》",
+        "titleEn": "The Clash of Civilizations",
+        "year": 1996,
+        "lang": "en"
+      }
     ]
   },
   "马丁·路德": {
@@ -980,6 +1238,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "macculloch-reformation",
       "eisenstein-printing"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "macculloch-reformation",
+        "author": "迪尔梅德·麦卡洛克",
+        "title": "《宗教改革：分裂的欧洲，1490–1700》",
+        "titleEn": "Reformation: Europe's House Divided, 1490-1700",
+        "year": 2003,
+        "lang": "en"
+      },
+      {
+        "id": "eisenstein-printing",
+        "author": "伊丽莎白·爱森斯坦",
+        "title": "《作为变革动因的印刷术》",
+        "titleEn": "The Printing Press as an Agent of Change",
+        "year": 1979,
+        "lang": "en"
+      }
     ]
   },
   "笛卡尔": {
@@ -1034,6 +1310,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "merton-science"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "merton-science",
+        "author": "罗伯特·默顿",
+        "title": "《十七世纪英格兰的科学、技术与社会》",
+        "titleEn": "Science, Technology and Society in Seventeenth-Century England",
+        "year": 1938,
+        "lang": "en"
+      }
     ]
   },
   "巴赫": {
@@ -1088,6 +1374,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "swafford-beethoven"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "swafford-beethoven",
+        "author": "扬·斯瓦福德",
+        "title": "《贝多芬：苦难与辉煌》",
+        "titleEn": "Beethoven: Anguish and Triumph",
+        "year": 2014,
+        "lang": "en"
+      }
     ]
   },
   "休谟": {
@@ -1142,6 +1438,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "locke-government"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "locke-government",
+        "author": "约翰·洛克",
+        "title": "《政府论》",
+        "titleEn": "Two Treatises of Government",
+        "year": 1689,
+        "lang": "en"
+      }
     ]
   },
   "亚当·斯密": {
@@ -1196,6 +1502,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "smith-wealth"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "smith-wealth",
+        "author": "亚当·斯密",
+        "title": "《国富论》",
+        "titleEn": "The Wealth of Nations",
+        "year": 1776,
+        "lang": "en"
+      }
     ]
   },
   "康德": {
@@ -1251,6 +1567,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "locke-government",
       "rousseau-social"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "locke-government",
+        "author": "约翰·洛克",
+        "title": "《政府论》",
+        "titleEn": "Two Treatises of Government",
+        "year": 1689,
+        "lang": "en"
+      },
+      {
+        "id": "rousseau-social",
+        "author": "让-雅克·卢梭",
+        "title": "《社会契约论》",
+        "titleEn": "The Social Contract",
+        "year": 1762,
+        "lang": "fr"
+      }
     ]
   },
   "拉瓦锡": {
@@ -1305,6 +1639,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "merton-science"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "merton-science",
+        "author": "罗伯特·默顿",
+        "title": "《十七世纪英格兰的科学、技术与社会》",
+        "titleEn": "Science, Technology and Society in Seventeenth-Century England",
+        "year": 1938,
+        "lang": "en"
+      }
     ]
   },
   "本杰明·富兰克林": {
@@ -1363,6 +1707,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "wood-radicalism"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "wood-radicalism",
+        "author": "戈登·伍德",
+        "title": "《美国革命的激进主义》",
+        "titleEn": "The Radicalism of the American Revolution",
+        "year": 1991,
+        "lang": "en"
+      }
     ]
   },
   "莫扎特": {
@@ -1417,6 +1771,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "swafford-beethoven"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "swafford-beethoven",
+        "author": "扬·斯瓦福德",
+        "title": "《贝多芬：苦难与辉煌》",
+        "titleEn": "Beethoven: Anguish and Triumph",
+        "year": 2014,
+        "lang": "en"
+      }
     ]
   },
   "图派亚": {
@@ -1472,6 +1836,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "crosby-exchange",
       "hansen-silk-road"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "crosby-exchange",
+        "author": "阿尔弗雷德·克罗斯比",
+        "title": "《哥伦布大交换》",
+        "titleEn": "The Columbian Exchange",
+        "year": 1972,
+        "lang": "en"
+      },
+      {
+        "id": "hansen-silk-road",
+        "author": "瓦莱丽·汉森",
+        "title": "《丝绸之路新史》",
+        "titleEn": "The Silk Road: A New History",
+        "year": 2012,
+        "lang": "en"
+      }
     ]
   },
   "卡美哈梅哈一世": {
@@ -1527,6 +1909,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "diamond-germs",
       "crosby-exchange"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "diamond-germs",
+        "author": "贾雷德·戴蒙德",
+        "title": "《枪炮、病菌与钢铁》",
+        "titleEn": "Guns, Germs, and Steel",
+        "year": 1997,
+        "lang": "en"
+      },
+      {
+        "id": "crosby-exchange",
+        "author": "阿尔弗雷德·克罗斯比",
+        "title": "《哥伦布大交换》",
+        "titleEn": "The Columbian Exchange",
+        "year": 1972,
+        "lang": "en"
+      }
     ]
   },
   "伊丽莎白一世": {
@@ -1586,6 +1986,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "gibbon-decline",
       "crosby-exchange"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "gibbon-decline",
+        "author": "爱德华·吉本",
+        "title": "《罗马帝国衰亡史》",
+        "titleEn": "The History of the Decline and Fall of the Roman Empire",
+        "year": 1776,
+        "lang": "en"
+      },
+      {
+        "id": "crosby-exchange",
+        "author": "阿尔弗雷德·克罗斯比",
+        "title": "《哥伦布大交换》",
+        "titleEn": "The Columbian Exchange",
+        "year": 1972,
+        "lang": "en"
+      }
     ]
   },
   "阿斯基亚·穆罕默德": {
@@ -1641,6 +2059,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "reader-africa",
       "frankopan-silk-roads"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "reader-africa",
+        "author": "约翰·里德",
+        "title": "《非洲：一部大陆传记》",
+        "titleEn": "Africa: A Biography of the Continent",
+        "year": 1997,
+        "lang": "en"
+      },
+      {
+        "id": "frankopan-silk-roads",
+        "author": "彼得·弗兰科潘",
+        "title": "《丝绸之路：一部全新的世界史》",
+        "titleEn": "The Silk Roads: A New History of the World",
+        "year": 2015,
+        "lang": "en"
+      }
     ]
   },
   "特库姆塞": {
@@ -1696,6 +2132,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "crosby-exchange",
       "kennedy-rise"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "crosby-exchange",
+        "author": "阿尔弗雷德·克罗斯比",
+        "title": "《哥伦布大交换》",
+        "titleEn": "The Columbian Exchange",
+        "year": 1972,
+        "lang": "en"
+      },
+      {
+        "id": "kennedy-rise",
+        "author": "保罗·肯尼迪",
+        "title": "《大国的兴衰》",
+        "titleEn": "The Rise and Fall of the Great Powers",
+        "year": 1987,
+        "lang": "en"
+      }
     ]
   },
   "麦哲伦": {
@@ -1755,6 +2209,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "crosby-exchange",
       "nunn-america"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "crosby-exchange",
+        "author": "阿尔弗雷德·克罗斯比",
+        "title": "《哥伦布大交换》",
+        "titleEn": "The Columbian Exchange",
+        "year": 1972,
+        "lang": "en"
+      },
+      {
+        "id": "nunn-america",
+        "author": "内森·纳恩",
+        "title": "《非洲奴隶贸易的长期影响》",
+        "titleEn": "The Long-Term Effects of Africa's Slave Trades",
+        "year": 2008,
+        "lang": "en"
+      }
     ]
   },
   "利玛窦": {
@@ -1810,6 +2282,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "needham-science",
       "hansen-silk-road"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "needham-science",
+        "author": "李约瑟",
+        "title": "《中国科学技术史》",
+        "titleEn": "Science and Civilisation in China",
+        "year": 1954,
+        "lang": "en"
+      },
+      {
+        "id": "hansen-silk-road",
+        "author": "瓦莱丽·汉森",
+        "title": "《丝绸之路新史》",
+        "titleEn": "The Silk Road: A New History",
+        "year": 2012,
+        "lang": "en"
+      }
     ]
   },
   "丰臣秀吉": {
@@ -1869,6 +2359,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "kennedy-rise",
       "needham-science"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "kennedy-rise",
+        "author": "保罗·肯尼迪",
+        "title": "《大国的兴衰》",
+        "titleEn": "The Rise and Fall of the Great Powers",
+        "year": 1987,
+        "lang": "en"
+      },
+      {
+        "id": "needham-science",
+        "author": "李约瑟",
+        "title": "《中国科学技术史》",
+        "titleEn": "Science and Civilisation in China",
+        "year": 1954,
+        "lang": "en"
+      }
     ]
   },
   "瓦斯科·达·伽马": {
@@ -1924,6 +2432,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "crosby-exchange",
       "hansen-silk-road"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "crosby-exchange",
+        "author": "阿尔弗雷德·克罗斯比",
+        "title": "《哥伦布大交换》",
+        "titleEn": "The Columbian Exchange",
+        "year": 1972,
+        "lang": "en"
+      },
+      {
+        "id": "hansen-silk-road",
+        "author": "瓦莱丽·汉森",
+        "title": "《丝绸之路新史》",
+        "titleEn": "The Silk Road: A New History",
+        "year": 2012,
+        "lang": "en"
+      }
     ]
   },
   "开普勒": {
@@ -1979,6 +2505,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "newton-principia",
       "merton-science"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "newton-principia",
+        "author": "艾萨克·牛顿",
+        "title": "《自然哲学的数学原理》",
+        "titleEn": "Philosophiæ Naturalis Principia Mathematica",
+        "year": 1687,
+        "lang": "la"
+      },
+      {
+        "id": "merton-science",
+        "author": "罗伯特·默顿",
+        "title": "《十七世纪英格兰的科学、技术与社会》",
+        "titleEn": "Science, Technology and Society in Seventeenth-Century England",
+        "year": 1938,
+        "lang": "en"
+      }
     ]
   },
   "恩津加女王": {
@@ -2038,6 +2582,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "nunn-america",
       "crosby-exchange"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "nunn-america",
+        "author": "内森·纳恩",
+        "title": "《非洲奴隶贸易的长期影响》",
+        "titleEn": "The Long-Term Effects of Africa's Slave Trades",
+        "year": 2008,
+        "lang": "en"
+      },
+      {
+        "id": "crosby-exchange",
+        "author": "阿尔弗雷德·克罗斯比",
+        "title": "《哥伦布大交换》",
+        "titleEn": "The Columbian Exchange",
+        "year": 1972,
+        "lang": "en"
+      }
     ]
   },
   "阿克巴大帝": {
@@ -2093,6 +2655,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "eraly-peacock-throne",
       "thapar-early-india"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "eraly-peacock-throne",
+        "author": "亚伯拉罕·埃拉利",
+        "title": "《孔雀宝座上的皇帝：莫卧儿大帝史诗》",
+        "titleEn": "Emperors of the Peacock Throne: The Saga of the Great Mughals",
+        "year": 1997,
+        "lang": "en"
+      },
+      {
+        "id": "thapar-early-india",
+        "author": "罗米拉·塔帕尔",
+        "title": "《企鹅版早期印度史》",
+        "titleEn": "The Penguin History of Early India: From the Origins to AD 1300",
+        "year": 2003,
+        "lang": "en"
+      }
     ]
   },
   "苏莱曼大帝": {
@@ -2148,6 +2728,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "finkel-osmans-dream",
       "frankopan-silk-roads"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "finkel-osmans-dream",
+        "author": "卡罗琳·芬克尔",
+        "title": "《奥斯曼之梦：奥斯曼帝国史》",
+        "titleEn": "Osman's Dream: The History of the Ottoman Empire",
+        "year": 2005,
+        "lang": "en"
+      },
+      {
+        "id": "frankopan-silk-roads",
+        "author": "彼得·弗兰科潘",
+        "title": "《丝绸之路：一部全新的世界史》",
+        "titleEn": "The Silk Roads: A New History of the World",
+        "year": 2015,
+        "lang": "en"
+      }
     ]
   },
   "叶卡捷琳娜大帝": {
@@ -2207,6 +2805,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "montefiore-catherine",
       "gerschenkron-perspective"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "montefiore-catherine",
+        "author": "西蒙·塞巴格·蒙蒂菲奥里",
+        "title": "《叶卡捷琳娜大帝与波将金》",
+        "titleEn": "Catherine the Great & Potemkin",
+        "year": 2000,
+        "lang": "en"
+      },
+      {
+        "id": "gerschenkron-perspective",
+        "author": "亚历山大·格申克龙",
+        "title": "《经济落后的历史透视》",
+        "titleEn": "Economic Backwardness in Historical Perspective",
+        "year": 1962,
+        "lang": "en"
+      }
     ]
   }
 };

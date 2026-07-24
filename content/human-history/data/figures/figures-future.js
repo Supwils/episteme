@@ -33,7 +33,7 @@ export const FIGURES_FUTURE = [
     achievements: ['推广反向传播训练神经网络', '提出深度信念网络等模型', '以AlexNet引爆深度学习革命', '推动AI风险与安全成为公共议题'],
     controversies: ['AI生存风险是否被夸大', '离职发声的时机与动机讨论', '对自身研究后果的责任', '风险警告与产业利益的张力'],
     keyEvents: [{ year: 1947, title: '出生于英国' }, { year: 1986, title: '共同推广反向传播算法' }, { year: 2012, title: 'AlexNet引爆深度学习' }, { year: 2018, title: '获图灵奖' }, { year: 2023, title: '离开谷歌公开警告AI风险' }, { year: 2024, title: '获诺贝尔物理学奖' }],
-    references: ['harari-sapiens'],
+    references: ['isaacson-innovators'],
   },
   {
     name: '李飞飞', birth: 1976, death: null, title: '计算机视觉与"以人为本AI"的倡导者',

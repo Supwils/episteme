@@ -105,6 +105,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "asia",
     "cat": "politics",
     "references": [
+      "twitchett-tang",
       "needham-science"
     ],
     "detail": {
@@ -207,6 +208,14 @@ export const EVENT_ROUTE_RECORDS = {
     ],
     "resolvedReferences": [
       {
+        "id": "twitchett-tang",
+        "author": "崔瑞德",
+        "title": "《剑桥中国隋唐史》",
+        "titleEn": "The Cambridge History of China, Vol. 3: Sui and T'ang China",
+        "year": 1979,
+        "lang": "en"
+      },
+      {
         "id": "needham-science",
         "author": "李约瑟",
         "title": "《中国科学技术史》",
@@ -225,7 +234,8 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "asia",
     "cat": "culture",
     "references": [
-      "quran"
+      "quran",
+      "kennedy-baghdad"
     ],
     "detail": null,
     "eraName": "中世纪",
@@ -264,6 +274,14 @@ export const EVENT_ROUTE_RECORDS = {
         "title": "《古兰经》",
         "year": 650,
         "lang": "ar"
+      },
+      {
+        "id": "kennedy-baghdad",
+        "author": "休·肯尼迪",
+        "title": "《当巴格达统治穆斯林世界》",
+        "titleEn": "When Baghdad Ruled the Muslim World",
+        "year": 2004,
+        "lang": "en"
       }
     ]
   },
@@ -395,7 +413,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "europe",
     "cat": "military",
     "references": [
-      "diamond-germs"
+      "price-vikings"
     ],
     "detail": {
       "pages": [
@@ -470,11 +488,11 @@ export const EVENT_ROUTE_RECORDS = {
     "figureLinks": [],
     "resolvedReferences": [
       {
-        "id": "diamond-germs",
-        "author": "贾雷德·戴蒙德",
-        "title": "《枪炮、病菌与钢铁》",
-        "titleEn": "Guns, Germs, and Steel",
-        "year": 1997,
+        "id": "price-vikings",
+        "author": "尼尔·普赖斯",
+        "title": "《白蜡树与榆树之子：维京人史》",
+        "titleEn": "Children of Ash and Elm: A History of the Vikings",
+        "year": 2020,
         "lang": "en"
       }
     ]
@@ -568,6 +586,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "asia",
     "cat": "politics",
     "references": [
+      "kuhn-confucian",
       "needham-science"
     ],
     "detail": {
@@ -653,6 +672,14 @@ export const EVENT_ROUTE_RECORDS = {
       }
     ],
     "resolvedReferences": [
+      {
+        "id": "kuhn-confucian",
+        "author": "迪特·库恩",
+        "title": "《儒家统治的时代：宋的转型》",
+        "titleEn": "The Age of Confucian Rule: The Song Transformation of China",
+        "year": 2009,
+        "lang": "en"
+      },
       {
         "id": "needham-science",
         "author": "李约瑟",
@@ -805,7 +832,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "asia",
     "cat": "culture",
     "references": [
-      "needham-science"
+      "higham-angkor"
     ],
     "detail": {
       "pages": [
@@ -864,11 +891,11 @@ export const EVENT_ROUTE_RECORDS = {
     "figureLinks": [],
     "resolvedReferences": [
       {
-        "id": "needham-science",
-        "author": "李约瑟",
-        "title": "《中国科学技术史》",
-        "titleEn": "Science and Civilisation in China",
-        "year": 1954,
+        "id": "higham-angkor",
+        "author": "查尔斯·海厄姆",
+        "title": "《吴哥文明》",
+        "titleEn": "The Civilization of Angkor",
+        "year": 2001,
         "lang": "en"
       }
     ]
@@ -1139,7 +1166,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "africa",
     "cat": "culture",
     "references": [
-      "diamond-germs"
+      "garlake-zimbabwe"
     ],
     "detail": {
       "pages": [
@@ -1216,11 +1243,11 @@ export const EVENT_ROUTE_RECORDS = {
     "figureLinks": [],
     "resolvedReferences": [
       {
-        "id": "diamond-germs",
-        "author": "贾雷德·戴蒙德",
-        "title": "《枪炮、病菌与钢铁》",
-        "titleEn": "Guns, Germs, and Steel",
-        "year": 1997,
+        "id": "garlake-zimbabwe",
+        "author": "彼得·加莱克",
+        "title": "《大津巴布韦》",
+        "titleEn": "Great Zimbabwe",
+        "year": 1973,
         "lang": "en"
       }
     ]
@@ -1234,7 +1261,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "africa",
     "cat": "politics",
     "references": [
-      "diamond-germs"
+      "niane-sundiata"
     ],
     "detail": {
       "pages": [
@@ -1317,12 +1344,12 @@ export const EVENT_ROUTE_RECORDS = {
     "figureLinks": [],
     "resolvedReferences": [
       {
-        "id": "diamond-germs",
-        "author": "贾雷德·戴蒙德",
-        "title": "《枪炮、病菌与钢铁》",
-        "titleEn": "Guns, Germs, and Steel",
-        "year": 1997,
-        "lang": "en"
+        "id": "niane-sundiata",
+        "author": "吉布里尔·塔姆西尔·尼亚奈",
+        "title": "《松迪亚塔：古马里史诗》",
+        "titleEn": "Sundiata: An Epic of Old Mali",
+        "year": 1965,
+        "lang": "fr"
       }
     ]
   },

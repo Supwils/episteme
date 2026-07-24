@@ -4,10 +4,7 @@ import {
   HISTORY_FIGURE_CATALOG,
   getHistoryFigureSummary,
 } from "@/subjects/history/lib/history-catalog";
-import {
-  getFigureRouteRecord,
-  type HistoryFigure,
-} from "@/subjects/history/lib/figure-route-data";
+import { getFigureRouteRecord, type HistoryFigure } from "@/subjects/history/lib/figure-route-data";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -76,9 +73,9 @@ export default async function FigureDetailPage({ params }: Props) {
   const figure = await getFigureRouteRecord(slug);
   if (!figure) notFound();
 
-  const relatedFigures = HISTORY_FIGURE_CATALOG
-    .filter((f) => f.era === figure.era && f.name !== figure.name)
-    .slice(0, 5);
+  const relatedFigures = HISTORY_FIGURE_CATALOG.filter(
+    (f) => f.era === figure.era && f.name !== figure.name
+  ).slice(0, 5);
 
   return (
     <>
@@ -370,6 +367,26 @@ export default async function FigureDetailPage({ params }: Props) {
           color: var(--parchment-dim);
           line-height: 1.7;
         }
+        .figure-references {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+        .figure-reference-item {
+          display: flex;
+          gap: 10px;
+          font-size: 0.82rem;
+          color: var(--parchment-dim);
+          line-height: 1.6;
+        }
+        .figure-reference-num {
+          flex-shrink: 0;
+          color: color-mix(in oklab, var(--gold) 70%, transparent);
+          font-variant-numeric: tabular-nums;
+        }
+        .figure-reference-en {
+          color: color-mix(in oklab, var(--parchment-dim) 65%, transparent);
+        }
 
         @media (max-width: 640px) {
           .figure-detail-hero { flex-direction: column; align-items: center; text-align: center; }
@@ -495,6 +512,25 @@ export default async function FigureDetailPage({ params }: Props) {
                     <div className="figure-related-title">{rf.title}</div>
                   </div>
                 </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {figure.resolvedReferences.length > 0 && (
+          <section className="figure-section">
+            <h2 className="figure-section-title">参考文献</h2>
+            <div className="figure-references">
+              {figure.resolvedReferences.map((ref, i) => (
+                <div key={i} className="figure-reference-item">
+                  <span className="figure-reference-num">[{i + 1}]</span>
+                  <span>
+                    {ref.title}
+                    {ref.titleEn && <span className="figure-reference-en"> · {ref.titleEn}</span>}
+                    {` — ${ref.author}`}
+                    {ref.year > 0 ? ` (${ref.year})` : ""}
+                  </span>
+                </div>
               ))}
             </div>
           </section>

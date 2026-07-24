@@ -13,7 +13,7 @@ import { spawnSync } from "node:child_process";
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join, dirname, extname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { gzipSync } from "node:zlib";
+import { brotliCompressSync, gzipSync } from "node:zlib";
 import {
   analyzeJsAssetOwnership,
   analyzeRouteAssets,
@@ -56,6 +56,11 @@ const BUDGET = {
     domain: 40 * 1024, // 40 KB — root utilities + route-scoped domain styles
   },
   singleChunkMax: 285 * 1024, // 285 KB — accommodates the Three.js / R3F vendor chunk
+  // public/search-index.json, fetched into a Worker the first time a reader
+  // opens search. Measured 497 KB brotli for 2435 documents; the headroom covers
+  // a few more subjects. A 10x jump means article bodies leaked into the index,
+  // which is what this catches.
+  searchIndexBrotli: 560 * 1024,
 };
 
 // ---------------------------------------------------------------------------
@@ -236,6 +241,12 @@ const homepageHtmlRaw = statSync(HOMEPAGE_HTML, { throwIfNoEntry: false })?.size
 const homepageHtmlGzip = homepageHtmlRaw === null ? null : gzipSize(HOMEPAGE_HTML);
 const homepageRscRaw = statSync(HOMEPAGE_RSC, { throwIfNoEntry: false })?.size ?? null;
 
+// Static assets are served pre-compressed, so brotli is what a reader downloads.
+const SEARCH_INDEX = join(ROOT, "public", "search-index.json");
+const searchIndexBrotli = statSync(SEARCH_INDEX, { throwIfNoEntry: false })
+  ? brotliCompressSync(readFileSync(SEARCH_INDEX)).length
+  : null;
+
 // ---------------------------------------------------------------------------
 // 3. Report
 // ---------------------------------------------------------------------------
@@ -316,6 +327,9 @@ console.log(
 );
 console.log(`    Total CSS (all)    : ${fmt(totalCssGzip)}   (informational)`);
 console.log(
+  `    Search index       : ${searchIndexBrotli === null ? "n/a" : fmt(searchIndexBrotli)} brotli   (budget ${fmt(BUDGET.searchIndexBrotli)})`
+);
+console.log(
   `    Largest single chunk: ${fmt(topJs[0]?.gzip ?? 0)}   (budget ${fmt(BUDGET.singleChunkMax)})`
 );
 console.log(
@@ -380,6 +394,14 @@ for (const entry of [historyTimelineShell, historyTimelineCatalog].filter(Boolea
   if (content.includes(historyLongProseMarker)) {
     violations.push(`History long-form prose leaked into initial chunk ${entry.path}`);
   }
+}
+
+if (searchIndexBrotli === null) {
+  violations.push("public/search-index.json is missing; run pnpm gen-search-index");
+} else if (searchIndexBrotli > BUDGET.searchIndexBrotli) {
+  violations.push(
+    `Search index (${fmt(searchIndexBrotli)} brotli) exceeds budget (${fmt(BUDGET.searchIndexBrotli)})`
+  );
 }
 
 if (sharedJsGzip !== null && sharedJsGzip > BUDGET.sharedInitialJs) {

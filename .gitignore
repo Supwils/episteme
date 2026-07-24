@@ -50,3 +50,7 @@ test-results/
 # Misc
 *.log
 tmp/
+
+# Generated search corpus — 23MB of prose, rebuilt by `prebuild` on every
+# build. Committing it would grow git history by that much per content change.
+generated/

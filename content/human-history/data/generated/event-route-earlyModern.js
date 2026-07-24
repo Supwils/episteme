@@ -134,7 +134,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "asia",
     "cat": "military",
     "references": [
-      "asbridge-crusades"
+      "levathes-china-seas"
     ],
     "detail": {
       "pages": [
@@ -233,11 +233,11 @@ export const EVENT_ROUTE_RECORDS = {
     "figureLinks": [],
     "resolvedReferences": [
       {
-        "id": "asbridge-crusades",
-        "author": "托马斯·阿斯布里奇",
-        "title": "《十字军东征》",
-        "titleEn": "The Crusades",
-        "year": 2010,
+        "id": "levathes-china-seas",
+        "author": "路易丝·莱瓦希丝",
+        "title": "《当中国称霸海上》",
+        "titleEn": "When China Ruled the Seas",
+        "year": 1994,
         "lang": "en"
       }
     ]
@@ -251,7 +251,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "europe",
     "cat": "military",
     "references": [
-      "asbridge-crusades"
+      "finkel-osmans-dream"
     ],
     "detail": {
       "pages": [
@@ -320,11 +320,11 @@ export const EVENT_ROUTE_RECORDS = {
     "figureLinks": [],
     "resolvedReferences": [
       {
-        "id": "asbridge-crusades",
-        "author": "托马斯·阿斯布里奇",
-        "title": "《十字军东征》",
-        "titleEn": "The Crusades",
-        "year": 2010,
+        "id": "finkel-osmans-dream",
+        "author": "卡罗琳·芬克尔",
+        "title": "《奥斯曼之梦：奥斯曼帝国史》",
+        "titleEn": "Osman's Dream: The History of the Ottoman Empire",
+        "year": 2005,
         "lang": "en"
       }
     ]
@@ -477,6 +477,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "europe",
     "cat": "culture",
     "references": [
+      "macculloch-reformation",
       "weber-protestant"
     ],
     "detail": {
@@ -576,6 +577,14 @@ export const EVENT_ROUTE_RECORDS = {
       }
     ],
     "resolvedReferences": [
+      {
+        "id": "macculloch-reformation",
+        "author": "迪尔梅德·麦卡洛克",
+        "title": "《宗教改革：分裂的欧洲，1490–1700》",
+        "titleEn": "Reformation: Europe's House Divided, 1490-1700",
+        "year": 2003,
+        "lang": "en"
+      },
       {
         "id": "weber-protestant",
         "author": "马克斯·韦伯",
@@ -706,15 +715,19 @@ export const EVENT_ROUTE_RECORDS = {
       },
       {
         "id": "kuhn-copernican",
-        "author": "",
-        "title": "kuhn-copernican",
-        "year": 0
+        "author": "托马斯·库恩",
+        "title": "《哥白尼革命》",
+        "titleEn": "The Copernican Revolution",
+        "year": 1957,
+        "lang": "en"
       },
       {
         "id": "shapin-scientific-revolution",
-        "author": "",
-        "title": "shapin-scientific-revolution",
-        "year": 0
+        "author": "史蒂文·夏平",
+        "title": "《科学革命》",
+        "titleEn": "The Scientific Revolution",
+        "year": 1996,
+        "lang": "en"
       }
     ]
   },
@@ -794,15 +807,19 @@ export const EVENT_ROUTE_RECORDS = {
     "resolvedReferences": [
       {
         "id": "kuhn-copernican",
-        "author": "",
-        "title": "kuhn-copernican",
-        "year": 0
+        "author": "托马斯·库恩",
+        "title": "《哥白尼革命》",
+        "titleEn": "The Copernican Revolution",
+        "year": 1957,
+        "lang": "en"
       },
       {
         "id": "shapin-scientific-revolution",
-        "author": "",
-        "title": "shapin-scientific-revolution",
-        "year": 0
+        "author": "史蒂文·夏平",
+        "title": "《科学革命》",
+        "titleEn": "The Scientific Revolution",
+        "year": 1996,
+        "lang": "en"
       }
     ]
   },
@@ -815,6 +832,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "asia",
     "cat": "economy",
     "references": [
+      "gaastra-voc",
       "kennedy-rise"
     ],
     "detail": {
@@ -926,6 +944,14 @@ export const EVENT_ROUTE_RECORDS = {
       }
     ],
     "resolvedReferences": [
+      {
+        "id": "gaastra-voc",
+        "author": "费默·哈斯特拉",
+        "title": "《荷兰东印度公司：扩张与衰落》",
+        "titleEn": "The Dutch East India Company: Expansion and Decline",
+        "year": 2003,
+        "lang": "en"
+      },
       {
         "id": "kennedy-rise",
         "author": "保罗·肯尼迪",
@@ -1120,9 +1146,11 @@ export const EVENT_ROUTE_RECORDS = {
     "resolvedReferences": [
       {
         "id": "kant-critique",
-        "author": "",
-        "title": "kant-critique",
-        "year": 0
+        "author": "伊曼努尔·康德",
+        "title": "《纯粹理性批判》",
+        "titleEn": "Critique of Pure Reason",
+        "year": 1781,
+        "lang": "de"
       },
       {
         "id": "montesquieu-spirit",
@@ -1143,7 +1171,8 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "europe",
     "cat": "technology",
     "references": [
-      "smith-wealth"
+      "smith-wealth",
+      "allen-industrial"
     ],
     "detail": {
       "pages": [
@@ -1207,6 +1236,14 @@ export const EVENT_ROUTE_RECORDS = {
         "title": "《国富论》",
         "titleEn": "The Wealth of Nations",
         "year": 1776,
+        "lang": "en"
+      },
+      {
+        "id": "allen-industrial",
+        "author": "罗伯特·C·艾伦",
+        "title": "《全球视野下的英国工业革命》",
+        "titleEn": "The British Industrial Revolution in Global Perspective",
+        "year": 2009,
         "lang": "en"
       }
     ]
@@ -1519,7 +1556,8 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "africa",
     "cat": "economy",
     "references": [
-      "diamond-germs"
+      "klein-atlantic-slave",
+      "nunn-america"
     ],
     "detail": {
       "pages": [
@@ -1622,11 +1660,19 @@ export const EVENT_ROUTE_RECORDS = {
     "figureLinks": [],
     "resolvedReferences": [
       {
-        "id": "diamond-germs",
-        "author": "贾雷德·戴蒙德",
-        "title": "《枪炮、病菌与钢铁》",
-        "titleEn": "Guns, Germs, and Steel",
-        "year": 1997,
+        "id": "klein-atlantic-slave",
+        "author": "赫伯特·S·克莱因",
+        "title": "《大西洋奴隶贸易》",
+        "titleEn": "The Atlantic Slave Trade",
+        "year": 1999,
+        "lang": "en"
+      },
+      {
+        "id": "nunn-america",
+        "author": "内森·纳恩",
+        "title": "《非洲奴隶贸易的长期影响》",
+        "titleEn": "The Long-Term Effects of Africa's Slave Trades",
+        "year": 2008,
         "lang": "en"
       }
     ]

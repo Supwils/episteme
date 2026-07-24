@@ -2,7 +2,6 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { describe, expect, it } from "vitest";
-import { DOMAIN_DATA } from "@/lib/search-index/domain-data";
 import { buildValidRoutes } from "@/scripts/valid-routes";
 import { RELEASED_LINGUISTICS_ARTICLES } from "@/lib/linguistics-subject-plan";
 import { getDomainConfig } from "@/lib/new-domains";
@@ -67,10 +66,15 @@ describe("linguistics staged release", () => {
   });
 
   it("includes every foundation article in the generated search index", () => {
+    const artifact = JSON.parse(
+      fs.readFileSync(path.join(process.cwd(), "public", "search-index.json"), "utf8")
+    ) as { docs: { u: string; c: string }[] };
     const indexedSlugs = new Set(
-      DOMAIN_DATA.filter((entry) => entry.domain === "linguistics").map((entry) => entry.slug)
+      artifact.docs.filter((doc) => doc.c === "linguistics").map((doc) => doc.u.split("/").pop())
     );
-    expect(indexedSlugs).toEqual(new Set(plannedRelease.map((article) => article.slug)));
+    for (const article of plannedRelease) {
+      expect(indexedSlugs.has(article.slug), article.slug).toBe(true);
+    }
   });
 
   it("attaches the five released interactive visualizations to their source articles", () => {

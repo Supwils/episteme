@@ -40,6 +40,7 @@ const ON_DEMAND_SSG_PATTERNS = [
 
 const DYNAMIC_ROUTE_HANDLERS = [
   "/api/daily/shuffle/route",
+  "/api/search/route",
   "/api/knowledge-frontier/route",
   "/api/knowledge-frontier/journeys/route",
   "/api/knowledge-frontier/plan/route",
@@ -47,6 +48,10 @@ const DYNAMIC_ROUTE_HANDLERS = [
   "/api/learning-targets/route",
   "/api/og/route",
 ];
+
+// Pages that must render per request because their output depends on the query
+// string. Prerendering one would serve every reader the same stale answer.
+const DYNAMIC_PAGES = ["/search"];
 
 export function auditRenderingStrategy(nextDir, appDir = resolve(nextDir, "..", "app")) {
   const prerender = readJson(resolve(nextDir, "prerender-manifest.json"));
@@ -64,6 +69,7 @@ export function auditRenderingStrategy(nextDir, appDir = resolve(nextDir, "..", 
       staticRoutes: STATIC_ROUTES.length,
       onDemandSsgPatterns: ON_DEMAND_SSG_PATTERNS.length,
       dynamicHandlers: DYNAMIC_ROUTE_HANDLERS.length,
+      dynamicPages: DYNAMIC_PAGES.length,
       manifestMode: usesSplitTurbopackOutput ? "split-turbopack" : "aggregated",
     },
   };
@@ -116,6 +122,12 @@ function auditAggregatedManifests(nextDir, prerender) {
     const publicRoute = route.replace(/\/route$/, "");
     if (prerender.routes[publicRoute] || prerender.dynamicRoutes[publicRoute]) {
       errors.push(`${publicRoute}: expected runtime rendering, found in prerender manifest`);
+    }
+  }
+
+  for (const route of DYNAMIC_PAGES) {
+    if (prerender.routes[route] || prerender.dynamicRoutes[route]) {
+      errors.push(`${route}: expected per-request rendering, found in prerender manifest`);
     }
   }
 
@@ -193,6 +205,15 @@ function auditSplitTurbopackOutput(nextDir, appDir) {
     const publicRoute = route.replace(/\/route$/, "");
     if (hasStaticArtifact(serverAppDir, publicRoute, "route")) {
       errors.push(`${publicRoute}: expected runtime rendering, found a static body artifact`);
+    }
+  }
+
+  for (const route of DYNAMIC_PAGES) {
+    if (!hasServerModule(serverAppDir, route, "page")) {
+      errors.push(`${route}: missing server page module`);
+    }
+    if (hasStaticArtifact(serverAppDir, route, "page")) {
+      errors.push(`${route}: expected per-request rendering, found a prerendered HTML artifact`);
     }
   }
 

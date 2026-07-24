@@ -9,7 +9,7 @@ export const FIGURES_MODERN = [
     achievements: ['颁布《拿破仑法典》', '建立公立教育体系', '推广公制系统', '传播启蒙思想至全欧'],
     controversies: ['军事征服是否必要', '是否终结了法国大革命的民主成果', '1802年恢复殖民地奴隶制', '入侵俄国的决策'],
     keyEvents: [{ year: 1769, title: '出生于科西嘉' }, { year: 1799, title: '雾月政变成为第一执政' }, { year: 1804, title: '加冕为法兰西皇帝' }, { year: 1812, title: '入侵俄国惨败' }, { year: 1815, title: '滑铁卢战败被流放' }, { year: 1821, title: '在圣赫勒拿岛去世' }],
-    references: ['tocqueville-democracy'],
+    references: ['roberts-napoleon'],
   },
   {
     name: '爱因斯坦', birth: 1879, death: 1955, title: '现代物理之父',
@@ -69,7 +69,7 @@ export const FIGURES_MODERN = [
     achievements: ['领导印度独立运动', '发展非暴力不合作策略', '盐进军运动', '启发全球民权运动'],
     controversies: ['对种姓制度的改良立场与安贝德卡尔的交锋', '早年在南非对非洲黑人的歧视性言论', '对现代工业化的整体怀疑', '印巴分治的血腥后果'],
     keyEvents: [{ year: 1869, title: '出生于古吉拉特邦' }, { year: 1893, title: '前往南非遭遇种族歧视' }, { year: 1915, title: '回到印度' }, { year: 1930, title: '食盐进军' }, { year: 1942, title: '发起退出印度运动' }, { year: 1947, title: '印度独立与分治' }, { year: 1948, title: '在德里被刺杀' }],
-    references: ['diamond-spirit'],
+    references: ['guha-gandhi'],
   },
   {
     name: '马克思', birth: 1818, death: 1883, title: '共产主义理论奠基人',
@@ -93,7 +93,7 @@ export const FIGURES_MODERN = [
     achievements: ['领导辛亥革命', '建立中华民国', '提出三民主义', '推动国共合作'],
     controversies: ['让位袁世凯导致革命果实旁落', '"联俄联共"政策的评价分歧', '依赖会党、军阀与外援的策略', '海峡两岸对其遗产诠释不同'],
     keyEvents: [{ year: 1866, title: '出生于香山' }, { year: 1894, title: '创立兴中会' }, { year: 1896, title: '伦敦蒙难' }, { year: 1905, title: '创立同盟会、提出三民主义' }, { year: 1912, title: '就任临时大总统' }, { year: 1924, title: '改组国民党、创办黄埔军校' }, { year: 1925, title: '在北京病逝' }],
-    references: ['tocqueville-democracy'],
+    references: ['bergere-sun'],
   },
   {
     name: '贝多芬', birth: 1770, death: 1827, title: '乐圣',
@@ -189,7 +189,7 @@ export const FIGURES_MODERN = [
     achievements: ['发布《解放奴隶宣言》', '推动第十三修正案', '赢得内战维护联邦', '葛底斯堡演说'],
     controversies: ['重建政策是否充分', '个人种族观演变', '战时 suspend habeas corpus'],
     keyEvents: [{ year: 1809, title: '出生于肯塔基' }, { year: 1860, title: '当选总统' }, { year: 1863, title: '发布解放奴隶宣言' }, { year: 1865, title: '南方投降' }, { year: 1865, title: '遇刺身亡' }],
-    references: ['tocqueville-democracy'],
+    references: ['foner-fiery-trial'],
   },
   {
     name: '尼古拉·特斯拉', birth: 1856, death: 1943, title: '电气时代先知',

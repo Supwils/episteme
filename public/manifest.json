@@ -1,16 +1,32 @@
 {
-  "name": "Universe Knowledge",
-  "short_name": "UniverseK",
-  "description": "探索人类知识的边界：宇宙物理、人类历史、哲学思想、生命科学、数学",
+  "id": "/",
+  "name": "Episteme · 格致 — 重现人类认识世界的旅程",
+  "short_name": "格致",
+  "description": "以可视化、沉浸式的方式探索人类最重要的知识，涵盖宇宙物理、宇宙学、化学、地球科学、生命科学、医学、数学、计算机科学、心理学、哲学、人类历史、社会学、经济学、政治学与语言学等 15 个领域。",
+  "lang": "zh-Hans",
+  "dir": "ltr",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#07070c",
-  "theme_color": "#6366f1",
+  "theme_color": "#07070c",
   "orientation": "any",
+  "categories": ["education", "reference", "science"],
   "icons": [
-    { "src": "/icons/icon-192.svg", "sizes": "192x192", "type": "image/svg+xml" },
-    { "src": "/icons/icon-512.svg", "sizes": "512x512", "type": "image/svg+xml" },
-    { "src": "/icons/icon-192.svg", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
-    { "src": "/icons/icon-512.svg", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    {
+      "src": "/icons/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    { "src": "/icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
   ]
 }

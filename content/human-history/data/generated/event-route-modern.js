@@ -117,7 +117,8 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "asia",
     "cat": "military",
     "references": [
-      "kennedy-rise"
+      "lovell-opium",
+      "spence-modern-china"
     ],
     "detail": {
       "pages": [
@@ -202,11 +203,19 @@ export const EVENT_ROUTE_RECORDS = {
     "figureLinks": [],
     "resolvedReferences": [
       {
-        "id": "kennedy-rise",
-        "author": "保罗·肯尼迪",
-        "title": "《大国的兴衰》",
-        "titleEn": "The Rise and Fall of the Great Powers",
-        "year": 1987,
+        "id": "lovell-opium",
+        "author": "蓝诗玲",
+        "title": "《鸦片战争》",
+        "titleEn": "The Opium War",
+        "year": 2011,
+        "lang": "en"
+      },
+      {
+        "id": "spence-modern-china",
+        "author": "史景迁",
+        "title": "《追寻现代中国》",
+        "titleEn": "The Search for Modern China",
+        "year": 1990,
         "lang": "en"
       }
     ]
@@ -220,6 +229,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "europe",
     "cat": "culture",
     "references": [
+      "marx-engels-manifesto",
       "marx-capital"
     ],
     "detail": {
@@ -315,6 +325,14 @@ export const EVENT_ROUTE_RECORDS = {
       }
     ],
     "resolvedReferences": [
+      {
+        "id": "marx-engels-manifesto",
+        "author": "马克思 & 恩格斯",
+        "title": "《共产党宣言》",
+        "titleEn": "The Communist Manifesto",
+        "year": 1848,
+        "lang": "de"
+      },
       {
         "id": "marx-capital",
         "author": "卡尔·马克思",
@@ -517,9 +535,11 @@ export const EVENT_ROUTE_RECORDS = {
       },
       {
         "id": "gordon-japan",
-        "author": "",
-        "title": "gordon-japan",
-        "year": 0
+        "author": "安德鲁·戈登",
+        "title": "《现代日本史》",
+        "titleEn": "A Modern History of Japan",
+        "year": 2003,
+        "lang": "en"
       }
     ]
   },
@@ -643,9 +663,11 @@ export const EVENT_ROUTE_RECORDS = {
       },
       {
         "id": "ferguson-empire",
-        "author": "",
-        "title": "ferguson-empire",
-        "year": 0
+        "author": "尼尔·弗格森",
+        "title": "《帝国：英国如何塑造现代世界》",
+        "titleEn": "Empire: How Britain Made the Modern World",
+        "year": 2003,
+        "lang": "en"
       }
     ]
   },
@@ -658,7 +680,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "asia",
     "cat": "politics",
     "references": [
-      "tocqueville-democracy"
+      "spence-modern-china"
     ],
     "detail": {
       "pages": [
@@ -762,12 +784,12 @@ export const EVENT_ROUTE_RECORDS = {
     ],
     "resolvedReferences": [
       {
-        "id": "tocqueville-democracy",
-        "author": "托克维尔",
-        "title": "《论美国的民主》",
-        "titleEn": "Democracy in America",
-        "year": 1835,
-        "lang": "fr"
+        "id": "spence-modern-china",
+        "author": "史景迁",
+        "title": "《追寻现代中国》",
+        "titleEn": "The Search for Modern China",
+        "year": 1990,
+        "lang": "en"
       }
     ]
   },
@@ -780,6 +802,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "europe",
     "cat": "military",
     "references": [
+      "clark-sleepwalkers",
       "kennedy-rise"
     ],
     "detail": {
@@ -882,6 +905,14 @@ export const EVENT_ROUTE_RECORDS = {
     ],
     "resolvedReferences": [
       {
+        "id": "clark-sleepwalkers",
+        "author": "克里斯托弗·克拉克",
+        "title": "《梦游者：1914年欧洲如何走向战争》",
+        "titleEn": "The Sleepwalkers: How Europe Went to War in 1914",
+        "year": 2012,
+        "lang": "en"
+      },
+      {
         "id": "kennedy-rise",
         "author": "保罗·肯尼迪",
         "title": "《大国的兴衰》",
@@ -900,7 +931,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "europe",
     "cat": "politics",
     "references": [
-      "marx-capital"
+      "figes-tragedy"
     ],
     "detail": {
       "pages": [
@@ -990,12 +1021,12 @@ export const EVENT_ROUTE_RECORDS = {
     ],
     "resolvedReferences": [
       {
-        "id": "marx-capital",
-        "author": "卡尔·马克思",
-        "title": "《资本论》",
-        "titleEn": "Das Kapital",
-        "year": 1867,
-        "lang": "de"
+        "id": "figes-tragedy",
+        "author": "奥兰多·费吉斯",
+        "title": "《人民的悲剧：俄国革命史》",
+        "titleEn": "A People's Tragedy: The Russian Revolution",
+        "year": 1996,
+        "lang": "en"
       }
     ]
   },
@@ -1008,6 +1039,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "global",
     "cat": "economy",
     "references": [
+      "kindleberger-depression",
       "kennedy-rise"
     ],
     "detail": {
@@ -1108,6 +1140,14 @@ export const EVENT_ROUTE_RECORDS = {
     ],
     "figureLinks": [],
     "resolvedReferences": [
+      {
+        "id": "kindleberger-depression",
+        "author": "查尔斯·金德尔伯格",
+        "title": "《世界经济萧条 1929–1939》",
+        "titleEn": "The World in Depression 1929-1939",
+        "year": 1973,
+        "lang": "en"
+      },
       {
         "id": "kennedy-rise",
         "author": "保罗·肯尼迪",

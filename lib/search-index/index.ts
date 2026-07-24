@@ -7,9 +7,6 @@ import { indexLifeScience } from "./life-science-index";
 import { indexEconomics } from "./economics-index";
 import { indexPsychology } from "./psychology-index";
 import { indexCosmology } from "./cosmology-index";
-import { indexFrontier } from "./frontier-index";
-import { indexDomains } from "./domain-index";
-import { indexMathematics } from "./mathematics-index";
 import { indexCuriosities } from "./curiosities-index";
 
 export type { SearchDocument } from "./types";
@@ -74,9 +71,6 @@ export async function getSearchIndex(): Promise<{
       psychSchoolsDataMod,
       cosmologyDialoguesDataMod,
       physicsSearchDataMod,
-      frontierDataMod,
-      domainDataMod,
-      mathDataMod,
       curiositiesMod,
       physicsDialoguesDataMod,
     ] = await Promise.all([
@@ -132,9 +126,6 @@ export async function getSearchIndex(): Promise<{
       import("@/content/psychology/schools-data").catch(() => null),
       import("@/content/cosmology/dialogues-data").catch(() => null),
       import("@/content/universe-physics/knowledge-base-data").catch(() => null),
-      import("@/lib/search-index/frontier-data").catch(() => null),
-      import("@/lib/search-index/domain-data").catch(() => null),
-      import("@/lib/search-index/mathematics-data").catch(() => null),
       import("@/lib/curiosities").catch(() => null),
       import("@/content/universe-physics/dialogues-data").catch(() => null),
     ]);
@@ -195,9 +186,6 @@ export async function getSearchIndex(): Promise<{
     docs.push(
       ...indexCosmology(cosmologyErasDataMod, cosmologyKbDataMod, cosmologyDialoguesDataMod)
     );
-    docs.push(...indexFrontier(frontierDataMod));
-    docs.push(...indexDomains(domainDataMod));
-    docs.push(...indexMathematics(mathDataMod));
     docs.push(...indexCuriosities(curiositiesMod));
 
     docs.push({

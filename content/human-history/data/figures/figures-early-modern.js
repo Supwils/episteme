@@ -93,7 +93,7 @@ export const FIGURES_EARLY_MODERN = [
     achievements: ['提出日心说', '著《天体运行论》', '开启天文学革命', '改变人类宇宙观'],
     controversies: ['为什么推迟出版', '与教会的真实关系', '模型精度不如托勒密'],
     keyEvents: [{ year: 1473, title: '出生于托伦' }, { year: 1497, title: '在弗龙堡担任教士' }, { year: 1514, title: '写出日心说手稿' }, { year: 1543, title: '《天体运行论》出版，去世' }],
-    references: ['merton-science'],
+    references: ['kuhn-copernican'],
   },
   {
     name: '洛克', birth: 1632, death: 1704, title: '自由主义之父',

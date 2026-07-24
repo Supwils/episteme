@@ -62,6 +62,18 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+  // The body-phrase tier reads its corpus from disk at runtime via process.cwd().
+  // Nothing imports those files, so tracing cannot infer them and the deployed
+  // function would fall back to an empty corpus — search would quietly return no
+  // prose matches in production while working perfectly in dev.
+  outputFileTracingIncludes: {
+    "/api/search": ["./generated/corpus.txt", "./generated/corpus-meta.json"],
+    "/search": [
+      "./generated/corpus.txt",
+      "./generated/corpus-meta.json",
+      "./public/search-index.json",
+    ],
+  },
   experimental: {
     optimizePackageImports: ["three", "@react-three/drei", "framer-motion", "gsap", "katex"],
   },

@@ -61,6 +61,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "twitchett-tang",
       "needham-science"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "twitchett-tang",
+        "author": "崔瑞德",
+        "title": "《剑桥中国隋唐史》",
+        "titleEn": "The Cambridge History of China, Vol. 3: Sui and T'ang China",
+        "year": 1979,
+        "lang": "en"
+      },
+      {
+        "id": "needham-science",
+        "author": "李约瑟",
+        "title": "《中国科学技术史》",
+        "titleEn": "Science and Civilisation in China",
+        "year": 1954,
+        "lang": "en"
+      }
     ]
   },
   "成吉思汗": {
@@ -121,6 +139,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "weatherford-genghis",
       "harari-sapiens"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "weatherford-genghis",
+        "author": "杰克·韦泽弗德",
+        "title": "《成吉思汗与现代世界的形成》",
+        "titleEn": "Genghis Khan and the Making of the Modern World",
+        "year": 2004,
+        "lang": "en"
+      },
+      {
+        "id": "harari-sapiens",
+        "author": "尤瓦尔·赫拉利",
+        "title": "《人类简史》",
+        "titleEn": "Sapiens: A Brief History of Humankind",
+        "year": 2011,
+        "lang": "en"
+      }
     ]
   },
   "穆罕默德": {
@@ -175,6 +211,15 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "quran"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "quran",
+        "author": "穆罕默德口述",
+        "title": "《古兰经》",
+        "year": 650,
+        "lang": "ar"
+      }
     ]
   },
   "武则天": {
@@ -230,7 +275,25 @@ export const FIGURE_ROUTE_RECORDS = {
       "twitchett-tang",
       "hansen-silk-road"
     ],
-    "quote": "身不修则德不立，德不立而能化成于家者鲜矣。"
+    "quote": "身不修则德不立，德不立而能化成于家者鲜矣。",
+    "resolvedReferences": [
+      {
+        "id": "twitchett-tang",
+        "author": "崔瑞德",
+        "title": "《剑桥中国隋唐史》",
+        "titleEn": "The Cambridge History of China, Vol. 3: Sui and T'ang China",
+        "year": 1979,
+        "lang": "en"
+      },
+      {
+        "id": "hansen-silk-road",
+        "author": "瓦莱丽·汉森",
+        "title": "《丝绸之路新史》",
+        "titleEn": "The Silk Road: A New History",
+        "year": 2012,
+        "lang": "en"
+      }
+    ]
   },
   "伊本·西那": {
     "name": "伊本·西那",
@@ -284,6 +347,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "bloom-thought"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "bloom-thought",
+        "author": "乔纳森·布鲁姆 / 希拉·布莱尔",
+        "title": "《伊斯兰：千年信仰与权力》",
+        "titleEn": "Islam: A Thousand Years of Faith and Power",
+        "year": 2002,
+        "lang": "en"
+      }
     ]
   },
   "曼萨·穆萨": {
@@ -337,6 +410,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "hansen-silk-road"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "hansen-silk-road",
+        "author": "瓦莱丽·汉森",
+        "title": "《丝绸之路新史》",
+        "titleEn": "The Silk Road: A New History",
+        "year": 2012,
+        "lang": "en"
+      }
     ]
   },
   "郑和": {
@@ -391,7 +474,17 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "needham-science"
     ],
-    "quote": "观夫海洋，洪涛接天，巨浪如山，而我之云帆高张，昼夜星驰。"
+    "quote": "观夫海洋，洪涛接天，巨浪如山，而我之云帆高张，昼夜星驰。",
+    "resolvedReferences": [
+      {
+        "id": "needham-science",
+        "author": "李约瑟",
+        "title": "《中国科学技术史》",
+        "titleEn": "Science and Civilisation in China",
+        "year": 1954,
+        "lang": "en"
+      }
+    ]
   },
   "查理曼": {
     "name": "查理曼",
@@ -445,6 +538,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "brown-late-antiquity",
       "gibbon-decline"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "brown-late-antiquity",
+        "author": "彼得·布朗",
+        "title": "《晚期古代的世界》",
+        "titleEn": "The World of Late Antiquity",
+        "year": 1971,
+        "lang": "en"
+      },
+      {
+        "id": "gibbon-decline",
+        "author": "爱德华·吉本",
+        "title": "《罗马帝国衰亡史》",
+        "titleEn": "The History of the Decline and Fall of the Roman Empire",
+        "year": 1776,
+        "lang": "en"
+      }
     ]
   },
   "伊本·白图泰": {
@@ -504,6 +615,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "hansen-silk-road",
       "bloom-thought"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "hansen-silk-road",
+        "author": "瓦莱丽·汉森",
+        "title": "《丝绸之路新史》",
+        "titleEn": "The Silk Road: A New History",
+        "year": 2012,
+        "lang": "en"
+      },
+      {
+        "id": "bloom-thought",
+        "author": "乔纳森·布鲁姆 / 希拉·布莱尔",
+        "title": "《伊斯兰：千年信仰与权力》",
+        "titleEn": "Islam: A Thousand Years of Faith and Power",
+        "year": 2002,
+        "lang": "en"
+      }
     ]
   },
   "马可·波罗": {
@@ -563,6 +692,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "hansen-silk-road",
       "harari-sapiens"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "hansen-silk-road",
+        "author": "瓦莱丽·汉森",
+        "title": "《丝绸之路新史》",
+        "titleEn": "The Silk Road: A New History",
+        "year": 2012,
+        "lang": "en"
+      },
+      {
+        "id": "harari-sapiens",
+        "author": "尤瓦尔·赫拉利",
+        "title": "《人类简史》",
+        "titleEn": "Sapiens: A Brief History of Humankind",
+        "year": 2011,
+        "lang": "en"
+      }
     ]
   },
   "萨拉丁": {
@@ -622,6 +769,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "maalouf-crusades",
       "asbridge-crusades"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "maalouf-crusades",
+        "author": "阿敏·马卢夫",
+        "title": "《阿拉伯人眼中的十字军东征》",
+        "titleEn": "The Crusades Through Arab Eyes",
+        "year": 1983,
+        "lang": "fr"
+      },
+      {
+        "id": "asbridge-crusades",
+        "author": "托马斯·阿斯布里奇",
+        "title": "《十字军东征》",
+        "titleEn": "The Crusades",
+        "year": 2010,
+        "lang": "en"
+      }
     ]
   },
   "托马斯·阿奎那": {
@@ -680,6 +845,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "chesterton-aquinas"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "chesterton-aquinas",
+        "author": "G.K. 切斯特顿",
+        "title": "《圣托马斯·阿奎那：哑牛》",
+        "titleEn": "St. Thomas Aquinas: The Dumb Ox",
+        "year": 1933,
+        "lang": "en"
+      }
     ]
   },
   "玄奘": {
@@ -744,6 +919,32 @@ export const FIGURE_ROUTE_RECORDS = {
       "twitchett-tang",
       "hansen-silk-road",
       "frankopan-silk-roads"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "twitchett-tang",
+        "author": "崔瑞德",
+        "title": "《剑桥中国隋唐史》",
+        "titleEn": "The Cambridge History of China, Vol. 3: Sui and T'ang China",
+        "year": 1979,
+        "lang": "en"
+      },
+      {
+        "id": "hansen-silk-road",
+        "author": "瓦莱丽·汉森",
+        "title": "《丝绸之路新史》",
+        "titleEn": "The Silk Road: A New History",
+        "year": 2012,
+        "lang": "en"
+      },
+      {
+        "id": "frankopan-silk-roads",
+        "author": "彼得·弗兰科潘",
+        "title": "《丝绸之路：一部全新的世界史》",
+        "titleEn": "The Silk Roads: A New History of the World",
+        "year": 2015,
+        "lang": "en"
+      }
     ]
   },
   "花拉子密": {
@@ -800,6 +1001,32 @@ export const FIGURE_ROUTE_RECORDS = {
       "gutas-greek-arabic",
       "kennedy-baghdad",
       "bloom-thought"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "gutas-greek-arabic",
+        "author": "迪米特里·古塔斯",
+        "title": "《希腊思想，阿拉伯文化》",
+        "titleEn": "Greek Thought, Arabic Culture",
+        "year": 1998,
+        "lang": "en"
+      },
+      {
+        "id": "kennedy-baghdad",
+        "author": "休·肯尼迪",
+        "title": "《当巴格达统治穆斯林世界》",
+        "titleEn": "When Baghdad Ruled the Muslim World",
+        "year": 2004,
+        "lang": "en"
+      },
+      {
+        "id": "bloom-thought",
+        "author": "乔纳森·布鲁姆 / 希拉·布莱尔",
+        "title": "《伊斯兰：千年信仰与权力》",
+        "titleEn": "Islam: A Thousand Years of Faith and Power",
+        "year": 2002,
+        "lang": "en"
+      }
     ]
   },
   "伊本·海赛姆": {
@@ -851,6 +1078,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "gutas-greek-arabic",
       "bloom-thought"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "gutas-greek-arabic",
+        "author": "迪米特里·古塔斯",
+        "title": "《希腊思想，阿拉伯文化》",
+        "titleEn": "Greek Thought, Arabic Culture",
+        "year": 1998,
+        "lang": "en"
+      },
+      {
+        "id": "bloom-thought",
+        "author": "乔纳森·布鲁姆 / 希拉·布莱尔",
+        "title": "《伊斯兰：千年信仰与权力》",
+        "titleEn": "Islam: A Thousand Years of Faith and Power",
+        "year": 2002,
+        "lang": "en"
+      }
     ]
   },
   "拉齐": {
@@ -907,6 +1152,32 @@ export const FIGURE_ROUTE_RECORDS = {
       "gutas-greek-arabic",
       "bloom-thought",
       "kennedy-baghdad"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "gutas-greek-arabic",
+        "author": "迪米特里·古塔斯",
+        "title": "《希腊思想，阿拉伯文化》",
+        "titleEn": "Greek Thought, Arabic Culture",
+        "year": 1998,
+        "lang": "en"
+      },
+      {
+        "id": "bloom-thought",
+        "author": "乔纳森·布鲁姆 / 希拉·布莱尔",
+        "title": "《伊斯兰：千年信仰与权力》",
+        "titleEn": "Islam: A Thousand Years of Faith and Power",
+        "year": 2002,
+        "lang": "en"
+      },
+      {
+        "id": "kennedy-baghdad",
+        "author": "休·肯尼迪",
+        "title": "《当巴格达统治穆斯林世界》",
+        "titleEn": "When Baghdad Ruled the Muslim World",
+        "year": 2004,
+        "lang": "en"
+      }
     ]
   },
   "伊本·赫勒敦": {
@@ -966,6 +1237,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "frankopan-silk-roads",
       "bloom-thought"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "frankopan-silk-roads",
+        "author": "彼得·弗兰科潘",
+        "title": "《丝绸之路：一部全新的世界史》",
+        "titleEn": "The Silk Roads: A New History of the World",
+        "year": 2015,
+        "lang": "en"
+      },
+      {
+        "id": "bloom-thought",
+        "author": "乔纳森·布鲁姆 / 希拉·布莱尔",
+        "title": "《伊斯兰：千年信仰与权力》",
+        "titleEn": "Islam: A Thousand Years of Faith and Power",
+        "year": 2002,
+        "lang": "en"
+      }
     ]
   },
   "王安石": {
@@ -1026,6 +1315,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "kuhn-confucian",
       "elvin-pattern"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "kuhn-confucian",
+        "author": "迪特·库恩",
+        "title": "《儒家统治的时代：宋的转型》",
+        "titleEn": "The Age of Confucian Rule: The Song Transformation of China",
+        "year": 2009,
+        "lang": "en"
+      },
+      {
+        "id": "elvin-pattern",
+        "author": "伊懋可",
+        "title": "《中国历史的模式》",
+        "titleEn": "The Pattern of the Chinese Past",
+        "year": 1973,
+        "lang": "en"
+      }
     ]
   },
   "苏轼": {
@@ -1088,6 +1395,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "kuhn-confucian"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "kuhn-confucian",
+        "author": "迪特·库恩",
+        "title": "《儒家统治的时代：宋的转型》",
+        "titleEn": "The Age of Confucian Rule: The Song Transformation of China",
+        "year": 2009,
+        "lang": "en"
+      }
     ]
   },
   "沈括": {
@@ -1148,6 +1465,32 @@ export const FIGURE_ROUTE_RECORDS = {
       "needham-science",
       "elvin-pattern",
       "kuhn-confucian"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "needham-science",
+        "author": "李约瑟",
+        "title": "《中国科学技术史》",
+        "titleEn": "Science and Civilisation in China",
+        "year": 1954,
+        "lang": "en"
+      },
+      {
+        "id": "elvin-pattern",
+        "author": "伊懋可",
+        "title": "《中国历史的模式》",
+        "titleEn": "The Pattern of the Chinese Past",
+        "year": 1973,
+        "lang": "en"
+      },
+      {
+        "id": "kuhn-confucian",
+        "author": "迪特·库恩",
+        "title": "《儒家统治的时代：宋的转型》",
+        "titleEn": "The Age of Confucian Rule: The Song Transformation of China",
+        "year": 2009,
+        "lang": "en"
+      }
     ]
   },
   "毕昇": {
@@ -1199,6 +1542,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "needham-science",
       "elvin-pattern"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "needham-science",
+        "author": "李约瑟",
+        "title": "《中国科学技术史》",
+        "titleEn": "Science and Civilisation in China",
+        "year": 1954,
+        "lang": "en"
+      },
+      {
+        "id": "elvin-pattern",
+        "author": "伊懋可",
+        "title": "《中国历史的模式》",
+        "titleEn": "The Pattern of the Chinese Past",
+        "year": 1973,
+        "lang": "en"
+      }
     ]
   },
   "查士丁尼一世": {
@@ -1262,6 +1623,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "herrin-byzantium",
       "brown-late-antiquity"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "herrin-byzantium",
+        "author": "朱迪斯·赫林",
+        "title": "《拜占庭：一个中世纪帝国的惊奇生命》",
+        "titleEn": "Byzantium: The Surprising Life of a Medieval Empire",
+        "year": 2007,
+        "lang": "en"
+      },
+      {
+        "id": "brown-late-antiquity",
+        "author": "彼得·布朗",
+        "title": "《晚期古代的世界》",
+        "titleEn": "The World of Late Antiquity",
+        "year": 1971,
+        "lang": "en"
+      }
     ]
   },
   "狄奥多拉": {
@@ -1317,6 +1696,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "herrin-byzantium",
       "brown-late-antiquity"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "herrin-byzantium",
+        "author": "朱迪斯·赫林",
+        "title": "《拜占庭：一个中世纪帝国的惊奇生命》",
+        "titleEn": "Byzantium: The Surprising Life of a Medieval Empire",
+        "year": 2007,
+        "lang": "en"
+      },
+      {
+        "id": "brown-late-antiquity",
+        "author": "彼得·布朗",
+        "title": "《晚期古代的世界》",
+        "titleEn": "The World of Late Antiquity",
+        "year": 1971,
+        "lang": "en"
+      }
     ]
   },
   "但丁": {
@@ -1380,6 +1777,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "santagata-dante",
       "burckhardt-renaissance"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "santagata-dante",
+        "author": "马尔科·桑塔加塔",
+        "title": "《但丁：他一生的故事》",
+        "titleEn": "Dante: The Story of His Life",
+        "year": 2016,
+        "lang": "it"
+      },
+      {
+        "id": "burckhardt-renaissance",
+        "author": "雅各布·布克哈特",
+        "title": "《意大利文艺复兴时期的文化》",
+        "titleEn": "The Civilization of the Renaissance in Italy",
+        "year": 1860,
+        "lang": "de"
+      }
     ]
   },
   "阿尔弗雷德大帝": {
@@ -1439,6 +1854,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "pollard-alfred",
       "price-vikings"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "pollard-alfred",
+        "author": "贾斯廷·波拉德",
+        "title": "《阿尔弗雷德大帝：缔造英格兰的人》",
+        "titleEn": "Alfred the Great: The Man Who Made England",
+        "year": 2005,
+        "lang": "en"
+      },
+      {
+        "id": "price-vikings",
+        "author": "尼尔·普赖斯",
+        "title": "《白蜡树与榆树之子：维京人史》",
+        "titleEn": "Children of Ash and Elm: A History of the Vikings",
+        "year": 2020,
+        "lang": "en"
+      }
     ]
   },
   "紫式部": {
@@ -1497,6 +1930,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "keene-seeds"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "keene-seeds",
+        "author": "唐纳德·基恩",
+        "title": "《心中的种子：日本文学史（至十六世纪末）》",
+        "titleEn": "Seeds in the Heart: Japanese Literature from Earliest Times to the Late Sixteenth Century",
+        "year": 1993,
+        "lang": "en"
+      }
     ]
   },
   "帖木儿": {
@@ -1553,6 +1996,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "manz-tamerlane",
       "frankopan-silk-roads"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "manz-tamerlane",
+        "author": "比阿特丽斯·福布斯·曼兹",
+        "title": "《帖木儿的崛起与统治》",
+        "titleEn": "The Rise and Rule of Tamerlane",
+        "year": 1989,
+        "lang": "en"
+      },
+      {
+        "id": "frankopan-silk-roads",
+        "author": "彼得·弗兰科潘",
+        "title": "《丝绸之路：一部全新的世界史》",
+        "titleEn": "The Silk Roads: A New History of the World",
+        "year": 2015,
+        "lang": "en"
+      }
     ]
   },
   "松迪亚塔·凯塔": {
@@ -1608,6 +2069,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "niane-sundiata",
       "hansen-silk-road"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "niane-sundiata",
+        "author": "吉布里尔·塔姆西尔·尼亚奈",
+        "title": "《松迪亚塔：古马里史诗》",
+        "titleEn": "Sundiata: An Epic of Old Mali",
+        "year": 1965,
+        "lang": "fr"
+      },
+      {
+        "id": "hansen-silk-road",
+        "author": "瓦莱丽·汉森",
+        "title": "《丝绸之路新史》",
+        "titleEn": "The Silk Road: A New History",
+        "year": 2012,
+        "lang": "en"
+      }
     ]
   },
   "库佩": {
@@ -1659,6 +2138,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "harari-sapiens",
       "diamond-germs"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "harari-sapiens",
+        "author": "尤瓦尔·赫拉利",
+        "title": "《人类简史》",
+        "titleEn": "Sapiens: A Brief History of Humankind",
+        "year": 2011,
+        "lang": "en"
+      },
+      {
+        "id": "diamond-germs",
+        "author": "贾雷德·戴蒙德",
+        "title": "《枪炮、病菌与钢铁》",
+        "titleEn": "Guns, Germs, and Steel",
+        "year": 1997,
+        "lang": "en"
+      }
     ]
   },
   "朱熹": {
@@ -1714,6 +2211,23 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "confucius-analects",
       "jaspers-axis"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "confucius-analects",
+        "author": "孔子弟子",
+        "title": "《论语》",
+        "year": -400,
+        "lang": "zh"
+      },
+      {
+        "id": "jaspers-axis",
+        "author": "卡尔·雅斯贝尔斯",
+        "title": "《历史的起源与目标》",
+        "titleEn": "The Origin and Goal of History",
+        "year": 1949,
+        "lang": "de"
+      }
     ]
   },
   "伊本·鲁世德": {
@@ -1769,6 +2283,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "bloom-thought",
       "plato-republic"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "bloom-thought",
+        "author": "乔纳森·布鲁姆 / 希拉·布莱尔",
+        "title": "《伊斯兰：千年信仰与权力》",
+        "titleEn": "Islam: A Thousand Years of Faith and Power",
+        "year": 2002,
+        "lang": "en"
+      },
+      {
+        "id": "plato-republic",
+        "author": "柏拉图",
+        "title": "《理想国》",
+        "titleEn": "The Republic",
+        "year": -380,
+        "lang": "gr"
+      }
     ]
   },
   "圣女贞德": {
@@ -1824,6 +2356,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "gibbon-decline",
       "harari-sapiens"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "gibbon-decline",
+        "author": "爱德华·吉本",
+        "title": "《罗马帝国衰亡史》",
+        "titleEn": "The History of the Decline and Fall of the Roman Empire",
+        "year": 1776,
+        "lang": "en"
+      },
+      {
+        "id": "harari-sapiens",
+        "author": "尤瓦尔·赫拉利",
+        "title": "《人类简史》",
+        "titleEn": "Sapiens: A Brief History of Humankind",
+        "year": 2011,
+        "lang": "en"
+      }
     ]
   },
   "忽必烈": {
@@ -1879,6 +2429,23 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "hansen-silk-road",
       "simaqian-shiji"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "hansen-silk-road",
+        "author": "瓦莱丽·汉森",
+        "title": "《丝绸之路新史》",
+        "titleEn": "The Silk Road: A New History",
+        "year": 2012,
+        "lang": "en"
+      },
+      {
+        "id": "simaqian-shiji",
+        "author": "司马迁",
+        "title": "《史记》",
+        "year": -91,
+        "lang": "zh"
+      }
     ]
   },
   "李白": {
@@ -1934,6 +2501,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "needham-science",
       "harari-sapiens"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "needham-science",
+        "author": "李约瑟",
+        "title": "《中国科学技术史》",
+        "titleEn": "Science and Civilisation in China",
+        "year": 1954,
+        "lang": "en"
+      },
+      {
+        "id": "harari-sapiens",
+        "author": "尤瓦尔·赫拉利",
+        "title": "《人类简史》",
+        "titleEn": "Sapiens: A Brief History of Humankind",
+        "year": 2011,
+        "lang": "en"
+      }
     ]
   },
   "鉴真": {
@@ -1989,6 +2574,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "needham-science",
       "hansen-silk-road"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "needham-science",
+        "author": "李约瑟",
+        "title": "《中国科学技术史》",
+        "titleEn": "Science and Civilisation in China",
+        "year": 1954,
+        "lang": "en"
+      },
+      {
+        "id": "hansen-silk-road",
+        "author": "瓦莱丽·汉森",
+        "title": "《丝绸之路新史》",
+        "titleEn": "The Silk Road: A New History",
+        "year": 2012,
+        "lang": "en"
+      }
     ]
   },
   "杜甫": {
@@ -2044,6 +2647,23 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "simaqian-shiji",
       "jaspers-axis"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "simaqian-shiji",
+        "author": "司马迁",
+        "title": "《史记》",
+        "year": -91,
+        "lang": "zh"
+      },
+      {
+        "id": "jaspers-axis",
+        "author": "卡尔·雅斯贝尔斯",
+        "title": "《历史的起源与目标》",
+        "titleEn": "The Origin and Goal of History",
+        "year": 1949,
+        "lang": "de"
+      }
     ]
   },
   "帕查库蒂": {
@@ -2099,6 +2719,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "diamond-germs",
       "crosby-exchange"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "diamond-germs",
+        "author": "贾雷德·戴蒙德",
+        "title": "《枪炮、病菌与钢铁》",
+        "titleEn": "Guns, Germs, and Steel",
+        "year": 1997,
+        "lang": "en"
+      },
+      {
+        "id": "crosby-exchange",
+        "author": "阿尔弗雷德·克罗斯比",
+        "title": "《哥伦布大交换》",
+        "titleEn": "The Columbian Exchange",
+        "year": 1972,
+        "lang": "en"
+      }
     ]
   },
   "加查·马达": {
@@ -2154,6 +2792,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "hansen-silk-road",
       "harari-sapiens"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "hansen-silk-road",
+        "author": "瓦莱丽·汉森",
+        "title": "《丝绸之路新史》",
+        "titleEn": "The Silk Road: A New History",
+        "year": 2012,
+        "lang": "en"
+      },
+      {
+        "id": "harari-sapiens",
+        "author": "尤瓦尔·赫拉利",
+        "title": "《人类简史》",
+        "titleEn": "Sapiens: A Brief History of Humankind",
+        "year": 2011,
+        "lang": "en"
+      }
     ]
   }
 };

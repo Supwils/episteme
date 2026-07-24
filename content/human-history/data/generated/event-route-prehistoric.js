@@ -9,7 +9,8 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "africa",
     "cat": "science",
     "references": [
-      "harari-sapiens"
+      "harari-sapiens",
+      "hublin-jebel-irhoud"
     ],
     "detail": {
       "pages": [
@@ -62,6 +63,14 @@ export const EVENT_ROUTE_RECORDS = {
         "titleEn": "Sapiens: A Brief History of Humankind",
         "year": 2011,
         "lang": "en"
+      },
+      {
+        "id": "hublin-jebel-irhoud",
+        "author": "于布兰 等（Hublin et al.）",
+        "title": "杰贝尔依罗新化石与智人的泛非起源",
+        "titleEn": "New fossils from Jebel Irhoud, Morocco and the pan-African origin of Homo sapiens",
+        "year": 2017,
+        "lang": "en"
       }
     ]
   },
@@ -74,7 +83,8 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "africa",
     "cat": "technology",
     "references": [
-      "harari-sapiens"
+      "harari-sapiens",
+      "wrangham-catching-fire"
     ],
     "detail": {
       "pages": [
@@ -133,6 +143,14 @@ export const EVENT_ROUTE_RECORDS = {
         "titleEn": "Sapiens: A Brief History of Humankind",
         "year": 2011,
         "lang": "en"
+      },
+      {
+        "id": "wrangham-catching-fire",
+        "author": "理查德·兰厄姆",
+        "title": "《生火：烹饪如何造就人类》",
+        "titleEn": "Catching Fire: How Cooking Made Us Human",
+        "year": 2009,
+        "lang": "en"
       }
     ]
   },
@@ -145,7 +163,8 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "africa",
     "cat": "science",
     "references": [
-      "harari-sapiens"
+      "harari-sapiens",
+      "dunbar-neocortex"
     ],
     "detail": {
       "pages": [
@@ -261,6 +280,14 @@ export const EVENT_ROUTE_RECORDS = {
         "title": "《人类简史》",
         "titleEn": "Sapiens: A Brief History of Humankind",
         "year": 2011,
+        "lang": "en"
+      },
+      {
+        "id": "dunbar-neocortex",
+        "author": "罗宾·邓巴",
+        "title": "新皮层大小对灵长类群体规模的约束",
+        "titleEn": "Neocortex size as a constraint on group size in primates",
+        "year": 1992,
         "lang": "en"
       }
     ]
@@ -420,7 +447,9 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "europe",
     "cat": "science",
     "references": [
-      "harari-sapiens"
+      "harari-sapiens",
+      "paabo-neanderthal",
+      "green-neanderthal-genome"
     ],
     "detail": {
       "pages": [
@@ -491,6 +520,22 @@ export const EVENT_ROUTE_RECORDS = {
         "titleEn": "Sapiens: A Brief History of Humankind",
         "year": 2011,
         "lang": "en"
+      },
+      {
+        "id": "paabo-neanderthal",
+        "author": "斯万特·帕博",
+        "title": "《尼安德特人：寻找失落的基因组》",
+        "titleEn": "Neanderthal Man: In Search of Lost Genomes",
+        "year": 2014,
+        "lang": "en"
+      },
+      {
+        "id": "green-neanderthal-genome",
+        "author": "格林 等（Green et al.）",
+        "title": "尼安德特人基因组草图",
+        "titleEn": "A Draft Sequence of the Neandertal Genome",
+        "year": 2010,
+        "lang": "en"
       }
     ]
   },
@@ -503,7 +548,8 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "europe",
     "cat": "culture",
     "references": [
-      "harari-sapiens"
+      "harari-sapiens",
+      "oktaviana-sulawesi"
     ],
     "detail": {
       "pages": [
@@ -578,6 +624,14 @@ export const EVENT_ROUTE_RECORDS = {
         "titleEn": "Sapiens: A Brief History of Humankind",
         "year": 2011,
         "lang": "en"
+      },
+      {
+        "id": "oktaviana-sulawesi",
+        "author": "奥克塔维亚纳 等（Oktaviana et al.）",
+        "title": "印度尼西亚 5.12 万年前的叙事性洞穴艺术",
+        "titleEn": "Narrative cave art in Indonesia by 51,200 years ago",
+        "year": 2024,
+        "lang": "en"
       }
     ]
   },
@@ -590,6 +644,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "americas",
     "cat": "culture",
     "references": [
+      "mann-1491",
       "diamond-germs"
     ],
     "detail": {
@@ -649,6 +704,14 @@ export const EVENT_ROUTE_RECORDS = {
     "figureLinks": [],
     "resolvedReferences": [
       {
+        "id": "mann-1491",
+        "author": "查尔斯·C·曼",
+        "title": "《1491：哥伦布之前的美洲》",
+        "titleEn": "1491: New Revelations of the Americas Before Columbus",
+        "year": 2005,
+        "lang": "en"
+      },
+      {
         "id": "diamond-germs",
         "author": "贾雷德·戴蒙德",
         "title": "《枪炮、病菌与钢铁》",
@@ -667,7 +730,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "oceania",
     "cat": "culture",
     "references": [
-      "diamond-germs"
+      "kirch-winds"
     ],
     "detail": null,
     "eraName": "远古时期",
@@ -701,11 +764,11 @@ export const EVENT_ROUTE_RECORDS = {
     "figureLinks": [],
     "resolvedReferences": [
       {
-        "id": "diamond-germs",
-        "author": "贾雷德·戴蒙德",
-        "title": "《枪炮、病菌与钢铁》",
-        "titleEn": "Guns, Germs, and Steel",
-        "year": 1997,
+        "id": "kirch-winds",
+        "author": "帕特里克·基尔希",
+        "title": "《乘风之路：太平洋群岛考古史》",
+        "titleEn": "On the Road of the Winds: An Archaeological History of the Pacific Islands",
+        "year": 2000,
         "lang": "en"
       }
     ]
@@ -857,7 +920,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "asia",
     "cat": "culture",
     "references": [
-      "harari-sapiens"
+      "kenyon-jericho"
     ],
     "detail": {
       "pages": [
@@ -916,11 +979,11 @@ export const EVENT_ROUTE_RECORDS = {
     "figureLinks": [],
     "resolvedReferences": [
       {
-        "id": "harari-sapiens",
-        "author": "尤瓦尔·赫拉利",
-        "title": "《人类简史》",
-        "titleEn": "Sapiens: A Brief History of Humankind",
-        "year": 2011,
+        "id": "kenyon-jericho",
+        "author": "凯瑟琳·凯尼恩",
+        "title": "《挖掘杰里科》",
+        "titleEn": "Digging Up Jericho",
+        "year": 1957,
         "lang": "en"
       }
     ]
@@ -934,7 +997,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "asia",
     "cat": "culture",
     "references": [
-      "harari-sapiens"
+      "hodder-catalhoyuk"
     ],
     "detail": {
       "pages": [
@@ -987,11 +1050,11 @@ export const EVENT_ROUTE_RECORDS = {
     "figureLinks": [],
     "resolvedReferences": [
       {
-        "id": "harari-sapiens",
-        "author": "尤瓦尔·赫拉利",
-        "title": "《人类简史》",
-        "titleEn": "Sapiens: A Brief History of Humankind",
-        "year": 2011,
+        "id": "hodder-catalhoyuk",
+        "author": "伊恩·霍德",
+        "title": "《豹的故事：揭开加泰土丘之谜》",
+        "titleEn": "The Leopard's Tale: Revealing the Mysteries of Çatalhöyük",
+        "year": 2006,
         "lang": "en"
       }
     ]
@@ -1005,7 +1068,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "asia",
     "cat": "culture",
     "references": [
-      "needham-science"
+      "chang-ancient-china"
     ],
     "detail": {
       "pages": [
@@ -1058,11 +1121,11 @@ export const EVENT_ROUTE_RECORDS = {
     "figureLinks": [],
     "resolvedReferences": [
       {
-        "id": "needham-science",
-        "author": "李约瑟",
-        "title": "《中国科学技术史》",
-        "titleEn": "Science and Civilisation in China",
-        "year": 1954,
+        "id": "chang-ancient-china",
+        "author": "张光直",
+        "title": "《古代中国考古学》",
+        "titleEn": "The Archaeology of Ancient China",
+        "year": 1986,
         "lang": "en"
       }
     ]
@@ -1076,7 +1139,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "asia",
     "cat": "technology",
     "references": [
-      "harari-sapiens"
+      "scarre-human-past"
     ],
     "detail": {
       "pages": [
@@ -1139,11 +1202,11 @@ export const EVENT_ROUTE_RECORDS = {
     "figureLinks": [],
     "resolvedReferences": [
       {
-        "id": "harari-sapiens",
-        "author": "尤瓦尔·赫拉利",
-        "title": "《人类简史》",
-        "titleEn": "Sapiens: A Brief History of Humankind",
-        "year": 2011,
+        "id": "scarre-human-past",
+        "author": "克里斯·斯卡雷（编）",
+        "title": "《人类的过去：世界史前史与人类社会的发展》",
+        "titleEn": "The Human Past: World Prehistory and the Development of Human Societies",
+        "year": 2005,
         "lang": "en"
       }
     ]
@@ -1157,6 +1220,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "asia",
     "cat": "politics",
     "references": [
+      "vandemieroop-ancient-near-east",
       "gilgamesh-epic"
     ],
     "detail": {
@@ -1244,6 +1308,14 @@ export const EVENT_ROUTE_RECORDS = {
     "figureLinks": [],
     "resolvedReferences": [
       {
+        "id": "vandemieroop-ancient-near-east",
+        "author": "马克·范德米罗普",
+        "title": "《古代近东史》",
+        "titleEn": "A History of the Ancient Near East",
+        "year": 2004,
+        "lang": "en"
+      },
+      {
         "id": "gilgamesh-epic",
         "author": "苏美尔人",
         "title": "《吉尔伽美什史诗》",
@@ -1261,6 +1333,7 @@ export const EVENT_ROUTE_RECORDS = {
     "region": "asia",
     "cat": "culture",
     "references": [
+      "vandemieroop-ancient-near-east",
       "gilgamesh-epic"
     ],
     "detail": {
@@ -1307,6 +1380,14 @@ export const EVENT_ROUTE_RECORDS = {
     ],
     "figureLinks": [],
     "resolvedReferences": [
+      {
+        "id": "vandemieroop-ancient-near-east",
+        "author": "马克·范德米罗普",
+        "title": "《古代近东史》",
+        "titleEn": "A History of the Ancient Near East",
+        "year": 2004,
+        "lang": "en"
+      },
       {
         "id": "gilgamesh-epic",
         "author": "苏美尔人",

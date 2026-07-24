@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Episteme 格致">
+  <rect width="512" height="512" rx="116" fill="#07070c" />
+  <g fill="none" stroke-linecap="round">
+    <ellipse cx="256" cy="256" rx="176" ry="66" stroke="#d9a441" stroke-width="8" transform="rotate(-28 256 256)" />
+    <ellipse cx="256" cy="256" rx="176" ry="66" stroke="#c8932f" stroke-width="8" opacity="0.72" transform="rotate(32 256 256)" />
+    <ellipse cx="256" cy="256" rx="176" ry="66" stroke="#8a6a2a" stroke-width="8" opacity="0.5" transform="rotate(92 256 256)" />
+  </g>
+  <circle cx="256" cy="256" r="30" fill="#f0c86a" />
+  <circle cx="382" cy="188" r="11" fill="#d9a441" />
+  <circle cx="140" cy="322" r="9" fill="#c8932f" />
+</svg>

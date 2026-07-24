@@ -57,6 +57,23 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "confucius-analects",
       "jaspers-axis"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "confucius-analects",
+        "author": "孔子弟子",
+        "title": "《论语》",
+        "year": -400,
+        "lang": "zh"
+      },
+      {
+        "id": "jaspers-axis",
+        "author": "卡尔·雅斯贝尔斯",
+        "title": "《历史的起源与目标》",
+        "titleEn": "The Origin and Goal of History",
+        "year": 1949,
+        "lang": "de"
+      }
     ]
   },
   "苏格拉底": {
@@ -106,6 +123,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "plato-republic"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "plato-republic",
+        "author": "柏拉图",
+        "title": "《理想国》",
+        "titleEn": "The Republic",
+        "year": -380,
+        "lang": "gr"
+      }
     ]
   },
   "亚里士多德": {
@@ -160,6 +187,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "aristotle-politics"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "aristotle-politics",
+        "author": "亚里士多德",
+        "title": "《政治学》",
+        "titleEn": "Politics",
+        "year": -350,
+        "lang": "gr"
+      }
     ]
   },
   "释迦牟尼": {
@@ -215,6 +252,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "jaspers-axis"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "jaspers-axis",
+        "author": "卡尔·雅斯贝尔斯",
+        "title": "《历史的起源与目标》",
+        "titleEn": "The Origin and Goal of History",
+        "year": 1949,
+        "lang": "de"
+      }
     ]
   },
   "阿育王": {
@@ -271,6 +318,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "ashoka-thapar",
       "jaspers-axis"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "ashoka-thapar",
+        "author": "罗米拉·塔帕尔",
+        "title": "《阿育王与孔雀王朝的衰落》",
+        "titleEn": "Aśoka and the Decline of the Mauryas",
+        "year": 1961,
+        "lang": "en"
+      },
+      {
+        "id": "jaspers-axis",
+        "author": "卡尔·雅斯贝尔斯",
+        "title": "《历史的起源与目标》",
+        "titleEn": "The Origin and Goal of History",
+        "year": 1949,
+        "lang": "de"
+      }
     ]
   },
   "秦始皇": {
@@ -326,6 +391,22 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "simaqian-shiji",
       "li-kaiyuan"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "simaqian-shiji",
+        "author": "司马迁",
+        "title": "《史记》",
+        "year": -91,
+        "lang": "zh"
+      },
+      {
+        "id": "li-kaiyuan",
+        "author": "李开元",
+        "title": "《秦帝国的崩溃》",
+        "year": 2010,
+        "lang": "zh"
+      }
     ]
   },
   "凯撒": {
@@ -380,6 +461,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "gibbon-decline"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "gibbon-decline",
+        "author": "爱德华·吉本",
+        "title": "《罗马帝国衰亡史》",
+        "titleEn": "The History of the Decline and Fall of the Roman Empire",
+        "year": 1776,
+        "lang": "en"
+      }
     ]
   },
   "亚历山大大帝": {
@@ -438,6 +529,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "aristotle-politics"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "aristotle-politics",
+        "author": "亚里士多德",
+        "title": "《政治学》",
+        "titleEn": "Politics",
+        "year": -350,
+        "lang": "gr"
+      }
     ]
   },
   "汉谟拉比": {
@@ -492,7 +593,24 @@ export const FIGURE_ROUTE_RECORDS = {
       "vandemieroop-hammurabi",
       "gilgamesh-epic"
     ],
-    "quote": "以眼还眼，以牙还牙。"
+    "quote": "以眼还眼，以牙还牙。",
+    "resolvedReferences": [
+      {
+        "id": "vandemieroop-hammurabi",
+        "author": "马克·范德米罗普",
+        "title": "《巴比伦王汉谟拉比传》",
+        "titleEn": "King Hammurabi of Babylon: A Biography",
+        "year": 2005,
+        "lang": "en"
+      },
+      {
+        "id": "gilgamesh-epic",
+        "author": "苏美尔人",
+        "title": "《吉尔伽美什史诗》",
+        "year": -2100,
+        "lang": "akk"
+      }
+    ]
   },
   "埃及艳后": {
     "name": "埃及艳后",
@@ -551,7 +669,25 @@ export const FIGURE_ROUTE_RECORDS = {
       "schiff-cleopatra",
       "gibbon-decline"
     ],
-    "quote": "据古代史家记载，她拒绝被活着带去罗马、在屋大维的凯旋式上示众——李维记下她那句\"我绝不被牵入凯旋行列\"，这成为她对胜利者仅存的最后反抗。"
+    "quote": "据古代史家记载，她拒绝被活着带去罗马、在屋大维的凯旋式上示众——李维记下她那句\"我绝不被牵入凯旋行列\"，这成为她对胜利者仅存的最后反抗。",
+    "resolvedReferences": [
+      {
+        "id": "schiff-cleopatra",
+        "author": "斯泰西·希夫",
+        "title": "《克娄巴特拉传》",
+        "titleEn": "Cleopatra: A Life",
+        "year": 2010,
+        "lang": "en"
+      },
+      {
+        "id": "gibbon-decline",
+        "author": "爱德华·吉本",
+        "title": "《罗马帝国衰亡史》",
+        "titleEn": "The History of the Decline and Fall of the Roman Empire",
+        "year": 1776,
+        "lang": "en"
+      }
+    ]
   },
   "蔡伦": {
     "name": "蔡伦",
@@ -600,7 +736,17 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "needham-science"
     ],
-    "quote": "造纸之功，利在千秋。"
+    "quote": "造纸之功，利在千秋。",
+    "resolvedReferences": [
+      {
+        "id": "needham-science",
+        "author": "李约瑟",
+        "title": "《中国科学技术史》",
+        "titleEn": "Science and Civilisation in China",
+        "year": 1954,
+        "lang": "en"
+      }
+    ]
   },
   "孟子": {
     "name": "孟子",
@@ -650,6 +796,15 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "confucius-analects"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "confucius-analects",
+        "author": "孔子弟子",
+        "title": "《论语》",
+        "year": -400,
+        "lang": "zh"
+      }
     ]
   },
   "老子": {
@@ -696,6 +851,15 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "laozi-dao"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "laozi-dao",
+        "author": "老子",
+        "title": "《道德经》",
+        "year": -500,
+        "lang": "zh"
+      }
     ]
   },
   "柏拉图": {
@@ -750,6 +914,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "plato-republic"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "plato-republic",
+        "author": "柏拉图",
+        "title": "《理想国》",
+        "titleEn": "The Republic",
+        "year": -380,
+        "lang": "gr"
+      }
     ]
   },
   "萨福": {
@@ -797,6 +971,16 @@ export const FIGURE_ROUTE_RECORDS = {
     ],
     "references": [
       "plato-republic"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "plato-republic",
+        "author": "柏拉图",
+        "title": "《理想国》",
+        "titleEn": "The Republic",
+        "year": -380,
+        "lang": "gr"
+      }
     ]
   },
   "庄子": {
@@ -848,6 +1032,23 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "laozi-dao",
       "jaspers-axis"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "laozi-dao",
+        "author": "老子",
+        "title": "《道德经》",
+        "year": -500,
+        "lang": "zh"
+      },
+      {
+        "id": "jaspers-axis",
+        "author": "卡尔·雅斯贝尔斯",
+        "title": "《历史的起源与目标》",
+        "titleEn": "The Origin and Goal of History",
+        "year": 1949,
+        "lang": "de"
+      }
     ]
   },
   "司马迁": {
@@ -903,6 +1104,23 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "simaqian-shiji",
       "jaspers-axis"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "simaqian-shiji",
+        "author": "司马迁",
+        "title": "《史记》",
+        "year": -91,
+        "lang": "zh"
+      },
+      {
+        "id": "jaspers-axis",
+        "author": "卡尔·雅斯贝尔斯",
+        "title": "《历史的起源与目标》",
+        "titleEn": "The Origin and Goal of History",
+        "year": 1949,
+        "lang": "de"
+      }
     ]
   },
   "希罗多德": {
@@ -954,6 +1172,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "finley-politics",
       "jaspers-axis"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "finley-politics",
+        "author": "摩西·芬利",
+        "title": "《古代世界的政治》",
+        "titleEn": "Politics in the Ancient World",
+        "year": 1983,
+        "lang": "en"
+      },
+      {
+        "id": "jaspers-axis",
+        "author": "卡尔·雅斯贝尔斯",
+        "title": "《历史的起源与目标》",
+        "titleEn": "The Origin and Goal of History",
+        "year": 1949,
+        "lang": "de"
+      }
     ]
   },
   "孙武": {
@@ -1005,6 +1241,23 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "simaqian-shiji",
       "kennedy-rise"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "simaqian-shiji",
+        "author": "司马迁",
+        "title": "《史记》",
+        "year": -91,
+        "lang": "zh"
+      },
+      {
+        "id": "kennedy-rise",
+        "author": "保罗·肯尼迪",
+        "title": "《大国的兴衰》",
+        "titleEn": "The Rise and Fall of the Great Powers",
+        "year": 1987,
+        "lang": "en"
+      }
     ]
   },
   "荷马": {
@@ -1056,6 +1309,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "homer-iliad",
       "lord-tales"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "homer-iliad",
+        "author": "荷马（传）",
+        "title": "《伊利亚特》",
+        "titleEn": "Iliad",
+        "year": -750,
+        "lang": "gr"
+      },
+      {
+        "id": "lord-tales",
+        "author": "阿尔伯特·洛德",
+        "title": "《故事的歌手》",
+        "titleEn": "The Singer of Tales",
+        "year": 1960,
+        "lang": "en"
+      }
     ]
   },
   "修昔底德": {
@@ -1115,6 +1386,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "thucydides-pelop",
       "finley-politics"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "thucydides-pelop",
+        "author": "修昔底德",
+        "title": "《伯罗奔尼撒战争史》",
+        "titleEn": "History of the Peloponnesian War",
+        "year": -400,
+        "lang": "gr"
+      },
+      {
+        "id": "finley-politics",
+        "author": "摩西·芬利",
+        "title": "《古代世界的政治》",
+        "titleEn": "Politics in the Ancient World",
+        "year": 1983,
+        "lang": "en"
+      }
     ]
   },
   "希波克拉底": {
@@ -1167,6 +1456,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "hippocrates-corpus",
       "lloyd-greek-science"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "hippocrates-corpus",
+        "author": "希波克拉底学派",
+        "title": "《希波克拉底文集》",
+        "titleEn": "Hippocratic Corpus",
+        "year": -400,
+        "lang": "gr"
+      },
+      {
+        "id": "lloyd-greek-science",
+        "author": "G.E.R. 劳埃德",
+        "title": "《早期希腊科学：从泰勒斯到亚里士多德》",
+        "titleEn": "Early Greek Science: Thales to Aristotle",
+        "year": 1970,
+        "lang": "en"
+      }
     ]
   },
   "毕达哥拉斯": {
@@ -1219,6 +1526,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "lloyd-greek-science",
       "jaspers-axis"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "lloyd-greek-science",
+        "author": "G.E.R. 劳埃德",
+        "title": "《早期希腊科学：从泰勒斯到亚里士多德》",
+        "titleEn": "Early Greek Science: Thales to Aristotle",
+        "year": 1970,
+        "lang": "en"
+      },
+      {
+        "id": "jaspers-axis",
+        "author": "卡尔·雅斯贝尔斯",
+        "title": "《历史的起源与目标》",
+        "titleEn": "The Origin and Goal of History",
+        "year": 1949,
+        "lang": "de"
+      }
     ]
   },
   "德谟克利特": {
@@ -1270,6 +1595,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "lloyd-greek-science",
       "jaspers-axis"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "lloyd-greek-science",
+        "author": "G.E.R. 劳埃德",
+        "title": "《早期希腊科学：从泰勒斯到亚里士多德》",
+        "titleEn": "Early Greek Science: Thales to Aristotle",
+        "year": 1970,
+        "lang": "en"
+      },
+      {
+        "id": "jaspers-axis",
+        "author": "卡尔·雅斯贝尔斯",
+        "title": "《历史的起源与目标》",
+        "titleEn": "The Origin and Goal of History",
+        "year": 1949,
+        "lang": "de"
+      }
     ]
   },
   "欧几里得": {
@@ -1321,6 +1664,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "euclid-elements",
       "lloyd-greek-science"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "euclid-elements",
+        "author": "欧几里得",
+        "title": "《几何原本》",
+        "titleEn": "Elements",
+        "year": -300,
+        "lang": "gr"
+      },
+      {
+        "id": "lloyd-greek-science",
+        "author": "G.E.R. 劳埃德",
+        "title": "《早期希腊科学：从泰勒斯到亚里士多德》",
+        "titleEn": "Early Greek Science: Thales to Aristotle",
+        "year": 1970,
+        "lang": "en"
+      }
     ]
   },
   "阿基米德": {
@@ -1376,6 +1737,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "archimedes-works",
       "lloyd-greek-science"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "archimedes-works",
+        "author": "阿基米德",
+        "title": "《阿基米德著作集》",
+        "titleEn": "The Works of Archimedes",
+        "year": -250,
+        "lang": "gr"
+      },
+      {
+        "id": "lloyd-greek-science",
+        "author": "G.E.R. 劳埃德",
+        "title": "《早期希腊科学：从泰勒斯到亚里士多德》",
+        "titleEn": "Early Greek Science: Thales to Aristotle",
+        "year": 1970,
+        "lang": "en"
+      }
     ]
   },
   "托勒密": {
@@ -1431,6 +1810,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "ptolemy-almagest",
       "lloyd-greek-science"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "ptolemy-almagest",
+        "author": "克劳狄乌斯·托勒密",
+        "title": "《天文学大成》",
+        "titleEn": "Almagest",
+        "year": 150,
+        "lang": "gr"
+      },
+      {
+        "id": "lloyd-greek-science",
+        "author": "G.E.R. 劳埃德",
+        "title": "《早期希腊科学：从泰勒斯到亚里士多德》",
+        "titleEn": "Early Greek Science: Thales to Aristotle",
+        "year": 1970,
+        "lang": "en"
+      }
     ]
   },
   "盖伦": {
@@ -1486,6 +1883,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "galen-natural-faculties",
       "lloyd-greek-science"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "galen-natural-faculties",
+        "author": "盖伦",
+        "title": "《论自然机能》",
+        "titleEn": "On the Natural Faculties",
+        "year": 180,
+        "lang": "gr"
+      },
+      {
+        "id": "lloyd-greek-science",
+        "author": "G.E.R. 劳埃德",
+        "title": "《早期希腊科学：从泰勒斯到亚里士多德》",
+        "titleEn": "Early Greek Science: Thales to Aristotle",
+        "year": 1970,
+        "lang": "en"
+      }
     ]
   },
   "西塞罗": {
@@ -1541,6 +1956,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "everitt-cicero",
       "cicero-de-officiis"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "everitt-cicero",
+        "author": "安东尼·埃弗里特",
+        "title": "《西塞罗：罗马最伟大政治家的生平与时代》",
+        "titleEn": "Cicero: The Life and Times of Rome's Greatest Politician",
+        "year": 2001,
+        "lang": "en"
+      },
+      {
+        "id": "cicero-de-officiis",
+        "author": "西塞罗",
+        "title": "《论义务》",
+        "titleEn": "De Officiis",
+        "year": -44,
+        "lang": "la"
+      }
     ]
   },
   "塞内卡": {
@@ -1596,6 +2029,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "seneca-letters",
       "beard-spqr"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "seneca-letters",
+        "author": "塞内卡",
+        "title": "《道德书简》",
+        "titleEn": "Moral Letters to Lucilius",
+        "year": 64,
+        "lang": "la"
+      },
+      {
+        "id": "beard-spqr",
+        "author": "玛丽·比尔德",
+        "title": "《SPQR：古罗马史》",
+        "titleEn": "SPQR: A History of Ancient Rome",
+        "year": 2015,
+        "lang": "en"
+      }
     ]
   },
   "维吉尔": {
@@ -1647,6 +2098,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "virgil-aeneid",
       "beard-spqr"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "virgil-aeneid",
+        "author": "维吉尔",
+        "title": "《埃涅阿斯纪》",
+        "titleEn": "Aeneid",
+        "year": -19,
+        "lang": "la"
+      },
+      {
+        "id": "beard-spqr",
+        "author": "玛丽·比尔德",
+        "title": "《SPQR：古罗马史》",
+        "titleEn": "SPQR: A History of Ancient Rome",
+        "year": 2015,
+        "lang": "en"
+      }
     ]
   },
   "普鲁塔克": {
@@ -1702,6 +2171,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "plutarch-lives",
       "beard-spqr"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "plutarch-lives",
+        "author": "普鲁塔克",
+        "title": "《希腊罗马名人传》",
+        "titleEn": "Parallel Lives",
+        "year": 110,
+        "lang": "gr"
+      },
+      {
+        "id": "beard-spqr",
+        "author": "玛丽·比尔德",
+        "title": "《SPQR：古罗马史》",
+        "titleEn": "SPQR: A History of Ancient Rome",
+        "year": 2015,
+        "lang": "en"
+      }
     ]
   },
   "阿斯帕西娅": {
@@ -1758,6 +2245,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "finley-politics",
       "ober-mass-elite"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "finley-politics",
+        "author": "摩西·芬利",
+        "title": "《古代世界的政治》",
+        "titleEn": "Politics in the Ancient World",
+        "year": 1983,
+        "lang": "en"
+      },
+      {
+        "id": "ober-mass-elite",
+        "author": "乔西亚·奥伯",
+        "title": "《民主雅典的大众与精英》",
+        "titleEn": "Mass and Elite in Democratic Athens",
+        "year": 1989,
+        "lang": "en"
+      }
     ]
   },
   "汉尼拔": {
@@ -1813,6 +2318,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "gibbon-decline",
       "jaspers-axis"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "gibbon-decline",
+        "author": "爱德华·吉本",
+        "title": "《罗马帝国衰亡史》",
+        "titleEn": "The History of the Decline and Fall of the Roman Empire",
+        "year": 1776,
+        "lang": "en"
+      },
+      {
+        "id": "jaspers-axis",
+        "author": "卡尔·雅斯贝尔斯",
+        "title": "《历史的起源与目标》",
+        "titleEn": "The Origin and Goal of History",
+        "year": 1949,
+        "lang": "de"
+      }
     ]
   },
   "汉武帝": {
@@ -1868,6 +2391,23 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "simaqian-shiji",
       "jaspers-axis"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "simaqian-shiji",
+        "author": "司马迁",
+        "title": "《史记》",
+        "year": -91,
+        "lang": "zh"
+      },
+      {
+        "id": "jaspers-axis",
+        "author": "卡尔·雅斯贝尔斯",
+        "title": "《历史的起源与目标》",
+        "titleEn": "The Origin and Goal of History",
+        "year": 1949,
+        "lang": "de"
+      }
     ]
   },
   "奥古斯都": {
@@ -1923,6 +2463,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "gibbon-decline",
       "plato-republic"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "gibbon-decline",
+        "author": "爱德华·吉本",
+        "title": "《罗马帝国衰亡史》",
+        "titleEn": "The History of the Decline and Fall of the Roman Empire",
+        "year": 1776,
+        "lang": "en"
+      },
+      {
+        "id": "plato-republic",
+        "author": "柏拉图",
+        "title": "《理想国》",
+        "titleEn": "The Republic",
+        "year": -380,
+        "lang": "gr"
+      }
     ]
   },
   "居鲁士大帝": {
@@ -1978,6 +2536,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "jaspers-axis",
       "harari-sapiens"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "jaspers-axis",
+        "author": "卡尔·雅斯贝尔斯",
+        "title": "《历史的起源与目标》",
+        "titleEn": "The Origin and Goal of History",
+        "year": 1949,
+        "lang": "de"
+      },
+      {
+        "id": "harari-sapiens",
+        "author": "尤瓦尔·赫拉利",
+        "title": "《人类简史》",
+        "titleEn": "Sapiens: A Brief History of Humankind",
+        "year": 2011,
+        "lang": "en"
+      }
     ]
   },
   "大流士一世": {
@@ -2037,6 +2613,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "briant-cyrus",
       "holland-persian-fire"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "briant-cyrus",
+        "author": "皮埃尔·布里昂",
+        "title": "《从居鲁士到亚历山大：波斯帝国史》",
+        "titleEn": "From Cyrus to Alexander: A History of the Persian Empire",
+        "year": 2002,
+        "lang": "en"
+      },
+      {
+        "id": "holland-persian-fire",
+        "author": "汤姆·霍兰",
+        "title": "《波斯战火》",
+        "titleEn": "Persian Fire: The First World Empire and the Battle for the West",
+        "year": 2005,
+        "lang": "en"
+      }
     ]
   },
   "阿玛尼伦娜斯": {
@@ -2092,6 +2686,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "reader-africa",
       "beard-spqr"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "reader-africa",
+        "author": "约翰·里德",
+        "title": "《非洲：一部大陆传记》",
+        "titleEn": "Africa: A Biography of the Continent",
+        "year": 1997,
+        "lang": "en"
+      },
+      {
+        "id": "beard-spqr",
+        "author": "玛丽·比尔德",
+        "title": "《SPQR：古罗马史》",
+        "titleEn": "SPQR: A History of Ancient Rome",
+        "year": 2015,
+        "lang": "en"
+      }
     ]
   },
   "旃陀罗笈多·孔雀": {
@@ -2147,6 +2759,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "thapar-early-india",
       "lanefox-alexander"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "thapar-early-india",
+        "author": "罗米拉·塔帕尔",
+        "title": "《企鹅版早期印度史》",
+        "titleEn": "The Penguin History of Early India: From the Origins to AD 1300",
+        "year": 2003,
+        "lang": "en"
+      },
+      {
+        "id": "lanefox-alexander",
+        "author": "罗宾·莱恩·福克斯",
+        "title": "《亚历山大大帝》",
+        "titleEn": "Alexander the Great",
+        "year": 1973,
+        "lang": "en"
+      }
     ]
   },
   "芝诺比娅": {
@@ -2202,6 +2832,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "beard-spqr",
       "gibbon-decline"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "beard-spqr",
+        "author": "玛丽·比尔德",
+        "title": "《SPQR：古罗马史》",
+        "titleEn": "SPQR: A History of Ancient Rome",
+        "year": 2015,
+        "lang": "en"
+      },
+      {
+        "id": "gibbon-decline",
+        "author": "爱德华·吉本",
+        "title": "《罗马帝国衰亡史》",
+        "titleEn": "The History of the Decline and Fall of the Roman Empire",
+        "year": 1776,
+        "lang": "en"
+      }
     ]
   },
   "特奥多拉": {
@@ -2257,6 +2905,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "herrin-byzantium",
       "brown-late-antiquity"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "herrin-byzantium",
+        "author": "朱迪斯·赫林",
+        "title": "《拜占庭：一个中世纪帝国的惊奇生命》",
+        "titleEn": "Byzantium: The Surprising Life of a Medieval Empire",
+        "year": 2007,
+        "lang": "en"
+      },
+      {
+        "id": "brown-late-antiquity",
+        "author": "彼得·布朗",
+        "title": "《晚期古代的世界》",
+        "titleEn": "The World of Late Antiquity",
+        "year": 1971,
+        "lang": "en"
+      }
     ]
   },
   "埃拉托色尼": {
@@ -2312,6 +2978,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "merton-science",
       "finley-politics"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "merton-science",
+        "author": "罗伯特·默顿",
+        "title": "《十七世纪英格兰的科学、技术与社会》",
+        "titleEn": "Science, Technology and Society in Seventeenth-Century England",
+        "year": 1938,
+        "lang": "en"
+      },
+      {
+        "id": "finley-politics",
+        "author": "摩西·芬利",
+        "title": "《古代世界的政治》",
+        "titleEn": "Politics in the Ancient World",
+        "year": 1983,
+        "lang": "en"
+      }
     ]
   },
   "哈特谢普苏特": {
@@ -2367,6 +3051,24 @@ export const FIGURE_ROUTE_RECORDS = {
     "references": [
       "finley-politics",
       "harari-sapiens"
+    ],
+    "resolvedReferences": [
+      {
+        "id": "finley-politics",
+        "author": "摩西·芬利",
+        "title": "《古代世界的政治》",
+        "titleEn": "Politics in the Ancient World",
+        "year": 1983,
+        "lang": "en"
+      },
+      {
+        "id": "harari-sapiens",
+        "author": "尤瓦尔·赫拉利",
+        "title": "《人类简史》",
+        "titleEn": "Sapiens: A Brief History of Humankind",
+        "year": 2011,
+        "lang": "en"
+      }
     ]
   }
 };

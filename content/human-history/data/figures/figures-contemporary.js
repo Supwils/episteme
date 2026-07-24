@@ -33,7 +33,7 @@ export const FIGURES_CONTEMPORARY = [
     achievements: ['结束南非种族隔离', '成为南非首位黑人总统', '建立真相与和解委员会', '获诺贝尔和平奖'],
     controversies: ['转向武装斗争的选择', '转型未根本解决经济不平等', '对ANC腐败的态度', '艾滋病危机初期的应对'],
     keyEvents: [{ year: 1918, title: '出生于东开普省' }, { year: 1962, title: '被逮捕' }, { year: 1964, title: '里沃尼亚审判被判终身监禁' }, { year: 1990, title: '获释' }, { year: 1993, title: '与德克勒克共获诺贝尔和平奖' }, { year: 1994, title: '当选首位黑人总统' }, { year: 2013, title: '在约翰内斯堡去世' }],
-    references: ['diamond-spirit'],
+    references: ['mandela-long-walk'],
   },
   {
     name: '马丁·路德·金', birth: 1929, death: 1968, title: '美国民权运动领袖',
@@ -45,7 +45,7 @@ export const FIGURES_CONTEMPORARY = [
     achievements: ['推动民权法案通过', '华盛顿大游行', '获诺贝尔和平奖', '"我有一个梦想"演说'],
     controversies: ['非暴力策略是否总是有效', 'FBI的监控和迫害', '经济不平等是否真正解决'],
     keyEvents: [{ year: 1929, title: '出生于亚特兰大' }, { year: 1955, title: '领导蒙哥马利公交抵制' }, { year: 1963, title: '华盛顿大游行' }, { year: 1964, title: '获诺贝尔和平奖' }, { year: 1968, title: '在孟菲斯被刺杀' }],
-    references: ['diamond-spirit'],
+    references: ['branch-king'],
   },
   {
     name: '邓小平', birth: 1904, death: 1997, title: '改革开放总设计师',
@@ -165,7 +165,7 @@ export const FIGURES_CONTEMPORARY = [
     achievements: ['少年时记录塔利班下的失学', '枪击幸存后持续倡导', '创立马拉拉基金', '成为最年轻诺贝尔和平奖得主'],
     controversies: ['形象被西方媒体过度符号化的质疑', '在部分巴基斯坦舆论中的争议', '象征意义与实际改变之间的落差'],
     keyEvents: [{ year: 1997, title: '出生于斯瓦特河谷' }, { year: 2009, title: '匿名为BBC撰写失学日记' }, { year: 2012, title: '遭塔利班枪击头部' }, { year: 2013, title: '在联合国发表演讲' }, { year: 2014, title: '获诺贝尔和平奖' }],
-    references: ['diamond-spirit'],
+    references: ['yousafzai-malala'],
   },
   {
     name: '富兰克林·罗斯福', birth: 1882, death: 1945, title: '新政与反法西斯战争的领航者',
