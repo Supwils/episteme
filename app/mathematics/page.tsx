@@ -6,7 +6,11 @@ import { getAllMathConcepts } from "@/subjects/mathematics/lib/concepts";
 import { getAllMathDialogues } from "@/subjects/mathematics/lib/dialogues";
 import { getAllMathParadoxes } from "@/subjects/mathematics/lib/paradoxes";
 import { getAllMathEras } from "@/subjects/mathematics/lib/eras";
-import { MATH_ERA_ACCENT, MATH_FIELD_COLORS } from "@/subjects/mathematics/lib/constants";
+import {
+  MATH_ERA_ACCENT,
+  MATH_FIELD_COLORS,
+  mathBadgeColor,
+} from "@/subjects/mathematics/lib/constants";
 
 export const metadata: Metadata = {
   title: "数学与逻辑 — Episteme · 格致",
@@ -156,7 +160,7 @@ export default function MathematicsHomePage() {
                   <div className="relative">
                     <span
                       className="border px-2 py-0.5 font-mono text-[9px] tracking-[0.22em] uppercase"
-                      style={{ borderColor: `${eraColor}40`, color: eraColor }}
+                      style={{ borderColor: `${eraColor}40`, color: mathBadgeColor(eraColor) }}
                     >
                       {m.era}
                     </span>
@@ -213,14 +217,14 @@ export default function MathematicsHomePage() {
                   <div className="relative">
                     <span
                       className="border px-2 py-0.5 font-mono text-[9px] tracking-[0.22em] uppercase"
-                      style={{ borderColor: `${fieldColor}40`, color: fieldColor }}
+                      style={{ borderColor: `${fieldColor}40`, color: mathBadgeColor(fieldColor) }}
                     >
                       {t.field}
                     </span>
                     <h3 className="font-display text-fg-primary group-hover:text-accent-indigo mt-3 text-base font-semibold transition-colors">
                       {t.title}
                     </h3>
-                    <p className="text-fg-muted mt-0.5 font-mono text-[10px] tracking-wider italic opacity-60">
+                    <p className="text-fg-muted mt-0.5 font-mono text-[10px] tracking-wider italic">
                       {t.title_en}
                     </p>
                     <p className="text-fg-disabled mt-2 font-mono text-[10px] tracking-wider">
@@ -270,14 +274,14 @@ export default function MathematicsHomePage() {
                   <div className="relative">
                     <span
                       className="border px-2 py-0.5 font-mono text-[9px] tracking-[0.22em] uppercase"
-                      style={{ borderColor: `${fieldColor}40`, color: fieldColor }}
+                      style={{ borderColor: `${fieldColor}40`, color: mathBadgeColor(fieldColor) }}
                     >
                       {p.field}
                     </span>
                     <h3 className="font-display text-fg-primary group-hover:text-accent-indigo mt-3 text-base font-semibold transition-colors">
                       {p.title}
                     </h3>
-                    <p className="text-fg-muted mt-0.5 font-mono text-[10px] tracking-wider italic opacity-60">
+                    <p className="text-fg-muted mt-0.5 font-mono text-[10px] tracking-wider italic">
                       {p.title_en}
                     </p>
                   </div>

@@ -133,7 +133,7 @@ export function MoleculeViewer({
                 type="button"
                 onClick={activate}
                 className="rounded-full px-4 py-2 text-[13px] font-semibold text-white transition-transform hover:-translate-y-0.5"
-                style={{ background: accent }}
+                style={{ background: `color-mix(in oklab, ${accent} 74%, #000)` }}
               >
                 查看 3D 结构 ▶
               </button>
@@ -152,7 +152,7 @@ export function MoleculeViewer({
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline"
-                  style={{ color: accent }}
+                  style={{ color: `color-mix(in oklab, ${accent} 78%, #f5f2ea)` }}
                 >
                   RCSB PDB
                 </a>{" "}

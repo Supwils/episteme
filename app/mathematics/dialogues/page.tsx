@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllMathDialogues } from "@/subjects/mathematics/lib/dialogues";
-import { MATH_FIELD_COLORS, MATH_ERA_ACCENT } from "@/subjects/mathematics/lib/constants";
+import {
+  MATH_FIELD_COLORS,
+  MATH_ERA_ACCENT,
+  mathBadgeColor,
+} from "@/subjects/mathematics/lib/constants";
 
 export const metadata: Metadata = {
   title: "数学对话 — Episteme · 格致",
@@ -51,13 +55,13 @@ export default function MathDialoguesPage() {
                 <div className="relative flex items-center justify-between">
                   <span
                     className="border px-2 py-0.5 font-mono text-[10px] tracking-[0.32em] uppercase transition-colors duration-300"
-                    style={{ borderColor: `${fieldColor}50`, color: fieldColor }}
+                    style={{ borderColor: `${fieldColor}50`, color: mathBadgeColor(fieldColor) }}
                   >
                     {d.field}
                   </span>
                   <span
                     className="rounded-full border px-2 py-0.5 font-mono text-[9px] tracking-[0.22em]"
-                    style={{ borderColor: `${eraColor}30`, color: eraColor }}
+                    style={{ borderColor: `${eraColor}30`, color: mathBadgeColor(eraColor) }}
                   >
                     {d.era}
                   </span>

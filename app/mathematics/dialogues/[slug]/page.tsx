@@ -1,7 +1,11 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getMathDialogueBySlug, getAllMathDialogues } from "@/subjects/mathematics/lib/dialogues";
-import { MATH_FIELD_COLORS, MATH_ERA_ACCENT } from "@/subjects/mathematics/lib/constants";
+import {
+  MATH_FIELD_COLORS,
+  MATH_ERA_ACCENT,
+  mathBadgeColor,
+} from "@/subjects/mathematics/lib/constants";
 import { MathMarkdownRenderer } from "@/subjects/mathematics/components/MathMarkdownRenderer";
 import { SITE_URL } from "@/lib/constants";
 import { serializeJsonLd, createArticleJsonLd } from "@/lib/jsonld";
@@ -92,13 +96,13 @@ export default async function MathDialogueDetailPage({
           <div className="mb-3 flex items-center gap-3">
             <span
               className="border px-2.5 py-1 font-mono text-[10px] tracking-[0.32em] uppercase"
-              style={{ borderColor: `${fieldColor}50`, color: fieldColor }}
+              style={{ borderColor: `${fieldColor}50`, color: mathBadgeColor(fieldColor) }}
             >
               {dialogue.field}
             </span>
             <span
               className="rounded-full border px-2.5 py-1 font-mono text-[10px] tracking-[0.2em]"
-              style={{ borderColor: `${eraColor}30`, color: eraColor }}
+              style={{ borderColor: `${eraColor}30`, color: mathBadgeColor(eraColor) }}
             >
               {dialogue.era}
             </span>

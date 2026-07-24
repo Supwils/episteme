@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getMathConceptBySlug, getAllMathConcepts } from "@/subjects/mathematics/lib/concepts";
-import { MATH_FIELD_COLORS } from "@/subjects/mathematics/lib/constants";
+import { MATH_FIELD_COLORS, mathBadgeColor } from "@/subjects/mathematics/lib/constants";
 import { MathMarkdownRenderer } from "@/subjects/mathematics/components/MathMarkdownRenderer";
 import { FunctionPlotter } from "@/subjects/mathematics/components/visualizations";
 import { SITE_URL } from "@/lib/constants";
@@ -92,7 +92,7 @@ export default async function MathConceptDetailPage({
           <div className="mb-3 flex flex-wrap items-center gap-3">
             <span
               className="border px-2.5 py-1 font-mono text-[10px] tracking-[0.32em] uppercase"
-              style={{ borderColor: `${fieldColor}50`, color: fieldColor }}
+              style={{ borderColor: `${fieldColor}50`, color: mathBadgeColor(fieldColor) }}
             >
               {concept.field}
             </span>
@@ -178,7 +178,7 @@ export default async function MathConceptDetailPage({
               <Link
                 href="/mathematics/distributions"
                 className="shrink-0 border px-4 py-2 font-mono text-[11px] tracking-wider uppercase transition-all hover:-translate-y-0.5"
-                style={{ borderColor: `${fieldColor}50`, color: fieldColor }}
+                style={{ borderColor: `${fieldColor}50`, color: mathBadgeColor(fieldColor) }}
               >
                 打开探索器 →
               </Link>
@@ -190,7 +190,7 @@ export default async function MathConceptDetailPage({
           <section className="my-10">
             <h2
               className="font-display mb-4 text-[1.25rem] leading-snug font-semibold"
-              style={{ color: fieldColor }}
+              style={{ color: mathBadgeColor(fieldColor) }}
             >
               交互式函数绘图
             </h2>

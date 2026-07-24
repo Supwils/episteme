@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllMathematicians } from "@/subjects/mathematics/lib/mathematicians";
-import { MATH_ERA_ACCENT } from "@/subjects/mathematics/lib/constants";
+import { MATH_ERA_ACCENT, mathBadgeColor } from "@/subjects/mathematics/lib/constants";
 
 export const metadata: Metadata = {
   title: "数学家 — Episteme · 格致",
@@ -50,7 +50,7 @@ export default function MathematiciansPage() {
                 <div className="relative flex items-center justify-between">
                   <span
                     className="border px-2 py-0.5 font-mono text-[10px] tracking-[0.32em] uppercase transition-colors duration-300"
-                    style={{ borderColor: `${eraColor}50`, color: eraColor }}
+                    style={{ borderColor: `${eraColor}50`, color: mathBadgeColor(eraColor) }}
                   >
                     {m.era}
                   </span>

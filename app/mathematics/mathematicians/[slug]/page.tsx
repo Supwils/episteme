@@ -4,7 +4,7 @@ import {
   getMathematicianBySlug,
   getAllMathematicians,
 } from "@/subjects/mathematics/lib/mathematicians";
-import { MATH_ERA_ACCENT } from "@/subjects/mathematics/lib/constants";
+import { MATH_ERA_ACCENT, mathBadgeColor } from "@/subjects/mathematics/lib/constants";
 import { MathMarkdownRenderer } from "@/subjects/mathematics/components/MathMarkdownRenderer";
 import { SITE_URL } from "@/lib/constants";
 import { serializeJsonLd, createPersonJsonLd } from "@/lib/jsonld";
@@ -91,7 +91,7 @@ export default async function MathematicianDetailPage({
           <div className="mb-3 flex flex-wrap items-center gap-3">
             <span
               className="border px-2.5 py-1 font-mono text-[10px] tracking-[0.32em] uppercase"
-              style={{ borderColor: `${eraColor}50`, color: eraColor }}
+              style={{ borderColor: `${eraColor}50`, color: mathBadgeColor(eraColor) }}
             >
               {mathematician.era}
             </span>

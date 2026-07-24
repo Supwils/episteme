@@ -1,7 +1,11 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getTheoremBySlug, getAllTheorems } from "@/subjects/mathematics/lib/theorems";
-import { MATH_FIELD_COLORS, MATH_DIFFICULTY_COLORS } from "@/subjects/mathematics/lib/constants";
+import {
+  MATH_FIELD_COLORS,
+  MATH_DIFFICULTY_COLORS,
+  mathBadgeColor,
+} from "@/subjects/mathematics/lib/constants";
 import { MathMarkdownRenderer } from "@/subjects/mathematics/components/MathMarkdownRenderer";
 import { SITE_URL } from "@/lib/constants";
 import { serializeJsonLd, createDefinedTermJsonLd } from "@/lib/jsonld";
@@ -86,13 +90,16 @@ export default async function TheoremDetailPage({ params }: { params: Promise<{ 
           <div className="mb-3 flex flex-wrap items-center gap-3">
             <span
               className="border px-2.5 py-1 font-mono text-[10px] tracking-[0.32em] uppercase"
-              style={{ borderColor: `${fieldColor}50`, color: fieldColor }}
+              style={{ borderColor: `${fieldColor}50`, color: mathBadgeColor(fieldColor) }}
             >
               {theorem.field}
             </span>
             <span
               className="rounded-full border px-2.5 py-1 font-mono text-[10px] tracking-[0.2em]"
-              style={{ borderColor: `${difficultyColor}40`, color: difficultyColor }}
+              style={{
+                borderColor: `${difficultyColor}40`,
+                color: mathBadgeColor(difficultyColor),
+              }}
             >
               {theorem.difficulty}
             </span>

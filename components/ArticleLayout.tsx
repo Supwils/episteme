@@ -117,7 +117,9 @@ export function ArticleLayout({
                   className="rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.12em]"
                   style={{
                     borderColor: `${accent}20`,
-                    color: `${accent}cc`,
+                    // Lighten the accent toward the foreground so tag text clears
+                    // WCAG AA on the dark card across every domain's accent.
+                    color: `color-mix(in oklab, ${accent} 82%, #f5f2ea)`,
                     backgroundColor: `${accent}08`,
                   }}
                 >

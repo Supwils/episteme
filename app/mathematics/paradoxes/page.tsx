@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllMathParadoxes, getMathParadoxesByField } from "@/subjects/mathematics/lib/paradoxes";
-import { MATH_FIELD_COLORS } from "@/subjects/mathematics/lib/constants";
+import { MATH_FIELD_COLORS, mathBadgeColor } from "@/subjects/mathematics/lib/constants";
 
 export const metadata: Metadata = {
   title: "数学悖论 — Episteme · 格致",
@@ -44,7 +44,7 @@ export default function MathParadoxesPage() {
               <div className="mb-5 flex items-center gap-3">
                 <span
                   className="font-mono text-[10px] tracking-[0.32em] uppercase"
-                  style={{ color: fieldColor }}
+                  style={{ color: mathBadgeColor(fieldColor) }}
                 >
                   {field}
                 </span>
@@ -74,7 +74,7 @@ export default function MathParadoxesPage() {
                         />
                         <span
                           className="font-mono text-[9px] tracking-[0.22em] uppercase"
-                          style={{ color: fieldColor }}
+                          style={{ color: mathBadgeColor(fieldColor) }}
                         >
                           {paradox.field}
                         </span>
@@ -83,7 +83,7 @@ export default function MathParadoxesPage() {
                       <h3 className="font-display text-fg-primary group-hover:text-accent-indigo text-base font-semibold transition-colors">
                         {paradox.title}
                       </h3>
-                      <p className="text-fg-muted font-display mt-0.5 text-sm tracking-wide italic opacity-60">
+                      <p className="text-fg-muted font-display mt-0.5 text-sm tracking-wide italic">
                         {paradox.title_en}
                       </p>
 

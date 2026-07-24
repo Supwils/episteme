@@ -82,7 +82,8 @@ export default function CosmologyPage() {
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link
                   href="/universe-physics/universe/observable"
-                  className="rounded-full bg-[#3b82f6] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#2563eb]"
+                  className="rounded-full bg-[#2563eb] px-4 py-2 text-sm font-semibold transition-colors hover:bg-[#1d4ed8]"
+                  style={{ color: "#fff" }}
                 >
                   进入 3D 宇宙漫游
                 </Link>

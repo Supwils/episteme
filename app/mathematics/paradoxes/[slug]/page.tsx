@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getMathParadoxBySlug, getAllMathParadoxes } from "@/subjects/mathematics/lib/paradoxes";
-import { MATH_FIELD_COLORS } from "@/subjects/mathematics/lib/constants";
+import { MATH_FIELD_COLORS, mathBadgeColor } from "@/subjects/mathematics/lib/constants";
 import { MathMarkdownRenderer } from "@/subjects/mathematics/components/MathMarkdownRenderer";
 import { SITE_URL } from "@/lib/constants";
 import { serializeJsonLd, createArticleJsonLd } from "@/lib/jsonld";
@@ -87,7 +87,7 @@ export default async function MathParadoxDetailPage({
           <div className="mb-3 flex flex-wrap items-center gap-3">
             <span
               className="border px-2.5 py-1 font-mono text-[10px] tracking-[0.32em] uppercase"
-              style={{ borderColor: `${fieldColor}50`, color: fieldColor }}
+              style={{ borderColor: `${fieldColor}50`, color: mathBadgeColor(fieldColor) }}
             >
               {paradox.field}
             </span>

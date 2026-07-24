@@ -24,3 +24,9 @@ export const MATH_DIFFICULTY_COLORS: Record<string, string> = {
   进阶: "#f59e0b",
   高级: "#ef4444",
 };
+
+/** Field/era accent lightened toward the light foreground so it stays legible
+ *  as small-text badges on the dark theme (WCAG AA). Preserves the hue. */
+export function mathBadgeColor(hex: string): string {
+  return `color-mix(in oklab, ${hex} 64%, #f5f2ea)`;
+}
