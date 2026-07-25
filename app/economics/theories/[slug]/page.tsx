@@ -44,6 +44,7 @@ export default async function TheoryDetailPage({ params }: { params: Promise<{ s
   return (
     <ArticleLayout
       backHref="/economics/theories"
+      url={`/economics/theories/${slug}`}
       backLabel="← 返回理论列表"
       breadcrumb={
         <Breadcrumb

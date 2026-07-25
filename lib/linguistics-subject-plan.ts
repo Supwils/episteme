@@ -61,6 +61,12 @@ export const LINGUISTICS_SECTIONS: readonly LinguisticsSectionPlan[] = [
         level: 4,
         bridgeDomains: ["universe-physics", "computer-science"],
       },
+      {
+        slug: "tone-and-prosody",
+        title: "声调与韵律",
+        level: 2,
+        bridgeDomains: ["universe-physics", "psychology"],
+      },
     ],
   },
   {
@@ -145,6 +151,12 @@ export const LINGUISTICS_SECTIONS: readonly LinguisticsSectionPlan[] = [
         level: 5,
         bridgeDomains: ["psychology", "philosophy"],
       },
+      {
+        slug: "second-language-acquisition",
+        title: "第二语言习得",
+        level: 2,
+        bridgeDomains: ["psychology", "computer-science"],
+      },
     ],
   },
   {
@@ -186,6 +198,18 @@ export const LINGUISTICS_SECTIONS: readonly LinguisticsSectionPlan[] = [
         title: "濒危语言与语言复振",
         level: 5,
         bridgeDomains: ["sociology", "political-science"],
+      },
+      {
+        slug: "chinese-dialects",
+        title: "汉语方言与变体",
+        level: 2,
+        bridgeDomains: ["human-history", "sociology"],
+      },
+      {
+        slug: "sociolinguistic-variation",
+        title: "社会语言学变异",
+        level: 2,
+        bridgeDomains: ["sociology", "psychology"],
       },
     ],
   },

@@ -81,6 +81,7 @@ export default async function DialogueDetailPage({
       />
       <ArticleLayout
         backHref="/philosophy/dialogues"
+        url={`/philosophy/dialogues/${slug}`}
         backLabel="← 返回哲学对话"
         breadcrumb={<Breadcrumb category="dialogues" currentTitle={dialogue.title} />}
         accent={fieldColor}

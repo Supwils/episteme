@@ -53,6 +53,7 @@ export default async function ExperimentDetailPage({
   return (
     <ArticleLayout
       backHref="/psychology/experiments"
+      url={`/psychology/experiments/${slug}`}
       backLabel="← 返回经典实验"
       accent={fieldColor}
       eyebrow={experiment.field}

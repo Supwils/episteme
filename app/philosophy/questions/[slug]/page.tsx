@@ -69,6 +69,7 @@ export default async function QuestionDetailPage({
       />
       <ArticleLayout
         backHref="/philosophy/questions"
+        url={`/philosophy/questions/${slug}`}
         backLabel="← 返回哲学大问题"
         breadcrumb={<Breadcrumb category="questions" currentTitle={question.title} />}
         accent={fieldColor}

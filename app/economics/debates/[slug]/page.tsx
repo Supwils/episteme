@@ -37,6 +37,7 @@ export default async function DebateDetailPage({ params }: { params: Promise<{ s
   return (
     <ArticleLayout
       backHref="/economics/debates"
+      url={`/economics/debates/${slug}`}
       backLabel="← 返回辩论列表"
       breadcrumb={
         <Breadcrumb

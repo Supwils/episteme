@@ -36,6 +36,7 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
   return (
     <ArticleLayout
       backHref="/psychology/schools"
+      url={`/psychology/schools/${slug}`}
       backLabel="← 返回流派列表"
       accent={eraColor}
       eyebrow={school.era}

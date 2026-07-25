@@ -44,6 +44,7 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
   return (
     <ArticleLayout
       backHref="/economics/schools"
+      url={`/economics/schools/${slug}`}
       backLabel="← 返回学派列表"
       breadcrumb={
         <Breadcrumb

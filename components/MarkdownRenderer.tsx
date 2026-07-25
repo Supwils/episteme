@@ -91,7 +91,7 @@ export function MarkdownRenderer({
             <h4
               key={i}
               id={id}
-              className="font-display text-fg-primary mt-5 mb-2 scroll-mt-24 text-base font-semibold"
+              className="font-display text-fg-primary mt-5 mb-2 scroll-mt-24 text-[1.0625rem] font-semibold"
             >
               {headingText}
             </h4>
@@ -214,7 +214,7 @@ export function MarkdownRenderer({
           return (
             <Tag
               key={i}
-              className="text-fg-secondary my-4 ml-5 space-y-1.5 text-[15px] leading-relaxed"
+              className="text-fg-secondary my-4 ml-5 space-y-1.5 text-[1rem] leading-relaxed"
               style={{ listStyleType: isOrdered ? "decimal" : "disc" }}
             >
               {items.map((item, li) => (
@@ -226,7 +226,7 @@ export function MarkdownRenderer({
           );
         }
         return (
-          <p key={i} className="text-fg-secondary my-4 text-[15px] leading-[1.85]">
+          <p key={i} className="text-fg-secondary my-4 text-[1rem] leading-[1.85]">
             {renderInline(text, footnotes, domain)}
           </p>
         );

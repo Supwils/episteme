@@ -1,8 +1,8 @@
 # Monorepo Migration Plan
 
 > **注意**：本文件为早期英文草稿，已归档。  
-> **当前迁移规范**请参阅 [`docs/迁移计划.md`](./docs/迁移计划.md)（中文，持续更新）。  
-> **当前任务清单**请参阅 [`docs/任务清单.md`](./docs/任务清单.md)。
+> **当前迁移规范**请参阅 [`docs/archive/迁移计划.md`](./迁移计划.md)（中文，持续更新）。  
+> **当前任务清单**请参阅 [`docs/任务清单.md`](../任务清单.md)。
 
 ---
 
@@ -12,12 +12,13 @@ This document tracks the migration of existing standalone projects into the Turb
 
 ## Current State
 
-| App | Location | Framework | Language | Status |
-|-----|----------|-----------|----------|--------|
-| universe-physics | `universe-physics/` | Next.js 16, React Three Fiber | TypeScript | Active development (Phase 0) |
-| human-history | `human-history/website/` | Vite 8 (Rolldown) | JavaScript | Stable SPA |
+| App              | Location                 | Framework                     | Language   | Status                       |
+| ---------------- | ------------------------ | ----------------------------- | ---------- | ---------------------------- |
+| universe-physics | `universe-physics/`      | Next.js 16, React Three Fiber | TypeScript | Active development (Phase 0) |
+| human-history    | `human-history/website/` | Vite 8 (Rolldown)             | JavaScript | Stable SPA                   |
 
 ### universe-physics Tech Stack
+
 - Next.js 16, App Router
 - React Three Fiber + Three.js + Postprocessing
 - Framer Motion, GSAP
@@ -25,6 +26,7 @@ This document tracks the migration of existing standalone projects into the Turb
 - Vitest + Testing Library
 
 ### human-history/website Tech Stack
+
 - Vite 8 with Rolldown `advancedChunks` code-splitting
 - GSAP ^3.15
 - Plain JavaScript SPA with `historyApiFallback`
@@ -51,6 +53,7 @@ universe-knowledge/
 ## Migration Steps
 
 ### Step 1 — Workspace Root (done by parallel agent)
+
 - Create root `package.json` with `workspaces: ["apps/*", "packages/*"]`
 - Create `turbo.json` with pipeline definitions for `build`, `dev`, `lint`, `test`
 - Create `pnpm-workspace.yaml`
@@ -76,6 +79,7 @@ universe-knowledge/
 5. Verify `http://localhost:3000` loads correctly.
 
 **Caution**:
+
 - The original `package.json` uses `"dev": "next dev -p 3033"`. The workspace version uses `--turbopack` and drops the explicit port. Restore `-p 3033` if port conflicts arise in the monorepo.
 - `pnpm.onlyBuiltDependencies` (`esbuild`, `sharp`, `unrs-resolver`) must remain in the app-level `package.json` or be hoisted to root.
 
@@ -114,14 +118,14 @@ Before `@universe/universe-physics` can be installed, `packages/ui` must exist:
 
 ## Caution / Risk Register
 
-| Risk | Mitigation |
-|------|-----------|
-| Port conflict (universe-physics used 3033) | Add `-p 3033` back to `dev` script or configure in `turbo.json` |
-| Vite `advancedChunks` has no direct Next.js equivalent | Evaluate `dynamic()` + route segments; re-benchmark bundle size |
-| GSAP `registerPlugin` runs on server in Next.js | Wrap in `'use client'` directive; use `useEffect` for registration |
-| `pnpm.onlyBuiltDependencies` may not hoist correctly | Keep in app-level `package.json`; test with `pnpm install --frozen-lockfile` |
-| `human-history/website` still has users/deployments | Do NOT delete until new Next.js deployment is verified in production |
-| `@universe/ui` does not exist yet | universe-physics will fail `pnpm install` until packages/ui is scaffolded |
+| Risk                                                   | Mitigation                                                                   |
+| ------------------------------------------------------ | ---------------------------------------------------------------------------- |
+| Port conflict (universe-physics used 3033)             | Add `-p 3033` back to `dev` script or configure in `turbo.json`              |
+| Vite `advancedChunks` has no direct Next.js equivalent | Evaluate `dynamic()` + route segments; re-benchmark bundle size              |
+| GSAP `registerPlugin` runs on server in Next.js        | Wrap in `'use client'` directive; use `useEffect` for registration           |
+| `pnpm.onlyBuiltDependencies` may not hoist correctly   | Keep in app-level `package.json`; test with `pnpm install --frozen-lockfile` |
+| `human-history/website` still has users/deployments    | Do NOT delete until new Next.js deployment is verified in production         |
+| `@universe/ui` does not exist yet                      | universe-physics will fail `pnpm install` until packages/ui is scaffolded    |
 
 ---
 

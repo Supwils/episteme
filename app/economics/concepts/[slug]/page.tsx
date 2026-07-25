@@ -47,6 +47,7 @@ export default async function ConceptDetailPage({ params }: { params: Promise<{ 
   return (
     <ArticleLayout
       backHref="/economics/concepts"
+      url={`/economics/concepts/${slug}`}
       backLabel="← 返回概念列表"
       breadcrumb={
         <Breadcrumb

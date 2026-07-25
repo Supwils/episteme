@@ -50,6 +50,7 @@ export default async function DialogueDetailPage({
   return (
     <ArticleLayout
       backHref="/psychology/dialogues"
+      url={`/psychology/dialogues/${slug}`}
       backLabel="← 返回思想对话"
       accent={eraColor}
       eyebrow={dialogue.era}

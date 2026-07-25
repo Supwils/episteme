@@ -10,7 +10,7 @@ describe("linguistics graph release", () => {
   it("maps all released articles to same-level graph nodes and real routes", () => {
     const plannedBySlug = new Map(plannedRelease.map((article) => [article.slug, article]));
     const validRoutes = buildValidRoutes();
-    expect(linguisticsNodes).toHaveLength(36);
+    expect(linguisticsNodes).toHaveLength(40);
     expect(new Set(linguisticsNodes.map((node) => node.slug))).toEqual(
       new Set(plannedBySlug.keys())
     );

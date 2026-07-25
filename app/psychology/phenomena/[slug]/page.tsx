@@ -48,6 +48,7 @@ export default async function PhenomenonDetailPage({
   return (
     <ArticleLayout
       backHref="/psychology/phenomena"
+      url={`/psychology/phenomena/${slug}`}
       backLabel="← 返回心理现象"
       accent={catColor}
       eyebrow={phenomenon.category}

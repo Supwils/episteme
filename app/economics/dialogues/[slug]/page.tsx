@@ -44,6 +44,7 @@ export default async function DialogueDetailPage({
   return (
     <ArticleLayout
       backHref="/economics/dialogues"
+      url={`/economics/dialogues/${slug}`}
       backLabel="← 返回对话列表"
       breadcrumb={
         <Breadcrumb

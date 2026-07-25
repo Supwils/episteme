@@ -40,6 +40,7 @@ export default async function CaseStudyDetailPage({
   return (
     <ArticleLayout
       backHref="/economics/case-studies"
+      url={`/economics/case-studies/${slug}`}
       backLabel="← 返回案例列表"
       breadcrumb={
         <Breadcrumb

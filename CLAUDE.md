@@ -67,10 +67,9 @@
 2. docs/聚焦方向.md                       ← ⭐ 项目方向与禁区，必须首先阅读
 3. docs/任务清单.md                       ← 找到你应该做的下一个任务
 4. docs/工作日志.md                       ← 了解上一个代理做了什么、遗留了什么问题
-5. docs/迁移计划.md                       ← 了解迁移风险和当前状态
-6. docs/工程原则.md                       ← 了解代码质量要求
-7. docs/知识精神.md                       ← 内容价值观与精神（如果你要写内容）
-8. docs/叙事与引用规范.md                  ← ⭐ 内容核心准则：通俗易懂形象准确有深度 + 引用结构
+5. docs/工程原则.md                       ← 了解代码质量要求
+6. docs/知识精神.md                       ← 内容价值观与精神（如果你要写内容）
+7. docs/叙事与引用规范.md                  ← ⭐ 内容核心准则：通俗易懂形象准确有深度 + 引用结构
 ```
 
 如果要深入某个应用，再读其自己的文档：
@@ -181,7 +180,7 @@ universe-knowledge/                  ← 单一 Next.js 应用根目录
 ├── scripts/                         ← check-content.ts + physics/（bundle-check、lighthouse 等）
 ├── e2e/                             ← Playwright E2E 测试
 ├── types/                           ← 全局类型声明
-├── docs/                            ← 平台级文档（代理读写区，见下；含 DEPLOY.md、MIGRATION.md）
+├── docs/                            ← 平台级文档（代理读写区，见下；已耗尽使命的报告在 docs/archive/）
 ├── reference/                       ← 旧位置参考代码（universe-physics/、human-history/）
 │                                       禁止删除；已排除出 tsconfig，不参与构建
 ├── package.json                     ← 单一应用清单（无 turbo、无 workspace）
@@ -190,7 +189,7 @@ universe-knowledge/                  ← 单一 Next.js 应用根目录
 └── CLAUDE.md                        ← 本文件
 ```
 
-`docs/` 内容：`任务清单.md`（任务真相源）、`工作日志.md`（会话记录）、`工程原则.md`、`知识精神.md`、`项目总览.md`。
+`docs/` 内容：`README.md`（文档索引，先读它）、`任务清单.md`（在办/待办真相源）、`工作日志.md`（会话记录）、`聚焦方向.md`、`工程原则.md`、`知识精神.md`、`叙事与引用规范.md`。一次性报告与已消费的研究稿归档在 `docs/archive/`（附索引表，新代理无需阅读）。
 
 **当前架构**：单一 Next.js 应用，`pnpm dev` 在 `localhost:3000` 启动。内容统一存放在根 `content/`；类型化数据用 `@/content/...` 直接导入，MDX 散文由 `lib/content-paths.ts` + `lib/mdx.ts` 在运行时从 `<cwd>/content` 用 fs 读取。
 
@@ -214,13 +213,14 @@ universe-knowledge/                  ← 单一 Next.js 应用根目录
 
 前面的文档胜出：
 
-1. `docs/任务清单.md` — 当前阶段有序任务与状态
+1. `docs/任务清单.md` — 在办/待办与已知问题（任务真相源）
 2. `docs/工作日志.md` — 最新一次代理的发现与遗留问题
-3. `docs/迁移计划.md` — 迁移步骤与风险
-4. `reference/universe-physics/CLAUDE.md` — universe-physics 应用级规范
-5. `reference/human-history/website/AGENTS.md` — human-history 应用级规范
-6. `docs/工程原则.md` — 平台工程铁律
-7. 本文件（CLAUDE.md）
+3. `docs/聚焦方向.md` — 项目方向与禁区
+4. `docs/叙事与引用规范.md` — 内容创作与引用准则
+5. `reference/universe-physics/CLAUDE.md` — universe-physics 应用级规范
+6. `reference/human-history/website/AGENTS.md` — human-history 应用级规范
+7. `docs/工程原则.md` — 平台工程铁律
+8. 本文件（CLAUDE.md）
 
 ---
 

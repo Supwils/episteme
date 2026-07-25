@@ -14,6 +14,13 @@ interface ArticleLayoutProps {
   /** Full back-link text including any arrow, e.g. "← 返回概念列表". */
   backLabel: string;
   backHref: string;
+  /**
+   * This article's own path, e.g. `/economics/concepts/scarcity`. Required (not
+   * derived from the pathname) so the ~275 KB backlink index is read on the
+   * server instead of being shipped to the browser — and so a page that forgets
+   * it fails to compile rather than silently losing its backlinks.
+   */
+  url: string;
   /** A <Breadcrumb> element — passed as a slot so each domain keeps its API. */
   breadcrumb?: ReactNode;
   /** Accent hex used for the header glow, eyebrow border and tag pills. */
@@ -53,6 +60,7 @@ interface ArticleLayoutProps {
 export function ArticleLayout({
   backLabel,
   backHref,
+  url,
   breadcrumb,
   accent,
   eyebrow,
@@ -136,7 +144,7 @@ export function ArticleLayout({
         <ArticleSidebar contentClassName={sidebarClassName}>{sidebar}</ArticleSidebar>
       </div>
 
-      <Backlinks />
+      <Backlinks url={url} />
 
       {(prev || next) && (
         <nav className="border-border-faint mt-16 flex items-stretch justify-between gap-4 border-t pt-8">

@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { getAllArticles, getArticleBySlug } from "@/lib/knowledge-base";
 import { resolveWikiLink } from "@/lib/wiki-link-index";
 import { SITE_URL } from "@/lib/constants";
+import { Backlinks } from "@/components/Backlinks";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -274,6 +275,7 @@ export default async function KnowledgeArticlePage({ params }: Props) {
         <div className="kb-detail-body">{renderMarkdown(article.content, resolveLink)}</div>
       </article>
 
+      <Backlinks url={`/human-history/knowledge/${slug}`} />
       <div className="kb-detail-footer">
         <Link href="/human-history/knowledge" className="kb-back-bottom">
           ← 返回知识库

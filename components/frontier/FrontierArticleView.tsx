@@ -71,6 +71,7 @@ export function FrontierArticleView({ domain, slug }: { domain: FrontierDomain; 
       />
       <ArticleLayout
         backHref={`/${domain}/frontier`}
+        url={`/${domain}/frontier/${slug}`}
         backLabel="← 返回研究前沿"
         breadcrumb={
           <Breadcrumb

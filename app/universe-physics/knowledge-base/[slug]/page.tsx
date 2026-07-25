@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { universePhysicsKB } from "@/lib/universe-physics-kb";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { SITE_URL } from "@/lib/constants";
+import { Backlinks } from "@/components/Backlinks";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -91,6 +92,7 @@ export default async function PhysicsKnowledgeArticlePage({ params }: Props) {
         />
       </article>
 
+      <Backlinks url={`/universe-physics/knowledge-base/${slug}`} />
       <footer className="border-border-subtle mt-12 border-t pt-6">
         <Link
           href="/universe-physics/knowledge-base"

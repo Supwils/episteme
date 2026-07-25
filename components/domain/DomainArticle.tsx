@@ -105,6 +105,7 @@ export function DomainArticle({
       />
       <ArticleLayout
         backHref={`/${domain}/${section}`}
+        url={`/${domain}/${section}/${slug}`}
         backLabel={`← 返回${sectionConfig.label}`}
         breadcrumb={
           <Breadcrumb

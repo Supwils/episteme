@@ -75,11 +75,19 @@ describe("new subject candidate matrix", () => {
 });
 
 describe("linguistics release plan", () => {
-  it("defines six balanced sections and 36 unique articles", () => {
+  it("defines six balanced sections with unique articles", () => {
     expect(LINGUISTICS_SECTIONS).toHaveLength(6);
-    expect(LINGUISTICS_SECTIONS.every((section) => section.articles.length === 6)).toBe(true);
-    expect(ALL_LINGUISTICS_ARTICLES).toHaveLength(36);
-    expect(new Set(ALL_LINGUISTICS_ARTICLES.map((article) => article.slug)).size).toBe(36);
+    // Balance is the invariant worth holding, not the launch count: every
+    // section must stay populated and none may drift far ahead of the others.
+    // Pinning each section to exactly six would freeze the domain at its
+    // launch size and reject any later article.
+    const perSection = LINGUISTICS_SECTIONS.map((section) => section.articles.length);
+    expect(Math.min(...perSection)).toBeGreaterThanOrEqual(6);
+    expect(Math.max(...perSection) - Math.min(...perSection)).toBeLessThanOrEqual(2);
+    expect(ALL_LINGUISTICS_ARTICLES).toHaveLength(perSection.reduce((a, b) => a + b, 0));
+    expect(new Set(ALL_LINGUISTICS_ARTICLES.map((article) => article.slug)).size).toBe(
+      ALL_LINGUISTICS_ARTICLES.length
+    );
   });
 
   it("covers every level and every declared visualization prerequisite", () => {

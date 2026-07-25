@@ -2944,6 +2944,16 @@
     "e": "听者在声音展开的数百毫秒内持续更新候选词、句法关系和说话者意图。看到“厨师切开了……”时，人们已预测后面可能是食材；听到词首时，多个相似词同时竞争，后续信号再逐步排除。",
     "d": "linguistics"
   },
+  "/linguistics/acquisition-and-mind/second-language-acquisition": {
+    "t": "第二语言习得",
+    "e": "最常见的说法是：\"过了 12 岁就学不好外语了。\"",
+    "d": "linguistics"
+  },
+  "/linguistics/history-typology-society/chinese-dialects": {
+    "t": "汉语方言与变体",
+    "e": "\"中国有很多方言\"这句话里，\"方言\"两个字埋着一个长期争论。",
+    "d": "linguistics"
+  },
   "/linguistics/history-typology-society/endangered-language-revitalization": {
     "t": "濒危语言与语言复振",
     "e": "一门语言被称为濒危，通常指儿童获得、代际传递或公共使用持续收缩，而不是它词汇少、语法简单或不适合现代生活。任何自然语言都能在使用者需要时创造新表达；限制来自权力、资源和使用场景，而非语言本身能…",
@@ -2972,6 +2982,11 @@
   "/linguistics/history-typology-society/linguistic-typology": {
     "t": "语言类型学与跨语言共性",
     "e": "语言类型学追问：人类语言使用哪些结构方案，这些方案如何共现、分布和变化？它可以比较基本语序、格对齐、数量标记、声调、否定、关系从句或手语空间一致。",
+    "d": "linguistics"
+  },
+  "/linguistics/history-typology-society/sociolinguistic-variation": {
+    "t": "社会语言学变异",
+    "e": "传统语言学有一个方便的假设：把变异当噪音。理想的研究对象是\"同质言语社区中的理想说话人\"，实际言语中的摇摆被当作表演误差，扫到一边。",
     "d": "linguistics"
   },
   "/linguistics/methods-and-frontiers/computational-linguistics": {
@@ -3032,6 +3047,11 @@
   "/linguistics/sounds-and-signs/sign-language-structure": {
     "t": "手语的空间语法",
     "e": "自然手语是在聋人社群中形成并代际传递的完整语言。它们有自己的词汇、音系、形态、句法和语用规则，并不等于所在国家多数口语的手势编码。美国手语与英语、英国手语与英语分别使用不同的语法；美国手语与法…",
+    "d": "linguistics"
+  },
+  "/linguistics/sounds-and-signs/tone-and-prosody": {
+    "t": "声调与韵律",
+    "e": "第一个误解：声调是\"东方语言的特色\"。",
     "d": "linguistics"
   },
   "/linguistics/words-sentences-meaning/grammar-theories": {
@@ -7944,9 +7964,19 @@
     "e": "拉美依附理论不是简单的“反自由贸易”口号，解放社会学也不是把政治立场塞进社会学。它们共同提出一个问题：如果全球资本主义本身是不平等结构，社会科学能否只用发达国家经验来解释发展中国家的贫困？",
     "d": "sociology"
   },
+  "/sociology/concepts/race-and-ethnicity": {
+    "t": "种族与族群",
+    "e": "最顽固的误解是：种族是生物学事实，族群是文化现象，二者各有清楚的边界。",
+    "d": "sociology"
+  },
   "/sociology/concepts/social-capital": {
     "t": "社会资本",
     "e": "社会资本经常被通俗地理解成\"人脉\"，仿佛它只是认识更多人、方便办事。这种理解太窄，也容易把一个社会学概念变成成功学。社会资本真正关心的是：关系、信任、规范和网络如何成为行动资源。",
+    "d": "sociology"
+  },
+  "/sociology/concepts/social-movements": {
+    "t": "社会运动",
+    "e": "最流行的解释是：人们因为愤怒而上街。哪里有不满，哪里就有运动。",
     "d": "sociology"
   },
   "/sociology/concepts/social-network-analysis": {
@@ -8094,6 +8124,11 @@
     "e": "调查研究不是随便发一份问卷，也不是样本越大就越科学。一个有偏样本，即使有十万人，也可能比一个严格抽样的一千人更误导。调查研究的核心，是用可检验的抽样、测量和统计推断，把个体回答转化为关于群体的…",
     "d": "sociology"
   },
+  "/sociology/thinkers/c-wright-mills": {
+    "t": "C. 赖特·米尔斯",
+    "e": "米尔斯常被贴上\"愤怒的批判者\"标签，好像他的贡献主要是骂人：骂帕森斯的理论晦涩，骂调查研究琐碎，骂知识分子怯懦。",
+    "d": "sociology"
+  },
   "/sociology/thinkers/emile-durkheim": {
     "t": "埃米尔·涂尔干",
     "e": "涂尔干常被简化成\"把社会当成东西来研究\"的冷峻实证主义者，仿佛他只关心统计表，不关心人的痛苦。这个印象不准确。他真正关心的是一个现代问题：当传统共同体瓦解、宗教权威削弱、市场分工扩大，人们怎样…",
@@ -8102,6 +8137,11 @@
   "/sociology/thinkers/erving-goffman": {
     "t": "欧文·戈夫曼",
     "e": "戈夫曼常被误解成一个只研究\"表演\"的人，于是他的理论被简化为\"人生如戏，大家都在演\"。这句话有一点对，但太浅。戈夫曼不是说社会生活都是虚伪表演，而是说面对面互动有自己的秩序：人们必须不断维持情…",
+    "d": "sociology"
+  },
+  "/sociology/thinkers/fei-xiaotong": {
+    "t": "费孝通",
+    "e": "一提费孝通，很多人先想到《乡土中国》里那句\"差序格局\"，然后把他归为\"写中国农村的散文家\"。这低估了他。",
     "d": "sociology"
   },
   "/sociology/thinkers/georg-simmel": {

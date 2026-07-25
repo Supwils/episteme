@@ -2948,6 +2948,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/frontier/large-language-models": [
     {
+      url: "/linguistics/acquisition-and-mind/second-language-acquisition",
+      title: "第二语言习得",
+    },
+    {
       url: "/computer-science/frontier/ai-interpretability",
       title: "机制可解释性：从可命名特征到因果机制",
     },
@@ -6826,7 +6830,61 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "语言、言语与手语",
     },
   ],
+  "/linguistics/acquisition-and-mind/first-language-acquisition": [
+    {
+      url: "/linguistics/acquisition-and-mind/second-language-acquisition",
+      title: "第二语言习得",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/tone-and-prosody",
+      title: "声调与韵律",
+    },
+  ],
+  "/linguistics/acquisition-and-mind/language-and-brain": [
+    {
+      url: "/linguistics/acquisition-and-mind/second-language-acquisition",
+      title: "第二语言习得",
+    },
+  ],
+  "/linguistics/acquisition-and-mind/multilingual-mind": [
+    {
+      url: "/linguistics/acquisition-and-mind/second-language-acquisition",
+      title: "第二语言习得",
+    },
+  ],
+  "/linguistics/acquisition-and-mind/psycholinguistic-processing": [
+    {
+      url: "/linguistics/acquisition-and-mind/second-language-acquisition",
+      title: "第二语言习得",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/tone-and-prosody",
+      title: "声调与韵律",
+    },
+  ],
+  "/linguistics/acquisition-and-mind/second-language-acquisition": [
+    {
+      url: "/linguistics/acquisition-and-mind/first-language-acquisition",
+      title: "第一语言习得",
+    },
+  ],
+  "/linguistics/history-typology-society/chinese-dialects": [
+    {
+      url: "/linguistics/history-typology-society/language-families",
+      title: "语系与比较方法",
+    },
+  ],
+  "/linguistics/history-typology-society/endangered-language-revitalization": [
+    {
+      url: "/linguistics/history-typology-society/chinese-dialects",
+      title: "汉语方言与变体",
+    },
+  ],
   "/linguistics/history-typology-society/language-contact": [
+    {
+      url: "/linguistics/history-typology-society/chinese-dialects",
+      title: "汉语方言与变体",
+    },
     {
       url: "/linguistics/history-typology-society/language-families",
       title: "语系与比较方法",
@@ -6842,6 +6900,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/linguistics/history-typology-society/language-families": [
     {
+      url: "/linguistics/history-typology-society/chinese-dialects",
+      title: "汉语方言与变体",
+    },
+    {
       url: "/linguistics/history-typology-society/linguistic-typology",
       title: "语言类型学与跨语言共性",
     },
@@ -6850,7 +6912,21 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "语言田野调查与社区协作",
     },
   ],
+  "/linguistics/history-typology-society/language-identity-power": [
+    {
+      url: "/linguistics/history-typology-society/chinese-dialects",
+      title: "汉语方言与变体",
+    },
+  ],
   "/linguistics/history-typology-society/languages-change": [
+    {
+      url: "/linguistics/history-typology-society/sociolinguistic-variation",
+      title: "社会语言学变异",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/tone-and-prosody",
+      title: "声调与韵律",
+    },
     {
       url: "/linguistics/sounds-and-signs/phonemes-and-sound-systems",
       title: "音位与音系系统",
@@ -6870,7 +6946,27 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "语言田野调查与社区协作",
     },
   ],
+  "/linguistics/history-typology-society/sociolinguistic-variation": [
+    {
+      url: "/linguistics/history-typology-society/languages-change",
+      title: "语言为什么会变化",
+    },
+  ],
+  "/linguistics/methods-and-frontiers/corpus-linguistics": [
+    {
+      url: "/linguistics/history-typology-society/chinese-dialects",
+      title: "汉语方言与变体",
+    },
+    {
+      url: "/linguistics/history-typology-society/sociolinguistic-variation",
+      title: "社会语言学变异",
+    },
+  ],
   "/linguistics/methods-and-frontiers/linguistic-fieldwork": [
+    {
+      url: "/linguistics/history-typology-society/chinese-dialects",
+      title: "汉语方言与变体",
+    },
     {
       url: "/linguistics/history-typology-society/language-identity-power",
       title: "语言、身份与权力",
@@ -6882,6 +6978,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/words-sentences-meaning/pragmatics",
       title: "语用学：语境、意图与会话",
+    },
+  ],
+  "/linguistics/methods-and-frontiers/multilingual-ai": [
+    {
+      url: "/linguistics/history-typology-society/chinese-dialects",
+      title: "汉语方言与变体",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/tone-and-prosody",
+      title: "声调与韵律",
+    },
+  ],
+  "/linguistics/sounds-and-signs/acoustic-phonetics": [
+    {
+      url: "/linguistics/sounds-and-signs/tone-and-prosody",
+      title: "声调与韵律",
     },
   ],
   "/linguistics/sounds-and-signs/how-speech-is-made": [
@@ -6902,6 +7014,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/sounds-and-signs/how-speech-is-made",
       title: "人怎样发出语音",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/tone-and-prosody",
+      title: "声调与韵律",
     },
     {
       url: "/linguistics/sounds-and-signs/language-speech-and-sign",
@@ -6932,6 +7048,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/sounds-and-signs/language-speech-and-sign",
       title: "语言、言语与手语",
+    },
+  ],
+  "/linguistics/sounds-and-signs/sign-language-structure": [
+    {
+      url: "/linguistics/sounds-and-signs/tone-and-prosody",
+      title: "声调与韵律",
+    },
+  ],
+  "/linguistics/sounds-and-signs/tone-and-prosody": [
+    {
+      url: "/linguistics/sounds-and-signs/phonemes-and-sound-systems",
+      title: "音位与音系系统",
     },
   ],
   "/linguistics/words-sentences-meaning/morphology": [
@@ -7172,6 +7300,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/field",
       title: "域",
+    },
+  ],
+  "/mathematics/concepts/game-theory": [
+    {
+      url: "/sociology/concepts/social-movements",
+      title: "社会运动",
     },
   ],
   "/mathematics/concepts/group": [
@@ -9420,8 +9554,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/concepts/democracy": [
     {
+      url: "/sociology/concepts/social-movements",
+      title: "社会运动",
+    },
+    {
       url: "/human-history/knowledge/人物--苏格拉底",
       title: "苏格拉底",
+    },
+    {
+      url: "/sociology/thinkers/c-wright-mills",
+      title: "C. 赖特·米尔斯",
     },
   ],
   "/philosophy/concepts/digital-ethics": [
@@ -10327,6 +10469,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/political-science/concepts/civil-society": [
+    {
+      url: "/sociology/concepts/social-movements",
+      title: "社会运动",
+    },
     {
       url: "/political-science/concepts/social-movements",
       title: "社会运动与集体行动",
@@ -11308,6 +11454,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/political-science/isms/nationalism": [
     {
+      url: "/sociology/thinkers/fei-xiaotong",
+      title: "费孝通",
+    },
+    {
       url: "/human-history/knowledge/人物--拿破仑",
       title: "拿破仑",
     },
@@ -11854,16 +12004,60 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "认知偏误",
     },
   ],
+  "/sociology/concepts/gender-and-society": [
+    {
+      url: "/sociology/concepts/race-and-ethnicity",
+      title: "种族与族群",
+    },
+  ],
+  "/sociology/concepts/race-and-ethnicity": [
+    {
+      url: "/sociology/thinkers/w-e-b-du-bois",
+      title: "W. E. B. 杜波依斯",
+    },
+  ],
   "/sociology/concepts/social-capital": [
+    {
+      url: "/sociology/concepts/social-movements",
+      title: "社会运动",
+    },
     {
       url: "/sociology/concepts/social-support-mental-health",
       title: "社会支持、孤独与心理健康",
     },
   ],
+  "/sociology/concepts/social-movements": [
+    {
+      url: "/sociology/institutions/media-and-public-sphere",
+      title: "媒介与公共领域",
+    },
+  ],
   "/sociology/concepts/social-network-analysis": [
+    {
+      url: "/sociology/thinkers/fei-xiaotong",
+      title: "费孝通",
+    },
+    {
+      url: "/linguistics/history-typology-society/sociolinguistic-variation",
+      title: "社会语言学变异",
+    },
+    {
+      url: "/sociology/concepts/social-movements",
+      title: "社会运动",
+    },
     {
       url: "/sociology/concepts/social-support-mental-health",
       title: "社会支持、孤独与心理健康",
+    },
+  ],
+  "/sociology/concepts/social-stratification": [
+    {
+      url: "/sociology/concepts/race-and-ethnicity",
+      title: "种族与族群",
+    },
+    {
+      url: "/sociology/thinkers/c-wright-mills",
+      title: "C. 赖特·米尔斯",
     },
   ],
   "/sociology/concepts/social-support-mental-health": [
@@ -11876,6 +12070,70 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/frontier/social-media-teen-mental-health",
       title: "社交媒体与青少年心理健康：从屏幕时间争论到机制证据",
+    },
+  ],
+  "/sociology/institutions/digital-platform-society": [
+    {
+      url: "/sociology/concepts/social-movements",
+      title: "社会运动",
+    },
+  ],
+  "/sociology/institutions/education-and-credentialism": [
+    {
+      url: "/sociology/concepts/race-and-ethnicity",
+      title: "种族与族群",
+    },
+  ],
+  "/sociology/institutions/family-and-kinship": [
+    {
+      url: "/sociology/thinkers/fei-xiaotong",
+      title: "费孝通",
+    },
+  ],
+  "/sociology/institutions/media-and-public-sphere": [
+    {
+      url: "/sociology/concepts/social-movements",
+      title: "社会运动",
+    },
+    {
+      url: "/sociology/thinkers/c-wright-mills",
+      title: "C. 赖特·米尔斯",
+    },
+  ],
+  "/sociology/institutions/migration-and-diaspora": [
+    {
+      url: "/sociology/concepts/race-and-ethnicity",
+      title: "种族与族群",
+    },
+  ],
+  "/sociology/institutions/urbanization": [
+    {
+      url: "/sociology/thinkers/fei-xiaotong",
+      title: "费孝通",
+    },
+  ],
+  "/sociology/institutions/work-and-labor-organizations": [
+    {
+      url: "/sociology/thinkers/c-wright-mills",
+      title: "C. 赖特·米尔斯",
+    },
+  ],
+  "/sociology/methods/ethnography": [
+    {
+      url: "/sociology/thinkers/fei-xiaotong",
+      title: "费孝通",
+    },
+  ],
+  "/sociology/methods/survey-research": [
+    {
+      url: "/sociology/thinkers/c-wright-mills",
+      title: "C. 赖特·米尔斯",
+    },
+  ],
+  "/sociology/thinkers/fei-xiaotong": [
+    {
+      url: "/sociology/concepts/chinese-social-thought",
+      title: "中国社会思想",
     },
   ],
   "/universe-physics/dialogues/bohr-heisenberg": [

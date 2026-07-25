@@ -36,6 +36,7 @@ export default async function DebateDetailPage({ params }: { params: Promise<{ s
   return (
     <ArticleLayout
       backHref="/psychology/debates"
+      url={`/psychology/debates/${slug}`}
       backLabel="← 返回经典论辩"
       accent={eraColor}
       eyebrow={debate.era}

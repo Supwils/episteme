@@ -12,20 +12,20 @@ const learningCatalog = buildLearningPlanCatalog();
 describe("full graph branch attachments", () => {
   it("attaches every graph node to one traceable curated anchor", () => {
     expect(branchCatalog.summary).toEqual({
-      nodeCount: 1381,
+      nodeCount: 1389,
       anchorCount: 230,
-      inferredBranchCount: 1151,
+      inferredBranchCount: 1159,
       maximumDistance: 5,
-      ambiguousTargetCount: 692,
+      ambiguousTargetCount: 696,
       maximumCandidateCount: 24,
       confidenceCounts: {
         curated: 230,
-        direct: 474,
-        contextual: 542,
-        exploratory: 135,
+        direct: 481,
+        contextual: 544,
+        exploratory: 134,
       },
     });
-    expect(new Set(branchCatalog.targets.map((target) => target.id)).size).toBe(1381);
+    expect(new Set(branchCatalog.targets.map((target) => target.id)).size).toBe(1389);
     const goalIds = new Set(learningCatalog.goals.map((goal) => goal.id));
     for (const target of branchCatalog.targets) {
       expect(goalIds.has(target.anchorPathId), target.id).toBe(true);

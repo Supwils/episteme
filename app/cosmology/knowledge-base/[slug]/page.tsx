@@ -5,6 +5,7 @@ import { cosmologyKB } from "@/lib/cosmology-kb";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { ReadingModeControls } from "@/components/ReadingModeControls";
 import { SITE_URL } from "@/lib/constants";
+import { Backlinks } from "@/components/Backlinks";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -91,6 +92,7 @@ export default async function CosmologyKnowledgeArticlePage({ params }: Props) {
         <MarkdownRenderer domain="cosmology" content={article.content} accentColor={ACCENT} />
       </article>
 
+      <Backlinks url={`/cosmology/knowledge-base/${slug}`} />
       <footer className="border-border-subtle mt-12 border-t pt-6">
         <Link
           href="/cosmology/knowledge-base"

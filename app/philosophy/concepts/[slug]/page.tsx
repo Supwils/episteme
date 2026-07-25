@@ -72,6 +72,7 @@ export default async function ConceptDetailPage({ params }: { params: Promise<{ 
       />
       <ArticleLayout
         backHref="/philosophy/concepts"
+        url={`/philosophy/concepts/${slug}`}
         backLabel="← 返回概念列表"
         breadcrumb={<Breadcrumb category="concepts" currentTitle={concept.title} />}
         accent={fieldColor}

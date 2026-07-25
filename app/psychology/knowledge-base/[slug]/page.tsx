@@ -65,6 +65,7 @@ export default async function PsychologyKnowledgeBaseDetailPage({
       />
       <ArticleLayout
         backHref="/psychology/knowledge-base"
+        url={`/psychology/knowledge-base/${slug}`}
         backLabel="← 返回知识库"
         accent={ACCENT}
         eyebrow={article.category}

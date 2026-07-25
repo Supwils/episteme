@@ -53,6 +53,7 @@ export default async function EconomistDetailPage({
   return (
     <ArticleLayout
       backHref="/economics/economists"
+      url={`/economics/economists/${slug}`}
       backLabel="← 返回经济学家"
       breadcrumb={
         <Breadcrumb

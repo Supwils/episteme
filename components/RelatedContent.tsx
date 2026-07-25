@@ -1,14 +1,12 @@
 import Link from "next/link";
 import {
-  findBySlug,
-  getRelatedItems,
-  getBackReferences,
   getItemsByCategory,
   getCategoryLabel,
   getItemUrl,
   type ContentCategory,
   type ContentItem,
 } from "@/lib/cross-references";
+import { philosophyRelations } from "@/lib/philosophy-relations";
 import {
   getCrossReferences,
   resolveReference,
@@ -155,9 +153,7 @@ type RelatedContentProps = {
 };
 
 export default function RelatedContent({ slug, domain, entityId }: RelatedContentProps) {
-  const item = findBySlug(slug);
-  const related = item ? getRelatedItems(item) : [];
-  const backRefs = item ? getBackReferences(slug) : [];
+  const { related, backRefs } = philosophyRelations(slug, domain);
 
   let crossDomainRefs: CrossReference[] = [];
   if (domain && entityId) {

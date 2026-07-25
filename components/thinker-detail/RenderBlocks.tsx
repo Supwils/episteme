@@ -80,7 +80,7 @@ function RenderBlock({ block }: { block: Block }) {
       return (
         <h4
           id={block.id}
-          className="font-display text-fg-primary mt-6 mb-2 scroll-mt-24 text-base leading-snug font-semibold"
+          className="font-display text-fg-primary mt-6 mb-2 scroll-mt-24 text-[1.0625rem] leading-snug font-semibold"
         >
           <InlineFormatted text={block.text} />
         </h4>
@@ -102,7 +102,7 @@ function RenderBlock({ block }: { block: Block }) {
     case "list":
       if (block.ordered) {
         return (
-          <ol className="text-fg-secondary my-4 space-y-2 text-[0.93rem] leading-relaxed">
+          <ol className="text-fg-secondary my-4 space-y-2 text-[1rem] leading-relaxed">
             {block.items.map((item, i) => (
               <li key={i} className="flex gap-3">
                 <span
@@ -120,7 +120,7 @@ function RenderBlock({ block }: { block: Block }) {
         );
       }
       return (
-        <ul className="text-fg-secondary my-4 space-y-2 text-[0.93rem] leading-relaxed">
+        <ul className="text-fg-secondary my-4 space-y-2 text-[1rem] leading-relaxed">
           {block.items.map((item, i) => (
             <li key={i} className="flex gap-3">
               <span
@@ -180,7 +180,7 @@ function RenderBlock({ block }: { block: Block }) {
       );
     case "paragraph":
       return (
-        <p className="text-fg-secondary my-3 text-[0.93rem] leading-[1.85]">
+        <p className="text-fg-secondary my-3 text-[1rem] leading-[1.85]">
           <InlineFormatted text={block.text} />
         </p>
       );

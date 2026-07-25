@@ -6,14 +6,14 @@ const terrain = buildKnowledgeTerrainSnapshot(buildKnowledgeBranchCatalog());
 
 describe("full graph knowledge terrain", () => {
   it("conserves every node across domain, level and confidence aggregates", () => {
-    expect(terrain.summary.nodeCount).toBe(1381);
-    expect(terrain.summary.ambiguousTargetCount).toBe(692);
+    expect(terrain.summary.nodeCount).toBe(1389);
+    expect(terrain.summary.ambiguousTargetCount).toBe(696);
     expect(terrain.summary.maximumCandidateCount).toBe(24);
     expect(terrain.summary.diagnosticCount).toBe(11);
     expect(terrain.summary.highPriorityDiagnosticCount).toBe(5);
     expect(terrain.domains).toHaveLength(15);
-    expect(terrain.domains.reduce((sum, domain) => sum + domain.total, 0)).toBe(1381);
-    expect(terrain.summary.levelCounts.reduce((sum, count) => sum + count, 0)).toBe(1381);
+    expect(terrain.domains.reduce((sum, domain) => sum + domain.total, 0)).toBe(1389);
+    expect(terrain.summary.levelCounts.reduce((sum, count) => sum + count, 0)).toBe(1389);
 
     const confidenceTotals = terrain.domains
       .flatMap((domain) => domain.cells)
@@ -48,7 +48,7 @@ describe("full graph knowledge terrain", () => {
     expect(philosophy.metrics.curatedShare).toBeCloseTo(10 / 288);
 
     const linguistics = terrain.domains.find((domain) => domain.id === "linguistics")!;
-    expect(linguistics.levels).toEqual([6, 6, 12, 7, 5]);
+    expect(linguistics.levels).toEqual([6, 10, 12, 7, 5]);
     expect(linguistics.metrics.advancedCount).toBe(12);
     expect(linguistics.metrics.missingLevels).toEqual([]);
     expect(linguistics.diagnostics.some((diagnosis) => diagnosis.kind === "missing-levels")).toBe(

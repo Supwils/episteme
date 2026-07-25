@@ -42,6 +42,7 @@ export default async function DisorderDetailPage({
   return (
     <ArticleLayout
       backHref="/psychology/disorders"
+      url={`/psychology/disorders/${slug}`}
       backLabel="← 返回心理障碍"
       accent={catColor}
       eyebrow={disorder.category}

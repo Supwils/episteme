@@ -79,6 +79,7 @@ export default async function ExperimentDetailPage({
       />
       <ArticleLayout
         backHref="/philosophy/experiments"
+        url={`/philosophy/experiments/${slug}`}
         backLabel="← 返回思想实验"
         breadcrumb={<Breadcrumb category="experiments" currentTitle={experiment.title} />}
         accent={fieldColor}

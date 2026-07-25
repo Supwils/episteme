@@ -50,6 +50,7 @@ export default async function KnowledgeBaseDetailPage({
   return (
     <ArticleLayout
       backHref="/economics/knowledge-base"
+      url={`/economics/knowledge-base/${slug}`}
       backLabel="← 返回知识库"
       accent={accent}
       eyebrow={article.category}

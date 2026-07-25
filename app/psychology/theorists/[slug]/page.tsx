@@ -43,6 +43,7 @@ export default async function TheoristDetailPage({
   return (
     <ArticleLayout
       backHref="/psychology/theorists"
+      url={`/psychology/theorists/${slug}`}
       backLabel="← 返回理论家"
       accent={eraColor}
       eyebrow={theorist.era}

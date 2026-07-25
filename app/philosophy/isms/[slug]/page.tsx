@@ -65,6 +65,7 @@ export default async function IsmDetailPage({ params }: { params: Promise<{ slug
       />
       <ArticleLayout
         backHref="/philosophy/isms"
+        url={`/philosophy/isms/${slug}`}
         backLabel="← 返回主义列表"
         breadcrumb={<Breadcrumb category="isms" currentTitle={ism.title} />}
         accent={accent}

@@ -17,10 +17,9 @@
 2. docs/聚焦方向.md                       ← ⭐ 项目方向与禁区，必须首先阅读
 3. docs/任务清单.md                       ← 找到你应该做的下一个任务
 4. docs/工作日志.md                       ← 了解上一个代理做了什么、遗留了什么问题
-5. docs/迁移计划.md                       ← 了解迁移风险和当前状态
-6. docs/工程原则.md                       ← 了解代码质量要求
-7. docs/知识精神.md                       ← 内容价值观与精神（如果你要写内容）
-8. docs/叙事与引用规范.md                  ← ⭐ 内容核心准则：通俗易懂形象准确有深度 + 引用结构
+5. docs/工程原则.md                       ← 了解代码质量要求
+6. docs/知识精神.md                       ← 内容价值观与精神（如果你要写内容）
+7. docs/叙事与引用规范.md                  ← ⭐ 内容核心准则：通俗易懂形象准确有深度 + 引用结构
 ```
 
 如果要深入某个应用，再读其自己的文档：
@@ -166,7 +165,6 @@ universe-knowledge/                  ← 单一 Next.js 应用根目录
 
 1. `docs/任务清单.md` — 当前阶段有序任务与状态
 2. `docs/工作日志.md` — 最新一次代理的发现与遗留问题
-3. `docs/迁移计划.md` — 迁移步骤与风险
 4. `reference/universe-physics/CLAUDE.md` — universe-physics 应用级规范
 5. `reference/human-history/website/AGENTS.md` — human-history 应用级规范
 6. `docs/工程原则.md` — 平台工程铁律

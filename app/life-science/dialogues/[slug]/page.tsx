@@ -84,6 +84,7 @@ export default async function LifeScienceDialoguePage({
       />
       <ArticleLayout
         backHref="/life-science/dialogues"
+        url={`/life-science/dialogues/${slug}`}
         backLabel="← 返回生命科学对话"
         breadcrumb={
           <Breadcrumb category="dialogues" domain="life-science" currentTitle={dialogue.title} />

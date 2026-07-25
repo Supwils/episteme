@@ -290,6 +290,38 @@ export const SOCIOLOGY_NODES: GraphNode[] = [
     "南方理论、去殖民社会学和全球知识生产再平衡。",
     ["全球南方", "去殖民"]
   ),
+  n(
+    "fei-xiaotong",
+    "费孝通",
+    "thinker",
+    "thinkers",
+    "差序格局、江村调查与中国乡土社会的结构分析。",
+    ["差序格局", "乡土中国", "田野调查"]
+  ),
+  n(
+    "c-wright-mills",
+    "C. 赖特·米尔斯",
+    "thinker",
+    "thinkers",
+    "社会学的想象力：把个人困扰翻译成公共议题。",
+    ["社会学的想象力", "权力精英", "白领"]
+  ),
+  n(
+    "social-movements",
+    "社会运动",
+    "concept",
+    "concepts",
+    "资源动员、政治机会与框架分析如何把不满变成有组织的行动。",
+    ["资源动员", "政治机会", "框架分析"]
+  ),
+  n(
+    "race-and-ethnicity",
+    "种族与族群",
+    "concept",
+    "concepts",
+    "种族的社会建构、族群边界与结构性不平等的累积机制。",
+    ["社会建构", "族群边界", "结构性不平等"]
+  ),
   ...SOCIOLOGY_COVERAGE_NODES,
 ];
 
@@ -419,5 +451,17 @@ export const SOCIOLOGY_EDGES: GraphEdge[] = [
     type: "domain-link",
     label: "关系机制进入症状与照护",
   },
+  e("fei-xiaotong", "chinese-social-thought", "差序格局与乡土社会"),
+  e("fei-xiaotong", "family-and-kinship", "生育制度与社会继替"),
+  e("fei-xiaotong", "ethnography", "从实求知的田野传统"),
+  e("c-wright-mills", "social-structure", "个人困扰与公共议题"),
+  e("c-wright-mills", "social-stratification", "白领与新中产位置"),
+  e("c-wright-mills", "media-and-public-sphere", "大众媒介与被动公众"),
+  e("social-movements", "social-network-analysis", "动员依赖既有网络"),
+  e("social-movements", "social-capital", "组织资源与动员能力"),
+  e("social-movements", "media-and-public-sphere", "框架传播与议程"),
+  e("race-and-ethnicity", "social-stratification", "分类如何转为分层"),
+  e("race-and-ethnicity", "w-e-b-du-bois", "色线与双重意识"),
+  e("race-and-ethnicity", "migration-and-diaspora", "移民与族群性再生产"),
   ...SOCIOLOGY_COVERAGE_EDGES,
 ];
