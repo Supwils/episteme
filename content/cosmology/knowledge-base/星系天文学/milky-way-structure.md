@@ -31,15 +31,11 @@ status: published
 
 ### 旋臂结构
 
-银河系有四条主旋臂：英仙臂（Perseus Arm）、矩尺臂（Norma Arm）、盾牌-南十字臂（Scutum-Centaurus Arm）和船底-人马臂（Carina-Sagittarius Arm）。旋臂并非物质的固定结构，而是密度波（density wave）传播形成的——物质穿越密度波时受压缩，触发恒星形成，使旋臂显现为恒星形成区的集中分布带。
-
-太阳所在的猎户旋臂只是一段较短的局部支臂，长约 10,000 光年，不被计为主旋臂。
+银河系有四条主旋臂：英仙臂（Perseus Arm）、矩尺臂（Norma Arm）、盾牌-南十字臂（Scutum-Centaurus Arm）和船底-人马臂（Carina-Sagittarius Arm）。旋臂并非物质的固定结构，而是密度波（density wave）传播形成的——物质穿越密度波时受压缩，触发恒星形成，使旋臂显现为恒星形成区的集中分布带。太阳所在的猎户旋臂只是一段较短的局部支臂，长约 10,000 光年，不被计为主旋臂。
 
 ### 银晕（Galactic Halo）
 
-银晕分为**恒星晕**和**暗物质晕**：
-
-恒星晕由古老的、贫金属的[[球状星团]]和晕族恒星构成，质量约 $10^9 M_\odot$，球状分布，延伸至约 100 kpc。迄今发现约 150 个围绕银河系运动的球状星团，年龄大多超过 100 亿年，是宇宙中最古老的天体之一。
+银晕分为**恒星晕**和**暗物质晕**：恒星晕由古老的、贫金属的[[球状星团]]和晕族恒星构成，质量约 $10^9 M_\odot$，球状分布，延伸至约 100 kpc。迄今发现约 150 个围绕银河系运动的球状星团，年龄大多超过 100 亿年，是宇宙中最古老的天体之一。
 
 [[dark-matter-halo|暗物质晕]]远比恒星晕大，延伸至约 200–300 kpc，总质量约 $(1–2) \times 10^{12} M_\odot$（Bland-Hawthorn & Gerhard 2016，综合多种示踪体方法）。暗物质晕的质量分布通过恒星流、卫星星系轨道和逃逸速度测量来约束，但其密度轮廓（NFW 轮廓 vs. 核状轮廓）仍存在争议。
 
@@ -61,9 +57,7 @@ Gaia DR3（2022年）提供了超过 15 亿颗恒星的精密自行和视差数�
 
 ## 银河系在宇宙中的位置
 
-银河系是**本星系群**（Local Group）的成员，本星系群直径约 1,000 万光年，包含约 80 个成员星系，总质量约 $(2–3) \times 10^{12} M_\odot$。银河系和仙女星系（M31，距离约 250 万光年）是本星系群中的两个主导成员，两者预计在约 45 亿年后发生碰撞并合。
-
-本星系群属于**室女座超星系团**，进而属于更大的**拉尼亚凯亚超星系团**（Tully et al. 2014，_Nature_），其质量约 $10^{17} M_\odot$，直径约 5 亿光年。
+银河系是**本星系群**（Local Group）的成员，本星系群直径约 1,000 万光年，包含约 80 个成员星系，总质量约 $(2–3) \times 10^{12} M_\odot$。银河系和仙女星系（M31，距离约 250 万光年）是本星系群中的两个主导成员，两者预计在约 45 亿年后发生碰撞并合。本星系群属于**室女座超星系团**，进而属于更大的**拉尼亚凯亚超星系团**（Tully et al. 2014，_Nature_），其质量约 $10^{17} M_\odot$，直径约 5 亿光年。
 
 ## 未解之谜
 
@@ -88,15 +82,11 @@ Gaia DR3（2022年）提供了超过 15 亿颗恒星的精密自行和视差数�
 
 ## 银河系磁场
 
-银河系拥有一个弥漫的星系际磁场，强度约 $1$–$5$ 微高斯（$\mu$G）。磁场遵循旋臂结构，通过同步辐射（相对论电子在磁场中的辐射）和法拉第旋转（射电脉冲星极化旋转，RM）等多种手段观测到。磁场在气体动力学、宇宙射线约束和恒星形成中都有重要作用。
-
-Planck 卫星对全天偏振尘埃发射的测量（Planck Collaboration 2016，_Astronomy & Astrophysics_）给出了银河系磁场结构的全天投影图，揭示了旋臂内有序场与分子云区域湍动场的共存。
+银河系拥有一个弥漫的星系际磁场，强度约 $1$–$5$ 微高斯（$\mu$G）。磁场遵循旋臂结构，通过同步辐射（相对论电子在磁场中的辐射）和法拉第旋转（射电脉冲星极化旋转，RM）等多种手段观测到。磁场在气体动力学、宇宙射线约束和恒星形成中都有重要作用。Planck 卫星对全天偏振尘埃发射的测量（Planck Collaboration 2016，_Astronomy & Astrophysics_）给出了银河系磁场结构的全天投影图，揭示了旋臂内有序场与分子云区域湍动场的共存。
 
 ## 银河系中心：超大质量黑洞与 CMZ
 
-银河系中心（距地球约 8.2 kpc）隐藏着一个超大质量黑洞**人马座 A\***（Sagittarius A*，SgrA*），质量约 $4.15 \times 10^6 M_\odot$（Gravity Collaboration 2019，_Astronomy & Astrophysics_）。2022 年，事件视界望远镜（EHT）合作组发布了 SgrA* 的毫米波干涉图像，首次直接分辨出其"阴影"，与广义相对论的预测完全吻合（EHT Collaboration 2022，*Astrophysical Journal Letters\*）。
-
-中心分子区（Central Molecular Zone，CMZ）是内约 500 pc 内的大量气体（约 $5 \times 10^7 M_\odot$）区域，受到强引力潮汐和强湍流，恒星形成效率与银盘相比出人意料地低——其物理机制至今未完全理解。
+银河系中心（距地球约 8.2 kpc）隐藏着一个超大质量黑洞**人马座 A\***（Sagittarius A*，SgrA*），质量约 $4.15 \times 10^6 M_\odot$（Gravity Collaboration 2019，_Astronomy & Astrophysics_）。2022 年，事件视界望远镜（EHT）合作组发布了 SgrA* 的毫米波干涉图像，首次直接分辨出其"阴影"，与广义相对论的预测完全吻合（EHT Collaboration 2022，*Astrophysical Journal Letters\*）。中心分子区（Central Molecular Zone，CMZ）是内约 500 pc 内的大量气体（约 $5 \times 10^7 M_\odot$）区域，受到强引力潮汐和强湍流，恒星形成效率与银盘相比出人意料地低——其物理机制至今未完全理解。
 
 ## 银河系的多信使天文学
 
@@ -122,7 +112,7 @@ Planck 卫星对全天偏振尘埃发射的测量（Planck Collaboration 2016，
 - 太阳到银心距离：$8.178 \pm 0.013$ kpc（GRAVITY Collaboration 2019）
 - 银河系盘径（可见星族）：约 30 kpc；暗物质晕直径：约 200–300 kpc
 
-## 延伸阅读
+## 参考文献
 
 - Bland-Hawthorn, J. & Gerhard, O. (2016). The Galaxy in context: structural, kinematic, and integrated properties. _Annual Review of Astronomy and Astrophysics_, 54, 529–596.
 - Gaia Collaboration (2022). Gaia Data Release 3: Summary of the content and survey properties. _Astronomy & Astrophysics_, 649, A1.

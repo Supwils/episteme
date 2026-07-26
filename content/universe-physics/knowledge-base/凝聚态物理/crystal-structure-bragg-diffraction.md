@@ -101,7 +101,7 @@ X射线晶体学最大的技术挑战是**相位问题**：探测器只能测量
 - **卡3**：罗莎琳德·富兰克林的"照片51"（1952年）是解开DNA双螺旋结构的关键实验数据，但她生前未获应有的承认，1958年去世，未能获得诺贝尔奖。
 - **卡4**：截至2023年，蛋白质数据库（PDB）存储超过21万个大分子结构，约85%由X射线晶体学解析。
 
-## 延伸阅读
+## 参考文献
 
 1. Bragg, William Lawrence. "The Diffraction of Short Electromagnetic Waves by a Crystal." _Proceedings of the Cambridge Philosophical Society_, 17: 43–57, 1913.
 2. Watson, James D. _The Double Helix: A Personal Account of the Discovery of the Structure of DNA_. Atheneum, 1968.

@@ -111,7 +111,7 @@ $$E_{nj} = E_n\left[1 + \frac{\alpha^2}{n^2}\left(\frac{n}{j+1/2} - \frac{3}{4}\
 
 氢原子从1913年玻尔的半经典处理，到1926年薛定谔的波函数求解，到1928年狄拉克方程，到1947年QED修正，到21世纪的反氢精密光谱——它的理论一直在深化，每一次深化都开辟了新的认识层次。
 
-连接节点：[[氢原子的量子理论]] → [[原子光谱]]（谱线系的理论根源）；[[氢原子的量子理论]] → [[电子轨道与量子数]]（原子轨道的量子力学定义）；[[氢原子的量子理论]] → [[薛定谔方程]]（精确求解的范本）
+连接节点：氢原子的量子理论 → [[atomic-spectra|原子光谱]]（谱线系的理论根源）；氢原子的量子理论 → [[electron-orbitals-quantum-numbers|电子轨道与量子数]]（原子轨道的量子力学定义）；氢原子的量子理论 → [[schrodinger-equation|薛定谔方程]]（精确求解的范本）
 
 ---
 
@@ -128,7 +128,7 @@ $$E_{nj} = E_n\left[1 + \frac{\alpha^2}{n^2}\left(\frac{n}{j+1/2} - \frac{3}{4}\
 >
 > "我们在量子力学中拥有了一个工具，它对氢原子的预言，可以精确到一亿分之一——这是整个科学史上最严格的理论检验之一。" — 史蒂芬·温伯格
 
-## 延伸阅读
+## 参考文献
 
 1. Schrödinger, Erwin. "Quantisierung als Eigenwertproblem (Zweite Mitteilung)." _Annalen der Physik_, 79: 489–527, 1926.
 2. Dirac, P. A. M. "The Quantum Theory of the Electron." _Proceedings of the Royal Society A_, 117(778): 610–624, 1928.

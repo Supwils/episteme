@@ -110,7 +110,7 @@ status: published
   地球是太阳系四颗类地行星中的"意外赢家"——在相近的形成条件下，因为板块构造、大型月球和适当轨道位置等若干偶然因素的叠加，成为已知宇宙中唯一一个发展出复杂生物圈的行星。这一认识不是地球中心主义的回归，而是对宜居性苛刻条件的清醒认识——也是我们珍视和保护地球的最深刻的科学依据。
   **水星的 BepiColombo 任务新发现**：欧空局/JAXA 联合任务 BepiColombo（2018 年发射）已于 2021–2025 年间进行了多次水星飞越，正式进入轨道预计在 2025–2026 年。BepiColombo 携带的粒子、磁场和光谱仪器将高精度测量水星磁场（其内源磁场强度约为地球的 1%，但相对于水星体积而言仍强得出乎意料）、表面成分（MESSENGER 发现的高硫含量将被验证）、以及水星极地水冰的分布和来源——是否为彗星/小行星输送还是本地火山排气的水被极地永久阴影捕获。
 
-## 延伸阅读
+## 参考文献
 
 - Canup, R.M. & Asphaug, E. (2001). Origin of the Moon in a giant impact near the end of the Earth's formation. _Nature_, 412, 708–712.
 - Ingersoll, A.P. (1969). The runaway greenhouse: A history of water on Venus. _Journal of Atmospheric Sciences_, 26, 1191–1198.

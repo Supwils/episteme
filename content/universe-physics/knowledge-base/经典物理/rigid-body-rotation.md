@@ -70,7 +70,7 @@ $$I_3\dot{\omega}_3 - (I_1 - I_2)\omega_1\omega_2 = N_3$$
 
 **量子力学中的自旋**是一种无经典对应的内禀转动。电子自旋（$s = 1/2$，单位 $\hbar$）不能用经典旋转的刚体描述，但它与刚体角动量有数学上的类似性（对易关系相同，总角动量由轨道角动量和自旋耦合：$\mathbf{J} = \mathbf{L} + \mathbf{S}$）。原子核的自旋是核磁共振（NMR）和磁共振成像（MRI）的基础——原子核在外磁场中的进动频率（拉莫尔频率，$\omega_L = \gamma B_0$，$\gamma$ 为旋磁比，$B_0$ 为外磁场）正是NMR测量和MRI成像所利用的信号。从宏观陀螺到量子自旋，"转动"概念贯穿了物理学的所有尺度。
 
-连接节点：[[牛顿三大定律]] → [[刚体转动与转动惯量]]（转动版的 $F=ma$）；[[刚体转动与转动惯量]] → [[角动量与守恒律]]（角动量守恒的刚体体现）；[[刚体转动与转动惯量]] → [[拉格朗日与哈密顿力学]]（分析力学处理刚体的系统方法）
+连接节点：[[牛顿三大定律]] → 刚体转动与转动惯量（转动版的 $F=ma$）；刚体转动与转动惯量 → [[角动量与守恒律]]（角动量守恒的刚体体现）；刚体转动与转动惯量 → [[lagrangian-hamiltonian-mechanics|拉格朗日与哈密顿力学]]（分析力学处理刚体的系统方法）
 
 ---
 
@@ -85,7 +85,7 @@ $$I_3\dot{\omega}_3 - (I_1 - I_2)\omega_1\omega_2 = N_3$$
 
 > 欧拉在 1750 年的论文《刚体运动的发现》(Découverte d'un nouveau principe de mécanique) 中确立：刚体绕定点的转动由惯量张量和欧拉方程完整决定——从陀螺仪到行星自转，遵循同一套方程。这是把刚体力学纳入严格数学框架的奠基工作。
 
-## 延伸阅读
+## 参考文献
 
 1. Landau, L. D.; Lifshitz, E. M. _Mechanics_ (Course of Theoretical Physics, Vol. 1). Pergamon Press, 1976.（第六章：刚体运动）
 2. Goldstein, Herbert; Poole, Charles; Safko, John. _Classical Mechanics_, 3rd ed. Addison-Wesley, 2002.（第五章：刚体运动方程）

@@ -62,7 +62,7 @@ tags: [混沌, 三体问题, 蝴蝶效应, 庞加莱, 李雅普诺夫指数, 奇
 
 三体问题也有美丽的新发现。2013年，物理学家Milovan Šuvakov和Veljko Dmitrašinović在计算机上找到了13族新的稳定三体周期轨道（包括著名的"8字形"轨道，1993年由Cris Moore发现），证明三体问题的解空间远比以前认知更丰富。2019年李晓敏和廖世俊利用高精度计算又发现了695个新轨道族。这些工作表明，三体问题在"不可解"之外，仍然蕴藏着人类正在发现的有序结构。
 
-连接节点：[[拉格朗日与哈密顿力学]] → [[混沌与三体问题]]（KAM定理与可积性边界）；[[混沌与三体问题]] → [[太阳系的结构与起源]]（科克伍德间隙与太阳系演化）；[[混沌与三体问题]] → [[流体力学与伯努利原理]]（湍流与混沌的共同根源）
+连接节点：[[lagrangian-hamiltonian-mechanics|拉格朗日与哈密顿力学]] → 混沌与三体问题（KAM定理与可积性边界）；混沌与三体问题 → [[太阳系的结构与起源]]（科克伍德间隙与太阳系演化）；混沌与三体问题 → [[fluid-mechanics-bernoulli|流体力学与伯努利原理]]（湍流与混沌的共同根源）
 
 ---
 
@@ -79,11 +79,14 @@ tags: [混沌, 三体问题, 蝴蝶效应, 庞加莱, 李雅普诺夫指数, 奇
 
 > "一只蝴蝶在巴西扇动翅膀，能引发得克萨斯州的龙卷风吗？" — 爱德华·洛伦兹，1972年演讲题目
 
-## 延伸阅读
+## 参考文献
 
 1. Poincaré, Henri. _Les Méthodes Nouvelles de la Mécanique Céleste_ (3 vols.). Gauthier-Villars, 1892—1899.（天体力学的不朽经典）
 2. Lorenz, Edward N. "Deterministic Nonperiodic Flow." _Journal of the Atmospheric Sciences_ 20 (1963): 130—141.（混沌理论的开山之作）
-3. Gleick, James. _Chaos: Making a New Science_. Viking, 1987.（混沌科学的优秀科普著作，中译本：《混沌》）
-4. Strogatz, Steven H. _Nonlinear Dynamics and Chaos_. Westview Press, 1994.（最清晰的混沌入门教材）
-5. Laskar, Jacques; Gastineau, Mickaël. "Existence of collisional trajectories of Mercury, Mars and Venus with the Earth." _Nature_ 459 (2009): 817—819.
-6. 郝柏林. 《从抛物线谈起——混沌动力学引论》. 上海科学技术出版社, 1993.
+3. Strogatz, Steven H. _Nonlinear Dynamics and Chaos_. Westview Press, 1994.（最清晰的混沌入门教材）
+4. Laskar, Jacques; Gastineau, Mickaël. "Existence of collisional trajectories of Mercury, Mars and Venus with the Earth." _Nature_ 459 (2009): 817—819.
+5. 郝柏林. 《从抛物线谈起——混沌动力学引论》. 上海科学技术出版社, 1993.
+
+## 延伸阅读
+
+1. Gleick, James. _Chaos: Making a New Science_. Viking, 1987.（混沌科学的优秀科普著作，中译本：《混沌》）

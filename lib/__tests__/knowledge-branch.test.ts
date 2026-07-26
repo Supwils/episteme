@@ -16,13 +16,13 @@ describe("full graph branch attachments", () => {
       anchorCount: 230,
       inferredBranchCount: 1159,
       maximumDistance: 5,
-      ambiguousTargetCount: 696,
+      ambiguousTargetCount: 702,
       maximumCandidateCount: 24,
       confidenceCounts: {
         curated: 230,
-        direct: 481,
-        contextual: 544,
-        exploratory: 134,
+        direct: 490,
+        contextual: 543,
+        exploratory: 126,
       },
     });
     expect(new Set(branchCatalog.targets.map((target) => target.id)).size).toBe(1389);
@@ -71,9 +71,13 @@ describe("full graph branch attachments", () => {
     expect(aiEthics.confidence).toBe("direct");
     expect(aiEthics.branchPath[1]?.relationFromPrevious).toContain("伦理治理");
 
+    // 显式语义边保证 x-ray-crystallography 始终是距离 1 的锚点候选；
+    // 正文新增 [[atomic-structure]] 链接后，最终锚点由等距 tie-break 决定
     const xRay = branchCatalog.targets.find((target) => target.id === "medicine:x-ray-imaging")!;
-    expect(xRay.anchorNodeId).toBe("chemistry:x-ray-crystallography");
     expect(xRay.distance).toBe(1);
+    expect(xRay.anchorCandidates.map((candidate) => candidate.anchorNodeId)).toContain(
+      "chemistry:x-ray-crystallography"
+    );
   });
 
   it("searches labels and keywords without returning the entire catalog", () => {

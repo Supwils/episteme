@@ -34,9 +34,7 @@ related:
 
 在大约 $10^{-36}$ 到 $10^{-32}$ 秒之间这段极短的窗口里（注意：这仍远长于约 $5.4\times10^{-44}$ 秒的普朗克时间，暴胀并非发生在普朗克时代本身），宇宙的尺度因子至少膨胀了 $e^{60}\approx10^{26}$ 倍，把一个比质子还小的因果连通区域拉伸到远超今天可观测宇宙的尺度。这个理论被称为**宇宙暴胀（cosmic inflation）**，由 Alan Guth 在1981年提出，随后被 Andrei Linde、Paul Steinhardt、Alexei Starobinsky 等人发展为成熟框架。
 
-暴胀优美地解释了三个宇宙学的经典谜题：为什么可观测宇宙如此均匀（视界问题）？为什么宇宙几何如此接近平坦（平坦性问题）？为什么 CMB 中没有磁单极子（磁单极子问题）？
-
-但暴胀也有一个尚未观测到的核心预言：量子涨落在暴胀期间应该产生**原初引力波（primordial gravitational waves）**，并在宇宙微波背景的偏振图案中留下特定的指纹——**B 模式偏振**。
+暴胀优美地解释了三个宇宙学的经典谜题：为什么可观测宇宙如此均匀（视界问题）？为什么宇宙几何如此接近平坦（平坦性问题）？为什么 CMB 中没有磁单极子（磁单极子问题）？但暴胀也有一个尚未观测到的核心预言：量子涨落在暴胀期间应该产生**原初引力波（primordial gravitational waves）**，并在宇宙微波背景的偏振图案中留下特定的指纹——**B 模式偏振**。
 
 探测这个信号，是当代宇宙学最雄心勃勃的目标之一。它的强弱，由一个参数决定：**张量-标量比 $r$**（tensor-to-scalar ratio）。
 
@@ -49,11 +47,7 @@ CMB 偏振中存在两种模式：
 - **E 模式**（电场型，旋度为零）：已被精确测量，由标量密度涨落（声学振荡）产生，对暴胀和早期宇宙结构有丰富信息。
 - **B 模式**（磁场型，无散度）：在最大尺度上，只有**张量涨落（引力波）**才能在原初产生 B 模式——这是探测暴胀引力波的"黄金通道"。
 
-然而，有一个巨大的前景污染：**引力透镜效应**。
-
-宇宙大尺度结构的引力透镜会把 E 模式的部分功率"混入" B 模式，产生透镜 B 模式信号。这个透镜信号已经被精确测量，但它会掩盖更弱的原初 B 模式。
-
-探测原初 B 模式的实验必须做到两件事：
+然而，有一个巨大的前景污染：**引力透镜效应**。宇宙大尺度结构的引力透镜会把 E 模式的部分功率"混入" B 模式，产生透镜 B 模式信号。这个透镜信号已经被精确测量，但它会掩盖更弱的原初 B 模式。探测原初 B 模式的实验必须做到两件事：
 
 1. **极低噪声**：原初 B 模式信号极其微弱（如果 $r \sim 0.01$，它的振幅约为 CMB 温度涨落的百万分之一量级）；
 2. **精确去透镜（delensing）**：把透镜 B 模式从数据中扣除，才能暴露原初信号。
@@ -66,9 +60,7 @@ CMB 偏振中存在两种模式：
 
 2021年发布的 BK18 结果将上限压低到 **$r < 0.036$（95% 置信度）**。[^bicep_keck]
 
-这个上限已经排除了许多"大场"暴胀模型（inflaton 场跨越普朗克尺度的模型），例如最简单的 $m^2\phi^2$ 单场慢滚模型（预言 $r \sim 0.13$）。
-
-仍然存活的大类模型包括：
+这个上限已经排除了许多"大场"暴胀模型（inflaton 场跨越普朗克尺度的模型），例如最简单的 $m^2\phi^2$ 单场慢滚模型（预言 $r \sim 0.13$）。仍然存活的大类模型包括：
 
 - **Starobinsky 模型（$R^2$ 暴胀）**：预言 $r \approx 0.004$，与当前 CMB 观测最吻合；
 - **希尔顶暴胀（hilltop inflation）**：预言极小的 $r$（$\lesssim 10^{-3}$）；
@@ -102,9 +94,7 @@ LiteBIRD（Lite（Light）satellite for the study of B-mode polarization and Inf
 
 ### CMB-S4：已被取消的巨计划
 
-CMB-S4（CMB Stage 4）是原定建设在南极（Pole Station）和智利的大型地面 CMB 阵列，设计目标 $\sigma(r) < 0.001$，将配置约5万个探测器，造价约 9 亿美元。
-
-但这一计划已经终止：**2025 年 7 月 9 日，美国能源部（DOE）与国家科学基金会（NSF）联合宣布不再支持 CMB-S4，项目转入有序关闭**（部分原因是南极站基础设施沉降、电力不足，叠加经费削减；DOE/NSF 联合声明，2025）。在此背景下，SO 和 LiteBIRD 成为当前最确定推进的下一代 CMB 实验。
+CMB-S4（CMB Stage 4）是原定建设在南极（Pole Station）和智利的大型地面 CMB 阵列，设计目标 $\sigma(r) < 0.001$，将配置约5万个探测器，造价约 9 亿美元。但这一计划已经终止：**2025 年 7 月 9 日，美国能源部（DOE）与国家科学基金会（NSF）联合宣布不再支持 CMB-S4，项目转入有序关闭**（部分原因是南极站基础设施沉降、电力不足，叠加经费削减；DOE/NSF 联合声明，2025）。在此背景下，SO 和 LiteBIRD 成为当前最确定推进的下一代 CMB 实验。
 
 ### BICEP Array：延续的地面先驱
 
@@ -124,11 +114,7 @@ BICEP/Keck 系列已在南极运行多年。下一代的 **BICEP Array** 配置�
 
 2014年3月，BICEP2 团队宣布"发现"了原初引力波的 B 模式信号，$r \approx 0.2$。这一消息轰动全球。
 
-然而，几个月后，联合分析证明：BICEP2 观测到的信号**完全来自银河系尘埃的偏振**，而非宇宙起源。[^bicep2]
-
-这是当代物理学最重要的"错误发现"案例之一。教训是：前景减除（尤其是热尘埃偏振）是 B 模式探测最致命的系统误差来源。
-
-下一代实验的核心技术改进，正是多频段覆盖（从约30 GHz 到约300 GHz）以区分宇宙信号与前景。
+然而，几个月后，联合分析证明：BICEP2 观测到的信号**完全来自银河系尘埃的偏振**，而非宇宙起源。[^bicep2]这是当代物理学最重要的"错误发现"案例之一。教训是：前景减除（尤其是热尘埃偏振）是 B 模式探测最致命的系统误差来源。下一代实验的核心技术改进，正是多频段覆盖（从约30 GHz 到约300 GHz）以区分宇宙信号与前景。
 
 ### $r = 0$ 的哲学困境
 
@@ -142,9 +128,7 @@ BICEP/Keck 系列已在南极运行多年。下一代的 **BICEP Array** 配置�
 
 ### 去透镜的技术难度
 
-精确"去透镜"需要高精度的宇宙大尺度结构图（CIB、CMB 温度小尺度各向异性），来重建引力透镜势，然后从 B 模式数据中减去透镜成分。
-
-这是一个对数据精度和算法要求极高的技术任务，目前地面实验（SO、BICEP Array）已开始在实际数据中探索去透镜，但效率和可靠性仍在提升中。
+精确"去透镜"需要高精度的宇宙大尺度结构图（CIB、CMB 温度小尺度各向异性），来重建引力透镜势，然后从 B 模式数据中减去透镜成分。这是一个对数据精度和算法要求极高的技术任务，目前地面实验（SO、BICEP Array）已开始在实际数据中探索去透镜，但效率和可靠性仍在提升中。
 
 ## 未知的边界
 
@@ -162,7 +146,7 @@ BICEP/Keck 系列已在南极运行多年。下一代的 **BICEP Array** 配置�
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - BICEP/Keck Collaboration. _BK18: Improved Constraints on Cosmology and Foregrounds from BICEP/Keck Data through 2018._ Phys. Rev. Lett. 127, 151301 (2021). arXiv:2110.00483.（给出 $r < 0.036$ 的当前最强上限）
 - BICEP2 Collaboration + Planck Collaboration. _A Joint Analysis of BICEP2/Keck Array and Planck Data._ Phys. Rev. Lett. 114, 101301 (2015). arXiv:1502.00612.（2014年BICEP2"发现"被尘埃解释的联合分析）
@@ -171,14 +155,9 @@ BICEP/Keck 系列已在南极运行多年。下一代的 **BICEP Array** 配置�
 - Guth, A. H. _Inflationary universe: A possible solution to the horizon and flatness problems._ Phys. Rev. D 23, 347 (1981).（暴胀理论的奠基论文）
 - Starobinsky, A. A. _A New Type of Isotropic Cosmological Models Without Singularity._ Phys. Lett. B 91, 99 (1980).（Starobinsky $R^2$ 暴胀模型）
 - Kamionkowski, M. & Kovetz, E. D. _The Quest for B Modes from Inflationary Gravitational Waves._ ARA&A 54, 227 (2016). arXiv:1510.06042.（B 模式探测综述）
+
+## 延伸阅读
+
 - Simons Observatory 首光公告：https://www.simonsfoundation.org/2025/03/17/simons-observatory-large-aperture-telescope-achieves-first-light-milestone/
 
-[^bicep_keck]: BICEP/Keck Collaboration (2021), Phys. Rev. Lett. 127, 151301（arXiv:2110.00483）：$r_{0.05} < 0.036$（95% CL），联合 BK18、Planck 和 WMAP 数据。
-
-[^so_first_light]: Simons Foundation (2025-03-17)：SO 大孔径望远镜于2025年2月底实现首光，首幅天图为火星观测。
-
-[^so_status]: Simons Observatory 小孔径望远镜（SAT）：前两台于2023年秋开始观测，第三台于2024年8月加入（来自 Simons Foundation 2024年度报告）。
-
-[^litebird]: ISAS/JAXA LiteBIRD 任务页面（截至2025年12月）：目标发射时间 JFY2036，比早期计划有所延迟。
-
-[^bicep2]: BICEP2 Collaboration + Planck Collaboration (2015), Phys. Rev. Lett. 114, 101301：2014年 BICEP2 宣布的 B 模式信号被证实为银河系尘埃偏振。
+[^bicep_keck]: BICEP/Keck Collaboration (2021), Phys. Rev. Lett. 127, 151301（arXiv:2110.00483）：$r_{0.05} < 0.036$（95% CL），联合 BK18、Planck 和 WMAP 数据。[^so_first_light]: Simons Foundation (2025-03-17)：SO 大孔径望远镜于2025年2月底实现首光，首幅天图为火星观测。[^so_status]: Simons Observatory 小孔径望远镜（SAT）：前两台于2023年秋开始观测，第三台于2024年8月加入（来自 Simons Foundation 2024年度报告）。[^litebird]: ISAS/JAXA LiteBIRD 任务页面（截至2025年12月）：目标发射时间 JFY2036，比早期计划有所延迟。[^bicep2]: BICEP2 Collaboration + Planck Collaboration (2015), Phys. Rev. Lett. 114, 101301：2014年 BICEP2 宣布的 B 模式信号被证实为银河系尘埃偏振。

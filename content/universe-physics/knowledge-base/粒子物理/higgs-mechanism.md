@@ -105,7 +105,7 @@ $$V(\phi) = -\mu^2 |\phi|^2 + \lambda |\phi|^4$$
 
 > "It is an incredible thing that it has happened in my lifetime."（"它能在我有生之年发生，真是不可思议。"） — 彼得·希格斯（Peter Higgs，2012年7月4日 CERN 宣布发现后的记者会上）
 
-## 延伸阅读
+## 参考文献
 
 1. Higgs, Peter W. "Broken Symmetries and the Masses of Gauge Bosons." _Physical Review Letters_, 13(16): 508–509, 1964.
 2. Englert, François, and Robert Brout. "Broken Symmetry and the Mass of Gauge Vector Mesons." _Physical Review Letters_, 13(9): 321–323, 1964.

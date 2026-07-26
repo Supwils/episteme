@@ -64,7 +64,7 @@ $$A(\omega) = \frac{F_0/m}{\sqrt{(\omega_0^2 - \omega^2)^2 + 4\gamma^2\omega^2}}
 
 生物节律（昼夜节律、心跳、神经振荡）本质上也是振荡系统，尽管机制远比谐振子复杂。人体昼夜节律由下丘脑视交叉上核（SCN）中约2万个神经元的耦合振荡驱动，周期约为24小时，由光照信号（蓝光感受器黑视素，melanopsin）校准。杰弗里·霍尔（Jeffrey C. Hall）、迈克尔·罗斯巴什（Michael Rosbash）和迈克尔·杨（Michael W. Young）因阐明这一分子机制，获得了2017年诺贝尔生理学或医学奖。
 
-连接节点：[[牛顿三大定律]] → [[简谐振动与共振]]（力学基础）；[[简谐振动与共振]] → [[波动与声学]]（振动传播）；[[简谐振动与共振]] → [[混沌与三体问题]]（非线性振动）；[[简谐振动与共振]] → [[量子谐振子]]（量子力学中的对应）
+连接节点：[[牛顿三大定律]] → 简谐振动与共振（力学基础）；简谐振动与共振 → [[waves-and-acoustics|波动与声学]]（振动传播）；简谐振动与共振 → [[chaos-three-body-problem|混沌与三体问题]]（非线性振动）；简谐振动与共振 → [[quantum-harmonic-oscillator|量子谐振子]]（量子力学中的对应）
 
 ---
 
@@ -79,7 +79,7 @@ $$A(\omega) = \frac{F_0/m}{\sqrt{(\omega_0^2 - \omega^2)^2 + 4\gamma^2\omega^2}}
 
 > 瑞利（Lord Rayleigh）在《声学理论》(The Theory of Sound, 1877) 中确立的核心观点：任何系统在平衡位置附近的微小振动，在最低阶近似下都是简谐的、按正弦规律随时间变化——简谐振动因此成为理解一切振动现象的出发点。
 
-## 延伸阅读
+## 参考文献
 
 1. Rayleigh, Lord (John William Strutt). _The Theory of Sound_, 2nd ed. Macmillan, 1894.
 2. French, A. P. _Vibrations and Waves_. Norton, 1971.（MIT入门讲义，清晰严谨）

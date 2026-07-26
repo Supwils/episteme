@@ -98,7 +98,7 @@ $$F/A = -\frac{\pi^2\hbar c}{240 d^4}$$
 
 量子谐振子在1926年是一道教科书习题，在百年后它是全球最先进技术的物理核心。
 
-连接节点：[[量子谐振子]] → [[薛定谔方程]]（定态求解）；[[量子谐振子]] → [[泡利不相容原理]]（零点能与费米子统计的对比）；[[量子谐振子]] → [[全同粒子与量子统计]]（玻色子激发的Fock空间）
+连接节点：量子谐振子 → [[schrodinger-equation|薛定谔方程]]（定态求解）；量子谐振子 → [[pauli-exclusion-principle|泡利不相容原理]]（零点能与费米子统计的对比）；量子谐振子 → [[identical-particles-statistics|全同粒子与量子统计]]（玻色子激发的Fock空间）
 
 ---
 
@@ -121,7 +121,7 @@ $$F/A = -\frac{\pi^2\hbar c}{240 d^4}$$
 
 **光学晶格中的人工谐振子**：超冷原子（玻色子或费米子）被激光光晶格囚禁在各晶格格点，横向振动可以高精度实现量子谐振子。通过操控晶格参数，可以精确控制谐振子的频率、耦合常数和温度，作为量子模拟器研究众多凝聚态系统的性质。
 
-连接节点（补充）：[[量子谐振子]] → [[波函数与概率诠释]]（谐振子波函数的节点结构）；[[量子谐振子]] → [[量子退相干]]（宏观振子的退相干实验边界）
+连接节点（补充）：量子谐振子 → [[wave-function-probability|波函数与概率诠释]]（谐振子波函数的节点结构）；量子谐振子 → [[quantum-decoherence|量子退相干]]（宏观振子的退相干实验边界）
 
 ## 引用
 
@@ -129,7 +129,7 @@ $$F/A = -\frac{\pi^2\hbar c}{240 d^4}$$
 >
 > 卡西米尔效应的物理意义：量子场的零点涨落本身往往不可直接测量，但当两块导体平板改变了允许存在的真空模式时，板内外零点能之差就表现为一个可测、可触摸的力——这正是 H. B. G. 卡西米尔 1948 年的洞见。
 
-## 延伸阅读
+## 参考文献
 
 1. Dirac, P. A. M. "The Quantum Theory of the Emission and Absorption of Radiation." _Proceedings of the Royal Society A_, 114(767): 243–265, 1927.
 2. Casimir, H. B. G. "On the Attraction Between Two Perfectly Conducting Plates." _Proceedings of the Koninklijke Nederlandse Akademie van Wetenschappen_, 51: 793–795, 1948.

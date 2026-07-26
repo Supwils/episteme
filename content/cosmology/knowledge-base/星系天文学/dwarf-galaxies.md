@@ -116,7 +116,7 @@ Fermi-LAT 卫星对 40+ 个矮椭球星系的 $\gamma$ 射线联合分析（Acke
 - 大麦哲伦云（LMC）：最近的大型矮（不规则）星系，距地球约 50 kpc，恒星质量约 $2.7 \times 10^9 M_\odot$，含暗物质晕的总（动力学）质量约 $1$–$2 \times 10^{11} M_\odot$
 - Vera Rubin 天文台预期新发现：约 100–300 个新矮星系（10 年科学运行）
 
-## 延伸阅读
+## 参考文献
 
 - Mateo, M.L. (1998). Dwarf galaxies of the Local Group. _Annual Review of Astronomy and Astrophysics_, 36, 435–506.
 - Boylan-Kolchin, M., Bullock, J.S. & Kaplinghat, M. (2011). Too big to fail? The puzzling darkness of massive Milky Way subhalos. _MNRAS Letters_, 415, L40–L44.

@@ -71,12 +71,6 @@ export const COSMOLOGY_KB_DATA = [
   },
   { slug: "引力透镜", title: "引力透镜", titleEn: "Gravitational Lensing", category: "宇宙学观测" },
   {
-    slug: "宇宙距离阶梯",
-    title: "宇宙距离阶梯",
-    titleEn: "Cosmic Distance Ladder",
-    category: "宇宙学观测",
-  },
-  {
     slug: "重子声学振荡",
     title: "重子声学振荡",
     titleEn: "Baryon Acoustic Oscillations",

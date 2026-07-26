@@ -95,7 +95,7 @@ tags: [核物理, 放射性衰变, 衰变链, α衰变, β衰变, γ衰变, 半�
 
 > "我在沥青铀矿中找到一种新元素，我以我的祖国来命名它——波罗尼亚（Polonium，钋）。" — 玛丽·居里（1898年，致法国科学院报告）
 
-## 延伸阅读
+## 参考文献
 
 1. Becquerel, Henri. "Sur les radiations émises par phosphorescence." _Comptes Rendus_, 122: 420–421, 1896.
 2. Rutherford, Ernest, and Frederick Soddy. "The Cause and Nature of Radioactivity." _Philosophical Magazine_, 4(21): 370–396, 1902.

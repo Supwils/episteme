@@ -103,7 +103,7 @@ $$k_B T_c \approx 1.13\hbar\omega_D \exp\!\left(-\frac{1}{\lambda - \mu^*}\right
 - **卡3**：BCS超导（1957年，巴丁、库珀、施里弗，1972年诺贝尔物理学奖）的核心机制是电子通过交换声子形成Cooper对，转变温度由电声子耦合常数决定。
 - **卡4**：固体热导率的有限性来自Umklapp声子-声子散射（非谐效应），金刚石热导率约2200 W/(m·K)，是常见固体中最高的。
 
-## 延伸阅读
+## 参考文献
 
 1. Einstein, Albert. "Die Plancksche Theorie der Strahlung und die Theorie der spezifischen Wärme." _Annalen der Physik_, 22(1): 180–190, 1907.
 2. Debye, Peter. "Zur Theorie der spezifischen Wärmen." _Annalen der Physik_, 39(14): 789–839, 1912.

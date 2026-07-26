@@ -100,7 +100,7 @@ tags: [凝聚态物理, 半导体, 能带理论, 晶体管, 掺杂, pn结, 硅, 
 - **卡3**：2023年苹果M2 Ultra芯片集成约1340亿个晶体管，采用台积电3 nm工艺。1971年的英特尔4004仅有2300个晶体管。
 - **卡4**：摩尔定律（1965年）预言晶体管数量每两年翻番，这一经验规律维持约50年，现已接近物理极限放缓。
 
-## 延伸阅读
+## 参考文献
 
 1. Shockley, William. "The Theory of p-n Junctions in Semiconductors and p-n Junction Transistors." _Bell System Technical Journal_, 28(3): 435–489, 1949.
 2. Bardeen, John, and Walter H. Brattain. "The Transistor, A Semi-Conductor Triode." _Physical Review_, 74(2): 230–231, 1948.

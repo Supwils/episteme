@@ -118,10 +118,10 @@ NANOGrav 的 2023 年结果是引力波天文学的第二次大革命——在�
 
 ## 跨领域连接
 
-- **脉冲星计时阵列（基础原理）**（`../致密天体/pulsar-timing-array.md`）：本文聚焦于 NANOGrav 具体结果，该文介绍 PTA 基本原理
-- **引力波探测器 LIGO 与 LISA**（`gravitational-wave-detectors-ligo-lisa.md`）：互补的频率窗口
-- **超大质量黑洞**（`../致密天体/supermassive-black-holes.md`）：PTA 信号的最可能来源是 SMBBH 背景
-- **星系形成与演化**（`../../星系形成与演化.md`）：星系并合率决定 SMBBH 并合率，是 PTA 信号的上游
+- **脉冲星计时阵列（基础原理）**（[[pulsar-timing-array|脉冲星计时阵列]]）：本文聚焦于 NANOGrav 具体结果，该文介绍 PTA 基本原理
+- **引力波探测器 LIGO 与 LISA**（[[gravitational-wave-detectors-ligo-lisa|引力波探测器LIGO与LISA]]）：互补的频率窗口
+- **超大质量黑洞**（[[supermassive-black-holes|超大质量黑洞]]）：PTA 信号的最可能来源是 SMBBH 背景
+- **星系形成与演化**（[[星系形成与演化]]）：星系并合率决定 SMBBH 并合率，是 PTA 信号的上游
 
 ## 参考文献
 

@@ -68,7 +68,7 @@ $$\oint_S \mathbf{E} \cdot d\mathbf{A} = \frac{Q_{\rm enc}}{\varepsilon_0}$$
 
 静电场在生命科学中扮演着不可忽视的角色。细胞膜两侧存在约70 mV的静息电位，由 K$^+$、Na$^+$、Cl$^-$ 等离子的不对称分布维持，厚度约7 nm的脂质双层相当于一个极薄的电容器，膜内电场约 $10^7$ V/m（相当于绝缘体击穿场强量级）。神经冲动（动作电位）是膜电位快速变化的传播，心电图（ECG）和脑电图（EEG）都是测量体内静电场时变信号的工具。DNA双螺旋结构中，磷酸基团的静电排斥是双链保持伸展形态的重要因素，蛋白质的折叠也受到局部静电场的深刻影响。
 
-连接节点：[[麦克斯韦方程组]] → [[库仑定律与静电场]]（静态极限）；[[库仑定律与静电场]] → [[电容与电感]]（电场储能的实际应用）；[[库仑定律与静电场]] → [[量子电动力学]]（库仑力的量子描述）
+连接节点：[[麦克斯韦方程组]] → 库仑定律与静电场（静态极限）；库仑定律与静电场 → [[capacitance-and-inductance|电容与电感]]（电场储能的实际应用）；库仑定律与静电场 → [[量子电动力学]]（库仑力的量子描述）
 
 ---
 
@@ -83,7 +83,7 @@ $$\oint_S \mathbf{E} \cdot d\mathbf{A} = \frac{Q_{\rm enc}}{\varepsilon_0}$$
 
 > "场是真实的。我们不必在那里放任何电荷——场就在那里，而且它带有能量。" — 理查德·费曼，《费曼物理学讲义》第二卷（1964年）
 
-## 延伸阅读
+## 参考文献
 
 1. Coulomb, Charles-Augustin de. "Premier Mémoire sur l'Électricité et le Magnétisme." _Histoire de l'Académie Royale des Sciences_, 1785.（库仑定律原始论文）
 2. Maxwell, James Clerk. _A Treatise on Electricity and Magnetism_, 2 vols. Clarendon Press, 1873.（电磁理论的划时代著作）

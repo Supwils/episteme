@@ -2,7 +2,7 @@
 title: Q 学习与强化学习
 title_en: Q-Learning and Reinforcement Learning
 status: published
-updated: 2026-06-13
+updated: 2026-07-25
 category: 机器学习算法
 order: 40
 field: 计算机科学 · 机器学习 · 强化学习
@@ -26,11 +26,9 @@ related:
 
 ## 破除误解：强化学习不是监督学习
 
-监督学习需要"正确答案"（标注数据）；强化学习只有**延迟的、稀疏的奖励信号**。
+监督学习需要"正确答案"（标注数据）；强化学习只有**延迟的、稀疏的奖励信号**。以国际象棋为例：一局棋可能走 80 步，直到游戏结束才知道输赢。哪一步是错误的？强化学习必须解决这个**信用分配问题（Credit Assignment Problem）**——把最终结果的功劳或过失分配给过程中的每一步。这比监督学习困难得多，也更接近人类和动物学习的真实情况。
 
-国际象棋：一局棋可能走 80 步，直到游戏结束才知道输赢。哪一步是错误的？强化学习必须解决这个**信用分配问题（Credit Assignment Problem）**——把最终结果的功劳或过失分配给过程中的每一步。
-
-这比监督学习困难得多，也更接近人类和动物学习的真实情况。
+本文后面会用一张手算的 Q 表说明，这个信用分配到底有多慢：在一条只有终局奖励的链上，信息每个 episode 只能往回走**一个状态**。
 
 ## 基础框架：马尔可夫决策过程
 
@@ -83,22 +81,89 @@ Q 学习是一种**无模型（Model-Free）**、**离策略（Off-Policy）** �
     s ← s'
 ```
 
-**TD 误差** $\delta = r + \gamma \max_{a'} Q(s', a') - Q(s, a)$ 是"预期"与"实际"之间的差距，推动 $Q$ 值不断修正。
+**TD 误差** $\delta = r + \gamma \max_{a'} Q(s', a') - Q(s, a)$ 是"预期"与"实际"之间的差距，推动 $Q$ 值不断修正。**收敛定理（Watkins & Dayan, 1992）**给了这套更新的合法性：在状态动作有限、学习率满足 Robbins-Monro 条件、每个状态动作对被无限次访问的前提下，Q 学习收敛到 $Q^*$。注意最后那个前提有多苛刻——"每个状态动作对被无限次访问"在 Atari 或围棋这种状态空间里根本无法满足，所以深度强化学习的所有收敛保证事实上都是失效的。
 
-**收敛定理（Watkins & Dayan, 1992）**：在状态动作有限、学习率满足 Robbins-Monro 条件、每个状态动作对被无限次访问的前提下，Q 学习收敛到 $Q^*$。
+## 手算 Q 表：五状态链，四个 episode
+
+上面的伪代码要走一遍才有感觉。设一条链式 MDP：状态 $s_1 \to s_2 \to s_3 \to s_4 \to s_5$，其中 $s_5$ 是终止状态；走到 $s_5$ 得奖励 $+1$，其余每步奖励 0。取 $\alpha = 0.5$、$\gamma = 0.9$，Q 表全部初始化为 0，智能体每个 episode 都从 $s_1$ 一路向右走到终点。
+
+先看第 3 个 episode 的逐步过程（进入时 Q 表是 $[0,\ 0,\ 0.225,\ 0.75]$）：
+
+| 步 | 状态 | 奖励 $r$ | $\max_{a'}Q(s',a')$ | TD 目标 $r+\gamma\max$ | 旧值 | 新值 $=$ 旧 $+\,0.5\times$（目标 $-$ 旧） |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | $s_1$ | 0 | $Q(s_2)=0$ | 0 | 0 | 0 |
+| 2 | $s_2$ | 0 | $Q(s_3)=0.225$ | 0.2025 | 0 | 0.1013 |
+| 3 | $s_3$ | 0 | $Q(s_4)=0.75$ | 0.675 | 0.225 | 0.45 |
+| 4 | $s_4$ | 1 | 终止，取 0 | 1 | 0.75 | 0.875 |
+
+把四个 episode 排在一起：
+
+| Q 表快照 | $Q(s_1)$ | $Q(s_2)$ | $Q(s_3)$ | $Q(s_4)$ |
+| --- | --- | --- | --- | --- |
+| 初始 | 0 | 0 | 0 | 0 |
+| episode 1 后 | 0 | 0 | 0 | 0.5 |
+| episode 2 后 | 0 | 0 | 0.225 | 0.75 |
+| episode 3 后 | 0 | 0.1013 | 0.45 | 0.875 |
+| episode 4 后 | 0.0456 | 0.2531 | 0.6188 | 0.9375 |
+| 真值 $Q^*$ | 0.729 | 0.81 | 0.9 | 1 |
+
+这张表最该注意的是**左上角那一片零**。奖励只出现在 $s_4 \to s_5$ 这一步，信息每个 episode 只能往回传播一个状态：第 1 个 episode 走完，只有 $Q(s_4)$ 非零；第 2 个 episode 结束，$Q(s_3)$ 才第一次动；起点 $s_1$ 要等到第 4 个 episode 才知道"这条路上有奖励"。而智能体在每个 episode 里明明都从 $s_1$ 一路走到了终点、每次都拿到了那个 $+1$——它却要重复四遍，才把这件事传回起点。
+
+这就是**稀疏奖励下样本效率低下的数学根源**，而且它给出一个可以直接算的下界：只有终局奖励的任务，链长 $n$，那么信息至少需要 $n$ 个 episode 才能到达起点。围棋一局约 200 手，Atari 一局几千帧；再乘上"每个状态动作对要被访问多次才能收敛"，DQN 需要上亿帧就不奇怪了。这也解释了后来那些补丁为什么长成那个样子：$n$ 步回报与资格迹（eligibility trace）让信息一次往回跳多步，优先经验回放（prioritized replay）让 TD 误差大的转移被更频繁地重放——它们攻击的都是这张表左上角的那片零。
+
+再看最后一列的收敛节奏：$Q(s_4)$ 依次是 0.5、0.75、0.875、0.9375，每次把与真值 1 的差距**恰好减半**——因为 $\alpha = 0.5$，这一项的更新就是纯指数逼近。这给了 Robbins-Monro 条件（$\sum_t \alpha_t = \infty$ 而 $\sum_t \alpha_t^2 < \infty$）一个直观解释：步长的和要发散，才能把任意远的初始误差走完；步长的平方和要收敛，才能让采样噪声的影响逐步归零。
+
+## 为什么 Q 学习是离策略的：悬崖行走的对照
+
+"离策略（Off-Policy）"这个词的全部含义都在 TD 目标那一项里。对照两个只差一处的算法：
+
+- **Q 学习**：$Q(s,a) \leftarrow Q(s,a) + \alpha\left[r + \gamma \max_{a'} Q(s', a') - Q(s,a)\right]$
+- **SARSA**：$Q(s,a) \leftarrow Q(s,a) + \alpha\left[r + \gamma Q(s', a') - Q(s,a)\right]$，其中 $a'$ 是**下一步实际执行的那个动作**
+
+差别只是 $\max_{a'}$ 换成了 $a'$，含义却完全不同。Q 学习假设"从下一状态起我会走最优动作"，而实际执行的可能是一次 $\varepsilon$-贪婪的随机探索；SARSA 用的就是实际会执行的动作。所以 Q 学习学的是**最优策略**的价值，与自己正在执行的行为无关（故称离策略）；SARSA 学的是**自己当前这个带探索的策略**的价值（同策略，On-Policy）。
+
+这个差别在 Sutton 与 Barto 教科书的"悬崖行走"（Cliff Walking，例 6.6）里表现得最干净：一个网格世界，起点在左下、终点在右下，两者之间沿底边是一排"悬崖"格子；每走一步奖励 $-1$，掉进悬崖奖励 $-100$ 并被送回起点。两个算法学出的东西不一样——**Q 学习**收敛到真正的最优路径，紧贴悬崖边走，因为那最短；**SARSA** 学出一条绕开悬崖、从上方走的更长路径。
+
+看起来 SARSA 学错了。但用 $\varepsilon = 0.1$ 的 $\varepsilon$-贪婪策略实际运行时，SARSA 的平均回报**更高**。原因很朴素：紧贴悬崖走，每一步都有 10% 的概率随机动一下，而随机动一下就可能掉下去挨 $-100$。Q 学习学到的最优路径，在一个"会犯错的执行者"手里是危险的；SARSA 把探索的代价算进了自己的价值估计，于是自动学会了留出安全边距。
+
+该记住的是这一句：**离策略学的是"如果我完美执行会怎样"，同策略学的是"以我实际的样子执行会怎样"**。当执行者不完美——有探索、有传感器噪声、有作动器误差——而失误代价又很高时，后者才是对的目标。这不是理论细节，而是机器人与自动驾驶里选算法的实际依据。
+
+## 最大化偏差：$\max$ 这个算子本身有偏
+
+Q 学习的更新里有个 $\max_{a'} Q(s', a')$。这一项藏着一个系统性错误：**取一组带噪声估计的最大值，结果会偏高**，且与每个估计是否无偏无关。
+
+一个能手算的例子。设某状态下有 $m$ 个动作，真实价值全为 0，但每个动作的估计因采样噪声等概率地取 $+1$ 或 $-1$。每个估计单独看都是无偏的（均值 0）。可 $\max$ 只在**所有** $m$ 个估计同时取 $-1$ 时才等于 $-1$，概率 $2^{-m}$，其余情况都等于 $+1$：
+
+$$\mathbb{E}[\max] = 1 \cdot (1 - 2^{-m}) + (-1)\cdot 2^{-m} = 1 - 2^{1-m}$$
+
+| 动作数 $m$ | 1 | 2 | 3 | 4 | 10 |
+| --- | --- | --- | --- | --- | --- |
+| $\mathbb{E}[\max]$（真值为 0） | 0 | 0.5 | 0.75 | 0.875 | 0.998 |
+
+这张表最该注意的是它饱和得多快：只要有 2 个动作，偏差就已经是噪声幅度的一半；10 个动作时几乎把噪声的上界整个吃进来。Atari 游戏的动作数在 4 到 18 之间，所以 DQN 的 Q 值**系统性偏高**——这不是实现 bug，是 $\max$ 这个算子的性质。更麻烦的是这份偏高会经由 TD 目标传回来，被下一轮更新当成"真实"信号继续放大。
+
+**Double Q-learning**（van Hasselt, NeurIPS 2010）的修法很巧：维护两套 Q 表 $Q^A$、$Q^B$，用一套**选动作**、用另一套**估价值**：
+
+$$Q^A(s,a) \leftarrow Q^A(s,a) + \alpha\left[r + \gamma\, Q^B\!\left(s',\, \arg\max_{a'} Q^A(s', a')\right) - Q^A(s,a)\right]$$
+
+关键在于：$Q^A$ 挑出的那个动作，其价值由**独立的** $Q^B$ 给出。$Q^A$ 之所以挑中它，很可能正因为 $Q^A$ 在这一项上的噪声偏高；但 $Q^B$ 的噪声与此无关，不会跟着偏高。把"选择"与"评估"解耦，偏差就消掉了。
+
+van Hasselt、Guez 与 Silver 在 AAAI 2016 把这个思路搬进 DQN——**Double DQN** 连新网络都不用加：用在线网络选动作、用本来就有的目标网络估价值即可。这是深度强化学习里少见的"改几行代码换来一致提升"的改进。
 
 ## DQN：让 Q 学习遇上深度学习
 
 2015 年，DeepMind 的 Mnih 等人在 Nature 发表 DQN，解决了将 Q 学习用于高维状态空间（如游戏像素）的两大不稳定性问题：
 
-**经验回放（Experience Replay）**：将交互经验 $(s, a, r, s')$ 存入回放缓冲区，每次训练从中随机采样 mini-batch，打破样本间的时序相关性。
+**经验回放（Experience Replay）**：将交互经验 $(s, a, r, s')$ 存入回放缓冲区，每次训练从中随机采样 mini-batch，打破样本间的时序相关性。为什么必须打破？因为连续几帧画面几乎一样，直接拿它们做梯度更新等于反复在同一个点上使力，等价 batch size 远小于名义值。Nature 论文里的具体参数是：缓冲区容量 100 万条转移，mini-batch 大小 32，先积累 5 万条经验才开始训练。
 
-**目标网络（Target Network）**：用一个参数缓慢更新的网络计算 TD 目标，避免"追逐移动靶标"的不稳定性。
+**目标网络（Target Network）**：TD 目标 $r + \gamma \max_{a'} Q(s', a'; \theta)$ 里的 $\theta$ 如果就是正在更新的那套参数，就等于一边算目标、一边把目标挪走——追逐移动靶标。DQN 的做法是复制一份参数 $\theta^-$ 专供算目标用，每 1 万步才同步一次。同一张表里的其他数字：折扣因子 0.99，RMSProp 学习率 0.00025，探索率 $\varepsilon$ 在前 100 万帧从 1.0 线性退火到 0.1。
+
+这些数字凑在一起，才能看清"样本效率低"到底有多低：每个游戏训练 5000 万个智能体步，每步跳过 4 帧，合计 2 亿个模拟器帧；按 Atari 的 60 帧/秒折算，约等于**38 天不间断地玩同一个游戏**。人类玩家通常几分钟就能摸清同一个游戏的玩法。
 
 此后的重要改进：
-- **Double DQN（2016）**：解决 Q 值高估问题
-- **Dueling DQN（2016）**：将 Q 函数分解为状态值和优势函数
-- **Rainbow（2017）**：综合六项改进，显著提升性能
+- **Double DQN（van Hasselt et al., AAAI 2016）**：解决上一节那个 $\max$ 带来的 Q 值高估问题
+- **Dueling DQN（Wang et al., ICML 2016）**：将 Q 函数分解为状态值和优势函数
+- **Rainbow（Hessel et al., AAAI 2018）**：把六项互相独立的改进（Double、Dueling、优先回放、多步回报、分布式价值、噪声网络）合在一起，在 Atari 基准上同时改善了数据效率与最终得分
 
 ## RL 的算法版图
 
@@ -125,17 +190,28 @@ Q 学习是一种**无模型（Model-Free）**、**离策略（Off-Policy）** �
 
 - **[[monte-carlo-methods]]**：蒙特卡洛强化学习用随机采样估计回报，是 Q 学习的替代方案，在 AlphaGo 的 MCTS 中有重要应用。
 - **[[gradient-descent-backprop]]**：DQN 用神经网络参数化 Q 函数，通过反向传播更新参数，是 RL 与深度学习的结合点。
-- **博弈论**：多智能体强化学习（MARL）是博弈论和 RL 的交叉，AlphaStar（星际争霸 AI）等系统用多智能体 RL 的自博弈训练。
+- **[[game-theory|博弈论]]**：多智能体强化学习（MARL）是博弈论和 RL 的交叉，AlphaStar（星际争霸 AI）等系统用多智能体 RL 的自博弈训练。
 - **神经科学**：TD 学习与多巴胺神经元的奖励预测误差信号有惊人的吻合（Schultz et al., 1997），是计算神经科学中 AI-神经科学最成功的互动案例之一。
+- **[[dynamic-programming|动态规划]]**：贝尔曼最优方程就是动态规划的方程，Q 学习是它的**采样版本**——不知道转移概率 $P$，就用一条实际走出来的轨迹去近似那个期望。上面那张手算表里"信息每 episode 往回传一个状态"的现象，与动态规划里值迭代逐层回推是同一回事，只是这里每一层要花一整个 episode 才走完。
+- **[[probability|概率论]]**：最大化偏差那一节纯属概率论——$\mathbb{E}[\max X_i] \geq \max \mathbb{E}[X_i]$（詹森不等式的一个形式），等号仅在无噪声时成立。同一个不等式在拍卖理论里叫赢者诅咒（winner's curse）：出价最高的人往往是把标的物估得最离谱的那个。
+- **[[optimization|最优化]]**：策略梯度方法把 RL 直接写成对策略参数的随机优化问题，与值函数法是两条并行的技术路线；PPO 的"信任域"思想来自最优化里的约束步长方法。
 
 ---
 
 ## 参考文献
 
 - Watkins, C. J. C. H. & Dayan, P. *Q-Learning.* Machine Learning 8(3–4), 279–292 (1992).
-- Mnih, V. et al. *Human-Level Control through Deep Reinforcement Learning.* Nature 518, 529–533 (2015).
+- Mnih, V. et al. *Human-Level Control through Deep Reinforcement Learning.* Nature 518, 529–533 (2015).（回放容量 100 万、mini-batch 32、目标网络 1 万步同步、学习率 0.00025、5000 万帧等超参数出自其扩展数据表）
+- Sutton, R. S. & Barto, A. G. *Reinforcement Learning: An Introduction.* 2nd ed. MIT Press, 2018.（悬崖行走为例 6.6，最大化偏差与 Double Learning 为例 6.7）
+- van Hasselt, H. *Double Q-learning.* NeurIPS 2010.
+- van Hasselt, H., Guez, A. & Silver, D. *Deep Reinforcement Learning with Double Q-Learning.* AAAI 2016, 2094–2100. arXiv:1509.06461.
+- Wang, Z. et al. *Dueling Network Architectures for Deep Reinforcement Learning.* ICML 2016.
+- Hessel, M. et al. *Rainbow: Combining Improvements in Deep Reinforcement Learning.* AAAI 2018. arXiv:1710.02298.
 - Schulman, J. et al. *Proximal Policy Optimization Algorithms.* arXiv:1707.06347 (2017).
+- Schultz, W., Dayan, P. & Montague, P. R. *A Neural Substrate of Prediction and Reward.* Science 275(5306), 1593–1599 (1997).
 
 ## 延伸阅读
 
-- Sutton, R. S. & Barto, A. G. *Reinforcement Learning: An Introduction.* 2nd ed. MIT Press, 2018.（免费在线）
+- Silver, D. *UCL Course on Reinforcement Learning.* 2015.（十讲公开课，与 Sutton-Barto 章节一一对应）
+- OpenAI. *Spinning Up in Deep RL.*（从零实现策略梯度类算法的工程向教程，含可运行代码与超参数说明）
+- Bertsekas, D. P. *Reinforcement Learning and Optimal Control.* Athena Scientific, 2019.（从动态规划与最优控制视角写的对照读物）

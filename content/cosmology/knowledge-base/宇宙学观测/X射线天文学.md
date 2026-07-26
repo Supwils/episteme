@@ -98,7 +98,7 @@ AGN 反馈（黑洞喷流加热星际介质）是现代星系演化理论的核�
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 1. Giacconi, R. (2003). Nobel Lecture: The Dawn of X-Ray Astronomy. _Reviews of Modern Physics_, 75, 995. doi:10.1103/RevModPhys.75.995
 2. Brandt, W. N., & Alexander, D. M. (2015). Cosmic X-ray surveys of unresolved sources. _A&AR_, 23, 1.

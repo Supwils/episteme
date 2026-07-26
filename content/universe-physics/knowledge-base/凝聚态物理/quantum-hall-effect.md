@@ -102,7 +102,7 @@ $$\Psi_m = \prod_{j<k}(z_j - z_k)^m \exp\!\left(-\sum_j \frac{|z_j|^2}{4l_B^2}\r
 - **卡3**：分数量子霍尔效应（1982年，崔、施特默）显示准粒子携带分数电荷（如 $e/3$），满足分数统计（任意子），崔、施特默、劳林获1998年诺贝尔物理学奖。
 - **卡4**：TKNN（1982年）证明量子霍尔电导的量子化来自陈数（Chern number），是拓扑凝聚态物理的奠基论文。
 
-## 延伸阅读
+## 参考文献
 
 1. von Klitzing, Klaus, Gerhard Dorda, and Michael Pepper. "New Method for High-Accuracy Determination of the Fine-Structure Constant Based on Quantized Hall Resistance." _Physical Review Letters_, 45(6): 494–497, 1980.
 2. Tsui, Daniel C., Horst L. Störmer, and Arthur C. Gossard. "Two-Dimensional Magnetotransport in the Extreme Quantum Limit." _Physical Review Letters_, 48(22): 1559–1562, 1982.

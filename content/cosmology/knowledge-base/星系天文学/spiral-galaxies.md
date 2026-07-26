@@ -90,10 +90,10 @@ $$\Sigma_\text{SFR} \propto \Sigma_\text{gas}^{1.4}$$
 
 ## 跨学科连接
 
-- **银河系结构**（`milky-way-structure.md`）：银河系是研究最详细的旋涡星系，Gaia 数据提供了解剖旋涡星系内部结构的前所未有细节
-- **星系团与超星系团**（`galaxy-clusters.md`）：高密度环境抑制旋涡星系、促进其向椭圆星系转化
-- **暗物质晕与旋转曲线**（`dark-matter-halo.md`）：旋涡星系的平坦旋转曲线是暗物质研究的历史起点
-- **恒星核合成**（`../恒星核合成.md`）：旋涡星系的旋臂是宇宙元素铸造厂——大质量恒星在旋臂中形成、演化、死亡，将重元素散播到星际介质
+- **银河系结构**（[[milky-way-structure|银河系结构]]）：银河系是研究最详细的旋涡星系，Gaia 数据提供了解剖旋涡星系内部结构的前所未有细节
+- **星系团与超星系团**（[[galaxy-clusters|星系团与超星系团]]）：高密度环境抑制旋涡星系、促进其向椭圆星系转化
+- **暗物质晕与旋转曲线**（[[dark-matter-halo|暗物质晕与星系旋转曲线]]）：旋涡星系的平坦旋转曲线是暗物质研究的历史起点
+- **恒星核合成**（[[恒星核合成]]）：旋涡星系的旋臂是宇宙元素铸造厂——大质量恒星在旋臂中形成、演化、死亡，将重元素散播到星际介质
 
 ## 旋涡星系的磁场
 
@@ -119,7 +119,7 @@ $$\Sigma_\text{SFR} \propto \Sigma_\text{gas}^{1.4}$$
 - 仙女座星系（M31）恒星质量：约 $10^{11} M_\odot$，约为银河系 2 倍
 - 宇宙中旋涡星系数量：约占明亮星系的 60–70%（质量 $> 10^{10} M_\odot$）
 
-## 延伸阅读
+## 参考文献
 
 - Lin, C.C. & Shu, F.H. (1964). On the spiral structure of disk galaxies. _Astrophysical Journal_, 140, 646–655.
 - Rubin, V.C., Ford, W.K. & Thonnard, N. (1980). Rotational properties of 21 Sc galaxies with a large range of luminosities. _Astrophysical Journal_, 238, 471–487.

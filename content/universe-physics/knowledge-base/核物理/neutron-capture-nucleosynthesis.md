@@ -106,7 +106,7 @@ B2FH论文将r过程归因于超新星爆炸（核塌缩超新星内部的极端
 
 2017 年中子星并合事件 GW170817 的光学余辉与千新星（kilonova）模型预测吻合，首次为 r 过程在中子星并合中合成金、铂等重元素提供了直接观测证据（Kasen et al., _Nature_, 2017）。
 
-## 延伸阅读
+## 参考文献
 
 1. Burbidge, E. Margaret, Geoffrey R. Burbidge, William A. Fowler, and Fred Hoyle. "Synthesis of the Elements in Stars." _Reviews of Modern Physics_, 29(4): 547–650, 1957.
 2. Abbott, B. P., et al. (LIGO Scientific Collaboration and Virgo Collaboration). "GW170817: Observation of Gravitational Waves from a Binary Neutron Star Inspiral." _Physical Review Letters_, 119(16): 161101, 2017.

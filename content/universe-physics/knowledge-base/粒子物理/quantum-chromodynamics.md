@@ -91,7 +91,7 @@ QCD的建立彻底改变了我们对核物理的理解：
 
 > "质子的质量大部分来自色场的能量，而不是夸克本身的质量——这是质能等价在强相互作用中最深刻的体现。" — 弗兰克·维尔切克（_The Lightness of Being_，2008年）
 
-## 延伸阅读
+## 参考文献
 
 1. Gross, David J., and Frank Wilczek. "Ultraviolet Behavior of Non-Abelian Gauge Theories." _Physical Review Letters_, 30(26): 1343–1346, 1973.
 2. Politzer, H. David. "Reliable Perturbative Results for Strong Interactions?" _Physical Review Letters_, 30(26): 1346–1349, 1973.

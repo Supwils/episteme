@@ -87,7 +87,7 @@ $$\frac{1}{\lambda} = R_H\left(\frac{1}{n_1^2} - \frac{1}{n_2^2}\right), \quad n
 
 **引力波探测**：LIGO 探测引力波的关键技术包括对激光频率的超稳定控制（需要基于原子跃迁的频率标准）和量子噪声的精密分析。从氢原子光谱到引力波探测，光谱学横跨两个世纪仍在前沿。
 
-连接节点：[[原子光谱]] → [[玻尔原子模型]]（光谱的理论解释）；[[原子光谱]] → [[氢原子的量子理论]]（精确量子计算）；[[原子光谱]] → [[量子自旋]]（精细结构和反常塞曼效应的来源）
+连接节点：原子光谱 → [[bohr-atom-model|玻尔原子模型]]（光谱的理论解释）；原子光谱 → [[hydrogen-atom-quantum-theory|氢原子的量子理论]]（精确量子计算）；原子光谱 → [[quantum-spin|量子自旋]]（精细结构和反常塞曼效应的来源）
 
 ---
 
@@ -108,9 +108,9 @@ $$\frac{1}{\lambda} = R_H\left(\frac{1}{n_1^2} - \frac{1}{n_2^2}\right), \quad n
 
 **单原子/单分子光谱**：现代光学陷阱（光镊）和冷原子技术使得对单个原子或分子进行光谱测量成为可能。单分子荧光光谱可以实时追踪单个蛋白质分子的构象变化、单个化学键的断裂和形成，为生物化学和纳米科学提供前所未有的分辨率。
 
-连接节点（补充）：[[原子光谱]] → [[玻尔原子模型]]（谱线的早期理论解释）；[[原子光谱]] → [[量子自旋]]（精细结构的自旋-轨道起源）
+连接节点（补充）：原子光谱 → [[bohr-atom-model|玻尔原子模型]]（谱线的早期理论解释）；原子光谱 → [[quantum-spin|量子自旋]]（精细结构的自旋-轨道起源）
 
-## 延伸阅读
+## 参考文献
 
 1. Balmer, Johann Jakob. "Notiz über die Spectrallinien des Wasserstoffs." _Annalen der Physik und Chemie_, 25: 80–87, 1885.
 2. Rydberg, Johannes R. "Recherches sur la constitution des spectres d'émission des éléments chimiques." _Kongl. Svenska Vetenskaps-Akademiens Handlingar_, 23: 1–177, 1889.

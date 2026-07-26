@@ -60,7 +60,7 @@ $$f' = f\frac{v \pm v_{\rm obs}}{v \mp v_{\rm src}}$$
 
 引力波（gravitational waves）是时空本身的"声波"——广义相对论预言的时空曲率涟漪，以光速传播。LIGO（Laser Interferometer Gravitational-Wave Observatory）在2015年首次探测到来自双黑洞并合事件（GW150914）的引力波信号，其频率（35—350 Hz）恰好落在人类可听范围内，NASA将信号转换为声音（"chirp"，上扫音），持续约0.2秒——这是宇宙中天文事件有史以来第一次以类似声音的方式被人类"听到"。
 
-连接节点：[[简谐振动与共振]] → [[波动与声学]]（振动的传播）；[[波动与声学]] → [[光的干涉与衍射]]（波动的普遍性质）；[[波动与声学]] → [[地球内部结构]]（地震波层析成像）
+连接节点：[[simple-harmonic-motion|简谐振动与共振]] → 波动与声学（振动的传播）；波动与声学 → [[interference-and-diffraction|光的干涉与衍射]]（波动的普遍性质）；波动与声学 → [[earth-interior|地球内部结构]]（地震波层析成像）
 
 ---
 
@@ -75,7 +75,7 @@ $$f' = f\frac{v \pm v_{\rm obs}}{v \mp v_{\rm src}}$$
 
 > "音乐是灵魂隐秘的算术练习，而灵魂并不知道自己在计数。" — 戈特弗里德·莱布尼茨，1712年4月17日致克里斯蒂安·戈尔德巴赫的信（拉丁原文：Musica est exercitium arithmeticae occultum nescientis se numerare animi）
 
-## 延伸阅读
+## 参考文献
 
 1. Rayleigh, Lord (John William Strutt). _The Theory of Sound_, 2nd ed. 2 vols. Macmillan, 1894.（声学经典权威著作）
 2. Helmholtz, Hermann von. _On the Sensations of Tone_. Translated by A. J. Ellis. Dover, 1954.（音乐声学的奠基著作）

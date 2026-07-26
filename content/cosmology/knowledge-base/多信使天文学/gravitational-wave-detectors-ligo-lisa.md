@@ -113,9 +113,9 @@ LISA 的技术验证任务 **LISA Pathfinder**（2015–2017 年）已成功验�
 
 ## 跨领域连接
 
-- **双中子星并合与千新星**（`binary-neutron-star-merger-kilonova.md`）：GW170817 是迄今最丰富的多信使事件
-- **脉冲星计时阵列**（`../致密天体/pulsar-timing-array.md`）：PTA 与 LIGO、LISA 覆盖互补的引力波频率窗口
-- **黑洞自旋测量**（`../致密天体/black-hole-spin-measurement.md`）：引力波波形精确测量并合黑洞自旋
+- **双中子星并合与千新星**（[[binary-neutron-star-merger-kilonova|双中子星并合与千新星]]）：GW170817 是迄今最丰富的多信使事件
+- **脉冲星计时阵列**（[[pulsar-timing-array|脉冲星计时阵列]]）：PTA 与 LIGO、LISA 覆盖互补的引力波频率窗口
+- **黑洞自旋测量**（[[black-hole-spin-measurement|黑洞自旋测量]]）：引力波波形精确测量并合黑洞自旋
 - **事件视界望远镜**（`事件视界望远镜.md`）：引力波定位 + EHT 多波段联合是未来多信使的方向
 
 ## 参考文献

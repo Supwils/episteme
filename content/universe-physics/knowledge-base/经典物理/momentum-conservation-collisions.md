@@ -89,7 +89,7 @@ $$\Delta v = v_e \ln\frac{m_0}{m_f}$$
 
 > "宇宙中总的运动量是守恒的。" — 勒内·笛卡尔，《哲学原理》（1644年）
 
-## 延伸阅读
+## 参考文献
 
 1. Newton, Isaac. _Philosophiæ Naturalis Principia Mathematica_. London, 1687.（动量守恒的原始表述）
 2. Rutherford, Ernest. "The Scattering of Alpha and Beta Particles by Matter and the Structure of the Atom." _Philosophical Magazine_ 21 (1911): 669—688.（卢瑟福散射的原始论文）

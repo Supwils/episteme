@@ -127,7 +127,7 @@ EvolutionaryScale 的 ESM3 模型（2024 年 6 月正式发布，发表于《科
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Jumper, J. et al. "Highly accurate protein structure prediction with AlphaFold." _Nature_ 596, 583–589 (2021). DOI: 10.1038/s41586-021-03819-2.
 - Abramson, J. et al. (Google DeepMind). "Accurate structure prediction of biomolecular interactions with AlphaFold 3." _Nature_ 630, 493–500 (2024). DOI: 10.1038/s41586-024-07487-w.

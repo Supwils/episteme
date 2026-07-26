@@ -116,7 +116,7 @@ status: published
 
 木星、土星、天王星、海王星——四颗气态巨行星各自代表了不同的行星形成和演化轨迹，它们的对比研究是理解系外行星多样性（热木星、温热木星、亚海王星等）的基准框架。
 
-## 延伸阅读
+## 参考文献
 
 - Bolton, S.J. et al. (2017). Jupiter's interior and deep atmosphere: The initial pole-to-pole passes with the Juno spacecraft. _Science_, 356, 821–825.
 - Kempf, S. et al. (2023). Saturn's rings are only 400 million years old. _Science Advances_, 9, eadf8537.

@@ -75,7 +75,7 @@ tags: [等离子体, 电离气体, 德拜屏蔽, 朗缪尔, 磁约束, 惯性约
 
 > "等离子体是宇宙的正常状态；我们所熟悉的固体、液体和气体，才是例外。" — 汉尼斯·阿尔文（Hannes Alfvén），1970年诺贝尔物理学奖得主（意译）
 
-## 延伸阅读
+## 参考文献
 
 1. Chen, Francis F. _Introduction to Plasma Physics and Controlled Fusion_, 3rd ed. Springer, 2016.（最广泛使用的等离子体物理入门教材）
 2. Alfvén, Hannes. _Cosmic Plasma_. D. Reidel, 1981.（阿尔文等离子体宇宙观的原著）

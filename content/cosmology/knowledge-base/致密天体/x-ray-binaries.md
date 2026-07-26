@@ -98,10 +98,10 @@ X 射线双星是极端物理的天然"可重复实验"：同一个系统可以�
 
 ## 跨领域连接
 
-- **黑洞自旋测量**（`black-hole-spin-measurement.md`）：连续谱法和铁线法均主要应用于 X 射线双星
-- **黑洞吸积盘与相对论喷流**（`accretion-disks-relativistic-jets.md`）：吸积盘物理和喷流形成机制在 X 射线双星中最直接地被观测到
-- **中子星内部与状态方程**（`neutron-star-interior-eos.md`）：I 型 X 射线爆发和超爆发约束中子星外壳物理
-- **磁星**（`magnetars.md`）：ULX 中子星可能具有磁星量级的极强磁场
+- **黑洞自旋测量**（[[black-hole-spin-measurement|黑洞自旋测量]]）：连续谱法和铁线法均主要应用于 X 射线双星
+- **黑洞吸积盘与相对论喷流**（[[accretion-disks-relativistic-jets|黑洞吸积盘与相对论喷流]]）：吸积盘物理和喷流形成机制在 X 射线双星中最直接地被观测到
+- **中子星内部与状态方程**（[[neutron-star-interior-eos|中子星内部与状态方程]]）：I 型 X 射线爆发和超爆发约束中子星外壳物理
+- **磁星**（[[magnetars|磁星]]）：ULX 中子星可能具有磁星量级的极强磁场
 
 ## 参考文献
 

@@ -2,7 +2,7 @@
 title: 狄尔斯-阿尔德反应
 title_en: Diels–Alder Reaction
 status: published
-updated: 2026-06-20
+updated: 2026-07-25
 category: 有机合成
 order: 10
 tags:
@@ -60,6 +60,34 @@ related:
 
 这种可预测的立体选择性，是它在合成复杂分子（往往有好几个手性中心）时无比珍贵的原因——你不只能造出对的骨架，还能造出对的"形状"。
 
+## 数字：为什么"加热搅拌"就够了——以及水为什么能加速 700 倍
+
+"不需要催化剂，加热搅拌即可"这句话容易造成一个误会：好像狄尔斯-阿尔德反应很容易发生。其实它的势垒并不低，**容易的只是某些底物**。
+
+先看最朴素的版本：1,3-丁二烯 + 乙烯 → 环己烯。这是狄尔斯-阿尔德反应最简单的形式，也是最难做的一个。它实测的阿伦尼乌斯活化能约 **27.5 kcal/mol（约 115 kJ/mol）**，而这个值是在 **760–920 K**（约 490–650 °C）的温区里测出来的——**最简单的狄尔斯-阿尔德反应需要几百摄氏度才跑得动。**
+
+可环戊二烯放在室温下就会自己二聚。同一类反应，差别从哪来？两个具体原因：
+
+1. **构象不用出钱。** 双烯必须摆成 s-顺式（两个双键同侧、像张开的钳子）才能反应，而链状丁二烯在室温下主要是能量更低的 s-反式，必须先扭过来，这一步要付能量。环戊二烯被五元环**锁死在 s-顺式**，天生就是待发状态。
+2. **电子分布配合。** 当亲双烯体带吸电子基（羰基、氰基）时，它的最低空轨道（LUMO）被压低，与双烯的最高占据轨道（HOMO）能量更接近，势垒随之下降。这就是前文那条"电子贫富不均的一对反而最来电"的定量内容。
+
+明白了势垒在哪，加速手段就一目了然。四种办法，效果差得很远：
+
+| 手段 | 加速幅度 | 机制 |
+| --- | --- | --- |
+| 升温 10 °C（室温附近，$E_a \approx 115$ kJ/mol） | 约 4 倍 | 更多分子的动能超过势垒 |
+| 把溶剂换成水（环戊二烯 + 丁烯酮） | 约 **700 倍** | 疏水效应把两个非极性分子挤到一起 |
+| 加路易斯酸（异戊二烯 + 丙烯腈，AlCl₃，20 °C） | 约 **10⁵ 倍** | AlCl₃ 配位到亲双烯体上，进一步压低其 LUMO |
+| 加高压 | 明显加速 | 过渡态体积小于两个分开的反应物（活化体积为负） |
+
+**第二行是这张表里最有意思的一格。** 1980 年，Rideout 与 Breslow 报告：环戊二烯与丁烯酮的加成，在水中比在 2,2,4-三甲基戊烷（异辛烷）中快约 700 倍。这在当时相当反常——两个反应物都是非极性的、都不溶于水，按常理水应该是最糟的溶剂。
+
+原因不在反应物身上，**在水身上**。水分子之间靠氢键织成一张网，一个非极性分子插进去会破坏局部的氢键网络。于是水会"挤压"这些不受欢迎的客人，让它们尽量聚在一起以减少接触面积——**两个反应物被水推到了彼此身边，等效于把它们的局部浓度提高了。** 这是熵驱动的效应，不涉及任何新的化学键。
+
+**这一条把这个反应接进了一个大得多的图景。** 把蛋白质的疏水侧链埋进内核、把磷脂自发拼成细胞膜的双层，用的是同一个疏水效应（见 [[intermolecular-forces]]）。狄尔斯-阿尔德反应在水中加速，与细胞膜自己组装起来，**在物理上是同一件事**——这也是"生物正交化学"能在活细胞的水环境里跑这个反应的深层原因。
+
+最后，催化不只买到速度，还买到**选择性**。以环戊二烯 + 丙烯酸甲酯为例：不加催化剂时产物是内型（endo）与外型（exo）的混合物；用 AlCl₃·Et₂O 催化后，内型:外型可达约 **99 : 1**。原因是路易斯酸配位后，两条过渡态之间的能量差被拉大了。**在合成上，"少一步分离"的价值往往不低于"快一百倍"。**
+
 ## 历史脉络：师徒二人与一枚奖章
 
 这个反应以两位德国化学家命名：奥托·狄尔斯（Otto Diels）和他的学生库尔特·阿尔德（Kurt Alder）。
@@ -94,6 +122,9 @@ related:
 - Diels, O. & Alder, K. "Synthesen in der hydroaromatischen Reihe." *Justus Liebigs Annalen der Chemie*, 460(1), 1928. DOI: 10.1002/jlac.19284600106
 - Nicolaou, K. C., Snyder, S. A., Montagnon, T. & Vassilikogiannakis, G. "The Diels–Alder Reaction in Total Synthesis." *Angewandte Chemie International Edition*, 41(10), 2002. DOI: 10.1002/1521-3773(20020517)41:10<1668::AID-ANIE1668>3.0.CO;2-Z
 - Clayden, J., Greeves, N. & Warren, S. *Organic Chemistry*, 2nd ed., Oxford University Press, 2012.
+- Rideout, D. C. & Breslow, R. "Hydrophobic acceleration of Diels-Alder reactions." *Journal of the American Chemical Society*, 102(26), 1980.
+- Vermeeren, P., Hamlin, T. A., Fernández, I. & Bickelhaupt, F. M. "How Lewis Acids Catalyze Diels–Alder Reactions." *Angewandte Chemie International Edition*, 59(15), 2020. DOI: 10.1002/anie.201914582
+- Sakata, K. et al. "Roles of Lewis Acid Catalysts in Diels–Alder Reactions between Cyclopentadiene and Methyl Acrylate." *ChemistryOpen*, 9(6), 2020. DOI: 10.1002/open.202000112
 - The Royal Swedish Academy of Sciences. "The Nobel Prize in Chemistry 1950 — Otto Diels and Kurt Alder." Nobel Foundation, 1950.
 
 ## 延伸阅读

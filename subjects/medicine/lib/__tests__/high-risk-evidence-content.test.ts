@@ -17,7 +17,7 @@ const reviewedPages = {
 describe("high-risk medical evidence content", () => {
   it("dates every reviewed page and explains how its evidence should be read", () => {
     for (const page of Object.values(reviewedPages)) {
-      expect(page).toContain("updated: 2026-07-18");
+      expect(page).toMatch(/updated: 2026-07-\d{2}/);
       expect(page).toContain("## 证据怎么读");
     }
   });

@@ -68,7 +68,7 @@ $b$ 修正分子自身体积（排斥），$a/V^2$ 修正分子间吸引力导�
 
 **真空技术**也深度依赖气体动理论。在超高真空（UHV，$< 10^{-9}$ Pa）环境中，平均自由程远大于容器尺寸，气体分子的运动是"分子流"（Knudsen regime，努森流）而非连续介质流，必须用动理论（而非纳维-斯托克斯方程）描述抽气过程和渗漏速率。半导体制造中的真空系统、同步辐射光源的储存环、引力波探测器（LIGO干涉臂的真空管道，直径1.2 m，长4 km，真空度约 $10^{-9}$ Pa）都依赖UHV技术，而气体动理论是这些系统设计的物理基础。
 
-连接节点：[[热力学三大定律]] → [[气体动理论]]（宏观定律的微观基础）；[[气体动理论]] → [[统计力学与玻尔兹曼分布]]（从动理论到统计力学）；[[气体动理论]] → [[相变与临界现象]]（实际气体与气液相变）
+连接节点：[[laws-of-thermodynamics|热力学三大定律]] → 气体动理论（宏观定律的微观基础）；气体动理论 → [[statistical-mechanics-boltzmann|统计力学与玻尔兹曼分布]]（从动理论到统计力学）；气体动理论 → [[phase-transitions-and-critical-phenomena|相变与临界现象]]（实际气体与气液相变）
 
 ---
 
@@ -83,7 +83,7 @@ $b$ 修正分子自身体积（排斥），$a/V^2$ 修正分子间吸引力导�
 
 > "热不过是分子无规运动的一种表现形式。" — 路德维希·玻尔兹曼，约1890年代（意译）
 
-## 延伸阅读
+## 参考文献
 
 1. Maxwell, James Clerk. "Illustrations of the Dynamical Theory of Gases." _Philosophical Magazine_ 19 (1860): 19—32.（麦克斯韦速率分布原始论文）
 2. Einstein, Albert. "Über die von der molekularkinetischen Theorie der Wärme geforderte Bewegung von in ruhenden Flüssigkeiten suspendierten Teilchen." _Annalen der Physik_ 17 (1905): 549—560.（布朗运动理论原始论文）

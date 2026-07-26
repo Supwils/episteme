@@ -105,7 +105,7 @@ $$
 
 **量子化学中的洪特规则**（Hund's rule）：在等价轨道（如$p$轨道的三个取向）中，电子优先占据不同轨道并保持自旋平行，以最小化电子排斥。这一规律是泡利原理加上电子间库仑排斥的综合效果，解释了氧（[He]$2s^2 2p^4$）的磁性和碳（[He]$2s^2 2p^2$）的四价化学。
 
-连接节点：[[泡利不相容原理]] → [[量子自旋]]（自旋-统计定理）；[[泡利不相容原理]] → [[全同粒子与量子统计]]（费米-狄拉克统计的基础）；[[泡利不相容原理]] → [[电子轨道与量子数]]（原子结构的量子基础）
+连接节点：泡利不相容原理 → [[quantum-spin|量子自旋]]（自旋-统计定理）；泡利不相容原理 → [[identical-particles-statistics|全同粒子与量子统计]]（费米-狄拉克统计的基础）；泡利不相容原理 → [[electron-orbitals-quantum-numbers|电子轨道与量子数]]（原子结构的量子基础）
 
 ---
 
@@ -122,7 +122,7 @@ $$
 >
 > 泡利不相容原理是原子及整个物质稳定性的基础——它解释了为什么不同元素有不同化学性质，以及为什么物质占据空间而非坍缩。
 
-## 延伸阅读
+## 参考文献
 
 1. Pauli, Wolfgang. "Über den Zusammenhang des Abschlusses der Elektronengruppen im Atom mit der Komplexstruktur der Spektren." _Zeitschrift für Physik_, 31: 765–783, 1925.
 2. Chandrasekhar, Subrahmanyan. "The Maximum Mass of Ideal White Dwarfs." _Astrophysical Journal_, 74: 81–82, 1931.

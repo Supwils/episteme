@@ -65,7 +65,7 @@ MRI今天已成为现代医学不可缺少的诊断工具。全球运行的MRI�
 
 > "但愿所有的弯路都能如此富有成果！"（All detours should be so productive!） — 保罗·劳特伯，2003 年诺贝尔生理学或医学奖演讲《All science is interdisciplinary》结语
 
-## 延伸阅读
+## 参考文献
 
 1. Lauterbur, Paul C. "Image Formation by Induced Local Interactions: Examples Employing Nuclear Magnetic Resonance." _Nature_ 242 (1973): 190-191.
 2. Mansfield, Peter, and P. K. Grannell. "NMR 'Diffraction' in Solids?" _Journal of Physics C_ 6 (1973): L422-L426.

@@ -124,7 +124,7 @@ $$t_\text{dyn} = \sqrt{\frac{3\pi}{16 G \bar{\rho}}} \approx 1.4 \text{ Gyr} \le
 - WIMP 直接探测约束（LZ 首批结果，2023）：$\sigma_{SI} < 9.2 \times 10^{-48}$ cm$^2$ at 36 GeV（2024 年 4.2 吨·年结果约 $2 \times 10^{-48}$ cm$^2$）
 - 轴子暗物质质量范围：约 $10^{-6}$–$10^{-3}$ eV（ADMX 等实验探测目标）
 
-## 延伸阅读
+## 参考文献
 
 - Rubin, V.C. et al. (1980). Rotational properties of 21 Sc galaxies. _Astrophysical Journal_, 238, 471–487.
 - Navarro, J.F., Frenk, C.S. & White, S.D.M. (1996). The structure of cold dark matter halos. _Astrophysical Journal_, 462, 563–575.

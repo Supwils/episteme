@@ -2,7 +2,7 @@
 title: 编辑距离算法
 title_en: Edit Distance Algorithms
 status: published
-updated: 2026-06-13
+updated: 2026-07-25
 category: 字符串算法
 order: 48
 field: 计算机科学 · 算法 · 字符串处理
@@ -23,6 +23,23 @@ related:
 "您是要搜索 'Alber Einstien'？"
 
 搜索引擎能识别你的拼写错误，文本编辑器能自动纠错，DNA 序列能被比对到参考基因组——这些背后都有同一个算法：**编辑距离（Edit Distance）**，或称 **Levenshtein 距离**。
+
+## 破除误解：最少步数不等于"实际改了什么"
+
+上面那三步看起来像是一份"真相"：把 kitten 改成 sitting 就是这么改的。两处都要小心。
+
+**第一，最优编辑序列通常不唯一。** 编辑距离 3 是一个**最小值**，达到它的操作序列可能有好几条。把 `AB` 变成 `BA`，距离是 2，而两条完全不同的路都只花 2 步：
+
+- 替换 `A→B`，再替换 `B→A`
+- 删掉开头的 `A`，再在末尾插入 `A`
+
+一个说"两个字符都改了"，一个说"一个字符搬了家"，代价却一样。把 `aaaa` 对齐到 `aa` 更夸张——保留哪两个 `a` 有 $\binom{4}{2} = 6$ 种选法，全都最优；串一长，最优路径的条数可以呈指数级增长。
+
+这不是理论洁癖：**这正是为什么不同 diff 工具对同一次改动会给出看起来不同的输出**，尽管它们算出的距离一模一样。后文的 `git --patience` 一节就是在这堆等价最优解里挑一个人类更好读的。
+
+**第二，最少步数不是真实发生的步数。** DNA 比对时我们算出两个序列距离 12，绝不意味着演化过程中真的只发生了 12 次事件——真实历史可能来回突变了上百次，只是净效果等价于 12 步。编辑距离给的是"至少需要多少"，把它当成"实际发生了多少"是应用中最常见的越界解读。
+
+**第三，它测的是形状，不是意思。**「猫」和「狗」编辑距离 1，「猫」和「小猫咪」编辑距离 3——按编辑距离算，猫离狗更近。这个度量对语义一无所知，后文会回到这一点。
 
 ## 问题定义
 
@@ -84,7 +101,25 @@ dp[i-1][j-1] & \text{(replace)}
 
 右下角 $dp[6][7] = 3$，即编辑距离为 3。
 
-时间复杂度 $O(mn)$，空间复杂度 $O(mn)$（可优化为 $O(\min(m,n))$ 只存两行）。
+**一个格子怎么来的**。挑中间那格看：行 `e`、列 `i`，即 $dp[5][5]$——把 `kitte` 变成 `sitti` 要几步？
+
+$s[4] = $ `e`，$t[4] = $ `i`，不相等，所以要在三条路里选最省的，再 $+1$：
+
+| 来源 | 值 | 含义 |
+| --- | --- | --- |
+| $dp[4][5] = 2$ | 上方 | 已把 `kitt` → `sitti`，再**删掉** `e` |
+| $dp[5][4] = 2$ | 左方 | 已把 `kitte` → `sitt`，再**插入** `i` |
+| $dp[4][4] = 1$ | 左上 | 已把 `kitt` → `sitt`，再把 `e` **替换**成 `i` |
+
+$\min(2, 2, 1) + 1 = 2$。左上角赢了——**替换比"删一个再插一个"便宜**，这就是替换操作存在的全部理由。整张表就是这一个判断重复 $m \times n$ 次。
+
+**倒着走回去，就得到具体怎么改**。DP 表不只给距离，还藏着编辑脚本：从右下角出发，每次退回刚才选中的那个来源格：
+
+$$dp[6][7] \xrightarrow{\text{插入 g}} dp[6][6] \xrightarrow{\text{n 匹配}} dp[5][5] \xrightarrow{\text{e→i 替换}} dp[4][4] \xrightarrow{\text{t 匹配}} dp[3][3] \xrightarrow{\text{t 匹配}} dp[2][2] \xrightarrow{\text{i 匹配}} dp[1][1] \xrightarrow{\text{k→s 替换}} dp[0][0]$$
+
+翻转过来读：**替换 k→s，替换 e→i，插入 g**——正是本文开头列的那三步。距离和路径是同一张表的两种读法，这也是所有 diff 工具能打印出"具体改了哪几行"而不只是"改了 3 处"的原因。
+
+时间复杂度 $O(mn)$，空间复杂度 $O(mn)$。若只要距离不要脚本，可以只存两行，空间降到 $O(\min(m,n))$——但**回溯路径就丢了**。这是个真实的工程取舍：`git diff` 要输出补丁，所以不能用这个优化；拼写检查只要距离，就可以用。
 
 ## 加速技巧
 
@@ -108,7 +143,9 @@ Peter Norvig 的著名拼写纠错器（2007 年发布，约 21 行 Python 代�
 
 **diff 与版本控制**：
 
-Unix `diff` 命令计算两个文件的最小差异（基于 LCS），`git diff` 的输出就是两个文件 LCS 意义下的最小编辑序列。Myers（1986）的 diff 算法是 `git diff` 使用的核心算法。
+Unix `diff` 命令计算两个文件的最小差异（基于 LCS），`git diff` 的输出就是两个文件 LCS 意义下的最小编辑序列——只是"字符"换成了"行"。Myers（1986）的算法是 `git diff` 的默认后端，它的巧妙之处在于**不填整张 DP 表**：编辑脚本长度为 $d$ 时只需沿着表的 $O(d)$ 条对角线搜索，代价 $O((m+n)d)$。而代码提交通常只改几行，$d$ 很小，所以它在实践中远快于 $O(mn)$。
+
+这里有一件很能说明问题的事：**git 至今提供四种 diff 算法**（`myers`、`minimal`、`patience`、`histogram`），因为"最小编辑距离"和"人类看得懂的 diff"并不是一回事。移动一整个函数时，最小编辑序列可能把它拆成一堆交错的增删行；`patience` 算法（Bram Cohen 提出）反其道而行，先只匹配两边**各自唯一出现**的行作为锚点，再递归处理锚点之间的区块，牺牲最优性换取可读性。Linux 内核等项目的开发者常显式配置 `--histogram`（patience 的改进版）。**算法给出的最优解未必是人要的解**——这在编辑距离的应用史里反复出现。
 
 **自然语言处理**：
 
@@ -118,9 +155,32 @@ Unix `diff` 命令计算两个文件的最小差异（基于 LCS），`git diff`
 
 OCR 输出的文本经常有字符替换、漏识别等错误，后处理阶段用编辑距离将可疑词语纠正为词典中编辑距离最近的词。
 
+## 当每步代价不再是 1
+
+标准编辑距离给三种操作都记 1 分。这个假设一旦放开，同一套 DP 就能表达远为丰富的领域知识——而且真实应用几乎全都放开了它。
+
+**替换代价按生物学定不同**。蛋白质比对里，把亮氨酸换成异亮氨酸（两个性质相近的疏水氨基酸）在演化上很常见，把它换成带电的天冬氨酸则罕见得多。所以生物信息学不用"替换 = 1"，而用**打分矩阵**：PAM（Dayhoff, 1978）与 BLOSUM（Henikoff & Henikoff, 1992）从真实的同源序列比对中统计出每对氨基酸互换的频率，取对数几率作为分数。BLOSUM62 是 BLAST 的默认矩阵。此时"距离"变成了"最高得分"，DP 递推的 $\min$ 换成 $\max$，骨架不变。
+
+**空位代价不该线性累加**。基因组里一次插入/缺失事件常常一口气涉及好几个碱基，所以"连续缺失 5 个"应该比"分散缺失 5 个"便宜。于是引入**仿射空位罚分**：开一个空位罚 $d$，每延长一位再罚 $e$（通常 $e \ll d$），总代价 $d + (k-1)e$。这一改动破坏了原递推的无后效性——现在必须记住"上一步是否已经在空位中"。Gotoh（1982）给出的解法是维护**三张** DP 表（当前位置分别处于匹配态、$s$ 空位态、$t$ 空位态），仍是 $O(mn)$。
+
+**键盘距离也能进代价函数**。输入法纠错里，把 `s` 打成 `a`（相邻键）的代价应低于打成 `p`。现代拼写纠错的打分函数通常混合了键盘布局、字符频率与语言模型概率——编辑距离退化成一个特征，而不是最终判据。
+
+这条线索的普遍意义是：**编辑距离的价值不在那三种操作，而在"最小代价变换"这个框架**。领域知识全部编码进代价函数，算法骨架一行不动。
+
 ## 代价与争议
 
-**$O(mn)$ 难以突破**：长期以来，研究者认为 $O(mn)$ 是编辑距离的理论下界（在经典模型下）。2015 年，巴克斯特罗姆（Backurs）和印德尔（Indyk）证明：在强指数时间假设（SETH）下，编辑距离没有 $O(n^{2-\epsilon})$ 的算法——即除非 SETH 为假，否则不能显著突破 $O(n^2)$。这是近年算法复杂度下界研究的重要成果。
+**$O(mn)$ 难以突破——但只对"精确"而言**：这是本题最值得讲清的一段，因为它常被讲成一个绝望的结论。
+
+2015 年，巴克斯特罗姆（Backurs）与印德尔（Indyk）在 STOC 证明：在**强指数时间假设（SETH）**下，编辑距离不存在 $O(n^{2-\epsilon})$ 的算法。SETH 是复杂度理论中一条被广泛采信但未获证明的猜想（大意是 $k$-SAT 无法显著优于穷举）。所以这不是无条件下界，而是一条**条件下界**：要么编辑距离确实需要平方时间，要么 SETH 是假的——而后者会推翻大量已有结果。这类"细粒度复杂度"（fine-grained complexity）论证是近十年算法理论最活跃的方向之一。
+
+但故事在这里转弯：**下界只管精确计算。**
+
+- 2018 年，Chakraborty、Das、Goldenberg、Koucký 与 Saks 在 FOCS 给出第一个**真正次平方时间**的常数因子近似算法，运行时间 $\tilde{O}(n^{2-2/7})$。
+- 2020 年，Andoni 与 Nosatzki 在 FOCS 把它推到近线性：对任意 $\varepsilon > 0$，在 $n^{1+\varepsilon}$ 时间内给出常数因子近似。
+
+也就是说，如果你能接受"距离是 3 还是 7 之间某个常数倍的答案"，那么平方时间的墙根本不在那里。这对实际系统意义重大：拼写检查、去重、粗筛比对本来就只需要"够近还是不够近"，精确值是奢侈品。
+
+**一个通用教训**：面对一条难以逾越的下界，正确的反应通常不是硬撞，而是问"我真的需要精确解吗"。近似、参数化（如 Ukkonen 的 $O(kn)$，把 $k$ 当参数）、随机化——都是绕过下界的合法路径，因为下界针对的是**它证明的那个问题**，而不是你真正要解决的那个问题。
 
 **相似性与语义**：编辑距离是**表面（Surface-Level）**的相似性度量，完全基于字符操作，不理解语义。"猫"和"狗"的编辑距离是 1，"猫"和"小猫咪"的编辑距离是 3，但后者语义更近。现代 NLP 用词嵌入（Word Embedding）距离衡量语义相似性，与编辑距离互补。
 
@@ -128,8 +188,9 @@ OCR 输出的文本经常有字符替换、漏识别等错误，后处理阶段�
 
 - **[[dynamic-programming]]**：编辑距离是 DP 最经典的应用之一，与矩阵链乘、最长公共子序列等并列为 DP 入门必学题目。
 - **[[suffix-trees-and-arrays]]**：后缀数组提供"子串是否存在"的快速查询；编辑距离提供"字符串有多相似"的度量，两者在基因组比对中相互配合。
-- **生物学**：DNA 序列的演化本质上就是基因的"编辑"过程——点突变（替换）、插入、缺失。进化距离与编辑距离在概念上有深刻的对应关系。
-- **信息论**：编辑距离与 Kolmogorov 复杂度有联系——两个字符串之间的编辑距离，在一定程度上反映了从一个到另一个所需的"信息量"。
+- **生物学**：DNA 演化就是一部编辑史——点突变对应替换，插入缺失（indel）对应插入删除。但方向是反的：算法里我们**已知两串、要求最少步数**，生物学里**真实发生的步数未知**，我们用最少步数去**推测**它。这个反向推断隐含一条强假设：演化走了最省的路。分子系统发生学里的"最大简约法"（maximum parsimony）正是这条假设的直接应用，也正因为这条假设不总成立，才有了后来基于概率模型的最大似然与贝叶斯方法。
+- **[[information-theory|信息论]]**：把 $t$ 相对 $s$ 的编辑脚本看成一段"程序"，那么编辑距离就是这段程序长度的一个上界估计——这正是 Kolmogorov 复杂度中"条件复杂度 $K(t|s)$"的朴素版本。差别在于 Kolmogorov 复杂度允许任意图灵机程序（因而不可计算），编辑距离把程序限制为三种操作的序列（因而可计算）。**用受限的操作集换来可计算性**，是这个类比里最有价值的一课。
+- **[[huffman-coding]]**：两者都在做"最小代价编码"，且都用 DP 或贪心求最优。差异在优化对象：霍夫曼最小化**表示一个串**的代价，编辑距离最小化**从一个串变到另一个串**的代价。增量压缩（delta compression，如 git 的 packfile）恰好站在两者交界处。
 
 ---
 
@@ -138,4 +199,16 @@ OCR 输出的文本经常有字符替换、漏识别等错误，后处理阶段�
 - Levenshtein, V. I. *Binary Codes Capable of Correcting Deletions, Insertions, and Reversals.* Soviet Physics Doklady 10(8), 707–710 (1966).
 - Wagner, R. A. & Fischer, M. J. *The String-to-String Correction Problem.* JACM 21(1), 168–173 (1974).（首个完整的 DP 解法）
 - Needleman, S. B. & Wunsch, C. D. *A General Method Applicable to the Search for Similarities in the Amino Acid Sequence of Two Proteins.* J. Mol. Biol. 48(3), 443–453 (1970).
-- Backurs, A. & Indyk, P. *Edit Distance Cannot Be Computed in Strongly Subquadratic Time.* STOC 2015, pp. 51–58.
+- Gotoh, O. *An Improved Algorithm for Matching Biological Sequences.* J. Mol. Biol. 162(3), 705–708 (1982).（仿射空位罚分的三表 DP）
+- Henikoff, S. & Henikoff, J. G. *Amino Acid Substitution Matrices from Protein Blocks.* PNAS 89(22), 10915–10919 (1992).（BLOSUM 矩阵）
+- Myers, E. W. *An O(ND) Difference Algorithm and Its Variations.* Algorithmica 1(2), 251–266 (1986).（`git diff` 默认后端）
+- Ukkonen, E. *Algorithms for Approximate String Matching.* Information and Control 64(1–3), 100–118 (1985).（$O(kn)$ 对角带算法）
+- Backurs, A. & Indyk, P. *Edit Distance Cannot Be Computed in Strongly Subquadratic Time (unless SETH is false).* STOC 2015, pp. 51–58.
+- Chakraborty, D., Das, D., Goldenberg, E., Koucký, M. & Saks, M. *Approximating Edit Distance Within Constant Factor in Truly Sub-Quadratic Time.* FOCS 2018, 979–990；JACM 67(6), 2020. DOI: 10.1145/3422823.
+- Andoni, A. & Nosatzki, N. S. *Edit Distance in Near-Linear Time: It's a Constant Factor.* FOCS 2020, 990–1001. arXiv:2005.07678.
+
+## 延伸阅读
+
+- Gusfield, D. *Algorithms on Strings, Trees, and Sequences.* Cambridge University Press, 1997.（字符串算法与生物序列比对的标准参考书）
+- Jurafsky, D. & Martin, J. H. *Speech and Language Processing.* 3rd ed. draft.（拼写纠错与噪声信道模型如何把编辑距离接入概率框架）
+- Git 文档：`git diff --diff-algorithm=` 说明（myers / minimal / patience / histogram 的差异）。

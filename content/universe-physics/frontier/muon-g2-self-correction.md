@@ -120,7 +120,7 @@ related:
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Muon g-2 Collaboration. _Final measurement of the anomalous magnetic moment of the Muon from the Muon g-2 experiment at Fermilab._ Fermilab 最终结果，2025-06-03 发布（精度 127 ppb）；见 Fermilab 官方新闻稿与 muon-g-2.fnal.gov。
 - Borsanyi, S., et al. (BMW Collaboration). _Leading hadronic contribution to the muon magnetic anomaly from lattice QCD._ Nature 593, 51–55 (2021).

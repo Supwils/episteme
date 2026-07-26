@@ -105,10 +105,10 @@ EHT 是人类智慧工程的里程碑：将地球上分散的射电望远镜整�
 
 ## 跨领域连接
 
-- **黑洞吸积盘与相对论喷流**（`../致密天体/accretion-disks-relativistic-jets.md`）：M87\* 的偏振图像揭示吸积盘磁场结构和喷流启动区
-- **黑洞自旋测量**（`../致密天体/black-hole-spin-measurement.md`）：EHT 图像亮度不对称性对自旋方向提供约束
-- **引力波探测器 LIGO 与 LISA**（`gravitational-wave-detectors-ligo-lisa.md`）：未来 LISA 观测 SMBH 引力波，EHT 观测其电磁对应体
-- **超大质量黑洞**（`../致密天体/supermassive-black-holes.md`）：EHT 是研究超大质量黑洞最直接的工具
+- **黑洞吸积盘与相对论喷流**（[[accretion-disks-relativistic-jets|黑洞吸积盘与相对论喷流]]）：M87\* 的偏振图像揭示吸积盘磁场结构和喷流启动区
+- **黑洞自旋测量**（[[black-hole-spin-measurement|黑洞自旋测量]]）：EHT 图像亮度不对称性对自旋方向提供约束
+- **引力波探测器 LIGO 与 LISA**（[[gravitational-wave-detectors-ligo-lisa|引力波探测器LIGO与LISA]]）：未来 LISA 观测 SMBH 引力波，EHT 观测其电磁对应体
+- **超大质量黑洞**（[[supermassive-black-holes|超大质量黑洞]]）：EHT 是研究超大质量黑洞最直接的工具
 
 ## 参考文献
 

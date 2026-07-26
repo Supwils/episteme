@@ -124,13 +124,16 @@ AlphaGeometry 2 则专门针对几何题，用符号推导与语言模型配合�
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Gowers, T., Green, B., Manners, F., Tao, T. "On a conjecture of Marton." arXiv:2311.05762 (2023).
 - Tao, T. "Formalizing the proof of PFR in Lean4 using Blueprint: a short tour." _What's New_ (blog), 2023-11-18.
+- de Moura, L. et al. "The Lean 4 Theorem Prover and Programming Language." _CADE 2021_.
+
+## 延伸阅读
+
 - AlphaProof & AlphaGeometry 2. "AI achieves silver-medal standard solving International Mathematical Olympiad problems." Google DeepMind Blog, 2024-07-19.
 - Scholze, P. "Liquid Tensor Experiment." _Xena Project Blog_, 2020.
-- de Moura, L. et al. "The Lean 4 Theorem Prover and Programming Language." _CADE 2021_.
 - Buzzard, K. "What is the Xena Project?" _Xena Project Blog_, ongoing. （Kevin Buzzard 关于 Lean 在数学中应用的系统性介绍）
 
 [^pfr]: Gowers, Green, Manners, Tao 的论文 arXiv:2311.05762 于 2023 年 11 月 9 日上传，三周后形式化版本宣告完成。

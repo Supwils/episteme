@@ -130,7 +130,7 @@ Assembloids 的优势在于，它允许研究者在接近真实大脑结构的�
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Lancaster, M.A. et al. "Cerebral organoids model human brain development and microcephaly." _Nature_ 501, 373–379 (2013). DOI: 10.1038/nature12517.（脑类器官奠基论文）
 - Smirnova, L. et al. "Organoid intelligence (OI): the new frontier in biocomputing and intelligence-in-a-dish." _Frontiers in Science_ 1, 1017235 (2023). DOI: 10.3389/fsci.2023.1017235.（OI 研究框架定义）

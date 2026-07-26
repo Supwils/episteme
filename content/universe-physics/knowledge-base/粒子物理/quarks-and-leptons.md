@@ -94,7 +94,7 @@ tags: [粒子物理, 夸克, 轻子, 标准模型, 色荷, 禁闭, 强相互作�
 
 **LHC的极限追求**：CERN的大型强子对撞机（LHC）将质子加速到 $\sqrt{s} = 13.6\ \text{TeV}$（2022年Run 3），在这一能量下，夸克-夸克碰撞可直接产生顶夸克对和希格斯玻色子（2012年发现），并寻找超出标准模型的新粒子。LHC是夸克物理研究的终极工具，也是有史以来人类建造的最复杂机器。
 
-连接节点：[[夸克与轻子]] → [[中微子物理]]（轻子部分的深入）；[[夸克与轻子]] → [[费曼图与微扰论]]（夸克相互作用的计算工具）；[[夸克与轻子]] → [[结合能与质量亏损]]（质子质量的QCD起源）
+连接节点：夸克与轻子 → [[neutrino-physics|中微子物理]]（轻子部分的深入）；夸克与轻子 → [[feynman-diagrams-perturbation|费曼图与微扰论]]（夸克相互作用的计算工具）；夸克与轻子 → [[binding-energy-mass-defect|结合能与质量亏损]]（质子质量的QCD起源）
 
 ---
 
@@ -105,7 +105,7 @@ tags: [粒子物理, 夸克, 轻子, 标准模型, 色荷, 禁闭, 强相互作�
 - **卡3**：渐近自由（Gross、Wilczek、Politzer，1973年）证明夸克在高能（短距离）下相互作用减弱，是第一个可精密计算的量子色动力学结果，2004年获诺贝尔奖。
 - **卡4**：色禁闭的解析证明是克莱数学研究所七大千禧年难题之一，奖金100万美元，截至2025年仍未解决。
 
-## 延伸阅读
+## 参考文献
 
 1. Gell-Mann, Murray. "A Schematic Model of Baryons and Mesons." _Physics Letters_, 8(3): 214–215, 1964.
 2. Zweig, George. "An SU(3) Model for Strong Interaction Symmetry and Its Breaking." CERN preprint CERN-TH-412, 1964.

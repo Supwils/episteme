@@ -131,7 +131,7 @@ Prime Medicine 的 PM359 是一个具有历史意义的节点：它是人类历�
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Frangoul, H. et al. "CRISPR-Cas9 Gene Editing for Sickle Cell Disease and β-Thalassemia." _New England Journal of Medicine_ 384, 252–260 (2021). DOI: 10.1056/NEJMoa2031054.（Casgevy 关键临床试验结果）
 - Anzalone, A.V. et al. "Search-and-replace genome editing without double-strand breaks or donor DNA." _Nature_ 576, 149–157 (2019). DOI: 10.1038/s41586-019-1711-4.（先导编辑奠基论文）

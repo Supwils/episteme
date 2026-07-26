@@ -23,13 +23,27 @@ $$\iiint_V (\nabla \cdot \mathbf{F})\,dV = \oiint_{\partial V} \mathbf{F} \cdot 
 
 其中 $\nabla \cdot \mathbf{F} = \frac{\partial F_1}{\partial x} + \frac{\partial F_2}{\partial y} + \frac{\partial F_3}{\partial z}$ 是 $\mathbf{F}$ 的散度，$\mathbf{n}$ 是 $\partial V$ 的单位外法向量。
 
+## 破除误解：它不是"三维的微积分基本定理"那么简单，但也不比它更神秘
+
+散度定理常被介绍成"微积分基本定理的高维版本"。这个类比是对的，而且值得说透——因为说透之后，斯托克斯定理、格林定理、散度定理会塌缩成同一句话。微积分基本定理说：
+
+$$\int_a^b f'(x)\,dx = f(b) - f(a)$$
+
+左边是**导数在区间内部的积分**，右边是**原函数在边界（两个端点）上的值**。散度定理说的是同一件事，只是"区间"换成三维区域、"两个端点"换成一张闭曲面、"导数"换成散度。用外微分形式写出来，四条定理只有一条：
+
+$$\int_M d\omega = \int_{\partial M} \omega$$
+
+取 $M$ 为区间、$\omega$ 为函数，得微积分基本定理；取二维区域，得格林定理；取三维区域与 $(n-1)$-形式，得散度定理；取曲面与 $1$-形式，得斯托克斯定理。**它们不是四个定理，是一个定理的四个特例**——这个统一由嘉当（É. Cartan）的外微分语言完成。
+
+**但要警惕两处过度简化：**
+
+**第一，"通量 = 内部源强度"需要条件。** 定理要求 $\mathbf{F}$ 在包含 $V$ 的开集上**连续可微**。若场在 $V$ 内部有奇点，等式就不再成立——最典型的例子是点电荷的库仑场 $\mathbf{F} = \hat{r}/r^2$，它在原点之外散度恒为零，但穿过任何包围原点的闭曲面的通量都是 $4\pi$。矛盾吗？不矛盾：原点处 $\mathbf{F}$ 不可微，定理不适用。要把这种情形纳入，需要引入狄拉克 δ 函数（分布意义下 $\nabla \cdot (\hat{r}/r^2) = 4\pi\delta^3(\mathbf{r})$）。**高斯定律里那个 $Q_{\text{enc}}$ 之所以只数闭曲面内部的电荷，根源就在这里。**
+
+**第二，"散度是通量密度"是结论而非定义。** 散度的定义是偏导数之和，看不出任何几何含义；它等于"单位体积的净流出量"这一事实，恰恰是散度定理在无穷小体积上的推论。次序反过来讲会让人误以为定理是同义反复。
+
 ## 直觉理解
 
-散度定理说的是：**从一个区域流出的总量等于内部源的总强度**。
-
-想象一个充满水的容器。散度 $\nabla \cdot \mathbf{F}$ 度量每个点"产生"或"吸收"水的速率。从容器表面流出的总水量等于内部所有水源的总出水量减去总吸水量。
-
-在电学中：从闭合曲面流出的电通量等于曲面包围的总电荷量（高斯定律）。这就是散度定理在物理学中最著名的应用。
+散度定理说的是：**从一个区域流出的总量等于内部源的总强度**。想象一个充满水的容器。散度 $\nabla \cdot \mathbf{F}$ 度量每个点"产生"或"吸收"水的速率。从容器表面流出的总水量等于内部所有水源的总出水量减去总吸水量。在电学中：从闭合曲面流出的电通量等于曲面包围的总电荷量（高斯定律）。这就是散度定理在物理学中最著名的应用。
 
 散度定理也可以理解为微积分基本定理在三维的推广：FTC 说"内部的导数 = 边界上的值"，散度定理说的是同样的话，只是维度更高。
 
@@ -75,45 +89,38 @@ $$= \iint_D [F_1(x_2(y,z), y, z) - F_1(x_1(y,z), y, z)]\,dA$$
 - **高斯定律**：散度定理在电磁学中的直接应用
 - **连续性方程**：物理学中质量、电荷守恒的数学表述
 
-## 散度的物理意义
-
-散度 $\nabla \cdot \mathbf{F}$ 度量向量场在某点的"源"或"汇"的强度：
-
-- $\nabla \cdot \mathbf{F} > 0$：该点是"源"——向量场从该点向外发散（如正电荷处的电场）
-- $\nabla \cdot \mathbf{F} < 0$：该点是"汇"——向量场向该点汇聚（如负电荷处的电场）
-- $\nabla \cdot \mathbf{F} = 0$：该点无源无汇（如不可压缩流体的速度场）
-
-散度定理将局部的源强度与全局的流量联系起来——这是物理学中守恒律的数学表述。
-
 ## 具体示例
 
-设 $\mathbf{F} = (x, y, z)$，$V$ 是单位球 $x^2 + y^2 + z^2 \leq 1$。
+设 $\mathbf{F} = (x, y, z)$，$V$ 是单位球 $x^2 + y^2 + z^2 \leq 1$。散度 $\nabla \cdot \mathbf{F} = 1 + 1 + 1 = 3$。体积分：$\iiint_V 3\,dV = 3 \cdot \frac{4}{3}\pi = 4\pi$。面积分：$\oiint_{\partial V} \mathbf{F} \cdot \mathbf{n}\,dS = \oiint_{\partial V} (x, y, z) \cdot (x, y, z)\,dS = \oiint_{\partial V} 1\,dS = 4\pi$。两边相等，验证了散度定理。再看一个非平凡的例子：设 $\mathbf{F} = (x^2, y^2, z^2)$，则 $\nabla \cdot \mathbf{F} = 2(x + y + z)$。由对称性，$\iiint_V 2x\,dV = 0$（球心对称），故体积分为 0。面积分同理为 0。
 
-散度 $\nabla \cdot \mathbf{F} = 1 + 1 + 1 = 3$。
+## 从局部到整体：守恒律的数学形式
 
-体积分：$\iiint_V 3\,dV = 3 \cdot \frac{4}{3}\pi = 4\pi$。
+散度 $\nabla \cdot \mathbf{F}$ 度量向量场在某点是"源"还是"汇"：
 
-面积分：$\oiint_{\partial V} \mathbf{F} \cdot \mathbf{n}\,dS = \oiint_{\partial V} (x, y, z) \cdot (x, y, z)\,dS = \oiint_{\partial V} 1\,dS = 4\pi$。
+- $\nabla \cdot \mathbf{F} > 0$：源，场从该点向外发散（正电荷处的电场）
+- $\nabla \cdot \mathbf{F} < 0$：汇，场向该点汇聚（负电荷处的电场）
+- $\nabla \cdot \mathbf{F} = 0$：无源无汇（不可压缩流体的速度场）
 
-两边相等，验证了散度定理。
-
-再看一个非平凡的例子：设 $\mathbf{F} = (x^2, y^2, z^2)$，则 $\nabla \cdot \mathbf{F} = 2(x + y + z)$。由对称性，$\iiint_V 2x\,dV = 0$（球心对称），故体积分为 0。面积分同理为 0。
-
-## 物理意义的深入理解
-
-散度定理的物理意义可以通过连续性方程来理解。
-
-设 $\rho$ 是某种"量"的密度（质量密度、电荷密度等），$\mathbf{J}$ 是流量密度。守恒定律说：
+散度定理把这些**逐点**的源强度加总，等同于穿过**整体边界**的通量。这一"局部 ↔ 整体"的转换，正是物理学写守恒律的标准手法。以任意守恒量为例：设 $\rho$ 是它的密度（质量、电荷、能量皆可），$\mathbf{J}$ 是流量密度。微分形式的守恒律说
 
 $$\frac{\partial \rho}{\partial t} + \nabla \cdot \mathbf{J} = 0$$
 
-对区域 $V$ 积分并应用散度定理：
+在区域 $V$ 上积分并用散度定理，立刻得到积分形式：
 
 $$\frac{d}{dt}\int_V \rho\,dV = -\oint_{\partial V} \mathbf{J} \cdot \mathbf{n}\,dS$$
 
-即：区域 $V$ 内总量的变化率等于通过边界的净流入量。这是物理学中最基本的守恒律的数学表述。
+读作：**区域内总量的变化率，等于净流入量**。左边是"里面有多少在变"，右边是"边界上进出多少"——两句话说的是同一件事，散度定理就是这个"同一"的内容。
 
-在电磁学中，高斯定律 $\oiint \mathbf{E} \cdot d\mathbf{S} = Q/\varepsilon_0$ 与微分形式 $\nabla \cdot \mathbf{E} = \rho/\varepsilon_0$ 通过散度定理等价。
+**麦克斯韦方程组的积分形式全部由此而来**（旋度那两条用斯托克斯定理）：
+
+| 微分形式 | 积分形式 | 用到的定理 |
+|----------|----------|------|
+| $\nabla \cdot \mathbf{E} = \rho/\varepsilon_0$ | $\oiint \mathbf{E}\cdot d\mathbf{S} = Q/\varepsilon_0$ | 散度定理 |
+| $\nabla \cdot \mathbf{B} = 0$ | $\oiint \mathbf{B}\cdot d\mathbf{S} = 0$ | 散度定理 |
+| $\nabla \times \mathbf{E} = -\partial\mathbf{B}/\partial t$ | $\oint \mathbf{E}\cdot d\mathbf{l} = -d\Phi_B/dt$ | 斯托克斯定理 |
+| $\nabla \times \mathbf{B} = \mu_0\mathbf{J} + \mu_0\varepsilon_0\partial\mathbf{E}/\partial t$ | $\oint \mathbf{B}\cdot d\mathbf{l} = \mu_0 I + \mu_0\varepsilon_0\,d\Phi_E/dt$ | 斯托克斯定理 |
+
+第二行值得单独看一眼：$\nabla \cdot \mathbf{B} = 0$ 说磁场没有源，于是**穿过任何闭曲面的磁通量恒为零**——这正是"磁单极子不存在"的数学表述。散度定理让一个逐点的微分陈述，变成一个可以实际测量的整体陈述。
 
 ## 散度定理的高维推广
 
@@ -121,31 +128,14 @@ $$\frac{d}{dt}\int_V \rho\,dV = -\oint_{\partial V} \mathbf{J} \cdot \mathbf{n}\
 
 $$\int_V \nabla \cdot \mathbf{F}\,d^n x = \oint_{\partial V} \mathbf{F} \cdot \mathbf{n}\,d^{n-1}S$$
 
-在微分形式语言中，散度定理是斯托克斯定理 $\int_M d\omega = \int_{\partial M} \omega$ 的特例。取 $\omega = F_1\,dx_2 \wedge \cdots \wedge dx_n - F_2\,dx_1 \wedge dx_3 \wedge \cdots \wedge dx_n + \cdots$（$\mathbf{F}$ 对应的 $(n-1)$-形式），则 $d\omega = (\nabla \cdot \mathbf{F})\,dx_1 \wedge \cdots \wedge dx_n$。
-
-嘉当的外微分形式语言将格林定理、斯托克斯定理和散度定理统一为同一个定理的不同特例——这是现代微分几何的基础。
-
-## 散度定理在电磁学中的完整应用
-
-麦克斯韦方程组的积分形式全部由散度定理和斯托克斯定理从微分形式推出：
-
-| 微分形式 | 积分形式 | 定理 |
-|----------|----------|------|
-| $\nabla \cdot \mathbf{E} = \rho/\varepsilon_0$ | $\oiint \mathbf{E}\cdot d\mathbf{S} = Q/\varepsilon_0$ | 散度定理 |
-| $\nabla \cdot \mathbf{B} = 0$ | $\oiint \mathbf{B}\cdot d\mathbf{S} = 0$ | 散度定理 |
-| $\nabla \times \mathbf{E} = -\partial\mathbf{B}/\partial t$ | $\oint \mathbf{E}\cdot d\mathbf{l} = -d\Phi_B/dt$ | 斯托克斯定理 |
-| $\nabla \times \mathbf{B} = \mu_0\mathbf{J} + \mu_0\varepsilon_0\partial\mathbf{E}/\partial t$ | $\oint \mathbf{B}\cdot d\mathbf{l} = \mu_0 I + \mu_0\varepsilon_0\,d\Phi_E/dt$ | 斯托克斯定理 |
-
-散度定理不仅是一个数学恒等式——它是物理守恒律的精确数学表述。
+在微分形式语言中，散度定理是斯托克斯定理 $\int_M d\omega = \int_{\partial M} \omega$ 的特例。取 $\omega = F_1\,dx_2 \wedge \cdots \wedge dx_n - F_2\,dx_1 \wedge dx_3 \wedge \cdots \wedge dx_n + \cdots$（$\mathbf{F}$ 对应的 $(n-1)$-形式），则 $d\omega = (\nabla \cdot \mathbf{F})\,dx_1 \wedge \cdots \wedge dx_n$。嘉当的外微分形式语言将格林定理、斯托克斯定理和散度定理统一为同一个定理的不同特例——这是现代微分几何的基础。
 
 ## 跨领域连接
 
 - **物理学**：散度定理是电磁学（高斯定律）和流体力学的数学基础
-- **工程学**：散度定理在热传导和流体仿真中的应用
-- **经济学**：散度定理在经济场论和空间经济学中的应用
-- **哲学**：散度定理与局部-整体关系的哲学
+- **工程学**：有限体积法（CFD 与热仿真的主流离散化）直接建在散度定理上——把每个网格单元的通量守恒写成面积分，于是**离散方案天然守恒**，不会凭空产生或消灭质量。这是它相对有限差分的核心优势。
 
-## 延伸阅读
+## 参考文献
 
 1. Carl Friedrich Gauss, *Theoria attractionis corporum sphaeroidicorum* (1813).
 2. H.M. Schey, *Div, Grad, Curl, and All That* (4th ed., 2005).

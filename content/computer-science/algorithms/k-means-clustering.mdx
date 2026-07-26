@@ -2,7 +2,7 @@
 title: K-means 聚类
 title_en: K-means Clustering
 status: published
-updated: 2026-06-13
+updated: 2026-07-25
 category: 机器学习算法
 order: 27
 field: 计算机科学 · 机器学习 · 无监督学习
@@ -18,17 +18,13 @@ related:
 
 # K-means 聚类
 
-1957 年，Bell Labs 的 Stuart Lloyd 开发了一种信号量化算法，用于将连续信号压缩为有限个离散值——他将类似的点"聚合"到同一个"中心"附近。这个方法在 Bell Labs 内部流传了二十多年，直到 1982 年才正式发表。
-
-与此同时，James MacQueen 在 1967 年的论文中命名了"k-means"，Hugo Steinhaus 在 1956 年的波兰语论文中也独立描述了相似方法。
+1957 年，Bell Labs 的 Stuart Lloyd 开发了一种信号量化算法，用于将连续信号压缩为有限个离散值——他将类似的点"聚合"到同一个"中心"附近。这个方法在 Bell Labs 内部流传了二十多年，直到 1982 年才正式发表。与此同时，James MacQueen 在 1967 年的论文中命名了"k-means"，Hugo Steinhaus 在 1956 年的波兰语论文中也独立描述了相似方法。
 
 如今，K-means 是最广为人知的无监督机器学习算法，也是数据分析工具箱中的标配工具。它的成功有一个悖论：极其简单，却被证明在理论上是 NP-hard 的。
 
 ## 什么是聚类？
 
-**无监督学习（Unsupervised Learning）**：不提供标签，让算法自己从数据中发现结构。
-
-**聚类（Clustering）**：将数据点分组，使同一组内的点彼此相似，不同组间的点差异较大。
+**无监督学习（Unsupervised Learning）**不提供标签，让算法自己从数据中发现结构；**聚类（Clustering）**则是把数据点分组，使同一组内的点彼此相似，不同组间的点差异较大。
 
 聚类没有"正确答案"——因为没有标签，无法验证。不同的距离度量、不同的 $k$ 值会给出不同的聚类结果，这些结果都可能在不同的问题框架下"有意义"。
 
@@ -69,17 +65,13 @@ $$\text{最小化} \sum_{j=1}^{k} \sum_{x_i \in C_j} \|x_i - \mu_j\|^2$$
 4. 重复步骤 2-3 直到选出 $k$ 个质心
 5. 用 Lloyd 迭代优化
 
-**理论保证**：K-means++ 初始化后，Lloyd 算法收敛的期望 WCSS 不超过最优 WCSS 的 $O(\log k)$ 倍。
-
-实践上，K-means++ 显著提高结果质量和收敛速度，是现代实现的标准初始化方法（scikit-learn 默认使用 K-means++）。
+**理论保证**：K-means++ 初始化后，Lloyd 算法收敛的期望 WCSS 不超过最优 WCSS 的 $O(\log k)$ 倍。实践上，K-means++ 显著提高结果质量和收敛速度，是现代实现的标准初始化方法（scikit-learn 默认使用 K-means++）。
 
 ## 选择 $k$：肘部法则与轮廓系数
 
 K-means 需要预先指定 $k$——这是它最大的实践困难之一。
 
-**肘部法则（Elbow Method）**：对不同的 $k$ 值绘制 WCSS 曲线，寻找曲线下降明显放缓的"肘部"点，对应合理的 $k$。
-
-局限：肘部往往不清晰，不同数据集差异很大。
+**肘部法则（Elbow Method）**：对不同的 $k$ 值绘制 WCSS 曲线，寻找曲线下降明显放缓的"肘部"点，对应合理的 $k$。局限是肘部往往不清晰，不同数据集之间差异很大。
 
 **轮廓系数（Silhouette Coefficient，Rousseeuw 1987）**：衡量每个点与其所在簇的契合程度。对点 $i$，定义：
 
@@ -129,7 +121,7 @@ $$s(i) = \frac{b(i) - a(i)}{\max(a(i), b(i))}$$
 
 - **[[gradient-descent-backprop]]**：K-means 的 Lloyd 迭代是一种坐标下降（Coordinate Descent）方法——交替优化簇分配和质心位置。这与梯度下降在优化思路上有深刻联系；K-means 可以视为特殊的 EM 算法。
 - **[[decision-trees]]**：两者都是经典的机器学习算法——K-means 处理无监督聚类，决策树处理有监督分类，共同构成数据挖掘的基础工具箱。
-- **信息论**：K-means 最小化的 WCSS 在信息论中对应向量量化（Vector Quantization）的失真度量。香农的率失真理论为向量量化提供了理论下界。
+- **[[information-theory|信息论]]**：K-means 最小化的 WCSS 在信息论中对应向量量化（Vector Quantization）的失真度量。香农的率失真理论为向量量化提供了理论下界。
 - **统计学（EM 算法）**：高斯混合模型的 EM 算法是 K-means 的概率推广，"软分配"（每个点以一定概率属于每个簇）取代 K-means 的"硬分配"。
 
 ---

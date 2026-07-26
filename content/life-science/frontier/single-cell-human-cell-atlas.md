@@ -123,7 +123,7 @@ related:
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Regev, A. et al. (HCA Consortium). "The Human Cell Atlas." _eLife_ 6, e27041 (2017). DOI: 10.7554/eLife.27041.（HCA 计划的愿景论文）
 - Macosko, E.Z. et al. "Highly parallel genome-wide expression profiling of individual cells using nanoliter droplets." _Cell_ 161, 1202–1214 (2015). DOI: 10.1016/j.cell.2015.05.002.（Drop-seq，单细胞液滴测序先驱）

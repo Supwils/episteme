@@ -98,7 +98,7 @@ $$\oint \mathbf{v}_s \cdot d\mathbf{l} = n \frac{h}{m}$$
 
 超流性是量子力学在宏观尺度上最清晰的显现之一：即便在绝对零度，液氦也不会凝固，因为氦原子的量子零点运动始终不让它静止下来——这一图像源自朗道（Lev Landau）对液氦超流的奠基性理论工作。
 
-## 延伸阅读
+## 参考文献
 
 1. Kapitza, Pyotr L. "Viscosity of Liquid Helium below the $\lambda$-Point." _Nature_, 141: 74, 1938.
 2. London, Fritz. "The $\lambda$-Phenomenon of Liquid Helium and the Bose-Einstein Degeneracy." _Nature_, 141: 643–644, 1938.

@@ -94,7 +94,7 @@ CP破坏; 物质反物质不对称; 重子不对称; 萨哈罗夫条件; CPT定�
 - **卡3**：萨哈罗夫（1967年）提出重子不对称产生的三个必要条件（B违反、CP破坏、偏离热平衡），标准模型内的CP破坏量至少比所需值小约10个数量级。
 - **卡4**：T2K实验（2020年）报告了约3$\sigma$的轻子CP破坏信号；DUNE和Hyper-K计划在2030年代以5$\sigma$精度测量，可能揭示宇宙物质起源的关键线索。
 
-## 延伸阅读
+## 参考文献
 
 1. Christenson, James H., et al. "Evidence for the 2π Decay of the K$_2^0$ Meson." _Physical Review Letters_, 13(4): 138–140, 1964.
 2. Kobayashi, Makoto, and Toshihide Maskawa. "CP-Violation in the Renormalizable Theory of Weak Interaction." _Progress of Theoretical Physics_, 49(2): 652–657, 1973.

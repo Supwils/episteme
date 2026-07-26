@@ -6,3 +6,8 @@ pnpm-lock.yaml
 *.mdx
 # AGENTS.md is a symlink to CLAUDE.md — prettier errors on symlinks
 AGENTS.md
+
+# gen-search-index writes this minified on purpose — the client fetches it, and
+# prettifying inflates it from ~3 MB to ~5.6 MB (+86%) for zero benefit. Note
+# public/link-previews.json is NOT listed: its generator runs prettier itself.
+public/search-index.json

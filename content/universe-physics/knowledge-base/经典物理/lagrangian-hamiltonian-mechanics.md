@@ -74,7 +74,7 @@ $$\{f, g\} = \sum_i\left(\frac{\partial f}{\partial q_i}\frac{\partial g}{\parti
 
 广义相对论同样可以从变分原理推导：希尔伯特（David Hilbert）在1915年几乎与爱因斯坦同时（差5天），独立从爱因斯坦-希尔伯特作用量推导出爱因斯坦场方程。这表明分析力学不仅是经典力学的工具，而是描述物理定律最普适的语言形式。
 
-连接节点：[[牛顿三大定律]] → [[拉格朗日与哈密顿力学]]（力学的更深层表述）；[[拉格朗日与哈密顿力学]] → [[混沌与三体问题]]（相空间几何与KAM定理）；[[拉格朗日与哈密顿力学]] → [[对称性与诺特定理]]（对称性是守恒律的深层根源）
+连接节点：[[牛顿三大定律]] → 拉格朗日与哈密顿力学（力学的更深层表述）；拉格朗日与哈密顿力学 → [[chaos-three-body-problem|混沌与三体问题]]（相空间几何与KAM定理）；拉格朗日与哈密顿力学 → [[对称性与诺特定理]]（对称性是守恒律的深层根源）
 
 ---
 
@@ -89,7 +89,7 @@ $$\{f, g\} = \sum_i\left(\frac{\partial f}{\partial q_i}\frac{\partial g}{\parti
 
 > "我的《分析力学》中找不到任何图形；我用的方法不需要几何或力学论证，只需代数运算。" — 约瑟夫-路易·拉格朗日，《分析力学》序言（1788年）
 
-## 延伸阅读
+## 参考文献
 
 1. Lagrange, Joseph-Louis. _Mécanique Analytique_. Paris, 1788.（历史原著）
 2. Landau, L. D.; Lifshitz, E. M. _Mechanics_ (Course of Theoretical Physics, Vol. 1). Pergamon Press, 1976.（最精炼的分析力学教材）

@@ -117,10 +117,10 @@ updated: 2026-06-13
 
 ## 跨领域连接
 
-- **双中子星并合与千新星**（`binary-neutron-star-merger-kilonova.md`）：多信使天文学迄今最完整的成功案例
-- **引力波探测器 LIGO 与 LISA**（`gravitational-wave-detectors-ligo-lisa.md`）：引力波信使的主要探测器
-- **快速射电暴 FRB**（`fast-radio-bursts.md`）：潜在的多信使来源（FRB + X 射线的联合探测）
-- **宇宙射线**（`cosmic-rays.md`）：中微子与宇宙射线联合约束高能天体物理来源
+- **双中子星并合与千新星**（[[binary-neutron-star-merger-kilonova|双中子星并合与千新星]]）：多信使天文学迄今最完整的成功案例
+- **引力波探测器 LIGO 与 LISA**（[[gravitational-wave-detectors-ligo-lisa|引力波探测器LIGO与LISA]]）：引力波信使的主要探测器
+- **快速射电暴 FRB**（[[fast-radio-bursts|快速射电暴FRB]]）：潜在的多信使来源（FRB + X 射线的联合探测）
+- **宇宙射线**（[[cosmic-rays|宇宙射线]]）：中微子与宇宙射线联合约束高能天体物理来源
 
 ## 参考文献
 

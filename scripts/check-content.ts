@@ -301,6 +301,56 @@ function checkLinkIntegrity(): { errors: number; warnings: number } {
   console.log(`Link Integrity`);
   console.log(`${"=".repeat(60)}`);
 
+  // Phase 0 — slug uniqueness within a domain. Two files sharing a basename in
+  // the same domain make the bare wiki-link key ambiguous, so gen-wiki-links
+  // drops it (see buildForward) and EVERY `[[slug]]` pointing there silently
+  // degrades to plain text. Three such collisions shipped undetected before
+  // this check existed, because nothing else looks at filenames across sections.
+  {
+    const seen = new Map<string, string[]>(); // `${domain}/${basename}` -> paths
+    const walkDom = (dir: string, out: string[] = []): string[] => {
+      for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+        const full = path.join(dir, e.name);
+        if (e.isDirectory()) walkDom(full, out);
+        else if (/\.mdx?$/.test(e.name) && !e.name.endsWith(".narration.md")) out.push(full);
+      }
+      return out;
+    };
+    for (const domain of fs.readdirSync(CONTENT_ROOT)) {
+      const domDir = path.join(CONTENT_ROOT, domain);
+      if (!fs.existsSync(domDir) || !fs.statSync(domDir).isDirectory()) continue;
+      for (const file of walkDom(domDir)) {
+        const slug = path.basename(file).replace(/\.mdx?$/, "");
+        const key = `${domain}/${slug}`;
+        seen.set(key, [...(seen.get(key) ?? []), file]);
+      }
+    }
+    // A collision only hurts when something actually links to the bare name:
+    // KB articles route as `<category>--<name>`, so a shared basename (e.g. an
+    // `概述` per era) is harmless unless a `[[概述]]` exists somewhere.
+    const referenced = new Set<string>();
+    for (const domain of fs.readdirSync(CONTENT_ROOT)) {
+      const domDir = path.join(CONTENT_ROOT, domain);
+      if (!fs.existsSync(domDir) || !fs.statSync(domDir).isDirectory()) continue;
+      for (const file of walkDom(domDir)) {
+        const body = fs.readFileSync(file, "utf8");
+        for (const m of body.matchAll(/\[\[([^\]|]+?)(?:\|[^\]]+)?\]\]/g)) {
+          referenced.add(m[1]!.trim());
+        }
+      }
+    }
+    for (const [key, paths] of seen) {
+      if (paths.length < 2) continue;
+      const bare = key.slice(key.indexOf("/") + 1);
+      if (!referenced.has(bare)) continue; // nobody links the bare name — harmless
+      console.log(
+        `  \x1b[33mWARN\x1b[0m duplicate slug "${key}" in ${paths.length} files, and \`[[${bare}]]\` is referenced — the bare key is dropped as ambiguous, so those links render as plain text:`
+      );
+      for (const pth of paths) console.log(`         ${path.relative(CONTENT_ROOT, pth)}`);
+      warnings++;
+    }
+  }
+
   // Phase 1 — every real KB/dialogue file must resolve through its loader after
   // the encode that the URL applies to the slug.
   for (const domain of ["cosmology", "life-science", "universe-physics"]) {
@@ -353,6 +403,11 @@ function checkLinkIntegrity(): { errors: number; warnings: number } {
 }
 
 const MIN_FRONTIER_LINES = 60;
+// Same philosophy as MIN_CJK_CHARS above: physical line count is a bad depth
+// proxy — merging single-sentence paragraphs into real prose lowers it without
+// removing a word. A frontier article passes on EITHER measure, so dense
+// writing is not punished and padding to a line target is not rewarded.
+const MIN_FRONTIER_CJK = 1800;
 
 /**
  * Frontier articles span every domain and are not covered by the per-domain
@@ -393,9 +448,10 @@ function checkFrontier(): { errors: number; warnings: number } {
         }
       }
       const lines = countNonEmptyLines(parsed.content);
-      if (lines < MIN_FRONTIER_LINES) {
+      const frontierCjk = countCjkChars(parsed.content);
+      if (lines < MIN_FRONTIER_LINES && frontierCjk < MIN_FRONTIER_CJK) {
         console.log(
-          `  \x1b[33mWARN\x1b[0m ${rel}: too short (${lines} lines, min ${MIN_FRONTIER_LINES})`
+          `  \x1b[33mWARN\x1b[0m ${rel}: too short (${lines} lines / ${frontierCjk} CJK chars, need ${MIN_FRONTIER_LINES} lines or ${MIN_FRONTIER_CJK} chars)`
         );
         warnings++;
       }

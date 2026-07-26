@@ -9,7 +9,6 @@ status: published
 updated: 2026-06-04
 ---
 
-
 # 计算复杂性
 
 ## 一个直觉：检查答案容易，找到答案难——这道鸿沟有多深？
@@ -135,21 +134,17 @@ updated: 2026-06-04
 
 **量子优势的理论边界**。量子计算的BQP类被认为不包含所有NP问题——但精确的包含关系仍然开放。量子优势（quantum supremacy）已在实验中被展示——Google在2019年用53量子比特的Sycamore处理器在200秒内完成了经典超级计算机需要10000年的任务。但这个任务（随机电路采样）没有实际应用——量子计算在实际问题上的优势仍然需要证明。
 
-
-
-
-
-
-
-
 **去随机化与伪随机数**。如果 $P = BPP$，则所有随机化算法都可以确定性地执行——随机性不是计算的必需品。已知如果存在足够强的伪随机数生成器，则 $P = BPP$。Nisan-Wigderson生成器利用计算困难问题来构造伪随机数——这建立了复杂性理论不同分支之间的深刻联系。去随机化的进展表明：真正的随机性可能比我们想象的更不重要——好的伪随机数就足够了。
 
-## 延伸阅读
+## 参考文献
 
 1. Stephen Cook, "The Complexity of Theorem-Proving Procedures" (1971).
 2. Richard Karp, "Reducibility Among Combinatorial Problems" (1972).
 3. Michael Sipser, *Introduction to the Theory of Computation* (3rd ed., 2013).
 4. 堵丁柱, 葛可一, 《计算复杂性导论》, 高等教育出版社, 2002.
-5. Scott Aaronson, *Quantum Computing Since Democritus* (2013).
+
+## 延伸阅读
+
+1. Scott Aaronson, *Quantum Computing Since Democritus* (2013).
 
 > 计算复杂性理论按求解所需的时间与空间资源对问题分类。P 是多项式时间可解的问题，NP 是可在多项式时间内验证解的问题，NP 完全问题（如 SAT、旅行商）是 NP 中最难的一类；P 是否等于 NP 仍是未决的核心难题。

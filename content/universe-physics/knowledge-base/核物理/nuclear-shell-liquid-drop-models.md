@@ -88,7 +88,7 @@ $$V(r) = \frac{1}{2}m\omega^2 r^2 - \kappa\hbar\omega(2\mathbf{l}^2 - \langle l^
 - **卡3**：玛丽亚·格佩特-迈耶是继居里夫人之后第二位获得诺贝尔物理学奖的女性，以核壳层模型的发现闻名。
 - **卡4**：远离稳定线的奇特核中，"传统"幻数（如N=20）可能消失，新幻数（如N=32,34）可能出现，是当前放射性核束实验（RIKEN、GSI）的核心研究主题。
 
-## 延伸阅读
+## 参考文献
 
 1. Weizsäcker, Carl Friedrich von. "Zur Theorie der Kernmassen." _Zeitschrift für Physik_, 96(7–8): 431–458, 1935.
 2. Mayer, Maria Goeppert. "On Closed Shells in Nuclei." _Physical Review_, 74(3): 235–239, 1948.

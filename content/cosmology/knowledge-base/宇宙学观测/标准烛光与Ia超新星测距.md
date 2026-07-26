@@ -123,14 +123,14 @@ Ia 超新星数据的一个核心科学问题是：暗能量的态方程 $w = P/
 
 ## 跨学科连接
 
-- **宇宙距离阶梯**（`宇宙距离阶梯.md`）：Ia 超新星是距离阶梯的第三级
-- **暗物质与暗能量**（`../暗物质与暗能量.md`）：Ia 超新星是暗能量发现的直接证据
-- **恒星核合成**（`../恒星核合成.md`）：Ia 超新星是宇宙铁族元素的主要来源
-- **大型巡天**（`大型巡天SDSS与DESI.md`）：巡天为超新星提供宿主星系光谱和红移
+- **宇宙距离阶梯**（[[宇宙距离阶梯]]）：Ia 超新星是距离阶梯的第三级
+- **暗物质与暗能量**（[[暗物质与暗能量]]）：Ia 超新星是暗能量发现的直接证据
+- **恒星核合成**（[[恒星核合成]]）：Ia 超新星是宇宙铁族元素的主要来源
+- **大型巡天**（[[大型巡天SDSS与DESI|大型巡天：SDSS与DESI]]）：巡天为超新星提供宿主星系光谱和红移
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Phillips, M. M. (1993). The absolute magnitudes of Type Ia supernovae. _Astrophysical Journal Letters_, 413, L105–L108.
 - Riess, A. G. et al. (1998). Observational evidence from supernovae for an accelerating universe and a cosmological constant. _Astronomical Journal_, 116, 1009–1038.

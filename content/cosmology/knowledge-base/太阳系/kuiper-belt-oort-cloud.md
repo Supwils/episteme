@@ -105,7 +105,7 @@ status: published
 - 奥尔特云范围：约 2,000–100,000 AU
 - 奥尔特云彗星数量：约 $10^{11}$–$10^{12}$ 颗
 
-## 延伸阅读
+## 参考文献
 
 - Oort, J.H. (1950). The structure of the cloud of comets surrounding the Solar System and a hypothesis concerning its origin. _Bulletin of the Astronomical Institutes of the Netherlands_, 11, 91–110.
 - Stern, S.A. et al. (2015). The Pluto system: Initial results from its exploration by New Horizons. _Science_, 350, aad1815.

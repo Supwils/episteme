@@ -110,19 +110,22 @@ NIF 使用的氘氚靶丸在被激光气化后形成等离子体，通过内爆�
 
 ## 跨域连接
 
-- **天体物理**：太阳核心的质子-质子链和大质量恒星的 CNO 循环是自然界唯一长期运行的聚变反应堆。在实验室复制这个过程，理解其物理，连接着恒星演化和元素起源的基础问题（[[核合成]]）。
+- **天体物理**：太阳核心的质子-质子链和大质量恒星的 CNO 循环是自然界唯一长期运行的聚变反应堆。在实验室复制这个过程，理解其物理，连接着恒星演化和元素起源的基础问题（见[[恒星核合成]]与[[太初核合成]]）。
 - **材料科学**：聚变的中子损伤问题直接推动了辐照损伤材料学的发展——这与核裂变反应堆延寿、空间辐射屏蔽等问题共享底层的材料物理。
 - **等离子体物理与磁流体动力学**：托卡马克的不稳定性（撕裂模、锯齿振荡、边界局域模）背后是非线性等离子体物理，与磁重联、宇宙射线加速等天体物理过程共享同一套数学语言。
 - **能源政策**：如果私营聚变公司在 2030 年代实现商业示范，它将从根本上改变全球能源转型的选项，但时间上可能与太阳能 + 储能的规模化扩张重叠，届时经济性比较将是关键。
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Hurricane, O. A., et al. _Physics principles of inertial confinement fusion and U.S. program overview._ Reviews of Modern Physics 95, 025005 (2023).
 - Abu-Shawareb, H., et al. (NIF). _Achievement of Target Gain Larger than Unity in an Inertial Fusion Experiment._ Physical Review Letters 132, 065102 (2024).（2022 年 12 月点火实验的正式论文）
 - Creely, A. J., et al. (Commonwealth Fusion). _Overview of the SPARC tokamak._ Journal of Plasma Physics 86, 865860502 (2020).
 - Wurzel, S. E., & Hsu, S. C. _Progress toward fusion energy breakeven and gain as measured against the Lawson criterion._ Physics of Plasmas 29, 062103 (2022).（系统梳理各路线进展的综述）
+
+## 延伸阅读
+
 - ITER Organization. _ITER Technical Reports._ https://www.iter.org/
 
 [^nif-record]: NIF 各次点火实验数据来源：LLNL Achieving Fusion Ignition 页面及相关新闻稿；2024 年 2 月 10 日的 5.2 MJ 结果见 Interesting Engineering 等多家媒体报道，引自 LLNL 官方数据。

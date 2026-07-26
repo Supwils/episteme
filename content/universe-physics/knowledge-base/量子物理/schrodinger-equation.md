@@ -112,7 +112,7 @@ $$\hat{H} = -\frac{\hbar^2}{2m}\nabla^2 + V(\mathbf{r})$$
 
 薛定谔方程是一个方程，但它打开了整个量子世界。
 
-连接节点：[[薛定谔方程]] → [[波函数与概率诠释]]（方程的解的物理意义）；[[薛定谔方程]] → [[量子谐振子]]（基准可解模型）；[[薛定谔方程]] → [[氢原子的量子理论]]（精确解的标志性成果）
+连接节点：薛定谔方程 → [[wave-function-probability|波函数与概率诠释]]（方程的解的物理意义）；薛定谔方程 → [[quantum-harmonic-oscillator|量子谐振子]]（基准可解模型）；薛定谔方程 → [[hydrogen-atom-quantum-theory|氢原子的量子理论]]（精确解的标志性成果）
 
 ---
 
@@ -129,7 +129,7 @@ $$\hat{H} = -\frac{\hbar^2}{2m}\nabla^2 + V(\mathbf{r})$$
 >
 > "如果我们不能从薛定谔方程中做出可靠的预言，它就什么都不是。" — 保罗·狄拉克
 
-## 延伸阅读
+## 参考文献
 
 1. Schrödinger, Erwin. "Quantisierung als Eigenwertproblem (Erste Mitteilung)." _Annalen der Physik_, 79: 361–376, 1926.
 2. Griffiths, David J. _Introduction to Quantum Mechanics_ (2nd ed.). Pearson, 2005.

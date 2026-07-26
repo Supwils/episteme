@@ -23,15 +23,11 @@ status: published
 
 ### 星系际热气体——ICM（~ 12% 质量）
 
-ICM（Intracluster Medium）由温度 $10^7$–$10^8$ K 的弥漫热等离子体构成，通过韧致辐射（thermal bremsstrahlung）在 X 射线波段发光——这使星系团在 X 射线天文卫星（Chandra、XMM-Newton）眼中是最明亮的宇宙天体之一。
-
-ICM 的 X 射线光度与星系团质量强相关：
+ICM（Intracluster Medium）由温度 $10^7$–$10^8$ K 的弥漫热等离子体构成，通过韧致辐射（thermal bremsstrahlung）在 X 射线波段发光——这使星系团在 X 射线天文卫星（Chandra、XMM-Newton）眼中是最明亮的宇宙天体之一。ICM 的 X 射线光度与星系团质量强相关：
 
 $$L_X \propto M^{1.5 \text{–} 2.0}$$
 
-（Kaiser 1986 的自相似标度关系；实际观测偏离幂律指数，需引入气体物理过程修正。）
-
-ICM 中的重元素丰度（铁、氧、镁等）约为太阳丰度的 $30\%$–$50\%$，表明超新星在星系中产生的元素通过星系风或 AGN 喷流注入了 ICM。
+（Kaiser 1986 的自相似标度关系；实际观测偏离幂律指数，需引入气体物理过程修正。）ICM 中的重元素丰度（铁、氧、镁等）约为太阳丰度的 $30\%$–$50\%$，表明超新星在星系中产生的元素通过星系风或 AGN 喷流注入了 ICM。
 
 **[[苏尼亚耶夫-泽尔多维奇效应]]（SZ 效应）**：CMB 光子经过 ICM 中的热电子逆康普顿散射，频谱发生畸变（低频端强度降低，高频端增加），产生的 SZ 信号正比于视线方向上电子压强的积分——是独立于红移的质量示踪体，被 Planck 和 SPT/ACT 等毫米波巡天大量用于星系团探测。
 
@@ -51,9 +47,7 @@ $$\rho(r) = \frac{\rho_s}{(r/r_s)(1 + r/r_s)^2}$$
 
 ### 子弹星系团（Bullet Cluster，1E 0657-56）
 
-两个星系团发生碰撞后的系统，由 Chandra X-ray Observatory 和弱引力透镜联合观测（Clowe et al. 2006，_Astrophysical Journal Letters_）。
-
-关键发现：碰撞使热 ICM 气体（X 射线可见）与大多数质量（引力透镜可见，对应暗物质）发生了**空间分离**——暗物质（与星系一起）穿越了碰撞，而热气体因电磁相互作用减速留在了中心。这是暗物质存在最直接的视觉证据，也对修正引力理论（如 MOND）提出了严峻挑战。
+两个星系团发生碰撞后的系统，由 Chandra X-ray Observatory 和弱引力透镜联合观测（Clowe et al. 2006，_Astrophysical Journal Letters_）。关键发现：碰撞使热 ICM 气体（X 射线可见）与大多数质量（引力透镜可见，对应暗物质）发生了**空间分离**——暗物质（与星系一起）穿越了碰撞，而热气体因电磁相互作用减速留在了中心。这是暗物质存在最直接的视觉证据，也对修正引力理论（如 MOND）提出了严峻挑战。
 
 ## 超星系团
 
@@ -126,7 +120,7 @@ $$\frac{dn}{dM} \propto \left|\frac{d\ln\sigma}{dM}\right| \exp\left(-\frac{\del
 - eROSITA 预期发现：约 $10^5$ 个 X 射线星系团（全天巡天，2024 年数据发布）
 - 已知最大星系团：El Gordo（ACT-CL J0102-4915），质量约 $2 \times 10^{15} M_\odot$
 
-## 延伸阅读
+## 参考文献
 
 - Voit, G.M. (2005). Tracing cosmic evolution with clusters of galaxies. _Reviews of Modern Physics_, 77, 207–258.
 - Clowe, D. et al. (2006). A direct empirical proof of the existence of dark matter. _Astrophysical Journal Letters_, 648, L109–L113.

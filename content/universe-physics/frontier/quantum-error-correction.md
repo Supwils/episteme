@@ -125,13 +125,16 @@ related:
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Google Quantum AI. _Quantum error correction below the surface code threshold._ Nature 638, 920–926 (2025). arXiv:2408.13687.
 - Bravyi, S. et al. (IBM). _High-threshold and low-overhead fault-tolerant quantum memory._ Nature 627, 778–782 (2024).
 - Bluvstein, D. et al. _Logical quantum processor based on reconfigurable atom arrays._ Nature 626, 58–65 (2024).
-- Nielsen, M. & Chuang, I. _Quantum Computation and Quantum Information._（阈值定理与纠错的标准教材章节）
 - NIST. _Post-Quantum Cryptography Standards (FIPS 203/204/205)._ 2024-08.
+
+## 延伸阅读
+
+- Nielsen, M. & Chuang, I. _Quantum Computation and Quantum Information._（阈值定理与纠错的标准教材章节）
 
 [^willow]: 数据出自 Google Quantum AI 2024 年论文（arXiv:2408.13687，2025 年发表于《自然》）：105 比特芯片上距离 7 表面码逻辑错误率约 0.143%/周期，$\Lambda\approx2.14$。
 

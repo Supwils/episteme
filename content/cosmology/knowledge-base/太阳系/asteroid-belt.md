@@ -113,7 +113,7 @@ YORP 效应（辐射扭矩）会使小行星自转加速——当小行星自转
 - S 型（硅质）：约 17%，富含硅酸盐和铁-镍，位于内主带，来源为地壳/地幔分异天体碎片
 - M 型（金属质）：少量，富含铁-镍金属，可能是古老天体的铁质核心暴露残片，如灵神星（Psyche，NASA 正在探测中）
 
-## 延伸阅读
+## 参考文献
 
 - Bottke, W.F. et al. (2006). The primordial excitation and clearing of the asteroid belt. _Icarus_, 179, 63–94.
 - Thomas, C.A. et al. (2023). Orbital period change of Dimorphos due to the DART kinetic impact. _Nature_, 616, 448–451.

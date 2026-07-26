@@ -52,9 +52,7 @@ related:
 
 ### 纽结不变量为何难
 
-纽结理论研究三维空间中的闭合曲线（想象把一根绳子打结后连接两端）。判断两个纽结是否"本质相同"（同痕等价）是该领域的核心问题，也是极端困难的问题。
-
-数学家为此发展了大量**纽结不变量**——对每个纽结赋予一个代数对象（数、多项式、群等），使得同痕等价的纽结具有相同的不变量。典型的不变量包括：
+纽结理论研究三维空间中的闭合曲线（想象把一根绳子打结后连接两端）。判断两个纽结是否"本质相同"（同痕等价）是该领域的核心问题，也是极端困难的问题。数学家为此发展了大量**纽结不变量**——对每个纽结赋予一个代数对象（数、多项式、群等），使得同痕等价的纽结具有相同的不变量。典型的不变量包括：
 
 - **Alexander 多项式**（1928）
 - **Jones 多项式**（1984，Vaughan Jones，此后获 Fields 奖）
@@ -67,9 +65,7 @@ related:
 
 ### 机器发现了什么
 
-Davies 等人对约 270 万个纽结计算了一批不变量，训练机器学习模型，发现**签名**（一个代数不变量）可以被双曲不变量（来自几何）高精度预测。
-
-这暗示了一个此前没人系统研究过的代数-几何联系。Lackenby 和 Juhász 根据机器学习的归因分析结果——具体是"meridional cusp shape"（经向尖点形状）和"longitudinal cusp shape"这两个双曲几何特征最关键——提炼出了一个精确的数学猜想，并在同一篇论文中给出了证明。这是机器学习**直接导致新定理**的第一个高可信度案例。
+Davies 等人对约 270 万个纽结计算了一批不变量，训练机器学习模型，发现**签名**（一个代数不变量）可以被双曲不变量（来自几何）高精度预测。这暗示了一个此前没人系统研究过的代数-几何联系。Lackenby 和 Juhász 根据机器学习的归因分析结果——具体是"meridional cusp shape"（经向尖点形状）和"longitudinal cusp shape"这两个双曲几何特征最关键——提炼出了一个精确的数学猜想，并在同一篇论文中给出了证明。这是机器学习**直接导致新定理**的第一个高可信度案例。
 
 ## 表示论中的第二个案例
 
@@ -77,17 +73,11 @@ Davies 等人对约 270 万个纽结计算了一批不变量，训练机器学�
 
 ### 背景
 
-Kazhdan-Lusztig 多项式是表示论中极为重要的多项式族，出现在 Weyl 群的表示分解、奇点的相交上同调等处。CIC（由 Lusztig 和 Dyer 分别在 1980 年代末提出）声称：这些多项式完全由 Bruhat 偏序关系中某个"区间"的图结构决定——而不需要完整的 Weyl 群数据。
-
-这个猜想吸引人，因为它意味着可以用纯组合的（无需代数几何的）方法计算 Kazhdan-Lusztig 多项式。但近四十年无人证明。
+Kazhdan-Lusztig 多项式是表示论中极为重要的多项式族，出现在 Weyl 群的表示分解、奇点的相交上同调等处。CIC（由 Lusztig 和 Dyer 分别在 1980 年代末提出）声称：这些多项式完全由 Bruhat 偏序关系中某个"区间"的图结构决定——而不需要完整的 Weyl 群数据。这个猜想吸引人，因为它意味着可以用纯组合的（无需代数几何的）方法计算 Kazhdan-Lusztig 多项式。但近四十年无人证明。
 
 ### 机器的贡献
 
-DeepMind 与 Williamson 合作，对 Kazhdan-Lusztig 多项式和 Bruhat 区间图训练了神经网络。机器以高精度预测出了多项式值，归因分析指向两个关键图结构特征：**断裂的二面体区间**（broken dihedral intervals）和**外部反射**（external reflections）。
-
-Williamson 根据这两个线索，构造了一个算法，能够从 Bruhat 区间图计算出 Kazhdan-Lusztig 多项式。这个算法被 DeepMind 在超过 300 万个案例上计算验证，没有发现反例。
-
-这**不是**CIC 的完整证明——构造了一个看似正确的算法与严格证明这个算法对所有情形都成立，仍然是两件事。CIC 作为猜想在 2025 年仍然是开放的，但机器的介入给出了前所未有的具体方向。
+DeepMind 与 Williamson 合作，对 Kazhdan-Lusztig 多项式和 Bruhat 区间图训练了神经网络。机器以高精度预测出了多项式值，归因分析指向两个关键图结构特征：**断裂的二面体区间**（broken dihedral intervals）和**外部反射**（external reflections）。Williamson 根据这两个线索，构造了一个算法，能够从 Bruhat 区间图计算出 Kazhdan-Lusztig 多项式。这个算法被 DeepMind 在超过 300 万个案例上计算验证，没有发现反例。这**不是**CIC 的完整证明——构造了一个看似正确的算法与严格证明这个算法对所有情形都成立，仍然是两件事。CIC 作为猜想在 2025 年仍然是开放的，但机器的介入给出了前所未有的具体方向。
 
 ## 2021 年后：这条路线走向了哪里
 
@@ -137,12 +127,15 @@ Williamson 根据这两个线索，构造了一个算法，能够从 Bruhat 区�
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Davies, A., Veličković, P., Buesing, L., Williamson, G. et al. "Advancing mathematics by guiding human intuition with AI." _Nature_ 600, 70–74 (2021).
 - Romera-Paredes, B. et al. "Mathematical discoveries from program search with large language models." _Nature_ 625, 468–475 (2024). （FunSearch 论文）
 - Lackenby, M. "The Signature of a Knot and Its Hyperbolic Invariants." （2021 年论文的数学部分）
 - Williamson, G. "Is there a neural network approach to some of the central problems in representation theory?" _ICM 2022 Proceedings_.
+
+## 延伸阅读
+
 - DeepMind Blog. "Exploring the beauty of pure mathematics in novel ways." 2021-12-01.
 
 [^davies2021]: Davies et al., _Nature_ 600 (2021): 70–74. DOI: 10.1038/s41586-021-04086-x.

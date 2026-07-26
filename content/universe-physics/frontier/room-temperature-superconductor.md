@@ -105,13 +105,13 @@ BCS 理论对铜超不适用（至少不是简单的声子机制），近四十�
 
 ## 跨域连接
 
-- **量子信息**：某些拓扑超导体的表面态被预言携带 Majorana 零模（见 [[拓扑量子比特与马约拉纳费米子]]），而超导电路本身是超导量子比特（transmon）的物理基础。超导与量子计算有着深厚的物质层面联系。
+- **量子信息**：某些拓扑超导体的表面态被预言携带 Majorana 零模（见 [[topological-qubits-majorana|拓扑量子比特与马约拉纳费米子]]），而超导电路本身是超导量子比特（transmon）的物理基础。超导与量子计算有着深厚的物质层面联系。
 - **能源技术**：如果常压室温超导材料被发现，将从根本上改变电力传输（消灭约 6–8% 的输配电损耗）、核磁共振成像（MRI 不再需要液氦冷却）、磁悬浮列车、粒子加速器磁铁等众多领域。这是一个罕见的"技术上的相变"情景。
-- **科学哲学**：Dias 事件、LK-99 风波，都是科学公信力的压力测试。预印本文化（arXiv 上的"先发为主"）与同行评审的慢节奏之间的张力，在这个领域被放大到了极致——而这不只是超导的问题，是整个快速进展的实验物理学面临的方法论困境。
+- **[[philosophy-of-science|科学哲学]]**：Dias 事件、LK-99 风波，都是科学公信力的压力测试。预印本文化（arXiv 上的"先发为主"）与同行评审的慢节奏之间的张力，在这个领域被放大到了极致——而这不只是超导的问题，是整个快速进展的实验物理学面临的方法论困境。
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Drozdov, A. P., et al. _Conventional superconductivity at 203 kelvin at high pressures in the sulfur hydride system._ Nature 525, 73–76 (2015).（H₂S 203K 突破的原始论文）
 - Somayazulu, M., et al. _Evidence for Superconductivity above 260 K in Lanthanum Superhydride at Megabar Pressures._ Physical Review Letters 122, 027001 (2019).（LaH₁₀ 记录）

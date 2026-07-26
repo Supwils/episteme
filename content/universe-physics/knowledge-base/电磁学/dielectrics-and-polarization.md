@@ -68,7 +68,7 @@ $$\frac{\varepsilon_r - 1}{\varepsilon_r + 2} = \frac{n\alpha}{3\varepsilon_0}$$
 
 液晶（liquid crystal）显示技术也依赖电介质的各向异性极化：液晶分子是细长形的极性分子，在外加电场下集体取向发生改变，改变其对光的偏振面旋转角度，配合偏振片实现亮-暗切换。液晶显示器（LCD）面板中，每个像素的液晶单元相当于一个电控光阀，消耗的电能极小（开态主要是背光耗能），是现代平板显示的主流技术（全球70%以上的显示器和手机屏幕使用LCD或TFT-LCD技术）。
 
-连接节点：[[库仑定律与静电场]] → [[电介质与电极化]]（介质中的电场修正）；[[电介质与电极化]] → [[光学折射与全内反射]]（介电边界条件是折射定律的电磁根源）；[[电介质与电极化]] → [[固体物理与能带理论]]（铁电、压电效应的量子力学基础）
+连接节点：[[coulomb-law-electrostatics|库仑定律与静电场]] → 电介质与电极化（介质中的电场修正）；电介质与电极化 → [[光学折射与全内反射]]（介电边界条件是折射定律的电磁根源）；电介质与电极化 → [[固体物理与能带理论]]（铁电、压电效应的量子力学基础）
 
 ---
 
@@ -83,7 +83,7 @@ $$\frac{\varepsilon_r - 1}{\varepsilon_r + 2} = \frac{n\alpha}{3\varepsilon_0}$$
 
 > "在介质中，电场仿佛被'稀释'了——不是因为物质挡住了它，而是因为物质本身被场改变，反过来又改变了场。" — 理查德·费曼，《费曼物理学讲义》第二卷（意译）
 
-## 延伸阅读
+## 参考文献
 
 1. Kittel, Charles. _Introduction to Solid State Physics_, 8th ed. Wiley, 2005.（铁电、压电的固体物理处理）
 2. Lines, M. E.; Glass, A. M. _Principles and Applications of Ferroelectrics and Related Materials_. Oxford University Press, 1977.（铁电学经典著作）

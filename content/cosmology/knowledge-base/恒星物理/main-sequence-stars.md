@@ -119,10 +119,10 @@ $$L_{Edd} = \frac{4\pi G M c}{\kappa_{es}} \approx 1.3 \times 10^{31}\left(\frac
 
 ## 跨领域连接
 
-- **赫罗图**（`hertzsprung-russell-diagram.md`）：主序是赫罗图最重要的组成部分，理解主序是读懂赫罗图的前提
-- **恒星结构与流体静力平衡**（`stellar-structure-hydrostatic-equilibrium.md`）：主序的质光关系来自流体静力平衡与核能产生的联立方程
-- **红巨星与渐近巨星支**（`red-giants-agb.md`）：核心氢耗尽后主序星演化为红巨星
-- **恒星形成**（`star-formation.md`）：原恒星从主序前演化到 ZAMS 的物理过程
+- **赫罗图**（[[hertzsprung-russell-diagram|赫罗图]]）：主序是赫罗图最重要的组成部分，理解主序是读懂赫罗图的前提
+- **恒星结构与流体静力平衡**（[[stellar-structure-hydrostatic-equilibrium|恒星结构与流体静力平衡]]）：主序的质光关系来自流体静力平衡与核能产生的联立方程
+- **红巨星与渐近巨星支**（[[red-giants-agb|红巨星与渐近巨星支]]）：核心氢耗尽后主序星演化为红巨星
+- **恒星形成**（[[star-formation|恒星形成]]）：原恒星从主序前演化到 ZAMS 的物理过程
 
 ## 参考文献
 

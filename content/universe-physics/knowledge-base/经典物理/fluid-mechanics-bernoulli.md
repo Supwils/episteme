@@ -74,7 +74,7 @@ $$\rho\left(\frac{\partial \mathbf{v}}{\partial t} + (\mathbf{v}\cdot\nabla)\mat
 
 气候模拟和海洋环流是流体力学最具挑战性的应用。地球的大气和海洋都是旋转球壳上的黏性流体，受科里奥利力、浮力、太阳辐射等驱动，形成从大洋环流（热盐环流，thermohaline circulation）到台风（飓风）的多尺度运动。全球气候模式（GCM）本质上是有限差分或有限元的纳维-斯托克斯方程求解器，加上辐射传输、云参数化、海-气-陆相互作用等模块，是当前理解气候变化的主要工具。
 
-连接节点：[[牛顿三大定律]] → [[流体力学与伯努利原理]]（力学基础）；[[流体力学与伯努利原理]] → [[混沌与三体问题]]（湍流与混沌的关联）；[[流体力学与伯努利原理]] → [[热力学第二定律]]（黏性耗散与熵增）
+连接节点：[[牛顿三大定律]] → 流体力学与伯努利原理（力学基础）；流体力学与伯努利原理 → [[chaos-three-body-problem|混沌与三体问题]]（湍流与混沌的关联）；流体力学与伯努利原理 → [[热力学第二定律]]（黏性耗散与熵增）
 
 ---
 
@@ -89,7 +89,7 @@ $$\rho\left(\frac{\partial \mathbf{v}}{\partial t} + (\mathbf{v}\cdot\nabla)\mat
 
 > "湍流是经典物理学中最重要的未解问题。" — 理查德·费曼，《费曼物理学讲义》
 
-## 延伸阅读
+## 参考文献
 
 1. Bernoulli, Daniel. _Hydrodynamica_. Strasbourg, 1738.（原著，历史文献）
 2. Landau, L. D.; Lifshitz, E. M. _Fluid Mechanics_ (Course of Theoretical Physics, Vol. 6). Pergamon Press, 1987.

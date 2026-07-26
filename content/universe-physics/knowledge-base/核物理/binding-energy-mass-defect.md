@@ -98,7 +98,7 @@ $$B(A, Z) = a_v A - a_s A^{2/3} - a_c \frac{Z(Z-1)}{A^{1/3}} - a_a \frac{(A-2Z)^
 
 宇宙中的每一个铁原子、每一克金，都记录着核结合能曲线的物理规律在恒星和超新星中的宏大展开。
 
-连接节点：[[结合能与质量亏损]] → [[核裂变]]（裂变能量的定量来源）；[[结合能与质量亏损]] → [[放射性衰变]]（衰变能量的结合能变化）；[[结合能与质量亏损]] → [[夸克与轻子]]（质子质量的QCD起源）
+连接节点：结合能与质量亏损 → [[nuclear-fission|核裂变]]（裂变能量的定量来源）；结合能与质量亏损 → [[radioactive-decay|放射性衰变]]（衰变能量的结合能变化）；结合能与质量亏损 → [[quarks-and-leptons|夸克与轻子]]（质子质量的QCD起源）
 
 ---
 
@@ -113,7 +113,7 @@ $$B(A, Z) = a_v A - a_s A^{2/3} - a_c \frac{Z(Z-1)}{A^{1/3}} - a_a \frac{(A-2Z)^
 
 > "每个原子核的质量都比构成它的部件轻一点——少的那点质量，就是宇宙中一切核能和恒星光芒的根源。" — 理查德·费曼（改述）
 
-## 延伸阅读
+## 参考文献
 
 1. Weizsäcker, Carl Friedrich von. "Zur Theorie der Kernmassen." _Zeitschrift für Physik_, 96(7–8): 431–458, 1935.
 2. Bethe, Hans A., and C. L. Critchfield. "The Formation of Deuterons by Proton Combination." _Physical Review_, 54(4): 248–254, 1938.

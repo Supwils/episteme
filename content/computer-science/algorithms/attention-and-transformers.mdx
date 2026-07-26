@@ -2,7 +2,7 @@
 title: 注意力机制与 Transformer
 title_en: Attention and Transformers
 status: published
-updated: 2026-06-13
+updated: 2026-07-25
 category: 深度学习
 order: 39
 field: 计算机科学 · 深度学习 · 自然语言处理
@@ -24,11 +24,7 @@ related:
 
 ## 破除误解：注意力不是"关注重要部分"
 
-注意力机制经常被比喻为"大脑关注重要信息"，这个比喻容易误导。数学上，注意力操作是：
-
-**给定一个查询（Query），对所有键值对（Key-Value Pairs）做加权平均**。
-
-权重由查询与键的相似度决定。这是一个纯代数操作，"注意力"只是个形象化的名字。
+注意力机制经常被比喻为"大脑关注重要信息"，这个比喻容易误导。数学上，注意力操作只有一句话：**给定一个查询（Query），对所有键值对（Key-Value Pairs）做加权平均，权重由查询与键的相似度决定**。这是一个纯代数操作，"注意力"只是个形象化的名字——它既不知道什么算"重要"，也没有做出任何"选择"。本文后面会把一次自注意力完整手算一遍，届时这一点会非常清楚。
 
 另一个误解：Transformer 发明了注意力机制。实际上，注意力机制由 Bahdanau 等人于 2015 年在 RNN 机器翻译中提出。Transformer 的创新是**完全抛弃 RNN，只用注意力（Self-Attention）构建整个网络**。
 
@@ -45,6 +41,56 @@ $$\text{Attention}(Q, K, V) = \text{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}\r
 
 **自注意力（Self-Attention）**：$Q, K, V$ 都来自同一输入序列，序列中每个位置都可以"关注"其他所有位置。这使得序列中任意两个位置之间的信息传播路径长度恒为 1（而 RNN 为序列长度 $n$）。
 
+## 手算一次自注意力：三个词，两维
+
+公式看一百遍不如自己算一遍。把维度压到 $d_k = d_v = 2$、序列长度压到 3，整个自注意力可以用笔算完。
+
+设三个位置的查询、键、值向量如下（这里直接给出投影后的结果，省去 $W^Q, W^K, W^V$ 那一步）：
+
+| 位置 | $q_i$ | $k_i$ | $v_i$ |
+| --- | --- | --- | --- |
+| 1 | $(1,\ 0)$ | $(1,\ 0)$ | $(1,\ 0)$ |
+| 2 | $(0,\ 1)$ | $(0,\ 1)$ | $(0,\ 2)$ |
+| 3 | $(1,\ 1)$ | $(1,\ 1)$ | $(2,\ 2)$ |
+
+**第一步：原始分数 $QK^\top$。** 每格是一个点积 $q_i \cdot k_j$：
+
+| $q_i \cdot k_j$ | $j=1$ | $j=2$ | $j=3$ |
+| --- | --- | --- | --- |
+| $i=1$ | 1 | 0 | 1 |
+| $i=2$ | 0 | 1 | 1 |
+| $i=3$ | 1 | 1 | 2 |
+
+**第二步：除以 $\sqrt{d_k} = \sqrt{2} \approx 1.4142$，再取 softmax。** 以第 3 行为例：缩放后是 $(0.7071,\ 0.7071,\ 1.4142)$，取指数得 $(2.0281,\ 2.0281,\ 4.1133)$，三项和为 $8.1695$，相除得到权重 $(0.2483,\ 0.2483,\ 0.5035)$。三行都算完是这张表：
+
+| 权重 | $j=1$ | $j=2$ | $j=3$ |
+| --- | --- | --- | --- |
+| $i=1$ | 0.4011 | 0.1978 | 0.4011 |
+| $i=2$ | 0.1978 | 0.4011 | 0.4011 |
+| $i=3$ | 0.2483 | 0.2483 | 0.5035 |
+
+**第三步：按权重把 $v_j$ 加起来。** 位置 3 的输出是
+
+$$z_3 = 0.2483 \times (1,0) + 0.2483 \times (0,2) + 0.5035 \times (2,2) = (1.2552,\ 1.5035)$$
+
+同样算出 $z_1 = (1.2033,\ 1.1978)$、$z_2 = (1.0000,\ 1.6044)$。三个输出向量就是这一层自注意力的全部产物。
+
+这张权重表最该注意的是：**每一行的和是 1，每一列的和不是**。位置 3 给自己 0.5035 的权重、给另两个位置各 0.2483，仅仅因为 $q_3 \cdot k_3 = 2$ 比另两个点积大 1——不存在任何"决定去关注哪里"的过程，只有三次加权平均，而且三行可以完全独立、并行地算。这才是它取代循环结构的真正理由。
+
+顺便看一件容易被忽略的事：第 3 行的最大分数与最小分数只差 1，softmax 之后最大权重也只有 0.5035。**注意力天然是"糊"的**——想让它接近一次硬选择（某项权重趋于 1），分数差要拉到 10 以上。这既是它可微可训练的原因，也是下一节要处理的麻烦的来源。
+
+## 为什么要除以 $\sqrt{d_k}$
+
+原论文只用一个脚注交代了理由，但这个脚注是理解 Transformer 数值行为的关键。
+
+假设 $q$ 与 $k$ 的各分量彼此独立、均值 0、方差 1。点积 $q \cdot k = \sum_{i=1}^{d_k} q_i k_i$ 是 $d_k$ 个独立零均值项之和，均值仍为 0，但**方差是 $d_k$**，标准差 $\sqrt{d_k}$。原论文基础模型取 $d_k = 64$，于是随机初始化下分数的标准差就是 8——同一行里的分数已经散布在 $\pm 16$ 的量级上。
+
+这对 softmax 是灾难。两个分数相差 16 时 $e^{16} \approx 8.9 \times 10^{6}$，大的那一项拿到 0.9999999 的权重；而 softmax 雅可比的对角项是 $p(1-p)$，此时约 $1.1 \times 10^{-7}$，梯度实际上归零了。注意力层会在训练真正开始前就被锁死在一个随机选中的硬指向上，学不动。
+
+除以 $\sqrt{d_k}$ 恰好把方差拉回 1，且与 $d_k$ 无关。这也解释了为什么缩放因子是 $\sqrt{d_k}$ 而不是 $d_k$：它匹配的是标准差的量纲，不是方差的。
+
+该记住的是一条更一般的经验：**Transformer 里几乎每个看似任意的常数，都是某个量的方差配平**。层归一化配平激活的方差，Xavier / He 初始化里的 $1/\sqrt{d}$ 配平前向信号的方差，$1/\sqrt{d_k}$ 配平点积的方差。把它们当成互不相干的"经验技巧"会记不住，理解成"让每层信号的方差维持在 1"就只需记一条。
+
 ## 多头注意力
 
 单头注意力只能学习一种"注意方式"。**多头注意力（Multi-Head Attention）**并行运行 $h$ 个注意力头，每个头用不同的线性投影：
@@ -53,7 +99,7 @@ $$\text{MultiHead}(Q, K, V) = \text{Concat}(\text{head}_1, \ldots, \text{head}_h
 
 $$\text{head}_i = \text{Attention}(QW_i^Q, KW_i^K, VW_i^V)$$
 
-不同的头可以同时关注不同类型的关系（语法、语义、长距离依赖等）。
+不同的头可以同时关注不同类型的关系（语法、语义、长距离依赖等）。需要点明的是，多头**不额外花计算量**：原论文基础模型取 $d_{model} = 512$、$h = 8$，每个头的 $d_k = d_v = 512 / 8 = 64$，八个头的总投影维度加起来仍是 512。换句话说，多头是把同一份预算切成八份分头去看，而不是把预算翻八倍——所以"头多一点总没坏处"的直觉是错的，头数增加意味着每个头的维度下降，单个头能表达的相似度结构随之变弱。
 
 ## Transformer 完整架构
 
@@ -86,9 +132,9 @@ $$PE_{(pos, 2i+1)} = \cos(pos / 10000^{2i/d_{model}})$$
 | LLaMA   | 解码器      | Meta          | 2023 | 7B–65B           |
 | GPT-4   | 解码器（MoE?）| OpenAI      | 2023 | 未公开            |
 
-**GPT 系列（仅解码器）**：只用 Transformer 解码器，训练目标是**下一个词的预测**，产生了强大的生成能力和涌现的上下文学习能力（In-Context Learning）。
+**GPT 系列（仅解码器）**只用 Transformer 解码器，训练目标是下一个词的预测，产生了强大的生成能力和涌现的上下文学习能力（In-Context Learning）。**BERT（仅编码器）**的训练目标是掩码语言模型（Masked Language Model, MLM），擅长理解类任务（分类、问答）而非生成。两条路线在 2018–2020 年一度平分秋色，最终生成式解码器胜出，原因之一是它的训练目标不需要任何人工设计的掩码策略，能无限扩展到更多数据。
 
-**BERT（仅编码器）**：训练目标是**掩码语言模型（MLM）**，擅长理解任务（分类、问答）而非生成。
+一个常被忽略的量级对照：原论文的基础模型只有 6 层编码器加 6 层解码器，在 8 块 NVIDIA P100 上训练 12 小时（10 万步）就在 WMT 2014 英德翻译上拿到 27.3 BLEU；大模型训练 3.5 天（30 万步）达到 28.4 BLEU。也就是说，Transformer 出场时的成本是"一台机器一天"——真正昂贵的从来不是这个架构，而是后来往里灌的数据与参数。
 
 ## 计算复杂度与长度困境
 
@@ -98,7 +144,44 @@ $$PE_{(pos, 2i+1)} = \cos(pos / 10000^{2i/d_{model}})$$
 
 - **稀疏注意力**（Longformer、BigBird）：不计算所有位置对，只计算局部窗口 + 全局 token
 - **线性注意力**：近似计算，将复杂度降至 $O(n)$
-- **Flash Attention（Dao et al., 2022）**：通过 IO 感知的分块计算，在相同复杂度下大幅减少内存访问，实现 2–4 倍加速，成为现代 LLM 训练的标准
+- **FlashAttention（Dao et al., NeurIPS 2022）**：不改数学、不做近似，只重排内存访问就拿到数倍加速，已成为现代 LLM 训练的默认实现（下面单列一节）
+
+## 推理现场：KV cache 的显存账
+
+训练时整条序列一次性给全，注意力可以整块并行算。但**自回归生成**是一个词一个词往外吐的：生成第 $t$ 个词时，前面 $t-1$ 个位置的 $K$、$V$ 与上一步一模一样，重算一遍是纯浪费。于是所有推理引擎都把它们缓存下来，这就是 **KV cache**。
+
+代价是显存，而且账很好算：
+
+$$\text{bytes} = 2 \times L \times h_{kv} \times d_{head} \times \text{len} \times \text{bytes/elem}$$
+
+其中 2 是 $K$ 与 $V$ 两份，$L$ 是层数，$h_{kv}$ 是键值头数。拿 Llama 2 70B 的真实配置代进去：$L = 80$ 层、$d_{head} = 128$、fp16 每元素 2 字节。
+
+| 注意力形式 | 键值头数 | 每 token | 4096 token | 32768 token |
+| --- | --- | --- | --- | --- |
+| 多头（MHA） | 64 | 2.5 MiB | 10 GiB | 80 GiB |
+| 分组查询（GQA，实际采用） | 8 | 320 KiB | 1.25 GiB | 10 GiB |
+
+这张表最该注意的是第一行：如果 Llama 2 70B 用标准多头注意力，**单条** 4096 token 的对话就要 10 GiB 的 KV cache——而模型 fp16 权重本身已占约 140 GB。一张 80 GB 的加速卡连几条并发请求都放不下，推理成本会直接失控。
+
+所以 Llama 2 的 70B 版本采用了**分组查询注意力（Grouped-Query Attention, GQA）**：64 个查询头分成 8 组，每组共享一份 $K$、$V$，缓存立刻降到 1/8。GQA 由 Ainslie 等人在 EMNLP 2023 提出，它插在两个极端之间——Shazeer 在 2019 年提出的**多查询注意力（Multi-Query Attention, MQA）**把键值头压到 1 个，缓存最小但质量下降明显；GQA 用"若干组"把质量换回来。Ainslie 等人还给了一条很实用的结论：把已训好的多头模型续训（uptrain）成 GQA，只需原预训练算力的约 5%，不必从头再来一遍。
+
+这里有个反直觉的点：**MQA 与 GQA 的首要动机不是省显存容量，而是省显存带宽**。生成每一个 token 都要把整个 KV cache 从显存完整读进计算单元一次，这一步纯粹是带宽受限的——缓存小 8 倍，这部分时间就少 8 倍。注意力在推理阶段的瓶颈从来不是算得慢，而是搬得慢。
+
+## FlashAttention：赢在 IO，不在 FLOPs
+
+上面那句"搬得慢"，就是理解 FlashAttention 的钥匙。
+
+标准实现要在显存里物化那个 $n \times n$ 的分数矩阵：算出 $QK^\top$ 写回显存，读出来做 softmax 再写回，最后读出来乘 $V$。$n = 4096$ 时这个矩阵有 1677 万个元素，单层单头按 fp16 就是 32 MiB，还要反复往返显存三趟。
+
+关键的硬件事实：A100 的高带宽显存（HBM）有 40–80 GB、带宽 1.5–2.0 TB/s；而片上 SRAM 每个流处理器只有 192 KB（108 个流处理器合计约 20 MB），带宽却约 19 TB/s——快十倍。注意力的算术强度太低，时间几乎全花在 HBM 往返上。
+
+Dao 等人在 NeurIPS 2022 的做法是**分块（tiling）加重计算**：把 $Q, K, V$ 切成能塞进 SRAM 的小块，在片上把一块的分数、softmax、加权求和一口气做完，只把最终输出写回 HBM；softmax 的归一化因子用在线更新的方式跨块累积，那个 $n \times n$ 矩阵**从不落地**。反向传播需要它时就地重算一遍——多花 FLOPs，省掉 IO。
+
+由此得到一个漂亮的复杂度结果：标准注意力的 HBM 访问量是 $\Omega(nd + n^2)$，FlashAttention 是 $O(n^2 d^2 / M)$，其中 $M$ 是 SRAM 容量。注意 $M$ 在分母上——**片上内存越大，需要搬的数据越少**，这是标准复杂度分析根本表达不出来的东西。在常见的 $d$ 与 $M$ 取值下，HBM 访问量可降到约 1/9；实测 GPT-2 上端到端约 3 倍加速，BERT-large 上约 15%。
+
+要点在于：**FLOPs 一个都没省**，$O(n^2 d)$ 的计算量原封不动，输出也与标准注意力**逐位精确相等**（不是近似）。省下来的全是数据搬运。这是过去十年深度学习系统研究里最重要的一次视角转换——在此之前，"更快"几乎总意味着"算得更少"（稀疏注意力、线性注意力都属于这一类，代价是牺牲精确性）；FlashAttention 证明了在数学一字不改的前提下，仅靠重排内存访问就能拿到数倍加速。
+
+后续版本沿同一条线继续走：FlashAttention-2（2023）改进线程块与 warp 之间的工作划分，在 A100 上达到约 230 TFLOPs/s、理论峰值的 73%；FlashAttention-3（2024）利用 Hopper 架构的异步指令与低精度，H100 上 FP16 约 740 TFLOPs/s（理论峰值的 75%），FP8 接近 1.2 PFLOPs/s。三代之间的注意力公式一个字没变。
 
 ## 代价与争议
 
@@ -108,7 +191,9 @@ $$PE_{(pos, 2i+1)} = \cos(pos / 10000^{2i/d_{model}})$$
 
 **可解释性**：没有人真正理解为什么 Transformer 在 Scaling 后会"涌现"新能力（如思维链推理、少样本学习）。Anthropic 等机构在机械可解释性（Mechanistic Interpretability）方向投入大量研究。
 
-**对 RNN 复归的讨论**：Mamba（Gu & Dao, 2023）等选择性状态空间模型在某些任务上以线性复杂度追上了 Transformer，引发了"Transformer 是否是最终形态"的讨论。
+**对 RNN 复归的讨论**：Mamba（Gu & Dao, 2023）等选择性状态空间模型在某些任务上以线性复杂度追上了 Transformer，引发了"Transformer 是否是最终形态"的讨论。这场争论的过程本身值得一提：Mamba 论文投 ICLR 2024 被拒（评审给分 8/8/6/3），随后发表于 2024 年首届 COLM 会议，如今已是最被广泛引用的后 Transformer 架构之一。一个技术判断上的分歧，在同行评审里表现为一次拒稿。
+
+**这场争论的技术焦点**其实很具体：Transformer 在推理时携带一份随长度线性增长的 KV cache（上面那张表），而循环式架构携带一个**固定大小**的状态。固定状态意味着推理显存不随上下文增长，代价是必须把历史压缩进有限维度——凡是需要精确回忆任意历史 token 的任务（例如从长文档里逐字复制一个不常见的字符串），有限状态就是硬瓶颈。目前的经验结论是混合架构占优：多数层用线性复杂度的循环块，少数层保留完整注意力来承担精确检索。
 
 ## 跨域连接
 
@@ -116,12 +201,26 @@ $$PE_{(pos, 2i+1)} = \cos(pos / 10000^{2i/d_{model}})$$
 - **[[convolutional-neural-networks]]**：ViT（Vision Transformer）将 Transformer 用于图像，说明注意力机制并非 NLP 专属。
 - **[[gradient-descent-backprop]]**：反向传播是 Transformer 训练的底层机制，Flash Attention 等创新在保持反向传播正确性的同时优化内存效率。
 - **认知科学**：注意力的概念在心理学和神经科学中由来已久（William James 1890 年已描述选择性注意），但计算注意力与生物注意力的关系仍是开放问题。
+- **[[linear-algebra|线性代数]]**：整个注意力层只由矩阵乘法与逐行 softmax 组成，没有任何循环或条件分支。这正是它能吃满 GPU 的原因——现代加速器的峰值算力几乎全部来自矩阵乘单元。也因此，上面 FlashAttention 那一节的教训才成立：当算子本身已是矩阵乘时，剩下的优化空间只在内存层级里。
+- **[[probability|概率论]]**：$\sqrt{d_k}$ 那一节完全是概率论的：独立随机变量之和的方差可加。把这条初中级别的结论用对位置，就省掉了一个会让训练完全失败的坑。
 
 ---
 
 ## 参考文献
 
-- Vaswani, A. et al. *Attention Is All You Need.* NeurIPS 2017. arXiv:1706.03762.
+- Vaswani, A. et al. *Attention Is All You Need.* NeurIPS 2017. arXiv:1706.03762.（$d_{model}=512$、$h=8$、$d_k=64$ 与 8×P100 训练成本、BLEU 27.3/28.4 均出自此文）
 - Devlin, J. et al. *BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding.* NAACL 2019. arXiv:1810.04805.
 - Brown, T. et al. *Language Models are Few-Shot Learners (GPT-3).* NeurIPS 2020. arXiv:2005.14165.
-- Dao, T. et al. *FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness.* NeurIPS 2022. arXiv:2205.14135.
+- Dao, T. et al. *FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness.* NeurIPS 2022. arXiv:2205.14135.（IO 复杂度 $O(n^2d^2/M)$、A100 的 HBM/SRAM 参数与加速比）
+- Dao, T. *FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning.* ICLR 2024. arXiv:2307.08691.
+- Shah, J. et al. *FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision.* NeurIPS 2024. arXiv:2407.08608.
+- Shazeer, N. *Fast Transformer Decoding: One Write-Head is All You Need.* arXiv:1911.02150 (2019).（多查询注意力）
+- Ainslie, J. et al. *GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints.* EMNLP 2023.（分组查询注意力与 5% 续训成本）
+- Touvron, H. et al. *Llama 2: Open Foundation and Fine-Tuned Chat Models.* arXiv:2307.09288 (2023).（70B 的 80 层 / 64 查询头 / 8 键值头配置）
+- Gu, A. & Dao, T. *Mamba: Linear-Time Sequence Modeling with Selective State Spaces.* COLM 2024. arXiv:2312.00752.
+
+## 延伸阅读
+
+- Alammar, J. *The Illustrated Transformer.*（逐张图走完一次前向传播，与本文的手算一节互为补充）
+- Bahdanau, D., Cho, K. & Bengio, Y. *Neural Machine Translation by Jointly Learning to Align and Translate.* ICLR 2015. arXiv:1409.0473.（注意力机制的原始出处，读它可以看清 Transformer 到底新在哪里）
+- Zhang, A. et al. *Dive into Deep Learning.* Cambridge University Press, 2023.（第 11 章有可运行的注意力实现）

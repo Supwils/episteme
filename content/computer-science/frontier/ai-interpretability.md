@@ -147,15 +147,15 @@ Anthropic 在 2025 年用跨层转码器和属性图分析 Claude 3.5 Haiku 的�
 
 ## 怎样评价一个机制解释
 
-| 维度 | 核心问题 | 常见检验 |
-| --- | --- | --- |
-| 忠实性 | 解释是否追踪原模型真实计算 | 内部干预、替代模型误差 |
-| 完备性 | 是否覆盖产生行为的重要路径 | 保留/删除测试、误差节点占比 |
-| 稳定性 | 换输入、种子、字典后是否保持 | 留出集、跨运行特征匹配 |
-| 特异性 | 干预是否只影响目标行为 | 邻近任务与副作用测量 |
-| 简洁性 | 是否比原模型更容易理解 | 电路规模、人工审查时间 |
-| 预测力 | 能否预言新条件下的行为变化 | 预注册干预与外部验证 |
-| 人类效用 | 目标读者是否能做出更好判断 | 盲法用户研究、错误检测率 |
+| 维度     | 核心问题                     | 常见检验                    |
+| -------- | ---------------------------- | --------------------------- |
+| 忠实性   | 解释是否追踪原模型真实计算   | 内部干预、替代模型误差      |
+| 完备性   | 是否覆盖产生行为的重要路径   | 保留/删除测试、误差节点占比 |
+| 稳定性   | 换输入、种子、字典后是否保持 | 留出集、跨运行特征匹配      |
+| 特异性   | 干预是否只影响目标行为       | 邻近任务与副作用测量        |
+| 简洁性   | 是否比原模型更容易理解       | 电路规模、人工审查时间      |
+| 预测力   | 能否预言新条件下的行为变化   | 预注册干预与外部验证        |
+| 人类效用 | 目标读者是否能做出更好判断   | 盲法用户研究、错误检测率    |
 
 评价应包含负对照和简单基线。随机方向、神经元、监督探针或只看输入输出，有时能取得相近结果；没有比较，就无法知道复杂解释方法增加了什么。
 
@@ -188,21 +188,21 @@ Anthropic 在 2025 年用跨层转码器和属性图分析 Claude 3.5 Haiku 的�
 - **[[software-testing]]**：行为测试界定能力，机制分析提出内部故障假说，两者共享负对照和覆盖盲区问题。
 - **[[formal-methods-and-verification]]**：可解释性生成经验性机制证据；形式验证在明确模型内证明性质，保证类型不同。
 - **心理测量**：给特征命名类似构念解释，需要内容、结构、外部关系和跨条件稳定性证据。
-- **科学哲学**：预测、干预和机制解释是不同层次，不能由一个可视化直接跨越。
+- **[[philosophy-of-science|科学哲学]]**：预测、干预和机制解释是不同层次，不能由一个可视化直接跨越。
 
 ## 参考文献
 
-1. Goh, G., et al. (2021). Multimodal Neurons in Artificial Neural Networks. *Distill*. DOI: 10.23915/distill.00030.
-2. Elhage, N., et al. (2022). Toy Models of Superposition. *Transformer Circuits Thread*.
-3. Bricken, T., et al. (2023). Towards Monosemanticity: Decomposing Language Models With Dictionary Learning. *Transformer Circuits Thread*.
-4. Templeton, A., et al. (2024). Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet. *Transformer Circuits Thread*.
-5. Lindsey, J., et al. (2025). On the Biology of a Large Language Model. *Transformer Circuits Thread*.
-6. Mueller, A., et al. (2025). MIB: A Mechanistic Interpretability Benchmark. *Proceedings of ICML 2025*, 45069-45108.
-7. Song, X., et al. (2026). Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders. *Proceedings of ACL 2026*, 2172-2210. DOI: 10.18653/v1/2026.acl-long.99.
-8. Anthropic Interpretability Team. (2026). A Global Workspace in Language Models. *Anthropic Research*, July 6, 2026.
+1. Goh, G., et al. (2021). Multimodal Neurons in Artificial Neural Networks. _Distill_. DOI: 10.23915/distill.00030.
+2. Elhage, N., et al. (2022). Toy Models of Superposition. _Transformer Circuits Thread_.
+3. Bricken, T., et al. (2023). Towards Monosemanticity: Decomposing Language Models With Dictionary Learning. _Transformer Circuits Thread_.
+4. Templeton, A., et al. (2024). Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet. _Transformer Circuits Thread_.
+5. Lindsey, J., et al. (2025). On the Biology of a Large Language Model. _Transformer Circuits Thread_.
+6. Mueller, A., et al. (2025). MIB: A Mechanistic Interpretability Benchmark. _Proceedings of ICML 2025_, 45069-45108.
+7. Song, X., et al. (2026). Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders. _Proceedings of ACL 2026_, 2172-2210. DOI: 10.18653/v1/2026.acl-long.99.
+8. Anthropic Interpretability Team. (2026). A Global Workspace in Language Models. _Anthropic Research_, July 6, 2026.
 
 ## 延伸阅读
 
-1. Olah, C., et al. (2020). Zoom In: An Introduction to Circuits. *Distill*. DOI: 10.23915/distill.00024.001.
-2. Dasgupta, S., Frost, N., & Moshkovitz, M. (2022). Framework for Evaluating Faithfulness of Local Explanations. *ICML*, 4794-4815.
-3. Nanda, N., et al. (2023). Progress Measures for Grokking via Mechanistic Interpretability. *ICLR 2023*.
+1. Olah, C., et al. (2020). Zoom In: An Introduction to Circuits. _Distill_. DOI: 10.23915/distill.00024.001.
+2. Dasgupta, S., Frost, N., & Moshkovitz, M. (2022). Framework for Evaluating Faithfulness of Local Explanations. _ICML_, 4794-4815.
+3. Nanda, N., et al. (2023). Progress Measures for Grokking via Mechanistic Interpretability. _ICLR 2023_.

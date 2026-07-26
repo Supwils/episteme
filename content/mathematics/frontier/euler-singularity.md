@@ -117,7 +117,7 @@ Hou 和 Chen 的核心方法是**自相似爆破的动力学稳定性分析**：
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Chen, J. & Hou, T.Y. "Asymptotically self-similar blowup of the Hou-Luo model for the 3D Euler equations." _Annals of PDE_ 8, 24 (2022).
 - Chen, J. & Hou, T.Y. "Singularity formation in 3D Euler equations with smooth initial data and boundary." _PNAS_ 122 (2025). DOI: 10.1073/pnas.2500940122.

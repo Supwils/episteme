@@ -11,9 +11,7 @@ status: published
 
 ## 概述
 
-椭圆星系（elliptical galaxies）是宇宙中质量最大的一类星系，外形为椭球形，几乎没有明显的内部结构（无旋臂、无尘埃带），由古老的红色恒星主导，恒星形成活动极其微弱或已停止。椭圆星系构成了哈勃形态序列（Hubble Sequence）的一端，分类代号为 E0（近球形）到 E7（扁椭球形），其中数字对应投影椭率的度量。
-
-在宇宙中最密集的环境——星系团的中心——几乎全部被巨型椭圆星系（giant elliptical galaxies）占据，其质量可达 $10^{13} M_\odot$，远超银河系的约 $10^{12} M_\odot$。
+椭圆星系（elliptical galaxies）是宇宙中质量最大的一类星系，外形为椭球形，几乎没有明显的内部结构（无旋臂、无尘埃带），由古老的红色恒星主导，恒星形成活动极其微弱或已停止。椭圆星系构成了哈勃形态序列（Hubble Sequence）的一端，分类代号为 E0（近球形）到 E7（扁椭球形），其中数字对应投影椭率的度量。在宇宙中最密集的环境——星系团的中心——几乎全部被巨型椭圆星系（giant elliptical galaxies）占据，其质量可达 $10^{13} M_\odot$，远超银河系的约 $10^{12} M_\odot$。
 
 ## 形态与分类
 
@@ -34,9 +32,7 @@ $$\text{分类数} = 10 \times (1 - b/a)$$
 
 ## 恒星族群与化学丰度
 
-椭圆星系的颜色偏红，表明其恒星族群以古老（年龄 $\sim 10$ Gyr）、富金属的星（[Fe/H] $\sim +0.2$ 至 $+0.4$）为主。相较于太阳，椭圆星系的 $\alpha$ 元素（镁、钙、钛等）相对铁元素的超丰（[$\alpha$/Fe] $\sim +0.2$–$+0.4$）暗示其恒星形成主要依赖核心坍缩超新星（Type II SNe）的快速化学增丰，历时仅约 1–2 Gyr，随后恒星形成被急剧"淬灭"。
-
-椭圆星系的光度与多个物理量之间存在严格的标度关系：
+椭圆星系的颜色偏红，表明其恒星族群以古老（年龄 $\sim 10$ Gyr）、富金属的星（[Fe/H] $\sim +0.2$ 至 $+0.4$）为主。相较于太阳，椭圆星系的 $\alpha$ 元素（镁、钙、钛等）相对铁元素的超丰（[$\alpha$/Fe] $\sim +0.2$–$+0.4$）暗示其恒星形成主要依赖核心坍缩超新星（Type II SNe）的快速化学增丰，历时仅约 1–2 Gyr，随后恒星形成被急剧"淬灭"。椭圆星系的光度与多个物理量之间存在严格的标度关系：
 
 - **Faber-Jackson 关系**（1976）：光度 $L \propto \sigma^4$，其中 $\sigma$ 是中心速度弥散，为早型星系距离测量的基础之一
 - **基本面（Fundamental Plane）**：有效半径 $R_e$、有效面亮度 $\mu_e$ 和速度弥散 $\sigma$ 三者之间的三维相关面，比 Faber-Jackson 关系紧致，用于宇宙学距离测量
@@ -55,9 +51,7 @@ $$\text{分类数} = 10 \times (1 - b/a)$$
 
 $$M_\text{BH} \approx 2 \times 10^8 M_\odot \left(\frac{\sigma}{200 \text{ km/s}}\right)^4$$
 
-（Gültekin et al. 2009，_Astrophysical Journal_，基于 49 个早型星系样本。）
-
-这一关系暗示超大质量黑洞的成长与星系核球的形成之间存在深刻的共演化（co-evolution）机制。目前的主流解释是**AGN 反馈**：当黑洞处于活跃吸积阶段（活动星系核，AGN）时，释放的能量可加热或驱逐星系中的气体，从而中止恒星形成，同时也自我限制了黑洞的进一步增长。
+（Gültekin et al. 2009，_Astrophysical Journal_，基于 49 个早型星系样本。）这一关系暗示超大质量黑洞的成长与星系核球的形成之间存在深刻的共演化（co-evolution）机制。目前的主流解释是**AGN 反馈**：当黑洞处于活跃吸积阶段（活动星系核，AGN）时，释放的能量可加热或驱逐星系中的气体，从而中止恒星形成，同时也自我限制了黑洞的进一步增长。
 
 ## 椭圆星系的暗物质
 
@@ -118,7 +112,7 @@ $$M_\text{BH} \approx 2 \times 10^8 M_\odot \left(\frac{\sigma}{200 \text{ km/s}
 - 椭圆星系中的古老星族：典型年龄约 10–13 Gyr（宇宙年龄的 70–90%）
 - 恒星速度弥散 $\sigma$：从约 50 km/s（矮椭圆）到约 350 km/s（最大 cD 星系）
 
-## 延伸阅读
+## 参考文献
 
 - Kormendy, J. & Ho, L.C. (2013). Coevolution (or not) of supermassive black holes and host galaxies. _Annual Review of Astronomy and Astrophysics_, 51, 511–653.
 - Cappellari, M. et al. (2011). The ATLAS3D project. _Monthly Notices of the Royal Astronomical Society_, 413, 813–836.

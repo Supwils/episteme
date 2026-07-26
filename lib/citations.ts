@@ -3,8 +3,15 @@ import type { Citation } from "./content-schemas";
 // Headings under which authors list sources. Matches the four historical
 // variants (参考文献 / 延伸阅读 / References / 推荐阅读) plus close synonyms so
 // every already-written article is covered regardless of which it used.
+//
+// `引用` is deliberately NOT here. 206 files (mostly universe-physics KB) use
+// `## 引用` for a pull-quote — a blockquote, never a source list. Verified: zero
+// of them contain list items, so this heading never harvested a real
+// bibliography; including it only made a quotation look like the start of the
+// bibliography, which made any following section read as "content after the
+// bibliography". Add a heading here only if it actually lists sources.
 const CITATION_HEADING =
-  /^(参考文献|延伸阅读|进一步阅读|参考书目|参考资料|参考来源|引用|学术文献|推荐阅读|推荐阅读书目|references?|further\s+reading)$/i;
+  /^(参考文献|延伸阅读|进一步阅读|参考书目|参考资料|参考来源|学术文献|推荐阅读|推荐阅读书目|references?|further\s+reading)$/i;
 
 /**
  * Pull the bibliography out of an article body. Existing content stores sources
