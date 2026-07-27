@@ -121,7 +121,7 @@ updated: 2026-06-06
 
 理解股票市场的运作机制，不是为了成为一个短线交易者，而是为了更好地参与经济增长、做出更明智的投资决策。股票市场短期充满噪音和不确定性，但长期来看，它是人类经济增长最忠实的记录者。
 
-## 延伸阅读
+## 参考文献
 
 1. Malkiel, B. G. (2019). _A Random Walk Down Wall Street_ (12th ed.). W. W. Norton.
 2. Bodie, Z., Kane, A., & Marcus, A. J. (2021). _Investments_ (12th ed.). McGraw-Hill.

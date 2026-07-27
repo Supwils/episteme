@@ -16,13 +16,13 @@ describe("full graph branch attachments", () => {
       anchorCount: 230,
       inferredBranchCount: 1159,
       maximumDistance: 5,
-      ambiguousTargetCount: 702,
-      maximumCandidateCount: 24,
+      ambiguousTargetCount: 741,
+      maximumCandidateCount: 27,
       confidenceCounts: {
         curated: 230,
-        direct: 490,
-        contextual: 543,
-        exploratory: 126,
+        direct: 536,
+        contextual: 533,
+        exploratory: 90,
       },
     });
     expect(new Set(branchCatalog.targets.map((target) => target.id)).size).toBe(1389);
@@ -46,7 +46,7 @@ describe("full graph branch attachments", () => {
     const target = branchCatalog.targets.find(
       (item) => item.id === "medicine:body-disease-evidence"
     )!;
-    expect(target.candidateCount).toBe(24);
+    expect(target.candidateCount).toBe(27);
     expect(target.anchorCandidates).toHaveLength(3);
     const alternative = selectKnowledgeTargetAnchor(
       target,
@@ -54,7 +54,7 @@ describe("full graph branch attachments", () => {
     );
     expect(alternative.anchorNodeId).not.toBe(target.anchorNodeId);
     expect(alternative.distance).toBe(target.distance);
-    expect(alternative.anchorCandidates[1]?.selectionReason).toContain("24个最短候选等距");
+    expect(alternative.anchorCandidates[1]?.selectionReason).toContain("27个最短候选等距");
     const plan = buildKnowledgeTargetPlan(learningCatalog, alternative, {
       startLevel: 1,
       minutes: 45,

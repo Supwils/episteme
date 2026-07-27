@@ -121,13 +121,13 @@ Seshat 的批评者指出，该项目的编码系统依赖专家判断，而专�
 
 ## 跨域连接
 
-- **[[数学]]**：图论（network analysis）、随机过程（text modeling）、贝叶斯推断（不确定性估计）是数字史学最常用的数学工具。
-- **[[哲学]]**：唯名论（每个历史事件都是独一无二的）与普遍主义（历史存在可识别的模式）之间的哲学争论，在数字史学中以方法论争论的形式再次呈现。
-- **[[经济学]]**：计量经济学（econometrics）的"潜在结果"因果推断框架（potential outcomes framework），已被部分历史学家引入，用于处理"反事实历史"的定量分析问题。
+- \***\*数学\*\***：图论（network analysis）、随机过程（text modeling）、贝叶斯推断（不确定性估计）是数字史学最常用的数学工具。
+- \***\*哲学\*\***：唯名论（每个历史事件都是独一无二的）与普遍主义（历史存在可识别的模式）之间的哲学争论，在数字史学中以方法论争论的形式再次呈现。
+- \***\*经济学\*\***：计量经济学（econometrics）的"潜在结果"因果推断框架（potential outcomes framework），已被部分历史学家引入，用于处理"反事实历史"的定量分析问题。
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Michel, J.-B. et al. "Quantitative Analysis of Culture Using Millions of Digitized Books." _Science_ 331, 176–182 (2011). DOI:10.1126/science.1199644
 - Turchin, P. et al. "Equinox2020 Seshat Data Release." _Cliodynamics_ 11(1), 41–50 (2020).

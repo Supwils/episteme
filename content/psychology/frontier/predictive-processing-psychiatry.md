@@ -126,17 +126,17 @@ FEP 的核心主张是：任何维持自身组织稳定性的系统（生物体�
 
 ## 跨域连接
 
-- **数学（贝叶斯推断与变分推断）**：计算精神病学的整个方法论框架根植于贝叶斯概率论。Friston 的 FEP 使用变分贝叶斯的 Kullback-Leibler 散度（$D_{KL}$）来形式化"惊奇"。这使得精神病学与机器学习理论产生了深度交叉——[[变分自编码器]]（VAE）和[[预测加工]]在数学结构上有显著相似性。
+- **数学（贝叶斯推断与变分推断）**：计算精神病学的整个方法论框架根植于贝叶斯概率论。Friston 的 FEP 使用变分贝叶斯的 Kullback-Leibler 散度（$D_{KL}$）来形式化"惊奇"。这使得精神病学与机器学习理论产生了深度交叉——[[变分自编码器]]（VAE）和[[predictive-processing-psychiatry|预测加工]]在数学结构上有显著相似性。
 
 - **物理学（统计力学）**：Friston 明确将 FEP 类比于热力学第二定律——有机体通过最小化自由能来对抗熵增、维持组织稳定。这个类比是否深刻还是误导，物理学家和神经科学家都有不同看法。
 
-- **人工智能**：主动推断（Active Inference）正在被计算机科学家用于构建能够在不确定环境中自主决策的人工智能代理——这与强化学习有所不同，因为主动推断的代理同时优化感知和行动[^daspotta]。
+- **人工智能**：主动推断（Active Inference）正在被计算机科学家用于构建能够在不确定环境中自主决策的人工智能代理——这与[[reinforcement-learning-concept|强化学习]]有所不同，因为主动推断的代理同时优化感知和行动[^daspotta]。
 
 - **哲学（延展心智理论）**：预测加工理论与 Andy Clark 的"延展心智"（extended mind）理论相结合，产生了一种主张：认知不仅发生在颅骨内，还延伸到身体和环境工具中。这对意识研究有深刻的本体论含义。
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Friston, K. _A theory of cortical responses._ Philosophical Transactions of the Royal Society B 360, 815–836 (2005).
 - Friston, K. _The free-energy principle: A unified brain theory?_ Nature Reviews Neuroscience 11, 127–138 (2010). DOI: 10.1038/nrn2787.

@@ -33,7 +33,11 @@ describe("learning target API", () => {
   it("filters aggregate terrain selections and rejects malformed filters", async () => {
     const response = await GET(
       new Request(
-        "https://episteme.test/api/learning-targets?domain=sociology&level=4&confidence=contextual"
+        // 该断言依赖某个 (域, 阶段, 置信度) 单元非空，因此会随内容变化。
+        // 2026-07-27：跨域链接补齐后社会学 L4 的 contextual 节点全部升为 direct
+        // （contextual 0 / direct 4 / curated 4），原判据失效，改用 direct。
+        // 测试意图是「筛选参数生效」，不是「这个单元必须有内容」。
+        "https://episteme.test/api/learning-targets?domain=sociology&level=4&confidence=direct"
       )
     );
     const data = (await response.json()) as {
@@ -44,9 +48,7 @@ describe("learning target API", () => {
     expect(
       data.results.every(
         (result) =>
-          result.domainLabel === "社会学" &&
-          result.level === 4 &&
-          result.confidence === "contextual"
+          result.domainLabel === "社会学" && result.level === 4 && result.confidence === "direct"
       )
     ).toBe(true);
 

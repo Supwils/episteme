@@ -118,14 +118,14 @@ Banerjee、Duflo、Kremer 三人因此获得了 2019 年诺贝尔经济学奖，
 
 ## 跨域连接
 
-- **统计学与计量经济学**：工具变量、断点回归和合成控制法都根植于统计学的识别理论，其数学基础涉及条件独立性、外生性的形式化定义与概率论的基本结构。
+- **统计学与计量经济学**：工具变量、断点回归和合成控制法都根植于统计学的识别理论，其数学基础涉及条件独立性、外生性的形式化定义与[[probability|概率论]]的基本结构。
 - **哲学与因果性**：什么是"因果"？Judea Pearl 的 [[结构因果模型]] 和潜在结果框架（Rubin Causal Model）代表了两种竞争性的哲学路径，可信性革命的绝大多数工具建立在后者之上。
-- **公共政策**：J-PAL 的实验结果已经直接影响了多个国家的政策设计，例如印度、肯尼亚、孟加拉国的有条件现金转移项目和补贴疫苗接种计划。
+- **[[public-policy|公共政策]]**：J-PAL 的实验结果已经直接影响了多个国家的政策设计，例如印度、肯尼亚、孟加拉国的有条件现金转移项目和补贴疫苗接种计划。
 - **医学**：RCT 的逻辑直接来自临床医学，而可信性革命将这套逻辑带回并重塑了社会科学实验传统，两个领域的方法论交流仍在持续深化。
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Card, D., & Krueger, A. B. (1994). Minimum Wages and Employment: A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania. _American Economic Review_, 84(4), 772–793.
 - Angrist, J. D., & Imbens, G. W. (1994). Identification and Estimation of Local Average Treatment Effects. _Econometrica_, 62(2), 467–475.

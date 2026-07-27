@@ -98,8 +98,8 @@ export const DIALOGUES = [
     participants: ["葛梯尔", "分析认识论传统"],
   },
   {
-    slug: "gorgias",
-    title: "高尔吉亚篇",
+    slug: "gorgias-dialogue",
+    title: "柏拉图《高尔吉亚篇》",
     title_en: "Gorgias",
     field: "政治哲学",
     era: "古代",
@@ -210,8 +210,8 @@ export const DIALOGUES = [
     participants: ["nietzsche", "buddha"],
   },
   {
-    slug: "parmenides",
-    title: "巴门尼德篇",
+    slug: "parmenides-dialogue",
+    title: "柏拉图《巴门尼德篇》",
     title_en: "Parmenides",
     field: "形而上学",
     era: "古代",

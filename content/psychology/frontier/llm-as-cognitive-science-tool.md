@@ -193,9 +193,9 @@ BrainBench 研究把 2023 年《神经科学杂志》论文摘要中的真实结
 
 - **计算机科学**：数据污染、模型版本、校准和分布外泛化决定行为结果能否复现。
 - **心理测量**：为人类设计的测验迁移到模型时，需要重新建立构念与测量等值证据。
-- **因果推断**：模型能预测处理效应，不代表它识别了产生效应的机制或可替代随机实验。
-- **科学哲学**：预测充分与机制解释服务不同目标，不能由任务表现直接推导心灵属性。
-- **社会学**：群体提示把身份、制度和历史压缩为文本标签，可能再生产本质主义和刻板印象。
+- **[[causal-inference-experiments-observational-studies|因果推断]]**：模型能预测处理效应，不代表它识别了产生效应的机制或可替代随机实验。
+- **[[philosophy-of-science|科学哲学]]**：预测充分与机制解释服务不同目标，不能由任务表现直接推导心灵属性。
+- **社会学**：群体提示把身份、制度和历史压缩为文本标签，可能再生产[[essentialism|本质主义]]和刻板印象。
 - **研究伦理**：真实参与者的数据来源、同意、隐私，以及模型输出对群体的代表权都需要治理。
 
 ## 核心判断
@@ -208,17 +208,17 @@ BrainBench 研究把 2023 年《神经科学杂志》论文摘要中的真实结
 
 ## 参考文献
 
-1. Argyle, L. P., et al. (2023). Out of one, many: Using language models to simulate human samples. *Political Analysis*, 31(3), 337-351. DOI: 10.1017/pan.2023.2.
-2. Binz, M., & Schulz, E. (2023). Using cognitive psychology to understand GPT-3. *Proceedings of the National Academy of Sciences*, 120(6), e2218523120. DOI: 10.1073/pnas.2218523120.
-3. Webb, T. W., Holyoak, K. J., & Lu, H. (2023). Emergent analogical reasoning in large language models. *Nature Human Behaviour*, 7, 1526-1541. DOI: 10.1038/s41562-023-01659-w.
-4. Luo, X., et al. (2025). Large language models surpass human experts in predicting neuroscience results. *Nature Human Behaviour*, 9, 305-315. DOI: 10.1038/s41562-024-02046-9.
-5. Binz, M., et al. (2025). A foundation model to predict and capture human cognition. *Nature*, 644, 1002-1009. DOI: 10.1038/s41586-025-09215-4.
-6. Ashokkumar, A., et al. (2026). Large language models can predict the results of social science experiments. *Nature*. DOI: 10.1038/s41586-026-10742-x.
-7. Opedal, A., et al. (2024). Do language models exhibit the same cognitive biases in problem solving as human learners? *Proceedings of the 41st International Conference on Machine Learning*, 38762-38778.
-8. Bender, E. M., Gebru, T., McMillan-Major, A., & Shmitchell, S. (2021). On the dangers of stochastic parrots: Can language models be too big? *FAccT '21*, 610-623.
+1. Argyle, L. P., et al. (2023). Out of one, many: Using language models to simulate human samples. _Political Analysis_, 31(3), 337-351. DOI: 10.1017/pan.2023.2.
+2. Binz, M., & Schulz, E. (2023). Using cognitive psychology to understand GPT-3. _Proceedings of the National Academy of Sciences_, 120(6), e2218523120. DOI: 10.1073/pnas.2218523120.
+3. Webb, T. W., Holyoak, K. J., & Lu, H. (2023). Emergent analogical reasoning in large language models. _Nature Human Behaviour_, 7, 1526-1541. DOI: 10.1038/s41562-023-01659-w.
+4. Luo, X., et al. (2025). Large language models surpass human experts in predicting neuroscience results. _Nature Human Behaviour_, 9, 305-315. DOI: 10.1038/s41562-024-02046-9.
+5. Binz, M., et al. (2025). A foundation model to predict and capture human cognition. _Nature_, 644, 1002-1009. DOI: 10.1038/s41586-025-09215-4.
+6. Ashokkumar, A., et al. (2026). Large language models can predict the results of social science experiments. _Nature_. DOI: 10.1038/s41586-026-10742-x.
+7. Opedal, A., et al. (2024). Do language models exhibit the same cognitive biases in problem solving as human learners? _Proceedings of the 41st International Conference on Machine Learning_, 38762-38778.
+8. Bender, E. M., Gebru, T., McMillan-Major, A., & Shmitchell, S. (2021). On the dangers of stochastic parrots: Can language models be too big? _FAccT '21_, 610-623.
 
 ## 延伸阅读
 
-1. Mitchell, M. (2021). Abstraction and analogy-making in artificial intelligence. *Annals of the New York Academy of Sciences*, 1505(1), 79-101.
-2. Shanahan, M. (2024). Talking about large language models. *Communications of the ACM*, 67(2), 68-79.
-3. Frank, M. C. (2023). Baby steps in evaluating the capacities of large language models. *Nature Reviews Psychology*, 2, 451-452.
+1. Mitchell, M. (2021). Abstraction and analogy-making in artificial intelligence. _Annals of the New York Academy of Sciences_, 1505(1), 79-101.
+2. Shanahan, M. (2024). Talking about large language models. _Communications of the ACM_, 67(2), 68-79.
+3. Frank, M. C. (2023). Baby steps in evaluating the capacities of large language models. _Nature Reviews Psychology_, 2, 451-452.

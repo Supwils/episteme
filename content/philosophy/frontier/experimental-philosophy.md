@@ -144,7 +144,7 @@ related:
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Weinberg, J., Nichols, S. & Stich, S. "Normativity and Epistemic Intuitions." _Philosophical Topics_ 29(1/2), 429–460 (2001). 实验哲学的奠基论文。
 - Knobe, J. "Intentional Action and Side Effects in Ordinary Language." _Analysis_ 63(3), 190–194 (2003). 克诺贝效应的首次报告。

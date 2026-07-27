@@ -121,12 +121,12 @@ related:
 
 - **[[意识科学的对决]]**：AI 道德地位问题依赖于意识的判断标准——如果我们不知道意识是什么，我们就无法可靠地判断 AI 是否有意识，也就无法确定 AI 是否是道德病人
 - **[[longtermism-existential-risk|长期主义与存在风险]]**：对齐问题是长期主义者最关心的存在风险之一——超级智能对齐失败，可能是人类灭绝的路径之一
-- **[[大语言模型与语义理解]]**：如果 LLM 没有真正的语义理解，它们所"学到"的价值观究竟是什么？是真正内化的规范，还是表面上的行为模式？
+- **[[large-language-models|大语言模型与语义理解]]**：如果 LLM 没有真正的语义理解，它们所"学到"的价值观究竟是什么？是真正内化的规范，还是表面上的行为模式？
 - **[[experimental-philosophy|实验哲学]]**：实验哲学的方法可以帮助我们理解"普通人"对 AI 道德地位的直觉——这些直觉不应该被哲学家无视，因为它们将最终影响法律和政策
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Russell, S. _Human Compatible: Artificial Intelligence and the Problem of Control._ Viking, 2019. 可纠正性方案的系统阐述。
 - Bostrom, N. _Superintelligence: Paths, Dangers, Strategies._ Oxford University Press, 2014. AI 存在风险研究的奠基著作。

@@ -123,19 +123,22 @@ Dipesh Chakrabarty（他本人对大历史持批评立场）指出，大历史�
 
 ## 跨域连接
 
-- **[[哲学]]**：科学哲学中关于"历史科学"（geology、evolution、astronomy）的讨论——历史性科学如何做因果解释——直接关联于史学方法论的认识论基础。
+- \***\*哲学\*\***：科学哲学中关于"历史科学"（geology、evolution、astronomy）的讨论——历史性科学如何做因果解释——直接关联于史学方法论的认识论基础。
 - **[[digital-humanities-big-data-history|数字人文与大数据史学]]**：Seshat 数据库和计量历史学，是年鉴学派序列史传统在数字时代的延续，但也面对同样的方法论批评。
 - **[[decolonial-global-history|全球史与去殖民史学]]**：大历史的"宇宙进步论"叙事，与去殖民史学对"普遍历史"框架的批判，在认识论层面构成直接冲突。
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Braudel, Fernand. _La Méditerranée et le monde méditerranéen à l'époque de Philippe II_. Armand Colin, 1949. 第二版英译：_The Mediterranean and the Mediterranean World in the Age of Philip II_. Collins, 1972.
-- Christian, David. _Origin Story: A Big History of Everything_. Little, Brown and Company, 2018.（中译：《起源》，中信出版社）
 - Guldi, Jo & Armitage, David. _The History Manifesto_. Cambridge University Press, 2014.（全文开放获取）
 - Turchin, Peter. _Ages of Discord: A Structural-Demographic Analysis of American History_. Beresta Books, 2016.
 - Bloch, Marc. _Apologie pour l'histoire ou Métier d'historien_. Armand Colin, 1949.（中译：《历史学家的技艺》）
 - Burke, Peter. _The French Historical Revolution: The Annales School, 1929–89_. Stanford University Press, 1990.（年鉴学派的经典综述）
 - Hunt, Lynn (ed.). _The New Cultural History_. University of California Press, 1989.（后年鉴转向）
 - Marx, Karl. _Der achtzehnte Brumaire des Louis Bonaparte_, 1852.（中译：《路易·波拿巴的雾月十八日》）
+
+## 延伸阅读
+
+- Christian, David. _Origin Story: A Big History of Everything_. Little, Brown and Company, 2018.（中译：《起源》，中信出版社）

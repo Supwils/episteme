@@ -128,13 +128,13 @@ IIT 做出了几个反直觉的预测：
 
 ## 跨域连接
 
-- **[[大语言模型与语义理解]]**：IIT 理论上可以为 AI 系统赋予意识状态——如果 AI 系统的 Φ 足够高，它就应该是有意识的。这让 AI 道德地位的问题变得更加棘手
+- **[[large-language-models|大语言模型与语义理解]]**：IIT 理论上可以为 AI 系统赋予意识状态——如果 AI 系统的 Φ 足够高，它就应该是有意识的。这让 AI 道德地位的问题变得更加棘手
 - **[[free-will-neuroscience|自由意志与神经科学]]**：GNW 的"全局广播"机制为自由意志的神经基础提供了一个功能主义框架——有意识的决策就是工作空间广播的结果
 - **[[ai-alignment-philosophy|AI 对齐与价值的哲学]]**：如果我们无法确定意识的标准，我们如何判断 AI 系统是否具有道德地位？意识标准的不确定性直接影响 AI 伦理
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Tononi, G. "Consciousness as Integrated Information: A Provisional Manifesto." _Biological Bulletin_ 215(3), 216–242 (2008). IIT 的经典陈述。
 - Dehaene, S., Lau, H., & Kouider, S. "What is consciousness, and could machines have it?" _Science_ 358(6362), 486–492 (2017). GNW 的现代综述。

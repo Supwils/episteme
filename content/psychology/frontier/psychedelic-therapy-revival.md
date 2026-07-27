@@ -122,7 +122,7 @@ FDA 要求 Lykos Therapeutics（MAPS 的商业分拆公司）提交新的临床�
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Carhart-Harris, R. et al. _Trial of psilocybin versus escitalopram for depression._ New England Journal of Medicine 384, 1402–1411 (2021). DOI: 10.1056/NEJMoa2032994.
 - Goodwin, G.M. et al. (COMPASS Pathways). _Single-dose psilocybin for a treatment-resistant episode of major depression._ New England Journal of Medicine 387, 1637–1648 (2022). DOI: 10.1056/NEJMoa2205287.

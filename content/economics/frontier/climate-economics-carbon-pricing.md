@@ -122,13 +122,13 @@ Pindyck（2013）在《气候变化政策：模型究竟告诉了我们什么？
 ## 跨域连接
 
 - **物理学与地球系统科学**：IAM 的气候模块依赖 IPCC 等机构综合的气候模拟结果，气候模型与经济模型的接口是气候经济学的核心技术挑战。
-- **哲学与代际伦理**：折现率之争的核心是一个哲学问题：当代人对子孙后代的福利负有多大的义务？约翰·罗尔斯的代际正义论、泰勒的利他主义扩展，都为低折现率提供了哲学根据。
-- **金融**：气候风险的量化正在渗透到资本市场——气候相关财务披露（TCFD）框架、绿色债券市场和"气候压力测试"都依赖于 IAM 的输出或类似的评估框架。
+- **哲学与代际伦理**：折现率之争的核心是一个哲学问题：当代人对子孙后代的福利负有多大的义务？约翰·[[rawls|罗尔斯]]的代际正义论、泰勒的利他主义扩展，都为低折现率提供了哲学根据。
+- **金融**：气候风险的量化正在渗透到资本市场——气候相关财务披露（TCFD）框架、绿色[[bond-market|债券市场]]和"气候压力测试"都依赖于 IAM 的输出或类似的评估框架。
 - **政治学**：碳边境调节机制（CBAM）实质上是把碳定价从经济问题变成了地缘政治问题，牵涉贸易规则、WTO 框架和发展中国家的减排责任分配。
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Nordhaus, W. D. (2018). _Climate Change: The Ultimate Challenge for Economics_ (Nobel Prize Lecture). Nobelprize.org.
 - Barrage, L., & Nordhaus, W. D. (2024). Policies, Projections, and the Social Cost of Carbon: Results from the DICE-2023 Model. _Proceedings of the National Academy of Sciences_, 121(13), e2312030121.

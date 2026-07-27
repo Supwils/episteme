@@ -123,19 +123,22 @@ Gale-Shapley 算法的理论基础是参与者拥有完整且稳定的偏好排�
 
 ## 跨域连接
 
-- **数学与组合优化**：稳定匹配、拍卖最优化都涉及深刻的组合数学和计算复杂性问题，NP-hard 问题在这里不只是理论困难，而是实际工程约束。
-- **计算机科学**：算法机制设计（Algorithmic Mechanism Design）是经济学与计算机科学的交叉领域，已成为 2020 年代增长最快的研究方向之一。
+- **数学与组合优化**：稳定匹配、拍卖最优化都涉及深刻的组合数学和[[complexity|计算复杂性]]问题，NP-hard 问题在这里不只是理论困难，而是实际工程约束。
+- **计算机科学**：算法[[mechanism-design|机制设计]]（Algorithmic Mechanism Design）是经济学与计算机科学的交叉领域，已成为 2020 年代增长最快的研究方向之一。
 - **医学伦理**：肾脏交换打开了一个关于"金钱不能买的东西"（迈克尔·桑德尔的问题）的新空间——用非货币交换绕开禁忌，是经济工程的道德边界问题。
 - **法律与监管**：频谱拍卖设计直接嵌入 FCC 的监管框架，拍卖规则的法律效力与经济最优之间的张力是一个活跃的政策研究领域。
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Gale, D., & Shapley, L. S. (1962). College Admissions and the Stability of Marriage. _American Mathematical Monthly_, 69(1), 9–15.
 - Roth, A. E., & Peranson, E. (1999). The Redesign of the Matching Market for American Physicians. _American Economic Review_, 89(4), 748–780.
 - Abdulkadiroglu, A., & Sönmez, T. (2003). School Choice: A Mechanism Design Approach. _American Economic Review_, 93(3), 729–747.
 - Roth, A. E., Sönmez, T., & Ünver, M. U. (2004). Kidney Exchange. _Quarterly Journal of Economics_, 119(2), 457–488.
 - Milgrom, P. (2004). _Putting Auction Theory to Work_. Cambridge University Press.
-- Roth, A. E. (2015). _Who Gets What — and Why: The New Economics of Matchmaking and Market Design_. Houghton Mifflin Harcourt.（面向大众读者的市场设计入门）
 - Nobel Committee. (2020). _Scientific Background: Improvements to Auction Theory and Inventions of New Auction Formats_. The Royal Swedish Academy of Sciences.
+
+## 延伸阅读
+
+- Roth, A. E. (2015). _Who Gets What — and Why: The New Economics of Matchmaking and Market Design_. Houghton Mifflin Harcourt.（面向大众读者的市场设计入门）

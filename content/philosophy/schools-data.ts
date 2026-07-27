@@ -58,7 +58,7 @@ export const SCHOOLS_DATA = [
   { slug: "neoplatonism", title: "新柏拉图主义", subtitle: "Neoplatonism", era: "古代" },
   { slug: "phenomenology", title: "现象学", subtitle: "Phenomenology", era: "现代" },
   { slug: "philosophy-of-mathematics", title: "数学哲学", subtitle: "", era: "19-21世纪" },
-  { slug: "philosophy-of-mind", title: "心灵哲学", subtitle: "Philosophy of Mind", era: "当代" },
+  { slug: "philosophy-of-mind", title: "心灵哲学", subtitle: "", era: "当代" },
   { slug: "platonism", title: "柏拉图主义", subtitle: "Platonism", era: "古代" },
   {
     slug: "political-philosophy",
@@ -82,5 +82,5 @@ export const SCHOOLS_DATA = [
     era: "当代",
   },
   { slug: "taoism", title: "道家哲学体系", subtitle: "Taoism", era: "古代" },
-  { slug: "utilitarianism", title: "功利主义", subtitle: "Utilitarianism", era: "近代" },
+  { slug: "utilitarianism", title: "功利主义", subtitle: "", era: "近代" },
 ];

@@ -126,6 +126,6 @@ TIPS是美国财政部发行的通胀保值债券，其本金根据CPI调整。�
 
 通胀是经济运行的常态，适度的通胀（2%左右）被认为是健康的——它鼓励消费和投资，避免通缩螺旋。真正危险的是恶性通胀（Hyperinflation），如津巴布韦和委内瑞拉的经历，货币在几个月内变得一文不值。理解通胀的机制和影响，是做出明智财务决策的基础。
 
-## 延伸阅读
+## 参考文献
 
 1. Mishkin, F. S. (2018). _The Economics of Money, Banking, and Financial Markets_ (12th ed.). Pearson.

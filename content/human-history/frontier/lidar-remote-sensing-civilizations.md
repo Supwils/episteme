@@ -125,20 +125,23 @@ PACUNAM 团队在 2018 年的论文发表后，立即面对一些传统田野考
 
 - **[[climate-and-history|气候与历史]]**：吴哥崩溃的水利-气候复合模型，是跨学科气候-遥感研究的典型范例。
 - **[[ancient-dna-revolution|古DNA革命]]**：遥感揭示的亚马逊前哥伦布时代人口规模，与古DNA研究中美洲原住民基因多样性的发现相互印证，共同挑战"小人口先祖"的假设。
-- **[[哲学]]**：哥贝克力石阵对"仪式/宗教早于农业"的证明，挑战了黑格尔式的线性文明进步论，引出复杂社会涌现机制的哲学讨论。
+- \***\*哲学\*\***：哥贝克力石阵对"仪式/宗教早于农业"的证明，挑战了黑格尔式的线性文明进步论，引出复杂社会涌现机制的哲学讨论。
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Canuto, M.A. et al. "Ancient lowland Maya complexity as revealed by airborne laser scanning of northern Guatemala." _Science_ 361, eaau0137 (2018). DOI:10.1126/science.aau0137
 - Evans, D.H. et al. "Uncovering archaeological landscapes at Angkor using lidar." _PNAS_ 110(31), 12595–12600 (2013). DOI:10.1073/pnas.1306539110
 - Lombardo, U. et al. "Early Holocene crop cultivation and landscape modification in Amazonia." _Nature_ 581, 190–193 (2020). DOI:10.1038/s41586-020-2162-7
-- Neubauer, W. et al. (Deutsche Archäologisches Institut). Ongoing non-invasive geophysical surveys at Göbekli Tepe, multiple reports 2012–2024.
 - Roosevelt, A.C. "The Amazon and the Anthropocene: 13,000 years of human influence in a tropical rainforest." _Anthropocene_ 4, 69–87 (2013).
 - Chase, A. F. & Chase, D. Z. "Caracol, Belize and the Continuity of Classic Maya 'Civilization'." _Journal of World Prehistory_ 5, 337–396 (1991).（LiDAR 研究奠基之作的田野背景）
 - Rostain, S. et al. "Two thousand years of garden urbanism in the upper Amazon." _Science_ 383, 183–189 (2024). DOI: 10.1126/science.adi6317.（厄瓜多尔乌帕诺河谷 2500 年前城市网络，CNRS 领导）
 - Zhang, Z. et al. "Deep learning for LiDAR-based Maya settlement detection in the Puuc region, Yucatán." _Journal of Archaeological Science_ (2024).（AI 辅助 LiDAR 识别准确率 > 90%）
+
+## 延伸阅读
+
+- Neubauer, W. et al. (Deutsche Archäologisches Institut). Ongoing non-invasive geophysical surveys at Göbekli Tepe, multiple reports 2012–2024.
 
 [^upano]: Rostain et al., _Science_ 383 (2024)：厄瓜多尔乌帕诺河谷，约 2500 年历史，5 个大型聚落 + 10 个小型聚落，超过 6000 个土制平台，CNRS Stéphen Rostain 团队主导。
 

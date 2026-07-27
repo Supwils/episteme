@@ -126,7 +126,7 @@ related:
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Libet, B., Gleason, C.A., Wright, E.W. & Pearl, D.K. "Time of Conscious Intention to Act in Relation to Onset of Cerebral Activity (Readiness-Potential)." _Brain_ 106(3), 623–642 (1983). 原始利贝特实验。
 - Schurger, A., Sitt, J.D. & Dehaene, S. "An accumulator model for spontaneous neural activity prior to self-initiated movement." _PNAS_ 109(42), E2904–E2913 (2012). 积累器模型的核心论文。

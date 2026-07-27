@@ -16,6 +16,13 @@ type PhilosophyNodeSource = "school" | "concept" | "ism";
 // A few legacy articles describe the same philosophical object under multiple
 // editorial sections. The graph represents each object once, while still
 // collecting relationships contributed by every source article below.
+//
+// 2026-07-26: the duplicate *files* were disambiguated so the bare wiki-link key
+// resolves again — the concept/ism copies became `philosophy-of-mind-overview` /
+// `utilitarianism-doctrine`, leaving the school articles named after the bare
+// slug that this table designates canonical. Keep this map in sync with whichever
+// section owns the bare slug, or the canonical node disappears and curated edges
+// targeting it fail at load time (guarded by graph-integrity.test.ts).
 const PHILOSOPHY_CANONICAL_NODE_SOURCES: Partial<Record<string, PhilosophyNodeSource>> = {
   "buddhism-philosophy": "school",
   epicureanism: "school",

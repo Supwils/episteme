@@ -1811,12 +1811,12 @@
   },
   "/economics/case-studies/china-macro-diagnosis-2026": {
     "t": "中国宏观经济诊断（2026）",
-    "e": "中国宏观经济最常被两种叙事夹住。",
+    "e": "中国宏观经济最常被两种叙事夹住。一种说中国只要继续投资和出口就能维持高增长。另一种说房地产调整意味着长期停滞已经不可避免。两种说法都忽略结构转换的复杂性。中国仍拥有完整制造体系、巨大储蓄、工程…",
     "d": "economics"
   },
   "/economics/case-studies/china-property-local-finance-financial-system-2026": {
     "t": "中国地产、地方财政与金融系统（2026）",
-    "e": "中国房地产调整不是单一行业问题。",
+    "e": "中国房地产调整不是单一行业问题。它同时影响居民财富、地方政府收入、银行抵押品、开发商信用、建筑产业链、就业预期和消费信心。如果只看房价或销售面积，就会低估它的系统性。",
     "d": "economics"
   },
   "/economics/case-studies/china-reform-opening": {
@@ -1826,17 +1826,17 @@
   },
   "/economics/case-studies/commodity-exporters-fiscal-rules-sovereign-wealth-funds-2026": {
     "t": "资源出口国财政规则与主权财富基金（2026）",
-    "e": "资源出口国的宏观问题，不是有没有资源。",
+    "e": "资源出口国的宏观问题，不是有没有资源。真正的问题，是资源收入如何进入财政制度。石油、天然气、铜、铁矿、锂、钴、粮食和黄金，可以带来外汇、财政收入和投资能力。但资源价格高度波动。如果政府把临时高…",
     "d": "economics"
   },
   "/economics/case-studies/commodity-exporters-macro-diagnosis-2026": {
     "t": "资源出口国宏观经济诊断（2026）",
-    "e": "资源出口国常被简单分成“富得流油”或“资源诅咒”。",
+    "e": "资源出口国常被简单分成“富得流油”或“资源诅咒”。两种说法都不够。石油、天然气、铜、铁矿、锂、钴和粮食出口可以提供外汇、财政收入和投资能力。但资源收入高度周期性，容易推高汇率、削弱制造业、扩大…",
     "d": "economics"
   },
   "/economics/case-studies/crypto-chronicles": {
     "t": "加密货币编年史",
-    "e": "从2009年比特币创世区块到2025年的监管框架成形，加密货币用十五年时间走完了传统金融几百年的路。",
+    "e": "从2009年比特币创世区块到2025年的监管框架成形，加密货币用十五年时间走完了传统金融几百年的路。它经历了发明、投机、泡沫、崩溃、重建的完整循环。这段编年史既是一部技术创新史，也是一面照出人…",
     "d": "economics"
   },
   "/economics/case-studies/dot-com-bubble": {
@@ -1851,12 +1851,12 @@
   },
   "/economics/case-studies/euro-area-fiscal-rules-energy-transition-2026": {
     "t": "欧元区财政规则与能源转型（2026）",
-    "e": "欧元区的宏观难题可以压缩成一句话：它有统一货币，却没有完整财政国家。",
+    "e": "欧元区的宏观难题可以压缩成一句话：它有统一货币，却没有完整财政国家。欧洲央行可以统一设定货币政策。但成员国财政政策仍由各国政府、议会、债务水平、产业结构和国内政治决定。这使欧元区在能源转型时代…",
     "d": "economics"
   },
   "/economics/case-studies/euro-area-macro-diagnosis-2026": {
     "t": "欧元区宏观经济诊断（2026）",
-    "e": "欧元区不是一个普通国家，也不是一组完全独立国家。",
+    "e": "欧元区不是一个普通国家，也不是一组完全独立国家。它有统一货币和中央银行，却没有完整财政联盟。它有共同市场，却有不同工资制度、产业结构、债务水平和政治联盟。因此，欧元区宏观诊断必须同时看整体和成…",
     "d": "economics"
   },
   "/economics/case-studies/eurozone-crisis": {
@@ -1866,7 +1866,7 @@
   },
   "/economics/case-studies/financial-crisis-sequence": {
     "t": "金融危机的序列：从郁金香到加密货币",
-    "e": "金融危机不是例外，而是资本主义的常态。",
+    "e": "金融危机不是例外，而是资本主义的常态。从1637年的郁金香狂热到2022年的加密货币崩盘，近四百年的金融史呈现出惊人的规律性。每一次危机都遵循相似的模式，但每一次市场参与者都坚信\"这次不一样\"…",
     "d": "economics"
   },
   "/economics/case-studies/great-depression": {
@@ -1886,12 +1886,12 @@
   },
   "/economics/case-studies/india-growth-employment-constraints-2026": {
     "t": "印度增长与就业约束（2026）",
-    "e": "印度是当前全球宏观中最重要的高增长经济体之一。",
+    "e": "印度是当前全球宏观中最重要的高增长经济体之一。但高增长本身不是终点。真正的问题，是增长能否吸纳足够多的人进入高生产率工作。如果 GDP 快速增长，但大量年轻人仍停留在低收入、非正规、低保障岗位…",
     "d": "economics"
   },
   "/economics/case-studies/india-macro-diagnosis-2026": {
     "t": "印度宏观经济诊断（2026）",
-    "e": "印度经济常被写成“下一个中国”。",
+    "e": "印度经济常被写成“下一个中国”。这个类比有启发，也有误导。印度确实具有人口规模、数字公共基础设施、服务出口、国内市场和地缘再平衡机会。但印度的发展路径不同。它不是先大规模制造业吸纳劳动力再进入…",
     "d": "economics"
   },
   "/economics/case-studies/japan-lost-decades": {
@@ -1901,12 +1901,12 @@
   },
   "/economics/case-studies/japan-macro-diagnosis-2026": {
     "t": "日本宏观经济诊断（2026）",
-    "e": "日本经济最常被写成“失去的三十年”。",
+    "e": "日本经济最常被写成“失去的三十年”。这个说法有解释力，但也容易遮蔽日本的真实韧性。日本增长慢、通胀长期低、人口老龄化严重、公共债务极高。但日本仍拥有高人均收入、强制造业、全球投资收益、社会秩序…",
     "d": "economics"
   },
   "/economics/case-studies/japan-yield-normalization-aging-fiscal-2026": {
     "t": "日本收益率正常化与财政老龄化（2026）",
-    "e": "日本宏观诊断最容易被一句“高债务但没事”带偏。",
+    "e": "日本宏观诊断最容易被一句“高债务但没事”带偏。日本确实不是典型外债危机国家。它发行本币债务。居民和国内机构储蓄深。日本央行长期持有大量国债。日本还拥有庞大的海外净资产。但这些缓冲不等于没有风险…",
     "d": "economics"
   },
   "/economics/case-studies/latin-america-debt-crisis": {
@@ -1916,12 +1916,12 @@
   },
   "/economics/case-studies/low-income-debt-countries-macro-diagnosis-2026": {
     "t": "低收入债务国宏观经济诊断（2026）",
-    "e": "低收入债务国的问题不是简单“借太多钱”。",
+    "e": "低收入债务国的问题不是简单“借太多钱”。许多国家确实需要借款建设电力、道路、学校、医院、港口和气候适应工程。如果没有融资，发展会停在低生产率陷阱。真正的问题是：借来的钱是否提高未来生产能力，债…",
     "d": "economics"
   },
   "/economics/case-studies/low-income-debt-restructuring-development-finance-2026": {
     "t": "低收入债务国债务重组与发展融资（2026）",
-    "e": "低收入债务国的宏观困难，不能只用“债务太高”解释。",
+    "e": "低收入债务国的宏观困难，不能只用“债务太高”解释。有些国家债务率并不比发达国家高，却更容易陷入危机。原因在于债务结构、融资条件、出口能力、税基、外汇储备和公共品缺口不同。低收入国家常面临四重约…",
     "d": "economics"
   },
   "/economics/case-studies/microfinance-experiment": {
@@ -1941,12 +1941,12 @@
   },
   "/economics/case-studies/us-fiscal-path-treasury-market-2026": {
     "t": "美国财政路径与国债市场（2026）",
-    "e": "美国财政问题不是“明天会不会破产”。",
+    "e": "美国财政问题不是“明天会不会破产”。拥有美元、国债市场、美联储、全球储备货币体系和强征税能力的国家，不会像外币债务国那样被一次资本外流直接推入传统违约。真正的问题，是高赤字和高债务如何改变利率…",
     "d": "economics"
   },
   "/economics/case-studies/us-macro-diagnosis-2026": {
     "t": "美国宏观经济诊断（2026）",
-    "e": "美国经济最容易被两种相反叙事误读。",
+    "e": "美国经济最容易被两种相反叙事误读。一种说美国拥有美元霸权，所以赤字和债务不重要。另一种说美国债务高、政治极化严重，所以美元体系马上崩溃。两种说法都太粗。美国确实拥有全球最深的国债市场、储备货币…",
     "d": "economics"
   },
   "/economics/case-studies/yen-carry-trade": {
@@ -1986,7 +1986,7 @@
   },
   "/economics/concepts/country-macro-diagnostics-forecasting": {
     "t": "国家宏观诊断与经济预测",
-    "e": "经济预测最常见的误解，是把它理解成“算出未来”。",
+    "e": "经济预测最常见的误解，是把它理解成“算出未来”。真正专业的宏观预测不是水晶球，而是有纪律的情景分析。它问：如果利率、能源价格、财政政策、外需、汇率和信心按某种路径变化，产出、通胀、就业和债务会…",
     "d": "economics"
   },
   "/economics/concepts/creative-destruction": {
@@ -1996,7 +1996,7 @@
   },
   "/economics/concepts/debt-sustainability-macro-framework": {
     "t": "债务可持续性与宏观框架",
-    "e": "债务可持续性最常见的误解，是寻找一个全球通用的债务/GDP 红线。",
+    "e": "债务可持续性最常见的误解，是寻找一个全球通用的债务/GDP 红线。现实中不存在这样的数字。日本债务/GDP 远高于许多危机国家，却没有发生主权违约。阿根廷可能在更低债务水平上陷入融资危机。差异…",
     "d": "economics"
   },
   "/economics/concepts/developmental-state": {
@@ -2031,7 +2031,7 @@
   },
   "/economics/concepts/expectations-credibility-policy-transmission": {
     "t": "预期、可信度与政策传导",
-    "e": "宏观政策最常见的误解，是把政策想象成按钮。",
+    "e": "宏观政策最常见的误解，是把政策想象成按钮。央行降息，经济就自动加速。政府增加支出，需求就自动扩张。政府宣布财政整顿，债券市场就自动放心。现实不是这样。宏观政策真正作用于经济，往往要经过一条更长…",
     "d": "economics"
   },
   "/economics/concepts/externalities": {
@@ -2091,7 +2091,7 @@
   },
   "/economics/concepts/leverage-and-systemic-risk": {
     "t": "杠杆与系统性风险",
-    "e": "杠杆是现代金融的核心特征，也是金融危机的根本驱动力。",
+    "e": "杠杆是现代金融的核心特征，也是金融危机的根本驱动力。它放大收益，也放大损失；它创造繁荣，也制造崩溃。理解杠杆如何从个体理性演变为集体非理性，是理解系统性风险的关键。",
     "d": "economics"
   },
   "/economics/concepts/loss-aversion-anchoring": {
@@ -2106,7 +2106,7 @@
   },
   "/economics/concepts/market-efficiency": {
     "t": "市场效率假说：真相与谎言",
-    "e": "市场效率假说是现代金融经济学最有影响力、也最具争议的理论。",
+    "e": "市场效率假说是现代金融经济学最有影响力、也最具争议的理论。它声称资产价格充分反映了所有可获得的信息。这一假说既是指数基金崛起的理论基础，也是行为金融学批判的核心靶标。理解它的真相与谎言，是每个…",
     "d": "economics"
   },
   "/economics/concepts/market-failure-public-goods": {
@@ -2116,7 +2116,7 @@
   },
   "/economics/concepts/market-makers": {
     "t": "做市商",
-    "e": "当你在手机上点击\"买入\"一只股票时，是谁在另一端卖给你？ 答案通常是做市商（market maker）——金融市场中最重要却最少被理解的角色。",
+    "e": "当你在手机上点击\"买入\"一只股票时，是谁在另一端卖给你？ 答案通常是做市商（market maker）——金融市场中最重要却最少被理解的角色。他们持续提供买卖报价，为市场提供流动性，从中赚取价…",
     "d": "economics"
   },
   "/economics/concepts/mechanism-design": {
@@ -2126,7 +2126,7 @@
   },
   "/economics/concepts/modern-money-fiscal-deficits": {
     "t": "现代货币、财政赤字与通胀约束",
-    "e": "现代货币最常见的误解，是把政府财政想象成家庭账本。",
+    "e": "现代货币最常见的误解，是把政府财政想象成家庭账本。家庭必须先有收入才能支出，政府尤其是拥有主权货币的政府并不完全如此。美国、日本、英国这样的政府以本币发行债务，中央银行能创造银行准备金，财政部…",
     "d": "economics"
   },
   "/economics/concepts/money-supply": {
@@ -2156,7 +2156,7 @@
   },
   "/economics/concepts/nudge-libertarian-paternalism": {
     "t": "助推与自由家长主义",
-    "e": "一提\"助推\"（nudge），很多人立刻警觉：\"这不就是政府或企业悄悄操纵我的选择吗？\"另一些人则把它当成万能灵药，以为只要改个默认设置就能解决肥胖、贫穷、气候变化。",
+    "e": "一提\"助推\"（nudge），很多人立刻警觉：\"这不就是政府或企业悄悄操纵我的选择吗？\"另一些人则把它当成万能灵药，以为只要改个默认设置就能解决肥胖、贫穷、气候变化。两种理解都偏了。理查德·塞勒…",
     "d": "economics"
   },
   "/economics/concepts/opportunity-cost": {
@@ -2166,12 +2166,12 @@
   },
   "/economics/concepts/order-book": {
     "t": "订单簿",
-    "e": "每一笔股票交易的背后，都有一本看不见的账簿在实时运转。",
+    "e": "每一笔股票交易的背后，都有一本看不见的账簿在实时运转。它记录着所有参与者愿意买入和卖出的价格与数量——这就是订单簿（order book）。理解订单簿，是理解市场微观结构的第一步。",
     "d": "economics"
   },
   "/economics/concepts/phillips-curve": {
     "t": "菲利普斯曲线",
-    "e": "很多人对菲利普斯曲线的印象停留在一句话上：\"失业和通胀此消彼长，政府可以用高一点的通胀去换低一点的失业。\"",
+    "e": "很多人对菲利普斯曲线的印象停留在一句话上：\"失业和通胀此消彼长，政府可以用高一点的通胀去换低一点的失业。\"这个印象既对又错——对的是它确实描述过这样一种关系，错的是它把一条会移动、会塌陷的经验…",
     "d": "economics"
   },
   "/economics/concepts/platform-economics": {
@@ -2216,7 +2216,7 @@
   },
   "/economics/concepts/short-selling": {
     "t": "做空",
-    "e": "大多数投资者只知道一种赚钱方式：低价买入，高价卖出。",
+    "e": "大多数投资者只知道一种赚钱方式：低价买入，高价卖出。做空（short selling）是反向操作：先高价卖出，再低价买回。它是金融市场中最被误解、最被妖魔化，却也最不可或缺的机制之一。",
     "d": "economics"
   },
   "/economics/concepts/social-choice-theory": {
@@ -2231,7 +2231,7 @@
   },
   "/economics/concepts/stock-valuation": {
     "t": "股票估值",
-    "e": "一只股票值多少钱？ 这个问题看似简单，却是金融学最核心、最困难的问题。",
+    "e": "一只股票值多少钱？ 这个问题看似简单，却是金融学最核心、最困难的问题。估值方法大致分为两类：基于资产内在价值的绝对估值，和基于市场比较的相对估值。",
     "d": "economics"
   },
   "/economics/concepts/tragedy-of-commons": {
@@ -2246,12 +2246,12 @@
   },
   "/economics/debates/free-market-vs-intervention": {
     "t": "自由市场 vs 政府干预",
-    "e": "自由市场与政府干预之间的争论是经济学最古老、最根本的议题。",
+    "e": "自由市场与政府干预之间的争论是经济学最古老、最根本的议题。从亚当·斯密的\"看不见的手\"到凯恩斯的\"看得见的手\"，从大萧条到2008年金融危机。这场争论塑造了数百亿人的经济命运。每一代经济学家都…",
     "d": "economics"
   },
   "/economics/debates/free-trade-fair-trade": {
     "t": "自由贸易vs公平贸易",
-    "e": "自由贸易与公平贸易之间的争论是经济学中最古老也最具现实意义的辩论之一。",
+    "e": "自由贸易与公平贸易之间的争论是经济学中最古老也最具现实意义的辩论之一。这一争论不仅关乎效率与公平的权衡，也涉及国家主权、劳工权益和环境可持续性等深层问题。",
     "d": "economics"
   },
   "/economics/debates/inequality-growth": {
@@ -2266,7 +2266,7 @@
   },
   "/economics/debates/rational-expectations": {
     "t": "理性预期vs适应性预期",
-    "e": "关于经济主体如何形成对未来经济变量的预期，是宏观经济学理论争论的核心问题之一。",
+    "e": "关于经济主体如何形成对未来经济变量的预期，是宏观经济学理论争论的核心问题之一。预期形成方式的不同假设，直接决定了宏观经济模型的结论和政策含义。",
     "d": "economics"
   },
   "/economics/dialogues/friedman-kaldor-monetarism": {
@@ -2516,7 +2516,7 @@
   },
   "/economics/schools/institutional-school": {
     "t": "制度经济学派",
-    "e": "制度经济学派是强调制度对经济行为和经济绩效起决定性作用的经济学流派。",
+    "e": "制度经济学派是强调制度对经济行为和经济绩效起决定性作用的经济学流派。制度包括法律、习俗、组织、规范等正式和非正式规则。该学派反对将经济行为简化为个体理性选择的结果。主张经济活动嵌入在特定的制度…",
     "d": "economics"
   },
   "/economics/schools/keynesian-school": {
@@ -2531,7 +2531,7 @@
   },
   "/economics/schools/modern-monetary-theory": {
     "t": "现代货币理论（MMT）",
-    "e": "现代货币理论（Modern Monetary Theory, MMT）是20世纪末至21世纪初兴起的异端经济学理论。",
+    "e": "现代货币理论（Modern Monetary Theory, MMT）是20世纪末至21世纪初兴起的异端经济学理论。挑战了关于政府财政和货币的传统认知。MMT的核心主张是：拥有货币主权的政府不…",
     "d": "economics"
   },
   "/economics/schools/monetarist-school": {
@@ -2541,27 +2541,27 @@
   },
   "/economics/schools/neoliberal-school": {
     "t": "新自由主义学派",
-    "e": "新自由主义是20世纪后半叶最具影响力的经济思想和政策范式之一。",
+    "e": "新自由主义是20世纪后半叶最具影响力的经济思想和政策范式之一。它主张自由市场、有限政府、放松管制和私有化，深刻重塑了全球经济格局。从撒切尔和里根的改革到华盛顿共识的推广，新自由主义的政策遗产至…",
     "d": "economics"
   },
   "/economics/schools/new-classical-school": {
     "t": "新古典宏观经济学",
-    "e": "新古典宏观经济学是20世纪70年代兴起的宏观经济学流派。",
+    "e": "新古典宏观经济学是20世纪70年代兴起的宏观经济学流派。以理性预期假说为核心，主张市场连续出清和政策无效命题。该学派对凯恩斯主义宏观经济学提出了根本性挑战。将宏观经济学建立在严格的微观基础之上…",
     "d": "economics"
   },
   "/economics/schools/post-keynesian-school": {
     "t": "后凯恩斯学派",
-    "e": "后凯恩斯学派是对凯恩斯思想的激进继承和发展。",
+    "e": "后凯恩斯学派是对凯恩斯思想的激进继承和发展。强调经济体系的根本不确定性、货币的内生性以及资本主义内在的不稳定性。与主流新凯恩斯主义不同，后凯恩斯学者拒绝将凯恩斯理论纳入新古典综合的框架。他们坚…",
     "d": "economics"
   },
   "/economics/schools/supply-side-school": {
     "t": "供给学派",
-    "e": "供给学派是20世纪70年代兴起的经济学流派。",
+    "e": "供给学派是20世纪70年代兴起的经济学流派。主张通过减税、放松管制和自由市场来刺激生产和供给，从而促进经济增长。该学派以拉弗曲线为标志性理论，对里根经济学和撒切尔主义产生了直接影响。是当代经济…",
     "d": "economics"
   },
   "/economics/theories/african-development-economics": {
     "t": "非洲发展经济学",
-    "e": "非洲发展经济学最需要破除的误解，是把非洲写成一个单一经济体。",
+    "e": "非洲发展经济学最需要破除的误解，是把非洲写成一个单一经济体。尼日利亚的石油财政、埃塞俄比亚的制造业园区、肯尼亚的移动支付、博茨瓦纳的矿业治理、卢旺达的国家能力、南非的工业遗产和刚果（金）的矿产…",
     "d": "economics"
   },
   "/economics/theories/behavioral-economics-theory": {
@@ -2576,7 +2576,7 @@
   },
   "/economics/theories/development-economics": {
     "t": "发展经济学",
-    "e": "发展经济学是经济学中最富理想主义色彩、也最具争议性的分支。",
+    "e": "发展经济学是经济学中最富理想主义色彩、也最具争议性的分支。它追问一个根本问题：为什么有些国家富裕，有些国家贫穷？",
     "d": "economics"
   },
   "/economics/theories/economic-growth": {
@@ -2596,7 +2596,7 @@
   },
   "/economics/theories/indian-institutional-economics": {
     "t": "印度制度经济学",
-    "e": "印度制度经济学最常见的误解，是把印度经济解释为“民主拖慢增长”或“市场化释放增长”中的一个简单故事。",
+    "e": "印度制度经济学最常见的误解，是把印度经济解释为“民主拖慢增长”或“市场化释放增长”中的一个简单故事。印度的经验更复杂。它既有世界级的软件服务、制药、航天、数字支付和选举管理，也有土地征收困难、…",
     "d": "economics"
   },
   "/economics/theories/information-asymmetry": {
@@ -3856,7 +3856,7 @@
   },
   "/medicine/concepts/clinical-diagnosis": {
     "t": "临床诊断",
-    "e": "急诊室里，一个人说胸痛。",
+    "e": "急诊室里，一个人说胸痛。医生脑中不能只跳出一个答案。它可能是胃食管反流，也可能是肋软骨炎、肺栓塞、主动脉夹层或急性冠脉综合征。真正的临床诊断，不是把症状和疾病做“连连看”。它是在不完整信息、时…",
     "d": "medicine"
   },
   "/medicine/concepts/clinical-trials": {
@@ -3891,7 +3891,7 @@
   },
   "/medicine/concepts/germ-theory": {
     "t": "细菌致病论",
-    "e": "十九世纪中叶，伦敦人相信霍乱是\"坏空气\"（瘴气）带来的，于是富人逃往乡间躲避恶臭，穷人则继续守着臭气熏天却安全的水井——结果躲瘴气的人照样死，而真正的杀手藏在他们随手舀起的那杯水里。",
+    "e": "十九世纪中叶，伦敦人相信霍乱是\"坏空气\"（瘴气）带来的，于是富人逃往乡间躲避恶臭，穷人则继续守着臭气熏天却安全的水井——结果躲瘴气的人照样死，而真正的杀手藏在他们随手舀起的那杯水里。把\"看不见…",
     "d": "medicine"
   },
   "/medicine/concepts/hematology": {
@@ -3906,7 +3906,7 @@
   },
   "/medicine/concepts/humoral-theory": {
     "t": "体液学说",
-    "e": "如果有人告诉你，把病人的血放掉一大盆能治病，你大概会觉得荒唐。",
+    "e": "如果有人告诉你，把病人的血放掉一大盆能治病，你大概会觉得荒唐。然而这套疗法在西方医学里堂堂正正地通行了两千多年，被一代代最聪明的医生奉为正道。",
     "d": "medicine"
   },
   "/medicine/concepts/immune-system": {
@@ -3916,7 +3916,7 @@
   },
   "/medicine/concepts/inflammation": {
     "t": "炎症",
-    "e": "崴了脚，第二天那块皮肤又红又肿，发烫，一碰就疼。",
+    "e": "崴了脚，第二天那块皮肤又红又肿，发烫，一碰就疼。你或许把这当成\"伤情恶化\"，恨不得立刻把肿消下去。但这恰恰是身体在自救：红、肿、热、痛，是免疫系统正赶赴现场、抢修组织的信号。炎症是医学里最古老…",
     "d": "medicine"
   },
   "/medicine/concepts/informed-consent": {
@@ -3926,7 +3926,7 @@
   },
   "/medicine/concepts/medical-genetics-and-genomics": {
     "t": "医学遗传学与基因组医学",
-    "e": "一份基因组，约 32 亿个碱基对，写在每一个细胞里，从受精那一刻起几乎不再改变。",
+    "e": "一份基因组，约 32 亿个碱基对，写在每一个细胞里，从受精那一刻起几乎不再改变。医学遗传学（medical genetics）研究基因如何影响健康与疾病；基因组医学（genomic medic…",
     "d": "medicine"
   },
   "/medicine/concepts/microbiome-and-health": {
@@ -3936,7 +3936,7 @@
   },
   "/medicine/concepts/musculoskeletal-system": {
     "t": "肌肉骨骼系统",
-    "e": "你从椅子上站起来，看似只是一个简单动作。",
+    "e": "你从椅子上站起来，看似只是一个简单动作。实际发生的是：股四头肌收缩，髋膝踝关节协调旋转，骨骼承受弯曲与压缩，肌腱把力传给骨，前庭系统和本体感觉不断校正重心。如果其中一个环节失败，站立就会变成跌…",
     "d": "medicine"
   },
   "/medicine/concepts/nervous-system": {
@@ -3976,7 +3976,7 @@
   },
   "/medicine/concepts/reproductive-system": {
     "t": "生殖系统",
-    "e": "每个人的生命都从一次极不寻常的事件开始：两个只有一半染色体的细胞相遇，合成一个全新的基因组合。",
+    "e": "每个人的生命都从一次极不寻常的事件开始：两个只有一半染色体的细胞相遇，合成一个全新的基因组合。这听起来像生物学奇迹。但在身体内部，它是一套严密的内分泌、细胞分裂、组织重塑和免疫耐受工程。生殖系…",
     "d": "medicine"
   },
   "/medicine/concepts/respiratory-system": {
@@ -4011,7 +4011,7 @@
   },
   "/medicine/diseases/asthma-and-copd": {
     "t": "哮喘与慢阻肺",
-    "e": "呼吸是我们最不假思索的动作——直到它变得困难。",
+    "e": "呼吸是我们最不假思索的动作——直到它变得困难。当每一次吸气都要费力，当胸口像被一只手攥紧，当夜里被自己的喘息惊醒，人才会意识到顺畅呼吸是何等的奢侈。哮喘和慢性阻塞性肺病（COPD，简称慢阻肺）…",
     "d": "medicine"
   },
   "/medicine/diseases/autoimmune-diseases": {
@@ -4026,7 +4026,7 @@
   },
   "/medicine/diseases/cardiovascular-disease": {
     "t": "心血管疾病",
-    "e": "心血管疾病不是一种病，而是一组累及心脏和血管的疾病。",
+    "e": "心血管疾病不是一种病，而是一组累及心脏和血管的疾病。WHO 2025 年资料估计，2022 年全球约有 1980 万人死于心血管疾病，约占全部死亡的 32%；其中约 85% 与心肌梗死和脑卒中…",
     "d": "medicine"
   },
   "/medicine/diseases/cholera": {
@@ -4036,7 +4036,7 @@
   },
   "/medicine/diseases/chronic-kidney-disease": {
     "t": "慢性肾病",
-    "e": "你的两个肾每天从血浆中形成约 180 升肾小球滤液（原尿）——相当于把全身的血液过滤几十遍。",
+    "e": "你的两个肾每天从血浆中形成约 180 升肾小球滤液（原尿）——相当于把全身的血液过滤几十遍。绝大部分水和有用小分子随后被肾小管重吸收，最终排出的尿液通常只有其中很小一部分（约 1–2 升）。把…",
     "d": "medicine"
   },
   "/medicine/diseases/covid-19": {
@@ -4076,7 +4076,7 @@
   },
   "/medicine/diseases/obesity": {
     "t": "肥胖",
-    "e": "在人类历史的绝大部分时间里，能囤积脂肪是一种生存优势——食物时有时无，谁能在丰年存下能量，谁就更可能熬过荒年。",
+    "e": "在人类历史的绝大部分时间里，能囤积脂肪是一种生存优势——食物时有时无，谁能在丰年存下能量，谁就更可能熬过荒年。我们的身体被进化打磨得极善于储存脂肪、极不情愿消耗它。可当人类突然进入一个食物极度…",
     "d": "medicine"
   },
   "/medicine/diseases/parkinsons-disease": {
@@ -4241,7 +4241,7 @@
   },
   "/medicine/figures/paul-ehrlich": {
     "t": "保罗·埃尔利希",
-    "e": "在埃尔利希之前，人类对付传染病几乎只有两条路：要么靠身体自己扛过去，要么靠疫苗事先预防。一旦病菌已经在体内肆虐，医生几乎束手无策。",
+    "e": "在埃尔利希之前，人类对付传染病几乎只有两条路：要么靠身体自己扛过去，要么靠疫苗事先预防。一旦病菌已经在体内肆虐，医生几乎束手无策。埃尔利希提出了一个石破天惊的设想：能不能造出一种化学物质，像一…",
     "d": "medicine"
   },
   "/medicine/figures/robert-koch": {
@@ -4266,7 +4266,7 @@
   },
   "/medicine/figures/zhang-zhongjing": {
     "t": "张仲景",
-    "e": "公元 2 世纪末的东汉末年，是中国历史上最惨烈的时期之一：战乱、饥荒，加上一场又一场瘟疫横扫城乡。",
+    "e": "公元 2 世纪末的东汉末年，是中国历史上最惨烈的时期之一：战乱、饥荒，加上一场又一场瘟疫横扫城乡。曹操笔下\"白骨露于野，千里无鸡鸣\"，并非夸张。建安二十二年（公元 217 年）的一场大疫，一口…",
     "d": "medicine"
   },
   "/medicine/frontier/ai-in-medical-diagnosis": {
@@ -4591,7 +4591,7 @@
   },
   "/philosophy/concepts/indian-buddhist-epistemology": {
     "t": "印度佛教知识论",
-    "e": "印度佛教知识论最常见的误解，是把佛教理解成只谈修行、慈悲和空性的宗教经验。",
+    "e": "印度佛教知识论最常见的误解，是把佛教理解成只谈修行、慈悲和空性的宗教经验。实际上，公元 5-7 世纪的陈那（Dignaga）和法称（Dharmakirti）建立了一套高度技术化的认识论与逻辑传…",
     "d": "philosophy"
   },
   "/philosophy/concepts/information-philosophy": {
@@ -4636,7 +4636,7 @@
   },
   "/philosophy/concepts/modern-chinese-thought": {
     "t": "中国近现代思想",
-    "e": "中国近现代思想最常见的误解，是把它写成“传统走向现代”的单线故事。",
+    "e": "中国近现代思想最常见的误解，是把它写成“传统走向现代”的单线故事。这种写法把传统放在落后位置，把现代放在西方位置，把中国思想家变成被动追赶者。真实历史更复杂。晚清以来的思想家不是简单接受西方，…",
     "d": "philosophy"
   },
   "/philosophy/concepts/other": {
@@ -4844,8 +4844,8 @@
     "e": "葛梯尔问题（The Gettier Problem）是20世纪分析认识论中最重要的\"问题文献\"（problem paper）之一，由美国哲学家埃德蒙德·葛梯尔（Edmund L. Gettie…",
     "d": "philosophy"
   },
-  "/philosophy/dialogues/gorgias": {
-    "t": "高尔吉亚篇",
+  "/philosophy/dialogues/gorgias-dialogue": {
+    "t": "柏拉图《高尔吉亚篇》",
     "e": "《高尔吉亚篇》（希腊文 Γοργίας，英文 Gorgias）是柏拉图的中期早期对话，",
     "d": "philosophy"
   },
@@ -4914,8 +4914,8 @@
     "e": "弗里德里希·尼采（Friedrich Nietzsche, 1844—1900）宣称\"上帝已死\"，提出超人（Übermensch）和永恒回归的思想，主张以 amor fati（热爱命运）的态度…",
     "d": "philosophy"
   },
-  "/philosophy/dialogues/parmenides": {
-    "t": "巴门尼德篇",
+  "/philosophy/dialogues/parmenides-dialogue": {
+    "t": "柏拉图《巴门尼德篇》",
     "e": "《巴门尼德篇》（希腊文 Παρμενίδης，英文 Parmenides）",
     "d": "philosophy"
   },
@@ -5631,7 +5631,7 @@
   },
   "/philosophy/thinkers/augustine": {
     "t": "奥古斯丁",
-    "e": "奥古斯丁常被简化为「原罪论的发明者」，仿佛他只是一个悲观的神学家，把人类捆绑在罪恶的锁链上。",
+    "e": "奥古斯丁常被简化为「原罪论的发明者」，仿佛他只是一个悲观的神学家，把人类捆绑在罪恶的锁链上。这种理解忽略了奥古斯丁思想的丰富性和深刻性。他对「原罪」的讨论实际上是对人类自由意志和道德失败的深刻…",
     "d": "philosophy"
   },
   "/philosophy/thinkers/austin": {
@@ -5816,7 +5816,7 @@
   },
   "/philosophy/thinkers/heidegger": {
     "t": "海德格尔",
-    "e": "海德格尔最常被误解的方面有两个。",
+    "e": "海德格尔最常被误解的方面有两个。第一个是将他简单地归类为「纳粹哲学家」。海德格尔确实加入了纳粹党（1933年），并在担任弗莱堡大学校长期间发表了支持纳粹政权的演讲。这是不可否认的事实，也是他一…",
     "d": "philosophy"
   },
   "/philosophy/thinkers/heraclitus": {
@@ -5836,7 +5836,7 @@
   },
   "/philosophy/thinkers/husserl": {
     "t": "胡塞尔",
-    "e": "胡塞尔常被误解为「象牙塔中的技术哲学家」，他的现象学被描绘为一套与生活无关的抽象方法论。",
+    "e": "胡塞尔常被误解为「象牙塔中的技术哲学家」，他的现象学被描绘为一套与生活无关的抽象方法论。这种评价忽略了胡塞尔思想的深层动机——他的全部事业可以被理解为对「欧洲科学危机」的回应。在他看来，现代科…",
     "d": "philosophy"
   },
   "/philosophy/thinkers/ibn-khaldun": {
@@ -5856,7 +5856,7 @@
   },
   "/philosophy/thinkers/kierkegaard": {
     "t": "克尔凯郭尔",
-    "e": "克尔凯郭尔常被标签为「宗教存在主义者」，仿佛他的哲学只是为基督教信仰辩护。",
+    "e": "克尔凯郭尔常被标签为「宗教存在主义者」，仿佛他的哲学只是为基督教信仰辩护。这种理解忽略了他思想的激进性。克尔凯郭尔不是在为任何宗教体制辩护——他猛烈攻击丹麦国教会，认为体制化的基督教是对基督精…",
     "d": "philosophy"
   },
   "/philosophy/thinkers/kripke": {
@@ -6076,7 +6076,7 @@
   },
   "/philosophy/thinkers/spinoza": {
     "t": "斯宾诺莎",
-    "e": "斯宾诺莎常被标签为「无神论者」或「泛神论者」，仿佛他在否认上帝的存在或把上帝等同于自然。",
+    "e": "斯宾诺莎常被标签为「无神论者」或「泛神论者」，仿佛他在否认上帝的存在或把上帝等同于自然。这些标签都过于简化。斯宾诺莎确实说「神即自然」（Deus sive Natura），但他所说的「自然」不…",
     "d": "philosophy"
   },
   "/philosophy/thinkers/strawson": {
@@ -6176,7 +6176,7 @@
   },
   "/political-science/concepts/budget-governance": {
     "t": "预算治理",
-    "e": "预算是国家优先级的公开表达。",
+    "e": "预算不是一张收支表。预算是国家优先级的公开表达。政府说重视教育、国防、气候、贫困、养老或创新，最终都要在预算中体现。第二个误解，是认为预算治理只关乎节省开支。好的预算治理不是单纯压低赤字，而是…",
     "d": "political-science"
   },
   "/political-science/concepts/checks-and-balances": {
@@ -6221,12 +6221,12 @@
   },
   "/political-science/concepts/fiscal-rules-democratic-legitimacy": {
     "t": "财政规则与民主合法性",
-    "e": "财政规则常被理解成“给政府花钱上锁”。",
+    "e": "财政规则常被理解成“给政府花钱上锁”。这个理解太窄。财政规则确实会限制赤字、债务、支出或结构性预算余额。但它更深层的作用，是把短期政治冲动放进长期公共承诺。民主政府需要回应选民。选民希望教育、…",
     "d": "political-science"
   },
   "/political-science/concepts/fiscal-state": {
     "t": "财政国家",
-    "e": "财政不是政府的会计部门。",
+    "e": "财政不是政府的会计部门。财政是国家能力的核心。一个政府能否征税、借债、花钱、审计和解释预算，决定它能否打仗、修路、办学校、发养老金、应对疫情和稳定经济。第二个误解，是把税收看成国家从社会拿走资…",
     "d": "political-science"
   },
   "/political-science/concepts/freedom-of-speech": {
@@ -6341,7 +6341,7 @@
   },
   "/political-science/concepts/taxes-and-public-budget": {
     "t": "税收与公共预算：共同的钱怎样变成共同选择",
-    "e": "一所公立学校需要教师工资、建筑维护、教材、午餐、网络和安全设施。",
+    "e": "一所公立学校需要教师工资、建筑维护、教材、午餐、网络和安全设施。每个家庭都可能希望学校更好，却很少有一个家庭能独自承担全部成本。于是出现两个最基础的政治问题：共同的钱从哪里来？谁决定它花到哪里…",
     "d": "political-science"
   },
   "/political-science/concepts/the-state": {
@@ -6381,12 +6381,12 @@
   },
   "/political-science/institutions/central-bank-communication-public-understanding": {
     "t": "央行沟通与公众理解",
-    "e": "央行沟通不是新闻稿的修辞问题。",
+    "e": "央行沟通不是新闻稿的修辞问题。它是货币政策的一部分。利率决议、通胀预测、前瞻指引、资产负债表政策、金融稳定评估，都需要通过沟通进入市场和公众预期。第二个误解，是认为央行只需要和金融市场沟通。金…",
     "d": "political-science"
   },
   "/political-science/institutions/central-bank-independence-political-economy": {
     "t": "中央银行独立的政治经济学",
-    "e": "中央银行独立不是让技术官僚脱离民主。",
+    "e": "中央银行独立不是让技术官僚脱离民主。它是一种制度承诺：把短期政治压力与货币发行权隔开，让公众相信政府不会为了选举或赤字而持续制造通胀。第二个误解，是认为独立央行只需要管通胀。现代央行还面对金融…",
     "d": "political-science"
   },
   "/political-science/institutions/central-bank-independence": {
@@ -6506,7 +6506,7 @@
   },
   "/political-science/international-relations/african-regional-organizations": {
     "t": "非洲区域组织",
-    "e": "非洲区域组织最常见的误解，是把它们看成欧盟的低配版本。",
+    "e": "非洲区域组织最常见的误解，是把它们看成欧盟的低配版本。这种比较会误导。非洲区域组织面对的任务更宽：殖民边界遗产、跨境冲突、内陆国家出海、基础设施缺口、粮食安全、货币稳定、政变治理、难民流动、公…",
     "d": "political-science"
   },
   "/political-science/international-relations/alliances-and-nato": {
@@ -6611,7 +6611,7 @@
   },
   "/political-science/international-relations/postcolonial-state-building": {
     "t": "后殖民国家建设",
-    "e": "后殖民国家建设最常见的误解，是把独立日当作国家建设完成的时刻。",
+    "e": "后殖民国家建设最常见的误解，是把独立日当作国家建设完成的时刻。殖民统治结束，只意味着主权形式改变。税收、军队、法院、学校、地方行政、边界、民族认同、土地制度和公共服务仍然需要重新建构。第二个误…",
     "d": "political-science"
   },
   "/political-science/international-relations/realism-ir": {
@@ -6771,7 +6771,7 @@
   },
   "/political-science/methods/case-selection-and-small-n": {
     "t": "案例选择与小样本研究",
-    "e": "案例研究不是因为数据不够才做的“缩小版统计”。",
+    "e": "案例研究不是因为数据不够才做的“缩小版统计”。它可以完成统计模型难以完成的任务：澄清概念、观察机制、检验理论边界、解释异常结果，并重建行动者在关键时刻面对的真实选择。但案例也不能因为“有代表性…",
     "d": "political-science"
   },
   "/political-science/methods/comparative-method": {
@@ -6781,27 +6781,27 @@
   },
   "/political-science/methods/experiments-natural-experiments": {
     "t": "政治实验与自然实验",
-    "e": "实验不是“做了干预以后结果变了”。",
+    "e": "实验不是“做了干预以后结果变了”。如果所有参与者都接受干预，我们不知道没有干预时会发生什么。实验的核心是构造可信的反事实。随机分配让处理组与对照组在平均意义上可比，因此两组结果差异可以被解释为…",
     "d": "political-science"
   },
   "/political-science/methods/formal-models-game-theory": {
     "t": "形式模型与政治博弈论",
-    "e": "形式模型不是把常识写成方程，也不是数学越复杂越科学。",
+    "e": "形式模型不是把常识写成方程，也不是数学越复杂越科学。它的核心价值，是迫使研究者明确行动者、选择、信息、偏好、制度规则和结果如何连接。一个好的模型会暴露自己的假设，让别人能够推导、反驳和修改。它…",
     "d": "political-science"
   },
   "/political-science/methods/process-tracing": {
     "t": "过程追踪与因果机制",
-    "e": "过程追踪不是把事件按日期排成时间线。",
+    "e": "过程追踪不是把事件按日期排成时间线。“先发生 A，后来发生 B”只能证明顺序，不能证明 A 通过什么机制导致 B。过程追踪是一种在案例内部系统检验因果解释的方法。研究者提出竞争假设，寻找每个假…",
     "d": "political-science"
   },
   "/political-science/methods/survey-public-opinion-measurement": {
     "t": "调查研究与公共舆论测量",
-    "e": "民调不是向一千个人提问后，把赞成比例直接当成全民意见。",
+    "e": "民调不是向一千个人提问后，把赞成比例直接当成全民意见。从抽样框、联系方式、问题措辞、回答选项、访问模式到加权方法，每一步都会塑造结果。“支持率 52%”不是脱离方法的事实。它是一个特定总体、特…",
     "d": "political-science"
   },
   "/political-science/methods/text-as-data-political-analysis": {
     "t": "文本即数据与计算政治分析",
-    "e": "把十万篇演讲输入模型，不会自动得到比细读十篇演讲更客观的结论。",
+    "e": "把十万篇演讲输入模型，不会自动得到比细读十篇演讲更客观的结论。计算文本分析降低了处理规模的成本，却没有消除语料选择、概念定义、标注、模型假设和语境解释。政治文本也不是行动者思想的透明记录。政党…",
     "d": "political-science"
   },
   "/political-science/thinkers/alexis-de-tocqueville": {
@@ -7509,8 +7509,8 @@
     "e": "智力是什么？这个看似简单的问题，困扰了心理学一百余年。每个人都知道\"有些人比其他人更聪明\"——但聪明是一件事还是多件事？它可以被测量吗？测量的是什么？智力是命中注定还是可以改变？这些争论横跨心…",
     "d": "psychology"
   },
-  "/psychology/phenomena/learned-helplessness": {
-    "t": "习得性无助",
+  "/psychology/phenomena/learned-helplessness-phenomenon": {
+    "t": "习得性无助（现象）",
     "e": "1967年，宾夕法尼亚大学的研究生马丁·塞利格曼（Martin Seligman）和史蒂文·迈尔（Steven Maier）在一次意外的实验中发现了一个改变心理学史的现象：经历过不可控电击的狗…",
     "d": "psychology"
   },
@@ -8001,17 +8001,17 @@
   },
   "/sociology/frontier/ageing-societies": {
     "t": "人口老龄化的社会基础设施",
-    "e": "联合国 DESA 的 _World Social Report 2023_ 把人口老龄化放在全球社会政策中心。",
+    "e": "联合国 DESA 的 _World Social Report 2023_ 把人口老龄化放在全球社会政策中心。报告指出，世界正在进入老龄化时代，但老龄化的社会后果并不平均。有些老年人拥有养老金…",
     "d": "sociology"
   },
   "/sociology/frontier/ai-and-labor": {
     "t": "AI 与劳动过程的再组织",
-    "e": "AI 对劳动的影响，前沿问题已经不只是“会不会取代工作”。",
+    "e": "AI 对劳动的影响，前沿问题已经不只是“会不会取代工作”。更深的问题是：AI 如何进入管理、监督、评估、排班、招聘、培训、客服、创作和绩效考核，把劳动过程重新组织起来。OECD 在 2020 …",
     "d": "sociology"
   },
   "/sociology/frontier/algorithmic-management-worker-power": {
     "t": "算法管理、工人权力与可审计工作",
-    "e": "一名外卖骑手打开应用后，系统决定向他展示哪些订单、预计送达时间、路线、奖励和风险提示。",
+    "e": "一名外卖骑手打开应用后，系统决定向他展示哪些订单、预计送达时间、路线、奖励和风险提示。顾客评分、取消率、位置和接单速度又会进入下一轮分配。管理者没有消失。排班、监督、评价和纪律被重新写进数据、…",
     "d": "sociology"
   },
   "/sociology/frontier/computational-social-science-frontier": {
@@ -8021,7 +8021,7 @@
   },
   "/sociology/frontier/global-south-sociology": {
     "t": "全球南方社会学的知识再平衡",
-    "e": "社会学常把自己讲成一门研究现代社会的普遍科学。",
+    "e": "社会学常把自己讲成一门研究现代社会的普遍科学。但它的经典谱系长期集中在欧洲和北美：马克思、涂尔干、韦伯、齐美尔、帕森斯、默顿、布迪厄、福柯。问题不是这些思想不重要，而是当它们被当成“普遍理论”…",
     "d": "sociology"
   },
   "/sociology/frontier/platform-governance": {
@@ -8031,7 +8031,7 @@
   },
   "/sociology/frontier/urban-climate-adaptation": {
     "t": "城市气候适应的社会不平等",
-    "e": "IPCC 第六次评估报告第二工作组在 2022 年指出，城市和基础设施面临的气候风险正在变得更强、更复杂。",
+    "e": "IPCC 第六次评估报告第二工作组在 2022 年指出，城市和基础设施面临的气候风险正在变得更强、更复杂。其中最迅速增长的城市脆弱性和暴露，集中在适应能力有限的城市与住区，尤其是低收入和中等收…",
     "d": "sociology"
   },
   "/sociology/institutions/african-urbanization": {
@@ -9034,8 +9034,8 @@
     "e": "传统经济学假设人类是理性的\"经济人\"，总能做出最优选择。但现实告诉我们，人类决策充满了系统性偏差。行为经济学正是研究这些偏差的学科，它不仅解释了我们为什么做出糟糕的决定，更重要的是，它提供了改…",
     "d": "economics"
   },
-  "/economics/knowledge-base/behavioral-finance": {
-    "t": "行为金融：当市场遇上人类心理",
+  "/economics/knowledge-base/behavioral-finance-practice": {
+    "t": "行为金融的实践：从偏差到市场",
     "e": "1985年，理查德·塞勒（Richard Thaler）在《金融杂志》发表了一篇题为《股市反应过度了吗？》的论文（De Bondt & Thaler, 1985）。论文发现，过去五年表现最差的…",
     "d": "economics"
   },
@@ -9101,7 +9101,7 @@
   },
   "/economics/knowledge-base/macro-diagnostics-matrix-guide": {
     "t": "宏观诊断矩阵读图手册",
-    "e": "宏观经济新闻常常把一个国家压缩成一个数字。",
+    "e": "宏观经济新闻常常把一个国家压缩成一个数字。增长 5%，通胀 3%，债务占 GDP 120%，经常账户赤字 2%。这些数字有用，但单独看会误导人。高增长可能来自真实生产率提升，也可能来自不可持续…",
     "d": "economics"
   },
   "/economics/knowledge-base/market-microstructure": {
@@ -10416,12 +10416,12 @@
   },
   "/psychology/knowledge-base/inflation-expectations-and-trust": {
     "t": "通胀预期与信任",
-    "e": "通胀预期不是人们在脑中精确计算未来 CPI。",
+    "e": "通胀预期不是人们在脑中精确计算未来 CPI。多数家庭不会每天读取完整宏观数据。他们用更有限、更生活化的线索判断未来价格。这些线索包括最近买菜、加油、交房租、续保险、看新闻、听朋友抱怨、观察工资…",
     "d": "psychology"
   },
   "/psychology/knowledge-base/inflation-psychology": {
     "t": "通胀心理",
-    "e": "通胀不是只发生在统计表里的价格变化。",
+    "e": "通胀不是只发生在统计表里的价格变化。它也发生在人的注意力、记忆、情绪和信任中。经济学家看 CPI、核心通胀和工资增速。普通人更容易记住每天购买的食品、汽油、房租、保险和儿童用品。这就是为什么官…",
     "d": "psychology"
   },
   "/psychology/knowledge-base/intelligence-theories": {
@@ -10446,12 +10446,12 @@
   },
   "/psychology/knowledge-base/political-polarization-psychology": {
     "t": "政治极化心理",
-    "e": "政治极化不只是人们对政策分歧更大。",
+    "e": "政治极化不只是人们对政策分歧更大。更危险的是情感极化：我不仅不同意对方，而且认为对方愚蠢、邪恶、危险，不配分享同一个政治共同体。第二个误解，是认为更多信息会自动减少极化。在身份威胁强的议题上，…",
     "d": "psychology"
   },
   "/psychology/knowledge-base/political-psychology-of-fiscal-austerity": {
     "t": "财政紧缩的政治心理",
-    "e": "财政紧缩不是一个中性的会计动作。",
+    "e": "财政紧缩不是一个中性的会计动作。它会进入人的安全感、公平感和政治归属。政府削减支出、提高税收、改革养老金、压缩补贴或冻结工资，都会让不同群体感觉自己在承担危机代价。因此，财政紧缩的难点不只是“…",
     "d": "psychology"
   },
   "/psychology/knowledge-base/psychology-of-decisions": {

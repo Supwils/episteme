@@ -118,13 +118,13 @@ Dipesh Chakrabarty 在 2021 年出版的新书《气候变化与思想的命运�
 
 ## 跨域连接
 
-- **[[哲学]]**：去殖民认识论与后结构主义（福柯的知识-权力分析）、女性主义认识论（立场认识论）有深刻交叉，构成当代人文科学方法论争论的重要场域。
+- \***\*哲学\*\***：去殖民认识论与后结构主义（福柯的知识-权力分析）、女性主义认识论（立场认识论）有深刻交叉，构成当代人文科学方法论争论的重要场域。
 - **[[digital-humanities-big-data-history|数字人文与大数据史学]]**：两个领域的交汇处，是"谁的数据被数字化"这个问题——大规模数字化项目优先对哪些语言、哪些文明的档案进行数字化，本身就是一个权力问题。
 - **[[ancient-dna-revolution|古DNA革命]]**：基因组数据揭示的人群历史，与文化身份认同之间的关系，在原住民群体中引发了去殖民史学对"谁有权解释我们的历史"这一问题的深刻争论。
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Chakrabarty, Dipesh. _Provincializing Europe: Postcolonial Thought and Historical Difference_. Princeton University Press, 2000.（普林斯顿大学出版社出版；2022年有修订版）
 - Chakrabarty, Dipesh. _The Climate of History in a Planetary Age_. University of Chicago Press, 2021.

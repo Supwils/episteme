@@ -134,7 +134,7 @@ related:
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Ord, T. _The Precipice: Existential Risk and the Future of Humanity._ Hachette Books, 2020. 长期主义的系统性阐述与存在风险的全面评估。
 - MacAskill, W. _What We Owe The Future._ Basic Books, 2022. 长期主义的大众化版本。

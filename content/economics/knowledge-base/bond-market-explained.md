@@ -124,6 +124,6 @@ TIPS（Treasury Inflation-Protected Securities）是美国财政部发行的通�
 
 对于普通投资者来说，理解债券市场有助于做出更全面的投资决策。债券可能不像股票那样令人心跳加速，但它们是任何多元化投资组合不可或缺的组成部分。特别是在接近退休、风险承受能力下降的阶段，适当增加债券配置可以显著降低组合的波动性，保护你辛苦积累的财富。
 
-## 延伸阅读
+## 参考文献
 
 1. Fabozzi, F. J. (2012). _Bond Markets, Analysis, and Strategies_ (8th ed.). Pearson.

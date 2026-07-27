@@ -148,7 +148,7 @@ describe("KnowledgeLearningPlanner", () => {
     ).toBe("97%");
     expect(screen.getByRole("heading", { name: "知识库存诊断" })).toBeDefined();
     const diagnostics = screen.getByTestId("knowledge-terrain-diagnostics");
-    expect(diagnostics.textContent).toContain("11 条可复核信号");
+    expect(diagnostics.textContent).toContain("10 条可复核信号");
     expect(diagnostics.textContent).toContain("5条高优先");
     expect(screen.getByText(/不能解读为学科重要性/)).toBeDefined();
   });

@@ -132,6 +132,6 @@ updated: 2026-06-06
 
 理解外汇市场的运作机制，不仅能帮助你做出更明智的投资决策，也能让你更好地理解全球经济事件如何影响你的钱包。汇率是连接各国经济的纽带，每一次波动都传递着全球经济的脉搏和资本的流动方向。
 
-## 延伸阅读
+## 参考文献
 
 1. Krugman, P. R., Obstfeld, M., & Melitz, M. J. (2018). _International Economics: Theory and Policy_ (11th ed.). Pearson.

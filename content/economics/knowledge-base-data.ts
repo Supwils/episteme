@@ -8,8 +8,8 @@ export const ECONOMICS_KB_DATA = [
     category: "行为经济学应用",
   },
   {
-    slug: "behavioral-finance",
-    title: "行为金融：当市场遇上人类心理",
+    slug: "behavioral-finance-practice",
+    title: "行为金融的实践：从偏差到市场",
     titleEn: "Behavioral Finance — When Markets Meet Human Psychology",
     category: "行为经济学应用",
   },

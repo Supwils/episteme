@@ -127,13 +127,13 @@ Harden 的核心论点是：进步派学者长期以来因为对遗传决定论�
 ## 跨域连接
 
 - **哲学（自由意志）**：如果人格和智力有显著的遗传基础，这对"责任"和"自由意志"的哲学概念有何含义？这与[[兼容论]]和[[determinism|决定论]]的哲学争论深度交织。
-- **政治哲学（平等主义）**：Harden 的工作直接挑战了政治哲学中的一个默认假设：道德平等主义应当以"人是空白板"为前提。承认基因差异的平等主义如何可能构建，是政治哲学领域的实质性问题。
+- **政治哲学（平等主义）**：Harden 的工作直接挑战了[[political-philosophy|政治哲学]]中的一个默认假设：道德平等主义应当以"人是空白板"为前提。承认基因差异的平等主义如何可能构建，是政治哲学领域的实质性问题。
 - **历史（优生学的教训）**：20 世纪初的优生学运动在错误的科学基础上造成了巨大的人道主义灾难。理解今天的行为遗传学与当年优生学的异同，是科学史和伦理学的重要课题。
-- **数学（统计遗传学）**：GWAS 和 PGS 建立在线性代数、矩阵回归和连锁不平衡（LD）图谱的精密数学工具上。统计遗传学是当代应用数学最活跃的前沿之一。
+- **数学（统计遗传学）**：GWAS 和 PGS 建立在[[linear-algebra|线性代数]]、矩阵回归和连锁不平衡（LD）图谱的精密数学工具上。统计遗传学是当代应用数学最活跃的前沿之一。
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Lee, J.J. et al. _Gene discovery and polygenic prediction from a genome-wide association study of educational attainment in 1.1 million individuals._ Nature Genetics 50, 1112–1121 (2018). DOI: 10.1038/s41588-018-0147-3.
 - Harden, K.P. _The Genetic Lottery: Why DNA Matters for Social Equality._ Princeton University Press, 2021.（政策含义的最全面中文友好讨论）

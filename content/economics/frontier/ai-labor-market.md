@@ -128,7 +128,7 @@ Acemoglu 和 Autor 的研究指出，即便是"AI 高暴露"职业内部，影�
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Brynjolfsson, E., Li, D., & Raymond, L. R. (2023). Generative AI at Work. _NBER Working Paper_ No. 31161.
 - Acemoglu, D. (2022). Tasks, Automation, and the Rise in US Wage Inequality. _Econometrica_, 90(5), 1973–2016.

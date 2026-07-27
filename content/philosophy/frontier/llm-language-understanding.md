@@ -123,7 +123,7 @@ Emily Bender、Timnit Gebru 等人 2021 年在 ACL 发表的论文将大语言�
 
 ---
 
-## 延伸阅读
+## 参考文献
 
 - Searle, J. "Minds, Brains, and Programs." _Behavioral and Brain Sciences_ 3(3), 417–424 (1980). 中文屋论证的原始文本。
 - Bender, E., Gebru, T., McMillan-Major, A. & Shmitchell, S. "On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?" _FAccT 2021_. ACM. "随机鹦鹉"框架。

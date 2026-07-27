@@ -104,8 +104,8 @@ export const PHENOMENA_DATA = [
     category: "认知",
   },
   {
-    slug: "learned-helplessness",
-    title: "习得性无助",
+    slug: "learned-helplessness-phenomenon",
+    title: "习得性无助（现象）",
     subtitle: "Learned Helplessness",
     category: "认知",
   },

@@ -144,6 +144,6 @@ updated: 2026-06-06
 
 利率是经济的"体温计"——它的高低反映了经济的冷热。理解利率的运作机制，不是为了预测央行的下一步动作，而是为了在任何利率环境下都能做出对自己最有利的财务决策。
 
-## 延伸阅读
+## 参考文献
 
 1. Mishkin, F. S. (2018). _The Economics of Money, Banking, and Financial Markets_ (12th ed.). Pearson.

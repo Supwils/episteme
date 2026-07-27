@@ -167,7 +167,7 @@ REITs（Real Estate Investment Trusts，房地产投资信托基金）是一种�
 
 无论在哪个市场，购房决策都应该基于个人的财务状况、生活需求和长期规划，而非盲目的"必须买房"的观念。房地产是一项重要的资产类别，但不是唯一的投资选择，更不是稳赚不赔的"安全港"。理解房地产背后的经济学原理，能帮助你在买房、租房和投资之间做出更理性的选择。
 
-## 延伸阅读
+## 参考文献
 
 1. Geltner, D., et al. (2014). _Commercial Real Estate Analysis and Investments_ (3rd ed.). OnCourse Learning.
 2. Brueggeman, W. B., & Fisher, J. D. (2010). _Real Estate Finance and Investments_ (14th ed.). McGraw-Hill.

@@ -36,7 +36,7 @@ describe("knowledge graph integrity", () => {
       expect.objectContaining({
         id: "psychology:learned-helplessness-phenomenon",
         type: "phenomenon",
-        url: "/psychology/phenomena/learned-helplessness",
+        url: "/psychology/phenomena/learned-helplessness-phenomenon",
       })
     );
   });
