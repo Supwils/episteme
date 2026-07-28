@@ -16,12 +16,12 @@ describe("full graph branch attachments", () => {
       anchorCount: 230,
       inferredBranchCount: 1159,
       maximumDistance: 5,
-      ambiguousTargetCount: 741,
+      ambiguousTargetCount: 742,
       maximumCandidateCount: 27,
       confidenceCounts: {
         curated: 230,
-        direct: 536,
-        contextual: 533,
+        direct: 537,
+        contextual: 532,
         exploratory: 90,
       },
     });

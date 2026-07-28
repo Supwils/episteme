@@ -82,21 +82,45 @@ function resolve(forward: Forward, slug: string, domain: string): string | null 
 
 const WIKI_RE = /\[\[([^\]|]+?)(?:\|[^\]]+)?\]\]/g;
 
+/** Markdown links pointing at an internal route. Two citation syntaxes coexist
+ *  in the corpus: `[[measure-theory]]` and `[测度论](/mathematics/concepts/
+ *  measure-theory)`. Only the first used to produce a backlink, so an article
+ *  cited the second way never learned it was referenced — mathematics writes
+ *  its cross-domain sections almost entirely in markdown links, and every one
+ *  of those edges was invisible to the reverse index and to the graph.
+ *  Resolution goes through the real article URL set, which is also what keeps
+ *  images (`![x](/a.png)`) and non-article routes out. */
+const MD_LINK_RE = /\[[^\]]*\]\((\/[^)\s#]+)(?:#[^)\s]*)?\)/g;
+
+/** Trailing slashes and anchors are authoring noise, not distinct targets. */
+function canonicalUrl(url: string): string {
+  return url.length > 1 && url.endsWith("/") ? url.slice(0, -1) : url;
+}
+
 function buildBacklinks(
   articles: Article[],
   forward: Forward
 ): Record<string, { url: string; title: string }[]> {
   const back = new Map<string, Map<string, string>>(); // targetUrl → (sourceUrl → title)
+  const articleUrls = new Set(articles.map((a) => canonicalUrl(a.url)));
+
   for (const a of articles) {
     const seen = new Set<string>();
-    for (const m of a.body.matchAll(WIKI_RE)) {
-      const ref = m[1]!.trim();
-      const target = resolve(forward, ref, a.domain);
-      if (!target || target === a.url || seen.has(target)) continue;
+    const record = (raw: string | null): void => {
+      if (!raw) return;
+      const target = canonicalUrl(raw);
+      if (target === canonicalUrl(a.url) || seen.has(target)) return;
       seen.add(target);
       const sources = back.get(target) ?? new Map<string, string>();
       sources.set(a.url, a.title);
       back.set(target, sources);
+    };
+
+    for (const m of a.body.matchAll(WIKI_RE)) {
+      record(resolve(forward, m[1]!.trim(), a.domain));
+    }
+    for (const m of a.body.matchAll(MD_LINK_RE)) {
+      if (articleUrls.has(canonicalUrl(m[1]!))) record(m[1]!);
     }
   }
   const index: Record<string, { url: string; title: string }[]> = {};

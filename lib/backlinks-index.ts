@@ -3038,6 +3038,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "形式文法与乔姆斯基谱系",
     },
     {
+      url: "/linguistics/sounds-and-signs/language-speech-and-sign",
+      title: "语言、言语与手语",
+    },
+    {
       url: "/computer-science/pioneers/yoshua-bengio",
       title: "约书亚·本希奥",
     },
@@ -3428,6 +3432,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/frontier/formal-verification",
       title: "形式化验证与程序合成",
+    },
+  ],
+  "/computer-science/concepts/unicode-and-text-encoding": [
+    {
+      url: "/linguistics/writing-systems/language-and-writing",
+      title: "语言与文字不是一回事",
     },
   ],
   "/computer-science/concepts/version-control": [
@@ -3946,6 +3956,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/blockchain",
       title: "区块链",
+    },
+  ],
+  "/computer-science/theory/formal-grammars-chomsky-hierarchy": [
+    {
+      url: "/linguistics/words-sentences-meaning/syntax",
+      title: "句法学：结构与依存",
     },
   ],
   "/computer-science/theory/information-theory": [
@@ -7303,6 +7319,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/economics/schools/behavioral-economics-school",
       title: "行为经济学派",
     },
+    {
+      url: "/economics/concepts/nudge-libertarian-paternalism",
+      title: "助推与自由家长主义",
+    },
   ],
   "/economics/concepts/bond-market": [
     {
@@ -7436,6 +7456,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "环境伦理学",
     },
     {
+      url: "/economics/concepts/coase-theorem",
+      title: "科斯定理",
+    },
+    {
       url: "/medicine/events/tobacco-control-movement",
       title: "控烟运动（1964 起）",
     },
@@ -7480,7 +7504,17 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "价格歧视",
     },
   ],
+  "/economics/concepts/inflation": [
+    {
+      url: "/economics/concepts/phillips-curve",
+      title: "菲利普斯曲线",
+    },
+  ],
   "/economics/concepts/inflation-mechanism": [
+    {
+      url: "/economics/concepts/phillips-curve",
+      title: "菲利普斯曲线",
+    },
     {
       url: "/economics/case-studies/hyperinflation-zimbabwe",
       title: "津巴布韦恶性通胀",
@@ -7496,6 +7530,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/theorists/albert-bandura",
       title: "阿尔伯特·班杜拉",
+    },
+    {
+      url: "/economics/concepts/efficiency-wages",
+      title: "效率工资",
     },
     {
       url: "/economics/case-studies/india-growth-employment-constraints-2026",
@@ -7516,6 +7554,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/concepts/stock-valuation",
       title: "股票估值",
+    },
+    {
+      url: "/economics/concepts/general-equilibrium",
+      title: "一般均衡与阿罗-德布鲁模型",
+    },
+  ],
+  "/economics/concepts/market-failure-public-goods": [
+    {
+      url: "/economics/concepts/nudge-libertarian-paternalism",
+      title: "助推与自由家长主义",
     },
   ],
   "/economics/concepts/mechanism-design": [
@@ -7540,6 +7588,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "让·梯若尔",
     },
     {
+      url: "/economics/concepts/social-choice-theory",
+      title: "社会选择与阿罗不可能定理",
+    },
+    {
       url: "/economics/frontier/market-design-frontier",
       title: "市场设计：当经济学家成为工程师",
     },
@@ -7554,6 +7606,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/xunzi-extended",
       title: "荀子深度扩展",
+    },
+    {
+      url: "/economics/concepts/general-equilibrium",
+      title: "一般均衡与阿罗-德布鲁模型",
     },
     {
       url: "/economics/economists/joseph-stiglitz",
@@ -7604,8 +7660,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "搜寻与匹配理论",
     },
     {
+      url: "/economics/concepts/efficiency-wages",
+      title: "效率工资",
+    },
+    {
       url: "/philosophy/concepts/responsibility",
       title: "责任",
+    },
+    {
+      url: "/economics/concepts/nudge-libertarian-paternalism",
+      title: "助推与自由家长主义",
     },
   ],
   "/economics/concepts/nash-equilibrium": [
@@ -7622,6 +7686,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "公地悲剧",
     },
     {
+      url: "/economics/concepts/social-choice-theory",
+      title: "社会选择与阿罗不可能定理",
+    },
+    {
       url: "/economics/concepts/search-matching-theory",
       title: "搜寻与匹配理论",
     },
@@ -7636,6 +7704,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/schools/new-classical-school",
       title: "新古典宏观经济学",
+    },
+    {
+      url: "/economics/concepts/general-equilibrium",
+      title: "一般均衡与阿罗-德布鲁模型",
     },
     {
       url: "/economics/economists/john-nash",
@@ -7735,6 +7807,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/political-science/concepts/social-contract",
       title: "社会契约",
     },
+    {
+      url: "/economics/concepts/social-choice-theory",
+      title: "社会选择与阿罗不可能定理",
+    },
   ],
   "/economics/concepts/real-estate-economics": [
     {
@@ -7756,6 +7832,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/concepts/environmental-economics",
       title: "环境经济学",
+    },
+    {
+      url: "/economics/concepts/coase-theorem",
+      title: "科斯定理",
     },
     {
       url: "/political-science/concepts/social-movements",
@@ -8122,6 +8202,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/economics/theories/comparative-advantage": [
     {
+      url: "/economics/concepts/developmental-state",
+      title: "发展型国家",
+    },
+    {
       url: "/economics/theories/trade-theory",
       title: "国际贸易理论",
     },
@@ -8142,6 +8226,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/case-studies/bretton-woods",
       title: "布雷顿森林体系",
+    },
+    {
+      url: "/economics/concepts/developmental-state",
+      title: "发展型国家",
     },
     {
       url: "/sociology/institutions/african-urbanization",
@@ -8184,6 +8272,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "自由主义",
     },
   ],
+  "/economics/theories/economic-growth": [
+    {
+      url: "/economics/concepts/developmental-state",
+      title: "发展型国家",
+    },
+    {
+      url: "/economics/economists/franco-modigliani",
+      title: "弗兰科·莫迪利安尼",
+    },
+  ],
   "/economics/theories/game-theory-basics": [
     {
       url: "/economics/concepts/industrial-organization",
@@ -8216,6 +8314,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/concepts/labor-economics",
       title: "劳动经济学",
+    },
+    {
+      url: "/economics/concepts/efficiency-wages",
+      title: "效率工资",
     },
     {
       url: "/economics/economists/joseph-stiglitz",
@@ -8256,6 +8358,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "津巴布韦恶性通胀",
     },
     {
+      url: "/economics/concepts/coase-theorem",
+      title: "科斯定理",
+    },
+    {
       url: "/philosophy/concepts/li",
       title: "礼",
     },
@@ -8276,7 +8382,17 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "荀子",
     },
   ],
+  "/economics/theories/keynesian-economics": [
+    {
+      url: "/economics/economists/franco-modigliani",
+      title: "弗兰科·莫迪利安尼",
+    },
+  ],
   "/economics/theories/monetarism": [
+    {
+      url: "/economics/concepts/phillips-curve",
+      title: "菲利普斯曲线",
+    },
     {
       url: "/economics/case-studies/hyperinflation-zimbabwe",
       title: "津巴布韦恶性通胀",
@@ -10318,6 +10434,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/mathematics/concepts/chaos-theory": [
     {
+      url: "/mathematics/concepts/ergodic-theory",
+      title: "遍历理论",
+    },
+    {
       url: "/philosophy/concepts/dao",
       title: "道",
     },
@@ -10370,6 +10490,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "复数",
     },
     {
+      url: "/mathematics/concepts/fourier-analysis",
+      title: "傅里叶分析",
+    },
+    {
       url: "/mathematics/mathematicians/hua-luogeng",
       title: "华罗庚",
     },
@@ -10396,6 +10520,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/concepts/nash-equilibrium",
       title: "纳什均衡",
+    },
+    {
+      url: "/mathematics/concepts/knot-theory",
+      title: "纽结理论",
     },
     {
       url: "/computer-science/algorithms/sorting-algorithms",
@@ -10452,6 +10580,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/mathematics/concepts/differential-equation": [
     {
+      url: "/mathematics/concepts/calculus-of-variations",
+      title: "变分法",
+    },
+    {
       url: "/economics/concepts/interest-rates",
       title: "利率机制",
     },
@@ -10497,11 +10629,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/mathematics/concepts/homology-cohomology",
       title: "同调与上同调",
     },
+    {
+      url: "/mathematics/concepts/information-geometry",
+      title: "信息几何",
+    },
   ],
   "/mathematics/concepts/dynamical-systems": [
     {
       url: "/medicine/diseases/cancer",
       title: "癌症",
+    },
+    {
+      url: "/mathematics/concepts/ergodic-theory",
+      title: "遍历理论",
     },
     {
       url: "/mathematics/mathematicians/mirzakhani",
@@ -10510,6 +10650,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/frontier/climate-tipping-points",
       title: "气候临界点：地球系统的不可逆开关",
+    },
+  ],
+  "/mathematics/concepts/eigenvalue": [
+    {
+      url: "/mathematics/concepts/spectral-graph-theory",
+      title: "谱图理论",
     },
   ],
   "/mathematics/concepts/field": [
@@ -10544,6 +10690,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/number-line",
       title: "数轴",
+    },
+  ],
+  "/mathematics/concepts/functional-analysis": [
+    {
+      url: "/mathematics/concepts/calculus-of-variations",
+      title: "变分法",
+    },
+    {
+      url: "/mathematics/concepts/fourier-analysis",
+      title: "傅里叶分析",
     },
   ],
   "/mathematics/concepts/galois-theory": [
@@ -10624,6 +10780,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/mathematics/concepts/graph-theory": [
     {
+      url: "/mathematics/concepts/spectral-graph-theory",
+      title: "谱图理论",
+    },
+    {
       url: "/computer-science/algorithms/network-flow",
       title: "网络流",
     },
@@ -10638,11 +10798,29 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "李群与李代数",
     },
     {
+      url: "/mathematics/concepts/knot-theory",
+      title: "纽结理论",
+    },
+    {
       url: "/mathematics/concepts/field",
       title: "域",
     },
   ],
+  "/mathematics/concepts/homology-cohomology": [
+    {
+      url: "/mathematics/concepts/knot-theory",
+      title: "纽结理论",
+    },
+    {
+      url: "/mathematics/concepts/topological-data-analysis",
+      title: "拓扑数据分析",
+    },
+  ],
   "/mathematics/concepts/information-theory": [
+    {
+      url: "/mathematics/concepts/ergodic-theory",
+      title: "遍历理论",
+    },
     {
       url: "/mathematics/concepts/signal-processing",
       title: "信号处理",
@@ -10690,8 +10868,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "赫克歇尔-俄林模型",
     },
     {
+      url: "/mathematics/concepts/spectral-graph-theory",
+      title: "谱图理论",
+    },
+    {
       url: "/mathematics/concepts/group",
       title: "群",
+    },
+    {
+      url: "/mathematics/concepts/numerical-linear-algebra",
+      title: "数值线性代数",
     },
     {
       url: "/psychology/frontier/behavioral-genetics-polygenic-scores",
@@ -10732,14 +10918,36 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "李群与李代数",
     },
     {
+      url: "/mathematics/concepts/knot-theory",
+      title: "纽结理论",
+    },
+    {
+      url: "/mathematics/concepts/topological-data-analysis",
+      title: "拓扑数据分析",
+    },
+    {
       url: "/mathematics/concepts/homology-cohomology",
       title: "同调与上同调",
+    },
+    {
+      url: "/mathematics/concepts/information-geometry",
+      title: "信息几何",
+    },
+  ],
+  "/mathematics/concepts/matrix": [
+    {
+      url: "/mathematics/concepts/numerical-linear-algebra",
+      title: "数值线性代数",
     },
   ],
   "/mathematics/concepts/measure-theory": [
     {
       url: "/mathematics/paradoxes/banach-tarski",
       title: "巴拿赫-塔斯基悖论",
+    },
+    {
+      url: "/mathematics/concepts/ergodic-theory",
+      title: "遍历理论",
     },
     {
       url: "/mathematics/concepts/stochastic-process",
@@ -10766,6 +10974,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/schools/buddhism-philosophy",
       title: "佛教哲学",
+    },
+    {
+      url: "/mathematics/concepts/spectral-graph-theory",
+      title: "谱图理论",
     },
     {
       url: "/philosophy/thinkers/buddha",
@@ -10828,7 +11040,17 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "RSA 公钥密码",
     },
   ],
+  "/mathematics/concepts/numerical-methods": [
+    {
+      url: "/mathematics/concepts/numerical-linear-algebra",
+      title: "数值线性代数",
+    },
+  ],
   "/mathematics/concepts/optimization": [
+    {
+      url: "/mathematics/concepts/calculus-of-variations",
+      title: "变分法",
+    },
     {
       url: "/mathematics/concepts/functional-analysis",
       title: "泛函分析",
@@ -10836,6 +11058,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/mathematicians/hua-luogeng",
       title: "华罗庚",
+    },
+    {
+      url: "/mathematics/concepts/numerical-linear-algebra",
+      title: "数值线性代数",
     },
     {
       url: "/computer-science/algorithms/convex-hull",
@@ -10872,8 +11098,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/mathematics/concepts/pde": [
     {
+      url: "/mathematics/concepts/calculus-of-variations",
+      title: "变分法",
+    },
+    {
       url: "/mathematics/concepts/functional-analysis",
       title: "泛函分析",
+    },
+    {
+      url: "/mathematics/concepts/fourier-analysis",
+      title: "傅里叶分析",
     },
     {
       url: "/mathematics/mathematicians/sophie-germain",
@@ -10884,6 +11118,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/暗物质与暗能量",
       title: "暗物质与暗能量",
+    },
+    {
+      url: "/mathematics/concepts/ergodic-theory",
+      title: "遍历理论",
     },
     {
       url: "/computer-science/algorithms/bloom-filter",
@@ -10928,6 +11166,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/knowledge-base/psychometrics-reliability-validity",
       title: "心理测量学：信度、效度与如何相信一个测验",
+    },
+    {
+      url: "/mathematics/concepts/information-geometry",
+      title: "信息几何",
     },
     {
       url: "/political-science/concepts/gerrymandering",
@@ -11014,6 +11256,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "泛函分析",
     },
     {
+      url: "/mathematics/concepts/fourier-analysis",
+      title: "傅里叶分析",
+    },
+    {
       url: "/computer-science/algorithms/fast-fourier-transform",
       title: "快速傅里叶变换",
     },
@@ -11064,12 +11310,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "随机森林",
     },
     {
+      url: "/mathematics/concepts/topological-data-analysis",
+      title: "拓扑数据分析",
+    },
+    {
       url: "/computer-science/algorithms/gradient-boosting",
       title: "梯度提升",
     },
     {
       url: "/psychology/experiments/replication-crisis",
       title: "心理学复制危机",
+    },
+    {
+      url: "/mathematics/concepts/information-geometry",
+      title: "信息几何",
     },
     {
       url: "/computer-science/algorithms/support-vector-machines",
@@ -11098,6 +11352,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "做市商",
     },
   ],
+  "/mathematics/concepts/topological-data-analysis": [
+    {
+      url: "/mathematics/concepts/homology-cohomology",
+      title: "同调与上同调",
+    },
+  ],
   "/mathematics/concepts/topology": [
     {
       url: "/mathematics/mathematicians/chern",
@@ -11118,6 +11378,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/mathematicians/mirzakhani",
       title: "米尔扎哈尼",
+    },
+    {
+      url: "/mathematics/concepts/knot-theory",
+      title: "纽结理论",
+    },
+    {
+      url: "/mathematics/concepts/topological-data-analysis",
+      title: "拓扑数据分析",
     },
     {
       url: "/mathematics/concepts/homology-cohomology",
@@ -11304,6 +11572,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/economists/esther-duflo",
       title: "埃斯特·迪弗洛",
+    },
+    {
+      url: "/mathematics/theorems/law-of-large-numbers",
+      title: "大数定律",
     },
   ],
   "/mathematics/theorems/euler-identity": [
@@ -14480,6 +14752,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/thinkers/jurgen-habermas",
       title: "尤尔根·哈贝马斯",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/language-speech-and-sign",
+      title: "语言、言语与手语",
     },
     {
       url: "/linguistics/words-sentences-meaning/semantics",

@@ -7,7 +7,7 @@ const terrain = buildKnowledgeTerrainSnapshot(buildKnowledgeBranchCatalog());
 describe("full graph knowledge terrain", () => {
   it("conserves every node across domain, level and confidence aggregates", () => {
     expect(terrain.summary.nodeCount).toBe(1389);
-    expect(terrain.summary.ambiguousTargetCount).toBe(741);
+    expect(terrain.summary.ambiguousTargetCount).toBe(742);
     expect(terrain.summary.maximumCandidateCount).toBe(27);
     expect(terrain.summary.diagnosticCount).toBe(10);
     expect(terrain.summary.highPriorityDiagnosticCount).toBe(5);
