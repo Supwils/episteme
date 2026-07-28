@@ -43,7 +43,8 @@
     "prebuild": "pnpm gen-all",
     "deploy": "vercel build --prod && vercel deploy --prebuilt --prod --archive=tgz",
     "clean": "rm -rf .next dist coverage",
-    "prepare": "husky"
+    "prepare": "husky",
+    "probe-graph": "node --import tsx scripts/probe-graph-aggregates.ts"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.0",

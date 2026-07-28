@@ -1650,6 +1650,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "多语 AI、低资源语言与评测公平",
     },
     {
+      url: "/linguistics/methods-and-frontiers/computational-linguistics",
+      title: "计算语言学与自然语言处理",
+    },
+    {
       url: "/computer-science/algorithms/convolutional-neural-networks",
       title: "卷积神经网络",
     },
@@ -1850,6 +1854,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/algorithms/divide-and-conquer",
       title: "分治算法",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/acoustic-phonetics",
+      title: "声学语音学与语音测量",
     },
   ],
   "/computer-science/algorithms/floyd-warshall": [
@@ -2620,6 +2628,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "计算机视觉",
     },
     {
+      url: "/linguistics/methods-and-frontiers/computational-linguistics",
+      title: "计算语言学与自然语言处理",
+    },
+    {
       url: "/computer-science/concepts/neural-networks-concept",
       title: "神经网络",
     },
@@ -2892,6 +2904,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "峰终定律",
     },
     {
+      url: "/linguistics/writing-systems/chinese-writing",
+      title: "汉字：形、音、义与历史层次",
+    },
+    {
       url: "/psychology/theorists/gabriele-oettingen",
       title: "加布里埃尔·厄廷根",
     },
@@ -2910,6 +2926,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/theorists/john-bowlby",
       title: "约翰·鲍尔比",
+    },
+    {
+      url: "/linguistics/writing-systems/unicode-and-digital-writing",
+      title: "Unicode 与数字文字基础设施",
     },
   ],
   "/computer-science/concepts/information-retrieval-and-search": [
@@ -2934,6 +2954,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "大数据系统",
     },
     {
+      url: "/linguistics/methods-and-frontiers/computational-linguistics",
+      title: "计算语言学与自然语言处理",
+    },
+    {
       url: "/computer-science/pioneers/larry-page-and-sergey-brin",
       title: "拉里·佩奇与谢尔盖·布林",
     },
@@ -2956,6 +2980,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/privacy-engineering",
       title: "隐私工程",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/linguistic-fieldwork",
+      title: "语言田野调查与社区协作",
+    },
+    {
+      url: "/linguistics/writing-systems/language-and-writing",
+      title: "语言与文字不是一回事",
     },
     {
       url: "/computer-science/pioneers/yoshua-bengio",
@@ -3014,6 +3046,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/concepts/natural-language-processing": [
     {
+      url: "/linguistics/words-sentences-meaning/words-and-sentences",
+      title: "词如何组成句子",
+    },
+    {
       url: "/computer-science/concepts/computer-vision",
       title: "计算机视觉",
     },
@@ -3038,8 +3074,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "形式文法与乔姆斯基谱系",
     },
     {
+      url: "/linguistics/words-sentences-meaning/morphology",
+      title: "形态学：词的内部结构",
+    },
+    {
       url: "/linguistics/sounds-and-signs/language-speech-and-sign",
       title: "语言、言语与手语",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/phonetics-and-ipa",
+      title: "语音学与国际音标",
     },
     {
       url: "/computer-science/pioneers/yoshua-bengio",
@@ -3048,6 +3092,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/austin",
       title: "J.L. 奥斯汀",
+    },
+    {
+      url: "/linguistics/writing-systems/unicode-and-digital-writing",
+      title: "Unicode 与数字文字基础设施",
     },
   ],
   "/computer-science/concepts/networking-protocols": [
@@ -3436,8 +3484,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/concepts/unicode-and-text-encoding": [
     {
+      url: "/linguistics/writing-systems/arabic-and-african-scripts",
+      title: "阿拉伯文字与非洲文字实践",
+    },
+    {
+      url: "/linguistics/writing-systems/chinese-writing",
+      title: "汉字：形、音、义与历史层次",
+    },
+    {
+      url: "/linguistics/writing-systems/south-asian-scripts",
+      title: "南亚婆罗米系文字",
+    },
+    {
       url: "/linguistics/writing-systems/language-and-writing",
       title: "语言与文字不是一回事",
+    },
+    {
+      url: "/linguistics/writing-systems/unicode-and-digital-writing",
+      title: "Unicode 与数字文字基础设施",
     },
   ],
   "/computer-science/concepts/version-control": [
@@ -3496,6 +3560,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "第二语言习得",
     },
     {
+      url: "/linguistics/acquisition-and-mind/first-language-acquisition",
+      title: "第一语言习得",
+    },
+    {
       url: "/linguistics/methods-and-frontiers/multilingual-ai",
       title: "多语 AI、低资源语言与评测公平",
     },
@@ -3508,6 +3576,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "机制可解释性：从可命名特征到因果机制",
     },
     {
+      url: "/linguistics/methods-and-frontiers/computational-linguistics",
+      title: "计算语言学与自然语言处理",
+    },
+    {
       url: "/computer-science/frontier/formal-verification",
       title: "形式化验证与程序合成",
     },
@@ -3516,8 +3588,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "意识科学的世纪之战：IIT 对决 GNW",
     },
     {
+      url: "/linguistics/words-sentences-meaning/grammar-theories",
+      title: "语法理论的证据与争论",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/corpus-linguistics",
+      title: "语料库语言学",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/language-speech-and-sign",
+      title: "语言、言语与手语",
+    },
+    {
+      url: "/linguistics/acquisition-and-mind/psycholinguistic-processing",
+      title: "语言理解与产生",
+    },
+    {
+      url: "/linguistics/acquisition-and-mind/language-thought-debate",
+      title: "语言是否塑造思维",
+    },
+    {
       url: "/linguistics/words-sentences-meaning/semantics",
       title: "语义学：表达如何承载意义",
+    },
+    {
+      url: "/linguistics/words-sentences-meaning/pragmatics",
+      title: "语用学：语境、意图与会话",
     },
     {
       url: "/philosophy/frontier/ai-alignment-philosophy",
@@ -3808,6 +3904,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "形式文法与乔姆斯基谱系",
     },
     {
+      url: "/linguistics/words-sentences-meaning/grammar-theories",
+      title: "语法理论的证据与争论",
+    },
+    {
       url: "/computer-science/algorithms/string-matching",
       title: "字符串匹配",
     },
@@ -3963,6 +4063,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/linguistics/words-sentences-meaning/syntax",
       title: "句法学：结构与依存",
     },
+    {
+      url: "/linguistics/words-sentences-meaning/grammar-theories",
+      title: "语法理论的证据与争论",
+    },
   ],
   "/computer-science/theory/information-theory": [
     {
@@ -4068,6 +4172,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/concepts/information-philosophy",
       title: "信息哲学",
+    },
+    {
+      url: "/linguistics/words-sentences-meaning/morphology",
+      title: "形态学：词的内部结构",
     },
     {
       url: "/linguistics/words-sentences-meaning/semantics",
@@ -7731,6 +7839,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/economics/economists/adam-smith",
       title: "亚当·斯密",
     },
+    {
+      url: "/linguistics/history-typology-society/language-identity-power",
+      title: "语言、身份与权力",
+    },
+    {
+      url: "/linguistics/history-typology-society/language-contact",
+      title: "语言接触、借词与混合",
+    },
+    {
+      url: "/linguistics/history-typology-society/languages-change",
+      title: "语言为什么会变化",
+    },
   ],
   "/economics/concepts/opportunity-cost": [
     {
@@ -8454,6 +8574,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "全球史与去殖民史学——多中心的世界史书写",
     },
     {
+      url: "/linguistics/methods-and-frontiers/language-evolution",
+      title: "语言能力如何演化",
+    },
+    {
       url: "/human-history/frontier/lidar-remote-sensing-civilizations",
       title: "LiDAR 重写古代文明——雨林之下的隐藏城市",
     },
@@ -8474,8 +8598,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/human-history/frontier/decolonial-global-history": [
     {
+      url: "/linguistics/writing-systems/arabic-and-african-scripts",
+      title: "阿拉伯文字与非洲文字实践",
+    },
+    {
       url: "/human-history/frontier/historiography-methods-debate",
       title: "史学方法之争——大历史的雄心与年鉴学派的遗产",
+    },
+    {
+      url: "/linguistics/history-typology-society/language-contact",
+      title: "语言接触、借词与混合",
     },
   ],
   "/human-history/frontier/digital-humanities-big-data-history": [
@@ -9540,6 +9672,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "西方蜜蜂",
     },
   ],
+  "/life-science/knowledge-base/进化机制--tree-of-life-phylogenetics": [
+    {
+      url: "/linguistics/history-typology-society/linguistic-typology",
+      title: "语言类型学与跨语言共性",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/language-evolution",
+      title: "语言能力如何演化",
+    },
+    {
+      url: "/linguistics/history-typology-society/languages-change",
+      title: "语言为什么会变化",
+    },
+  ],
   "/life-science/knowledge-base/进化机制--协同进化": [
     {
       url: "/life-science/knowledge-base/植物生物学--植物生物学概览",
@@ -9714,6 +9860,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/algorithms/genetic-algorithms",
       title: "遗传算法",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/language-evolution",
+      title: "语言能力如何演化",
+    },
+    {
+      url: "/linguistics/history-typology-society/languages-change",
+      title: "语言为什么会变化",
     },
   ],
   "/life-science/scientists/dawkins": [
@@ -9960,6 +10114,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/linguistics/acquisition-and-mind/first-language-acquisition": [
     {
+      url: "/linguistics/words-sentences-meaning/words-and-sentences",
+      title: "词如何组成句子",
+    },
+    {
       url: "/linguistics/acquisition-and-mind/second-language-acquisition",
       title: "第二语言习得",
     },
@@ -9982,6 +10140,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "儿童怎样学会语言",
     },
     {
+      url: "/linguistics/sounds-and-signs/how-speech-is-made",
+      title: "人怎样发出语音",
+    },
+    {
       url: "/linguistics/sounds-and-signs/sign-language-structure",
       title: "手语的空间语法",
     },
@@ -9989,11 +10151,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/linguistics/sounds-and-signs/phonemes-and-sound-systems",
       title: "音位与音系系统",
     },
+    {
+      url: "/linguistics/acquisition-and-mind/psycholinguistic-processing",
+      title: "语言理解与产生",
+    },
   ],
   "/linguistics/acquisition-and-mind/multilingual-mind": [
     {
       url: "/linguistics/acquisition-and-mind/second-language-acquisition",
       title: "第二语言习得",
+    },
+    {
+      url: "/linguistics/acquisition-and-mind/language-thought-debate",
+      title: "语言是否塑造思维",
     },
   ],
   "/linguistics/acquisition-and-mind/psycholinguistic-processing": [
@@ -10006,12 +10176,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "儿童怎样学会语言",
     },
     {
+      url: "/linguistics/writing-systems/chinese-writing",
+      title: "汉字：形、音、义与历史层次",
+    },
+    {
       url: "/linguistics/sounds-and-signs/tone-and-prosody",
       title: "声调与韵律",
     },
     {
+      url: "/linguistics/words-sentences-meaning/morphology",
+      title: "形态学：词的内部结构",
+    },
+    {
       url: "/linguistics/sounds-and-signs/phonemes-and-sound-systems",
       title: "音位与音系系统",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/corpus-linguistics",
+      title: "语料库语言学",
     },
     {
       url: "/linguistics/acquisition-and-mind/language-and-brain",
@@ -10019,6 +10201,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/linguistics/acquisition-and-mind/second-language-acquisition": [
+    {
+      url: "/linguistics/history-typology-society/endangered-language-revitalization",
+      title: "濒危语言与语言复振",
+    },
     {
       url: "/linguistics/acquisition-and-mind/first-language-acquisition",
       title: "第一语言习得",
@@ -10030,11 +10216,23 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/linguistics/history-typology-society/chinese-dialects": [
     {
+      url: "/linguistics/writing-systems/chinese-writing",
+      title: "汉字：形、音、义与历史层次",
+    },
+    {
       url: "/linguistics/history-typology-society/language-families",
       title: "语系与比较方法",
     },
+    {
+      url: "/linguistics/history-typology-society/language-contact",
+      title: "语言接触、借词与混合",
+    },
   ],
   "/linguistics/history-typology-society/endangered-language-revitalization": [
+    {
+      url: "/linguistics/writing-systems/arabic-and-african-scripts",
+      title: "阿拉伯文字与非洲文字实践",
+    },
     {
       url: "/linguistics/methods-and-frontiers/multilingual-ai",
       title: "多语 AI、低资源语言与评测公平",
@@ -10046,6 +10244,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/sounds-and-signs/sign-language-structure",
       title: "手语的空间语法",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/linguistic-fieldwork",
+      title: "语言田野调查与社区协作",
+    },
+    {
+      url: "/linguistics/writing-systems/unicode-and-digital-writing",
+      title: "Unicode 与数字文字基础设施",
     },
   ],
   "/linguistics/history-typology-society/language-contact": [
@@ -10065,11 +10271,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/linguistics/methods-and-frontiers/linguistic-fieldwork",
       title: "语言田野调查与社区协作",
     },
+    {
+      url: "/linguistics/history-typology-society/languages-change",
+      title: "语言为什么会变化",
+    },
   ],
   "/linguistics/history-typology-society/language-families": [
     {
       url: "/linguistics/history-typology-society/chinese-dialects",
       title: "汉语方言与变体",
+    },
+    {
+      url: "/linguistics/history-typology-society/language-contact",
+      title: "语言接触、借词与混合",
     },
     {
       url: "/linguistics/history-typology-society/linguistic-typology",
@@ -10081,6 +10295,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/linguistics/history-typology-society/language-identity-power": [
+    {
+      url: "/linguistics/writing-systems/arabic-and-african-scripts",
+      title: "阿拉伯文字与非洲文字实践",
+    },
+    {
+      url: "/linguistics/history-typology-society/endangered-language-revitalization",
+      title: "濒危语言与语言复振",
+    },
+    {
+      url: "/linguistics/acquisition-and-mind/multilingual-mind",
+      title: "多语心智与语言切换",
+    },
     {
       url: "/linguistics/history-typology-society/chinese-dialects",
       title: "汉语方言与变体",
@@ -10114,8 +10340,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "多语 AI、低资源语言与评测公平",
     },
     {
+      url: "/linguistics/writing-systems/south-asian-scripts",
+      title: "南亚婆罗米系文字",
+    },
+    {
       url: "/linguistics/history-typology-society/language-families",
       title: "语系与比较方法",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/language-speech-and-sign",
+      title: "语言、言语与手语",
     },
     {
       url: "/linguistics/methods-and-frontiers/linguistic-fieldwork",
@@ -10124,8 +10358,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/linguistics/history-typology-society/sociolinguistic-variation": [
     {
+      url: "/linguistics/methods-and-frontiers/corpus-linguistics",
+      title: "语料库语言学",
+    },
+    {
       url: "/linguistics/history-typology-society/languages-change",
       title: "语言为什么会变化",
+    },
+    {
+      url: "/linguistics/words-sentences-meaning/pragmatics",
+      title: "语用学：语境、意图与会话",
     },
   ],
   "/linguistics/methods-and-frontiers/computational-linguistics": [
@@ -10134,8 +10376,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "句法学：结构与依存",
     },
     {
+      url: "/linguistics/words-sentences-meaning/morphology",
+      title: "形态学：词的内部结构",
+    },
+    {
       url: "/linguistics/sounds-and-signs/phonemes-and-sound-systems",
       title: "音位与音系系统",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/corpus-linguistics",
+      title: "语料库语言学",
     },
   ],
   "/linguistics/methods-and-frontiers/corpus-linguistics": [
@@ -10148,8 +10398,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "汉语方言与变体",
     },
     {
+      url: "/linguistics/methods-and-frontiers/computational-linguistics",
+      title: "计算语言学与自然语言处理",
+    },
+    {
       url: "/linguistics/history-typology-society/sociolinguistic-variation",
       title: "社会语言学变异",
+    },
+    {
+      url: "/linguistics/words-sentences-meaning/grammar-theories",
+      title: "语法理论的证据与争论",
     },
   ],
   "/linguistics/methods-and-frontiers/experimental-linguistics": [
@@ -10157,11 +10415,33 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/linguistics/acquisition-and-mind/children-learn-language",
       title: "儿童怎样学会语言",
     },
+    {
+      url: "/linguistics/acquisition-and-mind/psycholinguistic-processing",
+      title: "语言理解与产生",
+    },
+    {
+      url: "/linguistics/words-sentences-meaning/pragmatics",
+      title: "语用学：语境、意图与会话",
+    },
+  ],
+  "/linguistics/methods-and-frontiers/language-evolution": [
+    {
+      url: "/linguistics/sounds-and-signs/language-speech-and-sign",
+      title: "语言、言语与手语",
+    },
   ],
   "/linguistics/methods-and-frontiers/linguistic-fieldwork": [
     {
+      url: "/linguistics/history-typology-society/endangered-language-revitalization",
+      title: "濒危语言与语言复振",
+    },
+    {
       url: "/linguistics/history-typology-society/chinese-dialects",
       title: "汉语方言与变体",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/experimental-linguistics",
+      title: "实验语言学与因果推断",
     },
     {
       url: "/linguistics/history-typology-society/language-identity-power",
@@ -10188,8 +10468,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/linguistics/sounds-and-signs/acoustic-phonetics": [
     {
+      url: "/linguistics/sounds-and-signs/how-speech-is-made",
+      title: "人怎样发出语音",
+    },
+    {
       url: "/linguistics/sounds-and-signs/tone-and-prosody",
       title: "声调与韵律",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/phonetics-and-ipa",
+      title: "语音学与国际音标",
     },
   ],
   "/linguistics/sounds-and-signs/how-speech-is-made": [
@@ -10208,12 +10496,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "儿童怎样学会语言",
     },
     {
+      url: "/linguistics/writing-systems/south-asian-scripts",
+      title: "南亚婆罗米系文字",
+    },
+    {
       url: "/linguistics/sounds-and-signs/how-speech-is-made",
       title: "人怎样发出语音",
     },
     {
       url: "/linguistics/sounds-and-signs/tone-and-prosody",
       title: "声调与韵律",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/acoustic-phonetics",
+      title: "声学语音学与语音测量",
     },
     {
       url: "/linguistics/sounds-and-signs/sign-language-structure",
@@ -10260,12 +10556,36 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/linguistics/sounds-and-signs/sign-language-structure": [
     {
+      url: "/linguistics/words-sentences-meaning/words-and-sentences",
+      title: "词如何组成句子",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/how-speech-is-made",
+      title: "人怎样发出语音",
+    },
+    {
       url: "/linguistics/sounds-and-signs/tone-and-prosody",
       title: "声调与韵律",
     },
     {
+      url: "/linguistics/history-typology-society/language-families",
+      title: "语系与比较方法",
+    },
+    {
       url: "/linguistics/acquisition-and-mind/language-and-brain",
       title: "语言、脑与失语症",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/language-speech-and-sign",
+      title: "语言、言语与手语",
+    },
+    {
+      url: "/linguistics/history-typology-society/linguistic-typology",
+      title: "语言类型学与跨语言共性",
+    },
+    {
+      url: "/linguistics/writing-systems/language-and-writing",
+      title: "语言与文字不是一回事",
     },
   ],
   "/linguistics/sounds-and-signs/tone-and-prosody": [
@@ -10374,11 +10694,31 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/linguistics/writing-systems/unicode-and-digital-writing": [
     {
+      url: "/linguistics/history-typology-society/endangered-language-revitalization",
+      title: "濒危语言与语言复振",
+    },
+    {
       url: "/linguistics/writing-systems/writing-system-types",
       title: "文字系统的主要类型",
     },
+    {
+      url: "/linguistics/words-sentences-meaning/morphology",
+      title: "形态学：词的内部结构",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/phonetics-and-ipa",
+      title: "语音学与国际音标",
+    },
   ],
   "/linguistics/writing-systems/writing-system-types": [
+    {
+      url: "/linguistics/writing-systems/chinese-writing",
+      title: "汉字：形、音、义与历史层次",
+    },
+    {
+      url: "/linguistics/writing-systems/south-asian-scripts",
+      title: "南亚婆罗米系文字",
+    },
     {
       url: "/linguistics/sounds-and-signs/phonemes-and-sound-systems",
       title: "音位与音系系统",
@@ -10410,8 +10750,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "蒙特卡洛方法",
     },
     {
+      url: "/linguistics/methods-and-frontiers/experimental-linguistics",
+      title: "实验语言学与因果推断",
+    },
+    {
       url: "/sociology/methods/statistical-modeling",
       title: "统计模型",
+    },
+    {
+      url: "/linguistics/history-typology-society/language-families",
+      title: "语系与比较方法",
+    },
+    {
+      url: "/linguistics/history-typology-society/linguistic-typology",
+      title: "语言类型学与跨语言共性",
+    },
+    {
+      url: "/linguistics/acquisition-and-mind/psycholinguistic-processing",
+      title: "语言理解与产生",
     },
     {
       url: "/philosophy/concepts/perception",
@@ -10676,6 +11032,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/trigonometry",
       title: "三角函数",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/acoustic-phonetics",
+      title: "声学语音学与语音测量",
     },
   ],
   "/mathematics/concepts/function": [
@@ -11184,6 +11544,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: '因果推断与"可信性革命"',
     },
     {
+      url: "/linguistics/methods-and-frontiers/corpus-linguistics",
+      title: "语料库语言学",
+    },
+    {
+      url: "/linguistics/history-typology-society/languages-change",
+      title: "语言为什么会变化",
+    },
+    {
       url: "/economics/economists/john-maynard-keynes",
       title: "约翰·梅纳德·凯恩斯",
     },
@@ -11245,6 +11613,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/mathematics/paradoxes/infinity-hotel",
       title: "希尔伯特旅馆",
     },
+    {
+      url: "/linguistics/writing-systems/unicode-and-digital-writing",
+      title: "Unicode 与数字文字基础设施",
+    },
   ],
   "/mathematics/concepts/signal-processing": [
     {
@@ -11264,14 +11636,34 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "快速傅里叶变换",
     },
     {
+      url: "/linguistics/sounds-and-signs/how-speech-is-made",
+      title: "人怎样发出语音",
+    },
+    {
       url: "/mathematics/concepts/trigonometry",
       title: "三角函数",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/acoustic-phonetics",
+      title: "声学语音学与语音测量",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/phonetics-and-ipa",
+      title: "语音学与国际音标",
     },
   ],
   "/mathematics/concepts/statistics": [
     {
       url: "/cosmology/knowledge-base/暗物质与暗能量",
       title: "暗物质与暗能量",
+    },
+    {
+      url: "/linguistics/acquisition-and-mind/first-language-acquisition",
+      title: "第一语言习得",
+    },
+    {
+      url: "/linguistics/acquisition-and-mind/multilingual-mind",
+      title: "多语心智与语言切换",
     },
     {
       url: "/psychology/frontier/replication-crisis-open-science",
@@ -11298,12 +11690,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "集合预测、不确定性与气候决策",
     },
     {
+      url: "/linguistics/methods-and-frontiers/computational-linguistics",
+      title: "计算语言学与自然语言处理",
+    },
+    {
       url: "/psychology/theorists/gabriele-oettingen",
       title: "加布里埃尔·厄廷根",
     },
     {
       url: "/chemistry/methods/retrosynthesis-and-reaction-optimization",
       title: "逆合成与反应优化：把目标分子变成可执行路线",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/acoustic-phonetics",
+      title: "声学语音学与语音测量",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/experimental-linguistics",
+      title: "实验语言学与因果推断",
     },
     {
       url: "/computer-science/algorithms/random-forests",
@@ -11324,6 +11728,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/information-geometry",
       title: "信息几何",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/corpus-linguistics",
+      title: "语料库语言学",
+    },
+    {
+      url: "/linguistics/history-typology-society/language-families",
+      title: "语系与比较方法",
+    },
+    {
+      url: "/linguistics/history-typology-society/linguistic-typology",
+      title: "语言类型学与跨语言共性",
+    },
+    {
+      url: "/linguistics/acquisition-and-mind/psycholinguistic-processing",
+      title: "语言理解与产生",
     },
     {
       url: "/computer-science/algorithms/support-vector-machines",
@@ -12486,6 +12906,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "抑郁症",
     },
     {
+      url: "/linguistics/methods-and-frontiers/linguistic-fieldwork",
+      title: "语言田野调查与社区协作",
+    },
+    {
       url: "/psychology/methods/preregistration-registered-reports",
       title: "预注册、注册报告与开放科学",
     },
@@ -13406,6 +13830,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/medical-genetics-and-genomics",
       title: "医学遗传学与基因组医学",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/linguistic-fieldwork",
+      title: "语言田野调查与社区协作",
     },
     {
       url: "/medicine/technologies/crispr-gene-editing",
@@ -14546,6 +14974,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "印度佛教知识论",
     },
     {
+      url: "/linguistics/history-typology-society/language-identity-power",
+      title: "语言、身份与权力",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/linguistic-fieldwork",
+      title: "语言田野调查与社区协作",
+    },
+    {
       url: "/philosophy/concepts/modern-chinese-thought",
       title: "中国近现代思想",
     },
@@ -14738,6 +15174,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "本质主义",
     },
     {
+      url: "/linguistics/words-sentences-meaning/words-and-sentences",
+      title: "词如何组成句子",
+    },
+    {
       url: "/philosophy/thinkers/frege",
       title: "弗雷格",
     },
@@ -14758,8 +15198,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "语言、言语与手语",
     },
     {
+      url: "/linguistics/acquisition-and-mind/language-thought-debate",
+      title: "语言是否塑造思维",
+    },
+    {
+      url: "/linguistics/writing-systems/language-and-writing",
+      title: "语言与文字不是一回事",
+    },
+    {
       url: "/linguistics/words-sentences-meaning/semantics",
       title: "语义学：表达如何承载意义",
+    },
+    {
+      url: "/linguistics/words-sentences-meaning/pragmatics",
+      title: "语用学：语境、意图与会话",
     },
     {
       url: "/philosophy/experiments/swampman",
@@ -16804,6 +17256,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "以赛亚·柏林",
     },
   ],
+  "/political-science/concepts/nation-and-nationalism": [
+    {
+      url: "/linguistics/writing-systems/arabic-and-african-scripts",
+      title: "阿拉伯文字与非洲文字实践",
+    },
+    {
+      url: "/linguistics/history-typology-society/language-identity-power",
+      title: "语言、身份与权力",
+    },
+    {
+      url: "/linguistics/history-typology-society/language-contact",
+      title: "语言接触、借词与混合",
+    },
+  ],
   "/political-science/concepts/political-corruption": [
     {
       url: "/economics/concepts/public-choice-theory",
@@ -18154,6 +18620,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/political-science/isms/nationalism": [
     {
+      url: "/linguistics/history-typology-society/endangered-language-revitalization",
+      title: "濒危语言与语言复振",
+    },
+    {
       url: "/sociology/thinkers/fei-xiaotong",
       title: "费孝通",
     },
@@ -18164,6 +18634,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/人物--拿破仑",
       title: "拿破仑",
+    },
+    {
+      url: "/linguistics/writing-systems/south-asian-scripts",
+      title: "南亚婆罗米系文字",
     },
     {
       url: "/sociology/institutions/migration-and-diaspora",
@@ -18180,6 +18654,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/sociology/concepts/indian-social-thought",
       title: "印度社会思想",
+    },
+    {
+      url: "/linguistics/history-typology-society/language-families",
+      title: "语系与比较方法",
     },
     {
       url: "/sociology/institutions/religion-and-secularization",
@@ -18474,6 +18952,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "行为主义",
     },
   ],
+  "/psychology/experiments/replication-crisis": [
+    {
+      url: "/linguistics/acquisition-and-mind/multilingual-mind",
+      title: "多语心智与语言切换",
+    },
+  ],
   "/psychology/experiments/simons-levin-1998": [
     {
       url: "/psychology/phenomena/change-blindness",
@@ -18512,6 +18996,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/experiments/swampman",
       title: "沼泽人",
+    },
+  ],
+  "/psychology/frontier/replication-crisis-open-science": [
+    {
+      url: "/linguistics/methods-and-frontiers/experimental-linguistics",
+      title: "实验语言学与因果推断",
     },
   ],
   "/psychology/frontier/social-media-teen-mental-health": [
@@ -18822,8 +19312,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "认知偏误的进化解释",
     },
     {
+      url: "/linguistics/methods-and-frontiers/experimental-linguistics",
+      title: "实验语言学与因果推断",
+    },
+    {
       url: "/political-science/concepts/ideology",
       title: "意识形态",
+    },
+    {
+      url: "/linguistics/history-typology-society/language-identity-power",
+      title: "语言、身份与权力",
+    },
+    {
+      url: "/linguistics/acquisition-and-mind/language-thought-debate",
+      title: "语言是否塑造思维",
+    },
+    {
+      url: "/linguistics/words-sentences-meaning/pragmatics",
+      title: "语用学：语境、意图与会话",
     },
   ],
   "/psychology/phenomena/cognitive-biases-evolutionary": [
@@ -19069,6 +19575,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/philosophy/concepts/art",
       title: "艺术",
     },
+    {
+      url: "/linguistics/methods-and-frontiers/language-evolution",
+      title: "语言能力如何演化",
+    },
   ],
   "/psychology/phenomena/mirror-stage": [
     {
@@ -19084,12 +19594,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/psychology/phenomena/neuroplasticity": [
     {
+      url: "/linguistics/acquisition-and-mind/first-language-acquisition",
+      title: "第一语言习得",
+    },
+    {
+      url: "/linguistics/acquisition-and-mind/multilingual-mind",
+      title: "多语心智与语言切换",
+    },
+    {
       url: "/medicine/concepts/nervous-system",
       title: "神经系统",
     },
     {
       url: "/psychology/knowledge-base/neuropsychology-brain-behavior",
       title: "神经心理学：大脑如何造就心灵",
+    },
+    {
+      url: "/linguistics/writing-systems/language-and-writing",
+      title: "语言与文字不是一回事",
     },
   ],
   "/psychology/phenomena/obedience-authority": [
@@ -19381,6 +19903,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/life-science/scientists/hamilton",
       title: "威廉·汉密尔顿",
     },
+    {
+      url: "/linguistics/methods-and-frontiers/language-evolution",
+      title: "语言能力如何演化",
+    },
   ],
   "/psychology/schools/gestalt": [
     {
@@ -19592,6 +20118,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: '发展心理学：人是如何"长"成的',
     },
   ],
+  "/psychology/theorists/noam-chomsky": [
+    {
+      url: "/linguistics/acquisition-and-mind/first-language-acquisition",
+      title: "第一语言习得",
+    },
+    {
+      url: "/linguistics/words-sentences-meaning/grammar-theories",
+      title: "语法理论的证据与争论",
+    },
+    {
+      url: "/linguistics/acquisition-and-mind/language-thought-debate",
+      title: "语言是否塑造思维",
+    },
+  ],
   "/psychology/theorists/richard-thaler": [
     {
       url: "/psychology/phenomena/cognitive-bias",
@@ -19747,6 +20287,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/sociology/institutions/education-and-credentialism": [
+    {
+      url: "/linguistics/acquisition-and-mind/first-language-acquisition",
+      title: "第一语言习得",
+    },
+    {
+      url: "/linguistics/acquisition-and-mind/multilingual-mind",
+      title: "多语心智与语言切换",
+    },
+    {
+      url: "/linguistics/history-typology-society/language-identity-power",
+      title: "语言、身份与权力",
+    },
+    {
+      url: "/linguistics/writing-systems/language-and-writing",
+      title: "语言与文字不是一回事",
+    },
     {
       url: "/sociology/concepts/race-and-ethnicity",
       title: "种族与族群",
@@ -21372,6 +21928,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/经典物理--simple-harmonic-motion",
       title: "简谐振动与共振",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/acoustic-phonetics",
+      title: "声学语音学与语音测量",
     },
   ],
   "/universe-physics/knowledge-base/经典物理--万有引力": [

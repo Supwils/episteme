@@ -36,18 +36,22 @@ describe("linguistics graph release", () => {
       }
     }
 
-    expect(bridgeDomains).toEqual(
-      new Set([
-        "psychology",
-        "philosophy",
-        "computer-science",
-        "history",
-        "sociology",
-        "life-science",
-        "mathematics",
-        "political-science",
-      ])
-    );
+    // 下限而非精确集合。这八个是发布设计承诺覆盖的学科，必须都在；
+    // 但新写跨域连接节会**增加**桥接学科，那是进展不是回归。
+    // 2026-07-27：`linguistic-fieldwork` 的知情同意与语音可识别性两条
+    // 连接接入 medicine 后，原来的 toEqual 精确断言就把增长判成了失败。
+    for (const domain of [
+      "psychology",
+      "philosophy",
+      "computer-science",
+      "history",
+      "sociology",
+      "life-science",
+      "mathematics",
+      "political-science",
+    ]) {
+      expect(bridgeDomains.has(domain), domain).toBe(true);
+    }
   });
 
   it("gives every released node both internal structure and at least one connected edge", () => {
