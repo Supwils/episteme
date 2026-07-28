@@ -1,5 +1,11 @@
 import { LESSONS } from '@/content/human-history/data/lessons.js';
-import { FIGURES, EVENTS, ERAS, formatYear } from '@/content/human-history/data/index.js';
+// Leaf modules, not `data/index.js`: the barrel re-exports FIGURES, and this
+// page only needs to know whether a figure name exists. FIGURE_CATALOG is the
+// generated projection without longDesc/keyEvents/controversies/references.
+import { ERAS } from '@/content/human-history/data/eras.js';
+import { EVENTS } from '@/content/human-history/data/events.js';
+import { formatYear } from '@/content/human-history/data/presentation.js';
+import { FIGURE_CATALOG } from '@/content/human-history/data/generated/figure-catalog.js';
 import { el, clearApp, animateIn, animateOnScroll, prefersReducedMotion } from '../lib/dom.js';
 import { hasScholarlyDetail, openScholarlyModal, cleanupScholarlyModal } from '../components/history/scholarly-modal.js';
 import { escapeHtml } from '../lib/escape-html';
@@ -221,7 +227,7 @@ function createCaseCard(caseData, color) {
   if (relatedFigures.length > 0 || relatedEvents.length > 0) {
     const refs = el('div', { class: 'ls-case-refs' });
     for (const figName of relatedFigures) {
-      const fig = FIGURES.find(f => f.name === figName);
+      const fig = FIGURE_CATALOG.find(f => f.name === figName);
       if (fig) {
         const chip = el('span', { class: 'ls-ref-chip ls-ref-figure' });
         chip.innerHTML = `<iconify-icon icon="mdi:account"></iconify-icon>${escapeHtml(figName)}`;

@@ -1,5 +1,9 @@
 import { SCHOLARLY_DETAILS } from '@/content/human-history/data/scholarly-index.js';
-import { ERAS, EVENTS, formatYear } from '@/content/human-history/data/index.js';
+// Leaf modules, not `data/index.js`: the barrel also re-exports FIGURES, which
+// would pull all 202 figure biographies into this route's chunk.
+import { ERAS } from '@/content/human-history/data/eras.js';
+import { EVENTS } from '@/content/human-history/data/events.js';
+import { formatYear } from '@/content/human-history/data/presentation.js';
 import { el, clearApp, animateOnScroll, prefersReducedMotion } from '../lib/dom.js';
 import { openScholarlyModal, cleanupScholarlyModal } from '../components/history/scholarly-modal.js';
 import { escapeHtml } from '../lib/escape-html';

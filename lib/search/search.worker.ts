@@ -1,5 +1,5 @@
+import { loadArtifact } from "./artifact";
 import { loadEngine, type SearchEngine } from "./engine";
-import { loadArtifact } from "./client";
 
 interface Request {
   id: number;

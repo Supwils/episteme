@@ -1,18 +1,8 @@
+import { loadArtifact } from "./artifact";
 import { loadEngine, type SearchEngine, type SearchHit } from "./engine";
-import { SEARCH_INDEX_URL, SEARCH_INDEX_VERSION, type SearchIndexArtifact } from "./types";
 
 export type { SearchHit } from "./engine";
-
-export async function loadArtifact(signal?: AbortSignal): Promise<SearchIndexArtifact> {
-  const response = await fetch(SEARCH_INDEX_URL, { signal });
-  if (!response.ok) throw new Error(`search index request failed: ${response.status}`);
-
-  const artifact = (await response.json()) as SearchIndexArtifact;
-  if (artifact.v !== SEARCH_INDEX_VERSION) {
-    throw new Error(`search index version ${artifact.v} != expected ${SEARCH_INDEX_VERSION}`);
-  }
-  return artifact;
-}
+export { loadArtifact } from "./artifact";
 
 export interface SearchClient {
   search(query: string, limit?: number): Promise<SearchHit[]>;
