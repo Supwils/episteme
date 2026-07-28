@@ -351,6 +351,35 @@ function checkLinkIntegrity(): { errors: number; warnings: number } {
     }
   }
 
+  // Phase 0.5 — an article must not wiki-link to itself. Writing a batch of
+  // cross-domain sections makes this easy to do by mistake (2026-07-27:
+  // `experimental-linguistics` linked to itself instead of `linguistic-fieldwork`),
+  // and nothing downstream complains — buildBacklinks drops self-targets, so the
+  // only symptom is a link that reloads the page the reader is already on.
+  {
+    const walkAll = (dir: string, out: string[] = []): string[] => {
+      for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+        const full = path.join(dir, e.name);
+        if (e.isDirectory()) walkAll(full, out);
+        else if (/\.mdx?$/.test(e.name) && !e.name.endsWith(".narration.md")) out.push(full);
+      }
+      return out;
+    };
+    for (const file of walkAll(CONTENT_ROOT)) {
+      const slug = path.basename(file).replace(/\.mdx?$/, "");
+      const body = fs.readFileSync(file, "utf8");
+      const selfLinked = [...body.matchAll(/\[\[([^\]|]+?)(?:\|[^\]]+)?\]\]/g)].some(
+        (m) => m[1]!.trim() === slug
+      );
+      if (selfLinked) {
+        console.log(
+          `  \x1b[33mWARN\x1b[0m ${path.relative(CONTENT_ROOT, file)} links to itself via \`[[${slug}]]\``
+        );
+        warnings++;
+      }
+    }
+  }
+
   // Phase 1 — every real KB/dialogue file must resolve through its loader after
   // the encode that the URL applies to the slug.
   for (const domain of ["cosmology", "life-science", "universe-physics"]) {

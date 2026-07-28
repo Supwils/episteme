@@ -44,7 +44,8 @@
     "deploy": "vercel build --prod && vercel deploy --prebuilt --prod --archive=tgz",
     "clean": "rm -rf .next dist coverage",
     "prepare": "husky",
-    "probe-graph": "node --import tsx scripts/probe-graph-aggregates.ts"
+    "probe-graph": "node --import tsx scripts/probe-graph-aggregates.ts",
+    "wiki-slug": "node --import tsx scripts/wiki-slug.mjs"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.0",
