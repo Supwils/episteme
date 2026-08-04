@@ -5,10 +5,13 @@
  *
  * 用法：node scripts/audit-fragmented-prose.mjs
  *
- * ⚠️ 已知误报（并入 check-content 前必须先修）：公式/代码/表格的**引导句**必须
- * 短且独立成段（如「运动方程：」「把渐进复杂度摆在一起看：」），本脚本会把它们
- * 计为碎片。修法：排除紧跟 `$$` / 围栏代码 / 表格 / 列表的段落。
- * 详见 docs/任务清单.md 的 T-CONTENT-37。
+ * 已排除的误报类别（勿回退）：
+ * 1. 引导句：短段若其后紧跟公式块 / 围栏代码 / 表格 / 列表 / 引用块，它是这些块的
+ *    引导句——必须短且独立成段，不是碎片（isBlockLead）。
+ * 2. human-history KB 的「第N页」格式中，每页开头有一行 `标题：……` 副题，
+ *    属格式约定而非碎片。
+ * 3. human-history KB 根的 6 篇编辑元文档（索引/内容深度规范/项目规划/开发规范/
+ *    工程守则/审校工作台）是内部文档而非知识文章，跳过（其公开渲染问题另案处理）。
  */
 import { readdirSync, readFileSync, statSync } from 'node:fs'
 import { join } from 'node:path'
@@ -20,11 +23,14 @@ const cjk=p=>(p.match(/[一-鿿]/g)||[]).length
 const isBlockLead=next => next!==undefined &&
   (/^\$\$/.test(next) || /^```/.test(next) || /^\s*\|/.test(next) ||
    /^\s*(?:[-*+]|\d+\.)\s/.test(next) || /^>/.test(next))
+// human-history KB 的编辑元文档（内部文档，非知识文章）
+const META_DOC=/human-history\/knowledge-base\/(索引|内容深度规范|项目规划|开发规范|工程守则|审校工作台)\.md$/
 for(const f of walk('content')){
+  if(META_DOC.test(f)) continue
   const body=readFileSync(f,'utf8').replace(/^---[\s\S]*?\n---\n/,'')
   const blocks=body.split(/\n\s*\n/).map(b=>b.trim()).filter(Boolean)
-  // 只看散文段：排除标题/列表/表格/代码/公式/引用块
-  const prose=blocks.map((b,i)=>[b,i]).filter(([b])=>/[一-鿿]/.test(b) && !/^[#>|\-*\d`$]/.test(b) && !b.includes('|'))
+  // 只看散文段：排除标题/列表/表格/代码/公式/引用块，以及 human-history「第N页」格式的 `标题：` 副题行
+  const prose=blocks.map((b,i)=>[b,i]).filter(([b])=>/[一-鿿]/.test(b) && !/^[#>|\-*\d`$]/.test(b) && !b.includes('|') && !/^标题：/.test(b))
   if(prose.length<8) continue
   const short=prose.filter(([b,i])=>cjk(b)>0 && cjk(b)<40 && !isBlockLead(blocks[i+1])).length
   const ratio=short/prose.length

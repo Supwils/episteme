@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import graphSnapshot from "@/subjects/knowledge-graph/data/aggregate-snapshot.json";
 import { buildValidRoutes } from "@/scripts/valid-routes";
 import {
   ALL_KNOWLEDGE_CONTINUUM_NODES,
@@ -69,26 +70,31 @@ describe("homepage knowledge continuum", () => {
   });
 
   it("derives an extensible coverage snapshot from the curated paths", () => {
+    // Curated-spine aggregates are pinned by the snapshot — run
+    // `pnpm update-graph-snapshot` after editing curated learning paths.
     expect(coverage.summary).toMatchObject({
-      nodeCount: 230,
-      pathCount: 46,
-      prerequisiteCount: 184,
-      establishedDomainCount: 15,
-      previewDomainCount: 0,
+      nodeCount: graphSnapshot.coverage.nodeCount,
+      pathCount: graphSnapshot.coverage.pathCount,
+      prerequisiteCount: graphSnapshot.coverage.prerequisiteCount,
+      establishedDomainCount: graphSnapshot.coverage.establishedDomainCount,
+      previewDomainCount: graphSnapshot.coverage.previewDomainCount,
     });
-    expect(coverage.domains).toHaveLength(15);
+    expect(coverage.domains).toHaveLength(graphSnapshot.terrain.domainCount);
     expect(coverage.domains.every((row) => row.total > 0)).toBe(true);
     expect(coverage.domains.find((row) => row.id === "linguistics")?.status).toBe("established");
 
+    // Every curated path contributes exactly one node per stage.
     const totalsByLevel = [0, 1, 2, 3, 4].map((index) =>
       coverage.domains.reduce((sum, row) => sum + row.levels[index]!, 0)
     );
-    expect(totalsByLevel).toEqual([46, 46, 46, 46, 46]);
+    expect(totalsByLevel).toEqual(
+      Array.from({ length: 5 }, () => graphSnapshot.coverage.pathCount)
+    );
   });
 
   it("fills all five stages for every established subject", () => {
     const establishedDomains = coverage.domains.filter((row) => row.status === "established");
-    expect(establishedDomains).toHaveLength(15);
+    expect(establishedDomains).toHaveLength(graphSnapshot.coverage.establishedDomainCount);
     for (const row of establishedDomains) {
       expect(
         row.levels.every((count) => count > 0),
@@ -99,9 +105,14 @@ describe("homepage knowledge continuum", () => {
 
   it("accounts for every curated node by evidence mode", () => {
     expect(coverage.evidenceModes).toHaveLength(7);
-    expect(coverage.evidenceModes.reduce((sum, row) => sum + row.total, 0)).toBe(230);
+    expect(coverage.evidenceModes.reduce((sum, row) => sum + row.total, 0)).toBe(
+      graphSnapshot.coverage.nodeCount
+    );
     expect(coverage.evidenceModes.every((row) => row.total > 0)).toBe(true);
-    expect(coverage.evidenceModes.find((row) => row.id === "synthesis")?.levels[4]).toBe(46);
+    // Every curated path culminates in a synthesis step at L5.
+    expect(coverage.evidenceModes.find((row) => row.id === "synthesis")?.levels[4]).toBe(
+      graphSnapshot.coverage.pathCount
+    );
   });
 
   it("keeps cross-domain bridge counts symmetric and traceable to real paths", () => {

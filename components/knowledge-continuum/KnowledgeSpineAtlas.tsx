@@ -94,7 +94,7 @@ export function KnowledgeSpineAtlas({
             id="spine-atlas-title"
             className="font-display text-fg-primary mt-1 text-xl font-semibold"
           >
-            15 门学科，从第一问走到研究边界
+            {atlas.summary.domainCount} 门学科，从第一问走到研究边界
           </h3>
           <p className="text-fg-muted mt-2 max-w-3xl text-xs leading-5">
             五层空间视图展示学科主干如何向研究边界收束；矩阵视图用于逐行核对同一学科的五级前置关系。

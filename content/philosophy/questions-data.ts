@@ -12,15 +12,8 @@ export const QUESTIONS = [
     slug: "do-we-have-free-will",
     title: "我们有自由意志吗？",
     field: "形而上学",
-    key_figures: ["descartes", "hume", "kant", "kane"],
-    tags: ["自由意志", "决定论", "相容论", "道德责任"],
-  },
-  {
-    slug: "does-free-will-exist",
-    title: "自由意志存在吗？",
-    field: "形而上学 / 伦理学",
-    key_figures: ["epicurus", "spinoza", "kant", "kane", "pereboom"],
-    tags: ["自由意志", "决定论", "相容论", "硬不相容论", "道德责任"],
+    key_figures: ["descartes", "hume", "kant", "kane", "spinoza", "pereboom"],
+    tags: ["自由意志", "决定论", "相容论", "硬不相容论", "道德责任", "神经科学"],
   },
   {
     slug: "does-god-exist",
@@ -28,13 +21,6 @@ export const QUESTIONS = [
     field: "宗教哲学",
     key_figures: ["阿奎那", "安瑟伦", "帕斯卡"],
     tags: ["信仰", "理性"],
-  },
-  {
-    slug: "free-will-or-determinism",
-    title: "自由意志还是决定论？",
-    field: "形而上学 / 伦理学",
-    key_figures: ["斯宾诺莎", "休谟", "康德", "丹尼特", "萨姆·哈里斯"],
-    tags: ["自由意志", "决定论", "相容论", "道德责任", "神经科学"],
   },
   {
     slug: "how-does-science-progress",

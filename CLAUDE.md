@@ -41,8 +41,8 @@
 
 ### 本地 pre-push 门禁（`.husky/pre-push`）
 
-- 每次 `git push` 前自动跑 `pnpm prepush`（= `typecheck && lint && check-content && test`），**精确镜像 CI 的 `quality` job**——把第 5 条"验证靠本地命令"变成强制执行，broken tree 到不了 GitHub/Vercel。
-- **刻意不跑** `build` job 那套（`next build` / `bundle-check` / **Lighthouse** / Playwright）：太重，且 Lighthouse 性能预算会抖动（CI 上就因它反复红），绝不能卡本地 push。完整 build + 性能预算留给云端。
+- 每次 `git push` 前自动跑 `pnpm prepush`（`typecheck` → `lint` → `check-content` → 四项图谱/学科审计 → `test`），镜像 CI `quality` job 的八条确定性质量命令——把第 5 条"验证靠本地命令"变成强制执行，broken tree 到不了 GitHub/Vercel。CI 另在干净 checkout 上执行生成索引幂等性检查；本地内容轮次应先运行 `pnpm gen-all` 并确认生成产物已纳入改动。
+- **pre-push 钩子刻意不跑** `build` job 那套：生产构建、包体、Lighthouse 与 Playwright 都不适合阻塞每次本地 push。但内容或前端轮次在请求 push 前，代理必须至少本地跑一次真实 Turbopack `pnpm build`，随后运行 `pnpm bundle-check -- --skip-build`；Lighthouse 与 Playwright smoke 继续由云端门禁负责。
 - husky 已激活（`prepare` 脚本）。紧急绕过：`git push --no-verify`。
 
 ### 代理注意事项（部署相关）
@@ -176,6 +176,7 @@ universe-knowledge/                  ← 单一 Next.js 应用根目录
 │   ├── universe-physics/ human-history/ philosophy/ …
 │   ├── *.ts / *.js                  ← 类型化内容数据模块（经 @/content/... 导入）
 │   └── *.mdx / *.md                 ← 散文内容（由 lib/mdx.ts 在运行时按路径 fs 读取）
+├── content-assets/images/           ← 内容图像原图 + 权利元数据（图像管线，见 docs/图像管线指南.md）
 ├── public/                          ← 静态资源（含 textures/planets）
 ├── scripts/                         ← check-content.ts + physics/（bundle-check、lighthouse 等）
 ├── e2e/                             ← Playwright E2E 测试
@@ -264,6 +265,8 @@ pnpm lint             # eslint . --max-warnings 0
 pnpm test             # Vitest 单元测试
 pnpm test:e2e         # Playwright E2E
 pnpm check-content    # 内容质量校验（scripts/check-content.ts）
+pnpm audit-image-rights  # 图像权利与性能审计（scripts/audit-image-rights.ts）
+pnpm gen-content-images  # 响应式内容图像生成（见 docs/图像管线指南.md）
 ```
 
 ### 旧版参考文档（仅供查阅，不再适用当前结构）

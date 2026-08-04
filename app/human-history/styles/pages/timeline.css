@@ -826,3 +826,102 @@
   background: rgba(200, 169, 81, 0.18);
   border-color: var(--gold);
 }
+
+/* === wide-viewport overrides (moved from styles/responsive.css) === */
+@media (min-width: 1440px) {
+  .human-history-root .timeline-page {
+    max-width: var(--content-wide);
+    padding: 100px 56px 80px;
+  }
+
+  .human-history-root .timeline-summary {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .human-history-root .timeline-summary > div {
+    padding: 16px 18px;
+  }
+
+  .human-history-root .timeline-summary strong {
+    font-size: 1.1rem;
+  }
+
+  .human-history-root .timeline-tools {
+    justify-content: space-between;
+  }
+
+  .human-history-root .timeline-search {
+    max-width: 520px;
+  }
+
+  .human-history-root .year-scrubber {
+    max-width: var(--content-wide);
+    padding: 0;
+  }
+
+  .human-history-root .timeline-era-section {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    grid-template-rows: auto auto 1fr;
+    gap: 0 32px;
+    margin-bottom: 56px;
+  }
+
+  .human-history-root .timeline-era-head {
+    grid-column: 1 / -1;
+  }
+
+  .human-history-root .tl-era-intro {
+    grid-column: 1;
+    grid-row: 2;
+    padding: 0;
+  }
+
+  .human-history-root .region-tabs {
+    grid-column: 1;
+    grid-row: 3;
+    padding: 0;
+    align-self: start;
+    position: sticky;
+    top: calc(var(--nav-h) + 20px);
+  }
+
+  .human-history-root .timeline-track {
+    grid-column: 2;
+    grid-row: 2 / 4;
+    padding-left: 36px;
+    border-left: 1px solid var(--border);
+  }
+
+  .human-history-root .tl-event-card {
+    padding: 18px 22px;
+  }
+
+  .human-history-root .tl-title {
+    font-size: 1.1rem;
+  }
+
+  .human-history-root .paginated-card {
+    margin: 0 0 20px 0;
+    height: 50vh;
+  }
+
+  .human-history-root .pc-content {
+    max-width: 1000px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .human-history-root .timeline-page {
+    max-width: 1920px;
+    padding: 100px 80px;
+  }
+
+  .human-history-root .timeline-era-section {
+    grid-template-columns: 380px 1fr;
+    margin-bottom: 64px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 40px;
+  }
+}

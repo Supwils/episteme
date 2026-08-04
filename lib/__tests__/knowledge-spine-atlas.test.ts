@@ -10,19 +10,24 @@ import {
 const coverage = buildKnowledgeCoverageSnapshot();
 const catalog = buildLearningPlanCatalog();
 const atlas = buildKnowledgeSpineAtlas(catalog, coverage);
+// Derived, not pinned: every established subject contributes exactly one
+// five-step spine, so these two numbers must move together with the domain
+// roster instead of being re-typed on every subject launch.
+const EXPECTED_DOMAIN_COUNT = coverage.domains.length;
+const EXPECTED_NODE_COUNT = EXPECTED_DOMAIN_COUNT * 5;
 
 describe("all-subject knowledge spine atlas", () => {
   it("publishes one complete five-stage spine for every established subject", () => {
     expect(atlas.summary).toEqual({
-      domainCount: 15,
+      domainCount: EXPECTED_DOMAIN_COUNT,
       stageCount: 5,
-      nodeCount: 75,
+      nodeCount: EXPECTED_NODE_COUNT,
       crossDomainTransitionCount: 73,
     });
     expect(atlas.rows.map((row) => row.domainId)).toEqual(
       coverage.domains.map((domain) => domain.id)
     );
-    expect(new Set(atlas.rows.map((row) => row.pathId)).size).toBe(15);
+    expect(new Set(atlas.rows.map((row) => row.pathId)).size).toBe(EXPECTED_DOMAIN_COUNT);
 
     for (const row of atlas.rows) {
       expect(row.pathId).toBe(PRIMARY_DOMAIN_SPINE_PATH_IDS[row.domainId]);
@@ -34,7 +39,7 @@ describe("all-subject knowledge spine atlas", () => {
     }
 
     const nodeIds = atlas.rows.flatMap((row) => row.steps.map((step) => step.nodeId));
-    expect(new Set(nodeIds).size).toBe(75);
+    expect(new Set(nodeIds).size).toBe(EXPECTED_NODE_COUNT);
   });
 
   it("fills the previously missing physical, mathematical and computational spines", () => {

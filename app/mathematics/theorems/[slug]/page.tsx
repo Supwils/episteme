@@ -6,7 +6,7 @@ import {
   MATH_DIFFICULTY_COLORS,
   mathBadgeColor,
 } from "@/subjects/mathematics/lib/constants";
-import { MathMarkdownRenderer } from "@/subjects/mathematics/components/MathMarkdownRenderer";
+import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { SITE_URL } from "@/lib/constants";
 import { serializeJsonLd, createDefinedTermJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
@@ -148,7 +148,11 @@ export default async function TheoremDetailPage({ params }: { params: Promise<{ 
       <div className="flex flex-col gap-12 lg:flex-row">
         <article className="max-w-[1200px] min-w-0 flex-1">
           {theorem.content ? (
-            <MathMarkdownRenderer content={theorem.content} accentColor={fieldColor} />
+            <MarkdownRenderer
+              content={theorem.content}
+              accentColor={fieldColor}
+              domain="mathematics"
+            />
           ) : (
             <div className="border-border-faint bg-bg-panel border p-8 text-center">
               <p className="text-fg-muted text-sm">详细内容正在编写中。</p>

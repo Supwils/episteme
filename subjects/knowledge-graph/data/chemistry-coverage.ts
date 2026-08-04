@@ -219,6 +219,187 @@ export const CHEMISTRY_COVERAGE_NODES: GraphNode[] = [
     "通过反应量热、偏差审查和本质安全设计识别热失控、超压与操作风险。",
     ["过程安全", "热失控", "HAZOP"]
   ),
+  // ── spine anchors (T-GRAPH-12) ────────────────────────────
+  node(
+    "gilbert-lewis",
+    "吉尔伯特·路易斯",
+    "figure",
+    "figures",
+    "提出共价键即共享电子对，发明可推理的路易斯结构。",
+    ["共价键", "路易斯结构"]
+  ),
+  node(
+    "svante-arrhenius",
+    "斯万特·阿伦尼乌斯",
+    "figure",
+    "figures",
+    "以电离理论奠基物理化学，也算出二氧化碳的增暖效应。",
+    ["电离理论", "温室效应"]
+  ),
+  node(
+    "michael-faraday",
+    "迈克尔·法拉第",
+    "figure",
+    "figures",
+    "电解定律与法拉第常数，把电与化学焊在一起。",
+    ["电解", "法拉第常数"]
+  ),
+  node(
+    "dorothy-hodgkin",
+    "多萝西·霍奇金",
+    "figure",
+    "figures",
+    "用 X 射线晶体学解出青霉素、维生素 B₁₂ 与胰岛素的结构。",
+    ["X 射线晶体学", "生物分子"]
+  ),
+  node(
+    "daltons-atomic-theory",
+    "道尔顿原子论（1808）",
+    "event",
+    "milestones",
+    "给原子称重：每种元素由特定重量的原子组成。",
+    ["原子论", "1808"]
+  ),
+  node(
+    "discovery-of-radioactivity",
+    "放射性的发现（1896）",
+    "event",
+    "milestones",
+    "贝克勒尔发现铀的自发辐射，开启核时代。",
+    ["贝克勒尔", "铀"]
+  ),
+  node(
+    "the-mole",
+    "摩尔与物质的量",
+    "concept",
+    "concepts",
+    "把数不清的微观粒子打包成可以用秤称量的单位。",
+    ["物质的量", "阿伏伽德罗常数"]
+  ),
+  node(
+    "gas-laws",
+    "气体定律与理想气体",
+    "concept",
+    "concepts",
+    "压强、体积与温度的定量关系，抽象出理想气体模型。",
+    ["理想气体", "波义耳定律"]
+  ),
+  node(
+    "intermolecular-forces",
+    "分子间作用力",
+    "concept",
+    "concepts",
+    "非共价相互作用决定物质如何凝聚、溶解与组装。",
+    ["范德华力", "氢键"]
+  ),
+  node(
+    "functional-groups",
+    "官能团",
+    "concept",
+    "concepts",
+    "决定分子反应脾气的活性部位，有机化学的词汇表。",
+    ["官能团", "反应性"]
+  ),
+  node(
+    "aromaticity",
+    "芳香性",
+    "concept",
+    "concepts",
+    "反常稳定的环状共轭体系，从苯的结构之谜到芳香规则。",
+    ["苯", "共轭"]
+  ),
+  node(
+    "nuclear-chemistry",
+    "核化学与放射化学",
+    "concept",
+    "concepts",
+    "研究原子核自身的变化：衰变、碳-14 测年与核能。",
+    ["衰变", "碳-14 测年"]
+  ),
+  node(
+    "solutions-and-solubility",
+    "溶液与溶解度",
+    "concept",
+    "concepts",
+    "物质如何彼此接纳：溶解、浓度与溶解度的定量语言。",
+    ["溶解度", "浓度"]
+  ),
+  node(
+    "photosynthesis",
+    "光合作用",
+    "reaction",
+    "reactions",
+    "用光能把二氧化碳与水变成糖并放出氧气的反应网络。",
+    ["固碳", "放氧"]
+  ),
+  node(
+    "acid-base-neutralization",
+    "酸碱中和",
+    "reaction",
+    "reactions",
+    "酸与碱按化学计量生成盐和水的定量过程。",
+    ["中和", "化学计量"]
+  ),
+  node(
+    "cross-coupling-reactions",
+    "交叉偶联反应",
+    "reaction",
+    "reactions",
+    "钯催化把两个碳片段可设计地接在一起，重塑合成化学。",
+    ["钯催化", "碳碳键"]
+  ),
+  node(
+    "diels-alder-reaction",
+    "狄尔斯-阿尔德反应",
+    "reaction",
+    "reactions",
+    "一步成环的 [4+2] 环加成，构筑六元环的看家反应。",
+    ["环加成", "六元环"]
+  ),
+  node("ammonia", "氨", "substance", "substances", "合成氨化肥撑起全球约一半人口的口粮。", [
+    "合成氨",
+    "化肥",
+  ]),
+  node(
+    "proteins-chemistry",
+    "蛋白质的化学",
+    "substance",
+    "substances",
+    "20 种氨基酸经肽键连接与精确折叠组装出无限功能。",
+    ["肽键", "折叠"]
+  ),
+  node(
+    "carbon-capture-chemistry",
+    "碳捕集与转化",
+    "concept",
+    "frontier",
+    "从空气里捕集二氧化碳，再把它还原为燃料与化学品。",
+    ["直接空气捕集", "碳转化"]
+  ),
+  node(
+    "single-atom-catalysis",
+    "单原子催化",
+    "concept",
+    "frontier",
+    "把贵金属拆成孤立单原子锚定在载体上，原子利用率逼近 100%。",
+    ["单原子", "原子利用率"]
+  ),
+  node(
+    "coordination-chemistry",
+    "配位化学",
+    "concept",
+    "concepts",
+    "中心金属与配体的成键艺术：颜色、磁性、螯合效应与均相催化的统一来源。",
+    ["配体", "晶体场", "螯合效应"]
+  ),
+  node(
+    "electroanalytical-chemistry",
+    "电分析化学",
+    "concept",
+    "concepts",
+    "把浓度翻译成电位、电流与电量：从 pH 计、伏安法到血糖试纸。",
+    ["伏安法", "离子选择电极", "生物传感器"]
+  ),
 ];
 
 export const CHEMISTRY_COVERAGE_EDGES: GraphEdge[] = [
@@ -252,11 +433,7 @@ export const CHEMISTRY_COVERAGE_EDGES: GraphEdge[] = [
     "electron-microscopy-and-surface-analysis",
     "诊断界面与失效"
   ),
-  edge(
-    "electron-microscopy-and-surface-analysis",
-    "process-safety",
-    "把失效证据送入安全设计"
-  ),
+  edge("electron-microscopy-and-surface-analysis", "process-safety", "把失效证据送入安全设计"),
   edge("process-safety", "beyond-lithium-batteries", "约束新体系规模化"),
   edge("battery-performance-safety-and-circularity", "green-chemistry", "核算全生命周期"),
   edge("semiconductors-materials", "computational-materials-design", "材料筛选对象"),
@@ -277,6 +454,60 @@ export const CHEMISTRY_COVERAGE_EDGES: GraphEdge[] = [
   edge("retrosynthesis-and-reaction-optimization", "process-scale-up", "定义稳健操作窗口"),
   edge("process-scale-up", "process-safety", "量化放大失效路径"),
   edge("process-safety", "green-chemistry", "源头减少危险"),
+  // ── spine anchor edges (T-GRAPH-12) ───────────────────────
+  edge("gilbert-lewis", "chemical-bond", "提出共享电子对"),
+  edge("gilbert-lewis", "linus-pauling", "思想源流"),
+  edge("svante-arrhenius", "acids-and-bases", "电离理论"),
+  edge("svante-arrhenius", "solutions-and-solubility", "电解质溶液"),
+  edge("michael-faraday", "electrochemistry", "电解定律"),
+  edge("michael-faraday", "electrolysis", "奠基"),
+  edge("dorothy-hodgkin", "x-ray-crystallography", "解出生物分子结构"),
+  edge("dorothy-hodgkin", "proteins-chemistry", "测定胰岛素三维结构"),
+  edge("dalton", "daltons-atomic-theory", "提出"),
+  edge("the-mole", "daltons-atomic-theory", "原子量引出物质的量"),
+  edge("the-mole", "atomic-structure", "称量原子"),
+  edge("discovery-of-radioactivity", "marie-curie", "开创系统研究"),
+  edge("discovery-of-radioactivity", "nuclear-chemistry", "开启核化学"),
+  edge("nuclear-chemistry", "atomic-structure", "深入原子核"),
+  edge("gas-laws", "robert-boyle", "波义耳定律"),
+  edge("gas-laws", "thermochemistry", "状态与能量"),
+  edge("intermolecular-forces", "water", "氢键造就反常物性"),
+  edge("intermolecular-forces", "chemical-bond", "互补的相互作用"),
+  edge("functional-groups", "kekule", "结构理论的延伸"),
+  edge("functional-groups", "organic-synthesis", "官能团转换"),
+  edge("aromaticity", "kekule", "苯环结构之谜"),
+  edge("aromaticity", "bonding-theory", "共轭与轨道"),
+  edge("solutions-and-solubility", "precipitation-reactions", "溶解度控制沉淀"),
+  edge("solutions-and-solubility", "acids-and-bases", "水溶液化学"),
+  edge("photosynthesis", "redox-reactions", "光驱动电子转移"),
+  edge("photosynthesis", "thermochemistry", "固定光能"),
+  edge("acid-base-neutralization", "acids-and-bases", "定量应用"),
+  edge("acid-base-neutralization", "solutions-and-solubility", "在水溶液中进行"),
+  edge("cross-coupling-reactions", "catalysts", "钯催化循环"),
+  edge("cross-coupling-reactions", "reaction-mechanisms", "氧化加成与还原消除"),
+  edge("cross-coupling-reactions", "organic-synthesis", "碳碳键构筑工具"),
+  edge("diels-alder-reaction", "reaction-mechanisms", "协同环加成机理"),
+  edge("diels-alder-reaction", "organic-synthesis", "构筑六元环"),
+  edge("ammonia", "fritz-haber", "高压合成"),
+  edge("ammonia", "haber-bosch-process", "工业产物"),
+  edge("ammonia", "chemical-equilibrium", "勒夏特列原理的典范"),
+  edge("proteins-chemistry", "chirality", "L-氨基酸的手性"),
+  edge("proteins-chemistry", "enzymatic-catalysis", "酶即蛋白质"),
+  edge("carbon-capture-chemistry", "green-chemistry", "源头减排之外的补位"),
+  edge("single-atom-catalysis", "catalysts", "原子级活性位"),
+  edge("single-atom-catalysis", "catalysis-reaction", "把催化推向原子极限"),
+  edge("single-atom-catalysis", "electron-microscopy-and-surface-analysis", "确认孤立位点"),
+  edge("coordination-chemistry", "chemical-bond", "配位键由配体供给电子对"),
+  edge("bonding-theory", "coordination-chemistry", "晶体场与配位场理论"),
+  edge("coordination-chemistry", "spectroscopy", "d–d 跃迁决定颜色"),
+  edge("coordination-chemistry", "medicinal-chemistry", "顺铂的几何构效关系"),
+  edge("coordination-chemistry", "catalysis-reaction", "均相催化的配体设计"),
+  edge("redox-reactions", "electroanalytical-chemistry", "界面电子转移的定量读出"),
+  edge("electroanalytical-chemistry", "electrochemistry", "能斯特方程与界面过程"),
+  edge("electroanalytical-chemistry", "enzymatic-catalysis", "酶电极借酶的选择性"),
+  edge("electroanalytical-chemistry", "chromatography", "电化学检测联用"),
+  edge("michael-faraday", "electroanalytical-chemistry", "电解定律是定量电分析的源头"),
+  edge("svante-arrhenius", "electroanalytical-chemistry", "电离理论给出导电测量的对象"),
   {
     source: "chemistry:mass-spectrometry",
     target: "medicine:clinical-diagnosis",
@@ -314,6 +545,36 @@ export const CHEMISTRY_COVERAGE_EDGES: GraphEdge[] = [
     label: "保护工人与社区",
   },
   {
+    source: "chemistry:svante-arrhenius",
+    target: "earth-science:greenhouse-effect",
+    type: "domain-link",
+    label: "1896 年估算 CO₂ 增暖",
+  },
+  {
+    source: "chemistry:michael-faraday",
+    target: "physics:电磁学--法拉第与电磁感应",
+    type: "domain-link",
+    label: "同一人奠基电磁学",
+  },
+  {
+    source: "chemistry:photosynthesis",
+    target: "earth-science:carbon-cycle",
+    type: "domain-link",
+    label: "固碳进入碳循环",
+  },
+  {
+    source: "chemistry:photosynthesis",
+    target: "lifescience:cyanobacteria",
+    type: "domain-link",
+    label: "产氧光合作用的起源",
+  },
+  {
+    source: "chemistry:carbon-capture-chemistry",
+    target: "earth-science:carbon-capture-geoengineering",
+    type: "domain-link",
+    label: "化学工艺对接气候工程",
+  },
+  {
     source: "chemistry:beyond-lithium-batteries",
     target: "earth-science:mineral-resources-and-critical-metals",
     type: "domain-link",
@@ -330,6 +591,12 @@ export const CHEMISTRY_COVERAGE_EDGES: GraphEdge[] = [
     target: "economics:commodity-exporters-macro-diagnosis-2026",
     type: "domain-link",
     label: "矿产需求进入资源经济周期",
+  },
+  {
+    source: "chemistry:electroanalytical-chemistry",
+    target: "medicine:clinical-diagnosis",
+    type: "domain-link",
+    label: "床旁血气与血糖监测",
   },
   {
     source: "economics:commodity-exporters-macro-diagnosis-2026",

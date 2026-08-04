@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { DomainHeroMotif } from "@/components/domain/DomainHeroMotif";
+import { DomainSpinePreview } from "@/components/domain/DomainSpinePreview";
+import { DomainRecentUpdates } from "@/components/domain/DomainRecentUpdates";
 import { getDomainConfig } from "@/lib/new-domains";
 import { createKnowledgeSection } from "@/lib/knowledge-domain";
 import { createFrontier } from "@/lib/frontier";
@@ -43,6 +46,7 @@ export function DomainHome({ domain }: { domain: string }) {
   return (
     <div className="relative min-h-dvh w-full overflow-hidden">
       <section className="relative flex w-full flex-col items-start gap-6 px-6 pt-28 pb-16 sm:px-10 md:pt-32 lg:px-16">
+        <DomainHeroMotif domain={domain} accent={config.accent} />
         <p className="text-fg-muted font-mono text-[10px] tracking-[0.42em] uppercase">
           universe · knowledge / {domain}
         </p>
@@ -53,11 +57,15 @@ export function DomainHome({ domain }: { domain: string }) {
           {config.tagline}
         </p>
         {total > 0 && (
-          <p className="text-fg-disabled font-mono text-[11px] tracking-[0.28em] uppercase">
+          <p className="text-fg-muted font-mono text-[11px] tracking-[0.28em] uppercase">
             {total} 个知识条目
           </p>
         )}
       </section>
+
+      <DomainSpinePreview domain={domain} accent={config.accent} />
+
+      <DomainRecentUpdates domain={domain} accent={config.accent} />
 
       <section className="relative z-[2] w-full px-6 pb-24 sm:px-10 lg:px-16">
         <p className="text-fg-muted mb-8 font-mono text-[10px] tracking-[0.38em] uppercase">
@@ -84,7 +92,9 @@ export function DomainHome({ domain }: { domain: string }) {
                 </span>
                 <span
                   className="font-mono text-[10px] tracking-[0.28em] uppercase"
-                  style={{ color: card.accent }}
+                  style={{
+                    color: `color-mix(in oklab, ${card.accent} 42%, var(--color-fg-primary))`,
+                  }}
                 >
                   {card.count > 0 ? card.count : "—"}
                 </span>

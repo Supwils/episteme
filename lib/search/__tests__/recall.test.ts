@@ -66,7 +66,9 @@ describe("search index artifact", () => {
 });
 
 describe("Chinese recall", () => {
-  const cases = midTitleCases(7, 200);
+  // 2026-07-31：语料增至 2265 篇后，stride 7 的产率跌破 100（新增标题使部分
+  // 四字中缀查询不再唯一而被剔除）。stride 6 恢复有效样本量，判定逻辑不变。
+  const cases = midTitleCases(6, 200);
 
   it("builds a meaningful ground-truth set", () => {
     expect(cases.length).toBeGreaterThanOrEqual(100);

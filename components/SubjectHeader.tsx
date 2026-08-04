@@ -3,6 +3,8 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { NavDropdown } from "./NavDropdown";
+import { ALL_DOMAINS_GROUP } from "./nav-data";
 import { SearchTrigger } from "./SearchTrigger";
 import { ThemeToggle } from "./ThemeToggle";
 import { getSubjectNav } from "@/lib/subject-nav";
@@ -44,7 +46,8 @@ export function SubjectHeader({ subject }: { subject: string }) {
       >
         <Link
           href="/"
-          className="text-fg-muted hover:text-fg-primary flex shrink-0 items-center gap-1 font-mono text-[11px] tracking-[0.04em] transition-colors"
+          aria-label="返回知识平台"
+          className="text-fg-secondary hover:text-fg-primary flex shrink-0 items-center gap-1 font-mono text-[11px] tracking-[0.04em] transition-colors"
         >
           <svg
             width="13"
@@ -68,7 +71,7 @@ export function SubjectHeader({ subject }: { subject: string }) {
           href={home}
           aria-current={onHome ? "page" : undefined}
           className="font-display shrink-0 text-sm font-semibold tracking-tight transition-opacity hover:opacity-80"
-          style={{ color: accent }}
+          style={{ color: `color-mix(in oklab, ${accent} 42%, var(--color-fg-primary))` }}
         >
           {label}
         </Link>
@@ -88,9 +91,9 @@ export function SubjectHeader({ subject }: { subject: string }) {
                 style={
                   active
                     ? {
-                        // Lighten the accent so the active pill text clears WCAG AA
-                        // over its own tinted background on the dark header.
-                        color: `color-mix(in oklab, ${accent} 62%, #f5f2ea)`,
+                        // Mix toward the active theme's foreground so both themes
+                        // retain the subject hue while clearing WCAG AA.
+                        color: `color-mix(in oklab, ${accent} 42%, var(--color-fg-primary))`,
                         backgroundColor: `color-mix(in srgb, ${accent} 14%, transparent)`,
                       }
                     : undefined
@@ -103,6 +106,7 @@ export function SubjectHeader({ subject }: { subject: string }) {
         </div>
 
         <div className="flex shrink-0 items-center gap-2">
+          <NavDropdown group={ALL_DOMAINS_GROUP} />
           <SearchTrigger />
           <ThemeToggle />
         </div>

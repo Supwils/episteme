@@ -32,7 +32,7 @@ export function NarrationButton({
       type="button"
       onClick={() => open({ id, title, script, audioUrl })}
       aria-pressed={isActive}
-      className="group border-border-faint hover:border-border-subtle bg-bg-elevated/40 mb-6 inline-flex items-center gap-2.5 rounded-full border px-4 py-2 transition-colors"
+      className="print-hidden group border-border-faint hover:border-border-subtle bg-bg-elevated/40 mb-6 inline-flex items-center gap-2.5 rounded-full border px-4 py-2 transition-colors"
       style={isActive ? { borderColor: accent } : undefined}
     >
       <span

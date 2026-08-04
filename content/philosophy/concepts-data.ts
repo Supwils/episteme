@@ -329,13 +329,6 @@ export const CONCEPTS = [
     key_figures: ["frege", "russell", "wittgenstein", "austin", "grice", "quine", "kripke"],
   },
   {
-    slug: "philosophy-of-mind",
-    title: "心灵哲学",
-    title_en: "Philosophy of Mind",
-    field: "形而上学",
-    key_figures: ["descartes", "ryle", "putnam", "searle", "chalmers", "dennett", "davisson"],
-  },
-  {
     slug: "philosophy-of-science",
     title: "科学哲学",
     title_en: "Philosophy of Science",

@@ -120,6 +120,27 @@ const DOMAIN_META: Record<
     border: "border-teal-400/30",
     borderColor: "#3f8f8a",
   },
+  law: {
+    label: "法学",
+    color: "text-amber-300",
+    bg: "bg-amber-500/20",
+    border: "border-amber-400/30",
+    borderColor: "#a8843c",
+  },
+  arts: {
+    label: "艺术",
+    color: "text-orange-300",
+    bg: "bg-orange-500/20",
+    border: "border-orange-400/30",
+    borderColor: "#b0785a",
+  },
+  engineering: {
+    label: "工程与技术",
+    color: "text-slate-300",
+    bg: "bg-slate-500/20",
+    border: "border-slate-400/30",
+    borderColor: "#8a919e",
+  },
 };
 
 const NODE_TYPE_LABEL: Record<GraphNodeType, string> = {

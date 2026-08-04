@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { getAllMathParadoxes, getMathParadoxesByField } from "@/subjects/mathematics/lib/paradoxes";
-import { MATH_FIELD_COLORS, mathBadgeColor } from "@/subjects/mathematics/lib/constants";
+import { getAllMathParadoxes } from "@/subjects/mathematics/lib/paradoxes";
+import { MathParadoxesListBrowser } from "@/components/mathematics/MathParadoxesListBrowser";
 
 export const metadata: Metadata = {
   title: "数学悖论 — Episteme · 格致",
@@ -14,9 +13,14 @@ export const metadata: Metadata = {
 };
 
 export default function MathParadoxesPage() {
-  const paradoxes = getAllMathParadoxes();
-  const grouped = getMathParadoxesByField();
-  const fields = Object.keys(grouped);
+  const paradoxes = getAllMathParadoxes().map((p) => ({
+    slug: p.slug,
+    title: p.title,
+    title_en: p.title_en,
+    field: p.field || "其他",
+    key_figures: p.key_figures,
+    tags: p.tags,
+  }));
 
   return (
     <div className="w-full px-6 py-12 sm:px-10 sm:py-16 lg:px-16">
@@ -35,70 +39,7 @@ export default function MathParadoxesPage() {
       </header>
 
       {paradoxes.length > 0 ? (
-        fields.map((field) => {
-          const fieldParadoxes = grouped[field] ?? [];
-          const fieldColor = MATH_FIELD_COLORS[field] || "#6366f1";
-
-          return (
-            <div key={field} className="mb-14">
-              <div className="mb-5 flex items-center gap-3">
-                <span
-                  className="font-mono text-[10px] tracking-[0.32em] uppercase"
-                  style={{ color: mathBadgeColor(fieldColor) }}
-                >
-                  {field}
-                </span>
-                <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">
-                  {fieldParadoxes.length} 个悖论
-                </span>
-                <span className="bg-border-faint h-px flex-1" />
-              </div>
-
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-                {fieldParadoxes.map((paradox) => (
-                  <Link
-                    key={paradox.slug}
-                    href={`/mathematics/paradoxes/${paradox.slug}`}
-                    className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative overflow-hidden border p-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5"
-                  >
-                    <div
-                      className="pointer-events-none absolute -top-8 -right-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-10"
-                      style={{ backgroundColor: fieldColor }}
-                    />
-
-                    <div className="relative">
-                      <div className="mb-2 flex items-center gap-2">
-                        <div
-                          className="h-6 w-0.5 rounded-full opacity-50"
-                          style={{ backgroundColor: fieldColor }}
-                        />
-                        <span
-                          className="font-mono text-[9px] tracking-[0.22em] uppercase"
-                          style={{ color: mathBadgeColor(fieldColor) }}
-                        >
-                          {paradox.field}
-                        </span>
-                      </div>
-
-                      <h3 className="font-display text-fg-primary group-hover:text-accent-indigo text-base font-semibold transition-colors">
-                        {paradox.title}
-                      </h3>
-                      <p className="text-fg-muted font-display mt-0.5 text-sm tracking-wide italic">
-                        {paradox.title_en}
-                      </p>
-
-                      {paradox.key_figures.length > 0 && (
-                        <p className="text-fg-muted mt-2 font-mono text-[9px] tracking-wider">
-                          {paradox.key_figures.slice(0, 3).join(" · ")}
-                        </p>
-                      )}
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          );
-        })
+        <MathParadoxesListBrowser paradoxes={paradoxes} />
       ) : (
         <div className="border-border-faint bg-bg-panel mt-12 border p-12 text-center">
           <p className="text-fg-muted font-mono text-[11px] tracking-[0.22em] uppercase">

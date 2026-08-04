@@ -410,8 +410,11 @@ export function GravitySimulation({ className }: GravitySimulationProps) {
         <div className="border-border-faint bg-bg-near space-y-3 border p-4">
           <h4 className="font-display text-fg-primary text-sm font-semibold">参数调节</h4>
           <div className="flex items-center gap-3">
-            <label className="text-fg-muted w-20 shrink-0 text-xs">地球质量</label>
+            <label htmlFor="gravity-earth-mass" className="text-fg-muted w-20 shrink-0 text-xs">
+              地球质量
+            </label>
             <input
+              id="gravity-earth-mass"
               type="range"
               min={0.1}
               max={10}
@@ -425,8 +428,11 @@ export function GravitySimulation({ className }: GravitySimulationProps) {
             </span>
           </div>
           <div className="flex items-center gap-3">
-            <label className="text-fg-muted w-20 shrink-0 text-xs">模拟速度</label>
+            <label htmlFor="gravity-speed" className="text-fg-muted w-20 shrink-0 text-xs">
+              模拟速度
+            </label>
             <input
+              id="gravity-speed"
               type="range"
               min={0.5}
               max={5}

@@ -137,7 +137,7 @@ export function DomainArticle({
                 <dl className="space-y-3 text-sm">
                   {article.info.map((row) => (
                     <div key={row.label}>
-                      <dt className="text-fg-disabled font-mono text-[9px] tracking-[0.18em] uppercase">
+                      <dt className="text-fg-muted font-mono text-[9px] tracking-[0.18em] uppercase">
                         {row.label}
                       </dt>
                       <dd className="text-fg-primary mt-0.5">{row.value}</dd>

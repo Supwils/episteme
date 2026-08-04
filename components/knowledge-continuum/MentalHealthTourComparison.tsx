@@ -1,87 +1,37 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import {
   MENTAL_HEALTH_COMPARISON_CHECKPOINTS,
   MENTAL_HEALTH_COMPARISON_ROUTES,
   type MentalHealthComparisonKind,
 } from "@/lib/mental-health-tour-comparison";
+import {
+  toggleMentalHealthComparisonCheckpoint,
+  useMentalHealthComparisonCheckedIds,
+} from "@/lib/mental-health-tour-comparison-store";
 import { MentalHealthTourComparisonDiagram } from "./MentalHealthTourComparisonDiagram";
 
-const STORAGE_KEY = "uk-mental-health-tour-comparison-v1";
 type ComparisonMode = "all" | MentalHealthComparisonKind;
-
-function readCheckedIds(): string[] {
-  try {
-    const parsed: unknown = JSON.parse(window.localStorage.getItem(STORAGE_KEY) ?? "null");
-    if (
-      !parsed ||
-      typeof parsed !== "object" ||
-      !("schemaVersion" in parsed) ||
-      parsed.schemaVersion !== 1 ||
-      !("checkedIds" in parsed) ||
-      !Array.isArray(parsed.checkedIds)
-    ) {
-      return [];
-    }
-    const validIds = new Set(
-      MENTAL_HEALTH_COMPARISON_CHECKPOINTS.map((checkpoint) => checkpoint.id)
-    );
-    return parsed.checkedIds.filter(
-      (id): id is string => typeof id === "string" && validIds.has(id)
-    );
-  } catch {
-    return [];
-  }
-}
-
-function writeCheckedIds(checkedIds: ReadonlySet<string>) {
-  window.localStorage.setItem(
-    STORAGE_KEY,
-    JSON.stringify({
-      schemaVersion: 1,
-      checkedIds: [...checkedIds],
-      updatedAt: new Date().toISOString(),
-    })
-  );
-}
 
 export function MentalHealthTourComparison() {
   const [mode, setMode] = useState<ComparisonMode>("all");
   const [selectedId, setSelectedId] = useState(MENTAL_HEALTH_COMPARISON_CHECKPOINTS[0]!.id);
-  const [checkedIds, setCheckedIds] = useState<ReadonlySet<string>>(new Set());
-
-  useEffect(() => {
-    setCheckedIds(new Set(readCheckedIds()));
-    const sync = (event: StorageEvent) => {
-      if (event.key === STORAGE_KEY) setCheckedIds(new Set(readCheckedIds()));
-    };
-    window.addEventListener("storage", sync);
-    return () => window.removeEventListener("storage", sync);
-  }, []);
+  const checkedIds = useMentalHealthComparisonCheckedIds();
 
   const visibleCheckpoints = useMemo(
     () =>
       mode === "all"
         ? MENTAL_HEALTH_COMPARISON_CHECKPOINTS
-        : MENTAL_HEALTH_COMPARISON_CHECKPOINTS.filter(
-            (checkpoint) => checkpoint.kind === mode
-          ),
+        : MENTAL_HEALTH_COMPARISON_CHECKPOINTS.filter((checkpoint) => checkpoint.kind === mode),
     [mode]
   );
   const selected =
-    visibleCheckpoints.find((checkpoint) => checkpoint.id === selectedId) ??
-    visibleCheckpoints[0]!;
+    visibleCheckpoints.find((checkpoint) => checkpoint.id === selectedId) ?? visibleCheckpoints[0]!;
 
   const toggleCheckpoint = () => {
-    setCheckedIds((previous) => {
-      const next = new Set(previous);
-      if (next.has(selected.id)) next.delete(selected.id);
-      else next.add(selected.id);
-      writeCheckedIds(next);
-      return next;
-    });
+    toggleMentalHealthComparisonCheckpoint(selected.id);
   };
 
   const selectMode = (nextMode: ComparisonMode) => {
@@ -114,7 +64,11 @@ export function MentalHealthTourComparison() {
             七个检查点中，三处共享同一图谱节点，四处保留不同分析单位、因果标准与干预责任。
           </p>
         </div>
-        <div className="border-border-faint flex min-h-9 border" role="group" aria-label="路线比较范围">
+        <div
+          className="border-border-faint flex min-h-9 border"
+          role="group"
+          aria-label="路线比较范围"
+        >
           {(
             [
               ["all", "全部"],

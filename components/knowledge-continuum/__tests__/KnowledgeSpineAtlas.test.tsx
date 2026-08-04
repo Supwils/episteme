@@ -23,12 +23,20 @@ const atlas = buildKnowledgeSpineAtlas(
 afterEach(cleanup);
 
 describe("KnowledgeSpineAtlas", () => {
-  it("renders the 15 by 5 semantic map and opens an exact frontier node", () => {
+  it("renders the semantic map and opens an exact frontier node", () => {
     const { container } = render(<KnowledgeSpineAtlas atlas={atlas} />);
 
-    expect(screen.getByRole("heading", { name: "15 门学科，从第一问走到研究边界" })).toBeDefined();
-    expect(screen.getByTestId("knowledge-spine-atlas").textContent).toContain("75 个主干节点");
-    expect(container.querySelectorAll('[data-testid^="orbit-node-"]')).toHaveLength(75);
+    expect(
+      screen.getByRole("heading", {
+        name: `${atlas.summary.domainCount} 门学科，从第一问走到研究边界`,
+      })
+    ).toBeDefined();
+    expect(screen.getByTestId("knowledge-spine-atlas").textContent).toContain(
+      `${atlas.summary.nodeCount} 个主干节点`
+    );
+    expect(container.querySelectorAll('[data-testid^="orbit-node-"]')).toHaveLength(
+      atlas.summary.nodeCount
+    );
 
     fireEvent.click(screen.getByTestId("orbit-node-mathematics-5"));
     expect(screen.getByRole("heading", { name: "黎曼猜想" })).toBeDefined();
@@ -38,7 +46,9 @@ describe("KnowledgeSpineAtlas", () => {
     );
 
     fireEvent.click(screen.getByRole("button", { name: "矩阵对照" }));
-    expect(container.querySelectorAll('[data-testid^="spine-step-"]')).toHaveLength(75);
+    expect(container.querySelectorAll('[data-testid^="spine-step-"]')).toHaveLength(
+      atlas.summary.nodeCount
+    );
 
     fireEvent.click(screen.getByTestId("spine-step-mathematics-5"));
     expect(screen.getByRole("heading", { name: "黎曼猜想" })).toBeDefined();

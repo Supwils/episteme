@@ -54,7 +54,7 @@ export function ThemeToggle() {
 
   return (
     <button
-      className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#1e1e2e] bg-transparent text-[#9ca3af] transition-colors hover:border-[#6366f1] hover:text-[#e8e8f0]"
+      className="border-border-subtle text-fg-muted hover:border-accent-gold hover:text-fg-primary flex h-10 w-10 items-center justify-center rounded-lg border bg-transparent transition-colors"
       onClick={cycleTheme}
       aria-label={
         theme === "dark" ? "切换为浅色主题" : theme === "light" ? "跟随系统主题" : "切换为深色主题"

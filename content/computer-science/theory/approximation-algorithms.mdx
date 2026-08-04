@@ -2,7 +2,7 @@
 title: 近似算法理论
 title_en: Approximation Algorithms
 status: published
-updated: 2026-06-16
+updated: 2026-07-31
 category: 计算理论
 order: 16
 field: 计算理论 · 算法设计
@@ -75,7 +75,19 @@ $$\text{ALG} \leq \rho \cdot \text{OPT}$$
 
 1976 年，尼科斯·克里斯托菲德斯（Nicos Christofides）给出了一个 **3/2-近似**算法：解出来的环路最多比最优长 50%。它的构造很巧妙——先求最小生成树（见 [[minimum-spanning-tree]]），再为奇度顶点求最小权完美匹配，把两者合并成一条欧拉回路，最后抄近路（shortcut）成哈密顿环路。
 
-令人吃惊的是：这个 1976 年的结果，作为**确定性、对一般度量 TSP** 的最优已知近似比，**保持了将近半个世纪没被超越**（近年它有时被称为 Christofides–Serdyukov 算法，因为塞尔久科夫 1978 年在苏联独立得到了同一结果）。直到 2020 年代才有研究做出"略微"超越 3/2 的进展。这凸显了近似算法的现实：好的近似比往往极难再改进一丝一毫。
+令人吃惊的是：这个 1976 年的结果，作为**确定性、对一般度量 TSP** 的最优已知近似比，**保持了将近半个世纪没被超越**（近年它有时被称为 Christofides–Serdyukov 算法，因为塞尔久科夫 1978 年在苏联独立得到了同一结果）。直到 2021 年，Karlin、Klein 与 Oveis Gharan 才给出近似比为 $3/2 - 10^{-36}$ 的随机算法（STOC 2021）——改进真实但极其微小，2023 年同一团队又给出了确定性的超 3/2 算法。这凸显了近似算法的现实：好的近似比往往极难再改进一丝一毫。
+
+**为什么必须假设三角不等式**？因为去掉它，TSP 连"任何常数近似"都没有：1976 年，Sahni 与 Gonzalez 证明，除非 P = NP，一般 TSP 不存在任何多项式时间的有限近似比算法。证明干净利落——从哈密顿回路归约：给定图 $G$，把它补全成完全图，原边赋权 1、不存在的边赋权一个巨大值 $M$。$G$ 有哈密顿回路，当且仅当 TSP 最优值恰为 $n$；一旦答案里混入一条权为 $M$ 的边，总长便超过 $M$。取 $M$ 大于任何声称的近似比乘以 $n$，那么"近似到该比值以内"的算法就能判定哈密顿回路——矛盾。同一个问题，加一条三角不等式，就从"完全不可近似"变成"3/2 可近似"——**假设的形状就是难度的形状**。
+
+## 设计范式：LP 舍入与原始-对偶
+
+近似比证明的最大难题是：OPT 未知，拿什么做下界？最通用的答案来自线性规划（见 [[linear-programming]]）。
+
+**LP 舍入**（LP Rounding）：把整数规划松弛成线性规划——允许变量取分数——求出分数最优解 $x^*$。由于放松了约束，$\text{LP 值} \leq \text{OPT}$，这个可计算的界正是证明的锚点。再看顶点覆盖：它的 LP 松弛要求每条边两端变量之和至少为 1，于是把 $x_v \geq 1/2$ 的顶点全部选进来——每条边至少有一端入选，是合法覆盖，而所选总数至多是 $\sum_v 2x_v^* = 2 \cdot \text{LP} \leq 2 \cdot \text{OPT}$。三行推理，又一个 2-近似，来历与组合算法完全不同。
+
+这套范式也标出了自己的天花板：**整数间隙**（integrality gap，整数最优与 LP 最优的最坏比值）。若间隙是 2，任何"以 LP 值为下界"的证明都压不进 2 以内——想改进算法，得先换下界。
+
+**原始-对偶**（Primal-Dual）模式则连 LP 求解器都省掉：从空解出发，同步增长对偶变量，哪条原始约束被"拧紧"（等号成立）就把对应元素冻进解里，直到可行；对偶变量的总值自动充当 OPT 的下界。它把"求解 LP + 舍入"两个分离的阶段熔成一遍贪心式扫描——集合覆盖、设施选址等一大批经典近似算法都能在此框架下统一重写。这也是对偶理论最实用的形态：**任意对偶可行解都是下界，所以设计算法和设计一个下界，可以是同一个动作**。
 
 ## 核心四：PCP 定理与不可近似性
 
@@ -113,10 +125,11 @@ $$\text{ALG} \leq \rho \cdot \text{OPT}$$
 
 ## 跨域连接
 
-- **复杂性理论**：近似算法是 NP 难问题的"应对学"，PCP 定理把硬度与不可近似性联系起来，见 [[computational-complexity]]。
-- **随机化算法**：随机化舍入是设计近似算法的核心武器，见 [[randomized-algorithms]]。
-- **运筹学与经济学**：物流、调度、资源分配中的优化问题大多 NP 难，近似算法是把理论变成可落地决策的桥梁。
-- **机器学习**：聚类（如 k-means，见 [[k-means-clustering]]）、特征选择等问题常以近似形式求解，近似保证是其理论分析的基础。
+- **[[computational-complexity|计算复杂性]]**：近似的难度也是可证明的。把证明改写成只需随机抽查常数个符号即可检验的形式，这一结构可以直接转成近似问题的硬度下界。**于是"连好的近似解都难找"成了定理**，而不是尚未找到聪明算法的托词。
+- **[[linear-programming|线性规划]]**：主力技术是把整数规划松弛成线性规划，求解后再把分数解舍入回整数。**松弛解同时提供了最优值的一个可计算下界**——这解决了近似比证明里的自指难题：无须知道最优解，也能证明自己离它不远。
+- **[[optimization|最优化]]**：证明近似比的诀窍始终是找一个能算的界来替代未知的最优值，而对偶正是这类界的通用来源。**任意可行的对偶解都是原问题的一个界**，所以近似算法的分析常常是在构造对偶解，而不是在分析算法本身。
+- **[[mechanism-design|机制设计]]**：把 NP 难的分配问题换成近似求解，效率损失是可控的，**但诚实报价是最优策略这条性质可能一并失效**——它依赖于分配规则的精确形状。于是组合拍卖里出现一个不能兼得的取舍：算得动与激励对。
+- **[[spin-glass|自旋玻璃]]**：随机约束满足问题在某个约束密度附近发生突变，从几乎总有解跳到几乎总无解，而最难的实例恰好聚集在这个临界带。**统计物理由此给出了"难在哪里"的位置**：难度不是均匀分布的，它有一条可以标出来的锋面。这也解释了随机生成的测试实例为何常常太容易——只要密度取偏，问题就落在锋面之外。
 
 ---
 
@@ -125,6 +138,8 @@ $$\text{ALG} \leq \rho \cdot \text{OPT}$$
 - Vazirani, V. V. *Approximation Algorithms.* Springer (2001).（领域经典教材）
 - Williamson, D. P., Shmoys, D. B. *The Design of Approximation Algorithms.* Cambridge University Press (2011).（现代权威教材，免费在线）
 - Christofides, N. *Worst-Case Analysis of a New Heuristic for the Travelling Salesman Problem.* Technical Report, CMU (1976).
+- Sahni, S. & Gonzalez, T. *P-Complete Approximation Problems.* Journal of the ACM 23(3) (1976): 555–565. （一般 TSP 不可近似）
+- Karlin, A. R., Klein, N. & Oveis Gharan, S. *A (Slightly) Improved Approximation Algorithm for Metric TSP.* STOC 2021.
 - Feige, U. *A Threshold of ln n for Approximating Set Cover.* Journal of the ACM 45(4) (1998): 634–652.
 - Håstad, J. *Some Optimal Inapproximability Results.* Journal of the ACM 48(4) (2001): 798–859.
 - Garey, M. R., Johnson, D. S. *Computers and Intractability: A Guide to the Theory of NP-Completeness.* W. H. Freeman (1979).

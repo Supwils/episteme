@@ -51,15 +51,15 @@ related:
 
 ## 证据阶梯：每种设计能支持什么
 
-| 研究设计 | 主要贡献 | 不能自动支持的结论 |
-| --- | --- | --- |
-| 横截面调查 | 描述暴露与结果如何共同分布 | 因果方向与长期效应 |
-| 纵向队列 | 建立时间顺序，观察变化轨迹 | 排除全部时变混杂与选择流失 |
-| 个体密集追踪 | 比较同一个人在不同日子的变化 | 推广到所有人或长期临床结果 |
-| 平台日志 | 减少自报时长误差 | 解释内容、意义和离线处境 |
-| 短期限制实验 | 检验特定时间窗内减少使用的效应 | 估计多年平台生态的总体影响 |
-| 自然实验 | 利用接入、故障或政策变化构造对照 | 自动满足平行趋势与无同期冲击 |
-| 平台功能实验 | 直接检验推荐、通知或反馈设计 | 若平台不开放数据，结果难以独立复核 |
+| 研究设计     | 主要贡献                         | 不能自动支持的结论                 |
+| ------------ | -------------------------------- | ---------------------------------- |
+| 横截面调查   | 描述暴露与结果如何共同分布       | 因果方向与长期效应                 |
+| 纵向队列     | 建立时间顺序，观察变化轨迹       | 排除全部时变混杂与选择流失         |
+| 个体密集追踪 | 比较同一个人在不同日子的变化     | 推广到所有人或长期临床结果         |
+| 平台日志     | 减少自报时长误差                 | 解释内容、意义和离线处境           |
+| 短期限制实验 | 检验特定时间窗内减少使用的效应   | 估计多年平台生态的总体影响         |
+| 自然实验     | 利用接入、故障或政策变化构造对照 | 自动满足平行趋势与无同期冲击       |
+| 平台功能实验 | 直接检验推荐、通知或反馈设计     | 若平台不开放数据，结果难以独立复核 |
 
 自报时长与设备日志往往存在明显偏差；日志也只记录设备行为，不知道用户是否获得支持、遭遇伤害或同时在线学习。把一种不完整测量替换成另一种不完整测量，并不等于抓住机制。
 
@@ -141,14 +141,14 @@ related:
 
 ## 一套可复核的政策矩阵
 
-| 决策对象 | 目标机制 | 主要结局 | 公平与权利检查 |
-| --- | --- | --- | --- |
-| 夜间通知默认值 | 减少睡眠中断 | 入睡、规律性、白天功能 | 能否自主调整，是否适配照护需要 |
-| 推荐与内容控制 | 减少高风险累积暴露 | 骚扰、自伤内容、退出成功率 | 低资源语言审核与申诉 |
-| 校园设备规则 | 减少课堂分心与拍摄伤害 | 参与、欺凌、学习、归属 | 残障辅助、纪律差异、紧急联系 |
-| 数字素养课程 | 提高识别与应对能力 | 媒体判断、求助、隐私行为 | 课程文化适配与教师负担 |
-| 家庭共同计划 | 改善边界与沟通 | 冲突、睡眠、支持体验 | 不把安全责任全部私有化 |
-| 平台数据开放 | 提高独立因果研究能力 | 可复核暴露与长期结果 | 数据最小化、未成年人隐私 |
+| 决策对象       | 目标机制               | 主要结局                   | 公平与权利检查                 |
+| -------------- | ---------------------- | -------------------------- | ------------------------------ |
+| 夜间通知默认值 | 减少睡眠中断           | 入睡、规律性、白天功能     | 能否自主调整，是否适配照护需要 |
+| 推荐与内容控制 | 减少高风险累积暴露     | 骚扰、自伤内容、退出成功率 | 低资源语言审核与申诉           |
+| 校园设备规则   | 减少课堂分心与拍摄伤害 | 参与、欺凌、学习、归属     | 残障辅助、纪律差异、紧急联系   |
+| 数字素养课程   | 提高识别与应对能力     | 媒体判断、求助、隐私行为   | 课程文化适配与教师负担         |
+| 家庭共同计划   | 改善边界与沟通         | 冲突、睡眠、支持体验       | 不把安全责任全部私有化         |
+| 平台数据开放   | 提高独立因果研究能力   | 可复核暴露与长期结果       | 数据最小化、未成年人隐私       |
 
 政策目标不应是把一个总时长压到任意阈值，而是减少可识别伤害、保留真实支持并持续检查分配后果。
 
@@ -167,17 +167,18 @@ related:
 
 ## 跨域连接
 
-- 参见 [[sleep-and-mind]]，区分夜间使用、节律、睡眠机会和情绪的双向路径。
-- 参见 [[causal-inference-experiments-observational-studies]]，理解纵向研究、自然实验和时变混杂。
-- 参见 [[social-support-mental-health]]，比较线上支持、孤立、关系质量和线下转介。
-- 参见 [[platform-governance]]，把产品设计、数据访问和系统风险纳入公共问责。
+- **[[sleep-and-mind|睡眠与心智]]**：屏幕影响睡眠常被压缩成一个数字，**而机制至少有三条且强度不同**：占用时间（最确定）、内容引发的唤醒（次之）、光照抑制褪黑素（在真实使用亮度下作用较小）。**把三者合并成"蓝光有害"，会使干预对准了最弱的那条路径。**
+- **[[causal-inference-experiments-observational-studies|因果推断：实验与观察研究]]**：横断面相关无法分辨方向，**而这一领域的多数公共结论正建立在横断面数据上。**能提供方向性证据的是自然实验（平台在不同地区的上线时间差）、停用实验与时变混杂的纵向模型，**而这三类设计给出的效应量普遍小于横断面相关。**
+- **[[social-support-mental-health|社会支持与心理健康]]**：使用的性质比时长更能预测结果——**互动性使用与线下关系的补充有关，被动浏览与社会比较则与更差的指标相关。**这一区分使干预有了可操作的目标：**改变使用的结构比压缩使用的总量更可行**，也更容易被青少年接受。
+- **[[measurement-invariance-fair-comparison|测量等价与公平比较]]**：自我报告的使用时长与设备实测值相关很弱，**而多数已发表研究使用的是前者。**这意味着"每天使用 X 小时"这类结论的自变量本身就带有大量误差，**且误差与心理状态相关（状态差的人倾向高估使用），从而系统性地夸大关联。**
+- **[[platform-governance|平台治理]]**：把问题定性为"用多久"会把责任放在个体与家长身上，**而定性为产品设计则指向可被监管的对象**（无限下拉、自动播放、以参与度为目标的排序）。**两种定性都不需要新的证据即可作出，因而这一步是政治选择而非科学结论**——把它说清楚，比再做一项相关研究更有价值。
 
 ## 参考文献
 
-- National Academies of Sciences, Engineering, and Medicine. *Social Media and Adolescent Health*. 2023.
-- Office of the U.S. Surgeon General. *Social Media and Youth Mental Health: The U.S. Surgeon General’s Advisory*. 2023.
-- Orben, A., Meier, A., Dalgleish, T., et al. “Mechanisms Linking Social Media Use to Adolescent Mental Health Vulnerability.” *Nature Reviews Psychology*, 2024.
-- Valkenburg, P. M., Meier, A., & Beyens, I. “Social Media Use and Its Impact on Adolescent Mental Health: An Umbrella Review.” *Current Opinion in Psychology*, 2022.
-- Odgers, C. L., Schueller, S. M., & Ito, M. “Screen Time, Social Media Use, and Adolescent Development.” *Annual Review of Developmental Psychology*, 2020.
-- Parry, D. A., et al. “A Systematic Review and Meta-Analysis of Discrepancies Between Logged and Self-Reported Digital Media Use.” *Nature Human Behaviour*, 2021.
-- Orben, A., Przybylski, A. K., Blakemore, S.-J., & Kievit, R. A. “Windows of Developmental Sensitivity to Social Media.” *Nature Communications*, 2022.
+- National Academies of Sciences, Engineering, and Medicine. _Social Media and Adolescent Health_. 2023.
+- Office of the U.S. Surgeon General. _Social Media and Youth Mental Health: The U.S. Surgeon General’s Advisory_. 2023.
+- Orben, A., Meier, A., Dalgleish, T., et al. “Mechanisms Linking Social Media Use to Adolescent Mental Health Vulnerability.” _Nature Reviews Psychology_, 2024.
+- Valkenburg, P. M., Meier, A., & Beyens, I. “Social Media Use and Its Impact on Adolescent Mental Health: An Umbrella Review.” _Current Opinion in Psychology_, 2022.
+- Odgers, C. L., Schueller, S. M., & Ito, M. “Screen Time, Social Media Use, and Adolescent Development.” _Annual Review of Developmental Psychology_, 2020.
+- Parry, D. A., et al. “A Systematic Review and Meta-Analysis of Discrepancies Between Logged and Self-Reported Digital Media Use.” _Nature Human Behaviour_, 2021.
+- Orben, A., Przybylski, A. K., Blakemore, S.-J., & Kievit, R. A. “Windows of Developmental Sensitivity to Social Media.” _Nature Communications_, 2022.

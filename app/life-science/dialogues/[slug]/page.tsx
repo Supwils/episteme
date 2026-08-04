@@ -140,13 +140,13 @@ export default async function LifeScienceDialoguePage({
               </h3>
               <dl className="space-y-3 text-sm">
                 <div>
-                  <dt className="text-fg-disabled font-mono text-[9px] tracking-[0.18em] uppercase">
+                  <dt className="text-fg-muted font-mono text-[9px] tracking-[0.18em] uppercase">
                     领域
                   </dt>
                   <dd className="text-fg-primary mt-0.5">{dialogue.field}</dd>
                 </div>
                 <div>
-                  <dt className="text-fg-disabled font-mono text-[9px] tracking-[0.18em] uppercase">
+                  <dt className="text-fg-muted font-mono text-[9px] tracking-[0.18em] uppercase">
                     对话者
                   </dt>
                   <dd className="text-fg-primary mt-0.5">{names.join("、")}</dd>

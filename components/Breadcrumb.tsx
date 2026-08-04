@@ -46,7 +46,7 @@ export default function Breadcrumb(props: BreadcrumbProps) {
     return (
       <nav
         aria-label="breadcrumb"
-        className="text-fg-muted mb-8 flex items-center gap-1.5 overflow-hidden font-mono text-[10px] tracking-[0.18em] uppercase"
+        className="text-fg-secondary mb-8 flex items-center gap-1.5 overflow-hidden font-mono text-[10px] tracking-[0.18em] uppercase"
       >
         <Link
           href="/"
@@ -79,7 +79,7 @@ export default function Breadcrumb(props: BreadcrumbProps) {
   return (
     <nav
       aria-label="breadcrumb"
-      className="text-fg-muted mb-8 flex items-center gap-1.5 overflow-hidden font-mono text-[10px] tracking-[0.18em] uppercase"
+      className="text-fg-secondary mb-8 flex items-center gap-1.5 overflow-hidden font-mono text-[10px] tracking-[0.18em] uppercase"
     >
       <Link
         href="/"

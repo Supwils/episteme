@@ -19,8 +19,12 @@ const domainIds = new Set(Object.keys(KNOWLEDGE_DOMAINS));
 for (const candidate of RANKED_SUBJECT_CANDIDATES) {
   const levels = candidate.learningSpine.map((stage) => stage.level).join(",");
   if (levels !== "1,2,3,4,5") issues.push(`${candidate.id}: incomplete L1-L5 spine`);
-  if (candidate.releaseArticleCount < 30 || candidate.releaseArticleCount > 50) {
-    issues.push(`${candidate.id}: release size must be 30-50 articles`);
+  // The 30-50 band was a launch-gate for a new subject's first release. Live
+  // subjects keep growing after launch (linguistics passed 50 on 2026-08-02,
+  // batch T-CONTENT-47), so the upper bound moved to 60; the lower bound and
+  // the launch-size guidance in the matrix itself are unchanged.
+  if (candidate.releaseArticleCount < 30 || candidate.releaseArticleCount > 60) {
+    issues.push(`${candidate.id}: release size must be 30-60 articles`);
   }
   if (candidate.visualizations.length < 3 || candidate.visualizations.length > 5) {
     issues.push(`${candidate.id}: release must include 3-5 visualizations`);

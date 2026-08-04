@@ -1,4 +1,11 @@
-/* === RESPONSIVE === */
+/* === RESPONSIVE ===
+ * Rules that apply to every human-history route (nav) or to the home page
+ * plus classes the home page shares with other routes (figures-grid,
+ * figure-card, figure-avatar, section-title, era-icon). Route-scoped
+ * overrides live in styles/pages/<route>.css next to the page that uses
+ * them; keep this file free of single-route selectors — it ships on every
+ * human-history route and the home route is at its CSS budget.
+ */
 @media (max-width: 720px) {
   .human-history-root .nav-subtitle {
     display: none;
@@ -125,98 +132,6 @@
     font-size: 1.6rem;
   }
 
-  .human-history-root .timeline-page {
-    max-width: var(--content-wide);
-    padding: 100px 56px 80px;
-  }
-
-  .human-history-root .timeline-summary {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 12px;
-  }
-
-  .human-history-root .timeline-summary > div {
-    padding: 16px 18px;
-  }
-
-  .human-history-root .timeline-summary strong {
-    font-size: 1.1rem;
-  }
-
-  .human-history-root .timeline-tools {
-    justify-content: space-between;
-  }
-
-  .human-history-root .timeline-search {
-    max-width: 520px;
-  }
-
-  .human-history-root .year-scrubber {
-    max-width: var(--content-wide);
-    padding: 0;
-  }
-
-  .human-history-root .timeline-era-section {
-    display: grid;
-    grid-template-columns: 340px 1fr;
-    grid-template-rows: auto auto 1fr;
-    gap: 0 32px;
-    margin-bottom: 56px;
-  }
-
-  .human-history-root .timeline-era-head {
-    grid-column: 1 / -1;
-  }
-
-  .human-history-root .tl-era-intro {
-    grid-column: 1;
-    grid-row: 2;
-    padding: 0;
-  }
-
-  .human-history-root .region-tabs {
-    grid-column: 1;
-    grid-row: 3;
-    padding: 0;
-    align-self: start;
-    position: sticky;
-    top: calc(var(--nav-h) + 20px);
-  }
-
-  .human-history-root .timeline-track {
-    grid-column: 2;
-    grid-row: 2 / 4;
-    padding-left: 36px;
-    border-left: 1px solid var(--border);
-  }
-
-  .human-history-root .tl-event-card {
-    padding: 18px 22px;
-  }
-
-  .human-history-root .tl-title {
-    font-size: 1.1rem;
-  }
-
-  .human-history-root .paginated-card {
-    margin: 0 0 20px 0;
-    height: 50vh;
-  }
-
-  .human-history-root .pc-content {
-    max-width: 1000px;
-  }
-
-  .human-history-root .figures-page {
-    max-width: var(--content-wide);
-    padding: 100px 56px 80px;
-  }
-
-  .human-history-root .map-page {
-    max-width: var(--content-wide);
-    padding: 100px 56px 80px;
-  }
-
   .human-history-root .figures-grid {
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 24px;
@@ -230,45 +145,6 @@
     width: 56px;
     height: 56px;
     font-size: 1.8rem;
-  }
-
-  .human-history-root .map-svg-wrap {
-    max-width: var(--content-wide);
-  }
-
-  .human-history-root .map-explorer {
-    grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
-  }
-
-  .human-history-root .map-info-panel {
-    max-width: var(--content-wide);
-    padding: 0 56px 80px;
-  }
-
-  .human-history-root .graph-page {
-    padding: 100px 32px 0;
-  }
-
-  .human-history-root .graph-container {
-    margin: 0 32px 16px;
-  }
-
-  .human-history-root .atlas-page {
-    padding: 0;
-  }
-
-  .human-history-root .atlas-toolbar {
-    padding: 10px 24px;
-  }
-
-  .human-history-root .atlas-ctrl-btn {
-    width: 36px;
-    height: 36px;
-  }
-
-  .human-history-root .scene-panel {
-    width: 560px;
-    padding: 32px;
   }
 }
 
@@ -346,73 +222,8 @@
     font-size: 1.8rem;
   }
 
-  .human-history-root .timeline-page {
-    max-width: 1920px;
-    padding: 100px 80px;
-  }
-
-  .human-history-root .timeline-era-section {
-    grid-template-columns: 380px 1fr;
-    margin-bottom: 64px;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 40px;
-  }
-
-  .human-history-root .figures-page {
-    max-width: 1920px;
-    padding: 100px 80px;
-  }
-
   .human-history-root .figures-grid {
     grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
     gap: 28px;
-  }
-
-  .human-history-root .map-page {
-    max-width: 1920px;
-    padding: 100px 80px;
-  }
-
-  .human-history-root .map-svg-wrap {
-    max-width: 1920px;
-  }
-
-  .human-history-root .map-explorer {
-    grid-template-columns: minmax(0, 1fr) minmax(360px, 460px);
-  }
-
-  .human-history-root .map-info-panel {
-    max-width: 1920px;
-    padding: 0 80px 100px;
-  }
-
-  .human-history-root .graph-page {
-    padding: 100px 48px 0;
-  }
-
-  .human-history-root .graph-container {
-    margin: 0 48px 24px;
-  }
-
-  .human-history-root .scene-panel {
-    width: 600px;
-    padding: 36px;
-  }
-
-  .human-history-root .lessons-page {
-    max-width: 1400px;
-    padding: 100px 56px 80px;
-  }
-
-  .human-history-root .ls-lesson-title {
-    font-size: 1.3rem;
-  }
-
-  .human-history-root .ls-case-detail {
-    font-size: 0.88rem;
-  }
-
-  .human-history-root .ls-epilogue-points {
-    max-width: 1000px;
   }
 }

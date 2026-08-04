@@ -185,6 +185,27 @@ export const COVERAGE_DOMAIN_META: Record<
     color: "#3f9b92",
     status: "established",
   },
+  law: {
+    label: "法学",
+    shortLabel: "法",
+    href: "/law",
+    color: "#a8843c",
+    status: "established",
+  },
+  arts: {
+    label: "艺术",
+    shortLabel: "艺",
+    href: "/arts",
+    color: "#b0785a",
+    status: "established",
+  },
+  engineering: {
+    label: "工程与技术",
+    shortLabel: "工",
+    href: "/engineering",
+    color: "#8a919e",
+    status: "established",
+  },
 };
 
 export const COVERAGE_EVIDENCE_META: Record<

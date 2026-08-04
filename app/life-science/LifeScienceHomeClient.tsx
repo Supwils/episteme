@@ -150,11 +150,13 @@ function EraCard({
         <div className="flex items-center justify-between">
           <span
             className="font-mono text-[10px] tracking-[0.32em] uppercase"
-            style={{ color: era.accent }}
+            style={{
+              color: `color-mix(in oklab, ${era.accent} 55%, var(--color-fg-primary))`,
+            }}
           >
             {era.eraLabel}
           </span>
-          <span className="text-fg-disabled font-mono text-[9px] tracking-[0.22em]">{era.era}</span>
+          <span className="text-fg-muted font-mono text-[9px] tracking-[0.22em]">{era.era}</span>
         </div>
         <div className="flex flex-col gap-1">
           <h2 className="font-display text-fg-primary group-hover:text-accent-green text-2xl leading-tight font-semibold transition-colors duration-300">
@@ -203,6 +205,7 @@ function SpeciesCard({
   return (
     <motion.div
       className="min-w-[220px] shrink-0 snap-start"
+      role="listitem"
       initial={{ opacity: 0, x: 40 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6, delay: reduce ? 0 : 1.6 + index * 0.1, ease: PRODUCT_EASE }}
@@ -211,11 +214,13 @@ function SpeciesCard({
         <div className="flex items-start justify-between">
           <div
             className="border-border-subtle flex h-10 w-10 items-center justify-center border text-xl"
-            style={{ color: species.accent }}
+            style={{
+              color: `color-mix(in oklab, ${species.accent} 55%, var(--color-fg-primary))`,
+            }}
           >
             {species.icon}
           </div>
-          <span className="text-fg-disabled font-mono text-[9px] tracking-[0.2em]">
+          <span className="text-fg-muted font-mono text-[9px] tracking-[0.2em]">
             {species.period}
           </span>
         </div>
@@ -337,6 +342,8 @@ export default function LifeScienceHomeClient() {
         <div
           className="flex snap-x snap-mandatory scrollbar-none gap-4 overflow-x-auto pb-4"
           role="list"
+          aria-label="代表性物种，可横向滚动"
+          tabIndex={0}
         >
           {FEATURED_SPECIES.map((species, i) => (
             <SpeciesCard key={species.latin} species={species} index={i} reduce={!!reduce} />

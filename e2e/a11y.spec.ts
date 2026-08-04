@@ -1,10 +1,18 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
+import { buildKnowledgeBranchCatalog } from "@/lib/knowledge-branch-catalog";
 
-// Representative page of each rendering path: portal, the generic domain engine
-// (+ the two new inline interactives), philosophy/MDX, the species prose route,
-// a frontier article, and the canvas-heavy knowledge graph. We gate on serious +
-// critical WCAG 2 A/AA violations — the bar that actually blocks real users.
+// Fast representative gate for interactive flows. The exhaustive landing/article,
+// theme and viewport matrix lives in scripts/a11y-scan.mjs.
+
+// Derived from the same builder that renders the page (pinned against
+// subjects/knowledge-graph/data/aggregate-snapshot.json by the lib unit tests),
+// so content or graph changes never require editing this expectation.
+const candidateCountSuffix = `${
+  buildKnowledgeBranchCatalog().targets.find(
+    (target) => target.id === "medicine:body-disease-evidence"
+  )!.candidateCount
+}条等距来路`;
 const PAGES: { name: string; path: string }[] = [
   { name: "portal", path: "/" },
   {
@@ -61,17 +69,7 @@ for (const p of PAGES) {
     await page.goto(p.path, { waitUntil: "domcontentloaded" });
     // let client islands (interactives, canvas) mount + fade-in animations settle
     await page.waitForTimeout(1500);
-    // `header` (nav) and the portal `.domain-card` use each domain's brand accent
-    // as text/active-pill colour. A few of those accents miss 4.5:1 on the tinted
-    // surfaces they sit on, but they carry redundant non-colour cues (labels,
-    // arrows, aria-current, fill, bold) so they don't fail WCAG 1.4.1. We gate the
-    // *content* — body text, labels, headings — at full AA and document the brand
-    // chrome as a deliberate exception.
-    const results = await new AxeBuilder({ page })
-      .withTags(["wcag2a", "wcag2aa"])
-      .exclude("header")
-      .exclude(".domain-card")
-      .analyze();
+    const results = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa"]).analyze();
     const serious = results.violations.filter(
       (v) => v.impact === "serious" || v.impact === "critical"
     );
@@ -170,7 +168,7 @@ test("a11y: portal full-graph learning branch", async ({ page }) => {
   await search.fill("身体、疾病与证据");
   await planner
     .getByRole("option", { name: /从身体、疾病与证据开始/ })
-    .filter({ hasText: "18条等距来路" })
+    .filter({ hasText: candidateCountSuffix })
     .click();
   await expect(planner.getByRole("heading", { name: "同距锚点比较" })).toBeVisible();
 

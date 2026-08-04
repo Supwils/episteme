@@ -269,7 +269,9 @@ export default function EconomicsHomeClient() {
                   </span>
                   <span
                     className="font-mono text-[10px] tracking-[0.28em] uppercase"
-                    style={{ color: section.accent }}
+                    style={{
+                      color: `color-mix(in oklab, ${section.accent} 42%, var(--color-fg-primary))`,
+                    }}
                   >
                     {section.count}
                   </span>

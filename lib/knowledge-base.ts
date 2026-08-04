@@ -5,7 +5,10 @@ import { getDomainContentDir } from "./content-paths";
 
 const KB_ROOT = path.join(getDomainContentDir("human-history"), "knowledge-base");
 
-const SKIP_FILES = new Set([
+// Editorial meta-docs at the KB root, not knowledge content. Excluded from the
+// list page here and reused by lib/search/articles.ts so the search and wiki
+// indexes skip the same files.
+export const SKIP_FILES = new Set([
   "索引.md",
   "工程守则.md",
   "审校工作台.md",
@@ -149,6 +152,9 @@ export function getArticleBySlug(slug: string): KBArticleFull | null {
   }
   if (wanted.includes("..")) return null;
   const relPath = wanted.replace(/--/g, "/") + ".md";
+  // Meta-docs are excluded from listings but the files still exist on disk;
+  // without this check their direct URLs would render publicly.
+  if (SKIP_FILES.has(path.basename(relPath))) return null;
   const fullPath = path.resolve(KB_ROOT, relPath);
   if (!fullPath.startsWith(path.resolve(KB_ROOT))) return null;
   let raw: string;

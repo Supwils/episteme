@@ -31,6 +31,8 @@ export interface KnowledgeItem {
   related: string[];
   order: number;
   excerpt: string;
+  /** Frontmatter `updated` date (YYYY-MM-DD), used by 最近更新 strips. */
+  updated: string;
   /** Present optional frontmatter fields, surfaced verbatim in the sidebar. */
   info: KnowledgeInfo[];
 }
@@ -69,6 +71,16 @@ function strArray(value: unknown): string[] {
 
 function str(value: unknown): string {
   return typeof value === "string" ? value : "";
+}
+
+/** gray-matter parses unquoted YYYY-MM-DD frontmatter into Date objects;
+ *  quoted dates stay strings — normalize both to an ISO date string. */
+function strDate(value: unknown): string {
+  if (typeof value === "string") return value;
+  if (value instanceof Date && !Number.isNaN(value.getTime())) {
+    return value.toISOString().slice(0, 10);
+  }
+  return "";
 }
 
 function buildInfo(data: Record<string, unknown>): KnowledgeInfo[] {
@@ -115,6 +127,7 @@ export function createKnowledgeSection(domain: string, section: string): Knowled
       related: strArray(data.related),
       order: typeof data.order === "number" ? data.order : 999,
       excerpt: extractExcerpt(content),
+      updated: strDate(data.updated),
       info: buildInfo(data),
     };
   };
@@ -150,7 +163,6 @@ export function createKnowledgeSection(domain: string, section: string): Knowled
     const { data, content } = safeParseMatter(fs.readFileSync(full, "utf-8"));
     return {
       ...toItem(file),
-      updated: str(data.updated),
       content: stripLeadingHeading(content),
       molecule: str(data.molecule) || undefined,
       interactive: str(data.interactive) || undefined,

@@ -27,7 +27,7 @@ export function ReadingPathBar() {
   const stepLink = (s: ReadingStep, n: number) => `${s.href}?path=${path.slug}&step=${n}`;
 
   return (
-    <div className="fixed bottom-4 left-1/2 z-50 w-[min(680px,calc(100vw-1.5rem))] -translate-x-1/2">
+    <div className="print-hidden fixed bottom-4 left-1/2 z-50 w-[min(680px,calc(100vw-1.5rem))] -translate-x-1/2">
       <div
         className="flex items-stretch gap-1 rounded-2xl border border-[var(--nav-border)] bg-[var(--nav-bg)] p-1.5 backdrop-blur-md"
         style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.35)" }}

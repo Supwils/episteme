@@ -7,6 +7,7 @@ import { Reveal } from "./Reveal";
 
 type ConnectedNodesProps = {
   nodeId: string;
+  nodeDomain: GraphNode["domain"];
   nodes: GraphNode[];
   edges: GraphEdge[];
   prerequisiteIds: string[];
@@ -15,6 +16,7 @@ type ConnectedNodesProps = {
 
 export function ConnectedNodes({
   nodeId,
+  nodeDomain,
   nodes,
   edges,
   prerequisiteIds,
@@ -25,6 +27,7 @@ export function ConnectedNodes({
   const grouped = groupByDomain(nodes);
   const edgeMap = buildEdgeMap(edges);
   const prerequisiteIdSet = new Set(prerequisiteIds);
+  const crossDomainCount = nodes.filter((node) => node.domain !== nodeDomain).length;
 
   function findEdge(connectedId: string): GraphEdge | undefined {
     return edgeMap.get(`${nodeId}->${connectedId}`) ?? edgeMap.get(`${connectedId}->${nodeId}`);
@@ -35,6 +38,9 @@ export function ConnectedNodes({
       <div className="border-t border-white/[0.06] pt-5">
         <h3 className="mb-4 font-mono text-[10px] tracking-[0.3em] text-white/45 uppercase">
           前置与关联节点
+          {crossDomainCount > 0 && (
+            <span className="text-amber-300/60"> · {crossDomainCount} 条跨域</span>
+          )}
         </h3>
         <div className="flex flex-col gap-4">
           {Array.from(grouped.entries()).map(([domain, domainNodes]) => {
@@ -70,6 +76,11 @@ export function ConnectedNodes({
                           {prerequisiteIdSet.has(connected.id) ? (
                             <span className="mt-0.5 block font-mono text-[9px] tracking-[0.14em] text-indigo-300/70 uppercase">
                               前置知识
+                            </span>
+                          ) : null}
+                          {connected.domain !== nodeDomain ? (
+                            <span className="mt-0.5 block font-mono text-[9px] tracking-[0.14em] text-amber-300/70 uppercase">
+                              跨域
                             </span>
                           ) : null}
                           {edge?.label ? (

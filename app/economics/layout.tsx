@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { spaceGrotesk, plexMono } from "./fonts";
 import { SubjectHeader } from "@/components/SubjectHeader";
 import "./globals.css";
+// KaTeX stylesheet: articles in this domain render math via MarkdownRenderer
+// (server-side renderToString), which needs these styles + fonts to display properly.
+import "katex/dist/katex.min.css";
 
 export const metadata: Metadata = {
   title: "经济学、金融与博弈论 — Episteme · 格致",

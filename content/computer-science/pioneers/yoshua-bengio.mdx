@@ -2,7 +2,7 @@
 title: 约书亚·本希奥
 title_en: Yoshua Bengio
 status: published
-updated: 2026-06-13
+updated: 2026-07-31
 category: 人工智能
 years: 1964–
 nationality: 加拿大（出生于法国巴黎）
@@ -43,11 +43,23 @@ Bengio 1964 年 3 月 5 日出生于法国巴黎，后移居加拿大，在麦�
 
 **词嵌入（Word Embeddings，2003）**：Bengio 等人提出用神经网络把词语映射为稠密向量，使得语义相似的词在向量空间中距离相近。这篇论文在发表后数年影响有限，直到 Mikolov 的 Word2Vec（2013）使其大规模普及，人们才回过头认识到 Bengio 2003 年工作的先见之明。
 
+要理解这篇论文为什么重要，需要先看它要打破的瓶颈。此前的统计语言模型（n-gram）把词当作毫无内部结构的离散符号："猫"和"狗"在模型眼中和"猫"和"量子"一样毫无关系——词表有十万词，一个 n-gram 模型就要处理 $10^{15}$ 量级的可能三元组，而绝大多数序列在训练语料里从未出现过。这就是论文标题里"维度灾难"（curse of dimensionality）的含义：不是算不动，而是**数据永远不够**——每一个没见过的词序，模型都无从估计其概率。
+
+嵌入的回答是换一种表示：把每个词先投影到一个几十维的连续向量，再用神经网络在这些向量上计算概率。一旦词有了几何位置，泛化就发生了质变——模型在"狗在跑"上学到的东西，可以迁移给从未见过的"猫在跑"，因为"猫"和"狗"的向量本来就被训练得彼此靠近。离散的查表变成了连续的函数逼近，没见过的词序第一次有了非任意的概率估计。这套"学习表示本身"的立场，后来成为 Bengio 全部工作的主线：2013 年他牵头写的综述《表征学习：回顾与新视角》（Representation Learning）把这个思想整理成了深度学习的统一纲领。
+
 **梯度消失问题的分析（1994）**：Bengio、Simard、Frasconi 在 1994 年系统分析了为什么 RNN 难以学习长期依赖——梯度在反向传播时随时间步指数级缩小（或爆炸）。这一分析为 LSTM（Hochreiter & Schmidhuber，1997）的提出铺垫了问题定义。
 
 **生成对抗网络（GAN，2014）**：Ian Goodfellow 在 Bengio 的研究组提出了 GAN。生成器与判别器的对抗训练框架彻底改变了生成模型的面貌，让计算机能够生成逼真的图像、音频和文本。Bengio 作为 Goodfellow 的导师，在 GAN 的提出中扮演了导师和评审的角色，并在论文中作为共同作者。
 
 **注意力机制的早期贡献（2015）**：Bahdanau、Cho、Bengio 的论文《基于对齐与翻译的神经机器翻译》（Neural Machine Translation by Jointly Learning to Align and Translate）将注意力机制（Attention）引入序列到序列模型，让模型在生成每个词时动态关注源句的不同部分。这篇论文是后来 Transformer（2017）的直接先驱。
+
+## 深度学习复兴中的角色分工
+
+2006 年前后深度学习的"解冻"，三人的贡献形状各不相同。Hinton 给出了第一把钥匙：2006 年他与学生用受限玻尔兹曼机逐层预训练深度信念网络，第一次让 5 层以上的网络被有效训练——证明了"深"是可行的。
+
+Bengio 团队接过的问题是"为什么可行、能否推广"。2007 年，他与合作者发表论文《深度网络的贪心逐层训练》（Greedy Layer-Wise Training of Deep Networks），把预训练从玻尔兹曼机推广到普通的自编码器，使其成为一种与具体模型无关的通用训练程序；随后 Erhan 等人（2010）在他的组里系统实验了"无监督预训练为什么有帮助"，提出正则化与优化两条解释路径——预训练把参数初始化到损失曲面上更有利的区域，相当于一种结构化的先验。当 2012 年后大规模标注数据和 GPU 让纯监督训练直接可行，逐层预训练作为常规手段退出了舞台；但它确立的问题意识——表示应该从数据中学、初始化与优化路径决定最终泛化——已经内化进整个领域。
+
+这就是 Bengio 在复兴中的位置：Hinton 负责"点火"，LeCun 负责早就准备好的"引擎"（卷积结构），Bengio 负责把经验突破翻译回理论语言，让后来者知道自己在做什么。
 
 ## 2018 年图灵奖与转向 AI 安全
 
@@ -55,7 +67,13 @@ Bengio 1964 年 3 月 5 日出生于法国巴黎，后移居加拿大，在麦�
 
 他参与创立了 Mila（蒙特利尔人工智能研究所），该机构是全球最大的大学 AI 研究中心之一。他的研究组开始发表关于 AI 公平性、可解释性和对齐（Alignment）的论文。
 
-2023 年，ChatGPT 引发的 AI 热潮之后，Bengio 的公开立场变得更加明确：他签署了呼吁暂停训练比 GPT-4 更强系统的公开信，呼吁建立国际 AI 安全委员会（类比 IPCC，即政府间气候变化专门委员会），并在加拿大联邦政府的 AI 监管听证会上出席作证。2024 年，他被任命为 LawZero 的联席主席——这是一个专注于 AI 安全研究的非营利机构。
+2023 年，ChatGPT 引发的 AI 热潮之后，Bengio 的公开立场变得更加明确：他签署了呼吁暂停训练比 GPT-4 更强系统的公开信，呼吁建立国际 AI 安全委员会（类比 IPCC，即政府间气候变化专门委员会），并在加拿大联邦政府的 AI 监管听证会上出席作证。
+
+此后两年，他把这一立场落实为两个具体机构性行动：
+
+**主持《国际 AI 安全报告》**。2023 年 11 月英国布莱切利 AI 安全峰会后，英国政府委托 Bengio 主持撰写《国际 AI 安全报告》（International AI Safety Report），由来自 30 个国家的专家顾问组参与。2024 年 5 月发布中期版，**2025 年 1 月正式发布首份报告**，由 100 余位学者署名，系统梳理了前沿 AI 在恶意使用、失控风险与系统性风险上的科学证据；第二份报告于 2026 年 2 月发布。这是迄今最接近他倡议的"AI 版 IPCC"的机制——用多国联合的同行评议文本，替代各公司各自陈述的风险叙事。
+
+**创立 LawZero 与"科学家 AI"路线**。2025 年 2 月，Bengio 与合作者发表论文《超级智能体带来灾难性风险：科学家 AI 能否提供更安全的道路？》（arXiv:2502.15657），论证当前实验室竞相建造的自主行动、自主规划的"代理式"（agentic）AI 具有内生的失控风险，应转向建造**非代理式**系统——只预测、解释和回答问题，不对世界状态持有目标的"科学家 AI"。2025 年 6 月，他在蒙特利尔创立非营利机构 **LawZero**（获约 3000 万美元慈善资助，资助方包括 Schmidt Sciences、Open Philanthropy、Future of Life Institute 等），由 Bengio 任主席，专职沿着这条路线做"设计上即安全"的 AI 研究。
 
 这与 LeCun 的立场形成鲜明对比，尽管两人仍然相互尊重。
 
@@ -69,11 +87,11 @@ Bengio 1964 年 3 月 5 日出生于法国巴黎，后移居加拿大，在麦�
 
 ## 跨域连接
 
-- **概率论与统计学**：Bengio 的研究深度根植于概率图模型、变分推断和信息论——与其说他是工程师，不如说他是把统计力学的思维带入神经网络的理论家。
-- **哲学**：Bengio 在 AI 安全问题上的转变，涉及"科学家对技术后果的道德责任"这一古老议题，是奥本海默困境在 AI 时代的重演。
-- **[[geoffrey-hinton]]**：图灵奖同年得主，在 AI 安全问题上持相近立场。
-- **[[natural-language-processing]]**：Bengio 的词嵌入和注意力机制是现代 NLP 的两块奠基石。
-- **[[machine-learning-overview]]**：Bengio 对深度学习为什么有效的理论探索，至今是机器学习泛化理论的重要组成部分。
+- **[[semantics|语义学]]**：词向量把"意义"操作化为分布——一个词的表示由它出现的上下文决定，语义相似于是变成几何邻近。**这实现了分布假设，也继承了它的边界：能捕捉搭配与类别，捕捉不到指称与真值**。可检验的对照很清楚：类比关系能在向量空间里读出来，一句话是不是真的却读不出来。
+- **[[eigenvalue|特征值]]**：循环网络反向传播时，梯度是一串雅可比矩阵的连乘，**其模随时间步指数增长或衰减，取决于谱半径大于还是小于一**——这与线性动力系统的稳定性判据是同一个量。推论直接指向解法：既要长期记忆又要不爆炸，就得人为造出一条增益近似为一的路径，门控与残差连接都是在做这件事。
+- **[[nash-equilibrium|纳什均衡]]**：对抗生成的两方目标严格相反，训练要找的不是某个损失的极小值，而是一个鞍点。**这解释了它特有的病理：损失下降不代表进步，双方可能进入循环而非收敛**。评估方式也因此必须换——看样本的质量与多样性，看损失曲线没有意义。
+- **[[ensemble-prediction-and-decision|集合预报与决策]]**：他呼吁建立类似气候评估的国际机构，但这套模式能成立有个前提。**气象与气候把不确定性当作产品的一部分交付——集合预报给出概率分布而非单一结果，决策者据此设阈值**。人工智能风险评估目前缺的正是这一步：没有可比的概率化输出，讨论就只能停在立场对立上。
+- **[[attention-and-transformers|注意力与 Transformer]]**：注意力把"该看输入的哪一部分"变成可学习的加权，取代了把整句压进定长向量的做法，**序列长度与表示容量由此解绑**。代价同样是结构性的：注意力的计算量随序列长度平方增长，因此长上下文的开销不是工程细节，而是这套机制自带的账单。
 
 ## 人物小记：学者与公民
 
@@ -96,5 +114,9 @@ Mila 的资金来源是加拿大联邦政府（泛加拿大人工智能战略，
 - LeCun, Y., Bengio, Y., Hinton, G. *Deep Learning.* Nature 521, 2015.
 - Bengio, Y. et al. *Representation Learning: A Review and New Perspectives.* IEEE TPAMI 35(8), 2013.（自监督表示学习的综述）
 - Bengio, Y. *Managing AI Risks in an Era of Rapid Progress.* arxiv.org, 2023.（AI 安全立场论文）
+- Bengio, Y., Lamblin, P., Popovici, D., Larochelle, H. *Greedy Layer-Wise Training of Deep Networks.* NIPS, 2007.（无监督逐层预训练的推广）
+- Erhan, D., Bengio, Y., Courville, A. et al. *Why Does Unsupervised Pre-training Help Deep Learning?* JMLR 11, 2010.（预训练有效性的系统实验分析）
+- Bengio, Y., Cohen, M. et al. *Superintelligent Agents Pose Catastrophic Risks: Can Scientist AI Offer a Safer Path?* arXiv:2502.15657, 2025.（非代理式 AI 安全路线）
+- Bengio, Y. et al. *International AI Safety Report 2025.* internationalaisafetyreport.org, 2025.（首份多国联合 AI 安全科学评估，Bengio 任主席）
 - Cho, K., van Merrienboer, B., Bahdanau, D., Bengio, Y. *On the Properties of Neural Machine Translation: Encoder-Decoder Approaches.* SSST Workshop, EMNLP, 2014.（GRU 与编码器-解码器架构）
 - Courville, A., Goodfellow, I., Bengio, Y. *Deep Learning.* MIT Press, 2016.（深度学习权威教材，Bengio 团队出品，可免费在线获取）

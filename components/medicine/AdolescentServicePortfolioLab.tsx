@@ -11,6 +11,7 @@ import {
 } from "@/subjects/medicine/lib/adolescent-service-portfolio";
 import { AdolescentServicePortfolioTable } from "./AdolescentServicePortfolioTable";
 import { AdolescentServiceSensitivity } from "./AdolescentServiceSensitivity";
+import { AdolescentServiceLabSnapshots } from "./AdolescentServiceLabSnapshots";
 import { AdolescentServiceStackDiagram } from "./AdolescentServiceStackDiagram";
 
 const ACCENT = "#d9a85a";
@@ -20,8 +21,9 @@ export function AdolescentServicePortfolioLab() {
     DEFAULT_ADOLESCENT_SERVICE_CONSTRAINTS
   );
   const [activeScenarioId, setActiveScenarioId] = useState("connected-district");
-  const [sensitivityOptionId, setSensitivityOptionId] =
-    useState<AdolescentServiceOptionId>("community-youth-outreach");
+  const [sensitivityOptionId, setSensitivityOptionId] = useState<AdolescentServiceOptionId>(
+    "community-youth-outreach"
+  );
   const [costMultiplier, setCostMultiplier] = useState(1);
   const [effectMultiplier, setEffectMultiplier] = useState(1);
 
@@ -146,9 +148,7 @@ export function AdolescentServicePortfolioLab() {
               type="checkbox"
               className="mt-0.5 h-4 w-4 accent-[#d9a85a]"
               checked={constraints.requireCompletePathway}
-              onChange={(event) =>
-                updateConstraint("requireCompletePathway", event.target.checked)
-              }
+              onChange={(event) => updateConstraint("requireCompletePathway", event.target.checked)}
             />
             <span>
               <span className="text-fg-primary block text-sm font-medium">
@@ -192,10 +192,7 @@ export function AdolescentServicePortfolioLab() {
                 label="服务不足群体占比"
                 value={`${Math.round(portfolio.underservedBenefitShare * 100)}%`}
               />
-              <Metric
-                label="路径状态"
-                value={portfolio.hasCompletePathway ? "完整" : "有断点"}
-              />
+              <Metric label="路径状态" value={portfolio.hasCompletePathway ? "完整" : "有断点"} />
             </dl>
           )}
         </div>
@@ -218,6 +215,17 @@ export function AdolescentServicePortfolioLab() {
       />
 
       <AdolescentServicePortfolioTable portfolio={portfolio} assumptions={assumptions} />
+
+      <AdolescentServiceLabSnapshots
+        current={{ constraints, sensitivityOptionId, costMultiplier, effectMultiplier }}
+        onLoad={(snapshot) => {
+          setConstraints(snapshot.constraints);
+          setSensitivityOptionId(snapshot.sensitivityOptionId);
+          setCostMultiplier(snapshot.costMultiplier);
+          setEffectMultiplier(snapshot.effectMultiplier);
+          setActiveScenarioId("");
+        }}
+      />
 
       <footer className="border-border-faint grid gap-4 border-t px-5 py-5 text-sm leading-relaxed sm:px-7 lg:grid-cols-2">
         <p className="text-fg-secondary">

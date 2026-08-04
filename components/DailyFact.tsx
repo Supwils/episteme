@@ -60,13 +60,18 @@ export function DailyFact({ fact, domain, source }: DailyFactProps) {
     >
       <div className="mb-2.5 flex items-center gap-2">
         <span className="text-sm">💡</span>
-        <span className="text-[0.7rem] font-semibold tracking-wide" style={{ color: style.accent }}>
+        <span
+          className="text-[0.7rem] font-semibold tracking-wide"
+          style={{
+            color: `color-mix(in oklab, ${style.accent} 38%, var(--color-fg-primary))`,
+          }}
+        >
           {style.label}
         </span>
-        <span className="text-[0.7rem] text-[#9ca3af]">· 趣味知识</span>
+        <span className="text-fg-muted text-[0.7rem]">· 趣味知识</span>
       </div>
       <p className="text-fg-primary m-0 text-[0.9rem] leading-relaxed">{fact}</p>
-      {source && <p className="m-0 mt-2.5 text-[0.72rem] text-[#9ca3af]">来源：{source}</p>}
+      {source && <p className="text-fg-muted m-0 mt-2.5 text-[0.72rem]">来源：{source}</p>}
     </motion.div>
   );
 }

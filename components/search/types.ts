@@ -13,7 +13,10 @@ export type Section =
   | "medicine"
   | "chemistry"
   | "sociology"
-  | "linguistics";
+  | "linguistics"
+  | "law"
+  | "arts"
+  | "engineering";
 
 export const SECTION_META: Record<Section, { label: string; color: string }> = {
   physics: { label: "宇宙物理", color: "#6ad0ff" },
@@ -31,6 +34,9 @@ export const SECTION_META: Record<Section, { label: string; color: string }> = {
   chemistry: { label: "化学", color: "#e08a3c" },
   sociology: { label: "社会学", color: "#b07cc6" },
   linguistics: { label: "语言学", color: "#6fa8c7" },
+  law: { label: "法学", color: "#a8843c" },
+  arts: { label: "艺术", color: "#b0785a" },
+  engineering: { label: "工程", color: "#8a919e" },
 };
 
 /** Order results are listed in. Every key of SECTION_META must appear — a

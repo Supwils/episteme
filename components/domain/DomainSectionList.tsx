@@ -1,7 +1,20 @@
-import Link from "next/link";
+import { DomainSectionListBrowser } from "@/components/domain/DomainSectionListBrowser";
+import type {
+  SectionListBadge,
+  SectionListEntry,
+} from "@/components/domain/DomainSectionListBrowser";
+import { groupBacklinks } from "@/lib/backlinks";
+import { DOMAINS } from "@/lib/data";
 import { createKnowledgeSection } from "@/lib/knowledge-domain";
 import { getDomainConfig, getSectionConfig } from "@/lib/new-domains";
 import { notFound } from "next/navigation";
+
+// Same accent source as <CrossDomainBadge> — the badge itself stays server-only
+// (it reads the ~275 KB backlink index), so list cards receive precomputed
+// dot colors as plain data for the client-side browser to render.
+const ACCENT_BY_DOMAIN: Record<string, string> = Object.fromEntries(
+  DOMAINS.map((d) => [d.id, d.glowColor])
+);
 
 export function DomainSectionList({ domain, section }: { domain: string; section: string }) {
   const domainConfig = getDomainConfig(domain);
@@ -11,12 +24,26 @@ export function DomainSectionList({ domain, section }: { domain: string; section
   const items = createKnowledgeSection(domain, section).getAll();
   const accent = sectionConfig.accent;
 
-  const grouped = new Map<string, typeof items>();
+  const entries: SectionListEntry[] = items.map((item) => ({
+    slug: item.slug,
+    title: item.title,
+    titleEn: item.titleEn,
+    excerpt: item.excerpt,
+    tags: item.tags,
+    category: item.category || sectionConfig.label,
+    info0: item.info[0]?.value,
+  }));
+
+  const badges: Record<string, SectionListBadge> = {};
   for (const item of items) {
-    const cat = item.category || sectionConfig.label;
-    const list = grouped.get(cat) ?? [];
-    list.push(item);
-    grouped.set(cat, list);
+    const { crossDomain } = groupBacklinks(`/${domain}/${section}/${item.slug}`);
+    if (crossDomain.length > 0) {
+      badges[item.slug] = {
+        colors: crossDomain.map((g) => ACCENT_BY_DOMAIN[g.domain] ?? "currentColor"),
+        count: crossDomain.length,
+        names: crossDomain.map((g) => g.label).join("、"),
+      };
+    }
   }
 
   return (
@@ -38,70 +65,15 @@ export function DomainSectionList({ domain, section }: { domain: string; section
         )}
       </header>
 
-      {Array.from(grouped.entries()).map(([category, list]) => (
-        <section key={category} className="mb-12">
-          {grouped.size > 1 && (
-            <div className="mb-5 flex items-center gap-3">
-              <span
-                className="font-mono text-[10px] tracking-[0.32em] uppercase"
-                style={{ color: accent }}
-              >
-                {category}
-              </span>
-              <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">
-                {list.length} 篇
-              </span>
-              <span className="bg-border-faint h-px flex-1" />
-            </div>
-          )}
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {list.map((item) => (
-              <Link
-                key={item.slug}
-                href={`/${domain}/${section}/${item.slug}`}
-                className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative flex flex-col gap-2 overflow-hidden border p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5"
-              >
-                <div
-                  className="pointer-events-none absolute -top-10 -right-10 h-28 w-28 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-15"
-                  style={{ backgroundColor: accent }}
-                />
-                <div className="relative flex items-center gap-2">
-                  <div
-                    className="h-5 w-0.5 rounded-full opacity-60"
-                    style={{ backgroundColor: accent }}
-                  />
-                  {item.info[0] && (
-                    <span
-                      className="font-mono text-[9px] tracking-[0.22em] uppercase"
-                      style={{ color: accent }}
-                    >
-                      {item.info[0].value}
-                    </span>
-                  )}
-                </div>
-                <h3 className="font-display text-fg-primary group-hover:text-accent-gold relative text-lg leading-snug font-semibold transition-colors">
-                  {item.title}
-                </h3>
-                {item.titleEn && (
-                  <p className="text-fg-muted font-display -mt-1 text-sm tracking-wide italic opacity-60">
-                    {item.titleEn}
-                  </p>
-                )}
-                <p className="text-fg-secondary relative flex-1 text-sm leading-relaxed">
-                  {item.excerpt}
-                </p>
-                {item.tags.length > 0 && (
-                  <p className="text-fg-disabled relative font-mono text-[10px] tracking-wider">
-                    {item.tags.slice(0, 3).join(" · ")}
-                  </p>
-                )}
-              </Link>
-            ))}
-          </div>
-        </section>
-      ))}
-
-      {items.length === 0 && (
+      {items.length > 0 ? (
+        <DomainSectionListBrowser
+          domain={domain}
+          section={section}
+          accent={accent}
+          entries={entries}
+          badges={badges}
+        />
+      ) : (
         <div className="border-border-faint bg-bg-panel mt-12 border p-12 text-center">
           <p className="text-fg-muted font-mono text-[11px] tracking-[0.22em] uppercase">
             内容撰写中

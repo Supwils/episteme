@@ -54,3 +54,7 @@ tmp/
 # Generated search corpus — 23MB of prose, rebuilt by `prebuild` on every
 # build. Committing it would grow git history by that much per content change.
 generated/
+
+# Scratch space for parallel content-authoring agents (helper scripts only —
+# nothing here is an input to the build).
+.agent-tmp/

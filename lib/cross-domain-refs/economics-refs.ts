@@ -12,7 +12,7 @@ export const ECONOMICS_REFS: CrossReference[] = [
     toDomain: "philosophy",
     toId: "utilitarianism",
     toTitle: "功利主义",
-    toPath: "/philosophy/isms/utilitarianism",
+    toPath: "/philosophy/schools/utilitarianism",
     relation: "亚当·斯密的「看不见的手」与功利主义追求最大幸福的原则殊途同归",
   },
   {

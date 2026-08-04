@@ -1,54 +1,65 @@
+import { DOMAINS } from "@/lib/data";
+import { getNavSuperGroups, getClustersWithDomains } from "@/lib/domain-clusters";
+
 export interface NavItem {
   href: string;
   label: string;
   en: string;
-  /** Domain accent (first stop of its gradient in lib/data) for the dropdown dot. */
+  /** Domain glowColor (from lib/data) for the dropdown dot. */
   color: string;
 }
 
-export interface NavGroup {
+/** A cluster subsection inside a dropdown panel. */
+export interface NavSection {
   label: string;
   en: string;
   items: NavItem[];
 }
 
+export interface NavGroup {
+  label: string;
+  en: string;
+  sections: NavSection[];
+}
+
 export const HOME_LINK = { href: "/", label: "首页" };
 
-/** Subjects grouped into a few category dropdowns instead of one crowded row. */
+const toItem = (domain: (typeof DOMAINS)[number]): NavItem => ({
+  href: `/${domain.id}`,
+  label: domain.title,
+  en: domain.titleEn,
+  color: domain.glowColor,
+});
+
+/**
+ * Subjects grouped into super-group dropdowns. Derived from DOMAINS' cluster
+ * field (lib/data.tsx) — never hand-maintain a domain list here again: the old
+ * hand-written copy silently dropped sociology and linguistics for months.
+ */
 export const NAV_GROUPS: NavGroup[] = [
-  {
-    label: "自然与形式",
-    en: "Natural & Formal",
-    items: [
-      { href: "/universe-physics", label: "物理学", en: "Physics", color: "#6366f1" },
-      { href: "/cosmology", label: "宇宙学", en: "Cosmology", color: "#3b82f6" },
-      { href: "/earth-science", label: "地球科学", en: "Earth Science", color: "#4f9d76" },
-      { href: "/life-science", label: "生命科学", en: "Life Science", color: "#10b981" },
-      { href: "/medicine", label: "医学与公共卫生", en: "Medicine", color: "#d9544d" },
-      { href: "/chemistry", label: "化学", en: "Chemistry", color: "#e08a3c" },
-      { href: "/mathematics", label: "数学与逻辑", en: "Mathematics & Logic", color: "#22d3ee" },
-      { href: "/computer-science", label: "计算机科学", en: "Computer Science", color: "#4f9cf0" },
-    ],
-  },
-  {
-    label: "人文与社会",
-    en: "Humanities & Society",
-    items: [
-      { href: "/human-history", label: "人类历史", en: "Human History", color: "#f59e0b" },
-      { href: "/philosophy", label: "哲学", en: "Philosophy", color: "#10b981" },
-      { href: "/psychology", label: "心理学", en: "Psychology", color: "#d4789c" },
-      { href: "/economics", label: "经济学", en: "Economics", color: "#e8b84a" },
-      { href: "/political-science", label: "政治学", en: "Political Science", color: "#c25b5b" },
-    ],
-  },
+  ...getNavSuperGroups(DOMAINS).map((superGroup) => ({
+    label: superGroup.label,
+    en: superGroup.en,
+    sections: superGroup.sections.map((section) => ({
+      label: section.label,
+      en: section.en,
+      items: section.domains.map(toItem),
+    })),
+  })),
   {
     label: "探索",
     en: "Explore",
-    items: [
-      { href: "/read", label: "阅读路线", en: "Reading Paths", color: "#c8a45a" },
-      { href: "/knowledge-graph", label: "知识图谱", en: "Knowledge Graph", color: "#9b8cff" },
-      { href: "/daily", label: "每日知识", en: "Daily Knowledge", color: "#6fb0f5" },
-      { href: "/curiosities", label: "奇趣知识", en: "Curiosities", color: "#e89ab5" },
+    sections: [
+      {
+        label: "探索",
+        en: "Explore",
+        items: [
+          { href: "/read", label: "阅读路线", en: "Reading Paths", color: "#c8a45a" },
+          { href: "/knowledge-graph", label: "知识图谱", en: "Knowledge Graph", color: "#9b8cff" },
+          { href: "/daily", label: "每日知识", en: "Daily Knowledge", color: "#6fb0f5" },
+          { href: "/curiosities", label: "奇趣知识", en: "Curiosities", color: "#e89ab5" },
+        ],
+      },
     ],
   },
 ];
@@ -56,5 +67,21 @@ export const NAV_GROUPS: NavGroup[] = [
 /** Flat list (home + every subject) for the mobile drawer. */
 export const NAV_LINKS_FLAT = [
   HOME_LINK,
-  ...NAV_GROUPS.flatMap((g) => g.items.map((i) => ({ href: i.href, label: i.label }))),
+  ...NAV_GROUPS.flatMap((g) =>
+    g.sections.flatMap((s) => s.items.map((i) => ({ href: i.href, label: i.label })))
+  ),
 ];
+
+/**
+ * All six clusters in one synthetic group — used by SubjectHeader so every
+ * domain page gets direct cross-domain switching (previously: none at all).
+ */
+export const ALL_DOMAINS_GROUP: NavGroup = {
+  label: "全部领域",
+  en: "All Domains",
+  sections: getClustersWithDomains(DOMAINS).map((cluster) => ({
+    label: cluster.label,
+    en: cluster.en,
+    items: cluster.domains.map(toItem),
+  })),
+};

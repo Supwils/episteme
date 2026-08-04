@@ -3,13 +3,9 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import type { NavGroup } from "./nav-data";
 
-interface NavLink {
-  href: string;
-  label: string;
-}
-
-export function MobileNav({ links }: { links: NavLink[] }) {
+export function MobileNav({ groups }: { groups: NavGroup[] }) {
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -86,7 +82,7 @@ export function MobileNav({ links }: { links: NavLink[] }) {
   }, [open, closeMenu]);
 
   return (
-    <div className="xl:hidden">
+    <div className="lg:hidden">
       <button
         ref={buttonRef}
         className="flex h-11 w-11 flex-col items-center justify-center gap-[5px]"
@@ -115,29 +111,62 @@ export function MobileNav({ links }: { links: NavLink[] }) {
       {open && (
         <div
           ref={menuRef}
-          className="border-border-subtle bg-bg-panel absolute top-14 right-0 left-0 z-[60] border-b"
+          className="border-border-subtle bg-bg-panel absolute top-14 right-0 left-0 z-[60] max-h-[calc(100dvh-3.5rem)] overflow-y-auto border-b"
         >
           <ul role="menu" className="m-0 flex list-none flex-col gap-1 p-4">
-            {links.map((link) => (
-              <li key={link.href} role="none">
-                <Link
-                  role="menuitem"
-                  href={link.href}
-                  className={`focus-visible:ring-accent-gold flex min-h-[44px] items-center rounded px-4 py-3 text-[0.95rem] transition-colors focus-visible:ring-1 focus-visible:outline-none ${
-                    isActive(link.href)
-                      ? "bg-hover-bg text-accent-gold font-medium"
-                      : "text-fg-muted hover:bg-hover-bg hover:text-accent-gold"
-                  }`}
-                  onClick={closeMenu}
-                  onKeyDown={(e) => {
-                    if (e.key === "Escape") {
-                      e.preventDefault();
-                      closeMenu();
-                    }
-                  }}
+            <li role="none">
+              <Link
+                role="menuitem"
+                href="/"
+                className={`focus-visible:ring-accent-gold flex min-h-[44px] items-center rounded px-4 py-3 text-[0.95rem] transition-colors focus-visible:ring-1 focus-visible:outline-none ${
+                  isActive("/")
+                    ? "bg-hover-bg text-accent-gold font-medium"
+                    : "text-fg-muted hover:bg-hover-bg hover:text-accent-gold"
+                }`}
+                onClick={closeMenu}
+              >
+                首页
+              </Link>
+            </li>
+            {groups.map((group) => (
+              <li key={group.label} role="none" className="mt-2 first:mt-0">
+                <div
+                  aria-hidden="true"
+                  className="text-fg-disabled px-4 pt-2 pb-1 font-mono text-[10px] tracking-[0.28em] uppercase"
                 >
-                  {link.label}
-                </Link>
+                  {group.label}
+                </div>
+                <ul className="m-0 flex list-none flex-col gap-1 p-0">
+                  {group.sections.flatMap((section) =>
+                    section.items.map((item) => (
+                      <li key={item.href} role="none">
+                        <Link
+                          role="menuitem"
+                          href={item.href}
+                          className={`focus-visible:ring-accent-gold flex min-h-[44px] items-center rounded px-4 py-3 text-[0.95rem] transition-colors focus-visible:ring-1 focus-visible:outline-none ${
+                            isActive(item.href)
+                              ? "bg-hover-bg text-accent-gold font-medium"
+                              : "text-fg-muted hover:bg-hover-bg hover:text-accent-gold"
+                          }`}
+                          onClick={closeMenu}
+                          onKeyDown={(e) => {
+                            if (e.key === "Escape") {
+                              e.preventDefault();
+                              closeMenu();
+                            }
+                          }}
+                        >
+                          <span
+                            aria-hidden="true"
+                            className="mr-3 inline-block h-4 w-[3px] shrink-0 rounded-full"
+                            style={{ backgroundColor: item.color, opacity: 0.6 }}
+                          />
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))
+                  )}
+                </ul>
               </li>
             ))}
           </ul>

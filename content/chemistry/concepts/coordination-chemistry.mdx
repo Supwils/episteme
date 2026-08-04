@@ -2,7 +2,7 @@
 title: 配位化学
 title_en: Coordination Chemistry
 status: published
-updated: 2026-07-25
+updated: 2026-08-02
 category: 无机化学
 order: 19
 tags:
@@ -11,10 +11,13 @@ tags:
   - 中心金属
   - 维尔纳
   - 血红蛋白
+  - 螯合效应
+  - 均相催化
 related:
   - chemical-bond
   - bonding-theory
   - spectroscopy
+  - organometallic-chemistry
 ---
 
 # 配位化学
@@ -124,22 +127,60 @@ $$\mathrm{I^- < Br^- < Cl^- < F^- < OH^- \approx H_2O < NH_3 < en < NO_2^- < CN^
 
 而反式异构体的两个氯相隔 **180°**，几何上根本够不到相邻的两个鸟嘌呤，无法形成同样的交联（加之它在细胞内更易被提前失活），因此临床上无效。**"顺式有效、反式无效"不是经验规律，是两个配位点的间距是否匹配 DNA 上两个 N7 的间距——一个纯粹的几何匹配问题**（见 [[medicinal-chemistry]]）。
 
+## 数字：螯合效应——同样的六根键，稳定常数差一百亿倍
+
+前面讨论的都是单齿配体：一个配体只伸一只"手"。如果一只配体分子长两只"手"，会发生什么？
+
+比较两个成键情况几乎相同的配合物——都是六个 Ni–N 键，区别只在一边用六个氨分子，另一边用三个乙二胺（en，H₂N–CH₂–CH₂–NH₂，两端的氮各伸一只"手"）：
+
+$$[\mathrm{Ni(H_2O)_6}]^{2+} + 6\,\mathrm{NH_3} \longrightarrow [\mathrm{Ni(NH_3)_6}]^{2+} + 6\,\mathrm{H_2O},\quad \log\beta_6 = 8.61$$
+
+$$[\mathrm{Ni(H_2O)_6}]^{2+} + 3\,\mathrm{en} \longrightarrow [\mathrm{Ni(en)_3}]^{2+} + 6\,\mathrm{H_2O},\quad \log\beta_3 = 18.28$$
+
+**键的数目、键的种类几乎没变，后者的稳定常数却大了约 $10^{10}$ 倍。** 这就是**螯合效应**（chelate effect）：多齿配体像蟹螯一样钳住金属——"螯合"一词正是 1920 年摩根（G. T. Morgan）与德鲁（H. D. K. Drew）从希腊语"螯"（chele）造出来的。
+
+推动力主要是**熵**，这从置换反应看得最清楚：
+
+$$[\mathrm{Ni(NH_3)_6}]^{2+} + 3\,\mathrm{en} \longrightarrow [\mathrm{Ni(en)_3}]^{2+} + 6\,\mathrm{NH_3}$$
+
+左边 4 个自由粒子，右边 7 个——粒子数净增 3 个，体系的混乱度大增，$\Delta S$ 显著为正；而焓变很小（断六根 Ni–N 键，又成六根几乎一样的键）。热力学分解证实：螯合效应中熵的贡献远大于焓。分子图像也直观：**双齿配体的第二只手一旦抓住金属，螯环就把它拴在金属附近，它比游离的单齿配体更难被溶剂分子"挤走"。**
+
+这个效应随齿数放大。EDTA 有六只"手"，一个分子就能占满整个八面体配位层：它与 Ca²⁺ 的稳定常数 $\log\beta \approx 10.7$，与 Fe³⁺ 高达约 25.1。于是 EDTA 成了化学里的"万能夹子"：分析化学用它掩蔽干扰离子，临床上用它的钙钠盐做铅中毒的螯合治疗——Pb²⁺ 能把 Ca²⁺ 从 EDTA 里顶出来，被夹住后随尿排出体外。
+
+## 均相催化：把配位化学变成反应设计学
+
+配位化学最深远的工业影响藏在催化里。多相催化（如 [[haber-bosch-process|哈伯-博施法]] 的铁催化剂）的反应发生在固体表面，化学家只能"从外边看"；**均相催化**的催化剂则是溶解在反应液中的单个配合物分子，每一步都能用配位化学的语言写清楚。
+
+标志性事件是 1965 年威尔金森（Geoffrey Wilkinson）团队报告的 **Wilkinson 催化剂** RhCl(PPh₃)₃（次年系统发表）。它是第一个能在**常温、常压氢气**下高效氢化烯烃的催化剂——在它之前，加氢几乎全靠高温高压的多相催化。
+
+它的机理本身就是一本配位化学教科书，四步一个循环：
+
+1. **氧化加成**：H–H 键断裂，两个氢原子作为配体加到 Rh 上，Rh 的氧化态从 +1 升到 +3，配位数从 4 变 6；
+2. **烯烃配位**：烯烃用 π 电子侧向"贴"到 Rh 腾出的空位上；
+3. **迁移插入**：一个氢从 Rh 滑到配位烯烃的碳上，烯烃变成烷基；
+4. **还原消除**：烷基与剩下的氢成键、脱离金属，Rh 回到起点，准备下一轮。
+
+**每一步都只是"换一个配体、改一次配位数与氧化态"——催化剂本身不消耗，循环往复。** 更妙的是可调性：把 PPh₃ 换成其他膦配体，就同时改变了金属中心的电子密度与周围的空间拥挤程度，速率与选择性随之改变。沿着这条思路走下去，就有了孟山都的甲醇羰基化制醋酸工艺，以及诺尔斯（Knowles）因 L-DOPA 不对称加氢而分享的 2001 年诺贝尔化学奖。
+
+这里有一个常被讲错的事实：威尔金森本人的诺贝尔奖（1973 年，与费歇尔共享）表彰的是**二茂铁类夹心化合物**的化学，而不是这个催化剂。以他名字命名的催化剂，反倒比获奖成果更广为人知（见 [[organometallic-chemistry]]）。
+
 ## 现实意义：从抗癌药到工业催化
 
 配位化学绝非纸上谈兵。
 
 **顺铂**（cisplatin）是一种铂配合物，1978 年获批用于临床，至今仍是治疗睾丸癌、卵巢癌等多种[[cancer|癌症]]的主力药物——它的疗效，恰恰系于"顺式"这一特定的几何构型，反式异构体几乎无效。它如何进入临床、又如何被验证有效，属于[[drug-development|药物研发]]的范畴。
 
-**工业催化**：许多均相催化剂是过渡金属配合物，配体的精细设计能让反应只生成想要的那一种产物。
+**工业催化**：上节的 Wilkinson 催化剂只是起点。今天许多均相催化剂都是过渡金属配合物，配体的精细设计能让反应只生成想要的那一种产物。
 
 **色素与显色**：从颜料中的普鲁士蓝到分析化学里的显色反应，都是配合物在发光发色。
 
 ## 跨域连接
 
-- **生命科学**：血红蛋白（中心铁）、叶绿素（中心镁，[[photosynthesis|光合作用]]的核心色素）、维生素 B₁₂（中心钴）都是天然配合物——生命用一个金属原子作为"功能核心"，外面套上量身定制的[[proteins-chemistry|蛋白质]]或配体环境。
-- **物理**：配合物的颜色来自 d 轨道能级劈裂后电子的跃迁，这是量子力学能级概念在分子尺度的直接显现（见 [[spectroscopy]]）。
-- **材料科学**：金属有机框架（MOF）是把配合物的连接方式扩展成无限网络，用于储气、分离与催化的前沿多孔材料。
-- **化学键**：配位键是 [[chemical-bond]] 的一个特例，理解它需要 [[bonding-theory]] 提供的轨道语言。
+- **[[immune-system|免疫系统]]**：宿主与病原体争夺铁，是一场纯粹的配位化学军备竞赛。**细菌分泌的铁载体（如肠杆菌素）对 Fe³⁺ 的结合常数高到 10 的几十次方量级，足以把铁从宿主蛋白手里抢走**；宿主则用乳铁蛋白、铁调素扣押铁，并分泌专门结合铁载体的蛋白反制。**炎症性贫血正是这套"营养免疫"的代价**——身体宁可让自己缺铁，也不给细菌留铁。
+- **[[environmental-geology|环境地质]]**：金的湿法提取靠 [Au(CN)₂]⁻ 极高的稳定常数——**氰根把本来惰性的金拉进溶液，这是配位化学改写整个采矿业的一次示范**。代价同样是配位化学问题：**尾矿中的氰配合物、以及 EDTA 一类强螯合剂，会把已沉积的重金属重新络合回水相**，让原本"被固定"的污染重新可迁移。稳定常数既能造福也能造祸。
+- **[[quantum-spin|量子自旋]]**：当劈裂能与成对能接近时，高自旋与低自旋两种电子构型的能量几乎相当，**体系就变成一个可被温度、压力甚至一束光切换的自旋开关**——光致激发自旋态捕获（LIESST）是其中最戏剧性的一种。**这把"配体场强弱"从一条解释性规则变成了可写入的物理状态**，是分子存储与自旋电子学的候选机制。
+- **[[representation-theory|表示论]]**：配合物的颜色为什么常常很淡？**因为八面体场中的 d–d 跃迁在对称性上是宇称禁阻的（拉波特规则），只能借助破坏对称的振动微弱地"借"到强度**。这不是经验规律，而是从分子点群的不可约表示直接算出的选择定则；**同一套群论还判定哪些振动模式是红外活性、哪些是拉曼活性**。对称性在这里不是修辞，是可计算的约束。
+- **[[organometallic-chemistry|有机金属化学]]**：过渡金属催化循环的每一步——氧化加成、转金属化、还原消除——**本质都是同一个金属中心上配位数与氧化态的一次改写**。因此调控手段全落在配体上：**咬合角与电子效应分别决定哪一步是决速步**，这正是钯催化交叉偶联（2010 年诺贝尔化学奖）能被工业化的原因。配位化学在这里从"解释颜色"变成了"设计反应"。
 
 ## 参考文献
 
@@ -150,6 +191,9 @@ $$\mathrm{I^- < Br^- < Cl^- < F^- < OH^- \approx H_2O < NH_3 < en < NO_2^- < CN^
 - Springer, B. A., Sligar, S. G., Olson, J. S. & Phillips, G. N. "Mechanisms of Ligand Recognition in Myoglobin." *Chemical Reviews*, 94(3), 1994.
 - Jamieson, E. R. & Lippard, S. J. "Structure, Recognition, and Processing of Cisplatin–DNA Adducts." *Chemical Reviews*, 99(9), 1999. DOI: 10.1021/cr980421n
 - The Royal Swedish Academy of Sciences. "The Nobel Prize in Chemistry 1913 — Alfred Werner." Nobel Foundation, 1913.
+- Morgan, G. T. & Drew, H. D. K. "CLXII.—Researches on residual affinity and co-ordination. Part II. Acetylacetones of selenium and tellurium." *Journal of the Chemical Society, Transactions*, 117, 1920, 1456–1465.
+- Osborn, J. A., Jardine, F. H., Young, J. F. & Wilkinson, G. "The preparation and properties of tris(triphenylphosphine)halogenorhodium(I) and some reactions thereof including catalytic homogeneous hydrogenation of olefins and acetylenes and their derivatives." *Journal of the Chemical Society A*, 1966, 1711–1732.
+- The Royal Swedish Academy of Sciences. "The Nobel Prize in Chemistry 1973 — Ernst Otto Fischer and Geoffrey Wilkinson." Nobel Foundation, 1973.
 
 ## 延伸阅读
 

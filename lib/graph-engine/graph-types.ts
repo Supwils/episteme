@@ -47,7 +47,10 @@ export type GraphNode = {
     | "medicine"
     | "chemistry"
     | "sociology"
-    | "linguistics";
+    | "linguistics"
+    | "law"
+    | "arts"
+    | "engineering";
   type: GraphNodeType;
   slug: string;
   era?: string;

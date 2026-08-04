@@ -127,16 +127,17 @@ describe("performance budgets", () => {
     expect(isGenericArticleRoute("/economics/concepts/[slug]/page")).toBe(false);
   });
 
-  it("keeps KaTeX and retired math styles out of the mathematics layout", () => {
+  it("keeps retired math styles out of the mathematics layout, with KaTeX served as layout CSS", () => {
+    // 2026-08-02 (T-UX-07): the math domain dropped its client-side
+    // MathMarkdownRenderer (no wiki-link support — 149/169 articles rendered
+    // [[links]] as literal text) for the shared server-side MarkdownRenderer.
+    // KaTeX now renders at SSR time, so the stylesheet moves to the layout
+    // (~2.6 KB gzip, inside the 48 KB route-CSS budget) and the ~260 KB
+    // client KaTeX chunk disappears entirely — strictly better for readers.
     const mathLayout = readFileSync(join(process.cwd(), "app/mathematics/layout.tsx"), "utf8");
-    const mathRenderer = readFileSync(
-      join(process.cwd(), "subjects/mathematics/components/MathMarkdownRenderer.tsx"),
-      "utf8"
-    );
     const mathStyles = readFileSync(join(process.cwd(), "app/mathematics/globals.css"), "utf8");
 
-    expect(mathLayout).not.toContain("katex/dist/katex.min.css");
-    expect(mathRenderer).toContain("katex/dist/katex.min.css");
+    expect(mathLayout).toContain("katex/dist/katex.min.css");
     for (const retiredSelector of [
       ".glass-strong",
       ".surface-raised",

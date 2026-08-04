@@ -154,7 +154,7 @@ function buildEraSection() {
           .slice(0, 5)
           .map(
             (h) =>
-              `<span class="tag" style="color:${era.color};border-color:${era.color}40;background:${era.color}10">${escapeHtml(h)}</span>`
+              `<span class="tag" style="color:color-mix(in oklab, ${era.color} 42%, var(--parchment));border-color:${era.color}40;background:${era.color}10">${escapeHtml(h)}</span>`
           )
           .join("")}</div>
       </a>

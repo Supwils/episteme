@@ -135,7 +135,9 @@ function SchoolCard({
         <div className="flex items-center justify-between">
           <span
             className="font-mono text-[10px] tracking-[0.32em] uppercase"
-            style={{ color: school.accent }}
+            style={{
+              color: `color-mix(in oklab, ${school.accent} 42%, var(--color-fg-primary))`,
+            }}
           >
             {school.eraLabel}
           </span>
@@ -302,14 +304,18 @@ export default function PhilosophyHomeClient() {
               >
                 <span
                   className="font-display text-2xl leading-none transition-transform duration-300 group-hover:scale-110"
-                  style={{ color: link.accent }}
+                  style={{
+                    color: `color-mix(in oklab, ${link.accent} 42%, var(--color-fg-primary))`,
+                  }}
                   aria-hidden
                 >
                   {link.icon}
                 </span>
                 <span
                   className="font-mono text-[10px] tracking-[0.28em] uppercase"
-                  style={{ color: link.accent }}
+                  style={{
+                    color: `color-mix(in oklab, ${link.accent} 42%, var(--color-fg-primary))`,
+                  }}
                 >
                   {link.label}
                 </span>

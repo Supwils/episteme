@@ -45,7 +45,7 @@ export function Backlinks({ url }: { url: string }) {
   const crossCount = total - sameDomain.length;
 
   return (
-    <section className="border-border-faint mt-14 border-t pt-6" aria-label="被引用">
+    <section className="print-hidden border-border-faint mt-14 border-t pt-6" aria-label="被引用">
       <h2 className="text-fg-muted mb-4 font-mono text-[10px] tracking-[0.22em] uppercase">
         正文中引用本条 · {total}
         {crossCount > 0 && (

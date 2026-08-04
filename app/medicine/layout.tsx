@@ -4,6 +4,9 @@ import { DomainNav } from "@/components/domain/DomainNav";
 import { PageTransition } from "@/components/PageTransition";
 import { getDomainConfig } from "@/lib/new-domains";
 import "./globals.css";
+// KaTeX stylesheet: articles in this domain render math via MarkdownRenderer
+// (server-side renderToString), which needs these styles + fonts to display properly.
+import "katex/dist/katex.min.css";
 
 const DOMAIN = "medicine";
 const config = getDomainConfig(DOMAIN)!;

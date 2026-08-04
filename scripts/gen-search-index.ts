@@ -34,6 +34,7 @@ const OUT_INDEX = join(ROOT, "public", "search-index.json");
 const GENERATED = join(ROOT, "generated");
 const OUT_CORPUS = join(GENERATED, "corpus.txt");
 const OUT_CORPUS_META = join(GENERATED, "corpus-meta.json");
+const OUT_STATS = join(GENERATED, "search-stats.json");
 
 interface Indexed {
   id: number;
@@ -137,6 +138,17 @@ async function main(): Promise<void> {
   writeFileSync(
     OUT_CORPUS_META,
     JSON.stringify({ v: SEARCH_INDEX_VERSION, offsets: corpus.offsets, docs: corpusDocs })
+  );
+  // Tiny committed snapshot the portal stats strip reads — keeps the homepage
+  // numbers in lockstep with the index instead of drifting between content rounds.
+  writeFileSync(
+    OUT_STATS,
+    JSON.stringify({
+      v: SEARCH_INDEX_VERSION,
+      documents: docs.length,
+      articles: articles.length,
+      entities: docs.length - articles.length,
+    })
   );
 
   const indexBytes = readFileSync(OUT_INDEX).byteLength;

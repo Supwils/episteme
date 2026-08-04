@@ -65,6 +65,17 @@ const INTERACTIVES: Record<string, ComponentType> = {
   "sound-change-lab": dynamic(() =>
     import("@/components/linguistics/SoundChangeLab").then((module) => module.SoundChangeLab)
   ),
+  "case-procedure-path": dynamic(() =>
+    import("@/components/law/CaseProcedurePath").then((module) => module.CaseProcedurePath)
+  ),
+  "constitutional-structure-comparator": dynamic(() =>
+    import("@/components/law/ConstitutionalStructureComparator").then(
+      (module) => module.ConstitutionalStructureComparator
+    )
+  ),
+  "legal-traditions-map": dynamic(() =>
+    import("@/components/law/LegalTraditionsMap").then((module) => module.LegalTraditionsMap)
+  ),
 };
 
 export function DomainArticleExtras({

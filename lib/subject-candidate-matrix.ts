@@ -1,7 +1,12 @@
 import type { KnowledgeDomainId } from "./knowledge-continuum";
 import type { KnowledgeLevel } from "./knowledge-levels";
 
-export type SubjectCandidateId = "linguistics" | "comparative-law" | "arts-aesthetics";
+export type SubjectCandidateId =
+  | "linguistics"
+  | "comparative-law"
+  | "arts-aesthetics"
+  | "engineering"
+  | "literature-narrative";
 
 export const SUBJECT_SCORE_DIMENSIONS = {
   existingSeeds: { label: "现有内容种子", weight: 0.2 },
@@ -108,7 +113,7 @@ export const SUBJECT_CANDIDATES: readonly SubjectCandidate[] = [
         concepts: ["语言演化", "濒危语言", "语言与认知", "低资源语言技术", "大模型语言能力"],
       },
     ],
-    releaseArticleCount: 40,
+    releaseArticleCount: 51,
     releaseSections: [
       "声音与手势",
       "词句与意义",
@@ -361,6 +366,191 @@ export const SUBJECT_CANDIDATES: readonly SubjectCandidate[] = [
     launchGate:
       "先建立逐对象 rights/provenance/source 元数据和图片性能预算，再生产首批 40 篇内容。",
   },
+  {
+    id: "engineering",
+    label: "工程与技术",
+    positioning: "从能量、材料与系统进入人造物世界——工程如何把科学变成能可靠运转的东西。",
+    scores: {
+      existingSeeds: 3,
+      crossDomainReach: 5,
+      levelCoherence: 4,
+      sourceReadiness: 4,
+      visualizationFit: 4,
+      globalCoverage: 3,
+      deliveryFeasibility: 3,
+    },
+    bridgeDomains: [
+      "universe-physics",
+      "chemistry",
+      "computer-science",
+      "mathematics",
+      "earth-science",
+      "economics",
+      "medicine",
+    ],
+    learningSpine: [
+      {
+        level: 1,
+        title: "工具与机器",
+        question: "杠杆、轮轴与引擎怎样放大人的力量？",
+        concepts: ["简单机械", "热机", "电动机", "测量"],
+      },
+      {
+        level: 2,
+        title: "能量与材料",
+        question: "电、钢、混凝土与硅各自能做什么？",
+        concepts: ["电力", "钢铁", "混凝土", "半导体", "强度"],
+      },
+      {
+        level: 3,
+        title: "系统与基础设施",
+        question: "电网、交通网与供水系统怎样作为整体运转？",
+        concepts: ["电网", "交通", "供水", "物流", "冗余"],
+      },
+      {
+        level: 4,
+        title: "设计、安全与失效",
+        question: "怎样在设计中管理误差、疲劳与最坏情况？",
+        concepts: ["安全系数", "失效分析", "可靠性", "维护", "韧性"],
+      },
+      {
+        level: 5,
+        title: "工程前沿与伦理",
+        question: "能源转型、先进芯片与深空工程面临什么开放难题？",
+        concepts: ["能源转型", "先进制造", "航天工程", "工程伦理", "军民两用"],
+      },
+    ],
+    releaseArticleCount: 36,
+    releaseSections: [
+      "工程基础",
+      "能源与动力",
+      "材料与制造",
+      "信息与机器",
+      "土木与建造",
+      "前沿与伦理",
+    ],
+    visualizations: ["电网潮流模拟器", "结构受力实验室", "材料性能剖面", "芯片制造流程图"],
+    globalCoverageCommitments: [
+      "中国工程传统与现代基建",
+      "欧洲工业遗产",
+      "北美技术体系",
+      "日本精密制造",
+      "印度与南亚工程",
+      "非洲基础设施",
+      "拉美能源",
+    ],
+    sources: [
+      {
+        name: "NAE Grand Challenges for Engineering",
+        url: "https://www.nae.edu/19582/19582/21403/22529/23174/Grand-Challenges-for-Engineering",
+        role: "工程前沿议题的全球框架",
+        access: "open",
+      },
+      {
+        name: "MIT OpenCourseWare Engineering",
+        url: "https://ocw.mit.edu/",
+        role: "工程基础概念的开放课程材料",
+        access: "open",
+      },
+    ],
+    risks: ["军民两用技术的内容边界", "设备与实验的安全提示", "工程数据随项目进展快速过时"],
+    launchGate: "建立军民两用内容边界与工程安全提示规范后，再进入内容生产。",
+  },
+  {
+    id: "literature-narrative",
+    label: "文学与叙事",
+    positioning:
+      "从“故事为什么有效”进入文学——叙事结构、诗学形式、世界经典与阅读方法，把文本当作可分析的对象而不只是品味。",
+    scores: {
+      existingSeeds: 3,
+      crossDomainReach: 4,
+      levelCoherence: 5,
+      sourceReadiness: 5,
+      visualizationFit: 3,
+      globalCoverage: 4,
+      deliveryFeasibility: 4,
+    },
+    bridgeDomains: [
+      "linguistics",
+      "philosophy",
+      "human-history",
+      "psychology",
+      "sociology",
+      "arts",
+    ],
+    learningSpine: [
+      {
+        level: 1,
+        title: "故事是什么",
+        question: "为什么人会被一个虚构的故事牵动？",
+        concepts: ["情节", "人物", "冲突", "视角"],
+      },
+      {
+        level: 2,
+        title: "形式与技艺",
+        question: "诗、小说与戏剧各自靠什么手段起作用？",
+        concepts: ["韵律", "叙述者", "隐喻", "文体"],
+      },
+      {
+        level: 3,
+        title: "世界文学的多中心",
+        question: "不同文明的叙事传统提出了哪些不同的问题？",
+        concepts: ["史诗", "抒情传统", "小说兴起", "口头文学"],
+      },
+      {
+        level: 4,
+        title: "阅读方法与理论",
+        question: "怎样在细读、历史语境与理论视角之间做出有依据的解释？",
+        concepts: ["细读", "叙事学", "接受美学", "文本考据"],
+      },
+      {
+        level: 5,
+        title: "文学的当代边界",
+        question: "数字阅读、翻译政治与机器生成如何改变文学的定义？",
+        concepts: ["远读", "翻译研究", "正典之争", "生成文本"],
+      },
+    ],
+    releaseArticleCount: 36,
+    releaseSections: [
+      "叙事基础",
+      "诗学与形式",
+      "世界文学传统",
+      "文学理论与方法",
+      "阅读与接受",
+      "当代边界",
+    ],
+    visualizations: ["叙事结构图谱", "格律与音步实验室", "世界文学时空地图", "译本比较器"],
+    globalCoverageCommitments: [
+      "汉语文学传统",
+      "欧洲正典与其批评",
+      "阿拉伯—波斯叙事",
+      "南亚史诗与诗学",
+      "非洲口头文学",
+      "拉美与加勒比文学",
+      "东亚与东南亚现代文学",
+    ],
+    sources: [
+      {
+        name: "Project Gutenberg",
+        url: "https://www.gutenberg.org/",
+        role: "公有领域文学文本的一手来源",
+        access: "open",
+      },
+      {
+        name: "中国哲学书电子化计划（ctext.org）",
+        url: "https://ctext.org/",
+        role: "汉语古典文本的可引用原文库",
+        access: "open",
+      },
+    ],
+    risks: [
+      "文学判断的主观性需要与可核查的事实分层表述",
+      "在版权保护期内的作品只能引用片段",
+      "正典选择容易滑向单一文明中心",
+    ],
+    launchGate:
+      "先确立“事实层（版本、年代、生平）与解释层（读法、评价）分离表述”的写作规范，以及引文长度的版权口径。",
+  },
 ] as const;
 
 export const RANKED_SUBJECT_CANDIDATES = [...SUBJECT_CANDIDATES].sort(
@@ -369,6 +559,9 @@ export const RANKED_SUBJECT_CANDIDATES = [...SUBJECT_CANDIDATES].sort(
 
 export const LAUNCHED_SUBJECT_CANDIDATE_IDS: ReadonlySet<SubjectCandidateId> = new Set([
   "linguistics",
+  "comparative-law",
+  "arts-aesthetics",
+  "engineering",
 ]);
 
 export const RANKED_NEXT_SUBJECT_CANDIDATES = RANKED_SUBJECT_CANDIDATES.filter(

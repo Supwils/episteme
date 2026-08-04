@@ -2,7 +2,7 @@
 title: RSA 公钥密码
 title_en: "Public-Key Cryptography: RSA"
 status: published
-updated: 2026-06-13
+updated: 2026-07-31
 category: 密码学算法
 order: 7
 field: 计算机科学 · 密码学 · 数论
@@ -48,6 +48,26 @@ RSA 的核心是两个相反方向的计算代价**极不对称**：
 
 RSA 还依赖欧拉定理（Euler's Theorem）：若 $\gcd(m, n) = 1$，则 $m^{\phi(n)} \equiv 1 \pmod{n}$，其中 $\phi(n)$ 是欧拉函数。
 
+欧拉定理在这里的角色，是保证**加密和解密互为逆运算**。密钥生成时选择 $e \times d \equiv 1 \pmod{\phi(n)}$，意味着存在整数 $k$ 使 $ed = 1 + k\phi(n)$。于是解密时：
+
+$$c^d \equiv m^{ed} = m^{1 + k\phi(n)} = m \cdot \left(m^{\phi(n)}\right)^k \equiv m \pmod{n}$$
+
+明文被精确还原。整个方案的巧妙之处在于：正向计算 $c = m^e \bmod n$ 只需要公钥；但要反向求 $m$，攻击者似乎必须先算出 $\phi(n) = (p-1)(q-1)$——而由 $n$ 和 $\phi(n)$ 联立即可解出 $p$ 和 $q$，所以"算出 $\phi(n)$"与"分解 $n$"在计算上等价。**分解难题就这样被焊进了求逆运算里。**
+
+公钥指数习惯取 $e = 65537 = 2^{16} + 1$：它是质数（与 $\phi(n)$ 互质的概率高），二进制展开里只有两个 1，用平方-乘算法做模幂只需 17 次模乘，加密与验签因此极快。$e$ 小还带来一个安全上的副产品：加密方几乎无秘密可泄露，所有秘密都集中在私钥一侧。
+
+## 因子分解到底有多难：亚指数，而非指数
+
+说"分解很难"太模糊——到底有多难，直接决定密钥该多长。
+
+试除法这类朴素算法的代价对密钥长度是指数级的。但现代最优的**一般数域筛法**（General Number Field Sieve, GNFS，1990 年代初由 Pollard 的原始构想发展而来，经 Buhler、Lenstra、Pomerance 等人系统化）已把代价压到**亚指数**：
+
+$$\exp\!\left( \left(\tfrac{64}{9}\right)^{1/3} (\ln n)^{1/3} (\ln \ln n)^{2/3} \right) \approx \exp\!\left(1.923\, (\ln n)^{1/3} (\ln \ln n)^{2/3}\right)$$
+
+这不是多项式，但远好于对密钥长度的纯指数。这个"中间档"有一个直接后果：**对称密钥和 RSA 密钥的长度不能按同一尺度比较**。128 位对称密钥意味着穷举约 $2^{128}$ 次；而要让分解代价也达到 $2^{128}$ 量级，RSA 模数需要约 3072 位（NIST 的通行换算）。前文说 ECC 凭 256 位密钥即可对标 3072 位 RSA，原因也在这里——椭圆曲线离散对数迄今没有对应的亚指数算法，攻击者只剩指数级的通用算法。
+
+另一个含义更隐蔽：GNFS 的渐进形式说明分解难度的"坡度"是平缓的。密钥加长一倍，破解代价的增长远低于翻倍——历史上每次算法或硬件的实质进步，都会迫使推荐密钥长度整体上移。1024 位 RSA 从行业标准沦为不推荐，正是这个坡度的实证。
+
 ## RSA 的工作原理
 
 **密钥生成**：
@@ -77,6 +97,17 @@ $$m = c^d \mod n$$
 
 签名只有私钥持有者能生成，任何人用公钥可验证。这是 HTTPS 证书、代码签名、软件更新验证的基础。
 
+## 教科书 RSA 为什么不能用：填充方案是生死线
+
+上文写的 $c = m^e \bmod n$ 常被称为"教科书 RSA"（textbook RSA）——它只应存在于教科书里。直接部署会被攻破，原因不在数学，而在**明文空间的可预测性**：
+
+- **确定性**：同一明文永远加密成同一密文。当消息只有几种可能（"是/否"、一次投票的选项）时，攻击者把每种可能都加密一遍比对即可。
+- **可延展性**（malleability）：RSA 是乘法同态的，$E(m_1) \cdot E(m_2) \equiv E(m_1 \cdot m_2) \pmod{n}$。攻击者可以把截获的密文乘上 $s^e$，得到一个解密结果为 $s \cdot m$ 的新密文——不知道 $m$，却能操纵它。
+
+业界的修法是在模幂之前先做**填充**（padding）。但早期的 PKCS#1 v1.5 填充（1993 年定稿）留下了致命缺口：1998 年，Daniel Bleichenbacher 证明，只要服务器在解密后发现"填充格式不合法"时报出可区分的错误（哪怕只是响应时间的细微差别），攻击者就能把服务器当成**预言机**（oracle），用约一百万次精心构造的查询逐步还原出完整明文——即著名的"百万消息攻击"（CRYPTO '98）。它完全不需要分解 $n$，利用的只是实现"嘴不严"。
+
+正确的替代是 **OAEP**（Optimal Asymmetric Encryption Padding，Bellare 与 Rogaway 1994 年在 Eurocrypt 提出）：加密前先把明文与一个随机种子送进两轮 Feistel 式的掩码结构，互相搅拌，使整个编码看上去随机。OAEP 让每次加密结果不可预测（治好确定性），又让"构造一个能通过解码检查的密文"在不知明文时不可行（治好可延展性）。配合 RSA 使用时，其抗选择密文攻击（IND-CCA2）的安全性可归约到 RSA 假设本身——Fujisaki、Okamoto、Pointcheval 与 Stern 在 2001 年补全了这一严格证明。今天仍在使用 RSA 加密的场合，标准要求 OAEP（加密）与 PSS（签名）；TLS 1.3 则干脆移除了 RSA 密钥交换。
+
 ## HTTPS：RSA 的最大规模部署
 
 当浏览器连接 `https://bank.com`：
@@ -87,6 +118,17 @@ $$m = c^d \mod n$$
 4. 后续通信用对称密钥加密
 
 RSA（或现代的椭圆曲线 ECDH）只用在握手阶段——解决密钥分发问题。实际数据加密用对称密码（AES-GCM）。这种混合方案兼顾了非对称加密的"不需要预先共享密钥"和对称加密的速度。
+
+## 工程实现：加速的代价与侧信道
+
+私钥操作（解密、签名）是 RSA 最贵的一步。标准优化是用**中国剩余定理**（CRT）：不直接算 $m = c^d \bmod n$，而是分别算 $m_p = c^{d \bmod (p-1)} \bmod p$ 和 $m_q = c^{d \bmod (q-1)} \bmod q$，再合并。模数和指数都缩短一半，而模幂开销大致随位长的三次方增长，总体提速约 4 倍——几乎所有生产实现都这么做。
+
+但每一次工程优化，都在数学之外开出新的攻击面：
+
+- **时序攻击**：1996 年，Paul Kocher 证明，模幂运算的耗时依赖密钥比特的取值（平方-乘算法遇到 1 要多做一次乘法），对大量操作的耗时做统计分析，可以逐位还原私钥（CRYPTO '96）。对策是"常数时间"实现——让执行路径不依赖秘密数据。
+- **故障攻击**：1997 年，Boneh、DeMillo 与 Lipton 指出，CRT 实现只要在两次模幂中算错一次（例如用电压毛刺、激光照射智能卡制造瞬时故障），得到的错误签名 $s'$ 便满足 $s'^e \equiv m \pmod q$ 但不同余模 $p$，于是 $\gcd(s'^e - m,\ n)$ 直接给出 $q$——**一次故障就分解了模数**（Eurocrypt '97）。对策朴素而有效：输出前用公钥验算一遍。
+
+这些攻击的共同点是：被攻破的不是 RSA 的数学，而是"数学被物理设备执行"这一事实。密码工程的大部分功力，都花在弥合数学与现实之间的这道缝上。
 
 ## 椭圆曲线密码（ECC）：RSA 的替代
 
@@ -117,10 +159,11 @@ RSA 和 ECC 面临一个未来的威胁：**Shor 算法**（1994）可以在量�
 
 ## 跨域连接
 
-- **[[number-theory|数论]]**：RSA 建立在欧拉定理、中国剩余定理、扩展欧几里得算法之上，是纯粹数论的直接工程应用——数论曾被认为是"最没有实用价值的数学"。
-- **[[hashing]]**：数字签名对消息的哈希值签名，RSA 和哈希函数紧密配合构成签名体系。
-- **[[networking-protocols]]**：HTTPS 的 TLS 层依赖 RSA 或 ECC 进行密钥协商和证书验证。
-- **[[量子计算]]**：量子计算机威胁当前公钥密码体系，推动了后量子密码学的发展（见前沿板块）。
+- **[[number-theory|数论]]**：整套方案坐在欧拉定理与扩展欧几里得算法之上：模幂正向易算，反解指数却要先分解模数。**安全性来自两个方向的代价不对称，而不是任何一方被证明不可能**——这也是它随算力与算法进步而持续贬值的原因。
+- **[[group|群]]**：同一套协议换一个群，结论就变。椭圆曲线上的离散对数目前没有像整数域那样的高效攻击手段，**因此同等安全强度所需的密钥长度可以短一个量级**，握手更快、证书更小。密钥"多少位才够"从来不是普适数字，它随群而变。
+- **[[quantum-algorithms|量子算法]]**：把分解归约为寻找一个模幂函数的周期，再用量子傅里叶变换在多项式时间内找出它。**这是一条已经被证明的定理，缺的只是机器**——而由于攻击者可以先截获密文、日后再解，迁移不能等到机器出现才启动。
+- **[[randomized-algorithms|随机算法]]**：密钥生成依赖高质量随机数，这一步的失败方式极其难看。**若两台设备因熵不足生成了共享同一个素因子的模数，攻击者只需对两个模数求一次最大公约数**，根本不必碰分解这个难题——数学没被攻破，实现被攻破了。
+- **[[legitimacy|正当性]]**：公钥本身无法自证归属，它必须由证书链上的第三方背书。**于是密码学把"该不该信任这个人"换成了"该不该信任这套授权制度"**，问题没有消失，只是被搬到了另一层——签发规则、吊销机制与根证书的管辖权都成了安全性的一部分。数学能保证的是签名不可伪造，保证不了签发者的判断。
 
 ---
 
@@ -128,6 +171,11 @@ RSA 和 ECC 面临一个未来的威胁：**Shor 算法**（1994）可以在量�
 
 - Rivest, R., Shamir, A. & Adleman, L. *A Method for Obtaining Digital Signatures and Public-Key Cryptosystems.* CACM 21(2), 1978. （RSA 原始论文）
 - Diffie, W. & Hellman, M. *New Directions in Cryptography.* IEEE Trans. Inf. Theory 22(6), 1976.
+- Buhler, J. P., Lenstra, H. W. & Pomerance, C. *Factoring Integers with the Number Field Sieve.* In Lenstra & Lenstra (eds.), *The Development of the Number Field Sieve*, LNCS 1554, Springer (1993).
+- Bellare, M. & Rogaway, P. *Optimal Asymmetric Encryption — How to Encrypt with RSA.* EUROCRYPT '94, LNCS 950, Springer (1994).
+- Kocher, P. C. *Timing Attacks on Implementations of Diffie-Hellman, RSA, DSS, and Other Systems.* CRYPTO '96, LNCS 1109, 104–113.
+- Boneh, D., DeMillo, R. A. & Lipton, R. J. *On the Importance of Checking Cryptographic Protocols for Faults.* EUROCRYPT '97, LNCS 1233, 37–51.
+- Bleichenbacher, D. *Chosen Ciphertext Attacks Against Protocols Based on the RSA Encryption Standard PKCS #1.* CRYPTO '98, LNCS 1462, Springer (1998).
 - Lenstra, A. et al. *Ron was Wrong, Whit is Right.* IACR ePrint 2012/064. （随机数缺陷导致 RSA 公钥泄漏的分析）
 - NIST. *Post-Quantum Cryptography Standards (FIPS 203/204/205).* 2024.
 

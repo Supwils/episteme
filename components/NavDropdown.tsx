@@ -17,7 +17,9 @@ export function NavDropdown({ group }: { group: NavGroup }) {
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const ref = useRef<HTMLDivElement>(null);
 
-  const isActive = group.items.some((i) => pathname.startsWith(i.href));
+  const allItems = group.sections.flatMap((s) => s.items);
+  const isActive = allItems.some((i) => pathname.startsWith(i.href));
+  const multiSection = group.sections.length > 1;
 
   const openNow = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -50,7 +52,7 @@ export function NavDropdown({ group }: { group: NavGroup }) {
         aria-haspopup="menu"
         onClick={() => setOpen((o) => !o)}
         className={`flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm transition-colors ${
-          isActive || open ? "text-accent-gold" : "text-fg-secondary hover:text-accent-gold"
+          isActive || open ? "text-fg-primary" : "text-fg-secondary hover:text-accent-gold"
         }`}
       >
         {group.label}
@@ -58,7 +60,9 @@ export function NavDropdown({ group }: { group: NavGroup }) {
           width="10"
           height="10"
           viewBox="0 0 10 10"
-          className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          className={`transition-transform duration-200 ${open ? "rotate-180" : ""} ${
+            isActive || open ? "text-accent-gold" : ""
+          }`}
           aria-hidden
         >
           <path
@@ -75,7 +79,11 @@ export function NavDropdown({ group }: { group: NavGroup }) {
       {open && (
         // Wrapper spans the 10px gap as a transparent hover bridge so the cursor
         // can travel from trigger to panel without crossing a dead zone.
-        <div className="absolute top-full left-1/2 z-50 w-64 -translate-x-1/2 pt-2.5">
+        <div
+          className={`absolute top-full left-1/2 z-50 -translate-x-1/2 pt-2.5 ${
+            multiSection ? "w-[32rem]" : "w-64"
+          }`}
+        >
           <div
             role="menu"
             aria-label={group.label}
@@ -88,34 +96,45 @@ export function NavDropdown({ group }: { group: NavGroup }) {
             <div className="text-fg-disabled px-3 pt-1 pb-2 font-mono text-[10px] tracking-[0.22em] uppercase">
               {group.en}
             </div>
-            {group.items.map((item, i) => {
-              const active = pathname.startsWith(item.href);
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  role="menuitem"
-                  onClick={() => setOpen(false)}
-                  style={{ animationDelay: `${i * 35}ms` }}
-                  className="nav-dropdown-item hover:bg-bg-elevated group/item flex items-center gap-3 rounded-xl px-3 py-2 transition-all hover:translate-x-0.5"
-                >
-                  <span
-                    className="h-7 w-[3px] shrink-0 rounded-full transition-all group-hover/item:h-8"
-                    style={{ backgroundColor: item.color, opacity: active ? 1 : 0.5 }}
-                  />
-                  <span className="flex min-w-0 flex-col">
-                    <span
-                      className={`truncate text-sm transition-colors ${active ? "text-accent-gold" : "text-fg-primary group-hover/item:text-accent-gold"}`}
-                    >
-                      {item.label}
-                    </span>
-                    <span className="text-fg-muted truncate font-mono text-[10px] tracking-wide">
-                      {item.en}
-                    </span>
-                  </span>
-                </Link>
-              );
-            })}
+            <div className={multiSection ? "grid grid-cols-2 gap-x-2" : undefined}>
+              {group.sections.map((section) => (
+                <div key={section.label}>
+                  {multiSection && (
+                    <div className="text-fg-muted px-3 pt-1.5 pb-1 font-mono text-[9px] tracking-[0.28em] uppercase">
+                      {section.label}
+                    </div>
+                  )}
+                  {section.items.map((item, i) => {
+                    const active = pathname.startsWith(item.href);
+                    return (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        role="menuitem"
+                        onClick={() => setOpen(false)}
+                        style={{ animationDelay: `${i * 35}ms` }}
+                        className="nav-dropdown-item hover:bg-bg-elevated group/item flex items-center gap-3 rounded-xl px-3 py-2 transition-all hover:translate-x-0.5"
+                      >
+                        <span
+                          className="h-7 w-[3px] shrink-0 rounded-full transition-all group-hover/item:h-8"
+                          style={{ backgroundColor: item.color, opacity: active ? 1 : 0.5 }}
+                        />
+                        <span className="flex min-w-0 flex-col">
+                          <span
+                            className={`truncate text-sm transition-colors ${active ? "text-accent-gold" : "text-fg-primary group-hover/item:text-accent-gold"}`}
+                          >
+                            {item.label}
+                          </span>
+                          <span className="text-fg-muted truncate font-mono text-[10px] tracking-wide">
+                            {item.en}
+                          </span>
+                        </span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       )}

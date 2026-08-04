@@ -2,7 +2,7 @@
 title: LRU 缓存淘汰算法
 title_en: LRU Cache Eviction
 status: published
-updated: 2026-06-13
+updated: 2026-07-31
 category: 系统算法
 order: 45
 field: 计算机科学 · 系统 · 缓存设计
@@ -43,6 +43,16 @@ related:
 
 **Bélády 最优算法（OPT，Bélády, 1966）**：每次淘汰在未来最长时间内不会被使用的页面，是页面替换的理论最优界，但需要"预知未来"，只能用于离线分析，不能用于实际系统。
 
+## 栈性质：LRU 为什么没有 Bélády 异常
+
+Bélády 在研究替换算法时发现了一件怪事（Bélády, Nelson & Shedler，1969）：对引用串 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5，用 FIFO 替换，3 个页帧产生 9 次缺页；把页帧加到 4 个，缺页反而升到 10 次。缓存变大，性能反而变差——这被称为 **Bélády 异常（Bélády's Anomaly）**。
+
+Mattson 等人（1970）找出了异常的判据：**栈性质（Stack Property）**。一个替换策略满足栈性质，如果对任意引用序列，容量为 $m$ 时缓存的内容永远是容量为 $m+1$ 时缓存内容的子集。满足栈性质的策略，缺页率必然随容量单调不增——异常不可能发生。
+
+LRU 满足栈性质，论证只有一行：容量为 $k$ 的 LRU 缓存里装的，恰好是最近访问过的 $k$ 个不同页面——这个集合只随 $k$ 增长而扩张，天然嵌套。FIFO 不满足：它的留存集合取决于到达顺序而非使用历史，容量不同的两个队列内容可以互不包含。
+
+栈性质还有一项巨大的工程红利：**一次模拟算出所有容量的命中率**。把访问序列按"栈距离"（本次访问距该项上次被访问之间隔着多少个不同项，即重用距离）处理一遍，容量 $k$ 的命中情况就是"栈距离 $\le k$ 的访问占比"——整条容量-命中率曲线一次扫描得到，无需对每个容量各跑一遍模拟。
+
 ## LRU 的 $O(1)$ 实现
 
 朴素的 LRU 实现——维护访问时间列表，每次查找最久未使用的——查找时间为 $O(n)$。
@@ -66,6 +76,10 @@ LRU 最重要的工业应用之一是操作系统的**虚拟内存管理**。
 
 物理内存（RAM）有限，而进程的虚拟地址空间可以远大于物理内存。操作系统将内存分成固定大小的**页（Page）**（通常 4KB），把不常用的页换到磁盘（交换区），需要时再调回。
 
+**为什么内核不做精确 LRU**：精确 LRU 要求每次内存访问都把一个链表节点移到头部——等于在最热的访存路径上额外加一次写操作（甚至加锁），硬件不允许这个开销。维护全局时间戳同理不可行。
+
+**Second Chance / Clock** 的思路来自 Corbató 1968 年在 Multics 上的分页实验：把淘汰决策压缩到硬件**免费提供**的那一位上。MMU 在页被访问时自动把"使用位（Reference Bit）"置 1，不花操作系统任何指令。淘汰时，时钟指针循环扫描页表：使用位为 1 的页清零、跳过（"再给一次机会"）；为 0 的页淘汰。机制的直觉是：指针扫过一整圈的这段时间构成一个免费的观察窗——活跃页必在窗内被再次访问、把位置回 1；冷页的位上不来，下一轮指针到来时便束手就擒。一位信息买到的不是 LRU 本身，而是"最近一个周期内是否活跃"的粗糙近似——实践表明这个粒度足够。
+
 **页面置换算法**决定当内存满时换出哪个页面：
 
 - Linux 内核使用**近似 LRU（Clock 算法）**：给每个页设置一个"使用位"（Reference Bit），时钟指针循环扫描，遇到使用位为 0 的页则淘汰，使用位为 1 的则清零继续扫描
@@ -78,6 +92,8 @@ LRU 最重要的工业应用之一是操作系统的**虚拟内存管理**。
 **2Q（Two-Queue）**：用两个队列——新数据先进入"新生区（FIFO 队列）"，被再次访问后才进入"常驻区（LRU 链表）"，防止只访问一次的数据长时间占用缓存。
 
 **ARC（Adaptive Replacement Cache，Megiddo & Modha, 2003）**：同时追踪最近使用（LRU）和最近频繁使用（LFU）的缓存历史，自适应地平衡两者，在多种访问模式下性能都优于纯 LRU。ZFS 文件系统使用 ARC。
+
+**TinyLFU / W-TinyLFU（Einziger, Friedman & Manes，2017）**：换了一个提问方式——传统策略都问"该淘汰谁"，TinyLFU 问"**新来者值不值得进来**"。准入时用一个基于 Count-Min Sketch 的紧凑频率草图，比较新条目与候选牺牲者的历史频率：新条目更"热"才准入，否则直接拒之门外。这给缓存加了一道几乎零成本的"准入门卫"，专门拦截只访问一次的扫描流量。W-TinyLFU 再在前面挂一个很小的 LRU 窗口区吸收突发流量。Java 的 Caffeine、Go 的 Ristretto 等现代缓存库均采用这一族策略。
 
 **LIRS（Low Inter-reference Recency Set, 2002）**：用"重用距离（Reuse Distance）"替代简单的时间戳，理论上更接近 OPT。
 
@@ -113,17 +129,22 @@ CPU 有多级缓存（L1/L2/L3），也需要替换策略。硬件 LRU 用**伪 
 
 ## 跨域连接
 
-- **[[hashing]]**：哈希表是 LRU $O(1)$ 实现的另一半，两者缺一不可。
-- **[[skip-lists]]**：Redis 同时使用 LRU（内存淘汰）和跳表（有序集合），展示了系统中多种数据结构的协作。
-- **[[operating-systems|操作系统]]**：LRU 和虚拟内存是操作系统课程的核心内容，也是现代计算机体系结构中软硬件协作最典型的案例之一。
-- **经济学**：LRU 体现了"优先保留有价值的"这一稀缺资源分配原则，与经济学中的"机会成本"概念异曲同工。
+- **[[corpus-linguistics|语料语言学]]**：词频服从幂律，少数高频词覆盖大部分文本，这条经验规律最早正是在词表上被发现的。**它直接决定了命中率曲线的形状**：容量增加带来的命中率提升先陡后缓，达到数据总量的两三成后近乎饱和。所以扩容收益可以从访问分布的斜率预估，而不必逐档试。
+- **[[stochastic-process|随机过程]]**：命中率其实由重用距离的分布唯一决定——两次访问同一项之间隔了多少个不同项。**容量大于重用距离就命中，否则不命中**，所以把这个分布测出来就能一次性画出容量与命中率的整条曲线，不必逐个容量跑模拟。这也解释了顺序扫描为何致命：它把所有热点的重用距离一次性推到超出容量。
+- **[[serial-position-effect|系列位置效应]]**：自由回忆中最近呈现的项目最易被提取，近因效应与"最近用过的更可能再被用"是同一条时间局部性假设。**但人的记忆同时有首因效应与频率效应**，最早出现的与最常出现的也被保住，这更接近把最近性与频率混起来的策略。缓存领域后来走的正是这条路——自适应地在两者之间调权重，比纯粹的最近性稳健。
+- **[[neuroplasticity|神经可塑性]]**：突触修剪同样是容量约束下的淘汰，但判据不是"最后一次被用是什么时候"，而是长期的共激活强度。**这更接近按频率淘汰而非按最近性淘汰**，代价也对应：频率策略对突发的新模式反应迟钝。两种策略的取舍在生物与工程里是同一道题，而混合方案在两边都被选中并非巧合。
+- **[[memory-hierarchy-caching|存储层次与缓存]]**：硬件缓存不实现精确的最近使用顺序，因为维护全序的电路代价太高，改用二叉树形的近似标记。**这说明淘汰策略的选择常受实现层的硬约束**：软件层可以用哈希表加双向链表做到常数时间，硬件层连一次链表操作都嫌贵。同一个策略在不同层级会退化成不同的近似。
 
 ---
 
 ## 参考文献
 
 - Bélády, L. A. *A Study of Replacement Algorithms for Virtual Storage Computers.* IBM Systems Journal 5(2), 78–101 (1966).
+- Bélády, L. A., Nelson, R. A. & Shedler, G. S. *An Anomaly in Space-Time Characteristics of Certain Programs Running in a Paging Machine.* CACM 12(6), 1969.（Bélády 异常的原始报告）
+- Mattson, R. L., Gecsei, J., Slutz, D. R. & Traiger, I. L. *Evaluation Techniques for Storage Hierarchies.* IBM Systems Journal 9(2), 78–117 (1970).（栈性质的原始论文）
+- Corbató, F. J. *A Paging Experiment with the Multics System.* In *In Honor of Philip M. Morse*, MIT Press, 1969.（Clock/Second Chance 算法的来源）
 - Megiddo, N. & Modha, D. S. *ARC: A Self-Tuning, Low Overhead Replacement Cache.* USENIX FAST 2003.
+- Einziger, G., Friedman, R. & Manes, B. *TinyLFU: A Highly Efficient Cache Admission Policy.* ACM Transactions on Storage 13(4), 2017.
 - Johnson, T. & Shasha, D. *2Q: A Low Overhead High Performance Buffer Management Replacement Algorithm.* VLDB 1994.
 
 ## 延伸阅读

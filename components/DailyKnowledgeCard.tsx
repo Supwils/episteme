@@ -62,8 +62,8 @@ export function DailyKnowledgeCard({ items, fact, date }: DailyKnowledgeCardProp
     <section
       className="animate-fade-slide-up mx-auto w-full max-w-3xl overflow-hidden rounded-2xl backdrop-blur-xl"
       style={{
-        background: "rgba(255, 255, 255, 0.03)",
-        border: "1px solid rgba(255, 255, 255, 0.06)",
+        background: "var(--color-bg-panel)",
+        border: "1px solid var(--color-border-faint)",
         boxShadow: "0 4px 24px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.03)",
       }}
     >
@@ -94,8 +94,8 @@ export function DailyKnowledgeCard({ items, fact, date }: DailyKnowledgeCardProp
                   href={item.url}
                   className="group block rounded-xl p-4 no-underline transition-all duration-300 hover:bg-white/4"
                   style={{
-                    background: "rgba(255, 255, 255, 0.02)",
-                    border: "1px solid rgba(255, 255, 255, 0.05)",
+                    background: "var(--color-bg-near)",
+                    border: "1px solid var(--color-border-faint)",
                   }}
                 >
                   <div className="flex items-start gap-3">
@@ -105,7 +105,7 @@ export function DailyKnowledgeCard({ items, fact, date }: DailyKnowledgeCardProp
                         <span
                           className="rounded-full px-2 py-0.5 text-[0.68rem] font-semibold"
                           style={{
-                            color: style.text,
+                            color: `color-mix(in oklab, ${style.text} 38%, var(--color-fg-primary))`,
                             background: style.bg,
                             border: `1px solid ${style.border}`,
                           }}
@@ -113,7 +113,7 @@ export function DailyKnowledgeCard({ items, fact, date }: DailyKnowledgeCardProp
                           {style.label}
                         </span>
                         {item.year !== undefined && (
-                          <span className="text-[0.68rem] text-[#9ca3af]">
+                          <span className="text-fg-muted text-[0.68rem]">
                             {item.year < 0 ? `公元前${Math.abs(item.year)}年` : `${item.year}年`}
                           </span>
                         )}
@@ -140,11 +140,11 @@ export function DailyKnowledgeCard({ items, fact, date }: DailyKnowledgeCardProp
 
         <div
           className="mt-5 flex items-start gap-2 pt-4"
-          style={{ borderTop: "1px solid rgba(255, 255, 255, 0.06)" }}
+          style={{ borderTop: "1px solid var(--color-border-faint)" }}
         >
           <span className="shrink-0 text-sm">💡</span>
-          <p className="m-0 text-[0.78rem] leading-relaxed text-[#9ca3af]">
-            <span className="font-semibold text-[#eab308]">趣味知识：</span>
+          <p className="text-fg-muted m-0 text-[0.78rem] leading-relaxed">
+            <span className="text-accent-gold font-semibold">趣味知识：</span>
             {fact}
           </p>
         </div>

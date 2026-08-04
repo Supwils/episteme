@@ -249,12 +249,4 @@ export const ISMS = [
     era: "20—21 世纪",
     key_figures: ["赫胥黎", "莫尔", "博斯特罗姆", "库兹韦尔", "诺齐克", "桑德尔", "福山"],
   },
-  {
-    slug: "utilitarianism",
-    title: "功利主义",
-    title_en: "Utilitarianism",
-    category: "伦理学",
-    era: "近代",
-    key_figures: ["边沁", "密尔"],
-  },
 ];

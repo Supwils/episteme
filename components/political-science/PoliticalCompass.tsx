@@ -47,7 +47,7 @@ export function PoliticalCompass() {
       <figcaption className="border-border-faint flex items-center justify-between gap-2 border-b px-4 py-2.5">
         <span
           className="font-mono text-[10px] tracking-[0.22em] uppercase"
-          style={{ color: ACCENT }}
+          style={{ color: `color-mix(in oklab, ${ACCENT} 42%, var(--color-fg-primary))` }}
         >
           政治光谱 · 交互
         </span>
@@ -165,7 +165,10 @@ export function PoliticalCompass() {
             <p className="text-fg-disabled font-mono text-[9px] tracking-[0.18em] uppercase">
               你所在象限
             </p>
-            <p className="mt-1 text-lg font-semibold" style={{ color: ACCENT }}>
+            <p
+              className="mt-1 text-lg font-semibold"
+              style={{ color: `color-mix(in oklab, ${ACCENT} 42%, var(--color-fg-primary))` }}
+            >
               {quadrant(econ, social)}
             </p>
             <p className="text-fg-muted mt-1 text-xs">

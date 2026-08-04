@@ -65,6 +65,28 @@ export const CONTENT_REACHABILITY_AUDIT_SCOPES: readonly AuditScope[] = [
     minimumCoveragePercent: 100,
   },
   {
+    domain: "law",
+    sections: [
+      "foundations",
+      "public-law",
+      "private-law",
+      "criminal-and-procedure",
+      "legal-traditions",
+      "global-and-digital",
+    ],
+    minimumCoveragePercent: 100,
+  },
+  {
+    domain: "arts",
+    sections: ["foundations", "media", "architecture", "traditions", "aesthetics", "methods"],
+    minimumCoveragePercent: 100,
+  },
+  {
+    domain: "engineering",
+    sections: ["foundations", "energy", "materials", "machines", "civil", "frontiers"],
+    minimumCoveragePercent: 100,
+  },
+  {
     domain: "political-science",
     sections: [
       "concepts",

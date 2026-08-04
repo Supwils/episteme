@@ -14,12 +14,14 @@ const atlas = buildKnowledgeSpineAtlas(
   buildKnowledgeCoverageSnapshot()
 );
 
+const EXPECTED_POINT_COUNT = atlas.rows.length * 5;
+
 describe("knowledge spine orbit", () => {
-  it("projects every 15 by 5 spine node into the stable view box", () => {
+  it("projects every spine node (domains x 5 levels) into the stable view box", () => {
     const projection = projectKnowledgeSpineOrbit(atlas, 0);
 
-    expect(projection.points).toHaveLength(75);
-    expect(projection.pointsByCoordinate.size).toBe(75);
+    expect(projection.points).toHaveLength(EXPECTED_POINT_COUNT);
+    expect(projection.pointsByCoordinate.size).toBe(EXPECTED_POINT_COUNT);
     for (const point of projection.points) {
       expect(point.x).toBeGreaterThan(0);
       expect(point.x).toBeLessThan(SPINE_ORBIT_VIEWBOX.width);

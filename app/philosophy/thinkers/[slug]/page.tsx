@@ -4,11 +4,11 @@ import Breadcrumb from "@/components/Breadcrumb";
 import RelatedContent from "@/components/RelatedContent";
 import SafeRender from "@/components/SafeRender";
 import { ERA_ACCENT, SITE_URL } from "@/lib/constants";
-import { parseContent } from "@/components/thinker-detail/content-parser";
-import RenderBlocks from "@/components/thinker-detail/RenderBlocks";
+import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import ThinkerSidebar from "@/components/thinker-detail/ThinkerSidebar";
 import { ArticleSidebar } from "@/components/ArticleSidebar";
 import ThinkerNav from "@/components/thinker-detail/ThinkerNav";
+import { readingMinutes } from "@/lib/reading-time";
 import { serializeJsonLd, createPersonJsonLd } from "@/lib/jsonld";
 
 export function generateStaticParams() {
@@ -51,13 +51,11 @@ export default async function ThinkerDetailPage({ params }: { params: Promise<{ 
     )
     .slice(0, 4);
 
-  const blocks = parseContent(thinker.content);
   const accent = ERA_ACCENT[thinker.era] ?? "#c8a45a";
 
+  const readMinutes = readingMinutes(thinker.content);
   // .length counts characters; for Chinese text this is closer to word count.
-  // Assumes ~500 chars/min reading speed.
   const wordCount = thinker.content.length;
-  const readMinutes = Math.max(1, Math.ceil(wordCount / 400));
 
   const personJsonLd = createPersonJsonLd({
     name: thinker.philosopher,
@@ -124,7 +122,7 @@ export default async function ThinkerDetailPage({ params }: { params: Promise<{ 
 
       <div className="flex flex-col gap-12 lg:flex-row">
         <article className="min-w-0 flex-1">
-          <RenderBlocks blocks={blocks} />
+          <MarkdownRenderer content={thinker.content} accentColor={accent} domain="philosophy" />
 
           <SafeRender>
             <RelatedContent slug={slug} domain="philosophy" entityId={slug} />

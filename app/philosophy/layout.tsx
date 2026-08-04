@@ -3,6 +3,9 @@ import { spaceGrotesk, plexMono } from "./fonts";
 import { SubjectHeader } from "@/components/SubjectHeader";
 import { PageTransition } from "@/components/PageTransition";
 import "./globals.css";
+// KaTeX stylesheet: articles in this domain render math via MarkdownRenderer
+// (server-side renderToString), which needs these styles + fonts to display properly.
+import "katex/dist/katex.min.css";
 
 export const metadata: Metadata = {
   title: "哲学思想 — Episteme · 格致",

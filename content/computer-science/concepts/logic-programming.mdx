@@ -1,0 +1,170 @@
+---
+title: 逻辑编程
+title_en: Logic Programming
+status: published
+updated: 2026-07-31
+category: 编程范式
+order: 25
+field: 计算机科学 · 编程语言
+tags:
+  - 逻辑编程
+  - Prolog
+  - 归结
+  - 合一
+  - Datalog
+  - 约束逻辑编程
+related:
+  - functional-programming
+  - lambda-calculus-type-theory
+  - sat-solving
+  - databases-transactions
+---
+
+# 逻辑编程
+
+1972 年夏天，法国马赛大学的阿兰·科尔默劳（Alain Colmerauer）和他的学生菲利普·鲁塞尔（Philippe Roussel）正在为一个自然语言问题发愁：怎么让计算机理解法语问句并给出回答？他们试过把语法规则和推理规则直接写成一阶逻辑的句子，再让一台定理证明器去"证明"用户问句的答案存在。结果发现，证明的过程本身就是在计算——程序根本不需要指令序列，只需要逻辑陈述和一个通用的推理引擎。
+
+这门语言被鲁塞尔命名为 Prolog（PROgrammation en LOGique 的缩写，"用逻辑编程"）。几乎同一时期，爱丁堡大学的罗伯特·科瓦尔斯基（Robert Kowalski）正在从理论上论证同一件事：谓词逻辑可以直接当作编程语言使用。马赛给出了实现，爱丁堡给出了纲领，逻辑编程（Logic Programming）由此诞生——它是继命令式、函数式之后的第三大编程范式。
+
+## 破除误解：逻辑编程不是"一堆 if-else 规则"
+
+很多人把逻辑编程想象成专家系统那种"如果条件满足就执行动作"的规则引擎。这是混淆了两个完全不同的东西。
+
+规则引擎的规则是**单向的**：条件触发动作，规则之间靠链条传递，本质仍是命令式的。而逻辑编程的陈述是**关系**，不是函数，更不是动作。看 Prolog 里最著名的一个例子——列表拼接：
+
+```prolog
+append([], Ys, Ys).
+append([X|Xs], Ys, [X|Zs]) :- append(Xs, Ys, Zs).
+```
+
+两行代码读作两个逻辑事实：空表拼上任何表 Ys 就是它自己；一个以 X 开头的表拼上 Ys，结果以 X 开头、尾部是 Xs 与 Ys 的拼接。这里没有任何"计算方向"。因此同一个定义可以被四种完全不同的方式使用：
+
+- `append([1,2], [3], R)` —— 正向：算出 R = [1,2,3]
+- `append(Xs, Ys, [1,2,3])` —— 反向：枚举所有能把 [1,2,3] 切成两段的切法
+- `append(Xs, [3], [1,2,3])` —— 部分反向：推出 Xs = [1,2]
+- `append(X, Y, Z)` —— 完全未定的查询，枚举所有可能的三元组
+
+一个定义，四种用法。这就是"声明式"三个字的真实含义：你陈述的是**问题各量之间的逻辑关系**，至于朝哪个方向求解，是语言运行时的责任，不是你的。
+
+## 纲领：算法 = 逻辑 + 控制
+
+1979 年，科瓦尔斯基在《ACM 通讯》上发表了一篇短文《Algorithm = Logic + Control》，把这个范式的纲领写进了一个等式：任何算法都可以分解为两部分——**逻辑**（问题是什么，答案必须满足什么条件）和**控制**（按什么策略去寻找答案）。
+
+这个等式既是描述，也是主张。它主张：程序员应该只负责"逻辑"部分，把"控制"部分交给一个通用的推理引擎。这带来了两个直接推论。
+
+**第一，程序的正确性可以独立于执行来讨论。** 一段 Prolog 代码作为逻辑公式，有一个不依赖任何机器的"模型论语义"——它断定了哪些事实为真。你可以先问"这个关系定义对吗"，再问"机器找答案的策略高效吗"，两个问题是分离的。对比之下，一段 C 代码的"含义"就是它的执行过程，两者无法拆开。
+
+**第二，改控制不动逻辑，就能改变程序行为。** 同一个逻辑程序，用深度优先搜索得到 Prolog，用自底向上的不动点计算得到 Datalog，用并发子句执行得到并发逻辑语言。逻辑部分原封不动。科瓦尔斯基的这个等式，后来成为整个声明式编程运动（包括函数式编程、SQL、乃至今天的配置即代码）共同的思想源头之一。
+
+## 计算模型：Horn 子句与合一
+
+逻辑编程的理论基础是 1965 年艾伦·罗宾逊（J. A. Robinson）提出的**归结原理**（resolution）——一条适合机器执行的通用推理规则。但完整的归结对任意一阶公式仍然太昂贵。1972 年马赛团队做了一个"严厉的决定"（科尔默劳后来的自述）：只处理 **Horn 子句**，并且只做子句头之间的线性归结。
+
+Horn 子句是至多含一个正文字的子句，写成 Prolog 语法就是三种东西：**事实**（`parent(abel, cain).`）、**规则**（`ancestor(X, Y) :- parent(X, Z), ancestor(Z, Y).`，读作"若 X 是 Z 的父母且 Z 是 Y 的祖先，则 X 是 Y 的祖先"）、**查询**（`?- ancestor(abel, Who).`）。规则头部是结论，":-"右边是前提。
+
+让这套系统转起来的核心机制是**合一**（unification）：给定两个含变量的项，寻找一个**替换**（substitution），使替换之后两项完全相同。比如合一 `parent(abel, X)` 与 `parent(Y, cain)`，得到替换 {Y=abel, X=cain}。合一不是模式匹配——它是**双向的**，变量可以在等号任何一侧被绑定，这正是 append 能反向运行的原因。
+
+合一算法有一个微妙的工程细节：**occurs check**。合一 `X` 与 `f(X)` 在数学上应该失败（不存在有限的解），但朴素的算法会构造出无限项 `f(f(f(...)))`。检查"变量是否出现在要绑定给它的项里"（occurs check）代价不菲，所以主流 Prolog 实现默认**省略**这个检查，换取合一接近 O(1) 的摊还速度——把"创建循环项"这一罕见错误的责任留给程序员。这是一个教科书级的"理论正确性 vs 工程效率"的权衡。
+
+## SLD 归结与回溯：Prolog 实际怎么跑
+
+有了 Horn 子句和合一，执行机制就剩下最后一块：搜索。科瓦尔斯基 1974 年在 IFIP 论文《Predicate Logic as a Programming Language》中形式化的 **SLD 归结**给出了答案。给定查询 `?- ancestor(abel, Who)`：
+
+1. 从查询出发，选第一个子目标 `ancestor(abel, Who)`；
+2. 在程序里**从上到下**找头部能与它合一的子句——先试事实，再试规则；
+3. 合一成功后，把规则体替换成新的子目标（`parent(abel, Z), ancestor(Z, Who)`），递归下去；
+4. 所有子目标消解完，则查询成立，把一路累积的变量绑定作为答案（Who = cain）；
+5. 若某步找不到可合一的子句，就**回溯**（backtrack）到最近的选择点，试下一条子句。
+
+这套"深度优先 + 按文本顺序选择子句"的策略有一个深刻的后果：**Prolog 是不完备的**。逻辑上为真的答案，Prolog 可能因为沿着一条无限分支走下去而永远找不到。把规则写成 `ancestor(X, Y) :- ancestor(Z, Y), parent(X, Z).`（逻辑上与原规则等价），查询就会陷入无限左递归。所以 Prolog 程序员必须心里有那台搜索机：子目标顺序、子句顺序都是程序语义的一部分。这正是"逻辑 + 控制"等式在现实中留下的裂缝——控制并没有真的消失，只是被约定俗成地藏了起来。
+
+## 纯粹性的裂缝：cut 与失败即否定
+
+真实程序需要两件纯 Horn 逻辑给不了的东西：剪掉没用的搜索分支，以及表达"没有"。Prolog 的回答是两个实用主义装置，它们各自付出了语义代价。
+
+**cut（`!`）** 是一个写在规则体里的控制指令，效果是"提交当前选择"：执行到 cut 之后，本谓词之前的所有选择点被丢弃，不再回溯。cut 分两种：只剪掉本来就会失败的冗余分支、不改变程序逻辑含义的，叫**绿色 cut**，相当于性能提示；剪掉的是本来会产生答案的分支、改变程序含义的，叫**红色 cut**——它让程序的逻辑读法和实际行为脱钩，是 Prolog 代码最难调试的错误来源之一。
+
+**失败即否定**（negation as failure）更激进：查询 `\+ Goal` 为真，当且仅当 Goal **证明不出来**。1978 年基思·克拉克（Keith Clark）为这一规则给出了语义基础（程序完成化，program completion）。它隐含一个**封闭世界假设**：凡不能从程序推出的事实，都视为假。这在"列车时刻表"式的应用里很自然（时刻表上查不到的车次就是不存在），但在逻辑上它已经越出了经典逻辑的边界——"推不出 P"和"P 为假"是两回事。
+
+这道裂缝后来长成了一整个研究领域。1988 年，迈克尔·盖尔方德（Michael Gelfond）与弗拉基米尔·利夫希茨（Vladimir Lifschitz）提出**稳定模型语义**，给含否定的逻辑程序一个干净的模型论基础，由此催生了**回答集编程**（ASP）：不再逐条查询，而是直接求出满足全部规则的整个"世界模型"，再让求解器去搜索。ASP 的求解器（如 clasp）大量借用了 SAT 求解的冲突驱动学习技术——逻辑编程和 SAT 求解在三十年后于此合流。
+
+## 实现工程：从解释器到 WAM
+
+早期的马赛 Prolog 是 Fortran 写的解释器，慢得难以实用。转折发生在爱丁堡：1977 年，戴维·沃伦（David H. D. Warren）与费尔南多·佩雷拉、路易斯·佩雷拉写出了 **DEC-10 Prolog**——第一个 Prolog 编译器，性能达到同期 Lisp 系统水平。诺维格后来在《PAIP》中评价：正是这个编译器让逻辑编程第一次成为 Lisp 之外的严肃选项，它的语法也成为"爱丁堡标准"，沿用至今。
+
+1983 年，沃伦在 SRI（DEC 资助，目标是把 DEC-10 的性能移植到 VAX）总结出一套抽象机设计，即 **WAM（Warren Abstract Machine）**。WAM 之于 Prolog，相当于 JVM 之于 Java：它定义了逻辑程序如何编译成指令、运行时维护哪些栈。WAM 的关键设计都直指 Prolog 的特殊困难：
+
+- **trail 栈**：合一绑定的变量在回溯时必须**撤销**。WAM 把每次绑定记录到 trail 上，回溯时按记录逐一解绑——撤销机制是逻辑编程运行时独有的，函数式与命令式语言都不需要。
+- **选择点与索引**：每个子句调用点都可能回溯重入，WAM 用 choice point 保存现场，并用首参数索引（first-argument indexing）直接跳到可能匹配的子句，避免线性扫描。
+- **尾调用优化（last call optimization）**：确定性谓词的尾调用可以复用栈帧，让逻辑程序写出常数空间的循环——没有它，递归定义的 Prolog 几乎不可用。
+
+此后几乎所有 Prolog 实现（SICStus、SWI-Prolog、GNU Prolog）都以 WAM 或其变体为蓝本。1995 年，Prolog 核心语言被标准化为 ISO/IEC 13211-1。
+
+## 豪赌与失败：第五代计算机计划
+
+1982 年，日本通产省启动了可能是计算机史上最昂贵的一次范式押注：**第五代计算机系统计划**（FGCS）。计划为期十年，由专门成立的"新世代计算机技术开发机构"（ICOT）执行，总投入约 500 亿日元（按当时汇率约 4 亿多美元）。目标不是造更快的冯·诺依曼机器，而是绕开它：用大规模并行硬件直接执行逻辑程序，让"推理"成为计算机的基本操作，并在此基础上实现自然语言对话与知识库系统。Prolog 被选定为整个计划的软件基座，ICOT 在其上开发了并发逻辑语言 KL1 和配套的并行推理机 PIM 系列。
+
+这个计划震动世界：美国以 DARPA 的"战略计算计划"回应，英国启动 Alvey 计划，欧共体推出 ESPRIT。1980 年代全球 AI 研究经费的相当部分，都是被日本这一手"逼"出来的。
+
+结局却是失败。1992 年计划结束时，没有产出任何有商业价值的系统。失败的原因是多层的：
+
+- **技术层**：并行化逻辑程序远比设想困难。OR 并行（并行探索多个子句）下各分支要共享未绑定变量，AND 并行（并行执行多个子目标）下子目标间有数据依赖，两者都引入了巨大的协调开销。与此同时，单芯片微处理器的性能正以摩尔定律狂飙，专用并行推理机还没造完就被通用工作站甩开。
+- **语言层**：纯 Prolog 缺乏模块系统，cut 等杂质让大规模工程困难。批评者（如 Hewitt 与 Agha 1988 年的评论）指出，子句式范式在模块化与效率上不如直接的消息传递模型。
+- **生态层**：费根鲍姆 1993 年的复盘报告直言，缺乏用户需要的应用、加上一门游离于主流之外的语言，耗尽了产业界的耐心。
+
+第五代计划的教训至今有效：**再好的计算模型，也替代不了生态、工具链和真实的应用需求**。它的正面遗产常被忽视：并行逻辑语言研究养活了后来的并发约束编程，而它激起的国际回应直接塑造了 1980 年代的 AI 研究格局。
+
+## 范式没有死：它只是换了名字
+
+宣告"逻辑编程已死"很容易，也一直是错的。这个范式没有占据主流语言的位置，而是沉淀为若干关键基础设施：
+
+**Datalog** 是 Prolog 的纯逻辑子集：无函数符号、无 cut、查询保证终止。它 1980 年代在数据库理论中定型，2004 年 Whaley 与 Lam 在 PLDI 论文中证明：用 Datalog 加 BDD（系统 bddbddb）可以把上下文敏感的 Java 指针分析写成几十行规则——此前这类分析需要数千行命令式代码。这开启了"Datalog 做静态分析"的复兴：2016 年 Oracle Labs 的 Soufflé 引擎把 Datalog 程序编译成高度优化的并行 C++，成为安全分析与程序理解领域的标准工具之一；Datomic 等新一代数据库则直接把 Datalog 用作查询语言。
+
+**约束逻辑编程**（CLP）把合一推广为一般约束求解：变量之间陈述约束（`X + Y #= 10`），求解器负责传播与搜索。Jaffar 与 Lassez 1987 年的 POPL 论文奠定了它的理论。今天 SMT 求解器（如微软研究院 2008 年发布的 Z3）是这条谱系的直系后裔——调度、硬件验证、程序合成里每天运行的约束求解，都是 CLP 思想的工业化形态。
+
+**miniKanren** 证明了逻辑编程可以小到成为一门嵌入式语言：Friedman、Byrd 与 Kiselyov 在 2005 年《The Reasoned Schemer》中展示的关系式语言，核心只有几百行 Scheme。它把"程序即关系"推到极限——同一个关系式解释器，正向运行是求值器，反向运行就是程序合成器。
+
+**Erlang 的血统**最容易被忽略。1986 年 Joe Armstrong 在爱立信为电信交换机设计 Erlang 时，第一个实现就是一个 Prolog 解释器；Erlang 的模式匹配、变量单次赋值、乃至语法气质都来自 Prolog，其首个真正的虚拟机 JAM（Joe's Abstract Machine）则公开承认受 WAM 启发。今天支撑 WhatsApp 消息系统的 BEAM 虚拟机，是 WAM 的隔代传人。
+
+**主流 AI 的地基里也有它**。2011 年在《危险边缘》（Jeopardy!）中击败人类冠军的 IBM Watson，其深度句法分析组件就是用 Prolog 写的（IBM 研发团队 2012 年在《IBM 研究与开发期刊》上专文介绍）——需要精确、可检查的符号结构时，四十年前的工具依然顺手。
+
+## 今天的位置
+
+逻辑编程没有赢，也没有输。它作为通用语言的定位被历史否决了——第五代计划的废墟就是证据；但它提出的问题方式（程序 = 逻辑 + 控制）渗进了现代计算的每个声明式角落：SQL 查询、Datalog 分析、SMT 求解、类型推断（Hindley-Milner 类型推断本质上就是合一）。
+
+1995 年墨尔本大学发布的 Mercury 展示了"从头认真设计"的样子：强静态类型、模式与确定性声明、编译期检查，去掉 Prolog 的杂质。它从未流行，但证明了这个范式还有工程空间。
+
+在命令式里，计算是改变状态；在函数式里，计算是求值表达式；在逻辑编程里，计算是**寻找证明**。这个视角，正是今天所有 SAT/SMT 求解器、类型系统与程序合成工具背后共享的那只看不见的手。
+
+## 跨域连接
+
+- **[[lambda-calculus-type-theory|λ演算与类型理论]]**：Curry-Howard 对应从构造性证明里读出程序，逻辑编程从证明搜索里读出计算，是同一枚"逻辑即计算"硬币的两面。前者要求证明必须给出见证，于是产出类型系统与证明助手；后者把找证明这件事本身交给机器，于是合一与回溯成了运行时。推论是：类型系统检查程序是否良构，逻辑编程干脆把求解外包给搜索。
+- **[[sat-solving|SAT 求解]]**：SLD 归结自上而下、目标制导，适合 Horn 子句；DPLL 与 CDCL 面向命题逻辑、靠冲突驱动学习剪枝。ASP 求解器 clasp 直接把子句学习搬进稳定模型搜索，说明两者不是对立技术，而是归结思想在不同表达力与效率权衡点上的工程化身。逻辑编程追求表达力，SAT 追求原始速度，ASP 居中。
+- **[[databases-transactions|数据库与事务]]**：关系代数大致是 Horn 子句的非递归片段，SQL-92 表达不了传递闭包，Datalog 规则 `path(X,Z) :- path(X,Y), edge(Y,Z)` 一行就能写完。代价在求值策略：Datalog 自底向上算不动点以保证终止，SQL 直到 1999 年才用递归 CTE 补上这块。查询语言的边界，本质就是所选逻辑片段的边界。
+- **[[logic|逻辑]]**：弗雷格与罗素的谓词逻辑本为数学基础而造，罗宾逊的归结原理让它可被机器执行；失败即否定则把"推不出"当成"假"，滑出经典逻辑，反过来催生了非单调逻辑这一哲学分支。一个语法约定（封闭世界假设）向哲学提出了"否定到底意味着什么"的真问题。
+- **[[natural-language-processing|自然语言处理]]**：Prolog 因 NLP 而生——科尔默劳要解析法语问句，把上下文无关文法写成子句就是后来的定子句文法（DCG）。统计方法占主流之后这条路一度沉寂，但 Watson 的深度句法分析仍用 Prolog：当任务需要精确、可检查的符号结构而非概率分布时，1972 年的工具依然顺手。
+
+---
+
+## 参考文献
+
+- Kowalski, R. *Algorithm = Logic + Control.* Communications of the ACM 22(7), 1979, pp. 424–436. DOI: 10.1145/359131.359136. （"逻辑 + 控制"纲领）
+- Kowalski, R. *Predicate Logic as a Programming Language.* Proceedings of IFIP Congress, 1974. （SLD 归结与过程性解释）
+- Robinson, J. A. *A Machine-Oriented Logic Based on the Resolution Principle.* Journal of the ACM 12(1), 1965, pp. 23–41. DOI: 10.1145/321250.321253.
+- Colmerauer, A. & Roussel, P. *The Birth of Prolog.* 收录于 *History of Programming Languages II*, ACM, 1996. （马赛团队自述 Prolog 起源）
+- Clark, K. *Negation as Failure.* 收录于 *Logic and Data Bases*, Plenum Press, 1978, pp. 293–322.
+- Gelfond, M. & Lifschitz, V. *The Stable Model Semantics for Logic Programming.* Proceedings of ICLP, MIT Press, 1988, pp. 1070–1080. （ASP 的语义基础）
+- Jaffar, J. & Lassez, J.-L. *Constraint Logic Programming.* Proceedings of POPL, ACM, 1987, pp. 111–119.
+- Warren, D. H. D. *An Abstract Prolog Instruction Set.* SRI International Technical Note 309, 1983. （WAM 原始文献）
+- Whaley, J. & Lam, M. S. *Cloning-Based Context-Sensitive Pointer Alias Analysis Using Binary Decision Diagrams.* PLDI, ACM, 2004, pp. 131–144. （Datalog 静态分析复兴的起点）
+- Scholz, B., Jordan, H., Subotić, P. & Westmann, T. *On Fast Large-Scale Program Analysis in Datalog.* Compiler Construction (CC), Springer, 2016. （Soufflé 引擎）
+- Lally, A. et al. *Natural Language Processing with Prolog in the IBM Watson System.* IBM Journal of Research and Development 56(3/4), 2012.
+- de Moura, L. & Bjørner, N. *Z3: An Efficient SMT Solver.* TACAS, LNCS 4963, Springer, 2008, pp. 337–340. DOI: 10.1007/978-3-540-78800-3_24.
+- Körner, P. et al. *Fifty Years of Prolog and Beyond.* Theory and Practice of Logic Programming 22(6), 2022. DOI: 10.1017/S1471068422000102. （五十周年权威综述）
+
+## 延伸阅读
+
+- Sterling, L. & Shapiro, E. *The Art of Prolog.* MIT Press, 1986. （逻辑编程经典教材）
+- Lloyd, J. W. *Foundations of Logic Programming.* Springer, 1987. （模型论语义的系统论述）
+- Friedman, D. P., Byrd, W. E. & Kiselyov, O. *The Reasoned Schemer.* MIT Press, 2005. （miniKanren 与关系式编程）
+- Blackburn, P., Bos, J. & Striegnitz, K. *Learn Prolog Now!* College Publications, 2006. （免费在线的入门书）

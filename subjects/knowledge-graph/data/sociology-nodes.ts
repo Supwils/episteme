@@ -38,6 +38,26 @@ export const SOCIOLOGY_NODES: GraphNode[] = [
     "拟剧论",
     "污名",
   ]),
+  n("talcott-parsons", "帕森斯", "thinker", "thinkers", "结构功能主义、AGIL 与秩序问题。", [
+    "结构功能主义",
+    "AGIL",
+  ]),
+  n(
+    "robert-merton",
+    "默顿",
+    "thinker",
+    "thinkers",
+    "中层理论、功能分析、自我实现预言与科学社会学。",
+    ["中层理论", "失范"]
+  ),
+  n(
+    "socialization",
+    "社会化",
+    "concept",
+    "concepts",
+    "个体如何习得规范、角色与自我，成为社会成员。",
+    ["社会化", "自我"]
+  ),
   n("w-e-b-du-bois", "杜波依斯", "thinker", "thinkers", "双重意识、色线与城市社会学先驱。", [
     "双重意识",
     "种族",
@@ -307,6 +327,30 @@ export const SOCIOLOGY_NODES: GraphNode[] = [
     ["社会学的想象力", "权力精英", "白领"]
   ),
   n(
+    "anthony-giddens",
+    "安东尼·吉登斯",
+    "thinker",
+    "thinkers",
+    "结构化理论、现代性的后果与第三条道路。",
+    ["结构化", "现代性", "反思性"]
+  ),
+  n(
+    "james-coleman",
+    "詹姆斯·科尔曼",
+    "thinker",
+    "thinkers",
+    "理性选择社会学、社会资本理论与教育机会研究。",
+    ["理性选择", "社会资本", "教育机会"]
+  ),
+  n(
+    "michel-foucault-sociology",
+    "福柯（社会学）",
+    "thinker",
+    "thinkers",
+    "规训、全景敞视、治理术与生命政治的制度分析。",
+    ["规训", "治理术", "生命政治"]
+  ),
+  n(
     "social-movements",
     "社会运动",
     "concept",
@@ -321,6 +365,54 @@ export const SOCIOLOGY_NODES: GraphNode[] = [
     "concepts",
     "种族的社会建构、族群边界与结构性不平等的累积机制。",
     ["社会建构", "族群边界", "结构性不平等"]
+  ),
+  n(
+    "jurgen-habermas",
+    "于尔根·哈贝马斯",
+    "thinker",
+    "thinkers",
+    "交往行为理论、公共领域、生活世界与系统的殖民。",
+    ["交往行为", "公共领域", "生活世界"]
+  ),
+  n(
+    "norbert-elias",
+    "诺贝特·埃利亚斯",
+    "thinker",
+    "thinkers",
+    "文明的进程、构型社会学与内局—外局群体研究。",
+    ["文明的进程", "构型", "过程社会学"]
+  ),
+  n(
+    "welfare-state",
+    "福利国家与社会政策",
+    "institution",
+    "institutions",
+    "社会保险传统、贝弗里奇蓝图、三种福利体制与去商品化。",
+    ["社会政策", "福利体制", "去商品化"]
+  ),
+  n(
+    "mark-granovetter",
+    "马克·格兰诺维特",
+    "thinker",
+    "thinkers",
+    "弱关系、嵌入性、门槛模型与新经济社会学。",
+    ["弱关系", "嵌入性", "经济社会学"]
+  ),
+  n(
+    "science-and-technology-studies",
+    "科学与技术研究（STS）",
+    "concept",
+    "concepts",
+    "科学知识作为社会产物：强纲领、实验室研究、ANT 与 SCOT。",
+    ["科学知识社会学", "行动者网络", "技术建构"]
+  ),
+  n(
+    "zygmunt-bauman",
+    "齐格蒙特·鲍曼",
+    "thinker",
+    "thinkers",
+    "流动的现代性、新穷人、现代性与大屠杀、旅游者与流浪者。",
+    ["流动的现代性", "消费社会", "道德距离"]
   ),
   ...SOCIOLOGY_COVERAGE_NODES,
 ];
@@ -338,6 +430,13 @@ export const SOCIOLOGY_EDGES: GraphEdge[] = [
   e("pierre-bourdieu", "social-stratification", "再生产"),
   e("pierre-bourdieu", "education-and-credentialism", "文化资本"),
   e("erving-goffman", "gender-and-society", "互动表演"),
+  e("talcott-parsons", "robert-merton", "师生与功能主义修正"),
+  e("talcott-parsons", "social-structure", "行动系统与秩序问题"),
+  e("robert-merton", "social-structure", "中层理论"),
+  e("robert-merton", "deviance-and-social-control", "失范与结构紧张"),
+  e("socialization", "erving-goffman", "全控机构与再社会化"),
+  e("socialization", "social-structure", "社会如何进入个体"),
+  e("socialization", "family-and-kinship", "初级社会化的第一现场"),
   e("w-e-b-du-bois", "social-stratification", "种族分层"),
   e("social-structure", "social-stratification", "分配机会"),
   e("social-capital", "social-network-analysis", "关系资源"),
@@ -457,11 +556,36 @@ export const SOCIOLOGY_EDGES: GraphEdge[] = [
   e("c-wright-mills", "social-structure", "个人困扰与公共议题"),
   e("c-wright-mills", "social-stratification", "白领与新中产位置"),
   e("c-wright-mills", "media-and-public-sphere", "大众媒介与被动公众"),
+  e("anthony-giddens", "social-structure", "结构化：结构与行动互构"),
+  e("anthony-giddens", "comparative-historical-analysis", "现代性的制度维度"),
+  e("james-coleman", "social-capital", "社会资本的理性选择基础"),
+  e("james-coleman", "education-and-credentialism", "科尔曼报告与教育机会"),
+  e("michel-foucault-sociology", "deviance-and-social-control", "规训与规范化裁决"),
+  e("michel-foucault-sociology", "bureaucracy", "档案、检查与个案生产"),
   e("social-movements", "social-network-analysis", "动员依赖既有网络"),
   e("social-movements", "social-capital", "组织资源与动员能力"),
   e("social-movements", "media-and-public-sphere", "框架传播与议程"),
   e("race-and-ethnicity", "social-stratification", "分类如何转为分层"),
   e("race-and-ethnicity", "w-e-b-du-bois", "色线与双重意识"),
   e("race-and-ethnicity", "migration-and-diaspora", "移民与族群性再生产"),
+  e("jurgen-habermas", "media-and-public-sphere", "公共领域的结构转型"),
+  e("jurgen-habermas", "talcott-parsons", "操纵媒介对帕森斯的改写"),
+  e("jurgen-habermas", "michel-foucault-sociology", "共识与权力的对峙"),
+  e("norbert-elias", "comparative-historical-analysis", "国家形成的过程追踪"),
+  e("norbert-elias", "migration-and-diaspora", "内局群体与外局群体"),
+  e("norbert-elias", "deviance-and-social-control", "污名与网络化控制"),
+  e("welfare-state", "social-stratification", "再分层效应"),
+  e("welfare-state", "bureaucracy", "社会保险的行政骨架"),
+  e("welfare-state", "ageing-societies", "养老金与代际契约"),
+  e("mark-granovetter", "social-network-analysis", "弱关系与桥"),
+  e("mark-granovetter", "social-capital", "桥接型社会资本的先声"),
+  e("mark-granovetter", "work-and-labor-organizations", "求职的网络范式"),
+  e("mark-granovetter", "james-coleman", "网络结构对理性选择"),
+  e("science-and-technology-studies", "robert-merton", "默顿学派的继承与反叛"),
+  e("science-and-technology-studies", "ethnography", "实验室作为田野"),
+  e("science-and-technology-studies", "digital-platform-society", "算法黑箱与平台知识"),
+  e("zygmunt-bauman", "bureaucracy", "科层制与道德距离"),
+  e("zygmunt-bauman", "social-stratification", "消费社会与新穷人"),
+  e("zygmunt-bauman", "migration-and-diaspora", "旅游者与流浪者"),
   ...SOCIOLOGY_COVERAGE_EDGES,
 ];

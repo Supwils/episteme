@@ -1,0 +1,755 @@
+{
+  "mingkwai-typewriter-patent": {
+    "id": "mingkwai-typewriter-patent",
+    "width": 2000,
+    "height": 2200,
+    "variants": [
+      {
+        "width": 640,
+        "file": "mingkwai-typewriter-patent-640.webp",
+        "bytes": 67550
+      },
+      {
+        "width": 1280,
+        "file": "mingkwai-typewriter-patent-1280.webp",
+        "bytes": 204060
+      },
+      {
+        "width": 1920,
+        "file": "mingkwai-typewriter-patent-1920.webp",
+        "bytes": 373092
+      }
+    ],
+    "title": "林语堂明快打字机（1952 年美国专利 US2613795 附图）"
+  },
+  "art-market-salvator-mundi": {
+    "id": "art-market-salvator-mundi",
+    "width": 1495,
+    "height": 2200,
+    "variants": [
+      {
+        "width": 640,
+        "file": "art-market-salvator-mundi-640.webp",
+        "bytes": 61132
+      },
+      {
+        "width": 1280,
+        "file": "art-market-salvator-mundi-1280.webp",
+        "bytes": 298690
+      }
+    ],
+    "title": "莱奥纳多·达·芬奇（传）《救世主》（约1500），胡桃木板油画，2017 年以 4.503 亿美元创拍卖纪录"
+  },
+  "arts-amiens-flying-buttress": {
+    "id": "arts-amiens-flying-buttress",
+    "width": 700,
+    "height": 662,
+    "variants": [
+      {
+        "width": 640,
+        "file": "arts-amiens-flying-buttress-640.webp",
+        "bytes": 34458
+      }
+    ],
+    "title": "亚眠大教堂飞扶壁剖面图解，维奥莱-勒-杜克《法国建筑词典》（1854–1868）插图"
+  },
+  "arts-arnolfini-portrait": {
+    "id": "arts-arnolfini-portrait",
+    "width": 3840,
+    "height": 5253,
+    "variants": [
+      {
+        "width": 640,
+        "file": "arts-arnolfini-portrait-640.webp",
+        "bytes": 34064
+      },
+      {
+        "width": 1280,
+        "file": "arts-arnolfini-portrait-1280.webp",
+        "bytes": 126654
+      },
+      {
+        "width": 1920,
+        "file": "arts-arnolfini-portrait-1920.webp",
+        "bytes": 339208
+      }
+    ],
+    "title": "扬·凡·艾克《阿尔诺芬尼夫妇像》（1434），橡木板油画，伦敦国家美术馆藏"
+  },
+  "arts-birth-of-venus": {
+    "id": "arts-birth-of-venus",
+    "width": 1600,
+    "height": 1005,
+    "variants": [
+      {
+        "width": 640,
+        "file": "arts-birth-of-venus-640.webp",
+        "bytes": 59592
+      },
+      {
+        "width": 1280,
+        "file": "arts-birth-of-venus-1280.webp",
+        "bytes": 212214
+      }
+    ],
+    "title": "桑德罗·波提切利《维纳斯的诞生》（约1484—1486），布面蛋彩画，佛罗伦萨乌菲兹美术馆藏"
+  },
+  "arts-black-figure-amphora": {
+    "id": "arts-black-figure-amphora",
+    "width": 3208,
+    "height": 4000,
+    "variants": [
+      {
+        "width": 640,
+        "file": "arts-black-figure-amphora-640.webp",
+        "bytes": 48400
+      },
+      {
+        "width": 1280,
+        "file": "arts-black-figure-amphora-1280.webp",
+        "bytes": 159080
+      },
+      {
+        "width": 1920,
+        "file": "arts-black-figure-amphora-1920.webp",
+        "bytes": 302048
+      }
+    ],
+    "title": "古希腊黑绘陶颈双耳瓶（带盖），传为埃克塞基亚斯作，约公元前540年，纽约大都会艺术博物馆藏"
+  },
+  "arts-creation-of-adam": {
+    "id": "arts-creation-of-adam",
+    "width": 1920,
+    "height": 894,
+    "variants": [
+      {
+        "width": 640,
+        "file": "arts-creation-of-adam-640.webp",
+        "bytes": 29284
+      },
+      {
+        "width": 1280,
+        "file": "arts-creation-of-adam-1280.webp",
+        "bytes": 85270
+      },
+      {
+        "width": 1920,
+        "file": "arts-creation-of-adam-1920.webp",
+        "bytes": 176504
+      }
+    ],
+    "title": "米开朗基罗《创造亚当》（约1511—1512年），梵蒂冈西斯廷礼拜堂天顶湿壁画"
+  },
+  "arts-descartes-ocular-refraction": {
+    "id": "arts-descartes-ocular-refraction",
+    "width": 1076,
+    "height": 1964,
+    "variants": [
+      {
+        "width": 640,
+        "file": "arts-descartes-ocular-refraction-640.webp",
+        "bytes": 102462
+      }
+    ],
+    "title": "笛卡尔《屈光学》中的眼球折射图解：三个物体的光线经晶状体折射后在眼球底部汇聚成倒像（1637 年莱顿初版）",
+    "attribution": "Wellcome Collection, \"Descartes; Diagram of ocular refraction\" (Wellcome L0012003), CC BY 4.0, via Wikimedia Commons"
+  },
+  "arts-durer-drawing-lute": {
+    "id": "arts-durer-drawing-lute",
+    "width": 998,
+    "height": 710,
+    "variants": [
+      {
+        "width": 640,
+        "file": "arts-durer-drawing-lute-640.webp",
+        "bytes": 82780
+      }
+    ],
+    "title": "丢勒《量度四书》（1525）木刻插图：画师借助拉线与纱屏，把琵琶的透视缩短轮廓逐点誊画到纸面"
+  },
+  "arts-durer-lute-perspective": {
+    "id": "arts-durer-lute-perspective",
+    "width": 998,
+    "height": 710,
+    "variants": [
+      {
+        "width": 640,
+        "file": "arts-durer-lute-perspective-640.webp",
+        "bytes": 82780
+      }
+    ],
+    "title": "丢勒《画家用透视装置画鲁特琴》，木刻，出自《度量教程》，1525 年"
+  },
+  "arts-great-wave-kanagawa": {
+    "id": "arts-great-wave-kanagawa",
+    "width": 4335,
+    "height": 2990,
+    "variants": [
+      {
+        "width": 640,
+        "file": "arts-great-wave-kanagawa-640.webp",
+        "bytes": 61648
+      },
+      {
+        "width": 1280,
+        "file": "arts-great-wave-kanagawa-1280.webp",
+        "bytes": 197128
+      },
+      {
+        "width": 1920,
+        "file": "arts-great-wave-kanagawa-1920.webp",
+        "bytes": 452820
+      }
+    ],
+    "title": "葛饰北斋《神奈川冲浪里》（约1830—1832），《富岳三十六景》之一，木版套色版画"
+  },
+  "arts-hagia-sophia-nave": {
+    "id": "arts-hagia-sophia-nave",
+    "width": 1280,
+    "height": 1729,
+    "variants": [
+      {
+        "width": 640,
+        "file": "arts-hagia-sophia-nave-640.webp",
+        "bytes": 76938
+      },
+      {
+        "width": 1280,
+        "file": "arts-hagia-sophia-nave-1280.webp",
+        "bytes": 239814
+      }
+    ],
+    "title": "福萨蒂石版画《大礼拜厅全景，西望》（1852 年出版的圣索菲亚大教堂内景）"
+  },
+  "arts-houmuwu-ding": {
+    "id": "arts-houmuwu-ding",
+    "width": 1400,
+    "height": 1822,
+    "variants": [
+      {
+        "width": 640,
+        "file": "arts-houmuwu-ding-640.webp",
+        "bytes": 86074
+      },
+      {
+        "width": 1280,
+        "file": "arts-houmuwu-ding-1280.webp",
+        "bytes": 294398
+      }
+    ],
+    "title": "商代后母戊青铜方鼎（旧称司母戊鼎），中国国家博物馆藏",
+    "attribution": "Mlogic, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons"
+  },
+  "arts-libyan-sibyl-study": {
+    "id": "arts-libyan-sibyl-study",
+    "width": 1024,
+    "height": 1389,
+    "variants": [
+      {
+        "width": 640,
+        "file": "arts-libyan-sibyl-study-640.webp",
+        "bytes": 110536
+      }
+    ],
+    "title": "米开朗基罗《利比亚女先知习作》（约 1510–1511），红粉笔纸本，大都会艺术博物馆藏"
+  },
+  "arts-newton-colour-circle": {
+    "id": "arts-newton-colour-circle",
+    "width": 788,
+    "height": 810,
+    "variants": [
+      {
+        "width": 640,
+        "file": "arts-newton-colour-circle-640.webp",
+        "bytes": 28344
+      }
+    ],
+    "title": "牛顿的色环：《光学》第一卷插图，把光谱七色按音阶比例排列成圆，圆心为白色"
+  },
+  "arts-pantheon-panini": {
+    "id": "arts-pantheon-panini",
+    "width": 1280,
+    "height": 1669,
+    "variants": [
+      {
+        "width": 640,
+        "file": "arts-pantheon-panini-640.webp",
+        "bytes": 94404
+      },
+      {
+        "width": 1280,
+        "file": "arts-pantheon-panini-1280.webp",
+        "bytes": 364250
+      }
+    ],
+    "title": "乔瓦尼·保罗·帕尼尼《罗马万神殿内景》（约1734年）：从地面仰望格构穹顶与圆孔天窗，游客与祈祷者衬托出巨大尺度"
+  },
+  "arts-vitruvian-man": {
+    "id": "arts-vitruvian-man",
+    "width": 1024,
+    "height": 1392,
+    "variants": [
+      {
+        "width": 640,
+        "file": "arts-vitruvian-man-640.webp",
+        "bytes": 148162
+      }
+    ],
+    "title": "达·芬奇《维特鲁威人》：同时内接于圆形与正方形的人体比例研究"
+  },
+  "conservation-last-supper": {
+    "id": "conservation-last-supper",
+    "width": 9600,
+    "height": 4800,
+    "variants": [
+      {
+        "width": 640,
+        "file": "conservation-last-supper-640.webp",
+        "bytes": 28406
+      },
+      {
+        "width": 1280,
+        "file": "conservation-last-supper-1280.webp",
+        "bytes": 113206
+      },
+      {
+        "width": 1920,
+        "file": "conservation-last-supper-1920.webp",
+        "bytes": 266094
+      }
+    ],
+    "title": "莱奥纳多·达·芬奇《最后的晚餐》（1495–1498），米兰圣玛利亚感恩教堂餐厅墙壁，图为 1978–1999 年大修后的面貌"
+  },
+  "digital-humanities-van-gogh-met": {
+    "id": "digital-humanities-van-gogh-met",
+    "width": 1503,
+    "height": 1900,
+    "variants": [
+      {
+        "width": 640,
+        "file": "digital-humanities-van-gogh-met-640.webp",
+        "bytes": 143934
+      },
+      {
+        "width": 1280,
+        "file": "digital-humanities-van-gogh-met-1280.webp",
+        "bytes": 459684
+      }
+    ],
+    "title": "文森特·梵高《戴草帽的自画像》（1887），布面油画，大都会艺术博物馆藏——开放获取高清图像库的一例"
+  },
+  "farnsworth-house-exterior-highsmith": {
+    "id": "farnsworth-house-exterior-highsmith",
+    "width": 1280,
+    "height": 999,
+    "variants": [
+      {
+        "width": 640,
+        "file": "farnsworth-house-exterior-highsmith-640.webp",
+        "bytes": 72846
+      },
+      {
+        "width": 1280,
+        "file": "farnsworth-house-exterior-highsmith-1280.webp",
+        "bytes": 234412
+      }
+    ],
+    "title": "范斯沃斯住宅外观——白色钢架悬挑出架空层，整面落地玻璃把室内完全敞开给福克斯河边的草地"
+  },
+  "generative-ai-theatre-opera-spatial": {
+    "id": "generative-ai-theatre-opera-spatial",
+    "width": 2048,
+    "height": 1365,
+    "variants": [
+      {
+        "width": 640,
+        "file": "generative-ai-theatre-opera-spatial-640.webp",
+        "bytes": 32860
+      },
+      {
+        "width": 1280,
+        "file": "generative-ai-theatre-opera-spatial-1280.webp",
+        "bytes": 117516
+      },
+      {
+        "width": 1920,
+        "file": "generative-ai-theatre-opera-spatial-1920.webp",
+        "bytes": 229380
+      }
+    ],
+    "title": "《太空歌剧院》（Théâtre D'opéra Spatial，2022），贾森·艾伦用 Midjourney 生成，获科罗拉多州博览会数字艺术一等奖"
+  },
+  "museums-grande-galerie-hubert-robert": {
+    "id": "museums-grande-galerie-hubert-robert",
+    "width": 8472,
+    "height": 6614,
+    "variants": [
+      {
+        "width": 640,
+        "file": "museums-grande-galerie-hubert-robert-640.webp",
+        "bytes": 55860
+      },
+      {
+        "width": 1280,
+        "file": "museums-grande-galerie-hubert-robert-1280.webp",
+        "bytes": 176724
+      },
+      {
+        "width": 1920,
+        "file": "museums-grande-galerie-hubert-robert-1920.webp",
+        "bytes": 370186
+      }
+    ],
+    "title": "于贝尔·罗贝尔《卢浮宫大画廊改造方案》（1796），布面油画，卢浮宫藏"
+  },
+  "ni-zan-woods-valleys-mount-yu": {
+    "id": "ni-zan-woods-valleys-mount-yu",
+    "width": 1457,
+    "height": 1941,
+    "variants": [
+      {
+        "width": 640,
+        "file": "ni-zan-woods-valleys-mount-yu-640.webp",
+        "bytes": 68954
+      },
+      {
+        "width": 1280,
+        "file": "ni-zan-woods-valleys-mount-yu-1280.webp",
+        "bytes": 270168
+      }
+    ],
+    "title": "倪瓒《虞山林壑图》轴（1372 年，大都会艺术博物馆藏，编号 1973.120.8）"
+  },
+  "oceanic-tukukino-lindauer": {
+    "id": "oceanic-tukukino-lindauer",
+    "width": 1968,
+    "height": 2624,
+    "variants": [
+      {
+        "width": 640,
+        "file": "oceanic-tukukino-lindauer-640.webp",
+        "bytes": 53478
+      },
+      {
+        "width": 1280,
+        "file": "oceanic-tukukino-lindauer-1280.webp",
+        "bytes": 139066
+      },
+      {
+        "width": 1920,
+        "file": "oceanic-tukukino-lindauer-1920.webp",
+        "bytes": 247156
+      }
+    ],
+    "title": "戈特弗里德·林道尔《图库基诺》（1878），描绘面带传统纹面（tā moko）的毛利酋长"
+  },
+  "provenance-emmaus-van-meegeren": {
+    "id": "provenance-emmaus-van-meegeren",
+    "width": 2880,
+    "height": 2617,
+    "variants": [
+      {
+        "width": 640,
+        "file": "provenance-emmaus-van-meegeren-640.webp",
+        "bytes": 25622
+      },
+      {
+        "width": 1280,
+        "file": "provenance-emmaus-van-meegeren-1280.webp",
+        "bytes": 91264
+      },
+      {
+        "width": 1920,
+        "file": "provenance-emmaus-van-meegeren-1920.webp",
+        "bytes": 176348
+      }
+    ],
+    "title": "汉·范·米格伦伪作《以马忤斯的晚餐》（1937），曾被鉴定为维米尔真迹，鹿特丹博伊曼斯·范伯宁恩美术馆藏"
+  },
+  "visual-culture-bruant-poster": {
+    "id": "visual-culture-bruant-poster",
+    "width": 2053,
+    "height": 3000,
+    "variants": [
+      {
+        "width": 640,
+        "file": "visual-culture-bruant-poster-640.webp",
+        "bytes": 49878
+      },
+      {
+        "width": 1280,
+        "file": "visual-culture-bruant-poster-1280.webp",
+        "bytes": 152538
+      },
+      {
+        "width": 1920,
+        "file": "visual-culture-bruant-poster-1920.webp",
+        "bytes": 277558
+      }
+    ],
+    "title": "图卢兹-罗特列克《大使酒馆：阿里斯蒂德·布吕昂》（1892），石版海报，大都会艺术博物馆藏"
+  },
+  "wen-zhengming-garden-album-leaf": {
+    "id": "wen-zhengming-garden-album-leaf",
+    "width": 1280,
+    "height": 1134,
+    "variants": [
+      {
+        "width": 640,
+        "file": "wen-zhengming-garden-album-leaf-640.webp",
+        "bytes": 54694
+      },
+      {
+        "width": 1280,
+        "file": "wen-zhengming-garden-album-leaf-1280.webp",
+        "bytes": 313424
+      }
+    ],
+    "title": "文徵明《拙政园图诗》册页之一（1551 年，大都会艺术博物馆藏，编号 1979.458.1a–ii）"
+  },
+  "yingzao-fashi-bracket-section": {
+    "id": "yingzao-fashi-bracket-section",
+    "width": 837,
+    "height": 1087,
+    "variants": [
+      {
+        "width": 640,
+        "file": "yingzao-fashi-bracket-section-640.webp",
+        "bytes": 44410
+      }
+    ],
+    "title": "《营造法式》图样：殿堂剖面侧样中的斗拱（民国影印本书页）"
+  },
+  "arts-duerer-self-portrait": {
+    "id": "arts-duerer-self-portrait",
+    "width": 1600,
+    "height": 2212,
+    "variants": [
+      {
+        "width": 640,
+        "file": "arts-duerer-self-portrait-640.webp",
+        "bytes": 37834
+      },
+      {
+        "width": 1280,
+        "file": "arts-duerer-self-portrait-1280.webp",
+        "bytes": 180518
+      }
+    ],
+    "title": "阿尔布雷希特·丢勒《自画像》，1500 年，木板油画，慕尼黑老绘画陈列馆藏"
+  },
+  "boulevard-du-temple-daguerre": {
+    "id": "boulevard-du-temple-daguerre",
+    "width": 1920,
+    "height": 1379,
+    "variants": [
+      {
+        "width": 640,
+        "file": "boulevard-du-temple-daguerre-640.webp",
+        "bytes": 80452
+      },
+      {
+        "width": 1280,
+        "file": "boulevard-du-temple-daguerre-1280.webp",
+        "bytes": 276574
+      },
+      {
+        "width": 1920,
+        "file": "boulevard-du-temple-daguerre-1920.webp",
+        "bytes": 460966
+      }
+    ],
+    "title": "达盖尔《圣殿大道》（1838 年），人类历史上第一张拍到人物的摄影作品"
+  },
+  "durer-knight-death-devil": {
+    "id": "durer-knight-death-devil",
+    "width": 1280,
+    "height": 1643,
+    "variants": [
+      {
+        "width": 640,
+        "file": "durer-knight-death-devil-640.webp",
+        "bytes": 125852
+      },
+      {
+        "width": 1280,
+        "file": "durer-knight-death-devil-1280.webp",
+        "bytes": 450890
+      }
+    ],
+    "title": "丢勒铜版雕刻《骑士、死神与魔鬼》（1513 年，大都会艺术博物馆藏印本）"
+  },
+  "arts-ajanta-padmapani": {
+    "id": "arts-ajanta-padmapani",
+    "width": 1797,
+    "height": 2104,
+    "variants": [
+      {
+        "width": 640,
+        "file": "arts-ajanta-padmapani-640.webp",
+        "bytes": 84794
+      },
+      {
+        "width": 1280,
+        "file": "arts-ajanta-padmapani-1280.webp",
+        "bytes": 327358
+      }
+    ],
+    "title": "阿旃陀第1窟壁画《持莲花菩萨》（Padmapani，约5—6世纪），印度马哈拉施特拉邦"
+  },
+  "arts-benin-oba-plaque": {
+    "id": "arts-benin-oba-plaque",
+    "width": 1600,
+    "height": 2400,
+    "variants": [
+      {
+        "width": 640,
+        "file": "arts-benin-oba-plaque-640.webp",
+        "bytes": 84516
+      },
+      {
+        "width": 1280,
+        "file": "arts-benin-oba-plaque-1280.webp",
+        "bytes": 326074
+      }
+    ],
+    "title": "贝宁王国黄铜饰板《奥巴（或首领）像》（16—17世纪，今尼日利亚），大都会艺术博物馆藏（1991.17.16）"
+  },
+  "arts-blue-quran-folio": {
+    "id": "arts-blue-quran-folio",
+    "width": 3791,
+    "height": 2581,
+    "variants": [
+      {
+        "width": 640,
+        "file": "arts-blue-quran-folio-640.webp",
+        "bytes": 67984
+      },
+      {
+        "width": 1280,
+        "file": "arts-blue-quran-folio-1280.webp",
+        "bytes": 238144
+      },
+      {
+        "width": 1920,
+        "file": "arts-blue-quran-folio-1920.webp",
+        "bytes": 461412
+      }
+    ],
+    "title": "蓝色《古兰经》散叶（9—10世纪，可能为突尼斯凯鲁万），金汁库法体书于染蓝羊皮纸，大都会艺术博物馆藏（2004.88）",
+    "attribution": "The Metropolitan Museum of Art, CC BY 2.5, via Wikimedia Commons"
+  },
+  "arts-christ-pantocrator-sinai": {
+    "id": "arts-christ-pantocrator-sinai",
+    "width": 1280,
+    "height": 2388,
+    "variants": [
+      {
+        "width": 640,
+        "file": "arts-christ-pantocrator-sinai-640.webp",
+        "bytes": 180274
+      },
+      {
+        "width": 1280,
+        "file": "arts-christ-pantocrator-sinai-1280.webp",
+        "bytes": 498564
+      }
+    ],
+    "title": "《全能者基督》蜡彩圣像（6世纪），西奈圣凯瑟琳修道院藏——拜占庭破坏圣像运动的幸存杰作"
+  },
+  "arts-hiroshige-kameido-plum": {
+    "id": "arts-hiroshige-kameido-plum",
+    "width": 1024,
+    "height": 1505,
+    "variants": [
+      {
+        "width": 640,
+        "file": "arts-hiroshige-kameido-plum-640.webp",
+        "bytes": 109486
+      }
+    ],
+    "title": "歌川广重《名所江户百景·龟户梅屋铺》（1857），木版套色版画，荷兰国立博物馆藏版"
+  },
+  "arts-hume-allan-ramsay": {
+    "id": "arts-hume-allan-ramsay",
+    "width": 5776,
+    "height": 7080,
+    "variants": [
+      {
+        "width": 640,
+        "file": "arts-hume-allan-ramsay-640.webp",
+        "bytes": 18112
+      },
+      {
+        "width": 1280,
+        "file": "arts-hume-allan-ramsay-1280.webp",
+        "bytes": 66982
+      },
+      {
+        "width": 1920,
+        "file": "arts-hume-allan-ramsay-1920.webp",
+        "bytes": 145952
+      }
+    ],
+    "title": "艾伦·拉姆齐《大卫·休谟肖像》（1766），布面油画，苏格兰国家画廊藏"
+  },
+  "arts-lantingxu-scroll": {
+    "id": "arts-lantingxu-scroll",
+    "width": 3840,
+    "height": 1259,
+    "variants": [
+      {
+        "width": 640,
+        "file": "arts-lantingxu-scroll-640.webp",
+        "bytes": 37886
+      },
+      {
+        "width": 1280,
+        "file": "arts-lantingxu-scroll-1280.webp",
+        "bytes": 128498
+      },
+      {
+        "width": 1920,
+        "file": "arts-lantingxu-scroll-1920.webp",
+        "bytes": 292932
+      }
+    ],
+    "title": "传（东晋）王羲之《兰亭集序》，唐冯承素摹本（神龙本）局部全卷，北京故宫博物院藏"
+  },
+  "arts-school-of-athens": {
+    "id": "arts-school-of-athens",
+    "width": 1700,
+    "height": 1319,
+    "variants": [
+      {
+        "width": 640,
+        "file": "arts-school-of-athens-640.webp",
+        "bytes": 68700
+      },
+      {
+        "width": 1280,
+        "file": "arts-school-of-athens-1280.webp",
+        "bytes": 238526
+      }
+    ],
+    "title": "拉斐尔《雅典学院》（1509—1511），湿壁画，梵蒂冈宗座宫签字厅"
+  },
+  "arts-villalpando-plaza-mayor": {
+    "id": "arts-villalpando-plaza-mayor",
+    "width": 1700,
+    "height": 1304,
+    "variants": [
+      {
+        "width": 640,
+        "file": "arts-villalpando-plaza-mayor-640.webp",
+        "bytes": 70646
+      },
+      {
+        "width": 1280,
+        "file": "arts-villalpando-plaza-mayor-1280.webp",
+        "bytes": 248302
+      }
+    ],
+    "title": "克里斯托瓦尔·德·比利亚尔潘多《墨西哥城主广场图》（约1695），布面油画，墨西哥殖民时期巴洛克"
+  }
+}

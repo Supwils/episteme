@@ -6,32 +6,13 @@ import { DesktopNav } from "./DesktopNav";
 import { MobileNav } from "./MobileNav";
 import { SearchTrigger } from "./SearchTrigger";
 import { ThemeToggle } from "./ThemeToggle";
-import { NAV_LINKS_FLAT } from "./nav-data";
-
-const SECTION_PREFIXES = [
-  "/universe-physics",
-  "/cosmology",
-  "/earth-science",
-  "/human-history",
-  "/philosophy",
-  "/mathematics",
-  "/life-science",
-  "/medicine",
-  "/chemistry",
-  "/economics",
-  "/psychology",
-  "/computer-science",
-  "/political-science",
-  "/linguistics",
-  "/read",
-  "/knowledge-graph",
-  "/curiosities",
-];
+import { NAV_GROUPS } from "./nav-data";
+import { SECTION_SHELL_PREFIXES } from "../lib/urls";
 
 export function SectionAwareNav() {
   const pathname = usePathname();
 
-  if (SECTION_PREFIXES.some((p) => pathname.startsWith(p))) {
+  if (SECTION_SHELL_PREFIXES.some((p) => pathname.startsWith(p))) {
     return null;
   }
 
@@ -52,7 +33,7 @@ export function SectionAwareNav() {
         <div className="flex items-center gap-2 sm:gap-3">
           <SearchTrigger />
           <ThemeToggle />
-          <MobileNav links={NAV_LINKS_FLAT} />
+          <MobileNav groups={NAV_GROUPS} />
         </div>
       </nav>
     </header>

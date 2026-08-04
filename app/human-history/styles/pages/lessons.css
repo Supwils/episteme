@@ -534,3 +534,23 @@
   background: var(--bg-card);
   color: var(--parchment);
 }
+
+/* === wide-viewport overrides (moved from styles/responsive.css) === */
+@media (min-width: 1920px) {
+  .human-history-root .lessons-page {
+    max-width: 1400px;
+    padding: 100px 56px 80px;
+  }
+
+  .human-history-root .ls-lesson-title {
+    font-size: 1.3rem;
+  }
+
+  .human-history-root .ls-case-detail {
+    font-size: 0.88rem;
+  }
+
+  .human-history-root .ls-epilogue-points {
+    max-width: 1000px;
+  }
+}

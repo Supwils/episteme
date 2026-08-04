@@ -11,13 +11,13 @@ export default function ThinkerNav({ prevThinker, nextThinker }: ThinkerNavProps
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {prevThinker ? (
           <Link
-            href={`/thinkers/${prevThinker.slug}`}
+            href={`/philosophy/thinkers/${prevThinker.slug}`}
             className="group border-border-faint bg-bg-near hover:bg-bg-elevated flex flex-col gap-2 border p-5 transition-all duration-300"
           >
             <span className="text-fg-disabled font-mono text-[9px] tracking-[0.28em] uppercase">
               ← 上一位
             </span>
-            <span className="font-display text-fg-primary text-lg font-semibold transition-colors group-hover:text-accent-gold">
+            <span className="font-display text-fg-primary group-hover:text-accent-gold text-lg font-semibold transition-colors">
               {prevThinker.title}
             </span>
             <span className="text-fg-muted font-mono text-[10px] italic">
@@ -29,13 +29,13 @@ export default function ThinkerNav({ prevThinker, nextThinker }: ThinkerNavProps
         )}
         {nextThinker ? (
           <Link
-            href={`/thinkers/${nextThinker.slug}`}
+            href={`/philosophy/thinkers/${nextThinker.slug}`}
             className="group border-border-faint bg-bg-near hover:bg-bg-elevated flex flex-col items-end gap-2 border p-5 text-right transition-all duration-300"
           >
             <span className="text-fg-disabled font-mono text-[9px] tracking-[0.28em] uppercase">
               下一位 →
             </span>
-            <span className="font-display text-fg-primary text-lg font-semibold transition-colors group-hover:text-accent-gold">
+            <span className="font-display text-fg-primary group-hover:text-accent-gold text-lg font-semibold transition-colors">
               {nextThinker.title}
             </span>
             <span className="text-fg-muted font-mono text-[10px] italic">

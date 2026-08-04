@@ -1,0 +1,122 @@
+---
+title: 言语技术：机器如何听懂与说出语言
+title_en: "Speech Technology: How Machines Recognize and Synthesize Speech"
+status: published
+updated: 2026-08-02
+category: 言语工程
+order: 7
+field: 言语工程 · 计算语言学
+knowledge_level: 4
+evidence_modes:
+  - corpus
+  - experiment
+  - formal-analysis
+  - observation
+tags:
+  - 语音识别
+  - 语音合成
+  - 深度学习
+  - 评测公平
+related:
+  - acoustic-phonetics
+  - phonemes-and-sound-systems
+  - computational-linguistics
+  - multilingual-ai
+---
+
+# 言语技术：机器如何听懂与说出语言
+
+## 语音转文字不是查词典
+
+直觉里的语音识别很简单：机器把每个音对应到一个字，连起来就是文字。这个图景错在前提——言语不是一串可切分的珠子。连续语流里，词与词之间没有静音间隙，同一个音位在不同语境中声学面目完全不同，同一个声学片段在不同语速、不同说话人嘴里对应不同的语言单位。
+
+语音识别难，难在信号与符号之间隔着一整套语言学：协同发音让相邻音互相染色，音位边界在声学上模糊，重音与语调又同时承载着词义、句法和态度。机器要“听懂”，必须先解决语言学家研究了半个多世纪的问题——而且要在毫秒内解决。
+
+本篇梳理这条技术线如何从 1952 年的一台继电器机器走到今天的端到端模型，以及它一路向语言学借了什么、又还了什么。
+
+## Audrey：只能听懂十个数字的机器
+
+1952 年，贝尔实验室的戴维斯（K. H. Davis）、比达尔夫（R. Biddulph）与巴拉谢克（S. Balashek）造出 Audrey（Automatic Digit Recognizer），目标是为话务员做语音拨号。它能识别单个说话人以停顿分隔的十个英文数字，对熟悉的说话人报告了九成以上的正确率——方法是跟踪元音共振峰的轨迹，与存储的模式匹配。
+
+局限同样清楚：换一个说话人就失灵，机器占满六英尺高的机架，功耗巨大。1962 年 IBM 的 Shoebox 前进了一小步，能识别十六个英文词。整个六七十年代，识别系统被困在同一个笼子里：小词表、孤立词、特定说话人。三把锁要分别开，先开哪一把都不够用。
+
+## 统计转向与隐马尔可夫时代
+
+破笼的关键是换哲学。七十年代初，耶利内克（Frederick Jelinek）在 IBM 把语音识别重新定义为统计解码问题：给定声学证据，求概率最大的词序列——概率不从规则手册来，从数据里估计。同一时期，卡内基梅隆大学的詹姆斯·贝克（James Baker）把隐马尔可夫模型（HMM）引入语音建模。
+
+HMM 的直觉值得说透。我们观察到的是连续的声学特征序列；看不见的是背后的语言状态序列——比如哪个音位的哪一段。模型假设状态按马尔可夫链跳转、每个状态按某种分布（通常是高斯混合模型，GMM）“发射”声学观测。识别就是在这张状态网络里搜索最可能的路径。语言知识没有消失，而是换了个位置：发音词典告诉模型每个词由哪些音位构成，n 元语言模型估计词序列的先验概率。
+
+1988 年是里程碑：李开复在卡内基梅隆大学完成 Sphinx 系统，首次实现了大词表、说话人无关的连续语音识别——三把锁同时打开。拉比纳（Lawrence Rabiner）1989 年发表于《IEEE 会报》的教程，则把 HMM 方法整理成一代工程师的标准教材。
+
+## 评测文化：DARPA、语料库与词错误率
+
+八九十年代，美国国防高级研究计划局（DARPA）与美国国家标准与技术研究院（NIST）把语音识别变成了有标准考卷的学科：统一语料、统一测试集、统一指标，逐年打榜。TIMIT 音素标注语料（1993 年发布）服务音素级研究，Switchboard 电话会话语料（1992 年起采集）则树立了“听懂陌生人闲聊”这块最硬的试金石——它的随意性、缩略与含混，此后折磨了研究者二十年。
+
+统一指标是词错误率（WER，Word Error Rate）：把系统输出与参考答案对齐，错分三类——替换（说“猫”识别成“狗”）、删除（漏识别）、插入（无中生有），三者之和除以参考答案的总词数。WER 可以超过百分之百，越低越好。
+
+这套评测文化影响深远，也值得警惕。它让进步可比较、可复现，但也塑造了研究的口味：容易测的任务吸走大部分资源，而“口音”“语码转换”这类难以统一打分的维度长期被边缘化——后面的公平性问题，伏笔埋在这里。
+
+## 深度学习革命
+
+统计框架统治了二十年，进步却在二十一世纪第一个十年趋于平台期。转折来自声学模型的替换：2009 年起，辛顿（Geoffrey Hinton）团队与微软研究院等几个小组先后用深度神经网络（DNN）替换 GMM，去估计 HMM 状态的发射概率。2012 年，四个研究组在《IEEE 信号处理杂志》联名发表综述《语音识别声学建模中的深度神经网络》，报告基准任务上错误率相对此前最好系统下降两三成——幅度之大，直接改写了整个工业界的技术路线。
+
+产业落地紧随其后。2011 年，苹果在 iPhone 4S 上推出 Siri，语音识别第一次成为亿级用户的日常功能；云端算力加海量真实语音数据，形成“用得越多、识别越准”的飞轮。
+
+第二条战线是架构的简化。传统系统是拼装流水线：声学模型、发音词典、语言模型各自训练再组合。端到端路线试图一个模型直接从声学序列输出文字。2006 年，格雷夫斯（Alex Graves）等人提出连接主义时序分类（CTC），解决了“声学帧与字符之间没有对齐标注”的核心障碍；2015 年，陈威廉（William Chan）等人的“听、注意与拼写”（Listen, Attend and Spell, LAS）引入注意力机制，模型学会了在出声序列上自主“聚焦”。今天的主流系统，大多站在 CTC、注意力与更大规模预训练的交汇处。
+
+## 合成：从拼积木到生成波形
+
+语音合成（TTS）的历史是另一条曲线。八十年代末起的拼接合成，像剪贴画：从录好的语音库里切出片段再粘起来，自然度受限于库存。九十年代的参数合成改用统计模型生成声学参数再声码化，流畅但发闷——因为声码器丢掉了太多波形细节。
+
+2016 年 9 月，DeepMind 的范登奥尔德（Aäron van den Oord）等人发布 WaveNet：一个用扩张因果卷积逐样本预测波形的自回归神经网络，直接对每秒一万六千个采样点建模。合成语音与真人录音的自然度差距，按他们的报告缩小了一半以上。波形从此不再是“最后一步的凑合”，而成了被建模的对象本身。
+
+WaveNet 之后的现代 TTS 兵分两路：一路把神经网络声码器做得又快又好，另一路用序列到序列模型直接从文本预测声学特征。语音克隆——用几分钟甚至几秒钟的录音复刻一个人的音色——随之从实验室演示变成商品，也立刻带来伪造与授权的伦理难题。技术上“像不像”的问题基本解决了，社会上“该不该”的问题才刚开始。
+
+## 为什么言语技术绕不开语言学
+
+语言学的三个核心问题，每一个都卡在技术的关键路径上。
+
+第一是音位范畴。听者把连续变化的声学信号归入离散的音位类别，边界清晰、类别内差异被压缩——这是范畴感知。机器没有免费的范畴：声学上一点点变化，就可能越过模型的决策边界，换一个词。三音子建模（给每个音位按左右邻音各建一套模型）本质上就是工程界对协同发音的妥协方案。
+
+第二是协同发音。发音器官是惯性系统，每个音都带着前后音的指纹；同一个 /k/，在 /i/ 前与在 /u/ 前声学上判若两音。这也是为什么“一个音位一个模板”的早期路线走不通，而上下文相关建模成为标配。
+
+第三是韵律。词错误率只数词，不数调。但语调承载着焦点、边界与态度——“你 真的 要去？”和“你真的 要去？”词一样，意思两样。识别系统长期把韵律当噪声丢掉，合成系统则为“每个字都对、整句没感情”挣扎多年。韵律难，因为它不归音系管、不归句法管，偏偏三者都沾——这正是它在技术流水线上无处安放的原因。
+
+## 公平性：识别率的社会分层
+
+2020 年，科内克（Allison Koenecke）等人在《美国国家科学院院刊》发表了一项标志性研究：用同一段采访语料测试五家主流商业语音识别系统，黑人说话人的平均词错误率约百分之三十五，白人说话人约百分之十九——接近两倍的差距，且五家系统无一例外。
+
+问题不在算法“歧视”，在数据的社会分层。训练语料里什么口音多、什么口音少，模型就对谁好。美式标准口音的使用者享受技术红利，方言、少数民族语言、第二语言口音的使用者则为同一件商品付出更高的错误成本——而 WER 的行业惯例是把所有说话人混在一起平均，差距被平均分掩盖。
+
+低资源语言是同一逻辑的延伸：全世界七千多种语言里，拥有足够标注语音语料的不过百种上下。言语技术的覆盖图，画的其实是语言学资源的不平等地图——这个问题与[[multilingual-ai|多语 AI]]面临的困境完全同构。
+
+## 为什么今天仍然重要
+
+语音识别与合成是语言学与工程咬合最紧的领域：语言学提供单位（音位、音节、韵律短语）与现象清单（协同发音、连续语音的连读变调），工程把这些知识压进可计算的模型，模型的失败又反过来暴露语言学解释的空隙。端到端模型弱化了对人工单位的依赖，但没有取消问题——对齐、边界、范畴，只是从显式符号变成了模型内部需要重新发现的结构。
+
+评测与公平则是更紧迫的议程。当语音成为门锁、病历与法庭记录的入口，识别错误率的分配就变成了权利分配。WER 之外需要分人群、分方言的报告义务，这正在从学术建议变成监管议题——言语技术的下一章，写法不只由工程师决定。
+
+## 跨域连接
+
+- **[[acoustic-phonetics|声学语音学与语音测量]]**：语音识别的前端特征——梅尔频率倒谱系数（MFCC）——是声学语音学的直接工程后代：先分帧做频谱分析，再按人耳对频率的非线性感知压缩。共振峰测量在 Audrey 时代是全部技术，在今天仍是理解模型错误的解剖刀：当端到端模型出错，回到频谱图上逐帧核对，往往是最快的定位方式。声学语音学为“机器听到的世界”提供了坐标系。
+- **[[phonemes-and-sound-systems|音位与音系系统]]**：音位范畴与范畴感知是识别系统最难复现的人类能力——听者压缩类别内差异、放大跨边界差异，机器则对微小的声学扰动敏感。三音子建模、上下文相关特征，本质是工程界对“音位是语境依赖的抽象单位”这一音系学结论的被迫承认；端到端模型能否在内部重建类似音位的离散结构，至今是可解释性研究的活问题。
+- **[[sociolinguistic-variation|社会语言学变异]]**：科内克等人测出的近两倍错误率差距，不是声学问题而是社会问题的技术显影——训练语料里口音的分布，复制了语言评价的社会等级。变异社会语言学早就指出“标准口音”是制度建构而非声学基准；语音识别把这个建构自动化、规模化了。修复方案也必须跨越两个领域：既要补数据，也要重估“谁的语音算测试基准”。
+- **[[geoffrey-hinton|杰弗里·辛顿]]**：辛顿把深度信念网络引入声学建模，是语音识别二十年平台期的破局点。2012 年四组联合综述标志的不是单点发明，而是一种研究范式的迁徙：表征学习的胜利先从语音开始，随后才席卷视觉与语言。语音识别的案例也说明，范式革命的落地需要三样东西同时到位——算法、算力与工业级标注语料，缺一不可。
+- **[[multilingual-ai|多语 AI、低资源语言与评测公平]]**：全世界七千多种语言中，拥有足量标注语音语料的不过百种上下——语音识别把多语 AI 的资源不平等放大到极致，因为语音数据比文本更贵、更难采集。跨语言迁移、自监督预训练能否让低资源语言“搭便车”，是两个领域共享的核心问题；评测公平则是共同议程：WER 按人群分层报告，正从学术倡议走向监管要求。
+- **[[machine-learning-overview|机器学习]]**：语音识别史是机器学习范式更迭最完整的标本：模板匹配（Audrey）→ 统计生成模型（GMM-HMM）→ 判别式深度学习（DNN-HMM）→ 端到端序列建模（CTC/注意力）。每一代更替都不是推翻前代的问题定义，而是改变“哪些知识靠人工注入、哪些规律从数据学习”的分工。读语音识别史，等于读一部压缩的机器学习史。
+
+## 参考文献
+
+- Davis, K. H., R. Biddulph, and S. Balashek. “Automatic Recognition of Spoken Digits.” *Journal of the Acoustical Society of America* 24(6), 1952.
+- Rabiner, Lawrence R. “A Tutorial on Hidden Markov Models and Selected Applications in Speech Recognition.” *Proceedings of the IEEE* 77(2), 1989.
+- Graves, Alex, Santiago Fernández, Faustino Gomez, and Jürgen Schmidhuber. “Connectionist Temporal Classification: Labelling Unsegmented Sequence Data with Recurrent Neural Networks.” *Proceedings of the 23rd International Conference on Machine Learning*, 2006.
+- Hinton, Geoffrey, Li Deng, Dong Yu, George E. Dahl, Abdel-rahman Mohamed, et al. “Deep Neural Networks for Acoustic Modeling in Speech Recognition: The Shared Views of Four Research Groups.” *IEEE Signal Processing Magazine* 29(6), 2012.
+- Chan, William, Navdeep Jaitly, Quoc V. Le, and Oriol Vinyals. “Listen, Attend and Spell: A Neural Network for Large Vocabulary Conversational Speech Recognition.” *Proceedings of ICASSP*, 2016.
+- van den Oord, Aäron, Sander Dieleman, Heiga Zen, et al. “WaveNet: A Generative Model for Raw Audio.” arXiv:1609.03499, 2016.
+- Koenecke, Allison, Andrew Nam, Emily Lake, et al. “Racial Disparities in Automated Speech Recognition.” *Proceedings of the National Academy of Sciences* 117(14), 2020.
+
+## 延伸阅读
+
+- Jurafsky, Daniel, and James H. Martin. *Speech and Language Processing*. 2nd edition. Prentice Hall, 2008.
+- Huang, Xuedong, Alex Acero, and Hsiao-Wuen Hon. *Spoken Language Processing: A Guide to Theory, Algorithm, and System Development*. Prentice Hall, 2001.
+- Gold, Ben, and Nelson Morgan. *Speech and Audio Signal Processing: Processing and Perception of Speech and Music*. Wiley, 2000.

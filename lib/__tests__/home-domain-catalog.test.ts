@@ -7,6 +7,7 @@ const EXPECTED_DOMAIN_IDS = [
   "cosmology",
   "human-history",
   "philosophy",
+  "arts",
   "life-science",
   "mathematics",
   "economics",
@@ -17,7 +18,9 @@ const EXPECTED_DOMAIN_IDS = [
   "medicine",
   "chemistry",
   "sociology",
+  "law",
   "linguistics",
+  "engineering",
 ];
 
 describe("homepage domain catalog", () => {

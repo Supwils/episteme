@@ -57,18 +57,15 @@ Playwright smoke在同一Build作业内复用已完成的`.next`生产产物，�
 
 ## 六、本地复现
 
+`pnpm prepush` 镜像 Quality 作业中的八条确定性质量命令：类型检查、Lint、内容检查、四项图谱/学科审计和单元测试。CI 还会在干净 checkout 上验证 `pnpm gen-all` 幂等；本地内容轮次应先生成索引并确认产物已纳入工作树。
+
+内容或前端轮次在请求推送前，还必须至少完成一次真实 Turbopack 生产构建及其包体检查：`pnpm build` 后运行 `pnpm bundle-check -- --skip-build`。Lighthouse 与 Playwright smoke 保留在云端 Build 作业，避免把性能抖动与重量级浏览器测试放进本地 pre-push 钩子。
+
 ```bash
 pnpm install --frozen-lockfile
 pnpm gen-all
 git status --short
-pnpm typecheck
-pnpm lint
-pnpm check-content
-pnpm audit-graph-coverage
-pnpm audit-learning-continuum
-pnpm audit-subject-candidates
-pnpm audit-linguistics-foundation
-pnpm test
+pnpm prepush
 pnpm build
 pnpm audit-rendering
 pnpm bundle-check -- --skip-build

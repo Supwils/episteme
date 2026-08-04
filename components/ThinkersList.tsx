@@ -120,7 +120,7 @@ function ThinkerCard({
       }}
     >
       <Link
-        href={`/thinkers/${thinker.slug}`}
+        href={`/philosophy/thinkers/${thinker.slug}`}
         className="border-border-faint bg-bg-near hover:bg-bg-elevated group relative flex h-full flex-col overflow-hidden border transition-all duration-500 hover:shadow-[0_8px_40px_-12px_rgba(200,164,90,0.15)]"
       >
         {/* Era color accent — top bar */}
@@ -133,10 +133,10 @@ function ThinkerCard({
           {/* Header: philosopher name + era */}
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0 flex-1">
-              <h3 className="font-display text-fg-primary group-hover:text-accent-gold text-xl font-semibold leading-snug transition-colors duration-300">
+              <h3 className="font-display text-fg-primary group-hover:text-accent-gold text-xl leading-snug font-semibold transition-colors duration-300">
                 {thinker.title}
               </h3>
-              <p className="text-fg-muted mt-0.5 font-mono text-[11px] italic tracking-wider">
+              <p className="text-fg-muted mt-0.5 font-mono text-[11px] tracking-wider italic">
                 {thinker.philosopher}
               </p>
             </div>
@@ -155,7 +155,7 @@ function ThinkerCard({
           {/* Badges: era + school */}
           <div className="flex flex-wrap items-center gap-2">
             <span
-              className="rounded-full border px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.2em]"
+              className="rounded-full border px-2.5 py-0.5 font-mono text-[9px] tracking-[0.2em] uppercase"
               style={{
                 borderColor: `${accent}30`,
                 color: accent,

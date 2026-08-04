@@ -2,7 +2,7 @@
 title: λ演算与类型理论
 title_en: Lambda Calculus and Type Theory
 status: published
-updated: 2026-06-13
+updated: 2026-07-31
 category: 计算理论
 order: 6
 field: 计算理论 · 数理逻辑 · 编程语言理论
@@ -58,6 +58,29 @@ $$Y = \lambda f.\, (\lambda x.\, f\, (x\, x))\, (\lambda x.\, f\, (x\, x))$$
 
 $Y\, f = f\, (Y\, f)$——$Y$ 让函数 $f$ 能"调用自身"，而 $f$ 本身无需知道自己的名字。著名创业孵化器 Y Combinator 的名字正取自这个组合子（创始人 Paul Graham 出身 Lisp 程序员，把它视为编程中最酷的思想之一）。
 
+## Church-Rosser 定理：殊途同归的自由
+
+一个 λ 项里往往同时有多个可规约的子表达式，先算哪个？邱奇与他的学生 Barkley Rosser 在 1936 年证明的**合流定理**（Church-Rosser Theorem，也称菱形性质）给出了令人安心的答案：如果一个项沿两条不同的规约路径分别变成 $M_1$ 和 $M_2$，那么一定存在一个项 $N$，使 $M_1$ 和 $M_2$ 都能继续规约到它。推论是：**正规形（无法再规约的项）若存在，必然唯一**——计算结果不依赖于规约顺序。
+
+这不等于"怎么算都一样快"，更不等于"怎么算都能停"。看两个例子：
+
+- $\Omega = (\lambda x.\, x\, x)\, (\lambda x.\, x\, x)$：自我应用产生自身，永远规约下去，对应"死循环"。
+- $(\lambda x.\, y)\, \Omega$：一个丢弃参数、直接返回 $y$ 的常函数，作用在死循环上。若先算参数（**传值**，applicative order），先掉进 $\Omega$ 的死循环；若先展开函数、发现参数根本用不上（**传名**，normal order），一步得到 $y$。
+
+**标准化定理**（Standardization Theorem）保证了最左最外序的完备性：只要正规形存在，按这个顺序一定能到达它。代价是参数可能被复制多次、重复求值。这个权衡直接进入现实语言：Haskell 的惰性求值（传需，call-by-need）在传名的基础上加了共享记忆，用空间换"只算一次"；OCaml、Scheme 默认传值，换来可预测的性能与副作用顺序。"求值顺序"由此从一个实现细节，变成语言设计的核心决策。
+
+## 组合子：连变量都可以不要
+
+λ 演算有变量、有抽象。还能更省吗？1924 年，Moses Schönfinkel 证明：**只需要两个函数**就能表达全部可计算的东西（Curry 后来独立重新发展了这一体系，称为组合逻辑）：
+
+$$K\, x\, y = x \qquad S\, x\, y\, z = x\, z\, (y\, z)$$
+
+$K$ 是常函数，$S$ 负责"分发"：把参数 $z$ 同时喂给两个函数再组合。恒等函数可以免费得到：$S\, K\, K\, x = K\, x\, (K\, x) = x$，所以 $I = S\, K\, K$。
+
+关键在于**括号抽象**（bracket abstraction）：任何 λ 项都可以机械地翻译成只含 $S$、$K$ 的式子。规则大致是：$\lambda x.\, x$ 译成 $I$；$\lambda x.\, M$（$M$ 不含 $x$）译成 $K\, M$；$\lambda x.\, (M\, N)$ 译成 $S\, (\lambda x.\, M)\, (\lambda x.\, N)$。递归应用下去，变量被逐一消去。
+
+这个结果的意义超出语法游戏：它说明**计算不需要命名**——绑定变量只是一种记号便利，函数的组合结构本身就承载了全部信息。这也解释了组合逻辑为何能成为某些函数式语言编译器的中间表示，以及为什么柯里会首先在组合子的**类型**上瞥见命题逻辑的影子——那是 Curry-Howard 对应最早的线索。
+
 ## 核心二：类型系统——给程序加上安全网
 
 无类型 λ 演算强大但危险：任何表达式都可以被应用于任何其他表达式，这意味着"一个数字加上一个布尔值"在语法上是合法的，但在语义上没有意义，甚至可能发散（无限循环）。
@@ -71,6 +94,8 @@ $Y\, f = f\, (Y\, f)$——$Y$ 让函数 $f$ 能"调用自身"，而 $f$ 本身�
 - 类型规则：$\lambda x{:}A.\, M$ 的类型为 $A \to B$，当且仅当 $M$ 在 $x : A$ 的假设下具有类型 $B$
 
 STLC 的代价是失去了图灵完备性——可以检查的程序范围变窄，但换来的是：**所有类型正确的程序都能终止**（强归一化定理）。
+
+代价有一个具体的形状：Y 组合子在 STLC 里**无法定型**——它的自应用结构（$x\, x$）要求一个类型等于以自身为参数的类型，而 STLC 的类型是有限的语法树，容不下这种循环。所以实用的类型化语言都把递归作为显式原语加回来（`letrec`、不动点算子），等于在"必然终止"的保险箱上开一个受控的口子。
 
 更丰富的类型系统在安全性和表达力之间寻找不同平衡：
 
@@ -99,6 +124,8 @@ STLC 的代价是失去了图灵完备性——可以检查的程序范围变窄
 
 这个对应不是类比，而是严格的数学同构：**写一个类型为 $A$ 的程序，等价于构造命题 $A$ 的一个证明**。程序和证明是同一件事的两种说法。
 
+准确的陈述（对简单类型 λ 演算）是：类型 $A$ 被某个闭项占据，当且仅当命题 $A$ 在直觉主义蕴含逻辑中可证。判定"一个类型有没有居民"和判定"一个命题可不可证"，是同一个问题。更进一步，β 规约对应证明论中的**归一化**——消去证明里"先引入再立即消去"的迂回。STLC 的强归一化定理因此同时是两个领域的定理：所有类型正确的程序必然终止；每个直觉主义证明都能化简为无迂回的正规形式。代码优化与证明化简，是同一场电影的两个配音版本。
+
 Curry-Howard 对应的实践结果是**证明辅助系统**（Proof Assistants）：Coq、Agda、Lean 等工具，把数学证明作为程序来编写，由计算机验证其正确性。四色定理（2005 年的 Coq 机器验证版本）、Feit-Thompson 定理（2012 年的 Coq 验证）等重要数学结果，都已通过这种方式得到形式验证。
 
 ## 核心四：依赖类型与定理证明
@@ -124,17 +151,21 @@ Curry-Howard 对应的实践结果是**证明辅助系统**（Proof Assistants�
 
 ## 跨域连接
 
-- **可计算性**：无类型 λ 演算与图灵机计算能力等价，是邱奇-图灵论题的一翼，见 [[computability]]。
-- **数学基础**：依赖类型理论（特别是同伦类型论，HoTT）提供了比 ZFC 集合论更具计算内容的数学基础，是 21 世纪数学基础研究的前沿。
-- **编程语言设计**：类型系统的研究直接推动了 ML、Haskell、Scala、Rust、TypeScript 等语言的核心特性设计。
-- **人工智能**：神经定理证明（neural theorem proving）尝试用深度学习辅助形式证明，是当前 AI 与数学交叉的活跃前沿。
+- **[[philosophy-of-mathematics|数学哲学]]**：构造主义要求"存在"必须给出见证，而不能只靠反证。**类型即命题把这条要求变成可执行的东西：一个证明就是一个能算出值的程序**。排中律因此没有直接的计算内容——它对应的是控制流跳转，而不是一个构造出的对象。
+- **[[proof|证明]]**：证明在这里从"说服同行的论述"变成"能被检查器逐步验证的项"。**这把可靠性和可理解性拆成了两件事**：机器验证的证明可以长到无人通读，却仍然可信；而人写得优美的证明，未必经得起逐步检查。数学共同体接受哪一种，是社会问题而非逻辑问题。
+- **[[set-theory|集合论]]**：类型论提供了另一套数学基础，与集合论的差别不在能证多少，而在**类型论自带计算内容：证明可以被求值，等式可以被化简**。集合论里"存在一个函数"是断言，类型论里同一句话必须交出那个函数本身。
+- **[[functional-programming|函数式编程]]**：只有函数定义与函数应用两条构造，就足以编出数、布尔值、分支与递归。**这说明"计算"不必依赖内存、状态与指令序列**——它可以完全由替换驱动，而这正是函数式语言把求值顺序、副作用当成可选项来设计的理论依据。
+- **[[formal-verification|形式化验证]]**：依赖类型允许类型依赖于值，于是规约可以直接写成类型，"通过类型检查"即"满足规约"。**代价是表达力与可判定性的对冲**：类型系统越强，类型检查越可能不可判定或代价极高，工程上因此总要在某处停手。
 
 ---
 
 ## 参考文献
 
 - Church, A. *A Formulation of the Simple Theory of Types.* Journal of Symbolic Logic 5 (1940): 56–68.
+- Church, A. & Rosser, J. B. *Some Properties of Conversion.* Transactions of the American Mathematical Society 39(3) (1936): 472–482. （合流定理）
+- Schönfinkel, M. *Über die Bausteine der mathematischen Logik.* Mathematische Annalen 92 (1924): 305–316. （组合逻辑的开端）
 - Howard, W. A. *The Formulae-as-Types Notion of Construction.* 手稿 1969 年；发表于 Seldin & Hindley (eds.), *To H. B. Curry: Essays on Combinatory Logic, Lambda Calculus, and Formalism*. Academic Press (1980).
+- Barendregt, H. P. *The Lambda Calculus: Its Syntax and Semantics.* North-Holland (1984). （λ 演算标准专著）
 - Martin-Löf, P. *An Intuitionistic Theory of Types.* In Sambin & Smith (eds.), *Twenty-Five Years of Constructive Type Theory*. Oxford University Press (1998).
 - Pierce, B. C. *Types and Programming Languages.* MIT Press (2002). （最广泛使用的教材）
 - Wadler, P. *Propositions as Types.* Communications of the ACM 58 (2015): 75–84. （优秀的综述，免费在线）

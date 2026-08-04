@@ -1,8 +1,8 @@
 # Local gate before pushing — mirrors CI's `quality` job (fast + deterministic):
-# typecheck · lint · check-content · test. Pushing main triggers the full cloud
+# typecheck · lint · content/graph audits · test. Pushing main triggers the full cloud
 # pipeline (quality → build → vercel deploy --prebuilt), so catch cheap failures here.
 # Deliberately EXCLUDES the heavy `build` job (next build + bundle-check + Lighthouse
 # + Playwright) — a flaky perf budget must never block a local push.
 # Bypass in an emergency: git push --no-verify
-echo "▶ pre-push: episteme — typecheck · lint · check-content · test (pnpm prepush)…"
+echo "▶ pre-push: episteme — typecheck · lint · content/graph audits · test (pnpm prepush)…"
 pnpm prepush

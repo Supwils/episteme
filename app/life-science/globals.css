@@ -162,6 +162,25 @@
    ═══════════════════════════════════════════════════════════════════════ */
 
 .life-science-root {
+  /* This immersive subject is intentionally Observatory-only. Declare the
+     complete palette on its scope so a global Notebook preference cannot mix
+     light surfaces with light-on-dark text. */
+  color-scheme: dark;
+  --color-bg-deep: #060a08;
+  --color-bg-base: #060a08;
+  --color-bg-near: #0d1410;
+  --color-bg-panel: rgba(12, 20, 16, 0.78);
+  --color-bg-elevated: #131e17;
+  --color-bg-floating: #1a2a20;
+  --color-bg-overlay: rgba(6, 10, 8, 0.85);
+  --color-fg-primary: #eaf0ec;
+  --color-fg-secondary: #a4b0a8;
+  --color-fg-muted: #95a59b;
+  --color-fg-disabled: #849087;
+  --color-accent-gold: #7fc59b;
+  --color-border-subtle: rgba(74, 158, 111, 0.15);
+  --color-border-faint: rgba(74, 158, 111, 0.08);
+  --color-border-strong: rgba(74, 158, 111, 0.3);
   background-color: var(--color-bg-deep);
   color: var(--color-fg-primary);
   font-family: var(--font-sans);

@@ -1,16 +1,27 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { getAllEconomists } from "@/subjects/economics/lib/mdx";
-import { ERA_COLORS } from "@/subjects/economics/lib/constants";
+import { EconomistsListBrowser } from "@/components/economics/EconomistsListBrowser";
 
 export const metadata: Metadata = {
   title: "经济学家 — Episteme · 格致",
   description: "从亚当·斯密到现代诺贝尔奖得主，经济学巨匠的生平、思想与遗产",
 };
 
+const ERAS = ["古典", "新古典", "现代", "当代"] as const;
+
 export default function EconomistsPage() {
-  const economists = getAllEconomists();
-  const eras = ["古典", "新古典", "现代", "当代"] as const;
+  const all = getAllEconomists();
+  const economists = all.map((e) => ({
+    slug: e.slug,
+    title: e.title,
+    name_en: e.name_en,
+    years: e.years,
+    era: e.era,
+    school: e.school,
+    key_contributions: e.key_contributions,
+    nobel: e.nobel ?? false,
+    tags: e.tags,
+  }));
 
   return (
     <div className="w-full px-6 py-16 sm:px-10 lg:px-16">
@@ -26,102 +37,9 @@ export default function EconomistsPage() {
         </p>
       </header>
 
-      <div className="mb-8 flex flex-wrap gap-2">
-        <span className="border-accent-gold/30 text-accent-gold bg-accent-gold/5 border px-3 py-1 font-mono text-[10px] tracking-[0.16em] uppercase">
-          全部
-        </span>
-        {eras.map((era) => {
-          const color = ERA_COLORS[era] ?? "#c8a45a";
-          const count = economists.filter((e) => e.era === era).length;
-          return (
-            <span
-              key={era}
-              className="border px-3 py-1 font-mono text-[10px] tracking-[0.16em] uppercase"
-              style={{ borderColor: `${color}30`, color }}
-            >
-              {era} ({count})
-            </span>
-          );
-        })}
-      </div>
-
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-        {economists.map((economist) => {
-          const accent = ERA_COLORS[economist.era] ?? "#c8a45a";
-          return (
-            <Link
-              key={economist.slug}
-              href={`/economics/economists/${economist.slug}`}
-              className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative flex h-full flex-col gap-4 overflow-hidden border p-6 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(200,164,90,0.06)]"
-            >
-              <div
-                className="pointer-events-none absolute -top-10 -right-10 h-28 w-28 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-25"
-                style={{ backgroundColor: accent }}
-              />
-
-              <div className="relative flex items-center justify-between">
-                <span
-                  className="border px-2 py-0.5 font-mono text-[10px] tracking-[0.32em] uppercase"
-                  style={{ borderColor: `${accent}50`, color: accent }}
-                >
-                  {economist.era}
-                </span>
-                <div className="flex items-center gap-2">
-                  {economist.nobel && <span className="badge-nobel text-[9px]">Nobel</span>}
-                  <span className="text-fg-disabled font-mono text-[9px] tracking-[0.22em]">
-                    {economist.years}
-                  </span>
-                </div>
-              </div>
-
-              <div className="relative flex flex-col gap-1.5">
-                <h2 className="font-display text-fg-primary group-hover:text-accent-gold text-lg leading-tight font-semibold transition-colors duration-300">
-                  {economist.title}
-                </h2>
-                <p className="text-fg-muted font-mono text-[11px] tracking-wider italic">
-                  {economist.name_en}
-                </p>
-              </div>
-
-              <p className="text-fg-muted font-mono text-[10px] tracking-wider">
-                {economist.school}
-              </p>
-
-              {economist.key_contributions.length > 0 && (
-                <p className="text-fg-secondary text-sm leading-relaxed">
-                  {economist.key_contributions.slice(0, 2).join("、")}
-                </p>
-              )}
-
-              <div className="relative mt-auto flex flex-wrap gap-1.5">
-                {economist.tags.slice(0, 3).map((tag) => (
-                  <span
-                    key={tag}
-                    className="border-fg-disabled/30 text-fg-muted rounded-none border px-2 py-0.5 font-mono text-[9px] tracking-[0.22em]"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              <span
-                aria-hidden
-                className="text-fg-disabled group-hover:text-accent-gold absolute right-4 bottom-4 font-mono text-xs opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100"
-              >
-                →
-              </span>
-
-              <span
-                className="absolute bottom-0 left-0 h-[2px] w-0 transition-all duration-500 group-hover:w-full"
-                style={{ backgroundColor: accent }}
-                aria-hidden
-              />
-            </Link>
-          );
-        })}
-      </div>
-
-      {economists.length === 0 && (
+      {economists.length > 0 ? (
+        <EconomistsListBrowser economists={economists} eras={ERAS} />
+      ) : (
         <div className="border-border-faint bg-bg-panel mt-12 border p-12 text-center">
           <p className="text-fg-muted font-mono text-[11px] tracking-[0.22em] uppercase">
             暂无经济学家内容

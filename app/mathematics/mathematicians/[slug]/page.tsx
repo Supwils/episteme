@@ -5,7 +5,7 @@ import {
   getAllMathematicians,
 } from "@/subjects/mathematics/lib/mathematicians";
 import { MATH_ERA_ACCENT, mathBadgeColor } from "@/subjects/mathematics/lib/constants";
-import { MathMarkdownRenderer } from "@/subjects/mathematics/components/MathMarkdownRenderer";
+import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { SITE_URL } from "@/lib/constants";
 import { serializeJsonLd, createPersonJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
@@ -141,7 +141,11 @@ export default async function MathematicianDetailPage({
       <div className="flex flex-col gap-12 lg:flex-row">
         <article className="max-w-[1200px] min-w-0 flex-1">
           {mathematician.content ? (
-            <MathMarkdownRenderer content={mathematician.content} accentColor={eraColor} />
+            <MarkdownRenderer
+              content={mathematician.content}
+              accentColor={eraColor}
+              domain="mathematics"
+            />
           ) : (
             <div className="border-border-faint bg-bg-panel border p-8 text-center">
               <p className="text-fg-muted text-sm">详细内容正在编写中。</p>

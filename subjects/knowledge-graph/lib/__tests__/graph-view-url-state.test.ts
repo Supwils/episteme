@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { rotationForSpatialDomain } from "../spatial-layout";
 import {
   graphViewUrlKey,
   parseGraphViewUrlState,
@@ -19,11 +20,12 @@ describe("graph view URL state", () => {
   });
 
   it("uses a valid front domain when the angle is absent", () => {
+    // 断言契约（前置域决定旋转角），不断言具体角度值——角度槽位随域数变化。
     expect(
       parseGraphViewUrlState(new URLSearchParams("layout=spatial&spatialFront=computer-science"))
     ).toEqual({
       layoutMode: "spatial",
-      spatialRotation: -54,
+      spatialRotation: rotationForSpatialDomain("computer-science"),
       spatialLevel: null,
     });
   });

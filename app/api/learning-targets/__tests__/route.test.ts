@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest";
+import graphSnapshot from "@/subjects/knowledge-graph/data/aggregate-snapshot.json";
 import { GET } from "@/app/api/learning-targets/route";
+import {
+  buildKnowledgeBranchCatalog,
+  searchKnowledgeBranchTargets,
+} from "@/lib/knowledge-branch-catalog";
 
 describe("learning target API", () => {
   it("returns compact search results and full attachment details on demand", async () => {
@@ -11,11 +16,11 @@ describe("learning target API", () => {
       summary: { nodeCount: number };
       results: { id: string; distance: number; candidateCount: number }[];
     };
-    expect(search.summary.nodeCount).toBe(1389);
+    expect(search.summary.nodeCount).toBe(graphSnapshot.branch.nodeCount);
+    // candidateCount 随正文跨域链接增减而变（等距候选数），只断言 id 与距离
     expect(search.results[0]).toMatchObject({
       id: "philosophy:ai-ethics",
       distance: 1,
-      candidateCount: 1,
     });
     expect(search.results).toHaveLength(1);
 
@@ -25,26 +30,48 @@ describe("learning target API", () => {
     const detail = (await detailResponse.json()) as {
       target: { anchorNodeId: string; branchPath: unknown[]; anchorCandidates: unknown[] };
     };
-    expect(detail.target.anchorNodeId).toBe("computer-science:ai-interpretability");
+    // 锚点在等距候选间由 tie-break 决定、且候选 top-3 封顶（见 knowledge-branch.test.ts），
+    // 故只断言语义边目标之一仍在候选中。
+    const candidates = (detail.target.anchorCandidates as Array<{ anchorNodeId: string }>).map(
+      (candidate) => candidate.anchorNodeId
+    );
+    expect(
+      candidates.includes("computer-science:ai-interpretability") ||
+        candidates.includes("arts:generative-art-and-ai")
+    ).toBe(true);
     expect(detail.target.branchPath).toHaveLength(2);
-    expect(detail.target.anchorCandidates).toHaveLength(1);
   });
 
   it("filters aggregate terrain selections and rejects malformed filters", async () => {
+    // Never assert that a specific (domain, level, confidence) cell is
+    // non-empty: cross-domain link edits shift nodes between confidence
+    // buckets (on 2026-07-27 every sociology L4 contextual node became
+    // direct, emptying that cell and breaking the previous version of this
+    // test). The intent is "filter parameters take effect", so assert
+    // whole-set properties instead: the API returns exactly the rows the
+    // same filter yields on the local catalog (an ignored or broken filter
+    // fails this regardless of whether the chosen cell happens to be
+    // empty), every returned row matches the filter, and the filtered set
+    // is narrower than the unfiltered catalog.
+    const catalog = buildKnowledgeBranchCatalog();
+    const expected = searchKnowledgeBranchTargets(catalog, "", 20, {
+      domainId: "sociology",
+      level: 4,
+      confidence: "direct",
+    });
+
     const response = await GET(
       new Request(
-        // 该断言依赖某个 (域, 阶段, 置信度) 单元非空，因此会随内容变化。
-        // 2026-07-27：跨域链接补齐后社会学 L4 的 contextual 节点全部升为 direct
-        // （contextual 0 / direct 4 / curated 4），原判据失效，改用 direct。
-        // 测试意图是「筛选参数生效」，不是「这个单元必须有内容」。
         "https://episteme.test/api/learning-targets?domain=sociology&level=4&confidence=direct"
       )
     );
     const data = (await response.json()) as {
-      results: { domainLabel: string; level: number; confidence: string }[];
+      summary: { nodeCount: number };
+      results: { id: string; domainLabel: string; level: number; confidence: string }[];
     };
     expect(response.status).toBe(200);
-    expect(data.results.length).toBeGreaterThan(0);
+    expect(data.results.map((result) => result.id)).toEqual(expected.map((target) => target.id));
+    expect(data.results.length).toBeLessThan(data.summary.nodeCount);
     expect(
       data.results.every(
         (result) =>

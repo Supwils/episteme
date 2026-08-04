@@ -18,6 +18,10 @@ export const KNOWLEDGE_DOMAINS = {
   sociology: { label: "社会学", href: "/sociology" },
   economics: { label: "经济学", href: "/economics" },
   "political-science": { label: "政治学", href: "/political-science" },
+  linguistics: { label: "语言学", href: "/linguistics" },
+  law: { label: "法学", href: "/law" },
+  arts: { label: "艺术", href: "/arts" },
+  engineering: { label: "工程与技术", href: "/engineering" },
 } as const;
 
 export type KnowledgeDomainId = keyof typeof KNOWLEDGE_DOMAINS;
@@ -222,7 +226,7 @@ export const KNOWLEDGE_THREADS: readonly KnowledgeContinuumThread[] = [
         question: "一个人怎样在关系和文化中成长？",
         description: "把发展、依恋、学习和身份联系起来，理解个人不是脱离环境的孤立心智。",
         href: "/psychology/knowledge-base/attachment-theory",
-        domains: ["psychology", "sociology"],
+        domains: ["psychology", "sociology", "linguistics"],
       },
       {
         id: "mind-meaning-3",
@@ -231,7 +235,7 @@ export const KNOWLEDGE_THREADS: readonly KnowledgeContinuumThread[] = [
         question: "解释行为时，原因和理由有什么不同？",
         description: "连接心理机制、因果关系、自由意志与伦理判断，避免把人的行动压成单一解释。",
         href: "/philosophy/concepts/causation",
-        domains: ["philosophy", "psychology"],
+        domains: ["philosophy", "psychology", "arts"],
       },
       {
         id: "mind-meaning-4",
@@ -266,7 +270,7 @@ export const KNOWLEDGE_THREADS: readonly KnowledgeContinuumThread[] = [
         question: "人为什么共同生活，又为什么留下不同制度？",
         description: "从家庭故事、地方规则和历史遗迹开始，看见个人生活背后的集体结构。",
         href: "/human-history/timeline",
-        domains: ["human-history", "sociology"],
+        domains: ["human-history", "sociology", "law"],
       },
       {
         id: "people-institutions-2",
@@ -355,7 +359,14 @@ export const KNOWLEDGE_THREADS: readonly KnowledgeContinuumThread[] = [
         question: "面对不可逆风险，科学与制度如何共同决策？",
         description: "把地球系统、概率预测、经济转型、公共卫生和代际正义放入统一的行动问题。",
         href: "/earth-science/frontier/climate-tipping-points",
-        domains: ["earth-science", "economics", "medicine", "political-science", "philosophy"],
+        domains: [
+          "earth-science",
+          "economics",
+          "medicine",
+          "political-science",
+          "philosophy",
+          "engineering",
+        ],
       },
     ],
   },

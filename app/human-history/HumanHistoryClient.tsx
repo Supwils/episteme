@@ -40,14 +40,14 @@ export default function HumanHistoryClient() {
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(collectionJsonLd) }}
       />
       <PageWrapper render={renderHome} />
-      <section style={{ padding: "48px 0", background: "rgba(0,0,0,0.3)" }}>
+      <section style={{ padding: "48px 0", background: "#15100b" }}>
         <div style={{ maxWidth: 960, margin: "0 auto", padding: "0 24px" }}>
           <div style={{ textAlign: "center", marginBottom: 32 }}>
             <div
               style={{
                 fontSize: 11,
                 letterSpacing: 2,
-                color: "rgba(200,169,81,0.6)",
+                color: "rgba(232,212,139,0.9)",
                 marginBottom: 8,
               }}
             >
@@ -56,7 +56,7 @@ export default function HumanHistoryClient() {
             <h2 style={{ fontSize: 24, fontWeight: 700, color: "#fff", margin: "0 0 8px" }}>
               关键事件时间线
             </h2>
-            <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", margin: 0 }}>
+            <p style={{ fontSize: 14, color: "rgba(255,255,255,0.75)", margin: 0 }}>
               从金字塔到登月——改变人类命运的关键时刻
             </p>
           </div>

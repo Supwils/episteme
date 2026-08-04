@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import graphSnapshot from "@/subjects/knowledge-graph/data/aggregate-snapshot.json";
 import { buildLearningPlanCatalog } from "@/lib/knowledge-learning-plan-catalog";
 import { buildPersonalLearningPlan } from "@/lib/knowledge-learning-plan";
 
@@ -6,13 +7,21 @@ const catalog = buildLearningPlanCatalog();
 
 describe("personal knowledge learning plans", () => {
   it("turns every curated path into a complete and unique goal", () => {
-    expect(catalog.goals).toHaveLength(46);
-    expect(catalog.goals.filter((goal) => goal.kind === "main-thread")).toHaveLength(6);
-    expect(new Set(catalog.goals.map((goal) => goal.id)).size).toBe(46);
+    // Goal and step counts track the curated paths — pinned by the snapshot
+    // (`pnpm update-graph-snapshot` after editing curated learning paths).
+    expect(catalog.goals).toHaveLength(graphSnapshot.coverage.goalCount);
+    expect(catalog.goals.filter((goal) => goal.kind === "main-thread")).toHaveLength(
+      graphSnapshot.coverage.mainThreadGoalCount
+    );
+    expect(new Set(catalog.goals.map((goal) => goal.id)).size).toBe(
+      graphSnapshot.coverage.goalCount
+    );
 
     const nodeIds = catalog.goals.flatMap((goal) => goal.steps.map((step) => step.nodeId));
-    expect(nodeIds).toHaveLength(230);
-    expect(new Set(nodeIds).size).toBe(230);
+    // Every goal is a complete five-step chain, and no curated node is
+    // shared between goals.
+    expect(nodeIds).toHaveLength(5 * graphSnapshot.coverage.goalCount);
+    expect(new Set(nodeIds).size).toBe(nodeIds.length);
     for (const goal of catalog.goals) {
       expect(goal.steps.map((step) => step.level)).toEqual([1, 2, 3, 4, 5]);
       expect(goal.steps.every((step) => step.graphHref.includes(`path=${goal.id}`))).toBe(true);

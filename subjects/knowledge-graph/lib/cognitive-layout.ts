@@ -31,6 +31,9 @@ const DOMAIN_LANES: Record<GraphNode["domain"], CognitiveLaneId> = {
   economics: "people-institutions",
   "political-science": "people-institutions",
   linguistics: "mind-meaning",
+  law: "people-institutions",
+  arts: "mind-meaning",
+  engineering: "patterns-computation",
 };
 
 const NODE_GAP = 64;

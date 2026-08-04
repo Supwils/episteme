@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
+import { createPortal } from "react-dom";
 
 const HEADING_SCROLL_OFFSET = 96;
 
@@ -17,8 +18,9 @@ interface TableOfContentsProps {
 export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProps) {
   const [items, setItems] = useState<TocItem[]>([]);
   const [activeId, setActiveId] = useState<string>("");
-  const [collapsed, setCollapsed] = useState(true);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [sheetOpen, setSheetOpen] = useState(false);
+  const sheetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const headings = document.querySelectorAll<HTMLElement>("h2[id], h3[id]");
@@ -57,11 +59,22 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
   // Highlighting the active item is purely visual — we deliberately do NOT
   // auto-scroll it into view, because doing so fought the reader's own scroll.
 
+  useEffect(() => {
+    if (!sheetOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSheetOpen(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    sheetRef.current?.querySelector("a")?.focus();
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [sheetOpen]);
+
   const handleClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     const target = document.getElementById(id);
     if (!target) return;
 
+    setSheetOpen(false);
     const root = document.documentElement;
     const previousScrollBehavior = root.style.scrollBehavior;
     root.style.scrollBehavior = "auto";
@@ -114,30 +127,75 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
         </div>
       </nav>
 
-      <details
-        className="border-border-faint border lg:hidden"
-        open={!collapsed}
-        onToggle={(e) => setCollapsed(!(e.target as HTMLDetailsElement).open)}
-      >
-        <summary className="text-fg-muted cursor-pointer px-4 py-3 font-mono text-[10px] tracking-[0.28em] uppercase">
-          目录 · contents
-        </summary>
-        <nav className="border-border-faint space-y-1.5 border-t px-4 pt-3 pb-4">
-          {items.map((item) => (
-            <a
-              key={item.id}
-              href={`#${item.id}`}
-              className={`block py-0.5 font-mono text-[11px] leading-relaxed transition-colors duration-200 ${
-                item.level === 3 ? "pl-3" : ""
-              } ${activeId === item.id ? "font-medium" : "text-fg-muted hover:opacity-80"}`}
-              style={activeId === item.id ? { color: accentColor } : undefined}
-              onClick={(e) => handleClick(e, item.id)}
+      {/* Mobile: the sidebar sits below the article in DOM order, so an inline
+          TOC would be unreachable until after the whole body. A floating
+          button + bottom sheet keeps navigation one tap away instead. */}
+      {createPortal(
+        <div className="print-hidden lg:hidden">
+          <button
+            type="button"
+            aria-expanded={sheetOpen}
+            aria-controls="mobile-toc-sheet"
+            onClick={() => setSheetOpen(true)}
+            className="border-border-faint bg-bg-panel/90 text-fg-secondary fixed bottom-6 left-4 z-40 flex items-center gap-2 rounded-full border px-4 py-2.5 font-mono text-[10px] tracking-[0.24em] uppercase shadow-lg backdrop-blur-md transition-colors"
+            style={sheetOpen ? { opacity: 0, pointerEvents: "none" } : undefined}
+          >
+            <span
+              aria-hidden="true"
+              className="inline-block h-1.5 w-1.5 rounded-full"
+              style={{ backgroundColor: accentColor }}
+            />
+            目录
+          </button>
+          {sheetOpen && (
+            <div
+              className="fixed inset-0 z-50 flex items-end"
+              role="presentation"
+              onClick={() => setSheetOpen(false)}
             >
-              {item.text}
-            </a>
-          ))}
-        </nav>
-      </details>
+              <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]" />
+              <div
+                ref={sheetRef}
+                id="mobile-toc-sheet"
+                role="dialog"
+                aria-modal="true"
+                aria-label="目录"
+                className="border-border-subtle bg-bg-panel relative max-h-[70vh] w-full overflow-y-auto rounded-t-2xl border-t p-5 pb-8"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="mb-4 flex items-center justify-between">
+                  <p className="text-fg-muted font-mono text-[9px] tracking-[0.32em] uppercase">
+                    目录 · contents
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setSheetOpen(false)}
+                    className="text-fg-muted hover:text-fg-primary font-mono text-[10px] tracking-[0.2em] uppercase transition-colors"
+                  >
+                    关闭
+                  </button>
+                </div>
+                <nav className="space-y-1.5">
+                  {items.map((item) => (
+                    <a
+                      key={item.id}
+                      href={`#${item.id}`}
+                      className={`block py-1.5 font-mono text-[12px] leading-relaxed transition-colors duration-200 ${
+                        item.level === 3 ? "pl-3" : ""
+                      } ${activeId === item.id ? "font-medium" : "text-fg-muted hover:opacity-80"}`}
+                      style={activeId === item.id ? { color: accentColor } : undefined}
+                      onClick={(e) => handleClick(e, item.id)}
+                    >
+                      {item.text}
+                    </a>
+                  ))}
+                </nav>
+              </div>
+            </div>
+          )}
+        </div>,
+        document.body
+      )}
     </>
   );
 }

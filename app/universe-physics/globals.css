@@ -198,6 +198,21 @@
 }
 
 .physics-root {
+  /* The 3D atlas is Observatory-only; isolate all theme tokens here so the
+     global Notebook class cannot produce a mixed light/dark interface. */
+  color-scheme: dark;
+  --color-bg-deep: #000000;
+  --color-bg-base: #000000;
+  --color-bg-near: #060814;
+  --color-bg-panel: rgba(8, 10, 18, 0.72);
+  --color-bg-elevated: #0f1320;
+  --color-bg-overlay: rgba(0, 0, 0, 0.82);
+  --color-fg-primary: #f5f6fa;
+  --color-fg-secondary: #a8adbd;
+  --color-fg-muted: #9298aa;
+  --color-fg-disabled: #858b9c;
+  --color-border-faint: rgba(255, 255, 255, 0.08);
+  --color-border-subtle: rgba(255, 255, 255, 0.14);
   position: fixed;
   inset: 0;
   z-index: 60;

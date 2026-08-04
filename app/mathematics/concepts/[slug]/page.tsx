@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getMathConceptBySlug, getAllMathConcepts } from "@/subjects/mathematics/lib/concepts";
 import { MATH_FIELD_COLORS, mathBadgeColor } from "@/subjects/mathematics/lib/constants";
-import { MathMarkdownRenderer } from "@/subjects/mathematics/components/MathMarkdownRenderer";
+import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { FunctionPlotter } from "@/subjects/mathematics/components/visualizations";
 import { SITE_URL } from "@/lib/constants";
 import { serializeJsonLd, createDefinedTermJsonLd } from "@/lib/jsonld";
@@ -96,7 +96,7 @@ export default async function MathConceptDetailPage({
             >
               {concept.field}
             </span>
-            <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">
+            <span className="text-fg-muted font-mono text-[10px] tracking-[0.22em]">
               约 {readMinutes} 分钟阅读
             </span>
           </div>
@@ -110,7 +110,7 @@ export default async function MathConceptDetailPage({
 
           {concept.key_figures.length > 0 && (
             <div className="mt-4">
-              <p className="text-fg-disabled mb-2 font-mono text-[9px] tracking-[0.18em] uppercase">
+              <p className="text-fg-muted mb-2 font-mono text-[9px] tracking-[0.18em] uppercase">
                 关键人物
               </p>
               <div className="flex flex-wrap gap-2">
@@ -134,7 +134,7 @@ export default async function MathConceptDetailPage({
                   className="border px-2.5 py-1 font-mono text-[10px] tracking-[0.22em]"
                   style={{
                     borderColor: `${fieldColor}20`,
-                    color: `${fieldColor}cc`,
+                    color: mathBadgeColor(fieldColor),
                     backgroundColor: `${fieldColor}08`,
                   }}
                 >
@@ -154,7 +154,11 @@ export default async function MathConceptDetailPage({
 
       <article className="max-w-[1200px] min-w-0">
         {concept.content ? (
-          <MathMarkdownRenderer content={concept.content} accentColor={fieldColor} />
+          <MarkdownRenderer
+            content={concept.content}
+            accentColor={fieldColor}
+            domain="mathematics"
+          />
         ) : (
           <div className="border-border-faint bg-bg-panel border p-8 text-center">
             <p className="text-fg-muted text-sm">详细内容正在编写中。</p>
@@ -212,7 +216,7 @@ export default async function MathConceptDetailPage({
             href={`/mathematics/concepts/${prevConcept.slug}`}
             className="group border-border-faint hover:border-fg-disabled/30 hover:bg-bg-panel flex flex-1 flex-col gap-1 border p-4 transition-all duration-300"
           >
-            <span className="text-fg-disabled font-mono text-[9px] tracking-[0.22em] uppercase">
+            <span className="text-fg-muted font-mono text-[9px] tracking-[0.22em] uppercase">
               ← 上一个
             </span>
             <span className="font-display text-fg-secondary group-hover:text-accent-indigo text-sm font-medium transition-colors">
@@ -227,7 +231,7 @@ export default async function MathConceptDetailPage({
             href={`/mathematics/concepts/${nextConcept.slug}`}
             className="group border-border-faint hover:border-fg-disabled/30 hover:bg-bg-panel flex flex-1 flex-col items-end gap-1 border p-4 text-right transition-all duration-300"
           >
-            <span className="text-fg-disabled font-mono text-[9px] tracking-[0.22em] uppercase">
+            <span className="text-fg-muted font-mono text-[9px] tracking-[0.22em] uppercase">
               下一个 →
             </span>
             <span className="font-display text-fg-secondary group-hover:text-accent-indigo text-sm font-medium transition-colors">

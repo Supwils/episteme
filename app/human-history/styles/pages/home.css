@@ -136,7 +136,7 @@
   font-weight: 400;
   font-size: clamp(1.2rem, 2.4vw, 1.85rem);
   letter-spacing: 0.04em;
-  color: var(--gold);
+  color: color-mix(in oklab, var(--gold) 42%, var(--parchment));
   text-transform: none;
 }
 
@@ -339,7 +339,7 @@
 .human-history-root .hero-era-range {
   font-family: var(--mono);
   font-size: 0.7rem;
-  color: var(--era-color, var(--gold));
+  color: color-mix(in oklab, var(--era-color, var(--gold)) 42%, var(--parchment));
   letter-spacing: 0.04em;
   text-align: right;
   white-space: nowrap;
@@ -582,7 +582,7 @@
   bottom: 12px;
   font-family: var(--brush);
   font-size: 7rem;
-  color: var(--era-color, var(--gold));
+  color: color-mix(in oklab, var(--era-color, var(--gold)) 42%, var(--parchment));
   opacity: 0.05;
   line-height: 1;
   pointer-events: none;
@@ -725,7 +725,7 @@
 .human-history-root .era-date {
   font-family: var(--mono);
   font-size: 0.7rem;
-  color: var(--era-color, var(--gold));
+  color: color-mix(in oklab, var(--era-color, var(--gold)) 42%, var(--parchment));
   letter-spacing: 0.04em;
   margin-left: auto;
   white-space: nowrap;

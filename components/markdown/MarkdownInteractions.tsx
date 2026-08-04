@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 type LinkPreview = { t: string; e: string; d: string };
 
@@ -42,7 +42,27 @@ const DOMAIN_LABEL: Record<string, string> = {
 export function WikiLinkPreview({ href, label }: { href: string; label: string }) {
   const [preview, setPreview] = useState<LinkPreview | null>(null);
   const [open, setOpen] = useState(false);
+  const [isTouch, setIsTouch] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const rootRef = useRef<HTMLSpanElement>(null);
+
+  // Touch devices have no hover, so the tooltip was unreachable there: a tap
+  // used to navigate immediately. On coarse pointers the first tap opens the
+  // preview card (with its own "go" link), the second tap navigates.
+  useEffect(() => {
+    setIsTouch(window.matchMedia("(hover: none)").matches);
+  }, []);
+
+  useEffect(() => {
+    if (!open || !isTouch) return;
+    const onPointerDown = (e: PointerEvent) => {
+      if (rootRef.current && !rootRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => document.removeEventListener("pointerdown", onPointerDown);
+  }, [open, isTouch]);
 
   const show = useCallback(() => {
     if (timer.current) clearTimeout(timer.current);
@@ -59,12 +79,31 @@ export function WikiLinkPreview({ href, label }: { href: string; label: string }
     setOpen(false);
   }, []);
 
+  const handleClick = useCallback(
+    (e: React.MouseEvent) => {
+      if (!isTouch || open) return; // desktop, or second tap while open → navigate
+      e.preventDefault();
+      void loadPreviews().then((previews) => {
+        setPreview(previews[href] ?? null);
+        setOpen(true);
+      });
+    },
+    [isTouch, open, href]
+  );
+
   return (
-    <span className="relative inline-block" onMouseEnter={show} onMouseLeave={hide}>
+    <span
+      ref={rootRef}
+      className="relative inline-block"
+      onMouseEnter={isTouch ? undefined : show}
+      onMouseLeave={isTouch ? undefined : hide}
+    >
       <Link
         href={href}
-        onFocus={show}
-        onBlur={hide}
+        onFocus={isTouch ? undefined : show}
+        onBlur={isTouch ? undefined : hide}
+        onClick={handleClick}
+        aria-expanded={isTouch ? open : undefined}
         className="text-accent-gold font-medium underline decoration-dotted decoration-from-font underline-offset-2 transition-opacity hover:opacity-80"
       >
         {label}
@@ -72,7 +111,9 @@ export function WikiLinkPreview({ href, label }: { href: string; label: string }
       {open && preview ? (
         <span
           role="tooltip"
-          className="border-border-subtle bg-bg-elevated/95 pointer-events-none absolute top-full left-0 z-50 mt-1.5 block w-[min(20rem,80vw)] rounded-xl border p-3 text-left shadow-[0_8px_32px_rgba(0,0,0,0.45)] backdrop-blur-xl"
+          className={`border-border-subtle bg-bg-elevated/95 absolute top-full left-0 z-50 mt-1.5 block w-[min(20rem,80vw)] rounded-xl border p-3 text-left shadow-[0_8px_32px_rgba(0,0,0,0.45)] backdrop-blur-xl ${
+            isTouch ? "pointer-events-auto" : "pointer-events-none"
+          }`}
         >
           <span className="mb-1 flex items-center gap-1.5">
             <span className="bg-bg-panel text-fg-muted rounded px-1.5 py-0.5 text-[10px] font-medium tracking-wide">
@@ -84,6 +125,14 @@ export function WikiLinkPreview({ href, label }: { href: string; label: string }
           </span>
           {preview.e ? (
             <span className="text-fg-secondary block text-[12px] leading-relaxed">{preview.e}</span>
+          ) : null}
+          {isTouch ? (
+            <Link
+              href={href}
+              className="text-accent-gold mt-2 inline-block text-[12px] font-medium underline underline-offset-2"
+            >
+              前往阅读 →
+            </Link>
           ) : null}
         </span>
       ) : null}
@@ -115,7 +164,9 @@ export function MarkdownCodeBlock({
         <div className="border-border-faint bg-bg-elevated/50 border-b px-4 py-1.5">
           <span
             className="font-mono text-[10px] tracking-[0.15em] uppercase"
-            style={{ color: accentColor }}
+            style={{
+              color: `color-mix(in oklab, ${accentColor} 42%, var(--color-fg-primary))`,
+            }}
           >
             {language}
           </span>
@@ -127,7 +178,7 @@ export function MarkdownCodeBlock({
       <button
         type="button"
         onClick={handleCopy}
-        className="border-border-faint bg-bg-panel/80 hover:bg-bg-elevated absolute top-2 right-2 rounded-md border px-2.5 py-1 font-mono text-[10px] tracking-wider uppercase opacity-0 backdrop-blur-sm transition-opacity group-hover/code:opacity-100"
+        className="border-border-faint bg-bg-panel/80 hover:bg-bg-elevated absolute top-2 right-2 rounded-md border px-2.5 py-1 font-mono text-[10px] tracking-wider uppercase opacity-0 backdrop-blur-sm transition-opacity group-focus-within/code:opacity-100 group-hover/code:opacity-100 focus-visible:opacity-100 pointer-coarse:opacity-100"
         style={{ color: copied ? "#6bae8a" : accentColor }}
         aria-label={copied ? "已复制" : "复制代码"}
       >

@@ -267,4 +267,118 @@ export const COMPLETION_DOMAIN_SPINE_PATHS: readonly CuratedLearningPath[] = [
       },
     ],
   },
+  {
+    id: "law-justice-spine",
+    scope: "domain-spine",
+    title: "从规则到公正的秩序",
+    question: "共同生活的规则怎样获得正当性，并在技术时代保持约束力？",
+    steps: [
+      {
+        nodeId: "law:why-law-exists",
+        level: 1,
+        evidenceMode: "interpretation",
+        transition: "从复仇与习惯的分界处看见法律这种社会技术为什么必然出现。",
+      },
+      {
+        nodeId: "law:rule-of-law",
+        level: 2,
+        evidenceMode: "interpretation",
+        transition: "法治追问：规则之治要成立，需要满足哪些可检验的条件。",
+      },
+      {
+        nodeId: "law:constitutional-review",
+        level: 3,
+        evidenceMode: "comparative",
+        transition: "违宪审查比较三种守卫高级法的制度路径及其代价。",
+      },
+      {
+        nodeId: "law:comparative-law-methods",
+        level: 4,
+        evidenceMode: "formal",
+        transition: "比较法的方法把跨法域判断建立在可比性的明确论证上。",
+      },
+      {
+        nodeId: "law:ai-and-algorithm-governance",
+        level: 5,
+        evidenceMode: "synthesis",
+        transition: "AI 治理综合风险分级、责任分配与跨境规则竞争，是法律追赶技术的开放前线。",
+      },
+    ],
+  },
+  {
+    id: "arts-seeing-spine",
+    scope: "domain-spine",
+    title: "从观看的本能到生成文化",
+    question: "我们如何学会看——从眼睛到判断，再到机器生成的图像？",
+    steps: [
+      {
+        nodeId: "arts:seeing-and-perception",
+        level: 1,
+        evidenceMode: "observation",
+        transition: "观看不是被动接收——知觉的主动性决定了我们看见什么。",
+      },
+      {
+        nodeId: "arts:composition-balance",
+        level: 2,
+        evidenceMode: "formal",
+        transition: "构图与平衡把观看的经验变成可操作的形式规律。",
+      },
+      {
+        nodeId: "arts:formal-analysis",
+        level: 3,
+        evidenceMode: "formal",
+        transition: "形式分析把细读训练成可交流、可争辩的方法。",
+      },
+      {
+        nodeId: "arts:provenance-and-attribution",
+        level: 4,
+        evidenceMode: "comparative",
+        transition: "归属研究在风格、材料与档案证据之间裁决作品的真与源。",
+      },
+      {
+        nodeId: "arts:generative-art-and-ai",
+        level: 5,
+        evidenceMode: "synthesis",
+        transition: "生成艺术综合风格计算、训练数据与作者性讨论，是图像生产的开放前线。",
+      },
+    ],
+  },
+  {
+    id: "engineering-building-spine",
+    scope: "domain-spine",
+    title: "从一根杠杆到一座超级工程",
+    question: "人造物是怎样从省力的杠杆，长成必须承受最坏情况的城市系统的？",
+    steps: [
+      {
+        nodeId: "engineering:simple-machines",
+        level: 1,
+        evidenceMode: "observation",
+        transition: "先看清最朴素的机械如何用位移换取力——工程的第一笔交易。",
+      },
+      {
+        nodeId: "engineering:materials-strength",
+        level: 2,
+        evidenceMode: "formal",
+        transition: "应力与应变把“能不能造出来”从经验判断变成可计算的问题。",
+      },
+      {
+        nodeId: "engineering:skyscrapers",
+        level: 3,
+        evidenceMode: "formal",
+        transition: "摩天楼让材料、风、地震与垂直交通第一次以系统的方式互相约束。",
+      },
+      {
+        nodeId: "engineering:resilient-infrastructure",
+        level: 4,
+        evidenceMode: "comparative",
+        transition: "韧性把问题从“能不能扛住”改写成“扛不住之后会怎样、多久恢复”。",
+      },
+      {
+        nodeId: "engineering:megaprojects",
+        level: 5,
+        evidenceMode: "synthesis",
+        transition: "超级工程综合成本、政治与风险治理，是工程与社会正面相撞的地方。",
+      },
+    ],
+  },
 ];

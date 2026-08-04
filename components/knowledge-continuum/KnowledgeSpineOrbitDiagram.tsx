@@ -4,10 +4,7 @@ import {
   projectKnowledgeSpineOrbit,
   SPINE_ORBIT_VIEWBOX,
 } from "@/lib/knowledge-spine-orbit";
-import type {
-  KnowledgeSpineAtlas,
-  KnowledgeSpineAtlasRow,
-} from "@/lib/knowledge-spine-atlas";
+import type { KnowledgeSpineAtlas, KnowledgeSpineAtlasRow } from "@/lib/knowledge-spine-atlas";
 
 type KnowledgeSpineOrbitDiagramProps = {
   atlas: KnowledgeSpineAtlas;
@@ -16,10 +13,7 @@ type KnowledgeSpineOrbitDiagramProps = {
   selectedLevel: KnowledgeStageId;
   depthScale: number;
   showBridges: boolean;
-  onSelect: (
-    domainId: KnowledgeSpineAtlasRow["domainId"],
-    level: KnowledgeStageId
-  ) => void;
+  onSelect: (domainId: KnowledgeSpineAtlasRow["domainId"], level: KnowledgeStageId) => void;
 };
 
 function levelY(level: KnowledgeStageId): number {
@@ -48,13 +42,14 @@ export function KnowledgeSpineOrbitDiagram({
   return (
     <svg
       viewBox={`0 0 ${SPINE_ORBIT_VIEWBOX.width} ${SPINE_ORBIT_VIEWBOX.height}`}
-      className="h-auto min-h-[500px] min-w-[760px] w-full"
+      className="h-auto min-h-[500px] w-full min-w-[760px]"
       role="group"
       aria-labelledby="spine-orbit-title spine-orbit-description"
     >
-      <title id="spine-orbit-title">15 门学科的五层空间知识主干</title>
+      <title id="spine-orbit-title">{atlas.summary.domainCount} 门学科的五层空间知识主干</title>
       <desc id="spine-orbit-description">
-        五个椭圆层级承载七十五个主干节点，选中学科的纵向路径和跨学科关系会被突出显示。
+        五个椭圆层级承载 {atlas.summary.nodeCount}{" "}
+        个主干节点，选中学科的纵向路径和跨学科关系会被突出显示。
       </desc>
 
       <rect
@@ -162,8 +157,7 @@ export function KnowledgeSpineOrbitDiagram({
       {projection.points.map((point) => {
         const row = atlas.rows[point.domainIndex]!;
         const step = row.steps[point.level - 1]!;
-        const selected =
-          row.domainId === selectedRow.domainId && point.level === selectedLevel;
+        const selected = row.domainId === selectedRow.domainId && point.level === selectedLevel;
         const selectedDomain = row.domainId === selectedRow.domainId;
         const nodeRadius = (selected ? 10 : selectedDomain ? 7 : 4.5) * point.scale;
         const textOnLeft = point.x < SPINE_ORBIT_VIEWBOX.centerX;

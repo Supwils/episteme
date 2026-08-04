@@ -180,7 +180,9 @@ export function IPAExplorer() {
                 onClick={() => changeKind(value)}
                 className="min-w-20 px-3 py-2 font-mono text-xs transition-colors motion-reduce:transition-none"
                 style={{
-                  color: selected ? ACCENT : "var(--color-fg-muted)",
+                  color: selected
+                    ? `color-mix(in oklab, ${ACCENT} 42%, var(--color-fg-primary))`
+                    : "var(--color-fg-muted)",
                   background: selected ? `${ACCENT}14` : "transparent",
                 }}
               >
@@ -212,7 +214,9 @@ export function IPAExplorer() {
                     className="border-border-subtle flex min-h-14 w-full items-center justify-center border text-2xl transition-colors motion-reduce:transition-none"
                     style={{
                       borderColor: selected ? ACCENT : undefined,
-                      color: selected ? ACCENT : "var(--color-fg-secondary)",
+                      color: selected
+                        ? `color-mix(in oklab, ${ACCENT} 42%, var(--color-fg-primary))`
+                        : "var(--color-fg-secondary)",
                       background: selected ? `${ACCENT}12` : "transparent",
                     }}
                   >
@@ -242,7 +246,13 @@ export function IPAExplorer() {
               <div className="text-fg-disabled">
                 {sound.place} · {sound.manner}
               </div>
-              <div style={{ color: ACCENT }}>{sound.voicing === "voiced" ? "有声" : "清音"}</div>
+              <div
+                style={{
+                  color: `color-mix(in oklab, ${ACCENT} 42%, var(--color-fg-primary))`,
+                }}
+              >
+                {sound.voicing === "voiced" ? "有声" : "清音"}
+              </div>
             </div>
           </div>
 
@@ -279,7 +289,10 @@ export function IPAExplorer() {
               onClick={() => void playCue()}
               disabled={playing}
               className="border px-4 py-2.5 font-mono text-xs transition-colors disabled:opacity-60 motion-reduce:transition-none"
-              style={{ borderColor: ACCENT, color: ACCENT }}
+              style={{
+                borderColor: ACCENT,
+                color: `color-mix(in oklab, ${ACCENT} 42%, var(--color-fg-primary))`,
+              }}
             >
               {playing ? "正在播放机制示意" : "播放声带状态示意"}
             </button>

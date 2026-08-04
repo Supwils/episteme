@@ -442,3 +442,31 @@
     padding: 20px;
   }
 }
+
+/* === wide-viewport overrides (moved from styles/responsive.css) === */
+@media (min-width: 1440px) {
+  .human-history-root .atlas-page {
+    padding: 0;
+  }
+
+  .human-history-root .atlas-toolbar {
+    padding: 10px 24px;
+  }
+
+  .human-history-root .atlas-ctrl-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .human-history-root .scene-panel {
+    width: 560px;
+    padding: 32px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .human-history-root .scene-panel {
+    width: 600px;
+    padding: 36px;
+  }
+}

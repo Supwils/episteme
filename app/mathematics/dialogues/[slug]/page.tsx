@@ -6,7 +6,7 @@ import {
   MATH_ERA_ACCENT,
   mathBadgeColor,
 } from "@/subjects/mathematics/lib/constants";
-import { MathMarkdownRenderer } from "@/subjects/mathematics/components/MathMarkdownRenderer";
+import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { SITE_URL } from "@/lib/constants";
 import { serializeJsonLd, createArticleJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
@@ -149,7 +149,11 @@ export default async function MathDialogueDetailPage({
 
       <article className="max-w-[1200px] min-w-0">
         {dialogue.content ? (
-          <MathMarkdownRenderer content={dialogue.content} accentColor={fieldColor} />
+          <MarkdownRenderer
+            content={dialogue.content}
+            accentColor={fieldColor}
+            domain="mathematics"
+          />
         ) : (
           <div className="border-border-faint bg-bg-panel border p-8 text-center">
             <p className="text-fg-muted text-sm">详细内容正在编写中。</p>

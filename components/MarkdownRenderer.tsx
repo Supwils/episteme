@@ -1,5 +1,6 @@
 import katex from "katex";
 import { resolveWikiLink } from "@/lib/wiki-link-index";
+import { RegisteredImage } from "@/components/RegisteredImage";
 import {
   MarkdownCodeBlock,
   MarkdownZoomableImage,
@@ -39,25 +40,41 @@ export function MarkdownRenderer({
 }: MarkdownRendererProps) {
   const footnotes = extractFootnotes(content);
 
+  // Page shells (ArticleLayout / bespoke headers) already render the article
+  // title as the document h1. The corpus convention repeats that title as a
+  // leading `# ` block (~2000 files), so drop a first-block h1 to keep one h1
+  // per page. Any later `# ` headings (rare, ~50 files) demote to h2 — the
+  // page already has an h1, so a body h1 would break the outline anyway.
+  const blocks = content.split("\n\n");
+  const firstContentBlock = blocks.findIndex((para) => para.trim() !== "");
+  const skipFirst =
+    firstContentBlock >= 0 &&
+    blocks[firstContentBlock]!.trim().startsWith("# ") &&
+    !blocks[firstContentBlock]!.trim().startsWith("## ");
+
   return (
     <div
       className={className ?? "prose prose-invert max-w-none"}
       style={{ fontFamily: "var(--font-body, inherit)" }}
     >
-      {content.split("\n\n").map((para, i) => {
+      {blocks.map((para, i) => {
         const text = para.trim();
         if (!text) return null;
+        if (skipFirst && i === firstContentBlock) return null;
 
-        if (text.startsWith("# ")) {
-          const h1 = parseHeading(text.slice(2));
+        if (text.startsWith("# ") && !text.startsWith("## ")) {
+          const h2 = parseHeading(text.slice(2));
           return (
-            <h1
+            <h2
               key={i}
-              id={h1.id}
-              className="font-display text-fg-primary mt-10 mb-4 text-[1.6rem] leading-tight font-semibold first:mt-0"
+              id={h2.id}
+              className="font-display mt-8 mb-3 scroll-mt-24 text-[1.25rem] leading-snug font-semibold"
+              style={{
+                color: `color-mix(in oklab, ${accentColor} 42%, var(--color-fg-primary))`,
+              }}
             >
-              {h1.text}
-            </h1>
+              {h2.text}
+            </h2>
           );
         }
         if (text.startsWith("## ")) {
@@ -67,7 +84,9 @@ export function MarkdownRenderer({
               key={i}
               id={id}
               className="font-display mt-8 mb-3 scroll-mt-24 text-[1.25rem] leading-snug font-semibold"
-              style={{ color: accentColor }}
+              style={{
+                color: `color-mix(in oklab, ${accentColor} 42%, var(--color-fg-primary))`,
+              }}
             >
               {headingText}
             </h2>
@@ -129,7 +148,7 @@ export function MarkdownRenderer({
               key={i}
               tabIndex={0}
               role="region"
-              aria-label="表格"
+              aria-label="可横向滚动的数据表"
               className="border-border-faint my-6 overflow-x-auto rounded-lg border"
             >
               <table className="w-full text-sm">
@@ -178,6 +197,12 @@ export function MarkdownRenderer({
         if (text.startsWith("![") && text.includes("](")) {
           const imgMatch = text.match(/^!\[([^\]]*)\]\(([^)]+)\)/);
           if (imgMatch) {
+            // 登记图像（/images/<id>，图像权利管线）走响应式 <figure>；
+            // 其余路径维持原缩放图组件。
+            const registeredMatch = imgMatch[2]!.match(/^\/images\/([a-z0-9-]+)$/);
+            if (registeredMatch) {
+              return <RegisteredImage key={i} id={registeredMatch[1]!} alt={imgMatch[1]!} />;
+            }
             return (
               <MarkdownZoomableImage
                 key={i}
@@ -265,6 +290,13 @@ function FootnotesSection({
           <li key={id} id={`fn-${id}`} className="text-fg-secondary leading-relaxed">
             <span className="text-fg-disabled mr-1 font-mono text-xs">[{id}]</span>
             {renderInline(text, footnotes, domain)}
+            <a
+              href={`#fnref-${id}`}
+              aria-label={`返回脚注 ${id} 的引用处`}
+              className="text-accent-gold ml-1.5 font-mono text-xs transition-opacity hover:opacity-80"
+            >
+              ↩
+            </a>
           </li>
         ))}
       </ol>
@@ -410,6 +442,7 @@ function renderInline(
       parts.push(
         <a
           key={key++}
+          id={`fnref-${footnoteRefMatch[1]}`}
           href={`#fn-${footnoteRefMatch[1]}`}
           className="text-accent-gold align-super font-mono text-xs"
           title={footnotes.get(footnoteRefMatch[1]!)!}

@@ -13,6 +13,7 @@
 import { readdirSync, readFileSync, existsSync, statSync } from "node:fs";
 import { join } from "node:path";
 import matter from "gray-matter";
+import { SKIP_FILES } from "../knowledge-base";
 import { extractHeadings } from "./extract";
 
 const ROOT = process.cwd();
@@ -120,6 +121,10 @@ function collectKbArticles(): Article[] {
     if (!route) continue;
 
     for (const rel of walkMarkdown(kbDir)) {
+      // human-history keeps editorial meta-docs at the KB root; they have no
+      // public route (lib/knowledge-base 404s them), so they must not enter
+      // the search / wiki indexes either.
+      if (domain === "human-history" && SKIP_FILES.has(rel.split("/").pop()!)) continue;
       const slug = rel.replace(/\.mdx?$/, "").replace(/\//g, "--");
       const bare = rel
         .replace(/\.mdx?$/, "")

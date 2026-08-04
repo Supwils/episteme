@@ -27,6 +27,9 @@ export const PRIMARY_DOMAIN_SPINE_PATH_IDS: Record<CoverageDomainId, string> = {
   economics: "economics-macro-diagnostics-spine",
   "political-science": "political-science-fiscal-governance-spine",
   linguistics: "linguistics-multilingual-ai-spine",
+  law: "law-justice-spine",
+  arts: "arts-seeing-spine",
+  engineering: "engineering-building-spine",
 };
 
 export interface KnowledgeSpineAtlasRow {

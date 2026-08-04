@@ -24,6 +24,17 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
   margin-top: 3rem;
 }
 
+/* CJK ↔ Latin 自动间距（text-autospace）：中西文混排时在汉字与拉丁字母/数字
+   之间插入标准的四分之一空。渐进增强——不支持的引擎静默忽略此声明，混排间距
+   维持现状；不会引入回归。 */
+.prose p,
+.prose li,
+.prose td,
+.prose th,
+.prose blockquote {
+  text-autospace: normal;
+}
+
 @import "tailwindcss";
 @reference "./domain-shared.css";
 @reference "./economics/globals.css";
@@ -134,11 +145,11 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
     --color-bg-floating: #ffffff;
     --color-bg-overlay: rgba(245, 242, 235, 0.86);
     --color-fg-primary: #2c2a26;
-    --color-fg-secondary: #5f5b54;
+    --color-fg-secondary: #4f4b45;
     /* darkened to clear WCAG AA (4.5:1) on the #faf6ef light base. */
-    --color-fg-muted: #6e6a61;
-    --color-fg-disabled: #6d6a79;
-    --color-accent-gold: #b8862f;
+    --color-fg-muted: #5a564f;
+    --color-fg-disabled: #625e58;
+    --color-accent-gold: #795719;
     --color-border-faint: #eee6d9;
     --color-border-subtle: #e8dfd0;
     --color-border-strong: #d8d0c0;
@@ -179,6 +190,40 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
   a {
     color: inherit;
     text-decoration: none;
+  }
+
+  /* 打印：隐藏阅读 chrome（导航、侧栏、进度条等以 print:hidden /
+     header.sticky / aside 命中），正文全宽；纸面 token 重映射见文件末尾
+     （未分层才能压过 @theme 生成的未分层变量）。 */
+  @media print {
+    body {
+      background: #ffffff !important;
+    }
+
+    header.sticky,
+    aside,
+    .print-hidden {
+      display: none !important;
+    }
+
+    .article-reading-surface,
+    article {
+      max-width: none !important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      page-break-after: avoid;
+    }
+
+    pre,
+    table,
+    blockquote,
+    figure {
+      page-break-inside: avoid;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -308,7 +353,7 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
   border-radius: 6px;
   border: 1px solid var(--color-border-subtle);
   background: rgba(255, 255, 255, 0.04);
-  color: #9ca3af;
+  color: var(--color-fg-secondary);
   font-size: 0.8rem;
   cursor: pointer;
   transition:
@@ -335,7 +380,7 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
   border-radius: 3px;
   border: 1px solid var(--color-border-subtle);
   background: var(--color-bg-deep);
-  color: #9ca3af;
+  color: var(--color-fg-secondary);
   line-height: 1.3;
 }
 
@@ -770,4 +815,51 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
 
 .nav-dropdown-item {
   animation: navItemIn 0.25s both;
+}
+
+/* Tailwind's generated theme variables are unlayered and emitted after the
+   base layer. This final unlayered override prevents portal chrome from
+   combining Notebook surfaces with Observatory foreground utilities. */
+.light,
+[data-theme="light"] {
+  --color-bg-deep: #efece4;
+  --color-bg-base: #faf6ef;
+  --color-bg-near: #ffffff;
+  --color-bg-panel: #ffffff;
+  --color-bg-elevated: #fffdf8;
+  --color-bg-floating: #ffffff;
+  --color-bg-overlay: rgba(245, 242, 235, 0.9);
+  --color-fg-primary: #2c2a26;
+  --color-fg-secondary: #4f4b45;
+  --color-fg-muted: #5a564f;
+  --color-fg-disabled: #625e58;
+  --color-accent-gold: #795719;
+  --color-border-faint: #eee6d9;
+  --color-border-subtle: #e8dfd0;
+  --color-border-strong: #d8d0c0;
+  --card-radius: 14px;
+  --card-shadow: 0 12px 28px -18px rgba(80, 60, 30, 0.28);
+}
+
+/* Print token remap — must stay UNLAYERED and at the end of the file:
+   Tailwind v4 emits @theme variables unlayered after the base layer (see the
+   .light override above), so a layered print remap loses to the domain's dark
+   foregrounds. !important guards against later domain stylesheets. */
+@media print {
+  :root {
+    --color-bg-deep: #ffffff !important;
+    --color-bg-base: #ffffff !important;
+    --color-bg-near: #ffffff !important;
+    --color-bg-panel: #ffffff !important;
+    --color-bg-elevated: #ffffff !important;
+    --color-bg-floating: #ffffff !important;
+    --color-bg-overlay: #ffffff !important;
+    --color-fg-primary: #111111 !important;
+    --color-fg-secondary: #333333 !important;
+    --color-fg-muted: #555555 !important;
+    --color-fg-disabled: #777777 !important;
+    --color-border-faint: #dddddd !important;
+    --color-border-subtle: #cccccc !important;
+    --color-border-strong: #999999 !important;
+  }
 }

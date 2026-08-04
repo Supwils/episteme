@@ -168,7 +168,7 @@ export function resetKnowledgeGapJourneys(): void {
 }
 
 export function importKnowledgeGapJourneyArchive(
-  archive: KnowledgeGapJourneyArchive,
+  archive: Pick<KnowledgeGapJourneyArchive, "journeys">,
   resolution: KnowledgeGapJourneyConflictResolution
 ): void {
   const merged = mergeKnowledgeGapJourneyArchive(

@@ -43,7 +43,7 @@ export function LatestUpdates() {
               <h3 className="text-fg-primary group-hover:text-accent-gold mb-1.5 text-[0.95rem] font-semibold transition-colors">
                 {update.title}
               </h3>
-              <p className="m-0 text-[0.82rem] leading-relaxed text-[#8b8fa3]">
+              <p className="text-fg-secondary m-0 text-[0.82rem] leading-relaxed">
                 {update.description}
               </p>
             </Link>

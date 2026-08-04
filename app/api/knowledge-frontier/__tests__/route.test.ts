@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import graphSnapshot from "@/subjects/knowledge-graph/data/aggregate-snapshot.json";
 import { POST } from "../route";
 
 function request(body: unknown): Request {
@@ -19,7 +20,8 @@ describe("knowledge frontier API", () => {
     expect(response.status).toBe(200);
     expect(response.headers.get("Cache-Control")).toBe("private, no-store");
     expect(response.headers.get("X-Profile-Storage")).toBe("local-only");
-    expect(data.summary.nodeCount).toBe(1389);
+    // Aggregate pinned by the snapshot — run `pnpm update-graph-snapshot` after content changes.
+    expect(data.summary.nodeCount).toBe(graphSnapshot.branch.nodeCount);
     expect(data.summary.readyCount).toBeGreaterThan(0);
     expect(data.results).toHaveLength(3);
   });

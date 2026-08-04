@@ -10,6 +10,7 @@ import { DailyKnowledgeCard } from "../components/DailyKnowledgeCard";
 import { DeferredHomeKnowledgeContinuum } from "../components/DeferredHomeKnowledgeContinuum";
 import { getDailyKnowledge } from "../lib/daily-knowledge";
 import { DOMAINS } from "../lib/data";
+import { getClustersWithDomains } from "../lib/domain-clusters";
 import { SITE_URL } from "../lib/constants";
 
 export const revalidate = 3600;
@@ -65,11 +66,27 @@ export default function HomePage() {
       <div className="relative z-1">
         <HeroSection />
 
-        <section className="grid grid-cols-1 gap-6 px-6 py-4 pb-20 md:grid-cols-2 lg:grid-cols-3">
-          {DOMAINS.map((domain, i) => (
-            <DomainCard key={domain.id} domain={domain} index={i} />
-          ))}
-        </section>
+        {getClustersWithDomains(DOMAINS).map((cluster) => (
+          <section key={cluster.id} className="px-6 pt-10 pb-6 sm:px-10 lg:px-16">
+            <header className="mb-6 flex items-baseline gap-3">
+              <h2 className="font-display text-fg-primary text-2xl font-semibold tracking-tight">
+                {cluster.label}
+              </h2>
+              <span className="text-fg-muted font-mono text-[10px] tracking-[0.28em] uppercase">
+                {cluster.en}
+              </span>
+              <span className="bg-border-faint h-px flex-1" />
+              <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">
+                {cluster.domains.length} 个领域
+              </span>
+            </header>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {cluster.domains.map((domain) => (
+                <DomainCard key={domain.id} domain={domain} index={DOMAINS.indexOf(domain)} />
+              ))}
+            </div>
+          </section>
+        ))}
 
         <DeferredHomeKnowledgeContinuum />
 

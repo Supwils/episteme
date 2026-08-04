@@ -171,7 +171,9 @@ function SectionCard({
         <div className="flex items-center justify-between">
           <span
             className="font-mono text-[10px] tracking-[0.32em] uppercase"
-            style={{ color: section.accent }}
+            style={{
+              color: `color-mix(in oklab, ${section.accent} 42%, var(--color-fg-primary))`,
+            }}
           >
             {section.titleEn}
           </span>

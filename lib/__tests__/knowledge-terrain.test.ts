@@ -1,19 +1,28 @@
 import { describe, expect, it } from "vitest";
+import graphSnapshot from "@/subjects/knowledge-graph/data/aggregate-snapshot.json";
 import { buildKnowledgeBranchCatalog } from "@/lib/knowledge-branch-catalog";
 import { buildKnowledgeTerrainSnapshot } from "@/lib/knowledge-terrain";
 
 const terrain = buildKnowledgeTerrainSnapshot(buildKnowledgeBranchCatalog());
 
+// Every aggregate expectation is read from the snapshot — after content or
+// graph changes run `pnpm update-graph-snapshot` instead of editing literals.
 describe("full graph knowledge terrain", () => {
   it("conserves every node across domain, level and confidence aggregates", () => {
-    expect(terrain.summary.nodeCount).toBe(1389);
-    expect(terrain.summary.ambiguousTargetCount).toBe(748);
-    expect(terrain.summary.maximumCandidateCount).toBe(27);
-    expect(terrain.summary.diagnosticCount).toBe(10);
-    expect(terrain.summary.highPriorityDiagnosticCount).toBe(5);
-    expect(terrain.domains).toHaveLength(15);
-    expect(terrain.domains.reduce((sum, domain) => sum + domain.total, 0)).toBe(1389);
-    expect(terrain.summary.levelCounts.reduce((sum, count) => sum + count, 0)).toBe(1389);
+    expect(terrain.summary.nodeCount).toBe(graphSnapshot.branch.nodeCount);
+    expect(terrain.summary.ambiguousTargetCount).toBe(graphSnapshot.branch.ambiguousTargetCount);
+    expect(terrain.summary.maximumCandidateCount).toBe(graphSnapshot.branch.maximumCandidateCount);
+    expect(terrain.summary.diagnosticCount).toBe(graphSnapshot.terrain.diagnosticCount);
+    expect(terrain.summary.highPriorityDiagnosticCount).toBe(
+      graphSnapshot.terrain.highPriorityDiagnosticCount
+    );
+    expect(terrain.domains).toHaveLength(graphSnapshot.terrain.domainCount);
+    expect(terrain.domains.reduce((sum, domain) => sum + domain.total, 0)).toBe(
+      graphSnapshot.branch.nodeCount
+    );
+    expect(terrain.summary.levelCounts.reduce((sum, count) => sum + count, 0)).toBe(
+      graphSnapshot.branch.nodeCount
+    );
 
     const confidenceTotals = terrain.domains
       .flatMap((domain) => domain.cells)
@@ -27,12 +36,17 @@ describe("full graph knowledge terrain", () => {
         { curated: 0, direct: 0, contextual: 0, exploratory: 0 }
       );
     expect(confidenceTotals).toEqual(terrain.summary.confidenceCounts);
+    expect(terrain.summary.confidenceCounts).toEqual(graphSnapshot.branch.confidenceCounts);
   });
 
   it("derives transparent inventory signals without treating density as importance", () => {
+    const historySnapshot = graphSnapshot.terrain.domains.history;
     const history = terrain.domains.find((domain) => domain.id === "history")!;
-    expect(history.metrics.dominantLevel).toBe(1);
-    expect(history.metrics.dominantShare).toBeCloseTo(303 / 313);
+    expect(history.total).toBe(historySnapshot.total);
+    expect(history.metrics.dominantLevel).toBe(historySnapshot.dominantLevel);
+    expect(history.metrics.dominantShare).toBeCloseTo(
+      historySnapshot.dominantCount / historySnapshot.total
+    );
     expect(history.diagnostics.map((diagnosis) => diagnosis.kind)).toEqual(
       expect.arrayContaining([
         "stage-concentration",
@@ -43,14 +57,18 @@ describe("full graph knowledge terrain", () => {
     );
     expect(history.diagnostics[0]?.description).toContain("不能解读为学科重要性");
 
+    const philosophySnapshot = graphSnapshot.terrain.domains.philosophy;
     const philosophy = terrain.domains.find((domain) => domain.id === "philosophy")!;
-    expect(philosophy.metrics.curatedCount).toBe(10);
-    expect(philosophy.metrics.curatedShare).toBeCloseTo(10 / 288);
+    expect(philosophy.metrics.curatedCount).toBe(philosophySnapshot.curatedCount);
+    expect(philosophy.metrics.curatedShare).toBeCloseTo(
+      philosophySnapshot.curatedCount / philosophySnapshot.total
+    );
 
+    const linguisticsSnapshot = graphSnapshot.terrain.domains.linguistics;
     const linguistics = terrain.domains.find((domain) => domain.id === "linguistics")!;
-    expect(linguistics.levels).toEqual([6, 10, 12, 7, 5]);
-    expect(linguistics.metrics.advancedCount).toBe(12);
-    expect(linguistics.metrics.missingLevels).toEqual([]);
+    expect(linguistics.levels).toEqual(linguisticsSnapshot.levels);
+    expect(linguistics.metrics.advancedCount).toBe(linguisticsSnapshot.advancedCount);
+    expect(linguistics.metrics.missingLevels).toEqual(linguisticsSnapshot.missingLevels);
     expect(linguistics.diagnostics.some((diagnosis) => diagnosis.kind === "missing-levels")).toBe(
       false
     );

@@ -3,6 +3,8 @@ import { spaceGrotesk, plexMono } from "./fonts";
 import { SubjectHeader } from "@/components/SubjectHeader";
 import { PageTransition } from "@/components/PageTransition";
 import "./globals.css";
+// KaTeX stylesheet: math articles render formulas server-side via MarkdownRenderer.
+import "katex/dist/katex.min.css";
 
 export const metadata: Metadata = {
   title: "数学与逻辑 — Episteme · 格致",

@@ -2,19 +2,14 @@ import { describe, it, expect } from "vitest";
 import { buildValidRoutes, normalizeRoute } from "@/scripts/valid-routes";
 import { CROSS_REFERENCES, DOMAIN_ROUTES } from "@/lib/cross-domain-refs";
 import { getSearchIndex } from "@/lib/search-index";
+import { APP_URLS, SECTION_SHELL_PREFIXES } from "@/lib/urls";
 
 const valid = buildValidRoutes();
 
 describe("route integrity: registry-driven history pages", () => {
   it("includes exact event, figure, and era detail routes", () => {
-    expect(
-      valid.has(
-        `/human-history/events/${encodeURIComponent("洞窟壁画")}`,
-      ),
-    ).toBe(true);
-    expect(
-      valid.has(`/human-history/figures/${encodeURIComponent("孔子")}`),
-    ).toBe(true);
+    expect(valid.has(`/human-history/events/${encodeURIComponent("洞窟壁画")}`)).toBe(true);
+    expect(valid.has(`/human-history/figures/${encodeURIComponent("孔子")}`)).toBe(true);
     expect(valid.has("/human-history/eras/earlyModern")).toBe(true);
   });
 });
@@ -45,4 +40,26 @@ describe("route integrity: search index URLs", () => {
     }
     expect([...broken.entries()].map(([r, id]) => `${r} (e.g. ${id})`)).toEqual([]);
   }, 60_000);
+});
+
+describe("section shell suppression", () => {
+  // Every domain with its own DomainNav must suppress the portal nav/footer.
+  // The law, arts and engineering launches each shipped without updating the
+  // formerly hand-copied prefix lists, which produced duplicated navigation and
+  // a portal header rendering dark-theme foreground tokens on a light page.
+  it("covers every registered domain landing route", () => {
+    const uncovered = Object.values(APP_URLS).filter(
+      (url) => !SECTION_SHELL_PREFIXES.some((prefix) => url.startsWith(prefix))
+    );
+    expect(uncovered).toEqual([]);
+  });
+
+  it("does not swallow the portal itself", () => {
+    for (const route of ["/", "/daily", "/search"]) {
+      expect(
+        SECTION_SHELL_PREFIXES.some((prefix) => route.startsWith(prefix)),
+        route
+      ).toBe(false);
+    }
+  });
 });

@@ -56,7 +56,7 @@ function SchoolCard({ school, reducedMotion }: { school: SchoolItem; reducedMoti
       transition={{ duration: 0.25, ease: [0.22, 0.61, 0.36, 1] }}
     >
       <Link
-        href={`/schools/${school.slug}`}
+        href={`/philosophy/schools/${school.slug}`}
         className="border-border-faint bg-bg-near group relative flex h-full flex-col overflow-hidden border transition-all duration-300 hover:border-[color:var(--card-accent)]"
         style={
           {
@@ -67,7 +67,7 @@ function SchoolCard({ school, reducedMotion }: { school: SchoolItem; reducedMoti
       >
         <span
           aria-hidden
-          className="absolute left-0 top-0 h-full w-[3px] transition-all duration-300 group-hover:w-[4px]"
+          className="absolute top-0 left-0 h-full w-[3px] transition-all duration-300 group-hover:w-[4px]"
           style={{ backgroundColor: accent }}
         />
 
@@ -77,10 +77,10 @@ function SchoolCard({ school, reducedMotion }: { school: SchoolItem; reducedMoti
           style={{ boxShadow: `inset 0 0 32px var(--card-glow)` }}
         />
 
-        <div className="flex flex-col gap-3 pb-4 pl-5 pr-5 pt-5">
+        <div className="flex flex-col gap-3 pt-5 pr-5 pb-4 pl-5">
           <div className="flex items-center justify-between gap-2">
             <span
-              className="font-mono text-[9px] uppercase tracking-[0.28em]"
+              className="font-mono text-[9px] tracking-[0.28em] uppercase"
               style={{ color: accent }}
             >
               {school.era}
@@ -92,12 +92,12 @@ function SchoolCard({ school, reducedMotion }: { school: SchoolItem; reducedMoti
             )}
           </div>
 
-          <h3 className="font-display text-fg-primary text-[1.15rem] font-semibold leading-snug tracking-tight">
+          <h3 className="font-display text-fg-primary text-[1.15rem] leading-snug font-semibold tracking-tight">
             {school.title}
           </h3>
 
           {founder && (
-            <p className="text-fg-muted font-mono text-[11px] italic tracking-wider">
+            <p className="text-fg-muted font-mono text-[11px] tracking-wider italic">
               创始人：{founder}
             </p>
           )}
@@ -190,7 +190,7 @@ export const SchoolsList = memo(function SchoolsList({ schools }: { schools: Sch
               key={era}
               type="button"
               onClick={() => setActiveEra(era)}
-              className="relative px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em] transition-colors"
+              className="relative px-4 py-2 font-mono text-[11px] tracking-[0.18em] uppercase transition-colors"
               style={{
                 color:
                   activeEra === era
@@ -208,7 +208,7 @@ export const SchoolsList = memo(function SchoolsList({ schools }: { schools: Sch
               {activeEra === era && (
                 <motion.span
                   layoutId="era-tab-indicator"
-                  className="absolute bottom-0 left-2 right-2 h-[2px]"
+                  className="absolute right-2 bottom-0 left-2 h-[2px]"
                   style={{
                     backgroundColor: ERA_ACCENT[era === "全部" ? "古代" : era] ?? "#c8a45a",
                   }}

@@ -47,13 +47,23 @@ const BUDGET = {
   sharedInitialJs: 180 * 1024, // 180 KB — root+polyfill shared by every route
   homepageHtmlRaw: 500 * 1024,
   homepageHtmlGzip: 80 * 1024,
-  homepageRscRaw: 100 * 1024,
+  homepageRscRaw: 110 * 1024, // 110 KB — raised from 100 KB on 2026-08-03: the portal grid
+  // gained cluster section headers (T-INFO-01) and two more domain cards (law/arts),
+  // which grew the home RSC payload to ~103 KB. Growth is static markup, not JS.
   genericArticleJs: 220 * 1024,
   historyTimelineShell: 12 * 1024,
   historyTimelineCatalog: 32 * 1024,
   routeCss: {
-    portal: 40 * 1024, // 40 KB — homepage regression budget
-    domain: 40 * 1024, // 40 KB — root utilities + route-scoped domain styles
+    portal: 48 * 1024, // 48 KB — homepage regression budget (raised 2026-08-02, see below)
+    // 48 KB — raised from 40 KB on 2026-08-02 per decision record #1's preset
+    // trigger ("route CSS touches the ceiling again → raise to ~48 KB"): six
+    // domains (economics/medicine/chemistry/earth-science/computer-science/
+    // philosophy) now load katex.min.css (~2.6 KB gzip) because 132 articles
+    // render math server-side but previously had no KaTeX stylesheet at all —
+    // formulas displayed as unstyled markup. CSS gzip growth is far less
+    // user-perceptible than JS; the alternative (runtime-injected stylesheet)
+    // trades a render-blocking budget line for a per-page formula FOUC.
+    domain: 48 * 1024,
   },
   singleChunkMax: 285 * 1024, // 285 KB — accommodates the Three.js / R3F vendor chunk
   // public/search-index.json, fetched into a Worker the first time a reader

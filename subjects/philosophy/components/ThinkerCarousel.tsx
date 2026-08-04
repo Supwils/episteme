@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useRef, useState, useCallback, useEffect } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
-import { PRODUCT_EASE } from '@/subjects/philosophy/lib/constants';
+import { useRef, useState, useCallback, useEffect } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { PRODUCT_EASE } from "@/subjects/philosophy/lib/constants";
 
 type Thinker = {
   name: string;
@@ -33,18 +33,18 @@ export function ThinkerCarousel({ thinkers }: ThinkerCarouselProps) {
     checkScroll();
   }, [checkScroll]);
 
-  const scroll = (direction: 'left' | 'right') => {
+  const scroll = (direction: "left" | "right") => {
     if (!scrollRef.current) return;
-    const amount = direction === 'left' ? -320 : 320;
-    scrollRef.current.scrollBy({ left: amount, behavior: reduce ? 'auto' : 'smooth' });
+    const amount = direction === "left" ? -320 : 320;
+    scrollRef.current.scrollBy({ left: amount, behavior: reduce ? "auto" : "smooth" });
   };
 
   return (
     <div className="relative">
       {canScrollLeft && (
         <button
-          onClick={() => scroll('left')}
-          className="absolute left-0 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center border border-border-faint bg-bg-deep/80 text-fg-muted backdrop-blur-sm transition-colors duration-200 hover:text-accent-gold"
+          onClick={() => scroll("left")}
+          className="border-border-faint bg-bg-deep/80 text-fg-muted hover:text-accent-gold absolute top-1/2 left-0 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center border backdrop-blur-sm transition-colors duration-200"
           aria-label="Scroll left"
         >
           ←
@@ -52,8 +52,8 @@ export function ThinkerCarousel({ thinkers }: ThinkerCarouselProps) {
       )}
       {canScrollRight && (
         <button
-          onClick={() => scroll('right')}
-          className="absolute right-0 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center border border-border-faint bg-bg-deep/80 text-fg-muted backdrop-blur-sm transition-colors duration-200 hover:text-accent-gold"
+          onClick={() => scroll("right")}
+          className="border-border-faint bg-bg-deep/80 text-fg-muted hover:text-accent-gold absolute top-1/2 right-0 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center border backdrop-blur-sm transition-colors duration-200"
           aria-label="Scroll right"
         >
           →
@@ -65,6 +65,8 @@ export function ThinkerCarousel({ thinkers }: ThinkerCarouselProps) {
         onScroll={checkScroll}
         className="scrollbar-hide flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4"
         role="list"
+        aria-label="代表哲学家，可横向滚动"
+        tabIndex={0}
       >
         {thinkers.map((thinker, i) => (
           <motion.div
@@ -78,18 +80,22 @@ export function ThinkerCarousel({ thinkers }: ThinkerCarouselProps) {
             <div className="group border-border-faint bg-bg-near hover:bg-bg-elevated relative flex h-full flex-col gap-4 border p-5 transition-all duration-500 hover:shadow-[0_0_30px_-10px_rgba(200,164,90,0.1)]">
               <div className="flex items-start justify-between">
                 <div
-                  className="flex h-10 w-10 items-center justify-center border border-border-subtle font-display text-lg italic"
+                  className="border-border-subtle font-display flex h-10 w-10 items-center justify-center border text-lg italic"
                   style={{ color: thinker.accent }}
                 >
                   {thinker.name[0]}
                 </div>
-                <span className="text-fg-disabled font-mono text-[9px] tracking-[0.2em]">{thinker.era}</span>
+                <span className="text-fg-disabled font-mono text-[9px] tracking-[0.2em]">
+                  {thinker.era}
+                </span>
               </div>
               <div>
-                <h3 className="font-display text-fg-primary text-lg font-semibold leading-snug transition-colors duration-300 group-hover:text-accent-gold">
+                <h3 className="font-display text-fg-primary group-hover:text-accent-gold text-lg leading-snug font-semibold transition-colors duration-300">
                   {thinker.name}
                 </h3>
-                <p className="text-fg-muted font-mono text-[10px] italic tracking-wider">{thinker.latin}</p>
+                <p className="text-fg-muted font-mono text-[10px] tracking-wider italic">
+                  {thinker.latin}
+                </p>
               </div>
               <p className="text-fg-secondary text-sm leading-relaxed italic">
                 &ldquo;{thinker.quote}&rdquo;

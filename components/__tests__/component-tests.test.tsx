@@ -48,6 +48,7 @@ vi.mock("framer-motion", () => ({
 import { DomainCard } from "../DomainCard";
 import { HeroSection } from "../HeroSection";
 import { DOMAINS } from "@/lib/data";
+import SEARCH_STATS from "@/generated/search-stats.json";
 import { PageTransition } from "../PageTransition";
 import { ScrollToTop } from "../ScrollToTop";
 import { SectionAwareFooter } from "../SectionAwareFooter";
@@ -113,8 +114,10 @@ describe("HeroSection", () => {
     const statistics = screen.getByRole("list", { name: "平台内容统计" });
     expect(statistics.classList.contains("animate-fade-slide-up")).toBe(false);
     expect(screen.getByText(String(DOMAINS.length))).toBeDefined();
-    expect(screen.getByText("2200+")).toBeDefined();
-    expect(screen.getByText("1300+")).toBeDefined();
+    // Stats derive from the generated search-index snapshot, not literals —
+    // assert against the same source so content rounds don't break this test.
+    expect(screen.getByText(String(SEARCH_STATS.documents))).toBeDefined();
+    expect(screen.getByText(String(SEARCH_STATS.articles))).toBeDefined();
   });
 });
 
@@ -122,12 +125,8 @@ describe("SectionAwareFooter", () => {
   it("links every launched subject and the current repository", () => {
     render(<SectionAwareFooter />);
 
-    expect(screen.getByRole("link", { name: "社会学" }).getAttribute("href")).toBe(
-      "/sociology"
-    );
-    expect(screen.getByRole("link", { name: "语言学" }).getAttribute("href")).toBe(
-      "/linguistics"
-    );
+    expect(screen.getByRole("link", { name: "社会学" }).getAttribute("href")).toBe("/sociology");
+    expect(screen.getByRole("link", { name: "语言学" }).getAttribute("href")).toBe("/linguistics");
     expect(screen.getByRole("link", { name: "GitHub" }).getAttribute("href")).toBe(
       "https://github.com/Supwils/episteme"
     );
@@ -187,9 +186,12 @@ describe("ScrollToTop", () => {
 });
 
 describe("MarkdownRenderer", () => {
-  it("renders h1 headings", () => {
-    render(<MarkdownRenderer content="# Hello World" />);
-    expect(screen.getByRole("heading", { level: 1, name: "Hello World" })).toBeDefined();
+  it("demotes a leading `# ` title (the page shell owns the document h1)", () => {
+    // T-UX-09: a first-block `# ` repeats the page title and is dropped; any
+    // later `# ` becomes h2 so the page keeps a single-h1 outline.
+    render(<MarkdownRenderer content={"前言。\n\n# Hello World"} />);
+    expect(screen.getByRole("heading", { level: 2, name: "Hello World" })).toBeDefined();
+    expect(screen.queryByRole("heading", { level: 1 })).toBeNull();
   });
 
   it("renders h2 headings", () => {

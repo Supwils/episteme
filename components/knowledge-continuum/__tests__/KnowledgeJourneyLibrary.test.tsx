@@ -5,6 +5,15 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { GraphNode } from "@/lib/graph-engine";
 import { buildKnowledgeGapPlan } from "@/lib/knowledge-gap-plan";
 import { createKnowledgeGapJourneyArchive } from "@/lib/knowledge-gap-journey-archive";
+import { createLocalRouteArchive } from "@/lib/local-route-archive";
+import {
+  MENTAL_HEALTH_COMPARISON_STORAGE_KEY,
+  resetMentalHealthComparisonRecord,
+} from "@/lib/mental-health-tour-comparison-store";
+import {
+  ADOLESCENT_SERVICE_LAB_STORAGE_KEY,
+  resetAdolescentServiceLabSnapshots,
+} from "@/subjects/medicine/lib/adolescent-service-lab-store";
 import {
   resetKnowledgeGapJourneys,
   saveKnowledgeGapJourney,
@@ -123,5 +132,74 @@ describe("KnowledgeJourneyLibrary", () => {
     expect(window.localStorage.getItem(KNOWLEDGE_GAP_JOURNEY_STORAGE_KEY)).toContain(
       '"journeys":{}'
     );
+  });
+
+  it("imports a unified archive without touching the mastered profile", async () => {
+    resetMentalHealthComparisonRecord();
+    resetAdolescentServiceLabSnapshots();
+    saveKnowledgeGapJourney(plan);
+    render(
+      <KnowledgeJourneyLibrary knownIds={[]} masteredIds={new Set()} onOpenJourney={vi.fn()} />
+    );
+    fireEvent.click(screen.getByRole("button", { name: "打开档案库" }));
+    await screen.findByText("当前版本");
+
+    const incoming = createLocalRouteArchive({
+      journeys: [
+        updateKnowledgeGapCheckpoint(
+          createKnowledgeGapJourney(plan, "2026-07-20T02:00:00.000Z"),
+          "root",
+          { reading: true },
+          "2026-07-20T02:10:00.000Z"
+        ),
+      ],
+      comparison: {
+        schemaVersion: 1,
+        checkedIds: ["rights-and-agency"],
+        updatedAt: "2026-07-20T03:00:00.000Z",
+      },
+      serviceLabSnapshots: [
+        {
+          id: "lab-unified-1",
+          savedAt: "2026-07-20T04:00:00.000Z",
+          constraints: {
+            budgetUnits: 24,
+            equityWeight: 2,
+            minimumUnderservedShare: 0.4,
+            requireCompletePathway: true,
+          },
+          sensitivityOptionId: "community-youth-outreach",
+          costMultiplier: 1,
+          effectMultiplier: 1.25,
+        },
+      ],
+    });
+    const file = new File([JSON.stringify(incoming)], "routes.json", {
+      type: "application/json",
+    });
+    fireEvent.change(screen.getByLabelText("导入路线档案 JSON"), {
+      target: { files: [file] },
+    });
+
+    await screen.findByText("导入前预览");
+    expect(screen.getByText(/档案含双路线核对记录 1 项/)).toBeDefined();
+    expect(screen.getByText(/档案含服务实验快照 1 份，其中新增 1 份/)).toBeDefined();
+    expect(screen.getByText(/不会改动「已掌握」档案/)).toBeDefined();
+
+    fireEvent.click(screen.getByRole("button", { name: "采用导入版本" }));
+    fireEvent.click(screen.getByRole("button", { name: "确认导入" }));
+
+    await waitFor(() =>
+      expect(window.localStorage.getItem(KNOWLEDGE_GAP_JOURNEY_STORAGE_KEY)).toContain(
+        '"reading":true'
+      )
+    );
+    expect(window.localStorage.getItem(MENTAL_HEALTH_COMPARISON_STORAGE_KEY)).toContain(
+      "rights-and-agency"
+    );
+    expect(window.localStorage.getItem(ADOLESCENT_SERVICE_LAB_STORAGE_KEY)).toContain(
+      "lab-unified-1"
+    );
+    expect(window.localStorage.getItem("uk-knowledge-profile-v1")).toBeNull();
   });
 });

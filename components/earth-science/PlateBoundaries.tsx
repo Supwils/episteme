@@ -56,7 +56,7 @@ export function PlateBoundaries() {
       <figcaption className="border-border-faint flex flex-wrap items-center justify-between gap-2 border-b px-4 py-2.5">
         <span
           className="font-mono text-[10px] tracking-[0.22em] uppercase"
-          style={{ color: ACCENT }}
+          style={{ color: `color-mix(in oklab, ${ACCENT} 42%, var(--color-fg-primary))` }}
         >
           板块边界 · 交互
         </span>

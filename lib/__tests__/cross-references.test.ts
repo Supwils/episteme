@@ -86,13 +86,16 @@ describe("URL constants", () => {
 
   it("APP_URLS has expected keys", () => {
     expect(Object.keys(APP_URLS).sort()).toEqual([
+      "arts",
       "chemistry",
       "computer-science",
       "cosmology",
       "earth-science",
       "economics",
+      "engineering",
       "human-history",
       "knowledge-graph",
+      "law",
       "life-science",
       "linguistics",
       "mathematics",

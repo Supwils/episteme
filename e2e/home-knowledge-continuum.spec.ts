@@ -1,4 +1,113 @@
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test, type Locator, type Page } from "@playwright/test";
+import { buildKnowledgeBranchCatalog } from "@/lib/knowledge-branch-catalog";
+import { buildKnowledgeTerrainSnapshot } from "@/lib/knowledge-terrain";
+import { buildKnowledgeCoverageSnapshot } from "@/lib/knowledge-continuum-coverage";
+import { buildLearningPlanCatalog } from "@/lib/knowledge-learning-plan-catalog";
+import { buildKnowledgeSpineAtlas } from "@/lib/knowledge-spine-atlas";
+import {
+  buildKnowledgeBridgeFlows,
+  filterBridgeTransitions,
+  type KnowledgeBridgeFilter,
+} from "@/lib/knowledge-bridge-flow";
+import { COVERAGE_DOMAIN_META } from "@/lib/knowledge-continuum-coverage-meta";
+import { KNOWLEDGE_LEVELS } from "@/lib/knowledge-levels";
+import { KNOWLEDGE_STAGES } from "@/lib/knowledge-continuum";
+
+// Aggregate expectations are derived from the same builders that render the
+// page (the lib unit tests pin these builders against
+// subjects/knowledge-graph/data/aggregate-snapshot.json), so content or graph
+// changes never require editing this spec — it only verifies that the UI
+// renders the data faithfully.
+const branchCatalog = buildKnowledgeBranchCatalog();
+const terrain = buildKnowledgeTerrainSnapshot(branchCatalog);
+const coverage = buildKnowledgeCoverageSnapshot();
+const spineAtlas = buildKnowledgeSpineAtlas(buildLearningPlanCatalog(), coverage);
+
+// KnowledgeTerrain header lines.
+const terrainSummaryText = `${terrain.summary.nodeCount} 个节点 · ${terrain.summary.anchorCount} 个骨架`;
+const terrainAmbiguousText = `${terrain.summary.ambiguousTargetCount} 个节点存在多条等距来路`;
+
+// Dominant history cell, derived exactly like KnowledgeTerrain renders it
+// (same derivation as the KnowledgeLearningPlanner unit test).
+const historyDomain = terrain.domains.find((domain) => domain.id === "history")!;
+const dominantCell = historyDomain.cells.reduce((largest, cell) =>
+  cell.total > largest.total ? cell : largest
+);
+const dominantStage = KNOWLEDGE_LEVELS[dominantCell.level - 1]!;
+const dominantPct = Math.round((dominantCell.total / historyDomain.total) * 100);
+const dominantCellLabel = `${historyDomain.label}，${dominantStage.label}，${dominantCell.total}个知识节点，占该学科当前接入层${dominantPct}%`;
+
+// KnowledgeTerrainDiagnostics header count.
+const diagnosticSummaryText = `${terrain.summary.diagnosticCount} 条可复核信号`;
+
+// Equal-distance anchor candidate counts and the alternative anchor for the
+// anchor-switch flow — same derivation as the KnowledgeLearningPlanner unit
+// test (alternative = second equal-distance candidate).
+const bodyEvidence = branchCatalog.targets.find(
+  (target) => target.id === "medicine:body-disease-evidence"
+)!;
+const alternativeAnchor = bodyEvidence.anchorCandidates[1]!;
+const candidateCountSuffix = `${bodyEvidence.candidateCount}条等距来路`;
+const candidateCountText = `共有 ${bodyEvidence.candidateCount} 条同样短的接入来路`;
+
+// KnowledgeBridgeFlowView summary line, same derivation as the
+// KnowledgeCoveragePanel unit test.
+function bridgeSummaryText(filter: Partial<KnowledgeBridgeFilter>): string {
+  const normalized = {
+    level: filter.level ?? null,
+    evidenceMode: filter.evidenceMode ?? null,
+  };
+  const transitions = filterBridgeTransitions(coverage.bridgeTransitions, normalized);
+  const flows = buildKnowledgeBridgeFlows(coverage.bridgeTransitions, normalized);
+  return `${transitions.length} 次转接 · ${flows.length} 个有向学科对`;
+}
+
+// Economics → political-science flow button (KnowledgeBridgeFlowMatrix).
+const economicsToPoliticsFlow = buildKnowledgeBridgeFlows(coverage.bridgeTransitions).find(
+  (flow) => flow.fromDomain === "economics" && flow.toDomain === "political-science"
+)!;
+const economicsToPoliticsLabel = `${COVERAGE_DOMAIN_META.economics.label}到${COVERAGE_DOMAIN_META["political-science"].label}，${economicsToPoliticsFlow.count}次转接`;
+
+// Coverage matrix cell buttons (KnowledgeCoverageMatrix aria-labels).
+const linguisticsRow = coverage.domains.find((row) => row.id === "linguistics")!;
+const linguisticsL1CellLabel = `${linguisticsRow.label}，${KNOWLEDGE_STAGES[0]!.label}，${linguisticsRow.levels[0]}个核心节点`;
+const formalEvidenceRow = coverage.evidenceModes.find((row) => row.label === "形式推演")!;
+const formalL4CellLabel = `${formalEvidenceRow.label}，${KNOWLEDGE_STAGES[3]!.label}，${formalEvidenceRow.levels[3]}个核心节点`;
+
+// Physics spine bridge count (KnowledgeSpineBridgeExplorer).
+const physicsBridgeCountText = `${
+  spineAtlas.rows.find((row) => row.domainId === "physics")!.bridgeTransitions.length
+} 条有向转接`;
+
+// The 两跳 (contextual) terrain filter below needs a non-empty cell. Which
+// (domain, level) cells hold contextual nodes shifts as content links promote
+// nodes to direct — sociology L4 contextual emptied on 2026-07-27 and broke
+// the fixed-cell version of this test — so pick the first non-empty cell from
+// the live terrain instead of assuming one.
+const contextualEntry = terrain.domains
+  .flatMap((domain) =>
+    domain.cells.map((cell) => ({ domain, cell, stage: KNOWLEDGE_LEVELS[cell.level - 1]! }))
+  )
+  .find(({ cell }) => cell.confidenceCounts.contextual > 0)!;
+const contextualCellLabel = `${contextualEntry.domain.label}，${contextualEntry.stage.label}，${contextualEntry.cell.confidenceCounts.contextual}个两跳旁支节点`;
+const contextualScopeText = `搜索全部知识节点 · ${contextualEntry.domain.label} / L${contextualEntry.cell.level} ${contextualEntry.stage.label} / 两跳旁支`;
+
+// On mobile the deferred panels often stay gated behind 立即载入 — the
+// IntersectionObserver trigger does not fire within the smaller viewport —
+// so click the gate when it shows up (same pattern as the mental-health tour
+// test below). Uses a DOM click with a short timeout: a plain locator click
+// races the IO-driven auto-load swapping the gate out mid-click.
+async function loadDeferredPanelIfGated(panel: Locator) {
+  try {
+    await panel
+      .getByRole("button", { name: "立即载入" })
+      .evaluate((element) => (element as HTMLButtonElement).click(), undefined, {
+        timeout: 1500,
+      });
+  } catch {
+    // No gate — the panel is already loading or ready.
+  }
+}
 
 async function revealLearningPlanner(page: Page) {
   const continuum = page.getByTestId("home-knowledge-continuum");
@@ -59,10 +168,17 @@ test("compares all fifteen subject spines from first questions to frontiers", as
   await page.goto("/");
   const atlas = page.getByTestId("knowledge-spine-atlas");
   await atlas.scrollIntoViewIfNeeded();
+  await loadDeferredPanelIfGated(atlas);
 
   await expect(
     atlas.getByRole("heading", { name: "15 门学科，从第一问走到研究边界" })
   ).toBeVisible();
+  // The atlas defaults to the orbit view; the step matrix (and its
+  // spine-step-* cells) only renders after switching to 矩阵对照 — same
+  // setup as the KnowledgeSpineAtlas unit test.
+  await atlas.getByRole("button", { name: "矩阵对照" }).click();
+  // 75 is UI structure, not a graph aggregate: 15 subject spines × 5 stages
+  // (= spineAtlas.summary.nodeCount). Kept literal on purpose.
   await expect(atlas).toContainText("75 个主干节点");
   await expect(atlas.locator('[data-testid^="spine-step-"]')).toHaveCount(75);
 
@@ -91,9 +207,13 @@ test("traces a selected subject bridge across stages and domains", async ({ page
   await page.goto("/");
   const atlas = page.getByTestId("knowledge-spine-atlas");
   await atlas.scrollIntoViewIfNeeded();
+  await loadDeferredPanelIfGated(atlas);
 
   await expect(atlas.getByRole("heading", { name: "物理学的跨域桥" })).toBeVisible();
-  await expect(atlas.getByTestId("spine-bridge-explorer")).toContainText("14 条有向转接");
+  await expect(atlas.getByTestId("spine-bridge-explorer")).toContainText(physicsBridgeCountText);
+  // The desktop bridge line (spine-bridge-line) is drawn by DesktopSpineGrid,
+  // which only renders in the 矩阵对照 view — the atlas defaults to orbit.
+  await atlas.getByRole("button", { name: "矩阵对照" }).click();
   const bridgeList = atlas.getByTestId("spine-bridge-list");
   const bridgeListSize = await bridgeList.evaluate((element) => ({
     clientHeight: element.clientHeight,
@@ -104,7 +224,9 @@ test("traces a selected subject bridge across stages and domains", async ({ page
 
   await atlas.getByRole("button", { name: "从天空到物理边界：太阳系到原子结构" }).click();
   await expect(atlas.getByRole("heading", { name: "太阳系 → 原子结构" })).toBeVisible();
-  await expect(atlas.getByText("再用原子描述可见物质的共同构件。")).toBeVisible();
+  await expect(
+    atlas.getByTestId("spine-bridge-explorer").getByText("再用原子描述可见物质的共同构件。")
+  ).toBeVisible();
   await expect(atlas.getByRole("link", { name: "在知识图谱核对转接 →" })).toHaveAttribute(
     "href",
     "/knowledge-graph?path=universe-matter&focus=chemistry%3Aatomic-structure&source=spine-bridge"
@@ -160,10 +282,7 @@ test("offers the mental-health evidence route from the rotating subject spine", 
   );
   await expect(
     mentalHealthTour.getByRole("link", { name: "打开服务可及性实验室 →" })
-  ).toHaveAttribute(
-    "href",
-    "/medicine/mental-health-access"
-  );
+  ).toHaveAttribute("href", "/medicine/mental-health-access");
 
   const adolescentTour = atlas.getByTestId(
     "featured-tour-from-adolescent-development-to-continuous-support"
@@ -186,7 +305,9 @@ test("offers the mental-health evidence route from the rotating subject spine", 
   await expect(comparison.getByTestId("mental-health-route-comparison-diagram")).toBeVisible();
   await comparison.getByRole("button", { name: "共同锚点" }).click();
   await comparison.getByRole("button", { name: "选择比较检查点：连续照护" }).click();
-  await expect(comparison.getByText("服务从哪里进入并不相同，但为什么都必须审计转介后的流失？")).toBeVisible();
+  await expect(
+    comparison.getByText("服务从哪里进入并不相同，但为什么都必须审计转介后的流失？")
+  ).toBeVisible();
   await expect(comparison.getByRole("link", { name: "阅读正文 →" }).first()).toHaveAttribute(
     "href",
     "/medicine/public-health/community-mental-health-access-continuity"
@@ -215,8 +336,10 @@ test("filters the aggregate knowledge terrain and switches an equal-distance anc
   const planner = await revealLearningPlanner(page);
   const terrain = planner.getByTestId("knowledge-terrain");
   await expect(terrain.getByRole("heading", { name: "全图知识地形" })).toBeVisible();
-  await expect(terrain.getByText("1362 个节点 · 230 个骨架")).toBeVisible();
-  await expect(terrain.getByText("674 个节点存在多条等距来路")).toBeVisible();
+  await expect(terrain.getByText(terrainSummaryText)).toBeVisible();
+  await expect(terrain.getByText(terrainAmbiguousText)).toBeVisible();
+  // 75 grid cells = 15 subjects × 5 stages, UI structure rather than a graph
+  // aggregate (= terrain.domains.length × KNOWLEDGE_LEVELS.length). Kept literal.
   await expect(terrain.locator('button[aria-label$="节点"]')).toHaveCount(75);
 
   const grid = terrain.getByTestId("knowledge-terrain-grid").locator(":scope > div");
@@ -228,26 +351,26 @@ test("filters the aggregate knowledge terrain and switches an equal-distance anc
   await terrain.getByRole("button", { name: "学科内结构" }).click();
   await expect(
     terrain.getByRole("button", {
-      name: "人类历史，直觉启蒙，303个知识节点，占该学科当前接入层97%",
+      name: dominantCellLabel,
     })
-  ).toHaveText("97%");
+  ).toHaveText(`${dominantPct}%`);
   const diagnostics = terrain.getByTestId("knowledge-terrain-diagnostics");
   await expect(diagnostics.getByRole("heading", { name: "知识库存诊断" })).toBeVisible();
-  await expect(diagnostics).toContainText("11 条可复核信号");
+  await expect(diagnostics).toContainText(diagnosticSummaryText);
   await expect(diagnostics).toContainText("不能解读为学科重要性");
 
   await terrain.getByRole("button", { name: "两跳" }).click();
-  await terrain.getByRole("button", { name: /社会学，方法建模，\d+个两跳旁支节点/ }).click();
+  await terrain.getByRole("button", { name: contextualCellLabel }).click();
 
   await expect(planner.getByRole("button", { name: "全部节点" })).toHaveAttribute(
     "aria-pressed",
     "true"
   );
-  await expect(
-    planner.getByText(/搜索全部知识节点 · 社会学 \/ L4 方法建模 \/ 两跳旁支/)
-  ).toBeVisible();
-  expect(new URL(page.url()).searchParams.get("learnDomain")).toBe("sociology");
-  expect(new URL(page.url()).searchParams.get("learnLevel")).toBe("4");
+  await expect(planner.getByText(contextualScopeText)).toBeVisible();
+  expect(new URL(page.url()).searchParams.get("learnDomain")).toBe(contextualEntry.domain.id);
+  expect(new URL(page.url()).searchParams.get("learnLevel")).toBe(
+    String(contextualEntry.cell.level)
+  );
   expect(new URL(page.url()).searchParams.get("learnConfidence")).toBe("contextual");
   await planner.getByRole("button", { name: "清除", exact: true }).click();
 
@@ -255,18 +378,20 @@ test("filters the aggregate knowledge terrain and switches an equal-distance anc
   await search.fill("身体、疾病与证据");
   await planner
     .getByRole("option", { name: /从身体、疾病与证据开始/ })
-    .filter({ hasText: "18条等距来路" })
+    .filter({ hasText: candidateCountSuffix })
     .click();
   await expect(planner.getByRole("heading", { name: "同距锚点比较" })).toBeVisible();
-  await expect(planner.getByText(/共有 18 条同样短的接入来路/)).toBeVisible();
-  const alternative = planner.getByRole("button", { name: "选择锚点“公共卫生”" });
+  await expect(planner.getByText(candidateCountText)).toBeVisible();
+  const alternative = planner.getByRole("button", {
+    name: `选择锚点“${alternativeAnchor.anchorLabel}”`,
+  });
   await alternative.click();
   await expect(alternative).toHaveAttribute("aria-pressed", "true");
-  await expect(planner.getByText(/当前锚点：公共卫生/)).toBeVisible();
+  await expect(planner.getByText(`当前锚点：${alternativeAnchor.anchorLabel}`)).toBeVisible();
   expect(new URL(page.url()).searchParams.get("learnTarget")).toBe(
     "medicine:body-disease-evidence"
   );
-  expect(new URL(page.url()).searchParams.get("learnAnchor")).toBe("medicine:public-health");
+  expect(new URL(page.url()).searchParams.get("learnAnchor")).toBe(alternativeAnchor.anchorNodeId);
 
   await planner.getByRole("button", { name: "复制当前路线链接" }).click();
   await expect(planner.getByRole("button", { name: "路线链接已复制" })).toBeVisible();
@@ -274,10 +399,9 @@ test("filters the aggregate knowledge terrain and switches an equal-distance anc
   await page.evaluate(() => window.localStorage.removeItem("uk-learning-target-selection"));
   await page.reload();
   const restoredPlanner = await revealLearningPlanner(page);
-  await expect(restoredPlanner.getByRole("button", { name: "选择锚点“公共卫生”" })).toHaveAttribute(
-    "aria-pressed",
-    "true"
-  );
+  await expect(
+    restoredPlanner.getByRole("button", { name: `选择锚点“${alternativeAnchor.anchorLabel}”` })
+  ).toHaveAttribute("aria-pressed", "true");
 });
 
 test("opens an inventory diagnosis as a domain-level knowledge graph", async ({ page }) => {
@@ -402,7 +526,9 @@ test("explores knowledge from first questions to interdisciplinary frontiers", a
 
   await coveragePanel.scrollIntoViewIfNeeded();
   await expect(
-    coveragePanel.getByRole("heading", { name: "230 个核心节点如何覆盖全学科" })
+    coveragePanel.getByRole("heading", {
+      name: `${coverage.summary.nodeCount} 个核心节点如何覆盖全学科`,
+    })
   ).toBeVisible();
   const coverageGrid = coveragePanel.getByTestId("coverage-matrix").locator(":scope > div");
   await expect
@@ -412,8 +538,10 @@ test("explores knowledge from first questions to interdisciplinary frontiers", a
       )
     )
     .toBe(6);
-  await expect(coveragePanel.getByText("73")).toBeVisible();
-  await coveragePanel.getByRole("button", { name: "语言学，直觉启蒙，2个核心节点" }).click();
+  await expect(
+    coveragePanel.getByText(String(coverage.summary.crossDomainTransitionCount))
+  ).toBeVisible();
+  await coveragePanel.getByRole("button", { name: linguisticsL1CellLabel }).click();
   await expect(coveragePanel.getByText("建设中", { exact: true })).toHaveCount(0);
   await expect(
     coveragePanel.getByRole("link", { name: /从词句结构到多语人工智能/ })
@@ -424,23 +552,25 @@ test("explores knowledge from first questions to interdisciplinary frontiers", a
 
   await coveragePanel.getByRole("button", { name: "查看方法建模覆盖" }).click();
   await coveragePanel.getByRole("button", { name: "证据方式" }).click();
-  await coveragePanel.getByRole("button", { name: "形式推演，方法建模，6个核心节点" }).click();
+  await coveragePanel.getByRole("button", { name: formalL4CellLabel }).click();
   await expect(
     coveragePanel.getByText("用定义、逻辑、数学结构和算法推出可检查结论。")
   ).toBeVisible();
 
   await coveragePanel.getByRole("button", { name: "跨学科桥" }).click();
-  await expect(coveragePanel.getByText("73 次转接 · 50 个有向学科对")).toBeVisible();
-  await coveragePanel.getByRole("button", { name: "经济学到政治学，3次转接" }).click();
+  await expect(coveragePanel.getByText(bridgeSummaryText({}))).toBeVisible();
+  await coveragePanel.getByRole("button", { name: economicsToPoliticsLabel }).click();
   await expect(coveragePanel.getByRole("heading", { name: "经济 → 政治" })).toBeVisible();
   await expect(coveragePanel.getByRole("link", { name: /从共同生活到平台制度/ })).toHaveAttribute(
     "href",
     "/knowledge-graph?path=people-institutions&focus=political-science%3Acomparative-method&source=bridge-flow"
   );
   await coveragePanel.getByRole("button", { name: "L5" }).click();
-  await expect(coveragePanel.getByText("12 次转接 · 10 个有向学科对")).toBeVisible();
+  await expect(coveragePanel.getByText(bridgeSummaryText({ level: 5 }))).toBeVisible();
   await coveragePanel.getByLabel("桥证据方式").selectOption("synthesis");
-  await expect(coveragePanel.getByText("12 次转接 · 10 个有向学科对")).toBeVisible();
+  await expect(
+    coveragePanel.getByText(bridgeSummaryText({ level: 5, evidenceMode: "synthesis" }))
+  ).toBeVisible();
 
   const coverageOverflow = await page.evaluate(
     () => document.documentElement.scrollWidth - window.innerWidth

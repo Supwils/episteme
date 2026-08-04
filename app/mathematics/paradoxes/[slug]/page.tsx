@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getMathParadoxBySlug, getAllMathParadoxes } from "@/subjects/mathematics/lib/paradoxes";
 import { MATH_FIELD_COLORS, mathBadgeColor } from "@/subjects/mathematics/lib/constants";
-import { MathMarkdownRenderer } from "@/subjects/mathematics/components/MathMarkdownRenderer";
+import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { SITE_URL } from "@/lib/constants";
 import { serializeJsonLd, createArticleJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
@@ -143,7 +143,11 @@ export default async function MathParadoxDetailPage({
 
       <article className="max-w-[1200px] min-w-0">
         {paradox.content ? (
-          <MathMarkdownRenderer content={paradox.content} accentColor={fieldColor} />
+          <MarkdownRenderer
+            content={paradox.content}
+            accentColor={fieldColor}
+            domain="mathematics"
+          />
         ) : (
           <div className="border-border-faint bg-bg-panel border p-8 text-center">
             <p className="text-fg-muted text-sm">详细内容正在编写中。</p>

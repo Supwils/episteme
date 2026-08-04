@@ -1,11 +1,10 @@
 /**
- * Prints every graph aggregate that the test suite asserts as a literal.
+ * Prints every graph aggregate that used to be asserted as a literal.
  *
- * Content changes move some of these — adding cross-domain links shifts nodes
- * between confidence buckets — and the tests then fail with a bare number.
- * Guessing the new value is how wrong numbers get committed, so probe instead:
- *
- *   pnpm probe-graph
+ * Tests now read expected aggregates from
+ * subjects/knowledge-graph/data/aggregate-snapshot.json, so the maintenance
+ * workflow is `pnpm update-graph-snapshot` + commit the JSON diff. This probe
+ * remains as a quick way to inspect the live values without writing the file.
  *
  * Measured across four content changes on 2026-07-27, only ambiguousTargetCount
  * and the direct/contextual split actually drift; nodeCount, anchorCount,

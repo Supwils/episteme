@@ -2,11 +2,7 @@
 
 import { useMemo, useRef, useState } from "react";
 import {
-  createKnowledgeGapJourneyArchive,
-  parseKnowledgeGapJourneyArchive,
   previewKnowledgeGapJourneyImport,
-  type KnowledgeGapJourneyArchive,
-  type KnowledgeGapJourneyArchiveError,
   type KnowledgeGapJourneyConflictResolution,
 } from "@/lib/knowledge-gap-journey-archive";
 import {
@@ -14,8 +10,22 @@ import {
   resetKnowledgeGapJourneys,
 } from "@/lib/knowledge-gap-journey-store";
 import type { KnowledgeGapJourney } from "@/lib/knowledge-gap-journey";
+import {
+  createLocalRouteArchive,
+  parseLocalRouteArchive,
+  type LocalRouteArchive,
+  type LocalRouteArchiveError,
+} from "@/lib/local-route-archive";
+import {
+  replaceMentalHealthComparisonRecord,
+  useMentalHealthComparisonRecord,
+} from "@/lib/mental-health-tour-comparison-store";
+import {
+  importAdolescentServiceLabSnapshots,
+  useAdolescentServiceLabSnapshots,
+} from "@/subjects/medicine/lib/adolescent-service-lab-store";
 
-const ERROR_LABELS: Record<KnowledgeGapJourneyArchiveError | "invalid-json", string> = {
+const ERROR_LABELS: Record<LocalRouteArchiveError | "invalid-json", string> = {
   "invalid-json": "文件不是有效的 JSON。",
   "invalid-format": "这不是路线档案文件。",
   "unsupported-version": "档案版本暂不受支持。",
@@ -23,6 +33,10 @@ const ERROR_LABELS: Record<KnowledgeGapJourneyArchiveError | "invalid-json", str
   "invalid-journeys": "档案中的路线结构或字段无效。",
   "too-many-journeys": "单个档案最多包含 16 条路线。",
   "duplicate-targets": "档案包含重复的目标路线。",
+  "invalid-comparison": "档案中的双路线核对记录无效。",
+  "invalid-service-lab-snapshots": "档案中的服务实验快照无效。",
+  "too-many-service-lab-snapshots": "单个档案最多包含 8 份服务实验快照。",
+  "duplicate-service-lab-snapshots": "档案包含重复的服务实验快照。",
 };
 
 export function KnowledgeJourneyArchiveActions({
@@ -31,7 +45,9 @@ export function KnowledgeJourneyArchiveActions({
   journeys: readonly KnowledgeGapJourney[];
 }) {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [incoming, setIncoming] = useState<KnowledgeGapJourneyArchive | null>(null);
+  const comparison = useMentalHealthComparisonRecord();
+  const serviceLabSnapshots = useAdolescentServiceLabSnapshots();
+  const [incoming, setIncoming] = useState<LocalRouteArchive | null>(null);
   const [importError, setImportError] = useState<keyof typeof ERROR_LABELS | null>(null);
   const [resolution, setResolution] =
     useState<KnowledgeGapJourneyConflictResolution>("keep-existing");
@@ -40,9 +56,16 @@ export function KnowledgeJourneyArchiveActions({
     () => (incoming ? previewKnowledgeGapJourneyImport(journeys, incoming.journeys) : null),
     [incoming, journeys]
   );
+  const newSnapshotCount = useMemo(() => {
+    if (!incoming) return 0;
+    const existingIds = new Set(serviceLabSnapshots.map((snapshot) => snapshot.id));
+    return incoming.serviceLabSnapshots.filter((snapshot) => !existingIds.has(snapshot.id)).length;
+  }, [incoming, serviceLabSnapshots]);
+  const hasArchiveData =
+    journeys.length > 0 || comparison !== null || serviceLabSnapshots.length > 0;
 
   const exportArchive = () => {
-    const payload = createKnowledgeGapJourneyArchive(journeys);
+    const payload = createLocalRouteArchive({ journeys, comparison, serviceLabSnapshots });
     const url = URL.createObjectURL(
       new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" })
     );
@@ -63,7 +86,7 @@ export function KnowledgeJourneyArchiveActions({
       <div className="flex flex-wrap items-center gap-2">
         <button
           type="button"
-          disabled={journeys.length === 0}
+          disabled={!hasArchiveData}
           onClick={exportArchive}
           className="border-border-faint text-fg-muted hover:text-fg-primary h-9 border px-3 text-[10px] disabled:opacity-40"
         >
@@ -86,9 +109,7 @@ export function KnowledgeJourneyArchiveActions({
             const file = event.target.files?.[0];
             if (!file) return;
             try {
-              const parsed = parseKnowledgeGapJourneyArchive(
-                JSON.parse(await file.text()) as unknown
-              );
+              const parsed = parseLocalRouteArchive(JSON.parse(await file.text()) as unknown);
               if (!parsed.ok) {
                 setImportError(parsed.error);
                 setIncoming(null);
@@ -154,6 +175,21 @@ export function KnowledgeJourneyArchiveActions({
               ? ` 超出上限的 ${preview.droppedCount} 条较早路线不会保留。`
               : ""}
           </p>
+          {incoming.comparison ? (
+            <p className="text-fg-muted mt-1 text-[9px] leading-5">
+              档案含双路线核对记录 {incoming.comparison.checkedIds.length}{" "}
+              项，导入后覆盖本机核对记录。
+            </p>
+          ) : null}
+          {incoming.serviceLabSnapshots.length > 0 ? (
+            <p className="text-fg-muted mt-1 text-[9px] leading-5">
+              档案含服务实验快照 {incoming.serviceLabSnapshots.length} 份，其中新增{" "}
+              {newSnapshotCount} 份；与本机重复的快照保留本机版本。
+            </p>
+          ) : null}
+          <p className="text-fg-disabled mt-1 text-[9px] leading-5">
+            导入只更新路线、核对记录与实验快照，不会改动「已掌握」档案。
+          </p>
           {preview.conflicts.length > 0 ? (
             <>
               <p className="text-fg-disabled mt-2 text-[9px] leading-5">
@@ -192,6 +228,12 @@ export function KnowledgeJourneyArchiveActions({
               type="button"
               onClick={() => {
                 importKnowledgeGapJourneyArchive(incoming, resolution);
+                if (incoming.comparison) {
+                  replaceMentalHealthComparisonRecord(incoming.comparison);
+                }
+                if (incoming.serviceLabSnapshots.length > 0) {
+                  importAdolescentServiceLabSnapshots(incoming.serviceLabSnapshots);
+                }
                 closePreview();
               }}
               className="bg-fg-primary text-bg-base min-h-9 px-3 text-[9px]"

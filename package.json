@@ -14,7 +14,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --max-warnings 0",
     "test": "vitest run",
-    "prepush": "pnpm typecheck && pnpm lint && pnpm check-content && pnpm test",
+    "prepush": "pnpm typecheck && pnpm lint && pnpm check-content && pnpm audit-graph-coverage && pnpm audit-learning-continuum && pnpm audit-subject-candidates && pnpm audit-linguistics-foundation && pnpm audit-image-rights && pnpm test",
     "test:e2e": "playwright test",
     "test:e2e:smoke": "playwright test --config=playwright.smoke.config.ts",
     "test:e2e:physics": "playwright test --config=playwright.physics.config.ts",
@@ -26,6 +26,7 @@
     "audit-learning-continuum": "node --import tsx scripts/audit-learning-continuum.ts",
     "audit-subject-candidates": "node --import tsx scripts/audit-subject-candidates.ts",
     "audit-linguistics-foundation": "node --import tsx scripts/audit-linguistics-foundation.ts",
+    "audit-cross-domain": "node scripts/audit-cross-domain.mjs",
     "audit-rendering": "node scripts/performance/rendering-strategy-audit.mjs",
     "audit:physics-runtime": "node scripts/performance/physics-dependency-audit.mjs",
     "gen-philo": "node --import tsx scripts/gen-philo-index.ts",
@@ -37,7 +38,7 @@
     "gen-kb": "node --import tsx scripts/gen-kb-index.ts",
     "gen-links": "node --import tsx scripts/gen-wiki-links-index.ts",
     "gen-search-index": "node --import tsx scripts/gen-search-index.ts",
-    "gen-all": "pnpm gen-philo && pnpm gen-econ && pnpm gen-psych && pnpm gen-life && pnpm gen-physics-dialogues && pnpm gen-history-route-data && pnpm gen-kb && pnpm gen-links && pnpm gen-search-index",
+    "gen-all": "pnpm gen-philo && pnpm gen-econ && pnpm gen-psych && pnpm gen-life && pnpm gen-physics-dialogues && pnpm gen-history-route-data && pnpm gen-kb && pnpm gen-links && pnpm gen-search-index && pnpm gen-content-images",
     "gen-narration": "node --import tsx scripts/gen-narration-audio.ts",
     "gen-icons": "node --import tsx scripts/gen-icons.ts",
     "prebuild": "pnpm gen-all",
@@ -45,7 +46,10 @@
     "clean": "rm -rf .next dist coverage",
     "prepare": "husky",
     "probe-graph": "node --import tsx scripts/probe-graph-aggregates.ts",
-    "wiki-slug": "node --import tsx scripts/wiki-slug.mjs"
+    "update-graph-snapshot": "node --import tsx scripts/update-graph-snapshot.ts",
+    "wiki-slug": "node --import tsx scripts/wiki-slug.mjs",
+    "audit-image-rights": "node --import tsx scripts/audit-image-rights.ts",
+    "gen-content-images": "node --import tsx scripts/gen-content-images.ts"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.0",

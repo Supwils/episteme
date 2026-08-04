@@ -174,8 +174,8 @@ export default function DNAHelix({ className }: DNAHelixProps) {
   return (
     <div className={className}>
       <div className="border-border-faint bg-bg-near relative overflow-hidden border">
-        <div className="flex items-center justify-between border-b border-border-faint px-4 py-2">
-          <span className="font-mono text-[10px] tracking-[0.28em] text-fg-muted uppercase">
+        <div className="border-border-faint flex items-center justify-between border-b px-4 py-2">
+          <span className="text-fg-muted font-mono text-[10px] tracking-[0.28em] uppercase">
             DNA 双螺旋 · double helix
           </span>
           <div className="flex items-center gap-3">
@@ -199,7 +199,7 @@ export default function DNAHelix({ className }: DNAHelixProps) {
         <svg
           viewBox={`0 0 ${svgWidth} ${svgHeight}`}
           className="h-auto w-full"
-          role="img"
+          role="group"
           aria-label="DNA 双螺旋结构交互式可视化"
         >
           <defs>
@@ -267,27 +267,44 @@ export default function DNAHelix({ className }: DNAHelixProps) {
               </text>
 
               {forkProgress > 0.1 &&
-                points.slice(forkIndex, forkIndex + Math.floor((ALL_PAIRS.length - forkIndex) * forkProgress)).map((pt, i) => {
-                  const idx = forkIndex + i;
-                  const pair = ALL_PAIRS[idx]!;
-                  const offset = forkProgress * 20;
-                  return (
-                    <g key={`fork-${idx}`}>
-                      <line
-                        x1={pt.x}
-                        y1={pt.y5 - offset}
-                        x2={pt.x}
-                        y2={pt.y3 + offset}
-                        stroke={BASE_COLORS[pair.base5]}
-                        strokeWidth={2}
-                        opacity={0.3}
-                        strokeDasharray="3 2"
-                      />
-                      <circle cx={pt.x} cy={pt.y5 - offset} r={2.5} fill={BASE_COLORS[pair.base5]} opacity={0.5} />
-                      <circle cx={pt.x} cy={pt.y3 + offset} r={2.5} fill={BASE_COLORS[pair.base3]} opacity={0.5} />
-                    </g>
-                  );
-                })}
+                points
+                  .slice(
+                    forkIndex,
+                    forkIndex + Math.floor((ALL_PAIRS.length - forkIndex) * forkProgress)
+                  )
+                  .map((pt, i) => {
+                    const idx = forkIndex + i;
+                    const pair = ALL_PAIRS[idx]!;
+                    const offset = forkProgress * 20;
+                    return (
+                      <g key={`fork-${idx}`}>
+                        <line
+                          x1={pt.x}
+                          y1={pt.y5 - offset}
+                          x2={pt.x}
+                          y2={pt.y3 + offset}
+                          stroke={BASE_COLORS[pair.base5]}
+                          strokeWidth={2}
+                          opacity={0.3}
+                          strokeDasharray="3 2"
+                        />
+                        <circle
+                          cx={pt.x}
+                          cy={pt.y5 - offset}
+                          r={2.5}
+                          fill={BASE_COLORS[pair.base5]}
+                          opacity={0.5}
+                        />
+                        <circle
+                          cx={pt.x}
+                          cy={pt.y3 + offset}
+                          r={2.5}
+                          fill={BASE_COLORS[pair.base3]}
+                          opacity={0.5}
+                        />
+                      </g>
+                    );
+                  })}
             </g>
           )}
 
@@ -410,10 +427,25 @@ export default function DNAHelix({ className }: DNAHelixProps) {
             opacity={0.7}
           />
 
-          <text x={marginX} y={svgHeight / 2 - svgHeight * 0.32} fill="#60a5fa" fontSize="9" fontFamily="monospace" opacity={0.7}>
+          <text
+            x={marginX}
+            y={svgHeight / 2 - svgHeight * 0.32}
+            fill="#60a5fa"
+            fontSize="9"
+            fontFamily="monospace"
+            opacity={0.7}
+          >
             5&apos; → 3&apos;
           </text>
-          <text x={svgWidth - marginX - 30} y={svgHeight / 2 + svgHeight * 0.34} fill="#f472b6" fontSize="9" fontFamily="monospace" opacity={0.7} textAnchor="end">
+          <text
+            x={svgWidth - marginX - 30}
+            y={svgHeight / 2 + svgHeight * 0.34}
+            fill="#f472b6"
+            fontSize="9"
+            fontFamily="monospace"
+            opacity={0.7}
+            textAnchor="end"
+          >
             3&apos; → 5&apos;
           </text>
 
@@ -436,19 +468,50 @@ export default function DNAHelix({ className }: DNAHelixProps) {
                 const rule = BASE_PAIR_RULES[selectedPairData.base5]!;
                 return (
                   <>
-                    <text x={boxX + 10} y={boxY + 18} fill={BASE_COLORS[selectedPairData.base5]} fontSize="11" fontFamily="monospace" fontWeight="700">
+                    <text
+                      x={boxX + 10}
+                      y={boxY + 18}
+                      fill={BASE_COLORS[selectedPairData.base5]}
+                      fontSize="11"
+                      fontFamily="monospace"
+                      fontWeight="700"
+                    >
                       {selectedPairData.base5} — {selectedPairData.base3}
                     </text>
-                    <text x={boxX + 10} y={boxY + 34} fill="#aaa" fontSize="9" fontFamily="monospace">
+                    <text
+                      x={boxX + 10}
+                      y={boxY + 34}
+                      fill="#aaa"
+                      fontSize="9"
+                      fontFamily="monospace"
+                    >
                       {rule.type}
                     </text>
-                    <text x={boxX + 10} y={boxY + 48} fill="#888" fontSize="9" fontFamily="monospace">
+                    <text
+                      x={boxX + 10}
+                      y={boxY + 48}
+                      fill="#888"
+                      fontSize="9"
+                      fontFamily="monospace"
+                    >
                       {rule.bonds}
                     </text>
-                    <text x={boxX + 10} y={boxY + 64} fill="#666" fontSize="8" fontFamily="monospace">
+                    <text
+                      x={boxX + 10}
+                      y={boxY + 64}
+                      fill="#666"
+                      fontSize="8"
+                      fontFamily="monospace"
+                    >
                       {BASE_NAMES[selectedPairData.base5]} = {BASE_NAMES[selectedPairData.base3]}
                     </text>
-                    <text x={boxX + 10} y={boxY + 76} fill="#555" fontSize="7" fontFamily="monospace">
+                    <text
+                      x={boxX + 10}
+                      y={boxY + 76}
+                      fill="#555"
+                      fontSize="7"
+                      fontFamily="monospace"
+                    >
                       位置: {selectedPairData.index + 1} bp
                     </text>
                   </>
@@ -458,7 +521,7 @@ export default function DNAHelix({ className }: DNAHelixProps) {
           )}
         </svg>
 
-        <div className="flex items-center justify-between border-t border-border-faint px-4 py-2">
+        <div className="border-border-faint flex items-center justify-between border-t px-4 py-2">
           <div className="flex items-center gap-4">
             {Object.entries(BASE_COLORS).map(([base, color]) => (
               <div key={base} className="flex items-center gap-1.5">
@@ -466,19 +529,17 @@ export default function DNAHelix({ className }: DNAHelixProps) {
                   className="inline-block h-2.5 w-2.5 rounded-none"
                   style={{ backgroundColor: color }}
                 />
-                <span className="font-mono text-[9px] text-fg-muted">
+                <span className="text-fg-muted font-mono text-[9px]">
                   {base}={BASE_PAIR_RULES[base]?.partner}
                 </span>
               </div>
             ))}
           </div>
           <div className="flex items-center gap-6">
-            <span className="font-mono text-[9px] text-fg-disabled">
+            <span className="text-fg-disabled font-mono text-[9px]">
               碱基对: {ALL_PAIRS.length} bp
             </span>
-            <span className="font-mono text-[9px] text-fg-disabled">
-              GC 含量: {gcContent}%
-            </span>
+            <span className="text-fg-disabled font-mono text-[9px]">GC 含量: {gcContent}%</span>
           </div>
         </div>
       </div>
@@ -498,11 +559,11 @@ export default function DNAHelix({ className }: DNAHelixProps) {
               >
                 {selectedPairData.base5}
               </span>
-              <span className="font-mono text-[9px] text-fg-muted">5&apos; 链</span>
+              <span className="text-fg-muted font-mono text-[9px]">5&apos; 链</span>
             </div>
             <div className="flex flex-col items-center justify-center gap-1 pt-2">
               <span className="text-fg-disabled font-mono text-lg">—</span>
-              <span className="font-mono text-[8px] text-fg-disabled">
+              <span className="text-fg-disabled font-mono text-[8px]">
                 {BASE_PAIR_RULES[selectedPairData.base5]?.bonds}
               </span>
             </div>
@@ -513,16 +574,16 @@ export default function DNAHelix({ className }: DNAHelixProps) {
               >
                 {selectedPairData.base3}
               </span>
-              <span className="font-mono text-[9px] text-fg-muted">3&apos; 链</span>
+              <span className="text-fg-muted font-mono text-[9px]">3&apos; 链</span>
             </div>
             <div className="ml-auto flex flex-col gap-1 text-right">
-              <span className="font-mono text-[10px] text-fg-secondary">
+              <span className="text-fg-secondary font-mono text-[10px]">
                 {BASE_PAIR_RULES[selectedPairData.base5]?.type}
               </span>
-              <span className="font-mono text-[10px] text-fg-muted">
+              <span className="text-fg-muted font-mono text-[10px]">
                 {BASE_NAMES[selectedPairData.base5]!} ↔ {BASE_NAMES[selectedPairData.base3]!}
               </span>
-              <span className="font-mono text-[9px] text-fg-disabled">
+              <span className="text-fg-disabled font-mono text-[9px]">
                 位置 {selectedPairData.index + 1} / {ALL_PAIRS.length} bp
               </span>
             </div>

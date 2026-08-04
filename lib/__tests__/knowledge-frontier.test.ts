@@ -4,6 +4,11 @@ import {
   type KnowledgeFrontierNodeInput,
 } from "../knowledge-frontier";
 import { buildKnowledgeFrontierView } from "../knowledge-frontier-catalog";
+import { buildKnowledgeCoverageSnapshot } from "../knowledge-continuum-coverage";
+
+// One diverse L1 start per established subject — derived so a new subject
+// launch does not require re-typing the count here.
+const ESTABLISHED_DOMAIN_COUNT = buildKnowledgeCoverageSnapshot().domains.length;
 
 const nodes: KnowledgeFrontierNodeInput[] = [
   {
@@ -93,8 +98,10 @@ describe("knowledge frontier", () => {
     expect(view.summary.masteredCount + view.summary.readyCount + view.summary.blockedCount).toBe(
       view.summary.nodeCount
     );
-    expect(view.recommendations).toHaveLength(15);
-    expect(new Set(view.recommendations.map((result) => result.domainId)).size).toBe(15);
+    expect(view.recommendations).toHaveLength(ESTABLISHED_DOMAIN_COUNT);
+    expect(new Set(view.recommendations.map((result) => result.domainId)).size).toBe(
+      ESTABLISHED_DOMAIN_COUNT
+    );
     expect(view.recommendations.every((result) => result.level === 1)).toBe(true);
     expect(view.summary.metadataGapCount).toBe(0);
     expect(view.confluences).toHaveLength(5);

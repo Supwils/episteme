@@ -48,7 +48,11 @@ const STAGE_INFO: Record<FoldStage, { label: string; labelEn: string; descriptio
   },
 };
 
-function buildPrimaryPath(seqLen: number, width: number, height: number): { x: number; y: number }[] {
+function buildPrimaryPath(
+  seqLen: number,
+  width: number,
+  height: number
+): { x: number; y: number }[] {
   const margin = 40;
   const usable = width - margin * 2;
   return Array.from({ length: seqLen }, (_, i) => ({
@@ -57,7 +61,11 @@ function buildPrimaryPath(seqLen: number, width: number, height: number): { x: n
   }));
 }
 
-function buildSecondaryPath(seqLen: number, width: number, height: number): { x: number; y: number; type: "helix" | "sheet" | "coil" }[] {
+function buildSecondaryPath(
+  seqLen: number,
+  width: number,
+  height: number
+): { x: number; y: number; type: "helix" | "sheet" | "coil" }[] {
   const margin = 40;
   const usable = width - margin * 2;
   const points: { x: number; y: number; type: "helix" | "sheet" | "coil" }[] = [];
@@ -85,7 +93,11 @@ function buildSecondaryPath(seqLen: number, width: number, height: number): { x:
   return points;
 }
 
-function buildTertiaryPath(seqLen: number, width: number, height: number): { x: number; y: number }[] {
+function buildTertiaryPath(
+  seqLen: number,
+  width: number,
+  height: number
+): { x: number; y: number }[] {
   const cx = width / 2;
   const cy = height / 2;
   const points: { x: number; y: number }[] = [];
@@ -180,7 +192,7 @@ export function ProteinFolding({ className }: ProteinFoldingProps) {
       };
       rafRef.current = requestAnimationFrame(step);
     },
-    [isAnimating, reduce],
+    [isAnimating, reduce]
   );
 
   useEffect(() => {
@@ -192,8 +204,8 @@ export function ProteinFolding({ className }: ProteinFoldingProps) {
   return (
     <div className={className}>
       <div className="border-border-faint bg-bg-near relative overflow-hidden border">
-        <div className="flex items-center justify-between border-b border-border-faint px-4 py-2">
-          <span className="font-mono text-[10px] tracking-[0.28em] text-fg-muted uppercase">
+        <div className="border-border-faint flex items-center justify-between border-b px-4 py-2">
+          <span className="text-fg-muted font-mono text-[10px] tracking-[0.28em] uppercase">
             蛋白质折叠 · protein folding
           </span>
           <div className="flex items-center gap-2">
@@ -217,7 +229,7 @@ export function ProteinFolding({ className }: ProteinFoldingProps) {
         <svg
           viewBox={`0 0 ${svgWidth} ${svgHeight}`}
           className="h-auto w-full"
-          role="img"
+          role="group"
           aria-label="蛋白质折叠过程交互式可视化"
         >
           <defs>
@@ -235,44 +247,46 @@ export function ProteinFolding({ className }: ProteinFoldingProps) {
             </linearGradient>
           </defs>
 
-          {stage === "secondary" && secondaryPoints.map((pt, i) => {
-            if (pt.type === "helix" && i > 0 && secondaryPoints[i - 1]?.type === "helix") {
-              const prev = secondaryPoints[i - 1]!;
-              return (
-                <line
-                  key={`helix-bond-${i}`}
-                  x1={prev.x}
-                  y1={prev.y}
-                  x2={pt.x}
-                  y2={pt.y}
-                  stroke="#f97316"
-                  strokeWidth={1}
-                  opacity={0.3}
-                  strokeDasharray="3 2"
-                />
-              );
-            }
-            return null;
-          })}
+          {stage === "secondary" &&
+            secondaryPoints.map((pt, i) => {
+              if (pt.type === "helix" && i > 0 && secondaryPoints[i - 1]?.type === "helix") {
+                const prev = secondaryPoints[i - 1]!;
+                return (
+                  <line
+                    key={`helix-bond-${i}`}
+                    x1={prev.x}
+                    y1={prev.y}
+                    x2={pt.x}
+                    y2={pt.y}
+                    stroke="#f97316"
+                    strokeWidth={1}
+                    opacity={0.3}
+                    strokeDasharray="3 2"
+                  />
+                );
+              }
+              return null;
+            })}
 
-          {stage === "secondary" && secondaryPoints.map((pt, i) => {
-            if (pt.type === "sheet" && i > 0 && secondaryPoints[i - 1]?.type === "sheet") {
-              const prev = secondaryPoints[i - 1]!;
-              return (
-                <line
-                  key={`sheet-bond-${i}`}
-                  x1={prev.x}
-                  y1={prev.y - 5}
-                  x2={pt.x}
-                  y2={pt.y - 5}
-                  stroke="#3b82f6"
-                  strokeWidth={2}
-                  opacity={0.4}
-                />
-              );
-            }
-            return null;
-          })}
+          {stage === "secondary" &&
+            secondaryPoints.map((pt, i) => {
+              if (pt.type === "sheet" && i > 0 && secondaryPoints[i - 1]?.type === "sheet") {
+                const prev = secondaryPoints[i - 1]!;
+                return (
+                  <line
+                    key={`sheet-bond-${i}`}
+                    x1={prev.x}
+                    y1={prev.y - 5}
+                    x2={pt.x}
+                    y2={pt.y - 5}
+                    stroke="#3b82f6"
+                    strokeWidth={2}
+                    opacity={0.4}
+                  />
+                );
+              }
+              return null;
+            })}
 
           <path
             d={backbonePath}
@@ -329,49 +343,58 @@ export function ProteinFolding({ className }: ProteinFoldingProps) {
             );
           })}
 
-          {selectedAa !== null && interpolatedPoints[selectedAa] && (() => {
-            const pt = interpolatedPoints[selectedAa]!;
-            const aa = SAMPLE_SEQUENCE[selectedAa]!;
-            const group = getAminoAcidGroup(aa);
-            const color = AMINO_ACID_COLORS[group] ?? "#888";
-            const groupLabels: Record<string, string> = {
-              nonpolar: "非极性",
-              polar: "极性",
-              positive: "正电荷",
-              negative: "负电荷",
-              special: "特殊",
-            };
-            const boxX = Math.min(pt.x - 70, svgWidth - 160);
-            const boxY = pt.y + 20;
+          {selectedAa !== null &&
+            interpolatedPoints[selectedAa] &&
+            (() => {
+              const pt = interpolatedPoints[selectedAa]!;
+              const aa = SAMPLE_SEQUENCE[selectedAa]!;
+              const group = getAminoAcidGroup(aa);
+              const color = AMINO_ACID_COLORS[group] ?? "#888";
+              const groupLabels: Record<string, string> = {
+                nonpolar: "非极性",
+                polar: "极性",
+                positive: "正电荷",
+                negative: "负电荷",
+                special: "特殊",
+              };
+              const boxX = Math.min(pt.x - 70, svgWidth - 160);
+              const boxY = pt.y + 20;
 
-            return (
-              <g>
-                <rect
-                  x={boxX}
-                  y={boxY}
-                  width={140}
-                  height={60}
-                  rx={0}
-                  fill="#1a1a2e"
-                  fillOpacity={0.95}
-                  stroke={color}
-                  strokeWidth={1}
-                />
-                <text x={boxX + 10} y={boxY + 18} fill={color} fontSize="12" fontFamily="monospace" fontWeight="700">
-                  {aa} — 位置 {selectedAa + 1}
-                </text>
-                <text x={boxX + 10} y={boxY + 34} fill="#aaa" fontSize="9" fontFamily="monospace">
-                  类型: {groupLabels[group] ?? group}
-                </text>
-                <text x={boxX + 10} y={boxY + 50} fill="#888" fontSize="8" fontFamily="monospace">
-                  {selectedAa + 1} / {seqLen} 氨基酸
-                </text>
-              </g>
-            );
-          })()}
+              return (
+                <g>
+                  <rect
+                    x={boxX}
+                    y={boxY}
+                    width={140}
+                    height={60}
+                    rx={0}
+                    fill="#1a1a2e"
+                    fillOpacity={0.95}
+                    stroke={color}
+                    strokeWidth={1}
+                  />
+                  <text
+                    x={boxX + 10}
+                    y={boxY + 18}
+                    fill={color}
+                    fontSize="12"
+                    fontFamily="monospace"
+                    fontWeight="700"
+                  >
+                    {aa} — 位置 {selectedAa + 1}
+                  </text>
+                  <text x={boxX + 10} y={boxY + 34} fill="#aaa" fontSize="9" fontFamily="monospace">
+                    类型: {groupLabels[group] ?? group}
+                  </text>
+                  <text x={boxX + 10} y={boxY + 50} fill="#888" fontSize="8" fontFamily="monospace">
+                    {selectedAa + 1} / {seqLen} 氨基酸
+                  </text>
+                </g>
+              );
+            })()}
         </svg>
 
-        <div className="flex items-center justify-between border-t border-border-faint px-4 py-2">
+        <div className="border-border-faint flex items-center justify-between border-t px-4 py-2">
           <div className="flex items-center gap-4">
             {Object.entries(AMINO_ACID_COLORS).map(([group, color]) => {
               const labels: Record<string, string> = {
@@ -383,15 +406,18 @@ export function ProteinFolding({ className }: ProteinFoldingProps) {
               };
               return (
                 <div key={group} className="flex items-center gap-1.5">
-                  <span className="inline-block h-2.5 w-2.5 rounded-none" style={{ backgroundColor: color }} />
-                  <span className="font-mono text-[9px] text-fg-muted">{labels[group] ?? group}</span>
+                  <span
+                    className="inline-block h-2.5 w-2.5 rounded-none"
+                    style={{ backgroundColor: color }}
+                  />
+                  <span className="text-fg-muted font-mono text-[9px]">
+                    {labels[group] ?? group}
+                  </span>
                 </div>
               );
             })}
           </div>
-          <span className="font-mono text-[9px] text-fg-disabled">
-            序列长度: {seqLen} aa
-          </span>
+          <span className="text-fg-disabled font-mono text-[9px]">序列长度: {seqLen} aa</span>
         </div>
       </div>
 
@@ -403,15 +429,19 @@ export function ProteinFolding({ className }: ProteinFoldingProps) {
         key={stage}
       >
         <div className="flex items-start gap-4">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-accent-cool/30 bg-accent-cool/10">
-            <span className="font-mono text-xs text-accent-cool">{stage === "primary" ? "1°" : stage === "secondary" ? "2°" : "3°"}</span>
+          <div className="border-accent-cool/30 bg-accent-cool/10 flex h-10 w-10 shrink-0 items-center justify-center border">
+            <span className="text-accent-cool font-mono text-xs">
+              {stage === "primary" ? "1°" : stage === "secondary" ? "2°" : "3°"}
+            </span>
           </div>
           <div>
             <h4 className="font-display text-fg-primary text-sm font-semibold">
               {stageInfo.label}
               <span className="text-fg-muted ml-2 font-mono text-[10px]">{stageInfo.labelEn}</span>
             </h4>
-            <p className="text-fg-secondary mt-1 text-sm leading-relaxed">{stageInfo.description}</p>
+            <p className="text-fg-secondary mt-1 text-sm leading-relaxed">
+              {stageInfo.description}
+            </p>
           </div>
         </div>
       </motion.div>

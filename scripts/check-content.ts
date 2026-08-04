@@ -36,6 +36,9 @@ const MDX_DOMAINS = [
   "political-science",
   "sociology",
   "linguistics",
+  "law",
+  "arts",
+  "engineering",
 ] as const;
 
 // Optional per-domain { subType -> Zod schema } maps. economics wires the
@@ -88,6 +91,23 @@ const MIN_LINES: Record<string, number> = {
   "acquisition-and-mind": 100,
   "history-typology-society": 100,
   "writing-systems": 100,
+  foundations: 100,
+  "public-law": 100,
+  "private-law": 100,
+  "criminal-and-procedure": 100,
+  "legal-traditions": 100,
+  "global-and-digital": 100,
+  foundations: 100,
+  media: 100,
+  architecture: 100,
+  traditions: 100,
+  aesthetics: 100,
+  methods: 100,
+  energy: 100,
+  materials: 100,
+  machines: 100,
+  civil: 100,
+  frontiers: 100,
 };
 
 // Real depth is CJK character count, not physical non-empty lines. A complete,
@@ -112,6 +132,23 @@ const MIN_CJK_CHARS: Record<string, number> = {
   "acquisition-and-mind": 2200,
   "history-typology-society": 2200,
   "writing-systems": 2200,
+  foundations: 2200,
+  "public-law": 2200,
+  "private-law": 2200,
+  "criminal-and-procedure": 2200,
+  "legal-traditions": 2200,
+  "global-and-digital": 2200,
+  foundations: 2200,
+  media: 2200,
+  architecture: 2200,
+  traditions: 2200,
+  aesthetics: 2200,
+  methods: 2200,
+  energy: 2200,
+  materials: 2200,
+  machines: 2200,
+  civil: 2200,
+  frontiers: 2200,
 };
 
 const TODO_PATTERN = /(?:^|[\s([{<])(?:TODO|FIXME|HACK|XXX)(?:\s*[:：)\]}>\-]|$)|待补|待完善/;
@@ -536,9 +573,13 @@ function checkProseHygiene(): { errors: number; warnings: number } {
   let nonStandardHeading = 0;
   let squashed = 0;
   let appendedAfterRefs = 0;
+  let fragmented = 0;
   // A bibliography heading (any accepted variant; tolerant of `{#anchor}`).
+  // `引用` is deliberately absent, mirroring `lib/citations.ts`: the ~200 files
+  // using it put pull quotes there, never a bibliography, so counting it as one
+  // makes every later section look appended-after-references.
   const isCitationHeading = (line: string): boolean =>
-    /^(参考文献|延伸阅读|进一步阅读|参考书目|参考资料|参考来源|引用|学术文献|推荐阅读|推荐阅读书目|references?|further\s+reading)$/i.test(
+    /^(参考文献|延伸阅读|进一步阅读|参考书目|参考资料|参考来源|学术文献|推荐阅读|推荐阅读书目|references?|further\s+reading)$/i.test(
       line
         .replace(/^#{2,4}\s+/, "")
         .replace(/\s*\{#[^}]*\}\s*$/, "")
@@ -590,13 +631,54 @@ function checkProseHygiene(): { errors: number; warnings: number } {
       warnings++;
       appendedAfterRefs++;
     }
+
+    // 4) Fragmented prose: >60% of prose paragraphs under 40 CJK chars reads
+    //    like slide bullets, not an article (mirror of scripts/audit-fragmented-prose.mjs).
+    //    Exclusions: blocks that lead into a formula/code/table/list/quote block
+    //    (legit lead-ins), human-history `标题：` page-subtitle lines, and the
+    //    human-history KB editorial meta docs (internal documents, not articles).
+    if (
+      !/human-history\/knowledge-base\/(索引|内容深度规范|项目规划|开发规范|工程守则|审校工作台)\.md$/.test(
+        rel
+      )
+    ) {
+      const blocks = body
+        .split(/\n\s*\n/)
+        .map((b) => b.trim())
+        .filter(Boolean);
+      const isBlockLead = (next: string | undefined): boolean =>
+        next !== undefined &&
+        (/^\$\$/.test(next) ||
+          /^```/.test(next) ||
+          /^\s*\|/.test(next) ||
+          /^\s*(?:[-*+]|\d+\.)\s/.test(next) ||
+          /^>/.test(next));
+      const prose = blocks
+        .map((b, i) => [b, i] as const)
+        .filter(
+          ([b]) =>
+            /[一-鿿]/.test(b) && !/^[#>|\-*\d`$]/.test(b) && !b.includes("|") && !/^标题：/.test(b)
+        );
+      if (prose.length >= 8) {
+        const short = prose.filter(
+          ([b, i]) => countCjkChars(b) > 0 && countCjkChars(b) < 40 && !isBlockLead(blocks[i + 1])
+        ).length;
+        if (short / prose.length > 0.6) {
+          console.log(
+            `  \x1b[33mWARN\x1b[0m ${rel}: fragmented prose — ${short}/${prose.length} paragraphs under 40 CJK chars (merge into flowing paragraphs)`
+          );
+          warnings++;
+          fragmented++;
+        }
+      }
+    }
   }
 
   if (warnings === 0) {
     console.log(`  \x1b[32mAll prose passes citation/readability hygiene.\x1b[0m`);
   } else {
     console.log(
-      `  ${nonStandardHeading} off-spec heading(s), ${squashed} run-on file(s), ${appendedAfterRefs} appended-after-refs file(s).`
+      `  ${nonStandardHeading} off-spec heading(s), ${squashed} run-on file(s), ${appendedAfterRefs} appended-after-refs file(s), ${fragmented} fragmented file(s).`
     );
   }
   return { errors: 0, warnings };

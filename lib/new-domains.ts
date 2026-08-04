@@ -324,6 +324,165 @@ export const SOCIOLOGY: DomainConfig = {
   ],
 };
 
+export const LAW: DomainConfig = {
+  domain: "law",
+  label: "法学",
+  labelEn: "Comparative Law & Legal Systems",
+  tagline:
+    "规则如何界定权利、义务与公共权力——从宪法到合同，从法庭到习惯法。比较不同法律传统如何回答同一批人类社会的老问题：什么是公平的规则，以及谁来执行它。",
+  accent: "#a8843c",
+  sections: [
+    {
+      key: "foundations",
+      label: "法律基础",
+      accent: "#a8843c",
+      icon: "⚖️",
+      description: "法律为什么存在、权利与义务、法治、法源层级、责任与裁判",
+    },
+    {
+      key: "public-law",
+      label: "公法",
+      accent: "#8a78bd",
+      icon: "🏛",
+      description: "宪法、权力分立、违宪审查、行政法与基本权利",
+    },
+    {
+      key: "private-law",
+      label: "私法",
+      accent: "#5b9da0",
+      icon: "🤝",
+      description: "合同、侵权、物权、家庭与继承、公司、法经济学",
+    },
+    {
+      key: "criminal-and-procedure",
+      label: "刑法与程序",
+      accent: "#c25b5b",
+      icon: "🔍",
+      description: "犯罪与刑罚、程序正义、犯罪构成、证据与证明、司法改革",
+    },
+    {
+      key: "legal-traditions",
+      label: "比较法律传统",
+      accent: "#c08a52",
+      icon: "🌍",
+      description: "大陆法与普通法、中华法传统、伊斯兰法、习惯法、混合法系",
+    },
+    {
+      key: "global-and-digital",
+      label: "全球与数字治理",
+      accent: "#4f9cf0",
+      icon: "🌐",
+      description: "国际法、国际人权法、数据权利、AI 治理、气候诉讼",
+    },
+  ],
+};
+
+export const ARTS: DomainConfig = {
+  domain: "arts",
+  label: "艺术、建筑与美学",
+  labelEn: "Arts, Architecture & Aesthetics",
+  tagline:
+    "从观看、材料与制作进入全球视觉文化——颜色如何作用于眼睛，风格如何在历史中形成，博物馆与市场又如何决定我们看见什么。",
+  accent: "#b0785a",
+  sections: [
+    {
+      key: "foundations",
+      label: "视觉基础",
+      accent: "#b0785a",
+      icon: "👁",
+      description: "观看的机制、线条、色彩、构图、透视与比例",
+    },
+    {
+      key: "media",
+      label: "媒介与材料",
+      accent: "#8a78bd",
+      icon: "🎨",
+      description: "素描、颜料、壁画、雕塑、陶瓷、摄影与版画",
+    },
+    {
+      key: "architecture",
+      label: "建筑与空间",
+      accent: "#c08a52",
+      icon: "🏛",
+      description: "结构、柱式与拱、神圣空间、东亚木构、现代主义与园林",
+    },
+    {
+      key: "traditions",
+      label: "全球艺术传统",
+      accent: "#7a8f5a",
+      icon: "🌍",
+      description: "中国书画、书法、浮世绘、南亚与伊斯兰艺术、非洲、拉美与大洋洲",
+    },
+    {
+      key: "aesthetics",
+      label: "美学与视觉文化",
+      accent: "#d4789c",
+      icon: "💭",
+      description: "美是什么、审美判断、图像审查、博物馆、艺术市场与视觉文化",
+    },
+    {
+      key: "methods",
+      label: "方法与数字前沿",
+      accent: "#5b9da0",
+      icon: "🔬",
+      description: "形式分析、图像学、保护科学、归属研究、数字人文与生成艺术",
+    },
+  ],
+};
+
+export const ENGINEERING: DomainConfig = {
+  domain: "engineering",
+  label: "工程与技术",
+  labelEn: "Engineering & Technology",
+  tagline:
+    "人造物如何被可靠地造出来——从杠杆到电网，从钢材到芯片。工程是把科学变成能运转、能维护、能承受最坏情况的系统的手艺。",
+  accent: "#8a919e",
+  sections: [
+    {
+      key: "foundations",
+      label: "工程基础",
+      accent: "#8a919e",
+      icon: "⚙️",
+      description: "简单机械、热机、电动机、测量公差、材料强度与控制反馈",
+    },
+    {
+      key: "energy",
+      label: "能源与动力",
+      accent: "#e08a3c",
+      icon: "⚡",
+      description: "电网、火电、水电、核电、风光与储能",
+    },
+    {
+      key: "materials",
+      label: "材料与制造",
+      accent: "#5b9da0",
+      icon: "🏭",
+      description: "钢铁、混凝土、芯片制造、增材制造与供应链",
+    },
+    {
+      key: "machines",
+      label: "信息与机器",
+      accent: "#4f9cf0",
+      icon: "🤖",
+      description: "内燃机、航空、机器人、自动化与航天工程",
+    },
+    {
+      key: "civil",
+      label: "土木与建造",
+      accent: "#c08a52",
+      icon: "🌉",
+      description: "桥梁、摩天楼、隧道地铁、供排水与韧性基础设施",
+    },
+    {
+      key: "frontiers",
+      label: "前沿与伦理",
+      accent: "#c25b5b",
+      icon: "🛰",
+      description: "失效分析、安全工程、工程伦理、能源转型与超级工程",
+    },
+  ],
+};
+
 export const PSYCHOLOGY_METHODS: DomainConfig = {
   domain: "psychology",
   label: "心理学",
@@ -404,6 +563,9 @@ export const KNOWLEDGE_DOMAINS: Record<string, DomainConfig> = {
   sociology: SOCIOLOGY,
   psychology: PSYCHOLOGY_METHODS,
   linguistics: LINGUISTICS,
+  law: LAW,
+  arts: ARTS,
+  engineering: ENGINEERING,
 };
 
 export function getDomainConfig(domain: string): DomainConfig | null {

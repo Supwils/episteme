@@ -2,51 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { APP_URLS } from "../lib/urls";
-
-const SECTION_PREFIXES = [
-  "/universe-physics",
-  "/cosmology",
-  "/earth-science",
-  "/human-history",
-  "/philosophy",
-  "/mathematics",
-  "/life-science",
-  "/medicine",
-  "/chemistry",
-  "/economics",
-  "/psychology",
-  "/computer-science",
-  "/political-science",
-  "/sociology",
-  "/linguistics",
-  "/knowledge-graph",
-  "/read",
-  "/curiosities",
-];
+import { APP_URLS, SECTION_SHELL_PREFIXES } from "../lib/urls";
+import { DOMAINS } from "../lib/data";
+import { getClustersWithDomains } from "../lib/domain-clusters";
 
 const LINK_CLASS = "text-sm text-fg-secondary transition-colors hover:text-accent-gold";
 
 const COLUMN_HEADING_CLASS =
   "mb-3 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-fg-muted";
-
-const DOMAIN_LINKS = [
-  { href: APP_URLS["universe-physics"], label: "物理学" },
-  { href: APP_URLS["cosmology"], label: "宇宙学" },
-  { href: APP_URLS["earth-science"], label: "地球科学" },
-  { href: APP_URLS["human-history"], label: "人类历史" },
-  { href: APP_URLS["philosophy"], label: "哲学思想" },
-  { href: APP_URLS["life-science"], label: "生命科学" },
-  { href: APP_URLS["medicine"], label: "医学与公共卫生" },
-  { href: APP_URLS["chemistry"], label: "化学" },
-  { href: APP_URLS["mathematics"], label: "数学与逻辑" },
-  { href: APP_URLS["economics"], label: "经济学" },
-  { href: APP_URLS["psychology"], label: "心理学" },
-  { href: APP_URLS["computer-science"], label: "计算机科学" },
-  { href: APP_URLS["political-science"], label: "政治学" },
-  { href: APP_URLS.sociology, label: "社会学" },
-  { href: APP_URLS.linguistics, label: "语言学" },
-];
 
 const EXPLORE_LINKS = [
   { href: "/knowledge-graph", label: "知识图谱" },
@@ -58,7 +21,7 @@ const EXPLORE_LINKS = [
 
 export function SectionAwareFooter() {
   const pathname = usePathname();
-  const inSection = SECTION_PREFIXES.some((p) => pathname.startsWith(p));
+  const inSection = SECTION_SHELL_PREFIXES.some((p) => pathname.startsWith(p));
 
   if (inSection) return null;
 
@@ -85,14 +48,23 @@ export function SectionAwareFooter() {
             </p>
           </div>
 
-          <div>
+          <div className="col-span-2">
             <h3 className={COLUMN_HEADING_CLASS}>知识领域</h3>
             <nav aria-label="知识领域导航">
-              <div className="flex flex-col gap-2.5">
-                {DOMAIN_LINKS.map((item) => (
-                  <Link key={item.href} href={item.href} className={LINK_CLASS}>
-                    {item.label}
-                  </Link>
+              <div className="grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-x-8 gap-y-6">
+                {getClustersWithDomains(DOMAINS).map((cluster) => (
+                  <div key={cluster.id}>
+                    <div className="text-fg-disabled mb-2 font-mono text-[10px] tracking-[0.24em] uppercase">
+                      {cluster.label}
+                    </div>
+                    <div className="flex flex-col gap-2.5">
+                      {cluster.domains.map((domain) => (
+                        <Link key={domain.id} href={`/${domain.id}`} className={LINK_CLASS}>
+                          {domain.title}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
             </nav>

@@ -233,6 +233,7 @@ export const GraphDetailPanel = memo(function GraphDetailPanel({
                 <NodeActions node={node} />
                 <ConnectedNodes
                   nodeId={node.id}
+                  nodeDomain={node.domain}
                   nodes={connectedNodes}
                   edges={connectedEdges}
                   prerequisiteIds={node.prerequisiteIds ?? []}

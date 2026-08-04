@@ -15,6 +15,9 @@ import { PHYSICS_KB_NODES, PHYSICS_KB_EDGES } from "./physics-kb-nodes";
 import { CHEMISTRY_NODES, CHEMISTRY_EDGES } from "./chemistry-nodes";
 import { SOCIOLOGY_NODES, SOCIOLOGY_EDGES } from "./sociology-nodes";
 import { LINGUISTICS_NODES, LINGUISTICS_EDGES } from "./linguistics-nodes";
+import { LAW_NODES, LAW_EDGES } from "./law-nodes";
+import { ARTS_NODES, ARTS_EDGES } from "./arts-nodes";
+import { ENGINEERING_NODES, ENGINEERING_EDGES } from "./engineering-nodes";
 import { LIFESCIENCE_COVERAGE_EDGES, LIFESCIENCE_COVERAGE_NODES } from "./lifescience-coverage";
 import { DOMAIN_SPINE_COVERAGE_EDGES, DOMAIN_SPINE_COVERAGE_NODES } from "./domain-spine-coverage";
 import {
@@ -178,6 +181,9 @@ const BASE_NODES: GraphNode[] = [
   ...CHEMISTRY_NODES,
   ...SOCIOLOGY_NODES,
   ...LINGUISTICS_NODES,
+  ...LAW_NODES,
+  ...ARTS_NODES,
+  ...ENGINEERING_NODES,
   ...LIFESCIENCE_COVERAGE_NODES,
   ...DOMAIN_SPINE_COVERAGE_NODES,
   ...DOMAIN_SPINE_COMPLETION_NODES,
@@ -226,6 +232,9 @@ const baseEdges: GraphEdge[] = [
   ...CHEMISTRY_EDGES,
   ...SOCIOLOGY_EDGES,
   ...LINGUISTICS_EDGES,
+  ...LAW_EDGES,
+  ...ARTS_EDGES,
+  ...ENGINEERING_EDGES,
   ...LIFESCIENCE_COVERAGE_EDGES,
   ...DOMAIN_SPINE_COVERAGE_EDGES,
   ...DOMAIN_SPINE_COMPLETION_EDGES,

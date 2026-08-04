@@ -38,6 +38,12 @@ export const PSYCHOLOGY_KB_DATA = [
     category: "发展心理学",
   },
   {
+    slug: "educational-psychology",
+    title: "教育心理学：学习如何被教学优化",
+    titleEn: "Educational Psychology: How Learning Is Optimized by Teaching",
+    category: "教育心理学",
+  },
+  {
     slug: "effect-size-and-power",
     title: "效应量与统计功效",
     titleEn: "Effect Size and Statistical Power",
@@ -80,6 +86,12 @@ export const PSYCHOLOGY_KB_DATA = [
     category: "认知心理学",
   },
   {
+    slug: "io-psychology",
+    title: "工业与组织心理学：把科学带进办公室",
+    titleEn: "Industrial-Organizational Psychology: Bringing Science to the Workplace",
+    category: "工业与组织心理学",
+  },
+  {
     slug: "metacognition-training",
     title: "元认知：思考你的思考",
     titleEn: "Metacognition: Thinking About Your Thinking",
@@ -108,6 +120,12 @@ export const PSYCHOLOGY_KB_DATA = [
     title: "财政紧缩的政治心理",
     titleEn: "Political Psychology of Fiscal Austerity",
     category: "政治心理学",
+  },
+  {
+    slug: "psycholinguistics",
+    title: "语言心理学：大脑如何生产与理解语言",
+    titleEn: "Psycholinguistics: How the Mind Produces and Understands Language",
+    category: "认知心理学",
   },
   {
     slug: "psychology-of-decisions",

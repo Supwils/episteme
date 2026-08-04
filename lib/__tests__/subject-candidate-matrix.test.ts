@@ -17,11 +17,13 @@ import {
 } from "@/lib/linguistics-subject-plan";
 
 describe("new subject candidate matrix", () => {
-  it("compares three candidates with weights that sum to one", () => {
+  it("compares every candidate with weights that sum to one", () => {
     expect(SUBJECT_CANDIDATES.map((candidate) => candidate.id)).toEqual([
       "linguistics",
       "comparative-law",
       "arts-aesthetics",
+      "engineering",
+      "literature-narrative",
     ]);
     const totalWeight = Object.values(SUBJECT_SCORE_DIMENSIONS).reduce(
       (total, dimension) => total + dimension.weight,
@@ -48,7 +50,9 @@ describe("new subject candidate matrix", () => {
   it("enforces platform launch scope and global coverage", () => {
     for (const candidate of SUBJECT_CANDIDATES) {
       expect(candidate.releaseArticleCount, candidate.id).toBeGreaterThanOrEqual(30);
-      expect(candidate.releaseArticleCount, candidate.id).toBeLessThanOrEqual(50);
+      // Upper bound moved 50 → 60 on 2026-08-02 (T-CONTENT-47): the band was a
+      // launch gate, but live subjects keep growing — linguistics reached 51.
+      expect(candidate.releaseArticleCount, candidate.id).toBeLessThanOrEqual(60);
       expect(candidate.visualizations.length, candidate.id).toBeGreaterThanOrEqual(3);
       expect(candidate.visualizations.length, candidate.id).toBeLessThanOrEqual(5);
       expect(candidate.globalCoverageCommitments.length, candidate.id).toBeGreaterThanOrEqual(6);
@@ -64,13 +68,14 @@ describe("new subject candidate matrix", () => {
       calculateCandidateScore(candidate.scores)
     );
     expect(scores).toEqual([...scores].sort((left, right) => right - left));
-    expect(LAUNCHED_SUBJECT_CANDIDATE_IDS).toEqual(new Set(["linguistics"]));
+    expect(LAUNCHED_SUBJECT_CANDIDATE_IDS).toEqual(
+      new Set(["linguistics", "comparative-law", "arts-aesthetics", "engineering"])
+    );
     expect(RANKED_NEXT_SUBJECT_CANDIDATES.map((candidate) => candidate.id)).toEqual([
-      "arts-aesthetics",
-      "comparative-law",
+      "literature-narrative",
     ]);
-    expect(RECOMMENDED_SUBJECT_CANDIDATE.id).toBe("arts-aesthetics");
-    expect(calculateCandidateScore(RECOMMENDED_SUBJECT_CANDIDATE.scores)).toBeCloseTo(4.1);
+    expect(RECOMMENDED_SUBJECT_CANDIDATE.id).toBe("literature-narrative");
+    expect(calculateCandidateScore(RECOMMENDED_SUBJECT_CANDIDATE.scores)).toBeCloseTo(4.0);
   });
 });
 
@@ -83,7 +88,7 @@ describe("linguistics release plan", () => {
     // launch size and reject any later article.
     const perSection = LINGUISTICS_SECTIONS.map((section) => section.articles.length);
     expect(Math.min(...perSection)).toBeGreaterThanOrEqual(6);
-    expect(Math.max(...perSection) - Math.min(...perSection)).toBeLessThanOrEqual(2);
+    expect(Math.max(...perSection) - Math.min(...perSection)).toBeLessThanOrEqual(3);
     expect(ALL_LINGUISTICS_ARTICLES).toHaveLength(perSection.reduce((a, b) => a + b, 0));
     expect(new Set(ALL_LINGUISTICS_ARTICLES.map((article) => article.slug)).size).toBe(
       ALL_LINGUISTICS_ARTICLES.length

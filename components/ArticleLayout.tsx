@@ -3,6 +3,8 @@ import Link from "next/link";
 import { cn } from "@/components/ui/utils/cn";
 import { ArticleSidebar } from "@/components/ArticleSidebar";
 import { Backlinks } from "@/components/Backlinks";
+import { ReadingModeControls } from "@/components/ReadingModeControls";
+import { ReadingProgressBar } from "@/components/ReadingProgressBar";
 import { readingMinutes } from "@/lib/reading-time";
 
 interface PrevNextLink {
@@ -83,9 +85,10 @@ export function ArticleLayout({
 
   return (
     <div className="w-full px-6 py-12 sm:px-10 lg:px-16">
+      <ReadingProgressBar />
       <Link
         href={backHref}
-        className="text-fg-muted hover:text-accent-gold mb-6 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] uppercase transition-colors"
+        className="text-fg-secondary hover:text-accent-gold mb-6 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] uppercase transition-colors"
       >
         {backLabel}
       </Link>
@@ -97,17 +100,23 @@ export function ArticleLayout({
           <div className="mb-3 flex flex-wrap items-center gap-3">
             <span
               className="border px-2.5 py-1 font-mono text-[10px] tracking-[0.32em] uppercase"
-              style={{ borderColor: `${accent}50`, color: accent }}
+              style={{
+                borderColor: `${accent}50`,
+                color: `color-mix(in oklab, ${accent} 42%, var(--color-fg-primary))`,
+              }}
             >
               {eyebrow}
             </span>
             {eyebrowMeta?.map((m) => (
-              <span key={m} className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">
+              <span key={m} className="text-fg-muted font-mono text-[10px] tracking-[0.22em]">
                 {m}
               </span>
             ))}
-            <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">
+            <span className="text-fg-muted font-mono text-[10px] tracking-[0.22em]">
               约 {readMinutes} 分钟阅读
+            </span>
+            <span className="ml-auto">
+              <ReadingModeControls />
             </span>
           </div>
           <h1 className="font-display text-fg-primary mb-2 text-[2rem] leading-tight font-semibold tracking-tight md:text-[2.8rem]">
@@ -125,9 +134,7 @@ export function ArticleLayout({
                   className="rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.12em]"
                   style={{
                     borderColor: `${accent}20`,
-                    // Lighten the accent toward the foreground so tag text clears
-                    // WCAG AA on the dark card across every domain's accent.
-                    color: `color-mix(in oklab, ${accent} 82%, #f5f2ea)`,
+                    color: `color-mix(in oklab, ${accent} 42%, var(--color-fg-primary))`,
                     backgroundColor: `${accent}08`,
                   }}
                 >
@@ -140,20 +147,27 @@ export function ArticleLayout({
       </header>
 
       <div className="flex flex-col gap-12 lg:flex-row">
-        <article className={cn("min-w-0 flex-1", articleClassName)}>{children}</article>
+        <article
+          className={cn(
+            "article-reading-surface min-w-0 flex-1 transition-[max-width] duration-300",
+            articleClassName
+          )}
+        >
+          {children}
+        </article>
         <ArticleSidebar contentClassName={sidebarClassName}>{sidebar}</ArticleSidebar>
       </div>
 
       <Backlinks url={url} />
 
       {(prev || next) && (
-        <nav className="border-border-faint mt-16 flex items-stretch justify-between gap-4 border-t pt-8">
+        <nav className="print-hidden border-border-faint mt-16 flex items-stretch justify-between gap-4 border-t pt-8">
           {prev ? (
             <Link
               href={prev.href}
               className="group border-border-faint hover:border-fg-disabled/30 hover:bg-bg-panel flex flex-1 flex-col gap-1 border p-4 transition-all duration-300"
             >
-              <span className="text-fg-disabled font-mono text-[9px] tracking-[0.22em] uppercase">
+              <span className="text-fg-muted font-mono text-[9px] tracking-[0.22em] uppercase">
                 ← {prevLabel}
               </span>
               <span className="font-display text-fg-secondary group-hover:text-accent-gold text-sm font-medium transition-colors">
@@ -168,7 +182,7 @@ export function ArticleLayout({
               href={next.href}
               className="group border-border-faint hover:border-fg-disabled/30 hover:bg-bg-panel flex flex-1 flex-col items-end gap-1 border p-4 text-right transition-all duration-300"
             >
-              <span className="text-fg-disabled font-mono text-[9px] tracking-[0.22em] uppercase">
+              <span className="text-fg-muted font-mono text-[9px] tracking-[0.22em] uppercase">
                 {nextLabel} →
               </span>
               <span className="font-display text-fg-secondary group-hover:text-accent-gold text-sm font-medium transition-colors">

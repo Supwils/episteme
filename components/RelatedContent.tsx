@@ -63,7 +63,7 @@ function CategoryGroup({
     <div className="mb-5">
       <p
         className="mb-2.5 font-mono text-[9px] tracking-[0.28em] uppercase"
-        style={{ color: accent }}
+        style={{ color: `color-mix(in oklab, ${accent} 42%, var(--color-fg-primary))` }}
       >
         {label}
       </p>
@@ -107,7 +107,10 @@ function CrossDomainGroup({
     <div className="mb-5">
       <div className="mb-2.5 flex items-center gap-2">
         <span className="inline-block h-2 w-2 rounded-full" style={{ backgroundColor: color }} />
-        <p className="font-mono text-[9px] tracking-[0.28em] uppercase" style={{ color }}>
+        <p
+          className="font-mono text-[9px] tracking-[0.28em] uppercase"
+          style={{ color: `color-mix(in oklab, ${color} 42%, var(--color-fg-primary))` }}
+        >
           {label}
         </p>
       </div>

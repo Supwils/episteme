@@ -49,7 +49,7 @@ export const MEDICINE_REFS: CrossReference[] = [
     toDomain: "philosophy",
     toId: "utilitarianism",
     toTitle: "功利主义",
-    toPath: "/philosophy/isms/utilitarianism",
+    toPath: "/philosophy/schools/utilitarianism",
     relation:
       "医学伦理在「尊重个人自主」与「追求最大福祉」之间拉扯——知情同意正是对功利主义式权衡的一道道德约束",
   },
