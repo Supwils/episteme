@@ -40,6 +40,7 @@ export const SCHOOLS_DATA = [
   { slug: "german-idealism", title: "德国古典哲学", subtitle: "German Idealism", era: "近代" },
   { slug: "hindu-philosophy", title: "印度哲学六派", subtitle: "Hindu Philosophy", era: "古代" },
   { slug: "idealism", title: "唯心主义", subtitle: "", era: "近代" },
+  { slug: "islamic-philosophy", title: "伊斯兰哲学", subtitle: "", era: "中世纪" },
   { slug: "legalism", title: "法家", subtitle: "Legalism", era: "古代" },
   {
     slug: "logical-positivism",

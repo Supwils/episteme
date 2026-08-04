@@ -381,8 +381,27 @@ export const ENGINEERING_NODES: GraphNode[] = [
     evidenceMode: "synthesis",
     prerequisiteIds: ["engineering:robotics-systems", "engineering:engineering-ethics"],
   }),
+  n({
+    slug: "tacoma-narrows-and-the-textbook-error",
+    label: "塔科马海峡大桥与教科书错误",
+    section: "frontiers",
+    description: "气动弹性颤振被讲成共振：一个被纠正三十余年仍在流传的解释。",
+    tags: ["塔科马大桥", "颤振", "科学传播"],
+    knowledgeLevel: 4,
+    evidenceMode: "interpretation",
+    prerequisiteIds: ["engineering:bridges", "engineering:control-and-feedback"],
+  }),
+  n({
+    slug: "dilution-is-the-solution",
+    label: "「稀释是解决污染的办法」",
+    section: "frontiers",
+    description: "高烟囱把局地空气问题转化成了跨国酸雨：问题转移而非消除。",
+    tags: ["高烟囱", "酸雨", "问题转移"],
+    knowledgeLevel: 4,
+    evidenceMode: "observation",
+    prerequisiteIds: ["engineering:thermal-power", "engineering:power-grid"],
+  }),
 ];
-
 const e = (
   source: string,
   target: string,
@@ -492,4 +511,19 @@ export const ENGINEERING_EDGES: GraphEdge[] = [
   e("water-systems", "sociology:urbanization", "城市化改写了给排水的量级", "domain-link"),
   e("megaprojects", "political-science:state-capacity", "谁能把巨物真正建成", "domain-link"),
   e("bioengineering-boundaries", "philosophy:bioethics", "能做与该做之间的裁决框架", "domain-link"),
+  e("bridges", "tacoma-narrows-and-the-textbook-error", "跨度与柔性带来的新失稳模式"),
+  e("control-and-feedback", "tacoma-narrows-and-the-textbook-error", "负阻尼与自激反馈"),
+  e(
+    "failure-analysis",
+    "tacoma-narrows-and-the-textbook-error",
+    "调查做对而传播做错",
+    "cross-reference"
+  ),
+  e("thermal-power", "dilution-is-the-solution", "硫与氮氧化物的主要排放源"),
+  e(
+    "resilient-infrastructure",
+    "dilution-is-the-solution",
+    "解决方案成为新风险源",
+    "cross-reference"
+  ),
 ];

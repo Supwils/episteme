@@ -417,8 +417,17 @@ export const ARTS_NODES: GraphNode[] = [
     evidenceMode: "synthesis",
     prerequisiteIds: ["arts:formal-analysis", "arts:visual-culture-everyday"],
   }),
+  n({
+    slug: "art-as-progress",
+    label: "艺术进步论",
+    section: "aesthetics",
+    description: "把艺术史写成单向上升曲线的框架，及其被艺术本身走废的过程。",
+    tags: ["艺术进步论", "瓦萨里", "现代主义叙事"],
+    knowledgeLevel: 4,
+    evidenceMode: "interpretation",
+    prerequisiteIds: ["arts:aesthetics-taste-judgment", "arts:formal-analysis"],
+  }),
 ];
-
 const e = (
   source: string,
   target: string,
@@ -489,4 +498,7 @@ export const ARTS_EDGES: GraphEdge[] = [
     "domain-link"
   ),
   e("conservation-science", "chemistry:spectroscopy", "光谱分析鉴定材料", "domain-link"),
+  e("aesthetics-taste-judgment", "art-as-progress", "把评价换成年代顺序"),
+  e("formal-analysis", "art-as-progress", "自我提纯叙事的方法基础"),
+  e("museums-and-display", "art-as-progress", "展陈动线里的进步论", "cross-reference"),
 ];

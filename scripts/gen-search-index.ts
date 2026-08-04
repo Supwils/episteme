@@ -68,6 +68,62 @@ function articleType(article: Article): string {
   return "article";
 }
 
+/**
+ * Tier 1 must grow with the number of documents, not with their length: the
+ * artifact is fetched whole into a Worker and has a hard size budget. Two rules
+ * bound each article's contribution.
+ *
+ * 1. Structural headings are dropped. "参考文献" / "跨域连接" / "延伸阅读" appear in
+ *    almost every article, so their bigrams carried posting lists thousands of
+ *    entries long while being useless as queries — a search for 参考文献 matching
+ *    2300 articles is noise, not recall. The cut is by document frequency rather
+ *    than a hand-written list, so a new domain template's boilerplate is excluded
+ *    automatically as the corpus grows.
+ * 2. What survives is deduplicated and truncated to a character budget. Heading
+ *    text also lives in the tier-2 prose corpus, so an article stays reachable by
+ *    its later sections on /search; the budget only bounds what answers instantly
+ *    while typing.
+ */
+const HEADING_STOPWORD_RATIO = 0.015;
+const HEADING_STOPWORD_FLOOR = 20;
+const HEADING_CHAR_BUDGET = 100;
+
+function buildHeadingSelector(articles: Article[]): {
+  select: (article: Article) => string;
+  stopwords: string[];
+} {
+  const documentFrequency = new Map<string, number>();
+  for (const article of articles) {
+    for (const heading of new Set(article.headings.map((h) => h.trim()).filter(Boolean))) {
+      documentFrequency.set(heading, (documentFrequency.get(heading) ?? 0) + 1);
+    }
+  }
+  const threshold = Math.max(
+    HEADING_STOPWORD_FLOOR,
+    Math.round(articles.length * HEADING_STOPWORD_RATIO)
+  );
+  const stopwords = [...documentFrequency]
+    .filter(([, count]) => count >= threshold)
+    .sort((a, b) => b[1] - a[1])
+    .map(([heading]) => heading);
+  const stopwordSet = new Set(stopwords);
+
+  return {
+    stopwords,
+    select(article) {
+      const kept: string[] = [];
+      let used = 0;
+      for (const heading of new Set(article.headings.map((h) => h.trim()))) {
+        if (!heading || stopwordSet.has(heading)) continue;
+        if (used + heading.length > HEADING_CHAR_BUDGET) break;
+        kept.push(heading);
+        used += heading.length;
+      }
+      return kept.join(" ");
+    },
+  };
+}
+
 async function main(): Promise<void> {
   const articles = collectArticles();
 
@@ -76,6 +132,8 @@ async function main(): Promise<void> {
   // never covers less than the one it replaces.
   const { documents: entities } = await getSearchIndex();
   const entityByUrl = new Map(entities.map((d) => [d.url, d]));
+
+  const headings = buildHeadingSelector(articles);
 
   const docs: SearchDoc[] = [];
   const indexed: Indexed[] = [];
@@ -96,7 +154,7 @@ async function main(): Promise<void> {
     indexed.push({
       id: docs.length,
       title: `${doc.t} ${doc.s}`.trim(),
-      text: article.headings.join(" "),
+      text: headings.select(article),
     });
     docs.push(doc);
 
@@ -156,6 +214,9 @@ async function main(): Promise<void> {
     `✅ search tier 1: ${docs.length} documents ` +
       `(${articles.length} articles + ${docs.length - articles.length} entities), ` +
       `${(indexBytes / 1024).toFixed(0)}KB\n` +
+      `   heading budget: ${headings.stopwords.length} structural headings excluded ` +
+      `(top: ${headings.stopwords.slice(0, 3).join(" / ")}), ` +
+      `${HEADING_CHAR_BUDGET} chars kept per article\n` +
       `✅ search tier 2: ${corpusDocs.length} bodies, ` +
       `${(corpus.text.length / 1e6).toFixed(2)}M characters`
   );

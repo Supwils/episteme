@@ -9,6 +9,11 @@
     "e": "第一个误解，是以为\"艺术\"和\"手艺\"自古以来就是两回事——一个高雅，一个粗俗。事实恰好相反：\"艺术\"这个词的祖先，指的就是手艺。古希腊语的 techne、拉丁语的 ars，都泛指一切有规则、可…",
     "d": "arts"
   },
+  "/arts/aesthetics/art-as-progress": {
+    "t": "艺术进步论：一条被艺术自己走废的单行道",
+    "e": "打开二十世纪中期的任何一本西方艺术史教科书，你会读到一个故事：",
+    "d": "arts"
+  },
   "/arts/aesthetics/art-market-and-value": {
     "t": "艺术市场与价值：杰作的价格是如何被制造出来的",
     "e": "第一个误解，是相信天价来自作品的内在品质——画越好，价越高，价格不过是美学价值的温度计。如果真是这样，价格的波动就无从解释：梵高生前只卖出过极少的画，1987 年他的《向日葵》却以近四千万美元…",
@@ -544,6 +549,11 @@
     "e": "1869 年 2 月，圣彼得堡的冬天还没松手。",
     "d": "chemistry"
   },
+  "/chemistry/milestones/polywater-and-pathological-science": {
+    "t": "聚合水与病态科学（1962—1973）",
+    "e": "1960 年代末，一种新形态的水占据了《自然》《科学》与全球媒体的版面。",
+    "d": "chemistry"
+  },
   "/chemistry/milestones/synthetic-dyes-industry": {
     "t": "合成染料工业（1856）",
     "e": "1856 年的复活节假期，伦敦一间简陋的家庭实验室里，18 岁的化学学生威廉·珀金（William Henry Perkin）正在做一件注定失败的事——他想完成导师霍夫曼（August Wil…",
@@ -552,6 +562,11 @@
   "/chemistry/milestones/the-plastics-age": {
     "t": "塑料时代（1907）",
     "e": "1907 年，纽约州扬克斯的一间私人实验室里，比利时裔化学家利奥·贝克兰（Leo Baekeland）正盯着一团硬化的褐色物质发呆。",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/vitalism-and-its-long-death": {
+    "t": "活力论的漫长死亡（1828—1900）",
+    "e": "几乎每一本有机化学教科书都讲同一个故事：1828 年，维勒在实验室里意外地用无机原料做出了尿素——一种只有生命体才能产生的物质。他写信给老师贝采利乌斯：\"我必须告诉您，我能不借助肾脏、也不借助…",
     "d": "chemistry"
   },
   "/chemistry/reactions/acid-base-neutralization": {
@@ -692,6 +707,11 @@
   "/computer-science/algorithms/a-star-search": {
     "t": "A* 搜索算法",
     "e": "1968 年，Stanford Research Institute 的三位研究员——Peter Hart、Nils Nilsson 和 Bertram Raphael——在开发一台机器人（S…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/approximate-nearest-neighbor-search": {
+    "t": "近似最近邻搜索",
+    "e": "给定一亿个向量和一个查询向量，找出与它最接近的十个——这个问题听起来像入门练习，实际上是过去三十年算法研究中最顽固的难题之一，也是今天每一个向量数据库、推荐系统与检索增强生成管线的地基。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/attention-and-transformers": {
@@ -1074,6 +1094,11 @@
     "e": "1977 年，Ron Rivest、Adi Shamir、Leonard Adleman 设计了后来以三人姓氏首字母命名的 RSA，并于次年发表。它利用模幂运算易算、从公开参数恢复私钥在已知经…",
     "d": "computer-science"
   },
+  "/computer-science/concepts/expert-systems-and-the-second-ai-winter": {
+    "t": "专家系统与第二次 AI 寒冬",
+    "e": "1980 年代初，人工智能第一次成为一门生意。",
+    "d": "computer-science"
+  },
   "/computer-science/concepts/file-systems": {
     "t": "文件系统",
     "e": "你电脑上有 100,000 个文件分散在 SSD 的数十亿个存储单元中，你用一秒钟就能找到并打开任何一个。",
@@ -1174,6 +1199,11 @@
     "e": "1969 年夏天，贝尔实验室的肯·汤普森（Ken Thompson）发现了一台被闲置在角落里的老旧 PDP-7 计算机。他用了三周时间，在上面写下了一个简单的操作系统内核、一个 shell、一…",
     "d": "computer-science"
   },
+  "/computer-science/concepts/perceptron-and-the-ai-winter": {
+    "t": "感知机与第一次 AI 寒冬",
+    "e": "1958 年，罗森布拉特在康奈尔航空实验室展示了感知机：一台能通过示例学会区分图像的机器。《纽约时报》报道说，海军期待它成为\"能行走、说话、看见、书写、自我复制并意识到自身存在的电子计算机的雏…",
+    "d": "computer-science"
+  },
   "/computer-science/concepts/privacy-engineering": {
     "t": "隐私工程",
     "e": "一个系统可以从未发生数据泄露，却仍然严重侵犯隐私：它可能收集完成任务不需要的数据，把用户预期中的单次用途变成长期画像，允许员工合法查询敏感记录，或用准确模型对人做不透明且不公平的决定。",
@@ -1269,6 +1299,11 @@
     "e": "2021 年，OpenAI 研究者在 CLIP 中观察到一个“蜘蛛侠神经元”：蜘蛛图像、单词 spider 的图像和蜘蛛侠角色都会激活它。这说明模型内部可能出现跨文字、符号和视觉形式的抽象响应…",
     "d": "computer-science"
   },
+  "/computer-science/frontier/confidential-computing-and-tees": {
+    "t": "机密计算：把信任从运维手里收回硬件",
+    "e": "云计算有一个从第一天起就存在、却长期被默认接受的漏洞：你的数据在云上是加密的——除了它正在被使用的时候。",
+    "d": "computer-science"
+  },
   "/computer-science/frontier/formal-verification": {
     "t": "形式化验证与程序合成",
     "e": "2023 年 11 月，菲尔兹奖得主陶哲轩（Terence Tao）和合作者 Timothy Gowers、Ben Green、Freddie Manners 共同宣布证明了多项式 Freim…",
@@ -1279,9 +1314,24 @@
     "e": "2022 年 11 月 30 日，OpenAI 把一个叫 ChatGPT 的系统悄悄放到了互联网上。没有发布会，没有大型广告。五天后，它有了 100 万用户；两个月后，1 亿用户。这是消费级应…",
     "d": "computer-science"
   },
+  "/computer-science/frontier/neuromorphic-and-beyond-cmos-computing": {
+    "t": "神经形态与后 CMOS 计算：当搬运数据比计算更贵",
+    "e": "现代处理器有一个被算力叙事掩盖的真相：一次乘加运算的能耗，远低于把参与运算的数从内存搬到运算单元的能耗。 在典型工艺下，从片外 DRAM 读一个数所耗的能量，可以做几百次乘加。",
+    "d": "computer-science"
+  },
+  "/computer-science/frontier/post-quantum-cryptography": {
+    "t": "后量子密码：在机器造出来之前更换全世界的锁",
+    "e": "密码学史上从没出现过这样的局面：一种尚不存在的机器，正在迫使全世界更换正在使用的锁。",
+    "d": "computer-science"
+  },
   "/computer-science/frontier/quantum-algorithms": {
     "t": "量子算法：Shor 与 Grover 之后的软件边界",
     "e": "量子计算有两个最著名的算法：Shor 算法（1994）能在多项式时间内分解大整数，打破 RSA；Grover 算法（1996）能对无序数据库搜索给出二次方加速（O(\\sqrt{N}) vs 经…",
+    "d": "computer-science"
+  },
+  "/computer-science/frontier/retrieval-augmented-generation-and-agents": {
+    "t": "检索增强与智能体：把语言模型接到世界上",
+    "e": "语言模型有一个结构性缺陷：它知道的一切都被压缩进了权重，而权重在训练结束那一刻就冻结了。它不知道昨天发生了什么，不知道你公司内网里的文档，也无法说清自己为什么这样回答。",
     "d": "computer-science"
   },
   "/computer-science/frontier/zero-knowledge-proofs": {
@@ -1539,6 +1589,11 @@
     "e": "1958 年，数学家哈斯凯尔·加里（Haskell Curry）注意到一件奇怪的事：某些组合子逻辑（combinatory logic）的类型，与命题逻辑中的公式在形式上一模一样。",
     "d": "computer-science"
   },
+  "/computer-science/theory/online-algorithms-and-competitive-analysis": {
+    "t": "在线算法与竞争分析",
+    "e": "绝大多数算法课教的是这样一个世界：输入摆在你面前，你可以从容读完再决定怎么做。",
+    "d": "computer-science"
+  },
   "/computer-science/theory/quantum-computing-theory": {
     "t": "量子计算理论",
     "e": "1994 年，美国数学家彼得·肖尔（Peter Shor）发表了一个算法。这个算法可以在多项式时间内分解大整数——而人类目前已知最好的经典算法（普通计算机上运行的算法）需要次指数时间。",
@@ -1547,6 +1602,11 @@
   "/computer-science/theory/randomized-algorithms": {
     "t": "随机算法",
     "e": "一个算法，通常被认为是确定性的：给定相同的输入，它每次都执行相同的步骤，给出相同的输出。而随机算法（Randomized Algorithm）在执行过程中会抛硬币——使用随机数来做决策，使得同…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/statistical-learning-theory-pac": {
+    "t": "统计学习理论与 PAC 学习",
+    "e": "机器学习最基本的问题不是\"怎么把训练数据拟合好\"——那件事平凡到可以用一张查找表完成。真正的问题是：为什么在训练集上表现好的模型，在没见过的数据上也会表现好？",
     "d": "computer-science"
   },
   "/cosmology/dialogues/cosmology-crisis": {
@@ -1784,6 +1844,11 @@
     "e": "先纠正一个几乎人人都信的说法：恐龙并没有\"全部\"灭绝。如果你今天在窗外看到一只麻雀，你看到的就是一只活着的恐龙。鸟类是兽脚类恐龙的直系后代，在演化分类上它们本身就是恐龙——古生物学家把它们叫做…",
     "d": "earth-science"
   },
+  "/earth-science/events/continental-drift-rejected": {
+    "t": "大陆漂移被拒绝的五十年（1912—1965）",
+    "e": "翻开任何一张世界地图，南美洲的东岸与非洲的西岸像被撕开的两半。这件事三百年前就有人指出过。1912 年，德国气象学家魏格纳把它变成了一个完整的理论：大陆在移动，它们曾经拼在一起。",
+    "d": "earth-science"
+  },
   "/earth-science/events/dust-bowl-1930s": {
     "t": "美国黑风暴（1930 年代）",
     "e": "1935 年 4 月 14 日下午，一个晴朗的周日，美国南部大平原上空突然涌起一堵翻滚的黑墙。",
@@ -1797,6 +1862,11 @@
   "/earth-science/events/indian-ocean-tsunami-2004": {
     "t": "印度洋海啸（2004）",
     "e": "2004 年 12 月 26 日上午，节礼日（Boxing Day）。印度洋沿岸的海滩上挤满了度假的游客与赶早市的渔民。",
+    "d": "earth-science"
+  },
+  "/earth-science/events/kelvin-and-the-age-of-the-earth": {
+    "t": "开尔文与地球年龄之争（1862—1904）",
+    "e": "十九世纪后半叶，地球有多老这个问题把两门学科逼到了正面冲突。",
     "d": "earth-science"
   },
   "/earth-science/events/krakatoa-1883": {
@@ -2034,6 +2104,11 @@
     "e": "布雷顿森林体系是二战后建立的国际货币金融秩序，奠定了战后国际经济体系的基础，深刻影响了全球经济的发展轨迹。",
     "d": "economics"
   },
+  "/economics/case-studies/cambridge-capital-controversy": {
+    "t": "剑桥资本争论：赢了论证，输了教科书",
+    "e": "1966 年，保罗·萨缪尔森——当时美国经济学的头面人物——在《经济学季刊》发表了一篇题为《总结》的文章。",
+    "d": "economics"
+  },
   "/economics/case-studies/china-economic-rise": {
     "t": "中国经济崛起",
     "e": "中国在过去四十余年完成了人类历史上最大规模的经济转型和脱贫奇迹。",
@@ -2152,6 +2227,11 @@
   "/economics/case-studies/low-income-debt-restructuring-development-finance-2026": {
     "t": "低收入债务国债务重组与发展融资（2026）",
     "e": "低收入债务国的宏观困难，不能只用“债务太高”解释。有些国家债务率并不比发达国家高，却更容易陷入危机。原因在于债务结构、融资条件、出口能力、税基、外汇储备和公共品缺口不同。低收入国家常面临四重约…",
+    "d": "economics"
+  },
+  "/economics/case-studies/malthusian-trap-and-its-escape": {
+    "t": "马尔萨斯陷阱：一个严密推理为何败给了历史",
+    "e": "1798 年，马尔萨斯匿名发表《人口原理》。他的论证只有两句话：",
     "d": "economics"
   },
   "/economics/case-studies/microfinance-experiment": {
@@ -2974,6 +3054,11 @@
     "e": "第一个误解，是把生物工程想成\"给身体装零件\"。工程师习惯的对象是被动的材料：钢按胡克定律变形，混凝土按龄期硬化。活体组织不是这样——它会重塑、会免疫、会感染、会在界面上长出纤维包膜把植入物包起…",
     "d": "engineering"
   },
+  "/engineering/frontiers/dilution-is-the-solution": {
+    "t": "「稀释是解决污染的办法」：高烟囱政策如何制造了酸雨",
+    "e": "二十世纪中叶，环境工程有一条被广泛接受的原则，简洁到可以写成一句口号：",
+    "d": "engineering"
+  },
   "/engineering/frontiers/energy-transition-engineering": {
     "t": "能源转型的工程现实",
     "e": "第一个误解，是把能源转型理解成\"用清洁发电替换脏发电\"。电力只占人类终端能源消费的约五分之一；转型真正的工作量在于把目前不用电的部门改成用电——车辆、供暖、工业窑炉——然后再让那些电变干净。这…",
@@ -2997,6 +3082,11 @@
   "/engineering/frontiers/safety-engineering": {
     "t": "安全工程：为注定会出错的世界而设计",
     "e": "第一个误解，是把安全等同于\"不出事的零件\"。安全工程处理的对象从来不是单个部件的可靠性，而是系统——一个由人、机器、规程与组织共同组成的系统——在部件必然出错的前提下如何不酿成灾难。冗余设计的…",
+    "d": "engineering"
+  },
+  "/engineering/frontiers/tacoma-narrows-and-the-textbook-error": {
+    "t": "塔科马海峡大桥：一个错了半个世纪的教科书解释",
+    "e": "1940 年 11 月 7 日上午，华盛顿州的塔科马海峡大桥在约每秒 19 米的风中扭曲、翻滚，最终断裂坠入水中。整个过程被完整拍下，这段影像成为工程史上被观看次数最多的画面。",
     "d": "engineering"
   },
   "/engineering/machines/automation-and-industry": {
@@ -3247,6 +3337,16 @@
   "/law/public-law/fundamental-rights": {
     "t": "基本权利体系：三代权利、平等审查与限制的限度",
     "e": "第一个误解，是以为基本权利就是\"宪法里列出来的好处清单\"。基本权利在法律上的原始含义不是国家给予的福利，而是对国家划出的禁区：言论、信仰、人身自由之所以\"基本\"，是因为它们先于国家存在，宪法只…",
+    "d": "law"
+  },
+  "/law/public-law/lochner-era-freedom-of-contract": {
+    "t": "洛克纳时代：被宪法读进去的「契约自由」",
+    "e": "1905 年，美国最高法院推翻了纽约州的一项法律。那项法律规定面包师每周工作不得超过六十小时、每天不得超过十小时。",
+    "d": "law"
+  },
+  "/law/public-law/separate-but-equal": {
+    "t": "「分离但平等」：一条被推翻的宪法学说",
+    "e": "1896 年，美国最高法院在普莱西诉弗格森案中以七比一判决：法律要求黑人与白人乘坐不同车厢，只要设施\"平等\"，就不违反宪法第十四修正案的平等保护条款。",
     "d": "law"
   },
   "/law/public-law/separation-of-powers": {
@@ -3549,6 +3649,11 @@
     "e": "一门语言被称为濒危，通常指儿童获得、代际传递或公共使用持续收缩，而不是它词汇少、语法简单或不适合现代生活。任何自然语言都能在使用者需要时创造新表达；限制来自权力、资源和使用场景，而非语言本身能…",
     "d": "linguistics"
   },
+  "/linguistics/history-typology-society/eskimo-snow-words-hoax": {
+    "t": "爱斯基摩雪词神话：一个学术都市传说的完整解剖",
+    "e": "\"爱斯基摩人有五十个（一百个、四百个）表示雪的词。\"",
+    "d": "linguistics"
+  },
   "/linguistics/history-typology-society/language-contact": {
     "t": "语言接触、借词与混合",
     "e": "语言不会像液体一样自动混合。接触发生在多语使用者的日常选择中：谁与谁通婚、贸易、工作、上学和礼拜，哪种语言能换取资源，哪种变体表示亲近、权威或抵抗。",
@@ -3572,6 +3677,11 @@
   "/linguistics/history-typology-society/linguistic-typology": {
     "t": "语言类型学与跨语言共性",
     "e": "语言类型学追问：人类语言使用哪些结构方案，这些方案如何共现、分布和变化？它可以比较基本语序、格对齐、数量标记、声调、否定、关系从句或手语空间一致。",
+    "d": "linguistics"
+  },
+  "/linguistics/history-typology-society/primitive-languages-myth": {
+    "t": "「原始语言」神话：一个被语言学自己推翻的排序",
+    "e": "十九世纪的语言学有一张排行榜。",
     "d": "linguistics"
   },
   "/linguistics/history-typology-society/sociolinguistic-variation": {
@@ -4339,6 +4449,11 @@
     "e": "英国的海岸线有多长？答案取决于你用多长的尺子去量。用100公里的尺子量，得到一个长度；用1公里的尺子量，得到更长的长度；用1米的尺子量，得到更长的长度……当尺子长度趋向于零时，海岸线的长度趋向…",
     "d": "mathematics"
   },
+  "/mathematics/paradoxes/fifth-postulate-proofs": {
+    "t": "第五公设的证明史：两千年的失败如何造出一门新几何",
+    "e": "《几何原本》开篇列出五条公设。前四条读起来像是在描述作图：两点可连一条直线；线段可延长；以任意点为心任意长为半径可作圆；所有直角相等。",
+    "d": "mathematics"
+  },
   "/mathematics/paradoxes/godel-incompleteness-paradox": {
     "t": "哥德尔不完备性定理（自指与悖论视角）",
     "e": "通俗地说：数学不能被完全装进一个有限的公理系统中——总有真理在系统之外。而且，你无法用数学证明数学本身不会自相矛盾。",
@@ -4542,6 +4657,11 @@
   "/medicine/concepts/humoral-theory": {
     "t": "体液学说",
     "e": "如果有人告诉你，把病人的血放掉一大盆能治病，你大概会觉得荒唐。然而这套疗法在西方医学里堂堂正正地通行了两千多年，被一代代最聪明的医生奉为正道。",
+    "d": "medicine"
+  },
+  "/medicine/concepts/hygiene-hypothesis-overreach": {
+    "t": "卫生假说：一个被自己的名字带偏的假说",
+    "e": "1989 年，流行病学家斯特拉坎在《英国医学杂志》发表了一篇不到两页的短文。他分析了一万七千余名英国儿童的队列数据，发现一个清晰的模式：兄弟姐妹越多、排行越靠后的孩子，患花粉症的比例越低。",
     "d": "medicine"
   },
   "/medicine/concepts/immune-system": {
@@ -4789,6 +4909,11 @@
     "e": "1928 年的一天，伦敦圣玛丽医院的细菌学家亚历山大·弗莱明（Alexander Fleming）休假归来，发现一个忘了盖好的培养皿被一团青绿色霉菌污染了。",
     "d": "medicine"
   },
+  "/medicine/events/bloodletting-and-the-numerical-method": {
+    "t": "放血疗法与第一次临床统计（1828）",
+    "e": "放血是人类医学史上使用时间最长、应用最广的疗法。从古希腊到十九世纪中叶，跨越两千多年，横跨欧洲、阿拉伯世界与印度，用于治疗发热、炎症、肺炎、精神错乱、中风、乃至失血。",
+    "d": "medicine"
+  },
   "/medicine/events/covid-19-pandemic": {
     "t": "COVID-19 大流行（2020 起）",
     "e": "2020 年初的几个星期里，世界仿佛被按下了暂停键。",
@@ -4807,6 +4932,16 @@
   "/medicine/events/jenner-smallpox-vaccination": {
     "t": "詹纳与牛痘接种（1796）",
     "e": "1796 年 5 月 14 日，英国格洛斯特郡乡间，一位乡村医生在一个八岁男孩 James Phipps 的胳膊上划了两道小口子。",
+    "d": "medicine"
+  },
+  "/medicine/events/miasma-theory": {
+    "t": "瘴气说：一个错误的理论如何救了很多人",
+    "e": "十九世纪中叶的欧洲城市有一套关于疾病的解释：病来自坏空气。 腐烂的有机物散发出看不见的毒气——瘴气（miasma）——人吸入后就病倒。霍乱、伤寒、疟疾（malaria，字面意思就是\"坏空气\"）…",
+    "d": "medicine"
+  },
+  "/medicine/events/peptic-ulcer-bacterial-cause": {
+    "t": "溃疡病因之争：一个被拒绝十年的正确答案（1982—2005）",
+    "e": "1983 年，两位来自西澳大利亚的医生向学界报告：胃里长了细菌，而且它可能是消化性溃疡的原因。",
     "d": "medicine"
   },
   "/medicine/events/smallpox-eradication": {
@@ -5274,6 +5409,11 @@
     "e": "中国近现代思想最常见的误解，是把它写成“传统走向现代”的单线故事。这种写法把传统放在落后位置，把现代放在西方位置，把中国思想家变成被动追赶者。真实历史更复杂。晚清以来的思想家不是简单接受西方，…",
     "d": "philosophy"
   },
+  "/philosophy/concepts/moral-luck": {
+    "t": "道德运气",
+    "e": "这两条信念都极其牢固，却互不相容。伯纳德·威廉斯与托马斯·内格尔在 1976 年的一场联合研讨中把这个矛盾正式命名，此后它成为伦理学中最难消化的问题之一——不是因为答案难找，而是因为每一种可能…",
+    "d": "philosophy"
+  },
   "/philosophy/concepts/other": {
     "t": "他者",
     "e": "萨特在《存在与虚无》里讲过一个场景：你正贴着门上的钥匙孔往里窥视，全副心神都扑在门内的景象上，这一刻没有「我」，只有被看的房间。突然，走廊传来脚步声——有人在看你。一瞬间，整个处境翻转了：你从…",
@@ -5329,6 +5469,11 @@
     "e": "两个医生读的是同一本教科书，掌握同样的循证指南。面对一个病情复杂、又害怕坏消息的病人，一个照本宣科、把诊断结果一股脑念出来，另一个却懂得该在什么时机、用什么方式开口。两人的医学知识相同，差的那…",
     "d": "philosophy"
   },
+  "/philosophy/concepts/psychologism": {
+    "t": "心理主义",
+    "e": "它在十九世纪后期是德语与英语哲学中的主流立场之一，由密尔、利普斯等人以不同形式主张。到二十世纪初，它被弗雷格与胡塞尔的批判彻底击溃，成为哲学史上少数被公认\"驳倒\"的立场之一。",
+    "d": "philosophy"
+  },
   "/philosophy/concepts/qi": {
     "t": "气",
     "e": "一个中医说你「气虚」，一个太极师傅让你「以气运身」，孟子说他善养「浩然之气」，张载说整个宇宙不过是气的聚散——同一个字，被用在身体、武术、道德和宇宙论上，听起来像四件不相干的事。但在中国哲学里…",
@@ -5357,6 +5502,11 @@
   "/philosophy/concepts/rights": {
     "t": "权利",
     "e": "1776 年，《美国独立宣言》写下「人人生而平等，造物主赋予他们若干不可剥夺的权利」。这句话的力量在于一个大胆的假设：有些东西是你与生俱来的，任何国王、议会或多数票都无权拿走。但只要追问一步，…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/sense-data": {
+    "t": "感觉材料",
+    "e": "看一枚硬币时，你直接看到的是一个椭圆形的、有特定颜色的感觉材料；你对\"那里有一枚圆形硬币\"的信念，是从这个直接给予的东西推出来的。",
     "d": "philosophy"
   },
   "/philosophy/concepts/skepticism": {
@@ -5744,14 +5894,34 @@
     "e": "2024 年 4 月，牛津大学关闭了运营近二十年的人类未来研究所（Future of Humanity Institute）。这个曾经是 AI 存在风险研究发源地的机构，在经费压力和内部危机中…",
     "d": "philosophy"
   },
+  "/philosophy/frontier/climate-justice-and-intergenerational-ethics": {
+    "t": "气候正义与代际伦理：对还不存在的人负有义务吗",
+    "e": "气候变化把伦理学最抽象的几个难题，一次性变成了必须在本届政府任期内回答的政策问题。",
+    "d": "philosophy"
+  },
   "/philosophy/frontier/consciousness-iit-gnw": {
     "t": "意识科学的世纪之战：IIT 对决 GNW",
     "e": "2023 年 6 月，一项罕见的科学实验公布了初步结果。",
     "d": "philosophy"
   },
+  "/philosophy/frontier/digital-personhood-and-mind-uploading": {
+    "t": "数字人格与心灵上传：复制品是我吗",
+    "e": "假设有一台机器，能把你大脑的每一个神经元与每一个突触扫描下来，在计算机中重建一个功能等价的系统。这个系统醒来后声称自己是你，记得你的童年，爱你所爱的人，害怕你所害怕的事。",
+    "d": "philosophy"
+  },
+  "/philosophy/frontier/epistemic-crisis-testimony-and-deepfakes": {
+    "t": "认识论危机：当眼见不再为实",
+    "e": "人类知识的绝大部分不是自己获得的。你没有测量过地球的周长，没有验证过疫苗的临床试验数据，没有去过你相信存在的那些国家。你知道的几乎一切，都来自别人的告知。",
+    "d": "philosophy"
+  },
   "/philosophy/frontier/experimental-philosophy": {
     "t": "实验哲学：用数据检验哲学直觉",
     "e": "2001 年，三位年轻的哲学家做了一件在传统哲学家看来颇为奇怪的事。",
+    "d": "philosophy"
+  },
+  "/philosophy/frontier/formal-epistemology-and-bayesianism": {
+    "t": "形式认识论：把\"相信多少\"写成数字",
+    "e": "传统认识论问的是一个是非题：你知道吗？ 有没有辩护？是不是真的？盖梯尔式的反例是否成立？",
     "d": "philosophy"
   },
   "/philosophy/frontier/free-will-neuroscience": {
@@ -5767,6 +5937,11 @@
   "/philosophy/frontier/longtermism-existential-risk": {
     "t": "长期主义与存在风险：为尚未出生的人类辩护",
     "e": "2022 年 8 月，英国哲学家威廉·麦卡斯基尔（William MacAskill）出版了《我们欠未来什么》（_What We Owe The Future_）。这本书以公众读物的形式，系统…",
+    "d": "philosophy"
+  },
+  "/philosophy/frontier/neuroethics-and-mental-privacy": {
+    "t": "神经伦理与心理隐私：思想还是最后的私域吗",
+    "e": "人类的法律与道德传统里，有一条几乎从未被写下来的默认前提：你可以隐瞒你的想法。",
     "d": "philosophy"
   },
   "/philosophy/isms/absolutism": {
@@ -6097,6 +6272,11 @@
   "/philosophy/schools/idealism": {
     "t": "唯心主义",
     "e": "唯心主义（Idealism）是西方哲学中最重要的形而上学传统之一，其核心主张是：实在是根本上精神的（mental）或观念的（ideal），物质世界要么依赖于心灵而存在，要么本身就是一种精神性的…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/islamic-philosophy": {
+    "t": "伊斯兰哲学",
+    "e": "标准的西方哲学史叙事给伊斯兰哲学分配了一个角色：保存者与传递者。阿拉伯人翻译了希腊典籍，写了一些注疏，然后在十二世纪把亚里士多德还给了欧洲，故事就此结束。",
     "d": "philosophy"
   },
   "/philosophy/schools/legalism": {
@@ -6899,6 +7079,11 @@
     "e": "1958 年，历史学家以赛亚·柏林（Isaiah Berlin，1909—1997）在牛津大学发表就职讲演《自由的两个概念》（\"Two Concepts of Liberty\"），区分了政治思…",
     "d": "political-science"
   },
+  "/political-science/concepts/modernization-theory": {
+    "t": "现代化理论：一条被现实反复绕开的单行道",
+    "e": "1960 年，罗斯托出版《经济增长的阶段》，副标题是\"非共产党宣言\"。他提出所有社会都沿同一条路径前进：传统社会 → 起飞前提条件 → 起飞 → 走向成熟 → 高额群众消费。",
+    "d": "political-science"
+  },
   "/political-science/concepts/nation-and-nationalism": {
     "t": "民族与民族主义",
     "e": "1882 年，法国哲学家欧内斯特·勒南（Ernest Renan，1823—1892）在巴黎索邦大学发表了题为《民族是什么？》（\"Qu'est-ce qu'une nation?\"）的演讲。他…",
@@ -7314,6 +7499,11 @@
     "e": "\"你是哪里人？\"据说，当第欧根尼（Diogenes of Sinope，约前 412—前 323）被人这样问及时，他回答：\"我是世界公民（kosmopolités）。\"这位享誉古代的犬儒学派哲…",
     "d": "political-science"
   },
+  "/political-science/isms/end-of-history": {
+    "t": "历史终结论",
+    "e": "1989 年夏天，柏林墙倒塌前几个月，一篇题为《历史的终结？》的文章在小刊物《国家利益》上发表。作者福山时任美国国务院政策规划室副主任。",
+    "d": "political-science"
+  },
   "/political-science/isms/fascism": {
     "t": "法西斯主义",
     "e": "1922 年 10 月，贝尼托·墨索里尼（Benito Mussolini）率领其黑衫军向罗马进军。意大利国王维托里奥·埃马努埃莱三世拒绝宣布戒严，随后邀请墨索里尼组阁。这场几乎未流血的夺权，…",
@@ -7669,6 +7859,11 @@
     "e": "意识的困难问题（Hard Problem of Consciousness）由哲学家大卫·查尔默斯于1995年提出，",
     "d": "psychology"
   },
+  "/psychology/debates/emotion-universality-debate": {
+    "t": "情绪普遍性之争",
+    "e": "一张照片：眉毛上扬、眼睛睁大、嘴巴张开。这个人在害怕吗？",
+    "d": "psychology"
+  },
   "/psychology/debates/free-will-debate": {
     "t": "自由意志存在吗",
     "e": "自由意志问题是哲学和心理学中最深刻的问题之一：人类是否真的拥有自主选择的能力，",
@@ -7682,6 +7877,16 @@
   "/psychology/debates/nature-vs-nurture": {
     "t": "先天vs后天之争",
     "e": "先天与后天之争是心理学史上最持久、最根本的争论之一。它探讨的核心问题是：",
+    "d": "psychology"
+  },
+  "/psychology/debates/neuromyths-in-education": {
+    "t": "教育神经神话：为什么最好用的说法往往没有证据",
+    "e": "去问一位中小学教师：\"学生有不同的学习风格，有人是视觉型，有人是听觉型，教学应当匹配他们的风格。\"这句话对不对？",
+    "d": "psychology"
+  },
+  "/psychology/debates/phrenology-and-localization": {
+    "t": "颅相学之争：错的方法，对的直觉",
+    "e": "十九世纪前半叶，欧洲和美国的中产阶级家庭里出现了一种新服务：让人摸你的头。",
     "d": "psychology"
   },
   "/psychology/debates/psychoanalysis-efficacy": {
@@ -7964,6 +8169,11 @@
     "e": "2006 年，约翰斯·霍普金斯大学的 Roland Griffiths 团队在《精神药理学》期刊发表了一项小型但引人注目的研究：给予受过适当筛选的健康志愿者单次高剂量裸盖菇素（psilocyb…",
     "d": "psychology"
   },
+  "/psychology/frontier/psychopathology-network-theory": {
+    "t": "精神病理的网络理论：症状之间，而非症状背后",
+    "e": "精神医学的诊断手册建立在一个几乎从未被明说的假设上：症状是疾病的表现，疾病是症状的原因。",
+    "d": "psychology"
+  },
   "/psychology/frontier/replication-crisis-open-science": {
     "t": "复制危机之后：开放科学如何重塑心理学",
     "e": "2011 年，心理学史上最奇特的一篇论文被接受发表在顶级期刊《人格与社会心理学杂志》。作者 Daryl Bem 报告了支持\"未来事件反向影响当前认知\"的统计结果——例如，被试在刺激由计算机随机…",
@@ -7984,9 +8194,19 @@
     "e": "青少年使用社交媒体的时间越长，抑郁得分越高。这可能表示社交媒体增加心理风险，也可能是情绪低落者更常转向线上互动，或家庭压力同时影响两者。",
     "d": "psychology"
   },
+  "/psychology/methods/computational-modeling-of-cognition": {
+    "t": "认知的计算建模",
+    "e": "心理学有一类反复出现的困境：两个理论用文字表述时都说得通，也都与数据一致，但它们其实是不同的理论。",
+    "d": "psychology"
+  },
   "/psychology/methods/digital-phenotyping-computational-ethics": {
     "t": "数字表型、计算方法与研究伦理",
     "e": "智能手机与可穿戴设备可以记录步数、位置变化、屏幕使用、睡眠代理、打字节律和交流频率。研究者希望从这些高频行为痕迹中理解情绪、认知、社会互动和精神健康变化。",
+    "d": "psychology"
+  },
+  "/psychology/methods/experience-sampling-and-ema": {
+    "t": "经验取样与生态瞬时评估",
+    "e": "心理学有一个长期被容忍的方法论缺陷：它主要研究人们对自己心理生活的回忆，而不是心理生活本身。",
     "d": "psychology"
   },
   "/psychology/methods/longitudinal-multilevel-models": {
@@ -8004,9 +8224,24 @@
     "e": "同一个心理干预，有的研究报告显著有效，有的没有发现差异，还有的发现效果只存在于特定人群。面对分散甚至冲突的结果，元分析试图把可比较的效应放到共同尺度上，估计总体模式及其不确定性。",
     "d": "psychology"
   },
+  "/psychology/methods/neuroimaging-methods-and-their-limits": {
+    "t": "神经影像方法及其限度",
+    "e": "功能磁共振成像给了心理学一件它渴望了一个世纪的东西：看见活着的、正在思考的大脑。",
+    "d": "psychology"
+  },
   "/psychology/methods/preregistration-registered-reports": {
     "t": "预注册、注册报告与开放科学",
     "e": "研究者面对一份复杂数据，可以选择排除哪些参与者、如何转换变量、控制哪些协变量、测试哪些结局。许多选择都有合理理由，但组合起来会形成巨大的分析空间。",
+    "d": "psychology"
+  },
+  "/psychology/methods/psychophysics-and-signal-detection": {
+    "t": "心理物理学与信号检测论",
+    "e": "心理学作为一门实验科学的起点，不是意识，不是本能，而是一个极其朴素的问题：外部世界的物理量变化多少，人才能察觉？",
+    "d": "psychology"
+  },
+  "/psychology/methods/weird-samples-and-generalizability": {
+    "t": "WEIRD 样本与可推广性",
+    "e": "心理学教科书里的句子几乎总是无主语的：\"人在做决策时会……\"\"人们倾向于……\"",
     "d": "psychology"
   },
   "/psychology/phenomena/anchoring-bias": {
@@ -8609,9 +8844,19 @@
     "e": "第一个误解，是把 STS 当成\"反科学\"的大本营。这个印象多半来自 1990 年代\"科学大战\"的争吵，但它弄错了对象：STS 研究科学，正如政治学研究政治——研究一个制度如何运作，不等于要拆毁…",
     "d": "sociology"
   },
+  "/sociology/concepts/secularization-thesis": {
+    "t": "世俗化理论：一个被作者自己撤回的预测",
+    "e": "二十世纪的社会学有一条近乎共识的预测：现代化会带来世俗化。 随着工业化、城市化、教育普及与科学理性的扩张，宗教将退出公共生活，退回私人领域，最终衰亡。",
+    "d": "sociology"
+  },
   "/sociology/concepts/social-capital": {
     "t": "社会资本",
     "e": "社会资本经常被通俗地理解成\"人脉\"，仿佛它只是认识更多人、方便办事。这种理解太窄，也容易把一个社会学概念变成成功学。社会资本真正关心的是：关系、信任、规范和网络如何成为行动资源。",
+    "d": "sociology"
+  },
+  "/sociology/concepts/social-darwinism-and-eugenics": {
+    "t": "社会达尔文主义与优生学：一套披着科学外衣的社会安排",
+    "e": "十九世纪末到二十世纪中叶，一套主张在西方世界获得了近乎共识的地位：人类的社会地位差异反映生物学上的适应性差异，因此帮助弱者违背自然规律，而通过控制生育改良人口是理性的公共政策。",
     "d": "sociology"
   },
   "/sociology/concepts/social-movements": {
@@ -9119,6 +9364,11 @@
     "e": "这四颗行星的共同起源，以及为什么唯有地球发展出了适合生命生存的条件，是行星科学和天体生物学最核心的问题。",
     "d": "cosmology"
   },
+  "/cosmology/knowledge-base/太阳系--火神星": {
+    "t": "火神星：同一种方法，两种结局",
+    "e": "1846 年 9 月 23 日晚，柏林天文台的加勒把望远镜对准勒维耶用笔算出来的天区，一小时内找到了海王星。这是牛顿力学最辉煌的一刻：天王星轨道的异常被归因于一颗未知行星，而那颗行星就在预言的…",
+    "d": "cosmology"
+  },
   "/cosmology/knowledge-base/宇宙大尺度结构": {
     "t": "宇宙大尺度结构",
     "e": "在百万光年以上的尺度上，宇宙并非均匀的海洋，而是呈现出由纤维状结构、巨大空洞和节点组成的宇宙网（cosmic web）。这一壮观的大尺度结构是宇宙138亿年演化的产物——从大爆炸后几乎均匀的微…",
@@ -9267,6 +9517,11 @@
   "/cosmology/knowledge-base/宇宙学基础--物质反物质不对称与重子生成": {
     "t": "物质-反物质不对称与重子生成",
     "e": "你、地球、太阳、所有星系——一切都由物质构成，几乎找不到反物质的踪影。这听起来理所当然，却隐藏着粒子物理与宇宙学最深的未解之谜之一。",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学基础--稳恒态宇宙": {
+    "t": "稳恒态宇宙：输得最体面的理论",
+    "e": "1949 年，弗雷德·霍伊尔在 BBC 广播里谈到一种他不接受的宇宙模型——所有物质在过去某一刻从一次爆发中产生。他用了\"big bang\"这个词。",
     "d": "cosmology"
   },
   "/cosmology/knowledge-base/宇宙学基础--第一代恒星PopulationIII": {
@@ -10274,6 +10529,11 @@
     "e": "女性主义; 女权; 沃斯通克拉夫特; 波伏娃; 选举权; 性别平等; 父权制; #MeToo",
     "d": "human-history"
   },
+  "/human-history/knowledge/思想史--水利社会论": {
+    "t": "水利社会论",
+    "e": "水利社会; 东方专制主义; 魏特夫; 亚细亚生产方式; 灌溉农业; 官僚制; 冷战史学; 环境决定论; 反例检验; 因果倒置",
+    "d": "human-history"
+  },
   "/human-history/knowledge/思想史--环保主义": {
     "t": "环保主义",
     "e": "环保主义; 蕾切尔·卡逊; 气候变化; 生态; 可持续发展; DDT; 臭氧层; 巴黎协定; 碳排放",
@@ -10282,6 +10542,11 @@
   "/human-history/knowledge/思想史--马克思主义": {
     "t": "马克思主义",
     "e": "马克思主义; 马克思; 恩格斯; 资本论; 共产党宣言; 阶级斗争; 唯物史观; 剩余价值; 社会主义; 共产主义",
+    "d": "human-history"
+  },
+  "/human-history/knowledge/思想史--黑暗时代": {
+    "t": "黑暗时代：一个被史学界废弃的分期",
+    "e": "黑暗时代; 彼特拉克; 分期; 文艺复兴叙事; 中世纪盛期; 加洛林文艺复兴; 十二世纪文艺复兴; 史学修正; 自我命名; 术语的政治",
     "d": "human-history"
   },
   "/human-history/knowledge/文化交流--丝绸之路上的文化融合": {
@@ -10623,6 +10888,16 @@
     "t": "桑海帝国",
     "e": "提到 15、16 世纪的非洲，常见的印象是\"原始\"\"无文字\"\"停留在部落阶段\"。",
     "d": "human-history"
+  },
+  "/life-science/knowledge-base/lamarckism-and-its-afterlives": {
+    "t": "拉马克主义：三次死亡与一次不完全的返魂",
+    "e": "流行的答案说：拉马克认为长颈鹿伸长脖子够高处的树叶，脖子被用长了，然后把长脖子传给后代；达尔文认为脖子长的个体更容易活下来，于是长脖子的基因扩散。前者错，后者对。",
+    "d": "life-science"
+  },
+  "/life-science/knowledge-base/spontaneous-generation": {
+    "t": "自然发生说：两千年、三轮实验、一场被操纵的评奖",
+    "e": "肉放久了会长蛆，谷物堆里会出现老鼠，泥水里会冒出微小的活物。",
+    "d": "life-science"
   },
   "/life-science/knowledge-base/人体--DNA与遗传": {
     "t": "DNA与遗传：双螺旋、基因表达与表观遗传",
@@ -11484,6 +11759,11 @@
     "e": "热传导; 傅里叶定律; 热导率; 对流; 牛顿冷却定律; 热辐射; 黑体; 斯特藩-玻尔兹曼定律; 维恩位移; 热阻; 温室效应",
     "d": "universe-physics"
   },
+  "/universe-physics/knowledge-base/热力学--热质说的兴衰": {
+    "t": "热质说的兴衰",
+    "e": "热质; 卡路里; 伦福德钻炮膛实验; 焦耳当量; 热功当量; 卡诺循环; 能量守恒; 熵; 错误前提正确结论; 科学史",
+    "d": "universe-physics"
+  },
   "/universe-physics/knowledge-base/热力学--熵与时间之箭": {
     "t": "熵与时间之箭",
     "e": "熵; 热力学第二定律; 时间之箭; 玻尔兹曼; 香农; 信息熵; 退化; 可逆性; 涨落; 麦克斯韦妖",
@@ -11822,6 +12102,11 @@
   "/universe-physics/knowledge-base/经典物理--万有引力与开普勒定律": {
     "t": "万有引力与开普勒定律",
     "e": "万有引力定律; 开普勒三定律; 椭圆轨道; 引力常数G; 卡文迪许实验; 逃逸速度; 拉格朗日点; 潮汐力; 开尔文时间; 广义相对论修正",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/经典物理--以太的兴衰": {
+    "t": "以太的兴衰",
+    "e": "发光以太; 迈克尔逊-莫雷实验; 零结果; 以太漂移; 洛伦兹-菲茨杰拉德收缩; 洛伦兹变换; 参考系; 狭义相对论; 辅助假设; 判决性实验",
     "d": "universe-physics"
   },
   "/universe-physics/knowledge-base/经典物理--声学与多普勒效应": {

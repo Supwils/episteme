@@ -361,8 +361,27 @@ export const LAW_NODES: GraphNode[] = [
     evidenceMode: "comparative",
     prerequisiteIds: ["law:international-law", "law:human-rights-law"],
   }),
+  n({
+    slug: "separate-but-equal",
+    label: "「分离但平等」",
+    section: "public-law",
+    description: "一条存续五十八年后被推翻的宪法学说：形式对称如何掩盖实质不平等。",
+    tags: ["分离但平等", "普莱西案", "布朗案"],
+    knowledgeLevel: 3,
+    evidenceMode: "interpretation",
+    prerequisiteIds: ["law:fundamental-rights", "law:constitution-what-it-does"],
+  }),
+  n({
+    slug: "lochner-era-freedom-of-contract",
+    label: "洛克纳时代与契约自由",
+    section: "public-law",
+    description: "被法院从正当程序条款中读出的经济自由，及其三十余年后的整体放弃。",
+    tags: ["洛克纳时代", "实体性正当程序", "司法能动"],
+    knowledgeLevel: 4,
+    evidenceMode: "interpretation",
+    prerequisiteIds: ["law:constitutional-review", "law:fundamental-rights"],
+  }),
 ];
-
 const e = (
   source: string,
   target: string,
@@ -447,5 +466,14 @@ export const LAW_EDGES: GraphEdge[] = [
     "sociology:deviance-and-social-control",
     "惩罚的社会功能",
     "domain-link"
+  ),
+  e("fundamental-rights", "separate-but-equal", "平等保护条款的两次相反解释"),
+  e("constitutional-review", "separate-but-equal", "判例推翻的机制"),
+  e("constitutional-review", "lochner-era-freedom-of-contract", "反多数难题的历史样本"),
+  e(
+    "separate-but-equal",
+    "lochner-era-freedom-of-contract",
+    "同一时期两条被推翻的学说",
+    "cross-reference"
   ),
 ];

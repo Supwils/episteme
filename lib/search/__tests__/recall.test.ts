@@ -103,3 +103,32 @@ describe("search behaviour", () => {
     expect(lower).toEqual(upper);
   });
 });
+
+/**
+ * Tier 1 is fetched whole into a Worker under a hard size budget, so each
+ * article's contribution has to be bounded or the artifact grows with prose
+ * length instead of document count. Two rules do that (see gen-search-index.ts):
+ * structural headings are dropped by document frequency, and what survives is
+ * truncated to a character budget.
+ *
+ * Both are invisible at runtime — reverting them would pass every other test
+ * while quietly pushing the artifact back over budget, so they are pinned here.
+ */
+describe("tier-1 heading budget", () => {
+  const STRUCTURAL_HEADINGS = ["跨域连接", "参考文献", "延伸阅读"];
+
+  it("does not index the structural headings every article repeats", () => {
+    // These appear in ~2300 articles. Indexed, each one matched almost the whole
+    // corpus — noise, not recall. A handful of hits may survive via titles that
+    // genuinely contain the phrase; thousands mean the stopword cut is gone.
+    for (const heading of STRUCTURAL_HEADINGS) {
+      expect(engine.search(heading, 500).length, heading).toBeLessThan(50);
+    }
+  });
+
+  it("still answers a real section topic instantly", () => {
+    // The budget keeps early, substantive headings — the ones that make an
+    // article findable by what it actually covers while the reader types.
+    expect(engine.search("破除误解 量子", 20).length).toBeGreaterThan(0);
+  });
+});

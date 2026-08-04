@@ -280,6 +280,13 @@ export const CONCEPTS = [
     key_figures: ["Kang Youwei", "Liang Qichao", "Yan Fu", "Zhang Taiyan", "Hu Shi", "Lu Xun"],
   },
   {
+    slug: "moral-luck",
+    title: "道德运气",
+    title_en: "Moral Luck",
+    field: "伦理学 / 行动哲学",
+    key_figures: ["kant", "Bernard Williams", "Thomas Nagel", "Michael Zimmerman", "Susan Wolf"],
+  },
+  {
     slug: "other",
     title: "他者",
     title_en: "The Other",
@@ -357,6 +364,13 @@ export const CONCEPTS = [
     key_figures: ["Aristotle", "Barry Schwartz", "Bent Flyvbjerg"],
   },
   {
+    slug: "psychologism",
+    title: "心理主义",
+    title_en: "Psychologism",
+    field: "逻辑哲学 / 认识论",
+    key_figures: ["frege", "husserl", "mill", "kant", "wittgenstein"],
+  },
+  {
     slug: "qi",
     title: "气",
     title_en: "Vital Force / Qi",
@@ -397,6 +411,13 @@ export const CONCEPTS = [
     title_en: "Rights",
     field: "政治哲学",
     key_figures: ["locke", "kant", "nozick", "dworkin"],
+  },
+  {
+    slug: "sense-data",
+    title: "感觉材料",
+    title_en: "Sense-Data",
+    field: "知觉哲学 / 认识论",
+    key_figures: ["russell", "moore", "ayer", "austin", "sellars"],
   },
   {
     slug: "skepticism",

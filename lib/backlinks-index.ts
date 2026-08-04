@@ -17,6 +17,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/engineering/civil/bridges",
       title: "桥梁：受力路径、风与美学",
     },
+    {
+      url: "/arts/aesthetics/art-as-progress",
+      title: "艺术进步论：一条被艺术自己走废的单行道",
+    },
+  ],
+  "/arts/aesthetics/art-as-progress": [
+    {
+      url: "/human-history/knowledge/思想史--黑暗时代",
+      title: "黑暗时代：一个被史学界废弃的分期",
+    },
+  ],
+  "/arts/aesthetics/museums-and-display": [
+    {
+      url: "/arts/aesthetics/art-as-progress",
+      title: "艺术进步论：一条被艺术自己走废的单行道",
+    },
   ],
   "/arts/aesthetics/what-is-beauty": [
     {
@@ -34,6 +50,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/traditions/japanese-ukiyoe",
       title: "浮世绘与江户视觉文化：木版上的浮生",
+    },
+  ],
+  "/arts/methods/formal-analysis": [
+    {
+      url: "/arts/aesthetics/art-as-progress",
+      title: "艺术进步论：一条被艺术自己走废的单行道",
     },
   ],
   "/chemistry/concepts/acids-and-bases": [
@@ -2252,6 +2274,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "合成染料工业（1856）",
     },
     {
+      url: "/economics/case-studies/malthusian-trap-and-its-escape",
+      title: "马尔萨斯陷阱：一个严密推理为何败给了历史",
+    },
+    {
       url: "/life-science/knowledge-base/生态学--农业生态",
       title: "农业生态：从野生植物到现代粮食系统",
     },
@@ -2268,6 +2294,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/milestones/daltons-atomic-theory",
       title: "道尔顿原子论（1808）",
+    },
+    {
+      url: "/chemistry/milestones/vitalism-and-its-long-death",
+      title: "活力论的漫长死亡（1828—1900）",
     },
     {
       url: "/chemistry/milestones/mendeleev-periodic-law",
@@ -2326,6 +2356,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/milestones/synthetic-dyes-industry",
       title: "合成染料工业（1856）",
+    },
+  ],
+  "/chemistry/milestones/vitalism-and-its-long-death": [
+    {
+      url: "/chemistry/milestones/polywater-and-pathological-science",
+      title: "聚合水与病态科学（1962—1973）",
+    },
+    {
+      url: "/universe-physics/knowledge-base/热力学--热质说的兴衰",
+      title: "热质说的兴衰",
+    },
+    {
+      url: "/life-science/knowledge-base/spontaneous-generation",
+      title: "自然发生说：两千年、三轮实验、一场被操纵的评奖",
     },
   ],
   "/chemistry/reactions/acid-base-neutralization": [
@@ -2470,6 +2514,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "肝硬化与慢性肝病",
     },
     {
+      url: "/chemistry/milestones/vitalism-and-its-long-death",
+      title: "活力论的漫长死亡（1828—1900）",
+    },
+    {
       url: "/medicine/concepts/antibiotic-resistance",
       title: "抗生素耐药性",
     },
@@ -2538,6 +2586,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/milestones/synthetic-dyes-industry",
       title: "合成染料工业（1856）",
+    },
+    {
+      url: "/chemistry/milestones/vitalism-and-its-long-death",
+      title: "活力论的漫长死亡（1828—1900）",
     },
   ],
   "/chemistry/reactions/photosynthesis": [
@@ -2904,6 +2956,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "彗星",
     },
     {
+      url: "/chemistry/milestones/polywater-and-pathological-science",
+      title: "聚合水与病态科学（1962—1973）",
+    },
+    {
       url: "/chemistry/concepts/solutions-and-solubility",
       title: "溶液与溶解度",
     },
@@ -2942,6 +2998,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "图论应用",
     },
   ],
+  "/computer-science/algorithms/approximate-nearest-neighbor-search": [
+    {
+      url: "/computer-science/frontier/retrieval-augmented-generation-and-agents",
+      title: "检索增强与智能体：把语言模型接到世界上",
+    },
+  ],
   "/computer-science/algorithms/attention-and-transformers": [
     {
       url: "/psychology/phenomena/change-blindness",
@@ -2962,6 +3024,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/methods-and-frontiers/computational-linguistics",
       title: "计算语言学与自然语言处理",
+    },
+    {
+      url: "/computer-science/frontier/retrieval-augmented-generation-and-agents",
+      title: "检索增强与智能体：把语言模型接到世界上",
     },
     {
       url: "/philosophy/isms/structuralism-ism",
@@ -3258,6 +3324,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "导数",
     },
     {
+      url: "/computer-science/concepts/perceptron-and-the-ai-winter",
+      title: "感知机与第一次 AI 寒冬",
+    },
+    {
       url: "/computer-science/algorithms/newtons-method-numerical",
       title: "牛顿法与数值求解",
     },
@@ -3302,6 +3372,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/algorithms/binary-search",
       title: "二分查找",
+    },
+    {
+      url: "/computer-science/algorithms/approximate-nearest-neighbor-search",
+      title: "近似最近邻搜索",
     },
     {
       url: "/philosophy/experiments/ship-of-theseus",
@@ -3612,6 +3686,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "恒星金属丰度与化学演化",
     },
     {
+      url: "/computer-science/algorithms/approximate-nearest-neighbor-search",
+      title: "近似最近邻搜索",
+    },
+    {
       url: "/mathematics/mathematicians/riemann",
       title: "黎曼",
     },
@@ -3648,6 +3726,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/algorithms/knapsack-problem",
       title: "背包问题",
+    },
+    {
+      url: "/computer-science/frontier/post-quantum-cryptography",
+      title: "后量子密码：在机器造出来之前更换全世界的锁",
     },
     {
       url: "/computer-science/frontier/quantum-algorithms",
@@ -4069,6 +4151,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/computer-science/concepts/load-balancing",
       title: "负载均衡",
     },
+    {
+      url: "/computer-science/theory/online-algorithms-and-competitive-analysis",
+      title: "在线算法与竞争分析",
+    },
+  ],
+  "/computer-science/concepts/cloud-computing": [
+    {
+      url: "/computer-science/frontier/confidential-computing-and-tees",
+      title: "机密计算：把信任从运维手里收回硬件",
+    },
   ],
   "/computer-science/concepts/compilers": [
     {
@@ -4124,6 +4216,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/leibniz",
       title: "莱布尼茨",
+    },
+    {
+      url: "/computer-science/frontier/neuromorphic-and-beyond-cmos-computing",
+      title: "神经形态与后 CMOS 计算：当搬运数据比计算更贵",
     },
     {
       url: "/mathematics/concepts/numerical-methods",
@@ -4184,6 +4280,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/algorithms/hashing",
       title: "哈希",
+    },
+    {
+      url: "/computer-science/frontier/confidential-computing-and-tees",
+      title: "机密计算：把信任从运维手里收回硬件",
+    },
+    {
+      url: "/computer-science/frontier/retrieval-augmented-generation-and-agents",
+      title: "检索增强与智能体：把语言模型接到世界上",
     },
     {
       url: "/economics/case-studies/us-fiscal-path-treasury-market-2026",
@@ -4296,6 +4400,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "情绪理论",
     },
     {
+      url: "/psychology/debates/emotion-universality-debate",
+      title: "情绪普遍性之争",
+    },
+    {
       url: "/cosmology/knowledge-base/宇宙学观测--弱引力透镜与宇宙剪切",
       title: "弱引力透镜与宇宙剪切",
     },
@@ -4330,6 +4438,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/experiments/simons-levin-1998",
       title: "西蒙斯变化盲视实验",
+    },
+    {
+      url: "/psychology/methods/psychophysics-and-signal-detection",
+      title: "心理物理学与信号检测论",
     },
     {
       url: "/life-science/knowledge-base/进化专题--眼睛的进化",
@@ -4624,6 +4736,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "后凯恩斯学派",
     },
     {
+      url: "/computer-science/frontier/confidential-computing-and-tees",
+      title: "机密计算：把信任从运维手里收回硬件",
+    },
+    {
       url: "/computer-science/theory/error-correcting-codes",
       title: "纠错码理论",
     },
@@ -4714,6 +4830,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/diseases/parkinsons-disease",
       title: "帕金森病",
+    },
+    {
+      url: "/computer-science/frontier/neuromorphic-and-beyond-cmos-computing",
+      title: "神经形态与后 CMOS 计算：当搬运数据比计算更贵",
     },
     {
       url: "/computer-science/pioneers/steve-wozniak",
@@ -4820,6 +4940,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "排序算法",
     },
     {
+      url: "/psychology/methods/computational-modeling-of-cognition",
+      title: "认知的计算建模",
+    },
+    {
       url: "/computer-science/concepts/software-testing",
       title: "软件测试",
     },
@@ -4850,6 +4974,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/concepts/falsification",
       title: "证伪",
+    },
+    {
+      url: "/computer-science/concepts/expert-systems-and-the-second-ai-winter",
+      title: "专家系统与第二次 AI 寒冬",
     },
     {
       url: "/computer-science/theory/automata-formal-languages",
@@ -4892,6 +5020,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/deep-learning-architectures",
       title: "深度学习架构",
+    },
+    {
+      url: "/computer-science/frontier/neuromorphic-and-beyond-cmos-computing",
+      title: "神经形态与后 CMOS 计算：当搬运数据比计算更贵",
     },
     {
       url: "/mathematics/concepts/numerical-linear-algebra",
@@ -4986,6 +5118,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "怀疑论",
     },
     {
+      url: "/computer-science/frontier/retrieval-augmented-generation-and-agents",
+      title: "检索增强与智能体：把语言模型接到世界上",
+    },
+    {
+      url: "/computer-science/algorithms/approximate-nearest-neighbor-search",
+      title: "近似最近邻搜索",
+    },
+    {
       url: "/economics/economists/kenneth-arrow",
       title: "肯尼斯·阿罗",
     },
@@ -5042,6 +5182,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/dns",
       title: "DNS：互联网的命名系统",
+    },
+  ],
+  "/computer-science/concepts/logic-programming": [
+    {
+      url: "/computer-science/concepts/expert-systems-and-the-second-ai-winter",
+      title: "专家系统与第二次 AI 寒冬",
     },
   ],
   "/computer-science/concepts/machine-learning-overview": [
@@ -5238,6 +5384,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "神经可塑性",
     },
     {
+      url: "/psychology/methods/neuroimaging-methods-and-their-limits",
+      title: "神经影像方法及其限度",
+    },
+    {
       url: "/philosophy/concepts/practical-wisdom",
       title: "实践智慧",
     },
@@ -5276,6 +5426,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/sociology/methods/statistical-modeling",
       title: "统计模型",
+    },
+    {
+      url: "/computer-science/theory/statistical-learning-theory-pac",
+      title: "统计学习理论与 PAC 学习",
     },
     {
       url: "/mathematics/concepts/differential-geometry",
@@ -5356,6 +5510,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/knowledge-base/intelligence-theories",
       title: "智力理论：一个数字能装下一个人吗",
+    },
+    {
+      url: "/computer-science/concepts/expert-systems-and-the-second-ai-winter",
+      title: "专家系统与第二次 AI 寒冬",
     },
     {
       url: "/engineering/machines/automation-and-industry",
@@ -5594,6 +5752,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "弗里德里希·哈耶克",
     },
     {
+      url: "/computer-science/concepts/perceptron-and-the-ai-winter",
+      title: "感知机与第一次 AI 寒冬",
+    },
+    {
       url: "/mathematics/concepts/function",
       title: "函数",
     },
@@ -5608,6 +5770,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/nervous-system",
       title: "神经系统",
+    },
+    {
+      url: "/computer-science/frontier/neuromorphic-and-beyond-cmos-computing",
+      title: "神经形态与后 CMOS 计算：当搬运数据比计算更贵",
     },
     {
       url: "/life-science/species/neuron",
@@ -5688,6 +5854,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "虚拟化与容器",
     },
   ],
+  "/computer-science/concepts/perceptron-and-the-ai-winter": [
+    {
+      url: "/computer-science/concepts/expert-systems-and-the-second-ai-winter",
+      title: "专家系统与第二次 AI 寒冬",
+    },
+  ],
   "/computer-science/concepts/privacy-engineering": [
     {
       url: "/computer-science/algorithms/bloom-filter",
@@ -5700,6 +5872,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/concepts/citizenship-rights",
       title: "公民身份与权利",
+    },
+    {
+      url: "/computer-science/frontier/confidential-computing-and-tees",
+      title: "机密计算：把信任从运维手里收回硬件",
     },
     {
       url: "/medicine/ethics/genetic-testing-and-privacy",
@@ -5720,6 +5896,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/authentication-authorization",
       title: "身份验证与授权",
+    },
+    {
+      url: "/philosophy/frontier/neuroethics-and-mental-privacy",
+      title: "神经伦理与心理隐私：思想还是最后的私域吗",
     },
     {
       url: "/philosophy/concepts/digital-ethics",
@@ -5784,6 +5964,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/concepts/price-formation",
       title: "价格形成机制",
+    },
+    {
+      url: "/psychology/methods/experience-sampling-and-ema",
+      title: "经验取样与生态瞬时评估",
     },
     {
       url: "/mathematics/concepts/control-theory",
@@ -6148,6 +6332,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "约翰·杜威",
     },
     {
+      url: "/computer-science/theory/online-algorithms-and-competitive-analysis",
+      title: "在线算法与竞争分析",
+    },
+    {
       url: "/psychology/theorists/b-f-skinner",
       title: "B·F·斯金纳",
     },
@@ -6190,6 +6378,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/international-relations/nuclear-proliferation",
       title: "核扩散",
+    },
+    {
+      url: "/computer-science/frontier/post-quantum-cryptography",
+      title: "后量子密码：在机器造出来之前更换全世界的锁",
     },
     {
       url: "/computer-science/concepts/computer-security-principles",
@@ -6348,6 +6540,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/case-studies/dot-com-bubble",
       title: "互联网泡沫",
+    },
+    {
+      url: "/philosophy/frontier/epistemic-crisis-testimony-and-deepfakes",
+      title: "认识论危机：当眼见不再为实",
     },
     {
       url: "/human-history/knowledge/当代--数字革命与互联网",
@@ -6658,6 +6854,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "假自体",
     },
     {
+      url: "/computer-science/frontier/retrieval-augmented-generation-and-agents",
+      title: "检索增强与智能体：把语言模型接到世界上",
+    },
+    {
       url: "/psychology/knowledge-base/educational-psychology",
       title: "教育心理学：学习如何被教学优化",
     },
@@ -6890,6 +7090,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "中文房间",
     },
     {
+      url: "/computer-science/concepts/expert-systems-and-the-second-ai-winter",
+      title: "专家系统与第二次 AI 寒冬",
+    },
+    {
       url: "/psychology/experiments/free-association",
       title: "自由联想",
     },
@@ -6899,6 +7103,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/computer-science/frontier/quantum-algorithms": [
+    {
+      url: "/computer-science/frontier/post-quantum-cryptography",
+      title: "后量子密码：在机器造出来之前更换全世界的锁",
+    },
     {
       url: "/chemistry/concepts/bonding-theory",
       title: "价键理论与分子轨道理论",
@@ -6910,6 +7118,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/algorithms/public-key-rsa",
       title: "RSA 公钥密码",
+    },
+  ],
+  "/computer-science/frontier/retrieval-augmented-generation-and-agents": [
+    {
+      url: "/computer-science/algorithms/approximate-nearest-neighbor-search",
+      title: "近似最近邻搜索",
     },
   ],
   "/computer-science/frontier/zero-knowledge-proofs": [
@@ -6994,6 +7208,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "时间哲学",
     },
   ],
+  "/computer-science/pioneers/marvin-minsky": [
+    {
+      url: "/computer-science/concepts/perceptron-and-the-ai-winter",
+      title: "感知机与第一次 AI 寒冬",
+    },
+  ],
   "/computer-science/theory/algorithmic-game-theory": [
     {
       url: "/economics/theories/game-theory-basics",
@@ -7052,6 +7272,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/theory/computational-complexity",
       title: "计算复杂性理论",
+    },
+    {
+      url: "/computer-science/theory/online-algorithms-and-competitive-analysis",
+      title: "在线算法与竞争分析",
     },
   ],
   "/computer-science/theory/automata-formal-languages": [
@@ -7208,6 +7432,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "算法博弈论",
     },
     {
+      url: "/computer-science/theory/statistical-learning-theory-pac",
+      title: "统计学习理论与 PAC 学习",
+    },
+    {
       url: "/earth-science/pioneers/vilhelm-bjerknes",
       title: "威廉·皮叶克尼斯",
     },
@@ -7232,6 +7460,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/theorems/green-theorem",
       title: "格林定理",
+    },
+    {
+      url: "/computer-science/algorithms/approximate-nearest-neighbor-search",
+      title: "近似最近邻搜索",
     },
     {
       url: "/mathematics/concepts/euclidean-geometry",
@@ -7272,8 +7504,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "光纤与全内反射",
     },
     {
+      url: "/computer-science/frontier/post-quantum-cryptography",
+      title: "后量子密码：在机器造出来之前更换全世界的锁",
+    },
+    {
       url: "/mathematics/concepts/ring",
       title: "环",
+    },
+    {
+      url: "/computer-science/frontier/confidential-computing-and-tees",
+      title: "机密计算：把信任从运维手里收回硬件",
     },
     {
       url: "/mathematics/concepts/complexity",
@@ -7390,6 +7630,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/黑洞热力学与霍金辐射",
       title: "黑洞热力学与霍金辐射",
+    },
+    {
+      url: "/computer-science/frontier/post-quantum-cryptography",
+      title: "后量子密码：在机器造出来之前更换全世界的锁",
     },
     {
       url: "/philosophy/concepts/skepticism",
@@ -7814,6 +8058,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "人工智能哲学",
     },
     {
+      url: "/computer-science/theory/statistical-learning-theory-pac",
+      title: "统计学习理论与 PAC 学习",
+    },
+    {
       url: "/philosophy/concepts/information-philosophy",
       title: "信息哲学",
     },
@@ -8058,8 +8306,38 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "蒙特卡洛方法",
     },
     {
+      url: "/computer-science/theory/statistical-learning-theory-pac",
+      title: "统计学习理论与 PAC 学习",
+    },
+    {
+      url: "/computer-science/theory/online-algorithms-and-competitive-analysis",
+      title: "在线算法与竞争分析",
+    },
+    {
       url: "/computer-science/algorithms/public-key-rsa",
       title: "RSA 公钥密码",
+    },
+  ],
+  "/computer-science/theory/statistical-learning-theory-pac": [
+    {
+      url: "/computer-science/concepts/perceptron-and-the-ai-winter",
+      title: "感知机与第一次 AI 寒冬",
+    },
+    {
+      url: "/economics/case-studies/cambridge-capital-controversy",
+      title: "剑桥资本争论：赢了论证，输了教科书",
+    },
+    {
+      url: "/psychology/methods/computational-modeling-of-cognition",
+      title: "认知的计算建模",
+    },
+    {
+      url: "/philosophy/frontier/formal-epistemology-and-bayesianism",
+      title: '形式认识论：把"相信多少"写成数字',
+    },
+    {
+      url: "/psychology/methods/weird-samples-and-generalizability",
+      title: "WEIRD 样本与可推广性",
     },
   ],
   "/cosmology/dialogues/cosmology-crisis": [
@@ -8428,6 +8706,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "太初核合成",
     },
     {
+      url: "/cosmology/knowledge-base/宇宙学基础--稳恒态宇宙",
+      title: "稳恒态宇宙：输得最体面的理论",
+    },
+    {
       url: "/universe-physics/knowledge-base/粒子物理--higgs-mechanism",
       title: "希格斯机制与希格斯玻色子",
     },
@@ -8759,6 +9041,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/cosmology/knowledge-base/宇宙学基础--哈勃张力": [
+    {
+      url: "/cosmology/knowledge-base/太阳系--火神星",
+      title: "火神星：同一种方法，两种结局",
+    },
     {
       url: "/cosmology/knowledge-base/宇宙学观测--天体测量与盖亚卫星",
       title: "天体测量与盖亚卫星",
@@ -9350,6 +9636,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "太初核合成",
     },
     {
+      url: "/cosmology/knowledge-base/宇宙学基础--稳恒态宇宙",
+      title: "稳恒态宇宙：输得最体面的理论",
+    },
+    {
       url: "/cosmology/knowledge-base/cosmic-inflation",
       title: "宇宙暴胀",
     },
@@ -9442,6 +9732,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学基础--太初核合成",
       title: "太初核合成",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--稳恒态宇宙",
+      title: "稳恒态宇宙：输得最体面的理论",
     },
     {
       url: "/universe-physics/knowledge-base/物理学--质能等价",
@@ -10732,6 +11026,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "交叉偶联反应",
     },
     {
+      url: "/earth-science/events/kelvin-and-the-age-of-the-earth",
+      title: "开尔文与地球年龄之争（1862—1904）",
+    },
+    {
       url: "/mathematics/mathematicians/riemann",
       title: "黎曼",
     },
@@ -10942,6 +11240,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/concepts/karst-landforms",
       title: "喀斯特地貌",
+    },
+    {
+      url: "/earth-science/events/kelvin-and-the-age-of-the-earth",
+      title: "开尔文与地球年龄之争（1862—1904）",
     },
     {
       url: "/universe-physics/knowledge-base/量子物理--量子隧穿",
@@ -11376,6 +11678,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "疏散星团",
     },
   ],
+  "/earth-science/concepts/plate-boundaries": [
+    {
+      url: "/earth-science/events/continental-drift-rejected",
+      title: "大陆漂移被拒绝的五十年（1912—1965）",
+    },
+  ],
   "/earth-science/concepts/remote-sensing-and-gis": [
     {
       url: "/economics/economists/arthur-pigou",
@@ -11662,6 +11970,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "古生物学与地层学",
     },
   ],
+  "/earth-science/events/continental-drift-rejected": [
+    {
+      url: "/earth-science/events/kelvin-and-the-age-of-the-earth",
+      title: "开尔文与地球年龄之争（1862—1904）",
+    },
+  ],
   "/earth-science/events/dust-bowl-1930s": [
     {
       url: "/economics/case-studies/great-depression",
@@ -11838,6 +12152,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/economists/kenneth-arrow",
       title: "肯尼斯·阿罗",
+    },
+    {
+      url: "/economics/case-studies/malthusian-trap-and-its-escape",
+      title: "马尔萨斯陷阱：一个严密推理为何败给了历史",
     },
     {
       url: "/economics/frontier/climate-economics-carbon-pricing",
@@ -12120,6 +12438,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/致密天体--magnetar-flares",
       title: "磁星耀发",
+    },
+    {
+      url: "/earth-science/events/continental-drift-rejected",
+      title: "大陆漂移被拒绝的五十年（1912—1965）",
     },
     {
       url: "/universe-physics/knowledge-base/应用物理--地球物理与地震波",
@@ -12542,6 +12864,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "超级地球与迷你海王星",
     },
     {
+      url: "/earth-science/events/continental-drift-rejected",
+      title: "大陆漂移被拒绝的五十年（1912—1965）",
+    },
+    {
       url: "/earth-science/events/great-oxidation-event",
       title: "大氧化事件",
     },
@@ -12924,6 +13250,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "低收入债务国债务重组与发展融资（2026）",
     },
   ],
+  "/economics/case-studies/malthusian-trap-and-its-escape": [
+    {
+      url: "/economics/case-studies/cambridge-capital-controversy",
+      title: "剑桥资本争论：赢了论证，输了教科书",
+    },
+    {
+      url: "/sociology/concepts/social-darwinism-and-eugenics",
+      title: "社会达尔文主义与优生学：一套披着科学外衣的社会安排",
+    },
+  ],
   "/economics/case-studies/us-macro-diagnosis-2026": [
     {
       url: "/economics/case-studies/us-fiscal-path-treasury-market-2026",
@@ -13158,6 +13494,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "社会性的进化：利他、亲缘选择与群体选择",
     },
     {
+      url: "/human-history/knowledge/思想史--水利社会论",
+      title: "水利社会论",
+    },
+    {
       url: "/philosophy/concepts/ubuntu",
       title: "乌班图",
     },
@@ -13338,6 +13678,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/engineering/civil/tunnels-and-metro",
       title: "隧道与地铁：向地下要空间",
+    },
+    {
+      url: "/political-science/concepts/modernization-theory",
+      title: "现代化理论：一条被现实反复绕开的单行道",
+    },
+    {
+      url: "/philosophy/schools/islamic-philosophy",
+      title: "伊斯兰哲学",
     },
   ],
   "/economics/concepts/econometrics-foundations": [
@@ -13576,6 +13924,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/economics/concepts/externalities": [
     {
+      url: "/engineering/frontiers/dilution-is-the-solution",
+      title: "「稀释是解决污染的办法」：高烟囱政策如何制造了酸雨",
+    },
+    {
       url: "/economics/economists/paul-romer",
       title: "保罗·罗默",
     },
@@ -13622,6 +13974,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/processes/watershed-hydrology",
       title: "流域水文",
+    },
+    {
+      url: "/law/public-law/lochner-era-freedom-of-contract",
+      title: "洛克纳时代：被宪法读进去的「契约自由」",
     },
     {
       url: "/chemistry/reactions/combustion",
@@ -14220,6 +14576,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/concepts/opportunity-cost",
       title: "机会成本",
+    },
+    {
+      url: "/economics/case-studies/cambridge-capital-controversy",
+      title: "剑桥资本争论：赢了论证，输了教科书",
     },
     {
       url: "/computer-science/concepts/deep-learning-architectures",
@@ -15560,6 +15920,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "约翰·梅纳德·凯恩斯",
     },
     {
+      url: "/computer-science/theory/online-algorithms-and-competitive-analysis",
+      title: "在线算法与竞争分析",
+    },
+    {
       url: "/philosophy/frontier/longtermism-existential-risk",
       title: "长期主义与存在风险：为尚未出生的人类辩护",
     },
@@ -15764,6 +16128,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/economics/concepts/tragedy-of-commons": [
     {
+      url: "/engineering/frontiers/dilution-is-the-solution",
+      title: "「稀释是解决污染的办法」：高烟囱政策如何制造了酸雨",
+    },
+    {
       url: "/life-science/knowledge-base/生态系统--草原",
       title: "草原：火与草的共舞",
     },
@@ -15786,6 +16154,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/医学--抗生素",
       title: "抗生素：从青霉素奇迹到耐药性危机",
+    },
+    {
+      url: "/economics/case-studies/malthusian-trap-and-its-escape",
+      title: "马尔萨斯陷阱：一个严密推理为何败给了历史",
     },
     {
       url: "/engineering/frontiers/energy-transition-engineering",
@@ -16456,6 +16828,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/global-and-digital/climate-litigation",
       title: "气候诉讼：把未来告上法庭",
+    },
+    {
+      url: "/philosophy/frontier/climate-justice-and-intergenerational-ethics",
+      title: "气候正义与代际伦理：对还不存在的人负有义务吗",
     },
     {
       url: "/life-science/knowledge-base/生态学--热带雨林",
@@ -17164,8 +17540,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "伏尔泰",
     },
     {
+      url: "/economics/case-studies/cambridge-capital-controversy",
+      title: "剑桥资本争论：赢了论证，输了教科书",
+    },
+    {
       url: "/economics/concepts/economic-vitals-growth-prices-jobs",
       title: "经济的三个体征：增长、物价与工作",
+    },
+    {
+      url: "/economics/case-studies/malthusian-trap-and-its-escape",
+      title: "马尔萨斯陷阱：一个严密推理为何败给了历史",
     },
     {
       url: "/political-science/institutions/democracy-authoritarianism",
@@ -17920,6 +18304,98 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/中世纪--概述",
       title: "中世纪",
+    },
+  ],
+  "/engineering/civil/bridges": [
+    {
+      url: "/engineering/frontiers/tacoma-narrows-and-the-textbook-error",
+      title: "塔科马海峡大桥：一个错了半个世纪的教科书解释",
+    },
+  ],
+  "/engineering/civil/resilient-infrastructure": [
+    {
+      url: "/engineering/frontiers/dilution-is-the-solution",
+      title: "「稀释是解决污染的办法」：高烟囱政策如何制造了酸雨",
+    },
+  ],
+  "/engineering/civil/water-systems": [
+    {
+      url: "/medicine/events/miasma-theory",
+      title: "瘴气说：一个错误的理论如何救了很多人",
+    },
+  ],
+  "/engineering/energy/thermal-power": [
+    {
+      url: "/engineering/frontiers/dilution-is-the-solution",
+      title: "「稀释是解决污染的办法」：高烟囱政策如何制造了酸雨",
+    },
+  ],
+  "/engineering/foundations/control-and-feedback": [
+    {
+      url: "/engineering/frontiers/tacoma-narrows-and-the-textbook-error",
+      title: "塔科马海峡大桥：一个错了半个世纪的教科书解释",
+    },
+  ],
+  "/engineering/foundations/measurement-and-tolerance": [
+    {
+      url: "/chemistry/milestones/polywater-and-pathological-science",
+      title: "聚合水与病态科学（1962—1973）",
+    },
+    {
+      url: "/psychology/methods/psychophysics-and-signal-detection",
+      title: "心理物理学与信号检测论",
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--以太的兴衰",
+      title: "以太的兴衰",
+    },
+  ],
+  "/engineering/frontiers/bioengineering-boundaries": [
+    {
+      url: "/philosophy/frontier/neuroethics-and-mental-privacy",
+      title: "神经伦理与心理隐私：思想还是最后的私域吗",
+    },
+    {
+      url: "/philosophy/frontier/digital-personhood-and-mind-uploading",
+      title: "数字人格与心灵上传：复制品是我吗",
+    },
+  ],
+  "/engineering/frontiers/energy-transition-engineering": [
+    {
+      url: "/engineering/frontiers/dilution-is-the-solution",
+      title: "「稀释是解决污染的办法」：高烟囱政策如何制造了酸雨",
+    },
+    {
+      url: "/philosophy/frontier/climate-justice-and-intergenerational-ethics",
+      title: "气候正义与代际伦理：对还不存在的人负有义务吗",
+    },
+    {
+      url: "/computer-science/frontier/neuromorphic-and-beyond-cmos-computing",
+      title: "神经形态与后 CMOS 计算：当搬运数据比计算更贵",
+    },
+  ],
+  "/engineering/frontiers/engineering-ethics": [
+    {
+      url: "/philosophy/concepts/moral-luck",
+      title: "道德运气",
+    },
+  ],
+  "/engineering/frontiers/failure-analysis": [
+    {
+      url: "/engineering/frontiers/tacoma-narrows-and-the-textbook-error",
+      title: "塔科马海峡大桥：一个错了半个世纪的教科书解释",
+    },
+  ],
+  "/engineering/frontiers/safety-engineering": [
+    {
+      url: "/engineering/frontiers/tacoma-narrows-and-the-textbook-error",
+      title: "塔科马海峡大桥：一个错了半个世纪的教科书解释",
+    },
+  ],
+  "/engineering/frontiers/tacoma-narrows-and-the-textbook-error": [
+    {
+      url: "/human-history/knowledge/思想史--黑暗时代",
+      title: "黑暗时代：一个被史学界废弃的分期",
     },
   ],
   "/human-history/frontier/ancient-dna-revolution": [
@@ -19166,6 +19642,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "造父变星与变星",
     },
   ],
+  "/human-history/knowledge/思想史--水利社会论": [
+    {
+      url: "/human-history/knowledge/思想史--黑暗时代",
+      title: "黑暗时代：一个被史学界废弃的分期",
+    },
+  ],
   "/human-history/knowledge/思想史--马克思主义": [
     {
       url: "/human-history/knowledge/思想史--后殖民主义",
@@ -19194,6 +19676,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/文化交流--翻译运动",
       title: "翻译运动",
+    },
+    {
+      url: "/human-history/knowledge/思想史--黑暗时代",
+      title: "黑暗时代：一个被史学界废弃的分期",
     },
     {
       url: "/human-history/knowledge/文明--伊斯兰文明",
@@ -19964,6 +20450,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/law/criminal-and-procedure/procedural-justice": [
     {
+      url: "/law/public-law/separate-but-equal",
+      title: "「分离但平等」：一条被推翻的宪法学说",
+    },
+    {
+      url: "/philosophy/concepts/moral-luck",
+      title: "道德运气",
+    },
+    {
       url: "/law/criminal-and-procedure/evidence-and-proof",
       title: "证据与证明：法庭如何逼近真相",
     },
@@ -20280,6 +20774,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "失效分析：从事故残骸中长出来的工程",
     },
   ],
+  "/law/public-law/constitutional-review": [
+    {
+      url: "/law/public-law/separate-but-equal",
+      title: "「分离但平等」：一条被推翻的宪法学说",
+    },
+    {
+      url: "/law/public-law/lochner-era-freedom-of-contract",
+      title: "洛克纳时代：被宪法读进去的「契约自由」",
+    },
+  ],
+  "/law/public-law/fundamental-rights": [
+    {
+      url: "/law/public-law/separate-but-equal",
+      title: "「分离但平等」：一条被推翻的宪法学说",
+    },
+  ],
+  "/law/public-law/separate-but-equal": [
+    {
+      url: "/law/public-law/lochner-era-freedom-of-contract",
+      title: "洛克纳时代：被宪法读进去的「契约自由」",
+    },
+  ],
   "/life-science/dialogues/darwin-wallace": [
     {
       url: "/human-history/knowledge/人物--达尔文",
@@ -20574,6 +21090,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/theory/error-correcting-codes",
       title: "纠错码理论",
+    },
+    {
+      url: "/life-science/knowledge-base/lamarckism-and-its-afterlives",
+      title: "拉马克主义：三次死亡与一次不完全的返魂",
     },
     {
       url: "/computer-science/theory/information-theory",
@@ -21356,8 +21876,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/life-science/knowledge-base/肠道微生物组": [
     {
+      url: "/medicine/concepts/hygiene-hypothesis-overreach",
+      title: "卫生假说：一个被自己的名字带偏的假说",
+    },
+    {
       url: "/psychology/theorists/ivan-pavlov",
       title: "伊万·巴甫洛夫",
+    },
+    {
+      url: "/life-science/knowledge-base/spontaneous-generation",
+      title: "自然发生说：两千年、三轮实验、一场被操纵的评奖",
     },
   ],
   "/life-science/knowledge-base/进化专题--动物行为与本能": [
@@ -21558,6 +22086,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/快速射电暴",
       title: "快速射电暴",
+    },
+    {
+      url: "/life-science/knowledge-base/lamarckism-and-its-afterlives",
+      title: "拉马克主义：三次死亡与一次不完全的返魂",
     },
     {
       url: "/computer-science/concepts/object-oriented-programming",
@@ -21912,6 +22444,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "格雷戈尔·孟德尔",
     },
     {
+      url: "/life-science/knowledge-base/lamarckism-and-its-afterlives",
+      title: "拉马克主义：三次死亡与一次不完全的返魂",
+    },
+    {
+      url: "/economics/case-studies/malthusian-trap-and-its-escape",
+      title: "马尔萨斯陷阱：一个严密推理为何败给了历史",
+    },
+    {
       url: "/human-history/knowledge/现代--概述",
       title: "现代",
     },
@@ -22022,6 +22562,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/hematology",
       title: "血液学",
+    },
+  ],
+  "/life-science/scientists/pasteur": [
+    {
+      url: "/chemistry/milestones/vitalism-and-its-long-death",
+      title: "活力论的漫长死亡（1828—1900）",
+    },
+    {
+      url: "/life-science/knowledge-base/spontaneous-generation",
+      title: "自然发生说：两千年、三轮实验、一场被操纵的评奖",
     },
   ],
   "/life-science/scientists/svante-paabo": [
@@ -22311,6 +22861,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/linguistics/acquisition-and-mind/language-thought-debate": [
+    {
+      url: "/linguistics/history-typology-society/eskimo-snow-words-hoax",
+      title: "爱斯基摩雪词神话：一个学术都市传说的完整解剖",
+    },
     {
       url: "/philosophy/experiments/marys-room",
       title: "玛丽的房间",
@@ -22668,6 +23222,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/linguistics/history-typology-society/language-identity-power": [
     {
+      url: "/linguistics/history-typology-society/primitive-languages-myth",
+      title: "「原始语言」神话：一个被语言学自己推翻的排序",
+    },
+    {
       url: "/political-science/concepts/hegemony",
       title: "霸权",
     },
@@ -22828,6 +23386,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/linguistics/history-typology-society/linguistic-typology": [
     {
+      url: "/linguistics/history-typology-society/primitive-languages-myth",
+      title: "「原始语言」神话：一个被语言学自己推翻的排序",
+    },
+    {
+      url: "/linguistics/history-typology-society/eskimo-snow-words-hoax",
+      title: "爱斯基摩雪词神话：一个学术都市传说的完整解剖",
+    },
+    {
       url: "/linguistics/methods-and-frontiers/multilingual-ai",
       title: "多语 AI、低资源语言与评测公平",
     },
@@ -22854,6 +23420,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/methods-and-frontiers/linguistic-fieldwork",
       title: "语言田野调查与社区协作",
+    },
+  ],
+  "/linguistics/history-typology-society/primitive-languages-myth": [
+    {
+      url: "/linguistics/history-typology-society/eskimo-snow-words-hoax",
+      title: "爱斯基摩雪词神话：一个学术都市传说的完整解剖",
+    },
+    {
+      url: "/mathematics/paradoxes/fifth-postulate-proofs",
+      title: "第五公设的证明史：两千年的失败如何造出一门新几何",
+    },
+    {
+      url: "/human-history/knowledge/思想史--黑暗时代",
+      title: "黑暗时代：一个被史学界废弃的分期",
+    },
+    {
+      url: "/human-history/knowledge/思想史--水利社会论",
+      title: "水利社会论",
+    },
+    {
+      url: "/political-science/concepts/modernization-theory",
+      title: "现代化理论：一条被现实反复绕开的单行道",
+    },
+    {
+      url: "/arts/aesthetics/art-as-progress",
+      title: "艺术进步论：一条被艺术自己走废的单行道",
     },
   ],
   "/linguistics/history-typology-society/sociolinguistic-variation": [
@@ -26124,6 +26716,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "基因调控：从转录因子到增强子",
     },
     {
+      url: "/psychology/frontier/psychopathology-network-theory",
+      title: "精神病理的网络理论：症状之间，而非症状背后",
+    },
+    {
       url: "/life-science/species/mycorrhiza",
       title: "菌根",
     },
@@ -26232,6 +26828,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/concepts/map-projections",
       title: "地图投影",
+    },
+    {
+      url: "/mathematics/paradoxes/fifth-postulate-proofs",
+      title: "第五公设的证明史：两千年的失败如何造出一门新几何",
     },
     {
       url: "/universe-physics/knowledge-base/相对论--时空弯曲与测地线",
@@ -28032,6 +28632,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "环",
     },
   ],
+  "/mathematics/paradoxes/godel-incompleteness-paradox": [
+    {
+      url: "/mathematics/paradoxes/fifth-postulate-proofs",
+      title: "第五公设的证明史：两千年的失败如何造出一门新几何",
+    },
+  ],
   "/mathematics/paradoxes/infinity-hotel": [
     {
       url: "/mathematics/concepts/set-theory",
@@ -28490,6 +29096,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "屠呦呦",
     },
     {
+      url: "/medicine/concepts/hygiene-hypothesis-overreach",
+      title: "卫生假说：一个被自己的名字带偏的假说",
+    },
+    {
       url: "/life-science/knowledge-base/进化机制--协同进化",
       title: "协同进化：生命之间的军备竞赛与共生",
     },
@@ -28730,6 +29340,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/events/thalidomide-tragedy",
       title: "反应停悲剧（1957）",
+    },
+    {
+      url: "/medicine/events/bloodletting-and-the-numerical-method",
+      title: "放血疗法与第一次临床统计（1828）",
     },
     {
       url: "/economics/concepts/risk-and-uncertainty",
@@ -29004,6 +29618,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "反应速率",
     },
     {
+      url: "/medicine/events/bloodletting-and-the-numerical-method",
+      title: "放血疗法与第一次临床统计（1828）",
+    },
+    {
       url: "/chemistry/substances/polymers",
       title: "高分子与聚合物",
     },
@@ -29066,6 +29684,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/quine",
       title: "蒯因",
+    },
+    {
+      url: "/medicine/events/peptic-ulcer-bacterial-cause",
+      title: "溃疡病因之争：一个被拒绝十年的正确答案（1982—2005）",
     },
     {
       url: "/political-science/international-relations/peacekeeping",
@@ -29148,6 +29770,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "微积分基本定理",
     },
     {
+      url: "/medicine/concepts/hygiene-hypothesis-overreach",
+      title: "卫生假说：一个被自己的名字带偏的假说",
+    },
+    {
       url: "/medicine/concepts/germ-theory",
       title: "细菌致病论",
     },
@@ -29202,6 +29828,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/events/jenner-smallpox-vaccination",
       title: "詹纳与牛痘接种（1796）",
+    },
+    {
+      url: "/medicine/events/miasma-theory",
+      title: "瘴气说：一个错误的理论如何救了很多人",
     },
     {
       url: "/philosophy/concepts/falsification",
@@ -29662,6 +30292,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/microbiome-and-health",
       title: "微生物组与健康",
+    },
+    {
+      url: "/medicine/concepts/hygiene-hypothesis-overreach",
+      title: "卫生假说：一个被自己的名字带偏的假说",
     },
     {
       url: "/medicine/concepts/digestive-system",
@@ -31394,6 +32028,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/medicine/events/antibiotic-era": [
     {
+      url: "/medicine/events/peptic-ulcer-bacterial-cause",
+      title: "溃疡病因之争：一个被拒绝十年的正确答案（1982—2005）",
+    },
+    {
       url: "/medicine/events/germ-theory-revolution",
       title: "细菌理论革命（19 世纪后半叶）",
     },
@@ -31426,8 +32064,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "科学哲学",
     },
     {
+      url: "/medicine/events/peptic-ulcer-bacterial-cause",
+      title: "溃疡病因之争：一个被拒绝十年的正确答案（1982—2005）",
+    },
+    {
       url: "/philosophy/thinkers/thomas-kuhn",
       title: "托马斯·库恩",
+    },
+    {
+      url: "/medicine/events/miasma-theory",
+      title: "瘴气说：一个错误的理论如何救了很多人",
+    },
+    {
+      url: "/life-science/knowledge-base/spontaneous-generation",
+      title: "自然发生说：两千年、三轮实验、一场被操纵的评奖",
     },
   ],
   "/medicine/events/hiv-aids-pandemic": [
@@ -31448,6 +32098,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/events/smallpox-eradication",
       title: "天花根除（1980）",
+    },
+  ],
+  "/medicine/events/miasma-theory": [
+    {
+      url: "/medicine/events/bloodletting-and-the-numerical-method",
+      title: "放血疗法与第一次临床统计（1828）",
+    },
+    {
+      url: "/medicine/concepts/hygiene-hypothesis-overreach",
+      title: "卫生假说：一个被自己的名字带偏的假说",
     },
   ],
   "/medicine/events/smallpox-eradication": [
@@ -31476,6 +32136,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/events/germ-theory-revolution",
       title: "细菌理论革命（19 世纪后半叶）",
+    },
+    {
+      url: "/medicine/events/miasma-theory",
+      title: "瘴气说：一个错误的理论如何救了很多人",
     },
   ],
   "/medicine/events/thalidomide-tragedy": [
@@ -33124,6 +33788,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "罗森塔尔课堂实验",
     },
     {
+      url: "/psychology/debates/emotion-universality-debate",
+      title: "情绪普遍性之争",
+    },
+    {
       url: "/psychology/phenomena/cognitive-bias",
       title: "认知偏误",
     },
@@ -33518,6 +34186,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "行星卫星系统",
     },
     {
+      url: "/philosophy/schools/islamic-philosophy",
+      title: "伊斯兰哲学",
+    },
+    {
       url: "/chemistry/concepts/reaction-mechanisms",
       title: "有机反应机理",
     },
@@ -33530,11 +34202,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "宇宙学红移与膨胀",
     },
     {
+      url: "/medicine/events/miasma-theory",
+      title: "瘴气说：一个错误的理论如何救了很多人",
+    },
+    {
       url: "/computer-science/concepts/cpu-pipelining",
       title: "CPU 流水线",
     },
   ],
   "/philosophy/concepts/complexity-philosophy": [
+    {
+      url: "/psychology/frontier/psychopathology-network-theory",
+      title: "精神病理的网络理论：症状之间，而非症状背后",
+    },
     {
       url: "/life-science/knowledge-base/进化专题--生物发光",
       title: "生物发光：生命自己点亮的光",
@@ -33606,6 +34286,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/事件--鸦片战争",
       title: "鸦片战争",
+    },
+    {
+      url: "/philosophy/schools/islamic-philosophy",
+      title: "伊斯兰哲学",
     },
     {
       url: "/philosophy/concepts/indian-buddhist-epistemology",
@@ -33726,6 +34410,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/sociology/frontier/platform-governance",
       title: "平台治理的系统风险转向",
+    },
+    {
+      url: "/philosophy/frontier/epistemic-crisis-testimony-and-deepfakes",
+      title: "认识论危机：当眼见不再为实",
+    },
+    {
+      url: "/philosophy/frontier/neuroethics-and-mental-privacy",
+      title: "神经伦理与心理隐私：思想还是最后的私域吗",
     },
     {
       url: "/law/global-and-digital/digital-rights-and-privacy",
@@ -33938,11 +34630,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "绿色化学（1998）",
     },
     {
+      url: "/philosophy/frontier/climate-justice-and-intergenerational-ethics",
+      title: "气候正义与代际伦理：对还不存在的人负有义务吗",
+    },
+    {
       url: "/political-science/isms/green-political-theory",
       title: "生态政治与绿色政治理论",
     },
   ],
   "/philosophy/concepts/epistemic-justice": [
+    {
+      url: "/linguistics/history-typology-society/primitive-languages-myth",
+      title: "「原始语言」神话：一个被语言学自己推翻的排序",
+    },
     {
       url: "/economics/economists/esther-duflo",
       title: "埃斯特·迪弗洛",
@@ -34032,6 +34732,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "理查德·罗蒂",
     },
     {
+      url: "/psychology/debates/phrenology-and-localization",
+      title: "颅相学之争：错的方法，对的直觉",
+    },
+    {
       url: "/human-history/knowledge/中世纪--罗姆人",
       title: "罗姆人",
     },
@@ -34050,6 +34754,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/schools/humanistic",
       title: "人本主义心理学",
+    },
+    {
+      url: "/philosophy/frontier/epistemic-crisis-testimony-and-deepfakes",
+      title: "认识论危机：当眼见不再为实",
     },
     {
       url: "/psychology/phenomena/social-identity",
@@ -34200,6 +34908,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "大爆炸理论",
     },
     {
+      url: "/earth-science/events/continental-drift-rejected",
+      title: "大陆漂移被拒绝的五十年（1912—1965）",
+    },
+    {
       url: "/cosmology/knowledge-base/恒星物理--massive-star-evolution",
       title: "大质量恒星演化",
     },
@@ -34208,8 +34920,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "德米特里·门捷列夫",
     },
     {
+      url: "/mathematics/paradoxes/fifth-postulate-proofs",
+      title: "第五公设的证明史：两千年的失败如何造出一门新几何",
+    },
+    {
       url: "/cosmology/knowledge-base/多重宇宙假说",
       title: "多重宇宙假说",
+    },
+    {
+      url: "/medicine/events/bloodletting-and-the-numerical-method",
+      title: "放血疗法与第一次临床统计（1828）",
     },
     {
       url: "/mathematics/theorems/fermat-last-theorem",
@@ -34252,6 +34972,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "黑洞热力学与霍金辐射",
     },
     {
+      url: "/cosmology/knowledge-base/太阳系--火神星",
+      title: "火神星：同一种方法，两种结局",
+    },
+    {
       url: "/computer-science/concepts/computer-security-principles",
       title: "计算机安全原则",
     },
@@ -34260,16 +34984,40 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "价键理论与分子轨道理论",
     },
     {
+      url: "/economics/case-studies/cambridge-capital-controversy",
+      title: "剑桥资本争论：赢了论证，输了教科书",
+    },
+    {
       url: "/psychology/schools/psychoanalysis",
       title: "精神分析学派",
+    },
+    {
+      url: "/chemistry/milestones/polywater-and-pathological-science",
+      title: "聚合水与病态科学（1962—1973）",
     },
     {
       url: "/political-science/thinkers/karl-marx",
       title: "卡尔·马克思",
     },
     {
+      url: "/earth-science/events/kelvin-and-the-age-of-the-earth",
+      title: "开尔文与地球年龄之争（1862—1904）",
+    },
+    {
+      url: "/medicine/events/peptic-ulcer-bacterial-cause",
+      title: "溃疡病因之争：一个被拒绝十年的正确答案（1982—2005）",
+    },
+    {
+      url: "/life-science/knowledge-base/lamarckism-and-its-afterlives",
+      title: "拉马克主义：三次死亡与一次不完全的返魂",
+    },
+    {
       url: "/medicine/concepts/clinical-diagnosis",
       title: "临床诊断",
+    },
+    {
+      url: "/psychology/debates/phrenology-and-localization",
+      title: "颅相学之争：错的方法，对的直觉",
     },
     {
       url: "/philosophy/schools/logical-positivism",
@@ -34296,6 +35044,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "确认偏误",
     },
     {
+      url: "/universe-physics/knowledge-base/热力学--热质说的兴衰",
+      title: "热质说的兴衰",
+    },
+    {
+      url: "/philosophy/frontier/epistemic-crisis-testimony-and-deepfakes",
+      title: "认识论危机：当眼见不再为实",
+    },
+    {
       url: "/computer-science/concepts/software-testing",
       title: "软件测试",
     },
@@ -34310,6 +35066,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/相对论--史瓦西黑洞",
       title: "史瓦西黑洞",
+    },
+    {
+      url: "/sociology/concepts/secularization-thesis",
+      title: "世俗化理论：一个被作者自己撤回的预测",
     },
     {
       url: "/universe-physics/frontier/room-temperature-superconductor",
@@ -34328,8 +35088,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "同调与上同调",
     },
     {
+      url: "/computer-science/theory/statistical-learning-theory-pac",
+      title: "统计学习理论与 PAC 学习",
+    },
+    {
       url: "/earth-science/events/pompeii-vesuvius-79",
       title: "维苏威火山爆发与庞贝（公元 79 年）",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--稳恒态宇宙",
+      title: "稳恒态宇宙：输得最体面的理论",
     },
     {
       url: "/earth-science/pioneers/wallace-broecker",
@@ -34360,8 +35128,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "心理决定论",
     },
     {
+      url: "/philosophy/concepts/psychologism",
+      title: "心理主义",
+    },
+    {
       url: "/psychology/schools/behaviorism",
       title: "行为主义",
+    },
+    {
+      url: "/philosophy/frontier/formal-epistemology-and-bayesianism",
+      title: '形式认识论：把"相信多少"写成数字',
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--以太的兴衰",
+      title: "以太的兴衰",
     },
     {
       url: "/philosophy/frontier/consciousness-iit-gnw",
@@ -34406,6 +35186,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/knowledge-base/capital-asset-pricing-model",
       title: "资本资产定价模型：风险与收益的数学语言",
+    },
+    {
+      url: "/life-science/knowledge-base/spontaneous-generation",
+      title: "自然发生说：两千年、三轮实验、一场被操纵的评奖",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学前沿--S8结构增长张力",
@@ -34506,6 +35290,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "器官移植：免疫排斥、配型与异种移植前沿",
     },
     {
+      url: "/philosophy/frontier/neuroethics-and-mental-privacy",
+      title: "神经伦理与心理隐私：思想还是最后的私域吗",
+    },
+    {
       url: "/life-science/knowledge-base/医学--神经退行性疾病",
       title: "神经退行性疾病：阿尔茨海默病与帕金森病",
     },
@@ -34554,6 +35342,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/phenomena/moral-judgment",
       title: "道德判断的心理学",
+    },
+    {
+      url: "/philosophy/concepts/moral-luck",
+      title: "道德运气",
     },
     {
       url: "/medicine/concepts/public-health",
@@ -34650,6 +35442,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "沃森选择任务",
     },
     {
+      url: "/philosophy/concepts/psychologism",
+      title: "心理主义",
+    },
+    {
       url: "/political-science/methods/formal-models-game-theory",
       title: "形式模型与政治博弈论",
     },
@@ -34706,6 +35502,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "印度佛教知识论",
     },
   ],
+  "/philosophy/concepts/moral-luck": [
+    {
+      url: "/law/public-law/separate-but-equal",
+      title: "「分离但平等」：一条被推翻的宪法学说",
+    },
+    {
+      url: "/medicine/events/peptic-ulcer-bacterial-cause",
+      title: "溃疡病因之争：一个被拒绝十年的正确答案（1982—2005）",
+    },
+    {
+      url: "/law/public-law/lochner-era-freedom-of-contract",
+      title: "洛克纳时代：被宪法读进去的「契约自由」",
+    },
+  ],
   "/philosophy/concepts/paradigm": [
     {
       url: "/economics/case-studies/stagflation-1970s",
@@ -34736,8 +35546,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "创造性破坏",
     },
     {
+      url: "/earth-science/events/continental-drift-rejected",
+      title: "大陆漂移被拒绝的五十年（1912—1965）",
+    },
+    {
       url: "/political-science/international-relations/containment",
       title: "遏制战略",
+    },
+    {
+      url: "/philosophy/concepts/sense-data",
+      title: "感觉材料",
+    },
+    {
+      url: "/computer-science/concepts/perceptron-and-the-ai-winter",
+      title: "感知机与第一次 AI 寒冬",
     },
     {
       url: "/universe-physics/knowledge-base/电磁学--光的本质",
@@ -34760,12 +35582,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "红超巨星与蓝超巨星",
     },
     {
+      url: "/chemistry/milestones/vitalism-and-its-long-death",
+      title: "活力论的漫长死亡（1828—1900）",
+    },
+    {
       url: "/political-science/thinkers/niccolo-machiavelli",
       title: "尼科洛·马基雅维利",
     },
     {
       url: "/economics/economists/george-akerlof",
       title: "乔治·阿克洛夫",
+    },
+    {
+      url: "/engineering/frontiers/tacoma-narrows-and-the-textbook-error",
+      title: "塔科马海峡大桥：一个错了半个世纪的教科书解释",
     },
     {
       url: "/computer-science/pioneers/donald-knuth",
@@ -34776,12 +35606,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "体液学说",
     },
     {
+      url: "/cosmology/knowledge-base/宇宙学基础--稳恒态宇宙",
+      title: "稳恒态宇宙：输得最体面的理论",
+    },
+    {
       url: "/universe-physics/knowledge-base/相对论--相对论性动力学与四维力",
       title: "相对论性动力学与四维力",
     },
     {
+      url: "/philosophy/frontier/formal-epistemology-and-bayesianism",
+      title: '形式认识论：把"相信多少"写成数字',
+    },
+    {
       url: "/cosmology/knowledge-base/宇宙学前沿--modified-gravity-mond",
       title: "修改引力理论MOND",
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--以太的兴衰",
+      title: "以太的兴衰",
     },
     {
       url: "/chemistry/figures/berzelius",
@@ -34814,6 +35656,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/phenomena/change-blindness",
       title: "变化盲视",
+    },
+    {
+      url: "/philosophy/concepts/sense-data",
+      title: "感觉材料",
     },
     {
       url: "/psychology/phenomena/perception-physiology",
@@ -35188,6 +36034,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "知识",
     },
   ],
+  "/philosophy/concepts/psychologism": [
+    {
+      url: "/philosophy/concepts/sense-data",
+      title: "感觉材料",
+    },
+  ],
   "/philosophy/concepts/reason": [
     {
       url: "/political-science/thinkers/james-madison",
@@ -35234,6 +36086,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/concepts/fiscal-rules-democratic-legitimacy",
       title: "财政规则与民主合法性",
+    },
+    {
+      url: "/philosophy/concepts/moral-luck",
+      title: "道德运气",
     },
     {
       url: "/chemistry/figures/fritz-haber",
@@ -35345,6 +36201,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/mathematics/mathematicians/poincare",
       title: "庞加莱",
     },
+    {
+      url: "/philosophy/concepts/psychologism",
+      title: "心理主义",
+    },
   ],
   "/philosophy/concepts/ubuntu": [
     {
@@ -35364,6 +36224,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/bernard-williams",
       title: "伯纳德·威廉斯",
+    },
+    {
+      url: "/philosophy/concepts/moral-luck",
+      title: "道德运气",
     },
     {
       url: "/philosophy/thinkers/philippa-foot",
@@ -35438,6 +36302,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "马文·明斯基",
     },
     {
+      url: "/philosophy/frontier/digital-personhood-and-mind-uploading",
+      title: "数字人格与心灵上传：复制品是我吗",
+    },
+    {
       url: "/computer-science/concepts/natural-language-processing",
       title: "自然语言处理",
     },
@@ -35460,6 +36328,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "信封悖论",
     },
   ],
+  "/philosophy/experiments/philosophical-zombies": [
+    {
+      url: "/philosophy/frontier/digital-personhood-and-mind-uploading",
+      title: "数字人格与心灵上传：复制品是我吗",
+    },
+  ],
   "/philosophy/experiments/repugnant-conclusion": [
     {
       url: "/political-science/concepts/distributive-justice",
@@ -35468,6 +36342,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/ethics/he-jiankui-crispr-babies",
       title: "贺建奎与基因编辑婴儿事件",
+    },
+    {
+      url: "/philosophy/frontier/climate-justice-and-intergenerational-ethics",
+      title: "气候正义与代际伦理：对还不存在的人负有义务吗",
     },
   ],
   "/philosophy/experiments/ship-of-theseus": [
@@ -35482,6 +36360,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/containers-and-orchestration",
       title: "容器与容器编排",
+    },
+    {
+      url: "/philosophy/frontier/digital-personhood-and-mind-uploading",
+      title: "数字人格与心灵上传：复制品是我吗",
     },
     {
       url: "/computer-science/concepts/virtualization",
@@ -35564,8 +36446,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/frontier/consciousness-iit-gnw": [
     {
+      url: "/philosophy/frontier/digital-personhood-and-mind-uploading",
+      title: "数字人格与心灵上传：复制品是我吗",
+    },
+    {
       url: "/psychology/debates/consciousness-hard-problem",
       title: "意识的困难问题",
+    },
+  ],
+  "/philosophy/frontier/epistemic-crisis-testimony-and-deepfakes": [
+    {
+      url: "/linguistics/history-typology-society/eskimo-snow-words-hoax",
+      title: "爱斯基摩雪词神话：一个学术都市传说的完整解剖",
     },
   ],
   "/philosophy/frontier/experimental-philosophy": [
@@ -35576,6 +36468,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/schools/analytic-philosophy",
       title: "分析哲学",
+    },
+  ],
+  "/philosophy/frontier/free-will-neuroscience": [
+    {
+      url: "/philosophy/frontier/neuroethics-and-mental-privacy",
+      title: "神经伦理与心理隐私：思想还是最后的私域吗",
     },
   ],
   "/philosophy/frontier/llm-language-understanding": [
@@ -35608,6 +36506,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/isms/absurdism",
       title: "荒诞主义",
+    },
+    {
+      url: "/philosophy/frontier/climate-justice-and-intergenerational-ethics",
+      title: "气候正义与代际伦理：对还不存在的人负有义务吗",
     },
     {
       url: "/human-history/knowledge/未来展望--概述",
@@ -35998,6 +36900,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/questions/what-can-we-know": [
     {
+      url: "/philosophy/concepts/sense-data",
+      title: "感觉材料",
+    },
+    {
+      url: "/philosophy/frontier/epistemic-crisis-testimony-and-deepfakes",
+      title: "认识论危机：当眼见不再为实",
+    },
+    {
       url: "/cosmology/knowledge-base/宇宙学基础--宇宙学原理与可观测宇宙",
       title: "宇宙学原理与可观测宇宙",
     },
@@ -36038,6 +36948,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/frontier/zero-knowledge-proofs",
       title: "零知识证明与隐私计算",
+    },
+    {
+      url: "/philosophy/frontier/formal-epistemology-and-bayesianism",
+      title: '形式认识论：把"相信多少"写成数字',
     },
   ],
   "/philosophy/questions/what-is-meaning": [
@@ -36410,6 +37324,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "南亚宗教艺术：佛像的诞生与神像的语法",
     },
     {
+      url: "/philosophy/schools/islamic-philosophy",
+      title: "伊斯兰哲学",
+    },
+    {
       url: "/human-history/knowledge/古典时期--亚洲--印度思想传统",
       title: "印度思想传统",
     },
@@ -36461,6 +37379,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/arts/architecture/sacred-spaces",
       title: "神圣空间：神庙、教堂与清真寺",
     },
+    {
+      url: "/philosophy/schools/islamic-philosophy",
+      title: "伊斯兰哲学",
+    },
   ],
   "/philosophy/schools/phenomenology": [
     {
@@ -36506,6 +37428,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/engineering/frontiers/bioengineering-boundaries",
       title: "生物工程的边界：义肢、器官与合成生物",
+    },
+    {
+      url: "/philosophy/concepts/psychologism",
+      title: "心理主义",
     },
   ],
   "/philosophy/schools/platonism": [
@@ -38241,6 +39167,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/political-science/methods/case-selection-and-small-n",
       title: "案例选择与小样本研究",
     },
+    {
+      url: "/political-science/isms/end-of-history",
+      title: "历史终结论",
+    },
+    {
+      url: "/political-science/concepts/modernization-theory",
+      title: "现代化理论：一条被现实反复绕开的单行道",
+    },
   ],
   "/political-science/concepts/distributive-justice": [
     {
@@ -38286,6 +39220,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/ethics/organ-allocation-ethics",
       title: "器官分配伦理",
+    },
+    {
+      url: "/sociology/concepts/social-darwinism-and-eugenics",
+      title: "社会达尔文主义与优生学：一套披着科学外衣的社会安排",
     },
     {
       url: "/medicine/events/tuskegee-syphilis-study",
@@ -38620,6 +39558,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/thinkers/isaiah-berlin",
       title: "以赛亚·柏林",
+    },
+  ],
+  "/political-science/concepts/modernization-theory": [
+    {
+      url: "/political-science/isms/end-of-history",
+      title: "历史终结论",
+    },
+    {
+      url: "/sociology/concepts/secularization-thesis",
+      title: "世俗化理论：一个被作者自己撤回的预测",
+    },
+    {
+      url: "/human-history/knowledge/思想史--水利社会论",
+      title: "水利社会论",
+    },
+    {
+      url: "/arts/aesthetics/art-as-progress",
+      title: "艺术进步论：一条被艺术自己走废的单行道",
     },
   ],
   "/political-science/concepts/nation-and-nationalism": [
@@ -39268,8 +40224,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "孔子的政治思想",
     },
     {
+      url: "/life-science/knowledge-base/lamarckism-and-its-afterlives",
+      title: "拉马克主义：三次死亡与一次不完全的返魂",
+    },
+    {
       url: "/philosophy/thinkers/laozi",
       title: "老子",
+    },
+    {
+      url: "/political-science/isms/end-of-history",
+      title: "历史终结论",
     },
     {
       url: "/political-science/thinkers/mao-zedong-political-thought",
@@ -39304,8 +40268,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "桑海帝国",
     },
     {
+      url: "/sociology/concepts/social-darwinism-and-eugenics",
+      title: "社会达尔文主义与优生学：一套披着科学外衣的社会安排",
+    },
+    {
       url: "/medicine/public-health/implementation-science-health-policy",
       title: "实施科学：从有效干预到真实世界",
+    },
+    {
+      url: "/sociology/concepts/secularization-thesis",
+      title: "世俗化理论：一个被作者自己撤回的预测",
+    },
+    {
+      url: "/human-history/knowledge/思想史--水利社会论",
+      title: "水利社会论",
     },
     {
       url: "/philosophy/thinkers/hobbes",
@@ -39314,6 +40290,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/中世纪--亚洲--吴哥王朝",
       title: "吴哥王朝",
+    },
+    {
+      url: "/political-science/concepts/modernization-theory",
+      title: "现代化理论：一条被现实反复绕开的单行道",
     },
     {
       url: "/economics/concepts/modern-money-fiscal-deficits",
@@ -40870,6 +41850,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "经济制裁",
     },
     {
+      url: "/political-science/isms/end-of-history",
+      title: "历史终结论",
+    },
+    {
       url: "/political-science/concepts/democracy",
       title: "民主",
     },
@@ -41568,6 +42552,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "玛丽·沃斯通克拉夫特",
     },
   ],
+  "/psychology/debates/phrenology-and-localization": [
+    {
+      url: "/linguistics/history-typology-society/primitive-languages-myth",
+      title: "「原始语言」神话：一个被语言学自己推翻的排序",
+    },
+    {
+      url: "/sociology/concepts/social-darwinism-and-eugenics",
+      title: "社会达尔文主义与优生学：一套披着科学外衣的社会安排",
+    },
+  ],
   "/psychology/dialogues/kahneman-gladwell-intuition": [
     {
       url: "/mathematics/theorems/p-vs-np",
@@ -41746,6 +42740,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "佛教哲学",
     },
     {
+      url: "/psychology/frontier/psychopathology-network-theory",
+      title: "精神病理的网络理论：症状之间，而非症状背后",
+    },
+    {
       url: "/philosophy/thinkers/kierkegaard",
       title: "克尔凯郭尔",
     },
@@ -41800,6 +42798,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/institutions/political-parties",
       title: "政党与政党制度",
+    },
+  ],
+  "/psychology/experiments/csikszentmihalyi-pagers": [
+    {
+      url: "/psychology/methods/experience-sampling-and-ema",
+      title: "经验取样与生态瞬时评估",
     },
   ],
   "/psychology/experiments/gorilla-invisibility": [
@@ -41978,8 +42982,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "机制可解释性：从可命名特征到因果机制",
     },
     {
+      url: "/psychology/debates/neuromyths-in-education",
+      title: "教育神经神话：为什么最好用的说法往往没有证据",
+    },
+    {
       url: "/political-science/isms/progressivism",
       title: "进步主义",
+    },
+    {
+      url: "/chemistry/milestones/polywater-and-pathological-science",
+      title: "聚合水与病态科学（1962—1973）",
     },
     {
       url: "/philosophy/questions/how-does-science-progress",
@@ -42000,6 +43012,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/schools/social-psychology",
       title: "社会心理学",
+    },
+    {
+      url: "/psychology/methods/neuroimaging-methods-and-their-limits",
+      title: "神经影像方法及其限度",
     },
     {
       url: "/economics/concepts/market-efficiency",
@@ -42036,6 +43052,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/proof",
       title: "证明",
+    },
+    {
+      url: "/psychology/methods/weird-samples-and-generalizability",
+      title: "WEIRD 样本与可推广性",
     },
     {
       url: "/chemistry/methods/x-ray-crystallography",
@@ -42146,6 +43166,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "人文主义",
     },
     {
+      url: "/sociology/concepts/social-darwinism-and-eugenics",
+      title: "社会达尔文主义与优生学：一套披着科学外衣的社会安排",
+    },
+    {
       url: "/sociology/concepts/social-stratification",
       title: "社会分层与流动",
     },
@@ -42238,6 +43262,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "解离障碍",
     },
     {
+      url: "/psychology/frontier/psychopathology-network-theory",
+      title: "精神病理的网络理论：症状之间，而非症状背后",
+    },
+    {
       url: "/psychology/disorders/schizophrenia",
       title: "精神分裂症",
     },
@@ -42272,6 +43300,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/phenomena/emotion-theories",
       title: "情绪理论",
+    },
+    {
+      url: "/psychology/methods/computational-modeling-of-cognition",
+      title: "认知的计算建模",
     },
     {
       url: "/psychology/phenomena/cognitive-dissonance",
@@ -42848,6 +43880,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "情绪理论",
     },
     {
+      url: "/psychology/debates/emotion-universality-debate",
+      title: "情绪普遍性之争",
+    },
+    {
       url: "/psychology/theorists/jean-piaget",
       title: "让·皮亚杰",
     },
@@ -42911,6 +43947,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/psychology/knowledge-base/self-determination-theory",
       title: "自我决定论：什么真正驱动人",
     },
+    {
+      url: "/psychology/methods/weird-samples-and-generalizability",
+      title: "WEIRD 样本与可推广性",
+    },
   ],
   "/psychology/knowledge-base/developmental-psychology": [
     {
@@ -42942,6 +43982,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "同一性",
     },
   ],
+  "/psychology/knowledge-base/educational-psychology": [
+    {
+      url: "/psychology/debates/neuromyths-in-education",
+      title: "教育神经神话：为什么最好用的说法往往没有证据",
+    },
+  ],
   "/psychology/knowledge-base/effect-size-and-power": [
     {
       url: "/philosophy/thinkers/popper",
@@ -42954,6 +44000,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/economists/milton-friedman",
       title: "米尔顿·弗里德曼",
+    },
+    {
+      url: "/psychology/methods/neuroimaging-methods-and-their-limits",
+      title: "神经影像方法及其限度",
+    },
+    {
+      url: "/philosophy/frontier/formal-epistemology-and-bayesianism",
+      title: '形式认识论：把"相信多少"写成数字',
     },
     {
       url: "/philosophy/concepts/falsification",
@@ -43190,12 +44244,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "佛教哲学",
     },
     {
+      url: "/psychology/debates/phrenology-and-localization",
+      title: "颅相学之争：错的方法，对的直觉",
+    },
+    {
       url: "/philosophy/experiments/marys-room",
       title: "玛丽的房间",
     },
     {
       url: "/philosophy/thinkers/shankara",
       title: "商羯罗",
+    },
+    {
+      url: "/psychology/methods/neuroimaging-methods-and-their-limits",
+      title: "神经影像方法及其限度",
     },
     {
       url: "/philosophy/thinkers/buddha",
@@ -43328,6 +44390,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "理性",
     },
     {
+      url: "/psychology/methods/computational-modeling-of-cognition",
+      title: "认知的计算建模",
+    },
+    {
       url: "/philosophy/concepts/practical-wisdom",
       title: "实践智慧",
     },
@@ -43436,6 +44502,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/linear-algebra",
       title: "线性代数",
+    },
+    {
+      url: "/psychology/methods/psychophysics-and-signal-detection",
+      title: "心理物理学与信号检测论",
     },
     {
       url: "/computer-science/concepts/information-retrieval-and-search",
@@ -43714,6 +44784,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "理性主义",
     },
     {
+      url: "/psychology/methods/computational-modeling-of-cognition",
+      title: "认知的计算建模",
+    },
+    {
       url: "/philosophy/questions/what-can-we-know",
       title: "我们能知道什么？",
     },
@@ -43846,6 +44920,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "金钱与幸福：科学怎么说",
     },
     {
+      url: "/psychology/methods/experience-sampling-and-ema",
+      title: "经验取样与生态瞬时评估",
+    },
+    {
       url: "/psychology/experiments/csikszentmihalyi-pagers",
       title: "契克森米哈伊呼叫器实验",
     },
@@ -43854,10 +44932,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "纵向研究与多层模型",
     },
   ],
+  "/psychology/methods/experience-sampling-and-ema": [
+    {
+      url: "/psychology/frontier/psychopathology-network-theory",
+      title: "精神病理的网络理论：症状之间，而非症状背后",
+    },
+  ],
   "/psychology/methods/longitudinal-multilevel-models": [
     {
       url: "/economics/concepts/econometrics-foundations",
       title: "计量经济学基础",
+    },
+    {
+      url: "/psychology/methods/experience-sampling-and-ema",
+      title: "经验取样与生态瞬时评估",
     },
     {
       url: "/cosmology/knowledge-base/快速射电暴",
@@ -44106,6 +45194,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "AI 读片：机器能比医生更早看见癌症吗",
     },
     {
+      url: "/psychology/methods/weird-samples-and-generalizability",
+      title: "WEIRD 样本与可推广性",
+    },
+    {
       url: "/universe-physics/frontier/muon-g2-self-correction",
       title: 'μ子反常磁矩：标准模型的"自我修复"',
     },
@@ -44192,6 +45284,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "NANOGrav与纳赫兹引力波背景",
     },
   ],
+  "/psychology/methods/neuroimaging-methods-and-their-limits": [
+    {
+      url: "/philosophy/concepts/sense-data",
+      title: "感觉材料",
+    },
+    {
+      url: "/psychology/debates/neuromyths-in-education",
+      title: "教育神经神话：为什么最好用的说法往往没有证据",
+    },
+    {
+      url: "/psychology/debates/phrenology-and-localization",
+      title: "颅相学之争：错的方法，对的直觉",
+    },
+  ],
   "/psychology/methods/preregistration-registered-reports": [
     {
       url: "/economics/economists/esther-duflo",
@@ -44260,6 +45366,30 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/concepts/nudge-libertarian-paternalism",
       title: "助推与自由家长主义",
+    },
+  ],
+  "/psychology/methods/psychophysics-and-signal-detection": [
+    {
+      url: "/psychology/debates/emotion-universality-debate",
+      title: "情绪普遍性之争",
+    },
+  ],
+  "/psychology/methods/weird-samples-and-generalizability": [
+    {
+      url: "/linguistics/history-typology-society/primitive-languages-myth",
+      title: "「原始语言」神话：一个被语言学自己推翻的排序",
+    },
+    {
+      url: "/linguistics/history-typology-society/eskimo-snow-words-hoax",
+      title: "爱斯基摩雪词神话：一个学术都市传说的完整解剖",
+    },
+    {
+      url: "/psychology/debates/neuromyths-in-education",
+      title: "教育神经神话：为什么最好用的说法往往没有证据",
+    },
+    {
+      url: "/political-science/concepts/modernization-theory",
+      title: "现代化理论：一条被现实反复绕开的单行道",
     },
   ],
   "/psychology/phenomena/anchoring-bias": [
@@ -44428,6 +45558,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "丹尼尔·卡尼曼",
     },
     {
+      url: "/medicine/events/bloodletting-and-the-numerical-method",
+      title: "放血疗法与第一次临床统计（1828）",
+    },
+    {
       url: "/economics/concepts/public-choice-theory",
       title: "公共选择理论",
     },
@@ -44440,8 +45574,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "计算机安全原则",
     },
     {
+      url: "/psychology/debates/neuromyths-in-education",
+      title: "教育神经神话：为什么最好用的说法往往没有证据",
+    },
+    {
       url: "/economics/debates/keynes-vs-hayek",
       title: "凯恩斯vs哈耶克：政府干预之争",
+    },
+    {
+      url: "/psychology/debates/phrenology-and-localization",
+      title: "颅相学之争：错的方法，对的直觉",
     },
     {
       url: "/arts/aesthetics/what-is-beauty",
@@ -44460,6 +45602,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "摄影作为媒介",
     },
     {
+      url: "/psychology/methods/neuroimaging-methods-and-their-limits",
+      title: "神经影像方法及其限度",
+    },
+    {
       url: "/life-science/knowledge-base/生态学--生物地理",
       title: "生物地理：岛屿生物地理学与隔离进化",
     },
@@ -44470,6 +45616,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/theorems/prime-number-theorem",
       title: "素数定理",
+    },
+    {
+      url: "/psychology/methods/psychophysics-and-signal-detection",
+      title: "心理物理学与信号检测论",
+    },
+    {
+      url: "/philosophy/concepts/psychologism",
+      title: "心理主义",
     },
     {
       url: "/life-science/knowledge-base/医学--疫苗原理",
@@ -44744,6 +45898,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/mencius",
       title: "孟子",
+    },
+    {
+      url: "/psychology/debates/emotion-universality-debate",
+      title: "情绪普遍性之争",
     },
     {
       url: "/psychology/knowledge-base/emotional-intelligence-practice",
@@ -45442,6 +46600,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "姑息治疗",
     },
     {
+      url: "/psychology/methods/experience-sampling-and-ema",
+      title: "经验取样与生态瞬时评估",
+    },
+    {
       url: "/philosophy/questions/what-is-time",
       title: "什么是时间？",
     },
@@ -45570,6 +46732,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/isms/phenomenology-ism",
       title: "现象学运动",
+    },
+    {
+      url: "/psychology/methods/psychophysics-and-signal-detection",
+      title: "心理物理学与信号检测论",
     },
     {
       url: "/philosophy/schools/neoplatonism",
@@ -46803,6 +47969,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/engineering/frontiers/failure-analysis",
       title: "失效分析：从事故残骸中长出来的工程",
     },
+    {
+      url: "/sociology/concepts/secularization-thesis",
+      title: "世俗化理论：一个被作者自己撤回的预测",
+    },
+  ],
+  "/sociology/concepts/secularization-thesis": [
+    {
+      url: "/political-science/isms/end-of-history",
+      title: "历史终结论",
+    },
   ],
   "/sociology/concepts/social-capital": [
     {
@@ -46928,6 +48104,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/web-security-xss-csrf",
       title: "Web 安全：XSS 与 CSRF",
+    },
+  ],
+  "/sociology/concepts/social-darwinism-and-eugenics": [
+    {
+      url: "/law/public-law/separate-but-equal",
+      title: "「分离但平等」：一条被推翻的宪法学说",
+    },
+    {
+      url: "/law/public-law/lochner-era-freedom-of-contract",
+      title: "洛克纳时代：被宪法读进去的「契约自由」",
     },
   ],
   "/sociology/concepts/social-movements": [
@@ -47434,6 +48620,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "什么是真实的？",
     },
     {
+      url: "/sociology/concepts/secularization-thesis",
+      title: "世俗化理论：一个被作者自己撤回的预测",
+    },
+    {
       url: "/philosophy/isms/materialism",
       title: "唯物主义",
     },
@@ -47768,6 +48958,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/当代--万隆会议",
       title: "万隆会议",
+    },
+    {
+      url: "/psychology/methods/weird-samples-and-generalizability",
+      title: "WEIRD 样本与可推广性",
     },
   ],
   "/sociology/frontier/platform-governance": [
@@ -50338,6 +51532,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "宜居世界天文台：把生命问题变成光谱问题",
     },
     {
+      url: "/universe-physics/knowledge-base/经典物理--以太的兴衰",
+      title: "以太的兴衰",
+    },
+    {
       url: "/cosmology/knowledge-base/多信使天文学--gravitational-wave-detectors-ligo-lisa",
       title: "引力波探测器LIGO与LISA",
     },
@@ -51340,6 +52538,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "热力学三大定律",
     },
     {
+      url: "/universe-physics/knowledge-base/热力学--热质说的兴衰",
+      title: "热质说的兴衰",
+    },
+    {
       url: "/earth-science/concepts/water-cycle",
       title: "水循环",
     },
@@ -51404,6 +52606,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/热力学--laws-of-thermodynamics",
       title: "热力学三大定律",
+    },
+    {
+      url: "/universe-physics/knowledge-base/热力学--热质说的兴衰",
+      title: "热质说的兴衰",
     },
     {
       url: "/universe-physics/knowledge-base/凝聚态物理--phonons-lattice-vibrations",
@@ -51472,6 +52678,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "卡诺循环与热机",
     },
     {
+      url: "/earth-science/events/kelvin-and-the-age-of-the-earth",
+      title: "开尔文与地球年龄之争（1862—1904）",
+    },
+    {
       url: "/life-science/scientists/margulis",
       title: "林恩·马古利斯",
     },
@@ -51514,6 +52724,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/blockchain",
       title: "区块链",
+    },
+    {
+      url: "/universe-physics/knowledge-base/热力学--热质说的兴衰",
+      title: "热质说的兴衰",
     },
     {
       url: "/philosophy/questions/what-is-time",
@@ -52954,12 +54168,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "等效原理",
     },
     {
+      url: "/mathematics/paradoxes/fifth-postulate-proofs",
+      title: "第五公设的证明史：两千年的失败如何造出一门新几何",
+    },
+    {
       url: "/mathematics/concepts/non-euclidean-geometry",
       title: "非欧几何",
     },
     {
       url: "/mathematics/concepts/axiom",
       title: "公理",
+    },
+    {
+      url: "/cosmology/knowledge-base/太阳系--火神星",
+      title: "火神星：同一种方法，两种结局",
     },
     {
       url: "/philosophy/thinkers/kant",
@@ -53010,6 +54232,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/相对论--等效原理",
       title: "等效原理",
+    },
+    {
+      url: "/cosmology/knowledge-base/太阳系--火神星",
+      title: "火神星：同一种方法，两种结局",
     },
     {
       url: "/universe-physics/knowledge-base/相对论--克尔转动黑洞",
@@ -53188,6 +54414,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/相对论--相对论性动力学与四维力",
       title: "相对论性动力学与四维力",
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--以太的兴衰",
+      title: "以太的兴衰",
     },
     {
       url: "/cosmology/knowledge-base/引力波天文学",
@@ -53780,6 +55010,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/engineering/machines/space-engineering",
       title: "航天工程：入轨、对接与回收",
+    },
+    {
+      url: "/cosmology/knowledge-base/太阳系--火神星",
+      title: "火神星：同一种方法，两种结局",
     },
     {
       url: "/cosmology/knowledge-base/系外行星--凌星法",

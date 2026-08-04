@@ -205,8 +205,111 @@ export const COMPUTER_SCIENCE_COVERAGE_NODES: GraphNode[] = [
     "尝试把神经网络内部表征和计算回路转化为可检验解释。",
     ["机制可解释性", "神经网络"]
   ),
+  node(
+    "post-quantum-cryptography",
+    "后量子密码",
+    "concept",
+    "frontier",
+    "在能破解 RSA 的机器出现之前迁移全球公钥基础设施：格密码、尺寸代价与时间表。",
+    ["后量子密码", "格密码", "密码敏捷性"]
+  ),
+  node(
+    "retrieval-augmented-generation-and-agents",
+    "检索增强与智能体",
+    "concept",
+    "frontier",
+    "把语言模型接到外部知识与工具上：检索管线、智能体控制流与复合误差。",
+    ["检索增强生成", "AI 智能体", "工具调用"]
+  ),
+  node(
+    "confidential-computing-and-tees",
+    "机密计算与可信执行环境",
+    "concept",
+    "frontier",
+    "让数据在使用中也保持隔离，并用远程证明取代对运维方的信任。",
+    ["机密计算", "可信执行环境", "远程证明"]
+  ),
+  node(
+    "neuromorphic-and-beyond-cmos-computing",
+    "神经形态与后 CMOS 计算",
+    "concept",
+    "frontier",
+    "当搬运数据比计算更贵：脉冲网络、存内计算与换材料的三条路线。",
+    ["神经形态计算", "存内计算", "内存墙"]
+  ),
+  node(
+    "statistical-learning-theory-pac",
+    "统计学习理论与 PAC 学习",
+    "theory",
+    "theory",
+    "泛化为何可能：PAC 框架、VC 维、以及深度学习带来的理论危机。",
+    ["PAC 学习", "VC 维", "泛化界"],
+    { knowledgeLevel: 4 }
+  ),
+  node(
+    "online-algorithms-and-competitive-analysis",
+    "在线算法与竞争分析",
+    "theory",
+    "theory",
+    "不知道未来要付多少代价：竞争比、k-服务器问题与带预测的算法。",
+    ["在线算法", "竞争比", "带预测的算法"],
+    { knowledgeLevel: 4 }
+  ),
+  node(
+    "approximate-nearest-neighbor-search",
+    "近似最近邻搜索",
+    "algorithm",
+    "algorithms",
+    "高维空间里精确最近邻退化为暴力扫描；LSH、图索引与量化各自的取舍。",
+    ["近似最近邻", "向量检索", "HNSW"],
+    { knowledgeLevel: 3 }
+  ),
+  node(
+    "information-retrieval-and-search",
+    "信息检索与搜索",
+    "concept",
+    "concepts",
+    "倒排索引、BM25、召回与精排：半个世纪的检索传统在向量时代重新变得必读。",
+    ["信息检索", "倒排索引", "排序"],
+    { knowledgeLevel: 2 }
+  ),
+  node(
+    "cloud-computing",
+    "云计算",
+    "concept",
+    "concepts",
+    "把基础设施交给别人所需要的信任，以及它在计费、弹性与隔离上的形态。",
+    ["云计算", "弹性伸缩", "多租户"],
+    { knowledgeLevel: 3 }
+  ),
+  node(
+    "gpu-and-parallel-computing",
+    "GPU 与并行计算",
+    "concept",
+    "concepts",
+    "稠密规则计算与高内存带宽的组合，以及它在稀疏低延迟负载上的失效。",
+    ["GPU", "并行计算", "内存带宽"],
+    { knowledgeLevel: 3 }
+  ),
+  node(
+    "caching-strategies",
+    "缓存策略",
+    "concept",
+    "concepts",
+    "命中率的天花板由信息缺失而非算法聪明程度决定。",
+    ["缓存", "置换策略", "局部性"],
+    { knowledgeLevel: 3 }
+  ),
+  node(
+    "approximation-algorithms",
+    "近似算法理论",
+    "theory",
+    "theory",
+    "NP 难问题的可行退让：近似比、PTAS 与不可近似性。",
+    ["近似比", "PTAS", "不可近似性"],
+    { knowledgeLevel: 3 }
+  ),
 ];
-
 export const COMPUTER_SCIENCE_COVERAGE_EDGES: GraphEdge[] = [
   edge("john-von-neumann", "computer-architecture", "存储程序架构"),
   edge("computer-architecture", "operating-systems", "提供硬件抽象"),
@@ -258,4 +361,45 @@ export const COMPUTER_SCIENCE_COVERAGE_EDGES: GraphEdge[] = [
     type: "domain-link",
     label: "矩阵表示与变换",
   },
+  edge("cryptography-foundations", "post-quantum-cryptography", "换掉被量子算法击穿的数学假设"),
+  edge("public-key-rsa", "post-quantum-cryptography", "首要迁移对象"),
+  edge("large-language-models", "retrieval-augmented-generation-and-agents", "外接知识与工具"),
+  edge(
+    "information-retrieval-and-search",
+    "retrieval-augmented-generation-and-agents",
+    "召回与精排的老传统"
+  ),
+  edge(
+    "approximate-nearest-neighbor-search",
+    "retrieval-augmented-generation-and-agents",
+    "向量检索是管线地基"
+  ),
+  edge("hashing", "approximate-nearest-neighbor-search", "局部敏感哈希刻意制造碰撞"),
+  edge("computer-security-principles", "confidential-computing-and-tees", "最小化可信计算基"),
+  edge("cloud-computing", "confidential-computing-and-tees", "把信任从运维方收回硬件"),
+  edge("computer-architecture", "neuromorphic-and-beyond-cmos-computing", "内存墙催生的架构转向"),
+  edge(
+    "gpu-and-parallel-computing",
+    "neuromorphic-and-beyond-cmos-computing",
+    "稠密与稀疏负载的分工"
+  ),
+  edge("machine-learning-overview", "statistical-learning-theory-pac", "泛化的理论基础"),
+  edge("computational-complexity", "statistical-learning-theory-pac", "可学习性也是计算问题"),
+  edge(
+    "approximation-algorithms",
+    "online-algorithms-and-competitive-analysis",
+    "受限资源下的最优性度量"
+  ),
+  edge("caching-strategies", "online-algorithms-and-competitive-analysis", "LRU 的竞争比下界"),
+  edge("data-structures", "information-retrieval-and-search", "索引结构支撑检索"),
+  edge("data-structures", "approximate-nearest-neighbor-search", "高维索引的数据结构基础"),
+  edge("distributed-systems", "cloud-computing", "多租户与弹性的系统基础"),
+  edge("computer-architecture", "gpu-and-parallel-computing", "吞吐导向的并行架构"),
+  edge("operating-systems", "caching-strategies", "内存层级与页面置换"),
+  edge("computational-complexity", "approximation-algorithms", "NP 难之后的可行退让"),
+  edge(
+    "computational-complexity",
+    "online-algorithms-and-competitive-analysis",
+    "信息受限而非时间受限"
+  ),
 ];

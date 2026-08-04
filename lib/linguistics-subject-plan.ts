@@ -212,6 +212,18 @@ export const LINGUISTICS_SECTIONS: readonly LinguisticsSectionPlan[] = [
         bridgeDomains: ["human-history", "mathematics"],
       },
       {
+        slug: "primitive-languages-myth",
+        title: "「原始语言」神话：一个被语言学自己推翻的排序",
+        level: 3,
+        bridgeDomains: ["human-history", "sociology"],
+      },
+      {
+        slug: "eskimo-snow-words-hoax",
+        title: "爱斯基摩雪词神话：一个学术都市传说的完整解剖",
+        level: 3,
+        bridgeDomains: ["human-history", "psychology"],
+      },
+      {
         slug: "linguistic-typology",
         title: "语言类型学与跨语言共性",
         level: 3,
@@ -383,6 +395,8 @@ export const LINGUISTICS_RELEASE_WAVES: readonly LinguisticsReleaseWave[] = [
       "linguistic-typology",
       "language-contact",
       "linguistic-fieldwork",
+      "primitive-languages-myth",
+      "eskimo-snow-words-hoax",
     ],
   },
   {

@@ -18,6 +18,8 @@ import { LINGUISTICS_NODES, LINGUISTICS_EDGES } from "./linguistics-nodes";
 import { LAW_NODES, LAW_EDGES } from "./law-nodes";
 import { ARTS_NODES, ARTS_EDGES } from "./arts-nodes";
 import { ENGINEERING_NODES, ENGINEERING_EDGES } from "./engineering-nodes";
+import { PHILOSOPHY_FRONTIER_NODES, PHILOSOPHY_FRONTIER_EDGES } from "./philosophy-frontier-nodes";
+import { MDX_DERIVED_NODES, MDX_DERIVED_EDGES } from "./mdx-derived-nodes";
 import { LIFESCIENCE_COVERAGE_EDGES, LIFESCIENCE_COVERAGE_NODES } from "./lifescience-coverage";
 import { DOMAIN_SPINE_COVERAGE_EDGES, DOMAIN_SPINE_COVERAGE_NODES } from "./domain-spine-coverage";
 import {
@@ -184,6 +186,7 @@ const BASE_NODES: GraphNode[] = [
   ...LAW_NODES,
   ...ARTS_NODES,
   ...ENGINEERING_NODES,
+  ...PHILOSOPHY_FRONTIER_NODES,
   ...LIFESCIENCE_COVERAGE_NODES,
   ...DOMAIN_SPINE_COVERAGE_NODES,
   ...DOMAIN_SPINE_COMPLETION_NODES,
@@ -235,6 +238,7 @@ const baseEdges: GraphEdge[] = [
   ...LAW_EDGES,
   ...ARTS_EDGES,
   ...ENGINEERING_EDGES,
+  ...PHILOSOPHY_FRONTIER_EDGES,
   ...LIFESCIENCE_COVERAGE_EDGES,
   ...DOMAIN_SPINE_COVERAGE_EDGES,
   ...DOMAIN_SPINE_COMPLETION_EDGES,
@@ -284,8 +288,25 @@ for (const [targetUrl, sources] of Object.entries(BACKLINKS_INDEX)) {
   }
 }
 
-export const ALL_EDGES: GraphEdge[] = [...baseEdges, ...wikiReferenceEdges];
-export const ALL_NODES: GraphNode[] = annotateCognitiveMetadata(BASE_NODES, ALL_EDGES);
+// Frontmatter-derived nodes fill the computer-science / psychology articles that
+// never got a hand-written node. Curated entries win on every field, so only the
+// ids BASE_NODES does not already define are appended — a duplicate id would
+// fail graph-integrity.test.ts and silently shadow the curated metadata.
+const curatedIds = new Set(BASE_NODES.map((node) => node.id));
+const derivedNodes = MDX_DERIVED_NODES.filter((node) => !curatedIds.has(node.id));
+const allNodeIds = new Set([...curatedIds, ...derivedNodes.map((node) => node.id)]);
+// Relations are declared in frontmatter, which may name a slug that is not a
+// node (a wiki alias, or an article in another domain). Dropping those here is
+// what keeps the graph free of dangling edges.
+const derivedEdges = MDX_DERIVED_EDGES.filter(
+  (edge) => allNodeIds.has(edge.source) && allNodeIds.has(edge.target)
+);
+
+export const ALL_EDGES: GraphEdge[] = [...baseEdges, ...wikiReferenceEdges, ...derivedEdges];
+export const ALL_NODES: GraphNode[] = annotateCognitiveMetadata(
+  [...BASE_NODES, ...derivedNodes],
+  ALL_EDGES
+);
 
 export function getNodeById(id: string): GraphNode | undefined {
   return ALL_NODES.find((n) => n.id === id);

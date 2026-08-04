@@ -847,4 +847,16 @@ export const COSMOLOGY_KB_DATA = [
     titleEn: "Space Telescopes as Time Machines",
     category: "太空探索",
   },
+  {
+    slug: "宇宙学基础--稳恒态宇宙",
+    title: "稳恒态宇宙：输得最体面的理论",
+    titleEn: "The Steady State Universe — The Most Honourable Defeat",
+    category: "宇宙学基础",
+  },
+  {
+    slug: "太阳系--火神星",
+    title: "火神星：同一种方法，两种结局",
+    titleEn: "Vulcan — The Same Method, Two Outcomes",
+    category: "太阳系",
+  },
 ];

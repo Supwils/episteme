@@ -367,6 +367,22 @@ export const SOCIOLOGY_NODES: GraphNode[] = [
     ["社会建构", "族群边界", "结构性不平等"]
   ),
   n(
+    "secularization-thesis",
+    "世俗化理论",
+    "concept",
+    "concepts",
+    "现代化必然带来宗教衰退这一预测的兴衰，及其主要提出者的公开撤回。",
+    ["世俗化", "宗教复兴", "存在安全"]
+  ),
+  n(
+    "social-darwinism-and-eugenics",
+    "社会达尔文主义与优生学",
+    "concept",
+    "concepts",
+    "把既有社会安排翻译成生物学语言的一套主张，及其在统计学与法律中的制度化。",
+    ["社会达尔文主义", "优生学", "自然主义谬误"]
+  ),
+  n(
     "jurgen-habermas",
     "于尔根·哈贝马斯",
     "thinker",
@@ -428,6 +444,11 @@ export const SOCIOLOGY_EDGES: GraphEdge[] = [
   e("emile-durkheim", "social-structure", "社会事实"),
   e("max-weber-sociology", "bureaucracy", "理性化组织"),
   e("pierre-bourdieu", "social-stratification", "再生产"),
+  e("emile-durkheim", "secularization-thesis", "宗教作为社会事实"),
+  e("social-structure", "secularization-thesis", "制度分化与信仰的分离"),
+  e("emile-durkheim", "social-darwinism-and-eugenics", "社会事实不可还原为生物学"),
+  e("social-stratification", "social-darwinism-and-eugenics", "不平等被重述为自然差异"),
+  e("race-and-ethnicity", "social-darwinism-and-eugenics", "种族分类的科学外衣"),
   e("pierre-bourdieu", "education-and-credentialism", "文化资本"),
   e("erving-goffman", "gender-and-society", "互动表演"),
   e("talcott-parsons", "robert-merton", "师生与功能主义修正"),

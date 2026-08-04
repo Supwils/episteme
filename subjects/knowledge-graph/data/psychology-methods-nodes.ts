@@ -96,8 +96,49 @@ export const PSYCHOLOGY_METHOD_NODES: GraphNode[] = [
     "审查传感器行为痕迹如何连接心理构念，以及预测、公平、隐私和干预责任。",
     ["数字表型", "机器学习", "数据伦理"]
   ),
+  methodNode(
+    "psychophysics-and-signal-detection",
+    "心理物理学与信号检测论",
+    "methods",
+    "把“看得准”与“倾向于说是”分开：阈限、心理测量函数、敏感性与判断标准。",
+    ["心理物理学", "信号检测论", "ROC"]
+  ),
+  methodNode(
+    "experience-sampling-and-ema",
+    "经验取样与生态瞬时评估",
+    "methods",
+    "在日常生活中反复截取“此刻”，把个体内动态与个体间差异分开。",
+    ["经验取样", "EMA", "密集纵向数据"]
+  ),
+  methodNode(
+    "neuroimaging-methods-and-their-limits",
+    "神经影像方法及其限度",
+    "methods",
+    "BOLD 测的是什么、反向推理为何无效、以及分析自由度造成的结论分歧。",
+    ["功能磁共振", "反向推理", "分析自由度"]
+  ),
+  methodNode(
+    "computational-modeling-of-cognition",
+    "认知的计算建模",
+    "methods",
+    "把理论写成能生成行为的方程，并用参数恢复与模型恢复检验它是否可被检验。",
+    ["漂移扩散模型", "参数恢复", "模型比较"]
+  ),
+  methodNode(
+    "weird-samples-and-generalizability",
+    "WEIRD 样本与可推广性",
+    "methods",
+    "从有限样本推广到普遍结论的正当性，通常从未被论证过。",
+    ["WEIRD 样本", "跨文化效度", "随机效应"]
+  ),
+  methodNode(
+    "psychopathology-network-theory",
+    "精神病理的网络理论",
+    "frontier",
+    "把障碍视为症状之间彼此激活的自我维持系统，而非潜在疾病实体的表现。",
+    ["症状网络", "共病", "临界慢化"]
+  ),
 ];
-
 export const PSYCHOLOGY_METHOD_EDGES: GraphEdge[] = [
   methodEdge(
     "psychometrics-reliability-validity",
@@ -173,4 +214,49 @@ export const PSYCHOLOGY_METHOD_EDGES: GraphEdge[] = [
     type: "domain-link",
     label: "用自然实验与审计检验平台干预",
   },
+  methodEdge(
+    "psychometrics-reliability-validity",
+    "psychophysics-and-signal-detection",
+    "有外部标尺的测量与无标尺的构念测量"
+  ),
+  methodEdge(
+    "psychophysics-and-signal-detection",
+    "effect-size-and-power",
+    "敏感性指标与功效的关系"
+  ),
+  methodEdge(
+    "longitudinal-multilevel-models",
+    "experience-sampling-and-ema",
+    "嵌套结构决定估计的是哪一种效应"
+  ),
+  methodEdge(
+    "experience-sampling-and-ema",
+    "digital-phenotyping-computational-ethics",
+    "被动感知把负担降到零、把伦理推到前台"
+  ),
+  methodEdge(
+    "neuroimaging-methods-and-their-limits",
+    "effect-size-and-power",
+    "小效应下的低功效与效应量夸大"
+  ),
+  methodEdge(
+    "bayesian-modeling-psychology",
+    "computational-modeling-of-cognition",
+    "分层贝叶斯是主流实现方式"
+  ),
+  methodEdge(
+    "measurement-invariance-fair-comparison",
+    "weird-samples-and-generalizability",
+    "跨群体比较的前置条件"
+  ),
+  methodEdge(
+    "causal-inference-experiments-observational-studies",
+    "weird-samples-and-generalizability",
+    "外部效度与内部效度的取舍"
+  ),
+  methodEdge(
+    "experience-sampling-and-ema",
+    "psychopathology-network-theory",
+    "个体化动态网络依赖密集纵向数据"
+  ),
 ];

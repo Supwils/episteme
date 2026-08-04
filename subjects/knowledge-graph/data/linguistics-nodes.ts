@@ -561,8 +561,27 @@ export const LINGUISTICS_NODES: GraphNode[] = [
     evidenceMode: "synthesis",
     prerequisiteIds: ["linguistics:computational-linguistics", "linguistics:corpus-linguistics"],
   }),
+  n({
+    slug: "primitive-languages-myth",
+    label: "「原始语言」神话",
+    section: "history-typology-society",
+    description: "十九世纪把语言按“发展程度”排序的框架，以及语言学如何自己推翻了它。",
+    tags: ["原始语言", "语言进化论", "博厄斯"],
+    knowledgeLevel: 3,
+    evidenceMode: "interpretation",
+    prerequisiteIds: ["linguistics:languages-change"],
+  }),
+  n({
+    slug: "eskimo-snow-words-hoax",
+    label: "爱斯基摩雪词神话",
+    section: "history-typology-society",
+    description: "一条被完整追溯的错误引用链：从博厄斯的四个词根到“一百个雪词”。",
+    tags: ["爱斯基摩雪词", "引用链", "多式综合语"],
+    knowledgeLevel: 3,
+    evidenceMode: "interpretation",
+    prerequisiteIds: ["linguistics:languages-change"],
+  }),
 ];
-
 const e = (
   source: string,
   target: string,
@@ -788,4 +807,14 @@ export const LINGUISTICS_EDGES: GraphEdge[] = [
     "模型作为理论检验台",
     "domain-link"
   ),
+  e("languages-change", "primitive-languages-myth", "变化不等于进步"),
+  e("linguistic-typology", "primitive-languages-myth", "类型不是阶段", "cross-reference"),
+  e(
+    "primitive-languages-myth",
+    "eskimo-snow-words-hoax",
+    "同一族他者化叙事的两面",
+    "cross-reference"
+  ),
+  e("languages-change", "eskimo-snow-words-hoax", "词汇细化反映的是接触频度而非语言类型"),
+  e("linguistic-typology", "eskimo-snow-words-hoax", "多式综合语中词的边界"),
 ];
