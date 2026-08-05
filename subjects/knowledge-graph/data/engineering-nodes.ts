@@ -329,7 +329,7 @@ export const ENGINEERING_NODES: GraphNode[] = [
     tags: ["失效分析", "事故调查", "断口"],
     knowledgeLevel: 4,
     evidenceMode: "experimental",
-    prerequisiteIds: ["engineering:materials-strength"],
+    prerequisiteIds: ["engineering:steam-and-engines"],
   }),
   n({
     slug: "safety-engineering",
@@ -400,6 +400,67 @@ export const ENGINEERING_NODES: GraphNode[] = [
     knowledgeLevel: 4,
     evidenceMode: "observation",
     prerequisiteIds: ["engineering:thermal-power", "engineering:power-grid"],
+  }),
+  // ── 第二波：化工、采矿、通信、生医、农食 ─────────────
+  n({
+    slug: "chemical-engineering",
+    label: "化学工程",
+    section: "materials",
+    description: "单元操作与三传一反：把烧杯里的反应放大到一天一千吨。",
+    tags: ["化学工程", "单元操作", "放大效应", "过程安全"],
+    knowledgeLevel: 2,
+    evidenceMode: "formal",
+    prerequisiteIds: ["engineering:steam-and-engines"],
+  }),
+  n({
+    slug: "mining-and-extraction",
+    label: "采矿与资源提取",
+    section: "materials",
+    description: "品位下降如何把资源问题变成能耗问题；尾矿与关键矿产。",
+    tags: ["采矿", "选矿", "尾矿", "关键矿产"],
+    knowledgeLevel: 2,
+    evidenceMode: "observation",
+    prerequisiteIds: ["engineering:materials-strength"],
+  }),
+  n({
+    slug: "food-and-agricultural-engineering",
+    label: "农业与食品工程",
+    section: "materials",
+    description: "灌溉、机械化、保存与冷链：从一粒种子到一顿饭的工程链条。",
+    tags: ["农业工程", "食品保存", "灌溉", "冷链"],
+    knowledgeLevel: 2,
+    evidenceMode: "observation",
+    prerequisiteIds: ["engineering:simple-machines"],
+  }),
+  n({
+    slug: "telecommunications-networks",
+    label: "通信与网络工程",
+    section: "machines",
+    description: "香农极限、光纤与分组交换：让消息跑赢距离。",
+    tags: ["通信工程", "香农极限", "光纤", "蜂窝网络"],
+    knowledgeLevel: 3,
+    evidenceMode: "formal",
+    prerequisiteIds: ["engineering:computing-hardware"],
+  }),
+  n({
+    slug: "biomedical-engineering",
+    label: "生物医学工程",
+    section: "machines",
+    description: "在三十七度的湿盐环境里工作且不能停机的机器。",
+    tags: ["医疗器械", "生物材料", "医学影像", "器械监管"],
+    knowledgeLevel: 3,
+    evidenceMode: "observation",
+    prerequisiteIds: ["engineering:control-and-feedback"],
+  }),
+  n({
+    slug: "industrial-engineering-and-quality",
+    label: "工业工程与质量",
+    section: "machines",
+    description: "共同原因与特殊原因之分、控制图、精益与六西格玛。",
+    tags: ["工业工程", "统计过程控制", "控制图", "精益生产"],
+    knowledgeLevel: 2,
+    evidenceMode: "formal",
+    prerequisiteIds: ["engineering:simple-machines"],
   }),
 ];
 const e = (
@@ -525,5 +586,64 @@ export const ENGINEERING_EDGES: GraphEdge[] = [
     "dilution-is-the-solution",
     "解决方案成为新风险源",
     "cross-reference"
+  ),
+  // 第二波接线
+  e("measurement-and-tolerance", "chemical-engineering", "过程控制的前提是可测量"),
+  e("steel-and-alloys", "chemical-engineering", "氢脆等材料问题是放大的真正障碍"),
+  e("chemical-engineering", "supply-chains", "过程工业是几乎所有链条的上游"),
+  e("materials-strength", "mining-and-extraction", "从矿石到金属的第一步"),
+  e("mining-and-extraction", "steel-and-alloys", "冶金的原料端"),
+  e("mining-and-extraction", "semiconductor-manufacturing", "关键矿产与超纯材料"),
+  e("measurement-and-tolerance", "food-and-agricultural-engineering", "水分活度与温度的可控性"),
+  e("water-systems", "food-and-agricultural-engineering", "灌溉是最大的用水部门"),
+  e("computing-hardware", "telecommunications-networks", "数字信号处理进入光通信"),
+  e("electricity-and-motors", "telecommunications-networks", "从电报到光网的物理层"),
+  e("control-and-feedback", "biomedical-engineering", "闭环控制进入人体"),
+  e("robotics-systems", "biomedical-engineering", "手术机器人与假肢的共用技术"),
+  e(
+    "chemical-engineering",
+    "dilution-is-the-solution",
+    "过程排放与末端治理的关系",
+    "cross-reference"
+  ),
+  e("mining-and-extraction", "energy-storage", "电池金属的需求曲线", "cross-reference"),
+  // 跨域桥（domain-link）
+  e(
+    "chemical-engineering",
+    "chemistry:haber-bosch-process",
+    "化学的平衡与工程的放大",
+    "domain-link"
+  ),
+  e(
+    "mining-and-extraction",
+    "earth-science:mineral-resources-and-critical-metals",
+    "矿床的地球化学前提",
+    "domain-link"
+  ),
+  e(
+    "telecommunications-networks",
+    "computer-science:claude-shannon",
+    "信道容量定理",
+    "domain-link"
+  ),
+  e("biomedical-engineering", "medicine:x-ray-imaging", "影像设备的重建算法", "domain-link"),
+  e(
+    "food-and-agricultural-engineering",
+    "medicine:nutrition-science",
+    "加工、保存与营养",
+    "domain-link"
+  ),
+  e("steam-and-engines", "chemical-engineering", "热机催生了过程工业的能量整合"),
+  e("steam-and-engines", "mining-and-extraction", "纽科门机最早的用途是矿井排水"),
+  e("simple-machines", "food-and-agricultural-engineering", "农机是机械原理最早的大规模应用"),
+  e("simple-machines", "industrial-engineering-and-quality", "动作研究把作业分解为基本单元"),
+  e("measurement-and-tolerance", "industrial-engineering-and-quality", "公差是过程能力的语言"),
+  e("automation-and-industry", "industrial-engineering-and-quality", "自働化与安灯绳"),
+  e("industrial-engineering-and-quality", "failure-analysis", "从异常检测到失效归因"),
+  e(
+    "industrial-engineering-and-quality",
+    "sociology:work-and-labor-organizations",
+    "两种劳动过程设计",
+    "domain-link"
   ),
 ];

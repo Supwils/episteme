@@ -115,6 +115,11 @@ function computeUrl(node: {
       if (node.type === "school") return `/philosophy/schools/${node.slug}`;
       if (node.type === "concept") return `/philosophy/concepts/${node.slug}`;
       if (node.type === "experiment") return `/philosophy/experiments/${node.slug}`;
+      // questions and isms were missing here until 2026-08-05, leaving 47 nodes
+      // (19 + 28) with no url: they rendered in the graph but could not be
+      // opened, and every url-keyed check skipped them. Both routes exist.
+      if (node.type === "question") return `/philosophy/questions/${node.slug}`;
+      if (node.type === "ism") return `/philosophy/isms/${node.slug}`;
       return undefined;
     case "life-science":
       if (node.type === "species") return `/life-science/species`;
@@ -288,19 +293,43 @@ for (const [targetUrl, sources] of Object.entries(BACKLINKS_INDEX)) {
   }
 }
 
-// Frontmatter-derived nodes fill the computer-science / psychology articles that
-// never got a hand-written node. Curated entries win on every field, so only the
-// ids BASE_NODES does not already define are appended — a duplicate id would
-// fail graph-integrity.test.ts and silently shadow the curated metadata.
+// Frontmatter-derived nodes fill the articles that never got a hand-written one.
+// Curated entries win on every field, so a derived node is dropped when a
+// curated node already claims its id or — since several domains prefix ids
+// differently from their route (lifescience: for /life-science) — its URL. Two
+// nodes for one article would show up twice in the graph and count twice in the
+// reachability audit.
 const curatedIds = new Set(BASE_NODES.map((node) => node.id));
-const derivedNodes = MDX_DERIVED_NODES.filter((node) => !curatedIds.has(node.id));
+const curatedIdByUrl = new Map<string, string>();
+for (const node of BASE_NODES) if (node.url) curatedIdByUrl.set(node.url, node.id);
+
+const supersededDerivedIds = new Map<string, string>();
+const derivedNodes: GraphNode[] = [];
+for (const node of MDX_DERIVED_NODES) {
+  const curatedId = node.url ? curatedIdByUrl.get(node.url) : undefined;
+  if (curatedId) {
+    supersededDerivedIds.set(node.id, curatedId);
+    continue;
+  }
+  if (!curatedIds.has(node.id)) derivedNodes.push(node);
+}
+
 const allNodeIds = new Set([...curatedIds, ...derivedNodes.map((node) => node.id)]);
 // Relations are declared in frontmatter, which may name a slug that is not a
 // node (a wiki alias, or an article in another domain). Dropping those here is
-// what keeps the graph free of dangling edges.
-const derivedEdges = MDX_DERIVED_EDGES.filter(
-  (edge) => allNodeIds.has(edge.source) && allNodeIds.has(edge.target)
-);
+// what keeps the graph free of dangling edges. Edges that pointed at a derived
+// node the curated list superseded are redirected rather than dropped: the
+// relation the author wrote is real either way.
+const derivedEdges: GraphEdge[] = [];
+for (const edge of MDX_DERIVED_EDGES) {
+  const source = supersededDerivedIds.get(edge.source) ?? edge.source;
+  const target = supersededDerivedIds.get(edge.target) ?? edge.target;
+  if (source === target || !allNodeIds.has(source) || !allNodeIds.has(target)) continue;
+  const key = pairKey(source, target);
+  if (existingPairs.has(key)) continue;
+  existingPairs.add(key);
+  derivedEdges.push({ ...edge, source, target });
+}
 
 export const ALL_EDGES: GraphEdge[] = [...baseEdges, ...wikiReferenceEdges, ...derivedEdges];
 export const ALL_NODES: GraphNode[] = annotateCognitiveMetadata(

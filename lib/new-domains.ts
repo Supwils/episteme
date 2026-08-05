@@ -62,6 +62,13 @@ export const COMPUTER_SCIENCE: DomainConfig = {
       icon: "🧮",
       description: "可计算性、P/NP、信息论、自动机、密码学——计算的数学骨架",
     },
+    {
+      key: "systems",
+      label: "系统剖析",
+      accent: "#e5c07b",
+      icon: "🔧",
+      description: "Git、PostgreSQL、Redis、Kubernetes、Linux 容器——真实系统内部到底怎么运作",
+    },
   ],
 };
 

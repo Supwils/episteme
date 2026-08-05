@@ -1,0 +1,278 @@
+---
+title: etcd：把 Raft 变成能用的东西
+title_en: "etcd: Turning Raft Into Something Usable"
+status: published
+updated: 2026-08-05
+category: 系统剖析
+order: 11
+field: 分布式系统 · 共识协议 · 键值存储
+era: 当代
+key_figures:
+  - Diego Ongaro
+  - John Ousterhout
+  - Xiang Li
+  - Brandon Philips
+tags:
+  - etcd
+  - Raft 共识
+  - 预写日志
+  - 线性一致性
+  - MVCC
+related:
+  - consensus-algorithms
+  - distributed-systems
+  - databases-transactions
+  - kubernetes-controller-pattern
+  - kafka-log-abstraction
+---
+
+# etcd：把 Raft 变成能用的东西
+
+Raft 论文只有十六页。读完之后你会有种错觉：这东西我能实现。选举、日志复制、安全性约束，每一条都写得清清楚楚，伪代码就在图 2 里。
+
+然后你开始写，很快撞上一堆论文没打算回答的问题。日志要写到哪儿去？写完要不要 `fsync`？日志涨到几百万条怎么办？往集群里加一台机器的那一瞬间，"多数派"这个词指的是旧的三台还是新的四台？还有一个最容易被忽略的：客户端要读一个值，leader 直接把自己内存里的答案返回去，行不行？
+
+答案是不行。而**为什么不行、以及怎么做才行**，构成了 etcd 代码量的绝大部分。Raft 给的是骨架，etcd 补的是另一半——那一半没有优雅的定理，只有磁盘、时钟、内存和配额。
+
+etcd 由 CoreOS 发起，Xiang Li 在 2013 年 6 月 6 日推下第一个提交，起因是一个很具体的工程需求：CoreOS 要在一群 Linux 机器上做无人值守的自动更新，必须有个地方安全地协调"现在轮到谁重启"。Brandon Philips、Alex Polvi 与 Xiang Li 先看了 Google 的 Chubby 和 Apache ZooKeeper，最后决定自己写一个。2018 年 12 月 etcd 捐给 CNCF，2020 年 11 月毕业。今天它是 Kubernetes 唯一的持久化状态存储——整个集群的期望状态，都压在这个键值存储上。
+
+---
+
+## 破除误解
+
+**误解一：etcd 就是"Raft 论文的一个实现"。**
+
+恰恰相反，etcd 里那个叫 `raft` 的库**刻意不做任何 I/O**。它不打开文件、不发网络包、不看时钟，甚至没有后台线程。它是一个纯状态机：你把消息喂给它，它吐出一个 `Ready` 结构，告诉你"这些东西请你落盘，这些消息请你发出去，这些条目可以应用了"。落盘怎么落、发送失败怎么办、慢成员怎么追、快照怎么传，全部由上层的 etcd server 负责。这个切分不是洁癖，而是承认了一件事：**算法部分可以被测试到接近穷尽，I/O 部分不能**，所以必须让算法部分不含 I/O。TiKV、CockroachDB 都直接复用了这个库，用的正是这一点。
+
+**误解二：读操作不改数据，所以很便宜，读 leader 内存里的值就行。**
+
+etcd 默认的读**要走一次网络往返**。原因很直白：leader 可能已经被网络分区隔离了，新 leader 已经在另一侧选出并提交了新数据，而老 leader 对此一无所知——它自认为还是 leader，它内存里的值已经是旧的。所以在返回读结果之前，它必须先确认"我此刻仍然是 leader"，这个确认要问多数派。下文会展开三种做法与各自的失效场景。
+
+**误解三：etcd 是一个分布式数据库，可以拿来存业务数据。**
+
+它有一组很硬的上限：单个请求默认最大 1.5 MiB（`--max-request-bytes`），后端存储默认配额 2 GiB（`--quota-backend-bytes`），官方建议的上限是 8 GiB，配置超过这个值启动时会告警。触顶之后不是"变慢"，是集群拉起 NOSPACE 报警并转入只读——**所有写入停止**。而写吞吐无法靠加机器提升：所有写都过同一个 leader，每一次写都要一轮共识加多数派各自的磁盘 `fsync`，加节点只增加容错，反而让"等最慢的那个"变得更慢。它是元数据存储，不是数据库。
+
+---
+
+## Raft 给了什么，工程要补什么
+
+| 论文写清楚的 | 论文没打算回答的 | etcd 的答案在哪 |
+| --- | --- | --- |
+| 选举、任期、日志匹配性质 | 日志用什么格式落盘，什么时候 `fsync` | WAL 段文件 + `Ready` 的落盘顺序约定 |
+| 已提交条目不会丢 | 日志无限增长怎么办 | 快照 + raft 日志压缩 + MVCC compaction，三件不同的事 |
+| 成员变更的两种方案 | 变更过程中的可用性塌陷 | learner（非投票成员）+ ConfChangeV2 |
+| 状态机是抽象的 | 读怎么读才线性一致 | ReadIndex（默认）/ lease read / serializable read |
+| 状态机是抽象的 | 客户端怎么知道"变了" | MVCC revision + watch 事件流 |
+
+下面逐个拆。
+
+---
+
+## 一、WAL：为什么必须先落盘，以及落到什么程度
+
+### 崩溃恢复要求的是什么
+
+Raft 的安全性论证有一条前置条件常被跳读：`currentTerm`、`votedFor`、`log[]` 这三样必须在**响应任何 RPC 之前**存到稳定存储上。
+
+为什么是"响应之前"而不是"之后"？设想一个节点在 term 7 给 A 投了票，回了 `VoteGranted`，然后断电重启，忘了这件事，又在 term 7 给 B 投票。如果这种事在几个节点上同时发生，A 和 B 可能各自凑齐多数派，同时当选。两个 leader 各写各的日志，已经告诉客户端"成功"的写入会被覆盖。**丢的不是性能，是已确认的数据。**
+
+etcd 用 `Ready` 把这条约束变成了 API 层面的强制。简化后的结构大致是：
+
+```go
+type Ready struct {
+    pb.HardState              // term / vote / commit —— 必须先落盘
+    Entries          []pb.Entry  // 新增日志条目 —— 必须先落盘
+    Snapshot         pb.Snapshot // 需要安装的快照
+    CommittedEntries []pb.Entry  // 已提交，可以应用到状态机
+    Messages         []pb.Message // ⚠️ 上面几项持久化之后才允许发出
+}
+```
+
+规则只有一句：**`Messages` 里的东西，在 `HardState` 与 `Entries` 落稳之前，一个字节都不能发出去。** 这条规则把论文里那句散落在正文里的要求，变成了调用者绕不过去的顺序。较新的 raft 库提供了 `AsyncStorageWrites` 选项，把落盘和状态机推进拆到不同线程以提高并发，但它并没有放松这条约束——它只是把"落盘完成"变成了一条显式的回执消息，`MsgAppResp` 依然要等回执到了才发。
+
+### 写不等于落盘：`fsync` 的位置
+
+`write()` 返回成功，数据只是进了操作系统的 page cache。机器掉电，它就没了。要让它真的到介质上，必须 `fsync`（或 `fdatasync`）。
+
+所以 etcd 的一次写入，真实成本是：leader 追加到自己的 WAL 并 `fsync` → 并行发给 follower → 每个 follower 追加并 `fsync` 后才回 `MsgAppResp` → leader 收到多数派确认，标记 commit → 应用到状态机 → 回复客户端。
+
+这条链上有**一轮网络往返加至少两次磁盘同步**（leader 一次，follower 各一次，取多数派中最慢的）。批量化能摊薄它——一个 `Ready` 里的多条日志共享一次 `fsync`——但摊不掉延迟。这就是为什么 etcd 的官方磁盘要求写成一个分位数而不是吞吐数字：普通集群要求块设备能以 8 KB 顺序写、含 `fdatasync`、每秒至少 50 次且单次在 10 毫秒内完成；重载集群建议 500 IOPS（单次约 2 毫秒）。对应的两个指标——`etcd_disk_wal_fsync_duration_seconds` 和 `etcd_disk_backend_commit_duration_seconds`——基本是运维 etcd 时第一个要盯的东西。
+
+WAL 文件本身也为 `fsync` 做了优化：段文件**预分配到约 64 MB**。理由是如果文件边写边扩展，每次追加都会连带更新文件系统的元数据，`fsync` 就得多同步一份东西。先把空间占住，后续追加就只是覆写已分配的块。每条 WAL 记录带 CRC，重启时校验到损坏处即停止重放。
+
+etcd 确实提供了 `--unsafe-no-fsync`，但名字里那个 `unsafe` 是认真的，只用于测试。
+
+### 两条持久化路径，和它们对不齐时发生的事
+
+etcd 有**两个**持久化的东西，容易被当成一个：
+
+- **WAL**：记录"这条提案我收到并认可了"，同步落盘，是共识层的真相。
+- **bbolt 后端**（BoltDB 的 fork，B+ 树）：记录"这条提案我执行完的结果"，批量提交，是状态机的真相。
+
+两者靠一个叫 `consistent index` 的水位对齐：重启时读出后端已经执行到哪一条，再从 WAL 里重放之后的部分。
+
+v3.5.0 到 v3.5.2 的数据不一致事故，根因就在这里。一次重构让 `consistent index` 没能与数据在同一个后端事务里原子提交。如果 etcd 在"索引已存、数据未写"的窗口里崩溃，恢复时它会认为那些条目已经执行过而跳过——同一个集群的不同成员，从此对同一个 key 给出不同答案。触发条件是高负载下的进程被杀，所以测试环境很难复现。官方的处置是：v3.5.3 起修复，并建议受影响版本打开 `--experimental-initial-corrupt-check`，因为那是当时唯一可靠的自动检测手段。
+
+这件事值得记住的地方在于：**共识算法本身被证明过，出问题的是它和存储引擎之间那道接缝。**
+
+---
+
+## 二、快照与压缩：三件不同的事，经常被当成一件
+
+日志不能无限长。但"清理"在 etcd 里有三个含义，混淆它们是运维事故的常见来源。
+
+| 操作 | 清理的对象 | 触发方式 | 副作用 |
+| --- | --- | --- | --- |
+| raft 快照 + 日志压缩 | 内存与磁盘上的 raft 日志条目 | `--snapshot-count` 自动触发 | 落后太多的成员只能收全量快照 |
+| MVCC compaction | 键空间里的历史版本（旧 revision） | `etcdctl compact` 或自动压缩策略 | watch 无法再从被丢弃的 revision 回放 |
+| defrag | bbolt 文件里的空闲页 | `etcdctl defrag` / `etcdutl defrag` | 执行期间该成员阻塞 |
+
+**raft 快照**的逻辑是：每应用满 `--snapshot-count` 条日志，就把状态机当前状态存成一个快照文件，然后把这之前的 raft 日志丢掉。这个默认值的变迁本身就是一次取舍记录——3.2 之前是 10000，3.2 起提到 100000（为了让慢成员有更多时间靠增量日志追上），而 2025 年 5 月 15 日发布的 v3.6 又把它调回 10000，官方说明这一项加上更频繁的 raft 历史压缩，让平均内存占用**至少下降 50%**。天平往内存那边挪了一格。
+
+压缩之后并不是一条不留：默认保留 `DefaultSnapshotCatchUpEntries`（5000 条），让稍微落后的 follower 还能靠增量日志追平。一旦落后超出这个窗口，leader 只能给它发全量快照（`MsgSnap`）——在一个键空间接近配额上限的集群里，这是几个 GB 的传输加上接收端重建索引，期间这个成员基本不可用。磁盘上保留多少历史由 `--max-wals` 与 `--max-snapshots` 控制，默认都是 5。
+
+**MVCC compaction** 是另一层，与 raft 日志无关。它丢弃的是键空间里旧版本的数据：
+
+```bash
+etcdctl compact 8000     # 丢弃 revision 8000 之前的历史版本
+etcdctl defrag           # 重写 bbolt 文件，把空闲页还给文件系统
+etcdctl alarm disarm     # 配额触顶被锁成只读后，处理完再解除报警
+```
+
+注意 `compact` 之后文件**不会变小**。bbolt 只是把页标记为空闲留着复用，要真正还给文件系统必须 defrag，而 defrag 会重写整个文件、期间阻塞该成员——所以正确做法是逐个成员滚动执行，绝不能全集群同时来。
+
+Kubernetes 不依赖 etcd 的自动压缩，而是由 kube-apiserver 自己按 `--etcd-compaction-interval`（默认 5 分钟）去 compact。这个 5 分钟的窗口，下面马上会变成一个对所有 controller 都可见的行为。
+
+---
+
+## 三、成员变更：为什么这是最难的一段
+
+加一台机器听起来像运维操作，实际上它动的是共识算法赖以成立的前提。
+
+三节点集群多数派是 2，四节点是 3。如果新配置在部分节点上生效、旧配置还在另一部分节点上生效，就可能出现**两个互不相交的多数派**：旧配置下的 {A, B} 和新配置下的 {C, D, E}，各自合法地选出一个 leader。安全性论证的整个基础是"任意两个多数派必然相交"，配置变更是唯一能打破它的操作。
+
+Raft 给了两条路：
+
+| 方案 | 做法 | 代价 |
+| --- | --- | --- |
+| Joint consensus | 先进入中间配置 C<sub>old,new</sub>，此时任何决议必须在**新旧两个配置里都构成多数**，提交后再切到 C<sub>new</sub> | 实现复杂，多一轮提交 |
+| 单成员变更 | 一次只加或只减一个成员，从数学上保证新旧多数派必然相交 | 看似简单，但有个真实的安全漏洞 |
+
+那个漏洞由 Ongaro 本人在 2015 年发到 raft-dev 邮件列表（标题就叫 "bug in single-server membership changes"）。关键在于一个反直觉的细节：**配置变更条目在被追加时就立即生效，而不是等它被提交**。于是如果连着做两次变更，第一次还没提交就被新 leader 的日志覆盖掉，两次变更叠加的结果可能让多数派不再相交。修复很短：新 leader 上任后必须先提交一条本任期的空条目，才允许处理成员变更；并且任何时刻只允许一个未提交的配置变更在途。
+
+etcd 在工程上又加了一层，解决的是另一个问题——**可用性**，不是正确性。往三节点集群加第四个成员，多数派立刻从 2 变成 3，而这个新成员还在从零同步几个 GB 的数据。这段时间里集群只能容忍零个故障；如果同时有一个老成员重启，集群直接失去多数派。2019 年 8 月的 etcd 3.4 引入了 **learner**：新成员以非投票身份加入，照常接收日志，但**不计入多数派、不参与选举**，追平之后再手动 promote 成正式成员。资格审查被放到了入场之前。同时 etcd/raft 通过 `ConfChangeV2` 支持 joint consensus，可以原子地完成"替换一个成员"这种旧接口做不到的变更。
+
+即便如此，运维上仍有几条不能违反：必须先 `etcdctl member add` 拿到 ID 和集群配置再启动新进程（顺序反了新进程会自组一个集群）；删除成员要先从集群摘除再关机；成员数应当取奇数，因为四节点的多数派是 3，容错能力和三节点一样是 1，但多了一个可能拖慢每次写入的成员。
+
+---
+
+## 四、线性一致读：为什么不能直接读本地
+
+线性一致性的要求可以口语化成一句：**任何一次读，必须能看到这次读开始之前所有已完成的写。**
+
+leader 直接返回本地状态机的值会违反它，原因前面说过——被隔离的老 leader 自己不知道自己已经过期了。follower 更明显：它的 `applied` 索引本来就可能落后于 leader。
+
+三种做法：
+
+| 方案 | 机制 | 每次读的成本 | 失效场景 |
+| --- | --- | --- | --- |
+| Log Read | 把读请求本身作为一条日志走完整共识 | 一轮共识 + 多数派 `fsync` | 无正确性问题，但读会把磁盘打满 |
+| **ReadIndex** | 记下当前 `commitIndex` → 向多数派发一轮心跳确认仍是 leader → 等本地 `applied ≥ readIndex` → 读本地 | 一轮网络往返，**零次磁盘写** | 无 |
+| **Lease Read** | 依赖 leader 租约：上次心跳成功后的一个选举超时内，直接读本地 | 零往返 | 时钟假设被打破时返回旧值 |
+
+**ReadIndex** 是 etcd 的默认（raft 库里叫 `ReadOnlySafe`，文档明确写它是推荐选项）。它的洞察是：读不需要写日志，只需要两件事——确认自己此刻仍是 leader，以及确认本地状态机已经追上了那个时刻的提交水位。它还有一个容易被跳过的前置条件：**新 leader 必须先提交一条本任期的条目**，否则它无法确定自己的 `commitIndex` 是否已经涵盖前任提交过的全部内容。这条要求和成员变更那个 bug 的修复，是同一条。
+
+**Lease Read** 用时钟换往返。leader 收到多数派心跳响应后，认为在一个选举超时内自己一定还是 leader，于是跳过确认直接读。快，但正确性押在"各节点时钟漂移有界"上。风险非常具体：虚机被宿主机挂起几百毫秒、一次长 GC 停顿、NTP 跳变、CPU 降频——任何一种都可能让老 leader 的租约"看起来还没到期"，而此时新 leader 早已选出并写入了新值，老 leader 仍在返回旧值。raft 库提供了 `ReadOnlyLeaseBased`（要求同时打开 `CheckQuorum`），但 **etcd 服务端默认不用它**：宁可每次读多付一个 RTT，也不把正确性交给时钟。选择 lease read 的系统（如 TiKV）需要额外的时钟前提做支撑。
+
+客户端也可以主动降级。`WithSerializable()`（`etcdctl --consistency=s`）让请求直接读本地成员，不联系 leader——可能读到旧值，但读吞吐可以随成员数扩展，适合能容忍毫秒级陈旧的场景。反过来，follower 也能提供线性一致读：向 leader 索取 `readIndex`，等自己 `applied` 追上再读本地，省下的是数据传输而不是那一轮往返。
+
+还有一个边界要说清楚：线性一致读保证的是**单个 key 的时点新鲜度**，不提供跨多个 key 的快照隔离。要拿到跨 key 的一致视图，得显式指定 revision 读（`WithRev`），这就要用到下一节的东西了。
+
+---
+
+## 五、MVCC 与 watch：Kubernetes 控制器模式的地基
+
+2016 年的 etcd 3.0 换掉了 v2 的整套模型：HTTP+JSON 变成 gRPC+protobuf，层级目录变成扁平的二进制键空间，而最关键的改动是引入了 **MVCC**。
+
+### 存储长什么样
+
+两层：
+
+- **内存里的 `treeIndex`**：一棵 B 树，把用户 key 映射到它所有历史版本的 revision 列表。
+- **磁盘上的 bbolt**：B+ 树，但它的**键是 revision，值才是 KeyValue**。
+
+第二点值得停一下。bbolt 里的键是全局单调递增的版本号 `(main, sub)`，不是用户的 key。这意味着写入在 B+ 树里近似顺序追加，避免了随机插入导致的页分裂；代价是按用户 key 查询必须先过内存索引拿到 revision，再去 bbolt 取值——所以**整个键空间的索引必须常驻内存**。
+
+### 三个版本号
+
+| 字段 | 含义 | 作用域 |
+| --- | --- | --- |
+| `revision` | 集群全局逻辑时钟，每个写事务 +1 | 全局 |
+| `create_revision` | 该 key 被创建时的全局 revision | 单 key |
+| `mod_revision` | 该 key 最后一次被修改时的全局 revision | 单 key |
+| `version` | 该 key 自创建以来被修改的次数，删除后重建归 1 | 单 key |
+
+Kubernetes 的 `resourceVersion` 就是 etcd 的全局 revision。它全局单调、可比较、可以当作时间轴上的一个点——这三条性质是控制器模式能成立的全部基础。
+
+### watch 不是"订阅未来"
+
+```bash
+etcdctl watch --rev 8000 --prefix /registry/pods
+```
+
+这条命令的语义是：**从 revision 8000 开始，先把 8000 之后已经发生的事件按序回放，放完之后转入实时推送。** 它是一条从某个时间点开始的连续事件流，不是"从现在起通知我"。
+
+这正是 informer 的 `list-then-watch` 能做到不漏事件的原因：list 返回数据的同时返回一个 revision，watch 从这个 revision 之后接上，两者之间**没有窗口**。同一个事务里改的多个 key，会作为同一 revision 的一批事件一起到达，所以也不存在"看到一半"的中间态。控制器模式要求"重新读一遍当前状态就能正确工作"，而 watch 只负责叫醒它——但如果事件流能断在中间且客户端察觉不到，这个模型就塌了。MVCC 提供的连续 revision 轴，正是"察觉得到"的来源。
+
+### 这个地基的裂缝在哪
+
+历史窗口是有限的。如果客户端请求的 revision 已经被 compact 掉，etcd 直接返回 `mvcc: required revision has been compacted`，apiserver 把它翻译成 HTTP 410 与 "too old resource version"，reflector 收到就只能丢弃全部缓存重新 list。
+
+把前面的数字接起来：apiserver 默认每 5 分钟 compact 一次。所以**一个 informer 断连超过 5 分钟，几乎必然触发全量 relist**。大集群里成百上千个 controller 同时 relist，会给 apiserver 和 etcd 一波尖峰——这个现象的根在 MVCC 的历史保留窗口，不在 controller 的代码里。
+
+etcd 为此加了两个补丁：`WithProgressNotify`（长期无事件时也周期性告知客户端"我已推进到 revision X"，避免客户端的 revision 长期停滞在一个即将被压缩的位置，Kubernetes 侧对应 BOOKMARK 事件），以及 3.4 引入的 watch 响应分片（`WithFragment`），处理单个响应超过 `--max-request-bytes` 的情况。
+
+租约（lease）是另一个被 Kubernetes 大量使用的原语：key 可以绑定到一个有 TTL 的租约上，租约过期，挂在它下面的所有 key 一起被删。leader 选举、节点心跳都建在这上面。
+
+---
+
+## 六、为什么它明确不适合当通用数据库
+
+etcd 官方文档在这一点上从不含糊：它是给**不常变动的元数据**用的。把上面的机制串起来，限制的来源就全部可见了：
+
+- **单值上限**：`--max-request-bytes` 默认 1.5 MiB，且这是整个请求的上限（还要扣掉 gRPC 开销）。存一个稍大的对象直接被拒。
+- **总量上限**：`--quota-backend-bytes` 默认 2 GiB，建议不超过 8 GiB。**触顶不是降级而是停摆**——集群拉起 NOSPACE 报警转为只读，必须 compact、defrag、再 `alarm disarm` 才能恢复。而 Kubernetes 的整个控制平面在这段时间里无法收敛。
+- **内存随 key 数增长**：`treeIndex` 常驻内存，占用取决于 **key 数量 × 保留的 revision 数**，而不是数据字节数。大量小 key 高频改写，是最坏的组合。
+- **写吞吐不可水平扩展**：所有写走一个 leader，每次写要一轮共识加多数派 `fsync`，且没有分片。加成员只买到容错，买不到吞吐。跨机房部署三副本，每次写的延迟直接被地理距离锁死。
+- **查询能力极窄**：只有 key 与前缀/范围扫描，没有二级索引，没有聚合。事务是一次性的 `If / Then / Else` 比较交换，不能交互式地多轮往返。
+
+它拿这些换来的东西也很明确：一个不会丢已确认写、语义清晰的线性一致读、以及一条可从历史任意点回放的事件流。Kubernetes 需要的恰好就是这三样。
+
+具体哪些用法会翻车，也就一目了然了：拿它存监控指标或日志（写多量大，几小时顶爆配额）；当消息队列用（每条消息一次共识写，还占着 revision 历史）；做高频分布式锁（每次加锁解锁都是一次多数派 `fsync`）；把 Kubernetes 的 Event 和其他对象放同一个 etcd（Event 写入量大、价值低、生命周期短，大集群通常用 `--etcd-servers-overrides` 把它们隔到单独的 etcd 集群里，正是为了不让它们挤掉配额）。
+
+顺带一提，2025 年 5 月的 v3.6 是 v3.5.0（2021 年 6 月 15 日）之后的第一个小版本——中间隔了近四年。这四年里 etcd 做的主要是把 v3.5 那次事故的教训消化掉、补上 downgrade 支持、移除 v2store 的历史包袱。对一个被整个云原生生态当作最后一道真相的系统来说，这个节奏是刻意的。
+
+---
+
+## 跨域连接
+
+- **[[dispute-resolution|纠纷解决]]**：Raft 的多数决本质上是一套仲裁程序，成员变更则是修改仲裁庭本身。**程序法里最基本的一条约束是同一争议不能同时存在两个都有效的裁决，Raft 用的是同一条原理的算术形式——任意两个多数派必然相交，因此不可能有两个 leader 各自凑齐合法多数。这也解释了成员变更为什么是全篇最难的一段：它改的不是判决内容而是庭的组成，而在新旧名册交替的瞬间，"必然相交"这个前提会短暂失效。法律对此的处方是过渡条款与明确的生效时点，Raft 的 joint consensus 是同一种设计——让中间态必须同时在新旧名册里都构成多数，也就是"双重多数"。etcd 的 learner 再补一层：新成员先旁听、不计票，等于把资格审查前置到入庭之前，避免一个还没读完卷宗的成员立刻握有实质否决权。**
+- **[[memory-systems|记忆系统]]**：WAL、快照、compaction 三件事，对应的是编码、巩固与遗忘。**互补学习系统理论认为，海马体负责快速、逐条、易变的情景编码，新皮层负责缓慢地把它们整合成结构化表征，分工的理由是"写得快"与"结构稳"无法由同一套机制同时提供。etcd 的分层与之同构：WAL 顺序追加、逐条可重放、写入极快但毫无查询结构；bbolt 里的 B+ 树是整合后的当前状态，查得快而写入昂贵；快照就是巩固——把重放结果固化下来，从而获得丢掉原始日志的资格。compaction 则说明遗忘不是缺陷：在有限容量下保留全部历史会让系统无法运转，真正的问题从来不是"要不要忘"，而是"保留多长的窗口才够用"。Kubernetes 把这个窗口定在 5 分钟，informer 断连超过它就必须从零重建自己的世界模型。**
+- **[[telecommunications-networks|通信与网络工程]]**：lease read 把正确性押在时钟上，而电信网恰好展示了这个赌注的真实价格。**时分复用之所以能成立，靠的是一整套自上而下的同步体系——铯基准、时钟等级分层、逐级锁相，才敢让两端在没有任何握手的情况下认定"这一微秒归我"。普通服务器没有这套基础设施：虚机会被宿主机挂起几百毫秒，进程会长时间 GC，NTP 会跳变。lease read 假设的却是"我上次收到多数派心跳之后的一个选举超时内一定还是 leader"，这句话只有在时钟漂移有界时才为真。etcd 因此选择不押注：raft 库提供了 ReadOnlyLeaseBased，服务端默认仍走 ReadIndex，宁可每次读都多付一个网络往返，也不把线性一致性建在没有同步保障的本地时钟上。**
+- **[[probability|概率论]]**：三副本容一故障这句话里藏着两个概率假设，而它们经常不成立。**第一个假设是故障独立：可用性从 99% 提升到 99.99% 的算术，只在成员故障互不相关时成立，而同机架、同电源、同型号固态盘、同一次内核升级都会把独立性打掉，此时三副本的真实收益远低于账面。第二个假设更隐蔽——写延迟不是均值问题而是极值问题。一次提交要等多数派中最慢的那次 fsync 返回，等价于对若干延迟随机变量取次序统计量，尾部因此被系统性放大：单盘 p99 尚可的集群，整体 p99 可以明显更差，且成员越多这个放大越强。这解释了 etcd 官方为什么把磁盘要求写成"含 fdatasync 的 8 KB 顺序写需在 10 毫秒内完成"这样的分位数口径，而不是给一个吞吐数字。**
+- **[[safety-engineering|安全工程]]**：etcd 的持久化是典型的多重屏障设计，而 v3.5 那次事故正是屏障之间对不齐。**深层防御的前提，是各层屏障相互独立且共同覆盖失效路径。etcd 有两条持久化路径——WAL 负责"这条提案我记下了"，bbolt 后端负责"这条提案我执行了"，两者靠 consistent index 对齐。v3.5.0 到 v3.5.2 的重构让这个索引未能与数据在同一事务里原子落盘，崩溃恢复时系统误判某些条目已执行而将其跳过，同一集群的成员由此产生分歧。这是共模失效的教科书形态：两道屏障看起来独立，实际共享了一个未被写下来的前提。事后的处置也很安全工程——补上启动时的一致性校验，把"检测"单独立成一层，因为无法完全预防的失效，至少必须能被发现。**
+
+## 参考文献
+
+- Ongaro, D., Ousterhout, J. *In Search of an Understandable Consensus Algorithm.* USENIX ATC, 2014.（Raft 原始论文，选举、日志复制与安全性论证）
+- Ongaro, D. *Consensus: Bridging Theory and Practice.* PhD dissertation, Stanford University, 2014.（第 4、6 章给出成员变更两种方案与 ReadIndex 的完整推导，是本文多处的直接依据）
+- Ongaro, D. *bug in single-server membership changes.* raft-dev 邮件列表, 2015.（单成员变更的安全漏洞与"先提交本任期条目"的修复）
+- The etcd Authors. *etcd Documentation — Tuning, System Limits, Maintenance, Learner Design, Metrics, Configuration Flags.*（心跳与选举超时默认值、1.5 MiB 请求上限、2 GiB 后端配额、compaction 与 defrag 语义的官方口径）
+- The etcd Authors. *Postmortem: etcd v3.5 data inconsistency.* etcd-io/etcd Documentation, 2022.（consistent index 未原子提交导致的成员间数据分歧，第一手复盘）
+- Burrows, M. *The Chubby Lock Service for Loosely-Coupled Distributed Systems.* OSDI, 2006.（etcd 立项时的参照系之一，"共识服务而非数据库"这条定位的来源）
+
+## 延伸阅读
+
+- Kubernetes Blog. *Announcing etcd 3.4*, 2019 年 8 月 30 日——learner、并发读与后端改造的设计说明，成员变更那一节的一手材料。
+- Kubernetes Blog / etcd Blog. *Announcing etcd v3.6.0*, 2025 年 5 月 15 日——`--snapshot-count` 默认值调回 10000、内存下降与 downgrade 支持的官方说明，可以对照本文第二节看这次取舍。
+- Kleppmann, M. *Designing Data-Intensive Applications.* O'Reilly, 2017——第 5、7、9 章把复制、隔离级别与线性一致性放在同一框架里讲，是理解 ReadIndex 与 serializable read 差别的最好背景读物。

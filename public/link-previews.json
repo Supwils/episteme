@@ -19,6 +19,11 @@
     "e": "第一个误解，是相信天价来自作品的内在品质——画越好，价越高，价格不过是美学价值的温度计。如果真是这样，价格的波动就无从解释：梵高生前只卖出过极少的画，1987 年他的《向日葵》却以近四千万美元…",
     "d": "arts"
   },
+  "/arts/aesthetics/design-and-everyday-objects": {
+    "t": "设计与日常物：为什么有的门会被推错",
+    "e": "第一个误解，是把设计等同于\"让东西好看\"。设计的第一职责是让东西可被理解。 一扇需要贴\"推\"字标签的门，就是一次设计失败——标签是补丁，它证明门本身没有把用法说清楚。唐纳德·诺曼用这个例子说明…",
+    "d": "arts"
+  },
   "/arts/aesthetics/iconoclasm-and-censorship": {
     "t": "破坏圣像与审查：图像为何危险",
     "e": "第一个误解，是把破坏圣像当作愚昧群众的野蛮发作——一群不懂艺术的暴徒砸毁珍宝。历史上的图像破坏几乎从来不是这样：拜占庭的圣像破坏运动是皇帝颁旨、主教会议立法的国家神学大政；宗教改革中的拆像常常…",
@@ -27,6 +32,11 @@
   "/arts/aesthetics/museums-and-display": {
     "t": "博物馆与展示的政治：谁的故事挂在墙上",
     "e": "第一个误解，是把博物馆当成中立的仓库——一个把珍贵物品安全存放、供人观看的透明容器。事实上，没有任何一件展品是\"自己挂到墙上去的\"：选哪件、放哪个厅、配什么标签、按什么顺序排列，每一个决定都在…",
+    "d": "arts"
+  },
+  "/arts/aesthetics/public-art-and-monuments": {
+    "t": "公共艺术与纪念碑：谁被记住，由谁决定",
+    "e": "第一个误解，是以为纪念碑记录历史。纪念碑记录的是竖立它的那一代人希望被记住的历史——它的年代属于建造者，不属于被纪念的事件。这一点有极强的经验证据：美国南方的邦联纪念雕像，绝大多数并非建于内战…",
     "d": "arts"
   },
   "/arts/aesthetics/visual-culture-everyday": {
@@ -99,6 +109,11 @@
     "e": "第一个误解，是把\"看\"理解为\"复制\"。这个模型深入人心：世界把光送进眼睛，眼睛像一台精密照相机，在视网膜上拍下照片，大脑再把照片调出来欣赏。它听上去无懈可击——但它几乎每一步都是错的。视网膜上…",
     "d": "arts"
   },
+  "/arts/media/animation-and-comics": {
+    "t": "动画与漫画：意义发生在画格之间",
+    "e": "第一个误解，是把动画当成儿童体裁。这是发行渠道造成的历史偶然，不是媒介的属性。 日本的成人向剧场动画、东欧的实验动画、法国与加拿大的作者动画传统，从来不以儿童为主要受众。把\"用什么方式做\"与\"…",
+    "d": "arts"
+  },
   "/arts/media/ceramics-and-glaze": {
     "t": "陶瓷与釉：火与土的化学",
     "e": "第一个误解，是把\"陶\"和\"瓷\"当作同一种东西的雅俗两称。一件超市买的陶花盆和一只薄胎瓷碗，看起来都是\"烧出来的土\"，但它们在材料学上是两个物种：陶器用普通黏土，在几百到一千一百摄氏度左右烧成，…",
@@ -109,6 +124,11 @@
     "e": "第一个误解，是把素描当成正式作品的\"草稿\"——一种没画完、不上台面的东西。这个看法只有一半历史依据。在文艺复兴的工作室里，素描确实主要服务于构思与训练；但早在十六世纪，收藏家就开始把大师的手稿…",
     "d": "arts"
   },
+  "/arts/media/film-and-moving-image": {
+    "t": "电影与运动影像：静止的画格如何变成运动",
+    "e": "第一个误解是教科书级的，而且它是错的：几乎所有科普读物都说，电影之所以看起来在动，是因为\"视觉暂留\"——影像在视网膜上停留约十六分之一秒，于是连续的画格被连成了运动。",
+    "d": "arts"
+  },
   "/arts/media/fresco-and-wall-painting": {
     "t": "湿壁画与墙面传统",
     "e": "第一个误解，是把\"壁画\"等同于\"湿壁画\"。凡是画在墙上的都叫壁画（mural），但湿壁画（fresco）特指一种工艺：颜料必须画在未干的湿灰泥上，与墙面一起凝固。画在干墙上的，严格说叫\"干壁画…",
@@ -117,6 +137,11 @@
   "/arts/media/painting-media": {
     "t": "蛋彩、油彩与丙烯：颜料如何改变绘画",
     "e": "第一个误解流传了近五百年：油画是凡·艾克发明的。这个说法出自瓦萨里 1550 年出版的《艺苑名人传》，写得活灵活现——凡·艾克潜心试验，终于找到用亚麻油与核桃油调和颜料的秘方，消息传到意大利，…",
+    "d": "arts"
+  },
+  "/arts/media/performance-and-body-art": {
+    "t": "表演与身体艺术：作品是一段时间，不是一件东西",
+    "e": "第一个误解，是把行为艺术当成\"没有技术的艺术\"——反正就是站在那里。它的技术恰恰在于时间与身体的调度：一个动作重复多久开始变形、观众的注意力在第几分钟转向、疲惫如何改变一个姿势的含义。这些是可…",
     "d": "arts"
   },
   "/arts/media/photography-medium": {
@@ -132,6 +157,16 @@
   "/arts/media/sculpture-materials": {
     "t": "石雕、青铜与木雕：雕塑材料的逻辑",
     "e": "第一个误解，是以为雕塑就是\"刻石头\"。雕刻（carving）只是雕塑两大技术路线之一：从整块材料里去掉多余部分，称为减法；用可塑材料逐步堆塑、翻模、铸造成形，称为加法。米开朗基罗的大卫走的是减…",
+    "d": "arts"
+  },
+  "/arts/media/sound-and-listening": {
+    "t": "声音艺术与听觉：没有耳睑的那种感官",
+    "e": "第一个误解，是把声音艺术当成音乐的一个分支。它们的组织原则不同。 音乐传统上组织的是音高与节奏的关系，声音艺术组织的常常是空间、材料与时间的关系——一段共鸣、一个房间的回响、一台机器的噪声。当…",
+    "d": "arts"
+  },
+  "/arts/media/textiles-and-fiber-arts": {
+    "t": "纺织与纤维艺术：被降格为「工艺」的那门艺术",
+    "e": "第一个误解，是把纺织当成工艺而非艺术。这个等级划分有明确的历史来源，而不是媒介本身的性质。 文艺复兴的理论家把\"自由艺术\"（绘画、雕塑、建筑——被认为用脑）与\"机械艺术\"（织造、陶艺、金工——…",
     "d": "arts"
   },
   "/arts/methods/conservation-science": {
@@ -1519,6 +1554,126 @@
     "e": "2003 年，约书亚·本希奥（Yoshua Bengio）与合作者发表了一篇论文《神经概率语言模型》（A Neural Probabilistic Language Model）。这篇论文引入…",
     "d": "computer-science"
   },
+  "/computer-science/systems/build-systems-bazel": {
+    "t": "构建系统：从 Make 到可复现构建",
+    "e": "一个几乎所有程序员都干过的动作：改了代码，make，跑起来行为没变，怀疑人生半小时，最后敲了 make clean && make，一切正常。",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/chromium-site-isolation": {
+    "t": "Chromium 的站点隔离：把进程边界当作安全边界",
+    "e": "在 Chrome 里按 Shift+Esc 打开自带的任务管理器，然后只开一个标签页去看一个普通的新闻网站。你大概率会看到不止一行：主文档一行，广告位的 iframe 一行，社交分享按钮的 i…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/curl-and-maintainer-burden": {
+    "t": "curl：一个人维护的全球基础设施",
+    "e": "手边任何一台联网设备，多半正在用 curl 说话。手机应用拉一张图、机顶盒检查固件更新、车机后台下载地图、打印机去查耗材余量、游戏主机同步存档——这些请求里有相当一部分不是应用自己写的网络代码…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/envoy-service-mesh": {
+    "t": "Envoy 与服务网格：把网络逻辑从应用里搬出来",
+    "e": "2015 年前后的 Lyft 正处在一段很典型的迁移里：一个 PHP 单体被拆成几十个 Python 和 Go 服务。拆完以后出现了一类新的故障——请求失败了，但没有任何一个服务认为自己出了错…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/etcd-raft": {
+    "t": "etcd：把 Raft 变成能用的东西",
+    "e": "Raft 论文只有十六页。读完之后你会有种错觉：这东西我能实现。选举、日志复制、安全性约束，每一条都写得清清楚楚，伪代码就在图 2 里。",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/git-object-model": {
+    "t": "Git 的对象模型：为什么分支是廉价的",
+    "e": "在一个二十年历史、上百万次提交的仓库里敲 git branch feature-x，回车之后光标立刻就回来了。同一台机器上复制一份工作目录要等几十秒，而 Git 建分支的耗时与仓库大小完全无关…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/kafka-log-abstraction": {
+    "t": "Kafka：把消息队列还原成一个日志",
+    "e": "2011 年，LinkedIn 的 Jay Kreps、Neha Narkhede、Jun Rao 在 NetDB 研讨会上发表了《Kafka: a Distributed Messaging…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/kubernetes-controller-pattern": {
+    "t": "Kubernetes 的控制器模式：声明式系统怎么收敛",
+    "e": "敲下 kubectl apply -f deployment.yaml，命令一秒返回，三个容器过一会儿就跑起来了。直觉会告诉你：这条命令去创建了三个容器。",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/linux-containers-internals": {
+    "t": "Linux 容器：它不是虚拟机",
+    "e": "在一台跑着 Debian 的机器上敲 docker run --rm -it ubuntu:24.04 bash，一秒之内你会拿到一个 Ubuntu 的 shell。cat /etc/os-r…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/linux-scheduler-cfs-eevdf": {
+    "t": "Linux 调度器：从 CFS 到 EEVDF",
+    "e": "你的笔记本上现在大概跑着一千多个线程，而 CPU 只有八到十六个逻辑核。每过几毫秒，内核就要回答一次同一个问题：下一微秒，这个核给谁？",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/llvm-ir": {
+    "t": "LLVM 的中间表示：编译器生态的枢纽",
+    "e": "Rust、Swift、Julia、C++、Fortran 是五门差异极大的语言；x86-64、AArch64、RISC-V、NVIDIA 的 PTX、WebAssembly 是五套差异同样极大…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/lucene-inverted-index": {
+    "t": "Lucene：搜索引擎内部的倒排索引",
+    "e": "一个装了两千万篇文档的系统，你输入\"量子纠缠\"，两百毫秒之内屏幕上出现十条结果，还按相关度排好了序。",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/nginx-event-driven": {
+    "t": "Nginx 的事件驱动架构：一个进程如何扛住十万连接",
+    "e": "2002 年，Igor Sysoev 在俄罗斯门户站点 Rambler 做系统管理。他遇到的不是\"服务器慢\"，而是一个更硬的墙：Apache 的连接数一旦爬到几千，机器就开始换页、卡顿、拒绝服…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/object-storage-s3": {
+    "t": "对象存储：S3 如何改变了存储的形状",
+    "e": "2006 年 3 月 14 日，Amazon 上线了一个只有四个主要动词的存储服务：PUT、GET、DELETE、LIST。定价是每 GB 每月 0.15 美元，外加每 GB 传出 0.20 …",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/postgresql-mvcc": {
+    "t": "PostgreSQL 的 MVCC：读不阻塞写的代价",
+    "e": "一个再普通不过的场景：财务在跑一份要花八分钟的月度报表，与此同时，几百个用户正在下单、改地址、退款。报表读的是账户表，用户写的也是账户表。",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/prometheus-pull-model": {
+    "t": "Prometheus：拉模型与时序数据的代价",
+    "e": "2012 年 11 月 24 日，Prometheus 仓库收到第一个公开提交。写下它的 Matt T. Proud 和 Julius Volz 刚刚离开 Google 加入 SoundClo…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/quic-http3": {
+    "t": "QUIC：把传输层搬进用户态",
+    "e": "一个网页有 80 个资源要下载。HTTP/2 说：不用开 6 条连接了，一条就够，80 个请求在同一条 TCP 连接上并行跑，互不阻塞。",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/redis-single-threaded": {
+    "t": "Redis 的单线程模型：为什么不并行反而更快",
+    "e": "买一台 32 核的服务器，装上 Redis，打开监控——你会看到 31 个核几乎在闲着。",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/rust-borrow-checker": {
+    "t": "Rust 的借用检查器：把内存安全变成编译期问题",
+    "e": "C 语言里有一类 bug，它的特征是出错的位置和崩溃的位置没有关系。你在某处 free(p)，程序继续跑了两毫秒、经过了三十个函数，某个完全无辜的地方读到一块已经被别人重新分配走的内存，返回一…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/sqlite-internals": {
+    "t": "SQLite：世界上部署最广的数据库",
+    "e": "你从来没有安装过它，但你身上大概带着几十份它。",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/tls-certificate-ecosystem": {
+    "t": "TLS 与证书生态：陌生人之间如何建立信任",
+    "e": "你在地址栏敲下一个域名，几十毫秒之后，你的浏览器和一台从未见过的机器已经共享了一串只有它们两个知道的字节。中间隔着你家的路由器、运营商的骨干网、若干个数据中心的负载均衡器，任何一环都能读到全部…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/v8-jit": {
+    "t": "V8 的分层 JIT：动态语言如何跑得快",
+    "e": "在 C 里写 p->x，编译出来是一条指令：从 p 指的地址往后数固定的字节数，取值。偏移量是编译期算好的常数，因为结构体的布局写在类型里，类型在编译期就定死了。",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/xz-backdoor-supply-chain": {
+    "t": "xz 后门：一次针对开源信任结构的社会工程",
+    "e": "2024 年 3 月下旬，微软的 PostgreSQL 开发者安德烈斯·弗罗因德在自己那台 Debian sid 机器上跑数据库基准测试。他注意到一件不该发生的事：ssh 登录变慢了，而且慢在…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/zfs-copy-on-write": {
+    "t": "ZFS：不覆盖写，与端到端校验",
+    "e": "有一类故障，比磁盘冒烟难对付得多。",
+    "d": "computer-science"
+  },
   "/computer-science/theory/algorithmic-game-theory": {
     "t": "算法博弈论",
     "e": "1951 年，约翰·纳什证明了一件让经济学界震动的事：任何有限博弈，都至少存在一个均衡——一组策略，没有任何参与者能靠单方面改变策略而获益。这是博弈论的基石。",
@@ -1532,6 +1687,21 @@
   "/computer-science/theory/automata-formal-languages": {
     "t": "自动机与形式语言",
     "e": "任何一门编程语言——Python、C、Haskell——在被计算机\"读懂\"之前，都必须经过一个关键步骤：把源代码字符串解析为结构化的语法树。这个过程依赖的理论，是自动机与形式语言——一套把\"什…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/average-case-complexity": {
+    "t": "平均情况复杂性与密码学的五个世界",
+    "e": "NP 完全性说的是最坏情况：某个问题存在难解的实例。但最坏情况的难度对现实几乎没有承诺。 旅行商问题是 NP 完全的，而工业求解器每天处理着数万城市的实例；反过来，密码学需要的恰恰相反——它需…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/barriers-to-proving-p-vs-np": {
+    "t": "为什么 P vs NP 这么难证：三道障碍",
+    "e": "大多数关于 P 与 NP 的介绍会告诉你问题是什么、悬赏多少、以及\"大家都相信 P ≠ NP\"。很少有介绍讲这件事：我们不只是没证出来，我们还知道为什么整类看起来最自然的证明方法注定证不出来。",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/communication-complexity": {
+    "t": "通信复杂度",
+    "e": "爱丽丝手里有 x，鲍勃手里有 y，两人都有无限的算力，但要合作算出 f(x,y)。唯一被计量的是他们之间传送的比特数。 姚期智在 1979 年提出这个模型时，目标是分布式计算；它后来的主要用途…",
     "d": "computer-science"
   },
   "/computer-science/theory/computability": {
@@ -1574,6 +1744,11 @@
     "e": "一个最基本的问题，直到 1948 年才有了精确答案：\"信息\"到底是什么，如何量化它？",
     "d": "computer-science"
   },
+  "/computer-science/theory/interactive-proofs-and-zero-knowledge": {
+    "t": "交互式证明与零知识",
+    "e": "第一次是加入交互与随机：证明不再是一份可以静态检查的文书，而是验证者与证明者之间的一场提问游戏，验证者可以掷硬币，并且只要求\"以极高概率不被骗\"。第二次更反直觉：证明可以让你确信某件事为真，而…",
+    "d": "computer-science"
+  },
   "/computer-science/theory/kolmogorov-complexity": {
     "t": "柯莫哥洛夫复杂度",
     "e": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
@@ -1592,6 +1767,11 @@
   "/computer-science/theory/online-algorithms-and-competitive-analysis": {
     "t": "在线算法与竞争分析",
     "e": "绝大多数算法课教的是这样一个世界：输入摆在你面前，你可以从容读完再决定怎么做。",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/physical-limits-of-computation": {
+    "t": "计算的物理极限",
+    "e": "复杂性理论问\"这个问题需要多少步\"。本篇问一个更基础的问题：一步计算，最少要花多少能量？",
     "d": "computer-science"
   },
   "/computer-science/theory/quantum-computing-theory": {
@@ -3099,6 +3279,11 @@
     "e": "第一个误解流传了一百多年：\"机翼上表面路程长，空气为同时到达后缘必须流得快，于是压强低、产生升力。\"这个\"等时到达\"解释从前提就是错的——实验与仿真都表明，上表面的气流到达后缘远早于下表面。升…",
     "d": "engineering"
   },
+  "/engineering/machines/biomedical-engineering": {
+    "t": "生物医学工程：把机器放进身体里",
+    "e": "第一个误解，是以为生物医学工程就是\"给医院做设备\"。它的真正难点在于工作环境：三十七度、含盐、湿润、有免疫系统、会自己修复也会自己攻击，而且不能停机检修。一台工业设备可以定期维护、可以在故障时…",
+    "d": "engineering"
+  },
   "/engineering/machines/computing-hardware": {
     "t": "计算硬件：从晶体管到先进封装",
     "e": "第一个误解，是把摩尔定律当成一条物理定律，以为芯片变快是某种自然规律的自动兑现。真实的图景要朴素得多：摩尔定律是 1965 年一篇行业文章里的经验观察，后来被整个产业当成路线图来自我实现——它…",
@@ -3107,6 +3292,11 @@
   "/engineering/machines/engines-and-turbines": {
     "t": "内燃机与燃气轮机：热机效率的工程极限",
     "e": "第一个误解，是把热机当作一项\"等待淘汰\"的老技术。乘用车的电动化给人造成一种印象：内燃机已是恐龙，工程问题只剩电池。真实的图景要分层看：轿车的确在电动化，但民航客机、远洋货轮、电网调峰电站至今…",
+    "d": "engineering"
+  },
+  "/engineering/machines/industrial-engineering-and-quality": {
+    "t": "工业工程与质量：把变异当作研究对象",
+    "e": "第一个误解，是以为质量管理就是加强检验。检验只能筛掉次品，不能造出好品。 一条产出 5% 次品的产线，无论检验多严格，那 5% 的成本已经付出去了——材料、工时、设备占用全都花掉了。质量工程的…",
     "d": "engineering"
   },
   "/engineering/machines/robotics-systems": {
@@ -3119,14 +3309,34 @@
     "e": "第一个误解，是以为入轨难在\"飞得高\"。国际航空联合会常用的一百公里卡门线，只是一条高度线；把一个物体举到一百公里，一枚探空火箭就能做到。真正的门槛在速度：要留在近地轨道上不掉下来，需要约每秒 …",
     "d": "engineering"
   },
+  "/engineering/machines/telecommunications-networks": {
+    "t": "通信与网络工程：让消息跑赢距离",
+    "e": "第一个误解，是把通信工程想成\"把线拉过去\"。线只是介质，工程的核心问题是：在给定的带宽和噪声下，一条信道每秒最多能可靠地传送多少比特？ 这个问题有确切答案，而且答案在 1948 年就被证明了。…",
+    "d": "engineering"
+  },
   "/engineering/materials/additive-manufacturing": {
     "t": "增材制造：3D 打印的真实能力与边界",
     "e": "第一个误解，是以为 3D 打印终将取代切削、铸造、锻造，让\"万物皆可打印\"。现实中的产业分工恰好相反：增材制造只在大约百分之一的制造场景里经济地成立——小批量、高复杂度、高价值的零件。一个批量…",
     "d": "engineering"
   },
+  "/engineering/materials/chemical-engineering": {
+    "t": "化学工程：把烧杯里的反应放大一百万倍",
+    "e": "第一个误解，是把化学工程当成\"化学的应用\"。两门学科问的根本不是同一个问题。化学问：这个反应能不能发生、产物是什么。化学工程问：在每天一千吨的规模上、以能盈利的速度、用可接受的能耗、在不炸掉的…",
+    "d": "engineering"
+  },
   "/engineering/materials/concrete-engineering": {
     "t": "混凝土工程：从万神殿穹顶到高性能混凝土",
     "e": "第一个误解，是把混凝土和水泥当成同一种东西。日常语言里人们常说\"抹点水泥\"，指的其实是混凝土——但水泥只是混凝土里的\"胶水\"。真正的混凝土是一种复合材料：砂石骨料构成骨架，水泥与水发生化学反应…",
+    "d": "engineering"
+  },
+  "/engineering/materials/food-and-agricultural-engineering": {
+    "t": "农业与食品工程：从一粒种子到一顿饭",
+    "e": "第一个误解，是把农业当成\"自然的事\"。现代农业是一套能量与物质的转换系统：化石能量以柴油、电力、化肥和农药的形式进入田间，转换成可食用的化学能。这条转换链的效率并不高——在工业化农业中，餐桌上…",
+    "d": "engineering"
+  },
+  "/engineering/materials/mining-and-extraction": {
+    "t": "采矿与资源提取：现代生活的物质起点",
+    "e": "第一个误解，是以为采矿就是把矿石挖出来。挖只是第一步，而且通常不是最难、最贵的一步。真正的工程在\"选\"和\"冶\"：从一吨含铜 0.5% 的岩石里，把那五公斤铜和另外九百九十五公斤废石分开——分离…",
     "d": "engineering"
   },
   "/engineering/materials/semiconductor-manufacturing": {
@@ -3184,6 +3394,11 @@
     "e": "第一个误解，是以为刑事司法的主要场景是法庭上的控辩对抗——律师慷慨陈词，陪审团凝神倾听，法官一锤定音。在以对抗制著称的美国，这个画面早已是少数派：联邦刑事案件约百分之九十七、州重罪案件约百分之…",
     "d": "law"
   },
+  "/law/criminal-and-procedure/dispute-resolution": {
+    "t": "纠纷解决：法庭之外的那百分之九十几",
+    "e": "第一个误解，是以为法律纠纷的归宿是审判。数据说得很清楚：审判正在成为例外。 加兰特 2004 年那项被反复引用的研究发现，美国联邦民事案件中经由审判解决的比例，从 1962 年的 11.5% …",
+    "d": "law"
+  },
   "/law/criminal-and-procedure/elements-of-crime": {
     "t": "犯罪构成：一个行为如何被锻造成\"犯罪\"",
     "e": "第一个误解，是以为\"做了坏事就是犯罪\"。刑法上的犯罪不是道德判断，而是一个层层过滤的法律结论：一个持刀致人死亡的行为，可能是故意杀人、正当防卫、紧急避险、意外事件，也可能因行为人未满责任年龄而…",
@@ -3207,6 +3422,11 @@
   "/law/foundations/legal-persons-acts-liability": {
     "t": "主体、行为与责任：谁在法律上\"算数\"",
     "e": "第一个误解，是把\"法人\"当成\"法定代表人\"的简称。日常口语里\"我是公司法人\"的说法几乎全错：法人不是某个自然人，而是公司这个组织本身——法律为它虚构了一个\"人\"，让它能签约、应诉、负债、破产，…",
+    "d": "law"
+  },
+  "/law/foundations/legal-profession-and-education": {
+    "t": "法律职业与法学教育：谁被允许说法律是什么",
+    "e": "第一个误解，是把律师看成\"帮人打官司的人\"。诉讼只占法律职业工作的一小部分。绝大多数法律劳动发生在纠纷出现之前：起草合同、设计交易结构、做合规审查、给董事会出意见。这类工作的目标恰恰是让纠纷不…",
     "d": "law"
   },
   "/law/foundations/rights-and-duties": {
@@ -3299,6 +3519,16 @@
     "e": "第一个误解，是以为婚姻法只管\"结婚离婚那点家务事\"，是私事中的私事。恰恰相反，历史上没有哪一个领域像家庭这样被国家法律系统性地塑造：谁可以结婚、财产归谁、孩子跟谁姓、谁能继承——每一个问题背后…",
     "d": "law"
   },
+  "/law/private-law/intellectual-property": {
+    "t": "知识产权：给无形之物划边界",
+    "e": "第一个误解，是把知识产权想成\"跟房子一样的财产权\"。房子有一个铁一样的物理特征：你住进去，别人就住不进去。而一个配方、一段旋律、一行代码不具备这种排他性——我使用它丝毫不减少你使用它的可能。经…",
+    "d": "law"
+  },
+  "/law/private-law/labor-and-employment-law": {
+    "t": "劳动与雇佣法：当合同的一方是活人",
+    "e": "第一个误解，是把劳动合同当成一份普通合同。它在形式上确实是合同——双方合意、约定报酬、可以解除。但劳动法这整个部门之所以存在，恰恰是因为合同自由在这里失灵了：谈判桌的一边是可以等待、可以换人、…",
+    "d": "law"
+  },
   "/law/private-law/law-and-economics": {
     "t": "法经济学：把激励写进规则",
     "e": "第一个误解，是把法经济学理解为\"给法律算钱\"——计算一个案子值多少钱、一条命赔多少。这个学科真正关心的不是金额，而是激励：一条规则颁布之后，理性的人会如何调整自己的行为？过失责任让开车人多踩刹…",
@@ -3334,6 +3564,11 @@
     "e": "第一个误解，是以为违宪审查就是\"最高法院判政府败诉\"。真正的违宪审查针对的不是某个官员的行为，而是法律本身——一部经民主程序通过的法律，可能因为抵触宪法而被宣告无效。这听起来顺理成章，却是宪法…",
     "d": "law"
   },
+  "/law/public-law/environmental-law": {
+    "t": "环境法：把看不见的成本写回账本",
+    "e": "第一个误解，是把环境法理解成罚款与禁令的集合。强制只是它最外面的一层，而且是最少被使用的一层。环境法真正的主力装置是另外两样：信息——要求决策者在动工之前把后果讲清楚并公之于众；价格——让排放…",
+    "d": "law"
+  },
   "/law/public-law/fundamental-rights": {
     "t": "基本权利体系：三代权利、平等审查与限制的限度",
     "e": "第一个误解，是以为基本权利就是\"宪法里列出来的好处清单\"。基本权利在法律上的原始含义不是国家给予的福利，而是对国家划出的禁区：言论、信仰、人身自由之所以\"基本\"，是因为它们先于国家存在，宪法只…",
@@ -3352,6 +3587,11 @@
   "/law/public-law/separation-of-powers": {
     "t": "权力分立与制衡：把权力关进制度的笼子",
     "e": "第一个误解，是把权力分立想象成三个互不往来的孤岛：立法的只管立法，行政的只管执行，司法的只管裁判。如果真是这样，政府会在第一次跨部门事务上瘫痪。分立的真义不是\"各管一摊\"，而是\"谁也不许独吞\"…",
+    "d": "law"
+  },
+  "/law/public-law/tax-and-fiscal-law": {
+    "t": "财税法：国家凭什么拿走你的钱",
+    "e": "第一个误解，是把税法当成一张税率表。税率是最后一步，税法真正的核心问题是\"谁有权决定\"——决定开征一个新税种、决定把税率从 13% 调到 9%、决定给某个行业免税，这些权力放在议会、政府还是财…",
     "d": "law"
   },
   "/life-science/dialogues/darwin-lyell": {
@@ -3704,6 +3944,11 @@
     "e": "语言理论常预测某形式在特定条件下更易理解、更自然或更可能产生。实验通过操控一个因素、控制其他差异并随机分配试次，检验结果是否随操控变化。它不是给直觉加数字，而是迫使竞争解释做出不同预测。",
     "d": "linguistics"
   },
+  "/linguistics/methods-and-frontiers/forensic-linguistics": {
+    "t": "司法语言学：把语言当作证据",
+    "e": "第一个误解，是以为每个人都有独一无二、可被指纹式识别的\"语言指纹\"。这个类比是错的，而且错得很危险。 指纹在个体内稳定、个体间唯一；而一个人的语言会随场合、对象、媒介、情绪剧烈变化——你给上司…",
+    "d": "linguistics"
+  },
   "/linguistics/methods-and-frontiers/language-evolution": {
     "t": "语言能力如何演化",
     "e": "语言能力演化问人类物种怎样获得学习和使用开放语言系统的生物条件；语言文化演化问结构怎样在学习者之间传递并被重塑；历史语言变化则追踪已有语言数百或数千年的分化。三者时间尺度和证据不同。",
@@ -3812,6 +4057,11 @@
   "/linguistics/words-sentences-meaning/syntax": {
     "t": "句法学：结构与依存",
     "e": "句法学研究语言单位怎样组成更大的表达，以及成分之间具有哪些结构关系。它不只是学校语法中的“找主谓宾”，也不等于规定哪种说法更正式。",
+    "d": "linguistics"
+  },
+  "/linguistics/words-sentences-meaning/translation-and-translatability": {
+    "t": "翻译与可译性：语言强迫你说出的东西",
+    "e": "第一个误解，是把翻译理解成换词。如果语言只是给同一批概念贴不同标签，翻译确实只是查表。但语言之间不同的不只是标签，还有范畴的切法：英语的 blue 在俄语里必须选 синий（深蓝）或 гол…",
     "d": "linguistics"
   },
   "/linguistics/words-sentences-meaning/words-and-sentences": {
@@ -6099,9 +6349,19 @@
     "e": "超人类主义是一种哲学和社会运动，主张运用基因工程、纳米技术、人工智能和脑机接口等技术来增强人类的能力，甚至实现\"后人类\"（posthuman）的存在形态。它从根本上质疑\"自然的\"就是\"好的\"这…",
     "d": "philosophy"
   },
+  "/philosophy/questions/am-i-still-me-personal-identity": {
+    "t": "我还是不是我？",
+    "e": "七岁那年的你和现在的你，几乎没有一个原子是同一个。记忆改了、性格变了、身体换了一轮。在什么意义上，你们是同一个人？",
+    "d": "philosophy"
+  },
   "/philosophy/questions/can-machines-think": {
     "t": "机器能思考吗？",
     "e": "1950年，英国数学家阿兰·图灵（Alan Turing）在《计算机器与智能》（Computing Machinery and Intelligence）一文中开篇写道：「我提议考虑这个问题：…",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/do-mathematical-objects-exist": {
+    "t": "数学对象存在吗？",
+    "e": "\"存在无穷多个素数\"是真的。那么\"素数\"是什么？ 它不在任何地方、不在任何时刻、不与任何东西发生因果作用。可我们又确实发现了关于它的事实——而且这些事实似乎不由我们决定：无论谁来算，2⁵⁷⁸⁸…",
     "d": "philosophy"
   },
   "/philosophy/questions/do-we-have-free-will": {
@@ -6129,14 +6389,29 @@
     "e": "\"生活的意义是什么？\"——这个问题可能是哲学史上最古老、最普遍、也最难以回答的问题。它不像数学问题那样有唯一解，但哲学传统提供了多种深刻的回应——每一种都照亮了这个问题的某个侧面。",
     "d": "philosophy"
   },
+  "/philosophy/questions/is-death-bad-for-the-one-who-dies": {
+    "t": "死亡对死者是坏事吗？",
+    "e": "几乎每个人都怕死。而伊壁鸠鲁两千多年前提出的论证说：这种恐惧建立在一个逻辑错误上。",
+    "d": "philosophy"
+  },
   "/philosophy/questions/should-ai-have-rights": {
     "t": "AI 是否应该有权利？",
     "e": "当一台AI系统声称\"我有感觉\"时，我们应该认真对待这个声明吗？如果一个AI能够表达痛苦、恐惧和渴望，我们是否有义务不伤害它？这些问题听起来像科幻小说，但随着大型语言模型展现出越来越复杂的\"情感…",
     "d": "philosophy"
   },
+  "/philosophy/questions/should-we-have-children": {
+    "t": "我们应当生育吗？",
+    "e": "大多数人把生育当作私人选择，不需要伦理辩护。但只要追问几步，这个话题会迅速通向伦理学中最坚硬的几个悖论——而它们的共同特点是：每一个都指向一个我们无法接受、却又推不倒的结论。",
+    "d": "philosophy"
+  },
   "/philosophy/questions/what-can-we-know": {
     "t": "我们能知道什么？",
     "e": "如果「什么是真实的」追问的是世界的本质，那么「我们能知道什么」追问的是我们认识世界的能力本身。",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/what-do-we-owe-animals": {
+    "t": "我们对动物负有什么义务？",
+    "e": "几乎所有人都同意\"不该虐待动物\"。但一旦追问理由，答案立刻分岔：是因为动物本身重要，还是因为虐待动物的人品性败坏？ 这两个理由通向完全不同的结论——前者要求我们重新审视整个食物系统，后者只要求…",
     "d": "philosophy"
   },
   "/philosophy/questions/what-is-beauty": {
@@ -7854,9 +8129,19 @@
     "e": "1917 年 4 月，列宁在封闭的火车车厢里穿越德国，抵达彼得格勒。德国政府允许这位流亡的布尔什维克领袖过境，因为他们预判他会为俄国带来动乱，从而使这个东线敌国退出战争。7 个月后，布尔什维克…",
     "d": "political-science"
   },
+  "/psychology/debates/categories-or-dimensions": {
+    "t": "精神障碍是类别还是维度",
+    "e": "打开《精神障碍诊断与统计手册》，你会看到一份清单：符合九条症状中的五条、持续两周以上，即可诊断为重度抑郁障碍。这个格式暗示了一件事——抑郁症是一个有边界的东西，你要么在里面，要么在外面。",
+    "d": "psychology"
+  },
   "/psychology/debates/consciousness-hard-problem": {
     "t": "意识的困难问题",
     "e": "意识的困难问题（Hard Problem of Consciousness）由哲学家大卫·查尔默斯于1995年提出，",
+    "d": "psychology"
+  },
+  "/psychology/debates/dodo-bird-verdict": {
+    "t": "渡渡鸟裁决：各种心理治疗真的等效吗",
+    "e": "《爱丽丝漫游奇境》里，渡渡鸟主持了一场没有规则的赛跑，最后宣布：\"人人都赢了，人人都该得奖。\"",
     "d": "psychology"
   },
   "/psychology/debates/emotion-universality-debate": {
@@ -7884,6 +8169,11 @@
     "e": "去问一位中小学教师：\"学生有不同的学习风格，有人是视觉型，有人是听觉型，教学应当匹配他们的风格。\"这句话对不对？",
     "d": "psychology"
   },
+  "/psychology/debates/person-situation-debate": {
+    "t": "人格还是情境：行为由什么决定",
+    "e": "1968 年，沃尔特·米歇尔出版《人格与评估》，系统梳理了当时的实证文献，得出一个让整个人格心理学动摇的结论：人格特质分数与具体情境中的行为之间，相关系数很少超过 0.30。",
+    "d": "psychology"
+  },
   "/psychology/debates/phrenology-and-localization": {
     "t": "颅相学之争：错的方法，对的直觉",
     "e": "十九世纪前半叶，欧洲和美国的中产阶级家庭里出现了一种新服务：让人摸你的头。",
@@ -7897,6 +8187,16 @@
   "/psychology/debates/replication-debate": {
     "t": "心理学的可复制性危机",
     "e": "2010年代初，心理学（以及其他社会科学和生物医学领域）经历了一场深刻的方法论危机——",
+    "d": "psychology"
+  },
+  "/psychology/debates/self-esteem-movement": {
+    "t": "自尊运动的兴衰：一个被政策采纳的假设",
+    "e": "1980 年代末，加利福尼亚州成立了一个官方特别工作组，主题是自尊。它的前提相当明确：低自尊是学业失败、犯罪、吸毒、青少年怀孕的共同根源，因此提高自尊可以同时缓解这一系列社会问题。这个思路随后…",
+    "d": "psychology"
+  },
+  "/psychology/debates/serotonin-hypothesis-debate": {
+    "t": "抑郁的\"化学失衡\"之争",
+    "e": "\"抑郁症是大脑里的血清素失衡\"——这句话在过去三十年被印在患者手册、药品广告与科普文章里，几乎成了常识。",
     "d": "psychology"
   },
   "/psychology/dialogues/bowlby-psychoanalysis": {
@@ -8374,11 +8674,6 @@
     "e": "1923 年，弗洛伊德在《自我与本我》里写下一个流传至今的画面：自我和本我的关系，就像骑手和他胯下的马。马（本我）提供奔跑的力气和方向冲动，骑手（自我）必须驾驭这股远比自己强壮的力量——可一旦…",
     "d": "psychology"
   },
-  "/psychology/phenomena/intelligence-theories": {
-    "t": "智力理论",
-    "e": "智力是什么？这个看似简单的问题，困扰了心理学一百余年。每个人都知道\"有些人比其他人更聪明\"——但聪明是一件事还是多件事？它可以被测量吗？测量的是什么？智力是命中注定还是可以改变？这些争论横跨心…",
-    "d": "psychology"
-  },
   "/psychology/phenomena/learned-helplessness-phenomenon": {
     "t": "习得性无助（现象）",
     "e": "1967年，宾夕法尼亚大学的研究生马丁·塞利格曼（Martin Seligman）和史蒂文·迈尔（Steven Maier）在一次意外的实验中发现了一个改变心理学史的现象：经历过不可控电击的狗…",
@@ -8814,6 +9109,11 @@
     "e": "越轨不等于犯罪，也不等于道德败坏。社会学中的越轨，是指违反某个群体或社会重要规范的行为、身份或状态。它可能是犯罪，也可能只是偏离礼仪、性别期待、职业规范、身体标准或政治正统。",
     "d": "sociology"
   },
+  "/sociology/concepts/emotions-and-emotional-labor": {
+    "t": "情感与情感劳动：被买下的那份笑容",
+    "e": "第一个误解，是把情感当成纯粹生理的、私人的东西——它发生在你身上，你只能承受。社会学的起点恰恰是：情感有规则。 葬礼上该悲伤、婚礼上该喜悦、升职时该谦逊而非得意——这些\"感受规则\"规定的不只是…",
+    "d": "sociology"
+  },
   "/sociology/concepts/gender-and-society": {
     "t": "社会性别与社会",
     "e": "社会性别不是说生理差异不存在，也不是说性别完全可以任意选择。社会学讨论 gender，是为了区分身体差异与社会赋予这些差异的意义、角色、机会和权力。",
@@ -8887,6 +9187,11 @@
   "/sociology/concepts/socialization": {
     "t": "社会化",
     "e": "第一种常见误解，是把社会化理解成\"洗脑\"。仿佛社会是一个外部的模具，把被动的人压成统一的形状。这种理解既高估了社会的一致性，也低估了个体的主动性。人在习得规范的同时，也在解释、协商甚至改造规范…",
+    "d": "sociology"
+  },
+  "/sociology/concepts/sociology-of-culture": {
+    "t": "文化社会学：意义如何被生产与分配",
+    "e": "第一个误解，是把文化理解成一份清单——习俗、节日、艺术、价值观。这种理解让\"文化\"变成了一个装剩余项的盒子：凡是经济和制度解释不了的，都推给文化。文化社会学处理的不是清单，而是一套过程：意义如…",
     "d": "sociology"
   },
   "/sociology/frontier/ageing-societies": {

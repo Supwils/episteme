@@ -431,6 +431,22 @@ export const SOCIOLOGY_NODES: GraphNode[] = [
     ["流动的现代性", "消费社会", "道德距离"]
   ),
   ...SOCIOLOGY_COVERAGE_NODES,
+  n(
+    "sociology-of-culture",
+    "文化社会学",
+    "concept",
+    "concepts",
+    "文化作为工具箱、文化资本、边界工作与文化生产。",
+    ["文化工具箱", "文化资本", "边界工作"]
+  ),
+  n(
+    "emotions-and-emotional-labor",
+    "情感与情感劳动",
+    "concept",
+    "concepts",
+    "感受规则、表层与深层扮演、情感劳动的分布与倦怠。",
+    ["情感劳动", "感受规则", "职业倦怠"]
+  ),
 ];
 
 const e = (from: string, to: string, label: string): GraphEdge => ({
@@ -609,4 +625,11 @@ export const SOCIOLOGY_EDGES: GraphEdge[] = [
   e("zygmunt-bauman", "social-stratification", "消费社会与新穷人"),
   e("zygmunt-bauman", "migration-and-diaspora", "旅游者与流浪者"),
   ...SOCIOLOGY_COVERAGE_EDGES,
+  e("pierre-bourdieu", "sociology-of-culture", "文化资本与区隔"),
+  e("social-structure", "sociology-of-culture", "意义的生产与分配"),
+  e("socialization", "sociology-of-culture", "文化如何被习得"),
+  e("erving-goffman", "emotions-and-emotional-labor", "拟剧论与情感表演"),
+  e("work-and-labor-organizations", "emotions-and-emotional-labor", "被购买的感受管理"),
+  e("gender-and-society", "emotions-and-emotional-labor", "情感劳动的性别分布"),
+  e("sociology-of-culture", "emotions-and-emotional-labor", "感受规则是文化规则"),
 ];

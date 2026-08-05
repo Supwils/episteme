@@ -56,7 +56,7 @@ describe("multi-parent relation review", () => {
       netNewRequiredCount: 15,
       recommendedRelationCount: 5,
       contextRelationCount: 5,
-      routeNodeDelta: 52,
+      routeNodeDelta: 54,
       cycleCount: 0,
       personalChangedTargetCount: 0,
       referenceReadyBefore: 15,

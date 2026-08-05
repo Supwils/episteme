@@ -2,11 +2,25 @@
 // Search mirror of content/philosophy/questions/*.mdx.
 export const QUESTIONS = [
   {
+    slug: "am-i-still-me-personal-identity",
+    title: "我还是不是我？",
+    field: "形而上学 · 心灵哲学",
+    key_figures: ["locke", "hume", "parfit", "williams"],
+    tags: ["人格同一性", "记忆理论", "忒修斯之船", "帕菲特", "自我"],
+  },
+  {
     slug: "can-machines-think",
     title: "机器能思考吗？",
     field: "心灵哲学",
     key_figures: ["图灵", "塞尔", "丹尼特"],
     tags: ["人工智能", "意识"],
+  },
+  {
+    slug: "do-mathematical-objects-exist",
+    title: "数学对象存在吗？",
+    field: "数学哲学 · 形而上学",
+    key_figures: ["frege", "benacerraf", "quine", "field"],
+    tags: ["数学柏拉图主义", "贝纳塞拉夫难题", "不可或缺性论证", "虚构主义", "结构主义"],
   },
   {
     slug: "do-we-have-free-will",
@@ -44,6 +58,13 @@ export const QUESTIONS = [
     tags: ["意义", "存在主义", "斯多葛主义", "积极心理学", "幸福"],
   },
   {
+    slug: "is-death-bad-for-the-one-who-dies",
+    title: "死亡对死者是坏事吗？",
+    field: "形而上学 · 伦理学",
+    key_figures: ["epicurus", "lucretius", "nagel", "williams"],
+    tags: ["死亡", "伊壁鸠鲁", "剥夺论", "对称论证", "永生"],
+  },
+  {
     slug: "should-ai-have-rights",
     title: "AI 是否应该有权利？",
     field: "心灵哲学 / 科技伦理",
@@ -51,11 +72,25 @@ export const QUESTIONS = [
     tags: ["人工智能", "道德地位", "意识", "权利", "功能主义"],
   },
   {
+    slug: "should-we-have-children",
+    title: "我们应当生育吗？",
+    field: "伦理学 · 人口伦理学",
+    key_figures: ["parfit", "benatar", "narveson", "mcmahan"],
+    tags: ["生育伦理", "非同一性问题", "令人厌恶的结论", "反出生主义", "代际正义"],
+  },
+  {
     slug: "what-can-we-know",
     title: "我们能知道什么？",
     field: "认识论",
     key_figures: ["笛卡尔", "洛克", "休谟", "康德", "维特根斯坦"],
     tags: ["认识论", "理性主义", "经验主义", "怀疑论", "后真相"],
+  },
+  {
+    slug: "what-do-we-owe-animals",
+    title: "我们对动物负有什么义务？",
+    field: "伦理学 · 应用伦理学",
+    key_figures: ["bentham", "singer", "regan", "korsgaard"],
+    tags: ["动物伦理", "感受能力", "物种主义", "动物权利", "工厂化养殖"],
   },
   {
     slug: "what-is-beauty",

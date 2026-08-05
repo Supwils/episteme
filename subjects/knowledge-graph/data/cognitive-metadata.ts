@@ -40,6 +40,10 @@ const LEVEL_ONE_TYPES = new Set<GraphNode["type"]>([
 export function inferKnowledgeLevel(node: GraphNode): KnowledgeLevel {
   if (node.knowledgeLevel) return node.knowledgeLevel;
 
+  // Exact section match, not substring: "systems" appears inside writing-systems,
+  // operating-systems and distributed-systems URLs, which must stay at their own level.
+  if (node.domain === "computer-science" && node.section === "systems") return 4;
+
   const route = `${node.section ?? ""} ${node.url ?? ""}`.toLowerCase();
   if (route.includes("frontier")) return 5;
   if (

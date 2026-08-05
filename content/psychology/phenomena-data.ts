@@ -98,12 +98,6 @@ export const PHENOMENA_DATA = [
     category: "精神分析",
   },
   {
-    slug: "intelligence-theories",
-    title: "智力理论",
-    subtitle: "Theories of Intelligence",
-    category: "认知",
-  },
-  {
     slug: "learned-helplessness-phenomenon",
     title: "习得性无助（现象）",
     subtitle: "Learned Helplessness",

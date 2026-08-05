@@ -113,7 +113,7 @@ export const SUBJECT_CANDIDATES: readonly SubjectCandidate[] = [
         concepts: ["语言演化", "濒危语言", "语言与认知", "低资源语言技术", "大模型语言能力"],
       },
     ],
-    releaseArticleCount: 53,
+    releaseArticleCount: 55,
     releaseSections: [
       "声音与手势",
       "词句与意义",

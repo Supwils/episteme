@@ -139,6 +139,12 @@ export const LINGUISTICS_SECTIONS: readonly LinguisticsSectionPlan[] = [
         level: 3,
         bridgeDomains: ["sociology", "psychology"],
       },
+      {
+        slug: "translation-and-translatability",
+        title: "翻译与可译性：语言强迫你说出的东西",
+        level: 3,
+        bridgeDomains: ["philosophy", "computer-science", "law", "human-history"],
+      },
     ],
   },
   {
@@ -373,6 +379,12 @@ export const LINGUISTICS_SECTIONS: readonly LinguisticsSectionPlan[] = [
         level: 5,
         bridgeDomains: ["computer-science", "philosophy"],
       },
+      {
+        slug: "forensic-linguistics",
+        title: "司法语言学：把语言当作证据",
+        level: 4,
+        bridgeDomains: ["law", "psychology", "sociology", "computer-science"],
+      },
     ],
   },
 ] as const;
@@ -433,6 +445,7 @@ export const LINGUISTICS_RELEASE_WAVES: readonly LinguisticsReleaseWave[] = [
       "reading-and-dyslexia",
       "input-methods",
       "speech-perception",
+      "translation-and-translatability",
     ],
   },
   {
@@ -445,6 +458,7 @@ export const LINGUISTICS_RELEASE_WAVES: readonly LinguisticsReleaseWave[] = [
       "language-evolution",
       "multilingual-ai",
       "llm-and-linguistic-theory",
+      "forensic-linguistics",
     ],
   },
 ] as const;

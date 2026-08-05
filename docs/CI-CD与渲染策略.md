@@ -41,7 +41,7 @@ Quality与Build并行以缩短反馈时间。Deploy只在非PR的`main`运行；
 
 Lighthouse保留逐路由固定预算。每条路由和每次确认采样都启动独立Chrome进程，避免长时共享浏览器在最后一条路由累积缓存、内存与主线程状态。有效首测直接决定通过；仅当trace无效或超预算时执行一次独立确认采样，两次都失败才阻断部署。这样不放宽预算，同时避免共享CI runner的单次调度抖动制造假失败。
 
-Bundle门禁按App Router的逐路由manifest对JS与CSS资源去重求和，不使用全目录总量替代用户实际加载量。全目录JS只作为库存，并拆分报告“路由引用资产”和“延迟资产”；真正阻断部署的是共享首载、通用文章、逐路由CSS与最大单块预算。门户和所有领域路由CSS均不得超过40 KB gzip；`app/globals.css`必须是`app/`下唯一Tailwind编译入口，领域样式通过`@reference`向根入口注册主题token。该约束防止新学科再次生成一份完整工具类，同时允许领域变量和页面组件样式继续按路由加载。
+Bundle门禁按App Router的逐路由manifest对JS与CSS资源去重求和，不使用全目录总量替代用户实际加载量。全目录JS只作为库存，并拆分报告“路由引用资产”和“延迟资产”；真正阻断部署的是共享首载、通用文章、逐路由CSS、最大单块与搜索索引预算。门户和所有领域路由CSS均不得超过48 KB gzip（2026-08-02 按决策记录第 1 条的预设触发条件由40 KB提额，因六个领域引入katex.min.css）；`app/globals.css`必须是`app/`下唯一Tailwind编译入口，领域样式通过`@reference`向根入口注册主题token。该约束防止新学科再次生成一份完整工具类，同时允许领域变量和页面组件样式继续按路由加载。完整预算表见`docs/工程原则.md`第四节。
 
 Playwright smoke在同一Build作业内复用已完成的`.next`生产产物，不重复构建，不使用Turbopack开发服务器。门禁用runner已有Chrome执行桌面和移动端各两次核心旅程：门户搜索到首次请求SSG文章，以及知识图谱深链恢复与步骤推进。Lighthouse先于smoke执行，避免性能基准继承功能浏览器测试的runner资源压力；两者仍都是部署硬门禁。CI保留一次重试以生成trace，但启用`failOnFlakyTests`，任何依赖重试的用例仍会阻断部署。smoke失败时上传HTML报告、截图和trace并保留7天；完整E2E仍留在本地或专项回归，避免每次push运行138项造成慢反馈。
 
@@ -57,7 +57,7 @@ Playwright smoke在同一Build作业内复用已完成的`.next`生产产物，�
 
 ## 六、本地复现
 
-`pnpm prepush` 镜像 Quality 作业中的八条确定性质量命令：类型检查、Lint、内容检查、四项图谱/学科审计和单元测试。CI 还会在干净 checkout 上验证 `pnpm gen-all` 幂等；本地内容轮次应先生成索引并确认产物已纳入工作树。
+`pnpm prepush` 镜像 Quality 作业中的九条确定性质量命令：类型检查、Lint、内容检查、四项图谱/学科审计、图像权利审计和单元测试。CI 还会在干净 checkout 上验证 `pnpm gen-all` 幂等；本地内容轮次应先生成索引并确认产物已纳入工作树。
 
 内容或前端轮次在请求推送前，还必须至少完成一次真实 Turbopack 生产构建及其包体检查：`pnpm build` 后运行 `pnpm bundle-check -- --skip-build`。Lighthouse 与 Playwright smoke 保留在云端 Build 作业，避免把性能抖动与重量级浏览器测试放进本地 pre-push 钩子。
 
@@ -72,4 +72,4 @@ pnpm bundle-check -- --skip-build
 CI=1 pnpm test:e2e:smoke
 ```
 
-生产Lighthouse必须指向当前项目的独占端口。若本机`3000`已被其他应用占用，使用其他端口启动Next并设置`LH_BASE`，不能把其他应用的结果当成本项目指标。
+生产Lighthouse必须指向当前项目的独占端口。开发服务器`pnpm dev`跑在**3067**，生产模式`pnpm start`跑在**3000**（Lighthouse默认基准）；若本机`3000`已被其他应用占用，使用其他端口启动Next并设置`LH_BASE`，不能把其他应用的结果当成本项目指标。

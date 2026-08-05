@@ -1,0 +1,213 @@
+---
+title: Kubernetes 的控制器模式：声明式系统怎么收敛
+title_en: "The Kubernetes Controller Pattern: How Declarative Systems Converge"
+status: published
+updated: 2026-08-05
+category: 系统剖析
+order: 6
+field: 分布式系统 · 集群编排 · 控制平面
+era: 当代
+key_figures:
+  - Brendan Burns
+  - Brian Grant
+  - John Wilkes
+  - Diego Ongaro
+tags:
+  - Kubernetes
+  - 调谐循环
+  - 声明式配置
+  - etcd
+  - 最终一致性
+related:
+  - containers-and-orchestration
+  - distributed-systems
+  - consensus-algorithms
+  - etcd-raft
+  - linux-containers-internals
+  - prometheus-pull-model
+  - envoy-service-mesh
+---
+
+# Kubernetes 的控制器模式：声明式系统怎么收敛
+
+敲下 `kubectl apply -f deployment.yaml`，命令一秒返回，三个容器过一会儿就跑起来了。直觉会告诉你：这条命令去创建了三个容器。
+
+它没有。它只做了一件事——**往一个数据库里写了一行记录**，内容大意是"这个集群里应该有三个这样的副本"。写完就结束了。真正把容器起起来的，是一群完全不认识 `kubectl` 的后台进程：它们各自盯着这个数据库，发现"应该有三个"和"现在有零个"对不上，于是各自往前推一小步。
+
+Kubernetes 2014 年 6 月由 Google 开源，2015 年 7 月 21 日发布 1.0。它从 Google 内部的 Borg 与 Omega 继承的，主要不是容器技术，而是这个结构：**把"要什么"和"怎么做到"彻底拆开，中间只留一个共享的状态存储**。这篇文章拆的就是这个结构——它由哪几层组成、每层做什么决定、以及它把哪些代价转嫁给了使用它的人。
+
+---
+
+## 破除误解
+
+**误解一：`kubectl apply` 是一条执行命令。**
+
+它是一次 HTTP 写请求，收件人是 kube-apiserver，落地点是 etcd 里的一个键。整个过程中没有任何容器被创建，也没有任何节点被联系。如果集群里所有控制器和 kubelet 都挂了，这条命令**照样成功返回**——你的期望被完整记录下来了，只是没人去实现它。这不是缺陷，是分工：apiserver 只负责"受理并持久化意图"，从不负责"办成"。所以 `kubectl apply` 返回成功和 Pod 跑起来之间，没有任何因果保证。
+
+**误解二：控制器是"事件驱动"的，收到变更通知就去处理这次变更。**
+
+正好相反。Kubernetes 的控制器是**电平触发**（level-triggered）而不是**边沿触发**（edge-triggered）的：事件只用来叫醒它，不携带任何它需要的信息。用 controller-runtime 写过控制器的人会注意到一个刻意的设计——`Reconcile` 函数的入参 `req` 里只有一个对象的命名空间和名字，**没有对象内容，也没有"发生了什么变更"**。你被强制去重新读一遍当前状态。这个约束不是风格偏好，下面会说明它为什么是正确性的前提。
+
+**误解三：调度器负责启动 Pod。**
+
+kube-scheduler 从不接触任何节点，也不认识容器运行时。它做的唯一一件事，是给一个 `spec.nodeName` 为空的 Pod 填上一个节点名，然后把这次填写写回 apiserver。写完它的工作就完成了。那台机器上的 kubelet 会在自己的监听流里看到"有个 Pod 的 nodeName 是我"，然后才去拉镜像、起容器。调度器和 kubelet 之间没有任何直接通信，它们只是先后读写了同一条记录。
+
+---
+
+## 一次 apply 之后，实际发生了什么
+
+三副本 Deployment 从 YAML 到容器，中间经过四道各自独立的调谐，谁也不调用谁：
+
+| 组件 | 期望状态从哪读 | 实际状态从哪读 | 它写什么 |
+| --- | --- | --- | --- |
+| deployment-controller | Deployment 的 `spec` | 归属它的 ReplicaSet 列表 | 创建 / 伸缩 ReplicaSet |
+| replicaset-controller | ReplicaSet 的 `spec.replicas` | 带对应 `ownerReference` 的 Pod | 创建 / 删除 Pod 对象 |
+| kube-scheduler | 未绑定的 Pod | 各节点的容量与已分配量 | 给 Pod 填 `spec.nodeName` |
+| kubelet | 分配到本节点的 Pod | 容器运行时（CRI）上报的容器 | 调 CRI 起停容器 |
+
+四步之间没有一次函数调用、没有一次 RPC。**唯一的通信介质是 etcd 里的对象**：上一环把结果写进去，下一环从自己的监听流里看见。这条链上任何一环重启、卡住、被替换成第三方实现，其他环都不需要知道。
+
+代价同样清楚：**没有调用栈**。当 Pod 起不来时，你手里没有一条从 `kubectl` 到失败点的因果链，只有四个各自记录了一点状态的组件。
+
+---
+
+## 调谐循环长什么样
+
+去掉错误处理，一个副本控制器的核心只有五行：
+
+```go
+func (r *Reconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
+    rs, err := r.Get(ctx, req.NamespacedName)        // 1. 读期望（req 里只有 name）
+    if apierrors.IsNotFound(err) { return ctrl.Result{}, nil }
+    pods := r.listOwnedPods(ctx, rs)                 // 2. 读实际
+    diff := len(pods) - int(*rs.Spec.Replicas)       // 3. 算差
+    switch {
+    case diff < 0: err = r.createPods(ctx, rs, -diff)   // 4. 只朝目标走一步
+    case diff > 0: err = r.deletePods(ctx, pods, diff)
+    }
+    return ctrl.Result{}, err                        // 5. 有错就返回，队列退避后重来
+}
+```
+
+注意它**不问"刚才发生了什么"**。不管这次被唤醒是因为有人改了副本数、有个 Pod 崩了、控制器刚重启，还是只是周期性重放，执行的都是同一段代码：读期望、读实际、把差异缩小一点、返回。
+
+也要注意它**只走一步**。控制器不试图在一次调用里把世界修好，出错就把这个 key 塞回队列。client-go 的默认限速器从 5 毫秒起指数退避，上限 1000 秒，同时整体桶限速在 10 QPS。所以"失败"在这里的表现不是报错退出，而是**重试间隔慢慢拉长到十几分钟一次**——这也是为什么一个镜像名写错的 Pod 能在 `ImagePullBackOff` 状态挂上一整天：声明式系统里没有"失败"这个终态，只有"还没收敛"。
+
+---
+
+## etcd 与 watch：这套东西凭什么成立
+
+整个控制平面里，**只有 etcd 是有状态的**。scheduler、controller-manager、kubelet 全是无状态进程，随时可以被杀掉重来——它们本地缓存里的一切都能从 etcd 重建。这个性质是所有其他好处的地基。
+
+etcd 用 Raft 共识（Ongaro 与 Ousterhout 在 2014 年 USENIX ATC 提出）保证多副本一致：每次写都要落到多数派节点的磁盘。3 节点容忍 1 个故障，5 节点容忍 2 个。代价是 etcd 对磁盘 `fsync` 延迟极其敏感，官方硬件建议要求 WAL fsync 的 p99 停留在 10 毫秒量级——**共识的每一次提交都在等盘**。
+
+真正让"监听"成立的是 etcd v3 的 MVCC：每次写产生一个全局单调递增的 **revision**，客户端可以要求"从 revision N 之后的所有变更开始推给我"。断线重连不必从头再来。Kubernetes 把这条能力包了两层：
+
+```
+etcd  --gRPC watch（按 revision）-->  apiserver 的 watch cache
+      --HTTP 长连接（带 resourceVersion）-->  Reflector
+      --> DeltaFIFO --> Indexer（本地全量副本）+ 事件回调
+      --> WorkQueue（按 key 去重 + 限速 + 退避）--> Reconcile(key)
+```
+
+两个细节决定了上层的所有设计：
+
+**第一，进队列的是 key，不是事件。** WorkQueue 里存的只是 `namespace/name` 字符串，且同一个 key 同时只能存在一份。一秒内对同一对象的十次变更，合并成一次调谐。这直接解释了为什么控制器不能依赖事件——**它根本收不到十个事件，只收到"这个对象该看看了"**。
+
+**第二，watch 会断，而且会正当地丢事件。** apiserver 的 watch cache 是有限的环形缓冲；客户端携带的 `resourceVersion` 太旧时，服务端返回 `410 Gone`，客户端只能丢掉增量、重新 LIST 一次全量。etcd 侧的历史压缩（compaction）也会让老 revision 失效。
+
+从这两点可以直接推出全文最重要的两个结论。
+
+**幂等不是好习惯，是正确性前提。** 同一个对象的同一个状态，会因为 informer 周期性重放、410 后的全量重列、控制器进程重启、leader 切换窗口里的短暂双活，被 reconcile 任意多次。如果 `Reconcile` 写成"每次被调用就创建一个 Pod"，集群会在几分钟内被撑爆。因为事件不可靠，所以不能做增量；因为不能做增量，所以每次都必须从当前观察到的全量状态重算；因为每次都全量重算，所以重复执行必须无害。这条链是闭合的——**电平触发和幂等性是同一件事的两个说法**。
+
+**最终一致不是妥协，是能力上限。** apiserver 只保证单个对象写入的原子性：`kubectl apply -f` 里的三个对象是三次独立请求，中间失败就是一半生效。控制器之间靠对象状态异步接力，没有全局协调者，没有跨对象事务。所以任意时刻集群都处于"部分收敛"状态，这是常态而非故障。API 为此提供了一个专门的判据：对象的 `metadata.generation` 每次 `spec` 变更递增，`status.observedGeneration` 记录控制器最后处理的版本——**两者相等，才说明当前 status 反映的是这一版 spec**。不看这个字段就读 status，读到的可能是上一版的结论。
+
+乐观并发是同一逻辑的另一面：每个对象带 `metadata.resourceVersion`，更新时必须原样带回；期间被别人改过就返回 `409 Conflict`，调用方重读重试。这套机制直接来自 Omega（Schwarzkopf 等，EuroSys 2013）的共享状态设计，Borg、Omega 与 Kubernetes 的这段谱系由 Burns、Grant、Oppenheimer、Brewer 与 Wilkes 在 2016 年的 ACM Queue 文章里写明过。
+
+---
+
+## 调度器到底在决定什么
+
+调度器要回答的问题只有一个：**这个 Pod 放哪台机器**。自 KEP-624 的调度框架在 1.19 稳定后，这个决定被拆成一串插件扩展点，主干是两段：
+
+**Filter（可行性）**——逐个节点做布尔判断：CPU/内存的 request 装得下吗？`nodeSelector` 和亲和性规则允许吗？节点上的污点（taint）被容忍了吗？要挂载的卷在这个可用区吗？宿主端口冲突吗？这一步的产出是"可行节点集合"。
+
+**Score（偏好）**——对可行节点打 0–100 分再加权求和：资源均衡度、镜像是否已在本地、拓扑分布是否打散、亲和性偏好满足了多少。取最高分，同分随机。
+
+最后 **Bind**：写一个 Binding，把 `spec.nodeName` 填上。到此结束。
+
+三处取舍值得单独拎出来：
+
+- **它按 `requests` 而不是实际用量决策。** 一个 request 写 1 核、实际只用 0.1 核的 Pod，照样在账面上占满一核。调度器不看监控。这是"集群 CPU 利用率 15% 却调度不出新 Pod"这类现象的全部原因。
+- **它不看全部节点。** `percentageOfNodesToScore` 默认自适应，集群越大取样比例越低（下限 5%）：找到足够多可行节点就停止搜索。**这是明确写进设计的"放弃最优解换吞吐"**。
+- **它只决定一次。** 绑定之后调度器再不过问。后来加入的新节点、腾空的邻居、变热的机器，都不会触发重排。想要重排得另装 descheduler——重新调度在这个模型里是**外部功能**，不是内置能力。
+
+抢占（preemption）是唯一的例外通道：高优先级 Pod 无处可放时，PostFilter 阶段会挑一批低优先级 Pod 驱逐腾位。它给出的是"腾出空间"这个动作，不保证被抢占者能在别处落地。
+
+---
+
+## 代价：这个模型把什么推给了你
+
+### 一、调试困难，是结构决定的
+
+问题不在工具不好用，而在于**这个架构主动销毁了因果信息**。
+
+- **没有请求链路。** 一个 Pod 卡在 Pending，可能因为调度器过滤全灭、某个准入 webhook 超时、CNI 分不出 IP、CSI 挂不上卷、镜像仓库拒绝认证。这五个组件互不知情，也不产生共同的 trace ID。
+- **现场会自己消失。** Events 是存在 etcd 里的一等对象，但 kube-apiserver 的 `--event-ttl` 默认只有 1 小时。凌晨三点的抖动，早上九点看时事件已经被回收了。
+- **status 只讲"现在"，不讲"经历了什么"。** 收敛过程本身不留痕迹。你能看到副本数从 3 变成 3，看不到中间被替换过两次。
+- **少数几个真正给原因的地方要会读。** 调度失败的消息把所有过滤器的拒绝理由聚合成一行，例如 `0/12 nodes are available: 3 Insufficient cpu, 9 node(s) had untolerated taint` ——这是全链路里罕见的、直接告诉你"为什么不行"的输出。
+
+还有一类更隐蔽的故障：**控制器打架**。HPA 按负载改 `replicas`，GitOps 工具按 Git 里的清单改回去，两者各自幂等、各自正确，合起来是一个永不停止的拉锯——表现为 apiserver QPS 无故飙高、对象 `resourceVersion` 每秒递增几十次。两个 mutating webhook 互相覆盖同一字段，效果完全相同。这类"调谐风暴"没有单点可以归咎，因为每个参与者单独看都在正确工作。
+
+### 二、状态漂移是这个模型的固有开口
+
+声明式只对**你声明过的字段**负责，没声明的字段谁改都行——这是模型的开口，不是实现的疏忽。有人 `kubectl edit` 改了个环境变量，有人 `kubectl scale` 手工扩了容，sidecar 注入 webhook 往每个 Pod 里塞了个容器：集群里的对象和你 Git 仓库里的 YAML 从此不再是同一个东西，而且没有任何机制会告诉你。
+
+早期 `kubectl apply` 用一个 `last-applied-configuration` 注解在客户端做三方合并，谁 apply 谁覆盖，字段归属靠猜。Server-Side Apply 在 1.22 GA，用 `managedFields` 在服务端记录**每个字段是被哪个 manager 写的**，冲突时明确报错而不是静默覆盖——这是把"谁拥有这个字段"从惯例升级成了 API 语义。而 GitOps 工具（Weaveworks 的 Flux 始于 2016 年、Intuit 的 Argo CD 始于 2018 年，两者都在 2022 年从 CNCF 毕业）本质上是在外面又套了一个调谐循环：把 Git 当期望状态，把集群当实际状态，持续比对并报告 OutOfSync。**声明式系统需要另一个声明式系统来看着它**，这本身就说明了开口有多大。
+
+删除同样漂移。带 finalizer 的对象被删除时不会消失，只是打上 `deletionTimestamp` 等清理者摘除 finalizer。清理者挂了、被卸载了、或本来就写错了，对象就永久停在 Terminating——卡死的 namespace 是这个机制最常见的现场。
+
+### 三、"一切皆 YAML"的复杂度
+
+YAML 被选中是因为人能读、能 diff、能进 Git。但它没有类型、没有函数、没有引用、没有条件。当配置需要复用时，只剩两条路，都不好走：
+
+| 方案 | 做法 | 代价 |
+| --- | --- | --- |
+| Helm（2015 年起） | Go 文本模板生成 YAML 字符串 | 在**字符串层面**做程序设计；缩进由 `nindent` 手工控制，写错是语法错误不是类型错误；渲染前无法校验 |
+| Kustomize（1.14 起内置 `kubectl -k`） | 不生成，只对结构化对象打 patch | 表达力弱：没有条件、没有循环，跨项目复用困难 |
+
+YAML 自身也埋着坑：按 YAML 1.1 的解析规则，`NO`、`ON`、`YES` 会变成布尔值（挪威的国家代码 `NO` 因此成了 `false`，这是著名的 "Norway problem"），版本号 `1.10` 会被当浮点数丢掉末尾的零，tab 缩进直接报错。
+
+更深的问题是**它被用来表达它不擅长的东西**。YAML 描述"应该是什么样"很自然；一旦需要描述"先做 A 再做 B，失败了退回去"，就得把流程重新塞回 YAML——工作流引擎、依赖钩子、`initContainers` 的隐式顺序，绕一圈回到命令式，只是语法更差。CRD 从 1.16 起把 API 开放给所有人（Operator 模式由 CoreOS 在 2016 年 11 月提出），确实让 Kubernetes 成了通用控制平面，代价是每装一个 Operator，就等于往集群里放进一个**拿着写权限、你没读过其源码的调谐循环**。
+
+### 四、什么时候这套模型直接不适用
+
+- **需要严格顺序和事务的操作。** 没有跨对象事务，没有"要么全成要么全不成"。数据库 schema 迁移这类操作塞进控制器只会更糟。
+- **需要即时确定性的操作。** 声明式给的是"最终会到"，给不了"什么时候到"。要求秒级确定响应的场景，这里没有承诺可用。
+- **规模上限是硬的。** 官方给出的大集群参考上限是不超过 5000 节点、150000 个 Pod、每节点不超过 110 个 Pod。etcd 默认 2 GiB 的后端配额一旦触顶，集群进入 NOSPACE 报警并转为只读——**所有控制器同时停止收敛**。整座声明式大厦压在一个几 GB 的键值存储上。
+- **小规模场景不划算。** 三台机器跑五个服务，控制平面本身的资源、认知与运维成本会超过它管理的东西。
+
+---
+
+## 跨域连接
+
+- **[[power-grid|电网]]**：调谐循环就是自动发电控制那套闭环，`spec` 是设定值，`status` 是量测值。**电力系统工程给出的约束在这里逐条成立：闭环控制的稳定性取决于增益与反馈延迟的配合，增益太高、采样太慢就会振荡而不是收敛。Kubernetes 把这条经验固化成了具体参数——workqueue 从 5 毫秒起指数退避到 1000 秒，HPA 设置稳定窗口，正是电网里"死区"和"下垂特性"的同一手法：宁可反应慢，也不能让两个控制器围着同一个量互相超调。控制器打架导致的调谐风暴，在电网里对应的现象叫控制回路互扰，处方也一样——明确每个量归谁调，这正是 Server-Side Apply 用 `managedFields` 做的事。**
+- **[[laws-of-thermodynamics|热力学定律]]**：期望状态不是稳定态，是需要持续做功才能维持的低熵构型。**孤立系统自发趋向无序，有序结构只能靠持续耗散能量来维持——控制器就是这个耗散过程的工程实现，一刻不停地读、比、改。这解释了一个反直觉的事实：集群"什么都没变"的时候，控制平面依然满负荷运转，因为静止本身就是做功的结果。它也解释了代价的来源——控制平面的常态开销不是浪费，是维持有序的最低功耗；一旦控制器停摆（etcd 触及 2 GiB 配额转只读就是典型），系统不会停在原地，而是在节点故障与进程退出的推动下单向滑向无序。**
+- **[[what-is-truth|什么是真理]]**：把 etcd 称作"单一真相源"，是一次明确的认识论站队。**符合论认为一个陈述之真在于它符合外部事实，融贯论认为真在于它与整个信念体系相容。声明式编排选了后者：集群里那三个容器之所以"对"，不是因为谁核对过机器，而是因为它与 etcd 中的声明相融贯。这个选择的代价非常具体——当真相被定义为记录时，记录之外的现实就成了需要被消灭的偏差，于是任何手工改动都被归类为"漂移"而非"新信息"。GitOps 把这条链再往外延一节，让 Git 成为 etcd 之上的更高裁判，也就把同一个问题原样搬到了新的边界上。**
+- **[[commons-governance|公地治理]]**：一个集群就是一片被众多团队共用的计算公地，调度器是分配规则的执行者。**奥斯特罗姆对成功公地的归纳里，头两条是清晰界定边界与让分配规则匹配本地条件——ResourceQuota 划出各命名空间的取用上限，requests 与 limits 声明单个使用者的账面占用，PriorityClass 定义稀缺时谁先退让，几乎是逐条对应。它也复现了公地的经典失败：调度器按 requests 而非实测用量分配，于是虚报额度成为个体最优策略，账面耗尽而机器空转——这正是搭便车在配额制下的形态。抢占机制是补上的制裁层，而制裁必然带来公地治理里同样存在的问题：被驱逐者的损失由谁承担，规则本身并不回答。**
+- **[[failure-analysis|失效分析]]**：这个架构对故障排查最大的伤害，是它系统性地销毁了事件时间线。**失效分析的基本方法——保留现场、重建时序、沿因果链回溯到根因——三条在这里全部受阻：Events 默认 1 小时后被回收，收敛过程不留中间态，跨组件的因果关系不由调用栈承载而由共享状态隐式串联。于是排查被迫从"重建这一次到底怎么发生的"退化为"比对现在与应有的差异"，这恰好是控制器自己在做的事，对人却基本无用。这解释了为什么运行 Kubernetes 的团队必须额外投入事件持久化、审计日志与分布式追踪：它们补的不是可观测性工具的缺口，而是这个架构在设计时就交换出去的因果信息。**
+
+## 参考文献
+
+- Verma, A., Pedrosa, L., Korupolu, M., Oppenheimer, D., Tune, E., Wilkes, J. *Large-scale cluster management at Google with Borg.* EuroSys, 2015.（Kubernetes 的直接前身，任务模型与调度实践）
+- Schwarzkopf, M., Konwinski, A., Abd-El-Malek, M., Wilkes, J. *Omega: flexible, scalable schedulers for large compute clusters.* EuroSys, 2013.（共享状态 + 乐观并发的出处，直接对应 resourceVersion）
+- Burns, B., Grant, B., Oppenheimer, D., Brewer, E., Wilkes, J. *Borg, Omega, and Kubernetes.* ACM Queue / Communications of the ACM, 2016.（三代系统的取舍对照，一手设计意图）
+- Ongaro, D., Ousterhout, J. *In Search of an Understandable Consensus Algorithm (Raft).* USENIX ATC, 2014.（etcd 共识层的算法基础）
+- The Kubernetes Authors. *Kubernetes Documentation — Controllers, API Concepts, Scheduling Framework, Server-Side Apply, Considerations for Large Clusters.*（电平触发、resourceVersion 语义、调度扩展点与规模上限的官方口径）
+- Hausenblas, M., Sayfan, G. 等. *Programming Kubernetes: Developing Cloud-Native Applications.* O'Reilly, 2019.（informer、workqueue 与自定义控制器的实现细节）
+
+## 延伸阅读
+
+- Kubernetes 社区. *API Conventions* 与 *Design Principles*——"优先电平触发""spec 与 status 分离"这些约定的原始表述。
+- Ostrom, E. *Governing the Commons.* Cambridge University Press, 1990——共享资源配额与制裁机制的理论底座，读完再看 ResourceQuota 会有不同感受。
+- CoreOS. *Introducing Operators: Putting Operational Knowledge into Software*, 2016 年 11 月——把调谐循环从内置控制器推广为通用扩展模式的那篇文章。

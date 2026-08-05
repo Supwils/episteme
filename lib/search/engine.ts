@@ -29,12 +29,19 @@ export function loadEngine(artifact: SearchIndexArtifact): SearchEngine {
 
   return {
     search(query, limit) {
-      if (!query.trim()) return [];
-      const hits: SearchHit[] = [];
-      for (const result of index.search(query)) {
+      const normalized = query.trim();
+      if (!normalized) return [];
+      // Scan wider than `limit` so an exact title match can be promoted past
+      // tf-idf. A dialogue titled "柏拉图与孔子" that discusses 理想国 outscores
+      // the article actually named 理想国, because the dialogue is longer and
+      // mentions the term more often — but a reader typing a full title wants
+      // that title's own article, not one that talks about it.
+      const window = Math.max(limit * 4, 40);
+      const scanned: SearchHit[] = [];
+      for (const result of index.search(normalized)) {
         const doc = artifact.docs[result.id as number];
         if (!doc) continue;
-        hits.push({
+        scanned.push({
           title: doc.t,
           subtitle: doc.s,
           url: doc.u,
@@ -42,9 +49,16 @@ export function loadEngine(artifact: SearchIndexArtifact): SearchEngine {
           kind: doc.k,
           score: result.score,
         });
-        if (hits.length >= limit) break;
+        if (scanned.length >= window) break;
       }
-      return hits;
+      const exact = normalized.toLowerCase();
+      const isExact = (hit: SearchHit) => hit.title.trim().toLowerCase() === exact;
+      // Stable partition: exact title matches keep their relative tf-idf order,
+      // everything else follows unchanged.
+      return [...scanned.filter(isExact), ...scanned.filter((hit) => !isExact(hit))].slice(
+        0,
+        limit
+      );
     },
   };
 }

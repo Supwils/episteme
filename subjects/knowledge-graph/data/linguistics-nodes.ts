@@ -581,6 +581,26 @@ export const LINGUISTICS_NODES: GraphNode[] = [
     evidenceMode: "interpretation",
     prerequisiteIds: ["linguistics:languages-change"],
   }),
+  n({
+    slug: "translation-and-translatability",
+    label: "翻译与可译性",
+    section: "words-sentences-meaning",
+    description: "语法强制范畴决定了翻译必须补出什么；等值有三种互不兼容的口径。",
+    tags: ["翻译", "可译性", "强制范畴", "机器翻译"],
+    knowledgeLevel: 3,
+    evidenceMode: "comparative",
+    prerequisiteIds: ["linguistics:semantics"],
+  }),
+  n({
+    slug: "forensic-linguistics",
+    label: "司法语言学",
+    section: "methods-and-frontiers",
+    description: "作者归属、说话人辨认与法律文本歧义；证据强度取决于错误率与似然比表述。",
+    tags: ["司法语言学", "作者归属", "语言证据", "法律文本"],
+    knowledgeLevel: 4,
+    evidenceMode: "formal",
+    prerequisiteIds: ["linguistics:stylistics"],
+  }),
 ];
 const e = (
   source: string,
@@ -817,4 +837,19 @@ export const LINGUISTICS_EDGES: GraphEdge[] = [
   ),
   e("languages-change", "eskimo-snow-words-hoax", "词汇细化反映的是接触频度而非语言类型"),
   e("linguistic-typology", "eskimo-snow-words-hoax", "多式综合语中词的边界"),
+  // 第二波接线
+  e("semantics", "translation-and-translatability", "意义在两套范畴系统之间"),
+  e("morphology", "translation-and-translatability", "强制标注的范畴来自形态"),
+  e("pragmatics", "translation-and-translatability", "语用等值与礼貌"),
+  e("stylistics", "forensic-linguistics", "风格特征作为作者线索"),
+  e("corpus-linguistics", "forensic-linguistics", "语料方法用于法律解释"),
+  e("sociolinguistic-variation", "forensic-linguistics", "变异是辨认的依据也是陷阱"),
+  e(
+    "translation-and-translatability",
+    "llm-and-linguistic-theory",
+    "神经翻译与语言理论",
+    "cross-reference"
+  ),
+  e("translation-and-translatability", "philosophy:quine", "翻译不确定性论题", "domain-link"),
+  e("forensic-linguistics", "law:evidence-and-proof", "语言证据的可采性", "domain-link"),
 ];

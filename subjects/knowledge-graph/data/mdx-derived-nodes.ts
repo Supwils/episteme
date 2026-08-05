@@ -1,54 +1,37 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
-import type { GraphEdge, GraphNode, GraphNodeType } from "./types";
+import type { KnowledgeLevel } from "@/lib/knowledge-levels";
+import type { GraphEdge, GraphNode } from "./types";
+import {
+  DERIVED_DOMAINS,
+  DOMAIN_DEFAULT_NODE_TYPE,
+  SECTION_ANCHOR_OVERRIDES,
+  SECTION_KNOWLEDGE_LEVEL,
+  SECTION_NODE_TYPE,
+  type DerivedDomain,
+} from "./derived-node-taxonomy";
 
 /**
- * Graph nodes derived from MDX frontmatter for computer-science and psychology.
+ * Graph nodes derived from article frontmatter.
  *
- * Both domains grew far faster than their hand-curated node lists: 120 of 179
- * computer-science articles and 59 of 219 psychology articles had no node at
- * all, which made them invisible to learning paths, frontier recommendations
- * and every graph-driven surface — despite being finished, cross-linked content.
- * Hand-authoring 179 entries would have closed the gap once and reopened it with
- * the next content round.
+ * Hand-curated node lists never keep up with a domain that is still being
+ * written: a 2026-08 census found 573 finished, cross-linked articles with no
+ * node at all, which makes them invisible to learning paths, recommendations and
+ * every other graph-driven surface. Closing that by hand would close it once and
+ * reopen it with the next content round.
  *
- * This module follows the philosophy-nodes.ts precedent instead: read the
- * articles at load time and derive the node from what the frontmatter already
- * states. New articles join the graph the moment they are written.
- *
- * Curated nodes win. Anything already defined in computer-science-nodes.ts,
- * computer-science-coverage.ts, psychology-nodes.ts or psychology-methods-nodes.ts
- * keeps its hand-written description, level and prerequisites; this module only
- * fills the holes (duplicate ids fail graph-integrity.test.ts).
+ * This module reads the articles instead and derives the node from what the
+ * frontmatter already states, so a new article joins the graph the moment it is
+ * written. Curated nodes win on every field — graph-data drops any derived node
+ * whose id or URL a curated node already claims.
  */
-
-const DERIVED_DOMAINS = ["computer-science", "psychology"] as const;
-
-/** Section → node type. The type drives the inferred knowledge level in
- *  cognitive-metadata.ts, so pioneers/theorists must stay in the level-1 set:
- *  they are what anchors the rest of each domain to an entry point. */
-const TYPE_BY_SECTION: Record<string, GraphNodeType> = {
-  algorithms: "algorithm",
-  concepts: "concept",
-  theory: "theory",
-  pioneers: "pioneer",
-  frontier: "concept",
-  theorists: "theorist",
-  experiments: "experiment",
-  phenomena: "phenomenon",
-  disorders: "disease",
-  schools: "school",
-  debates: "question",
-  dialogues: "question",
-  methods: "concept",
-  "knowledge-base": "concept",
-};
 
 /** Frontmatter keys that point at other articles. The content uses several
  *  spellings across domains and sections; reading only one drops most edges. */
 const RELATION_KEYS = [
   "related",
+  "relatedTheories",
   "relatedTheorists",
   "related_thinkers",
   "relatedPhenomena",
@@ -56,50 +39,14 @@ const RELATION_KEYS = [
   "key_figures",
 ] as const;
 
-/**
- * Where a derived node hangs when its own `related` list points only sideways.
- *
- * cognitive-metadata.ts only accepts a prerequisite that is a graph neighbour AND
- * strictly lower level, so a cluster of same-section articles that cite each
- * other ends up with no prerequisites at all — 112 nodes did on the first run.
- * That breaks the learning-path invariant (every node above L1 must be
- * reachable from an entry point), which is why the same defect has been patched
- * by hand in five previous rounds.
- *
- * The rank table mirrors the level inference in cognitive-metadata.ts; the
- * anchors below it are genuine prerequisites, not filler: algorithms do build on
- * data structures, and both domains have a real entry concept.
- */
-const SECTION_RANK: Record<string, number> = {
-  pioneers: 1,
-  theorists: 1,
-  concepts: 2,
-  "knowledge-base": 2,
-  schools: 2,
-  phenomena: 2,
-  debates: 2,
-  dialogues: 2,
-  algorithms: 3,
-  theory: 3,
-  disorders: 3,
-  experiments: 4,
-  methods: 4,
-  frontier: 5,
-};
-
-const DOMAIN_ENTRY: Record<string, string> = {
-  "computer-science": "computer-science:abstraction",
-  psychology: "psychology:behavior-mind-evidence",
-};
-
-const SECTION_ANCHOR: Record<string, string> = {
-  "computer-science/algorithms": "computer-science:data-structures",
-};
-
-const rankOf = (section: string): number => SECTION_RANK[section] ?? 2;
-
-function anchorFor(domain: string, section: string): string | null {
-  return SECTION_ANCHOR[`${domain}/${section}`] ?? DOMAIN_ENTRY[domain] ?? null;
+interface DerivedArticle {
+  domain: DerivedDomain;
+  section: string;
+  slug: string;
+  title: string;
+  description: string;
+  tags: string[];
+  relations: string[];
 }
 
 function findRepoRoot(): string {
@@ -137,25 +84,13 @@ function extractDescription(content: string): string {
   return desc.length > 160 ? `${desc.slice(0, 158)}…` : desc;
 }
 
-interface DerivedArticle {
-  domain: string;
-  section: string;
-  slug: string;
-  title: string;
-  description: string;
-  tags: string[];
-  relations: string[];
-}
-
-function readDomainArticles(root: string, domain: string): DerivedArticle[] {
-  const domainDir = path.join(root, "content", domain);
-  if (!fs.existsSync(domainDir)) return [];
-
+function readArticles(root: string, domain: DerivedDomain): DerivedArticle[] {
   const articles: DerivedArticle[] = [];
-  for (const entry of fs.readdirSync(domainDir, { withFileTypes: true })) {
-    if (!entry.isDirectory()) continue;
-    const section = entry.name;
-    const sectionDir = path.join(domainDir, section);
+
+  for (const section of domain.sections) {
+    const sectionDir = path.join(root, "content", domain.contentDirectory, section);
+    if (!fs.existsSync(sectionDir)) continue;
+
     for (const file of fs.readdirSync(sectionDir)) {
       if (!/\.mdx?$/.test(file) || file.endsWith(".narration.md")) continue;
       const parsed = matter(fs.readFileSync(path.join(sectionDir, file), "utf-8"));
@@ -166,52 +101,123 @@ function readDomainArticles(root: string, domain: string): DerivedArticle[] {
       for (const key of RELATION_KEYS) {
         const value = fm[key];
         if (!Array.isArray(value)) continue;
-        for (const ref of value)
+        for (const ref of value) {
           if (typeof ref === "string" && ref.trim()) relations.add(ref.trim());
+        }
       }
 
+      const slug = file.replace(/\.mdx?$/, "");
       articles.push({
         domain,
         section,
-        slug: file.replace(/\.mdx?$/, ""),
-        title: typeof fm.title === "string" ? fm.title : file.replace(/\.mdx?$/, ""),
+        slug,
+        title: typeof fm.title === "string" ? fm.title : slug,
         description: extractDescription(parsed.content),
         tags: Array.isArray(fm.tags)
-          ? fm.tags.filter((t): t is string => typeof t === "string").slice(0, 4)
+          ? fm.tags.filter((tag): tag is string => typeof tag === "string").slice(0, 4)
           : [],
         relations: [...relations],
       });
     }
   }
+
   return articles;
 }
 
-function build(): { nodes: GraphNode[]; edges: GraphEdge[]; bySlug: Map<string, string> } {
-  const root = findRepoRoot();
-  const nodes: GraphNode[] = [];
-  const bySlug = new Map<string, string>();
+function nodeTypeFor(article: DerivedArticle): GraphNode["type"] {
+  return (
+    SECTION_NODE_TYPE[article.section] ??
+    DOMAIN_DEFAULT_NODE_TYPE[article.domain.contentDirectory] ??
+    "concept"
+  );
+}
 
-  for (const domain of DERIVED_DOMAINS) {
-    for (const article of readDomainArticles(root, domain)) {
-      const id = `${domain}:${article.slug}`;
-      if (bySlug.has(article.slug)) continue;
-      bySlug.set(article.slug, id);
-      nodes.push({
-        id,
-        label: article.title,
-        domain,
-        type: TYPE_BY_SECTION[article.section] ?? "concept",
-        slug: article.slug,
-        section: article.section,
-        url: `/${domain}/${article.section}/${article.slug}`,
-        description: article.description,
-        tags: article.tags,
-      });
+function levelFor(section: string): KnowledgeLevel {
+  return SECTION_KNOWLEDGE_LEVEL[section] ?? 2;
+}
+
+function anchorFor(article: DerivedArticle): string | null {
+  return (
+    SECTION_ANCHOR_OVERRIDES[`${article.domain.contentDirectory}/${article.section}`] ??
+    article.domain.entryNodeId
+  );
+}
+
+function toNode(article: DerivedArticle, id: string): GraphNode {
+  return {
+    id,
+    label: article.title,
+    domain: article.domain.graphDomain,
+    type: nodeTypeFor(article),
+    slug: article.slug,
+    section: article.section,
+    url: `/${article.domain.contentDirectory}/${article.section}/${article.slug}`,
+    description: article.description,
+    tags: article.tags,
+    knowledgeLevel: levelFor(article.section),
+  };
+}
+
+/**
+ * Slug → node ids. A slug is only unique inside a domain — `evolution` and
+ * `emotions` exist in several — so a relation resolves to its own domain first
+ * and to another domain only when exactly one article claims that slug.
+ */
+function resolveRelation(
+  ref: string,
+  fromDomain: string,
+  idsBySlug: ReadonlyMap<string, string[]>
+): string | null {
+  const candidates = idsBySlug.get(ref);
+  if (!candidates || candidates.length === 0) return null;
+  const sameDomain = candidates.find((id) => id.startsWith(`${fromDomain}:`));
+  if (sameDomain) return sameDomain;
+  return candidates.length === 1 ? (candidates[0] ?? null) : null;
+}
+
+/** Union-find over derived node ids, used to spot clusters that never reach a
+ *  curated anchor. */
+class NodeGrouping {
+  private readonly parent = new Map<string, string>();
+
+  rootOf(id: string): string {
+    const parent = this.parent.get(id);
+    if (parent === undefined) {
+      this.parent.set(id, id);
+      return id;
     }
+    if (parent === id) return id;
+    const root = this.rootOf(parent);
+    this.parent.set(id, root);
+    return root;
   }
 
-  const sectionBySlug = new Map<string, string>();
-  for (const node of nodes) sectionBySlug.set(node.slug, node.section ?? "");
+  join(left: string, right: string): void {
+    const leftRoot = this.rootOf(left);
+    const rightRoot = this.rootOf(right);
+    if (leftRoot !== rightRoot) this.parent.set(rightRoot, leftRoot);
+  }
+}
+
+function build(): { nodes: GraphNode[]; edges: GraphEdge[] } {
+  const root = findRepoRoot();
+  const articles = DERIVED_DOMAINS.flatMap((domain) => readArticles(root, domain));
+
+  const nodes: GraphNode[] = [];
+  const idByArticle = new Map<DerivedArticle, string>();
+  const idsBySlug = new Map<string, string[]>();
+  const claimed = new Set<string>();
+
+  for (const article of articles) {
+    const id = `${article.domain.idPrefix}:${article.slug}`;
+    if (claimed.has(id)) continue;
+    claimed.add(id);
+    idByArticle.set(article, id);
+    nodes.push(toNode(article, id));
+    idsBySlug.set(article.slug, [...(idsBySlug.get(article.slug) ?? []), id]);
+  }
+
+  const levelById = new Map(nodes.map((node) => [node.id, node.knowledgeLevel ?? 2]));
 
   const edges: GraphEdge[] = [];
   const seen = new Set<string>();
@@ -220,34 +226,62 @@ function build(): { nodes: GraphNode[]; edges: GraphEdge[]; bySlug: Map<string, 
     const key = source < target ? `${source}|${target}` : `${target}|${source}`;
     if (seen.has(key)) return;
     seen.add(key);
-    edges.push({ source, target, type: "cross-reference", label });
+    // A frontmatter relation may name an article in another domain, and the graph
+    // renders those differently — typing them all as same-domain would hide the
+    // cross-domain connections the content was written to make.
+    const sameDomain = source.split(":")[0] === target.split(":")[0];
+    edges.push({ source, target, type: sameDomain ? "cross-reference" : "domain-link", label });
   };
 
-  for (const domain of DERIVED_DOMAINS) {
-    for (const article of readDomainArticles(root, domain)) {
-      const source = `${domain}:${article.slug}`;
-      const rank = rankOf(article.section);
-      let hasLowerNeighbour = false;
-      for (const ref of article.relations) {
-        const target = bySlug.get(ref);
-        if (!target || target === source) continue;
-        if (rankOf(sectionBySlug.get(ref) ?? "") < rank) hasLowerNeighbour = true;
-        addEdge(source, target, "相关条目");
-      }
-      if (!hasLowerNeighbour && rank > 1) {
-        const anchor = anchorFor(domain, article.section);
-        if (anchor && anchor !== source) addEdge(source, anchor, "前置基础");
+  const grouping = new NodeGrouping();
+  const anchoredIds = new Set<string>();
+
+  for (const article of articles) {
+    const source = idByArticle.get(article);
+    if (!source) continue;
+    const level = levelFor(article.section);
+    let hasLowerNeighbour = false;
+
+    for (const ref of article.relations) {
+      const target = resolveRelation(ref, article.domain.idPrefix, idsBySlug);
+      if (!target || target === source) continue;
+      if ((levelById.get(target) ?? level) < level) hasLowerNeighbour = true;
+      addEdge(source, target, "相关条目");
+      grouping.join(source, target);
+    }
+
+    if (!hasLowerNeighbour && level > 1) {
+      const anchor = anchorFor(article);
+      if (anchor && anchor !== source) {
+        addEdge(source, anchor, "前置基础");
+        anchoredIds.add(source);
       }
     }
   }
 
-  return { nodes, edges, bySlug };
+  // Every node has to reach a curated learning-path node, or the branch catalog
+  // refuses to build. The prerequisite rule above grounds anything above L1 that
+  // cites only sideways, but an L1 article — a species, a figure, a dated event —
+  // has nothing below it to anchor to, and a cluster of such articles citing only
+  // each other stays adrift. One edge per adrift cluster is enough to reach the
+  // domain. Clusters are read after every relation is in, because a group's root
+  // moves as it merges.
+  const groundedRoots = new Set([...anchoredIds].map((id) => grouping.rootOf(id)));
+  for (const article of articles) {
+    const id = idByArticle.get(article);
+    if (!id) continue;
+    const root = grouping.rootOf(id);
+    if (groundedRoots.has(root)) continue;
+    const anchor = anchorFor(article);
+    if (!anchor || anchor === id) continue;
+    addEdge(id, anchor, "领域入口");
+    groundedRoots.add(root);
+  }
+
+  return { nodes, edges };
 }
 
 const derived = build();
 
-/** Every slug either domain publishes, mapped to its node id — used by
- *  graph-data.ts to drop the derived duplicates of curated nodes. */
-export const MDX_DERIVED_SLUG_IDS = derived.bySlug;
 export const MDX_DERIVED_NODES: GraphNode[] = derived.nodes;
 export const MDX_DERIVED_EDGES: GraphEdge[] = derived.edges;
