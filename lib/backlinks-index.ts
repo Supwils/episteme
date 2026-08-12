@@ -18,6 +18,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "桥梁：受力路径、风与美学",
     },
     {
+      url: "/arts/frontier/neuroaesthetics-cultural-variation",
+      title: "神经美学之后：大脑能解释审美，还是只解释一次按键",
+    },
+    {
       url: "/arts/aesthetics/art-as-progress",
       title: "艺术进步论：一条被艺术自己走废的单行道",
     },
@@ -29,6 +33,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/arts/aesthetics/art-market-and-value": [
+    {
+      url: "/arts/methods/curatorial-practice",
+      title: "策展作为论证：展览如何生产艺术史",
+    },
+    {
+      url: "/arts/media/photography-history",
+      title: "摄影史：从达盖尔银版到艺术殿堂",
+    },
     {
       url: "/sociology/concepts/sociology-of-culture",
       title: "文化社会学：意义如何被生产与分配",
@@ -46,11 +58,31 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/arts/aesthetics/museums-and-display": [
     {
+      url: "/arts/methods/las-meninas-close-reading",
+      title: "《宫娥》细读：谁在画外观看",
+    },
+    {
+      url: "/arts/frontier/museum-restitution-digital-repatriation",
+      title: "博物馆返还与数字归还：复制一件物，能修复被夺走的关系吗",
+    },
+    {
+      url: "/arts/methods/curatorial-practice",
+      title: "策展作为论证：展览如何生产艺术史",
+    },
+    {
+      url: "/arts/frontier/climate-risk-cultural-heritage",
+      title: "气候风险下的文化遗产：保护什么、何时撤退、谁来决定",
+    },
+    {
       url: "/arts/aesthetics/art-as-progress",
       title: "艺术进步论：一条被艺术自己走废的单行道",
     },
   ],
   "/arts/aesthetics/visual-culture-everyday": [
+    {
+      url: "/arts/media/photography-history",
+      title: "摄影史：从达盖尔银版到艺术殿堂",
+    },
     {
       url: "/sociology/concepts/sociology-of-culture",
       title: "文化社会学：意义如何被生产与分配",
@@ -64,8 +96,56 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/arts/architecture/building-as-structure": [
     {
+      url: "/engineering/frontier/low-carbon-cement-circularity",
+      title: "低碳水泥与循环混凝土：怎样减掉石灰石必然释放的碳",
+    },
+    {
       url: "/engineering/civil/skyscrapers",
       title: "摩天楼：风、地震与垂直交通的工程解法",
+    },
+  ],
+  "/arts/foundations/perspective-and-space": [
+    {
+      url: "/arts/methods/las-meninas-close-reading",
+      title: "《宫娥》细读：谁在画外观看",
+    },
+  ],
+  "/arts/foundations/seeing-and-perception": [
+    {
+      url: "/arts/methods/las-meninas-close-reading",
+      title: "《宫娥》细读：谁在画外观看",
+    },
+    {
+      url: "/arts/frontier/neuroaesthetics-cultural-variation",
+      title: "神经美学之后：大脑能解释审美，还是只解释一次按键",
+    },
+  ],
+  "/arts/frontier/generative-art-authorship-provenance": [
+    {
+      url: "/law/frontier/synthetic-media-evidence",
+      title: "合成媒体进入法庭：深伪时代怎样证明一段影像是真的",
+    },
+  ],
+  "/arts/frontier/museum-restitution-digital-repatriation": [
+    {
+      url: "/arts/methods/curatorial-practice",
+      title: "策展作为论证：展览如何生产艺术史",
+    },
+    {
+      url: "/linguistics/frontier/language-data-sovereignty",
+      title: "语言数据主权：一段录音开放以后，谁还能决定它的未来",
+    },
+  ],
+  "/arts/media/film-and-moving-image": [
+    {
+      url: "/arts/media/games-and-interactive-media",
+      title: "游戏作为媒介：交互性如何生产意义",
+    },
+  ],
+  "/arts/media/photography-medium": [
+    {
+      url: "/arts/media/photography-history",
+      title: "摄影史：从达盖尔银版到艺术殿堂",
     },
   ],
   "/arts/media/printmaking": [
@@ -74,10 +154,70 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "浮世绘与江户视觉文化：木版上的浮生",
     },
   ],
+  "/arts/methods/conservation-science": [
+    {
+      url: "/arts/frontier/heritage-science-imaging",
+      title: "技术艺术史：当一幅画同时成为光谱、元素与时间的数据体",
+    },
+  ],
+  "/arts/methods/curatorial-practice": [
+    {
+      url: "/arts/media/games-and-interactive-media",
+      title: "游戏作为媒介：交互性如何生产意义",
+    },
+  ],
+  "/arts/methods/digital-humanities-art": [
+    {
+      url: "/arts/frontier/digital-reconstruction-evidence",
+      title: "数字重建的证据边界：三维古城里哪些是真的",
+    },
+  ],
   "/arts/methods/formal-analysis": [
+    {
+      url: "/arts/methods/las-meninas-close-reading",
+      title: "《宫娥》细读：谁在画外观看",
+    },
     {
       url: "/arts/aesthetics/art-as-progress",
       title: "艺术进步论：一条被艺术自己走废的单行道",
+    },
+  ],
+  "/arts/methods/generative-art-and-ai": [
+    {
+      url: "/arts/frontier/generative-art-authorship-provenance",
+      title: "生成式艺术的作者与来源：作品还能证明自己从哪里来吗",
+    },
+    {
+      url: "/arts/frontier/digital-reconstruction-evidence",
+      title: "数字重建的证据边界：三维古城里哪些是真的",
+    },
+    {
+      url: "/arts/media/games-and-interactive-media",
+      title: "游戏作为媒介：交互性如何生产意义",
+    },
+  ],
+  "/arts/methods/las-meninas-close-reading": [
+    {
+      url: "/arts/methods/curatorial-practice",
+      title: "策展作为论证：展览如何生产艺术史",
+    },
+  ],
+  "/arts/methods/provenance-and-attribution": [
+    {
+      url: "/arts/frontier/museum-restitution-digital-repatriation",
+      title: "博物馆返还与数字归还：复制一件物，能修复被夺走的关系吗",
+    },
+    {
+      url: "/arts/methods/curatorial-practice",
+      title: "策展作为论证：展览如何生产艺术史",
+    },
+    {
+      url: "/arts/frontier/heritage-science-imaging",
+      title: "技术艺术史：当一幅画同时成为光谱、元素与时间的数据体",
+    },
+    {
+      url: "/arts/frontier/generative-art-authorship-provenance",
+      title: "生成式艺术的作者与来源：作品还能证明自己从哪里来吗",
     },
   ],
   "/chemistry/concepts/acids-and-bases": [
@@ -300,6 +440,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/theories/latin-american-structuralism-dependency",
       title: "拉美结构主义与依附理论",
+    },
+    {
+      url: "/engineering/frontier/solid-state-battery-manufacturing",
+      title: "全固态电池制造：去掉可燃电解液之后，失效为何没有消失",
     },
   ],
   "/chemistry/concepts/bioenergetics-and-metabolism": [
@@ -856,6 +1000,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "金属与合金",
     },
     {
+      url: "/engineering/frontier/hydrogen-direct-reduced-iron",
+      title: "氢基直接还原铁：绿色钢铁卡在反应炉外的系统工程",
+    },
+    {
       url: "/mathematics/theorems/divergence-theorem",
       title: "散度定理",
     },
@@ -1096,6 +1244,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "哈希",
     },
     {
+      url: "/medicine/traditions/kampo-medicine",
+      title: "汉方医学：传统方剂如何进入日本现代医疗",
+    },
+    {
       url: "/medicine/diseases/tuberculosis",
       title: "结核病",
     },
@@ -1242,6 +1394,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "泡利不相容原理",
     },
     {
+      url: "/mathematics/knowledge-base/数学基础--什么是数学",
+      title: "什么是数学",
+    },
+    {
       url: "/cosmology/knowledge-base/星际介质--行星状星云",
       title: "行星状星云",
     },
@@ -1262,6 +1418,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/substances/semiconductors-materials",
       title: "半导体材料",
+    },
+    {
+      url: "/engineering/frontier/perovskite-silicon-tandem-scale-up",
+      title: "钙钛矿—硅叠层光伏：效率纪录怎样穿过二十五年质保",
     },
     {
       url: "/chemistry/reactions/photosynthesis",
@@ -1776,6 +1936,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "红巨星与渐近巨星支",
     },
     {
+      url: "/mathematics/knowledge-base/应用--混沌与分形",
+      title: "混沌与分形",
+    },
+    {
       url: "/universe-physics/knowledge-base/经典物理--摩擦与耗散",
       title: "摩擦与耗散",
     },
@@ -2004,6 +2168,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "混凝土工程：从万神殿穹顶到高性能混凝土",
     },
     {
+      url: "/mathematics/knowledge-base/应用--人工智能的数学",
+      title: "人工智能的数学",
+    },
+    {
       url: "/mathematics/concepts/numerical-methods",
       title: "数值方法",
     },
@@ -2060,6 +2228,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/battery-performance-safety-and-circularity",
       title: "电池评价：性能、安全与循环",
+    },
+    {
+      url: "/arts/frontier/heritage-science-imaging",
+      title: "技术艺术史：当一幅画同时成为光谱、元素与时间的数据体",
     },
     {
       url: "/human-history/knowledge/科学史--解剖学革命",
@@ -2150,8 +2322,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "玛格丽特·汉密顿",
     },
     {
+      url: "/engineering/machines/human-factors-engineering",
+      title: "人因工程：为会犯错的人设计",
+    },
+    {
       url: "/computer-science/concepts/real-time-systems",
       title: "实时系统",
+    },
+    {
+      url: "/engineering/frontiers/challenger-o-ring-organizational-failure",
+      title: "挑战者号事故：密封失效如何穿过组织防线",
     },
     {
       url: "/engineering/materials/additive-manufacturing",
@@ -2190,6 +2370,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/milestones/green-chemistry",
       title: "绿色化学（1998）",
+    },
+    {
+      url: "/engineering/frontier/solid-state-battery-manufacturing",
+      title: "全固态电池制造：去掉可燃电解液之后，失效为何没有消失",
     },
     {
       url: "/medicine/figures/alexander-fleming",
@@ -2432,6 +2616,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/surface-and-colloid-chemistry",
       title: "表面与胶体化学",
+    },
+    {
+      url: "/engineering/frontier/low-carbon-cement-circularity",
+      title: "低碳水泥与循环混凝土：怎样减掉石灰石必然释放的碳",
     },
     {
       url: "/chemistry/reactions/fermentation",
@@ -3412,6 +3600,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/algorithms/graph-traversal": [
     {
+      url: "/mathematics/knowledge-base/几何--拓扑学入门",
+      title: "拓扑学入门",
+    },
+    {
       url: "/medicine/events/smallpox-eradication",
       title: "天花根除（1980）",
     },
@@ -3467,6 +3659,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/computer-science/algorithms/huffman-coding": [
+    {
+      url: "/mathematics/knowledge-base/应用--信息论基础",
+      title: "信息论基础",
+    },
     {
       url: "/life-science/knowledge-base/分子生物学--中心法则与基因表达",
       title: "中心法则：从DNA到蛋白质的信息之流",
@@ -3813,6 +4009,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/mathematics/theorems/prime-number-theorem",
       title: "素数定理",
     },
+    {
+      url: "/mathematics/knowledge-base/数论--素数之谜",
+      title: "素数之谜",
+    },
   ],
   "/computer-science/algorithms/q-learning": [
     {
@@ -4046,6 +4246,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "量子谐振子",
     },
     {
+      url: "/mathematics/knowledge-base/数学基础--什么是数学",
+      title: "什么是数学",
+    },
+    {
       url: "/computer-science/concepts/data-structures",
       title: "数据结构",
     },
@@ -4231,6 +4435,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/computer-science/frontier/confidential-computing-and-tees",
       title: "机密计算：把信任从运维手里收回硬件",
     },
+    {
+      url: "/law/frontier/cross-border-data-governance",
+      title: "跨境数据治理：云端的一份数据同时服从几套主权",
+    },
   ],
   "/computer-science/concepts/compilers": [
     {
@@ -4310,6 +4518,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "分形",
     },
     {
+      url: "/mathematics/knowledge-base/应用--混沌与分形",
+      title: "混沌与分形",
+    },
+    {
       url: "/computer-science/theory/computational-geometry",
       title: "计算几何",
     },
@@ -4332,6 +4544,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/foundations/line-shape-form",
       title: "线条、形状与形体",
+    },
+    {
+      url: "/mathematics/knowledge-base/代数--线性代数的几何意义",
+      title: "线性代数的几何意义",
     },
     {
       url: "/mathematics/concepts/signal-processing",
@@ -4798,6 +5014,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "负载均衡",
     },
     {
+      url: "/mathematics/knowledge-base/应用--复杂系统入门",
+      title: "复杂系统入门",
+    },
+    {
       url: "/economics/theories/supply-demand",
       title: "供需理论",
     },
@@ -4912,6 +5132,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/concepts/encryption-basics": [
     {
+      url: "/mathematics/knowledge-base/应用--密码学的数学",
+      title: "密码学的数学",
+    },
+    {
       url: "/law/global-and-digital/digital-rights-and-privacy",
       title: "数据权利与隐私：从独处权到被遗忘权",
     },
@@ -4931,6 +5155,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/computer-science/concepts/firewalls-and-network-security": [
+    {
+      url: "/engineering/frontier/infrastructure-digital-twins",
+      title: "基础设施数字孪生：什么时候模型才配替真实桥梁作决定",
+    },
     {
       url: "/computer-science/algorithms/regular-expressions",
       title: "正则表达式",
@@ -5028,6 +5256,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/pioneers/tony-hoare",
       title: "托尼·霍尔",
+    },
+    {
+      url: "/engineering/machines/systems-engineering",
+      title: "系统工程：需求、约束、验证与变更",
     },
     {
       url: "/political-science/institutions/constitutional-courts",
@@ -5182,10 +5414,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/experiments/gettier-problem",
       title: "盖梯尔问题",
-    },
-    {
-      url: "/philosophy/concepts/skepticism",
-      title: "怀疑论",
     },
     {
       url: "/computer-science/frontier/retrieval-augmented-generation-and-agents",
@@ -5426,6 +5654,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "迁徙：鸟类、鲸鱼与帝王蝶的史诗旅程",
     },
     {
+      url: "/linguistics/frontier/animal-communication-ai",
+      title: "人工智能与动物交流：发现组合结构，距离“翻译”还有多远",
+    },
+    {
       url: "/philosophy/schools/epistemology",
       title: "认识论",
     },
@@ -5472,6 +5704,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/concepts/market-efficiency",
       title: "市场效率假说：真相与谎言",
+    },
+    {
+      url: "/linguistics/frontier/sign-language-ai-bias",
+      title: "手语人工智能的系统偏差：识别手势，不等于理解语言",
     },
     {
       url: "/arts/methods/digital-humanities-art",
@@ -5554,6 +5790,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "印度佛教知识论",
     },
     {
+      url: "/linguistics/frontier/language-data-sovereignty",
+      title: "语言数据主权：一段录音开放以后，谁还能决定它的未来",
+    },
+    {
       url: "/linguistics/methods-and-frontiers/linguistic-fieldwork",
       title: "语言田野调查与社区协作",
     },
@@ -5620,6 +5860,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/frontier/mrna-therapeutics",
       title: "mRNA 疗法：当新冠疫苗只是这项技术的第一幕",
+    },
+    {
+      url: "/linguistics/acquisition-and-mind/wug-test-morphology-analysis",
+      title: "Wug Test 实验剖析：儿童怎样生成没听过的词",
     },
   ],
   "/computer-science/concepts/memory-hierarchy-caching": [
@@ -5956,6 +6200,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "基因检测与隐私",
     },
     {
+      url: "/law/frontier/cross-border-data-governance",
+      title: "跨境数据治理：云端的一份数据同时服从几套主权",
+    },
+    {
       url: "/political-science/international-relations/trade-politics-and-wto",
       title: "贸易政治与世界贸易组织",
     },
@@ -6012,6 +6260,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/axiom",
       title: "公理",
+    },
+    {
+      url: "/mathematics/knowledge-base/分析--微积分的故事",
+      title: "微积分的故事",
     },
     {
       url: "/computer-science/theory/formal-grammars-chomsky-hierarchy",
@@ -6134,6 +6386,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "价格歧视",
     },
     {
+      url: "/mathematics/knowledge-base/应用--决策科学导论",
+      title: "决策科学导论",
+    },
+    {
       url: "/psychology/phenomena/availability-heuristic",
       title: "可得性启发",
     },
@@ -6210,6 +6466,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "托克维尔",
     },
     {
+      url: "/mathematics/knowledge-base/应用--网络科学导论",
+      title: "网络科学导论",
+    },
+    {
       url: "/psychology/phenomena/flow-state",
       title: "心流状态",
     },
@@ -6250,6 +6510,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/pioneers/john-mccarthy",
       title: "约翰·麦卡锡",
+    },
+    {
+      url: "/mathematics/knowledge-base/数学基础--证明的艺术",
+      title: "证明的艺术",
     },
   ],
   "/computer-science/concepts/reinforcement-learning-concept": [
@@ -6732,6 +6996,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "丹尼尔·丹内特",
     },
     {
+      url: "/philosophy/experiments/frankfurt-cases",
+      title: "法兰克福案例",
+    },
+    {
       url: "/mathematics/paradoxes/godel-incompleteness-paradox",
       title: "哥德尔不完备性定理（自指与悖论视角）",
     },
@@ -6758,6 +7026,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/experiments/philosophical-zombies",
       title: "哲学僵尸",
+    },
+    {
+      url: "/medicine/ethics/informed-consent-and-shared-decision-making",
+      title: "知情同意与共同决策：签字为什么不等于选择",
     },
     {
       url: "/philosophy/experiments/chinese-room",
@@ -6948,6 +7220,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "精神分析的疗效之争",
     },
     {
+      url: "/engineering/frontier/embodied-ai-robot-reliability",
+      title: "具身人工智能的可靠性：机器人会说会看，为何仍不会收拾陌生厨房",
+    },
+    {
       url: "/psychology/knowledge-base/psychology-of-decisions",
       title: "决策心理学：如何做出更好的选择",
     },
@@ -7054,6 +7330,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/donald-davidson",
       title: "唐纳德·戴维森",
+    },
+    {
+      url: "/law/frontier/foundation-model-regulation",
+      title: "通用人工智能模型监管：管一个模型，还是管一条价值链",
     },
     {
       url: "/psychology/phenomena/projection",
@@ -7212,6 +7492,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "数论",
     },
     {
+      url: "/mathematics/knowledge-base/数论--素数之谜",
+      title: "素数之谜",
+    },
+    {
       url: "/computer-science/algorithms/public-key-rsa",
       title: "RSA 公钥密码",
     },
@@ -7256,6 +7540,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/人物--图灵",
       title: "图灵",
+    },
+    {
+      url: "/mathematics/knowledge-base/分析--无穷的故事",
+      title: "无穷的故事",
     },
     {
       url: "/mathematics/mathematicians/hilbert",
@@ -7530,6 +7818,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "人工智能哲学",
     },
     {
+      url: "/mathematics/knowledge-base/应用--复杂性科学入门",
+      title: "什么是复杂系统？",
+    },
+    {
       url: "/computer-science/concepts/real-time-systems",
       title: "实时系统",
     },
@@ -7608,6 +7900,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/光学--optical-fiber-and-total-internal-reflection",
       title: "光纤与全内反射",
+    },
+    {
+      url: "/law/frontier/synthetic-media-evidence",
+      title: "合成媒体进入法庭：深伪时代怎样证明一段影像是真的",
     },
     {
       url: "/computer-science/frontier/post-quantum-cryptography",
@@ -7744,10 +8040,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/frontier/post-quantum-cryptography",
       title: "后量子密码：在机器造出来之前更换全世界的锁",
-    },
-    {
-      url: "/philosophy/concepts/skepticism",
-      title: "怀疑论",
     },
     {
       url: "/philosophy/schools/skepticism",
@@ -8362,6 +8654,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "麦克斯韦妖",
     },
     {
+      url: "/mathematics/knowledge-base/应用--密码学的数学",
+      title: "密码学的数学",
+    },
+    {
       url: "/universe-physics/knowledge-base/光学--polarization",
       title: "偏振",
     },
@@ -8789,6 +9085,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/cosmology/knowledge-base/多重宇宙假说": [
+    {
+      url: "/mathematics/knowledge-base/分析--无穷的故事",
+      title: "无穷的故事",
+    },
     {
       url: "/cosmology/knowledge-base/cosmic-inflation",
       title: "宇宙暴胀",
@@ -10644,6 +10944,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "时间折扣：为什么我们总是选择即时满足",
     },
     {
+      url: "/economics/debates/carbon-tax-vs-cap-and-trade",
+      title: "碳税还是总量交易：给污染定价的两条路",
+    },
+    {
       url: "/chemistry/substances/hydrocarbons",
       title: "烃类",
     },
@@ -10704,6 +11008,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/climate-risks/ensemble-prediction-and-decision": [
     {
+      url: "/mathematics/knowledge-base/统计--贝叶斯统计入门",
+      title: "贝叶斯统计入门",
+    },
+    {
       url: "/computer-science/concepts/load-balancing",
       title: "负载均衡",
     },
@@ -10758,6 +11066,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/climate-risks/extreme-event-attribution": [
     {
+      url: "/earth-science/event-analyses/pinatubo-eruption-observation-1991",
+      title: "1991 年皮纳图博喷发事件剖析",
+    },
+    {
+      url: "/earth-science/event-analyses/eyjafjallajokull-ash-crisis-2010",
+      title: "2010 年艾雅法拉火山灰危机剖析",
+    },
+    {
+      url: "/earth-science/event-analyses/pakistan-flood-attribution-2022",
+      title: "2022 年巴基斯坦洪水归因剖析",
+    },
+    {
+      url: "/earth-science/event-analyses/hunga-tonga-eruption-observation-2022",
+      title: "2022 年洪阿汤加喷发事件剖析",
+    },
+    {
+      url: "/earth-science/event-analyses/turkey-syria-earthquake-forensics-2023",
+      title: "2023 年土耳其—叙利亚地震事件剖析",
+    },
+    {
       url: "/economics/case-studies/low-income-debt-countries-macro-diagnosis-2026",
       title: "低收入债务国宏观经济诊断（2026）",
     },
@@ -10784,6 +11112,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/knowledge-base/options-derivatives-black-scholes",
       title: "期权与Black-Scholes方程：为不确定性定价",
+    },
+    {
+      url: "/law/frontier/climate-litigation-attribution-remedies",
+      title: "气候诉讼的下一步：从证明变暖到分配国家与企业责任",
     },
     {
       url: "/engineering/civil/resilient-infrastructure",
@@ -11544,6 +11876,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "时空弯曲与测地线",
     },
     {
+      url: "/mathematics/knowledge-base/代数--线性代数的几何意义",
+      title: "线性代数的几何意义",
+    },
+    {
       url: "/earth-science/concepts/remote-sensing-and-gis",
       title: "遥感与地理信息系统",
     },
@@ -11807,6 +12143,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/earth-science/concepts/remote-sensing-and-gis": [
+    {
+      url: "/earth-science/event-analyses/pinatubo-eruption-observation-1991",
+      title: "1991 年皮纳图博喷发事件剖析",
+    },
+    {
+      url: "/earth-science/event-analyses/eyjafjallajokull-ash-crisis-2010",
+      title: "2010 年艾雅法拉火山灰危机剖析",
+    },
+    {
+      url: "/earth-science/event-analyses/pakistan-flood-attribution-2022",
+      title: "2022 年巴基斯坦洪水归因剖析",
+    },
+    {
+      url: "/earth-science/event-analyses/hunga-tonga-eruption-observation-2022",
+      title: "2022 年洪阿汤加喷发事件剖析",
+    },
+    {
+      url: "/earth-science/event-analyses/turkey-syria-earthquake-forensics-2023",
+      title: "2023 年土耳其—叙利亚地震事件剖析",
+    },
     {
       url: "/economics/economists/arthur-pigou",
       title: "阿瑟·庇古",
@@ -12288,6 +12644,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "马尔萨斯陷阱：一个严密推理为何败给了历史",
     },
     {
+      url: "/arts/frontier/climate-risk-cultural-heritage",
+      title: "气候风险下的文化遗产：保护什么、何时撤退、谁来决定",
+    },
+    {
       url: "/economics/frontier/climate-economics-carbon-pricing",
       title: "气候经济学：碳定价、折现率之争与综合评估模型",
     },
@@ -12558,6 +12918,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/processes/earthquakes": [
     {
+      url: "/earth-science/event-analyses/pinatubo-eruption-observation-1991",
+      title: "1991 年皮纳图博喷发事件剖析",
+    },
+    {
+      url: "/earth-science/event-analyses/eyjafjallajokull-ash-crisis-2010",
+      title: "2010 年艾雅法拉火山灰危机剖析",
+    },
+    {
+      url: "/earth-science/event-analyses/pakistan-flood-attribution-2022",
+      title: "2022 年巴基斯坦洪水归因剖析",
+    },
+    {
+      url: "/earth-science/event-analyses/hunga-tonga-eruption-observation-2022",
+      title: "2022 年洪阿汤加喷发事件剖析",
+    },
+    {
+      url: "/earth-science/event-analyses/turkey-syria-earthquake-forensics-2023",
+      title: "2023 年土耳其—叙利亚地震事件剖析",
+    },
+    {
       url: "/earth-science/processes/plate-tectonics",
       title: "板块构造",
     },
@@ -12612,6 +12992,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/processes/erosion-deposition",
       title: "侵蚀与沉积",
+    },
+    {
+      url: "/mathematics/knowledge-base/应用--复杂性科学入门",
+      title: "什么是复杂系统？",
     },
     {
       url: "/mathematics/concepts/linear-transformation",
@@ -12688,6 +13072,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/远古时期--亚洲--黄河文明萌芽",
       title: "黄河文明萌芽",
+    },
+    {
+      url: "/mathematics/knowledge-base/应用--混沌与分形",
+      title: "混沌与分形",
     },
     {
       url: "/earth-science/processes/mass-wasting",
@@ -13130,6 +13518,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/processes/volcanism": [
     {
+      url: "/earth-science/event-analyses/pinatubo-eruption-observation-1991",
+      title: "1991 年皮纳图博喷发事件剖析",
+    },
+    {
+      url: "/earth-science/event-analyses/eyjafjallajokull-ash-crisis-2010",
+      title: "2010 年艾雅法拉火山灰危机剖析",
+    },
+    {
+      url: "/earth-science/event-analyses/pakistan-flood-attribution-2022",
+      title: "2022 年巴基斯坦洪水归因剖析",
+    },
+    {
+      url: "/earth-science/event-analyses/hunga-tonga-eruption-observation-2022",
+      title: "2022 年洪阿汤加喷发事件剖析",
+    },
+    {
+      url: "/earth-science/event-analyses/turkey-syria-earthquake-forensics-2023",
+      title: "2023 年土耳其—叙利亚地震事件剖析",
+    },
+    {
       url: "/earth-science/processes/plate-tectonics",
       title: "板块构造",
     },
@@ -13363,6 +13771,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/earth-science/events/dust-bowl-1930s",
       title: "美国黑风暴（1930 年代）",
     },
+    {
+      url: "/arts/media/photography-history",
+      title: "摄影史：从达盖尔银版到艺术殿堂",
+    },
   ],
   "/economics/case-studies/hyperinflation-cases": [
     {
@@ -13418,6 +13830,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/economics/concepts/auction-theory": [
     {
+      url: "/mathematics/knowledge-base/应用--博弈论日常应用",
+      title: "博弈论如何解释日常行为",
+    },
+    {
       url: "/computer-science/pioneers/larry-page-and-sergey-brin",
       title: "拉里·佩奇与谢尔盖·布林",
     },
@@ -13468,8 +13884,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "分形",
     },
     {
+      url: "/mathematics/knowledge-base/应用--混沌与分形",
+      title: "混沌与分形",
+    },
+    {
       url: "/psychology/phenomena/availability-heuristic",
       title: "可得性启发",
+    },
+    {
+      url: "/economics/dialogues/minsky-fama-financial-stability",
+      title: "明斯基与法玛对话：价格有效，金融为何仍会崩溃",
     },
     {
       url: "/economics/theories/prospect-theory-econ",
@@ -13495,6 +13919,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/economics/concepts/coase-theorem": [
+    {
+      url: "/economics/dialogues/pigou-coase-externalities",
+      title: "庇古vs科斯：污染应该由谁付钱",
+    },
     {
       url: "/medicine/ethics/henrietta-lacks-hela",
       title: "海拉细胞与亨丽埃塔·拉克斯",
@@ -13540,6 +13968,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "洛克",
     },
     {
+      url: "/law/private-law/bankruptcy-and-insolvency",
+      title: "破产与重整：债务的秩序化清理",
+    },
+    {
       url: "/law/private-law/tort-and-liability",
       title: "侵权与责任：谁为损害买单",
     },
@@ -13572,6 +14004,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/pioneers/bjarne-stroustrup",
       title: "比雅尼·斯特劳斯特鲁普",
+    },
+    {
+      url: "/economics/dialogues/pigou-coase-externalities",
+      title: "庇古vs科斯：污染应该由谁付钱",
     },
     {
       url: "/computer-science/concepts/operating-systems",
@@ -14012,6 +14448,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/economics/concepts/environmental-economics": [
     {
+      url: "/engineering/frontier/low-carbon-cement-circularity",
+      title: "低碳水泥与循环混凝土：怎样减掉石灰石必然释放的碳",
+    },
+    {
       url: "/chemistry/reactions/diels-alder-reaction",
       title: "狄尔斯-阿尔德反应",
     },
@@ -14132,8 +14572,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "「稀释是解决污染的办法」：高烟囱政策如何制造了酸雨",
     },
     {
+      url: "/economics/policy-analyses/alaska-permanent-fund-dividend",
+      title: "阿拉斯加永久基金分红剖析",
+    },
+    {
       url: "/economics/economists/paul-romer",
       title: "保罗·罗默",
+    },
+    {
+      url: "/economics/dialogues/pigou-coase-externalities",
+      title: "庇古vs科斯：污染应该由谁付钱",
     },
     {
       url: "/engineering/energy/energy-storage",
@@ -14142,6 +14590,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/pioneers/dennis-ritchie",
       title: "丹尼斯·里奇",
+    },
+    {
+      url: "/economics/policy-analyses/germany-hartz-labor-reforms",
+      title: "德国 Hartz 劳动力改革剖析",
     },
     {
       url: "/computer-science/pioneers/tim-berners-lee",
@@ -14154,6 +14606,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/firewalls-and-network-security",
       title: "防火墙与网络安全",
+    },
+    {
+      url: "/engineering/frontier/perovskite-silicon-tandem-scale-up",
+      title: "钙钛矿—硅叠层光伏：效率纪录怎样穿过二十五年质保",
     },
     {
       url: "/political-science/international-relations/international-order-hegemony",
@@ -14180,8 +14636,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "流域水文",
     },
     {
+      url: "/economics/policy-analyses/london-congestion-charge",
+      title: "伦敦拥堵收费剖析",
+    },
+    {
       url: "/law/public-law/lochner-era-freedom-of-contract",
       title: "洛克纳时代：被宪法读进去的「契约自由」",
+    },
+    {
+      url: "/economics/policy-analyses/mexico-progresa-cash-transfer",
+      title: "墨西哥 PROGRESA 政策剖析",
+    },
+    {
+      url: "/arts/frontier/climate-risk-cultural-heritage",
+      title: "气候风险下的文化遗产：保护什么、何时撤退、谁来决定",
+    },
+    {
+      url: "/law/frontier/climate-litigation-attribution-remedies",
+      title: "气候诉讼的下一步：从证明变暖到分配国家与企业责任",
     },
     {
       url: "/chemistry/reactions/combustion",
@@ -14204,6 +14676,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: '碳捕集与地球工程：能不能把气候"修"回去',
     },
     {
+      url: "/economics/debates/carbon-tax-vs-cap-and-trade",
+      title: "碳税还是总量交易：给污染定价的两条路",
+    },
+    {
       url: "/chemistry/substances/carbohydrates-and-lipids",
       title: "糖类与脂质",
     },
@@ -14216,8 +14692,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "天花",
     },
     {
+      url: "/law/frontier/foundation-model-regulation",
+      title: "通用人工智能模型监管：管一个模型，还是管一条价值链",
+    },
+    {
       url: "/earth-science/concepts/soil-science-and-pedology",
       title: "土壤学与土壤发生学",
+    },
+    {
+      url: "/economics/policy-analyses/volcker-disinflation-policy",
+      title: "沃尔克反通胀政策剖析",
     },
     {
       url: "/medicine/public-health/vaccine-policy-programs-hesitancy",
@@ -14958,6 +15442,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "蒙古帝国",
     },
     {
+      url: "/law/criminal-and-procedure/civil-procedure-and-remedies",
+      title: "民事程序与救济：权利如何变成结果",
+    },
+    {
       url: "/psychology/phenomena/bystander-effect",
       title: "旁观者效应",
     },
@@ -15090,6 +15578,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "法家",
     },
     {
+      url: "/mathematics/knowledge-base/数论--费马大定理",
+      title: "费马大定理",
+    },
+    {
       url: "/computer-science/concepts/consensus-algorithms",
       title: "分布式共识算法",
     },
@@ -15171,6 +15663,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/economics/concepts/modern-money-fiscal-deficits": [
+    {
+      url: "/economics/debates/basic-income-vs-job-guarantee",
+      title: "基本收入还是就业保障：社会应当保证钱还是工作",
+    },
     {
       url: "/economics/case-studies/us-fiscal-path-treasury-market-2026",
       title: "美国财政路径与国债市场（2026）",
@@ -15354,6 +15850,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "临床试验伦理",
     },
     {
+      url: "/law/criminal-and-procedure/civil-procedure-and-remedies",
+      title: "民事程序与救济：权利如何变成结果",
+    },
+    {
+      url: "/law/private-law/bankruptcy-and-insolvency",
+      title: "破产与重整：债务的秩序化清理",
+    },
+    {
       url: "/economics/economists/jean-tirole",
       title: "让·梯若尔",
     },
@@ -15492,6 +15996,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/concepts/platform-economics",
       title: "平台经济学",
+    },
+    {
+      url: "/mathematics/knowledge-base/应用--复杂性科学入门",
+      title: "什么是复杂系统？",
     },
     {
       url: "/human-history/knowledge/科技史--信息时代",
@@ -15814,6 +16322,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "基本归因错误",
     },
     {
+      url: "/economics/debates/basic-income-vs-job-guarantee",
+      title: "基本收入还是就业保障：社会应当保证钱还是工作",
+    },
+    {
       url: "/economics/concepts/gini-coefficient",
       title: "基尼系数",
     },
@@ -15861,6 +16373,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/political-science/concepts/political-violence",
       title: "政治暴力",
     },
+    {
+      url: "/economics/debates/rent-control-affordability-supply",
+      title: "租金管制之争：可负担性、居住稳定与住房供给",
+    },
   ],
   "/economics/concepts/price-discrimination": [
     {
@@ -15906,6 +16422,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "增长诊断",
     },
     {
+      url: "/economics/debates/rent-control-affordability-supply",
+      title: "租金管制之争：可负担性、居住稳定与住房供给",
+    },
+    {
       url: "/economics/concepts/market-makers",
       title: "做市商",
     },
@@ -15946,6 +16466,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/schools/monetarist-school",
       title: "货币主义学派",
+    },
+    {
+      url: "/economics/debates/basic-income-vs-job-guarantee",
+      title: "基本收入还是就业保障：社会应当保证钱还是工作",
     },
     {
       url: "/law/public-law/separation-of-powers",
@@ -16022,6 +16546,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/paradoxes/banach-tarski",
       title: "巴拿赫-塔斯基悖论",
+    },
+    {
+      url: "/mathematics/knowledge-base/统计--贝叶斯统计入门",
+      title: "贝叶斯统计入门",
     },
     {
       url: "/computer-science/algorithms/bloom-filter",
@@ -16104,6 +16632,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "罗尔斯",
     },
     {
+      url: "/economics/dialogues/minsky-fama-financial-stability",
+      title: "明斯基与法玛对话：价格有效，金融为何仍会崩溃",
+    },
+    {
       url: "/economics/knowledge-base/options-derivatives-black-scholes",
       title: "期权与Black-Scholes方程：为不确定性定价",
     },
@@ -16120,12 +16652,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "软件工程",
     },
     {
+      url: "/mathematics/paradoxes/st-petersburg-paradox",
+      title: "圣彼得堡悖论",
+    },
+    {
       url: "/political-science/concepts/taxes-and-public-budget",
       title: "税收与公共预算：共同的钱怎样变成共同选择",
     },
     {
       url: "/cosmology/knowledge-base/太阳系--solar-structure-activity",
       title: "太阳的结构与活动",
+    },
+    {
+      url: "/economics/debates/carbon-tax-vs-cap-and-trade",
+      title: "碳税还是总量交易：给污染定价的两条路",
     },
     {
       url: "/earth-science/processes/weather-systems",
@@ -16202,6 +16742,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/economics/concepts/search-matching-theory": [
     {
+      url: "/mathematics/knowledge-base/应用--博弈论日常应用",
+      title: "博弈论如何解释日常行为",
+    },
+    {
       url: "/philosophy/experiments/buridans-donkey",
       title: "布里丹之驴",
     },
@@ -16276,6 +16820,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/galois-theory",
       title: "伽罗瓦理论",
+    },
+    {
+      url: "/mathematics/knowledge-base/应用--决策科学导论",
+      title: "决策科学导论",
     },
     {
       url: "/philosophy/thinkers/rousseau",
@@ -16460,6 +17008,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "TCP 与可靠传输",
     },
   ],
+  "/economics/debates/basic-income-vs-job-guarantee": [
+    {
+      url: "/economics/dialogues/pigou-coase-externalities",
+      title: "庇古vs科斯：污染应该由谁付钱",
+    },
+    {
+      url: "/political-science/methods/regression-discontinuity-design",
+      title: "回归不连续设计：门槛两边为什么可以比较",
+    },
+  ],
+  "/economics/debates/carbon-tax-vs-cap-and-trade": [
+    {
+      url: "/economics/dialogues/pigou-coase-externalities",
+      title: "庇古vs科斯：污染应该由谁付钱",
+    },
+    {
+      url: "/economics/dialogues/hardin-ostrom-commons",
+      title: "哈丁vs奥斯特罗姆：公地一定会毁灭吗",
+    },
+  ],
   "/economics/debates/cryptocurrency-debate": [
     {
       url: "/mathematics/concepts/number-theory",
@@ -16546,6 +17114,34 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/institutions/central-bank-independence",
       title: "央行独立性",
+    },
+  ],
+  "/economics/debates/rent-control-affordability-supply": [
+    {
+      url: "/political-science/methods/synthetic-control-method",
+      title: "合成控制法：为一次政策寻找可信的未发生世界",
+    },
+    {
+      url: "/economics/dialogues/minsky-fama-financial-stability",
+      title: "明斯基与法玛对话：价格有效，金融为何仍会崩溃",
+    },
+  ],
+  "/economics/dialogues/hardin-ostrom-commons": [
+    {
+      url: "/economics/debates/carbon-tax-vs-cap-and-trade",
+      title: "碳税还是总量交易：给污染定价的两条路",
+    },
+  ],
+  "/economics/dialogues/minsky-fama-financial-stability": [
+    {
+      url: "/economics/debates/rent-control-affordability-supply",
+      title: "租金管制之争：可负担性、居住稳定与住房供给",
+    },
+  ],
+  "/economics/dialogues/pigou-coase-externalities": [
+    {
+      url: "/economics/debates/basic-income-vs-job-guarantee",
+      title: "基本收入还是就业保障：社会应当保证钱还是工作",
     },
   ],
   "/economics/dialogues/smith-marx-capitalism": [
@@ -16902,6 +17498,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "工作、劳动与组织生活",
     },
     {
+      url: "/economics/debates/basic-income-vs-job-guarantee",
+      title: "基本收入还是就业保障：社会应当保证钱还是工作",
+    },
+    {
       url: "/sociology/institutions/education-and-credentialism",
       title: "教育与文凭社会",
     },
@@ -16932,6 +17532,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "复制危机之后：开放科学如何重塑心理学",
     },
     {
+      url: "/political-science/methods/synthetic-control-method",
+      title: "合成控制法：为一次政策寻找可信的未发生世界",
+    },
+    {
+      url: "/political-science/methods/regression-discontinuity-design",
+      title: "回归不连续设计：门槛两边为什么可以比较",
+    },
+    {
       url: "/computer-science/concepts/machine-learning-overview",
       title: "机器学习概览",
     },
@@ -16958,6 +17566,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/sociology/methods/experiments-and-quasi-experiments",
       title: "实验与准实验",
+    },
+    {
+      url: "/political-science/methods/difference-in-differences",
+      title: "双重差分：没有随机实验时怎样评估政策",
     },
     {
       url: "/psychology/knowledge-base/sleep-and-mind",
@@ -16990,6 +17602,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/methods/causal-inference-experiments-observational-studies",
       title: "因果推断：从实验到观察研究",
+    },
+    {
+      url: "/mathematics/knowledge-base/统计--因果推断入门",
+      title: "因果推断入门",
     },
     {
       url: "/psychology/methods/preregistration-registered-reports",
@@ -17110,8 +17726,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "气候正义与代际伦理：对还不存在的人负有义务吗",
     },
     {
+      url: "/engineering/frontier/hydrogen-direct-reduced-iron",
+      title: "氢基直接还原铁：绿色钢铁卡在反应炉外的系统工程",
+    },
+    {
       url: "/life-science/knowledge-base/生态学--热带雨林",
       title: "热带雨林：地球生物多样性的宝库",
+    },
+    {
+      url: "/mathematics/paradoxes/st-petersburg-paradox",
+      title: "圣彼得堡悖论",
     },
     {
       url: "/universe-physics/frontier/fusion-ignition-era",
@@ -17190,6 +17814,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "内稳态",
     },
   ],
+  "/economics/knowledge-base/efficient-market-hypothesis": [
+    {
+      url: "/economics/dialogues/minsky-fama-financial-stability",
+      title: "明斯基与法玛对话：价格有效，金融为何仍会崩溃",
+    },
+  ],
   "/economics/knowledge-base/financial-crises-anatomy": [
     {
       url: "/mathematics/concepts/dynamical-systems",
@@ -17204,14 +17834,30 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "公司与市场组织：有限责任的发明及其代价",
     },
     {
+      url: "/economics/dialogues/minsky-fama-financial-stability",
+      title: "明斯基与法玛对话：价格有效，金融为何仍会崩溃",
+    },
+    {
+      url: "/law/private-law/bankruptcy-and-insolvency",
+      title: "破产与重整：债务的秩序化清理",
+    },
+    {
       url: "/political-science/isms/neoliberalism",
       title: "新自由主义",
     },
   ],
   "/economics/knowledge-base/inequality-economics": [
     {
+      url: "/economics/policy-analyses/alaska-permanent-fund-dividend",
+      title: "阿拉斯加永久基金分红剖析",
+    },
+    {
       url: "/human-history/knowledge/当代--概述",
       title: "当代",
+    },
+    {
+      url: "/economics/policy-analyses/germany-hartz-labor-reforms",
+      title: "德国 Hartz 劳动力改革剖析",
     },
     {
       url: "/economics/concepts/gini-coefficient",
@@ -17242,8 +17888,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "令人厌恶的结论",
     },
     {
+      url: "/economics/policy-analyses/london-congestion-charge",
+      title: "伦敦拥堵收费剖析",
+    },
+    {
       url: "/sociology/thinkers/robert-merton",
       title: "罗伯特·K. 默顿",
+    },
+    {
+      url: "/economics/policy-analyses/mexico-progresa-cash-transfer",
+      title: "墨西哥 PROGRESA 政策剖析",
     },
     {
       url: "/sociology/institutions/migration-and-diaspora",
@@ -17254,12 +17908,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "社会分层与流动",
     },
     {
+      url: "/law/frontier/algorithmic-discrimination-audits",
+      title: "算法歧视审计：公平指标能不能变成可举证的法律事实",
+    },
+    {
       url: "/political-science/thinkers/thomas-paine",
       title: "托马斯·潘恩",
     },
     {
       url: "/philosophy/questions/should-we-have-children",
       title: "我们应当生育吗？",
+    },
+    {
+      url: "/economics/policy-analyses/volcker-disinflation-policy",
+      title: "沃尔克反通胀政策剖析",
     },
     {
       url: "/philosophy/experiments/utility-monster",
@@ -17372,10 +18034,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "伊壁鸠鲁",
     },
     {
-      url: "/philosophy/isms/epicureanism",
-      title: "伊壁鸠鲁主义",
-    },
-    {
       url: "/philosophy/schools/epicureanism",
       title: "伊壁鸠鲁主义",
     },
@@ -17465,6 +18123,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/economics/knowledge-base/time-discounting": [
+    {
+      url: "/mathematics/knowledge-base/统计--贝叶斯统计入门",
+      title: "贝叶斯统计入门",
+    },
     {
       url: "/earth-science/pioneers/charles-keeling",
       title: "查尔斯·基林",
@@ -17692,6 +18354,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "权利与义务：霍菲尔德的解剖刀",
     },
     {
+      url: "/mathematics/knowledge-base/数学基础--数学与现实",
+      title: "数学与现实",
+    },
+    {
       url: "/psychology/schools/behaviorism",
       title: "行为主义",
     },
@@ -17904,6 +18570,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "国际关系：现实主义",
     },
     {
+      url: "/economics/dialogues/hardin-ostrom-commons",
+      title: "哈丁vs奥斯特罗姆：公地一定会毁灭吗",
+    },
+    {
       url: "/computer-science/pioneers/guido-van-rossum",
       title: "吉多·范罗苏姆",
     },
@@ -17974,6 +18644,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/bayesian-inference",
       title: "贝叶斯推断",
+    },
+    {
+      url: "/arts/methods/curatorial-practice",
+      title: "策展作为论证：展览如何生产艺术史",
     },
     {
       url: "/engineering/frontiers/megaprojects",
@@ -18114,6 +18788,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/economics/theories/institutional-economics": [
     {
+      url: "/economics/policy-analyses/alaska-permanent-fund-dividend",
+      title: "阿拉斯加永久基金分红剖析",
+    },
+    {
       url: "/economics/economists/elinor-ostrom",
       title: "埃莉诺·奥斯特罗姆",
     },
@@ -18136,6 +18814,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/concepts/creative-destruction",
       title: "创造性破坏",
+    },
+    {
+      url: "/economics/policy-analyses/germany-hartz-labor-reforms",
+      title: "德国 Hartz 劳动力改革剖析",
     },
     {
       url: "/philosophy/concepts/dharma",
@@ -18190,6 +18872,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "国家",
     },
     {
+      url: "/economics/dialogues/hardin-ostrom-commons",
+      title: "哈丁vs奥斯特罗姆：公地一定会毁灭吗",
+    },
+    {
       url: "/chemistry/milestones/synthetic-dyes-industry",
       title: "合成染料工业（1856）",
     },
@@ -18226,6 +18912,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "礼",
     },
     {
+      url: "/economics/policy-analyses/london-congestion-charge",
+      title: "伦敦拥堵收费剖析",
+    },
+    {
       url: "/political-science/thinkers/max-weber",
       title: "马克斯·韦伯",
     },
@@ -18236,6 +18926,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/frontier/democratic-backsliding",
       title: "民主衰退：指标、争论与路径",
+    },
+    {
+      url: "/economics/policy-analyses/mexico-progresa-cash-transfer",
+      title: "墨西哥 PROGRESA 政策剖析",
     },
     {
       url: "/human-history/knowledge/古典时期--亚洲--秦汉帝国",
@@ -18260,6 +18954,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/networking-protocols",
       title: "网络协议栈 TCP/IP",
+    },
+    {
+      url: "/economics/policy-analyses/volcker-disinflation-policy",
+      title: "沃尔克反通胀政策剖析",
     },
     {
       url: "/law/private-law/property-and-ownership",
@@ -18296,6 +18994,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/文明--中亚",
       title: "中亚",
+    },
+    {
+      url: "/law/judgment-analyses/loper-bright-chevron-deference-overruled",
+      title: "Loper Bright v. Raimondo 判决剖析",
     },
   ],
   "/economics/theories/keynesian-economics": [
@@ -18412,6 +19114,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "风险感知、心理健康与宏观决策",
     },
     {
+      url: "/mathematics/knowledge-base/应用--概率与决策",
+      title: "概率与决策",
+    },
+    {
       url: "/law/private-law/contract-lifecycle",
       title: "合同的生命周期：从要约到救济",
     },
@@ -18434,6 +19140,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/experiments/pascals-wager",
       title: "帕斯卡赌注",
+    },
+    {
+      url: "/mathematics/paradoxes/st-petersburg-paradox",
+      title: "圣彼得堡悖论",
     },
     {
       url: "/economics/concepts/loss-aversion-anchoring",
@@ -18492,6 +19202,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/traditions/traditional-chinese-medicine",
       title: "中医",
+    },
+    {
+      url: "/economics/debates/rent-control-affordability-supply",
+      title: "租金管制之争：可负担性、居住稳定与住房供给",
     },
   ],
   "/economics/theories/trade-theory": [
@@ -18607,17 +19321,45 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/engineering/frontiers/dilution-is-the-solution",
       title: "「稀释是解决污染的办法」：高烟囱政策如何制造了酸雨",
     },
+    {
+      url: "/engineering/frontier/infrastructure-digital-twins",
+      title: "基础设施数字孪生：什么时候模型才配替真实桥梁作决定",
+    },
+    {
+      url: "/arts/frontier/climate-risk-cultural-heritage",
+      title: "气候风险下的文化遗产：保护什么、何时撤退、谁来决定",
+    },
   ],
   "/engineering/civil/water-systems": [
     {
+      url: "/human-history/knowledge/思想史--水利社会论",
+      title: "水利社会论",
+    },
+    {
       url: "/medicine/events/miasma-theory",
       title: "瘴气说：一个错误的理论如何救了很多人",
+    },
+  ],
+  "/engineering/energy/energy-storage": [
+    {
+      url: "/engineering/frontier/solid-state-battery-manufacturing",
+      title: "全固态电池制造：去掉可燃电解液之后，失效为何没有消失",
+    },
+  ],
+  "/engineering/energy/nuclear-power": [
+    {
+      url: "/engineering/machines/reliability-engineering",
+      title: "可靠性工程：把“不出事”变成可计算的指标",
     },
   ],
   "/engineering/energy/power-grid": [
     {
       url: "/computer-science/theory/physical-limits-of-computation",
       title: "计算的物理极限",
+    },
+    {
+      url: "/engineering/frontier/hydrogen-direct-reduced-iron",
+      title: "氢基直接还原铁：绿色钢铁卡在反应炉外的系统工程",
     },
     {
       url: "/computer-science/systems/curl-and-maintainer-burden",
@@ -18640,6 +19382,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "V8 的分层 JIT：动态语言如何跑得快",
     },
   ],
+  "/engineering/energy/solar-and-wind": [
+    {
+      url: "/engineering/frontier/perovskite-silicon-tandem-scale-up",
+      title: "钙钛矿—硅叠层光伏：效率纪录怎样穿过二十五年质保",
+    },
+  ],
   "/engineering/energy/thermal-power": [
     {
       url: "/engineering/frontiers/dilution-is-the-solution",
@@ -18648,8 +19396,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/engineering/foundations/control-and-feedback": [
     {
+      url: "/engineering/frontier/embodied-ai-robot-reliability",
+      title: "具身人工智能的可靠性：机器人会说会看，为何仍不会收拾陌生厨房",
+    },
+    {
       url: "/engineering/frontiers/tacoma-narrows-and-the-textbook-error",
       title: "塔科马海峡大桥：一个错了半个世纪的教科书解释",
+    },
+  ],
+  "/engineering/foundations/materials-strength": [
+    {
+      url: "/engineering/frontier/solid-state-battery-manufacturing",
+      title: "全固态电池制造：去掉可燃电解液之后，失效为何没有消失",
+    },
+    {
+      url: "/engineering/frontiers/challenger-o-ring-organizational-failure",
+      title: "挑战者号事故：密封失效如何穿过组织防线",
     },
   ],
   "/engineering/foundations/measurement-and-tolerance": [
@@ -18674,6 +19436,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/frontier/digital-personhood-and-mind-uploading",
       title: "数字人格与心灵上传：复制品是我吗",
+    },
+  ],
+  "/engineering/frontiers/challenger-o-ring-organizational-failure": [
+    {
+      url: "/engineering/machines/human-factors-engineering",
+      title: "人因工程：为会犯错的人设计",
+    },
+    {
+      url: "/engineering/machines/systems-engineering",
+      title: "系统工程：需求、约束、验证与变更",
     },
   ],
   "/engineering/frontiers/dilution-is-the-solution": [
@@ -18701,6 +19473,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/philosophy/concepts/moral-luck",
       title: "道德运气",
     },
+    {
+      url: "/engineering/frontiers/challenger-o-ring-organizational-failure",
+      title: "挑战者号事故：密封失效如何穿过组织防线",
+    },
   ],
   "/engineering/frontiers/failure-analysis": [
     {
@@ -18708,8 +19484,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "对象存储：S3 如何改变了存储的形状",
     },
     {
+      url: "/engineering/machines/reliability-engineering",
+      title: "可靠性工程：把“不出事”变成可计算的指标",
+    },
+    {
+      url: "/engineering/machines/human-factors-engineering",
+      title: "人因工程：为会犯错的人设计",
+    },
+    {
       url: "/engineering/frontiers/tacoma-narrows-and-the-textbook-error",
       title: "塔科马海峡大桥：一个错了半个世纪的教科书解释",
+    },
+    {
+      url: "/engineering/frontiers/challenger-o-ring-organizational-failure",
+      title: "挑战者号事故：密封失效如何穿过组织防线",
+    },
+    {
+      url: "/engineering/machines/systems-engineering",
+      title: "系统工程：需求、约束、验证与变更",
     },
     {
       url: "/computer-science/systems/kubernetes-controller-pattern",
@@ -18744,10 +19536,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "ZFS：不覆盖写，与端到端校验",
     },
   ],
+  "/engineering/frontiers/megaprojects": [
+    {
+      url: "/engineering/machines/systems-engineering",
+      title: "系统工程：需求、约束、验证与变更",
+    },
+  ],
   "/engineering/frontiers/safety-engineering": [
     {
       url: "/engineering/frontiers/tacoma-narrows-and-the-textbook-error",
       title: "塔科马海峡大桥：一个错了半个世纪的教科书解释",
+    },
+    {
+      url: "/engineering/frontiers/challenger-o-ring-organizational-failure",
+      title: "挑战者号事故：密封失效如何穿过组织防线",
     },
     {
       url: "/computer-science/systems/envoy-service-mesh",
@@ -18784,10 +19586,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "黑暗时代：一个被史学界废弃的分期",
     },
   ],
+  "/engineering/machines/automation-and-industry": [
+    {
+      url: "/engineering/machines/human-factors-engineering",
+      title: "人因工程：为会犯错的人设计",
+    },
+  ],
+  "/engineering/machines/human-factors-engineering": [
+    {
+      url: "/engineering/machines/reliability-engineering",
+      title: "可靠性工程：把“不出事”变成可计算的指标",
+    },
+  ],
   "/engineering/machines/industrial-engineering-and-quality": [
     {
       url: "/computer-science/systems/build-systems-bazel",
       title: "构建系统：从 Make 到可复现构建",
+    },
+    {
+      url: "/engineering/machines/systems-engineering",
+      title: "系统工程：需求、约束、验证与变更",
     },
     {
       url: "/computer-science/systems/kafka-log-abstraction",
@@ -18816,6 +19634,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/systems/zfs-copy-on-write",
       title: "ZFS：不覆盖写，与端到端校验",
+    },
+  ],
+  "/engineering/machines/robotics-systems": [
+    {
+      url: "/engineering/frontier/embodied-ai-robot-reliability",
+      title: "具身人工智能的可靠性：机器人会说会看，为何仍不会收拾陌生厨房",
+    },
+  ],
+  "/engineering/machines/space-engineering": [
+    {
+      url: "/engineering/machines/systems-engineering",
+      title: "系统工程：需求、约束、验证与变更",
+    },
+  ],
+  "/engineering/machines/systems-engineering": [
+    {
+      url: "/engineering/machines/reliability-engineering",
+      title: "可靠性工程：把“不出事”变成可计算的指标",
+    },
+    {
+      url: "/engineering/machines/human-factors-engineering",
+      title: "人因工程：为会犯错的人设计",
     },
   ],
   "/engineering/machines/telecommunications-networks": [
@@ -18850,6 +19690,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "设计与日常物：为什么有的门会被推错",
     },
   ],
+  "/engineering/materials/concrete-engineering": [
+    {
+      url: "/engineering/frontier/low-carbon-cement-circularity",
+      title: "低碳水泥与循环混凝土：怎样减掉石灰石必然释放的碳",
+    },
+  ],
   "/engineering/materials/food-and-agricultural-engineering": [
     {
       url: "/philosophy/questions/what-do-we-owe-animals",
@@ -18858,12 +19704,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/engineering/materials/semiconductor-manufacturing": [
     {
+      url: "/engineering/frontier/perovskite-silicon-tandem-scale-up",
+      title: "钙钛矿—硅叠层光伏：效率纪录怎样穿过二十五年质保",
+    },
+    {
       url: "/computer-science/theory/physical-limits-of-computation",
       title: "计算的物理极限",
     },
     {
       url: "/computer-science/systems/llvm-ir",
       title: "LLVM 的中间表示：编译器生态的枢纽",
+    },
+  ],
+  "/engineering/materials/steel-and-alloys": [
+    {
+      url: "/engineering/frontier/hydrogen-direct-reduced-iron",
+      title: "氢基直接还原铁：绿色钢铁卡在反应炉外的系统工程",
     },
   ],
   "/engineering/materials/supply-chains": [
@@ -18916,6 +19772,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/figures/frederick-sanger",
       title: "弗雷德里克·桑格",
+    },
+    {
+      url: "/linguistics/frontier/ancient-dna-language-prehistory",
+      title: "古 DNA 与语言史前史：基因能追踪迁徙，却不能直接读出语言",
     },
     {
       url: "/chemistry/substances/nucleic-acids-chemistry",
@@ -19034,6 +19894,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/human-history/frontier/historiography-methods-debate": [
     {
+      url: "/human-history/source-analyses/domesday-book-source-analysis",
+      title: "《末日审判书》史料剖析",
+    },
+    {
       url: "/psychology/theorists/erik-erikson",
       title: "埃里克·埃里克森",
     },
@@ -19070,6 +19934,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "大陆法与普通法：两种法律心智",
     },
     {
+      url: "/human-history/source-analyses/dunhuang-manuscripts-source-analysis",
+      title: "敦煌藏经洞文书史料剖析",
+    },
+    {
       url: "/psychology/theorists/philip-zimbardo",
       title: "菲利普·津巴多",
     },
@@ -19086,6 +19954,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "弗洛伊德之争",
     },
     {
+      url: "/linguistics/frontier/ancient-dna-language-prehistory",
+      title: "古 DNA 与语言史前史：基因能追踪迁徙，却不能直接读出语言",
+    },
+    {
       url: "/political-science/international-relations/realism-ir",
       title: "国际关系：现实主义",
     },
@@ -19098,6 +19970,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "核裂变",
     },
     {
+      url: "/human-history/source-analyses/oracle-bones-source-analysis",
+      title: "甲骨文史料剖析",
+    },
+    {
       url: "/philosophy/concepts/decolonial-epistemology",
       title: "解殖民知识论",
     },
@@ -19108,6 +19984,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/pioneers/linus-torvalds",
       title: "林纳斯·托瓦兹",
+    },
+    {
+      url: "/human-history/source-analyses/rosetta-stone-source-analysis",
+      title: "罗塞塔石碑史料剖析",
     },
     {
       url: "/psychology/experiments/loftus-car-crash-1974",
@@ -19142,6 +20022,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "史蒂文·平克",
     },
     {
+      url: "/arts/frontier/digital-reconstruction-evidence",
+      title: "数字重建的证据边界：三维古城里哪些是真的",
+    },
+    {
       url: "/psychology/theorists/stanley-milgram",
       title: "斯坦利·米尔格拉姆",
     },
@@ -19164,6 +20048,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/sociology/thinkers/c-wright-mills",
       title: "C. 赖特·米尔斯",
+    },
+    {
+      url: "/human-history/source-analyses/wpa-slave-narratives-source-analysis",
+      title: "WPA 前奴隶口述史料剖析",
     },
   ],
   "/human-history/frontier/lidar-remote-sensing-civilizations": [
@@ -19226,6 +20114,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/中世纪--非洲--马里帝国",
       title: "马里帝国",
+    },
+    {
+      url: "/mathematics/knowledge-base/代数--群论与对称",
+      title: "群论与对称",
     },
     {
       url: "/human-history/knowledge/人物--亚里士多德",
@@ -19436,6 +20328,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/事件--法国大革命",
       title: "法国大革命",
+    },
+    {
+      url: "/mathematics/knowledge-base/几何--非欧几何革命",
+      title: "非欧几何革命",
     },
     {
       url: "/human-history/knowledge/人物--伏尔泰",
@@ -20161,6 +21057,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/human-history/knowledge/事件--启蒙运动",
       title: "启蒙运动",
     },
+    {
+      url: "/mathematics/knowledge-base/分析--微积分的故事",
+      title: "微积分的故事",
+    },
   ],
   "/human-history/knowledge/思想史--女性主义": [
     {
@@ -20580,6 +21480,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/人物--乔布斯",
       title: "乔布斯",
+    },
+    {
+      url: "/mathematics/knowledge-base/数论--素数之谜",
+      title: "素数之谜",
     },
   ],
   "/human-history/knowledge/科技史--印刷术": [
@@ -21004,18 +21908,46 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/law/criminal-and-procedure/dispute-resolution": [
     {
+      url: "/law/criminal-and-procedure/civil-procedure-and-remedies",
+      title: "民事程序与救济：权利如何变成结果",
+    },
+    {
       url: "/computer-science/systems/etcd-raft",
       title: "etcd：把 Raft 变成能用的东西",
     },
   ],
   "/law/criminal-and-procedure/evidence-and-proof": [
     {
+      url: "/law/frontier/synthetic-media-evidence",
+      title: "合成媒体进入法庭：深伪时代怎样证明一段影像是真的",
+    },
+    {
+      url: "/political-science/methods/regression-discontinuity-design",
+      title: "回归不连续设计：门槛两边为什么可以比较",
+    },
+    {
+      url: "/arts/media/photography-history",
+      title: "摄影史：从达盖尔银版到艺术殿堂",
+    },
+    {
       url: "/arts/media/photography-medium",
       title: "摄影作为媒介",
     },
     {
+      url: "/political-science/methods/difference-in-differences",
+      title: "双重差分：没有随机实验时怎样评估政策",
+    },
+    {
       url: "/linguistics/methods-and-frontiers/forensic-linguistics",
       title: "司法语言学：把语言当作证据",
+    },
+    {
+      url: "/law/frontier/algorithmic-discrimination-audits",
+      title: "算法歧视审计：公平指标能不能变成可举证的法律事实",
+    },
+    {
+      url: "/medicine/ethics/informed-consent-and-shared-decision-making",
+      title: "知情同意与共同决策：签字为什么不等于选择",
     },
   ],
   "/law/criminal-and-procedure/procedural-justice": [
@@ -21028,14 +21960,78 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "道德运气",
     },
     {
+      url: "/engineering/frontier/embodied-ai-robot-reliability",
+      title: "具身人工智能的可靠性：机器人会说会看，为何仍不会收拾陌生厨房",
+    },
+    {
+      url: "/law/frontier/climate-litigation-attribution-remedies",
+      title: "气候诉讼的下一步：从证明变暖到分配国家与企业责任",
+    },
+    {
       url: "/law/criminal-and-procedure/evidence-and-proof",
       title: "证据与证明：法庭如何逼近真相",
+    },
+  ],
+  "/law/foundations/how-courts-decide": [
+    {
+      url: "/law/foundations/statutory-interpretation",
+      title: "法规解释：文本、意图与目的之争",
+    },
+    {
+      url: "/engineering/frontier/infrastructure-digital-twins",
+      title: "基础设施数字孪生：什么时候模型才配替真实桥梁作决定",
+    },
+    {
+      url: "/law/judgment-analyses/brown-v-board-equal-protection",
+      title: "Brown v. Board of Education 判决剖析",
+    },
+    {
+      url: "/law/judgment-analyses/donoghue-v-stevenson-duty-of-care",
+      title: "Donoghue v Stevenson 判决剖析",
+    },
+    {
+      url: "/law/judgment-analyses/handyside-v-uk-expression-margin",
+      title: "Handyside v. United Kingdom 判决剖析",
+    },
+    {
+      url: "/law/judgment-analyses/loper-bright-chevron-deference-overruled",
+      title: "Loper Bright v. Raimondo 判决剖析",
+    },
+    {
+      url: "/law/judgment-analyses/marbury-v-madison-judicial-review",
+      title: "Marbury v. Madison 判决剖析",
+    },
+    {
+      url: "/law/judgment-analyses/van-gend-en-loos-direct-effect",
+      title: "Van Gend en Loos 判决剖析",
     },
   ],
   "/law/foundations/legal-persons-acts-liability": [
     {
       url: "/law/private-law/company-and-market-law",
       title: "公司与市场组织：有限责任的发明及其代价",
+    },
+  ],
+  "/law/foundations/rights-and-duties": [
+    {
+      url: "/law/judgment-analyses/brown-v-board-equal-protection",
+      title: "Brown v. Board of Education 判决剖析",
+    },
+    {
+      url: "/law/judgment-analyses/donoghue-v-stevenson-duty-of-care",
+      title: "Donoghue v Stevenson 判决剖析",
+    },
+    {
+      url: "/law/judgment-analyses/handyside-v-uk-expression-margin",
+      title: "Handyside v. United Kingdom 判决剖析",
+    },
+    {
+      url: "/law/judgment-analyses/marbury-v-madison-judicial-review",
+      title: "Marbury v. Madison 判决剖析",
+    },
+    {
+      url: "/law/judgment-analyses/van-gend-en-loos-direct-effect",
+      title: "Van Gend en Loos 判决剖析",
     },
   ],
   "/law/foundations/rule-of-law": [
@@ -21232,8 +22228,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "API 设计",
     },
     {
+      url: "/law/judgment-analyses/brown-v-board-equal-protection",
+      title: "Brown v. Board of Education 判决剖析",
+    },
+    {
+      url: "/law/judgment-analyses/donoghue-v-stevenson-duty-of-care",
+      title: "Donoghue v Stevenson 判决剖析",
+    },
+    {
+      url: "/law/judgment-analyses/handyside-v-uk-expression-margin",
+      title: "Handyside v. United Kingdom 判决剖析",
+    },
+    {
       url: "/philosophy/thinkers/austin",
       title: "J.L. 奥斯汀",
+    },
+    {
+      url: "/law/judgment-analyses/marbury-v-madison-judicial-review",
+      title: "Marbury v. Madison 判决剖析",
+    },
+    {
+      url: "/law/judgment-analyses/van-gend-en-loos-direct-effect",
+      title: "Van Gend en Loos 判决剖析",
     },
   ],
   "/law/foundations/sources-of-law": [
@@ -21242,10 +22258,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "混合法系：当传统相遇",
     },
   ],
+  "/law/frontier/algorithmic-discrimination-audits": [
+    {
+      url: "/linguistics/frontier/sign-language-ai-bias",
+      title: "手语人工智能的系统偏差：识别手势，不等于理解语言",
+    },
+  ],
   "/law/global-and-digital/ai-and-algorithm-governance": [
     {
       url: "/arts/methods/generative-art-and-ai",
       title: "生成艺术与 AI：作者性的新边界",
+    },
+    {
+      url: "/law/frontier/foundation-model-regulation",
+      title: "通用人工智能模型监管：管一个模型，还是管一条价值链",
+    },
+  ],
+  "/law/global-and-digital/climate-litigation": [
+    {
+      url: "/law/frontier/climate-litigation-attribution-remedies",
+      title: "气候诉讼的下一步：从证明变暖到分配国家与企业责任",
     },
   ],
   "/law/global-and-digital/digital-rights-and-privacy": [
@@ -21256,6 +22288,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/debates/categories-or-dimensions",
       title: "精神障碍是类别还是维度",
+    },
+    {
+      url: "/law/frontier/cross-border-data-governance",
+      title: "跨境数据治理：云端的一份数据同时服从几套主权",
+    },
+    {
+      url: "/law/frontier/neurotechnology-mental-privacy",
+      title: "神经技术与精神隐私：大脑数据需要一种新权利吗",
+    },
+    {
+      url: "/arts/frontier/generative-art-authorship-provenance",
+      title: "生成式艺术的作者与来源：作品还能证明自己从哪里来吗",
+    },
+    {
+      url: "/linguistics/frontier/language-data-sovereignty",
+      title: "语言数据主权：一段录音开放以后，谁还能决定它的未来",
     },
     {
       url: "/computer-science/systems/git-object-model",
@@ -21302,6 +22350,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "归属与来源研究：一幅画的履历与它的作者之谜",
     },
     {
+      url: "/law/frontier/cross-border-data-governance",
+      title: "跨境数据治理：云端的一份数据同时服从几套主权",
+    },
+    {
       url: "/medicine/diseases/influenza",
       title: "流感",
     },
@@ -21338,10 +22390,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "AI 是否应该有权利？",
     },
   ],
+  "/law/judgment-analyses/loper-bright-chevron-deference-overruled": [
+    {
+      url: "/law/foundations/statutory-interpretation",
+      title: "法规解释：文本、意图与目的之争",
+    },
+    {
+      url: "/law/criminal-and-procedure/civil-procedure-and-remedies",
+      title: "民事程序与救济：权利如何变成结果",
+    },
+    {
+      url: "/law/private-law/bankruptcy-and-insolvency",
+      title: "破产与重整：债务的秩序化清理",
+    },
+  ],
   "/law/legal-traditions/civil-vs-common-law": [
     {
       url: "/law/legal-traditions/mixed-legal-systems",
       title: "混合法系：当传统相遇",
+    },
+    {
+      url: "/law/criminal-and-procedure/civil-procedure-and-remedies",
+      title: "民事程序与救济：权利如何变成结果",
     },
   ],
   "/law/legal-traditions/islamic-law-tradition": [
@@ -21354,7 +22424,31 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "伊斯兰视觉文化：几何、书法与花卉的无限网络",
     },
   ],
+  "/law/private-law/bankruptcy-and-insolvency": [
+    {
+      url: "/law/criminal-and-procedure/civil-procedure-and-remedies",
+      title: "民事程序与救济：权利如何变成结果",
+    },
+  ],
+  "/law/private-law/company-and-market-law": [
+    {
+      url: "/law/private-law/bankruptcy-and-insolvency",
+      title: "破产与重整：债务的秩序化清理",
+    },
+  ],
   "/law/private-law/intellectual-property": [
+    {
+      url: "/arts/frontier/generative-art-authorship-provenance",
+      title: "生成式艺术的作者与来源：作品还能证明自己从哪里来吗",
+    },
+    {
+      url: "/arts/media/games-and-interactive-media",
+      title: "游戏作为媒介：交互性如何生产意义",
+    },
+    {
+      url: "/medicine/traditions/indigenous-medicine-knowledge-sovereignty",
+      title: "原住民医学与知识主权：研究、共享与归还",
+    },
     {
       url: "/computer-science/systems/sqlite-internals",
       title: "SQLite：世界上部署最广的数据库",
@@ -21374,7 +22468,17 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "情感与情感劳动：被买下的那份笑容",
     },
   ],
+  "/law/private-law/law-and-economics": [
+    {
+      url: "/law/private-law/bankruptcy-and-insolvency",
+      title: "破产与重整：债务的秩序化清理",
+    },
+  ],
   "/law/private-law/property-and-ownership": [
+    {
+      url: "/arts/frontier/museum-restitution-digital-repatriation",
+      title: "博物馆返还与数字归还：复制一件物，能修复被夺走的关系吗",
+    },
     {
       url: "/arts/aesthetics/museums-and-display",
       title: "博物馆与展示的政治：谁的故事挂在墙上",
@@ -21392,6 +22496,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/engineering/frontiers/failure-analysis",
       title: "失效分析：从事故残骸中长出来的工程",
+    },
+  ],
+  "/law/public-law/administrative-law": [
+    {
+      url: "/law/judgment-analyses/loper-bright-chevron-deference-overruled",
+      title: "Loper Bright v. Raimondo 判决剖析",
     },
   ],
   "/law/public-law/constitutional-review": [
@@ -21412,14 +22522,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/law/public-law/fundamental-rights": [
     {
+      url: "/arts/methods/las-meninas-close-reading",
+      title: "《宫娥》细读：谁在画外观看",
+    },
+    {
       url: "/law/public-law/separate-but-equal",
       title: "「分离但平等」：一条被推翻的宪法学说",
+    },
+    {
+      url: "/law/frontier/neurotechnology-mental-privacy",
+      title: "神经技术与精神隐私：大脑数据需要一种新权利吗",
     },
   ],
   "/law/public-law/separate-but-equal": [
     {
       url: "/law/public-law/lochner-era-freedom-of-contract",
       title: "洛克纳时代：被宪法读进去的「契约自由」",
+    },
+  ],
+  "/law/public-law/separation-of-powers": [
+    {
+      url: "/law/frontier/foundation-model-regulation",
+      title: "通用人工智能模型监管：管一个模型，还是管一条价值链",
+    },
+    {
+      url: "/law/judgment-analyses/loper-bright-chevron-deference-overruled",
+      title: "Loper Bright v. Raimondo 判决剖析",
     },
   ],
   "/life-science/dialogues/darwin-wallace": [
@@ -21536,6 +22664,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/concepts/information-philosophy",
       title: "信息哲学",
+    },
+    {
+      url: "/mathematics/knowledge-base/统计--因果推断入门",
+      title: "因果推断入门",
     },
   ],
   "/life-science/knowledge-base/人体--免疫系统": [
@@ -21662,6 +22794,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "古生物学与化石记录",
     },
     {
+      url: "/mathematics/knowledge-base/代数--群论与对称",
+      title: "群论与对称",
+    },
+    {
       url: "/earth-science/events/snowball-earth",
       title: "雪球地球",
     },
@@ -21778,6 +22914,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/生理学--神经递质与突触传递",
       title: "神经递质与突触传递：大脑用化学语言对话",
+    },
+    {
+      url: "/mathematics/knowledge-base/数学基础--数学与现实",
+      title: "数学与现实",
     },
   ],
   "/life-science/knowledge-base/分子生物学--细胞凋亡": [
@@ -22370,6 +23510,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "美西螈",
     },
     {
+      url: "/mathematics/knowledge-base/应用--信息论基础",
+      title: "信息论基础",
+    },
+    {
       url: "/computer-science/algorithms/string-matching",
       title: "字符串匹配",
     },
@@ -22488,6 +23632,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: '发展心理学：人是如何"长"成的',
     },
     {
+      url: "/mathematics/knowledge-base/应用--人工智能的数学",
+      title: "人工智能的数学",
+    },
+    {
       url: "/psychology/phenomena/neuroplasticity",
       title: "神经可塑性",
     },
@@ -22546,6 +23694,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/theories/game-theory-basics",
       title: "博弈论基础",
+    },
+    {
+      url: "/mathematics/knowledge-base/应用--复杂系统入门",
+      title: "复杂系统入门",
     },
     {
       url: "/economics/concepts/market-failure-public-goods",
@@ -22740,6 +23892,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/进化机制--水平基因转移",
       title: "水平基因转移：超越亲代的遗传",
+    },
+    {
+      url: "/linguistics/frontier/typology-sampling-bias",
+      title: "语言类型学的抽样危机：两千四百种语言够代表人类语言吗",
     },
     {
       url: "/linguistics/history-typology-society/linguistic-typology",
@@ -23448,8 +24604,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "声调与韵律",
     },
     {
+      url: "/linguistics/methods-and-frontiers/experimental-pragmatics",
+      title: "实验语用学：含义如何被测量",
+    },
+    {
       url: "/computer-science/theory/formal-grammars-chomsky-hierarchy",
       title: "形式文法与乔姆斯基谱系",
+    },
+    {
+      url: "/linguistics/words-sentences-meaning/morphological-productivity",
+      title: "形态生产性：规则什么时候是活的",
     },
     {
       url: "/psychology/knowledge-base/psycholinguistics",
@@ -23458,6 +24622,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/acquisition-and-mind/reading-and-dyslexia",
       title: "阅读习得与读写困难",
+    },
+    {
+      url: "/linguistics/acquisition-and-mind/wug-test-morphology-analysis",
+      title: "Wug Test 实验剖析：儿童怎样生成没听过的词",
     },
   ],
   "/linguistics/acquisition-and-mind/language-and-brain": [
@@ -23572,6 +24740,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "声调与韵律",
     },
     {
+      url: "/linguistics/words-sentences-meaning/morphological-productivity",
+      title: "形态生产性：规则什么时候是活的",
+    },
+    {
       url: "/linguistics/words-sentences-meaning/morphology",
       title: "形态学：词的内部结构",
     },
@@ -23618,6 +24790,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "印度增长与就业约束（2026）",
     },
   ],
+  "/linguistics/acquisition-and-mind/wug-test-morphology-analysis": [
+    {
+      url: "/linguistics/methods-and-frontiers/experimental-pragmatics",
+      title: "实验语用学：含义如何被测量",
+    },
+    {
+      url: "/linguistics/words-sentences-meaning/morphological-productivity",
+      title: "形态生产性：规则什么时候是活的",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/corpus-annotation-and-agreement",
+      title: "语料标注与一致性：标注方案如何决定结论",
+    },
+  ],
+  "/linguistics/frontier/language-data-sovereignty": [
+    {
+      url: "/arts/frontier/museum-restitution-digital-repatriation",
+      title: "博物馆返还与数字归还：复制一件物，能修复被夺走的关系吗",
+    },
+  ],
   "/linguistics/history-typology-society/chinese-dialects": [
     {
       url: "/linguistics/writing-systems/chinese-writing",
@@ -23658,8 +24850,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "人工语言：从世界语到道本语",
     },
     {
+      url: "/linguistics/frontier/community-led-language-revitalization",
+      title: "社区主导的语言复振：技术能帮忙，但谁定义“语言活了”",
+    },
+    {
       url: "/linguistics/sounds-and-signs/sign-language-structure",
       title: "手语的空间语法",
+    },
+    {
+      url: "/linguistics/frontier/typology-sampling-bias",
+      title: "语言类型学的抽样危机：两千四百种语言够代表人类语言吗",
     },
     {
       url: "/linguistics/methods-and-frontiers/linguistic-fieldwork",
@@ -23814,6 +25014,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "非洲哲学",
     },
     {
+      url: "/linguistics/frontier/ancient-dna-language-prehistory",
+      title: "古 DNA 与语言史前史：基因能追踪迁徙，却不能直接读出语言",
+    },
+    {
       url: "/human-history/frontier/ancient-dna-revolution",
       title: "古DNA革命——基因组重写人类迁徙史",
     },
@@ -23836,6 +25040,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/scientists/svante-paabo",
       title: "斯万特·帕博",
+    },
+    {
+      url: "/mathematics/knowledge-base/几何--拓扑学入门",
+      title: "拓扑学入门",
     },
     {
       url: "/philosophy/experiments/ship-of-theseus",
@@ -23932,6 +25140,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "人工语言：从世界语到道本语",
     },
     {
+      url: "/linguistics/frontier/sign-language-ai-bias",
+      title: "手语人工智能的系统偏差：识别手势，不等于理解语言",
+    },
+    {
       url: "/linguistics/writing-systems/input-methods",
       title: "输入法与文字信息化",
     },
@@ -24002,6 +25214,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "希腊罗马文明",
     },
     {
+      url: "/linguistics/words-sentences-meaning/morphological-productivity",
+      title: "形态生产性：规则什么时候是活的",
+    },
+    {
       url: "/linguistics/sounds-and-signs/phonemes-and-sound-systems",
       title: "音位与音系系统",
     },
@@ -24054,6 +25270,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/sounds-and-signs/language-speech-and-sign",
       title: "语言、言语与手语",
+    },
+    {
+      url: "/linguistics/frontier/typology-sampling-bias",
+      title: "语言类型学的抽样危机：两千四百种语言够代表人类语言吗",
     },
     {
       url: "/linguistics/methods-and-frontiers/linguistic-fieldwork",
@@ -24142,6 +25362,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "输入法与文字信息化",
     },
     {
+      url: "/linguistics/words-sentences-meaning/morphological-productivity",
+      title: "形态生产性：规则什么时候是活的",
+    },
+    {
       url: "/linguistics/words-sentences-meaning/morphology",
       title: "形态学：词的内部结构",
     },
@@ -24172,6 +25396,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/algorithms/pagerank",
       title: "PageRank 算法",
+    },
+  ],
+  "/linguistics/methods-and-frontiers/corpus-annotation-and-agreement": [
+    {
+      url: "/linguistics/methods-and-frontiers/experimental-pragmatics",
+      title: "实验语用学：含义如何被测量",
     },
   ],
   "/linguistics/methods-and-frontiers/corpus-linguistics": [
@@ -24256,8 +25486,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "信息论",
     },
     {
+      url: "/linguistics/words-sentences-meaning/morphological-productivity",
+      title: "形态生产性：规则什么时候是活的",
+    },
+    {
       url: "/linguistics/words-sentences-meaning/grammar-theories",
       title: "语法理论的证据与争论",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/corpus-annotation-and-agreement",
+      title: "语料标注与一致性：标注方案如何决定结论",
+    },
+    {
+      url: "/linguistics/frontier/language-data-sovereignty",
+      title: "语言数据主权：一段录音开放以后，谁还能决定它的未来",
     },
     {
       url: "/computer-science/algorithms/lru-cache-eviction",
@@ -24266,8 +25508,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/linguistics/methods-and-frontiers/experimental-linguistics": [
     {
+      url: "/linguistics/methods-and-frontiers/experimental-pragmatics",
+      title: "实验语用学：含义如何被测量",
+    },
+    {
+      url: "/law/frontier/algorithmic-discrimination-audits",
+      title: "算法歧视审计：公平指标能不能变成可举证的法律事实",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/corpus-annotation-and-agreement",
+      title: "语料标注与一致性：标注方案如何决定结论",
+    },
+    {
       url: "/linguistics/words-sentences-meaning/pragmatics",
       title: "语用学：语境、意图与会话",
+    },
+    {
+      url: "/linguistics/acquisition-and-mind/wug-test-morphology-analysis",
+      title: "Wug Test 实验剖析：儿童怎样生成没听过的词",
     },
   ],
   "/linguistics/methods-and-frontiers/language-evolution": [
@@ -24294,6 +25552,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/theorists/lev-vygotsky",
       title: "列夫·维果茨基",
+    },
+    {
+      url: "/linguistics/frontier/animal-communication-ai",
+      title: "人工智能与动物交流：发现组合结构，距离“翻译”还有多远",
     },
     {
       url: "/psychology/theorists/steven-pinker",
@@ -24338,6 +25600,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "佳亚特里·斯皮瓦克",
     },
     {
+      url: "/linguistics/frontier/community-led-language-revitalization",
+      title: "社区主导的语言复振：技术能帮忙，但谁定义“语言活了”",
+    },
+    {
       url: "/philosophy/questions/what-is-knowledge",
       title: "什么是知识？",
     },
@@ -24360,6 +25626,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/concepts/knowledge",
       title: "知识",
+    },
+  ],
+  "/linguistics/methods-and-frontiers/llm-and-linguistic-theory": [
+    {
+      url: "/linguistics/methods-and-frontiers/experimental-pragmatics",
+      title: "实验语用学：含义如何被测量",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/corpus-annotation-and-agreement",
+      title: "语料标注与一致性：标注方案如何决定结论",
     },
   ],
   "/linguistics/methods-and-frontiers/multilingual-ai": [
@@ -24402,6 +25678,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/methods-and-frontiers/speech-technology",
       title: "言语技术：机器如何听懂与说出语言",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/corpus-annotation-and-agreement",
+      title: "语料标注与一致性：标注方案如何决定结论",
+    },
+  ],
+  "/linguistics/methods-and-frontiers/speech-technology": [
+    {
+      url: "/law/frontier/synthetic-media-evidence",
+      title: "合成媒体进入法庭：深伪时代怎样证明一段影像是真的",
+    },
+    {
+      url: "/linguistics/frontier/community-led-language-revitalization",
+      title: "社区主导的语言复振：技术能帮忙，但谁定义“语言活了”",
     },
   ],
   "/linguistics/sounds-and-signs/acoustic-phonetics": [
@@ -24580,6 +25870,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "声调与韵律",
     },
     {
+      url: "/linguistics/frontier/sign-language-ai-bias",
+      title: "手语人工智能的系统偏差：识别手势，不等于理解语言",
+    },
+    {
       url: "/linguistics/sounds-and-signs/sign-language-research",
       title: "手语研究：一门学科的诞生",
     },
@@ -24615,6 +25909,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/linguistics/words-sentences-meaning/discourse-analysis": [
+    {
+      url: "/arts/methods/curatorial-practice",
+      title: "策展作为论证：展览如何生产艺术史",
+    },
     {
       url: "/sociology/thinkers/michel-foucault-sociology",
       title: "米歇尔·福柯的社会学",
@@ -24654,6 +25952,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Evo-Devo：演化改写的不是零件，而是说明书",
     },
   ],
+  "/linguistics/words-sentences-meaning/lexicography": [
+    {
+      url: "/linguistics/words-sentences-meaning/morphological-productivity",
+      title: "形态生产性：规则什么时候是活的",
+    },
+  ],
   "/linguistics/words-sentences-meaning/morphology": [
     {
       url: "/computer-science/concepts/abstraction",
@@ -24680,6 +25984,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "数据结构",
     },
     {
+      url: "/linguistics/words-sentences-meaning/morphological-productivity",
+      title: "形态生产性：规则什么时候是活的",
+    },
+    {
       url: "/linguistics/sounds-and-signs/language-speech-and-sign",
       title: "语言、言语与手语",
     },
@@ -24690,6 +25998,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/natural-language-processing",
       title: "自然语言处理",
+    },
+    {
+      url: "/linguistics/acquisition-and-mind/wug-test-morphology-analysis",
+      title: "Wug Test 实验剖析：儿童怎样生成没听过的词",
     },
   ],
   "/linguistics/words-sentences-meaning/pragmatics": [
@@ -24724,6 +26036,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/concepts/social-movements",
       title: "社会运动与集体行动",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/experimental-pragmatics",
+      title: "实验语用学：含义如何被测量",
     },
     {
       url: "/computer-science/pioneers/donald-knuth",
@@ -24812,6 +26128,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "弹劾与罢免",
     },
     {
+      url: "/law/foundations/statutory-interpretation",
+      title: "法规解释：文本、意图与目的之争",
+    },
+    {
       url: "/mathematics/concepts/category-theory",
       title: "范畴论",
     },
@@ -24870,6 +26190,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/shankara",
       title: "商羯罗",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/experimental-pragmatics",
+      title: "实验语用学：含义如何被测量",
     },
     {
       url: "/computer-science/concepts/database-indexing-and-query-optimization",
@@ -25024,6 +26348,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/words-sentences-meaning/semantics",
       title: "语义学：表达如何承载意义",
+    },
+    {
+      url: "/linguistics/acquisition-and-mind/wug-test-morphology-analysis",
+      title: "Wug Test 实验剖析：儿童怎样生成没听过的词",
     },
   ],
   "/linguistics/writing-systems/arabic-and-african-scripts": [
@@ -25254,6 +26582,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/linguistics/writing-systems/writing-system-types": [
     {
+      url: "/human-history/source-analyses/domesday-book-source-analysis",
+      title: "《末日审判书》史料剖析",
+    },
+    {
+      url: "/human-history/source-analyses/dunhuang-manuscripts-source-analysis",
+      title: "敦煌藏经洞文书史料剖析",
+    },
+    {
       url: "/human-history/knowledge/古代文明--腓尼基",
       title: "腓尼基",
     },
@@ -25274,8 +26610,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "汉字：形、音、义与历史层次",
     },
     {
+      url: "/human-history/source-analyses/oracle-bones-source-analysis",
+      title: "甲骨文史料剖析",
+    },
+    {
       url: "/human-history/knowledge/远古时期--亚洲--两河流域早期",
       title: "两河流域早期文明",
+    },
+    {
+      url: "/human-history/source-analyses/rosetta-stone-source-analysis",
+      title: "罗塞塔石碑史料剖析",
     },
     {
       url: "/human-history/knowledge/美洲--玛雅文明",
@@ -25317,6 +26661,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/computer-science/concepts/unicode-and-text-encoding",
       title: "Unicode 与文本编码",
     },
+    {
+      url: "/human-history/source-analyses/wpa-slave-narratives-source-analysis",
+      title: "WPA 前奴隶口述史料剖析",
+    },
   ],
   "/mathematics/concepts/algebraic-geometry": [
     {
@@ -25340,6 +26688,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/concepts/social-contract",
       title: "社会契约",
+    },
+    {
+      url: "/mathematics/knowledge-base/数学基础--什么是数学",
+      title: "什么是数学",
     },
     {
       url: "/computer-science/pioneers/tony-hoare",
@@ -25366,6 +26718,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/frontier/dark-matter-direct-detection",
       title: '暗物质直接探测的"沉默"',
+    },
+    {
+      url: "/mathematics/knowledge-base/统计--贝叶斯统计入门",
+      title: "贝叶斯统计入门",
     },
     {
       url: "/engineering/foundations/measurement-and-tolerance",
@@ -25396,6 +26752,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "公平卫生优先排序：从项目排名到可复审组合",
     },
     {
+      url: "/linguistics/frontier/ancient-dna-language-prehistory",
+      title: "古 DNA 与语言史前史：基因能追踪迁徙，却不能直接读出语言",
+    },
+    {
       url: "/arts/methods/provenance-and-attribution",
       title: "归属与来源研究：一幅画的履历与它的作者之谜",
     },
@@ -25418,6 +26778,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/schools/skepticism",
       title: "怀疑论",
+    },
+    {
+      url: "/engineering/frontier/infrastructure-digital-twins",
+      title: "基础设施数字孪生：什么时候模型才配替真实桥梁作决定",
     },
     {
       url: "/chemistry/frontier/computational-materials-design",
@@ -25462,6 +26826,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/knowledge-base/market-microstructure",
       title: "市场微观结构：做市商、高频交易与价格发现的内部机制",
+    },
+    {
+      url: "/arts/frontier/digital-reconstruction-evidence",
+      title: "数字重建的证据边界：三维古城里哪些是真的",
+    },
+    {
+      url: "/political-science/methods/difference-in-differences",
+      title: "双重差分：没有随机实验时怎样评估政策",
     },
     {
       url: "/cosmology/knowledge-base/系外行星--微引力透镜法",
@@ -25800,6 +27172,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/knot-theory",
       title: "纽结理论",
+    },
+    {
+      url: "/mathematics/knowledge-base/应用--复杂性科学入门",
+      title: "什么是复杂系统？",
     },
     {
       url: "/life-science/knowledge-base/当代议题--生命起源研究",
@@ -26170,6 +27546,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/相对论--史瓦西黑洞",
       title: "史瓦西黑洞",
+    },
+    {
+      url: "/mathematics/knowledge-base/数学基础--数学与现实",
+      title: "数学与现实",
     },
     {
       url: "/mathematics/theorems/stokes-theorem",
@@ -26698,6 +28078,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "崇高",
     },
     {
+      url: "/mathematics/knowledge-base/应用--混沌与分形",
+      title: "混沌与分形",
+    },
+    {
       url: "/philosophy/concepts/beauty",
       title: "美",
     },
@@ -26758,6 +28142,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "病毒学：在生与非生之间的存在",
     },
     {
+      url: "/mathematics/knowledge-base/应用--博弈论日常应用",
+      title: "博弈论如何解释日常行为",
+    },
+    {
       url: "/philosophy/thinkers/david-lewis",
       title: "大卫·刘易斯",
     },
@@ -26796,6 +28184,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/进化心理学基础",
       title: "进化心理学基础",
+    },
+    {
+      url: "/mathematics/knowledge-base/应用--决策科学导论",
+      title: "决策科学导论",
     },
     {
       url: "/life-science/species/mycorrhiza",
@@ -26868,6 +28260,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/近代--威斯特伐利亚和约",
       title: "威斯特伐利亚和约",
+    },
+    {
+      url: "/engineering/machines/systems-engineering",
+      title: "系统工程：需求、约束、验证与变更",
     },
     {
       url: "/law/criminal-and-procedure/criminal-justice-reform",
@@ -27008,6 +28404,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "图的遍历（BFS 与 DFS）",
     },
     {
+      url: "/mathematics/knowledge-base/应用--网络科学导论",
+      title: "网络科学导论",
+    },
+    {
       url: "/computer-science/algorithms/network-flow",
       title: "网络流",
     },
@@ -27070,6 +28470,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "纽结理论",
     },
     {
+      url: "/mathematics/knowledge-base/代数--群论与对称",
+      title: "群论与对称",
+    },
+    {
       url: "/mathematics/concepts/number-theory",
       title: "数论",
     },
@@ -27125,6 +28529,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/mathematics/concepts/signal-processing",
       title: "信号处理",
     },
+    {
+      url: "/mathematics/knowledge-base/应用--信息论基础",
+      title: "信息论基础",
+    },
   ],
   "/mathematics/concepts/integral": [
     {
@@ -27177,6 +28585,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/mathematics/mathematicians/liu-hui",
       title: "刘徽",
     },
+    {
+      url: "/mathematics/knowledge-base/分析--微积分的故事",
+      title: "微积分的故事",
+    },
   ],
   "/mathematics/concepts/linear-algebra": [
     {
@@ -27206,6 +28618,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/group",
       title: "群",
+    },
+    {
+      url: "/mathematics/knowledge-base/应用--人工智能的数学",
+      title: "人工智能的数学",
     },
     {
       url: "/computer-science/algorithms/greedy-algorithms",
@@ -27256,6 +28672,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/neural-networks-concept",
       title: "神经网络",
+    },
+    {
+      url: "/mathematics/knowledge-base/代数--线性代数的几何意义",
+      title: "线性代数的几何意义",
     },
   ],
   "/mathematics/concepts/manifold": [
@@ -27354,6 +28774,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/dong-zhongshu",
       title: "董仲舒",
+    },
+    {
+      url: "/mathematics/knowledge-base/应用--复杂系统入门",
+      title: "复杂系统入门",
     },
     {
       url: "/philosophy/concepts/complexity-philosophy",
@@ -27518,6 +28942,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "第五公设的证明史：两千年的失败如何造出一门新几何",
     },
     {
+      url: "/mathematics/knowledge-base/几何--非欧几何革命",
+      title: "非欧几何革命",
+    },
+    {
       url: "/universe-physics/knowledge-base/相对论--时空弯曲与测地线",
       title: "时空弯曲与测地线",
     },
@@ -27586,8 +29014,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "罗纳德·里维斯特",
     },
     {
+      url: "/mathematics/knowledge-base/应用--密码学的数学",
+      title: "密码学的数学",
+    },
+    {
       url: "/computer-science/theory/cryptography-foundations",
       title: "密码学基础",
+    },
+    {
+      url: "/mathematics/knowledge-base/数论--素数之谜",
+      title: "素数之谜",
     },
     {
       url: "/computer-science/pioneers/donald-knuth",
@@ -27970,6 +29406,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "分布式共识算法",
     },
     {
+      url: "/mathematics/knowledge-base/应用--概率与决策",
+      title: "概率与决策",
+    },
+    {
       url: "/life-science/scientists/mendel",
       title: "格雷戈尔·孟德尔",
     },
@@ -28162,6 +29602,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "正义战争理论",
     },
     {
+      url: "/mathematics/knowledge-base/数学基础--证明的艺术",
+      title: "证明的艺术",
+    },
+    {
       url: "/mathematics/concepts/combinatorics",
       title: "组合数学",
     },
@@ -28230,6 +29674,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/frontier/ai-formal-proof",
       title: "定理形式化与 AI 证明助手",
+    },
+    {
+      url: "/mathematics/knowledge-base/数论--费马大定理",
+      title: "费马大定理",
     },
     {
       url: "/economics/economists/franco-modigliani",
@@ -28330,6 +29778,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "凯恩斯主义经济学",
     },
     {
+      url: "/mathematics/paradoxes/st-petersburg-paradox",
+      title: "圣彼得堡悖论",
+    },
+    {
       url: "/mathematics/paradoxes/two-envelope",
       title: "信封悖论",
     },
@@ -28382,6 +29834,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/number-line",
       title: "数轴",
+    },
+    {
+      url: "/mathematics/knowledge-base/分析--无穷的故事",
+      title: "无穷的故事",
     },
     {
       url: "/computer-science/systems/chromium-site-isolation",
@@ -28762,6 +30218,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "计算语言学与自然语言处理",
     },
     {
+      url: "/arts/frontier/heritage-science-imaging",
+      title: "技术艺术史：当一幅画同时成为光谱、元素与时间的数据体",
+    },
+    {
       url: "/earth-science/processes/monsoon-systems",
       title: "季风系统",
     },
@@ -28780,6 +30240,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/algorithms/decision-trees",
       title: "决策树",
+    },
+    {
+      url: "/engineering/machines/reliability-engineering",
+      title: "可靠性工程：把“不出事”变成可计算的指标",
     },
     {
       url: "/medicine/concepts/clinical-trials",
@@ -28854,6 +30318,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "实验语言学与因果推断",
     },
     {
+      url: "/linguistics/methods-and-frontiers/experimental-pragmatics",
+      title: "实验语用学：含义如何被测量",
+    },
+    {
       url: "/economics/concepts/market-efficiency",
       title: "市场效率假说：真相与谎言",
     },
@@ -28896,6 +30364,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/前沿物理--希格斯玻色子",
       title: "希格斯玻色子",
+    },
+    {
+      url: "/engineering/machines/systems-engineering",
+      title: "系统工程：需求、约束、验证与变更",
     },
     {
       url: "/cosmology/knowledge-base/系外行星探测",
@@ -28978,6 +30450,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "因果推断：从实验到观察研究",
     },
     {
+      url: "/mathematics/knowledge-base/统计--因果推断入门",
+      title: "因果推断入门",
+    },
+    {
       url: "/universe-physics/knowledge-base/物理学--引力波天文学",
       title: "引力波天文学",
     },
@@ -28996,6 +30472,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/前沿物理--宇宙暴胀",
       title: "宇宙暴胀",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/corpus-annotation-and-agreement",
+      title: "语料标注与一致性：标注方案如何决定结论",
     },
     {
       url: "/linguistics/methods-and-frontiers/corpus-linguistics",
@@ -29426,10 +30906,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "弗雷格",
     },
     {
-      url: "/philosophy/isms/buddhism-philosophy",
-      title: "佛教哲学",
-    },
-    {
       url: "/philosophy/schools/buddhism-philosophy",
       title: "佛教哲学",
     },
@@ -29596,6 +31072,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/电磁学--coulomb-law-electrostatics",
       title: "库仑定律与静电场",
+    },
+  ],
+  "/mathematics/theorems/four-color-theorem": [
+    {
+      url: "/mathematics/knowledge-base/几何--拓扑学入门",
+      title: "拓扑学入门",
     },
   ],
   "/mathematics/theorems/fundamental-theorem-of-algebra": [
@@ -29946,6 +31428,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "肾脏生理",
     },
     {
+      url: "/mathematics/knowledge-base/几何--拓扑学入门",
+      title: "拓扑学入门",
+    },
+    {
       url: "/medicine/figures/william-harvey",
       title: "威廉·哈维",
     },
@@ -30242,6 +31728,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "抑郁症",
     },
     {
+      url: "/mathematics/knowledge-base/统计--因果推断入门",
+      title: "因果推断入门",
+    },
+    {
       url: "/medicine/traditions/unani-medicine",
       title: "尤纳尼医学",
     },
@@ -30280,6 +31770,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/traditions/traditional-african-medicine",
       title: "非洲传统医学",
+    },
+    {
+      url: "/medicine/traditions/kampo-medicine",
+      title: "汉方医学：传统方剂如何进入日本现代医疗",
     },
     {
       url: "/life-science/species/horseshoe-crab",
@@ -30682,8 +32176,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "最小生成树",
     },
     {
+      url: "/medicine/trial-analyses/actt-1-remdesivir-trial",
+      title: "ACTT-1 瑞德西韦试验",
+    },
+    {
+      url: "/medicine/trial-analyses/orbita-sham-controlled-pci-trial",
+      title: "ORBITA 假手术对照试验",
+    },
+    {
       url: "/life-science/knowledge-base/生物技术--PCR技术",
       title: "PCR技术：聚合酶链反应与DNA扩增",
+    },
+    {
+      url: "/medicine/trial-analyses/recovery-dexamethasone-platform-trial",
+      title: "RECOVERY 地塞米松试验",
+    },
+    {
+      url: "/medicine/trial-analyses/sprint-blood-pressure-target-trial",
+      title: "SPRINT 强化降压试验",
+    },
+    {
+      url: "/medicine/trial-analyses/womens-health-initiative-hormone-trial",
+      title: "WHI 激素治疗试验",
     },
   ],
   "/medicine/concepts/evidence-based-medicine": [
@@ -30696,12 +32210,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "阿伦·贝克",
     },
     {
+      url: "/medicine/ethics/placebo-deception-and-trust",
+      title: "安慰剂、欺骗与信任：没有活性成分的治疗能否合乎伦理",
+    },
+    {
       url: "/psychology/phenomena/placebo-effect",
       title: "安慰剂效应",
     },
     {
       url: "/psychology/theorists/otto-kernberg",
       title: "奥托·科恩伯格",
+    },
+    {
+      url: "/mathematics/knowledge-base/数论--费马大定理",
+      title: "费马大定理",
     },
     {
       url: "/psychology/phenomena/peak-end-rule",
@@ -30804,6 +32326,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "药理学基础",
     },
     {
+      url: "/medicine/ethics/medical-futility-and-treatment-withdrawal",
+      title: "医疗无效、治疗撤除与生命末期的决定边界",
+    },
+    {
       url: "/cosmology/knowledge-base/天体生物学--habitable-worlds-observatory",
       title: "宜居世界天文台：把生命问题变成光谱问题",
     },
@@ -30832,12 +32358,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "知情同意",
     },
     {
+      url: "/medicine/trial-analyses/actt-1-remdesivir-trial",
+      title: "ACTT-1 瑞德西韦试验",
+    },
+    {
       url: "/psychology/knowledge-base/cbt-self-help",
       title: "CBT自助工具箱",
     },
     {
       url: "/cosmology/frontier/desi-dark-energy",
       title: "DESI 与演化的暗能量：宇宙学常数的挑战",
+    },
+    {
+      url: "/medicine/trial-analyses/orbita-sham-controlled-pci-trial",
+      title: "ORBITA 假手术对照试验",
+    },
+    {
+      url: "/medicine/trial-analyses/recovery-dexamethasone-platform-trial",
+      title: "RECOVERY 地塞米松试验",
+    },
+    {
+      url: "/medicine/trial-analyses/sprint-blood-pressure-target-trial",
+      title: "SPRINT 强化降压试验",
+    },
+    {
+      url: "/medicine/trial-analyses/womens-health-initiative-hormone-trial",
+      title: "WHI 激素治疗试验",
     },
   ],
   "/medicine/concepts/germ-theory": [
@@ -31310,12 +32856,36 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "语言田野调查与社区协作",
     },
     {
+      url: "/medicine/ethics/informed-consent-and-shared-decision-making",
+      title: "知情同意与共同决策：签字为什么不等于选择",
+    },
+    {
       url: "/medicine/diseases/stroke",
       title: "中风（脑卒中）",
     },
     {
       url: "/philosophy/thinkers/thomson",
       title: "朱迪斯·贾维斯·汤姆森",
+    },
+    {
+      url: "/medicine/trial-analyses/actt-1-remdesivir-trial",
+      title: "ACTT-1 瑞德西韦试验",
+    },
+    {
+      url: "/medicine/trial-analyses/orbita-sham-controlled-pci-trial",
+      title: "ORBITA 假手术对照试验",
+    },
+    {
+      url: "/medicine/trial-analyses/recovery-dexamethasone-platform-trial",
+      title: "RECOVERY 地塞米松试验",
+    },
+    {
+      url: "/medicine/trial-analyses/sprint-blood-pressure-target-trial",
+      title: "SPRINT 强化降压试验",
+    },
+    {
+      url: "/medicine/trial-analyses/womens-health-initiative-hormone-trial",
+      title: "WHI 激素治疗试验",
     },
   ],
   "/medicine/concepts/medical-genetics-and-genomics": [
@@ -32642,6 +34212,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "埃斯特·迪弗洛",
     },
     {
+      url: "/medicine/ethics/placebo-deception-and-trust",
+      title: "安慰剂、欺骗与信任：没有活性成分的治疗能否合乎伦理",
+    },
+    {
       url: "/medicine/concepts/clinical-trials",
       title: "临床试验",
     },
@@ -32656,6 +34230,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/figures/hippocrates",
       title: "希波克拉底",
+    },
+    {
+      url: "/sociology/methods/research-ethics-and-positionality",
+      title: "研究伦理与位置性：谁在被研究，谁在研究",
     },
     {
       url: "/medicine/concepts/drug-development",
@@ -32676,6 +34254,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "姑息治疗",
     },
     {
+      url: "/medicine/ethics/medical-futility-and-treatment-withdrawal",
+      title: "医疗无效、治疗撤除与生命末期的决定边界",
+    },
+    {
       url: "/political-science/isms/libertarianism",
       title: "自由意志主义",
     },
@@ -32684,6 +34266,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/algorithms/hashing",
       title: "哈希",
+    },
+    {
+      url: "/mathematics/knowledge-base/应用--密码学的数学",
+      title: "密码学的数学",
     },
     {
       url: "/computer-science/concepts/authentication-authorization",
@@ -32758,6 +34344,34 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "基因检测与隐私",
     },
   ],
+  "/medicine/ethics/informed-consent-and-shared-decision-making": [
+    {
+      url: "/medicine/ethics/placebo-deception-and-trust",
+      title: "安慰剂、欺骗与信任：没有活性成分的治疗能否合乎伦理",
+    },
+    {
+      url: "/economics/dialogues/pigou-coase-externalities",
+      title: "庇古vs科斯：污染应该由谁付钱",
+    },
+    {
+      url: "/medicine/traditions/kampo-medicine",
+      title: "汉方医学：传统方剂如何进入日本现代医疗",
+    },
+    {
+      url: "/economics/debates/basic-income-vs-job-guarantee",
+      title: "基本收入还是就业保障：社会应当保证钱还是工作",
+    },
+    {
+      url: "/medicine/ethics/medical-futility-and-treatment-withdrawal",
+      title: "医疗无效、治疗撤除与生命末期的决定边界",
+    },
+  ],
+  "/medicine/ethics/medical-futility-and-treatment-withdrawal": [
+    {
+      url: "/medicine/traditions/latin-american-traditional-medicine",
+      title: "拉丁美洲传统医学：医疗多元、殖民历史与跨文化照护",
+    },
+  ],
   "/medicine/ethics/organ-allocation-ethics": [
     {
       url: "/philosophy/experiments/trolley-problem",
@@ -32800,6 +34414,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/ethics/euthanasia-and-assisted-dying",
       title: "安乐死与协助死亡",
+    },
+    {
+      url: "/medicine/ethics/placebo-deception-and-trust",
+      title: "安慰剂、欺骗与信任：没有活性成分的治疗能否合乎伦理",
     },
     {
       url: "/philosophy/isms/existentialism-ism",
@@ -32854,16 +34472,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "伊壁鸠鲁",
     },
     {
-      url: "/philosophy/isms/epicureanism",
-      title: "伊壁鸠鲁主义",
-    },
-    {
       url: "/philosophy/schools/epicureanism",
       title: "伊壁鸠鲁主义",
     },
     {
+      url: "/medicine/ethics/medical-futility-and-treatment-withdrawal",
+      title: "医疗无效、治疗撤除与生命末期的决定边界",
+    },
+    {
       url: "/political-science/international-relations/just-war-theory",
       title: "正义战争理论",
+    },
+    {
+      url: "/medicine/ethics/informed-consent-and-shared-decision-making",
+      title: "知情同意与共同决策：签字为什么不等于选择",
+    },
+  ],
+  "/medicine/ethics/placebo-deception-and-trust": [
+    {
+      url: "/medicine/traditions/indigenous-medicine-knowledge-sovereignty",
+      title: "原住民医学与知识主权：研究、共享与归还",
     },
   ],
   "/medicine/events/antibiotic-era": [
@@ -33592,6 +35220,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "精神分裂症",
     },
     {
+      url: "/medicine/traditions/latin-american-traditional-medicine",
+      title: "拉丁美洲传统医学：医疗多元、殖民历史与跨文化照护",
+    },
+    {
       url: "/economics/theories/latin-american-structuralism-dependency",
       title: "拉美结构主义与依附理论",
     },
@@ -33652,6 +35284,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "压力如何改变你的大脑",
     },
     {
+      url: "/medicine/traditions/indigenous-medicine-knowledge-sovereignty",
+      title: "原住民医学与知识主权：研究、共享与归还",
+    },
+    {
       url: "/philosophy/concepts/justice",
       title: "正义",
     },
@@ -33676,6 +35312,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/case-studies/low-income-debt-countries-macro-diagnosis-2026",
       title: "低收入债务国宏观经济诊断（2026）",
+    },
+    {
+      url: "/mathematics/knowledge-base/应用--概率与决策",
+      title: "概率与决策",
     },
     {
       url: "/medicine/frontier/fair-health-priority-setting",
@@ -33710,8 +35350,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "约翰·罗尔斯",
     },
     {
+      url: "/medicine/trial-analyses/actt-1-remdesivir-trial",
+      title: "ACTT-1 瑞德西韦试验",
+    },
+    {
       url: "/medicine/technologies/crispr-gene-editing",
       title: "CRISPR 基因编辑",
+    },
+    {
+      url: "/medicine/trial-analyses/orbita-sham-controlled-pci-trial",
+      title: "ORBITA 假手术对照试验",
+    },
+    {
+      url: "/medicine/trial-analyses/recovery-dexamethasone-platform-trial",
+      title: "RECOVERY 地塞米松试验",
+    },
+    {
+      url: "/medicine/trial-analyses/sprint-blood-pressure-target-trial",
+      title: "SPRINT 强化降压试验",
+    },
+    {
+      url: "/medicine/trial-analyses/womens-health-initiative-hormone-trial",
+      title: "WHI 激素治疗试验",
     },
   ],
   "/medicine/public-health/health-systems-universal-health-coverage": [
@@ -33946,6 +35606,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/algorithms/graph-traversal",
       title: "图的遍历（BFS 与 DFS）",
+    },
+    {
+      url: "/mathematics/knowledge-base/应用--网络科学导论",
+      title: "网络科学导论",
     },
     {
       url: "/economics/concepts/network-effects",
@@ -34560,10 +36224,46 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "循证医学",
     },
   ],
+  "/medicine/traditions/indigenous-medicine-knowledge-sovereignty": [
+    {
+      url: "/medicine/ethics/placebo-deception-and-trust",
+      title: "安慰剂、欺骗与信任：没有活性成分的治疗能否合乎伦理",
+    },
+    {
+      url: "/medicine/traditions/latin-american-traditional-medicine",
+      title: "拉丁美洲传统医学：医疗多元、殖民历史与跨文化照护",
+    },
+    {
+      url: "/sociology/methods/research-ethics-and-positionality",
+      title: "研究伦理与位置性：谁在被研究，谁在研究",
+    },
+  ],
+  "/medicine/traditions/kampo-medicine": [
+    {
+      url: "/medicine/ethics/informed-consent-and-shared-decision-making",
+      title: "知情同意与共同决策：签字为什么不等于选择",
+    },
+  ],
+  "/medicine/traditions/latin-american-traditional-medicine": [
+    {
+      url: "/medicine/ethics/medical-futility-and-treatment-withdrawal",
+      title: "医疗无效、治疗撤除与生命末期的决定边界",
+    },
+  ],
   "/medicine/traditions/tibetan-medicine": [
     {
       url: "/medicine/traditions/ayurveda",
       title: "阿育吠陀",
+    },
+  ],
+  "/medicine/traditions/traditional-african-medicine": [
+    {
+      url: "/medicine/traditions/latin-american-traditional-medicine",
+      title: "拉丁美洲传统医学：医疗多元、殖民历史与跨文化照护",
+    },
+    {
+      url: "/medicine/traditions/indigenous-medicine-knowledge-sovereignty",
+      title: "原住民医学与知识主权：研究、共享与归还",
     },
   ],
   "/medicine/traditions/traditional-chinese-medicine": [
@@ -34578,6 +36278,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/traditions/traditional-african-medicine",
       title: "非洲传统医学",
+    },
+    {
+      url: "/medicine/traditions/kampo-medicine",
+      title: "汉方医学：传统方剂如何进入日本现代医疗",
+    },
+    {
+      url: "/medicine/traditions/latin-american-traditional-medicine",
+      title: "拉丁美洲传统医学：医疗多元、殖民历史与跨文化照护",
     },
     {
       url: "/philosophy/concepts/qi",
@@ -34654,6 +36362,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/sociology/frontier/algorithmic-management-worker-power",
       title: "算法管理、工人权力与可审计工作",
+    },
+    {
+      url: "/law/frontier/algorithmic-discrimination-audits",
+      title: "算法歧视审计：公平指标能不能变成可举证的法律事实",
     },
     {
       url: "/sociology/concepts/race-and-ethnicity",
@@ -34888,6 +36600,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/experiments/strange-situation",
       title: "陌生情境实验",
+    },
+    {
+      url: "/law/frontier/neurotechnology-mental-privacy",
+      title: "神经技术与精神隐私：大脑数据需要一种新权利吗",
     },
     {
       url: "/engineering/frontiers/bioengineering-boundaries",
@@ -35144,6 +36860,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "鸦片战争",
     },
     {
+      url: "/sociology/methods/research-ethics-and-positionality",
+      title: "研究伦理与位置性：谁在被研究，谁在研究",
+    },
+    {
       url: "/philosophy/schools/islamic-philosophy",
       title: "伊斯兰哲学",
     },
@@ -35158,6 +36878,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/methods-and-frontiers/linguistic-fieldwork",
       title: "语言田野调查与社区协作",
+    },
+    {
+      url: "/medicine/traditions/indigenous-medicine-knowledge-sovereignty",
+      title: "原住民医学与知识主权：研究、共享与归还",
     },
     {
       url: "/political-science/methods/comparative-method",
@@ -35346,6 +37070,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/凝聚态物理--fermi-liquid-theory",
       title: "费米液体理论",
+    },
+    {
+      url: "/mathematics/knowledge-base/应用--复杂系统入门",
+      title: "复杂系统入门",
     },
     {
       url: "/life-science/knowledge-base/分子生物学--干细胞",
@@ -35646,6 +37374,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/theorists/jacques-lacan",
       title: "雅克·拉康",
+    },
+    {
+      url: "/sociology/methods/research-ethics-and-positionality",
+      title: "研究伦理与位置性：谁在被研究，谁在研究",
     },
     {
       url: "/sociology/concepts/islamic-social-thought",
@@ -36250,6 +37982,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "蒂姆·伯纳斯-李",
     },
     {
+      url: "/mathematics/knowledge-base/数论--费马大定理",
+      title: "费马大定理",
+    },
+    {
       url: "/philosophy/concepts/indian-buddhist-epistemology",
       title: "印度佛教知识论",
     },
@@ -36366,6 +38102,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/public-law/separate-but-equal",
       title: "「分离但平等」：一条被推翻的宪法学说",
+    },
+    {
+      url: "/philosophy/experiments/frankfurt-cases",
+      title: "法兰克福案例",
     },
     {
       url: "/medicine/events/peptic-ulcer-bacterial-cause",
@@ -36590,6 +38330,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "莱布尼茨",
     },
     {
+      url: "/linguistics/frontier/animal-communication-ai",
+      title: "人工智能与动物交流：发现组合结构，距离“翻译”还有多远",
+    },
+    {
       url: "/philosophy/thinkers/donald-davidson",
       title: "唐纳德·戴维森",
     },
@@ -36738,6 +38482,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/星系天文学--赛弗特星系",
       title: "赛弗特星系",
+    },
+    {
+      url: "/mathematics/knowledge-base/数学基础--数学与现实",
+      title: "数学与现实",
     },
     {
       url: "/philosophy/thinkers/thales",
@@ -36950,6 +38698,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/concepts/moral-luck",
       title: "道德运气",
+    },
+    {
+      url: "/philosophy/experiments/frankfurt-cases",
+      title: "法兰克福案例",
     },
     {
       url: "/chemistry/figures/fritz-haber",
@@ -37272,6 +39024,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "AI 对齐与价值的哲学：人类价值能否被规范化？",
     },
   ],
+  "/philosophy/experiments/utility-monster": [
+    {
+      url: "/mathematics/knowledge-base/应用--概率与决策",
+      title: "概率与决策",
+    },
+    {
+      url: "/mathematics/paradoxes/st-petersburg-paradox",
+      title: "圣彼得堡悖论",
+    },
+  ],
   "/philosophy/experiments/veil-of-ignorance": [
     {
       url: "/economics/concepts/mechanism-design",
@@ -37296,6 +39058,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "强化学习",
     },
     {
+      url: "/mathematics/knowledge-base/应用--人工智能的数学",
+      title: "人工智能的数学",
+    },
+    {
       url: "/economics/concepts/social-choice-theory",
       title: "社会选择与阿罗不可能定理",
     },
@@ -37305,6 +39071,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/philosophy/frontier/climate-justice-and-intergenerational-ethics": [
+    {
+      url: "/economics/debates/carbon-tax-vs-cap-and-trade",
+      title: "碳税还是总量交易：给污染定价的两条路",
+    },
     {
       url: "/philosophy/questions/should-we-have-children",
       title: "我们应当生育吗？",
@@ -37337,6 +39107,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/philosophy/frontier/free-will-neuroscience": [
+    {
+      url: "/philosophy/experiments/frankfurt-cases",
+      title: "法兰克福案例",
+    },
     {
       url: "/philosophy/frontier/neuroethics-and-mental-privacy",
       title: "神经伦理与心理隐私：思想还是最后的私域吗",
@@ -37394,6 +39168,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "宇宙的最终命运",
     },
   ],
+  "/philosophy/frontier/neuroethics-and-mental-privacy": [
+    {
+      url: "/law/frontier/neurotechnology-mental-privacy",
+      title: "神经技术与精神隐私：大脑数据需要一种新权利吗",
+    },
+  ],
   "/philosophy/isms/absolutism": [
     {
       url: "/human-history/knowledge/人物--伏尔泰",
@@ -37404,6 +39184,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/knowledge-base/money-and-central-banking-history",
       title: "货币与中央银行史：从贝壳到数字央行",
+    },
+    {
+      url: "/mathematics/knowledge-base/分析--无穷的故事",
+      title: "无穷的故事",
     },
   ],
   "/philosophy/isms/determinism": [
@@ -37498,6 +39282,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/isms/cosmopolitanism",
       title: "世界主义",
+    },
+  ],
+  "/philosophy/isms/environmentalism": [
+    {
+      url: "/medicine/traditions/indigenous-medicine-knowledge-sovereignty",
+      title: "原住民医学与知识主权：研究、共享与归还",
     },
   ],
   "/philosophy/isms/essentialism": [
@@ -37620,6 +39410,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "罗伯特·达尔",
     },
     {
+      url: "/arts/media/photography-history",
+      title: "摄影史：从达盖尔银版到艺术殿堂",
+    },
+    {
       url: "/arts/media/photography-medium",
       title: "摄影作为媒介",
     },
@@ -37682,6 +39476,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/古典时期--亚洲--波斯帝国",
       title: "波斯帝国",
+    },
+    {
+      url: "/philosophy/experiments/frankfurt-cases",
+      title: "法兰克福案例",
     },
     {
       url: "/law/criminal-and-procedure/crime-and-punishment",
@@ -38264,6 +40062,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "保罗·萨缪尔森",
     },
     {
+      url: "/mathematics/knowledge-base/几何--非欧几何革命",
+      title: "非欧几何革命",
+    },
+    {
       url: "/mathematics/mathematicians/godel",
       title: "哥德尔",
     },
@@ -38350,6 +40152,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/mathematicians/ramanujan",
       title: "拉马努金",
+    },
+    {
+      url: "/mathematics/knowledge-base/数学基础--什么是数学",
+      title: "什么是数学",
     },
   ],
   "/philosophy/schools/post-structuralism": [
@@ -39064,6 +40870,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/thinkers/kant": [
     {
+      url: "/mathematics/knowledge-base/几何--非欧几何革命",
+      title: "非欧几何革命",
+    },
+    {
       url: "/philosophy/thinkers/hannah-arendt",
       title: "汉娜·阿伦特",
     },
@@ -39708,6 +41518,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "程序设计语言设计",
     },
     {
+      url: "/law/foundations/statutory-interpretation",
+      title: "法规解释：文本、意图与目的之争",
+    },
+    {
       url: "/philosophy/thinkers/frege",
       title: "弗雷格",
     },
@@ -39786,6 +41600,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/concepts/taxes-and-public-budget",
       title: "税收与公共预算：共同的钱怎样变成共同选择",
+    },
+    {
+      url: "/mathematics/knowledge-base/分析--微积分的故事",
+      title: "微积分的故事",
     },
     {
       url: "/medicine/public-health/health-economic-evaluation-priority-setting",
@@ -40344,6 +42162,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/political-science/concepts/gerrymandering": [
     {
+      url: "/mathematics/knowledge-base/几何--拓扑学入门",
+      title: "拓扑学入门",
+    },
+    {
       url: "/mathematics/concepts/graph-theory-applications",
       title: "图论应用",
     },
@@ -40662,10 +42484,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "后现代主义",
     },
     {
-      url: "/philosophy/concepts/skepticism",
-      title: "怀疑论",
-    },
-    {
       url: "/philosophy/schools/skepticism",
       title: "怀疑论",
     },
@@ -40732,6 +42550,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/experiments/festinger-carlsmith-1959",
       title: "认知失调实验",
+    },
+    {
+      url: "/arts/media/photography-history",
+      title: "摄影史：从达盖尔银版到艺术殿堂",
     },
     {
       url: "/arts/media/photography-medium",
@@ -41228,6 +43050,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "水利社会论",
     },
     {
+      url: "/mathematics/knowledge-base/数论--素数之谜",
+      title: "素数之谜",
+    },
+    {
       url: "/philosophy/thinkers/hobbes",
       title: "托马斯·霍布斯",
     },
@@ -41438,6 +43264,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "米歇尔·福柯的社会学",
     },
     {
+      url: "/mathematics/knowledge-base/应用--密码学的数学",
+      title: "密码学的数学",
+    },
+    {
       url: "/philosophy/experiments/pascals-wager",
       title: "帕斯卡赌注",
     },
@@ -41482,6 +43312,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/case-studies/us-macro-diagnosis-2026",
       title: "美国宏观经济诊断（2026）",
+    },
+    {
+      url: "/mathematics/knowledge-base/应用--网络科学导论",
+      title: "网络科学导论",
     },
   ],
   "/political-science/institutions/bureaucracy": [
@@ -41746,6 +43580,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/political-science/institutions/coalition-government": [
     {
+      url: "/mathematics/knowledge-base/应用--博弈论日常应用",
+      title: "博弈论如何解释日常行为",
+    },
+    {
       url: "/political-science/international-relations/balance-of-power",
       title: "均势理论",
     },
@@ -41840,6 +43678,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/concepts/mechanism-design",
       title: "机制设计",
+    },
+    {
+      url: "/mathematics/knowledge-base/应用--决策科学导论",
+      title: "决策科学导论",
     },
     {
       url: "/computer-science/pioneers/ron-rivest",
@@ -41970,6 +43812,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "法官如何裁判：法律发现、解释方法与现实主义之争",
     },
     {
+      url: "/law/foundations/statutory-interpretation",
+      title: "法规解释：文本、意图与目的之争",
+    },
+    {
       url: "/political-science/international-relations/international-law",
       title: "国际法",
     },
@@ -42008,6 +43854,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/concepts/gerrymandering",
       title: "选区重划操纵",
+    },
+    {
+      url: "/law/judgment-analyses/brown-v-board-equal-protection",
+      title: "Brown v. Board of Education 判决剖析",
+    },
+    {
+      url: "/law/judgment-analyses/donoghue-v-stevenson-duty-of-care",
+      title: "Donoghue v Stevenson 判决剖析",
+    },
+    {
+      url: "/law/judgment-analyses/handyside-v-uk-expression-margin",
+      title: "Handyside v. United Kingdom 判决剖析",
+    },
+    {
+      url: "/law/judgment-analyses/marbury-v-madison-judicial-review",
+      title: "Marbury v. Madison 判决剖析",
+    },
+    {
+      url: "/law/judgment-analyses/van-gend-en-loos-direct-effect",
+      title: "Van Gend en Loos 判决剖析",
     },
   ],
   "/political-science/institutions/legislatures": [
@@ -42734,6 +44600,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "霸权",
     },
     {
+      url: "/arts/methods/curatorial-practice",
+      title: "策展作为论证：展览如何生产艺术史",
+    },
+    {
       url: "/medicine/events/smallpox-eradication",
       title: "天花根除（1980）",
     },
@@ -42902,6 +44772,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "濒危语言与语言复振",
     },
     {
+      url: "/arts/methods/curatorial-practice",
+      title: "策展作为论证：展览如何生产艺术史",
+    },
+    {
       url: "/political-science/isms/imperialism",
       title: "帝国主义",
     },
@@ -42986,6 +44860,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/aesthetics/museums-and-display",
       title: "博物馆与展示的政治：谁的故事挂在墙上",
+    },
+    {
+      url: "/arts/methods/curatorial-practice",
+      title: "策展作为论证：展览如何生产艺术史",
     },
     {
       url: "/human-history/knowledge/文化交流--茶的传播",
@@ -43116,10 +44994,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "亚里士多德的政治学",
     },
   ],
+  "/political-science/methods/difference-in-differences": [
+    {
+      url: "/political-science/methods/synthetic-control-method",
+      title: "合成控制法：为一次政策寻找可信的未发生世界",
+    },
+    {
+      url: "/political-science/methods/regression-discontinuity-design",
+      title: "回归不连续设计：门槛两边为什么可以比较",
+    },
+    {
+      url: "/economics/debates/rent-control-affordability-supply",
+      title: "租金管制之争：可负担性、居住稳定与住房供给",
+    },
+  ],
   "/political-science/methods/experiments-natural-experiments": [
     {
       url: "/economics/economists/esther-duflo",
       title: "埃斯特·迪弗洛",
+    },
+    {
+      url: "/political-science/methods/synthetic-control-method",
+      title: "合成控制法：为一次政策寻找可信的未发生世界",
+    },
+    {
+      url: "/political-science/methods/regression-discontinuity-design",
+      title: "回归不连续设计：门槛两边为什么可以比较",
     },
     {
       url: "/economics/theories/economic-growth",
@@ -43138,6 +45038,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "行为经济学派",
     },
     {
+      url: "/mathematics/knowledge-base/统计--因果推断入门",
+      title: "因果推断入门",
+    },
+    {
       url: "/philosophy/concepts/causation",
       title: "因果性",
     },
@@ -43148,6 +45052,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/schools/political-philosophy",
       title: "政治哲学",
+    },
+  ],
+  "/political-science/methods/process-tracing": [
+    {
+      url: "/political-science/methods/difference-in-differences",
+      title: "双重差分：没有随机实验时怎样评估政策",
+    },
+  ],
+  "/political-science/methods/regression-discontinuity-design": [
+    {
+      url: "/political-science/methods/synthetic-control-method",
+      title: "合成控制法：为一次政策寻找可信的未发生世界",
     },
   ],
   "/political-science/methods/survey-public-opinion-measurement": [
@@ -43170,6 +45086,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/habermas",
       title: "哈贝马斯",
+    },
+    {
+      url: "/political-science/methods/regression-discontinuity-design",
+      title: "回归不连续设计：门槛两边为什么可以比较",
     },
     {
       url: "/psychology/phenomena/framing-effect",
@@ -43710,10 +45630,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "多巴胺系统：奖赏、动机与成瘾",
     },
     {
-      url: "/philosophy/isms/buddhism-philosophy",
-      title: "佛教哲学",
-    },
-    {
       url: "/philosophy/schools/buddhism-philosophy",
       title: "佛教哲学",
     },
@@ -43883,6 +45799,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/sociology/institutions/bureaucracy",
       title: "官僚制",
     },
+    {
+      url: "/sociology/methods/research-ethics-and-positionality",
+      title: "研究伦理与位置性：谁在被研究，谁在研究",
+    },
   ],
   "/psychology/experiments/pavlov-classical-conditioning": [
     {
@@ -43938,10 +45858,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/schools/postmodernism",
       title: "后现代主义",
-    },
-    {
-      url: "/philosophy/concepts/skepticism",
-      title: "怀疑论",
     },
     {
       url: "/philosophy/schools/skepticism",
@@ -44092,6 +46008,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/xunzi",
       title: "荀子",
+    },
+    {
+      url: "/mathematics/knowledge-base/数学基础--证明的艺术",
+      title: "证明的艺术",
     },
     {
       url: "/philosophy/schools/sophists",
@@ -44290,6 +46210,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/disorders/social-anxiety",
       title: "社交焦虑障碍",
+    },
+    {
+      url: "/arts/frontier/neuroaesthetics-cultural-variation",
+      title: "神经美学之后：大脑能解释审美，还是只解释一次按键",
     },
     {
       url: "/psychology/knowledge-base/neuropsychology-brain-behavior",
@@ -44532,6 +46456,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/methods-and-frontiers/experimental-linguistics",
       title: "实验语言学与因果推断",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/experimental-pragmatics",
+      title: "实验语用学：含义如何被测量",
     },
     {
       url: "/philosophy/frontier/experimental-philosophy",
@@ -45166,10 +47094,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "超验主义",
     },
     {
-      url: "/philosophy/isms/buddhism-philosophy",
-      title: "佛教哲学",
-    },
-    {
       url: "/philosophy/schools/buddhism-philosophy",
       title: "佛教哲学",
     },
@@ -45234,10 +47158,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/jackson",
       title: "弗兰克·杰克逊",
-    },
-    {
-      url: "/philosophy/isms/buddhism-philosophy",
-      title: "佛教哲学",
     },
     {
       url: "/philosophy/schools/buddhism-philosophy",
@@ -45356,7 +47276,17 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "主权债务",
     },
   ],
+  "/psychology/knowledge-base/psycholinguistics": [
+    {
+      url: "/linguistics/methods-and-frontiers/experimental-pragmatics",
+      title: "实验语用学：含义如何被测量",
+    },
+  ],
   "/psychology/knowledge-base/psychology-of-decisions": [
+    {
+      url: "/mathematics/knowledge-base/统计--贝叶斯统计入门",
+      title: "贝叶斯统计入门",
+    },
     {
       url: "/philosophy/experiments/buridans-donkey",
       title: "布里丹之驴",
@@ -45564,6 +47494,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "东亚奇迹",
     },
     {
+      url: "/mathematics/knowledge-base/应用--概率与决策",
+      title: "概率与决策",
+    },
+    {
       url: "/engineering/energy/nuclear-power",
       title: "核电：临界、纵深防御与事故遗产",
     },
@@ -45590,6 +47524,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/engineering/civil/bridges",
       title: "桥梁：受力路径、风与美学",
+    },
+    {
+      url: "/engineering/machines/human-factors-engineering",
+      title: "人因工程：为会犯错的人设计",
     },
     {
       url: "/medicine/concepts/screening-and-early-detection",
@@ -45802,6 +47740,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/psychology/methods/causal-inference-experiments-observational-studies": [
     {
+      url: "/economics/policy-analyses/alaska-permanent-fund-dividend",
+      title: "阿拉斯加永久基金分红剖析",
+    },
+    {
       url: "/philosophy/thinkers/al-ghazali",
       title: "安萨里",
     },
@@ -45820,6 +47762,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/frontier/llm-as-cognitive-science-tool",
       title: "大语言模型：认知科学的预测模型、研究工具与研究对象",
+    },
+    {
+      url: "/economics/policy-analyses/germany-hartz-labor-reforms",
+      title: "德国 Hartz 劳动力改革剖析",
     },
     {
       url: "/philosophy/experiments/gettier-problem",
@@ -45842,8 +47788,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "国际人权体系",
     },
     {
+      url: "/economics/policy-analyses/london-congestion-charge",
+      title: "伦敦拥堵收费剖析",
+    },
+    {
       url: "/sociology/methods/ethnography",
       title: "民族志",
+    },
+    {
+      url: "/economics/policy-analyses/mexico-progresa-cash-transfer",
+      title: "墨西哥 PROGRESA 政策剖析",
     },
     {
       url: "/political-science/concepts/power",
@@ -45864,6 +47818,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/aquinas",
       title: "托马斯·阿奎那",
+    },
+    {
+      url: "/economics/policy-analyses/volcker-disinflation-policy",
+      title: "沃尔克反通胀政策剖析",
     },
     {
       url: "/philosophy/thinkers/hume",
@@ -45902,8 +47860,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "政治代表",
     },
     {
+      url: "/sociology/methods/coleman-report-educational-opportunity-analysis",
+      title: "Coleman Report 复核：学校、家庭与同伴怎样被放进同一个模型",
+    },
+    {
       url: "/cosmology/knowledge-base/恒星物理--type-ia-supernovae",
       title: "Ia型超新星",
+    },
+    {
+      url: "/law/judgment-analyses/loper-bright-chevron-deference-overruled",
+      title: "Loper Bright v. Raimondo 判决剖析",
     },
   ],
   "/psychology/methods/digital-phenotyping-computational-ethics": [
@@ -46032,6 +47998,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/致密天体--black-hole-spin-measurement",
       title: "黑洞自旋测量",
+    },
+    {
+      url: "/sociology/concepts/intersectionality",
+      title: "交叉性：范畴如何相乘",
     },
     {
       url: "/sociology/institutions/education-and-credentialism",
@@ -46194,6 +48164,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "AI 读片：机器能比医生更早看见癌症吗",
     },
     {
+      url: "/sociology/methods/coleman-report-educational-opportunity-analysis",
+      title: "Coleman Report 复核：学校、家庭与同伴怎样被放进同一个模型",
+    },
+    {
       url: "/psychology/methods/weird-samples-and-generalizability",
       title: "WEIRD 样本与可推广性",
     },
@@ -46218,6 +48192,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学基础--哈勃张力",
       title: "哈勃张力",
+    },
+    {
+      url: "/medicine/traditions/kampo-medicine",
+      title: "汉方医学：传统方剂如何进入日本现代医疗",
     },
     {
       url: "/psychology/debates/psychoanalysis-efficacy",
@@ -46314,6 +48292,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/concepts/paradigm",
       title: "范式",
+    },
+    {
+      url: "/mathematics/knowledge-base/数论--费马大定理",
+      title: "费马大定理",
     },
     {
       url: "/philosophy/experiments/gettier-problem",
@@ -46634,6 +48616,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "实验语言学与因果推断",
     },
     {
+      url: "/linguistics/methods-and-frontiers/experimental-pragmatics",
+      title: "实验语用学：含义如何被测量",
+    },
+    {
       url: "/mathematics/theorems/prime-number-theorem",
       title: "素数定理",
     },
@@ -46652,6 +48638,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/concepts/ideology",
       title: "意识形态",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/corpus-annotation-and-agreement",
+      title: "语料标注与一致性：标注方案如何决定结论",
     },
     {
       url: "/linguistics/history-typology-society/language-identity-power",
@@ -46807,6 +48797,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/law/criminal-and-procedure/evidence-and-proof",
       title: "证据与证明：法庭如何逼近真相",
     },
+    {
+      url: "/mathematics/knowledge-base/数学基础--证明的艺术",
+      title: "证明的艺术",
+    },
   ],
   "/psychology/phenomena/defense-mechanisms": [
     {
@@ -46848,6 +48842,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "强迫症",
     },
     {
+      url: "/arts/frontier/neuroaesthetics-cultural-variation",
+      title: "神经美学之后：大脑能解释审美，还是只解释一次按键",
+    },
+    {
       url: "/philosophy/thinkers/schopenhauer",
       title: "叔本华",
     },
@@ -46876,10 +48874,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "伊壁鸠鲁",
     },
     {
-      url: "/philosophy/isms/epicureanism",
-      title: "伊壁鸠鲁主义",
-    },
-    {
       url: "/philosophy/schools/epicureanism",
       title: "伊壁鸠鲁主义",
     },
@@ -46892,10 +48886,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/concepts/developmental-state",
       title: "发展型国家",
-    },
-    {
-      url: "/philosophy/concepts/skepticism",
-      title: "怀疑论",
     },
     {
       url: "/philosophy/questions/what-can-we-know",
@@ -47012,6 +49002,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/psychology/phenomena/false-memory": [
     {
+      url: "/human-history/source-analyses/domesday-book-source-analysis",
+      title: "《末日审判书》史料剖析",
+    },
+    {
       url: "/chemistry/figures/kekule",
       title: "奥古斯特·凯库勒",
     },
@@ -47022,6 +49016,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/knowledge-base/trauma-and-ptsd",
       title: "创伤与 PTSD：当记忆无法过去",
+    },
+    {
+      url: "/human-history/source-analyses/dunhuang-manuscripts-source-analysis",
+      title: "敦煌藏经洞文书史料剖析",
     },
     {
       url: "/psychology/debates/freud-wars",
@@ -47036,12 +49034,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "记忆系统",
     },
     {
+      url: "/human-history/source-analyses/oracle-bones-source-analysis",
+      title: "甲骨文史料剖析",
+    },
+    {
       url: "/psychology/disorders/dissociative-disorders",
       title: "解离障碍",
     },
     {
       url: "/psychology/experiments/gorilla-invisibility",
       title: "看不见的大猩猩",
+    },
+    {
+      url: "/human-history/source-analyses/rosetta-stone-source-analysis",
+      title: "罗塞塔石碑史料剖析",
     },
     {
       url: "/psychology/experiments/loftus-car-crash-1974",
@@ -47102,6 +49108,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/knowledge-base/self-analysis-guide",
       title: "自我分析入门指南",
+    },
+    {
+      url: "/human-history/source-analyses/wpa-slave-narratives-source-analysis",
+      title: "WPA 前奴隶口述史料剖析",
     },
   ],
   "/psychology/phenomena/flow-state": [
@@ -47814,10 +49824,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "透视与空间：一场视觉革命",
     },
     {
-      url: "/philosophy/isms/idealism",
-      title: "唯心主义",
-    },
-    {
       url: "/philosophy/schools/idealism",
       title: "唯心主义",
     },
@@ -47838,6 +49844,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "现象学运动",
     },
     {
+      url: "/mathematics/knowledge-base/代数--线性代数的几何意义",
+      title: "线性代数的几何意义",
+    },
+    {
       url: "/psychology/methods/psychophysics-and-signal-detection",
       title: "心理物理学与信号检测论",
     },
@@ -47852,6 +49862,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/information-geometry",
       title: "信息几何",
+    },
+    {
+      url: "/mathematics/knowledge-base/应用--信息论基础",
+      title: "信息论基础",
     },
     {
       url: "/computer-science/pioneers/yann-lecun",
@@ -47887,8 +49901,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/sociology/concepts/socialization",
       title: "社会化",
     },
+    {
+      url: "/mathematics/knowledge-base/数学基础--什么是数学",
+      title: "什么是数学",
+    },
   ],
   "/psychology/phenomena/placebo-effect": [
+    {
+      url: "/medicine/ethics/placebo-deception-and-trust",
+      title: "安慰剂、欺骗与信任：没有活性成分的治疗能否合乎伦理",
+    },
     {
       url: "/psychology/experiments/pavlov-classical-conditioning",
       title: "巴甫洛夫经典条件反射",
@@ -48348,6 +50370,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "理查德·道金斯",
     },
     {
+      url: "/linguistics/frontier/animal-communication-ai",
+      title: "人工智能与动物交流：发现组合结构，距离“翻译”还有多远",
+    },
+    {
       url: "/philosophy/questions/does-god-exist",
       title: "上帝存在吗？",
     },
@@ -48396,6 +50422,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/computer-vision",
       title: "计算机视觉",
+    },
+    {
+      url: "/mathematics/knowledge-base/代数--群论与对称",
+      title: "群论与对称",
     },
     {
       url: "/arts/foundations/color-and-light",
@@ -48898,6 +50928,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "家庭与亲属关系",
     },
     {
+      url: "/sociology/concepts/intersectionality",
+      title: "交叉性：范畴如何相乘",
+    },
+    {
       url: "/economics/concepts/labor-economics",
       title: "劳动经济学",
     },
@@ -49062,6 +51096,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "计算机视觉",
     },
     {
+      url: "/sociology/concepts/intersectionality",
+      title: "交叉性：范畴如何相乘",
+    },
+    {
       url: "/psychology/experiments/rosenthal-jacobson-1968",
       title: "罗森塔尔课堂实验",
     },
@@ -49096,6 +51134,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/medical-genetics-and-genomics",
       title: "医学遗传学与基因组医学",
+    },
+    {
+      url: "/sociology/methods/coleman-report-educational-opportunity-analysis",
+      title: "Coleman Report 复核：学校、家庭与同伴怎样被放进同一个模型",
     },
     {
       url: "/sociology/thinkers/w-e-b-du-bois",
@@ -49138,6 +51180,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/economists/paul-krugman",
       title: "保罗·克鲁格曼",
+    },
+    {
+      url: "/mathematics/knowledge-base/应用--博弈论日常应用",
+      title: "博弈论如何解释日常行为",
     },
     {
       url: "/political-science/thinkers/francis-fukuyama",
@@ -49234,6 +51280,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/thinkers/alexis-de-tocqueville",
       title: "托克维尔",
+    },
+    {
+      url: "/mathematics/knowledge-base/应用--网络科学导论",
+      title: "网络科学导论",
     },
     {
       url: "/medicine/concepts/hematology",
@@ -49560,10 +51610,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "弗朗西丝·艾伦",
     },
     {
-      url: "/philosophy/isms/buddhism-philosophy",
-      title: "佛教哲学",
-    },
-    {
       url: "/sociology/institutions/welfare-state",
       title: "福利国家与社会政策",
     },
@@ -49594,6 +51640,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/concepts/gini-coefficient",
       title: "基尼系数",
+    },
+    {
+      url: "/sociology/concepts/intersectionality",
+      title: "交叉性：范畴如何相乘",
     },
     {
       url: "/sociology/institutions/education-and-credentialism",
@@ -49798,10 +51848,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "唯物主义",
     },
     {
-      url: "/philosophy/isms/idealism",
-      title: "唯心主义",
-    },
-    {
       url: "/political-science/concepts/ideology",
       title: "意识形态",
     },
@@ -49952,6 +51998,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/international-relations/regional-organizations",
       title: "区域组织",
+    },
+    {
+      url: "/sociology/institutions/demography-and-aging",
+      title: "人口学与老龄化",
     },
     {
       url: "/political-science/isms/social-democracy",
@@ -50160,6 +52210,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "公地治理",
     },
     {
+      url: "/economics/dialogues/hardin-ostrom-commons",
+      title: "哈丁vs奥斯特罗姆：公地一定会毁灭吗",
+    },
+    {
       url: "/psychology/frontier/social-media-teen-mental-health",
       title: "社交媒体与青少年心理健康：从屏幕时间争论到机制证据",
     },
@@ -50222,6 +52276,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/sociology/frontier/global-south-sociology",
       title: "全球南方社会学的知识再平衡",
+    },
+    {
+      url: "/sociology/institutions/demography-and-aging",
+      title: "人口学与老龄化",
     },
   ],
   "/sociology/institutions/bureaucracy": [
@@ -50542,6 +52600,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "社会化",
     },
     {
+      url: "/linguistics/frontier/community-led-language-revitalization",
+      title: "社区主导的语言复振：技术能帮忙，但谁定义“语言活了”",
+    },
+    {
       url: "/psychology/phenomena/neuroplasticity",
       title: "神经可塑性",
     },
@@ -50568,6 +52630,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/wang-yangming",
       title: "王阳明",
+    },
+    {
+      url: "/mathematics/knowledge-base/分析--微积分的故事",
+      title: "微积分的故事",
     },
     {
       url: "/psychology/phenomena/vygotsky-zone",
@@ -50622,6 +52688,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "詹姆斯·S. 科尔曼",
     },
     {
+      url: "/mathematics/knowledge-base/数学基础--证明的艺术",
+      title: "证明的艺术",
+    },
+    {
       url: "/psychology/knowledge-base/intelligence-theories",
       title: "智力理论：一个数字能装下一个人吗",
     },
@@ -50644,6 +52714,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/debates/self-esteem-movement",
       title: "自尊运动的兴衰：一个被政策采纳的假设",
+    },
+    {
+      url: "/sociology/methods/coleman-report-educational-opportunity-analysis",
+      title: "Coleman Report 复核：学校、家庭与同伴怎样被放进同一个模型",
     },
   ],
   "/sociology/institutions/family-and-kinship": [
@@ -50694,6 +52768,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/experiments/strange-situation",
       title: "陌生情境实验",
+    },
+    {
+      url: "/sociology/institutions/demography-and-aging",
+      title: "人口学与老龄化",
     },
     {
       url: "/human-history/knowledge/远古时期--人类起源",
@@ -50906,6 +52984,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "印刷术",
     },
     {
+      url: "/arts/media/games-and-interactive-media",
+      title: "游戏作为媒介：交互性如何生产意义",
+    },
+    {
       url: "/sociology/thinkers/jurgen-habermas",
       title: "于尔根·哈贝马斯的社会学",
     },
@@ -51022,6 +53104,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/sociology/frontier/ageing-societies",
       title: "人口老龄化的社会基础设施",
+    },
+    {
+      url: "/sociology/institutions/demography-and-aging",
+      title: "人口学与老龄化",
     },
     {
       url: "/human-history/knowledge/概念--丝绸之路",
@@ -51244,6 +53330,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "费孝通",
     },
     {
+      url: "/mathematics/knowledge-base/应用--复杂系统入门",
+      title: "复杂系统入门",
+    },
+    {
       url: "/engineering/civil/high-speed-rail",
       title: "高速铁路工程：轨道、受流与系统集成",
     },
@@ -51320,6 +53410,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/sociology/thinkers/anthony-giddens",
       title: "安东尼·吉登斯",
+    },
+    {
+      url: "/sociology/institutions/demography-and-aging",
+      title: "人口学与老龄化",
     },
   ],
   "/sociology/institutions/work-and-labor-organizations": [
@@ -51412,6 +53506,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "假自体",
     },
     {
+      url: "/mathematics/knowledge-base/应用--决策科学导论",
+      title: "决策科学导论",
+    },
+    {
       url: "/psychology/theorists/karen-horney",
       title: "卡伦·霍尼",
     },
@@ -51474,6 +53572,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/knowledge-base/emotional-intelligence-practice",
       title: "情绪智力的科学与实践",
+    },
+    {
+      url: "/sociology/institutions/demography-and-aging",
+      title: "人口学与老龄化",
     },
     {
       url: "/economics/case-studies/japan-yield-normalization-aging-fiscal-2026",
@@ -51574,6 +53676,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/systems/envoy-service-mesh",
       title: "Envoy 与服务网格：把网络逻辑从应用里搬出来",
+    },
+  ],
+  "/sociology/methods/coleman-report-educational-opportunity-analysis": [
+    {
+      url: "/sociology/methods/research-ethics-and-positionality",
+      title: "研究伦理与位置性：谁在被研究，谁在研究",
     },
   ],
   "/sociology/methods/comparative-historical-analysis": [
@@ -51912,6 +54020,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "刑事司法改革的争议现场：认罪协商、陪审团与监狱的未来",
     },
     {
+      url: "/sociology/methods/research-ethics-and-positionality",
+      title: "研究伦理与位置性：谁在被研究，谁在研究",
+    },
+    {
       url: "/political-science/concepts/political-violence",
       title: "政治暴力",
     },
@@ -51972,6 +54084,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "认识正义",
     },
   ],
+  "/sociology/methods/research-ethics-and-positionality": [
+    {
+      url: "/sociology/concepts/intersectionality",
+      title: "交叉性：范畴如何相乘",
+    },
+  ],
   "/sociology/methods/statistical-modeling": [
     {
       url: "/sociology/thinkers/emile-durkheim",
@@ -52022,10 +54140,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "拓扑数据分析",
     },
     {
-      url: "/philosophy/isms/idealism",
-      title: "唯心主义",
-    },
-    {
       url: "/philosophy/schools/idealism",
       title: "唯心主义",
     },
@@ -52036,6 +54150,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/institutions/central-bank-independence-political-economy",
       title: "中央银行独立的政治经济学",
+    },
+    {
+      url: "/sociology/methods/coleman-report-educational-opportunity-analysis",
+      title: "Coleman Report 复核：学校、家庭与同伴怎样被放进同一个模型",
     },
     {
       url: "/sociology/thinkers/w-e-b-du-bois",
@@ -52132,12 +54250,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "宇宙学原理与可观测宇宙",
     },
     {
+      url: "/linguistics/frontier/typology-sampling-bias",
+      title: "语言类型学的抽样危机：两千四百种语言够代表人类语言吗",
+    },
+    {
       url: "/political-science/concepts/political-methodology-behavioralism",
       title: "政治学方法论与行为主义革命",
     },
     {
       url: "/sociology/thinkers/c-wright-mills",
       title: "C. 赖特·米尔斯",
+    },
+    {
+      url: "/sociology/methods/coleman-report-educational-opportunity-analysis",
+      title: "Coleman Report 复核：学校、家庭与同伴怎样被放进同一个模型",
     },
   ],
   "/sociology/thinkers/anthony-giddens": [
@@ -52458,6 +54584,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/technologies/stethoscope",
       title: "听诊器",
+    },
+    {
+      url: "/mathematics/knowledge-base/分析--无穷的故事",
+      title: "无穷的故事",
     },
     {
       url: "/arts/aesthetics/art-market-and-value",
@@ -53040,6 +55170,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "同调与上同调",
     },
   ],
+  "/universe-physics/knowledge-base/凝聚态物理--quasicrystals": [
+    {
+      url: "/mathematics/knowledge-base/代数--群论与对称",
+      title: "群论与对称",
+    },
+  ],
   "/universe-physics/knowledge-base/凝聚态物理--semiconductor-physics": [
     {
       url: "/universe-physics/frontier/attosecond-physics",
@@ -53126,6 +55262,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/theory/approximation-algorithms",
       title: "近似算法理论",
+    },
+    {
+      url: "/mathematics/knowledge-base/应用--人工智能的数学",
+      title: "人工智能的数学",
+    },
+    {
+      url: "/mathematics/knowledge-base/应用--复杂性科学入门",
+      title: "什么是复杂系统？",
     },
     {
       url: "/universe-physics/knowledge-base/凝聚态物理--ising-model",
@@ -54032,10 +56176,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "氧化还原反应",
     },
     {
-      url: "/philosophy/isms/epicureanism",
-      title: "伊壁鸠鲁主义",
-    },
-    {
       url: "/philosophy/schools/epicureanism",
       title: "伊壁鸠鲁主义",
     },
@@ -54604,6 +56744,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "熵与时间之箭",
     },
     {
+      url: "/mathematics/knowledge-base/应用--信息论基础",
+      title: "信息论基础",
+    },
+    {
       url: "/computer-science/systems/chromium-site-isolation",
       title: "Chromium 的站点隔离：把进程边界当作安全边界",
     },
@@ -54752,6 +56896,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/经典物理--牛顿三大定律",
       title: "牛顿三大定律",
+    },
+    {
+      url: "/mathematics/knowledge-base/数学基础--数学与现实",
+      title: "数学与现实",
     },
     {
       url: "/universe-physics/knowledge-base/凝聚态物理--topological-insulators",
@@ -54994,10 +57142,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "非线性光学",
     },
     {
-      url: "/philosophy/isms/buddhism-philosophy",
-      title: "佛教哲学",
-    },
-    {
       url: "/philosophy/schools/buddhism-philosophy",
       title: "佛教哲学",
     },
@@ -55044,10 +57188,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/isms/materialism",
       title: "唯物主义",
-    },
-    {
-      url: "/philosophy/isms/idealism",
-      title: "唯心主义",
     },
     {
       url: "/philosophy/schools/idealism",
@@ -55452,6 +57592,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/non-euclidean-geometry",
       title: "非欧几何",
+    },
+    {
+      url: "/mathematics/knowledge-base/几何--非欧几何革命",
+      title: "非欧几何革命",
     },
     {
       url: "/mathematics/concepts/axiom",
@@ -56160,6 +58304,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/file-systems",
       title: "文件系统",
+    },
+    {
+      url: "/mathematics/knowledge-base/代数--线性代数的几何意义",
+      title: "线性代数的几何意义",
     },
   ],
   "/universe-physics/knowledge-base/经典物理--simple-harmonic-motion": [

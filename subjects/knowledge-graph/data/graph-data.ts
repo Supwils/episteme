@@ -263,35 +263,7 @@ for (const edge of CURATED_PREREQUISITE_EDGES) {
   baseEdgePairs.add(key);
 }
 
-// Real prose cross-references: the inline `[[wiki-links]]` authors wrote are
-// inverted into graph edges (lib/backlinks-index). They map onto graph nodes by
-// URL, are deduped against the curated edges above, and densify the graph with
-// authentic connections rather than hand-picked ones. Same-domain references
-// are `cross-reference`; cross-domain ones join the curated `domain-link`s.
-const urlToNodeId = new Map<string, string>();
-for (const n of BASE_NODES) if (n.url) urlToNodeId.set(n.url, n.id);
-
 const existingPairs = new Set(baseEdges.map((e) => pairKey(e.source, e.target)));
-
-const wikiReferenceEdges: GraphEdge[] = [];
-for (const [targetUrl, sources] of Object.entries(BACKLINKS_INDEX)) {
-  const targetId = urlToNodeId.get(targetUrl);
-  if (!targetId) continue;
-  for (const { url } of sources) {
-    const sourceId = urlToNodeId.get(url);
-    if (!sourceId || sourceId === targetId) continue;
-    const key = pairKey(sourceId, targetId);
-    if (existingPairs.has(key)) continue;
-    existingPairs.add(key);
-    const sameDomain = sourceId.split(":")[0] === targetId.split(":")[0];
-    wikiReferenceEdges.push({
-      source: sourceId,
-      target: targetId,
-      type: sameDomain ? "cross-reference" : "domain-link",
-      label: "引用",
-    });
-  }
-}
 
 // Frontmatter-derived nodes fill the articles that never got a hand-written one.
 // Curated entries win on every field, so a derived node is dropped when a
@@ -331,7 +303,37 @@ for (const edge of MDX_DERIVED_EDGES) {
   derivedEdges.push({ ...edge, source, target });
 }
 
-export const ALL_EDGES: GraphEdge[] = [...baseEdges, ...wikiReferenceEdges, ...derivedEdges];
+// Real prose cross-references: the inline `[[wiki-links]]` authors wrote are
+// inverted into graph edges (lib/backlinks-index). Derived nodes must already be
+// present when this URL map is built; otherwise every newly admitted legacy KB
+// article remains invisible to its own prose links and hangs only from a generic
+// domain anchor.
+const urlToNodeId = new Map<string, string>();
+for (const node of [...BASE_NODES, ...derivedNodes]) {
+  if (node.url) urlToNodeId.set(node.url, node.id);
+}
+
+const wikiReferenceEdges: GraphEdge[] = [];
+for (const [targetUrl, sources] of Object.entries(BACKLINKS_INDEX)) {
+  const targetId = urlToNodeId.get(targetUrl);
+  if (!targetId) continue;
+  for (const { url } of sources) {
+    const sourceId = urlToNodeId.get(url);
+    if (!sourceId || sourceId === targetId) continue;
+    const key = pairKey(sourceId, targetId);
+    if (existingPairs.has(key)) continue;
+    existingPairs.add(key);
+    const sameDomain = sourceId.split(":")[0] === targetId.split(":")[0];
+    wikiReferenceEdges.push({
+      source: sourceId,
+      target: targetId,
+      type: sameDomain ? "cross-reference" : "domain-link",
+      label: "引用",
+    });
+  }
+}
+
+export const ALL_EDGES: GraphEdge[] = [...baseEdges, ...derivedEdges, ...wikiReferenceEdges];
 export const ALL_NODES: GraphNode[] = annotateCognitiveMetadata(
   [...BASE_NODES, ...derivedNodes],
   ALL_EDGES

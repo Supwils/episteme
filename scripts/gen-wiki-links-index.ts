@@ -39,6 +39,50 @@ const OUT_PREVIEWS = join(ROOT, "public", "link-previews.json");
 
 type Forward = Record<string, string | Record<string, string>>;
 
+// Deliberate authoring aliases. These are not typo forgiveness: every alias is
+// a reviewed concept label that points at an existing canonical article. Keep
+// the map small and semantic so a misspelled wiki-link still fails loudly in
+// check-content instead of being guessed into the wrong part of the graph.
+const WIKI_LINK_ALIASES: Record<string, string> = {
+  "ancient-dna": "ancient-dna-revolution",
+  "animal-behavior": "evolutionary-psychology",
+  "archaeology-and-material-evidence": "historiography-methods-debate",
+  "archives-and-power": "historiography-methods-debate",
+  "bayesian-brain": "predictive-processing-psychiatry",
+  biodiversity: "environmentalism",
+  "carbon-pricing": "climate-economics-carbon-pricing",
+  "causal-inference": "causal-inference-experiments-observational-studies",
+  "circular-economy": "environmental-economics",
+  cybersecurity: "firewalls-and-network-security",
+  "data-governance": "privacy-engineering",
+  "digital-signatures": "cryptography-foundations",
+  "discrimination-and-inequality": "inequality-economics",
+  earthquake: "earthquakes",
+  "education-policy": "education-and-credentialism",
+  "fairness-in-ml": "ai-ethics",
+  "foundation-models": "large-language-models",
+  "fracture-mechanics": "materials-strength",
+  "freedom-of-thought": "fundamental-rights",
+  "health-economics": "health-economic-evaluation-priority-setting",
+  "historical-method": "historiography-methods-debate",
+  "hypothesis-testing": "statistics",
+  inequality: "inequality-economics",
+  institutions: "institutional-economics",
+  "judicial-review": "judiciary-and-judicial-review",
+  "legal-reasoning": "how-courts-decide",
+  "machine-learning-data": "machine-learning-overview",
+  "medical-ethics": "bioethics",
+  "multimodal-learning": "machine-learning-overview",
+  "neural-interfaces": "neuroethics-and-mental-privacy",
+  "oral-history": "false-memory",
+  phylogenetics: "tree-of-life-phylogenetics",
+  "reward-and-motivation": "dopamine-system",
+  "sampling-bias": "survey-research",
+  volcano: "volcanism",
+  "writing-systems": "writing-system-types",
+  水利工程: "water-systems",
+};
+
 function buildForward(articles: Article[]): Forward {
   const byKey = new Map<string, Map<string, Set<string>>>(); // key → domain → urls
   for (const a of articles) {
@@ -69,6 +113,17 @@ function buildForward(articles: Article[]): Forward {
     const urls = new Set(domainUrl.values());
     index[key] =
       urls.size === 1 ? [...urls][0]! : Object.fromEntries([...domainUrl.entries()].sort());
+  }
+
+  for (const [alias, canonical] of Object.entries(WIKI_LINK_ALIASES)) {
+    if (index[alias]) {
+      throw new Error(`Wiki-link alias "${alias}" shadows a real article key`);
+    }
+    const target = index[canonical];
+    if (!target) {
+      throw new Error(`Wiki-link alias "${alias}" points at missing key "${canonical}"`);
+    }
+    index[alias] = target;
   }
   return index;
 }

@@ -48,14 +48,17 @@ describe("full graph knowledge terrain", () => {
       historySnapshot.dominantCount / historySnapshot.total
     );
     expect(history.diagnostics.map((diagnosis) => diagnosis.kind)).toEqual(
-      expect.arrayContaining([
-        "stage-concentration",
-        "advanced-thin",
-        "thin-backbone",
-        "distant-branches",
-      ])
+      expect.arrayContaining(["stage-concentration", "advanced-thin", "thin-backbone"])
     );
-    expect(history.diagnostics[0]?.description).toContain("不能解读为学科重要性");
+    // The nested history knowledge base now contributes its real prose links,
+    // so fewer than 15% of its nodes remain three or more hops from the curated
+    // spine. Reintroducing this signal would mean those bridges regressed.
+    expect(history.diagnostics.some((diagnosis) => diagnosis.kind === "distant-branches")).toBe(
+      false
+    );
+    expect(
+      history.diagnostics.find((diagnosis) => diagnosis.kind === "stage-concentration")?.description
+    ).toContain("不能解读为学科重要性");
 
     const philosophySnapshot = graphSnapshot.terrain.domains.philosophy;
     const philosophy = terrain.domains.find((domain) => domain.id === "philosophy")!;

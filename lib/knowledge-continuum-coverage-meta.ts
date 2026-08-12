@@ -208,6 +208,9 @@ export const COVERAGE_DOMAIN_META: Record<
   },
 };
 
+/** Shared display count so loading fallbacks cannot drift from the registry. */
+export const COVERAGE_DOMAIN_COUNT = Object.keys(COVERAGE_DOMAIN_META).length;
+
 export const COVERAGE_EVIDENCE_META: Record<
   CoverageEvidenceMode,
   { label: string; shortLabel: string; description: string; color: string }

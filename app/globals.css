@@ -688,10 +688,55 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
 /* ── Domain Card — flat hairline (dark) / soft-shadow paper (light) ── */
 
 .domain-card {
+  @apply animate-fade-slide-up text-fg-primary relative flex cursor-pointer flex-col gap-3.5 rounded-[var(--card-radius,12px)] border border-[var(--color-border-faint)] bg-[var(--color-bg-near)] p-6 no-underline shadow-[var(--card-shadow,none)] sm:p-7;
   transition:
     transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.28s,
     box-shadow 0.28s;
+}
+
+.domain-card__top {
+  @apply flex items-start justify-between;
+}
+
+.domain-card__counter {
+  @apply flex items-center gap-2 pt-1;
+}
+
+.domain-card__counter-text {
+  @apply text-fg-muted font-mono text-[10px] tracking-[0.16em] uppercase;
+}
+
+.domain-card__copy {
+  @apply block;
+}
+
+.domain-card__title {
+  @apply font-display text-fg-primary m-0 text-[1.4rem] leading-tight font-semibold;
+}
+
+.domain-card__subtitle {
+  @apply text-fg-muted mt-1 mb-0 font-mono text-[0.66rem] uppercase;
+}
+
+.domain-card__description {
+  @apply text-fg-secondary m-0 flex-1 text-[0.88rem] leading-relaxed;
+}
+
+.domain-card__footer {
+  @apply mt-1 flex items-center justify-between;
+}
+
+.domain-card__stats {
+  @apply text-fg-muted font-mono text-[0.68rem] tracking-[0.04em];
+}
+
+.domain-card__cta {
+  @apply inline-flex items-center gap-1.5 font-mono text-[0.7rem] font-medium tracking-[0.04em];
+}
+
+.domain-card__arrow {
+  @apply inline-block transition-transform duration-300;
 }
 
 .domain-card:hover,
@@ -708,6 +753,7 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
 
 /* Icon tile lifts and warms toward its domain colour on hover. */
 .domain-card__icon {
+  @apply grid h-12 w-12 place-items-center rounded-[10px] border border-[var(--color-border-faint)];
   transition:
     transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.3s,
@@ -723,6 +769,7 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
 
 /* Status dot gains a soft halo on hover. */
 .domain-card__dot {
+  @apply h-[9px] w-[9px] rounded-full;
   transition: box-shadow 0.3s;
 }
 
@@ -738,11 +785,78 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
 
 /* ── Reusable lift-on-hover card (latest updates, featured content) ──
    Set --card-accent inline to colour the lift glow per domain. */
+.home-content-section {
+  @apply px-6 py-20;
+}
+
+.home-section-heading,
+.home-lift-item {
+  @apply animate-fade-slide-up;
+}
+
+.home-section-title {
+  @apply font-display text-fg-primary mb-2 text-center text-2xl font-semibold;
+}
+
+.home-section-subtitle {
+  @apply text-fg-muted mb-10 text-center text-[0.88rem];
+}
+
+.home-updates-grid {
+  @apply mx-auto grid max-w-4xl grid-cols-1 gap-4 md:grid-cols-2;
+}
+
+.home-featured-grid {
+  @apply grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3;
+}
+
 .lift-card {
+  @apply relative block overflow-hidden rounded-xl border border-white/5 bg-white/2 p-5 pl-6 no-underline backdrop-blur-lg;
   transition:
     transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.28s,
     box-shadow 0.28s;
+}
+
+.lift-card--full {
+  @apply h-full;
+}
+
+.lift-card__meta {
+  @apply mb-2.5 flex items-center gap-2;
+}
+
+.lift-card__meta--featured {
+  @apply mb-3;
+}
+
+.lift-card__badge {
+  @apply text-fg-secondary rounded-full px-2 py-0.5 text-[0.68rem] font-semibold;
+}
+
+.lift-card__badge--plain {
+  @apply rounded-none p-0;
+}
+
+.lift-card__date {
+  @apply text-fg-muted text-[0.68rem];
+}
+
+.lift-card__icon {
+  @apply text-lg;
+}
+
+.lift-card__title {
+  @apply text-fg-primary mb-1.5 text-[0.95rem] font-semibold transition-colors;
+}
+
+.lift-card:hover .lift-card__title,
+.lift-card:focus-visible .lift-card__title {
+  color: var(--color-accent-gold);
+}
+
+.lift-card__description {
+  @apply text-fg-secondary m-0 text-[0.82rem] leading-relaxed;
 }
 
 .lift-card:hover,
@@ -755,6 +869,7 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
 
 /* Left accent stripe that grows in on hover. */
 .lift-card__stripe {
+  @apply absolute inset-y-3 left-0 w-[3px] rounded-full;
   transform: scaleY(0.5);
   transform-origin: center;
   opacity: 0.7;
@@ -778,6 +893,47 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
 @media (min-width: 2560px) {
   :root {
     --page-padding: 6rem;
+  }
+}
+
+/* Client-navigation feedback without route-level loading.tsx boundaries. */
+@keyframes navigationProgressSweep {
+  0% {
+    transform: translateX(-100%) scaleX(0.28);
+  }
+  55% {
+    transform: translateX(-28%) scaleX(0.72);
+  }
+  100% {
+    transform: translateX(45%) scaleX(0.92);
+  }
+}
+
+.navigation-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 1000;
+  height: 3px;
+  overflow: hidden;
+  pointer-events: none;
+  background: color-mix(in srgb, var(--color-accent-gold) 18%, transparent);
+}
+
+.navigation-progress::after {
+  content: "";
+  display: block;
+  width: 75%;
+  height: 100%;
+  transform-origin: left;
+  background: linear-gradient(90deg, transparent, var(--color-accent-gold) 30%, #f3d58b);
+  animation: navigationProgressSweep 1.15s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navigation-progress::after {
+    width: 100%;
+    transform: none;
+    animation: none;
   }
 }
 

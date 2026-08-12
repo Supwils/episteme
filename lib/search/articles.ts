@@ -25,6 +25,8 @@ const isAsciiSlug = (s: string): boolean => /^[a-z][a-z0-9-]*$/.test(s);
 
 export interface Article {
   domain: string;
+  section: string;
+  slug: string;
   url: string;
   title: string;
   /** English title from `title_en` / `titleEn` frontmatter; "" when absent. The
@@ -37,9 +39,32 @@ export interface Article {
   headings: string[];
   /** Wiki-link keys that should resolve to this article (slug, plus aliases). */
   keys: string[];
+  tags: string[];
+  relations: string[];
 }
 
 const str = (value: unknown): string => (typeof value === "string" ? value : "");
+
+const RELATION_KEYS = [
+  "related",
+  "relatedTheories",
+  "relatedTheorists",
+  "related_thinkers",
+  "relatedPhenomena",
+  "keyFigures",
+  "key_figures",
+] as const;
+
+const stringList = (value: unknown): string[] =>
+  Array.isArray(value)
+    ? value.filter((entry): entry is string => typeof entry === "string" && entry.trim() !== "")
+    : [];
+
+function articleRelations(data: Record<string, unknown>): string[] {
+  return [
+    ...new Set(RELATION_KEYS.flatMap((key) => stringList(data[key]).map((ref) => ref.trim()))),
+  ];
+}
 
 /** English title, tolerating both frontmatter spellings the content uses:
  *  `title_en` (1030 files) and `titleEn` (512 files). Reading only one drops the
@@ -79,12 +104,16 @@ function collectFlatArticles(): Article[] {
         const title = str(parsed.data.title) || slug;
         out.push({
           domain,
+          section,
+          slug,
           url: `/${domain}/${section}/${slug}`,
           title,
           titleEn: englishTitle(parsed.data),
           body: parsed.content,
           headings: extractHeadings(parsed.content),
           keys: [slug],
+          tags: stringList(parsed.data.tags),
+          relations: articleRelations(parsed.data),
         });
       }
     }
@@ -134,12 +163,16 @@ function collectKbArticles(): Article[] {
       const title = str(parsed.data.title) || bare;
       out.push({
         domain,
+        section: route,
+        slug,
         url: `/${domain}/${route}/${slug}`,
         title,
         titleEn: englishTitle(parsed.data),
         body: parsed.content,
         headings: extractHeadings(parsed.content),
         keys: bare === slug ? [slug] : [slug, bare],
+        tags: stringList(parsed.data.tags),
+        relations: articleRelations(parsed.data),
       });
     }
   }

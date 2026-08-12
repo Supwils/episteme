@@ -1,9 +1,11 @@
-import { SCHOLARLY_DETAILS } from '@/content/human-history/data/scholarly-index.js';
 // Leaf modules, not `data/index.js`: the barrel also re-exports FIGURES, which
-// would pull all 202 figure biographies into this route's chunk.
+// would pull all 202 figure biographies into this route's chunk. Cards read the
+// generated SCHOLARLY_SUMMARIES projection; the modal lazy-loads full lectures
+// per batch (see components/history/scholarly-modal.js).
 import { ERAS } from '@/content/human-history/data/eras.js';
-import { EVENTS } from '@/content/human-history/data/events.js';
 import { formatYear } from '@/content/human-history/data/presentation.js';
+import { getHistoryEventSummary } from '../lib/history-catalog';
+import { SCHOLARLY_SUMMARIES } from '../lib/scholarly-data';
 import { el, clearApp, animateOnScroll, prefersReducedMotion } from '../lib/dom.js';
 import { openScholarlyModal, cleanupScholarlyModal } from '../components/history/scholarly-modal.js';
 import { escapeHtml } from '../lib/escape-html';
@@ -21,31 +23,31 @@ export function renderScholarly() {
   page.appendChild(header);
 
   const stats = el('div', { class: 'scholarly-stats' });
-  const keys = Object.keys(SCHOLARLY_DETAILS);
-  const totalPages = keys.reduce((sum, k) => sum + (SCHOLARLY_DETAILS[k].pages?.length || 0), 0);
+  const titles = Object.keys(SCHOLARLY_SUMMARIES);
+  const totalPages = titles.reduce((sum, title) => sum + SCHOLARLY_SUMMARIES[title].pageCount, 0);
   stats.innerHTML = `
-    <div class="ls-stat"><strong>${keys.length}</strong><span>深度讲稿</span></div>
+    <div class="ls-stat"><strong>${titles.length}</strong><span>深度讲稿</span></div>
     <div class="ls-stat"><strong>${totalPages}</strong><span>讲稿页面</span></div>
-    <div class="ls-stat"><strong>${keys.length * 4}</strong><span>事实卡</span></div>
+    <div class="ls-stat"><strong>${titles.length * 4}</strong><span>事实卡</span></div>
   `;
   page.appendChild(stats);
 
   const grid = el('div', { class: 'scholarly-grid' });
-  for (const title of keys) {
-    const data = SCHOLARLY_DETAILS[title];
-    const ev = EVENTS.find(e => e.title === title);
+  for (const title of titles) {
+    const data = SCHOLARLY_SUMMARIES[title];
+    const ev = getHistoryEventSummary(title);
     const era = ev ? ERAS.find(e => e.id === ev.era) : null;
 
     const card = el('button', { class: 'scholarly-card', type: 'button' });
     card.innerHTML = `
       <div class="sch-card-head">
-        <span class="sch-card-pages">${data.pages?.length || 0}页</span>
+        <span class="sch-card-pages">${data.pageCount}页</span>
         ${era ? `<span class="sch-card-era" style="color:${era.color};border-color:${era.color}40;background:${era.color}10">${escapeHtml(era.name)}</span>` : ''}
         ${ev ? `<span class="sch-card-year">${formatYear(ev.year)}</span>` : ''}
       </div>
       <h3 class="sch-card-title">${escapeHtml(title)}</h3>
-      ${data.quote ? `<p class="sch-card-quote">"${escapeHtml(data.quote.text)}"</p>` : ''}
-      ${data.facts?.length ? `<div class="sch-card-facts">${data.facts.slice(0, 2).map(f => `<span class="sch-card-fact">${escapeHtml(f)}</span>`).join('')}</div>` : ''}
+      ${data.quote ? `<p class="sch-card-quote">"${escapeHtml(data.quote)}"</p>` : ''}
+      ${data.facts.length ? `<div class="sch-card-facts">${data.facts.map(f => `<span class="sch-card-fact">${escapeHtml(f)}</span>`).join('')}</div>` : ''}
     `;
     card.addEventListener('click', () => openScholarlyModal(title));
     grid.appendChild(card);

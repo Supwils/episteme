@@ -91,19 +91,15 @@ export function buildValidRoutes(): Set<string> {
   // Human-history detail routes are registry-driven on-demand SSG.
   add(
     "/human-history/events",
-    (EVENT_CATALOG as { title: string }[]).map((event) =>
-      encodeURIComponent(event.title),
-    ),
+    (EVENT_CATALOG as { title: string }[]).map((event) => encodeURIComponent(event.title))
   );
   add(
     "/human-history/figures",
-    (FIGURE_CATALOG as { name: string }[]).map((figure) =>
-      encodeURIComponent(figure.name),
-    ),
+    (FIGURE_CATALOG as { name: string }[]).map((figure) => encodeURIComponent(figure.name))
   );
   add(
     "/human-history/eras",
-    (ERAS as { id: string }[]).map((era) => era.id),
+    (ERAS as { id: string }[]).map((era) => era.id)
   );
 
   // Philosophy
@@ -121,6 +117,10 @@ export function buildValidRoutes(): Set<string> {
   add("/mathematics/theorems", dirSlugs("mathematics/theorems"));
   add("/mathematics/paradoxes", dirSlugs("mathematics/paradoxes"));
   add("/mathematics/dialogues", dirSlugs("mathematics/dialogues"));
+  add(
+    "/mathematics/knowledge-base",
+    walkRel(join(CONTENT, "mathematics", "knowledge-base")).map((slug) => slug.replace(/\//g, "--"))
+  );
 
   // Life science: species/scientists/extinctions/timeline are registry-driven.
   add(
@@ -149,6 +149,8 @@ export function buildValidRoutes(): Set<string> {
   add("/economics/schools", dirSlugs("economics/schools"));
   add("/economics/debates", dirSlugs("economics/debates"));
   add("/economics/dialogues", dirSlugs("economics/dialogues"));
+  add("/economics/policy-analyses", dirSlugs("economics/policy-analyses"));
+  add("/human-history/source-analyses", dirSlugs("human-history/source-analyses"));
 
   // Psychology
   add("/psychology/theorists", dirSlugs("psychology/theorists"));

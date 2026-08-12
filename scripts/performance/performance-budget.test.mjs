@@ -174,4 +174,21 @@ describe("performance budgets", () => {
       expect(historyHomeStyles).not.toContain(retiredSelector);
     }
   });
+
+  it("keeps repeated homepage cards on semantic classes instead of serialized utility stacks", () => {
+    const homepageComponents = [
+      "components/DomainCard.tsx",
+      "components/LatestUpdates.tsx",
+      "components/FeaturedContent.tsx",
+    ].map((file) => readFileSync(join(process.cwd(), file), "utf8"));
+
+    expect(homepageComponents[0]).toContain('className="domain-card"');
+    expect(homepageComponents[1]).toContain('className="lift-card"');
+    expect(homepageComponents[2]).toContain('className="lift-card lift-card--full"');
+
+    for (const source of homepageComponents) {
+      expect(source).not.toContain("group relative block h-full overflow-hidden rounded-xl");
+      expect(source).not.toContain("font-display text-fg-primary m-0 text-[1.4rem]");
+    }
+  });
 });

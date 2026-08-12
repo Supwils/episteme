@@ -168,6 +168,13 @@ export const EARTH_SCIENCE: DomainConfig = {
       icon: "⚠",
       description: "极端事件归因、复合灾害、集合预测、城市热、海平面适应与碳预算",
     },
+    {
+      key: "event-analyses",
+      label: "事件剖析",
+      accent: "#d66b45",
+      icon: "🛰",
+      description: "从地震波、卫星、雷达、气体与模型反演，重建真实地球事件及其不确定性",
+    },
   ],
 };
 
@@ -235,6 +242,13 @@ export const MEDICINE: DomainConfig = {
       accent: "#6b9bd1",
       icon: "⚖️",
       description: "海拉细胞、基因编辑婴儿、安乐死、器官分配、临床试验伦理——科学与人文的交汇",
+    },
+    {
+      key: "trial-analyses",
+      label: "临床试验剖析",
+      accent: "#e06c75",
+      icon: "🧪",
+      description: "从入组、随机化、终点和效应量读懂经典试验，也看见外推边界与证据盲点",
     },
   ],
 };
@@ -380,6 +394,13 @@ export const LAW: DomainConfig = {
       accent: "#4f9cf0",
       icon: "🌐",
       description: "国际法、国际人权法、数据权利、AI 治理、气候诉讼",
+    },
+    {
+      key: "judgment-analyses",
+      label: "判决剖析",
+      accent: "#c29b53",
+      icon: "📜",
+      description: "逐层拆解事实、争点、规则、论证与后续影响，理解判决如何生成而非只记结论",
     },
   ],
 };
@@ -575,12 +596,50 @@ export const KNOWLEDGE_DOMAINS: Record<string, DomainConfig> = {
   engineering: ENGINEERING,
 };
 
+// Economics and human-history retain their bespoke home pages and data engines,
+// but their analysis sections use the same article/list primitives as the newer
+// domains. Keep them out of KNOWLEDGE_DOMAINS to avoid replacing those homes.
+export const EXTENSION_DOMAINS: Record<string, DomainConfig> = {
+  economics: {
+    domain: "economics",
+    label: "经济学",
+    labelEn: "Economics",
+    tagline: "用反事实、机制与分配效应理解政策，而不是把前后变化误当因果。",
+    accent: "#d6a85f",
+    sections: [
+      {
+        key: "policy-analyses",
+        label: "政策剖析",
+        accent: "#d6a85f",
+        icon: "📈",
+        description: "把通胀、就业、转移支付与城市治理放回识别策略、执行摩擦和分配后果中检验",
+      },
+    ],
+  },
+  "human-history": {
+    domain: "human-history",
+    label: "人类历史",
+    labelEn: "Human History",
+    tagline: "史料不是过去本身，而是被制度、材料、语言与权力保存下来的有限痕迹。",
+    accent: "#b98a5a",
+    sections: [
+      {
+        key: "source-analyses",
+        label: "史料剖析",
+        accent: "#b98a5a",
+        icon: "🗃",
+        description: "追问史料由谁、为谁、在何种制度中生产，并以互证读出记录中的声音与沉默",
+      },
+    ],
+  },
+};
+
 export function getDomainConfig(domain: string): DomainConfig | null {
-  return KNOWLEDGE_DOMAINS[domain] ?? null;
+  return KNOWLEDGE_DOMAINS[domain] ?? EXTENSION_DOMAINS[domain] ?? null;
 }
 
 export function getSectionConfig(domain: string, section: string): DomainSectionConfig | null {
-  const config = KNOWLEDGE_DOMAINS[domain];
+  const config = KNOWLEDGE_DOMAINS[domain] ?? EXTENSION_DOMAINS[domain];
   if (!config) return null;
   return config.sections.find((s) => s.key === section) ?? null;
 }

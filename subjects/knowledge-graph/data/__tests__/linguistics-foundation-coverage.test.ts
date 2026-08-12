@@ -1,10 +1,20 @@
 import { describe, expect, it } from "vitest";
 import { buildValidRoutes } from "@/scripts/valid-routes";
+import { getDomainConfig } from "@/lib/new-domains";
 import { RELEASED_LINGUISTICS_ARTICLES } from "@/lib/linguistics-subject-plan";
 import { ALL_EDGES, ALL_NODES } from "../graph-data";
 
 const plannedRelease = RELEASED_LINGUISTICS_ARTICLES;
-const linguisticsNodes = ALL_NODES.filter((node) => node.domain === "linguistics");
+const activeSections = new Set(
+  getDomainConfig("linguistics")?.sections.map((section) => section.key) ?? []
+);
+// This suite protects the six-section foundation corpus. Frontier articles are
+// shared L5 growth and stay outside this contract.
+const linguisticsNodes = ALL_NODES.filter((node) => {
+  if (node.domain !== "linguistics" || !node.url) return false;
+  const [, domain, section] = node.url.split("/");
+  return domain === "linguistics" && activeSections.has(section ?? "");
+});
 
 describe("linguistics graph release", () => {
   it("maps all released articles to same-level graph nodes and real routes", () => {

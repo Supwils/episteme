@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import { COVERAGE_DOMAIN_COUNT } from "@/lib/knowledge-continuum-coverage-meta";
 import { useDeferredActivation } from "./knowledge-continuum/useDeferredKnowledgeData";
 
 const loadKnowledgeContinuum = () => import("./KnowledgeContinuumSection");
@@ -52,7 +53,7 @@ function ContinuumFallback({ onLoad }: { onLoad?: () => void }) {
       >
         <div>
           <p className="text-fg-disabled font-mono text-[9px] tracking-[0.22em] uppercase">
-            15 subjects · 5 stages
+            {COVERAGE_DOMAIN_COUNT} subjects · 5 stages
           </p>
           <h3 className="font-display text-fg-primary mt-1 text-xl font-semibold">
             从观察、概念与系统，走向方法和前沿
@@ -88,7 +89,10 @@ function ContinuumFallback({ onLoad }: { onLoad?: () => void }) {
         </div>
       </div>
 
-      <FallbackModule testId="knowledge-spine-atlas" title="15 门学科的五级主干地图" />
+      <FallbackModule
+        testId="knowledge-spine-atlas"
+        title={`${COVERAGE_DOMAIN_COUNT} 门学科的五级主干地图`}
+      />
       <FallbackModule
         testId="knowledge-learning-planner"
         title="知识地形与路线编排"

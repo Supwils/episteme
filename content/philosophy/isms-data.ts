@@ -18,14 +18,6 @@ export const ISMS = [
     key_figures: ["加缪"],
   },
   {
-    slug: "buddhism-philosophy",
-    title: "佛教哲学",
-    title_en: "Buddhist Philosophy",
-    category: "形而上学",
-    era: "公元前5世纪至今",
-    key_figures: ["释迦牟尼", "龙树", "无著", "世亲", "陈那"],
-  },
-  {
     slug: "confucianism-ism",
     title: "儒家思想",
     title_en: "Confucianism",
@@ -82,14 +74,6 @@ export const ISMS = [
     key_figures: ["利奥波德", "纳斯", "辛格", "雷根", "罗尔斯顿", "勾廷斯", "阿尔内·奈斯"],
   },
   {
-    slug: "epicureanism",
-    title: "伊壁鸠鲁主义",
-    title_en: "Epicureanism",
-    category: "伦理学",
-    era: "古代",
-    key_figures: ["伊壁鸠鲁"],
-  },
-  {
     slug: "essentialism",
     title: "本质主义",
     title_en: "Essentialism",
@@ -120,14 +104,6 @@ export const ISMS = [
     category: "伦理学",
     era: "文艺复兴至当代",
     key_figures: ["彼特拉克", "伊拉斯谟", "蒙田", "伏尔泰", "萨特", "马斯洛"],
-  },
-  {
-    slug: "idealism",
-    title: "唯心主义",
-    title_en: "Idealism",
-    category: "本体论",
-    era: "古代",
-    key_figures: ["柏拉图", "黑格尔", "贝克莱"],
   },
   {
     slug: "irrationalism",

@@ -6,9 +6,7 @@
   margin: 0 auto;
 }
 
-.timeline-page > div:first-child .section-title,
-.figures-page > div:first-child .section-title,
-.human-history-root .map-page > div:first-child .section-title {
+.human-history-root .timeline-page > div:first-child .section-title {
   letter-spacing: 0.06em;
 }
 

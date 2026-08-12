@@ -31,6 +31,7 @@ const NEXT_DIR = join(ROOT, ".next");
 const CHUNKS_DIR = join(NEXT_DIR, "static", "chunks");
 const HOMEPAGE_HTML = join(NEXT_DIR, "server", "app", "index.html");
 const HOMEPAGE_RSC = join(NEXT_DIR, "server", "app", "index.rsc");
+const GRAPH_DATA_BODY = join(NEXT_DIR, "server", "app", "knowledge-graph", "graph-data.body");
 
 // ---------------------------------------------------------------------------
 // Thresholds (gzipped bytes) — from docs/工程原则.md
@@ -47,9 +48,10 @@ const BUDGET = {
   sharedInitialJs: 180 * 1024, // 180 KB — root+polyfill shared by every route
   homepageHtmlRaw: 500 * 1024,
   homepageHtmlGzip: 80 * 1024,
-  homepageRscRaw: 110 * 1024, // 110 KB — raised from 100 KB on 2026-08-03: the portal grid
-  // gained cluster section headers (T-INFO-01) and two more domain cards (law/arts),
-  // which grew the home RSC payload to ~103 KB. Growth is static markup, not JS.
+  homepageRscRaw: 95 * 1024, // 95 KB — tightened from 110 KB by T-PERF-07.
+  // The previous ~105 KB payload was repeated server-rendered Tailwind class text,
+  // not article data. Semantic homepage classes cut it to ~85 KB without adding JS;
+  // this leaves ~10 KB for deliberate portal work while preventing a quiet rollback.
   genericArticleJs: 220 * 1024,
   historyTimelineShell: 12 * 1024,
   historyTimelineCatalog: 32 * 1024,
@@ -71,6 +73,8 @@ const BUDGET = {
   // a few more subjects. A 10x jump means article bodies leaked into the index,
   // which is what this catches.
   searchIndexBrotli: 560 * 1024,
+  graphDataRaw: 5 * 1024 * 1024,
+  graphDataBrotli: 600 * 1024,
 };
 
 // ---------------------------------------------------------------------------
@@ -256,6 +260,9 @@ const SEARCH_INDEX = join(ROOT, "public", "search-index.json");
 const searchIndexBrotli = statSync(SEARCH_INDEX, { throwIfNoEntry: false })
   ? brotliCompressSync(readFileSync(SEARCH_INDEX)).length
   : null;
+const graphDataRaw = statSync(GRAPH_DATA_BODY, { throwIfNoEntry: false })?.size ?? null;
+const graphDataBrotli =
+  graphDataRaw === null ? null : brotliCompressSync(readFileSync(GRAPH_DATA_BODY)).length;
 
 // ---------------------------------------------------------------------------
 // 3. Report
@@ -340,6 +347,9 @@ console.log(
   `    Search index       : ${searchIndexBrotli === null ? "n/a" : fmt(searchIndexBrotli)} brotli   (budget ${fmt(BUDGET.searchIndexBrotli)})`
 );
 console.log(
+  `    Graph data         : ${graphDataRaw === null ? "n/a" : fmt(graphDataRaw)} raw / ${graphDataBrotli === null ? "n/a" : fmt(graphDataBrotli)} brotli   (budgets ${fmt(BUDGET.graphDataRaw)} / ${fmt(BUDGET.graphDataBrotli)})`
+);
+console.log(
   `    Largest single chunk: ${fmt(topJs[0]?.gzip ?? 0)}   (budget ${fmt(BUDGET.singleChunkMax)})`
 );
 console.log(
@@ -412,6 +422,21 @@ if (searchIndexBrotli === null) {
   violations.push(
     `Search index (${fmt(searchIndexBrotli)} brotli) exceeds budget (${fmt(BUDGET.searchIndexBrotli)})`
   );
+}
+
+if (graphDataRaw === null || graphDataBrotli === null) {
+  violations.push("Knowledge graph data artifact is missing; run pnpm build");
+} else {
+  if (graphDataRaw > BUDGET.graphDataRaw) {
+    violations.push(
+      `Knowledge graph data (${fmt(graphDataRaw)} raw) exceeds budget (${fmt(BUDGET.graphDataRaw)})`
+    );
+  }
+  if (graphDataBrotli > BUDGET.graphDataBrotli) {
+    violations.push(
+      `Knowledge graph data (${fmt(graphDataBrotli)} brotli) exceeds budget (${fmt(BUDGET.graphDataBrotli)})`
+    );
+  }
 }
 
 if (sharedJsGzip !== null && sharedJsGzip > BUDGET.sharedInitialJs) {

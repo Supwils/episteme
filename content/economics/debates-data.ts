@@ -2,6 +2,20 @@
 // Search mirror of content/economics/*/*.mdx.
 export const ECONOMICS_DEBATES_DATA = [
   {
+    slug: "basic-income-vs-job-guarantee",
+    title: "基本收入还是就业保障：社会应当保证钱还是工作",
+    titleEn: "Universal Basic Income vs. Job Guarantee",
+    field: "",
+    sides: [],
+  },
+  {
+    slug: "carbon-tax-vs-cap-and-trade",
+    title: "碳税还是总量交易：给污染定价的两条路",
+    titleEn: "Carbon Tax vs. Cap and Trade",
+    field: "",
+    sides: [],
+  },
+  {
     slug: "cryptocurrency-debate",
     title: "加密货币：革命还是骗局？",
     titleEn: "Cryptocurrency: Revolution or Scam?",
@@ -40,6 +54,13 @@ export const ECONOMICS_DEBATES_DATA = [
     slug: "rational-expectations",
     title: "理性预期vs适应性预期",
     titleEn: "Rational Expectations vs Adaptive Expectations",
+    field: "",
+    sides: [],
+  },
+  {
+    slug: "rent-control-affordability-supply",
+    title: "租金管制之争：可负担性、居住稳定与住房供给",
+    titleEn: "Rent Control: Affordability, Stability, and Housing Supply",
     field: "",
     sides: [],
   },

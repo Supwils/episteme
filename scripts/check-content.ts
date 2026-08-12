@@ -19,6 +19,8 @@ import { createDialogues } from "../lib/generic-dialogues.ts";
 import { COSMOLOGY_KB_DATA } from "../content/cosmology/knowledge-base-data.ts";
 import { COSMOLOGY_DIALOGUES_DATA } from "../content/cosmology/dialogues-data.ts";
 import { LinguisticsArticleSchema } from "../subjects/linguistics/lib/schema.ts";
+import { collectArticles } from "../lib/search/articles.ts";
+import { WIKI_LINK_INDEX, resolveWikiLink } from "../lib/wiki-link-index.ts";
 
 // Every domain whose .mdx frontmatter is structured enough for the universal
 // required-field / depth / citation checks. Domains without a Zod schema below
@@ -30,7 +32,9 @@ const MDX_DOMAINS = [
   "mathematics",
   "life-science",
   "economics",
+  "human-history",
   "psychology",
+  "medicine",
   "earth-science",
   "computer-science",
   "political-science",
@@ -108,6 +112,11 @@ const MIN_LINES: Record<string, number> = {
   machines: 100,
   civil: 100,
   frontiers: 100,
+  "trial-analyses": 100,
+  "judgment-analyses": 100,
+  "policy-analyses": 100,
+  "source-analyses": 100,
+  "event-analyses": 100,
 };
 
 // Real depth is CJK character count, not physical non-empty lines. A complete,
@@ -149,6 +158,11 @@ const MIN_CJK_CHARS: Record<string, number> = {
   machines: 2200,
   civil: 2200,
   frontiers: 2200,
+  "trial-analyses": 2200,
+  "judgment-analyses": 2200,
+  "policy-analyses": 2200,
+  "source-analyses": 2200,
+  "event-analyses": 2200,
 };
 
 const TODO_PATTERN = /(?:^|[\s([{<])(?:TODO|FIXME|HACK|XXX)(?:\s*[:：)\]}>\-]|$)|待补|待完善/;
@@ -417,9 +431,49 @@ function checkLinkIntegrity(): { errors: number; warnings: number } {
     }
   }
 
+  // Phase 0.75 — every inline wiki target in publicly routable content must
+  // resolve through the exact same generated index used by MarkdownRenderer.
+  // Previously a miss silently became bold-looking prose, so authors and CI
+  // could not distinguish a real knowledge edge from a dead reference. Scan
+  // collectArticles() rather than the filesystem to exclude editorial notes
+  // and other non-public markdown by the same rules as search and backlinks.
+  {
+    let checked = 0;
+    const missing = new Map<string, Set<string>>();
+    for (const article of collectArticles()) {
+      for (const match of article.body.matchAll(/\[\[([^\]|]+?)(?:\|[^\]]+)?\]\]/g)) {
+        checked++;
+        const slug = match[1]!.trim();
+        if (!WIKI_LINK_INDEX[slug]) {
+          const sources = missing.get(slug) ?? new Set<string>();
+          sources.add(article.url);
+          missing.set(slug, sources);
+          continue;
+        }
+        const target = resolveWikiLink(slug, article.domain);
+        if (target === article.url) {
+          console.log(
+            `  \x1b[31mERROR\x1b[0m ${article.url} links to itself through alias/key \`[[${slug}]]\``
+          );
+          errors++;
+        }
+      }
+    }
+    for (const [slug, sources] of [...missing].sort(([a], [b]) => a.localeCompare(b))) {
+      console.log(
+        `  \x1b[31mERROR\x1b[0m unresolved wiki target \`[[${slug}]]\` in ${sources.size} routable article(s):`
+      );
+      for (const source of [...sources].sort()) console.log(`         ${source}`);
+      errors++;
+    }
+    if (missing.size === 0) {
+      console.log(`  \x1b[32m${checked} inline wiki-link occurrence(s) resolve.\x1b[0m`);
+    }
+  }
+
   // Phase 1 — every real KB/dialogue file must resolve through its loader after
   // the encode that the URL applies to the slug.
-  for (const domain of ["cosmology", "life-science", "universe-physics"]) {
+  for (const domain of ["cosmology", "life-science", "mathematics", "universe-physics"]) {
     const kb = createKnowledgeBase(domain);
     for (const slug of kb.getSlugs()) {
       const article = kb.getArticleBySlug(encodeURIComponent(slug));
@@ -428,6 +482,15 @@ function checkLinkIntegrity(): { errors: number; warnings: number } {
           `  \x1b[31mERROR\x1b[0m ${domain}/knowledge-base/${slug} does not resolve (404)`
         );
         errors++;
+      }
+      if (domain === "mathematics" && article) {
+        const cjk = countCjkChars(article.content);
+        if (cjk < 2200) {
+          console.log(
+            `  \x1b[31mERROR\x1b[0m mathematics/knowledge-base/${slug} is too short (${cjk} CJK chars; need 2200)`
+          );
+          errors++;
+        }
       }
     }
   }

@@ -10,9 +10,10 @@ import type { GraphNode, GraphNodeType } from "./types";
  * editorial meta documents under knowledge-base/), and a node pointing at a
  * non-route is a dead link that no gate would catch.
  *
- * Domains whose articles live one level deeper — the legacy knowledge bases with
- * `category--slug` composite routes — are not covered here; their slugs come
- * from the generated KB indexes, not from the directory layout.
+ * Article discovery is delegated to lib/search/articles, the shared route-aware
+ * inventory used to generate wiki and search indexes. This matters for legacy
+ * knowledge bases: their public slugs are `category--slug` composites and one
+ * domain serves them under /knowledge rather than /knowledge-base.
  */
 
 export interface DerivedDomain {
@@ -31,6 +32,8 @@ export interface DerivedDomain {
    */
   entryNodeId: string | null;
   sections: readonly string[];
+  /** Public route segment → content directory name, for legacy aliases. */
+  routeSectionAliases?: Readonly<Record<string, string>>;
 }
 
 export const DERIVED_DOMAINS: readonly DerivedDomain[] = [
@@ -39,7 +42,15 @@ export const DERIVED_DOMAINS: readonly DerivedDomain[] = [
     graphDomain: "arts",
     idPrefix: "arts",
     entryNodeId: "arts:seeing-and-perception",
-    sections: ["aesthetics", "architecture", "foundations", "media", "methods", "traditions"],
+    sections: [
+      "aesthetics",
+      "architecture",
+      "foundations",
+      "frontier",
+      "media",
+      "methods",
+      "traditions",
+    ],
   },
   {
     contentDirectory: "chemistry",
@@ -75,7 +86,15 @@ export const DERIVED_DOMAINS: readonly DerivedDomain[] = [
     graphDomain: "earth-science",
     idPrefix: "earth-science",
     entryNodeId: "earth-science:earth-systems-observation",
-    sections: ["climate-risks", "concepts", "events", "frontier", "pioneers", "processes"],
+    sections: [
+      "climate-risks",
+      "concepts",
+      "event-analyses",
+      "events",
+      "frontier",
+      "pioneers",
+      "processes",
+    ],
   },
   {
     contentDirectory: "economics",
@@ -90,6 +109,7 @@ export const DERIVED_DOMAINS: readonly DerivedDomain[] = [
       "economists",
       "frontier",
       "knowledge-base",
+      "policy-analyses",
       "schools",
       "theories",
     ],
@@ -99,7 +119,7 @@ export const DERIVED_DOMAINS: readonly DerivedDomain[] = [
     graphDomain: "engineering",
     idPrefix: "engineering",
     entryNodeId: "engineering:simple-machines",
-    sections: ["civil", "energy", "foundations", "frontiers", "machines", "materials"],
+    sections: ["civil", "energy", "foundations", "frontier", "frontiers", "machines", "materials"],
   },
   {
     // Only frontier: knowledge-base/ holds six editorial meta documents that were
@@ -111,7 +131,8 @@ export const DERIVED_DOMAINS: readonly DerivedDomain[] = [
     // History has no foundations node; the deep past is where its frontier
     // methods (ancient DNA, lidar survey, climate reconstruction) do their work.
     entryNodeId: "history:era-prehistoric",
-    sections: ["frontier"],
+    sections: ["frontier", "knowledge-base", "source-analyses"],
+    routeSectionAliases: { knowledge: "knowledge-base" },
   },
   {
     contentDirectory: "law",
@@ -121,7 +142,9 @@ export const DERIVED_DOMAINS: readonly DerivedDomain[] = [
     sections: [
       "criminal-and-procedure",
       "foundations",
+      "frontier",
       "global-and-digital",
+      "judgment-analyses",
       "legal-traditions",
       "private-law",
       "public-law",
@@ -141,6 +164,7 @@ export const DERIVED_DOMAINS: readonly DerivedDomain[] = [
     entryNodeId: "linguistics:language-speech-and-sign",
     sections: [
       "acquisition-and-mind",
+      "frontier",
       "history-typology-society",
       "methods-and-frontiers",
       "sounds-and-signs",
@@ -153,7 +177,15 @@ export const DERIVED_DOMAINS: readonly DerivedDomain[] = [
     graphDomain: "mathematics",
     idPrefix: "mathematics",
     entryNodeId: "mathematics:number-line",
-    sections: ["concepts", "dialogues", "frontier", "mathematicians", "paradoxes", "theorems"],
+    sections: [
+      "concepts",
+      "dialogues",
+      "frontier",
+      "knowledge-base",
+      "mathematicians",
+      "paradoxes",
+      "theorems",
+    ],
   },
   {
     contentDirectory: "medicine",
@@ -170,6 +202,7 @@ export const DERIVED_DOMAINS: readonly DerivedDomain[] = [
       "public-health",
       "technologies",
       "traditions",
+      "trial-analyses",
     ],
   },
   {
@@ -233,7 +266,7 @@ export const DERIVED_DOMAINS: readonly DerivedDomain[] = [
     graphDomain: "physics",
     idPrefix: "physics",
     entryNodeId: "physics:measurement-motion-energy",
-    sections: ["dialogues", "frontier"],
+    sections: ["dialogues", "frontier", "knowledge-base"],
   },
 ];
 
@@ -311,6 +344,11 @@ export const SECTION_KNOWLEDGE_LEVEL: Readonly<Record<string, KnowledgeLevel>> =
   methods: 4,
   "methods-and-frontiers": 4,
   systems: 4,
+  "trial-analyses": 4,
+  "judgment-analyses": 4,
+  "policy-analyses": 4,
+  "source-analyses": 4,
+  "event-analyses": 4,
   theorems: 4,
   // L5 — open questions.
   frontier: 5,
@@ -330,6 +368,11 @@ export const SECTION_NODE_TYPE: Readonly<Record<string, GraphNodeType>> = {
   economists: "economist",
   events: "event",
   experiments: "experiment",
+  "trial-analyses": "experiment",
+  "judgment-analyses": "event",
+  "policy-analyses": "event",
+  "source-analyses": "event",
+  "event-analyses": "event",
   figures: "figure",
   institutions: "institution",
   isms: "ism",

@@ -420,13 +420,6 @@ export const CONCEPTS = [
     key_figures: ["russell", "moore", "ayer", "austin", "sellars"],
   },
   {
-    slug: "skepticism",
-    title: "怀疑论",
-    title_en: "Skepticism",
-    field: "认识论",
-    key_figures: ["pyrrho", "descartes", "hume", "sextus-empiricus"],
-  },
-  {
     slug: "state",
     title: "国家",
     title_en: "State",

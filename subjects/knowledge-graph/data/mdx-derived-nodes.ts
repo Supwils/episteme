@@ -1,7 +1,5 @@
-import fs from "node:fs";
-import path from "node:path";
-import matter from "gray-matter";
 import type { KnowledgeLevel } from "@/lib/knowledge-levels";
+import { collectArticles, type Article } from "@/lib/search/articles";
 import type { GraphEdge, GraphNode } from "./types";
 import {
   DERIVED_DOMAINS,
@@ -27,37 +25,16 @@ import {
  * whose id or URL a curated node already claims.
  */
 
-/** Frontmatter keys that point at other articles. The content uses several
- *  spellings across domains and sections; reading only one drops most edges. */
-const RELATION_KEYS = [
-  "related",
-  "relatedTheories",
-  "relatedTheorists",
-  "related_thinkers",
-  "relatedPhenomena",
-  "keyFigures",
-  "key_figures",
-] as const;
-
 interface DerivedArticle {
   domain: DerivedDomain;
   section: string;
+  routeSection: string;
   slug: string;
+  url: string;
   title: string;
   description: string;
   tags: string[];
   relations: string[];
-}
-
-function findRepoRoot(): string {
-  let dir = process.cwd();
-  for (let i = 0; i < 6; i++) {
-    if (fs.existsSync(path.join(dir, "content")) && fs.existsSync(path.join(dir, "package.json"))) {
-      return dir;
-    }
-    dir = path.dirname(dir);
-  }
-  return process.cwd();
 }
 
 function extractDescription(content: string): string {
@@ -84,44 +61,26 @@ function extractDescription(content: string): string {
   return desc.length > 160 ? `${desc.slice(0, 158)}…` : desc;
 }
 
-function readArticles(root: string, domain: DerivedDomain): DerivedArticle[] {
-  const articles: DerivedArticle[] = [];
-
-  for (const section of domain.sections) {
-    const sectionDir = path.join(root, "content", domain.contentDirectory, section);
-    if (!fs.existsSync(sectionDir)) continue;
-
-    for (const file of fs.readdirSync(sectionDir)) {
-      if (!/\.mdx?$/.test(file) || file.endsWith(".narration.md")) continue;
-      const parsed = matter(fs.readFileSync(path.join(sectionDir, file), "utf-8"));
-      const fm = parsed.data as Record<string, unknown>;
-      if (fm.status && fm.status !== "published") continue;
-
-      const relations = new Set<string>();
-      for (const key of RELATION_KEYS) {
-        const value = fm[key];
-        if (!Array.isArray(value)) continue;
-        for (const ref of value) {
-          if (typeof ref === "string" && ref.trim()) relations.add(ref.trim());
-        }
-      }
-
-      const slug = file.replace(/\.mdx?$/, "");
-      articles.push({
-        domain,
-        section,
-        slug,
-        title: typeof fm.title === "string" ? fm.title : slug,
-        description: extractDescription(parsed.content),
-        tags: Array.isArray(fm.tags)
-          ? fm.tags.filter((tag): tag is string => typeof tag === "string").slice(0, 4)
-          : [],
-        relations: [...relations],
-      });
-    }
-  }
-
-  return articles;
+function readArticles(allArticles: readonly Article[], domain: DerivedDomain): DerivedArticle[] {
+  const sections = new Set(domain.sections);
+  return allArticles
+    .filter((article) => article.domain === domain.contentDirectory)
+    .map((article) => ({
+      article,
+      contentSection: domain.routeSectionAliases?.[article.section] ?? article.section,
+    }))
+    .filter(({ contentSection }) => sections.has(contentSection))
+    .map(({ article, contentSection }) => ({
+      domain,
+      section: contentSection,
+      routeSection: article.section,
+      slug: article.slug,
+      url: article.url,
+      title: article.title,
+      description: extractDescription(article.body),
+      tags: article.tags.slice(0, 4),
+      relations: article.relations,
+    }));
 }
 
 function nodeTypeFor(article: DerivedArticle): GraphNode["type"] {
@@ -151,7 +110,7 @@ function toNode(article: DerivedArticle, id: string): GraphNode {
     type: nodeTypeFor(article),
     slug: article.slug,
     section: article.section,
-    url: `/${article.domain.contentDirectory}/${article.section}/${article.slug}`,
+    url: article.url,
     description: article.description,
     tags: article.tags,
     knowledgeLevel: levelFor(article.section),
@@ -200,8 +159,8 @@ class NodeGrouping {
 }
 
 function build(): { nodes: GraphNode[]; edges: GraphEdge[] } {
-  const root = findRepoRoot();
-  const articles = DERIVED_DOMAINS.flatMap((domain) => readArticles(root, domain));
+  const allArticles = collectArticles();
+  const articles = DERIVED_DOMAINS.flatMap((domain) => readArticles(allArticles, domain));
 
   const nodes: GraphNode[] = [];
   const idByArticle = new Map<DerivedArticle, string>();
@@ -209,7 +168,8 @@ function build(): { nodes: GraphNode[]; edges: GraphEdge[] } {
   const claimed = new Set<string>();
 
   for (const article of articles) {
-    const id = `${article.domain.idPrefix}:${article.slug}`;
+    const namespace = ["knowledge", "knowledge-base"].includes(article.routeSection) ? "kb:" : "";
+    const id = `${article.domain.idPrefix}:${namespace}${article.slug}`;
     if (claimed.has(id)) continue;
     claimed.add(id);
     idByArticle.set(article, id);

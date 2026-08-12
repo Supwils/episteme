@@ -21,7 +21,7 @@ export function DomainCard({ domain, index }: { domain: Domain; index: number })
     <Link
       href={href}
       data-domain={domain.id}
-      className="domain-card animate-fade-slide-up group text-fg-primary relative flex cursor-pointer flex-col gap-3.5 rounded-[var(--card-radius,12px)] border border-[var(--color-border-faint)] bg-[var(--color-bg-near)] p-6 no-underline shadow-[var(--card-shadow,none)] sm:p-7"
+      className="domain-card"
       style={
         {
           animationDelay: `${0.15 + index * 0.12}s`,
@@ -29,57 +29,45 @@ export function DomainCard({ domain, index }: { domain: Domain; index: number })
         } as React.CSSProperties
       }
     >
-      <div className="flex items-start justify-between">
+      <div className="domain-card__top">
         <span
           aria-hidden="true"
-          className="domain-card__icon grid h-12 w-12 place-items-center rounded-[10px] border border-[var(--color-border-faint)]"
+          className="domain-card__icon"
           style={{ background: domain.bgAccent }}
         >
           {domain.icon}
         </span>
-        <div className="flex items-center gap-2 pt-1">
-          <span className="text-fg-muted font-mono text-[10px] tracking-[0.16em] uppercase">
+        <div className="domain-card__counter">
+          <span className="domain-card__counter-text">
             DOMAIN {String(index + 1).padStart(2, "0")}
           </span>
           <span
             aria-hidden="true"
-            className="domain-card__dot h-[9px] w-[9px] rounded-full"
+            className="domain-card__dot"
             style={{ background: domain.glowColor }}
           />
         </div>
       </div>
 
-      <div>
-        <h2 className="font-display text-fg-primary m-0 text-[1.4rem] leading-tight font-semibold">
-          {domain.title}
-        </h2>
-        <p
-          className="text-fg-muted mt-1 mb-0 font-mono text-[0.66rem] uppercase"
-          style={{ letterSpacing: "0.12em" }}
-        >
+      <div className="domain-card__copy">
+        <h2 className="domain-card__title">{domain.title}</h2>
+        <p className="domain-card__subtitle" style={{ letterSpacing: "0.12em" }}>
           {domain.titleEn}
         </p>
       </div>
 
-      <p className="text-fg-secondary m-0 flex-1 text-[0.88rem] leading-relaxed">
-        {domain.description}
-      </p>
+      <p className="domain-card__description">{domain.description}</p>
 
-      <div className="mt-1 flex items-center justify-between">
-        <span className="text-fg-muted font-mono text-[0.68rem] tracking-[0.04em]">
-          {domain.stats}
-        </span>
+      <div className="domain-card__footer">
+        <span className="domain-card__stats">{domain.stats}</span>
         <span
-          className="domain-card__cta inline-flex items-center gap-1.5 font-mono text-[0.7rem] font-medium tracking-[0.04em]"
+          className="domain-card__cta"
           style={{
             color: `color-mix(in oklab, ${domain.glowColor} 42%, var(--color-fg-primary))`,
           }}
         >
           进入探索
-          <span
-            aria-hidden="true"
-            className="domain-card__arrow inline-block transition-transform duration-300"
-          >
+          <span aria-hidden="true" className="domain-card__arrow">
             →
           </span>
         </span>

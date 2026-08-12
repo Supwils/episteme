@@ -34,6 +34,14 @@ export const PHILOSOPHY_EXPERIMENTS = [
     field: "伦理学",
   },
   {
+    slug: "frankfurt-cases",
+    title: "法兰克福案例",
+    title_en: "Frankfurt Cases",
+    philosopher: "哈里·法兰克福",
+    year: 1969,
+    field: "自由意志与道德责任",
+  },
+  {
     slug: "gettier-problem",
     title: "盖梯尔问题",
     title_en: "Gettier Problem",

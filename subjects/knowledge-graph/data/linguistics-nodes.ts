@@ -331,6 +331,16 @@ export const LINGUISTICS_NODES: GraphNode[] = [
     prerequisiteIds: ["linguistics:pragmatics", "linguistics:multilingual-mind"],
   }),
   n({
+    slug: "wug-test-morphology-analysis",
+    label: "Wug Test：儿童怎样推广新词",
+    section: "acquisition-and-mind",
+    description: "用虚构词、条件变体与逐项错误检验儿童形态知识的生产性及测量边界。",
+    tags: ["Wug Test", "形态习得", "实验设计"],
+    knowledgeLevel: 4,
+    evidenceMode: "experimental",
+    prerequisiteIds: ["linguistics:morphology", "linguistics:first-language-acquisition"],
+  }),
+  n({
     slug: "unicode-and-digital-writing",
     label: "Unicode 与数字文字基础设施",
     section: "writing-systems",
@@ -601,6 +611,36 @@ export const LINGUISTICS_NODES: GraphNode[] = [
     evidenceMode: "formal",
     prerequisiteIds: ["linguistics:stylistics"],
   }),
+  n({
+    slug: "corpus-annotation-and-agreement",
+    label: "语料标注与一致性",
+    section: "methods-and-frontiers",
+    description: "标注方案、标注者间一致性与裁决流程如何决定语料证据与模型评测的结论。",
+    tags: ["语料标注", "一致性度量", "标注指南"],
+    knowledgeLevel: 4,
+    evidenceMode: "observation",
+    prerequisiteIds: ["linguistics:linguistic-fieldwork", "linguistics:linguistic-typology"],
+  }),
+  n({
+    slug: "experimental-pragmatics",
+    label: "实验语用学：含义如何被测量",
+    section: "methods-and-frontiers",
+    description: "把会话含义变成可检验假设：标量含义实验、反应时与眼动证据及其解释边界。",
+    tags: ["实验语用学", "标量含义", "反应时"],
+    knowledgeLevel: 4,
+    evidenceMode: "experimental",
+    prerequisiteIds: ["linguistics:pragmatics"],
+  }),
+  n({
+    slug: "morphological-productivity",
+    label: "形态生产性：规则什么时候是活的",
+    section: "words-sentences-meaning",
+    description: "生产性的程度差异、类型/频率效应与 P* 测度，及阻塞与语料—实验互证。",
+    tags: ["形态生产性", "语料测度", "阻塞"],
+    knowledgeLevel: 3,
+    evidenceMode: "observation",
+    prerequisiteIds: ["linguistics:morphology"],
+  }),
 ];
 const e = (
   source: string,
@@ -615,6 +655,44 @@ const e = (
 });
 
 export const LINGUISTICS_EDGES: GraphEdge[] = [
+  e("morphology", "wug-test-morphology-analysis", "从形态结构到新词推广"),
+  e("first-language-acquisition", "wug-test-morphology-analysis", "用实验检验习得"),
+  e("linguistic-fieldwork", "corpus-annotation-and-agreement", "从田野记录到可复核标注"),
+  e("linguistic-typology", "corpus-annotation-and-agreement", "跨语言可比性来自标注方案"),
+  e(
+    "corpus-linguistics",
+    "corpus-annotation-and-agreement",
+    "标注是把语料变成证据的工序",
+    "cross-reference"
+  ),
+  e(
+    "experimental-linguistics",
+    "corpus-annotation-and-agreement",
+    "评分纪律同源",
+    "cross-reference"
+  ),
+  e("pragmatics", "experimental-pragmatics", "从含义理论到可检验假设"),
+  e("experimental-linguistics", "experimental-pragmatics", "共享实验设计纪律", "cross-reference"),
+  e(
+    "corpus-annotation-and-agreement",
+    "experimental-pragmatics",
+    "判断数据也需要一致性",
+    "cross-reference"
+  ),
+  e("morphology", "morphological-productivity", "从结构描述到生产性度量"),
+  e(
+    "wug-test-morphology-analysis",
+    "morphological-productivity",
+    "实验与语料互证",
+    "cross-reference"
+  ),
+  e("lexicography", "morphological-productivity", "词典收录与规则生死", "cross-reference"),
+  e(
+    "experimental-linguistics",
+    "wug-test-morphology-analysis",
+    "共享诱导与评分方法",
+    "cross-reference"
+  ),
   e("phonetics-and-ipa", "tone-and-prosody", "从音段到音高"),
   e("phonemes-and-sound-systems", "tone-and-prosody", "声调是词汇性对立"),
   e("tone-and-prosody", "acoustic-phonetics", "基频测量"),

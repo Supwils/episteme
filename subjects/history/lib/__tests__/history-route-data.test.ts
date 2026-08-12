@@ -40,7 +40,7 @@ describe("human-history route data split", () => {
         "modern",
         "contemporary",
         "future",
-      ]),
+      ])
     );
   });
 
@@ -67,15 +67,15 @@ describe("human-history route data split", () => {
   it("keeps full prose modules out of the timeline shell and graph catalogs", () => {
     const timelineSource = readFileSync(
       join(ROOT, "subjects/history/page-renderers/timeline.js"),
-      "utf8",
+      "utf8"
     );
     const historyGraphSource = readFileSync(
       join(ROOT, "subjects/history/lib/graph-data.ts"),
-      "utf8",
+      "utf8"
     );
     const globalGraphSource = readFileSync(
       join(ROOT, "subjects/knowledge-graph/data/history-nodes.ts"),
-      "utf8",
+      "utf8"
     );
 
     for (const source of [timelineSource, historyGraphSource, globalGraphSource]) {
@@ -85,14 +85,30 @@ describe("human-history route data split", () => {
     }
     expect(timelineSource).toContain("loadTimelineDetail");
   });
+
+  it("keeps full lecture prose out of the scholarly grid chunk", () => {
+    const scholarlySource = readFileSync(
+      join(ROOT, "subjects/history/page-renderers/scholarly.js"),
+      "utf8"
+    );
+    const scholarlyModalSource = readFileSync(
+      join(ROOT, "subjects/history/components/history/scholarly-modal.js"),
+      "utf8"
+    );
+
+    expect(scholarlySource).not.toContain("data/scholarly-index");
+    expect(scholarlySource).not.toContain("data/scholarly/scholarly-batch");
+    expect(scholarlySource).not.toContain("data/events.js");
+    expect(scholarlySource).toContain("SCHOLARLY_SUMMARIES");
+    // The modal may only reach lecture prose through the per-batch loader.
+    expect(scholarlyModalSource).not.toContain("data/scholarly-index");
+    expect(scholarlyModalSource).not.toContain("data/scholarly/scholarly-batch");
+    expect(scholarlyModalSource).toContain("loadScholarlyDetail");
+  });
 });
 
 describe("human-history graph article links", () => {
-  function node(
-    type: HistoryGraphNode["type"],
-    label: string,
-    slug: string,
-  ): HistoryGraphNode {
+  function node(type: HistoryGraphNode["type"], label: string, slug: string): HistoryGraphNode {
     return {
       id: `history:${type}-${slug}`,
       label,
@@ -105,14 +121,13 @@ describe("human-history graph article links", () => {
 
   it("links event and figure nodes to their exact readable detail pages", () => {
     expect(resolveNodeUrl(node("event", "工业革命", "工业革命"))).toBe(
-      `/human-history/events/${encodeURIComponent("工业革命")}`,
+      `/human-history/events/${encodeURIComponent("工业革命")}`
     );
     expect(resolveNodeUrl(node("figure", "孔子", "孔子"))).toBe(
-      `/human-history/figures/${encodeURIComponent("孔子")}`,
+      `/human-history/figures/${encodeURIComponent("孔子")}`
     );
     expect(resolveNodeUrl(node("era", "近代", "early-modern"))).toBe(
-      "/human-history/eras/earlyModern",
+      "/human-history/eras/earlyModern"
     );
-
   });
 });

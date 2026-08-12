@@ -13,6 +13,10 @@ import { GEO_EVENTS } from "../content/human-history/data/geo-events.js";
 import { LAST_DETAILS } from "../content/human-history/data/last-details.js";
 import { PARALLEL_EVENTS } from "../content/human-history/data/parallel-events.js";
 import { REFERENCES } from "../content/human-history/data/references.js";
+import { SCHOLARLY_BATCH_1 } from "../content/human-history/data/scholarly/scholarly-batch-1.js";
+import { SCHOLARLY_BATCH_2 } from "../content/human-history/data/scholarly/scholarly-batch-2.js";
+import { SCHOLARLY_BATCH_3 } from "../content/human-history/data/scholarly/scholarly-batch-3.js";
+import { SCHOLARLY_BATCH_4 } from "../content/human-history/data/scholarly/scholarly-batch-4.js";
 import {
   getEventRelationships,
   getFigureEventLinks,
@@ -84,6 +88,13 @@ const allDetails = {
   ...(GEO_ENRICHMENT_1 as Record<string, EventDetail>),
   ...(GEO_ENRICHMENT_2 as Record<string, EventDetail>),
 };
+
+const scholarlyBatches = [
+  SCHOLARLY_BATCH_1,
+  SCHOLARLY_BATCH_2,
+  SCHOLARLY_BATCH_3,
+  SCHOLARLY_BATCH_4,
+] as Record<string, EventDetail>[];
 
 function truncateText(text: string, length = 92): string {
   const cleaned = text.replace(/\s+/g, " ").trim();
@@ -170,6 +181,10 @@ async function main(): Promise<void> {
     timelineEvents.map((event) => event.title),
     "timeline events"
   );
+  assertUnique(
+    scholarlyBatches.flatMap((batch) => Object.keys(batch)),
+    "SCHOLARLY batches"
+  );
 
   const eventCatalog = events.map(({ year, title, desc, era, region, cat, references = [] }) => ({
     year,
@@ -208,6 +223,21 @@ async function main(): Promise<void> {
       detailPageCount: pageCount(detail),
     };
   });
+  // The /scholarly grid renders 81 cards but only needs these fields; the full
+  // lecture prose stays in per-batch shards that the modal loads on demand.
+  const scholarlySummary = Object.fromEntries(
+    scholarlyBatches.flatMap((batch, index) =>
+      Object.entries(batch).map(([title, detail]) => [
+        title,
+        {
+          pageCount: detail.pages?.length ?? 0,
+          quote: detail.quote?.text ?? null,
+          facts: (detail.facts ?? []).slice(0, 2),
+          batch: index + 1,
+        },
+      ])
+    )
+  );
 
   await Promise.all([
     writeGenerated(
@@ -233,6 +263,14 @@ async function main(): Promise<void> {
     writeGenerated(
       join(OUTPUT_DIR, "timeline-catalog.d.ts"),
       "export const TIMELINE_EVENT_CATALOG: unknown[];\n"
+    ),
+    writeGenerated(
+      join(OUTPUT_DIR, "scholarly-summary.js"),
+      exportModule("SCHOLARLY_SUMMARY", scholarlySummary)
+    ),
+    writeGenerated(
+      join(OUTPUT_DIR, "scholarly-summary.d.ts"),
+      "export const SCHOLARLY_SUMMARY: Record<string, unknown>;\n"
     ),
   ]);
 
@@ -324,7 +362,7 @@ async function main(): Promise<void> {
   }
 
   console.log(
-    `History route data: ${eventCatalog.length} events, ${timelineCatalog.length} timeline nodes, ${figureCatalog.length} figures, ${ERA_IDS.length} era shards`
+    `History route data: ${eventCatalog.length} events, ${timelineCatalog.length} timeline nodes, ${figureCatalog.length} figures, ${Object.keys(scholarlySummary).length} scholarly summaries, ${ERA_IDS.length} era shards`
   );
 }
 

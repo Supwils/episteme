@@ -1,5 +1,9 @@
 import type { GraphNode, GraphEdge } from "./types";
 
+const ROUTE_SLUG_BY_GRAPH_SLUG: Readonly<Record<string, string>> = {
+  宇宙距离阶梯: "宇宙学观测--宇宙距离阶梯",
+};
+
 const n = (slug: string, label: string, description: string, tags: string[]): GraphNode => ({
   id: `cosmology:${slug}`,
   label,
@@ -7,7 +11,7 @@ const n = (slug: string, label: string, description: string, tags: string[]): Gr
   type: "cosmic",
   slug,
   section: "knowledge-base",
-  url: `/cosmology/knowledge-base/${slug}`,
+  url: `/cosmology/knowledge-base/${ROUTE_SLUG_BY_GRAPH_SLUG[slug] ?? slug}`,
   tags,
   description,
 });

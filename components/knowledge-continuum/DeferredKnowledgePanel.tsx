@@ -29,7 +29,7 @@ export function DeferredKnowledgePanel({
 }) {
   if (status === "ready") {
     return (
-      <div ref={containerRef} data-testid={testId}>
+      <div ref={containerRef} data-testid={testId} data-deferred-status="ready">
         {children}
       </div>
     );
@@ -40,6 +40,7 @@ export function DeferredKnowledgePanel({
     <div
       ref={containerRef}
       data-testid={testId}
+      data-deferred-status={status}
       className="border-border-faint bg-bg-near mt-8 flex flex-col justify-between border px-4 py-5 sm:px-6"
       style={{ minHeight: "100vh" }}
       aria-labelledby={titleId}

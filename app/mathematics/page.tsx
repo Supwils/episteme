@@ -11,6 +11,7 @@ import {
   MATH_FIELD_COLORS,
   mathBadgeColor,
 } from "@/subjects/mathematics/lib/constants";
+import { mathematicsKB } from "@/lib/mathematics-kb";
 
 export const metadata: Metadata = {
   title: "数学与逻辑 — Episteme · 格致",
@@ -29,6 +30,7 @@ export default function MathematicsHomePage() {
   const dialogues = getAllMathDialogues();
   const paradoxes = getAllMathParadoxes();
   const eras = getAllMathEras();
+  const deepReadings = mathematicsKB.getAllArticles();
 
   const stats = [
     { value: mathematicians.length, label: "数学家", suffix: "" },
@@ -36,6 +38,7 @@ export default function MathematicsHomePage() {
     { value: concepts.length, label: "概念", suffix: "" },
     { value: paradoxes.length, label: "悖论", suffix: "" },
     { value: dialogues.length, label: "对话", suffix: "" },
+    { value: deepReadings.length, label: "深度阅读", suffix: "" },
   ];
 
   return (
@@ -288,6 +291,51 @@ export default function MathematicsHomePage() {
                 </Link>
               );
             })}
+          </div>
+        </section>
+      )}
+
+      {/* Narrative deep readings */}
+      {deepReadings.length > 0 && (
+        <section className="px-6 py-16 sm:px-10 lg:px-16">
+          <header className="mb-10 flex items-end justify-between gap-6">
+            <div>
+              <p className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.32em] uppercase">
+                mathematical deep readings
+              </p>
+              <h2 className="font-display text-fg-primary text-[1.8rem] tracking-tight md:text-[2.2rem]">
+                从问题史理解数学
+              </h2>
+              <p className="text-fg-secondary mt-2 max-w-xl text-sm leading-relaxed">
+                不只给出结论，也追踪证明、概念和应用为何出现，以及它们改变了什么。
+              </p>
+            </div>
+            <Link
+              href="/mathematics/knowledge-base"
+              className="text-fg-muted hover:text-accent-indigo shrink-0 font-mono text-[11px] tracking-[0.16em] uppercase transition-colors"
+            >
+              查看全部 {deepReadings.length} 篇 →
+            </Link>
+          </header>
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {deepReadings.slice(0, 6).map((article) => (
+              <Link
+                key={article.slug}
+                href={`/mathematics/knowledge-base/${article.slug}`}
+                className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 border p-5 transition-all duration-300 hover:-translate-y-0.5"
+              >
+                <span className="text-accent-indigo font-mono text-[9px] tracking-[0.22em] uppercase">
+                  {article.category}
+                </span>
+                <h3 className="font-display text-fg-primary group-hover:text-accent-indigo mt-2 text-base font-semibold transition-colors">
+                  {article.title}
+                </h3>
+                <p className="text-fg-secondary mt-2 line-clamp-2 text-[13px] leading-relaxed">
+                  {article.excerpt}
+                </p>
+              </Link>
+            ))}
           </div>
         </section>
       )}

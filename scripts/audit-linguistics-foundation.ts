@@ -65,6 +65,14 @@ for (const article of expected) {
 }
 
 const graphNodes = ALL_NODES.filter((node) => node.domain === "linguistics");
+// This audit protects the six-section foundation corpus. Shared
+// `frontier/` articles are intentionally additional L5 graph nodes and must not
+// inflate the foundation denominator as the subject keeps expanding.
+const foundationGraphNodes = graphNodes.filter((node) => {
+  if (!node.url) return false;
+  const [, domain, section] = node.url.split("/");
+  return domain === "linguistics" && activeSections.has(section ?? "");
+});
 const nodeMap = new Map(ALL_NODES.map((node) => [node.id, node]));
 const bridgeDomains = new Set<string>();
 for (const edge of ALL_EDGES) {
@@ -77,11 +85,11 @@ for (const edge of ALL_EDGES) {
     bridgeDomains.add(source.domain);
   }
 }
-if (graphNodes.length !== expected.length)
-  issues.push(`Graph has ${graphNodes.length}/${expected.length} foundation nodes`);
+if (foundationGraphNodes.length !== expected.length)
+  issues.push(`Graph has ${foundationGraphNodes.length}/${expected.length} foundation nodes`);
 if (bridgeDomains.size < 8)
   issues.push(`Graph has ${bridgeDomains.size}/8 external bridge domains`);
-const graphLevels = new Set(graphNodes.map((node) => node.knowledgeLevel));
+const graphLevels = new Set(foundationGraphNodes.map((node) => node.knowledgeLevel));
 if ([1, 2, 3, 4, 5].some((level) => !graphLevels.has(level))) {
   issues.push(`Graph does not cover all L1-L5 levels: ${[...graphLevels].sort().join(", ")}`);
 }
@@ -119,7 +127,9 @@ if (foundInteractives.size !== expectedInteractives.size) {
 console.log("Linguistics Foundation Audit\n");
 console.log(`Active sections: ${activeSections.size}`);
 console.log(`Released articles: ${found.length}/${expected.length}`);
-console.log(`Knowledge graph nodes: ${graphNodes.length}/${expected.length}`);
+console.log(
+  `Knowledge graph nodes: ${foundationGraphNodes.length}/${expected.length} foundation (${graphNodes.length} total)`
+);
 console.log(`External bridge domains: ${bridgeDomains.size}/8`);
 console.log(`Interactive visualizations: ${foundInteractives.size}/5`);
 console.log(`Curated L1-L5 spine: ${languageSpine ? "present" : "missing"}`);

@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { GlobalSearch } from "./GlobalSearch";
+import { NavigationProgress } from "./NavigationProgress";
 
 const ScrollToTop = dynamic(() => import("./ScrollToTop").then((m) => m.ScrollToTop), {
   ssr: false,
@@ -17,6 +18,7 @@ const NarrationPlayer = dynamic(
 export function ClientShell() {
   return (
     <>
+      <NavigationProgress />
       <GlobalSearch />
       <ScrollToTop />
       <ReadingPathBar />

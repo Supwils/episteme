@@ -10,6 +10,7 @@ import { getDialogueSlugs as getLifeDialogueSlugs } from "@/subjects/life-scienc
 import { getAllArticles } from "@/lib/knowledge-base";
 import { universePhysicsKB } from "@/lib/universe-physics-kb";
 import { cosmologyKB } from "@/lib/cosmology-kb";
+import { mathematicsKB } from "@/lib/mathematics-kb";
 import { universePhysicsDialogues } from "@/lib/universe-physics-dialogues";
 import { cosmologyDialogues } from "@/lib/cosmology-dialogues";
 import { SITE_URL } from "@/lib/constants";
@@ -38,7 +39,7 @@ import {
 } from "@/subjects/psychology/lib/mdx";
 import { createKnowledgeSection } from "@/lib/knowledge-domain";
 import { createFrontier, FRONTIER_DOMAINS } from "@/lib/frontier";
-import { KNOWLEDGE_DOMAINS } from "@/lib/new-domains";
+import { EXTENSION_DOMAINS, KNOWLEDGE_DOMAINS } from "@/lib/new-domains";
 import { READING_PATHS } from "@/lib/reading-paths";
 import { CURATED_KNOWLEDGE_CONFLUENCES } from "@/subjects/knowledge-graph/data/curated-confluences";
 
@@ -119,6 +120,7 @@ const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: "/mathematics/concepts", priority: 0.7 },
   { path: "/mathematics/paradoxes", priority: 0.7 },
   { path: "/mathematics/dialogues", priority: 0.7 },
+  { path: "/mathematics/knowledge-base", priority: 0.7 },
   { path: "/mathematics/timeline", priority: 0.7 },
   // Interactive medicine teaching labs
   { path: "/medicine/adolescent-service-lab", priority: 0.7 },
@@ -296,6 +298,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  const mathKnowledgeBaseEntries: MetadataRoute.Sitemap = mathematicsKB.getSlugs().map((slug) => ({
+    url: `${SITE_URL}/mathematics/knowledge-base/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
   const lifeDialogueEntries: MetadataRoute.Sitemap = getLifeDialogueSlugs().map((slug) => ({
     url: `${SITE_URL}/life-science/dialogues/${slug}`,
     lastModified: new Date(),
@@ -438,6 +447,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
+  const extensionEntries: MetadataRoute.Sitemap = [];
+  for (const config of Object.values(EXTENSION_DOMAINS)) {
+    for (const section of config.sections) {
+      extensionEntries.push({
+        url: `${SITE_URL}/${config.domain}/${section.key}`,
+        lastModified: new Date(),
+        changeFrequency: "weekly" as const,
+        priority: 0.7,
+      });
+      for (const slug of createKnowledgeSection(config.domain, section.key).getSlugs()) {
+        extensionEntries.push({
+          url: `${SITE_URL}/${config.domain}/${section.key}/${slug}`,
+          lastModified: new Date(),
+          changeFrequency: "monthly" as const,
+          priority: 0.6,
+        });
+      }
+    }
+  }
+
   const frontierEntries: MetadataRoute.Sitemap = [];
   for (const domain of FRONTIER_DOMAINS) {
     frontierEntries.push({
@@ -477,6 +506,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...readingPathEntries,
     ...knowledgeConfluenceEntries,
     ...newDomainEntries,
+    ...extensionEntries,
     ...frontierEntries,
     ...thinkerEntries,
     ...schoolEntries,
@@ -495,6 +525,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...mathConceptEntries,
     ...mathParadoxEntries,
     ...mathDialogueEntries,
+    ...mathKnowledgeBaseEntries,
     ...lifeDialogueEntries,
     ...economistEntries,
     ...econTheoryEntries,

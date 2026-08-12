@@ -8,6 +8,7 @@ import type {
   KnowledgePlannerPayload,
   KnowledgeSpinePayload,
 } from "@/lib/knowledge-continuum-payload";
+import { COVERAGE_DOMAIN_COUNT } from "@/lib/knowledge-continuum-coverage-meta";
 import { DeferredKnowledgePanel } from "./DeferredKnowledgePanel";
 import { useDeferredKnowledgeData } from "./useDeferredKnowledgeData";
 
@@ -83,7 +84,7 @@ function DeferredSpineAtlas() {
   return (
     <DeferredKnowledgePanel
       containerRef={deferred.containerRef}
-      title="15 门学科的五级主干地图"
+      title={`${COVERAGE_DOMAIN_COUNT} 门学科的五级主干地图`}
       description="比较每门学科从第一问、核心概念、系统解释、方法建模到研究边界的人工前置链。地图接近视口时才载入。"
       status={deferred.status}
       onLoad={deferred.activate}

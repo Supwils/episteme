@@ -10,8 +10,9 @@
  *   pnpm wiki-slug morphology semantics      # exact keys → URL, or ❌
  *   pnpm wiki-slug 'evolut|phylogen'         # no exact match → treated as regex
  *
- * `check-content` still catches dead links across the whole corpus; this is the
- * authoring-time counterpart.
+ * `check-content` catches dead links across every publicly routable article;
+ * this is the authoring-time counterpart. A small reviewed alias map lives in
+ * gen-wiki-links-index.ts; arbitrary typos are never guessed.
  */
 import { WIKI_LINK_INDEX } from "../lib/wiki-link-index.ts";
 

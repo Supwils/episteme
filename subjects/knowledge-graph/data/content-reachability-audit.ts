@@ -1,5 +1,4 @@
-import fs from "node:fs";
-import path from "node:path";
+import { collectArticles } from "@/lib/search/articles";
 import type { GraphNode } from "./types";
 
 type AuditScope = {
@@ -31,7 +30,15 @@ export const CONTENT_REACHABILITY_AUDIT_SCOPES: readonly AuditScope[] = [
   },
   {
     domain: "mathematics",
-    sections: ["concepts", "dialogues", "frontier", "mathematicians", "paradoxes", "theorems"],
+    sections: [
+      "concepts",
+      "dialogues",
+      "frontier",
+      "knowledge-base",
+      "mathematicians",
+      "paradoxes",
+      "theorems",
+    ],
     minimumCoveragePercent: 100,
   },
   {
@@ -59,6 +66,7 @@ export const CONTENT_REACHABILITY_AUDIT_SCOPES: readonly AuditScope[] = [
       "public-health",
       "technologies",
       "traditions",
+      "trial-analyses",
     ],
     minimumCoveragePercent: 100,
   },
@@ -71,22 +79,32 @@ export const CONTENT_REACHABILITY_AUDIT_SCOPES: readonly AuditScope[] = [
     domain: "law",
     sections: [
       "foundations",
+      "frontier",
       "public-law",
       "private-law",
       "criminal-and-procedure",
       "legal-traditions",
       "global-and-digital",
+      "judgment-analyses",
     ],
     minimumCoveragePercent: 100,
   },
   {
     domain: "arts",
-    sections: ["foundations", "media", "architecture", "traditions", "aesthetics", "methods"],
+    sections: [
+      "foundations",
+      "frontier",
+      "media",
+      "architecture",
+      "traditions",
+      "aesthetics",
+      "methods",
+    ],
     minimumCoveragePercent: 100,
   },
   {
     domain: "engineering",
-    sections: ["foundations", "energy", "materials", "machines", "civil", "frontiers"],
+    sections: ["foundations", "frontier", "energy", "materials", "machines", "civil", "frontiers"],
     minimumCoveragePercent: 100,
   },
   {
@@ -120,7 +138,15 @@ export const CONTENT_REACHABILITY_AUDIT_SCOPES: readonly AuditScope[] = [
   },
   {
     domain: "earth-science",
-    sections: ["climate-risks", "concepts", "events", "frontier", "pioneers", "processes"],
+    sections: [
+      "climate-risks",
+      "concepts",
+      "event-analyses",
+      "events",
+      "frontier",
+      "pioneers",
+      "processes",
+    ],
     minimumCoveragePercent: 100,
   },
   {
@@ -133,15 +159,15 @@ export const CONTENT_REACHABILITY_AUDIT_SCOPES: readonly AuditScope[] = [
       "economists",
       "frontier",
       "knowledge-base",
+      "policy-analyses",
       "schools",
       "theories",
     ],
     minimumCoveragePercent: 100,
   },
   {
-    // Four articles share a slug with an article in another section, so only one
-    // of each pair can hold `philosophy:<slug>` — the same ambiguity that makes
-    // the wiki index drop those slugs. Merging them is content work, not a floor.
+    // The last four cross-section duplicate slugs were merged in T-CONTENT-64;
+    // philosophy now has the same strict no-orphan contract as mature domains.
     domain: "philosophy",
     sections: [
       "concepts",
@@ -153,12 +179,13 @@ export const CONTENT_REACHABILITY_AUDIT_SCOPES: readonly AuditScope[] = [
       "schools",
       "thinkers",
     ],
-    minimumCoveragePercent: 98,
+    minimumCoveragePercent: 100,
   },
   {
     domain: "linguistics",
     sections: [
       "acquisition-and-mind",
+      "frontier",
       "history-typology-society",
       "methods-and-frontiers",
       "sounds-and-signs",
@@ -168,30 +195,25 @@ export const CONTENT_REACHABILITY_AUDIT_SCOPES: readonly AuditScope[] = [
     minimumCoveragePercent: 100,
   },
   {
-    // knowledge-base is left out of the three legacy domains below: those routes
-    // are `category--slug` composites generated from one directory deeper.
     domain: "cosmology",
-    sections: ["dialogues", "frontier"],
+    sections: ["dialogues", "frontier", "knowledge-base"],
     minimumCoveragePercent: 100,
   },
   {
     domain: "life-science",
-    sections: ["dialogues", "events", "frontier"],
+    sections: ["dialogues", "events", "frontier", "knowledge-base"],
     minimumCoveragePercent: 100,
   },
   {
     domain: "physics",
     contentDirectory: "universe-physics",
-    sections: ["dialogues", "frontier"],
+    sections: ["dialogues", "frontier", "knowledge-base"],
     minimumCoveragePercent: 100,
   },
   {
-    // Only frontier: knowledge-base/ holds editorial meta documents that were
-    // deliberately removed from the detail routes, and the history articles
-    // themselves are composites one directory deeper.
     domain: "history",
     contentDirectory: "human-history",
-    sections: ["frontier"],
+    sections: ["frontier", "knowledge", "source-analyses"],
     minimumCoveragePercent: 100,
   },
 ];
@@ -199,27 +221,20 @@ export const CONTENT_REACHABILITY_AUDIT_SCOPES: readonly AuditScope[] = [
 const routePrefix = (scope: AuditScope): string => scope.contentDirectory ?? scope.domain;
 
 function getArticleUrls(scope: AuditScope): string[] {
-  const urls: string[] = [];
-  for (const section of scope.sections) {
-    const sectionPath = path.join(process.cwd(), "content", routePrefix(scope), section);
-    if (!fs.existsSync(sectionPath)) continue;
-    for (const entry of fs.readdirSync(sectionPath)) {
-      if (!/\.mdx?$/.test(entry) || entry.endsWith(".narration.md")) continue;
-      urls.push(`/${routePrefix(scope)}/${section}/${entry.replace(/\.mdx?$/, "")}`);
-    }
-  }
-  return urls.sort();
+  const sections = new Set(scope.sections);
+  return collectArticles()
+    .filter((article) => article.domain === routePrefix(scope) && sections.has(article.section))
+    .map((article) => article.url)
+    .sort();
 }
 
 export function auditContentReachability(nodes: readonly GraphNode[]): ContentReachabilityReport[] {
   return CONTENT_REACHABILITY_AUDIT_SCOPES.map((scope) => {
     const articleUrls = getArticleUrls(scope);
     const articleUrlSet = new Set(articleUrls);
-    // Only the scoped sections are compared. Sections left out of a scope are
-    // driven by something other than one file per route — a registry with
-    // optional long-form bodies (life-science scientists), or a knowledge base
-    // whose routes are `category--slug` composites one directory deeper — and
-    // reading their nodes as article-less would be a false alarm, not a finding.
+    // Only real route inventory is compared. The shared collector understands
+    // composite knowledge-base slugs and excludes history's editorial meta docs,
+    // so this audit cannot silently omit a whole nested content tree again.
     const scopedSections = new Set(scope.sections);
     const graphNodeUrls = nodes
       .filter((node) => node.domain === scope.domain && node.url)

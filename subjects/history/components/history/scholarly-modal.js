@@ -1,28 +1,80 @@
 import { el } from '../../lib/dom.js';
 import { SCHOLARLY_TITLES } from '@/content/human-history/data/scholarly-titles.js';
+import { loadScholarlyDetail } from '../../lib/scholarly-data';
 import { saveReadingProgress } from '../../lib/reading-progress.js';
 import { renderReferences } from '../../lib/references.js';
 
 let activeCleanup = null;
-let scholarlyCache = null;
 
 export function hasScholarlyDetail(title) {
   return SCHOLARLY_TITLES.has(title);
 }
 
-async function loadScholarlyDetails() {
-  if (!scholarlyCache) {
-    const mod = await import('@/content/human-history/data/scholarly-index.js');
-    scholarlyCache = mod.SCHOLARLY_DETAILS;
-  }
-  return scholarlyCache;
+function attachOverlay(overlay, onClose) {
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) onClose(); });
+  const onKey = (e) => { if (e.key === 'Escape') onClose(); };
+  document.addEventListener('keydown', onKey);
+  document.body.appendChild(overlay);
+  activeCleanup = () => {
+    document.removeEventListener('keydown', onKey);
+    overlay.remove();
+    activeCleanup = null;
+  };
+  requestAnimationFrame(() => {
+    overlay.classList.add('open');
+    overlay.querySelector('.modal-close')?.focus();
+  });
+}
+
+function showScholarlyLoading(eventTitle) {
+  const overlay = el('div', { class: 'modal-overlay scholarly-overlay' });
+  overlay.innerHTML = `
+    <div class="modal-card scholarly-modal" role="dialog" aria-modal="true" aria-busy="true" aria-label="深度阅读：${eventTitle}">
+      <div class="sch-head">
+        <div class="sch-head-label">深度阅读 · 课堂讲稿</div>
+        <h2 class="sch-head-title">${eventTitle}</h2>
+        <div class="sch-head-actions">
+          <button class="modal-close" aria-label="关闭">✕</button>
+        </div>
+      </div>
+      <div class="sch-loading" role="status" aria-live="polite" style="padding:48px 32px;text-align:center;color:var(--parchment-dim)">
+        正在载入「${eventTitle}」的讲稿…
+      </div>
+    </div>
+  `;
+  overlay.querySelector('.modal-close').addEventListener('click', () => cleanupScholarlyModal());
+  attachOverlay(overlay, cleanupScholarlyModal);
+  return overlay;
+}
+
+function showScholarlyLoadError(overlay, retry) {
+  overlay.querySelector('.modal-card').removeAttribute('aria-busy');
+  const body = overlay.querySelector('.sch-loading');
+  body.setAttribute('role', 'alert');
+  body.innerHTML = `
+    <p style="margin:0 0 12px">讲稿载入失败，请检查网络后重试。</p>
+    <button type="button" class="scholarly-btn sch-load-retry">重新载入</button>
+  `;
+  body.querySelector('.sch-load-retry').addEventListener('click', retry);
 }
 
 export async function openScholarlyModal(eventTitle, options = {}) {
-  const SCHOLARLY_DETAILS = await loadScholarlyDetails();
-  const data = SCHOLARLY_DETAILS[eventTitle];
-  if (!data) return;
   cleanupScholarlyModal();
+  const loadingOverlay = showScholarlyLoading(eventTitle);
+
+  let data;
+  try {
+    data = await loadScholarlyDetail(eventTitle);
+  } catch {
+    if (loadingOverlay.isConnected) {
+      showScholarlyLoadError(loadingOverlay, () => openScholarlyModal(eventTitle, options));
+    }
+    return;
+  }
+  // The reader may have closed the overlay while the batch was downloading.
+  if (!loadingOverlay.isConnected) return;
+  cleanupScholarlyModal();
+  if (!data) return;
 
   const scrollMode = options.scrollMode ?? false;
 
@@ -68,21 +120,7 @@ export async function openScholarlyModal(eventTitle, options = {}) {
     cleanupScholarlyModal();
     openScholarlyModal(eventTitle, { scrollMode: !scrollMode });
   });
-  overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
-  const onKey = (e) => { if (e.key === 'Escape') close(); };
-  document.addEventListener('keydown', onKey);
-  document.body.appendChild(overlay);
-
-  activeCleanup = () => {
-    document.removeEventListener('keydown', onKey);
-    overlay.remove();
-    activeCleanup = null;
-  };
-
-  requestAnimationFrame(() => {
-    overlay.classList.add('open');
-    overlay.querySelector('.modal-close')?.focus();
-  });
+  attachOverlay(overlay, close);
 }
 
 export function cleanupScholarlyModal() {

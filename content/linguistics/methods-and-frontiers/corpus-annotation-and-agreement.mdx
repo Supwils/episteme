@@ -1,0 +1,93 @@
+---
+title: 语料标注与一致性：标注方案如何决定结论
+title_en: "Corpus Annotation and Agreement: How Annotation Schemes Shape Conclusions"
+status: published
+updated: 2026-08-11
+category: 语料库方法
+order: 10
+field: 语料库语言学 · 计算语言学
+knowledge_level: 4
+evidence_modes:
+  - corpus
+  - formal-analysis
+tags:
+  - 语料标注
+  - 标注者间一致性
+  - 标注指南
+  - 评测偏差
+related:
+  - corpus-linguistics
+  - experimental-linguistics
+  - multilingual-ai
+  - llm-and-linguistic-theory
+---
+
+给一段语料打词性标签，看起来像纯技术操作：翻开指南，选一个标签，敲下回车。但每个标签背后都站着一整套语法理论——什么算名词、短语边界划在哪里、歧义往哪边裁决。标注方案（annotation scheme）不是中立的记录工具，而是理论负载物（theory-laden）：它预先决定了后人能从语料里看见什么、看不见什么。今天绝大多数语言模型的训练与评测数据都出自这样的标注流水线，标注者的每一次分歧与裁决，都会顺着数据传进模型的分数里。本文讲三件事：标注方案如何携带理论，一致性度量如何既必要又会骗人，以及标注偏差怎样一路传导到模型评测。
+
+## 标注方案是理论负载物
+
+最著名的例子是宾州树库（Penn Treebank）。该项目 1989 年由 Mitchell Marcus 团队在宾夕法尼亚大学启动，到 1996 年结束时产出了约七百万词的词性标注文本和三百万词的句法标注文本。它的生产方式有两处刻意的设计选择：先用自动分析器给出初步结果、再由人工校对修正；句法标注只做"骨架式"（skeletal）分析——许多介词短语的依附关系被有意留白，不给完整句法树。
+
+留白不是偷懒，而是理论判断：团队认为在大规模生产条件下，要求标注者对每个歧义给出唯一完整分析既不可靠也不必要。这与 [[corpus-linguistics]] 中"词性标签不是原始事实、而是标注体系的理论选择"是同一件事的两面——树库把这一点放大到了句法层。1995 年的 Treebank II 又对标注指南做了系统性修订，词性标签集、空语类、并列结构的处理都有变化。换句话说，"宾州树库说了什么"取决于"哪一版指南说了什么"——用不同版本标注的数据训练和评测，得到的不是同一个任务。标注指南的每一次迭代，都是一次理论修订。
+
+## 一致率为什么会骗人
+
+既然标注依赖人的判断，第一个质量控制问题自然是：两个标注者标得一样吗？最直观的度量是原始一致率——标得相同的实例占比。但这个数字有系统性缺陷：如果语料里 90% 的词都是名词，两个标注者都闭着眼猜"名词"，也能有很高的一致率。一致率里混着运气，必须校正偶然一致。
+
+1960 年，心理学家 Jacob Cohen 在《Educational and Psychological Measurement》上发表的论文给出了今天最常用的校正：Cohen's kappa。它的思路是把观测一致率减去"按两人各自标签分布随机赋值时的期望一致率"，再归一化。kappa 为 0 表示一致程度不比碰运气强，为 1 表示完全一致，负值表示比随机还差。它适用于两名标注者、名义类别（没有大小顺序的标签），这是语言学标注最常见的场景。
+
+## 多个人、缺数据、有顺序：Fleiss 与 Krippendorff
+
+Cohen's kappa 只管两个人。1971 年 Joseph Fleiss 在《Psychological Bulletin》上把它推广到多名标注者：Fleiss' kappa 用全体标注者的汇总分布估计偶然一致，允许每个实例由不同的人来标，适合众包式的轮换标注。但它仍要求每个实例被标注的次数相同，且只处理名义类别。
+
+Krippendorff's alpha 走得更远。Klaus Krippendorff 1970 年在《Sociological Methodology》上提出这一系数，后来在他的内容分析方法论著作中系统化。alpha 允许标注者人数不等、允许缺失数据（众包里每人只标一小批是常态），还能通过更换"差异函数"适配名义、顺序、区间等不同量表——给情感强度打 1 到 5 分时，差 1 分和差 4 分的不一致被区别对待。代价是解释更难：alpha 的数值受所选差异函数影响，跨研究比较必须先核对设置是否相同。
+
+## kappa 悖论：高一致、低系数
+
+校正偶然一致带来了一个反直觉的后果，1990 年 Feinstein 与 Cicchetti 在《Journal of Clinical Epidemiology》上称之为 kappa 的两个悖论。最要紧的是第一个：当类别分布严重倾斜时，观测一致率很高，kappa 却可能很低。一个稀有句法现象在语料里只占 3%，两个标注者对那 97% 的普通实例毫无分歧、对稀有实例稍有出入，kappa 就会被拖到难看的数值。
+
+这对语言学不是抽象风险而是日常处境：自然语言的分布本来就高度倾斜，值得标注的现象往往正是稀有的那部分。所以单看一个 kappa 数值不能下结论，必须同时报告各类别的一致性、原始一致率和类别分布。反过来，高 kappa 同样不能证明标签正确——两个标注者读过同一份有缺陷的指南、共享同一个误解，可以一致地错。一致性度量回答的是"标注过程可复现吗"，回答不了"标签是真的吗"。
+
+## gold standard 是造出来的
+
+评测和训练需要一个"标准答案"数据集，即 gold standard（黄金标准）。成熟的标注项目不会把它当作天然存在，而是用一套流程造出来：先小批量试标，暴露指南没说清的情况；然后独立双标，用 kappa 或 alpha 设一道门槛；低于门槛的实例进入裁决（adjudication），由资深标注者或方案设计者讨论定案；裁决暴露的系统性分歧反过来修订指南，再进入下一轮。宾州树库的生产实践——自动预分析加人工校对——本质上也是把标注拆成可检查的工序。
+
+裁决环节藏着一个容易遗忘的事实：裁决者也是带着理论的人。gold 标签不是从语料里挖出来的事实，而是把两个可能都成立的分析压缩成一个的制度产物。好的项目会保留分歧记录，而不是只留下裁决结果——因为分歧本身可能是关于语言的真实信息。
+
+## 案例：NLI 数据集里的标注假象
+
+标注方案如何决定结论，最戏剧性的证据来自自然语言推理（NLI）评测。2015 年发布的 SNLI 数据集请众包工人看一句图片说明，分别写出"必然为真""可能为真""必然为假"三个句子。这个标注协议塑造了数据：工人写"矛盾"句时倾向用否定词，写"蕴含"句时倾向做简单改写。这些写作习惯成了标签的统计指纹。
+
+2018 年，Gururangan 等人在 NAACL 上发表的"Annotation Artifacts in Natural Language Inference Data"证明：一个只看假设句、根本不给前提句的分类器，在 SNLI 上能拿到约 67% 的准确率，而多数类基线只有三分之一左右。同年 Poliak 等人在十个 NLI 数据集上复现了同类现象。模型学会的是标注者的写作习惯，不是推理。成千上万个模型的"NLI 能力"排名，一度建立在这个假象之上——标注协议的一个决定，扭曲了整个领域的结论。
+
+## 分歧有时是信号，不是噪声
+
+裁决流程假设每个实例有一个正确答案。但 Pavlick 与 Kwiatkowski 2019 年发表在《TACL》上的研究给出了相反的证据：NLI 数据里人类标注者的分歧是系统的、可预测的，而不是随机噪声。有些句子天然介于"蕴含"与"中立"之间，强制五名标注者投出唯一标签，再拿这个标签当满分答案，等于惩罚模型说出一个本来合理的替代判断。
+
+这并不意味着放弃一致性要求，而是重新定位它：一致率低的地方要先问"是标注者没读懂指南，还是语言本身就是这样"。前者靠修订指南解决，后者靠保留标签分布解决——把"80% 标蕴含、20% 标中立"作为答案，而不是裁决成一个。
+
+## 不能推出什么
+
+一致性度量被误用的方式几乎和它的用途一样多。第一，高 kappa 推不出标签正确，只推出标注过程稳定；正确性需要独立的效度论证。第二，低 kappa 推不出任务失败——类别不平衡、现象本身连续、语言确有歧义，都会压低系数。第三，不同方案的 kappa 不能直接比较：类别数目、分布、量表类型都不同，0.75 在一个任务里未必好于另一个任务里的 0.65。
+
+第四，gold standard 的存在推不出其他分析错误——它只代表某一版指南下的裁决结果，换一套语法理论可能同样自洽。第五，模型在标注数据上得分高，推不出模型掌握了标注想测的能力；SNLI 的教训是，先要排除模型在利用标注协议留下的统计捷径。这五条的共同点是：标注是测量，而一切测量都要先审查仪器——这与 [[experimental-linguistics]] 里"先选构念、再选指标"的纪律同源。
+
+## 跨域连接
+
+- **[[multilingual-ai]]**：标注偏差向模型评测的传导，在低资源语言上被进一步放大。英语 NLI 至少有 Artstein 与 Poesio 式的度量传统可回溯，而许多语言的评测集标注者只有一两人、指南是英语版翻译的，一致性甚至无从计算。**此时报告的准确率度量的是标注者的个人语感，而非语言现象。**
+- **[[llm-and-linguistic-theory]]**：树库与 NLI 的历史说明，评测基准从来不是中立的量尺——它内嵌了标注方案的理论选择。**用大模型在基准上的分数裁决生成语法与统计学习之争，等于默认了基准背后的标注理论是正确的，而这恰恰是需要论证的那一步。**
+- **[[statistics]]**：kappa 家族的本质是把观测一致率对期望偶然一致做归一化，而"偶然"的定义（各自边际分布还是汇总分布）本身就是统计假设。Feinstein 与 Cicchetti 揭示的悖论则是患病率问题的翻版：**任何校正系数都同时对信号和分布敏感，读数之前必须先问分母里有什么。**
+- **[[cognitive-bias]]**：标注者是人，人会漂移、会疲劳、会相互模仿，还会在读懂研究目的后配合它。双标、盲标、裁决这些流程的本质，是把认知偏差当作系统性误差来设计的防线——**这与实验设计用填充项和掩饰任务防的是同一类敌人。**
+- **[[wug-test-morphology-analysis]]**：wug 测试用假词控制被试的既有知识，标注研究用双标和 kappa 控制标注者的主观漂移——**两者是同一条纪律的两端：先确保仪器只测你想测的东西，再谈论测到了什么。**实验材料设计与标注方案设计共享这套"仪器先行"的方法论自觉。
+
+## 参考文献
+
+- Marcus, Mitchell P., Beatrice Santorini, and Mary Ann Marcinkiewicz. "Building a Large Annotated Corpus of English: The Penn Treebank." *Computational Linguistics* 19.2 (1993): 313–330. [ACL Anthology](https://aclanthology.org/J93-2004/)
+- Taylor, Ann, Mitchell Marcus, and Beatrice Santorini. "The Penn Treebank: An Overview." In Anne Abeillé (ed.), *Treebanks: Building and Using Parsed Corpora*. Kluwer, 2003.
+- Cohen, Jacob. "A Coefficient of Agreement for Nominal Scales." *Educational and Psychological Measurement* 20.1 (1960): 37–46.
+- Fleiss, Joseph L. "Measuring Nominal Scale Agreement among Many Raters." *Psychological Bulletin* 76.5 (1971): 378–382.
+- Krippendorff, Klaus. "Bivariate Agreement Coefficients for Reliability of Data." *Sociological Methodology* 2 (1970): 139–150.
+- Feinstein, Alvan R., and Domenic V. Cicchetti. "High Agreement but Low Kappa: I. The Problems of Two Paradoxes." *Journal of Clinical Epidemiology* 43.6 (1990): 543–549.
+- Artstein, Ron, and Massimo Poesio. "Inter-Coder Agreement for Computational Linguistics." *Computational Linguistics* 34.4 (2008): 555–596. [ACL Anthology](https://aclanthology.org/J08-4004/)
+- Gururangan, Suchin, et al. "Annotation Artifacts in Natural Language Inference Data." *NAACL-HLT* (2018). [ACL Anthology](https://aclanthology.org/N18-2017/)
+- Pavlick, Ellie, and Tom Kwiatkowski. "Inherent Disagreements in Human Textual Inferences." *Transactions of the Association for Computational Linguistics* 7 (2019): 677–694.
