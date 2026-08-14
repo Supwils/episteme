@@ -90,7 +90,7 @@ export function MobileNav({ groups }: { groups: NavGroup[] }) {
     <div className="lg:hidden">
       <button
         ref={buttonRef}
-        className="flex h-11 w-11 flex-col items-center justify-center gap-[5px]"
+        className="border-border-subtle hover:border-accent-gold flex h-10 w-10 flex-col items-center justify-center gap-[5px] rounded-lg border transition-colors"
         aria-label={open ? "关闭菜单" : "打开菜单"}
         aria-expanded={open}
         aria-haspopup="true"

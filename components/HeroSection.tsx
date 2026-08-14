@@ -10,7 +10,7 @@ export function HeroSection() {
             style={{ animationDelay: "0.1s" }}
           >
             <span aria-hidden="true" className="bg-accent-gold/45 h-px w-8" />
-            <p className="text-accent-gold font-mono text-[0.7rem] font-medium tracking-[0.38em] uppercase">
+            <p className="text-accent-gold font-mono text-[0.75rem] font-medium tracking-[0.38em] uppercase">
               Episteme · 格致 Platform
             </p>
             <span aria-hidden="true" className="bg-accent-gold/45 h-px w-8" />
@@ -55,7 +55,7 @@ export function HeroSection() {
                 {stat.value}
                 {stat.suffix}
               </span>
-              <span className="text-fg-muted mt-1.5 block font-mono text-[0.68rem] tracking-[0.18em] uppercase">
+              <span className="text-fg-muted mt-1.5 block font-mono text-[0.75rem] tracking-[0.18em] uppercase">
                 {stat.label}
               </span>
             </div>

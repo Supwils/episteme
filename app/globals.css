@@ -352,8 +352,8 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
   align-items: center;
   gap: 6px;
   padding: 5px 10px;
-  min-height: 44px;
-  border-radius: 6px;
+  min-height: 40px;
+  border-radius: 8px;
   border: 1px solid var(--color-border-subtle);
   background: var(--color-bg-elevated);
   color: var(--color-fg-secondary);
