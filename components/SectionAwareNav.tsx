@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { DesktopNav } from "./DesktopNav";
 import { MobileNav } from "./MobileNav";
@@ -11,13 +12,27 @@ import { SECTION_SHELL_PREFIXES } from "../lib/urls";
 
 export function SectionAwareNav() {
   const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   if (SECTION_SHELL_PREFIXES.some((p) => pathname.startsWith(p))) {
     return null;
   }
 
   return (
-    <header className="border-border-faint bg-bg-base/75 sticky top-0 z-50 border-b backdrop-blur-xl">
+    <header
+      className={`sticky top-0 z-50 border-b backdrop-blur-xl transition-[background-color,box-shadow,border-color] duration-300 ${
+        scrolled
+          ? "border-border-subtle bg-bg-overlay shadow-[0_8px_30px_rgb(0_0_0/0.18)]"
+          : "border-border-faint bg-bg-base/75"
+      }`}
+    >
       <nav
         id="site-navigation"
         aria-label="主导航"

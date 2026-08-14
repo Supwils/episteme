@@ -15,7 +15,6 @@ const SECTIONS = [
     icon: "🧠",
     title: "理论家",
     titleEn: "Theorists",
-    count: "44",
     description: "从弗洛伊德到卡尼曼，心理学巨匠的生平与理论",
     href: "/psychology/theorists",
     accent: "#9b7dc4",
@@ -25,7 +24,6 @@ const SECTIONS = [
     icon: "🔬",
     title: "经典实验",
     titleEn: "Experiments",
-    count: "26",
     description: "改变心理学进程的里程碑实验与发现",
     href: "/psychology/experiments",
     accent: "#6b8fd6",
@@ -35,7 +33,6 @@ const SECTIONS = [
     icon: "✨",
     title: "心理现象",
     titleEn: "Phenomena",
-    count: "56",
     description: "认知偏差、社会效应与令人惊奇的心理规律",
     href: "/psychology/phenomena",
     accent: "#d4789c",
@@ -45,7 +42,6 @@ const SECTIONS = [
     icon: "🏛️",
     title: "流派学说",
     titleEn: "Schools",
-    count: "9",
     description: "从精神分析到认知革命，心理学的主要流派",
     href: "/psychology/schools",
     accent: "#9b7dc4",
@@ -55,7 +51,6 @@ const SECTIONS = [
     icon: "💊",
     title: "心理障碍",
     titleEn: "Disorders",
-    count: "15",
     description: "DSM分类体系中的主要心理障碍与诊断",
     href: "/psychology/disorders",
     accent: "#e07a5f",
@@ -65,7 +60,6 @@ const SECTIONS = [
     icon: "⚖️",
     title: "经典论辩",
     titleEn: "Debates",
-    count: "6",
     description: "先天vs后天、自由意志vs决定论等核心争论",
     href: "/psychology/debates",
     accent: "#6b8fd6",
@@ -75,7 +69,6 @@ const SECTIONS = [
     icon: "💬",
     title: "思想对话",
     titleEn: "Dialogues",
-    count: "8",
     description: "跨越时代的思想交锋与虚拟对话",
     href: "/psychology/dialogues",
     accent: "#d4789c",
@@ -85,7 +78,6 @@ const SECTIONS = [
     icon: "📚",
     title: "知识库",
     titleEn: "Knowledge Base",
-    count: "13",
     description: "CBT 自助、正念科学、情绪智力——把心理科学转化为日常方法",
     href: "/psychology/knowledge-base",
     accent: "#6b8fd6",
@@ -95,7 +87,6 @@ const SECTIONS = [
     icon: "🔎",
     title: "现代研究方法",
     titleEn: "Research Methods",
-    count: "6",
     description: "从测量等值性、纵向模型到开放科学与数字表型",
     href: "/psychology/methods",
     accent: "#8a78bd",
@@ -105,19 +96,11 @@ const SECTIONS = [
     icon: "🛰️",
     title: "研究前沿",
     titleEn: "Frontier",
-    count: "2020s",
     description: "复制危机之后、计算精神病学、致幻剂疗法——正在发生的心理科学",
     href: "/psychology/frontier",
     accent: "#56b6c2",
   },
 ] as const;
-
-const STATS = [
-  { label: "理论家", value: 44, suffix: "位" },
-  { label: "实验", value: 26, suffix: "项" },
-  { label: "现象", value: 56, suffix: "个" },
-  { label: "流派", value: 9, suffix: "个" },
-];
 
 const FLOATING_SYMBOLS = ["ψ", "∞", "△", "◎", "∑", "λ", "⊕", "⟐"];
 
@@ -203,7 +186,13 @@ function SectionCard({
   );
 }
 
-export default function PsychologyHomeClient() {
+export interface PsychologyHomeStat {
+  label: string;
+  value: number;
+  suffix: string;
+}
+
+export default function PsychologyHomeClient({ stats }: { stats: PsychologyHomeStat[] }) {
   const reduce = useReducedMotion();
   const d = useCallback((sec: number) => (reduce ? 0 : sec), [reduce]);
 
@@ -258,7 +247,7 @@ export default function PsychologyHomeClient() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: d(0.8), ease: PRODUCT_EASE }}
         >
-          {STATS.map((stat) => (
+          {stats.map((stat) => (
             <div key={stat.label} className="flex flex-col items-center gap-1">
               <span className="font-display text-accent-purple text-3xl font-semibold tabular-nums md:text-4xl">
                 {stat.value}

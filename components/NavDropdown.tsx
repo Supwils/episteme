@@ -7,32 +7,89 @@ import type { NavGroup } from "./nav-data";
 
 /**
  * A single category trigger + dropdown panel. Opens on hover (with a small
- * close delay so the cursor can travel into the panel) and on click/keyboard;
- * closes on Escape or outside click. Entrance animation is gated on
- * prefers-reduced-motion in globals.css.
+ * intent delay so the cursor can travel into the panel) and on click/keyboard;
+ * closes on Escape or outside click. Keyboard: ArrowDown/ArrowUp on the
+ * trigger opens the panel and focuses the first/last item; arrows + Home/End
+ * cycle items; Tab moves on and closes (menubar pattern). Entrance animation
+ * is gated on prefers-reduced-motion in globals.css.
  */
 export function NavDropdown({ group }: { group: NavGroup }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const openTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const ref = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const panelId = `nav-dropdown-${group.label}`;
 
+  const isItemActive = (href: string) => pathname === href || pathname.startsWith(href + "/");
   const allItems = group.sections.flatMap((s) => s.items);
-  const isActive = allItems.some((i) => pathname.startsWith(i.href));
+  const isActive = allItems.some((i) => isItemActive(i.href));
   const multiSection = group.sections.length > 1;
 
-  const openNow = () => {
+  const openSoon = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
-    setOpen(true);
+    if (openTimer.current) clearTimeout(openTimer.current);
+    // Small intent delay so sweeping the cursor across the nav doesn't flash panels.
+    openTimer.current = setTimeout(() => setOpen(true), 80);
   };
   const closeSoon = () => {
+    if (openTimer.current) clearTimeout(openTimer.current);
     if (closeTimer.current) clearTimeout(closeTimer.current);
     closeTimer.current = setTimeout(() => setOpen(false), 120);
   };
 
+  const getMenuItems = () =>
+    Array.from(ref.current?.querySelectorAll<HTMLAnchorElement>('[role="menuitem"]') ?? []);
+
+  const openAndFocus = (edge: "first" | "last") => {
+    if (openTimer.current) clearTimeout(openTimer.current);
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setOpen(true);
+    requestAnimationFrame(() => {
+      const items = getMenuItems();
+      (edge === "first" ? items[0] : items[items.length - 1])?.focus();
+    });
+  };
+
+  const onTriggerKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      openAndFocus("first");
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      openAndFocus("last");
+    }
+  };
+
+  const onPanelKeyDown = (e: React.KeyboardEvent) => {
+    const items = getMenuItems();
+    const current = items.indexOf(document.activeElement as HTMLAnchorElement);
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      items[(current + 1) % items.length]?.focus();
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      items[(current - 1 + items.length) % items.length]?.focus();
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      items[0]?.focus();
+    } else if (e.key === "End") {
+      e.preventDefault();
+      items[items.length - 1]?.focus();
+    } else if (e.key === "Tab") {
+      setOpen(false);
+    }
+  };
+
   useEffect(() => {
     if (!open) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        triggerRef.current?.focus();
+      }
+    };
     const onClick = (e: MouseEvent) => {
       if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
     };
@@ -45,14 +102,24 @@ export function NavDropdown({ group }: { group: NavGroup }) {
   }, [open]);
 
   return (
-    <div ref={ref} className="relative" onMouseEnter={openNow} onMouseLeave={closeSoon}>
+    <div ref={ref} className="relative" onMouseEnter={openSoon} onMouseLeave={closeSoon}>
       <button
+        ref={triggerRef}
         type="button"
         aria-expanded={open}
         aria-haspopup="menu"
+        aria-controls={panelId}
         onClick={() => setOpen((o) => !o)}
+        onKeyDown={onTriggerKeyDown}
         className={`flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm transition-colors ${
-          isActive || open ? "text-fg-primary" : "text-fg-secondary hover:text-accent-gold"
+          open
+            ? "text-fg-primary"
+            : isActive
+              ? // fg (not accent-gold) so the active state stays readable on
+                // domains that re-pin surfaces, e.g. cosmology's permanent dark
+                // canvas under a light global theme.
+                "text-fg-primary font-medium"
+              : "text-fg-secondary hover:text-accent-gold"
         }`}
       >
         {group.label}
@@ -80,6 +147,8 @@ export function NavDropdown({ group }: { group: NavGroup }) {
         // Wrapper spans the 10px gap as a transparent hover bridge so the cursor
         // can travel from trigger to panel without crossing a dead zone.
         <div
+          id={panelId}
+          onKeyDown={onPanelKeyDown}
           className={`absolute top-full left-1/2 z-50 -translate-x-1/2 pt-2.5 ${
             multiSection ? "w-[32rem]" : "w-64"
           }`}
@@ -105,14 +174,14 @@ export function NavDropdown({ group }: { group: NavGroup }) {
                     </div>
                   )}
                   {section.items.map((item, i) => {
-                    const active = pathname.startsWith(item.href);
+                    const active = isItemActive(item.href);
                     return (
                       <Link
                         key={item.href}
                         href={item.href}
                         role="menuitem"
                         onClick={() => setOpen(false)}
-                        style={{ animationDelay: `${i * 35}ms` }}
+                        style={{ animationDelay: `${Math.min(i, 6) * 35}ms` }}
                         className="nav-dropdown-item hover:bg-bg-elevated group/item flex items-center gap-3 rounded-xl px-3 py-2 transition-all hover:translate-x-0.5"
                       >
                         <span

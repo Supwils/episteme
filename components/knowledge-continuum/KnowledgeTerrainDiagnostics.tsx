@@ -8,6 +8,7 @@ import type {
   KnowledgeTerrainDomain,
   KnowledgeTerrainSnapshot,
 } from "@/lib/knowledge-terrain";
+import { getPriorityDiagnosticDomains } from "@/lib/knowledge-terrain";
 
 const DIAGNOSIS_LABELS: Record<KnowledgeTerrainDiagnosisKind, string> = {
   "missing-levels": "阶段空白",
@@ -19,13 +20,6 @@ const DIAGNOSIS_LABELS: Record<KnowledgeTerrainDiagnosisKind, string> = {
 
 function formatPercent(value: number): string {
   return `${Math.round(value * 100)}%`;
-}
-
-function priorityScore(domain: KnowledgeTerrainDomain): number {
-  return domain.diagnostics.reduce(
-    (score, diagnosis) => score + (diagnosis.severity === "high" ? 3 : 1),
-    0
-  );
 }
 
 function graphHref(domain: KnowledgeTerrainDomain, level?: number): string {
@@ -43,18 +37,7 @@ export function KnowledgeTerrainDiagnostics({
   selectedDomainId?: KnowledgeTerrainDomain["id"];
   onExplore: (filter: KnowledgeTargetFilter) => void;
 }) {
-  const priorityDomains = useMemo(
-    () =>
-      snapshot.domains
-        .filter((domain) => domain.diagnostics.length > 0)
-        .sort(
-          (left, right) =>
-            priorityScore(right) - priorityScore(left) ||
-            left.label.localeCompare(right.label, "zh-CN")
-        )
-        .slice(0, 6),
-    [snapshot.domains]
-  );
+  const priorityDomains = useMemo(() => getPriorityDiagnosticDomains(snapshot), [snapshot]);
   const [activeDomainId, setActiveDomainId] = useState(
     selectedDomainId ?? priorityDomains[0]?.id ?? snapshot.domains[0]!.id
   );

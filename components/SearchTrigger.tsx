@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
 export function SearchTrigger() {
   function handleClick() {
-    document.dispatchEvent(new CustomEvent('open-global-search'));
+    document.dispatchEvent(new CustomEvent("open-global-search"));
   }
 
   return (
@@ -10,7 +10,7 @@ export function SearchTrigger() {
       type="button"
       onClick={handleClick}
       className="gs-trigger"
-      aria-label="打开搜索 (Ctrl+K)"
+      aria-label="打开搜索（⌘K / Ctrl+K）"
     >
       <svg
         width="14"

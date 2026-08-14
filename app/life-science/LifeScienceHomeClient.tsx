@@ -6,13 +6,7 @@ import { serializeJsonLd } from "@/lib/jsonld";
 import Link from "next/link";
 import { useRef, useEffect, useState, useCallback, lazy, Suspense } from "react";
 import { PRODUCT_EASE } from "@/subjects/life-science/lib/constants";
-import {
-  ERAS,
-  FEATURED_SPECIES,
-  QUICK_LINKS,
-  STATS,
-  FLOATING_SYMBOLS,
-} from "@/subjects/life-science/lib/home-data";
+import { ERAS, FEATURED_SPECIES, FLOATING_SYMBOLS } from "@/subjects/life-science/lib/home-data";
 import { SITE_URL } from "@/lib/constants";
 
 const DNAHelix = lazy(() => import("@/subjects/life-science/components/visualizations/DNAHelix"));
@@ -243,7 +237,28 @@ function SpeciesCard({
   );
 }
 
-export default function LifeScienceHomeClient() {
+export interface LifeHomeStat {
+  value: number;
+  label: string;
+  suffix: string;
+}
+
+export interface LifeQuickLink {
+  href: string;
+  label: string;
+  icon: string;
+  description: string;
+  accent: string;
+}
+
+export default function LifeScienceHomeClient({
+  stats,
+  quickLinks,
+}: {
+  /** Real content counts computed server-side (was: hand-written, drifted). */
+  stats: LifeHomeStat[];
+  quickLinks: LifeQuickLink[];
+}) {
   const reduce = useReducedMotion();
   const d = useCallback((sec: number) => (reduce ? 0 : sec), [reduce]);
 
@@ -303,7 +318,7 @@ export default function LifeScienceHomeClient() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: d(0.8), ease: PRODUCT_EASE }}
         >
-          {STATS.map((stat) => (
+          {stats.map((stat) => (
             <StatCounter
               key={stat.label}
               value={stat.value}
@@ -449,7 +464,7 @@ export default function LifeScienceHomeClient() {
           探索 · explore
         </motion.p>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {QUICK_LINKS.map((link, i) => (
+          {quickLinks.map((link, i) => (
             <motion.div
               key={link.href}
               initial={{ opacity: 0, y: 20 }}
@@ -505,7 +520,7 @@ export default function LifeScienceHomeClient() {
 
       <section className="border-border-faint border-t border-b">
         <div className="flex w-full flex-wrap items-center justify-center gap-12 px-6 py-12 sm:px-10 md:justify-between lg:px-16">
-          {STATS.map((stat) => (
+          {stats.map((stat) => (
             <StatCounter
               key={stat.label}
               value={stat.value}

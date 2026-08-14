@@ -98,28 +98,99 @@ export const ERAS = [
 ] as const;
 
 export const FEATURED_SPECIES = [
-  { name: "三叶虫", latin: "Trilobita", era: "5.2 亿年前", period: "寒武纪", icon: "🦠", accent: "#5a9ad8" },
-  { name: "邓氏鱼", latin: "Dunkleosteus", era: "3.8 亿年前", period: "泥盆纪", icon: "🐟", accent: "#5a9ad8" },
-  { name: "霸王龙", latin: "Tyrannosaurus rex", era: "6800 万年前", period: "白垩纪", icon: "🦖", accent: "#98c379" },
-  { name: "猛犸象", latin: "Mammuthus", era: "400 万年前", period: "新近纪", icon: "🐘", accent: "#c8a45a" },
-  { name: "渡渡鸟", latin: "Raphus cucullatus", era: "1662 年灭绝", period: "全新世", icon: "🐦", accent: "#a88adf" },
-  { name: "腔棘鱼", latin: "Latimeria", era: "4 亿年前", period: "泥盆纪", icon: "🐠", accent: "#4a9e6f" },
+  {
+    name: "三叶虫",
+    latin: "Trilobita",
+    era: "5.2 亿年前",
+    period: "寒武纪",
+    icon: "🦠",
+    accent: "#5a9ad8",
+  },
+  {
+    name: "邓氏鱼",
+    latin: "Dunkleosteus",
+    era: "3.8 亿年前",
+    period: "泥盆纪",
+    icon: "🐟",
+    accent: "#5a9ad8",
+  },
+  {
+    name: "霸王龙",
+    latin: "Tyrannosaurus rex",
+    era: "6800 万年前",
+    period: "白垩纪",
+    icon: "🦖",
+    accent: "#98c379",
+  },
+  {
+    name: "猛犸象",
+    latin: "Mammuthus",
+    era: "400 万年前",
+    period: "新近纪",
+    icon: "🐘",
+    accent: "#c8a45a",
+  },
+  {
+    name: "渡渡鸟",
+    latin: "Raphus cucullatus",
+    era: "1662 年灭绝",
+    period: "全新世",
+    icon: "🐦",
+    accent: "#a88adf",
+  },
+  {
+    name: "腔棘鱼",
+    latin: "Latimeria",
+    era: "4 亿年前",
+    period: "泥盆纪",
+    icon: "🐠",
+    accent: "#4a9e6f",
+  },
 ] as const;
 
 export const QUICK_LINKS = [
-  { href: "/life-science/timeline", label: "进化时间线", icon: "⏳", description: "40 亿年生命演化的关键节点与里程碑", accent: "#4a9e6f" },
-  { href: "/life-science/tree", label: "生命之树", icon: "🌿", description: "从 LUCA 到所有现存物种的系统发育关系", accent: "#5cb87a" },
-  { href: "/life-science/species", label: "物种图鉴", icon: "🦋", description: "88 关键物种的详细档案与演化故事", accent: "#c8a45a" },
-  { href: "/life-science/extinctions", label: "大灭绝", icon: "☄", description: "5 次大灭绝事件的原因、过程与后果", accent: "#d85a5a" },
-  { href: "/life-science/scientists", label: "科学家", icon: "🔬", description: "15 改变我们理解生命的伟大科学家", accent: "#5a9ad8" },
-  { href: "/life-science/food-web", label: "食物网", icon: "🕸", description: "探索生态系统中物种间的捕食关系与能量流动", accent: "#9b6db7" },
-] as const;
-
-export const STATS = [
-  { value: 8, label: "地质时代", suffix: "个" },
-  { value: 88, label: "关键物种", suffix: "" },
-  { value: 5, label: "大灭绝", suffix: "次" },
-  { value: 15, label: "科学家", suffix: "位" },
+  {
+    href: "/life-science/timeline",
+    label: "进化时间线",
+    icon: "⏳",
+    description: "40 亿年生命演化的关键节点与里程碑",
+    accent: "#4a9e6f",
+  },
+  {
+    href: "/life-science/tree",
+    label: "生命之树",
+    icon: "🌿",
+    description: "从 LUCA 到所有现存物种的系统发育关系",
+    accent: "#5cb87a",
+  },
+  {
+    href: "/life-science/species",
+    label: "物种图鉴",
+    icon: "🦋",
+    description: "88 关键物种的详细档案与演化故事",
+    accent: "#c8a45a",
+  },
+  {
+    href: "/life-science/extinctions",
+    label: "大灭绝",
+    icon: "☄",
+    description: "5 次大灭绝事件的原因、过程与后果",
+    accent: "#d85a5a",
+  },
+  {
+    href: "/life-science/scientists",
+    label: "科学家",
+    icon: "🔬",
+    description: "15 改变我们理解生命的伟大科学家",
+    accent: "#5a9ad8",
+  },
+  {
+    href: "/life-science/food-web",
+    label: "食物网",
+    icon: "🕸",
+    description: "探索生态系统中物种间的捕食关系与能量流动",
+    accent: "#9b6db7",
+  },
 ] as const;
 
 export const FLOATING_SYMBOLS = ["🧬", "🌿", "🦴", "🔬", "☄", "🦠", "🌋", "DNA"] as const;

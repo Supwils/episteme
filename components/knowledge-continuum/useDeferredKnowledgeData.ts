@@ -25,7 +25,9 @@ export function useDeferredActivation(preload: () => void) {
         activate();
         observer.disconnect();
       },
-      { rootMargin: "0px" }
+      // Preload well before the section scrolls into view so the interactive
+      // content is already swapped in when the user arrives.
+      { rootMargin: "1200px 0px" }
     );
     observer.observe(element);
     return () => observer.disconnect();

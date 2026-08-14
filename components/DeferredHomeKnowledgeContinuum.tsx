@@ -42,17 +42,14 @@ function ContinuumFallback({ onLoad }: { onLoad?: () => void }) {
           </h2>
         </div>
         <p className="text-fg-secondary max-w-3xl text-sm leading-relaxed">
-          六个贯穿一生的问题把 15
+          六个贯穿一生的问题把 {COVERAGE_DOMAIN_COUNT}
           个学科组织为连续的认知结构：先观察，再掌握概念，继而解释系统、检验证据，最终进入需要多学科共同回答的开放问题。
         </p>
       </div>
 
-      <div
-        className="border-border-faint bg-bg-near flex flex-col justify-between border px-4 py-5 sm:px-6"
-        style={{ minHeight: "100vh" }}
-      >
+      <div className="border-border-faint bg-bg-near flex flex-col justify-between gap-8 border px-4 py-5 sm:px-6">
         <div>
-          <p className="text-fg-disabled font-mono text-[9px] tracking-[0.22em] uppercase">
+          <p className="text-fg-disabled font-mono text-[10px] tracking-[0.22em] uppercase">
             {COVERAGE_DOMAIN_COUNT} subjects · 5 stages
           </p>
           <h3 className="font-display text-fg-primary mt-1 text-xl font-semibold">
@@ -62,9 +59,9 @@ function ContinuumFallback({ onLoad }: { onLoad?: () => void }) {
             {["直觉启蒙", "核心概念", "系统解释", "方法建模", "综合前沿"].map((label, index) => (
               <li
                 key={label}
-                className="border-border-faint text-fg-secondary border-r border-b px-3 py-3 text-xs"
+                className="border-border-faint text-fg-secondary border-r border-b px-3 py-3 text-sm"
               >
-                <span className="text-fg-disabled block font-mono text-[9px]">0{index + 1}</span>
+                <span className="text-fg-disabled block font-mono text-[10px]">0{index + 1}</span>
                 {label}
               </li>
             ))}
@@ -75,14 +72,14 @@ function ContinuumFallback({ onLoad }: { onLoad?: () => void }) {
             <button
               type="button"
               onClick={onLoad}
-              className="border-border-faint text-fg-primary min-h-10 border px-4 text-xs"
+              className="border-border-faint text-fg-primary min-h-10 border px-4 text-sm"
             >
               展开交互图谱
             </button>
           ) : null}
           <Link
             href="/knowledge-graph?layout=cognitive&source=continuum-fallback"
-            className="text-fg-secondary hover:text-fg-primary inline-flex min-h-10 items-center border-b border-current text-xs"
+            className="text-fg-secondary hover:text-fg-primary inline-flex min-h-10 items-center border-b border-current text-sm"
           >
             查看完整认知图谱 →
           </Link>
@@ -133,19 +130,18 @@ function FallbackModule({
   return (
     <div
       data-testid={testId}
-      className="border-border-faint bg-bg-near mt-8 flex flex-col justify-between border px-4 py-5 sm:px-6"
-      style={{ minHeight: "100vh" }}
+      className="border-border-faint bg-bg-near mt-8 border px-4 py-5 sm:px-6"
     >
       {triggerTestIds.map((id) => (
         <span key={id} data-testid={id} aria-hidden="true" />
       ))}
       <div>
-        <p className="text-fg-disabled font-mono text-[9px] tracking-[0.22em] uppercase">
+        <p className="text-fg-disabled font-mono text-[10px] tracking-[0.22em] uppercase">
           knowledge continuum
         </p>
         <h3 className="font-display text-fg-primary mt-1 text-xl font-semibold">{title}</h3>
       </div>
-      <p className="text-fg-muted mt-8 text-xs leading-5">
+      <p className="text-fg-muted mt-4 text-sm leading-6">
         交互数据在这一部分进入视口后载入；完整正文入口始终保留。
       </p>
       {children}

@@ -240,7 +240,7 @@ export const ENGINEERING_SECTIONS: readonly EngSectionPlan[] = [
   },
   {
     id: "frontiers",
-    label: "前沿与伦理",
+    label: "重大工程与伦理",
     articles: [
       {
         slug: "failure-analysis",

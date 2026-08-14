@@ -16,6 +16,9 @@ export interface SubjectNavConfig {
   accent: string;
   /** Horizontally-scrollable sub-section tabs. */
   items: SubjectNavItem[];
+  /** Secondary tabs folded into a "更多" dropdown after `items` — keeps the
+   *  tab row scannable for subjects with many sections (human-history has 12). */
+  more?: SubjectNavItem[];
   /** When the home route is a full-screen immersive splash, hide the header
    *  there (it would cover the splash's own top chrome) but keep it on every
    *  sub-page. */
@@ -147,17 +150,19 @@ export const SUBJECT_NAV: Record<string, SubjectNavConfig> = {
     accent: "#c08a3e",
     items: [
       { href: "/human-history/timeline", label: "时间线" },
-      { href: "/human-history/atlas", label: "知识图谱" },
-      { href: "/human-history/graph", label: "关系图" },
+      { href: "/human-history/atlas", label: "历史图谱" },
       { href: "/human-history/civilizations", label: "文明对比" },
-      { href: "/human-history/map", label: "大洲" },
       { href: "/human-history/figures", label: "人物" },
-      { href: "/human-history/lessons", label: "借鉴" },
-      { href: "/human-history/simulations", label: "模拟" },
-      { href: "/human-history/scholarly", label: "深度阅读" },
-      { href: "/human-history/source-analyses", label: "史料剖析" },
       { href: "/human-history/knowledge", label: "知识库" },
       { href: "/human-history/frontier", label: "研究前沿" },
+    ],
+    more: [
+      { href: "/human-history/graph", label: "关系图谱" },
+      { href: "/human-history/map", label: "历史地图" },
+      { href: "/human-history/lessons", label: "历史启示" },
+      { href: "/human-history/simulations", label: "历史模拟" },
+      { href: "/human-history/scholarly", label: "深度讲稿" },
+      { href: "/human-history/source-analyses", label: "史料剖析" },
     ],
   },
 };
@@ -173,6 +178,9 @@ for (const [domain, config] of Object.entries(KNOWLEDGE_DOMAINS)) {
       ...config.sections.map((s) => ({ href: `/${domain}/${s.key}`, label: s.label })),
       { href: `/${domain}/frontier`, label: "前沿" },
     ],
+    ...(config.tools?.length
+      ? { more: config.tools.map((tool) => ({ href: tool.href, label: tool.label })) }
+      : {}),
   };
 }
 

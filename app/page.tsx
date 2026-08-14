@@ -18,11 +18,11 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Episteme · 格致 — 重现人类认识世界的旅程",
   description:
-    "以可视化、沉浸式的方式探索人类最重要的知识，涵盖自然科学、形式科学、人文与社会科学等 15 个领域。",
+    "以可视化、沉浸式的方式探索人类最重要的知识，涵盖自然科学、形式科学、人文与社会科学等 18 个领域。",
   openGraph: {
     title: "Episteme · 格致 — 重现人类认识世界的旅程",
     description:
-      "以可视化、沉浸式的方式探索人类最重要的知识，涵盖自然科学、形式科学、人文与社会科学等 15 个领域。",
+      "以可视化、沉浸式的方式探索人类最重要的知识，涵盖自然科学、形式科学、人文与社会科学等 18 个领域。",
     type: "website",
     images: [
       {
@@ -40,7 +40,7 @@ const websiteJsonLd = {
   name: "Episteme · 格致",
   url: SITE_URL,
   description:
-    "重现人类认识世界的旅程——以可视化、沉浸式的方式探索物理学、宇宙学、化学、地球科学、生命科学、医学、数学、计算机科学、心理学、哲学、人类历史、社会学、经济学、政治学与语言学。",
+    "重现人类认识世界的旅程——以可视化、沉浸式的方式探索物理学、宇宙学、化学、地球科学、生命科学、医学、数学、计算机科学、心理学、哲学、人类历史、社会学、经济学、政治学、语言学、法学、艺术与工程。",
   potentialAction: {
     "@type": "SearchAction",
     target: {
@@ -72,11 +72,11 @@ export default function HomePage() {
               <h2 className="font-display text-fg-primary text-2xl font-semibold tracking-tight">
                 {cluster.label}
               </h2>
-              <span className="text-fg-muted font-mono text-[10px] tracking-[0.28em] uppercase">
+              <span className="text-fg-muted font-mono text-[11px] tracking-[0.28em] uppercase">
                 {cluster.en}
               </span>
               <span className="bg-border-faint h-px flex-1" />
-              <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">
+              <span className="text-fg-disabled font-mono text-[11px] tracking-[0.22em]">
                 {cluster.domains.length} 个领域
               </span>
             </header>

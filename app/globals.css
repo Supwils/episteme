@@ -62,6 +62,8 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
   --color-bg-elevated: #14151c;
   --color-bg-floating: #1c1c26;
   --color-bg-overlay: rgba(8, 8, 13, 0.86);
+  /* Drawer/menu scrim — flipped to a soft umber in the Notebook theme. */
+  --color-scrim: rgba(4, 4, 8, 0.6);
 
   --color-fg-primary: #e6e3da;
   --color-fg-secondary: #a8a499;
@@ -144,6 +146,7 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
     --color-bg-elevated: #fffdf8;
     --color-bg-floating: #ffffff;
     --color-bg-overlay: rgba(245, 242, 235, 0.86);
+    --color-scrim: rgba(44, 40, 32, 0.32);
     --color-fg-primary: #2c2a26;
     --color-fg-secondary: #4f4b45;
     /* darkened to clear WCAG AA (4.5:1) on the #faf6ef light base. */
@@ -352,7 +355,7 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
   min-height: 44px;
   border-radius: 6px;
   border: 1px solid var(--color-border-subtle);
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--color-bg-elevated);
   color: var(--color-fg-secondary);
   font-size: 0.8rem;
   cursor: pointer;
@@ -704,7 +707,7 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
 }
 
 .domain-card__counter-text {
-  @apply text-fg-muted font-mono text-[10px] tracking-[0.16em] uppercase;
+  @apply text-fg-muted font-mono text-[11px] tracking-[0.16em] uppercase;
 }
 
 .domain-card__copy {
@@ -716,11 +719,11 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
 }
 
 .domain-card__subtitle {
-  @apply text-fg-muted mt-1 mb-0 font-mono text-[0.66rem] uppercase;
+  @apply text-fg-muted mt-1 mb-0 font-mono text-[0.74rem] uppercase;
 }
 
 .domain-card__description {
-  @apply text-fg-secondary m-0 flex-1 text-[0.88rem] leading-relaxed;
+  @apply text-fg-secondary m-0 flex-1 text-[0.92rem] leading-relaxed;
 }
 
 .domain-card__footer {
@@ -728,11 +731,11 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
 }
 
 .domain-card__stats {
-  @apply text-fg-muted font-mono text-[0.68rem] tracking-[0.04em];
+  @apply text-fg-muted font-mono text-[0.75rem] tracking-[0.04em];
 }
 
 .domain-card__cta {
-  @apply inline-flex items-center gap-1.5 font-mono text-[0.7rem] font-medium tracking-[0.04em];
+  @apply inline-flex items-center gap-1.5 font-mono text-[0.78rem] font-medium tracking-[0.04em];
 }
 
 .domain-card__arrow {
@@ -799,7 +802,7 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
 }
 
 .home-section-subtitle {
-  @apply text-fg-muted mb-10 text-center text-[0.88rem];
+  @apply text-fg-muted mb-10 text-center text-[0.95rem];
 }
 
 .home-updates-grid {
@@ -831,7 +834,7 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
 }
 
 .lift-card__badge {
-  @apply text-fg-secondary rounded-full px-2 py-0.5 text-[0.68rem] font-semibold;
+  @apply text-fg-secondary rounded-full px-2 py-0.5 text-[0.75rem] font-semibold;
 }
 
 .lift-card__badge--plain {
@@ -839,7 +842,7 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
 }
 
 .lift-card__date {
-  @apply text-fg-muted text-[0.68rem];
+  @apply text-fg-muted text-[0.75rem];
 }
 
 .lift-card__icon {
@@ -847,7 +850,7 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
 }
 
 .lift-card__title {
-  @apply text-fg-primary mb-1.5 text-[0.95rem] font-semibold transition-colors;
+  @apply text-fg-primary mb-1.5 text-[1rem] font-semibold transition-colors;
 }
 
 .lift-card:hover .lift-card__title,
@@ -856,7 +859,7 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
 }
 
 .lift-card__description {
-  @apply text-fg-secondary m-0 text-[0.82rem] leading-relaxed;
+  @apply text-fg-secondary m-0 text-[0.9rem] leading-relaxed;
 }
 
 .lift-card:hover,
@@ -925,7 +928,12 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
   width: 75%;
   height: 100%;
   transform-origin: left;
-  background: linear-gradient(90deg, transparent, var(--color-accent-gold) 30%, #f3d58b);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-accent-gold) 30%,
+    color-mix(in srgb, var(--color-accent-gold) 45%, #ffffff)
+  );
   animation: navigationProgressSweep 1.15s ease-in-out infinite;
 }
 
@@ -973,6 +981,36 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
   animation: navItemIn 0.25s both;
 }
 
+/* Mobile drawer (see MobileNav.tsx). Reduced-motion is zeroed by the global
+   media query above. */
+@keyframes mobileNavPanelIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-nav-panel {
+  animation: mobileNavPanelIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes mobileNavScrimIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.mobile-nav-scrim {
+  animation: mobileNavScrimIn 0.2s ease-out;
+}
+
 /* Tailwind's generated theme variables are unlayered and emitted after the
    base layer. This final unlayered override prevents portal chrome from
    combining Notebook surfaces with Observatory foreground utilities. */
@@ -985,6 +1023,7 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
   --color-bg-elevated: #fffdf8;
   --color-bg-floating: #ffffff;
   --color-bg-overlay: rgba(245, 242, 235, 0.9);
+  --color-scrim: rgba(44, 40, 32, 0.32) !important;
   --color-fg-primary: #2c2a26;
   --color-fg-secondary: #4f4b45;
   --color-fg-muted: #5a564f;

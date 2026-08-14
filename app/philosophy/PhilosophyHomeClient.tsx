@@ -10,7 +10,6 @@ import {
   SCHOOLS,
   THINKERS,
   QUICK_LINKS,
-  STATS,
   FLOATING_SYMBOLS,
 } from "@/subjects/philosophy/lib/home-data";
 import { ThinkerCarousel } from "@/subjects/philosophy/components/ThinkerCarousel";
@@ -180,7 +179,13 @@ function SchoolCard({
   );
 }
 
-export default function PhilosophyHomeClient() {
+export interface PhilosophyHomeStat {
+  value: number;
+  label: string;
+  suffix: string;
+}
+
+export default function PhilosophyHomeClient({ stats }: { stats: PhilosophyHomeStat[] }) {
   const reduce = useReducedMotion();
   const d = useCallback((sec: number) => (reduce ? 0 : sec), [reduce]);
 
@@ -240,7 +245,7 @@ export default function PhilosophyHomeClient() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: d(0.8), ease: PRODUCT_EASE }}
         >
-          {STATS.map((stat) => (
+          {stats.map((stat) => (
             <StatCounter
               key={stat.label}
               value={stat.value}
@@ -351,7 +356,7 @@ export default function PhilosophyHomeClient() {
 
       <section className="border-border-faint border-t border-b">
         <div className="flex w-full flex-wrap items-center justify-center gap-12 px-6 py-12 sm:px-10 md:justify-between lg:px-16">
-          {STATS.map((stat) => (
+          {stats.map((stat) => (
             <StatCounter
               key={stat.label}
               value={stat.value}

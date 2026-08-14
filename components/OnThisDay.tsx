@@ -85,7 +85,7 @@ export function OnThisDay({ events }: OnThisDayProps) {
               </div>
 
               <div
-                className="flex-1 rounded-xl p-4 transition-all duration-300 group-hover:bg-white/[0.04]"
+                className="group-hover:bg-bg-elevated flex-1 rounded-xl p-4 transition-all duration-300"
                 style={{
                   background: "rgba(255, 255, 255, 0.02)",
                   border: "1px solid rgba(255, 255, 255, 0.05)",

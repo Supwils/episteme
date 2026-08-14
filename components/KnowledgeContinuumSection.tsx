@@ -16,6 +16,7 @@ import {
 } from "@/lib/knowledge-continuum";
 import { buildContinuumGraphHref } from "@/lib/knowledge-continuum-graph";
 import { KnowledgeContinuumDeferred } from "./knowledge-continuum/KnowledgeContinuumDeferred";
+import { COVERAGE_DOMAIN_COUNT } from "@/lib/knowledge-continuum-coverage-meta";
 
 const DEFAULT_NODE_ID = "universe-matter-1";
 
@@ -45,7 +46,7 @@ export function KnowledgeContinuumSection() {
     <section className="w-full px-6 py-16 sm:px-10 lg:px-16" aria-labelledby="continuum-title">
       <div className="mb-9 grid gap-5 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-end">
         <div>
-          <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.34em] uppercase">
+          <p className="text-fg-muted mb-3 font-mono text-[11px] tracking-[0.34em] uppercase">
             knowledge continuum
           </p>
           <h2 id="continuum-title" className="font-display text-fg-primary text-2xl font-semibold">
@@ -53,7 +54,7 @@ export function KnowledgeContinuumSection() {
           </h2>
         </div>
         <p className="text-fg-secondary max-w-3xl text-sm leading-relaxed">
-          六个贯穿一生的问题把 15
+          六个贯穿一生的问题把 {COVERAGE_DOMAIN_COUNT}
           个学科组织为连续的认知结构：先观察，再掌握概念，继而解释系统、检验证据，最终进入需要多学科共同回答的开放问题。
         </p>
       </div>
@@ -61,8 +62,8 @@ export function KnowledgeContinuumSection() {
       <div className="border-border-faint bg-bg-near border">
         <div className="border-border-faint border-b px-4 py-4 sm:px-6">
           <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-            <p className="text-fg-muted font-mono text-[10px] tracking-[0.2em] uppercase">
-              15 学科 · 5 阶段 · 6 条问题主线
+            <p className="text-fg-muted font-mono text-[11px] tracking-[0.2em] uppercase">
+              {COVERAGE_DOMAIN_COUNT} 学科 · 5 阶段 · 6 条问题主线
             </p>
             <Link
               href={`/knowledge-graph?level=${activeStage}&source=continuum`}
@@ -91,8 +92,8 @@ export function KnowledgeContinuumSection() {
                       : "text-fg-secondary hover:bg-bg-panel hover:text-fg-primary"
                   }`}
                 >
-                  <span className="block font-mono text-[9px]">0{item.id}</span>
-                  <span className="mt-0.5 block text-xs font-medium">{item.label}</span>
+                  <span className="block font-mono text-[10px]">0{item.id}</span>
+                  <span className="mt-0.5 block text-sm font-medium">{item.label}</span>
                 </button>
               );
             })}
@@ -100,7 +101,7 @@ export function KnowledgeContinuumSection() {
 
           <div className="mt-3 flex items-start gap-3">
             <span className="text-fg-primary shrink-0 text-sm font-medium">{stage.shortLabel}</span>
-            <p className="text-fg-muted text-xs leading-relaxed">{stage.description}</p>
+            <p className="text-fg-muted text-sm leading-relaxed">{stage.description}</p>
           </div>
         </div>
 
@@ -118,9 +119,9 @@ export function KnowledgeContinuumSection() {
                 style={{ backgroundColor: selectedThread.color }}
                 aria-hidden="true"
               />
-              <span className="text-fg-muted text-xs">{selectedThread.label}</span>
-              <span className="text-fg-disabled text-xs">/</span>
-              <span className="text-fg-muted text-xs">阶段 {selectedNode.stage}</span>
+              <span className="text-fg-muted text-[13px]">{selectedThread.label}</span>
+              <span className="text-fg-disabled text-[13px]">/</span>
+              <span className="text-fg-muted text-[13px]">阶段 {selectedNode.stage}</span>
             </div>
             <h3 className="font-display text-fg-primary text-xl font-semibold">
               {selectedNode.question}
@@ -135,7 +136,7 @@ export function KnowledgeContinuumSection() {
                   <Link
                     key={domainId}
                     href={domain.href}
-                    className="border-border-faint text-fg-secondary hover:border-fg-muted hover:text-fg-primary border px-2.5 py-1 text-xs transition-colors"
+                    className="border-border-faint text-fg-secondary hover:border-fg-muted hover:text-fg-primary border px-2.5 py-1 text-[13px] transition-colors"
                   >
                     {domain.label}
                   </Link>
@@ -159,7 +160,7 @@ export function KnowledgeContinuumSection() {
           </div>
 
           <div className="border-border-faint border-t pt-5 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-6">
-            <p className="text-fg-muted font-mono text-[9px] tracking-[0.18em] uppercase">
+            <p className="text-fg-muted font-mono text-[10px] tracking-[0.18em] uppercase">
               前置与延伸
             </p>
             <div className="mt-3 grid grid-cols-2 gap-2">
@@ -177,7 +178,7 @@ export function KnowledgeContinuumSection() {
               />
             </div>
 
-            <p className="text-fg-muted mt-5 font-mono text-[9px] tracking-[0.18em] uppercase">
+            <p className="text-fg-muted mt-5 font-mono text-[10px] tracking-[0.18em] uppercase">
               跨学科桥
             </p>
             <div className="mt-2 flex flex-col gap-1">
@@ -187,13 +188,13 @@ export function KnowledgeContinuumSection() {
                     key={node.id}
                     type="button"
                     onClick={() => setSelectedNodeId(node.id)}
-                    className="text-fg-secondary hover:text-fg-primary min-h-9 text-left text-xs transition-colors"
+                    className="text-fg-secondary hover:text-fg-primary min-h-9 text-left text-sm transition-colors"
                   >
                     ↗ {node.title}
                   </button>
                 ))
               ) : (
-                <p className="text-fg-disabled text-xs leading-relaxed">
+                <p className="text-fg-disabled text-sm leading-relaxed">
                   沿当前主线前进后，将出现与其他学科共享的方法和问题。
                 </p>
               )}
@@ -204,7 +205,7 @@ export function KnowledgeContinuumSection() {
 
       <KnowledgeContinuumDeferred />
 
-      <p className="text-fg-disabled mt-4 text-xs leading-relaxed">
+      <p className="text-fg-disabled mt-4 text-[13px] leading-relaxed">
         阶段表示知识结构的递进，不是年龄、学历或能力标签；任何人都可以从任一问题进入，再沿前置关系补齐概念。
       </p>
     </section>

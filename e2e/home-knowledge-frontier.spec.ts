@@ -1,7 +1,22 @@
 import { expect, test, type Page } from "@playwright/test";
+import { COVERAGE_DOMAIN_COUNT } from "@/lib/knowledge-continuum-coverage-meta";
+import { buildKnowledgeFrontierView } from "@/lib/knowledge-frontier-catalog";
+import { buildCatalogKnowledgeGapPlan } from "@/lib/knowledge-gap-plan-catalog";
+import { buildCatalogKnowledgeRelationReview } from "@/lib/knowledge-relation-review-catalog";
+import { KNOWLEDGE_GAP_CHECKPOINT_KEYS } from "@/lib/knowledge-gap-journey";
 
 const PROFILE_KEY = "uk-knowledge-profile-v1";
 const JOURNEY_KEY = "uk-knowledge-gap-journeys-v1";
+
+// Aggregate expectations are derived from the same catalog builders the API
+// routes use, so graph/content growth never requires editing this spec (same
+// policy as home-knowledge-continuum.spec.ts).
+const frontierView = buildKnowledgeFrontierView([], { status: "ready" });
+const firstFrontierDomain = frontierView.domains[0]!;
+const relationReview = buildCatalogKnowledgeRelationReview([]);
+const GAP_TARGET_ID = "political-science:security-dilemma-war-peace";
+const gapPlan45 = buildCatalogKnowledgeGapPlan(GAP_TARGET_ID, [], 45);
+const gapPlan90 = buildCatalogKnowledgeGapPlan(GAP_TARGET_ID, [], 90);
 
 async function revealFrontierLab(page: Page) {
   const continuum = page.getByTestId("home-knowledge-continuum");
@@ -45,11 +60,19 @@ test("builds and restores an explicit cross-subject knowledge profile", async ({
   const lab = await revealFrontierLab(page);
 
   await expect(lab.getByRole("heading", { name: "用你真正掌握的知识，计算下一步" })).toBeVisible();
-  await expect(lab.getByText("1362", { exact: true })).toBeVisible();
-  await expect(lab.getByRole("button", { name: /可学习 670/ })).toBeVisible();
-  await expect(lab.getByText("15 学科确认分布")).toBeVisible();
+  await expect(
+    lab.getByText(String(frontierView.summary.nodeCount), { exact: true })
+  ).toBeVisible();
+  await expect(
+    lab.getByRole("button", { name: new RegExp(`可学习 ${frontierView.summary.readyCount}`) })
+  ).toBeVisible();
+  await expect(lab.getByText(`${COVERAGE_DOMAIN_COUNT} 学科确认分布`)).toBeVisible();
   await expect(lab.getByText("AI 治理", { exact: true })).toBeVisible();
-  await expect(lab.getByText("0/16", { exact: true }).first()).toBeVisible();
+  await expect(
+    lab
+      .getByText(`${firstFrontierDomain.mastered}/${firstFrontierDomain.total}`, { exact: true })
+      .first()
+  ).toBeVisible();
 
   const search = lab.getByRole("combobox", { name: "搜索已掌握知识节点" });
   await search.fill("词如何组成句子");
@@ -139,7 +162,9 @@ test("builds an exact prerequisite gap route for a blocked target", async ({ pag
   await page.reload();
 
   const lab = await revealFrontierLab(page);
-  await lab.getByRole("button", { name: /被阻塞 692/ }).click();
+  await lab
+    .getByRole("button", { name: new RegExp(`被阻塞 ${frontierView.summary.blockedCount}`) })
+    .click();
   await lab.getByLabel("知识前沿学科筛选").selectOption("political-science");
   await lab.getByPlaceholder("概念、人物、方法或关键词").fill("安全困境");
 
@@ -148,14 +173,15 @@ test("builds an exact prerequisite gap route for a blocked target", async ({ pag
 
   const plan = lab.getByTestId("knowledge-gap-plan");
   await expect(plan.getByRole("heading", { name: /通往“安全困境、战争与和平”/ })).toBeVisible();
-  await expect(plan).toContainText("1 条硬依赖");
-  await expect(plan).toContainText("从权力、规则与集体选择开始");
-  await expect(plan.getByText("45m", { exact: true }).first()).toBeVisible();
+  await expect(plan).toContainText(`${gapPlan45.edges.length} 条硬依赖`);
+  await expect(plan).toContainText(gapPlan45.steps[0]!.label);
+  await expect(plan.getByText(`${gapPlan45.totalMinutes}m`, { exact: true }).first()).toBeVisible();
 
   await plan.getByRole("button", { name: "90 分钟" }).click();
-  await expect(plan.getByText("90m", { exact: true }).first()).toBeVisible();
-  await expect(plan.getByText("42m", { exact: true })).toBeVisible();
-  await expect(plan.getByText("48m", { exact: true })).toBeVisible();
+  await expect(plan.getByText(`${gapPlan90.totalMinutes}m`, { exact: true }).first()).toBeVisible();
+  for (const minutes of new Set(gapPlan90.steps.map((step) => step.minutes))) {
+    await expect(plan.getByText(`${minutes}m`, { exact: true }).first()).toBeVisible();
+  }
 
   await plan.getByRole("button", { name: "保存为学习路线" }).click();
   await plan.getByRole("checkbox", { name: "安全困境、战争与和平：阅读正文" }).check();
@@ -179,7 +205,10 @@ test("builds an exact prerequisite gap route for a blocked target", async ({ pag
     "journey-library-political-science:security-dilemma-war-peace"
   );
   await expect(archivedRoute.getByText("当前版本", { exact: true })).toBeVisible();
-  await expect(archivedRoute.getByText("已有记录 · 1/8", { exact: true })).toBeVisible();
+  const checkpointTotal = gapPlan90.steps.length * KNOWLEDGE_GAP_CHECKPOINT_KEYS.length;
+  await expect(
+    archivedRoute.getByText(`已有记录 · 1/${checkpointTotal}`, { exact: true })
+  ).toBeVisible();
   await expect(archivedRoute).toContainText("下一待办");
 
   const archiveDownloadPromise = page.waitForEvent("download");
@@ -237,19 +266,26 @@ test("replays the reviewed multi-parent relation release on demand", async ({ pa
   expect(reviewRequests).toHaveLength(0);
 
   await review.getByRole("button", { name: "打开审校台" }).click();
-  await expect(review.getByText("2.1.0", { exact: true })).toBeVisible();
+  await expect(review.getByText(relationReview.release.version, { exact: true })).toBeVisible();
   expect(reviewRequests).toHaveLength(1);
-  await expect(review).toContainText("v1 可学 15 → v2 可学 0，新增阻塞 15");
-  await expect(review).toContainText("+52");
+  await expect(review).toContainText(
+    `v1 可学 ${relationReview.summary.referenceReadyBefore} → v2 可学 ${relationReview.summary.referenceReadyAfter}，新增阻塞 ${relationReview.summary.referenceBlockedAfter}`
+  );
+  await expect(review).toContainText(`+${relationReview.summary.routeNodeDelta}`);
   await expect(review).toContainText("循环风险");
 
   await review.getByRole("tab", { name: /AI、算法治理与监控的政治/ }).click();
   await review.getByRole("button", { name: "必要前置", exact: true }).click();
   const detail = review.getByTestId("knowledge-relation-review-detail");
+  const aiImpact = relationReview.targets.find(
+    (impact) => impact.target.label === "AI、算法治理与监控的政治"
+  )!;
   await expect(detail).toContainText("形式化方法与程序验证");
   await expect(detail).toContainText("数字表型、计算方法与研究伦理");
   await expect(detail).not.toContainText("政治学的比较方法");
-  await expect(detail).toContainText("完整依赖闭包从5 个节点增加到 11 个");
+  await expect(detail).toContainText(
+    `完整依赖闭包从${aiImpact.baselineRouteNodeCount} 个节点增加到 ${aiImpact.currentRouteNodeCount} 个`
+  );
 
   const overflow = await page.evaluate(
     () => document.documentElement.scrollWidth - window.innerWidth
@@ -278,10 +314,14 @@ test("shares the local frontier with the knowledge graph and node detail", async
   }
   await expect(page).toHaveURL(/frontier=mastered/);
   await expect(page.getByRole("img", { name: /知识图谱，包含 1 个节点/ })).toBeVisible();
-  await expect(page.getByRole("dialog", { name: "抽象与分层 详情" })).toBeVisible({
+  // The detail panel is a non-modal `complementary` aside on desktop and a
+  // `dialog` sheet on mobile (see GraphDetailPanel) — accept either role.
+  const detail = page
+    .getByRole("dialog", { name: "抽象与分层 详情" })
+    .or(page.getByRole("complementary", { name: "抽象与分层 详情" }));
+  await expect(detail).toBeVisible({
     timeout: 20_000,
   });
-  const detail = page.getByRole("dialog", { name: "抽象与分层 详情" });
   await expect(detail.getByText("我的学习前沿")).toBeVisible();
   await expect(detail.getByText("已确认掌握")).toBeVisible();
   await detail.getByRole("button", { name: "撤销确认" }).click();

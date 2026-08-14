@@ -232,3 +232,25 @@ export function buildKnowledgeTerrainSnapshot(
     domains,
   };
 }
+
+function terrainPriorityScore(domain: KnowledgeTerrainDomain): number {
+  return domain.diagnostics.reduce(
+    (score, diagnosis) => score + (diagnosis.severity === "high" ? 3 : 1),
+    0
+  );
+}
+
+/** Priority-sorted domains with at least one diagnosis — the order the
+ *  diagnostics panel presents them in (e2e derives its expectations from this). */
+export function getPriorityDiagnosticDomains(
+  snapshot: KnowledgeTerrainSnapshot
+): KnowledgeTerrainDomain[] {
+  return snapshot.domains
+    .filter((domain) => domain.diagnostics.length > 0)
+    .sort(
+      (left, right) =>
+        terrainPriorityScore(right) - terrainPriorityScore(left) ||
+        left.label.localeCompare(right.label, "zh-CN")
+    )
+    .slice(0, 6);
+}

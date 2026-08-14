@@ -320,7 +320,7 @@ export const ENGINEERING_NODES: GraphNode[] = [
     evidenceMode: "comparative",
     prerequisiteIds: ["engineering:water-systems", "engineering:power-grid"],
   }),
-  // ── 前沿与伦理 ─────────────────────────────
+  // ── 重大工程与伦理 ─────────────────────────────
   n({
     slug: "failure-analysis",
     label: "失效分析",

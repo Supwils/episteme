@@ -325,7 +325,7 @@ export default function MathematicsHomePage() {
                 href={`/mathematics/knowledge-base/${article.slug}`}
                 className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 border p-5 transition-all duration-300 hover:-translate-y-0.5"
               >
-                <span className="text-accent-indigo font-mono text-[9px] tracking-[0.22em] uppercase">
+                <span className="text-accent-indigo-bright font-mono text-[10px] tracking-[0.22em] uppercase">
                   {article.category}
                 </span>
                 <h3 className="font-display text-fg-primary group-hover:text-accent-indigo mt-2 text-base font-semibold transition-colors">

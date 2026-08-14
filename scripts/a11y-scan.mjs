@@ -36,6 +36,7 @@ const PAGES = [
     [`${domain}文章`, article],
   ]),
   ["知识图谱", "/knowledge-graph"],
+  ["每日知识", "/daily"],
   ["地球科学板块交互", "/earth-science/concepts/plate-boundaries"],
   ["政治学坐标交互", "/political-science/concepts/ideology"],
   ["语言学 IPA 交互", "/linguistics/sounds-and-signs/phonetics-and-ipa"],

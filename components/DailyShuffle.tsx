@@ -75,7 +75,7 @@ export function DailyShuffle({ initial }: { initial: DailySelected }) {
   return (
     <div>
       <div className="mb-6 flex items-center justify-between gap-4">
-        <p className="font-mono text-xs tracking-widest text-white/55 uppercase">
+        <p className="text-fg-muted font-mono text-xs tracking-widest uppercase">
           {offsetRef.current === 0 ? "今日精选" : "随机一组"}
         </p>
         <button
@@ -83,7 +83,7 @@ export function DailyShuffle({ initial }: { initial: DailySelected }) {
           onClick={shuffle}
           disabled={loading}
           aria-label="换一批知识"
-          className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 font-mono text-xs tracking-wider text-white/70 transition-all hover:border-white/20 hover:bg-white/[0.06] hover:text-white disabled:opacity-50"
+          className="group border-border-subtle bg-bg-elevated text-fg-secondary hover:border-border-strong hover:text-fg-primary inline-flex items-center gap-2 rounded-full border px-4 py-2 font-mono text-xs tracking-wider transition-all disabled:opacity-50"
         >
           <svg
             width="14"
@@ -121,19 +121,19 @@ export function DailyShuffle({ initial }: { initial: DailySelected }) {
       <div className="mt-8">
         <a
           href={daily.curiosity.url ?? "/curiosities"}
-          className="group block rounded-2xl border border-amber-400/20 bg-amber-400/[0.04] p-6 no-underline transition-colors hover:border-amber-400/40"
+          className="group border-accent-gold/25 bg-accent-gold/[0.06] hover:border-accent-gold/45 block rounded-2xl border p-6 no-underline transition-colors"
         >
           <div className="mb-2 flex items-center gap-2">
             <span className="text-lg" aria-hidden>
               💡
             </span>
-            <span className="font-mono text-[10px] tracking-[0.28em] text-amber-300/80 uppercase">
+            <span className="text-accent-gold font-mono text-[10px] tracking-[0.28em] uppercase">
               今日冷知识
             </span>
           </div>
-          <h3 className="mb-1.5 text-lg font-semibold text-white">{daily.curiosity.title}</h3>
-          <p className="text-sm leading-relaxed text-white/55">{daily.curiosity.detail}</p>
-          <span className="mt-3 inline-block font-mono text-[11px] tracking-wider text-amber-300/60 transition-colors group-hover:text-amber-300">
+          <h3 className="text-fg-primary mb-1.5 text-lg font-semibold">{daily.curiosity.title}</h3>
+          <p className="text-fg-secondary text-sm leading-relaxed">{daily.curiosity.detail}</p>
+          <span className="text-accent-gold mt-3 inline-block font-mono text-[11px] tracking-wider transition-colors group-hover:underline">
             更多奇趣知识 →
           </span>
         </a>

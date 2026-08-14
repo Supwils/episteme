@@ -21,6 +21,11 @@ export function MobileNav({ groups }: { groups: NavGroup[] }) {
     buttonRef.current?.focus();
   }, []);
 
+  // Back/forward or programmatic navigation should never leave the drawer open.
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
@@ -106,12 +111,16 @@ export function MobileNav({ groups }: { groups: NavGroup[] }) {
         />
       </button>
       {open && (
-        <div className="fixed inset-0 z-40 bg-black/50" onClick={closeMenu} aria-hidden="true" />
+        <div
+          className="mobile-nav-scrim bg-scrim fixed inset-0 z-40"
+          onClick={closeMenu}
+          aria-hidden="true"
+        />
       )}
       {open && (
         <div
           ref={menuRef}
-          className="border-border-subtle bg-bg-panel absolute top-14 right-0 left-0 z-[60] max-h-[calc(100dvh-3.5rem)] overflow-y-auto border-b"
+          className="mobile-nav-panel border-border-subtle bg-bg-panel absolute top-14 right-0 left-0 z-[60] max-h-[calc(100dvh-3.5rem)] overflow-y-auto border-b shadow-2xl"
         >
           <ul role="menu" className="m-0 flex list-none flex-col gap-1 p-4">
             <li role="none">

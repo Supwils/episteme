@@ -427,7 +427,7 @@ export const SUBJECT_CANDIDATES: readonly SubjectCandidate[] = [
       "材料与制造",
       "信息与机器",
       "土木与建造",
-      "前沿与伦理",
+      "重大工程与伦理",
     ],
     visualizations: ["电网潮流模拟器", "结构受力实验室", "材料性能剖面", "芯片制造流程图"],
     globalCoverageCommitments: [

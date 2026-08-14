@@ -17,20 +17,20 @@ export function KnowledgeFrontierDomainStrip({
   return (
     <div className="border-border-faint border-b px-4 py-5 sm:px-6">
       <div className="mb-3 flex items-center justify-between gap-3">
-        <p className="text-fg-muted font-mono text-[9px] tracking-[0.18em] uppercase">
-          15 学科确认分布
+        <p className="text-fg-muted font-mono text-[10px] tracking-[0.18em] uppercase">
+          {domains.length} 学科确认分布
         </p>
         {selectedDomain ? (
           <button
             type="button"
             onClick={() => onSelect(undefined)}
-            className="text-fg-muted hover:text-fg-primary border-b border-current text-[10px]"
+            className="text-fg-muted hover:text-fg-primary border-b border-current text-[11px]"
           >
             查看全部
           </button>
         ) : null}
       </div>
-      <div className="grid grid-cols-3 border-t border-l border-[var(--color-border-faint)] sm:grid-cols-5 lg:grid-cols-[repeat(15,minmax(0,1fr))]">
+      <div className="grid grid-cols-3 border-t border-l border-[var(--color-border-faint)] sm:grid-cols-6 lg:grid-cols-9">
         {domains.map((domain) => {
           const active = domain.id === selectedDomain;
           const percentage = domain.total > 0 ? (domain.mastered / domain.total) * 100 : 0;
@@ -45,11 +45,11 @@ export function KnowledgeFrontierDomainStrip({
               }`}
               title={`${domain.label}：已掌握 ${domain.mastered}/${domain.total}，可学习 ${domain.ready}`}
             >
-              <span className="text-fg-secondary block truncate text-[10px]">
+              <span className="text-fg-secondary block truncate text-[11px]">
                 {domain.shortLabel}
                 {domain.status === "preview" ? "*" : ""}
               </span>
-              <span className="text-fg-disabled mt-1 block font-mono text-[8px]">
+              <span className="text-fg-disabled mt-1 block font-mono text-[9px]">
                 {domain.mastered}/{domain.total}
               </span>
               <span className="bg-bg-base mt-2 block h-1 overflow-hidden" aria-hidden="true">
@@ -62,7 +62,7 @@ export function KnowledgeFrontierDomainStrip({
           );
         })}
       </div>
-      <p className="text-fg-disabled mt-2 text-[9px] leading-4">
+      <p className="text-fg-disabled mt-2 text-[10px] leading-4">
         {hasPreviewDomain ? "* 标记建设中学科。" : ""}
         条带只表示你主动确认的节点，不代表能力或学科权重。
       </p>

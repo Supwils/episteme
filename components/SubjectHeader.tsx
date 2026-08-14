@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NavDropdown } from "./NavDropdown";
 import { ALL_DOMAINS_GROUP } from "./nav-data";
+import type { NavGroup } from "./nav-data";
 import { SearchTrigger } from "./SearchTrigger";
 import { ThemeToggle } from "./ThemeToggle";
 import { getSubjectNav } from "@/lib/subject-nav";
@@ -37,6 +38,20 @@ export function SubjectHeader({ subject }: { subject: string }) {
   // On an immersive splash home the header would cover the splash's own top
   // chrome — hide it there, but keep it on every sub-page.
   if (onHome && config.immersiveHome) return null;
+
+  const moreGroup: NavGroup | null = config.more
+    ? {
+        label: "更多",
+        en: "More",
+        sections: [
+          {
+            label: "更多",
+            en: "More",
+            items: config.more.map((item) => ({ ...item, en: "", color: accent })),
+          },
+        ],
+      }
+    : null;
 
   return (
     <header className="border-border-faint bg-bg-overlay sticky top-0 z-50 border-b backdrop-blur-xl">
@@ -104,6 +119,12 @@ export function SubjectHeader({ subject }: { subject: string }) {
             );
           })}
         </div>
+
+        {moreGroup && (
+          <div className="shrink-0">
+            <NavDropdown group={moreGroup} />
+          </div>
+        )}
 
         <div className="flex shrink-0 items-center gap-2">
           <NavDropdown group={ALL_DOMAINS_GROUP} />

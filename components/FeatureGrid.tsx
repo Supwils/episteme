@@ -10,7 +10,7 @@ function FeatureCard({ feature, index }: { feature: (typeof FEATURES)[0]; index:
       <h3 className="font-display text-fg-primary mb-1.5 text-base font-semibold">
         {feature.title}
       </h3>
-      <p className="text-fg-secondary m-0 text-[0.82rem] leading-relaxed">{feature.desc}</p>
+      <p className="text-fg-secondary m-0 text-[0.9rem] leading-relaxed">{feature.desc}</p>
     </>
   );
 
@@ -45,8 +45,9 @@ function KnowledgeGraphCTA() {
       <div className="text-center">
         <div className="text-accent-gold mb-3 text-4xl opacity-80">⬡</div>
         <h3 className="font-display text-fg-primary mb-2 text-xl font-semibold">知识图谱</h3>
-        <p className="text-fg-secondary mx-auto mb-4 max-w-md text-[0.88rem] leading-relaxed">
-          以节点与连线的方式呈现知识之间的深层关联，发现跨领域的隐性联系。探索四大知识领域的交叉点。
+        <p className="text-fg-secondary mx-auto mb-4 max-w-md text-[0.95rem] leading-relaxed">
+          以节点与连线的方式呈现知识之间的深层关联，发现跨领域的隐性联系。探索 18
+          个知识领域的交叉点。
         </p>
         <span className="text-accent-gold inline-flex items-center gap-2 text-sm font-semibold transition-[gap] duration-300 group-hover:gap-3">
           开始探索
@@ -69,7 +70,7 @@ export function FeatureGrid() {
         平台特色
       </h2>
       <p
-        className="animate-fade-slide-up text-fg-muted mb-10 text-center text-[0.88rem]"
+        className="animate-fade-slide-up text-fg-muted mb-10 text-center text-[0.95rem]"
         style={{ animationDelay: "0.55s" }}
       >
         以技术驱动知识的可视化、关联化与深度化

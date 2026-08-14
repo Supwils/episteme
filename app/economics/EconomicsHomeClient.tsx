@@ -12,7 +12,6 @@ const SECTIONS = [
     id: "economists",
     icon: "👤",
     title: "经济学家",
-    count: "34",
     description: "从亚当·斯密到现代诺贝尔奖得主，经济学巨匠的生平与思想",
     href: "/economics/economists",
     accent: "#c8a45a",
@@ -21,7 +20,6 @@ const SECTIONS = [
     id: "theories",
     icon: "📖",
     title: "经济理论",
-    count: "17",
     description: "微观、宏观、国际、发展、行为经济学等核心理论体系",
     href: "/economics/theories",
     accent: "#61afef",
@@ -30,7 +28,6 @@ const SECTIONS = [
     id: "concepts",
     icon: "💡",
     title: "经济学概念",
-    count: "57",
     description: "GDP、通货膨胀、边际效用、机会成本等基础与进阶概念",
     href: "/economics/concepts",
     accent: "#e5c07b",
@@ -39,7 +36,6 @@ const SECTIONS = [
     id: "case-studies",
     icon: "📊",
     title: "经济案例",
-    count: "34",
     description: "大萧条、金融危机、日本泡沫、国家宏观诊断——真实经济事件深度分析",
     href: "/economics/case-studies",
     accent: "#d47850",
@@ -48,7 +44,6 @@ const SECTIONS = [
     id: "policy-analyses",
     icon: "📈",
     title: "政策剖析",
-    count: "5",
     description: "从反事实、机制、执行摩擦与分配后果，重读五项真实公共政策",
     href: "/economics/policy-analyses",
     accent: "#d6a85f",
@@ -57,7 +52,6 @@ const SECTIONS = [
     id: "schools",
     icon: "🏛",
     title: "经济学派",
-    count: "12",
     description: "古典、新古典、凯恩斯、奥地利、行为经济学等思想流派",
     href: "/economics/schools",
     accent: "#a88adf",
@@ -75,7 +69,6 @@ const SECTIONS = [
     id: "debates",
     icon: "⚖",
     title: "经济学辩论",
-    count: "9",
     description: "政府干预 vs 自由市场、供给 vs 需求侧等经典论战",
     href: "/economics/debates",
     accent: "#e06c75",
@@ -84,7 +77,6 @@ const SECTIONS = [
     id: "dialogues",
     icon: "💬",
     title: "经济学对话",
-    count: "9",
     description: "跨越时代的经济学思想交锋与对话",
     href: "/economics/dialogues",
     accent: "#98c379",
@@ -93,7 +85,6 @@ const SECTIONS = [
     id: "knowledge-base",
     icon: "📚",
     title: "知识库",
-    count: "25",
     description: "外汇、股票、债券、房产、退休规划等实用经济学指南",
     href: "/economics/knowledge-base",
     accent: "#56b6c2",
@@ -107,13 +98,6 @@ const SECTIONS = [
     href: "/economics/frontier",
     accent: "#e06c75",
   },
-];
-
-const STATS = [
-  { value: 208, label: "知识条目", suffix: "+" },
-  { value: 34, label: "经济学家", suffix: "" },
-  { value: 12, label: "经济学派", suffix: "" },
-  { value: 10, label: "互动模拟", suffix: "" },
 ];
 
 function useAnimatedCounter(target: number, duration = 2000) {
@@ -170,7 +154,20 @@ function DotGrid() {
   );
 }
 
-export default function EconomicsHomeClient() {
+export interface EconomicsHomeStat {
+  value: number;
+  label: string;
+  suffix: string;
+}
+
+export default function EconomicsHomeClient({
+  counts,
+  stats,
+}: {
+  /** Real per-section article counts computed server-side (simulations/frontier keep display labels). */
+  counts: Record<string, string>;
+  stats: EconomicsHomeStat[];
+}) {
   const reduce = useReducedMotion();
   const d = useCallback((sec: number) => (reduce ? 0 : sec), [reduce]);
 
@@ -226,7 +223,7 @@ export default function EconomicsHomeClient() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: d(0.8), ease: PRODUCT_EASE }}
         >
-          {STATS.map((stat) => (
+          {stats.map((stat) => (
             <StatCounter
               key={stat.label}
               value={stat.value}
@@ -282,7 +279,7 @@ export default function EconomicsHomeClient() {
                       color: `color-mix(in oklab, ${section.accent} 42%, var(--color-fg-primary))`,
                     }}
                   >
-                    {section.count}
+                    {counts[section.id] ?? section.count}
                   </span>
                 </div>
 
@@ -337,7 +334,7 @@ export default function EconomicsHomeClient() {
       {/* Stats Footer */}
       <section className="border-border-faint border-t border-b">
         <div className="flex w-full flex-wrap items-center justify-center gap-12 px-6 py-12 sm:px-10 md:justify-between lg:px-16">
-          {STATS.map((stat) => (
+          {stats.map((stat) => (
             <StatCounter
               key={stat.label}
               value={stat.value}

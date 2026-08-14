@@ -147,7 +147,7 @@ export function GlobalSearch() {
             <div className="gs-empty">
               输入关键词开始搜索
               <span className="gs-empty-hint">
-                标题即时匹配，正文全文检索覆盖 15 个学科的全部文章
+                标题即时匹配，正文全文检索覆盖 18 个学科的全部文章
               </span>
             </div>
           )}

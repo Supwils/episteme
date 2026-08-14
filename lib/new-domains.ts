@@ -16,6 +16,15 @@ export interface DomainSectionConfig {
   description: string;
 }
 
+export interface DomainTool {
+  /** Full route — tools are interactive pages, not content sections. */
+  href: string;
+  label: string;
+  icon: string;
+  description: string;
+  accent: string;
+}
+
 export interface DomainConfig {
   domain: string;
   label: string;
@@ -24,6 +33,10 @@ export interface DomainConfig {
   tagline: string;
   accent: string;
   sections: DomainSectionConfig[];
+  /** Interactive tools/labs that live outside the content sections (e.g.
+   *  medicine's SIR simulator and policy labs) — surfaced as home cards and
+   *  in the subject header's "更多" group. */
+  tools?: DomainTool[];
 }
 
 export const COMPUTER_SCIENCE: DomainConfig = {
@@ -249,6 +262,36 @@ export const MEDICINE: DomainConfig = {
       accent: "#e06c75",
       icon: "🧪",
       description: "从入组、随机化、终点和效应量读懂经典试验，也看见外推边界与证据盲点",
+    },
+  ],
+  tools: [
+    {
+      href: "/medicine/simulator",
+      label: "流行病模拟器",
+      icon: "📈",
+      accent: "#5fb3a3",
+      description: "亲手调节 R₀、传染期与疫苗接种率，用 SIR 模型实时看疫情曲线如何变化",
+    },
+    {
+      href: "/medicine/priority-setting",
+      label: "预算优先排序实验室",
+      icon: "⚖️",
+      accent: "#e0a458",
+      description: "用虚构教学情景理解成本效果、预算影响、公平权重与实施约束如何塑造卫生服务优先级",
+    },
+    {
+      href: "/medicine/mental-health-access",
+      label: "心理服务可及性实验室",
+      icon: "🧠",
+      accent: "#9b7dc4",
+      description: "探索识别、首次接触、持续照护与公平差距如何共同决定心理健康服务的有效覆盖",
+    },
+    {
+      href: "/medicine/adolescent-service-lab",
+      label: "青少年服务方案实验室",
+      icon: "🎒",
+      accent: "#5b9bd1",
+      description: "搭配预算、效果、服务互补与转介路径，设计青少年心理健康服务包",
     },
   ],
 };
@@ -503,7 +546,7 @@ export const ENGINEERING: DomainConfig = {
     },
     {
       key: "frontiers",
-      label: "前沿与伦理",
+      label: "重大工程与伦理",
       accent: "#c25b5b",
       icon: "🛰",
       description: "失效分析、安全工程、工程伦理、能源转型与超级工程",

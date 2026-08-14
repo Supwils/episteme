@@ -13,6 +13,9 @@
 
   --color-accent-warm: #ffb45a;
   --color-accent-cool: #6ad0ff;
+  --color-accent-blue: #3b82f6;
+  /* Button fill — white text on accent-blue is only 3.7:1, blue-600 clears AA. */
+  --color-accent-blue-strong: #2563eb;
 
   --color-border-faint: rgba(255, 255, 255, 0.08);
   --color-border-subtle: rgba(255, 255, 255, 0.14);

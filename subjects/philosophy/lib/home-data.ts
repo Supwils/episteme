@@ -139,11 +139,4 @@ export const QUICK_LINKS = [
   },
 ] as const;
 
-export const STATS = [
-  { value: 67, label: "哲学家", suffix: "位" },
-  { value: 33, label: "流派", suffix: "个" },
-  { value: 21, label: "思想实验", suffix: "个" },
-  { value: 201, label: "文章", suffix: "篇" },
-] as const;
-
 export const FLOATING_SYMBOLS = ["φ", "θ", "∞", "π", "Ω", "λ", "Δ", "ψ"] as const;

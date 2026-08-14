@@ -171,7 +171,7 @@ export function DailyDomainGrid({ daily }: DailyDomainGridProps) {
             <motion.div key={config.key} variants={itemVariants}>
               <Link
                 href={item.url || config.url}
-                className="group block h-full rounded-xl p-4 no-underline transition-all duration-300 hover:bg-white/[0.04]"
+                className="group hover:bg-bg-elevated block h-full rounded-xl p-4 no-underline transition-all duration-300"
                 style={{
                   background: "rgba(255, 255, 255, 0.02)",
                   border: "1px solid rgba(255, 255, 255, 0.05)",

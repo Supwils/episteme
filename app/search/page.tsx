@@ -10,7 +10,7 @@ const MAX_QUERY_LENGTH = 120;
 
 export const metadata: Metadata = {
   title: "搜索 — Episteme · 格致",
-  description: "在 15 个学科的全部文章中检索标题、小标题与正文。",
+  description: "在 18 个学科的全部文章中检索标题、小标题与正文。",
   robots: { index: false, follow: true },
 };
 

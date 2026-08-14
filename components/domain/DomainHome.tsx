@@ -14,6 +14,8 @@ interface HomeCard {
   description: string;
   accent: string;
   count: number;
+  /** Corner label override for non-article cards (interactive tools). */
+  tag?: string;
 }
 
 export function DomainHome({ domain }: { domain: string }) {
@@ -38,6 +40,18 @@ export function DomainHome({ domain }: { domain: string }) {
       description: "该领域当下正在推进的 2020s 前沿——开放问题、攻关团队、近年突破",
       accent: "#e06c75",
       count: frontierCount,
+    });
+  }
+
+  for (const tool of config.tools ?? []) {
+    cards.push({
+      href: tool.href,
+      icon: tool.icon,
+      title: tool.label,
+      description: tool.description,
+      accent: tool.accent,
+      count: 0,
+      tag: "互动工具",
     });
   }
 
@@ -96,7 +110,7 @@ export function DomainHome({ domain }: { domain: string }) {
                     color: `color-mix(in oklab, ${card.accent} 42%, var(--color-fg-primary))`,
                   }}
                 >
-                  {card.count > 0 ? card.count : "—"}
+                  {card.tag ?? (card.count > 0 ? card.count : "—")}
                 </span>
               </div>
               <h2 className="font-display text-fg-primary group-hover:text-accent-gold relative text-xl leading-tight font-semibold transition-colors duration-300">

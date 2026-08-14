@@ -69,10 +69,12 @@ const BUDGET = {
   },
   singleChunkMax: 285 * 1024, // 285 KB — accommodates the Three.js / R3F vendor chunk
   // public/search-index.json, fetched into a Worker the first time a reader
-  // opens search. Measured 497 KB brotli for 2435 documents; the headroom covers
-  // a few more subjects. A 10x jump means article bodies leaked into the index,
-  // which is what this catches.
-  searchIndexBrotli: 560 * 1024,
+  // opens search. Raised from 560 KB on 2026-08-13 per decision record #1's
+  // preset trigger ("index crosses 90% → raise to ~640 KB"): measured 512.3 KB
+  // brotli (91.5%) at 2801 documents after the five-thin-domain content rounds.
+  // A 10x jump means article bodies leaked into the index, which is what this
+  // catches.
+  searchIndexBrotli: 640 * 1024,
   graphDataRaw: 5 * 1024 * 1024,
   graphDataBrotli: 600 * 1024,
 };

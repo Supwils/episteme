@@ -13,8 +13,8 @@ export function DailyQuestionCard({ question }: DailyQuestionCardProps) {
     <motion.section
       className="mx-auto w-full max-w-3xl overflow-hidden rounded-2xl backdrop-blur-xl"
       style={{
-        background: "rgba(255, 255, 255, 0.03)",
-        border: "1px solid rgba(255, 255, 255, 0.06)",
+        background: "var(--color-bg-panel)",
+        border: "1px solid var(--color-border-faint)",
         boxShadow: "0 4px 24px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.03)",
       }}
       initial={reduce ? false : { opacity: 0, y: 24 }}
@@ -35,7 +35,7 @@ export function DailyQuestionCard({ question }: DailyQuestionCardProps) {
           <div>
             <h3 className="font-display text-fg-primary mb-3 text-lg font-semibold">今日一问</h3>
             <p className="text-fg-secondary m-0 text-[0.95rem] leading-relaxed">{question}</p>
-            <p className="m-0 mt-3 text-[0.75rem] text-white/55">
+            <p className="text-fg-muted m-0 mt-3 text-[0.82rem]">
               思考这个问题，和朋友分享你的答案
             </p>
           </div>

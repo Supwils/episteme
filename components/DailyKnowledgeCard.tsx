@@ -78,7 +78,7 @@ export function DailyKnowledgeCard({ items, fact, date }: DailyKnowledgeCardProp
       <div className="p-6 sm:p-8">
         <div className="mb-6">
           <h2 className="font-display text-fg-primary mb-1 text-xl font-semibold">今天的知识</h2>
-          <p className="text-fg-muted text-[0.78rem]">{date}</p>
+          <p className="text-fg-muted text-[0.85rem]">{date}</p>
         </div>
 
         <div className="flex flex-col gap-3">
@@ -103,7 +103,7 @@ export function DailyKnowledgeCard({ items, fact, date }: DailyKnowledgeCardProp
                     <div className="min-w-0 flex-1">
                       <div className="mb-1.5 flex flex-wrap items-center gap-2">
                         <span
-                          className="rounded-full px-2 py-0.5 text-[0.68rem] font-semibold"
+                          className="rounded-full px-2 py-0.5 text-[0.75rem] font-semibold"
                           style={{
                             color: `color-mix(in oklab, ${style.text} 38%, var(--color-fg-primary))`,
                             background: style.bg,
@@ -113,15 +113,15 @@ export function DailyKnowledgeCard({ items, fact, date }: DailyKnowledgeCardProp
                           {style.label}
                         </span>
                         {item.year !== undefined && (
-                          <span className="text-fg-muted text-[0.68rem]">
+                          <span className="text-fg-muted text-[0.75rem]">
                             {item.year < 0 ? `公元前${Math.abs(item.year)}年` : `${item.year}年`}
                           </span>
                         )}
                       </div>
-                      <h3 className="text-fg-primary group-hover:text-accent-gold mb-1 text-[0.95rem] leading-snug font-semibold transition-colors">
+                      <h3 className="text-fg-primary group-hover:text-accent-gold mb-1 text-[1rem] leading-snug font-semibold transition-colors">
                         {item.title}
                       </h3>
-                      <p className="text-fg-secondary m-0 line-clamp-2 text-[0.82rem] leading-relaxed">
+                      <p className="text-fg-secondary m-0 line-clamp-2 text-[0.9rem] leading-relaxed">
                         {item.description}
                       </p>
                     </div>
@@ -143,7 +143,7 @@ export function DailyKnowledgeCard({ items, fact, date }: DailyKnowledgeCardProp
           style={{ borderTop: "1px solid var(--color-border-faint)" }}
         >
           <span className="shrink-0 text-sm">💡</span>
-          <p className="text-fg-muted m-0 text-[0.78rem] leading-relaxed">
+          <p className="text-fg-muted m-0 text-[0.85rem] leading-relaxed">
             <span className="text-accent-gold font-semibold">趣味知识：</span>
             {fact}
           </p>

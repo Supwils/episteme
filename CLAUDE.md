@@ -262,7 +262,7 @@ pnpm update-graph-snapshot # 图谱聚合快照（改图谱数据后必跑，测
 | 门户 / 领域路由 CSS        | ≤ 48 KB gzip      | ~42.4 KB                                |
 | 通用文章路由 JS            | ≤ 220 KB gzip     | —                                       |
 | 任一单 JS chunk            | ≤ 285 KB gzip     | ~179.4 KB                               |
-| `public/search-index.json` | ≤ 560 KB brotli   | ~475.9 KB                               |
+| `public/search-index.json` | ≤ 640 KB brotli   | ~512.3 KB                               |
 | 首页 RSC 原始体积          | ≤ 110 KB          | —                                       |
 | 3D 路由初始 JS             | ≤ 180 KB gzip     | ~149 KB（`pnpm audit:physics-runtime`） |
 | 单图最大变体 / 单篇图像    | ≤ 500 KB / 800 KB | —                                       |
