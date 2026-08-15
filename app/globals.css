@@ -47,6 +47,7 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
 
 @theme {
   --animate-fade-slide-up: fadeSlideUp 0.6s ease-out both;
+  --animate-slide-up: slideUp 0.6s ease-out both;
 
   /* ── Portal design tokens — Observatory (dark, default) ───────────────
      Mirrors app/domain-shared.css so the shared components (NavDropdown,
@@ -325,6 +326,18 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
   }
   to {
     opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Transform-only entrance for above-the-fold hero text: an opacity-from-0
+   animation keeps the element unpainted until the first frame, which delays
+   LCP. Sliding keeps the motion while the text paints immediately. */
+@keyframes slideUp {
+  from {
+    transform: translateY(24px);
+  }
+  to {
     transform: translateY(0);
   }
 }
