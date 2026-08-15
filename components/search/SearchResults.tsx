@@ -1,5 +1,5 @@
 import type { SearchResult, Section } from "./types";
-import { SEARCH_SECTIONS, SECTION_META } from "./types";
+import { SEARCH_SECTIONS, SECTION_META, orderResultsForDisplay } from "./types";
 import { SearchResultItem } from "./SearchResultItem";
 
 interface SearchResultsProps {
@@ -26,9 +26,8 @@ export function SearchResults({
   const indexOf = new Map(flatResults.map((result, index) => [result.url, index]));
 
   const grouped = new Map<Section, SearchResult[]>();
-  for (const result of titleResults) {
+  for (const result of orderResultsForDisplay(titleResults, [])) {
     const section = result.section as Section;
-    if (!(section in SECTION_META)) continue;
     const bucket = grouped.get(section);
     if (bucket) bucket.push(result);
     else grouped.set(section, [result]);

@@ -77,7 +77,9 @@ const spawnSites: SpawnSite[] = ROOTS.flatMap(sourceFiles).flatMap((owner) => {
 
 describe("worker entries do not import their own spawner", () => {
   it("finds the worker spawn sites (guard against a vacuous pass)", () => {
-    expect(spawnSites.length).toBeGreaterThanOrEqual(3);
+    // knowledge-graph force-layout + human-history graph (the search worker
+    // was removed when the title tier moved to the main thread).
+    expect(spawnSites.length).toBeGreaterThanOrEqual(2);
   });
 
   it.each(spawnSites)("$worker does not reach back into $owner", ({ owner, worker }) => {

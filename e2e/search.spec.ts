@@ -37,12 +37,29 @@ test("finds an article from a query that starts mid-title", async ({ page }) => 
   await expect(page).toHaveURL(new RegExp(`${MID_TITLE.url}$`));
 });
 
+// The body tier can answer these too, so a bare "result visible" assertion
+// would pass even with a dead title tier. A domain group label only renders
+// for title-tier hits — this is the regression guard for the silent-worker
+// failure where the whole title tier returned nothing in real browsers.
+test("the title tier renders domain-grouped hits", async ({ page }) => {
+  const input = await openDialog(page);
+  await input.fill("苏格拉底");
+
+  // A domain group label only renders for title-tier hits — this is the
+  // regression guard for the silent-worker failure (the body tier can cover
+  // a bare "result visible" assertion even with the title tier dead).
+  await expect(page.locator(".gs-group-label", { hasText: "哲学思想" })).toBeVisible();
+  await expect(page.locator('.gs-item[href="/philosophy/thinkers/socrates"]')).toBeVisible();
+});
+
 test("finds an article by a phrase that only exists in its prose", async ({ page }) => {
   const input = await openDialog(page);
   await input.fill(BODY_ONLY.query);
 
   const bodyGroup = page.getByTestId("gs-body-group");
-  await expect(bodyGroup).toBeVisible();
+  // The body tier is a network round trip; mobile emulation can exceed the
+  // 5s default when the dev server is busy compiling.
+  await expect(bodyGroup).toBeVisible({ timeout: 15_000 });
   await expect(bodyGroup.getByText(BODY_ONLY.title, { exact: false })).toBeVisible();
 });
 

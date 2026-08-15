@@ -458,7 +458,8 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
   background: transparent;
   border: none;
   outline: none;
-  font-size: 0.95rem;
+  /* ≥16px so iOS Safari does not auto-zoom the page on focus. */
+  font-size: 1rem;
   color: var(--color-fg-primary);
   font-family: inherit;
 }
@@ -657,7 +658,8 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
     color 0.15s;
 }
 
-.gs-history-item:hover {
+.gs-history-item:hover,
+.gs-history-item[data-active="true"] {
   background: var(--hover-bg);
   color: var(--color-fg-primary);
 }
@@ -692,8 +694,16 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
 }
 
 .gs-history-item:hover .gs-history-remove,
-.gs-history-item:focus-within .gs-history-remove {
+.gs-history-item:focus-within .gs-history-remove,
+.gs-history-item[data-active="true"] .gs-history-remove {
   opacity: 1;
+}
+
+/* Touch devices have no hover — the delete control must always be reachable. */
+@media (hover: none) {
+  .gs-history-remove {
+    opacity: 1;
+  }
 }
 
 .gs-history-remove:hover {

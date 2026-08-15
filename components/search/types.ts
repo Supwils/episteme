@@ -85,3 +85,22 @@ export interface SearchResult {
   /** Where the match starts inside `snippet`. */
   matchStart?: number;
 }
+
+/** Display order shared by SearchResults (visual grouping) and GlobalSearch
+ *  (keyboard navigation) — the two must walk the same sequence, or arrow keys
+ *  jump across the screen. Title hits group by domain in SEARCH_SECTIONS order
+ *  (score order within a group), body hits trail in one group. */
+export function orderResultsForDisplay(
+  titleResults: SearchResult[],
+  bodyResults: SearchResult[]
+): SearchResult[] {
+  const bySection = new Map<Section, SearchResult[]>();
+  for (const result of titleResults) {
+    const section = result.section as Section;
+    if (!(section in SECTION_META)) continue;
+    const bucket = bySection.get(section);
+    if (bucket) bucket.push(result);
+    else bySection.set(section, [result]);
+  }
+  return [...SEARCH_SECTIONS.flatMap((section) => bySection.get(section) ?? []), ...bodyResults];
+}

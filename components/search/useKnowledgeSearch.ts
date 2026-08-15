@@ -21,6 +21,8 @@ export interface KnowledgeSearch {
   /** Matches found in article prose, answered by /api/search. */
   bodyResults: SearchResult[];
   searching: boolean;
+  /** Begin loading the index before the first keystroke (call on overlay open). */
+  warmup(): void;
 }
 
 /**
@@ -92,5 +94,6 @@ export function useKnowledgeSearch(): KnowledgeSearch {
     titleResults,
     bodyResults,
     searching,
+    warmup: useCallback(() => client.current?.warmup?.(), []),
   };
 }

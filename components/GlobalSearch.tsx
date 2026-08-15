@@ -1,16 +1,20 @@
 "use client";
 
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
+import { useRouter } from "next/navigation";
 import { getSearchHistory, addToSearchHistory } from "@/lib/search-history";
 import { trackEvent } from "@/lib/analytics";
+import { COVERAGE_DOMAIN_COUNT } from "@/lib/knowledge-continuum-coverage-meta";
 import { SearchInput } from "./search/SearchInput";
 import { SearchHistory } from "./search/SearchHistory";
 import { SearchResults } from "./search/SearchResults";
+import { orderResultsForDisplay } from "./search/types";
 import { useKnowledgeSearch } from "./search/useKnowledgeSearch";
 
 const INPUT_DEBOUNCE_MS = 100;
 
 export function GlobalSearch() {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [history, setHistory] = useState<string[]>([]);
@@ -18,37 +22,64 @@ export function GlobalSearch() {
   const listRef = useRef<HTMLDivElement>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const { query, setQuery, titleResults, bodyResults, searching } = useKnowledgeSearch();
+  const { query, setQuery, titleResults, bodyResults, searching, warmup } = useKnowledgeSearch();
 
-  const flatResults = useMemo(() => [...titleResults, ...bodyResults], [titleResults, bodyResults]);
+  // Keyboard navigation walks this list top to bottom, so it must match the
+  // visual grouping exactly (score order here would jump across sections).
+  const flatResults = useMemo(
+    () => orderResultsForDisplay(titleResults, bodyResults),
+    [titleResults, bodyResults]
+  );
 
   const loadHistory = useCallback(() => setHistory(getSearchHistory()), []);
 
   useEffect(() => {
+    function openSearch() {
+      // The input unmounts on close, so reopening must reset the query too —
+      // otherwise the box is empty but last session's results still show.
+      setQuery("");
+      if (inputRef.current) inputRef.current.value = "";
+      setActiveIndex(0);
+      setOpen(true);
+      loadHistory();
+      // Start the one-time index parse now so the first keystroke never waits.
+      warmup();
+    }
     function handleKeyDown(e: KeyboardEvent) {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
-        setOpen((prev) => !prev);
-        loadHistory();
+        if (open) setOpen(false);
+        else openSearch();
       }
     }
-    function handleOpen() {
-      setOpen(true);
-      loadHistory();
-    }
     document.addEventListener("keydown", handleKeyDown);
-    document.addEventListener("open-global-search", handleOpen);
+    document.addEventListener("open-global-search", openSearch);
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
-      document.removeEventListener("open-global-search", handleOpen);
+      document.removeEventListener("open-global-search", openSearch);
     };
-  }, [loadHistory]);
+  }, [loadHistory, open, setQuery, warmup]);
 
   useEffect(() => {
     if (open) requestAnimationFrame(() => inputRef.current?.focus());
   }, [open]);
 
   useEffect(() => setActiveIndex(0), [query]);
+
+  const trimmed = query.trim();
+  const showHistory = !trimmed && history.length > 0;
+  // With no query the walkable list is the search history.
+  const walkLength = trimmed ? flatResults.length : showHistory ? history.length : 0;
+
+  const handleHistoryClick = useCallback(
+    (term: string) => {
+      setQuery(term);
+      setActiveIndex(0);
+      if (inputRef.current) inputRef.current.value = term;
+      inputRef.current?.focus();
+    },
+    [setQuery]
+  );
 
   useEffect(() => {
     if (!open) return;
@@ -60,23 +91,33 @@ export function GlobalSearch() {
       }
       if (e.key === "ArrowDown") {
         e.preventDefault();
-        setActiveIndex((prev) => Math.min(prev + 1, flatResults.length - 1));
+        setActiveIndex((prev) => Math.min(prev + 1, Math.max(walkLength - 1, 0)));
       }
       if (e.key === "ArrowUp") {
         e.preventDefault();
         setActiveIndex((prev) => Math.max(prev - 1, 0));
       }
-      const target = flatResults[activeIndex];
-      if (e.key === "Enter" && target) {
-        e.preventDefault();
-        addToSearchHistory(query.trim());
-        trackEvent({ type: "search", query: query.trim(), resultCount: flatResults.length });
-        window.location.href = target.url;
+      if (e.key !== "Enter") return;
+      if (trimmed) {
+        const target = flatResults[activeIndex];
+        if (target) {
+          e.preventDefault();
+          addToSearchHistory(trimmed);
+          trackEvent({ type: "search", query: trimmed, resultCount: flatResults.length });
+          setOpen(false);
+          router.push(target.url);
+        }
+      } else {
+        const term = history[activeIndex];
+        if (term) {
+          e.preventDefault();
+          handleHistoryClick(term);
+        }
       }
     }
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [open, flatResults, activeIndex, query]);
+  }, [open, flatResults, activeIndex, trimmed, walkLength, history, router, handleHistoryClick]);
 
   useEffect(() => {
     listRef.current?.querySelector('[data-active="true"]')?.scrollIntoView({ block: "nearest" });
@@ -90,22 +131,14 @@ export function GlobalSearch() {
     [setQuery]
   );
 
-  const handleHistoryClick = useCallback(
-    (term: string) => {
-      setQuery(term);
-      if (inputRef.current) inputRef.current.value = term;
-    },
-    [setQuery]
-  );
-
   const handleItemClick = useCallback(
     (url: string) => {
       addToSearchHistory(query.trim());
       trackEvent({ type: "search", query: query.trim(), resultCount: flatResults.length });
       setOpen(false);
-      window.location.href = url;
+      router.push(url);
     },
-    [query, flatResults.length]
+    [query, flatResults.length, router]
   );
 
   useEffect(() => {
@@ -116,10 +149,14 @@ export function GlobalSearch() {
 
   if (!open) return null;
 
-  const trimmed = query.trim();
-  const showHistory = !trimmed && history.length > 0;
   const hasResults = flatResults.length > 0;
-  const activeId = flatResults[activeIndex] ? `gs-item-${flatResults[activeIndex].url}` : undefined;
+  const activeId = trimmed
+    ? flatResults[activeIndex]
+      ? `gs-item-${flatResults[activeIndex].url}`
+      : undefined
+    : showHistory && history[activeIndex]
+      ? `gs-history-${activeIndex}`
+      : undefined;
 
   return (
     <div
@@ -138,8 +175,10 @@ export function GlobalSearch() {
           {showHistory && (
             <SearchHistory
               history={history}
+              activeIndex={activeIndex}
               onHistoryClick={handleHistoryClick}
               onHistoryChange={loadHistory}
+              onActivate={setActiveIndex}
             />
           )}
 
@@ -147,7 +186,7 @@ export function GlobalSearch() {
             <div className="gs-empty">
               输入关键词开始搜索
               <span className="gs-empty-hint">
-                标题即时匹配，正文全文检索覆盖 18 个学科的全部文章
+                标题即时匹配，正文全文检索覆盖 {COVERAGE_DOMAIN_COUNT} 个学科的全部文章
               </span>
             </div>
           )}

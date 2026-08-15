@@ -146,7 +146,24 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                     </Link>
                     {result.snippet && (
                       <p className="text-fg-secondary mt-1 text-sm leading-relaxed">
-                        …{result.snippet}…
+                        …
+                        {result.matchStart !== undefined &&
+                        result.matchStart >= 0 &&
+                        result.matchStart < result.snippet.length ? (
+                          <>
+                            {result.snippet.slice(0, result.matchStart)}
+                            <mark className="rounded-sm bg-[var(--highlight-bg)] px-0.5 text-[var(--highlight-text)]">
+                              {result.snippet.slice(
+                                result.matchStart,
+                                result.matchStart + query.length
+                              )}
+                            </mark>
+                            {result.snippet.slice(result.matchStart + query.length)}
+                          </>
+                        ) : (
+                          result.snippet
+                        )}
+                        …
                       </p>
                     )}
                   </li>

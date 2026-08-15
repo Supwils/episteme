@@ -35,6 +35,11 @@ vi.mock("next/link", () => ({
   ),
 }));
 
+const routerPush = vi.fn();
+vi.mock("next/navigation", () => ({
+  useRouter: () => ({ push: routerPush }),
+}));
+
 function open() {
   render(<GlobalSearch />);
   act(() => document.dispatchEvent(new Event("open-global-search")));
@@ -47,6 +52,8 @@ function type(value: string) {
 afterEach(() => {
   cleanup();
   releaseTitleSearch = undefined;
+  routerPush.mockClear();
+  window.localStorage.clear();
   vi.unstubAllGlobals();
 });
 
@@ -108,5 +115,55 @@ describe("GlobalSearch", () => {
 
     const link = screen.getByText("查看全部结果");
     expect(link.getAttribute("href")).toBe(`/search?q=${encodeURIComponent("熵")}`);
+  });
+});
+
+describe("GlobalSearch keyboard and session behaviour", () => {
+  it("resets stale query and results when reopened", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: false }));
+    open();
+    type("苏格拉底");
+    await waitFor(() => expect(releaseTitleSearch).toBeDefined());
+    await act(async () => releaseTitleSearch?.([socrates]));
+    expect(await screen.findByRole("option")).toBeTruthy();
+
+    // Close with Escape, reopen — no stale results, empty input.
+    fireEvent.keyDown(document, { key: "Escape" });
+    expect(screen.queryByRole("dialog")).toBeNull();
+    act(() => document.dispatchEvent(new Event("open-global-search")));
+    expect(screen.queryByRole("option")).toBeNull();
+    expect((screen.getByRole("textbox", { name: "搜索" }) as HTMLInputElement).value).toBe("");
+  });
+
+  it("navigates with arrow keys and opens the active result with Enter", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: false }));
+    open();
+    type("苏格拉底");
+    await waitFor(() => expect(releaseTitleSearch).toBeDefined());
+    await act(async () => releaseTitleSearch?.([socrates]));
+    await screen.findByRole("option");
+
+    fireEvent.keyDown(document, { key: "ArrowDown" });
+    fireEvent.keyDown(document, { key: "Enter" });
+    expect(routerPush).toHaveBeenCalledWith("/philosophy/thinkers/socrates");
+  });
+
+  it("walks search history with arrow keys and re-runs it with Enter", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: false }));
+    window.localStorage.setItem(
+      "uk-search-history",
+      JSON.stringify(["热力学第二定律", "苏格拉底"])
+    );
+    open();
+    expect(await screen.findByText("搜索历史")).toBeTruthy();
+
+    fireEvent.keyDown(document, { key: "ArrowDown" });
+    fireEvent.keyDown(document, { key: "ArrowDown" });
+    fireEvent.keyDown(document, { key: "Enter" });
+    // Entering a history term fills the box and triggers a title search.
+    expect((screen.getByRole("textbox", { name: "搜索" }) as HTMLInputElement).value).toBe(
+      "苏格拉底"
+    );
+    await waitFor(() => expect(releaseTitleSearch).toBeDefined());
   });
 });

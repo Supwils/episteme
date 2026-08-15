@@ -1,3 +1,5 @@
+import { useRef } from "react";
+
 interface SearchInputProps {
   inputRef: React.RefObject<HTMLInputElement | null>;
   activeId: string | undefined;
@@ -5,6 +7,10 @@ interface SearchInputProps {
 }
 
 export function SearchInput({ inputRef, activeId, onChange }: SearchInputProps) {
+  // IME composition (e.g. Chinese pinyin) fires change events for half-typed
+  // Latin fragments — hold queries until the composition commits.
+  const composing = useRef(false);
+
   return (
     <div className="gs-input-wrap">
       <svg
@@ -28,7 +34,17 @@ export function SearchInput({ inputRef, activeId, onChange }: SearchInputProps) 
         aria-autocomplete="list"
         aria-controls="gs-result-list"
         aria-activedescendant={activeId}
-        onChange={(e) => onChange(e.target.value)}
+        maxLength={120}
+        onChange={(e) => {
+          if (!composing.current) onChange(e.target.value);
+        }}
+        onCompositionStart={() => {
+          composing.current = true;
+        }}
+        onCompositionEnd={(e) => {
+          composing.current = false;
+          onChange(e.currentTarget.value);
+        }}
         autoComplete="off"
         spellCheck={false}
       />
