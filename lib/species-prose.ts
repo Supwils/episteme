@@ -47,11 +47,3 @@ export function getSpeciesProse(slug: string): SpeciesProse | null {
     content: stripLeadingHeading(content),
   };
 }
-
-export function getSpeciesProseSlugs(): string[] {
-  if (!fs.existsSync(speciesRoot)) return [];
-  return fs
-    .readdirSync(speciesRoot)
-    .filter((f) => f.endsWith(".mdx"))
-    .map((f) => f.replace(/\.mdx$/, ""));
-}

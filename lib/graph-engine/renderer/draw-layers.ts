@@ -92,7 +92,7 @@ export function isInBounds(node: RenderNode, b: ViewBounds): boolean {
   return node.x >= b.minX && node.x <= b.maxX && node.y >= b.minY && node.y <= b.maxY;
 }
 
-export function isEdgeInBounds(edge: RenderEdge, b: ViewBounds): boolean {
+function isEdgeInBounds(edge: RenderEdge, b: ViewBounds): boolean {
   return !(
     Math.max(edge.x1, edge.x2) < b.minX ||
     Math.min(edge.x1, edge.x2) > b.maxX ||

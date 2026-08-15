@@ -4,10 +4,6 @@ export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://episteme.ve
  * Brand. Episteme (ἐπιστήμη, Greek for "knowledge") · 格致 (格物致知 — the classical
  * Chinese term that became the word for "science"). Tagline: 重现人类认识世界的旅程.
  */
-export const SITE_NAME = "Episteme · 格致";
-export const SITE_NAME_EN = "Episteme";
-export const SITE_TAGLINE = "重现人类认识世界的旅程";
-
 export const ERA_ACCENT: Record<string, string> = {
   古代: "#6ad0ff",
   近代: "#c8a45a",

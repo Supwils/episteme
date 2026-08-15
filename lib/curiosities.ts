@@ -92,11 +92,3 @@ export function getAllCuriosities(): CuriosityWithSubject[] {
   }
   return all;
 }
-
-export function getCuriositiesBySubject(subject: CuriositySubject): CuriosityWithSubject[] {
-  return REGISTRY[subject].map((item) => ({ ...item, subject }));
-}
-
-export function getCuriosityCount(): number {
-  return Object.values(REGISTRY).reduce((sum, list) => sum + list.length, 0);
-}

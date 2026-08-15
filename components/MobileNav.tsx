@@ -11,6 +11,10 @@ export function MobileNav({ groups }: { groups: NavGroup[] }) {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
 
+  // Pull-to-close gesture state (armed only when the drawer is scrolled to top).
+  const [dragY, setDragY] = useState(0);
+  const touchStartY = useRef<number | null>(null);
+
   function isActive(href: string) {
     if (href === "/") return pathname === "/";
     return pathname.startsWith(href);
@@ -20,6 +24,23 @@ export function MobileNav({ groups }: { groups: NavGroup[] }) {
     setOpen(false);
     buttonRef.current?.focus();
   }, []);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    if (menuRef.current && menuRef.current.scrollTop <= 0) {
+      touchStartY.current = e.touches[0]!.clientY;
+    }
+  };
+  const onTouchMove = (e: React.TouchEvent) => {
+    if (touchStartY.current === null) return;
+    const dy = e.touches[0]!.clientY - touchStartY.current;
+    if (dy > 0) setDragY(dy);
+    else touchStartY.current = null; // upward scroll intent — hand back to the list
+  };
+  const onTouchEnd = () => {
+    if (dragY > 80) closeMenu();
+    setDragY(0);
+    touchStartY.current = null;
+  };
 
   // Back/forward or programmatic navigation should never leave the drawer open.
   useEffect(() => {
@@ -120,8 +141,19 @@ export function MobileNav({ groups }: { groups: NavGroup[] }) {
       {open && (
         <div
           ref={menuRef}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+          style={
+            dragY > 0
+              ? { transform: `translateY(${dragY}px)`, transition: "none" }
+              : { transition: "transform 0.18s ease-out" }
+          }
           className="mobile-nav-panel border-border-subtle bg-bg-panel absolute top-14 right-0 left-0 z-[60] max-h-[calc(100dvh-3.5rem)] overflow-y-auto border-b shadow-2xl"
         >
+          <div aria-hidden="true" className="flex justify-center pt-2">
+            <span className="bg-border-strong h-1 w-10 rounded-full" />
+          </div>
           <ul role="menu" className="m-0 flex list-none flex-col gap-1 p-4">
             <li role="none">
               <Link

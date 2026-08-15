@@ -4,23 +4,23 @@ export type Transform = {
   offsetY: number;
 };
 
-export function easeInOutCubic(t: number): number {
+function easeInOutCubic(t: number): number {
   return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 }
 
-export function easeOutElastic(t: number): number {
+function easeOutElastic(t: number): number {
   if (t === 0 || t === 1) return t;
   const c4 = (2 * Math.PI) / 3;
   return Math.pow(2, -10 * t) * Math.sin((t * 10 - 0.75) * c4) + 1;
 }
 
-export function easeOutCubic(t: number): number {
+function easeOutCubic(t: number): number {
   return 1 - Math.pow(1 - t, 3);
 }
 
 function prefersReducedMotion(): boolean {
-  if (typeof window === 'undefined') return false;
-  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
 export function animateFocus(
@@ -30,7 +30,7 @@ export function animateFocus(
   duration: number,
   containerSize: { width: number; height: number },
   onUpdate: (t: Transform) => void,
-  onComplete?: () => void,
+  onComplete?: () => void
 ): () => void {
   const targetOffsetX = containerSize.width / 2 - targetNode.x * zoom;
   const targetOffsetY = containerSize.height / 2 - targetNode.y * zoom;
@@ -81,7 +81,7 @@ export function animateNodePositions(
   targetPositions: Map<string, { x: number; y: number }>,
   duration: number,
   onUpdate: (positions: Map<string, { x: number; y: number }>) => void,
-  onComplete?: () => void,
+  onComplete?: () => void
 ): () => void {
   if (prefersReducedMotion()) {
     onUpdate(new Map(targetPositions));
@@ -140,7 +140,7 @@ export function animateAlpha(
   duration: number,
   stagger: number,
   onUpdate: (alphas: Map<string, number>) => void,
-  onComplete?: () => void,
+  onComplete?: () => void
 ): () => void {
   if (prefersReducedMotion()) {
     const final = new Map<string, number>();
@@ -195,7 +195,7 @@ export function animateEntrance(
   duration: number,
   domainStagger: number,
   onUpdate: (positions: Map<string, { x: number; y: number }>, alphas: Map<string, number>) => void,
-  onComplete?: () => void,
+  onComplete?: () => void
 ): () => void {
   if (prefersReducedMotion()) {
     const alphas = new Map<string, number>();
