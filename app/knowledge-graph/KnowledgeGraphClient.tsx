@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { LoadingSpinner } from "@/components/ui";
+import { unpackGraphData } from "@/subjects/knowledge-graph/lib/graph-wire";
 import type { GraphNode, GraphEdge } from "@/subjects/knowledge-graph/data/types";
 
 const KnowledgeGraph = dynamic(
@@ -25,7 +26,8 @@ const KnowledgeGraph = dynamic(
 type GraphData = { nodes: GraphNode[]; edges: GraphEdge[] };
 
 // The dataset is fetched from the force-static /knowledge-graph/graph-data
-// route so the ~680KB graph never enters the page RSC payload or JS bundle.
+// route so the graph payload never enters the page RSC payload or JS bundle.
+// Wire format v2 packs edges (see subjects/knowledge-graph/lib/graph-wire.ts).
 export function KnowledgeGraphClient() {
   const [data, setData] = useState<GraphData | null>(null);
 
@@ -33,8 +35,8 @@ export function KnowledgeGraphClient() {
     let cancelled = false;
     fetch("/knowledge-graph/graph-data")
       .then((r) => r.json())
-      .then((d: GraphData) => {
-        if (!cancelled) setData(d);
+      .then((d: Parameters<typeof unpackGraphData>[0]) => {
+        if (!cancelled) setData(unpackGraphData(d));
       })
       .catch(() => {
         if (!cancelled) setData({ nodes: [], edges: [] });
