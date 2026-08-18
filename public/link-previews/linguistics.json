@@ -1,0 +1,327 @@
+{
+  "/linguistics/acquisition-and-mind/children-learn-language": {
+    "t": "儿童怎样学会语言",
+    "e": "婴儿说出第一个可辨认词之前，已经经历了大量语言学习。他们听取节奏和声音分布，观察面孔、手势和行动结果，也在轮流互动中学习交流时机。",
+    "d": "linguistics"
+  },
+  "/linguistics/acquisition-and-mind/first-language-acquisition": {
+    "t": "第一语言习得",
+    "e": "儿童听到或看到的每个话语都不同，却能逐渐理解从未遇到的句子，并创造成人没有直接教过的形式。这说明习得不只是储存模仿样本，而是从互动中建立声音或手势类别、词义、组合结构和使用规则。",
+    "d": "linguistics"
+  },
+  "/linguistics/acquisition-and-mind/language-and-brain": {
+    "t": "语言、脑与失语症",
+    "e": "经典教科书把左额下回称为布洛卡区、左颞后部称为韦尼克区，并用前者负责产生、后者负责理解。病灶史确实奠定了语言侧化研究，但现代证据显示，命名、句法、语义、声音和控制由分布式皮层与白质网络协作。",
+    "d": "linguistics"
+  },
+  "/linguistics/acquisition-and-mind/language-thought-debate": {
+    "t": "语言是否塑造思维",
+    "e": "“语言塑造思维”可以指完全不同的主张：没有某种词就无法形成概念；说话时语言引导注意；长期使用某种分类让非语言任务更快；制度化词汇改变集体记忆和公共判断。若不先区分，任何实验都能被夸大成世界观决…",
+    "d": "linguistics"
+  },
+  "/linguistics/acquisition-and-mind/multilingual-mind": {
+    "t": "多语心智与语言切换",
+    "e": "一个人可以在家说一门语言，在学校读另一门，在工作中混合第三门。各语言的熟练度按听说读写、对象和领域分布，并会随迁移、教育和关系改变。“双语者”因此不是单一实验组，而是一组高度不同的语言经历。",
+    "d": "linguistics"
+  },
+  "/linguistics/acquisition-and-mind/psycholinguistic-processing": {
+    "t": "语言理解与产生",
+    "e": "听者在声音展开的数百毫秒内持续更新候选词、句法关系和说话者意图。看到“厨师切开了……”时，人们已预测后面可能是食材；听到词首时，多个相似词同时竞争，后续信号再逐步排除。",
+    "d": "linguistics"
+  },
+  "/linguistics/acquisition-and-mind/reading-and-dyslexia": {
+    "t": "阅读习得与读写困难",
+    "e": "第一个误解：\"只要会听会说，识字读书自然会。\" 这是把两件本质不同的事混为一谈。口语习得是人类演化出来的生物能力：只要置身于正常语言环境，几乎所有儿童都会不经教学地掌握口语（见first-la…",
+    "d": "linguistics"
+  },
+  "/linguistics/acquisition-and-mind/second-language-acquisition": {
+    "t": "第二语言习得",
+    "e": "最常见的说法是：\"过了 12 岁就学不好外语了。\"",
+    "d": "linguistics"
+  },
+  "/linguistics/acquisition-and-mind/wug-test-morphology-analysis": {
+    "t": "Wug Test 实验剖析：儿童怎样生成没听过的词",
+    "e": "1958 年，Jean Berko 在论文 “The Child’s Learning of English Morphology” 中使用虚构词检验儿童是否能把英语形态规则应用到从未听过的项…",
+    "d": "linguistics"
+  },
+  "/linguistics/frontier/ancient-dna-language-prehistory": {
+    "t": "古 DNA 与语言史前史：基因能追踪迁徙，却不能直接读出语言",
+    "e": "古基因组可以显示某一时期出现了大规模人口迁移、亲缘结构和混合，但骨骼里没有语言标签。人群可以换语而少有基因替换，征服者也可能改说当地语言。把某种遗传祖源直接等同于某种语言，是当前史前研究最诱人…",
+    "d": "linguistics"
+  },
+  "/linguistics/frontier/animal-communication-ai": {
+    "t": "人工智能与动物交流：发现组合结构，距离“翻译”还有多远",
+    "e": "机器学习可以在数千小时声音中找出人耳难以统计的模式，但聚类出信号类型不等于知道它们“说了什么”。人类翻译拥有双语者、共享情境和可询问的语义判断；动物交流研究往往只有声音、位置、行为和生理数据。…",
+    "d": "linguistics"
+  },
+  "/linguistics/frontier/community-led-language-revitalization": {
+    "t": "社区主导的语言复振：技术能帮忙，但谁定义“语言活了”",
+    "e": "一本语法、一部词典和几百小时录音可以让语言得到高质量记录，却不必然让儿童在家中使用它。自动转写、语音合成和学习应用可以降低材料制作成本，也可能把稀少的流利使用者变成无偿数据提供者，最后交付一个…",
+    "d": "linguistics"
+  },
+  "/linguistics/frontier/language-data-sovereignty": {
+    "t": "语言数据主权：一段录音开放以后，谁还能决定它的未来",
+    "e": "语言档案长期追求可发现、可访问与可复用：录音保存得越久、研究者用得越多，似乎价值越大。但一段仪式、亲属称谓或逝者声音进入开放仓库后，可能被下载训练商业模型、脱离语境重新剪辑，或违反社区对季节、…",
+    "d": "linguistics"
+  },
+  "/linguistics/frontier/sign-language-ai-bias": {
+    "t": "手语人工智能的系统偏差：识别手势，不等于理解语言",
+    "e": "很多“手语翻译”演示把任务缩成识别孤立词的手形，忽略面部表情、身体姿态、空间指代、语序和对话情境。系统可能在固定背景、熟悉签者和有限词表上取得高准确率，却无法处理自然连续手语。更根本的问题是，…",
+    "d": "linguistics"
+  },
+  "/linguistics/frontier/typology-sampling-bias": {
+    "t": "语言类型学的抽样危机：两千四百种语言够代表人类语言吗",
+    "e": "如果数据库里一百种语言都有某个语序，并不能直接推出人类语言偏好如此。它们可能来自同一语系，继承共同祖先；也可能在同一区域长期接触；还可能因为有书写传统和现成语法而更容易进入样本。语言不是相互独…",
+    "d": "linguistics"
+  },
+  "/linguistics/history-typology-society/chinese-dialects": {
+    "t": "汉语方言与变体",
+    "e": "\"中国有很多方言\"这句话里，\"方言\"两个字埋着一个长期争论。",
+    "d": "linguistics"
+  },
+  "/linguistics/history-typology-society/constructed-languages": {
+    "t": "人工语言：从世界语到道本语",
+    "e": "提到人工语言（constructed language，圈内人称 conlang），很多人的第一反应是：那不是真的语言。这个判断经不起推敲。世界语有原创诗歌和小说，有人在其中长大、以它为母语；…",
+    "d": "linguistics"
+  },
+  "/linguistics/history-typology-society/endangered-language-revitalization": {
+    "t": "濒危语言与语言复振",
+    "e": "一门语言被称为濒危，通常指儿童获得、代际传递或公共使用持续收缩，而不是它词汇少、语法简单或不适合现代生活。任何自然语言都能在使用者需要时创造新表达；限制来自权力、资源和使用场景，而非语言本身能…",
+    "d": "linguistics"
+  },
+  "/linguistics/history-typology-society/eskimo-snow-words-hoax": {
+    "t": "爱斯基摩雪词神话：一个学术都市传说的完整解剖",
+    "e": "\"爱斯基摩人有五十个（一百个、四百个）表示雪的词。\"",
+    "d": "linguistics"
+  },
+  "/linguistics/history-typology-society/language-contact": {
+    "t": "语言接触、借词与混合",
+    "e": "语言不会像液体一样自动混合。接触发生在多语使用者的日常选择中：谁与谁通婚、贸易、工作、上学和礼拜，哪种语言能换取资源，哪种变体表示亲近、权威或抵抗。",
+    "d": "linguistics"
+  },
+  "/linguistics/history-typology-society/language-families": {
+    "t": "语系与比较方法",
+    "e": "说两种语言属于同一语系，是在提出一个可检验的历史命题：它们的部分结构和词汇是从某种共同祖语继承而来。这不是按国家、文字或文化相似度给语言排类，也不是把相似语法结构画在一起。",
+    "d": "linguistics"
+  },
+  "/linguistics/history-typology-society/language-identity-power": {
+    "t": "语言、身份与权力",
+    "e": "同一个人会随对象、场所和活动改变口音、词汇、礼貌形式或语言。选择可以表示亲近、专业、地域、年龄、族群、性别立场或政治归属。身份不是先存在、再被语言被动贴标签；它在一次次可被他人识别的选择中被实…",
+    "d": "linguistics"
+  },
+  "/linguistics/history-typology-society/languages-change": {
+    "t": "语言为什么会变化",
+    "e": "语言会变化，不是因为某一代突然忘记规则，而是因为语言只存在于不断发生的使用与学习中。",
+    "d": "linguistics"
+  },
+  "/linguistics/history-typology-society/linguistic-typology": {
+    "t": "语言类型学与跨语言共性",
+    "e": "语言类型学追问：人类语言使用哪些结构方案，这些方案如何共现、分布和变化？它可以比较基本语序、格对齐、数量标记、声调、否定、关系从句或手语空间一致。",
+    "d": "linguistics"
+  },
+  "/linguistics/history-typology-society/primitive-languages-myth": {
+    "t": "「原始语言」神话：一个被语言学自己推翻的排序",
+    "e": "十九世纪的语言学有一张排行榜。",
+    "d": "linguistics"
+  },
+  "/linguistics/history-typology-society/sociolinguistic-variation": {
+    "t": "社会语言学变异",
+    "e": "传统语言学有一个方便的假设：把变异当噪音。理想的研究对象是\"同质言语社区中的理想说话人\"，实际言语中的摇摆被当作表演误差，扫到一边。",
+    "d": "linguistics"
+  },
+  "/linguistics/methods-and-frontiers/computational-linguistics": {
+    "t": "计算语言学与自然语言处理",
+    "e": "计算语言学把语言假说写成算法、概率模型或形式系统，既可解释人类语言结构，也可构建分词、解析、翻译、检索和对话工具。自然语言处理更强调系统任务，两者重叠却不完全相同。",
+    "d": "linguistics"
+  },
+  "/linguistics/methods-and-frontiers/corpus-annotation-and-agreement": {
+    "t": "语料标注与一致性：标注方案如何决定结论",
+    "e": "给一段语料打词性标签，看起来像纯技术操作：翻开指南，选一个标签，敲下回车。但每个标签背后都站着一整套语法理论——什么算名词、短语边界划在哪里、歧义往哪边裁决。标注方案（annotation s…",
+    "d": "linguistics"
+  },
+  "/linguistics/methods-and-frontiers/corpus-linguistics": {
+    "t": "语料库语言学",
+    "e": "语料库不是把能找到的文本堆在一起，而是按研究目标采集、记录来源并可系统检索的语言资料。它可以包含书面文本、对话录音、手语视频、儿童纵向记录或历史手稿，每种媒介都有不同抽样和转写问题。",
+    "d": "linguistics"
+  },
+  "/linguistics/methods-and-frontiers/experimental-linguistics": {
+    "t": "实验语言学与因果推断",
+    "e": "语言理论常预测某形式在特定条件下更易理解、更自然或更可能产生。实验通过操控一个因素、控制其他差异并随机分配试次，检验结果是否随操控变化。它不是给直觉加数字，而是迫使竞争解释做出不同预测。",
+    "d": "linguistics"
+  },
+  "/linguistics/methods-and-frontiers/experimental-pragmatics": {
+    "t": "实验语用学：含义如何被测量",
+    "e": "\"一些学生通过了考试。\"听到这句话，几乎所有人都会理解为\"一些、但不是全部\"。可是逻辑学家会告诉你，\"一些\"在语义上兼容\"全部\"——假如全部学生都通过了，这句话仍然为真。字面意思与人们实际理解…",
+    "d": "linguistics"
+  },
+  "/linguistics/methods-and-frontiers/forensic-linguistics": {
+    "t": "司法语言学：把语言当作证据",
+    "e": "第一个误解，是以为每个人都有独一无二、可被指纹式识别的\"语言指纹\"。这个类比是错的，而且错得很危险。 指纹在个体内稳定、个体间唯一；而一个人的语言会随场合、对象、媒介、情绪剧烈变化——你给上司…",
+    "d": "linguistics"
+  },
+  "/linguistics/methods-and-frontiers/language-evolution": {
+    "t": "语言能力如何演化",
+    "e": "语言能力演化问人类物种怎样获得学习和使用开放语言系统的生物条件；语言文化演化问结构怎样在学习者之间传递并被重塑；历史语言变化则追踪已有语言数百或数千年的分化。三者时间尺度和证据不同。",
+    "d": "linguistics"
+  },
+  "/linguistics/methods-and-frontiers/linguistic-fieldwork": {
+    "t": "语言田野调查与社区协作",
+    "e": "语言田野调查常被想象成研究者到遥远地方，找到几位“母语人”，录下词表和故事后带回实验室。这个图景把社群当作原料供应者，也隐藏了数据是如何在具体关系中被共同生产的。",
+    "d": "linguistics"
+  },
+  "/linguistics/methods-and-frontiers/llm-and-linguistic-theory": {
+    "t": "大语言模型与语言学理论",
+    "e": "2022 年底以来，一种说法广为流传：大语言模型（LLM）只靠预测下一个词就写出了合乎语法的文章，这证明语言无非是分布统计，乔姆斯基错了，语言学被工程学绕过了。这个判断把三个不同的问题压成了一…",
+    "d": "linguistics"
+  },
+  "/linguistics/methods-and-frontiers/multilingual-ai": {
+    "t": "多语 AI、低资源语言与评测公平",
+    "e": "模型页面列出语言名称，可能只表示训练语料中出现过字符，也可能表示在某项翻译基准上测试过。聊天、检索、语音、事实问答、代码混合和安全判断需要不同数据；标准语表现也不能代表方言和另一套文字。",
+    "d": "linguistics"
+  },
+  "/linguistics/methods-and-frontiers/speech-technology": {
+    "t": "言语技术：机器如何听懂与说出语言",
+    "e": "直觉里的语音识别很简单：机器把每个音对应到一个字，连起来就是文字。这个图景错在前提——言语不是一串可切分的珠子。连续语流里，词与词之间没有静音间隙，同一个音位在不同语境中声学面目完全不同，同一…",
+    "d": "linguistics"
+  },
+  "/linguistics/sounds-and-signs/acoustic-phonetics": {
+    "t": "声学语音学与语音测量",
+    "e": "说话推动空气形成微小压力变化，麦克风把变化转成电信号，数字录音再按固定时间间隔采样。波形横轴是时间，纵轴近似表示瞬时振幅；它能显示静音、爆破和周期性，却不会自动标出“这是一个音位”。",
+    "d": "linguistics"
+  },
+  "/linguistics/sounds-and-signs/how-speech-is-made": {
+    "t": "人怎样发出语音",
+    "e": "大多数口语声音从呼气开始。肺部推动气流经过气管和喉头，随后进入咽腔、口腔，有时也进入鼻腔。沿途的组织改变气流，使连续的压力变化成为可以被耳朵和仪器区分的语音。",
+    "d": "linguistics"
+  },
+  "/linguistics/sounds-and-signs/language-speech-and-sign": {
+    "t": "语言、言语与手语",
+    "e": "人们常把语言等同于嘴里发出的声音，也常把手语误认为口语的手势翻译。这两个直觉都不准确。",
+    "d": "linguistics"
+  },
+  "/linguistics/sounds-and-signs/phonemes-and-sound-systems": {
+    "t": "音位与音系系统",
+    "e": "语音学描述人能产生和听见的声音差异，音系学研究这些差异怎样在某门语言中组织起来。",
+    "d": "linguistics"
+  },
+  "/linguistics/sounds-and-signs/phonetics-and-ipa": {
+    "t": "语音学与国际音标",
+    "e": "同一个字母在不同语言、不同词甚至不同位置中可以表示不同声音。英语字母组合、法语拼写和汉语拼音各有历史形成的规则，它们服务于读写共同体，并不承担精确比较全世界语音的任务。",
+    "d": "linguistics"
+  },
+  "/linguistics/sounds-and-signs/sign-language-research": {
+    "t": "手语研究：一门学科的诞生",
+    "e": "1960 年之前，“手语语言学”这个学科几乎不存在。手语当然有被讨论——但讨论它的是特殊教育、慈善机构和医学，问题被框定为“怎样教聋童说话”，而不是“手语是什么”。",
+    "d": "linguistics"
+  },
+  "/linguistics/sounds-and-signs/sign-language-structure": {
+    "t": "手语的空间语法",
+    "e": "自然手语是在聋人社群中形成并代际传递的完整语言。它们有自己的词汇、音系、形态、句法和语用规则，并不等于所在国家多数口语的手势编码。美国手语与英语、英国手语与英语分别使用不同的语法；美国手语与法…",
+    "d": "linguistics"
+  },
+  "/linguistics/sounds-and-signs/speech-perception": {
+    "t": "言语感知：从连续声波到离散单位",
+    "e": "多数人对听语音的想象是一台录音机：声波进来，耳朵忠实地转录，大脑播放。这个图景几乎每一处都是错的。语音信号是连续的——没有空格，没有整齐的单位边界，同一个音位在不同说话人、不同语境下的声学实现…",
+    "d": "linguistics"
+  },
+  "/linguistics/sounds-and-signs/tone-and-prosody": {
+    "t": "声调与韵律",
+    "e": "第一个误解：声调是\"东方语言的特色\"。",
+    "d": "linguistics"
+  },
+  "/linguistics/words-sentences-meaning/discourse-analysis": {
+    "t": "话语与篇章分析：句子以上的语言组织",
+    "e": "一个常见的误解是：语言学的对象到句子为止，再往上就是文学评论或个人感想的事。按照这个看法，分析一段话无非是“谈谈我的读后感”，无所谓对错。",
+    "d": "linguistics"
+  },
+  "/linguistics/words-sentences-meaning/grammar-theories": {
+    "t": "语法理论的证据与争论",
+    "e": "说话者能理解从未听过的新句子，也能辨认词序相近却解释不同的表达。任何语法理论都必须解释这种生产性、层级结构、长距离关系、歧义和跨语言差异。真正的争论是：结构由什么构成，它怎样被习得、加工和使用…",
+    "d": "linguistics"
+  },
+  "/linguistics/words-sentences-meaning/lexicography": {
+    "t": "词典学：词典是怎样编出来的",
+    "e": "人们翻词典的姿势透露了一种信仰：一个词是不是“正经词”，查一查就知道；词典里没有，就不算数。词典学（lexicography）——研究词典如何编纂的学问——首先要打破的正是这个信仰。",
+    "d": "linguistics"
+  },
+  "/linguistics/words-sentences-meaning/morphological-productivity": {
+    "t": "形态生产性：规则什么时候是活的",
+    "e": "把一个新出现的形容词加上 -ness，几乎没有人会觉得别扭；但若加上 -th，除了玩笑几乎行不通。同样是“从形容词造名词”的规则，为什么一条活得生猛，一条只剩化石？这就是形态生产性（morph…",
+    "d": "linguistics"
+  },
+  "/linguistics/words-sentences-meaning/morphology": {
+    "t": "形态学：词的内部结构",
+    "e": "有些词看似一个整体，却包含反复出现并承担意义或语法功能的部分。形态学研究这些部分怎样组合、变化和形成新词。",
+    "d": "linguistics"
+  },
+  "/linguistics/words-sentences-meaning/pragmatics": {
+    "t": "语用学：语境、意图与会话",
+    "e": "“这里有点冷”可以是温度判断，也可以是在请人关窗、解释自己穿外套，或婉拒去室外。词义和句法限制了可能解释，但听者还会利用场景、共同知识、说话者目标与互动关系推断当下行动。",
+    "d": "linguistics"
+  },
+  "/linguistics/words-sentences-meaning/semantics": {
+    "t": "语义学：表达如何承载意义",
+    "e": "问一句话是什么意思，可能是在问词指向什么、句子在什么条件下为真、说话者想做什么，或听者联想到什么。",
+    "d": "linguistics"
+  },
+  "/linguistics/words-sentences-meaning/stylistics": {
+    "t": "文体学：风格作为选择的科学",
+    "e": "一个流传很广的看法是：风格是内容的包装。同一个意思，可以说得朴素，也可以说得华丽——内容是不变的馅，风格是外加的糖霜。按照这个看法，研究风格无非是谈谈“文笔好不好”，属于鉴赏，不属于学问。",
+    "d": "linguistics"
+  },
+  "/linguistics/words-sentences-meaning/syntax": {
+    "t": "句法学：结构与依存",
+    "e": "句法学研究语言单位怎样组成更大的表达，以及成分之间具有哪些结构关系。它不只是学校语法中的“找主谓宾”，也不等于规定哪种说法更正式。",
+    "d": "linguistics"
+  },
+  "/linguistics/words-sentences-meaning/translation-and-translatability": {
+    "t": "翻译与可译性：语言强迫你说出的东西",
+    "e": "第一个误解，是把翻译理解成换词。如果语言只是给同一批概念贴不同标签，翻译确实只是查表。但语言之间不同的不只是标签，还有范畴的切法：英语的 blue 在俄语里必须选 синий（深蓝）或 гол…",
+    "d": "linguistics"
+  },
+  "/linguistics/words-sentences-meaning/words-and-sentences": {
+    "t": "词如何组成句子",
+    "e": "看见一句话写在纸上，我们容易以为空格分出词，词从左到右排好，句子结构就完成了。但许多语言不使用空格分词；口语信号也没有在每个词边界自动停顿。",
+    "d": "linguistics"
+  },
+  "/linguistics/writing-systems/arabic-and-african-scripts": {
+    "t": "阿拉伯文字与非洲文字实践",
+    "e": "阿拉伯语主要以阿拉伯文字书写，但同一文字经过改造也记录波斯语、乌尔都语、库尔德语、维吾尔语以及许多非洲语言。使用阿拉伯文字不等于使用阿拉伯语，也不自动决定使用者族群或宗教身份。",
+    "d": "linguistics"
+  },
+  "/linguistics/writing-systems/chinese-writing": {
+    "t": "汉字：形、音、义与历史层次",
+    "e": "汉字常被称为表意文字，容易让人误以为字符绕过语言、直接表达普遍概念。实际上，读者要把字形连接到具体语言中的词或语素、读音和语法。看懂“山”不等于无需知道它在汉语句子中的发音与用法。",
+    "d": "linguistics"
+  },
+  "/linguistics/writing-systems/input-methods": {
+    "t": "输入法与文字信息化",
+    "e": "第一个误解：\"汉字天生不适合机械与数字时代。\" 这个判断在 20 世纪反复出现，从打字机时代的西方观察家到主张汉字拉丁化的中国改革者都说过类似的话。但历史给出的答案相反：问题从来不是汉字本身，…",
+    "d": "linguistics"
+  },
+  "/linguistics/writing-systems/language-and-writing": {
+    "t": "语言与文字不是一回事",
+    "e": "儿童通常先在互动中掌握口语或手语，再通过专门教学学习读写。人类社群在没有文字时也能讲述历史、制定规则、创作诗歌和传递复杂知识。",
+    "d": "linguistics"
+  },
+  "/linguistics/writing-systems/origin-of-writing": {
+    "t": "文字的起源：从记账到书写语言",
+    "e": "关于文字起源，流传最广的图景是圣人灵光一现：仓颉仰观天象、俯察鸟兽之迹而造字。这类传说把文字当成天才的灵感产物，也默认文字从第一天起就是为了记录思想和文学。",
+    "d": "linguistics"
+  },
+  "/linguistics/writing-systems/south-asian-scripts": {
+    "t": "南亚婆罗米系文字",
+    "e": "南亚拥有天城文、孟加拉—阿萨姆文、古木基文、古吉拉特文、奥里亚文、泰米尔文、泰卢固文、卡纳达文、马拉雅拉姆文、僧伽罗文等多种现行文字，也有夏拉达文、格兰塔文、莫迪文等历史传统。它们共享部分谱系…",
+    "d": "linguistics"
+  },
+  "/linguistics/writing-systems/unicode-and-digital-writing": {
+    "t": "Unicode 与数字文字基础设施",
+    "e": "屏幕上的字形来自多层协作：文本先被编码为数字序列，软件解释字符、语言和方向，字体提供轮廓，塑形引擎选择组合与位置，渲染器再把像素画到屏幕。任何一层失败都可能显示方框、错序或断裂。",
+    "d": "linguistics"
+  },
+  "/linguistics/writing-systems/writing-system-types": {
+    "t": "文字系统的主要类型",
+    "e": "文字系统可以按基本符号主要映射什么语言单位来比较。常见类型包括字母、辅音音素文字、元音附标文字、音节文字和语素音节文字。",
+    "d": "linguistics"
+  }
+}

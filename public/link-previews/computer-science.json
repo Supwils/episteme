@@ -1,0 +1,1067 @@
+{
+  "/computer-science/algorithms/a-star-search": {
+    "t": "A* 搜索算法",
+    "e": "1968 年，Stanford Research Institute 的三位研究员——Peter Hart、Nils Nilsson 和 Bertram Raphael——在开发一台机器人（S…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/approximate-nearest-neighbor-search": {
+    "t": "近似最近邻搜索",
+    "e": "给定一亿个向量和一个查询向量，找出与它最接近的十个——这个问题听起来像入门练习，实际上是过去三十年算法研究中最顽固的难题之一，也是今天每一个向量数据库、推荐系统与检索增强生成管线的地基。",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/attention-and-transformers": {
+    "t": "注意力机制与 Transformer",
+    "e": "2017 年，谷歌大脑的八位研究员——阿希什·瓦斯瓦尼（Ashish Vaswani）等人——发表了题为《注意力就是一切》（Attention Is All You Need）的论文，提出了 …",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/backtracking": {
+    "t": "回溯算法",
+    "e": "1848 年，国际象棋棋手 Max Bezzel 提出了一个看似简单的问题：把 8 个皇后放在 8 \\times 8 棋盘上，使得没有两个皇后互相攻击。这个问题有多少种放法？",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/bellman-ford": {
+    "t": "贝尔曼-福特算法",
+    "e": "Richard Bellman（动态规划的奠基人）在 1958 年的论文《On a Routing Problem》中、Lester Ford Jr.（最大流-最小割定理的共同提出者，他与 F…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/binary-search": {
+    "t": "二分查找",
+    "e": "在 1000 页的字典里查一个单词，没有人会从第一页开始逐页翻。人们翻到中间，判断目标词在左半还是右半，然后对着那半部分重复这个动作——几步就找到了。",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/bloom-filter": {
+    "t": "布隆过滤器",
+    "e": "1970 年，Burton Howard Bloom 在 Communications of the ACM 上发表了一篇不到 3 页的短文\"Space/Time Trade-offs in …",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/consistent-hashing": {
+    "t": "一致性哈希",
+    "e": "1997 年，大卫·卡格（David Karger）等人在 ACM STOC 会议上发表了论文《一致性哈希及随机树：分布式缓存协议以减轻万维网上的热点》（第 654 至 663 页）。当时的背…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/convex-hull": {
+    "t": "凸包算法",
+    "e": "把若干颗钉子钉在木板上，然后用一根橡皮筋套住所有钉子并拉紧——橡皮筋绷出的形状就是这些点的凸包（Convex Hull）。",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/convolutional-neural-networks": {
+    "t": "卷积神经网络",
+    "e": "2012 年 9 月，ImageNet 大规模视觉识别竞赛（ILSVRC）的结果让整个计算机视觉社区震惊：来自多伦多大学的 AlexNet，由亚历克斯·克里热夫斯基（Alex Krizhevs…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/decision-trees": {
+    "t": "决策树",
+    "e": "一个人去看医生，医生问：你发烧吗？是的。咳嗽吗？是的。呼吸困难吗？不。那么，可能是普通支气管炎。",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/divide-and-conquer": {
+    "t": "分治算法",
+    "e": "\"分而治之\"——这句话在政治上是权谋，在算法里是智慧。",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/dynamic-programming": {
+    "t": "动态规划",
+    "e": "\"Dynamic Programming\"这个名字，是 Richard Bellman（美国应用数学家）在 1950 年代发明的。他后来在自传里坦承，选这个名字是因为\"dynamic\"听起来酷…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/edit-distance-algorithms": {
+    "t": "编辑距离算法",
+    "e": "\"您是要搜索 'Alber Einstien'？\"",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/fast-fourier-transform": {
+    "t": "快速傅里叶变换",
+    "e": "1965 年，James Cooley 和 John Tukey 在 Mathematics of Computation 上发表了一篇五页的论文\"An Algorithm for the M…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/floyd-warshall": {
+    "t": "Floyd-Warshall 算法",
+    "e": "1962 年，两位研究者几乎同时发表了全对最短路径算法。Robert Floyd 在 Communications of the ACM 上发表了\"Algorithm 97: Shortest…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/genetic-algorithms": {
+    "t": "遗传算法",
+    "e": "1975 年，密歇根大学教授约翰·霍兰德（John Holland）出版了《自然与人工系统中的适应》（Adaptation in Natural and Artificial Systems）…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/gradient-boosting": {
+    "t": "梯度提升",
+    "e": "2001 年，斯坦福大学教授杰罗姆·弗里德曼（Jerome Friedman）发表论文《贪婪函数近似：梯度提升机》，将函数空间的梯度下降与集成学习结合，创造了梯度提升（Gradient Boo…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/gradient-descent-backprop": {
+    "t": "梯度下降与反向传播",
+    "e": "今天所有主流的神经网络——GPT、Stable Diffusion、AlphaFold、自动驾驶系统——都依赖两个核心算法在数以亿计的参数上共同工作：梯度下降告诉参数应该往哪个方向调整，反向传…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/graph-traversal": {
+    "t": "图的遍历（BFS 与 DFS）",
+    "e": "谷歌的网络爬虫访问 example.com，发现它链接到 a.com、b.com，然后访问 a.com，发现它链接到 c.com、d.com……这个过程叫做图遍历：系统地访问图中每一个可达节点…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/greedy-algorithms": {
+    "t": "贪心算法",
+    "e": "1956 年，年轻的 Edsger Dijkstra 在为阿姆斯特丹数学中心编写程序时，想到了一个简洁到让人惊叹的主意：每次都走目前看起来最近的路，就这样，不回头。",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/hashing": {
+    "t": "哈希",
+    "e": "有两件事，哈希函数都能做，而且性质完全不同：",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/heaps-and-priority-queues": {
+    "t": "堆与优先队列",
+    "e": "想象一家急诊室：病人按紧迫程度（而不是到达时间）接受治疗。最危重的病人总是最先被处理，哪怕他是最后到达的。这就是优先队列的行为模型——一种\"根据优先级出队\"而非\"先进先出\"的数据结构。",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/huffman-coding": {
+    "t": "霍夫曼编码",
+    "e": "1951 年，麻省理工学院一门信息论课程上，教授 Robert Fano 给学生一个选择：要么参加期末考试，要么写一篇学期论文，证明一种最优的数据编码方案——能把信息压缩到尽可能短。Fano …",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/k-means-clustering": {
+    "t": "K-means 聚类",
+    "e": "1957 年，Bell Labs 的 Stuart Lloyd 开发了一种信号量化算法，用于将连续信号压缩为有限个离散值——他将类似的点\"聚合\"到同一个\"中心\"附近。这个方法在 Bell La…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/knapsack-problem": {
+    "t": "背包问题",
+    "e": "一位探险家准备出发，背包最多承重 W 公斤。他面前有 n 件宝物，每件有重量 w_i 和价值 v_i。他应该带哪些宝物，才能让总价值最大，同时不超过背包承重？",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/linear-programming": {
+    "t": "线性规划",
+    "e": "1939 年，苏联数学家 Leonid Kantorovich 在研究苏联工业生产调度时（其著作《生产组织与计划的数学方法》），提出了一类特殊的数学优化问题：目标函数和约束都是线性的。他的工作…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/lru-cache-eviction": {
+    "t": "LRU 缓存淘汰算法",
+    "e": "每次你访问一个网站，浏览器从本地缓存中加载它，而不是从服务器重新下载——这背后有一个决策：当缓存满了，哪个页面应该被删除，为新内容腾出空间？",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/mapreduce": {
+    "t": "MapReduce",
+    "e": "2004 年，谷歌工程师杰弗里·迪恩（Jeffrey Dean）和桑贾伊·格马瓦特（Sanjay Ghemawat）发表了《MapReduce：大型集群上的简化数据处理》。这篇论文描述了 Go…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/minimum-spanning-tree": {
+    "t": "最小生成树",
+    "e": "1926 年，捷克数学家奥塔卡尔·博鲁夫卡（Otakar Borůvka）受摩拉维亚电力公司委托，研究如何用最少的电线把全国所有城镇连接成电网。他发表了第一个求解最小生成树的算法——比 Kru…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/monte-carlo-methods": {
+    "t": "蒙特卡洛方法",
+    "e": "1946 年，斯坦尼斯瓦夫·乌拉姆（Stanislaw Ulam）大病初愈、卧床休养，用纸牌游戏打发时间。他开始思考：能不能通过多次实际发牌来估算某种单人纸牌（Solitaire）获胜的概率，…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/network-flow": {
+    "t": "网络流",
+    "e": "1956 年，美国空军系统分析师 T.E. Harris 写了一份机密备忘录，估算若苏联遭受核打击后，铁路网络能承载多少物资流量。这个问题后来成为一道经典算法题目的直接来源。同年，L.R. F…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/newtons-method-numerical": {
+    "t": "牛顿法与数值求解",
+    "e": "1669 年，艾萨克·牛顿（Isaac Newton）在一份未发表的手稿中描述了一种求多项式根的迭代方法。三个多世纪后，这个方法仍然是科学计算的基石：每一次 GPS 定位、每一次卫星轨道修正、…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/pagerank": {
+    "t": "PageRank 算法",
+    "e": "1998 年，斯坦福大学的两位博士生 Larry Page 和 Sergey Brin 在论文\"The Anatomy of a Large-Scale Hypertextual Web Se…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/principal-component-analysis": {
+    "t": "主成分分析",
+    "e": "主成分分析（Principal Component Analysis, PCA）的历史可以追溯到 1901 年，由卡尔·皮尔逊（Karl Pearson）在《哲学杂志》发表的论文中首次提出（作…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/public-key-rsa": {
+    "t": "RSA 公钥密码",
+    "e": "1976 年，Whitfield Diffie 和 Martin Hellman 发表了一篇论文《密码学的新方向》（New Directions in Cryptography），提出了一个听…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/q-learning": {
+    "t": "Q 学习与强化学习",
+    "e": "1992 年，克里斯托弗·沃特金斯（Christopher Watkins）和彼得·达扬（Peter Dayan）发表论文，为 Q 学习（Q-Learning）算法提供了收敛证明。但这个算法在…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/random-forests": {
+    "t": "随机森林",
+    "e": "2001 年，利奥·布雷曼（Leo Breiman）在《机器学习》杂志发表了题为《随机森林》的论文，提出了一个简单但极其有效的思想：一棵决策树不稳定、容易过拟合，但一千棵随机生长的决策树投票，…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/rate-limiting-algorithms": {
+    "t": "限流算法",
+    "e": "你写了一个公开的 API，某天凌晨流量突然暴涨——可能是真实的爆款，也可能是某个客户端写错代码陷入死循环、每秒打来上万次请求，还可能是恶意攻击。如果什么都不做，你的服务器会被压垮，连正常用户也…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/recurrent-neural-networks": {
+    "t": "循环神经网络",
+    "e": "1986 年，大卫·鲁姆哈特（David Rumelhart）、杰弗里·欣顿（Geoffrey Hinton）和罗纳德·威廉姆斯（Ronald Williams）在提出反向传播算法的同一篇论文…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/regular-expressions": {
+    "t": "正则表达式",
+    "e": "注册表单里检查邮箱格式的那行校验、IDE 里按下 Ctrl+Shift+F 的全局搜索、运维在几十 GB 日志里捞出某个错误码的那条 grep——它们背后是同一个工具：正则表达式。",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/sat-solving": {
+    "t": "SAT 求解",
+    "e": "1971 年，斯蒂芬·库克（Stephen Cook）证明了布尔可满足性问题（SAT）是 NP 完全的——这是计算机科学最重要的定理之一，为整个 NP 完全理论奠定了基础（库克因此获得 198…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/segment-trees": {
+    "t": "线段树",
+    "e": "考虑一个百万元素的数组，要回答几十万次这样的问询：\"第 30000 到 80000 个元素之和是多少？\"——而且元素的值还会不断被修改。",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/shortest-path-dijkstra": {
+    "t": "最短路径与 Dijkstra 算法",
+    "e": "1956 年，荷兰计算机科学家艾兹赫尔·迪克斯特拉（Edsger W. Dijkstra）在阿姆斯特丹数学中心工作，那时没有鼠标、没有编辑器——程序员用铅笔在纸上写，然后把穿孔卡片送进去运行。",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/simulated-annealing": {
+    "t": "模拟退火",
+    "e": "金属工匠早在几千年前就知道：将金属加热到高温后缓慢冷却（退火），能使原子找到低能量的稳定排列，消除内部应力，使材料更坚韧。1983 年，IBM 研究员柯克帕特里克（Scott Kirkpatr…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/skip-lists": {
+    "t": "跳表",
+    "e": "1990 年，威廉·普格（William Pugh）在《ACM 通讯》发表了《跳表：平衡树的概率替代》，提出了跳表（Skip List）这一数据结构。",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/sorting-algorithms": {
+    "t": "排序算法",
+    "e": "把一列数字从小到大排好，看起来是个简单到无聊的问题。但排序是计算机科学里被研究最深、影响最广的问题之一。操作系统调度任务、数据库查找记录、搜索引擎返回结果、基因组学处理 DNA 序列——背后几…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/string-matching": {
+    "t": "字符串匹配",
+    "e": "每次你按下 Ctrl+F 搜索一个词，每次你的 IDE 给你标出一个错误，每次 grep 在日志文件里找到一行记录——背后都有一个字符串匹配算法在工作。",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/suffix-trees-and-arrays": {
+    "t": "后缀树与后缀数组",
+    "e": "人类基因组包含约 32 亿个碱基对。生物信息学家每天都需要在其中寻找一段几十个字符的 DNA 序列——这是一个对 32 亿字符字符串做模式匹配的问题，而且同一个基因组上要做的不是一次查询，是成…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/support-vector-machines": {
+    "t": "支持向量机",
+    "e": "1995 年，贝尔实验室的科琳娜·科尔特斯（Corinna Cortes）和弗拉基米尔·万普尼克（Vladimir Vapnik）发表论文《支持向量网络》，奠定了支持向量机（Support V…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/topological-sort": {
+    "t": "拓扑排序",
+    "e": "你敲下 make 编译一个 C 项目，或者 npm install 装一堆依赖包：a.o 必须先于 b.o 编译，库 X 必须先于依赖它的库 Y 安装。构建工具要做的第一件事，就是把这张\"谁依…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/union-find": {
+    "t": "并查集",
+    "e": "一张有十亿用户的社交网络，好友关系不断新增。系统要随时回答：\"张三和李四，通过朋友的朋友的朋友……能不能连上？\"",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/abstraction": {
+    "t": "抽象与分层",
+    "e": "1970 年代，一台电子计算机上运行程序，程序员需要了解寄存器、总线、内存地址。今天，一个网页开发者用 JavaScript 调用 fetch() 发出网络请求，中间隔着十几层代码，却无需知道…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/api-design": {
+    "t": "API 设计",
+    "e": "2002 年前后，亚马逊的 CEO 杰夫·贝索斯发出了一道著名的内部指令（其内容直到 2011 年才被前亚马逊、时任 Google 工程师 Steve Yegge 在一篇广为流传的随笔中公开转…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/authentication-authorization": {
+    "t": "身份验证与授权",
+    "e": "每次你登录一个网站，系统至少要处理四个不同问题：",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/b-trees-and-lsm-trees": {
+    "t": "存储引擎：B 树与 LSM 树",
+    "e": "打开任何一个数据库——MySQL、PostgreSQL、MongoDB、Cassandra、RocksDB——在它优雅的 SQL 接口之下，都藏着一个默默干脏活累活的核心组件：存储引擎。它要回…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/big-data-systems": {
+    "t": "大数据系统",
+    "e": "2003 年，Google 内部工程师在每天爬取、索引数十亿网页，每周要处理数 PB 数据时，意识到已有的工具完全无法应对：单台服务器不够，商业数据库太贵且扩展性有限。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/blockchain": {
+    "t": "区块链",
+    "e": "2008 年 10 月 31 日，署名\"中本聪（Satoshi Nakamoto）\"的人向密码学邮件列表发布了一篇九页论文：《比特币：一个点对点电子现金系统》。文中提出了一种无需可信第三方的去…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/caching-strategies": {
+    "t": "缓存策略",
+    "e": "2010 年，Facebook 的工程师们面临一个危机：随着用户增长，MySQL 数据库承受不住负载，页面响应时间大幅上升。解决方案是什么？不是更换数据库，而是在数据库前面加了一层——使用 M…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/cloud-computing": {
+    "t": "云计算",
+    "e": "2006 年，亚马逊先后发布了两个不起眼的服务：3 月推出 S3（简单存储服务），8 月推出 EC2（弹性计算云）。定价是：存储每 GB 每月 0.15 美元，计算每小时 0.10 美元。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/compilers": {
+    "t": "编译器",
+    "e": "1957 年，约翰·巴克斯（John Backus）领导的 IBM 团队发布了第一个 FORTRAN 编译器，把人类用代数公式写的代码翻译成 IBM 704 的机器指令。当时许多程序员不相信这…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/computer-architecture": {
+    "t": "计算机体系结构",
+    "e": "1945 年 6 月，约翰·冯·诺伊曼（John von Neumann）起草了一份关于 EDVAC 计算机设计的报告草稿，描述了一个看似简单的思想：程序和数据存储在同一内存中。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/computer-graphics": {
+    "t": "计算机图形学",
+    "e": "1995 年，《玩具总动员》（Toy Story）上映，这是第一部完全由计算机生成的长篇动画电影。导演约翰·拉塞特（John Lasseter）和皮克斯团队用了约四年完成制作，全片 11.4 …",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/computer-security-principles": {
+    "t": "计算机安全原则",
+    "e": "2017 年 5 月 12 日，\"WannaCry\"勒索软件在一天之内感染了全球 150 个国家超过 23 万台计算机。英国国家医疗服务体系（NHS）的大量医院被迫关闭紧急服务，手术被取消，救…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/computer-vision": {
+    "t": "计算机视觉",
+    "e": "1966 年夏天，MIT 人工智能实验室的 Seymour Papert 发起了\"夏季视觉项目（The Summer Vision Project）\"。在 7 月 7 日的备忘录里，他计划用一…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/concurrency": {
+    "t": "并发与并行",
+    "e": "1965 年，英特尔联合创始人戈登·摩尔观察到：集成电路上可容纳的晶体管数目，大约每两年翻一番。这个预测维持了数十年，让单核处理器的速度持续攀升。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/consensus-algorithms": {
+    "t": "分布式共识算法",
+    "e": "2014 年，Diego Ongaro 和 John Ousterhout 在 USENIX ATC 发表《In Search of an Understandable Consensus A…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/containers-and-orchestration": {
+    "t": "容器与容器编排",
+    "e": "2013 年 3 月，一家名不见经传的 PaaS 初创公司 dotCloud 在 PyCon 上发布了一个内部工具——Docker。演示视频里，工程师 Solomon Hykes 在台上用几行…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/cpu-pipelining": {
+    "t": "CPU 流水线",
+    "e": "想象一个汽车组装工厂，有一百道工序。最简单的方式是：一辆车从头到尾完成所有工序后，再开始下一辆。如果每道工序需要 1 分钟，完成一辆车需要 100 分钟，每小时生产 0.6 辆。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/data-structures": {
+    "t": "数据结构",
+    "e": "一个程序员拿到一台 16GB 内存的电脑，可以用十几种截然不同的方式把数据放进这 160 亿个字节里。选择哪种方式，决定了程序快还是慢、简单还是复杂，有时甚至决定了一个问题能不能被解决。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/database-indexing-and-query-optimization": {
+    "t": "数据库索引与查询优化",
+    "e": "一张存储了 10 亿行用户数据的表，每行包含用户 ID、姓名、邮箱、注册时间等字段。你执行一条查询：",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/databases-transactions": {
+    "t": "数据库与事务",
+    "e": "设想一个最朴素的取款程序：先读出账户余额，减去取款金额，再把新余额写回。当两台 ATM 在同一瞬间为同一个账户执行这段逻辑——都读到了 1000 元、都各自算出 900 元、都写回 900 元…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/deep-learning-architectures": {
+    "t": "深度学习架构",
+    "e": "2012 年 9 月，ImageNet 大规模视觉识别挑战赛（ILSVRC）的结果公布。多伦多大学的 AlexNet 以 15.3% 的 Top-5 错误率获胜，而第二名是 26.2%——超出…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/design-patterns": {
+    "t": "设计模式",
+    "e": "1977 年，建筑学家克里斯托弗·亚历山大（Christopher Alexander）出版了《建筑模式语言》——一本记录了 253 种建筑设计中反复出现的解决方案的书：如何设计楼梯、如何安排…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/distributed-systems": {
+    "t": "分布式系统",
+    "e": "2003 到 2006 年间，Google 接连发表了三篇论文：GFS（分布式文件系统，2003）、MapReduce（分布式计算框架，2004）、Bigtable（分布式数据库，2006）。…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/dns": {
+    "t": "DNS：互联网的命名系统",
+    "e": "1983 年之前，互联网上的所有计算机名字都记录在一个文件里：HOSTS.TXT。这个文件由斯坦福研究院（SRI）下属的网络信息中心（NIC，长期由 Elizabeth \"Jake\" Fein…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/embedded-systems": {
+    "t": "嵌入式系统",
+    "e": "你口袋里的手机是一台通用计算机。但打开洗碗机的控制面板，里面那块芯片永远只做一件事：控制洗碗程序。这就是嵌入式系统（Embedded System）——专门为特定任务而设计、集成到更大设备中的…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/encryption-basics": {
+    "t": "加密基础",
+    "e": "1977 年，Ron Rivest、Adi Shamir、Leonard Adleman 设计了后来以三人姓氏首字母命名的 RSA，并于次年发表。它利用模幂运算易算、从公开参数恢复私钥在已知经…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/expert-systems-and-the-second-ai-winter": {
+    "t": "专家系统与第二次 AI 寒冬",
+    "e": "1980 年代初，人工智能第一次成为一门生意。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/file-systems": {
+    "t": "文件系统",
+    "e": "你电脑上有 100,000 个文件分散在 SSD 的数十亿个存储单元中，你用一秒钟就能找到并打开任何一个。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/firewalls-and-network-security": {
+    "t": "防火墙与网络安全",
+    "e": "1988 年 11 月 2 日，莫里斯蠕虫（Morris Worm）——历史上第一个大规模传播的互联网蠕虫——在数小时内感染了约 6000 台互联网主机（当时互联网上约 60000 台计算机，…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/formal-methods-and-verification": {
+    "t": "形式化方法与程序验证",
+    "e": "1996 年 6 月 4 日，阿丽亚娜 5 号首飞在点火序列开始约 40 秒后解体。调查委员会追溯出一条比\"整数溢出\"更完整的失效链：惯性基准系统仍在执行一段升空后已无必要的对准软件；阿丽亚娜…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/functional-programming": {
+    "t": "函数式编程",
+    "e": "1958 年，约翰·麦卡锡（John McCarthy）在麻省理工学院设计了 Lisp——世界上第一门函数式编程语言。它的灵感不来自硬件或工程实用性，而来自阿隆佐·邱奇（Alonzo Chur…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/garbage-collection": {
+    "t": "垃圾回收",
+    "e": "1959 年，约翰·麦卡锡（John McCarthy）在为 Lisp 实现\"cons cell\"（基本数据结构）时，遇到了一个根本问题：程序分配的内存单元，用完了怎么处理？",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/gpu-and-parallel-computing": {
+    "t": "GPU 与并行计算",
+    "e": "2012 年，多伦多大学的 AlexNet 在 ImageNet 图像识别大赛中，将前五误差率从 26% 降到 15.3%——领先第二名超过 10 个百分点。震撼行业的不只是准确率，还有它的实…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/human-computer-interaction": {
+    "t": "人机交互",
+    "e": "1968年12月9日，在旧金山一间礼堂里，一位名叫道格拉斯·恩格尔巴特（Douglas Engelbart）的工程师坐在屏幕前，用一只木壳的小盒子在桌面上滑动，屏幕上的光标随之移动。他点击、拖…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/information-retrieval-and-search": {
+    "t": "信息检索与搜索",
+    "e": "1998 年，两名斯坦福博士生谢尔盖·布林（Sergey Brin）和拉里·佩奇（Larry Page）在第七届万维网大会上发表了一篇论文，标题朴素得不像会改变世界：《大规模超文本网络搜索引擎…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/load-balancing": {
+    "t": "负载均衡",
+    "e": "每年\"双十一\"零点，或者一场热门演唱会开票的瞬间，海量请求在一秒内涌向同一组服务器。没有任何一台机器能独自扛住这种流量。让网站不至于当场崩溃的，是一个安静地站在用户和服务器之间、把潮水般的请求…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/logic-programming": {
+    "t": "逻辑编程",
+    "e": "1972 年夏天，法国马赛大学的阿兰·科尔默劳（Alain Colmerauer）和他的学生菲利普·鲁塞尔（Philippe Roussel）正在为一个自然语言问题发愁：怎么让计算机理解法语问…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/machine-learning-overview": {
+    "t": "机器学习概览",
+    "e": "1959 年，IBM 工程师 Arthur Samuel 发表了论文《Some Studies in Machine Learning Using the Game of Checkers》—…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/memory-hierarchy-caching": {
+    "t": "存储层级与缓存",
+    "e": "CPU 处理数据的速度，比从主内存（RAM）读取数据快大约 100 到 500 倍。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/message-queues-and-streaming": {
+    "t": "消息队列与流处理",
+    "e": "2010 年，LinkedIn 的工程团队遇到了一个奇怪的问题：系统里有数十个数据管道，把数据从各个来源同步到各个目的地，形成了一张复杂的点对点网络。每增加一个新数据来源或新的数据消费者，就需…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/microservices-architecture": {
+    "t": "微服务架构",
+    "e": "2008 年 8 月，Netflix 的单体 Oracle 数据库损坏，导致连续三天无法发货 DVD。这场事故让他们看清了单体 Java 应用（所有功能打包在一个巨大的程序里）的脆弱：一个模块…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/natural-language-processing": {
+    "t": "自然语言处理",
+    "e": "1950 年，Alan Turing 在他关于\"计算机器与智能\"的论文中提出，评判机器智能的标准应该是：能否在文字对话中被误认为是人类。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/networking-protocols": {
+    "t": "网络协议栈 TCP/IP",
+    "e": "1969 年 10 月 29 日，第一条通过 ARPANET 发送的消息是\"lo\"。原计划发\"login\"，系统在收到前两个字母后崩溃了。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/neural-networks-concept": {
+    "t": "神经网络",
+    "e": "1943 年，神经科学家 Warren McCulloch 和数理逻辑学家 Walter Pitts 发表了一篇论文，提出了第一个神经元的数学模型——受生物神经元启发的简单阈值函数。他们的目标…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/object-oriented-programming": {
+    "t": "面向对象编程",
+    "e": "1967 年，挪威计算机科学家奥利·约翰·达尔（Ole-Johan Dahl）和克里斯滕·尼高（Kristen Nygaard）发布了 Simula 67——一种为离散事件模拟而设计的语言（其…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/observability-and-monitoring": {
+    "t": "可观测性与监控",
+    "e": "凌晨三点，一个电商网站的下单接口突然变慢。表面只是\"慢了一点\"，但背后这一次下单，可能穿过了几十个互相调用的微服务、几个数据库、一个消息队列和两个外部支付接口。问题出在哪一环？在单台服务器的年…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/operating-systems": {
+    "t": "操作系统",
+    "e": "1969 年夏天，贝尔实验室的肯·汤普森（Ken Thompson）发现了一台被闲置在角落里的老旧 PDP-7 计算机。他用了三周时间，在上面写下了一个简单的操作系统内核、一个 shell、一…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/perceptron-and-the-ai-winter": {
+    "t": "感知机与第一次 AI 寒冬",
+    "e": "1958 年 7 月 8 日，《纽约时报》以\"新海军装置边做边学\"为题，报道了罗森布拉特在康奈尔航空实验室展示的感知机：一台能通过示例学会区分图像的机器。报道说，海军期待它成为\"能行走、说话、…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/privacy-engineering": {
+    "t": "隐私工程",
+    "e": "一个系统可以从未发生数据泄露，却仍然严重侵犯隐私：它可能收集完成任务不需要的数据，把用户预期中的单次用途变成长期画像，允许员工合法查询敏感记录，或用准确模型对人做不透明且不公平的决定。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/programming-language-design": {
+    "t": "程序设计语言设计",
+    "e": "1972 年，Dennis Ritchie 在贝尔实验室用 C 语言重写了 Unix 操作系统。在此之前，操作系统只能用汇编语言写——每换一台新机器，代码全部报废。C 的出现让同一份源代码能跑…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/real-time-systems": {
+    "t": "实时系统",
+    "e": "1996 年 6 月 4 日，阿丽亚娜 5 型火箭首次发射，在主发动机点火后约 37 秒（离地升空约 30 秒）爆炸解体。调查结果令人震惊：原因是一个 64 位浮点数被转换为 16 位整数时发…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/recommender-systems": {
+    "t": "推荐系统",
+    "e": "2006 年，Netflix 宣布了一项百万美元竞赛：谁能让公司的电影推荐算法预测准确率提升 10%，就获得 100 万美元奖金。竞赛吸引了全球数千支团队，历时三年。最终获奖的方案综合了超过 …",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/recursion": {
+    "t": "递归",
+    "e": "字典里如果有这样一条词条：\"递归，见：递归\"，读者会感到困惑和被戏弄。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/reinforcement-learning-concept": {
+    "t": "强化学习",
+    "e": "2016 年 3 月，DeepMind 的 AlphaGo 以 4:1 击败围棋世界冠军李世石。围棋被认为是人工智能最难的棋盘游戏之一——棋盘状态空间约 2.08 \\times 10^{170…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/robotics": {
+    "t": "机器人学",
+    "e": "1997 年，IBM 的\"深蓝\"在国际象棋上击败了世界冠军卡斯帕罗夫。同一时期，全世界没有一个机器人能像三岁小孩那样，从桌上拿起一只杯子而不把它碰倒。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/routing-and-switching": {
+    "t": "路由与交换",
+    "e": "一个数据包从北京的客户端发出，穿越多个运营商网络，跨越太平洋海底光缆，到达旧金山某个数据中心的服务器——全程可能经过 15 个路由器，耗时 120 毫秒。这个过程没有任何中央调度，每一个路由器…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/software-engineering": {
+    "t": "软件工程",
+    "e": "1968 年，北大西洋公约组织（NATO）在西德加尔米施举办了一次研讨会，议题只有一个：软件危机（Software Crisis）。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/software-supply-chain-security": {
+    "t": "软件供应链安全",
+    "e": "现代软件很少从空白开始。一个应用可能依赖操作系统镜像、编译器、包管理器、数百个直接与传递依赖、CI 插件、制品仓库、部署脚本和自动更新服务。攻击者不一定要攻破最终应用；只要控制其中一个被信任环…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/software-testing": {
+    "t": "软件测试",
+    "e": "1962 年 7 月 22 日，水手 1 号（Mariner 1）的 Atlas-Agena 火箭偏离航向，地面安全官在发射后 294.5 秒发出自毁指令。NASA 的任务史把失败归因于两个共…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/tcp-and-reliable-transport": {
+    "t": "TCP 与可靠传输",
+    "e": "1986 年秋，互联网发生了所谓的\"拥塞崩溃\"：ARPANET 的吞吐量骤降至峰值的 0.1%。流量挤满了网络，但几乎没有有用的数据成功到达。这不是硬件故障，而是协议设计的缺陷——当时的 TC…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/the-web-and-http": {
+    "t": "万维网与 HTTP",
+    "e": "1991 年 8 月 6 日，互联网上出现了第一个公开可访问的网页。它的内容是关于如何使用万维网的说明，由 Tim Berners-Lee 在瑞士日内瓦的 CERN（欧洲核子研究中心）托管。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/type-systems": {
+    "t": "类型系统",
+    "e": "1996 年 6 月 4 日，欧洲航天局阿丽亚娜 5 号运载火箭首航。升空约 37 秒，制导系统因一行代码崩溃：一个表示水平速度的 64 位浮点数被转换成 16 位有符号整数，而它的值超过了该…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/unicode-and-text-encoding": {
+    "t": "Unicode 与文本编码",
+    "e": "2003 年 10 月，软件开发者 Joel Spolsky 发表了一篇长文，标题就带着不容商量的口气：《每个软件开发者绝对、必须了解的 Unicode 与字符集知识（没有借口！）》。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/version-control": {
+    "t": "版本控制",
+    "e": "1991 年，Linus Torvalds 在赫尔辛基大学宿舍里开始写 Linux 内核，协调方式是通过邮件列表发补丁文件（.patch）。贡献者把修改写成差异文件，发给 Linus，他手工合…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/virtualization": {
+    "t": "虚拟化与容器",
+    "e": "2006 年，亚马逊推出了一项新服务：EC2（Elastic Compute Cloud）。它让用户通过浏览器点几下，就能在几分钟内\"租到\"一台 Linux 服务器，不再需要购买物理机器。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/web-security-xss-csrf": {
+    "t": "Web 安全：XSS 与 CSRF",
+    "e": "2005 年 10 月，一个 19 岁的 Myspace 用户 Samy Kamkar 发现他无法在自己的个人页面里加 CSS 样式——网站过滤掉了大多数 HTML 标签。他花了几天时间找漏洞…",
+    "d": "computer-science"
+  },
+  "/computer-science/frontier/ai-for-science": {
+    "t": "AI 驱动的科学发现：从蛋白质到天气再到数学",
+    "e": "2024 年 10 月，诺贝尔化学奖一半授予 David Baker，另一半授予 Demis Hassabis 与 John Jumper——表彰计算蛋白质设计与蛋白质结构预测。一个本质上是机…",
+    "d": "computer-science"
+  },
+  "/computer-science/frontier/ai-interpretability": {
+    "t": "机制可解释性：从可命名特征到因果机制",
+    "e": "2021 年，OpenAI 研究者在 CLIP 中观察到一个“蜘蛛侠神经元”：蜘蛛图像、单词 spider 的图像和蜘蛛侠角色都会激活它。这说明模型内部可能出现跨文字、符号和视觉形式的抽象响应…",
+    "d": "computer-science"
+  },
+  "/computer-science/frontier/confidential-computing-and-tees": {
+    "t": "机密计算：把信任从运维手里收回硬件",
+    "e": "云计算有一个从第一天起就存在、却长期被默认接受的漏洞：你的数据在云上是加密的——除了它正在被使用的时候。",
+    "d": "computer-science"
+  },
+  "/computer-science/frontier/formal-verification": {
+    "t": "形式化验证与程序合成",
+    "e": "2023 年 11 月，菲尔兹奖得主陶哲轩（Terence Tao）和合作者 Timothy Gowers、Ben Green、Freddie Manners 共同宣布证明了多项式 Freim…",
+    "d": "computer-science"
+  },
+  "/computer-science/frontier/inference-time-compute-and-reasoning": {
+    "t": "推理时计算与推理模型：让机器学会\"多想一会儿\"",
+    "e": "2024 年 9 月 12 日，OpenAI 发布 o1-preview，博客标题只有一句话：Learning to Reason with LLMs。模型的用法看起来很反常——它在回答之前会…",
+    "d": "computer-science"
+  },
+  "/computer-science/frontier/large-language-models": {
+    "t": "大语言模型与基础模型",
+    "e": "2022 年 11 月 30 日，OpenAI 把一个叫 ChatGPT 的系统悄悄放到了互联网上。没有发布会，没有大型广告。五天后，它有了 100 万用户；两个月后，1 亿用户。这是消费级应…",
+    "d": "computer-science"
+  },
+  "/computer-science/frontier/neuromorphic-and-beyond-cmos-computing": {
+    "t": "神经形态与后 CMOS 计算：当搬运数据比计算更贵",
+    "e": "现代处理器有一个被算力叙事掩盖的真相：一次乘加运算的能耗，远低于把参与运算的数从内存搬到运算单元的能耗。 在典型工艺下，从片外 DRAM 读一个数所耗的能量，可以做几百次乘加。",
+    "d": "computer-science"
+  },
+  "/computer-science/frontier/post-quantum-cryptography": {
+    "t": "后量子密码：在机器造出来之前更换全世界的锁",
+    "e": "密码学史上从没出现过这样的局面：一种尚不存在的机器，正在迫使全世界更换正在使用的锁。",
+    "d": "computer-science"
+  },
+  "/computer-science/frontier/quantum-algorithms": {
+    "t": "量子算法：Shor 与 Grover 之后的软件边界",
+    "e": "量子计算有两个最著名的算法：Shor 算法（1994）能在多项式时间内分解大整数，打破 RSA；Grover 算法（1996）能对无序数据库搜索给出二次方加速（O(\\sqrt{N}) vs 经…",
+    "d": "computer-science"
+  },
+  "/computer-science/frontier/retrieval-augmented-generation-and-agents": {
+    "t": "检索增强与智能体：把语言模型接到世界上",
+    "e": "语言模型有一个结构性缺陷：它知道的一切都被压缩进了权重，而权重在训练结束那一刻就冻结了。它不知道昨天发生了什么，不知道你公司内网里的文档，也无法说清自己为什么这样回答。",
+    "d": "computer-science"
+  },
+  "/computer-science/frontier/sustainable-computing": {
+    "t": "计算的碳足迹：可持续计算的实测与分歧",
+    "e": "2025 年 4 月，国际能源署（IEA）发布《Energy and AI》特别报告，给出了两个被反复引用的数字：全球数据中心 2024 年用电约 415 太瓦时（TWh），占全球用电量约 1…",
+    "d": "computer-science"
+  },
+  "/computer-science/frontier/zero-knowledge-proofs": {
+    "t": "零知识证明与隐私计算",
+    "e": "想象这样一个场景：你想向一家医院证明你没有某种遗传性疾病，但不想透露你的基因数据。你想向银行证明你的信用分足以申请贷款，但不想暴露你的财务明细。你想证明你年满 18 岁，但不想给对方看你的身份…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/ada-lovelace": {
+    "t": "爱达·洛夫莱斯",
+    "e": "1843 年，一位 27 岁的英国女性在翻译一篇意大利数学家的文章时，加进了自己的七条注释。这些注释的篇幅比原文多出三倍，包含了人类历史上第一个被发表的计算机程序——尽管运行这个程序的机器从未…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/alan-kay": {
+    "t": "艾伦·凯",
+    "e": "1968 年，艾伦·凯（Alan Kay）还是犹他大学的一名博士生，某天他走进一个陈列室，看到一台叫 FLEX 的实验性计算机原型。那台机器可以在屏幕上直接绘制图形。他突然意识到：这台机器不应…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/alan-turing": {
+    "t": "艾伦·图灵",
+    "e": "在计算机这台机器被造出来之前十几年，一个 24 岁的剑桥研究生先在纸上把它想了出来。1936 年，艾伦·图灵为了回答一个纯逻辑问题，发明了一个假想的机器——后来人们叫它\"图灵机\"。这台纸上的机…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/barbara-liskov": {
+    "t": "芭芭拉·利斯科夫",
+    "e": "1968 年，芭芭拉·利斯科夫（Barbara Liskov）从斯坦福大学计算机科学系获得博士学位——她是美国最早从计算机科学系拿到博士学位的女性之一（更早的玛丽·肯尼斯·凯勒 Mary Ke…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/bill-gates": {
+    "t": "比尔·盖茨",
+    "e": "1975 年 1 月，《大众电子》杂志封面刊登了 Altair 8800——第一台面向消费者的个人计算机套件。哈佛大学大二学生比尔·盖茨（William Henry Gates III）看到后…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/bjarne-stroustrup": {
+    "t": "比雅尼·斯特劳斯特鲁普",
+    "e": "\"C++ 是被设计成语言特性不断相互作用，形成远超各个部分之和的整体。\"",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/charles-babbage": {
+    "t": "查尔斯·巴贝奇",
+    "e": "1833 年，一个机器的图纸被铺在伦敦一间工作室的桌上。设计者用了将近十年时间构思这台装置，它有齿轮、凸轮和穿孔卡片，能够执行任意的数学运算——读取指令，分支判断，循环执行。设计者叫查尔斯·巴…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/claude-shannon": {
+    "t": "克劳德·香农",
+    "e": "1948 年，《贝尔系统技术期刊》分两期（7 月与 10 月）刊发了一篇合计约五十页的长文，题目平淡无奇：《通信的数学理论》。克劳德·香农（Claude Shannon）在这篇文章里做了一件看…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/dennis-ritchie": {
+    "t": "丹尼斯·里奇",
+    "e": "有一种贡献，你每天在使用它，却从未意识到它的存在。你打开的每一个 App，运行的每一段服务器代码，嵌入在你汽车里的每一行固件——它们的绝大多数都用 C 语言写成，或者运行在 Unix 及其后代…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/donald-knuth": {
+    "t": "唐纳德·克努特",
+    "e": "1962 年，一位年仅 24 岁的数学研究生收到了一家出版社的邀约，请他写一本关于编译器的书。他估计需要 12 章，大约两年完成。实际上，他花了六十年，只写完了其中的一部分——但这本半完成的书…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/douglas-engelbart": {
+    "t": "道格拉斯·恩格尔巴特",
+    "e": "1968 年 12 月 9 日下午，旧金山一个大礼堂里，几千名计算机工程师目睹了一场后来被称为\"所有演示之母\"（Mother of All Demos）的展示。",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/edgar-codd": {
+    "t": "埃德加·科德",
+    "e": "1970 年，IBM 研究员埃德加·科德（Edgar Codd，全名 Edgar Frank Codd）发表了一篇 11 页的论文：《大型共享数据库的关系数据模型》（\"A Relational…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/edsger-dijkstra": {
+    "t": "艾兹格·迪科斯彻",
+    "e": "1968 年，《ACM 通讯》刊发了一封只有三段话的短信，标题是《Go To 语句被认为是有害的》（Go To Statement Considered Harmful）。发信人是荷兰计算机科…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/frances-allen": {
+    "t": "弗朗西丝·艾伦",
+    "e": "编译器是软件世界里最沉默的基础设施之一。你写下 for i in range(10): print(i)，背后有一套复杂的程序把你的意图翻译成处理器能理解的指令，并在翻译过程中悄悄地、系统地把…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/geoffrey-hinton": {
+    "t": "杰弗里·辛顿",
+    "e": "2024 年 10 月，瑞典皇家科学院宣布将当年的诺贝尔物理学奖授予杰弗里·辛顿（Geoffrey Hinton）和约翰·霍普菲尔德（John Hopfield），表彰他们\"通过人工神经网络实…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/george-boole": {
+    "t": "乔治·布尔",
+    "e": "1854 年，一位没有大学学位的英国乡村教师出版了一本薄薄的书，书名叫《思维的规律》（The Laws of Thought）。书中提出了一套用代数符号表达逻辑推理的方法——AND、OR、NO…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/grace-hopper": {
+    "t": "格蕾丝·霍普",
+    "e": "1947 年 9 月 9 日，哈佛大学 Mark II 计算机出现故障。操作团队在继电器（Relay #70）触点之间找到了一只飞蛾，把它用胶带粘在日志本上，在旁边写道：\"First actu…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/guido-van-rossum": {
+    "t": "吉多·范罗苏姆",
+    "e": "1989 年圣诞节假期，荷兰程序员吉多·范罗苏姆（Guido van Rossum）觉得无聊，决定做一个他构思已久的小项目：一门新的脚本语言，作为 ABC 语言的继承者，但修正他认为 ABC …",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/john-backus": {
+    "t": "约翰·巴克斯",
+    "e": "1953 年，IBM 的工程师约翰·巴克斯（John Backus）向管理层提交了一份提案，内容是开发一种全新的编程语言，让数学家和工程师可以用接近数学公式的方式写程序，而不必手写汇编代码。管…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/john-mccarthy": {
+    "t": "约翰·麦卡锡",
+    "e": "1955 年夏天，一个年仅 27 岁的数学家在一份提案里写下了两个词：\"artificial intelligence\"。那个夏天，这两个词还不存在于任何技术词汇表里。写下它们的人是约翰·麦卡…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/john-von-neumann": {
+    "t": "冯·诺伊曼",
+    "e": "1945 年夏，一份未经正式发表、只是在研究人员之间传阅的打字稿，重新定义了计算机应该是什么样子。这份由约翰·冯·诺伊曼（John von Neumann）执笔的《EDVAC 报告初稿》，把指…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/ken-thompson": {
+    "t": "肯·汤普森",
+    "e": "1969 年的一个夏天，肯·汤普森（Ken Thompson）的妻子和儿子去加利福尼亚度假，给他留下了三个星期的独处时光。他用这三周，在贝尔实验室一台被废弃的 PDP-7 小型机上，写出了一个…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/larry-page-and-sergey-brin": {
+    "t": "拉里·佩奇与谢尔盖·布林",
+    "e": "1995 年，谢尔盖·布林（Sergey Brin）被斯坦福大学计算机科学系派去接待一批新生参观校园，其中一个新生是拉里·佩奇（Larry Page）。两人争论不休——朋友们后来说，他们第一次…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/leslie-lamport": {
+    "t": "莱斯利·兰波特",
+    "e": "1978 年，兰波特（Leslie Lamport）发表了一篇题为《分布式系统中的时间、时钟与事件排序》（Time, Clocks, and the Ordering of Events in…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/linus-torvalds": {
+    "t": "林纳斯·托瓦兹",
+    "e": "1991 年 8 月 25 日，赫尔辛基大学的一名 21 岁学生在 comp.os.minix 新闻组上发帖：",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/margaret-hamilton": {
+    "t": "玛格丽特·汉密顿",
+    "e": "1969 年 7 月 20 日，阿波罗 11 号登月舱距离月球表面还有约 3000 米时，飞行计算机突然发出警报——代码 1202。宇航员尼尔·阿姆斯特朗向地面报告，休斯顿控制中心紧张地评估：…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/marvin-minsky": {
+    "t": "马文·明斯基",
+    "e": "1956 年夏天，在达特茅斯学院的一次研讨会上，一群数学家和工程师聚集在一起，讨论一个听起来疯狂的想法：机器能否模拟人类智能？ 这次会议被认为是人工智能作为一个学科正式诞生的时刻。马文·明斯基…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/richard-stallman": {
+    "t": "理查德·斯托曼",
+    "e": "1983 年 9 月 27 日，MIT 人工智能实验室的一台打印机引发了一场运动。理查德·斯托曼（Richard Matthew Stallman，缩写 RMS）想修改一台 Xerox 激光打…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/robert-tarjan": {
+    "t": "罗伯特·塔扬",
+    "e": "1971 年，斯坦福大学的一名博士生在攻读计算机科学的第一年，注意到一个奇特的模式：深度优先搜索（DFS）这个看似简单的图遍历策略，背后蕴藏着惊人的算法力量。",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/ron-rivest": {
+    "t": "罗纳德·里维斯特",
+    "e": "1977 年 8 月，《科学美国人》（Scientific American）专栏作家 Martin Gardner 在其\"数学游戏\"专栏里刊登了一道挑战题：破解一段用新密码加密的信息，奖励 …",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/steve-wozniak": {
+    "t": "史蒂夫·沃兹尼亚克",
+    "e": "如果说史蒂夫·乔布斯是苹果公司的灵魂，史蒂夫·沃兹尼亚克（Stephen Gary Wozniak，绰号\"Woz\"）就是它的智识。",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/tim-berners-lee": {
+    "t": "蒂姆·伯纳斯-李",
+    "e": "1989 年 3 月，一位在瑞士日内瓦欧洲核子研究中心（CERN）工作的英国工程师向老板提交了一份建议书，标题是《信息管理：一个提案》（Information Management: A Pr…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/tony-hoare": {
+    "t": "托尼·霍尔",
+    "e": "1960 年，一位 26 岁的英国年轻人为了和上司打的一个赌，写出了一种排序方法。它快得不可思议，至今仍是计算机每天排序数据时最常用的算法之一。但写出它的查尔斯·安东尼·理查德·霍尔（C. A…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/vint-cerf": {
+    "t": "文顿·瑟夫",
+    "e": "1973 年的一个下午，文顿·瑟夫（Vinton G. Cerf）坐在旧金山的一家酒店大堂里，在一个信封的背面草草写下了一些想法——关于如何让不同的计算机网络互相\"交谈\"。他的搭档鲍勃·卡恩（…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/yann-lecun": {
+    "t": "杨·勒坤",
+    "e": "1989 年，贝尔实验室的一位年轻法国研究员把一张手写数字的灰度图像送入一个神经网络，网络输出了正确的数字识别结果。这不是第一次有人尝试用神经网络识别字符，但这一次的网络有一个根本不同的结构—…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/yoshua-bengio": {
+    "t": "约书亚·本希奥",
+    "e": "2003 年，约书亚·本希奥（Yoshua Bengio）与合作者发表了一篇论文《神经概率语言模型》（A Neural Probabilistic Language Model）。这篇论文引入…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/build-systems-bazel": {
+    "t": "构建系统：从 Make 到可复现构建",
+    "e": "一个几乎所有程序员都干过的动作：改了代码，make，跑起来行为没变，怀疑人生半小时，最后敲了 make clean && make，一切正常。",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/chromium-site-isolation": {
+    "t": "Chromium 的站点隔离：把进程边界当作安全边界",
+    "e": "在 Chrome 里按 Shift+Esc 打开自带的任务管理器，然后只开一个标签页去看一个普通的新闻网站。你大概率会看到不止一行：主文档一行，广告位的 iframe 一行，社交分享按钮的 i…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/curl-and-maintainer-burden": {
+    "t": "curl：一个人维护的全球基础设施",
+    "e": "手边任何一台联网设备，多半正在用 curl 说话。手机应用拉一张图、机顶盒检查固件更新、车机后台下载地图、打印机去查耗材余量、游戏主机同步存档——这些请求里有相当一部分不是应用自己写的网络代码…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/envoy-service-mesh": {
+    "t": "Envoy 与服务网格：把网络逻辑从应用里搬出来",
+    "e": "2015 年前后的 Lyft 正处在一段很典型的迁移里：一个 PHP 单体被拆成几十个 Python 和 Go 服务。拆完以后出现了一类新的故障——请求失败了，但没有任何一个服务认为自己出了错…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/etcd-raft": {
+    "t": "etcd：把 Raft 变成能用的东西",
+    "e": "Raft 论文只有十六页。读完之后你会有种错觉：这东西我能实现。选举、日志复制、安全性约束，每一条都写得清清楚楚，伪代码就在图 2 里。",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/git-object-model": {
+    "t": "Git 的对象模型：为什么分支是廉价的",
+    "e": "在一个二十年历史、上百万次提交的仓库里敲 git branch feature-x，回车之后光标立刻就回来了。同一台机器上复制一份工作目录要等几十秒，而 Git 建分支的耗时与仓库大小完全无关…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/kafka-log-abstraction": {
+    "t": "Kafka：把消息队列还原成一个日志",
+    "e": "2011 年，LinkedIn 的 Jay Kreps、Neha Narkhede、Jun Rao 在 NetDB 研讨会上发表了《Kafka: a Distributed Messaging…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/kubernetes-controller-pattern": {
+    "t": "Kubernetes 的控制器模式：声明式系统怎么收敛",
+    "e": "敲下 kubectl apply -f deployment.yaml，命令一秒返回，三个容器过一会儿就跑起来了。直觉会告诉你：这条命令去创建了三个容器。",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/linux-containers-internals": {
+    "t": "Linux 容器：它不是虚拟机",
+    "e": "在一台跑着 Debian 的机器上敲 docker run --rm -it ubuntu:24.04 bash，一秒之内你会拿到一个 Ubuntu 的 shell。cat /etc/os-r…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/linux-scheduler-cfs-eevdf": {
+    "t": "Linux 调度器：从 CFS 到 EEVDF",
+    "e": "你的笔记本上现在大概跑着一千多个线程，而 CPU 只有八到十六个逻辑核。每过几毫秒，内核就要回答一次同一个问题：下一微秒，这个核给谁？",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/llvm-ir": {
+    "t": "LLVM 的中间表示：编译器生态的枢纽",
+    "e": "Rust、Swift、Julia、C++、Fortran 是五门差异极大的语言；x86-64、AArch64、RISC-V、NVIDIA 的 PTX、WebAssembly 是五套差异同样极大…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/lucene-inverted-index": {
+    "t": "Lucene：搜索引擎内部的倒排索引",
+    "e": "一个装了两千万篇文档的系统，你输入\"量子纠缠\"，两百毫秒之内屏幕上出现十条结果，还按相关度排好了序。",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/nginx-event-driven": {
+    "t": "Nginx 的事件驱动架构：一个进程如何扛住十万连接",
+    "e": "2002 年，Igor Sysoev 在俄罗斯门户站点 Rambler 做系统管理。他遇到的不是\"服务器慢\"，而是一个更硬的墙：Apache 的连接数一旦爬到几千，机器就开始换页、卡顿、拒绝服…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/object-storage-s3": {
+    "t": "对象存储：S3 如何改变了存储的形状",
+    "e": "2006 年 3 月 14 日，Amazon 上线了一个只有四个主要动词的存储服务：PUT、GET、DELETE、LIST。定价是每 GB 每月 0.15 美元，外加每 GB 传出 0.20 …",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/postgresql-mvcc": {
+    "t": "PostgreSQL 的 MVCC：读不阻塞写的代价",
+    "e": "一个再普通不过的场景：财务在跑一份要花八分钟的月度报表，与此同时，几百个用户正在下单、改地址、退款。报表读的是账户表，用户写的也是账户表。",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/prometheus-pull-model": {
+    "t": "Prometheus：拉模型与时序数据的代价",
+    "e": "2012 年 11 月 24 日，Prometheus 仓库收到第一个公开提交。写下它的 Matt T. Proud 和 Julius Volz 刚刚离开 Google 加入 SoundClo…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/quic-http3": {
+    "t": "QUIC：把传输层搬进用户态",
+    "e": "一个网页有 80 个资源要下载。HTTP/2 说：不用开 6 条连接了，一条就够，80 个请求在同一条 TCP 连接上并行跑，互不阻塞。",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/redis-single-threaded": {
+    "t": "Redis 的单线程模型：为什么不并行反而更快",
+    "e": "买一台 32 核的服务器，装上 Redis，打开监控——你会看到 31 个核几乎在闲着。",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/rust-borrow-checker": {
+    "t": "Rust 的借用检查器：把内存安全变成编译期问题",
+    "e": "C 语言里有一类 bug，它的特征是出错的位置和崩溃的位置没有关系。你在某处 free(p)，程序继续跑了两毫秒、经过了三十个函数，某个完全无辜的地方读到一块已经被别人重新分配走的内存，返回一…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/sqlite-internals": {
+    "t": "SQLite：世界上部署最广的数据库",
+    "e": "你从来没有安装过它，但你身上大概带着几十份它。",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/tls-certificate-ecosystem": {
+    "t": "TLS 与证书生态：陌生人之间如何建立信任",
+    "e": "你在地址栏敲下一个域名，几十毫秒之后，你的浏览器和一台从未见过的机器已经共享了一串只有它们两个知道的字节。中间隔着你家的路由器、运营商的骨干网、若干个数据中心的负载均衡器，任何一环都能读到全部…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/v8-jit": {
+    "t": "V8 的分层 JIT：动态语言如何跑得快",
+    "e": "在 C 里写 p->x，编译出来是一条指令：从 p 指的地址往后数固定的字节数，取值。偏移量是编译期算好的常数，因为结构体的布局写在类型里，类型在编译期就定死了。",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/xz-backdoor-supply-chain": {
+    "t": "xz 后门：一次针对开源信任结构的社会工程",
+    "e": "2024 年 3 月下旬，微软的 PostgreSQL 开发者安德烈斯·弗罗因德在自己那台 Debian sid 机器上跑数据库基准测试。他注意到一件不该发生的事：ssh 登录变慢了，而且慢在…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/zfs-copy-on-write": {
+    "t": "ZFS：不覆盖写，与端到端校验",
+    "e": "有一类故障，比磁盘冒烟难对付得多。",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/algorithmic-game-theory": {
+    "t": "算法博弈论",
+    "e": "1951 年，约翰·纳什证明了一件让经济学界震动的事：任何有限博弈，都至少存在一个均衡——一组策略，没有任何参与者能靠单方面改变策略而获益。这是博弈论的基石。",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/approximation-algorithms": {
+    "t": "近似算法理论",
+    "e": "假设你证明了一个问题是 NP 难的——比如规划全国快递车队的最优路线。这意味着（如果 P \\neq NP）你永远找不到一个又快又总能给出最优解的算法。",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/automata-formal-languages": {
+    "t": "自动机与形式语言",
+    "e": "任何一门编程语言——Python、C、Haskell——在被计算机\"读懂\"之前，都必须经过一个关键步骤：把源代码字符串解析为结构化的语法树。这个过程依赖的理论，是自动机与形式语言——一套把\"什…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/average-case-complexity": {
+    "t": "平均情况复杂性与密码学的五个世界",
+    "e": "NP 完全性说的是最坏情况：某个问题存在难解的实例。但最坏情况的难度对现实几乎没有承诺。 旅行商问题是 NP 完全的，而工业求解器每天处理着数万城市的实例；反过来，密码学需要的恰恰相反——它需…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/barriers-to-proving-p-vs-np": {
+    "t": "为什么 P vs NP 这么难证：三道障碍",
+    "e": "大多数关于 P 与 NP 的介绍会告诉你问题是什么、悬赏多少、以及\"大家都相信 P ≠ NP\"。很少有介绍讲这件事：我们不只是没证出来，我们还知道为什么整类看起来最自然的证明方法注定证不出来。",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/communication-complexity": {
+    "t": "通信复杂度",
+    "e": "爱丽丝手里有 x，鲍勃手里有 y，两人都有无限的算力，但要合作算出 f(x,y)。唯一被计量的是他们之间传送的比特数。 姚期智在 1979 年提出这个模型时，目标是分布式计算；它后来的主要用途…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/computability": {
+    "t": "可计算性理论",
+    "e": "在第一台电子计算机被制造出来之前整整十年，数学家们已经严格地证明了：某些问题，无论计算机有多强大，永远无法被程序所解决。这不是工程的局限，而是数学的边界——一条永远不会因为技术进步而后退的线。",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/computational-complexity": {
+    "t": "计算复杂性理论",
+    "e": "1971 年，斯蒂芬·库克（Stephen Cook）在 ACM 会议上提出了一个问题，此后五十年没有人能够解决，而且极有可能在人类文明的有生之年都无法解决：P 是否等于 NP？",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/computational-geometry": {
+    "t": "计算几何",
+    "e": "你每次用手机地图导航，都在隐式地使用计算几何。地图应用需要计算：你的位置附近有哪些餐厅（最近邻问题）；沿地图的多边形区域裁剪（多边形裁剪）；两条路是否交叉（线段相交）；如何优化无人机的送货路径…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/cryptography-foundations": {
+    "t": "密码学基础",
+    "e": "1976 年，斯坦福大学的两位研究者惠特菲尔德·迪菲（Whitfield Diffie）和马丁·赫尔曼（Martin Hellman）发表了一篇论文，标题听起来平淡无奇：《密码学的新方向》（N…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/distributed-computing-theory": {
+    "t": "分布式计算理论",
+    "e": "一台计算机出错，你重启它就好了。",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/error-correcting-codes": {
+    "t": "纠错码理论",
+    "e": "1977 年，旅行者 1 号从地球出发驶向木星和土星。无线电信号穿越数亿公里的真空，抵达接收天线时已经微弱到几乎无法与宇宙背景噪声区分。然而，旅行者传回的木星大气图像是清晰的。1986 年，旅…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/formal-grammars-chomsky-hierarchy": {
+    "t": "形式文法与乔姆斯基谱系",
+    "e": "1956 年，一位年轻的语言学家在 IRE《信息论汇刊》上发表了一篇论文：《语言描述的三个模型》（\"Three Models for the Description of Language\"）…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/information-theory": {
+    "t": "信息论",
+    "e": "一个最基本的问题，直到 1948 年才有了精确答案：\"信息\"到底是什么，如何量化它？",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/interactive-proofs-and-zero-knowledge": {
+    "t": "交互式证明与零知识",
+    "e": "第一次是加入交互与随机：证明不再是一份可以静态检查的文书，而是验证者与证明者之间的一场提问游戏，验证者可以掷硬币，并且只要求\"以极高概率不被骗\"。第二次更反直觉：证明可以让你确信某件事为真，而…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/kolmogorov-complexity": {
+    "t": "柯莫哥洛夫复杂度",
+    "e": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/lambda-calculus-type-theory": {
+    "t": "λ演算与类型理论",
+    "e": "数学中的函数，在教科书里通常被写成 f(x) = x^2 + 1 的形式——f 有个名字，x 是变量，结果是某个表达式。1936 年，阿隆佐·邱奇（Alonzo Church）提出了一种不需要…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/logic-and-computation": {
+    "t": "逻辑与计算",
+    "e": "1958 年，数学家哈斯凯尔·加里（Haskell Curry）注意到一件奇怪的事：某些组合子逻辑（combinatory logic）的类型，与命题逻辑中的公式在形式上一模一样。",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/online-algorithms-and-competitive-analysis": {
+    "t": "在线算法与竞争分析",
+    "e": "绝大多数算法课教的是这样一个世界：输入摆在你面前，你可以从容读完再决定怎么做。",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/physical-limits-of-computation": {
+    "t": "计算的物理极限",
+    "e": "复杂性理论问\"这个问题需要多少步\"。本篇问一个更基础的问题：一步计算，最少要花多少能量？",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/quantum-computing-theory": {
+    "t": "量子计算理论",
+    "e": "1994 年，美国数学家彼得·肖尔（Peter Shor）发表了一个算法。这个算法可以在多项式时间内分解大整数——而人类目前已知最好的经典算法（普通计算机上运行的算法）需要次指数时间。",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/randomized-algorithms": {
+    "t": "随机算法",
+    "e": "一个算法，通常被认为是确定性的：给定相同的输入，它每次都执行相同的步骤，给出相同的输出。而随机算法（Randomized Algorithm）在执行过程中会抛硬币——使用随机数来做决策，使得同…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/statistical-learning-theory-pac": {
+    "t": "统计学习理论与 PAC 学习",
+    "e": "机器学习最基本的问题不是\"怎么把训练数据拟合好\"——那件事平凡到可以用一张查找表完成。真正的问题是：为什么在训练集上表现好的模型，在没见过的数据上也会表现好？",
+    "d": "computer-science"
+  }
+}

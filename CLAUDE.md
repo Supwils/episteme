@@ -27,18 +27,18 @@
 
 - **`prebuild` 钩子先跑 `pnpm gen-all`**，从 `content/` 重新生成**全部派生索引**，共 10 步（顺序即依赖顺序）：
 
-  | 命令                     | 产物                                                                                                 |
-  | ------------------------ | ---------------------------------------------------------------------------------------------------- |
-  | `gen-philo`              | `content/philosophy/*-data.ts` 搜索镜像                                                              |
-  | `gen-econ`               | `content/economics/*-data.ts`                                                                        |
-  | `gen-psych`              | `content/psychology/*-data.ts`                                                                       |
-  | `gen-life`               | `content/life-science/*-data.ts`                                                                     |
-  | `gen-physics-dialogues`  | 物理对话索引                                                                                         |
-  | `gen-history-route-data` | `content/human-history/data/generated/*`（event/figure catalog，按时代分片）                         |
-  | `gen-kb`                 | 各域 knowledge-base 索引                                                                             |
-  | `gen-links`              | `lib/wiki-link-index.ts`、`lib/backlinks-index.ts`、`public/link-previews.json`、`generated/corpus*` |
-  | `gen-search-index`       | `public/search-index.json`、`generated/search-stats.json`                                            |
-  | `gen-content-images`     | `public/images/<id>-<w>.webp` + manifest                                                             |
+  | 命令                     | 产物                                                                                                          |
+  | ------------------------ | ------------------------------------------------------------------------------------------------------------- |
+  | `gen-philo`              | `content/philosophy/*-data.ts` 搜索镜像                                                                       |
+  | `gen-econ`               | `content/economics/*-data.ts`                                                                                 |
+  | `gen-psych`              | `content/psychology/*-data.ts`                                                                                |
+  | `gen-life`               | `content/life-science/*-data.ts`                                                                              |
+  | `gen-physics-dialogues`  | 物理对话索引                                                                                                  |
+  | `gen-history-route-data` | `content/human-history/data/generated/*`（event/figure catalog，按时代分片）                                  |
+  | `gen-kb`                 | 各域 knowledge-base 索引                                                                                      |
+  | `gen-links`              | `lib/wiki-link-index.ts`、`lib/backlinks-index.ts`、`public/link-previews/<domain>.json`、`generated/corpus*` |
+  | `gen-search-index`       | `public/search-index.json`、`generated/search-stats.json`                                                     |
+  | `gen-content-images`     | `public/images/<id>-<w>.webp` + manifest                                                                      |
 
   **改了内容就要 `pnpm gen-all`**（不是只跑 `gen-links`——corpus/搜索统计属另一层，漏跑会以"看似无关的测试失败"暴露）。CI 在干净 checkout 上跑同一条链并要求**工作区零差异**，所以重生的索引文件必须一并提交。
 
@@ -171,7 +171,7 @@ universe-knowledge/
 │   └── <domain>/frontier/*.md         ← 研究前沿（.md）
 ├── content-assets/images/    ← 内容图像原图 + 权利元数据（见 docs/图像管线指南.md）
 ├── generated/                ← corpus.txt / corpus-meta.json / search-stats.json（构建产物，已提交）
-├── public/                   ← 静态资源（search-index.json、link-previews.json、images/、textures/）
+├── public/                   ← 静态资源（search-index.json、link-previews/（按域分片）、images/、textures/）
 ├── scripts/                  ← 生成（gen-*）· 校验（check-content）· 审计（audit-*）· 性能（physics/、performance/）
 ├── e2e/                      ← Playwright（22 spec；CI 只跑 smoke.spec.ts）
 ├── docs/                     ← 平台文档（代理读写区；一次性报告在 docs/archive/）

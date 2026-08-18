@@ -142,7 +142,7 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
             aria-expanded={sheetOpen}
             aria-controls="mobile-toc-sheet"
             onClick={() => setSheetOpen(true)}
-            className="border-border-faint bg-bg-panel/90 text-fg-secondary fixed bottom-6 left-4 z-40 flex items-center gap-2 rounded-full border px-4 py-2.5 font-mono text-[10px] tracking-[0.24em] uppercase shadow-lg backdrop-blur-md transition-colors"
+            className="border-border-faint bg-bg-panel/90 text-fg-secondary fixed bottom-6 left-4 z-40 flex items-center gap-2 rounded-full border px-4 py-2.5 font-mono text-[10px] tracking-[0.24em] uppercase shadow-lg backdrop-blur-md transition-colors [[data-narration-active]_&]:bottom-24"
             style={sheetOpen ? { opacity: 0, pointerEvents: "none" } : undefined}
           >
             <span

@@ -1,0 +1,692 @@
+{
+  "/medicine/concepts/antibiotic-resistance": {
+    "t": "抗生素耐药性",
+    "e": "1945 年领诺贝尔奖时，发现青霉素的 Alexander Fleming 在演讲里说了一句预言式的警告。他设想了一个再普通不过的场景：一个人买来青霉素自己乱吃，剂量不足以杀死链球菌，\"却足以…",
+    "d": "medicine"
+  },
+  "/medicine/concepts/cardiovascular-system": {
+    "t": "心血管系统",
+    "e": "你的心脏此刻大约每秒跳一次，每次泵出约 70 毫升血液——不多，刚好装满一个小咖啡杯。",
+    "d": "medicine"
+  },
+  "/medicine/concepts/clinical-diagnosis": {
+    "t": "临床诊断",
+    "e": "急诊室里，一个人说胸痛。医生脑中不能只跳出一个答案。它可能是胃食管反流，也可能是肋软骨炎、肺栓塞、主动脉夹层或急性冠脉综合征。真正的临床诊断，不是把症状和疾病做“连连看”。它是在不完整信息、时…",
+    "d": "medicine"
+  },
+  "/medicine/concepts/clinical-trials": {
+    "t": "临床试验",
+    "e": "一种新药在细胞里有效，在小鼠身上有效，在早期患者中看起来也有效。",
+    "d": "medicine"
+  },
+  "/medicine/concepts/digestive-system": {
+    "t": "消化系统",
+    "e": "从第一口面包到最后一粒维生素被小肠吸收，食物在你体内走过一条约 9 米长的通道——但\"消化\"远不止把食物磨碎。肝脏在幕后同时处理 2000+ 种代谢任务；胰腺分泌的酶能在强酸环境里被精准激活；…",
+    "d": "medicine"
+  },
+  "/medicine/concepts/drug-development": {
+    "t": "药物研发与临床试验",
+    "e": "一颗新药从实验室走到药房的货架，常需多年，许多进入人体研究的候选物也无法获批。",
+    "d": "medicine"
+  },
+  "/medicine/concepts/endocrine-system": {
+    "t": "内分泌系统",
+    "e": "你的身体里有一套\"无线广播系统\"。",
+    "d": "medicine"
+  },
+  "/medicine/concepts/epidemiology": {
+    "t": "流行病学",
+    "e": "1950 年代，一位医生想弄清吸烟到底害不害人。",
+    "d": "medicine"
+  },
+  "/medicine/concepts/evidence-based-medicine": {
+    "t": "循证医学",
+    "e": "1747 年在英国军舰索尔兹伯里号上，海军军医 James Lind 把 12 名患坏血病的水手两两分成 6 组，在饮食相同的前提下分别给予柑橘、苹果酒、醋、海水等不同疗法，结果唯独吃柑橘那一…",
+    "d": "medicine"
+  },
+  "/medicine/concepts/germ-theory": {
+    "t": "细菌致病论",
+    "e": "十九世纪中叶，伦敦人相信霍乱是\"坏空气\"（瘴气）带来的，于是富人逃往乡间躲避恶臭，穷人则继续守着臭气熏天却安全的水井——结果躲瘴气的人照样死，而真正的杀手藏在他们随手舀起的那杯水里。把\"看不见…",
+    "d": "medicine"
+  },
+  "/medicine/concepts/hematology": {
+    "t": "血液学",
+    "e": "一管静脉血里，悬浮着 450–500 万/μL 红细胞、 4000–11000/μL 白细胞与 150000–450000/μL 血小板——它们由骨髓持续制造，由脾与 liver 清除，在 c…",
+    "d": "medicine"
+  },
+  "/medicine/concepts/homeostasis": {
+    "t": "内稳态",
+    "e": "不论你身处零下二十度的雪原还是四十度的沙漠，体内深处的温度始终稳稳地维持在约 37℃，上下浮动不过一度。这件你毫无察觉的事，其实是身体每时每刻都在打的一场硬仗：外界天翻地覆，内部却纹丝不动。",
+    "d": "medicine"
+  },
+  "/medicine/concepts/humoral-theory": {
+    "t": "体液学说",
+    "e": "如果有人告诉你，把病人的血放掉一大盆能治病，你大概会觉得荒唐。然而这套疗法在西方医学里堂堂正正地通行了两千多年，被一代代最聪明的医生奉为正道。",
+    "d": "medicine"
+  },
+  "/medicine/concepts/hygiene-hypothesis-overreach": {
+    "t": "卫生假说：一个被自己的名字带偏的假说",
+    "e": "1989 年，流行病学家斯特拉坎在《英国医学杂志》发表了一篇不到两页的短文。他分析了一万七千余名英国儿童的队列数据，发现一个清晰的模式：兄弟姐妹越多、排行越靠后的孩子，患花粉症的比例越低。",
+    "d": "medicine"
+  },
+  "/medicine/concepts/immune-system": {
+    "t": "免疫系统",
+    "e": "你的身体每天都在打一场看不见的战争。此刻就有无数细菌、病毒试图进入你的体内，而你之所以照常上班、吃饭、睡觉，是因为一支分布全身、能识别\"自我\"与\"非我\"、还会记仇的军队替你挡下了它们。",
+    "d": "medicine"
+  },
+  "/medicine/concepts/inflammation": {
+    "t": "炎症",
+    "e": "崴了脚，第二天那块皮肤又红又肿，发烫，一碰就疼。你或许把这当成\"伤情恶化\"，恨不得立刻把肿消下去。但这恰恰是身体在自救：红、肿、热、痛，是免疫系统正赶赴现场、抢修组织的信号。炎症是医学里最古老…",
+    "d": "medicine"
+  },
+  "/medicine/concepts/informed-consent": {
+    "t": "知情同意",
+    "e": "1932 到 1972 年，美国公共卫生部门在阿拉巴马追踪了约六百名贫困黑人男性的梅毒病程。",
+    "d": "medicine"
+  },
+  "/medicine/concepts/medical-genetics-and-genomics": {
+    "t": "医学遗传学与基因组医学",
+    "e": "一份基因组，约 32 亿个碱基对，写在每一个细胞里，从受精那一刻起几乎不再改变。医学遗传学（medical genetics）研究基因如何影响健康与疾病；基因组医学（genomic medic…",
+    "d": "medicine"
+  },
+  "/medicine/concepts/microbiome-and-health": {
+    "t": "微生物组与健康",
+    "e": "你身上大约住着数以万亿计的微生物——细菌、古菌、真菌和病毒，绝大多数挤在你的肠道里。",
+    "d": "medicine"
+  },
+  "/medicine/concepts/musculoskeletal-system": {
+    "t": "肌肉骨骼系统",
+    "e": "你从椅子上站起来，看似只是一个简单动作。实际发生的是：股四头肌收缩，髋膝踝关节协调旋转，骨骼承受弯曲与压缩，肌腱把力传给骨，前庭系统和本体感觉不断校正重心。如果其中一个环节失败，站立就会变成跌…",
+    "d": "medicine"
+  },
+  "/medicine/concepts/nervous-system": {
+    "t": "神经系统",
+    "e": "光线打进你的眼睛，被转成电信号，沿着神经传到大脑后部，再经过一连串细胞的接力解码，最终变成\"我看懂了\"这个念头。",
+    "d": "medicine"
+  },
+  "/medicine/concepts/nutrition-science": {
+    "t": "营养学",
+    "e": "你今天吃下的东西，会被拆成分子，进入细胞，变成能量、结构和信号。",
+    "d": "medicine"
+  },
+  "/medicine/concepts/pain-and-analgesia": {
+    "t": "疼痛、镇痛与阿片决策",
+    "e": "疼痛是一种真实的感觉与情绪体验，却不是组织损伤的简单仪表读数。它可以保护身体，也可以在原始损伤愈合后持续，改变睡眠、活动、情绪、工作和家庭关系。",
+    "d": "medicine"
+  },
+  "/medicine/concepts/pathology": {
+    "t": "病理学",
+    "e": "一位患者因胸痛入院，心电图提示心梗，外科医生准备开胸——病理科医生却在显微镜下看到心肌细胞里没有典型的缺血坏死，而是大量嗜酸性粒细胞浸润。诊断改写为嗜酸性心肌炎，治疗方案从血运重建变成免疫抑制…",
+    "d": "medicine"
+  },
+  "/medicine/concepts/pharmacology": {
+    "t": "药理学基础",
+    "e": "你吞下一片止痛药，半小时后头不疼了。",
+    "d": "medicine"
+  },
+  "/medicine/concepts/public-health": {
+    "t": "公共卫生",
+    "e": "过去一百多年，人类平均寿命大幅延长。医院、手术和新药贡献巨大，但许多人口层面的健康增益也来自没看病时发生的事——干净的饮用水、污水处理、疫苗接种、控烟、营养改善、更安全的工作与道路。不同国家、…",
+    "d": "medicine"
+  },
+  "/medicine/concepts/renal-physiology": {
+    "t": "肾脏生理",
+    "e": "你每天喝的水、吃的盐、代谢产生的酸，最终都要靠两个仅约 150 克重的器官来\"记账\"——多退少补，精确到毫摩尔级。 kidneys 每天滤过的血浆总量约 180 升，却每天只排出 1–2 升尿…",
+    "d": "medicine"
+  },
+  "/medicine/concepts/reproductive-system": {
+    "t": "生殖系统",
+    "e": "每个人的生命都从一次极不寻常的事件开始：两个只有一半染色体的细胞相遇，合成一个全新的基因组合。这听起来像生物学奇迹。但在身体内部，它是一套严密的内分泌、细胞分裂、组织重塑和免疫耐受工程。生殖系…",
+    "d": "medicine"
+  },
+  "/medicine/concepts/respiratory-system": {
+    "t": "呼吸系统",
+    "e": "你此刻大约每分钟呼吸 12–16 次，每次吸入约 500 毫升空气——看起来只是胸口起伏。但在肺泡里，一层仅 0.2 微米厚的薄膜正把氧气送进血液、把二氧化碳送出去；这套交换若停转 4–6 分…",
+    "d": "medicine"
+  },
+  "/medicine/concepts/screening-and-early-detection": {
+    "t": "筛查与早期发现",
+    "e": "一个没有症状的人接受检查，结果提示“可能有病”。这不是诊断完成，而是一条决策链的起点。",
+    "d": "medicine"
+  },
+  "/medicine/concepts/surgery": {
+    "t": "外科学",
+    "e": "两百年前，接受一台手术意味着被人按住，在清醒和剧痛中被切开，然后有很大概率死于感染或失血。",
+    "d": "medicine"
+  },
+  "/medicine/concepts/vaccination": {
+    "t": "疫苗原理",
+    "e": "人类历史上彻底消灭过的传染病只有一种：天花。",
+    "d": "medicine"
+  },
+  "/medicine/diseases/alzheimers-disease": {
+    "t": "阿尔茨海默病",
+    "e": "一个人可以慢慢忘记钥匙放在哪里、忘记昨天吃了什么，再到忘记回家的路、忘记最亲的人的名字，最后忘记自己是谁。",
+    "d": "medicine"
+  },
+  "/medicine/diseases/anxiety-disorders": {
+    "t": "焦虑障碍",
+    "e": "心跳加速、手心冒汗、胸口发紧、脑子里反复演练一场还没发生的灾难——几乎每个人都体验过焦虑。它本是进化送给我们的礼物：在真正的危险面前，焦虑让祖先及时逃跑或战斗，活了下来。",
+    "d": "medicine"
+  },
+  "/medicine/diseases/asthma-and-copd": {
+    "t": "哮喘与慢阻肺",
+    "e": "呼吸是我们最不假思索的动作——直到它变得困难。当每一次吸气都要费力，当胸口像被一只手攥紧，当夜里被自己的喘息惊醒，人才会意识到顺畅呼吸是何等的奢侈。哮喘和慢性阻塞性肺病（COPD，简称慢阻肺）…",
+    "d": "medicine"
+  },
+  "/medicine/diseases/autoimmune-diseases": {
+    "t": "自身免疫病",
+    "e": "1901 年前后，免疫学奠基人之一保罗·埃尔利希（Paul Ehrlich，见 paul-ehrlich）断言：身体绝不会攻击自己。",
+    "d": "medicine"
+  },
+  "/medicine/diseases/cancer": {
+    "t": "癌症",
+    "e": "“癌症”不是一个统一敌人，而是许多在起源组织、驱动改变、扩散方式、治疗敏感性和自然史上不同的疾病。即使病理名称相同，两个患者的分子亚型、分期、身体状况与治疗目标也可能不同。",
+    "d": "medicine"
+  },
+  "/medicine/diseases/cardiovascular-disease": {
+    "t": "心血管疾病",
+    "e": "心血管疾病不是一种病，而是一组累及心脏和血管的疾病。WHO 2025 年资料估计，2022 年全球约有 1980 万人死于心血管疾病，约占全部死亡的 32%；其中约 85% 与心肌梗死和脑卒中…",
+    "d": "medicine"
+  },
+  "/medicine/diseases/cholera": {
+    "t": "霍乱",
+    "e": "1854 年 8 月 31 日深夜，伦敦苏荷区（Soho）宽街（Broad Street）一带暴发疫情：头三天就有 127 人死亡，不到十天死亡超过 500 人，整条街区的居民争相出逃。这场局…",
+    "d": "medicine"
+  },
+  "/medicine/diseases/chronic-kidney-disease": {
+    "t": "慢性肾病",
+    "e": "你的两个肾每天从血浆中形成约 180 升肾小球滤液（原尿）——相当于把全身的血液过滤几十遍。绝大部分水和有用小分子随后被肾小管重吸收，最终排出的尿液通常只有其中很小一部分（约 1–2 升）。把…",
+    "d": "medicine"
+  },
+  "/medicine/diseases/covid-19": {
+    "t": "COVID-19",
+    "e": "2020 年春天，全世界几乎同时按下了暂停键。城市空荡，航班停摆，口罩成了出门的必需品。一种几个月前还无人知晓的病毒，把整个现代文明拖进了一场世纪大流行。",
+    "d": "medicine"
+  },
+  "/medicine/diseases/depression": {
+    "t": "抑郁症",
+    "e": "抑郁症不是普通悲伤的另一个名字，也不是一项血液或脑扫描能单独确认的异常。它是一组在情绪、兴趣、动力、睡眠、食欲、认知、自我评价和身体活动上形成持续模式，并造成明显痛苦或功能受损的临床综合征。",
+    "d": "medicine"
+  },
+  "/medicine/diseases/diabetes": {
+    "t": "糖尿病",
+    "e": "古代医生诊断这种病有个惊人的办法：尝一尝病人的尿。",
+    "d": "medicine"
+  },
+  "/medicine/diseases/hiv-aids": {
+    "t": "艾滋病",
+    "e": "1981 年 6 月 5 日，美国 CDC 的一份每周简报记录了几例罕见的肺孢子菌肺炎，患者都是原本健康的年轻男性。医生们困惑不解：是什么让这些人的免疫系统突然崩溃？",
+    "d": "medicine"
+  },
+  "/medicine/diseases/influenza": {
+    "t": "流感",
+    "e": "1918 年，第一次世界大战即将结束，一场流感却在全球掀起了比战争更致命的浩劫。它在不到两年里感染了全球约三分之一人口，估计夺走数千万人的生命——死亡人数可能超过整场一战。",
+    "d": "medicine"
+  },
+  "/medicine/diseases/liver-disease": {
+    "t": "肝硬化与慢性肝病",
+    "e": "肝脏是身体里最任劳任怨的器官：它参与解毒、合成蛋白和凝血因子、储存与调配能量、代谢药物和酒精，一只手同时管着几百种化学反应。",
+    "d": "medicine"
+  },
+  "/medicine/diseases/malaria": {
+    "t": "疟疾",
+    "e": "疟疾不是“蚊子有毒”，而是按蚊、疟原虫与人类三个环节共同构成的传播系统。蚊子是媒介，真正进入肝细胞和红细胞复制的是疟原虫；没有适合的媒介、寄生虫和易感人群同时存在，传播链就无法维持。",
+    "d": "medicine"
+  },
+  "/medicine/diseases/obesity": {
+    "t": "肥胖",
+    "e": "在人类历史的绝大部分时间里，能囤积脂肪是一种生存优势——食物时有时无，谁能在丰年存下能量，谁就更可能熬过荒年。我们的身体被进化打磨得极善于储存脂肪、极不情愿消耗它。可当人类突然进入一个食物极度…",
+    "d": "medicine"
+  },
+  "/medicine/diseases/parkinsons-disease": {
+    "t": "帕金森病",
+    "e": "一只手开始不受控制地轻轻颤抖；走路越来越慢、越来越僵；曾经表情丰富的脸渐渐变得平静而少动，像戴上了一张\"面具\"。",
+    "d": "medicine"
+  },
+  "/medicine/diseases/plague": {
+    "t": "鼠疫",
+    "e": "公元 1347 年的秋天，几艘热那亚商船驶入西西里岛的墨西拿港。岸上的人很快发现，船上的水手大多已经死去，活着的也浑身长着发黑的脓疮。",
+    "d": "medicine"
+  },
+  "/medicine/diseases/schizophrenia": {
+    "t": "精神分裂症",
+    "e": "1959 年，数学家约翰·纳什（John Nash）三十岁，刚以\"纳什均衡\"在博弈论里立下根基。这一年他开始坚信：街上每个系红领带的男人都是针对他的共产主义阴谋的一员；他给各国大使馆寄信告发想…",
+    "d": "medicine"
+  },
+  "/medicine/diseases/sepsis": {
+    "t": "败血症（脓毒症）",
+    "e": "很多人以为，感染的危险只取决于病原体有多\"凶\"。脓毒症（旧称\"败血症\"）纠正了这种单因果图像：病原体造成的损伤，与机体失调的防御反应会相互放大。不能把它简化成\"细菌杀人\"或\"免疫系统杀人\"二选…",
+    "d": "medicine"
+  },
+  "/medicine/diseases/smallpox": {
+    "t": "天花",
+    "e": "1977 年 10 月，索马里港口梅尔卡（Merca）的一位 23 岁医院厨师阿里·马奥·马阿林（Ali Maow Maalin）出现了高烧和皮疹——几周前，他刚开车送两名感染儿童去过隔离营。",
+    "d": "medicine"
+  },
+  "/medicine/diseases/stroke": {
+    "t": "中风（脑卒中）",
+    "e": "大脑只占体重的约 2%，静息时却消耗全身约五分之一的氧，并获得约 15% 的心输出量。它几乎没有可长期调用的能量储备，一旦局部血供中断，神经功能会在几分钟内受损。这就是为什么中风如此凶险——它…",
+    "d": "medicine"
+  },
+  "/medicine/diseases/tuberculosis": {
+    "t": "结核病",
+    "e": "19 世纪的欧洲文学里，肺结核几乎是一种\"浪漫的死法\"：脸色苍白、咳血、身形消瘦的诗人与歌剧女主角，在病榻上写下绝唱。人们甚至把这种病称作\"消耗病\"（consumption），仿佛它在优雅地\"…",
+    "d": "medicine"
+  },
+  "/medicine/ethics/clinical-trial-ethics": {
+    "t": "临床试验伦理",
+    "e": "1947 年 8 月，在德国纽伦堡，一场特殊的审判落下帷幕。",
+    "d": "medicine"
+  },
+  "/medicine/ethics/euthanasia-and-assisted-dying": {
+    "t": "安乐死与协助死亡",
+    "e": "1991 年，荷兰精神科医生博杜因·沙博（Boudewijn Chabot）面对一位决意求死的女性希莉·博瑟（Hilly Bosscher）。",
+    "d": "medicine"
+  },
+  "/medicine/ethics/genetic-testing-and-privacy": {
+    "t": "基因检测与隐私",
+    "e": "2018 年 4 月，加州警方逮捕了一名年逾七旬的男子。",
+    "d": "medicine"
+  },
+  "/medicine/ethics/he-jiankui-crispr-babies": {
+    "t": "贺建奎与基因编辑婴儿事件",
+    "e": "2018 年 11 月 26 日，香港即将召开第二届人类基因组编辑国际峰会的前一天，",
+    "d": "medicine"
+  },
+  "/medicine/ethics/henrietta-lacks-hela": {
+    "t": "海拉细胞与亨丽埃塔·拉克斯",
+    "e": "1951 年 1 月，一位 31 岁的非裔美国女性走进巴尔的摩的约翰斯·霍普金斯医院。",
+    "d": "medicine"
+  },
+  "/medicine/ethics/informed-consent-and-shared-decision-making": {
+    "t": "知情同意与共同决策：签字为什么不等于选择",
+    "e": "手术前，患者在一页列满风险的表格末尾签名。医院保存文件，医生完成流程。法律上似乎留下了证据，伦理上却可能什么也没有发生。",
+    "d": "medicine"
+  },
+  "/medicine/ethics/medical-futility-and-treatment-withdrawal": {
+    "t": "医疗无效、治疗撤除与生命末期的决定边界",
+    "e": "当机械通气、透析、升压药或心肺复苏无法实现患者重视的目标时，继续技术干预可能只延长濒死过程。但“无效”是一个危险的快捷词：医生说的是生理上不能达到效果，家属听到的可能是“这个人的生命不值得”。",
+    "d": "medicine"
+  },
+  "/medicine/ethics/organ-allocation-ethics": {
+    "t": "器官分配伦理",
+    "e": "1954 年 12 月，在波士顿，外科医生约瑟夫·穆雷（Joseph Murray）完成了人类历史上第一例成功的肾移植。",
+    "d": "medicine"
+  },
+  "/medicine/ethics/palliative-care": {
+    "t": "姑息治疗",
+    "e": "一位晚期癌症患者最害怕的，可能不是死亡本身，而是疼痛、窒息、无法说话、家人崩溃，以及医生只盯着影像而没人问他真正想要什么。",
+    "d": "medicine"
+  },
+  "/medicine/ethics/placebo-deception-and-trust": {
+    "t": "安慰剂、欺骗与信任：没有活性成分的治疗能否合乎伦理",
+    "e": "患者疼痛，医生给了一片没有针对性活性成分的药丸，并暗示它会有效。几天后患者感觉好转。有人据此说“只是心理作用”，仿佛症状原本并不真实；也有人说只要有效，善意欺骗就值得。",
+    "d": "medicine"
+  },
+  "/medicine/events/antibiotic-era": {
+    "t": "抗生素时代的开启（1942）",
+    "e": "1928 年的一天，伦敦圣玛丽医院的细菌学家亚历山大·弗莱明（Alexander Fleming）休假归来，发现一个忘了盖好的培养皿被一团青绿色霉菌污染了。",
+    "d": "medicine"
+  },
+  "/medicine/events/bloodletting-and-the-numerical-method": {
+    "t": "放血疗法与第一次临床统计（1828）",
+    "e": "放血是人类医学史上使用时间最长、应用最广的疗法。从古希腊到十九世纪中叶，跨越两千多年，横跨欧洲、阿拉伯世界与印度，用于治疗发热、炎症、肺炎、精神错乱、中风、乃至失血。",
+    "d": "medicine"
+  },
+  "/medicine/events/covid-19-pandemic": {
+    "t": "COVID-19 大流行（2020 起）",
+    "e": "2020 年初的几个星期里，世界仿佛被按下了暂停键。",
+    "d": "medicine"
+  },
+  "/medicine/events/germ-theory-revolution": {
+    "t": "细菌理论革命（19 世纪后半叶）",
+    "e": "在 19 世纪中叶的医院里，外科医生穿着血迹斑斑的旧礼服动手术，那是经验丰富的勋章。",
+    "d": "medicine"
+  },
+  "/medicine/events/hiv-aids-pandemic": {
+    "t": "艾滋病大流行（1981 起）",
+    "e": "1981 年 6 月 5 日，美国疾病控制中心（CDC）的《发病率与死亡率周报》（MMWR）刊登了一则简短报告：洛杉矶有 5 名原本健康的年轻男性，罹患了一种通常只出现在免疫极度低下者身上的罕…",
+    "d": "medicine"
+  },
+  "/medicine/events/jenner-smallpox-vaccination": {
+    "t": "詹纳与牛痘接种（1796）",
+    "e": "1796 年 5 月 14 日，英国格洛斯特郡乡间，一位乡村医生在一个八岁男孩 James Phipps 的胳膊上划了两道小口子。",
+    "d": "medicine"
+  },
+  "/medicine/events/miasma-theory": {
+    "t": "瘴气说：一个错误的理论如何救了很多人",
+    "e": "十九世纪中叶的欧洲城市有一套关于疾病的解释：病来自坏空气。 腐烂的有机物散发出看不见的毒气——瘴气（miasma）——人吸入后就病倒。霍乱、伤寒、疟疾（malaria，字面意思就是\"坏空气\"）…",
+    "d": "medicine"
+  },
+  "/medicine/events/peptic-ulcer-bacterial-cause": {
+    "t": "溃疡病因之争：一个被拒绝十年的正确答案（1982—2005）",
+    "e": "1983 年，两位来自西澳大利亚的医生向学界报告：胃里长了细菌，而且它可能是消化性溃疡的原因。",
+    "d": "medicine"
+  },
+  "/medicine/events/smallpox-eradication": {
+    "t": "天花根除（1980）",
+    "e": "1977 年 10 月，在索马里港口城市梅尔卡（Merca），一位 23 岁的医院厨师阿里·马奥·马阿林（Ali Maow Maalin）被诊断出天花。",
+    "d": "medicine"
+  },
+  "/medicine/events/snow-cholera-broad-street": {
+    "t": "斯诺与宽街水泵（1854）",
+    "e": "1854 年 8 月底，伦敦苏荷区（Soho）的宽街（Broad Street）一带，霍乱突然爆发。",
+    "d": "medicine"
+  },
+  "/medicine/events/thalidomide-tragedy": {
+    "t": "反应停悲剧（1957）",
+    "e": "1950 年代末，一种名叫\"反应停\"（thalidomide，沙利度胺）的药物被当作奇迹推向市场。",
+    "d": "medicine"
+  },
+  "/medicine/events/tobacco-control-movement": {
+    "t": "控烟运动（1964 起）",
+    "e": "1964 年 1 月 11 日，是个星期六。",
+    "d": "medicine"
+  },
+  "/medicine/events/tuskegee-syphilis-study": {
+    "t": "塔斯基吉梅毒研究（1932–1972）",
+    "e": "1932 年，在美国亚拉巴马州梅肯县（Macon County），美国公共卫生署（U.S. Public Health Service）招募了约 600 名贫困的非裔美国男性参加一项研究。",
+    "d": "medicine"
+  },
+  "/medicine/figures/alexander-fleming": {
+    "t": "亚历山大·弗莱明",
+    "e": "1928 年 9 月的一个早晨，伦敦圣玛丽医院一位邋遢出名的细菌学家度假归来，回到他乱糟糟的实验室。他随手拿起一摞放假前没洗的培养皿，准备清理。",
+    "d": "medicine"
+  },
+  "/medicine/figures/banting-and-best": {
+    "t": "班廷与贝斯特",
+    "e": "1922 年初，多伦多综合医院的儿科病房里，躺着一个 14 岁的男孩 Leonard Thompson。",
+    "d": "medicine"
+  },
+  "/medicine/figures/edward-jenner": {
+    "t": "爱德华·詹纳",
+    "e": "天花（smallpox）是人类历史上最致命的传染病之一。仅 20 世纪，它就夺走约三亿人的生命；幸存者往往满脸麻坑、甚至失明。",
+    "d": "medicine"
+  },
+  "/medicine/figures/florence-nightingale": {
+    "t": "弗洛伦斯·南丁格尔",
+    "e": "提起南丁格尔，多数人脑中会浮现\"提灯女神\"的形象：一位温柔的护士，夜里提着油灯，在病床间安抚伤兵。这个画面是真实的，但它只讲了她的一半，而且是不太重要的那一半。",
+    "d": "medicine"
+  },
+  "/medicine/figures/hippocrates": {
+    "t": "希波克拉底",
+    "e": "走进今天任何一所医学院的毕业典礼，你都可能听到学生集体宣读一份誓言：尊重生命、不伤害病人、为病人保守秘密。这份誓言的名字叫\"希波克拉底誓言\"（Hippocratic Oath）。",
+    "d": "medicine"
+  },
+  "/medicine/figures/ignaz-semmelweis": {
+    "t": "伊格纳茨·塞麦尔维斯",
+    "e": "今天，每个医护人员接触病人前都要洗手或用消毒液——这是医院最基本、最不容置疑的纪律。",
+    "d": "medicine"
+  },
+  "/medicine/figures/jonas-salk": {
+    "t": "乔纳斯·萨尔克",
+    "e": "20 世纪上半叶，每到夏天，美国的父母都活在恐惧里。",
+    "d": "medicine"
+  },
+  "/medicine/figures/louis-pasteur": {
+    "t": "路易·巴斯德",
+    "e": "打开冰箱里那盒牛奶，标签上多半印着\"巴氏杀菌\"（pasteurized）。这个词来自一个人的名字——路易·巴斯德。",
+    "d": "medicine"
+  },
+  "/medicine/figures/paul-ehrlich": {
+    "t": "保罗·埃尔利希",
+    "e": "在埃尔利希之前，人类对付传染病几乎只有两条路：要么靠身体自己扛过去，要么靠疫苗事先预防。一旦病菌已经在体内肆虐，医生几乎束手无策。埃尔利希提出了一个石破天惊的设想：能不能造出一种化学物质，像一…",
+    "d": "medicine"
+  },
+  "/medicine/figures/robert-koch": {
+    "t": "罗伯特·科赫",
+    "e": "要证明\"某种细菌导致某种疾病\"，听起来理所当然。但仔细想想：一个病人的身体里有成千上万种微生物，你怎么知道究竟是哪一种在作恶？又怎么排除\"它只是恰好在场、并非真凶\"的可能？",
+    "d": "medicine"
+  },
+  "/medicine/figures/tu-youyou": {
+    "t": "屠呦呦",
+    "e": "2015 年，瑞典卡罗林斯卡学院宣布：诺贝尔生理学或医学奖的一半，授予中国药学家屠呦呦，表彰她发现了治疗疟疾的药物——青蒿素（artemisinin）。",
+    "d": "medicine"
+  },
+  "/medicine/figures/vesalius": {
+    "t": "安德烈亚斯·维萨里",
+    "e": "1543 年，欧洲出版了两本改变历史的书。一本是哥白尼的《天体运行论》，把地球从宇宙中心赶了下来。另一本厚重的对开本，叫《人体的构造》（De humani corporis fabrica），…",
+    "d": "medicine"
+  },
+  "/medicine/figures/william-harvey": {
+    "t": "威廉·哈维",
+    "e": "把一只手指紧紧压在自己手腕内侧靠拇指那条血管上，松开，再压住——你能感到血液一下一下地推过来。这种\"血液在管道里循环流动、由心脏推动\"的常识，今天每个小学生都知道。",
+    "d": "medicine"
+  },
+  "/medicine/figures/zhang-zhongjing": {
+    "t": "张仲景",
+    "e": "公元 2 世纪末的东汉末年，是中国历史上最惨烈的时期之一：战乱、饥荒，加上一场又一场瘟疫横扫城乡。曹操笔下\"白骨露于野，千里无鸡鸣\"，并非夸张。建安二十二年（公元 217 年）的一场大疫，一口…",
+    "d": "medicine"
+  },
+  "/medicine/frontier/ai-in-medical-diagnosis": {
+    "t": "AI 读片：机器能比医生更早看见癌症吗",
+    "e": "2016 年，深度学习的奠基者之一 Geoffrey Hinton 在一次演讲里抛出一句后来广为流传、也广受批评的话：\"我们应该停止培养放射科医生了。\"他的意思是，影像识别正是深度学习最擅长的…",
+    "d": "medicine"
+  },
+  "/medicine/frontier/antimicrobial-resistance": {
+    "t": "抗微生物耐药：当抗生素一个接一个失效的那一天",
+    "e": "2022 年初，_The Lancet_ 发表了迄今最系统的一项全球评估：2019 年，全球约有 127 万人的死亡可直接归因于细菌的抗微生物耐药（AMR），而与耐药相关的死亡约为 495 万…",
+    "d": "medicine"
+  },
+  "/medicine/frontier/cancer-immunotherapy": {
+    "t": "癌症免疫疗法：松开免疫系统的刹车，让身体自己打癌细胞",
+    "e": "2018 年的诺贝尔生理学或医学奖，颁给了美国的 James P. Allison 与日本的本庶佑（Tasuku Honjo），表彰他们\"发现通过抑制负向免疫调节来治疗癌症的疗法\"。这句拗口的…",
+    "d": "medicine"
+  },
+  "/medicine/frontier/crispr-clinical-therapy": {
+    "t": "CRISPR 进入临床：当基因编辑第一次真正治好了一种病",
+    "e": "2023 年 11 月 16 日，英国药品和保健品管理局（MHRA）批准了一款名为 Casgevy（通用名 exagamglogene autotemcel，即 exa-cel）的疗法，用于治…",
+    "d": "medicine"
+  },
+  "/medicine/frontier/fair-health-priority-setting": {
+    "t": "公平卫生优先排序：从项目排名到可复审组合",
+    "e": "假设一个卫生部门有十个候选项目和一笔固定预算。",
+    "d": "medicine"
+  },
+  "/medicine/frontier/mrna-therapeutics": {
+    "t": "mRNA 疗法：当新冠疫苗只是这项技术的第一幕",
+    "e": "2023 年 10 月 2 日，斯德哥尔摩宣布把当年的诺贝尔生理学或医学奖授予 Katalin Karikó 与 Drew Weissman，表彰他们关于核苷碱基修饰的发现——正是这项发现，让…",
+    "d": "medicine"
+  },
+  "/medicine/public-health/adolescent-mental-health-school-community-services": {
+    "t": "青少年心理健康：学校、社区与连续服务",
+    "e": "青少年每天生活在家庭、学校、社区和数字平台之间。心理健康服务如果只在专科医院等待求助，就会漏掉尚未被识别、无法承担费用、担心污名、离开学校或不信任机构的人。",
+    "d": "medicine"
+  },
+  "/medicine/public-health/burden-of-disease-daly-qaly": {
+    "t": "疾病负担、DALY 与 QALY",
+    "e": "死亡人数最多的疾病，不一定造成最大的健康损失。",
+    "d": "medicine"
+  },
+  "/medicine/public-health/community-mental-health-access-continuity": {
+    "t": "社区精神卫生、可及性与连续照护",
+    "e": "精神卫生服务“存在”与需要帮助的人“得到有效、可持续并受尊重的照护”之间，隔着一条很长的路径。",
+    "d": "medicine"
+  },
+  "/medicine/public-health/environmental-occupational-health": {
+    "t": "环境与职业健康：从暴露到预防",
+    "e": "环境与职业健康不只是提醒个人戴口罩、喝净水或注意防晒。",
+    "d": "medicine"
+  },
+  "/medicine/public-health/global-health-inequality-coloniality": {
+    "t": "全球健康不平等、权力与殖民性",
+    "e": "健康不平等不是所有健康差异的同义词。",
+    "d": "medicine"
+  },
+  "/medicine/public-health/health-economic-evaluation-priority-setting": {
+    "t": "卫生经济学与优先排序",
+    "e": "“把钱花在最划算的项目上”听起来像一个纯数学问题。",
+    "d": "medicine"
+  },
+  "/medicine/public-health/health-systems-universal-health-coverage": {
+    "t": "卫生系统与全民健康覆盖",
+    "e": "全民健康覆盖（Universal Health Coverage, UHC）不等于“所有治疗全部免费”，也不等于“人人有一张保险卡”。",
+    "d": "medicine"
+  },
+  "/medicine/public-health/implementation-science-health-policy": {
+    "t": "实施科学：从有效干预到真实世界",
+    "e": "“研究证明有效”不等于“交给系统就会有效”。",
+    "d": "medicine"
+  },
+  "/medicine/public-health/infectious-disease-modeling-surveillance": {
+    "t": "传染病建模、监测与公共卫生情报",
+    "e": "它是一种条件推演：在传播率、接触结构、免疫水平和干预方式满足某些假设时，可能发生什么。模型最有价值的输出往往不是一个精确病例数，而是哪些机制主导趋势、哪些参数最值得监测、哪些决策在多种情景下都…",
+    "d": "medicine"
+  },
+  "/medicine/public-health/maternal-child-health-life-course": {
+    "t": "妇幼健康与生命周期方法",
+    "e": "妇幼健康不是把女性仅仅视为生育工具，也不是只在分娩当天提供一次服务。",
+    "d": "medicine"
+  },
+  "/medicine/public-health/vaccine-policy-programs-hesitancy": {
+    "t": "疫苗政策、免疫项目与接种行为",
+    "e": "接种率不足不都源于“反科学”，提供更多事实也不一定能解决问题。",
+    "d": "medicine"
+  },
+  "/medicine/technologies/anesthesia": {
+    "t": "麻醉",
+    "e": "1846 年 10 月 16 日上午，波士顿麻省总医院一间阶梯教室里挤满了医生和学生。牙医威廉·莫顿（William T. G. Morton）让病人吉尔伯特·阿伯特吸入一种装在玻璃球里的气体…",
+    "d": "medicine"
+  },
+  "/medicine/technologies/antibiotics": {
+    "t": "抗生素",
+    "e": "1928 年 9 月，伦敦圣玛丽医院的细菌学家亚历山大·弗莱明（Alexander Fleming）度假归来，发现自己出门前忘了收拾的一摞葡萄球菌培养皿被一团青绿色霉菌污染了。换作别人，可能直…",
+    "d": "medicine"
+  },
+  "/medicine/technologies/antisepsis": {
+    "t": "无菌术",
+    "e": "19 世纪中叶，外科切开人体的能力已因麻醉而提升，但伤口感染仍使许多患者在术后死亡。1860 年代，格拉斯哥外科医生约瑟夫·李斯特（Joseph Lister）把微生物相关理论转化为石炭酸处理…",
+    "d": "medicine"
+  },
+  "/medicine/technologies/blood-transfusion": {
+    "t": "输血",
+    "e": "战场上、手术台上、产房里、车祸现场——当一个人失血过多濒临死亡，能把另一个人的血输进他体内、让他活下来，这是医学最直观也最古老的梦想之一。",
+    "d": "medicine"
+  },
+  "/medicine/technologies/crispr-gene-editing": {
+    "t": "CRISPR 基因编辑",
+    "e": "故事的起点，不在哪个光鲜的医学实验室，而在酸奶工厂和细菌身上。",
+    "d": "medicine"
+  },
+  "/medicine/technologies/ct-mri": {
+    "t": "CT 与 MRI",
+    "e": "普通 X 光片有个根本的局限：它把整个身体的厚度压成一张平面影子，前后的结构重叠在一起，像把一摞透明胶片叠起来看——你能看见骨头，却看不清骨头背后那团软组织里藏着什么。",
+    "d": "medicine"
+  },
+  "/medicine/technologies/dialysis": {
+    "t": "透析",
+    "e": "1945 年 9 月 11 日，荷兰坎彭小镇的医院里，内科医生威廉·科尔夫(Willem Kolff)把他那台用香肠肠衣、橙汁罐头和旧洗衣机零件拼成的\"人工肾\"接到了第 17 位患者身上。",
+    "d": "medicine"
+  },
+  "/medicine/technologies/mrna-vaccine": {
+    "t": "mRNA 疫苗",
+    "e": "2020 年 1 月 SARS-CoV-2 基因序列公布后，研究团队很快确定候选抗原序列；同年，两款 mRNA 疫苗进入大规模随机试验并获得监管授权。速度来自多年积累的平台、全球资金投入、并行…",
+    "d": "medicine"
+  },
+  "/medicine/technologies/organ-transplantation": {
+    "t": "器官移植",
+    "e": "1954 年 12 月 23 日，波士顿的彼得·本特·布里格姆医院里，外科医生约瑟夫·默里(Joseph Murray)做了一件此前所有尝试都以失败告终的事：他把一个健康的肾脏，从罗纳德·赫里…",
+    "d": "medicine"
+  },
+  "/medicine/technologies/stethoscope": {
+    "t": "听诊器",
+    "e": "1816 年的巴黎，内克尔医院的青年医生勒内·拉埃内克（René Laennec）遇到一位丰满的年轻女病人，怀疑她有心脏病。当时检查心脏的标准做法是把耳朵直接贴在病人胸口听，但面对这位女患者，…",
+    "d": "medicine"
+  },
+  "/medicine/technologies/ultrasound": {
+    "t": "超声成像",
+    "e": "蝙蝠回声定位是理解医学超声的一个入口：都从发射声波与接收回声推断空间结构。但诊断超声不是生物声呐的简单复制，它还要控制波束、估计组织中的声速、补偿深度衰减，并把大量脉冲重建为二维、三维或血流图…",
+    "d": "medicine"
+  },
+  "/medicine/technologies/x-ray-imaging": {
+    "t": "X 射线影像",
+    "e": "1895 年 11 月的一个傍晚，德国物理学家威廉·伦琴（Wilhelm Conrad Röntgen）在维尔茨堡的暗室里研究阴极射线管。他把放电管用黑色硬纸板包得严严实实，房间一片漆黑——可…",
+    "d": "medicine"
+  },
+  "/medicine/traditions/ayurveda": {
+    "t": "阿育吠陀",
+    "e": "\"Ayurveda\" 由两个梵文词拼成：ayur（生命）与 veda（知识）——字面就是\"生命的科学\"。",
+    "d": "medicine"
+  },
+  "/medicine/traditions/homeopathy-evidence": {
+    "t": "顺势疗法与循证",
+    "e": "想象一杯水。往里滴一滴某种物质，搅匀；取一滴这杯水，再滴进另一杯纯水，搅匀；如此重复三十次。顺势疗法常用的\"30C\"制剂，正是这样得来的。",
+    "d": "medicine"
+  },
+  "/medicine/traditions/indigenous-medicine-knowledge-sovereignty": {
+    "t": "原住民医学与知识主权：研究、共享与归还",
+    "e": "“原住民医学”不是一种遍布全球、结构相同的医学体系。澳大利亚原住民、毛利人、亚马孙流域民族、北美第一民族与北极圈社群拥有不同语言、土地关系、治疗者角色、植物知识和精神传统。把它们装进同一个“天…",
+    "d": "medicine"
+  },
+  "/medicine/traditions/kampo-medicine": {
+    "t": "汉方医学：传统方剂如何进入日本现代医疗",
+    "e": "“汉方”这个名字指向中国来源，却不是把当代中医换成日语。中国医学知识在约五世纪以后持续传入日本，经历本土化、江户时期学派竞争、明治国家的医学制度重建，又在二十世纪以标准化制剂重新进入医疗体系。…",
+    "d": "medicine"
+  },
+  "/medicine/traditions/latin-american-traditional-medicine": {
+    "t": "拉丁美洲传统医学：医疗多元、殖民历史与跨文化照护",
+    "e": "从安第斯高地、亚马孙流域、墨西哥乡村到加勒比城市，语言、植物生态、宗教和治疗组织差异巨大。玛雅、克丘亚、艾马拉、瓜拉尼与众多亚马孙民族的知识不能被“拉美草药”概括；非洲侨民传统、伊比利亚民间疗…",
+    "d": "medicine"
+  },
+  "/medicine/traditions/tibetan-medicine": {
+    "t": "藏医",
+    "e": "在拉萨的藏医院里，至今挂着一套绘于 17 世纪的医学唐卡——七十九幅彩绘，把人体的构造、胚胎的发育、药材的形态、诊脉的部位一一画出。",
+    "d": "medicine"
+  },
+  "/medicine/traditions/traditional-african-medicine": {
+    "t": "非洲传统医学",
+    "e": "在撒哈拉以南非洲的许多地区，一个生病的人首先求助的，往往不是医院，而是村里的传统治疗者。世界卫生组织估计，非洲约有八成人口在某种程度上依赖传统医学——这不是因为他们排斥现代医学，而是因为传统治…",
+    "d": "medicine"
+  },
+  "/medicine/traditions/traditional-chinese-medicine": {
+    "t": "中医",
+    "e": "2015 年，屠呦呦站上诺贝尔奖领奖台。",
+    "d": "medicine"
+  },
+  "/medicine/traditions/unani-medicine": {
+    "t": "尤纳尼医学",
+    "e": "\"Unani\" 这个词本身就是一段历史：它是阿拉伯语对\"Ionian\"（爱奥尼亚，即希腊）的称呼。换句话说，尤纳尼医学的名字直白地宣告了它的血统——它是希腊医学在伊斯兰世界的延续。",
+    "d": "medicine"
+  },
+  "/medicine/trial-analyses/actt-1-remdesivir-trial": {
+    "t": "ACTT-1 瑞德西韦试验",
+    "e": "恢复时间终点怎样改变一场抗病毒药争论，是这篇剖析真正要回答的问题。对象发生在1062 名住院、下呼吸道受累的 COVID-19 成人。如果只记住一个结论，读者会错过知识最有价值的部分：结论究竟…",
+    "d": "medicine"
+  },
+  "/medicine/trial-analyses/bnt162b2-pivotal": {
+    "t": "BNT162b2 mRNA 疫苗关键试验",
+    "e": "“95% 有效”这句话的精确口径是什么，是这篇剖析真正要回答的问题。对象发生在 2020 年疫情高峰期入组的四万三千余名受试者。如果只记住一个结论，读者会错过知识最有价值的部分：结论究竟由哪些…",
+    "d": "medicine"
+  },
+  "/medicine/trial-analyses/clarity-ad-lecanemab": {
+    "t": "Clarity AD 仑卡奈单抗试验",
+    "e": "统计显著的 0.45 分究竟是不是患者能感知的获益，是这篇剖析真正要回答的问题。对象发生在 1795 名经淀粉样蛋白检测确诊的早期阿尔茨海默病受试者。如果只记住一个结论，读者会错过知识最有价值…",
+    "d": "medicine"
+  },
+  "/medicine/trial-analyses/orbita-sham-controlled-pci-trial": {
+    "t": "ORBITA 假手术对照试验",
+    "e": "侵入性治疗为什么也需要盲法与安慰剂控制，是这篇剖析真正要回答的问题。对象发生在200 名稳定型单支严重冠脉狭窄患者，在药物优化后随机。如果只记住一个结论，读者会错过知识最有价值的部分：结论究竟…",
+    "d": "medicine"
+  },
+  "/medicine/trial-analyses/recovery-dexamethasone-platform-trial": {
+    "t": "RECOVERY 地塞米松试验",
+    "e": "平台试验如何在危机中找到分层有效的旧药，是这篇剖析真正要回答的问题。对象发生在2020 年英国住院 COVID-19 患者。如果只记住一个结论，读者会错过知识最有价值的部分：结论究竟由哪些材料…",
+    "d": "medicine"
+  },
+  "/medicine/trial-analyses/select-semaglutide": {
+    "t": "SELECT 司美格鲁肽心血管结局试验",
+    "e": "一种减肥药能否在没有糖尿病的人群中预防心梗与中风，是这篇剖析真正要回答的问题。对象发生在 17604 名 45 岁以上、已有心血管疾病、超重或肥胖但无糖尿病的成年人。如果只记住一个结论，读者会…",
+    "d": "medicine"
+  },
+  "/medicine/trial-analyses/sprint-blood-pressure-target-trial": {
+    "t": "SPRINT 强化降压试验",
+    "e": "一个目标值如何变成收益、伤害与适用边界，是这篇剖析真正要回答的问题。对象发生在9361 名高心血管风险、无糖尿病成年人。如果只记住一个结论，读者会错过知识最有价值的部分：结论究竟由哪些材料支撑…",
+    "d": "medicine"
+  },
+  "/medicine/trial-analyses/womens-health-initiative-hormone-trial": {
+    "t": "WHI 激素治疗试验",
+    "e": "当观察性保护效应遇到随机证据，是这篇剖析真正要回答的问题。对象发生在16608 名 50—79 岁、子宫完整的绝经后女性。如果只记住一个结论，读者会错过知识最有价值的部分：结论究竟由哪些材料支…",
+    "d": "medicine"
+  }
+}

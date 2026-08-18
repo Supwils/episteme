@@ -24,18 +24,24 @@
  *
  * Run: pnpm gen-links
  */
-import { writeFileSync } from "node:fs";
+import { mkdirSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import prettier from "prettier";
 import { collectArticles, type Article } from "../lib/search/articles";
+import { groupPreviewsByDomain } from "../lib/link-preview-shards";
 
 const ROOT = process.cwd();
 const OUT_LINKS = join(ROOT, "lib", "wiki-link-index.ts");
 const OUT_BACKLINKS = join(ROOT, "lib", "backlinks-index.ts");
-// Static asset, lazy-fetched on first wiki-link hover — never enters any page
-// bundle. Maps an article URL to a compact { t:title, e:excerpt, d:domain }
-// so a reader can preview where a `[[link]]` goes without losing their place.
-const OUT_PREVIEWS = join(ROOT, "public", "link-previews.json");
+// Static assets, lazy-fetched on first wiki-link hover — never enter any page
+// bundle. Each shard maps an article URL to a compact { t:title, e:excerpt,
+// d:domain } so a reader can preview where a `[[link]]` goes without losing
+// their place. Split per domain (`link-previews/<domain>.json`) so the first
+// hover downloads only the shard of the target link's domain (~20–60 KB gzip)
+// instead of one ~915 KB file; the client derives the shard from the URL's
+// first path segment, which always equals the article's domain.
+const OUT_PREVIEWS_DIR = join(ROOT, "public", "link-previews");
+const LEGACY_PREVIEWS = join(ROOT, "public", "link-previews.json");
 
 type Forward = Record<string, string | Record<string, string>>;
 
@@ -267,11 +273,24 @@ export function getBacklinks(url: string): Backlink[] {
   );
 
   const previews = buildPreviews(articles);
-  const previewConfig = await prettier.resolveConfig(OUT_PREVIEWS);
-  writeFileSync(
-    OUT_PREVIEWS,
-    await prettier.format(JSON.stringify(previews), { ...previewConfig, parser: "json" })
-  );
+  const byDomain = groupPreviewsByDomain(previews);
+  mkdirSync(OUT_PREVIEWS_DIR, { recursive: true });
+  // Drop the pre-split monolith and shards of domains that no longer exist so
+  // re-running stays idempotent and commit-clean.
+  rmSync(LEGACY_PREVIEWS, { force: true });
+  for (const file of readdirSync(OUT_PREVIEWS_DIR)) {
+    if (file.endsWith(".json") && !byDomain.has(file.slice(0, -".json".length))) {
+      rmSync(join(OUT_PREVIEWS_DIR, file));
+    }
+  }
+  for (const [domain, shard] of [...byDomain.entries()].sort()) {
+    const file = join(OUT_PREVIEWS_DIR, `${domain}.json`);
+    const config = await prettier.resolveConfig(file);
+    writeFileSync(
+      file,
+      await prettier.format(JSON.stringify(shard), { ...config, parser: "json" })
+    );
+  }
 
   const collisions = Object.values(forward).filter((v) => typeof v !== "string").length;
   const targets = Object.keys(backlinks).length;
@@ -279,7 +298,7 @@ export function getBacklinks(url: string): Backlink[] {
   console.log(
     `✅ wiki-links: ${Object.keys(forward).length} slugs (${collisions} multi-domain); ` +
       `backlinks: ${targets} targets, ${edges} edges; ` +
-      `previews: ${Object.keys(previews).length} articles`
+      `previews: ${Object.keys(previews).length} articles in ${byDomain.size} domain shards`
   );
 }
 

@@ -1,0 +1,1792 @@
+{
+  "/philosophy/concepts/absurd": {
+    "t": "荒诞",
+    "e": "诸神罚西西弗斯把巨石推上山顶，石头一到顶又滚回原处，他只得再下山重新来过——永无止境。这是希腊神话里最残酷的刑罚：不是疼痛，而是彻底的徒劳。可加缪在结尾写下一句让人愣住的话：「我们必须想象西西…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/ai-ethics": {
+    "t": "AI 伦理",
+    "e": "AI伦理不仅是技术问题，更是哲学问题——它涉及公平的本质、责任的归属、意识的标准，以及人类与技术的根本关系。随着AI系统渗透到司法、医疗、金融、军事等领域，这些问题变得前所未有地紧迫。",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/alienation": {
+    "t": "异化",
+    "e": "日常里，\"异化\"常被当成\"疏远\"\"关系变冷\"的同义词——朋友异化了，就是不亲近了。这是对哲学概念\"异化\"的稀释。哲学上的异化（Entfremdung）说的是一种更具体、更吊诡的处境：人创造出某…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/argument": {
+    "t": "论证",
+    "e": "论证有两个基本维度：有效性（validity）和可靠性（soundness）。一个论证是有效的，当且仅当如果所有前提为真，结论必然为真。一个论证是可靠的，当且仅当它既是有效的，而且所有前提实际…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/art": {
+    "t": "艺术",
+    "e": "1917年，杜尚（Marcel Duchamp）买了一个工厂生产的小便池，签上「R. Mutt」的假名，送去纽约的独立艺术家展览，取名《泉》。展览委员会拒绝展出它。可在2004年，一项面向约5…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/beauty": {
+    "t": "美",
+    "e": "美学的基本问题可以追溯到柏拉图：美有没有一个统一的本质？如果有，它是什么？如果没有，我们凭什么说某物是「美的」？美的概念与趣味（taste）、审美经验（aesthetic experience…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/being": {
+    "t": "存在",
+    "e": "设想这样一刻：宇宙里什么都没有——没有星辰，没有空间，没有时间，连「空」本身都不算数。这本该是最省事、最不需要解释的状态。可事实是，偏偏「有」东西：有银河，有这页字，有正在读它的你。莱布尼茨把…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/bioethics": {
+    "t": "生命伦理学",
+    "e": "2018年11月，中国科学家贺建奎宣布世界首例基因编辑婴儿出生——他用CRISPR技术修改了一对双胞胎的胚胎基因。消息一出，全球科学界几乎一致谴责。",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/biopower": {
+    "t": "生命权力",
+    "e": "古代的君主用一把剑来统治：他可以处死你，也可以放你一条生路，权力的终点是死亡。福柯注意到，现代国家的逻辑恰好反了过来——它不再忙于「让人死」，而是忙于「让人活」：统计你的出生与寿命、操心你的健…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/causation": {
+    "t": "因果性",
+    "e": "休谟请你盯住一张台球桌：白球滚过去，撞上红球，红球弹开。你脱口而出「白球撞动了红球」。但休谟追问：你究竟「看见」了什么？你看见白球移动，看见两球接触，看见红球移动——三件事，一件接一件。可那个…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/complexity-philosophy": {
+    "t": "复杂性哲学",
+    "e": "谈复杂性，第一步是把“复杂”和“复杂性”分开。",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/dao": {
+    "t": "道",
+    "e": "一部讲「道」的书，第一句话却说「道」讲不出来。《道德经》开篇即言：「道可道，非常道；名可名，非常名。」——能被说出来的道，就不是那个恒常的道。这是中国哲学最深的一个悖论：道不可言说，却又不得不…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/decolonial-epistemology": {
+    "t": "解殖民知识论",
+    "e": "解殖民知识论不是拒绝科学，也不是说每一种地方信念都和现代科学同等有效。它追问的是：现代知识制度怎样在殖民、帝国、奴隶制、传教、学校、博物馆、地图、统计和大学体系中形成；哪些知识被称为普遍理性，…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/deconstruction": {
+    "t": "解构",
+    "e": "西方哲学两千年来习惯成对地思考：言语高于文字、在场高于缺席、本质高于表象、男性高于女性。每一对里总有一方被默认为更真实、更根本。雅克·德里达（Jacques Derrida，1930—2004…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/democracy": {
+    "t": "民主",
+    "e": "公元前5世纪的雅典，决定城邦命运的不是国王，也不是议会里的职业政客，而是聚在山坡上的几千名普通公民——他们举手表决要不要开战，又用抽签把官职分给铁匠和农夫。这是人类第一次大规模实践「人民的统治…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/dependent-origination": {
+    "t": "缘起",
+    "e": "最常见的误解，是把缘起当成一句平淡的常识——\"凡事都有原因\"。如果只是这个意思，它就不值得成为佛教的核心了。缘起要说的远不止\"有因果\"，而是一个更激进的命题：没有任何东西是靠自己、自足地存在的…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/dharma": {
+    "t": "法",
+    "e": "同一个梵语词「法」（Dharma），在印度语境里可以指宇宙的运行法则、社会的种姓义务、个人的道德责任，也可以指事物的本质，甚至指佛陀的全部教义。一个词承载这么多含义，恰恰是因为它们共享一个内核…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/digital-ethics": {
+    "t": "数字伦理",
+    "e": "数字伦理与信息伦理（Information Ethics）密切相关——卢西亚诺·弗洛里迪（Luciano Floridi）将信息伦理定义为研究信息的创建、收集、分发和使用中的道德问题的学科。但…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/digital-identity": {
+    "t": "数字时代的身份认同",
+    "e": "你从未在任何表格里填过自己的政治倾向或性取向，但研究显示，仅凭你在社交平台上点过的\"喜欢\"，算法就能相当准确地把它们推断出来。这意味着，今天定义\"你是谁\"的，已经不只是你的言行，还有一个你从未…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/effective-altruism-detail": {
+    "t": "有效利他主义详解",
+    "e": "有效利他主义根植于功利主义传统——特别是彼得·辛格（Peter Singer）的扩展关怀伦理——但它将功利主义的抽象原则转化为可操作的决策框架。它要求我们不仅要关心道德，还要关心道德行动的实际…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/emergence": {
+    "t": "涌现",
+    "e": "黄昏的罗马上空，几十万只椋鸟聚成一团翻涌的黑云，忽而收紧、忽而舒展。没有哪只鸟在指挥，每只鸟只遵守三条局部规则：别撞上邻居、跟上邻居的方向、别离群太远。可这三条规则相加，竟生出整群才有的形状—…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/environmental-ethics": {
+    "t": "环境伦理学",
+    "e": "环境伦理学挑战了西方传统伦理学的人类中心主义（anthropocentrism）——在传统伦理学中，只有人类才具有道德地位，自然界只是人类利用的资源。环境伦理学则主张，自然环境和非人类存在（动…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/epistemic-justice": {
+    "t": "认识正义",
+    "e": "认识正义的核心洞察是：知识实践有规范，也有社会结构。谁的话被相信、谁参与创造概念、谁能保存和解释资料，既影响我们是否得到真知识，也可能构成对人的不公。认识不公（epistemic injust…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/eudaimonia": {
+    "t": "幸福论",
+    "e": "问一个看似简单的问题：一个沉溺于感官享受、心满意足的人，幸福吗？现代人多半会说「他自己觉得快乐，那就是幸福」。亚里士多德会摇头。在他看来，幸福不是你此刻的感受，而是一整段人生过得是否够好——以…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/existentialism-detail": {
+    "t": "存在主义详解",
+    "e": "存在主义的核心命题可以用萨特的名言概括：\"存在先于本质\"（l'existence précède l'essence）。人不是被预先设计好的——没有上帝为人设定本质，没有人性规定人应该如何生活…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/falsification": {
+    "t": "证伪",
+    "e": "证伪的核心思想可以用「天鹅悖论」来说明：无论你观察到多少只白天鹅，都不能证明「所有天鹅都是白色的」——因为下一只天鹅可能是黑的。但只要观察到一只黑天鹅，你就足以证伪这一命题。科学理论的价值不在…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/freedom": {
+    "t": "自由",
+    "e": "公元1世纪的罗马，一个名叫爱比克泰德的奴隶被主人拧断了腿。据传说，他在剧痛中只是平静地说：「我早告诉过你，会断的。」对他而言，身体可以被锁链束缚，但选择以何种态度面对苦难的心灵，谁也夺不走。这…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/happiness": {
+    "t": "幸福",
+    "e": "幸福一词在哲学中有多种含义：快乐（hedone，感官愉悦）、满足（satisfaction，欲望的实现）、繁荣（eudaimonia，人的潜能的圆满实现）。不同的定义产生了截然不同的伦理学理论…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/identity": {
+    "t": "同一性",
+    "e": "最常见的误解，是把同一性等同于\"看起来像\"或\"感觉像\"。两颗台球可以一模一样，但它们是两个东西；今天的你看着十年前的照片，觉得\"还是同一个人\"，但细胞、记忆、性格都已大变。同一性追问的不是相似…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/indian-buddhist-epistemology": {
+    "t": "印度佛教知识论",
+    "e": "印度佛教知识论最常见的误解，是把佛教理解成只谈修行、慈悲和空性的宗教经验。实际上，公元 5-7 世纪的陈那（Dignaga）和法称（Dharmakirti）建立了一套高度技术化的认识论与逻辑传…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/information-philosophy": {
+    "t": "信息哲学",
+    "e": "信息在当代哲学中的地位经历了根本性转变。",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/justice": {
+    "t": "正义",
+    "e": "两个人一起搬了一天砖，傍晚分工钱：是该一人一半（按平等），还是搬得多的人多拿（按贡献），还是家里孩子更多的人多拿（按需要）？三种分法听上去都「公道」，却给出完全不同的答案。几乎所有关于正义的争…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/karma": {
+    "t": "业",
+    "e": "战场上，阿周那看着对面阵中的亲族、师长，扔下弓不肯开战。克里希纳没有劝他「杀人无妨」，而是告诉他：你有行动的权利，但无权享受行动的果实——该做的事去做，结果交给它自己。这句出自《薄伽梵歌》的话…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/knowledge": {
+    "t": "知识",
+    "e": "罗素讲过一个场景：你抬头看墙上的钟，指针指着两点整，于是你相信「现在是两点」。碰巧，现在确实是两点——你信的是真的。可你不知道的是：这只钟昨天就停了，恰好停在两点，今天这一刻又轮回到两点。你「…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/li": {
+    "t": "礼",
+    "e": "一个婴儿不知道该向谁鞠躬、在丧礼上该不该哭、见到长辈该说什么。在儒家看来，这些都不是天生就会的——人要靠一整套叫「礼」的东西，才学会怎么做一个人。孔子把自己一生的志向概括为「克己复礼」，正是这…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/logic": {
+    "t": "逻辑",
+    "e": "看这个推理：「所有会飞的动物都是鸟；蝙蝠会飞；所以蝙蝠是鸟。」结论明明是错的——蝙蝠是哺乳动物。但请注意：错并不出在推理的「走法」上。如果前两句当真成立，结论就躲不掉。毛病出在第一句前提本身（…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/maya": {
+    "t": "幻",
+    "e": "黄昏走在山路上，你瞥见脚边盘着一条蛇，浑身一凛、猛地后退——心跳、冷汗、转身就跑，全都真切发生了。可你借着月光再看一眼，那不过是一截盘绕的绳子。在你认出绳子之前，那条蛇并非「什么都没有」：它确…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/modal-logic": {
+    "t": "模态逻辑",
+    "e": "比较两句话：「2 加 2 等于 4」和「今天下雨了」。两句都可能是真的，但它们「真」的方式不一样。无论把世界重排成什么样子，2 加 2 都不会等于 5——它必然为真。而今天这场雨完全可以不下：…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/modern-chinese-thought": {
+    "t": "中国近现代思想",
+    "e": "中国近现代思想最常见的误解，是把它写成“传统走向现代”的单线故事。这种写法把传统放在落后位置，把现代放在西方位置，把中国思想家变成被动追赶者。真实历史更复杂。晚清以来的思想家不是简单接受西方，…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/moral-luck": {
+    "t": "道德运气",
+    "e": "这两条信念都极其牢固，却互不相容。伯纳德·威廉斯与托马斯·内格尔在 1976 年的一场联合研讨中把这个矛盾正式命名，此后它成为伦理学中最难消化的问题之一——不是因为答案难找，而是因为每一种可能…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/other": {
+    "t": "他者",
+    "e": "萨特在《存在与虚无》里讲过一个场景：你正贴着门上的钥匙孔往里窥视，全副心神都扑在门内的景象上，这一刻没有「我」，只有被看的房间。突然，走廊传来脚步声——有人在看你。一瞬间，整个处境翻转了：你从…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/paradigm": {
+    "t": "范式",
+    "e": "我们习惯把科学想象成一座不断加高的大厦：每一代人添几块砖，知识稳步累积，越来越接近真理。1962 年，托马斯·库恩在《科学革命的结构》里推翻了这幅图景。他指出科学史其实充满断裂——牛顿的宇宙和…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/paradox": {
+    "t": "悖论",
+    "e": "念一句话：「这句话是假的。」然后试着判断它的真假。假设它是真的——那它说的就成立，也就是说它是假的。好，那假设它是假的——可它说的正是「我是假的」，这话便说对了，于是它又成了真的。无论你押哪边…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/perception": {
+    "t": "知觉",
+    "e": "把一根笔直的筷子斜插进一杯水里，它看上去断成了两截、明显是弯的；可你伸手一摸，它仍是直的。一枚圆硬币摆在桌上，从正上方看是正圆，稍一侧头就成了椭圆——但你从不怀疑它「其实」是圆的。这些再普通不…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/phenomenology-detail": {
+    "t": "现象学详解",
+    "e": "现象学的独特贡献在于：它不从理论出发去解释经验，而是从经验出发去理解理论。它关注的不是\"世界实际上是什么样的\"，而是\"世界如何对我们显现\"。这一方法论转向对认识论、伦理学、美学、心理学和认知科…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/philosophy-of-ai": {
+    "t": "人工智能哲学",
+    "e": "人工智能哲学与AI伦理不同：AI伦理关注\"我们应该如何使用AI\"，而AI哲学追问\"AI究竟是什么\"。它是哲学对智能本质的最深层反思。",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/philosophy-of-language": {
+    "t": "语言哲学",
+    "e": "古人给黎明前东方那颗最亮的星起名「晨星」，又给黄昏后西方那颗最亮的星起名「暮星」，当成两样东西。后来人们才发现：它们是同一颗——金星。于是出现一个怪事：「晨星是暮星」是一条真要靠观测才能发现的…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/philosophy-of-science": {
+    "t": "科学哲学",
+    "e": "1919 年，爱丁顿率队远赴非洲与巴西，趁日全食的几分钟黑暗，拍下太阳边缘的星光——验证爱因斯坦的预言：引力会让光线弯曲一个具体的角度。这个预言极其冒险：只要照片上的星光没按它说的偏移，广义相…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/philosophy-of-time": {
+    "t": "时间哲学",
+    "e": "试着抓住「现在」。你刚说出「现」字，它就已经溜进了过去；而「在」字还没出口，它还躲在未来。「现在」薄得没有厚度，像一道没有宽度的刃口，把不复存在的过去和尚未到来的未来一刀劈开。可怪就怪在这里：…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/power": {
+    "t": "权力",
+    "e": "提到\"权力\"，大多数人脑中浮现的画面是：一个人或一群人，居高临下地压制另一些人——国王的命令、警察的警棍、老板的解雇权。权力似乎总是\"自上而下的、压制性的、看得见的\"。",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/practical-wisdom": {
+    "t": "实践智慧",
+    "e": "两个医生读的是同一本教科书，掌握同样的循证指南。面对一个病情复杂、又害怕坏消息的病人，一个照本宣科、把诊断结果一股脑念出来，另一个却懂得该在什么时机、用什么方式开口。两人的医学知识相同，差的那…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/psychologism": {
+    "t": "心理主义",
+    "e": "它在十九世纪后期是德语与英语哲学中的主流立场之一，由密尔、利普斯等人以不同形式主张。到二十世纪初，它被弗雷格与胡塞尔的批判彻底击溃，成为哲学史上少数被公认\"驳倒\"的立场之一。",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/qi": {
+    "t": "气",
+    "e": "一个中医说你「气虚」，一个太极师傅让你「以气运身」，孟子说他善养「浩然之气」，张载说整个宇宙不过是气的聚散——同一个字，被用在身体、武术、道德和宇宙论上，听起来像四件不相干的事。但在中国哲学里…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/reason": {
+    "t": "理性",
+    "e": "一个流行的误解是：理性就是\"冷静、客观、不带感情地算计\"，而情感则是理性的敌人——要做出明智的决定，就得把情感按下去。",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/recognition": {
+    "t": "承认",
+    "e": "最容易把\"承认\"（recognition）误读成的，是日常意义上的\"被表扬\"\"获得点赞\"\"被人喜欢\"。这把一个深刻的哲学概念缩小成了虚荣心。承认理论说的不是\"被夸奖很开心\"，而是一个更根本的命…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/ren": {
+    "t": "仁",
+    "e": "弟子们一次次问孔子：什么是仁？孔子的回答却次次不同。颜渊问，他说「克己复礼为仁」；樊迟问，他说「爱人」；仲弓问，他说「己所不欲，勿施于人」。同一个字，三种解释——这不是孔子含糊其辞，而是仁的本…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/responsibility": {
+    "t": "责任",
+    "e": "两个司机都喝了酒，都开车回家。一个平安到家，一个在拐角撞死了一个突然冲出的孩子。法律会重判后者，旁人也会更严厉地谴责他——可两人做的事一模一样，区别只在运气。这个被称为「道德运气」的难题，逼问…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/rights": {
+    "t": "权利",
+    "e": "1776 年，《美国独立宣言》写下「人人生而平等，造物主赋予他们若干不可剥夺的权利」。这句话的力量在于一个大胆的假设：有些东西是你与生俱来的，任何国王、议会或多数票都无权拿走。但只要追问一步，…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/sense-data": {
+    "t": "感觉材料",
+    "e": "看一枚硬币时，你直接看到的是一个椭圆形的、有特定颜色的感觉材料；你对\"那里有一枚圆形硬币\"的信念，是从这个直接给予的东西推出来的。",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/state": {
+    "t": "国家",
+    "e": "马克斯·韦伯（Max Weber，1864—1920）给出了最经典的国家定义：国家是在特定领土内成功垄断了合法暴力使用权的政治组织。这个定义揭示了国家的两个基本特征：主权（最高权力）和强制力（…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/sublime": {
+    "t": "崇高",
+    "e": "站在悬崖边俯视暴风雨中翻腾的大海，你会感到一阵恐惧。但只要脚下是安全的，这恐惧里又掺进了某种说不清的振奋。你被这片远超自身的力量压倒，却又因为意识到自己能站在这里凝视它而隐隐自豪。",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/substance": {
+    "t": "实体",
+    "e": "拿起手里一个苹果，做一个减法。先拿掉它的红色，再拿掉它的圆、它的香、它的重、它的甜——把一切「看得见、摸得着」的性质一项项剥光。剥到最后，似乎还该剩下一个「承载这些性质的东西」：是它在「红」、…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/time": {
+    "t": "时间",
+    "e": "时间的核心特征包括：流逝（时间在流动）、方向性（从过去到未来，不可逆）、现在性（「现在」似乎有一种特殊的地位）、持续性（时间有长度，事件持续一段时间）。这些特征是否真实？还是只是我们经验世界的…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/truth": {
+    "t": "真理",
+    "e": "「外面在下雪。」要判断这句话是不是真的，你会怎么做？你走到窗边，拉开窗帘，看一眼天空——这个动作里藏着一整套关于真理的直觉：一句话之所以为真，是因为它说的和外面那个世界对得上。可一旦把这套直觉…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/ubuntu": {
+    "t": "乌班图",
+    "e": "提到\"乌班图\"（Ubuntu），西方读者最容易把它当作一句温情脉脉的口号——\"团结友爱\"\"与人为善\"——一种鸡汤式的处世格言。这低估了它。乌班图是南部非洲（尤其讲恩古尼语 Nguni 的祖鲁、…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/virtue": {
+    "t": "德性",
+    "e": "德性的核心思想是：伦理的关键在于培养良好的品格习惯，而不是遵循规则或计算后果。一个勇敢的人不是因为「应该勇敢」才勇敢，而是因为勇敢已经成为他的第二天性。德性伦理学关注的不是孤立的行为，而是行为…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/wu-wei": {
+    "t": "无为",
+    "e": "提到\"无为\"，最常见的误解是把它读成\"什么都不做\"\"躺平\"\"消极避世\"。这几乎是把这个词理解反了。",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/yin-yang": {
+    "t": "阴阳",
+    "e": "最早的「阴」和「阳」其实很朴素：一座山，朝阳的那面是阳，背阴的那面是阴。同一座山，同一时刻，光照与否只看你站在哪一侧——这个再普通不过的观察，后来长成了中国人理解整个宇宙的框架。两千多年后，量…",
+    "d": "philosophy"
+  },
+  "/philosophy/concepts/zhengming": {
+    "t": "正名",
+    "e": "正名的经典出处是《论语·子路》。子路问，如果卫君请孔子治国，先做什么？孔子答：\"必也正名乎！\"他解释：",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/apology": {
+    "t": "申辩篇",
+    "e": "《申辩篇》（希腊文 Ἀπολογία Σωκράτους，英文 Apology）",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/aristotle-avicenna": {
+    "t": "亚里士多德 vs 阿维森纳：存在与本质",
+    "e": "存在与本质的关系问题是形而上学的核心议题之一。亚里士多德（Aristotle, 前384—前322）在雅典创立了实体理论，认为个别事物是第一实体，形式与质料的结合构成了现实存在。约一千三百年后…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/confucius-socrates": {
+    "t": "孔子 vs 苏格拉底：教育方法",
+    "e": "孔子（前551—前479）是中国最伟大的教育家，他开创了\"有教无类\"的传统，主张\"因材施教\"——根据学生的不同特点采用不同的教学方法。苏格拉底（Socrates, 前470—前399）是西方最…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/crito": {
+    "t": "克力同篇",
+    "e": "《克力同篇》（希腊文 Κρίτων，英文 Crito）是柏拉图的早期对话，",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/curie-rutherford": {
+    "t": "居里 vs 卢瑟福：放射性的本质",
+    "e": "1896年，亨利·贝克勒尔发现了铀的放射性。这一发现开启了原子物理学的新纪元。玛丽·居里（Marie Curie, 1867-1934）和欧内斯特·卢瑟福（Ernest Rutherford,…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/darwin-marx": {
+    "t": "达尔文 vs 马克思：进化与社会变革",
+    "e": "查尔斯·达尔文（Charles Darwin, 1809-1882）和卡尔·马克思（Karl Marx, 1818-1883）是十九世纪最具影响力的两位思想家。达尔文的《物种起源》（1859）…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/darwin-wallace": {
+    "t": "达尔文 vs 华莱士：自然选择的优先权",
+    "e": "1858年夏天，查尔斯·达尔文（Charles Darwin, 1809-1882）收到了一封来自马来群岛的信。信的作者是阿尔弗雷德·拉塞尔·华莱士（Alfred Russel Wallace…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/descartes-nagarjuna": {
+    "t": "笛卡尔 vs 龙树：确定性与空性",
+    "e": "勒内·笛卡尔（René Descartes, 1596—1650）通过系统性怀疑寻找确定性的基础，最终发现\"我思故我在\"（cogito ergo sum）是不可怀疑的真理。龙树（Nāgārju…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/einstein-bohr": {
+    "t": "爱因斯坦 vs 玻尔：量子力学的诠释",
+    "e": "1927年，第五届索尔维会议在布鲁塞尔召开。这是物理学史上最著名的会议之一。阿尔伯特·爱因斯坦（Albert Einstein, 1879-1955）和尼尔斯·玻尔（Niels Bohr, 1…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/euthyphro": {
+    "t": "欧绪弗罗篇",
+    "e": "《欧绪弗罗篇》（希腊文 Εὐθύφρων，英文 Euthyphro）是柏拉图的早期对话，",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/galileo-campanella": {
+    "t": "伽利略 vs 康帕内拉：科学与乌托邦",
+    "e": "伽利略·伽利莱（Galileo Galilei, 1564-1642）是意大利物理学家、天文学家，被誉为\"现代科学之父\"。他用望远镜观察天空，支持哥白尼的日心说，最终被罗马宗教裁判所审判。",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/gettier-dialogue": {
+    "t": "葛梯尔问题",
+    "e": "葛梯尔问题（The Gettier Problem）是20世纪分析认识论中最重要的\"问题文献\"（problem paper）之一，由美国哲学家埃德蒙德·葛梯尔（Edmund L. Gettie…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/gorgias-dialogue": {
+    "t": "柏拉图《高尔吉亚篇》",
+    "e": "《高尔吉亚篇》（希腊文 Γοργίας，英文 Gorgias）是柏拉图的中期早期对话，",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/hegel-nietzsche": {
+    "t": "黑格尔 vs 尼采：历史的目的",
+    "e": "格奥尔格·威廉·弗里德里希·黑格尔（Georg Wilhelm Friedrich Hegel, 1770—1831）在柏林大学构建了宏大的历史哲学体系，主张历史是绝对精神（Absoluter…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/hippocrates-sima-qian": {
+    "t": "希波克拉底 vs 司马迁：记录历史与疾病",
+    "e": "希波克拉底（Hippocrates, 约公元前460-370年）是古希腊最著名的医生，被誉为\"医学之父\"。他的学派留下了大量医学文献——《希波克拉底文集》，记录了疾病的症状、治疗和预后。",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/hypatia-hildegard": {
+    "t": "希帕蒂亚 vs 希尔德加德：女性与知识",
+    "e": "希帕蒂亚（Hypatia, 约350-415年）是古罗马时期亚历山大城的数学家、天文学家和哲学家。她是新柏拉图主义学派的领袖，在亚历山大博物馆任教。公元415年，她被一群基督教暴徒杀害，成为古…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/kant-confucius": {
+    "t": "康德 vs 孔子：道德的普遍性",
+    "e": "伊曼努尔·康德（Immanuel Kant, 1724—1804）在哥尼斯堡建立了以绝对命令为核心的道德哲学，主张道德法则必须是普遍的、无条件的。孔子（前551—前479）则以仁、义、礼为基础…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/laozi-thoreau": {
+    "t": "老子 vs 梭罗：自然与简朴",
+    "e": "老子（约前6世纪）是中国道家的创始人，他在《道德经》中提出了\"道法自然\"和\"无为而治\"的思想——最高的智慧是顺应自然，不强求、不执着。亨利·大卫·梭罗（Henry David Thoreau,…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/laws": {
+    "t": "法律篇",
+    "e": "《法律篇》（希腊文 Νόμοι，英文 Laws）",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/marcus-epictetus": {
+    "t": "马可·奥勒留 vs 爱比克泰德：斯多葛主义的实践",
+    "e": "爱比克泰德（Epictetus, 约50—135）出身奴隶，身体残疾，却成为罗马最令人尊敬的斯多葛哲学家之一。他教导学生：痛苦不在事物本身，而在于我们对事物的判断。马可·奥勒留（Marcus …",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/marx-confucius": {
+    "t": "马克思 vs 孔子：社会变革",
+    "e": "卡尔·马克思（Karl Marx, 1818—1883）在伦敦的大英博物馆里写下了《资本论》，提出阶级斗争和历史唯物主义，主张通过革命推翻资本主义制度。孔子（前551—前479）在春秋乱世中周…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/marx-ibn-khaldun": {
+    "t": "马克思 vs 伊本·赫勒敦：历史唯物主义 vs 文明周期",
+    "e": "卡尔·马克思（Karl Marx, 1818—1883）的历史唯物主义认为，经济基础决定上层建筑，阶级斗争是历史发展的动力。伊本·赫勒敦（Ibn Khaldun, 1332—1406）是阿拉伯…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/meno": {
+    "t": "美诺篇",
+    "e": "《美诺篇》（希腊文 Μένων，英文 Meno）是柏拉图从早期过渡到中期的重要对话，",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/natural-religion": {
+    "t": "自然宗教对话录",
+    "e": "《自然宗教对话录》（Dialogues Concerning Natural Religion）是苏格兰哲学家大卫·休谟（David Hume，1711–1776）的宗教哲学杰作。休谟大约在1…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/newton-leibniz": {
+    "t": "牛顿 vs 莱布尼茨：微积分的发明权",
+    "e": "微积分的发明是数学史上最伟大也最具争议的事件之一。艾萨克·牛顿（Isaac Newton, 1642-1727）在1660年代就发展了他的\"流数法\"（method of fluxions），但…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/nietzsche-buddha": {
+    "t": "尼采 vs 释迦牟尼：苦难与超越",
+    "e": "弗里德里希·尼采（Friedrich Nietzsche, 1844—1900）宣称\"上帝已死\"，提出超人（Übermensch）和永恒回归的思想，主张以 amor fati（热爱命运）的态度…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/parmenides-dialogue": {
+    "t": "柏拉图《巴门尼德篇》",
+    "e": "《巴门尼德篇》（希腊文 Παρμενίδης，英文 Parmenides）",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/phaedo": {
+    "t": "斐多篇",
+    "e": "《斐多篇》（希腊文 Φαίδων，英文 Phaedo）",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/phaedrus": {
+    "t": "斐德罗篇",
+    "e": "《斐德罗篇》（希腊文 Φαῖδρος，英文 Phaedrus）",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/philebus": {
+    "t": "斐莱布篇",
+    "e": "《斐莱布篇》（希腊文 Φίληβος，英文 Philebus）",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/plato-confucius": {
+    "t": "柏拉图 vs 孔子：理想国与大同社会",
+    "e": "公元前四世纪，在地球的两端，两位伟大的思想家各自构想了理想社会的蓝图。柏拉图（Plato, 约前428—前348）在雅典写下了《理想国》，提出由哲学王统治的正义之城；孔子（前551—前479）…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/rawls-mencius": {
+    "t": "罗尔斯 vs 孟子：正义的根基",
+    "e": "约翰·罗尔斯（John Rawls, 1921—2002）在哈佛大学写下了《正义论》，提出\"无知之幕\"（veil of ignorance）的思想实验，主张正义即公平（justice as f…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/sartre-laozi": {
+    "t": "萨特 vs 老子：自由与无为",
+    "e": "让-保罗·萨特（Jean-Paul Sartre, 1905—1980）在巴黎的咖啡馆里写下了《存在与虚无》，宣称人是\"被判定为自由的\"——我们没有固定的本质，必须通过选择来定义自己。老子（约…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/sophist": {
+    "t": "智者篇",
+    "e": "柏拉图中期至晚期的过渡性对话，写作年代约在公元前360年前后。它与《政治家篇》以及一部计划中的《哲学家篇》（柏拉图最终从未写成）构成一个三部曲，前两篇由同一批人物在同一天的对话中展开。《智者篇…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/statesman": {
+    "t": "政治家篇",
+    "e": "《政治家篇》（Politikos / Statesman）是柏拉图晚期三部曲中的第二部，接续《智者篇》（同一天发生的对话），是《哲学家篇》（未完成）的前奏。写作年代约在公元前360年代，属于柏…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/symposium": {
+    "t": "会饮篇",
+    "e": "《会饮篇》（Symposion）写作年代约在公元前385–370年之间，是柏拉图文学成就最高的作品之一，也是西方哲学史上最美丽的文本之一。它以公元前416年的一场宴会为背景（即悲剧诗人阿伽松赢…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/the-republic": {
+    "t": "理想国",
+    "e": "《理想国》（Politeia / The Republic）是柏拉图最宏大、影响最深远的著作，写作年代约在公元前380年代，属于中期对话。它以\"正义是什么\"为切入点，展开了涵盖伦理学、政治哲学…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/theaetetus": {
+    "t": "泰阿泰德篇",
+    "e": "《泰阿泰德篇》（Theaetetos）是柏拉图中期至晚期对话中认识论最集中的作品，写作年代约在公元前369–367年。它专门讨论一个看似简单却出奇困难的问题：知识（episteme）是什么？ …",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/three-dialogues": {
+    "t": "海拉斯与斐洛诺斯三篇对话",
+    "e": "《海拉斯与斐洛诺斯三篇对话》（Three Dialogues between Hylas and Philonous，1713）是爱尔兰哲学家乔治·贝克莱（George Berkeley，16…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/timaeus": {
+    "t": "蒂迈欧篇",
+    "e": "《蒂迈欧篇》（Timaios）是柏拉图晚期最重要的对话之一，写作年代约在公元前360–355年，与《克里提亚斯篇》（未完成）构成一组。它是古希腊最完整的宇宙论叙述，也是西方哲学史上影响最深远的…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/turing-godel": {
+    "t": "图灵 vs 哥德尔：可计算性与不完备性",
+    "e": "库尔特·哥德尔（Kurt Gödel, 1906-1978）是奥地利-美国数学家和逻辑学家。1931年，他证明了不完备性定理——任何足够强的形式系统都包含不可证明的真命题。这一定理震撼了数学的…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/two-new-sciences": {
+    "t": "关于两门新科学的对话",
+    "e": "《关于两门新科学的对话》（Discorsi e Dimostrazioni Matematiche intorno a Due Nuove Scienze，英译通常简称 Two New Sci…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/watson-franklin": {
+    "t": "沃森 vs 富兰克林：DNA 双螺旋",
+    "e": "1953年4月25日，《自然》杂志发表了三篇论文，揭示了DNA的双螺旋结构。詹姆斯·沃森（James Watson, 1928-）和弗朗西斯·克里克（Francis Crick, 1916-2…",
+    "d": "philosophy"
+  },
+  "/philosophy/dialogues/wittgenstein-zhuangzi": {
+    "t": "维特根斯坦 vs 庄子：语言的界限",
+    "e": "路德维希·维特根斯坦（Ludwig Wittgenstein, 1889—1951）在剑桥写下了两部划时代的哲学著作：《逻辑哲学论》和《哲学研究》。前者主张\"凡不可说的，必须沉默\"；后者提出\"…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/brain-in-vat": {
+    "t": "缸中之脑",
+    "e": "1981年，美国哲学家希拉里·普特南在《理性、真理与历史》一书中提出了这个如今广为人知的 thought experiment：",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/buridans-donkey": {
+    "t": "布里丹之驴",
+    "e": "一头完全理性的驴子被置于两堆完全相同的干草之间。两堆草的大小、质量、新鲜度、与驴子的距离——所有可测量的属性——完全相等。驴子没有理由选择其中任何一堆。在这种情况下，驴子会怎么做？",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/chinese-room": {
+    "t": "中文房间",
+    "e": "1980年，美国哲学家约翰·塞尔在《心灵、大脑与程序》一文中提出了这个极具影响力的思想实验：",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/experience-machine": {
+    "t": "体验机器",
+    "e": "1974年，美国哲学家罗伯特·诺齐克在《无政府、国家与乌托邦》中提出了这个简洁而深刻的思想实验：",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/frankfurt-cases": {
+    "t": "法兰克福案例",
+    "e": "一种古老而有吸引力的道德原则说：只有当一个人本来可以采取别的行动时，他才应为实际行动负责。哲学家常把它称为“替代可能性原则”（Principle of Alternative Possibil…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/gettier-problem": {
+    "t": "盖梯尔问题",
+    "e": "自柏拉图在《泰阿泰德篇》中首次探讨以来，西方哲学传统对知识的标准定义是：知识是得到证成的真信念（Justified True Belief，简称JTB）。",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/marys-room": {
+    "t": "玛丽的房间",
+    "e": "1982年，澳大利亚哲学家弗兰克·杰克逊在《副现象感质》（Epiphenomenal Qualia）一文中提出了这个如今已成为心灵哲学经典的思想实验。这个论证被广泛认为是二十世纪心灵哲学中最重…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/newcomb-problem": {
+    "t": "纽科姆难题",
+    "e": "1960年，物理学家威廉·纽科姆构想了这个后来被称为决策论中最深刻悖论的思想实验。罗伯特·诺齐克于1969年首次在哲学文献中将其正式化，从此引发了长达半个多世纪的激烈争论。",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/original-position": {
+    "t": "原初状态",
+    "e": "1971年，美国哲学家约翰·罗尔斯在《正义论》中提出了一个影响深远的思想实验。想象你和其他人被召集在一起，共同决定未来社会的基本制度安排。但有一个关键条件：你们被一道\"无知之幕\"（veil o…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/pascals-wager": {
+    "t": "帕斯卡赌注",
+    "e": "17世纪法国数学家和哲学家布莱兹·帕斯卡在身后出版的《思想录》（Pensées, 1670）中，提出了一个用概率和决策论来论证信仰上帝的著名论证。",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/philosophical-zombies": {
+    "t": "哲学僵尸",
+    "e": "1996年，澳大利亚哲学家大卫·查尔默斯在《意识的心灵》（The Conscious Mind）一书中系统阐述了哲学僵尸（philosophical zombie，简称 p-zombie）的概…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/platos-cave": {
+    "t": "柏拉图洞穴比喻",
+    "e": "在《理想国》第七卷（514a-521b）中，柏拉图通过苏格拉底之口讲述了一个令人震撼的比喻：",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/repugnant-conclusion": {
+    "t": "令人厌恶的结论",
+    "e": "1984年，英国哲学家德里克·帕菲特在《理由与人格》中提出了一个令人深感不安的论证。",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/russels-teapot": {
+    "t": "罗素的茶壶",
+    "e": "1952年，英国哲学家伯特兰·罗素在一篇文章中提出了这个简洁而有力的思想实验：",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/ship-of-theseus": {
+    "t": "忒修斯之船",
+    "e": "古希腊历史学家普鲁塔克在《希腊罗马名人传》中记载了这个困惑：雅典人保存了英雄忒修斯航海归来的船。随着岁月流逝，腐朽的木板被逐一替换为新的。当所有原始木板都被替换后，这艘船还是忒修斯的船吗？",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/sorites-paradox": {
+    "t": "秃头悖论",
+    "e": "秃头悖论（Sorites Paradox）是古希腊麦加拉学派哲学家尤布利德斯（Eubulides）提出的一系列悖论中最著名的一个。它的结构极其简单，却揭示了语言和逻辑中一个深层的困难：",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/swampman": {
+    "t": "沼泽人",
+    "e": "1987年，美国哲学家唐纳德·戴维森在一篇题为《知道自己的心灵》的论文中提出了这个令人困惑的思想实验。",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/trolley-problem": {
+    "t": "电车难题",
+    "e": "一辆失控的电车正沿轨道高速驶向五名工人，他们背对电车，无法及时逃离。你站在道岔旁边的拉杆旁，面前有一个简单的选择：如果你拉动拉杆，电车将转向另一条轨道，但那条轨道上也有一名工人。你不做任何事，…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/twin-earth": {
+    "t": "双胞胎地球",
+    "e": "1973年，美国哲学家希拉里·普特南在《意义与指称》（\"Meaning and Reference\"，Journal of Philosophy）一文中首次提出了双胞胎地球思想实验，并在197…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/utility-monster": {
+    "t": "效用怪兽",
+    "e": "1974年，罗伯特·诺齐克在《无政府、国家与乌托邦》中提出了\"效用怪兽\"这一思想实验，用以攻击功利主义的核心逻辑。",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/veil-of-ignorance": {
+    "t": "无知之幕",
+    "e": "1971年，美国哲学家约翰·罗尔斯在《正义论》中提出了20世纪政治哲学中最具影响力的思想实验之一。",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/violinist": {
+    "t": "小提琴家",
+    "e": "1971年，美国哲学家朱迪丝·贾维斯·汤姆森在《为堕胎辩护》（A Defense of Abortion）一文中提出了这个极具争议性的思想实验：",
+    "d": "philosophy"
+  },
+  "/philosophy/frontier/ai-alignment-philosophy": {
+    "t": "AI 对齐与价值的哲学：人类价值能否被规范化？",
+    "e": "2024 年 4 月，牛津大学关闭了运营近二十年的人类未来研究所（Future of Humanity Institute）。这个曾经是 AI 存在风险研究发源地的机构，在经费压力和内部危机中…",
+    "d": "philosophy"
+  },
+  "/philosophy/frontier/climate-justice-and-intergenerational-ethics": {
+    "t": "气候正义与代际伦理：对还不存在的人负有义务吗",
+    "e": "气候变化把伦理学最抽象的几个难题，一次性变成了必须在本届政府任期内回答的政策问题。",
+    "d": "philosophy"
+  },
+  "/philosophy/frontier/consciousness-iit-gnw": {
+    "t": "意识科学的世纪之战：IIT 对决 GNW",
+    "e": "2023 年 6 月，一项罕见的科学实验公布了初步结果。",
+    "d": "philosophy"
+  },
+  "/philosophy/frontier/digital-personhood-and-mind-uploading": {
+    "t": "数字人格与心灵上传：复制品是我吗",
+    "e": "假设有一台机器，能把你大脑的每一个神经元与每一个突触扫描下来，在计算机中重建一个功能等价的系统。这个系统醒来后声称自己是你，记得你的童年，爱你所爱的人，害怕你所害怕的事。",
+    "d": "philosophy"
+  },
+  "/philosophy/frontier/epistemic-crisis-testimony-and-deepfakes": {
+    "t": "认识论危机：当眼见不再为实",
+    "e": "人类知识的绝大部分不是自己获得的。你没有测量过地球的周长，没有验证过疫苗的临床试验数据，没有去过你相信存在的那些国家。你知道的几乎一切，都来自别人的告知。",
+    "d": "philosophy"
+  },
+  "/philosophy/frontier/experimental-philosophy": {
+    "t": "实验哲学：用数据检验哲学直觉",
+    "e": "2001 年，三位年轻的哲学家做了一件在传统哲学家看来颇为奇怪的事。",
+    "d": "philosophy"
+  },
+  "/philosophy/frontier/formal-epistemology-and-bayesianism": {
+    "t": "形式认识论：把\"相信多少\"写成数字",
+    "e": "传统认识论问的是一个是非题：你知道吗？ 有没有辩护？是不是真的？盖梯尔式的反例是否成立？",
+    "d": "philosophy"
+  },
+  "/philosophy/frontier/free-will-neuroscience": {
+    "t": "自由意志与神经科学：Libet 实验之后",
+    "e": "1983 年，加州大学旧金山分校的神经科学家本杰明·利贝特（Benjamin Libet）完成了一个后来改变了哲学讨论走向的实验。",
+    "d": "philosophy"
+  },
+  "/philosophy/frontier/llm-language-understanding": {
+    "t": "大语言模型真的\"理解\"语言吗？",
+    "e": "2022 年 11 月，ChatGPT 上线。三天之内，它获得了一百万用户。三个月后，一亿。",
+    "d": "philosophy"
+  },
+  "/philosophy/frontier/longtermism-existential-risk": {
+    "t": "长期主义与存在风险：为尚未出生的人类辩护",
+    "e": "2022 年 8 月，英国哲学家威廉·麦卡斯基尔（William MacAskill）出版了《我们欠未来什么》（_What We Owe The Future_）。这本书以公众读物的形式，系统…",
+    "d": "philosophy"
+  },
+  "/philosophy/frontier/neuroethics-and-mental-privacy": {
+    "t": "神经伦理与心理隐私：思想还是最后的私域吗",
+    "e": "人类的法律与道德传统里，有一条几乎从未被写下来的默认前提：你可以隐瞒你的想法。",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/absolutism": {
+    "t": "绝对主义",
+    "e": "如果有人告诉你\"没有绝对真理\"，你可以问一个简单的问题：\"这个命题本身是绝对的还是相对的？\"如果是绝对的，它就反驳了自己；如果是相对的，它就没有普遍约束力。这个简洁的反驳揭示了绝对主义的核心直…",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/absurdism": {
+    "t": "荒诞主义",
+    "e": "凌晨三点，你从梦中醒来，突然意识到：在宇宙138亿年的历史中，你的存在不过是一个无穷小的瞬间。你的一切努力、一切成就、一切痛苦——在宇宙的尺度上，都将被彻底遗忘。这个念头不是抑郁的症状，而是一…",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/confucianism-ism": {
+    "t": "儒家思想",
+    "e": "儒家思想是中国哲学最持久、最具影响力的传统，由孔子（公元前551—前479年）创立，历经两千余年的发展，至今仍深刻塑造着东亚社会的伦理观念、政治制度和文化心理。儒家不是一种宗教（它不谈来世、不…",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/constructivism": {
+    "t": "建构主义",
+    "e": "你看到的\"红色\"和蜜蜂看到的\"紫外线\"——哪个更\"真实\"？答案是：这个问题本身就没有意义。所有生物（包括人类）都通过自己的感知系统\"建构\"了一个关于世界的模型，而不是被动地\"反映\"一个独立存在…",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/determinism": {
+    "t": "决定论",
+    "e": "你现在正在阅读这段文字。这是你的「选择」吗？还是说，在138亿年前大爆炸的那一刻，每一个粒子的位置和速度就已经决定了你此刻的目光落在这行字上？决定论给出的回答令人眩晕：如果物理定律是完备的，如…",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/dualism": {
+    "t": "二元论",
+    "e": "你的思想和你的身体是同一种东西吗？你直觉上会觉得不是——思想没有重量、不占据空间、无法被手术刀切开；而身体是物质的、可测量的、遵循物理定律的。这种直觉是二元论的起点：心灵和物质是两种截然不同的…",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/effective-altruism": {
+    "t": "有效利他主义",
+    "e": "有效利他主义（EA）是一种哲学和实践运动，它将功利主义的计算精神应用于现实世界的慈善和道德行动。它的核心问题不是\"你想做好事吗？\"——大多数人都想——而是\"你做的好事真的有效吗？\"。EA 追问…",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/empiricism-ism": {
+    "t": "经验主义",
+    "e": "你如何知道火是热的？不是通过阅读关于分子运动的理论，而是因为你曾经被烫过。经验主义就是建立在这种直觉之上的认识论传统：知识的根基不在抽象的理性推理，而在切身的感官经验。",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/environmentalism": {
+    "t": "环境伦理学",
+    "e": "传统西方伦理学将道德关怀的范围限定在人类之内。环境伦理学的根本追问是：道德共同体的边界在哪里？动物、植物、生态系统、甚至物种和地质景观，是否拥有独立于人类利益的\"内在价值\"？如果有，人类对它们…",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/essentialism": {
+    "t": "本质主义",
+    "e": "水的本质是什么？你可能会说H₂O——但这个答案直到19世纪化学发展后才成为可能。在那之前，人们用\"四元素\"或\"阴阳五行\"来理解水的本质。这说明什么？事物的本质是独立于我们而存在的客观事实，还是…",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/existentialism-ism": {
+    "t": "存在主义",
+    "e": "存在主义是 20 世纪最具影响力的哲学运动之一。它从一个根本性的颠倒出发：不是先有了\"人性\"这个本质，然后才有具体的人；而是先有了人的存在，然后人才通过自己的选择来定义自己。没有上帝、没有命运…",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/feminism": {
+    "t": "女性主义哲学",
+    "e": "女性主义不仅是一场政治运动，更是一种哲学方法论。它追问：谁的知识被承认为\"知识\"？谁的经验被当作\"普遍的人类经验\"？为什么哲学史中几乎全是男性的声音？女性主义哲学家指出，传统哲学的\"普遍主体\"…",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/humanism": {
+    "t": "人文主义",
+    "e": "在中世纪的欧洲，人的价值被上帝的权威所笼罩——人的尊严来自神的恩赐，而非人自身。文艺复兴打破了这一格局：人不需要上帝来赋予自己意义，人本身就是意义的源泉。这种以人类为中心的信念——人的理性、尊…",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/irrationalism": {
+    "t": "非理性主义",
+    "e": "你决定爱一个人，是因为理性论证吗？你被一首音乐打动，是因为逻辑推理吗？你直觉地感到某个决定是对的，能说清楚理由吗？非理性主义者认为，这些体验不是理性的\"失败\"，而是揭示了实在的更深层结构——理…",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/libertarianism-free-will": {
+    "t": "自由意志论",
+    "e": "你现在正在阅读这段文字。你能选择停下来——但你\"选择\"继续阅读的那个决定，是由什么决定的？如果你说\"是我决定的\"，那么\"我\"又是什么？自由意志论者认为，这个\"我\"拥有一种真实的、不可还原的因果…",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/marxism": {
+    "t": "马克思主义",
+    "e": "马克思主义是 19 世纪以来最具影响力的社会批判理论之一。它不仅是一种哲学，更是一种分析社会、历史和政治经济的方法论。马克思的核心洞见是：不是意识决定存在，而是社会存在决定意识。要理解一个社会…",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/materialism": {
+    "t": "唯物主义",
+    "e": "你正在思考这个问题——但\"思考\"是什么？如果唯物主义是对的，你的每一个念头都是大脑中数十亿神经元放电的产物。你的爱情、你的恐惧、你对美的感受——最终都可以用分子运动来解释。这不是贬低人类体验，…",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/monism": {
+    "t": "一元论",
+    "e": "在你凝视夜空时，你看到无数星辰、星系、星云——它们看似各自独立、互不相关。但如果一元论是对的，那么这一切不过是同一个根本实在的不同面貌。你的意识、你的身体、你脚下的大地、你头顶的银河——最终都…",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/nihilism": {
+    "t": "虚无主义",
+    "e": "深夜三点，你从梦中醒来，突然被一个问题击中：这一切有什么意义？你的工作、你的关系、你的努力——在宇宙138亿年的尺度上，它们的存在和消失有什么区别？这不是抑郁的症状，而是一个古老的哲学问题。虚…",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/phenomenology-ism": {
+    "t": "现象学运动",
+    "e": "现象学是 20 世纪欧洲大陆哲学最重要的运动之一。它不是一套封闭的教条，而是一种方法——一种对意识经验进行严格描述的方法。胡塞尔提出\"回到事物本身\"的口号，要求哲学家搁置关于世界的自然态度和科…",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/positivism": {
+    "t": "实证主义",
+    "e": "你如何判断一个命题是否有意义？\"绝对精神在历史中实现自身\"——你能设计什么实验来验证它？如果不能，那么它就像\"绿色的观念睡得很愤怒\"一样没有认知意义。实证主义就是从这种直觉出发的认识论立场：只…",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/pragmatism-ism": {
+    "t": "实用主义",
+    "e": "实用主义是美国对世界哲学最重要的原创贡献。它拒绝了欧陆哲学和英国经验主义中那种脱离实际生活的抽象思辨，主张把哲学拉回到人类生活的实际语境中。一个概念、一个理论的价值，不在于它是否对应了某个形而…",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/rationalism-ism": {
+    "t": "理性主义",
+    "e": "你不需要画一千个三角形来确信三角形内角和等于180度——纯粹的理性推理就能给出确定的答案。这种知识的确定性是经验永远无法提供的：经验只能告诉你「迄今为止是怎样」，而理性告诉你「必然是怎样」。理…",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/relativism": {
+    "t": "相对主义",
+    "e": "你认为酷刑在任何情况下都是错误的吗？世界上有些文化会给出不同的答案。你认为个人自由比集体责任更重要吗？不同的社会对此有截然不同的排序。面对这些分歧，你有两个选择：坚持认为其中一方是客观正确的，…",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/stoicism-ism": {
+    "t": "斯多葛主义",
+    "e": "斯多葛主义是古希腊罗马最具影响力的哲学流派之一，由芝诺（Zeno of Citium，约公元前334—前262年）在雅典的\"彩色柱廊\"（Stoa Poikile）创立，历经早期斯多葛、中期斯多…",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/structuralism-ism": {
+    "t": "结构主义",
+    "e": "结构主义是20世纪最具影响力的思想运动之一，它从语言学出发，渗透到人类学、精神分析、文学批评、历史学和政治理论。其核心信念是：表面现象（言语、神话、社会制度、文化产品）的背后存在着看不见的深层…",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/transcendentalism": {
+    "t": "超验主义",
+    "e": "超验主义是 19 世纪上半叶美国新英格兰地区的哲学和文学运动。它融合了康德的先验哲学、德国浪漫主义、印度教和佛教的东方智慧，以及美国式的个人主义精神。超验主义者相信，人的直觉能够直接把握超越感…",
+    "d": "philosophy"
+  },
+  "/philosophy/isms/transhumanism": {
+    "t": "超人类主义",
+    "e": "超人类主义是一种哲学和社会运动，主张运用基因工程、纳米技术、人工智能和脑机接口等技术来增强人类的能力，甚至实现\"后人类\"（posthuman）的存在形态。它从根本上质疑\"自然的\"就是\"好的\"这…",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/am-i-still-me-personal-identity": {
+    "t": "我还是不是我？",
+    "e": "七岁那年的你和现在的你，几乎没有一个原子是同一个。记忆改了、性格变了、身体换了一轮。在什么意义上，你们是同一个人？",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/can-machines-think": {
+    "t": "机器能思考吗？",
+    "e": "1950年，英国数学家阿兰·图灵（Alan Turing）在《计算机器与智能》（Computing Machinery and Intelligence）一文中开篇写道：「我提议考虑这个问题：…",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/do-mathematical-objects-exist": {
+    "t": "数学对象存在吗？",
+    "e": "\"存在无穷多个素数\"是真的。那么\"素数\"是什么？ 它不在任何地方、不在任何时刻、不与任何东西发生因果作用。可我们又确实发现了关于它的事实——而且这些事实似乎不由我们决定：无论谁来算，2⁵⁷⁸⁸…",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/do-we-have-free-will": {
+    "t": "我们有自由意志吗？",
+    "e": "你现在正在阅读这段文字。你可以在下一秒停下来，也可以继续读下去。这个选择似乎完全取决于你。",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/does-god-exist": {
+    "t": "上帝存在吗？",
+    "e": "这是人类思想史上最持久、最激烈、也最切身的争论。它不像「什么是真实」那样抽象——如果你相信上帝存在，这将决定你如何生活、如何死去、如何面对苦难。哲学家们构造了精巧的论证来支持或反驳上帝的存在，…",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/how-does-science-progress": {
+    "t": "科学如何进步？",
+    "e": "牛顿力学在相对论出现后没有停止工作：桥梁、卫星轨道的许多近似计算仍然使用它，但我们更清楚它在哪些速度、尺度和精度下失效。拉瓦锡的燃烧理论重组了化学语言与测量实践；进化论也不是一句话取代另一句话…",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/how-should-we-live": {
+    "t": "我们应当如何生活？",
+    "e": "这个问题不关心世界是什么样的，而关心我们应当怎么做。",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/how-to-live-meaningfully": {
+    "t": "如何过有意义的生活？",
+    "e": "\"生活的意义是什么？\"——这个问题可能是哲学史上最古老、最普遍、也最难以回答的问题。它不像数学问题那样有唯一解，但哲学传统提供了多种深刻的回应——每一种都照亮了这个问题的某个侧面。",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/is-death-bad-for-the-one-who-dies": {
+    "t": "死亡对死者是坏事吗？",
+    "e": "几乎每个人都怕死。而伊壁鸠鲁两千多年前提出的论证说：这种恐惧建立在一个逻辑错误上。",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/moral-realism-debate": {
+    "t": "道德是客观的吗？",
+    "e": "几乎所有人都说过「这不公平」或「那样做就是不对」。说这些话的时候，我们感觉自己不只是在表达个人口味——「酷刑是错的」听起来更像「2+2=4」，而不是「我不喜欢香菜」。但这种感觉本身，正是问题所…",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/other-minds-problem": {
+    "t": "我们怎么知道他人有心智？",
+    "e": "此刻你可以做一个思想实验：你确信自己有疼痛、有思绪、有画面感——这些是你直接拥有的。但你从未拥有过任何人的任何感受。你看到的只有：脸、声音、动作、瞳孔收缩。那个尖叫的孩子是真的疼，还是一个极其…",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/should-ai-have-rights": {
+    "t": "AI 是否应该有权利？",
+    "e": "当一台AI系统声称\"我有感觉\"时，我们应该认真对待这个声明吗？如果一个AI能够表达痛苦、恐惧和渴望，我们是否有义务不伤害它？这些问题听起来像科幻小说，但随着大型语言模型展现出越来越复杂的\"情感…",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/should-we-have-children": {
+    "t": "我们应当生育吗？",
+    "e": "大多数人把生育当作私人选择，不需要伦理辩护。但只要追问几步，这个话题会迅速通向伦理学中最坚硬的几个悖论——而它们的共同特点是：每一个都指向一个我们无法接受、却又推不倒的结论。",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/what-can-we-know": {
+    "t": "我们能知道什么？",
+    "e": "如果「什么是真实的」追问的是世界的本质，那么「我们能知道什么」追问的是我们认识世界的能力本身。",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/what-do-we-owe-animals": {
+    "t": "我们对动物负有什么义务？",
+    "e": "几乎所有人都同意\"不该虐待动物\"。但一旦追问理由，答案立刻分岔：是因为动物本身重要，还是因为虐待动物的人品性败坏？ 这两个理由通向完全不同的结论——前者要求我们重新审视整个食物系统，后者只要求…",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/what-is-beauty": {
+    "t": "什么是美？",
+    "e": "一朵玫瑰是美的，一首交响曲是美的，一个数学证明也可以是美的。但「美」究竟是什么？它是事物的客观属性，还是观赏者的主观感受？为什么不同文化、不同时代对美的判断如此不同，又有如此多的重叠？",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/what-is-consciousness": {
+    "t": "意识是什么？",
+    "e": "此刻，你正在阅读这些文字。你不仅在处理信息，还有一种「作为你的感觉」——屏幕的光亮、文字的形状、内心的默读声。",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/what-is-justice": {
+    "t": "什么是正义？",
+    "e": "「正义」是政治哲学的基石概念。它不追问「什么是真实的」或「什么是善的」，而是追问：在一个由无数不同的人组成的社会中，权力、资源和机会应当如何分配？",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/what-is-knowledge": {
+    "t": "什么是知识？",
+    "e": "你说你知道地球是圆的，你知道今天是星期三，你最好的朋友是值得信任的。但「知道」究竟是什么？它和「相信」有什么区别？一个正确的猜测算不算知识？",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/what-is-meaning": {
+    "t": "意义是什么？",
+    "e": "「这一切有什么意义？」——这也许是人类能提出的最令人不安的问题。",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/what-is-real": {
+    "t": "什么是真实的？",
+    "e": "这是哲学最古老、最根本的问题。当你凝视一杯水，你看到的「水」是真实的吗？",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/what-is-time": {
+    "t": "什么是时间？",
+    "e": "「什么是时间？如果没有人问我，我知道；如果有人问我，我试图解释，我就不知道了。」——奥古斯丁的这句话或许是关于时间最诚实的哲学陈述。",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/what-is-truth": {
+    "t": "什么是真理？",
+    "e": "「今天下雨了。」这句话是真的吗？你拉开窗帘，看到雨水从天空落下——它是真的。但「真的」意味着什么？是因为它与事实相符？是因为它与你其他信念一致？还是因为它在实践中管用？",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/why-is-there-something": {
+    "t": "为什么会有万物存在，而不是一无所有？",
+    "e": "深夜，这个问题会突然击中某些人：星星、原子、我自己——这一切本可以不存在。而它们存在。为什么？多数人随后耸耸肩继续生活。哲学家却把这份惊异当成了形而上学的入口，并且争论了三百年：这个问题究竟是…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/african-philosophy": {
+    "t": "非洲哲学",
+    "e": "非洲哲学长期被西方学术界忽视或贬低。殖民时代的欧洲学者普遍认为非洲「没有哲学」——黑格尔在《历史哲学》中宣称非洲「不属于世界历史的一部分」，列维-布留尔将非洲思维归类为「前逻辑思维」。",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/analytic-philosophy": {
+    "t": "分析哲学",
+    "e": "分析哲学是20世纪英语世界最具统治力的哲学传统。它不是某个人的发明，而是一场由弗雷格、罗素、维特根斯坦等人发起的哲学革命——核心信念是：哲学问题本质上是语言问题。许多困扰哲学家千年的\"深刻问题…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/aristotelianism": {
+    "t": "亚里士多德主义",
+    "e": "亚里士多德主义是西方哲学中与柏拉图主义并驾齐驱的另一大传统。如果说柏拉图主义的核心冲动是「向上看」——追求超越感官的永恒理型，那么亚里士多德主义的核心冲动就是「向下看」——从具体事物出发，通过…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/buddhism-philosophy": {
+    "t": "佛教哲学",
+    "e": "佛教常被误解为单纯的宗教信仰，但它实际上包含了一套极其精密的哲学体系。从认识论（我们如何认知实在）到形上学（实在的本质是什么），从伦理学（我们应当如何行动）到逻辑学（有效推理的标准是什么），佛…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/chinese-buddhism": {
+    "t": "中国佛教哲学",
+    "e": "佛教传入中国（约公元1世纪东汉明帝时期）是中国思想史上最重大的事件之一。一个来自印度的宗教-哲学体系，如何在儒道主导的中国生根发芽，最终发展出独特的中国佛教？这个过程不是简单的「移植」，而是深…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/confucianism-extended": {
+    "t": "儒学扩展：从先秦到现代新儒家",
+    "e": "儒学不是静止的学说，而是一条绵延两千五百年的思想长河。牟宗三提出\"儒学三期论\"，将儒学发展划分为三个阶段：先秦儒学（第一期，奠基期）、宋明理学（第二期，回应佛道挑战）、现代新儒家（第三期，回应…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/confucianism": {
+    "t": "儒家哲学体系",
+    "e": "儒家不是一家之言，而是一条绵延两千五百年的思想长河。从孔子在鲁国讲学开始，经孟子、荀子的先秦儒学，董仲舒的汉代经学，朱熹、王阳明的宋明理学，到熊十力、牟宗三的现代新儒家，儒学经历了至少六次重大…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/continental-philosophy": {
+    "t": "大陆哲学",
+    "e": "大陆哲学是与分析哲学并行发展的另一条20世纪哲学主线。如果说分析哲学追问\"我们能说什么\"，大陆哲学追问的是\"我们如何存在\"。它不把哲学问题还原为语言问题，而是关注经验的结构、存在的意义、理解的…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/critical-theory": {
+    "t": "批判理论（法兰克福学派）",
+    "e": "批判理论诞生于一个历史的深渊：法西斯主义的兴起、资本主义消费社会的扩张、启蒙理性的自我毁灭。法兰克福学派的核心问题是：为什么启蒙没有实现它许诺的解放，反而制造了新的统治形式？ 从霍克海默和阿多…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/cynicism": {
+    "t": "犬儒主义",
+    "e": "犬儒主义（Cynicism，希腊语 Κυνισμός）是古代希腊最激进的哲学运动之一。它的核心主张是：社会规范、法律、习俗、财富、名声都是人为的约定（nomos），背离了人的自然本性（phys…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/empiricism": {
+    "t": "经验主义",
+    "e": "经验主义（Empiricism）是 17 至 18 世纪英国哲学的核心传统，其基本主张是：一切知识最终来源于感觉经验。 人类心灵在出生时不是带着天赋观念的，而是一块\"白板\"（tabula ra…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/epicureanism": {
+    "t": "伊壁鸠鲁主义",
+    "e": "伊壁鸠鲁主义是希腊化时期三大哲学流派之一，由伊壁鸠鲁（Epicurus，前341-前270年）创立。这一流派长期被误解为放纵享乐的代名词——「伊壁鸠鲁主义者」（epicurean）在英语中至今…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/epistemology": {
+    "t": "认识论",
+    "e": "认识论（Epistemology）是哲学最基础的分支之一，追问三个核心问题：什么是知识？我们能知道什么？我们如何确证我们的信念？ 从柏拉图到当代分析哲学，这些问题从未获得完全令人满意的答案——…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/existentialism-early": {
+    "t": "早期存在主义",
+    "e": "19 世纪中叶，黑格尔的绝对唯心主义体系已经统治了欧洲思想界。黑格尔宣称：哲学的使命是通过概念把握绝对精神，历史是理性的展开，国家是自由的现实化。但就在这一体系的阴影下，三位截然不同的思想家—…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/existentialism": {
+    "t": "存在主义（20世纪）",
+    "e": "存在主义在20世纪中叶成为一种文化现象——不仅是一种哲学学说，更是一种生活态度。二战的废墟、法西斯的暴行、传统价值的崩溃，使整整一代人面对一个尖锐的问题：在一个没有上帝、没有先验意义的世界中，…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/feminist-philosophy": {
+    "t": "女性主义哲学",
+    "e": "女性主义哲学不仅是\"哲学的一个分支\"，它是对整个哲学传统的根本性质疑。从亚里士多德到康德，西方哲学传统将\"理性\"定义为普遍的人类能力——但这个\"普遍的人\"实际上是男性的、欧洲的、有产的。女性主…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/german-idealism": {
+    "t": "德国古典哲学",
+    "e": "德国古典哲学（Deutsche Klassische Philosophie）是 18 世纪末至 19 世纪上半叶德国最重要的哲学运动，通常包括康德（Immanuel Kant, 1724-1…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/hindu-philosophy": {
+    "t": "印度哲学六派",
+    "e": "印度正统哲学（承认吠陀权威的）分为六大派别（Shad-darshana），它们不是相互排斥的，而是从不同角度探索实在的本质。这六派可以分为三组：",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/idealism": {
+    "t": "唯心主义",
+    "e": "唯心主义（Idealism）是西方哲学中最重要的形而上学传统之一，其核心主张是：实在是根本上精神的（mental）或观念的（ideal），物质世界要么依赖于心灵而存在，要么本身就是一种精神性的…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/islamic-philosophy": {
+    "t": "伊斯兰哲学",
+    "e": "标准的西方哲学史叙事给伊斯兰哲学分配了一个角色：保存者与传递者。阿拉伯人翻译了希腊典籍，写了一些注疏，然后在十二世纪把亚里士多德还给了欧洲，故事就此结束。",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/legalism": {
+    "t": "法家",
+    "e": "法家是中国哲学中最务实、最冷酷、也最具争议的学派。与儒家的理想主义（「内圣外王」）、道家的超越主义（「无为而治」）不同，法家直面权力的现实：人性本恶，道德教化不可靠，只有明确的法律、有效的权术…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/logical-positivism": {
+    "t": "逻辑实证主义",
+    "e": "逻辑实证主义（Logical Positivism），又称逻辑经验主义（Logical Empiricism），是20世纪20-30年代在维也纳兴起的一场哲学运动。它的核心目标是将哲学建立在严…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/marxism-philosophy": {
+    "t": "马克思主义哲学",
+    "e": "卡尔·马克思（Karl Marx, 1818-1883）不仅仅是一位经济学家或政治理论家——他首先是一位哲学家。但他的哲学不是书斋里的沉思，而是\"改变世界\"的武器。马克思从黑格尔的辩证法和费尔…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/mohism": {
+    "t": "墨家",
+    "e": "墨家在先秦时期与儒家并称「显学」——「世之显学，儒、墨也」（《韩非子·显学》）。墨子（约公元前468—前376年）出身工匠，曾学儒术而后另立门户，创立了墨家学派。墨家组织严密，纪律严明，成员称…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/neo-confucianism": {
+    "t": "宋明理学",
+    "e": "宋明理学是儒学史上最深刻、最系统的哲学运动。从北宋五子（周敦颐、邵雍、张载、程颢、程颐）到南宋朱熹，再到明代王阳明，理学家们用三百多年的时间，将儒学从一套伦理教条提升为一个完整的形上学体系。这…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/neoplatonism": {
+    "t": "新柏拉图主义",
+    "e": "新柏拉图主义是古代哲学最后一次伟大的综合性创造，以普罗提诺（Plotinus，约204-270年）为核心。它将柏拉图的理型论发展为一个完整的形而上学体系——流溢说（Emanation），描述了…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/phenomenology": {
+    "t": "现象学",
+    "e": "现象学（Phenomenology）是 20 世纪最具影响力的哲学运动之一，其核心口号是\"回到事情本身\"（Zu den Sachen selbst）。现象学不是一套固定的学说，而是一种方法——…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/philosophy-of-mathematics": {
+    "t": "数学哲学",
+    "e": "数学哲学追问一个看似简单却极难回答的问题：数学对象（数、集合、函数）究竟存不存在？如果存在，它们以什么方式存在？ 数学家在日常工作中把数字和集合当作真实对象来操作，但这些对象既不在时空中，也不…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/philosophy-of-mind": {
+    "t": "心灵哲学",
+    "e": "1974 年，哲学家内格尔（Thomas Nagel）问了一个看似古怪的问题：当一只蝙蝠的滋味，是什么样的？蝙蝠靠回声定位，用耳朵「看」世界。我们可以把它的脑神经、声呐回路研究得一清二楚，画出…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/platonism": {
+    "t": "柏拉图主义",
+    "e": "柏拉图主义是西方哲学史上影响最为深远的思想传统之一，其核心主张是：感官经验所呈现的世界并非终极实在，真正的真实存在于永恒不变的「理型」（Forms / Ideas）之中。这一立场从柏拉图在雅典…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/political-philosophy": {
+    "t": "政治哲学",
+    "e": "1971年，约翰·罗尔斯出版《正义论》，宣告了规范政治哲学的复兴。在此之前，英美哲学界流行的是\"元伦理学\"——讨论道德判断的逻辑性质，而不是讨论什么是正义的、什么是好的。罗尔斯证明了：对正义的…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/post-structuralism": {
+    "t": "后结构主义",
+    "e": "后结构主义（post-structuralism）不是对结构主义的简单否定，而是对其内在局限的激进化追问。结构主义发现意义产生于差异关系，后结构主义追问：如果意义依赖于差异，那么意义就永远不可…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/postmodernism": {
+    "t": "后现代主义",
+    "e": "后现代主义是20世纪后半叶最具争议性的思想运动。它的核心主张可以概括为一句话：不再有宏大叙事了。启蒙运动以来支撑西方文明的那些宏大叙事——理性进步、历史目的论、科学万能、人类解放——都已经失去…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/pragmatism": {
+    "t": "实用主义",
+    "e": "实用主义（Pragmatism）是唯一诞生于美国的主流哲学传统。它的核心主张是：一个观念的意义在于它的实践后果；真理不是静态的符合关系，而是在经验中被证实的信念。 实用主义拒绝将哲学变成脱离生…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/presocratics": {
+    "t": "前苏格拉底哲学",
+    "e": "前苏格拉底哲学（约前6世纪—前5世纪中叶）是西方哲学的黎明时期。在苏格拉底将哲学的焦点从自然转向人之前，这些思想家已经开始追问一个根本问题：万物的本原（archē）是什么？宇宙的秩序从何而来？",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/rationalism": {
+    "t": "理性主义",
+    "e": "理性主义（Rationalism）是 17 至 18 世纪欧洲哲学的核心运动之一，其基本主张是：理性，而非感觉经验，才是知识的最终来源和检验标准。 理性主义者相信，人类心灵中存在着不依赖于经验…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/skepticism": {
+    "t": "怀疑论",
+    "e": "怀疑论（Skepticism，希腊语 σκέψις，意为「考察」或「探究」）是西方哲学中最古老、最持久的批判传统之一。怀疑论者的基本主张是：我们没有充分的理由相信任何关于实在的确定性知识，因此…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/sophists": {
+    "t": "智者学派",
+    "e": "智者学派（Sophists）是公元前5世纪活跃于希腊世界的一批职业教师和知识分子。他们不是严格意义上的「哲学流派」——没有共同的学说体系，也没有固定的组织结构。他们的共同特征是：收费传授「卓越…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/stoicism": {
+    "t": "斯多葛主义",
+    "e": "斯多葛主义是古代世界影响最广、持续最久的哲学流派之一。从公元前300年左右芝诺在雅典的「彩色柱廊」（Stoa Poikile）开讲，到公元2世纪马可·奥勒留在罗马帝国的宫殿中写下《沉思录》，斯…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/structuralism-poststructuralism": {
+    "t": "结构主义与后结构主义",
+    "e": "结构主义和后结构主义是20世纪法国思想最具原创性的贡献之一。结构主义的核心洞见是：意义不是事物的内在属性，而是由系统内部的差异关系产生的。后结构主义则追问：如果意义依赖于差异，那么意义就永远不…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/structuralism": {
+    "t": "结构主义",
+    "e": "结构主义是20世纪最重要的思想运动之一，其核心主张是：意义不是事物的内在属性，而是由系统内部的差异关系产生的。 这一洞见从语言学出发，迅速扩展到人类学、文学批评、精神分析和哲学，彻底改变了人文…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/taoism": {
+    "t": "道家哲学体系",
+    "e": "道家是中国哲学中唯一能与儒家分庭抗礼的传统。如果说儒家关注的是「人与人的关系」（仁、礼、义），那么道家关注的是「人与自然的关系」（道、德、无为）。儒家教人如何在社会中安身立命，道家教人如何超越…",
+    "d": "philosophy"
+  },
+  "/philosophy/schools/utilitarianism": {
+    "t": "功利主义",
+    "e": "功利主义（Utilitarianism）是一种后果主义伦理学理论，其核心主张是：一个行为的道德价值完全取决于它的后果——具体而言，取决于它所产生的幸福或快乐的总量。 正确的行为是那个能产生\"最…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/al-farabi": {
+    "t": "法拉比",
+    "e": "很多人听过阿维森纳、阿威罗伊，却没听过法拉比——可在中世纪伊斯兰世界，他被尊为\"第二导师\"（al-muʿallim al-thānī），紧随被称为\"第一导师\"的亚里士多德之后。这个称号不是恭维…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/al-ghazali": {
+    "t": "安萨里",
+    "e": "安萨里常被西方哲学史简化为「伊斯兰哲学的终结者」——一个反理性主义的神学家，用宗教狂热扑灭了伊斯兰世界理性探索的火焰。",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/amartya-sen": {
+    "t": "阿马蒂亚·森",
+    "e": "森常被贴上\"诺贝尔经济学奖得主\"的标签，于是被默认为一个研究市场与增长的经济学家。这低估了他真正的身份：他是一位用经济学工具做哲学、又用哲学反过来重塑经济学的思想家。他的根本问题不是\"如何让经…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/ambedkar": {
+    "t": "安贝德卡尔",
+    "e": "在西方哲学课程里，几乎找不到安贝德卡尔的名字；在印度，他却被亿万人尊为\"巴巴萨赫布\"（Babasaheb，意为\"敬爱的父亲\"）。把他仅仅当作一位政治家或宪法起草人，是最大的误解——他首先是一位…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/anscombe": {
+    "t": "伊丽莎白·安斯康姆",
+    "e": "对她的低估通常有两种。第一种把她当作\"维特根斯坦的译者\"——一个把大师思想搬进英语世界的忠实管道。她确实翻译了《哲学研究》，是维特根斯坦三位遗嘱执行人之一，但她自己的《意向》（Intentio…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/aquinas": {
+    "t": "托马斯·阿奎那",
+    "e": "阿奎那常被误解为「用哲学为神学服务的工具人」，仿佛他的全部工作就是用亚里士多德来证明上帝存在。",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/aristotle": {
+    "t": "亚里士多德",
+    "e": "一个常见的误解是亚里士多德只是 柏拉图 的「反对者」。实际上，他在柏拉图学园学习了20年，深受其师影响，只是在关键问题上走向了不同的方向。柏拉图向「上」看理型，亚里士多德向「下」看经验世界——…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/augustine": {
+    "t": "奥古斯丁",
+    "e": "奥古斯丁常被简化为「原罪论的发明者」，仿佛他只是一个悲观的神学家，把人类捆绑在罪恶的锁链上。这种理解忽略了奥古斯丁思想的丰富性和深刻性。他对「原罪」的讨论实际上是对人类自由意志和道德失败的深刻…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/austin": {
+    "t": "J.L. 奥斯汀",
+    "e": "奥斯汀常被当作塞尔言语行为理论的\"前身\"而被一笔带过，仿佛他只是一个等待塞尔来完成的半成品。这严重误判了奥斯汀的原创性：他第一个系统地指出，说话本身就是一种行动，从而打破了\"语言的本职是描述事…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/averroes": {
+    "t": "阿威罗伊",
+    "e": "阿威罗伊常被简化为「亚里士多德的注释家」，仿佛他只是一个忠实的二手传播者。",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/avicenna": {
+    "t": "阿维森纳",
+    "e": "阿维森纳常被简单地归类为「阿拉伯的亚里士多德」，仿佛他只是希腊哲学的二道贩子。",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/ayer": {
+    "t": "A.J. 艾耶尔",
+    "e": "艾耶尔常被记作\"那个宣称形而上学无意义的激进青年\"，仿佛逻辑实证主义只是一种虚无的破坏。但艾耶尔的目标是建设性的：他试图为\"哪些陈述是真正有认知意义的\"划出清晰界线，从而把哲学从空洞的玄思中解…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/baudrillard": {
+    "t": "鲍德里亚",
+    "e": "鲍德里亚常被简化为\"拟像和模拟\"的理论家，仿佛他只是在说\"现实已经消失了\"。事实上，鲍德里亚的\"拟像\"（simulacra）理论是一个关于符号与实在关系的历史分析——他追踪的是符号如何从\"反映…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/bentham": {
+    "t": "杰里米·边沁",
+    "e": "边沁常被讽刺为\"快乐的会计师\"，仿佛他主张把人生简化为冰冷的算术。这忽略了他的根本动机：边沁是激进的社会改革者，他发明苦乐计算正是为了给法律、监狱、济贫、刑罚改革提供一个公开、可检验、反对特权…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/berkeley": {
+    "t": "乔治·贝克莱",
+    "e": "贝克莱常被讥为\"否认物质存在的疯子\"——据传约翰逊博士踢了一块石头说\"我就这样反驳他\"。但这恰恰误解了贝克莱。他从不否认我们日常所说的\"桌子\"\"石头\"的存在；他否认的是在一切心灵之外、独立存在…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/bernard-williams": {
+    "t": "伯纳德·威廉斯",
+    "e": "威廉斯常被当成一个只负责拆台的聪明人——一个\"反体系者\"。这误读了他的工作方向。他对功利主义和康德伦理学的批评，不是为了证明道德哲学不可能，而是为了把伦理学从\"道德体系\"的窄路上拉回来，回到一…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/buddha": {
+    "t": "释迦牟尼",
+    "e": "佛陀不是神，不是上帝，不是造物主——他是一个觉悟的人。「佛」（Buddha）的本意是「觉者」，即彻底觉悟了宇宙人生真相的人。佛教本质上是一种无神论的哲学和修行体系，虽然在流传过程中融入了大量民…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/camus": {
+    "t": "阿尔贝·加缪",
+    "e": "加缪几乎总被归入\"存在主义\"，与萨特并列。但加缪本人明确拒绝这一标签。他与萨特虽是朋友，却在哲学与政治上分道扬镳：1951年《反抗者》出版后，二人因对革命暴力的态度公开决裂。加缪也不是虚无主义…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/chalmers": {
+    "t": "戴维·查默斯",
+    "e": "查默斯常被贴上\"二元论者\"的标签，仿佛他要倒退回笛卡尔的实体二元论。这是误解。查默斯主张的是性质二元论（property dualism）——他不认为存在一种非物质的\"灵魂实体\"，而是认为意识…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/confucius": {
+    "t": "孔子",
+    "e": "孔子不是神，不是圣人神话中的符号，而是一个有血有肉、有失败有挫折的历史人物。他一生颠沛流离，周游列国14年却始终未获重用；他也会发脾气（「朽木不可雕也」）、会自嘲（「丧家之犬」）、会悲伤（颜回…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/david-lewis": {
+    "t": "大卫·刘易斯",
+    "e": "听到\"刘易斯认为所有可能世界都真实存在\"，大多数人的第一反应是：这位哲学家疯了，或者在开玩笑。有一个平行宇宙里你今天选择了另一份工作，还有无穷多个宇宙里恐龙没灭绝、拿破仑赢了滑铁卢——而它们和…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/deleuze": {
+    "t": "德勒兹",
+    "e": "德勒兹常被贴上\"晦涩难懂\"的标签，仿佛他的哲学只是一堆令人困惑的隐喻。事实上，德勒兹的每一部著作都围绕着一个清晰的核心问题：如何思考差异本身——不是作为\"同一性的对立面\"的差异，而是作为肯定性…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/democritus": {
+    "t": "德谟克利特",
+    "e": "德谟克利特常被当作\"古代原子论的猜想者\"，仿佛只是碰巧蒙对了现代物理的某个图景。但他的原子论不是孤立的猜测，而是对巴门尼德难题的严密哲学回应——一个为\"如何在逻辑上拯救变化与多样\"而精心构造的…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/dennett": {
+    "t": "丹尼尔·丹内特",
+    "e": "丹内特常被指责\"否认意识存在\"。这是误读。丹内特并不否认我们有体验，他否认的是意识具有那种被哲学家神化的、私密而不可还原的\"感受质\"（qualia）。在他看来，意识是大脑中分布式信息处理的结果…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/derrida": {
+    "t": "德里达",
+    "e": "德里达是二十世纪被误解最深的哲学家。最常见的误读是将解构等同于\"破坏\"或\"否定\"——仿佛德里达要摧毁一切意义、真理和价值。这种理解完全错了。德里达从未说过\"没有意义\"或\"一切都是相对的\"。解构…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/descartes": {
+    "t": "笛卡尔",
+    "e": "许多人将\"我思故我在\"理解为一种逻辑推论——因为我思考，所以我存在。但笛卡尔的原意并非如此。这是一个直观的、不可怀疑的发现：在彻底怀疑一切的过程中，怀疑本身这一行为揭示了思维主体的确定性。它不…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/dewey": {
+    "t": "约翰·杜威",
+    "e": "杜威（1859-1952）最常见的误解有两个，恰好相互矛盾：一方面，他常被当作\"教育改革家\"而非真正的哲学家；另一方面，在教育界，他的影响又常被简化为\"孩子想学什么就学什么\"的放任主义。",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/donald-davidson": {
+    "t": "唐纳德·戴维森",
+    "e": "戴维森常被贴上\"语言哲学家\"的标签，仿佛他只关心句子怎样有意义。这低估了他。戴维森真正的雄心，是用一个统一的框架同时解释意义、心灵与行动三件事——他相信，理解一个人说的话、理解他相信什么、理解…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/dong-zhongshu": {
+    "t": "董仲舒",
+    "e": "董仲舒常被简化为\"罢黜百家，独尊儒术\"的提议者，仿佛他只是一个利用政治权力打压异见的御用文人。事实上，董仲舒的\"天人感应\"学说是一套复杂的宇宙论体系，试图为人世间的道德和政治秩序提供形而上学的…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/duns-scotus": {
+    "t": "邓斯·司各脱",
+    "e": "\"Dunce\"（笨蛋）这个英文词，正是从\"Duns\"来的——文艺复兴和宗教改革时期的人文主义者把司各脱学派的繁琐论证当成迂腐的代名词，于是用他的名字嘲笑蠢人。这是哲学史上最大的反讽之一。",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/edward-said": {
+    "t": "爱德华·萨义德",
+    "e": "萨义德最常被误解为一个简单的「反西方」思想家——仿佛他的全部论点就是「西方是邪恶的，东方是无辜的」。这种读法既歪曲了他的学术立场，也低估了他的思想复杂性。萨义德从未主张用东方霸权来取代西方霸权…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/epictetus": {
+    "t": "爱比克泰德",
+    "e": "爱比克泰德常被简化为「奴隶出身的励志哲学家」，仿佛他的思想只是一种底层逆袭的心灵鸡汤。这种理解完全低估了他的哲学深度。",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/epicurus": {
+    "t": "伊壁鸠鲁",
+    "e": "伊壁鸠鲁是哲学史上被误解最深的思想家之一。「伊壁鸠鲁主义」（Epicureanism）在日常语言中等同于「享乐主义」——追求精致的美食、奢华的感官享受。这与伊壁鸠鲁的真实思想恰恰相反。伊壁鸠鲁…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/fanon": {
+    "t": "弗朗茨·法农",
+    "e": "法农最常被简化为\"暴力的鼓吹者\"——仿佛《全世界受苦的人》开篇那句\"去殖民化永远是一桩暴力事件\"是在浪漫地歌颂流血。这是断章取义。法农是一名精神科医生，他每天面对的是被酷刑摧毁的人和施加酷刑后…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/foucault": {
+    "t": "福柯",
+    "e": "福柯常被误读为一个\"权力无处不在\"的悲观决定论者，仿佛他的哲学意味着个人毫无抵抗的可能。恰恰相反，福柯明确指出：\"哪里有权力，哪里就有抵抗。\"权力不是压迫性的铁笼，而是生产性的网络——它生产知…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/frege": {
+    "t": "弗雷格",
+    "e": "弗雷格常被简化为\"一个逻辑学家\"，但他的哲学贡献远超逻辑学本身。他是分析哲学的真正奠基人——比 罗素 和 维特根斯坦 更早确立了用逻辑分析语言的方法。另一个常见误解是将弗雷格视为纯粹的形式主义…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/gadamer": {
+    "t": "伽达默尔",
+    "e": "伽达默尔常被误解为\"相对主义者\"，仿佛他的\"视域融合\"意味着任何解释都是同等有效的。事实上，伽达默尔恰恰反对相对主义——他强调理解的\"真理性\"，但这种真理性不是通过方法论的保证来实现的，而是通…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/gayatri-spivak": {
+    "t": "佳亚特里·斯皮瓦克",
+    "e": "斯皮瓦克最常被误解为一个晦涩难懂的理论家——仿佛她的文章故意刁难读者，用不必要的复杂性来掩盖空洞的内容。这种看法忽视了一个关键事实：斯皮瓦克的「难」是有原因的。她在处理的问题——语言、权力、表…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/gettier": {
+    "t": "埃德蒙·盖梯尔",
+    "e": "盖梯尔（1927-2021）几乎是哲学史上最奇特的\"单篇作者\"——他凭一篇仅三页的论文永久改变了认识论，此后几乎再未发表学术文章。这常被当作轶事，却恰恰说明哲学进展未必依赖鸿篇巨制：一个精确的…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/gorgias": {
+    "t": "高尔吉亚",
+    "e": "高尔吉亚常被柏拉图（在同名对话《高尔吉亚篇》中）刻画为只关心说服、不关心真理的修辞术贩子。这一形象有失公允。高尔吉亚确实把修辞视为最高技艺，但其背后是一套严肃的怀疑论与语言哲学：如果关于实在我…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/habermas": {
+    "t": "哈贝马斯",
+    "e": "哈贝马斯最常被误解为「过时的启蒙卫道士」——仿佛他只是在重复18世纪的理性主义教条。",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/han-feizi": {
+    "t": "韩非子",
+    "e": "韩非子常被误解为\"严刑峻法\"的鼓吹者，仿佛他的哲学只是在教统治者如何残酷地压迫百姓。事实上，韩非子的\"法\"是指公开透明的法律制度，强调\"法不阿贵\"——法律面前人人平等，即使权贵也不能逃脱法律的…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/hannah-arendt": {
+    "t": "汉娜·阿伦特",
+    "e": "阿伦特最著名的概念\"平庸之恶\"（the banality of evil）被广泛误解为\"恶是平庸的\"或\"普通人都能作恶\"。但阿伦特的原意更为精确：艾希曼的恶不是来自深刻的邪恶意图，而是来自思想…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/hans-jonas": {
+    "t": "汉斯·约纳斯",
+    "e": "约纳斯最常被误解为一个保守的技术恐惧者——仿佛他的全部主张就是「回到前工业时代」。这是严重的歪曲。约纳斯从未否认技术的价值；他主张的是一种「负责任的技术」——在享受技术带来的好处的同时，对其可…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/hegel": {
+    "t": "黑格尔",
+    "e": "黑格尔常被简化为\"正-反-合\"三段论的发明者，仿佛他的辩证法只是机械的公式。实际上，黑格尔本人几乎从未使用过\"正-反-合\"这一表述（这是费希特的术语）。黑格尔的辩证法不是僵死的模式，而是描述概…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/heidegger": {
+    "t": "海德格尔",
+    "e": "海德格尔最常被误解的方面有两个。第一个是将他简单地归类为「纳粹哲学家」。海德格尔确实加入了纳粹党（1933年），并在担任弗莱堡大学校长期间发表了支持纳粹政权的演讲。这是不可否认的事实，也是他一…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/heraclitus": {
+    "t": "赫拉克利特",
+    "e": "赫拉克利特常被简化为\"一切皆流\"的相对主义者，仿佛他主张世界混乱无序、没有任何稳定真理。这是误读。在流变的表象之下，赫拉克利特坚信存在一个支配一切的逻各斯（Logos）——一条恒常的、理性的法…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/hobbes": {
+    "t": "托马斯·霍布斯",
+    "e": "霍布斯常被贴上\"专制主义辩护者\"的标签。这并不全错，但遮蔽了他的革命性：霍布斯是第一批从个人出发、用契约论证国家正当性的思想家。他论证主权权威的根据不是神授王权，而是个人为求自保而达成的理性协…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/hume": {
+    "t": "休谟",
+    "e": "休谟常被标签为「怀疑论者」，仿佛他对一切知识都持否定态度。",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/husserl": {
+    "t": "胡塞尔",
+    "e": "胡塞尔常被误解为「象牙塔中的技术哲学家」，他的现象学被描绘为一套与生活无关的抽象方法论。这种评价忽略了胡塞尔思想的深层动机——他的全部事业可以被理解为对「欧洲科学危机」的回应。在他看来，现代科…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/ibn-khaldun": {
+    "t": "伊本·赫勒敦",
+    "e": "伊本·赫勒敦常被简单地称为「历史学家」，仿佛他只是另一个编年史家。事实上，他的《历史绪论》（Muqaddimah）是人类思想史上第一部系统的社会理论著作——他创立了历史哲学和社会学的基本方法论…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/jackson": {
+    "t": "弗兰克·杰克逊",
+    "e": "杰克逊以\"玛丽的房间\"论证反对物理主义而闻名，但有一个常被忽略的转折：他后来改变了主意，转而认为该论证是错的、物理主义可以为真。这使他成为哲学诚实的典范——一个用最有力的论证攻击某立场、又坦然…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/kant": {
+    "t": "康德",
+    "e": "人们常将康德描述为一个古板的、每天下午三点半准时散步的柯尼斯堡怪人，仿佛他的哲学也是这种刻板生活的产物。事实恰恰相反：康德早年是社交名流，热爱赌博、美酒和牌局，直到四十多岁才真正安定下来从事哲…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/kierkegaard": {
+    "t": "克尔凯郭尔",
+    "e": "克尔凯郭尔常被标签为「宗教存在主义者」，仿佛他的哲学只是为基督教信仰辩护。这种理解忽略了他思想的激进性。克尔凯郭尔不是在为任何宗教体制辩护——他猛烈攻击丹麦国教会，认为体制化的基督教是对基督精…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/kripke": {
+    "t": "索尔·克里普克",
+    "e": "克里普克常被当作\"技术性逻辑学家\"，其工作被视为只对专家有意义。实际上，他的《命名与必然性》用极其清晰的日常例子，颠覆了从弗雷格、罗素以来主导半个世纪的摹状词理论，重塑了我们对\"名字如何指称\"…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/kwasi-wiredu": {
+    "t": "夸西·维雷杜",
+    "e": "提到\"非洲哲学\"，许多人第一反应是\"部落智慧\"\"谚语\"或\"传统信仰\"——仿佛非洲只有民间智慧，没有真正的哲学论证。维雷杜一生的工作，正是要打破这一成见。他受过严格的分析哲学训练，却把这套工具转…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/laozi": {
+    "t": "老子",
+    "e": "老子不是消极避世的隐士。「无为」不是「什么都不做」，而是「不妄为」——不违背自然规律的强行干预。老子观察到，最有效的治理往往是不扰民的治理，最持久的力量往往是柔韧的力量。这种思想与现代管理学中…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/leibniz": {
+    "t": "莱布尼茨",
+    "e": "莱布尼茨常被简化为「乐观主义的代言人」——那个声称「我们生活在所有可能世界中最好的一个」的天真思想家。",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/levinas": {
+    "t": "列维纳斯",
+    "e": "列维纳斯常被简化为\"伦理学家\"，仿佛他只是在呼吁人们做好事。事实上，列维纳斯的\"伦理学\"不是规范伦理学（告诉你应该做什么），而是一种\"第一哲学\"——他认为伦理关系先于一切存在论和认识论。与他人…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/locke": {
+    "t": "洛克",
+    "e": "洛克常被简化为\"白板说\"的提出者，仿佛他认为人心只是一张被动接受印象的白纸。这种理解忽略了洛克认识论的复杂性——他承认心灵具有主动的反思能力，能够对感觉材料进行加工和组合。白板说（tabula…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/lucretius": {
+    "t": "卢克莱修",
+    "e": "卢克莱修常被仅当作\"伊壁鸠鲁的诗化转述者\"，仿佛只是把前人学说押了韵。但《物性论》是哲学史上罕见的杰作：它把一套彻底的唯物主义自然观，铸成宏伟而充满激情的拉丁长诗，其文学之美与思想之力同样惊人…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/marcus-aurelius": {
+    "t": "马可·奥勒留",
+    "e": "《沉思录》不是写给世人看的哲学著作，而是一个人深夜在军帐中对自己的私密告诫。它是罗马皇帝马可·奥勒留在戎马倥偬中写下的日记，从未打算出版。另一个误解是将斯多葛派等同于「压抑情感」或「冷漠无情」…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/martha-nussbaum": {
+    "t": "玛莎·努斯鲍姆",
+    "e": "努斯鲍姆常被简化为\"阿马蒂亚·森能力进路的哲学合作者\"。这只说对了一半。她确实与森共同把\"发展\"从 GDP 与效用里解放出来，但她更进一步，把能力进路改造成一套明确的政治正义理论：国家和国际秩…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/marx": {
+    "t": "马克思",
+    "e": "马克思常被等同于二十世纪的共产主义政权，仿佛斯大林的古拉格就是《资本论》的必然结果。但马克思本人从未详细描述过未来社会的具体制度安排——\"各尽所能，按需分配\"是对共产主义高级阶段的一句概括性描…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/mencius": {
+    "t": "孟子",
+    "e": "孟子的「性善论」不是说人生来就是完美的善人，而是说人生来就具有善的「端」（萌芽）——恻隐之心、羞恶之心、辞让之心、是非之心。这些善端需要后天的培养和扩充，否则就会枯萎。就像种子有长成大树的潜能…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/merleau-ponty": {
+    "t": "梅洛-庞蒂",
+    "e": "梅洛-庞蒂常被简化为\"萨特的配角\"或\"研究身体的哲学家\"，仿佛他只是存在主义运动的边缘人物。事实上，梅洛-庞蒂的哲学贡献在许多方面比萨特更为深远——他重新定义了意识与身体的关系，开创了具身认知…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/mill": {
+    "t": "约翰·斯图尔特·密尔",
+    "e": "密尔常被简单归为\"边沁功利主义的继承者\"，仿佛只是把前人理论稍作修补。但密尔实际上对功利主义做了质的改造：他引入\"高级快乐与低级快乐\"的区分，使功利主义从\"快乐计算\"升华为关注人的尊严与能力发…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/montesquieu": {
+    "t": "孟德斯鸠",
+    "e": "孟德斯鸠常被简化为\"三权分立\"学说的提出者，仿佛他只贡献了一个制度设计。但《论法的精神》的视野远比这宏大——它是一部关于政治社会如何运作的综合理论著作，涉及法律、文化、气候、宗教、商业等众多因…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/mozi": {
+    "t": "墨子",
+    "e": "墨子常被简化为\"兼爱非攻\"的和平主义者，仿佛他的思想只是一种朴素的博爱理想。事实上，墨子的\"兼爱\"不是抽象的道德说教，而是一套严密的功利主义论证——他用\"三表法\"（有本、有原、有用）来证明兼爱…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/nagarjuna": {
+    "t": "龙树",
+    "e": "龙树常被误解为虚无主义者——因为他主张一切法「空」（śūnya），很多人以为他在否定一切存在、否定因果、否定道德。这是对龙树最严重的曲解。龙树明确警告：「误执空性见，如以手捕蛇，不善把握者，反…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/nagel": {
+    "t": "托马斯·内格尔",
+    "e": "内格尔的名文《做一只蝙蝠是什么感觉》常被简化为\"我们无法想象蝙蝠的体验\"。但他的论点更深：即便我们无法想象蝙蝠的回声定位体验，关键在于存在着\"做一只蝙蝠是什么感觉\"这一事实，而这种主观的、有视…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/nietzsche": {
+    "t": "尼采",
+    "e": "尼采是哲学史上最被误解的思想家之一。最致命的误读来自他的妹妹伊丽莎白·福尔斯特-尼采：她篡改了尼采的遗稿，将其编辑为《权力意志》一书，并与纳粹意识形态挂钩。事实上，尼采明确反对反犹主义，与瓦格…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/nishida-kitaro": {
+    "t": "西田几多郎",
+    "e": "西田几多郎常被简化为「东方海德格尔」——一个用禅宗包装西方哲学的折衷主义者。",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/nozick": {
+    "t": "罗伯特·诺齐克",
+    "e": "诺齐克常被简化为\"自由放任主义的意识形态家\"。但《无政府、国家与乌托邦》是一部严谨的哲学论证，而非政治宣传——它从极其抽象的个人权利出发，一步步推导国家的边界。",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/parfit": {
+    "t": "德里克·帕菲特",
+    "e": "对帕菲特最常见的浅层理解是：\"他认为自我不存在，所以人生没有意义、死亡无所谓。\"这几乎把他的结论读反了。帕菲特的人格同一性论证不是虚无主义，而是一种减压：如果我们以为的那个\"深层的、必须保持同…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/parmenides": {
+    "t": "巴门尼德",
+    "e": "巴门尼德\"否认变化\"的主张常被当作荒谬的诡辩——眼前明明万物在动，他却说运动是幻象。但巴门尼德的革命在于：他第一个纯粹依靠逻辑推演，而非感官观察，去追问\"什么必然为真\"。他的结论或许违反常识，…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/peirce": {
+    "t": "查尔斯·桑德斯·皮尔斯",
+    "e": "皮尔斯（1839-1914）常被当作威廉·詹姆斯的\"前身\"而被轻描淡写——那个创造了\"实用主义\"一词、后来又放弃它的古怪学者。这一形象严重低估了他。皮尔斯是19世纪最深刻的逻辑学家和哲学家之一…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/philippa-foot": {
+    "t": "菲利帕·福特",
+    "e": "最广为人知的标签——\"电车难题的发明者\"——恰恰是对她最深的低估。电车在她那里从来不是一道聚会谜题，而是一件诊断工具：它出现在一篇讨论双重效应学说与堕胎的论文里，用来检验一条具体的道德原则。她…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/plato": {
+    "t": "柏拉图",
+    "e": "很多人认为柏拉图的「理型世界」是一个虚无缥缈的天堂，与现实毫无关联。事实上，柏拉图的理型论（Theory of Forms）是一种认识论和形而上学的统一框架——他认为我们感官所见的世界是不完美…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/plotinus": {
+    "t": "普罗提诺",
+    "e": "普罗提诺常被当作\"柏拉图的注释者\"或某种神秘主义玄想者而被边缘化。但他是古代晚期最具系统性与原创性的形而上学家，其新柏拉图主义重塑了柏拉图，并深刻地塑造了基督教、伊斯兰与犹太神学的整个走向。另…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/popper": {
+    "t": "波普尔",
+    "e": "波普尔最常被误解为「科学的否定者」——仿佛证伪主义是在说科学理论都是假的。",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/protagoras": {
+    "t": "普罗泰戈拉",
+    "e": "智者（Sophists）一词在柏拉图笔下几乎成了\"诡辩家\"的贬称，普罗泰戈拉也因此常被当作只会玩弄言辞、收费授徒的投机者。但这一形象很大程度上是柏拉图为抬高苏格拉底而塑造的。普罗泰戈拉是古希腊…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/putnam": {
+    "t": "希拉里·普特南",
+    "e": "普特南最为人知的口号\"意义不在头脑之中\"常被误解为某种神秘主义。它其实是一个精确的语义外在论论题：词语的意义部分地由外部世界的实际构成和语言共同体的分工决定，而非仅由说话者头脑中的心理状态决定…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/pythagoras": {
+    "t": "毕达哥拉斯",
+    "e": "人们多知道\"毕达哥拉斯定理\"（勾股定理），却少知这位思想家本人。需澄清两点：其一，直角三角形三边的平方关系在巴比伦（约公元前1800年的普林顿322泥板已有系统列表）与中国（《周髀算经》）早已…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/quine": {
+    "t": "蒯因",
+    "e": "蒯因常被简化为\"经验主义的批判者\"，仿佛他只是在否定什么。但蒯因的建设性贡献同样重要：他提出了\"自然化认识论\"的纲领，主张将认识论从先验哲学转变为经验科学的一个分支。另一个误解是认为蒯因否定了…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/ramanuja": {
+    "t": "罗摩努阇",
+    "e": "罗摩努阇常被简单地视为「商羯罗的反对者」或「虔信运动的神学家」——这两种标签都低估了他的哲学原创性。罗摩努阇对商羯罗的批判不是来自信仰对理性的挑战，而是一套同样严密的形而上学体系对另一套体系的…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/rawls": {
+    "t": "罗尔斯",
+    "e": "罗尔斯常被误解为一个为现有自由民主制度辩护的保守思想家。事实上，他的正义论具有相当激进的含义：它要求社会制度必须最大限度地惠及最不利者。罗尔斯不是在为现状辩护，而是在为一个理想社会设定标准——…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/richard-rorty": {
+    "t": "理查德·罗蒂",
+    "e": "最容易把罗蒂误读成的形象，是\"那个说真理不存在、怎么都行的相对主义者\"。这是论敌给他贴的标签，也是他一生反复澄清却始终甩不掉的误会。罗蒂从没说过\"真的没有真理\"或\"随便信什么都一样\"。他说的是…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/rousseau": {
+    "t": "卢梭",
+    "e": "卢梭常被简化为\"高贵的野蛮人\"的鼓吹者，仿佛他主张人类应该回到原始状态。这种理解严重曲解了卢梭的本意。卢梭从未主张回归自然——他在《论人类不平等的起源和基础》中明确指出，自然状态中的人虽然自由…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/russell": {
+    "t": "罗素",
+    "e": "罗素常被描绘为一个冷静的逻辑学家，仿佛他的哲学只是一系列形式化的符号操作。事实上，罗素是二十世纪最具人文关怀的思想家之一。他因反战立场被剑桥大学解职、被投入监狱；他反对核武器，发起了禁止核武器…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/ryle": {
+    "t": "吉尔伯特·赖尔",
+    "e": "赖尔常被简化为\"行为主义者\"，仿佛他主张心灵不存在、只有行为。这并不准确。赖尔不否认人有思想、感受与体验；他否认的是把心灵设想为一个与身体并列的、隐秘的内在剧场（笛卡尔的\"机器中的幽灵\"）。他…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/sartre": {
+    "t": "萨特",
+    "e": "萨特常被简化为\"存在主义就是悲观主义\"的代言人，仿佛他的哲学是在劝人消极。恰恰相反：萨特的核心论点是人被\"判定为自由\"的——没有任何先天的本质、命运或神意可以为你的选择开脱。你就是你的选择。这…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/schopenhauer": {
+    "t": "叔本华",
+    "e": "叔本华常被简化为「悲观主义哲学家」，仿佛他的全部哲学就是告诉人们「活着没有意义」。",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/searle": {
+    "t": "约翰·塞尔",
+    "e": "塞尔的\"中文房间\"常被误读为\"机器永远不能思考\"的悲观断言。塞尔的真正主张更精确：纯粹的符号操作（句法）本身不足以产生理解（语义）——这是对\"强人工智能\"（认为运行正确程序的计算机就拥有心灵）…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/seneca": {
+    "t": "塞涅卡",
+    "e": "塞涅卡常被讥讽为「言行不一的伪君子」——一个宣扬斯多葛禁欲的哲学家，却同时是罗马最富有的人之一。",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/shankara": {
+    "t": "商羯罗",
+    "e": "商羯罗常被简单地标签为「印度的唯心主义者」或「出世的禁欲者」——这两个标签都不准确。商羯罗的不二论吠檀多（Advaita Vedānta）并非否认物质世界的「存在」，而是论证物质世界不具有「独…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/simone-de-beauvoir": {
+    "t": "西蒙娜·德·波伏瓦",
+    "e": "波伏瓦最常被误解为「萨特的附属品」——仿佛她的思想只是萨特存在主义的女性主义应用。这种评价不仅不公正，而且根本就是错误的。波伏瓦的《第二性》在萨特的《存在与虚无》出版仅六年后问世，但她的「处境…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/simone-weil": {
+    "t": "西蒙娜·薇依",
+    "e": "西蒙娜·薇依是20世纪最令人困惑的思想家之一。最常见的误解是将她简单归类为「基督教神秘主义者」或「宗教哲学家」——这忽视了她思想中深刻的社会关怀和政治行动维度。薇依不仅写出了《重力与恩典》这样…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/socrates": {
+    "t": "苏格拉底",
+    "e": "苏格拉底没有留下任何文字著作，我们对他的了解全部来自他人——主要是 柏拉图 的对话录、色诺芬的回忆录和阿里斯托芬的喜剧。这意味着一个根本问题（学界称为\"苏格拉底问题\"）：我们无法确定柏拉图笔下…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/spinoza": {
+    "t": "斯宾诺莎",
+    "e": "斯宾诺莎常被标签为「无神论者」或「泛神论者」，仿佛他在否认上帝的存在或把上帝等同于自然。这些标签都过于简化。斯宾诺莎确实说「神即自然」（Deus sive Natura），但他所说的「自然」不…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/strawson": {
+    "t": "P.F. 斯特劳森",
+    "e": "斯特劳森常被归入\"日常语言哲学\"而被视为只做语言分析、回避形而上学的人。恰恰相反，他复兴了形而上学——只不过是一种\"描述的形而上学\"。他也常被误读为在自由意志之争中\"站某一边\"；实际上他的名文…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/thales": {
+    "t": "泰勒斯",
+    "e": "泰勒斯常被嘲笑为\"那个说万物是水的人\"，仿佛这是一个幼稚的猜测。但亚里士多德之所以尊他为\"哲学之父\"，不在于\"水\"这个答案，而在于他提出问题的方式：他第一个不诉诸神话与诸神，而是用一种统一的、…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/thomas-kuhn": {
+    "t": "托马斯·库恩",
+    "e": "库恩最常被误解为「科学是不理性的」或「科学革命只是主观信念的转换」。这种读法把《科学革命的结构》变成了一种相对主义宣言，仿佛科学进步不过是一种社群心理现象。这是严重的歪曲。库恩从未否认科学知识…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/thomson": {
+    "t": "朱迪斯·贾维斯·汤姆森",
+    "e": "汤姆森常因\"小提琴家\"论证被贴上\"支持堕胎\"的标签，仿佛她的工作只是政治站队。这低估了她的贡献。她的真正洞见是方法论的：即使承认胎儿是有完整生命权的人，也未必能推出堕胎不正当——因为生命权并不…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/toegye": {
+    "t": "退溪李滉",
+    "e": "退溪李滉常被简化为「朝鲜的朱熹」——一个忠实传承朱子学的保守学者。这种评价既低估了退溪思想的原创性，也误解了他在东亚儒学史上的地位。退溪不是在复述朱熹，而是在回应朱子学在朝鲜语境中面临的新问题…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/voltaire": {
+    "t": "伏尔泰",
+    "e": "伏尔泰常被简化为一个乐观的理性主义者，仿佛他天真地相信理性可以解决一切问题。这种理解忽略了伏尔泰思想的复杂性。在哲学上，伏尔泰其实是怀疑论者——他既怀疑宗教教条，也怀疑形而上学的体系建构。他的…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/wang-fuzhi": {
+    "t": "王夫之",
+    "e": "王夫之常被标签为\"唯物主义哲学家\"，仿佛他的思想只是中国古代版的物质第一性理论。事实上，王夫之的\"气学\"远比简单的唯物论复杂——他认为气是宇宙的本原，但气不是死的物质，而是充满生机和活力的存在…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/wang-yangming": {
+    "t": "王阳明",
+    "e": "王阳明常被简化为\"知行合一\"的口号制造者，仿佛他的哲学只是在劝人\"说到做到\"。事实上，\"知行合一\"是一个深刻的本体论命题：知与行在本体上是同一个东西的两个面向，而不是两个需要\"结合\"的独立活动…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/william-james": {
+    "t": "威廉·詹姆斯",
+    "e": "詹姆斯（1842-1910）因那句\"有用的就是真的\"而常被指责为将哲学降格为功利主义的噱头。这一简化是双重不公正的：第一，这是他在通俗演讲中的修辞，而非精确命题；第二，他的实用主义有严肃的哲学…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/william-of-ockham": {
+    "t": "奥卡姆的威廉",
+    "e": "几乎所有人都\"知道\"奥卡姆剃刀，几乎没人知道奥卡姆。流行的口号版本是\"最简单的解释往往是对的\"——这其实是后人的简化。奥卡姆本人从没写过那句名言\"如无必要，勿增实体\"（Entia non su…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/wittgenstein": {
+    "t": "维特根斯坦",
+    "e": "维特根斯坦常被描绘为一个神秘的天才，仿佛他的哲学只是天才直觉的产物。但他的思想经历了根本性的转变——从早期的《逻辑哲学论》到晚期的《哲学研究》，他推翻了自己年轻时的整个哲学体系。将维特根斯坦视…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/xunzi-extended": {
+    "t": "荀子深度扩展",
+    "e": "本文是对已有「荀子」条目的深度补充，聚焦于比较哲学、礼论的当代诠释、以及荀子在东亚思想史中的接受史。",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/xunzi": {
+    "t": "荀子",
+    "e": "荀子的「性恶论」不是说人天生是邪恶的，而是说人的自然本性是趋利避害的——饿了想吃、冷了想穿、累了想休息，这些本能欲望如果不加节制就会导致争夺和混乱。「恶」在这里指的是「自然状态下的无序」，而非…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/zera-yacob": {
+    "t": "泽拉·雅各布",
+    "e": "最大的误解是这样一句常被重复的话：\"非洲在近代没有产生书写的、论证式的哲学。\"泽拉·雅各布（Zera Yacob，又译扎拉·雅各布、泽拉·雅各)是反驳这句话的一个有力例子。1667年，他在埃塞…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/zhou-dunyi": {
+    "t": "周敦颐",
+    "e": "周敦颐常被忽视，仿佛他只是理学的一个注脚。事实上，他是宋明理学的真正开山者——朱熹和二程（程颢、程颐）的思想都可以追溯到周敦颐。另一个误解是将《太极图说》视为简单的宇宙生成论；实际上，它是一套…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/zhu-xi": {
+    "t": "朱熹",
+    "e": "朱熹常被简化为\"存天理、灭人欲\"的禁欲主义者，仿佛他的哲学是在压制人的自然欲望。事实上，朱熹所说的\"人欲\"指的是过度的、不合理的欲望，而非一切生理需求。\"饮食者，天理也；要求美味，人欲也\"——…",
+    "d": "philosophy"
+  },
+  "/philosophy/thinkers/zhuangzi": {
+    "t": "庄子",
+    "e": "庄子不是一个消极避世、只关心个人逍遥的隐士。他的思想中包含着极其深刻的政治批判——对权力、名利、知识体系的全面质疑。另一个误解是将庄子的相对主义等同于虚无主义或「什么都行」的犬儒态度；庄子追求…",
+    "d": "philosophy"
+  }
+}

@@ -44,6 +44,19 @@ export function NarrationPlayer() {
     setPlaying(true);
   }, []);
 
+  // Flag the <html> element while the player bar is on screen so other fixed
+  // UI (the mobile TOC floating button) can dodge it via a CSS attribute
+  // selector — no cross-component state needed.
+  useEffect(() => {
+    const root = document.documentElement;
+    if (active) {
+      root.setAttribute("data-narration-active", "");
+    } else {
+      root.removeAttribute("data-narration-active");
+    }
+    return () => root.removeAttribute("data-narration-active");
+  }, [active]);
+
   // Start playback whenever a new narration is loaded.
   useEffect(() => {
     if (!active) return;

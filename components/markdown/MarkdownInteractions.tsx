@@ -2,21 +2,26 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { shardDomainForHref, type LinkPreview } from "@/lib/link-preview-shards";
 
-type LinkPreview = { t: string; e: string; d: string };
+// Preview data is sharded per domain (`/link-previews/<domain>.json`) so the
+// first hover downloads only the target link's shard instead of one ~915 KB
+// file. A resolved wiki-link URL always starts with its article's domain, so
+// the shard to load comes straight from the href — this also covers
+// multi-domain slugs, since `resolveWikiLink` has already picked one URL.
+const previewShardPromises = new Map<string, Promise<Record<string, LinkPreview>>>();
 
-let previewCache: Record<string, LinkPreview> | null = null;
-let previewPromise: Promise<Record<string, LinkPreview>> | null = null;
-
-function loadPreviews(): Promise<Record<string, LinkPreview>> {
-  if (previewCache) return Promise.resolve(previewCache);
-  if (!previewPromise) {
-    previewPromise = fetch("/link-previews.json")
+function loadPreviews(href: string): Promise<Record<string, LinkPreview>> {
+  const domain = shardDomainForHref(href);
+  if (!domain) return Promise.resolve({});
+  let promise = previewShardPromises.get(domain);
+  if (!promise) {
+    promise = fetch(`/link-previews/${domain}.json`)
       .then((response) => (response.ok ? response.json() : {}))
-      .then((previews: Record<string, LinkPreview>) => (previewCache = previews))
-      .catch(() => (previewCache = {}));
+      .catch(() => ({}));
+    previewShardPromises.set(domain, promise);
   }
-  return previewPromise;
+  return promise;
 }
 
 const DOMAIN_LABEL: Record<string, string> = {
@@ -67,7 +72,7 @@ export function WikiLinkPreview({ href, label }: { href: string; label: string }
   const show = useCallback(() => {
     if (timer.current) clearTimeout(timer.current);
     timer.current = setTimeout(() => {
-      void loadPreviews().then((previews) => {
+      void loadPreviews(href).then((previews) => {
         setPreview(previews[href] ?? null);
         setOpen(true);
       });
@@ -83,7 +88,7 @@ export function WikiLinkPreview({ href, label }: { href: string; label: string }
     (e: React.MouseEvent) => {
       if (!isTouch || open) return; // desktop, or second tap while open → navigate
       e.preventDefault();
-      void loadPreviews().then((previews) => {
+      void loadPreviews(href).then((previews) => {
         setPreview(previews[href] ?? null);
         setOpen(true);
       });

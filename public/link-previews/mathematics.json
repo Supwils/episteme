@@ -1,0 +1,872 @@
+{
+  "/mathematics/concepts/algebraic-geometry": {
+    "t": "代数几何",
+    "e": "写下一个方程 x^2 + y^2 = 1，你会得到什么？不只是一堆满足等式的数对，而是平面上一个圆。再写 y = x^2，是一条抛物线。代数几何的起点正是这个朴素而深刻的发现：一个多项式方程，…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/axiom": {
+    "t": "公理",
+    "e": "很多人对公理的第一印象，来自中学几何里那句\"不证自明的真理\"。仿佛公理是宇宙里铁打的事实，谁也不能质疑。但现代数学早已抛弃了这种看法——这恰恰是关于公理最值得点破的误解。",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/bayesian-inference": {
+    "t": "贝叶斯推断",
+    "e": "听到隔壁房间\"砰\"的一声，你脑子里会闪过几个可能：猫打翻了花瓶？有人进来了？还是楼上掉了东西？你不会立刻断定是哪一个，而是根据它们平时各有多常见，先有个大致的\"心里有数\"。这个\"事先的看法\"，…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/calculus-of-variations": {
+    "t": "变分法",
+    "e": "普通的微积分教你求一个函数的极值：给定 f(x)，找哪个 x 让它最大或最小。决策变量是一个数。变分法把这件事提升了一个维度。它的决策变量不再是一个数，而是一整条曲线、一个函数。它要回答的是这…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/category-theory": {
+    "t": "范畴论",
+    "e": "想认识一个人，光盯着他的身高体重没多大用——你真正了解他，是通过看他怎么和朋友相处、怎么对待陌生人、面对难题怎么反应。一个对象的本质，藏在它与周围一切的关系里。 范畴论就是把这个朴素的处世智慧…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/chaos-theory": {
+    "t": "混沌理论",
+    "e": "天气预报为什么报不准下周？人们常以为是因为大气太复杂、变量太多、含有随机成分。这恰恰是关于混沌最大的误解。真相更反直觉：支配天气的方程是完全确定的，没有一丝随机；它之所以测不准，是因为它对初始…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/combinatorics": {
+    "t": "组合数学",
+    "e": "班上有 30 个人，要选出 2 个人组成值日小组，有多少种选法？老老实实一对一对地列，能把人列疯。但换个角度想：第一个人有 30 种选择，第二个有 29 种，得到 30\\times 29；可\"…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/complex-analysis": {
+    "t": "复分析",
+    "e": "实数轴是一条线，你只能从左、从右两个方向逼近一个点。复数则住在一整张平面上——逼近一个点可以从四面八方、沿着任意路径。复分析劈头就提出一个看似苛刻的要求：一个复函数在某点\"可导\"，意味着不论你…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/complex-number": {
+    "t": "复数",
+    "e": "一个复数是形如 z = a + bi 的数，其中 a, b 是实数。",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/complexity": {
+    "t": "计算复杂性",
+    "e": "给你一份拼好的拼图，你一眼能看出它对不对——边缘严丝合缝就成。可让你从一堆散片把它拼出来，却可能要耗上整个下午。\"验证一个解\"和\"找到一个解\"之间，似乎隔着一条天堑。计算复杂性这门学问，研究的…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/computability": {
+    "t": "可计算性",
+    "e": "我们太习惯\"只要够聪明、够努力，总能编出程序解决它\"。可计算性这门学问要泼一盆冷水：存在一些问题，原则上就不可能有任何算法能解决——这不是技术不够，而是逻辑上的铁壁。",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/continuity": {
+    "t": "连续性",
+    "e": "人人都有这样的直觉：连续函数就是那条\"一笔画下来、中间不断开\"的曲线。这个画面没大错，却经不起追问——曲线可以无限抖动、无限密集，\"断没断\"凭肉眼根本说不清。十九世纪的数学家正是被这种含糊逼得…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/control-theory": {
+    "t": "控制论",
+    "e": "打开淋浴，水太凉，你拧热一点；过会儿太烫，又往回拧一点——几个来回，水温稳定在舒服的位置。你刚刚完成的，正是控制论里最核心的动作：测量当前结果，与目标比较，用这个\"差距\"去调整下一步的操作。 …",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/convergence": {
+    "t": "收敛性",
+    "e": "把一段路走完一半，再走剩下的一半，再走一半……你每一步都没真正抵达终点，可所有人都看得出：你\"奔向\"的就是那个终点。0.9,\\ 0.99,\\ 0.999,\\dots 这串数永远到不了 1，却谁…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/derivative": {
+    "t": "导数",
+    "e": "汽车仪表盘上的时速 60 公里，是个奇怪的数字——它说的是\"此刻\"的速度，可\"此刻\"是一个没有时长的瞬间，而速度明明是\"距离除以时间\"，时间为零，怎么除？这个看似自相矛盾的\"瞬时速度\"，正是导…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/differential-equation": {
+    "t": "微分方程",
+    "e": "普通方程问你\"x 等于几\"，求的是一个数。微分方程换了一种更深的提问方式：它不直接告诉你某个量是多少，而是告诉你这个量此刻在以多快的速度变化，然后反过来让你求出这个量随时间演化的完整轨迹。求解…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/differential-geometry": {
+    "t": "微分几何",
+    "e": "一只生活在球面上的蚂蚁，从没见过它的世界\"从外面看\"长什么样。它能不能仅凭在表面上爬行、量量距离和角度，就发现自己住在一个弯曲的世界、而不是一张平坦的纸上？微分几何给出的回答惊人地肯定：能。 …",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/dynamical-systems": {
+    "t": "动力系统",
+    "e": "把一个钟摆轻轻推一下，它会摆动、渐渐慢下来，最后停在最低点。把它推得很猛，它会一圈圈转个不停。无论起点如何,我们最关心的往往不是它\"第 37 秒在哪个角度\"，而是它最终的命运：会停下、会永远转…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/eigenvalue": {
+    "t": "特征值与特征向量",
+    "e": "想象你把一张橡皮膜抓住，朝各个方向拉伸、剪切。膜上几乎每一根箭头都会被既转向又拉长——画面一片混乱。但奇妙的是，总有那么几个特殊方向：膜沿着它们只是被拉长或压短，箭头自始至终指向同一条直线，方…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/ergodic-theory": {
+    "t": "遍历理论",
+    "e": "想象一杯水里的一个水分子，在分子热运动的推搡下永不停歇地乱撞。现在问你两个问题：第一，跟踪这一个分子足够长的时间，它平均处在杯子的什么位置？第二，在某个瞬间冻结时间，杯里所有分子的平均位置在哪…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/euclidean-geometry": {
+    "t": "欧氏几何",
+    "e": "欧氏几何最容易被当成\"中学里那些三角形和圆的题目\"。但它真正的革命性不在于结论，而在于方法：欧几里得没有从图形出发，而是先约定五条不证自明的公设，然后规定——此后所有结论都只能从这五条加上逻辑…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/field": {
+    "t": "域",
+    "e": "你从小用的有理数、实数有一个共同的好处：加、减、乘、除（除数不为零）都做得通，结果还在原来的数系里。这种\"四则运算样样齐全\"的数系，抽象出来就是域。对比一下：整数 \\mathbb{Z} 就不是…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/fourier-analysis": {
+    "t": "傅里叶分析",
+    "e": "弹一下钢琴的中央 C，再弹一下小提琴的同一个音。两件乐器音高一样，听起来却天差地别。物理上，传到你耳朵的都只是空气压强随时间起伏的一条曲线——可这两条曲线的\"形状\"不同。傅里叶分析回答的正是：…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/fractal": {
+    "t": "分形",
+    "e": "问一个看似简单的问题：英国的海岸线有多长？拿一把尺子去量，你会发现答案取决于尺子的长度。用一公里的尺，你会跳过所有小海湾，量出一个数；换成一米的尺，每个礁石、每道裂口都得绕进去，长度立刻暴涨；…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/function": {
+    "t": "函数",
+    "e": "提到函数，多数人脑子里冒出来的是一道算式，比如 y = x^2，或者一条用笔就能画出来的光滑曲线。这是关于函数最顽固的误解。函数的本质不是\"算式\"，而是\"对应规则\"——给定一个输入，确定唯一一…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/functional-analysis": {
+    "t": "泛函分析",
+    "e": "在中学里，一个点是平面上的 (x,y)，一个向量是带方向的箭头，你可以谈它们之间的距离、夹角、谁更\"长\"。泛函分析的大胆一步，是把这套几何直觉搬到由函数组成的世界里：让一整条函数——比如一段声…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/galois-theory": {
+    "t": "伽罗瓦理论",
+    "e": "二次方程有求根公式，这人人都背过。三次、四次方程也有——只是更长更丑。于是几乎所有人都会顺理成章地猜：五次方程的公式只是更复杂、更难找罢了，总有一天会被某个天才写出来。整整三百年，最聪明的头脑…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/game-theory": {
+    "t": "博弈论",
+    "e": "普通的优化问题里，世界是\"被动\"的：你调高油门，车就提速，路况不会因为你踩油门而故意跟你作对。可现实中最棘手的决策几乎都不是这样——你降价，对手也会降价；你出招，对方会针对你的招数再出招。你的…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/graph-theory-applications": {
+    "t": "图论应用",
+    "e": "导航软件给你规划最快路线，外卖平台给骑手派单，学校排课避免两门课撞在同一教室，电信公司给基站分配互不干扰的频段——这些看起来八竿子打不着的难题，在数学眼里其实是同一个问题穿着不同的衣服。秘诀在…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/graph-theory": {
+    "t": "图论",
+    "e": "十八世纪的柯尼斯堡城里有一条河、两座小岛和七座桥，市民们闲来争论一个问题：能不能从家出发，每座桥不重不漏地恰好走一遍，最后回到原地？无数人试着画路线，没人成功，但也没人能说清为什么不行。直到欧…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/group": {
+    "t": "群",
+    "e": "先抛开公理。想象手里有一个正三角形，把它放在桌上的某个轮廓里。你能做哪些动作，让它\"动了之后看起来跟没动一样\"？把它绕中心转 120°、转 240°，或者沿三条对称轴翻转——一共 6 种。这 …",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/homology-cohomology": {
+    "t": "同调与上同调",
+    "e": "把一个甜甜圈和一个球放在面前，凭肉眼你就知道它们不一样——甜甜圈中间有个洞，球没有。但\"有个洞\"这句话，怎么变成数学能计算的东西？同调（homology）做的就是这件事：它给一个空间的每一种维…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/information-geometry": {
+    "t": "信息几何",
+    "e": "我们习惯把概率分布当成一个公式或一条曲线：正态分布、泊松分布、伯努利分布……它们各有参数，调一调参数就得到一个新分布。信息几何提出了一个大胆的换位思考：不如把每一个概率分布看成一个\"点\"，把所…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/information-theory": {
+    "t": "信息论",
+    "e": "我们日常说的\"信息\"，总和重要性、意义挂钩。但信息论里的\"信息量\"，是另一回事——它衡量的是意外的程度。\"明天太阳照常升起\"这句话再重要，也几乎不带信息，因为它板上钉钉、毫无悬念；而\"明天本市…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/integral": {
+    "t": "积分",
+    "e": "怎么求一条弯曲的曲线下面那块图形的面积？直边图形好办，三角形、矩形都有公式；可一旦边界是弯的，老方法就失灵了。积分的思路朴素得近乎笨拙：既然弯的不好算，那就用一排细长的矩形去贴着曲线下方填满它…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/knot-theory": {
+    "t": "纽结理论",
+    "e": "拿一根绳子，两头打个结，再把两端粘起来，让结无处可逃——你手里就有了一个数学意义上的\"纽结\"。现在问你一个看似幼稚的问题：怎么证明这个结解不开？你可能会说：\"我试着拉拉看，拉不开就是解不开呗。…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/lie-group-lie-algebra": {
+    "t": "李群与李代数",
+    "e": "拿起一个地球仪，让它绕轴慢慢转。每个时刻它都处在一个旋转状态，而所有可能的旋转连成一片——你可以从任意一个旋转平滑地滑到另一个旋转，中间不跳跃。这\"一片连续的对称变换\"，就是一个李群（Lie …",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/limit": {
+    "t": "极限",
+    "e": "很多人第一次学极限，脑子里是一幅\"动画\"：一个点沿着曲线滑过去，\"无限接近\"某个值却\"永远到不了\"。这幅画面直觉上没错，却抓不住要点——也正是它让 \\varepsilon-\\delta 定义显…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/linear-algebra": {
+    "t": "线性代数",
+    "e": "很多人对线性代数的第一印象，是一堆机械的运算：把数排成方块，按古怪的规则去乘，再解一大串方程。这副面孔最容易让人错过它真正的力量。线性代数的灵魂，是把世界里只满足两条简单规矩的现象统统收编进来…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/linear-transformation": {
+    "t": "线性变换",
+    "e": "第一次见到矩阵，多数人把它当成一张数字表格——按某种古怪规则去加去乘的死数据。这副印象恰恰挡住了它最重要的身份。一个矩阵真正代表的，是一个作用在整个空间上的动作：把一张铺满箭头的平面，整体地旋…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/manifold": {
+    "t": "流形",
+    "e": "你手机里的地图是一张平面，可你脚下的地球是一个球面。这两件事看似矛盾，却天天和平共处——因为在你身边几公里的范围内，地球表面局部就是平的，一张平面地图足够用。问题只在大范围才显现：把整个地球摊…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/matrix": {
+    "t": "矩阵与行列式",
+    "e": "把一组数排成方阵，这件事本身平平无奇。让矩阵变得有力量的，是它记账的本领：它能把\"对整个空间做了一次什么样的变形\"这件事，浓缩进一张有限的数表里。要把平面旋转 30 度、要把一张图像横向拉伸两…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/measure-theory": {
+    "t": "测度论",
+    "e": "\"一段区间的长度\"\"一块区域的面积\"\"一个物体的体积\"——这些我们从小就会的概念，看起来根本不需要数学家费心。但只要你想把\"长度\"这件事做到极致严谨，麻烦就接踵而至。比如：[0,1] 里所有有…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/multivariable-calculus": {
+    "t": "多元微积分",
+    "e": "一元微积分里，导数是一个数——它告诉你一条曲线在某点有多陡。可现实世界很少是一条线。站在一座山坡上，问\"这里有多陡\"就立刻含糊起来：朝哪个方向？向北走是上坡，向南走是下坡，沿着等高线横着走则不…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/network-science": {
+    "t": "网络科学",
+    "e": "随手画一个由 n 个人组成的社交圈，每人平均认识 k 个朋友。你或许会想：要从北京的我连到智利的某个渔民，得经过多少层转介绍？凭直觉，应该非常多。但事实恰恰相反——一个人认识 k 个，每个人又…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/non-euclidean-geometry": {
+    "t": "非欧几何",
+    "e": "欧几里得的几何里有一条看似不起眼的规则：过直线外一点，有且只有一条直线与它平行。两千多年里，人们觉得这太显然了，显然到怀疑它根本不该是\"公设\"，而应该能从其他更基本的规则推导出来。一代代数学家…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/number-line": {
+    "t": "数轴",
+    "e": "小孩最初学数，常把数字理解为东西的数量：三个苹果、五块积木。数轴做了一次关键转换：它把“有多少”变成“在哪里”。选定一个原点 0、一个正方向和一个单位长度后，每个实数都对应直线上的一个点；反过…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/number-theory": {
+    "t": "数论",
+    "e": "数论的迷人之处，在于它的问题往往一句话就能讲清楚，连孩子都听得懂——但答案可能要动用人类最深奥的数学。举个例子：每一个大于 2 的偶数，都能写成两个素数之和吗？ 4=2+2，6=3+3，8=3…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/numerical-linear-algebra": {
+    "t": "数值线性代数",
+    "e": "线性代数课本告诉你，解方程组 Ax = b 很简单：答案就是 x = A^{-1}b。求逆、相乘，写完收工。这是数值分析里最危险的误解之一。在计算机上，显式求逆矩阵几乎总是错误做法——它既慢（…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/numerical-methods": {
+    "t": "数值方法",
+    "e": "很多人以为计算机是绝对精确的——你让它算什么，它就给你一个分毫不差的结果。这是个根深蒂固的误会。试着让任何一台计算机算 0.1 + 0.2，它会告诉你结果是 0.300000000000000…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/ode": {
+    "t": "常微分方程",
+    "e": "很多自然现象，我们直接说不清它此刻的值是多少，却能说清它怎么变。一杯热咖啡现在多少度？不好直接写公式。但物理告诉我们一条朴素的规律：它降温的快慢，正比于它和室温的温差——越烫凉得越快，接近室温…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/optimization": {
+    "t": "最优化",
+    "e": "今早出门，你脑子里掠过一个问题：怎么走最快到公司？这就是一道最优化题——决策变量是路线，目标函数是耗时，约束条件是\"得避开施工路段\"。从超市比价、安排日程，到工厂排产、给神经网络调参，本质上都…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/pde": {
+    "t": "偏微分方程",
+    "e": "把一块烧热的铁板搁在桌上，过一会儿它会凉下来。但它不是整块均匀地凉——靠近边缘的地方先凉，中心还烫着，热量从热处往冷处一点点流淌。要刻画这件事，光知道\"某一点的温度怎么随时间变\"是不够的：它降…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/probability": {
+    "t": "概率论",
+    "e": "连抛五次硬币都是正面，你心里多半会嘀咕：下一次该出反面了吧？这个直觉很自然，也几乎人人都有——可它是错的。硬币没有记忆，第六次出正面的概率，仍然稳稳是 1/2。这个常见的\"赌徒谬误\"，恰恰点破…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/proof": {
+    "t": "证明",
+    "e": "在几乎所有学科里，反复的实验、压倒性的证据，就足以让人相信一件事是真的。物理学家做实验，医生看临床数据，\"够多的例子\"就是说服力。唯独数学不吃这一套。看个例子。\"n^2 + n + 41 这个…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/representation-theory": {
+    "t": "表示论",
+    "e": "\"对称\"是个抽象得让人头疼的词。一个正三角形，你可以转 120°、翻个面，它看起来一模一样——这些操作合在一起，构成了一个\"对称群\"。可问题是，群的元素是\"旋转\"\"翻转\"这类动作，它们之间能相…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/ring": {
+    "t": "环",
+    "e": "最熟悉的环就是整数 \\mathbb{Z}。你可以把整数随便加、减、乘，结果还是整数；但一除就可能出界（3 \\div 2 不是整数）。这种\"加减乘齐全、除法缺位\"的结构，就是环。",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/series": {
+    "t": "级数",
+    "e": "直觉会告诉你：把无穷多个正数加在一起，结果一定是无穷大。可事实并非如此。从一根长度为 1 的木棍开始，先掰下一半（\\tfrac12），再掰下剩下的一半（\\tfrac14），再一半（\\tfrac…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/set-theory": {
+    "t": "集合论",
+    "e": "集合论最震撼的发现是：无穷也分大小。要理解这件事，先得放下\"数数\"。想象一个牧羊人不会数数，但想知道羊和栅栏柱子哪个多。他的办法很聪明：把每只羊拴到一根柱子上。如果羊和柱子恰好一一配对、不多不…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/signal-processing": {
+    "t": "信号处理",
+    "e": "一支乐队同时演奏，传到你耳朵里的，物理上只是一条上下抖动的气压曲线——所有乐器的声音早已混成一团。可你却能毫不费力地听出\"这是小提琴，那是钢琴，背景还有低音鼓\"。你的耳朵悄悄完成了一件了不起的…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/spectral-graph-theory": {
+    "t": "谱图理论",
+    "e": "敲一面鼓，你能从它发出的音调（频率谱）反推出鼓面的形状、大小、张紧程度——这是物理学里著名的\"听鼓辨形\"问题。谱图理论做的是几乎一模一样的事，只不过把鼓换成了一张图（网络）。",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/statistics": {
+    "t": "统计学",
+    "e": "要知道一大锅汤够不够咸，你不必把整锅喝完——搅匀，舀一勺尝尝，就敢下结论。这个再朴素不过的动作，正是整个统计学的缩影：用手里这一小撮样本，去推断你看不全的整体。民意调查问几千人就敢预测上亿人的…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/stochastic-process": {
+    "t": "随机过程",
+    "e": "很多人以为随机过程就是\"很多个随机变量摆在一起\"。这没说错，但漏掉了灵魂。一个普通随机变量是对一次不确定结果的描述——掷一次骰子。随机过程描述的是随时间展开的整段不确定历史：股价从开盘到收盘的…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/topological-data-analysis": {
+    "t": "拓扑数据分析",
+    "e": "给你一团散落在平面上的点。你怎么描述它？最自然的回答是报出每个点的坐标。但坐标极度脆弱——把整张图旋转一下、平移一下、轻微拉伸一下，所有坐标都变了，可你心里清楚：这团点\"本质上\"还是同一团。",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/topology": {
+    "t": "拓扑学",
+    "e": "有个流传已久的玩笑：拓扑学家分不清咖啡杯和甜甜圈。这不是抬杠——在拓扑的世界里，它们确实是同一种东西。想象咖啡杯是用橡皮泥捏的：不撕开、不粘合，只靠拉伸揉捏，你完全可以把杯身的凹坑慢慢摊平，最…",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/trigonometry": {
+    "t": "三角函数",
+    "e": "最基本的三角函数是正弦（sine，\\sin）和余弦（cosine，\\cos）。",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/vector-space": {
+    "t": "向量空间",
+    "e": "中学里学向量，脑子里浮现的多半是平面上一根带箭头的小棍：有方向、有长短。这画面没错，却把向量框死了。真正让向量空间威力惊人的，是数学家发现：\"是不是向量\"，跟它长什么样毫无关系，只跟它能不能做…",
+    "d": "mathematics"
+  },
+  "/mathematics/dialogues/bourbaki-poincare": {
+    "t": "布尔巴基 vs 庞加莱：形式与直觉",
+    "e": "尼古拉·布尔巴基（Nicolas Bourbaki）是20世纪一群法国数学家的集体笔名。他们从1935年开始撰写多卷本《数学原理》（Éléments de mathématique），试图用统…",
+    "d": "mathematics"
+  },
+  "/mathematics/dialogues/cantor-kronecker": {
+    "t": "康托尔 vs 克罗内克：无穷的存在",
+    "e": "格奥尔格·康托尔（Georg Cantor, 1845-1918）是集合论的创始人。他证明了无穷有不同的大小——自然数是可数无穷，实数是不可数无穷——并建立了超限数理论。他的工作彻底改变了数学…",
+    "d": "mathematics"
+  },
+  "/mathematics/dialogues/euclid-archimedes": {
+    "t": "欧几里得 vs 阿基米德：纯数学 vs 应用",
+    "e": "欧几里得（Euclid，约前325—前265）是古希腊数学家，《几何原本》的作者。他代表了\"纯数学\"的传统——数学的价值在于其内在的逻辑结构，而不在于它的实际应用。传说当一位学生问\"学几何有什…",
+    "d": "mathematics"
+  },
+  "/mathematics/dialogues/euclid-hilbert": {
+    "t": "欧几里得 vs 希尔伯特：公理化方法",
+    "e": "欧几里得（Euclid，约前325—前265）是古希腊数学家，其《几何原本》（Elements）是历史上最有影响力的数学著作之一。《几何原本》从五条公理和五条公设出发，用演绎推理建立了整个平面…",
+    "d": "mathematics"
+  },
+  "/mathematics/dialogues/euler-dalembert": {
+    "t": "欧拉 vs 达朗贝尔：无穷级数的收敛性",
+    "e": "莱昂哈德·欧拉（Leonhard Euler, 1707-1783）是瑞士数学家，历史上最多产的数学家之一。他在分析学、数论、图论、力学、天文学等领域都有奠基性贡献。欧拉对无穷级数有惊人的直觉…",
+    "d": "mathematics"
+  },
+  "/mathematics/dialogues/fibonacci-al-khwarizmi": {
+    "t": "斐波那契 vs 花拉子密：东西方代数",
+    "e": "花拉子密（Muhammad ibn Musa al-Khwarizmi, 约780—约850）是波斯数学家、天文学家，代数学的奠基人之一。他的著作《代数学》（al-Kitab al-Mukht…",
+    "d": "mathematics"
+  },
+  "/mathematics/dialogues/gauss-bolyai": {
+    "t": "高斯 vs 波尔约：非欧几何的发现",
+    "e": "卡尔·弗里德里希·高斯（Carl Friedrich Gauss, 1777-1855）是德国数学家，被誉为\"数学王子\"。他在数论、代数、分析、统计、天文学、大地测量学等领域都有奠基性贡献。在…",
+    "d": "mathematics"
+  },
+  "/mathematics/dialogues/gauss-riemann": {
+    "t": "高斯 vs 黎曼：几何学革命",
+    "e": "卡尔·弗里德里希·高斯（Carl Friedrich Gauss, 1777-1855）是\"数学王子\"，在数论、代数、分析、统计和微分几何等领域都有奠基性贡献。他发展了曲面的内在几何——绝妙定…",
+    "d": "mathematics"
+  },
+  "/mathematics/dialogues/godel-turing": {
+    "t": "哥德尔 vs 图灵：不可判定性",
+    "e": "库尔特·哥德尔（Kurt Gödel, 1906-1978）在1931年证明了不完备性定理：任何足够强的一致形式系统都包含不可判定命题。艾伦·图灵（Alan Turing, 1912-1954…",
+    "d": "mathematics"
+  },
+  "/mathematics/dialogues/grothendieck-serre": {
+    "t": "格罗滕迪克 vs 塞尔：代数几何",
+    "e": "亚历山大·格罗滕迪克（Alexander Grothendieck, 1928-2014）是20世纪最具革命性的数学家之一。他在1960年代完全重建了代数几何的基础——引入了概形（scheme…",
+    "d": "mathematics"
+  },
+  "/mathematics/dialogues/hilbert-brouwer": {
+    "t": "希尔伯特 vs 布劳威尔：形式主义 vs 直觉主义",
+    "e": "大卫·希尔伯特（David Hilbert, 1862-1943）是德国数学家，形式主义数学的奠基人。他的希尔伯特纲领试图将全部数学建立在有限的、一致的公理系统之上。他有一句名言：\"没有人能把…",
+    "d": "mathematics"
+  },
+  "/mathematics/dialogues/hilbert-godel": {
+    "t": "希尔伯特 vs 哥德尔：公理化纲领的终结",
+    "e": "大卫·希尔伯特（David Hilbert, 1862-1943）是德国数学家，20世纪最有影响力的数学家之一。他在1900年提出了著名的23个问题，为整个世纪的数学研究设定了议程。在数学基础…",
+    "d": "mathematics"
+  },
+  "/mathematics/dialogues/hilbert-poincare": {
+    "t": "希尔伯特 vs 庞加莱：形式主义 vs 直觉",
+    "e": "大卫·希尔伯特（David Hilbert, 1862-1943）是德国数学家，形式主义的代表人物。他提出了著名的希尔伯特纲领：将全部数学形式化为一个完备的、一致的公理系统，并用有限方法证明这…",
+    "d": "mathematics"
+  },
+  "/mathematics/dialogues/mandelbrot-julia": {
+    "t": "曼德博 vs 茱莉亚：分形的两种视角",
+    "e": "贝努瓦·曼德博（Benoît Mandelbrot, 1924-2010）是法裔美国数学家，分形几何的创始人。他创造了\"分形\"（fractal）一词，并研究了曼德博集合——复平面上最著名的分形…",
+    "d": "mathematics"
+  },
+  "/mathematics/dialogues/newton-leibniz": {
+    "t": "牛顿 vs 莱布尼茨：微积分发明权",
+    "e": "艾萨克·牛顿（Isaac Newton, 1642-1727）和戈特弗里德·威廉·莱布尼茨（Gottfried Wilhelm Leibniz, 1646-1716）独立发明了微积分，引发了数…",
+    "d": "mathematics"
+  },
+  "/mathematics/dialogues/noether-einstein": {
+    "t": "诺特 vs 爱因斯坦：对称性与守恒律",
+    "e": "艾米·诺特（Emmy Noether, 1882-1935）是德国数学家，抽象代数的奠基人之一。她证明了著名的诺特定理——每一个连续对称性对应一个守恒律。她还在环论、理想论和表示论方面有开创性…",
+    "d": "mathematics"
+  },
+  "/mathematics/dialogues/plato-aristotle-math": {
+    "t": "柏拉图 vs 亚里士多德：数学本体论",
+    "e": "柏拉图（Plato，约前428—前348）是古希腊哲学家，数学柏拉图主义的创始人。他认为数学对象（数、几何图形、集合）是真实存在的抽象实体，存在于一个独立于物理世界和人类心灵的\"理念世界\"中。…",
+    "d": "mathematics"
+  },
+  "/mathematics/dialogues/poincare-einstein": {
+    "t": "庞加莱 vs 爱因斯坦：时间与空间的本质",
+    "e": "亨利·庞加莱（Henri Poincaré, 1854-1912）是法国数学家、物理学家和哲学家。他在数学的几乎每个分支都有开创性贡献，包括拓扑学、天体力学和偏微分方程。他也是约定主义哲学的代…",
+    "d": "mathematics"
+  },
+  "/mathematics/dialogues/ramanujan-hardy": {
+    "t": "拉马努金 vs 哈代：直觉与严格",
+    "e": "斯里尼瓦瑟·拉马努金（Srinivasa Ramanujan, 1887-1920）是印度数学家，20世纪最伟大的数论学家之一。他没有接受过正规的数学训练，却独立发现了数千个深刻的数学公式——…",
+    "d": "mathematics"
+  },
+  "/mathematics/dialogues/wiles-taniyama": {
+    "t": "怀尔斯 vs 谷山-志村：费马大定理的证明之路",
+    "e": "安德鲁·怀尔斯（Andrew Wiles, 1953—）是英国数学家。他在1994年证明了费马大定理——这个困扰数学家350多年的问题。他的证明使用了椭圆曲线和模形式之间的深刻联系——谷山-志…",
+    "d": "mathematics"
+  },
+  "/mathematics/frontier/ai-formal-proof": {
+    "t": "定理形式化与 AI 证明助手",
+    "e": "2023 年 11 月 9 日深夜，Timothy Gowers、Ben Green、Freddie Manners、Terence Tao 四人在 arXiv 上挂出了一篇 33 页的论文，…",
+    "d": "mathematics"
+  },
+  "/mathematics/frontier/analytic-number-theory": {
+    "t": "解析数论的新进展",
+    "e": "2024 年 5 月 31 日，Larry Guth（MIT）和 James Maynard（牛津大学）在 arXiv 上挂出了一篇论文：\"New large value estimates …",
+    "d": "mathematics"
+  },
+  "/mathematics/frontier/euler-singularity": {
+    "t": "流体方程奇点的计算机辅助证明",
+    "e": "千禧年数学难题之一是纳维-斯托克斯方程：在三维空间中，光滑的初始流体运动能否在有限时间内发展出奇点（速度场在某点变得无界）？这个问题悬空了半个多世纪。",
+    "d": "mathematics"
+  },
+  "/mathematics/frontier/geometric-langlands": {
+    "t": "几何朗兰兹纲领的证明",
+    "e": "2024 年 5 月，一批数学家在 arXiv 上发出了第一篇论文，随后数月内陆续上传共五篇文章，总篇幅逾 800 页。作者名单是一份合作名录：D. Arinkin、D. Beraldo、L.…",
+    "d": "mathematics"
+  },
+  "/mathematics/frontier/kakeya-conjecture": {
+    "t": "挂谷猜想：三维的攻克",
+    "e": "2025 年 2 月 24 日，纽约大学 Courant 研究所的王虹（Hong Wang）与不列颠哥伦比亚大学的 Joshua Zahl 在 arXiv 上贴出一篇一百余页的预印本：\"Vol…",
+    "d": "mathematics"
+  },
+  "/mathematics/frontier/ml-guided-mathematics": {
+    "t": "机器学习辅助数学发现",
+    "e": "2021 年 12 月 1 日，《自然》杂志刊载了一篇不同寻常的论文，第一作者是 DeepMind 的研究员 Alex Davies，共同作者包括悉尼大学数学家 Geordie William…",
+    "d": "mathematics"
+  },
+  "/mathematics/frontier/ramsey-and-combinatorics-progress": {
+    "t": "拉姆齐数与组合学的新工具",
+    "e": "2023 年 3 月，四位组合学家——Marcelo Campos 与 Robert Morris（里约热内卢 IMPA）、Simon Griffiths（里约天主教大学）、Julian Sa…",
+    "d": "mathematics"
+  },
+  "/mathematics/frontier/sphere-packing-and-codes": {
+    "t": "球堆积与编码：Viazovska 之后",
+    "e": "2025 年 4 月，魏茨曼科学研究所的 Boaz Klartag 在 arXiv 上贴出一篇只有十几页的论文（arXiv:2504.05042），标题是\"用一个随机演化的椭球做高维格球堆积\"…",
+    "d": "mathematics"
+  },
+  "/mathematics/mathematicians/abel": {
+    "t": "阿贝尔",
+    "e": "尼尔斯·亨利克·阿贝尔（Niels Henrik Abel，1802—1829）是挪威数学家，26岁死于贫困和肺结核，却留下了改变代数学的深刻工作。他生于1802年8月5日，是七个孩子中的第二…",
+    "d": "mathematics"
+  },
+  "/mathematics/mathematicians/archimedes": {
+    "t": "阿基米德",
+    "e": "阿基米德（Archimedes，约前287—前212）是古希腊最伟大的数学家、物理学家和工程师，被誉为\"古代最伟大的天才\"。他出生于西西里岛的叙拉古城，父亲菲迪亚斯是一位天文学家。阿基米德曾在…",
+    "d": "mathematics"
+  },
+  "/mathematics/mathematicians/chern": {
+    "t": "陈省身",
+    "e": "陈省身（Shiing-Shen Chern，1911年10月26日—2004年12月3日）是20世纪最伟大的几何学家，被誉为\"微分几何之父\"。他的工作彻底改变了几何学的面貌，将局部微分几何与整…",
+    "d": "mathematics"
+  },
+  "/mathematics/mathematicians/euclid": {
+    "t": "欧几里得",
+    "e": "欧几里得（Euclid，约前325—前265）是古希腊最伟大的数学家之一，被誉为\"几何之父\"。他活跃于托勒密一世统治时期的亚历山大城，在那里建立了数学学派并撰写了影响人类两千多年的《几何原本》…",
+    "d": "mathematics"
+  },
+  "/mathematics/mathematicians/euler": {
+    "t": "欧拉",
+    "e": "莱昂哈德·欧拉（Leonhard Euler，1707—1783）是历史上最多产的数学家，发表了约866篇论文和著作，涵盖了数学的所有分支以及物理学、天文学和工程学。他的全集预计超过100卷，…",
+    "d": "mathematics"
+  },
+  "/mathematics/mathematicians/fermat": {
+    "t": "费马",
+    "e": "皮埃尔·德·费马（Pierre de Fermat，1601—1665）是法国数学家，被誉为\"业余数学家之王\"。他出生于法国南部的博蒙-德-洛马涅（Beaumont-de-Lomagne，今属…",
+    "d": "mathematics"
+  },
+  "/mathematics/mathematicians/galois": {
+    "t": "伽罗瓦",
+    "e": "埃瓦里斯特·伽罗瓦（Évariste Galois，1811—1832）是法国数学家，20岁死于决斗，留下了改变代数学的手稿。他出生于法国巴黎南郊的布尔-拉-雷讷，父亲是当地市长，母亲是法官的…",
+    "d": "mathematics"
+  },
+  "/mathematics/mathematicians/gauss": {
+    "t": "高斯",
+    "e": "卡尔·弗里德里希·高斯（Carl Friedrich Gauss，1777—1855）被誉为\"数学之王\"（Princeps Mathematicorum），是人类历史上最伟大的数学家之一。他出…",
+    "d": "mathematics"
+  },
+  "/mathematics/mathematicians/godel": {
+    "t": "哥德尔",
+    "e": "库尔特·哥德尔（Kurt Gödel，1906—1978）是奥地利裔美国数学家和逻辑学家，20世纪最伟大的逻辑学家。他出生于奥匈帝国的布尔诺（今捷克共和国），父亲是纺织业商人。哥德尔从小就展现…",
+    "d": "mathematics"
+  },
+  "/mathematics/mathematicians/grothendieck": {
+    "t": "格罗滕迪克",
+    "e": "亚历山大·格罗滕迪克（Alexander Grothendieck，1928—2014）是20世纪最伟大的数学家之一，被誉为\"代数几何的重塑者\"。他的工作彻底改变了代数几何的面貌，并深刻影响了…",
+    "d": "mathematics"
+  },
+  "/mathematics/mathematicians/hilbert": {
+    "t": "希尔伯特",
+    "e": "大卫·希尔伯特（David Hilbert，1862—1943）是20世纪初最伟大的数学家之一，他对数学的发展方向产生了深远影响。他出生于普鲁士的柯尼斯堡（今俄罗斯加里宁格勒），父亲是法官，母…",
+    "d": "mathematics"
+  },
+  "/mathematics/mathematicians/hua-luogeng": {
+    "t": "华罗庚",
+    "e": "华罗庚（1910年11月12日—1985年6月12日）是中国现代最著名的数学家，在解析数论、矩阵几何学、多复变函数论、优选法等领域作出了国际一流的贡献。他的人生轨迹几乎是一个关于意志的传奇：没…",
+    "d": "mathematics"
+  },
+  "/mathematics/mathematicians/leibniz": {
+    "t": "莱布尼茨",
+    "e": "戈特弗里德·威廉·莱布尼茨（Gottfried Wilhelm Leibniz，1646—1716）是德国数学家、哲学家和博学家，被誉为\"最后一个通才\"。他出生于莱比锡，父亲是莱比锡大学的道德…",
+    "d": "mathematics"
+  },
+  "/mathematics/mathematicians/liu-hui": {
+    "t": "刘徽",
+    "e": "刘徽（约公元225—约295年）是魏晋时期的数学家，中国古典数学理论最重要的奠基者之一。他的生平资料留存甚少，籍贯一般认为在今山东一带。我们所知的，几乎全部来自他在公元263年完成的那部不朽注…",
+    "d": "mathematics"
+  },
+  "/mathematics/mathematicians/mirzakhani": {
+    "t": "米尔扎哈尼",
+    "e": "玛利亚姆·米尔扎哈尼（Maryam Mirzakhani，1977年5月12日—2017年7月14日）是伊朗裔美国数学家，斯坦福大学数学系教授。2014年，她在首尔（Seoul）国际数学家大会…",
+    "d": "mathematics"
+  },
+  "/mathematics/mathematicians/newton": {
+    "t": "牛顿",
+    "e": "艾萨克·牛顿（Isaac Newton，1642—1727）是人类历史上最伟大的数学家和物理学家之一。他出生于英格兰林肯郡伍尔索普庄园，是一个早产儿，出生时体型小到可以装进一夸脱的杯子。牛顿的…",
+    "d": "mathematics"
+  },
+  "/mathematics/mathematicians/noether": {
+    "t": "诺特",
+    "e": "艾米·诺特（Emmy Noether，1882—1935）是德国数学家，抽象代数的奠基人之一，被誉为\"数学史上最重要的女性数学家\"。她出生于德国埃尔朗根，父亲马克斯·诺特（Max Noethe…",
+    "d": "mathematics"
+  },
+  "/mathematics/mathematicians/poincare": {
+    "t": "庞加莱",
+    "e": "亨利·庞加莱（Henri Poincaré，1854—1912）是法国数学家、物理学家和天文学家，被誉为\"最后一位数学全才\"。他出生于法国南锡，是一位著名医生的儿子。庞加莱的表弟雷蒙·庞加莱后…",
+    "d": "mathematics"
+  },
+  "/mathematics/mathematicians/ramanujan": {
+    "t": "拉马努金",
+    "e": "斯里尼瓦瑟·拉马努金（Srinivasa Ramanujan，1887—1920）是印度数学家，自学成才的天才，留下了近4000个数学公式，许多在他去世后才被证明。他出生于印度南部泰米尔纳德邦…",
+    "d": "mathematics"
+  },
+  "/mathematics/mathematicians/riemann": {
+    "t": "黎曼",
+    "e": "伯恩哈德·黎曼（Bernhard Riemann，1826—1866）是19世纪最富创造力的数学家之一，他的工作深刻改变了数学的面貌。他出生于德国汉诺威的布雷斯伦茨，是路德教会牧师的六个孩子中…",
+    "d": "mathematics"
+  },
+  "/mathematics/mathematicians/sophie-germain": {
+    "t": "索菲·热尔曼",
+    "e": "索菲·热尔曼（Sophie Germain，1776年4月1日—1831年6月27日）是法国数学家，在数论和数学物理两个领域都留下了重要贡献。她的一生是一部关于在制度性排斥中坚持数学研究的真实…",
+    "d": "mathematics"
+  },
+  "/mathematics/mathematicians/turing": {
+    "t": "图灵",
+    "e": "艾伦·图灵（Alan Turing，1912—1954）是英国数学家、计算机科学之父和人工智能先驱。他出生于英国伦敦帕丁顿，父亲是印度民政部的公务员。图灵从小就展现出对科学和数学的浓厚兴趣。",
+    "d": "mathematics"
+  },
+  "/mathematics/mathematicians/zu-chongzhi": {
+    "t": "祖冲之",
+    "e": "提起祖冲之，多数人记得的是小学课本里那串数字——他把圆周率算到了小数点后七位。但如果只记住这个，就错过了真正了不起的地方。",
+    "d": "mathematics"
+  },
+  "/mathematics/paradoxes/banach-tarski": {
+    "t": "巴拿赫-塔斯基悖论",
+    "e": "换句话说：你可以把一个球切成有限块，重新拼成两个同样大小的球。这似乎违反了体积守恒的直觉——一变二？如果这种分解能应用于物理对象，你可以把一个苹果切成几块，然后拼成两个同样大小的苹果。",
+    "d": "mathematics"
+  },
+  "/mathematics/paradoxes/bertrands-box": {
+    "t": "贝特朗盒子悖论",
+    "e": "有三个盒子：第一个装两枚金币（GG），第二个装两枚银币（SS），第三个装一枚金币和一枚银币（GS）。随机选一个盒子，从中随机取出一枚硬币——是金币。问：同一盒子中另一枚也是金币的概率是多少？直…",
+    "d": "mathematics"
+  },
+  "/mathematics/paradoxes/coastline": {
+    "t": "海岸线悖论",
+    "e": "英国的海岸线有多长？答案取决于你用多长的尺子去量。用100公里的尺子量，得到一个长度；用1公里的尺子量，得到更长的长度；用1米的尺子量，得到更长的长度……当尺子长度趋向于零时，海岸线的长度趋向…",
+    "d": "mathematics"
+  },
+  "/mathematics/paradoxes/fifth-postulate-proofs": {
+    "t": "第五公设的证明史：两千年的失败如何造出一门新几何",
+    "e": "《几何原本》开篇列出五条公设。前四条读起来像是在描述作图：两点可连一条直线；线段可延长；以任意点为心任意长为半径可作圆；所有直角相等。",
+    "d": "mathematics"
+  },
+  "/mathematics/paradoxes/godel-incompleteness-paradox": {
+    "t": "哥德尔不完备性定理（自指与悖论视角）",
+    "e": "通俗地说：数学不能被完全装进一个有限的公理系统中——总有真理在系统之外。而且，你无法用数学证明数学本身不会自相矛盾。",
+    "d": "mathematics"
+  },
+  "/mathematics/paradoxes/infinity-hotel": {
+    "t": "希尔伯特旅馆",
+    "e": "希尔伯特旅馆有无穷多个房间（编号 1, 2, 3, ...），每个房间都住满了客人。此时来了一个新客人，前台能安排吗？",
+    "d": "mathematics"
+  },
+  "/mathematics/paradoxes/monty-hall": {
+    "t": "蒙提霍尔问题",
+    "e": "你参加一个游戏节目。面前有三扇门：一扇后面是汽车，另外两扇后面是山羊。你选择了一扇门（比如1号门）。主持人（知道汽车在哪扇门后面）打开另一扇有山羊的门（比如3号门），然后问你：要不要换到2号门…",
+    "d": "mathematics"
+  },
+  "/mathematics/paradoxes/russels-paradox": {
+    "t": "罗素悖论",
+    "e": "考虑集合 R = \\{x \\mid x \\notin x\\}——即\"所有不包含自身的集合\"所组成的集合。问：R 是否包含自身？",
+    "d": "mathematics"
+  },
+  "/mathematics/paradoxes/simpsons-paradox": {
+    "t": "辛普森悖论",
+    "e": "经典案例（加州大学伯克利分校招生，1973年）：",
+    "d": "mathematics"
+  },
+  "/mathematics/paradoxes/st-petersburg-paradox": {
+    "t": "圣彼得堡悖论",
+    "e": "设想一枚公平硬币被反复抛掷，直到第一次出现正面。若第一次就出现正面，奖金为 2 元；若第二次才出现，奖金为 4 元；若第 (n) 次才出现，奖金为 (2^n) 元。你愿意付多少钱参加一次？",
+    "d": "mathematics"
+  },
+  "/mathematics/paradoxes/two-envelope": {
+    "t": "信封悖论",
+    "e": "你面前有两个信封，其中一个装的钱是另一个的两倍。你随机选了一个，打开后发现里面有 x 元。现在你可以选择换到另一个信封。推理：另一个信封有 50% 的概率是 2x，50% 的概率是 x/2。期…",
+    "d": "mathematics"
+  },
+  "/mathematics/paradoxes/zeno-paradoxes": {
+    "t": "芝诺悖论",
+    "e": "芝诺（Zeno of Elea，约前490—前430）据普罗克洛斯记载提出了约四十个论证（仅约九个流传至今），其中最著名的是阿基里斯与乌龟：假设飞毛腿阿基里斯让乌龟先行一百米。当阿基里斯跑到乌…",
+    "d": "mathematics"
+  },
+  "/mathematics/theorems/bayes-theorem": {
+    "t": "贝叶斯定理",
+    "e": "设想一种发病率千分之一的罕见病，检测准确率高达 99%。你拿到一张阳性报告，第一反应多半是\"完了，九成九中招了\"。可正确答案是：你真正患病的概率大约只有 9%。原因不难理解——病太罕见，在一万…",
+    "d": "mathematics"
+  },
+  "/mathematics/theorems/cantors-theorem": {
+    "t": "康托尔定理",
+    "e": "两千多年里，\"无穷\"一直被当成一团模糊、不可分割的东西——亚里士多德甚至主张，无穷只能\"潜在\"地存在，不能真的攥在手里。1874 年，29 岁的康托尔做了一件离经叛道的事：他证明了实数比自然数…",
+    "d": "mathematics"
+  },
+  "/mathematics/theorems/central-limit-theorem": {
+    "t": "中心极限定理",
+    "e": "掷一颗骰子，结果在 1 到 6 之间均匀分布，画出来是一条平直的横线，跟\"钟形曲线\"毫无关系。可一旦你掷 30 颗骰子求平均，再把这个平均值的分布画出来，它会神奇地隆起成一座对称的钟形山——而…",
+    "d": "mathematics"
+  },
+  "/mathematics/theorems/divergence-theorem": {
+    "t": "散度定理",
+    "e": "设 V 是三维空间中的有界闭区域，边界 \\partial V 分段光滑且取外法向。设 \\mathbf{F} 是在包含 V 的开集上连续可微的向量场，则",
+    "d": "mathematics"
+  },
+  "/mathematics/theorems/euler-identity": {
+    "t": "欧拉恒等式",
+    "e": "e^{i\\pi} + 1 = 0",
+    "d": "mathematics"
+  },
+  "/mathematics/theorems/fermat-last-theorem": {
+    "t": "费马大定理",
+    "e": "1637 年前后，费马在他那本巴歇翻译的丢番图《算术》页边，读到关于勾股数的一段，随手写下一行拉丁文：「Cuius rei demonstrationem mirabilem sane det…",
+    "d": "mathematics"
+  },
+  "/mathematics/theorems/four-color-theorem": {
+    "t": "四色定理",
+    "e": "1852 年，一个叫弗朗西斯·格思里的年轻人正在给一张英格兰各郡的地图涂色，想让相邻的郡颜色不同。他注意到一件怪事：不管地图多复杂，自己好像永远只要四种颜色就够，从没被逼着拿出第五种。他把这个…",
+    "d": "mathematics"
+  },
+  "/mathematics/theorems/fundamental-theorem-of-algebra": {
+    "t": "代数基本定理",
+    "e": "1629 年，吉拉尔已经猜到：n 次方程应该恰好有 n 个根。可\"应该有\"和\"一定有\"之间隔着一道深沟——达朗贝尔在 1746 年试着填，欧拉、拉格朗日也试过，证明都漏了缝。1799 年，22…",
+    "d": "mathematics"
+  },
+  "/mathematics/theorems/fundamental-theorem-of-calculus": {
+    "t": "微积分基本定理",
+    "e": "求一条曲线下的面积，和求一条曲线的斜率，乍看是风马牛不相及的两个问题——一个要把无数细条加起来，一个只盯着一点附近的变化。在 17 世纪 60—80 年代，牛顿（从运动学切入，把变量看成时间的…",
+    "d": "mathematics"
+  },
+  "/mathematics/theorems/gauss-bonnet": {
+    "t": "高斯-博内定理",
+    "e": "剥下一整张橙子皮，想把它平铺到桌面上，你只能把它撕裂——它总是要么鼓起、要么开裂，绝不肯乖乖摊成一张平面。这不是手笨，而是数学不允许：球面带着一笔\"还不清\"的弯曲，无论你怎么揉捏（只要不撕、不…",
+    "d": "mathematics"
+  },
+  "/mathematics/theorems/godel-incompleteness": {
+    "t": "哥德尔不完备定理",
+    "e": "1930 年 9 月 7 日，柯尼斯堡一场关于数学基础的圆桌讨论快结束时，一个 24 岁、几乎没人认识的年轻人插了句话。他叫库尔特·哥德尔，说的大意是：任何足够强的、不矛盾的数学系统里，都存在…",
+    "d": "mathematics"
+  },
+  "/mathematics/theorems/green-theorem": {
+    "t": "格林定理",
+    "e": "设 D 是平面上的有界闭区域，边界 \\partial D 分段光滑且取正向（逆时针方向）。设 P(x,y) 和 Q(x,y) 在包含 D 的开集上连续可微，则",
+    "d": "mathematics"
+  },
+  "/mathematics/theorems/law-of-large-numbers": {
+    "t": "大数定律",
+    "e": "抛一枚均匀硬币，正面概率是 1/2。但你抛 10 次，完全可能出现 7 次正面（频率 0.7，离 0.5 很远）。那凭什么我们敢说硬币是公平的？",
+    "d": "mathematics"
+  },
+  "/mathematics/theorems/noethers-theorem": {
+    "t": "诺特定理",
+    "e": "为什么能量会守恒？十九世纪的物理课只会告诉你\"它就是守恒\"，像一条记下来的实验铁律。1918 年，哥廷根的艾米·诺特给出了一个深得多的回答：能量守恒，是因为物理定律不随时间改变；动量守恒，是因…",
+    "d": "mathematics"
+  },
+  "/mathematics/theorems/p-vs-np": {
+    "t": "P vs NP 问题",
+    "e": "即：每一个解可以被快速验证的问题，是否也一定可以被快速求解？",
+    "d": "mathematics"
+  },
+  "/mathematics/theorems/poincare-conjecture": {
+    "t": "庞加莱猜想",
+    "e": "2002 年 11 月 11 日，一个隐居在圣彼得堡、几乎与外界断了联系的俄国人，把一篇 39 页的论文悄悄贴到了 arXiv 预印本网站上，标题平淡得像篇技术报告——《里奇流的熵公式及其几何…",
+    "d": "mathematics"
+  },
+  "/mathematics/theorems/prime-number-theorem": {
+    "t": "素数定理",
+    "e": "素数（只能被 1 和自身整除的数）给人的第一印象是任性而不可捉摸：2, 3, 5, 7, 11, 13\\dots，没有公式能直接吐出第 n 个素数，相邻素数的间距忽大忽小。两千年来，人们一直觉…",
+    "d": "mathematics"
+  },
+  "/mathematics/theorems/pythagorean-theorem": {
+    "t": "勾股定理",
+    "e": "设直角三角形的两直角边长分别为 a、b，斜边长为 c，则",
+    "d": "mathematics"
+  },
+  "/mathematics/theorems/riemann-hypothesis": {
+    "t": "黎曼猜想",
+    "e": "素数（2, 3, 5, 7, 11, …）出现的位置看上去毫无规律，像随手撒下的一把沙。1859 年，黎曼写下他一生中唯一一篇数论论文，把这把沙的分布，和一个复变量函数 \\zeta(s) 的\"…",
+    "d": "mathematics"
+  },
+  "/mathematics/theorems/stokes-theorem": {
+    "t": "斯托克斯定理",
+    "e": "要清点一块湖面里所有漩涡的总和，你不必划着船把整片水面量个遍——只要沿着湖岸走一圈，感受水流对你的净推力，就够了。内部所有点的\"旋转\"加起来，恰好等于边界上一圈的\"环流\"。把内部的总账，换算成…",
+    "d": "mathematics"
+  },
+  "/mathematics/theorems/taylor-theorem": {
+    "t": "泰勒定理",
+    "e": "在计算器上按下 \\sin(1)，屏幕立刻跳出 0.841470984\\ldots。但芯片里并没有一个\"正弦零件\"——它只会做加、减、乘、除这四样最朴素的运算。它怎么算出正弦的？办法是把 \\si…",
+    "d": "mathematics"
+  },
+  "/mathematics/knowledge-base/代数--线性代数的几何意义": {
+    "t": "线性代数的几何意义",
+    "e": "线性代数; 向量空间; 线性变换; 矩阵; 特征值; 基变换; 几何直觉",
+    "d": "mathematics"
+  },
+  "/mathematics/knowledge-base/代数--群论与对称": {
+    "t": "群论与对称",
+    "e": "群论; 对称性; 伽罗瓦; 群作用; 表示论; 李群; 物理学; 晶体学",
+    "d": "mathematics"
+  },
+  "/mathematics/knowledge-base/几何--拓扑学入门": {
+    "t": "拓扑学入门",
+    "e": "拓扑学; 同胚; 欧拉示性数; 基本群; 连通性; 紧致性; 莫比乌斯带; 克莱因瓶",
+    "d": "mathematics"
+  },
+  "/mathematics/knowledge-base/几何--非欧几何革命": {
+    "t": "非欧几何革命",
+    "e": "平行公设; 非欧几何; 双曲几何; 椭圆几何; 罗巴切夫斯基; 鲍耶; 高斯; 黎曼; 几何基础",
+    "d": "mathematics"
+  },
+  "/mathematics/knowledge-base/分析--微积分的故事": {
+    "t": "微积分的故事",
+    "e": "微积分; 极限; 导数; 积分; 牛顿; 莱布尼茨; 柯西; 魏尔斯特拉斯; 微积分基本定理",
+    "d": "mathematics"
+  },
+  "/mathematics/knowledge-base/分析--无穷的故事": {
+    "t": "无穷的故事",
+    "e": "无穷; 康托尔; 集合论; 基数; 可数无穷; 不可数无穷; 连续统假设; 对角线论证",
+    "d": "mathematics"
+  },
+  "/mathematics/knowledge-base/应用--人工智能的数学": {
+    "t": "人工智能的数学",
+    "e": "人工智能; 机器学习; 神经网络; 梯度下降; 反向传播; 优化; 概率论; 线性代数",
+    "d": "mathematics"
+  },
+  "/mathematics/knowledge-base/应用--信息论基础": {
+    "t": "信息论基础",
+    "e": "信息论; 信息熵; 信道容量; 数据压缩; 霍夫曼编码; 交叉熵; KL 散度; DNA 信息",
+    "d": "mathematics"
+  },
+  "/mathematics/knowledge-base/应用--决策科学导论": {
+    "t": "决策科学导论",
+    "e": "决策科学是研究人类如何做出选择以及如何改进这些选择的跨学科领域。它融合了心理学、经济学、数学、神经科学和哲学的洞见，试图理解从个人日常选择到国家政策制定的决策过程。决策不仅是一种行为，更是一种…",
+    "d": "mathematics"
+  },
+  "/mathematics/knowledge-base/应用--博弈论日常应用": {
+    "t": "博弈论如何解释日常行为",
+    "e": "博弈论; 囚徒困境; 纳什均衡; 合作演化; 信号博弈; 拍卖; 重复博弈",
+    "d": "mathematics"
+  },
+  "/mathematics/knowledge-base/应用--复杂性科学入门": {
+    "t": "什么是复杂系统？",
+    "e": "复杂系统; 涌现; 自组织; 非线性; 适应性; 信息熵; 不可约简性",
+    "d": "mathematics"
+  },
+  "/mathematics/knowledge-base/应用--复杂系统入门": {
+    "t": "复杂系统入门",
+    "e": "复杂系统科学研究那些由大量相互作用的组成部分构成、且整体行为无法从部分行为简单推导的系统。从蚁群到互联网，从细胞到城市，复杂系统无处不在，它们遵循着某些共同的组织原则。理解这些原则不仅具有学术…",
+    "d": "mathematics"
+  },
+  "/mathematics/knowledge-base/应用--密码学的数学": {
+    "t": "密码学的数学",
+    "e": "密码学; 凯撒密码; RSA; 椭圆曲线; 素数; 模运算; 公钥密码; 数论",
+    "d": "mathematics"
+  },
+  "/mathematics/knowledge-base/应用--概率与决策": {
+    "t": "概率与决策",
+    "e": "概率论; 决策论; 期望效用; 贝叶斯定理; 风险; 不确定性; 博弈; 保险",
+    "d": "mathematics"
+  },
+  "/mathematics/knowledge-base/应用--混沌与分形": {
+    "t": "混沌与分形",
+    "e": "混沌; 分形; 蝴蝶效应; 初值敏感性; 奇异吸引子; 曼德博集合; 庞加莱; 洛伦兹",
+    "d": "mathematics"
+  },
+  "/mathematics/knowledge-base/应用--网络科学导论": {
+    "t": "网络科学导论",
+    "e": "网络科学; 图论; 小世界网络; 无标度网络; 幂律; PageRank; 传播动力学; 复杂系统",
+    "d": "mathematics"
+  },
+  "/mathematics/knowledge-base/数学基础--什么是数学": {
+    "t": "什么是数学",
+    "e": "数学定义; 形式科学; 抽象; 模式; 结构; 公理化; 数学柏拉图主义; 形式主义; 直觉主义; 数学基础",
+    "d": "mathematics"
+  },
+  "/mathematics/knowledge-base/数学基础--数学与现实": {
+    "t": "数学与现实",
+    "e": "数学应用; 不合理有效性; 数学柏拉图主义; 物理学; 数学建模; 自然科学; 纯粹数学; 应用数学",
+    "d": "mathematics"
+  },
+  "/mathematics/knowledge-base/数学基础--证明的艺术": {
+    "t": "证明的艺术",
+    "e": "证明; 演绎推理; 归谬法; 数学归纳法; 构造性证明; 计算机辅助证明; 证明美学; 数学严格性",
+    "d": "mathematics"
+  },
+  "/mathematics/knowledge-base/数论--素数之谜": {
+    "t": "素数之谜",
+    "e": "素数; 素数定理; 黎曼ζ函数; 黎曼猜想; 素数分布; 解析数论; 筛法; 哥德巴赫猜想",
+    "d": "mathematics"
+  },
+  "/mathematics/knowledge-base/数论--费马大定理": {
+    "t": "费马大定理",
+    "e": "费马大定理; 丢番图方程; 椭圆曲线; 模形式; 谷山-志村猜想; 怀尔斯; 伽罗瓦表示",
+    "d": "mathematics"
+  },
+  "/mathematics/knowledge-base/统计--因果推断入门": {
+    "t": "因果推断入门",
+    "e": "\"相关不等于因果\"是统计学中最重要也最容易被忽视的原则。理解因果关系——而不仅仅是相关关系——是科学推理、政策制定和日常决策的基础。因果推断提供了从数据中识别因果关系的严格框架，它正在改变经济…",
+    "d": "mathematics"
+  },
+  "/mathematics/knowledge-base/统计--贝叶斯统计入门": {
+    "t": "贝叶斯统计入门",
+    "e": "贝叶斯定理; 先验分布; 后验推断; 频率派; 贝叶斯神经网络; 不确定性量化; 马尔可夫链蒙特卡洛",
+    "d": "mathematics"
+  }
+}

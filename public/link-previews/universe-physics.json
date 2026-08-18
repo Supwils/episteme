@@ -1,0 +1,877 @@
+{
+  "/universe-physics/dialogues/bohr-heisenberg": {
+    "t": "玻尔 vs 海森堡：互补性原理",
+    "e": "",
+    "d": "universe-physics"
+  },
+  "/universe-physics/dialogues/bohr-nagarjuna": {
+    "t": "玻尔 vs 龙树：互补性与空性",
+    "e": "尼尔斯·玻尔（Niels Bohr, 1885—1962）的互补性原理是量子力学哥本哈根诠释的核心：波和粒子是对同一物理实在的互补描述，但它们永远不会在同一次实验中同时出现。龙树（Nāgārj…",
+    "d": "universe-physics"
+  },
+  "/universe-physics/dialogues/dirac-feynman": {
+    "t": "狄拉克 vs 费曼：数学美 vs 物理直觉",
+    "e": "",
+    "d": "universe-physics"
+  },
+  "/universe-physics/dialogues/einstein-kant": {
+    "t": "爱因斯坦 vs 康德：时空的先验性",
+    "e": "伊曼努尔·康德（Immanuel Kant, 1724—1804）在《纯粹理性批判》中提出了一个革命性的主张：时间和空间不是客观存在的实体，而是人类认知的\"先天直观形式\"——我们通过时间和空间…",
+    "d": "universe-physics"
+  },
+  "/universe-physics/dialogues/feynman-oppenheimer": {
+    "t": "费曼 vs 奥本海默：科学的责任",
+    "e": "",
+    "d": "universe-physics"
+  },
+  "/universe-physics/dialogues/feynman-wittgenstein": {
+    "t": "费曼 vs 维特根斯坦：物理直觉 vs 语言分析",
+    "e": "理查德·费曼（Richard Feynman, 1918—1988）是20世纪最具直觉洞察力的物理学家之一。他发明了费曼图、提出了路径积分量子化，以\"没人真正理解量子力学\"的名言著称。他坚信物…",
+    "d": "universe-physics"
+  },
+  "/universe-physics/dialogues/hawking-penrose": {
+    "t": "霍金 vs 彭罗斯：黑洞信息悖论",
+    "e": "霍金与彭罗斯的争论触及了理论物理学最深层的张力：广义相对论与量子力学的兼容性。彭罗斯坚持经典广义相对论的结论——奇点是时空的真实终结，信息在奇点处被销毁。霍金则从量子力学的幺正性出发，主张信息…",
+    "d": "universe-physics"
+  },
+  "/universe-physics/dialogues/heisenberg-schrodinger": {
+    "t": "海森堡 vs 薛定谔：量子力学的两种诠释",
+    "e": "海森堡与薛定谔的争论不仅是数学形式体系之争，更是关于物理学本质的深层分歧。海森堡的矩阵力学从可观测量出发——只关心实验中能测量到的东西（光谱线的频率和强度），拒绝构建无法验证的物理图像。薛定谔…",
+    "d": "universe-physics"
+  },
+  "/universe-physics/dialogues/higgs-englert": {
+    "t": "希格斯 vs 恩格勒特：希格斯场的发现",
+    "e": "",
+    "d": "universe-physics"
+  },
+  "/universe-physics/dialogues/maxwell-faraday": {
+    "t": "麦克斯韦 vs 法拉第：场论的数学与直觉",
+    "e": "",
+    "d": "universe-physics"
+  },
+  "/universe-physics/dialogues/penrose-wheeler": {
+    "t": "彭罗斯 vs 惠勒：黑洞与量子引力",
+    "e": "",
+    "d": "universe-physics"
+  },
+  "/universe-physics/dialogues/planck-einstein": {
+    "t": "普朗克 vs 爱因斯坦：量子的诞生与反叛",
+    "e": "",
+    "d": "universe-physics"
+  },
+  "/universe-physics/dialogues/planck-mendel": {
+    "t": "普朗克 vs 孟德尔：量子与遗传",
+    "e": "马克斯·普朗克（Max Planck, 1858—1947）在1900年提出了能量量子化假说——能量不是连续的，而是以离散的\"量子\"形式存在。这一发现开启了量子物理学的大门。格雷戈尔·孟德尔（…",
+    "d": "universe-physics"
+  },
+  "/universe-physics/dialogues/schrodinger-darwin": {
+    "t": "薛定谔 vs 达尔文：生命是什么",
+    "e": "埃尔温·薛定谔（Erwin Schrödinger, 1887—1961）是量子力学的奠基人之一，他在1944年出版了《生命是什么》——一本试图用物理学来解释生命的经典著作。他提出，生命以\"负…",
+    "d": "universe-physics"
+  },
+  "/universe-physics/dialogues/tesla-edison": {
+    "t": "特斯拉 vs 爱迪生：交流电 vs 直流电",
+    "e": "",
+    "d": "universe-physics"
+  },
+  "/universe-physics/frontier/attosecond-physics": {
+    "t": "阿秒物理：实时\"拍摄\"电子运动",
+    "e": "1 阿秒（attosecond）等于 10^{-18} 秒。",
+    "d": "universe-physics"
+  },
+  "/universe-physics/frontier/dark-matter-direct-detection": {
+    "t": "暗物质直接探测的\"沉默\"",
+    "e": "宇宙中 85% 的物质是不发光、不发射任何已知辐射的暗物质。这个数字来自银河系的旋转曲线、宇宙大尺度结构的观测和宇宙微波背景辐射的精确测量，几十年来被无数独立观测交叉确认，被视为当代宇宙学最确…",
+    "d": "universe-physics"
+  },
+  "/universe-physics/frontier/fusion-ignition-era": {
+    "t": "受控核聚变的\"点火\"时代",
+    "e": "2022 年 12 月 5 日凌晨，在加利福尼亚州劳伦斯利弗莫尔国家实验室，192 束激光在万亿分之一秒内同时轰击一粒直径约 2 毫米的氘氚靶丸。",
+    "d": "universe-physics"
+  },
+  "/universe-physics/frontier/muon-g2-self-correction": {
+    "t": "μ子反常磁矩：标准模型的\"自我修复\"",
+    "e": "2021 年 4 月 7 日，费米实验室的 g-2 实验公布了第一批测量结果。",
+    "d": "universe-physics"
+  },
+  "/universe-physics/frontier/quantum-error-correction": {
+    "t": "量子纠错跨过门槛",
+    "e": "2024 年 12 月，Google 的量子团队在《自然》上报告了一件许多人等了近三十年的事。",
+    "d": "universe-physics"
+  },
+  "/universe-physics/frontier/room-temperature-superconductor": {
+    "t": "室温超导：圣杯、谎言与真实进展",
+    "e": "2023 年 7 月下旬，一篇来自韩国团队的 arXiv 预印本在物理学界引发了一场几十年来规模最大的\"集体复现热潮\"。",
+    "d": "universe-physics"
+  },
+  "/universe-physics/frontier/topological-qubits-majorana": {
+    "t": "拓扑量子比特与马约拉纳费米子",
+    "e": "1997 年，数学物理学家 Alexei Kitaev 在一篇题为\"容错量子计算——任意子\"的预印本中提出了一个看似疯狂的想法：把量子信息编码进拓扑结构而不是单个粒子，让量子比特在\"几何上\"免…",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/光学--geometric-optics-and-lenses": {
+    "t": "几何光学与透镜成像",
+    "e": "折射定律; 斯涅尔定律; 费马原理; 薄透镜方程; 焦距; 数值孔径; 球差; 色差; 畸变; 高斯光学; 光线追迹; 望远镜; 显微镜",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/光学--interference-and-diffraction": {
+    "t": "光的干涉与衍射",
+    "e": "干涉; 衍射; 杨氏双缝实验; 惠更斯-菲涅耳原理; 相干性; 衍射极限; 瑞利判据; 单缝衍射; 衍射光栅; 全息照相; 阿贝成像理论; X射线晶体学",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/光学--optical-fiber-and-total-internal-reflection": {
+    "t": "光纤与全内反射",
+    "e": "全内反射; 临界角; 斯涅尔定律; 倏逝波; 单模光纤; 多模光纤; 色散; 光纤放大器; EDFA; 波分复用; 光子晶体光纤; 量子密钥分发",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/光学--polarization": {
+    "t": "偏振",
+    "e": "线偏振; 圆偏振; 椭圆偏振; 马吕斯定律; 布儒斯特角; 双折射; 旋光性; 偏振片; 斯托克斯参数; 琼斯矩阵; 液晶; 量子密钥分发",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/光学--光的色散与彩虹": {
+    "t": "光的色散与彩虹",
+    "e": "色散; 折射率; 阿贝数; 色差; 棱镜; 彩虹; 虹; 霓; 亚历山大暗带; 反射率; 全内反射",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/光学--全息术": {
+    "t": "全息术",
+    "e": "全息图; 波前重建; 参考光; 物光; 干涉条纹; 衍射; 透射全息图; 反射全息图; 数字全息; 全息存储",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/光学--激光冷却与原子阱": {
+    "t": "激光冷却与原子阱",
+    "e": "多普勒冷却; 磁光阱; 光学糖蜜; 反冲极限; 亚多普勒冷却; 蒸发冷却; 光晶格; 原子钟; 光晶格钟; 量子气体显微镜",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/光学--激光原理与应用": {
+    "t": "激光原理与应用",
+    "e": "受激辐射; 粒子数反转; 光学谐振腔; 相干性; 模式; 线宽; 半导体激光; 光纤激光; 超短脉冲; 非线性光学",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/光学--瑞利散射与天空的颜色": {
+    "t": "瑞利散射与天空的颜色",
+    "e": "瑞利散射; 波长四次方反比; 米氏散射; 廷德尔效应; 天空蓝色; 落日红色; 散射偏振; 大气光学; 蓝色月亮; 火星天空",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/光学--非线性光学": {
+    "t": "非线性光学",
+    "e": "二次谐波产生; 三次谐波; 参量放大; 克尔效应; 光孤子; 受激拉曼散射; 自相位调制; 光频梳; 非线性晶体; 相位匹配",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/凝聚态物理--anderson-localization": {
+    "t": "安德森局域化",
+    "e": "安德森局域化; 无序; 量子干涉; 波函数; 迁移率边; 标度理论; 四人帮; 金属-绝缘体转变; 弱局域化; 多体局域化; 光局域化",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/凝聚态物理--bose-einstein-condensate": {
+    "t": "玻色-爱因斯坦凝聚",
+    "e": "BEC; 玻色子; 玻色-爱因斯坦统计; 激光冷却; 蒸发冷却; 宏观量子态; 相干性; 原子激光; 科内尔; 维曼; 科特尔; 冷原子",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/凝聚态物理--crystal-structure-bragg-diffraction": {
+    "t": "晶体结构与布拉格衍射",
+    "e": "晶体; 布拉维格子; 单元胞; 布拉格定律; X射线衍射; 劳厄; 倒格空间; 结构因子; 蛋白质晶体学; 石英; 氯化钠",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/凝聚态物理--fermi-liquid-theory": {
+    "t": "费米液体理论",
+    "e": "费米液体; 朗道; 准粒子; 费米面; 有效质量; 电子-电子相互作用; 比热线性项; 重费米子; 非费米液体; 奇异金属; 量子相变",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/凝聚态物理--ising-model": {
+    "t": "伊辛模型",
+    "e": "伊辛模型; 楞次; 昂萨格; 自旋; 铁磁相变; 临界温度; 自发对称性破缺; 普适类; 临界指数; 蒙特卡洛; 平均场; 二维精确解",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/凝聚态物理--phonons-lattice-vibrations": {
+    "t": "声子与晶格振动",
+    "e": "声子; 晶格振动; 简正模; 声学支; 光学支; 德拜模型; 爱因斯坦模型; 热容量; 热导率; Umklapp过程; 电声子耦合; BCS超导",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/凝聚态物理--quantum-hall-effect": {
+    "t": "量子霍尔效应",
+    "e": "量子霍尔效应; 霍尔电阻; 朗道能级; 二维电子气; 磁场; 克利青; 劳林; 拓扑不变量; 陈数; 分数量子霍尔; 任意子",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/凝聚态物理--quasicrystals": {
+    "t": "准晶",
+    "e": "准晶; 谢赫特曼; 五重对称; 禁阻对称; 彭罗斯镶嵌; 黄金比例; 非周期性; 准周期; 晶体学定律; 高维投影; 鲍林之争",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/凝聚态物理--semiconductor-physics": {
+    "t": "半导体物理",
+    "e": "半导体; 能带; 禁带; 掺杂; n型p型; pn结; 晶体管; 肖克利; 硅; 集成电路; 费米能级; 空穴",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/凝聚态物理--spin-glass": {
+    "t": "自旋玻璃与无序系统",
+    "e": "自旋玻璃; 阻挫; 无序; 爱德华兹-安德森模型; 谢林顿-柯克帕特里克模型; 帕里西; 复本对称破缺; 亚稳态; 能量地形; 自旋玻璃序参量; 优化问题",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/凝聚态物理--superfluidity": {
+    "t": "超流体",
+    "e": "超流体; 氦-4; 氦-3; 临界温度; 朗道二流体模型; 零粘度; 量子涡旋; 毛细管流动; 卡皮查; 无摩擦流动; 喷泉效应; Cooper对",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/凝聚态物理--topological-insulators": {
+    "t": "拓扑绝缘体",
+    "e": "拓扑绝缘体; 时间反演对称; 自旋-轨道耦合; 表面态; 狄拉克锥; Z2拓扑不变量; Bi2Se3; 量子自旋霍尔效应; 拓扑保护; Majorana费米子",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/凝聚态物理--磁性与铁磁体": {
+    "t": "磁性与铁磁体",
+    "e": "铁磁性; 磁畴; 居里温度; 海森堡交换相互作用; 磁滞回线; 矫顽力; 反铁磁性; 亚铁磁性; 自旋波; 巨磁阻效应; 自旋电子学",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/前沿物理--凝聚态物理与量子材料": {
+    "t": "凝聚态物理与量子材料",
+    "e": "凝聚态物理; 能带理论; 拓扑绝缘体; 石墨烯; 莫特绝缘体; 强关联电子系统; 量子霍尔效应; 相变; 涌现现象; 玻色-爱因斯坦凝聚",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/前沿物理--宇宙暴胀": {
+    "t": "宇宙暴胀",
+    "e": "宇宙暴胀; 极早期宇宙; 暴胀场; 量子涨落; 宇宙微波背景; 原初引力波; 多宇宙; 大爆炸; 视界问题; 平坦性问题",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/前沿物理--希格斯玻色子": {
+    "t": "希格斯玻色子",
+    "e": "希格斯玻色子; 希格斯场; 质量起源; 对称性自发破缺; 标准模型; LHC; CERN; 电弱统一; 希格斯机制; 等级问题",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/前沿物理--弦理论": {
+    "t": "弦理论",
+    "e": "弦理论; 额外维度; M理论; 超对称; 超弦; D膜; 弦景观; 对偶性; 卡拉比-丘流形; 量子引力",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/前沿物理--暗物质": {
+    "t": "暗物质",
+    "e": "暗物质; WIMP; 轴子; 星系旋转曲线; 引力透镜; 宇宙微波背景; 直接探测; 间接探测; 对撞机; ΛCDM模型",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/前沿物理--核聚变与恒星能源": {
+    "t": "核聚变与恒星能源",
+    "e": "核聚变; 质子-质子链; CNO循环; 量子隧穿; 托卡马克; ITER; 惯性约束; 劳森判据; 等离子体; 聚变能源",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/前沿物理--量子场论与重整化": {
+    "t": "量子场论与重整化",
+    "e": "量子场论; 场的量子化; 费曼图; 紫外发散; 重整化; 重整化群; 跑动耦合常数; 有效场论; 渐近自由; 自然性问题",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/前沿物理--量子场论导论": {
+    "t": "量子场论导论",
+    "e": "量子场论; 场量子化; 费曼图; 重正化; 路径积分; 量子电动力学; 真空涨落; 传播子; 相互作用; 规范对称性",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/前沿物理--量子计算": {
+    "t": "量子计算",
+    "e": "量子计算; 量子比特; 量子叠加; 量子纠缠; 量子算法; Shor算法; Grover算法; 量子纠错; 量子霸权; 量子互联网",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/原子物理--atomic-spectra": {
+    "t": "原子光谱",
+    "e": "原子光谱; 发射光谱; 吸收光谱; 里德堡公式; 巴尔末系; 赖曼系; 精细结构; 塞曼效应; 斯塔克效应; 激光冷却",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/原子物理--bohr-atom-model": {
+    "t": "玻尔原子模型",
+    "e": "玻尔模型; 量子化条件; 能级; 里德堡公式; 巴尔末系; 对应原理; 旧量子论; 角动量量子化; 弗兰克-赫兹实验; 索末菲模型",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/原子物理--electron-orbitals-quantum-numbers": {
+    "t": "电子轨道与量子数",
+    "e": "原子轨道; 主量子数; 轨道量子数; 磁量子数; 自旋量子数; 电子构型; 洪特规则; 构建原理; 多电子原子; 屏蔽效应",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/原子物理--hydrogen-atom-quantum-theory": {
+    "t": "氢原子的量子理论",
+    "e": "氢原子; 库仑势; 球谐函数; 径向波函数; 拉盖尔多项式; 能级简并; 精细结构常数; 兰姆位移; 量子电动力学; 氢原子基态",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/原子物理--光电效应与量子化光": {
+    "t": "光电效应与量子化光",
+    "e": "光电效应; 光子; 普朗克常数; 功函数; 截止频率; 爱因斯坦; 光量子假说; 太阳能电池; 光电倍增管; 康普顿效应",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/天体物理--恒星结构与演化": {
+    "t": "恒星结构与演化",
+    "e": "流体静力平衡; 核聚变; 质子-质子链; CNO 循环; 主序星; 红巨星; 简并压; 白矮星; 中子星; 钱德拉塞卡极限",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/天体物理--脉冲星与磁星": {
+    "t": "脉冲星与磁星",
+    "e": "脉冲星; 灯塔模型; 中子星自转; 磁星; 软伽马重复暴; 毫秒脉冲星; 脉冲星计时阵; 自转减速; 星震; 快速射电暴",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/天体物理--致密星——白矮星与中子星": {
+    "t": "致密星——白矮星与中子星",
+    "e": "电子简并压; 钱德拉塞卡极限; 中子简并压; TOV极限; 泡利不相容原理; 引力坍缩; 致密星; 状态方程; 脉冲星; 引力波",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/天体物理--超新星与重元素起源": {
+    "t": "超新星与重元素起源",
+    "e": "核坍缩超新星; Ia型超新星; 重力坍缩; 中微子驱动; 核合成; r过程; s过程; 中子星合并; 标准烛光; 超新星遗迹",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/应用物理--地球物理与地震波": {
+    "t": "地球物理与地震波",
+    "e": "地震波; P波; S波; 面波; 莫霍面; 古登堡面; 内核; 外核; 地幔; 板块构造; 地震层析成像; 走时曲线",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/应用物理--晶体管与半导体器件": {
+    "t": "晶体管与半导体器件",
+    "e": "晶体管; p-n结; 双极型晶体管; MOSFET; 集成电路; 摩尔定律; 能带理论; 掺杂; 光电子器件; 量子效应",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/应用物理--核磁共振成像MRI原理": {
+    "t": "核磁共振成像MRI原理",
+    "e": "核磁共振; 自旋; 拉莫尔进动; 射频脉冲; 弛豫时间T1和T2; 梯度磁场; k空间; 傅里叶变换; 超导磁铁; 功能MRI",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/应用物理--生物物理导论": {
+    "t": "生物物理导论",
+    "e": "生物物理; 分子马达; 蛋白质折叠; 离子通道; 膜电位; DNA双螺旋; 布朗运动; 单分子技术; 光镊; 朗之万方程",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/应用物理--电子学与放大器电路": {
+    "t": "电子学与放大器电路",
+    "e": "放大器; 增益; 负反馈; 运算放大器; BJT; MOSFET; 共发射极; 输入阻抗; 输出阻抗; 带宽; 失真; 奈奎斯特准则",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/核物理--binding-energy-mass-defect": {
+    "t": "结合能与质量亏损",
+    "e": "结合能; 质量亏损; 比结合能; 铁-56; 核稳定性; 强相互作用; 核合成; 恒星核合成; 液滴模型; 魏茨泽克公式",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/核物理--neutron-capture-nucleosynthesis": {
+    "t": "中子俘获与元素合成",
+    "e": "中子俘获; s过程; r过程; 元素合成; B2FH; 千新星; 中子星合并; 核天体物理; 宇宙丰度; 铁峰; 幻数壳层; 金铂起源; r过程核素",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/核物理--nuclear-fission": {
+    "t": "核裂变",
+    "e": "核裂变; 中子诱发裂变; 链式反应; 临界质量; 结合能; 铀-235; 钚-239; 核反应堆; 控制棒; 奥本海默",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/核物理--nuclear-magnetic-resonance": {
+    "t": "核磁共振",
+    "e": "核磁共振; NMR; MRI; 核磁矩; g因子; 拉莫尔进动; 射频脉冲; 化学位移; 自旋弛豫; T1; T2; 傅里叶变换; 拉比; 布洛赫; 珀塞尔",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/核物理--nuclear-shell-liquid-drop-models": {
+    "t": "核壳层模型与液滴模型",
+    "e": "核壳层模型; 液滴模型; 幻数; 结合能; 核形变; 玛丽亚·迈耶; 延森; 魏茨泽克公式; 泡利不相容; 自旋轨道耦合; 核裂变理论",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/核物理--radioactive-decay-chains": {
+    "t": "核衰变链",
+    "e": "核衰变链; α衰变; β衰变; γ辐射; 半衰期; 铀-238衰变链; 钍-232衰变链; 放射性平衡; 贝可勒尔; 居里夫人; 放射性碳定年; 铀铅定年; 地球年龄",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/核物理--radioactive-decay": {
+    "t": "放射性衰变",
+    "e": "放射性衰变; α粒子; β粒子; γ射线; 半衰期; 衰变常数; 放射性碳定年; 衰变链; 核稳定性; 弱相互作用",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/热力学--carnot-cycle-and-heat-engines": {
+    "t": "卡诺循环与热机",
+    "e": "卡诺循环; 热机效率; 可逆过程; 等温膨胀; 绝热膨胀; 卡诺定理; 制冷系数; 热泵; 斯特林发动机; 奥托循环; 布雷顿循环; 耗散",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/热力学--kinetic-theory-of-gases": {
+    "t": "气体动理论",
+    "e": "气体动理论; 理想气体; 麦克斯韦速率分布; 平均自由程; 碰撞频率; 温度的微观本质; 布朗运动; 扩散系数; 维里定理; 实际气体; 范德华方程",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/热力学--laws-of-thermodynamics": {
+    "t": "热力学三大定律",
+    "e": "热力学第零定律; 热力学第一定律; 热力学第二定律; 热力学第三定律; 内能; 功; 热量; 熵; 热平衡; 可逆过程; 卡诺定理; 绝对零度不可达",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/热力学--phase-transitions-and-critical-phenomena": {
+    "t": "相变与临界现象",
+    "e": "相变; 一级相变; 连续相变; 序参量; 临界点; 临界指数; 伊辛模型; 普适性; 朗道理论; 重整化群; 超导相变; 玻色-爱因斯坦凝聚; 相图",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/热力学--statistical-mechanics-boltzmann": {
+    "t": "统计力学与玻尔兹曼分布",
+    "e": "正则系综; 微正则系综; 配分函数; 玻尔兹曼因子; 自由能; 熵; 涨落-耗散定理; 费米-狄拉克分布; 玻色-爱因斯坦分布; 朗道理论; 临界现象; 重整化群",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/热力学--制冷与热泵": {
+    "t": "制冷与热泵",
+    "e": "蒸汽压缩制冷; 制冷剂; 性能系数COP; 热泵; 卡诺效率; 节流膨胀; 制冷循环; 氟利昂; 臭氧层; 地源热泵",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/热力学--热传导对流与辐射": {
+    "t": "热传导对流与辐射",
+    "e": "热传导; 傅里叶定律; 热导率; 对流; 牛顿冷却定律; 热辐射; 黑体; 斯特藩-玻尔兹曼定律; 维恩位移; 热阻; 温室效应",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/热力学--热质说的兴衰": {
+    "t": "热质说的兴衰",
+    "e": "热质; 卡路里; 伦福德钻炮膛实验; 焦耳当量; 热功当量; 卡诺循环; 能量守恒; 熵; 错误前提正确结论; 科学史",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/热力学--熵与时间之箭": {
+    "t": "熵与时间之箭",
+    "e": "熵; 热力学第二定律; 时间之箭; 玻尔兹曼; 香农; 信息熵; 退化; 可逆性; 涨落; 麦克斯韦妖",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/热力学--相变": {
+    "t": "相变",
+    "e": "相变; 一级相变; 二级相变; 临界点; 三相点; 克劳修斯-克拉佩龙方程; 朗道理论; 对称性破缺; 超导; 超流",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/热力学--绝对零度": {
+    "t": "绝对零度",
+    "e": "绝对零度; 热力学第三定律; 玻色-爱因斯坦凝聚; 超流体; 液氦; 量子基态; 零点能; 能斯特定理; 激光冷却; 磁冷却",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/热力学--自由能与化学势": {
+    "t": "自由能与化学势",
+    "e": "亥姆霍兹自由能; 吉布斯自由能; 化学势; 勒夏特列原理; 相平衡; 克拉佩龙方程; 麦克斯韦关系; 混合熵; 活度; 标准生成焓",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/热力学--非平衡态热力学": {
+    "t": "非平衡态热力学",
+    "e": "非平衡态热力学; 熵产生; 昂萨格互易关系; 耗散结构; 自组织; 贝纳德对流; 图灵结构; B-Z反应; 普里戈金; 线性响应",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/热力学--麦克斯韦妖": {
+    "t": "麦克斯韦妖",
+    "e": "麦克斯韦妖; 信息与热力学; 兰道尔原理; 信息擦除; 布里渊; 西拉德; 贝内特; 熵; 可逆计算; 信息热力学",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/物理学--参考系与惯性": {
+    "t": "参考系与惯性",
+    "e": "参考系; 惯性参考系; 非惯性参考系; 惯性力; 科里奥利力; 离心力; 牛顿水桶实验; 马赫原理; 等效原理; 绝对空间",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/物理学--多普勒效应与相对论多普勒": {
+    "t": "多普勒效应与相对论多普勒",
+    "e": "多普勒效应; 相对论多普勒效应; 横向多普勒效应; 引力红移; 宇宙学红移; 雷达; 谱线红移; 恒星视向速度; 系外行星",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/物理学--宇宙学红移与膨胀": {
+    "t": "宇宙学红移与膨胀",
+    "e": "宇宙学红移; 哈勃定律; 标度因子; FLRW度规; 哈勃常数; 哈勃张力; 暗能量; 宇宙加速膨胀; 超新星标准烛光",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/物理学--宇宙微波背景辐射": {
+    "t": "宇宙微波背景辐射",
+    "e": "宇宙微波背景辐射; CMB; 大爆炸; 复合时期; 温度涨落; 普朗克卫星; WMAP; 宇宙学参数; 声学振荡; 宇宙暴胀",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/物理学--宇宙的最终命运": {
+    "t": "宇宙的最终命运",
+    "e": "热寂; 大撕裂; 大反弹; 大挤压; 宇宙学常数; 熵增; 暗能量; 质子衰变; 霍金辐射; 宇宙加速膨胀",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/物理学--对称性与群论基础": {
+    "t": "对称性与群论基础",
+    "e": "对称性; 群; 李群; 诺特定理; 守恒律; 规范对称性; 自发对称性破缺; 表示论; U(1); SU(2); SU(3)",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/物理学--对称性与诺特定理": {
+    "t": "对称性与诺特定理",
+    "e": "对称性; 诺特定理; 守恒律; 时间平移对称性; 空间平移对称性; 旋转对称性; 规范对称性; 标准模型; 自发对称性破缺; 拉格朗日量",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/物理学--引力波天文学": {
+    "t": "引力波天文学",
+    "e": "引力波; LIGO; 广义相对论; 中子星合并; 黑洞; 多信使天文学; 激光干涉仪; 时空涟漪; 脉冲星计时阵列; 爱因斯坦",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/物理学--时间膨胀与长度收缩": {
+    "t": "时间膨胀与长度收缩",
+    "e": "时间膨胀; 长度收缩; 洛伦兹收缩; 固有时; 固有长度; 洛伦兹因子; μ子实验; GPS修正; 运动钟; 运动尺",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/物理学--普朗克常数与量子化": {
+    "t": "普朗克常数与量子化",
+    "e": "普朗克常数; 黑体辐射; 量子化; 紫外灾难; 普朗克辐射公式; 维恩位移定律; 斯特藩-玻尔兹曼定律; 约化普朗克常数; 自然单位制",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/物理学--暗物质与暗能量": {
+    "t": "暗物质与暗能量",
+    "e": "暗物质; 暗能量; 宇宙学常数; WIMP; 轴子; 星系旋转曲线; 宇宙微波背景; 超新星; 大尺度结构; ΛCDM模型",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/物理学--标准模型与超越": {
+    "t": "标准模型与超越",
+    "e": "标准模型; 希格斯玻色子; 希格斯机制; 超对称; 大统一理论; 夸克; 轻子; 规范对称性; 量子色动力学; 电弱统一",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/物理学--洛伦兹变换": {
+    "t": "洛伦兹变换",
+    "e": "洛伦兹变换; 伽利略变换; 同时性相对性; 洛伦兹因子; 时间膨胀; 长度收缩; 洛伦兹群; 时空转动; 光速不变; 速度叠加",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/物理学--相对论性动量与能量": {
+    "t": "相对论性动量与能量",
+    "e": "相对论性动量; 相对论性能量; 四维动量; 洛伦兹因子; 阈能; 不变质量; 质心系; 实验室系; 粒子对产生; 动能",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/物理学--粒子物理与加速器": {
+    "t": "粒子物理与加速器",
+    "e": "粒子物理; 标准模型; 夸克; 轻子; 规范玻色子; 大型强子对撞机; CERN; 质子加速; 探测器; 超对称; 费曼图",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/物理学--质能等价": {
+    "t": "质能等价 E=mc²",
+    "e": "质能等价; E=mc²; 静止质量; 静止能量; 结合能; 质量亏损; 核裂变; 核聚变; 反物质湮灭; 相对论性质量",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/物理学--量子力学诠释": {
+    "t": "量子力学诠释",
+    "e": "哥本哈根诠释; 多世界诠释; 退相干历史; 波函数坍缩; 测量问题; 薛定谔猫; 量子纠缠; 贝尔不等式; 量子退相干; 玻姆力学",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/电磁学--capacitance-and-inductance": {
+    "t": "电容与电感",
+    "e": "电容; 电感; 介电常数; 磁导率; LC振荡; 谐振频率; 法拉第感应; 楞次定律; 变压器; 能量储存; 品质因数; 阻抗; 滤波器",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/电磁学--coulomb-law-electrostatics": {
+    "t": "库仑定律与静电场",
+    "e": "库仑定律; 电场; 电势; 场线; 高斯定理; 叠加原理; 静电感应; 法拉第笼; 电偶极子; 电场能量密度; 库仑常数",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/电磁学--dielectrics-and-polarization": {
+    "t": "电介质与电极化",
+    "e": "电介质; 电极化; 偶极矩; 介电常数; 极化率; 铁电体; 压电效应; 电卡效应; 克劳修斯-莫索提方程; 弛豫极化; 微波加热",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/电磁学--plasma-physics": {
+    "t": "等离子体物理",
+    "e": "等离子体; 电离; 德拜长度; 等离子体频率; 磁约束; 托卡马克; 惯性约束聚变; 太阳风; 磁流体力学; 磁重联; 朗缪尔探针; 极光",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/电磁学--光的本质": {
+    "t": "光的本质",
+    "e": "光的波动说; 光的粒子说; 光子; 波粒二象性; 双缝实验; 电磁波; 量子电动力学; 费曼; 光速; 折射; 干涉",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/电磁学--天线与电磁辐射": {
+    "t": "天线与电磁辐射",
+    "e": "天线; 电磁辐射; 赫兹偶极子; 辐射阻抗; 方向性; 增益; 波束; 雷达; 相控阵; 射电望远镜",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/电磁学--安培定律与磁场": {
+    "t": "安培定律与磁场",
+    "e": "安培定律; 磁场; 比奥-萨伐尔定律; 洛伦兹力; 安培力; 螺线管; 磁导率; 磁性材料; 磁偶极矩; 霍尔效应",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/电磁学--法拉第与电磁感应": {
+    "t": "法拉第与电磁感应",
+    "e": "法拉第电磁感应定律; 磁通量; 楞次定律; 发电机; 变压器; 麦克斯韦方程; 电动机; 电磁场; 位移电流; 涡流",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/电磁学--电磁波的产生与传播": {
+    "t": "电磁波的产生与传播",
+    "e": "电磁波; 波动方程; 传播速度; 折射率; 色散; 极化; 波导; 电离层; 光速; 真空磁导率",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/电磁学--电磁波谱": {
+    "t": "电磁波谱",
+    "e": "电磁波谱; 无线电波; 微波; 红外线; 可见光; 紫外线; X射线; 伽马射线; 频率; 波长; 光子能量",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/电磁学--电路分析与基尔霍夫定律": {
+    "t": "电路分析与基尔霍夫定律",
+    "e": "基尔霍夫电流定律; 基尔霍夫电压定律; 节点; 回路; 欧姆定律; 叠加定理; 戴维南定理; 诺顿定理; 阻抗; 交流电路",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/电磁学--超导体": {
+    "t": "超导体",
+    "e": "超导; 零电阻; 迈斯纳效应; BCS理论; 库珀对; 临界温度; 高温超导; 约瑟夫森结; 磁通量子化; 超导量子比特",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/电磁学--麦克斯韦方程组": {
+    "t": "麦克斯韦方程组",
+    "e": "麦克斯韦方程组; 高斯定律; 法拉第感应定律; 安培-麦克斯韦定律; 位移电流; 电磁波; 光速; 场论; 洛伦兹力; 量子电动力学",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/相对论--克尔转动黑洞": {
+    "t": "克尔转动黑洞",
+    "e": "克尔度规; 转动黑洞; 能层; 彭罗斯过程; 框架拖拽; 角动量; 极端克尔黑洞; ISCO; 吸积效率; 相对论喷流",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/相对论--双生子佯谬": {
+    "t": "双生子佯谬",
+    "e": "双生子佯谬; 时间膨胀; 固有时; 加速参考系; 非惯性参考系; 世界线; 闵可夫斯基时空; 钟慢效应; 宇宙射线μ子",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/相对论--史瓦西黑洞": {
+    "t": "史瓦西黑洞",
+    "e": "史瓦西黑洞; 史瓦西半径; 事件视界; 奇点; 坐标奇点; 物理奇点; 引力坍缩; 克鲁斯卡尔坐标; 极端红移; 光子球",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/相对论--广义相对论": {
+    "t": "广义相对论",
+    "e": "广义相对论; 弯曲时空; 等效原理; 爱因斯坦场方程; 引力透镜; 引力红移; 水星近日点进动; 黑洞; 宇宙学; 爱因斯坦",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/相对论--广义相对论的实验检验": {
+    "t": "广义相对论的实验检验",
+    "e": "广义相对论实验检验; 水星近日点进动; 光线弯折; Shapiro时间延迟; 引力波; 脉冲双星; PPN参数; EHT黑洞阴影; 引力红移",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/相对论--引力波": {
+    "t": "引力波",
+    "e": "引力波; LIGO; 广义相对论; 时空涟漪; 黑洞合并; 中子星; 激光干涉仪; 脉冲星计时阵列; 多信使天文学; 爱因斯坦",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/相对论--引力红移与引力时间膨胀": {
+    "t": "引力红移与引力时间膨胀",
+    "e": "引力红移; 引力时间膨胀; 等效原理; 庞德-雷布卡实验; GPS修正; 引力势; 坐标时; 固有时; 蓝移; 宇宙学红移",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/相对论--引力透镜的物理": {
+    "t": "引力透镜的物理",
+    "e": "引力透镜; 强引力透镜; 弱引力透镜; 微引力透镜; 爱因斯坦环; 暗物质分布; 宇宙大尺度结构; 光线弯折; 像差; 切向放大",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/相对论--时空弯曲与测地线": {
+    "t": "时空弯曲与测地线",
+    "e": "时空弯曲; 测地线; 黎曼几何; 里奇张量; 爱因斯坦场方程; 曲率; 自由落体; 世界线; 度规张量; 潮汐力",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/相对论--狭义相对论": {
+    "t": "狭义相对论",
+    "e": "狭义相对论; 时间膨胀; 长度收缩; E=mc²; 光速不变原理; 洛伦兹变换; 同时性的相对性; 四维时空; 闵可夫斯基时空; 爱因斯坦",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/相对论--相对论性动力学与四维力": {
+    "t": "相对论性动力学与四维力",
+    "e": "四维速度; 四维动量; 相对论性动量; 质能方程; 相对论性能量; 不变质量; 阈能; 加速器物理; 四维力; 闵可夫斯基内积",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/相对论--等效原理": {
+    "t": "等效原理",
+    "e": "等效原理; 引力质量; 惯性质量; 弱等效原理; 强等效原理; 爱因斯坦电梯; 自由落体; 非惯性参考系; 广义相对论; 等价性实验",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/相对论--闵可夫斯基时空与四维矢量": {
+    "t": "闵可夫斯基时空与四维矢量",
+    "e": "闵可夫斯基时空; 四维矢量; 时空间隔; 类时; 类空; 类光; 光锥; 世界线; 四维动量; 洛伦兹不变量; 固有时",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/相对论--黑洞": {
+    "t": "黑洞",
+    "e": "黑洞; 事件视界; 奇点; 史瓦西半径; 霍金辐射; 超大质量黑洞; 恒星坍缩; 吸积盘; 信息悖论; 引力波",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/粒子物理--antimatter": {
+    "t": "反物质",
+    "e": "反物质; 正电子; 反质子; 反氢; 湮灭; CPT对称性; CP破坏; 萨哈罗夫条件; 重子不对称; 狄拉克方程",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/粒子物理--cp-violation-matter-antimatter": {
+    "t": "CP破坏与物质反物质不对称",
+    "e": "CP破坏; 物质反物质不对称; 重子不对称; 萨哈罗夫条件; CPT定理; CKM矩阵; 中性K介子; B介子工厂; BaBar; Belle; 轻子CP破坏",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/粒子物理--feynman-diagrams-perturbation": {
+    "t": "费曼图与微扰论",
+    "e": "费曼图; 费曼规则; 传播子; 顶点; 微扰展开; 重正化; 量子电动力学; 精细结构常数; 路径积分; S矩阵",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/粒子物理--higgs-mechanism": {
+    "t": "希格斯机制与希格斯玻色子",
+    "e": "希格斯玻色子; 希格斯机制; 自发对称破缺; 南部-戈德斯通定理; 弱相互作用; W玻色子; Z玻色子; 汤川耦合; LHC; ATLAS; CMS; 质量起源; 125 GeV",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/粒子物理--neutrino-physics": {
+    "t": "中微子物理",
+    "e": "中微子; 中微子振荡; 中微子质量; 太阳中微子问题; 大气中微子; 超新星中微子; PMNS矩阵; 马约拉纳中微子; 马约拉纳质量; 轻子数不守恒",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/粒子物理--particle-accelerators": {
+    "t": "粒子加速器与对撞机",
+    "e": "粒子加速器; 对撞机; 回旋加速器; 同步加速器; 直线加速器; LHC; SLAC; 费米实验室; 亮度; 质心能量; 探测器; 超导磁铁; 同步辐射",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/粒子物理--quantum-chromodynamics": {
+    "t": "强相互作用与量子色动力学",
+    "e": "QCD; 量子色动力学; 色荷; 色禁闭; 渐近自由; 胶子自耦合; 核力; 格点QCD; 强耦合常数; 喷注; 夸克-胶子等离子体; 质子质量",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/粒子物理--quarks-and-leptons": {
+    "t": "夸克与轻子",
+    "e": "夸克; 轻子; 标准模型; 色荷; 色禁闭; 量子色动力学; 夸克禁闭; 盖尔曼; 费曼; 渐近自由; 强子",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/粒子物理--standard-model-overview": {
+    "t": "标准模型概览",
+    "e": "标准模型; 费米子; 玻色子; 规范对称性; SU(3)×SU(2)×U(1); 胶子; W玻色子; Z玻色子; 光子; 希格斯玻色子; 三代粒子; 引力缺席",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/经典物理--chaos-three-body-problem": {
+    "t": "混沌与三体问题",
+    "e": "三体问题; 混沌; 蝴蝶效应; 李雅普诺夫指数; 庞加莱截面; 奇怪吸引子; 分形维数; 科克伍德间隙; 确定性不可预测性; 洛伦兹吸引子; KAM定理",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/经典物理--fluid-mechanics-bernoulli": {
+    "t": "流体力学与伯努利原理",
+    "e": "流体; 连续性方程; 伯努利方程; 黏性; 湍流; 层流; 雷诺数; 纳维-斯托克斯方程; 升力; 压强; 马赫数; 声障",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/经典物理--lagrangian-hamiltonian-mechanics": {
+    "t": "拉格朗日与哈密顿力学",
+    "e": "拉格朗日量; 哈密顿量; 最小作用量原理; 广义坐标; 广义动量; 正则方程; 泊松括号; 诺特定理; 辛几何; 相空间; 刘维尔定理; 哈密顿-雅可比方程",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/经典物理--momentum-conservation-collisions": {
+    "t": "动量守恒与碰撞",
+    "e": "动量; 冲量; 弹性碰撞; 完全非弹性碰撞; 恢复系数; 质心系; 实验室系; 空间平移对称性; 诺特定理; 散射截面; 卢瑟福散射",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/经典物理--rigid-body-rotation": {
+    "t": "刚体转动与转动惯量",
+    "e": "刚体; 转动惯量; 力矩; 角动量; 欧拉方程; 进动; 章动; 主轴; 平行轴定理; 垂直轴定理; 陀螺效应; 科里奥利力",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/经典物理--simple-harmonic-motion": {
+    "t": "简谐振动与共振",
+    "e": "简谐振动; 胡克定律; 角频率; 周期; 阻尼振荡; 受迫振动; 共振; 品质因数; 傅里叶分析; 驻波; 正则模式; 非线性振动",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/经典物理--waves-and-acoustics": {
+    "t": "波动与声学",
+    "e": "波动; 纵波; 横波; 声速; 驻波; 叠加原理; 多普勒效应; 声强级; 共鸣; 傅里叶分解; 超声波; 声学测量; 地震波",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/经典物理--万有引力": {
+    "t": "万有引力",
+    "e": "万有引力定律; 引力常数; 开普勒定律; 潮汐; 引力场; 等效原理; 广义相对论; 时空弯曲; 引力透镜; 海王星",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/经典物理--万有引力与开普勒定律": {
+    "t": "万有引力与开普勒定律",
+    "e": "万有引力定律; 开普勒三定律; 椭圆轨道; 引力常数G; 卡文迪许实验; 逃逸速度; 拉格朗日点; 潮汐力; 开尔文时间; 广义相对论修正",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/经典物理--以太的兴衰": {
+    "t": "以太的兴衰",
+    "e": "发光以太; 迈克尔逊-莫雷实验; 零结果; 以太漂移; 洛伦兹-菲茨杰拉德收缩; 洛伦兹变换; 参考系; 狭义相对论; 辅助假设; 判决性实验",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/经典物理--声学与多普勒效应": {
+    "t": "声学与多普勒效应",
+    "e": "声速; 纵波; 多普勒效应; 马赫锥; 冲击波; 音程; 驻波; 共鸣; 次声波; 超声波; 声纳; 声学阻抗",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/经典物理--弹性与材料力学": {
+    "t": "弹性与材料力学",
+    "e": "胡克定律; 应力; 应变; 杨氏模量; 泊松比; 弹性极限; 屈服强度; 断裂韧性; 疲劳; 蠕变",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/经典物理--振动与简正模式": {
+    "t": "振动与简正模式",
+    "e": "简正模式; 正则坐标; 耦合振子; 本征频率; 共振; 驻波; 傅里叶分析; 正交性; 简并; 声学模式; 分子振动",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/经典物理--摩擦与耗散": {
+    "t": "摩擦与耗散",
+    "e": "静摩擦; 动摩擦; 库仑定律; 摩擦系数; 黏性耗散; 斯托克斯阻力; 润滑; 弹流润滑; 热电效应; 摩擦学",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/经典物理--波动与振动": {
+    "t": "波动与振动",
+    "e": "简谐振动; 波动方程; 声波; 水波; 地震波; 横波; 纵波; 干涉; 衍射; 多普勒效应",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/经典物理--流体湍流与雷诺数": {
+    "t": "流体湍流与雷诺数",
+    "e": "湍流; 层流; 雷诺数; 纳维-斯托克斯方程; 边界层; 涡旋; 能量级串; 柯尔莫戈洛夫; 卡门涡街; 混沌",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/经典物理--牛顿三大定律": {
+    "t": "牛顿三大定律",
+    "e": "惯性定律; F=ma; 作用力与反作用力; 参考系; 伽利略变换; 动量守恒; 经典力学; 《自然哲学的数学原理》; 绝对时空; 力的叠加",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/经典物理--能量守恒": {
+    "t": "能量守恒",
+    "e": "能量守恒定律; 热力学第一定律; 永动机; 焦耳; 功; 内能; 热功当量; 能量转换; 诺特定理; 时间平移对称性",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/经典物理--表面张力与毛细现象": {
+    "t": "表面张力与毛细现象",
+    "e": "表面张力; 表面能; 接触角; 毛细管; 拉普拉斯-杨方程; 润湿性; 疏水效应; 气泡; 泡沫; 莫伦达尔数",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/经典物理--角动量与守恒律": {
+    "t": "角动量与守恒律",
+    "e": "角动量; 转动惯量; 角动量守恒; 旋转对称性; 自旋; 进动; 开普勒定律; 陀螺效应; 量子角动量; 诺特定理",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/量子物理--identical-particles-statistics": {
+    "t": "全同粒子与量子统计",
+    "e": "全同粒子; 玻色子; 费米子; 玻色-爱因斯坦统计; 费米-狄拉克统计; 玻色-爱因斯坦凝聚; 超流; 超导; 费米面; 自旋-统计定理",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/量子物理--pauli-exclusion-principle": {
+    "t": "泡利不相容原理",
+    "e": "泡利不相容原理; 费米子; 全同粒子; 反对称波函数; 量子数; 电子壳层; 费米压力; 白矮星; 中子星; 元素周期律",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/量子物理--quantum-decoherence": {
+    "t": "量子退相干",
+    "e": "退相干; 相干性; 密度矩阵; 指针态; 量子-经典边界; 环境纠缠; 退相干时间; 量子计算; Zurek; einselection",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/量子物理--quantum-harmonic-oscillator": {
+    "t": "量子谐振子",
+    "e": "量子谐振子; 零点能; 升降算符; 创生湮灭算符; 福克态; 声子; 相干态; 压缩态; 量子场论; 卡西米尔效应",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/量子物理--quantum-measurement": {
+    "t": "量子测量问题",
+    "e": "测量问题; 波函数坍缩; 观测者效应; 哥本哈根诠释; 多世界诠释; 冯·诺伊曼链; 退相干; 薛定谔的猫; 量子-经典边界",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/量子物理--quantum-spin": {
+    "t": "量子自旋",
+    "e": "自旋; 角动量; 泡利矩阵; 斯特恩-盖拉赫实验; g因子; 旋量; 费米子; 玻色子; 自旋-轨道耦合; 狄拉克方程",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/量子物理--schrodinger-equation": {
+    "t": "薛定谔方程",
+    "e": "薛定谔方程; 哈密顿量; 定态薛定谔方程; 波函数演化; 分离变量; 势垒; 束缚态; 连续态; 量子动力学; 普朗克常数",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/量子物理--wave-function-probability": {
+    "t": "波函数与概率诠释",
+    "e": "波函数; 概率幅; 玻恩规则; 哥本哈根诠释; 叠加态; 坍缩; 薛定谔; 海森堡; 玻恩; 量子态",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/量子物理--不确定性原理": {
+    "t": "不确定性原理",
+    "e": "不确定性原理; 海森堡; 位置-动量不确定关系; 能量-时间不确定关系; 量子涨落; 测量扰动; 零点能; 量子极限; 概率幅; 互补性",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/量子物理--卡西米尔效应与真空能": {
+    "t": "卡西米尔效应与真空能",
+    "e": "卡西米尔效应; 零点能; 真空涨落; 量子真空; 范德瓦耳斯力; 卡西米尔力; 宇宙学常数问题; 真空灾难; MEMS粘连; 排斥卡西米尔力",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/量子物理--波粒二象性": {
+    "t": "波粒二象性",
+    "e": "波粒二象性; 双缝实验; 光电效应; 德布罗意波; 互补原理; 波函数; 概率幅; 光子; 电子衍射; 量子擦除",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/量子物理--量子纠缠": {
+    "t": "量子纠缠",
+    "e": "量子纠缠; EPR悖论; 贝尔不等式; 非定域性; 量子关联; 隐变量; 量子通信; 量子密钥分发; 超距作用; 爱因斯坦",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/量子物理--量子隧穿": {
+    "t": "量子隧穿",
+    "e": "量子隧穿; 隧穿效应; 势垒穿透; 太阳核聚变; 扫描隧穿显微镜; α衰变; 放射性; 半导体隧穿; 约瑟夫森效应; 闪存",
+    "d": "universe-physics"
+  }
+}

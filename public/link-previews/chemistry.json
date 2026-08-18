@@ -1,0 +1,532 @@
+{
+  "/chemistry/concepts/acids-and-bases": {
+    "t": "酸与碱",
+    "e": "柠檬让你皱眉，肥皂让你打滑，胃里翻江倒海时你吞下一片白色小药丸——这三件看似无关的事，背后是同一场战争：质子（氢离子）的争夺战。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/analytical-titration": {
+    "t": "化学分析与滴定",
+    "e": "一瓶醋里到底含多少酸？一杯水里有多少余氯？空气里二氧化碳浓度多高？",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/aromaticity": {
+    "t": "芳香性",
+    "e": "1825 年，法拉第从照明气的残液里分离出一种奇特的液体。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/atomic-structure": {
+    "t": "原子结构",
+    "e": "如果把一个原子放大到一座足球场那么大，原子核只有场地正中的一颗豌豆，而电子是在看台外缘掠过的几粒尘埃——其余全是空荡荡的真空。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/battery-performance-safety-and-circularity": {
+    "t": "电池评价：性能、安全与循环",
+    "e": "一枚实验室电池“循环 1000 次后保持 80% 容量”，听起来已经足够好。但如果它每次只充放很浅、使用极薄电极、装入大量电解液、在恒温箱中缓慢运行，这个结果未必能迁移到电动车或电网。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/bioenergetics-and-metabolism": {
+    "t": "生物能学与代谢",
+    "e": "你此刻读这句话，脑细胞正在以每秒难以计数的速度消耗一种叫 ATP 的分子。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/bonding-theory": {
+    "t": "价键理论与分子轨道理论",
+    "e": "教科书告诉你，氧气（O₂）里两个氧原子之间是一根\"双键\"，画出来就是 O=O，每个氧周围凑满八个电子，干净利落。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/buffer-systems": {
+    "t": "缓冲体系",
+    "e": "1908 年前后，美国生理化学家 Lawrence Henderson 研究血液时注意到：尽管代谢不断产生酸，血液的 pH 却稳定在 7.35–7.45 附近。瑞典生理学家 Karl Hass…",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/chemical-bond": {
+    "t": "化学键",
+    "e": "为什么两个氢原子凑在一起就再也不肯分开，而两个氦原子见面却互不理睬？",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/chemical-equilibrium": {
+    "t": "化学平衡",
+    "e": "想象一座有两扇旋转门的商场，人不停地从一扇门涌进、从另一扇门涌出。某个时刻，进出速度恰好相等，商场里的人数就稳定下来——尽管每一秒都有人进进出出，总人数却一动不动。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/chemical-thermodynamics": {
+    "t": "化学热力学",
+    "e": "把氢气和氧气混合在一起，从热力学上看，它们“应该”变成水。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/chirality": {
+    "t": "手性与对映异构",
+    "e": "伸出你的左右手，它们看起来一模一样，却怎么也无法完全重合——左手套不进右手套。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/chromatography": {
+    "t": "色谱分离",
+    "e": "20 世纪初，植物学家 Mikhail Tswett 把叶片色素提取物装入吸附剂柱，再用溶剂洗脱。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/cofactors-and-coenzymes": {
+    "t": "辅酶与辅因子",
+    "e": "为什么我们必须吃维生素才能活？",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/coordination-chemistry": {
+    "t": "配位化学",
+    "e": "血液之所以是红的，叶子之所以是绿的，背后是同一种化学：一个金属原子，被一圈分子像众星捧月般围在中心。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/electroanalytical-chemistry": {
+    "t": "电分析化学",
+    "e": "指尖一滴血，几秒钟后血糖仪给出数字；pH 计的玻璃探头往溶液里一插，酸度立刻可读。这两件日常小事背后是同一种思想：不称量、不滴定，让待测物质在电极界面上自己\"报数\"。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/electrochemistry": {
+    "t": "电化学",
+    "e": "手机接通电路后，负极材料中的电子不会直接穿过电解质跑到正极。它们只能沿外部导线绕行；与此同时，离子在电池内部迁移，维持电荷守恒。这个被空间分开的氧化还原过程，才让化学反应能够对外做电功。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/functional-groups": {
+    "t": "官能团",
+    "e": "为什么乙醇能喝、能消毒，乙酸却是醋的酸味来源，而它们的\"骨架\"几乎一模一样？",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/gas-laws": {
+    "t": "气体定律与理想气体",
+    "e": "把一只瘪气球放进冰箱，它会缩得更小；拿到暖气旁，它又鼓起来。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/intermolecular-forces": {
+    "t": "分子间作用力",
+    "e": "如果中性分子之间只有短程排斥而没有吸引，多数分子物质就很难形成今天所见的液体、分子晶体、膜和有序组装体。离子晶体、金属和共价网络固体还有别的凝聚机制，因此不能把整个物质世界都归给一种“弱力”。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/isomerism": {
+    "t": "同分异构",
+    "e": "C₄H₁₀ 是丁烷的分子式，看起来天经地义。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/mass-spectrometry": {
+    "t": "质谱法",
+    "e": "1912 年，剑桥的 J. J. 汤姆孙把一束带正电的粒子打进电场和磁场里，在感光板上画出一道道弧线。其中一道弧线对应\"氖\"，但旁边还有一道极淡、却反复出现的痕迹——质量略大，却找不到对应的元…",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/medicinal-chemistry": {
+    "t": "药物化学",
+    "e": "一片小小的阿司匹林进入身体，怎么就知道该去抑制哪种酶、缓解哪里的疼痛？",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/nuclear-chemistry": {
+    "t": "核化学与放射化学",
+    "e": "普通化学只动原子最外层的电子，核化学却敢碰那个所有人都以为\"动不了\"的地方——原子核本身。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/organometallic-chemistry": {
+    "t": "有机金属化学",
+    "e": "1951 年，两种白色晶体的结构让化学界陷入困惑。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/periodic-table": {
+    "t": "元素周期表",
+    "e": "1869 年，门捷列夫做了一件极其大胆的事。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/photochemistry": {
+    "t": "光化学",
+    "e": "晒伤、晒褪色、晒出维生素 D，叶子把阳光变成糖——这些看似无关的事，其实是同一门化学：光，亲自参与了反应。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/polymer-chemistry": {
+    "t": "聚合物化学",
+    "e": "一个塑料袋轻得几乎没有存在感。但它背后是一条长度惊人的分子链：成千上万个小分子单元首尾相连，像把许多回形针扣成一条柔软的长链。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/quantum-chemistry": {
+    "t": "量子化学",
+    "e": "1929 年，狄拉克（Paul Dirac）写下一句近乎嚣张的话：化学的大部分基本定律已经完全知道，困难只在于方程太复杂，无法精确求解。这句话听起来像物理学家对化学家的冒犯。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/reaction-kinetics": {
+    "t": "反应速率",
+    "e": "一瓶氢气和氧气可以在室温下共存很久，也可以被一个火花触发，在极短时间内放出大量热。两种状态的起点和终点没有变，变化的是体系穿过反应路径的速度。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/reaction-mechanisms": {
+    "t": "有机反应机理",
+    "e": "一个化学方程式只告诉你\"从什么变成了什么\"，却对最关键的问题守口如瓶：这中间，到底发生了什么？",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/redox-reactions": {
+    "t": "氧化还原反应",
+    "e": "铁钉生锈、苹果切开变褐、木柴燃烧、电池供电、甚至你此刻呼吸把食物变成能量——这些八竿子打不着的现象，竟然是同一类反应。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/solutions-and-solubility": {
+    "t": "溶液与溶解度",
+    "e": "一勺糖在热茶里很快不见了，一把沙子在水里却怎么搅都还是沙子。同样是固体，为什么命运如此不同？",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/spectroscopy": {
+    "t": "光谱学",
+    "e": "常规结构鉴定不是给孤立分子拍一张可见光照片。扫描探针、电子显微和 X 射线方法在特定条件下能提供实空间结构信息，但多数化学问题仍要从物质对外加能量的响应反推出组成与结构。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/surface-and-colloid-chemistry": {
+    "t": "表面与胶体化学",
+    "e": "1861 年，苏格兰化学家托马斯·格雷厄姆（Thomas Graham）把溶液透过半透膜，发现有些物质\"走得很慢\"，甚至过不去——明胶、蛋白质、阿拉伯胶。他把能顺利扩散的盐、糖称为晶形质（cr…",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/the-mole": {
+    "t": "摩尔与物质的量",
+    "e": "一茶匙水里有多少个水分子？答案是大约 1700 万亿亿个（约 1.7 \\times 10^{23}）——这个数字大到没有任何日常事物能与之类比。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/thermochemistry": {
+    "t": "热化学",
+    "e": "为什么冰会自己融化，水却不会自己结冰（除非你给它降温）？为什么铁会生锈，锈却从不自己变回闪亮的铁？",
+    "d": "chemistry"
+  },
+  "/chemistry/figures/berzelius": {
+    "t": "永斯·贝采利乌斯",
+    "e": "每当你写下 H₂O、NaCl、CO₂，你都在使用贝采利乌斯发明的语言。这套写法如此自然，以至于很少有人停下来想：它是谁、在什么时候定下来的。",
+    "d": "chemistry"
+  },
+  "/chemistry/figures/dalton": {
+    "t": "约翰·道尔顿",
+    "e": "\"万物由原子构成\"——这个想法古希腊的德谟克利特两千多年前就提过。但在很长时间里，它只是一种哲学猜想，没有任何办法去验证。",
+    "d": "chemistry"
+  },
+  "/chemistry/figures/dorothy-hodgkin": {
+    "t": "多萝西·霍奇金",
+    "e": "你怎么\"看见\"一个分子里原子的真实排列？它太小，任何显微镜都无能为力。",
+    "d": "chemistry"
+  },
+  "/chemistry/figures/frederick-sanger": {
+    "t": "弗雷德里克·桑格",
+    "e": "历史上获得过两次诺贝尔奖的人屈指可数，而在同一个领域——化学——拿过两次的，至今只有一个人：弗雷德里克·桑格。",
+    "d": "chemistry"
+  },
+  "/chemistry/figures/fritz-haber": {
+    "t": "弗里茨·哈伯",
+    "e": "很少有科学家像哈伯这样,同时被称为\"养活了几十亿人的人\"和\"化学战之父\"。",
+    "d": "chemistry"
+  },
+  "/chemistry/figures/gilbert-lewis": {
+    "t": "吉尔伯特·路易斯",
+    "e": "每一个化学系学生都画过\"路易斯结构\"——用小圆点表示电子、把分子的骨架画出来。这套今天看似理所当然的语言，是他发明的。",
+    "d": "chemistry"
+  },
+  "/chemistry/figures/kekule": {
+    "t": "奥古斯特·凯库勒",
+    "e": "有机化学有一个标志性符号：苯环——那个画成六边形、中间常带个圆圈的图案。它出现在无数药物、染料、塑料的分子结构里。",
+    "d": "chemistry"
+  },
+  "/chemistry/figures/lavoisier": {
+    "t": "安托万·拉瓦锡",
+    "e": "如果给\"现代化学\"找一个生日，很多人会指向拉瓦锡。",
+    "d": "chemistry"
+  },
+  "/chemistry/figures/linus-pauling": {
+    "t": "莱纳斯·鲍林",
+    "e": "如果说前人告诉我们原子是化学的砖块,那么鲍林回答了一个更深的问题:这些砖块为什么会黏在一起?化学键究竟是什么?",
+    "d": "chemistry"
+  },
+  "/chemistry/figures/marie-curie": {
+    "t": "玛丽·居里",
+    "e": "科学史上，有一个名字同时刻在物理和化学两座诺贝尔奖的名册上，而且属于同一个人——玛丽·居里。她是史上第一位获得诺贝尔奖的女性，也是迄今唯一一位在两个不同科学领域各得一次诺贝尔奖的人。",
+    "d": "chemistry"
+  },
+  "/chemistry/figures/mendeleev": {
+    "t": "德米特里·门捷列夫",
+    "e": "化学课教室墙上那张挂图——元素周期表——几乎是科学的图腾。它把整个物质世界的基本砖块排成一张整齐的表格，让人一眼看见隐藏在万物背后的秩序。",
+    "d": "chemistry"
+  },
+  "/chemistry/figures/michael-faraday": {
+    "t": "迈克尔·法拉第",
+    "e": "19 世纪最伟大的实验科学家之一，没上过大学，没受过正规数学训练，年轻时的职业是——装订书的工人。",
+    "d": "chemistry"
+  },
+  "/chemistry/figures/robert-boyle": {
+    "t": "罗伯特·波义耳",
+    "e": "在拉瓦锡让化学脱胎换骨的一个多世纪之前,有一个人已经开始把化学从炼金术的泥潭里往外拽。",
+    "d": "chemistry"
+  },
+  "/chemistry/figures/robert-woodward": {
+    "t": "罗伯特·伍德沃德",
+    "e": "如果说大自然用亿万年演化出了一个个精巧的分子，那么伍德沃德要做的，是在试管里把它们从最简单的原料一步步重新搭出来——只用化学家的智慧，不借助任何生命体。",
+    "d": "chemistry"
+  },
+  "/chemistry/figures/svante-arrhenius": {
+    "t": "斯万特·阿伦尼乌斯",
+    "e": "有一个人，他的博士论文差点没及格，二十年后却凭着同一个想法拿了诺贝尔奖。他在十九世纪末用纸笔算出了二氧化碳让地球变暖的程度，而这个问题今天仍是全人类最迫切的议题之一。",
+    "d": "chemistry"
+  },
+  "/chemistry/frontier/beyond-lithium-batteries": {
+    "t": "超越锂离子：从材料承诺到可制造电池",
+    "e": "“下一代电池”新闻常把一个高容量材料、一枚实验室扣式电池和一条可制造的吉瓦时产线写成同一件事。它们不是同一件事。",
+    "d": "chemistry"
+  },
+  "/chemistry/frontier/carbon-capture-chemistry": {
+    "t": "碳捕集与转化：从空气里把二氧化碳\"抓\"回来，再让它有用",
+    "e": "2021 年 9 月，瑞士公司 Climeworks 在冰岛启动了一座名为 Orca 的工厂——它用巨大的风扇把空气吸进来，化学吸附其中的二氧化碳，再把捕到的 CO₂ 注入地下玄武岩，让它在数…",
+    "d": "chemistry"
+  },
+  "/chemistry/frontier/chemical-recycling-plastics": {
+    "t": "塑料的化学回收：解聚、热解与\"回收\"二字的名实之争",
+    "e": "2024 年 3 月，美国田纳西州金斯波特，Eastman 的甲醇解工厂宣布实现合格品产出并开始创收[^carbios]——这座年处理 11 万吨废塑料的设施是当时全球最大规模的\"分子回收\"装…",
+    "d": "chemistry"
+  },
+  "/chemistry/frontier/computational-materials-design": {
+    "t": "计算材料设计：从试错炼金到按需求\"算\"出材料",
+    "e": "2023 年 11 月，Google DeepMind 在 _Nature_ 上公布了 GNoME（Graph Networks for Materials Exploration）——一个用…",
+    "d": "chemistry"
+  },
+  "/chemistry/frontier/green-hydrogen": {
+    "t": "绿氢：用电、水和催化剂把能源链条重写一遍",
+    "e": "2022 年，国际能源署（IEA）在年度氢能报告里给出一个数字：当年全球氢产量约 9500 万吨，其中由可再生电力电解水制得的\"绿氢\"占比不到 1%。绝大多数氢仍来自天然气重整（\"灰氢\"），每…",
+    "d": "chemistry"
+  },
+  "/chemistry/frontier/pfas-destruction": {
+    "t": "销毁\"永久化学品\"：PFAS 处理的技术竞赛与监管摇摆",
+    "e": "2024 年 4 月 10 日，美国环保署（EPA）敲定了该国历史上第一个针对 PFAS 的全国性饮用水标准[^epa]：PFOA 与 PFOS 两种最臭名昭著的全氟化合物，在饮用水中的法定上…",
+    "d": "chemistry"
+  },
+  "/chemistry/frontier/self-driving-labs": {
+    "t": "自驱动实验室：当 AI 提议、机器人动手，化学发现开始闭环",
+    "e": "2020 年 7 月，利物浦大学 Andrew Cooper 组的实验室里多了一位\"新同事\"：一台一米七五高、在实验台间自由走动的机器人。它连续工作了 8 天，自主完成了 688 个实验——称…",
+    "d": "chemistry"
+  },
+  "/chemistry/frontier/single-atom-catalysis": {
+    "t": "单原子催化：当催化剂被拆到一个原子",
+    "e": "2011 年，中科院大连化物所的张涛团队与亚利桑那州立大学的刘景月等人在 _Nature Chemistry_ 上提出了一个后来被广泛使用的术语——\"单原子催化\"（single-atom ca…",
+    "d": "chemistry"
+  },
+  "/chemistry/methods/computational-chemistry": {
+    "t": "计算化学与分子模拟：从近似天梯到时间尺度之墙",
+    "e": "很多人想象计算化学是这样的：把分子式输进软件，按下回车，屏幕上跳出\"正确答案\"——键长多少、反应多快、毒性多大。",
+    "d": "chemistry"
+  },
+  "/chemistry/methods/electron-microscopy-and-surface-analysis": {
+    "t": "电子显微与表面表征：看见形貌，也要验证化学状态",
+    "e": "扫描电子显微镜里的一张漂亮纳米颗粒图，常被当成材料已经被“看清”的证明。",
+    "d": "chemistry"
+  },
+  "/chemistry/methods/flow-chemistry": {
+    "t": "流动化学：把反应从烧瓶搬进管道",
+    "e": "提到流动化学，很多人的想象是把原本在烧瓶里搅拌的反应物，改成在管子里流动——不过是换了个容器。",
+    "d": "chemistry"
+  },
+  "/chemistry/methods/nmr-spectroscopy-structure-elucidation": {
+    "t": "NMR：从核自旋到分子结构推断",
+    "e": "一张氢谱里有几个峰，并不能自动给出一个分子结构。",
+    "d": "chemistry"
+  },
+  "/chemistry/methods/process-safety": {
+    "t": "过程安全：在放大前理解热、压与失控路径",
+    "e": "实验室个人防护很重要，但过程安全问的是另一层问题：若冷却失效、加料过快、搅拌停止、阀门误开、物料污染或排气受阻，反应体系会怎样演化？",
+    "d": "chemistry"
+  },
+  "/chemistry/methods/process-scale-up": {
+    "t": "工艺放大：从烧瓶到反应器的传热、混合与控制",
+    "e": "小烧瓶中温度均匀、表面积相对体积很大、搅拌距离很短。反应器里，放热集中在加料点，热量要穿过更长的路径到夹套，黏度、气液界面和搅拌流场都改变。",
+    "d": "chemistry"
+  },
+  "/chemistry/methods/retrosynthesis-and-reaction-optimization": {
+    "t": "逆合成与反应优化：把目标分子变成可执行路线",
+    "e": "面对一个复杂分子，逆合成把它拆回更简单、可获得的前体。这种倒推极其有效，但它不是把键随意断开后再寻找反应名称。",
+    "d": "chemistry"
+  },
+  "/chemistry/methods/thermal-analysis": {
+    "t": "thermal-analysis",
+    "e": "把样品放在仪器里加热，记录一条曲线——热分析听上去像测温的精致版，测个熔点而已。",
+    "d": "chemistry"
+  },
+  "/chemistry/methods/x-ray-crystallography": {
+    "t": "X 射线晶体学：从衍射斑点到三维结构",
+    "e": "X 射线晶体学常被称为“看见原子”。这个说法抓住了它的分辨率优势，却容易遮蔽真正过程。",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/daltons-atomic-theory": {
+    "t": "道尔顿原子论（1808）",
+    "e": "19 世纪初的英国曼彻斯特，一位衣着朴素、不苟言笑的教师约翰·道尔顿（John Dalton），每天最热衷的事是记录天气。",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/discovery-of-radioactivity": {
+    "t": "放射性的发现（1896）",
+    "e": "1896 年 2 月底，巴黎阴雨连绵。",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/green-chemistry": {
+    "t": "绿色化学（1998）",
+    "e": "处理废水、焚烧废物和安装尾气装置都很重要，但它们面对的是已经形成的危害。绿色化学把问题向前移动：能否在分子、反应路线和产品设计阶段，就减少有害物质的使用与生成？",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/haber-bosch-process": {
+    "t": "哈伯-博施合成氨（1913）",
+    "e": "1909 年 7 月 2 日，德国卡尔斯鲁厄一间实验室里，弗里茨·哈伯（Fritz Haber）和助手罗伯特·勒罗西尼奥尔（Robert Le Rossignol）守着一根滚烫的钢管。",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/lavoisier-oxygen-revolution": {
+    "t": "拉瓦锡的氧化学革命（1789）",
+    "e": "1772 年的一个深秋，在巴黎兵工厂二楼的实验室里，安托万-洛朗·拉瓦锡（Antoine-Laurent Lavoisier）把一支大透镜对准阳光，让聚焦的光斑去烧一小块金属。",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/mendeleev-periodic-law": {
+    "t": "门捷列夫周期律（1869）",
+    "e": "1869 年 2 月，圣彼得堡的冬天还没松手。",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/polywater-and-pathological-science": {
+    "t": "聚合水与病态科学（1962—1973）",
+    "e": "1960 年代末，一种新形态的水占据了《自然》《科学》与全球媒体的版面。",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/synthetic-dyes-industry": {
+    "t": "合成染料工业（1856）",
+    "e": "1856 年的复活节假期，伦敦一间简陋的家庭实验室里，18 岁的化学学生威廉·珀金（William Henry Perkin）正在做一件注定失败的事——他想完成导师霍夫曼（August Wil…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/the-plastics-age": {
+    "t": "塑料时代（1907）",
+    "e": "1907 年，纽约州扬克斯的一间私人实验室里，比利时裔化学家利奥·贝克兰（Leo Baekeland）正盯着一团硬化的褐色物质发呆。",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/vitalism-and-its-long-death": {
+    "t": "活力论的漫长死亡（1828—1900）",
+    "e": "几乎每一本有机化学教科书都讲同一个故事：1828 年，维勒在实验室里意外地用无机原料做出了尿素——一种只有生命体才能产生的物质。他写信给老师贝采利乌斯：\"我必须告诉您，我能不借助肾脏、也不借助…",
+    "d": "chemistry"
+  },
+  "/chemistry/reactions/acid-base-neutralization": {
+    "t": "酸碱中和",
+    "e": "抗酸药可以消耗一部分胃酸，工业废水也常要在排放前调节酸碱度。这些场景都利用酸与碱之间的反应，但绝不能据此推导出\"接触了酸就涂碱、接触了碱就涂酸\"。",
+    "d": "chemistry"
+  },
+  "/chemistry/reactions/catalysis-reaction": {
+    "t": "催化作用",
+    "e": "把氮气和氢气混合，并不意味着它们会在有用时间内变成氨。氮氮三键很稳定，反应还同时受到平衡、表面吸附、传质与放热管理的约束。工业合成氨之所以成立，不是因为铁“赋予了反应可能性”，而是铁表面提供了…",
+    "d": "chemistry"
+  },
+  "/chemistry/reactions/combustion": {
+    "t": "燃烧",
+    "e": "人类驯服的第一个化学反应，就是燃烧。",
+    "d": "chemistry"
+  },
+  "/chemistry/reactions/cross-coupling-reactions": {
+    "t": "交叉偶联反应",
+    "e": "有机化学家最常做的一件事，是把两个碳片段接在一起。听起来简单，实际很难：碳原子稳定，不会因为两个分子“靠近”就自动牵手。",
+    "d": "chemistry"
+  },
+  "/chemistry/reactions/diels-alder-reaction": {
+    "t": "狄尔斯-阿尔德反应",
+    "e": "要造一个六元环，最优雅的办法是什么？",
+    "d": "chemistry"
+  },
+  "/chemistry/reactions/electrolysis": {
+    "t": "电解",
+    "e": "水不会在常温下自行大量变成氢气和氧气，氧化铝也不会主动释放金属铝。要让这些热力学上不利的变化持续发生，必须从外界输入功。",
+    "d": "chemistry"
+  },
+  "/chemistry/reactions/enzymatic-catalysis": {
+    "t": "酶催化",
+    "e": "你的身体在 37°C 左右完成无数化学反应：复制 DNA，分解葡萄糖，合成脂肪酸，把二氧化碳和水转化成碳酸氢盐缓冲血液。",
+    "d": "chemistry"
+  },
+  "/chemistry/reactions/fermentation": {
+    "t": "发酵",
+    "e": "一团面在温暖处悄悄鼓起，一缸葡萄汁过几天变成了酒，一罐白菜在坛子里酸了又香了。这些跨越上万年、遍布每种文明的厨房魔法，其实是同一件化学事：发酵。",
+    "d": "chemistry"
+  },
+  "/chemistry/reactions/grignard-reaction": {
+    "t": "格氏反应",
+    "e": "有机合成经常需要把两段碳骨架接成一根新的碳碳键。困难不在于“碳天生安分”，而在于两个富电子中心彼此排斥、两个缺电子中心也无法互补；路线设计要制造一个富电子碳和一个缺电子碳，使二者极性匹配。",
+    "d": "chemistry"
+  },
+  "/chemistry/reactions/organic-synthesis": {
+    "t": "有机合成",
+    "e": "1828 年，德国化学家 Friedrich Wöhler 在实验室里把一种无机盐加热，意外得到了尿素——一种本以为只能由活的生命体产生的物质。",
+    "d": "chemistry"
+  },
+  "/chemistry/reactions/photosynthesis": {
+    "t": "光合作用",
+    "e": "你呼吸的每一口氧气，几乎都来自某片叶子或某个海洋里的蓝细菌。",
+    "d": "chemistry"
+  },
+  "/chemistry/reactions/polymerization": {
+    "t": "聚合反应",
+    "e": "你手边几乎所有东西——手机外壳、矿泉水瓶、衣服纤维、轮胎、连同你眼角膜上的隐形眼镜——都是同一类化学反应的产物：聚合。",
+    "d": "chemistry"
+  },
+  "/chemistry/reactions/precipitation-reactions": {
+    "t": "沉淀反应",
+    "e": "把两杯澄清溶液混合，液体突然浑浊并出现固体。原子并非凭空产生：它们原本以溶剂化离子或分子的形式分散在水中，现在重新组合成了一个稳定的固相。",
+    "d": "chemistry"
+  },
+  "/chemistry/reactions/sn1-sn2-nucleophilic-substitution": {
+    "t": "SN1 与 SN2 亲核取代",
+    "e": "1896 年，保罗·瓦尔登（Paul Walden）完成一个令人费解的循环：一种旋光性氯代琥珀酸，经过几步反应，变回了组成相同、旋光方向却相反的异构体。碳上的\"手性\"被翻转了——像一把伞被从背…",
+    "d": "chemistry"
+  },
+  "/chemistry/substances/ammonia": {
+    "t": "氨",
+    "e": "如果要评选一个\"养活了最多人类\"的化学反应，答案大概率是把氮气和氢气合成氨。",
+    "d": "chemistry"
+  },
+  "/chemistry/substances/carbohydrates-and-lipids": {
+    "t": "糖类与脂质",
+    "e": "生命要解决两个最基本的问题：从哪里取能量，以及如何把自己和外界隔开。奇妙的是，这两个看似无关的问题，分别由两类有机分子优雅地解决了。",
+    "d": "chemistry"
+  },
+  "/chemistry/substances/carbon-allotropes": {
+    "t": "碳的同素异形体",
+    "e": "铅笔芯能在纸上划出一道黑线，而钻戒上的钻石能划开玻璃、是地球上最硬的天然物质。如果有人告诉你，它们由完全相同的原子构成——纯碳，一个不多一个不少——你大概会觉得不可思议。",
+    "d": "chemistry"
+  },
+  "/chemistry/substances/catalysts": {
+    "t": "催化剂",
+    "e": "“铂催化剂”听起来像一种成分明确的物质，真实工业催化剂却更像一个经过设计的微型反应环境。铂可能只占很少一部分，它被分散在氧化铝或碳载体上，周围还有改变电子状态的助剂、控制孔结构的成型组分，以及…",
+    "d": "chemistry"
+  },
+  "/chemistry/substances/glass-and-ceramics": {
+    "t": "玻璃与陶瓷",
+    "e": "你能读到这篇文章，可能正经过一根头发丝粗细的玻璃细丝，它躺在海底或埋在地下，把光信号以接近光速送到你身边。",
+    "d": "chemistry"
+  },
+  "/chemistry/substances/hydrocarbons": {
+    "t": "烃类",
+    "e": "你今天用过的东西里，有惊人比例的物质曾经是几亿年前的海洋微生物。它们死后沉入海底，在地下被高温高压\"焖\"了上亿年，变成黑色的石油和无形的天然气。今天我们把它们抽上来，烧掉一部分驱动汽车飞机，把…",
+    "d": "chemistry"
+  },
+  "/chemistry/substances/metals-and-alloys": {
+    "t": "金属与合金",
+    "e": "人类的历史阶段，常以金属命名：石器时代之后是青铜时代，再之后是铁器时代。一个文明能造出什么金属，几乎决定了它能造出什么武器、农具、建筑与机器。",
+    "d": "chemistry"
+  },
+  "/chemistry/substances/noble-gases": {
+    "t": "稀有气体",
+    "e": "夜晚城市里那些发出红光、蓝光、粉光的霓虹招牌，靠的是一类\"什么都不想干\"的气体。它们极度不爱与别的元素发生反应，懒到几乎自成一族，却恰恰因为这份\"惰性\"，成了从照明、潜水到医疗与芯片制造里不可…",
+    "d": "chemistry"
+  },
+  "/chemistry/substances/nucleic-acids-chemistry": {
+    "t": "核酸的化学",
+    "e": "你身体里的每一个细胞，都藏着一份约 30 亿个字符的\"说明书\"。这份说明书不是用墨水写在纸上，而是用四种化学分子的排列顺序\"写\"在一条长长的分子链上。",
+    "d": "chemistry"
+  },
+  "/chemistry/substances/polymers": {
+    "t": "高分子与聚合物",
+    "e": "手机外壳、轮胎、输液管、建筑保温层、涂料和衣物纤维都可能以聚合物为主体，但它们不是同一种“塑料”。聚合物是由大量重复或相关结构单元组成的高摩尔质量分子；聚合物材料则是在这些大分子之外，还包含填…",
+    "d": "chemistry"
+  },
+  "/chemistry/substances/proteins-chemistry": {
+    "t": "蛋白质的化学",
+    "e": "你身体里几乎每一件\"活儿\"都由蛋白质在干。消化食物的是酶（一种蛋白质），运输氧气的是血红蛋白，让肌肉收缩的是肌动蛋白与肌球蛋白，抵御病菌的是抗体。可这数以万计、功能千差万别的分子机器，全部由同…",
+    "d": "chemistry"
+  },
+  "/chemistry/substances/semiconductors-materials": {
+    "t": "半导体材料",
+    "e": "你正用来读这篇文章的设备里，藏着一块指甲盖大小的硅片，上面刻着以亿计的开关。这些开关每秒切换数十亿次，把\"开\"和\"关\"翻译成你眼前的文字、图像、视频。整个数字世界——手机、电脑、互联网、人工智…",
+    "d": "chemistry"
+  },
+  "/chemistry/substances/water": {
+    "t": "水",
+    "e": "把一杯水放进冰箱，第二天它结成的冰会浮在你新倒的水上。",
+    "d": "chemistry"
+  }
+}

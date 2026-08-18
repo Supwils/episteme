@@ -82,12 +82,12 @@ related:
 - Cordiner, M. A. et al. _JWST Detection of a Carbon-dioxide-dominated Gas Coma Surrounding Interstellar Comet 3I/ATLAS._ ApJL (2025). DOI: 10.3847/2041-8213/ae0647.
 - Loeb, A., Hibberd, A. & Crowl, A. _Is the Interstellar Object 3I/ATLAS Alien Technology?_ Aerospace 12, 851 (2025). arXiv:2507.12213.
 
-[^seligman25]: Seligman et al. 2025（arXiv:2507.02757）：3I/ATLAS 于 2025年7月1日由 ATLAS 智利站发现，离心率 6.144±0.016，无穷远速度 57.95±0.05 km/s。
+[^seligman25]: Seligman et al. 2025（arXiv:2507.02757）：3I/ATLAS 于 2025年7月1日由 ATLAS 智利 Río Hurtado 站发现，轨道离心率 6.144±0.016、相对太阳的无穷远速度 57.95±0.05 km/s，是迄今最快、也可能最古老的一个星际天体。
 
-[^micheli]: Micheli et al. 2018（Nature 559, 223）：非引力加速的测量；同期所有测光与光谱均未探到彗发或气体。
+[^micheli]: Micheli et al. 2018（Nature 559, 223）：非引力加速的首次测量——在纯引力模型之外存在统计上显著的额外加速度，且大致随日心距平方反比衰减；同期所有测光与光谱观测均未探测到彗发或气体喷发。
 
-[^bergner]: Bergner & Seligman 2023（Nature 615, 610）：水冰经宇宙射线辐射分解产生 H2，不可见的氢喷发足以解释加速。
+[^bergner]: Bergner & Seligman 2023（Nature 615, 610）：水冰经宇宙射线辐射分解产生 H2 的模型——彗星大小的富水冰体在星际空间累积的氢足以产生观测到的加速，而氢分子喷发本身不可见，因此无需彗发，也无需光帆。
 
-[^cordiner]: Cordiner et al. 2025（ApJL，DOI: 10.3847/2041-8213/ae0647）：JWST/NIRSpec 测得彗发 CO2/H2O = 7.6±0.3，约为同日心距预期趋势的 18 倍。
+[^cordiner]: Cordiner et al. 2025（ApJL，DOI: 10.3847/2041-8213/ae0647）：JWST/NIRSpec 测得彗发 CO2/H2O = 7.6±0.3，约为同日心距太阳系彗星预期趋势的 18 倍；同时水含量偏低，暗示其冰经历过与太阳系彗星不同的辐射历史。
 
-[^loeb]: Loeb, Hibberd & Crowl 2025（Aerospace 12, 851）：提出技术起源的思辨性论文；主流分析与 NASA（2025年11月）均判定所有性质与自然彗星一致、无技术签名。
+[^loeb]: Loeb, Hibberd & Crowl 2025（Aerospace 12, 851）：提出技术起源的思辨性论文，罗列轨道面贴近黄道、连续飞掠行星的"异常"并推测可能是技术造物；主流分析与 NASA（2025年11月）均判定其全部性质与自然彗星一致、无任何技术签名。

@@ -1,0 +1,907 @@
+{
+  "/political-science/concepts/accountability": {
+    "t": "政治问责",
+    "e": "2003 年，伊拉克战争爆发前，美英两国政府以\"萨达姆·侯赛因拥有大规模杀伤性武器\"为主要理由，向本国议会和公众申请发动战争的授权。战争进行后，这一关键理由被证伪——情报评估的误差（或被故意夸…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/authority": {
+    "t": "权威",
+    "e": "\"为什么我必须服从？\"——这是政治哲学最古老的问题之一，也是\"权威\"（authority）概念的核心所在。",
+    "d": "political-science"
+  },
+  "/political-science/concepts/budget-governance": {
+    "t": "预算治理",
+    "e": "预算不是一张收支表。预算是国家优先级的公开表达。政府说重视教育、国防、气候、贫困、养老或创新，最终都要在预算中体现。第二个误解，是认为预算治理只关乎节省开支。好的预算治理不是单纯压低赤字，而是…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/checks-and-balances": {
+    "t": "制衡",
+    "e": "麦迪逊在《联邦党人文集》第五十一篇写下了政治哲学史上最精炼的制度设计格言之一：\"如果人都是天使，就不需要政府。如果天使来统治人，就不需要对政府进行外部或内部的控制。\"",
+    "d": "political-science"
+  },
+  "/political-science/concepts/citizenship-rights": {
+    "t": "公民身份与权利",
+    "e": "1954 年，美国最高法院在\"布朗诉教育委员会案\"（Brown v. Board of Education）中裁定，公立学校的种族隔离违反宪法。这一判决改变了数百万黑人孩子的命运，也揭示了\"公…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/civil-society": {
+    "t": "公民社会",
+    "e": "1989 年，东欧剧变以惊人的速度展开。波兰的团结工会、捷克斯洛伐克的公民论坛、匈牙利的民主论坛——这些以工人运动、知识分子圈子、宗教社群为基础的独立组织，在多年的地下积累后，在短短数月内推翻…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/constitution": {
+    "t": "宪法",
+    "e": "1787 年费城会议通过的美国宪法，是世界上迄今仍在使用的最古老的成文宪法。在此之后 230 余年间，这份拥有 4543 个英文单词的文件被修正过 27 次（其中前 10 条即《权利法案》在 …",
+    "d": "political-science"
+  },
+  "/political-science/concepts/deliberative-democracy": {
+    "t": "协商民主",
+    "e": "1990 年代，政治学界出现了一场被称为\"协商转向\"（deliberative turn）的理论运动——大批学者开始批评现有民主理论过于聚焦于偏好聚合（投票、利益博弈），而忽视了民主过程中的理…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/democracy": {
+    "t": "民主",
+    "e": "公元前 431 年，雅典政治家伯里克利（Pericles）在阵亡将士的葬礼演讲上说：\"我们的政制叫做民主（demokratia），因为管理国家的是多数人而不是少数人。\"这段演讲由修昔底德记录，…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/distributive-justice": {
+    "t": "分配正义",
+    "e": "同一个社会，为什么有些人拥有数百亿财富，另一些人却无法负担基本医疗？是因为前者工作更努力？因为他们更聪明？因为他们的父母更有钱？因为他们运气更好？",
+    "d": "political-science"
+  },
+  "/political-science/concepts/equality": {
+    "t": "平等",
+    "e": "1776 年《美国独立宣言》开篇宣称：\"我们认为这些真理不言而喻：人人生而平等（all men are created equal）。\"这句话在历史上引发了无休止的讨论：它的起草者托马斯·杰斐…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/fiscal-rules-democratic-legitimacy": {
+    "t": "财政规则与民主合法性",
+    "e": "财政规则常被理解成“给政府花钱上锁”。这个理解太窄。财政规则确实会限制赤字、债务、支出或结构性预算余额。但它更深层的作用，是把短期政治冲动放进长期公共承诺。民主政府需要回应选民。选民希望教育、…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/fiscal-state": {
+    "t": "财政国家",
+    "e": "财政不是政府的会计部门。财政是国家能力的核心。一个政府能否征税、借债、花钱、审计和解释预算，决定它能否打仗、修路、办学校、发养老金、应对疫情和稳定经济。第二个误解，是把税收看成国家从社会拿走资…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/freedom-of-speech": {
+    "t": "言论自由",
+    "e": "1859 年，约翰·斯图尔特·密尔（John Stuart Mill）在《论自由》中写下了现代言论自由思想最重要的论证：他的\"伤害原则\"（harm principle）与对\"言论市场\"（mar…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/gerrymandering": {
+    "t": "选区重划操纵",
+    "e": "1812 年，马萨诸塞州长埃尔布里奇·格里（Elbridge Gerry）签署了一项重划州参议院选区的法案，将一个选区划成了奇特的弯曲形状。当年 3 月 26 日，《波士顿公报》（Boston…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/hegemony": {
+    "t": "霸权",
+    "e": "\"霸权\"（hegemony）是一个来自古希腊语的词，hēgemonia 意为\"领导权\"或\"支配地位\"——古希腊城邦联盟中，斯巴达和雅典先后扮演过\"霸主\"（hegemon）的角色，即盟友承认的领…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/ideology": {
+    "t": "意识形态",
+    "e": "\"意识形态\"这个词有一段奇特的历史。它由法国哲学家德特拉西（Destutt de Tracy）于 1796 年创造，最初指\"观念的科学\"（science of ideas）——一种系统研究观念…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/justice": {
+    "t": "正义",
+    "e": "1971 年，约翰·罗尔斯（John Rawls）出版了《正义论》。这本书刷新了一个沉寂数十年的哲学领域，也引发了此后半个世纪延绵至今的争论。它的支配地位之强，连立场对立的诺齐克都在 1974…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/legitimacy": {
+    "t": "合法性与正当性",
+    "e": "1989 年 11 月，柏林墙倒塌。东德政权拥有军队、警察、秘密警察，拥有一切强制工具。但当百万民众走上街头，高呼\"我们才是人民\"时，这个政权在数周内土崩瓦解。没有外国入侵，没有军事政变，只有…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/liberty": {
+    "t": "自由",
+    "e": "1958 年，历史学家以赛亚·柏林（Isaiah Berlin，1909—1997）在牛津大学发表就职讲演《自由的两个概念》（\"Two Concepts of Liberty\"），区分了政治思…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/modernization-theory": {
+    "t": "现代化理论：一条被现实反复绕开的单行道",
+    "e": "1960 年，罗斯托出版《经济增长的阶段》，副标题是\"非共产党宣言\"。他提出所有社会都沿同一条路径前进：传统社会 → 起飞前提条件 → 起飞 → 走向成熟 → 高额群众消费。",
+    "d": "political-science"
+  },
+  "/political-science/concepts/nation-and-nationalism": {
+    "t": "民族与民族主义",
+    "e": "1882 年，法国哲学家欧内斯特·勒南（Ernest Renan，1823—1892）在巴黎索邦大学发表了题为《民族是什么？》（\"Qu'est-ce qu'une nation?\"）的演讲。他…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/political-corruption": {
+    "t": "政治腐败",
+    "e": "1972 年，美国水门事件（Watergate scandal）开始浮出水面。尼克松政府的工作人员闯入民主党国家委员会总部，随后白宫参与了系统性的掩盖行动。这一系列事件最终导致尼克松成为美国历…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/political-economy": {
+    "t": "政治经济学",
+    "e": "1973 年 10 月，第四次中东战争爆发后不久，阿拉伯产油国宣布对支持以色列的国家禁运石油。短短几个月内，国际油价从每桶 2.9 美元飙升到 11.65 美元，翻了近四倍——美国的加油站排起…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/political-methodology-behavioralism": {
+    "t": "政治学方法论与行为主义革命",
+    "e": "读一篇当代政治学论文，你大概率会看到回归系数、置信区间、随机对照实验。这副面孔在一个世纪前并不存在。20 世纪上半叶，政治学很大程度上是描述性的：研究宪法条文、比较政府结构、追溯思想史。它更像…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/political-representation": {
+    "t": "政治代表",
+    "e": "1774 年，爱尔兰裔英国政治家埃德蒙·伯克（Edmund Burke）在当选布里斯托尔议员后，发表了政治代表理论史上最著名的演讲之一。他告诉选民：",
+    "d": "political-science"
+  },
+  "/political-science/concepts/political-violence": {
+    "t": "政治暴力",
+    "e": "1789 年法国大革命的\"恐怖统治\"（Reign of Terror，1793–1794 年）期间，革命法庭正式处决约 16,594 人（仅巴黎就约 2,639 人；断头台是其标志性手段，外省…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/power": {
+    "t": "权力",
+    "e": "1971 年，斯坦福大学心理学家菲利普·津巴多（Philip Zimbardo）将 24 名普通大学生随机分为\"看守\"和\"囚犯\"，关入地下室模拟监狱。实验原计划进行两周，却在第六天就被迫中止—…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/public-opinion-and-propaganda": {
+    "t": "公众舆论与宣传",
+    "e": "1922 年，美国记者和政治评论家沃尔特·李普曼（Walter Lippmann，1889—1974）出版了《公众舆论》（Public Opinion）——这本书以深刻的悲观主义重新定义了民主…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/public-policy": {
+    "t": "公共政策",
+    "e": "人们常把公共政策理解成政府发布的一份文件、一个口号或一个承诺。但在政治学里，政策不是\"政府说了什么\"，而是公共权力围绕某个问题持续做出的选择：做什么、不做什么、用什么工具做、让谁承担成本、让谁…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/revolution": {
+    "t": "革命",
+    "e": "1789 年 7 月 14 日，巴黎市民攻占了巴士底狱（Bastille），释放了其中关押的囚犯。在军事和象征意义上，这个行动都是决定性的：它标志着法国大革命的开端，一场将深刻改变欧洲乃至世界…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/secularism": {
+    "t": "世俗主义",
+    "e": "1905 年，法国通过了《政教分离法》（loi de séparation），宣布共和国不承认、不支持任何宗教，宗教组织不得获得国家资助。这一法律奠定了法国\"世俗主义\"（laïcité）的法律…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/social-contract": {
+    "t": "社会契约",
+    "e": "1651 年，英国内战仍在进行，查理一世已于两年前被处决。正是在这个权威彻底崩溃的年代，托马斯·霍布斯写完了《利维坦》——政治思想史上最重要、最险峻的著作之一。",
+    "d": "political-science"
+  },
+  "/political-science/concepts/social-movements": {
+    "t": "社会运动与集体行动",
+    "e": "1955 年 12 月，在美国阿拉巴马州蒙哥马利市，一位名叫罗莎·帕克斯（Rosa Parks）的黑人女裁缝在公交车上拒绝给白人让座，被捕。这件事看似微不足道，却点燃了持续 381 天的蒙哥马…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/sovereignty": {
+    "t": "主权",
+    "e": "1648 年，三十年战争以《威斯特伐利亚和约》告终。这份条约并非只是一纸停战协议——它在欧洲地图上确立了一套全新的政治逻辑：每个君主在其领土之内拥有最高权威，其他君主无权干涉。\"主权\"这个概念…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/state-capacity": {
+    "t": "国家能力",
+    "e": "为什么有些国家能在几周内向全民发放纾困金、组织起高效的疫苗接种，而另一些国家连准确统计本国有多少人口都做不到？为什么同样宣布了一项法律，在一个国家它被切实执行，在另一个国家它只是一纸空文？这些…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/taxes-and-public-budget": {
+    "t": "税收与公共预算：共同的钱怎样变成共同选择",
+    "e": "一所公立学校需要教师工资、建筑维护、教材、午餐、网络和安全设施。每个家庭都可能希望学校更好，却很少有一个家庭能独自承担全部成本。于是出现两个最基础的政治问题：共同的钱从哪里来？谁决定它花到哪里…",
+    "d": "political-science"
+  },
+  "/political-science/concepts/the-state": {
+    "t": "国家",
+    "e": "1882 年，法国历史学家欧内斯特·勒南（Ernest Renan）在索邦大学发表了一篇著名演讲，题为《什么是民族？》（Qu'est-ce qu'une nation?）。他说：民族是一种每天…",
+    "d": "political-science"
+  },
+  "/political-science/frontier/ai-governance-regulation": {
+    "t": "AI 监管的制度竞赛：欧盟、美国、中国与全球治理",
+    "e": "2025 年 8 月 26 日，联合国大会以协商一致方式通过第 79/325 号决议，决定设立两个新机制：一个由 40 名专家组成的「独立国际人工智能科学小组」，和一个面向所有会员国的「人工智…",
+    "d": "political-science"
+  },
+  "/political-science/frontier/ai-governance-surveillance": {
+    "t": "AI、算法治理与监控的政治",
+    "e": "2019 年，卡内基国际和平基金会的史蒂文·费尔德斯坦（Steven Feldstein）发布了一份在学界引发广泛讨论的报告。他系统调查了全球各国 AI 监控技术的部署情况，发现当时已有至少 …",
+    "d": "political-science"
+  },
+  "/political-science/frontier/democratic-backsliding": {
+    "t": "民主衰退：指标、争论与路径",
+    "e": "2021 年 1 月，多年来每年发布民主评估报告的 Freedom House 宣布，全球民主状况已连续 15 年出现净退步——自由国家减少，不自由国家增加。同年，位于哥德堡的 V-Dem 研…",
+    "d": "political-science"
+  },
+  "/political-science/frontier/global-governance-crisis": {
+    "t": "全球治理的危机与改革",
+    "e": "2020 年初，一种新型冠状病毒开始在全球蔓延。世界卫生组织（WHO）于 2020 年 3 月 11 日宣布其为全球大流行病。然而，从早期预警到全球协调应对，各国政府与多边机构的响应参差不齐，…",
+    "d": "political-science"
+  },
+  "/political-science/frontier/multipolar-world": {
+    "t": "多极世界与中美战略竞争",
+    "e": "2017 年，美国《国家安全战略》报告首次将中国和俄罗斯定义为\"修正主义强国\"（revisionist powers），正式宣告冷战后\"接触政策\"（engagement policy）时代的终…",
+    "d": "political-science"
+  },
+  "/political-science/frontier/political-economy-of-industrial-policy": {
+    "t": "产业政策回潮：补贴竞赛与新政治经济学",
+    "e": "2025 年 8 月 22 日，美国政府宣布以 89 亿美元换取英特尔约 10% 的股权——资金来自《芯片与科学法》项下尚未拨付的 57 亿美元补贴和「安全飞地」计划的 32 亿美元。一个自称…",
+    "d": "political-science"
+  },
+  "/political-science/frontier/populism-polarization": {
+    "t": "民粹主义与政治极化的成因之争",
+    "e": "2016 年是政治观察者普遍感到困惑的一年。英国脱欧公投以微弱多数通过，唐纳德·特朗普赢得美国总统选举，波兰、匈牙利的民粹政府继续巩固权力。几乎所有主流预测都出了错。",
+    "d": "political-science"
+  },
+  "/political-science/frontier/sortition-deliberative-democracy": {
+    "t": "抽签治国的复兴：公民大会与协商民主的制度化实验",
+    "e": "2018 年 5 月 25 日，爱尔兰以 66.4% 的赞成票公投废除了宪法第八修正案——全球最严格的堕胎禁令之一。这场公投的特殊之处不在结果，而在议程的来路：议题先被交给一个由 99 名随机…",
+    "d": "political-science"
+  },
+  "/political-science/institutions/bureaucracy": {
+    "t": "官僚制与行政国家",
+    "e": "1887 年，年轻的政治学者伍德罗·威尔逊（后来成为美国第 28 任总统）在《政治学季刊》发表了一篇文章《行政的研究》（The Study of Administration）。他提出了一个简…",
+    "d": "political-science"
+  },
+  "/political-science/institutions/central-bank-communication-public-understanding": {
+    "t": "央行沟通与公众理解",
+    "e": "央行沟通不是新闻稿的修辞问题。它是货币政策的一部分。利率决议、通胀预测、前瞻指引、资产负债表政策、金融稳定评估，都需要通过沟通进入市场和公众预期。第二个误解，是认为央行只需要和金融市场沟通。金…",
+    "d": "political-science"
+  },
+  "/political-science/institutions/central-bank-independence-political-economy": {
+    "t": "中央银行独立的政治经济学",
+    "e": "中央银行独立不是让技术官僚脱离民主。它是一种制度承诺：把短期政治压力与货币发行权隔开，让公众相信政府不会为了选举或赤字而持续制造通胀。第二个误解，是认为独立央行只需要管通胀。现代央行还面对金融…",
+    "d": "political-science"
+  },
+  "/political-science/institutions/central-bank-independence": {
+    "t": "央行独立性",
+    "e": "1979 年，保罗·沃尔克（Paul Volcker）出任美联储主席，随即启动了一场激进的反通胀行动：将联邦基金利率推至 20% 以上，造成 1980–1982 年的严重衰退，失业率攀升至近 …",
+    "d": "political-science"
+  },
+  "/political-science/institutions/coalition-government": {
+    "t": "联合政府",
+    "e": "2017 年德国大选之后，各方经历了长达 171 天的艰难谈判，才组建出一届联合政府——这是德国战后史上持续时间最长的组阁谈判。2019 至 2020 年，以色列在不到一年内举行了三次大选，每…",
+    "d": "political-science"
+  },
+  "/political-science/institutions/constitutional-courts": {
+    "t": "宪法法院与违宪审查",
+    "e": "1803 年，美国最高法院首席大法官约翰·马歇尔（John Marshall）在\"马伯里诉麦迪逊\"（Marbury v. Madison）案中写下了一句此后被无数次引用的话：\"阐明法律是什么，…",
+    "d": "political-science"
+  },
+  "/political-science/institutions/constitutionalism-separation-of-powers": {
+    "t": "宪政与分权",
+    "e": "1803 年，美国最高法院首席大法官约翰·马歇尔（John Marshall）在\"马伯里诉麦迪逊案\"（Marbury v. Madison）中宣布：当国会立法与宪法相抵触时，最高法院有权宣告该…",
+    "d": "political-science"
+  },
+  "/political-science/institutions/democracy-authoritarianism": {
+    "t": "民主与威权",
+    "e": "2006 年，政治学家拉里·戴蒙德（Larry Diamond）提出了一个令许多人不安的术语：民主衰退（democratic recession）。彼时，\"历史终结论\"仅过去十五年，人们却已开…",
+    "d": "political-science"
+  },
+  "/political-science/institutions/electoral-systems": {
+    "t": "选举制度：多数制与比例制",
+    "e": "同样是民主选举，结果可以差别巨大。2015 年英国大选，英国独立党（UKIP）获得 12.6% 的全国选票，赢得议会席位 1 席；苏格兰民族党（SNP）只拿到约 4.7% 的全国选票，却赢得 …",
+    "d": "political-science"
+  },
+  "/political-science/institutions/executive-power": {
+    "t": "行政权与行政首长",
+    "e": "1952 年 4 月，朝鲜战争正酣，美国钢铁工人即将罢工。杜鲁门总统担心战时军需中断，一纸行政命令直接下令联邦政府接管全国主要钢厂。两个月后，最高法院以 6 比 3 判决（\"扬斯敦钢铁案\"）：…",
+    "d": "political-science"
+  },
+  "/political-science/institutions/federalism": {
+    "t": "联邦制与单一制",
+    "e": "1787 年，美国制宪者面对一个棘手的政治难题：邦联体制（Confederation）太松散，中央政府无力征税、维持军队、规范贸易；但如果建立一个强大的中央政府，各州又担心自己的自主权被吞噬。…",
+    "d": "political-science"
+  },
+  "/political-science/institutions/impeachment-and-recall": {
+    "t": "弹劾与罢免",
+    "e": "1868 年，美国总统安德鲁·约翰逊（Andrew Johnson）以 35:19 的参议院投票差一票躲过弹劾。1974 年，尼克松（Richard Nixon）在众议院弹劾程序推进前选择辞职…",
+    "d": "political-science"
+  },
+  "/political-science/institutions/interest-groups-and-lobbying": {
+    "t": "利益集团与游说",
+    "e": "\"游说\"（lobbying）一词的字面意思是\"在大厅里活动\"。早在 1640 年，英国下议院旁的大厅（lobby）就是公众等候、拦截议员陈情的地方；19 世纪初，美国东北部各州议会沿用了这一用…",
+    "d": "political-science"
+  },
+  "/political-science/institutions/judiciary-and-judicial-review": {
+    "t": "司法机构与司法审查",
+    "e": "1803 年，美国联邦最高法院首席大法官约翰·马歇尔（John Marshall）在\"马伯里诉麦迪逊案\"（Marbury v. Madison）中写下了一句话，永久改变了民主政治的运作方式：\"…",
+    "d": "political-science"
+  },
+  "/political-science/institutions/legislatures": {
+    "t": "立法机构",
+    "e": "1215 年，英格兰贵族迫使约翰王在《大宪章》（Magna Carta）上加盖印玺，其第 12 条确立了一项后来成为宪政史基石的原则：非经\"王国共同会议\"（common counsel of …",
+    "d": "political-science"
+  },
+  "/political-science/institutions/local-and-municipal-government": {
+    "t": "地方与市政政府",
+    "e": "1831 年，年轻的法国贵族阿历克西·德·托克维尔（Alexis de Tocqueville）访问美国，试图理解为何美国民主能够运转。他惊讶地发现，答案的关键不在华盛顿，而在数以千计的小镇。…",
+    "d": "political-science"
+  },
+  "/political-science/institutions/monarchy": {
+    "t": "君主制",
+    "e": "在世界现存的 195 个主权国家中，有 43 个保留了君主制（monarchy）——由世袭君主担任国家元首。其中大多数是立宪君主制（constitutional monarchy），君主的权力…",
+    "d": "political-science"
+  },
+  "/political-science/institutions/ombudsman-institutions": {
+    "t": "监察专员制度",
+    "e": "1809 年，瑞典议会设立了一个此前从未有过的职位：司法监察专员（Justitieombudsman，简称 JO）。这一职位的使命是独立于行政系统，调查公民对政府官员滥权、怠职或不公正行为的投…",
+    "d": "political-science"
+  },
+  "/political-science/institutions/one-party-states": {
+    "t": "一党制国家",
+    "e": "1921 年，苏联共产党（布尔什维克）通过了著名的\"禁止派别活动\"决议，将党内异见制度化地排除于党的边界之外。与此同时，《苏维埃社会主义共和国联盟宪法》在形式上保留了苏维埃代表机构，但在实践中…",
+    "d": "political-science"
+  },
+  "/political-science/institutions/parliamentary-presidential": {
+    "t": "议会制与总统制",
+    "e": "1945 年至 1980 年代，拉丁美洲几乎所有民主实验最终走向了军事政变或崩溃——而在同一时期，西欧的议会制民主国家普遍保持稳定。这一强烈对比促使政治学家发问：制度选择本身，会影响民主的生存…",
+    "d": "political-science"
+  },
+  "/political-science/institutions/political-parties": {
+    "t": "政党与政党制度",
+    "e": "1942 年，美国政治学家埃尔默·谢茨施耐德（E. E. Schattschneider）在《政党政府》（Party Government）中写下了政党研究史上最常被引用的一句话：\"政党创造了…",
+    "d": "political-science"
+  },
+  "/political-science/institutions/referendums-and-direct-democracy": {
+    "t": "公民投票与直接民主",
+    "e": "2016 年 6 月 23 日，英国选民以 51.9% 对 48.1% 的微弱多数，投票支持脱离欧盟（Brexit）。这次公民投票（referendum）的后果震动世界，并引发了一场关于直接民…",
+    "d": "political-science"
+  },
+  "/political-science/institutions/rule-of-law": {
+    "t": "法治",
+    "e": "1215 年，英格兰诸侯在兰尼米德（Runnymede）逼迫约翰王为《大宪章》（Magna Carta）加盖印玺（约翰王并未亲笔签署，而是依中世纪惯例以蜡印认证）。其中最著名的条款写道：\"任何…",
+    "d": "political-science"
+  },
+  "/political-science/institutions/the-electoral-college": {
+    "t": "美国选举人团制度",
+    "e": "2000 年 11 月，美国总统大选呈现了一幅让全世界瞠目结舌的景象：民主党候选人阿尔·戈尔（Al Gore）获得的全国普选票数多于乔治·W·布什（George W. Bush）约 54 万票…",
+    "d": "political-science"
+  },
+  "/political-science/institutions/theocracy": {
+    "t": "神权政治",
+    "e": "1979 年伊朗伊斯兰革命之后，鲁霍拉·霍梅尼（Ruhollah Khomeini）建立了一种全新的政治架构——\"伊斯兰共和国\"。这一体制保留了部分选举民主的形式（总统选举、议会选举），但在其…",
+    "d": "political-science"
+  },
+  "/political-science/institutions/welfare-state": {
+    "t": "福利国家",
+    "e": "1942 年，二战正酣，伦敦时常遭德军轰炸。就在这样的至暗时刻，英国政府发布了一份名为《贝弗里奇报告》的文件，它向\"五大恶魔\"宣战——贫困、疾病、无知、肮脏、懒散。这份报告意外地成了畅销品，民…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/african-regional-organizations": {
+    "t": "非洲区域组织",
+    "e": "非洲区域组织最常见的误解，是把它们看成欧盟的低配版本。这种比较会误导。非洲区域组织面对的任务更宽：殖民边界遗产、跨境冲突、内陆国家出海、基础设施缺口、粮食安全、货币稳定、政变治理、难民流动、公…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/alliances-and-nato": {
+    "t": "联盟政治与北约",
+    "e": "1949 年 4 月，美国、加拿大和 10 个西欧国家在华盛顿签署《北大西洋公约》，其中第五条（Article 5）成为其后 75 年最重要的国际承诺之一：\"对一方的攻击被视为对所有方的攻击。…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/balance-of-power": {
+    "t": "均势理论",
+    "e": "1814-1815 年，拿破仑战争的战胜国聚集于维也纳，由英国外相卡斯尔雷子爵（Viscount Castlereagh）和奥地利首相梅特涅（Prince Metternich）主导，精心设计…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/constructivism-ir": {
+    "t": "国际关系：建构主义",
+    "e": "1989 年，柏林墙倒塌，冷战结束。这是 20 世纪最重大的地缘政治变局之一——而几乎所有主流国际关系理论家都没有预测到它。无论是现实主义（权力均衡应当维持两极格局）还是自由制度主义（制度变迁…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/containment": {
+    "t": "遏制战略",
+    "e": "1946 年 2 月 22 日，美国驻苏联临时代办乔治·凯南（George Kennan）从莫斯科发回了一份长达 5,300 词的电报，史称\"长电报\"（Long Telegram）。这份电报彻…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/cyber-warfare": {
+    "t": "网络战争",
+    "e": "2010 年，伊朗纳坦兹铀浓缩设施的离心机开始以异常的频率发生故障。技术人员无法确定原因，而一切表面指标都显示系统运行正常。数月后，信息安全研究人员在伊朗工业控制系统中发现了一种前所未见的精密…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/economic-sanctions": {
+    "t": "经济制裁",
+    "e": "2022 年 2 月俄罗斯入侵乌克兰后数日内，美国、欧盟、英国和多个盟国宣布了对俄罗斯历史上规模最大的经济制裁：将俄罗斯主要银行排除在 SWIFT 国际银行结算系统之外、冻结俄罗斯央行约 30…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/failed-and-fragile-states": {
+    "t": "失败国家与脆弱国家",
+    "e": "1991 年，索马里中央政府在内战中崩溃。此后三十年，这个东非国家成为\"失败国家\"（Failed State）最广为人知的代名词：境内有武装割据的氏族领地、有宣布独立的索马里兰、有沿海的海盗活…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/foreign-aid-and-development": {
+    "t": "对外援助与发展",
+    "e": "1948 年，美国国务卿乔治·马歇尔（George Marshall）提出了以其命名的欧洲复兴计划：在四年内向西欧提供约 130 亿美元的经济援助（按今日价值约为 1500 亿美元），帮助战后…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/global-governance": {
+    "t": "全球治理：联合国、WTO 与 IMF",
+    "e": "1945 年 6 月，来自 50 个国家的代表在旧金山签署了《联合国宪章》。第一条的目标是：\"维持国际和平与安全……促成国际间以尊重人民平等权利及自决原则为根据之友好关系……促进国际合作，以解…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/human-rights-regime": {
+    "t": "国际人权体系",
+    "e": "1948 年 12 月 10 日，联合国大会在巴黎通过了《世界人权宣言》（Universal Declaration of Human Rights，UDHR）。第一条写道：\"人人生而自由，在…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/intelligence-and-espionage": {
+    "t": "情报与间谍",
+    "e": "1961 年 4 月，中央情报局（CIA）精心策划的猪湾（Bay of Pigs）入侵行动彻底失败——约 1500 名训练有素的古巴流亡者在古巴海滩全军覆没，卡斯特罗政权不仅未被推翻，反而借此…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/international-law": {
+    "t": "国际法",
+    "e": "1603 年，一艘荷兰商船在新加坡海峡截获了葡萄牙商船\"圣卡塔琳娜号\"（Santa Catarina），船上的丝绸和瓷器价值连城。问题来了：没有任何世界政府，凭什么说荷兰人有权或无权这么干？荷…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/international-order-hegemony": {
+    "t": "国际秩序与霸权",
+    "e": "1944 年，在二战尚未结束之际，盟国代表云集美国新罕布什尔州的布雷顿森林（Bretton Woods），协商战后国际经济秩序。这次会议产生了国际货币基金组织（IMF）和国际复兴开发银行（后来…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/just-war-theory": {
+    "t": "正义战争理论",
+    "e": "1999 年，北约在未获联合国安理会授权的情况下，对南斯拉夫发动了 78 天的空中打击，以阻止科索沃的族裔清洗。这场干预在国际法上的合法性存在严重争议，但在道义上却受到广泛支持——因为它阻止了…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/liberalism-ir": {
+    "t": "国际关系：自由主义与制度主义",
+    "e": "1795 年，伊曼努尔·康德（Immanuel Kant）写下《永久和平论》（Perpetual Peace）。他提出了一个大胆的设想：如果各国都建立共和政体、互相缔结条约、形成互惠商业关系，…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/migration-and-refugee-politics": {
+    "t": "移民与难民政治",
+    "e": "1951 年，联合国通过《难民公约》，为\"因种族、宗教、国籍、政治观点或特定社会群体成员身份\"而遭受迫害的人提供了国际法框架下的保护。这份公约在冷战初期的欧洲语境下起草，主要针对纳粹迫害的幸存…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/mutually-assured-destruction": {
+    "t": "相互确保毁灭",
+    "e": "1962 年 10 月，古巴导弹危机期间，美国总统肯尼迪（John F. Kennedy）与苏联领导人赫鲁晓夫（Nikita Khrushchev）在世界历史上离核战争最近的一刻相互凝视。在那…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/nuclear-deterrence-strategy": {
+    "t": "核威慑战略",
+    "e": "1945 年 8 月 6 日，广岛。一枚弹头产生的能量相当于约 1.5 万吨 TNT 炸药，在数秒内摧毁了城市中心，造成约 7-8 万人即时死亡（至年底的死亡人数估计在 9-14 万之间，因来…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/nuclear-proliferation": {
+    "t": "核扩散",
+    "e": "1945 年 8 月，世界上只有一个国家拥有核武器。1949 年，苏联加入核俱乐部；1952 年英国；1960 年法国；1964 年中国；1974 年印度（第一次核试验，官方否认）；1998 …",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/peacekeeping": {
+    "t": "联合国维和行动",
+    "e": "1956 年 11 月，第一批头戴蓝色钢盔的士兵出现在西奈半岛的沙漠里。他们来自加拿大、印度、巴西等十国，手里有枪，却被命令不许主动开火。他们的任务不是打仗，而是站在以色列与埃及军队之间——用…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/postcolonial-state-building": {
+    "t": "后殖民国家建设",
+    "e": "后殖民国家建设最常见的误解，是把独立日当作国家建设完成的时刻。殖民统治结束，只意味着主权形式改变。税收、军队、法院、学校、地方行政、边界、民族认同、土地制度和公共服务仍然需要重新建构。第二个误…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/realism-ir": {
+    "t": "国际关系：现实主义",
+    "e": "1939 年，爱德华·卡尔（E. H. Carr）出版了《二十年危机》（The Twenty Years' Crisis）。这本书在英国绥靖主义破产、第二次世界大战爆发的前夕问世，猛烈批判了战…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/regional-organizations": {
+    "t": "区域组织",
+    "e": "1950 年 5 月 9 日，法国外长罗伯特·舒曼（Robert Schuman）发表了改变欧洲历史的声明，提议将法德的煤炭和钢铁生产置于共同的超国家机构管理之下。他在声明结尾写道：\"欧洲不会…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/security-dilemma-war-peace": {
+    "t": "安全困境、战争与和平",
+    "e": "1914 年 8 月，欧洲大国在短短几周内滑入第一次世界大战。事后，几乎每个参战国的领导人都声称自己原本不想要一场大战，却在连锁动员逻辑中无法自拔。德国害怕俄国动员威胁，抢先进攻法国；俄国动员…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/soft-power": {
+    "t": "软实力",
+    "e": "1990 年，一位哈佛大学教授在《外交政策》（Foreign Policy）杂志上发表了一篇文章，并在同年出版的《注定领导》（Bound to Lead）一书中系统阐述，提出了一个在此后三十年…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/terrorism-and-counterterrorism": {
+    "t": "恐怖主义与反恐",
+    "e": "2001 年 9 月 11 日，基地组织劫持的四架客机造成近 3000 人死亡，触发了美国以\"全球反恐战争\"（Global War on Terror）为名发动的连串军事和政治行动，深刻重塑了…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/the-un-system": {
+    "t": "联合国体系",
+    "e": "1945 年 4 月，来自 50 个国家的代表汇聚旧金山，历经近两个月的谈判，于 6 月 26 日签署《联合国宪章》。这是人类历史上第一次建立一个几乎囊括全部主权国家的普遍性国际组织，旨在\"拯…",
+    "d": "political-science"
+  },
+  "/political-science/international-relations/trade-politics-and-wto": {
+    "t": "贸易政治与世界贸易组织",
+    "e": "1994 年，《马拉喀什协定》（Marrakesh Agreement）宣告关税与贸易总协定（GATT）转型升级为世界贸易组织（WTO）。164 个成员国（截至 2023 年）通过一套多边规则…",
+    "d": "political-science"
+  },
+  "/political-science/isms/anarchism": {
+    "t": "无政府主义",
+    "e": "\"无政府主义者\"在流行文化中几乎是\"混乱制造者\"的同义词，暗示一种对一切秩序的破坏欲望。这是对这一复杂政治传统最深刻的误解之一。",
+    "d": "political-science"
+  },
+  "/political-science/isms/authoritarianism": {
+    "t": "威权主义",
+    "e": "1973 年 9 月 11 日清晨，智利军队包围了首都圣地亚哥。中午时分，英制\"猎人\"战斗机向总统府拉莫内达宫投下炸弹；民选总统萨尔瓦多·阿连德在被攻陷的官邸内身亡。皮诺切特将军接管了国家，此…",
+    "d": "political-science"
+  },
+  "/political-science/isms/communism": {
+    "t": "共产主义",
+    "e": "1848 年 2 月，一份薄薄的小册子在伦敦出版，以一句话开场：\"一个幽灵，共产主义的幽灵，在欧洲游荡。\"马克思与恩格斯在《共产党宣言》中描述的这个幽灵，在此后的一个半世纪里，改变了数十亿人的…",
+    "d": "political-science"
+  },
+  "/political-science/isms/communitarianism": {
+    "t": "社群主义",
+    "e": "1982 年，哲学家迈克尔·桑德尔（Michael Sandel）出版了《自由主义与正义的局限》（Liberalism and the Limits of Justice），对约翰·罗尔斯的《…",
+    "d": "political-science"
+  },
+  "/political-science/isms/conservatism": {
+    "t": "保守主义",
+    "e": "1790 年 11 月，巴黎革命者正忙着废除贵族、没收教会财产，伦敦的进步舆论一片喝彩。就在此时，爱尔兰裔议员埃德蒙·伯克出版了《法国大革命反思》，泼了一盆冷水：他预言这场以\"理性\"重建社会的…",
+    "d": "political-science"
+  },
+  "/political-science/isms/cosmopolitanism": {
+    "t": "世界主义",
+    "e": "\"你是哪里人？\"据说，当第欧根尼（Diogenes of Sinope，约前 412—前 323）被人这样问及时，他回答：\"我是世界公民（kosmopolités）。\"这位享誉古代的犬儒学派哲…",
+    "d": "political-science"
+  },
+  "/political-science/isms/end-of-history": {
+    "t": "历史终结论",
+    "e": "1989 年夏天，柏林墙倒塌前几个月，一篇题为《历史的终结？》的文章在小刊物《国家利益》上发表。作者福山时任美国国务院政策规划室副主任。",
+    "d": "political-science"
+  },
+  "/political-science/isms/fascism": {
+    "t": "法西斯主义",
+    "e": "1922 年 10 月，贝尼托·墨索里尼（Benito Mussolini）率领其黑衫军向罗马进军。意大利国王维托里奥·埃马努埃莱三世拒绝宣布戒严，随后邀请墨索里尼组阁。这场几乎未流血的夺权，…",
+    "d": "political-science"
+  },
+  "/political-science/isms/feminism": {
+    "t": "女性主义政治理论",
+    "e": "1792 年，英国作家玛丽·沃斯通克拉夫特（Mary Wollstonecraft）出版了《女权辩护》（A Vindication of the Rights of Woman）。她的核心论点…",
+    "d": "political-science"
+  },
+  "/political-science/isms/green-political-theory": {
+    "t": "生态政治与绿色政治理论",
+    "e": "1962 年，海洋生物学家雷切尔·卡森（Rachel Carson）出版了《寂静的春天》（Silent Spring）。她用科学数据记录了 DDT 等农药对鸟类种群的毁灭性影响，并提出了一个更…",
+    "d": "political-science"
+  },
+  "/political-science/isms/imperialism": {
+    "t": "帝国主义",
+    "e": "1884 年至 1885 年，欧洲列强在柏林召开会议，将非洲大陆像切蛋糕一样瓜分——在地图上画线，无视非洲已有的政治边界、民族分布和历史关系。没有任何一个非洲人受邀参加这次会议。到 1914 …",
+    "d": "political-science"
+  },
+  "/political-science/isms/islamism": {
+    "t": "伊斯兰主义",
+    "e": "1979 年 2 月，流亡海外长达 15 年的伊朗什叶派宗教领袖鲁霍拉·霍梅尼乘飞机返回德黑兰，迎接他的是数百万人的欢呼。不到两周后，伊斯兰革命推翻了沙阿·巴列维政权，建立了世界上第一个现代伊…",
+    "d": "political-science"
+  },
+  "/political-science/isms/liberalism": {
+    "t": "自由主义",
+    "e": "1689 年 12 月，伦敦的书商匿名印出一本小书《政府论》（Two Treatises of Government）。作者约翰·洛克不敢署名——他刚从荷兰流亡归来，前一年英国国王詹姆斯二世被…",
+    "d": "political-science"
+  },
+  "/political-science/isms/libertarianism": {
+    "t": "自由意志主义",
+    "e": "1974 年，哲学家罗伯特·诺齐克（Robert Nozick）出版了《无政府、国家与乌托邦》（Anarchy, State, and Utopia）。这本书是对两年前约翰·罗尔斯《正义论》的…",
+    "d": "political-science"
+  },
+  "/political-science/isms/multiculturalism": {
+    "t": "多元文化主义",
+    "e": "1971 年，加拿大总理皮埃尔·特鲁多宣布加拿大将奉行\"多元文化主义政策\"（Policy of Multiculturalism within a Bilingual Framework），成…",
+    "d": "political-science"
+  },
+  "/political-science/isms/nationalism": {
+    "t": "民族主义",
+    "e": "1848 年 5 月 18 日，来自德意志各邦的几百名代表挤进美因河畔法兰克福的圣保罗教堂（Paulskirche），开始为一个\"德意志\"起草宪法——可当时根本不存在叫\"德意志\"的国家，只有三…",
+    "d": "political-science"
+  },
+  "/political-science/isms/neoconservatism": {
+    "t": "新保守主义",
+    "e": "2003 年 3 月 20 日，美军发动\"伊拉克自由行动\"，以摧毁大规模杀伤性武器（后来证明并不存在）和推翻萨达姆·侯赛因政权为由入侵伊拉克。这是 21 世纪\"新保守主义\"（neoconser…",
+    "d": "political-science"
+  },
+  "/political-science/isms/neoliberalism": {
+    "t": "新自由主义",
+    "e": "1973 年 9 月 11 日，皮诺切特将军的军队轰炸了智利总统府，推翻了民选总统萨尔瓦多·阿连德。随后数年，芝加哥大学经济系培养的一批智利经济学家（\"芝加哥男孩\"，Chicago Boys）…",
+    "d": "political-science"
+  },
+  "/political-science/isms/populism": {
+    "t": "民粹主义",
+    "e": "2016 年是民粹主义（populism）作为政治学术语进入主流讨论的关键年份。英国脱欧公投和唐纳德·特朗普当选美国总统，在同一年震惊了西方政治精英。随后的几年里，\"民粹主义\"成为媒体分析从匈…",
+    "d": "political-science"
+  },
+  "/political-science/isms/postcolonialism": {
+    "t": "后殖民主义",
+    "e": "1978 年，在美国哥伦比亚大学任教的巴勒斯坦裔学者爱德华·萨义德（Edward Said，1935—2003）出版了一本日后改变整个人文社会科学格局的书：《东方主义》（Orientalism…",
+    "d": "political-science"
+  },
+  "/political-science/isms/progressivism": {
+    "t": "进步主义",
+    "e": "1906 年，厄普顿·辛克莱（Upton Sinclair）出版了小说《丛林》（The Jungle），详细描述了芝加哥肉联厂的恐怖条件——腐烂的肉、伤亡的工人、卫生条件的彻底缺失。这本书引发…",
+    "d": "political-science"
+  },
+  "/political-science/isms/republicanism": {
+    "t": "共和主义",
+    "e": "1776 年，美国建国者在费城起草《独立宣言》时，他们心中的政治理想不只是摆脱英王的统治，更是建立一种古老而又崭新的政府形式——共和国（republic）。他们阅读了西塞罗、波利比乌斯，仰慕古…",
+    "d": "political-science"
+  },
+  "/political-science/isms/social-democracy": {
+    "t": "社会民主主义",
+    "e": "如果要找一个政治意识形态的\"实验室\"，斯堪的纳维亚半岛可能是最合适的候选。20 世纪中叶，瑞典、挪威、丹麦这几个小国，在社会民主党的长期执政下，建立起了迄今为止最接近\"充分就业、广泛社会保障、…",
+    "d": "political-science"
+  },
+  "/political-science/isms/socialism": {
+    "t": "社会主义",
+    "e": "没有哪个政治意识形态像社会主义一样，在 20 世纪同时触发了人类历史上最宏大的乌托邦实验，和最惨烈的政治灾难。从斯堪的纳维亚的高福利民主国家，到苏联的一党专政；从二战后英国工党建立的国家医疗服…",
+    "d": "political-science"
+  },
+  "/political-science/isms/totalitarianism": {
+    "t": "极权主义",
+    "e": "1951 年，流亡美国的德国犹太哲学家汉娜·阿伦特出版了《极权主义的起源》。她试图理解一个令她和整个世纪都无法回避的问题：希特勒的纳粹政权和斯大林的苏联体制，代表了一种前所未有的政治形态，还是…",
+    "d": "political-science"
+  },
+  "/political-science/methods/case-selection-and-small-n": {
+    "t": "案例选择与小样本研究",
+    "e": "案例研究不是因为数据不够才做的“缩小版统计”。它可以完成统计模型难以完成的任务：澄清概念、观察机制、检验理论边界、解释异常结果，并重建行动者在关键时刻面对的真实选择。但案例也不能因为“有代表性…",
+    "d": "political-science"
+  },
+  "/political-science/methods/comparative-method": {
+    "t": "政治学的比较方法",
+    "e": "比较政治不是把美国、法国和印度各写一章，再在结尾列出异同。",
+    "d": "political-science"
+  },
+  "/political-science/methods/difference-in-differences": {
+    "t": "双重差分：没有随机实验时怎样评估政策",
+    "e": "某地实施最低工资后，就业下降了；某国通过控烟法后，住院人数减少了；某城市修建地铁后，沿线房价上涨了。把政策前后的差直接称为“政策效果”，是评估中最常见的错误。",
+    "d": "political-science"
+  },
+  "/political-science/methods/experiments-natural-experiments": {
+    "t": "政治实验与自然实验",
+    "e": "实验不是“做了干预以后结果变了”。如果所有参与者都接受干预，我们不知道没有干预时会发生什么。实验的核心是构造可信的反事实。随机分配让处理组与对照组在平均意义上可比，因此两组结果差异可以被解释为…",
+    "d": "political-science"
+  },
+  "/political-science/methods/formal-models-game-theory": {
+    "t": "形式模型与政治博弈论",
+    "e": "形式模型不是把常识写成方程，也不是数学越复杂越科学。它的核心价值，是迫使研究者明确行动者、选择、信息、偏好、制度规则和结果如何连接。一个好的模型会暴露自己的假设，让别人能够推导、反驳和修改。它…",
+    "d": "political-science"
+  },
+  "/political-science/methods/process-tracing": {
+    "t": "过程追踪与因果机制",
+    "e": "过程追踪不是把事件按日期排成时间线。“先发生 A，后来发生 B”只能证明顺序，不能证明 A 通过什么机制导致 B。过程追踪是一种在案例内部系统检验因果解释的方法。研究者提出竞争假设，寻找每个假…",
+    "d": "political-science"
+  },
+  "/political-science/methods/regression-discontinuity-design": {
+    "t": "回归不连续设计：门槛两边为什么可以比较",
+    "e": "奖学金只给考试分数达到 80 分的学生，补贴只给人口少于五万的地方，候选人得票超过 50% 才能当选。政策世界到处是门槛。回归不连续设计（Regression Discontinuity De…",
+    "d": "political-science"
+  },
+  "/political-science/methods/survey-public-opinion-measurement": {
+    "t": "调查研究与公共舆论测量",
+    "e": "民调不是向一千个人提问后，把赞成比例直接当成全民意见。从抽样框、联系方式、问题措辞、回答选项、访问模式到加权方法，每一步都会塑造结果。“支持率 52%”不是脱离方法的事实。它是一个特定总体、特…",
+    "d": "political-science"
+  },
+  "/political-science/methods/synthetic-control-method": {
+    "t": "合成控制法：为一次政策寻找可信的未发生世界",
+    "e": "一州提高烟草税、一国经历政变、一座城市实施拥堵收费，研究者最想知道的是：如果它没有这样做，后来会怎样？处理单位只有一个时，随机实验不可行，简单找一个“相似地区”又常显得任意。合成控制法用多个未…",
+    "d": "political-science"
+  },
+  "/political-science/methods/text-as-data-political-analysis": {
+    "t": "文本即数据与计算政治分析",
+    "e": "把十万篇演讲输入模型，不会自动得到比细读十篇演讲更客观的结论。计算文本分析降低了处理规模的成本，却没有消除语料选择、概念定义、标注、模型假设和语境解释。政治文本也不是行动者思想的透明记录。政党…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/alexis-de-tocqueville": {
+    "t": "托克维尔",
+    "e": "1831 年 5 月，两位年轻的法国贵族登上前往美国的轮船。官方任务是考察美国的监狱制度，实际目的却是回答一个更宏大的问题：民主究竟是什么样的？法国大革命已经发生了四十年，欧洲仍在反复革命与复…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/amartya-sen": {
+    "t": "阿马蒂亚·森",
+    "e": "1943 年，年仅 9 岁的阿马蒂亚·森（Amartya Sen）目睹了孟加拉大饥荒——这场灾难夺走了约二三百万人的生命。多年后，作为经济学家的他回头研究这场饥荒，发现了一个反直觉的事实：那一…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/antonio-gramsci": {
+    "t": "安东尼奥·葛兰西",
+    "e": "1926 年 11 月 8 日，意大利共产党领袖安东尼奥·葛兰西（Antonio Gramsci）在墨索里尼政府的压迫下被捕。两年后的 1928 年，罗马的\"保卫国家特别法庭\"判处他 20 年…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/aristotle-politics": {
+    "t": "亚里士多德的政治学",
+    "e": "亚里士多德（Aristotle）曾在吕克昂学园（Lyceum）讲授政治学，他的学生据说被派遣到 158 个城邦，每人回来汇报一份政体报告。凭借这些田野材料，他完成了《政治学》（Politika…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/carl-schmitt": {
+    "t": "卡尔·施密特",
+    "e": "没有哪位 20 世纪政治理论家比卡尔·施密特（Carl Schmitt）更令人不安——不是因为他的思想不重要，而恰恰因为它太重要了。他的著作被汉娜·阿伦特视为严肃的对话对象，被雅克·德里达仔细…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/carole-pateman": {
+    "t": "卡罗尔·帕特曼",
+    "e": "1988 年，卡罗尔·帕特曼（Carole Pateman）出版了《性别契约》（The Sexual Contract）。这本书提出了一个简单但发人深省的问题：西方政治哲学传统中那些伟大的\"社…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/chantal-mouffe": {
+    "t": "尚塔尔·墨菲",
+    "e": "2019 年，欧洲各国的民粹主义运动方兴未艾。许多自由派知识分子将民粹主义视为民主的威胁，并开出同一副药方：更多的理性对话、更多的专家治理、更多的制度共识。比利时政治理论家尚塔尔·墨菲（Cha…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/cicero": {
+    "t": "西塞罗",
+    "e": "公元前 43 年 12 月 7 日，马可·图利乌斯·西塞罗（Marcus Tullius Cicero）在逃亡途中被安东尼的士兵追上，斩首，双手被砍下——据说因为这双手写出了那些攻击安东尼的《…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/confucius-political-thought": {
+    "t": "孔子的政治思想",
+    "e": "公元前 501 年前后，年过五十的孔子（Confucius，前 551–前 479）终于在鲁国获得仕途，先后出任中都宰、司空，再升为大司寇（主管刑狱与司法的高官）。",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/edmund-burke": {
+    "t": "埃德蒙·伯克",
+    "e": "1790 年，法国大革命正处于狂热的巅峰。巴士底狱已被攻克，国王已被软禁，革命者正在废除一切旧秩序，以\"理性\"和\"自由\"的名义重建社会。整个欧洲的进步知识分子——包括伯克的老友理查德·普莱斯（…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/francis-fukuyama": {
+    "t": "弗朗西斯·福山",
+    "e": "1989 年夏，柏林墙尚未倒塌，东欧变局尚未完成，一篇名为《历史的终结？》的文章出现在名不见经传的政策刊物《国家利益》（The National Interest）上。文章的作者是美国国务院政…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/frantz-fanon": {
+    "t": "弗朗兹·法农",
+    "e": "1961 年，弗朗兹·法农（Frantz Fanon，1925–1961）在白血病的折磨中完成了《大地上的受苦者》（Les Damnés de la Terre）。让·保罗·萨特（Jean-P…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/han-feizi-legalism": {
+    "t": "韩非子与法家",
+    "e": "公元前 233 年，韩非子（Han Fei，约前 280–前 233）死在秦国的监狱里。讽刺的是，他死于自己的同学李斯的谗言——李斯是法家思想的实践者，韩非是法家思想的集大成者。据《史记·老子…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/hannah-arendt": {
+    "t": "汉娜·阿伦特",
+    "e": "1961 年，阿伦特以《纽约客》记者身份前往以色列耶路撒冷，报道纳粹战犯阿道夫·艾希曼（Adolf Eichmann）的审判。艾希曼是负责将数百万犹太人运送至死亡集中营的重要行政官僚。许多人期…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/hans-morgenthau": {
+    "t": "汉斯·摩根索",
+    "e": "1948 年，二战结束仅三年，冷战开始成形。汉斯·摩根索（Hans Morgenthau）出版了《国家间的政治：寻求权力与和平的斗争》（Politics Among Nations）。这本书在…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/ibn-khaldun": {
+    "t": "伊本·赫勒敦",
+    "e": "1375 年，伊本·赫勒敦（Ibn Khaldun，1332–1406）退隐到阿尔及利亚提亚雷特（Tiaret）附近一座名为\"萨拉马堡\"（Qalʿat ibn Salama）的孤立城堡，离开了…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/isaiah-berlin": {
+    "t": "以赛亚·柏林",
+    "e": "1958 年 10 月，以赛亚·柏林（Isaiah Berlin）在牛津大学发表了他的就职演讲《两种自由概念》（\"Two Concepts of Liberty\"）。这篇演讲后来成为政治哲学史…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/james-madison": {
+    "t": "詹姆斯·麦迪逊",
+    "e": "1787 年夏，费城宪法会议陷入僵局。弗吉尼亚代表团带来了一份名为\"弗吉尼亚方案\"的草稿——这是詹姆斯·麦迪逊（James Madison）提前数月精心准备的，充分研读了古希腊城邦、罗马共和国…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/jean-bodin": {
+    "t": "让·博丹",
+    "e": "1572 年 8 月 24 日，圣巴托罗缪大屠杀在巴黎爆发。法国天主教徒在一夜之间屠杀了数千名胡格诺派教徒（新教徒），暴力随即蔓延全国。让·博丹（Jean Bodin）亲历了这个时代的恐怖：一…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/jean-jacques-rousseau": {
+    "t": "让-雅克·卢梭",
+    "e": "1762 年，卢梭出版了两部日后将颠覆法国的著作：《社会契约论》（Du Contrat social）和《爱弥儿》（Émile）。两部书在出版当年即遭到巴黎和日内瓦当局同时查禁，卢梭本人被迫流…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/john-locke": {
+    "t": "约翰·洛克",
+    "e": "1689 年，光荣革命的硝烟刚刚散去，英国议会以近乎无血的方式驱逐了詹姆斯二世，迎来威廉三世与玛丽二世共治的新秩序。就在同一年，约翰·洛克匿名出版了《政府论》（Two Treatises of…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/john-rawls": {
+    "t": "约翰·罗尔斯",
+    "e": "1971 年，约翰·罗尔斯（John Rawls）出版了《正义论》（A Theory of Justice）。这本书被普遍认为是二十世纪英语政治哲学中最重要的著作——它几乎单枪匹马地复兴了规范…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/john-stuart-mill": {
+    "t": "约翰·斯图亚特·密尔",
+    "e": "密尔的一生本身就是一个关于教育、心理危机与思想解放的故事。他的父亲詹姆斯·密尔（James Mill）是边沁（Jeremy Bentham）功利主义的忠实追随者，决心将儿子培养成\"最优秀的人\"…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/jurgen-habermas": {
+    "t": "尤尔根·哈贝马斯",
+    "e": "尤尔根·哈贝马斯（Jürgen Habermas，1929 年 6 月 18 日生于杜塞尔多夫，2026 年 3 月 14 日卒于施塔恩贝格）是二十世纪下半叶以来欧洲最重要的公共知识分子之一。",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/karl-marx": {
+    "t": "卡尔·马克思",
+    "e": "1848 年 2 月，一本薄薄的小册子在伦敦出版，共只有二十三页。它开头写道：\"一个幽灵，共产主义的幽灵，在欧洲徘徊。\"同年，法国、德意志、奥地利、匈牙利相继爆发革命，随后又相继遭到镇压。",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/kautilya": {
+    "t": "考底利耶",
+    "e": "公元前 4 世纪末，印度次大陆的北部，一个庞大的帝国正在崛起。孔雀王朝（Mauryan Empire）的开国君主旃陀罗笈多（Chandragupta Maurya）击败了难陀王朝，建立起印度历…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/mao-zedong-political-thought": {
+    "t": "毛泽东政治思想",
+    "e": "1927 年，大多数中国马克思主义者相信，中国革命必须依靠城市工人阶级。毛泽东（Mao Zedong）用 32 天走访湘潭、湘乡、衡山、醴陵、长沙五个县后，写下《湖南农民运动考察报告》（192…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/mary-wollstonecraft": {
+    "t": "玛丽·沃斯通克拉夫特",
+    "e": "1792 年，玛丽·沃斯通克拉夫特（Mary Wollstonecraft）出版了《为女权辩护》（A Vindication of the Rights of Woman）。这本书距法国大革命…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/max-weber": {
+    "t": "马克斯·韦伯",
+    "e": "1919 年 1 月，第一次世界大战刚刚结束，德国帝国崩溃，革命骚动席卷全国。马克斯·韦伯（Max Weber）在慕尼黑受邀发表了一场题为《以政治为业》（Politik als Beruf）的…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/michael-sandel": {
+    "t": "迈克尔·桑德尔",
+    "e": "哈佛大学的\"正义\"课程（官方课号 Moral Reasoning 22）——\"正义：什么是正确的行为？\"（Justice: What's the Right Thing to Do?）——可能…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/michael-walzer": {
+    "t": "迈克尔·沃尔泽",
+    "e": "1977 年，越战刚结束两年。迈克尔·沃尔泽（Michael Walzer）出版了《正义与非正义战争》（Just and Unjust Wars），这是 20 世纪最具影响力的战争伦理著作。这…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/michel-foucault": {
+    "t": "米歇尔·福柯",
+    "e": "1975 年出版的《规训与惩罚》（Surveiller et punir）以一个骇人的对比开场：1757 年，法国弑君者达米安被当众处以极刑，肢解、焚烧，整个过程极尽酷刑之能事。仅仅八十年后，…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/montesquieu": {
+    "t": "孟德斯鸠",
+    "e": "1748 年，一部两卷本的巨著在日内瓦匿名出版。它的作者是法国贵族查理-路易·德·塞孔达（Charles-Louis de Secondat），即孟德斯鸠男爵（Baron de Montesq…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/niccolo-machiavelli": {
+    "t": "尼科洛·马基雅维利",
+    "e": "1513 年，马基雅维利失业了。这位曾在佛罗伦萨共和国担任外交官和军事事务秘书长达十四年的官员，因美第奇家族复辟而遭到解职，随后以\"密谋颠覆\"的罪名被逮捕、审讯、拷打。无罪释放后，他被放逐到郊…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/plato-political-philosophy": {
+    "t": "柏拉图的政治哲学",
+    "e": "公元前 399 年，雅典以\"腐蚀青年、不敬神明\"的罪名，以 501 人陪审团投票将苏格拉底处死。苏格拉底的学生柏拉图（Plato）目睹了这一切：雅典民主制度以多数票杀死了他所认为的最有智慧的人…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/robert-dahl": {
+    "t": "罗伯特·达尔",
+    "e": "20 世纪中叶的美国政治学界，\"谁真正统治着这个国家？\"是一个被反复争吵的问题。一派精英主义者断言：表面的选举不过是装饰，真正的权力握在少数经济与军事精英手中。另一派则相信权力是分散的。罗伯特…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/robert-nozick": {
+    "t": "罗伯特·诺齐克",
+    "e": "1974 年，哈佛大学哲学系年仅 36 岁的罗伯特·诺齐克（Robert Nozick）出版了《无政府、国家与乌托邦》（Anarchy, State, and Utopia）。这本书的写作动机…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/samuel-huntington": {
+    "t": "塞缪尔·亨廷顿",
+    "e": "1993 年夏，一篇题为《文明的冲突？》的文章出现在《外交事务》杂志上。它带着一个问号，却说出了一个令西方战略界不安的判断：冷战结束之后，世界不会迎来意识形态的终结，而会走向文明之间的对抗——…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/samuel-pufendorf": {
+    "t": "塞缪尔·普芬道夫",
+    "e": "17 世纪中期，欧洲在三十年战争（1618–1648）的废墟上重建秩序。《威斯特伐利亚和约》确立了主权国家体系的基本框架，但一个根本问题悬而未决：这些主权国家之间应当遵循什么规则？是纯粹的强权…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/sun-yat-sen": {
+    "t": "孙中山",
+    "e": "1911 年 10 月 10 日，武昌起义爆发。在地球的另一端，孙中山（Sun Yat-sen，1866–1925）正在美国科罗拉多州丹佛市为革命筹款，据其自述，是在当地报纸（《落基山新闻》R…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/thomas-aquinas-politics": {
+    "t": "托马斯·阿奎那的政治思想",
+    "e": "1265 年前后，托马斯·阿奎那（Thomas Aquinas）坐在那不勒斯的多明我会修道院里，着手写一部将改变西方神学与哲学格局的巨著——《神学大全》（Summa Theologica）。他…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/thomas-hobbes": {
+    "t": "托马斯·霍布斯",
+    "e": "1651 年，英格兰刚刚经历了一场弑君的内战。在这片血泊之上，托马斯·霍布斯出版了《利维坦》——一本试图用近乎几何学的方法，论证\"为什么我们必须服从一个绝对权力\"的书。它是现代政治哲学的起点，…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/thomas-jefferson": {
+    "t": "托马斯·杰斐逊",
+    "e": "1776 年 7 月，33 岁的弗吉尼亚律师托马斯·杰斐逊（Thomas Jefferson）在费城的一间公寓里起草了美国独立宣言。那句\"我们认为这些真理是不言而喻的：人人生而平等，造物主赋予…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/thomas-paine": {
+    "t": "托马斯·潘恩",
+    "e": "1776 年 1 月 10 日，一本 47 页的小册子在费城匿名出版，定价两先令。它很快风靡北美——潘恩本人宣称三个月内就售出约 12 万册；在一个殖民地总人口仅约 250 万的时代，这个比例…",
+    "d": "political-science"
+  },
+  "/political-science/thinkers/vladimir-lenin": {
+    "t": "弗拉基米尔·列宁",
+    "e": "1917 年 4 月，列宁在封闭的火车车厢里穿越德国，抵达彼得格勒。德国政府允许这位流亡的布尔什维克领袖过境，因为他们预判他会为俄国带来动乱，从而使这个东线敌国退出战争。7 个月后，布尔什维克…",
+    "d": "political-science"
+  }
+}

@@ -1,0 +1,842 @@
+{
+  "/cosmology/dialogues/cosmology-crisis": {
+    "t": "宇宙学危机：哈勃常数之争",
+    "e": "哈勃常数 H₀ 描述了宇宙当前的膨胀速率，是宇宙学最基本的参数之一。然而，两种最精确的测量方法——晚期宇宙的超新星距离阶梯和早期宇宙的 CMB 分析——给出了不一致的结果，差异达到 4-5σ，…",
+    "d": "cosmology"
+  },
+  "/cosmology/dialogues/dark-matter-debate": {
+    "t": "暗物质 vs 修改引力",
+    "e": "星系旋转曲线的平坦性是暗物质假说最重要的观测证据之一。但并非所有物理学家都认为需要引入不可见物质。1983 年，以色列物理学家莫德海·米尔格罗姆（Mordehai Milgrom）提出了修改牛…",
+    "d": "cosmology"
+  },
+  "/cosmology/dialogues/degrasse-tyson-sagan": {
+    "t": "科学传播的对话：泰森与萨根",
+    "e": "卡尔·萨根是 20 世纪最有影响力的科学传播者之一，他的《宇宙》系列纪录片改变了数百万观众对宇宙的认知。尼尔·德格拉斯·泰森继承了萨根的科学传播遗产，主持了新版《宇宙》系列，并长期领导纽约海登…",
+    "d": "cosmology"
+  },
+  "/cosmology/dialogues/hubble-lemaitre": {
+    "t": "哈勃 vs 勒梅特：宇宙膨胀的发现",
+    "e": "1927 年，比利时物理学家乔治·勒梅特独立推导出了弗里德曼方程，并利用当时有限的星系退行数据，首次提出了宇宙膨胀的理论解释。1929 年，埃德温·哈勃发表了著名的哈勃定律，用更完整的观测数据…",
+    "d": "cosmology"
+  },
+  "/cosmology/dialogues/penrose-hawking-singularity": {
+    "t": "彭罗斯 vs 霍金：奇点定理的深层含义",
+    "e": "1965 年，彭罗斯证明了第一个奇点定理，随后霍金将其推广到宇宙学。两人在 1960-70 年代密切合作，共同撰写了经典著作《时空的大尺度结构》（1973）。但在奇点的物理诠释和宇宙起源问题上…",
+    "d": "cosmology"
+  },
+  "/cosmology/dialogues/penrose-hawking": {
+    "t": "彭罗斯 vs 霍金：奇点定理",
+    "e": "1965 年，罗杰·彭罗斯证明了第一个奇点定理：在引力坍缩形成黑洞的过程中，奇点是不可避免的。1966–1970 年，斯蒂芬·霍金将这一方法推广到宇宙学，证明了大爆炸奇点的不可避免性。两人因此…",
+    "d": "cosmology"
+  },
+  "/cosmology/frontier/cmb-inflation-tests": {
+    "t": "下一代 CMB 实验对暴胀的检验：寻找宇宙最初的引力波",
+    "e": "宇宙诞生后约 10^{-32} 秒，一切可能都经历了一次指数级的暴胀。",
+    "d": "cosmology"
+  },
+  "/cosmology/frontier/cosmic-reionization": {
+    "t": "宇宙再电离与第一代恒星：JWST 正在逼近的\"宇宙黎明\"",
+    "e": "宇宙曾经历过一段我们称之为\"暗时代\"的岁月。大爆炸后约38万年，宇宙冷却到质子与电子可以结合成氢原子。光子从此得以自由传播，留下了我们今天观测到的宇宙微波背景（CMB）。宇宙开始变得透明——但…",
+    "d": "cosmology"
+  },
+  "/cosmology/frontier/desi-dark-energy": {
+    "t": "DESI 与演化的暗能量：宇宙学常数的挑战",
+    "e": "爱因斯坦在广义相对论方程里放进去的那个 Λ——宇宙学常数——是20世纪物理学最奇怪的遗留问题之一。Λ 代表的是真空本身的能量密度：空旷的空间里什么都没有，却仍然含有能量，驱动宇宙加速膨胀。19…",
+    "d": "cosmology"
+  },
+  "/cosmology/frontier/hubble-tension": {
+    "t": "哈勃张力：宇宙学的5σ裂缝",
+    "e": "2022年，Adam Riess 领导的 SH0ES 团队发表了迄今最精确的本地哈勃常数测量：H_0 = 73.04 \\pm 1.04 km/s/Mpc。[^shoes2022]",
+    "d": "cosmology"
+  },
+  "/cosmology/frontier/interstellar-objects": {
+    "t": "星际访客元年：从奥陌陌到 3I/ATLAS，一个新兴学科的诞生",
+    "e": "2025年7月1日，位于智利 Río Hurtado 的 ATLAS 巡天望远镜在例行扫描中记录到一个移动天体。几天之内，轨道计算确认它来自太阳系之外：轨道离心率约 6.14，相对太阳的无穷远…",
+    "d": "cosmology"
+  },
+  "/cosmology/frontier/jwst-early-galaxies": {
+    "t": "JWST 与早期宇宙的\"过早成熟\"星系之谜",
+    "e": "2023年2月，一篇发表在《自然》上的论文让宇宙学界陷入骚动。[^labbe2023]",
+    "d": "cosmology"
+  },
+  "/cosmology/frontier/k2-18b-atmosphere": {
+    "t": "K2-18b 大气之争：一次\"生命迹象\"声称的解剖",
+    "e": "2025年4月，全球媒体的头条几乎同时出现一句话：\"迄今最强的外星生命证据\"。触发点是剑桥大学 Nikku Madhusudhan 团队发表在《天体物理学报通信》的论文：他们在距地球约 124…",
+    "d": "cosmology"
+  },
+  "/cosmology/frontier/nanohertz-gravitational-waves": {
+    "t": "纳赫兹引力波背景：脉冲星阵列开启引力波天文学新窗口",
+    "e": "2023年6月29日，人类同时在四大洲宣布了同一件事。",
+    "d": "cosmology"
+  },
+  "/cosmology/frontier/neutrino-mass-cosmology": {
+    "t": "宇宙学正在逼近中微子质量：一把卡住下限的\"宇宙天平\"",
+    "e": "粒子物理早已知道中微子有质量——振荡实验测量了两个质量平方差，却始终测不出质量的绝对值。这留下一个奇特的窗口：三种中微子的质量总和 \\sum m_\\nu 有一个下限（正常顺序约 0.059 e…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/black-holes": {
+    "t": "黑洞",
+    "e": "黑洞是广义相对论预言的最极端天体——其引力强大到任何物质和辐射，包括光，都无法从事件视界内逃脱。从 1916 年史瓦西的理论解，到 2019 年人类第一张黑洞照片，黑洞已从数学抽象转变为可观测…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/cosmic-inflation": {
+    "t": "宇宙暴胀",
+    "e": "很多人把\"暴胀\"当成\"大爆炸\"的同义词，以为暴胀就是宇宙最初那声\"砰\"。这并不准确。",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/stellar-evolution": {
+    "t": "恒星演化",
+    "e": "恒星是宇宙中最基本的天体结构单元。它们在分子云中诞生，在核心核聚变中燃烧数十亿年，最终以白矮星、中子星或黑洞的形式走向终点。恒星的一生由一个根本因素决定——质量。质量不同的恒星，命运截然不同。",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/中子星与脉冲星": {
+    "t": "中子星与脉冲星",
+    "e": "中子星是大质量恒星核心坍缩超新星爆发后留下的致密残骸，是宇宙中已知最致密的天体之一（仅次于黑洞）。一颗典型的中子星质量约1.4倍太阳质量，但半径仅约12公里，密度达到原子核级别（约10¹⁴ g…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/多信使天文学--binary-neutron-star-merger-kilonova": {
+    "t": "双中子星并合与千新星",
+    "e": "它证实了物理学家半个世纪来的预言：中子星并合是宇宙中重元素（金、铂、铀等）r 过程核合成的主要场所，并产生一种被称为千新星（kilonova）的多波段电磁瞬变——其亮度比普通新星亮约 1000…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/多信使天文学--cosmic-rays": {
+    "t": "宇宙射线",
+    "e": "宇宙射线打在大气层上产生粒子级联（空气簇射），是 20 世纪前半叶高能物理的主要实验场所：正电子、\\mu 子、\\pi 介子都首先在宇宙射线研究中发现。然而，宇宙射线最高能量端的来源，至今仍是天…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/多信使天文学--event-horizon-telescope": {
+    "t": "事件视界望远镜",
+    "e": "望远镜的角分辨率正比于 \\lambda/D（\\lambda 是波长，D 是口径）。射电波长比可见光长约 10^5 倍，因此要达到与光学望远镜相当的分辨率，需要远大得多的口径。",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/多信使天文学--fast-radio-bursts": {
+    "t": "快速射电暴FRB",
+    "e": "主流观点认为磁星是（至少大多数）FRB 的来源，这一观点在 2020 年由银河系内磁星 SGR 1935+2154 产生的射电暴所支持。但 FRB 现象的多样性可能意味着多种起源机制共存。",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/多信使天文学--gamma-ray-bursts": {
+    "t": "伽马射线暴",
+    "e": "GRB 由美国军事卫星\"织女星\"（Vela）于 1967 年意外发现（Klebesadel et al. 1973，_The Astrophysical Journal Letters_，18…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/多信使天文学--gravitational-wave-detectors-ligo-lisa": {
+    "t": "引力波探测器LIGO与LISA",
+    "e": "探测如此微弱的信号，被爱因斯坦本人认为几乎不可能实现。但在整整 100 年后的 2015 年 9 月 14 日，LIGO（激光干涉仪引力波天文台）实现了这一创举，开启了引力波天文学的新纪元。",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/多信使天文学--kilonova-r-process": {
+    "t": "kilonova与r过程核合成",
+    "e": "地球上所有比铁重的元素——银、金、铂、铀、钍，以及稀土元素（镧系）——都无法在恒星内部的正常核聚变中产生。它们需要极端的中子密度环境，在秒级时间内完成数十次中子俘获反应，这就是快中子俘获过程（…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/多信使天文学--multimessenger-astronomy-overview": {
+    "t": "多信使天文学",
+    "e": "传统天文学完全依赖光（电磁辐射）。20 世纪末，中微子（1987 年，超新星 SN 1987A 的中微子探测）和宇宙射线为这一图景增加了新维度。2015 年 LIGO 首次探测到引力波，201…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/多信使天文学--nanograv-pta-gw-background": {
+    "t": "NANOGrav与纳赫兹引力波背景",
+    "e": "2023 年 6 月 29 日，NANOGrav 发布了基于 15 年数据集（包含 68 颗毫秒脉冲星）的分析结果，以超过 3\\sigma 的显著性报告发现赫尔宾斯-道-里曼（Hellings…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/多重宇宙假说": {
+    "t": "多重宇宙假说",
+    "e": "\"多重宇宙\"是科幻的常客，但它在物理学里不是一个理论，而是好几个互不相同的想法共用了一个名字。",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/大爆炸理论": {
+    "t": "大爆炸理论",
+    "e": "1929 年，埃德温·哈勃（Edwin Hubble）用威尔逊山 100 英寸望远镜定出星系距离，配上斯里弗（Vesto Slipher）此前测得的光谱红移，把 24 个星系画成一张图，露出一…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/天体生物学--biosignatures": {
+    "t": "生物标志物",
+    "e": "这一领域面临的核心挑战：几乎每一种提出的生物标志物都有非生物（非生命）的产生途径，导致\"假阳性\"风险。因此，现代天体生物学强调\"生物标志物组合\"（biosignature ensemble）和…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/天体生物学--exoplanet-atmosphere": {
+    "t": "系外行星大气探测",
+    "e": "系外行星大气探测是当代天文学最前沿的领域之一，也是天体生物学的核心技术手段。只有通过大气光谱，我们才能了解系外行星的温度、化学组成、云层结构，并寻找潜在的生物标志物信号。詹姆斯·韦布空间望远镜…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/天体生物学--fermi-paradox": {
+    "t": "费米悖论",
+    "e": "1950 年夏，物理学家恩里科·费米（Enrico Fermi）在洛斯阿拉莫斯国家实验室与同事共进午餐时，对话转向飞碟报道和智慧外星人的可能性，费米突然问道：\"那他们都在哪里？\"（\"Where…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/天体生物学--habitable-worlds-observatory": {
+    "t": "宜居世界天文台：把生命问题变成光谱问题",
+    "e": "「宇宙中是否有其他生命」曾长期属于哲学和神学。现代天体生物学正在把它变成一个观测问题。Habitable Worlds Observatory，简称 HWO，是 NASA 正在规划的未来旗舰级…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/天体生物学--habitable-zone": {
+    "t": "宜居带",
+    "e": "需要强调的是，宜居带并非充分条件——火星历史上曾位于宜居带内但目前荒芜，金星位于宜居带边缘但表面温度高达 740 K。宜居带只是必要条件的一部分；行星大气成分、质量、磁场、内部地质活动等因素同…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/天体生物学--ocean-worlds": {
+    "t": "海洋世界：太阳系内寻找生命的第二条路线",
+    "e": "寻找地外生命不一定要先飞到系外行星。太阳系内部就有一类目标，正在改变天体生物学的地图。它们不是像地球一样有蓝色海面和厚重大气的行星。它们是冰封卫星。表面是冰，下面可能有液态水海洋。这类天体被称…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/太空探索--moon-to-mars-architecture": {
+    "t": "月球到火星架构",
+    "e": "许多人把 Artemis 理解成「阿波罗重演」。这个理解太浅。阿波罗的目标是证明人类能到达月球。Artemis 与 Moon to Mars 架构的目标，是把月球变成深空探索的训练场：在那里验…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/太空探索--space-telescopes-as-time-machines": {
+    "t": "空间望远镜：把宇宙变成时间机器",
+    "e": "空间望远镜不是把地面望远镜搬到天上。它改变了宇宙学的证据结构。在地面，我们穿过大气看宇宙。大气会吸收紫外线和大部分红外线，会产生湍流，也会让微弱天体的光被天空背景淹没。在太空，望远镜不再隔着这…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/太阳系--asteroid-belt": {
+    "t": "小行星带",
+    "e": "小行星带的总质量仅约 4 \\times 10^{21} kg，大约是月球质量的 4%，其中约 1/3 集中在谷神星一颗天体上。小行星带是太阳系形成时未能聚合成行星的遗留物，其分布形态深刻受到木…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/太阳系--comets": {
+    "t": "彗星",
+    "e": "彗星（comets）是太阳系早期形成的冰质小天体，由挥发性物质（水冰、CO、CO₂、甲烷、氨等）与岩石和尘埃混合组成，直径通常在几百米到数十千米之间。当彗星接近太阳时，表面冰升华形成彗发（气体…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/太阳系--gas-giants": {
+    "t": "气态巨行星",
+    "e": "太阳系外侧的四颗大行星——木星、土星、天王星、海王星——统称为外行星（outer planets）或巨行星（giant planets）。其中木星和土星以氢和氦为主，称为气态巨行星（gas g…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/太阳系--kuiper-belt-oort-cloud": {
+    "t": "柯伊伯带与奥尔特云",
+    "e": "太阳系并不在海王星（30 AU）处就结束了——其实海王星轨道之外还有一个广袤的区域，充满着冰质小天体，这是太阳系形成时遗留的\"原始物质冷库\"。柯伊伯带（Kuiper Belt）延伸至约 30–…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/太阳系--planetary-moons": {
+    "t": "行星卫星系统",
+    "e": "太阳系中已知的天然卫星超过 290 颗（截至 2024 年），分布在各大行星（地球、火星、木星、土星、天王星、海王星）和多颗矮行星的轨道上。木星拥有最多的卫星（已知 95 颗，Sheppard…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/太阳系--solar-structure-activity": {
+    "t": "太阳的结构与活动",
+    "e": "太阳是距地球最近的恒星（距离约 1 天文单位，即 1.496 \\times 10^{11} m），也是太阳系中唯一进行核聚变的天体，提供了地球上几乎所有的能量来源。太阳的质量约 M_\\odot…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/太阳系--terrestrial-planets": {
+    "t": "类地行星",
+    "e": "这四颗行星的共同起源，以及为什么唯有地球发展出了适合生命生存的条件，是行星科学和天体生物学最核心的问题。",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/太阳系--火神星": {
+    "t": "火神星：同一种方法，两种结局",
+    "e": "1846 年 9 月 23 日晚，柏林天文台的加勒把望远镜对准勒维耶用笔算出来的天区，一小时内找到了海王星。这是牛顿力学最辉煌的一刻：天王星轨道的异常被归因于一颗未知行星，而那颗行星就在预言的…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙大尺度结构": {
+    "t": "宇宙大尺度结构",
+    "e": "在百万光年以上的尺度上，宇宙并非均匀的海洋，而是呈现出由纤维状结构、巨大空洞和节点组成的宇宙网（cosmic web）。这一壮观的大尺度结构是宇宙138亿年演化的产物——从大爆炸后几乎均匀的微…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学前沿--21cm宇宙学与再电离": {
+    "t": "21cm 宇宙学与再电离",
+    "e": "宇宙微波背景（CMB）让我们看到了大爆炸后约 38 万年的\"宇宙婴儿照\"。再往后到第一批星系点亮（红移 z\\sim 6，约大爆炸后十亿年），有一段长达数亿年的时期几乎没有任何光学或 CMB 信…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学前沿--S8结构增长张力": {
+    "t": "S8 结构增长张力",
+    "e": "哈勃张力（见相关条目）问的是\"宇宙膨胀多快\"，而它有一个不那么出名、却同样耐人寻味的\"表亲\"，问的是\"宇宙结块多紧\"——这就是 S8 张力（也叫 σ8 张力或结构增长张力）。宇宙诞生时物质分布…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学前沿--cosmic-neutrino-background": {
+    "t": "宇宙学中微子背景",
+    "e": "宇宙大爆炸留下了两种遗迹辐射：被精确观测的宇宙微波背景（CMB，光子），和至今尚未被直接探测到的宇宙中微子背景（Cosmic Neutrino Background, C\\nuB）。C\\nuB…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学前沿--dark-matter-direct-detection": {
+    "t": "暗物质直接探测实验",
+    "e": "宇宙中约 27\\% 的能量密度以暗物质的形式存在——它有引力效应，但不发光、不吸光。然而，我们至今不知道暗物质是什么粒子。几十年来，最流行的候选者是弱相互作用大质量粒子（Weakly Inte…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学前沿--dark-matter-indirect-detection": {
+    "t": "暗物质间接探测",
+    "e": "如果暗物质粒子（如 WIMP）是它自己的反粒子，或者暗物质与反暗物质在宇宙中共存，那么当两个暗物质粒子相遇时，它们会发生湮灭，产生标准模型粒子——伽马射线、正电子、反质子、中微子，以及各种次级…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学前沿--modified-gravity-mond": {
+    "t": "修改引力理论MOND",
+    "e": "1983 年，以色列物理学家莫迪凯·米尔格若姆（Mordehai Milgrom）提出了一个大胆的假设：也许我们不需要看不见的暗物质来解释星系旋转曲线——也许，在极低加速度的情况下，牛顿引力定…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学前沿--primordial-black-holes": {
+    "t": "原初黑洞",
+    "e": "大多数我们谈论的黑洞是恒星死亡的产物——质量大于约 3\\,M_\\odot 的致密残骸。然而，理论物理学家在 20 世纪 70 年代就提出，宇宙早期的剧烈密度涨落可能直接将物质压缩形成黑洞，无需…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学前沿--标准汽笛与引力波宇宙学": {
+    "t": "标准汽笛与引力波宇宙学",
+    "e": "测量宇宙有多大、膨胀有多快，最大的难题始终是距离。星星不会自报\"我离你多远\"，天文学家只能层层搭建\"宇宙距离阶梯\"，每一级都引入新的校准误差（见宇宙距离阶梯条目）。这套阶梯虽精巧，却脆弱——一…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学基础--cosmic-thermal-history": {
+    "t": "宇宙的热历史",
+    "e": "宇宙大爆炸后，从极端高温的等离子体状态膨胀冷却，经历了一系列物理相变——每次相变都标志着宇宙基本结构的一次跃变。追踪这一历程，我们从粒子物理的基础尺度（10^{-43} 秒）一路走到今天（13…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学基础--cosmology-history": {
+    "t": "宇宙学简史：从地心说到大爆炸",
+    "e": "人类对宇宙结构的理解经历了数次彻底的范式革命。从把地球放在宇宙中心，到认识到太阳不过是银河系边缘的一颗普通恒星；从把宇宙视为永恒静止的存在，到发现它正在加速膨胀并有一个有限的开始——每一次概念…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学基础--丢失的重子问题": {
+    "t": "丢失的重子问题",
+    "e": "提起宇宙里\"找不到的东西\"，大多数人想到暗物质和暗能量。但还有一个鲜为人知的失踪案，主角恰恰是我们最熟悉的普通物质——构成恒星、行星、你和我的质子与中子，宇宙学里统称重子（baryons）。",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学基础--临界密度与宇宙几何": {
+    "t": "临界密度与宇宙几何",
+    "e": "把整个宇宙的全部物质和能量——恒星、星系、暗物质、暗能量——平摊到每一立方米空间里，得到的平均密度约为 9 \\times 10^{-30} 克/立方厘米，相当于每立方米空间里只有约 5 个氢原…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学基础--共动距离与宇宙学红移": {
+    "t": "共动距离与宇宙学红移",
+    "e": "遥远星系 GN-z11 的红移 z \\approx 10.6（JWST 2023 确认值）。问\"它离我们多远\"，答案却不止一个：光从它走到我们花了约 134 亿年（光行距离），但发出这束光的物…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学基础--原初引力波与B模式": {
+    "t": "原初引力波与 B 模式偏振",
+    "e": "原初引力波（Primordial Gravitational Waves）是宇宙暴胀时期量子涨落产生的时空度规张量扰动。与密度涨落（标量扰动）不同，原初引力波是纯张量性质的，其唯一可观测特征是…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学基础--哈勃张力": {
+    "t": "哈勃张力",
+    "e": "宇宙在膨胀，膨胀的当前速率由一个数字描述——哈勃常数（Hubble constant，记作 H₀），单位是 km/s/Mpc，意思是每相距 100 万秒差距（约 326 万光年），星系彼此远离…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学基础--复合时期与最后散射面": {
+    "t": "复合时期与最后散射面",
+    "e": "当你用射电望远镜对准天空任意方向，最远能\"看\"到的那一层，是一道距今约 138 亿年、温度约 3000 K 的炽热雾墙——在它之前，宇宙对光不透明，光寸步难行。这道墙就是宇宙复合留下的最后散射…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学基础--太初核合成": {
+    "t": "太初核合成",
+    "e": "宇宙最重要的\"炼金\"，发生在它诞生后第 1 秒到第 20 分钟之间——比一壶水烧开的时间还短。在那短短不到 20 分钟里，温度从约 100 亿度跌到几亿度，自由质子和中子赶在窗口关闭前聚变成最…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学基础--奥伯斯佯谬与黑暗的夜空": {
+    "t": "奥伯斯佯谬与黑暗的夜空",
+    "e": "夜空是黑的。这件事如此寻常，以至于几乎没人觉得它需要解释。但仔细想想，它其实是一个关于整个宇宙的深刻线索——夜空为什么是黑的，其实告诉了我们宇宙不是永恒不变、无限古老的。这个看似幼稚的问题，被…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学基础--宇宙再电离": {
+    "t": "宇宙再电离",
+    "e": "2001 年，天文学家用斯隆数字巡天（SDSS）发现了一颗红移 z = 6.28 的类星体。它的光谱在莱曼-α 波长以蓝的一侧出现一段几乎全黑的\"缺口\"——本该明亮的连续谱被吸收得一干二净。这…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学基础--宇宙学原理与可观测宇宙": {
+    "t": "宇宙学原理与可观测宇宙",
+    "e": "很多人以为\"可观测宇宙\"就是\"整个宇宙\"——我们能看多远，宇宙就有多大。这是一个根本性的误解。",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学基础--宇宙学常数问题": {
+    "t": "宇宙学常数问题",
+    "e": "把量子场论老老实实算到底，真空里每立方厘米空间应当藏着约 10^{93} 克的能量。可 1998 年两个超新星团队从加速膨胀里\"称出\"的真空能，只有约 6\\times10^{-30} 克每立方…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学基础--宇宙的年龄测定": {
+    "t": "宇宙的年龄测定",
+    "e": "宇宙的年龄是宇宙学最基本的参数之一。目前的最佳估计值来自 Planck 卫星对 CMB 的精确测量，结合 \\LambdaCDM 标准宇宙学模型：",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学基础--宇宙网与纤维状结构": {
+    "t": "宇宙网与纤维状结构",
+    "e": "1986 年，瓦莱丽·德拉帕朗（Valérie de Lapparent）、玛格丽特·盖勒（Margaret Geller）和约翰·赫克拉（John Huchra）把 CfA 巡天约 1100…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学基础--宇宙静止参考系与本动速度": {
+    "t": "宇宙静止参考系与本动速度",
+    "e": "爱因斯坦的相对论有一条核心信条：不存在绝对静止的参考系，所有匀速运动的观察者都是平权的，没有谁有资格说\"我才是真正静止的\"。这一点至今没有被推翻。",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学基础--宇宙黑暗时代": {
+    "t": "宇宙黑暗时代",
+    "e": "有一段奇异的插曲：在宇宙诞生后约 1000 万到 1700 万年间（红移 z \\approx 137-100），宇宙微波背景的温度恰好降到 0–100 ℃ 之间——整个宇宙就像泡在一锅温水里，…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学基础--暗物质候选粒子WIMP与轴子": {
+    "t": "暗物质候选粒子：WIMP 与轴子",
+    "e": "宇宙中约 27% 的能量密度（Planck 2018：\\Omega_c h^2 = 0.1200 \\pm 0.0012）由暗物质构成。暗物质不与电磁力耦合，不发光，但其引力效应在星系旋转曲线、…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学基础--暗能量与状态方程": {
+    "t": "暗能量与状态方程",
+    "e": "1998 年，两个独立的超新星观测团队（Perlmutter 等和 Riess 等）发现宇宙膨胀正在加速——这完全出乎意料，因为引力的吸引作用应该减缓膨胀。为了解释这种加速，物理学家引入了\"暗…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学基础--暴胀模型比较": {
+    "t": "暴胀模型比较",
+    "e": "宇宙暴胀（Cosmic Inflation）假说认为，在大爆炸后约 10^{-36}-10^{-32} 秒的极早期，宇宙经历了一段指数级加速膨胀，体积增大了至少 e^{60} 倍（\"60 e-…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学基础--物质反物质不对称与重子生成": {
+    "t": "物质-反物质不对称与重子生成",
+    "e": "你、地球、太阳、所有星系——一切都由物质构成，几乎找不到反物质的踪影。这听起来理所当然，却隐藏着粒子物理与宇宙学最深的未解之谜之一。",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学基础--稳恒态宇宙": {
+    "t": "稳恒态宇宙：输得最体面的理论",
+    "e": "1949 年，弗雷德·霍伊尔在 BBC 广播里谈到一种他不接受的宇宙模型——所有物质在过去某一刻从一次爆发中产生。他用了\"big bang\"这个词。",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学基础--第一代恒星PopulationIII": {
+    "t": "第一代恒星 Population III",
+    "e": "Population III 恒星（简称 Pop III）是宇宙中第一批形成的恒星，诞生于大爆炸后约 1-2 亿年的宇宙黎明时期。它们由大爆炸核合成产生的原初气体构成——几乎纯粹的氢和氦，不含…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学观测--X射线天文学": {
+    "t": "X射线天文学",
+    "e": "X射线天文学探测波长约 0.01–10 nm（能量 0.1–100 keV）的宇宙辐射，专门研究宇宙中温度极高（10^6–10^9 \\, \\text{K}）或能量过程极端的天体环境。地球大气对…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学观测--中微子探测器": {
+    "t": "中微子探测器",
+    "e": "中微子是宇宙中数量最多的有质量粒子之一（仅次于光子），宇宙大爆炸残留的背景中微子密度约为每立方厘米 336 个，但它们极弱的相互作用使其几乎可以无阻地穿越任何物质——一束穿越地球的中微子，只有…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学观测--光学望远镜": {
+    "t": "光学望远镜",
+    "e": "光学望远镜是人类使用最悠久、应用最广泛的天文观测工具，通过收集和聚焦可见光（波长约 380–700 nm）来研究天体。自 1609 年伽利略将望远镜指向天空至今，光学望远镜的口径从数厘米增长到…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学观测--哈勃空间望远镜": {
+    "t": "哈勃空间望远镜",
+    "e": "哈勃空间望远镜（HST）是 NASA 与 ESA 合作运行的轨道天文台，1990 年 4 月 24 日由发现号航天飞机送入近地轨道（高度约 547 km），至今已连续工作超过 34 年，发表科…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学观测--多波段天文学": {
+    "t": "多波段天文学",
+    "e": "多波段天文学（Multi-wavelength Astronomy）的核心理念是：宇宙中几乎没有任何天体只在单一波长下发光——不同的物理过程（热辐射、同步辐射、逆康普顿散射、谱线辐射、尘埃再辐…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学观测--大型巡天SDSS与DESI": {
+    "t": "大型巡天：SDSS与DESI",
+    "e": "宇宙学大型光谱巡天通过系统性地测量数百万至数十亿个星系的红移，将三维宇宙大尺度结构（星系的空间分布）转化为精确的宇宙学约束。斯隆数字巡天（SDSS，2000年至今）是第一个真正意义上的\"大数据…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学观测--大尺度结构形成": {
+    "t": "大尺度结构形成",
+    "e": "今天的宇宙在大尺度上（\\gtrsim 几百 Mpc）呈现出令人惊叹的泡沫状网格结构——宇宙网（cosmic web）：巨大的空洞（voids）被由星系构成的纤维（filaments）和墙（sh…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学观测--天体测量与盖亚卫星": {
+    "t": "天体测量与盖亚卫星",
+    "e": "天体测量学（Astrometry）是天文学中专门精确测量天体位置、运动和视差的学科，是构建宇宙距离阶梯的第一台阶。盖亚卫星（Gaia）是 ESA 于 2013 年 12 月发射的天体测量旗舰任…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学观测--天文光谱学方法": {
+    "t": "天文光谱学方法",
+    "e": "天文光谱学通过将天体发出的光分解为不同波长（即获取光谱），来测量天体的化学组成、温度、密度、速度、磁场强度和距离等几乎所有物理量。如果说望远镜是天文学的\"眼睛\"，光谱仪就是天文学的\"大脑\"。从…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学观测--宇宙距离阶梯": {
+    "t": "宇宙距离阶梯",
+    "e": "距离阶梯不仅是测量工具，更是宇宙学中最激烈争议的焦点之一：利用距离阶梯测量的哈勃常数 H_0 与从宇宙微波背景（CMB）推断的 H_0 之间存在约 4–5\\sigma 的系统偏差，这就是目前悬…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学观测--射电望远镜": {
+    "t": "射电望远镜",
+    "e": "射电望远镜探测宇宙中波长约 1 mm 到 10 m（频率约 30 MHz–300 GHz）的射电辐射。这一波段对地球大气几乎透明，使天文学家得以不分昼夜、不受云层遮挡地观测宇宙。射电天文学诞生…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学观测--弱引力透镜与宇宙剪切": {
+    "t": "弱引力透镜与宇宙剪切",
+    "e": "在弱场近似和薄透镜近似下，引力透镜的核心量是收敛度（convergence）\\kappa 和剪切（shear）\\gamma。对于视线方向的积分效果（宇宙剪切情形）：",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学观测--时域天文学": {
+    "t": "时域天文学",
+    "e": "时域天文学（Time-Domain Astronomy，TDA）研究天体亮度、位置或谱线随时间发生显著变化的天文现象，核心关注\"暂现源\"（transients）和\"变源\"（variables）…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学观测--星系际介质": {
+    "t": "星系际介质",
+    "e": "理解 IGM 是现代宇宙学的核心问题之一：它是星系形成的原材料库（冷气体从宇宙网纤维沿着暗物质丝状结构流入星系），也是星系反馈的接收器（星系风将金属和能量注入 IGM），更是宇宙再电离过程的舞…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学观测--标准烛光与Ia超新星测距": {
+    "t": "标准烛光与Ia型超新星测距",
+    "e": "1998年，两个独立的观测团队——超新星宇宙学项目（Supernova Cosmology Project，Perlmutter 等）和高红移超新星搜索组（High-z Supernova S…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学观测--甚长基线干涉": {
+    "t": "甚长基线干涉测量",
+    "e": "甚长基线干涉测量（Very Long Baseline Interferometry，VLBI）是一种将分布在地球各地（乃至地球轨道上）的射电天线联合起来，形成等效口径等于天线间距的超大型干涉…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学观测--红外天文学": {
+    "t": "红外天文学",
+    "e": "红外天文学探测波长约 0.75 μm 至 1000 μm（即近红外 NIR、中红外 MIR 和远红外/亚毫米 FIR）的宇宙辐射。红外光子能量低，可以穿透可见光无法穿透的星际尘埃，使天文学家能…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学观测--红移巡天与宇宙三维制图": {
+    "t": "红移巡天与宇宙三维制图",
+    "e": "三维宇宙地图不仅是壮观的视觉成就，更是精密宇宙学的核心数据：从中提取的功率谱、重子声学振荡峰、红移空间畸变，直接约束暗能量、暗物质和宇宙膨胀历史。",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学观测--自适应光学": {
+    "t": "自适应光学",
+    "e": "自适应光学（Adaptive Optics，AO）是一种实时测量并校正大气湍流导致的光学波前畸变的技术，使地面大口径望远镜能够在接近衍射极限的分辨率下工作。没有 AO，大气 seeing 将地…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学观测--苏尼亚耶夫-泽尔多维奇效应": {
+    "t": "苏尼亚耶夫-泽尔多维奇效应",
+    "e": "宇宙微波背景（CMB）是大爆炸留下的、充满整个空间的微波辐射，温度极其均匀（约 2.725 K）。这片\"古老的光\"在飞向我们的 138 亿年里，会被途中的物质轻微改写——其中一种改写方式，就是…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学观测--莱曼alpha森林": {
+    "t": "莱曼α森林",
+    "e": "\\lambda_\\mathrm{obs} = (1 + z_\\mathrm{abs}) \\times 1215.67\\ \\text{\\AA}",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学观测--詹姆斯韦伯空间望远镜": {
+    "t": "詹姆斯·韦伯空间望远镜",
+    "e": "詹姆斯·韦伯空间望远镜（JWST）是 NASA、ESA 和 CSA 联合研制的旗舰级红外空间天文台，2021 年 12 月 25 日搭乘阿丽亚娜 5 号火箭发射，运行在日地系统第二拉格朗日点（…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙射线": {
+    "t": "宇宙射线",
+    "e": "每时每刻，都有来自宇宙深处的高能带电粒子撞向地球大气层——这就是宇宙射线（cosmic rays）。它们绝大多数是质子和原子核，能量横跨十几个数量级。其中能量最高的那些粒子，单个所携带的能量比…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙微波背景": {
+    "t": "宇宙微波背景辐射",
+    "e": "很多人以为宇宙微波背景（Cosmic Microwave Background，CMB）是\"大爆炸那一瞬间发出的光\"。这并不准确。CMB 不是大爆炸的火光，而是宇宙第一次变得透明时留下的光。在…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙的最终命运": {
+    "t": "宇宙的最终命运",
+    "e": "把当前主流模型外推到极远的未来，时间表大致是这样的：约 1000 亿年后，加速膨胀会把本星系群以外的所有星系推出我们的视界，夜空将只剩下并合成一团的\"银河系-仙女座\"；约 100 万亿年（10…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/引力波天文学": {
+    "t": "引力波天文学",
+    "e": "2015 年 9 月 14 日协调世界时 09:50:45，相隔 3000 公里的两台 LIGO 探测器先后捕捉到一段仅约 0.2 秒、频率从约 35 Hz 飙升到 250 Hz 的颤动——像…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/引力透镜": {
+    "t": "引力透镜",
+    "e": "光在引力场中弯曲——这一预言由爱因斯坦的广义相对论作出，并在1919年日食观测中得到首次证实。时至今日，引力透镜已从相对论的验证工具演变为宇宙学最强大的探针之一：它让我们直接\"看到\"不可见的暗…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/快速射电暴": {
+    "t": "快速射电暴",
+    "e": "FRB 的故事始于一次\"考古\"。2007 年，邓肯·洛里默（Duncan Lorimer）和学生在翻查澳大利亚帕克斯望远镜 2001 年的存档数据时，发现了一个极强、极短、明显来自银河系之外的…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/恒星核合成": {
+    "t": "恒星核合成",
+    "e": "恒星核合成（stellar nucleosynthesis）是恒星内部通过核聚变反应创造新元素的过程。宇宙大爆炸仅产生了氢、氦和微量的锂，其余所有天然元素——从我们骨骼中的钙到血液中的铁，从手…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/恒星物理--binary-star-evolution": {
+    "t": "双星演化与质量转移",
+    "e": "银河系中约有 40\\%–70\\% 的类太阳恒星处于双星或多星系统中（Raghavan et al. 2010，_ApJS_，190，1）；对于大质量 O 型星，这一比例超过 70\\%（Sana…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/恒星物理--binary-star-systems": {
+    "t": "双星系统",
+    "e": "宇宙中大多数恒星并非孤独旅行，而是成对（甚至三体、四体）地绕共同质心旋转。根据对太阳附近恒星的统计，约 50\\% 的类太阳恒星和约 70\\% 以上的 O/B 型大质量恒星存在于双星或多星系统中…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/恒星物理--cepheids-variable-stars": {
+    "t": "造父变星与变星",
+    "e": "恒星为什么会脉动？恒星内部的热核反应是稳定的，不会自然产生脉动——必须存在某种驱动机制将能量转化为相干振荡。对于造父变星，主导机制是κ机制（kappa mechanism，\\kappa 是不透…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/恒星物理--core-collapse-supernovae": {
+    "t": "核心坍缩超新星",
+    "e": "核心坍缩超新星的起点是一颗接近死亡的大质量恒星。经过数百万年的核燃烧，这颗恒星的内部形成了洋葱层结构（onion-shell structure），从外到内依次是：",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/恒星物理--hertzsprung-russell-diagram": {
+    "t": "赫罗图",
+    "e": "这张图由丹麦天文学家埃纳尔·赫兹普龙（Ejnar Hertzsprung，1911）和美国天文学家亨利·诺里斯·罗素（Henry Norris Russell，1913）分别独立发展而来，是2…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/恒星物理--main-sequence-stars": {
+    "t": "主序星",
+    "e": "在赫罗图（Hertzsprung-Russell diagram）上，约 90\\% 的恒星聚集在一条从左上角（高温高光度）延伸到右下角（低温低光度）的对角带上，这条带被称为主序（main se…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/恒星物理--massive-star-evolution": {
+    "t": "大质量恒星演化",
+    "e": "质量超过约 8\\,M_\\odot 的恒星走的是一条与太阳截然不同的道路。它们的核心温度高、核燃烧快，主序寿命仅有几百万到几千万年（相比太阳的 \\sim 10 Gyr）。更重要的是，它们在死亡时…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/恒星物理--red-blue-supergiants": {
+    "t": "红超巨星与蓝超巨星",
+    "e": "大质量恒星在离开主序后，主要表现为两种形态：膨胀冷却的红超巨星（Red Supergiant, RSG）和炽热致密的蓝超巨星（Blue Supergiant, BSG）。这两类恒星在赫罗图上占…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/恒星物理--red-giants-agb": {
+    "t": "红巨星与渐近巨星支",
+    "e": "当一颗像太阳这样的中低质量恒星耗尽核心的氢燃料后，它不会悄无声息地熄灭，而是经历一场戏剧性的膨胀，变成一颗体积是原来数百倍的红巨星（red giant）。太阳未来约 50 亿年后将膨胀到近乎吞…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/恒星物理--star-formation": {
+    "t": "恒星形成",
+    "e": "恒星不是凭空出现的，而是从星际空间密度极低的分子云（molecular cloud）中，历经数十万至数百万年的引力坍缩、加热和核点火，逐渐演化而来。理解恒星形成不仅是恒星物理的基础，也是理解星…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/恒星物理--stellar-metallicity-chemical-evolution": {
+    "t": "恒星金属丰度与化学演化",
+    "e": "大爆炸只留下了氢（约 75\\%）、氦（约 25\\%）以及极少量的氘和锂-7。宇宙中所有更重的元素——从碳到铀——都是在随后几十亿年的恒星演化和超新星爆炸中合成的。追踪这些元素如何积累、扩散、被…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/恒星物理--stellar-populations": {
+    "t": "星族I与星族II恒星",
+    "e": "1944 年，德裔美国天文学家沃尔特·巴德（Walter Baade）在二战期间利用洛杉矶灯火管制带来的黑暗夜空，用威尔逊山 100 英寸望远镜将仙女星系（M31）的核球分解为单个恒星，并注意…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/恒星物理--stellar-structure-hydrostatic-equilibrium": {
+    "t": "恒星结构与流体静力平衡",
+    "e": "一颗恒星为什么不会在自身引力下坍缩，也不会因内部压力而爆炸？答案在于流体静力平衡（hydrostatic equilibrium）——一种引力向内拉与压力向外推之间精确而脆弱的平衡。理解这一平…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/恒星物理--type-ia-supernovae": {
+    "t": "Ia型超新星",
+    "e": "Ia 型超新星的前身星是白矮星——通常是碳氧白矮星——处于双星系统中。但具体机制仍有争议：",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/恒星物理--white-dwarfs": {
+    "t": "白矮星",
+    "e": "白矮星是目前宇宙中数量最多的恒星遗迹，银河系中预计存在约 100 亿颗（Fontaine et al. 2001，_Publications of the Astronomical Socie…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/恒星物理--wolf-rayet-stars": {
+    "t": "沃尔夫-拉叶星",
+    "e": "1867 年，法国天文学家夏尔·沃尔夫（Charles Wolf）和乔治·拉叶（Georges Rayet）在巴黎天文台用分光镜观测天鹅座方向的三颗恒星时，发现了一种前所未见的宽发射谱线光谱—…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/星系天文学--agn-and-quasars": {
+    "t": "活动星系核与类星体",
+    "e": "在大多数星系中，中心的超大质量黑洞处于\"休眠\"状态，几乎不吸积物质，宛如沉睡的巨兽。但当黑洞从周围吸积大量气体时，吸积盘的引力势能转化为辐射，其光度可以超过整个宿主星系（含数千亿颗恒星）几千倍…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/星系天文学--dark-matter-halo": {
+    "t": "暗物质晕与星系旋转曲线",
+    "e": "\"宇宙中大多数质量是不可见的\"——这是 20 世纪天文学最重大的发现之一。暗物质不与电磁力耦合（因此不发光、不反射光，对光学、X 射线、射电观测均\"透明\"），但通过引力效应无处不在地影响着宇宙…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/星系天文学--dwarf-galaxies": {
+    "t": "矮星系",
+    "e": "矮星系（dwarf galaxies）是宇宙中数量最多的星系类型，但也是最难探测的。它们的恒星质量在约 10^3–10^9 M_\\odot 之间（相比之下，银河系约 5 \\times 10^{…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/星系天文学--elliptical-galaxies": {
+    "t": "椭圆星系",
+    "e": "椭圆星系（elliptical galaxies）是宇宙中质量最大的一类星系，外形为椭球形，几乎没有明显的内部结构（无旋臂、无尘埃带），由古老的红色恒星主导，恒星形成活动极其微弱或已停止。椭圆…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/星系天文学--galaxy-clusters": {
+    "t": "星系团与超星系团",
+    "e": "星系团是当代宇宙学最重要的工具之一：其数量和质量分布对暗物质和暗能量的宇宙学参数极为敏感，被称为\"宇宙学探针\"。",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/星系天文学--milky-way-structure": {
+    "t": "银河系结构",
+    "e": "银河系（Milky Way）是太阳系所在的棒旋星系，直径约 100,000–120,000 光年，包含约 1,000–4,000 亿颗恒星（精确数字仍有争议，主要受限于暗物质晕中暗弱恒星的统计…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/星系天文学--spiral-galaxies": {
+    "t": "旋涡星系",
+    "e": "旋涡星系（spiral galaxies）是宇宙中最具视觉辨识度的星系类型，也是恒星形成最活跃的宇宙现场。银河系、仙女星系（M31）、三角座星系（M33）都是旋涡星系。在本地宇宙中，约 60%…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/星系天文学--哈勃星系形态序列": {
+    "t": "哈勃星系形态序列",
+    "e": "1926年，埃德温·哈勃（Edwin Hubble）在其论文《河外星云的超星系系统》中，提出了第一个被广泛接受的星系形态分类系统，后被称为哈勃序列或哈勃调音叉图（Hubble tuning-f…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/星系天文学--恒星流与星系晕": {
+    "t": "恒星流与星系晕",
+    "e": "在等级结构形成（hierarchical structure formation）的宇宙学框架下，今天的大质量星系通过吸积和并合数十乃至数百个较小系统成长起来。恒星晕就是这段并合历史的化石档案…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/星系天文学--星暴星系": {
+    "t": "星暴星系",
+    "e": "星暴现象不是罕见异常，而是宇宙中物质聚集、并合和黑洞增长过程的核心组成部分。理解星暴星系，就是理解宇宙中最大质量恒星系统如何在短时间内积累起来。",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/星系天文学--星系光度函数": {
+    "t": "星系光度函数",
+    "e": "人们直觉上常以为，宇宙里的星系大体差不多亮，多数挤在某个\"平均值\"附近。事实正相反。星系的亮度跨越极大的范围：从一个矮椭球星系（仅约 10^6\\ L_\\odot）到中央亮椭圆星系（超过 10^…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/星系天文学--星系合并与相互作用": {
+    "t": "星系合并与相互作用",
+    "e": "在宇宙等级结构形成的框架下，星系不是孤立演化的岛宇宙，而是持续通过引力相互作用和并合不断成长的动态实体。星系合并（galaxy merger）是宇宙演化中最剧烈的物理事件之一：两个或多个星系在…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/星系天文学--蝎虎座BL天体": {
+    "t": "蝎虎座BL天体",
+    "e": "BL Lac 天体因其原型天体——蝎虎座的 BL Lacertae 星——而得名。BL Lac 天体的光学谱几乎没有发射线（等效宽度 EW < 5 Å），这是区分它与其他 AGN 和普通可变星…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/星系天文学--赛弗特星系": {
+    "t": "赛弗特星系",
+    "e": "在局部宇宙（z < 0.1）中，约 1%–2% 的旋涡星系表现出赛弗特活动（Ho et al. 1997，_ApJS_ 112，315，基于 Palomar 巡天）。赛弗特星系是距离最近的 A…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/星系形成与演化": {
+    "t": "星系形成与演化",
+    "e": "宇宙中究竟有多少星系？每一个星系都是一座\"宇宙城市\"——由数十亿至数万亿颗恒星、气体、尘埃以及一个不可见的暗物质晕组成。这些城市如何从大爆炸后均匀的气体中诞生？又如何演化成今天形形色色的形态？…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/星际介质--星际介质与分子云": {
+    "t": "星际介质与分子云",
+    "e": "恒星与恒星之间的空间并非空无一物。充斥于星系盘中的气体与尘埃——统称星际介质（interstellar medium, ISM）——既是恒星死亡后的产物，也是新恒星诞生的摇篮。银河系的星际介质…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/星际介质--球状星团": {
+    "t": "球状星团",
+    "e": "球状星团（globular cluster, GC）是由数万至数百万颗恒星在引力束缚下紧密聚集而成的球形恒星系统，典型半径约10–100光年，中心密度高达普通星际介质的数百万倍。银河系已知球状…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/星际介质--疏散星团": {
+    "t": "疏散星团",
+    "e": "疏散星团（open cluster，也称银河星团）是由数十至数千颗恒星因共同起源于同一分子云而形成的松散引力束缚系统。与球状星团相比，疏散星团年龄更短（通常数百万至数十亿年，很少超过90亿年）…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/星际介质--行星状星云": {
+    "t": "行星状星云",
+    "e": "行星状星云（planetary nebula, PN）是中低质量恒星（约0.8–8 M☉）在生命末期抛出外层包层后，被核心高温白矮星的紫外辐射照亮而形成的发光气体壳层。\"行星状\"这一名称来源于…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/星际介质--褐矮星": {
+    "t": "褐矮星",
+    "e": "褐矮星（brown dwarf）是质量介于最小恒星与最大行星之间的亚恒星天体，质量范围约为木星质量的13倍至80倍（13\\text{--}80\\, M_J，即约0.012–0.076 M☉）。…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/星际介质--超新星遗迹": {
+    "t": "超新星遗迹",
+    "e": "超新星遗迹（supernova remnant, SNR）是恒星在超新星爆发后遗留在星际介质中的膨胀气体壳层结构。一次典型的核心坍缩超新星释放约10⁵¹ 尔格（约10⁴⁴ 焦耳）的动能——相当…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/暗物质与暗能量": {
+    "t": "暗物质与暗能量",
+    "e": "我们能看见的一切——恒星、行星、星云、你自己——加起来只占宇宙的约 5%。剩下的 95% 是两种我们叫不出名字的东西：暗物质和暗能量。根据 Planck 2018 数据，暗能量占宇宙总能量密度…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/活动星系核与类星体": {
+    "t": "活动星系核与类星体",
+    "e": "一个普通星系的全部光，来自它包含的上千亿颗恒星。但有一类星系，其中心一个比太阳系还小的区域，发出的光却能盖过整个星系上千亿颗恒星的总和——这就是活动星系核（Active Galactic Nu…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/第一代恒星与宇宙黎明": {
+    "t": "第一代恒星与宇宙黎明",
+    "e": "在大爆炸之后约38万年，宇宙经历了再结合，变成中性气体的海洋——光子自由传播，但宇宙中尚无任何恒星，尚无任何光源。这段时期被称为宇宙黑暗时代（Cosmic Dark Ages）。大约在大爆炸后…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/系外行星--SETI地外文明搜寻": {
+    "t": "SETI地外文明搜寻",
+    "e": "SETI（Search for Extraterrestrial Intelligence，搜寻地外智慧文明）是通过天文学手段探测宇宙中其他文明存在的系统性科学努力。自1960年弗兰克·德雷克…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/系外行星--凌星法": {
+    "t": "凌星法",
+    "e": "凌星法（transit method，又称凌星光度测量法）是目前发现系外行星最高效的方法，通过精密测量恒星亮度随时间的变化，探测行星从恒星圆面前方经过时造成的周期性亮度下降来推断行星的存在和大…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/系外行星--微引力透镜法": {
+    "t": "微引力透镜法",
+    "e": "微引力透镜法（gravitational microlensing）是利用爱因斯坦广义相对论预言的引力透镜效应来探测系外行星的方法。当前景天体（透镜星，带有可能的行星）恰好经过背景恒星（源星）…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/系外行星--热木星": {
+    "t": "热木星",
+    "e": "热木星（hot Jupiter）是一类轨道周期短于10天（通常2–5天）、质量与木星相当（约0.3–13 M_J）的气态巨行星，距离宿主恒星仅约0.015–0.05天文单位（AU）——比水星距…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/系外行星--直接成像法": {
+    "t": "直接成像法",
+    "e": "直接成像法（direct imaging）是直接拍摄系外行星自身发出或反射的光来探测和研究它们的方法。相比凌星法和视向速度法的间接推断，直接成像提供了行星最直观的\"视觉证明\"，并可获取行星的光…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/系外行星--系外行星宜居性": {
+    "t": "系外行星宜居性",
+    "e": "宜居性（habitability）是天文生物学的核心概念，描述某个天体环境是否具备支持生命存在的基本条件。目前地球是唯一已知的生命存在案例，因此\"宜居性\"的定义不可避免地以地球生命为参照：液态…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/系外行星--视向速度法": {
+    "t": "视向速度法",
+    "e": "视向速度法（radial velocity method，又称多普勒测速法）是最早成功探测系外行星的方法，也是目前唯一能在不依赖凌星的情况下直接测量行星质量的常规手段。其原理基于牛顿力学中最基…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/系外行星--超级地球与迷你海王星": {
+    "t": "超级地球与迷你海王星",
+    "e": "在太阳系的8颗行星中，质量从地球（1 M_\\oplus）直接跳跃到海王星（17 M_\\oplus），中间存在一个约1.5–10倍地球质量的\"空白地带\"，没有任何行星。然而，开普勒空间望远镜自2…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/系外行星探测": {
+    "t": "系外行星探测",
+    "e": "系外行星探测是当代天文学最活跃的前沿领域之一。截至2026年中，NASA 系外行星档案中已确认的系外行星超过6000颗（另有逾8000个候选体待确认），这些发现主要依赖于几种互补的探测技术。每…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/致密天体--accretion-disks-relativistic-jets": {
+    "t": "黑洞吸积盘与相对论喷流",
+    "e": "任何吸积系统都受爱丁顿光度（Eddington luminosity）限制：当辐射压力等于引力时，吸积无法继续增大：",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/致密天体--black-hole-spin-measurement": {
+    "t": "黑洞自旋测量",
+    "e": "根据广义相对论，一个完全由质量和角动量描述的孤立黑洞是克尔黑洞（Kerr black hole）。其无量纲自旋参数定义为：",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/致密天体--magnetar-flares": {
+    "t": "磁星耀发",
+    "e": "磁星耀发不只是天文学奇观。它们是研究超强磁场中物质行为（量子电动力学极端检验）、中子星外壳力学（星震物理）和快速射电暴起源（宇宙中最神秘的射电瞬变）的关键窗口。",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/致密天体--magnetars": {
+    "t": "磁星",
+    "e": "磁星的磁场能量（而非核燃烧或自转动能）是其主要能量来源，释放方式包括周期性 X 射线脉冲、强烈耀发，偶尔还有释放相当于太阳数千年辐射量的巨型耀发（giant flare）。",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/致密天体--neutron-star-interior-eos": {
+    "t": "中子星内部与状态方程",
+    "e": "中子星是已知宇宙中密度最高的稳定天体。一颗典型中子星质量约为 1.4\\,M_\\odot（太阳质量），半径约 10–13 km，中心密度可达核饱和密度 \\rho_0 \\approx 2.8 \\t…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/致密天体--pulsar-timing-array": {
+    "t": "脉冲星计时阵列",
+    "e": "毫秒脉冲星（millisecond pulsar，MSP）是自然界最稳定的时钟之一：它们自转周期介于 1 到 30 毫秒，长期稳定性与原子钟相当，甚至在某些时间尺度上超越原子钟。脉冲星计时阵列…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/致密天体--stellar-mass-black-holes": {
+    "t": "恒星级黑洞",
+    "e": "然而，绝大多数恒星级黑洞都是\"看不见的\"：孤立黑洞不辐射（除了理论上极弱的霍金辐射），几乎无法探测。直到 20 世纪 60 年代发现 X 射线双星，以及 2015 年 LIGO 探测到第一个引…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/致密天体--supermassive-black-holes": {
+    "t": "超大质量黑洞",
+    "e": "宇宙中几乎每个大型星系的中心都藏着一个超大质量黑洞（Supermassive Black Hole, SMBH），质量从约 10^6\\,M_\\odot（百万倍太阳质量）到约 10^{10}\\,…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/致密天体--tidal-disruption-events": {
+    "t": "潮汐瓦解事件",
+    "e": "R_T \\approx R_ \\left(\\frac{M_{BH}}{M_}\\right)^{1/3}",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/致密天体--x-ray-binaries": {
+    "t": "X射线双星",
+    "e": "X 射线双星是黑洞质量最精确测量的来源，也是研究吸积盘物理、相对论喷流、核聚变爆发（X 射线爆发）和中子星状态方程的主要途径之一。",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/重子声学振荡": {
+    "t": "重子声学振荡",
+    "e": "在宇宙大爆炸后约38万年，一道声波被\"冻结\"进了宇宙的物质分布中。这道声波的特征波长——约147 Mpc（约4.79亿光年）——至今仍清晰地印刻在星系的大尺度分布上，成为宇宙学最可靠的\"标准尺…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/黑洞热力学与霍金辐射": {
+    "t": "黑洞热力学与霍金辐射",
+    "e": "一个太阳质量的黑洞，温度只有约 0.00000006 K（6\\times10^{-8} K）——比今天宇宙中最冷的角落还冷得多，要花约 10^{67} 年才能蒸发干净，远超宇宙现有年龄。可正是…",
+    "d": "cosmology"
+  }
+}

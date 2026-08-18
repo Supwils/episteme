@@ -1,0 +1,472 @@
+{
+  "/earth-science/climate-risks/carbon-budgets-and-net-zero": {
+    "t": "碳预算、净零与气候目标的物理约束",
+    "e": "“还剩多少碳预算”常被说成气候谈判中的配额问题。它首先是一个物理问题：全球变暖与人类累计排放的 CO₂ 之间，在一定范围内近似呈比例关系。排放一吨 CO₂ 的影响不会在当年结束。部分 CO₂ …",
+    "d": "earth-science"
+  },
+  "/earth-science/climate-risks/compound-climate-risks": {
+    "t": "复合气候风险：当多个危险同时或连续发生",
+    "e": "传统风险管理常把热浪、暴雨、干旱、风暴和海平面上升分别列成项目。现实中的伤害却常来自它们的组合。热浪与干旱同时发生，会把森林火险、作物压力、电力需求和水资源冲突推向同一时段。海平面上升抬高了潮…",
+    "d": "earth-science"
+  },
+  "/earth-science/climate-risks/ensemble-prediction-and-decision": {
+    "t": "集合预测、不确定性与气候决策",
+    "e": "气候风险讨论里最常见的误解是：模型有不确定性，所以不能指导行动。这把不确定性误解成无知。实际上，决策往往正是在不确定下发生：城市要决定排水标准，医院要决定热浪床位，海岸社区要决定何时升级防护，…",
+    "d": "earth-science"
+  },
+  "/earth-science/climate-risks/extreme-event-attribution": {
+    "t": "极端事件归因：气候变化在这场灾害中改变了什么",
+    "e": "一场洪水、热浪或干旱发生后，公众最常问的问题是：“气候变化造成了吗？”这个问法把三个不同问题压成了一句。降雨是否足以漫堤，是物理危险问题；堤坝、住房和预警为何没有保护居民，是暴露与脆弱性问题；…",
+    "d": "earth-science"
+  },
+  "/earth-science/climate-risks/sea-level-adaptation-pathways": {
+    "t": "海平面上升与适应路径",
+    "e": "许多人把海平面上升想成一条缓慢推进的水平线。但海岸风险真正发生在潮位、风暴潮、波浪、降雨、河流来水、地下水和防护工程共同作用的时刻。平均海平面每上升一点，极端潮位就从更高的基线出发。过去罕见的…",
+    "d": "earth-science"
+  },
+  "/earth-science/climate-risks/urban-heat-risk-adaptation": {
+    "t": "城市热风险与适应：从热岛到热健康行动",
+    "e": "同样的 38°C，落在树荫、通风、供水、医疗和邻里照护充分的地方，与落在密集硬化、夜间不降温、停电频繁的住区，意味着完全不同的风险。城市热风险由三部分组成：危险是持续的高温、高湿、强辐射与弱风…",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/atmosphere-structure": {
+    "t": "大气层的结构",
+    "e": "我们脚下的固体地球边界分明，可头顶这层空气却没有清晰的尽头。它只是越往上越稀薄，一点点淡入太空的真空，没有任何一道线标出\"空气到此结束\"。正因如此，\"大气层有多厚\"\"太空从哪里开始\"这类问题，…",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/carbon-cycle": {
+    "t": "碳循环",
+    "e": "金星离太阳只比地球近三成，地表温度却高达约 465°C，铅在那里都会熔成液体。原因不是离太阳更近，而是它的大气有 96% 是二氧化碳——金星的碳几乎全堆在了空气里。地球同样大小、同样年轻时也曾…",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/coriolis-effect": {
+    "t": "科里奥利效应",
+    "e": "为什么北半球的台风总是逆时针旋转，南半球的气旋却顺时针打转？为什么从赤道吹向北极的风，会被掰向东边，而不是笔直北上？答案不是某种神秘的力，而是一件简单却深刻的事实：我们站在一个旋转的地球上，而…",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/cryosphere": {
+    "t": "冰冻圈",
+    "e": "如果你站在格陵兰冰盖边缘，脚下看起来只是白色荒原。但卫星会告诉你另一件事：这片白色正在改变地球的重力场。当冰盖失去数千亿吨冰，地球局部质量会减少，双星测距任务 GRACE 与 GRACE-FO…",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/earth-interior": {
+    "t": "地球内部结构",
+    "e": "人类钻得最深的洞，是俄罗斯科拉超深钻孔，深约 12.3 公里——还不到地球半径（6371 公里）的千分之二。我们从未直接见过地球内部。可我们却能相当自信地说出：地心是一个温度近 5000 摄氏…",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/earths-magnetic-field": {
+    "t": "地球磁场",
+    "e": "指南针指北，这件事我们用了上千年，却很少有人追问：地球凭什么有磁性？答案藏在 2900 公里深处——一片由液态铁组成、永不停歇地翻腾的海洋。它像一台行星尺度的发电机，把机械运动转化成磁场，再把…",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/environmental-geology": {
+    "t": "环境地质学",
+    "e": "1980 年，第 26 届国际地质大会明确提出：地质学必须参与解决环境问题。四十年后，全球约 50% 人口生活在仅占地球表面积 1% 的城市里——工业、采矿、交通与农业把重金属、有机污染物、工…",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/geodesy-and-geoid": {
+    "t": "大地测量与大地水准面",
+    "e": "你站在海边说“这里海拔 0 米”，这句话听起来简单，实际上背后是一整套地球科学工程。海面会被潮汐、风暴、洋流、气压和温度扰动；陆地会因板块运动、地下水抽取、冰盖消融后的地壳回弹而升降；GPS …",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/geologic-time-scale": {
+    "t": "地质年代表",
+    "e": "意大利古比奥（Gubbio）的一处峡谷崖壁上，灰白色的灰岩一层叠一层。在某个高度，岩层中突然出现一道几毫米厚的暗色黏土。这道不起眼的黏土带，把崖壁分成了两半：下面的灰岩里挤满了一种浮游有孔虫的…",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/greenhouse-effect": {
+    "t": "温室效应",
+    "e": "如果地球没有大气，按它接收的太阳能算，全球平均地表温度应该是约 -18°C——一个冰封的世界。但实际平均温度约为 +15°C。这 33°C 的差额，几乎全部来自一群微量气体在天空中默默地\"盖被…",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/ice-ages-and-milankovitch": {
+    "t": "冰期与米兰科维奇周期",
+    "e": "两万年前的地球是什么样子？加拿大和美国北部被厚达数公里的冰盖压在下，北欧埋在另一块冰盖之下，海平面比今天低约 120—130 米，白令海峡的位置是一座连接西伯利亚与阿拉斯加的干冷陆桥。而这一切…",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/igneous-sedimentary-metamorphic-rocks": {
+    "t": "三大类岩石",
+    "e": "街边随便捡起一块石头，你大概会下意识地按颜色或软硬给它归类——白色的、黑色的、硬的、脆的。但地质学家不这么分。岩石的三大分类，依据的不是外表，而是成因：它是怎么形成的。这个区别非常关键。两块外…",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/karst-and-caves": {
+    "t": "岩溶与洞穴",
+    "e": "人类已经把地球表面几乎每一寸土地都拍进了卫星影像，却至今说不清脚下有多少洞穴。在深灰色的石灰岩山体内部，隐藏着一个只能靠头灯照亮、靠测绘绳一寸寸量出来的世界：最长的美国猛犸洞（Mammoth …",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/karst-landforms": {
+    "t": "喀斯特地貌",
+    "e": "桂林山水甲天下。漓江两岸那一座座孤零零、平地拔起的圆顶石峰，并不是雕塑出来的，也不是火山喷出来的。它们是被水一点一点\"喝\"掉的——更准确地说，是被一种很弱的酸，在几百万年里慢慢溶解掉的剩余物。…",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/map-projections": {
+    "t": "地图投影",
+    "e": "格陵兰岛在很多世界地图上看起来跟整个非洲差不多大。但实际上，非洲的面积是格陵兰的十四倍。这不是地图画错了，而是一个数学上无法回避的代价：你不可能把一个球面完美地摊平在纸上。 任何把地球画到平面…",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/mineral-resources-and-critical-metals": {
+    "t": "矿产资源与关键金属",
+    "e": "一辆电动车看起来像软件、芯片和电池的胜利。但把它拆开，你会看到一张地质地图。锂可能来自盐湖卤水或硬岩伟晶岩，钴可能来自铜钴矿带，钕和镝可能进入永磁电机，铜则连接几乎所有电气系统。能源转型不是摆…",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/minerals": {
+    "t": "矿物",
+    "e": "我们常把\"矿物\"和\"岩石\"混着用，仿佛它们是一回事。其实两者的关系，更像\"字母\"和\"单词\"。矿物是大自然写下地球这本书所用的字母表——每一种矿物都是一种成分固定、原子排列严整的纯粹物质。岩石则…",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/ocean-acidification": {
+    "t": "海洋酸化",
+    "e": "人类每年烧掉的化石燃料，并不是全部留在天上。海洋像一块巨大的海绵，默默吸走了其中的一大部分——工业革命以来，海洋累计吸收了人类排放二氧化碳的约 25%–30%。这件事一度被当成好消息：海洋帮我…",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/paleontology-and-fossils": {
+    "t": "古生物学与化石记录",
+    "e": "一块化石握在手里，像是从时间深处寄来的一封信。但这封信从来不是完整的——它被撕掉了大半，弄脏了字迹，还在寄出的路上被反复筛选。古生物学（paleontology）的工作，就是从这些残页里读出四…",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/paleontology-and-stratigraphy": {
+    "t": "古生物学与地层学",
+    "e": "我们习惯把“时间”想成钟表和日历，但地球有 46 亿年历史，人类文字记录还不到六千年。剩下那 99.99% 的时间没有目击者，只留下岩石和埋在岩石里的遗骸。",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/planetary-geology": {
+    "t": "行星地质学",
+    "e": "要真正理解地球，只研究地球是不够的。因为我们只有一个地球，没有对照组。",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/plate-boundaries": {
+    "t": "板块边界",
+    "e": "你脚下的地面看起来纹丝不动。但如果你站在大西洋中脊的一侧，每年都会以指甲生长的速度——约 2 到 3 厘米——离对岸越来越远。地球的外壳不是一整块铁板，而是一组拼图，这些拼图叫板块，它们之间相…",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/remote-sensing-and-gis": {
+    "t": "遥感与地理信息系统",
+    "e": "1972 年 7 月 23 日，美国发射了第一颗陆地卫星（Landsat），人类第一次以固定轨道、固定光谱、固定时间间隔，系统性地\"拍照\"整个陆地表面。半个多世纪过去，这套档案已经积累了超过 …",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/rock-cycle": {
+    "t": "岩石循环",
+    "e": "我们说\"坚如磐石\"，把岩石当作永恒的象征。但在地质时间的尺度上，岩石是地球上最善变的东西之一。今天的一座花岗岩山，可能曾是远古海底的泥沙，而它将来又会被磨成沙、冲入海洋、压成新岩、再被熔化重铸…",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/soil-science-and-pedology": {
+    "t": "土壤学与土壤发生学",
+    "e": "1934 年的\"黑色风暴\"把美国大平原约 12 亿吨表土卷上天空——那些土，是数千年 风化与成土 的结晶。农学界有句老话：形成一厘米肥沃表土，自然界往往需要几百年。 土壤学（soil scie…",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/thermohaline-circulation": {
+    "t": "温盐环流",
+    "e": "伦敦的纬度比加拿大哈尔滨还高，冬天却温和得多。这份额外的暖意，来自一条横跨整个地球、藏在海面之下的\"传送带\"——它把热带的温暖海水源源不断地送往北大西洋，再把变冷的海水沉入深渊、推回赤道。这条…",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/tides": {
+    "t": "潮汐",
+    "e": "每天两次，海水悄悄爬上沙滩，又悄悄退去。这件事如此规律，以至于沿海的渔民、港口、滩涂养殖都把它当成可以提前几年印在日历上的事。能被精确预报到分钟的自然现象并不多，潮汐是其中之一——因为它的节拍…",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/water-cycle": {
+    "t": "水循环",
+    "e": "你今天喝下的一口水里，可能有几个水分子曾流过恐龙的血管，曾是某场罗马时代暴雨的一部分，曾在大洋深处沉睡了上千年。地球上的水几乎不增不减，它只是在海洋、天空、河流、地下与生命之间反复循环。这趟永…",
+    "d": "earth-science"
+  },
+  "/earth-science/event-analyses/eyjafjallajokull-ash-crisis-2010": {
+    "t": "2010 年艾雅法拉火山灰危机剖析",
+    "e": "看得见喷发，为何仍难知道飞机能否安全飞行，是这篇剖析真正要回答的问题。对象发生在冰岛南部，2010 年 4—5 月；影响欧洲航空。如果只记住一个结论，读者会错过知识最有价值的部分：结论究竟由哪…",
+    "d": "earth-science"
+  },
+  "/earth-science/event-analyses/hunga-tonga-eruption-observation-2022": {
+    "t": "2022 年洪阿汤加喷发事件剖析",
+    "e": "一场海底喷发怎样同时进入大气、海洋与电离层，是这篇剖析真正要回答的问题。对象发生在汤加，2022 年 1 月 15 日高潮喷发。如果只记住一个结论，读者会错过知识最有价值的部分：结论究竟由哪些…",
+    "d": "earth-science"
+  },
+  "/earth-science/event-analyses/pakistan-flood-attribution-2022": {
+    "t": "2022 年巴基斯坦洪水归因剖析",
+    "e": "极端降雨、气候变化与脆弱性为何不能压成一个原因，是这篇剖析真正要回答的问题。对象发生在巴基斯坦，2022 年季风期。如果只记住一个结论，读者会错过知识最有价值的部分：结论究竟由哪些材料支撑，又…",
+    "d": "earth-science"
+  },
+  "/earth-science/event-analyses/pinatubo-eruption-observation-1991": {
+    "t": "1991 年皮纳图博喷发事件剖析",
+    "e": "地震、二氧化硫与卫星如何把预警连接到全球气候，是这篇剖析真正要回答的问题。对象发生在菲律宾吕宋，1991 年 4—6 月持续动荡，6 月 15 日高潮喷发。如果只记住一个结论，读者会错过知识最…",
+    "d": "earth-science"
+  },
+  "/earth-science/event-analyses/turkey-syria-earthquake-forensics-2023": {
+    "t": "2023 年土耳其—叙利亚地震事件剖析",
+    "e": "从最初震级到四百公里破裂带的快速重建，是这篇剖析真正要回答的问题。对象发生在2023 年 2 月 6 日卡赫拉曼马拉什地震序列。如果只记住一个结论，读者会错过知识最有价值的部分：结论究竟由哪些…",
+    "d": "earth-science"
+  },
+  "/earth-science/events/chicxulub-impact": {
+    "t": "希克苏鲁伯撞击与白垩纪末灭绝",
+    "e": "先纠正一个几乎人人都信的说法：恐龙并没有\"全部\"灭绝。如果你今天在窗外看到一只麻雀，你看到的就是一只活着的恐龙。鸟类是兽脚类恐龙的直系后代，在演化分类上它们本身就是恐龙——古生物学家把它们叫做…",
+    "d": "earth-science"
+  },
+  "/earth-science/events/continental-drift-rejected": {
+    "t": "大陆漂移被拒绝的五十年（1912—1965）",
+    "e": "翻开任何一张世界地图，南美洲的东岸与非洲的西岸像被撕开的两半。这件事三百年前就有人指出过。1912 年，德国气象学家魏格纳把它变成了一个完整的理论：大陆在移动，它们曾经拼在一起。",
+    "d": "earth-science"
+  },
+  "/earth-science/events/dust-bowl-1930s": {
+    "t": "美国黑风暴（1930 年代）",
+    "e": "1935 年 4 月 14 日下午，一个晴朗的周日，美国南部大平原上空突然涌起一堵翻滚的黑墙。",
+    "d": "earth-science"
+  },
+  "/earth-science/events/great-oxidation-event": {
+    "t": "大氧化事件",
+    "e": "如果你能呼吸 24 亿年前的空气，你会立刻窒息——那时的大气里几乎没有氧气。占今天空气五分之一的氧气，在地球前半生的二十多亿年里基本是缺席的。然后，大约 24 亿年前，地球的大气化学发生了一次…",
+    "d": "earth-science"
+  },
+  "/earth-science/events/indian-ocean-tsunami-2004": {
+    "t": "印度洋海啸（2004）",
+    "e": "2004 年 12 月 26 日上午，节礼日（Boxing Day）。印度洋沿岸的海滩上挤满了度假的游客与赶早市的渔民。",
+    "d": "earth-science"
+  },
+  "/earth-science/events/kelvin-and-the-age-of-the-earth": {
+    "t": "开尔文与地球年龄之争（1862—1904）",
+    "e": "十九世纪后半叶，地球有多老这个问题把两门学科逼到了正面冲突。",
+    "d": "earth-science"
+  },
+  "/earth-science/events/krakatoa-1883": {
+    "t": "喀拉喀托火山爆发（1883）",
+    "e": "1883 年 8 月 27 日上午十点零二分，印度尼西亚巽他海峡里一座叫喀拉喀托（Krakatoa，又作 Krakatau）的火山岛发生了一次终极大爆发。",
+    "d": "earth-science"
+  },
+  "/earth-science/events/lisbon-1755": {
+    "t": "里斯本大地震（1755）",
+    "e": "1755 年 11 月 1 日，星期六，上午九点四十分左右。这一天是天主教的诸圣节（All Saints' Day），里斯本——当时欧洲最富庶的港口之一——的教堂里挤满了做弥撒的人，无数蜡烛点…",
+    "d": "earth-science"
+  },
+  "/earth-science/events/messinian-salinity-crisis": {
+    "t": "墨西拿盐度危机",
+    "e": "想象一下：今天碧蓝的地中海——巴塞罗那、那不勒斯、亚历山大港所环抱的那片海——几乎完全干涸，变成一个比海平面低一两千米的巨大干盆地，谷底铺满刺眼的白色盐壳，在烈日下蒸腾。",
+    "d": "earth-science"
+  },
+  "/earth-science/events/pangaea-breakup": {
+    "t": "泛大陆裂解",
+    "e": "如果你能回到大约 2.5 亿年前的地球，你会看到一幅陌生的世界地图：所有大陆挤在一起，拼成一块横跨南北两极的巨大陆地——泛大陆（Pangaea），周围环绕着一片唯一的超级大洋\"泛大洋（Pant…",
+    "d": "earth-science"
+  },
+  "/earth-science/events/pompeii-vesuvius-79": {
+    "t": "维苏威火山爆发与庞贝（公元 79 年）",
+    "e": "庞贝最著名的\"遗体\"不是骨头，而是空洞。火山灰把死者裹住、硬化、定形，尸体腐烂后在凝固的灰里留下一个个人形的空腔。十九世纪的考古学家往这些空腔里灌石膏，等它凝固再挖出来——于是一个个庞贝人在死…",
+    "d": "earth-science"
+  },
+  "/earth-science/events/snowball-earth": {
+    "t": "雪球地球",
+    "e": "设想一下：从太空看去，地球不是那颗蓝白相间的\"蓝色弹珠\"，而是一颗几乎纯白的冰球——海洋封冻到了赤道，连热带都覆盖着厚厚的冰盖。地表平均气温可能低至零下数十摄氏度，光合作用近乎停滞，绝大多数海…",
+    "d": "earth-science"
+  },
+  "/earth-science/events/tambora-1815": {
+    "t": "坦博拉火山爆发（1815）",
+    "e": "很多人以为火山只是\"地方性\"的灾难——熔岩淹掉山脚的村庄，火山灰盖住几座城，仅此而已。坦博拉打破了这个印象。",
+    "d": "earth-science"
+  },
+  "/earth-science/events/tohoku-2011": {
+    "t": "东日本大地震与海啸（2011）",
+    "e": "2011 年 3 月 11 日下午 2 点 46 分（日本标准时间），日本东北（Tōhoku）地区的人们正处在一个普通的星期五。",
+    "d": "earth-science"
+  },
+  "/earth-science/events/valdivia-1960": {
+    "t": "智利大地震（1960 · 瓦尔迪维亚）",
+    "e": "1960 年 5 月 22 日下午，智利南部的大地剧烈摇晃了好几分钟。这是现代地震目录中矩震级最大的一次地震，M_w 9.5——这个纪录保持至今。按震级—能量的经验关系估算，它释放的地震波能量…",
+    "d": "earth-science"
+  },
+  "/earth-science/frontier/ai-weather-climate-models": {
+    "t": "AI 天气与气候建模：当预报不再求解方程",
+    "e": "2025 年 2 月 25 日，欧洲中期天气预报中心（ECMWF）把一个机器学习模型 AIFS 提升为正式业务系统，与运行了四十多年的物理模式 IFS 并列发布官方预报[^aifs]。同年 7…",
+    "d": "earth-science"
+  },
+  "/earth-science/frontier/carbon-capture-geoengineering": {
+    "t": "碳捕集与地球工程：能不能把气候\"修\"回去",
+    "e": "2024 年 5 月 8 日，在冰岛一片火山玄武岩荒原上，一座叫 Mammoth（猛犸）的工厂启动了。它用巨大的风扇把空气吸进来，用化学吸附剂把里面的二氧化碳抓出来，再注入地下与玄武岩反应、变…",
+    "d": "earth-science"
+  },
+  "/earth-science/frontier/carbon-storage-geology": {
+    "t": "地质碳封存：把二氧化碳塞回地下，地球答应吗",
+    "e": "2025 年 8 月，在挪威卑尔根外海约 100 公里处，第一批来自欧洲的液化二氧化碳被注入北海海底以下约 2600 米的咸水层。这是 Northern Lights 项目的首次商业注入——全…",
+    "d": "earth-science"
+  },
+  "/earth-science/frontier/climate-tipping-points": {
+    "t": "气候临界点：地球系统的不可逆开关",
+    "e": "2024 年 10 月，来自 15 个国家的 44 位海洋环流与临界点专家联名给北欧部长理事会写了一封公开信，警告大西洋经向翻转环流（AMOC）的崩溃\"风险此前被严重低估\"。一年后，2025 …",
+    "d": "earth-science"
+  },
+  "/earth-science/frontier/deep-sea-hydrothermal-frontiers": {
+    "t": "深海前沿：生命起点、地下生物圈与海底采矿的争夺",
+    "e": "2023 年，国际大洋发现计划（IODP）的 399 航次在大西洋中脊以西约 15 公里的\"亚特兰蒂斯海山\"（Atlantis Massif）打下钻头，钻入了地球的地幔岩石。一年后，2024 …",
+    "d": "earth-science"
+  },
+  "/earth-science/frontier/earthquake-forecasting": {
+    "t": "地震预测：为什么我们能预报飓风却预测不了地震",
+    "e": "2012 年 10 月 22 日，意大利一家法院做出了一个震惊全球科学界的判决：六名地震学家和一位政府官员，因在 2009 年拉奎拉（L'Aquila）地震前\"淡化风险\"，被判过失杀人罪。那场…",
+    "d": "earth-science"
+  },
+  "/earth-science/frontier/paleoclimate-ice-cores": {
+    "t": "冰芯里的百万年：从 Beyond EPICA 读取最古老的大气",
+    "e": "2025 年 1 月，在南极内陆一个叫\"小冰穹 C\"（Little Dome C）的地方，海拔超过 3200 米、年均气温零下 35°C 的荒原上，一支欧洲钻探队把钻头送到了基岩——总进尺约 …",
+    "d": "earth-science"
+  },
+  "/earth-science/frontier/planetary-defense": {
+    "t": "行星防御：人类第一次学会推开小行星",
+    "e": "2022 年 9 月 26 日，一个约 570 公斤、冰箱大小的航天器，以每秒约 6.6 公里的速度，主动撞上了一颗叫 Dimorphos 的小行星。这不是事故，而是 NASA 的 DART …",
+    "d": "earth-science"
+  },
+  "/earth-science/pioneers/alfred-wegener": {
+    "t": "阿尔弗雷德·魏格纳",
+    "e": "1912 年 1 月，在德国法兰克福的一次地质学会议上，一位 31 岁的气象学家站起来，提出了一个让满座专家皱眉的想法：今天彼此相隔大洋的各块大陆，曾经是连在一起的一整块，是后来\"漂移\"分开的…",
+    "d": "earth-science"
+  },
+  "/earth-science/pioneers/charles-keeling": {
+    "t": "查尔斯·基林",
+    "e": "人类讨论气候变化时，最常引用的一条曲线，是一条从左下角持续爬向右上角、还带着小锯齿的折线。它直观得近乎残酷：地球大气里的二氧化碳，几十年来一刻不停地在变多。",
+    "d": "earth-science"
+  },
+  "/earth-science/pioneers/charles-lyell": {
+    "t": "查尔斯·莱伊尔",
+    "e": "1831 年底，一艘叫\"小猎犬号\"的英国海军测量船准备启航环球航行。船上一位 22 岁的博物学青年，行李里装着一本刚出版不久的厚书的第一卷。他叫查尔斯·达尔文，那本书是查尔斯·莱伊尔的《地质学…",
+    "d": "earth-science"
+  },
+  "/earth-science/pioneers/eunice-foote": {
+    "t": "尤妮斯·富特",
+    "e": "近些年，尤妮斯·富特的名字常被冠以一个轰动的标题：那个早于丁达尔三年\"发现温室效应、却被历史抹去的女科学家\"。这句话里有真，也有被拉直、被简化的部分。诚实地讲清楚它，恰恰比喊一句口号更能体现她…",
+    "d": "earth-science"
+  },
+  "/earth-science/pioneers/harry-hess": {
+    "t": "哈里·赫斯",
+    "e": "太平洋战场，一艘美军攻击运输舰在夜色里驶向硫磺岛。舰长本可以在战事间隙关掉那台新装的回声测深仪——它对作战毫无用处，只是不停地朝海底打声波、记下深度。可这位舰长偏不关。他让仪器在整个航程里日夜…",
+    "d": "earth-science"
+  },
+  "/earth-science/pioneers/inge-lehmann": {
+    "t": "英厄·莱曼",
+    "e": "人类至今钻进地球最深的洞，连地壳都没穿透——不到 13 公里。可我们却能相当自信地说，地球中心有一个炽热的、固态的铁球，半径约 1200 公里。我们从没见过它，怎么会知道？答案藏在一位丹麦地震…",
+    "d": "earth-science"
+  },
+  "/earth-science/pioneers/james-hutton": {
+    "t": "詹姆斯·赫顿",
+    "e": "1788 年的某一天，几位绅士乘小船沿苏格兰东海岸航行，在一处叫西卡角（Siccar Point）的岬角停下。他们看到的景象，今天每一本地质学教科书都会提到：一层近乎垂直竖立的灰色板岩之上，平…",
+    "d": "earth-science"
+  },
+  "/earth-science/pioneers/marie-tharp": {
+    "t": "玛丽·撒普",
+    "e": "1950 年代初，在哥伦比亚大学一间堆满数据的实验室里，一位女地质学家把船只在大西洋上来回测得的水深数字，一行行画成了海底的剖面图。当她把横跨大西洋的几条剖面并排放在一起时，发现它们中央都有一…",
+    "d": "earth-science"
+  },
+  "/earth-science/pioneers/milutin-milankovitch": {
+    "t": "米卢廷·米兰科维奇",
+    "e": "第一次世界大战爆发时，米卢廷·米兰科维奇正在故乡度蜜月，作为塞尔维亚人被奥匈帝国当作敌国公民拘押。在战俘营和后来被软禁的布达佩斯图书馆里，他没有荒废光阴，反而开始了一项需要海量手工计算的工程：…",
+    "d": "earth-science"
+  },
+  "/earth-science/pioneers/vilhelm-bjerknes": {
+    "t": "威廉·皮叶克尼斯",
+    "e": "今天打开手机看天气预报，背后是一整套在超级计算机上求解的物理方程。这件事听起来理所当然，但它有一个明确的思想起点：1904 年，一位挪威物理学家写下了一句此前没人敢这么说的话——天气预报，本质…",
+    "d": "earth-science"
+  },
+  "/earth-science/pioneers/wallace-broecker": {
+    "t": "沃利·布罗克",
+    "e": "很多人听过这样一句话：是沃利·布罗克\"造出\"了\"全球变暖\"（global warming）这个词。这句话只对了一半。",
+    "d": "earth-science"
+  },
+  "/earth-science/processes/aeolian-processes": {
+    "t": "风成过程与地貌",
+    "e": "风看不见、摸不着，似乎软弱无力。可正是风，堆起了撒哈拉绵延数百千米的沙海，铺下了中国黄土高原上百米厚的黄土，还在火星上塑造了整片星球的地貌。在缺水的地方，风接管了河流的工作——它是干旱世界的雕…",
+    "d": "earth-science"
+  },
+  "/earth-science/processes/climate-modeling": {
+    "t": "气候建模",
+    "e": "天气预报告诉你周末要不要带伞。气候模型问的是另一个问题：如果人类持续改变大气成分，几十年后的地球能量账本会怎样重排？这不是一台“预测未来的机器”。它更像一个受物理约束的地球实验室。真实地球不能…",
+    "d": "earth-science"
+  },
+  "/earth-science/processes/coastal-processes": {
+    "t": "海岸过程",
+    "e": "在地图上，海岸线是一条清晰、固定的细线。这是人类最深的地理错觉之一。真实的海岸线没有一天是静止的。它是地球上最活跃、变化最快的地带——每一个浪头都在搬运沙粒，每一次涨潮都重新划定水陆的边界，每…",
+    "d": "earth-science"
+  },
+  "/earth-science/processes/earthquakes": {
+    "t": "地震",
+    "e": "1906 年旧金山大地震后，美国地质学家里德（Harry Fielding Reid）比对了断层两侧测量标志在震前几十年的缓慢位移，发现了一个关键事实：地震不是地下突然\"裂开\"，而是早已积累的…",
+    "d": "earth-science"
+  },
+  "/earth-science/processes/el-nino-enso": {
+    "t": "厄尔尼诺与 ENSO",
+    "e": "几个世纪前，秘鲁渔民就注意到，每隔几年的圣诞节前后，平时凉爽富饶的海面会异常变暖，鱼群消失，渔业崩溃。他们把这股暖流称为\"El Niño\"——西班牙语的\"圣婴\"，因它常在圣诞节出现。当时谁也想…",
+    "d": "earth-science"
+  },
+  "/earth-science/processes/erosion-deposition": {
+    "t": "侵蚀与沉积",
+    "e": "科罗拉多大峡谷深达 1800 米，一眼望去像是某种巨力一次劈开了大地。但真相更令人震撼：它是科罗拉多河用了约 500 至 600 万年，一粒沙一粒沙地搬走切出来的。这条河每年带走的泥沙，平摊到…",
+    "d": "earth-science"
+  },
+  "/earth-science/processes/fluvial-processes": {
+    "t": "河流过程与地貌",
+    "e": "人类几乎所有古老文明都长在河边：尼罗河、两河、印度河、黄河。这不是巧合。河流是地球表面最勤奋的搬运工，它一边把高山磨低、一边在下游堆出肥沃的平原——文明所依赖的那片平坦沃土，正是河流亿万年工作…",
+    "d": "earth-science"
+  },
+  "/earth-science/processes/glaciation-ice-ages": {
+    "t": "冰期与冰川作用",
+    "e": "19 世纪初，瑞士阿尔卑斯山的农民早就知道，远离今日冰川的山谷里散落着巨大的\"漂砾\"——和冰川搬来的石头一模一样。1837 年，瑞士博物学家阿加西（Louis Agassiz）大胆宣称：这些石…",
+    "d": "earth-science"
+  },
+  "/earth-science/processes/global-atmospheric-circulation": {
+    "t": "全球大气环流",
+    "e": "1735 年，英国律师兼气象学家哈德莱（George Hadley）盯着一张贸易风地图，问了一个朴素的问题：赤道那么热、极地那么冷，热量怎么从低纬搬到高纬？他画出了第一个答案——一个从赤道上升…",
+    "d": "earth-science"
+  },
+  "/earth-science/processes/groundwater-aquifers": {
+    "t": "地下水与含水层",
+    "e": "墨西哥城正在下沉。这座两千多万人口的巨型城市，地面在某些地段每年下陷多达 50 厘米——快到能从卫星上看出来。地铁轨道扭曲、教堂倾斜、地下管线崩裂。原因藏在脚下：这座城市约六成的饮用水抽自地下…",
+    "d": "earth-science"
+  },
+  "/earth-science/processes/marine-biogeochemistry": {
+    "t": "海洋生物地球化学",
+    "e": "海洋不是一缸静止的盐水。它是地球上最大的活性碳库之一，溶解无机碳约 38000 亿吨（GtC 量级），是大气的约 50 倍——但大部分碳被\"锁\"在深层，靠一套精巧的生物泵（biological…",
+    "d": "earth-science"
+  },
+  "/earth-science/processes/mass-wasting": {
+    "t": "块体运动与滑坡",
+    "e": "1970 年 5 月 31 日的一个周日下午，秘鲁安第斯山脉的瓦斯卡兰峰（Huascarán）在一场大地震的摇动下，从近 6000 米的高处崩落出一大块冰岩混合体。",
+    "d": "earth-science"
+  },
+  "/earth-science/processes/monsoon-systems": {
+    "t": "季风系统",
+    "e": "每年夏季，印度洋上空的风向反转，潮湿空气越过海岸、平原和山脉，把数月降雨倾倒在南亚大陆。这不是“雨季”这个词能概括的现象。季风（monsoon） 是海陆热力差异、地球自转、地形抬升、海洋温度和…",
+    "d": "earth-science"
+  },
+  "/earth-science/processes/ocean-surface-circulation": {
+    "t": "表层洋流与风成环流",
+    "e": "1492 年，哥伦布从加那利群岛向西航行时，发现船队被一股看不见的推力带着走——他实际上搭上了北大西洋副热带环流的\"顺风车\"。同一股洋流，今天仍每天把约 3100 万立方米海水（约 31 Sv…",
+    "d": "earth-science"
+  },
+  "/earth-science/processes/orogeny-mountain-building": {
+    "t": "造山运动",
+    "e": "1850 年代，地质学家在阿尔卑斯山高处发现了海洋生物的化石——曾经的海底，如今矗立在数千米的高空。更惊人的是喜马拉雅：珠穆朗玛峰顶部的灰岩里也藏着古海洋的痕迹。山，原来不是大地天生就有的褶皱…",
+    "d": "earth-science"
+  },
+  "/earth-science/processes/plate-tectonics": {
+    "t": "板块构造",
+    "e": "1912 年，德国气象学家魏格纳（Alfred Wegener）注意到南美洲东海岸与非洲西海岸的轮廓能像拼图一样吻合，提出了\"大陆漂移\"假说。当时几乎整个地质学界都嘲笑他：大陆怎么可能在固态的…",
+    "d": "earth-science"
+  },
+  "/earth-science/processes/sea-level-change": {
+    "t": "海平面变化",
+    "e": "“海平面上升 X 厘米”是新闻里最常见的气候数字之一。但这句话其实藏着一个误导：世界上并没有一个统一的“海平面”在整齐地往上抬。",
+    "d": "earth-science"
+  },
+  "/earth-science/processes/volcanism": {
+    "t": "火山作用",
+    "e": "1980 年 5 月 18 日上午 8 点 32 分，美国华盛顿州的圣海伦斯火山北侧山体突然滑塌，揭开了被压住的高压岩浆。随后是人类记录到的最大规模之一的侧向爆发，山顶削低了 400 米。这场…",
+    "d": "earth-science"
+  },
+  "/earth-science/processes/watershed-hydrology": {
+    "t": "流域水文",
+    "e": "2010 年 7 月，巴基斯坦遭遇特大洪水，印度河及其支流泛滥，约 2000 万人受灾、近 2000 人死亡。洪水不是\"水太多了\"这么简单——它是一场在特定流域（watershed / dra…",
+    "d": "earth-science"
+  },
+  "/earth-science/processes/weather-systems": {
+    "t": "天气系统",
+    "e": "1922 年，英国数学家理查森（Lewis Fry Richardson）做了一件疯狂的事：他用纸笔手工求解大气方程，试图预报天气。一次预报花了他几个月，结果还错得离谱。但他的方法是对的——他…",
+    "d": "earth-science"
+  },
+  "/earth-science/processes/weathering-soil": {
+    "t": "风化与成土",
+    "e": "1934 年 5 月 11 日，一场高达数千米的黑色尘暴从美国大平原升起，向东横扫约 3000 公里，把约 3 亿吨表土卷上天空——这些土落在了芝加哥的街道、华盛顿的国会山，甚至飘过纽约自由女…",
+    "d": "earth-science"
+  }
+}
