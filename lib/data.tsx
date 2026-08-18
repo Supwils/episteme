@@ -571,6 +571,65 @@ export const STATS = [
 
 export const LATEST_UPDATES = [
   {
+    id: "lu-9",
+    domain: "研究前沿",
+    domainColor: "#6366f1",
+    title: "研究前沿覆盖扩至 18 域",
+    description:
+      "艺术、工程、法学、语言学四域接入前沿板块，新增 24 篇 2020s 证据驱动的前沿文章，全平台前沿覆盖达 18 域。",
+    date: "2026-08",
+    href: "/arts/frontier",
+  },
+  {
+    id: "lu-10",
+    domain: "工程与技术",
+    domainColor: "#8a919e",
+    title: "工程与技术板块上线",
+    description:
+      "36 篇文章覆盖工程基础、能源与动力、材料与制造、信息与机器、土木与建造、重大工程与伦理六大板块。",
+    date: "2026-08",
+    href: "/engineering",
+  },
+  {
+    id: "lu-11",
+    domain: "艺术",
+    domainColor: "#b0785a",
+    title: "艺术、建筑与美学板块上线",
+    description:
+      "40 篇文章从观看、材料与制作进入全球视觉文化，40 张主图全部经 Wikimedia Commons 许可证核实。",
+    date: "2026-08",
+    href: "/arts",
+  },
+  {
+    id: "lu-12",
+    domain: "法学",
+    domainColor: "#a8843c",
+    title: "法学板块上线",
+    description:
+      "34 篇文章覆盖法律基础、公法、私法、刑法与程序、比较法律传统、全球与数字治理六大板块。",
+    date: "2026-08",
+    href: "/law",
+  },
+  {
+    id: "lu-13",
+    domain: "经济学",
+    domainColor: "#e8b84a",
+    title: "「被推翻的理论」系列",
+    description:
+      "跨 8–10 域的系列写作：从燃素说到剑桥资本争论——理论如何被证伪，以及为什么有些被证伪的理论仍在运转。",
+    date: "2026-08",
+    href: "/economics/case-studies/cambridge-capital-controversy",
+  },
+  {
+    id: "lu-14",
+    domain: "语言学",
+    domainColor: "#3f8f8a",
+    title: "语言学板块上线",
+    description: "从声音与手势、词句与意义到语言习得与文字系统，探索人类如何用语言组织意义。",
+    date: "2026-07",
+    href: "/linguistics",
+  },
+  {
     id: "lu-1",
     domain: "宇宙学",
     domainColor: "#3b82f6",

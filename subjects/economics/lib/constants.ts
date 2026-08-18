@@ -30,6 +30,63 @@ export const CATEGORY_COLORS: Record<string, string> = {
   金融: "#be5046",
 };
 
+/**
+ * Fixed pedagogical order for the concepts index (基础 → 微观 → 宏观 → 金融
+ * → 博弈/行为 → 应用与制度 → 方法). Categories not listed here (future
+ * additions) are appended after these, with "其他" always last.
+ */
+export const CONCEPT_CATEGORY_ORDER: readonly string[] = [
+  "宏观经济学入门",
+  "微观经济学",
+  "微观经济理论",
+  "宏观经济学",
+  "货币经济学",
+  "劳动经济学",
+  "劳动经济学与宏观",
+  "金融经济学",
+  "固定收益",
+  "国际金融",
+  "市场微观结构",
+  "信息经济学",
+  "博弈论",
+  "博弈论与市场设计",
+  "决策理论",
+  "行为经济学",
+  "产业经济学",
+  "发展经济学",
+  "经济发展与创新",
+  "发展经济学与政治经济学",
+  "收入分配与不平等",
+  "政治经济学",
+  "制度经济学与公共经济学",
+  "法律经济学与制度经济学",
+  "福利经济学与公共选择",
+  "环境经济学",
+  "实证经济学方法",
+  "应用经济学",
+];
+
+/** Order category names by CONCEPT_CATEGORY_ORDER; unknowns after, "其他" last. */
+export function orderConceptCategories(categories: Iterable<string>): string[] {
+  const rest = new Set(categories);
+  const ordered: string[] = [];
+  for (const cat of CONCEPT_CATEGORY_ORDER) {
+    if (rest.delete(cat)) ordered.push(cat);
+  }
+  const hasOther = rest.delete("其他");
+  const extras = [...rest].sort((a, b) => a.localeCompare(b, "zh-Hans-CN"));
+  return hasOther ? [...ordered, ...extras, "其他"] : [...ordered, ...extras];
+}
+
+/** Accent color for a concept category: exact key, else prefix match, else gold. */
+export function conceptCategoryColor(category: string): string {
+  if (CATEGORY_COLORS[category]) return CATEGORY_COLORS[category];
+  for (const [key, color] of Object.entries(CATEGORY_COLORS)) {
+    if (category.includes(key)) return color;
+  }
+  return "#c8a45a";
+}
+
 export const SCHOOL_COLORS: Record<string, string> = {
   古典经济学: "#6ad0ff",
   马克思主义: "#e06c75",

@@ -10,6 +10,7 @@ import { GraphLegend } from "./GraphLegend";
 import { GraphDetailPanel } from "./GraphDetailPanel";
 import { GraphA11yAnnouncer } from "./GraphA11yAnnouncer";
 import { GraphTooltip } from "./GraphTooltip";
+import { GraphOnboardingHint } from "./GraphOnboardingHint";
 import { CognitiveLevelAxis } from "./CognitiveLevelAxis";
 import { SpatialGraphControls } from "./SpatialGraphControls";
 import { SpatialClusterSummary } from "./SpatialClusterSummary";
@@ -960,6 +961,8 @@ export function KnowledgeGraph({
             position={state.tooltipNode ? state.tooltipPos : state.cursorPos}
             connectedCount={state.hoveredNodeConnectedCount}
           />
+
+          {!state.isLoading && <GraphOnboardingHint />}
 
           {!state.isLoading && (
             <div className={clsx("absolute z-20", "bottom-4 left-4", "md:bottom-4 md:left-4")}>

@@ -2,7 +2,7 @@
 title: 设计模式
 title_en: Design Patterns
 status: published
-updated: 2026-06-28
+updated: 2026-08-18
 category: 软件工程实践
 order: 25
 field: 计算机科学 · 软件工程
@@ -26,17 +26,23 @@ related:
 
 它的影响有具体的量级：这本书 1994 年在 OOPSLA 大会首发，此后以英文及另外 13 种语言累计售出逾 50 万册，常被称为"最有影响力的、却不讲某一门具体语言的编程书"。四位作者中的 John Vlissides 长期任职于 IBM 沃森研究中心，2005 年因脑瘤并发症去世，年仅 44 岁。
 
+从亚历山大到四人帮之间，其实还有两级台阶。1987 年，Kent Beck 与 Ward Cunningham 在 OOPSLA '87 的研讨会上发表《Using Pattern Languages for Object-Oriented Programs》，第一次把亚历山大的方法搬进软件：他们为 Smalltalk 的用户界面设计写了 5 个模式，拿去试验"新手照着模式描述，能否做出老手水准的设计"。1993 年 8 月，Beck、Grady Booch、Jim Coplien 等人在科罗拉多的一次山间聚会上成立了 Hillside Group，专门推动模式写作；次年首届 PLoP（Pattern Languages of Programs）会议举办，软件模式社区自此成形。GoF 的书正是在这个社区的酝酿中诞生的——它不是四个人的突发奇想，而是一场持续七年的方法迁移的结晶。
+
 ## 破除误解：模式不是"万能套路"
 
 设计模式常被初学者误解为"把这些模式记住，遇到问题套进去就行"。这是最危险的使用方式。
 
 GoF 书中最重要的一句话是：**"找到变化的部分，把它封装起来"**。模式是解决特定问题的方案，不是应该随处安插的"好设计"标志。
 
+这句话背后有两条总纲，23 个模式几乎都是它们的应用。其一，**"针对接口编程，而不是针对实现编程"**：调用方只依赖抽象接口，具体实现可以在运行期替换。其二，**"优先使用对象组合，而不是类继承"**：继承在编译期就把行为固化、还把父类的内部细节暴露给子类（所谓"脆弱基类"问题——父类一改，子类莫名崩掉）；组合则把变化点留在运行期。理解了这两条，你会发现策略、装饰器、观察者这些模式本质上都是同一件事的不同切面：把继承做不到的运行期可替换性，用组合和接口做出来。
+
 把不需要工厂模式的地方硬加一个 `AbstractFactory`，把简单的函数包裹进 `Strategy` 对象——这是"过度工程化"（over-engineering）的典型症状，让代码更难理解，不是更好。
 
 就连作者自己也不把这 23 种当成定论。2009 年，Gamma、Helm、Johnson 在《设计模式 15 年后》访谈中说，如果重写这本书，他们会重新归类、删掉几个、补上另外几个：把"工厂方法"并进更一般的"工厂"，把解释器、享元挪进单独的"其他/复合"类，还会加入依赖注入、空对象（Null Object）、类型对象等新模式。Gamma 个人甚至主张直接删掉单例（Singleton），认为它的使用"几乎总是一种设计坏味（design smell）"，只是三人没能就此达成一致。把一本书当圣经背诵，恰恰违背了作者的本意。
 
 ## 三类模式
+
+有一个词 GoF 用得极谨慎：模式是被**发现**的，不是被发明的。亚历山大从至今仍被人喜爱的老建筑里挖掘模式，GoF 从当时已被反复验证的系统中归纳模式——一个方案要在多个互不相关的系统里反复出现，才够格被收录。这也是模式目录与"算法手册"的区别：手册教你没见过的东西，模式则是给你早已见过、却一直叫不出名字的东西命名。
 
 GoF 把 23 种模式分为三类：
 
@@ -56,7 +62,7 @@ GoF 把 23 种模式分为三类：
 
 **适配器（Adapter）**：让接口不兼容的类能够合作。例：把老旧 API 包裹成符合新接口的形式，无需修改原始代码。
 
-**装饰器（Decorator）**：动态地给对象添加职责，比继承更灵活。Java I/O 流是最著名的应用：`new BufferedInputStream(new FileInputStream(path))`——可以无限叠加功能。
+**装饰器（Decorator）**：动态地给对象添加职责，比继承更灵活。算术对比很直观：一杯咖啡有 4 种可选配料，用子类表达就要为每种组合建一个类，共 $2^4=16$ 个，新增一种配料类数翻倍；装饰器把每种配料做成一个包装类，类数随配料数线性增长，运行期自由套叠。Java I/O 流是最著名的应用：`new BufferedInputStream(new FileInputStream(path))`——可以无限叠加功能。代价同样具体：包装后的对象不再是原来的类型，`instanceof` 判断失效；层数一多，异常栈轨迹变深，调试时要在包装层里逐层剥开。
 
 **代理（Proxy）**：为另一个对象提供代理，控制对原对象的访问。例：懒加载（访问时才真正创建）、权限检查、缓存。
 
@@ -70,9 +76,9 @@ GoF 把 23 种模式分为三类：
 
 ### 行为型（Behavioral）：对象如何通信
 
-**观察者（Observer）**：定义对象间一对多的依赖，当一个对象状态改变，所有依赖者自动通知。例：事件系统、MVC 中 Model 变化时通知 View——MVC（模型-视图-控制器）本身由挪威人 Trygve Reenskaug 于 1978–79 年在施乐 PARC 研究 Smalltalk 时提出，比 GoF 早了十多年。观察者也是现代响应式编程（RxJS、React 状态管理）的核心思想。
+**观察者（Observer）**：定义对象间一对多的依赖，当一个对象状态改变，所有依赖者自动通知。例：事件系统、MVC 中 Model 变化时通知 View——MVC（模型-视图-控制器）本身由挪威人 Trygve Reenskaug 于 1978–79 年在施乐 PARC 研究 Smalltalk 时提出，比 GoF 早了十多年。观察者也是现代响应式编程（RxJS、React 状态管理）的核心思想。实现上有推（push）与拉（pull）之分：通知时直接把新状态推给观察者，还是只发"变了"的信号、让观察者自己来取。这个模式还有一个经典的事故来源：长寿命的被观察者持有短寿命观察者的引用，观察者用完忘了注销就无法被垃圾回收——GUI 与前端代码里相当比例的内存泄漏由此而来。
 
-**策略（Strategy）**：定义一组算法，封装每个算法，使它们可以互换。例：排序算法可以在运行时切换（快排/归并/插入），调用者代码不变。
+**策略（Strategy）**：定义一组算法，封装每个算法，使它们可以互换。例：排序算法可以在运行时切换（快排/归并/插入），调用者代码不变。在有一等函数的语言里，这个模式塌缩成了一个参数——`list.sort(comparator)` 传入一个 lambda，就是策略模式的日常形态，这也是 Norvig 批评的一个活例（见后文"代价与争议"）。
 
 **命令（Command）**：把请求封装成对象，支持撤销、队列、日志。例：编辑器的撤销/重做功能，每个操作是一个命令对象。
 
@@ -105,9 +111,11 @@ GoF 把 23 种模式分为三类：
 
 **模式是语言缺陷的补丁？** Peter Norvig 在 1996 年的演讲《动态语言中的设计模式》里指出，GoF 的 23 个模式中，有 16 个在 Lisp 或 Dylan 这类语言里要么"消失"、要么实现起来简单得多。原因不止于 lambda：这些语言把类型和函数都当作一等公民，还提供宏、多重分派、模块等机制——在他的清单里，只有策略、命令、模板方法、访问者这 4 个真正对应"一等函数"，其余则靠一等类型、宏或多重分派化解。这引出了持续至今的争论：设计模式是通用的，还是只在 Java/C++ 这类语言里才显得必要？
 
-**模式的滥用与误用**：GoF 书出版后，大量 Java 代码库充斥着不必要的 `AbstractSingletonProxyFactoryBean` 风格的类名，成为过度设计的代名词。Rails 框架的作者 DHH 明确批评"依赖注入容器"等模式为过度工程化。
+**模式的滥用与误用**：GoF 书出版后，大量 Java 代码库充斥着不必要的 `AbstractSingletonProxyFactoryBean` 风格的类名，成为过度设计的代名词。这个名字并非段子手的虚构——它是 Spring 框架中真实存在的类，抽象、单例、代理、工厂四个模式名词叠在一个类上。它之所以成为梗，恰恰因为把"用了模式"误当成了"设计得好"。Rails 框架的作者 DHH 明确批评"依赖注入容器"等模式为过度工程化。
 
 **单例：模式还是反模式？** 单例提供一个"全局唯一访问点"，听起来无害，却把全局可变状态藏进代码深处：依赖关系不再写在函数签名里，单元测试也很难把它换成假对象来隔离。正因如此，不少工程师干脆把单例归入反模式，前面提到 Gamma 想删的也正是它。常见替代是依赖注入——把依赖作为参数显式传入，而不是在内部偷偷取全局实例。这里要分清：DHH 批评的是重型"依赖注入容器"框架，而非手写传参这种朴素做法本身。
+
+连"正确地实现一个单例"都比看起来难。为了避开每次取实例都加锁的开销，教科书里流行过"双重检查锁"（double-checked locking）写法：先无锁检查一次，再加锁检查一次。但在 Java 5 之前它是**坏的**——构造对象与写入引用这两个操作可能被重排，另一个线程会拿到一个"构造到一半"的实例。直到 2004 年 JSR-133 修订 Java 内存模型、强化了 `volatile` 语义，这个写法才算被修好。这是"模式易抄、语义难懂"的经典一课：模式告诉你结构长什么样，但结构的正确性取决于语言底层那些模式书不会讲的规则。
 
 **模式过时了吗？** 在函数式编程、响应式编程兴起的背景下，许多 GoF 模式（如命令、策略、观察者）都有更简洁的函数式表达。争论的焦点是：学 GoF 模式是否还值得？共识是：理解模式背后的**问题意识**仍然有价值，即使实现方式已经改变。
 
@@ -126,6 +134,7 @@ GoF 把 23 种模式分为三类：
 - Gamma, E., Helm, R., Johnson, R., Vlissides, J. *Design Patterns: Elements of Reusable Object-Oriented Software.* Addison-Wesley, 1994.
 - O'Brien, L. (interviewer). *Design Patterns 15 Years Later: An Interview with Erich Gamma, Richard Helm, and Ralph Johnson.* InformIT, 2009. （作者自述会如何重写、删改这本书）
 - Alexander, C., Ishikawa, S., Silverstein, M. *A Pattern Language.* Oxford University Press, 1977.
+- Beck, K. & Cunningham, W. "Using Pattern Languages for Object-Oriented Programs." *OOPSLA '87 Workshop on the Specification and Design for Object-Oriented Programming*, 1987.（软件模式的第一次公开尝试）
 - Alexander, C. *The Origins of Pattern Theory, the Future of the Theory, and the Generation of a Living World.* Keynote, OOPSLA '96; IEEE Software, 16(5), 1999.
 - Reenskaug, T. *Models–Views–Controllers.* Xerox PARC technical note, 1979. （MVC 的一手起源记录）
 - Fowler, M. *Patterns of Enterprise Application Architecture.* Addison-Wesley, 2002.

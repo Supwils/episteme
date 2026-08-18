@@ -171,11 +171,7 @@ export function DailyDomainGrid({ daily }: DailyDomainGridProps) {
             <motion.div key={config.key} variants={itemVariants}>
               <Link
                 href={item.url || config.url}
-                className="group hover:bg-bg-elevated block h-full rounded-xl p-4 no-underline transition-all duration-300"
-                style={{
-                  background: "rgba(255, 255, 255, 0.02)",
-                  border: "1px solid rgba(255, 255, 255, 0.05)",
-                }}
+                className="group hover:bg-bg-elevated border-border-faint bg-bg-panel block h-full rounded-xl border p-4 no-underline transition-all duration-300"
               >
                 <div className="mb-2 flex items-center gap-2">
                   <span className="text-lg">{config.icon}</span>
@@ -193,7 +189,7 @@ export function DailyDomainGrid({ daily }: DailyDomainGridProps) {
                 <h4 className="text-fg-primary group-hover:text-accent-gold mb-1 line-clamp-2 text-[0.85rem] leading-snug font-semibold transition-colors">
                   {item.title}
                 </h4>
-                <p className="m-0 line-clamp-2 text-[0.72rem] leading-relaxed text-[#8b8fa3]">
+                <p className="text-fg-muted m-0 line-clamp-2 text-[0.72rem] leading-relaxed">
                   {item.description}
                 </p>
               </Link>

@@ -756,15 +756,15 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
 }
 
 .domain-card__footer {
-  @apply mt-1 flex items-center justify-between;
+  @apply mt-1 flex items-end justify-between gap-3;
 }
 
 .domain-card__stats {
-  @apply text-fg-muted font-mono text-[0.75rem] tracking-[0.04em];
+  @apply text-fg-muted min-w-0 font-mono text-[0.75rem] leading-snug tracking-[0.04em];
 }
 
 .domain-card__cta {
-  @apply inline-flex items-center gap-1.5 font-mono text-[0.78rem] font-medium tracking-[0.04em];
+  @apply inline-flex shrink-0 items-center gap-1.5 font-mono text-[0.78rem] font-medium tracking-[0.04em] whitespace-nowrap;
 }
 
 .domain-card__arrow {

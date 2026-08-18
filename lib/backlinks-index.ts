@@ -4380,6 +4380,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/concepts/b-trees-and-lsm-trees": [
     {
+      url: "/computer-science/concepts/data-structures",
+      title: "数据结构",
+    },
+    {
       url: "/computer-science/concepts/database-indexing-and-query-optimization",
       title: "数据库索引与查询优化",
     },
@@ -7728,6 +7732,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/perceptron-and-the-ai-winter",
       title: "感知机与第一次 AI 寒冬",
+    },
+  ],
+  "/computer-science/systems/postgresql-mvcc": [
+    {
+      url: "/computer-science/concepts/databases-transactions",
+      title: "数据库与事务",
+    },
+  ],
+  "/computer-science/systems/redis-single-threaded": [
+    {
+      url: "/computer-science/concepts/data-structures",
+      title: "数据结构",
+    },
+  ],
+  "/computer-science/systems/sqlite-internals": [
+    {
+      url: "/computer-science/concepts/data-structures",
+      title: "数据结构",
+    },
+    {
+      url: "/computer-science/concepts/databases-transactions",
+      title: "数据库与事务",
     },
   ],
   "/computer-science/systems/xz-backdoor-supply-chain": [

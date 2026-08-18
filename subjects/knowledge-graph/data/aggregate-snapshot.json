@@ -7,7 +7,7 @@
     "maximumDistance": 4,
     "ambiguousTargetCount": 1899,
     "maximumCandidateCount": 45,
-    "confidenceCounts": { "curated": 245, "direct": 2185, "contextual": 568, "exploratory": 54 }
+    "confidenceCounts": { "curated": 245, "direct": 2186, "contextual": 567, "exploratory": 54 }
   },
   "terrain": {
     "diagnosticCount": 21,

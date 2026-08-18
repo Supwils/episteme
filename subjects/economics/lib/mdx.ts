@@ -74,6 +74,8 @@ const FIELD_MAP: Record<string, string> = {
   keyContributions: "key_contributions",
   contributions: "key_contributions",
   keyWork: "key_work",
+  // 21 concept files use `field:` instead of `category:` for the same meaning.
+  field: "category",
   relatedTheories: "related",
   relatedEconomicTheories: "related",
   dsmCode: "dsm_code",
@@ -81,7 +83,12 @@ const FIELD_MAP: Record<string, string> = {
 };
 
 const ARRAY_FIELDS = new Set([
-  "tags", "related", "key_figures", "key_contributions", "sides", "participants",
+  "tags",
+  "related",
+  "key_figures",
+  "key_contributions",
+  "sides",
+  "participants",
 ]);
 
 function normalizeFrontmatter(data: Record<string, unknown>): Record<string, unknown> {
@@ -102,7 +109,13 @@ function readMdxFile<T>(
   dir: string,
   slug: string,
   cache: Map<string, T | null>,
-  schema?: { safeParse: (data: unknown) => { success: boolean; data?: unknown; error?: { issues: { path: (string | number)[]; message: string }[] } } }
+  schema?: {
+    safeParse: (data: unknown) => {
+      success: boolean;
+      data?: unknown;
+      error?: { issues: { path: (string | number)[]; message: string }[] };
+    };
+  }
 ): T | null {
   if (cache.has(slug)) return cache.get(slug)!;
   if (!isSafeSlug(slug)) return null;
@@ -121,7 +134,9 @@ function readMdxFile<T>(
       if (parsed.success) {
         frontmatter = parsed.data as Record<string, unknown>;
       } else if (process.env.NODE_ENV === "development") {
-        const details = parsed.error!.issues.map((i) => `${i.path.join(".")}: ${i.message}`).join("; ");
+        const details = parsed
+          .error!.issues.map((i) => `${i.path.join(".")}: ${i.message}`)
+          .join("; ");
         console.warn(`[economics] frontmatter validation failed for ${slug}: ${details}`);
       }
     }
@@ -279,7 +294,12 @@ export function getKnowledgeBaseSlugs(): string[] {
 }
 
 export function getKnowledgeBaseBySlug(slug: string): KnowledgeBase | null {
-  return readMdxFile<KnowledgeBase>(DIRS.knowledgeBase, slug, knowledgeBaseCache, KnowledgeBaseSchema);
+  return readMdxFile<KnowledgeBase>(
+    DIRS.knowledgeBase,
+    slug,
+    knowledgeBaseCache,
+    KnowledgeBaseSchema
+  );
 }
 
 export function getAllKnowledgeBase(): KnowledgeBase[] {

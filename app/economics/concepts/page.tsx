@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { getAllConcepts } from "@/subjects/economics/lib/mdx";
-import { CATEGORY_COLORS } from "@/subjects/economics/lib/constants";
+import { extractExcerpt } from "@/lib/content-utils";
+import { ConceptsListBrowser } from "@/components/economics/ConceptsListBrowser";
+import type { ConceptItem } from "@/components/economics/ConceptsListBrowser";
 
 export const metadata: Metadata = {
   title: "经济学概念 — Episteme · 格致",
@@ -11,13 +12,15 @@ export const metadata: Metadata = {
 export default function ConceptsPage() {
   const concepts = getAllConcepts();
 
-  const grouped: Record<string, typeof concepts> = {};
-  for (const concept of concepts) {
-    const cat = concept.category || "其他";
-    if (!grouped[cat]) grouped[cat] = [];
-    grouped[cat].push(concept);
-  }
-  const categories = Object.keys(grouped).sort();
+  const items: ConceptItem[] = concepts.map((concept) => ({
+    slug: concept.slug,
+    title: concept.title,
+    title_en: concept.title_en,
+    category: concept.category || "其他",
+    key_figures: concept.key_figures,
+    tags: concept.tags,
+    excerpt: extractExcerpt(concept.content, 120),
+  }));
 
   return (
     <div className="w-full px-6 py-16 sm:px-10 lg:px-16">
@@ -33,78 +36,15 @@ export default function ConceptsPage() {
         </p>
       </header>
 
-      {categories.map((category) => {
-        const items = grouped[category] ?? [];
-        const accent = CATEGORY_COLORS[category] ?? "#c8a45a";
-
-        return (
-          <section key={category} className="mb-14">
-            <div className="mb-5 flex items-center gap-3">
-              <span
-                className="font-mono text-[10px] tracking-[0.32em] uppercase"
-                style={{ color: accent }}
-              >
-                {category}
-              </span>
-              <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">
-                {items.length} 个概念
-              </span>
-              <span className="bg-border-faint h-px flex-1" />
-            </div>
-
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-              {items.map((concept) => (
-                <Link
-                  key={concept.slug}
-                  href={`/economics/concepts/${concept.slug}`}
-                  className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative overflow-hidden border p-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5"
-                >
-                  <div
-                    className="pointer-events-none absolute -top-8 -right-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-10"
-                    style={{ backgroundColor: accent }}
-                  />
-
-                  <div className="relative">
-                    <div className="mb-2 flex items-center gap-2">
-                      <div
-                        className="h-6 w-0.5 rounded-full opacity-50"
-                        style={{ backgroundColor: accent }}
-                      />
-                      <span
-                        className="font-mono text-[9px] tracking-[0.22em] uppercase"
-                        style={{ color: accent }}
-                      >
-                        {concept.category}
-                      </span>
-                    </div>
-
-                    <h3 className="font-display text-fg-primary group-hover:text-accent-gold text-base font-semibold transition-colors">
-                      {concept.title}
-                    </h3>
-                    <p className="text-fg-muted font-display mt-0.5 text-sm tracking-wide italic opacity-60">
-                      {concept.title_en}
-                    </p>
-
-                    {concept.key_figures.length > 0 && (
-                      <p className="text-fg-muted mt-2 font-mono text-[9px] tracking-wider">
-                        {concept.key_figures.slice(0, 3).join("、")}
-                      </p>
-                    )}
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </section>
-        );
-      })}
-
-      {concepts.length === 0 && (
+      {concepts.length === 0 ? (
         <div className="border-border-faint bg-bg-panel mt-12 border p-12 text-center">
           <p className="text-fg-muted font-mono text-[11px] tracking-[0.22em] uppercase">
             暂无概念内容
           </p>
           <p className="text-fg-secondary mt-2 text-sm">经济学概念文章正在撰写中，敬请期待。</p>
         </div>
+      ) : (
+        <ConceptsListBrowser concepts={items} />
       )}
     </div>
   );

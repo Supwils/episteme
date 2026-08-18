@@ -18,7 +18,7 @@ related:
   - risk-and-uncertainty
   - elasticity
 status: published
-updated: 2026-06-19
+updated: 2026-08-18
 ---
 
 
@@ -36,9 +36,11 @@ updated: 2026-06-19
 
 这与"估计精度"无关。哪怕给你无穷多的样本，如果识别条件不成立，你也永远得不到真相。
 
-最经典的识别难题是**供求联立**。你观察到某商品价格与成交量的一组散点，想估计需求曲线的斜率（即价格弹性）。但每一个观测点同时是供给和需求两条曲线的交点——价格和数量是被两条曲线**联立决定**的。单看价量散点，你分不清自己拟合出来的到底是需求曲线、供给曲线，还是两者随时间各自移动后留下的某种混合轨迹。这就是 20 世纪初困扰经济学家的"识别问题"，也是 Haavelmo "概率革命"要解决的核心。
+最经典的识别难题是**供求联立**。你观察到某商品价格与成交量的一组散点，想估计需求曲线的斜率（即价格弹性）。但每一个观测点同时是供给和需求两条曲线的交点——价格和数量是被两条曲线**联立决定**的。单看价量散点，你分不清自己拟合出来的到底是需求曲线、供给曲线，还是两者随时间各自移动后留下的某种混合轨迹。Elmer Working 在 1927 年的论文《"统计需求曲线"到底显示了什么》中第一个把这个陷阱讲透：同一组散点可以来自无穷多组供求组合，斜率在数学上根本定不出来。这就是贯穿整个 20 世纪计量史的"识别问题"，也是 Haavelmo "概率革命"要解决的核心。
 
 破解之道是找到**只移动一条曲线而不移动另一条**的外生变动。例如天气只影响农产品供给、不直接影响消费者的需求意愿——天气就成了识别需求曲线的钥匙。这个直觉后来发展成工具变量法。
+
+工具变量的第一次系统使用，通常归于 Philip G. Wright 1928 年出版的《动植物油脂关税》一书的附录。这段思想史还有一桩小小的悬案：附录究竟出自父亲 Philip 还是儿子 Sewall Wright（路径分析的发明者）之手，曾长期争论；Stock 与 Trebbi 后来的细致考证归于父亲，但父子的思想交融已成定论。
 
 ## OLS 与它的隐含承诺
 
@@ -58,6 +60,8 @@ $$\mathbb{E}[\varepsilon_i \mid x_i] = 0$$
 
 什么时候会破裂？这就是内生性问题。
 
+另一个常见误读是把拟合优度当证据：$R^2$ 高只说明模型解释了多少变异，与系数是否代表因果毫无关系。识别不成立时，再漂亮的 $R^2$ 也只是更精确地描述了一团相关性。
+
 ## 内生性与工具变量
 
 **内生性**（endogeneity）指解释变量与误差项相关，它有三个常见来源：
@@ -76,6 +80,8 @@ $$\hat{\beta}_{IV} = \frac{\mathrm{Cov}(z, y)}{\mathrm{Cov}(z, x)}$$
 
 工具变量的难点从来不是计算，而是**找到真正满足排他性的工具**。排他性条件无法用数据检验，只能靠制度知识和论证去捍卫——这也是好的实证研究最见功力的地方。
 
+另一个实践陷阱是**弱工具变量**：工具与内生变量只弱相关时，IV 估计量在有限样本里会严重偏向 OLS，标准误也会失真。Staiger 与 Stock（1997）给出的经验规则是：第一阶段 F 统计量低于 10，就应怀疑工具太弱。近年研究进一步表明这个阈值可能还太宽松，审慎的做法是同时报告对弱工具稳健的置信区间。
+
 ## 面板数据：让单位充当自己的对照
 
 **面板数据**（panel data）同时追踪多个个体、跨越多个时期。它的威力在于能"消掉"那些不随时间变化、又无法观测的个体差异。
@@ -88,6 +94,8 @@ $$y_{it} = \beta x_{it} + \alpha_i + \varepsilon_{it}$$
 
 代价是：固定效应只能利用**组内变动**，对那些本身不随时间变化的变量（如性别、出生地）束手无策——它们和 $\alpha_i$ 一起被消掉了。
 
+面板还能回答截面回答不了的问题：同一个人加薪前后的消费变化，比"富人和穷人谁消费更多"更接近因果。但追踪数据带来新负担——样本会流失（attrition），而流失往往不是随机的：境遇恶化者更容易退出调查，留下来的轨迹会系统性偏乐观。
+
 ## 时间序列与协整：与伪回归搏斗
 
 处理宏观时间序列（GDP、物价、汇率）时，最危险的陷阱是**伪回归**（spurious regression）。Granger 与 Newbold（1974）用模拟证明：两条各自带有随机趋势（单位根）的序列，哪怕彼此毫无关系，回归在一起也常常显示出极高的 $R^2$ 和"显著"的系数。趋势同向上升，统计软件就误判成强相关。
@@ -96,11 +104,25 @@ Clive Granger 和 Robert Engle 给出的出路是**协整**（cointegration）�
 
 Granger 还提出了**格兰杰因果**：若 $x$ 的历史值能改善对 $y$ 未来值的预测，就说 $x$ 格兰杰导致 $y$。需要警惕的是，这是一种**预测意义上的"因果"**，并不等同于结构因果——它告诉你时间上的领先关系，而非机制上的因果。
 
+## 自然实验：把政策断点变成对照
+
+工具变量的逻辑可以推广：凡是不由研究对象自己选择、却影响其处境的制度变动，都可能充当"自然实验"。
+
+1994 年，David Card 与 Alan Krueger 用它研究了最低工资的就业效应。1992 年 4 月，新泽西州把最低工资从每小时 4.25 美元提高到 5.05 美元，相邻的宾夕法尼亚州维持不变。两人电话调查了州界两侧数百家快餐店在提薪前后的用工量，做**双重差分**：新泽西的就业变化减去宾州的就业变化，两州共同的经济波动就此消掉。结果与教科书模型的预言相反——新泽西门店的就业相对不降反升。这篇论文掀起了延续至今的最低工资大辩论，也把"找政策断点、做差异比较"推上了实证主流。
+
+双重差分的关键假设是**平行趋势**：如果没有提薪，两州就业本该平行变化。这个假设同样无法用数据直接检验，只能用政策发生前的历史趋势间接佐证——识别的论证再一次重于计算。
+
+还有一个常被忽略的测量陷阱：**标准误本身也可能是错的**。双重差分的数据往往在时间上高度自相关，如果按"每次观测相互独立"计算标准误，显著性会被严重高估。Bertrand、Duflo 与 Mullainathan（2004）把根本不存在的"安慰剂政策"随机指派给各州，用常规方法竟频繁"发现"了显著效应。补救办法是按政策变化的层级计算聚类稳健标准误——这件事没有检验统计量可以替代，只能靠对数据结构的判断。
+
+另一条更直接的路线，是把随机化本身搬进田野。Banerjee、Duflo 与 Kremer 用随机对照实验逐项评估驱虫、助学金、小额贷款等发展政策，三人因此分享 2019 年诺贝尔经济学奖。2021 年的奖项则颁给了自然实验的方法论本身：Card 因对劳动经济学的实证贡献，Angrist 与 Imbens 因对因果关系分析的方法论贡献。
+
+对随机实验的批评同样真实：一个村庄里有效的干预，推广到全国可能因价格、工资等一般均衡效应而失效；实验地点的政治环境、文化和执行能力也无法随机化。Deaton 与 Cartwright 因此提醒，随机对照实验给出的答案是"在这里、对这群人、在这套执行条件下有效"，外推仍然要靠机制与理论。
+
 ## 争议：从测量到识别的范式之争
 
 计量经济学内部有一场延续至今的张力。
 
-传统的**结构计量**（structural econometrics）主张：先写下一个有微观基础的经济模型（消费者如何最优化、企业如何定价），再用数据估计模型的深层参数。优点是参数有清晰的经济含义、能做反事实政策模拟；缺点是结论高度依赖模型设定，"模型错了，估计再精确也没意义"。
+传统的**结构计量**（structural econometrics）主张：先写下一个有微观基础的经济模型（消费者如何最优化、企业如何定价），再用数据估计模型的深层参数。优点是参数有清晰的经济含义、能做反事实政策模拟；缺点是结论高度依赖模型设定，"模型错了，估计再精确也没意义"。Leamer 在 1983 年的《让我们把计量里的"骗"拿掉》中尖刻指出，实证结论对模型设定的敏感性大得可疑，而研究者几乎从不报告这种敏感性——这篇文章后来被视为方法论自我清算的起点。
 
 与之对立的是 2000 年后兴起的**简约式 / 设计导向**方法（reduced-form, design-based），即"可信性革命"。它不追求完整的结构模型，而把全部心力放在寻找近似随机的外生变动（自然实验、断点、随机对照实验）上，主打"识别策略的可信性优先于模型的完整性"。Angrist 与 Pischke 在《基本无害的计量经济学》里旗帜鲜明地为这一路线辩护。
 
@@ -121,10 +143,16 @@ Granger 还提出了**格兰杰因果**：若 $x$ 的历史值能改善对 $y$ �
 ## 参考文献
 
 1. Haavelmo, T. (1944). The Probability Approach in Econometrics. *Econometrica*, 12(Supplement), iii–115.
-2. Granger, C. W. J., & Newbold, P. (1974). Spurious Regressions in Econometrics. *Journal of Econometrics*, 2(2), 111–120.
-3. Engle, R. F., & Granger, C. W. J. (1987). Co-integration and Error Correction: Representation, Estimation, and Testing. *Econometrica*, 55(2), 251–276.
-4. Wooldridge, J. M. (2010). *Econometric Analysis of Cross Section and Panel Data* (2nd ed.). MIT Press.
-5. Angrist, J. D., & Pischke, J.-S. (2009). *Mostly Harmless Econometrics: An Empiricist's Companion*. Princeton University Press.
+2. Working, E. J. (1927). What Do Statistical "Demand Curves" Show? *Quarterly Journal of Economics*, 41(1), 212–235.
+3. Granger, C. W. J., & Newbold, P. (1974). Spurious Regressions in Econometrics. *Journal of Econometrics*, 2(2), 111–120.
+4. Engle, R. F., & Granger, C. W. J. (1987). Co-integration and Error Correction: Representation, Estimation, and Testing. *Econometrica*, 55(2), 251–276.
+5. Staiger, D., & Stock, J. H. (1997). Instrumental Variables Regression with Weak Instruments. *Econometrica*, 65(3), 557–586.
+6. Card, D., & Krueger, A. B. (1994). Minimum Wages and Employment: A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania. *American Economic Review*, 84(4), 772–793.
+7. Leamer, E. E. (1983). Let's Take the Con Out of Econometrics. *American Economic Review*, 73(1), 31–43.
+8. Deaton, A., & Cartwright, N. (2018). Understanding and Misunderstanding Randomized Controlled Trials. *Social Science & Medicine*, 210, 2–21.
+9. Bertrand, M., Duflo, E., & Mullainathan, S. (2004). How Much Should We Trust Differences-in-Differences Estimates? *Quarterly Journal of Economics*, 119(1), 249–275.
+10. Wooldridge, J. M. (2010). *Econometric Analysis of Cross Section and Panel Data* (2nd ed.). MIT Press.
+11. Angrist, J. D., & Pischke, J.-S. (2009). *Mostly Harmless Econometrics: An Empiricist's Companion*. Princeton University Press.
 
 ## 延伸阅读
 

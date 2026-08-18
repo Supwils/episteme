@@ -121,6 +121,12 @@ describe("economics data access", () => {
         expect(c.content).toBeDefined();
       }
     });
+
+    it("maps the legacy `field:` frontmatter key to category (no uncategorized concepts)", () => {
+      for (const c of getAllConcepts()) {
+        expect(c.category).toBeTruthy();
+      }
+    });
   });
 
   describe("getConceptBySlug", () => {
