@@ -5168,6 +5168,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "缓存策略",
     },
     {
+      url: "/computer-science/concepts/networking-protocols",
+      title: "网络协议栈 TCP/IP",
+    },
+    {
       url: "/political-science/concepts/sovereignty",
       title: "主权",
     },
@@ -6973,6 +6977,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/computer-science/concepts/type-systems": [
+    {
+      url: "/computer-science/concepts/compilers",
+      title: "编译器",
+    },
     {
       url: "/computer-science/algorithms/union-find",
       title: "并查集",

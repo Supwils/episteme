@@ -29,8 +29,8 @@ for(const f of walk('content')){
   if(META_DOC.test(f)) continue
   const body=readFileSync(f,'utf8').replace(/^---[\s\S]*?\n---\n/,'')
   const blocks=body.split(/\n\s*\n/).map(b=>b.trim()).filter(Boolean)
-  // 只看散文段：排除标题/列表/表格/代码/公式/引用块，以及 human-history「第N页」格式的 `标题：` 副题行
-  const prose=blocks.map((b,i)=>[b,i]).filter(([b])=>/[一-鿿]/.test(b) && !/^[#>|\-*\d`$]/.test(b) && !b.includes('|') && !/^标题：/.test(b))
+  // 只看散文段：排除标题/列表/表格/代码/公式/引用块/脚注定义，以及 human-history「第N页」格式的 `标题：` 副题行
+  const prose=blocks.map((b,i)=>[b,i]).filter(([b])=>/[一-鿿]/.test(b) && !/^[#>|\-*\d`$]/.test(b) && !/^\[\^/.test(b) && !b.includes('|') && !/^标题：/.test(b))
   if(prose.length<8) continue
   const short=prose.filter(([b,i])=>cjk(b)>0 && cjk(b)<40 && !isBlockLead(blocks[i+1])).length
   const ratio=short/prose.length
