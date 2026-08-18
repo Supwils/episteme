@@ -22,6 +22,14 @@ const CROSS_DOMAINS = new Set<string>([
   "human-history",
   "computer-science",
   "political-science",
+  "earth-science",
+  "medicine",
+  "chemistry",
+  "arts",
+  "law",
+  "engineering",
+  "sociology",
+  "linguistics",
 ]);
 
 function MetaList({ label, items }: { label: string; items: string[] }) {
@@ -88,8 +96,8 @@ export function FrontierArticleView({ domain, slug }: { domain: FrontierDomain; 
         title={article.title}
         titleEn={article.titleEn || undefined}
         content={article.content}
+        lede={article.excerpt || undefined}
         tags={article.tags}
-        articleClassName="max-w-[900px]"
         prev={prev ? { href: `/${domain}/frontier/${prev.slug}`, title: prev.title } : null}
         next={next ? { href: `/${domain}/frontier/${next.slug}`, title: next.title } : null}
         sidebar={

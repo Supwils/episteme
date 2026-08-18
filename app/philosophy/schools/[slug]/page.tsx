@@ -9,6 +9,8 @@ import { KeyFiguresSection, RelatedSchoolsSection } from "@/components/school-de
 import { ERA_ACCENT, SITE_URL } from "@/lib/constants";
 import { ArticleSidebar } from "@/components/ArticleSidebar";
 import { TableOfContents } from "@/components/TableOfContents";
+import { ReadingModeControls } from "@/components/ReadingModeControls";
+import { ReadingProgressBar } from "@/components/ReadingProgressBar";
 import { serializeJsonLd, createArticleJsonLd } from "@/lib/jsonld";
 
 export function generateStaticParams() {
@@ -68,6 +70,7 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
+      <ReadingProgressBar />
       <Link
         href="/philosophy/schools"
         className="text-fg-muted hover:text-fg-secondary mb-8 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] uppercase transition-colors"
@@ -80,7 +83,7 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
       <header className="relative mb-10 py-8">
         <CornerMarks />
 
-        <div className="mb-3 flex items-center gap-3">
+        <div className="mb-3 flex flex-wrap items-center gap-3">
           <span
             className="font-mono text-[10px] tracking-[0.32em] uppercase"
             style={{ color: accent }}
@@ -94,6 +97,9 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
           )}
           <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">
             约 {readMinutes} 分钟阅读
+          </span>
+          <span className="ml-auto">
+            <ReadingModeControls />
           </span>
         </div>
 
@@ -135,7 +141,7 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
       </header>
 
       <div className="flex flex-col gap-12 lg:flex-row">
-        <article className="max-w-[1200px] min-w-0 flex-1">
+        <article className="article-reading-surface max-w-[44rem] min-w-0 flex-1 transition-[max-width] duration-300">
           <MarkdownRenderer domain="philosophy" content={school.content} />
 
           {keyFigures.length > 0 && (

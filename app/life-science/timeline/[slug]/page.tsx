@@ -10,6 +10,8 @@ import { getEventDetailForTimeline } from "@/subjects/life-science/lib/event-det
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { TableOfContents } from "@/components/TableOfContents";
 import { ArticleSidebar } from "@/components/ArticleSidebar";
+import { ReadingModeControls } from "@/components/ReadingModeControls";
+import { ReadingProgressBar } from "@/components/ReadingProgressBar";
 import { SITE_URL } from "@/lib/constants";
 import { serializeJsonLd, createArticleJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
@@ -75,17 +77,21 @@ export default async function TimelineEventDetailPage({ params }: Props) {
   });
 
   return (
-    <div className="w-full px-6 py-12 sm:px-10 lg:px-16">
+    <div className="mx-auto w-full max-w-[1800px] px-6 py-12 sm:px-10 lg:px-16">
+      <ReadingProgressBar />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
-      <div className="flex flex-col gap-12 lg:flex-row">
-        <article className="max-w-[1200px] min-w-0 flex-1">
+      <div className="flex flex-col gap-12 lg:flex-row lg:justify-center">
+        <article className="article-reading-surface max-w-[44rem] min-w-0 flex-1 transition-[max-width] duration-300">
           <header className="mb-12">
-            <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
-              life-science / timeline
-            </p>
+            <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
+              <p className="text-fg-muted font-mono text-[10px] tracking-[0.42em] uppercase">
+                life-science / timeline
+              </p>
+              <ReadingModeControls />
+            </div>
             <div className="mb-4 flex flex-wrap items-center gap-2.5">
               <span
                 className="rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.2em] uppercase"

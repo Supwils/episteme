@@ -93,7 +93,7 @@ export default async function ExtinctionDetailPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <div className="flex flex-col gap-12 lg:flex-row">
-        <article className="max-w-[1200px] min-w-0 flex-1">
+        <article className="max-w-[44rem] min-w-0 flex-1">
           <header className="mb-12">
             <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
               life-science / mass extinctions

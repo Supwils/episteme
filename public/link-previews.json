@@ -559,6 +559,11 @@
     "e": "2021 年 9 月，瑞士公司 Climeworks 在冰岛启动了一座名为 Orca 的工厂——它用巨大的风扇把空气吸进来，化学吸附其中的二氧化碳，再把捕到的 CO₂ 注入地下玄武岩，让它在数…",
     "d": "chemistry"
   },
+  "/chemistry/frontier/chemical-recycling-plastics": {
+    "t": "塑料的化学回收：解聚、热解与\"回收\"二字的名实之争",
+    "e": "2024 年 3 月，美国田纳西州金斯波特，Eastman 的甲醇解工厂宣布实现合格品产出并开始创收[^carbios]——这座年处理 11 万吨废塑料的设施是当时全球最大规模的\"分子回收\"装…",
+    "d": "chemistry"
+  },
   "/chemistry/frontier/computational-materials-design": {
     "t": "计算材料设计：从试错炼金到按需求\"算\"出材料",
     "e": "2023 年 11 月，Google DeepMind 在 _Nature_ 上公布了 GNoME（Graph Networks for Materials Exploration）——一个用…",
@@ -569,14 +574,34 @@
     "e": "2022 年，国际能源署（IEA）在年度氢能报告里给出一个数字：当年全球氢产量约 9500 万吨，其中由可再生电力电解水制得的\"绿氢\"占比不到 1%。绝大多数氢仍来自天然气重整（\"灰氢\"），每…",
     "d": "chemistry"
   },
+  "/chemistry/frontier/pfas-destruction": {
+    "t": "销毁\"永久化学品\"：PFAS 处理的技术竞赛与监管摇摆",
+    "e": "2024 年 4 月 10 日，美国环保署（EPA）敲定了该国历史上第一个针对 PFAS 的全国性饮用水标准[^epa]：PFOA 与 PFOS 两种最臭名昭著的全氟化合物，在饮用水中的法定上…",
+    "d": "chemistry"
+  },
+  "/chemistry/frontier/self-driving-labs": {
+    "t": "自驱动实验室：当 AI 提议、机器人动手，化学发现开始闭环",
+    "e": "2020 年 7 月，利物浦大学 Andrew Cooper 组的实验室里多了一位\"新同事\"：一台一米七五高、在实验台间自由走动的机器人。它连续工作了 8 天，自主完成了 688 个实验——称…",
+    "d": "chemistry"
+  },
   "/chemistry/frontier/single-atom-catalysis": {
     "t": "单原子催化：当催化剂被拆到一个原子",
     "e": "2011 年，中科院大连化物所的张涛团队与亚利桑那州立大学的刘景月等人在 _Nature Chemistry_ 上提出了一个后来被广泛使用的术语——\"单原子催化\"（single-atom ca…",
     "d": "chemistry"
   },
+  "/chemistry/methods/computational-chemistry": {
+    "t": "计算化学与分子模拟：从近似天梯到时间尺度之墙",
+    "e": "很多人想象计算化学是这样的：把分子式输进软件，按下回车，屏幕上跳出\"正确答案\"——键长多少、反应多快、毒性多大。",
+    "d": "chemistry"
+  },
   "/chemistry/methods/electron-microscopy-and-surface-analysis": {
     "t": "电子显微与表面表征：看见形貌，也要验证化学状态",
     "e": "扫描电子显微镜里的一张漂亮纳米颗粒图，常被当成材料已经被“看清”的证明。",
+    "d": "chemistry"
+  },
+  "/chemistry/methods/flow-chemistry": {
+    "t": "流动化学：把反应从烧瓶搬进管道",
+    "e": "提到流动化学，很多人的想象是把原本在烧瓶里搅拌的反应物，改成在管子里流动——不过是换了个容器。",
     "d": "chemistry"
   },
   "/chemistry/methods/nmr-spectroscopy-structure-elucidation": {
@@ -597,6 +622,11 @@
   "/chemistry/methods/retrosynthesis-and-reaction-optimization": {
     "t": "逆合成与反应优化：把目标分子变成可执行路线",
     "e": "面对一个复杂分子，逆合成把它拆回更简单、可获得的前体。这种倒推极其有效，但它不是把键随意断开后再寻找反应名称。",
+    "d": "chemistry"
+  },
+  "/chemistry/methods/thermal-analysis": {
+    "t": "thermal-analysis",
+    "e": "把样品放在仪器里加热，记录一条曲线——热分析听上去像测温的精致版，测个熔点而已。",
     "d": "chemistry"
   },
   "/chemistry/methods/x-ray-crystallography": {
@@ -1379,6 +1409,11 @@
     "e": "2005 年 10 月，一个 19 岁的 Myspace 用户 Samy Kamkar 发现他无法在自己的个人页面里加 CSS 样式——网站过滤掉了大多数 HTML 标签。他花了几天时间找漏洞…",
     "d": "computer-science"
   },
+  "/computer-science/frontier/ai-for-science": {
+    "t": "AI 驱动的科学发现：从蛋白质到天气再到数学",
+    "e": "2024 年 10 月，诺贝尔化学奖一半授予 David Baker，另一半授予 Demis Hassabis 与 John Jumper——表彰计算蛋白质设计与蛋白质结构预测。一个本质上是机…",
+    "d": "computer-science"
+  },
   "/computer-science/frontier/ai-interpretability": {
     "t": "机制可解释性：从可命名特征到因果机制",
     "e": "2021 年，OpenAI 研究者在 CLIP 中观察到一个“蜘蛛侠神经元”：蜘蛛图像、单词 spider 的图像和蜘蛛侠角色都会激活它。这说明模型内部可能出现跨文字、符号和视觉形式的抽象响应…",
@@ -1392,6 +1427,11 @@
   "/computer-science/frontier/formal-verification": {
     "t": "形式化验证与程序合成",
     "e": "2023 年 11 月，菲尔兹奖得主陶哲轩（Terence Tao）和合作者 Timothy Gowers、Ben Green、Freddie Manners 共同宣布证明了多项式 Freim…",
+    "d": "computer-science"
+  },
+  "/computer-science/frontier/inference-time-compute-and-reasoning": {
+    "t": "推理时计算与推理模型：让机器学会\"多想一会儿\"",
+    "e": "2024 年 9 月 12 日，OpenAI 发布 o1-preview，博客标题只有一句话：Learning to Reason with LLMs。模型的用法看起来很反常——它在回答之前会…",
     "d": "computer-science"
   },
   "/computer-science/frontier/large-language-models": {
@@ -1417,6 +1457,11 @@
   "/computer-science/frontier/retrieval-augmented-generation-and-agents": {
     "t": "检索增强与智能体：把语言模型接到世界上",
     "e": "语言模型有一个结构性缺陷：它知道的一切都被压缩进了权重，而权重在训练结束那一刻就冻结了。它不知道昨天发生了什么，不知道你公司内网里的文档，也无法说清自己为什么这样回答。",
+    "d": "computer-science"
+  },
+  "/computer-science/frontier/sustainable-computing": {
+    "t": "计算的碳足迹：可持续计算的实测与分歧",
+    "e": "2025 年 4 月，国际能源署（IEA）发布《Energy and AI》特别报告，给出了两个被反复引用的数字：全球数据中心 2024 年用电约 415 太瓦时（TWh），占全球用电量约 1…",
     "d": "computer-science"
   },
   "/computer-science/frontier/zero-knowledge-proofs": {
@@ -1889,14 +1934,29 @@
     "e": "2022年，Adam Riess 领导的 SH0ES 团队发表了迄今最精确的本地哈勃常数测量：H_0 = 73.04 \\pm 1.04 km/s/Mpc。[^shoes2022]",
     "d": "cosmology"
   },
+  "/cosmology/frontier/interstellar-objects": {
+    "t": "星际访客元年：从奥陌陌到 3I/ATLAS，一个新兴学科的诞生",
+    "e": "2025年7月1日，位于智利 Río Hurtado 的 ATLAS 巡天望远镜在例行扫描中记录到一个移动天体。几天之内，轨道计算确认它来自太阳系之外：轨道离心率约 6.14，相对太阳的无穷远…",
+    "d": "cosmology"
+  },
   "/cosmology/frontier/jwst-early-galaxies": {
     "t": "JWST 与早期宇宙的\"过早成熟\"星系之谜",
     "e": "2023年2月，一篇发表在《自然》上的论文让宇宙学界陷入骚动。[^labbe2023]",
     "d": "cosmology"
   },
+  "/cosmology/frontier/k2-18b-atmosphere": {
+    "t": "K2-18b 大气之争：一次\"生命迹象\"声称的解剖",
+    "e": "2025年4月，全球媒体的头条几乎同时出现一句话：\"迄今最强的外星生命证据\"。触发点是剑桥大学 Nikku Madhusudhan 团队发表在《天体物理学报通信》的论文：他们在距地球约 124…",
+    "d": "cosmology"
+  },
   "/cosmology/frontier/nanohertz-gravitational-waves": {
     "t": "纳赫兹引力波背景：脉冲星阵列开启引力波天文学新窗口",
     "e": "2023年6月29日，人类同时在四大洲宣布了同一件事。",
+    "d": "cosmology"
+  },
+  "/cosmology/frontier/neutrino-mass-cosmology": {
+    "t": "宇宙学正在逼近中微子质量：一把卡住下限的\"宇宙天平\"",
+    "e": "粒子物理早已知道中微子有质量——振荡实验测量了两个质量平方差，却始终测不出质量的绝对值。这留下一个奇特的窗口：三种中微子的质量总和 \\sum m_\\nu 有一个下限（正常顺序约 0.059 e…",
     "d": "cosmology"
   },
   "/earth-science/climate-risks/carbon-budgets-and-net-zero": {
@@ -2169,9 +2229,19 @@
     "e": "1960 年 5 月 22 日下午，智利南部的大地剧烈摇晃了好几分钟。这是现代地震目录中矩震级最大的一次地震，M_w 9.5——这个纪录保持至今。按震级—能量的经验关系估算，它释放的地震波能量…",
     "d": "earth-science"
   },
+  "/earth-science/frontier/ai-weather-climate-models": {
+    "t": "AI 天气与气候建模：当预报不再求解方程",
+    "e": "2025 年 2 月 25 日，欧洲中期天气预报中心（ECMWF）把一个机器学习模型 AIFS 提升为正式业务系统，与运行了四十多年的物理模式 IFS 并列发布官方预报[^aifs]。同年 7…",
+    "d": "earth-science"
+  },
   "/earth-science/frontier/carbon-capture-geoengineering": {
     "t": "碳捕集与地球工程：能不能把气候\"修\"回去",
     "e": "2024 年 5 月 8 日，在冰岛一片火山玄武岩荒原上，一座叫 Mammoth（猛犸）的工厂启动了。它用巨大的风扇把空气吸进来，用化学吸附剂把里面的二氧化碳抓出来，再注入地下与玄武岩反应、变…",
+    "d": "earth-science"
+  },
+  "/earth-science/frontier/carbon-storage-geology": {
+    "t": "地质碳封存：把二氧化碳塞回地下，地球答应吗",
+    "e": "2025 年 8 月，在挪威卑尔根外海约 100 公里处，第一批来自欧洲的液化二氧化碳被注入北海海底以下约 2600 米的咸水层。这是 Northern Lights 项目的首次商业注入——全…",
     "d": "earth-science"
   },
   "/earth-science/frontier/climate-tipping-points": {
@@ -2192,6 +2262,11 @@
   "/earth-science/frontier/paleoclimate-ice-cores": {
     "t": "冰芯里的百万年：从 Beyond EPICA 读取最古老的大气",
     "e": "2025 年 1 月，在南极内陆一个叫\"小冰穹 C\"（Little Dome C）的地方，海拔超过 3200 米、年均气温零下 35°C 的荒原上，一支欧洲钻探队把钻头送到了基岩——总进尺约 …",
+    "d": "earth-science"
+  },
+  "/earth-science/frontier/planetary-defense": {
+    "t": "行星防御：人类第一次学会推开小行星",
+    "e": "2022 年 9 月 26 日，一个约 570 公斤、冰箱大小的航天器，以每秒约 6.6 公里的速度，主动撞上了一颗叫 Dimorphos 的小行星。这不是事故，而是 NASA 的 DART …",
     "d": "earth-science"
   },
   "/earth-science/pioneers/alfred-wegener": {
@@ -3084,9 +3159,24 @@
     "e": "2022 年 11 月，加密货币交易所 FTX 在 72 小时内崩溃，约 80 亿美元客户资金不翼而飞。与此同时，有着数百年历史的传统银行业监管框架显得毫无准备。",
     "d": "economics"
   },
+  "/economics/frontier/degrowth-vs-green-growth": {
+    "t": "去增长与绿色增长之争：脱钩证据的边界在哪里",
+    "e": "2022 年 4 月 4 日，IPCC 发布第六次评估报告第三工作组报告（AR6 WGIII）。在长达近三千页的 mitigation 报告里，出现了一样前几轮报告中没有的东西：对\"去增长\"（…",
+    "d": "economics"
+  },
+  "/economics/frontier/industrial-policy-economics": {
+    "t": "产业政策的回归：从经济学禁忌到芯片实验",
+    "e": "2022 年 8 月 9 日，美国总统签署《芯片与科学法案》（CHIPS and Science Act），为本土半导体制造拨款 527 亿美元——其中约 390 亿美元用于建厂补贴，110 …",
+    "d": "economics"
+  },
   "/economics/frontier/inequality-global-wealth-tax": {
     "t": "不平等测量与全球财富税之争",
     "e": "2024 年 6 月，在里约热内卢举行的 G20 财长和央行行长会议上，一份由经济学家 Gabriel Zucman 受巴西主席国委托撰写的报告成为会议的最大争议焦点。",
+    "d": "economics"
+  },
+  "/economics/frontier/inflation-after-2021": {
+    "t": "大通胀复盘：2021–2025 年的诊断之争与政策账单",
+    "e": "2022 年 6 月，美国 CPI 同比达到 9.1%，为 1981 年以来最高；同年 10 月，欧元区 HICP 达 10.6%，英国 CPI 达 11.1%。这是两代人没见过的东西——19…",
     "d": "economics"
   },
   "/economics/frontier/market-design-frontier": {
@@ -3939,9 +4029,19 @@
     "e": "2006 年，山中伸弥发现向成体细胞引入四个转录因子（Oct4、Sox2、Klf4、c-Myc，即\"山中因子\"），可以将其重编程为诱导多能干细胞（iPSC）——在某种意义上\"抹去\"了细胞的衰老…",
     "d": "life-science"
   },
+  "/life-science/frontier/brain-computer-interfaces": {
+    "t": "脑机接口临床元年——从瘫痪患者的光标到被解码的内心语言",
+    "e": "2024 年 1 月 28 日，亚利桑那州 Barrow 神经学研究所，29 岁的四肢瘫痪患者 Noland Arbaugh 接受了 Neuralink 的 N1 植入体——一枚硬币大小的设备…",
+    "d": "life-science"
+  },
   "/life-science/frontier/crispr-clinical-revolution": {
     "t": "CRISPR 走向临床——从剪刀到药物",
     "e": "2023 年 11 月 16 日，英国药品和保健产品监管局（MHRA）批准了一种名为 Casgevy（exagamglogene autotemcel，缩写 exa-cel）的药物，用于治疗镰…",
+    "d": "life-science"
+  },
+  "/life-science/frontier/de-extinction": {
+    "t": "去灭绝——复活恐狼、猛犸与袋狼的工程与幻象",
+    "e": "2025 年 4 月 7 日，达拉斯的生物技术公司 Colossal Biosciences 宣布了一个登上《时代》周刊封面的消息：三只白色幼狼——Romulus、Remus 与 Khalee…",
     "d": "life-science"
   },
   "/life-science/frontier/organoids-and-brain-intelligence": {
@@ -3962,6 +4062,11 @@
   "/life-science/frontier/synthetic-genome-mirror-life": {
     "t": "合成基因组与镜像生命——最小细胞与最大风险",
     "e": "2016 年，J. Craig Venter 研究所（JCVI）宣布造出了 JCVI-syn3.0：一个只有 473 个基因的细胞，是当时已知基因数量最少的、能自我复制的生命形式[^syn3]…",
+    "d": "life-science"
+  },
+  "/life-science/frontier/xenotransplantation": {
+    "t": "异种移植——基因编辑猪器官进入人体",
+    "e": "2024 年 11 月 25 日，阿拉巴马州 53 岁的 Towana Looney 在纽约大学朗格尼医学中心接受了一颗基因编辑猪的肾脏。她带着这颗猪肾生活了 130 天，无需透析，然后因排斥…",
     "d": "life-science"
   },
   "/life-science/scientists/crick": {
@@ -4894,9 +4999,24 @@
     "e": "2024 年 5 月，一批数学家在 arXiv 上发出了第一篇论文，随后数月内陆续上传共五篇文章，总篇幅逾 800 页。作者名单是一份合作名录：D. Arinkin、D. Beraldo、L.…",
     "d": "mathematics"
   },
+  "/mathematics/frontier/kakeya-conjecture": {
+    "t": "挂谷猜想：三维的攻克",
+    "e": "2025 年 2 月 24 日，纽约大学 Courant 研究所的王虹（Hong Wang）与不列颠哥伦比亚大学的 Joshua Zahl 在 arXiv 上贴出一篇一百余页的预印本：\"Vol…",
+    "d": "mathematics"
+  },
   "/mathematics/frontier/ml-guided-mathematics": {
     "t": "机器学习辅助数学发现",
     "e": "2021 年 12 月 1 日，《自然》杂志刊载了一篇不同寻常的论文，第一作者是 DeepMind 的研究员 Alex Davies，共同作者包括悉尼大学数学家 Geordie William…",
+    "d": "mathematics"
+  },
+  "/mathematics/frontier/ramsey-and-combinatorics-progress": {
+    "t": "拉姆齐数与组合学的新工具",
+    "e": "2023 年 3 月，四位组合学家——Marcelo Campos 与 Robert Morris（里约热内卢 IMPA）、Simon Griffiths（里约天主教大学）、Julian Sa…",
+    "d": "mathematics"
+  },
+  "/mathematics/frontier/sphere-packing-and-codes": {
+    "t": "球堆积与编码：Viazovska 之后",
+    "e": "2025 年 4 月，魏茨曼科学研究所的 Boaz Klartag 在 arXiv 上贴出一篇只有十几页的论文（arXiv:2504.05042），标题是\"用一个随机演化的椭球做高维格球堆积\"…",
     "d": "mathematics"
   },
   "/mathematics/mathematicians/abel": {
@@ -5834,6 +5954,16 @@
     "e": "恢复时间终点怎样改变一场抗病毒药争论，是这篇剖析真正要回答的问题。对象发生在1062 名住院、下呼吸道受累的 COVID-19 成人。如果只记住一个结论，读者会错过知识最有价值的部分：结论究竟…",
     "d": "medicine"
   },
+  "/medicine/trial-analyses/bnt162b2-pivotal": {
+    "t": "BNT162b2 mRNA 疫苗关键试验",
+    "e": "“95% 有效”这句话的精确口径是什么，是这篇剖析真正要回答的问题。对象发生在 2020 年疫情高峰期入组的四万三千余名受试者。如果只记住一个结论，读者会错过知识最有价值的部分：结论究竟由哪些…",
+    "d": "medicine"
+  },
+  "/medicine/trial-analyses/clarity-ad-lecanemab": {
+    "t": "Clarity AD 仑卡奈单抗试验",
+    "e": "统计显著的 0.45 分究竟是不是患者能感知的获益，是这篇剖析真正要回答的问题。对象发生在 1795 名经淀粉样蛋白检测确诊的早期阿尔茨海默病受试者。如果只记住一个结论，读者会错过知识最有价值…",
+    "d": "medicine"
+  },
   "/medicine/trial-analyses/orbita-sham-controlled-pci-trial": {
     "t": "ORBITA 假手术对照试验",
     "e": "侵入性治疗为什么也需要盲法与安慰剂控制，是这篇剖析真正要回答的问题。对象发生在200 名稳定型单支严重冠脉狭窄患者，在药物优化后随机。如果只记住一个结论，读者会错过知识最有价值的部分：结论究竟…",
@@ -5842,6 +5972,11 @@
   "/medicine/trial-analyses/recovery-dexamethasone-platform-trial": {
     "t": "RECOVERY 地塞米松试验",
     "e": "平台试验如何在危机中找到分层有效的旧药，是这篇剖析真正要回答的问题。对象发生在2020 年英国住院 COVID-19 患者。如果只记住一个结论，读者会错过知识最有价值的部分：结论究竟由哪些材料…",
+    "d": "medicine"
+  },
+  "/medicine/trial-analyses/select-semaglutide": {
+    "t": "SELECT 司美格鲁肽心血管结局试验",
+    "e": "一种减肥药能否在没有糖尿病的人群中预防心梗与中风，是这篇剖析真正要回答的问题。对象发生在 17604 名 45 岁以上、已有心血管疾病、超重或肥胖但无糖尿病的成年人。如果只记住一个结论，读者会…",
     "d": "medicine"
   },
   "/medicine/trial-analyses/sprint-blood-pressure-target-trial": {
@@ -6769,6 +6904,16 @@
     "e": "几乎每个人都怕死。而伊壁鸠鲁两千多年前提出的论证说：这种恐惧建立在一个逻辑错误上。",
     "d": "philosophy"
   },
+  "/philosophy/questions/moral-realism-debate": {
+    "t": "道德是客观的吗？",
+    "e": "几乎所有人都说过「这不公平」或「那样做就是不对」。说这些话的时候，我们感觉自己不只是在表达个人口味——「酷刑是错的」听起来更像「2+2=4」，而不是「我不喜欢香菜」。但这种感觉本身，正是问题所…",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/other-minds-problem": {
+    "t": "我们怎么知道他人有心智？",
+    "e": "此刻你可以做一个思想实验：你确信自己有疼痛、有思绪、有画面感——这些是你直接拥有的。但你从未拥有过任何人的任何感受。你看到的只有：脸、声音、动作、瞳孔收缩。那个尖叫的孩子是真的疼，还是一个极其…",
+    "d": "philosophy"
+  },
   "/philosophy/questions/should-ai-have-rights": {
     "t": "AI 是否应该有权利？",
     "e": "当一台AI系统声称\"我有感觉\"时，我们应该认真对待这个声明吗？如果一个AI能够表达痛苦、恐惧和渴望，我们是否有义务不伤害它？这些问题听起来像科幻小说，但随着大型语言模型展现出越来越复杂的\"情感…",
@@ -6827,6 +6972,11 @@
   "/philosophy/questions/what-is-truth": {
     "t": "什么是真理？",
     "e": "「今天下雨了。」这句话是真的吗？你拉开窗帘，看到雨水从天空落下——它是真的。但「真的」意味着什么？是因为它与事实相符？是因为它与你其他信念一致？还是因为它在实践中管用？",
+    "d": "philosophy"
+  },
+  "/philosophy/questions/why-is-there-something": {
+    "t": "为什么会有万物存在，而不是一无所有？",
+    "e": "深夜，这个问题会突然击中某些人：星星、原子、我自己——这一切本可以不存在。而它们存在。为什么？多数人随后耸耸肩继续生活。哲学家却把这份惊异当成了形而上学的入口，并且争论了三百年：这个问题究竟是…",
     "d": "philosophy"
   },
   "/philosophy/schools/african-philosophy": {
@@ -7819,6 +7969,11 @@
     "e": "1882 年，法国历史学家欧内斯特·勒南（Ernest Renan）在索邦大学发表了一篇著名演讲，题为《什么是民族？》（Qu'est-ce qu'une nation?）。他说：民族是一种每天…",
     "d": "political-science"
   },
+  "/political-science/frontier/ai-governance-regulation": {
+    "t": "AI 监管的制度竞赛：欧盟、美国、中国与全球治理",
+    "e": "2025 年 8 月 26 日，联合国大会以协商一致方式通过第 79/325 号决议，决定设立两个新机制：一个由 40 名专家组成的「独立国际人工智能科学小组」，和一个面向所有会员国的「人工智…",
+    "d": "political-science"
+  },
   "/political-science/frontier/ai-governance-surveillance": {
     "t": "AI、算法治理与监控的政治",
     "e": "2019 年，卡内基国际和平基金会的史蒂文·费尔德斯坦（Steven Feldstein）发布了一份在学界引发广泛讨论的报告。他系统调查了全球各国 AI 监控技术的部署情况，发现当时已有至少 …",
@@ -7839,9 +7994,19 @@
     "e": "2017 年，美国《国家安全战略》报告首次将中国和俄罗斯定义为\"修正主义强国\"（revisionist powers），正式宣告冷战后\"接触政策\"（engagement policy）时代的终…",
     "d": "political-science"
   },
+  "/political-science/frontier/political-economy-of-industrial-policy": {
+    "t": "产业政策回潮：补贴竞赛与新政治经济学",
+    "e": "2025 年 8 月 22 日，美国政府宣布以 89 亿美元换取英特尔约 10% 的股权——资金来自《芯片与科学法》项下尚未拨付的 57 亿美元补贴和「安全飞地」计划的 32 亿美元。一个自称…",
+    "d": "political-science"
+  },
   "/political-science/frontier/populism-polarization": {
     "t": "民粹主义与政治极化的成因之争",
     "e": "2016 年是政治观察者普遍感到困惑的一年。英国脱欧公投以微弱多数通过，唐纳德·特朗普赢得美国总统选举，波兰、匈牙利的民粹政府继续巩固权力。几乎所有主流预测都出了错。",
+    "d": "political-science"
+  },
+  "/political-science/frontier/sortition-deliberative-democracy": {
+    "t": "抽签治国的复兴：公民大会与协商民主的制度化实验",
+    "e": "2018 年 5 月 25 日，爱尔兰以 66.4% 的赞成票公投废除了宪法第八修正案——全球最严格的堕胎禁令之一。这场公投的特殊之处不在结果，而在议程的来路：议题先被交给一个由 99 名随机…",
     "d": "political-science"
   },
   "/political-science/institutions/bureaucracy": {
@@ -8519,6 +8684,11 @@
     "e": "1917 年 4 月，列宁在封闭的火车车厢里穿越德国，抵达彼得格勒。德国政府允许这位流亡的布尔什维克领袖过境，因为他们预判他会为俄国带来动乱，从而使这个东线敌国退出战争。7 个月后，布尔什维克…",
     "d": "political-science"
   },
+  "/psychology/debates/adhd-diagnosis-debate": {
+    "t": "ADHD 诊断之争：过度诊断还是识别不足",
+    "e": "美国疾控中心 2024 年发布的数字是：3 到 17 岁的美国儿童中，已有 11.4% 曾被诊断为注意缺陷多动障碍（ADHD）——大约每九个孩子里就有一个，总数约七百万。二十五年前的 1997…",
+    "d": "psychology"
+  },
   "/psychology/debates/categories-or-dimensions": {
     "t": "精神障碍是类别还是维度",
     "e": "打开《精神障碍诊断与统计手册》，你会看到一份清单：符合九条症状中的五条、持续两周以上，即可诊断为重度抑郁障碍。这个格式暗示了一件事——抑郁症是一个有边界的东西，你要么在里面，要么在外面。",
@@ -8527,6 +8697,11 @@
   "/psychology/debates/consciousness-hard-problem": {
     "t": "意识的困难问题",
     "e": "意识的困难问题（Hard Problem of Consciousness）由哲学家大卫·查尔默斯于1995年提出，",
+    "d": "psychology"
+  },
+  "/psychology/debates/consciousness-theories-psychology": {
+    "t": "意识理论之争：全局工作空间、整合信息与实验判决的尝试",
+    "e": "2023 年 6 月，在纽约召开的意识科学研究协会年会上，哲学家查尔默斯走上台，宣布自己赢了与神经科学家科赫的一场长达二十五年的赌局。1998 年两人打赌：到 2023 年，科学将找到大脑中产…",
     "d": "psychology"
   },
   "/psychology/debates/dodo-bird-verdict": {
@@ -8547,6 +8722,11 @@
   "/psychology/debates/freud-wars": {
     "t": "弗洛伊德之争",
     "e": "弗洛伊德是20世纪最具影响力也最具争议的思想家之一。围绕他的遗产，",
+    "d": "psychology"
+  },
+  "/psychology/debates/iq-malleability": {
+    "t": "智力可塑性之争：智商到底能不能被改变",
+    "e": "每隔几年，就会有一项研究登上新闻：\"教育每年提升智商 1 到 5 分\"；再过几年，另一条新闻说\"干预提升的智商会消退\"。两条都是真的，而它们指向的是心理学争论了半个多世纪的问题：智力在多大程度…",
     "d": "psychology"
   },
   "/psychology/debates/nature-vs-nurture": {
@@ -8879,6 +9059,11 @@
     "e": "心理学研究常把结论压缩成一个问题：p 值是否小于 0.05。",
     "d": "psychology"
   },
+  "/psychology/methods/behavioral-genetics-methods": {
+    "t": "行为遗传学方法：双生子、基因组与\"遗传性\"的正确读法",
+    "e": "每当媒体说\"研究发现智力的遗传性为百分之五十\"，评论区总会分裂成两派：一派读成\"你的一半是基因决定的\"，另一派则认定这是在为宿命论张目。",
+    "d": "psychology"
+  },
   "/psychology/methods/causal-inference-experiments-observational-studies": {
     "t": "因果推断：从实验到观察研究",
     "e": "青少年使用社交媒体的时间越长，抑郁得分越高。这可能表示社交媒体增加心理风险，也可能是情绪低落者更常转向线上互动，或家庭压力同时影响两者。",
@@ -8904,6 +9089,11 @@
     "e": "横断面研究像在同一天给许多人拍照，纵向研究则像持续拍摄同一批人的影片。",
     "d": "psychology"
   },
+  "/psychology/methods/machine-learning-psychology": {
+    "t": "机器学习与心理预测",
+    "e": "机器学习进入心理学时，常带着一个误解：它是更高级的统计工具，能从大数据里自动挖出因果关系。",
+    "d": "psychology"
+  },
   "/psychology/methods/measurement-invariance-fair-comparison": {
     "t": "测量等值与公平比较",
     "e": "一份焦虑量表在两个国家的平均分相差五分，能否据此说一个国家的人更焦虑？",
@@ -8927,6 +9117,11 @@
   "/psychology/methods/psychophysics-and-signal-detection": {
     "t": "心理物理学与信号检测论",
     "e": "心理学作为一门实验科学的起点，不是意识，不是本能，而是一个极其朴素的问题：外部世界的物理量变化多少，人才能察觉？",
+    "d": "psychology"
+  },
+  "/psychology/methods/qualitative-methods-psychology": {
+    "t": "质性研究方法：访谈、编码与意义建构",
+    "e": "质性研究最常见的坏名声，是把它当作量化研究的低配版：样本小、没有统计、结论靠几张引文撑场面。",
     "d": "psychology"
   },
   "/psychology/methods/weird-samples-and-generalizability": {
@@ -9239,6 +9434,16 @@
     "e": "1956 年 9 月 11 日，麻省理工学院一场\"信息论研讨会\"进行到第二天：心理学家乔治·米勒报告了短时记忆只能装下\"神奇数字 7±2\"个组块；纽厄尔和西蒙演示了能自己证明逻辑定理的程序\"逻…",
     "d": "psychology"
   },
+  "/psychology/schools/ecological-systems-theory": {
+    "t": "生态系统理论",
+    "e": "几乎每个学过发展心理学的人都见过那张同心圆图：",
+    "d": "psychology"
+  },
+  "/psychology/schools/embodied-cognition": {
+    "t": "具身认知",
+    "e": "提起具身认知（embodied cognition），多数人想到的是两类东西。",
+    "d": "psychology"
+  },
   "/psychology/schools/evolutionary-psychology": {
     "t": "进化心理学",
     "e": "进化心理学是当代心理学中最具理论野心的学派之一，它试图用达尔文的自然选择理论来解释人类心智的结构与功能。",
@@ -9262,6 +9467,11 @@
   "/psychology/schools/psychoanalysis": {
     "t": "精神分析学派",
     "e": "精神分析学派是现代心理学史上最具影响力的理论体系之一，由维也纳神经科医生西格蒙德·弗洛伊德于19世纪末创立。",
+    "d": "psychology"
+  },
+  "/psychology/schools/social-cognitive-theory": {
+    "t": "社会认知理论",
+    "e": "关于班杜拉（Albert Bandura）的理论，流行理解有两个版本，都不太对。",
     "d": "psychology"
   },
   "/psychology/schools/social-psychology": {

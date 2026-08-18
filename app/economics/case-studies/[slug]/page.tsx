@@ -58,7 +58,6 @@ export default async function CaseStudyDetailPage({
       titleEn={cs.title_en}
       content={cs.content}
       tags={cs.tags}
-      articleClassName="max-w-[900px]"
       prev={prev ? { href: `/economics/case-studies/${prev.slug}`, title: prev.title } : null}
       next={next ? { href: `/economics/case-studies/${next.slug}`, title: next.title } : null}
       sidebar={<TableOfContents accentColor="#e8b84a" />}

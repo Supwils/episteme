@@ -47,6 +47,12 @@ const DOMAIN_COLORS: Record<Domain, string> = {
   "earth-science": "#4f9d76",
   medicine: "#d9544d",
   chemistry: "#e08a3c",
+  // Newer domains take their accent from the domain catalog (lib/data.tsx glowColor).
+  arts: "#b0785a",
+  law: "#a8843c",
+  engineering: "#8a919e",
+  sociology: "#7a8f5a",
+  linguistics: "#3f8f8a",
 };
 
 function CategoryGroup({
@@ -195,6 +201,11 @@ export default function RelatedContent({ slug, domain, entityId }: RelatedConten
     "earth-science",
     "medicine",
     "chemistry",
+    "arts",
+    "law",
+    "engineering",
+    "sociology",
+    "linguistics",
   ];
 
   return (

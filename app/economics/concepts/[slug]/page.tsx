@@ -67,7 +67,6 @@ export default async function ConceptDetailPage({ params }: { params: Promise<{ 
         concept.key_figures.length > 0 ? `相关人物：${concept.key_figures.join("、")}` : undefined
       }
       tags={concept.tags}
-      articleClassName="max-w-[900px]"
       prev={prev ? { href: `/economics/concepts/${prev.slug}`, title: prev.title } : null}
       next={next ? { href: `/economics/concepts/${next.slug}`, title: next.title } : null}
       sidebar={

@@ -123,7 +123,6 @@ export function DomainArticle({
         titleEn={article.titleEn || undefined}
         content={article.content}
         tags={article.tags}
-        articleClassName="max-w-[900px]"
         prev={prev ? { href: `/${domain}/${section}/${prev.slug}`, title: prev.title } : null}
         next={next ? { href: `/${domain}/${section}/${next.slug}`, title: next.title } : null}
         sidebar={

@@ -10,6 +10,10 @@ import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
 import GeometryExplorer from "@/subjects/mathematics/components/visualizations/GeometryExplorer";
 import { FractalExplorer } from "@/subjects/mathematics/components/visualizations/FractalExplorer";
+import { ArticleSidebar } from "@/components/ArticleSidebar";
+import { TableOfContents } from "@/components/TableOfContents";
+import { ReadingModeControls } from "@/components/ReadingModeControls";
+import { ReadingProgressBar } from "@/components/ReadingProgressBar";
 
 const INTERACTIVE_CONCEPTS = new Set(["derivative", "integral", "limit"]);
 
@@ -70,11 +74,12 @@ export default async function MathConceptDetailPage({
   });
 
   return (
-    <div className="w-full px-6 py-12 sm:px-10 lg:px-16">
+    <div className="mx-auto w-full max-w-[1800px] px-6 py-12 sm:px-10 lg:px-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
+      <ReadingProgressBar />
       <Link
         href="/mathematics/concepts"
         className="text-fg-muted hover:text-accent-indigo mb-6 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] uppercase transition-colors"
@@ -98,6 +103,9 @@ export default async function MathConceptDetailPage({
             </span>
             <span className="text-fg-muted font-mono text-[10px] tracking-[0.22em]">
               约 {readMinutes} 分钟阅读
+            </span>
+            <span className="ml-auto">
+              <ReadingModeControls />
             </span>
           </div>
 
@@ -146,69 +154,75 @@ export default async function MathConceptDetailPage({
         </div>
       </header>
 
-      {slug === "fractal" && (
-        <div className="mb-12">
-          <FractalExplorer />
-        </div>
-      )}
-
-      <article className="max-w-[1200px] min-w-0">
-        {concept.content ? (
-          <MarkdownRenderer
-            content={concept.content}
-            accentColor={fieldColor}
-            domain="mathematics"
-          />
-        ) : (
-          <div className="border-border-faint bg-bg-panel border p-8 text-center">
-            <p className="text-fg-muted text-sm">详细内容正在编写中。</p>
-          </div>
-        )}
-
-        {(slug === "probability" || slug === "statistics") && (
-          <div className="border-border-faint bg-bg-panel mt-8 border p-6">
-            <div className="flex items-center justify-between gap-4">
-              <div>
-                <p className="text-fg-disabled mb-1 font-mono text-[9px] tracking-[0.22em] uppercase">
-                  交互式可视化
-                </p>
-                <p className="text-fg-primary font-display text-base font-semibold">
-                  概率分布探索器
-                </p>
-                <p className="text-fg-muted mt-1 text-sm">
-                  交互式探索正态、均匀、指数和二项分布，拖动参数观察形态变化
-                </p>
-              </div>
-              <Link
-                href="/mathematics/distributions"
-                className="shrink-0 border px-4 py-2 font-mono text-[11px] tracking-wider uppercase transition-all hover:-translate-y-0.5"
-                style={{ borderColor: `${fieldColor}50`, color: mathBadgeColor(fieldColor) }}
-              >
-                打开探索器 →
-              </Link>
+      <div className="flex flex-col gap-12 lg:flex-row">
+        <article className="article-reading-surface max-w-[44rem] min-w-0 flex-1 transition-[max-width] duration-300">
+          {slug === "fractal" && (
+            <div className="mb-12">
+              <FractalExplorer />
             </div>
-          </div>
-        )}
+          )}
 
-        {INTERACTIVE_CONCEPTS.has(slug) && (
-          <section className="my-10">
-            <h2
-              className="font-display mb-4 text-[1.25rem] leading-snug font-semibold"
-              style={{ color: mathBadgeColor(fieldColor) }}
-            >
-              交互式函数绘图
-            </h2>
-            <p className="text-fg-secondary mb-4 text-[15px] leading-relaxed">
-              选择函数、查看导数与积分、拖拽平移、滚轮缩放，点击曲线追踪坐标。
-            </p>
-            <FunctionPlotter />
-          </section>
-        )}
+          {concept.content ? (
+            <MarkdownRenderer
+              content={concept.content}
+              accentColor={fieldColor}
+              domain="mathematics"
+            />
+          ) : (
+            <div className="border-border-faint bg-bg-panel border p-8 text-center">
+              <p className="text-fg-muted text-sm">详细内容正在编写中。</p>
+            </div>
+          )}
 
-        <SafeRender>
-          <RelatedContent slug={slug} domain="mathematics" entityId={slug} />
-        </SafeRender>
-      </article>
+          {(slug === "probability" || slug === "statistics") && (
+            <div className="border-border-faint bg-bg-panel mt-8 border p-6">
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-fg-disabled mb-1 font-mono text-[9px] tracking-[0.22em] uppercase">
+                    交互式可视化
+                  </p>
+                  <p className="text-fg-primary font-display text-base font-semibold">
+                    概率分布探索器
+                  </p>
+                  <p className="text-fg-muted mt-1 text-sm">
+                    交互式探索正态、均匀、指数和二项分布，拖动参数观察形态变化
+                  </p>
+                </div>
+                <Link
+                  href="/mathematics/distributions"
+                  className="shrink-0 border px-4 py-2 font-mono text-[11px] tracking-wider uppercase transition-all hover:-translate-y-0.5"
+                  style={{ borderColor: `${fieldColor}50`, color: mathBadgeColor(fieldColor) }}
+                >
+                  打开探索器 →
+                </Link>
+              </div>
+            </div>
+          )}
+
+          {INTERACTIVE_CONCEPTS.has(slug) && (
+            <section className="my-10">
+              <h2
+                className="font-display mb-4 text-[1.25rem] leading-snug font-semibold"
+                style={{ color: mathBadgeColor(fieldColor) }}
+              >
+                交互式函数绘图
+              </h2>
+              <p className="text-fg-secondary mb-4 text-[15px] leading-relaxed">
+                选择函数、查看导数与积分、拖拽平移、滚轮缩放，点击曲线追踪坐标。
+              </p>
+              <FunctionPlotter />
+            </section>
+          )}
+
+          <SafeRender>
+            <RelatedContent slug={slug} domain="mathematics" entityId={slug} />
+          </SafeRender>
+        </article>
+
+        <ArticleSidebar>
+          <TableOfContents accentColor={fieldColor} />
+        </ArticleSidebar>
+      </div>
 
       <nav className="border-border-faint mt-16 flex items-stretch justify-between gap-4 border-t pt-8">
         {prevConcept ? (

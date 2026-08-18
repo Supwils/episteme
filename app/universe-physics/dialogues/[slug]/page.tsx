@@ -3,6 +3,10 @@ import { serializeJsonLd } from "@/lib/jsonld";
 import { notFound } from "next/navigation";
 import { universePhysicsDialogues } from "@/lib/universe-physics-dialogues";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
+import { ReadingModeControls } from "@/components/ReadingModeControls";
+import { ReadingProgressBar } from "@/components/ReadingProgressBar";
+import { TableOfContents } from "@/components/TableOfContents";
+import { ArticleSidebar } from "@/components/ArticleSidebar";
 import { SITE_URL } from "@/lib/constants";
 
 interface Props {
@@ -50,48 +54,58 @@ export default async function PhysicsDialogueDetailPage({ params }: Props) {
   };
 
   return (
-    <div className="mx-auto w-full max-w-3xl px-6 py-12 sm:px-10">
+    <div className="mx-auto w-full max-w-[1800px] px-6 py-12 sm:px-10 lg:px-16">
+      <ReadingProgressBar />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
-      <nav className="mb-8 flex items-center justify-between">
+      <nav className="article-reading-chrome mb-8 flex flex-wrap items-center justify-between gap-4">
         <Link
           href="/universe-physics/dialogues"
           className="text-fg-muted hover:text-fg-primary inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] uppercase transition-colors"
         >
           ← 返回对话
         </Link>
+        <ReadingModeControls />
       </nav>
 
-      <article>
-        <header className="mb-10">
-          <h1 className="text-fg-primary mb-4 text-3xl leading-tight font-semibold sm:text-4xl">
-            {dialogue.title}
-          </h1>
-          {dialogue.description && (
-            <p className="text-fg-secondary text-[15px] leading-relaxed">{dialogue.description}</p>
-          )}
-          {dialogue.tags.length > 0 && (
-            <div className="mt-4 flex flex-wrap gap-2">
-              {dialogue.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-fg-muted border-border-faint rounded border px-2 py-0.5 font-mono text-[10px]"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
-        </header>
+      <div className="flex flex-col gap-12 lg:flex-row lg:justify-center">
+        <article className="article-reading-surface max-w-[44rem] min-w-0 flex-1 transition-[max-width] duration-300">
+          <header className="mb-10">
+            <h1 className="text-fg-primary mb-4 text-3xl leading-tight font-semibold sm:text-4xl">
+              {dialogue.title}
+            </h1>
+            {dialogue.description && (
+              <p className="text-fg-secondary text-[15px] leading-relaxed">
+                {dialogue.description}
+              </p>
+            )}
+            {dialogue.tags.length > 0 && (
+              <div className="mt-4 flex flex-wrap gap-2">
+                {dialogue.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-fg-muted border-border-faint rounded border px-2 py-0.5 font-mono text-[10px]"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </header>
 
-        <MarkdownRenderer
-          domain="universe-physics"
-          content={dialogue.content}
-          accentColor={ACCENT}
-        />
-      </article>
+          <MarkdownRenderer
+            domain="universe-physics"
+            content={dialogue.content}
+            accentColor={ACCENT}
+          />
+        </article>
+
+        <ArticleSidebar contentClassName="space-y-6">
+          <TableOfContents accentColor={ACCENT} />
+        </ArticleSidebar>
+      </div>
 
       <footer className="border-border-subtle mt-12 border-t pt-6">
         <Link

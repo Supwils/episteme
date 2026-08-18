@@ -65,6 +65,20 @@ export const QUESTIONS = [
     tags: ["死亡", "伊壁鸠鲁", "剥夺论", "对称论证", "永生"],
   },
   {
+    slug: "moral-realism-debate",
+    title: "道德是客观的吗？",
+    field: "伦理学 · 元伦理学",
+    key_figures: ["hume", "moore", "ayer", "stevenson", "mackie", "blackburn"],
+    tags: ["道德实在论", "错误理论", "开放问题论证", "情感主义", "元伦理学", "客观性"],
+  },
+  {
+    slug: "other-minds-problem",
+    title: "我们怎么知道他人有心智？",
+    field: "心灵哲学 · 认识论",
+    key_figures: ["密尔", "wittgenstein", "赖尔", "奥斯汀", "马尔科姆", "萨特"],
+    tags: ["他心问题", "唯我论", "类比论证", "标准论证", "读心", "现象学"],
+  },
+  {
     slug: "should-ai-have-rights",
     title: "AI 是否应该有权利？",
     field: "心灵哲学 / 科技伦理",
@@ -147,5 +161,12 @@ export const QUESTIONS = [
     field: "认识论",
     key_figures: ["亚里士多德", "塔斯基", "詹姆斯"],
     tags: ["真理", "符合论"],
+  },
+  {
+    slug: "why-is-there-something",
+    title: "为什么会有万物存在，而不是一无所有？",
+    field: "形而上学",
+    key_figures: ["leibniz", "heidegger", "wittgenstein", "parfit", "范因瓦根", "格伦鲍姆"],
+    tags: ["存在", "虚无", "充足理由律", "宇宙论论证", "形而上学虚无主义", "终极解释"],
   },
 ];

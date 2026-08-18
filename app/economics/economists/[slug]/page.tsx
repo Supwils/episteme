@@ -93,7 +93,6 @@ export default async function EconomistDetailPage({
         </>
       }
       tags={economist.tags}
-      articleClassName="max-w-[900px]"
       prevLabel="上一位"
       nextLabel="下一位"
       prev={prev ? { href: `/economics/economists/${prev.slug}`, title: prev.title } : null}

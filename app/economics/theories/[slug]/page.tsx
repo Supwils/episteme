@@ -65,7 +65,6 @@ export default async function TheoryDetailPage({ params }: { params: Promise<{ s
         theory.key_figures.length > 0 ? <>代表人物：{theory.key_figures.join("、")}</> : undefined
       }
       tags={theory.tags}
-      articleClassName="max-w-[900px]"
       prev={prev ? { href: `/economics/theories/${prev.slug}`, title: prev.title } : null}
       next={next ? { href: `/economics/theories/${next.slug}`, title: next.title } : null}
       sidebar={

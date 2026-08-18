@@ -59,7 +59,6 @@ export default async function MathematicsKnowledgeArticlePage({ params }: Props)
       prev={prev ? { href: `/mathematics/knowledge-base/${prev.slug}`, title: prev.title } : null}
       next={next ? { href: `/mathematics/knowledge-base/${next.slug}`, title: next.title } : null}
       sidebar={<TableOfContents accentColor={ACCENT} />}
-      articleClassName="max-w-[900px]"
     >
       <MarkdownRenderer domain="mathematics" content={article.content} accentColor={ACCENT} />
     </ArticleLayout>

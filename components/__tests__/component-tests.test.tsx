@@ -190,18 +190,19 @@ describe("MarkdownRenderer", () => {
     // T-UX-09: a first-block `# ` repeats the page title and is dropped; any
     // later `# ` becomes h2 so the page keeps a single-h1 outline.
     render(<MarkdownRenderer content={"前言。\n\n# Hello World"} />);
-    expect(screen.getByRole("heading", { level: 2, name: "Hello World" })).toBeDefined();
+    // heading accessible name includes the permalink's aria-label suffix
+    expect(screen.getByRole("heading", { level: 2, name: /^Hello World/ })).toBeDefined();
     expect(screen.queryByRole("heading", { level: 1 })).toBeNull();
   });
 
   it("renders h2 headings", () => {
     render(<MarkdownRenderer content="## Section Title" />);
-    expect(screen.getByRole("heading", { level: 2, name: "Section Title" })).toBeDefined();
+    expect(screen.getByRole("heading", { level: 2, name: /^Section Title/ })).toBeDefined();
   });
 
   it("renders h3 headings", () => {
     render(<MarkdownRenderer content="### Subsection" />);
-    expect(screen.getByRole("heading", { level: 3, name: "Subsection" })).toBeDefined();
+    expect(screen.getByRole("heading", { level: 3, name: /^Subsection/ })).toBeDefined();
   });
 
   it("renders paragraphs", () => {

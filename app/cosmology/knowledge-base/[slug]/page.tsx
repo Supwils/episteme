@@ -50,7 +50,7 @@ export default async function CosmologyKnowledgeArticlePage({ params }: Props) {
   };
 
   return (
-    <div className="mx-auto w-full max-w-3xl px-6 py-12 sm:px-10">
+    <div className="mx-auto w-full max-w-[56rem] px-6 py-12 sm:px-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
@@ -67,7 +67,7 @@ export default async function CosmologyKnowledgeArticlePage({ params }: Props) {
         </span>
       </nav>
 
-      <article className="article-reading-surface mx-auto transition-[max-width] duration-300">
+      <article className="article-reading-surface mx-auto max-w-[44rem] transition-[max-width] duration-300">
         <header className="mb-10">
           <div className="mb-6 flex justify-end">
             <ReadingModeControls />

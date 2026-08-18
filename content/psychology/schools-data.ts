@@ -23,6 +23,20 @@ export const PSYCHOLOGY_SCHOOLS_DATA = [
     founder: "阿伦·贝克",
   },
   {
+    slug: "ecological-systems-theory",
+    title: "生态系统理论",
+    subtitle: "Ecological Systems Theory",
+    era: "现代",
+    founder: "尤里·布朗芬布伦纳",
+  },
+  {
+    slug: "embodied-cognition",
+    title: "具身认知",
+    subtitle: "Embodied Cognition",
+    era: "当代",
+    founder: "瓦雷拉、汤普森与罗施",
+  },
+  {
     slug: "evolutionary-psychology",
     title: "进化心理学",
     subtitle: "Evolutionary Psychology",
@@ -56,6 +70,13 @@ export const PSYCHOLOGY_SCHOOLS_DATA = [
     subtitle: "Psychoanalysis",
     era: "1896-至今",
     founder: "弗洛伊德",
+  },
+  {
+    slug: "social-cognitive-theory",
+    title: "社会认知理论",
+    subtitle: "Social Cognitive Theory",
+    era: "现代",
+    founder: "阿尔伯特·班杜拉",
   },
   {
     slug: "social-psychology",

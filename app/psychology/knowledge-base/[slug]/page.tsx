@@ -73,7 +73,6 @@ export default async function PsychologyKnowledgeBaseDetailPage({
         titleEn={article.title_en}
         content={article.content}
         tags={article.tags}
-        articleClassName="max-w-[900px]"
         prev={prev ? { href: `/psychology/knowledge-base/${prev.slug}`, title: prev.title } : null}
         next={next ? { href: `/psychology/knowledge-base/${next.slug}`, title: next.title } : null}
         sidebar={

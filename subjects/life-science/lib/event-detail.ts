@@ -16,6 +16,9 @@ const TIMELINE_TO_EVENT_DETAIL: Record<string, string> = {
   "cambrian-explosion": "cambrian-explosion-detail",
   "great-oxidation": "oxygen-catastrophe",
   "permian-extinction": "permian-extinction-detail",
+  "snowball-earth": "snowball-earth-detail",
+  "plant-landing": "colonization-of-land",
+  "kpg-extinction": "cretaceous-paleogene-extinction",
 };
 
 export interface EventDetail {

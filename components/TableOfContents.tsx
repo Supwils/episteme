@@ -26,7 +26,12 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
     const headings = document.querySelectorAll<HTMLElement>("h2[id], h3[id]");
     const tocItems: TocItem[] = Array.from(headings).map((h) => ({
       id: h.id,
-      text: h.textContent || "",
+      // Headings may carry a hover `#` permalink (MarkdownRenderer); it is
+      // markup, not title text, so exclude it from the TOC label.
+      text: Array.from(h.childNodes)
+        .filter((n) => !(n instanceof HTMLElement && n.hasAttribute("data-heading-anchor")))
+        .map((n) => n.textContent)
+        .join(""),
       level: h.tagName === "H2" ? 2 : 3,
     }));
     setItems(tocItems);

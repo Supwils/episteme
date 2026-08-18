@@ -32,6 +32,34 @@ interface MarkdownRendererProps {
   domain?: string;
 }
 
+/**
+ * Apparatus sections (T-CONTENT-33 separated them semantically) get device-level
+ * styling so the presentation layer shows the split: bibliographies render
+ * smaller and denser, the cross-domain list picks up a hairline rule. Matching
+ * is by exact h2 text — the corpus convention (verified 2026-08) uses exactly
+ * these three titles, so no narrative heading is affected.
+ */
+type ApparatusSection = "references" | "cross-domain";
+const APPARATUS_HEADINGS: Record<string, ApparatusSection> = {
+  参考文献: "references",
+  延伸阅读: "references",
+  跨域连接: "cross-domain",
+};
+
+/** Hover-revealed `#` permalink on section headings (pure CSS, zero client JS). */
+function HeadingAnchor({ id, text }: { id: string; text: string }) {
+  return (
+    <a
+      href={`#${id}`}
+      aria-label={`链接到本节：${text}`}
+      data-heading-anchor
+      className="text-fg-disabled hover:text-fg-secondary pointer-events-none ml-2 opacity-0 group-hover:pointer-events-auto group-hover:opacity-70 focus-visible:pointer-events-auto focus-visible:opacity-70 motion-safe:transition-opacity"
+    >
+      <span aria-hidden="true">#</span>
+    </a>
+  );
+}
+
 export function MarkdownRenderer({
   content,
   accentColor = "#c8a45a",
@@ -52,43 +80,59 @@ export function MarkdownRenderer({
     blocks[firstContentBlock]!.trim().startsWith("# ") &&
     !blocks[firstContentBlock]!.trim().startsWith("## ");
 
+  // Tracks which apparatus section (if any) the block loop is currently inside;
+  // set by h1/h2 headings, consumed by list/paragraph styling below. `map`
+  // iterates in order, so a closure variable is accurate for later blocks.
+  let apparatus: ApparatusSection | null = null;
+
   return (
     <div
       className={className ?? "prose prose-invert max-w-none"}
       style={{ fontFamily: "var(--font-body, inherit)" }}
     >
       {blocks.map((para, i) => {
-        const text = para.trim();
+        // Footnote definitions (`[^id]: …`) belong only to FootnotesSection;
+        // rendered as body text they would duplicate both the text and the
+        // `fnref-*` anchor id.
+        const text = para
+          .split("\n")
+          .filter((line) => !/^\[\^[^\]]+\]:/.test(line.trim()))
+          .join("\n")
+          .trim();
         if (!text) return null;
         if (skipFirst && i === firstContentBlock) return null;
 
         if (text.startsWith("# ") && !text.startsWith("## ")) {
           const h2 = parseHeading(text.slice(2));
+          apparatus = APPARATUS_HEADINGS[h2.text.trim()] ?? null;
           return (
             <h2
               key={i}
               id={h2.id}
-              className="font-display mt-8 mb-3 scroll-mt-24 text-[1.25rem] leading-snug font-semibold"
+              className="group font-display mt-12 mb-3 scroll-mt-24 text-[1.25rem] leading-snug font-semibold"
               style={{
                 color: `color-mix(in oklab, ${accentColor} 42%, var(--color-fg-primary))`,
               }}
             >
               {h2.text}
+              <HeadingAnchor id={h2.id} text={h2.text} />
             </h2>
           );
         }
         if (text.startsWith("## ")) {
           const { text: headingText, id } = parseHeading(text.slice(3));
+          apparatus = APPARATUS_HEADINGS[headingText.trim()] ?? null;
           return (
             <h2
               key={i}
               id={id}
-              className="font-display mt-8 mb-3 scroll-mt-24 text-[1.25rem] leading-snug font-semibold"
+              className="group font-display mt-12 mb-3 scroll-mt-24 text-[1.25rem] leading-snug font-semibold"
               style={{
                 color: `color-mix(in oklab, ${accentColor} 42%, var(--color-fg-primary))`,
               }}
             >
               {headingText}
+              <HeadingAnchor id={id} text={headingText} />
             </h2>
           );
         }
@@ -98,9 +142,10 @@ export function MarkdownRenderer({
             <h3
               key={i}
               id={id}
-              className="font-display text-fg-primary mt-6 mb-2 scroll-mt-24 text-lg font-semibold"
+              className="group font-display text-fg-primary mt-6 mb-2 scroll-mt-24 text-lg font-semibold"
             >
               {headingText}
+              <HeadingAnchor id={id} text={headingText} />
             </h3>
           );
         }
@@ -135,7 +180,7 @@ export function MarkdownRenderer({
               className="my-6 border-l-2 py-1 pl-5"
               style={{ borderColor: accentColor }}
             >
-              <p className="font-display text-fg-primary text-lg leading-relaxed italic">
+              <p className="font-display text-fg-primary text-lg leading-relaxed">
                 {renderInline(quoteText, footnotes, domain)}
               </p>
             </blockquote>
@@ -236,14 +281,23 @@ export function MarkdownRenderer({
           const items = text.split("\n");
           const isOrdered = /^\d+\.\s/.test(items[0] ?? "");
           const Tag = isOrdered ? "ol" : "ul";
+          const listClass =
+            apparatus === "references"
+              ? "text-fg-secondary my-3 ml-5 space-y-1 text-sm leading-normal"
+              : apparatus === "cross-domain"
+                ? "text-fg-secondary border-border-faint my-4 ml-5 space-y-1.5 border-l pl-4 text-[1rem] leading-relaxed"
+                : "text-fg-secondary my-4 ml-5 space-y-1.5 text-[1rem] leading-relaxed";
           return (
             <Tag
               key={i}
-              className="text-fg-secondary my-4 ml-5 space-y-1.5 text-[1rem] leading-relaxed"
+              className={listClass}
               style={{ listStyleType: isOrdered ? "decimal" : "disc" }}
             >
               {items.map((item, li) => (
-                <li key={li} className="leading-relaxed">
+                <li
+                  key={li}
+                  className={apparatus === "references" ? "leading-normal" : "leading-relaxed"}
+                >
                   {renderInline(item.replace(/^[-\d.]+\s*/, ""), footnotes, domain)}
                 </li>
               ))}
@@ -251,7 +305,14 @@ export function MarkdownRenderer({
           );
         }
         return (
-          <p key={i} className="text-fg-secondary my-4 text-[1rem] leading-[1.85]">
+          <p
+            key={i}
+            className={
+              apparatus === "references"
+                ? "text-fg-secondary my-3 text-sm leading-relaxed"
+                : "text-fg-secondary my-4 text-[1rem] leading-[1.85]"
+            }
+          >
             {renderInline(text, footnotes, domain)}
           </p>
         );
@@ -470,7 +531,31 @@ function renderInline(
       continue;
     }
 
-    const plainMatch = remaining.match(/^[^*`_\[$]+/);
+    // Bibliographies cite papers as plain `DOI: 10.xxxx/…` text; link the DOI
+    // to doi.org. Trailing punctuation (CJK 。，； or ASCII .,;) is sentence
+    // punctuation, never part of the identifier, so it stays outside the link.
+    const doiMatch = remaining.match(/^DOI:\s*(10\.\d{4,9}\/\S+)/);
+    if (doiMatch) {
+      const doi = doiMatch[1]!.replace(/[.,;:!?。，；、！？）)】」』》"'”’]+$/, "");
+      const trailing = doiMatch[1]!.slice(doi.length);
+      parts.push(
+        <a
+          key={key++}
+          href={`https://doi.org/${doi}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-accent-gold underline underline-offset-2 transition-opacity hover:opacity-80"
+        >
+          DOI: {doi}
+        </a>
+      );
+      if (trailing) parts.push(trailing);
+      remaining = remaining.slice(doiMatch[0].length);
+      continue;
+    }
+
+    // Plain text stops before `DOI: 10.…` so the rule above can link it.
+    const plainMatch = remaining.match(/^(?:(?!DOI:\s*10\.\d{4,9}\/)[^*`_\[$])+/);
     if (plainMatch) {
       parts.push(plainMatch[0]);
       remaining = remaining.slice(plainMatch[0].length);

@@ -10,6 +10,8 @@ import { ArticleSidebar } from "@/components/ArticleSidebar";
 import ThinkerNav from "@/components/thinker-detail/ThinkerNav";
 import { readingMinutes } from "@/lib/reading-time";
 import { serializeJsonLd, createPersonJsonLd } from "@/lib/jsonld";
+import { ReadingModeControls } from "@/components/ReadingModeControls";
+import { ReadingProgressBar } from "@/components/ReadingProgressBar";
 
 export function generateStaticParams() {
   return []; // On-demand SSG: build on first request, then cache until the next deployment
@@ -67,11 +69,12 @@ export default async function ThinkerDetailPage({ params }: { params: Promise<{ 
   });
 
   return (
-    <div className="w-full px-6 py-12 sm:px-10 lg:px-16">
+    <div className="mx-auto w-full max-w-[1800px] px-6 py-12 sm:px-10 lg:px-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(personJsonLd) }}
       />
+      <ReadingProgressBar />
       <header className="mb-12">
         <Breadcrumb category="thinkers" currentTitle={thinker.title} />
 
@@ -89,6 +92,9 @@ export default async function ThinkerDetailPage({ params }: { params: Promise<{ 
             </span>
             <span className="border-fg-disabled/20 text-fg-muted rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.16em]">
               {thinker.school}
+            </span>
+            <span className="ml-auto">
+              <ReadingModeControls />
             </span>
           </div>
 
@@ -121,7 +127,7 @@ export default async function ThinkerDetailPage({ params }: { params: Promise<{ 
       </header>
 
       <div className="flex flex-col gap-12 lg:flex-row">
-        <article className="min-w-0 flex-1">
+        <article className="article-reading-surface max-w-[44rem] min-w-0 flex-1 transition-[max-width] duration-300">
           <MarkdownRenderer content={thinker.content} accentColor={accent} domain="philosophy" />
 
           <SafeRender>

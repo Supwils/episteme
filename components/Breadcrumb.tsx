@@ -55,7 +55,15 @@ export default function Breadcrumb(props: BreadcrumbProps) {
           首页
         </Link>
         {props.items.map((item, i) => (
-          <span key={i} className="flex items-center gap-1.5">
+          // Linked crumbs must never shrink (their label is a `shrink-0` Link
+          // that would overflow and overlap the next crumb); only the current
+          // title crumb may shrink so its inner `truncate` can engage.
+          <span
+            key={i}
+            className={
+              item.href ? "flex shrink-0 items-center gap-1.5" : "flex min-w-0 items-center gap-1.5"
+            }
+          >
             <Chevron />
             {item.href ? (
               <Link

@@ -58,7 +58,6 @@ export default async function KnowledgeBaseDetailPage({
       titleEn={article.title_en}
       content={article.content}
       tags={article.tags}
-      articleClassName="max-w-[900px]"
       prev={prev ? { href: `/economics/knowledge-base/${prev.slug}`, title: prev.title } : null}
       next={next ? { href: `/economics/knowledge-base/${next.slug}`, title: next.title } : null}
       sidebar={

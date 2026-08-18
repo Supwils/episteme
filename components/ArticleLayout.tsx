@@ -37,6 +37,8 @@ interface ArticleLayoutProps {
   content: string;
   /** Page-specific header content under the title (kept verbatim per type). */
   meta?: ReactNode;
+  /** Short plain-text summary rendered under the title (frontier excerpt). */
+  lede?: string;
   tags?: readonly string[];
   /** The article body, rendered inside <article>. */
   children: ReactNode;
@@ -46,7 +48,11 @@ interface ArticleLayoutProps {
   next?: PrevNextLink | null;
   prevLabel?: string;
   nextLabel?: string;
-  /** Overrides the article column max width. Defaults to a wide measure. */
+  /**
+   * Overrides the article column max width. Defaults to `max-w-[44rem]`
+   * (~44 CJK chars/line, the Chinese long-form comfort measure); the
+   * focus/spacious reading modes narrow/widen it further via globals.css.
+   */
   articleClassName?: string;
   /** Extra spacing class for the sidebar's inner wrapper. */
   sidebarClassName?: string;
@@ -71,6 +77,7 @@ export function ArticleLayout({
   titleEn,
   content,
   meta,
+  lede,
   tags,
   children,
   sidebar,
@@ -78,13 +85,13 @@ export function ArticleLayout({
   next,
   prevLabel = "上一篇",
   nextLabel = "下一篇",
-  articleClassName = "max-w-[1200px]",
+  articleClassName = "max-w-[44rem]",
   sidebarClassName,
 }: ArticleLayoutProps) {
   const readMinutes = readingMinutes(content);
 
   return (
-    <div className="w-full px-6 py-12 sm:px-10 lg:px-16">
+    <div className="mx-auto w-full max-w-[1800px] px-6 py-12 sm:px-10 lg:px-16">
       <ReadingProgressBar />
       <Link
         href={backHref}
@@ -126,6 +133,11 @@ export function ArticleLayout({
             <p className="text-fg-muted font-display text-lg tracking-wide italic">{titleEn}</p>
           )}
           {meta && <div className="text-fg-secondary mt-3">{meta}</div>}
+          {lede && (
+            <p className="text-fg-secondary mt-3 line-clamp-3 text-[1.0625rem] leading-relaxed">
+              {lede}
+            </p>
+          )}
           {tags && tags.length > 0 && (
             <div className="mt-4 flex flex-wrap gap-2">
               {tags.map((tag) => (
@@ -146,7 +158,7 @@ export function ArticleLayout({
         </div>
       </header>
 
-      <div className="flex flex-col gap-12 lg:flex-row">
+      <div className="flex flex-col gap-12 lg:flex-row lg:justify-center">
         <article
           className={cn(
             "article-reading-surface min-w-0 flex-1 transition-[max-width] duration-300",

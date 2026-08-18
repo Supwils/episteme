@@ -12,6 +12,8 @@ import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
 import { ArticleSidebar } from "@/components/ArticleSidebar";
 import { TableOfContents } from "@/components/TableOfContents";
+import { ReadingModeControls } from "@/components/ReadingModeControls";
+import { ReadingProgressBar } from "@/components/ReadingProgressBar";
 
 export function generateStaticParams() {
   // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
@@ -69,11 +71,12 @@ export default async function MathematicianDetailPage({
   });
 
   return (
-    <div className="w-full px-6 py-12 sm:px-10 lg:px-16">
+    <div className="mx-auto w-full max-w-[1800px] px-6 py-12 sm:px-10 lg:px-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
+      <ReadingProgressBar />
       <Link
         href="/mathematics/mathematicians"
         className="text-fg-muted hover:text-accent-indigo mb-6 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] uppercase transition-colors"
@@ -100,6 +103,9 @@ export default async function MathematicianDetailPage({
             </span>
             <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">
               约 {readMinutes} 分钟阅读
+            </span>
+            <span className="ml-auto">
+              <ReadingModeControls />
             </span>
           </div>
 
@@ -139,7 +145,7 @@ export default async function MathematicianDetailPage({
       </header>
 
       <div className="flex flex-col gap-12 lg:flex-row">
-        <article className="max-w-[1200px] min-w-0 flex-1">
+        <article className="article-reading-surface max-w-[44rem] min-w-0 flex-1 transition-[max-width] duration-300">
           {mathematician.content ? (
             <MarkdownRenderer
               content={mathematician.content}

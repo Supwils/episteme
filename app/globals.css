@@ -1,5 +1,11 @@
+/* Reading modes (standard/focus/spacious, see ReadingModeControls):
+   standard = the articleClassName cap on .article-reading-surface
+   (max-w-[44rem] in ArticleLayout, ~44 CJK chars/line — the long-form
+   comfort measure); focus narrows the measure and loosens leading for
+   line-by-line reading; spacious widens the measure (still under the old
+   ~75 chars/line default) with the largest font/leading. */
 html[data-reading-mode="focus"] .article-reading-surface {
-  max-width: 46rem;
+  max-width: 40rem;
 }
 
 html[data-reading-mode="focus"] .article-reading-surface p {

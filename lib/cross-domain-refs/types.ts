@@ -11,7 +11,12 @@ export type Domain =
   | "political-science"
   | "earth-science"
   | "medicine"
-  | "chemistry";
+  | "chemistry"
+  | "arts"
+  | "law"
+  | "engineering"
+  | "sociology"
+  | "linguistics";
 
 export interface CrossReference {
   fromDomain: Domain;
@@ -44,6 +49,11 @@ export const DOMAIN_LABELS: Record<Domain, string> = {
   "earth-science": "地球科学",
   medicine: "医学与公共卫生",
   chemistry: "化学",
+  arts: "艺术",
+  law: "法学",
+  engineering: "工程与技术",
+  sociology: "社会学",
+  linguistics: "语言学",
 };
 
 export const DOMAIN_ROUTES: Record<Domain, string> = {
@@ -60,4 +70,9 @@ export const DOMAIN_ROUTES: Record<Domain, string> = {
   "earth-science": "/earth-science",
   medicine: "/medicine",
   chemistry: "/chemistry",
+  arts: "/arts",
+  law: "/law",
+  engineering: "/engineering",
+  sociology: "/sociology",
+  linguistics: "/linguistics",
 };

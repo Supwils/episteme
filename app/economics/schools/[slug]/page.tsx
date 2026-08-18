@@ -82,7 +82,6 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
           )}
         </>
       }
-      articleClassName="max-w-[900px]"
       prevLabel="上一派"
       nextLabel="下一派"
       prev={prev ? { href: `/economics/schools/${prev.slug}`, title: prev.title } : null}
