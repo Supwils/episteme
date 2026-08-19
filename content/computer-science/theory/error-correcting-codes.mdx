@@ -2,7 +2,7 @@
 title: 纠错码理论
 title_en: Error-Correcting Codes
 status: published
-updated: 2026-06-13
+updated: 2026-08-18
 category: 计算理论
 order: 10
 field: 编码理论 · 信息论 · 代数
@@ -36,15 +36,19 @@ related:
 
 纠错码的目标是：用**最小的冗余**，达到**最强的纠错能力**。现代纠错码可以在仅增加少量冗余（如 20-30%）的情况下，纠正信道中相当比例的错误——而单纯重复发送三遍会增加 200% 的冗余。
 
+冗余的极限在哪，是可以算出来的。把每个码字看作高维空间里的一个点，再把它能纠正的所有错误情形装进一个以它为球心、半径为 $t$ 的"纠错球"：要解码唯一，球与球就不能重叠，于是**码字个数乘以球的体积不能超过整个空间的总量**——这就是汉明界（sphere-packing bound）。恰好把这个界顶满的码称为**完美码**，它们极其稀少：二元情形下，除了平凡码，只有汉明码族和 (23,12) 戈莱码两种。**重复三遍的低效在这个图景里一目了然：它的纠错球互相重叠，空间被浪费掉了。**
+
 这背后有深刻的数学：代数结构（有限域、多项式算法）让我们可以在高维空间中设计出间距足够大的码字集合，使得发生一定数量的错误后，仍然能唯一确定原始码字。
 
 ## 现场：1940 年代的通信危机
 
 理查德·汉明（Richard Hamming）是贝尔实验室的数学家，在 1940 年代末使用继电器计算机进行数值计算。那时的计算机用穿孔卡片输入，机器本身经常出现错误。更糟糕的是，当机器在周末出错时，它会停机，等到下周一操作员来上班才能重启——所有计算工作丢失。
 
-汉明被这种情况激怒了，决心让机器**自动检测并纠正错误**。他知道香农（Claude Shannon）刚刚在 1948 年建立了信息论，并给出了理论极限——香农信道编码定理指出：只要发送速率低于信道容量，原则上可以实现任意低的错误率。但香农没有给出实现这个极限的具体构造方法。
+汉明被这种情况激怒了，决心让机器**自动检测并纠正错误**。他知道[[claude-shannon|香农]]（Claude Shannon）刚刚在 1948 年建立了信息论，并给出了理论极限——香农信道编码定理指出：只要发送速率低于信道容量，原则上可以实现任意低的错误率。但香农没有给出实现这个极限的具体构造方法。
 
 汉明填补了这个空白。1950 年，他发表了**汉明码**（Hamming Code），这是第一个系统性的线性纠错码。
+
+几乎同一时期还有一条平行线索。1949 年，曾任职于贝尔实验室的瑞士裔物理学家马塞尔·戈莱（Marcel Golay）在《IRE 学报》上发表了一篇仅一页的短文《Notes on Digital Coding》，顺手写下了后来以他命名的**戈莱码**：其中二元 (23,12) 码可以纠正任意 3 个错误，而且恰好顶满汉明界——它就是前面提到的、除汉明码外仅有的非平凡二元完美码。这篇一页纸的短文被后人称为编码理论史上密度最高的论文之一；三十年后，它的扩展版本被装进了旅行者号的计算机。
 
 ## 汉明码：用奇偶校验的杠杆
 
@@ -74,12 +78,20 @@ related:
 
 RS 码可以纠正最多 $\lfloor (n - k) / 2 \rfloor$ 个**未知位置的错误**（错误不仅发生，且不知道在哪里），是理论上可以达到的最优纠错能力（**MDS码，最大距离可分码**）。
 
+**一个数学构造要变成实用工具，还差另一半：解码。** 知道"存在唯一的低次多项式穿过剩下的点"是一回事，在嘈杂的真实数据里快速把它找出来是另一回事。这条路上站着一串名字：彼得森（Peterson）1960 年为相关的 BCH 码给出第一个可行的代数解码算法；伯利坎普（Berlekamp）1968 年给出高效迭代算法，马西（Massey）1969 年指出它等价于求最短线性反馈移位寄存器，合并为沿用至今的伯利坎普-马西算法。**BCH 码本身则是另一条平行线索：法国数学家奥康冈（Hocquenghem）1959 年、博斯与雷-乔杜里（Bose 与 Ray-Chaudhuri）1960 年各自独立发明，RS 码可以看作它的非二元推广。** 这段历史的节奏是典型的"构造先行、算法追赶"：码字在 1960 年就写下来了，让它们真正可用的解码器花了又一个十年。
+
 里德-所罗门码的应用无处不在：
 - CD、DVD、蓝光光盘（可以有划痕仍然正常播放）
 - QR 码（二维码，即使部分遮挡仍可识别）
 - 旅行者号、卡西尼号等深空探测器的图像传输
 - 数字电视（DVB-T、DVB-S 标准）
 - 闪存（NAND Flash 的错误管理）
+
+## 另一条血脉：卷积码与级联
+
+汉明码、BCH 码、RS 码都是**分组码**——把数据切成固定长度的块，每块独立编码。麻省理工学院的彼得·埃利亚斯（Peter Elias）1955 年提出了另一条路线：**卷积码**。编码器是一个有记忆的滑窗，每个输出比特是当前输入与过去若干输入的线性组合，冗余被连续地织进比特流里。它的最优解码在 1967 年由安德鲁·维特比（Andrew Viterbi）给出：**把编码器的状态转移图画成一张格子，解码就是在格子上找一条与接收序列最贴近的路径**——一个标准的动态规划问题。维特比算法因为简单高效，至今埋在几乎每一部手机和每一台 WiFi 路由器的基带芯片里。
+
+第三种思想是福尼（David Forney）在 1960 年代中期的博士论文工作中系统化的**级联码**：内层用一个擅长处理零散随机错误的码（如卷积码），外层再用一个擅长处理成串突发错误的码（如 RS 码）兜底。**两种弱点互补的码串接起来，比设计一个全能的码便宜得多。** 旅行者号的 RSV 方案、CD 光盘的 CIRC 方案（交错的里德-所罗门码），都是这个思想的后代——本文开篇那张穿越 30 亿公里的天王星照片，走的是"卷积码内层 + 里德-所罗门码外层"这条两级流水线。
 
 ## 香农极限与纠错码的理论边界
 
@@ -93,9 +105,15 @@ $$
 
 五十年来，纠错码理论的进展就是寻找能接近香农极限、同时具有高效编码和解码算法的码：
 
-**LDPC 码**（Low-Density Parity-Check Code，低密度奇偶校验码）：罗伯特·加拉格尔（Robert Gallager）1960 年的博士论文提出（1963 年成书出版），因当时算力不足而被遗忘三十年，直到 1990 年代中期才被 MacKay、Neal 等人重新发现（这股复兴的直接导火索是 1993 年 Berrou 等人发明的 **Turbo 码** 首次逼近香农极限）。今天 LDPC 被证明是接近香农极限的最佳实用码之一，用于 5G 通信、WiFi（802.11n/ac/ax）和卫星通信。
+**Turbo 码**：1993 年在日内瓦的国际通信会议（ICC）上，法国布雷斯特电信学院的克劳德·贝鲁（Claude Berrou）、阿兰·格拉维厄（Alain Glavieux）与他们的博士生蓬·蒂提马吉希马（Punya Thitimajshima）报告了一种新构造：两个简单的卷积码通过伪随机交织器并联，解码端两个软输入软输出的译码器来回迭代、互相传递对每一比特的"置信度"。**仿真结果让整个会场震动：码率 1/2 时，把误码率压到 $10^{-5}$ 所需的信噪比只比香农极限高 0.7 分贝——而此前最好的实用方案还差着 2 到 3 分贝。** 许多与会者第一反应是不相信；复现结果陆续出来之后，整个领域的研究重心在几年内转向了"类随机结构 + 迭代译码"。
 
-**极化码**（Polar Codes）：土耳其数学家厄尔坎·阿里坎（Erdal Arikan）2009 年提出，是第一个在理论上被严格证明可以达到**任意二进制对称信道信道容量**的线性码构造，用于 5G NR 控制信道。
+**LDPC 码**（Low-Density Parity-Check Code，低密度奇偶校验码）：罗伯特·加拉格尔（Robert Gallager）1960 年的博士论文提出（1963 年成书出版），因当时算力不足而被遗忘三十年，直到 1990 年代中期才被 MacKay、Neal 等人重新发现（这股复兴的直接导火索正是上面那场 1993 年的震动）。今天 LDPC 被证明是接近香农极限的最佳实用码之一，用于 5G 通信、WiFi（802.11n/ac/ax）和卫星通信。
+
+**极化码**（Polar Codes）：土耳其数学家厄尔坎·阿里坎（Erdal Arikan）2009 年提出，思路与 Turbo/LDPC 的"类随机 + 迭代"完全不同——**信道极化**：把 $N$ 个相同的信道副本经过简单的线性变换，合成为 $N$ 个新信道，其中一部分趋近完美、另一部分趋近纯噪声，然后只在完美的那一部分上传信息。它是第一个被严格证明可以达到**任意二进制对称信道信道容量**的显式线性码构造，2016 年被 3GPP 采纳为 5G NR 控制信道的编码方案。
+
+## 超出半径：列表解码
+
+前面所有的纠错能力都被 $\lfloor (d_{\min}-1)/2 \rfloor$ 卡住——错误一旦超过这个"半径"，离接收序列最近的码字就不再唯一，唯一解码在原理上失败。1997 年，苏丹（Madhu Sudan）换了一个问法：**不唯一也没关系，让解码器输出一个很短的候选列表，只要真码字在列表里就算成功。** 他为 RS 码给出了第一个超出半数最小距离的多项式时间解码器；古鲁斯瓦米与苏丹（Guruswami 与 Sudan）1999 年把可纠正的错误率一路推到接近 $1-\sqrt{R}$（$R$ 为码率）的理论极限。**这个"放松问题以换取能力"的思路后来在复杂性理论里反复出现**：硬度放大、随机性提取器的构造，都借用了列表解码的机器。
 
 ## 现代应用：从磁盘到网络
 
@@ -111,9 +129,11 @@ $$
 
 ## 量子纠错：下一个前沿
 
-量子计算机不仅需要纠正经典的"比特翻转"错误，还需要纠正量子特有的"相位翻转"和"退相干"错误，且无法直接测量量子态（测量会破坏叠加态）。
+[[quantum-computing-theory|量子计算机]]不仅需要纠正经典的"比特翻转"错误，还需要纠正量子特有的"相位翻转"和"退相干"错误，且无法直接测量量子态（测量会破坏叠加态），更无法复制它（不可克隆定理）。在 1990 年代中期，很多人据此认为量子纠错在原理上不可能。
 
-**量子纠错码**（Quantum Error Correction Codes）是近三十年的重大研究方向。肖尔 1995 年提出了第一个量子纠错码，随后**表面码**（Surface Code）成为最有前途的实用量子纠错方案。保护一个逻辑 qubit 大约需要 1000 个物理 qubit——这解释了为什么大规模容错量子计算机的实现仍在遥远的未来。
+肖尔（Peter Shor）1995 年打破了这种悲观：他给出第一个量子纠错码，用 9 个物理 qubit 编码 1 个逻辑 qubit，可以纠正任意单个 qubit 上的任意错误。斯汀（Andrew Steane）随即给出更省的 7 qubit 方案；考尔德班克与肖尔、以及斯汀把这类构造系统化为 CSS 框架（从一对合适的经典码造出量子码），戈特斯曼（Gottesman）的稳定子形式则提供了统一语言。**更关键的是阈值定理**（阿哈罗诺夫与本-奥尔等人于 1990 年代末证明）：只要物理错误率低于某个常数阈值，通过编码的层层嵌套，逻辑错误率可以被压到任意低——**容错量子计算在原理上成立**。基塔耶夫的表面码（toric code，1997 年提出）把阈值推到约百分之一的量级、且只需近邻耦合，因而成为主流工程路线。
+
+2024 年 12 月，谷歌量子团队在《自然》报告了首次"低于阈值"的演示：在 Willow 芯片上，把表面码的码距从 3 加大到 5 再到 7，逻辑错误率逐级下降约一半——**"编码加大、错误反而下降"这条纠错码理论里最朴素的承诺，在量子世界第一次被实验兑现**。当然，代价依然高昂：保护一个高质量的逻辑 qubit 大约需要上千个物理 qubit，这解释了为什么大规模容错量子计算机仍在遥远的未来。
 
 ## 跨域连接
 
@@ -128,6 +148,17 @@ $$
 ## 参考文献
 
 - Hamming, R. W. *Error Detecting and Error Correcting Codes.* Bell System Technical Journal 29(2) (1950): 147–160. （汉明码原始论文）
+- Golay, M. J. E. *Notes on Digital Coding.* Proceedings of the IRE 37 (1949): 657. （戈莱码的一页纸原始短文）
+- Elias, P. *Coding for Noisy Channels.* IRE Convention Record 4 (1955): 37–47. （卷积码的提出）
+- Viterbi, A. J. *Error Bounds for Convolutional Codes and an Asymptotically Optimum Decoding Algorithm.* IEEE Transactions on Information Theory 13(2) (1967): 260–269. （维特比算法原始论文）
+- Hocquenghem, A. *Codes correcteurs d'erreurs.* Chiffres 2 (1959): 147–156. （BCH 码的第一份构造）
+- Bose, R. C. & Ray-Chaudhuri, D. K. *On a Class of Error Correcting Binary Group Codes.* Information and Control 3(1) (1960): 68–79. （BCH 码的独立再发现）
 - Reed, I. S. & Solomon, G. *Polynomial Codes Over Certain Finite Fields.* Journal of SIAM 8(2) (1960): 300–304. （RS 码原始论文）
+- Berrou, C., Glavieux, A. & Thitimajshima, P. *Near Shannon Limit Error-Correcting Coding and Decoding: Turbo-Codes.* Proceedings of IEEE ICC, Geneva (1993): 1064–1070. （Turbo 码原始论文）
+- Sudan, M. *Decoding of Reed Solomon Codes Beyond the Error-Correction Bound.* Journal of Complexity 13(1) (1997): 180–193. （列表解码的开创性论文）
+- Guruswami, V. & Sudan, M. *Improved Decoding of Reed-Solomon and Algebraic-Geometry Codes.* IEEE Transactions on Information Theory 45(6) (1999): 1757–1767.
+- Arikan, E. *Channel Polarization: A Method for Constructing Capacity-Achieving Codes for Symmetric Binary-Input Memoryless Channels.* IEEE Transactions on Information Theory 55(7) (2009): 3051–3073. （极化码原始论文）
+- Shor, P. W. *Scheme for Reducing Decoherence in Quantum Computer Memory.* Physical Review A 52(4) (1995): R2493–R2496. （第一个量子纠错码）
+- Google Quantum AI and Collaborators. *Quantum Error Correction Below the Surface Code Threshold.* Nature 638 (2025): 920–926. （Willow 芯片首次低于阈值的实验演示）
 - MacWilliams, F. J. & Sloane, N. J. A. *The Theory of Error-Correcting Codes.* North-Holland (1977). （纠错码理论的权威参考书）
 - Richardson, T. & Urbanke, R. *Modern Coding Theory.* Cambridge University Press (2008). （包含 LDPC 等现代编码的标准教材）

@@ -2,7 +2,7 @@
 title: 自动机与形式语言
 title_en: Automata and Formal Languages
 status: published
-updated: 2026-06-13
+updated: 2026-08-18
 category: 计算理论
 order: 4
 field: 计算理论 · 形式语言 · 编译原理
@@ -38,11 +38,13 @@ related:
 
 ## 现场：乔姆斯基的语言学起点
 
-诺姆·乔姆斯基（Noam Chomsky）1956 年在《IRE 信息论汇刊》（IRE Transactions on Information Theory，即后来 IEEE 的前身刊物）发表了奠基性论文《语言描述的三种模型》（Three Models for the Description of Language），提出了后来被称为"乔姆斯基谱系"的形式语言层次结构。
+**[[noam-chomsky|诺姆·乔姆斯基]]**（Noam Chomsky）1956 年在《IRE 信息论汇刊》（IRE Transactions on Information Theory，即后来 IEEE 的前身刊物）发表了奠基性论文《语言描述的三种模型》（Three Models for the Description of Language），提出了后来被称为"乔姆斯基谱系"的形式语言层次结构。
 
 他的出发点是语言学问题：什么样的数学结构能描述自然语言的语法？有限状态机（等价于正则文法）太弱；他认为上下文无关文法更接近自然语言的核心结构——尽管后来的研究表明自然语言不能完全用上下文无关文法描述，某些语言（如瑞士德语的交叉依存结构）是轻微上下文相关的。
 
 乔姆斯基的贡献不仅在于分类本身，更在于他揭示了**计算能力和语言表达力之间的对应**——哪种机器能识别哪层语言，这个对应关系既深刻又精确。
+
+值得注意的是，乔姆斯基并非这条路上唯一的先行者：形式语言理论有两条几乎同时的源流。另一条来自神经科学与逻辑。1943 年，McCulloch 与 Pitts 用逻辑网络建模神经元；1956 年，斯蒂芬·克莱尼（Stephen Kleene）在香农与麦卡锡主编的《自动机研究》（Automata Studies）中证明，这类网络能"表示的事件"恰好就是正则语言——有限自动机与正则表达式的等价由此确立。1959 年，迈克尔·拉宾与达纳·斯科特在 IBM 期刊上发表《有限自动机及其判定问题》，引入非确定性自动机并给出子集构造，这篇论文后来为他们赢得 1976 年图灵奖。语言学的谱系与逻辑学的自动机，在 1960 年代汇合成同一门理论。
 
 ## 核心一：乔姆斯基谱系
 
@@ -66,7 +68,11 @@ related:
 
 **Rabin-Scott 定理**（1959）：NFA 与 DFA 的识别能力等价——任何 NFA 都可以转化为等价的 DFA（但状态数可能指数增长）。
 
-**克莱尼定理**：正则语言恰好是可以用**正则表达式**（regular expressions）描述的语言。正则表达式（grep、Python re 模块、SQL LIKE 的增强版）在文本处理中无处不在。
+这个定理回答的是"非确定性是否白送"，还有一个同样根本的问题：**一个正则语言最少需要多少状态？** 答案由 Myhill–Nerode 定理（Myhill 1957，Nerode 1958）给出，它把"正则"从机器定义改写为纯组合性质：定义两个前缀等价，当且仅当它们后面接任何后缀都同进同出语言 $L$；那么 $L$ 是正则的，当且仅当这个等价关系只有有限个等价类——而且等价类的个数恰好等于识别 $L$ 的最小 DFA 的状态数。由此推出的结论既实用又深刻：每个正则语言都有唯一（同构意义下）的最小自动机，并且可以高效求得——Hopcroft 在 1971 年给出了 $O(n \log n)$ 的最小化算法。这个定理也是证明语言非正则的另一件武器，常与泵引理互换使用。
+
+**克莱尼定理**：正则语言恰好是可以用**[[regular-expressions|正则表达式]]**（regular expressions）描述的语言。正则表达式（grep、Python re 模块、SQL LIKE 的增强版）在文本处理中无处不在。
+
+从定理到工具之间还有一条高效的机械转换：1968 年，肯·汤普森（Ken Thompson）给出了把正则表达式直接编译为 NFA 的构造法——自动机大小与表达式长度成正比，这原本是他为文本编辑器写的搜索算法，后来成为 lex、grep 一系工具的内核。这里存在一个实践中的分叉：严格沿自动机路线模拟，匹配时间是线性的；而主流语言的正则引擎（PCRE、Java、Python 的 re 模块）多采用回溯搜索，以便支持反向引用等超出正则语言能力的特性——代价是最坏情况下指数级的时间爆炸，这正是"代价与争议"一节谈到的 ReDoS 漏洞的技术根源。
 
 正则语言有一个关键局限性：**泵引理**证明，正则语言无法描述需要"计数"或"匹配括号"的结构。例如，$\{a^n b^n : n \geq 0\}$（等量 a 后跟等量 b）不是正则语言。
 
@@ -87,7 +93,13 @@ expression := number
 
 编译器的**词法分析**（tokenization）阶段使用正则表达式；**语法分析**（parsing）阶段使用上下文无关文法，典型算法有 LL(k)、LR(k)（如 LALR(1)，yacc/bison 使用的方法）和 Earley 算法。
 
+这套理论进入工程的关键一步发生在巴黎。1959 年，约翰·巴科斯（John Backus）在联合国教科文组织的信息处理国际会议上提出了一套描述语言语法的形式记号；1960 年，彼得·瑙尔（Peter Naur）主编的《ALGOL 60 报告》用它完整规定了一门编程语言的语法——这就是巴科斯-瑙尔范式（BNF）的由来。一门编程语言第一次不再依赖自然语言手册加示例来"约定"语法，而是被一部形式文法精确写死；此后几乎每一门语言的定义都沿用了这个做法。
+
 CYK（Cocke-Younger-Kasami）算法是判断一个字符串是否属于给定 CFG 的经典动态规划算法，时间复杂度 $O(n^3 |G|)$（$n$ 为字符串长度，$|G|$ 为文法大小）。
+
+解析算法的版图其实由"确定性"切分。Knuth 在 1965 年证明：能被**确定性**下推自动机识别的语言恰好是 LR(k) 语言——自左向右扫描、至多向前看 $k$ 个记号就能决定每一步归约，因而可以线性时间解析，yacc/bison 一系工具正是这个理论的工程后代。一般的（可能非确定的）CFG 没有这种待遇，Earley 1970 年提出的算法与 CYK 一样属于 $O(n^3)$ 量级的通用方法。
+
+与正则语言的泵引理平行，Bar-Hillel、Perles 与 Shamir 在 1961 年证明了上下文无关语言的泵引理（uvwxy 定理）：足够长的句子中总有两段可以同步重复任意多次而不离开语言。用它可以直接证明 $\{a^n b^n c^n\}$ 不是上下文无关的——两路"计数"超出了一个栈的记忆能力。这从理论上解释了为什么"变量先声明后使用"这类约束进不了 CFG，只能交给编译器的语义分析阶段。
 
 **歧义性**：一个 CFG 对同一字符串可能有多个不同的解析树（歧义文法）。消除歧义在某些情况下是不可判定的——这意味着编程语言设计者不能总是依赖机械方法检查文法是否歧义。
 
@@ -97,9 +109,11 @@ CYK（Cocke-Younger-Kasami）算法是判断一个字符串是否属于给定 CF
 
 **递归语言**（Recursive Languages）是其子类：存在总是停机的图灵机（即判定器，decider）能识别它——对所有输入都给出是/否答案。这与可判定性直接对应。
 
+0 型与 1 型之间的这道门槛，正是"可判定"与"只能半判定"的分界线：1 型语言的成员资格总能在有限搜索内裁决（上下文相关文法的推导不会使中间串变短，搜索空间因此有限），而 0 型语言的成员资格问题就是停机问题本身。
+
 ## 代价与争议
 
-**自然语言的位置**：乔姆斯基认为英语等自然语言本质上是上下文无关的；Shieber（1985）等人给出了反例（瑞士德语的某些结构需要轻微的上下文相关能力），但争论持续存在。现代 NLP 中，大型语言模型（LLM）不使用乔姆斯基谱系，而是用神经网络直接建模语言统计分布，绕过了这个问题。
+**自然语言的位置**：乔姆斯基认为英语等自然语言本质上是上下文无关的；Shieber（1985）等人给出了反例（瑞士德语的某些结构需要轻微的上下文相关能力），但争论持续存在。这场争论催生出"轻度上下文相关"（mildly context-sensitive）的折中范畴：Joshi 在 1985 年提出的树邻接文法（TAG）比 CFG 恰强一点，能生成交叉依存结构，又保持多项式时间可解析，被许多计算语言学家视为自然语言语法复杂度的合理候选位置。现代 NLP 中，大型语言模型（LLM）不使用乔姆斯基谱系，而是用神经网络直接建模语言统计分布，绕过了这个问题。
 
 **正则表达式的滥用**：程序员常用正则表达式处理非正则语言（如 HTML 解析），这会导致难以维护的代码和潜在的安全漏洞（ReDoS，正则表达式拒绝服务攻击）。
 
@@ -113,21 +127,23 @@ CYK（Cocke-Younger-Kasami）算法是判断一个字符串是否属于给定 CF
 
 ## 模型检验：自动机验证现实系统
 
-有限自动机不只是理论工具，它在工业中有直接应用：**模型检验**（Model Checking，Clarke、Emerson、Sifakis，2007 年图灵奖）。
+有限自动机不只是理论工具，它在工业中有直接应用：**模型检验**（Model Checking），由 Clarke、Emerson 与 Sifakis 等人在 1980 年代初奠基，三人因此获得 2007 年图灵奖。
 
 基本思路：把硬件电路或通信协议的行为建模为有限状态自动机，把要验证的性质（如"系统永远不会死锁"、"两个进程永远不会同时进入临界区"）表达为时序逻辑公式（LTL 或 CTL），然后自动穷举验证所有可达状态，确认性质是否成立。
 
-英特尔在 1990 年代利用模型检验发现了奔腾浮点除法指令中的一个 bug（FDIV bug，1994 年），此后成为芯片设计流程的标准工具。空客、NASA 的飞行控制软件验证，也依赖类似技术。
+有一段历史细节值得说准确：1994 年奔腾处理器的 FDIV bug 并不是被模型检验发现的——它由林奇堡学院的数学教授托马斯·奈斯利（Thomas Nicely）在计算孪生素数倒数时察觉，同年 10 月公开；英特尔最终在 12 月宣布无条件更换处理器，次年 1 月为此计提约 4.75 亿美元。这场代价高昂的教训反过来成了形式验证的催化剂：此后英特尔等公司把模型检验与定理证明纳入芯片设计的标准流程，空客、NASA 的飞行控制软件验证也依赖同类技术。
 
-模型检验的主要瓶颈是**状态爆炸**（state explosion）：系统组件增多时，可达状态数指数增长，使穷举验证在计算上不可行。符号模型检验（用 BDD，二元决策图，表示状态集合）和抽象方法，是缓解这个问题的主要技术方向。
+模型检验的主要瓶颈是**状态爆炸**（state explosion）：系统组件增多时，可达状态数指数增长，使穷举验证在计算上不可行。突破之一来自 Bryant 1986 年提出的二元决策图（BDD）——一种压缩表示布尔函数与状态集合的数据结构；Burch、Clarke 等人在 1990 年代初用它把可验证系统的规模推进到 $10^{20}$ 个状态的量级。在此之上，抽象与组合推理继续把边界向外推。
 
 ## ω-自动机：处理无限序列
 
 标准有限自动机处理的是有限长字符串。但很多实际场景（如操作系统的长期运行行为、协议的无限通信序列）需要处理**无限序列**。
 
-**Büchi 自动机**（Büchi Automaton，1960 年代提出）：在有限自动机的基础上定义了接受无限序列的条件——接受的序列是那些无限次经过接受状态的序列。
+**Büchi 自动机**（Büchi Automaton）由逻辑学家 J. Richard Büchi 在 1960 年提出，动机不是工程而是逻辑：他要借自动机证明单变元二阶逻辑（S1S）的可判定性——这是逻辑与自动机理论最早的深层交汇之一。它在有限自动机的基础上定义了接受无限序列的条件——接受的序列是那些无限次经过接受状态的序列。
 
 Büchi 自动机与**线性时序逻辑（LTL）**之间存在精确的对应：任何 LTL 公式都可以转化为等价的 Büchi 自动机。这使得 LTL 模型检验在理论上可归约为 Büchi 自动机的空性检验（判断自动机接受的语言是否为空）。
+
+有一点与有限串情形截然不同：非确定 Büchi 自动机不能用子集构造直接确定化。McNaughton 在 1966 年证明它们仍可等价地确定化（经由 Muller 自动机），但构造复杂得多，Safra 在 1988 年才给出达到最优复杂度的构造。这一困难解释了为什么 LTL 模型检验通常直接在非确定自动机上做同步乘积，而不是先确定化——理论上的可能并不等于工程上的合算。
 
 ω-自动机理论是形式验证领域的重要基础工具。
 
@@ -136,7 +152,13 @@ Büchi 自动机与**线性时序逻辑（LTL）**之间存在精确的对应：
 ## 参考文献
 
 - Chomsky, N. *Three Models for the Description of Language.* IRE Transactions on Information Theory 2 (1956): 113–124.
+- Kleene, S. C. *Representation of Events in Nerve Nets and Finite Automata.* In Shannon, C. E. & McCarthy, J. (eds.), *Automata Studies*, Princeton University Press (1956): 3–42.
 - Rabin, M. O. & Scott, D. *Finite Automata and Their Decision Problems.* IBM Journal of Research and Development 3 (1959): 114–125.
+- Myhill, J. *Finite Automata and the Representation of Events.* WADC Technical Report 57-624 (1957); Nerode, A. *Linear Automaton Transformations.* Proceedings of the AMS 9 (1958): 541–544.
+- Büchi, J. R. *Weak Second-Order Arithmetic and Finite Automata.* Zeitschrift für Mathematische Logik und Grundlagen der Mathematik 6 (1960): 66–92.
+- Bar-Hillel, Y., Perles, M. & Shamir, E. *On Formal Properties of Simple Phrase Structure Grammars.* Zeitschrift für Phonetik, Sprachwissenschaft und Kommunikationsforschung 14 (1961): 143–172.
+- Thompson, K. *Programming Techniques: Regular Expression Search Algorithm.* Communications of the ACM 11(6) (1968): 419–422.
+- Bryant, R. E. *Graph-Based Algorithms for Boolean Function Manipulation.* IEEE Transactions on Computers C-35(8) (1986): 677–691.
 - Hopcroft, J. E., Motwani, R., & Ullman, J. D. *Introduction to Automata Theory, Languages, and Computation.* 3rd ed. Pearson (2006). （该领域标准教材）
 - Sipser, M. *Introduction to the Theory of Computation.* 3rd ed. Cengage Learning (2012). （第一至三章）
 - Shieber, S. M. *Evidence Against the Context-Freeness of Natural Language.* Linguistics and Philosophy 8 (1985): 333–343.

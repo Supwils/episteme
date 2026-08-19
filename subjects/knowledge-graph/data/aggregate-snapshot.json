@@ -6,8 +6,8 @@
     "inferredBranchCount": 2807,
     "maximumDistance": 4,
     "ambiguousTargetCount": 1899,
-    "maximumCandidateCount": 45,
-    "confidenceCounts": { "curated": 245, "direct": 2186, "contextual": 567, "exploratory": 54 }
+    "maximumCandidateCount": 48,
+    "confidenceCounts": { "curated": 245, "direct": 2187, "contextual": 566, "exploratory": 54 }
   },
   "terrain": {
     "diagnosticCount": 21,
