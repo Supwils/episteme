@@ -15,7 +15,7 @@ export function DailyQuestionCard({ question }: DailyQuestionCardProps) {
       style={{
         background: "var(--color-bg-panel)",
         border: "1px solid var(--color-border-faint)",
-        boxShadow: "0 4px 24px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.03)",
+        boxShadow: "var(--card-shadow)",
       }}
       initial={reduce ? false : { opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}

@@ -34,8 +34,7 @@ const SCENARIO: ScenarioData = {
     },
     optionB: {
       label: "方案 B",
-      description:
-        "有 1/3 的概率救活全部 600 人，有 2/3 的概率一个人也救不活。",
+      description: "有 1/3 的概率救活全部 600 人，有 2/3 的概率一个人也救不活。",
     },
   },
   lossFrame: {
@@ -45,8 +44,7 @@ const SCENARIO: ScenarioData = {
     },
     optionB: {
       label: "方案 D",
-      description:
-        "有 1/3 的概率无人死亡，有 2/3 的概率 600 人全部死亡。",
+      description: "有 1/3 的概率无人死亡，有 2/3 的概率 600 人全部死亡。",
     },
   },
   reference: "Tversky & Kahneman, 1981 — The Framing of Decisions",
@@ -88,14 +86,12 @@ function OptionCard({
       transition={{ duration: reduce ? 0 : 0.35, delay, ease: PRODUCT_EASE }}
       className={`group relative w-full border p-5 text-left transition-all duration-300 ${
         isSelected
-          ? "border-current bg-white/5"
+          ? "bg-bg-elevated border-current"
           : "border-border-faint bg-bg-near hover:border-fg-disabled/30 hover:bg-bg-elevated"
       }`}
       style={{
         borderColor: isSelected ? accentColor : undefined,
-        boxShadow: isSelected
-          ? `0 0 20px ${hexToRgba(accentColor, 0.15)}`
-          : undefined,
+        boxShadow: isSelected ? `0 0 20px ${hexToRgba(accentColor, 0.15)}` : undefined,
       }}
       aria-pressed={isSelected}
     >
@@ -117,9 +113,7 @@ function OptionCard({
           </motion.span>
         )}
       </div>
-      <p className="text-fg-secondary text-sm leading-relaxed">
-        {option.description}
-      </p>
+      <p className="text-fg-secondary text-sm leading-relaxed">{option.description}</p>
       <span
         className="absolute bottom-0 left-0 h-[2px] w-0 transition-all duration-500 group-hover:w-full"
         style={{ backgroundColor: accentColor }}
@@ -129,13 +123,7 @@ function OptionCard({
   );
 }
 
-function ResultComparison({
-  frame,
-  userChoice,
-}: {
-  frame: Frame;
-  userChoice: Choice;
-}) {
+function ResultComparison({ frame, userChoice }: { frame: Frame; userChoice: Choice }) {
   const reduce = useReducedMotion();
   const results = FRAMING_STUDY_RESULTS[frame];
   const accentColor = frame === "gain" ? "#22c55e" : "#ef4444";
@@ -152,13 +140,8 @@ function ResultComparison({
       </p>
 
       <div className="mb-3 flex items-center gap-2">
-        <span className="text-fg-secondary text-xs">
-          你的选择：
-        </span>
-        <span
-          className="font-mono text-xs font-bold"
-          style={{ color: accentColor }}
-        >
+        <span className="text-fg-secondary text-xs">你的选择：</span>
+        <span className="font-mono text-xs font-bold" style={{ color: accentColor }}>
           {frame === "gain"
             ? userChoice === "A"
               ? "方案 A（确定救 200 人）"
@@ -183,9 +166,7 @@ function ResultComparison({
           },
         ].map((bar) => (
           <div key={bar.label} className="flex items-center gap-3">
-            <span className="text-fg-muted w-16 font-mono text-[10px]">
-              {bar.label}
-            </span>
+            <span className="text-fg-muted w-16 font-mono text-[10px]">{bar.label}</span>
             <div className="bg-bg-elevated h-4 flex-1 overflow-hidden rounded-sm">
               <motion.div
                 className="flex h-full items-center justify-end rounded-sm pr-2"
@@ -196,7 +177,7 @@ function ResultComparison({
                 animate={{ width: `${bar.value}%` }}
                 transition={{ duration: reduce ? 0 : 0.8, ease: PRODUCT_EASE }}
               >
-                <span className="font-mono text-[10px] font-bold text-white">
+                <span className="text-fg-primary font-mono text-[10px] font-bold">
                   {bar.value}%
                 </span>
               </motion.div>
@@ -209,8 +190,7 @@ function ResultComparison({
       </div>
 
       <p className="text-fg-muted mt-3 text-xs">
-        在获益框架下，{results.A}% 的人选择确定方案；在损失框架下，{results.B}%
-        的人选择冒险方案。
+        在获益框架下，{results.A}% 的人选择确定方案；在损失框架下，{results.B}% 的人选择冒险方案。
       </p>
     </motion.div>
   );
@@ -232,17 +212,14 @@ export default function DecisionMatrix() {
         setLossChoice(choice);
       }
     },
-    [currentFrame],
+    [currentFrame]
   );
 
   const bothFramesAnswered = gainChoice !== null && lossChoice !== null;
 
-  const handleFrameSwitch = useCallback(
-    (frame: Frame) => {
-      setCurrentFrame(frame);
-    },
-    [],
-  );
+  const handleFrameSwitch = useCallback((frame: Frame) => {
+    setCurrentFrame(frame);
+  }, []);
 
   const handleShowResults = useCallback(() => {
     setShowBothResults(true);
@@ -258,8 +235,7 @@ export default function DecisionMatrix() {
   const framingEffect = useMemo(() => {
     if (!bothFramesAnswered) return null;
     const sameType =
-      (gainChoice === "A" && lossChoice === "A") ||
-      (gainChoice === "B" && lossChoice === "B");
+      (gainChoice === "A" && lossChoice === "A") || (gainChoice === "B" && lossChoice === "B");
     return {
       consistent: sameType,
       message: sameType
@@ -272,11 +248,9 @@ export default function DecisionMatrix() {
     <div className="w-full">
       <div className="mb-4">
         <p className="text-fg-muted font-mono text-[10px] tracking-[0.42em] uppercase">
-          framing effect demonstration
+          框架效应演示
         </p>
-        <h2 className="font-display text-fg-primary mt-1 text-lg font-semibold">
-          决策框架效应
-        </h2>
+        <h2 className="font-display text-fg-primary mt-1 text-lg font-semibold">决策框架效应</h2>
       </div>
 
       <div className="border-border-faint bg-bg-panel border p-6 backdrop-blur-md">
@@ -287,16 +261,13 @@ export default function DecisionMatrix() {
               {SCENARIO.titleEn}
             </span>
           </h3>
-          <p className="text-fg-secondary text-sm leading-relaxed">
-            {SCENARIO.description}
-          </p>
+          <p className="text-fg-secondary text-sm leading-relaxed">{SCENARIO.description}</p>
         </div>
 
         <div className="mb-4 flex gap-2">
           {(["gain", "loss"] as const).map((frame) => {
             const isActive = currentFrame === frame;
-            const isAnswered =
-              frame === "gain" ? gainChoice !== null : lossChoice !== null;
+            const isAnswered = frame === "gain" ? gainChoice !== null : lossChoice !== null;
             const color = frame === "gain" ? "#22c55e" : "#ef4444";
 
             return (
@@ -304,9 +275,7 @@ export default function DecisionMatrix() {
                 key={frame}
                 onClick={() => handleFrameSwitch(frame)}
                 className={`flex items-center gap-2 border px-4 py-2 font-mono text-[11px] tracking-[0.18em] uppercase transition-all ${
-                  isActive
-                    ? "bg-white/5"
-                    : "border-border-faint hover:border-fg-disabled/30"
+                  isActive ? "bg-bg-elevated" : "border-border-faint hover:border-fg-disabled/30"
                 }`}
                 style={{
                   borderColor: isActive ? hexToRgba(color, 0.5) : undefined,
@@ -316,7 +285,7 @@ export default function DecisionMatrix() {
                 <span
                   className="h-2 w-2 rounded-full"
                   style={{
-                    backgroundColor: isAnswered ? color : "rgba(255,255,255,0.1)",
+                    backgroundColor: isAnswered ? color : "var(--color-fg-disabled)",
                   }}
                 />
                 {frame === "gain" ? "获益框架" : "损失框架"}
@@ -347,9 +316,7 @@ export default function DecisionMatrix() {
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               <OptionCard
                 option={
-                  currentFrame === "gain"
-                    ? SCENARIO.gainFrame.optionA
-                    : SCENARIO.lossFrame.optionA
+                  currentFrame === "gain" ? SCENARIO.gainFrame.optionA : SCENARIO.lossFrame.optionA
                 }
                 frame={currentFrame}
                 isSelected={currentChoice === "A"}
@@ -358,9 +325,7 @@ export default function DecisionMatrix() {
               />
               <OptionCard
                 option={
-                  currentFrame === "gain"
-                    ? SCENARIO.gainFrame.optionB
-                    : SCENARIO.lossFrame.optionB
+                  currentFrame === "gain" ? SCENARIO.gainFrame.optionB : SCENARIO.lossFrame.optionB
                 }
                 frame={currentFrame}
                 isSelected={currentChoice === "B"}
@@ -369,12 +334,7 @@ export default function DecisionMatrix() {
               />
             </div>
 
-            {currentChoice && (
-              <ResultComparison
-                frame={currentFrame}
-                userChoice={currentChoice}
-              />
-            )}
+            {currentChoice && <ResultComparison frame={currentFrame} userChoice={currentChoice} />}
           </motion.div>
         </AnimatePresence>
 
@@ -410,30 +370,32 @@ export default function DecisionMatrix() {
 
                 <div className="mb-4 grid grid-cols-2 gap-4">
                   <div className="border-border-faint bg-bg-near border p-3">
-                    <p className="mb-1 font-mono text-[10px] tracking-[0.18em]" style={{ color: "#22c55e" }}>
+                    <p
+                      className="mb-1 font-mono text-[10px] tracking-[0.18em]"
+                      style={{ color: "#22c55e" }}
+                    >
                       获益框架
                     </p>
                     <p className="text-fg-primary text-sm font-medium">
-                      你选择了{" "}
-                      {gainChoice === "A" ? "确定救 200 人" : "冒险赌一把"}
+                      你选择了 {gainChoice === "A" ? "确定救 200 人" : "冒险赌一把"}
                     </p>
                   </div>
                   <div className="border-border-faint bg-bg-near border p-3">
-                    <p className="mb-1 font-mono text-[10px] tracking-[0.18em]" style={{ color: "#ef4444" }}>
+                    <p
+                      className="mb-1 font-mono text-[10px] tracking-[0.18em]"
+                      style={{ color: "#ef4444" }}
+                    >
                       损失框架
                     </p>
                     <p className="text-fg-primary text-sm font-medium">
-                      你选择了{" "}
-                      {lossChoice === "A" ? "确定死 400 人" : "冒险赌一把"}
+                      你选择了 {lossChoice === "A" ? "确定死 400 人" : "冒险赌一把"}
                     </p>
                   </div>
                 </div>
 
                 <div
                   className={`mb-4 border-l-2 py-2 pl-3 text-sm leading-relaxed ${
-                    framingEffect.consistent
-                      ? "border-success/50"
-                      : "border-warning/50"
+                    framingEffect.consistent ? "border-success/50" : "border-warning/50"
                   }`}
                   style={{ color: "var(--color-fg-secondary)" }}
                 >
@@ -448,8 +410,11 @@ export default function DecisionMatrix() {
                     注意这两个问题的<strong className="text-fg-primary">期望值完全相同</strong>
                     ：确定救 200 人 = 确定死 400 人（因为总共 600 人）。
                     但当信息以&ldquo;获益&rdquo;（存活人数）方式呈现时，人们倾向于规避风险；
-                    以&ldquo;损失&rdquo;（死亡人数）方式呈现时，人们倾向于冒险。
-                    这说明<strong className="text-fg-primary">人类并非理性决策者——我们的选择取决于问题如何被&ldquo;框架&rdquo;</strong>。
+                    以&ldquo;损失&rdquo;（死亡人数）方式呈现时，人们倾向于冒险。 这说明
+                    <strong className="text-fg-primary">
+                      人类并非理性决策者——我们的选择取决于问题如何被&ldquo;框架&rdquo;
+                    </strong>
+                    。
                   </p>
                 </div>
               </div>
@@ -460,8 +425,8 @@ export default function DecisionMatrix() {
                 </h4>
                 <p className="text-fg-secondary text-sm leading-relaxed">
                   <strong className="text-fg-primary">前景理论</strong>
-                  （Prospect Theory, Kahneman & Tversky, 1979）揭示了人类决策中的
-                  两个关键特征：<strong className="text-fg-primary">损失厌恶</strong>
+                  （Prospect Theory, Kahneman & Tversky, 1979）揭示了人类决策中的 两个关键特征：
+                  <strong className="text-fg-primary">损失厌恶</strong>
                   （损失的痛苦约是同等收益快乐的 2 倍）和
                   <strong className="text-fg-primary">参考点依赖</strong>
                   （决策基于变化而非绝对水平）。

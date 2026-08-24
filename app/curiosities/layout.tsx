@@ -46,7 +46,7 @@ export default function CuriositiesLayout({ children }: { children: React.ReactN
       </main>
       <footer className="border-border-faint border-t px-4 py-6 sm:px-6">
         <span className="text-fg-muted font-mono text-[10px] tracking-[0.32em] uppercase">
-          curiosities · did you know
+          原来如此
         </span>
       </footer>
     </div>

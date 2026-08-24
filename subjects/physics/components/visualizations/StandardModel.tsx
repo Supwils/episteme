@@ -105,7 +105,8 @@ const LEPTONS: Particle[] = [
     mass: "0.511 MeV/c²",
     charge: "-1",
     spin: "1/2",
-    description: "最轻的带电粒子，围绕原子核运动构成原子的电子云。化学键的本质就是电子的共享与转移。",
+    description:
+      "最轻的带电粒子，围绕原子核运动构成原子的电子云。化学键的本质就是电子的共享与转移。",
     antiparticle: "正电子 (e⁺)",
   },
   {
@@ -220,7 +221,8 @@ const BOSONS: Particle[] = [
     mass: "125.3 GeV/c²",
     charge: "0",
     spin: "0",
-    description: "希格斯场的量子激发，赋予其他基本粒子质量。2012年在CERN的LHC被发现，是标准模型最后一块拼图。",
+    description:
+      "希格斯场的量子激发，赋予其他基本粒子质量。2012年在CERN的LHC被发现，是标准模型最后一块拼图。",
   },
   {
     id: "gluon-8",
@@ -236,7 +238,10 @@ const BOSONS: Particle[] = [
 
 const ALL_PARTICLES = [...QUARKS, ...LEPTONS, ...BOSONS];
 
-const TYPE_CONFIG: Record<ParticleType, { label: string; color: string; bg: string; border: string; glow: string }> = {
+const TYPE_CONFIG: Record<
+  ParticleType,
+  { label: string; color: string; bg: string; border: string; glow: string }
+> = {
   quark: {
     label: "夸克",
     color: "text-red-400",
@@ -277,9 +282,9 @@ function ParticleCard({
     <motion.article
       layout={!reducedMotion}
       className={cn(
-        "relative flex flex-col border p-3 cursor-pointer transition-colors duration-200",
+        "relative flex cursor-pointer flex-col border p-3 transition-colors duration-200",
         config.border,
-        isExpanded ? cn(config.bg, "shadow-lg", config.glow) : "hover:bg-white/5",
+        isExpanded ? cn(config.bg, "shadow-lg", config.glow) : "hover:bg-bg-elevated"
       )}
       onClick={onToggle}
       onKeyDown={(e) => {
@@ -298,28 +303,19 @@ function ParticleCard({
       transition={{ duration: reducedMotion ? 0 : 0.2 }}
     >
       <div className="flex items-center justify-between gap-2">
-        <div className="flex items-center gap-2 min-w-0">
-          <span
-            className={cn(
-              "font-mono text-xl font-bold leading-none",
-              config.color,
-            )}
-          >
+        <div className="flex min-w-0 items-center gap-2">
+          <span className={cn("font-mono text-xl leading-none font-bold", config.color)}>
             {particle.symbol}
           </span>
           <div className="min-w-0">
-            <p className="text-fg-primary text-sm font-medium truncate">
-              {particle.name}
-            </p>
+            <p className="text-fg-primary truncate text-sm font-medium">{particle.name}</p>
             <p className="text-fg-muted font-mono text-[10px] tracking-wider uppercase">
               {particle.id.replace(/-/g, " ")}
             </p>
           </div>
         </div>
         {particle.generation !== undefined && (
-          <span className="text-fg-disabled font-mono text-[10px]">
-            G{particle.generation}
-          </span>
+          <span className="text-fg-disabled font-mono text-[10px]">G{particle.generation}</span>
         )}
       </div>
 
@@ -341,9 +337,7 @@ function ParticleCard({
                 <PropertyBadge label="电荷" value={particle.charge} />
                 <PropertyBadge label="自旋" value={particle.spin} />
               </div>
-              <p className="text-fg-secondary text-xs leading-relaxed">
-                {particle.description}
-              </p>
+              <p className="text-fg-secondary text-xs leading-relaxed">{particle.description}</p>
               {particle.antiparticle && (
                 <p className="text-fg-muted text-[11px]">
                   <span className="text-fg-disabled">反粒子：</span>
@@ -364,23 +358,17 @@ function PropertyBadge({ label, value }: { label: string; value: string }) {
       <span className="text-fg-disabled font-mono text-[9px] tracking-wider uppercase">
         {label}
       </span>
-      <span className="text-fg-primary font-mono text-[11px] leading-tight">
-        {value}
-      </span>
+      <span className="text-fg-primary font-mono text-[11px] leading-tight">{value}</span>
     </div>
   );
 }
 
 function SectionHeader({ label, color, count }: { label: string; color: string; count: number }) {
   return (
-    <div className="flex items-center gap-2 mb-2">
-      <span className={cn("font-mono text-xs tracking-widest uppercase", color)}>
-        {label}
-      </span>
-      <span className="text-fg-disabled font-mono text-[10px]">
-        ({count})
-      </span>
-      <span className="flex-1 h-px bg-white/10" />
+    <div className="mb-2 flex items-center gap-2">
+      <span className={cn("font-mono text-xs tracking-widest uppercase", color)}>{label}</span>
+      <span className="text-fg-disabled font-mono text-[10px]">({count})</span>
+      <span className="bg-border-faint h-px flex-1" />
     </div>
   );
 }
@@ -390,12 +378,9 @@ export function StandardModel() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [showAntimatter, setShowAntimatter] = useState(false);
 
-  const toggleParticle = useCallback(
-    (id: string) => {
-      setExpandedId((prev) => (prev === id ? null : id));
-    },
-    [],
-  );
+  const toggleParticle = useCallback((id: string) => {
+    setExpandedId((prev) => (prev === id ? null : id));
+  }, []);
 
   const filterParticles = useCallback(
     (particles: Particle[]) => {
@@ -404,7 +389,7 @@ export function StandardModel() {
       }
       return particles;
     },
-    [showAntimatter],
+    [showAntimatter]
   );
 
   const containerVariants = {
@@ -424,28 +409,26 @@ export function StandardModel() {
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-6">
-      <div className="flex items-center justify-between gap-4 flex-wrap">
+    <div className="mx-auto w-full max-w-5xl space-y-6">
+      <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <h2 className="text-fg-primary text-xl font-medium">标准模型</h2>
-          <p className="text-fg-muted text-sm mt-1">
-            基本粒子与基本相互作用的标准理论框架
-          </p>
+          <p className="text-fg-muted mt-1 text-sm">基本粒子与基本相互作用的标准理论框架</p>
         </div>
         <button
           onClick={() => setShowAntimatter((prev) => !prev)}
           className={cn(
-            "px-3 py-1.5 font-mono text-xs tracking-wider border rounded transition-colors",
+            "rounded border px-3 py-1.5 font-mono text-xs tracking-wider transition-colors",
             showAntimatter
               ? "border-violet-500/50 bg-violet-500/15 text-violet-300"
-              : "border-white/20 text-fg-muted hover:bg-white/5",
+              : "border-border-subtle text-fg-muted hover:bg-bg-elevated"
           )}
         >
           {showAntimatter ? "显示反粒子" : "显示全部粒子"}
         </button>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         <motion.section
           variants={containerVariants}
           initial="hidden"
@@ -510,13 +493,13 @@ export function StandardModel() {
         </motion.section>
       </div>
 
-      <div className="flex items-center gap-4 pt-2 border-t border-white/10">
+      <div className="flex items-center gap-4 border-t border-white/10 pt-2">
         <span className="text-fg-disabled font-mono text-[10px] tracking-wider uppercase">
           图例
         </span>
         {Object.entries(TYPE_CONFIG).map(([type, cfg]) => (
           <div key={type} className="flex items-center gap-1.5">
-            <span className={cn("w-2 h-2 rounded-full", cfg.bg, cfg.border, "border")} />
+            <span className={cn("h-2 w-2 rounded-full", cfg.bg, cfg.border, "border")} />
             <span className={cn("font-mono text-[11px]", cfg.color)}>{cfg.label}</span>
           </div>
         ))}

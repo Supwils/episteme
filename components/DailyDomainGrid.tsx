@@ -135,6 +135,42 @@ const DOMAIN_CONFIGS = [
     border: "rgba(122,143,90,0.18)",
     url: "/sociology",
   },
+  {
+    key: "linguistics" as const,
+    icon: "💬",
+    label: "语言学",
+    color: "#6fa8c7",
+    bg: "rgba(111,168,199,0.08)",
+    border: "rgba(111,168,199,0.18)",
+    url: "/linguistics",
+  },
+  {
+    key: "law" as const,
+    icon: "📑",
+    label: "法学",
+    color: "#a8843c",
+    bg: "rgba(168,132,60,0.08)",
+    border: "rgba(168,132,60,0.18)",
+    url: "/law",
+  },
+  {
+    key: "arts" as const,
+    icon: "🎨",
+    label: "艺术",
+    color: "#b0785a",
+    bg: "rgba(176,120,90,0.08)",
+    border: "rgba(176,120,90,0.18)",
+    url: "/arts",
+  },
+  {
+    key: "engineering" as const,
+    icon: "🔧",
+    label: "工程",
+    color: "#8a919e",
+    bg: "rgba(138,145,158,0.08)",
+    border: "rgba(138,145,158,0.18)",
+    url: "/engineering",
+  },
 ] as const;
 
 const containerVariants = {

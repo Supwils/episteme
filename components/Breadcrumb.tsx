@@ -45,7 +45,7 @@ export default function Breadcrumb(props: BreadcrumbProps) {
   if ("items" in props && props.items) {
     return (
       <nav
-        aria-label="breadcrumb"
+        aria-label="当前位置"
         className="text-fg-secondary mb-8 flex items-center gap-1.5 overflow-hidden font-mono text-[10px] tracking-[0.18em] uppercase"
       >
         <Link
@@ -86,7 +86,7 @@ export default function Breadcrumb(props: BreadcrumbProps) {
 
   return (
     <nav
-      aria-label="breadcrumb"
+      aria-label="当前位置"
       className="text-fg-secondary mb-8 flex items-center gap-1.5 overflow-hidden font-mono text-[10px] tracking-[0.18em] uppercase"
     >
       <Link

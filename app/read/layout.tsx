@@ -46,7 +46,7 @@ export default function ReadLayout({ children }: { children: React.ReactNode }) 
       </main>
       <footer className="border-border-faint border-t px-4 py-6 sm:px-6">
         <span className="text-fg-muted font-mono text-[10px] tracking-[0.32em] uppercase">
-          reading paths · read it like a book
+          像读一本书
         </span>
       </footer>
     </div>

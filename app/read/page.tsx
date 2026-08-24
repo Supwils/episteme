@@ -8,7 +8,7 @@ export default function ReadIndexPage() {
     <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
       <header className="mb-12 max-w-2xl">
         <span className="text-fg-muted font-mono text-[11px] tracking-[0.32em] uppercase">
-          reading paths
+          阅读路线
         </span>
         <h1 className="font-display text-fg-primary mt-3 text-4xl font-semibold sm:text-5xl">
           像读一本书
@@ -20,6 +20,14 @@ export default function ReadIndexPage() {
         <p className="text-fg-muted mt-3 font-mono text-[12px]">
           {READING_PATHS.length} 条路线 · {totalReadingSteps()} 章
         </p>
+        <div className="mt-5 flex flex-wrap gap-3">
+          <Link
+            href="/random"
+            className="border-border-subtle text-fg-secondary hover:border-fg-disabled hover:text-fg-primary inline-flex items-center gap-2 border px-4 py-2 font-mono text-[11px] tracking-[0.14em] uppercase transition-colors"
+          >
+            随机一篇文章
+          </Link>
+        </div>
       </header>
 
       <div className="grid gap-4 sm:grid-cols-2">
@@ -51,6 +59,22 @@ export default function ReadIndexPage() {
             <p className="text-fg-secondary mt-3 line-clamp-3 text-[13px] leading-relaxed">
               {path.description}
             </p>
+            {/* Mini storyboard strip — Shape-of-World style chapter beats */}
+            <div className="mt-4 flex items-center gap-1.5" aria-hidden>
+              {path.steps.slice(0, 7).map((step, i) => (
+                <span
+                  key={step.href}
+                  className="bg-bg-near border-border-faint flex h-7 min-w-0 flex-1 items-center justify-center border font-mono text-[9px]"
+                  style={{ color: path.accent, borderColor: `${path.accent}40` }}
+                  title={step.title}
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              ))}
+              {path.steps.length > 7 ? (
+                <span className="text-fg-muted font-mono text-[9px]">+{path.steps.length - 7}</span>
+              ) : null}
+            </div>
             <div className="text-fg-muted mt-4 flex items-center justify-between font-mono text-[11px]">
               <span>{path.steps.length} 章</span>
               <span

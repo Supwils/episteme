@@ -122,6 +122,8 @@ export function DomainArticle({
         title={article.title}
         titleEn={article.titleEn || undefined}
         content={article.content}
+        lede={article.excerpt || undefined}
+        takeaway={article.keyInsight}
         tags={article.tags}
         prev={prev ? { href: `/${domain}/${section}/${prev.slug}`, title: prev.title } : null}
         next={next ? { href: `/${domain}/${section}/${next.slug}`, title: next.title } : null}

@@ -7,10 +7,18 @@ import { getConceptSlugs as getPhiloConceptSlugs } from "@/lib/concepts";
 import { getDialogueSlugs as getPhiloDialogueSlugs } from "@/lib/dialogues";
 import { getMathParadoxSlugs } from "@/subjects/mathematics/lib/paradoxes";
 import { getDialogueSlugs as getLifeDialogueSlugs } from "@/subjects/life-science/lib/dialogues";
+import { getAllSpecies } from "@/subjects/life-science/lib/species";
+import { getAllScientists } from "@/subjects/life-science/lib/scientists";
+import { getAllExtinctions } from "@/subjects/life-science/lib/extinctions";
+import { getAllTimelineEvents } from "@/subjects/life-science/lib/timeline-events";
+import { getAllDomains as getLifeTreeDomains } from "@/subjects/life-science/lib/tree-data";
+import { readdirSync } from "node:fs";
+import { join } from "node:path";
 import { getAllArticles } from "@/lib/knowledge-base";
 import { universePhysicsKB } from "@/lib/universe-physics-kb";
 import { cosmologyKB } from "@/lib/cosmology-kb";
 import { mathematicsKB } from "@/lib/mathematics-kb";
+import { lifeScienceKB } from "@/lib/life-science-kb";
 import { universePhysicsDialogues } from "@/lib/universe-physics-dialogues";
 import { cosmologyDialogues } from "@/lib/cosmology-dialogues";
 import { SITE_URL } from "@/lib/constants";
@@ -26,6 +34,7 @@ import {
   getSchoolSlugs as getEconSchoolSlugs,
   getDebateSlugs as getEconDebateSlugs,
   getDialogueSlugs as getEconDialogueSlugs,
+  getKnowledgeBaseSlugs as getEconKnowledgeBaseSlugs,
 } from "@/subjects/economics/lib/mdx";
 import {
   getTheoristSlugs,
@@ -47,10 +56,14 @@ const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: "", priority: 1 },
   // Daily
   { path: "/daily", priority: 0.8 },
+  { path: "/search", priority: 0.8 },
   // Reading paths
   { path: "/read", priority: 0.7 },
   // Curiosities
   { path: "/curiosities", priority: 0.7 },
+  // Molecule gallery
+  { path: "/molecules", priority: 0.7 },
+  { path: "/random", priority: 0.5 },
   // Universe Physics
   { path: "/universe-physics", priority: 0.8 },
   { path: "/universe-physics/universe", priority: 0.8 },
@@ -90,6 +103,9 @@ const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: "/human-history/atlas", priority: 0.7 },
   { path: "/human-history/graph", priority: 0.7 },
   { path: "/human-history/figures", priority: 0.7 },
+  { path: "/human-history/events", priority: 0.7 },
+  { path: "/human-history/eras", priority: 0.7 },
+  { path: "/human-history/civilizations", priority: 0.7 },
   { path: "/human-history/map", priority: 0.7 },
   { path: "/human-history/scholarly", priority: 0.7 },
   { path: "/human-history/lessons", priority: 0.7 },
@@ -101,10 +117,16 @@ const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: "/philosophy/schools", priority: 0.7 },
   { path: "/philosophy/isms", priority: 0.7 },
   { path: "/philosophy/concepts", priority: 0.7 },
+  { path: "/philosophy/concepts/map", priority: 0.6 },
+  { path: "/philosophy/concepts/quiz", priority: 0.6 },
+  { path: "/philosophy/concepts/dialectic-triangle", priority: 0.6 },
+  { path: "/philosophy/concepts/ethics-spectrum", priority: 0.6 },
+  { path: "/philosophy/concepts/virtue-radar", priority: 0.6 },
   { path: "/philosophy/dialogues", priority: 0.7 },
   { path: "/philosophy/experiments", priority: 0.7 },
   { path: "/philosophy/questions", priority: 0.7 },
   { path: "/philosophy/timeline", priority: 0.7 },
+  { path: "/philosophy/tree", priority: 0.7 },
   // Life Science
   { path: "/life-science", priority: 0.8 },
   { path: "/life-science/tree", priority: 0.7 },
@@ -112,12 +134,18 @@ const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: "/life-science/scientists", priority: 0.7 },
   { path: "/life-science/extinctions", priority: 0.7 },
   { path: "/life-science/timeline", priority: 0.7 },
+  { path: "/life-science/food-web", priority: 0.7 },
+  { path: "/life-science/knowledge-base", priority: 0.7 },
   { path: "/life-science/dialogues", priority: 0.7 },
   // Mathematics
   { path: "/mathematics", priority: 0.8 },
   { path: "/mathematics/mathematicians", priority: 0.7 },
   { path: "/mathematics/theorems", priority: 0.7 },
   { path: "/mathematics/concepts", priority: 0.7 },
+  { path: "/mathematics/concepts/probability", priority: 0.6 },
+  { path: "/mathematics/concepts/matrix-transformer", priority: 0.6 },
+  { path: "/mathematics/concepts/number-line", priority: 0.6 },
+  { path: "/mathematics/distributions", priority: 0.7 },
   { path: "/mathematics/paradoxes", priority: 0.7 },
   { path: "/mathematics/dialogues", priority: 0.7 },
   { path: "/mathematics/knowledge-base", priority: 0.7 },
@@ -126,6 +154,7 @@ const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: "/medicine/adolescent-service-lab", priority: 0.7 },
   { path: "/medicine/mental-health-access", priority: 0.7 },
   { path: "/medicine/priority-setting", priority: 0.7 },
+  { path: "/medicine/simulator", priority: 0.7 },
   // Knowledge Graph
   { path: "/knowledge-graph", priority: 0.7 },
   // Cosmology
@@ -140,6 +169,7 @@ const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: "/cosmology/universe/solar-system", priority: 0.6 },
   { path: "/cosmology/universe/earth", priority: 0.6 },
   { path: "/cosmology/timeline", priority: 0.7 },
+  { path: "/cosmology/stellar-evolution", priority: 0.7 },
   { path: "/cosmology/knowledge-base", priority: 0.7 },
   { path: "/cosmology/dialogues", priority: 0.7 },
   // Economics
@@ -151,6 +181,7 @@ const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: "/economics/schools", priority: 0.7 },
   { path: "/economics/debates", priority: 0.7 },
   { path: "/economics/dialogues", priority: 0.7 },
+  { path: "/economics/knowledge-base", priority: 0.7 },
   { path: "/economics/simulations", priority: 0.7 },
   // Psychology
   { path: "/psychology", priority: 0.8 },
@@ -222,7 +253,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const knowledgeEntries: MetadataRoute.Sitemap = getAllArticles().map((article) => ({
-    url: `${SITE_URL}/human-history/knowledge/${article.slug}`,
+    url: `${SITE_URL}/human-history/knowledge/${encodeURIComponent(article.slug)}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
@@ -299,7 +330,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const mathKnowledgeBaseEntries: MetadataRoute.Sitemap = mathematicsKB.getSlugs().map((slug) => ({
-    url: `${SITE_URL}/mathematics/knowledge-base/${slug}`,
+    url: `${SITE_URL}/mathematics/knowledge-base/${encodeURIComponent(slug)}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  const lifeScienceKbEntries: MetadataRoute.Sitemap = lifeScienceKB.getSlugs().map((slug) => ({
+    url: `${SITE_URL}/life-science/knowledge-base/${encodeURIComponent(slug)}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
@@ -307,6 +345,46 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const lifeDialogueEntries: MetadataRoute.Sitemap = getLifeDialogueSlugs().map((slug) => ({
     url: `${SITE_URL}/life-science/dialogues/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  const speciesMdxSlugs = readdirSync(join(process.cwd(), "content/life-science/species"))
+    .filter((file) => file.endsWith(".mdx") || file.endsWith(".md"))
+    .map((file) => file.replace(/\.mdx?$/, ""));
+  const lifeSpeciesEntries: MetadataRoute.Sitemap = [
+    ...new Set([...getAllSpecies().map((s) => s.id), ...speciesMdxSlugs]),
+  ].map((slug) => ({
+    url: `${SITE_URL}/life-science/species/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  const lifeScientistEntries: MetadataRoute.Sitemap = getAllScientists().map((s) => ({
+    url: `${SITE_URL}/life-science/scientists/${s.id}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  const lifeExtinctionEntries: MetadataRoute.Sitemap = getAllExtinctions().map((e) => ({
+    url: `${SITE_URL}/life-science/extinctions/${e.id}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  const lifeTimelineEntries: MetadataRoute.Sitemap = getAllTimelineEvents().map((e) => ({
+    url: `${SITE_URL}/life-science/timeline/${e.id}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  const lifeTreeDomainEntries: MetadataRoute.Sitemap = getLifeTreeDomains().map((d) => ({
+    url: `${SITE_URL}/life-science/tree/${d.id}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
@@ -363,6 +441,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  const econKnowledgeBaseEntries: MetadataRoute.Sitemap = getEconKnowledgeBaseSlugs().map(
+    (slug) => ({
+      url: `${SITE_URL}/economics/knowledge-base/${encodeURIComponent(slug)}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })
+  );
+
   // ── Psychology dynamic entries ──────────────────────────────────────
 
   const theoristEntries: MetadataRoute.Sitemap = getTheoristSlugs().map((slug) => ({
@@ -415,7 +502,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const psyKnowledgeBaseEntries: MetadataRoute.Sitemap = getPsyKnowledgeBaseSlugs().map((slug) => ({
-    url: `${SITE_URL}/psychology/knowledge-base/${slug}`,
+    url: `${SITE_URL}/psychology/knowledge-base/${encodeURIComponent(slug)}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
@@ -438,7 +525,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
       for (const slug of createKnowledgeSection(config.domain, section.key).getSlugs()) {
         newDomainEntries.push({
-          url: `${SITE_URL}/${config.domain}/${section.key}/${slug}`,
+          url: `${SITE_URL}/${config.domain}/${section.key}/${encodeURIComponent(slug)}`,
           lastModified: new Date(),
           changeFrequency: "monthly" as const,
           priority: 0.6,
@@ -458,7 +545,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
       for (const slug of createKnowledgeSection(config.domain, section.key).getSlugs()) {
         extensionEntries.push({
-          url: `${SITE_URL}/${config.domain}/${section.key}/${slug}`,
+          url: `${SITE_URL}/${config.domain}/${section.key}/${encodeURIComponent(slug)}`,
           lastModified: new Date(),
           changeFrequency: "monthly" as const,
           priority: 0.6,
@@ -477,7 +564,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
     for (const slug of createFrontier(domain).getSlugs()) {
       frontierEntries.push({
-        url: `${SITE_URL}/${domain}/frontier/${slug}`,
+        url: `${SITE_URL}/${domain}/frontier/${encodeURIComponent(slug)}`,
         lastModified: new Date(),
         changeFrequency: "monthly" as const,
         priority: 0.6,
@@ -526,7 +613,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...mathParadoxEntries,
     ...mathDialogueEntries,
     ...mathKnowledgeBaseEntries,
+    ...lifeScienceKbEntries,
     ...lifeDialogueEntries,
+    ...lifeSpeciesEntries,
+    ...lifeScientistEntries,
+    ...lifeExtinctionEntries,
+    ...lifeTimelineEntries,
+    ...lifeTreeDomainEntries,
     ...economistEntries,
     ...econTheoryEntries,
     ...econConceptEntries,
@@ -534,6 +627,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...econSchoolEntries,
     ...econDebateEntries,
     ...econDialogueEntries,
+    ...econKnowledgeBaseEntries,
     ...theoristEntries,
     ...psyExperimentEntries,
     ...phenomenonEntries,

@@ -8,7 +8,7 @@ import { COVERAGE_DOMAIN_COUNT } from "@/lib/knowledge-continuum-coverage-meta";
 import { SearchInput } from "./search/SearchInput";
 import { SearchHistory } from "./search/SearchHistory";
 import { SearchResults } from "./search/SearchResults";
-import { orderResultsForDisplay } from "./search/types";
+import { orderResultsForDisplay, SEARCH_NO_RESULTS_EXITS } from "./search/types";
 import { useKnowledgeSearch } from "./search/useKnowledgeSearch";
 
 const INPUT_DEBOUNCE_MS = 100;
@@ -106,6 +106,12 @@ export function GlobalSearch() {
           trackEvent({ type: "search", query: trimmed, resultCount: flatResults.length });
           setOpen(false);
           router.push(target.url);
+        } else if (!searching) {
+          e.preventDefault();
+          addToSearchHistory(trimmed);
+          trackEvent({ type: "search", query: trimmed, resultCount: 0 });
+          setOpen(false);
+          router.push(`/search?q=${encodeURIComponent(trimmed)}`);
         }
       } else {
         const term = history[activeIndex];
@@ -117,7 +123,17 @@ export function GlobalSearch() {
     }
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [open, flatResults, activeIndex, trimmed, walkLength, history, router, handleHistoryClick]);
+  }, [
+    open,
+    flatResults,
+    activeIndex,
+    trimmed,
+    walkLength,
+    history,
+    router,
+    handleHistoryClick,
+    searching,
+  ]);
 
   useEffect(() => {
     listRef.current?.querySelector('[data-active="true"]')?.scrollIntoView({ block: "nearest" });
@@ -188,6 +204,13 @@ export function GlobalSearch() {
               <span className="gs-empty-hint">
                 标题即时匹配，正文全文检索覆盖 {COVERAGE_DOMAIN_COUNT} 个学科的全部文章
               </span>
+              <span className="gs-empty-exits">
+                {SEARCH_NO_RESULTS_EXITS.map((exit) => (
+                  <a key={exit.href} className="gs-empty-exit" href={exit.href}>
+                    {exit.label}
+                  </a>
+                ))}
+              </span>
             </div>
           )}
 
@@ -211,6 +234,13 @@ export function GlobalSearch() {
             <div className="gs-empty">
               未找到「{trimmed.length > 40 ? `${trimmed.slice(0, 40)}…` : trimmed}」相关结果
               <span className="gs-empty-hint">试试更短的关键词，或直接输入记得的一句话</span>
+              <span className="gs-empty-exits">
+                {SEARCH_NO_RESULTS_EXITS.map((exit) => (
+                  <a key={exit.href} className="gs-empty-exit" href={exit.href}>
+                    {exit.label}
+                  </a>
+                ))}
+              </span>
             </div>
           )}
         </div>

@@ -13,13 +13,13 @@ export default function MoleculesPage() {
   return (
     <main className="mx-auto w-full max-w-5xl px-5 py-16 sm:px-8">
       <header className="mb-12">
-        <p className="mb-3 font-mono text-[11px] tracking-[0.3em] text-white/55 uppercase">
-          Molecule Gallery
+        <p className="text-fg-muted mb-3 font-mono text-[11px] tracking-[0.3em] uppercase">
+          真实结构
         </p>
         <h1 className="text-fg-primary mb-4 text-3xl font-bold sm:text-4xl">分子图鉴</h1>
-        <p className="max-w-2xl text-[15px] leading-relaxed text-white/60">
+        <p className="text-fg-secondary max-w-2xl text-[15px] leading-relaxed">
           这里的每一个分子都不是 AI 生成或艺术想象，而是科学家用 X 射线晶体学与冷冻电镜{" "}
-          <span className="text-white/80">真实测定</span>
+          <span className="text-fg-primary">真实测定</span>
           的三维坐标，来自{" "}
           <a
             href="https://www.rcsb.org"
@@ -31,7 +31,7 @@ export default function MoleculesPage() {
           </a>
           。点开任意一个，就能在浏览器里亲手旋转、缩放，看清生命与药物的分子机器到底长什么样。
         </p>
-        <p className="mt-3 max-w-2xl text-[12px] leading-relaxed text-white/55">
+        <p className="text-fg-muted mt-3 max-w-2xl text-[12px] leading-relaxed">
           性能说明：3D 渲染引擎（Mol*）仅在你点击「查看 3D 结构」时才按需加载，不影响页面打开速度。
         </p>
       </header>
@@ -53,14 +53,14 @@ export default function MoleculesPage() {
                   {MOLECULE_DOMAIN_LABEL[m.domain]}
                 </span>
                 <h2 className="text-fg-primary text-lg font-semibold">{m.title}</h2>
-                <span className="font-mono text-[11px] text-white/55">{m.titleEn}</span>
+                <span className="text-fg-muted font-mono text-[11px]">{m.titleEn}</span>
               </div>
 
               <MoleculeViewer pdbId={m.pdbId} title={m.title} accent={accent} />
 
-              <p className="mt-1 text-[13.5px] leading-relaxed text-white/65">{m.blurb}</p>
-              <p className="mt-2 text-[12.5px] leading-relaxed text-white/45">
-                <span className="font-semibold text-white/60">为何重要：</span>
+              <p className="text-fg-secondary mt-1 text-[13.5px] leading-relaxed">{m.blurb}</p>
+              <p className="text-fg-muted mt-2 text-[12.5px] leading-relaxed">
+                <span className="text-fg-secondary font-semibold">为何重要：</span>
                 {m.significance}
               </p>
 

@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import SEARCH_STATS from "@/generated/search-stats.json";
 import { searchEverything } from "@/lib/search/server";
-import { SECTION_META, TYPE_LABELS, type Section } from "@/components/search/types";
+import {
+  SEARCH_NO_RESULTS_EXITS,
+  SECTION_META,
+  TYPE_LABELS,
+  type Section,
+} from "@/components/search/types";
 
 // Reads ?q. The homepage's SearchAction schema has always pointed here.
 export const dynamic = "force-dynamic";
@@ -20,6 +26,26 @@ function sectionLabel(section: string): string {
 
 function sectionColor(section: string): string | undefined {
   return SECTION_META[section as Section]?.color;
+}
+
+function SearchExits() {
+  return (
+    <>
+      <p className="text-fg-secondary mt-6 text-sm">也可以从这些入口继续探索：</p>
+      <ul className="mt-3 flex flex-wrap gap-2">
+        {SEARCH_NO_RESULTS_EXITS.map((exit) => (
+          <li key={exit.href}>
+            <Link
+              href={exit.href}
+              className="border-border-subtle text-fg-secondary hover:border-fg-primary hover:text-fg-primary inline-block rounded-full border px-3 py-1 text-sm"
+            >
+              {exit.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
 }
 
 interface SearchPageProps {
@@ -61,9 +87,12 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
       </form>
 
       {!query && (
-        <p className="text-fg-muted mt-8">
-          标题与小标题即时匹配；正文检索会扫描全部 2200+ 篇文章的原文。
-        </p>
+        <div className="mt-8" data-testid="search-idle">
+          <p className="text-fg-muted">
+            标题与小标题即时匹配；正文检索会扫描全部 {SEARCH_STATS.articles} 篇文章的原文。
+          </p>
+          <SearchExits />
+        </div>
       )}
 
       {query && (
@@ -97,9 +126,12 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
           )}
 
           {total === 0 && (
-            <p className="text-fg-muted mt-10">
-              没有找到结果。试试更短的关键词，或直接输入你记得的一句原文。
-            </p>
+            <div className="mt-10" data-testid="search-empty">
+              <p className="text-fg-muted">
+                没有找到结果。试试更短的关键词，或直接输入你记得的一句原文。
+              </p>
+              <SearchExits />
+            </div>
           )}
 
           {titleResults.length > 0 && (

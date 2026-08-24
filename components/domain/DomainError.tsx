@@ -1,10 +1,9 @@
 "use client";
 
 /**
- * Token-based error fallback for engine-driven domains. The root app/error.tsx
- * hardcodes dark-theme colors, which breaks the light ("Notebook") theme —
- * domain-level error.tsx files should use this instead. Domain labels are
- * passed per domain so the retry/home actions stay in context.
+ * Token-based error fallback. Dual-theme surfaces (root, custom domains,
+ * engine domains) should use this instead of hardcoded white/indigo. Labels
+ * are passed per surface so the retry/home actions stay in context.
  */
 export function DomainError({
   homeHref,

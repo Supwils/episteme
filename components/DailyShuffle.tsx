@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useRef, useState } from "react";
+import { curiosityArticleHref, curiosityFollowLabel } from "@/lib/curiosities";
 import type { DailySelected } from "@/lib/daily-selector";
 import { DailyDomainGrid } from "./DailyDomainGrid";
 import { DailyKnowledgeCard } from "./DailyKnowledgeCard";
@@ -120,7 +121,7 @@ export function DailyShuffle({ initial }: { initial: DailySelected }) {
 
       <div className="mt-8">
         <a
-          href={daily.curiosity.url ?? "/curiosities"}
+          href={curiosityArticleHref(daily.curiosity.url) ?? "/curiosities"}
           className="group border-accent-gold/25 bg-accent-gold/[0.06] hover:border-accent-gold/45 block rounded-2xl border p-6 no-underline transition-colors"
         >
           <div className="mb-2 flex items-center gap-2">
@@ -134,7 +135,7 @@ export function DailyShuffle({ initial }: { initial: DailySelected }) {
           <h3 className="text-fg-primary mb-1.5 text-lg font-semibold">{daily.curiosity.title}</h3>
           <p className="text-fg-secondary text-sm leading-relaxed">{daily.curiosity.detail}</p>
           <span className="text-accent-gold mt-3 inline-block font-mono text-[11px] tracking-wider transition-colors group-hover:underline">
-            更多奇趣知识 →
+            {curiosityFollowLabel(daily.curiosity.url)}
           </span>
         </a>
       </div>

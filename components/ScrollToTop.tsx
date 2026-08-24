@@ -24,8 +24,8 @@ export function ScrollToTop() {
         window.scrollTo({ top: 0, behavior: mq.matches ? "auto" : "smooth" });
       }}
       aria-label="回到顶部"
-      className={`print-hidden fixed right-6 z-50 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-[var(--nav-border)] bg-[var(--nav-bg)] text-[var(--muted)] backdrop-blur-md transition-colors duration-200 hover:border-[var(--accent)] hover:text-[var(--foreground)] ${pathActive ? "bottom-24" : "bottom-6"}`}
-      style={{ boxShadow: "0 4px 16px rgba(0,0,0,0.3)" }}
+      className={`print-hidden fixed right-6 z-50 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-[var(--nav-border)] bg-[var(--nav-bg)] text-[var(--muted)] backdrop-blur-md transition-[bottom,color,border-color] duration-200 hover:border-[var(--accent)] hover:text-[var(--foreground)] ${pathActive ? "bottom-24" : "bottom-6"} [[data-narration-active]_&]:bottom-24`}
+      style={{ boxShadow: "var(--card-shadow)" }}
     >
       <svg
         width="16"

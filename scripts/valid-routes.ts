@@ -7,12 +7,13 @@
  */
 import { readdirSync, readFileSync, existsSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
-// Life-science detail routes are registry-driven (generateStaticParams maps the
-// registry), not one-file-per-article — so mirror the registry, not the mdx dir.
+// Life-science list cards are registry-driven; species *detail* pages also
+// serve essay-only MDX via getSpeciesProse, so valid routes union both.
 import { getAllSpecies } from "@/subjects/life-science/lib/species";
 import { getAllScientists } from "@/subjects/life-science/lib/scientists";
 import { getAllExtinctions } from "@/subjects/life-science/lib/extinctions";
 import { getAllTimelineEvents } from "@/subjects/life-science/lib/timeline-events";
+import { getAllDomains as getLifeTreeDomains } from "@/subjects/life-science/lib/tree-data";
 import { KNOWLEDGE_DOMAINS } from "@/lib/new-domains";
 import { ERAS } from "@/content/human-history/data/eras.js";
 import { EVENT_CATALOG } from "@/content/human-history/data/generated/event-catalog.js";
@@ -122,11 +123,11 @@ export function buildValidRoutes(): Set<string> {
     walkRel(join(CONTENT, "mathematics", "knowledge-base")).map((slug) => slug.replace(/\//g, "--"))
   );
 
-  // Life science: species/scientists/extinctions/timeline are registry-driven.
-  add(
-    "/life-science/species",
-    getAllSpecies().map((s) => s.id)
-  );
+  // Life science: the species *list* is registry-driven, but detail pages also
+  // serve essay-only MDX (`getSpeciesProse`) that never entered the registry.
+  add("/life-science/species", [
+    ...new Set([...getAllSpecies().map((s) => s.id), ...dirSlugs("life-science/species")]),
+  ]);
   add(
     "/life-science/scientists",
     getAllScientists().map((s) => s.id)
@@ -140,6 +141,10 @@ export function buildValidRoutes(): Set<string> {
     getAllTimelineEvents().map((e) => e.id)
   );
   add("/life-science/dialogues", dirSlugs("life-science/dialogues"));
+  add(
+    "/life-science/tree",
+    getLifeTreeDomains().map((d) => d.id)
+  );
 
   // Economics (routes serve both .md and .mdx)
   add("/economics/economists", dirSlugs("economics/economists"));
@@ -233,5 +238,19 @@ export function normalizeRoute(url: string): string {
     .split("#")[0]!
     .split("?")[0]!;
   if (u.length > 1 && u.endsWith("/")) u = u.slice(0, -1);
+  // Event/figure catalogs are registered with encodeURIComponent; search and
+  // daily catalogs often store the raw CJK slug. Knowledge-base slugs stay UTF-8.
+  if (u.startsWith("/human-history/figures/") || u.startsWith("/human-history/events/")) {
+    const parts = u.split("/");
+    const last = parts.at(-1);
+    if (last) {
+      try {
+        parts[parts.length - 1] = encodeURIComponent(decodeURIComponent(last));
+      } catch {
+        parts[parts.length - 1] = encodeURIComponent(last);
+      }
+      u = parts.join("/");
+    }
+  }
   return u;
 }

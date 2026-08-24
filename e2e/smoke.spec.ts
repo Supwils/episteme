@@ -1,6 +1,15 @@
 import { expect, test } from "@playwright/test";
 
 test.describe("production smoke", () => {
+  test("random article lands on an article-depth path", async ({ page }) => {
+    const response = await page.goto("/random");
+    expect(response?.status()).toBe(200);
+    const path = new URL(page.url()).pathname;
+    expect(path.split("/").filter(Boolean).length).toBeGreaterThanOrEqual(3);
+    expect(path).not.toBe("/daily");
+    expect(path).not.toBe("/random");
+  });
+
   test("opens the portal and reaches a server-rendered article through search", async ({
     page,
   }) => {

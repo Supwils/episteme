@@ -44,6 +44,18 @@ const DOMAIN_STYLES: Record<string, { bg: string; border: string; text: string; 
     text: "#5a8fc0",
     label: "宇宙学",
   },
+  economics: {
+    bg: "rgba(232, 184, 74, 0.12)",
+    border: "rgba(232, 184, 74, 0.25)",
+    text: "#e8b84a",
+    label: "经济学",
+  },
+  psychology: {
+    bg: "rgba(212, 120, 156, 0.12)",
+    border: "rgba(212, 120, 156, 0.25)",
+    text: "#d4789c",
+    label: "心理学",
+  },
 };
 
 const DEFAULT_STYLE = {
@@ -64,7 +76,7 @@ export function DailyKnowledgeCard({ items, fact, date }: DailyKnowledgeCardProp
       style={{
         background: "var(--color-bg-panel)",
         border: "1px solid var(--color-border-faint)",
-        boxShadow: "0 4px 24px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.03)",
+        boxShadow: "var(--card-shadow)",
       }}
     >
       <div
@@ -92,11 +104,7 @@ export function DailyKnowledgeCard({ items, fact, date }: DailyKnowledgeCardProp
               >
                 <Link
                   href={item.url}
-                  className="group block rounded-xl p-4 no-underline transition-all duration-300 hover:bg-white/4"
-                  style={{
-                    background: "var(--color-bg-near)",
-                    border: "1px solid var(--color-border-faint)",
-                  }}
+                  className="group bg-bg-near border-border-faint hover:bg-bg-elevated block rounded-xl border p-4 no-underline transition-all duration-300"
                 >
                   <div className="flex items-start gap-3">
                     <span className="mt-0.5 shrink-0 text-xl">{item.icon}</span>

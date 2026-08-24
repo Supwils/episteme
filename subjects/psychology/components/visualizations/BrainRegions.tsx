@@ -25,8 +25,7 @@ const BRAIN_REGIONS: BrainRegion[] = [
     nameEn: "Prefrontal Cortex",
     color: "#3b82f6",
     functions: ["决策", "计划", "人格", "社会行为"],
-    description:
-      `前额叶皮层是大脑的"执行中心"，负责高级认知功能。它帮助我们制定计划、做出决策、控制冲动，并在社交情境中调节行为。前额叶是人类大脑最后成熟的区域，直到25岁左右才完全发育。`,
+    description: `前额叶皮层是大脑的"执行中心"，负责高级认知功能。它帮助我们制定计划、做出决策、控制冲动，并在社交情境中调节行为。前额叶是人类大脑最后成熟的区域，直到25岁左右才完全发育。`,
     relatedConcepts: ["执行功能", "延迟满足", "工作记忆", "认知控制"],
     path: "M 180 120 C 180 90, 220 65, 260 60 C 290 57, 310 62, 320 70 L 320 130 C 318 150, 300 160, 280 160 C 250 160, 220 150, 200 140 C 188 133, 180 128, 180 120 Z",
     labelX: 155,
@@ -39,8 +38,7 @@ const BRAIN_REGIONS: BrainRegion[] = [
     nameEn: "Amygdala",
     color: "#ef4444",
     functions: ["恐惧", "情绪处理", "威胁检测"],
-    description:
-      `杏仁核是大脑的"警报系统"，对恐惧和威胁高度敏感。它能在意识察觉之前就启动恐惧反应，触发"战或逃"反应。杏仁核也参与情绪记忆的编码，这就是为什么恐惧经历往往记忆深刻。`,
+    description: `杏仁核是大脑的"警报系统"，对恐惧和威胁高度敏感。它能在意识察觉之前就启动恐惧反应，触发"战或逃"反应。杏仁核也参与情绪记忆的编码，这就是为什么恐惧经历往往记忆深刻。`,
     relatedConcepts: ["恐惧条件反射", "情绪记忆", "战或逃反应", "焦虑障碍"],
     path: "M 265 200 C 260 188, 270 178, 285 178 C 300 178, 310 188, 308 200 C 306 212, 296 220, 282 220 C 268 220, 262 212, 265 200 Z",
     labelX: 225,
@@ -53,8 +51,7 @@ const BRAIN_REGIONS: BrainRegion[] = [
     nameEn: "Hippocampus",
     color: "#10b981",
     functions: ["记忆形成", "空间导航"],
-    description:
-      `海马体是大脑的"记忆转换器"，负责将短期记忆转化为长期记忆。它也参与空间导航和情境记忆。海马体是少数能在成年后继续产生新神经元的脑区之一，这与神经可塑性密切相关。`,
+    description: `海马体是大脑的"记忆转换器"，负责将短期记忆转化为长期记忆。它也参与空间导航和情境记忆。海马体是少数能在成年后继续产生新神经元的脑区之一，这与神经可塑性密切相关。`,
     relatedConcepts: ["长期记忆", "记忆巩固", "空间认知", "神经可塑性"],
     path: "M 290 230 C 285 222, 292 214, 305 214 C 318 214, 326 222, 324 232 C 322 242, 314 248, 302 248 C 290 248, 286 240, 290 230 Z",
     labelX: 330,
@@ -67,8 +64,7 @@ const BRAIN_REGIONS: BrainRegion[] = [
     nameEn: "Anterior Cingulate",
     color: "#8b5cf6",
     functions: ["注意", "冲突监控", "错误检测"],
-    description:
-      `前扣带回是大脑的"冲突检测器"，负责监控行为与预期之间的差异。当你犯错或遇到冲突时，前扣带回会激活，帮助你调整策略。它在注意力调节和情绪调节中也扮演关键角色。`,
+    description: `前扣带回是大脑的"冲突检测器"，负责监控行为与预期之间的差异。当你犯错或遇到冲突时，前扣带回会激活，帮助你调整策略。它在注意力调节和情绪调节中也扮演关键角色。`,
     relatedConcepts: ["Stroop效应", "错误相关负电位", "认知灵活性", "注意控制"],
     path: "M 230 130 C 228 118, 238 108, 255 108 C 272 108, 282 118, 280 130 C 278 142, 268 150, 253 150 C 238 150, 230 142, 230 130 Z",
     labelX: 195,
@@ -81,8 +77,7 @@ const BRAIN_REGIONS: BrainRegion[] = [
     nameEn: "Insula",
     color: "#f59e0b",
     functions: ["共情", "内感受", "味觉"],
-    description:
-      `岛叶是大脑的"内感受中心"，负责感知身体内部状态（如心跳、呼吸、疼痛）。它也与共情能力密切相关——当我们看到他人痛苦时，岛叶会激活，让我们"感同身受"。`,
+    description: `岛叶是大脑的"内感受中心"，负责感知身体内部状态（如心跳、呼吸、疼痛）。它也与共情能力密切相关——当我们看到他人痛苦时，岛叶会激活，让我们"感同身受"。`,
     relatedConcepts: ["镜像神经元", "共情", "躯体标记假说", "内感受意识"],
     path: "M 240 165 C 238 155, 246 147, 260 147 C 274 147, 282 155, 280 165 C 278 175, 270 182, 258 182 C 246 182, 240 175, 240 165 Z",
     labelX: 195,
@@ -95,8 +90,7 @@ const BRAIN_REGIONS: BrainRegion[] = [
     nameEn: "Striatum",
     color: "#eab308",
     functions: ["奖赏", "习惯", "动机"],
-    description:
-      `纹状体是大脑"奖赏系统"的核心，负责处理快感、动机和习惯形成。当你完成目标或获得奖赏时，纹状体会释放多巴胺，产生愉悦感。它也是成瘾行为的关键脑区。`,
+    description: `纹状体是大脑"奖赏系统"的核心，负责处理快感、动机和习惯形成。当你完成目标或获得奖赏时，纹状体会释放多巴胺，产生愉悦感。它也是成瘾行为的关键脑区。`,
     relatedConcepts: ["多巴胺", "奖赏预测误差", "习惯回路", "成瘾"],
     path: "M 275 175 C 273 167, 280 160, 292 160 C 304 160, 312 167, 310 175 C 308 183, 300 190, 290 190 C 280 190, 275 183, 275 175 Z",
     labelX: 315,
@@ -109,8 +103,7 @@ const BRAIN_REGIONS: BrainRegion[] = [
     nameEn: "Temporal Lobe",
     color: "#06b6d4",
     functions: ["语言理解", "听觉处理"],
-    description:
-      `颞叶是大脑的"语言与听觉中心"，包含韦尼克区（Wernicke's area），负责理解语言。颞叶也参与面孔识别、情绪处理和长期记忆的存储。颞叶损伤可能导致失语症或面孔失认症。`,
+    description: `颞叶是大脑的"语言与听觉中心"，包含韦尼克区（Wernicke's area），负责理解语言。颞叶也参与面孔识别、情绪处理和长期记忆的存储。颞叶损伤可能导致失语症或面孔失认症。`,
     relatedConcepts: ["韦尼克区", "面孔识别", "语义记忆", "听觉皮层"],
     path: "M 310 120 C 308 100, 320 85, 340 80 C 360 77, 375 88, 378 105 C 380 120, 375 140, 365 155 C 355 168, 340 175, 325 175 C 312 175, 310 160, 310 145 Z",
     labelX: 380,
@@ -158,10 +151,7 @@ function ConnectionLines({
   activeId: string | null;
   hoveredId: string | null;
 }) {
-  const regionMap = useMemo(
-    () => new Map(BRAIN_REGIONS.map((r) => [r.id, r])),
-    [],
-  );
+  const regionMap = useMemo(() => new Map(BRAIN_REGIONS.map((r) => [r.id, r])), []);
 
   return (
     <g>
@@ -173,10 +163,7 @@ function ConnectionLines({
         const a = getRegionCenter(from);
         const b = getRegionCenter(to);
         const isHighlighted =
-          activeId === fromId ||
-          activeId === toId ||
-          hoveredId === fromId ||
-          hoveredId === toId;
+          activeId === fromId || activeId === toId || hoveredId === fromId || hoveredId === toId;
         const isActiveConnection =
           (activeId === fromId && to.connections.includes(toId)) ||
           (activeId === toId && from.connections.includes(fromId));
@@ -199,9 +186,7 @@ function ConnectionLines({
             strokeDasharray={isActiveConnection ? "none" : "4 4"}
             style={{
               transition: "all 0.3s ease",
-              filter: isActiveConnection
-                ? `drop-shadow(0 0 4px ${from.color}40)`
-                : "none",
+              filter: isActiveConnection ? `drop-shadow(0 0 4px ${from.color}40)` : "none",
             }}
           />
         );
@@ -304,13 +289,7 @@ function BrainRegionPath({
   );
 }
 
-function DetailPanel({
-  region,
-  reduce,
-}: {
-  region: BrainRegion | null;
-  reduce: boolean;
-}) {
+function DetailPanel({ region, reduce }: { region: BrainRegion | null; reduce: boolean }) {
   return (
     <AnimatePresence mode="wait">
       {region && (
@@ -326,10 +305,7 @@ function DetailPanel({
             <div className="mb-4 flex items-start justify-between gap-4">
               <div>
                 <div className="mb-1 flex items-center gap-3">
-                  <div
-                    className="h-3 w-3 rounded-full"
-                    style={{ backgroundColor: region.color }}
-                  />
+                  <div className="h-3 w-3 rounded-full" style={{ backgroundColor: region.color }} />
                   <span
                     className="font-mono text-[10px] tracking-[0.32em] uppercase"
                     style={{ color: region.color }}
@@ -357,9 +333,7 @@ function DetailPanel({
               </div>
             </div>
 
-            <p className="text-fg-secondary mb-5 text-sm leading-relaxed">
-              {region.description}
-            </p>
+            <p className="text-fg-secondary mb-5 text-sm leading-relaxed">{region.description}</p>
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div className="border-border-faint border p-4">
@@ -416,15 +390,12 @@ export default function BrainRegions() {
 
   const activeRegion = useMemo(
     () => BRAIN_REGIONS.find((r) => r.id === activeId) ?? null,
-    [activeId],
+    [activeId]
   );
 
-  const handleClick = useCallback(
-    (id: string) => {
-      setActiveId((prev) => (prev === id ? null : id));
-    },
-    [],
-  );
+  const handleClick = useCallback((id: string) => {
+    setActiveId((prev) => (prev === id ? null : id));
+  }, []);
 
   const handleHover = useCallback((id: string) => {
     setHoveredId(id);
@@ -439,7 +410,7 @@ export default function BrainRegions() {
       <div className="mb-4 flex items-center justify-between">
         <div>
           <p className="text-fg-muted font-mono text-[10px] tracking-[0.42em] uppercase">
-            interactive brain map
+            脑区地图
           </p>
           <h2 className="font-display text-fg-primary mt-1 text-lg font-semibold">
             大脑区域与心理功能
@@ -550,18 +521,14 @@ export default function BrainRegions() {
                 key={region.id}
                 className="flex items-center gap-1.5 transition-opacity hover:opacity-100"
                 style={{
-                  opacity:
-                    activeId === region.id || hoveredId === region.id ? 1 : 0.6,
+                  opacity: activeId === region.id || hoveredId === region.id ? 1 : 0.6,
                 }}
                 onClick={() => handleClick(region.id)}
                 onMouseEnter={() => handleHover(region.id)}
                 onMouseLeave={handleLeave}
               >
-                <div
-                  className="h-2 w-2 rounded-full"
-                  style={{ backgroundColor: region.color }}
-                />
-                <span className="font-mono text-[9px] tracking-[0.18em] text-fg-secondary">
+                <div className="h-2 w-2 rounded-full" style={{ backgroundColor: region.color }} />
+                <span className="text-fg-secondary font-mono text-[9px] tracking-[0.18em]">
                   {region.name}
                 </span>
               </button>

@@ -37,17 +37,8 @@ const STYLES: AttachmentStyle[] = [
       "能有效处理冲突",
       "适度依赖与独立",
     ],
-    patterns: [
-      "关系稳定且持久",
-      "沟通开放坦诚",
-      "能给予和接受支持",
-      "分手后恢复力强",
-    ],
-    tips: [
-      "继续保持开放的沟通方式",
-      "在关系中保持自我成长",
-      "成为他人的安全基地",
-    ],
+    patterns: ["关系稳定且持久", "沟通开放坦诚", "能给予和接受支持", "分手后恢复力强"],
+    tips: ["继续保持开放的沟通方式", "在关系中保持自我成长", "成为他人的安全基地"],
   },
   {
     id: "anxious",
@@ -67,17 +58,8 @@ const STYLES: AttachmentStyle[] = [
       "情绪波动较大",
       "过度关注伴侣行为",
     ],
-    patterns: [
-      '"追逐-退缩"恶性循环',
-      "频繁寻求关系确认",
-      "可能过度牺牲自我",
-      "分手后难以释怀",
-    ],
-    tips: [
-      "练习自我安抚与情绪调节",
-      "识别并挑战灾难化思维",
-      "培养独立的兴趣与社交圈",
-    ],
+    patterns: ['"追逐-退缩"恶性循环', "频繁寻求关系确认", "可能过度牺牲自我", "分手后难以释怀"],
+    tips: ["练习自我安抚与情绪调节", "识别并挑战灾难化思维", "培养独立的兴趣与社交圈"],
   },
   {
     id: "avoidant",
@@ -97,17 +79,8 @@ const STYLES: AttachmentStyle[] = [
       "倾向理性化处理情感",
       "需要大量个人空间",
     ],
-    patterns: [
-      "关系中保持情感距离",
-      "在亲密加深时退缩",
-      "淡化早期依恋经历",
-      "可能理想化独立状态",
-    ],
-    tips: [
-      "逐步练习情感脆弱性",
-      "觉察回避行为的触发点",
-      "理解亲密不等于失去自我",
-    ],
+    patterns: ["关系中保持情感距离", "在亲密加深时退缩", "淡化早期依恋经历", "可能理想化独立状态"],
+    tips: ["逐步练习情感脆弱性", "觉察回避行为的触发点", "理解亲密不等于失去自我"],
   },
   {
     id: "disorganized",
@@ -133,11 +106,7 @@ const STYLES: AttachmentStyle[] = [
       "难以建立稳定的信任",
       "可能重现创伤性关系模式",
     ],
-    tips: [
-      "寻求专业心理治疗支持",
-      "学习识别身体的冻结反应",
-      "在安全环境中练习信任",
-    ],
+    tips: ["寻求专业心理治疗支持", "学习识别身体的冻结反应", "在安全环境中练习信任"],
   },
 ];
 
@@ -182,39 +151,37 @@ export default function AttachmentStyles() {
           observer.disconnect();
         }
       },
-      { threshold: 0.2 },
+      { threshold: 0.2 }
     );
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
-  const svgPoint = useCallback(
-    (clientX: number, clientY: number) => {
-      const svg = svgRef.current;
-      if (!svg) return null;
-      const pt = svg.createSVGPoint();
-      pt.x = clientX;
-      pt.y = clientY;
-      const ctm = svg.getScreenCTM();
-      if (!ctm) return null;
-      return pt.matrixTransform(ctm.inverse());
-    },
-    [],
-  );
+  const svgPoint = useCallback((clientX: number, clientY: number) => {
+    const svg = svgRef.current;
+    if (!svg) return null;
+    const pt = svg.createSVGPoint();
+    pt.x = clientX;
+    pt.y = clientY;
+    const ctm = svg.getScreenCTM();
+    if (!ctm) return null;
+    return pt.matrixTransform(ctm.inverse());
+  }, []);
 
-  const clampToGrid = useCallback((px: number, py: number) => ({
-    x: Math.max(PADDING, Math.min(PADDING + INNER, px)),
-    y: Math.max(PADDING, Math.min(PADDING + INNER, py)),
-  }), []);
+  const clampToGrid = useCallback(
+    (px: number, py: number) => ({
+      x: Math.max(PADDING, Math.min(PADDING + INNER, px)),
+      y: Math.max(PADDING, Math.min(PADDING + INNER, py)),
+    }),
+    []
+  );
 
   const getNearestStyle = useCallback((px: number, py: number): AttachmentStyle => {
     const midX = PADDING + HALF;
     const midY = PADDING + HALF;
     const avoidance = px >= midX ? "high" : "low";
     const anxiety = py <= midY ? "high" : "low";
-    return STYLES.find(
-      (s) => s.avoidance === avoidance && s.anxiety === anxiety,
-    )!;
+    return STYLES.find((s) => s.avoidance === avoidance && s.anxiety === anxiety)!;
   }, []);
 
   const handleSvgPointerDown = useCallback(
@@ -227,7 +194,7 @@ export default function AttachmentStyles() {
       setIsDragging(true);
       (e.target as Element).setPointerCapture(e.pointerId);
     },
-    [showAssessment, svgPoint, clampToGrid],
+    [showAssessment, svgPoint, clampToGrid]
   );
 
   const handleSvgPointerMove = useCallback(
@@ -237,7 +204,7 @@ export default function AttachmentStyles() {
       if (!pt) return;
       setUserPos(clampToGrid(pt.x, pt.y));
     },
-    [isDragging, svgPoint, clampToGrid],
+    [isDragging, svgPoint, clampToGrid]
   );
 
   const handleSvgPointerUp = useCallback(() => {
@@ -255,14 +222,14 @@ export default function AttachmentStyles() {
     <div ref={containerRef} className="w-full">
       <div className="border-border-faint bg-bg-panel relative overflow-hidden border backdrop-blur-md">
         <div
-          className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full opacity-8 blur-[80px]"
+          className="pointer-events-none absolute -top-20 -right-20 h-60 w-60 rounded-full opacity-8 blur-[80px]"
           style={{ background: "#d4789c" }}
         />
 
         <div className="relative p-6 sm:p-8">
           <div className="mb-2 flex items-center gap-3">
             <span
-              className="border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.32em]"
+              className="border px-2.5 py-1 font-mono text-[10px] tracking-[0.32em] uppercase"
               style={{ borderColor: "rgba(212,120,156,0.3)", color: "#d4789c" }}
             >
               依恋理论
@@ -398,9 +365,7 @@ export default function AttachmentStyles() {
                       initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0 }}
                       animate={{ opacity: hasAnimated ? 1 : 0 }}
                       transition={
-                        prefersReducedMotion
-                          ? { duration: 0 }
-                          : { duration: 0.5, delay: 0.2 }
+                        prefersReducedMotion ? { duration: 0 } : { duration: 0.5, delay: 0.2 }
                       }
                     >
                       <text
@@ -472,16 +437,46 @@ export default function AttachmentStyles() {
                 </text>
 
                 {/* Axis tick labels */}
-                <text x={PADDING} y={GRID_SIZE - 30} textAnchor="middle" fill="var(--color-fg-disabled)" fontSize={9} fontFamily="var(--font-mono)">
+                <text
+                  x={PADDING}
+                  y={GRID_SIZE - 30}
+                  textAnchor="middle"
+                  fill="var(--color-fg-disabled)"
+                  fontSize={9}
+                  fontFamily="var(--font-mono)"
+                >
                   低
                 </text>
-                <text x={PADDING + INNER} y={GRID_SIZE - 30} textAnchor="middle" fill="var(--color-fg-disabled)" fontSize={9} fontFamily="var(--font-mono)">
+                <text
+                  x={PADDING + INNER}
+                  y={GRID_SIZE - 30}
+                  textAnchor="middle"
+                  fill="var(--color-fg-disabled)"
+                  fontSize={9}
+                  fontFamily="var(--font-mono)"
+                >
                   高
                 </text>
-                <text x={30} y={PADDING + INNER} textAnchor="middle" fill="var(--color-fg-disabled)" fontSize={9} fontFamily="var(--font-mono)" transform={`rotate(-90, 30, ${PADDING + INNER})`}>
+                <text
+                  x={30}
+                  y={PADDING + INNER}
+                  textAnchor="middle"
+                  fill="var(--color-fg-disabled)"
+                  fontSize={9}
+                  fontFamily="var(--font-mono)"
+                  transform={`rotate(-90, 30, ${PADDING + INNER})`}
+                >
                   低
                 </text>
-                <text x={30} y={PADDING} textAnchor="middle" fill="var(--color-fg-disabled)" fontSize={9} fontFamily="var(--font-mono)" transform={`rotate(-90, 30, ${PADDING})`}>
+                <text
+                  x={30}
+                  y={PADDING}
+                  textAnchor="middle"
+                  fill="var(--color-fg-disabled)"
+                  fontSize={9}
+                  fontFamily="var(--font-mono)"
+                  transform={`rotate(-90, 30, ${PADDING})`}
+                >
                   高
                 </text>
 
@@ -584,7 +579,7 @@ export default function AttachmentStyles() {
 
                     <div className="space-y-4 p-5">
                       <div>
-                        <h5 className="text-fg-muted mb-2 font-mono text-[10px] uppercase tracking-[0.22em]">
+                        <h5 className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.22em] uppercase">
                           描述
                         </h5>
                         <p className="text-fg-secondary text-sm leading-relaxed">
@@ -593,7 +588,7 @@ export default function AttachmentStyles() {
                       </div>
 
                       <div>
-                        <h5 className="text-fg-muted mb-2 font-mono text-[10px] uppercase tracking-[0.22em]">
+                        <h5 className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.22em] uppercase">
                           核心特征
                         </h5>
                         <div className="flex flex-wrap gap-2">
@@ -613,7 +608,7 @@ export default function AttachmentStyles() {
                       </div>
 
                       <div>
-                        <h5 className="text-fg-muted mb-2 font-mono text-[10px] uppercase tracking-[0.22em]">
+                        <h5 className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.22em] uppercase">
                           关系模式
                         </h5>
                         <ul className="space-y-1.5">
@@ -633,7 +628,7 @@ export default function AttachmentStyles() {
                       </div>
 
                       <div>
-                        <h5 className="text-fg-muted mb-2 font-mono text-[10px] uppercase tracking-[0.22em]">
+                        <h5 className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.22em] uppercase">
                           成长建议
                         </h5>
                         <div
@@ -684,7 +679,7 @@ export default function AttachmentStyles() {
                         {userStyle.description}
                       </p>
                       <div>
-                        <h5 className="text-fg-muted mb-2 font-mono text-[10px] uppercase tracking-[0.22em]">
+                        <h5 className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.22em] uppercase">
                           成长建议
                         </h5>
                         <div
@@ -721,13 +716,13 @@ export default function AttachmentStyles() {
                         <button
                           key={style.id}
                           onClick={() => toggleQuadrant(style.id)}
-                          className="group flex flex-col items-center gap-1.5 rounded-md p-2 transition-colors hover:bg-white/5"
+                          className="hover:bg-bg-elevated group flex flex-col items-center gap-1.5 rounded-md p-2 transition-colors"
                         >
                           <div
                             className="h-2 w-full rounded-full opacity-60 transition-opacity group-hover:opacity-100"
                             style={{ backgroundColor: style.color }}
                           />
-                          <span className="text-fg-disabled text-center font-mono text-[8px] leading-tight tracking-wider transition-colors group-hover:text-fg-secondary">
+                          <span className="text-fg-disabled group-hover:text-fg-secondary text-center font-mono text-[8px] leading-tight tracking-wider transition-colors">
                             {style.label}
                           </span>
                         </button>

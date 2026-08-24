@@ -15,7 +15,10 @@ const EXPLORE_LINKS = [
   { href: "/knowledge-graph", label: "知识图谱" },
   { href: "/daily", label: "每日知识" },
   { href: "/read", label: "阅读路线" },
+  { href: "/random", label: "随机一篇" },
   { href: "/curiosities", label: "奇趣知识" },
+  { href: "/search", label: "全站搜索" },
+  { href: "/molecules", label: "分子图鉴" },
   { href: APP_URLS["human-history"] + "/timeline", label: "时间线" },
 ];
 
@@ -101,8 +104,6 @@ export function SectionAwareFooter() {
                 </svg>
                 GitHub
               </a>
-              <span className="text-fg-muted text-sm">工程原则</span>
-              <span className="text-fg-muted text-sm">知识精神</span>
             </div>
           </div>
         </div>

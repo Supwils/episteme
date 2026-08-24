@@ -105,6 +105,36 @@ describe("GlobalSearch", () => {
     expect(hit.getAttribute("href")).toBe("/philosophy/concepts/delphi");
   });
 
+  it("offers curated exits on the idle empty panel", () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: false }));
+    open();
+    expect(screen.getByRole("link", { name: "阅读路线" }).getAttribute("href")).toBe("/read");
+    expect(screen.getByRole("link", { name: "每日知识" }).getAttribute("href")).toBe("/daily");
+    expect(screen.getByRole("link", { name: "奇趣知识" }).getAttribute("href")).toBe(
+      "/curiosities"
+    );
+  });
+
+  it("offers curated exits and Enter-to-search when a query returns nothing", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: false }));
+    open();
+    type("zzzznotanarticlezzzz");
+
+    await waitFor(() => expect(releaseTitleSearch).toBeDefined());
+    await act(async () => releaseTitleSearch?.([]));
+
+    expect(await screen.findByText(/未找到/)).toBeTruthy();
+    expect(screen.getByRole("link", { name: "阅读路线" }).getAttribute("href")).toBe("/read");
+    expect(screen.getByRole("link", { name: "奇趣知识" }).getAttribute("href")).toBe(
+      "/curiosities"
+    );
+
+    fireEvent.keyDown(document, { key: "Enter" });
+    expect(routerPush).toHaveBeenCalledWith(
+      `/search?q=${encodeURIComponent("zzzznotanarticlezzzz")}`
+    );
+  });
+
   it("offers a link to the full results page while a query is active", async () => {
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: false }));
     open();

@@ -10,7 +10,7 @@ export function LatestUpdates() {
       </div>
 
       <div className="home-updates-grid">
-        {LATEST_UPDATES.map((update, index) => (
+        {LATEST_UPDATES.slice(0, 6).map((update, index) => (
           <div
             key={update.id}
             className="home-lift-item"

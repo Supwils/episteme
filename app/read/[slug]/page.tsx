@@ -75,7 +75,7 @@ export default async function ReadingPathPage({ params }: { params: Promise<{ sl
           className="mt-7 inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-[14px] font-medium text-white transition-opacity hover:opacity-90"
           style={{ background: path.accent }}
         >
-          开始阅读
+          从第 1 章开始
           <svg
             width="16"
             height="16"
@@ -91,30 +91,39 @@ export default async function ReadingPathPage({ params }: { params: Promise<{ sl
         </Link>
       </header>
 
-      <ol className="mt-8 space-y-1">
+      {/* Vertical storyboard with connector spine */}
+      <ol className="relative mt-10 space-y-0">
+        <span
+          aria-hidden
+          className="absolute top-4 bottom-4 left-[1.35rem] w-px"
+          style={{ background: `${path.accent}35` }}
+        />
         {path.steps.map((s, i) => (
-          <li key={s.href}>
+          <li key={s.href} className="relative">
             <Link
               href={`${s.href}?path=${path.slug}&step=${i + 1}`}
-              className="group hover:bg-bg-elevated flex items-start gap-4 rounded-xl px-3 py-3.5 transition-colors"
+              className="group hover:bg-bg-elevated flex items-start gap-4 rounded-xl px-3 py-4 transition-colors"
             >
               <span
-                className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border font-mono text-[12px]"
+                className="relative z-1 mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border bg-[var(--color-bg-base)] font-mono text-[11px] font-medium"
                 style={{ borderColor: path.accent, color: path.accent }}
               >
-                {i + 1}
+                {String(i + 1).padStart(2, "0")}
               </span>
               <span className="min-w-0 flex-1">
+                <span className="text-fg-muted mb-1 block font-mono text-[10px] tracking-[0.18em] uppercase">
+                  第 {i + 1} 章
+                </span>
                 <span className="text-fg-primary group-hover:text-fg-primary block text-[15px] font-medium">
                   {s.title}
                 </span>
                 {s.blurb && (
-                  <span className="text-fg-muted mt-0.5 block text-[13px] leading-relaxed">
+                  <span className="text-fg-muted mt-1 block text-[13px] leading-relaxed">
                     {s.blurb}
                   </span>
                 )}
               </span>
-              <span className="text-fg-disabled group-hover:text-fg-secondary mt-1 shrink-0 transition-colors">
+              <span className="text-fg-disabled group-hover:text-fg-secondary mt-2 shrink-0 transition-colors">
                 <svg
                   width="15"
                   height="15"

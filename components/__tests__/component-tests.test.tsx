@@ -130,6 +130,8 @@ describe("SectionAwareFooter", () => {
     expect(screen.getByRole("link", { name: "GitHub" }).getAttribute("href")).toBe(
       "https://github.com/Supwils/episteme"
     );
+    expect(screen.getByRole("link", { name: "随机一篇" }).getAttribute("href")).toBe("/random");
+    expect(screen.getByRole("link", { name: "全站搜索" }).getAttribute("href")).toBe("/search");
   });
 });
 

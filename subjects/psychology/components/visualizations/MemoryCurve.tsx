@@ -53,10 +53,7 @@ function scaleY(retention: number): number {
   return PAD.top + ((Y_MAX - retention) / Y_MAX) * PLOT_H;
 }
 
-function generateCurvePath(
-  stability: number,
-  reviewPoints: ReviewPoint[],
-): string {
+function generateCurvePath(stability: number, reviewPoints: ReviewPoint[]): string {
   const points: { x: number; y: number }[] = [];
   const steps = 200;
 
@@ -82,10 +79,7 @@ function generateCurvePath(
   }
 
   for (const seg of segments) {
-    const segSteps = Math.max(
-      10,
-      Math.round((steps * (seg.end - seg.start)) / X_MAX),
-    );
+    const segSteps = Math.max(10, Math.round((steps * (seg.end - seg.start)) / X_MAX));
     for (let i = 0; i <= segSteps; i++) {
       const t = seg.start + ((seg.end - seg.start) * i) / segSteps;
       const retention = ebbinghausRetention(t - seg.start, seg.stab);
@@ -132,7 +126,7 @@ export default function MemoryCurve() {
 
   const curvePath = useMemo(
     () => generateCurvePath(stability, reviewPoints),
-    [stability, reviewPoints],
+    [stability, reviewPoints]
   );
 
   const noReviewPath = useMemo(() => generateNoReviewPath(), []);
@@ -153,18 +147,15 @@ export default function MemoryCurve() {
     return Math.round(ebbinghausRetention(720 - lastReviewHour, currentStab));
   }, [reviewPoints, stability]);
 
-  const handleSliderChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      setReviewCount(Number(e.target.value));
-    },
-    [],
-  );
+  const handleSliderChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setReviewCount(Number(e.target.value));
+  }, []);
 
   return (
     <div className="w-full">
       <div className="mb-4">
         <p className="text-fg-muted font-mono text-[10px] tracking-[0.42em] uppercase">
-          ebbinghaus forgetting curve
+          艾宾浩斯遗忘曲线
         </p>
         <h2 className="font-display text-fg-primary mt-1 text-lg font-semibold">
           记忆曲线与间隔重复
@@ -196,7 +187,7 @@ export default function MemoryCurve() {
                 y1={scaleY(v)}
                 x2={PAD.left + PLOT_W}
                 y2={scaleY(v)}
-                stroke="rgba(255,255,255,0.04)"
+                stroke="var(--color-border-faint)"
                 strokeWidth={0.5}
               />
               <text
@@ -204,7 +195,7 @@ export default function MemoryCurve() {
                 y={scaleY(v)}
                 textAnchor="end"
                 dominantBaseline="central"
-                fill="rgba(255,255,255,0.3)"
+                fill="var(--color-fg-muted)"
                 fontSize={10}
                 fontFamily="var(--font-mono)"
               >
@@ -220,14 +211,14 @@ export default function MemoryCurve() {
                 y1={PAD.top}
                 x2={scaleX(tl.h)}
                 y2={PAD.top + PLOT_H}
-                stroke="rgba(255,255,255,0.04)"
+                stroke="var(--color-border-faint)"
                 strokeWidth={0.5}
               />
               <text
                 x={scaleX(tl.h)}
                 y={PAD.top + PLOT_H + 20}
                 textAnchor="middle"
-                fill="rgba(255,255,255,0.3)"
+                fill="var(--color-fg-muted)"
                 fontSize={10}
                 fontFamily="var(--font-mono)"
               >
@@ -240,7 +231,7 @@ export default function MemoryCurve() {
             x={PAD.left + PLOT_W / 2}
             y={SVG_H - 6}
             textAnchor="middle"
-            fill="rgba(255,255,255,0.25)"
+            fill="var(--color-fg-muted)"
             fontSize={10}
             fontFamily="var(--font-mono)"
             letterSpacing="0.1em"
@@ -252,7 +243,7 @@ export default function MemoryCurve() {
             x={14}
             y={PAD.top + PLOT_H / 2}
             textAnchor="middle"
-            fill="rgba(255,255,255,0.25)"
+            fill="var(--color-fg-muted)"
             fontSize={10}
             fontFamily="var(--font-mono)"
             letterSpacing="0.1em"
@@ -312,10 +303,7 @@ export default function MemoryCurve() {
               />
               <circle
                 cx={scaleX(iv.hour)}
-                cy={scaleY(
-                  reviewPoints[i]?.retention ??
-                    ebbinghausRetention(iv.hour, stability),
-                )}
+                cy={scaleY(reviewPoints[i]?.retention ?? ebbinghausRetention(iv.hour, stability))}
                 r={4}
                 fill={iv.color}
               />
@@ -356,7 +344,7 @@ export default function MemoryCurve() {
 
         <div className="border-border-faint mt-4 border-t pt-4">
           <div className="flex items-center gap-4">
-            <span className="text-fg-muted font-mono text-[10px] tracking-[0.22em] uppercase whitespace-nowrap">
+            <span className="text-fg-muted font-mono text-[10px] tracking-[0.22em] whitespace-nowrap uppercase">
               复习次数
             </span>
             <input
@@ -379,16 +367,19 @@ export default function MemoryCurve() {
               <span
                 key={iv.label}
                 className={`rounded-sm px-2.5 py-1 font-mono text-[10px] tracking-[0.12em] transition-colors ${
-                  i < reviewCount
-                    ? "border bg-white/5"
-                    : "border border-transparent opacity-30"
+                  i < reviewCount ? "bg-bg-elevated border" : "border border-transparent opacity-30"
                 }`}
                 style={{
                   borderColor: i < reviewCount ? hexToRgba(iv.color, 0.3) : "transparent",
-                  color: i < reviewCount ? iv.color : "rgba(255,255,255,0.3)",
+                  color: i < reviewCount ? iv.color : "var(--color-fg-disabled)",
                 }}
               >
-                {iv.label}：{iv.hour < 24 ? `${iv.hour}小时` : iv.hour < 168 ? `${iv.hour / 24}天` : `${iv.hour / 168}周`}
+                {iv.label}：
+                {iv.hour < 24
+                  ? `${iv.hour}小时`
+                  : iv.hour < 168
+                    ? `${iv.hour / 24}天`
+                    : `${iv.hour / 168}周`}
               </span>
             ))}
           </div>
@@ -412,9 +403,7 @@ export default function MemoryCurve() {
             </p>
             <p className="font-display text-fg-primary mt-1 text-2xl font-semibold">
               {reviewCount === 0 ? "1×" : `${Math.pow(2.5, reviewCount).toFixed(1)}×`}
-              <span className="text-fg-muted ml-2 text-xs font-normal">
-                每次复习 ×2.5
-              </span>
+              <span className="text-fg-muted ml-2 text-xs font-normal">每次复习 ×2.5</span>
             </p>
           </div>
         </div>
@@ -427,8 +416,8 @@ export default function MemoryCurve() {
             <strong className="text-fg-primary">艾宾浩斯遗忘曲线</strong>
             （Ebbinghaus, 1885）揭示了记忆随时间呈指数衰减的规律。
             <strong className="text-fg-primary">间隔重复</strong>
-            （Spaced Repetition）利用每次复习后遗忘曲线变缓的特性——每次成功回忆会将记忆稳定度
-            提升约 2.5 倍。这就是 Anki 等记忆软件背后的科学原理。
+            （Spaced Repetition）利用每次复习后遗忘曲线变缓的特性——每次成功回忆会将记忆稳定度 提升约
+            2.5 倍。这就是 Anki 等记忆软件背后的科学原理。
           </p>
         </div>
       </div>

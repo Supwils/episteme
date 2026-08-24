@@ -631,16 +631,16 @@ export function PhilosophyTree() {
                 onClick={() => toggleTradition(t)}
                 className="rounded-full border px-2.5 py-1 font-mono text-[10px] tracking-wider transition-all"
                 style={{
-                  borderColor: active ? color : "rgba(255,255,255,0.1)",
+                  borderColor: active ? color : "var(--color-border-faint)",
                   backgroundColor: active ? `${color}20` : "transparent",
-                  color: active ? color : "rgba(255,255,255,0.4)",
+                  color: active ? color : "var(--color-fg-muted)",
                 }}
               >
                 {label}
               </button>
             );
           })}
-          <span className="mx-1 h-4 w-px self-center bg-white/10" />
+          <span className="bg-border-faint mx-1 h-4 w-px self-center" />
           {(Object.entries(ERA_LABELS) as [Era, string][]).map(([e, label]) => {
             const active = activeEras.has(e);
             return (
@@ -650,9 +650,9 @@ export function PhilosophyTree() {
                 onClick={() => toggleEra(e)}
                 className="rounded-full border px-2.5 py-1 font-mono text-[10px] tracking-wider transition-all"
                 style={{
-                  borderColor: active ? "rgba(255,255,255,0.3)" : "rgba(255,255,255,0.08)",
-                  backgroundColor: active ? "rgba(255,255,255,0.08)" : "transparent",
-                  color: active ? "rgba(255,255,255,0.8)" : "rgba(255,255,255,0.3)",
+                  borderColor: active ? "var(--color-border-strong)" : "var(--color-border-faint)",
+                  backgroundColor: active ? "var(--color-bg-elevated)" : "transparent",
+                  color: active ? "var(--color-fg-primary)" : "var(--color-fg-muted)",
                 }}
               >
                 {label}
@@ -664,7 +664,7 @@ export function PhilosophyTree() {
           <button
             type="button"
             onClick={handleFitToScreen}
-            className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white/50 transition-colors hover:text-white/80 md:h-8 md:w-8"
+            className="border-border-faint bg-bg-elevated text-fg-muted hover:bg-bg-near hover:text-fg-primary flex h-11 w-11 items-center justify-center rounded-lg border transition-colors md:h-8 md:w-8"
             aria-label="适应屏幕"
           >
             <svg
@@ -685,7 +685,7 @@ export function PhilosophyTree() {
             <button
               type="button"
               onClick={() => setZoom((z) => Math.min(4, z * 1.2))}
-              className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white/50 transition-colors hover:text-white/80 md:h-8 md:w-8"
+              className="border-border-faint bg-bg-elevated text-fg-muted hover:bg-bg-near hover:text-fg-primary flex h-11 w-11 items-center justify-center rounded-lg border transition-colors md:h-8 md:w-8"
               aria-label="放大"
             >
               <svg
@@ -701,7 +701,7 @@ export function PhilosophyTree() {
             <button
               type="button"
               onClick={() => setZoom((z) => Math.max(0.3, z * 0.8))}
-              className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white/50 transition-colors hover:text-white/80 md:h-8 md:w-8"
+              className="border-border-faint bg-bg-elevated text-fg-muted hover:bg-bg-near hover:text-fg-primary flex h-11 w-11 items-center justify-center rounded-lg border transition-colors md:h-8 md:w-8"
               aria-label="缩小"
             >
               <svg
@@ -951,7 +951,7 @@ export function PhilosophyTree() {
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="absolute bottom-4 left-4 z-10 max-w-sm rounded-xl border border-white/10 bg-[#111118]/90 p-4 backdrop-blur-xl"
+            className="border-border-faint bg-bg-elevated/90 absolute bottom-4 left-4 z-10 max-w-sm rounded-xl border p-4 backdrop-blur-xl"
           >
             <div className="mb-2 flex items-center gap-2">
               <div
@@ -970,16 +970,16 @@ export function PhilosophyTree() {
                 {ERA_LABELS[selectedPhilosopher.era]}
               </span>
             </div>
-            <h3 className="font-display text-base font-semibold text-white">
+            <h3 className="font-display text-fg-primary text-base font-semibold">
               {selectedPhilosopher.name}
-              <span className="ml-2 text-xs font-normal text-white/55">
+              <span className="text-fg-muted ml-2 text-xs font-normal">
                 {selectedPhilosopher.nameEn}
               </span>
             </h3>
-            <p className="mt-0.5 font-mono text-[10px] text-white/55">
+            <p className="text-fg-muted mt-0.5 font-mono text-[10px]">
               {selectedPhilosopher.years}
             </p>
-            <p className="mt-2 text-xs leading-relaxed text-white/60">
+            <p className="text-fg-secondary mt-2 text-xs leading-relaxed">
               {selectedPhilosopher.summary}
             </p>
             <div className="mt-3 flex gap-2">
@@ -994,7 +994,7 @@ export function PhilosophyTree() {
               <button
                 type="button"
                 onClick={() => setSelectedId(null)}
-                className="rounded-lg border border-white/10 px-3 py-1.5 text-xs text-white/50 transition-colors hover:text-white/80"
+                className="border-border-faint text-fg-muted hover:text-fg-primary rounded-lg border px-3 py-1.5 text-xs transition-colors"
               >
                 取消选择
               </button>

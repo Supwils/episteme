@@ -724,4 +724,427 @@ export const READING_PATHS: ReadingPath[] = [
       },
     ],
   },
+  {
+    slug: "how-medicine-learned-to-know",
+    title: "医学如何学会知道",
+    subtitle: "从病菌到证据，从试验到知情同意",
+    description:
+      "现代医学不是一份药方清单，而是一套逐步学会「怎样才算知道」的方法。这条路线从细菌致病论出发，经过疫苗与抗生素，停在临床试验、知情同意和公共卫生——看证据如何进入诊所，以及它曾经怎样被滥用。",
+    domain: "medicine",
+    domainLabel: "医学与公共卫生",
+    accent: "#d9544d",
+    steps: [
+      {
+        title: "细菌致病论",
+        href: "/medicine/concepts/germ-theory",
+        blurb: "疾病来自微生物，不是瘴气",
+      },
+      {
+        title: "疫苗接种",
+        href: "/medicine/concepts/vaccination",
+        blurb: "把免疫变成可重复的公共技术",
+      },
+      {
+        title: "抗生素耐药",
+        href: "/medicine/concepts/antibiotic-resistance",
+        blurb: "奇迹药物的进化代价",
+      },
+      {
+        title: "临床试验",
+        href: "/medicine/concepts/clinical-trials",
+        blurb: "随机化如何把经验变成证据",
+      },
+      {
+        title: "循证医学",
+        href: "/medicine/concepts/evidence-based-medicine",
+        blurb: "让证据而不是权威说话",
+      },
+      {
+        title: "知情同意",
+        href: "/medicine/concepts/informed-consent",
+        blurb: "塔斯基吉之后，试验对象不再是手段",
+      },
+      {
+        title: "公共卫生",
+        href: "/medicine/concepts/public-health",
+        blurb: "把个体诊疗放大成人口健康",
+      },
+    ],
+  },
+  {
+    slug: "chemistry-from-table-to-bond",
+    title: "化学：从周期表到化学键",
+    subtitle: "先看见格子，再看见电子怎样把原子粘在一起",
+    description:
+      "化学的入口不是反应式，而是一张表和一种力。这条路线从门捷列夫的周期表出发，经过原子结构与化学键，停在平衡、热力学和电化学——看物质为什么会变，以及变化受什么约束。",
+    domain: "chemistry",
+    domainLabel: "化学",
+    accent: "#e08a3c",
+    steps: [
+      {
+        title: "元素周期表",
+        href: "/chemistry/concepts/periodic-table",
+        blurb: "格子不是分类游戏，是预言未知元素的地图",
+      },
+      {
+        title: "门捷列夫周期律",
+        href: "/chemistry/milestones/mendeleev-periodic-law",
+        blurb: "空格和预言怎样变成镓与锗",
+      },
+      {
+        title: "原子结构",
+        href: "/chemistry/concepts/atomic-structure",
+        blurb: "电子、能级与周期表为什么长成那样",
+      },
+      {
+        title: "化学键",
+        href: "/chemistry/concepts/chemical-bond",
+        blurb: "原子怎样粘在一起，又怎样松开",
+      },
+      {
+        title: "化学平衡",
+        href: "/chemistry/concepts/chemical-equilibrium",
+        blurb: "反应不是单向冲到底，而是可逆的争夺",
+      },
+      {
+        title: "化学热力学",
+        href: "/chemistry/concepts/chemical-thermodynamics",
+        blurb: "什么会自发发生，什么只是看起来会",
+      },
+      {
+        title: "电化学",
+        href: "/chemistry/concepts/electrochemistry",
+        blurb: "电子搬家：电池、腐蚀与氧化还原",
+      },
+    ],
+  },
+  {
+    slug: "earth-from-rock-to-plate",
+    title: "地球：从岩石到板块",
+    subtitle: "先看石头怎么变，再看地面为什么会动",
+    description:
+      "地球科学的入口不是灾难新闻，而是一块石头为什么在这里。这条路线从矿物和三大岩类出发，经过岩石循环，停在板块构造、地震和火山——看地面如何被缓慢地拆开、拼上，又如何在人的时间尺度上突然发力。",
+    domain: "earth-science",
+    domainLabel: "地球科学",
+    accent: "#4f9d76",
+    steps: [
+      {
+        title: "矿物",
+        href: "/earth-science/concepts/minerals",
+        blurb: "晶体格子决定石头能变成什么",
+      },
+      {
+        title: "三大岩类",
+        href: "/earth-science/concepts/igneous-sedimentary-metamorphic-rocks",
+        blurb: "火成、沉积、变质：同一物质的三种履历",
+      },
+      {
+        title: "岩石循环",
+        href: "/earth-science/concepts/rock-cycle",
+        blurb: "没有起点的循环：熔融、风化、重结晶",
+      },
+      {
+        title: "板块构造",
+        href: "/earth-science/processes/plate-tectonics",
+        blurb: "魏格纳被拒的大陆漂移，如何变成可检验的理论",
+      },
+      {
+        title: "板块边界",
+        href: "/earth-science/concepts/plate-boundaries",
+        blurb: "张开、俯冲、错动：三种边界三种地质",
+      },
+      {
+        title: "地震",
+        href: "/earth-science/processes/earthquakes",
+        blurb: "弹性回跳：板块运动在人的时间尺度上的释放",
+      },
+      {
+        title: "火山作用",
+        href: "/earth-science/processes/volcanism",
+        blurb: "熔体如何到达地表，以及它如何改写气候",
+      },
+    ],
+  },
+  {
+    slug: "how-courts-learned-to-decide",
+    title: "法庭如何学会裁判",
+    subtitle: "从法源到判例，看规则怎样变成判决",
+    description:
+      "法律不是口号，是一套决定谁赢谁输的程序。这条路线从「法律为什么存在」出发，经过法源与法治，停在马伯里、布朗和多诺霍三则判例——看法庭如何取得审查权、如何拆掉隔离、如何把注意义务交给普通人。",
+    domain: "law",
+    domainLabel: "法学",
+    accent: "#a8843c",
+    steps: [
+      {
+        title: "法律为什么存在",
+        href: "/law/foundations/why-law-exists",
+        blurb: "规则要解决的，是冲突而不是完美",
+      },
+      {
+        title: "法的渊源",
+        href: "/law/foundations/sources-of-law",
+        blurb: "宪法、制定法、判例、习惯：谁压过谁",
+      },
+      {
+        title: "法治",
+        href: "/law/foundations/rule-of-law",
+        blurb: "约束权力，而不只是用法律去治理",
+      },
+      {
+        title: "法庭如何裁判",
+        href: "/law/foundations/how-courts-decide",
+        blurb: "事实、规范与先例怎样被写成一份判决",
+      },
+      {
+        title: "马伯里诉麦迪逊",
+        href: "/law/judgment-analyses/marbury-v-madison-judicial-review",
+        blurb: "违宪审查权是怎样从一场人事纠纷里长出来的",
+      },
+      {
+        title: "布朗诉教育委员会",
+        href: "/law/judgment-analyses/brown-v-board-equal-protection",
+        blurb: "隔离即不平等：平等保护怎样拆掉学校的墙",
+      },
+      {
+        title: "多诺霍诉史蒂文森",
+        href: "/law/judgment-analyses/donoghue-v-stevenson-duty-of-care",
+        blurb: "一只蜗牛：注意义务如何从契约走向陌生人",
+      },
+    ],
+  },
+  {
+    slug: "how-language-is-put-together",
+    title: "语言是怎样拼起来的",
+    subtitle: "从气流到句子，从句子到用意",
+    description:
+      "语言学的入口不是词表，而是一层层把声音变成意义的结构。这条路线从发音和音位出发，经过形态与句法，停在语义、语用和语言与思维——看一句话是怎样被拼出来的，又怎样被听进去。",
+    domain: "linguistics",
+    domainLabel: "语言学",
+    accent: "#3f8f8a",
+    steps: [
+      {
+        title: "言语如何发出",
+        href: "/linguistics/sounds-and-signs/how-speech-is-made",
+        blurb: "气流、声带与共鸣：声音先是物理事件",
+      },
+      {
+        title: "音位与语音系统",
+        href: "/linguistics/sounds-and-signs/phonemes-and-sound-systems",
+        blurb: "哪些差别算「另一个音」，哪些只是变体",
+      },
+      {
+        title: "形态学",
+        href: "/linguistics/words-sentences-meaning/morphology",
+        blurb: "词不是最小零件，语素才是",
+      },
+      {
+        title: "句法",
+        href: "/linguistics/words-sentences-meaning/syntax",
+        blurb: "词序和层次怎样把词编成句子",
+      },
+      {
+        title: "语义",
+        href: "/linguistics/words-sentences-meaning/semantics",
+        blurb: "句子怎么获得可以争论真假的内容",
+      },
+      {
+        title: "语用",
+        href: "/linguistics/words-sentences-meaning/pragmatics",
+        blurb: "字面之外：语境怎样补上没说出来的意思",
+      },
+      {
+        title: "语言与思维",
+        href: "/linguistics/acquisition-and-mind/language-thought-debate",
+        blurb: "语言是否塑造思想，还是思想先于语言",
+      },
+    ],
+  },
+  {
+    slug: "how-society-holds-together",
+    title: "社会如何把人绑在一起",
+    subtitle: "从结构到关系，从涂尔干到韦伯",
+    description:
+      "社会学不问「人本来是什么样」，而问关系、位置和规则怎样把个体编进一张网。这条路线从社会结构与社会化出发，经过分层、资本和网络，停在涂尔干与韦伯——看团结从哪里来，支配又怎样被正当化。",
+    domain: "sociology",
+    domainLabel: "社会学",
+    accent: "#7a8f5a",
+    steps: [
+      {
+        title: "社会结构",
+        href: "/sociology/concepts/social-structure",
+        blurb: "位置先于个人：角色、制度与可重复的关系",
+      },
+      {
+        title: "社会化",
+        href: "/sociology/concepts/socialization",
+        blurb: "人怎样学会成为某种社会里的人",
+      },
+      {
+        title: "社会分层",
+        href: "/sociology/concepts/social-stratification",
+        blurb: "资源、声望与权力为什么不是均匀铺开的",
+      },
+      {
+        title: "社会资本",
+        href: "/sociology/concepts/social-capital",
+        blurb: "关系本身可以是一种可兑换的资源",
+      },
+      {
+        title: "社会网络",
+        href: "/sociology/concepts/social-network-analysis",
+        blurb: "弱连接、结构洞：谁连着谁决定信息怎么走",
+      },
+      {
+        title: "涂尔干",
+        href: "/sociology/thinkers/emile-durkheim",
+        blurb: "社会事实与机械/有机团结：集体怎样大于个人",
+      },
+      {
+        title: "韦伯",
+        href: "/sociology/thinkers/max-weber-sociology",
+        blurb: "支配、科层与祛魅：秩序怎样获得服从",
+      },
+    ],
+  },
+  {
+    slug: "how-states-keep-order",
+    title: "国家怎样维持秩序",
+    subtitle: "从权力竞争到宪法约束",
+    description:
+      "政治学同时看两件事：国家之间为什么彼此恐惧，以及国家内部怎样把权力关进规则。这条路线从现实主义、自由主义与建构主义出发，经过安全困境，停在分权、法治和联邦制——看秩序是被实力撑住的，还是被程序正当化的。",
+    domain: "political-science",
+    domainLabel: "政治学",
+    accent: "#c25b5b",
+    steps: [
+      {
+        title: "现实主义",
+        href: "/political-science/international-relations/realism-ir",
+        blurb: "无政府状态下，生存先于善意",
+      },
+      {
+        title: "自由主义",
+        href: "/political-science/international-relations/liberalism-ir",
+        blurb: "贸易、制度和民主能否把恐惧换成可预期",
+      },
+      {
+        title: "建构主义",
+        href: "/political-science/international-relations/constructivism-ir",
+        blurb: "利益不是给定的，身份和规范会改写它",
+      },
+      {
+        title: "安全困境",
+        href: "/political-science/international-relations/security-dilemma-war-peace",
+        blurb: "自卫为什么会被读成威胁，战争如何从防御里长出来",
+      },
+      {
+        title: "分权与宪政",
+        href: "/political-science/institutions/constitutionalism-separation-of-powers",
+        blurb: "把权力拆开，让它难以及时作恶",
+      },
+      {
+        title: "法治",
+        href: "/political-science/institutions/rule-of-law",
+        blurb: "规则约束统治者，而不只是被统治者",
+      },
+      {
+        title: "联邦制",
+        href: "/political-science/institutions/federalism",
+        blurb: "多层主权：怎样在一个政治体里同时存在多个政府",
+      },
+    ],
+  },
+  {
+    slug: "how-pictures-are-built",
+    title: "画面是怎样搭起来的",
+    subtitle: "从看见到构图，从色彩到形式分析",
+    description:
+      "看画不是天赋，是一套可学的观察。这条路线从知觉和线条出发，经过色彩、构图、透视与比例，停在形式分析——看一张画怎样被搭起来，以及我们凭什么说它「站住了」。",
+    domain: "arts",
+    domainLabel: "艺术、建筑与美学",
+    accent: "#b0785a",
+    steps: [
+      {
+        title: "观看与知觉",
+        href: "/arts/foundations/seeing-and-perception",
+        blurb: "眼睛先看见什么，意识后补上什么",
+      },
+      {
+        title: "线、形、体",
+        href: "/arts/foundations/line-shape-form",
+        blurb: "画面最底层的零件，不是故事",
+      },
+      {
+        title: "色彩与光",
+        href: "/arts/foundations/color-and-light",
+        blurb: "颜色不是颜料表，是光怎样被安排",
+      },
+      {
+        title: "构图与平衡",
+        href: "/arts/foundations/composition-balance",
+        blurb: "重量、轴线与留白怎样让画面站住",
+      },
+      {
+        title: "透视与空间",
+        href: "/arts/foundations/perspective-and-space",
+        blurb: "平面上怎样假装有深度",
+      },
+      {
+        title: "比例与和谐",
+        href: "/arts/foundations/proportion-and-harmony",
+        blurb: "尺度关系，不是「美的公式」",
+      },
+      {
+        title: "形式分析",
+        href: "/arts/methods/formal-analysis",
+        blurb: "把「好看」拆成可以争论的观察",
+      },
+    ],
+  },
+  {
+    slug: "how-machines-are-made-to-work",
+    title: "机器怎样被做成能用的",
+    subtitle: "从杠杆到反馈，从材料到失效",
+    description:
+      "工程不是发明清单，是让东西在最坏情况下仍能运转。这条路线从简单机械和热机出发，经过电机、材料与反馈，停在失效分析与安全工程——看可靠是怎样被设计进去的。",
+    domain: "engineering",
+    domainLabel: "工程与技术",
+    accent: "#8a919e",
+    steps: [
+      {
+        title: "简单机械",
+        href: "/engineering/foundations/simple-machines",
+        blurb: "杠杆、斜面、轮轴：力怎样被改道",
+      },
+      {
+        title: "蒸汽与热机",
+        href: "/engineering/foundations/steam-and-engines",
+        blurb: "热变成功，效率受什么限制",
+      },
+      {
+        title: "电与电机",
+        href: "/engineering/foundations/electricity-and-motors",
+        blurb: "电流怎样变成可控制的转动",
+      },
+      {
+        title: "材料强度",
+        href: "/engineering/foundations/materials-strength",
+        blurb: "一块材料在断裂前能扛多少",
+      },
+      {
+        title: "控制与反馈",
+        href: "/engineering/foundations/control-and-feedback",
+        blurb: "系统怎样自己把自己拉回轨道",
+      },
+      {
+        title: "失效分析",
+        href: "/engineering/frontiers/failure-analysis",
+        blurb: "东西坏了，才看得出设计假设在哪",
+      },
+      {
+        title: "安全工程",
+        href: "/engineering/frontiers/safety-engineering",
+        blurb: "把最坏情况写进规格，而不是事后补救",
+      },
+    ],
+  },
 ];

@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { buildValidRoutes } from "@/scripts/valid-routes";
 import { READING_PATHS, getReadingPath, totalReadingSteps } from "@/lib/reading-paths";
 
 /**
@@ -31,5 +32,15 @@ describe("reading paths", () => {
         expect(step.href.startsWith("/")).toBe(true);
       }
     }
+  });
+
+  it("points every chapter at a real route", () => {
+    const valid = buildValidRoutes();
+    const broken = READING_PATHS.flatMap((path) =>
+      path.steps
+        .filter((step) => !valid.has(step.href))
+        .map((step) => `${path.slug}: ${step.title} → ${step.href}`)
+    );
+    expect(broken).toEqual([]);
   });
 });

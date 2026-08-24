@@ -551,13 +551,13 @@ export function CellExplorer() {
                     >
                       {selected.name}
                     </h4>
-                    <p className="font-mono text-[10px] tracking-wider text-[#888] italic">
+                    <p className="text-fg-muted font-mono text-[10px] tracking-wider italic">
                       {selected.nameEn}
                     </p>
                   </div>
                   <button
                     onClick={() => setSelectedId(null)}
-                    className="rounded-full p-1 transition-colors hover:bg-white/5"
+                    className="hover:bg-bg-elevated rounded-full p-1 transition-colors"
                     aria-label="关闭详情"
                   >
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">

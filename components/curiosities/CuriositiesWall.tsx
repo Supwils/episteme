@@ -4,6 +4,7 @@ import { useMemo, useState, useCallback } from "react";
 import Link from "next/link";
 import {
   CURIOSITY_SUBJECTS,
+  curiosityArticleHref,
   type CuriosityWithSubject,
   type CuriositySubject,
 } from "@/lib/curiosities";
@@ -42,7 +43,7 @@ export function CuriositiesWall({ items }: { items: CuriosityWithSubject[] }) {
     <div className="w-full px-6 py-16 sm:px-10 lg:px-16">
       <header className="mb-10 max-w-3xl">
         <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
-          curiosities · 奇趣知识
+          奇趣知识
         </p>
         <h1 className="font-display text-fg-primary text-[2.6rem] leading-tight tracking-tight md:text-[3.6rem]">
           原来<em className="text-accent-gold italic"> 如此</em>
@@ -143,15 +144,16 @@ export function CuriositiesWall({ items }: { items: CuriosityWithSubject[] }) {
                   来源：{item.source}
                 </p>
               )}
-              {item.url && (
+              {curiosityArticleHref(item.url) && (
                 <span className="text-fg-disabled group-hover:text-accent-gold relative mt-1 font-mono text-[11px] tracking-wider transition-colors">
                   深入了解 →
                 </span>
               )}
             </div>
           );
-          return item.url ? (
-            <Link key={`${item.subject}:${item.id}`} href={item.url} className="block no-underline">
+          const href = curiosityArticleHref(item.url);
+          return href ? (
+            <Link key={`${item.subject}:${item.id}`} href={href} className="block no-underline">
               {card}
             </Link>
           ) : (

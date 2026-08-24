@@ -16,22 +16,20 @@ export default function StellarEvolutionPage() {
   return (
     <div className="min-h-screen px-6 py-12 sm:px-10 lg:px-16">
       <nav className="mb-8">
-        <Link href="/cosmology" className="text-sm text-[#3b82f6] hover:underline">
+        <Link href="/cosmology" className="text-accent-blue text-sm hover:underline">
           ← 返回宇宙学
         </Link>
       </nav>
 
       <header className="mb-12">
-        <p className="mb-4 text-xs tracking-[0.32em] uppercase" style={{ color: "#3b82f6" }}>
-          Stellar Evolution
-        </p>
+        <p className="text-accent-blue mb-4 text-xs tracking-[0.32em] uppercase">赫罗图</p>
         <h1
-          className="mb-4 text-4xl font-bold md:text-5xl"
+          className="text-fg-primary mb-4 text-4xl font-bold md:text-5xl"
           style={{ fontFamily: "var(--font-display)" }}
         >
           恒星演化
         </h1>
-        <p className="max-w-2xl text-lg text-[#a8adbd]">
+        <p className="text-fg-secondary max-w-2xl text-lg">
           恒星的一生由质量决定。赫罗图（Hertzsprung-Russell
           Diagram）展示了恒星光度与表面温度的关系，
           揭示了主序星、红巨星、白矮星等不同演化阶段的分布规律。
@@ -43,7 +41,7 @@ export default function StellarEvolutionPage() {
       </section>
 
       <section className="mb-16 max-w-3xl">
-        <h2 className="mb-6 text-2xl font-bold">恒星演化阶段</h2>
+        <h2 className="text-fg-primary mb-6 text-2xl font-bold">恒星演化阶段</h2>
         <div className="space-y-4">
           {[
             {
@@ -71,18 +69,15 @@ export default function StellarEvolutionPage() {
                 "大质量恒星（>8 倍太阳质量）会演化为超巨星，核心通过硅聚变形成铁。当铁核质量超过钱德拉塞卡极限时，引发超新星爆发，留下中子星或黑洞。",
             },
           ].map((stage) => (
-            <div
-              key={stage.title}
-              className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5"
-            >
-              <h3 className="mb-2 text-lg font-semibold">
+            <div key={stage.title} className="border-border-faint bg-bg-near rounded-xl border p-5">
+              <h3 className="text-fg-primary mb-2 text-lg font-semibold">
                 <span
                   className="mr-2 inline-block h-3 w-3 rounded-full align-middle"
                   style={{ backgroundColor: stage.color }}
                 />
                 {stage.title}
               </h3>
-              <p className="text-sm leading-relaxed text-[#a8adbd]">{stage.description}</p>
+              <p className="text-fg-secondary text-sm leading-relaxed">{stage.description}</p>
             </div>
           ))}
         </div>

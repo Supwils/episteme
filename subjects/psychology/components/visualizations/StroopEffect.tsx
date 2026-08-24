@@ -66,19 +66,15 @@ function InstructionPanel({ onStart }: { onStart: () => void }) {
       className="flex flex-col items-center gap-6 py-8"
     >
       <div className="text-center">
-        <h3 className="font-display text-fg-primary mb-2 text-xl font-semibold">
-          Stroop 效应测试
-        </h3>
+        <h3 className="font-display text-fg-primary mb-2 text-xl font-semibold">Stroop 效应测试</h3>
         <p className="text-fg-secondary mx-auto max-w-md text-sm leading-relaxed">
-          屏幕上会出现一个表示颜色的汉字（如&ldquo;红&rdquo;），但显示的墨水颜色可能不同。
-          你需要<strong className="text-fg-primary">忽略文字含义，点击正确的墨水颜色</strong>。
+          屏幕上会出现一个表示颜色的汉字（如&ldquo;红&rdquo;），但显示的墨水颜色可能不同。 你需要
+          <strong className="text-fg-primary">忽略文字含义，点击正确的墨水颜色</strong>。
         </p>
       </div>
 
       <div className="border-border-faint bg-bg-near flex flex-col gap-3 border p-4">
-        <p className="text-fg-muted font-mono text-[10px] tracking-[0.22em] uppercase">
-          示例
-        </p>
+        <p className="text-fg-muted font-mono text-[10px] tracking-[0.22em] uppercase">示例</p>
         <div className="flex items-center gap-4">
           <div className="text-center">
             <span className="text-3xl font-bold" style={{ color: "#ef4444" }}>
@@ -137,7 +133,7 @@ function TrialDisplay({
         onAnswer(label, elapsed);
       }, 300);
     },
-    [flash, onAnswer, trial.correctLabel],
+    [flash, onAnswer, trial.correctLabel]
   );
 
   return (
@@ -170,10 +166,7 @@ function TrialDisplay({
               : "border-border-faint bg-bg-near"
         }`}
       >
-        <span
-          className="text-5xl font-bold select-none"
-          style={{ color: trial.inkColor }}
-        >
+        <span className="text-5xl font-bold select-none" style={{ color: trial.inkColor }}>
           {trial.word}
         </span>
       </motion.div>
@@ -184,14 +177,14 @@ function TrialDisplay({
             key={c.label}
             onClick={() => handleAnswer(c.label)}
             disabled={!!flash}
-            className="group flex flex-col items-center gap-2 rounded-sm border border-transparent px-4 py-3 transition-all hover:border-white/10 hover:bg-white/5 disabled:pointer-events-none"
+            className="hover:border-border-subtle hover:bg-bg-elevated group flex flex-col items-center gap-2 rounded-sm border border-transparent px-4 py-3 transition-all disabled:pointer-events-none"
             aria-label={`选择颜色 ${c.label}`}
           >
             <div
               className="h-8 w-8 rounded-full transition-transform group-hover:scale-110"
               style={{ backgroundColor: c.hex }}
             />
-            <span className="text-fg-muted font-mono text-[10px] group-hover:text-fg-primary">
+            <span className="text-fg-muted group-hover:text-fg-primary font-mono text-[10px]">
               {c.label}
             </span>
           </button>
@@ -201,13 +194,7 @@ function TrialDisplay({
   );
 }
 
-function ResultsPanel({
-  results,
-  onRestart,
-}: {
-  results: TrialResult[];
-  onRestart: () => void;
-}) {
+function ResultsPanel({ results, onRestart }: { results: TrialResult[]; onRestart: () => void }) {
   const stats = useMemo(() => {
     const congruent = results.filter((r) => r.congruent);
     const incongruent = results.filter((r) => !r.congruent);
@@ -218,17 +205,12 @@ function ResultsPanel({
         : 0;
     const avgIncongruent =
       incongruent.length > 0
-        ? incongruent.reduce((s, r) => s + r.reactionTime, 0) /
-          incongruent.length
+        ? incongruent.reduce((s, r) => s + r.reactionTime, 0) / incongruent.length
         : 0;
     const accuracyCongruent =
-      congruent.length > 0
-        ? congruent.filter((r) => r.correct).length / congruent.length
-        : 0;
+      congruent.length > 0 ? congruent.filter((r) => r.correct).length / congruent.length : 0;
     const accuracyIncongruent =
-      incongruent.length > 0
-        ? incongruent.filter((r) => r.correct).length / incongruent.length
-        : 0;
+      incongruent.length > 0 ? incongruent.filter((r) => r.correct).length / incongruent.length : 0;
 
     return {
       avgCongruent: Math.round(avgCongruent),
@@ -249,12 +231,8 @@ function ResultsPanel({
       className="flex flex-col gap-6"
     >
       <div className="text-center">
-        <h3 className="font-display text-fg-primary mb-1 text-xl font-semibold">
-          测试结果
-        </h3>
-        <p className="text-fg-secondary text-sm">
-          你的 Stroop 效应表现
-        </p>
+        <h3 className="font-display text-fg-primary mb-1 text-xl font-semibold">测试结果</h3>
+        <p className="text-fg-secondary text-sm">你的 Stroop 效应表现</p>
       </div>
 
       <div className="grid grid-cols-2 gap-4">
@@ -274,16 +252,13 @@ function ResultsPanel({
             color: "#ef4444",
           },
         ].map((block) => (
-          <div
-            key={block.labelEn}
-            className="border-border-faint bg-bg-near border p-4"
-          >
+          <div key={block.labelEn} className="border-border-faint bg-bg-near border p-4">
             <div className="mb-3 flex items-center gap-2">
-              <div
-                className="h-2.5 w-2.5 rounded-full"
-                style={{ backgroundColor: block.color }}
-              />
-              <span className="font-mono text-[10px] tracking-[0.22em] uppercase" style={{ color: block.color }}>
+              <div className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: block.color }} />
+              <span
+                className="font-mono text-[10px] tracking-[0.22em] uppercase"
+                style={{ color: block.color }}
+              >
                 {block.labelEn}
               </span>
             </div>
@@ -308,9 +283,7 @@ function ResultsPanel({
       <div className="border-accent-purple/20 bg-accent-purple/5 border p-4 text-center">
         <p className="text-fg-secondary text-sm">
           不一致条件下反应时间慢了{" "}
-          <span className="text-accent-purple font-mono font-semibold">
-            +{stats.difference}ms
-          </span>
+          <span className="text-accent-purple font-mono font-semibold">+{stats.difference}ms</span>
         </p>
         <p className="text-fg-muted mt-2 text-xs leading-relaxed">
           这就是 <strong className="text-fg-primary">Stroop 效应</strong>
@@ -324,8 +297,9 @@ function ResultsPanel({
           心理学解释
         </h4>
         <p className="text-fg-secondary text-sm leading-relaxed">
-          Stroop 效应（1935）揭示了<strong className="text-fg-primary">自动化加工</strong>
-          与<strong className="text-fg-primary">控制加工</strong>之间的冲突。阅读是一个高度自动化的技能，
+          Stroop 效应（1935）揭示了<strong className="text-fg-primary">自动化加工</strong>与
+          <strong className="text-fg-primary">控制加工</strong>
+          之间的冲突。阅读是一个高度自动化的技能，
           当我们试图命名墨水颜色时，自动阅读过程会产生干扰。
           这一效应被广泛用于测量注意力、认知灵活性和执行功能。
         </p>
@@ -381,40 +355,31 @@ export default function StroopEffect() {
         setPhase("results");
       }
     },
-    [currentTrial, phase, trialIndex],
+    [currentTrial, phase, trialIndex]
   );
 
   return (
     <div className="w-full">
       <div className="mb-4">
         <p className="text-fg-muted font-mono text-[10px] tracking-[0.42em] uppercase">
-          interactive stroop test
+          斯特鲁普实验
         </p>
-        <h2 className="font-display text-fg-primary mt-1 text-lg font-semibold">
-          Stroop 效应实验
-        </h2>
+        <h2 className="font-display text-fg-primary mt-1 text-lg font-semibold">Stroop 效应实验</h2>
       </div>
 
       <div className="border-border-faint bg-bg-panel border p-6 backdrop-blur-md">
         <AnimatePresence mode="wait">
-          {phase === "intro" && (
-            <InstructionPanel key="intro" onStart={startTest} />
+          {phase === "intro" && <InstructionPanel key="intro" onStart={startTest} />}
+          {(phase === "congruent" || phase === "incongruent") && currentTrial && (
+            <TrialDisplay
+              key={`trial-${phase}-${trialIndex}`}
+              trial={currentTrial}
+              onAnswer={handleAnswer}
+              trialNum={trialIndex + 1}
+              totalTrials={TRIALS_PER_BLOCK}
+              phaseLabel={phase === "congruent" ? "第一轮：一致条件" : "第二轮：不一致条件"}
+            />
           )}
-          {(phase === "congruent" || phase === "incongruent") &&
-            currentTrial && (
-              <TrialDisplay
-                key={`trial-${phase}-${trialIndex}`}
-                trial={currentTrial}
-                onAnswer={handleAnswer}
-                trialNum={trialIndex + 1}
-                totalTrials={TRIALS_PER_BLOCK}
-                phaseLabel={
-                  phase === "congruent"
-                    ? "第一轮：一致条件"
-                    : "第二轮：不一致条件"
-                }
-              />
-            )}
           {phase === "results" && (
             <ResultsPanel key="results" results={results} onRestart={startTest} />
           )}

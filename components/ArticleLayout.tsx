@@ -2,9 +2,12 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { cn } from "@/components/ui/utils/cn";
 import { ArticleSidebar } from "@/components/ArticleSidebar";
+import { AskThisArticle } from "@/components/AskThisArticle";
+import { ArticleTakeaway } from "@/components/ArticleTakeaway";
 import { Backlinks } from "@/components/Backlinks";
 import { ReadingModeControls } from "@/components/ReadingModeControls";
 import { ReadingProgressBar } from "@/components/ReadingProgressBar";
+import { deriveAskPrompts, deriveTakeaway } from "@/lib/article-discovery";
 import { readingMinutes } from "@/lib/reading-time";
 
 interface PrevNextLink {
@@ -39,6 +42,11 @@ interface ArticleLayoutProps {
   meta?: ReactNode;
   /** Short plain-text summary rendered under the title (frontier excerpt). */
   lede?: string;
+  /**
+   * Optional one-sentence takeaway. When omitted, derived from a 破除误解
+   * section when present (T-READ-08).
+   */
+  takeaway?: string;
   tags?: readonly string[];
   /** The article body, rendered inside <article>. */
   children: ReactNode;
@@ -78,6 +86,7 @@ export function ArticleLayout({
   content,
   meta,
   lede,
+  takeaway: takeawayProp,
   tags,
   children,
   sidebar,
@@ -89,6 +98,8 @@ export function ArticleLayout({
   sidebarClassName,
 }: ArticleLayoutProps) {
   const readMinutes = readingMinutes(content);
+  const takeaway = deriveTakeaway(content, takeawayProp);
+  const askPrompts = deriveAskPrompts(content);
 
   return (
     <div className="mx-auto w-full max-w-[1800px] px-6 py-12 sm:px-10 lg:px-16">
@@ -165,7 +176,9 @@ export function ArticleLayout({
             articleClassName
           )}
         >
+          <AskThisArticle prompts={askPrompts} accent={accent} />
           {children}
+          {takeaway ? <ArticleTakeaway text={takeaway} accent={accent} /> : null}
         </article>
         <ArticleSidebar contentClassName={sidebarClassName}>{sidebar}</ArticleSidebar>
       </div>

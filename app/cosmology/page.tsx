@@ -85,7 +85,7 @@ export default function CosmologyPage() {
                 </Link>
                 <Link
                   href="/cosmology/knowledge-base"
-                  className="border-border-subtle text-fg-primary rounded-full border px-4 py-2 text-sm transition-colors hover:bg-white/[0.06]"
+                  className="border-border-subtle text-fg-primary hover:bg-bg-elevated rounded-full border px-4 py-2 text-sm transition-colors"
                 >
                   阅读太空探索与天体生物学
                 </Link>

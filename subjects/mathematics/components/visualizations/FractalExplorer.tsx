@@ -20,7 +20,7 @@ function generateSierpinski(
   x3: number,
   y3: number,
   depth: number,
-  maxDepth: number,
+  maxDepth: number
 ): Triangle[] {
   if (depth >= maxDepth) {
     return [{ x1, y1, x2, y2, x3, y3, depth }];
@@ -81,9 +81,9 @@ export function FractalExplorer() {
         TRIANGLE_POINTS[2][0],
         TRIANGLE_POINTS[2][1],
         0,
-        maxDepth,
+        maxDepth
       ),
-    [maxDepth],
+    [maxDepth]
   );
 
   const triangleCount = triangles.length;
@@ -105,7 +105,7 @@ export function FractalExplorer() {
   }, []);
 
   return (
-    <div className="border border-border-faint bg-bg-panel p-6 backdrop-blur-md">
+    <div className="border-border-faint bg-bg-panel border p-6 backdrop-blur-md">
       <h3 className="font-display text-fg-primary mb-1 text-lg font-semibold tracking-tight">
         谢尔宾斯基三角形
       </h3>
@@ -115,7 +115,7 @@ export function FractalExplorer() {
 
       <div className="flex flex-col gap-6 lg:flex-row">
         <div className="flex-1">
-          <div className="border border-border-faint bg-bg-elevated">
+          <div className="border-border-faint bg-bg-elevated border">
             <svg
               viewBox={`0 0 ${SVG_SIZE} ${SVG_SIZE}`}
               className="h-auto w-full"
@@ -123,8 +123,7 @@ export function FractalExplorer() {
               aria-label={`谢尔宾斯基三角形，第 ${maxDepth} 次迭代，共 ${triangleCount} 个三角形`}
             >
               {triangles.map((tri, i) => {
-                const isHighlighted =
-                  highlightDepth !== null && tri.depth === highlightDepth;
+                const isHighlighted = highlightDepth !== null && tri.depth === highlightDepth;
                 const isSelfSimilar = showSelfSimilarity && selfSimilarTriangles.includes(tri);
                 const points = `${tri.x1},${tri.y1} ${tri.x2},${tri.y2} ${tri.x3},${tri.y3}`;
                 const fillColor = getTriangleColor(tri.depth, maxDepth);
@@ -147,8 +146,8 @@ export function FractalExplorer() {
                       isSelfSimilar
                         ? "#f59e0b"
                         : highlightDepth !== null && isHighlighted
-                          ? "#ffffff"
-                          : "rgba(255,255,255,0.08)"
+                          ? "var(--color-fg-primary)"
+                          : "var(--color-border-faint)"
                     }
                     strokeWidth={isSelfSimilar || isHighlighted ? 1.5 : 0.5}
                     className="transition-all duration-200"
@@ -183,7 +182,7 @@ export function FractalExplorer() {
             </div>
           </div>
 
-          <div className="border border-border-faint bg-bg-elevated space-y-3 p-4">
+          <div className="border-border-faint bg-bg-elevated space-y-3 border p-4">
             <h4 className="text-fg-primary font-mono text-[10px] tracking-[0.22em] uppercase">
               统计数据
             </h4>
@@ -200,16 +199,12 @@ export function FractalExplorer() {
             </div>
           </div>
 
-          <div className="border border-border-faint bg-bg-elevated p-4">
+          <div className="border-border-faint bg-bg-elevated border p-4">
             <h4 className="text-fg-primary mb-2 font-mono text-[10px] tracking-[0.22em] uppercase">
               维数公式
             </h4>
-            <p className="text-accent-cyan font-mono text-sm">
-              dim = log(N) / log(1/r)
-            </p>
-            <p className="text-fg-muted mt-1 font-mono text-[11px]">
-              = log(3) / log(2) ≈ 1.585
-            </p>
+            <p className="text-accent-cyan font-mono text-sm">dim = log(N) / log(1/r)</p>
+            <p className="text-fg-muted mt-1 font-mono text-[11px]">= log(3) / log(2) ≈ 1.585</p>
             <p className="text-fg-disabled mt-2 text-[12px] leading-relaxed">
               介于一维（线）和二维（面）之间，描述分形填充空间的程度。
             </p>
@@ -235,12 +230,10 @@ export function FractalExplorer() {
                 {Array.from({ length: maxDepth + 1 }, (_, i) => (
                   <button
                     key={i}
-                    onClick={() =>
-                      setHighlightDepth(highlightDepth === i ? null : i)
-                    }
+                    onClick={() => setHighlightDepth(highlightDepth === i ? null : i)}
                     className={`h-7 w-7 border font-mono text-[10px] transition-all ${
                       highlightDepth === i
-                        ? "border-white/50 bg-white/10 text-white"
+                        ? "border-fg-primary bg-fg-primary/10 text-fg-primary"
                         : "border-border-faint text-fg-muted hover:border-fg-disabled/30"
                     }`}
                     style={
@@ -259,7 +252,7 @@ export function FractalExplorer() {
 
           {showSelfSimilarity && (
             <div className="border border-amber-500/20 bg-amber-500/5 p-4">
-              <p className="text-amber-400 font-mono text-[10px] tracking-[0.12em] uppercase">
+              <p className="font-mono text-[10px] tracking-[0.12em] text-amber-400 uppercase">
                 自相似性
               </p>
               <p className="text-fg-secondary mt-1 text-[12px] leading-relaxed">
@@ -285,9 +278,7 @@ function StatRow({
 }) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-fg-disabled font-mono text-[10px] tracking-[0.08em]">
-        {label}
-      </span>
+      <span className="text-fg-disabled font-mono text-[10px] tracking-[0.08em]">{label}</span>
       <span
         className={`font-mono text-[12px] ${accent ? "text-accent-indigo font-semibold" : "text-fg-secondary"}`}
       >

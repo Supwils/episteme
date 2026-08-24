@@ -84,9 +84,12 @@ export function SIRSimulator() {
     const x = (day: number) => padL + (day / days) * plotW;
     const y = (frac: number) => padT + (1 - frac) * plotH;
 
+    const styles = getComputedStyle(document.documentElement);
+    const grid = styles.getPropertyValue("--color-border-faint").trim() || "rgba(128,128,128,0.2)";
+    const label = styles.getPropertyValue("--color-fg-muted").trim() || "rgba(128,128,128,0.7)";
     // grid + y labels (0,25,50,75,100%)
-    ctx.strokeStyle = "rgba(255,255,255,0.07)";
-    ctx.fillStyle = "rgba(255,255,255,0.35)";
+    ctx.strokeStyle = grid;
+    ctx.fillStyle = label;
     ctx.font = "10px -apple-system, system-ui, sans-serif";
     ctx.lineWidth = 1;
     for (let p = 0; p <= 1; p += 0.25) {
@@ -131,12 +134,12 @@ export function SIRSimulator() {
   }, [result, herdThreshold]);
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-[#0b0b12] p-5 sm:p-6">
+    <div className="border-border-faint bg-bg-near rounded-2xl border p-5 sm:p-6">
       <div className="mb-4 flex flex-wrap items-center gap-x-5 gap-y-1 text-[12px]">
         <Legend color={S_COLOR} label="易感 S" />
         <Legend color={I_COLOR} label="感染 I" />
         <Legend color={R_COLOR} label="康复/免疫 R" />
-        <span className="text-white/55">— — 群体免疫阈值</span>
+        <span className="text-fg-muted">— — 群体免疫阈值</span>
       </div>
 
       <canvas
@@ -207,7 +210,7 @@ export function SIRSimulator() {
 
 function Legend({ color, label }: { color: string; label: string }) {
   return (
-    <span className="flex items-center gap-1.5 text-white/60">
+    <span className="text-fg-secondary flex items-center gap-1.5">
       <span className="inline-block h-2.5 w-2.5 rounded-full" style={{ background: color }} />
       {label}
     </span>
@@ -236,8 +239,8 @@ function Slider({
   return (
     <label className="block">
       <span className="mb-1 flex items-center justify-between text-[12.5px]">
-        <span className="text-white/70">{label}</span>
-        <span className="font-mono text-white/90">{display}</span>
+        <span className="text-fg-secondary">{label}</span>
+        <span className="text-fg-primary font-mono">{display}</span>
       </span>
       <input
         type="range"
@@ -248,17 +251,17 @@ function Slider({
         onChange={(e) => onChange(parseFloat(e.target.value))}
         className="w-full accent-[#d9544d]"
       />
-      <span className="mt-1 block text-[10.5px] leading-snug text-white/55">{hint}</span>
+      <span className="text-fg-muted mt-1 block text-[10.5px] leading-snug">{hint}</span>
     </label>
   );
 }
 
 function Metric({ label, value, sub }: { label: string; value: string; sub: string }) {
   return (
-    <div className="rounded-lg border border-white/8 bg-white/[0.02] px-3 py-2.5">
-      <div className="text-[10.5px] tracking-wide text-white/55">{label}</div>
+    <div className="border-border-faint bg-bg-elevated rounded-lg border px-3 py-2.5">
+      <div className="text-fg-muted text-[10.5px] tracking-wide">{label}</div>
       <div className="text-fg-primary text-lg font-semibold">{value}</div>
-      <div className="text-[10px] leading-snug text-white/55">{sub}</div>
+      <div className="text-fg-muted text-[10px] leading-snug">{sub}</div>
     </div>
   );
 }

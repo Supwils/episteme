@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 /**
- * Token-based 404 for engine-driven domains (light-theme safe, unlike the
- * root app/not-found.tsx which hardcodes white text). Keeps the reader inside
- * the current domain instead of bouncing them to the portal.
+ * Token-based 404 for dual-theme surfaces (engine domains and custom domains).
+ * Keeps the reader inside the current domain instead of bouncing them to the
+ * portal. Root unknown URLs use app/not-found.tsx.
  */
 export function DomainNotFound({ homeHref, homeLabel }: { homeHref: string; homeLabel: string }) {
   return (

@@ -543,16 +543,23 @@ export const FEATURES = [
     desc: "用真实的实验测定结构，在浏览器里旋转探索胰岛素、DNA、新冠刺突蛋白等分子——准确，而非想象。",
     href: "/molecules",
   },
-  { icon: "◎", title: "沉浸式探索", desc: "WebGL 3D 场景与流畅动画，在视觉交互中理解复杂概念。" },
+  {
+    icon: "◎",
+    title: "沉浸式探索",
+    desc: "WebGL 3D 场景与流畅动画，在视觉交互中理解复杂概念。",
+    href: "/universe-physics/universe/observable",
+  },
   {
     icon: "◇",
     title: "跨文明连接",
     desc: "跨越地域与时代，将不同文明的知识串联成统一的认知网络。",
+    href: "/human-history/knowledge/文化交流--丝绸之路上的文化融合",
   },
   {
     icon: "▣",
     title: "深度内容",
     desc: `${SEARCH_STATS.articles} 篇深度文章与跨学科对话，兼顾学术严谨与大众可读性。`,
+    href: "/search",
   },
   {
     icon: "📅",
@@ -578,7 +585,7 @@ export const LATEST_UPDATES = [
     description:
       "艺术、工程、法学、语言学四域接入前沿板块，新增 24 篇 2020s 证据驱动的前沿文章，全平台前沿覆盖达 18 域。",
     date: "2026-08",
-    href: "/arts/frontier",
+    href: "/arts/frontier/generative-art-authorship-provenance",
   },
   {
     id: "lu-10",
@@ -588,7 +595,7 @@ export const LATEST_UPDATES = [
     description:
       "36 篇文章覆盖工程基础、能源与动力、材料与制造、信息与机器、土木与建造、重大工程与伦理六大板块。",
     date: "2026-08",
-    href: "/engineering",
+    href: "/engineering/foundations/simple-machines",
   },
   {
     id: "lu-11",
@@ -598,7 +605,7 @@ export const LATEST_UPDATES = [
     description:
       "40 篇文章从观看、材料与制作进入全球视觉文化，40 张主图全部经 Wikimedia Commons 许可证核实。",
     date: "2026-08",
-    href: "/arts",
+    href: "/arts/foundations/seeing-and-perception",
   },
   {
     id: "lu-12",
@@ -608,7 +615,7 @@ export const LATEST_UPDATES = [
     description:
       "34 篇文章覆盖法律基础、公法、私法、刑法与程序、比较法律传统、全球与数字治理六大板块。",
     date: "2026-08",
-    href: "/law",
+    href: "/law/foundations/why-law-exists",
   },
   {
     id: "lu-13",
@@ -627,7 +634,7 @@ export const LATEST_UPDATES = [
     title: "语言学板块上线",
     description: "从声音与手势、词句与意义到语言习得与文字系统，探索人类如何用语言组织意义。",
     date: "2026-07",
-    href: "/linguistics",
+    href: "/linguistics/sounds-and-signs/language-speech-and-sign",
   },
   {
     id: "lu-1",
@@ -636,7 +643,7 @@ export const LATEST_UPDATES = [
     title: "超星系团尺度结构更新",
     description: "新增拉尼亚凯亚超星系团的 3D 可视化，包含室女座星系团与半人马座星系团的引力关系。",
     date: "2026-05",
-    href: "/cosmology",
+    href: "/cosmology/universe/laniakea",
   },
   {
     id: "lu-2",
@@ -645,7 +652,7 @@ export const LATEST_UPDATES = [
     title: "丝绸之路专题上线",
     description: "从长安到罗马的完整路线，覆盖 42 个关键节点城市与 15 位代表性历史人物。",
     date: "2026-05",
-    href: "/human-history",
+    href: "/human-history/knowledge/事件--丝绸之路",
   },
   {
     id: "lu-3",
@@ -654,7 +661,7 @@ export const LATEST_UPDATES = [
     title: "存在主义流派深度解析",
     description: "新增海德格尔、萨特、加缪等 12 位存在主义哲学家的核心思想梳理与知识图谱。",
     date: "2026-04",
-    href: "/philosophy",
+    href: "/philosophy/schools/existentialism",
   },
   {
     id: "lu-4",
@@ -663,7 +670,7 @@ export const LATEST_UPDATES = [
     title: "寒武纪大爆发可视化",
     description: "5.4 亿年前的生命大爆发场景重建，覆盖 23 个标志性物种的 3D 模型与生态关系。",
     date: "2026-04",
-    href: "/life-science",
+    href: "/life-science/knowledge-base/关键事件--寒武纪大爆发",
   },
   {
     id: "lu-5",
@@ -672,7 +679,7 @@ export const LATEST_UPDATES = [
     title: "数学与逻辑板块启动",
     description: "全新知识领域上线，覆盖从古代数学到当代范畴论的完整数学发展史。",
     date: "2026-06",
-    href: "/mathematics",
+    href: "/mathematics/mathematicians/euclid",
   },
   {
     id: "lu-6",
@@ -682,7 +689,7 @@ export const LATEST_UPDATES = [
     description:
       "覆盖 29 位经济学家、12 理论、10 概念、9 流派，从古典政治学到行为经济学的完整知识体系。",
     date: "2026-06",
-    href: "/economics",
+    href: "/economics/economists/adam-smith",
   },
   {
     id: "lu-7",
@@ -691,7 +698,7 @@ export const LATEST_UPDATES = [
     title: "心理学板块上线",
     description: "覆盖 36 位理论家、26 经典实验、16 心理现象，从精神分析到认知神经科学的全面探索。",
     date: "2026-06",
-    href: "/psychology",
+    href: "/psychology/experiments/stanford-prison",
   },
   {
     id: "lu-8",
@@ -713,7 +720,7 @@ export const FEATURED_CONTENT = [
     icon: "◉",
     title: "从大爆炸到星系形成",
     description: "追溯 138 亿年宇宙演化史，从奇点到第一代恒星的点燃。",
-    href: "/cosmology",
+    href: "/cosmology/knowledge-base/星系形成与演化",
   },
   {
     id: "fc-2",
@@ -722,7 +729,7 @@ export const FEATURED_CONTENT = [
     icon: "◈",
     title: "文明的摇篮：美索不达米亚",
     description: "苏美尔、阿卡德、巴比伦——人类最早的城市文明如何诞生。",
-    href: "/human-history",
+    href: "/human-history/knowledge/文明--美索不达米亚",
   },
   {
     id: "fc-3",
@@ -731,7 +738,7 @@ export const FEATURED_CONTENT = [
     icon: "◎",
     title: "柏拉图与亚里士多德",
     description: "西方哲学的两大源头，理念论与实体论的根本分歧。",
-    href: "/philosophy",
+    href: "/philosophy/thinkers/plato",
   },
   {
     id: "fc-4",
@@ -740,7 +747,7 @@ export const FEATURED_CONTENT = [
     icon: "◇",
     title: "DNA 双螺旋的发现",
     description: "沃森与克里克的发现如何改变了生物学，开启了分子生物学时代。",
-    href: "/life-science",
+    href: "/life-science/scientists/watson",
   },
   {
     id: "fc-5",
@@ -749,7 +756,7 @@ export const FEATURED_CONTENT = [
     icon: "◉",
     title: "黑洞：时空的深渊",
     description: "从史瓦西半径到事件视界，理解宇宙中最神秘的天体。",
-    href: "/universe-physics",
+    href: "/universe-physics/knowledge-base/相对论--黑洞",
   },
   {
     id: "fc-6",
@@ -758,7 +765,7 @@ export const FEATURED_CONTENT = [
     icon: "◈",
     title: "文艺复兴与科学革命",
     description: "达芬奇、伽利略、牛顿——人类认知范式的根本转变。",
-    href: "/human-history",
+    href: "/human-history/knowledge/事件--文艺复兴",
   },
   {
     id: "fc-7",
@@ -767,7 +774,7 @@ export const FEATURED_CONTENT = [
     icon: "∑",
     title: "欧几里得《几何原本》",
     description: "公理化方法的诞生——人类首次用逻辑构建完整的知识体系。",
-    href: "/mathematics",
+    href: "/mathematics/mathematicians/euclid",
   },
   {
     id: "fc-8",
@@ -776,7 +783,7 @@ export const FEATURED_CONTENT = [
     icon: "∞",
     title: "微积分的发明",
     description: "牛顿与莱布尼茨的优先权之争，开启了分析学的黄金时代。",
-    href: "/mathematics",
+    href: "/mathematics/knowledge-base/分析--微积分的故事",
   },
   {
     id: "fc-9",
@@ -785,7 +792,7 @@ export const FEATURED_CONTENT = [
     icon: "◈",
     title: "亚当·斯密与《国富论》",
     description: "现代经济学的奠基之作，看不见的手如何引导市场自发秩序。",
-    href: "/economics",
+    href: "/economics/economists/adam-smith",
   },
   {
     id: "fc-10",
@@ -794,7 +801,7 @@ export const FEATURED_CONTENT = [
     icon: "◎",
     title: "博弈论与纳什均衡",
     description: "从囚徒困境到市场策略，博弈论如何改变了经济学的分析范式。",
-    href: "/economics",
+    href: "/economics/economists/john-nash",
   },
   {
     id: "fc-11",
@@ -803,7 +810,7 @@ export const FEATURED_CONTENT = [
     icon: "◉",
     title: "斯坦福监狱实验",
     description: "津巴多的经典实验揭示了情境力量如何塑造人类行为。",
-    href: "/psychology",
+    href: "/psychology/experiments/stanford-prison",
   },
   {
     id: "fc-12",
@@ -812,6 +819,6 @@ export const FEATURED_CONTENT = [
     icon: "◇",
     title: "认知失调理论",
     description: "费斯廷格的理论揭示了人类如何处理矛盾信念与行为之间的张力。",
-    href: "/psychology",
+    href: "/psychology/phenomena/cognitive-dissonance",
   },
 ];

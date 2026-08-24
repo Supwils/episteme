@@ -32,8 +32,7 @@ export const BIAS_TAXONOMY: BiasCategory[] = [
         id: "anchoring",
         name: "锚定效应",
         nameEn: "Anchoring Effect",
-        description:
-          "人们在做决策时过度依赖最先获得的信息（锚点），即使该信息与决策无关。",
+        description: "人们在做决策时过度依赖最先获得的信息（锚点），即使该信息与决策无关。",
         slug: "anchoring-bias",
       },
       {
@@ -63,8 +62,7 @@ export const BIAS_TAXONOMY: BiasCategory[] = [
         id: "status-quo",
         name: "现状偏误",
         nameEn: "Status Quo Bias",
-        description:
-          "人们倾向于维持当前状态，即使改变可能带来更好的结果。这与损失厌恶密切相关。",
+        description: "人们倾向于维持当前状态，即使改变可能带来更好的结果。这与损失厌恶密切相关。",
       },
     ],
   },
@@ -85,8 +83,7 @@ export const BIAS_TAXONOMY: BiasCategory[] = [
         id: "group-polarization",
         name: "群体极化",
         nameEn: "Group Polarization",
-        description:
-          "群体讨论后，成员的观点会趋向更极端的方向，使温和立场变得激进。",
+        description: "群体讨论后，成员的观点会趋向更极端的方向，使温和立场变得激进。",
       },
       {
         id: "halo-effect",
@@ -99,16 +96,14 @@ export const BIAS_TAXONOMY: BiasCategory[] = [
         id: "fundamental-attribution",
         name: "基本归因错误",
         nameEn: "Fundamental Attribution Error",
-        description:
-          "在解释他人行为时过度归因于性格因素，而低估情境因素的影响。",
+        description: "在解释他人行为时过度归因于性格因素，而低估情境因素的影响。",
         slug: "fundamental-attribution-error",
       },
       {
         id: "outgroup-homogeneity",
         name: "外群体同质性",
         nameEn: "Outgroup Homogeneity",
-        description:
-          "人们倾向于认为外群体成员之间'都一样'，而认为自己所在的群体更加多样化。",
+        description: "人们倾向于认为外群体成员之间'都一样'，而认为自己所在的群体更加多样化。",
       },
     ],
   },
@@ -130,8 +125,7 @@ export const BIAS_TAXONOMY: BiasCategory[] = [
         id: "hindsight",
         name: "后见之明偏误",
         nameEn: "Hindsight Bias",
-        description:
-          "在得知事件结果后，认为自己'早就知道了'，高估自己预测事件的能力。",
+        description: "在得知事件结果后，认为自己'早就知道了'，高估自己预测事件的能力。",
       },
       {
         id: "peak-end",
@@ -198,8 +192,7 @@ export const BIAS_TAXONOMY: BiasCategory[] = [
         id: "bias-blind-spot",
         name: "盲点偏误",
         nameEn: "Bias Blind Spot",
-        description:
-          "人们能够识别他人的认知偏误，却认为自己不受同样的偏误影响，即'偏见盲区'。",
+        description: "人们能够识别他人的认知偏误，却认为自己不受同样的偏误影响，即'偏见盲区'。",
       },
     ],
   },
@@ -297,11 +290,7 @@ function TreeNode({
     : isHovered
       ? hexToRgba(color, 0.18)
       : hexToRgba(color, 0.08);
-  const strokeColor = isActive
-    ? color
-    : isHovered
-      ? hexToRgba(color, 0.7)
-      : hexToRgba(color, 0.35);
+  const strokeColor = isActive ? color : isHovered ? hexToRgba(color, 0.7) : hexToRgba(color, 0.35);
   const scale = isHovered && !reduce ? 1.04 : 1;
 
   return (
@@ -474,17 +463,11 @@ function BiasTooltip({
   );
 }
 
-function SearchInput({
-  value,
-  onChange,
-}: {
-  value: string;
-  onChange: (v: string) => void;
-}) {
+function SearchInput({ value, onChange }: { value: string; onChange: (v: string) => void }) {
   return (
     <div className="relative">
       <svg
-        className="text-fg-muted absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2"
+        className="text-fg-muted absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2"
         viewBox="0 0 20 20"
         fill="currentColor"
       >
@@ -499,7 +482,7 @@ function SearchInput({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder="搜索认知偏误..."
-        className="border-border-faint bg-bg-panel text-fg-primary placeholder:text-fg-disabled focus:border-accent-purple/50 w-full border py-2 pl-9 pr-4 font-mono text-xs tracking-wider outline-none transition-colors sm:w-64"
+        className="border-border-faint bg-bg-panel text-fg-primary placeholder:text-fg-disabled focus:border-accent-purple/50 w-full border py-2 pr-4 pl-9 font-mono text-xs tracking-wider transition-colors outline-none sm:w-64"
       />
     </div>
   );
@@ -510,7 +493,7 @@ export default function BiasTaxonomy() {
   const [hoveredBias, setHoveredBias] = useState<string | null>(null);
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
   const [expandedCats, setExpandedCats] = useState<Set<string>>(
-    () => new Set(BIAS_TAXONOMY.map((c) => c.id)),
+    () => new Set(BIAS_TAXONOMY.map((c) => c.id))
   );
   const [selectedBias, setSelectedBias] = useState<string | null>(null);
   const [search, setSearch] = useState("");
@@ -527,7 +510,7 @@ export default function BiasTaxonomy() {
         (b) =>
           b.name.toLowerCase().includes(q) ||
           b.nameEn.toLowerCase().includes(q) ||
-          b.description.toLowerCase().includes(q),
+          b.description.toLowerCase().includes(q)
       ),
     })).filter((cat) => cat.biases.length > 0);
   }, [search]);
@@ -576,7 +559,7 @@ export default function BiasTaxonomy() {
       <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="text-fg-muted font-mono text-[10px] tracking-[0.42em] uppercase">
-            interactive taxonomy tree
+            认知偏差分类树
           </p>
           <h2 className="font-display text-fg-primary mt-1 text-lg font-semibold">
             认知偏误分类树
@@ -682,8 +665,7 @@ export default function BiasTaxonomy() {
                       const pos = layout.biasPositions.get(bias.id);
                       if (!pos) return null;
 
-                      const isMatched =
-                        !search || allMatchedBiasIds.has(bias.id);
+                      const isMatched = !search || allMatchedBiasIds.has(bias.id);
                       if (!isMatched) return null;
 
                       const isBiasHovered = hoveredBias === bias.id;
@@ -706,9 +688,7 @@ export default function BiasTaxonomy() {
                             x2={pos.x}
                             y2={pos.y}
                             color={cat.color}
-                            isHighlighted={
-                              isBiasHovered || isBiasSelected
-                            }
+                            isHighlighted={isBiasHovered || isBiasSelected}
                             reduce={!!reduce}
                           />
 
@@ -723,9 +703,7 @@ export default function BiasTaxonomy() {
                               isHovered={isBiasHovered}
                               isActive={isBiasSelected}
                               onClick={() =>
-                                setSelectedBias((prev) =>
-                                  prev === bias.id ? null : bias.id,
-                                )
+                                setSelectedBias((prev) => (prev === bias.id ? null : bias.id))
                               }
                               onHover={() => setHoveredBias(bias.id)}
                               onLeave={() => setHoveredBias(null)}
@@ -770,16 +748,11 @@ export default function BiasTaxonomy() {
           <div className="flex flex-wrap gap-4">
             {BIAS_TAXONOMY.map((cat) => (
               <div key={cat.id} className="flex items-center gap-2">
-                <div
-                  className="h-2.5 w-2.5 rounded-full"
-                  style={{ backgroundColor: cat.color }}
-                />
-                <span className="font-mono text-[10px] tracking-[0.18em] text-fg-secondary">
+                <div className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: cat.color }} />
+                <span className="text-fg-secondary font-mono text-[10px] tracking-[0.18em]">
                   {cat.name}
                 </span>
-                <span className="text-fg-disabled font-mono text-[9px]">
-                  {cat.biases.length}
-                </span>
+                <span className="text-fg-disabled font-mono text-[9px]">{cat.biases.length}</span>
               </div>
             ))}
           </div>
@@ -835,11 +808,7 @@ export default function BiasTaxonomy() {
 
               {selectedBiasData.bias.slug && (
                 <button
-                  onClick={() =>
-                    router.push(
-                      `/psychology/phenomena/${selectedBiasData.bias.slug}`,
-                    )
-                  }
+                  onClick={() => router.push(`/psychology/phenomena/${selectedBiasData.bias.slug}`)}
                   className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.18em] transition-colors"
                   style={{ color: selectedBiasData.category.color }}
                 >

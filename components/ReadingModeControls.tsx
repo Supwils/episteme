@@ -50,7 +50,7 @@ export function ReadingModeControls() {
           className={`rounded-full px-3 py-1.5 font-mono text-[10px] tracking-[0.16em] uppercase transition-colors ${
             mode === item.id
               ? "bg-accent-gold/15 text-fg-primary border-accent-gold/40 border"
-              : "text-fg-muted hover:text-fg-primary border border-transparent hover:bg-white/[0.04]"
+              : "text-fg-muted hover:text-fg-primary hover:bg-bg-elevated border border-transparent"
           }`}
         >
           {item.label}

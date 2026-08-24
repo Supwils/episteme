@@ -97,7 +97,7 @@ export function MaslowHierarchy() {
         () => {
           setFilledLevels((prev) => new Set(prev).add(levelIndex));
         },
-        prefersReducedMotion ? 0 : i * 300,
+        prefersReducedMotion ? 0 : i * 300
       );
     });
   }, [hasAnimated, prefersReducedMotion]);
@@ -113,7 +113,7 @@ export function MaslowHierarchy() {
           observer.disconnect();
         }
       },
-      { threshold: 0.3 },
+      { threshold: 0.3 }
     );
 
     observer.observe(el);
@@ -155,11 +155,17 @@ export function MaslowHierarchy() {
   return (
     <div ref={containerRef} className="w-full">
       <div className="border-border-faint bg-bg-panel relative overflow-hidden border backdrop-blur-md">
-        <div className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full opacity-8 blur-[80px]" style={{ background: "#8b5cf6" }} />
+        <div
+          className="pointer-events-none absolute -top-20 -right-20 h-60 w-60 rounded-full opacity-8 blur-[80px]"
+          style={{ background: "#8b5cf6" }}
+        />
 
         <div className="relative p-6 sm:p-8">
           <div className="mb-2 flex items-center gap-3">
-            <span className="border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.32em]" style={{ borderColor: "rgba(139,92,246,0.3)", color: "#8b5cf6" }}>
+            <span
+              className="border px-2.5 py-1 font-mono text-[10px] tracking-[0.32em] uppercase"
+              style={{ borderColor: "rgba(139,92,246,0.3)", color: "#8b5cf6" }}
+            >
               需求层次理论
             </span>
             <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">1943</span>
@@ -167,9 +173,7 @@ export function MaslowHierarchy() {
           <h3 className="font-display text-fg-primary mb-1 text-xl font-semibold tracking-tight">
             马斯洛需求层次金字塔
           </h3>
-          <p className="text-fg-muted mb-6 text-sm">
-            点击各层级查看详细内容与现代批评
-          </p>
+          <p className="text-fg-muted mb-6 text-sm">点击各层级查看详细内容与现代批评</p>
 
           <div className="flex flex-col items-center gap-8 lg:flex-row lg:items-start lg:gap-12">
             <div className="flex-shrink-0">
@@ -191,8 +195,16 @@ export function MaslowHierarchy() {
                       x2="100%"
                       y2="100%"
                     >
-                      <stop offset="0%" stopColor={level.color} stopOpacity={filledLevels.has(i) ? 0.85 : 0.25} />
-                      <stop offset="100%" stopColor={level.colorDark} stopOpacity={filledLevels.has(i) ? 0.95 : 0.35} />
+                      <stop
+                        offset="0%"
+                        stopColor={level.color}
+                        stopOpacity={filledLevels.has(i) ? 0.85 : 0.25}
+                      />
+                      <stop
+                        offset="100%"
+                        stopColor={level.colorDark}
+                        stopOpacity={filledLevels.has(i) ? 0.95 : 0.35}
+                      />
                     </linearGradient>
                   ))}
 
@@ -284,7 +296,9 @@ export function MaslowHierarchy() {
                       className="pointer-events-none select-none"
                       initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0 }}
                       animate={{ opacity: filledLevels.has(i) ? 0.7 : 0 }}
-                      transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.5, delay: 0.3 }}
+                      transition={
+                        prefersReducedMotion ? { duration: 0 } : { duration: 0.5, delay: 0.3 }
+                      }
                     >
                       {level.labelEn}
                     </motion.text>
@@ -301,10 +315,17 @@ export function MaslowHierarchy() {
                     initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
                     animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
                     exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: -10 }}
-                    transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.25, ease: [0.22, 0.61, 0.36, 1] }}
+                    transition={
+                      prefersReducedMotion
+                        ? { duration: 0 }
+                        : { duration: 0.25, ease: [0.22, 0.61, 0.36, 1] }
+                    }
                     className="border-border-faint bg-bg-elevated border"
                   >
-                    <div className="border-b px-5 py-4" style={{ borderColor: `${LEVELS[activeIndex]!.color}20` }}>
+                    <div
+                      className="border-b px-5 py-4"
+                      style={{ borderColor: `${LEVELS[activeIndex]!.color}20` }}
+                    >
                       <div className="flex items-center gap-3">
                         <div
                           className="h-3 w-3 rounded-full"
@@ -321,7 +342,7 @@ export function MaslowHierarchy() {
 
                     <div className="space-y-4 p-5">
                       <div>
-                        <h5 className="text-fg-muted mb-2 font-mono text-[10px] uppercase tracking-[0.22em]">
+                        <h5 className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.22em] uppercase">
                           描述
                         </h5>
                         <p className="text-fg-secondary text-sm leading-relaxed">
@@ -330,7 +351,7 @@ export function MaslowHierarchy() {
                       </div>
 
                       <div>
-                        <h5 className="text-fg-muted mb-2 font-mono text-[10px] uppercase tracking-[0.22em]">
+                        <h5 className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.22em] uppercase">
                           核心要素
                         </h5>
                         <div className="flex flex-wrap gap-2">
@@ -350,7 +371,7 @@ export function MaslowHierarchy() {
                       </div>
 
                       <div>
-                        <h5 className="text-fg-muted mb-2 font-mono text-[10px] uppercase tracking-[0.22em]">
+                        <h5 className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.22em] uppercase">
                           现代批评
                         </h5>
                         <div
@@ -380,15 +401,13 @@ export function MaslowHierarchy() {
                         <button
                           key={level.id}
                           onClick={() => toggleLevel(i)}
-                          className="group flex flex-col items-center gap-1.5 rounded-md p-2 transition-colors hover:bg-white/5"
+                          className="hover:bg-bg-elevated group flex flex-col items-center gap-1.5 rounded-md p-2 transition-colors"
                         >
                           <div
                             className="h-2 w-full rounded-full opacity-60 transition-opacity group-hover:opacity-100"
                             style={{ backgroundColor: level.color }}
                           />
-                          <span
-                            className="text-fg-disabled text-center font-mono text-[8px] leading-tight tracking-wider transition-colors group-hover:text-fg-secondary"
-                          >
+                          <span className="text-fg-disabled group-hover:text-fg-secondary text-center font-mono text-[8px] leading-tight tracking-wider transition-colors">
                             {level.label}
                           </span>
                         </button>

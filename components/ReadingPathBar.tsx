@@ -27,10 +27,10 @@ export function ReadingPathBar() {
   const stepLink = (s: ReadingStep, n: number) => `${s.href}?path=${path.slug}&step=${n}`;
 
   return (
-    <div className="print-hidden fixed bottom-4 left-1/2 z-50 w-[min(680px,calc(100vw-1.5rem))] -translate-x-1/2">
+    <div className="print-hidden fixed bottom-4 left-1/2 z-50 w-[min(680px,calc(100vw-1.5rem))] -translate-x-1/2 transition-[bottom] [[data-narration-active]_&]:bottom-24">
       <div
         className="flex items-stretch gap-1 rounded-2xl border border-[var(--nav-border)] bg-[var(--nav-bg)] p-1.5 backdrop-blur-md"
-        style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.35)" }}
+        style={{ boxShadow: "var(--card-shadow)" }}
       >
         {/* Exit the path: drop the query params */}
         <Link
@@ -142,8 +142,11 @@ export function ReadingPathBar() {
             href={`/read/${path.slug}`}
             className="flex flex-1 items-center justify-end gap-2 rounded-xl px-3 py-2 text-right transition-colors hover:bg-[var(--hover-bg)]"
           >
-            <span className="text-[13px] font-medium" style={{ color: path.accent }}>
-              读完 ✓
+            <span className="flex min-w-0 flex-col items-end">
+              <span className="text-[11px] tracking-wide text-[var(--muted)]">本路线读完</span>
+              <span className="text-[13px] font-medium" style={{ color: path.accent }}>
+                回到目录
+              </span>
             </span>
           </Link>
         )}

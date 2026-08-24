@@ -43,6 +43,14 @@ export const SECTION_META: Record<Section, { label: string; color: string }> = {
  *  section missing here is a section whose articles are unreachable by search. */
 export const SEARCH_SECTIONS: Section[] = Object.keys(SECTION_META) as Section[];
 
+/** Curated exits when a query returns nothing — never a dead-end page. */
+export const SEARCH_NO_RESULTS_EXITS = [
+  { href: "/read", label: "阅读路线" },
+  { href: "/daily", label: "每日知识" },
+  { href: "/curiosities", label: "奇趣知识" },
+  { href: "/random", label: "随机一篇" },
+] as const;
+
 export const TYPE_LABELS: Record<string, string> = {
   thinker: "思想家",
   school: "流派",

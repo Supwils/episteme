@@ -40,6 +40,8 @@ export interface KnowledgeItem {
 export interface KnowledgeItemFull extends KnowledgeItem {
   content: string;
   updated: string;
+  /** Optional one-sentence takeaway (frontmatter `keyInsight` / `takeaway`). */
+  keyInsight?: string;
   /** Optional RCSB PDB id; when set, the article renders a 3D molecule viewer. */
   molecule?: string;
   /** Optional interactive id; when set, the article renders a matching explorer
@@ -164,6 +166,7 @@ export function createKnowledgeSection(domain: string, section: string): Knowled
     return {
       ...toItem(file),
       content: stripLeadingHeading(content),
+      keyInsight: str(data.keyInsight) || str(data.takeaway) || undefined,
       molecule: str(data.molecule) || undefined,
       interactive: str(data.interactive) || undefined,
     };

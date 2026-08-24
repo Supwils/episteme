@@ -78,6 +78,29 @@ test("the results page reaches prose that title search cannot", async ({ page })
   await expect(bodyResults.getByText(BODY_ONLY.title, { exact: false }).first()).toBeVisible();
 });
 
+test("an empty query still offers curated exits", async ({ page }) => {
+  await page.goto("/search");
+
+  const idle = page.getByTestId("search-idle");
+  await expect(idle).toBeVisible();
+  await expect(idle.getByRole("link", { name: "阅读路线" })).toHaveAttribute("href", "/read");
+  await expect(idle.getByRole("link", { name: "随机一篇" })).toHaveAttribute("href", "/random");
+});
+
+test("empty results offer curated exits instead of a dead end", async ({ page }) => {
+  await page.goto("/search?q=zzzznotanarticlezzzz");
+
+  const empty = page.getByTestId("search-empty");
+  await expect(empty).toBeVisible();
+  await expect(empty.getByRole("link", { name: "阅读路线" })).toHaveAttribute("href", "/read");
+  await expect(empty.getByRole("link", { name: "每日知识" })).toHaveAttribute("href", "/daily");
+  await expect(empty.getByRole("link", { name: "奇趣知识" })).toHaveAttribute(
+    "href",
+    "/curiosities"
+  );
+  await expect(empty.getByRole("link", { name: "随机一篇" })).toHaveAttribute("href", "/random");
+});
+
 test("a domain facet narrows the results without losing the other counts", async ({ page }) => {
   await page.goto(`/search?q=${encodeURIComponent("演化")}`);
 

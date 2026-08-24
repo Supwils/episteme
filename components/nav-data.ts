@@ -55,9 +55,12 @@ export const NAV_GROUPS: NavGroup[] = [
         en: "Explore",
         items: [
           { href: "/read", label: "阅读路线", en: "Reading Paths", color: "#c8a45a" },
+          { href: "/random", label: "随机一篇", en: "Random Article", color: "#e8c070" },
           { href: "/knowledge-graph", label: "知识图谱", en: "Knowledge Graph", color: "#9b8cff" },
           { href: "/daily", label: "每日知识", en: "Daily Knowledge", color: "#6fb0f5" },
           { href: "/curiosities", label: "奇趣知识", en: "Curiosities", color: "#e89ab5" },
+          { href: "/search", label: "全站搜索", en: "Search", color: "#8aa0b8" },
+          { href: "/molecules", label: "分子图鉴", en: "Molecules", color: "#7ec8a3" },
         ],
       },
     ],

@@ -57,6 +57,7 @@ export default async function CaseStudyDetailPage({
       title={cs.title}
       titleEn={cs.title_en}
       content={cs.content}
+      takeaway={cs.keyInsight}
       tags={cs.tags}
       prev={prev ? { href: `/economics/case-studies/${prev.slug}`, title: prev.title } : null}
       next={next ? { href: `/economics/case-studies/${next.slug}`, title: next.title } : null}

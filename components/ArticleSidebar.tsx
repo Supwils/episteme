@@ -31,7 +31,7 @@ export function ArticleSidebar({ children, className, contentClassName }: Articl
   return (
     <aside
       className={cn(
-        "w-full flex-shrink-0 lg:sticky lg:top-24 lg:w-80 lg:self-start",
+        "print-hidden w-full flex-shrink-0 lg:sticky lg:top-24 lg:w-80 lg:self-start",
         "lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto",
         className
       )}

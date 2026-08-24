@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { STATS } from "../lib/data";
 
 export function HeroSection() {
@@ -33,11 +34,35 @@ export function HeroSection() {
           </p>
 
           <p
-            className="animate-slide-up text-fg-muted mx-auto mb-10 max-w-[520px] text-[1.02rem] leading-relaxed"
+            className="animate-slide-up text-fg-muted mx-auto mb-8 max-w-[520px] text-[1.02rem] leading-relaxed"
             style={{ animationDelay: "0.35s" }}
           >
             贯通自然科学、形式科学、社会科学与人文学科，构建可追踪、可游览的知识图谱。让任何人随时以美好的方式接触到人类最重要的知识。
           </p>
+
+          <div
+            className="animate-slide-up mb-10 flex flex-wrap items-center justify-center gap-3"
+            style={{ animationDelay: "0.4s" }}
+          >
+            <Link
+              href="/random"
+              className="bg-accent-gold text-bg-base inline-flex items-center gap-2 px-5 py-2.5 font-mono text-[12px] tracking-[0.14em] uppercase transition-opacity hover:opacity-90"
+            >
+              随机一篇
+            </Link>
+            <Link
+              href="/read"
+              className="border-border-subtle text-fg-secondary hover:border-fg-disabled hover:text-fg-primary inline-flex items-center gap-2 border px-5 py-2.5 font-mono text-[12px] tracking-[0.14em] uppercase transition-colors"
+            >
+              阅读路线
+            </Link>
+            <Link
+              href="/curiosities"
+              className="border-border-subtle text-fg-secondary hover:border-fg-disabled hover:text-fg-primary inline-flex items-center gap-2 border px-5 py-2.5 font-mono text-[12px] tracking-[0.14em] uppercase transition-colors"
+            >
+              奇趣知识
+            </Link>
+          </div>
         </div>
       </div>
 

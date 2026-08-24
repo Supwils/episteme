@@ -6,24 +6,7 @@ import {
   MarkdownZoomableImage,
   WikiLinkPreview,
 } from "@/components/markdown/MarkdownInteractions";
-
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/<[^>]*>/g, "")
-    .replace(/[^\w\u4e00-\u9fff]+/g, "-")
-    .replace(/^-|-$/g, "");
-}
-
-/**
- * Authors mark explicit anchors as `## \u6807\u9898 {#anchor}`; the suffix is
- * metadata, never display text.
- */
-function parseHeading(raw: string): { text: string; id: string } {
-  const match = raw.match(/^(.*?)\s*\{#([A-Za-z0-9_-]+)\}\s*$/);
-  if (match) return { text: match[1]!.trim(), id: match[2]! };
-  return { text: raw, id: slugify(raw) };
-}
+import { parseHeadingLine as parseHeading } from "@/lib/markdown-heading";
 
 interface MarkdownRendererProps {
   content: string;
