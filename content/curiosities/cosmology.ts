@@ -17,7 +17,7 @@ export const COSMOLOGY_CURIOSITIES: Curiosity[] = [
       "没有信号时模拟电视的雪花，约百分之一来自宇宙微波背景辐射——138 亿年前大爆炸留下的最古老的光，正穿过你的客厅。",
     source: "宇宙微波背景（Penzias & Wilson, 1965）",
     tags: ["CMB", "大爆炸"],
-    url: "/cosmology/knowledge-base",
+    url: "/cosmology/knowledge-base/宇宙微波背景",
   },
   {
     id: "andromeda-collision",
@@ -26,7 +26,7 @@ export const COSMOLOGY_CURIOSITIES: Curiosity[] = [
       "两个星系将合并成一个，但恒星之间距离极大，实际相撞的恒星几乎为零——这是一场几乎没有碰撞的「碰撞」。那时太阳还在，地球的夜空将彻底改变。",
     source: "哈勃测量（van der Marel et al., 2012）",
     tags: ["仙女座", "星系并合"],
-    url: "/cosmology",
+    url: "/cosmology/knowledge-base/星系天文学--milky-way-structure",
   },
   {
     id: "observable-universe-larger-than-age",
@@ -35,7 +35,7 @@ export const COSMOLOGY_CURIOSITIES: Curiosity[] = [
       "这不矛盾：宇宙空间本身在膨胀，早期膨胀极快，所以当年发出光的区域如今已被「推」到 465 亿光年之外。空间本身的膨胀不受光速限制，所以可观测宇宙的边界一直在扩大。",
     source: "Wikipedia: Observable universe；标准宇宙学模型",
     tags: ["可观测宇宙", "宇宙膨胀", "共动距离"],
-    url: "/cosmology",
+    url: "/cosmology/knowledge-base/宇宙学基础--宇宙学原理与可观测宇宙",
   },
   {
     id: "distant-galaxies-faster-than-light",
@@ -53,7 +53,7 @@ export const COSMOLOGY_CURIOSITIES: Curiosity[] = [
       "普通物质（恒星、行星、气体、你）只占宇宙能量组成的约 5%；暗物质约 27%；暗能量约 68%。暗能量是宇宙加速膨胀的驱动力，但我们至今不知道它是什么——这意味着我们对宇宙 95% 的主体几乎一无所知。",
     source: "Planck 2018 宇宙学参数；NASA Science",
     tags: ["暗能量", "暗物质", "宇宙组成"],
-    url: "/cosmology",
+    url: "/cosmology/knowledge-base/宇宙学基础--暗能量与状态方程",
   },
   {
     id: "hubble-tension-crisis",
@@ -62,7 +62,7 @@ export const COSMOLOGY_CURIOSITIES: Curiosity[] = [
       "「哈勃张力」：利用宇宙微波背景测得哈勃常数约 67.4 km/s/Mpc，而用造父变星/超新星等本地测距法测得约 73 km/s/Mpc，两者相差超过 5σ。这不是测量误差，而可能是早期宇宙存在未知物理的信号。",
     source: "Hubble tension review, Riess et al. 2022；Planck Collaboration 2020",
     tags: ["哈勃常数", "哈勃张力", "暗能量"],
-    url: "/cosmology",
+    url: "/cosmology/knowledge-base/宇宙学基础--哈勃张力",
   },
   {
     id: "universe-flat",
@@ -105,7 +105,7 @@ export const COSMOLOGY_CURIOSITIES: Curiosity[] = [
       "「武仙-北冕座长城」（Hercules-Corona Borealis Great Wall）是一个由星系超密集分布构成的巨型结构，长约 100 亿光年（部分研究认为可达 150 亿光年）。它的存在本身就令宇宙学家头疼：在标准宇宙学模型中，这种规模的结构理论上不应该存在。",
     source: "Horváth et al. 2014；IFLScience 2024 更新",
     tags: ["宇宙大尺度结构", "超星系团", "宇宙学"],
-    url: "/cosmology",
+    url: "/cosmology/knowledge-base/宇宙学基础--宇宙网与纤维状结构",
   },
   {
     id: "gravitational-wave-black-holes-1-3-billion",
@@ -114,6 +114,7 @@ export const COSMOLOGY_CURIOSITIES: Curiosity[] = [
       "2015 年 9 月 14 日，LIGO 探测到引力波事件 GW150914：两个分别约 29 和 36 倍太阳质量的黑洞，在 13 亿年前合并，释放出相当于三个太阳质量的能量——全部以引力波形式辐射出去，仅在 0.2 秒内完成。那一瞬间的功率超过了所有可观测宇宙中所有恒星的总发光功率。",
     source: "LIGO Scientific Collaboration, GW150914, PRL 2016",
     tags: ["引力波", "黑洞并合", "LIGO"],
+    url: "/cosmology/knowledge-base/多信使天文学--gravitational-wave-detectors-ligo-lisa",
   },
   {
     id: "cmb-everywhere-ancient",
@@ -122,7 +123,7 @@ export const COSMOLOGY_CURIOSITIES: Curiosity[] = [
       "大爆炸后约 38 万年，宇宙冷却到足以让电子与质子结合成氢原子，宇宙从不透明变得透明。这一刻释放的光子，经过 138 亿年的旅行和红移，冷却为我们今天看到的 2.725 K 微波背景——它是宇宙婴儿期的照片，印刻在整个天空的每一个方向。",
     source: "Penzias & Wilson 1965；COBE/WMAP/Planck 卫星",
     tags: ["CMB", "宇宙微波背景", "复合时期"],
-    url: "/cosmology",
+    url: "/cosmology/knowledge-base/宇宙微波背景",
   },
   {
     id: "dark-matter-invisible-but-real",
@@ -131,7 +132,7 @@ export const COSMOLOGY_CURIOSITIES: Curiosity[] = [
       "暗物质的证据无处不在：星系旋转曲线、引力透镜、宇宙大尺度结构——都指向一种不发光、不与光相互作用的物质。没有它，星系会在自身引力下解体。但半个世纪过去，我们仍不知道暗物质粒子是什么。",
     source: "Zwicky 1933；Rubin & Ford 1970；Planck 2018",
     tags: ["暗物质", "星系旋转曲线", "宇宙学"],
-    url: "/cosmology",
+    url: "/universe-physics/knowledge-base/前沿物理--暗物质",
   },
   {
     id: "universe-oldest-star",
@@ -148,7 +149,7 @@ export const COSMOLOGY_CURIOSITIES: Curiosity[] = [
       "由于宇宙加速膨胀，今天距离我们超过约 160 亿光年（哈勃体积以外）的星系，我们发出的任何信号都永远追不上它们的退行速度。宇宙中大约 97% 的区域对我们而言是永远的「宇宙地平线」之外，这个比例随时间还会继续增大。",
     source: "Lineweaver & Davis 2005, Scientific American",
     tags: ["宇宙地平线", "宇宙膨胀", "可达性"],
-    url: "/cosmology",
+    url: "/cosmology/knowledge-base/宇宙学基础--宇宙学原理与可观测宇宙",
   },
   {
     id: "earth-water-older-than-sun",

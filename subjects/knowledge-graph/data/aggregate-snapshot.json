@@ -1,13 +1,13 @@
 {
   "workflow": "After any content or graph change, run `pnpm update-graph-snapshot` and commit this file's diff. Unit tests read expected aggregate values from this snapshot instead of hardcoded literals, so regenerating it is the entire maintenance step.",
   "branch": {
-    "nodeCount": 3052,
+    "nodeCount": 3059,
     "anchorCount": 245,
-    "inferredBranchCount": 2807,
+    "inferredBranchCount": 2814,
     "maximumDistance": 4,
-    "ambiguousTargetCount": 1899,
+    "ambiguousTargetCount": 1905,
     "maximumCandidateCount": 48,
-    "confidenceCounts": { "curated": 245, "direct": 2187, "contextual": 566, "exploratory": 54 }
+    "confidenceCounts": { "curated": 245, "direct": 2194, "contextual": 566, "exploratory": 54 }
   },
   "terrain": {
     "diagnosticCount": 21,
@@ -15,12 +15,12 @@
     "domainCount": 18,
     "domains": {
       "physics": {
-        "total": 193,
-        "levels": [9, 170, 3, 2, 9],
+        "total": 195,
+        "levels": [9, 170, 3, 2, 11],
         "curatedCount": 15,
         "dominantLevel": 2,
         "dominantCount": 170,
-        "advancedCount": 11,
+        "advancedCount": 13,
         "missingLevels": []
       },
       "cosmology": {
@@ -60,12 +60,12 @@
         "missingLevels": []
       },
       "medicine": {
-        "total": 139,
-        "levels": [28, 41, 37, 25, 8],
+        "total": 141,
+        "levels": [28, 41, 37, 25, 10],
         "curatedCount": 18,
         "dominantLevel": 2,
         "dominantCount": 41,
-        "advancedCount": 33,
+        "advancedCount": 35,
         "missingLevels": []
       },
       "mathematics": {
@@ -87,8 +87,8 @@
         "missingLevels": []
       },
       "psychology": {
-        "total": 235,
-        "levels": [47, 123, 16, 41, 8],
+        "total": 237,
+        "levels": [47, 123, 18, 41, 8],
         "curatedCount": 17,
         "dominantLevel": 2,
         "dominantCount": 123,
@@ -105,8 +105,8 @@
         "missingLevels": []
       },
       "history": {
-        "total": 477,
-        "levels": [303, 155, 3, 6, 10],
+        "total": 478,
+        "levels": [303, 156, 3, 6, 10],
         "curatedCount": 25,
         "dominantLevel": 1,
         "dominantCount": 303,

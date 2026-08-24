@@ -17,7 +17,7 @@ export const ECONOMICS_CURIOSITIES: Curiosity[] = [
       "「吉芬商品」违反需求定律：当某种廉价主食涨价、挤占了穷人的全部预算时，他们反而被迫减少更贵的食物、买更多这种主食。它极其罕见，19 世纪爱尔兰土豆是经典疑例。",
     source: "Marshall 提出，Jensen & Miller 2008 给出现代证据",
     tags: ["需求", "反常"],
-    url: "/economics/concepts",
+    url: "/economics/theories/supply-demand",
   },
   {
     id: "decoy-effect",
@@ -26,7 +26,7 @@ export const ECONOMICS_CURIOSITIES: Curiosity[] = [
       "《经济学人》曾把订阅设成：电子版 59 美元、纸质版 125 美元、电子+纸质也 125 美元。那个看似多余的「纸质版」其实是诱饵，让多数人觉得「电子+纸质」超值——这就是诱饵效应。",
     source: "Ariely, 《怪诞行为学》(2008)",
     tags: ["行为经济学", "诱饵效应"],
-    url: "/economics",
+    url: "/economics/theories/behavioral-economics-theory",
   },
   {
     id: "diamond-water-paradox",
@@ -35,7 +35,7 @@ export const ECONOMICS_CURIOSITIES: Curiosity[] = [
       "亚当·斯密在《国富论》里提出了「钻石-水悖论」：水维持生命，钻石几乎无用，但价格却完全相反。斯密用劳动价值论解释，却遗漏了关键：稀缺性与边际效用。这个悖论直到一百年后才被奥地利经济学派真正解决。",
     source: "Smith, 《国富论》(1776)；Menger, Principles of Economics (1871)",
     tags: ["亚当·斯密", "价值理论"],
-    url: "/economics",
+    url: "/economics/economists/adam-smith",
   },
   {
     id: "veblen-goods",
@@ -44,7 +44,7 @@ export const ECONOMICS_CURIOSITIES: Curiosity[] = [
       "经济学家托斯丹·范伯伦在 1899 年的《有闲阶级论》里发现：某些商品的吸引力恰恰来自其高价，降价反而会让人不想买。这类商品后来被称为「韦伯伦商品」，今天的顶级奢侈品牌对此运用得炉火纯青。",
     source: "Veblen, The Theory of the Leisure Class (1899)",
     tags: ["消费行为", "炫耀性消费"],
-    url: "/economics",
+    url: "/economics/theories/supply-demand",
   },
   {
     id: "keynes-stock-market-fortune",
@@ -53,7 +53,7 @@ export const ECONOMICS_CURIOSITIES: Curiosity[] = [
       "约翰·梅纳德·凯恩斯不只是宏观经济学奠基人，他还是一位极其成功的投资者。他替剑桥大学国王学院管理捐赠基金，年均回报率 16%，远超同期市场的 10.4%。他每天清晨在床上用半小时读财报做决策，这套方式一直延续到去世。",
     source: "Walsh, Keynes and the Market (2008); Cambridge Judge Business School records",
     tags: ["凯恩斯", "投资"],
-    url: "/economics",
+    url: "/economics/economists/john-maynard-keynes",
   },
   {
     id: "nobel-economics-not-real-nobel",
@@ -73,7 +73,7 @@ export const ECONOMICS_CURIOSITIES: Curiosity[] = [
     source:
       "Thaler, 'Mental Accounting Matters' (1980); Arkes & Blumer, Organizational Behavior and Human Decision Processes (1985)",
     tags: ["行为经济学", "沉没成本"],
-    url: "/economics",
+    url: "/psychology/phenomena/sunk-cost-fallacy",
   },
   {
     id: "ultimatum-game-fairness",
@@ -82,7 +82,7 @@ export const ECONOMICS_CURIOSITIES: Curiosity[] = [
       "在「最后通牒博弈」实验中，一方可以分配一笔钱，另一方可以选择接受或拒绝（拒绝则双方都得零）。按照传统经济学逻辑，任何大于零的分配都该被接受。但实验结果显示，当分配比例低于 20-30% 时，大多数人宁愿拒绝，让双方都空手而归——为了「惩罚」不公平。",
     source: "Güth, Schmittberger & Schwarze, Journal of Economic Behavior (1982)",
     tags: ["行为经济学", "公平"],
-    url: "/economics",
+    url: "/economics/theories/behavioral-economics-theory",
   },
   {
     id: "anchoring-effect-roulette",
@@ -92,7 +92,7 @@ export const ECONOMICS_CURIOSITIES: Curiosity[] = [
     source:
       "Tversky & Kahneman, 'Judgment under Uncertainty: Heuristics and Biases', Science (1974)",
     tags: ["行为经济学", "锚定效应"],
-    url: "/economics",
+    url: "/economics/concepts/loss-aversion-anchoring",
   },
   {
     id: "loss-aversion-twice",
@@ -101,7 +101,7 @@ export const ECONOMICS_CURIOSITIES: Curiosity[] = [
       "卡尼曼和特沃斯基在 1979 年的前景理论中发现，人类对损失的敏感程度约是同等获益的两倍。这意味着「理性经济人」是个幻觉——人们系统性地高估损失、低估获益，导致各种非理性决策。卡尼曼因此在 2002 年获得诺贝尔经济学奖。",
     source: "Kahneman & Tversky, 'Prospect Theory', Econometrica (1979)",
     tags: ["行为经济学", "损失厌恶"],
-    url: "/economics",
+    url: "/economics/theories/prospect-theory-econ",
   },
   {
     id: "malthus-wrong-prediction",
@@ -110,7 +110,7 @@ export const ECONOMICS_CURIOSITIES: Curiosity[] = [
       "托马斯·马尔萨斯在《人口论》里论证：人口以几何级数增长，粮食只能以算术级数增长，因此饥荒不可避免。他的数学没有问题，但他完全没有预见到工业革命和农业技术革命——人类用技术打破了他设想的铁律。",
     source: "Malthus, An Essay on the Principle of Population (1798)",
     tags: ["马尔萨斯", "人口经济学"],
-    url: "/economics",
+    url: "/economics/case-studies/malthusian-trap-and-its-escape",
   },
   {
     id: "coase-theorem-transaction-costs",
@@ -119,7 +119,7 @@ export const ECONOMICS_CURIOSITIES: Curiosity[] = [
       "罗纳德·科斯在 1960 年的论文里论证：如果交易成本为零，无论初始产权如何分配，当事各方总会通过谈判达到最有效率的结果。这个定理的真正意义在于它的反面——现实中交易成本无处不在，所以产权分配至关重要。科斯凭此获得了 1991 年诺贝尔经济学奖。",
     source: "Coase, 'The Problem of Social Cost', Journal of Law and Economics (1960)",
     tags: ["科斯", "产权经济学"],
-    url: "/economics",
+    url: "/economics/concepts/coase-theorem",
   },
   {
     id: "broken-windows-atlantic-monthly",
@@ -137,7 +137,7 @@ export const ECONOMICS_CURIOSITIES: Curiosity[] = [
       "行为经济学家塞勒和桑斯坦发现，人们有强烈的「维持现状偏误」，倾向于接受默认选项。在「器官捐献」这件事上，需要主动选择捐献的国家（如美国）捐献率极低；而把默认改为「自动捐献、可选择退出」的国家（如奥地利），捐献率高达 90% 以上。一个默认值的改变，胜过无数道德劝说。",
     source: "Thaler & Sunstein, Nudge (2008); Johnson & Goldstein, Science (2003)",
     tags: ["行为经济学", "助推理论"],
-    url: "/economics",
+    url: "/economics/concepts/nudge-libertarian-paternalism",
   },
   {
     id: "keynes-hayek-rival",
@@ -146,7 +146,7 @@ export const ECONOMICS_CURIOSITIES: Curiosity[] = [
       "1931 年，哈耶克公开批评凯恩斯的货币理论，两人随即展开长达十五年的书面论战，直到凯恩斯 1946 年去世为止。前者主张自由市场、反对政府干预；后者主张政府支出可以拯救经济。这场论战的回响至今仍支配着全球的财政政策辩论。",
     source: "Wapshott, Keynes Hayek: The Clash That Defined Modern Economics (2011)",
     tags: ["凯恩斯", "哈耶克"],
-    url: "/economics",
+    url: "/economics/economists/friedrich-hayek",
   },
   {
     id: "marx-kapital-unfinished",
@@ -155,7 +155,7 @@ export const ECONOMICS_CURIOSITIES: Curiosity[] = [
       "卡尔·马克思 1867 年出版了《资本论》第一卷，但他生前始终未能完成整部著作。1883 年马克思去世后，好友恩格斯从他留下的大量草稿中整理出第二卷（1885）和第三卷（1894）。我们今天读到的「完整的《资本论》」，有相当部分是恩格斯的编辑工作。",
     source: "Wikipedia, Das Kapital; Britannica, Das Kapital",
     tags: ["马克思", "政治经济学"],
-    url: "/economics",
+    url: "/philosophy/thinkers/marx",
   },
   {
     id: "adam-smith-moral-sentiments",
@@ -164,6 +164,6 @@ export const ECONOMICS_CURIOSITIES: Curiosity[] = [
       "《国富论》问世前 17 年，亚当·斯密已出版了《道德情操论》，论述人类行为的基础是「同理心」而非自利。斯密生前多次修订《道德情操论》，最后一版修订于去世前数年完成，被认为是他对自己思想最精心的总结——他从未以同等热情修订《国富论》。",
     source: "University of Glasgow, 'Adam Smith 300: The Theory of Moral Sentiments'",
     tags: ["亚当·斯密", "道德经济学"],
-    url: "/economics",
+    url: "/economics/economists/adam-smith",
   },
 ];

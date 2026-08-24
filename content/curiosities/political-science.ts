@@ -8,7 +8,7 @@ export const POLITICAL_SCIENCE_CURIOSITIES: Curiosity[] = [
       "这个以直接民主著称的国家，在妇女参政上却远远落后；最后一个州（内阿彭策尔）被联邦法院 1990 年判决才让女性投票。直接民主的另一面是：多数人也可以长期投票剥夺少数人的权利。",
     source: "1971 年联邦公投",
     tags: ["选举权", "直接民主"],
-    url: "/political-science/institutions/electoral-systems",
+    url: "/political-science/institutions/referendums-and-direct-democracy",
   },
   {
     id: "liberia-flag",
@@ -34,7 +34,7 @@ export const POLITICAL_SCIENCE_CURIOSITIES: Curiosity[] = [
       "美国宪法最初并未要求选举人忠实投票，历史上出现过「叛逆选举人」投票给其他候选人的案例。2000 年至 2020 年间就有超过 10 次此类事件。直到 2020 年，最高法院才裁定各州可立法惩罚叛逆选举人。",
     source: "Chiafalo v. Washington, 591 U.S. ___ (2020)",
     tags: ["选举制度", "美国政治", "选举人团"],
-    url: "/political-science",
+    url: "/political-science/institutions/the-electoral-college",
   },
   {
     id: "san-marino-oldest-republic",
@@ -52,7 +52,7 @@ export const POLITICAL_SCIENCE_CURIOSITIES: Curiosity[] = [
       "1893 年 9 月 19 日，新西兰总督签署了《选举法修正案》，使新西兰成为全球首个允许所有成年女性在国家层面投票的自治国家。值得注意的是，当时女性仍无权被选举进入议会——这一权利直到 1919 年才获得。",
     source: "新西兰议会历史档案",
     tags: ["选举权", "性别政治", "新西兰"],
-    url: "/political-science",
+    url: "/political-science/institutions/electoral-systems",
   },
   {
     id: "roman-republic-dictator-legitimate",
@@ -60,7 +60,7 @@ export const POLITICAL_SCIENCE_CURIOSITIES: Curiosity[] = [
     detail:
       "英文「dictator（独裁者）」源自古罗马，但在罗马共和国，独裁官（dictator）是在紧急状态下由元老院合法任命的临时职位，权力凌驾一切，但强制任期不超过六个月。辛辛纳图斯在 15 天内完成使命便主动辞职，回到农田，成为后世共和美德的典范。",
     tags: ["古罗马", "共和制", "宪政史"],
-    url: "/political-science",
+    url: "/political-science/institutions/constitutionalism-separation-of-powers",
   },
   {
     id: "bhutan-gross-national-happiness",
@@ -78,7 +78,7 @@ export const POLITICAL_SCIENCE_CURIOSITIES: Curiosity[] = [
       "法国政治学家莫里斯·迪韦尔热在 1950 年代提出「迪韦尔热定律」：单选区相对多数制（first-past-the-post）在数学上必然催生两党体制，因为选票流向第三党被视为「浪费」。美国宪法从未提及政党，但其选举规则在几十年内自然演化出两党主导格局。",
     source: 'Duverger, Maurice. "Political Parties," 1951',
     tags: ["选举制度", "美国政治", "政党理论"],
-    url: "/political-science",
+    url: "/political-science/institutions/electoral-systems",
   },
   {
     id: "vatican-has-no-natural-born-citizens",
@@ -122,7 +122,7 @@ export const POLITICAL_SCIENCE_CURIOSITIES: Curiosity[] = [
     detail:
       "雅典民主的核心机制之一是「抽签制（sortition）」——陪审员、大多数行政官员都通过随机抽签从公民中产生，而非选举。雅典人认为选举会让富人和有名望者占据优势，随机才更平等。当代「公民议会」实验正在重新借鉴这一思路。",
     tags: ["雅典民主", "抽签制", "政治哲学"],
-    url: "/political-science",
+    url: "/political-science/frontier/sortition-deliberative-democracy",
   },
   {
     id: "andorra-no-army-france-bishop-co-princes",
@@ -140,7 +140,7 @@ export const POLITICAL_SCIENCE_CURIOSITIES: Curiosity[] = [
       "大量比较政治学研究显示，比例代表制国家议会平均有效政党数约为 4—5 个，而单选区多数制国家通常只有 2—3 个。两种制度各有代价：比例制更能代表多元声音，但组阁谈判往往旷日持久。",
     source: 'Lijphart, Arend. "Patterns of Democracy," 2012（第2版）',
     tags: ["选举制度", "比较政治", "政党体制"],
-    url: "/political-science",
+    url: "/political-science/institutions/electoral-systems",
   },
   {
     id: "usa-amendment-27-200-years",
@@ -149,7 +149,7 @@ export const POLITICAL_SCIENCE_CURIOSITIES: Curiosity[] = [
       "该修正案规定国会议员不得在本届任期内为自身加薪，由麦迪逊于 1789 年提出，但直到 1992 年才获得足够多的州批准——中间等待了 202 年，创宪法修正案批准时间最长纪录。没有法律规定修正案必须在规定时限内通过。",
     source: "Coleman v. Miller, 307 U.S. 433 (1939)；美国《国家档案》",
     tags: ["美国宪法", "修正案", "立法史"],
-    url: "/political-science",
+    url: "/political-science/institutions/constitutionalism-separation-of-powers",
   },
   {
     id: "iran-theocracy-elected-president",
@@ -158,7 +158,7 @@ export const POLITICAL_SCIENCE_CURIOSITIES: Curiosity[] = [
       "伊朗 1979 年宪法确立了「教法学家监护制」：非民选的最高领袖（哈梅内伊）掌控军队、外交和司法，而民选总统主管行政。这种神权与选举共存的混合体制在全球独一无二，并在实践中产生持续的内部张力。",
     source: "伊朗伊斯兰共和国宪法（1989 年修订版）",
     tags: ["伊朗", "神权政治", "混合政体"],
-    url: "/political-science",
+    url: "/political-science/institutions/theocracy",
   },
   {
     id: "iceland-oldest-parliament",
@@ -167,6 +167,6 @@ export const POLITICAL_SCIENCE_CURIOSITIES: Curiosity[] = [
       "冰岛的「阿尔庭（Alþingi）」约创立于公元 930 年，是世界上有史料记载的最古老的议会之一。早期会议在「辛格维利尔（Þingvellir）」平原召开，地点正处于欧亚板块与北美板块的分界线上——这片土地本身就是字面意义上的「板块之间」。",
     source: 'Byock, Jesse. "Viking Age Iceland," 2001；UNESCO 世界遗产登录',
     tags: ["冰岛", "议会史", "北欧政治"],
-    url: "/political-science",
+    url: "/human-history/knowledge/中世纪--维京人",
   },
 ];

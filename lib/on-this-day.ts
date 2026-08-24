@@ -18,7 +18,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "孙中山就任临时大总统",
     domain: "人类历史",
     domainColor: "#f59e0b",
-    url: "/human-history/timeline",
+    url: "/human-history/events/辛亥革命",
   },
   {
     month: 1,
@@ -28,7 +28,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "NASA火星探测器成功着陆",
     domain: "宇宙物理",
     domainColor: "#6366f1",
-    url: "/universe-physics",
+    url: "/cosmology/knowledge-base/太阳系--terrestrial-planets",
   },
   {
     month: 1,
@@ -38,7 +38,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "免费在线百科全书诞生",
     domain: "人类历史",
     domainColor: "#f59e0b",
-    url: "/human-history/timeline",
+    url: "/human-history/events/数字革命",
   },
   {
     month: 2,
@@ -48,7 +48,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "返回大气层时失事，7名宇航员遇难",
     domain: "宇宙物理",
     domainColor: "#6366f1",
-    url: "/universe-physics",
+    url: "/engineering/machines/space-engineering",
   },
   {
     month: 2,
@@ -58,7 +58,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "从60亿公里外拍摄地球照片",
     domain: "宇宙物理",
     domainColor: "#6366f1",
-    url: "/universe-physics",
+    url: "/universe-physics/universe/earth",
   },
   {
     month: 3,
@@ -68,7 +68,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "理论物理学家斯蒂芬·霍金辞世",
     domain: "宇宙物理",
     domainColor: "#6366f1",
-    url: "/universe-physics",
+    url: "/universe-physics/dialogues/hawking-penrose",
   },
   {
     month: 4,
@@ -78,7 +78,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "人类首次太空飞行",
     domain: "宇宙物理",
     domainColor: "#6366f1",
-    url: "/universe-physics",
+    url: "/engineering/machines/space-engineering",
   },
   {
     month: 4,
@@ -88,7 +88,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "全球环保运动的开端",
     domain: "人类历史",
     domainColor: "#f59e0b",
-    url: "/human-history/timeline",
+    url: "/human-history/knowledge/思想史--环保主义",
   },
   {
     month: 5,
@@ -98,7 +98,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "彗星号客机首飞",
     domain: "人类历史",
     domainColor: "#f59e0b",
-    url: "/human-history/timeline",
+    url: "/engineering/machines/aviation-engineering",
   },
   {
     month: 6,
@@ -108,7 +108,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "D-Day，盟军登陆法国",
     domain: "人类历史",
     domainColor: "#f59e0b",
-    url: "/human-history/timeline",
+    url: "/human-history/events/二战结束",
   },
   {
     month: 7,
@@ -118,7 +118,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "人类首次登上月球",
     domain: "宇宙物理",
     domainColor: "#6366f1",
-    url: "/universe-physics",
+    url: "/engineering/machines/space-engineering",
   },
   {
     month: 8,
@@ -128,7 +128,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "人类首次在战争中使用核武器",
     domain: "宇宙物理",
     domainColor: "#6366f1",
-    url: "/universe-physics",
+    url: "/political-science/international-relations/nuclear-deterrence-strategy",
   },
   {
     month: 9,
@@ -138,7 +138,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "美国遭受恐怖袭击",
     domain: "人类历史",
     domainColor: "#f59e0b",
-    url: "/human-history/timeline",
+    url: "/human-history/events/9·11事件",
   },
   {
     month: 10,
@@ -148,7 +148,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "毛泽东在天安门城楼宣告",
     domain: "人类历史",
     domainColor: "#f59e0b",
-    url: "/human-history/timeline",
+    url: "/human-history/events/新中国成立",
   },
   {
     month: 11,
@@ -158,7 +158,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "冷战结束的象征",
     domain: "人类历史",
     domainColor: "#f59e0b",
-    url: "/human-history/timeline",
+    url: "/human-history/events/柏林墙倒塌",
   },
   {
     month: 12,
@@ -168,7 +168,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "戈尔巴乔夫辞职，苏联正式解体",
     domain: "人类历史",
     domainColor: "#f59e0b",
-    url: "/human-history/timeline",
+    url: "/human-history/events/苏联解体",
   },
   {
     month: 1,
@@ -178,7 +178,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "纳粹集中营被苏联红军解放",
     domain: "人类历史",
     domainColor: "#f59e0b",
-    url: "/human-history/timeline",
+    url: "/human-history/events/二战结束",
   },
   {
     month: 3,
@@ -188,7 +188,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "全球妇女权益运动的里程碑",
     domain: "人类历史",
     domainColor: "#f59e0b",
-    url: "/human-history/timeline",
+    url: "/political-science/isms/feminism",
   },
   {
     month: 5,
@@ -198,7 +198,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "英国首位女首相",
     domain: "人类历史",
     domainColor: "#f59e0b",
-    url: "/human-history/timeline",
+    url: "/political-science/isms/neoliberalism",
   },
   {
     month: 7,
@@ -208,7 +208,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "美利坚合众国宣告独立",
     domain: "人类历史",
     domainColor: "#f59e0b",
-    url: "/human-history/timeline",
+    url: "/human-history/events/美国独立",
   },
   {
     month: 9,
@@ -218,7 +218,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "第二次世界大战正式结束",
     domain: "人类历史",
     domainColor: "#f59e0b",
-    url: "/human-history/timeline",
+    url: "/human-history/events/二战结束",
   },
   {
     month: 11,
@@ -228,7 +228,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "达尔文的进化论改变世界",
     domain: "人类历史",
     domainColor: "#f59e0b",
-    url: "/human-history/timeline",
+    url: "/human-history/events/进化论问世",
   },
   {
     month: 4,
@@ -238,7 +238,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "史上最严重的核电站事故",
     domain: "宇宙物理",
     domainColor: "#6366f1",
-    url: "/universe-physics",
+    url: "/engineering/energy/nuclear-power",
   },
   {
     month: 6,
@@ -248,7 +248,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "西伯利亚神秘大爆炸",
     domain: "宇宙物理",
     domainColor: "#6366f1",
-    url: "/universe-physics",
+    url: "/earth-science/frontier/planetary-defense",
   },
   {
     month: 4,
@@ -298,7 +298,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "人类迄今最强大的太空望远镜升空",
     domain: "宇宙学",
     domainColor: "#a88adf",
-    url: "/cosmology",
+    url: "/cosmology/knowledge-base/宇宙学观测--詹姆斯韦伯空间望远镜",
   },
   {
     month: 4,
@@ -308,7 +308,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "改变人类宇宙观的太空之眼",
     domain: "宇宙学",
     domainColor: "#a88adf",
-    url: "/cosmology",
+    url: "/cosmology/knowledge-base/宇宙学观测--哈勃空间望远镜",
   },
   {
     month: 4,
@@ -318,7 +318,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "沃森与克里克在《自然》揭示遗传密码的形态",
     domain: "生命科学",
     domainColor: "#6bae6b",
-    url: "/life-science",
+    url: "/life-science/knowledge-base/人体--DNA与遗传",
   },
   {
     month: 2,
@@ -328,7 +328,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "提出自然选择、奠定演化论的博物学家",
     domain: "生命科学",
     domainColor: "#6bae6b",
-    url: "/life-science",
+    url: "/life-science/scientists/darwin",
   },
   {
     month: 12,
@@ -338,7 +338,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "自学成才、直觉惊人的印度数学天才",
     domain: "数学",
     domainColor: "#5fb3a3",
-    url: "/mathematics",
+    url: "/mathematics/mathematicians/ramanujan",
   },
   {
     month: 11,
@@ -348,7 +348,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "开启医学影像与近代物理的新纪元",
     domain: "宇宙物理",
     domainColor: "#6366f1",
-    url: "/universe-physics",
+    url: "/medicine/technologies/x-ray-imaging",
   },
   {
     month: 3,
@@ -378,7 +378,7 @@ export const ON_THIS_DAY: OnThisDayEvent[] = [
     description: "精神分析的奠基者，重塑了对无意识的理解",
     domain: "心理学",
     domainColor: "#c678dd",
-    url: "/psychology",
+    url: "/psychology/theorists/sigmund-freud",
   },
   {
     month: 6,

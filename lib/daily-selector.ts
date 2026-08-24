@@ -19,6 +19,10 @@ import {
   EARTH_SCIENCE_FACTS,
   MEDICINE_FACTS,
   CHEMISTRY_FACTS,
+  LINGUISTICS_FACTS,
+  LAW_FACTS,
+  ARTS_FACTS,
+  ENGINEERING_FACTS,
 } from "./daily-facts";
 
 export interface DailySelected {
@@ -38,6 +42,10 @@ export interface DailySelected {
   medicine: DailySelectedFact;
   chemistry: DailySelectedFact;
   sociology: DailySelectedFact;
+  linguistics: DailySelectedFact;
+  law: DailySelectedFact;
+  arts: DailySelectedFact;
+  engineering: DailySelectedFact;
   curiosity: { title: string; detail: string; url?: string };
   question: string;
   fact: string;
@@ -131,6 +139,10 @@ export function getDailySelected(date?: Date, seedOffset = 0): DailySelected {
   const medicine = seededSelect(MEDICINE_FACTS, seed + 15);
   const chemistry = seededSelect(CHEMISTRY_FACTS, seed + 16);
   const sociology = seededSelect(SOCIOLOGY_FACTS, seed + 17);
+  const linguistics = seededSelect(LINGUISTICS_FACTS, seed + 18);
+  const law = seededSelect(LAW_FACTS, seed + 19);
+  const arts = seededSelect(ARTS_FACTS, seed + 20);
+  const engineering = seededSelect(ENGINEERING_FACTS, seed + 21);
 
   const curiosityItem = seededSelect(getAllCuriosities(), seed + 14);
   const curiosity = {
@@ -175,6 +187,10 @@ export function getDailySelected(date?: Date, seedOffset = 0): DailySelected {
     medicine,
     chemistry,
     sociology,
+    linguistics,
+    law,
+    arts,
+    engineering,
     curiosity,
     question,
     fact,
@@ -224,6 +240,10 @@ export function buildShareText(daily: DailySelected): string {
     `⚕️ 医学：${daily.medicine.title}`,
     `⚗️ 化学：${daily.chemistry.title}`,
     `🏙 社会学：${daily.sociology.title}`,
+    `💬 语言学：${daily.linguistics.title}`,
+    `📑 法学：${daily.law.title}`,
+    `🎨 艺术：${daily.arts.title}`,
+    `🔧 工程：${daily.engineering.title}`,
     "",
     `❓ 今日一问：${daily.question}`,
     "",

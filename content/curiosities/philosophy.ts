@@ -7,7 +7,7 @@ export const PHILOSOPHY_CURIOSITIES: Curiosity[] = [
     detail:
       "忒修斯之船是一个两千多年仍未「解决」的悖论。更狠的版本：如果有人用换下的旧木板重新拼出一艘船，哪一艘才是「原来的」？它逼问的其实是「同一性」的本质。",
     tags: ["同一性", "悖论"],
-    url: "/philosophy/concepts",
+    url: "/philosophy/experiments/ship-of-theseus",
   },
   {
     id: "trolley-problem-origin",
@@ -16,7 +16,7 @@ export const PHILOSOPHY_CURIOSITIES: Curiosity[] = [
       "菲利帕·富特（Philippa Foot）1967 年在一篇关于堕胎与双重效应原则的论文里举了这个例子。她大概没料到，半个世纪后它会成为自动驾驶伦理的标准考题。",
     source: "Foot, “The Problem of Abortion and the Doctrine of the Double Effect” (1967)",
     tags: ["电车难题", "伦理学"],
-    url: "/philosophy/experiments",
+    url: "/philosophy/experiments/trolley-problem",
   },
   {
     id: "wittgenstein-one-book",
@@ -33,7 +33,7 @@ export const PHILOSOPHY_CURIOSITIES: Curiosity[] = [
       "柏拉图的本名叫「阿里斯托克勒斯」，「柏拉图」是他教练给的外号，意思大约是「宽肩膀的人」。他确实赢得过两次地峡运动会的摔跤冠军——这位开创了形而上学的大哲学家，身体也完全不差。",
     source: "Diogenes Laertius, Lives of the Eminent Philosophers",
     tags: ["柏拉图", "古希腊"],
-    url: "/philosophy",
+    url: "/philosophy/thinkers/plato",
   },
   {
     id: "descartes-cogito-french-first",
@@ -42,7 +42,7 @@ export const PHILOSOPHY_CURIOSITIES: Curiosity[] = [
       "笛卡尔在 1637 年的《谈谈方法》里用法文写下「je pense, donc je suis」，刻意选择法文是为了让更广泛的读者读到。我们今天熟知的拉丁文版本「cogito, ergo sum」直到 1644 年才出现在《哲学原理》里。",
     source: "Descartes, Discours de la méthode (1637)",
     tags: ["笛卡尔", "认识论"],
-    url: "/philosophy",
+    url: "/philosophy/thinkers/descartes",
   },
   {
     id: "socrates-never-wrote",
@@ -50,7 +50,7 @@ export const PHILOSOPHY_CURIOSITIES: Curiosity[] = [
     detail:
       "西方哲学最重要的人物之一，本人一个字都没留下。我们今天读到的所有「苏格拉底思想」，都来自他学生柏拉图、色诺芬等人的记录——而这些记录彼此之间常常矛盾。",
     tags: ["苏格拉底", "古希腊"],
-    url: "/philosophy",
+    url: "/philosophy/thinkers/socrates",
   },
   {
     id: "kant-never-left-hometown",
@@ -59,7 +59,7 @@ export const PHILOSOPHY_CURIOSITIES: Curiosity[] = [
       "伊曼努尔·康德一生都在普鲁士的哥尼斯堡（今俄罗斯加里宁格勒）度过，最远只去过约 100 公里外的村庄做家庭教师。他的规律散步是当地居民对表的依据，而他的《纯粹理性批判》颠覆了整个西方形而上学传统。",
     source: "Kuehn, Kant: A Biography (2001)",
     tags: ["康德", "德国哲学"],
-    url: "/philosophy",
+    url: "/philosophy/thinkers/kant",
   },
   {
     id: "nietzsche-god-is-dead-misread",
@@ -68,7 +68,7 @@ export const PHILOSOPHY_CURIOSITIES: Curiosity[] = [
       "「上帝死了」首次出现在尼采 1882 年的《快乐的科学》里。尼采的意思是：欧洲文明赖以存在的价值体系已经崩塌，而人们还没有意识到这场危机。这是一个文化诊断，不是一句宗教宣言。",
     source: "Nietzsche, Die fröhliche Wissenschaft (1882)",
     tags: ["尼采", "道德哲学"],
-    url: "/philosophy",
+    url: "/philosophy/thinkers/nietzsche",
   },
   {
     id: "pythagoras-bean-cult",
@@ -77,7 +77,7 @@ export const PHILOSOPHY_CURIOSITIES: Curiosity[] = [
       "毕达哥拉斯不只是数学家——他主持一个有严格戒律的学派，其中包括禁止吃蚕豆（据说因为蚕豆藏着灵魂）、禁止穿羊毛、禁止碰白公鸡，新入门者还要沉默五年。一些古代资料甚至记载他是为了不穿越一片豆田逃命而被捕杀的。",
     source: "Diogenes Laertius, Lives of the Eminent Philosophers",
     tags: ["毕达哥拉斯", "古希腊"],
-    url: "/philosophy",
+    url: "/philosophy/thinkers/pythagoras",
   },
   {
     id: "jeremy-bentham-auto-icon",
@@ -86,7 +86,7 @@ export const PHILOSOPHY_CURIOSITIES: Curiosity[] = [
       "杰里米·边沁生前在遗嘱里要求将自己的骨骼保存并展示。他的「自体图标」——真实骨骼撑着原装衣物、头部换用蜡像——至今仍在伦敦大学学院展柜中展出，偶尔还被推进会议室「出席」理事会。",
     source: "UCL Museums & Collections, Auto-icon documentation",
     tags: ["边沁", "功利主义"],
-    url: "/philosophy",
+    url: "/philosophy/thinkers/bentham",
   },
   {
     id: "spinoza-excommunication",
@@ -95,7 +95,7 @@ export const PHILOSOPHY_CURIOSITIES: Curiosity[] = [
       "1656 年，年仅 23 岁的巴鲁赫·斯宾诺莎被阿姆斯特丹葡萄牙犹太社区以「令人憎恶的异端邪说与可怕行为」为由逐出——措辞之严厉在该社区的历史上绝无仅有。奇怪的是，现存的驱逐令根本没写明具体罪名，那时他甚至还没写下任何哲学著作。",
     source: 'NEH, "Why Spinoza Was Excommunicated" (2012)',
     tags: ["斯宾诺莎", "17世纪"],
-    url: "/philosophy",
+    url: "/philosophy/thinkers/spinoza",
   },
   {
     id: "john-stuart-mill-prodigy",
@@ -104,7 +104,7 @@ export const PHILOSOPHY_CURIOSITIES: Curiosity[] = [
       "密尔的父亲詹姆斯·密尔是功利主义者边沁的信徒，为了培养一个哲学天才，让儿子在 3 岁开始学希腊文、8 岁开始学拉丁文、14 岁之前读完大部分经典。密尔晚年回忆，他从没有同龄玩伴，也不被允许浪费时间。",
     source: "J.S. Mill, Autobiography (1873)",
     tags: ["密尔", "功利主义"],
-    url: "/philosophy",
+    url: "/philosophy/thinkers/mill",
   },
   {
     id: "simone-de-beauvoir-becomes-woman",
@@ -113,7 +113,7 @@ export const PHILOSOPHY_CURIOSITIES: Curiosity[] = [
       "西蒙娜·德·波伏娃在《第二性》里提出，「女人」是一种社会建构而非自然事实，这个观点来自萨特的存在主义——存在先于本质，人没有固定本性。该书在法国出版后立刻被列为禁书，梵蒂冈将其放入禁书目录。",
     source: "de Beauvoir, Le Deuxième Sexe (1949)",
     tags: ["波伏娃", "女性主义"],
-    url: "/philosophy",
+    url: "/philosophy/thinkers/simone-de-beauvoir",
   },
   {
     id: "diogenes-barrel-alexander",
@@ -122,7 +122,7 @@ export const PHILOSOPHY_CURIOSITIES: Curiosity[] = [
       "犬儒哲学家第欧根尼住在一个大瓮里，拒绝一切物质财产。据记载，征服了大半个世界的亚历山大大帝前来拜访，问他有什么愿望，他回答：「请你走开，别挡住我的阳光。」亚历山大事后说，如果他不是亚历山大，他希望自己是第欧根尼。",
     source: "Diogenes Laertius, Lives of the Eminent Philosophers",
     tags: ["第欧根尼", "犬儒主义"],
-    url: "/philosophy",
+    url: "/philosophy/schools/cynicism",
   },
   {
     id: "hegel-one-student-misunderstood",
@@ -131,7 +131,7 @@ export const PHILOSOPHY_CURIOSITIES: Curiosity[] = [
       "这句话最早见于克尔凯郭尔的著作，是否真为黑格尔所说尚有争议。但它精准描述了一个历史事实：黑格尔是西方哲学史上最难读懂的人之一，连他自己的学生也分裂成「左派」和「右派」两个对立阵营，对他的思想得出截然相反的结论。",
     source: "Kierkegaard, Concluding Unscientific Postscript (1846)",
     tags: ["黑格尔", "德国唯心主义"],
-    url: "/philosophy",
+    url: "/philosophy/thinkers/hegel",
   },
   {
     id: "zhuangzi-butterfly-dream",
@@ -140,7 +140,7 @@ export const PHILOSOPHY_CURIOSITIES: Curiosity[] = [
       "庄子在《齐物论》里写道：他梦见自己变成一只蝴蝶，醒来后不知道自己究竟是「梦到自己是蝴蝶的庄周」，还是「正在梦到自己是庄周的蝴蝶」。这个思想实验比笛卡尔的「我思故我在」早了将近两千年，却指向同一个问题。",
     source: "《庄子·齐物论》，约公元前 4 世纪",
     tags: ["庄子", "道家"],
-    url: "/philosophy",
+    url: "/philosophy/thinkers/zhuangzi",
   },
   {
     id: "hannah-arendt-banality-of-evil",
@@ -149,7 +149,7 @@ export const PHILOSOPHY_CURIOSITIES: Curiosity[] = [
       "1961 年，汉娜·阿伦特作为《纽约客》记者旁听了纳粹战犯艾希曼的审判。她震惊地发现，这个负责将数百万人送进毒气室的人，既不疯狂也不残忍，只是一个拒绝独立思考、只会执行命令的平庸小官员。她把这种现象称为「恶的平庸性」。",
     source: "Arendt, Eichmann in Jerusalem: A Report on the Banality of Evil (1963)",
     tags: ["阿伦特", "政治哲学"],
-    url: "/philosophy",
+    url: "/philosophy/thinkers/hannah-arendt",
   },
   {
     id: "aristotle-womens-teeth",
@@ -159,7 +159,7 @@ export const PHILOSOPHY_CURIOSITIES: Curiosity[] = [
     source:
       "Bertrand Russell, The Impact of Science on Society (1952); Aristotle, History of Animals",
     tags: ["亚里士多德", "哲学史"],
-    url: "/philosophy",
+    url: "/philosophy/thinkers/aristotle",
   },
   {
     id: "pascal-wager",
@@ -168,7 +168,7 @@ export const PHILOSOPHY_CURIOSITIES: Curiosity[] = [
       "布莱兹·帕斯卡是一位数学天才，他把「信仰上帝」设计成一道期望值计算题：如果上帝存在且你相信，你赢得无限的永生；如果上帝不存在，你只损失了有限的尘世快乐。无论上帝存在的概率多小，数学上的「最优策略」都是选择相信。",
     source: "Pascal, Pensées (约 1670 年遗稿出版)",
     tags: ["帕斯卡", "宗教哲学"],
-    url: "/philosophy",
+    url: "/philosophy/experiments/pascals-wager",
   },
   {
     id: "foucault-ship-of-fools",
@@ -177,6 +177,6 @@ export const PHILOSOPHY_CURIOSITIES: Curiosity[] = [
       "米歇尔·福柯在《疯癫与文明》里揭示，中世纪欧洲城市会将精神病人装上「愚人船」送到别处，疯癫在当时反而被认为具有某种神圣性。17 世纪理性主义兴起后，人们开始大规模关押精神病人，「正常」与「疯癫」的现代边界才由此产生。",
     source: "Foucault, Folie et Déraison (1961)",
     tags: ["福柯", "权力与知识"],
-    url: "/philosophy",
+    url: "/philosophy/thinkers/foucault",
   },
 ];

@@ -464,6 +464,11 @@
     "e": "2016 年，深度学习的奠基者之一 Geoffrey Hinton 在一次演讲里抛出一句后来广为流传、也广受批评的话：\"我们应该停止培养放射科医生了。\"他的意思是，影像识别正是深度学习最擅长的…",
     "d": "medicine"
   },
+  "/medicine/frontier/alzheimer-amyloid-immunotherapy": {
+    "t": "抗淀粉样免疫疗法：斑块能清掉，痴呆却倒不回去",
+    "e": "2023 年 1 月 6 日，美国食品药品监督管理局（FDA）给仑卡奈单抗（lecanemab，商品名 Leqembi）开了一张加速批准。依据不是患者真正过得更好，而是脑内淀粉样斑块被清掉了—…",
+    "d": "medicine"
+  },
   "/medicine/frontier/antimicrobial-resistance": {
     "t": "抗微生物耐药：当抗生素一个接一个失效的那一天",
     "e": "2022 年初，_The Lancet_ 发表了迄今最系统的一项全球评估：2019 年，全球约有 127 万人的死亡可直接归因于细菌的抗微生物耐药（AMR），而与耐药相关的死亡约为 495 万…",
@@ -482,6 +487,11 @@
   "/medicine/frontier/fair-health-priority-setting": {
     "t": "公平卫生优先排序：从项目排名到可复审组合",
     "e": "假设一个卫生部门有十个候选项目和一笔固定预算。",
+    "d": "medicine"
+  },
+  "/medicine/frontier/glp1-incretin-obesity": {
+    "t": "GLP-1 与肠促胰素：肥胖治疗从\"减肥针\"回到激素回路",
+    "e": "2021 年 6 月 4 日，美国食品药品管理局批准司美格鲁肽 2.4 mg 周制剂（商品名 Wegovy）用于慢性体重管理。这是 2014 年以来，美国批准的第一款面向广泛肥胖或超重成人的减…",
     "d": "medicine"
   },
   "/medicine/frontier/mrna-therapeutics": {

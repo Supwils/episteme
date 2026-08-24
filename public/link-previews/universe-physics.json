@@ -94,9 +94,19 @@
     "e": "2021 年 4 月 7 日，费米实验室的 g-2 实验公布了第一批测量结果。",
     "d": "universe-physics"
   },
+  "/universe-physics/frontier/neutrino-mass-hierarchy": {
+    "t": "中微子质量顺序：振荡之后尚未称出的那一维",
+    "e": "1998 年，超级神冈（Super-Kamiokande）宣布：穿越地球而来的大气 μ 子中微子，比从头顶落下的更少。",
+    "d": "universe-physics"
+  },
   "/universe-physics/frontier/quantum-error-correction": {
     "t": "量子纠错跨过门槛",
     "e": "2024 年 12 月，Google 的量子团队在《自然》上报告了一件许多人等了近三十年的事。",
+    "d": "universe-physics"
+  },
+  "/universe-physics/frontier/quantum-sensing": {
+    "t": "量子传感：跨过标准量子极限",
+    "e": "2022 年 2 月，《自然》把封面给了一毫米高的原子云。科罗拉多 JILA 实验室的叶军（Jun Ye）组把大约十万个锶-87 原子关进一维光晶格，晶格沿重力方向铺开。云的顶端和底端只隔一毫…",
     "d": "universe-physics"
   },
   "/universe-physics/frontier/room-temperature-superconductor": {

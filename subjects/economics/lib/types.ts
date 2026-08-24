@@ -60,6 +60,7 @@ export type CaseStudyFrontmatter = {
   category: string;
   tags: string[];
   related: string[];
+  keyInsight?: string;
   status: "stub" | "draft" | "published";
   updated: string;
 };

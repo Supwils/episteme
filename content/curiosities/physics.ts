@@ -8,7 +8,7 @@ export const PHYSICS_CURIOSITIES: Curiosity[] = [
       "中子星把一个太阳的质量压进直径约 20 公里的球里。其密度高到一茶匙（约 5 毫升）的物质重达数十亿吨——相当于把全人类压成一块方糖。",
     source: "中子星密度约 10^17 kg/m³",
     tags: ["中子星", "密度"],
-    url: "/universe-physics",
+    url: "/universe-physics/knowledge-base/天体物理--致密星——白矮星与中子星",
   },
   {
     id: "we-are-stardust",
@@ -17,7 +17,7 @@ export const PHYSICS_CURIOSITIES: Curiosity[] = [
       "氢和氦诞生于大爆炸，但碳、氧、钙、铁等更重的元素是在恒星内部和超新星爆发中锻造出来的。「我们是星尘」并不是诗意的比喻，而是核合成的字面事实。",
     source: "恒星核合成（Burbidge et al., 1957）",
     tags: ["核合成", "元素起源"],
-    url: "/universe-physics",
+    url: "/cosmology/knowledge-base/恒星核合成",
   },
   {
     id: "quantum-tunneling-sun",
@@ -25,7 +25,7 @@ export const PHYSICS_CURIOSITIES: Curiosity[] = [
     detail:
       "太阳核心温度「不够高」，按经典物理质子无法克服电斥力发生聚变。是量子隧穿让质子有微小概率「穿过」势垒——正是这点概率，点亮了整个太阳系。",
     tags: ["量子隧穿", "核聚变"],
-    url: "/universe-physics/knowledge-base",
+    url: "/universe-physics/knowledge-base/前沿物理--核聚变与恒星能源",
   },
   {
     id: "magnetar-field-strength",
@@ -34,7 +34,7 @@ export const PHYSICS_CURIOSITIES: Curiosity[] = [
       "磁星是一类特殊中子星，表面磁场强度可达 10¹¹ 特斯拉，是地球磁场的百万亿倍，最强的 MRI 仪器的 1.5 亿倍。在这样的磁场中，原子会被拉成细长「针状」，任何已知物质结构都无法保持完整。",
     source: "Swift J0243.6+6124 磁场测量记录（2022）",
     tags: ["磁星", "磁场", "中子星"],
-    url: "/universe-physics",
+    url: "/cosmology/knowledge-base/中子星与脉冲星",
   },
   {
     id: "gps-relativity-correction",
@@ -43,6 +43,7 @@ export const PHYSICS_CURIOSITIES: Curiosity[] = [
       "卫星高速运行使星载时钟每天慢约 7 微秒（狭义相对论），但卫星处于较弱的引力场中又使时钟每天快约 45 微秒（广义相对论），净效应是快 38 微秒。若不补偿，定位误差将以每天约 11 公里的速率累积。爱因斯坦的理论每天都在默默保护你的导航。",
     source: "Ohio State University, GPS 相对论修正分析",
     tags: ["相对论", "GPS", "时间膨胀"],
+    url: "/universe-physics/knowledge-base/相对论--广义相对论",
   },
   {
     id: "cherenkov-blue-glow",
@@ -67,7 +68,7 @@ export const PHYSICS_CURIOSITIES: Curiosity[] = [
       "光从太阳表面到地球只需 8 分钟，但在这之前，这份能量在太阳内部被无数次吸收和重新发射，经历了约 10 万年的随机游走才从核心「扩散」到表面。你接收到的光子，承载的是远古聚变的遗产。",
     source: "太阳内部辐射转移模型",
     tags: ["太阳", "光子", "核聚变"],
-    url: "/universe-physics",
+    url: "/universe-physics/knowledge-base/前沿物理--核聚变与恒星能源",
   },
   {
     id: "solar-neutrinos-fingernail",
@@ -76,7 +77,7 @@ export const PHYSICS_CURIOSITIES: Curiosity[] = [
       "太阳每秒产生的中微子数量极为庞大，到达地球时每平方厘米每秒约有 650 亿个穿过。即使在午夜、整个地球挡在你和太阳之间时，它们依然毫不费力地穿过地球和你的身体，因为中微子与物质的相互作用极弱，一个人一生中只有一两个中微子会真正「停下来」。",
     source: "Fermi National Accelerator Laboratory，太阳中微子通量",
     tags: ["中微子", "太阳", "粒子物理"],
-    url: "/universe-physics",
+    url: "/universe-physics/knowledge-base/粒子物理--neutrino-physics",
   },
   {
     id: "oh-my-god-particle",
@@ -93,6 +94,7 @@ export const PHYSICS_CURIOSITIES: Curiosity[] = [
       "LIGO 在 2015 年探测到的引力波，让两条各 4 公里长的臂产生了不到质子直径千分之一的形变——约 10⁻¹⁹ 米。人类建造了一台能感知这种微小形变的机器，从而在 13 亿光年之外捕捉到了两个黑洞碰撞的涟漪。",
     source: "LIGO Scientific Collaboration, GW150914",
     tags: ["引力波", "LIGO", "黑洞"],
+    url: "/cosmology/knowledge-base/多信使天文学--gravitational-wave-detectors-ligo-lisa",
   },
   {
     id: "spaghettification",
@@ -101,7 +103,7 @@ export const PHYSICS_CURIOSITIES: Curiosity[] = [
       "当你靠近小质量黑洞时，脚部与头部所受引力差大得惊人，会把你沿径向拉伸、横向压缩，变成一条细长的「粒子流」——物理学家称之为「意大利面化」。讽刺的是，超大质量黑洞（如 M87*）的潮汐力反而更温和，你甚至能穿越事件视界而不自知。",
     source: "广义相对论，黑洞潮汐力分析",
     tags: ["黑洞", "潮汐力", "广义相对论"],
-    url: "/universe-physics",
+    url: "/universe-physics/knowledge-base/相对论--黑洞",
   },
   {
     id: "hawking-radiation-temperature",
@@ -110,7 +112,7 @@ export const PHYSICS_CURIOSITIES: Curiosity[] = [
       "霍金辐射预言黑洞会以与质量成反比的温度「蒸发」：质量越小，温度越高，蒸发越剧烈。一个太阳质量的黑洞完全蒸发需要约 10⁶⁴ 年（远超宇宙年龄），但最后一刻将以能量爆发告终。它是热力学第二定律最极端的舞台。",
     source: "Hawking, S. W. (1974). Nature, 248, 30–31",
     tags: ["霍金辐射", "黑洞蒸发", "热力学"],
-    url: "/universe-physics",
+    url: "/universe-physics/knowledge-base/相对论--黑洞",
   },
   {
     id: "proton-mass-mostly-gluons",
@@ -127,6 +129,7 @@ export const PHYSICS_CURIOSITIES: Curiosity[] = [
       "1987 年 2 月，大麦哲伦云中的超新星 SN 1987A 爆发。数小时前，地球上三个不同探测器共记录到 25 个中微子——这些粒子历经 16.6 万光年的旅行，仅用 13 秒就全部到达。它们证实了核心坍缩超新星理论，并开创了「中微子天文学」。",
     source: "Kamiokande-II & IMB 探测器，1987 年 2 月 23 日",
     tags: ["超新星", "中微子", "中微子天文学"],
+    url: "/cosmology/knowledge-base/恒星物理--core-collapse-supernovae",
   },
   {
     id: "bose-einstein-coldest-lab",
@@ -135,6 +138,7 @@ export const PHYSICS_CURIOSITIES: Curiosity[] = [
       "NASA 在空间站运行的冷原子实验室（CAL）可将原子冷却至绝对零度以上约 100 皮开（即 0.0000000001 K）。在这个温度下，原子形成玻色-爱因斯坦凝聚态，表现得像一个巨大的「超级原子」，展示纯粹的量子行为。这比深空背景温度（2.7 K）还低了近 270 亿倍。",
     source: "NASA Cold Atom Lab (CAL)，国际空间站",
     tags: ["玻色-爱因斯坦凝聚", "绝对零度", "量子物理"],
+    url: "/universe-physics/knowledge-base/凝聚态物理--bose-einstein-condensate",
   },
   {
     id: "vacuum-energy-catastrophe",

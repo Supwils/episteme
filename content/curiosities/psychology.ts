@@ -8,7 +8,7 @@ export const PSYCHOLOGY_CURIOSITIES: Curiosity[] = [
       "「鸡尾酒会效应」：大脑在过滤背景噪声时，仍对高度相关的信号（尤其是自己的名字）保持监控。这说明你的注意力并没有真正「关掉」那些被忽略的声音。",
     source: "Cherry (1953)",
     tags: ["注意力", "听觉"],
-    url: "/psychology/phenomena",
+    url: "/psychology/phenomena/perception-physiology",
   },
   {
     id: "blind-spot",
@@ -16,7 +16,7 @@ export const PSYCHOLOGY_CURIOSITIES: Curiosity[] = [
     detail:
       "视神经穿过视网膜的地方没有感光细胞，形成生理盲点。你平时察觉不到，是因为大脑用周围信息「脑补」了缺失的部分——你看到的世界，有一部分是被编造出来的。",
     tags: ["知觉", "盲点"],
-    url: "/psychology/phenomena",
+    url: "/psychology/phenomena/perception-physiology",
   },
   {
     id: "tip-of-tongue",
@@ -34,7 +34,7 @@ export const PSYCHOLOGY_CURIOSITIES: Curiosity[] = [
       "Tversky 与 Kahneman 经典实验：转盘随机停在 10 或 65，随后让人估算「联合国里非洲国家的比例」——结果停在 10 的人平均猜 25%，停在 65 的人平均猜 45%。这个随机数字毫无信息价值，却锚定了判断。锚定效应已在 200 余个实验室中重复验证，即使明确告知数字是随机的也无法消除。",
     source: "Tversky & Kahneman, Science (1974)",
     tags: ["认知偏误", "判断", "启发式"],
-    url: "/psychology",
+    url: "/psychology/phenomena/anchoring-bias",
   },
   {
     id: "inattentional-blindness",
@@ -43,7 +43,7 @@ export const PSYCHOLOGY_CURIOSITIES: Curiosity[] = [
       "1999 年西蒙斯与夏布里斯让参与者专注计数视频中的传球次数，一个身穿猩猩服装的人慢慢穿越球场——约 50% 的参与者完全没有注意到。「非注意性盲视」证明注意力不是摄像机，而是一盏聚光灯：灯光之外，再显眼的事物也可能彻底消失。",
     source: "Simons & Chabris, Perception (1999)",
     tags: ["注意力", "视觉感知", "非注意性盲视"],
-    url: "/psychology",
+    url: "/psychology/experiments/gorilla-invisibility",
   },
   {
     id: "mere-exposure-effect",
@@ -52,7 +52,7 @@ export const PSYCHOLOGY_CURIOSITIES: Curiosity[] = [
       "Zajonc 1968 年的研究发现，将陌生汉字、无意义单词或照片重复展示给参与者，他们对这些刺激的好感度会随接触次数增加——即便完全不记得曾经看过。这一「单纯曝光效应」已被超过 200 项研究重复，效果量稳定（r ≈ 0.26），是心理学中最可靠的发现之一。",
     source: "Zajonc (1968); Bornstein meta-analysis (1989)",
     tags: ["态度", "偏好", "接触"],
-    url: "/psychology",
+    url: "/psychology/phenomena/mere-exposure-effect",
   },
   {
     id: "false-memory-implant",
@@ -61,7 +61,7 @@ export const PSYCHOLOGY_CURIOSITIES: Curiosity[] = [
       "Elizabeth Loftus 的「商场迷路」实验通过虚假家庭叙述成功在参与者记忆中植入了一段从未发生的儿时经历，约 25% 的人不仅接受了这段记忆，还补充了细节。近期重复实验将比例提高到 35%。记忆不是录像而是重构，每次提取都可能被修改。",
     source: "Loftus & Pickrell (1995); Murphy et al. replication (2023)",
     tags: ["错误记忆", "记忆可塑性", "目击证词"],
-    url: "/psychology",
+    url: "/psychology/phenomena/false-memory",
   },
   {
     id: "serial-position-effect",
@@ -70,7 +70,7 @@ export const PSYCHOLOGY_CURIOSITIES: Curiosity[] = [
       "「序列位置效应」包含两个经典规律：列表开头的词因有充分时间进入长时记忆而被记住（首因效应），结尾的词因还在短时记忆中而被记住（近因效应），中间部分两头不靠因此记忆最差。这一效应在不同语言、年龄和材料中均稳定重现，是记忆研究中最可靠的实验现象之一。",
     source: "Murdock (1962); Glanzer & Cunitz (1966)",
     tags: ["记忆", "序列位置", "长短时记忆"],
-    url: "/psychology",
+    url: "/psychology/phenomena/serial-position-effect",
   },
   {
     id: "sunk-cost-fallacy",
@@ -79,7 +79,7 @@ export const PSYCHOLOGY_CURIOSITIES: Curiosity[] = [
       "Arkes 与 Blumer 1985 年的系列实验确认了「沉没成本谬误」：人们倾向于继续一项亏损的投资，仅仅因为已经投入了资源。这一偏误与「损失厌恶」（损失带来的心理冲击约是同等收益的两倍）密切相关，在跨文化、跨物种（包括鸽子和大鼠）实验中均有发现。",
     source: "Arkes & Blumer, Organizational Behavior & Human Decision Processes (1985)",
     tags: ["决策", "损失厌恶", "沉没成本"],
-    url: "/psychology",
+    url: "/psychology/phenomena/sunk-cost-fallacy",
   },
   {
     id: "dunning-kruger-caveat",
@@ -88,7 +88,7 @@ export const PSYCHOLOGY_CURIOSITIES: Curiosity[] = [
       "Dunning 和 Kruger 1999 年发现技能最差的人往往高估自己的能力。然而近年来多位研究者指出，该效应在统计上至少部分源于「向均值回归」的数学必然性，而非纯粹的心理现象。真正稳健的发现是：人们普遍难以准确自我评估，高手倾向于低估自己，新手倾向于高估，但具体机制仍有争论。",
     source: "Kruger & Dunning (1999); Gignac & Zajenkowski (2020); Nuhfer et al. (2016)",
     tags: ["元认知", "自我评估", "达克效应"],
-    url: "/psychology",
+    url: "/psychology/phenomena/dunning-kruger",
   },
   {
     id: "change-blindness",
@@ -97,7 +97,7 @@ export const PSYCHOLOGY_CURIOSITIES: Curiosity[] = [
       "「变化盲视」实验中，实验者与参与者交谈时假装弯腰取东西，趁机换成另一个人继续对话——约 50% 的参与者没有发现对面的人换了。视觉系统并不会连续存储完整的场景，而是按需提取，这意味着巨大的视觉变化只要发生在注意力转移的间隙，就会被彻底错过。",
     source: "Simons & Levin, Psychonomic Bulletin & Review (1998)",
     tags: ["知觉", "视觉", "注意力"],
-    url: "/psychology",
+    url: "/psychology/phenomena/change-blindness",
   },
   {
     id: "verbal-overshadowing",
@@ -106,7 +106,7 @@ export const PSYCHOLOGY_CURIOSITIES: Curiosity[] = [
       "Schooler 和 Engstler-Schooler 1990 年发现，目击者在描述犯罪嫌疑人面孔后，辨认成功率显著低于没有描述过的对照组——语言描述似乎覆盖了大脑中精细的视觉记忆。这一「言语遮蔽效应」对司法实践有直接影响，并在多次独立研究中得到重复。",
     source: "Schooler & Engstler-Schooler, Cognitive Psychology (1990)",
     tags: ["目击证词", "记忆", "言语"],
-    url: "/psychology",
+    url: "/psychology/theorists/elizabeth-loftus",
   },
   {
     id: "bystander-effect",
@@ -115,7 +115,7 @@ export const PSYCHOLOGY_CURIOSITIES: Curiosity[] = [
       "Darley 与 Latané 1968 年的实验让参与者听到隔壁有人「癫痫发作」：当参与者相信自己是唯一听到的人时，85% 会立刻求助；当他们认为还有四个人也听到时，只有 31% 作出反应。「旁观者效应」的机制包括责任分散（「别人会管的」）和社会比较（「别人都没动，也许没事」）。",
     source: "Darley & Latané, Journal of Personality and Social Psychology (1968)",
     tags: ["社会影响", "旁观者效应", "责任分散"],
-    url: "/psychology",
+    url: "/psychology/experiments/darley-latane-1968",
   },
   {
     id: "peak-end-rule",
@@ -124,7 +124,7 @@ export const PSYCHOLOGY_CURIOSITIES: Curiosity[] = [
       "Kahneman 等人发现，人们对一段体验（如结肠镜检查或冷水实验）的整体评价，主要由「峰值」（最强烈的感受）和「末值」（结束时的感受）决定，持续时间几乎不影响评价——这被称为「峰末定律」。在结肠镜实验中，增加几分钟不适但程度稍低的尾段，反而让患者总体感觉更好。",
     source: "Kahneman et al., Psychological Science (1993)",
     tags: ["体验效用", "记忆", "峰末定律"],
-    url: "/psychology",
+    url: "/psychology/phenomena/peak-end-rule",
   },
   {
     id: "facial-feedback-nuance",
@@ -134,7 +134,7 @@ export const PSYCHOLOGY_CURIOSITIES: Curiosity[] = [
     source:
       "Strack et al. (1988); Wagenmakers et al. replication (2016); Coles et al. meta-analysis (2022)",
     tags: ["情绪", "具身认知", "面部反馈"],
-    url: "/psychology",
+    url: "/psychology/schools/embodied-cognition",
   },
   {
     id: "availability-heuristic",
@@ -143,7 +143,7 @@ export const PSYCHOLOGY_CURIOSITIES: Curiosity[] = [
       "Tversky 和 Kahneman 发现，人们用「脑中能否轻松搜索到例子」来判断某类事件的频率。这导致空难死亡（媒体报道多、画面冲击强）感觉比汽车事故更危险，尽管后者致死率高得多。「可得性启发」在跨文化、跨年龄段的研究中均有稳定体现。",
     source: "Tversky & Kahneman, Cognitive Psychology (1973)",
     tags: ["启发式", "风险感知", "认知偏误"],
-    url: "/psychology",
+    url: "/psychology/phenomena/availability-heuristic",
   },
   {
     id: "embodied-number-line",
@@ -152,7 +152,7 @@ export const PSYCHOLOGY_CURIOSITIES: Curiosity[] = [
       "「SNARC 效应」（数字空间联想反应编码效应）：在双手反应任务中，小数字（如 1、2）按左键更快，大数字（如 8、9）按右键更快，即使任务与大小完全无关。这一效应在欧洲语言使用者中稳定重现，但在从右往左书写语言的使用者（如阿拉伯语）中方向常常反转，说明数字空间是文化可塑的。",
     source: "Dehaene, Bossini & Giraux, Journal of Experimental Psychology (1993)",
     tags: ["具身认知", "数字", "空间"],
-    url: "/psychology",
+    url: "/psychology/schools/embodied-cognition",
   },
   {
     id: "illusion-of-explanatory-depth",
@@ -161,6 +161,6 @@ export const PSYCHOLOGY_CURIOSITIES: Curiosity[] = [
       "Rozenblit 和 Keil 2002 年的实验请参与者先评估对日常物品（抽水马桶、直升机、拉链）的理解深度，再要求逐步写出工作机制，最后重新评分——几乎所有人都大幅调低了自己的评分。「解释深度错觉」表明，我们常常把「见过某物能运作」误认为「理解其原理」。",
     source: "Rozenblit & Keil, Behavioral and Brain Sciences (2002)",
     tags: ["元认知", "知识错觉", "理解"],
-    url: "/psychology",
+    url: "/psychology/knowledge-base/metacognition-training",
   },
 ];

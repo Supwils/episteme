@@ -92,3 +92,18 @@ export function getAllCuriosities(): CuriosityWithSubject[] {
   }
   return all;
 }
+
+/**
+ * Domain homes (`/psychology`) and section lists (`/psychology/phenomena`)
+ * dump the reader. Only article-depth paths (three or more segments) count.
+ */
+export function curiosityArticleHref(url?: string): string | undefined {
+  if (!url) return undefined;
+  const parts = url.split("/").filter(Boolean);
+  return parts.length >= 3 ? url : undefined;
+}
+
+/** Wall / daily CTA: only promise an article when the URL actually is one. */
+export function curiosityFollowLabel(url?: string): string {
+  return curiosityArticleHref(url) ? "阅读相关文章 →" : "更多奇趣知识 →";
+}

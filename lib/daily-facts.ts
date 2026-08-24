@@ -58,7 +58,7 @@ export const MONTHLY_FACTS: Record<string, readonly string[]> = {
   ],
   "05": [
     "5月的英文May来自希腊春天女神玛雅",
-    "5月5日是日本的儿童节，也叫端午节",
+    "日本儿童节在公历5月5日，源自端午的节句，与农历端午节不是同一天",
     "5月的诞生石是祖母绿，象征希望与重生",
   ],
   "06": [
@@ -102,77 +102,77 @@ export const MATH_FACTS: readonly DailySelectedFact[] = [
   {
     title: "欧拉恒等式",
     description: "e^(iπ) + 1 = 0 被誉为最优美的数学公式，将五个最重要的数学常数联系在一起。",
-    url: "/mathematics",
+    url: "/mathematics/theorems/euler-identity",
   },
   {
     title: "素数的无穷性",
     description: "欧几里得在公元前300年就证明了素数有无穷多个，这是数论的基石。",
-    url: "/mathematics",
+    url: "/mathematics/mathematicians/euclid",
   },
   {
     title: "哥德尔不完备定理",
     description: "任何包含算术的一致形式系统都存在不可判定的命题，这改变了数学的根基。",
-    url: "/mathematics",
+    url: "/mathematics/theorems/godel-incompleteness",
   },
   {
     title: "费马大定理",
     description: "x^n + y^n = z^n 在 n>2 时无正整数解，这个猜想花了358年才被安德鲁·怀尔斯证明。",
-    url: "/mathematics",
+    url: "/mathematics/theorems/fermat-last-theorem",
   },
   {
     title: "黄金比例",
     description: "φ = (1+√5)/2 ≈ 1.618，出现在自然界、艺术和建筑中，被认为是美的数学表达。",
-    url: "/mathematics",
+    url: "/arts/foundations/proportion-and-harmony",
   },
   {
     title: "黎曼猜想",
     description: "关于素数分布的核心猜想，至今未被证明，是千禧年七大数学难题之一。",
-    url: "/mathematics",
+    url: "/mathematics/theorems/riemann-hypothesis",
   },
   {
     title: "圆周率的奥秘",
     description: "π是无理数也是超越数，小数位无穷无尽且不循环，目前已计算到数百万亿位。",
-    url: "/mathematics",
+    url: "/mathematics/mathematicians/zu-chongzhi",
   },
   {
     title: "莫比乌斯带",
     description: "只有一条边和一个面的曲面，是拓扑学最经典的研究对象之一。",
-    url: "/mathematics",
+    url: "/mathematics/knowledge-base/几何--拓扑学入门",
   },
   {
     title: "分形几何",
     description: "曼德博集合展示了简单迭代规则如何产生无限复杂的图案，揭示了混沌中的秩序。",
-    url: "/mathematics",
+    url: "/mathematics/concepts/fractal",
   },
   {
     title: "四色定理",
     description: "任何地图只需四种颜色就能确保相邻区域不同色，1976年首次用计算机辅助证明。",
-    url: "/mathematics",
+    url: "/mathematics/theorems/four-color-theorem",
   },
   {
     title: "无穷大的等级",
     description: "康托尔证明了无穷大有不同的大小：自然数的无穷小于实数的无穷。",
-    url: "/mathematics",
+    url: "/mathematics/theorems/cantors-theorem",
   },
   {
     title: "博弈论",
     description: "纳什均衡揭示了在非合作博弈中，每个参与者都选择最优策略时的状态。",
-    url: "/mathematics",
+    url: "/mathematics/concepts/game-theory",
   },
   {
     title: "欧拉公式",
     description: "V - E + F = 2 揭示了多面体的顶点、边和面之间的基本关系。",
-    url: "/mathematics",
+    url: "/mathematics/concepts/topology",
   },
   {
     title: "概率论的起源",
     description: "帕斯卡和费马在1654年的通信中奠定了概率论的基础，起源于赌博问题。",
-    url: "/mathematics",
+    url: "/mathematics/concepts/probability",
   },
   {
     title: "集合论悖论",
     description: "罗素悖论动摇了朴素集合论的基础，推动了公理化集合论的发展。",
-    url: "/mathematics",
+    url: "/mathematics/paradoxes/russels-paradox",
   },
 ];
 
@@ -180,78 +180,78 @@ export const LIFE_SCIENCE_FACTS: readonly DailySelectedFact[] = [
   {
     title: "DNA的双螺旋",
     description: "1953年沃森和克里克发现了DNA的双螺旋结构，开启了分子生物学时代。",
-    url: "/life-science",
+    url: "/life-science/knowledge-base/人体--DNA与遗传",
   },
   {
     title: "寒武纪生命大爆发",
     description: "约5.4亿年前，地球上几乎所有动物门类在短短2000万年内同时出现。",
-    url: "/life-science",
+    url: "/life-science/knowledge-base/关键事件--寒武纪大爆发",
   },
   {
     title: "线粒体夏娃",
     description: "所有现代人类的线粒体DNA都可以追溯到约15万年前非洲的一位女性祖先。",
-    url: "/life-science",
+    url: "/human-history/knowledge/远古时期--人类起源",
   },
   {
     title: "CRISPR基因编辑",
     description: "CRISPR-Cas9技术让精确编辑基因组成为可能，正在改变医学和农业。",
-    url: "/life-science",
+    url: "/life-science/knowledge-base/当代议题--基因编辑",
   },
   {
     title: "五次大灭绝",
     description: "地球历史上经历了五次大规模物种灭绝，每次都重塑了生命的演化方向。",
-    url: "/life-science",
+    url: "/life-science/knowledge-base/当代议题--第六次大灭绝",
   },
   {
     title: "光合作用的奇迹",
     description: "植物、藻类和蓝藻通过光合作用将太阳能转化为化学能，维持了地球几乎所有的生命。",
-    url: "/life-science",
+    url: "/life-science/knowledge-base/分子生物学--photosynthesis",
   },
   {
     title: "人类基因组",
     description:
       "人类基因组包含约20000-25000个基因，但98%的DNA曾被认为是'垃圾'，现在发现有重要功能。",
-    url: "/life-science",
+    url: "/life-science/knowledge-base/人体--DNA与遗传",
   },
   {
     title: "共生与进化",
     description: "线粒体曾经是独立的细菌，通过内共生与真核细胞结合，成为细胞的'能量工厂'。",
-    url: "/life-science",
+    url: "/life-science/knowledge-base/关键事件--内共生起源",
   },
   {
     title: "表观遗传学",
     description: "环境可以通过表观遗传修饰影响基因表达，且某些修饰可以遗传给后代。",
-    url: "/life-science",
+    url: "/life-science/knowledge-base/分子生物学--表观遗传",
   },
   {
     title: "微生物组",
     description: "人体内寄居着约38万亿微生物，它们影响免疫、消化甚至情绪和行为。",
-    url: "/life-science",
+    url: "/life-science/knowledge-base/人体--微生物组",
   },
   {
     title: "趋同进化",
     description: "章鱼的眼睛和人类的眼睛结构惊人相似，但独立进化了至少5亿年。",
-    url: "/life-science",
+    url: "/life-science/knowledge-base/进化专题--眼睛的进化",
   },
   {
     title: "朊病毒",
     description: "朊病毒是不含核酸的感染性蛋白质，挑战了'所有病原体都需要遗传物质'的传统观念。",
-    url: "/life-science",
+    url: "/chemistry/substances/proteins-chemistry",
   },
   {
     title: "干细胞的潜力",
     description: "干细胞可以分化为人体200多种细胞类型中的任何一种，是再生医学的希望。",
-    url: "/life-science",
+    url: "/life-science/knowledge-base/分子生物学--干细胞",
   },
   {
     title: "生命的化学起源",
     description: "米勒-尤里实验证明，原始地球条件下无机物可以自发形成氨基酸等有机分子。",
-    url: "/life-science",
+    url: "/life-science/knowledge-base/当代议题--生命起源研究",
   },
   {
     title: "生物钟",
     description: "几乎所有生物都有内在的昼夜节律，由基因调控的分子时钟驱动。",
-    url: "/life-science",
+    url: "/life-science/knowledge-base/生理学--生物钟与昼夜节律",
   },
 ];
 
@@ -259,62 +259,62 @@ export const COSMOLOGY_FACTS: readonly DailySelectedFact[] = [
   {
     title: "宇宙微波背景辐射",
     description: "大爆炸留下的余辉，温度约2.7K，是宇宙最古老的光。",
-    url: "/cosmology",
+    url: "/cosmology/knowledge-base/宇宙微波背景",
   },
   {
     title: "暗能量",
     description: "约占宇宙总能量的68%，是推动宇宙加速膨胀的神秘力量。",
-    url: "/cosmology",
+    url: "/cosmology/knowledge-base/宇宙学基础--暗能量与状态方程",
   },
   {
     title: "哈勃定律",
     description: "星系远离我们的速度与距离成正比，揭示了宇宙正在膨胀。",
-    url: "/cosmology",
+    url: "/cosmology/dialogues/hubble-lemaitre",
   },
   {
     title: "宇宙的年龄",
     description: "通过宇宙微波背景辐射精确测量，宇宙的年龄约为138亿年。",
-    url: "/cosmology",
+    url: "/cosmology/knowledge-base/宇宙学基础--宇宙的年龄测定",
   },
   {
     title: "宇宙大尺度结构",
     description: "星系构成纤维状结构和巨大空洞，形成宇宙网。",
-    url: "/cosmology",
+    url: "/cosmology/knowledge-base/宇宙大尺度结构",
   },
   {
     title: "暴胀理论",
     description: "宇宙在诞生后极短时间内经历了指数级膨胀，解释了宇宙的平坦性。",
-    url: "/cosmology",
+    url: "/cosmology/knowledge-base/cosmic-inflation",
   },
   {
     title: "暗物质",
     description: "约占宇宙总质量的27%，不发光也不与光相互作用，但通过引力影响星系运动。",
-    url: "/cosmology",
+    url: "/cosmology/knowledge-base/暗物质与暗能量",
   },
   {
     title: "宇宙的命运",
     description: "宇宙可能面临大冻结、大撕裂或大坍缩三种终极命运。",
-    url: "/cosmology",
+    url: "/cosmology/knowledge-base/宇宙的最终命运",
   },
   {
     title: "多宇宙假说",
     description: "某些物理理论暗示我们的宇宙可能只是无数宇宙中的一个。",
-    url: "/cosmology",
+    url: "/cosmology/knowledge-base/多重宇宙假说",
   },
   {
     title: "宇宙的平坦性",
     description: "观测表明宇宙的空间曲率非常接近于零，这意味着宇宙在大尺度上是平坦的。",
-    url: "/cosmology",
+    url: "/cosmology/knowledge-base/cosmic-inflation",
   },
   {
     title: "星系的形成",
     description: "暗物质晕是星系形成的骨架，普通物质在引力作用下聚集形成恒星和星系。",
-    url: "/cosmology",
+    url: "/cosmology/knowledge-base/星系形成与演化",
   },
   {
     title: "宇宙的元素起源",
     description: "氢和氦在大爆炸中形成，其他元素在恒星内部和超新星爆发中合成。",
-    url: "/cosmology",
+    url: "/cosmology/knowledge-base/宇宙学基础--太初核合成",
   },
 ];
 
@@ -322,12 +322,12 @@ export const ECONOMICS_FACTS: readonly DailySelectedFact[] = [
   {
     title: "看不见的手",
     description: "亚当·斯密提出，个人追求自身利益会通过市场机制促进社会整体福利。",
-    url: "/economics",
+    url: "/economics/economists/adam-smith",
   },
   {
     title: "边际效用递减",
     description: "消费越多同一商品，每增加一单位带来的满足感越少。",
-    url: "/economics/concepts/opportunity-cost",
+    url: "/economics/concepts/marginal-analysis",
   },
   {
     title: "比较优势",
@@ -390,7 +390,7 @@ export const PSYCHOLOGY_FACTS: readonly DailySelectedFact[] = [
   {
     title: "从众效应",
     description: "阿希实验证明，即使答案明显错误，约75%的人至少会从众一次。",
-    url: "/psychology/experiments/asch-conformity-1951",
+    url: "/psychology/experiments/asch-conformity",
   },
   {
     title: "认知失调",
@@ -714,5 +714,228 @@ export const CHEMISTRY_FACTS: readonly DailySelectedFact[] = [
     description:
       "原子太小没法一个个数，于是化学家用「摩尔」打包：1 摩尔就是约 6.022×10²³ 个粒子——阿伏伽德罗常数。",
     url: "/chemistry/concepts/the-mole",
+  },
+];
+
+export const LINGUISTICS_FACTS: readonly DailySelectedFact[] = [
+  {
+    title: "Wug 测试",
+    description:
+      "给儿童一个没听过的假词，看他们会不会自己加上复数词尾——这证明语法规则是可生成的，不是死记硬背。",
+    url: "/linguistics/acquisition-and-mind/wug-test-morphology-analysis",
+  },
+  {
+    title: "语言是否塑造思维",
+    description:
+      "强萨丕尔-沃尔夫假说已被放弃；弱版本——词汇边界影响分类速度——在颜色等领域有谨慎的实验支持。",
+    url: "/linguistics/acquisition-and-mind/language-thought-debate",
+  },
+  {
+    title: "汉语方言还是语言",
+    description:
+      "各「方言」口语差距可达语言一级；称为方言还是语言，取决于互通度之外的历史与政治标准。",
+    url: "/linguistics/history-typology-society/chinese-dialects",
+  },
+  {
+    title: "濒危语言复振",
+    description:
+      "语言巢、官方地位和社区学校可以把濒危语言拉回日常使用，但成功取决于制度，不只是词典。",
+    url: "/linguistics/history-typology-society/endangered-language-revitalization",
+  },
+  {
+    title: "爱斯基摩雪词神话",
+    description:
+      "所谓「爱斯基摩人有几十个雪的词」是被反复转述的都市传说，语言学自己已经把它拆开过了。",
+    url: "/linguistics/history-typology-society/eskimo-snow-words-hoax",
+  },
+  {
+    title: "语系与比较方法",
+    description: "同源词的系统对应能重建语系；词汇统计学的捷径则多次被证伪。",
+    url: "/linguistics/history-typology-society/language-families",
+  },
+  {
+    title: "儿童怎样生成没听过的词",
+    description: "第一语言习得不是模仿录音带：儿童会过度规则化，说明他们在抽取可推广的形态模式。",
+    url: "/linguistics/acquisition-and-mind/first-language-acquisition",
+  },
+  {
+    title: "语料标注决定结论",
+    description: "标注方案、一致性和抽样，会先于任何模型决定语料库研究能说什么。",
+    url: "/linguistics/methods-and-frontiers/corpus-annotation-and-agreement",
+  },
+  {
+    title: "形态学追问的不是字数",
+    description: "形态学问的是形式与功能怎样在词内反复对应，以及这种对应能推广多远。",
+    url: "/linguistics/words-sentences-meaning/morphology",
+  },
+  {
+    title: "类型学比较结构共现",
+    description:
+      "类型学比较的是结构如何共现，不是给语言贴永久标签；一条共性必须先过抽样与接触这两关。",
+    url: "/linguistics/history-typology-society/linguistic-typology",
+  },
+];
+
+export const LAW_FACTS: readonly DailySelectedFact[] = [
+  {
+    title: "马伯里诉麦迪逊",
+    description:
+      "美国最高法院第一次明确主张可以宣布国会立法违宪——司法审查从此成为宪政结构的一部分。",
+    url: "/law/judgment-analyses/marbury-v-madison-judicial-review",
+  },
+  {
+    title: "布朗诉教育委员会",
+    description:
+      "隔离但平等在公立学校被推翻；判决改变的是宪法解释，落实则花了更长的政治与社会过程。",
+    url: "/law/judgment-analyses/brown-v-board-equal-protection",
+  },
+  {
+    title: "Donoghue 的注意义务",
+    description: "姜汁啤酒里的蜗牛，把邻人原则写进普通法：你必须合理注意可预见会受影响的人。",
+    url: "/law/judgment-analyses/donoghue-v-stevenson-duty-of-care",
+  },
+  {
+    title: "程序正义",
+    description: "看得见的正义要求告知、听证和中立裁判；结果对，程序也可以是错的。",
+    url: "/law/criminal-and-procedure/procedural-justice",
+  },
+  {
+    title: "法规解释之争",
+    description:
+      "文本、意图与目的会指向不同答案；解释方法本身就是一场关于谁有权说法律是什么的争论。",
+    url: "/law/foundations/statutory-interpretation",
+  },
+  {
+    title: "权利与义务的解剖",
+    description:
+      "霍菲尔德把含糊的「权利」拆成请求权、特权、权力和豁免——混用这四者会让论证自己打架。",
+    url: "/law/foundations/rights-and-duties",
+  },
+  {
+    title: "国际法没有世界政府",
+    description: "国家仍受条约、习惯和国际机构约束；强制力不足不等于没有法律。",
+    url: "/law/global-and-digital/international-law",
+  },
+  {
+    title: "数据权利",
+    description: "从独处权到被遗忘权，隐私法追的是控制与同意，而不只是把数据藏起来。",
+    url: "/law/global-and-digital/digital-rights-and-privacy",
+  },
+  {
+    title: "法治不是口号",
+    description: "规则之治要求公开、可预期和同等适用；人治可以高效，但把命运交给个别意志。",
+    url: "/law/foundations/rule-of-law",
+  },
+  {
+    title: "纠纷大多不进法庭",
+    description: "调解、仲裁与和解消化了绝大多数争议；诉讼是昂贵的例外，不是日常默认。",
+    url: "/law/criminal-and-procedure/dispute-resolution",
+  },
+];
+
+export const ARTS_FACTS: readonly DailySelectedFact[] = [
+  {
+    title: "透视改变观看",
+    description: "线性透视不是眼睛的本能，而是一场被发明出来的视觉革命：空间可以被计算。",
+    url: "/arts/foundations/perspective-and-space",
+  },
+  {
+    title: "美是客观的吗",
+    description:
+      "休谟把趣味放回鉴赏共同体，康德则追问判断如何要求别人同意——「美」从来不是纯私人口味。",
+    url: "/arts/aesthetics/what-is-beauty",
+  },
+  {
+    title: "比例与和谐",
+    description: "黄金比例常被事后测量出来；真正可核对的，是比例系统如何组织立面、柱式与画面。",
+    url: "/arts/foundations/proportion-and-harmony",
+  },
+  {
+    title: "博物馆在讲谁的故事",
+    description: "展墙顺序、标签和灯光都是论证；展示本身决定谁被看见、谁被省略。",
+    url: "/arts/aesthetics/museums-and-display",
+  },
+  {
+    title: "公共纪念碑",
+    description: "纪念碑争的不是石头，而是谁被公共空间记住、由谁决定拆除或保留。",
+    url: "/arts/aesthetics/public-art-and-monuments",
+  },
+  {
+    title: "东亚木构",
+    description: "斗拱把屋顶荷载层层传递到柱网；抗震靠的是柔性节点，不是把木头当成石头用。",
+    url: "/arts/architecture/east-asian-timber-frame",
+  },
+  {
+    title: "色彩不是颜料表",
+    description: "色彩同时是光学、材料和惯例；同一种红在不同光与底子上不是同一个红。",
+    url: "/arts/foundations/color-and-light",
+  },
+  {
+    title: "艺术市场如何定价",
+    description: "杰作的价格由画廊、拍卖、博物馆和叙事共同制造，不是画布上的颜料克数。",
+    url: "/arts/aesthetics/art-market-and-value",
+  },
+  {
+    title: "日常物也是设计",
+    description: "有的门会被推错，是因为把手在暗示错误的动作——诺曼把这叫做示能。",
+    url: "/arts/aesthetics/design-and-everyday-objects",
+  },
+  {
+    title: "动画的意义在格间",
+    description: "漫画和动画把时间切成画格；意义发生在你补上的那一格空白里。",
+    url: "/arts/media/animation-and-comics",
+  },
+];
+
+export const ENGINEERING_FACTS: readonly DailySelectedFact[] = [
+  {
+    title: "电网是实时平衡",
+    description: "发电与用电必须每秒匹配；储能和调度解决的是间歇，不是「电从哪里来」这么简单。",
+    url: "/engineering/energy/power-grid",
+  },
+  {
+    title: "挑战者号的密封圈",
+    description: "低温让 O 形圈变硬，但事故穿过的是组织禁令：工程师的警告没能挡住发射窗口。",
+    url: "/engineering/frontiers/challenger-o-ring-organizational-failure",
+  },
+  {
+    title: "控制与反馈",
+    description: "恒温器到自动驾驶仪，靠的都是测量误差再反向修正；开环系统没有这条回路。",
+    url: "/engineering/foundations/control-and-feedback",
+  },
+  {
+    title: "核电的纵深防御",
+    description: "临界可控只是起点；安全靠多层冗余、独立失效路径，以及承认共因失效会同时打穿它们。",
+    url: "/engineering/energy/nuclear-power",
+  },
+  {
+    title: "桥梁的受力路径",
+    description: "桥不是「够结实」就行：荷载必须有一条清楚的路从桥面走到地基，风和振动另算。",
+    url: "/engineering/civil/bridges",
+  },
+  {
+    title: "测量与公差",
+    description: "精密的代价是时间和钱；公差写的是可接受的偏差，不是「尽量准」。",
+    url: "/engineering/foundations/measurement-and-tolerance",
+  },
+  {
+    title: "失效分析",
+    description: "事故残骸是工程的教科书：断口、疲劳纹和腐蚀痕迹比事后叙述更诚实。",
+    url: "/engineering/frontiers/failure-analysis",
+  },
+  {
+    title: "光伏与间歇性",
+    description: "电池效率有物理上限；真正难的是把白天的电留到晚上，并让整张网跟着天气呼吸。",
+    url: "/engineering/energy/solar-and-wind",
+  },
+  {
+    title: "摩天楼对抗风",
+    description: "高层建筑的控制荷载往往是风，不是自重；调谐质量阻尼器在把晃动变成可居住的幅度。",
+    url: "/engineering/civil/skyscrapers",
+  },
+  {
+    title: "简单机械仍在工作",
+    description: "杠杆、轮轴和斜面没有过时；它们把力换行程，所有复杂机器仍在重复这件事。",
+    url: "/engineering/foundations/simple-machines",
   },
 ];

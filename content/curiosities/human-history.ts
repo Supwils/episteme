@@ -7,7 +7,7 @@ export const HISTORY_CURIOSITIES: Curiosity[] = [
     detail:
       "胡夫金字塔约建于公元前 2560 年，克娄巴特拉约死于公元前 30 年——相隔约 2500 年。而她距离 1969 年登月只有约 2000 年。她生活的年代离智能手机，比离金字塔更近。",
     tags: ["古埃及", "时间错觉"],
-    url: "/human-history",
+    url: "/human-history/knowledge/文明--古埃及",
   },
   {
     id: "oxford-older-than-aztecs",
@@ -15,7 +15,7 @@ export const HISTORY_CURIOSITIES: Curiosity[] = [
     detail:
       "牛津大学最晚在 1096 年已有教学活动；而阿兹特克人直到 1325 年才在特斯科科湖上建立特诺奇蒂特兰。当美洲尚未迎来这座名城，牛津已经招生了两百多年。",
     tags: ["大学史", "阿兹特克"],
-    url: "/human-history",
+    url: "/human-history/knowledge/美洲--阿兹特克帝国",
   },
   {
     id: "first-computer-bug-moth",
@@ -24,7 +24,7 @@ export const HISTORY_CURIOSITIES: Curiosity[] = [
       "1947 年，格蕾丝·霍珀团队在哈佛 Mark II 继电器里发现一只卡住的飞蛾，把它贴进日志并写下「First actual case of bug being found」。「debug（除虫）」一词就此带上字面含义。",
     source: "美国海军史料馆藏日志",
     tags: ["计算史", "格蕾丝·霍珀"],
-    url: "/computer-science/pioneers",
+    url: "/computer-science/pioneers/grace-hopper",
   },
   {
     id: "woolly-mammoth-pyramids-overlap",
@@ -50,7 +50,7 @@ export const HISTORY_CURIOSITIES: Curiosity[] = [
       "亚历山大·贝尔于 1876 年发明电话，但苏格兰发明家亚历山大·贝恩早在 1843 年就已申请「电化学电报」专利——这正是传真机的原型。历史上有些技术的时间线，与我们直觉完全相反。",
     source: "Alexander Bain 英国专利 9745，1843 年",
     tags: ["发明史", "通信技术"],
-    url: "/human-history",
+    url: "/human-history/knowledge/科技史--电力革命",
   },
   {
     id: "harvard-older-than-calculus",
@@ -76,7 +76,7 @@ export const HISTORY_CURIOSITIES: Curiosity[] = [
       "考古发掘确认，莱夫·埃里克松约于 1000 年在今纽芬兰省的兰塞奥兹牧场建立了定居点，比哥伦布 1492 年的航行早了近 500 年。这一遗址已被联合国教科文组织列为世界遗产。",
     source: "UNESCO 世界遗产登录；加拿大考古局发掘报告",
     tags: ["维京人", "大航海", "北美史"],
-    url: "/human-history",
+    url: "/human-history/knowledge/中世纪--维京人",
   },
   {
     id: "roman-empire-fall-after-printing-press",
@@ -84,7 +84,7 @@ export const HISTORY_CURIOSITIES: Curiosity[] = [
     detail:
       "西罗马帝国于 476 年灭亡，但其东部继承者东罗马帝国（拜占庭）坚持到了 1453 年，而古腾堡的活字印刷机大约也在同年前后开始工作。活字印刷与「中世纪」终结几乎同时发生。",
     tags: ["拜占庭", "印刷史", "时间错觉"],
-    url: "/human-history",
+    url: "/human-history/knowledge/文明--拜占庭",
   },
   {
     id: "great-wall-not-visible-from-space",
@@ -101,7 +101,7 @@ export const HISTORY_CURIOSITIES: Curiosity[] = [
     detail:
       "《第九交响曲》首演于 1824 年；而世界上第一艘商业蒸汽轮船「克莱蒙号」早在 1807 年便已在哈德逊河通航。贝多芬的时代，并不像我们想象的那样「前工业化」。",
     tags: ["音乐史", "工业革命", "时间错觉"],
-    url: "/human-history",
+    url: "/human-history/knowledge/事件--工业革命",
   },
   {
     id: "pope-urban-viii-tobacco-excommunication",
@@ -118,7 +118,7 @@ export const HISTORY_CURIOSITIES: Curiosity[] = [
     detail:
       "两人均生于 1929 年。安妮·弗兰克因大屠杀于 1945 年去世，年仅 15 岁；马丁·路德·金则活到 1968 年，见证并推动了美国民权运动。同一代人，命运却被历史撕裂到两个截然不同的轨道。",
     tags: ["二战", "民权运动", "人物对比"],
-    url: "/human-history",
+    url: "/human-history/figures/马丁·路德·金",
   },
   {
     id: "lincoln-darwin-born-same-day",
@@ -126,7 +126,7 @@ export const HISTORY_CURIOSITIES: Curiosity[] = [
     detail:
       "1809 年 2 月 12 日，亚伯拉罕·林肯出生于肯塔基州的一间小木屋；同一天，查尔斯·达尔文出生于英格兰什鲁斯伯里的一幢富裕家庭宅邸。这两位将深刻改变现代世界的人，共享着同一个生日。",
     tags: ["人物对比", "时间错觉", "巧合"],
-    url: "/human-history",
+    url: "/human-history/figures/亚伯拉罕·林肯",
   },
   {
     id: "sahara-was-green",
@@ -161,6 +161,6 @@ export const HISTORY_CURIOSITIES: Curiosity[] = [
       "居里夫人去世于 1934 年，距今已逾 90 年，但她的笔记本、食谱甚至家具仍然带有高水平的镭-226 辐射（半衰期约 1600 年）。法国国家图书馆将其存放于铅衬盒内，研究者须签署免责协议并穿戴防护装备方可接触。",
     source: "法国国家图书馆（BnF）馆藏说明",
     tags: ["科学史", "居里夫人", "放射性"],
-    url: "/human-history",
+    url: "/human-history/knowledge/人物--居里夫人",
   },
 ];

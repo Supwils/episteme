@@ -75,6 +75,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "algorithmic-management-worker-power": "/sociology/frontier/algorithmic-management-worker-power",
   alienation: "/philosophy/concepts/alienation",
   "alliances-and-nato": "/political-science/international-relations/alliances-and-nato",
+  "alzheimer-amyloid-immunotherapy": "/medicine/frontier/alzheimer-amyloid-immunotherapy",
   "alzheimers-disease": "/medicine/diseases/alzheimers-disease",
   "am-i-still-me-personal-identity": "/philosophy/questions/am-i-still-me-personal-identity",
   "amartya-sen": {
@@ -948,6 +949,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "global-health-inequality-coloniality":
     "/medicine/public-health/global-health-inequality-coloniality",
   "global-south-sociology": "/sociology/frontier/global-south-sociology",
+  "glp1-incretin-obesity": "/medicine/frontier/glp1-incretin-obesity",
   godel: "/mathematics/mathematicians/godel",
   "godel-incompleteness": "/mathematics/theorems/godel-incompleteness",
   "godel-incompleteness-paradox": "/mathematics/paradoxes/godel-incompleteness-paradox",
@@ -1139,6 +1141,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "infrastructure-digital-twins": "/engineering/frontier/infrastructure-digital-twins",
   "inge-lehmann": "/earth-science/pioneers/inge-lehmann",
   "input-methods": "/linguistics/writing-systems/input-methods",
+  insomnia: "/psychology/disorders/insomnia",
   "institutional-economics": "/economics/theories/institutional-economics",
   "institutional-school": "/economics/schools/institutional-school",
   integral: "/mathematics/concepts/integral",
@@ -1568,6 +1571,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "neuropsychology-brain-behavior": "/psychology/knowledge-base/neuropsychology-brain-behavior",
   "neurotechnology-mental-privacy": "/law/frontier/neurotechnology-mental-privacy",
   "neutrino-mass-cosmology": "/cosmology/frontier/neutrino-mass-cosmology",
+  "neutrino-mass-hierarchy": "/universe-physics/frontier/neutrino-mass-hierarchy",
   "neutrino-physics": "/universe-physics/knowledge-base/粒子物理--neutrino-physics",
   "neutron-capture-nucleosynthesis":
     "/universe-physics/knowledge-base/核物理--neutron-capture-nucleosynthesis",
@@ -1664,6 +1668,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "paleontology-and-stratigraphy": "/earth-science/concepts/paleontology-and-stratigraphy",
   "palliative-care": "/medicine/ethics/palliative-care",
   "pangaea-breakup": "/earth-science/events/pangaea-breakup",
+  "panic-disorder": "/psychology/disorders/panic-disorder",
   paradigm: "/philosophy/concepts/paradigm",
   paradox: "/philosophy/concepts/paradox",
   parfit: "/philosophy/thinkers/parfit",
@@ -1873,6 +1878,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "quantum-harmonic-oscillator":
     "/universe-physics/knowledge-base/量子物理--quantum-harmonic-oscillator",
   "quantum-measurement": "/universe-physics/knowledge-base/量子物理--quantum-measurement",
+  "quantum-sensing": "/universe-physics/frontier/quantum-sensing",
   "quantum-spin": "/universe-physics/knowledge-base/量子物理--quantum-spin",
   "quarks-and-leptons": "/universe-physics/knowledge-base/粒子物理--quarks-and-leptons",
   quasicrystals: "/universe-physics/knowledge-base/凝聚态物理--quasicrystals",
@@ -2469,6 +2475,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "事件--甲午战争": "/human-history/knowledge/事件--甲午战争",
   "事件--科学革命": "/human-history/knowledge/事件--科学革命",
   "事件--美国革命": "/human-history/knowledge/事件--美国革命",
+  "事件--西班牙流感": "/human-history/knowledge/事件--西班牙流感",
   "事件--鸦片战争": "/human-history/knowledge/事件--鸦片战争",
   "事件--黑死病": "/human-history/knowledge/事件--黑死病",
   二叠纪大灭绝: "/life-science/knowledge-base/关键事件--二叠纪大灭绝",
@@ -3353,6 +3360,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   表面张力与毛细现象: "/universe-physics/knowledge-base/经典物理--表面张力与毛细现象",
   衰老: "/life-science/knowledge-base/人体--衰老",
   褐矮星: "/cosmology/knowledge-base/星际介质--褐矮星",
+  西班牙流感: "/human-history/knowledge/事件--西班牙流感",
   视向速度法: "/cosmology/knowledge-base/系外行星--视向速度法",
   角动量与守恒律: "/universe-physics/knowledge-base/经典物理--角动量与守恒律",
   解剖学革命: "/human-history/knowledge/科学史--解剖学革命",

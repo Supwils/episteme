@@ -68,8 +68,8 @@ export const MOLECULES: Molecule[] = [
     significance: "协同别构调控的典范；镰刀型贫血等血红蛋白病揭示了「一个氨基酸之差」如何致病。",
     domain: "medicine",
     tags: ["氧运输", "别构", "血液"],
-    relatedHref: "/medicine/diseases/cardiovascular-disease",
-    relatedLabel: "心血管疾病",
+    relatedHref: "/life-science/knowledge-base/分子生物学--蛋白质折叠",
+    relatedLabel: "蛋白质折叠",
   },
   {
     pdbId: "1BNA",
@@ -80,8 +80,8 @@ export const MOLECULES: Molecule[] = [
     significance: "首个原子级 B-DNA 结构，证实并精化了双螺旋模型，是分子生物学的基石。",
     domain: "life-science",
     tags: ["DNA", "双螺旋", "遗传"],
-    relatedHref: "/medicine/technologies/crispr-gene-editing",
-    relatedLabel: "CRISPR 基因编辑",
+    relatedHref: "/life-science/knowledge-base/人体--DNA与遗传",
+    relatedLabel: "DNA 与遗传",
   },
   {
     pdbId: "6VSB",
@@ -104,6 +104,8 @@ export const MOLECULES: Molecule[] = [
     significance: "彻底改变了生物成像；Shimomura、Chalfie、Tsien 因 GFP 获 2008 年诺贝尔化学奖。",
     domain: "life-science",
     tags: ["荧光", "成像", "生物技术"],
+    relatedHref: "/life-science/knowledge-base/进化专题--生物发光",
+    relatedLabel: "生物发光",
   },
   {
     pdbId: "1IGT",

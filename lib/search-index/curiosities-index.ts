@@ -1,5 +1,10 @@
 import type { SearchDocument } from "./types";
 
+function articleHref(url?: string): string | undefined {
+  if (!url) return undefined;
+  return url.split("/").filter(Boolean).length >= 3 ? url : undefined;
+}
+
 /** Curiosity subjects map onto the search UI's section keys. */
 const SUBJECT_TO_SECTION: Record<string, string> = {
   physics: "physics",
@@ -32,7 +37,7 @@ export function indexCuriosities(
     subtitle: "奇趣知识",
     content: c.detail,
     section: SUBJECT_TO_SECTION[c.subject] ?? "physics",
-    url: c.url ?? "/curiosities",
+    url: articleHref(c.url) ?? "/curiosities",
     type: "entry",
   }));
 }

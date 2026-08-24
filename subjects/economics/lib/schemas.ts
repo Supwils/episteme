@@ -1,9 +1,10 @@
 import { z } from "zod";
 
 const StatusEnum = z.enum(["stub", "draft", "published"]);
-const updatedField = z.union([z.string(), z.date()]).transform((v) =>
-  typeof v === "string" ? v : v.toISOString().split("T")[0] ?? ""
-).default("");
+const updatedField = z
+  .union([z.string(), z.date()])
+  .transform((v) => (typeof v === "string" ? v : (v.toISOString().split("T")[0] ?? "")))
+  .default("");
 
 export const EconomistSchema = z.object({
   title: z.string().default(""),
@@ -56,6 +57,7 @@ export const CaseStudySchema = z.object({
   related: z.array(z.string()).default([]),
   relatedTheorists: z.array(z.string()).optional(),
   relatedTheories: z.array(z.string()).optional(),
+  keyInsight: z.string().optional(),
   status: StatusEnum.default("draft"),
   updated: updatedField,
 });

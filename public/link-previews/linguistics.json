@@ -116,7 +116,7 @@
   },
   "/linguistics/history-typology-society/linguistic-typology": {
     "t": "语言类型学与跨语言共性",
-    "e": "语言类型学追问：人类语言使用哪些结构方案，这些方案如何共现、分布和变化？它可以比较基本语序、格对齐、数量标记、声调、否定、关系从句或手语空间一致。",
+    "e": "第一个误解，是以为类型学给每门语言贴一张永久标签：黏着语、屈折语、SOV 语言。一门语言在词形上可以很黏着，在名词领域却很分析；主句倾向某种语序，从句又可能有另一模式。类型是按具体特征建立的剖…",
     "d": "linguistics"
   },
   "/linguistics/history-typology-society/primitive-languages-myth": {
@@ -251,7 +251,7 @@
   },
   "/linguistics/words-sentences-meaning/morphology": {
     "t": "形态学：词的内部结构",
-    "e": "有些词看似一个整体，却包含反复出现并承担意义或语法功能的部分。形态学研究这些部分怎样组合、变化和形成新词。",
+    "e": "第一个误解，是按汉字数判断形态。汉字是书写单位，不是形态单位。“们”和“的”都是黏着形素：我们、孩子们、我的书——单独说“们”不成话。形态学追问的是形式与功能怎样在词内反复对应，不是一个词有几…",
     "d": "linguistics"
   },
   "/linguistics/words-sentences-meaning/pragmatics": {

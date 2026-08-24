@@ -1846,6 +1846,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "黎曼猜想",
     },
     {
+      url: "/universe-physics/frontier/quantum-sensing",
+      title: "量子传感：跨过标准量子极限",
+    },
+    {
       url: "/universe-physics/knowledge-base/量子物理--quantum-harmonic-oscillator",
       title: "量子谐振子",
     },
@@ -7924,6 +7928,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "字符串匹配",
     },
   ],
+  "/computer-science/theory/average-case-complexity": [
+    {
+      url: "/computer-science/theory/randomized-algorithms",
+      title: "随机算法",
+    },
+  ],
   "/computer-science/theory/computability": [
     {
       url: "/computer-science/pioneers/alan-turing",
@@ -8066,6 +8076,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/theory/algorithmic-game-theory",
       title: "算法博弈论",
+    },
+    {
+      url: "/computer-science/theory/randomized-algorithms",
+      title: "随机算法",
     },
     {
       url: "/computer-science/theory/statistical-learning-theory-pac",
@@ -9184,6 +9198,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/引力波天文学",
       title: "引力波天文学",
+    },
+  ],
+  "/cosmology/frontier/neutrino-mass-cosmology": [
+    {
+      url: "/universe-physics/frontier/neutrino-mass-hierarchy",
+      title: "中微子质量顺序：振荡之后尚未称出的那一维",
     },
   ],
   "/cosmology/knowledge-base/black-holes": [
@@ -14110,6 +14130,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "中国地产、地方财政与金融系统（2026）",
     },
   ],
+  "/economics/case-studies/china-property-local-finance-financial-system-2026": [
+    {
+      url: "/economics/case-studies/china-macro-diagnosis-2026",
+      title: "中国宏观经济诊断（2026）",
+    },
+  ],
   "/economics/case-studies/china-reform-opening": [
     {
       url: "/philosophy/isms/marxism",
@@ -14153,6 +14179,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/economics/case-studies/euro-area-fiscal-rules-energy-transition-2026",
       title: "欧元区财政规则与能源转型（2026）",
     },
+    {
+      url: "/economics/case-studies/euro-area-macro-diagnosis-2026",
+      title: "欧元区宏观经济诊断（2026）",
+    },
   ],
   "/economics/case-studies/financial-crisis-sequence": [
     {
@@ -14188,16 +14218,36 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "津巴布韦恶性通胀",
     },
   ],
+  "/economics/case-studies/india-growth-employment-constraints-2026": [
+    {
+      url: "/economics/case-studies/india-macro-diagnosis-2026",
+      title: "印度宏观经济诊断（2026）",
+    },
+  ],
   "/economics/case-studies/india-macro-diagnosis-2026": [
     {
       url: "/economics/case-studies/india-growth-employment-constraints-2026",
       title: "印度增长与就业约束（2026）",
     },
   ],
+  "/economics/case-studies/japan-lost-decades": [
+    {
+      url: "/economics/case-studies/japan-macro-diagnosis-2026",
+      title: "日本宏观经济诊断（2026）",
+    },
+  ],
   "/economics/case-studies/japan-macro-diagnosis-2026": [
     {
       url: "/economics/case-studies/japan-yield-normalization-aging-fiscal-2026",
       title: "日本收益率正常化与财政老龄化（2026）",
+    },
+    {
+      url: "/economics/case-studies/china-property-local-finance-financial-system-2026",
+      title: "中国地产、地方财政与金融系统（2026）",
+    },
+    {
+      url: "/economics/case-studies/china-macro-diagnosis-2026",
+      title: "中国宏观经济诊断（2026）",
     },
   ],
   "/economics/case-studies/japan-yield-normalization-aging-fiscal-2026": [
@@ -14233,8 +14283,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/economics/case-studies/us-fiscal-path-treasury-market-2026",
       title: "美国财政路径与国债市场（2026）",
     },
+    {
+      url: "/economics/case-studies/china-property-local-finance-financial-system-2026",
+      title: "中国地产、地方财政与金融系统（2026）",
+    },
+    {
+      url: "/economics/case-studies/china-macro-diagnosis-2026",
+      title: "中国宏观经济诊断（2026）",
+    },
   ],
   "/economics/case-studies/yen-carry-trade": [
+    {
+      url: "/economics/case-studies/japan-macro-diagnosis-2026",
+      title: "日本宏观经济诊断（2026）",
+    },
     {
       url: "/economics/case-studies/japan-yield-normalization-aging-fiscal-2026",
       title: "日本收益率正常化与财政老龄化（2026）",
@@ -14598,12 +14660,36 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/economics/concepts/country-macro-diagnostics-forecasting": [
     {
+      url: "/economics/case-studies/low-income-debt-countries-macro-diagnosis-2026",
+      title: "低收入债务国宏观经济诊断（2026）",
+    },
+    {
       url: "/economics/knowledge-base/macro-diagnostics-matrix-guide",
       title: "宏观诊断矩阵读图手册",
     },
     {
+      url: "/economics/case-studies/us-macro-diagnosis-2026",
+      title: "美国宏观经济诊断（2026）",
+    },
+    {
+      url: "/economics/case-studies/euro-area-macro-diagnosis-2026",
+      title: "欧元区宏观经济诊断（2026）",
+    },
+    {
       url: "/economics/concepts/expectations-credibility-policy-transmission",
       title: "预期、可信度与政策传导",
+    },
+    {
+      url: "/economics/case-studies/china-property-local-finance-financial-system-2026",
+      title: "中国地产、地方财政与金融系统（2026）",
+    },
+    {
+      url: "/economics/case-studies/china-macro-diagnosis-2026",
+      title: "中国宏观经济诊断（2026）",
+    },
+    {
+      url: "/economics/case-studies/commodity-exporters-macro-diagnosis-2026",
+      title: "资源出口国宏观经济诊断（2026）",
     },
   ],
   "/economics/concepts/creative-destruction": [
@@ -14654,6 +14740,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "财政规则与民主合法性",
     },
     {
+      url: "/economics/case-studies/low-income-debt-countries-macro-diagnosis-2026",
+      title: "低收入债务国宏观经济诊断（2026）",
+    },
+    {
       url: "/economics/case-studies/low-income-debt-restructuring-development-finance-2026",
       title: "低收入债务国债务重组与发展融资（2026）",
     },
@@ -14670,8 +14760,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "美国财政路径与国债市场（2026）",
     },
     {
+      url: "/economics/case-studies/us-macro-diagnosis-2026",
+      title: "美国宏观经济诊断（2026）",
+    },
+    {
       url: "/economics/case-studies/euro-area-fiscal-rules-energy-transition-2026",
       title: "欧元区财政规则与能源转型（2026）",
+    },
+    {
+      url: "/economics/case-studies/euro-area-macro-diagnosis-2026",
+      title: "欧元区宏观经济诊断（2026）",
     },
     {
       url: "/economics/case-studies/japan-yield-normalization-aging-fiscal-2026",
@@ -14688,6 +14786,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/case-studies/china-property-local-finance-financial-system-2026",
       title: "中国地产、地方财政与金融系统（2026）",
+    },
+    {
+      url: "/economics/case-studies/china-macro-diagnosis-2026",
+      title: "中国宏观经济诊断（2026）",
     },
     {
       url: "/economics/case-studies/commodity-exporters-fiscal-rules-sovereign-wealth-funds-2026",
@@ -15642,6 +15744,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/international-relations/migration-and-refugee-politics",
       title: "移民与难民政治",
+    },
+    {
+      url: "/economics/case-studies/india-macro-diagnosis-2026",
+      title: "印度宏观经济诊断（2026）",
     },
     {
       url: "/economics/case-studies/india-growth-employment-constraints-2026",
@@ -16682,6 +16788,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "智力可塑性之争：智商到底能不能被改变",
     },
     {
+      url: "/medicine/frontier/glp1-incretin-obesity",
+      title: 'GLP-1 与肠促胰素：肥胖治疗从"减肥针"回到激素回路',
+    },
+    {
       url: "/medicine/trial-analyses/select-semaglutide",
       title: "SELECT 司美格鲁肽心血管结局试验",
     },
@@ -16768,6 +16878,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/人物--达尔文",
       title: "达尔文",
+    },
+    {
+      url: "/economics/case-studies/low-income-debt-countries-macro-diagnosis-2026",
+      title: "低收入债务国宏观经济诊断（2026）",
     },
     {
       url: "/economics/case-studies/low-income-debt-restructuring-development-finance-2026",
@@ -17402,6 +17516,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/institutions/central-bank-independence-political-economy",
       title: "中央银行独立的政治经济学",
+    },
+    {
+      url: "/economics/case-studies/commodity-exporters-macro-diagnosis-2026",
+      title: "资源出口国宏观经济诊断（2026）",
     },
   ],
   "/economics/concepts/stock-valuation": [
@@ -18828,6 +18946,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "伊本·赫勒敦",
     },
   ],
+  "/economics/theories/african-development-economics": [
+    {
+      url: "/economics/case-studies/commodity-exporters-macro-diagnosis-2026",
+      title: "资源出口国宏观经济诊断（2026）",
+    },
+  ],
   "/economics/theories/behavioral-economics-theory": [
     {
       url: "/engineering/frontiers/megaprojects",
@@ -18868,6 +18992,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/aesthetics/art-market-and-value",
       title: "艺术市场与价值：杰作的价格是如何被制造出来的",
+    },
+    {
+      url: "/medicine/frontier/glp1-incretin-obesity",
+      title: 'GLP-1 与肠促胰素：肥胖治疗从"减肥针"回到激素回路',
     },
   ],
   "/economics/theories/comparative-advantage": [
@@ -20276,6 +20404,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "计算的物理极限",
     },
     {
+      url: "/economics/case-studies/us-macro-diagnosis-2026",
+      title: "美国宏观经济诊断（2026）",
+    },
+    {
+      url: "/economics/case-studies/japan-macro-diagnosis-2026",
+      title: "日本宏观经济诊断（2026）",
+    },
+    {
       url: "/political-science/frontier/ai-governance-regulation",
       title: "AI 监管的制度竞赛：欧盟、美国、中国与全球治理",
     },
@@ -20306,6 +20442,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/theory/communication-complexity",
       title: "通信复杂度",
+    },
+    {
+      url: "/economics/case-studies/india-macro-diagnosis-2026",
+      title: "印度宏观经济诊断（2026）",
     },
     {
       url: "/computer-science/systems/git-object-model",
@@ -20811,6 +20951,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/economics/economists/thomas-piketty",
       title: "托马斯·皮凯蒂",
     },
+    {
+      url: "/human-history/knowledge/事件--西班牙流感",
+      title: "西班牙流感",
+    },
   ],
   "/human-history/knowledge/事件--丝绸之路": [
     {
@@ -21184,6 +21328,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/事件--明治维新",
       title: "明治维新",
+    },
+  ],
+  "/human-history/knowledge/事件--黑死病": [
+    {
+      url: "/human-history/knowledge/事件--西班牙流感",
+      title: "西班牙流感",
     },
   ],
   "/human-history/knowledge/人物--亚历山大大帝": [
@@ -24268,8 +24418,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/life-science/knowledge-base/生理学--睡眠的生物学": [
     {
+      url: "/psychology/disorders/panic-disorder",
+      title: "惊恐障碍",
+    },
+    {
       url: "/life-science/knowledge-base/生理学--生物钟与昼夜节律",
       title: "生物钟与昼夜节律：身体里那台跑了三十亿年的时钟",
+    },
+    {
+      url: "/psychology/disorders/insomnia",
+      title: "失眠障碍",
     },
   ],
   "/life-science/knowledge-base/生理学--神经递质与突触传递": [
@@ -25541,6 +25699,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/political-science/frontier/sortition-deliberative-democracy",
       title: "抽签治国的复兴：公民大会与协商民主的制度化实验",
     },
+    {
+      url: "/linguistics/history-typology-society/linguistic-typology",
+      title: "语言类型学与跨语言共性",
+    },
   ],
   "/linguistics/history-typology-society/chinese-dialects": [
     {
@@ -26638,6 +26800,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "文字系统的主要类型",
     },
     {
+      url: "/linguistics/words-sentences-meaning/morphology",
+      title: "形态学：词的内部结构",
+    },
+    {
       url: "/linguistics/sounds-and-signs/phonemes-and-sound-systems",
       title: "音位与音系系统",
     },
@@ -26761,6 +26927,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/linguistics/words-sentences-meaning/morphological-productivity": [
+    {
+      url: "/linguistics/words-sentences-meaning/morphology",
+      title: "形态学：词的内部结构",
+    },
     {
       url: "/linguistics/acquisition-and-mind/wug-test-morphology-analysis",
       title: "Wug Test 实验剖析：儿童怎样生成没听过的词",
@@ -27122,6 +27292,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "语言、言语与手语",
     },
     {
+      url: "/linguistics/history-typology-society/linguistic-typology",
+      title: "语言类型学与跨语言共性",
+    },
+    {
       url: "/linguistics/words-sentences-meaning/semantics",
       title: "语义学：表达如何承载意义",
     },
@@ -27152,6 +27326,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/design-patterns",
       title: "设计模式",
+    },
+    {
+      url: "/linguistics/words-sentences-meaning/morphology",
+      title: "形态学：词的内部结构",
     },
     {
       url: "/linguistics/sounds-and-signs/language-speech-and-sign",
@@ -27686,6 +27864,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/acquisition-and-mind/psycholinguistic-processing",
       title: "语言理解与产生",
+    },
+    {
+      url: "/universe-physics/frontier/neutrino-mass-hierarchy",
+      title: "中微子质量顺序：振荡之后尚未称出的那一维",
     },
     {
       url: "/cosmology/knowledge-base/致密天体--neutron-star-interior-eos",
@@ -28842,6 +29024,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/前沿物理--量子场论导论",
       title: "量子场论导论",
+    },
+    {
+      url: "/universe-physics/frontier/quantum-sensing",
+      title: "量子传感：跨过标准量子极限",
     },
     {
       url: "/life-science/scientists/franklin",
@@ -31138,8 +31324,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "决策树",
     },
     {
+      url: "/medicine/frontier/alzheimer-amyloid-immunotherapy",
+      title: "抗淀粉样免疫疗法：斑块能清掉，痴呆却倒不回去",
+    },
+    {
       url: "/engineering/machines/reliability-engineering",
       title: "可靠性工程：把“不出事”变成可计算的指标",
+    },
+    {
+      url: "/universe-physics/frontier/quantum-sensing",
+      title: "量子传感：跨过标准量子极限",
     },
     {
       url: "/medicine/concepts/clinical-trials",
@@ -31206,6 +31400,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "声学语音学与语音测量",
     },
     {
+      url: "/psychology/disorders/insomnia",
+      title: "失眠障碍",
+    },
+    {
       url: "/universe-physics/knowledge-base/物理学--时间膨胀与长度收缩",
       title: "时间膨胀与长度收缩",
     },
@@ -31256,6 +31454,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/technologies/antisepsis",
       title: "无菌术",
+    },
+    {
+      url: "/human-history/knowledge/事件--西班牙流感",
+      title: "西班牙流感",
     },
     {
       url: "/universe-physics/knowledge-base/前沿物理--希格斯玻色子",
@@ -31426,6 +31628,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "智利大地震（1960 · 瓦尔迪维亚）",
     },
     {
+      url: "/universe-physics/frontier/neutrino-mass-hierarchy",
+      title: "中微子质量顺序：振荡之后尚未称出的那一维",
+    },
+    {
       url: "/cosmology/knowledge-base/恒星物理--main-sequence-stars",
       title: "主序星",
     },
@@ -31440,6 +31646,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/人体--DNA与遗传",
       title: "DNA与遗传：双螺旋、基因表达与表观遗传",
+    },
+    {
+      url: "/medicine/frontier/glp1-incretin-obesity",
+      title: 'GLP-1 与肠促胰素：肥胖治疗从"减肥针"回到激素回路',
     },
     {
       url: "/computer-science/algorithms/k-means-clustering",
@@ -32598,6 +32808,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "进食障碍",
     },
     {
+      url: "/medicine/frontier/alzheimer-amyloid-immunotherapy",
+      title: "抗淀粉样免疫疗法：斑块能清掉，痴呆却倒不回去",
+    },
+    {
       url: "/philosophy/experiments/russels-teapot",
       title: "罗素的茶壶",
     },
@@ -32846,6 +33060,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/核物理--neutron-capture-nucleosynthesis",
       title: "中子俘获与元素合成",
+    },
+    {
+      url: "/medicine/frontier/glp1-incretin-obesity",
+      title: 'GLP-1 与肠促胰素：肥胖治疗从"减肥针"回到激素回路',
     },
   ],
   "/medicine/concepts/epidemiology": [
@@ -33594,6 +33812,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "健康心理学：身体与心灵的双向道",
     },
     {
+      url: "/medicine/frontier/alzheimer-amyloid-immunotherapy",
+      title: "抗淀粉样免疫疗法：斑块能清掉，痴呆却倒不回去",
+    },
+    {
       url: "/medicine/concepts/antibiotic-resistance",
       title: "抗生素耐药性",
     },
@@ -34314,6 +34536,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "经济制裁",
     },
     {
+      url: "/psychology/disorders/panic-disorder",
+      title: "惊恐障碍",
+    },
+    {
       url: "/life-science/knowledge-base/医学--抗生素",
       title: "抗生素：从青霉素奇迹到耐药性危机",
     },
@@ -34332,6 +34558,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/医学--神经退行性疾病",
       title: "神经退行性疾病：阿尔茨海默病与帕金森病",
+    },
+    {
+      url: "/psychology/disorders/insomnia",
+      title: "失眠障碍",
     },
     {
       url: "/medicine/diseases/plague",
@@ -34354,6 +34584,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "我们有自由意志吗？",
     },
     {
+      url: "/human-history/knowledge/事件--西班牙流感",
+      title: "西班牙流感",
+    },
+    {
       url: "/political-science/institutions/executive-power",
       title: "行政权与行政首长",
     },
@@ -34372,6 +34606,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/生物技术--转基因",
       title: "转基因：GMO争议与Golden Rice的故事",
+    },
+    {
+      url: "/medicine/frontier/glp1-incretin-obesity",
+      title: 'GLP-1 与肠促胰素：肥胖治疗从"减肥针"回到激素回路',
     },
     {
       url: "/life-science/knowledge-base/生物技术--PCR技术",
@@ -34831,6 +35069,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/medicine/diseases/stroke",
       title: "中风（脑卒中）",
     },
+    {
+      url: "/medicine/frontier/glp1-incretin-obesity",
+      title: 'GLP-1 与肠促胰素：肥胖治疗从"减肥针"回到激素回路',
+    },
   ],
   "/medicine/diseases/cholera": [
     {
@@ -34937,6 +35179,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/medicine/diseases/autoimmune-diseases",
       title: "自身免疫病",
     },
+    {
+      url: "/medicine/frontier/glp1-incretin-obesity",
+      title: 'GLP-1 与肠促胰素：肥胖治疗从"减肥针"回到激素回路',
+    },
   ],
   "/medicine/diseases/hiv-aids": [
     {
@@ -35006,6 +35252,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/nutrition-science",
       title: "营养学",
+    },
+    {
+      url: "/medicine/frontier/glp1-incretin-obesity",
+      title: 'GLP-1 与肠促胰素：肥胖治疗从"减肥针"回到激素回路',
     },
     {
       url: "/medicine/trial-analyses/select-semaglutide",
@@ -35920,6 +36170,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "合成生物学：从解读生命到创造生命",
     },
     {
+      url: "/medicine/frontier/alzheimer-amyloid-immunotherapy",
+      title: "抗淀粉样免疫疗法：斑块能清掉，痴呆却倒不回去",
+    },
+    {
       url: "/life-science/knowledge-base/人体--免疫系统",
       title: "免疫系统：先天与适应性防御网络",
     },
@@ -35962,6 +36216,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/public-health/health-economic-evaluation-priority-setting",
       title: "卫生经济学与优先排序",
+    },
+    {
+      url: "/medicine/frontier/glp1-incretin-obesity",
+      title: 'GLP-1 与肠促胰素：肥胖治疗从"减肥针"回到激素回路',
     },
   ],
   "/medicine/frontier/mrna-therapeutics": [
@@ -36016,6 +36274,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/knowledge-base/money-and-happiness",
       title: "金钱与幸福：科学怎么说",
+    },
+    {
+      url: "/medicine/frontier/alzheimer-amyloid-immunotherapy",
+      title: "抗淀粉样免疫疗法：斑块能清掉，痴呆却倒不回去",
     },
     {
       url: "/political-science/concepts/equality",
@@ -37354,6 +37616,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "阿育吠陀",
     },
   ],
+  "/medicine/trial-analyses/select-semaglutide": [
+    {
+      url: "/medicine/frontier/glp1-incretin-obesity",
+      title: 'GLP-1 与肠促胰素：肥胖治疗从"减肥针"回到激素回路',
+    },
+  ],
   "/philosophy/concepts/ai-ethics": [
     {
       url: "/psychology/theorists/albert-bandura",
@@ -38064,6 +38332,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/authentication-authorization",
       title: "身份验证与授权",
+    },
+    {
+      url: "/economics/case-studies/india-macro-diagnosis-2026",
+      title: "印度宏观经济诊断（2026）",
     },
   ],
   "/philosophy/concepts/emergence": [
@@ -44454,6 +44726,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "产业政策的回归：从经济学禁忌到芯片实验",
     },
     {
+      url: "/political-science/international-relations/international-order-hegemony",
+      title: "国际秩序与霸权",
+    },
+    {
       url: "/economics/case-studies/china-macro-diagnosis-2026",
       title: "中国宏观经济诊断（2026）",
     },
@@ -44686,8 +44962,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "宏观诊断矩阵读图手册",
     },
     {
+      url: "/economics/case-studies/us-macro-diagnosis-2026",
+      title: "美国宏观经济诊断（2026）",
+    },
+    {
+      url: "/economics/case-studies/euro-area-macro-diagnosis-2026",
+      title: "欧元区宏观经济诊断（2026）",
+    },
+    {
       url: "/political-science/frontier/global-governance-crisis",
       title: "全球治理的危机与改革",
+    },
+    {
+      url: "/economics/case-studies/japan-macro-diagnosis-2026",
+      title: "日本宏观经济诊断（2026）",
     },
     {
       url: "/economics/case-studies/japan-yield-normalization-aging-fiscal-2026",
@@ -44704,6 +44992,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/isms/neoliberalism",
       title: "新自由主义",
+    },
+    {
+      url: "/economics/case-studies/india-macro-diagnosis-2026",
+      title: "印度宏观经济诊断（2026）",
     },
     {
       url: "/economics/concepts/bond-market",
@@ -44764,6 +45056,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: '违宪审查：谁来审查"立法者"自己',
     },
     {
+      url: "/political-science/institutions/constitutionalism-separation-of-powers",
+      title: "宪政与分权",
+    },
+    {
       url: "/medicine/events/jenner-smallpox-vaccination",
       title: "詹纳与牛痘接种（1796）",
     },
@@ -44802,6 +45098,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "新古典宏观经济学",
     },
     {
+      url: "/political-science/institutions/parliamentary-presidential",
+      title: "议会制与总统制",
+    },
+    {
       url: "/law/public-law/china-constitutional-development",
       title: "中国宪法与法治发展：从五四宪法到全面依法治国",
     },
@@ -44812,12 +45112,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/political-science/institutions/democracy-authoritarianism": [
     {
+      url: "/political-science/institutions/rule-of-law",
+      title: "法治",
+    },
+    {
       url: "/political-science/international-relations/liberalism-ir",
       title: "国际关系：自由主义与制度主义",
     },
     {
+      url: "/political-science/institutions/constitutionalism-separation-of-powers",
+      title: "宪政与分权",
+    },
+    {
       url: "/economics/schools/neoliberal-school",
       title: "新自由主义学派",
+    },
+    {
+      url: "/political-science/institutions/parliamentary-presidential",
+      title: "议会制与总统制",
     },
     {
       url: "/political-science/frontier/ai-governance-surveillance",
@@ -44860,6 +45172,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/methods/formal-models-game-theory",
       title: "形式模型与政治博弈论",
+    },
+    {
+      url: "/political-science/institutions/parliamentary-presidential",
+      title: "议会制与总统制",
     },
     {
       url: "/political-science/institutions/political-parties",
@@ -44922,6 +45238,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "宪法做什么：高级法、政治实践与宪法变迁",
     },
     {
+      url: "/political-science/institutions/parliamentary-presidential",
+      title: "议会制与总统制",
+    },
+    {
       url: "/medicine/concepts/vaccination",
       title: "疫苗原理",
     },
@@ -44974,6 +45294,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "法规解释：文本、意图与目的之争",
     },
     {
+      url: "/political-science/institutions/rule-of-law",
+      title: "法治",
+    },
+    {
       url: "/political-science/international-relations/international-law",
       title: "国际法",
     },
@@ -45008,6 +45332,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/institutions/constitutional-courts",
       title: "宪法法院与违宪审查",
+    },
+    {
+      url: "/political-science/institutions/constitutionalism-separation-of-powers",
+      title: "宪政与分权",
     },
     {
       url: "/political-science/concepts/gerrymandering",
@@ -45056,6 +45384,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/concepts/real-estate-economics",
       title: "房地产经济学",
+    },
+    {
+      url: "/political-science/institutions/federalism",
+      title: "联邦制与单一制",
     },
     {
       url: "/medicine/events/snow-cholera-broad-street",
@@ -45242,6 +45574,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "腓尼基",
     },
     {
+      url: "/political-science/international-relations/realism-ir",
+      title: "国际关系：现实主义",
+    },
+    {
       url: "/human-history/knowledge/古代文明--赫梯",
       title: "赫梯",
     },
@@ -45256,6 +45592,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/economists/john-maynard-keynes",
       title: "约翰·梅纳德·凯恩斯",
+    },
+  ],
+  "/political-science/international-relations/constructivism-ir": [
+    {
+      url: "/political-science/international-relations/liberalism-ir",
+      title: "国际关系：自由主义与制度主义",
     },
   ],
   "/political-science/international-relations/containment": [
@@ -45290,6 +45632,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/debates/cryptocurrency-debate",
       title: "加密货币：革命还是骗局？",
+    },
+    {
+      url: "/economics/case-studies/us-macro-diagnosis-2026",
+      title: "美国宏观经济诊断（2026）",
     },
     {
       url: "/economics/concepts/foreign-exchange",
@@ -45378,6 +45724,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "国际法：没有世界政府，法律如何约束国家",
     },
     {
+      url: "/political-science/international-relations/liberalism-ir",
+      title: "国际关系：自由主义与制度主义",
+    },
+    {
       url: "/medicine/ethics/he-jiankui-crispr-babies",
       title: "贺建奎与基因编辑婴儿事件",
     },
@@ -45454,6 +45804,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/global-and-digital/international-law",
       title: "国际法：没有世界政府，法律如何约束国家",
+    },
+    {
+      url: "/political-science/international-relations/constructivism-ir",
+      title: "国际关系：建构主义",
     },
     {
       url: "/law/global-and-digital/human-rights-law",
@@ -45534,6 +45888,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/political-science/international-relations/international-order-hegemony": [
     {
+      url: "/political-science/international-relations/liberalism-ir",
+      title: "国际关系：自由主义与制度主义",
+    },
+    {
       url: "/economics/case-studies/us-macro-diagnosis-2026",
       title: "美国宏观经济诊断（2026）",
     },
@@ -45572,6 +45930,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "新保守主义",
     },
   ],
+  "/political-science/international-relations/liberalism-ir": [
+    {
+      url: "/political-science/international-relations/security-dilemma-war-peace",
+      title: "安全困境、战争与和平",
+    },
+  ],
   "/political-science/international-relations/migration-and-refugee-politics": [
     {
       url: "/economics/knowledge-base/inequality-economics",
@@ -45592,14 +45956,30 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/political-science/international-relations/mutually-assured-destruction": [
     {
+      url: "/political-science/international-relations/security-dilemma-war-peace",
+      title: "安全困境、战争与和平",
+    },
+    {
       url: "/human-history/knowledge/当代--概述",
       title: "当代",
+    },
+    {
+      url: "/political-science/international-relations/international-order-hegemony",
+      title: "国际秩序与霸权",
     },
   ],
   "/political-science/international-relations/nuclear-deterrence-strategy": [
     {
       url: "/economics/theories/game-theory-basics",
       title: "博弈论基础",
+    },
+    {
+      url: "/political-science/international-relations/constructivism-ir",
+      title: "国际关系：建构主义",
+    },
+    {
+      url: "/political-science/international-relations/realism-ir",
+      title: "国际关系：现实主义",
     },
     {
       url: "/universe-physics/knowledge-base/核物理--nuclear-fission",
@@ -45704,6 +46084,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/political-science/international-relations/realism-ir": [
     {
+      url: "/political-science/international-relations/security-dilemma-war-peace",
+      title: "安全困境、战争与和平",
+    },
+    {
+      url: "/political-science/international-relations/liberalism-ir",
+      title: "国际关系：自由主义与制度主义",
+    },
+    {
       url: "/political-science/international-relations/balance-of-power",
       title: "均势理论",
     },
@@ -45744,6 +46132,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "国际法：没有世界政府，法律如何约束国家",
     },
     {
+      url: "/political-science/international-relations/realism-ir",
+      title: "国际关系：现实主义",
+    },
+    {
       url: "/psychology/knowledge-base/cooperation-science",
       title: "合作的科学",
     },
@@ -45772,6 +46164,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/methods/curatorial-practice",
       title: "策展作为论证：展览如何生产艺术史",
+    },
+    {
+      url: "/political-science/international-relations/constructivism-ir",
+      title: "国际关系：建构主义",
     },
     {
       url: "/medicine/events/smallpox-eradication",
@@ -46786,6 +47182,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "记忆系统",
     },
     {
+      url: "/medicine/frontier/alzheimer-amyloid-immunotherapy",
+      title: "抗淀粉样免疫疗法：斑块能清掉，痴呆却倒不回去",
+    },
+    {
       url: "/sociology/frontier/ageing-societies",
       title: "人口老龄化的社会基础设施",
     },
@@ -46820,8 +47220,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "存在主义详解",
     },
     {
+      url: "/psychology/disorders/panic-disorder",
+      title: "惊恐障碍",
+    },
+    {
       url: "/philosophy/thinkers/sartre",
       title: "萨特",
+    },
+    {
+      url: "/psychology/disorders/insomnia",
+      title: "失眠障碍",
     },
   ],
   "/psychology/disorders/hysteria": [
@@ -46880,6 +47288,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/epictetus",
       title: "爱比克泰德",
+    },
+    {
+      url: "/psychology/disorders/panic-disorder",
+      title: "惊恐障碍",
+    },
+    {
+      url: "/human-history/knowledge/事件--西班牙流感",
+      title: "西班牙流感",
     },
   ],
   "/psychology/experiments/asch-conformity": [
@@ -51578,6 +51994,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "防御机制",
     },
     {
+      url: "/psychology/disorders/panic-disorder",
+      title: "惊恐障碍",
+    },
+    {
       url: "/philosophy/thinkers/marcus-aurelius",
       title: "马可·奥勒留",
     },
@@ -51588,6 +52008,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/public-health/community-mental-health-access-continuity",
       title: "社区精神卫生、可及性与连续照护",
+    },
+    {
+      url: "/psychology/disorders/insomnia",
+      title: "失眠障碍",
     },
     {
       url: "/philosophy/isms/stoicism-ism",
@@ -52047,6 +52471,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/political-science/thinkers/sun-yat-sen",
       title: "孙中山",
     },
+    {
+      url: "/sociology/concepts/indian-social-thought",
+      title: "印度社会思想",
+    },
   ],
   "/sociology/concepts/deviance-and-social-control": [
     {
@@ -52354,6 +52782,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/isms/islamism",
       title: "伊斯兰主义",
+    },
+    {
+      url: "/sociology/concepts/indian-social-thought",
+      title: "印度社会思想",
     },
     {
       url: "/sociology/institutions/religion-and-secularization",
@@ -52836,6 +53268,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "社会支持、孤独与心理健康",
     },
     {
+      url: "/sociology/concepts/social-capital",
+      title: "社会资本",
+    },
+    {
       url: "/philosophy/questions/what-is-knowledge",
       title: "什么是知识？",
     },
@@ -53194,6 +53630,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/concepts/maya",
       title: "幻",
+    },
+    {
+      url: "/sociology/institutions/family-and-kinship",
+      title: "家庭与亲属关系",
     },
     {
       url: "/philosophy/isms/constructivism",
@@ -53598,6 +54038,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "万隆会议",
     },
     {
+      url: "/sociology/concepts/indian-social-thought",
+      title: "印度社会思想",
+    },
+    {
       url: "/sociology/concepts/chinese-social-thought",
       title: "中国社会思想",
     },
@@ -53704,6 +54148,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/sociology/thinkers/c-wright-mills",
       title: "C. 赖特·米尔斯",
+    },
+  ],
+  "/sociology/institutions/demography-and-aging": [
+    {
+      url: "/economics/case-studies/india-macro-diagnosis-2026",
+      title: "印度宏观经济诊断（2026）",
     },
   ],
   "/sociology/institutions/digital-platform-society": [
@@ -55950,6 +56400,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "社会结构",
     },
     {
+      url: "/sociology/concepts/social-capital",
+      title: "社会资本",
+    },
+    {
       url: "/sociology/methods/coleman-report-educational-opportunity-analysis",
       title: "Coleman Report 复核：学校、家庭与同伴怎样被放进同一个模型",
     },
@@ -56226,6 +56680,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/theory/error-correcting-codes",
       title: "纠错码理论",
+    },
+    {
+      url: "/universe-physics/frontier/quantum-sensing",
+      title: "量子传感：跨过标准量子极限",
     },
     {
       url: "/universe-physics/knowledge-base/前沿物理--量子计算",
@@ -59536,6 +59994,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "中微子探测器",
     },
     {
+      url: "/universe-physics/frontier/neutrino-mass-hierarchy",
+      title: "中微子质量顺序：振荡之后尚未称出的那一维",
+    },
+    {
       url: "/cosmology/knowledge-base/宇宙学前沿--S8结构增长张力",
       title: "S8 结构增长张力",
     },
@@ -59606,6 +60068,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙射线",
       title: "宇宙射线",
+    },
+    {
+      url: "/universe-physics/frontier/neutrino-mass-hierarchy",
+      title: "中微子质量顺序：振荡之后尚未称出的那一维",
     },
     {
       url: "/universe-physics/knowledge-base/粒子物理--cp-violation-matter-antimatter",
@@ -60316,6 +60782,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "量子测量问题",
     },
     {
+      url: "/universe-physics/frontier/quantum-sensing",
+      title: "量子传感：跨过标准量子极限",
+    },
+    {
       url: "/computer-science/frontier/quantum-algorithms",
       title: "量子算法：Shor 与 Grover 之后的软件边界",
     },
@@ -60386,6 +60856,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/pioneers/john-von-neumann",
       title: "冯·诺伊曼",
+    },
+    {
+      url: "/universe-physics/frontier/quantum-sensing",
+      title: "量子传感：跨过标准量子极限",
     },
     {
       url: "/universe-physics/knowledge-base/量子物理--量子纠缠",

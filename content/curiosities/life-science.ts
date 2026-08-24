@@ -8,7 +8,7 @@ export const LIFE_SCIENCE_CURIOSITIES: Curiosity[] = [
       "两颗心脏给鳃供血，一颗给身体；血液用含铜的血蓝蛋白运氧，所以是蓝色的。它五亿个神经元里约三分之二分布在八条腕上——每条腕都能某种程度上「自己思考」。",
     source: "头足类生理学",
     tags: ["章鱼", "神经系统"],
-    url: "/life-science/species",
+    url: "/life-science/species/octopus",
   },
   {
     id: "tardigrade-survival",
@@ -17,7 +17,7 @@ export const LIFE_SCIENCE_CURIOSITIES: Curiosity[] = [
       "缓步动物（水熊虫）通过脱水进入「隐生」状态，可耐受接近绝对零度、太空真空，以及人类致死量上千倍的辐射。2007 年它们在地球轨道暴露于太空后仍能复活繁殖。",
     source: "Jönsson et al., Current Biology (2008)",
     tags: ["水熊虫", "极端生命"],
-    url: "/life-science",
+    url: "/life-science/species/tardigrade",
   },
   {
     id: "microbiome-cells",
@@ -26,7 +26,7 @@ export const LIFE_SCIENCE_CURIOSITIES: Curiosity[] = [
       "曾流传「微生物是人体细胞的 10 倍」，2016 年的重新估算把比例修正为约 1.3:1——仍意味着「你」在细胞数上几乎一半是别的生物。它们影响你的免疫、消化甚至情绪。",
     source: "Sender, Fuchs & Milo, PLoS Biology (2016)",
     tags: ["微生物组"],
-    url: "/life-science",
+    url: "/medicine/concepts/microbiome-and-health",
   },
   {
     id: "slime-mold-tokyo-rail",
@@ -35,7 +35,7 @@ export const LIFE_SCIENCE_CURIOSITIES: Curiosity[] = [
       "2010 年，日本科学家把食物放在东京各大车站对应的位置，让黏菌（Physarum polycephalum）自由蔓延。数天后，菌丝网络的结构与实际铁路线高度吻合，连工程师耗费数年优化的冗余和效率也被「无脑」复刻。黏菌通过收缩优化管道粗细，以一种物理计算方式找到全局最优路径。",
     source: "Tero et al., Science (2010)",
     tags: ["黏菌", "生物智能", "网络优化"],
-    url: "/life-science",
+    url: "/life-science/species/slime-mould",
   },
   {
     id: "naked-mole-rat-cancer",
@@ -44,7 +44,7 @@ export const LIFE_SCIENCE_CURIOSITIES: Curiosity[] = [
       "裸鼹鼠（Heterocephalus glaber）体重不足 35 克，却能活 37 年——同体型的小鼠通常只活 3 年。它们的组织中富含超高分子量透明质酸，阻止细胞过度增殖；同时对痛觉和缺氧有极强的耐受性。科学家已将裸鼹鼠的长寿基因转入小鼠，后者寿命和健康状态均有所改善。",
     source: "Tian et al., Nature (2013); Fang et al., Nature (2024)",
     tags: ["裸鼹鼠", "抗癌", "长寿"],
-    url: "/life-science",
+    url: "/life-science/species/naked-mole-rat",
   },
   {
     id: "mantis-shrimp-vision",
@@ -53,7 +53,7 @@ export const LIFE_SCIENCE_CURIOSITIES: Curiosity[] = [
       "人类有 3 种视锥细胞，螳螂虾有多达 16 种——却不是用来「看更多颜色」的。2014 年发表于《科学》的研究发现，螳螂虾辨别相近颜色的能力反而弱于人类。它的多感受器用于超快速颜色识别，类似于扫码而非调色板比较，可能只需数毫秒就完成颜色分类。",
     source: "Thoen et al., Science (2014)",
     tags: ["螳螂虾", "视觉", "感知"],
-    url: "/life-science",
+    url: "/life-science/knowledge-base/进化专题--眼睛的进化",
   },
   {
     id: "crow-compound-tools",
@@ -62,7 +62,7 @@ export const LIFE_SCIENCE_CURIOSITIES: Curiosity[] = [
       "2018 年，牛津大学研究者给乌鸦提供三根独立的短木棍——每根单独都够不到食物——发现乌鸦会自行把它们插接成一根足够长的复合工具。更令人惊讶的是，完全没有受过训练的乌鸦也能自发完成这一操作，这是非人类动物中极罕见的即兴制造行为。",
     source: "Auersperg et al., Scientific Reports (2018)",
     tags: ["乌鸦", "工具使用", "动物智能"],
-    url: "/life-science",
+    url: "/life-science/knowledge-base/进化专题--动物行为与本能",
   },
   {
     id: "electric-eel-860v",
@@ -89,7 +89,7 @@ export const LIFE_SCIENCE_CURIOSITIES: Curiosity[] = [
       "菌根真菌的菌丝把土壤中的树木根系连接成庞大网络，称为菌根网络。1997 年实验首次证实碳可以在两棵树之间经菌丝传输；后续研究发现，处于遮蔽下的幼苗确实会收到来自大树的糖分。不过，「树木主动帮助后代」的通俗描述存在争议，真菌更可能是出于自身利益而非树木的「利他意志」在调配资源。",
     source: "Simard et al., Nature (1997)",
     tags: ["菌根", "森林", "植物"],
-    url: "/life-science",
+    url: "/life-science/species/mycorrhiza",
   },
   {
     id: "gut-serotonin",
@@ -98,7 +98,7 @@ export const LIFE_SCIENCE_CURIOSITIES: Curiosity[] = [
       "血清素通常被称为「快乐激素」，但大脑只负责合成其中不到 10%。肠道壁上的肠嗜铬细胞是最主要的血清素产地，肠道菌群的组成会直接影响肠道血清素水平，进而通过迷走神经影响大脑情绪回路。这也是「肠脑轴」研究的核心发现之一。",
     source: "Yano et al., Cell (2015)",
     tags: ["肠脑轴", "微生物组", "血清素"],
-    url: "/life-science",
+    url: "/medicine/concepts/microbiome-and-health",
   },
   {
     id: "elephant-mirror-self",
@@ -116,7 +116,7 @@ export const LIFE_SCIENCE_CURIOSITIES: Curiosity[] = [
       "灯塔水母（Turritopsis dohrnii）受到伤害或老化时，会将已分化的细胞逆转为最初的多能状态，退回水螅体阶段重新发育。这一过程称为「转分化」，在已知多细胞动物中仅此一例。说它「不死」仍是简化——它照样会被捕食或染病，但从理论上它没有固定的寿命上限。",
     source: "Piraino et al., Biological Bulletin (1996)",
     tags: ["水母", "不老", "转分化"],
-    url: "/life-science",
+    url: "/life-science/species/immortal-jellyfish",
   },
   {
     id: "bone-living-organ",
@@ -134,7 +134,7 @@ export const LIFE_SCIENCE_CURIOSITIES: Curiosity[] = [
       "成年蝾螈断肢后，断端细胞会「去分化」退回类干细胞状态，随后精确重建骨骼、肌肉、神经和血管，且新生肢体功能完全正常。研究者已找到多个关键调控基因，这被视为哺乳动物再生医学的重要参考方向。",
     source: "Tanaka, Science (2016)",
     tags: ["蝾螈", "再生", "脊椎动物"],
-    url: "/life-science",
+    url: "/life-science/species/axolotl",
   },
   {
     id: "trees-measure-time",
@@ -161,6 +161,6 @@ export const LIFE_SCIENCE_CURIOSITIES: Curiosity[] = [
       "大堡礁每年春季满月后数天，数百种珊瑚在同一夜几乎同步释放精卵束，场面壮观如水下雪景。触发信号的关键是光周期：珊瑚对月光的蓝光波段极为敏感，并通过光敏蛋白整合月相信息，确保跨越数百公里的种群在最高受精概率的时机同步繁殖。",
     source: "Vize, BioEssays (2009); Sweeney et al., Science (2011)",
     tags: ["珊瑚", "繁殖", "同步"],
-    url: "/life-science",
+    url: "/life-science/species/coral",
   },
 ];

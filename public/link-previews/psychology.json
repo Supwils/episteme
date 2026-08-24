@@ -174,6 +174,11 @@
     "e": "癔症（hysteria）是精神医学史上最古老、最神秘也最具争议的诊断之一。",
     "d": "psychology"
   },
+  "/psychology/disorders/insomnia": {
+    "t": "失眠障碍",
+    "e": "失眠障碍（Insomnia Disorder）不是“昨晚没睡好”。DSM-5 要求：入睡困难、维持困难或早醒，每周至少三次、持续至少三个月，并造成日间功能损害，且不能更好地用另一种睡眠—觉醒障…",
+    "d": "psychology"
+  },
   "/psychology/disorders/major-depressive": {
     "t": "重度抑郁障碍：心理模型与证据",
     "e": "悲伤是面对丧失和挫折的常见情绪，抑郁症状可以在许多压力和疾病中出现，而重度抑郁障碍（Major Depressive Disorder, MDD）是依据症状组合、持续时间、痛苦或功能损害，并排…",
@@ -182,6 +187,11 @@
   "/psychology/disorders/ocd": {
     "t": "强迫症",
     "e": "强迫症（Obsessive-Compulsive Disorder, OCD）是一种以反复出现的侵入性思维（强迫思维）",
+    "d": "psychology"
+  },
+  "/psychology/disorders/panic-disorder": {
+    "t": "惊恐障碍",
+    "e": "惊恐障碍（Panic Disorder）的核心不是“胆子小”，而是一连串在没有外部危险时突然升起的强烈恐惧发作，随后是至少一个月的持续担心：还会再来、会失控、会心脏病发作。DSM-5 把它与广…",
     "d": "psychology"
   },
   "/psychology/disorders/ptsd": {

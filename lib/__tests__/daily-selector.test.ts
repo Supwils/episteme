@@ -1,5 +1,30 @@
 import { describe, it, expect } from "vitest";
+import { buildValidRoutes } from "@/scripts/valid-routes";
 import { getDailySelected } from "../daily-selector";
+import {
+  ARTS_FACTS,
+  CHEMISTRY_FACTS,
+  COMPUTER_SCIENCE_FACTS,
+  COSMOLOGY_FACTS,
+  EARTH_SCIENCE_FACTS,
+  ECONOMICS_FACTS,
+  ENGINEERING_FACTS,
+  LAW_FACTS,
+  LIFE_SCIENCE_FACTS,
+  LINGUISTICS_FACTS,
+  MATH_FACTS,
+  MEDICINE_FACTS,
+  MONTHLY_FACTS,
+  POLITICAL_SCIENCE_FACTS,
+  PSYCHOLOGY_FACTS,
+} from "../daily-facts";
+import { SOCIOLOGY_FACTS } from "../daily-sociology";
+import { ECONOMICS_TODAY } from "../daily-economics";
+import { HISTORY_TODAY } from "../daily-history";
+import { ON_THIS_DAY } from "../on-this-day";
+import { PHILOSOPHY_TODAY } from "../philosophy-today";
+import { PHYSICS_TODAY } from "../daily-physics";
+import { PSYCHOLOGY_TODAY } from "../daily-psychology";
 
 // Characterization snapshots: getDailySelected drives the deterministic
 // "daily knowledge" surface. These lock its exact output for fixed
@@ -31,5 +56,188 @@ describe("getDailySelected (characterization)", () => {
     const a = getDailySelected(new Date("2026-06-16T00:00:00"), 0);
     const b = getDailySelected(new Date("2026-06-16T00:00:00"), 1);
     expect(a.seed).not.toEqual(b.seed);
+  });
+});
+
+const FACT_CATALOGS = [
+  MATH_FACTS,
+  LIFE_SCIENCE_FACTS,
+  COSMOLOGY_FACTS,
+  ECONOMICS_FACTS,
+  PSYCHOLOGY_FACTS,
+  LINGUISTICS_FACTS,
+  LAW_FACTS,
+  ARTS_FACTS,
+  ENGINEERING_FACTS,
+  COMPUTER_SCIENCE_FACTS,
+  POLITICAL_SCIENCE_FACTS,
+  EARTH_SCIENCE_FACTS,
+  MEDICINE_FACTS,
+  CHEMISTRY_FACTS,
+  SOCIOLOGY_FACTS,
+] as const;
+
+describe("daily fact article links", () => {
+  it("never dumps the reader on a domain homepage", () => {
+    const leftover = FACT_CATALOGS.flatMap((catalog) =>
+      catalog
+        .filter((fact) => /^\/[a-z-]+$/.test(fact.url))
+        .map((fact) => `${fact.title} ${fact.url}`)
+    );
+    expect(leftover).toEqual([]);
+  });
+
+  it("points at real routes", () => {
+    const valid = buildValidRoutes();
+    const broken = FACT_CATALOGS.flatMap((catalog) =>
+      catalog.filter((fact) => !valid.has(fact.url)).map((fact) => `${fact.title} → ${fact.url}`)
+    );
+    expect(broken).toEqual([]);
+  });
+
+  it("does not confuse diminishing marginal utility with opportunity cost", () => {
+    const fact = ECONOMICS_FACTS.find((f) => f.title === "边际效用递减");
+    expect(fact?.url).toBe("/economics/concepts/marginal-analysis");
+  });
+
+  it("does not collapse Japanese Children's Day onto the lunar Duanwu date", () => {
+    const may = MONTHLY_FACTS["05"] ?? [];
+    expect(may.some((line) => line.includes("也叫端午节"))).toBe(false);
+  });
+
+  it("homepage daily facts reuse MONTHLY_FACTS instead of a stale duplicate", async () => {
+    const { getDailyKnowledge } = await import("../daily-knowledge");
+    const knowledge = getDailyKnowledge(new Date(2026, 4, 6));
+    expect(knowledge.fact).not.toContain("也叫端午节");
+  });
+
+  it("psychology calendar events that name an experiment resolve", () => {
+    const valid = buildValidRoutes();
+    const experimentLinks = PSYCHOLOGY_TODAY.filter((e) =>
+      e.url.startsWith("/psychology/experiments/")
+    );
+    const broken = experimentLinks
+      .filter((e) => !valid.has(e.url))
+      .map((e) => `${e.title} → ${e.url}`);
+    expect(experimentLinks.length).toBeGreaterThan(0);
+    expect(broken).toEqual([]);
+  });
+
+  it("psychology calendar events never dump the reader on the domain home", () => {
+    const valid = buildValidRoutes();
+    const leftover = PSYCHOLOGY_TODAY.filter((e) => e.url === "/psychology").map(
+      (e) => `${e.title} ${e.url}`
+    );
+    const broken = PSYCHOLOGY_TODAY.filter((e) => !valid.has(e.url)).map(
+      (e) => `${e.title} → ${e.url}`
+    );
+    expect(leftover).toEqual([]);
+    expect(broken).toEqual([]);
+  });
+
+  it("psychology calendar events never dump the reader on a section list", () => {
+    const leftover = PSYCHOLOGY_TODAY.filter(
+      (e) => e.url.split("/").filter(Boolean).length < 3
+    ).map((e) => `${e.title} ${e.url}`);
+    expect(leftover).toEqual([]);
+  });
+
+  it("does not send the golden ratio to a Euclidean-geometry article", () => {
+    const fact = MATH_FACTS.find((f) => f.title === "黄金比例");
+    expect(fact?.url).toBe("/arts/foundations/proportion-and-harmony");
+  });
+
+  it("economics calendar events never dump the reader on the domain home", () => {
+    const valid = buildValidRoutes();
+    const leftover = ECONOMICS_TODAY.filter((e) => e.url === "/economics").map(
+      (e) => `${e.title} ${e.url}`
+    );
+    const broken = ECONOMICS_TODAY.filter((e) => !valid.has(e.url)).map(
+      (e) => `${e.title} → ${e.url}`
+    );
+    expect(leftover).toEqual([]);
+    expect(broken).toEqual([]);
+  });
+
+  it("physics calendar events never dump the reader on the domain home", () => {
+    const valid = buildValidRoutes();
+    const leftover = PHYSICS_TODAY.filter((e) => e.url === "/universe-physics").map(
+      (e) => `${e.title} ${e.url}`
+    );
+    const broken = PHYSICS_TODAY.filter((e) => !valid.has(e.url)).map(
+      (e) => `${e.title} → ${e.url}`
+    );
+    expect(leftover).toEqual([]);
+    expect(broken).toEqual([]);
+  });
+
+  it("on-this-day entries never dump the reader on a domain homepage", () => {
+    const valid = buildValidRoutes();
+    const leftover = ON_THIS_DAY.filter((e) => /^\/[a-z-]+$/.test(e.url)).map(
+      (e) => `${e.title} ${e.url}`
+    );
+    const resolves = (url: string) => {
+      if (valid.has(url)) return true;
+      const parts = url.split("/");
+      const last = parts.at(-1);
+      if (!last) return false;
+      parts[parts.length - 1] = encodeURIComponent(decodeURIComponent(last));
+      return valid.has(parts.join("/"));
+    };
+    const broken = ON_THIS_DAY.filter((e) => !resolves(e.url)).map((e) => `${e.title} → ${e.url}`);
+    expect(leftover).toEqual([]);
+    expect(broken).toEqual([]);
+  });
+
+  it("philosophy calendar events resolve and are not all timeline dumps", () => {
+    const valid = buildValidRoutes();
+    const resolves = (url: string) => {
+      if (valid.has(url)) return true;
+      const parts = url.split("/");
+      const last = parts.at(-1);
+      if (!last) return false;
+      parts[parts.length - 1] = encodeURIComponent(decodeURIComponent(last));
+      return valid.has(parts.join("/"));
+    };
+    const broken = PHILOSOPHY_TODAY.filter((e) => !resolves(e.url)).map(
+      (e) => `${e.title} → ${e.url}`
+    );
+    const timeline = PHILOSOPHY_TODAY.filter((e) => e.url === "/philosophy/timeline");
+    expect(broken).toEqual([]);
+    expect(timeline.length).toBeLessThan(PHILOSOPHY_TODAY.length / 2);
+  });
+
+  it("history calendar deep links resolve when they leave the timeline list", () => {
+    const valid = buildValidRoutes();
+    const resolves = (url: string) => {
+      if (valid.has(url)) return true;
+      const parts = url.split("/");
+      const last = parts.at(-1);
+      if (!last) return false;
+      parts[parts.length - 1] = encodeURIComponent(decodeURIComponent(last));
+      return valid.has(parts.join("/"));
+    };
+    const deep = HISTORY_TODAY.filter((e) => e.url !== "/human-history/timeline");
+    const broken = deep.filter((e) => !resolves(e.url)).map((e) => `${e.title} → ${e.url}`);
+    expect(deep.length).toBeGreaterThan(90);
+    expect(broken).toEqual([]);
+    expect(HISTORY_TODAY.some((e) => e.url.includes("/tive"))).toBe(false);
+  });
+
+  it("does not send February Revolution to October or a timeline dump", () => {
+    const event = HISTORY_TODAY.find((e) => e.title === "俄国二月革命");
+    expect(event?.url).toBe("/human-history/knowledge/近代--俄罗斯帝国");
+  });
+
+  it("sends Tsushima to the Meiji restoration article, not the timeline list", () => {
+    const event = HISTORY_TODAY.find((e) => e.title === "对马海战");
+    expect(event?.url).toBe("/human-history/knowledge/事件--明治维新");
+  });
+
+  it("sends Watergate and Nixon's resignation to political corruption, not the timeline dump", () => {
+    const watergate = HISTORY_TODAY.find((e) => e.title === "水门事件");
+    const nixon = HISTORY_TODAY.find((e) => e.title === "尼克松辞职");
+    expect(watergate?.url).toBe("/political-science/concepts/political-corruption");
+    expect(nixon?.url).toBe("/political-science/concepts/political-corruption");
   });
 });

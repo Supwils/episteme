@@ -2,6 +2,11 @@
 
 exports[`getDailySelected (characterization) > is stable for 2026-01-15 offset 0 1`] = `
 {
+  "arts": {
+    "description": "斗拱把屋顶荷载层层传递到柱网；抗震靠的是柔性节点，不是把木头当成石头用。",
+    "title": "东亚木构",
+    "url": "/arts/architecture/east-asian-timber-frame",
+  },
   "chemistry": {
     "description": "冰会浮在水上、水的沸点高得离谱——这些「反常」都源于水分子的极性与氢键，也正是它们让地球宜居。",
     "title": "为什么水这么反常",
@@ -15,12 +20,12 @@ exports[`getDailySelected (characterization) > is stable for 2026-01-15 offset 0
   "cosmology": {
     "description": "星系构成纤维状结构和巨大空洞，形成宇宙网。",
     "title": "宇宙大尺度结构",
-    "url": "/cosmology",
+    "url": "/cosmology/knowledge-base/宇宙大尺度结构",
   },
   "curiosity": {
     "detail": "菲利帕·富特（Philippa Foot）1967 年在一篇关于堕胎与双重效应原则的论文里举了这个例子。她大概没料到，半个世纪后它会成为自动驾驶伦理的标准考题。",
     "title": "「电车难题」是一位女哲学家在讨论堕胎时顺手提出的",
-    "url": "/philosophy/experiments",
+    "url": "/philosophy/experiments/trolley-problem",
   },
   "date": "2026-01-15",
   "earthScience": {
@@ -31,25 +36,40 @@ exports[`getDailySelected (characterization) > is stable for 2026-01-15 offset 0
   "economics": {
     "description": "IMF正式成立，监督国际货币体系。",
     "title": "国际货币基金组织成立",
-    "url": "/economics",
+    "url": "/economics/case-studies/bretton-woods",
     "year": 1947,
+  },
+  "engineering": {
+    "description": "事故残骸是工程的教科书：断口、疲劳纹和腐蚀痕迹比事后叙述更诚实。",
+    "title": "失效分析",
+    "url": "/engineering/frontiers/failure-analysis",
   },
   "fact": "1月是罗马神话中双面神雅努斯的月份，象征回顾过去与展望未来",
   "history": {
     "description": "德国共产党领导人被杀",
     "title": "罗莎·卢森堡遇害",
-    "url": "/human-history/timeline",
+    "url": "/human-history/figures/罗莎·卢森堡",
     "year": 1919,
+  },
+  "law": {
+    "description": "文本、意图与目的会指向不同答案；解释方法本身就是一场关于谁有权说法律是什么的争论。",
+    "title": "法规解释之争",
+    "url": "/law/foundations/statutory-interpretation",
   },
   "lifeScience": {
     "description": "人体内寄居着约38万亿微生物，它们影响免疫、消化甚至情绪和行为。",
     "title": "微生物组",
-    "url": "/life-science",
+    "url": "/life-science/knowledge-base/人体--微生物组",
+  },
+  "linguistics": {
+    "description": "语言巢、官方地位和社区学校可以把濒危语言拉回日常使用，但成功取决于制度，不只是词典。",
+    "title": "濒危语言复振",
+    "url": "/linguistics/history-typology-society/endangered-language-revitalization",
   },
   "mathematics": {
     "description": "曼德博集合展示了简单迭代规则如何产生无限复杂的图案，揭示了混沌中的秩序。",
     "title": "分形几何",
-    "url": "/mathematics",
+    "url": "/mathematics/concepts/fractal",
   },
   "medicine": {
     "description": "1854 年伦敦霍乱，斯诺用一张点子地图把疫情锁定到一口水井，移走泵柄——流行病学就此诞生。",
@@ -64,20 +84,20 @@ exports[`getDailySelected (characterization) > is stable for 2026-01-15 offset 0
       "domainColor": "#f59e0b",
       "month": 1,
       "title": "维基百科上线",
-      "url": "/human-history/timeline",
+      "url": "/human-history/events/数字革命",
       "year": 2001,
     },
   ],
   "philosophy": {
     "description": "美国民权运动领袖诞生",
     "title": "马丁·路德·金出生",
-    "url": "/philosophy/timeline",
+    "url": "/human-history/figures/马丁·路德·金",
     "year": 1929,
   },
   "physics": {
     "description": "苏联发射了第一颗人造地球卫星，开启了太空时代。",
     "title": "斯普特尼克1号发射",
-    "url": "/universe-physics",
+    "url": "/engineering/machines/space-engineering",
     "year": 1957,
   },
   "politicalScience": {
@@ -88,7 +108,7 @@ exports[`getDailySelected (characterization) > is stable for 2026-01-15 offset 0
   "psychology": {
     "description": "所罗门·阿希进行经典的从众效应实验。",
     "title": "阿希从众实验",
-    "url": "/psychology/experiments/asch-conformity-1951",
+    "url": "/psychology/experiments/asch-conformity",
     "year": 1951,
   },
   "question": "人工智能能真正理解美吗？",
@@ -103,6 +123,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-01-15 offset 0
 
 exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 0 1`] = `
 {
+  "arts": {
+    "description": "纪念碑争的不是石头，而是谁被公共空间记住、由谁决定拆除或保留。",
+    "title": "公共纪念碑",
+    "url": "/arts/aesthetics/public-art-and-monuments",
+  },
   "chemistry": {
     "description": "把空气里惰性的氮变成肥料，养活了今天近一半的人口；同样的技术也造出了炸药——一项发明的两副面孔。",
     "title": "哈伯-博施合成氨",
@@ -116,12 +141,12 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 0
   "cosmology": {
     "description": "氢和氦在大爆炸中形成，其他元素在恒星内部和超新星爆发中合成。",
     "title": "宇宙的元素起源",
-    "url": "/cosmology",
+    "url": "/cosmology/knowledge-base/宇宙学基础--太初核合成",
   },
   "curiosity": {
     "detail": "1961 年，汉娜·阿伦特作为《纽约客》记者旁听了纳粹战犯艾希曼的审判。她震惊地发现，这个负责将数百万人送进毒气室的人，既不疯狂也不残忍，只是一个拒绝独立思考、只会执行命令的平庸小官员。她把这种现象称为「恶的平庸性」。",
     "title": "「平庸之恶」——大屠杀不是因为怪物，而是因为一个不动脑子的普通官僚",
-    "url": "/philosophy",
+    "url": "/philosophy/thinkers/hannah-arendt",
   },
   "date": "2026-03-14",
   "earthScience": {
@@ -135,22 +160,37 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 0
     "url": "/economics/economists/john-maynard-keynes",
     "year": 1936,
   },
+  "engineering": {
+    "description": "精密的代价是时间和钱；公差写的是可接受的偏差，不是「尽量准」。",
+    "title": "测量与公差",
+    "url": "/engineering/foundations/measurement-and-tolerance",
+  },
   "fact": "春分通常在3月20日或21日，全球昼夜几乎等长",
   "history": {
     "description": "物理学家阿尔伯特·爱因斯坦诞生",
     "title": "爱因斯坦出生",
-    "url": "/human-history/timeline",
+    "url": "/human-history/figures/爱因斯坦",
     "year": 1879,
+  },
+  "law": {
+    "description": "看得见的正义要求告知、听证和中立裁判；结果对，程序也可以是错的。",
+    "title": "程序正义",
+    "url": "/law/criminal-and-procedure/procedural-justice",
   },
   "lifeScience": {
     "description": "米勒-尤里实验证明，原始地球条件下无机物可以自发形成氨基酸等有机分子。",
     "title": "生命的化学起源",
-    "url": "/life-science",
+    "url": "/life-science/knowledge-base/当代议题--生命起源研究",
+  },
+  "linguistics": {
+    "description": "各「方言」口语差距可达语言一级；称为方言还是语言，取决于互通度之外的历史与政治标准。",
+    "title": "汉语方言还是语言",
+    "url": "/linguistics/history-typology-society/chinese-dialects",
   },
   "mathematics": {
     "description": "V - E + F = 2 揭示了多面体的顶点、边和面之间的基本关系。",
     "title": "欧拉公式",
-    "url": "/mathematics",
+    "url": "/mathematics/concepts/topology",
   },
   "medicine": {
     "description": "詹纳发现挤奶女工不得天花，用牛痘为一个男孩接种——人类第一支疫苗，最终让天花成为唯一被根除的传染病。",
@@ -165,20 +205,20 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 0
       "domainColor": "#6366f1",
       "month": 3,
       "title": "霍金去世",
-      "url": "/universe-physics",
+      "url": "/universe-physics/dialogues/hawking-penrose",
       "year": 2018,
     },
   ],
   "philosophy": {
     "description": "相对论创立者，改变了人类对时空的哲学理解",
     "title": "爱因斯坦出生",
-    "url": "/philosophy/timeline",
+    "url": "/human-history/figures/爱因斯坦",
     "year": 1879,
   },
   "physics": {
     "description": "阿尔伯特·爱因斯坦出生于德国乌尔姆，后来提出了狭义和广义相对论。",
     "title": "爱因斯坦出生",
-    "url": "/universe-physics",
+    "url": "/universe-physics/knowledge-base/相对论--狭义相对论",
     "year": 1879,
   },
   "politicalScience": {
@@ -204,6 +244,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 0
 
 exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 1 1`] = `
 {
+  "arts": {
+    "description": "展墙顺序、标签和灯光都是论证；展示本身决定谁被看见、谁被省略。",
+    "title": "博物馆在讲谁的故事",
+    "url": "/arts/aesthetics/museums-and-display",
+  },
   "chemistry": {
     "description": "在他之前，人们以为燃烧是物质释放「燃素」。拉瓦锡用天平证明燃烧其实是与氧结合——化学从此进入定量时代。",
     "title": "拉瓦锡的氧化学革命",
@@ -217,12 +262,12 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 1
   "cosmology": {
     "description": "暗物质晕是星系形成的骨架，普通物质在引力作用下聚集形成恒星和星系。",
     "title": "星系的形成",
-    "url": "/cosmology",
+    "url": "/cosmology/knowledge-base/星系形成与演化",
   },
   "curiosity": {
     "detail": "亚当·斯密在《国富论》里提出了「钻石-水悖论」：水维持生命，钻石几乎无用，但价格却完全相反。斯密用劳动价值论解释，却遗漏了关键：稀缺性与边际效用。这个悖论直到一百年后才被奥地利经济学派真正解决。",
     "title": "水比钻石有用，为什么钻石更贵？亚当·斯密提出这个悖论却答错了答案",
-    "url": "/economics",
+    "url": "/economics/economists/adam-smith",
   },
   "date": "2026-03-14",
   "earthScience": {
@@ -236,22 +281,37 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 1
     "url": "/economics/economists/karl-marx",
     "year": 1867,
   },
+  "engineering": {
+    "description": "桥不是「够结实」就行：荷载必须有一条清楚的路从桥面走到地基，风和振动另算。",
+    "title": "桥梁的受力路径",
+    "url": "/engineering/civil/bridges",
+  },
   "fact": "3月的英文March来自罗马战神马尔斯",
   "history": {
     "description": "物理学家阿尔伯特·爱因斯坦诞生",
     "title": "爱因斯坦出生",
-    "url": "/human-history/timeline",
+    "url": "/human-history/figures/爱因斯坦",
     "year": 1879,
+  },
+  "law": {
+    "description": "姜汁啤酒里的蜗牛，把邻人原则写进普通法：你必须合理注意可预见会受影响的人。",
+    "title": "Donoghue 的注意义务",
+    "url": "/law/judgment-analyses/donoghue-v-stevenson-duty-of-care",
   },
   "lifeScience": {
     "description": "干细胞可以分化为人体200多种细胞类型中的任何一种，是再生医学的希望。",
     "title": "干细胞的潜力",
-    "url": "/life-science",
+    "url": "/life-science/knowledge-base/分子生物学--干细胞",
+  },
+  "linguistics": {
+    "description": "强萨丕尔-沃尔夫假说已被放弃；弱版本——词汇边界影响分类速度——在颜色等领域有谨慎的实验支持。",
+    "title": "语言是否塑造思维",
+    "url": "/linguistics/acquisition-and-mind/language-thought-debate",
   },
   "mathematics": {
     "description": "纳什均衡揭示了在非合作博弈中，每个参与者都选择最优策略时的状态。",
     "title": "博弈论",
-    "url": "/mathematics",
+    "url": "/mathematics/concepts/game-theory",
   },
   "medicine": {
     "description": "在巴斯德与科赫之前，人们以为疾病源自「瘴气」。证明微生物才是元凶，是医学史上最救命的范式转换之一。",
@@ -266,20 +326,20 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 1
       "domainColor": "#6366f1",
       "month": 3,
       "title": "霍金去世",
-      "url": "/universe-physics",
+      "url": "/universe-physics/dialogues/hawking-penrose",
       "year": 2018,
     },
   ],
   "philosophy": {
     "description": "相对论创立者，改变了人类对时空的哲学理解",
     "title": "爱因斯坦出生",
-    "url": "/philosophy/timeline",
+    "url": "/human-history/figures/爱因斯坦",
     "year": 1879,
   },
   "physics": {
     "description": "斯蒂芬·霍金在剑桥去世，享年76岁。他关于黑洞和宇宙起源的研究改变了现代物理学。",
     "title": "霍金逝世",
-    "url": "/universe-physics",
+    "url": "/universe-physics/dialogues/hawking-penrose",
     "year": 2018,
   },
   "politicalScience": {
@@ -305,6 +365,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 1
 
 exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 0 1`] = `
 {
+  "arts": {
+    "description": "色彩同时是光学、材料和惯例；同一种红在不同光与底子上不是同一个红。",
+    "title": "色彩不是颜料表",
+    "url": "/arts/foundations/color-and-light",
+  },
   "chemistry": {
     "description": "1869 年门捷列夫排出周期表时，故意留下空格并预言了未知元素的性质——后来镓、锗的发现一一应验，堪称化学最漂亮的预言。",
     "title": "门捷列夫的周期表",
@@ -318,7 +383,7 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 0
   "cosmology": {
     "description": "约占宇宙总能量的68%，是推动宇宙加速膨胀的神秘力量。",
     "title": "暗能量",
-    "url": "/cosmology",
+    "url": "/cosmology/knowledge-base/宇宙学基础--暗能量与状态方程",
   },
   "curiosity": {
     "detail": "哈勃定律告诉我们，距离越远，退行速度越快。红移大于约 1.5 的星系，其退行速度已超过光速——但这不违反相对论，因为不是星系在空间中移动，而是它们之间的空间本身在扩张。那些星系发出的光永远无法到达我们。",
@@ -337,22 +402,37 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 0
     "url": "/economics/case-studies/great-depression",
     "year": 1929,
   },
+  "engineering": {
+    "description": "电池效率有物理上限；真正难的是把白天的电留到晚上，并让整张网跟着天气呼吸。",
+    "title": "光伏与间歇性",
+    "url": "/engineering/energy/solar-and-wind",
+  },
   "fact": "6月的英文June来自罗马婚姻女神朱诺",
   "history": {
     "description": "世界首位女宇航员进入太空",
     "title": "瓦莲京娜·捷列什科娃",
-    "url": "/human-history/timeline",
+    "url": "/engineering/machines/space-engineering",
     "year": 1963,
+  },
+  "law": {
+    "description": "霍菲尔德把含糊的「权利」拆成请求权、特权、权力和豁免——混用这四者会让论证自己打架。",
+    "title": "权利与义务的解剖",
+    "url": "/law/foundations/rights-and-duties",
   },
   "lifeScience": {
     "description": "1953年沃森和克里克发现了DNA的双螺旋结构，开启了分子生物学时代。",
     "title": "DNA的双螺旋",
-    "url": "/life-science",
+    "url": "/life-science/knowledge-base/人体--DNA与遗传",
+  },
+  "linguistics": {
+    "description": "所谓「爱斯基摩人有几十个雪的词」是被反复转述的都市传说，语言学自己已经把它拆开过了。",
+    "title": "爱斯基摩雪词神话",
+    "url": "/linguistics/history-typology-society/eskimo-snow-words-hoax",
   },
   "mathematics": {
     "description": "罗素悖论动摇了朴素集合论的基础，推动了公理化集合论的发展。",
     "title": "集合论悖论",
-    "url": "/mathematics",
+    "url": "/mathematics/paradoxes/russels-paradox",
   },
   "medicine": {
     "description": "美国一项持续 40 年、刻意不予治疗的研究，是医学伦理最黑暗的一页，直接催生了「知情同意」制度。",
@@ -361,15 +441,15 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 0
   },
   "onThisDay": [],
   "philosophy": {
-    "description": "美国作曲家，艺术与哲学的融合",
-    "title": "格什温出生",
-    "url": "/philosophy/timeline",
-    "year": 1898,
+    "description": "德国古典哲学创始人，三大批判影响深远",
+    "title": "康德出生",
+    "url": "/philosophy/thinkers/kant",
+    "year": 1724,
   },
   "physics": {
     "description": "印尼喀拉喀托火山发生史上最猛烈的火山爆发之一。",
     "title": "喀拉喀托火山爆发",
-    "url": "/universe-physics",
+    "url": "/earth-science/events/krakatoa-1883",
     "year": 1883,
   },
   "politicalScience": {
@@ -380,7 +460,7 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 0
   "psychology": {
     "description": "华生和雷纳进行经典条件反射情绪实验。",
     "title": "小阿尔伯特实验",
-    "url": "/psychology/experiments/pavlov-classical-conditioning",
+    "url": "/psychology/theorists/john-watson",
     "year": 1920,
   },
   "question": "人类文明的下一个重大突破会是什么？",
@@ -395,6 +475,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 0
 
 exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 2 1`] = `
 {
+  "arts": {
+    "description": "纪念碑争的不是石头，而是谁被公共空间记住、由谁决定拆除或保留。",
+    "title": "公共纪念碑",
+    "url": "/arts/aesthetics/public-art-and-monuments",
+  },
   "chemistry": {
     "description": "呼吸、生锈、电池、燃烧，本质上都是电子从一处搬到另一处。氧化还原把这些看似无关的现象统一了起来。",
     "title": "氧化还原：电子的搬运",
@@ -408,12 +493,12 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 2
   "cosmology": {
     "description": "氢和氦在大爆炸中形成，其他元素在恒星内部和超新星爆发中合成。",
     "title": "宇宙的元素起源",
-    "url": "/cosmology",
+    "url": "/cosmology/knowledge-base/宇宙学基础--太初核合成",
   },
   "curiosity": {
     "detail": "一副 52 张牌的排列数是 52!，约 8×10^67——比可观测宇宙的恒星数还多得多。即便全人类不停地洗牌至今，也只覆盖了其中微不足道的一角。",
     "title": "你洗好的这副牌，几乎可以肯定是宇宙历史上第一次出现的顺序",
-    "url": "/mathematics",
+    "url": "/mathematics/concepts/combinatorics",
   },
   "date": "2026-06-16",
   "earthScience": {
@@ -427,22 +512,37 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 2
     "url": "/economics/economists/john-maynard-keynes",
     "year": 1936,
   },
+  "engineering": {
+    "description": "精密的代价是时间和钱；公差写的是可接受的偏差，不是「尽量准」。",
+    "title": "测量与公差",
+    "url": "/engineering/foundations/measurement-and-tolerance",
+  },
   "fact": "夏至通常在6月21日，北半球白昼最长",
   "history": {
     "description": "世界首位女宇航员进入太空",
     "title": "瓦莲京娜·捷列什科娃",
-    "url": "/human-history/timeline",
+    "url": "/engineering/machines/space-engineering",
     "year": 1963,
+  },
+  "law": {
+    "description": "看得见的正义要求告知、听证和中立裁判；结果对，程序也可以是错的。",
+    "title": "程序正义",
+    "url": "/law/criminal-and-procedure/procedural-justice",
   },
   "lifeScience": {
     "description": "米勒-尤里实验证明，原始地球条件下无机物可以自发形成氨基酸等有机分子。",
     "title": "生命的化学起源",
-    "url": "/life-science",
+    "url": "/life-science/knowledge-base/当代议题--生命起源研究",
+  },
+  "linguistics": {
+    "description": "各「方言」口语差距可达语言一级；称为方言还是语言，取决于互通度之外的历史与政治标准。",
+    "title": "汉语方言还是语言",
+    "url": "/linguistics/history-typology-society/chinese-dialects",
   },
   "mathematics": {
     "description": "V - E + F = 2 揭示了多面体的顶点、边和面之间的基本关系。",
     "title": "欧拉公式",
-    "url": "/mathematics",
+    "url": "/mathematics/concepts/topology",
   },
   "medicine": {
     "description": "凭名医经验还是凭随机对照试验？循证医学主张让证据而非权威说话——这场静悄悄的革命重塑了现代临床。",
@@ -451,15 +551,15 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 2
   },
   "onThisDay": [],
   "philosophy": {
-    "description": "进化论奠基人，影响了哲学对生命与存在的思考",
-    "title": "达尔文出生",
-    "url": "/philosophy/timeline",
-    "year": 1809,
+    "description": "近代科学之父，科学方法论的奠基人",
+    "title": "伽利略出生",
+    "url": "/human-history/figures/伽利略",
+    "year": 1564,
   },
   "physics": {
     "description": "V-2火箭成为第一个到达太空边缘的人造物体。",
     "title": "V-2火箭首次发射",
-    "url": "/universe-physics",
+    "url": "/engineering/machines/space-engineering",
     "year": 1945,
   },
   "politicalScience": {
@@ -485,6 +585,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 2
 
 exports[`getDailySelected (characterization) > is stable for 2026-12-25 offset 0 1`] = `
 {
+  "arts": {
+    "description": "斗拱把屋顶荷载层层传递到柱网；抗震靠的是柔性节点，不是把木头当成石头用。",
+    "title": "东亚木构",
+    "url": "/arts/architecture/east-asian-timber-frame",
+  },
   "chemistry": {
     "description": "在他之前，人们以为燃烧是物质释放「燃素」。拉瓦锡用天平证明燃烧其实是与氧结合——化学从此进入定量时代。",
     "title": "拉瓦锡的氧化学革命",
@@ -498,12 +603,12 @@ exports[`getDailySelected (characterization) > is stable for 2026-12-25 offset 0
   "cosmology": {
     "description": "暗物质晕是星系形成的骨架，普通物质在引力作用下聚集形成恒星和星系。",
     "title": "星系的形成",
-    "url": "/cosmology",
+    "url": "/cosmology/knowledge-base/星系形成与演化",
   },
   "curiosity": {
     "detail": "「上帝死了」首次出现在尼采 1882 年的《快乐的科学》里。尼采的意思是：欧洲文明赖以存在的价值体系已经崩塌，而人们还没有意识到这场危机。这是一个文化诊断，不是一句宗教宣言。",
     "title": "尼采说「上帝死了」，根本不是在谈论无神论",
-    "url": "/philosophy",
+    "url": "/philosophy/thinkers/nietzsche",
   },
   "date": "2026-12-25",
   "earthScience": {
@@ -514,25 +619,40 @@ exports[`getDailySelected (characterization) > is stable for 2026-12-25 offset 0
   "economics": {
     "description": "IMF正式成立，监督国际货币体系。",
     "title": "国际货币基金组织成立",
-    "url": "/economics",
+    "url": "/economics/case-studies/bretton-woods",
     "year": 1947,
+  },
+  "engineering": {
+    "description": "事故残骸是工程的教科书：断口、疲劳纹和腐蚀痕迹比事后叙述更诚实。",
+    "title": "失效分析",
+    "url": "/engineering/frontiers/failure-analysis",
   },
   "fact": "12月的英文December来自拉丁语decem（十）",
   "history": {
     "description": "诺曼征服完成",
     "title": "威廉加冕英国国王",
-    "url": "/human-history/timeline",
+    "url": "/human-history/knowledge/文明--中世纪欧洲",
     "year": 1066,
+  },
+  "law": {
+    "description": "文本、意图与目的会指向不同答案；解释方法本身就是一场关于谁有权说法律是什么的争论。",
+    "title": "法规解释之争",
+    "url": "/law/foundations/statutory-interpretation",
   },
   "lifeScience": {
     "description": "人体内寄居着约38万亿微生物，它们影响免疫、消化甚至情绪和行为。",
     "title": "微生物组",
-    "url": "/life-science",
+    "url": "/life-science/knowledge-base/人体--微生物组",
+  },
+  "linguistics": {
+    "description": "语言巢、官方地位和社区学校可以把濒危语言拉回日常使用，但成功取决于制度，不只是词典。",
+    "title": "濒危语言复振",
+    "url": "/linguistics/history-typology-society/endangered-language-revitalization",
   },
   "mathematics": {
     "description": "曼德博集合展示了简单迭代规则如何产生无限复杂的图案，揭示了混沌中的秩序。",
     "title": "分形几何",
-    "url": "/mathematics",
+    "url": "/mathematics/concepts/fractal",
   },
   "medicine": {
     "description": "在巴斯德与科赫之前，人们以为疾病源自「瘴气」。证明微生物才是元凶，是医学史上最救命的范式转换之一。",
@@ -547,7 +667,7 @@ exports[`getDailySelected (characterization) > is stable for 2026-12-25 offset 0
       "domainColor": "#f59e0b",
       "month": 12,
       "title": "苏联解体",
-      "url": "/human-history/timeline",
+      "url": "/human-history/events/苏联解体",
       "year": 1991,
     },
     {
@@ -557,20 +677,20 @@ exports[`getDailySelected (characterization) > is stable for 2026-12-25 offset 0
       "domainColor": "#a88adf",
       "month": 12,
       "title": "詹姆斯·韦伯空间望远镜发射",
-      "url": "/cosmology",
+      "url": "/cosmology/knowledge-base/宇宙学观测--詹姆斯韦伯空间望远镜",
       "year": 2021,
     },
   ],
   "philosophy": {
     "description": "经典物理学奠基人，自然哲学的革新者",
     "title": "牛顿出生",
-    "url": "/philosophy/timeline",
+    "url": "/mathematics/mathematicians/newton",
     "year": 1642,
   },
   "physics": {
     "description": "NASA的维京2号探测器成功在火星着陆。",
     "title": "维京2号登陆火星",
-    "url": "/universe-physics",
+    "url": "/cosmology/knowledge-base/太阳系--terrestrial-planets",
     "year": 1976,
   },
   "politicalScience": {

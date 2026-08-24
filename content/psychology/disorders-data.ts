@@ -46,6 +46,7 @@ export const DISORDERS_DATA = [
     category: "焦虑障碍",
   },
   { slug: "hysteria", title: "癔症", subtitle: "Hysteria", category: "解离障碍" },
+  { slug: "insomnia", title: "失眠障碍", subtitle: "Insomnia Disorder", category: "睡眠—觉醒障碍" },
   {
     slug: "major-depressive",
     title: "重度抑郁症",
@@ -53,6 +54,7 @@ export const DISORDERS_DATA = [
     category: "情绪障碍",
   },
   { slug: "ocd", title: "强迫症", subtitle: "Obsessive-Compulsive Disorder", category: "焦虑障碍" },
+  { slug: "panic-disorder", title: "惊恐障碍", subtitle: "Panic Disorder", category: "焦虑障碍" },
   {
     slug: "ptsd",
     title: "创伤后应激障碍",
