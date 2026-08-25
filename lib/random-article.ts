@@ -47,3 +47,18 @@ export function pickRandomArticleUrl(): string {
   const i = Math.floor(Math.random() * urls.length);
   return urls[i] ?? "/daily";
 }
+
+/** Node refuses non-ASCII `Location` values (`ERR_INVALID_CHAR`). */
+export function toRedirectLocation(url: string): string {
+  return url
+    .split("/")
+    .map((segment, index) => {
+      if (index === 0 && segment === "") return "";
+      try {
+        return encodeURIComponent(decodeURIComponent(segment));
+      } catch {
+        return encodeURIComponent(segment);
+      }
+    })
+    .join("/");
+}

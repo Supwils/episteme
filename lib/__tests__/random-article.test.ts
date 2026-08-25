@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { buildValidRoutes } from "@/scripts/valid-routes";
-import { listRandomArticleUrls, pickRandomArticleUrl } from "../random-article";
+import { listRandomArticleUrls, pickRandomArticleUrl, toRedirectLocation } from "../random-article";
 
 afterEach(() => {
   vi.restoreAllMocks();
@@ -62,5 +62,15 @@ describe("pickRandomArticleUrl", () => {
     expect(historyKb).toBeDefined();
     expect(historyKb).not.toMatch(/%E/);
     expect(buildValidRoutes().has(historyKb!)).toBe(true);
+  });
+
+  it("makes every pool URL safe for a Location header", () => {
+    const urls = listRandomArticleUrls();
+    expect(urls.some((u) => /[\u4e00-\u9fff]/.test(u))).toBe(true);
+    for (const url of urls) {
+      const location = toRedirectLocation(url);
+      expect(location).toMatch(/^[\x00-\x7F]+$/);
+      expect(toRedirectLocation(location)).toBe(location);
+    }
   });
 });
