@@ -99,7 +99,7 @@ ls package.json next.config.ts tsconfig.json     # 单一应用，全在仓库�
 ls apps packages turbo.json pnpm-workspace.yaml 2>/dev/null \
   && echo "⚠️ monorepo 残留" || echo "✅ 单一应用结构"
 pnpm install 2>&1 | tail -5                      # 单包，Node 22（.nvmrc）
-pnpm typecheck && pnpm test                      # 基线应全绿（当前 1054 测试 / 133 文件）
+pnpm typecheck && pnpm test                      # 基线应全绿（当前 1203 测试 / 149 文件）
 ```
 
 ### 第三步：识别阻塞问题并记录
@@ -116,20 +116,20 @@ pnpm typecheck && pnpm test                      # 基线应全绿（当前 1054
 
 ## 1. 平台定位
 
-**Episteme · 格致** 是面向大众的**知识即服务平台（Knowledge as a Service）**，以浏览器为唯一交付方式，用可视化、沉浸式的方式探索人类知识。当前 **18 个知识领域 · 2581 篇内容**（`content/` 下 `.md`/`.mdx` 实测，排除 `*.narration.md` 与 `CREDITS.md`）。
+**Episteme · 格致** 是面向大众的**知识即服务平台（Knowledge as a Service）**，以浏览器为唯一交付方式，用可视化、沉浸式的方式探索人类知识。当前 **18 个知识领域 · 2674 篇内容**（`content/` 下 `.md`/`.mdx` 实测，排除 `*.narration.md` 与 `CREDITS.md`）。
 
 领域按 `docs/学科版图与导航架构.md` 的**六簇分类法**组织，`lib/data.tsx` 的 `DOMAINS`（含 `cluster` 字段）是**唯一真相源**，导航/首页/页脚/manifest 全部派生：
 
 | 簇             | 领域（路由 · 篇数）                                                                                                 |
 | -------------- | ------------------------------------------------------------------------------------------------------------------- |
-| **宇宙与自然** | 物理学 `/universe-physics` 175 · 宇宙学 `/cosmology` 165 · 地球科学 `/earth-science` 86 · 化学 `/chemistry` 100     |
-| **生命与心灵** | 生命科学 `/life-science` 134 · 医学与公共卫生 `/medicine` 130 · 心理学 `/psychology` 225 · 语言学 `/linguistics` 61 |
-| **社会与制度** | 社会学 `/sociology` 62 · 经济学 `/economics` 203 · 政治学 `/political-science` 178 · 法学 `/law` 48                 |
-| **历史与文明** | 人类历史 `/human-history` 170                                                                                       |
-| **人文与艺术** | 哲学思想 `/philosophy` 359 · 艺术、建筑与美学 `/arts` 54                                                            |
-| **数理与技术** | 数学与逻辑 `/mathematics` 171 · 计算机科学 `/computer-science` 210 · 工程与技术 `/engineering` 50                   |
+| **宇宙与自然** | 物理学 `/universe-physics` 177 · 宇宙学 `/cosmology` 168 · 地球科学 `/earth-science` 94 · 化学 `/chemistry` 106     |
+| **生命与心灵** | 生命科学 `/life-science` 140 · 医学与公共卫生 `/medicine` 140 · 心理学 `/psychology` 236 · 语言学 `/linguistics` 65 |
+| **社会与制度** | 社会学 `/sociology` 66 · 经济学 `/economics` 211 · 政治学 `/political-science` 181 · 法学 `/law` 57                 |
+| **历史与文明** | 人类历史 `/human-history` 176                                                                                       |
+| **人文与艺术** | 哲学思想 `/philosophy` 358 · 艺术、建筑与美学 `/arts` 58                                                            |
+| **数理与技术** | 数学与逻辑 `/mathematics` 174 · 计算机科学 `/computer-science` 213 · 工程与技术 `/engineering` 54                   |
 
-**跨领域与探索入口**：`/`（门户）· `/knowledge-graph`（力导向知识图谱）· `/read`（阅读路线）· `/search`（全站搜索）· `/daily`（每日知识）· `/curiosities`（奇趣知识）· `/molecules`（分子图鉴）· `/knowledge-confluence/[id]`（知识汇流）· `/<领域>/frontier`（研究前沿，18 域共 115 篇）。
+**跨领域与探索入口**：`/`（门户）· `/knowledge-graph`（力导向知识图谱）· `/read`（阅读路线）· `/search`（全站搜索）· `/daily`（每日知识）· `/curiosities`（奇趣知识）· `/molecules`（分子图鉴）· `/knowledge-confluence/[id]`（知识汇流）· `/<领域>/frontier`（研究前沿，18 域共 143 篇）。
 
 **产品灵魂**：让任何人——大学生、上班族、好奇的老人——都能随时以美好的方式接触人类最重要的知识。门槛低、深度足、视觉美。
 
@@ -141,7 +141,7 @@ pnpm typecheck && pnpm test                      # 基线应全绿（当前 1054
 
 ```
 universe-knowledge/
-├── app/                      ← App Router：18 领域 + 探索页 + API（330 个 page.tsx / 14 个 route handler）
+├── app/                      ← App Router：18 领域 + 探索页 + API（343 个 page.tsx / 14 个 route handler）
 │   ├── <domain>/             ← 每域：layout/globals.css/page + 各板块 list + [slug] + loading/error/not-found
 │   ├── api/                  ← daily · search · learning-targets · knowledge-continuum/* · knowledge-frontier/* · og
 │   └── read/ search/ daily/ curiosities/ molecules/ knowledge-graph/ knowledge-confluence/
@@ -230,7 +230,7 @@ pnpm gen-all               # 重生全部派生索引（改内容后必跑）
 
 pnpm typecheck             # tsc --noEmit
 pnpm lint                  # eslint . --max-warnings 0
-pnpm test                  # Vitest（1054 测试 / 133 文件）
+pnpm test                  # Vitest（1203 测试 / 149 文件）
 pnpm check-content         # 内容质量校验（当前 0 error / 0 warning）
 pnpm prepush               # 上面这些 + 五项审计，一条命令跑完本地门禁
 

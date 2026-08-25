@@ -75,8 +75,9 @@ describe("useKnowledgeSearch", () => {
     const { result } = renderHook(() => useKnowledgeSearch());
     act(() => result.current.setQuery("热力学"));
 
-    await waitFor(() => expect(result.current.titleResults.length).toBe(1));
-    await waitFor(() => expect(result.current.bodyResults).toEqual([]));
+    await waitFor(() => expect(result.current.searching).toBe(false));
+    expect(result.current.titleResults.map((h) => h.url)).toEqual(["/a/1"]);
+    expect(result.current.bodyResults).toEqual([]);
   });
 
   it("discards a body response that answers an older query", async () => {
@@ -110,7 +111,8 @@ describe("useKnowledgeSearch", () => {
     const { result } = renderHook(() => useKnowledgeSearch());
     act(() => result.current.setQuery("热力学"));
 
-    await waitFor(() => expect(result.current.titleResults.length).toBe(1));
+    await waitFor(() => expect(result.current.searching).toBe(false));
+    expect(result.current.titleResults).toHaveLength(1);
     expect(result.current.bodyResults).toEqual([]);
   });
 });

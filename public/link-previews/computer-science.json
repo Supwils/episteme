@@ -561,7 +561,7 @@
   },
   "/computer-science/concepts/the-web-and-http": {
     "t": "万维网与 HTTP",
-    "e": "1991 年 8 月 6 日，互联网上出现了第一个公开可访问的网页。它的内容是关于如何使用万维网的说明，由 Tim Berners-Lee 在瑞士日内瓦的 CERN（欧洲核子研究中心）托管。",
+    "e": "1991 年 8 月 6 日，互联网上出现了第一个公开可访问的网页。它的内容是关于如何使用万维网的说明，由 Tim Berners-Lee 在瑞士日内瓦的 CERN（欧洲核子研究中心）托管。地…",
     "d": "computer-science"
   },
   "/computer-science/concepts/type-systems": {

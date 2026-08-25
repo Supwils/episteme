@@ -33,7 +33,7 @@ export const HISTORY_CURIOSITIES: Curiosity[] = [
       "我们通常以为猛犸象是遥远史前的生物，但弗兰格尔岛上的一个猛犸象种群直到约公元前 1650 年才灭绝——此时胡夫金字塔已经耸立了将近 900 年。古埃及人与猛犸象曾短暂共存于同一个星球。",
     source: "Rogers et al., Science, 2000; 弗兰格尔岛放射性碳测年",
     tags: ["古埃及", "史前动物", "时间错觉"],
-    url: "/human-history",
+    url: "/human-history/knowledge/文明--古埃及",
   },
   {
     id: "nintendo-founded-before-eiffel-tower",
@@ -58,7 +58,7 @@ export const HISTORY_CURIOSITIES: Curiosity[] = [
     detail:
       "哈佛成立于 1636 年；牛顿与莱布尼茨要到 1660—1680 年代才各自发展出微积分。换言之，哈佛最初几十年的数学课程里，根本没有微积分这门学科。",
     tags: ["大学史", "数学史", "时间错觉"],
-    url: "/human-history",
+    url: "/mathematics/knowledge-base/分析--微积分的故事",
   },
   {
     id: "shortest-war-38-minutes",
@@ -135,7 +135,7 @@ export const HISTORY_CURIOSITIES: Curiosity[] = [
       "「非洲潮湿期」（约公元前 9000—前 3000 年）期间，撒哈拉拥有湖泊、河流和茂密植被，是大型动物和人类聚居的家园。气候系统的自然变迁，悄悄改写了整个文明的地理版图。",
     source: "deMenocal et al., Science, 2000；撒哈拉岩画记录",
     tags: ["气候史", "非洲史", "史前文明"],
-    url: "/human-history",
+    url: "/human-history/knowledge/远古时期--农业革命",
   },
   {
     id: "clocks-run-clockwise-northern-hemisphere-sundials",

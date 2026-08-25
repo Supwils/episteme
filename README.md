@@ -19,9 +19,9 @@
 | **人文与艺术** | 哲学思想 `/philosophy` · 艺术、建筑与美学 `/arts`                                                          |
 | **数理与技术** | 数学与逻辑 `/mathematics` · 计算机科学 `/computer-science` · 工程与技术 `/engineering`                     |
 
-**跨领域入口**：知识图谱 `/knowledge-graph`（力导向图）· 阅读路线 `/read` · 全站搜索 `/search` · 每日知识 `/daily` · 奇趣知识 `/curiosities` · 分子图鉴 `/molecules` · 知识汇流 `/knowledge-confluence` · 研究前沿 `/<领域>/frontier`（14 域 91 篇，"正在发生的 2020s 知识"，带年份与来源）。
+**跨领域入口**：知识图谱 `/knowledge-graph`（力导向图）· 阅读路线 `/read` · 全站搜索 `/search` · 每日知识 `/daily` · 奇趣知识 `/curiosities` · 分子图鉴 `/molecules` · 知识汇流 `/knowledge-confluence` · 研究前沿 `/<领域>/frontier`（18 域 143 篇，"正在发生的 2020s 知识"，带年份与来源）。
 
-**当前规模**：约 **2479 篇内容**、搜索索引 2635 个文档、知识图谱 1788 节点 / 8151 边、跨文章反向链接 13026 条。
+**当前规模**：约 **2674 篇内容**、搜索索引 2833 个文档、知识图谱 3059 节点。
 
 ## 核心特性
 

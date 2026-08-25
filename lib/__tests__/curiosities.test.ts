@@ -18,11 +18,24 @@ describe("curiosityArticleHref", () => {
     expect(curiosityArticleHref("/philosophy/thinkers/plato")).toBe("/philosophy/thinkers/plato");
   });
 
+  it("treats empty strings and trailing-slash section lists as unlinkable", () => {
+    expect(curiosityArticleHref("")).toBeUndefined();
+    expect(curiosityArticleHref("/psychology/phenomena/")).toBeUndefined();
+    expect(curiosityArticleHref("/life-science/knowledge-base/进化专题--眼睛的进化")).toBe(
+      "/life-science/knowledge-base/进化专题--眼睛的进化"
+    );
+  });
+
   it("labels the follow CTA by whether the URL is an article", () => {
     expect(curiosityFollowLabel(undefined)).toBe("更多奇趣知识 →");
     expect(curiosityFollowLabel("/psychology")).toBe("更多奇趣知识 →");
     expect(curiosityFollowLabel("/psychology/phenomena")).toBe("更多奇趣知识 →");
     expect(curiosityFollowLabel("/psychology/phenomena/anchoring-bias")).toBe("阅读相关文章 →");
+    expect(curiosityFollowLabel("/human-history/figures/马丁·路德·金")).toBe("阅读相关文章 →");
+    expect(curiosityFollowLabel("/human-history/figures")).toBe("更多奇趣知识 →");
+    expect(curiosityArticleHref("/human-history/figures/马丁·路德·金")).toBe(
+      "/human-history/figures/马丁·路德·金"
+    );
   });
 });
 
@@ -123,6 +136,11 @@ describe("curiosity deep links", () => {
     );
     expect(urlOf("iceland-oldest-parliament")).toBe("/human-history/knowledge/中世纪--维京人");
     expect(urlOf("oxford-older-than-aztecs")).toBe("/human-history/knowledge/美洲--阿兹特克帝国");
+    expect(urlOf("woolly-mammoth-pyramids-overlap")).toBe("/human-history/knowledge/文明--古埃及");
+    expect(urlOf("sahara-was-green")).toBe("/human-history/knowledge/远古时期--农业革命");
+    expect(urlOf("harvard-older-than-calculus")).toBe(
+      "/mathematics/knowledge-base/分析--微积分的故事"
+    );
   });
 
   it("does not index section-list dumps either", () => {

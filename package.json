@@ -2,7 +2,7 @@
   "name": "episteme",
   "version": "0.0.0",
   "private": true,
-  "description": "Episteme · 格致 — 重现人类认识世界的旅程. A visual, immersive knowledge platform spanning fifteen subjects.",
+  "description": "Episteme · 格致 — 重现人类认识世界的旅程. A visual, immersive knowledge platform spanning eighteen subjects.",
   "packageManager": "pnpm@10.27.0",
   "engines": {
     "node": "22.x"

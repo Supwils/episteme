@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { buildValidRoutes } from "@/scripts/valid-routes";
+import { buildValidRoutes, normalizeRoute } from "@/scripts/valid-routes";
 import { getDailySelected } from "../daily-selector";
 import {
   ARTS_FACTS,
@@ -111,6 +111,15 @@ describe("daily fact article links", () => {
     expect(knowledge.fact).not.toContain("也叫端午节");
   });
 
+  it("on 5 May names Children's Day without collapsing it onto lunar Duanwu", async () => {
+    const { getDailyKnowledge } = await import("../daily-knowledge");
+    const knowledge = getDailyKnowledge(new Date(2026, 4, 5));
+    expect(knowledge.date).toBe("2026-05-05");
+    expect(knowledge.fact).toContain("公历5月5日");
+    expect(knowledge.fact).toContain("不是同一天");
+    expect(knowledge.fact).not.toContain("也叫端午节");
+  });
+
   it("psychology calendar events that name an experiment resolve", () => {
     const valid = buildValidRoutes();
     const experimentLinks = PSYCHOLOGY_TODAY.filter((e) =>
@@ -205,6 +214,19 @@ describe("daily fact article links", () => {
     const timeline = PHILOSOPHY_TODAY.filter((e) => e.url === "/philosophy/timeline");
     expect(broken).toEqual([]);
     expect(timeline.length).toBeLessThan(PHILOSOPHY_TODAY.length / 2);
+  });
+
+  it("resolves calendar figure and event URLs through normalizeRoute", () => {
+    const valid = buildValidRoutes();
+    const urls = [...HISTORY_TODAY, ...PHILOSOPHY_TODAY]
+      .map((e) => e.url)
+      .filter(
+        (url) =>
+          url.startsWith("/human-history/figures/") || url.startsWith("/human-history/events/")
+      );
+    const broken = [...new Set(urls)].filter((url) => !valid.has(normalizeRoute(url))).sort();
+    expect(urls.length).toBeGreaterThan(0);
+    expect(broken).toEqual([]);
   });
 
   it("history calendar deep links resolve when they leave the timeline list", () => {

@@ -14,6 +14,40 @@ describe("route integrity: registry-driven history pages", () => {
   });
 });
 
+describe("normalizeRoute", () => {
+  it("encodes CJK figure and event slugs to match the catalog", () => {
+    const encoded = `/human-history/figures/${encodeURIComponent("孔子")}`;
+    expect(normalizeRoute("/human-history/figures/孔子")).toBe(encoded);
+    expect(normalizeRoute(encoded)).toBe(encoded);
+    expect(normalizeRoute("/human-history/events/洞窟壁画")).toBe(
+      `/human-history/events/${encodeURIComponent("洞窟壁画")}`
+    );
+    expect(valid.has(normalizeRoute("/human-history/figures/孔子"))).toBe(true);
+  });
+
+  it("does not encode knowledge-base or history-knowledge CJK slugs", () => {
+    const kb = "/life-science/knowledge-base/进化专题--眼睛的进化";
+    const history = "/human-history/knowledge/近代--俄罗斯帝国";
+    expect(normalizeRoute(kb)).toBe(kb);
+    expect(normalizeRoute(history)).toBe(history);
+    expect(valid.has(kb)).toBe(true);
+    expect(valid.has(history)).toBe(true);
+  });
+
+  it("does not throw on a malformed percent in a figure slug", () => {
+    expect(() => normalizeRoute("/human-history/figures/孔子%")).not.toThrow();
+    expect(normalizeRoute("/human-history/figures/孔子%")).toBe(
+      `/human-history/figures/${encodeURIComponent("孔子%")}`
+    );
+  });
+
+  it("strips origin, query, hash, and a trailing slash", () => {
+    expect(normalizeRoute("https://example.com/philosophy/thinkers/plato/?x=1#top")).toBe(
+      "/philosophy/thinkers/plato"
+    );
+  });
+});
+
 describe("route integrity: cross-domain references", () => {
   it("every cross-domain ref resolves to a real route (both directions)", () => {
     const broken: string[] = [];

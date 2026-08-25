@@ -2,7 +2,7 @@
 title: Web 安全：XSS 与 CSRF
 title_en: "Web Security: XSS and CSRF"
 status: published
-updated: 2026-06-28
+updated: 2026-08-24
 category: 安全
 order: 57
 field: 计算机科学 · 网络安全
@@ -22,13 +22,13 @@ related:
 
 2005 年 10 月，一个 19 岁的 Myspace 用户 Samy Kamkar 发现他无法在自己的个人页面里加 CSS 样式——网站过滤掉了大多数 HTML 标签。他花了几天时间找漏洞，最终找到了一个可以注入 JavaScript 的方法，并写了一个自动添加他为好友的蠕虫脚本。
 
-约 20 小时后，超过 100 万用户的页面执行了这段脚本、把 Samy 加为好友，Myspace 被迫关闭服务。这是历史上传播最快的蠕虫之一，而攻击媒介只是一段被注入到 HTML 页面里的 JavaScript——**跨站脚本攻击（XSS）** 的教科书案例。
+约 20 小时后，超过 100 万用户的页面执行了这段脚本、把 Samy 加为好友，Myspace 被迫关闭服务。蠕虫还会在受害者页面上留下一句 "but most of all, Samy is my hero"。这是历史上传播最快的蠕虫之一，攻击媒介只是一段被注入到 HTML 里的 JavaScript——**跨站脚本攻击（XSS）** 的教科书案例。Kamkar 后来与 Myspace 和解，没有进监狱，但联邦法院禁止他在一段时间里使用电脑。漏洞可以是一句玩笑，放大之后就不是。
 
 ## Web 安全的根本问题：信任边界
 
 Web 应用的安全本质上是**信任边界**的问题：浏览器信任来自同一域名的内容；服务器信任携带合法会话令牌的请求。攻击者的目标是跨越这些边界——让浏览器执行攻击者的代码，或让服务器接受攻击者的请求。
 
-XSS 攻击同源策略（Same-Origin Policy），CSRF 攻击会话认证机制。这两类攻击长期占据 OWASP（开放网络应用安全项目）Top 10 漏洞榜单，影响范围从个人账户到企业系统。
+XSS 攻击同源策略（Same-Origin Policy），CSRF 攻击会话认证机制。这两类攻击长期占据 OWASP（开放网络应用安全项目）Top 10 漏洞榜单，影响范围从个人账户到企业系统。同源策略把"谁能读这份 DOM"钉在协议、主机、端口三件套上；Cookie 的作用域却可以宽松到整个站点。两个边界不一致，就是 CSRF 和 XSS 能分工合作的缝。浏览器自动带证件，页面又肯执行外来的字，副官和伪造命令就凑齐了。安全工程大量时间花在把这两条边界重新对齐，而不是发明一种新加密。
 
 具体到排名：OWASP Top 10 的 2017 版里，注入（Injection）高居第一，XSS 单独位列第七。2021 版做了一次重要归并——XSS 被并入 A03「注入」大类，整体落到第三名。这不是因为 XSS 变少了，而是 OWASP 认定它本质上就是一种注入：把脚本注入到受害者的浏览器里执行。
 
@@ -38,7 +38,7 @@ XSS 攻击同源策略（Same-Origin Policy），CSRF 攻击会话认证机制�
 
 HTTPS（TLS）保护的是**传输层**：它防止数据在网络途中被窃听或篡改，并验证你连接的确实是 `bank.com` 本身。但 XSS 和 CSRF 都是**应用层**漏洞，发生在数据已经安全抵达浏览器或服务器**之后**。
 
-一段被注入的脚本，照样能在加密连接里执行；一个伪造的转账请求，照样能带着合法 Cookie 通过 HTTPS 发出去。加密只保证「没人在路上动手脚」，并不保证「送达的内容本身是善意的」。把传输安全当成应用安全，是 Web 安全里最常见的认知错位。
+一段被注入的脚本，照样能在加密连接里执行；一个伪造的转账请求，照样能带着合法 Cookie 通过 HTTPS 发出去。加密只保证「没人在路上动手脚」，并不保证「送达的内容本身是善意的」。把传输安全当成应用安全，是 Web 安全里最常见的认知错位。证书链证明的是你连上了那块招牌，不证明招牌后面的模板会转义。攻击者要的不是拆开 TLS，是让已经解密的页面替他跑代码，或让已经带 Cookie 的浏览器替他提交。HTTPS 普及之后，XSS 和 CSRF 没有消失，只是不再需要在咖啡店里做中间人。安全预算若只买证书，应用层仍然赤裸。渗透测试里最便宜的洞，往往还是搜索框把参数原样写回页面。工具可以扫，最终仍要人决定这段输出走哪一种编码：HTML、属性、URL、JavaScript 字符串各是一张表。编码用错表，等于没编。这就是为什么"转义一下"不够当规范，必须写明上下文。HTML 正文里转义尖括号，进了 `<script>` 就不够；URL 里要先百分号编码。上下文错了，过滤器变成摆设。这是输出编码最容易被"我们已经转义过了"骗过的地方。
 
 ## XSS：跨站脚本攻击
 
@@ -63,11 +63,13 @@ document.getElementById('output').innerHTML = location.hash.substring(1);
 
 DOM 型 XSS 由安全研究者 Amit Klein 在 2005 年首次系统描述，他称之为「第三种 XSS」（XSS of the Third Kind）。它特别隐蔽：上面例子里的 `location.hash`（URL 中 `#` 之后的片段）按规范根本不会被发送到服务器，因此服务器端的输入过滤、Web 应用防火墙、输出编码统统看不到这段攻击载荷。
 
+三种 XSS 的分界是"恶意代码在哪一段被拼进页面"。存储型住在数据库里，对每个访客生效；反射型住在这一次响应里，要骗你点击；DOM 型根本不到服务器，过滤策略若只部署在后端，就会漏掉第三种。分类是为了选防线，不是为了考试名词。
+
 防御 DOM 型 XSS 必须落在客户端代码本身——避免用 `innerHTML`、`document.write`、`eval` 处理不可信数据，改用 `textContent` 等不会把字符串当 HTML 解析的接口。
 
 ### 防御 XSS
 
-**输出编码**：在把用户提供的数据插入 HTML 之前，对特殊字符（`<`、`>`、`&`、`"`、`'`）做 HTML 实体编码。现代模板引擎（React、Vue 的默认行为）自动做这件事——这是过去十年 XSS 显著减少的最主要原因。
+**输出编码**：在把用户提供的数据插入 HTML 之前，对特殊字符（`<`、`>`、`&`、`"`、`'`）做 HTML 实体编码。现代模板引擎（React、Vue 的默认行为）自动做这件事——这是过去十年 XSS 显著减少的最主要原因。默认转义改的是成本：危险操作要显式关掉保护，而不是危险操作是默认。认知偏差跨域已经点过这条。谁把 `dangerouslySetInnerHTML` 写进代码，等于在日志里签字。框架不能消灭 XSS，只是让大多数人不再亲手拼 HTML。剩下的洞，多半开在"我以为这段字符串已经干净了"。
 
 **内容安全策略（CSP，Content Security Policy）**：服务器通过 HTTP 头声明哪些来源的脚本是合法的，浏览器拒绝执行所有不在白名单中的脚本：
 
@@ -77,7 +79,7 @@ Content-Security-Policy: script-src 'self' https://trusted.cdn.com
 
 CSP 的设想可追溯到 2004 年，由 Mozilla 推动落地并在 Firefox 4 中首次实现；W3C 于 2012 年 11 月发布 CSP 1.0 候选推荐，2016 年的 Level 2 引入了 `nonce`（一次性随机值）与哈希白名单。值得注意的是，基于域名白名单的 CSP 在实践中常被绕过（详见下文「代价与争议」），因此现代最佳实践已转向基于 `nonce` 与 `'strict-dynamic'` 的「严格 CSP」——只信任带有正确一次性随机标记的脚本，而不再依赖一长串易出错的域名清单。
 
-**HttpOnly Cookie**：把会话 Cookie 标记为 `HttpOnly`，浏览器的 JavaScript 无法读取它，即使发生 XSS，攻击者也无法窃取 Cookie。
+**HttpOnly Cookie**：把会话 Cookie 标记为 `HttpOnly`，浏览器的 JavaScript 无法读取它，即使发生 XSS，攻击者也无法用 `document.cookie` 把会话偷走。HttpOnly 挡的是读 Cookie，挡不住脚本以你的身份发请求。XSS 一旦跑起来，CSRF 令牌也可以被同源脚本读走。所以"有 HttpOnly 就安全"是分层误读：它缩小失窃面，并不关闭执行面。纵深防御要把编码、CSP 和令牌叠在一起，单靠一枚 Cookie 旗标不够。
 
 ## CSRF：跨站请求伪造
 
@@ -89,7 +91,7 @@ CSP 的设想可追溯到 2004 年，由 Mozilla 推动落地并在 Firefox 4 �
 <img src="https://bank.com/transfer?to=attacker&amount=10000">
 ```
 
-浏览器加载这个"图片"时，实际上向银行发起了一个带用户 Cookie 的 GET 请求——如果银行允许 GET 请求做转账操作，攻击成功。
+浏览器加载这个"图片"时，实际上向银行发起了一个带用户 Cookie 的 GET 请求——如果银行允许 GET 请求做转账操作，攻击成功。这是安全方法被用错的现场：GET 被规定为只读，爬虫、预取和 `<img>` 都会去撞它。把转账写成 GET，等于把副作用交给任何能让浏览器发请求的人。CSRF 常被叫作"迷惑的副官"：浏览器忠实地带着你的证件去办事，却分不清命令是不是你下的。令牌要做的，就是让副官带上一句只有正站才知道的口令。
 
 ### 防御 CSRF
 
@@ -105,6 +107,8 @@ Chrome 80 于 2020 年 2 月起将无 SameSite 属性的 Cookie 默认按 `Lax` 
 
 但 `SameSite` 不是银弹，不能完全取代 CSRF Token。`Lax` 仍然允许跨站的顶层 GET 导航携带 Cookie，对「点击链接即触发副作用」的接口仍有风险；老旧浏览器可能根本不支持该属性；而且「同站」（same-site）不等于「同源」，同一站点下被攻陷的子域仍可能绕过限制。因此严谨的做法是把 `SameSite` 与 CSRF Token 叠加使用，构成纵深防御。
 
+CORS 常被拿来和 CSRF 混为一谈。跨源资源共享管的是浏览器是否允许脚本**读**另一个源的响应；CSRF 管的是浏览器是否会**带着 Cookie 发出**那个请求。读被挡住，写仍然可能发生。把 CORS 配宽松，解决不了伪造转账；把 SameSite 设严，也替代不了输出编码。工具箱里每一件只挡一类越界。
+
 **双重提交 Cookie**：把 CSRF Token 同时存入 Cookie 和表单，服务器验证二者是否一致——即使不需要服务器存储 Token 也能防护。
 
 ## XSS 与 CSRF 的对比
@@ -118,7 +122,9 @@ Chrome 80 于 2020 年 2 月起将无 SameSite 属性的 Cookie 默认按 `Lax` 
 
 ## 代价与争议
 
-**CSP 的部署困难**：严格的 CSP 策略能有效防止 XSS，但现代 Web 应用往往加载来自多个 CDN、分析服务、广告平台的脚本，维护精确的白名单极其繁琐，导致许多网站的 CSP 策略过于宽松。Google 安全团队的研究（Weichselbaum 等，论文题为《CSP Is Dead, Long Live CSP!》，ACM CCS 2016）分析了约 168 万个使用 CSP 的站点，发现其中约 94.7% 的策略可以被绕过，99% 以上站点的 CSP 对 XSS 几乎没有实质防护。论文的结论正是：放弃域名白名单，改用前文提到的基于 `nonce` 的严格 CSP。
+**CSP 的部署困难**：严格的 CSP 策略能有效防止 XSS，但现代 Web 应用往往加载来自多个 CDN、分析服务、广告平台的脚本，维护精确的白名单极其繁琐，导致许多网站的 CSP 策略过于宽松。Google 安全团队的研究（Weichselbaum 等，论文题为《CSP Is Dead, Long Live CSP!》，ACM CCS 2016）分析了约 168 万个使用 CSP 的站点，发现其中约 94.7% 的策略可以被绕过，99% 以上站点的 CSP 对 XSS 几乎没有实质防护。论文的结论正是：放弃域名白名单，改用前文提到的基于 `nonce` 的严格 CSP。白名单假设"这个域里的人都是好人"，而 CDN 上任何一个被缓存投毒的文件都能把整份名单作废。一次性随机数把信任从主体换成这一次响应里的标记：没有服务器刚发的 nonce，脚本不许跑。部署成本换到模板层，换来的是名单维护这场必输的游戏可以停。
+
+供应链攻击把同一逻辑推到第三方：你信任的库文件被改一行，支付页就变成 exfil。子资源完整性（SRI）用哈希锁住"这一份"，而不是"来自这个域的任何一份"。抽象泄漏定律在安全里的对应，就是身份不等于内容。
 
 **移动端 API 的 CSRF**：纯 JSON API 不使用表单提交，通常用 Bearer Token（而非 Cookie）认证，天然免疫 CSRF——但也带来了 Token 存储安全的新问题（LocalStorage 可被 XSS 读取；Cookie 又需要防 CSRF）。
 
@@ -147,4 +153,5 @@ Chrome 80 于 2020 年 2 月起将无 SameSite 属性的 Cookie 默认按 `Lax` 
 
 - OWASP Top 10 Project. *Top 10 Web Application Security Risks.* owasp.org, 2021.（每隔数年更新的权威 Web 安全榜单）
 - Fogie, S. et al. *XSS Attacks: Cross Site Scripting Exploits and Defense.* Syngress, 2007.
+- Kamkar, S. Technical write-up of the Samy Myspace XSS worm, 2005.
 - Michal Zalewski. *The Tangled Web: A Guide to Securing Modern Web Applications.* No Starch Press, 2011.（浏览器安全模型的深度指南）

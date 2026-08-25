@@ -100,6 +100,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "低碳水泥与循环混凝土：怎样减掉石灰石必然释放的碳",
     },
     {
+      url: "/mathematics/theorems/pythagorean-theorem",
+      title: "勾股定理",
+    },
+    {
       url: "/engineering/civil/skyscrapers",
       title: "摩天楼：风、地震与垂直交通的工程解法",
     },
@@ -232,6 +236,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/processes/weathering-soil",
       title: "风化与成土",
+    },
+    {
+      url: "/chemistry/concepts/functional-groups",
+      title: "官能团",
     },
     {
       url: "/earth-science/concepts/ocean-acidification",
@@ -490,6 +498,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/关键事件--内共生起源",
       title: "内共生：真核细胞的革命性诞生",
+    },
+    {
+      url: "/chemistry/concepts/thermochemistry",
+      title: "热化学",
     },
     {
       url: "/universe-physics/knowledge-base/热力学--熵与时间之箭",
@@ -804,6 +816,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "蛋白质的化学",
     },
     {
+      url: "/chemistry/concepts/functional-groups",
+      title: "官能团",
+    },
+    {
       url: "/life-science/frontier/synthetic-genome-mirror-life",
       title: "合成基因组与镜像生命——最小细胞与最大风险",
     },
@@ -830,6 +846,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/pain-and-analgesia",
       title: "疼痛、镇痛与阿片决策",
+    },
+    {
+      url: "/chemistry/concepts/isomerism",
+      title: "同分异构",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--物质反物质不对称与重子生成",
@@ -1072,6 +1092,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "摩尔与物质的量",
     },
     {
+      url: "/chemistry/concepts/solutions-and-solubility",
+      title: "溶液与溶解度",
+    },
+    {
       url: "/mathematics/theorems/taylor-theorem",
       title: "泰勒定理",
     },
@@ -1116,6 +1140,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/电磁学--dielectrics-and-polarization",
       title: "电介质与电极化",
+    },
+    {
+      url: "/chemistry/concepts/functional-groups",
+      title: "官能团",
     },
     {
       url: "/chemistry/substances/nucleic-acids-chemistry",
@@ -1169,11 +1197,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/chemistry/substances/hydrocarbons",
       title: "烃类",
     },
+    {
+      url: "/chemistry/concepts/isomerism",
+      title: "同分异构",
+    },
   ],
   "/chemistry/concepts/isomerism": [
     {
       url: "/medicine/events/thalidomide-tragedy",
       title: "反应停悲剧（1957）",
+    },
+    {
+      url: "/chemistry/concepts/photochemistry",
+      title: "光化学",
     },
     {
       url: "/chemistry/concepts/chirality",
@@ -1620,6 +1656,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/chemistry/concepts/reaction-mechanisms": [
     {
+      url: "/chemistry/concepts/functional-groups",
+      title: "官能团",
+    },
+    {
       url: "/chemistry/methods/retrosynthesis-and-reaction-optimization",
       title: "逆合成与反应优化：把目标分子变成可执行路线",
     },
@@ -2037,6 +2077,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/chemistry/figures/berzelius": [
+    {
+      url: "/chemistry/concepts/isomerism",
+      title: "同分异构",
+    },
     {
       url: "/chemistry/figures/dalton",
       title: "约翰·道尔顿",
@@ -2654,6 +2698,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "热质说的兴衰",
     },
     {
+      url: "/chemistry/concepts/isomerism",
+      title: "同分异构",
+    },
+    {
       url: "/life-science/knowledge-base/spontaneous-generation",
       title: "自然发生说：两千年、三轮实验、一场被操纵的评奖",
     },
@@ -2864,6 +2912,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/chemistry/reactions/grignard-reaction": [
     {
+      url: "/chemistry/concepts/functional-groups",
+      title: "官能团",
+    },
+    {
       url: "/chemistry/concepts/organometallic-chemistry",
       title: "有机金属化学",
     },
@@ -2876,6 +2928,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/reactions/fermentation",
       title: "发酵",
+    },
+    {
+      url: "/chemistry/concepts/functional-groups",
+      title: "官能团",
     },
     {
       url: "/chemistry/milestones/synthetic-dyes-industry",
@@ -3026,6 +3082,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/functional-groups",
       title: "官能团",
+    },
+    {
+      url: "/chemistry/concepts/isomerism",
+      title: "同分异构",
     },
   ],
   "/chemistry/substances/metals-and-alloys": [
@@ -4528,6 +4588,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/concepts/compilers": [
     {
+      url: "/computer-science/concepts/operating-systems",
+      title: "操作系统",
+    },
+    {
       url: "/computer-science/pioneers/grace-hopper",
       title: "格蕾丝·霍普",
     },
@@ -4564,6 +4628,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/substances/semiconductors-materials",
       title: "半导体材料",
+    },
+    {
+      url: "/computer-science/concepts/operating-systems",
+      title: "操作系统",
     },
     {
       url: "/computer-science/pioneers/charles-babbage",
@@ -5252,6 +5320,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/分子生物学--表观遗传",
       title: "表观遗传：不改变DNA的遗传变化",
+    },
+    {
+      url: "/computer-science/concepts/operating-systems",
+      title: "操作系统",
     },
     {
       url: "/computer-science/concepts/b-trees-and-lsm-trees",
@@ -7048,6 +7120,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/algorithms/union-find",
       title: "并查集",
+    },
+    {
+      url: "/computer-science/concepts/operating-systems",
+      title: "操作系统",
     },
     {
       url: "/computer-science/pioneers/dennis-ritchie",
@@ -25390,6 +25466,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "网络科学",
     },
     {
+      url: "/life-science/knowledge-base/分子生物学--细胞膜与跨膜运输",
+      title: "细胞膜与跨膜运输：决定什么能进、什么能出的边界",
+    },
+    {
       url: "/life-science/species/octopus",
       title: "章鱼",
     },
@@ -27912,6 +27992,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "拉格朗日与哈密顿力学",
     },
     {
+      url: "/mathematics/theorems/noethers-theorem",
+      title: "诺特定理",
+    },
+    {
       url: "/universe-physics/knowledge-base/物理学--普朗克常数与量子化",
       title: "普朗克常数与量子化",
     },
@@ -28148,6 +28232,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/algorithms/topological-sort",
       title: "拓扑排序",
+    },
+    {
+      url: "/mathematics/concepts/graph-theory",
+      title: "图论",
     },
     {
       url: "/cosmology/knowledge-base/系外行星--SETI地外文明搜寻",
@@ -29162,6 +29250,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/mathematics/concepts/galois-theory": [
     {
+      url: "/mathematics/theorems/fundamental-theorem-of-algebra",
+      title: "代数基本定理",
+    },
+    {
       url: "/mathematics/concepts/field",
       title: "域",
     },
@@ -29472,6 +29564,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/reaction-mechanisms",
       title: "有机反应机理",
+    },
+  ],
+  "/mathematics/concepts/graph-theory-applications": [
+    {
+      url: "/mathematics/concepts/graph-theory",
+      title: "图论",
     },
   ],
   "/mathematics/concepts/group": [
@@ -30290,6 +30388,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/algorithms/gradient-boosting",
       title: "梯度提升",
+    },
+    {
+      url: "/mathematics/concepts/graph-theory",
+      title: "图论",
     },
     {
       url: "/mathematics/concepts/graph-theory-applications",
@@ -31980,6 +32082,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "集合论",
     },
   ],
+  "/mathematics/mathematicians/hilbert": [
+    {
+      url: "/mathematics/theorems/noethers-theorem",
+      title: "诺特定理",
+    },
+  ],
   "/mathematics/mathematicians/leibniz": [
     {
       url: "/human-history/knowledge/人物--牛顿",
@@ -32014,6 +32122,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/ring",
       title: "环",
+    },
+    {
+      url: "/mathematics/theorems/noethers-theorem",
+      title: "诺特定理",
     },
   ],
   "/mathematics/paradoxes/godel-incompleteness-paradox": [
@@ -32211,6 +32323,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/mathematics/knowledge-base/几何--拓扑学入门",
       title: "拓扑学入门",
     },
+    {
+      url: "/mathematics/concepts/graph-theory",
+      title: "图论",
+    },
   ],
   "/mathematics/theorems/fundamental-theorem-of-algebra": [
     {
@@ -32234,6 +32350,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/processes/watershed-hydrology",
       title: "流域水文",
+    },
+    {
+      url: "/mathematics/theorems/taylor-theorem",
+      title: "泰勒定理",
     },
   ],
   "/mathematics/theorems/godel-incompleteness": [
@@ -34556,6 +34676,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "米歇尔·福柯的社会学",
     },
     {
+      url: "/life-science/knowledge-base/人体--免疫系统",
+      title: "免疫系统：先天与适应性防御网络",
+    },
+    {
       url: "/life-science/knowledge-base/医学--神经退行性疾病",
       title: "神经退行性疾病：阿尔茨海默病与帕金森病",
     },
@@ -34916,6 +35040,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/immune-system",
       title: "免疫系统",
+    },
+    {
+      url: "/life-science/knowledge-base/人体--免疫系统",
+      title: "免疫系统：先天与适应性防御网络",
     },
   ],
   "/medicine/diseases/cancer": [
@@ -35825,6 +35953,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/medicine/events/smallpox-eradication": [
+    {
+      url: "/life-science/knowledge-base/人体--免疫系统",
+      title: "免疫系统：先天与适应性防御网络",
+    },
     {
       url: "/medicine/concepts/vaccination",
       title: "疫苗原理",
@@ -37320,6 +37452,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/diseases/influenza",
       title: "流感",
+    },
+    {
+      url: "/life-science/knowledge-base/人体--免疫系统",
+      title: "免疫系统：先天与适应性防御网络",
     },
     {
       url: "/medicine/concepts/drug-development",
@@ -51427,10 +51563,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/philosophy/concepts/happiness",
       title: "幸福",
     },
-    {
-      url: "/psychology/phenomena/serial-position-effect",
-      title: "序列位置效应",
-    },
   ],
   "/psychology/phenomena/perception-physiology": [
     {
@@ -59558,6 +59690,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/frontier/nanohertz-gravitational-waves",
       title: "纳赫兹引力波背景：脉冲星阵列开启引力波天文学新窗口",
+    },
+    {
+      url: "/mathematics/theorems/noethers-theorem",
+      title: "诺特定理",
     },
     {
       url: "/philosophy/questions/what-is-time",

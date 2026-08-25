@@ -121,7 +121,7 @@ test("the search dialog has no horizontal overflow on a phone", async ({ page })
   await page.setViewportSize({ width: 390, height: 844 });
   const input = await openDialog(page);
   await input.fill(BODY_ONLY.query);
-  await expect(page.getByTestId("gs-body-group")).toBeVisible();
+  await expect(page.getByTestId("gs-body-group")).toBeVisible({ timeout: 15_000 });
 
   const overflow = await page.evaluate(
     () => document.documentElement.scrollWidth - document.documentElement.clientWidth

@@ -25,6 +25,8 @@ related:
 
 这是一个**类型错误**——程序把一种数据（大浮点数）当作另一种（小整数）使用，而系统没有在运行前阻止它。
 
+溢出的那段转换，是从阿丽亚娜 4 原样搬来的。4 号的水平速度到不了会溢出的值，所以从未被保护。5 号推力更大，同一变量在升空约 37 秒就越界。类型错误在这里不是"程序员不会算术"，是一次把旧不变量当成永恒不变量的复用。静态检查若能跨过模块边界问"这个 16 位盒子还装得下新火箭的速度吗"，那晚的火箭不必解体。它问不了，因为规格里根本没把这条不变量写成类型。
+
 类型系统就是语言中用来**在程序运行前发现这类错误**的机制。它定义了数据的种类，以及哪些操作在哪些数据上是合法的。
 
 ## 破除误解：类型不只是标注数字还是字符串
@@ -50,6 +52,8 @@ related:
 罗素的解药就是**类型**。在 1908 年的论文《以类型论为基础的数理逻辑》中，他把对象分成层级：个体是最低一层，个体的集合高一层，集合的集合再高一层，并规定一个集合只能包含比它低一层的东西。"集合包含自身"这句话因此根本无法被写出来——它成了一个"类型错误"，悖论在语法层面就被挡住了。
 
 1940 年，逻辑学家阿隆佐·邱奇（Alonzo Church）把这套想法重做在 λ 演算（一种描述函数计算的形式系统）之上，提出了**简单类型 λ 演算**。这正是今天几乎所有编程语言类型系统的直系祖先：它把"哪些东西能和哪些东西组合在一起"这个问题，从数学搬进了计算。
+
+1972 年让-伊夫·吉拉德（Jean-Yves Girard）、1974 年约翰·雷诺兹（John Reynolds）各自提出系统 F：类型可以量化，一个函数对所有类型用同一套代码。这就是参数多态。Java 的泛型、Rust 的 trait 约束、Haskell 的类型类，都是这条线的工程后代。罗素分层挡住了"包含自身"；系统 F 则在分层之外给出受控的"对所有类型"。表达力往上走一步，推断就不再永远自动——Hindley–Milner 的完整推断在系统 F 里一般不可判定。标注重新出现，不是因为程序员懒，而是因为更强的系统把自动推断的边界推穿了。
 
 ## 静态类型与动态类型
 
@@ -177,6 +181,9 @@ Rust 的**所有权系统（Ownership）**规定：每个值只有一个所有�
 - Pierce, B. *Types and Programming Languages (TAPL).* MIT Press, 2002. （类型论的标准教材）
 - Siek, J. G. & Taha, W. *Gradual Typing for Functional Languages.* Scheme and Functional Programming Workshop, 2006. （"渐进类型"一词的提出）
 - Wadler, P. *Propositions as Types.* CACM 58(12), 2015. （Curry-Howard 同构的综述，面向普通程序员）
+- Girard, J.-Y. *Interprétation fonctionnelle et élimination des coupures de l'arithmétique d'ordre supérieur.* Thèse d'État, Université Paris VII, 1972. （系统 F / 第二阶 λ 演算）
+- Reynolds, J. C. *Towards a Theory of Type Structure.* Programming Symposium, Paris. LNCS 19, Springer, 1974. （参数多态的另一条独立提出）
+- Inquiry Board. *ARIANE 5 Flight 501 Failure: Report by the Inquiry Board.* ESA, 1996. （64 位到 16 位转换与阿丽亚娜 4 代码复用）
 - Matsakis, N. & Klock, F. *The Rust Language.* ACM SIGADA, 2014. （Rust 所有权系统的介绍）
 - U.S. National Security Agency. *Software Memory Safety (Cybersecurity Information Sheet).* 2022. （建议从 C/C++ 转向内存安全语言）
 - Office of the National Cyber Director, The White House. *Back to the Building Blocks: A Path Toward Secure and Measurable Software.* 2024. （内存安全的美国国家政策报告）
