@@ -26,15 +26,16 @@ export interface KnowledgeSearch {
 }
 
 /**
- * Drives both search tiers. The title tier answers from a Worker as the reader
- * types; the body tier is a debounced request, because scanning 10M characters
- * of prose is worth a round trip but not worth one per keystroke.
+ * Drives both search tiers. The title tier answers in-browser as the reader
+ * types; the body tier is a debounced request, because scanning article
+ * prose is worth a round trip but not worth one per keystroke.
  */
 export function useKnowledgeSearch(): KnowledgeSearch {
   const [query, setQuery] = useState("");
   const [titleResults, setTitleResults] = useState<SearchResult[]>([]);
   const [bodyHits, setBodyHits] = useState<SearchResult[]>([]);
-  const [searching, setSearching] = useState(false);
+  const [searchingTitles, setSearchingTitles] = useState(false);
+  const [searchingBody, setSearchingBody] = useState(false);
 
   const client = useRef<ReturnType<typeof createSearchClient> | null>(null);
   if (client.current === null) client.current = createSearchClient();
@@ -43,29 +44,39 @@ export function useKnowledgeSearch(): KnowledgeSearch {
   const trimmed = query.trim();
 
   useEffect(() => {
+    setTitleResults([]);
     if (!trimmed) {
-      setTitleResults([]);
+      setSearchingTitles(false);
       return;
     }
     let current = true;
-    void client.current?.search(trimmed, TITLE_LIMIT).then((hits) => {
-      if (current) setTitleResults(hits);
-    });
+    setSearchingTitles(true);
+    void client.current
+      ?.search(trimmed, TITLE_LIMIT)
+      .catch(() => [])
+      .then((hits) => {
+        if (!current) return;
+        setTitleResults(hits);
+        setSearchingTitles(false);
+      });
     return () => {
       current = false;
     };
   }, [trimmed]);
 
   useEffect(() => {
+    setBodyHits([]);
     if (!trimmed) {
-      setBodyHits([]);
-      setSearching(false);
+      setSearchingBody(false);
       return;
     }
     let current = true;
-    setSearching(true);
+    setSearchingBody(true);
+    const controller = new AbortController();
     const timer = setTimeout(() => {
-      fetch(`/api/search?q=${encodeURIComponent(trimmed)}&limit=${BODY_LIMIT}`)
+      fetch(`/api/search?q=${encodeURIComponent(trimmed)}&limit=${BODY_LIMIT}`, {
+        signal: controller.signal,
+      })
         .then((response) => (response.ok ? (response.json() as Promise<PhraseResponse>) : null))
         .catch(() => null)
         .then((payload) => {
@@ -73,13 +84,14 @@ export function useKnowledgeSearch(): KnowledgeSearch {
           // The endpoint echoes the query it answered, so a slow response for an
           // earlier keystroke cannot overwrite results for the current one.
           setBodyHits(payload && payload.query === trimmed ? payload.hits : []);
-          setSearching(false);
+          setSearchingBody(false);
         });
     }, BODY_DEBOUNCE_MS);
 
     return () => {
       current = false;
       clearTimeout(timer);
+      controller.abort();
     };
   }, [trimmed]);
 
@@ -93,7 +105,7 @@ export function useKnowledgeSearch(): KnowledgeSearch {
     setQuery: useCallback((value: string) => setQuery(value), []),
     titleResults,
     bodyResults,
-    searching,
+    searching: searchingTitles || searchingBody,
     warmup: useCallback(() => client.current?.warmup?.(), []),
   };
 }

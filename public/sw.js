@@ -34,46 +34,60 @@ function trimCacheKeys(keys, limit) {
 
 // --- cache strategies ---
 
+// CacheStorage is best-effort: private browsing, eviction and quota failures
+// must not turn a successful network request into stale content or an error.
+async function readCached(request, cacheName) {
+  try {
+    const cache = cacheName ? await caches.open(cacheName) : caches;
+    return await cache.match(request);
+  } catch {
+    return undefined;
+  }
+}
+
+async function storeResponse(request, response, cacheName, limit) {
+  if (!response.ok) return;
+  try {
+    const cache = await caches.open(cacheName);
+    await cache.put(request, response.clone());
+    if (limit) await trimCache(cache, limit);
+  } catch {
+    // The online response remains usable even if offline storage is unavailable.
+  }
+}
+
 async function networkFirst(request, cacheName, limit) {
   try {
     const response = await fetch(request);
-    if (response.ok) {
-      const cache = await caches.open(cacheName);
-      await cache.put(request, response.clone());
-      if (limit) await trimCache(cache, limit);
-    }
+    await storeResponse(request, response, cacheName, limit);
     return response;
   } catch {
-    const cached = await caches.match(request);
-    return cached || (await caches.match("/")) || offline();
+    return (await readCached(request)) || (await readCached("/")) || offline();
   }
 }
 
 async function cacheFirst(request, cacheName) {
-  const cached = await caches.match(request);
+  const cached = await readCached(request);
   if (cached) return cached;
   try {
     const response = await fetch(request);
-    if (response.ok) {
-      const cache = await caches.open(cacheName);
-      await cache.put(request, response.clone());
-    }
+    await storeResponse(request, response, cacheName);
     return response;
   } catch {
     return offline();
   }
 }
 
-async function staleWhileRevalidate(request, cacheName) {
-  const cache = await caches.open(cacheName);
-  const cached = await cache.match(request);
-  const network = fetch(request)
-    .then((response) => {
-      if (response.ok) cache.put(request, response.clone());
-      return response;
-    })
-    .catch(() => cached || offline());
-  return cached || network;
+function staleWhileRevalidate(request, cacheName) {
+  const cached = readCached(request, cacheName);
+  const network = fetch(request);
+  const revalidation = network
+    .then((response) => storeResponse(request, response, cacheName))
+    .catch(() => {});
+  return {
+    response: cached.then((response) => response || network.catch(() => offline())),
+    revalidation,
+  };
 }
 
 async function trimCache(cache, limit) {
@@ -116,7 +130,11 @@ self.addEventListener("fetch", (event) => {
   } else if (strategy === "immutable") {
     event.respondWith(cacheFirst(request, STATIC_CACHE));
   } else if (strategy === "asset") {
-    event.respondWith(staleWhileRevalidate(request, ASSET_CACHE));
+    const { response, revalidation } = staleWhileRevalidate(request, ASSET_CACHE);
+    event.respondWith(response);
+    // Register in the event callback, not after an await. A cached response can
+    // finish before revalidation; keep the worker alive through the cache write.
+    event.waitUntil(revalidation);
   }
   // "passthrough" → let the browser handle it untouched.
 });

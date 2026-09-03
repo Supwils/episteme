@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { subscribeToScrollFrame } from "@/lib/scroll-frame";
 
 export function ScrollToTop() {
   const [visible, setVisible] = useState(false);
@@ -10,9 +11,13 @@ export function ScrollToTop() {
   const pathActive = useSearchParams().get("path") !== null;
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 300);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    let previousVisible: boolean | undefined;
+    return subscribeToScrollFrame(({ scrollY }) => {
+      const nextVisible = scrollY > 300;
+      if (nextVisible === previousVisible) return;
+      previousVisible = nextVisible;
+      setVisible(nextVisible);
+    });
   }, []);
 
   if (!visible) return null;

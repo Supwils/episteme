@@ -20,19 +20,25 @@ export function ReadingModeControls() {
   const [mode, setMode] = useState<ReadingMode>("standard");
 
   useEffect(() => {
-    const saved = window.localStorage.getItem(STORAGE_KEY);
-    if (isReadingMode(saved)) {
-      setMode(saved);
-      document.documentElement.dataset.readingMode = saved;
-    } else {
-      document.documentElement.dataset.readingMode = "standard";
+    let saved: string | null = null;
+    try {
+      saved = window.localStorage.getItem(STORAGE_KEY);
+    } catch {
+      // Storage may be disabled; reading controls still work for this page.
     }
+    const initialMode = isReadingMode(saved) ? saved : "standard";
+    setMode(initialMode);
+    document.documentElement.dataset.readingMode = initialMode;
   }, []);
 
   function selectMode(nextMode: ReadingMode) {
     setMode(nextMode);
     document.documentElement.dataset.readingMode = nextMode;
-    window.localStorage.setItem(STORAGE_KEY, nextMode);
+    try {
+      window.localStorage.setItem(STORAGE_KEY, nextMode);
+    } catch {
+      // Persistence is optional, not a prerequisite for changing the layout.
+    }
   }
 
   return (

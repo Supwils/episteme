@@ -34,13 +34,13 @@ export function hasLearningRouteUrlState(searchParams: URLSearchParams): boolean
 export function parseLearningRouteUrlState(searchParams: URLSearchParams): LearningRouteUrlState {
   const requestedDomain = searchParams.get(PARAMS.domain)?.trim();
   const domainId =
-    requestedDomain && requestedDomain in COVERAGE_DOMAIN_META
+    requestedDomain && Object.hasOwn(COVERAGE_DOMAIN_META, requestedDomain)
       ? (requestedDomain as CoverageDomainId)
       : undefined;
   const level = parseKnowledgeLevel(searchParams.get(PARAMS.level)) ?? undefined;
   const requestedConfidence = searchParams.get(PARAMS.confidence)?.trim();
   const confidence =
-    requestedConfidence && requestedConfidence in KNOWLEDGE_BRANCH_CONFIDENCE_META
+    requestedConfidence && Object.hasOwn(KNOWLEDGE_BRANCH_CONFIDENCE_META, requestedConfidence)
       ? (requestedConfidence as KnowledgeBranchConfidence)
       : undefined;
   const targetId = searchParams.get(PARAMS.target)?.trim() || null;

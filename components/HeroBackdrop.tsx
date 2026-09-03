@@ -139,6 +139,7 @@ export function HeroBackdrop() {
     <div
       ref={wrapRef}
       aria-hidden="true"
+      data-home-hero-backdrop
       className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[760px] overflow-hidden"
       style={{
         maskImage: "linear-gradient(to bottom, black 55%, transparent 100%)",

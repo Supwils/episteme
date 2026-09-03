@@ -8,6 +8,7 @@ import { LatestUpdates } from "../components/LatestUpdates";
 import { FeaturedContent } from "../components/FeaturedContent";
 import { DailyKnowledgeCard } from "../components/DailyKnowledgeCard";
 import { DeferredHomeKnowledgeContinuum } from "../components/DeferredHomeKnowledgeContinuum";
+import { HomeMotionController } from "../components/HomeMotionController";
 import { getDailyKnowledge } from "../lib/daily-knowledge";
 import { DOMAINS } from "../lib/data";
 import { getClustersWithDomains } from "../lib/domain-clusters";
@@ -16,20 +17,27 @@ import { SITE_URL } from "../lib/constants";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Episteme · 格致 — 重现人类认识世界的旅程",
-  description:
-    "以可视化、沉浸式的方式探索人类最重要的知识，涵盖自然科学、形式科学、人文与社会科学等 18 个领域。",
+  alternates: { canonical: "/" },
+  title: "Episteme · 格致 — 从问题出发",
+  description: "整理十八个领域的文章、知识图谱与阅读路线，帮助你顺着概念之间的联系继续阅读。",
   openGraph: {
-    title: "Episteme · 格致 — 重现人类认识世界的旅程",
-    description:
-      "以可视化、沉浸式的方式探索人类最重要的知识，涵盖自然科学、形式科学、人文与社会科学等 18 个领域。",
+    title: "Episteme · 格致 — 从问题出发",
+    description: "整理十八个领域的文章、知识图谱与阅读路线，帮助你顺着概念之间的联系继续阅读。",
     type: "website",
     images: [
       {
-        url: `/api/og?title=${encodeURIComponent("Episteme · 格致")}&description=${encodeURIComponent("知识即服务平台")}`,
+        url: `/api/og?title=${encodeURIComponent("Episteme · 格致")}&description=${encodeURIComponent("从问题出发，顺着知识的线索继续读下去")}`,
         width: 1200,
         height: 630,
       },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Episteme · 格致 — 从问题出发",
+    description: "整理十八个领域的文章、知识图谱与阅读路线，帮助你顺着概念之间的联系继续阅读。",
+    images: [
+      `/api/og?title=${encodeURIComponent("Episteme · 格致")}&description=${encodeURIComponent("从问题出发，顺着知识的线索继续读下去")}`,
     ],
   },
 };
@@ -40,7 +48,7 @@ const websiteJsonLd = {
   name: "Episteme · 格致",
   url: SITE_URL,
   description:
-    "重现人类认识世界的旅程——以可视化、沉浸式的方式探索物理学、宇宙学、化学、地球科学、生命科学、医学、数学、计算机科学、心理学、哲学、人类历史、社会学、经济学、政治学、语言学、法学、艺术与工程。",
+    "整理自然科学、形式科学、社会科学与人文学科的文章、知识图谱与阅读路线，帮助读者顺着概念之间的联系继续阅读。",
   potentialAction: {
     "@type": "SearchAction",
     target: {
@@ -55,20 +63,24 @@ export default function HomePage() {
   const daily = getDailyKnowledge();
 
   return (
-    <div className="bg-bg-base text-fg-primary relative min-h-screen overflow-hidden">
+    <div
+      className="bg-bg-base text-fg-primary relative min-h-screen overflow-hidden"
+      data-home-motion-root
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(websiteJsonLd) }}
       />
 
       <HeroBackdrop />
+      <HomeMotionController />
 
       <div className="relative z-1">
         <HeroSection />
 
         {getClustersWithDomains(DOMAINS).map((cluster) => (
           <section key={cluster.id} className="px-6 pt-10 pb-6 sm:px-10 lg:px-16">
-            <header className="mb-6 flex items-baseline gap-3">
+            <header className="mb-6 flex items-baseline gap-3" data-home-reveal>
               <h2 className="font-display text-fg-primary text-2xl font-semibold tracking-tight">
                 {cluster.label}
               </h2>
@@ -91,7 +103,9 @@ export default function HomePage() {
         <DeferredHomeKnowledgeContinuum />
 
         <section className="w-full px-6 py-16 sm:px-10 lg:px-16">
-          <h2 className="font-display text-fg-primary mb-8 text-2xl font-semibold">每日知识</h2>
+          <h2 className="font-display text-fg-primary mb-8 text-2xl font-semibold" data-home-reveal>
+            每日知识
+          </h2>
           <DailyKnowledgeCard items={daily.items} fact={daily.fact} date={daily.date} />
         </section>
 

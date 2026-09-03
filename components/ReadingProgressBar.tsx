@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
+import { subscribeToScrollFrame } from "@/lib/scroll-frame";
 
 /**
  * Thin fixed progress bar at the very top of every article page. The sidebar
@@ -9,17 +10,12 @@ import { useEffect, useState } from "react";
  * pixel of scrolling. Purely decorative: aria-hidden and pointer-transparent.
  */
 export function ReadingProgressBar() {
-  const [progress, setProgress] = useState(0);
+  const indicatorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      setProgress(docHeight > 0 ? Math.min(100, (scrollTop / docHeight) * 100) : 0);
-    };
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return subscribeToScrollFrame(({ progress }) => {
+      if (indicatorRef.current) indicatorRef.current.style.transform = `scaleX(${progress})`;
+    });
   }, []);
 
   return (
@@ -28,8 +24,9 @@ export function ReadingProgressBar() {
       className="print-hidden pointer-events-none fixed inset-x-0 top-0 z-50 h-0.5"
     >
       <div
-        className="bg-accent-gold/70 h-full transition-[width] duration-150 ease-out motion-reduce:transition-none"
-        style={{ width: `${progress}%` }}
+        ref={indicatorRef}
+        className="bg-accent-gold/70 h-full origin-left will-change-transform"
+        style={{ transform: "scaleX(0)" }}
       />
     </div>
   );

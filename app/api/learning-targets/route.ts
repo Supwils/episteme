@@ -21,10 +21,10 @@ function parseFilter(searchParams: URLSearchParams): KnowledgeTargetFilter | nul
   const domain = searchParams.get("domain")?.trim();
   const level = searchParams.get("level")?.trim();
   const confidence = searchParams.get("confidence")?.trim();
-  if (domain && !(domain in COVERAGE_DOMAIN_META)) return null;
+  if (domain && !Object.hasOwn(COVERAGE_DOMAIN_META, domain)) return null;
   const parsedLevel = level ? parseKnowledgeLevel(level) : undefined;
   if (level && !parsedLevel) return null;
-  if (confidence && !(confidence in KNOWLEDGE_BRANCH_CONFIDENCE_META)) return null;
+  if (confidence && !Object.hasOwn(KNOWLEDGE_BRANCH_CONFIDENCE_META, confidence)) return null;
   return {
     domainId: domain as CoverageDomainId | undefined,
     level: parsedLevel || undefined,

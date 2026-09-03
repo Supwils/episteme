@@ -72,7 +72,8 @@ function getDomainStyle(domain: string) {
 export function DailyKnowledgeCard({ items, fact, date }: DailyKnowledgeCardProps) {
   return (
     <section
-      className="animate-fade-slide-up mx-auto w-full max-w-3xl overflow-hidden rounded-2xl backdrop-blur-xl"
+      className="mx-auto w-full max-w-3xl overflow-hidden rounded-2xl backdrop-blur-xl"
+      data-home-reveal
       style={{
         background: "var(--color-bg-panel)",
         border: "1px solid var(--color-border-faint)",
@@ -94,14 +95,10 @@ export function DailyKnowledgeCard({ items, fact, date }: DailyKnowledgeCardProp
         </div>
 
         <div className="flex flex-col gap-3">
-          {items.map((item, index) => {
+          {items.map((item) => {
             const style = getDomainStyle(item.domain);
             return (
-              <div
-                key={item.id}
-                className="animate-fade-slide-up"
-                style={{ animationDelay: `${0.15 + index * 0.08}s` }}
-              >
+              <div key={item.id} data-home-reveal>
                 <Link
                   href={item.url}
                   className="group bg-bg-near border-border-faint hover:bg-bg-elevated block rounded-xl border p-4 no-underline transition-all duration-300"

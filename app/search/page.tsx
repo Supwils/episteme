@@ -49,13 +49,15 @@ function SearchExits() {
 }
 
 interface SearchPageProps {
-  searchParams: Promise<{ q?: string; domain?: string }>;
+  searchParams: Promise<{ q?: string | string[]; domain?: string | string[] }>;
 }
 
 export default async function SearchPage({ searchParams }: SearchPageProps) {
   const params = await searchParams;
-  const query = (params.q ?? "").slice(0, MAX_QUERY_LENGTH);
-  const domain = params.domain;
+  // Match URLSearchParams.get(): repeated keys use their first value.
+  const rawQuery = Array.isArray(params.q) ? params.q[0] : params.q;
+  const query = (rawQuery ?? "").slice(0, MAX_QUERY_LENGTH);
+  const domain = Array.isArray(params.domain) ? params.domain[0] : params.domain;
   const { titleResults, bodyResults, facets, total } = await searchEverything(query, domain);
 
   const href = (nextDomain?: string) =>

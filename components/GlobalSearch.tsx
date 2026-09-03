@@ -19,6 +19,7 @@ export function GlobalSearch() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [history, setHistory] = useState<string[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -32,9 +33,19 @@ export function GlobalSearch() {
   );
 
   const loadHistory = useCallback(() => setHistory(getSearchHistory()), []);
+  const cancelPendingQuery = useCallback(() => {
+    if (debounceRef.current !== null) clearTimeout(debounceRef.current);
+    debounceRef.current = null;
+  }, []);
+  const closeSearch = useCallback(() => {
+    cancelPendingQuery();
+    setQuery("");
+    setOpen(false);
+  }, [cancelPendingQuery, setQuery]);
 
   useEffect(() => {
     function openSearch() {
+      cancelPendingQuery();
       // The input unmounts on close, so reopening must reset the query too —
       // otherwise the box is empty but last session's results still show.
       setQuery("");
@@ -46,9 +57,10 @@ export function GlobalSearch() {
       warmup();
     }
     function handleKeyDown(e: KeyboardEvent) {
+      if (e.isComposing || e.keyCode === 229) return;
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
-        if (open) setOpen(false);
+        if (open) closeSearch();
         else openSearch();
       }
     }
@@ -58,10 +70,20 @@ export function GlobalSearch() {
       document.removeEventListener("keydown", handleKeyDown);
       document.removeEventListener("open-global-search", openSearch);
     };
-  }, [loadHistory, open, setQuery, warmup]);
+  }, [loadHistory, open, setQuery, warmup, cancelPendingQuery, closeSearch]);
 
   useEffect(() => {
-    if (open) requestAnimationFrame(() => inputRef.current?.focus());
+    if (!open) return;
+    const previousFocus = document.activeElement;
+    const dialog = dialogRef.current;
+    dialog?.showModal();
+    inputRef.current?.focus();
+    return () => {
+      dialog?.close();
+      if (previousFocus instanceof HTMLElement && previousFocus.isConnected) {
+        previousFocus.focus();
+      }
+    };
   }, [open]);
 
   useEffect(() => setActiveIndex(0), [query]);
@@ -73,22 +95,26 @@ export function GlobalSearch() {
 
   const handleHistoryClick = useCallback(
     (term: string) => {
+      cancelPendingQuery();
       setQuery(term);
       setActiveIndex(0);
       if (inputRef.current) inputRef.current.value = term;
       inputRef.current?.focus();
     },
-    [setQuery]
+    [setQuery, cancelPendingQuery]
   );
 
   useEffect(() => {
     if (!open) return;
     function handleKeyDown(e: KeyboardEvent) {
+      if (e.isComposing || e.keyCode === 229) return;
       if (e.key === "Escape") {
         e.preventDefault();
-        setOpen(false);
+        closeSearch();
         return;
       }
+      // Links and history controls keep their native keyboard activation.
+      if (e.target !== inputRef.current) return;
       if (e.key === "ArrowDown") {
         e.preventDefault();
         setActiveIndex((prev) => Math.min(prev + 1, Math.max(walkLength - 1, 0)));
@@ -98,19 +124,24 @@ export function GlobalSearch() {
         setActiveIndex((prev) => Math.max(prev - 1, 0));
       }
       if (e.key !== "Enter") return;
+      // The visible input can be ahead of the debounced query and its results.
+      if (inputRef.current?.value.trim() !== trimmed) {
+        e.preventDefault();
+        return;
+      }
       if (trimmed) {
         const target = flatResults[activeIndex];
         if (target) {
           e.preventDefault();
           addToSearchHistory(trimmed);
           trackEvent({ type: "search", query: trimmed, resultCount: flatResults.length });
-          setOpen(false);
+          closeSearch();
           router.push(target.url);
         } else if (!searching) {
           e.preventDefault();
           addToSearchHistory(trimmed);
           trackEvent({ type: "search", query: trimmed, resultCount: 0 });
-          setOpen(false);
+          closeSearch();
           router.push(`/search?q=${encodeURIComponent(trimmed)}`);
         }
       } else {
@@ -133,6 +164,7 @@ export function GlobalSearch() {
     router,
     handleHistoryClick,
     searching,
+    closeSearch,
   ]);
 
   useEffect(() => {
@@ -141,27 +173,26 @@ export function GlobalSearch() {
 
   const handleQueryChange = useCallback(
     (value: string) => {
-      if (debounceRef.current) clearTimeout(debounceRef.current);
-      debounceRef.current = setTimeout(() => setQuery(value), INPUT_DEBOUNCE_MS);
+      cancelPendingQuery();
+      debounceRef.current = setTimeout(() => {
+        debounceRef.current = null;
+        setQuery(value);
+      }, INPUT_DEBOUNCE_MS);
     },
-    [setQuery]
+    [setQuery, cancelPendingQuery]
   );
 
   const handleItemClick = useCallback(
     (url: string) => {
       addToSearchHistory(query.trim());
       trackEvent({ type: "search", query: query.trim(), resultCount: flatResults.length });
-      setOpen(false);
+      closeSearch();
       router.push(url);
     },
-    [query, flatResults.length, router]
+    [query, flatResults.length, router, closeSearch]
   );
 
-  useEffect(() => {
-    return () => {
-      if (debounceRef.current) clearTimeout(debounceRef.current);
-    };
-  }, []);
+  useEffect(() => cancelPendingQuery, [cancelPendingQuery]);
 
   if (!open) return null;
 
@@ -175,13 +206,17 @@ export function GlobalSearch() {
       : undefined;
 
   return (
-    <div
+    <dialog
+      ref={dialogRef}
       className="gs-overlay"
-      role="dialog"
       aria-modal="true"
       aria-label="全站搜索"
+      onCancel={(event) => {
+        event.preventDefault();
+        closeSearch();
+      }}
       onClick={(e) => {
-        if (e.target === e.currentTarget) setOpen(false);
+        if (e.target === e.currentTarget) closeSearch();
       }}
     >
       <div className="gs-panel">
@@ -262,6 +297,6 @@ export function GlobalSearch() {
           )}
         </div>
       </div>
-    </div>
+    </dialog>
   );
 }

@@ -9,19 +9,26 @@ import { SearchTrigger } from "./SearchTrigger";
 import { ThemeToggle } from "./ThemeToggle";
 import { NAV_GROUPS } from "./nav-data";
 import { SECTION_SHELL_PREFIXES } from "../lib/urls";
+import { subscribeToScrollFrame } from "@/lib/scroll-frame";
 
 export function SectionAwareNav() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const inSection = SECTION_SHELL_PREFIXES.some((prefix) => pathname.startsWith(prefix));
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    if (inSection) return;
 
-  if (SECTION_SHELL_PREFIXES.some((p) => pathname.startsWith(p))) {
+    let previousScrolled: boolean | undefined;
+    return subscribeToScrollFrame(({ scrollY }) => {
+      const nextScrolled = scrollY > 8;
+      if (nextScrolled === previousScrolled) return;
+      previousScrolled = nextScrolled;
+      setScrolled(nextScrolled);
+    });
+  }, [inSection]);
+
+  if (inSection) {
     return null;
   }
 

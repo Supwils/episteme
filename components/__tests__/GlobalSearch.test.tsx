@@ -55,6 +55,7 @@ afterEach(() => {
   routerPush.mockClear();
   window.localStorage.clear();
   vi.unstubAllGlobals();
+  vi.useRealTimers();
 });
 
 describe("GlobalSearch", () => {
@@ -129,7 +130,7 @@ describe("GlobalSearch", () => {
       "/curiosities"
     );
 
-    fireEvent.keyDown(document, { key: "Enter" });
+    fireEvent.keyDown(screen.getByRole("textbox", { name: "搜索" }), { key: "Enter" });
     expect(routerPush).toHaveBeenCalledWith(
       `/search?q=${encodeURIComponent("zzzznotanarticlezzzz")}`
     );
@@ -149,6 +150,121 @@ describe("GlobalSearch", () => {
 });
 
 describe("GlobalSearch keyboard and session behaviour", () => {
+  it("does not navigate an old result when Enter arrives before the input debounce", async () => {
+    vi.useFakeTimers();
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: false }));
+    open();
+    type("苏格拉底");
+    await act(async () => vi.advanceTimersByTimeAsync(100));
+    await act(async () => releaseTitleSearch?.([socrates]));
+    expect(screen.getByRole("option")).toBeTruthy();
+    type("柏拉图");
+    fireEvent.keyDown(screen.getByRole("textbox", { name: "搜索" }), { key: "Enter" });
+    expect(routerPush).not.toHaveBeenCalled();
+    expect(screen.getByRole("dialog")).toBeTruthy();
+    await act(async () => vi.advanceTimersByTimeAsync(100));
+    expect(screen.queryByRole("option")).toBeNull();
+  });
+
+  it("aborts body work when the search overlay closes", async () => {
+    const fetchMock = vi.fn().mockReturnValue(new Promise(() => {}));
+    vi.stubGlobal("fetch", fetchMock);
+    open();
+    type("苏格拉底");
+    await waitFor(() => expect(fetchMock).toHaveBeenCalled());
+    const signal = (fetchMock.mock.calls[0]?.[1] as RequestInit | undefined)?.signal;
+    fireEvent.keyDown(document, { key: "Escape" });
+    expect(signal?.aborted).toBe(true);
+  });
+
+  it("preserves Enter on the full-results link", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: false }));
+    open();
+    type("苏格拉底");
+    await waitFor(() => expect(releaseTitleSearch).toBeDefined());
+    await act(async () => releaseTitleSearch?.([socrates]));
+    const link = screen.getByText("查看全部结果");
+    expect(fireEvent.keyDown(link, { key: "Enter" })).toBe(true);
+    expect(routerPush).not.toHaveBeenCalled();
+    expect(screen.getByRole("dialog")).toBeTruthy();
+  });
+
+  it.each(["清除", "删除搜索记录「苏格拉底」"])(
+    "does not select history when Enter is pressed on %s",
+    (name) => {
+      vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: false }));
+      window.localStorage.setItem("uk-search-history", JSON.stringify(["苏格拉底"]));
+      open();
+      expect(fireEvent.keyDown(screen.getByRole("button", { name }), { key: "Enter" })).toBe(true);
+      expect((screen.getByRole("textbox", { name: "搜索" }) as HTMLInputElement).value).toBe("");
+      expect(screen.queryByText("查看全部结果")).toBeNull();
+    }
+  );
+
+  it.each(["escape", "shortcut", "backdrop"])(
+    "cancels queued input when closed by %s",
+    async (method) => {
+      vi.useFakeTimers();
+      vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: false }));
+      open();
+      type("旧查询");
+      if (method === "backdrop") fireEvent.click(screen.getByRole("dialog"));
+      else
+        fireEvent.keyDown(
+          document,
+          method === "escape" ? { key: "Escape" } : { key: "k", ctrlKey: true }
+        );
+      expect(screen.queryByRole("dialog")).toBeNull();
+      act(() => document.dispatchEvent(new Event("open-global-search")));
+      await act(async () => vi.advanceTimersByTimeAsync(300));
+      expect(releaseTitleSearch).toBeUndefined();
+      expect(screen.queryByText("查看全部结果")).toBeNull();
+      expect((screen.getByRole("textbox", { name: "搜索" }) as HTMLInputElement).value).toBe("");
+    }
+  );
+
+  it("does not let queued input overwrite a chosen history entry", async () => {
+    vi.useFakeTimers();
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: false }));
+    window.localStorage.setItem("uk-search-history", JSON.stringify(["苏格拉底"]));
+    open();
+    type("旧查询");
+    fireEvent.click(screen.getByRole("option"));
+    await act(async () => vi.advanceTimersByTimeAsync(300));
+    expect(screen.getByText("查看全部结果").getAttribute("href")).toBe(
+      `/search?q=${encodeURIComponent("苏格拉底")}`
+    );
+  });
+
+  it.each([{ isComposing: true }, { keyCode: 229 }])(
+    "leaves IME keys to composition: %j",
+    async (composition) => {
+      vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: false }));
+      open();
+      type("苏格拉底");
+      await waitFor(() => expect(releaseTitleSearch).toBeDefined());
+      await act(async () =>
+        releaseTitleSearch?.([
+          socrates,
+          { ...socrates, title: "柏拉图", url: "/philosophy/thinkers/plato" },
+        ])
+      );
+      const input = screen.getByRole("textbox", { name: "搜索" });
+      fireEvent.keyDown(input, { key: "ArrowDown", ...composition });
+      expect(screen.getAllByRole("option")[0]!.getAttribute("aria-selected")).toBe("true");
+      fireEvent.keyDown(input, { key: "ArrowDown" });
+      fireEvent.keyDown(input, { key: "ArrowUp", ...composition });
+      expect(screen.getAllByRole("option")[1]!.getAttribute("aria-selected")).toBe("true");
+      fireEvent.keyDown(input, { key: "Escape", ...composition });
+      fireEvent.keyDown(input, { key: "k", ctrlKey: true, ...composition });
+      fireEvent.keyDown(input, { key: "Enter", ...composition });
+      expect(screen.getByRole("dialog")).toBeTruthy();
+      expect(routerPush).not.toHaveBeenCalled();
+      fireEvent.keyDown(input, { key: "Enter" });
+      expect(routerPush).toHaveBeenCalledWith("/philosophy/thinkers/plato");
+    }
+  );
+
   it("resets stale query and results when reopened", async () => {
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: false }));
     open();
@@ -173,8 +289,8 @@ describe("GlobalSearch keyboard and session behaviour", () => {
     await act(async () => releaseTitleSearch?.([socrates]));
     await screen.findByRole("option");
 
-    fireEvent.keyDown(document, { key: "ArrowDown" });
-    fireEvent.keyDown(document, { key: "Enter" });
+    fireEvent.keyDown(screen.getByRole("textbox", { name: "搜索" }), { key: "ArrowDown" });
+    fireEvent.keyDown(screen.getByRole("textbox", { name: "搜索" }), { key: "Enter" });
     expect(routerPush).toHaveBeenCalledWith("/philosophy/thinkers/socrates");
   });
 
@@ -187,9 +303,10 @@ describe("GlobalSearch keyboard and session behaviour", () => {
     open();
     expect(await screen.findByText("搜索历史")).toBeTruthy();
 
-    fireEvent.keyDown(document, { key: "ArrowDown" });
-    fireEvent.keyDown(document, { key: "ArrowDown" });
-    fireEvent.keyDown(document, { key: "Enter" });
+    const input = screen.getByRole("textbox", { name: "搜索" });
+    fireEvent.keyDown(input, { key: "ArrowDown" });
+    fireEvent.keyDown(input, { key: "ArrowDown" });
+    fireEvent.keyDown(input, { key: "Enter" });
     // Entering a history term fills the box and triggers a title search.
     expect((screen.getByRole("textbox", { name: "搜索" }) as HTMLInputElement).value).toBe(
       "苏格拉底"

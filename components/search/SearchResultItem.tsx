@@ -54,7 +54,19 @@ export function SearchResultItem({
       aria-selected={isActive}
       className="gs-item"
       data-active={isActive}
-      onClick={() => onClick(result.url)}
+      onClick={(event) => {
+        if (
+          event.button !== 0 ||
+          event.metaKey ||
+          event.ctrlKey ||
+          event.shiftKey ||
+          event.altKey
+        ) {
+          return;
+        }
+        event.preventDefault();
+        onClick(result.url);
+      }}
       onMouseEnter={onMouseEnter}
     >
       <div className="gs-item-title">

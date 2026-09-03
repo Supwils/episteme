@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { shardDomainForHref, type LinkPreview } from "@/lib/link-preview-shards";
 
+export { MarkdownCodeBlock } from "./MarkdownCodeBlock";
+
 // Preview data is sharded per domain (`/link-previews/<domain>.json`) so the
 // first hover downloads only the target link's shard instead of one ~915 KB
 // file. A resolved wiki-link URL always starts with its article's domain, so
@@ -17,8 +19,14 @@ function loadPreviews(href: string): Promise<Record<string, LinkPreview>> {
   let promise = previewShardPromises.get(domain);
   if (!promise) {
     promise = fetch(`/link-previews/${domain}.json`)
-      .then((response) => (response.ok ? response.json() : {}))
-      .catch(() => ({}));
+      .then((response) => {
+        if (!response.ok) throw new Error("Preview shard unavailable");
+        return response.json();
+      })
+      .catch(() => {
+        previewShardPromises.delete(domain);
+        return {};
+      });
     previewShardPromises.set(domain, promise);
   }
   return promise;
@@ -48,8 +56,26 @@ export function WikiLinkPreview({ href, label }: { href: string; label: string }
   const [preview, setPreview] = useState<LinkPreview | null>(null);
   const [open, setOpen] = useState(false);
   const [isTouch, setIsTouch] = useState(false);
+  const [touchPending, setTouchPending] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const rootRef = useRef<HTMLSpanElement>(null);
+  const requestVersion = useRef(0);
+
+  const cancelPending = useCallback(() => {
+    requestVersion.current += 1;
+    if (timer.current !== null) clearTimeout(timer.current);
+    timer.current = null;
+  }, []);
+  const hide = useCallback(() => {
+    cancelPending();
+    setTouchPending(false);
+    setOpen(false);
+  }, [cancelPending]);
+
+  useEffect(() => {
+    hide();
+    return cancelPending;
+  }, [href, hide, cancelPending]);
 
   // Touch devices have no hover, so the tooltip was unreachable there: a tap
   // used to navigate immediately. On coarse pointers the first tap opens the
@@ -59,41 +85,47 @@ export function WikiLinkPreview({ href, label }: { href: string; label: string }
   }, []);
 
   useEffect(() => {
-    if (!open || !isTouch) return;
+    if (!isTouch || (!open && !touchPending)) return;
     const onPointerDown = (e: PointerEvent) => {
       if (rootRef.current && !rootRef.current.contains(e.target as Node)) {
-        setOpen(false);
+        hide();
       }
     };
     document.addEventListener("pointerdown", onPointerDown);
     return () => document.removeEventListener("pointerdown", onPointerDown);
-  }, [open, isTouch]);
+  }, [open, isTouch, touchPending, hide]);
 
-  const show = useCallback(() => {
-    if (timer.current) clearTimeout(timer.current);
-    timer.current = setTimeout(() => {
+  const reveal = useCallback(
+    (version: number) => {
       void loadPreviews(href).then((previews) => {
+        // Shard requests are shared; invalidate this interaction, not the fetch.
+        if (version !== requestVersion.current) return;
         setPreview(previews[href] ?? null);
+        setTouchPending(false);
         setOpen(true);
       });
-    }, 200);
-  }, [href]);
+    },
+    [href]
+  );
 
-  const hide = useCallback(() => {
-    if (timer.current) clearTimeout(timer.current);
-    setOpen(false);
-  }, []);
+  const show = useCallback(() => {
+    cancelPending();
+    const version = requestVersion.current;
+    timer.current = setTimeout(() => {
+      timer.current = null;
+      reveal(version);
+    }, 200);
+  }, [cancelPending, reveal]);
 
   const handleClick = useCallback(
     (e: React.MouseEvent) => {
       if (!isTouch || open) return; // desktop, or second tap while open → navigate
       e.preventDefault();
-      void loadPreviews(href).then((previews) => {
-        setPreview(previews[href] ?? null);
-        setOpen(true);
-      });
+      cancelPending();
+      setTouchPending(true);
+      reveal(requestVersion.current);
     },
-    [isTouch, open, href]
+    [isTouch, open, cancelPending, reveal]
   );
 
   return (
@@ -145,54 +177,6 @@ export function WikiLinkPreview({ href, label }: { href: string; label: string }
   );
 }
 
-export function MarkdownCodeBlock({
-  code,
-  language,
-  accentColor,
-}: {
-  code: string;
-  language: string;
-  accentColor: string;
-}) {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = useCallback(() => {
-    void navigator.clipboard.writeText(code).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  }, [code]);
-
-  return (
-    <div className="group/code border-border-faint relative my-6 overflow-hidden rounded-lg border">
-      {language ? (
-        <div className="border-border-faint bg-bg-elevated/50 border-b px-4 py-1.5">
-          <span
-            className="font-mono text-[10px] tracking-[0.15em] uppercase"
-            style={{
-              color: `color-mix(in oklab, ${accentColor} 42%, var(--color-fg-primary))`,
-            }}
-          >
-            {language}
-          </span>
-        </div>
-      ) : null}
-      <pre tabIndex={0} className="bg-bg-elevated overflow-x-auto p-4">
-        <code className="text-fg-primary font-mono text-sm leading-relaxed">{code}</code>
-      </pre>
-      <button
-        type="button"
-        onClick={handleCopy}
-        className="border-border-faint bg-bg-panel/80 hover:bg-bg-elevated absolute top-2 right-2 rounded-md border px-2.5 py-1 font-mono text-[10px] tracking-wider uppercase opacity-0 backdrop-blur-sm transition-opacity group-focus-within/code:opacity-100 group-hover/code:opacity-100 focus-visible:opacity-100 pointer-coarse:opacity-100"
-        style={{ color: copied ? "#6bae8a" : accentColor }}
-        aria-label={copied ? "已复制" : "复制代码"}
-      >
-        {copied ? "已复制 ✓" : "复制"}
-      </button>
-    </div>
-  );
-}
-
 export function MarkdownZoomableImage({
   src,
   alt,
@@ -203,12 +187,29 @@ export function MarkdownZoomableImage({
   accentColor: string;
 }) {
   const [zoomed, setZoomed] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!zoomed) return;
+    const dialog = dialogRef.current;
+    const trigger = triggerRef.current;
+    dialog?.showModal();
+    closeRef.current?.focus();
+    return () => {
+      dialog?.close();
+      trigger?.focus();
+    };
+  }, [zoomed]);
 
   return (
     <>
       <figure className="my-8">
         <button
+          ref={triggerRef}
           type="button"
+          aria-label={alt ? `放大图片：${alt}` : "放大图片"}
           onClick={() => setZoomed(true)}
           className="group/img border-border-faint hover:border-border-subtle relative block w-full cursor-zoom-in overflow-hidden rounded-lg border transition-all"
         >
@@ -233,12 +234,26 @@ export function MarkdownZoomableImage({
         ) : null}
       </figure>
       {zoomed ? (
-        <div
-          className="fixed inset-0 z-[500] flex cursor-zoom-out items-center justify-center bg-black/80 p-8 backdrop-blur-sm"
+        <dialog
+          ref={dialogRef}
+          className="fixed inset-0 z-[500] m-0 flex h-screen max-h-none w-screen max-w-none cursor-zoom-out items-center justify-center border-0 bg-black/80 p-8 backdrop-blur-sm"
           onClick={() => setZoomed(false)}
-          role="dialog"
+          onCancel={(event) => {
+            event.preventDefault();
+            setZoomed(false);
+          }}
+          aria-modal="true"
           aria-label={alt || "图片预览"}
         >
+          <button
+            ref={closeRef}
+            type="button"
+            aria-label="关闭图片预览"
+            onClick={() => setZoomed(false)}
+            className="absolute top-4 right-4 rounded-lg bg-black/60 px-4 py-2 text-white"
+          >
+            关闭
+          </button>
           {/* The zoom target preserves the authored source without a broad remotePatterns policy. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -246,7 +261,7 @@ export function MarkdownZoomableImage({
             alt={alt}
             className="max-h-[90vh] max-w-[90vw] rounded-lg object-contain shadow-2xl"
           />
-        </div>
+        </dialog>
       ) : null}
     </>
   );

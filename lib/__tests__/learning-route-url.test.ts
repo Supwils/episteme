@@ -7,6 +7,14 @@ import {
 } from "@/lib/learning-route-url";
 
 describe("learning route URL state", () => {
+  it.each(["__proto__", "constructor", "toString"])("ignores inherited enum key %s", (key) => {
+    for (const parameter of ["learnDomain", "learnConfidence"]) {
+      const state = parseLearningRouteUrlState(new URLSearchParams({ [parameter]: key }));
+      expect(state.filter).toBeNull();
+      expect(state.mode).toBe("curated");
+    }
+  });
+
   it("round-trips a filtered target and alternative anchor", () => {
     const params = updateLearningRouteSearchParams(new URLSearchParams("utm_source=test"), {
       mode: "all-nodes",

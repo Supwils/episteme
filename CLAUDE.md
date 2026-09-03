@@ -99,7 +99,7 @@ ls package.json next.config.ts tsconfig.json     # 单一应用，全在仓库�
 ls apps packages turbo.json pnpm-workspace.yaml 2>/dev/null \
   && echo "⚠️ monorepo 残留" || echo "✅ 单一应用结构"
 pnpm install 2>&1 | tail -5                      # 单包，Node 22（.nvmrc）
-pnpm typecheck && pnpm test                      # 基线应全绿（当前 1203 测试 / 149 文件）
+pnpm typecheck && pnpm test                      # 基线应全绿（当前 1213 测试 / 152 文件）
 ```
 
 ### 第三步：识别阻塞问题并记录
@@ -230,7 +230,7 @@ pnpm gen-all               # 重生全部派生索引（改内容后必跑）
 
 pnpm typecheck             # tsc --noEmit
 pnpm lint                  # eslint . --max-warnings 0
-pnpm test                  # Vitest（1203 测试 / 149 文件）
+pnpm test                  # Vitest（1213 测试 / 152 文件）
 pnpm check-content         # 内容质量校验（当前 0 error / 0 warning）
 pnpm prepush               # 上面这些 + 五项审计，一条命令跑完本地门禁
 

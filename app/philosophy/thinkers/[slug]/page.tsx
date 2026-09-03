@@ -24,6 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const description = `${thinker.philosopher}：${thinker.school}。${thinker.tags.join("、")}`;
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(thinker.title)}&section=philosophy&description=${encodeURIComponent(description)}`;
   return {
+    alternates: { canonical: `/philosophy/thinkers/${thinker.slug}` },
     title: `${thinker.title} — 哲学`,
     description,
     openGraph: {

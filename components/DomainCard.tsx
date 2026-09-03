@@ -21,10 +21,10 @@ export function DomainCard({ domain, index }: { domain: Domain; index: number })
     <Link
       href={href}
       data-domain={domain.id}
+      data-home-reveal
       className="domain-card"
       style={
         {
-          animationDelay: `${0.15 + index * 0.12}s`,
           "--domain-color": domain.glowColor,
         } as React.CSSProperties
       }

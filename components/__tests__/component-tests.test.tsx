@@ -1,6 +1,6 @@
 // @vitest-environment happy-dom
 import React from "react";
-import { render, screen, fireEvent, cleanup } from "@testing-library/react";
+import { render, screen, fireEvent, cleanup, waitFor } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 
 vi.mock("next/link", () => ({
@@ -105,9 +105,27 @@ describe("DomainCard", () => {
     render(<DomainCard domain={mockDomain} index={0} />);
     expect(screen.getByText("进入探索")).toBeDefined();
   });
+
+  it("keeps its server-rendered content visible until the scroll controller enhances it", () => {
+    render(<DomainCard domain={mockDomain} index={0} />);
+    const link = screen.getByRole("link");
+
+    expect(link.hasAttribute("data-home-reveal")).toBe(true);
+    expect(link.style.opacity).toBe("");
+    expect(link.style.visibility).toBe("");
+    expect(link.style.animationDelay).toBe("");
+  });
 });
 
 describe("HeroSection", () => {
+  it("invites the reader with concrete, understated language", () => {
+    render(<HeroSection />);
+
+    const heading = screen.getByRole("heading", { level: 1, name: "从问题出发" });
+    expect(heading.textContent).toBe("从问题出发");
+    expect(screen.getByText("顺着知识的线索，慢慢建立自己的理解")).toBeDefined();
+  });
+
   it("renders final statistics in the initial markup without a delayed animation", () => {
     render(<HeroSection />);
 
@@ -159,21 +177,21 @@ describe("ScrollToTop", () => {
     expect(screen.queryByRole("button")).toBeNull();
   });
 
-  it("is visible after scrolling past threshold", () => {
+  it("is visible after scrolling past threshold", async () => {
     render(<ScrollToTop />);
     Object.defineProperty(window, "scrollY", { value: 400 });
     fireEvent.scroll(window);
-    expect(screen.getByRole("button")).toBeDefined();
+    expect(await screen.findByRole("button")).toBeDefined();
   });
 
-  it("has correct aria-label", () => {
+  it("has correct aria-label", async () => {
     render(<ScrollToTop />);
     Object.defineProperty(window, "scrollY", { value: 400 });
     fireEvent.scroll(window);
-    expect(screen.getByLabelText("回到顶部")).toBeDefined();
+    expect(await screen.findByLabelText("回到顶部")).toBeDefined();
   });
 
-  it("calls scrollTo on click", () => {
+  it("calls scrollTo on click", async () => {
     const scrollToSpy = vi.fn();
     vi.stubGlobal("scrollTo", scrollToSpy);
     vi.stubGlobal("matchMedia", vi.fn().mockReturnValue({ matches: true }));
@@ -182,8 +200,8 @@ describe("ScrollToTop", () => {
     Object.defineProperty(window, "scrollY", { value: 400 });
     fireEvent.scroll(window);
 
-    fireEvent.click(screen.getByRole("button"));
-    expect(scrollToSpy).toHaveBeenCalledWith({ top: 0, behavior: "auto" });
+    fireEvent.click(await screen.findByRole("button"));
+    await waitFor(() => expect(scrollToSpy).toHaveBeenCalledWith({ top: 0, behavior: "auto" }));
   });
 });
 

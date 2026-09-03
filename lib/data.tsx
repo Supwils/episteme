@@ -527,13 +527,13 @@ export const FEATURES = [
     icon: "📖",
     title: "阅读路线",
     titleEn: "Reading Paths",
-    desc: "像读一本书那样探索知识：沿一条精心编排的路线，把一个主题从头读到尾。",
+    desc: "像读一本书那样，沿着一条整理好的路线，把一个主题从头读到尾。",
     href: "/read",
   },
   {
     icon: "◈",
     title: "知识图谱",
-    desc: "以节点与连线的方式呈现知识之间的深层关联，发现跨领域的隐性联系。",
+    desc: "用节点与连线呈现概念之间的联系，顺着一个概念找到下一个。",
     href: "/knowledge-graph",
   },
   {
@@ -546,26 +546,26 @@ export const FEATURES = [
   {
     icon: "◎",
     title: "沉浸式探索",
-    desc: "WebGL 3D 场景与流畅动画，在视觉交互中理解复杂概念。",
+    desc: "通过 WebGL 3D 场景和交互动画，换一种方式理解复杂概念。",
     href: "/universe-physics/universe/observable",
   },
   {
     icon: "◇",
     title: "跨文明连接",
-    desc: "跨越地域与时代，将不同文明的知识串联成统一的认知网络。",
+    desc: "把不同地域与时代的材料放在一起，看看观念如何相遇、变化与流传。",
     href: "/human-history/knowledge/文化交流--丝绸之路上的文化融合",
   },
   {
     icon: "▣",
     title: "深度内容",
-    desc: `${SEARCH_STATS.articles} 篇深度文章与跨学科对话，兼顾学术严谨与大众可读性。`,
+    desc: `收录 ${SEARCH_STATS.articles} 篇文章与跨学科对话，兼顾资料依据与日常可读性。`,
     href: "/search",
   },
   {
     icon: "📅",
     title: "每日知识",
     titleEn: "Daily Knowledge",
-    desc: "每天一点新知识，从历史到科学",
+    desc: "每天换一个入口，从历史读到科学。",
     href: "/daily",
   },
 ];

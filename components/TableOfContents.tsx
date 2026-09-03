@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import { createPortal } from "react-dom";
+import { subscribeToScrollFrame } from "@/lib/scroll-frame";
 
 const HEADING_SCROLL_OFFSET = 96;
 
@@ -18,8 +19,8 @@ interface TableOfContentsProps {
 export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProps) {
   const [items, setItems] = useState<TocItem[]>([]);
   const [activeId, setActiveId] = useState<string>("");
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [sheetOpen, setSheetOpen] = useState(false);
+  const progressRef = useRef<HTMLDivElement>(null);
   const sheetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -51,14 +52,9 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      setScrollProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
-    };
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return subscribeToScrollFrame(({ progress }) => {
+      if (progressRef.current) progressRef.current.style.transform = `scaleX(${progress})`;
+    });
   }, []);
 
   // Highlighting the active item is purely visual — we deliberately do NOT
@@ -105,8 +101,9 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
       >
         <div className="bg-border-faint mb-3 h-0.5 rounded-full">
           <div
-            className="h-full rounded-full transition-all duration-300"
-            style={{ width: `${scrollProgress}%`, backgroundColor: accentColor }}
+            ref={progressRef}
+            className="h-full origin-left rounded-full will-change-transform"
+            style={{ transform: "scaleX(0)", backgroundColor: accentColor }}
           />
         </div>
         <p className="text-fg-muted mb-3 font-mono text-[9px] tracking-[0.32em] uppercase">

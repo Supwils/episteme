@@ -7,6 +7,18 @@ import {
 } from "@/lib/knowledge-branch-catalog";
 
 describe("learning target API", () => {
+  it.each(["__proto__", "constructor", "toString"])(
+    "rejects inherited filter keys: %s",
+    async (key) => {
+      for (const field of ["domain", "confidence"]) {
+        const response = await GET(
+          new Request(`https://episteme.test/api/learning-targets?${field}=${key}`)
+        );
+        expect(response.status).toBe(400);
+      }
+    }
+  );
+
   it("returns compact search results and full attachment details on demand", async () => {
     const searchResponse = await GET(
       new Request("https://episteme.test/api/learning-targets?q=AI%20%E4%BC%A6%E7%90%86")

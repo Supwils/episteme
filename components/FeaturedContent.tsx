@@ -4,18 +4,14 @@ import { FEATURED_CONTENT } from "../lib/data";
 export function FeaturedContent() {
   return (
     <section className="home-content-section">
-      <div className="home-section-heading">
+      <div className="home-section-heading" data-home-reveal>
         <h2 className="home-section-title">精选内容</h2>
         <p className="home-section-subtitle">编辑推荐的知识探索入口</p>
       </div>
 
       <div className="home-featured-grid">
-        {FEATURED_CONTENT.map((entry, index) => (
-          <div
-            key={entry.id}
-            className="home-lift-item"
-            style={{ animationDelay: `${0.1 + index * 0.08}s` }}
-          >
+        {FEATURED_CONTENT.map((entry) => (
+          <div key={entry.id} className="home-lift-item" data-home-reveal>
             <FeaturedItem item={entry} />
           </div>
         ))}

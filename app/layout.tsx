@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { serializeJsonLd } from "@/lib/jsonld";
+import { getServiceWorkerLifecycleScript } from "@/lib/service-worker-lifecycle";
 import { ThemeProvider } from "../components/ThemeProvider";
 import { SectionAwareNav } from "../components/SectionAwareNav";
 import { SectionAwareFooter } from "../components/SectionAwareFooter";
@@ -89,13 +91,13 @@ export default function RootLayout({
           <SectionAwareFooter />
           <ClientShell />
         </ThemeProvider>
-        {process.env.NODE_ENV === "production" && (
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('/sw.js')})}`,
-            }}
-          />
-        )}
+        <Script
+          id="service-worker-lifecycle"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: getServiceWorkerLifecycleScript(process.env.NODE_ENV),
+          }}
+        />
       </body>
     </html>
   );

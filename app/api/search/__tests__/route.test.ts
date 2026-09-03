@@ -58,6 +58,21 @@ describe("GET /api/search", () => {
     expect(body.hits.length).toBeLessThanOrEqual(50);
   });
 
+  it.each(["", "&limit=", "&limit=%20%20"])(
+    "uses the default result limit when missing or blank (%s)",
+    async (extra) => {
+      const { body } = await call("知识", extra);
+      const { body: explicit } = await call("知识", "&limit=20");
+      expect(explicit.hits).toHaveLength(20);
+      expect(body.hits).toEqual(explicit.hits);
+    }
+  );
+
+  it.each(["0", "-5"])("retains the lower bound for an explicit limit of %s", async (limit) => {
+    const { body } = await call("知识", `&limit=${limit}`);
+    expect(body.hits).toHaveLength(1);
+  });
+
   it("ignores a malformed limit instead of returning nothing", async () => {
     const { body } = await call("热力学第二定律", "&limit=abc");
     expect(body.hits.length).toBeGreaterThan(0);

@@ -47,6 +47,7 @@ export function SearchHistory({
           data-active={index === activeIndex}
           onClick={() => onHistoryClick(term)}
           onKeyDown={(e) => {
+            if (e.target !== e.currentTarget) return;
             if (e.key === "Enter" || e.key === " ") onHistoryClick(term);
           }}
           onMouseEnter={() => onActivate?.(index)}

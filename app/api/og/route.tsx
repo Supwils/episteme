@@ -36,8 +36,8 @@ export async function GET(request: Request) {
   const section = searchParams.get("section") ?? "";
   const description = searchParams.get("description") ?? "";
 
-  const accent = SECTION_COLORS[section] ?? "#c8a45a";
-  const sectionLabel = SECTION_LABELS[section] ?? section;
+  const accent = Object.hasOwn(SECTION_COLORS, section) ? SECTION_COLORS[section] : "#c8a45a";
+  const sectionLabel = Object.hasOwn(SECTION_LABELS, section) ? SECTION_LABELS[section] : section;
 
   let fontData: ArrayBuffer;
   try {

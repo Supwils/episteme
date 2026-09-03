@@ -11,6 +11,31 @@ function request(body: unknown): Request {
 }
 
 describe("knowledge frontier API", () => {
+  it.each([{ toString: null }, { toString: "1" }, [1], [], true, null].map((level) => ({ level })))(
+    "rejects a non-scalar knowledge level without throwing: %j",
+    async ({ level }) => {
+      const response = await POST(request({ knownIds: [], filter: { status: "ready", level } }));
+      expect(response.status).toBe(400);
+      await expect(response.json()).resolves.toEqual({ error: "Invalid frontier request" });
+    }
+  );
+
+  it.each([1, "1"])("preserves numeric and string knowledge levels: %j", async (level) => {
+    const response = await POST(request({ knownIds: [], filter: { status: "ready", level } }));
+    expect(response.status).toBe(200);
+    expect(response.headers.get("Cache-Control")).toBe("private, no-store");
+  });
+
+  it.each(["__proto__", "constructor", "toString"])(
+    "rejects inherited filter keys: %s",
+    async (key) => {
+      for (const filter of [{ status: key }, { status: "ready", domainId: key }]) {
+        const response = await POST(request({ knownIds: [], filter }));
+        expect(response.status).toBe(400);
+      }
+    }
+  );
+
   it("returns a private, complete frontier without persisting the profile", async () => {
     const response = await POST(request({ knownIds: [], filter: { status: "ready", limit: 3 } }));
     const data = (await response.json()) as {

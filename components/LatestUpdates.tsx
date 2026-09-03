@@ -4,18 +4,14 @@ import { LATEST_UPDATES } from "../lib/data";
 export function LatestUpdates() {
   return (
     <section className="home-content-section">
-      <div className="home-section-heading">
+      <div className="home-section-heading" data-home-reveal>
         <h2 className="home-section-title">最新更新</h2>
         <p className="home-section-subtitle">近期新增的内容与功能</p>
       </div>
 
       <div className="home-updates-grid">
-        {LATEST_UPDATES.slice(0, 6).map((update, index) => (
-          <div
-            key={update.id}
-            className="home-lift-item"
-            style={{ animationDelay: `${0.1 + index * 0.1}s` }}
-          >
+        {LATEST_UPDATES.slice(0, 6).map((update) => (
+          <div key={update.id} className="home-lift-item" data-home-reveal>
             <Link
               href={update.href}
               className="lift-card"

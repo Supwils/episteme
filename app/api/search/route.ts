@@ -15,6 +15,7 @@ const MAX_LIMIT = 50;
 const MAX_QUERY_LENGTH = 120;
 
 function parseLimit(raw: string | null): number {
+  if (!raw?.trim()) return DEFAULT_LIMIT;
   const value = Number(raw);
   if (!Number.isFinite(value)) return DEFAULT_LIMIT;
   return Math.min(MAX_LIMIT, Math.max(1, Math.trunc(value)));

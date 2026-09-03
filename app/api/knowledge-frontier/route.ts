@@ -18,11 +18,17 @@ function parseRequest(value: unknown): {
   if (knownIds.length !== body.knownIds.length) return null;
   if (!body.filter || typeof body.filter !== "object") return null;
   const raw = body.filter as Record<string, unknown>;
-  if (typeof raw.status !== "string" || !(raw.status in KNOWLEDGE_FRONTIER_STATUS_META)) {
+  if (
+    typeof raw.status !== "string" ||
+    !Object.hasOwn(KNOWLEDGE_FRONTIER_STATUS_META, raw.status)
+  ) {
     return null;
   }
   const domainId = typeof raw.domainId === "string" ? raw.domainId : undefined;
-  if (domainId && !(domainId in COVERAGE_DOMAIN_META)) return null;
+  if (domainId && !Object.hasOwn(COVERAGE_DOMAIN_META, domainId)) return null;
+  if (raw.level !== undefined && typeof raw.level !== "number" && typeof raw.level !== "string") {
+    return null;
+  }
   const level = raw.level === undefined ? undefined : parseKnowledgeLevel(String(raw.level));
   if (raw.level !== undefined && !level) return null;
   const query = typeof raw.query === "string" ? raw.query.slice(0, 120) : undefined;
