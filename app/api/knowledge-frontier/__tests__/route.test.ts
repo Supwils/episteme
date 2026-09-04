@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, beforeEach, afterEach, vi } from "vitest";
 import graphSnapshot from "@/subjects/knowledge-graph/data/aggregate-snapshot.json";
 import { POST } from "../route";
 
@@ -92,5 +92,51 @@ describe("knowledge frontier API", () => {
     expect(negativeOffset.status).toBe(400);
     expect(emptyPage.status).toBe(400);
     expect(oversizedPage.status).toBe(400);
+  });
+
+  describe("rate limiting", () => {
+    beforeEach(() => {
+      vi.useFakeTimers();
+      vi.setSystemTime(new Date("2026-09-04T14:00:00.000Z"));
+    });
+
+    afterEach(() => {
+      vi.useRealTimers();
+    });
+
+    it("returns 429 when rate limit is exceeded", async () => {
+      const ip = "203.0.113.200";
+      // userProfile limiter: 30 req/min
+      for (let i = 0; i < 30; i++) {
+        const response = await POST(
+          new Request("http://localhost/api/knowledge-frontier", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "x-forwarded-for": ip,
+            },
+            body: JSON.stringify({ knownIds: [], filter: { status: "ready" } }),
+          })
+        );
+        expect(response.status).toBe(200);
+      }
+
+      // 31st request should be blocked
+      const blocked = await POST(
+        new Request("http://localhost/api/knowledge-frontier", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-forwarded-for": ip,
+          },
+          body: JSON.stringify({ knownIds: [], filter: { status: "ready" } }),
+        })
+      );
+      expect(blocked.status).toBe(429);
+      expect(blocked.headers.get("Retry-After")).toBeTruthy();
+
+      const body = (await blocked.json()) as { error: string; message: string };
+      expect(body.error).toBe("Rate limit exceeded");
+    });
   });
 });

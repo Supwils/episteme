@@ -4,6 +4,8 @@ import { KNOWLEDGE_FRONTIER_STATUS_META } from "@/lib/knowledge-frontier";
 import type { KnowledgeFrontierFilter } from "@/lib/knowledge-frontier-view";
 import { COVERAGE_DOMAIN_META } from "@/lib/knowledge-continuum-coverage-meta";
 import { parseKnowledgeLevel } from "@/lib/knowledge-levels";
+import { checkRateLimit, extractClientIp } from "@/lib/api-rate-limiter";
+import { logValidationFailure, createSafeMetadata } from "@/lib/api-validation-logger";
 
 function parseRequest(value: unknown): {
   knownIds: string[];
@@ -52,14 +54,44 @@ function parseRequest(value: unknown): {
 }
 
 export async function POST(request: Request): Promise<NextResponse> {
+  // Rate limiting: 30 req/min per IP for user profile endpoints
+  const rateLimitResponse = checkRateLimit(request, "userProfile");
+  if (rateLimitResponse) {
+    logValidationFailure({
+      route: "/api/knowledge-frontier",
+      reason: "rate_limit_exceeded",
+      ip: extractClientIp(request),
+    });
+    return rateLimitResponse;
+  }
+
   let body: unknown;
   try {
     body = await request.json();
-  } catch {
+  } catch (error) {
+    logValidationFailure({
+      route: "/api/knowledge-frontier",
+      reason: "invalid_json",
+      ip: extractClientIp(request),
+      metadata: { error: error instanceof Error ? error.message : "unknown" },
+    });
     return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
   }
+
   const parsed = parseRequest(body);
-  if (!parsed) return NextResponse.json({ error: "Invalid frontier request" }, { status: 400 });
+  if (!parsed) {
+    logValidationFailure({
+      route: "/api/knowledge-frontier",
+      reason: "invalid_request_structure",
+      ip: extractClientIp(request),
+      metadata: createSafeMetadata({
+        hasKnownIds: body && typeof body === "object" && "knownIds" in body,
+        hasFilter: body && typeof body === "object" && "filter" in body,
+      }),
+    });
+    return NextResponse.json({ error: "Invalid frontier request" }, { status: 400 });
+  }
+
   return NextResponse.json(buildKnowledgeFrontierView(parsed.knownIds, parsed.filter), {
     headers: {
       "Cache-Control": "private, no-store",

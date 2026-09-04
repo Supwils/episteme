@@ -14,6 +14,8 @@ import {
   type CoverageDomainId,
 } from "@/lib/knowledge-continuum-coverage-meta";
 import { parseKnowledgeLevel } from "@/lib/knowledge-levels";
+import { checkRateLimit, extractClientIp } from "@/lib/api-rate-limiter";
+import { logValidationFailure } from "@/lib/api-validation-logger";
 
 const catalog = buildKnowledgeBranchCatalog();
 
@@ -33,12 +35,31 @@ function parseFilter(searchParams: URLSearchParams): KnowledgeTargetFilter | nul
 }
 
 export async function GET(request: Request): Promise<NextResponse> {
+  // Rate limiting: 120 req/min per IP for general public endpoints
+  const rateLimitResponse = checkRateLimit(request, "general");
+  if (rateLimitResponse) {
+    logValidationFailure({
+      route: "/api/learning-targets",
+      reason: "rate_limit_exceeded",
+      ip: extractClientIp(request),
+    });
+    return rateLimitResponse;
+  }
+
   const { searchParams } = new URL(request.url);
   const targetId = searchParams.get("id")?.trim();
 
   if (targetId) {
     const target = catalog.targets.find((candidate) => candidate.id === targetId);
-    if (!target) return NextResponse.json({ error: "Unknown knowledge target" }, { status: 404 });
+    if (!target) {
+      logValidationFailure({
+        route: "/api/learning-targets",
+        reason: "target_not_found",
+        ip: extractClientIp(request),
+        metadata: { targetId: targetId.slice(0, 100) },
+      });
+      return NextResponse.json({ error: "Unknown knowledge target" }, { status: 404 });
+    }
     return NextResponse.json(
       { target },
       { headers: { "Cache-Control": "public, max-age=3600, stale-while-revalidate=86400" } }
@@ -46,8 +67,20 @@ export async function GET(request: Request): Promise<NextResponse> {
   }
 
   const filter = parseFilter(searchParams);
-  if (!filter)
+  if (!filter) {
+    logValidationFailure({
+      route: "/api/learning-targets",
+      reason: "invalid_filter",
+      ip: extractClientIp(request),
+      metadata: {
+        domain: searchParams.get("domain") || "missing",
+        level: searchParams.get("level") || "missing",
+        confidence: searchParams.get("confidence") || "missing",
+      },
+    });
     return NextResponse.json({ error: "Invalid knowledge target filter" }, { status: 400 });
+  }
+
   const query = searchParams.get("q") ?? "";
   const results = searchKnowledgeBranchTargets(catalog, query, 20, filter).map(
     toKnowledgeTargetSearchResult

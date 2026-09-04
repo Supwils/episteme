@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, beforeEach, afterEach, vi } from "vitest";
 import { GET, SEARCH_CACHE_CONTROL } from "@/app/api/search/route";
 import { MIN_HAN_QUERY } from "@/lib/search/phrase";
 
@@ -81,5 +81,71 @@ describe("GET /api/search", () => {
   it("echoes the query so a client can discard stale responses", async () => {
     const { body } = await call("熵增");
     expect(body.query).toBe("熵增");
+  });
+
+  describe("rate limiting", () => {
+    beforeEach(() => {
+      vi.useFakeTimers();
+      vi.setSystemTime(new Date("2026-09-04T14:00:00.000Z"));
+    });
+
+    afterEach(() => {
+      vi.useRealTimers();
+    });
+
+    it("returns 429 when rate limit is exceeded", async () => {
+      const ip = "203.0.113.100";
+      // Search limiter: 60 req/min
+      for (let i = 0; i < 60; i++) {
+        const response = await GET(
+          new Request(`http://localhost/api/search?q=test`, {
+            headers: { "x-forwarded-for": ip },
+          })
+        );
+        expect(response.status).toBe(200);
+      }
+
+      // 61st request should be blocked
+      const blocked = await GET(
+        new Request(`http://localhost/api/search?q=test`, {
+          headers: { "x-forwarded-for": ip },
+        })
+      );
+      expect(blocked.status).toBe(429);
+      expect(blocked.headers.get("Retry-After")).toBeTruthy();
+
+      const body = (await blocked.json()) as { error: string; message: string };
+      expect(body.error).toBe("Rate limit exceeded");
+    });
+
+    it("isolates rate limits by IP", async () => {
+      const ip1 = "203.0.113.101";
+      const ip2 = "203.0.113.102";
+
+      // Exhaust limit for IP1
+      for (let i = 0; i < 60; i++) {
+        await GET(
+          new Request(`http://localhost/api/search?q=test`, {
+            headers: { "x-forwarded-for": ip1 },
+          })
+        );
+      }
+
+      // IP1 should be blocked
+      const blocked = await GET(
+        new Request(`http://localhost/api/search?q=test`, {
+          headers: { "x-forwarded-for": ip1 },
+        })
+      );
+      expect(blocked.status).toBe(429);
+
+      // IP2 should still be allowed
+      const allowed = await GET(
+        new Request(`http://localhost/api/search?q=test`, {
+          headers: { "x-forwarded-for": ip2 },
+        })
+      );
+      expect(allowed.status).toBe(200);
+    });
   });
 });

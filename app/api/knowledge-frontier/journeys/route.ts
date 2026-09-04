@@ -3,6 +3,8 @@ import { buildCatalogKnowledgeGapPlan } from "@/lib/knowledge-gap-plan-catalog";
 import type { KnowledgeGapPlan } from "@/lib/knowledge-gap-plan";
 import type { KnowledgeGapJourneyPlanInput } from "@/lib/knowledge-gap-journey-plans-view";
 import type { LearningPlanMinutes } from "@/lib/knowledge-learning-plan";
+import { checkRateLimit, extractClientIp } from "@/lib/api-rate-limiter";
+import { logValidationFailure, createSafeMetadata } from "@/lib/api-validation-logger";
 
 const VALID_MINUTES = new Set<LearningPlanMinutes>([20, 45, 90]);
 const MAX_JOURNEYS = 16;
@@ -54,14 +56,44 @@ function parseRequest(value: unknown): {
 }
 
 export async function POST(request: Request): Promise<NextResponse> {
+  // Rate limiting: 30 req/min per IP for user profile endpoints
+  const rateLimitResponse = checkRateLimit(request, "userProfile");
+  if (rateLimitResponse) {
+    logValidationFailure({
+      route: "/api/knowledge-frontier/journeys",
+      reason: "rate_limit_exceeded",
+      ip: extractClientIp(request),
+    });
+    return rateLimitResponse;
+  }
+
   let body: unknown;
   try {
     body = await request.json();
-  } catch {
+  } catch (error) {
+    logValidationFailure({
+      route: "/api/knowledge-frontier/journeys",
+      reason: "invalid_json",
+      ip: extractClientIp(request),
+      metadata: { error: error instanceof Error ? error.message : "unknown" },
+    });
     return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
   }
+
   const parsed = parseRequest(body);
-  if (!parsed) return NextResponse.json({ error: "Invalid journey plan request" }, { status: 400 });
+  if (!parsed) {
+    logValidationFailure({
+      route: "/api/knowledge-frontier/journeys",
+      reason: "invalid_journey_plan_request",
+      ip: extractClientIp(request),
+      metadata: createSafeMetadata({
+        hasKnownIds: body && typeof body === "object" && "knownIds" in body,
+        hasJourneys: body && typeof body === "object" && "journeys" in body,
+      }),
+    });
+    return NextResponse.json({ error: "Invalid journey plan request" }, { status: 400 });
+  }
+
   const plans: KnowledgeGapPlan[] = [];
   const unavailableTargetIds: string[] = [];
   for (const journey of parsed.journeys) {
