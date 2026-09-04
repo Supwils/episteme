@@ -23,7 +23,10 @@ function parseLimit(raw: string | null): number {
 
 export async function GET(request: Request): Promise<NextResponse> {
   const { searchParams } = new URL(request.url);
-  const query = (searchParams.get("q") ?? "").slice(0, MAX_QUERY_LENGTH);
+
+  // Handle repeated q parameter - use first value only
+  const qParam = searchParams.get("q");
+  const query = (qParam ?? "").slice(0, MAX_QUERY_LENGTH);
   const limit = parseLimit(searchParams.get("limit"));
 
   const { corpus, docs } = await getPhraseCorpus();
