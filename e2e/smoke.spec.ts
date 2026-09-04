@@ -1,6 +1,52 @@
 import { expect, test } from "@playwright/test";
 
 test.describe("production smoke", () => {
+  test("health endpoint validates generated indexes", async ({ page }) => {
+    const response = await page.goto("/api/health");
+    expect(response?.status()).toBe(200);
+    const body = (await response?.json()) as {
+      ok: boolean;
+      timestamp: string;
+      artifacts?: Record<string, { ok: boolean; count?: number; size?: number }>;
+    };
+    expect(body.ok).toBe(true);
+    expect(body.timestamp).toBeTruthy();
+    expect(body.artifacts).toBeTruthy();
+
+    const artifacts = body.artifacts!;
+    const artifactKeys = Object.keys(artifacts);
+    expect(artifactKeys.length).toBeGreaterThanOrEqual(3);
+
+    for (const [key, artifact] of Object.entries(artifacts)) {
+      expect(artifact.ok, `artifact ${key} should be ok`).toBe(true);
+      if (artifact.count !== undefined) {
+        expect(artifact.count, `artifact ${key} should have count > 0`).toBeGreaterThan(0);
+      }
+      if (artifact.size !== undefined) {
+        expect(artifact.size, `artifact ${key} should have size > 0`).toBeGreaterThan(0);
+      }
+    }
+  });
+
+  test("random article redirect uses ASCII-only Location header", async ({ page }) => {
+    const response = await page.goto("/random", { waitUntil: "commit" });
+    const status = response?.status();
+    expect([200, 301, 302, 303, 307, 308], "should return success or redirect").toContain(status);
+
+    if (status && status >= 300 && status < 400) {
+      const location = response?.headers()["location"];
+      if (location) {
+        expect(/^[\x20-\x7E]+$/.test(location), "Location header should be ASCII-only").toBe(true);
+      }
+    }
+
+    const finalUrl = page.url();
+    const pathname = new URL(finalUrl).pathname;
+    expect(pathname.split("/").filter(Boolean).length).toBeGreaterThanOrEqual(3);
+    expect(pathname).not.toBe("/daily");
+    expect(pathname).not.toBe("/random");
+  });
+
   test("accepts repeated search parameters without a server error", async ({ page }) => {
     const params = new URLSearchParams([
       ["q", "苏格拉底"],
@@ -12,15 +58,6 @@ test.describe("production smoke", () => {
     expect(response?.status()).toBe(200);
     await expect(page.getByRole("searchbox", { name: "搜索关键词" })).toHaveValue("苏格拉底");
     await expect(page.locator('a[href="/philosophy/thinkers/socrates"]').first()).toBeVisible();
-  });
-
-  test("random article lands on an article-depth path", async ({ page }) => {
-    const response = await page.goto("/random");
-    expect(response?.status()).toBe(200);
-    const path = new URL(page.url()).pathname;
-    expect(path.split("/").filter(Boolean).length).toBeGreaterThanOrEqual(3);
-    expect(path).not.toBe("/daily");
-    expect(path).not.toBe("/random");
   });
 
   test("opens the portal and reaches a server-rendered article through search", async ({
