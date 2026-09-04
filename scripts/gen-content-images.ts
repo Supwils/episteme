@@ -104,7 +104,8 @@ async function main() {
   // Trailing newline matches what prettier (via lint-staged) writes; without it
   // the generator and the formatter overwrite each other on every commit and
   // CI's generated-artifact idempotency check fails on a clean checkout.
-  fs.writeFileSync(MANIFEST_PATH, `${JSON.stringify(manifest as ImageManifest, null, 2)}\n`);
+  const { writeFileAtomic } = await import("../lib/atomic-write.js");
+  writeFileAtomic(MANIFEST_PATH, `${JSON.stringify(manifest as ImageManifest, null, 2)}\n`);
   console.log(
     `\n完成：${generated} 张重新生成，${skipped} 张跳过（已最新），manifest ${Object.keys(manifest).length} 条。`
   );

@@ -1,6 +1,7 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { writeFileAtomic } from "../lib/atomic-write.js";
 import { ERAS } from "../content/human-history/data/eras.js";
 import { EVENTS } from "../content/human-history/data/events.js";
 import { EVENT_DETAILS } from "../content/human-history/data/event-details.js";
@@ -146,7 +147,7 @@ async function writeGenerated(path: string, content: string): Promise<void> {
   } catch {
     // A missing generated file is expected on the first run.
   }
-  if (current !== content) await writeFile(path, content);
+  if (current !== content) writeFileAtomic(path, content);
 }
 
 function assertUnique(values: string[], label: string): void {

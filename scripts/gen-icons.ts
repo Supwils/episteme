@@ -7,9 +7,10 @@
  * the WebP textures). Icons change rarely, so this is intentionally not part of
  * gen-all. Re-run after editing an icon SVG:  pnpm gen-icons
  */
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import sharp from "sharp";
+import { writeFileAtomic } from "../lib/atomic-write.js";
 
 const ICONS = join(process.cwd(), "public", "icons");
 
@@ -27,7 +28,7 @@ async function main(): Promise<void> {
       .resize(size, size)
       .png({ compressionLevel: 9 })
       .toBuffer();
-    writeFileSync(join(ICONS, png), output);
+    writeFileAtomic(join(ICONS, png), output);
     console.log(`✅ ${png} (${size}×${size}, ${(output.byteLength / 1024).toFixed(1)}KB)`);
   }
 }

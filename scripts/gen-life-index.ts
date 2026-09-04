@@ -6,10 +6,11 @@
  *
  * Run: pnpm gen-life
  */
-import { readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import matter from "gray-matter";
 import prettier from "prettier";
+import { writeFileAtomic } from "../lib/atomic-write.js";
 
 const DIR = join(process.cwd(), "content", "life-science", "dialogues");
 
@@ -41,7 +42,7 @@ const outPath = join(process.cwd(), "content", "life-science", "dialogues-data.t
 
 async function main(): Promise<void> {
   const config = await prettier.resolveConfig(outPath);
-  writeFileSync(outPath, await prettier.format(src, { ...config, parser: "typescript" }));
+  writeFileAtomic(outPath, await prettier.format(src, { ...config, parser: "typescript" }));
   console.log(`✅ Wrote ${entries.length} life-science dialogues.`);
 }
 

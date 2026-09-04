@@ -14,7 +14,7 @@
  *
  * Run: pnpm gen-search-index
  */
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import MiniSearch from "minisearch";
 import { collectArticles, type Article } from "../lib/search/articles";
@@ -28,6 +28,7 @@ import {
   type SearchDoc,
   type SearchIndexArtifact,
 } from "../lib/search/types";
+import { writeFileAtomic } from "../lib/atomic-write";
 
 const ROOT = process.cwd();
 const OUT_INDEX = join(ROOT, "public", "search-index.json");
@@ -188,18 +189,18 @@ async function main(): Promise<void> {
     docs,
     index: index.toJSON(),
   };
-  writeFileSync(OUT_INDEX, JSON.stringify(artifact));
+  writeFileAtomic(OUT_INDEX, JSON.stringify(artifact));
 
   const corpus = buildCorpus(bodies);
   mkdirSync(GENERATED, { recursive: true });
-  writeFileSync(OUT_CORPUS, corpus.text);
-  writeFileSync(
+  writeFileAtomic(OUT_CORPUS, corpus.text);
+  writeFileAtomic(
     OUT_CORPUS_META,
     JSON.stringify({ v: SEARCH_INDEX_VERSION, offsets: corpus.offsets, docs: corpusDocs })
   );
   // Tiny committed snapshot the portal stats strip reads — keeps the homepage
   // numbers in lockstep with the index instead of drifting between content rounds.
-  writeFileSync(
+  writeFileAtomic(
     OUT_STATS,
     JSON.stringify({
       v: SEARCH_INDEX_VERSION,

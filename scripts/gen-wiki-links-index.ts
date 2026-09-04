@@ -24,11 +24,12 @@
  *
  * Run: pnpm gen-links
  */
-import { mkdirSync, readdirSync, rmSync, writeFileSync } from "node:fs";
+import { mkdirSync, readdirSync, rmSync } from "node:fs";
 import { join } from "node:path";
 import prettier from "prettier";
 import { collectArticles, type Article } from "../lib/search/articles";
 import { groupPreviewsByDomain } from "../lib/link-preview-shards";
+import { writeFileAtomic } from "../lib/atomic-write";
 
 const ROOT = process.cwd();
 const OUT_LINKS = join(ROOT, "lib", "wiki-link-index.ts");
@@ -195,7 +196,7 @@ function buildBacklinks(
 
 async function emit(file: string, body: string): Promise<void> {
   const config = await prettier.resolveConfig(file);
-  writeFileSync(file, await prettier.format(body, { ...config, parser: "typescript" }));
+  writeFileAtomic(file, await prettier.format(body, { ...config, parser: "typescript" }));
 }
 
 /** First substantial prose sentence of a body, stripped of markdown, for a
@@ -286,7 +287,7 @@ export function getBacklinks(url: string): Backlink[] {
   for (const [domain, shard] of [...byDomain.entries()].sort()) {
     const file = join(OUT_PREVIEWS_DIR, `${domain}.json`);
     const config = await prettier.resolveConfig(file);
-    writeFileSync(
+    writeFileAtomic(
       file,
       await prettier.format(JSON.stringify(shard), { ...config, parser: "json" })
     );

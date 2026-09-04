@@ -5,10 +5,11 @@
  *
  * Run: pnpm gen-psych
  */
-import { readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import matter from "gray-matter";
 import prettier from "prettier";
+import { writeFileAtomic } from "../lib/atomic-write.js";
 import { PSYCHOLOGY_THEORISTS_DATA } from "../content/psychology/theorists-data.ts";
 import { PSYCHOLOGY_EXPERIMENTS_DATA } from "../content/psychology/experiments-data.ts";
 import { PHENOMENA_DATA } from "../content/psychology/phenomena-data.ts";
@@ -58,7 +59,7 @@ async function emit(file: string, exportName: string, entries: Entry[]): Promise
     `export const ${exportName} = [\n${body}\n];\n`;
   const path = join(CONTENT, file);
   const config = await prettier.resolveConfig(path);
-  writeFileSync(path, await prettier.format(src, { ...config, parser: "typescript" }));
+  writeFileAtomic(path, await prettier.format(src, { ...config, parser: "typescript" }));
 }
 
 async function main(): Promise<void> {

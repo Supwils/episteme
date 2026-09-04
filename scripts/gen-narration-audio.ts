@@ -3,6 +3,7 @@ import path from "node:path";
 import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
+import { writeFileAtomic } from "../lib/atomic-write.js";
 
 /**
  * Pre-generate "讲解" audio from every `*.narration.md` and write a manifest the
@@ -200,7 +201,7 @@ async function main() {
       job.provider === "xiaomi"
         ? await synthesizeXiaomi(apiKey, job.script, job.cfg)
         : await synthesizeElevenLabs(apiKey, job.script, job.cfg);
-    fs.writeFileSync(path.join(AUDIO_DIR, `${job.hash}.${job.cfg.ext}`), audio);
+    writeFileAtomic(path.join(AUDIO_DIR, `${job.hash}.${job.cfg.ext}`), audio);
     // prune the previous audio file for this key if the hash changed
     const prev = manifest[job.key];
     if (prev && prev.hash !== job.hash) {
@@ -222,7 +223,7 @@ async function main() {
   const sorted = Object.fromEntries(
     Object.entries(manifest).sort(([a], [b]) => a.localeCompare(b))
   );
-  fs.writeFileSync(MANIFEST_PATH, JSON.stringify(sorted, null, 2) + "\n");
+  writeFileAtomic(MANIFEST_PATH, JSON.stringify(sorted, null, 2) + "\n");
   console.log(
     `\n✓ Wrote ${stale.length} audio file(s) + manifest (${Object.keys(sorted).length} total).`
   );

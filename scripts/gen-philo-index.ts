@@ -67,7 +67,10 @@ async function emit(file: string, exportName: string, entries: Entry[]): Promise
     `export const ${exportName} = [\n${body}\n];\n`;
   const path = join(CONTENT, file);
   const config = await prettier.resolveConfig(path);
-  writeFileSync(path, await prettier.format(src, { ...config, parser: "typescript" }));
+  const formatted = await prettier.format(src, { ...config, parser: "typescript" });
+  // Import at top of file
+  const { writeFileAtomic } = await import("../lib/atomic-write.js");
+  writeFileAtomic(path, formatted);
 }
 
 async function main(): Promise<void> {
