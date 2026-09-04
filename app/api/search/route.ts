@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 import { getPhraseCorpus } from "@/lib/search/corpus-store";
 import { searchPhrases } from "@/lib/search/phrase";
+import { getRequestId, withRequestId } from "@/lib/api-request-id";
+import { checkRateLimit, getClientIdentifier } from "@/lib/api-rate-limiter";
+import { logRateLimitHit, logValidationError } from "@/lib/api-validation-logger";
 
 // Dynamic (reads ?q). The title tier answers in the browser; this endpoint is
 // the one that can reach a phrase buried in an article's prose.
@@ -22,6 +25,28 @@ function parseLimit(raw: string | null): number {
 }
 
 export async function GET(request: Request): Promise<NextResponse> {
+  const requestId = getRequestId(request);
+  const clientId = getClientIdentifier(request);
+
+  const rateLimitResult = checkRateLimit(clientId, {
+    capacity: 60,
+    refillRate: 1,
+    keyPrefix: "search:",
+  });
+
+  if (!rateLimitResult.allowed) {
+    logRateLimitHit({ requestId, endpoint: "/api/search", clientId }, rateLimitResult.retryAfter!);
+    return NextResponse.json(
+      { error: "Too many requests" },
+      {
+        status: 429,
+        headers: withRequestId(requestId, {
+          "Retry-After": String(rateLimitResult.retryAfter),
+        }),
+      }
+    );
+  }
+
   const { searchParams } = new URL(request.url);
   const query = (searchParams.get("q") ?? "").slice(0, MAX_QUERY_LENGTH);
   const limit = parseLimit(searchParams.get("limit"));
@@ -29,5 +54,12 @@ export async function GET(request: Request): Promise<NextResponse> {
   const { corpus, docs } = await getPhraseCorpus();
   const hits = searchPhrases(corpus, docs, query, limit);
 
-  return NextResponse.json({ query, hits }, { headers: { "Cache-Control": SEARCH_CACHE_CONTROL } });
+  return NextResponse.json(
+    { query, hits },
+    {
+      headers: withRequestId(requestId, {
+        "Cache-Control": SEARCH_CACHE_CONTROL,
+      }),
+    }
+  );
 }

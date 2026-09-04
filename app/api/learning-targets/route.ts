@@ -14,6 +14,9 @@ import {
   type CoverageDomainId,
 } from "@/lib/knowledge-continuum-coverage-meta";
 import { parseKnowledgeLevel } from "@/lib/knowledge-levels";
+import { getRequestId, withRequestId } from "@/lib/api-request-id";
+import { checkRateLimit, getClientIdentifier } from "@/lib/api-rate-limiter";
+import { logRateLimitHit, logValidationError } from "@/lib/api-validation-logger";
 
 const catalog = buildKnowledgeBranchCatalog();
 
@@ -33,27 +36,75 @@ function parseFilter(searchParams: URLSearchParams): KnowledgeTargetFilter | nul
 }
 
 export async function GET(request: Request): Promise<NextResponse> {
+  const requestId = getRequestId(request);
+  const clientId = getClientIdentifier(request);
+
+  const rateLimitResult = checkRateLimit(clientId, {
+    capacity: 100,
+    refillRate: 2,
+    keyPrefix: "learning-targets:",
+  });
+
+  if (!rateLimitResult.allowed) {
+    logRateLimitHit(
+      { requestId, endpoint: "/api/learning-targets", clientId },
+      rateLimitResult.retryAfter!
+    );
+    return NextResponse.json(
+      { error: "Too many requests" },
+      {
+        status: 429,
+        headers: withRequestId(requestId, {
+          "Retry-After": String(rateLimitResult.retryAfter),
+        }),
+      }
+    );
+  }
+
   const { searchParams } = new URL(request.url);
   const targetId = searchParams.get("id")?.trim();
 
   if (targetId) {
     const target = catalog.targets.find((candidate) => candidate.id === targetId);
-    if (!target) return NextResponse.json({ error: "Unknown knowledge target" }, { status: 404 });
+    if (!target) {
+      logValidationError({ requestId, endpoint: "/api/learning-targets", clientId }, [
+        { field: "id", reason: "Unknown knowledge target", value: targetId },
+      ]);
+      return NextResponse.json(
+        { error: "Unknown knowledge target" },
+        { status: 404, headers: withRequestId(requestId) }
+      );
+    }
     return NextResponse.json(
       { target },
-      { headers: { "Cache-Control": "public, max-age=3600, stale-while-revalidate=86400" } }
+      {
+        headers: withRequestId(requestId, {
+          "Cache-Control": "public, max-age=3600, stale-while-revalidate=86400",
+        }),
+      }
     );
   }
 
   const filter = parseFilter(searchParams);
-  if (!filter)
-    return NextResponse.json({ error: "Invalid knowledge target filter" }, { status: 400 });
+  if (!filter) {
+    logValidationError({ requestId, endpoint: "/api/learning-targets", clientId }, [
+      { reason: "Invalid knowledge target filter" },
+    ]);
+    return NextResponse.json(
+      { error: "Invalid knowledge target filter" },
+      { status: 400, headers: withRequestId(requestId) }
+    );
+  }
   const query = searchParams.get("q") ?? "";
   const results = searchKnowledgeBranchTargets(catalog, query, 20, filter).map(
     toKnowledgeTargetSearchResult
   );
   return NextResponse.json(
     { summary: catalog.summary, results },
-    { headers: { "Cache-Control": "public, max-age=3600, stale-while-revalidate=86400" } }
+    {
+      headers: withRequestId(requestId, {
+        "Cache-Control": "public, max-age=3600, stale-while-revalidate=86400",
+      }),
+    }
   );
 }

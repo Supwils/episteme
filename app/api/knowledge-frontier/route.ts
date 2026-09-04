@@ -4,6 +4,11 @@ import { KNOWLEDGE_FRONTIER_STATUS_META } from "@/lib/knowledge-frontier";
 import type { KnowledgeFrontierFilter } from "@/lib/knowledge-frontier-view";
 import { COVERAGE_DOMAIN_META } from "@/lib/knowledge-continuum-coverage-meta";
 import { parseKnowledgeLevel } from "@/lib/knowledge-levels";
+import { getRequestId, withRequestId } from "@/lib/api-request-id";
+import { checkRateLimit, getClientIdentifier } from "@/lib/api-rate-limiter";
+import { logRateLimitHit, logValidationError } from "@/lib/api-validation-logger";
+
+const MAX_BODY_SIZE = 100_000; // 100KB for JSON payloads
 
 function parseRequest(value: unknown): {
   knownIds: string[];
@@ -52,18 +57,68 @@ function parseRequest(value: unknown): {
 }
 
 export async function POST(request: Request): Promise<NextResponse> {
+  const requestId = getRequestId(request);
+  const clientId = getClientIdentifier(request);
+
+  const rateLimitResult = checkRateLimit(clientId, {
+    capacity: 30,
+    refillRate: 0.5,
+    keyPrefix: "frontier:",
+  });
+
+  if (!rateLimitResult.allowed) {
+    logRateLimitHit(
+      { requestId, endpoint: "/api/knowledge-frontier", clientId },
+      rateLimitResult.retryAfter!
+    );
+    return NextResponse.json(
+      { error: "Too many requests" },
+      {
+        status: 429,
+        headers: withRequestId(requestId, {
+          "Retry-After": String(rateLimitResult.retryAfter),
+        }),
+      }
+    );
+  }
+
+  const contentLength = request.headers.get("content-length");
+  if (contentLength && parseInt(contentLength, 10) > MAX_BODY_SIZE) {
+    logValidationError({ requestId, endpoint: "/api/knowledge-frontier", clientId }, [
+      { field: "body", reason: "Payload too large", value: contentLength },
+    ]);
+    return NextResponse.json(
+      { error: "Payload too large" },
+      { status: 413, headers: withRequestId(requestId) }
+    );
+  }
+
   let body: unknown;
   try {
     body = await request.json();
   } catch {
-    return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
+    logValidationError({ requestId, endpoint: "/api/knowledge-frontier", clientId }, [
+      { field: "body", reason: "Invalid JSON" },
+    ]);
+    return NextResponse.json(
+      { error: "Invalid JSON body" },
+      { status: 400, headers: withRequestId(requestId) }
+    );
   }
   const parsed = parseRequest(body);
-  if (!parsed) return NextResponse.json({ error: "Invalid frontier request" }, { status: 400 });
+  if (!parsed) {
+    logValidationError({ requestId, endpoint: "/api/knowledge-frontier", clientId }, [
+      { reason: "Invalid frontier request structure" },
+    ]);
+    return NextResponse.json(
+      { error: "Invalid frontier request" },
+      { status: 400, headers: withRequestId(requestId) }
+    );
+  }
   return NextResponse.json(buildKnowledgeFrontierView(parsed.knownIds, parsed.filter), {
-    headers: {
+    headers: withRequestId(requestId, {
       "Cache-Control": "private, no-store",
       "X-Profile-Storage": "local-only",
-    },
+    }),
   });
 }
