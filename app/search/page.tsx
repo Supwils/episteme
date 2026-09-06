@@ -16,7 +16,7 @@ const MAX_QUERY_LENGTH = 120;
 
 export const metadata: Metadata = {
   title: "搜索 — Episteme · 格致",
-  description: "在 18 个学科的全部文章中检索标题、小标题与正文。",
+  description: "在 19 个学科的全部文章中检索标题、小标题与正文。",
   robots: { index: false, follow: true },
 };
 
@@ -118,7 +118,9 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                   key={facet.section}
                   href={href(facet.section)}
                   data-active={domain === facet.section}
-                  style={{ color: sectionColor(facet.section) }}
+                  style={{
+                    color: `color-mix(in oklab, ${sectionColor(facet.section)} 42%, var(--color-fg-primary))`,
+                  }}
                   className="border-border-subtle data-[active=true]:border-fg-primary rounded-full border px-3 py-1 text-sm"
                 >
                   {sectionLabel(facet.section)} {facet.count}

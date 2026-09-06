@@ -212,7 +212,7 @@ export function HealthPrioritySimulator() {
                     <span
                       className={`inline-flex border px-2 py-1 font-mono text-[10px] tracking-[0.14em] ${
                         selected
-                          ? "border-[#4f9d76]/55 text-[#8ed0aa]"
+                          ? "text-fg-primary border-[#4f9d76]/55"
                           : "border-border-faint text-fg-muted"
                       }`}
                     >

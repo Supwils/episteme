@@ -476,7 +476,7 @@ export default function DistributionExplorer() {
                   <text
                     x={PADDING.left - 8}
                     y={y + 4}
-                    fill="#9490a8"
+                    fill="var(--color-fg-muted)"
                     fontSize="10"
                     fontFamily="var(--font-mono)"
                     textAnchor="end"
@@ -504,7 +504,7 @@ export default function DistributionExplorer() {
                   <text
                     x={svgX}
                     y={PADDING.top + PLOT_H + 20}
-                    fill="#9490a8"
+                    fill="var(--color-fg-muted)"
                     fontSize="10"
                     fontFamily="var(--font-mono)"
                     textAnchor="middle"
@@ -519,7 +519,7 @@ export default function DistributionExplorer() {
             <text
               x={PADDING.left + PLOT_W / 2}
               y={SVG_HEIGHT - 4}
-              fill="#9490a8"
+              fill="var(--color-fg-muted)"
               fontSize="11"
               fontFamily="var(--font-mono)"
               textAnchor="middle"
@@ -530,7 +530,7 @@ export default function DistributionExplorer() {
             <text
               x={12}
               y={PADDING.top + PLOT_H / 2}
-              fill="#9490a8"
+              fill="var(--color-fg-muted)"
               fontSize="11"
               fontFamily="var(--font-mono)"
               textAnchor="middle"
@@ -691,7 +691,7 @@ export default function DistributionExplorer() {
                   width="165"
                   height="85"
                   rx="4"
-                  fill="rgba(6,6,15,0.85)"
+                  fill="var(--color-bg-floating)"
                   stroke="rgba(99,102,241,0.15)"
                 />
                 {DISTRIBUTIONS.map((d, i) => (
@@ -705,7 +705,13 @@ export default function DistributionExplorer() {
                       strokeWidth={d.type === activeType ? 2.5 : 1.5}
                       strokeDasharray={d.type === activeType ? "none" : "6,4"}
                     />
-                    <text x="26" y="10" fill="#a8a4c0" fontSize="10" fontFamily="var(--font-mono)">
+                    <text
+                      x="26"
+                      y="10"
+                      fill="var(--color-fg-secondary)"
+                      fontSize="10"
+                      fontFamily="var(--font-mono)"
+                    >
                       {d.label}
                     </text>
                   </g>

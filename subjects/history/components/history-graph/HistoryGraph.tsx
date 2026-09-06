@@ -57,12 +57,12 @@ export function HistoryGraph({ nodes, edges, filterOptions }: HistoryGraphProps)
   } = interactions;
 
   return (
-    <div className="flex h-full w-full flex-col bg-[#0c0a09] text-white">
+    <div className="bg-bg-deep text-fg-primary flex h-full w-full flex-col">
       {/* Header */}
       <div className="shrink-0 px-3 py-3 sm:px-4 sm:py-3">
         <div className="flex items-center gap-3">
-          <h1 className="text-lg font-bold text-amber-100 sm:text-xl">历史关联图谱</h1>
-          <span className="text-xs text-white/55">
+          <h1 className="text-fg-primary text-lg font-bold sm:text-xl">历史关联图谱</h1>
+          <span className="text-fg-muted text-xs">
             {filteredNodes.length} 节点 · {filteredEdges.length} 关系
           </span>
         </div>
@@ -70,7 +70,7 @@ export function HistoryGraph({ nodes, edges, filterOptions }: HistoryGraphProps)
         {/* Toolbar */}
         <div className="mt-2 flex flex-wrap items-center gap-2">
           {/* Type filter tabs */}
-          <div className="flex rounded-lg border border-white/[0.06] bg-[#111118]/80 backdrop-blur-xl">
+          <div className="border-border-faint bg-bg-floating/80 flex rounded-lg border backdrop-blur-xl">
             {(["all", "era", "event", "figure"] as const).map((t) => (
               <button
                 key={t}
@@ -79,7 +79,7 @@ export function HistoryGraph({ nodes, edges, filterOptions }: HistoryGraphProps)
                 className={`px-2.5 py-1.5 text-xs transition-colors ${
                   activeTypeFilter === t
                     ? "bg-amber-500/20 text-amber-300"
-                    : "text-white/55 hover:text-white/60"
+                    : "text-fg-muted hover:text-fg-secondary"
                 } ${t === "all" ? "rounded-l-lg" : t === "figure" ? "rounded-r-lg" : ""}`}
               >
                 {t === "all" ? "全部" : NODE_TYPE_LABELS[t]}
@@ -94,7 +94,7 @@ export function HistoryGraph({ nodes, edges, filterOptions }: HistoryGraphProps)
             className={`flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs transition-colors ${
               showFilters || activeFilterCount > 0
                 ? "border-amber-500/30 bg-amber-500/10 text-amber-300"
-                : "border-white/[0.06] bg-[#111118]/80 text-white/55 hover:text-white/60"
+                : "border-border-faint bg-bg-floating/80 text-fg-muted hover:text-fg-secondary"
             }`}
           >
             <svg
@@ -121,7 +121,7 @@ export function HistoryGraph({ nodes, edges, filterOptions }: HistoryGraphProps)
               fill="none"
               stroke="currentColor"
               strokeWidth="1.5"
-              className="absolute top-1/2 left-2.5 h-3.5 w-3.5 -translate-y-1/2 text-white/55"
+              className="text-fg-muted absolute top-1/2 left-2.5 h-3.5 w-3.5 -translate-y-1/2"
             >
               <circle cx="7" cy="7" r="4.5" />
               <path d="M10.5 10.5L14 14" strokeLinecap="round" />
@@ -132,17 +132,17 @@ export function HistoryGraph({ nodes, edges, filterOptions }: HistoryGraphProps)
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="搜索人物、事件或时代…"
-              className="w-full rounded-lg border border-white/[0.06] bg-[#111118]/80 py-1.5 pr-3 pl-8 text-xs text-white/80 placeholder-white/30 backdrop-blur-xl outline-none focus:border-amber-500/30"
+              className="border-border-faint bg-bg-floating/80 text-fg-secondary placeholder:text-fg-disabled w-full rounded-lg border py-1.5 pr-3 pl-8 text-xs backdrop-blur-xl outline-none focus:border-amber-500/30"
               aria-label="搜索图谱节点"
             />
             {searchQuery && searchResults.length > 0 && (
-              <div className="absolute top-full left-0 z-50 mt-1 w-full min-w-[200px] rounded-lg border border-white/[0.08] bg-[#111118]/95 py-1 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl">
+              <div className="border-border-faint bg-bg-floating absolute top-full left-0 z-50 mt-1 w-full min-w-[200px] rounded-lg border py-1 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl">
                 {searchResults.map((result) => (
                   <button
                     key={result.node.id}
                     type="button"
                     onClick={() => handleSearchSelect(result.node.id)}
-                    className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-xs text-white/70 hover:bg-white/[0.06] hover:text-white"
+                    className="text-fg-secondary hover:bg-bg-near hover:text-fg-primary flex w-full items-center gap-2 px-3 py-1.5 text-left text-xs"
                   >
                     <span
                       className="h-2 w-2 shrink-0 rounded-full"
@@ -152,7 +152,7 @@ export function HistoryGraph({ nodes, edges, filterOptions }: HistoryGraphProps)
                       }}
                     />
                     <span className="truncate">{result.node.label}</span>
-                    <span className="ml-auto shrink-0 text-[10px] text-white/55">
+                    <span className="text-fg-muted ml-auto shrink-0 text-[10px]">
                       {NODE_TYPE_LABELS[result.node.type as HistoryNodeType]}
                     </span>
                   </button>
@@ -166,7 +166,7 @@ export function HistoryGraph({ nodes, edges, filterOptions }: HistoryGraphProps)
             <button
               type="button"
               onClick={handleZoomOut}
-              className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/[0.06] bg-[#111118]/80 text-white/55 transition-colors hover:text-white/70"
+              className="border-border-faint bg-bg-floating/80 text-fg-muted hover:text-fg-secondary flex h-7 w-7 items-center justify-center rounded-lg border transition-colors"
               aria-label="缩小"
             >
               <svg
@@ -179,13 +179,13 @@ export function HistoryGraph({ nodes, edges, filterOptions }: HistoryGraphProps)
                 <path d="M4 8h8" strokeLinecap="round" />
               </svg>
             </button>
-            <span className="min-w-[2.5rem] text-center text-[10px] text-white/55 tabular-nums">
+            <span className="text-fg-muted min-w-[2.5rem] text-center text-[10px] tabular-nums">
               {Math.round(zoom * 100)}%
             </span>
             <button
               type="button"
               onClick={handleZoomIn}
-              className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/[0.06] bg-[#111118]/80 text-white/55 transition-colors hover:text-white/70"
+              className="border-border-faint bg-bg-floating/80 text-fg-muted hover:text-fg-secondary flex h-7 w-7 items-center justify-center rounded-lg border transition-colors"
               aria-label="放大"
             >
               <svg
@@ -201,7 +201,7 @@ export function HistoryGraph({ nodes, edges, filterOptions }: HistoryGraphProps)
             <button
               type="button"
               onClick={handleFitToScreen}
-              className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/[0.06] bg-[#111118]/80 text-white/55 transition-colors hover:text-white/70"
+              className="border-border-faint bg-bg-floating/80 text-fg-muted hover:text-fg-secondary flex h-7 w-7 items-center justify-center rounded-lg border transition-colors"
               aria-label="适应屏幕"
             >
               <svg
@@ -223,7 +223,7 @@ export function HistoryGraph({ nodes, edges, filterOptions }: HistoryGraphProps)
 
         {/* Advanced filters dropdown */}
         {showFilters && (
-          <div className="mt-2 flex flex-wrap gap-3 rounded-lg border border-white/[0.06] bg-[#111118]/80 p-3 backdrop-blur-xl">
+          <div className="border-border-faint bg-bg-floating/80 mt-2 flex flex-wrap gap-3 rounded-lg border p-3 backdrop-blur-xl">
             <FilterSelect
               label="时代"
               value={selectedEra}
@@ -279,10 +279,10 @@ export function HistoryGraph({ nodes, edges, filterOptions }: HistoryGraphProps)
           />
 
           {isLoading && (
-            <div className="absolute inset-0 z-30 flex items-center justify-center bg-[#0c0a09]/80 backdrop-blur-sm">
+            <div className="bg-bg-overlay absolute inset-0 z-30 flex items-center justify-center backdrop-blur-sm">
               <div className="flex flex-col items-center gap-3">
                 <div className="h-8 w-8 animate-spin rounded-full border-2 border-amber-500/20 border-t-amber-400" />
-                <p className="text-sm text-white/55">正在计算历史图谱布局…</p>
+                <p className="text-fg-muted text-sm">正在计算历史图谱布局…</p>
               </div>
             </div>
           )}
@@ -291,12 +291,12 @@ export function HistoryGraph({ nodes, edges, filterOptions }: HistoryGraphProps)
           {tooltipNode && (
             <div
               key={tooltipNode.id}
-              className="pointer-events-none fixed z-[100] max-w-[260px] rounded-xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+              className="border-border-faint pointer-events-none fixed z-[100] max-w-[260px] rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
               style={{
                 left: isMobile ? "50%" : tooltipPos.x + 16,
                 top: isMobile ? 12 : tooltipPos.y + 16,
                 transform: isMobile ? "translateX(-50%)" : undefined,
-                background: "rgba(15, 15, 25, 0.88)",
+                background: "var(--color-bg-overlay)",
                 backdropFilter: "blur(20px)",
               }}
             >
@@ -307,42 +307,42 @@ export function HistoryGraph({ nodes, edges, filterOptions }: HistoryGraphProps)
                 <span className="font-mono text-[10px] tracking-wider text-amber-400/60 uppercase">
                   {NODE_TYPE_LABELS[tooltipNode.type]}
                 </span>
-                <h4 className="text-sm font-semibold text-white/95">{tooltipNode.label}</h4>
+                <h4 className="text-fg-primary text-sm font-semibold">{tooltipNode.label}</h4>
                 {tooltipNode.description && (
-                  <p className="text-[11px] leading-relaxed text-white/50">
+                  <p className="text-fg-muted text-[11px] leading-relaxed">
                     {tooltipNode.description.length > 60
                       ? tooltipNode.description.slice(0, 60) + "…"
                       : tooltipNode.description}
                   </p>
                 )}
-                <span className="text-[10px] text-white/55">点击查看详情</span>
+                <span className="text-fg-muted text-[10px]">点击查看详情</span>
               </div>
             </div>
           )}
 
           {/* Legend */}
           {!isLoading && (
-            <div className="absolute bottom-3 left-3 z-20 flex flex-col gap-1.5 rounded-lg border border-white/[0.06] bg-[#111118]/80 px-3 py-2 backdrop-blur-xl">
+            <div className="border-border-faint bg-bg-floating/80 absolute bottom-3 left-3 z-20 flex flex-col gap-1.5 rounded-lg border px-3 py-2 backdrop-blur-xl">
               <div className="flex items-center gap-2">
                 <span
                   className="h-2.5 w-2.5 rounded-full"
                   style={{ backgroundColor: NODE_COLORS.era }}
                 />
-                <span className="text-[10px] text-white/50">时代</span>
+                <span className="text-fg-muted text-[10px]">时代</span>
               </div>
               <div className="flex items-center gap-2">
                 <span
                   className="h-2.5 w-2.5 rounded-full"
                   style={{ backgroundColor: NODE_COLORS.event }}
                 />
-                <span className="text-[10px] text-white/50">事件</span>
+                <span className="text-fg-muted text-[10px]">事件</span>
               </div>
               <div className="flex items-center gap-2">
                 <span
                   className="h-2.5 w-2.5 rounded-full"
                   style={{ backgroundColor: NODE_COLORS.figure }}
                 />
-                <span className="text-[10px] text-white/50">人物</span>
+                <span className="text-fg-muted text-[10px]">人物</span>
               </div>
             </div>
           )}
@@ -353,7 +353,7 @@ export function HistoryGraph({ nodes, edges, filterOptions }: HistoryGraphProps)
               <button
                 type="button"
                 onClick={handleZoomIn}
-                className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.08] bg-[#111118]/80 text-white/50 backdrop-blur-xl transition-colors hover:text-white/80"
+                className="border-border-faint bg-bg-floating/80 text-fg-muted hover:text-fg-secondary flex h-9 w-9 items-center justify-center rounded-lg border backdrop-blur-xl transition-colors"
                 aria-label="放大"
               >
                 <svg
@@ -369,7 +369,7 @@ export function HistoryGraph({ nodes, edges, filterOptions }: HistoryGraphProps)
               <button
                 type="button"
                 onClick={handleZoomOut}
-                className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.08] bg-[#111118]/80 text-white/50 backdrop-blur-xl transition-colors hover:text-white/80"
+                className="border-border-faint bg-bg-floating/80 text-fg-muted hover:text-fg-secondary flex h-9 w-9 items-center justify-center rounded-lg border backdrop-blur-xl transition-colors"
                 aria-label="缩小"
               >
                 <svg
@@ -385,7 +385,7 @@ export function HistoryGraph({ nodes, edges, filterOptions }: HistoryGraphProps)
               <button
                 type="button"
                 onClick={handleFitToScreen}
-                className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.08] bg-[#111118]/80 text-white/50 backdrop-blur-xl transition-colors hover:text-white/80"
+                className="border-border-faint bg-bg-floating/80 text-fg-muted hover:text-fg-secondary flex h-9 w-9 items-center justify-center rounded-lg border backdrop-blur-xl transition-colors"
                 aria-label="适应屏幕"
               >
                 <svg

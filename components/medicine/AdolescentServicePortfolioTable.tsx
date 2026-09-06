@@ -40,19 +40,14 @@ export function AdolescentServicePortfolioTable({
         <tbody>
           {ADOLESCENT_SERVICE_OPTIONS.map((option) => {
             const current = selected.get(option.id);
-            const assumedCost =
-              option.costUnits * (assumptions[option.id]?.costMultiplier ?? 1);
+            const assumedCost = option.costUnits * (assumptions[option.id]?.costMultiplier ?? 1);
             const assumedEffect =
               option.benefitUnits * (assumptions[option.id]?.effectMultiplier ?? 1);
             return (
               <tr
                 key={option.id}
                 className="border-border-faint border-b last:border-b-0"
-                style={
-                  current
-                    ? { backgroundColor: "rgba(217, 168, 90, 0.07)" }
-                    : undefined
-                }
+                style={current ? { backgroundColor: "rgba(217, 168, 90, 0.07)" } : undefined}
               >
                 <th className="text-fg-primary min-w-56 px-4 py-4 text-sm font-medium">
                   {option.title}
@@ -86,7 +81,7 @@ export function AdolescentServicePortfolioTable({
                   <span
                     className={`inline-flex border px-2 py-1 font-mono text-[10px] tracking-[0.12em] ${
                       current
-                        ? "border-[#d9a85a]/60 text-[#d9a85a]"
+                        ? "text-fg-primary border-[#d9a85a]/60"
                         : "border-border-faint text-fg-muted"
                     }`}
                   >

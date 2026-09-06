@@ -27,7 +27,7 @@ export default function AdolescentServiceLabPage() {
   return (
     <main className="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 lg:px-10">
       <header className="mb-9 max-w-4xl">
-        <p className="mb-3 font-mono text-[10px] tracking-[0.3em] text-[#d9a85a] uppercase">
+        <p className="text-accent-gold mb-3 font-mono text-[10px] tracking-[0.3em] uppercase">
           medicine / adolescent service portfolio
         </p>
         <h1 className="font-display text-fg-primary text-3xl leading-tight font-semibold sm:text-4xl">
@@ -79,7 +79,7 @@ export default function AdolescentServiceLabPage() {
             <li key={source.href}>
               <a
                 href={source.href}
-                className="text-[#d9a85a] underline underline-offset-4 hover:decoration-current"
+                className="text-accent-gold underline underline-offset-4 hover:decoration-current"
               >
                 {source.label} →
               </a>
@@ -90,21 +90,18 @@ export default function AdolescentServiceLabPage() {
 
       <nav className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-sm">
         <Link
-          className="text-[#d9a85a] hover:underline"
+          className="text-accent-gold hover:underline"
           href="/medicine/public-health/adolescent-mental-health-school-community-services"
         >
           阅读学校、社区与连续服务 →
         </Link>
         <Link
-          className="text-[#d9a85a] hover:underline"
+          className="text-accent-gold hover:underline"
           href="/knowledge-graph?layout=spatial&tourId=from-adolescent-development-to-continuous-support&step=7&focus=medicine%3Aadolescent-mental-health-school-community-services&source=adolescent-service-lab"
         >
           在知识图谱定位服务步骤 →
         </Link>
-        <Link
-          className="text-[#d9a85a] hover:underline"
-          href="/medicine/mental-health-access"
-        >
+        <Link className="text-accent-gold hover:underline" href="/medicine/mental-health-access">
           转到有效覆盖级联 →
         </Link>
       </nav>

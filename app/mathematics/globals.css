@@ -197,9 +197,17 @@
   --color-accent-indigo: #5a52b0;
   /* Small caps tags use -bright; on paper that means the darker indigo-600. */
   --color-accent-indigo-bright: #4f46e5;
+  --color-accent-violet-bright: #5b4098;
+  --color-accent-cyan: #2f6f8a;
+  --color-accent-cyan-dim: #155e75;
+  --color-accent-cyan-bright: #0e7490;
+  --color-border-violet: rgba(109, 82, 176, 0.28);
   --color-border-faint: #eee6d9;
   --color-border-subtle: #e8dfd0;
   --color-border-strong: #d8d0c0;
+  --shadow-sm: 0 1px 2px rgba(80, 60, 30, 0.08);
+  --shadow-md: 0 4px 12px rgba(80, 60, 30, 0.12);
+  --shadow-lg: 0 8px 30px rgba(80, 60, 30, 0.16);
   --card-radius: 14px;
   --card-shadow: 0 12px 28px -18px rgba(80, 60, 30, 0.28);
   --font-display: "LXGW WenKai TC", "Noto Serif SC", "Songti SC", serif;
@@ -521,4 +529,11 @@
     scrollbar-width: thin;
     scrollbar-color: var(--color-accent-indigo) var(--color-bg-deep);
   }
+}
+
+html.light {
+  --color-fg-primary: #2c2a26;
+  --color-fg-secondary: #4f4b45;
+  --color-fg-muted: #5a564f;
+  --color-fg-disabled: #625e58;
 }

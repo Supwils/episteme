@@ -28,7 +28,7 @@ export function ShortcutOverlay({ open, onClose }: { open: boolean; onClose: () 
             key="catcher"
             aria-hidden
             onClick={onClose}
-            className="fixed inset-0 z-50 bg-black/30 backdrop-blur-[2px]"
+            className="bg-scrim fixed inset-0 z-50 backdrop-blur-[2px]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

@@ -1,23 +1,13 @@
-'use client';
+"use client";
 
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 
 const HistoricalMap = dynamic(
-  () => import('@/subjects/history/components/visualizations/HistoricalMap'),
+  () => import("@/subjects/history/components/visualizations/HistoricalMap"),
   {
     ssr: false,
     loading: () => (
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          height: '100vh',
-          background: '#0a0f1a',
-          color: '#c8a951',
-          fontFamily: 'system-ui, sans-serif',
-        }}
-      >
+      <div className="bg-bg-deep text-fg-muted flex h-screen items-center justify-center">
         正在加载历史地图…
       </div>
     ),

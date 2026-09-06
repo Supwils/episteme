@@ -13,14 +13,14 @@ export function ConfluenceGraphNotice({
 }) {
   return (
     <div
-      className="relative z-[80] flex shrink-0 flex-col gap-2 border-y border-white/8 bg-[#111118] px-4 py-2.5 text-white sm:flex-row sm:items-center sm:justify-between"
+      className="border-border-faint bg-bg-floating text-fg-primary relative z-[80] flex shrink-0 flex-col gap-2 border-y px-4 py-2.5 sm:flex-row sm:items-center sm:justify-between"
       data-testid="confluence-graph-notice"
     >
       <div className="min-w-0">
-        <p className="truncate text-xs text-white/85">
-          知识汇流 · <span className="font-medium text-white">{confluence.title}</span>
+        <p className="text-fg-primary truncate text-xs">
+          知识汇流 · <span className="text-fg-primary font-medium">{confluence.title}</span>
         </p>
-        <p className="mt-0.5 text-[10px] leading-4 text-white/45">
+        <p className="text-fg-muted mt-0.5 text-[10px] leading-4">
           {confluence.strands.length} 条人工路线 · {highlightedNodeCount} 个高亮节点 ·
           非高亮节点保留为图谱语境
         </p>
@@ -28,7 +28,7 @@ export function ConfluenceGraphNotice({
       <button
         type="button"
         onClick={onExit}
-        className="min-h-8 shrink-0 text-left text-[10px] text-white/55 transition-colors hover:text-white sm:text-right"
+        className="text-fg-muted hover:text-fg-primary min-h-8 shrink-0 text-left text-[10px] transition-colors sm:text-right"
       >
         退出汇流视图
       </button>

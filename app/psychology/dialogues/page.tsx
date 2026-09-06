@@ -36,7 +36,7 @@ export default function DialoguesPage() {
             <Link
               key={d.slug}
               href={`/psychology/dialogues/${d.slug}`}
-              className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative flex h-full flex-col gap-4 overflow-hidden border p-6 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(155,125,196,0.06)]"
+              className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative flex h-full flex-col gap-4 overflow-hidden border p-6 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_8px_32px_color-mix(in_srgb,var(--color-accent-purple)_12%,transparent)]"
             >
               <div
                 className="pointer-events-none absolute -top-10 -right-10 h-28 w-28 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-25"

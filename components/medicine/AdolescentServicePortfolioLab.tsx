@@ -95,7 +95,7 @@ export function AdolescentServicePortfolioLab() {
               onClick={() => applyScenario(scenario.id)}
               className={`min-h-9 border px-3 text-xs transition-colors ${
                 activeScenarioId === scenario.id
-                  ? "border-[#d9a85a]/70 bg-[#d9a85a]/15 text-[#edc77e]"
+                  ? "text-fg-primary border-[#d9a85a]/70 bg-[#d9a85a]/15"
                   : "border-border-faint text-fg-muted hover:text-fg-primary"
               }`}
             >
@@ -169,7 +169,7 @@ export function AdolescentServicePortfolioLab() {
               style={{
                 borderColor: "rgba(217, 120, 111, 0.45)",
                 backgroundColor: "rgba(217, 120, 111, 0.1)",
-                color: "#e39a93",
+                color: "var(--color-danger)",
               }}
               role="status"
               data-testid="adolescent-service-infeasible"

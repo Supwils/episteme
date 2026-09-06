@@ -66,7 +66,10 @@ describe("KnowledgeCoveragePanel", () => {
     );
     expect(screen.getByText("个 方法建模 核心节点")).toBeDefined();
 
-    fireEvent.click(screen.getByRole("button", { name: "形式推演，方法建模，7个核心节点" }));
+    const formalL4 = snapshot.evidenceModes.find((row) => row.id === "formal")?.levels[3] ?? 0;
+    fireEvent.click(
+      screen.getByRole("button", { name: `形式推演，方法建模，${formalL4}个核心节点` })
+    );
     expect(screen.getByText("用定义、逻辑、数学结构和算法推出可检查结论。")).toBeDefined();
   });
 

@@ -13,7 +13,7 @@ export default function KnowledgeGraphPage() {
     <Suspense
       fallback={
         <div
-          className="flex h-screen w-full items-center justify-center bg-[#08080f] text-sm text-white/45"
+          className="bg-bg-deep text-fg-muted flex h-screen w-full items-center justify-center text-sm"
           role="status"
           aria-live="polite"
         >

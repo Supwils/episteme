@@ -199,6 +199,13 @@ export const COVERAGE_DOMAIN_META: Record<
     color: "#b0785a",
     status: "established",
   },
+  literature: {
+    label: "文学与叙事",
+    shortLabel: "文",
+    href: "/literature",
+    color: "#8b5e4a",
+    status: "established",
+  },
   engineering: {
     label: "工程与技术",
     shortLabel: "工",

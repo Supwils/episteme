@@ -155,7 +155,7 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
               role="presentation"
               onClick={() => setSheetOpen(false)}
             >
-              <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]" />
+              <div className="bg-scrim absolute inset-0 backdrop-blur-[2px]" />
               <div
                 ref={sheetRef}
                 id="mobile-toc-sheet"

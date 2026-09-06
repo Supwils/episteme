@@ -12,7 +12,7 @@ export default function HealthPrioritySettingPage() {
   return (
     <main className="mx-auto w-full max-w-6xl px-5 py-16 sm:px-8 lg:px-10">
       <header className="mb-9 max-w-3xl">
-        <p className="mb-3 font-mono text-[10px] tracking-[0.32em] text-[#4f9d76] uppercase">
+        <p className="text-accent-gold mb-3 font-mono text-[10px] tracking-[0.32em] uppercase">
           medicine / priority setting
         </p>
         <h1 className="font-display text-fg-primary text-3xl leading-tight font-semibold sm:text-4xl">
@@ -48,19 +48,19 @@ export default function HealthPrioritySettingPage() {
 
       <nav className="mt-8 flex flex-wrap gap-4 text-sm">
         <Link
-          className="text-[#4f9d76] hover:underline"
+          className="text-accent-gold hover:underline"
           href="/medicine/public-health/burden-of-disease-daly-qaly"
         >
           疾病负担、DALY 与 QALY →
         </Link>
         <Link
-          className="text-[#4f9d76] hover:underline"
+          className="text-accent-gold hover:underline"
           href="/medicine/public-health/health-economic-evaluation-priority-setting"
         >
           卫生经济学与优先排序 →
         </Link>
         <Link
-          className="text-[#4f9d76] hover:underline"
+          className="text-accent-gold hover:underline"
           href="/medicine/public-health/health-systems-universal-health-coverage"
         >
           卫生系统与全民健康覆盖 →

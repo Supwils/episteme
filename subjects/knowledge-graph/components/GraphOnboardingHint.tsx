@@ -43,15 +43,15 @@ export function GraphOnboardingHint() {
       role="note"
       className="pointer-events-none absolute top-3 left-1/2 z-20 w-full max-w-md -translate-x-1/2 px-3"
     >
-      <div className="pointer-events-auto flex items-center gap-2.5 rounded-lg border border-white/10 bg-[#111118]/90 py-2 pr-1.5 pl-3.5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
-        <p className="m-0 flex-1 text-center text-[0.78rem] leading-relaxed text-[#e8e8f0]">
+      <div className="border-border-faint bg-bg-floating/90 pointer-events-auto flex items-center gap-2.5 rounded-lg border py-2 pr-1.5 pl-3.5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+        <p className="text-fg-primary m-0 flex-1 text-center text-[0.78rem] leading-relaxed">
           人类知识的关联网络——点击节点查看详情，拖拽旋转，滚轮缩放
         </p>
         <button
           type="button"
           onClick={dismiss}
           aria-label="关闭引导提示"
-          className="shrink-0 rounded px-2 py-1 text-[0.72rem] text-[#a0a4b8] transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[#818cf8]"
+          className="text-fg-muted hover:text-fg-primary shrink-0 rounded px-2 py-1 text-[0.72rem] transition-colors hover:bg-[var(--hover-bg)] focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[#818cf8]"
         >
           知道了
         </button>

@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import dynamic from 'next/dynamic';
-import { LoadingSpinner } from '@/components/ui';
+import dynamic from "next/dynamic";
+import { LoadingSpinner } from "@/components/ui";
 
-const GraphClient = dynamic(() => import('./GraphClient'), {
+const GraphClient = dynamic(() => import("./GraphClient"), {
   ssr: false,
   loading: () => (
-    <div className="flex h-screen w-screen items-center justify-center bg-[#0c0a09]">
+    <div className="bg-bg-deep flex h-screen w-screen items-center justify-center">
       <LoadingSpinner size="md" color="amber" label="正在加载历史图谱…" />
     </div>
   ),

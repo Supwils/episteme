@@ -113,6 +113,13 @@ export const DOMAIN_META: Record<
     border: "border-orange-500/30",
     dot: "bg-orange-400",
   },
+  literature: {
+    label: "文学与叙事",
+    color: "text-amber-400",
+    bg: "bg-amber-800/15",
+    border: "border-amber-800/30",
+    dot: "bg-amber-700",
+  },
   engineering: {
     label: "工程与技术",
     color: "text-slate-300",
@@ -186,6 +193,7 @@ export const DOMAIN_ACCENT_GRADIENT: Record<Domain, string> = {
   linguistics: "linear-gradient(90deg, #3f8f8a 0%, #64b4ae 100%)",
   law: "linear-gradient(90deg, #a8843c 0%, #c9a45c 100%)",
   arts: "linear-gradient(90deg, #b0785a 0%, #d3957e 100%)",
+  literature: "linear-gradient(90deg, #8b5e4a 0%, #b07a62 100%)",
   engineering: "linear-gradient(90deg, #8a919e 0%, #b3bac6 100%)",
 };
 

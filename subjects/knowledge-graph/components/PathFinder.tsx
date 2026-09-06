@@ -70,7 +70,7 @@ function NodeSelector({
 
   return (
     <div className="flex flex-col gap-1" ref={ref}>
-      <span className="text-[10px] font-medium tracking-wider text-white/55 uppercase">
+      <span className="text-fg-muted text-[10px] font-medium tracking-wider uppercase">
         {label}
       </span>
       <div className="relative">
@@ -86,7 +86,7 @@ function NodeSelector({
             setQuery("");
           }}
           placeholder={placeholder}
-          className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-2.5 py-1.5 text-xs text-white/80 outline-none placeholder:text-white/20 focus:border-indigo-500/40"
+          className="border-border-faint text-fg-secondary placeholder:text-fg-disabled w-full rounded-lg border bg-[var(--input-bg)] px-2.5 py-1.5 text-xs outline-none focus:border-indigo-500/40"
         />
         <AnimatePresence>
           {isOpen && filtered.length > 0 && (
@@ -95,7 +95,7 @@ function NodeSelector({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -4 }}
               transition={{ duration: 0.12 }}
-              className="absolute top-full right-0 left-0 z-50 mt-1 max-h-[180px] overflow-y-auto rounded-lg border border-white/[0.08] bg-[#111118]/95 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl"
+              className="border-border-faint bg-bg-floating absolute top-full right-0 left-0 z-50 mt-1 max-h-[180px] overflow-y-auto rounded-lg border shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl"
             >
               {filtered.map((node) => (
                 <button
@@ -109,8 +109,8 @@ function NodeSelector({
                   className={clsx(
                     "flex w-full items-center gap-2 px-2.5 py-1.5 text-left text-xs transition-colors",
                     node.id === value
-                      ? "bg-indigo-500/15 text-white"
-                      : "text-white/70 hover:bg-white/[0.05]"
+                      ? "text-fg-primary bg-indigo-500/15"
+                      : "text-fg-secondary hover:bg-[var(--hover-bg)]"
                   )}
                 >
                   <span
@@ -397,8 +397,8 @@ export function PathFinder({
           "flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs",
           "border transition-all duration-200",
           isOpen
-            ? "border-indigo-500/30 bg-indigo-500/10 text-white"
-            : "border-white/[0.04] text-white/60 hover:border-white/[0.08] hover:text-white/60"
+            ? "text-fg-primary border-indigo-500/30 bg-indigo-500/10"
+            : "border-border-faint text-fg-muted hover:border-border-subtle hover:text-fg-primary"
         )}
         aria-expanded={isOpen}
         aria-label="连接引擎"
@@ -425,7 +425,7 @@ export function PathFinder({
             exit={reducedMotion ? { opacity: 0 } : { opacity: 0, y: -4, scale: 0.95 }}
             transition={{ duration: reducedMotion ? 0 : 0.15 }}
             className={clsx(
-              "absolute z-50 w-[320px] max-w-[calc(100vw-2rem)] overflow-y-auto rounded-xl border border-white/[0.08] bg-[#111118]/95 p-3 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl",
+              "border-border-faint bg-bg-floating absolute z-50 w-[320px] max-w-[calc(100vw-2rem)] overflow-y-auto rounded-xl border p-3 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl",
               isMobile
                 ? "top-full right-0 mt-2 max-h-[72vh]"
                 : detailPanelOpen
@@ -444,7 +444,7 @@ export function PathFinder({
               {/* Curated thought lines */}
               {tours.length > 0 && (
                 <div className="flex flex-col gap-1.5">
-                  <span className="text-[10px] font-medium tracking-wider text-white/55 uppercase">
+                  <span className="text-fg-muted text-[10px] font-medium tracking-wider uppercase">
                     思想之线
                   </span>
                   <div className="flex flex-col gap-1">
@@ -457,13 +457,13 @@ export function PathFinder({
                           "group rounded-lg border px-2.5 py-1.5 text-left transition-colors",
                           activeTourId === tour.id
                             ? "border-indigo-500/35 bg-indigo-500/[0.08]"
-                            : "border-white/[0.05] bg-white/[0.02] hover:border-indigo-500/30 hover:bg-indigo-500/[0.06]"
+                            : "border-border-faint bg-[var(--input-bg)] hover:border-indigo-500/30 hover:bg-indigo-500/[0.06]"
                         )}
                       >
-                        <span className="block text-[11px] font-medium text-white/80 group-hover:text-white">
+                        <span className="text-fg-secondary group-hover:text-fg-primary block text-[11px] font-medium">
                           {tour.title}
                         </span>
-                        <span className="block text-[10px] leading-snug text-white/55">
+                        <span className="text-fg-muted block text-[10px] leading-snug">
                           {tour.subtitle}
                         </span>
                       </button>
@@ -475,11 +475,11 @@ export function PathFinder({
               {activeTour && activeTourSteps.length > 0 && (
                 <div className="order-first rounded-lg border border-indigo-500/15 bg-indigo-500/[0.04] p-2.5">
                   <div className="mb-2">
-                    <span className="block text-[10px] font-medium tracking-wider text-indigo-300/70 uppercase">
+                    <span className="text-fg-primary/70 block text-[10px] font-medium tracking-wider uppercase">
                       路线解释
                     </span>
                     <div className="mt-0.5 flex items-center justify-between gap-2">
-                      <span className="min-w-0 text-[11px] leading-snug text-white/65">
+                      <span className="text-fg-secondary min-w-0 text-[11px] leading-snug">
                         {activeTour.title} · {activeStepIndex + 1}/{activeTourSteps.length}
                       </span>
                       <div className="flex shrink-0 items-center gap-1">
@@ -490,8 +490,8 @@ export function PathFinder({
                           className={clsx(
                             "flex h-6 w-7 items-center justify-center rounded-md border transition-colors",
                             activeStepIndex === 0
-                              ? "cursor-not-allowed border-white/[0.04] text-white/20"
-                              : "border-white/[0.08] text-white/50 hover:border-indigo-400/40 hover:text-indigo-200"
+                              ? "border-border-faint text-fg-disabled cursor-not-allowed"
+                              : "border-border-faint text-fg-muted hover:text-fg-primary hover:border-indigo-400/40"
                           )}
                           aria-label="上一步"
                           title="上一步"
@@ -514,10 +514,10 @@ export function PathFinder({
                           className={clsx(
                             "flex h-6 w-7 items-center justify-center rounded-md border transition-colors",
                             reducedMotion || activeTourSteps.length < 2
-                              ? "cursor-not-allowed border-white/[0.04] text-white/20"
+                              ? "border-border-faint text-fg-disabled cursor-not-allowed"
                               : isTourPlaying
-                                ? "border-indigo-300/40 bg-indigo-300/10 text-indigo-200"
-                                : "border-white/[0.08] text-white/50 hover:border-indigo-400/40 hover:text-indigo-200"
+                                ? "text-fg-primary border-indigo-300/40 bg-indigo-300/10"
+                                : "border-border-faint text-fg-muted hover:text-fg-primary hover:border-indigo-400/40"
                           )}
                           aria-label={
                             reducedMotion
@@ -562,8 +562,8 @@ export function PathFinder({
                           className={clsx(
                             "flex h-6 w-7 items-center justify-center rounded-md border transition-colors",
                             activeStepIndex >= activeTourSteps.length - 1
-                              ? "cursor-not-allowed border-white/[0.04] text-white/20"
-                              : "border-white/[0.08] text-white/50 hover:border-indigo-400/40 hover:text-indigo-200"
+                              ? "border-border-faint text-fg-disabled cursor-not-allowed"
+                              : "border-border-faint text-fg-muted hover:text-fg-primary hover:border-indigo-400/40"
                           )}
                           aria-label="下一步"
                           title="下一步"
@@ -582,7 +582,7 @@ export function PathFinder({
                       </div>
                     </div>
                     <div
-                      className="mt-2 h-1 overflow-hidden rounded-full bg-white/[0.06]"
+                      className="mt-2 h-1 overflow-hidden rounded-full bg-[var(--hover-bg)]"
                       role="progressbar"
                       aria-label="路线播放进度"
                       aria-valuemin={1}
@@ -598,7 +598,7 @@ export function PathFinder({
                     {activeTourNode?.url ? (
                       <Link
                         href={activeTourNode.url}
-                        className="mt-2 inline-flex min-h-8 items-center border-b border-indigo-300/40 text-[10px] text-indigo-200 transition-colors hover:border-indigo-200 hover:text-white"
+                        className="text-fg-primary hover:text-fg-primary mt-2 inline-flex min-h-8 items-center border-b border-indigo-300/40 text-[10px] transition-colors hover:border-indigo-200"
                       >
                         阅读当前文章 →
                       </Link>
@@ -617,7 +617,7 @@ export function PathFinder({
                             "group grid w-full grid-cols-[1.25rem_minmax(0,1fr)] gap-2 rounded-md border px-1 py-1.5 text-left transition-colors focus-visible:outline focus-visible:outline-1 focus-visible:outline-indigo-300/60",
                             isActiveStep
                               ? "border-indigo-400/30 bg-indigo-400/[0.08]"
-                              : "border-transparent hover:bg-white/[0.04]"
+                              : "border-transparent hover:bg-[var(--input-bg)]"
                           )}
                           aria-label={`聚焦路线步骤：${step.title}`}
                           aria-current={isActiveStep ? "step" : undefined}
@@ -634,21 +634,21 @@ export function PathFinder({
                             />
                             {idx < activeTourSteps.length - 1 && (
                               <span
-                                className="absolute top-3 bottom-[-0.5rem] w-px bg-white/10"
+                                className="absolute top-3 bottom-[-0.5rem] w-px bg-[var(--hover-bg)]"
                                 aria-hidden="true"
                               />
                             )}
                           </span>
                           <span className="min-w-0">
                             <span className="flex items-center gap-1.5">
-                              <span className="truncate text-[11px] font-medium text-white/85 group-hover:text-white">
+                              <span className="text-fg-primary group-hover:text-fg-primary truncate text-[11px] font-medium">
                                 {step.title}
                               </span>
-                              <span className="shrink-0 rounded-full border border-white/[0.06] px-1.5 py-0.5 text-[9px] text-white/55">
+                              <span className="border-border-faint text-fg-muted shrink-0 rounded-full border px-1.5 py-0.5 text-[9px]">
                                 {step.focus}
                               </span>
                             </span>
-                            <span className="mt-0.5 block text-[10.5px] leading-snug text-white/42">
+                            <span className="text-fg-muted mt-0.5 block text-[10.5px] leading-snug">
                               {step.summary}
                             </span>
                           </span>
@@ -659,10 +659,10 @@ export function PathFinder({
                 </div>
               )}
 
-              <div className="h-px bg-white/[0.06]" aria-hidden="true" />
+              <div className="h-px bg-[var(--hover-bg)]" aria-hidden="true" />
 
               <div className="flex flex-col gap-2.5">
-                <span className="text-[10px] font-medium tracking-wider text-white/55 uppercase">
+                <span className="text-fg-muted text-[10px] font-medium tracking-wider uppercase">
                   自选两个概念，看它们如何相连
                 </span>
                 <NodeSelector
@@ -688,8 +688,8 @@ export function PathFinder({
                     className={clsx(
                       "flex-1 rounded-lg px-3 py-1.5 text-xs font-medium transition-all duration-200",
                       localStart && localEnd
-                        ? "border border-indigo-500/30 bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500/30"
-                        : "cursor-not-allowed border border-white/[0.04] bg-white/[0.03] text-white/20"
+                        ? "text-fg-primary border border-indigo-500/30 bg-indigo-500/20 hover:bg-indigo-500/30"
+                        : "border-border-faint text-fg-disabled cursor-not-allowed border bg-[var(--input-bg)]"
                     )}
                   >
                     查找路径
@@ -698,7 +698,7 @@ export function PathFinder({
                     <button
                       type="button"
                       onClick={handleClear}
-                      className="rounded-lg border border-white/[0.04] px-3 py-1.5 text-xs text-white/60 transition-all duration-200 hover:border-white/[0.08] hover:text-white/60"
+                      className="border-border-faint text-fg-muted hover:border-border-subtle hover:text-fg-primary rounded-lg border px-3 py-1.5 text-xs transition-all duration-200"
                     >
                       清除
                     </button>
@@ -707,9 +707,9 @@ export function PathFinder({
               </div>
 
               {pathResult && chain.length > 0 && (
-                <div className="border-t border-white/[0.06] pt-2.5">
+                <div className="border-border-faint border-t pt-2.5">
                   <div className="mb-2 flex items-center gap-1.5">
-                    <span className="text-[10px] font-medium tracking-wider text-white/55 uppercase">
+                    <span className="text-fg-muted text-[10px] font-medium tracking-wider uppercase">
                       连接路径
                     </span>
                     <span className="text-[10px] text-indigo-400">
@@ -724,7 +724,7 @@ export function PathFinder({
                             className="h-2.5 w-2.5 shrink-0 rounded-full ring-2 ring-white/5"
                             style={{ backgroundColor: domainColor(item.domain) }}
                           />
-                          <span className="text-[12px] leading-tight font-medium text-white/85">
+                          <span className="text-fg-primary text-[12px] leading-tight font-medium">
                             {item.label}
                           </span>
                         </div>
@@ -737,7 +737,7 @@ export function PathFinder({
                             <span
                               className={clsx(
                                 "py-0.5 text-[10.5px] leading-snug",
-                                item.relToNext ? "text-white/45" : "text-white/20 italic"
+                                item.relToNext ? "text-fg-muted" : "text-fg-disabled italic"
                               )}
                             >
                               {item.relToNext ?? "相关联"}
@@ -751,8 +751,8 @@ export function PathFinder({
               )}
 
               {pathResult && chain.length === 0 && (
-                <div className="border-t border-white/[0.06] pt-2.5">
-                  <p className="text-center text-[11px] text-white/55">未找到路径</p>
+                <div className="border-border-faint border-t pt-2.5">
+                  <p className="text-fg-muted text-center text-[11px]">未找到路径</p>
                 </div>
               )}
             </div>

@@ -12,7 +12,7 @@ export default function MentalHealthAccessPage() {
   return (
     <main className="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 lg:px-10">
       <header className="mb-9 max-w-4xl">
-        <p className="mb-3 font-mono text-[10px] tracking-[0.32em] text-[#62b7a2] uppercase">
+        <p className="text-accent-gold mb-3 font-mono text-[10px] tracking-[0.32em] uppercase">
           medicine / mental health access
         </p>
         <h1 className="font-display text-fg-primary text-3xl leading-tight font-semibold sm:text-4xl">
@@ -48,13 +48,13 @@ export default function MentalHealthAccessPage() {
 
       <nav className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-sm">
         <Link
-          className="text-[#62b7a2] hover:underline"
+          className="text-accent-gold hover:underline"
           href="/medicine/public-health/community-mental-health-access-continuity"
         >
           阅读社区精神卫生与连续照护 →
         </Link>
         <Link
-          className="text-[#62b7a2] hover:underline"
+          className="text-accent-gold hover:underline"
           href="/knowledge-graph?layout=spatial&tourId=from-distress-to-rights-based-mental-health-care&step=4&source=access-lab"
         >
           在知识图谱查看完整路线 →

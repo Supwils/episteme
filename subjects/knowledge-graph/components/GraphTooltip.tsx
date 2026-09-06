@@ -134,6 +134,13 @@ const DOMAIN_META: Record<
     border: "border-orange-400/30",
     borderColor: "#b0785a",
   },
+  literature: {
+    label: "文学与叙事",
+    color: "text-amber-300",
+    bg: "bg-amber-700/20",
+    border: "border-amber-700/30",
+    borderColor: "#8b5e4a",
+  },
   engineering: {
     label: "工程与技术",
     color: "text-slate-300",
@@ -217,20 +224,20 @@ export const GraphTooltip = memo(function GraphTooltip({
           exit={reducedMotion ? { opacity: 0 } : { opacity: 0, scale: 0.95, y: 4 }}
           transition={{ duration: 0.15, ease: "easeOut" }}
           className={clsx(
-            "pointer-events-none z-[100] max-w-[280px] rounded-xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.5)]",
+            "border-border-faint pointer-events-none z-[100] max-w-[280px] rounded-xl border shadow-[0_8px_32px_rgba(0,0,0,0.5)]",
             isMobile ? "fixed top-3 left-1/2 -translate-x-1/2" : "fixed"
           )}
           style={
             isMobile
               ? {
-                  background: "rgba(15, 15, 25, 0.88)",
+                  background: "var(--color-bg-overlay)",
                   backdropFilter: "blur(20px) saturate(1.2)",
                   WebkitBackdropFilter: "blur(20px) saturate(1.2)",
                 }
               : {
                   left: position.x + OFFSET_X,
                   top: position.y + OFFSET_Y,
-                  background: "rgba(15, 15, 25, 0.88)",
+                  background: "var(--color-bg-overlay)",
                   backdropFilter: "blur(20px) saturate(1.2)",
                   WebkitBackdropFilter: "blur(20px) saturate(1.2)",
                 }
@@ -245,7 +252,7 @@ export const GraphTooltip = memo(function GraphTooltip({
               className={clsx(
                 "inline-flex w-fit items-center rounded-full px-2 py-0.5 font-mono text-[9px] font-medium tracking-[0.15em] uppercase",
                 meta.bg,
-                meta.color,
+                "text-fg-primary",
                 meta.border,
                 "border"
               )}
@@ -254,14 +261,16 @@ export const GraphTooltip = memo(function GraphTooltip({
             </span>
 
             {/* Title */}
-            <h4 className="text-[14px] leading-tight font-semibold text-white/95">{node.label}</h4>
+            <h4 className="text-fg-primary text-[14px] leading-tight font-semibold">
+              {node.label}
+            </h4>
 
             {/* Type + era */}
-            <div className="flex flex-wrap items-center gap-2 text-[11px] text-white/60">
+            <div className="text-fg-muted flex flex-wrap items-center gap-2 text-[11px]">
               <span>{typeLabel}</span>
               {node.era ? (
                 <>
-                  <span aria-hidden className="text-white/20">
+                  <span aria-hidden className="text-fg-disabled">
                     ·
                   </span>
                   <span>{node.era}</span>
@@ -269,7 +278,7 @@ export const GraphTooltip = memo(function GraphTooltip({
               ) : null}
               {connectedCount > 0 ? (
                 <>
-                  <span aria-hidden className="text-white/20">
+                  <span aria-hidden className="text-fg-disabled">
                     ·
                   </span>
                   <span>{connectedCount} 个关联</span>
@@ -279,11 +288,11 @@ export const GraphTooltip = memo(function GraphTooltip({
 
             {/* Description preview */}
             {truncatedDesc ? (
-              <p className="text-[11px] leading-relaxed text-white/50">{truncatedDesc}</p>
+              <p className="text-fg-muted text-[11px] leading-relaxed">{truncatedDesc}</p>
             ) : null}
 
             {/* Click hint */}
-            <span className="mt-0.5 text-[10px] text-white/60">点击查看详情</span>
+            <span className="text-fg-muted mt-0.5 text-[10px]">点击查看详情</span>
           </div>
         </motion.div>
       ) : null}

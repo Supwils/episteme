@@ -49,6 +49,7 @@ const DOMAIN_COLORS: Record<Domain, string> = {
   chemistry: "#e08a3c",
   // Newer domains take their accent from the domain catalog (lib/data.tsx glowColor).
   arts: "#b0785a",
+  literature: "#8b5e4a",
   law: "#a8843c",
   engineering: "#8a919e",
   sociology: "#7a8f5a",
@@ -202,6 +203,7 @@ export default function RelatedContent({ slug, domain, entityId }: RelatedConten
     "medicine",
     "chemistry",
     "arts",
+    "literature",
     "law",
     "engineering",
     "sociology",

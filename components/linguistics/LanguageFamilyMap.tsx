@@ -283,7 +283,7 @@ export function LanguageFamilyMap() {
         <aside className="p-4 sm:p-6" aria-live="polite">
           <p
             className="font-mono text-[10px] tracking-[0.18em] uppercase"
-            style={{ color: ACCENT }}
+            style={{ color: "var(--color-fg-primary)" }}
           >
             {selected.macroarea} · {selected.modality === "signed" ? "手语" : "口语"}
           </p>
@@ -325,7 +325,7 @@ export function LanguageFamilyMap() {
               <p className="text-fg-primary text-sm font-medium">{comparison.title}</p>
               <p
                 className="mt-1 font-mono text-[10px] tracking-[0.12em] uppercase"
-                style={{ color: ACCENT }}
+                style={{ color: "var(--color-fg-primary)" }}
               >
                 {comparison.languageIds
                   .map((id) => LANGUAGE_PROFILES.find((language) => language.id === id)?.name)

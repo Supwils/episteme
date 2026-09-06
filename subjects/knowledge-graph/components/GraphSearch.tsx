@@ -63,7 +63,7 @@ function highlightMatch(text: string, query: string): React.ReactNode {
   return (
     <>
       {text.slice(0, idx)}
-      <mark className="rounded-sm bg-indigo-400/30 px-0.5 text-indigo-200">
+      <mark className="text-fg-primary rounded-sm bg-indigo-500/20 px-0.5">
         {text.slice(idx, idx + qLower.length)}
       </mark>
       {text.slice(idx + qLower.length)}
@@ -207,7 +207,7 @@ export function GraphSearch({
           "flex items-center gap-2 rounded-lg border px-2.5 py-1.5 transition-all duration-200",
           isSearchFocused
             ? "border-[#6366f1]/40 shadow-[0_0_0_2px_rgba(99,102,241,0.1)]"
-            : "border-white/[0.04] hover:border-white/[0.08]"
+            : "border-border-faint hover:border-border-subtle"
         )}
       >
         <svg
@@ -215,7 +215,7 @@ export function GraphSearch({
           fill="none"
           stroke="currentColor"
           strokeWidth="1.5"
-          className="h-3.5 w-3.5 shrink-0 text-white/55"
+          className="text-fg-muted h-3.5 w-3.5 shrink-0"
         >
           <circle cx="7" cy="7" r="4.5" />
           <path d="M10.5 10.5L14 14" strokeLinecap="round" />
@@ -231,7 +231,7 @@ export function GraphSearch({
           onChange={(e) => onSearchChange(e.target.value)}
           onFocus={() => setIsSearchFocused(true)}
           placeholder="搜索节点…… (按 / 聚焦)"
-          className="w-full bg-transparent text-xs text-white/80 outline-none placeholder:text-white/25"
+          className="text-fg-secondary placeholder:text-fg-disabled w-full bg-transparent text-xs outline-none"
           aria-label="搜索知识图谱节点"
           role="combobox"
           aria-expanded={showAutocomplete}
@@ -242,7 +242,7 @@ export function GraphSearch({
           <button
             type="button"
             onClick={() => onSearchChange("")}
-            className="shrink-0 text-white/55 transition-colors duration-150 hover:text-white/60"
+            className="text-fg-muted hover:text-fg-primary shrink-0 transition-colors duration-150"
             aria-label="清除搜索"
           >
             <svg
@@ -257,7 +257,7 @@ export function GraphSearch({
           </button>
         )}
         {!isSearchFocused && (
-          <kbd className="hidden items-center gap-0.5 rounded border border-white/[0.06] bg-white/[0.02] px-1 py-0.5 text-[0.6rem] text-white/20 sm:inline-flex">
+          <kbd className="border-border-faint text-fg-disabled hidden items-center gap-0.5 rounded border bg-[var(--input-bg)] px-1 py-0.5 text-[0.6rem] sm:inline-flex">
             /
           </kbd>
         )}
@@ -270,7 +270,7 @@ export function GraphSearch({
             animate={reducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
             exit={reducedMotion ? { opacity: 0 } : { opacity: 0, y: -4 }}
             transition={{ duration: reducedMotion ? 0 : 0.15 }}
-            className="absolute top-full right-0 left-0 z-50 mt-1 max-h-[280px] overflow-y-auto overscroll-contain rounded-lg border border-white/[0.08] bg-[#111118]/95 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl"
+            className="border-border-faint bg-bg-floating absolute top-full right-0 left-0 z-50 mt-1 max-h-[280px] overflow-y-auto overscroll-contain rounded-lg border shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl"
             id="search-results"
             role="listbox"
             aria-label="搜索结果"
@@ -285,7 +285,7 @@ export function GraphSearch({
                       className="h-1.5 w-1.5 shrink-0 rounded-full"
                       style={{ backgroundColor: domainColor }}
                     />
-                    <span className="text-[0.6rem] font-medium tracking-wider text-white/55 uppercase">
+                    <span className="text-fg-muted text-[0.6rem] font-medium tracking-wider uppercase">
                       {domainLabel}
                     </span>
                   </div>
@@ -305,22 +305,24 @@ export function GraphSearch({
                         onMouseEnter={() => setActiveIndex(idx)}
                         className={clsx(
                           "flex w-full items-center gap-2 px-3 py-2 text-left text-xs transition-colors duration-100",
-                          isActive ? "bg-white/[0.08]" : "hover:bg-white/[0.05]"
+                          isActive ? "bg-[var(--hover-bg)]" : "hover:bg-[var(--hover-bg)]"
                         )}
                       >
-                        <span className="flex-1 truncate text-white/80">
+                        <span className="text-fg-secondary flex-1 truncate">
                           {highlightMatch(item.node.label, searchQuery)}
                         </span>
-                        <span className="shrink-0 text-[0.65rem] text-white/20">{typeLabel}</span>
+                        <span className="text-fg-disabled shrink-0 text-[0.65rem]">
+                          {typeLabel}
+                        </span>
                       </button>
                     );
                   })}
                 </div>
               );
             })}
-            <div className="flex items-center justify-between border-t border-white/[0.04] px-3 py-1.5">
-              <span className="text-[0.6rem] text-white/20">{flatResults.length} 个结果</span>
-              <span className="text-[0.6rem] text-white/15">↑↓ 导航 · Enter 选择</span>
+            <div className="border-border-faint flex items-center justify-between border-t px-3 py-1.5">
+              <span className="text-fg-disabled text-[0.6rem]">{flatResults.length} 个结果</span>
+              <span className="text-fg-disabled text-[0.6rem]">↑↓ 导航 · Enter 选择</span>
             </div>
           </motion.div>
         )}

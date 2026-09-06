@@ -163,6 +163,15 @@ const DOMAIN_CONFIGS = [
     url: "/arts",
   },
   {
+    key: "literature" as const,
+    icon: "📖",
+    label: "文学与叙事",
+    color: "#8b5e4a",
+    bg: "rgba(139,94,74,0.08)",
+    border: "rgba(139,94,74,0.18)",
+    url: "/literature",
+  },
+  {
     key: "engineering" as const,
     icon: "🔧",
     label: "工程",
@@ -214,7 +223,7 @@ export function DailyDomainGrid({ daily }: DailyDomainGridProps) {
                   <span
                     className="rounded-full px-2 py-0.5 text-[0.7rem] font-semibold"
                     style={{
-                      color: config.color,
+                      color: `color-mix(in oklab, ${config.color} 42%, var(--color-fg-primary))`,
                       background: config.bg,
                       border: `1px solid ${config.border}`,
                     }}

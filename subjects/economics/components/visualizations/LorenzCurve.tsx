@@ -111,13 +111,15 @@ export function LorenzCurve() {
     return lines;
   }, []);
 
-  const countryPoints = useMemo(() =>
-    COUNTRIES.map((c) => {
-      const pts = lorenzPoints(c.gini);
-      const mid = pts[50] ?? [0.5, 0.5];
-      return { ...c, midX: toSvgX(mid[0]), midY: toSvgY(mid[1]) };
-    }),
-  []);
+  const countryPoints = useMemo(
+    () =>
+      COUNTRIES.map((c) => {
+        const pts = lorenzPoints(c.gini);
+        const mid = pts[50] ?? [0.5, 0.5];
+        return { ...c, midX: toSvgX(mid[0]), midY: toSvgY(mid[1]) };
+      }),
+    []
+  );
 
   return (
     <div className="chart-container">
@@ -128,12 +130,12 @@ export function LorenzCurve() {
           </h3>
           <div className="flex items-baseline gap-2">
             <span
-              className="font-display text-[2.4rem] font-bold leading-none"
+              className="font-display text-[2.4rem] leading-none font-bold"
               style={{ color: curveColor }}
             >
               {gini.toFixed(2)}
             </span>
-            <span className="text-fg-muted font-mono text-[10px] uppercase tracking-wider">
+            <span className="text-fg-muted font-mono text-[10px] tracking-wider uppercase">
               {inequalityLabel(gini)}
             </span>
           </div>
@@ -227,7 +229,7 @@ export function LorenzCurve() {
               x={toSvgX(v)}
               y={PAD + PLOT + 20}
               textAnchor="middle"
-              fill="rgba(200,164,90,0.4)"
+              fill="var(--color-fg-muted)"
               fontSize={10}
               fontFamily="var(--font-mono)"
             >
@@ -240,7 +242,7 @@ export function LorenzCurve() {
               x={PAD - 10}
               y={toSvgY(v) + 4}
               textAnchor="end"
-              fill="rgba(200,164,90,0.4)"
+              fill="var(--color-fg-muted)"
               fontSize={10}
               fontFamily="var(--font-mono)"
             >
@@ -252,7 +254,7 @@ export function LorenzCurve() {
             x={PAD + PLOT / 2}
             y={PAD + PLOT + 44}
             textAnchor="middle"
-            fill="rgba(200,164,90,0.5)"
+            fill="var(--color-fg-muted)"
             fontSize={12}
             fontFamily="var(--font-sans)"
           >
@@ -262,7 +264,7 @@ export function LorenzCurve() {
             x={16}
             y={PAD + PLOT / 2}
             textAnchor="middle"
-            fill="rgba(200,164,90,0.5)"
+            fill="var(--color-fg-muted)"
             fontSize={12}
             fontFamily="var(--font-sans)"
             transform={`rotate(-90,16,${PAD + PLOT / 2})`}
@@ -273,7 +275,7 @@ export function LorenzCurve() {
           <text
             x={toSvgX(0.72)}
             y={toSvgY(0.72) - 10}
-            fill="rgba(200,164,90,0.3)"
+            fill="var(--color-fg-muted)"
             fontSize={10}
             fontFamily="var(--font-mono)"
             transform={`rotate(-45,${toSvgX(0.72)},${toSvgY(0.72) - 10})`}
@@ -335,8 +337,7 @@ export function LorenzCurve() {
 
         <div className="border-border-faint mt-4 border-t pt-3">
           <p className="text-fg-muted text-xs leading-relaxed">
-            A 区域（洛伦兹曲线与完全平等线之间）越大，不平等程度越高。
-            基尼系数 = A / (A + B)。
+            A 区域（洛伦兹曲线与完全平等线之间）越大，不平等程度越高。 基尼系数 = A / (A + B)。
           </p>
         </div>
       </div>

@@ -18,8 +18,8 @@ export function CognitiveLevelAxis({
             key={level.id}
             className={`border px-1.5 py-1 font-mono text-[9px] ${
               level.id === activeLevel
-                ? "border-amber-400/50 bg-[#08080f]/90 text-amber-200"
-                : "border-white/[0.06] bg-[#08080f]/75 text-white/55"
+                ? "border-accent-gold/50 bg-bg-deep/90 text-accent-gold"
+                : "border-border-faint bg-bg-deep/75 text-fg-muted"
             }`}
           >
             L{level.id}
@@ -39,8 +39,8 @@ export function CognitiveLevelAxis({
           key={level.id}
           className={`border-t px-2 pt-1.5 text-center font-mono text-[9px] tracking-[0.1em] uppercase ${
             level.id === activeLevel
-              ? "border-amber-400/55 text-amber-200/80"
-              : "border-white/[0.06] text-white/25"
+              ? "border-accent-gold/55 text-accent-gold"
+              : "border-border-faint text-fg-disabled"
           }`}
         >
           L{level.id} · {level.shortLabel}

@@ -288,9 +288,7 @@ export function SyntaxTreeBuilder() {
               <div className="text-fg-disabled font-mono text-[10px] tracking-[0.15em] uppercase">
                 阶段 {stage + 1} / {STAGES.length}
               </div>
-              <div className="mt-1 text-sm" style={{ color: ACCENT }}>
-                {STAGES[stage]}
-              </div>
+              <div className="text-fg-primary mt-1 text-sm">{STAGES[stage]}</div>
             </div>
             <button
               type="button"
@@ -298,7 +296,7 @@ export function SyntaxTreeBuilder() {
               disabled={stage === STAGES.length - 1}
               aria-label="下一步"
               className="h-10 w-10 border text-lg disabled:opacity-35"
-              style={{ borderColor: ACCENT, color: ACCENT }}
+              style={{ borderColor: ACCENT, color: "var(--color-fg-primary)" }}
               title="下一步"
             >
               →
@@ -325,9 +323,7 @@ export function SyntaxTreeBuilder() {
             </p>
             {selectedNode ? (
               <div className="mt-2">
-                <div className="font-medium" style={{ color: ACCENT }}>
-                  {selectedNode.label}
-                </div>
+                <div className="text-fg-primary font-medium">{selectedNode.label}</div>
                 <div className="text-fg-muted mt-1 font-mono text-[10px]">
                   {stage >= 3 ? selectedNode.role : "角色将在第 4 阶段显示"}
                 </div>

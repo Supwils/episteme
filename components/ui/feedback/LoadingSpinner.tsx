@@ -14,7 +14,7 @@ const sizeStyles: Record<NonNullable<LoadingSpinnerProps["size"]>, string> = {
 };
 
 const colorStyles: Record<NonNullable<LoadingSpinnerProps["color"]>, string> = {
-  default: "border-white/10 border-t-white/60",
+  default: "border-border-subtle border-t-fg-muted",
   indigo: "border-indigo-400/20 border-t-indigo-400",
   amber: "border-amber-500/20 border-t-amber-400",
   emerald: "border-emerald-500/20 border-t-emerald-400",
@@ -41,9 +41,7 @@ export function LoadingSpinner({
         role="status"
         aria-label={label ?? "加载中"}
       />
-      {label && (
-        <p className={cn("text-fg-secondary", labelSizeStyles[size])}>{label}</p>
-      )}
+      {label && <p className={cn("text-fg-secondary", labelSizeStyles[size])}>{label}</p>}
     </div>
   );
 }

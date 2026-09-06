@@ -66,6 +66,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-01-15 offset 0
     "title": "濒危语言复振",
     "url": "/linguistics/history-typology-society/endangered-language-revitalization",
   },
+  "literature": {
+    "description": "主题和寓意必须挂到具体论者；能对质的是用词、句法与所据版本。",
+    "title": "细读要拿出文本",
+    "url": "/literature/theory-and-method",
+  },
   "mathematics": {
     "description": "曼德博集合展示了简单迭代规则如何产生无限复杂的图案，揭示了混沌中的秩序。",
     "title": "分形几何",
@@ -186,6 +191,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 0
     "description": "各「方言」口语差距可达语言一级；称为方言还是语言，取决于互通度之外的历史与政治标准。",
     "title": "汉语方言还是语言",
     "url": "/linguistics/history-typology-society/chinese-dialects",
+  },
+  "literature": {
+    "description": "接受不是被动接收。教材、译本与书市决定哪些作品被反复读到。",
+    "title": "读者也在生产意义",
+    "url": "/literature/reading-and-reception",
   },
   "mathematics": {
     "description": "V - E + F = 2 揭示了多面体的顶点、边和面之间的基本关系。",
@@ -308,6 +318,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 1
     "title": "语言是否塑造思维",
     "url": "/linguistics/acquisition-and-mind/language-thought-debate",
   },
+  "literature": {
+    "description": "主题和寓意必须挂到具体论者；能对质的是用词、句法与所据版本。",
+    "title": "细读要拿出文本",
+    "url": "/literature/theory-and-method",
+  },
   "mathematics": {
     "description": "纳什均衡揭示了在非合作博弈中，每个参与者都选择最优策略时的状态。",
     "title": "博弈论",
@@ -429,6 +444,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 0
     "title": "爱斯基摩雪词神话",
     "url": "/linguistics/history-typology-society/eskimo-snow-words-hoax",
   },
+  "literature": {
+    "description": "“发生了一件事”还不是故事；叙述要把谁对谁做了什么，按可核对的次序讲出来。",
+    "title": "故事是一种结构",
+    "url": "/literature/narrative-basics",
+  },
   "mathematics": {
     "description": "罗素悖论动摇了朴素集合论的基础，推动了公理化集合论的发展。",
     "title": "集合论悖论",
@@ -539,6 +559,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 2
     "title": "汉语方言还是语言",
     "url": "/linguistics/history-typology-society/chinese-dialects",
   },
+  "literature": {
+    "description": "接受不是被动接收。教材、译本与书市决定哪些作品被反复读到。",
+    "title": "读者也在生产意义",
+    "url": "/literature/reading-and-reception",
+  },
   "mathematics": {
     "description": "V - E + F = 2 揭示了多面体的顶点、边和面之间的基本关系。",
     "title": "欧拉公式",
@@ -648,6 +673,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-12-25 offset 0
     "description": "语言巢、官方地位和社区学校可以把濒危语言拉回日常使用，但成功取决于制度，不只是词典。",
     "title": "濒危语言复振",
     "url": "/linguistics/history-typology-society/endangered-language-revitalization",
+  },
+  "literature": {
+    "description": "主题和寓意必须挂到具体论者；能对质的是用词、句法与所据版本。",
+    "title": "细读要拿出文本",
+    "url": "/literature/theory-and-method",
   },
   "mathematics": {
     "description": "曼德博集合展示了简单迭代规则如何产生无限复杂的图案，揭示了混沌中的秩序。",

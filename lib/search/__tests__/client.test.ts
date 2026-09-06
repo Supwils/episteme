@@ -68,4 +68,21 @@ describe("createSearchClient without a Worker", () => {
     const client = createSearchClient();
     await expect(client.search("熵", 5)).resolves.toEqual([]);
   });
+
+  it("schedules warmup on idle instead of parsing inside the open handler", async () => {
+    vi.stubGlobal("Worker", undefined);
+    const fetchMock = mockFetch(artifactJson);
+    const idle = vi.fn((callback: IdleRequestCallback) => {
+      callback({ didTimeout: false, timeRemaining: () => 10 } as IdleDeadline);
+      return 1;
+    });
+    vi.stubGlobal("requestIdleCallback", idle);
+
+    const client = createSearchClient();
+    client.warmup();
+
+    expect(idle).toHaveBeenCalledTimes(1);
+    await client.search("熵", 3);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
 });

@@ -17,6 +17,7 @@ import { SOCIOLOGY_NODES, SOCIOLOGY_EDGES } from "./sociology-nodes";
 import { LINGUISTICS_NODES, LINGUISTICS_EDGES } from "./linguistics-nodes";
 import { LAW_NODES, LAW_EDGES } from "./law-nodes";
 import { ARTS_NODES, ARTS_EDGES } from "./arts-nodes";
+import { LITERATURE_NODES, LITERATURE_EDGES } from "./literature-nodes";
 import { ENGINEERING_NODES, ENGINEERING_EDGES } from "./engineering-nodes";
 import { PHILOSOPHY_FRONTIER_NODES, PHILOSOPHY_FRONTIER_EDGES } from "./philosophy-frontier-nodes";
 import { MDX_DERIVED_NODES, MDX_DERIVED_EDGES } from "./mdx-derived-nodes";
@@ -190,6 +191,7 @@ const BASE_NODES: GraphNode[] = [
   ...LINGUISTICS_NODES,
   ...LAW_NODES,
   ...ARTS_NODES,
+  ...LITERATURE_NODES,
   ...ENGINEERING_NODES,
   ...PHILOSOPHY_FRONTIER_NODES,
   ...LIFESCIENCE_COVERAGE_NODES,
@@ -242,6 +244,7 @@ const baseEdges: GraphEdge[] = [
   ...LINGUISTICS_EDGES,
   ...LAW_EDGES,
   ...ARTS_EDGES,
+  ...LITERATURE_EDGES,
   ...ENGINEERING_EDGES,
   ...PHILOSOPHY_FRONTIER_EDGES,
   ...LIFESCIENCE_COVERAGE_EDGES,

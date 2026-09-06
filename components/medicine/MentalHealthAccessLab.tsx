@@ -84,7 +84,7 @@ export function MentalHealthAccessLab() {
     <section className="border-border-faint bg-bg-near border" aria-label="心理健康服务可及性模型">
       <header className="border-border-faint grid gap-4 border-b px-5 py-5 sm:px-7 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
         <div>
-          <p className="font-mono text-[10px] tracking-[0.24em] text-[#62b7a2] uppercase">
+          <p className="text-fg-muted font-mono text-[10px] tracking-[0.24em] uppercase">
             teaching model · effective coverage
           </p>
           <h2 className="text-fg-primary mt-2 text-xl font-semibold">从需要到有效覆盖</h2>

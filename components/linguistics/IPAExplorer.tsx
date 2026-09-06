@@ -8,7 +8,7 @@ import {
   type Voicing,
 } from "@/subjects/linguistics/lib/ipa-explorer-data";
 
-const ACCENT = "#2f9f8f";
+const ACCENT = "var(--color-accent-gold)";
 
 function createVoicingCue(context: AudioContext, voicing: Voicing): AudioNode[] {
   const gain = context.createGain();

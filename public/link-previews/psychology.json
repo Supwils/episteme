@@ -176,7 +176,7 @@
   },
   "/psychology/disorders/insomnia": {
     "t": "失眠障碍",
-    "e": "失眠障碍（Insomnia Disorder）不是“昨晚没睡好”。DSM-5 要求：入睡困难、维持困难或早醒，每周至少三次、持续至少三个月，并造成日间功能损害，且不能更好地用另一种睡眠—觉醒障…",
+    "e": "失眠障碍（Insomnia Disorder）不是“昨晚没睡好”。DSM-5-TR 与睡眠障碍国际分类第三版（ICSD-3）对慢性失眠障碍的口径已经大体对齐：入睡困难、维持困难或早醒，尽管有足…",
     "d": "psychology"
   },
   "/psychology/disorders/major-depressive": {

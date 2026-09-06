@@ -15,26 +15,26 @@ import {
 const RISK_META: Record<RiskLevel, { label: string; className: string }> = {
   low: {
     label: "低",
-    className: "border-emerald-300/35 bg-emerald-300/10 text-emerald-100",
+    className: "border-emerald-500/35 bg-emerald-500/10 text-fg-primary",
   },
   medium: {
     label: "中",
-    className: "border-sky-300/35 bg-sky-300/10 text-sky-100",
+    className: "border-sky-500/35 bg-sky-500/10 text-fg-primary",
   },
   high: {
     label: "高",
-    className: "border-amber-300/40 bg-amber-300/10 text-amber-100",
+    className: "border-amber-500/40 bg-amber-500/10 text-fg-primary",
   },
   acute: {
     label: "急",
-    className: "border-rose-300/40 bg-rose-300/10 text-rose-100",
+    className: "border-rose-500/40 bg-rose-500/10 text-fg-primary",
   },
 };
 
 const SCENARIO_CLASS_NAMES: Record<ScenarioKey, string> = {
-  baseline: "border-sky-300/35 bg-sky-300/10 text-sky-100",
-  upside: "border-emerald-300/35 bg-emerald-300/10 text-emerald-100",
-  downside: "border-rose-300/40 bg-rose-300/10 text-rose-100",
+  baseline: "border-sky-500/35 bg-sky-500/10 text-fg-primary",
+  upside: "border-emerald-500/35 bg-emerald-500/10 text-fg-primary",
+  downside: "border-rose-500/40 bg-rose-500/10 text-fg-primary",
 };
 
 function toggleDimension(selected: DimensionKey[], dimension: DimensionKey): DimensionKey[] {

@@ -10,6 +10,7 @@ const EXPECTED_DOMAIN_IDS = [
   "human-history",
   "philosophy",
   "arts",
+  "literature",
   "life-science",
   "mathematics",
   "economics",

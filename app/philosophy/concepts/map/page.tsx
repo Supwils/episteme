@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function ConceptMapPage() {
   return (
-    <div className="flex h-screen flex-col bg-[#08080f] text-white">
+    <div className="bg-bg-deep text-fg-primary flex h-screen flex-col">
       <header className="shrink-0 px-6 py-4 sm:px-10">
         <p className="text-fg-muted mb-1 font-mono text-[10px] tracking-[0.42em] uppercase">
           philosophy / concepts / map

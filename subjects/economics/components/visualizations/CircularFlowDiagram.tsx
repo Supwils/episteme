@@ -2,7 +2,13 @@
 
 import { useState, useCallback, useEffect } from "react";
 
-type Sector = "households" | "firms" | "product-market" | "factor-market" | "government" | "financial";
+type Sector =
+  | "households"
+  | "firms"
+  | "product-market"
+  | "factor-market"
+  | "government"
+  | "financial";
 
 interface SectorInfo {
   id: Sector;
@@ -63,12 +69,7 @@ const SECTORS: SectorInfo[] = [
     h: 60,
     color: "#e8a840",
     description: "家庭购买商品和服务的市场，企业出售产品获得收入",
-    details: [
-      "家庭消费支出流入",
-      "企业产品流出",
-      "供需决定价格",
-      "消费者剩余 + 生产者剩余",
-    ],
+    details: ["家庭消费支出流入", "企业产品流出", "供需决定价格", "消费者剩余 + 生产者剩余"],
   },
   {
     id: "factor-market",
@@ -79,12 +80,7 @@ const SECTORS: SectorInfo[] = [
     h: 60,
     color: "#5a9ad8",
     description: "劳动、资本、土地等生产要素的交易市场",
-    details: [
-      "企业购买生产要素",
-      "家庭提供劳动/资本",
-      "工资由供需决定",
-      "边际生产力决定要素价格",
-    ],
+    details: ["企业购买生产要素", "家庭提供劳动/资本", "工资由供需决定", "边际生产力决定要素价格"],
   },
   {
     id: "government",
@@ -111,12 +107,7 @@ const SECTORS: SectorInfo[] = [
     h: 60,
     color: "#56b6c2",
     description: "储蓄转化为投资的中介，连接家庭储蓄与企业投资",
-    details: [
-      "家庭储蓄流入",
-      "企业贷款/投资流出",
-      "利率调节资金供需",
-      "股票、债券、银行",
-    ],
+    details: ["家庭储蓄流入", "企业贷款/投资流出", "利率调节资金供需", "股票、债券、银行"],
   },
 ];
 
@@ -133,7 +124,13 @@ const FLOWS: FlowArrow[] = [
   { from: "households", to: "product-market", label: "消费支出", color: "#6bae8a", offsetX: -20 },
   { from: "product-market", to: "firms", label: "销售收入", color: "#e8a840", offsetX: -20 },
   { from: "firms", to: "factor-market", label: "要素成本", color: "#d47850", offsetX: 20 },
-  { from: "factor-market", to: "households", label: "工资/租金/利润", color: "#5a9ad8", offsetX: 20 },
+  {
+    from: "factor-market",
+    to: "households",
+    label: "工资/租金/利润",
+    color: "#5a9ad8",
+    offsetX: 20,
+  },
   { from: "households", to: "government", label: "税收", color: "#a88adf", offsetY: 5 },
   { from: "government", to: "firms", label: "政府采购", color: "#a88adf", offsetY: 5 },
   { from: "households", to: "financial", label: "储蓄", color: "#56b6c2" },
@@ -170,12 +167,17 @@ function getArrowPath(from: SectorInfo, to: SectorInfo, offsetX = 0, offsetY = 0
   const dx = tx - fx;
   const dy = ty - fy;
   const len = Math.sqrt(dx * dx + dy * dy);
-  const nx = -dy / len * 20;
-  const ny = dx / len * 20;
+  const nx = (-dy / len) * 20;
+  const ny = (dx / len) * 20;
   return `M ${fx} ${fy} Q ${mx + nx} ${my + ny} ${tx} ${ty}`;
 }
 
-function getArrowLabelPos(from: SectorInfo, to: SectorInfo, offsetX = 0, offsetY = 0): { x: number; y: number } {
+function getArrowLabelPos(
+  from: SectorInfo,
+  to: SectorInfo,
+  offsetX = 0,
+  offsetY = 0
+): { x: number; y: number } {
   const f = getSectorCenter(from);
   const t = getSectorCenter(to);
   const fx = f.cx + offsetX;
@@ -187,8 +189,8 @@ function getArrowLabelPos(from: SectorInfo, to: SectorInfo, offsetX = 0, offsetY
   const dx = tx - fx;
   const dy = ty - fy;
   const len = Math.sqrt(dx * dx + dy * dy);
-  const nx = -dy / len * 28;
-  const ny = dx / len * 28;
+  const nx = (-dy / len) * 28;
+  const ny = (dx / len) * 28;
   return { x: mx + nx, y: my + ny };
 }
 
@@ -220,7 +222,7 @@ export function CircularFlowDiagram() {
       >
         <defs>
           <marker id="cf-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-            <polygon points="0 0, 8 3, 0 6" fill="rgba(200,164,90,0.5)" />
+            <polygon points="0 0, 8 3, 0 6" fill="var(--color-fg-muted)" />
           </marker>
           {FLOWS.map((f, i) => (
             <marker
@@ -349,7 +351,7 @@ export function CircularFlowDiagram() {
                 x={sector.x + sector.w / 2}
                 y={sector.y + sector.h / 2 + 12}
                 textAnchor="middle"
-                fill="rgba(200,164,90,0.4)"
+                fill="var(--color-fg-muted)"
                 fontSize={8}
                 fontFamily="var(--font-mono)"
                 letterSpacing="0.06em"
@@ -371,11 +373,37 @@ export function CircularFlowDiagram() {
         })}
 
         <g>
-          <rect x={10} y={440} width={SVG_W - 20} height={50} rx={6} fill="rgba(200,164,90,0.03)" stroke="rgba(200,164,90,0.08)" strokeWidth={1} />
-          <text x={SVG_W / 2} y={458} textAnchor="middle" fill="rgba(200,164,90,0.5)" fontSize={9} fontFamily="var(--font-mono)" letterSpacing="0.1em" fontWeight={500}>
+          <rect
+            x={10}
+            y={440}
+            width={SVG_W - 20}
+            height={50}
+            rx={6}
+            fill="var(--color-bg-near)"
+            stroke="var(--color-border-faint)"
+            strokeWidth={1}
+          />
+          <text
+            x={SVG_W / 2}
+            y={458}
+            textAnchor="middle"
+            fill="var(--color-fg-muted)"
+            fontSize={9}
+            fontFamily="var(--font-mono)"
+            letterSpacing="0.1em"
+            fontWeight={500}
+          >
             均衡条件: S + T + M = I + G + X（漏出 = 注入）
           </text>
-          <text x={SVG_W / 2} y={476} textAnchor="middle" fill="rgba(200,164,90,0.3)" fontSize={8} fontFamily="var(--font-mono)" letterSpacing="0.08em">
+          <text
+            x={SVG_W / 2}
+            y={476}
+            textAnchor="middle"
+            fill="var(--color-fg-muted)"
+            fontSize={8}
+            fontFamily="var(--font-mono)"
+            letterSpacing="0.08em"
+          >
             点击各经济主体查看详细信息
           </text>
         </g>
@@ -424,13 +452,18 @@ export function CircularFlowDiagram() {
           className="border-border-faint bg-bg-elevated rounded-lg border p-4"
           style={{ borderLeftWidth: 3, borderLeftColor: "#d85a5a" }}
         >
-          <p className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.2em] uppercase" style={{ color: "#d85a5a" }}>
+          <p
+            className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.2em] uppercase"
+            style={{ color: "#d85a5a" }}
+          >
             漏出 Leakages
           </p>
           <div className="space-y-2">
             {LEAKAGES.map((l) => (
               <div key={l.label} className="flex items-center justify-between">
-                <span className="font-mono text-[11px]" style={{ color: l.color }}>{l.label}</span>
+                <span className="font-mono text-[11px]" style={{ color: l.color }}>
+                  {l.label}
+                </span>
                 <span className="text-fg-muted font-mono text-[10px]">{l.value}</span>
               </div>
             ))}
@@ -440,13 +473,18 @@ export function CircularFlowDiagram() {
           className="border-border-faint bg-bg-elevated rounded-lg border p-4"
           style={{ borderLeftWidth: 3, borderLeftColor: "#6bae8a" }}
         >
-          <p className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.2em] uppercase" style={{ color: "#6bae8a" }}>
+          <p
+            className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.2em] uppercase"
+            style={{ color: "#6bae8a" }}
+          >
             注入 Injections
           </p>
           <div className="space-y-2">
             {INJECTIONS.map((l) => (
               <div key={l.label} className="flex items-center justify-between">
-                <span className="font-mono text-[11px]" style={{ color: l.color }}>{l.label}</span>
+                <span className="font-mono text-[11px]" style={{ color: l.color }}>
+                  {l.label}
+                </span>
                 <span className="text-fg-muted font-mono text-[10px]">{l.value}</span>
               </div>
             ))}

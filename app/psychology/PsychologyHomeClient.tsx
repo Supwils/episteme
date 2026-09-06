@@ -148,7 +148,7 @@ function SectionCard({
     >
       <Link
         href={section.href}
-        className="group border-border-faint bg-bg-near hover:bg-bg-elevated relative flex h-full flex-col gap-5 border p-6 transition-all duration-500 hover:shadow-[0_0_40px_-12px_rgba(155,125,196,0.12)]"
+        className="group border-border-faint bg-bg-near hover:bg-bg-elevated relative flex h-full flex-col gap-5 border p-6 transition-all duration-500 hover:shadow-[0_0_40px_-12px_color-mix(in_srgb,var(--color-accent-purple)_18%,transparent)]"
         aria-label={`${section.title} — ${section.titleEn}`}
       >
         <div className="flex items-center justify-between">

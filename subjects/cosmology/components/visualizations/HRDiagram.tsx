@@ -298,11 +298,11 @@ function StarDetail({ star, onClose }: StarDetailProps) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 16 }}
       transition={{ duration: 0.25 }}
-      className="relative max-w-md rounded-xl border border-white/[0.08] bg-[#0f1320]/90 p-6 backdrop-blur-xl"
+      className="border-border-faint bg-bg-elevated/90 relative max-w-md rounded-xl border p-6 backdrop-blur-xl"
     >
       <button
         onClick={onClose}
-        className="absolute top-3 right-3 flex h-7 w-7 items-center justify-center rounded-full bg-white/[0.06] text-sm text-[#868da0] transition-colors hover:bg-white/[0.12] hover:text-white"
+        className="hover:text-fg-primary absolute top-3 right-3 flex h-7 w-7 items-center justify-center rounded-full bg-[var(--input-bg)] text-sm text-[#868da0] transition-colors hover:bg-[var(--hover-bg)]"
         aria-label="关闭"
       >
         ✕
@@ -318,7 +318,7 @@ function StarDetail({ star, onClose }: StarDetailProps) {
           <div className="h-5 w-5 rounded-full" style={{ backgroundColor: color }} />
         </div>
         <div className="min-w-0">
-          <h3 className="mb-0.5 text-lg font-semibold text-[#f5f6fa]">
+          <h3 className="text-fg-primary mb-0.5 text-lg font-semibold">
             {star.nameCn}
             {star.id === "sun" && (
               <span className="ml-2 rounded-full bg-amber-500/20 px-2 py-0.5 text-xs text-amber-400">
@@ -357,7 +357,7 @@ function StarDetail({ star, onClose }: StarDetailProps) {
             >
               {regionLabel(star.region)}
             </span>
-            <span className="rounded-full bg-white/[0.06] px-2 py-0.5 text-xs text-[#868da0]">
+            <span className="rounded-full bg-[var(--input-bg)] px-2 py-0.5 text-xs text-[#868da0]">
               {spectralLabel(star.spectralClass)}
             </span>
           </div>
@@ -389,7 +389,7 @@ export function HRDiagram() {
     <section className="w-full">
       <div className="mb-8 text-center">
         <h2
-          className="mb-2 text-2xl font-bold text-[#f5f6fa] md:text-3xl"
+          className="text-fg-primary mb-2 text-2xl font-bold md:text-3xl"
           style={{ fontFamily: "var(--font-display)" }}
         >
           赫罗图
@@ -405,7 +405,7 @@ export function HRDiagram() {
           onClick={() => setActiveRegion(null)}
           className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-all ${
             activeRegion === null
-              ? "border-white/20 bg-white/[0.08] text-white"
+              ? "border-border-subtle text-fg-primary bg-[var(--hover-bg)]"
               : "border-white/[0.06] bg-white/[0.02] text-[#868da0] hover:bg-white/[0.04]"
           }`}
         >
@@ -417,7 +417,7 @@ export function HRDiagram() {
             onClick={() => setActiveRegion((prev) => (prev === region ? null : region))}
             className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-all ${
               activeRegion === region
-                ? "border-white/20 bg-white/[0.08] text-white"
+                ? "border-border-subtle text-fg-primary bg-[var(--hover-bg)]"
                 : "border-white/[0.06] bg-white/[0.02] text-[#868da0] hover:bg-white/[0.04]"
             }`}
           >

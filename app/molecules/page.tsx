@@ -45,7 +45,7 @@ export default function MoleculesPage() {
                 <span
                   className="rounded-full px-2.5 py-0.5 text-[11px] font-semibold"
                   style={{
-                    color: `color-mix(in oklab, ${accent} 80%, #f5f2ea)`,
+                    color: `color-mix(in oklab, ${accent} 42%, var(--color-fg-primary))`,
                     background: `${accent}1a`,
                     border: `1px solid ${accent}33`,
                   }}
@@ -68,7 +68,9 @@ export default function MoleculesPage() {
                 <Link
                   href={m.relatedHref}
                   className="mt-3 inline-block text-[12.5px] font-medium transition-colors hover:underline"
-                  style={{ color: `color-mix(in oklab, ${accent} 78%, #f5f2ea)` }}
+                  style={{
+                    color: `color-mix(in oklab, ${accent} 42%, var(--color-fg-primary))`,
+                  }}
                 >
                   延伸阅读：{m.relatedLabel} →
                 </Link>

@@ -13,7 +13,7 @@ export function ZoomControls({ zoom, onZoomIn, onZoomOut, onFitToScreen }: ZoomC
       <button
         type="button"
         onClick={onZoomOut}
-        className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/[0.04] text-white/60 transition-all duration-200 hover:border-white/[0.08] hover:bg-white/[0.03] hover:text-white/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6366f1]"
+        className="border-border-faint text-fg-muted hover:border-border-subtle hover:text-fg-primary/70 flex h-7 w-7 items-center justify-center rounded-lg border transition-all duration-200 hover:bg-[var(--input-bg)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6366f1]"
         aria-label="缩小"
       >
         <svg
@@ -28,7 +28,7 @@ export function ZoomControls({ zoom, onZoomIn, onZoomOut, onFitToScreen }: ZoomC
       </button>
 
       <span
-        className="w-12 text-center text-[0.65rem] text-white/45 tabular-nums"
+        className="text-fg-muted w-12 text-center text-[0.65rem] tabular-nums"
         aria-label={`缩放 ${Math.round(zoom * 100)}%`}
       >
         {Math.round(zoom * 100)}%
@@ -37,7 +37,7 @@ export function ZoomControls({ zoom, onZoomIn, onZoomOut, onFitToScreen }: ZoomC
       <button
         type="button"
         onClick={onZoomIn}
-        className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/[0.04] text-white/60 transition-all duration-200 hover:border-white/[0.08] hover:bg-white/[0.03] hover:text-white/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6366f1]"
+        className="border-border-faint text-fg-muted hover:border-border-subtle hover:text-fg-primary/70 flex h-7 w-7 items-center justify-center rounded-lg border transition-all duration-200 hover:bg-[var(--input-bg)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6366f1]"
         aria-label="放大"
       >
         <svg
@@ -51,12 +51,12 @@ export function ZoomControls({ zoom, onZoomIn, onZoomOut, onFitToScreen }: ZoomC
         </svg>
       </button>
 
-      <div className="mx-0.5 h-5 w-px bg-white/[0.08]" aria-hidden="true" />
+      <div className="mx-0.5 h-5 w-px bg-[var(--hover-bg)]" aria-hidden="true" />
 
       <button
         type="button"
         onClick={onFitToScreen}
-        className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/[0.04] text-white/60 transition-all duration-200 hover:border-white/[0.08] hover:bg-white/[0.03] hover:text-white/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6366f1]"
+        className="border-border-faint text-fg-muted hover:border-border-subtle hover:text-fg-primary/70 flex h-7 w-7 items-center justify-center rounded-lg border transition-all duration-200 hover:bg-[var(--input-bg)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6366f1]"
         aria-label="适应屏幕"
       >
         <svg

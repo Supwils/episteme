@@ -13,6 +13,7 @@
   --color-bg-elevated: #14151c;
   --color-bg-floating: #1c1c26;
   --color-bg-overlay: rgba(8, 8, 13, 0.85);
+  --color-scrim: rgba(4, 4, 8, 0.6);
 
   /* ── Foregrounds ──────────────────────────────────────────────────── */
   --color-fg-primary: #e6e3da;
@@ -108,7 +109,9 @@
   --color-bg-elevated: #fffdf8;
   --color-bg-floating: #ffffff;
   --color-bg-overlay: rgba(245, 242, 235, 0.86);
+  --color-scrim: rgba(44, 40, 32, 0.32);
   --color-fg-primary: #2c2a26;
+  --color-fg-inverse: #2c2a26;
   --color-fg-secondary: #4f4b45;
   --color-fg-muted: #5a564f;
   --color-fg-disabled: #625e58;
@@ -151,4 +154,16 @@
   background: var(--color-bg-overlay);
   backdrop-filter: blur(16px);
   overflow-x: auto;
+}
+
+/* Domain @theme re-emits Observatory --color-fg-* on :root after the portal
+   Notebook remap. Restate ink on html.light so body/nav outside .domain-root
+   stay readable. Immersive roots (physics / cosmology / life-science) set
+   their own tokens on the scoped root and keep Observatory. */
+html.light {
+  --color-fg-primary: #2c2a26;
+  --color-fg-secondary: #4f4b45;
+  --color-fg-muted: #5a564f;
+  --color-fg-disabled: #625e58;
+  --color-fg-inverse: #2c2a26;
 }

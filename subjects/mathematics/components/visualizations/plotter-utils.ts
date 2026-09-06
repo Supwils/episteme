@@ -77,7 +77,7 @@ export const COLORS = {
   gridMajor: "rgba(99, 102, 241, 0.15)",
   axis: "rgba(99, 102, 241, 0.4)",
   trace: "#f59e0b",
-  bg: "rgba(6, 6, 15, 0.6)",
+  bg: "var(--color-bg-near)",
 };
 
 export function niceStep(range: number): number {
@@ -104,7 +104,9 @@ function mapCoordX(x: number, viewXMin: number, viewXMax: number): number {
 }
 
 function mapCoordY(y: number, viewYMin: number, viewYMax: number): number {
-  return SVG_HEIGHT - PADDING - ((y - viewYMin) / (viewYMax - viewYMin)) * (SVG_HEIGHT - 2 * PADDING);
+  return (
+    SVG_HEIGHT - PADDING - ((y - viewYMin) / (viewYMax - viewYMin)) * (SVG_HEIGHT - 2 * PADDING)
+  );
 }
 
 function pointsToPath(
@@ -112,12 +114,12 @@ function pointsToPath(
   viewXMin: number,
   viewXMax: number,
   viewYMin: number,
-  viewYMax: number,
+  viewYMax: number
 ): string {
   return points
     .map(
       (p, i) =>
-        `${i === 0 ? "M" : "L"}${mapCoordX(p.x, viewXMin, viewXMax).toFixed(2)},${mapCoordY(p.y, viewYMin, viewYMax).toFixed(2)}`,
+        `${i === 0 ? "M" : "L"}${mapCoordX(p.x, viewXMin, viewXMax).toFixed(2)},${mapCoordY(p.y, viewYMin, viewYMax).toFixed(2)}`
     )
     .join(" ");
 }
@@ -130,7 +132,7 @@ export function buildPath(
   viewXMax: number,
   viewYMin: number,
   viewYMax: number,
-  steps = 400,
+  steps = 400
 ): string {
   const segments: string[] = [];
   let currentSegment: Point[] = [];
@@ -170,7 +172,7 @@ export function buildIntegralPath(
   viewXMin: number,
   viewXMax: number,
   viewYMin: number,
-  viewYMax: number,
+  viewYMax: number
 ): string {
   const steps = 200;
   const dx = (b - a) / steps;
@@ -192,7 +194,7 @@ export function buildIntegralPath(
   const pathTop = topPoints
     .map(
       (p, i) =>
-        `${i === 0 ? "M" : "L"}${mapCoordX(p.x, viewXMin, viewXMax).toFixed(2)},${mapCoordY(p.y, viewYMin, viewYMax).toFixed(2)}`,
+        `${i === 0 ? "M" : "L"}${mapCoordX(p.x, viewXMin, viewXMax).toFixed(2)},${mapCoordY(p.y, viewYMin, viewYMax).toFixed(2)}`
     )
     .join(" ");
 

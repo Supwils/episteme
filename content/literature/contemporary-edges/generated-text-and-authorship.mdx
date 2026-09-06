@@ -1,0 +1,114 @@
+---
+title: 生成文本与作者身份
+title_en: Generated Text and Authorship
+status: published
+updated: 2026-09-06
+category: 当代边界
+order: 3
+tags: [生成文本, 作者, 版权, 语言模型]
+related: [canon-wars, how-readers-make-meaning, close-reading]
+---
+
+# 生成文本与作者身份
+
+一段看起来像小说的文字出现在屏幕上：有人称、有情节、有似乎在说话的「我」。常见反应是把它当成有人写的书，只是作者换成了机器。这个反应把三件不同的事粘在了一起：屏幕上有哪些词；这些词是否出自一位有意图的说话者；法律是否承认某个人为作者。第一件事可以指回输出；后两件不是输出自己带出来的属性。以下只陈述可核对的机制、文本史与已公布的机关决定，不构成任何司法辖区的法律建议。
+
+## 破除误解
+
+第一种误解：语言模型「心里有话要说」，只是用统计把话说出来。统计语言模型的工作是：给定已经出现的词元，给词表里每一个可能的下一个词元分配概率，再按规则取出一个。它没有韦恩·布斯意义上的意图说话者。把流畅的第一人称读成一位藏在参数里的叙述者，是读者的推断，不是机制上的发现。
+
+第二种误解：一九六七年罗兰·巴特宣布「作者已死」，版权问题因此过时。巴特写的是一条关于阅读权限的论题：不要用作者生平去锁死文本的意义。版权法问的是另一件事：排他权最初归谁、保护期从谁的死亡起算。文学理论里的作者与制定法里的作者，不是同一个位置。
+
+第三种误解：只要有人敲了提示词，输出就自动成为这个人的作品。美国版权局在二〇二三至二〇二五年的多份决定里，拒绝为「纯机器生成、不包含人类作者」的材料登记版权。提示不等于署名：人类贡献必须被写进可核对的事实。
+
+## 没有说话者的对话：ELIZA，一九六六年
+
+一九六六年一月，《美国计算机学会通讯》（*Communications of the ACM*）第九卷第一期刊出约瑟夫·魏泽鲍姆（Joseph Weizenbaum, 1923–2008）的论文《ELIZA——一个研究人与机器自然语言交流的计算机程序》。程序在麻省理工学院写成。它不是在理解用户，而是按脚本做关键词匹配与句式变换。
+
+最常被提起的脚本叫做 DOCTOR，模仿卡尔·罗杰斯一派心理咨询里的回声技术：用户提到某个词，程序把它嵌进预先写好的问句里送回去。魏泽鲍姆在文中把 ELIZA 写成研究语言交流的实验装置，不是一位虚构的治疗师。
+
+十年后他改变了强调的方向。一九七六年，W. H. Freeman 出版《计算机的力量与人类的理性》（*Computer Power and Human Reason*）。他记录到：有人把程序的回声当成理解，甚至要求回避，以便「私下」对机器说话。这种把模式匹配读成主体的倾向，后来常被称作 ELIZA 效应。效应是观察，不是对「机器有没有心灵」的裁决。
+
+ELIZA 证明：一段看起来像对话的文本，可以在没有意图说话者的条件下被生成，并且仍然被当成对话来读。它并不证明后来的大模型只是同一程序放大。没变的是：流畅不等于有人在说。
+
+## 下一词预测，不是一位隐藏的作者
+
+下一词预测比聊天机器人更老。一九五一年一月，《贝尔系统技术期刊》第三十卷第一期刊出克劳德·香农（Claude E. Shannon）的《印刷英语的预测与熵》（"Prediction and Entropy of Printed English"）。他让受试者在已知前文的条件下猜下一个字母，用猜对的难度来估计英语的熵。实验测的是统计可预测性，不是某位作者当时想说什么。
+
+二〇〇三年，约书亚·本吉奥等人在《机器学习研究期刊》发表《神经概率语言模型》，把「给定上文、估计下一个词的概率」写成可用神经网络训练的目标。二〇一七年，阿希什·瓦斯瓦尼等人在神经信息处理系统大会发表《注意力就是一切》（*Attention Is All You Need*），提出完全基于自注意力的 Transformer。此后进入公共讨论的大型语言模型，训练目标仍然是：在已有词元序列上，输出词表上的条件概率分布。
+
+机制可以不带宣传地写清楚。输入先被切成词元。模型根据当前上下文，为每一个候选词元打出概率。再按温度、核采样或取最大值等规则选出一个，接到序列末尾，重复。所谓「生成了一段故事」，就是这条循环跑了许多步。人称代词「我」在这里是语法位置，不是说话者的身份证。
+
+课堂里可以用一句无主的英语做演示，而不去仿写任何在世小说家的文体。前文若是 “The cat sat on the”，模型可能把 mat、floor、sofa 都标成高概率后续。取出哪一个，取决于采样规则，不取决于一只猫的叙事意图。把取出的词连成段落之后，读者仍可能读出语气和人物。那是阅读在做事，不是采样在署名。
+
+二〇一〇至二〇年代的变化主要是规模、数据与工程。本文只需要这一句机制事实：统计语言模型在布斯所说的意图说话者缺席的情况下，仍然能产出可被当文本来读的字符串。
+
+一种对立的读法把这种输出称作「随机鹦鹉」。埃米莉·本德、蒂姆尼特·格布鲁等人二〇二一年的会议论文主张：大型语言模型拼接语言形式，而不携带说话者意义。这是论题，不是测量结果。
+
+## 隐含作者是读法，不是采样器里的第三人
+
+韦恩·布斯一九六一年在芝加哥大学出版社刊行《小说修辞学》（*The Rhetoric of Fiction*）。他主张：即便历史上的写作者努力不露面，读者仍会从选材、排列和讽刺里，推出一个「写得像这样的人」。他把这个被推出来的形象叫做隐含作者（implied author），并区别于叙述者和传记中的那个人。
+
+这是修辞学构造。写作者可以查生卒。叙述者可以在版本里画线。隐含作者没有出生证明。生成文本把这套三分法压到了极限：没有可以传记化的写作者，叙述者却可以在字面上出现，读者也仍然可能推出一位隐含作者。推出这一步，属于[[how-readers-make-meaning|读者如何生产意义]]所讨论的阅读行动，不是模型内部多出了一个人。
+
+对立的读法一直存在。E. D. 赫施一九六七年的《解释的有效性》（*Validity in Interpretation*）把 meaning 订为作者当时有意说出的意思，把后人加上去的称为 significance。若接受这条标准，没有意图说话者的字符串就没有赫施意义上的 meaning，只留下附加的意味。这是规范主张。它没有证明模型「其实有意图」，也没有禁止把输出当文本做[[close-reading|细读]]。
+
+细读仍然可以问：这一段在词、句、重复和自相矛盾上做了什么？证据必须能指回页面。它不必先回答「谁想说这些」。生成文本让「作者想表达……」这种课堂句式更难假装成事实。它没有让页面消失。
+
+## 「作者之死」是论题，不是讣告
+
+罗兰·巴特的《作者之死》（"The Death of the Author" / *La mort de l'auteur*）英译首先刊于美国多媒体杂志 *Aspen* 一九六七年秋冬号第 5+6 期，理查德·霍华德译；法文本刊于 *Manteia* 一九六八年第五期。后来收入斯蒂芬·希思编译的文集 *Image-Music-Text*（希尔与王出版社，一九七七年）。
+
+巴特主张：把作品的说明权交给作者的生平、意图和传记，是在限制阅读；写作一旦发出，意义在阅读中被编织。这是关于解释权限的论题，不是对版权登记窗口的预测，也不是对神经网络的描述。同意或反对，都必须写明是巴特的主张。
+
+米歇尔·福柯一九六九年二月二十二日在法兰西哲学学会的演讲《什么是作者？》（"Qu'est-ce qu'un auteur ?"）走另一条路。他不谈作者这个人死了，而谈「作者功能」：作者是话语里用来分类、归属、限制的功能，在某些时代、某些文类里才被调用。科学论文一度可以匿名流通，文学文本却被要求绑定名字。这也是论题。
+
+两条论题都早于统计语言模型。它们不能被翻译成「机器已经是作者」，也不能被翻译成「机器永远不能是作者」。文学批评里的「作者」从来不是身份证上的一个空格。
+
+[[canon-wars|正典之争]]处理的是课表和选本如何筛选。生成文本若进入教材，筛选机器多了一项新的手续：这份材料有没有可点名的人类作者、该不该进共同阅读。那是制度问题，不是模型自己宣布加入了书单。
+
+## 法律作者不是隐含作者
+
+版权法里的作者，是权利最初归属于谁、保护期从谁的死亡起算的那个法律主体。它不负责解释反讽，也不负责给小说找「第二自我」。中国《著作权法》把作者首先写成创作作品的自然人。
+
+美国版权局在多份二〇二三至二〇二五年的决定里，拒绝为「纯机器生成」的材料提供登记。两个已经点名的例子就够用。
+
+第一件是视觉作品。计算机科学家斯蒂芬·泰勒（Stephen Thaler）将其程序「创造力机器」（Creativity Machine）生成的图像《晚近入园》（*A Recent Entrance to Paradise*）提交登记，把机器列为唯一作者。版权局拒绝。哥伦比亚特区联邦地区法院于二〇二三年八月维持拒绝。哥伦比亚特区巡回上诉法院于二〇二五年三月十八日在 *Thaler v. Perlmutter* 案中裁定：一九七六年《版权法》要求作品首先由人类创作。美国最高法院于二〇二六年三月二日拒绝调卷。法院没有回答「提示词算不算足够的人类创作」——泰勒的申请把人类贡献排除在外。
+
+第二件是图文混排。克里斯蒂娜·卡什塔诺娃（Kristina Kashtanova）为图文作品 *Zarya of the Dawn* 获得过登记。美国版权局二〇二三年二月二十一日的信函取消原登记并重新颁发：承认她对文字以及图文选择、协调与编排的作者身份；不承认其中由 Midjourney 生成的单幅图像为人类作品。机关的理由是：提示词可以影响结果，但不能像画笔那样决定具体画面。
+
+对照很清楚。同一机关可以承认人类的文字与编排，同时把机器生成的图像从保护范围里划出去。法律作者被切成可分开登记的层。布斯的隐含作者没有这种可登记的切片。
+
+中国法院给出过另一条路径。北京互联网法院二〇二三年十一月二十七日在（2023）京0491民初11279号判决中认定：原告使用 Stable Diffusion、通过提示词生成的图片，在体现其智力投入与个性化表达的前提下，构成美术作品，著作权归该自然人。这是一审生效判决，不是对全国的立法解释。它与美国版权局对「纯提示」的处理并不自动对齐。
+
+两套决定都在回答制定法里的「作者」是谁。它们都不回答生成文本有没有隐含作者，也不回答巴特的论题对不对。把登记结果写成文学理论的胜负，是范畴跳跃。
+
+训练数据那一端——用受保护作品训练模型是否构成复制或合理使用——在多国仍在诉讼中。未决案件不能写成定论。
+
+## 跨域连接
+
+- **[[attention-and-transformers|注意力机制与 Transformer]]**：生成文本的流畅，来自自注意力在序列位置之间做加权汇总，而不是来自一位躲在层里的叙述者。瓦斯瓦尼等人二〇一七年的架构把「下一个词元的条件概率」变成可以大规模训练的计算图。文学问题在概率分布之后才开始：读者如何把取出的词读成声音、反讽或人物，计算图并不回答。
+- **[[natural-language-processing|自然语言处理]]**：工程上的任务是分类、翻译、摘要、生成，质量用人类可用的指标来量。把这些任务说成「机器理解了语言」，是把工程目标兑成了心灵哲学。生成文学外观的字符串，只证明模型在下一词预测上够强，不证明出现了布斯意义上的说话者。
+- **[[intellectual-property|知识产权]]**：著作权保护的是表达，不是思想；取得门槛是独创性，主体在制定法里首先是人。泰勒案把「机器单独署名」这条路堵上了；*Zarya of the Dawn* 把文字、编排与机器图像切成不同层。法律作者回答权利归谁、保护多久。它替不了隐含作者，也替不了「作者之死」这条论题。
+- **[[ai-and-algorithm-governance|AI 与算法治理]]**：欧盟人工智能法把聊天机器人与深度合成放进有限风险，核心义务是让用户知道自己在与机器交互、内容是合成的。透明标签解决的是知情，不是署名。读者即使明知文本由模型采样而来，仍可能推出一位隐含作者——那是阅读理论的事，管制法管不到。
+- **[[philosophy-of-language|语言哲学]]**：格赖斯把说话者意义与语句意义分开，奥斯汀与塞尔把许多句子写成承诺、请求、断言这类言语行为。下一词预测产出的是词元串，不自动完成一次承诺。若「作者」要求有意图的说话者，生成文本就缺了这一项；若「作者」只是读者从选择里推出来的规范来源，缺席的是另一层。两种答案会带出两种完全不同的「谁在说话」。
+
+## 参考文献
+
+- Weizenbaum, Joseph. “ELIZA—A Computer Program for the Study of Natural Language Communication between Man and Machine.” *Communications of the ACM* 9, no. 1 (January 1966): 36–45. doi:10.1145/365153.365168.
+- Shannon, C. E. “Prediction and Entropy of Printed English.” *Bell System Technical Journal* 30, no. 1 (January 1951): 50–64.
+- Vaswani, Ashish, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, and Illia Polosukhin. “Attention Is All You Need.” In *Advances in Neural Information Processing Systems 30*, 2017.
+- Booth, Wayne C. *The Rhetoric of Fiction*. Chicago: University of Chicago Press, 1961.
+- Barthes, Roland. “The Death of the Author.” *Aspen*, nos. 5–6 (Fall–Winter 1967). French: “La mort de l’auteur.” *Manteia*, no. 5 (1968). English reprint in *Image-Music-Text*, translated by Stephen Heath, 142–148. New York: Hill and Wang, 1977.
+- *Thaler v. Perlmutter*, 130 F.4th 1039 (D.C. Cir. 2025), *cert. denied*, No. 25-449 (U.S. Mar. 2, 2026).
+- U.S. Copyright Office. Letter from Robert J. Kasunic to Van Lindberg re *Zarya of the Dawn* (Registration # VAu001480196), February 21, 2023. https://www.copyright.gov/docs/zarya-of-the-dawn.pdf
+- 北京互联网法院：（2023）京0491民初11279号民事判决书，2023年11月27日。
+
+## 延伸阅读
+
+- Weizenbaum, Joseph. *Computer Power and Human Reason: From Judgment to Calculation*. San Francisco: W. H. Freeman, 1976.
+- Bengio, Yoshua, Réjean Ducharme, Pascal Vincent, and Christian Jauvin. “A Neural Probabilistic Language Model.” *Journal of Machine Learning Research* 3 (2003): 1137–1155.
+- Foucault, Michel. “Qu’est-ce qu’un auteur ?” Lecture to the Société française de philosophie, 22 February 1969. *Bulletin de la Société française de philosophie* 63, no. 3 (1969): 73–104.
+- Hirsch, E. D. *Validity in Interpretation*. New Haven: Yale University Press, 1967.
+- Bender, Emily M., Timnit Gebru, Angelina McMillan-Major, and Shmargaret Shmitchell. “On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?” In *Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency*, 610–623. 2021. doi:10.1145/3442188.3445922.
+- U.S. Copyright Office. “Copyright Registration Guidance: Works Containing Material Generated by Artificial Intelligence.” 88 Fed. Reg. 16190 (March 16, 2023).

@@ -14,12 +14,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "混凝土工程：从万神殿穹顶到高性能混凝土",
     },
     {
+      url: "/literature/theory-and-method/reception-aesthetics",
+      title: "接受美学",
+    },
+    {
       url: "/engineering/civil/bridges",
       title: "桥梁：受力路径、风与美学",
     },
     {
       url: "/arts/frontier/neuroaesthetics-cultural-variation",
       title: "神经美学之后：大脑能解释审美，还是只解释一次按键",
+    },
+    {
+      url: "/literature/poetics-and-form/genre-as-contract",
+      title: "文类是一种约定",
+    },
+    {
+      url: "/literature/poetics-and-form/drama-and-performance-text",
+      title: "戏剧文本与演出",
     },
     {
       url: "/arts/aesthetics/art-as-progress",
@@ -45,6 +57,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/sociology/concepts/sociology-of-culture",
       title: "文化社会学：意义如何被生产与分配",
     },
+    {
+      url: "/literature/poetics-and-form/genre-as-contract",
+      title: "文类是一种约定",
+    },
   ],
   "/arts/aesthetics/design-and-everyday-objects": [
     {
@@ -54,6 +70,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/debates/person-situation-debate",
       title: "人格还是情境：行为由什么决定",
+    },
+  ],
+  "/arts/aesthetics/iconoclasm-and-censorship": [
+    {
+      url: "/literature/poetics-and-form/drama-and-performance-text",
+      title: "戏剧文本与演出",
     },
   ],
   "/arts/aesthetics/museums-and-display": [
@@ -70,8 +92,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "策展作为论证：展览如何生产艺术史",
     },
     {
+      url: "/literature/world-traditions/european-canon-and-its-critics",
+      title: "欧洲正典及其批评",
+    },
+    {
       url: "/arts/frontier/climate-risk-cultural-heritage",
       title: "气候风险下的文化遗产：保护什么、何时撤退、谁来决定",
+    },
+    {
+      url: "/literature/reading-and-reception/libraries-and-the-book-trade",
+      title: "图书馆与书籍市场",
+    },
+    {
+      url: "/literature/poetics-and-form/drama-and-performance-text",
+      title: "戏剧文本与演出",
     },
     {
       url: "/arts/aesthetics/art-as-progress",
@@ -140,10 +174,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "语言数据主权：一段录音开放以后，谁还能决定它的未来",
     },
   ],
+  "/arts/media/animation-and-comics": [
+    {
+      url: "/literature/reading-and-reception/fandom-and-secondary-creation",
+      title: "粉丝与二次创作",
+    },
+  ],
   "/arts/media/film-and-moving-image": [
+    {
+      url: "/literature/poetics-and-form/drama-and-performance-text",
+      title: "戏剧文本与演出",
+    },
     {
       url: "/arts/media/games-and-interactive-media",
       title: "游戏作为媒介：交互性如何生产意义",
+    },
+  ],
+  "/arts/media/performance-and-body-art": [
+    {
+      url: "/literature/poetics-and-form/drama-and-performance-text",
+      title: "戏剧文本与演出",
     },
   ],
   "/arts/media/photography-medium": [
@@ -508,10 +558,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "熵与时间之箭",
     },
     {
-      url: "/life-science/knowledge-base/进化机制--水平基因转移",
-      title: "水平基因转移：超越亲代的遗传",
-    },
-    {
       url: "/chemistry/substances/carbohydrates-and-lipids",
       title: "糖类与脂质",
     },
@@ -732,6 +778,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/multivariable-calculus",
       title: "多元微积分",
+    },
+    {
+      url: "/chemistry/methods/process-scale-up",
+      title: "工艺放大：从烧瓶到反应器的传热、混合与控制",
     },
     {
       url: "/chemistry/reactions/photosynthesis",
@@ -1576,6 +1626,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/electrochemistry",
       title: "电化学",
+    },
+    {
+      url: "/chemistry/methods/process-scale-up",
+      title: "工艺放大：从烧瓶到反应器的传热、混合与控制",
     },
     {
       url: "/chemistry/concepts/photochemistry",
@@ -2570,6 +2624,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/chemistry/milestones/green-chemistry": [
     {
+      url: "/chemistry/methods/process-scale-up",
+      title: "工艺放大：从烧瓶到反应器的传热、混合与控制",
+    },
+    {
       url: "/chemistry/milestones/haber-bosch-process",
       title: "哈伯-博施合成氨（1913）",
     },
@@ -2726,10 +2784,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "发酵",
     },
     {
-      url: "/chemistry/methods/process-scale-up",
-      title: "工艺放大：从烧瓶到反应器的传热、混合与控制",
-    },
-    {
       url: "/life-science/knowledge-base/分子生物学--photosynthesis",
       title: "光合作用：一台把阳光拆进糖里的分子机器",
     },
@@ -2878,6 +2932,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/进化专题--生物发光",
       title: "生物发光：生命自己点亮的光",
+    },
+    {
+      url: "/medicine/concepts/digestive-system",
+      title: "消化系统",
     },
     {
       url: "/life-science/knowledge-base/植物生物学--植物生物学概览",
@@ -3414,6 +3472,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/schools/cognitive",
       title: "认知心理学",
+    },
+    {
+      url: "/literature/contemporary-edges/generated-text-and-authorship",
+      title: "生成文本与作者身份",
     },
     {
       url: "/psychology/experiments/stroop-1935",
@@ -4116,6 +4178,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/frontier/quantum-algorithms",
       title: "量子算法：Shor 与 Grover 之后的软件边界",
+    },
+    {
+      url: "/mathematics/knowledge-base/应用--密码学的数学",
+      title: "密码学的数学",
     },
     {
       url: "/mathematics/mathematicians/euler",
@@ -5007,10 +5073,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/life-science/species/honeybee",
       title: "西方蜜蜂",
     },
-    {
-      url: "/political-science/institutions/electoral-systems",
-      title: "选举制度：多数制与比例制",
-    },
   ],
   "/computer-science/concepts/containers-and-orchestration": [
     {
@@ -5297,10 +5359,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/computer-science/concepts/encryption-basics": [
-    {
-      url: "/mathematics/knowledge-base/应用--密码学的数学",
-      title: "密码学的数学",
-    },
     {
       url: "/law/global-and-digital/digital-rights-and-privacy",
       title: "数据权利与隐私：从独处权到被遗忘权",
@@ -5644,6 +5702,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "循证医学",
     },
     {
+      url: "/literature/contemporary-edges/distant-reading",
+      title: "远读与数字人文",
+    },
+    {
       url: "/political-science/institutions/political-parties",
       title: "政党与政党制度",
     },
@@ -5922,10 +5984,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "数字人文与艺术史：当计算机开始读画",
     },
     {
-      url: "/life-science/knowledge-base/进化机制--水平基因转移",
-      title: "水平基因转移：超越亲代的遗传",
-    },
-    {
       url: "/political-science/institutions/judiciary-and-judicial-review",
       title: "司法机构与司法审查",
     },
@@ -6012,6 +6070,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/methods/meta-analysis-evidence-synthesis",
       title: "元分析与证据综合",
+    },
+    {
+      url: "/literature/contemporary-edges/distant-reading",
+      title: "远读与数字人文",
     },
     {
       url: "/philosophy/concepts/justice",
@@ -6162,6 +6224,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "人工智能哲学",
     },
     {
+      url: "/literature/contemporary-edges/generated-text-and-authorship",
+      title: "生成文本与作者身份",
+    },
+    {
       url: "/linguistics/sounds-and-signs/tone-and-prosody",
       title: "声调与韵律",
     },
@@ -6186,6 +6252,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "形态学：词的内部结构",
     },
     {
+      url: "/literature/theory-and-method/narratology",
+      title: "叙事学",
+    },
+    {
       url: "/linguistics/sounds-and-signs/language-speech-and-sign",
       title: "语言、言语与手语",
     },
@@ -6196,6 +6266,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/sounds-and-signs/phonetics-and-ipa",
       title: "语音学与国际音标",
+    },
+    {
+      url: "/literature/contemporary-edges/distant-reading",
+      title: "远读与数字人文",
     },
     {
       url: "/philosophy/thinkers/searle",
@@ -8126,6 +8200,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "零知识证明与隐私计算",
     },
     {
+      url: "/mathematics/knowledge-base/应用--密码学的数学",
+      title: "密码学的数学",
+    },
+    {
       url: "/computer-science/theory/cryptography-foundations",
       title: "密码学基础",
     },
@@ -8466,6 +8544,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/dialogues/skinner-chomsky-language",
       title: "斯金纳vs乔姆斯基：语言是学习的吗",
+    },
+    {
+      url: "/literature/theory-and-method/narratology",
+      title: "叙事学",
     },
     {
       url: "/philosophy/thinkers/aristotle",
@@ -11432,6 +11514,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "风险感知、心理健康与宏观决策",
     },
     {
+      url: "/literature/contemporary-edges/climate-and-the-literary-present",
+      title: "气候与当代写作",
+    },
+    {
       url: "/political-science/international-relations/migration-and-refugee-politics",
       title: "移民与难民政治",
     },
@@ -11774,6 +11860,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/global-and-digital/climate-litigation",
       title: "气候诉讼：把未来告上法庭",
+    },
+    {
+      url: "/literature/contemporary-edges/climate-and-the-literary-present",
+      title: "气候与当代写作",
     },
     {
       url: "/economics/frontier/degrowth-vs-green-growth",
@@ -12210,6 +12300,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/global-and-digital/climate-litigation",
       title: "气候诉讼：把未来告上法庭",
+    },
+    {
+      url: "/literature/contemporary-edges/climate-and-the-literary-present",
+      title: "气候与当代写作",
     },
     {
       url: "/universe-physics/knowledge-base/热力学--热传导对流与辐射",
@@ -13180,6 +13274,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "莱曼α森林",
     },
     {
+      url: "/literature/contemporary-edges/climate-and-the-literary-present",
+      title: "气候与当代写作",
+    },
+    {
       url: "/human-history/frontier/historiography-methods-debate",
       title: "史学方法之争——大历史的雄心与年鉴学派的遗产",
     },
@@ -13358,6 +13456,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/pde",
       title: "偏微分方程",
+    },
+    {
+      url: "/literature/contemporary-edges/climate-and-the-literary-present",
+      title: "气候与当代写作",
     },
     {
       url: "/computer-science/algorithms/random-forests",
@@ -13974,6 +14076,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/thales",
       title: "泰勒斯",
+    },
+    {
+      url: "/earth-science/events/pompeii-vesuvius-79",
+      title: "维苏威火山爆发与庞贝（公元 79 年）",
     },
     {
       url: "/life-science/knowledge-base/进化机制--物种形成",
@@ -15956,6 +16062,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/economics/concepts/market-failure-public-goods": [
     {
+      url: "/literature/contemporary-edges/copyright-and-the-public-domain",
+      title: "版权与公有领域",
+    },
+    {
       url: "/economics/economists/paul-samuelson",
       title: "保罗·萨缪尔森",
     },
@@ -16114,6 +16224,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/climate-risks/carbon-budgets-and-net-zero",
       title: "碳预算、净零与气候目标的物理约束",
+    },
+    {
+      url: "/literature/reading-and-reception/libraries-and-the-book-trade",
+      title: "图书馆与书籍市场",
     },
     {
       url: "/life-science/scientists/hamilton",
@@ -16648,6 +16762,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "云计算",
     },
     {
+      url: "/literature/contemporary-edges/world-literature-as-a-market",
+      title: "作为市场的世界文学",
+    },
+    {
       url: "/computer-science/concepts/gpu-and-parallel-computing",
       title: "GPU 与并行计算",
     },
@@ -16760,6 +16878,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/informed-consent",
       title: "知情同意",
+    },
+    {
+      url: "/medicine/ethics/informed-consent-and-shared-decision-making",
+      title: "知情同意与共同决策：签字为什么不等于选择",
     },
     {
       url: "/psychology/phenomena/ego-depletion",
@@ -17542,6 +17664,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/methods/formal-models-game-theory",
       title: "形式模型与政治博弈论",
+    },
+    {
+      url: "/political-science/institutions/electoral-systems",
+      title: "选举制度：多数制与比例制",
     },
     {
       url: "/philosophy/experiments/original-position",
@@ -19140,6 +19266,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "有机合成",
     },
     {
+      url: "/literature/contemporary-edges/world-literature-as-a-market",
+      title: "作为市场的世界文学",
+    },
+    {
       url: "/computer-science/concepts/web-security-xss-csrf",
       title: "Web 安全：XSS 与 CSRF",
     },
@@ -19328,10 +19458,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/中世纪--维京人",
       title: "维京人",
-    },
-    {
-      url: "/political-science/institutions/electoral-systems",
-      title: "选举制度：多数制与比例制",
     },
     {
       url: "/medicine/concepts/vaccination",
@@ -19728,6 +19854,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/economics/theories/latin-american-structuralism-dependency": [
     {
+      url: "/literature/world-traditions/latin-american-and-caribbean",
+      title: "拉美与加勒比文学",
+    },
+    {
       url: "/human-history/knowledge/当代--去殖民化浪潮",
       title: "去殖民化浪潮",
     },
@@ -19912,6 +20042,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "坦博拉火山爆发（1815）",
     },
     {
+      url: "/literature/reading-and-reception/libraries-and-the-book-trade",
+      title: "图书馆与书籍市场",
+    },
+    {
       url: "/economics/economists/adam-smith",
       title: "亚当·斯密",
     },
@@ -19926,6 +20060,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/debates/rent-control-affordability-supply",
       title: "租金管制之争：可负担性、居住稳定与住房供给",
+    },
+    {
+      url: "/literature/contemporary-edges/world-literature-as-a-market",
+      title: "作为市场的世界文学",
     },
   ],
   "/economics/theories/trade-theory": [
@@ -20126,6 +20264,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/engineering/frontiers/tacoma-narrows-and-the-textbook-error",
       title: "塔科马海峡大桥：一个错了半个世纪的教科书解释",
+    },
+    {
+      url: "/engineering/machines/automation-and-industry",
+      title: "自动化与工业 4.0：从 PLC 到灯塔工厂",
     },
     {
       url: "/chemistry/frontier/self-driving-labs",
@@ -20658,8 +20800,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "大洋洲与原住民艺术：从「原始艺术」标签到当代现场",
     },
     {
+      url: "/literature/world-traditions/east-and-southeast-asian-modern",
+      title: "东亚与东南亚现代文学",
+    },
+    {
       url: "/arts/media/textiles-and-fiber-arts",
       title: "纺织与纤维艺术：被降格为「工艺」的那门艺术",
+    },
+    {
+      url: "/literature/world-traditions/african-oral-literature",
+      title: "非洲口头文学",
     },
     {
       url: "/arts/aesthetics/public-art-and-monuments",
@@ -20672,6 +20822,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/isms/postcolonialism",
       title: "后殖民主义",
+    },
+    {
+      url: "/literature/world-traditions/latin-american-and-caribbean",
+      title: "拉美与加勒比文学",
+    },
+    {
+      url: "/literature/poetics-and-form/novel-as-a-form",
+      title: "小说作为一种形式",
     },
     {
       url: "/linguistics/history-typology-society/language-contact",
@@ -20716,6 +20874,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/sociology/methods/comparative-historical-analysis",
       title: "比较历史分析",
+    },
+    {
+      url: "/literature/theory-and-method/comparative-literature-method",
+      title: "比较文学的方法",
     },
     {
       url: "/medicine/traditions/tibetan-medicine",
@@ -20830,8 +20992,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "体液学说",
     },
     {
+      url: "/literature/reading-and-reception/libraries-and-the-book-trade",
+      title: "图书馆与书籍市场",
+    },
+    {
       url: "/medicine/figures/tu-youyou",
       title: "屠呦呦",
+    },
+    {
+      url: "/earth-science/events/pompeii-vesuvius-79",
+      title: "维苏威火山爆发与庞贝（公元 79 年）",
     },
     {
       url: "/psychology/phenomena/false-memory",
@@ -20975,6 +21145,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/human-history/knowledge/中世纪--非洲--马里帝国": [
+    {
+      url: "/literature/world-traditions/african-oral-literature",
+      title: "非洲口头文学",
+    },
     {
       url: "/human-history/knowledge/中世纪--非洲--加纳帝国",
       title: "加纳帝国",
@@ -21209,6 +21383,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/political-science/institutions/theocracy",
       title: "神权政治",
     },
+    {
+      url: "/literature/theory-and-method/textual-criticism",
+      title: "文本考据",
+    },
   ],
   "/human-history/knowledge/事件--工业革命": [
     {
@@ -21438,6 +21616,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "启蒙运动",
     },
   ],
+  "/human-history/knowledge/人物--凯撒": [
+    {
+      url: "/literature/narrative-basics/plot-character-conflict",
+      title: "情节、人物与冲突",
+    },
+  ],
   "/human-history/knowledge/人物--哥伦布": [
     {
       url: "/earth-science/processes/ocean-surface-circulation",
@@ -21568,6 +21752,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "公共选择理论",
     },
     {
+      url: "/literature/world-traditions/chinese-narrative-tradition",
+      title: "汉语叙事传统",
+    },
+    {
       url: "/human-history/knowledge/人物--孔子",
       title: "孔子",
     },
@@ -21634,6 +21822,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/human-history/knowledge/古典时期--亚洲--印度思想传统": [
     {
+      url: "/literature/world-traditions/south-asian-epic-and-poetics",
+      title: "南亚史诗与诗学",
+    },
+    {
       url: "/human-history/knowledge/人物--释迦牟尼",
       title: "释迦牟尼",
     },
@@ -21676,6 +21868,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "韩非子与法家",
     },
     {
+      url: "/literature/world-traditions/chinese-narrative-tradition",
+      title: "汉语叙事传统",
+    },
+    {
       url: "/human-history/knowledge/人物--秦始皇",
       title: "秦始皇",
     },
@@ -21684,6 +21880,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/文化交流--阿拉伯数字",
       title: "阿拉伯数字",
+    },
+    {
+      url: "/literature/world-traditions/south-asian-epic-and-poetics",
+      title: "南亚史诗与诗学",
     },
     {
       url: "/arts/traditions/south-asian-sacred-art",
@@ -21702,6 +21902,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/古典时期--欧洲--罗马共和国与帝国",
       title: "罗马共和国与帝国",
+    },
+    {
+      url: "/literature/world-traditions/epic-as-public-memory",
+      title: "史诗作为公共记忆",
     },
     {
       url: "/human-history/knowledge/古典时期--欧洲--希腊城邦",
@@ -21978,7 +22182,17 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "天花",
     },
   ],
+  "/human-history/knowledge/文化交流--纸的西传": [
+    {
+      url: "/literature/world-traditions/arabic-persian-narrative",
+      title: "阿拉伯—波斯叙事",
+    },
+  ],
   "/human-history/knowledge/文化交流--翻译运动": [
+    {
+      url: "/literature/world-traditions/arabic-persian-narrative",
+      title: "阿拉伯—波斯叙事",
+    },
     {
       url: "/human-history/knowledge/科学史--古代天文学",
       title: "古代天文学",
@@ -22106,6 +22320,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/human-history/knowledge/文明--波斯": [
     {
+      url: "/literature/world-traditions/arabic-persian-narrative",
+      title: "阿拉伯—波斯叙事",
+    },
+    {
       url: "/arts/traditions/islamic-visual-culture",
       title: "伊斯兰视觉文化：几何、书法与花卉的无限网络",
     },
@@ -22124,6 +22342,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/processes/erosion-deposition",
       title: "侵蚀与沉积",
+    },
+    {
+      url: "/literature/world-traditions/epic-as-public-memory",
+      title: "史诗作为公共记忆",
     },
     {
       url: "/human-history/knowledge/古代文明--苏美尔",
@@ -22322,6 +22544,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "浮世绘与江户视觉文化：木版上的浮生",
     },
     {
+      url: "/literature/world-traditions/chinese-narrative-tradition",
+      title: "汉语叙事传统",
+    },
+    {
       url: "/human-history/knowledge/制度--科举制度",
       title: "科举制度",
     },
@@ -22336,6 +22562,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/thinkers/thomas-paine",
       title: "托马斯·潘恩",
+    },
+    {
+      url: "/literature/theory-and-method/textual-criticism",
+      title: "文本考据",
     },
     {
       url: "/sociology/concepts/sociology-of-culture",
@@ -22564,6 +22794,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "卡尔·马克思",
     },
     {
+      url: "/literature/world-traditions/latin-american-and-caribbean",
+      title: "拉美与加勒比文学",
+    },
+    {
       url: "/political-science/thinkers/robert-nozick",
       title: "罗伯特·诺齐克",
     },
@@ -22608,6 +22842,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/事件--法国大革命",
       title: "法国大革命",
+    },
+    {
+      url: "/literature/world-traditions/latin-american-and-caribbean",
+      title: "拉美与加勒比文学",
     },
     {
       url: "/human-history/knowledge/人物--拿破仑",
@@ -22706,6 +22944,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/非洲--大津巴布韦",
       title: "大津巴布韦",
+    },
+  ],
+  "/human-history/source-analyses/dunhuang-manuscripts-source-analysis": [
+    {
+      url: "/literature/theory-and-method/textual-criticism",
+      title: "文本考据",
+    },
+    {
+      url: "/literature/poetics-and-form/novel-as-a-form",
+      title: "小说作为一种形式",
     },
   ],
   "/law/criminal-and-procedure/crime-and-punishment": [
@@ -23102,6 +23350,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/law/global-and-digital/ai-and-algorithm-governance": [
     {
+      url: "/literature/contemporary-edges/generated-text-and-authorship",
+      title: "生成文本与作者身份",
+    },
+    {
       url: "/arts/methods/generative-art-and-ai",
       title: "生成艺术与 AI：作者性的新边界",
     },
@@ -23117,6 +23369,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/law/global-and-digital/digital-rights-and-privacy": [
+    {
+      url: "/literature/contemporary-edges/copyright-and-the-public-domain",
+      title: "版权与公有领域",
+    },
     {
       url: "/computer-science/theory/interactive-proofs-and-zero-knowledge",
       title: "交互式证明与零知识",
@@ -23332,8 +23588,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/law/private-law/intellectual-property": [
     {
+      url: "/literature/contemporary-edges/copyright-and-the-public-domain",
+      title: "版权与公有领域",
+    },
+    {
+      url: "/literature/reading-and-reception/fandom-and-secondary-creation",
+      title: "粉丝与二次创作",
+    },
+    {
       url: "/arts/frontier/generative-art-authorship-provenance",
       title: "生成式艺术的作者与来源：作品还能证明自己从哪里来吗",
+    },
+    {
+      url: "/literature/contemporary-edges/generated-text-and-authorship",
+      title: "生成文本与作者身份",
+    },
+    {
+      url: "/literature/reading-and-reception/libraries-and-the-book-trade",
+      title: "图书馆与书籍市场",
     },
     {
       url: "/arts/media/games-and-interactive-media",
@@ -23369,6 +23641,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/law/private-law/property-and-ownership": [
+    {
+      url: "/literature/contemporary-edges/copyright-and-the-public-domain",
+      title: "版权与公有领域",
+    },
     {
       url: "/arts/frontier/museum-restitution-digital-repatriation",
       title: "博物馆返还与数字归还：复制一件物，能修复被夺走的关系吗",
@@ -23702,6 +23978,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/bioenergetics-and-metabolism",
       title: "生物能学与代谢",
+    },
+    {
+      url: "/life-science/knowledge-base/进化机制--水平基因转移",
+      title: "水平基因转移：超越亲代的遗传",
     },
     {
       url: "/life-science/knowledge-base/生理学--细胞呼吸与能量代谢",
@@ -24110,6 +24390,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "群",
     },
     {
+      url: "/life-science/knowledge-base/进化机制--水平基因转移",
+      title: "水平基因转移：超越亲代的遗传",
+    },
+    {
       url: "/economics/case-studies/tulip-mania",
       title: "郁金香狂热",
     },
@@ -24486,6 +24770,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/生态学--迁徙",
       title: "迁徙：鸟类、鲸鱼与帝王蝶的史诗旅程",
+    },
+    {
+      url: "/psychology/disorders/insomnia",
+      title: "失眠障碍",
     },
     {
       url: "/life-science/knowledge-base/生理学--睡眠的生物学",
@@ -25092,6 +25380,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "衰老：端粒、氧化应激与衰老理论",
     },
     {
+      url: "/life-science/knowledge-base/进化机制--水平基因转移",
+      title: "水平基因转移：超越亲代的遗传",
+    },
+    {
       url: "/psychology/methods/behavioral-genetics-methods",
       title: '行为遗传学方法：双生子、基因组与"遗传性"的正确读法',
     },
@@ -25632,6 +25924,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "爱斯基摩雪词神话：一个学术都市传说的完整解剖",
     },
     {
+      url: "/literature/reading-and-reception/translation-as-rewriting",
+      title: "翻译即改写",
+    },
+    {
       url: "/philosophy/experiments/marys-room",
       title: "玛丽的房间",
     },
@@ -25662,6 +25958,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/acquisition-and-mind/second-language-acquisition",
       title: "第二语言习得",
+    },
+    {
+      url: "/literature/reading-and-reception/how-readers-make-meaning",
+      title: "读者如何生产意义",
     },
     {
       url: "/linguistics/acquisition-and-mind/children-learn-language",
@@ -25706,6 +26006,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/words-sentences-meaning/morphology",
       title: "形态学：词的内部结构",
+    },
+    {
+      url: "/literature/poetics-and-form/narrator-and-voice",
+      title: "叙述者与声音",
     },
     {
       url: "/linguistics/methods-and-frontiers/corpus-linguistics",
@@ -25801,6 +26105,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/linguistics/history-typology-society/language-families",
       title: "语系与比较方法",
     },
+    {
+      url: "/literature/poetics-and-form/meter-and-the-line",
+      title: "韵律与诗行",
+    },
   ],
   "/linguistics/history-typology-society/endangered-language-revitalization": [
     {
@@ -25882,6 +26190,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/文明--东南亚",
       title: "东南亚",
+    },
+    {
+      url: "/literature/reading-and-reception/translation-as-rewriting",
+      title: "翻译即改写",
     },
     {
       url: "/human-history/knowledge/文化交流--翻译运动",
@@ -26050,6 +26362,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "忒修斯之船",
     },
     {
+      url: "/literature/theory-and-method/textual-criticism",
+      title: "文本考据",
+    },
+    {
       url: "/linguistics/history-typology-society/language-contact",
       title: "语言接触、借词与混合",
     },
@@ -26076,6 +26392,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "霸权",
     },
     {
+      url: "/literature/theory-and-method/comparative-literature-method",
+      title: "比较文学的方法",
+    },
+    {
       url: "/linguistics/history-typology-society/endangered-language-revitalization",
       title: "濒危语言与语言复振",
     },
@@ -26084,8 +26404,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "大陆法与普通法：两种法律心智",
     },
     {
+      url: "/literature/world-traditions/east-and-southeast-asian-modern",
+      title: "东亚与东南亚现代文学",
+    },
+    {
       url: "/linguistics/acquisition-and-mind/multilingual-mind",
       title: "多语心智与语言切换",
+    },
+    {
+      url: "/literature/world-traditions/african-oral-literature",
+      title: "非洲口头文学",
     },
     {
       url: "/political-science/international-relations/african-regional-organizations",
@@ -26294,6 +26622,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "黑暗时代：一个被史学界废弃的分期",
     },
     {
+      url: "/literature/world-traditions/epic-as-public-memory",
+      title: "史诗作为公共记忆",
+    },
+    {
       url: "/human-history/knowledge/思想史--水利社会论",
       title: "水利社会论",
     },
@@ -26484,6 +26816,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/figures/hippocrates",
       title: "希波克拉底",
+    },
+    {
+      url: "/literature/theory-and-method/close-reading",
+      title: "细读",
     },
     {
       url: "/computer-science/theory/information-theory",
@@ -26771,11 +27107,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/linguistics/sounds-and-signs/phonetics-and-ipa",
       title: "语音学与国际音标",
     },
+    {
+      url: "/literature/poetics-and-form/meter-and-the-line",
+      title: "韵律与诗行",
+    },
   ],
   "/linguistics/sounds-and-signs/how-speech-is-made": [
     {
       url: "/medicine/concepts/respiratory-system",
       title: "呼吸系统",
+    },
+    {
+      url: "/literature/narrative-basics/oral-storytelling",
+      title: "口头讲述与记忆",
     },
     {
       url: "/linguistics/sounds-and-signs/language-speech-and-sign",
@@ -26787,6 +27131,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/linguistics/sounds-and-signs/language-speech-and-sign": [
+    {
+      url: "/literature/world-traditions/african-oral-literature",
+      title: "非洲口头文学",
+    },
     {
       url: "/arts/aesthetics/visual-culture-everyday",
       title: "视觉文化：从广告到表情包",
@@ -26864,6 +27212,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/acquisition-and-mind/reading-and-dyslexia",
       title: "阅读习得与读写困难",
+    },
+    {
+      url: "/literature/poetics-and-form/meter-and-the-line",
+      title: "韵律与诗行",
     },
     {
       url: "/philosophy/concepts/perception",
@@ -26955,11 +27307,23 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/linguistics/sounds-and-signs/phonetics-and-ipa",
       title: "语音学与国际音标",
     },
+    {
+      url: "/literature/poetics-and-form/meter-and-the-line",
+      title: "韵律与诗行",
+    },
   ],
   "/linguistics/words-sentences-meaning/discourse-analysis": [
     {
       url: "/arts/methods/curatorial-practice",
       title: "策展作为论证：展览如何生产艺术史",
+    },
+    {
+      url: "/literature/narrative-basics/what-is-a-story",
+      title: "故事是什么",
+    },
+    {
+      url: "/literature/narrative-basics/oral-storytelling",
+      title: "口头讲述与记忆",
     },
     {
       url: "/sociology/thinkers/michel-foucault-sociology",
@@ -26968,6 +27332,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/words-sentences-meaning/stylistics",
       title: "文体学：风格作为选择的科学",
+    },
+    {
+      url: "/literature/theory-and-method/narratology",
+      title: "叙事学",
+    },
+    {
+      url: "/literature/narrative-basics/narrative-point-of-view",
+      title: "叙述视角",
+    },
+    {
+      url: "/literature/poetics-and-form/narrator-and-voice",
+      title: "叙述者与声音",
     },
   ],
   "/linguistics/words-sentences-meaning/grammar-theories": [
@@ -27050,6 +27426,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "形态生产性：规则什么时候是活的",
     },
     {
+      url: "/literature/theory-and-method/narratology",
+      title: "叙事学",
+    },
+    {
       url: "/linguistics/sounds-and-signs/language-speech-and-sign",
       title: "语言、言语与手语",
     },
@@ -27080,12 +27460,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "订单簿",
     },
     {
+      url: "/literature/reading-and-reception/how-readers-make-meaning",
+      title: "读者如何生产意义",
+    },
+    {
       url: "/medicine/ethics/palliative-care",
       title: "姑息治疗",
     },
     {
+      url: "/literature/narrative-basics/what-is-a-story",
+      title: "故事是什么",
+    },
+    {
       url: "/linguistics/words-sentences-meaning/discourse-analysis",
       title: "话语与篇章分析：句子以上的语言组织",
+    },
+    {
+      url: "/literature/narrative-basics/oral-storytelling",
+      title: "口头讲述与记忆",
     },
     {
       url: "/economics/economists/george-akerlof",
@@ -27120,8 +27512,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "文体学：风格作为选择的科学",
     },
     {
+      url: "/literature/theory-and-method/close-reading",
+      title: "细读",
+    },
+    {
       url: "/political-science/institutions/constitutionalism-separation-of-powers",
       title: "宪政与分权",
+    },
+    {
+      url: "/literature/narrative-basics/narrative-point-of-view",
+      title: "叙述视角",
+    },
+    {
+      url: "/literature/poetics-and-form/narrator-and-voice",
+      title: "叙述者与声音",
     },
     {
       url: "/political-science/concepts/freedom-of-speech",
@@ -27130,6 +27534,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/questions/what-is-meaning",
       title: "意义是什么？",
+    },
+    {
+      url: "/literature/poetics-and-form/metaphor-and-image",
+      title: "隐喻与意象",
     },
     {
       url: "/philosophy/concepts/philosophy-of-language",
@@ -27314,6 +27722,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "意义是什么？",
     },
     {
+      url: "/literature/poetics-and-form/metaphor-and-image",
+      title: "隐喻与意象",
+    },
+    {
       url: "/philosophy/schools/hindu-philosophy",
       title: "印度哲学六派",
     },
@@ -27342,6 +27754,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "P.F. 斯特劳森",
     },
   ],
+  "/linguistics/words-sentences-meaning/stylistics": [
+    {
+      url: "/literature/theory-and-method/close-reading",
+      title: "细读",
+    },
+    {
+      url: "/literature/narrative-basics/narrative-point-of-view",
+      title: "叙述视角",
+    },
+    {
+      url: "/literature/poetics-and-form/narrator-and-voice",
+      title: "叙述者与声音",
+    },
+  ],
   "/linguistics/words-sentences-meaning/syntax": [
     {
       url: "/computer-science/concepts/compilers",
@@ -27366,6 +27792,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/words-sentences-meaning/morphology",
       title: "形态学：词的内部结构",
+    },
+    {
+      url: "/literature/theory-and-method/narratology",
+      title: "叙事学",
     },
     {
       url: "/linguistics/sounds-and-signs/language-speech-and-sign",
@@ -27393,6 +27823,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/linguistics/words-sentences-meaning/translation-and-translatability": [
+    {
+      url: "/literature/reading-and-reception/translation-as-rewriting",
+      title: "翻译即改写",
+    },
+    {
+      url: "/literature/contemporary-edges/canon-wars",
+      title: "正典之争",
+    },
     {
       url: "/computer-science/systems/llvm-ir",
       title: "LLVM 的中间表示：编译器生态的枢纽",
@@ -27562,12 +28000,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "美索不达米亚",
     },
     {
+      url: "/literature/world-traditions/epic-as-public-memory",
+      title: "史诗作为公共记忆",
+    },
+    {
       url: "/human-history/knowledge/人物--苏格拉底",
       title: "苏格拉底",
     },
     {
       url: "/human-history/knowledge/古代文明--苏美尔",
       title: "苏美尔",
+    },
+    {
+      url: "/literature/theory-and-method/textual-criticism",
+      title: "文本考据",
     },
     {
       url: "/human-history/knowledge/事件--文艺复兴",
@@ -27588,6 +28034,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/文化交流--纸的西传",
       title: "纸的西传",
+    },
+  ],
+  "/linguistics/writing-systems/origin-of-writing": [
+    {
+      url: "/literature/world-traditions/epic-as-public-memory",
+      title: "史诗作为公共记忆",
     },
   ],
   "/linguistics/writing-systems/south-asian-scripts": [
@@ -27738,6 +28190,372 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/source-analyses/wpa-slave-narratives-source-analysis",
       title: "WPA 前奴隶口述史料剖析",
+    },
+  ],
+  "/literature/contemporary-edges/canon-wars": [
+    {
+      url: "/literature/world-traditions/arabic-persian-narrative",
+      title: "阿拉伯—波斯叙事",
+    },
+    {
+      url: "/literature/theory-and-method/comparative-literature-method",
+      title: "比较文学的方法",
+    },
+    {
+      url: "/literature/world-traditions/east-and-southeast-asian-modern",
+      title: "东亚与东南亚现代文学",
+    },
+    {
+      url: "/literature/reading-and-reception/translation-as-rewriting",
+      title: "翻译即改写",
+    },
+    {
+      url: "/literature/reading-and-reception/fandom-and-secondary-creation",
+      title: "粉丝与二次创作",
+    },
+    {
+      url: "/literature/world-traditions/chinese-narrative-tradition",
+      title: "汉语叙事传统",
+    },
+    {
+      url: "/literature/theory-and-method/reception-aesthetics",
+      title: "接受美学",
+    },
+    {
+      url: "/literature/world-traditions/latin-american-and-caribbean",
+      title: "拉美与加勒比文学",
+    },
+    {
+      url: "/literature/contemporary-edges/climate-and-the-literary-present",
+      title: "气候与当代写作",
+    },
+    {
+      url: "/literature/contemporary-edges/generated-text-and-authorship",
+      title: "生成文本与作者身份",
+    },
+    {
+      url: "/literature/poetics-and-form/genre-as-contract",
+      title: "文类是一种约定",
+    },
+    {
+      url: "/literature/theory-and-method/narratology",
+      title: "叙事学",
+    },
+    {
+      url: "/literature/contemporary-edges/distant-reading",
+      title: "远读与数字人文",
+    },
+    {
+      url: "/literature/contemporary-edges/world-literature-as-a-market",
+      title: "作为市场的世界文学",
+    },
+  ],
+  "/literature/contemporary-edges/distant-reading": [
+    {
+      url: "/literature/contemporary-edges/climate-and-the-literary-present",
+      title: "气候与当代写作",
+    },
+    {
+      url: "/literature/reading-and-reception/libraries-and-the-book-trade",
+      title: "图书馆与书籍市场",
+    },
+    {
+      url: "/literature/contemporary-edges/world-literature-as-a-market",
+      title: "作为市场的世界文学",
+    },
+  ],
+  "/literature/contemporary-edges/generated-text-and-authorship": [
+    {
+      url: "/literature/contemporary-edges/copyright-and-the-public-domain",
+      title: "版权与公有领域",
+    },
+    {
+      url: "/literature/reading-and-reception/fandom-and-secondary-creation",
+      title: "粉丝与二次创作",
+    },
+  ],
+  "/literature/narrative-basics/narrative-point-of-view": [
+    {
+      url: "/literature/theory-and-method/narratology",
+      title: "叙事学",
+    },
+  ],
+  "/literature/narrative-basics/plot-character-conflict": [
+    {
+      url: "/literature/theory-and-method/narratology",
+      title: "叙事学",
+    },
+  ],
+  "/literature/narrative-basics/time-and-narrative-order": [
+    {
+      url: "/literature/theory-and-method/narratology",
+      title: "叙事学",
+    },
+  ],
+  "/literature/narrative-basics/what-is-a-story": [
+    {
+      url: "/literature/world-traditions/arabic-persian-narrative",
+      title: "阿拉伯—波斯叙事",
+    },
+    {
+      url: "/literature/world-traditions/african-oral-literature",
+      title: "非洲口头文学",
+    },
+    {
+      url: "/literature/world-traditions/chinese-narrative-tradition",
+      title: "汉语叙事传统",
+    },
+    {
+      url: "/literature/world-traditions/south-asian-epic-and-poetics",
+      title: "南亚史诗与诗学",
+    },
+    {
+      url: "/literature/narrative-basics/plot-character-conflict",
+      title: "情节、人物与冲突",
+    },
+    {
+      url: "/literature/theory-and-method/textual-criticism",
+      title: "文本考据",
+    },
+    {
+      url: "/literature/poetics-and-form/genre-as-contract",
+      title: "文类是一种约定",
+    },
+    {
+      url: "/literature/poetics-and-form/novel-as-a-form",
+      title: "小说作为一种形式",
+    },
+    {
+      url: "/literature/narrative-basics/fiction-and-make-believe",
+      title: "虚构与假装相信",
+    },
+    {
+      url: "/literature/theory-and-method/narratology",
+      title: "叙事学",
+    },
+    {
+      url: "/literature/narrative-basics/narrative-point-of-view",
+      title: "叙述视角",
+    },
+    {
+      url: "/literature/contemporary-edges/distant-reading",
+      title: "远读与数字人文",
+    },
+  ],
+  "/literature/poetics-and-form/genre-as-contract": [
+    {
+      url: "/literature/poetics-and-form/drama-and-performance-text",
+      title: "戏剧文本与演出",
+    },
+    {
+      url: "/literature/poetics-and-form/novel-as-a-form",
+      title: "小说作为一种形式",
+    },
+  ],
+  "/literature/poetics-and-form/meter-and-the-line": [
+    {
+      url: "/literature/world-traditions/african-oral-literature",
+      title: "非洲口头文学",
+    },
+    {
+      url: "/literature/world-traditions/south-asian-epic-and-poetics",
+      title: "南亚史诗与诗学",
+    },
+    {
+      url: "/literature/poetics-and-form/genre-as-contract",
+      title: "文类是一种约定",
+    },
+    {
+      url: "/literature/poetics-and-form/drama-and-performance-text",
+      title: "戏剧文本与演出",
+    },
+  ],
+  "/literature/reading-and-reception/fandom-and-secondary-creation": [
+    {
+      url: "/literature/contemporary-edges/copyright-and-the-public-domain",
+      title: "版权与公有领域",
+    },
+  ],
+  "/literature/reading-and-reception/how-readers-make-meaning": [
+    {
+      url: "/literature/reading-and-reception/translation-as-rewriting",
+      title: "翻译即改写",
+    },
+    {
+      url: "/literature/reading-and-reception/fandom-and-secondary-creation",
+      title: "粉丝与二次创作",
+    },
+    {
+      url: "/literature/world-traditions/chinese-narrative-tradition",
+      title: "汉语叙事传统",
+    },
+    {
+      url: "/literature/theory-and-method/reception-aesthetics",
+      title: "接受美学",
+    },
+    {
+      url: "/literature/contemporary-edges/climate-and-the-literary-present",
+      title: "气候与当代写作",
+    },
+    {
+      url: "/literature/contemporary-edges/generated-text-and-authorship",
+      title: "生成文本与作者身份",
+    },
+    {
+      url: "/literature/narrative-basics/fiction-and-make-believe",
+      title: "虚构与假装相信",
+    },
+    {
+      url: "/literature/theory-and-method/narratology",
+      title: "叙事学",
+    },
+    {
+      url: "/literature/narrative-basics/narrative-point-of-view",
+      title: "叙述视角",
+    },
+    {
+      url: "/literature/contemporary-edges/distant-reading",
+      title: "远读与数字人文",
+    },
+  ],
+  "/literature/reading-and-reception/translation-as-rewriting": [
+    {
+      url: "/literature/contemporary-edges/copyright-and-the-public-domain",
+      title: "版权与公有领域",
+    },
+    {
+      url: "/literature/theory-and-method/comparative-literature-method",
+      title: "比较文学的方法",
+    },
+    {
+      url: "/literature/world-traditions/east-and-southeast-asian-modern",
+      title: "东亚与东南亚现代文学",
+    },
+    {
+      url: "/literature/world-traditions/latin-american-and-caribbean",
+      title: "拉美与加勒比文学",
+    },
+    {
+      url: "/literature/reading-and-reception/libraries-and-the-book-trade",
+      title: "图书馆与书籍市场",
+    },
+    {
+      url: "/literature/contemporary-edges/world-literature-as-a-market",
+      title: "作为市场的世界文学",
+    },
+  ],
+  "/literature/theory-and-method/close-reading": [
+    {
+      url: "/literature/world-traditions/arabic-persian-narrative",
+      title: "阿拉伯—波斯叙事",
+    },
+    {
+      url: "/literature/theory-and-method/comparative-literature-method",
+      title: "比较文学的方法",
+    },
+    {
+      url: "/literature/reading-and-reception/translation-as-rewriting",
+      title: "翻译即改写",
+    },
+    {
+      url: "/literature/world-traditions/chinese-narrative-tradition",
+      title: "汉语叙事传统",
+    },
+    {
+      url: "/literature/theory-and-method/reception-aesthetics",
+      title: "接受美学",
+    },
+    {
+      url: "/literature/world-traditions/south-asian-epic-and-poetics",
+      title: "南亚史诗与诗学",
+    },
+    {
+      url: "/literature/contemporary-edges/generated-text-and-authorship",
+      title: "生成文本与作者身份",
+    },
+    {
+      url: "/literature/theory-and-method/textual-criticism",
+      title: "文本考据",
+    },
+    {
+      url: "/literature/poetics-and-form/genre-as-contract",
+      title: "文类是一种约定",
+    },
+    {
+      url: "/literature/poetics-and-form/drama-and-performance-text",
+      title: "戏剧文本与演出",
+    },
+    {
+      url: "/literature/narrative-basics/fiction-and-make-believe",
+      title: "虚构与假装相信",
+    },
+    {
+      url: "/literature/theory-and-method/narratology",
+      title: "叙事学",
+    },
+    {
+      url: "/literature/narrative-basics/narrative-point-of-view",
+      title: "叙述视角",
+    },
+    {
+      url: "/literature/contemporary-edges/distant-reading",
+      title: "远读与数字人文",
+    },
+  ],
+  "/literature/theory-and-method/narratology": [
+    {
+      url: "/literature/contemporary-edges/distant-reading",
+      title: "远读与数字人文",
+    },
+  ],
+  "/literature/world-traditions/arabic-persian-narrative": [
+    {
+      url: "/literature/reading-and-reception/translation-as-rewriting",
+      title: "翻译即改写",
+    },
+  ],
+  "/literature/world-traditions/chinese-narrative-tradition": [
+    {
+      url: "/literature/world-traditions/east-and-southeast-asian-modern",
+      title: "东亚与东南亚现代文学",
+    },
+    {
+      url: "/literature/reading-and-reception/translation-as-rewriting",
+      title: "翻译即改写",
+    },
+    {
+      url: "/literature/reading-and-reception/libraries-and-the-book-trade",
+      title: "图书馆与书籍市场",
+    },
+    {
+      url: "/literature/poetics-and-form/novel-as-a-form",
+      title: "小说作为一种形式",
+    },
+  ],
+  "/literature/world-traditions/epic-as-public-memory": [
+    {
+      url: "/literature/world-traditions/arabic-persian-narrative",
+      title: "阿拉伯—波斯叙事",
+    },
+    {
+      url: "/literature/world-traditions/african-oral-literature",
+      title: "非洲口头文学",
+    },
+    {
+      url: "/literature/world-traditions/chinese-narrative-tradition",
+      title: "汉语叙事传统",
+    },
+    {
+      url: "/literature/world-traditions/latin-american-and-caribbean",
+      title: "拉美与加勒比文学",
+    },
+    {
+      url: "/literature/world-traditions/south-asian-epic-and-poetics",
+      title: "南亚史诗与诗学",
+    },
+    {
+      url: "/literature/theory-and-method/textual-criticism",
+      title: "文本考据",
     },
   ],
   "/mathematics/concepts/algebraic-geometry": [
@@ -29565,6 +30383,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/chemistry/concepts/reaction-mechanisms",
       title: "有机反应机理",
     },
+    {
+      url: "/literature/contemporary-edges/distant-reading",
+      title: "远读与数字人文",
+    },
   ],
   "/mathematics/concepts/graph-theory-applications": [
     {
@@ -29672,6 +30494,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/frontier/ramsey-and-combinatorics-progress",
       title: "拉姆齐数与组合学的新工具",
+    },
+    {
+      url: "/mathematics/knowledge-base/应用--密码学的数学",
+      title: "密码学的数学",
     },
     {
       url: "/mathematics/concepts/signal-processing",
@@ -30730,10 +31556,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "行为金融学",
     },
     {
-      url: "/political-science/institutions/electoral-systems",
-      title: "选举制度：多数制与比例制",
-    },
-    {
       url: "/life-science/knowledge-base/进化机制--遗传漂变",
       title: "遗传漂变：随机性的进化力量",
     },
@@ -31502,10 +32324,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "声学语音学与语音测量",
     },
     {
-      url: "/psychology/disorders/insomnia",
-      title: "失眠障碍",
-    },
-    {
       url: "/universe-physics/knowledge-base/物理学--时间膨胀与长度收缩",
       title: "时间膨胀与长度收缩",
     },
@@ -31712,6 +32530,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/methods/meta-analysis-evidence-synthesis",
       title: "元分析与证据综合",
+    },
+    {
+      url: "/literature/contemporary-edges/distant-reading",
+      title: "远读与数字人文",
     },
     {
       url: "/economics/knowledge-base/bond-market-explained",
@@ -32176,10 +32998,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "流行病学",
     },
     {
-      url: "/political-science/institutions/electoral-systems",
-      title: "选举制度：多数制与比例制",
-    },
-    {
       url: "/economics/theories/indian-institutional-economics",
       title: "印度制度经济学",
     },
@@ -32632,10 +33450,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/生态学--农业生态",
       title: "农业生态：从野生植物到现代粮食系统",
-    },
-    {
-      url: "/life-science/knowledge-base/进化机制--水平基因转移",
-      title: "水平基因转移：超越亲代的遗传",
     },
     {
       url: "/medicine/figures/tu-youyou",
@@ -34374,6 +35188,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "拓扑数据分析",
     },
     {
+      url: "/medicine/concepts/digestive-system",
+      title: "消化系统",
+    },
+    {
       url: "/medicine/diseases/stroke",
       title: "中风（脑卒中）",
     },
@@ -34684,8 +35502,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "神经退行性疾病：阿尔茨海默病与帕金森病",
     },
     {
-      url: "/psychology/disorders/insomnia",
-      title: "失眠障碍",
+      url: "/arts/media/sound-and-listening",
+      title: "声音艺术与听觉：没有耳睑的那种感官",
     },
     {
       url: "/medicine/diseases/plague",
@@ -35300,6 +36118,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "糖类与脂质",
     },
     {
+      url: "/medicine/concepts/digestive-system",
+      title: "消化系统",
+    },
+    {
       url: "/medicine/diseases/stroke",
       title: "中风（脑卒中）",
     },
@@ -35376,6 +36198,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/endocrine-system",
       title: "内分泌系统",
+    },
+    {
+      url: "/medicine/concepts/digestive-system",
+      title: "消化系统",
     },
     {
       url: "/medicine/concepts/nutrition-science",
@@ -35609,6 +36435,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/economics/frontier/causal-inference-credibility-revolution",
       title: '因果推断与"可信性革命"',
     },
+    {
+      url: "/medicine/ethics/informed-consent-and-shared-decision-making",
+      title: "知情同意与共同决策：签字为什么不等于选择",
+    },
   ],
   "/medicine/ethics/euthanasia-and-assisted-dying": [
     {
@@ -35632,10 +36462,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/algorithms/hashing",
       title: "哈希",
-    },
-    {
-      url: "/mathematics/knowledge-base/应用--密码学的数学",
-      title: "密码学的数学",
     },
     {
       url: "/computer-science/concepts/authentication-authorization",
@@ -36044,6 +36870,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/informed-consent",
       title: "知情同意",
+    },
+    {
+      url: "/medicine/ethics/informed-consent-and-shared-decision-making",
+      title: "知情同意与共同决策：签字为什么不等于选择",
     },
   ],
   "/medicine/figures/alexander-fleming": [
@@ -37202,12 +38032,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "深海生态：黑暗世界的生命奇迹",
     },
     {
+      url: "/life-science/knowledge-base/进化机制--水平基因转移",
+      title: "水平基因转移：超越亲代的遗传",
+    },
+    {
       url: "/medicine/concepts/microbiome-and-health",
       title: "微生物组与健康",
     },
     {
       url: "/medicine/technologies/antisepsis",
       title: "无菌术",
+    },
+    {
+      url: "/medicine/concepts/digestive-system",
+      title: "消化系统",
     },
     {
       url: "/medicine/figures/alexander-fleming",
@@ -38170,6 +39008,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "复分析",
     },
     {
+      url: "/literature/narrative-basics/what-is-a-story",
+      title: "故事是什么",
+    },
+    {
       url: "/economics/concepts/econometrics-foundations",
       title: "计量经济学基础",
     },
@@ -38252,6 +39094,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "爱德华·萨义德",
     },
     {
+      url: "/literature/theory-and-method/comparative-literature-method",
+      title: "比较文学的方法",
+    },
+    {
       url: "/human-history/knowledge/概念--大航海时代",
       title: "大航海时代",
     },
@@ -38270,6 +39116,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/kwasi-wiredu",
       title: "夸西·维雷杜",
+    },
+    {
+      url: "/literature/world-traditions/european-canon-and-its-critics",
+      title: "欧洲正典及其批评",
     },
     {
       url: "/human-history/knowledge/当代--去殖民化浪潮",
@@ -38401,6 +39251,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/philosophy/concepts/dharma": [
+    {
+      url: "/literature/world-traditions/south-asian-epic-and-poetics",
+      title: "南亚史诗与诗学",
+    },
     {
       url: "/arts/traditions/south-asian-sacred-art",
       title: "南亚宗教艺术：佛像的诞生与神像的语法",
@@ -39758,6 +40612,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "语言是否塑造思维",
     },
   ],
+  "/philosophy/concepts/phenomenology-detail": [
+    {
+      url: "/literature/theory-and-method/reception-aesthetics",
+      title: "接受美学",
+    },
+  ],
   "/philosophy/concepts/philosophy-of-ai": [
     {
       url: "/philosophy/thinkers/quine",
@@ -39786,6 +40646,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "弗雷格",
     },
     {
+      url: "/literature/theory-and-method/reception-aesthetics",
+      title: "接受美学",
+    },
+    {
       url: "/linguistics/words-sentences-meaning/syntax",
       title: "句法学：结构与依存",
     },
@@ -39798,6 +40662,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "人工智能与动物交流：发现组合结构，距离“翻译”还有多远",
     },
     {
+      url: "/literature/contemporary-edges/generated-text-and-authorship",
+      title: "生成文本与作者身份",
+    },
+    {
       url: "/philosophy/thinkers/donald-davidson",
       title: "唐纳德·戴维森",
     },
@@ -39806,8 +40674,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "文体学：风格作为选择的科学",
     },
     {
+      url: "/literature/theory-and-method/close-reading",
+      title: "细读",
+    },
+    {
+      url: "/literature/narrative-basics/fiction-and-make-believe",
+      title: "虚构与假装相信",
+    },
+    {
+      url: "/literature/narrative-basics/narrative-point-of-view",
+      title: "叙述视角",
+    },
+    {
       url: "/philosophy/thinkers/anscombe",
       title: "伊丽莎白·安斯康姆",
+    },
+    {
+      url: "/literature/poetics-and-form/metaphor-and-image",
+      title: "隐喻与意象",
     },
     {
       url: "/political-science/thinkers/jurgen-habermas",
@@ -40076,6 +40960,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/物理学--时间膨胀与长度收缩",
       title: "时间膨胀与长度收缩",
+    },
+    {
+      url: "/literature/narrative-basics/time-and-narrative-order",
+      title: "时间与叙述次序",
     },
     {
       url: "/universe-physics/knowledge-base/相对论--双生子佯谬",
@@ -41070,6 +41958,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "意义是什么？",
     },
   ],
+  "/philosophy/questions/other-minds-problem": [
+    {
+      url: "/literature/narrative-basics/what-is-a-story",
+      title: "故事是什么",
+    },
+    {
+      url: "/literature/theory-and-method/reception-aesthetics",
+      title: "接受美学",
+    },
+    {
+      url: "/literature/narrative-basics/fiction-and-make-believe",
+      title: "虚构与假装相信",
+    },
+    {
+      url: "/literature/narrative-basics/narrative-point-of-view",
+      title: "叙述视角",
+    },
+  ],
   "/philosophy/questions/what-can-we-know": [
     {
       url: "/philosophy/concepts/sense-data",
@@ -41139,6 +42045,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/arts/methods/iconography-iconology",
       title: "图像志与图像学：如何破译一幅画的密码",
     },
+    {
+      url: "/literature/poetics-and-form/metaphor-and-image",
+      title: "隐喻与意象",
+    },
   ],
   "/philosophy/questions/what-is-real": [
     {
@@ -41160,6 +42070,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/systems/build-systems-bazel",
       title: "构建系统：从 Make 到可复现构建",
+    },
+    {
+      url: "/literature/narrative-basics/fiction-and-make-believe",
+      title: "虚构与假装相信",
     },
     {
       url: "/computer-science/systems/chromium-site-isolation",
@@ -41256,6 +42170,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/古典时期--概述",
       title: "古典时期",
+    },
+    {
+      url: "/literature/world-traditions/chinese-narrative-tradition",
+      title: "汉语叙事传统",
     },
     {
       url: "/human-history/knowledge/制度--科举制度",
@@ -41534,6 +42452,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "阿育吠陀",
     },
     {
+      url: "/literature/world-traditions/south-asian-epic-and-poetics",
+      title: "南亚史诗与诗学",
+    },
+    {
       url: "/arts/traditions/south-asian-sacred-art",
       title: "南亚宗教艺术：佛像的诞生与神像的语法",
     },
@@ -41544,6 +42466,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/古典时期--亚洲--印度思想传统",
       title: "印度思想传统",
+    },
+  ],
+  "/philosophy/schools/islamic-philosophy": [
+    {
+      url: "/literature/world-traditions/arabic-persian-narrative",
+      title: "阿拉伯—波斯叙事",
     },
   ],
   "/philosophy/schools/legalism": [
@@ -41734,6 +42662,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "认知行为疗法",
     },
     {
+      url: "/political-science/isms/cosmopolitanism",
+      title: "世界主义",
+    },
+    {
       url: "/psychology/knowledge-base/self-analysis-guide",
       title: "自我分析入门指南",
     },
@@ -41858,6 +42790,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "技艺之争：艺术何时成为艺术",
     },
     {
+      url: "/literature/world-traditions/south-asian-epic-and-poetics",
+      title: "南亚史诗与诗学",
+    },
+    {
       url: "/philosophy/thinkers/thales",
       title: "泰勒斯",
     },
@@ -41884,6 +42820,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/文明--中世纪欧洲",
       title: "中世纪欧洲",
+    },
+  ],
+  "/philosophy/thinkers/augustine": [
+    {
+      url: "/literature/narrative-basics/time-and-narrative-order",
+      title: "时间与叙述次序",
     },
   ],
   "/philosophy/thinkers/austin": [
@@ -42066,6 +43008,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/thinkers/edward-said": [
     {
+      url: "/literature/world-traditions/arabic-persian-narrative",
+      title: "阿拉伯—波斯叙事",
+    },
+    {
       url: "/human-history/knowledge/人物--成吉思汗",
       title: "成吉思汗",
     },
@@ -42158,6 +43104,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/thinkers/gadamer": [
     {
+      url: "/literature/reading-and-reception/how-readers-make-meaning",
+      title: "读者如何生产意义",
+    },
+    {
       url: "/law/foundations/how-courts-decide",
       title: "法官如何裁判：法律发现、解释方法与现实主义之争",
     },
@@ -42166,12 +43116,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "弗洛伊德之争",
     },
     {
+      url: "/literature/world-traditions/chinese-narrative-tradition",
+      title: "汉语叙事传统",
+    },
+    {
       url: "/psychology/experiments/dream-analysis-technique",
       title: "梦的分析技术",
     },
     {
       url: "/arts/methods/iconography-iconology",
       title: "图像志与图像学：如何破译一幅画的密码",
+    },
+    {
+      url: "/literature/theory-and-method/close-reading",
+      title: "细读",
     },
     {
       url: "/psychology/experiments/free-association",
@@ -42434,6 +43392,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "审美判断：休谟、康德与趣味的标准之争",
     },
     {
+      url: "/political-science/isms/cosmopolitanism",
+      title: "世界主义",
+    },
+    {
       url: "/philosophy/thinkers/hobbes",
       title: "托马斯·霍布斯",
     },
@@ -42546,6 +43508,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/parfit",
       title: "德里克·帕菲特",
+    },
+    {
+      url: "/medicine/ethics/informed-consent-and-shared-decision-making",
+      title: "知情同意与共同决策：签字为什么不等于选择",
     },
   ],
   "/philosophy/thinkers/montesquieu": [
@@ -43359,6 +44325,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/law/public-law/constitution-what-it-does",
       title: "宪法做什么：高级法、政治实践与宪法变迁",
     },
+    {
+      url: "/political-science/institutions/electoral-systems",
+      title: "选举制度：多数制与比例制",
+    },
   ],
   "/political-science/concepts/deliberative-democracy": [
     {
@@ -43442,6 +44412,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/concepts/modernization-theory",
       title: "现代化理论：一条被现实反复绕开的单行道",
+    },
+    {
+      url: "/political-science/institutions/electoral-systems",
+      title: "选举制度：多数制与比例制",
     },
   ],
   "/political-science/concepts/distributive-justice": [
@@ -43746,6 +44720,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "通货膨胀",
     },
     {
+      url: "/literature/contemporary-edges/canon-wars",
+      title: "正典之争",
+    },
+    {
       url: "/human-history/knowledge/科技史--指南针",
       title: "指南针",
     },
@@ -43872,6 +44850,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/political-science/concepts/nation-and-nationalism": [
     {
+      url: "/literature/theory-and-method/comparative-literature-method",
+      title: "比较文学的方法",
+    },
+    {
+      url: "/literature/world-traditions/east-and-southeast-asian-modern",
+      title: "东亚与东南亚现代文学",
+    },
+    {
       url: "/human-history/knowledge/近代--俄罗斯帝国",
       title: "俄罗斯帝国",
     },
@@ -43884,12 +44870,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "后殖民国家建设",
     },
     {
+      url: "/literature/reading-and-reception/school-canon-and-exams",
+      title: "教材、考试与阅读制度",
+    },
+    {
       url: "/medicine/figures/louis-pasteur",
       title: "路易·巴斯德",
     },
     {
       url: "/human-history/knowledge/中世纪--亚洲--满者伯夷",
       title: "满者伯夷",
+    },
+    {
+      url: "/literature/world-traditions/european-canon-and-its-critics",
+      title: "欧洲正典及其批评",
     },
     {
       url: "/political-science/isms/communitarianism",
@@ -43906,6 +44900,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/history-typology-society/language-identity-power",
       title: "语言、身份与权力",
+    },
+    {
+      url: "/literature/contemporary-edges/world-literature-as-a-market",
+      title: "作为市场的世界文学",
     },
   ],
   "/political-science/concepts/political-corruption": [
@@ -44822,10 +45820,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "米歇尔·福柯的社会学",
     },
     {
-      url: "/mathematics/knowledge-base/应用--密码学的数学",
-      title: "密码学的数学",
-    },
-    {
       url: "/philosophy/experiments/pascals-wager",
       title: "帕斯卡赌注",
     },
@@ -45555,6 +46549,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/political-science/institutions/monarchy",
       title: "君主制",
     },
+    {
+      url: "/political-science/institutions/electoral-systems",
+      title: "选举制度：多数制与比例制",
+    },
   ],
   "/political-science/institutions/political-parties": [
     {
@@ -45564,6 +46562,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/concepts/social-movements",
       title: "社会运动与集体行动",
+    },
+    {
+      url: "/political-science/institutions/electoral-systems",
+      title: "选举制度：多数制与比例制",
     },
     {
       url: "/political-science/institutions/one-party-states",
@@ -45918,6 +46920,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "安贝德卡尔",
     },
     {
+      url: "/literature/contemporary-edges/copyright-and-the-public-domain",
+      title: "版权与公有领域",
+    },
+    {
       url: "/linguistics/history-typology-society/endangered-language-revitalization",
       title: "濒危语言与语言复振",
     },
@@ -45976,6 +46982,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/isms/humanism",
       title: "人文主义",
+    },
+    {
+      url: "/political-science/isms/cosmopolitanism",
+      title: "世界主义",
     },
     {
       url: "/computer-science/concepts/file-systems",
@@ -46186,6 +47196,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "财政规则与民主合法性",
     },
     {
+      url: "/literature/world-traditions/east-and-southeast-asian-modern",
+      title: "东亚与东南亚现代文学",
+    },
+    {
       url: "/medicine/traditions/traditional-african-medicine",
       title: "非洲传统医学",
     },
@@ -46321,6 +47335,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/political-science/international-relations/the-un-system": [
+    {
+      url: "/political-science/isms/cosmopolitanism",
+      title: "世界主义",
+    },
     {
       url: "/human-history/knowledge/当代--万隆会议",
       title: "万隆会议",
@@ -46473,6 +47491,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/political-science/isms/postcolonialism",
       title: "后殖民主义",
     },
+    {
+      url: "/literature/contemporary-edges/canon-wars",
+      title: "正典之争",
+    },
   ],
   "/political-science/isms/nationalism": [
     {
@@ -46518,6 +47540,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/phenomena/social-identity",
       title: "社会认同理论",
+    },
+    {
+      url: "/political-science/isms/cosmopolitanism",
+      title: "世界主义",
     },
     {
       url: "/linguistics/history-typology-society/language-families",
@@ -47170,6 +48196,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "第二语言习得",
     },
   ],
+  "/psychology/debates/person-situation-debate": [
+    {
+      url: "/literature/narrative-basics/plot-character-conflict",
+      title: "情节、人物与冲突",
+    },
+  ],
   "/psychology/debates/phrenology-and-localization": [
     {
       url: "/linguistics/history-typology-society/primitive-languages-myth",
@@ -47200,6 +48232,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/theorems/p-vs-np",
       title: "P vs NP 问题",
+    },
+  ],
+  "/psychology/dialogues/klein-winnicott-play": [
+    {
+      url: "/literature/narrative-basics/fiction-and-make-believe",
+      title: "虚构与假装相信",
     },
   ],
   "/psychology/dialogues/skinner-chomsky-language": [
@@ -47408,6 +48446,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "克尔凯郭尔",
     },
     {
+      url: "/psychology/disorders/insomnia",
+      title: "失眠障碍",
+    },
+    {
       url: "/philosophy/thinkers/buddha",
       title: "释迦牟尼",
     },
@@ -47476,6 +48518,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/psychology/experiments/gorilla-invisibility": [
     {
+      url: "/literature/reading-and-reception/how-readers-make-meaning",
+      title: "读者如何生产意义",
+    },
+    {
+      url: "/arts/media/sound-and-listening",
+      title: "声音艺术与听觉：没有耳睑的那种感官",
+    },
+    {
       url: "/psychology/experiments/stroop-1935",
       title: "斯特鲁普实验",
     },
@@ -47506,6 +48556,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/schools/positive-psychology",
       title: "积极心理学",
+    },
+    {
+      url: "/literature/narrative-basics/plot-character-conflict",
+      title: "情节、人物与冲突",
     },
     {
       url: "/psychology/phenomena/learned-helplessness-phenomenon",
@@ -48683,11 +49737,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/philosophy/concepts/identity",
       title: "同一性",
     },
+    {
+      url: "/literature/narrative-basics/fiction-and-make-believe",
+      title: "虚构与假装相信",
+    },
   ],
   "/psychology/knowledge-base/educational-psychology": [
     {
       url: "/linguistics/acquisition-and-mind/second-language-acquisition",
       title: "第二语言习得",
+    },
+    {
+      url: "/literature/reading-and-reception/school-canon-and-exams",
+      title: "教材、考试与阅读制度",
     },
     {
       url: "/psychology/debates/neuromyths-in-education",
@@ -49418,6 +50480,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "社交媒体与青少年心理健康：从屏幕时间争论到机制证据",
     },
     {
+      url: "/psychology/disorders/insomnia",
+      title: "失眠障碍",
+    },
+    {
       url: "/psychology/disorders/bipolar",
       title: "双相情感障碍",
     },
@@ -50118,10 +51184,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "盖梯尔问题",
     },
     {
-      url: "/chemistry/methods/process-scale-up",
-      title: "工艺放大：从烧瓶到反应器的传热、混合与控制",
-    },
-    {
       url: "/cosmology/knowledge-base/太阳系--kuiper-belt-oort-cloud",
       title: "柯伊伯带与奥尔特云",
     },
@@ -50560,6 +51622,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "孔子的政治思想",
     },
     {
+      url: "/literature/narrative-basics/plot-character-conflict",
+      title: "情节、人物与冲突",
+    },
+    {
       url: "/philosophy/thinkers/socrates",
       title: "苏格拉底",
     },
@@ -50862,6 +51928,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "看不见的大猩猩",
     },
     {
+      url: "/literature/narrative-basics/oral-storytelling",
+      title: "口头讲述与记忆",
+    },
+    {
       url: "/human-history/source-analyses/rosetta-stone-source-analysis",
       title: "罗塞塔石碑史料剖析",
     },
@@ -51064,6 +52134,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/psychology/phenomena/fundamental-attribution-error": [
     {
+      url: "/literature/narrative-basics/what-is-a-story",
+      title: "故事是什么",
+    },
+    {
       url: "/political-science/international-relations/realism-ir",
       title: "国际关系：现实主义",
     },
@@ -51078,6 +52152,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/debates/person-situation-debate",
       title: "人格还是情境：行为由什么决定",
+    },
+    {
+      url: "/literature/poetics-and-form/narrator-and-voice",
+      title: "叙述者与声音",
     },
     {
       url: "/philosophy/concepts/karma",
@@ -51200,6 +52278,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "客体恒常性",
     },
     {
+      url: "/literature/narrative-basics/oral-storytelling",
+      title: "口头讲述与记忆",
+    },
+    {
       url: "/psychology/experiments/murdock-1962",
       title: "默多克序列位置实验",
     },
@@ -51210,6 +52292,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/神经可塑性",
       title: "神经可塑性",
+    },
+    {
+      url: "/literature/narrative-basics/time-and-narrative-order",
+      title: "时间与叙述次序",
     },
     {
       url: "/computer-science/pioneers/steve-wozniak",
@@ -51552,6 +52638,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "时间",
     },
     {
+      url: "/literature/narrative-basics/time-and-narrative-order",
+      title: "时间与叙述次序",
+    },
+    {
       url: "/philosophy/concepts/philosophy-of-time",
       title: "时间哲学",
     },
@@ -51824,6 +52914,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "调查研究",
     },
     {
+      url: "/literature/narrative-basics/time-and-narrative-order",
+      title: "时间与叙述次序",
+    },
+    {
       url: "/computer-science/algorithms/lru-cache-eviction",
       title: "LRU 缓存淘汰算法",
     },
@@ -51872,6 +52966,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/phenomena/splitting",
       title: "分裂",
+    },
+    {
+      url: "/literature/reading-and-reception/fandom-and-secondary-creation",
+      title: "粉丝与二次创作",
     },
     {
       url: "/philosophy/thinkers/fanon",
@@ -52072,6 +53170,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "邓宁-克鲁格效应",
     },
     {
+      url: "/literature/reading-and-reception/how-readers-make-meaning",
+      title: "读者如何生产意义",
+    },
+    {
       url: "/psychology/phenomena/splitting",
       title: "分裂",
     },
@@ -52202,6 +53304,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/questions/other-minds-problem",
       title: "我们怎么知道他人有心智？",
+    },
+    {
+      url: "/literature/poetics-and-form/metaphor-and-image",
+      title: "隐喻与意象",
     },
     {
       url: "/linguistics/acquisition-and-mind/language-thought-debate",
@@ -52940,6 +54046,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/traditions/latin-american-art",
       title: "拉美艺术：从殖民巴洛克到身份的画布",
+    },
+    {
+      url: "/literature/world-traditions/latin-american-and-caribbean",
+      title: "拉美与加勒比文学",
     },
     {
       url: "/human-history/knowledge/概念--全球化",
@@ -53908,6 +55018,48 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "生态系统理论",
     },
   ],
+  "/sociology/concepts/sociology-of-culture": [
+    {
+      url: "/literature/theory-and-method/comparative-literature-method",
+      title: "比较文学的方法",
+    },
+    {
+      url: "/literature/reading-and-reception/translation-as-rewriting",
+      title: "翻译即改写",
+    },
+    {
+      url: "/literature/world-traditions/african-oral-literature",
+      title: "非洲口头文学",
+    },
+    {
+      url: "/literature/reading-and-reception/fandom-and-secondary-creation",
+      title: "粉丝与二次创作",
+    },
+    {
+      url: "/literature/reading-and-reception/school-canon-and-exams",
+      title: "教材、考试与阅读制度",
+    },
+    {
+      url: "/literature/theory-and-method/reception-aesthetics",
+      title: "接受美学",
+    },
+    {
+      url: "/literature/world-traditions/european-canon-and-its-critics",
+      title: "欧洲正典及其批评",
+    },
+    {
+      url: "/literature/poetics-and-form/genre-as-contract",
+      title: "文类是一种约定",
+    },
+    {
+      url: "/literature/poetics-and-form/novel-as-a-form",
+      title: "小说作为一种形式",
+    },
+    {
+      url: "/literature/contemporary-edges/world-literature-as-a-market",
+      title: "作为市场的世界文学",
+    },
+  ],
   "/sociology/frontier/ageing-societies": [
     {
       url: "/medicine/ethics/euthanasia-and-assisted-dying",
@@ -54416,6 +55568,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "第一语言习得",
     },
     {
+      url: "/literature/world-traditions/east-and-southeast-asian-modern",
+      title: "东亚与东南亚现代文学",
+    },
+    {
       url: "/linguistics/acquisition-and-mind/multilingual-mind",
       title: "多语心智与语言切换",
     },
@@ -54454,6 +55610,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/theorists/gabriele-oettingen",
       title: "加布里埃尔·厄廷根",
+    },
+    {
+      url: "/literature/reading-and-reception/school-canon-and-exams",
+      title: "教材、考试与阅读制度",
     },
     {
       url: "/psychology/knowledge-base/educational-psychology",
@@ -54538,6 +55698,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/mathematicians/noether",
       title: "诺特",
+    },
+    {
+      url: "/literature/world-traditions/european-canon-and-its-critics",
+      title: "欧洲正典及其批评",
     },
     {
       url: "/sociology/thinkers/pierre-bourdieu",
@@ -54628,6 +55792,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "维果茨基最近发展区",
     },
     {
+      url: "/literature/poetics-and-form/novel-as-a-form",
+      title: "小说作为一种形式",
+    },
+    {
       url: "/psychology/knowledge-base/psychometrics-reliability-validity",
       title: "心理测量学：信度、效度与如何相信一个测验",
     },
@@ -54674,6 +55842,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/sociology/thinkers/james-coleman",
       title: "詹姆斯·S. 科尔曼",
+    },
+    {
+      url: "/literature/contemporary-edges/canon-wars",
+      title: "正典之争",
     },
     {
       url: "/mathematics/knowledge-base/数学基础--证明的艺术",
@@ -54868,6 +56040,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "费马",
     },
     {
+      url: "/literature/reading-and-reception/fandom-and-secondary-creation",
+      title: "粉丝与二次创作",
+    },
+    {
       url: "/human-history/knowledge/人物--伏尔泰",
       title: "伏尔泰",
     },
@@ -54962,6 +56138,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/microbiome-and-health",
       title: "微生物组与健康",
+    },
+    {
+      url: "/literature/poetics-and-form/novel-as-a-form",
+      title: "小说作为一种形式",
     },
     {
       url: "/psychology/debates/replication-debate",
@@ -55699,6 +56879,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/sociology/methods/coleman-report-educational-opportunity-analysis": [
+    {
+      url: "/literature/reading-and-reception/school-canon-and-exams",
+      title: "教材、考试与阅读制度",
+    },
     {
       url: "/sociology/methods/research-ethics-and-positionality",
       title: "研究伦理与位置性：谁在被研究，谁在研究",
@@ -56604,6 +57788,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "词典学：词典是怎样编出来的",
     },
     {
+      url: "/literature/reading-and-reception/translation-as-rewriting",
+      title: "翻译即改写",
+    },
+    {
       url: "/sociology/institutions/education-and-credentialism",
       title: "教育与文凭社会",
     },
@@ -56636,12 +57824,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "听诊器",
     },
     {
+      url: "/literature/poetics-and-form/genre-as-contract",
+      title: "文类是一种约定",
+    },
+    {
       url: "/mathematics/knowledge-base/分析--无穷的故事",
       title: "无穷的故事",
     },
     {
       url: "/arts/aesthetics/art-market-and-value",
       title: "艺术市场与价值：杰作的价格是如何被制造出来的",
+    },
+    {
+      url: "/literature/contemporary-edges/canon-wars",
+      title: "正典之争",
     },
   ],
   "/sociology/thinkers/robert-merton": [
@@ -60290,10 +61486,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "高速铁路工程：轨道、受流与系统集成",
     },
     {
-      url: "/chemistry/methods/process-scale-up",
-      title: "工艺放大：从烧瓶到反应器的传热、混合与控制",
-    },
-    {
       url: "/engineering/machines/aviation-engineering",
       title: "航空工程：机翼、适航认证与电动飞机的现实约束",
     },
@@ -60478,6 +61670,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/events/indian-ocean-tsunami-2004",
       title: "印度洋海啸（2004）",
+    },
+    {
+      url: "/literature/poetics-and-form/meter-and-the-line",
+      title: "韵律与诗行",
     },
     {
       url: "/cosmology/knowledge-base/重子声学振荡",

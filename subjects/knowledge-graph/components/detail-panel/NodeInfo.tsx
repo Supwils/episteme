@@ -33,21 +33,21 @@ export function NodeInfo({ node, connectedCount }: NodeInfoProps) {
             className={clsx(
               "inline-flex w-fit items-center rounded-full px-2.5 py-1 font-mono text-[10px] font-medium tracking-[0.15em] uppercase",
               meta.bg,
-              meta.color,
+              "text-fg-primary",
               meta.border,
               "border"
             )}
           >
             {meta.label}
           </span>
-          <h2 className="text-[1.5rem] leading-tight font-bold text-white/95 md:text-[1.75rem]">
+          <h2 className="text-fg-primary text-[1.5rem] leading-tight font-bold md:text-[1.75rem]">
             {node.label}
           </h2>
-          <div className="flex flex-wrap items-center gap-3 text-[12px] text-white/60">
+          <div className="text-fg-muted flex flex-wrap items-center gap-3 text-[12px]">
             <span>类型：{NODE_TYPE_LABEL[node.type]}</span>
             {node.era ? (
               <>
-                <span aria-hidden className="text-white/20">
+                <span aria-hidden className="text-fg-disabled">
                   ·
                 </span>
                 <span>时代：{node.era}</span>
@@ -55,7 +55,7 @@ export function NodeInfo({ node, connectedCount }: NodeInfoProps) {
             ) : null}
             {node.section ? (
               <>
-                <span aria-hidden className="text-white/20">
+                <span aria-hidden className="text-fg-disabled">
                   ·
                 </span>
                 <span>分类：{node.section}</span>
@@ -63,7 +63,7 @@ export function NodeInfo({ node, connectedCount }: NodeInfoProps) {
             ) : null}
             {knowledgeLevel ? (
               <>
-                <span aria-hidden className="text-white/20">
+                <span aria-hidden className="text-fg-disabled">
                   ·
                 </span>
                 <span>
@@ -73,7 +73,7 @@ export function NodeInfo({ node, connectedCount }: NodeInfoProps) {
             ) : null}
             {node.evidenceMode ? (
               <>
-                <span aria-hidden className="text-white/20">
+                <span aria-hidden className="text-fg-disabled">
                   ·
                 </span>
                 <span>证据：{EVIDENCE_MODE_LABELS[node.evidenceMode]}</span>
@@ -81,7 +81,7 @@ export function NodeInfo({ node, connectedCount }: NodeInfoProps) {
             ) : null}
             {node.prerequisiteIds && node.prerequisiteIds.length > 0 ? (
               <>
-                <span aria-hidden className="text-white/20">
+                <span aria-hidden className="text-fg-disabled">
                   ·
                 </span>
                 <span>{node.prerequisiteIds.length} 个前置节点</span>
@@ -89,7 +89,7 @@ export function NodeInfo({ node, connectedCount }: NodeInfoProps) {
             ) : null}
             {connectedCount > 0 ? (
               <>
-                <span aria-hidden className="text-white/20">
+                <span aria-hidden className="text-fg-disabled">
                   ·
                 </span>
                 <span>{connectedCount} 个关联节点</span>
@@ -105,7 +105,7 @@ export function NodeInfo({ node, connectedCount }: NodeInfoProps) {
             {node.tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-md bg-white/[0.04] px-2 py-0.5 font-mono text-[10px] tracking-wide text-white/50"
+                className="text-fg-muted rounded-md bg-[var(--input-bg)] px-2 py-0.5 font-mono text-[10px] tracking-wide"
               >
                 {tag}
               </span>
@@ -115,7 +115,7 @@ export function NodeInfo({ node, connectedCount }: NodeInfoProps) {
       ) : null}
 
       <Reveal>
-        <p className="text-[13px] leading-relaxed text-white/60">{node.description}</p>
+        <p className="text-fg-muted text-[13px] leading-relaxed">{node.description}</p>
       </Reveal>
     </>
   );

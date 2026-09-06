@@ -20,10 +20,12 @@ export interface SearchClient {
  * graph layout worker masks the same bundler bug with its own sync fallback.
  *
  * The one-time cost is ~360ms of index parsing on the main thread; `warmup()`
- * moves it to overlay-open time so typing never waits on it.
+ * starts that work after overlay-open, scheduled on idle (200ms timeout) so the
+ * open interaction is not itself a long task. `search()` cancels idle wait.
  */
 function createMainThreadClient(): SearchClient {
   let enginePromise: Promise<SearchEngine | null> | null = null;
+  let idleHandle: number | null = null;
 
   const engine = () => {
     enginePromise ??= loadArtifact()
@@ -37,14 +39,34 @@ function createMainThreadClient(): SearchClient {
     return enginePromise;
   };
 
+  const startEngine = () => {
+    idleHandle = null;
+    void engine();
+  };
+
   return {
     async search(query, limit = 20) {
+      if (idleHandle !== null && typeof cancelIdleCallback === "function") {
+        cancelIdleCallback(idleHandle);
+        idleHandle = null;
+      }
       return (await engine())?.search(query, limit) ?? [];
     },
     warmup() {
-      void engine();
+      if (enginePromise || idleHandle !== null) return;
+      // Keep fetch+parse off the opening keydown/click stack (INP), but do not
+      // wait for a long idle gap — typing may start immediately.
+      if (typeof requestIdleCallback === "function") {
+        idleHandle = requestIdleCallback(startEngine, { timeout: 200 });
+        return;
+      }
+      startEngine();
     },
     dispose() {
+      if (idleHandle !== null && typeof cancelIdleCallback === "function") {
+        cancelIdleCallback(idleHandle);
+      }
+      idleHandle = null;
       enginePromise = null;
     },
   };

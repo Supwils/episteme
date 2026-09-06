@@ -58,7 +58,7 @@
   /* ── Gradients ────────────────────────────────────────────────────── */
   --gradient-radial-purple: radial-gradient(
     ellipse at center,
-    rgba(155, 125, 196, 0.12) 0%,
+    color-mix(in srgb, var(--color-accent-purple) 12%, transparent) 0%,
     transparent 70%
   );
   --gradient-radial-blue: radial-gradient(
@@ -75,8 +75,8 @@
   --gradient-fade-up: linear-gradient(to top, transparent 0%, var(--color-bg-deep) 100%);
   --gradient-purple-border: linear-gradient(
     135deg,
-    rgba(155, 125, 196, 0.3),
-    rgba(107, 143, 214, 0.15)
+    color-mix(in srgb, var(--color-accent-purple) 30%, transparent),
+    color-mix(in srgb, var(--color-accent-blue) 15%, transparent)
   );
 
   /* ── Typography stacks ────────────────────────────────────────────── */
@@ -221,6 +221,9 @@
   --color-border-subtle: #e8dfd0;
   --color-border-strong: #d8d0c0;
   --color-border-pink: #e3d6c2;
+  --shadow-sm: 0 1px 2px rgba(80, 60, 30, 0.08);
+  --shadow-md: 0 4px 12px rgba(80, 60, 30, 0.12);
+  --shadow-lg: 0 8px 30px rgba(80, 60, 30, 0.16);
   --card-radius: 14px;
   --card-shadow: 0 12px 28px -18px rgba(80, 60, 30, 0.28);
   --font-display: "LXGW WenKai TC", "Noto Serif SC", "Songti SC", serif;
@@ -295,7 +298,7 @@
   }
 
   .psychology-root ::selection {
-    background: rgba(155, 125, 196, 0.3);
+    background: color-mix(in srgb, var(--color-accent-purple) 30%, transparent);
     color: var(--color-fg-primary);
   }
 
@@ -479,7 +482,11 @@
 
   .psychology-root .info-card-purple {
     border-left-color: var(--color-accent-purple);
-    background: linear-gradient(90deg, rgba(155, 125, 196, 0.04) 0%, var(--color-bg-elevated) 30%);
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--color-accent-purple) 8%, transparent) 0%,
+      var(--color-bg-elevated) 30%
+    );
   }
 
   .psychology-root .info-card-blue {
@@ -515,9 +522,9 @@
     text-transform: uppercase;
     padding: 0.2em 0.6em;
     border-radius: var(--radius-full);
-    background: rgba(155, 125, 196, 0.1);
+    background: color-mix(in srgb, var(--color-accent-purple) 10%, transparent);
     color: var(--color-accent-purple);
-    border: 1px solid rgba(155, 125, 196, 0.2);
+    border: 1px solid color-mix(in srgb, var(--color-accent-purple) 22%, transparent);
   }
 
   .psychology-root .badge-blue {
@@ -561,15 +568,29 @@
 
   .psychology-root .grid-paper {
     background-image:
-      linear-gradient(rgba(155, 125, 196, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(155, 125, 196, 0.03) 1px, transparent 1px);
+      linear-gradient(
+        color-mix(in srgb, var(--color-accent-purple) 8%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--color-accent-purple) 8%, transparent) 1px,
+        transparent 1px
+      );
     background-size: 2rem 2rem;
   }
 
   .psychology-root .grid-paper-fine {
     background-image:
-      linear-gradient(rgba(155, 125, 196, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(155, 125, 196, 0.02) 1px, transparent 1px);
+      linear-gradient(
+        color-mix(in srgb, var(--color-accent-purple) 6%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--color-accent-purple) 6%, transparent) 1px,
+        transparent 1px
+      );
     background-size: 1rem 1rem;
   }
 
@@ -596,7 +617,7 @@
   .psychology-root .search-input:focus {
     outline: none;
     border-color: var(--color-accent-purple);
-    box-shadow: 0 0 0 3px rgba(155, 125, 196, 0.15);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent-purple) 18%, transparent);
   }
 
   /* ── Card Hover ───────────────────────────────────────────────────── */
@@ -610,7 +631,7 @@
 
   .psychology-root .card-hover:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(155, 125, 196, 0.08);
+    box-shadow: 0 8px 32px color-mix(in srgb, var(--color-accent-purple) 12%, transparent);
     border-color: var(--color-border-subtle);
   }
 
@@ -638,7 +659,7 @@
   .psychology-root .filter-tab.active {
     color: var(--color-accent-purple);
     border-color: var(--color-accent-purple);
-    background: rgba(155, 125, 196, 0.08);
+    background: color-mix(in srgb, var(--color-accent-purple) 10%, transparent);
   }
 
   .show-mobile-only {
@@ -790,7 +811,7 @@
   .psychology-root .prose a {
     color: var(--color-accent-purple);
     text-decoration: underline;
-    text-decoration-color: rgba(155, 125, 196, 0.3);
+    text-decoration-color: color-mix(in srgb, var(--color-accent-purple) 40%, transparent);
     text-underline-offset: 3px;
     transition: text-decoration-color var(--duration-fast) var(--ease-smooth);
   }
@@ -905,7 +926,7 @@
   }
 
   .psychology-root .prose tbody tr:hover {
-    background: rgba(155, 125, 196, 0.03);
+    background: color-mix(in srgb, var(--color-accent-purple) 6%, transparent);
   }
 }
 
@@ -917,10 +938,10 @@
 @keyframes pulse-glow {
   0%,
   100% {
-    box-shadow: 0 0 15px rgba(155, 125, 196, 0.15);
+    box-shadow: 0 0 15px color-mix(in srgb, var(--color-accent-purple) 18%, transparent);
   }
   50% {
-    box-shadow: 0 0 30px rgba(155, 125, 196, 0.3);
+    box-shadow: 0 0 30px color-mix(in srgb, var(--color-accent-purple) 28%, transparent);
   }
 }
 
@@ -988,7 +1009,7 @@
   }
 
   .psychology-root {
-    scrollbar-color: #9b7dc4 transparent;
+    scrollbar-color: var(--color-accent-purple) transparent;
   }
 
   .psychology-root * {
@@ -1034,7 +1055,7 @@
     background: linear-gradient(
       90deg,
       transparent 0%,
-      rgba(155, 125, 196, 0.06) 50%,
+      color-mix(in srgb, var(--color-accent-purple) 8%, transparent) 50%,
       transparent 100%
     );
     background-size: 200% 100%;
@@ -1102,4 +1123,11 @@
   .psychology-root {
     --page-padding: 6rem;
   }
+}
+
+html.light {
+  --color-fg-primary: #2c2a26;
+  --color-fg-secondary: #4f4b45;
+  --color-fg-muted: #5a564f;
+  --color-fg-disabled: #625e58;
 }

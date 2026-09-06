@@ -75,7 +75,7 @@
 - 改文档优先级：`06-phase-1-plan.md` → `WORKLOG.md` → 其他。
 - 不确定就问，别自己猜大方向。
 - 写代码遇到 > 1 个备选实现 (库、模式、架构) 时，简短列出 trade-off 让用户选。
-- 参考项目：`/Users/supwils/supwilsoft/swil/swil-fitneheal` 和 `/Users/supwils/supwilsoft/universe-knowledge/human-history` —— **只读参考**，灵感可借，代码与设计**不要复制**。
+- 参考项目：`/Users/supwils/supwilsoft/live/swil-fitneheal` 和 `/Users/supwils/supwilsoft/live/universe-knowledge/human-history` —— **只读参考**，灵感可借，代码与设计**不要复制**。
 
 ---
 

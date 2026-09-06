@@ -69,9 +69,7 @@ export function AdolescentServiceSensitivity({
           <span className="mb-2 block font-medium">检验哪一层</span>
           <select
             value={optionId}
-            onChange={(event) =>
-              onOptionChange(event.target.value as AdolescentServiceOptionId)
-            }
+            onChange={(event) => onOptionChange(event.target.value as AdolescentServiceOptionId)}
             className="border-border-faint bg-bg-panel text-fg-primary h-10 w-full border px-3"
           >
             {ADOLESCENT_SERVICE_OPTIONS.map((item) => (
@@ -107,9 +105,7 @@ export function AdolescentServiceSensitivity({
           : added.length === 0 && removed.length === 0
             ? "组合未改变。"
             : [
-                added.length > 0
-                  ? `新增 ${added.map((item) => item.shortTitle).join("、")}`
-                  : "",
+                added.length > 0 ? `新增 ${added.map((item) => item.shortTitle).join("、")}` : "",
                 removed.length > 0
                   ? `移出 ${removed.map((item) => item.shortTitle).join("、")}`
                   : "",
@@ -198,7 +194,7 @@ function SensitivityRange({
         <label htmlFor={inputId} className="text-fg-primary font-medium">
           {label}
         </label>
-        <output className="font-mono text-xs text-[#d9a85a]">{display}</output>
+        <output className="text-fg-primary font-mono text-xs">{display}</output>
       </div>
       <input
         id={inputId}

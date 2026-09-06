@@ -173,6 +173,21 @@ export const DERIVED_DOMAINS: readonly DerivedDomain[] = [
     ],
   },
   {
+    contentDirectory: "literature",
+    graphDomain: "literature",
+    idPrefix: "literature",
+    entryNodeId: "literature:what-is-a-story",
+    sections: [
+      "contemporary-edges",
+      "frontier",
+      "narrative-basics",
+      "poetics-and-form",
+      "reading-and-reception",
+      "theory-and-method",
+      "world-traditions",
+    ],
+  },
+  {
     contentDirectory: "mathematics",
     graphDomain: "mathematics",
     idPrefix: "mathematics",
@@ -285,6 +300,7 @@ export const DERIVED_DOMAINS: readonly DerivedDomain[] = [
 export const SECTION_KNOWLEDGE_LEVEL: Readonly<Record<string, KnowledgeLevel>> = {
   // L1 — people and dated episodes: the concrete things a reader can enter from.
   economists: 1,
+  "narrative-basics": 1,
   events: 1,
   figures: 1,
   mathematicians: 1,
@@ -296,6 +312,7 @@ export const SECTION_KNOWLEDGE_LEVEL: Readonly<Record<string, KnowledgeLevel>> =
   thinkers: 1,
   // L2 — the core vocabulary of a domain.
   aesthetics: 2,
+  "poetics-and-form": 2,
   concepts: 2,
   debates: 2,
   dialogues: 2,
@@ -314,6 +331,7 @@ export const SECTION_KNOWLEDGE_LEVEL: Readonly<Record<string, KnowledgeLevel>> =
   "legal-traditions": 2,
   // L3 — machinery built on that vocabulary.
   "acquisition-and-mind": 3,
+  "world-traditions": 3,
   algorithms: 3,
   architecture: 3,
   "case-studies": 3,
@@ -338,6 +356,8 @@ export const SECTION_KNOWLEDGE_LEVEL: Readonly<Record<string, KnowledgeLevel>> =
   technologies: 3,
   // L4 — how the domain finds things out, and where it argues about them.
   "climate-risks": 4,
+  "theory-and-method": 4,
+  "reading-and-reception": 4,
   ethics: 4,
   experiments: 4,
   "global-and-digital": 4,
@@ -353,6 +373,7 @@ export const SECTION_KNOWLEDGE_LEVEL: Readonly<Record<string, KnowledgeLevel>> =
   // L5 — open questions.
   frontier: 5,
   frontiers: 5,
+  "contemporary-edges": 5,
 };
 
 /** Section → node type. Sections with no distinctive type fall through to the

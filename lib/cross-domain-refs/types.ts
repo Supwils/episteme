@@ -13,6 +13,7 @@ export type Domain =
   | "medicine"
   | "chemistry"
   | "arts"
+  | "literature"
   | "law"
   | "engineering"
   | "sociology"
@@ -50,6 +51,7 @@ export const DOMAIN_LABELS: Record<Domain, string> = {
   medicine: "医学与公共卫生",
   chemistry: "化学",
   arts: "艺术",
+  literature: "文学与叙事",
   law: "法学",
   engineering: "工程与技术",
   sociology: "社会学",
@@ -71,6 +73,7 @@ export const DOMAIN_ROUTES: Record<Domain, string> = {
   medicine: "/medicine",
   chemistry: "/chemistry",
   arts: "/arts",
+  literature: "/literature",
   law: "/law",
   engineering: "/engineering",
   sociology: "/sociology",

@@ -306,6 +306,44 @@ export const COMPLETION_DOMAIN_SPINE_PATHS: readonly CuratedLearningPath[] = [
     ],
   },
   {
+    id: "literature-story-spine",
+    scope: "domain-spine",
+    title: "从一则故事到正典之争",
+    question: "叙述怎样被做成可核对的形式，又怎样进入教材、书单与公开争论？",
+    steps: [
+      {
+        nodeId: "literature:what-is-a-story",
+        level: 1,
+        evidenceMode: "interpretation",
+        transition: "先把“发生了一件事”与可描述的叙述结构分开。",
+      },
+      {
+        nodeId: "literature:meter-and-the-line",
+        level: 2,
+        evidenceMode: "formal",
+        transition: "诗行与韵律把叙述经验变成可计数的形式单位。",
+      },
+      {
+        nodeId: "literature:epic-as-public-memory",
+        level: 3,
+        evidenceMode: "comparative",
+        transition: "史诗比较口头与抄本传统如何保存公共记忆。",
+      },
+      {
+        nodeId: "literature:close-reading",
+        level: 4,
+        evidenceMode: "formal",
+        transition: "细读把局部用词与句法当成可争辩的证据。",
+      },
+      {
+        nodeId: "literature:canon-wars",
+        level: 5,
+        evidenceMode: "synthesis",
+        transition: "正典之争综合课程、奖项与书单，是阅读制度的开放前线。",
+      },
+    ],
+  },
+  {
     id: "arts-seeing-spine",
     scope: "domain-spine",
     title: "从观看的本能到生成文化",

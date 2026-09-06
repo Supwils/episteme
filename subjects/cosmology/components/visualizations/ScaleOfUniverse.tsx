@@ -376,11 +376,11 @@ function DetailCard({ obj, onClose }: DetailCardProps) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 16 }}
       transition={{ duration: 0.25 }}
-      className="relative mx-auto max-w-md rounded-xl border border-white/[0.08] bg-[#0f1320]/90 p-6 backdrop-blur-xl"
+      className="border-border-faint bg-bg-elevated/90 relative mx-auto max-w-md rounded-xl border p-6 backdrop-blur-xl"
     >
       <button
         onClick={onClose}
-        className="absolute top-3 right-3 flex h-7 w-7 items-center justify-center rounded-full bg-white/[0.06] text-sm text-[#868da0] transition-colors hover:bg-white/[0.12] hover:text-white"
+        className="hover:text-fg-primary absolute top-3 right-3 flex h-7 w-7 items-center justify-center rounded-full bg-[var(--input-bg)] text-sm text-[#868da0] transition-colors hover:bg-[var(--hover-bg)]"
         aria-label="关闭"
       >
         ✕
@@ -393,7 +393,7 @@ function DetailCard({ obj, onClose }: DetailCardProps) {
           {obj.icon}
         </div>
         <div className="min-w-0">
-          <h3 className="mb-0.5 text-lg font-semibold text-[#f5f6fa]">{obj.nameCn}</h3>
+          <h3 className="text-fg-primary mb-0.5 text-lg font-semibold">{obj.nameCn}</h3>
           <p className="mb-2 text-xs text-[#868da0]">{obj.nameEn}</p>
           <p className="mb-3 font-mono text-sm font-medium" style={{ color: obj.color }}>
             {obj.size}
@@ -423,7 +423,7 @@ export function ScaleOfUniverse() {
   return (
     <section className="w-full">
       <div className="mb-8 text-center">
-        <h2 className="mb-2 text-2xl font-bold text-[#f5f6fa] md:text-3xl">宇宙尺度</h2>
+        <h2 className="text-fg-primary mb-2 text-2xl font-bold md:text-3xl">宇宙尺度</h2>
         <p className="text-sm text-[#868da0]">拖动滑块，从普朗克长度漫游到可观测宇宙</p>
       </div>
 
@@ -455,7 +455,7 @@ export function ScaleOfUniverse() {
               {closest.icon}
             </div>
             <div className="text-center">
-              <p className="text-lg font-semibold text-[#f5f6fa]">{closest.nameCn}</p>
+              <p className="text-fg-primary text-lg font-semibold">{closest.nameCn}</p>
               <p className="font-mono text-sm" style={{ color: closest.color }}>
                 {closest.size}
               </p>

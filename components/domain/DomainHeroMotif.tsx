@@ -200,6 +200,19 @@ function EngineeringMotif({ color }: MotifProps) {
   );
 }
 
+function LiteratureMotif({ color }: MotifProps) {
+  return (
+    <g {...shared} stroke={color}>
+      {/* open book: two facing pages with a shared spine */}
+      <path d="M104 28 C78 22, 44 26, 28 34 L28 108 C52 96, 82 92, 104 102" opacity={0.9} />
+      <path d="M104 28 C130 22, 164 26, 180 34 L180 108 C156 96, 126 92, 104 102" opacity={0.9} />
+      <line x1="104" y1="28" x2="104" y2="102" opacity={0.85} />
+      <path d="M44 48 H86 M44 64 H86 M44 80 H78" opacity={0.35} />
+      <path d="M122 48 H164 M122 64 H164 M130 80 H164" opacity={0.35} />
+    </g>
+  );
+}
+
 function ArtsMotif({ color }: MotifProps) {
   return (
     <g {...shared} stroke={color}>
@@ -227,6 +240,7 @@ const MOTIFS: Record<string, (props: MotifProps) => React.ReactNode> = {
   medicine: MedicineMotif,
   law: LawMotif,
   arts: ArtsMotif,
+  literature: LiteratureMotif,
   engineering: EngineeringMotif,
 };
 

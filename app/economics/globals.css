@@ -203,10 +203,17 @@
   --color-accent-gold: #735914;
   --color-accent-gold-dim: #7c6320;
   --color-accent-gold-bright: #b8902c;
+  --color-accent-copper: #8a4a2e;
+  --color-accent-copper-bright: #9a5538;
+  --color-accent-green: #2f6b4a;
+  --color-accent-green-bright: #3d7a5c;
   --color-border-faint: #eee6d9;
   --color-border-subtle: #e8dfd0;
   --color-border-strong: #d8d0c0;
   --color-border-copper: #e3d6c2;
+  --shadow-sm: 0 1px 2px rgba(80, 60, 30, 0.08);
+  --shadow-md: 0 4px 12px rgba(80, 60, 30, 0.12);
+  --shadow-lg: 0 8px 30px rgba(80, 60, 30, 0.16);
   --card-radius: 14px;
   --card-shadow: 0 12px 28px -18px rgba(80, 60, 30, 0.28);
   --font-display: "LXGW WenKai TC", "Noto Serif SC", "Songti SC", serif;
@@ -1141,4 +1148,11 @@
   .economics-root {
     --page-padding: 6rem;
   }
+}
+
+html.light {
+  --color-fg-primary: #2c2a26;
+  --color-fg-secondary: #4f4b45;
+  --color-fg-muted: #5a564f;
+  --color-fg-disabled: #625e58;
 }

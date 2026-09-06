@@ -13,7 +13,7 @@ const KnowledgeGraph = dynamic(
     ssr: false,
     loading: () => (
       <div
-        className="flex h-screen w-full items-center justify-center bg-[#08080f]"
+        className="bg-bg-deep flex h-screen w-full items-center justify-center"
         role="status"
         aria-live="polite"
       >
@@ -49,7 +49,7 @@ export function KnowledgeGraphClient() {
   if (!data) {
     return (
       <div
-        className="flex h-screen w-full items-center justify-center bg-[#08080f]"
+        className="bg-bg-deep flex h-screen w-full items-center justify-center"
         role="status"
         aria-live="polite"
       >

@@ -72,8 +72,12 @@ export default async function ReadingPathPage({ params }: { params: Promise<{ sl
 
         <Link
           href={`${first.href}?path=${path.slug}&step=1`}
-          className="mt-7 inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-[14px] font-medium text-white transition-opacity hover:opacity-90"
-          style={{ background: path.accent }}
+          className="mt-7 inline-flex items-center gap-2 rounded-xl border px-5 py-2.5 text-[14px] font-medium transition-opacity hover:opacity-90"
+          style={{
+            color: `color-mix(in oklab, ${path.accent} 42%, var(--color-fg-primary))`,
+            background: `color-mix(in srgb, ${path.accent} 16%, var(--color-bg-near))`,
+            borderColor: `color-mix(in srgb, ${path.accent} 40%, var(--color-border-subtle))`,
+          }}
         >
           从第 1 章开始
           <svg

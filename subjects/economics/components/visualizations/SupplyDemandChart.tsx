@@ -13,9 +13,9 @@ const DEMAND_COLOR = "#ef4444";
 const EQUI_COLOR = "#e8b84a";
 const CS_FILL = "rgba(239,68,68,0.12)";
 const PS_FILL = "rgba(16,185,129,0.12)";
-const GRID_COLOR = "rgba(255,255,255,0.06)";
-const AXIS_COLOR = "rgba(255,255,255,0.25)";
-const TEXT_COLOR = "rgba(255,255,255,0.6)";
+const GRID_COLOR = "var(--color-border-faint)";
+const AXIS_COLOR = "var(--color-border-strong)";
+const TEXT_COLOR = "var(--color-fg-muted)";
 
 const Q_MAX = 100;
 const P_MAX = 100;
@@ -36,7 +36,10 @@ function demandPrice(q: number, shift: number): number {
   return 90 - 0.7 * q + shift;
 }
 
-function findEquilibrium(demandShift: number, supplyShift: number): { q: number; p: number } | null {
+function findEquilibrium(
+  demandShift: number,
+  supplyShift: number
+): { q: number; p: number } | null {
   const q = (80 + demandShift - supplyShift) / 1.4;
   const p = supplyPrice(q, supplyShift);
   if (q < 0 || q > Q_MAX || p < 0 || p > P_MAX) return null;
@@ -59,7 +62,7 @@ function buildCurvePath(priceFn: (q: number) => number): string {
 function buildSurplusPath(
   priceFn: (q: number) => number,
   equilibrium: { q: number; p: number },
-  isConsumer: boolean,
+  isConsumer: boolean
 ): string {
   const steps = 60;
   const points: [number, number][] = [];
@@ -71,7 +74,9 @@ function buildSurplusPath(
   const eqX = toX(equilibrium.q);
   const eqY = toY(equilibrium.p);
   const axisY = isConsumer ? toY(P_MAX) : toY(0);
-  const poly = points.map(([x, y], i) => `${i === 0 ? "M" : "L"}${x.toFixed(1)},${y.toFixed(1)}`).join(" ");
+  const poly = points
+    .map(([x, y], i) => `${i === 0 ? "M" : "L"}${x.toFixed(1)},${y.toFixed(1)}`)
+    .join(" ");
   return `${poly} L${eqX.toFixed(1)},${eqY.toFixed(1)} L${toX(0).toFixed(1)},${axisY.toFixed(1)} Z`;
 }
 
@@ -100,7 +105,7 @@ export function SupplyDemandChart() {
 
   const equilibrium = useMemo(
     () => findEquilibrium(demandShift, supplyShift),
-    [demandShift, supplyShift],
+    [demandShift, supplyShift]
   );
 
   const supplyFn = useCallback((q: number) => supplyPrice(q, supplyShift), [supplyShift]);
@@ -111,11 +116,11 @@ export function SupplyDemandChart() {
 
   const csPath = useMemo(
     () => (equilibrium ? buildSurplusPath(demandFn, equilibrium, true) : ""),
-    [equilibrium, demandFn],
+    [equilibrium, demandFn]
   );
   const psPath = useMemo(
     () => (equilibrium ? buildSurplusPath(supplyFn, equilibrium, false) : ""),
-    [equilibrium, supplyFn],
+    [equilibrium, supplyFn]
   );
 
   const handleSvgMove = useCallback(
@@ -149,7 +154,7 @@ export function SupplyDemandChart() {
         setTooltip({ x: svgX, y: toY(dp), q: Math.round(q), p: Math.round(dp), type: "demand" });
       }
     },
-    [supplyShift, demandShift],
+    [supplyShift, demandShift]
   );
 
   const handleSvgLeave = useCallback(() => setTooltip(null), []);
@@ -173,7 +178,10 @@ export function SupplyDemandChart() {
     <div className="w-full">
       <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
         <label className="flex flex-1 items-center gap-3">
-          <span className="font-mono text-[11px] tracking-[0.14em] uppercase" style={{ color: DEMAND_COLOR }}>
+          <span
+            className="font-mono text-[11px] tracking-[0.14em] uppercase"
+            style={{ color: DEMAND_COLOR }}
+          >
             需求冲击
           </span>
           <input
@@ -186,12 +194,19 @@ export function SupplyDemandChart() {
             className="slider-demand h-1.5 flex-1 cursor-pointer appearance-none rounded-full"
             aria-label="需求冲击滑块"
           />
-          <span className="w-10 text-right font-mono text-[11px] tabular-nums" style={{ color: TEXT_COLOR }}>
-            {demandShift > 0 ? "+" : ""}{demandShift}
+          <span
+            className="w-10 text-right font-mono text-[11px] tabular-nums"
+            style={{ color: TEXT_COLOR }}
+          >
+            {demandShift > 0 ? "+" : ""}
+            {demandShift}
           </span>
         </label>
         <label className="flex flex-1 items-center gap-3">
-          <span className="font-mono text-[11px] tracking-[0.14em] uppercase" style={{ color: SUPPLY_COLOR }}>
+          <span
+            className="font-mono text-[11px] tracking-[0.14em] uppercase"
+            style={{ color: SUPPLY_COLOR }}
+          >
             供给冲击
           </span>
           <input
@@ -204,8 +219,12 @@ export function SupplyDemandChart() {
             className="slider-supply h-1.5 flex-1 cursor-pointer appearance-none rounded-full"
             aria-label="供给冲击滑块"
           />
-          <span className="w-10 text-right font-mono text-[11px] tabular-nums" style={{ color: TEXT_COLOR }}>
-            {supplyShift > 0 ? "+" : ""}{supplyShift}
+          <span
+            className="w-10 text-right font-mono text-[11px] tabular-nums"
+            style={{ color: TEXT_COLOR }}
+          >
+            {supplyShift > 0 ? "+" : ""}
+            {supplyShift}
           </span>
         </label>
       </div>
@@ -487,17 +506,29 @@ export function SupplyDemandChart() {
       </svg>
 
       {equilibrium && (
-        <div className="mt-4 flex flex-wrap items-center justify-center gap-6 font-mono text-[11px]" style={{ color: TEXT_COLOR }}>
+        <div
+          className="mt-4 flex flex-wrap items-center justify-center gap-6 font-mono text-[11px]"
+          style={{ color: TEXT_COLOR }}
+        >
           <span className="flex items-center gap-1.5">
-            <span className="inline-block h-2.5 w-2.5 rounded-full" style={{ backgroundColor: EQUI_COLOR }} />
+            <span
+              className="inline-block h-2.5 w-2.5 rounded-full"
+              style={{ backgroundColor: EQUI_COLOR }}
+            />
             均衡: P={equilibrium.p.toFixed(1)} Q={equilibrium.q.toFixed(1)}
           </span>
           <span className="flex items-center gap-1.5">
-            <span className="inline-block h-2.5 w-2.5 rounded-sm" style={{ backgroundColor: DEMAND_COLOR, opacity: 0.4 }} />
+            <span
+              className="inline-block h-2.5 w-2.5 rounded-sm"
+              style={{ backgroundColor: DEMAND_COLOR, opacity: 0.4 }}
+            />
             消费者剩余
           </span>
           <span className="flex items-center gap-1.5">
-            <span className="inline-block h-2.5 w-2.5 rounded-sm" style={{ backgroundColor: SUPPLY_COLOR, opacity: 0.4 }} />
+            <span
+              className="inline-block h-2.5 w-2.5 rounded-sm"
+              style={{ backgroundColor: SUPPLY_COLOR, opacity: 0.4 }}
+            />
             生产者剩余
           </span>
         </div>
@@ -541,7 +572,7 @@ export function SupplyDemandChart() {
           border: 2px solid #000;
         }
         .slider-demand, .slider-supply {
-          background: linear-gradient(to right, rgba(255,255,255,0.08), rgba(255,255,255,0.08));
+          background: linear-gradient(to right, var(--color-border-faint), var(--color-border-faint));
           border-radius: 9999px;
         }
       `}</style>

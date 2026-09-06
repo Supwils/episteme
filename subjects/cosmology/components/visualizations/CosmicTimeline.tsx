@@ -134,11 +134,11 @@ function DetailCard({ event, onClose }: DetailCardProps) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.25, ease: "easeOut" }}
-      className="relative mx-auto max-w-lg rounded-xl border border-white/[0.08] bg-[#0f1320]/90 p-6 backdrop-blur-xl"
+      className="border-border-faint bg-bg-elevated/90 relative mx-auto max-w-lg rounded-xl border p-6 backdrop-blur-xl"
     >
       <button
         onClick={onClose}
-        className="absolute top-3 right-3 flex h-7 w-7 items-center justify-center rounded-full bg-white/[0.06] text-sm text-[#868da0] transition-colors hover:bg-white/[0.12] hover:text-white"
+        className="hover:text-fg-primary absolute top-3 right-3 flex h-7 w-7 items-center justify-center rounded-full bg-[var(--input-bg)] text-sm text-[#868da0] transition-colors hover:bg-[var(--hover-bg)]"
         aria-label="关闭"
       >
         ✕
@@ -154,7 +154,7 @@ function DetailCard({ event, onClose }: DetailCardProps) {
           {event.icon}
         </div>
         <div className="min-w-0">
-          <h3 className="mb-0.5 text-lg font-semibold text-[#f5f6fa]">{event.label}</h3>
+          <h3 className="text-fg-primary mb-0.5 text-lg font-semibold">{event.label}</h3>
           <p className="mb-2 text-xs text-[#868da0]">{event.labelEn}</p>
           <p className="mb-3 font-mono text-sm font-medium" style={{ color: event.color }}>
             {formatTimeAgoFull(event.timeYearsAgo)}
@@ -327,7 +327,7 @@ export function CosmicTimeline() {
         <p className="mb-3 text-xs tracking-[0.32em] text-[#3b82f6] uppercase">
           Interactive Timeline
         </p>
-        <h2 className="mb-2 text-2xl font-bold text-[#f5f6fa] md:text-3xl">宇宙演化时间线</h2>
+        <h2 className="text-fg-primary mb-2 text-2xl font-bold md:text-3xl">宇宙演化时间线</h2>
         <p className="text-sm text-[#868da0]">
           点击事件标记查看详细信息 · 对数刻度使近期事件更清晰
         </p>

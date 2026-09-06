@@ -333,7 +333,7 @@ export default function MemoryCurve() {
             <text
               x={PAD.left + 10}
               y={PAD.top + 32}
-              fill="rgba(155,125,196,0.8)"
+              fill="var(--color-accent-purple)"
               fontSize={10}
               fontFamily="var(--font-mono)"
             >

@@ -26,17 +26,17 @@ export function LearningPathTrace({
     <Reveal>
       <section
         aria-labelledby="learning-path-heading"
-        className="border-y border-white/[0.07] py-4"
+        className="border-border-faint border-y py-4"
       >
         <div className="mb-3">
-          <p className="font-mono text-[10px] tracking-[0.16em] text-amber-300/70 uppercase">
+          <p className="text-accent-gold font-mono text-[10px] tracking-[0.16em] uppercase">
             知识来路 · {nodes.length} 步
           </p>
-          <h3 id="learning-path-heading" className="mt-1 text-sm font-semibold text-white/85">
+          <h3 id="learning-path-heading" className="text-fg-primary mt-1 text-sm font-semibold">
             {curatedPath?.title ?? "逐级前置路径"}
           </h3>
           {curatedPath ? (
-            <p className="mt-1.5 text-[12px] leading-relaxed text-white/45">
+            <p className="text-fg-muted mt-1.5 text-[12px] leading-relaxed">
               {curatedPath.question}
             </p>
           ) : null}
@@ -60,8 +60,8 @@ export function LearningPathTrace({
                   aria-current={isCurrent ? "step" : undefined}
                   className={`relative z-10 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border font-mono text-[10px] transition-colors ${
                     isCurrent
-                      ? "border-amber-300/60 bg-amber-300/15 text-amber-200"
-                      : "border-white/10 bg-[#111118] text-white/45 hover:border-white/25 hover:text-white/75"
+                      ? "border-accent-gold/50 bg-accent-gold/10 text-accent-gold"
+                      : "border-border-faint bg-bg-floating text-fg-muted hover:border-border-strong hover:text-fg-primary"
                   }`}
                   aria-label={`L${node.knowledgeLevel ?? index + 1} ${node.label}`}
                 >
@@ -72,13 +72,13 @@ export function LearningPathTrace({
                     type="button"
                     onClick={() => onNodeClick(node.id)}
                     className={`text-left text-[12px] font-medium transition-colors ${
-                      isCurrent ? "text-amber-100" : "text-white/70 hover:text-white"
+                      isCurrent ? "text-fg-primary" : "text-fg-secondary hover:text-fg-primary"
                     }`}
                   >
                     {node.label}
                   </button>
                   {step ? (
-                    <p className="mt-0.5 text-[11px] leading-relaxed text-white/55">
+                    <p className="text-fg-muted mt-0.5 text-[11px] leading-relaxed">
                       {step.transition}
                     </p>
                   ) : null}

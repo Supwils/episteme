@@ -226,7 +226,7 @@ export function PhillipsCurve() {
                 x={PAD_L - 8}
                 y={y + 3.5}
                 textAnchor="end"
-                fill="rgba(200,164,90,0.45)"
+                fill="var(--color-fg-muted)"
                 fontSize={10}
                 fontFamily="var(--font-mono)"
               >
@@ -252,7 +252,7 @@ export function PhillipsCurve() {
                 x={x}
                 y={PAD_T + PLOT_H + 18}
                 textAnchor="middle"
-                fill="rgba(200,164,90,0.55)"
+                fill="var(--color-fg-muted)"
                 fontSize={10}
                 fontFamily="var(--font-mono)"
               >
@@ -283,7 +283,7 @@ export function PhillipsCurve() {
           x={PAD_L + PLOT_W / 2}
           y={SVG_H - 5}
           textAnchor="middle"
-          fill="rgba(200,164,90,0.4)"
+          fill="var(--color-fg-muted)"
           fontSize={10}
           fontFamily="var(--font-mono)"
           letterSpacing="0.08em"
@@ -294,7 +294,7 @@ export function PhillipsCurve() {
           x={12}
           y={PAD_T + PLOT_H / 2}
           textAnchor="middle"
-          fill="rgba(200,164,90,0.4)"
+          fill="var(--color-fg-muted)"
           fontSize={10}
           fontFamily="var(--font-mono)"
           letterSpacing="0.08em"

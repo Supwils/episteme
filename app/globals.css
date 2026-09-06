@@ -180,6 +180,7 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
   }
 
   html {
+    color-scheme: dark;
     /* Land in-page anchors below the sticky nav (h-14) instead of behind it. */
     scroll-padding-top: 5rem;
   }
@@ -428,7 +429,7 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
   border: 0;
   color: inherit;
   z-index: 9990;
-  background: rgba(0, 0, 0, 0.6);
+  background: var(--color-scrim);
   backdrop-filter: blur(6px);
   display: flex;
   align-items: flex-start;
@@ -1080,6 +1081,7 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
    combining Notebook surfaces with Observatory foreground utilities. */
 .light,
 [data-theme="light"] {
+  color-scheme: light;
   --color-bg-deep: #efece4;
   --color-bg-base: #faf6ef;
   --color-bg-near: #ffffff;

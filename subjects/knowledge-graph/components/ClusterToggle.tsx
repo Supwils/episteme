@@ -22,8 +22,8 @@ export function ClusterToggle({
         "border transition-all duration-200",
         "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6366f1]",
         clusterMode
-          ? "border-indigo-500/30 bg-indigo-500/10 text-indigo-300"
-          : "border-white/[0.04] text-white/60 hover:border-white/[0.08] hover:text-white/60"
+          ? "text-fg-primary border-indigo-500/30 bg-indigo-500/10"
+          : "border-border-faint text-fg-muted hover:border-border-subtle hover:text-fg-primary"
       )}
       aria-pressed={clusterMode}
       aria-label={clusterMode ? "切换到自由模式" : "切换到聚类模式"}

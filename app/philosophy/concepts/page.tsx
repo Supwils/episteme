@@ -53,7 +53,7 @@ export default function ConceptsPage() {
             </Link>
             <Link
               href="/philosophy/concepts/map"
-              className="group flex items-center gap-2 rounded-lg border border-indigo-400/20 bg-indigo-500/10 px-4 py-2.5 text-sm text-indigo-300 transition-all hover:border-indigo-400/40 hover:bg-indigo-500/20"
+              className="group text-fg-primary flex items-center gap-2 rounded-lg border border-indigo-400/20 bg-indigo-500/10 px-4 py-2.5 text-sm transition-all hover:border-indigo-400/40 hover:bg-indigo-500/20"
             >
               <svg
                 viewBox="0 0 16 16"
@@ -71,7 +71,7 @@ export default function ConceptsPage() {
             </Link>
             <Link
               href="/philosophy/concepts/dialectic-triangle"
-              className="group flex items-center gap-2 rounded-lg border border-emerald-400/20 bg-emerald-500/10 px-4 py-2.5 text-sm text-emerald-300 transition-all hover:border-emerald-400/40 hover:bg-emerald-500/20"
+              className="group text-fg-primary flex items-center gap-2 rounded-lg border border-emerald-400/20 bg-emerald-500/10 px-4 py-2.5 text-sm transition-all hover:border-emerald-400/40 hover:bg-emerald-500/20"
             >
               <svg
                 viewBox="0 0 16 16"
@@ -86,7 +86,7 @@ export default function ConceptsPage() {
             </Link>
             <Link
               href="/philosophy/concepts/virtue-radar"
-              className="group flex items-center gap-2 rounded-lg border border-violet-400/20 bg-violet-500/10 px-4 py-2.5 text-sm text-violet-300 transition-all hover:border-violet-400/40 hover:bg-violet-500/20"
+              className="group text-fg-primary flex items-center gap-2 rounded-lg border border-violet-400/20 bg-violet-500/10 px-4 py-2.5 text-sm transition-all hover:border-violet-400/40 hover:bg-violet-500/20"
             >
               <svg
                 viewBox="0 0 16 16"
@@ -103,7 +103,7 @@ export default function ConceptsPage() {
             </Link>
             <Link
               href="/philosophy/concepts/quiz"
-              className="group flex items-center gap-2 rounded-lg border border-amber-400/20 bg-amber-500/10 px-4 py-2.5 text-sm text-amber-300 transition-all hover:border-amber-400/40 hover:bg-amber-500/20"
+              className="group text-fg-primary flex items-center gap-2 rounded-lg border border-amber-400/20 bg-amber-500/10 px-4 py-2.5 text-sm transition-all hover:border-amber-400/40 hover:bg-amber-500/20"
             >
               <svg
                 viewBox="0 0 16 16"

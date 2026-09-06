@@ -41,7 +41,7 @@ export default function MedicinePublicHealthPage() {
       <DomainSectionList domain="medicine" section="public-health" />
       <section className="mx-6 mb-20 border border-[#4f9d76]/35 bg-[#4f9d76]/[0.06] sm:mx-10 lg:mx-16">
         <header className="border-b border-[#4f9d76]/25 px-6 py-5 lg:px-8">
-          <p className="font-mono text-[10px] tracking-[0.28em] text-[#7bc995] uppercase">
+          <p className="text-accent-gold font-mono text-[10px] tracking-[0.28em] uppercase">
             interactive public health
           </p>
           <h2 className="font-display text-fg-primary mt-2 text-2xl font-semibold">
@@ -54,7 +54,7 @@ export default function MedicinePublicHealthPage() {
             className="grid gap-5 border-b border-[#4f9d76]/20 px-6 py-6 last:border-b-0 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:px-8"
           >
             <div className="max-w-3xl">
-              <p className="font-mono text-[9px] tracking-[0.2em] text-[#7bc995] uppercase">
+              <p className="text-accent-gold font-mono text-[9px] tracking-[0.2em] uppercase">
                 {lab.eyebrow}
               </p>
               <h3 className="text-fg-primary mt-1 text-lg font-semibold">{lab.title}</h3>
@@ -63,7 +63,7 @@ export default function MedicinePublicHealthPage() {
             <Link
               href={lab.href}
               aria-label={`进入${lab.title}`}
-              className="inline-flex h-10 items-center justify-center border border-[#7bc995]/50 px-4 font-mono text-[11px] tracking-[0.12em] text-[#9bd9b1] transition-colors hover:bg-[#4f9d76]/15"
+              className="border-accent-gold/50 text-accent-gold hover:bg-accent-gold/15 inline-flex h-10 items-center justify-center border px-4 font-mono text-[11px] tracking-[0.12em] transition-colors"
             >
               进入实验室 →
             </Link>

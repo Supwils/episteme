@@ -11,7 +11,15 @@ interface PlotterGridProps {
   mapY: (y: number) => number;
 }
 
-export function PlotterGrid({ viewXMin, viewXMax, viewYMin, viewYMax, step, mapX, mapY }: PlotterGridProps) {
+export function PlotterGrid({
+  viewXMin,
+  viewXMax,
+  viewYMin,
+  viewYMax,
+  step,
+  mapX,
+  mapY,
+}: PlotterGridProps) {
   const gridLines = useMemo(() => {
     const lines: { x1: number; y1: number; x2: number; y2: number; major: boolean }[] = [];
     const xStart = Math.floor(viewXMin / step) * step;
@@ -19,11 +27,23 @@ export function PlotterGrid({ viewXMin, viewXMax, viewYMin, viewYMax, step, mapX
 
     for (let x = xStart; x <= viewXMax; x += step) {
       const sx = mapX(x);
-      lines.push({ x1: sx, y1: PADDING, x2: sx, y2: SVG_HEIGHT - PADDING, major: Math.abs(x) < step * 0.01 });
+      lines.push({
+        x1: sx,
+        y1: PADDING,
+        x2: sx,
+        y2: SVG_HEIGHT - PADDING,
+        major: Math.abs(x) < step * 0.01,
+      });
     }
     for (let y = yStart; y <= viewYMax; y += step) {
       const sy = mapY(y);
-      lines.push({ x1: PADDING, y1: sy, x2: SVG_WIDTH - PADDING, y2: sy, major: Math.abs(y) < step * 0.01 });
+      lines.push({
+        x1: PADDING,
+        y1: sy,
+        x2: SVG_WIDTH - PADDING,
+        y2: sy,
+        major: Math.abs(y) < step * 0.01,
+      });
     }
     return lines;
   }, [viewXMin, viewXMax, viewYMin, viewYMax, step, mapX, mapY]);
@@ -62,7 +82,7 @@ export function PlotterGrid({ viewXMin, viewXMax, viewYMin, viewYMax, step, mapX
           key={`l-${i}`}
           x={label.x}
           y={label.y}
-          fill="rgba(148, 144, 168, 0.6)"
+          fill="var(--color-fg-muted)"
           fontSize={10}
           fontFamily="var(--font-mono, monospace)"
           textAnchor="middle"

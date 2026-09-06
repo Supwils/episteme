@@ -824,7 +824,7 @@ export function KnowledgeGraph({
   }, [spatialProjection, state.filteredNodes]);
 
   return (
-    <div className="flex min-h-0 w-full flex-1 flex-col bg-[#08080f] text-white">
+    <div className="bg-bg-deep text-fg-primary flex min-h-0 w-full flex-1 flex-col">
       <GraphA11yAnnouncer
         nodeCount={state.announcerProps.nodeCount ?? 0}
         edgeCount={state.announcerProps.edgeCount ?? 0}
@@ -937,7 +937,7 @@ export function KnowledgeGraph({
           />
 
           {state.isLoading && (
-            <div className="absolute inset-0 z-30 flex items-center justify-center bg-[#08080f]/80 backdrop-blur-sm">
+            <div className="bg-bg-overlay absolute inset-0 z-30 flex items-center justify-center backdrop-blur-sm">
               <div
                 className="flex flex-col items-center gap-3"
                 style={{
@@ -945,8 +945,8 @@ export function KnowledgeGraph({
                   opacity: reducedMotion ? 1 : 0,
                 }}
               >
-                <div className="h-8 w-8 animate-spin rounded-full border-2 border-white/10 border-t-indigo-400" />
-                <p className="text-sm text-white/60">正在计算力导向布局…</p>
+                <div className="border-border-faint h-8 w-8 animate-spin rounded-full border-2 border-t-indigo-400" />
+                <p className="text-fg-muted text-sm">正在计算力导向布局…</p>
               </div>
             </div>
           )}
@@ -970,7 +970,7 @@ export function KnowledgeGraph({
                 <button
                   type="button"
                   onClick={() => state.setShowMinimap((v) => !v)}
-                  className="mb-2 flex h-11 w-11 items-center justify-center rounded-lg border border-white/[0.08] bg-[#111118]/80 text-white/50 backdrop-blur-xl md:h-8 md:w-8"
+                  className="border-border-faint bg-bg-floating/80 text-fg-muted mb-2 flex h-11 w-11 items-center justify-center rounded-lg border backdrop-blur-xl md:h-8 md:w-8"
                   aria-label={state.showMinimap ? "隐藏小地图" : "显示小地图"}
                 >
                   <svg
@@ -1001,7 +1001,7 @@ export function KnowledgeGraph({
               <button
                 type="button"
                 onClick={interactions.handleZoomIn}
-                className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.08] bg-[#111118]/80 text-white/50 backdrop-blur-xl transition-colors hover:text-white/80"
+                className="border-border-faint bg-bg-floating/80 text-fg-muted hover:text-fg-primary flex h-9 w-9 items-center justify-center rounded-lg border backdrop-blur-xl transition-colors"
                 aria-label="放大"
               >
                 <svg
@@ -1017,7 +1017,7 @@ export function KnowledgeGraph({
               <button
                 type="button"
                 onClick={interactions.handleZoomOut}
-                className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.08] bg-[#111118]/80 text-white/50 backdrop-blur-xl transition-colors hover:text-white/80"
+                className="border-border-faint bg-bg-floating/80 text-fg-muted hover:text-fg-primary flex h-9 w-9 items-center justify-center rounded-lg border backdrop-blur-xl transition-colors"
                 aria-label="缩小"
               >
                 <svg
@@ -1033,7 +1033,7 @@ export function KnowledgeGraph({
               <button
                 type="button"
                 onClick={interactions.handleFitToScreen}
-                className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.08] bg-[#111118]/80 text-white/50 backdrop-blur-xl transition-colors hover:text-white/80"
+                className="border-border-faint bg-bg-floating/80 text-fg-muted hover:text-fg-primary flex h-9 w-9 items-center justify-center rounded-lg border backdrop-blur-xl transition-colors"
                 aria-label="适应屏幕"
               >
                 <svg

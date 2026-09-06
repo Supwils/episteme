@@ -130,7 +130,7 @@ export const GraphDetailPanel = memo(function GraphDetailPanel({
           <motion.div
             key="panel-backdrop"
             aria-hidden
-            className="fixed inset-0 z-[65] bg-black/40 backdrop-blur-sm md:z-40 md:bg-transparent md:backdrop-blur-none"
+            className="bg-scrim fixed inset-0 z-[65] backdrop-blur-sm md:z-40 md:bg-transparent md:backdrop-blur-none"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -148,10 +148,10 @@ export const GraphDetailPanel = memo(function GraphDetailPanel({
               isMobile
                 ? "inset-x-0 top-12 bottom-0 rounded-t-2xl"
                 : "inset-0 md:inset-auto md:top-[110px] md:right-0 md:h-[calc(100%-110px)] md:w-[420px] md:border-l",
-              "border-white/[0.08] shadow-[0_0_60px_rgba(0,0,0,0.45)]"
+              "border-border-faint shadow-[0_0_60px_rgba(0,0,0,0.45)]"
             )}
             style={{
-              background: "rgba(15, 15, 25, 0.85)",
+              background: "var(--color-bg-overlay)",
               backdropFilter: "blur(24px) saturate(1.2)",
               WebkitBackdropFilter: "blur(24px) saturate(1.2)",
               ...(isMobile
@@ -174,7 +174,7 @@ export const GraphDetailPanel = memo(function GraphDetailPanel({
           >
             {isMobile && (
               <div className="flex shrink-0 justify-center py-2" aria-hidden>
-                <div className="h-1 w-10 rounded-full bg-white/20" />
+                <div className="bg-border-strong h-1 w-10 rounded-full" />
               </div>
             )}
 
@@ -190,7 +190,7 @@ export const GraphDetailPanel = memo(function GraphDetailPanel({
                 ref={closeButtonRef}
                 onClick={onClose}
                 aria-label="关闭详情面板"
-                className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.04] text-white/50 transition-colors duration-200 hover:border-white/[0.15] hover:bg-white/[0.08] hover:text-white/80 md:h-8 md:w-8"
+                className="border-border-faint text-fg-muted hover:border-border-subtle hover:text-fg-primary flex h-11 w-11 items-center justify-center rounded-lg border bg-[var(--input-bg)] transition-colors duration-200 hover:bg-[var(--hover-bg)] md:h-8 md:w-8"
               >
                 <svg
                   viewBox="0 0 16 16"

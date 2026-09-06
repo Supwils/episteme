@@ -29,7 +29,8 @@ const EMOTIONS: EmotionSegment[] = [
       { with: "期待", result: "乐观" },
     ],
     relatedConcepts: ["正向心理学", "心流", "多巴胺"],
-    description: "快乐是最基本的正向情绪之一，与奖赏系统和多巴胺分泌密切相关。心理学家契克森米哈赖提出的心流理论认为，当技能与挑战匹配时，人会体验到深层快乐。",
+    description:
+      "快乐是最基本的正向情绪之一，与奖赏系统和多巴胺分泌密切相关。心理学家契克森米哈赖提出的心流理论认为，当技能与挑战匹配时，人会体验到深层快乐。",
   },
   {
     id: "trust",
@@ -43,7 +44,8 @@ const EMOTIONS: EmotionSegment[] = [
       { with: "快乐", result: "爱" },
     ],
     relatedConcepts: ["依恋理论", "社会认同", "催产素"],
-    description: "信任是社会纽带的基础。鲍尔比的依恋理论表明，早期与照料者的关系决定了个体的信任模式，影响终生的人际关系质量。",
+    description:
+      "信任是社会纽带的基础。鲍尔比的依恋理论表明，早期与照料者的关系决定了个体的信任模式，影响终生的人际关系质量。",
   },
   {
     id: "fear",
@@ -57,7 +59,8 @@ const EMOTIONS: EmotionSegment[] = [
       { with: "信任", result: "服从" },
     ],
     relatedConcepts: ["杏仁核", "战斗或逃跑", "暴露疗法"],
-    description: "恐惧是生存的核心情绪，由杏仁核快速处理。沃尔普的暴露疗法证明，通过系统脱敏可以有效治疗恐惧症。",
+    description:
+      "恐惧是生存的核心情绪，由杏仁核快速处理。沃尔普的暴露疗法证明，通过系统脱敏可以有效治疗恐惧症。",
   },
   {
     id: "surprise",
@@ -71,7 +74,8 @@ const EMOTIONS: EmotionSegment[] = [
       { with: "恐惧", result: "敬畏" },
     ],
     relatedConcepts: ["注意力捕获", "预测误差", "习惯化"],
-    description: "惊讶是唯一没有正负极性的情绪，它标志着预期与现实的偏差。认知神经科学中的预测编码理论认为，惊讶驱动了大脑的学习机制。",
+    description:
+      "惊讶是唯一没有正负极性的情绪，它标志着预期与现实的偏差。认知神经科学中的预测编码理论认为，惊讶驱动了大脑的学习机制。",
   },
   {
     id: "sadness",
@@ -85,7 +89,8 @@ const EMOTIONS: EmotionSegment[] = [
       { with: "惊讶", result: "失望" },
     ],
     relatedConcepts: ["丧失与哀悼", "抑郁症", "共情"],
-    description: "悲伤帮助个体处理丧失和分离。弗洛伊德在《哀悼与忧郁》中区分了正常的哀悼与病理性抑郁。现代研究表明，适度的悲伤能增强共情能力。",
+    description:
+      "悲伤帮助个体处理丧失和分离。弗洛伊德在《哀悼与忧郁》中区分了正常的哀悼与病理性抑郁。现代研究表明，适度的悲伤能增强共情能力。",
   },
   {
     id: "disgust",
@@ -99,7 +104,8 @@ const EMOTIONS: EmotionSegment[] = [
       { with: "悲伤", result: "悔恨" },
     ],
     relatedConcepts: ["道德厌恶", "面孔识别", "味觉回避"],
-    description: "厌恶最初是保护机体免受有害物质侵害的生理反应，后演化出道德厌恶——对不道德行为的排斥。海特的道德基础理论将其列为核心道德直觉之一。",
+    description:
+      "厌恶最初是保护机体免受有害物质侵害的生理反应，后演化出道德厌恶——对不道德行为的排斥。海特的道德基础理论将其列为核心道德直觉之一。",
   },
   {
     id: "anger",
@@ -113,7 +119,8 @@ const EMOTIONS: EmotionSegment[] = [
       { with: "厌恶", result: "轻蔑" },
     ],
     relatedConcepts: ["挫折-攻击假说", "认知重评", "愤怒管理"],
-    description: "愤怒源于目标受阻或权利被侵犯。多拉德的挫折-攻击假说认为挫折总是导致某种形式的攻击。现代情绪调节理论强调认知重评对管理愤怒的重要性。",
+    description:
+      "愤怒源于目标受阻或权利被侵犯。多拉德的挫折-攻击假说认为挫折总是导致某种形式的攻击。现代情绪调节理论强调认知重评对管理愤怒的重要性。",
   },
   {
     id: "anticipation",
@@ -127,7 +134,8 @@ const EMOTIONS: EmotionSegment[] = [
       { with: "愤怒", result: "攻击性" },
     ],
     relatedConcepts: ["预期情绪", "延迟满足", "目标设定"],
-    description: "期待是面向未来的情绪，驱动目标导向行为。棉花糖实验揭示了延迟满足能力与长期成功之间的关联，而期待正是这一能力的情绪基础。",
+    description:
+      "期待是面向未来的情绪，驱动目标导向行为。棉花糖实验揭示了延迟满足能力与长期成功之间的关联，而期待正是这一能力的情绪基础。",
   },
 ];
 
@@ -144,7 +152,7 @@ function describeArc(
   innerR: number,
   outerR: number,
   startAngle: number,
-  endAngle: number,
+  endAngle: number
 ) {
   const gap = 1.5;
   const s = startAngle + gap;
@@ -214,9 +222,10 @@ function SegmentPath({
   const labelPos = polarToCartesian(CX, CY, labelR, midAngle);
 
   const baseAlpha = 0.35 + ringIndex * 0.22;
-  const fillColor = isHovered || isSelected
-    ? hexToRgba(emotion.color, baseAlpha + 0.25)
-    : hexToRgba(emotion.color, baseAlpha);
+  const fillColor =
+    isHovered || isSelected
+      ? hexToRgba(emotion.color, baseAlpha + 0.25)
+      : hexToRgba(emotion.color, baseAlpha);
 
   const fontSize = ringIndex === 0 ? 10 : ringIndex === 1 ? 11 : 12;
   const scale = isHovered && !reduce ? 1.03 : 1;
@@ -250,7 +259,7 @@ function SegmentPath({
         fontSize={fontSize}
         fontWeight={ringIndex === 2 ? 600 : 400}
         className="pointer-events-none select-none"
-        style={{ color: isHovered || isSelected ? "#fff" : "rgba(255,255,255,0.8)" }}
+        style={{ color: "var(--color-fg-primary)" }}
         animate={{ opacity: 1 }}
         transition={{ duration: reduce ? 0 : 0.15 }}
       >
@@ -275,13 +284,7 @@ function SegmentPath({
   );
 }
 
-function EmotionTooltip({
-  emotion,
-  reduce,
-}: {
-  emotion: EmotionSegment;
-  reduce: boolean;
-}) {
+function EmotionTooltip({ emotion, reduce }: { emotion: EmotionSegment; reduce: boolean }) {
   const outerR = RINGS[2]!.outer + 8;
   const midAngle = emotion.angle + SEGMENT_ANGLE / 2;
   const pos = polarToCartesian(CX, CY, outerR + 30, midAngle);
@@ -356,9 +359,7 @@ function DetailPanel({ emotion, allEmotions, onClose, reduce }: DetailPanelProps
         </button>
       </div>
 
-      <p className="text-fg-secondary mb-4 text-sm leading-relaxed">
-        {emotion.description}
-      </p>
+      <p className="text-fg-secondary mb-4 text-sm leading-relaxed">{emotion.description}</p>
 
       <div className="mb-4">
         <h4 className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.28em] uppercase">
@@ -402,7 +403,9 @@ function DetailPanel({ emotion, allEmotions, onClose, reduce }: DetailPanelProps
                 <span
                   className="rounded-sm px-2 py-0.5 text-xs"
                   style={{
-                    backgroundColor: other ? hexToRgba(other.color, 0.12) : "rgba(255,255,255,0.05)",
+                    backgroundColor: other
+                      ? hexToRgba(other.color, 0.12)
+                      : "rgba(255,255,255,0.05)",
                     color: other?.color ?? "#999",
                   }}
                 >
@@ -442,13 +445,13 @@ export default function EmotionWheel() {
 
   const selectedEmotion = useMemo(
     () => EMOTIONS.find((e) => e.id === selectedId) ?? null,
-    [selectedId],
+    [selectedId]
   );
 
   const handleHover = useCallback((id: string | null) => setHoveredId(id), []);
   const handleClick = useCallback(
     (id: string) => setSelectedId((prev) => (prev === id ? null : id)),
-    [],
+    []
   );
   const handleClose = useCallback(() => setSelectedId(null), []);
 
@@ -483,7 +486,7 @@ export default function EmotionWheel() {
             cy={CY}
             r={ring.outer}
             fill="none"
-            stroke="rgba(255,255,255,0.04)"
+            stroke="var(--color-border-faint)"
             strokeWidth={0.5}
           />
         ))}
@@ -500,16 +503,16 @@ export default function EmotionWheel() {
               onClick={handleClick}
               reduce={!!reduce}
             />
-          )),
+          ))
         )}
 
-        <circle cx={CX} cy={CY} r={46} fill="rgba(0,0,0,0.6)" />
+        <circle cx={CX} cy={CY} r={46} fill="var(--color-bg-elevated)" />
         <circle
           cx={CX}
           cy={CY}
           r={46}
           fill="none"
-          stroke="rgba(255,255,255,0.08)"
+          stroke="var(--color-border-subtle)"
           strokeWidth={1}
         />
         <text
@@ -518,7 +521,7 @@ export default function EmotionWheel() {
           textAnchor="middle"
           dominantBaseline="central"
           className="font-display"
-          fill="rgba(255,255,255,0.9)"
+          fill="var(--color-fg-primary)"
           fontSize={16}
           fontWeight={600}
         >
@@ -529,7 +532,7 @@ export default function EmotionWheel() {
           y={CY + 14}
           textAnchor="middle"
           dominantBaseline="central"
-          fill="rgba(255,255,255,0.4)"
+          fill="var(--color-fg-muted)"
           fontSize={9}
           className="font-mono"
         >
@@ -539,11 +542,7 @@ export default function EmotionWheel() {
         {hoveredId &&
           !selectedId &&
           EMOTIONS.filter((e) => e.id === hoveredId).map((emotion) => (
-            <EmotionTooltip
-              key={`tip-${emotion.id}`}
-              emotion={emotion}
-              reduce={!!reduce}
-            />
+            <EmotionTooltip key={`tip-${emotion.id}`} emotion={emotion} reduce={!!reduce} />
           ))}
       </svg>
 
@@ -555,9 +554,7 @@ export default function EmotionWheel() {
             onMouseEnter={() => handleHover(emotion.id)}
             onMouseLeave={() => handleHover(null)}
             className={`flex items-center gap-1.5 rounded-sm px-2 py-1 text-xs transition-all duration-200 ${
-              selectedId === emotion.id
-                ? "bg-bg-elevated"
-                : "hover:bg-bg-near"
+              selectedId === emotion.id ? "bg-bg-elevated" : "hover:bg-bg-near"
             }`}
           >
             <span
@@ -566,16 +563,12 @@ export default function EmotionWheel() {
             />
             <span
               className={`font-medium ${
-                selectedId === emotion.id
-                  ? "text-fg-primary"
-                  : "text-fg-secondary"
+                selectedId === emotion.id ? "text-fg-primary" : "text-fg-secondary"
               }`}
             >
               {emotion.label}
             </span>
-            <span className="text-fg-disabled font-mono text-[9px]">
-              {emotion.labelEn}
-            </span>
+            <span className="text-fg-disabled font-mono text-[9px]">{emotion.labelEn}</span>
           </button>
         ))}
       </div>

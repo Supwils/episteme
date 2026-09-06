@@ -23,8 +23,8 @@ export function NodeActions({ node }: NodeActionsProps) {
           "inline-flex w-fit items-center gap-2 rounded-lg border px-4 py-2.5 text-[13px] font-medium transition-all duration-200",
           meta.border,
           meta.bg,
-          meta.color,
-          "hover:bg-white/[0.06]",
+          "text-fg-primary",
+          "hover:bg-[var(--hover-bg)]"
         )}
       >
         查看详情

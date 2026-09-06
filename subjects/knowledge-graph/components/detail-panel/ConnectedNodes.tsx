@@ -35,11 +35,11 @@ export function ConnectedNodes({
 
   return (
     <Reveal>
-      <div className="border-t border-white/[0.06] pt-5">
-        <h3 className="mb-4 font-mono text-[10px] tracking-[0.3em] text-white/45 uppercase">
+      <div className="border-border-faint border-t pt-5">
+        <h3 className="text-fg-muted mb-4 font-mono text-[10px] tracking-[0.3em] uppercase">
           前置与关联节点
           {crossDomainCount > 0 && (
-            <span className="text-amber-300/60"> · {crossDomainCount} 条跨域</span>
+            <span className="text-accent-gold"> · {crossDomainCount} 条跨域</span>
           )}
         </h3>
         <div className="flex flex-col gap-4">
@@ -63,35 +63,35 @@ export function ConnectedNodes({
                         key={connected.id}
                         type="button"
                         onClick={() => onNodeClick(connected.id)}
-                        className="group flex items-start gap-3 rounded-lg border border-transparent bg-white/[0.02] px-3 py-2.5 text-left transition-all duration-200 hover:border-white/[0.08] hover:bg-white/[0.05]"
+                        className="group hover:border-border-subtle flex items-start gap-3 rounded-lg border border-transparent bg-[var(--input-bg)] px-3 py-2.5 text-left transition-all duration-200 hover:bg-[var(--hover-bg)]"
                       >
                         <span
                           aria-hidden
                           className={clsx("mt-1.5 h-2 w-2 shrink-0 rounded-full", groupMeta.dot)}
                         />
                         <div className="min-w-0 flex-1">
-                          <span className="block truncate text-[13px] font-medium text-white/80 transition-colors duration-200 group-hover:text-white/95">
+                          <span className="text-fg-secondary group-hover:text-fg-primary block truncate text-[13px] font-medium transition-colors duration-200">
                             {connected.label}
                           </span>
                           {prerequisiteIdSet.has(connected.id) ? (
-                            <span className="mt-0.5 block font-mono text-[9px] tracking-[0.14em] text-indigo-300/70 uppercase">
+                            <span className="text-fg-muted mt-0.5 block font-mono text-[9px] tracking-[0.14em] uppercase">
                               前置知识
                             </span>
                           ) : null}
                           {connected.domain !== nodeDomain ? (
-                            <span className="mt-0.5 block font-mono text-[9px] tracking-[0.14em] text-amber-300/70 uppercase">
+                            <span className="text-fg-muted mt-0.5 block font-mono text-[9px] tracking-[0.14em] uppercase">
                               跨域
                             </span>
                           ) : null}
                           {edge?.label ? (
-                            <span className="mt-0.5 block text-[11px] leading-relaxed text-white/45">
+                            <span className="text-fg-muted mt-0.5 block text-[11px] leading-relaxed">
                               {edge.label}
                             </span>
                           ) : null}
                         </div>
                         <span
                           aria-hidden
-                          className="mt-1 shrink-0 text-white/15 opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100"
+                          className="text-fg-disabled mt-1 shrink-0 opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100"
                         >
                           <svg
                             viewBox="0 0 16 16"

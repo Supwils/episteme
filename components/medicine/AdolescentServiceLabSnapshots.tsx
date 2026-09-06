@@ -74,7 +74,7 @@ export function AdolescentServiceLabSnapshots({
           style={{
             borderColor: "rgba(217, 168, 90, 0.7)",
             backgroundColor: "rgba(217, 168, 90, 0.15)",
-            color: "#edc77e",
+            color: "var(--color-fg-primary)",
           }}
         >
           保存当前实验快照（{snapshots.length}/{MAX_ADOLESCENT_SERVICE_LAB_SNAPSHOTS}）

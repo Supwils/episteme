@@ -61,7 +61,7 @@ export default function MathConceptsPage() {
             </Link>
             <Link
               href="/mathematics/concepts/matrix-transformer"
-              className="group flex items-center gap-2 rounded-lg border border-indigo-400/20 bg-indigo-500/10 px-4 py-2.5 text-sm text-indigo-300 transition-all hover:border-indigo-400/40 hover:bg-indigo-500/20"
+              className="group text-fg-primary flex items-center gap-2 rounded-lg border border-indigo-400/20 bg-indigo-500/10 px-4 py-2.5 text-sm transition-all hover:border-indigo-400/40 hover:bg-indigo-500/20"
             >
               <svg
                 viewBox="0 0 16 16"
@@ -77,7 +77,7 @@ export default function MathConceptsPage() {
             </Link>
             <Link
               href="/mathematics/concepts/number-line"
-              className="group flex items-center gap-2 rounded-lg border border-emerald-400/20 bg-emerald-500/10 px-4 py-2.5 text-sm text-emerald-300 transition-all hover:border-emerald-400/40 hover:bg-emerald-500/20"
+              className="group text-fg-primary flex items-center gap-2 rounded-lg border border-emerald-400/20 bg-emerald-500/10 px-4 py-2.5 text-sm transition-all hover:border-emerald-400/40 hover:bg-emerald-500/20"
             >
               <svg
                 viewBox="0 0 16 16"

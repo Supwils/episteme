@@ -887,6 +887,39 @@ export const ARTS_FACTS: readonly DailySelectedFact[] = [
   },
 ];
 
+export const LITERATURE_FACTS: readonly DailySelectedFact[] = [
+  {
+    title: "故事是一种结构",
+    description: "“发生了一件事”还不是故事；叙述要把谁对谁做了什么，按可核对的次序讲出来。",
+    url: "/literature/narrative-basics",
+  },
+  {
+    title: "诗行可以计数",
+    description: "韵律与停顿是形式约束，不是装饰。删掉评价词之后，格律仍然站得住。",
+    url: "/literature/poetics-and-form",
+  },
+  {
+    title: "史诗保存公共记忆",
+    description: "长篇叙述随口头表演与抄本系统改写；版本比“民族精神”更容易核对。",
+    url: "/literature/world-traditions",
+  },
+  {
+    title: "细读要拿出文本",
+    description: "主题和寓意必须挂到具体论者；能对质的是用词、句法与所据版本。",
+    url: "/literature/theory-and-method",
+  },
+  {
+    title: "读者也在生产意义",
+    description: "接受不是被动接收。教材、译本与书市决定哪些作品被反复读到。",
+    url: "/literature/reading-and-reception",
+  },
+  {
+    title: "正典名单会被改写",
+    description: "书单、奖项与课程把一部分作品写成必须读——这是制度事实，不是作品属性。",
+    url: "/literature/contemporary-edges",
+  },
+];
+
 export const ENGINEERING_FACTS: readonly DailySelectedFact[] = [
   {
     title: "电网是实时平衡",

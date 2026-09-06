@@ -179,8 +179,8 @@ function ConnectionLines({
               isActiveConnection
                 ? from.color
                 : isHighlighted
-                  ? "rgba(155, 125, 196, 0.4)"
-                  : "rgba(155, 125, 196, 0.1)"
+                  ? "color-mix(in srgb, var(--color-accent-purple) 45%, transparent)"
+                  : "color-mix(in srgb, var(--color-accent-purple) 16%, transparent)"
             }
             strokeWidth={isActiveConnection ? 2.5 : isHighlighted ? 1.5 : 0.8}
             strokeDasharray={isActiveConnection ? "none" : "4 4"}
@@ -274,7 +274,7 @@ function BrainRegionPath({
       <motion.text
         x={region.labelX}
         y={region.labelY}
-        fill={isActive || isHovered ? region.color : "rgba(155, 125, 196, 0.5)"}
+        fill={isActive || isHovered ? region.color : "var(--color-fg-muted)"}
         fontSize={isActive || isHovered ? 11 : 9}
         fontFamily="var(--font-mono)"
         fontWeight={isActive ? 600 : 400}
@@ -444,8 +444,14 @@ export default function BrainRegions() {
               </feMerge>
             </filter>
             <radialGradient id="brain-fill" cx="50%" cy="45%" r="50%">
-              <stop offset="0%" stopColor="rgba(155, 125, 196, 0.06)" />
-              <stop offset="100%" stopColor="rgba(155, 125, 196, 0.02)" />
+              <stop
+                offset="0%"
+                stopColor="color-mix(in srgb, var(--color-accent-purple) 10%, transparent)"
+              />
+              <stop
+                offset="100%"
+                stopColor="color-mix(in srgb, var(--color-accent-purple) 4%, transparent)"
+              />
             </radialGradient>
           </defs>
 
@@ -460,28 +466,28 @@ export default function BrainRegions() {
                C 220 265, 195 250, 180 228
                C 165 205, 162 175, 170 140 Z"
             fill="url(#brain-fill)"
-            stroke="rgba(155, 125, 196, 0.2)"
+            stroke="color-mix(in srgb, var(--color-accent-purple) 28%, transparent)"
             strokeWidth="1.5"
           />
 
           <path
             d="M 210 60 C 230 80, 225 120, 220 145 C 218 160, 215 175, 220 195"
             fill="none"
-            stroke="rgba(155, 125, 196, 0.08)"
+            stroke="color-mix(in srgb, var(--color-accent-purple) 14%, transparent)"
             strokeWidth="1"
             strokeDasharray="3 3"
           />
           <path
             d="M 280 42 C 275 70, 270 110, 268 140 C 266 170, 270 200, 275 230"
             fill="none"
-            stroke="rgba(155, 125, 196, 0.06)"
+            stroke="color-mix(in srgb, var(--color-accent-purple) 10%, transparent)"
             strokeWidth="0.8"
             strokeDasharray="4 4"
           />
           <path
             d="M 340 50 C 345 80, 350 120, 348 160 C 346 190, 340 220, 330 245"
             fill="none"
-            stroke="rgba(155, 125, 196, 0.06)"
+            stroke="color-mix(in srgb, var(--color-accent-purple) 10%, transparent)"
             strokeWidth="0.8"
             strokeDasharray="4 4"
           />
@@ -504,7 +510,7 @@ export default function BrainRegions() {
           <text
             x={295}
             y={285}
-            fill="rgba(155, 125, 196, 0.3)"
+            fill="var(--color-fg-muted)"
             fontSize={8}
             fontFamily="var(--font-mono)"
             textAnchor="middle"

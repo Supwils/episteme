@@ -155,6 +155,44 @@ export const DOMAINS = [
     stats: "视觉基础 · 媒介材料 · 建筑空间 · 全球传统 · 美学 · 数字前沿",
   },
   {
+    id: "literature" as const,
+    cluster: "humanities-arts" as DomainClusterId,
+    title: "文学与叙事",
+    titleEn: "Literature & Narrative",
+    description:
+      "从“故事为什么有效”进入文学——叙事结构、诗学形式、世界文学与阅读方法。事实层（版本、年代、文本事件）与解释层（读法、评价）必须分开写。",
+    gradient: "linear-gradient(135deg, #8b5e4a 0%, #6e4a3a 50%, #b07a62 100%)",
+    glowColor: "#8b5e4a",
+    bgAccent: "rgba(139, 94, 74, 0.08)",
+    borderAccent: "rgba(139, 94, 74, 0.2)",
+    icon: (
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+        <path
+          d="M18 8.5c-3.2-1.6-7.4-2.2-11-1.4v20.2c4-1 8.2-.4 11 1.4"
+          stroke="#8b5e4a"
+          strokeWidth="1.5"
+          strokeLinejoin="round"
+          opacity="0.7"
+        />
+        <path
+          d="M18 8.5c3.2-1.6 7.4-2.2 11-1.4v20.2c-4-1-8.2-.4-11 1.4"
+          stroke="#6e4a3a"
+          strokeWidth="1.5"
+          strokeLinejoin="round"
+          opacity="0.75"
+        />
+        <path d="M18 8.5v20.2" stroke="#b07a62" strokeWidth="1.2" opacity="0.85" />
+        <path
+          d="M10 12h5M10 16h5M21 12h5M21 16h5"
+          stroke="#8b5e4a"
+          strokeWidth="1"
+          opacity="0.35"
+        />
+      </svg>
+    ),
+    stats: "叙事基础 · 诗学形式 · 世界传统 · 理论方法 · 阅读接受 · 当代边界",
+  },
+  {
     id: "life-science" as const,
     cluster: "life-mind" as DomainClusterId,
     title: "生命科学与进化",

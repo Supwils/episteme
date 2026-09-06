@@ -13,7 +13,7 @@ const HistoryGraph = dynamic<HistoryGraphProps>(
   {
     ssr: false,
     loading: () => (
-      <div className="flex h-screen w-screen items-center justify-center bg-[#0c0a09]">
+      <div className="bg-bg-deep flex h-screen w-screen items-center justify-center">
         <LoadingSpinner size="md" color="amber" label="正在计算历史图谱布局…" />
       </div>
     ),
@@ -50,10 +50,10 @@ export default function GraphClient() {
 
   if (!data) {
     return (
-      <div className="flex h-screen w-screen items-center justify-center bg-[#0c0a09]">
+      <div className="bg-bg-deep flex h-screen w-screen items-center justify-center">
         <div className="flex flex-col items-center gap-3">
           <div className="h-8 w-8 animate-spin rounded-full border-2 border-amber-500/20 border-t-amber-400" />
-          <p className="text-sm text-white/55">正在加载历史数据…</p>
+          <p className="text-fg-muted text-sm">正在加载历史数据…</p>
         </div>
       </div>
     );

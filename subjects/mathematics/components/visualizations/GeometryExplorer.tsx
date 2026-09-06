@@ -152,14 +152,47 @@ function generateEquilateralSteps(): AnimStep[] {
     ],
     circles: [],
     angles: [
-      { id: uid(), vertex: A.id, from: angleDeg(A.x, A.y, B.x, B.y), to: angleDeg(A.x, A.y, C.x, C.y), degrees: a60, color: "#22d3ee" },
-      { id: uid(), vertex: B.id, from: angleDeg(B.x, B.y, C.x, C.y), to: angleDeg(B.x, B.y, A.x, A.y), degrees: a60, color: "#22d3ee" },
-      { id: uid(), vertex: C.id, from: angleDeg(C.x, C.y, A.x, A.y), to: angleDeg(C.x, C.y, B.x, B.y), degrees: a60, color: "#22d3ee" },
+      {
+        id: uid(),
+        vertex: A.id,
+        from: angleDeg(A.x, A.y, B.x, B.y),
+        to: angleDeg(A.x, A.y, C.x, C.y),
+        degrees: a60,
+        color: "#22d3ee",
+      },
+      {
+        id: uid(),
+        vertex: B.id,
+        from: angleDeg(B.x, B.y, C.x, C.y),
+        to: angleDeg(B.x, B.y, A.x, A.y),
+        degrees: a60,
+        color: "#22d3ee",
+      },
+      {
+        id: uid(),
+        vertex: C.id,
+        from: angleDeg(C.x, C.y, A.x, A.y),
+        to: angleDeg(C.x, C.y, B.x, B.y),
+        degrees: a60,
+        color: "#22d3ee",
+      },
     ],
     distances: [
       { id: uid(), x: (A.x + B.x) / 2, y: A.y + 22, value: Math.round(R), color: "#f472b6" },
-      { id: uid(), x: (B.x + C.x) / 2 + 14, y: (B.y + C.y) / 2, value: Math.round(R), color: "#f472b6" },
-      { id: uid(), x: (C.x + A.x) / 2 - 14, y: (C.y + A.y) / 2, value: Math.round(R), color: "#f472b6" },
+      {
+        id: uid(),
+        x: (B.x + C.x) / 2 + 14,
+        y: (B.y + C.y) / 2,
+        value: Math.round(R),
+        color: "#f472b6",
+      },
+      {
+        id: uid(),
+        x: (C.x + A.x) / 2 - 14,
+        y: (C.y + A.y) / 2,
+        value: Math.round(R),
+        color: "#f472b6",
+      },
     ],
     highlight: [],
     description: "等边三角形完成！三个内角均为 60°，三条边等长",
@@ -174,10 +207,26 @@ function generatePentagonSteps(): AnimStep[] {
   const R = 140;
 
   const A = makePoint(CX, CY - R, "A");
-  const B = makePoint(CX + R * Math.sin((2 * Math.PI) / 5), CY - R * Math.cos((2 * Math.PI) / 5), "B");
-  const C = makePoint(CX + R * Math.sin((4 * Math.PI) / 5), CY - R * Math.cos((4 * Math.PI) / 5), "C");
-  const D = makePoint(CX + R * Math.sin((6 * Math.PI) / 5), CY - R * Math.cos((6 * Math.PI) / 5), "D");
-  const E = makePoint(CX + R * Math.sin((8 * Math.PI) / 5), CY - R * Math.cos((8 * Math.PI) / 5), "E");
+  const B = makePoint(
+    CX + R * Math.sin((2 * Math.PI) / 5),
+    CY - R * Math.cos((2 * Math.PI) / 5),
+    "B"
+  );
+  const C = makePoint(
+    CX + R * Math.sin((4 * Math.PI) / 5),
+    CY - R * Math.cos((4 * Math.PI) / 5),
+    "C"
+  );
+  const D = makePoint(
+    CX + R * Math.sin((6 * Math.PI) / 5),
+    CY - R * Math.cos((6 * Math.PI) / 5),
+    "D"
+  );
+  const E = makePoint(
+    CX + R * Math.sin((8 * Math.PI) / 5),
+    CY - R * Math.cos((8 * Math.PI) / 5),
+    "E"
+  );
 
   const baseCircle: CircleShape = { id: uid(), center: uid(), radius: R };
   const baseCenter = makePoint(CX, CY, "O");
@@ -230,11 +279,46 @@ function generatePentagonSteps(): AnimStep[] {
     lines: pentLines,
     circles: [{ ...baseCircle, center: baseCenter.id }],
     angles: [
-      { id: uid(), vertex: A.id, from: angleDeg(A.x, A.y, E.x, E.y), to: angleDeg(A.x, A.y, B.x, B.y), degrees: 108, color: "#22d3ee" },
-      { id: uid(), vertex: B.id, from: angleDeg(B.x, B.y, A.x, A.y), to: angleDeg(B.x, B.y, C.x, C.y), degrees: 108, color: "#22d3ee" },
-      { id: uid(), vertex: C.id, from: angleDeg(C.x, C.y, B.x, B.y), to: angleDeg(C.x, C.y, D.x, D.y), degrees: 108, color: "#22d3ee" },
-      { id: uid(), vertex: D.id, from: angleDeg(D.x, D.y, C.x, C.y), to: angleDeg(D.x, D.y, E.x, E.y), degrees: 108, color: "#22d3ee" },
-      { id: uid(), vertex: E.id, from: angleDeg(E.x, E.y, D.x, D.y), to: angleDeg(E.x, E.y, A.x, A.y), degrees: 108, color: "#22d3ee" },
+      {
+        id: uid(),
+        vertex: A.id,
+        from: angleDeg(A.x, A.y, E.x, E.y),
+        to: angleDeg(A.x, A.y, B.x, B.y),
+        degrees: 108,
+        color: "#22d3ee",
+      },
+      {
+        id: uid(),
+        vertex: B.id,
+        from: angleDeg(B.x, B.y, A.x, A.y),
+        to: angleDeg(B.x, B.y, C.x, C.y),
+        degrees: 108,
+        color: "#22d3ee",
+      },
+      {
+        id: uid(),
+        vertex: C.id,
+        from: angleDeg(C.x, C.y, B.x, B.y),
+        to: angleDeg(C.x, C.y, D.x, D.y),
+        degrees: 108,
+        color: "#22d3ee",
+      },
+      {
+        id: uid(),
+        vertex: D.id,
+        from: angleDeg(D.x, D.y, C.x, C.y),
+        to: angleDeg(D.x, D.y, E.x, E.y),
+        degrees: 108,
+        color: "#22d3ee",
+      },
+      {
+        id: uid(),
+        vertex: E.id,
+        from: angleDeg(E.x, E.y, D.x, D.y),
+        to: angleDeg(E.x, E.y, A.x, A.y),
+        degrees: 108,
+        color: "#22d3ee",
+      },
     ],
     distances: [],
     highlight: [],
@@ -258,7 +342,15 @@ function generateTangentSteps(): AnimStep[] {
     lines: [{ id: uid(), p1: O.id, p2: P.id, construction: true }],
     circles: [{ id: uid(), center: O.id, radius: r }],
     angles: [],
-    distances: [{ id: uid(), x: (O.x + P.x) / 2, y: (O.y + P.y) / 2 + 18, value: Math.round(d), color: "#94a3b8" }],
+    distances: [
+      {
+        id: uid(),
+        x: (O.x + P.x) / 2,
+        y: (O.y + P.y) / 2 + 18,
+        value: Math.round(d),
+        color: "#94a3b8",
+      },
+    ],
     highlight: [O.id, P.id],
     description: "步骤 1：画圆 O 和圆外一点 P",
   });
@@ -305,12 +397,38 @@ function generateTangentSteps(): AnimStep[] {
     ],
     circles: [{ id: uid(), center: O.id, radius: r }],
     angles: [
-      { id: uid(), vertex: T1.id, from: angleDeg(T1.x, T1.y, O.x, O.y), to: angleDeg(T1.x, T1.y, P.x, P.y), degrees: 90, color: "#22d3ee" },
-      { id: uid(), vertex: T2.id, from: angleDeg(T2.x, T2.y, O.x, O.y), to: angleDeg(T2.x, T2.y, P.x, P.y), degrees: 90, color: "#22d3ee" },
+      {
+        id: uid(),
+        vertex: T1.id,
+        from: angleDeg(T1.x, T1.y, O.x, O.y),
+        to: angleDeg(T1.x, T1.y, P.x, P.y),
+        degrees: 90,
+        color: "#22d3ee",
+      },
+      {
+        id: uid(),
+        vertex: T2.id,
+        from: angleDeg(T2.x, T2.y, O.x, O.y),
+        to: angleDeg(T2.x, T2.y, P.x, P.y),
+        degrees: 90,
+        color: "#22d3ee",
+      },
     ],
     distances: [
-      { id: uid(), x: (P.x + T1.x) / 2 + 14, y: (P.y + T1.y) / 2, value: Math.round(dist(P, T1)), color: "#f472b6" },
-      { id: uid(), x: (P.x + T2.x) / 2 - 14, y: (P.y + T2.y) / 2, value: Math.round(dist(P, T2)), color: "#f472b6" },
+      {
+        id: uid(),
+        x: (P.x + T1.x) / 2 + 14,
+        y: (P.y + T1.y) / 2,
+        value: Math.round(dist(P, T1)),
+        color: "#f472b6",
+      },
+      {
+        id: uid(),
+        x: (P.x + T2.x) / 2 - 14,
+        y: (P.y + T2.y) / 2,
+        value: Math.round(dist(P, T2)),
+        color: "#f472b6",
+      },
     ],
     highlight: [T1.id, T2.id],
     description: "切线构造完成！切点处的半径与切线垂直（90°），PT₁ = PT₂",
@@ -339,7 +457,14 @@ function generatePythagorasSteps(): AnimStep[] {
     ],
     circles: [],
     angles: [
-      { id: uid(), vertex: A.id, from: angleDeg(A.x, A.y, B.x, B.y), to: angleDeg(A.x, A.y, Cpt.x, Cpt.y), degrees: 90, color: "#22d3ee" },
+      {
+        id: uid(),
+        vertex: A.id,
+        from: angleDeg(A.x, A.y, B.x, B.y),
+        to: angleDeg(A.x, A.y, Cpt.x, Cpt.y),
+        degrees: 90,
+        color: "#22d3ee",
+      },
     ],
     distances: [
       { id: uid(), x: (A.x + B.x) / 2, y: A.y + 20, value: Math.round(a), color: "#94a3b8" },
@@ -349,12 +474,7 @@ function generatePythagorasSteps(): AnimStep[] {
     description: `步骤 1：画直角三角形，直角边 a=${Math.round(a)}, b=${Math.round(b)}`,
   });
 
-  const sqA: Point[] = [
-    A,
-    B,
-    makePoint(B.x + b, B.y, ""),
-    makePoint(A.x + b, A.y, ""),
-  ];
+  const sqA: Point[] = [A, B, makePoint(B.x + b, B.y, ""), makePoint(A.x + b, A.y, "")];
   steps.push({
     points: [A, B, Cpt, ...sqA.slice(2)],
     lines: [
@@ -370,18 +490,19 @@ function generatePythagorasSteps(): AnimStep[] {
     distances: [
       { id: uid(), x: (A.x + B.x) / 2, y: A.y + 20, value: Math.round(a), color: "#94a3b8" },
       { id: uid(), x: A.x - 20, y: (A.y + Cpt.y) / 2, value: Math.round(b), color: "#94a3b8" },
-      { id: uid(), x: (A.x + B.x) / 2 + b / 2, y: (A.y + B.y) / 2 + b / 2, value: Math.round(a * a), color: "#f472b6", },
+      {
+        id: uid(),
+        x: (A.x + B.x) / 2 + b / 2,
+        y: (A.y + B.y) / 2 + b / 2,
+        value: Math.round(a * a),
+        color: "#f472b6",
+      },
     ],
     highlight: [],
     description: `步骤 2：在短边上画正方形，面积 a²=${Math.round(a * a)}`,
   });
 
-  const sqB: Point[] = [
-    A,
-    Cpt,
-    makePoint(Cpt.x - a, Cpt.y, ""),
-    makePoint(A.x - a, A.y, ""),
-  ];
+  const sqB: Point[] = [A, Cpt, makePoint(Cpt.x - a, Cpt.y, ""), makePoint(A.x - a, A.y, "")];
   steps.push({
     points: [A, B, Cpt, ...sqA.slice(2), ...sqB.slice(2)],
     lines: [
@@ -398,8 +519,20 @@ function generatePythagorasSteps(): AnimStep[] {
     circles: [],
     angles: [],
     distances: [
-      { id: uid(), x: (A.x + B.x) / 2 + b / 2, y: (A.y + B.y) / 2 + b / 2, value: Math.round(a * a), color: "#f472b6" },
-      { id: uid(), x: (A.x + Cpt.x) / 2 - a / 2, y: (A.y + Cpt.y) / 2, value: Math.round(b * b), color: "#8b5cf6" },
+      {
+        id: uid(),
+        x: (A.x + B.x) / 2 + b / 2,
+        y: (A.y + B.y) / 2 + b / 2,
+        value: Math.round(a * a),
+        color: "#f472b6",
+      },
+      {
+        id: uid(),
+        x: (A.x + Cpt.x) / 2 - a / 2,
+        y: (A.y + Cpt.y) / 2,
+        value: Math.round(b * b),
+        color: "#8b5cf6",
+      },
     ],
     highlight: [],
     description: `步骤 3：在长边上画正方形，面积 b²=${Math.round(b * b)}`,
@@ -422,8 +555,20 @@ function generatePythagorasSteps(): AnimStep[] {
     circles: [],
     angles: [],
     distances: [
-      { id: uid(), x: (A.x + B.x) / 2 + b / 2, y: (A.y + B.y) / 2 + b / 2, value: Math.round(a * a), color: "#f472b6" },
-      { id: uid(), x: (A.x + Cpt.x) / 2 - a / 2, y: (A.y + Cpt.y) / 2, value: Math.round(b * b), color: "#8b5cf6" },
+      {
+        id: uid(),
+        x: (A.x + B.x) / 2 + b / 2,
+        y: (A.y + B.y) / 2 + b / 2,
+        value: Math.round(a * a),
+        color: "#f472b6",
+      },
+      {
+        id: uid(),
+        x: (A.x + Cpt.x) / 2 - a / 2,
+        y: (A.y + Cpt.y) / 2,
+        value: Math.round(b * b),
+        color: "#8b5cf6",
+      },
       { id: uid(), x: (B.x + Cpt.x) / 2, y: (B.y + Cpt.y) / 2, value: cSqArea, color: "#22d3ee" },
     ],
     highlight: [],
@@ -561,7 +706,12 @@ function angleArcPath(vertex: Point, fromDeg: number, toDeg: number, radius: num
   return `M ${x1} ${y1} A ${radius} ${radius} 0 ${largeArc} 1 ${x2} ${y2}`;
 }
 
-function angleArcMidpoint(vertex: Point, fromDeg: number, toDeg: number, radius: number = 42): { x: number; y: number } {
+function angleArcMidpoint(
+  vertex: Point,
+  fromDeg: number,
+  toDeg: number,
+  radius: number = 42
+): { x: number; y: number } {
   let mid = (fromDeg + toDeg) / 2;
   if (toDeg < fromDeg) mid += 180;
   const midRad = (mid * Math.PI) / 180;
@@ -663,9 +813,7 @@ export default function GeometryExplorer() {
     if (tool === "point") {
       setUserPoints((prev) => [...prev, { id: uid(), x, y, label }]);
     } else if (tool === "line") {
-      const clicked = userPoints.find(
-        (p) => Math.abs(p.x - x) < 12 && Math.abs(p.y - y) < 12
-      );
+      const clicked = userPoints.find((p) => Math.abs(p.x - x) < 12 && Math.abs(p.y - y) < 12);
       if (clicked) {
         if (lineStart) {
           if (lineStart !== clicked.id) {
@@ -686,9 +834,7 @@ export default function GeometryExplorer() {
         }
       }
     } else if (tool === "circle") {
-      const clicked = userPoints.find(
-        (p) => Math.abs(p.x - x) < 12 && Math.abs(p.y - y) < 12
-      );
+      const clicked = userPoints.find((p) => Math.abs(p.x - x) < 12 && Math.abs(p.y - y) < 12);
       if (clicked) {
         if (circleCenter) {
           const center = userPoints.find((p) => p.id === circleCenter);
@@ -738,22 +884,20 @@ export default function GeometryExplorer() {
         <span className="text-fg-muted mr-2 font-mono text-[10px] tracking-[0.22em] uppercase">
           预设构造
         </span>
-        {(Object.entries(PRESETS) as [Preset, (typeof PRESETS)[Preset]][]).map(
-          ([key, val]) => (
-            <button
-              key={key}
-              onClick={() => selectPreset(key)}
-              className={`flex items-center gap-1.5 border px-2.5 py-1 font-mono text-[11px] tracking-[0.12em] transition-all ${
-                activePreset === key
-                  ? "border-accent-indigo text-accent-indigo bg-accent-indigo/10"
-                  : "border-border-faint text-fg-secondary hover:border-fg-disabled/40 hover:text-fg-primary"
-              }`}
-            >
-              <span className="text-sm">{val.icon}</span>
-              {val.label}
-            </button>
-          ),
-        )}
+        {(Object.entries(PRESETS) as [Preset, (typeof PRESETS)[Preset]][]).map(([key, val]) => (
+          <button
+            key={key}
+            onClick={() => selectPreset(key)}
+            className={`flex items-center gap-1.5 border px-2.5 py-1 font-mono text-[11px] tracking-[0.12em] transition-all ${
+              activePreset === key
+                ? "border-accent-indigo text-accent-indigo bg-accent-indigo/10"
+                : "border-border-faint text-fg-secondary hover:border-fg-disabled/40 hover:text-fg-primary"
+            }`}
+          >
+            <span className="text-sm">{val.icon}</span>
+            {val.label}
+          </button>
+        ))}
       </div>
 
       <div className="flex flex-col lg:flex-row">
@@ -761,11 +905,16 @@ export default function GeometryExplorer() {
           <svg
             ref={svgRef}
             viewBox={`0 0 ${CANVAS_W} ${CANVAS_H}`}
-            className="bg-bg-elevated w-full cursor-crosshair border border-border-faint"
+            className="bg-bg-elevated border-border-faint w-full cursor-crosshair border"
             onClick={handleCanvasClick}
           >
             <defs>
-              <pattern id="grid-small" width={GRID_SIZE} height={GRID_SIZE} patternUnits="userSpaceOnUse">
+              <pattern
+                id="grid-small"
+                width={GRID_SIZE}
+                height={GRID_SIZE}
+                patternUnits="userSpaceOnUse"
+              >
                 <path
                   d={`M ${GRID_SIZE} 0 L 0 0 0 ${GRID_SIZE}`}
                   fill="none"
@@ -774,7 +923,12 @@ export default function GeometryExplorer() {
                   className="text-fg-disabled/20"
                 />
               </pattern>
-              <pattern id="grid-large" width={GRID_SIZE * 5} height={GRID_SIZE * 5} patternUnits="userSpaceOnUse">
+              <pattern
+                id="grid-large"
+                width={GRID_SIZE * 5}
+                height={GRID_SIZE * 5}
+                patternUnits="userSpaceOnUse"
+              >
                 <rect width={GRID_SIZE * 5} height={GRID_SIZE * 5} fill="url(#grid-small)" />
                 <path
                   d={`M ${GRID_SIZE * 5} 0 L 0 0 0 ${GRID_SIZE * 5}`}
@@ -832,13 +986,7 @@ export default function GeometryExplorer() {
               const mid = angleArcMidpoint(vertex, a.from, a.to);
               return (
                 <g key={a.id}>
-                  <path
-                    d={path}
-                    fill="none"
-                    stroke={a.color}
-                    strokeWidth={1.2}
-                    opacity={0.8}
-                  />
+                  <path d={path} fill="none" stroke={a.color} strokeWidth={1.2} opacity={0.8} />
                   <text
                     x={mid.x}
                     y={mid.y}
@@ -889,7 +1037,7 @@ export default function GeometryExplorer() {
                       y={p.y - LABEL_OFFSET}
                       textAnchor="middle"
                       dominantBaseline="central"
-                      fill="#e2e8f0"
+                      fill="var(--color-fg-primary)"
                       fontSize="11"
                       fontFamily="monospace"
                       fontWeight="600"
@@ -1017,9 +1165,7 @@ export default function GeometryExplorer() {
                 </p>
               )}
               {tool === "circle" && circleCenter && (
-                <p className="text-accent-cyan font-mono text-[11px]">
-                  已选圆心，点击一点确定半径
-                </p>
+                <p className="text-accent-cyan font-mono text-[11px]">已选圆心，点击一点确定半径</p>
               )}
 
               <div className="text-fg-disabled font-mono text-[10px] leading-relaxed tracking-[0.1em]">

@@ -459,9 +459,9 @@ export function ConceptMap({ className }: ConceptMapProps) {
                 onClick={() => handleFieldToggle(field)}
                 className="rounded-full border px-2.5 py-1 font-mono text-[10px] tracking-wider transition-all"
                 style={{
-                  borderColor: active ? color : "rgba(255,255,255,0.1)",
+                  borderColor: active ? color : "var(--color-border-faint)",
                   backgroundColor: active ? `${color}20` : "transparent",
-                  color: active ? color : "rgba(255,255,255,0.4)",
+                  color: active ? color : "var(--color-fg-muted)",
                 }}
               >
                 {field}
@@ -476,7 +476,7 @@ export function ConceptMap({ className }: ConceptMapProps) {
               fill="none"
               stroke="currentColor"
               strokeWidth="1.5"
-              className="absolute top-1/2 left-2.5 h-3.5 w-3.5 -translate-y-1/2 text-white/55"
+              className="text-fg-muted absolute top-1/2 left-2.5 h-3.5 w-3.5 -translate-y-1/2"
             >
               <circle cx="7" cy="7" r="4.5" />
               <path d="M10.5 10.5L14 14" strokeLinecap="round" />
@@ -486,13 +486,13 @@ export function ConceptMap({ className }: ConceptMapProps) {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="搜索概念…"
-              className="w-36 rounded-lg border border-white/10 bg-white/5 py-1.5 pr-3 pl-8 text-xs text-white/80 placeholder:text-white/25 focus:border-indigo-400/40 focus:outline-none sm:w-48"
+              className="border-border-faint text-fg-secondary placeholder:text-fg-disabled w-36 rounded-lg border bg-[var(--input-bg)] py-1.5 pr-3 pl-8 text-xs focus:border-indigo-400/40 focus:outline-none sm:w-48"
             />
           </div>
           <button
             type="button"
             onClick={handleFitToScreen}
-            className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white/50 transition-colors hover:text-white/80 md:h-8 md:w-8"
+            className="border-border-faint text-fg-muted hover:text-fg-primary flex h-11 w-11 items-center justify-center rounded-lg border bg-[var(--input-bg)] transition-colors md:h-8 md:w-8"
             aria-label="适应屏幕"
           >
             <svg
@@ -513,7 +513,7 @@ export function ConceptMap({ className }: ConceptMapProps) {
             <button
               type="button"
               onClick={() => setZoom((z) => Math.min(5, z * 1.2))}
-              className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white/50 transition-colors hover:text-white/80 md:h-8 md:w-8"
+              className="border-border-faint text-fg-muted hover:text-fg-primary flex h-11 w-11 items-center justify-center rounded-lg border bg-[var(--input-bg)] transition-colors md:h-8 md:w-8"
               aria-label="放大"
             >
               <svg
@@ -529,7 +529,7 @@ export function ConceptMap({ className }: ConceptMapProps) {
             <button
               type="button"
               onClick={() => setZoom((z) => Math.max(0.2, z * 0.8))}
-              className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white/50 transition-colors hover:text-white/80 md:h-8 md:w-8"
+              className="border-border-faint text-fg-muted hover:text-fg-primary flex h-11 w-11 items-center justify-center rounded-lg border bg-[var(--input-bg)] transition-colors md:h-8 md:w-8"
               aria-label="缩小"
             >
               <svg
@@ -620,7 +620,7 @@ export function ConceptMap({ className }: ConceptMapProps) {
                       x={(sPos.x + tPos.x) / 2}
                       y={(sPos.y + tPos.y) / 2 - 6}
                       textAnchor="middle"
-                      fill="rgba(255,255,255,0.5)"
+                      fill="var(--color-fg-muted)"
                       fontSize="9"
                       fontFamily={LABEL_FONT}
                     >
@@ -676,7 +676,7 @@ export function ConceptMap({ className }: ConceptMapProps) {
                   <text
                     textAnchor="middle"
                     dy="-2"
-                    fill={dimmed ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.9)"}
+                    fill={dimmed ? "var(--color-fg-disabled)" : "var(--color-fg-primary)"}
                     fontSize="13"
                     fontWeight="600"
                     fontFamily={LABEL_FONT}
@@ -687,7 +687,7 @@ export function ConceptMap({ className }: ConceptMapProps) {
                   <text
                     textAnchor="middle"
                     dy="12"
-                    fill={dimmed ? "rgba(255,255,255,0.1)" : "rgba(255,255,255,0.35)"}
+                    fill={dimmed ? "var(--color-fg-disabled)" : "var(--color-fg-muted)"}
                     fontSize="8"
                     fontFamily={LABEL_FONT}
                     className="pointer-events-none select-none"
@@ -701,7 +701,7 @@ export function ConceptMap({ className }: ConceptMapProps) {
         </svg>
 
         {selectedId && (
-          <div className="absolute bottom-4 left-4 z-10 max-w-xs rounded-xl border border-white/10 bg-[#111118]/90 p-4 backdrop-blur-xl">
+          <div className="border-border-faint bg-bg-floating/90 absolute bottom-4 left-4 z-10 max-w-xs rounded-xl border p-4 backdrop-blur-xl">
             {(() => {
               const node = CONCEPT_NODES.find((n) => n.id === selectedId);
               if (!node) return null;
@@ -720,23 +720,23 @@ export function ConceptMap({ className }: ConceptMapProps) {
                       {node.field}
                     </span>
                   </div>
-                  <h3 className="font-display text-base font-semibold text-white">
+                  <h3 className="font-display text-fg-primary text-base font-semibold">
                     {node.label}
-                    <span className="ml-2 text-xs font-normal text-white/55">{node.label_en}</span>
+                    <span className="text-fg-muted ml-2 text-xs font-normal">{node.label_en}</span>
                   </h3>
-                  <p className="mt-1 font-mono text-[10px] text-white/55">{rels.length} 个关联</p>
+                  <p className="text-fg-muted mt-1 font-mono text-[10px]">{rels.length} 个关联</p>
                   <div className="mt-3 flex gap-2">
                     <button
                       type="button"
                       onClick={() => handleNavigate(selectedId)}
-                      className="rounded-lg bg-indigo-500/20 px-3 py-1.5 text-xs text-indigo-300 transition-colors hover:bg-indigo-500/30"
+                      className="text-fg-primary rounded-lg bg-indigo-500/20 px-3 py-1.5 text-xs transition-colors hover:bg-indigo-500/30"
                     >
                       查看详情
                     </button>
                     <button
                       type="button"
                       onClick={() => setSelectedId(null)}
-                      className="rounded-lg border border-white/10 px-3 py-1.5 text-xs text-white/50 transition-colors hover:text-white/80"
+                      className="border-border-faint text-fg-muted hover:text-fg-primary rounded-lg border px-3 py-1.5 text-xs transition-colors"
                     >
                       取消选择
                     </button>
@@ -759,7 +759,7 @@ export function ConceptMap({ className }: ConceptMapProps) {
                   borderTop: type === "opposes" ? `1px dashed ${color}` : undefined,
                 }}
               />
-              <span className="font-mono text-[9px] text-white/55">
+              <span className="text-fg-muted font-mono text-[9px]">
                 {type === "opposes"
                   ? "对立"
                   : type === "requires"

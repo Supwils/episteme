@@ -32,12 +32,12 @@ export function GraphMinimap({ nodes, viewport, worldBounds, onNavigate }: Graph
 
   const toMinimapX = useCallback(
     (wx: number) => (wx - worldBounds.minX) * scaleX,
-    [worldBounds.minX, scaleX],
+    [worldBounds.minX, scaleX]
   );
 
   const toMinimapY = useCallback(
     (wy: number) => (wy - worldBounds.minY) * scaleY,
-    [worldBounds.minY, scaleY],
+    [worldBounds.minY, scaleY]
   );
 
   const vpLeft = toMinimapX(viewport.x);
@@ -57,7 +57,7 @@ export function GraphMinimap({ nodes, viewport, worldBounds, onNavigate }: Graph
 
       onNavigate(worldX, worldY);
     },
-    [scaleX, scaleY, worldBounds.minX, worldBounds.minY, onNavigate],
+    [scaleX, scaleY, worldBounds.minX, worldBounds.minY, onNavigate]
   );
 
   return (
@@ -76,7 +76,7 @@ export function GraphMinimap({ nodes, viewport, worldBounds, onNavigate }: Graph
         }
       }}
       aria-label="图谱导航小地图，点击跳转到对应区域"
-      className="relative cursor-pointer rounded-lg border border-white/[0.06] bg-[#0a0a0f]/90 backdrop-blur-xl shadow-[0_4px_16px_rgba(0,0,0,0.4)] overflow-hidden select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6366f1]"
+      className="border-border-faint bg-bg-floating/90 relative cursor-pointer overflow-hidden rounded-lg border shadow-[0_4px_16px_rgba(0,0,0,0.4)] backdrop-blur-xl select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6366f1]"
       style={{ width: MINIMAP_WIDTH, height: MINIMAP_HEIGHT }}
     >
       {/* Node dots */}
@@ -102,7 +102,7 @@ export function GraphMinimap({ nodes, viewport, worldBounds, onNavigate }: Graph
 
       {/* Viewport rectangle */}
       <div
-        className="absolute border border-white/40 bg-white/[0.04] pointer-events-none"
+        className="border-border-strong pointer-events-none absolute border bg-[var(--input-bg)]"
         style={{
           left: Math.max(0, vpLeft),
           top: Math.max(0, vpTop),
@@ -112,7 +112,7 @@ export function GraphMinimap({ nodes, viewport, worldBounds, onNavigate }: Graph
       />
 
       {/* Border glow */}
-      <div className="absolute inset-0 rounded-lg border border-white/[0.04] pointer-events-none" />
+      <div className="border-border-faint pointer-events-none absolute inset-0 rounded-lg border" />
     </motion.div>
   );
 }

@@ -46,7 +46,7 @@ export function SpatialGraphControls({
       data-testid="spatial-graph-controls"
       data-rotation={normalized}
       className={clsx(
-        "absolute top-2 left-2 z-50 flex max-w-[calc(100%-1rem)] items-center border border-white/[0.08] bg-[#0b0b13]/88 shadow-[0_12px_32px_rgba(0,0,0,0.28)] backdrop-blur-xl",
+        "border-border-faint bg-bg-overlay absolute top-2 left-2 z-50 flex max-w-[calc(100%-1rem)] items-center border shadow-[0_12px_32px_rgba(0,0,0,0.28)] backdrop-blur-xl",
         isMobile ? "h-9" : "h-10"
       )}
     >
@@ -55,20 +55,20 @@ export function SpatialGraphControls({
         style={{ backgroundColor: DOMAIN_COLORS[frontDomainId] }}
         aria-hidden="true"
       />
-      <label className="flex h-full min-w-0 items-center gap-2 border-r border-white/[0.07] px-2.5">
-        <span className="hidden text-[10px] text-white/55 sm:inline">正面</span>
+      <label className="border-border-faint flex h-full min-w-0 items-center gap-2 border-r px-2.5">
+        <span className="text-fg-muted hidden text-[10px] sm:inline">正面</span>
         <select
           aria-label="空间图谱正面学科"
           value={frontDomainId}
           onChange={(event) => onFocusDomain(event.target.value as GraphNode["domain"])}
-          className="max-w-28 bg-transparent text-[11px] text-white/75 outline-none sm:max-w-36"
+          className="text-fg-secondary max-w-28 bg-transparent text-[11px] outline-none sm:max-w-36"
         >
           {ALL_DOMAINS.map((domainId) => (
             <option
               key={domainId}
               value={domainId}
               disabled={!activeDomains.has(domainId) && domainId !== frontDomainId}
-              className="bg-[#111118] text-white"
+              className="bg-bg-floating text-fg-primary"
             >
               {DOMAIN_META[domainId].label}
             </option>
@@ -79,7 +79,7 @@ export function SpatialGraphControls({
       <button
         type="button"
         onClick={() => onRotationChange(normalized - 24)}
-        className="flex h-full w-9 shrink-0 items-center justify-center text-white/45 transition-colors hover:bg-white/[0.04] hover:text-white/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-400"
+        className="text-fg-muted hover:text-fg-primary flex h-full w-9 shrink-0 items-center justify-center transition-colors hover:bg-[var(--input-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-400"
         aria-label="向左旋转空间图谱"
       >
         <RotationIcon direction="left" />
@@ -97,7 +97,7 @@ export function SpatialGraphControls({
       <button
         type="button"
         onClick={() => onRotationChange(normalized + 24)}
-        className="flex h-full w-9 shrink-0 items-center justify-center text-white/45 transition-colors hover:bg-white/[0.04] hover:text-white/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-400"
+        className="text-fg-muted hover:text-fg-primary flex h-full w-9 shrink-0 items-center justify-center transition-colors hover:bg-[var(--input-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-400"
         aria-label="向右旋转空间图谱"
       >
         <RotationIcon direction="right" />

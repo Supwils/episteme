@@ -35,7 +35,7 @@ export function Sheet({ open, onClose, side = "right", className, ariaLabel, chi
         <>
           <motion.div
             key="sheet-backdrop"
-            className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
+            className="bg-scrim fixed inset-0 z-40 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -52,7 +52,7 @@ export function Sheet({ open, onClose, side = "right", className, ariaLabel, chi
               isRight
                 ? "top-0 right-0 h-full w-full max-w-[420px] border-l"
                 : "right-0 bottom-0 left-0 max-h-[60vh] border-t",
-              className,
+              className
             )}
             initial={isRight ? { x: "100%" } : { y: "100%" }}
             animate={isRight ? { x: 0 } : { y: 0 }}

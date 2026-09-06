@@ -334,7 +334,7 @@ function TreeNode({
         y={sublabel ? y + height / 2 - 5 : y + height / 2}
         textAnchor="middle"
         dominantBaseline="central"
-        fill={isActive || isHovered ? color : "rgba(255,255,255,0.8)"}
+        fill={isActive || isHovered ? color : "var(--color-fg-primary)"}
         fontSize={isCategory ? 13 : 12}
         fontWeight={isCategory ? 600 : 500}
         className="pointer-events-none select-none"
@@ -349,7 +349,7 @@ function TreeNode({
           y={y + height / 2 + 9}
           textAnchor="middle"
           dominantBaseline="central"
-          fill="rgba(255,255,255,0.35)"
+          fill="var(--color-fg-muted)"
           fontSize={8}
           fontFamily="var(--font-mono)"
           className="pointer-events-none select-none"

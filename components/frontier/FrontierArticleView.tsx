@@ -26,6 +26,7 @@ const CROSS_DOMAINS = new Set<string>([
   "medicine",
   "chemistry",
   "arts",
+  "literature",
   "law",
   "engineering",
   "sociology",

@@ -54,7 +54,12 @@ export function SearchResults({
         if (!results?.length) return null;
         return (
           <div key={section} className="gs-group">
-            <div className="gs-group-label" style={{ color: SECTION_META[section].color }}>
+            <div
+              className="gs-group-label"
+              style={{
+                color: `color-mix(in oklab, ${SECTION_META[section].color} 42%, var(--color-fg-primary))`,
+              }}
+            >
               {SECTION_META[section].label}
             </div>
             {results.map(renderItem)}

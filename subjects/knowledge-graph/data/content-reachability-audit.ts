@@ -103,6 +103,18 @@ export const CONTENT_REACHABILITY_AUDIT_SCOPES: readonly AuditScope[] = [
     minimumCoveragePercent: 100,
   },
   {
+    domain: "literature",
+    sections: [
+      "narrative-basics",
+      "poetics-and-form",
+      "world-traditions",
+      "theory-and-method",
+      "reading-and-reception",
+      "contemporary-edges",
+    ],
+    minimumCoveragePercent: 100,
+  },
+  {
     domain: "engineering",
     sections: ["foundations", "frontier", "energy", "materials", "machines", "civil", "frontiers"],
     minimumCoveragePercent: 100,

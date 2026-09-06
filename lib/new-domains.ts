@@ -499,6 +499,126 @@ export const ARTS: DomainConfig = {
       description: "形式分析、图像学、保护科学、归属研究、数字人文与生成艺术",
     },
   ],
+  tools: [
+    {
+      href: "/arts/detail-comparator",
+      label: "作品细节比较器",
+      icon: "◎",
+      accent: "#b0785a",
+      description: "对照轮廓优先与色块优先的同一母题，移动放大窗看局部如何改判断",
+    },
+    {
+      href: "/arts/perspective-lab",
+      label: "透视与构图实验室",
+      icon: "▭",
+      accent: "#845a46",
+      description: "拖动灭点，看一点透视箱体的正交线如何会合",
+    },
+    {
+      href: "/arts/pigment-profile",
+      label: "材料与颜料剖面",
+      icon: "🎨",
+      accent: "#8a78bd",
+      description: "从光油到支撑体，点选一层看它在油画结构里做什么",
+    },
+    {
+      href: "/arts/exchange-map",
+      label: "全球艺术交流地图",
+      icon: "🌍",
+      accent: "#7a8f5a",
+      description: "示意几条物质与形式的长距离移动，不是精确底图",
+    },
+    {
+      href: "/arts/space-explorer",
+      label: "建筑空间探索器",
+      icon: "🏛",
+      accent: "#c08a52",
+      description: "在平面、剖面与轴测之间切换，比较游行路线与承重",
+    },
+  ],
+};
+
+export const LITERATURE: DomainConfig = {
+  domain: "literature",
+  label: "文学与叙事",
+  labelEn: "Literature & Narrative",
+  tagline:
+    "从“故事为什么有效”进入文学——叙事结构、诗学形式、世界文学与阅读方法。事实层（版本、年代、文本事件）与解释层（读法、评价）必须分开写。",
+  accent: "#8b5e4a",
+  sections: [
+    {
+      key: "narrative-basics",
+      label: "叙事基础",
+      accent: "#8b5e4a",
+      icon: "📖",
+      description: "故事是什么：情节、人物、冲突、视角、时间次序，以及口头讲述与虚构",
+    },
+    {
+      key: "poetics-and-form",
+      label: "诗学与形式",
+      accent: "#a07858",
+      icon: "✎",
+      description: "韵律与诗行、隐喻与意象、叙述者与声音、文类约定、戏剧文本与小说形式",
+    },
+    {
+      key: "world-traditions",
+      label: "世界文学传统",
+      accent: "#7a6b4a",
+      icon: "🌍",
+      description: "史诗、汉语叙事、阿拉伯—波斯、南亚、非洲口头文学、拉美与东亚现代文学",
+    },
+    {
+      key: "theory-and-method",
+      label: "文学理论与方法",
+      accent: "#6b5a78",
+      icon: "🔬",
+      description: "细读、叙事学、文本考据、接受美学与比较文学的方法",
+    },
+    {
+      key: "reading-and-reception",
+      label: "阅读与接受",
+      accent: "#5a7a6b",
+      icon: "👁",
+      description: "读者如何生产意义、翻译即改写、教材与考试、粉丝二次创作、图书馆与书市",
+    },
+    {
+      key: "contemporary-edges",
+      label: "当代边界",
+      accent: "#8a4a4a",
+      icon: "⚡",
+      description: "正典之争、远读与数字人文、生成文本与作者身份、世界文学市场、版权与气候写作",
+    },
+  ],
+  tools: [
+    {
+      href: "/literature/narrative-graph",
+      label: "叙事结构图谱",
+      icon: "◎",
+      accent: "#8b5e4a",
+      description: "用守株待兔四件情节事件，对照故事次序与讲述次序",
+    },
+    {
+      href: "/literature/meter-lab",
+      label: "格律与音步实验室",
+      icon: "✎",
+      accent: "#a07858",
+      description: "数五言、七言与英语抑扬五音步的停顿，不是给诗打分",
+    },
+    {
+      href: "/literature/world-map",
+      label: "世界文学时空地图",
+      icon: "🌍",
+      accent: "#7a6b4a",
+      description: "在教学分期里点选几条叙事传统。椭圆不是地球",
+    },
+    {
+      href: "/literature/translation-comparator",
+      label: "译本比较器",
+      icon: "↔",
+      accent: "#5a7a6b",
+      description: "并置两段公有领域译文，看节奏和关键词怎样被改写",
+    },
+  ],
 };
 
 export const ENGINEERING: DomainConfig = {
@@ -550,6 +670,36 @@ export const ENGINEERING: DomainConfig = {
       accent: "#c25b5b",
       icon: "🛰",
       description: "失效分析、安全工程、工程伦理、能源转型与超级工程",
+    },
+  ],
+  tools: [
+    {
+      href: "/engineering/grid-flow",
+      label: "电网潮流模拟器",
+      icon: "⚡",
+      accent: "#e08a3c",
+      description: "在五节点教学电网上调节火电、风电与负荷，看功率怎样挤进走廊",
+    },
+    {
+      href: "/engineering/structure-lab",
+      label: "结构受力实验室",
+      icon: "🌉",
+      accent: "#c08a52",
+      description: "移动简支梁上的集中力，观察反力与弯矩图",
+    },
+    {
+      href: "/engineering/materials-profile",
+      label: "材料性能剖面",
+      icon: "🏭",
+      accent: "#5b9da0",
+      description: "比较钢、混凝土、铝与木材的强度、密度与刚度",
+    },
+    {
+      href: "/engineering/chip-process",
+      label: "芯片制造流程图",
+      icon: "◇",
+      accent: "#4f9cf0",
+      description: "按公开教科书顺序走一遍平面工艺，不含可操作配方",
     },
   ],
 };
@@ -636,6 +786,7 @@ export const KNOWLEDGE_DOMAINS: Record<string, DomainConfig> = {
   linguistics: LINGUISTICS,
   law: LAW,
   arts: ARTS,
+  literature: LITERATURE,
   engineering: ENGINEERING,
 };
 

@@ -21,6 +21,7 @@ export const KNOWLEDGE_DOMAINS = {
   linguistics: { label: "语言学", href: "/linguistics" },
   law: { label: "法学", href: "/law" },
   arts: { label: "艺术", href: "/arts" },
+  literature: { label: "文学与叙事", href: "/literature" },
   engineering: { label: "工程与技术", href: "/engineering" },
 } as const;
 
@@ -235,7 +236,7 @@ export const KNOWLEDGE_THREADS: readonly KnowledgeContinuumThread[] = [
         question: "解释行为时，原因和理由有什么不同？",
         description: "连接心理机制、因果关系、自由意志与伦理判断，避免把人的行动压成单一解释。",
         href: "/philosophy/concepts/causation",
-        domains: ["philosophy", "psychology", "arts"],
+        domains: ["philosophy", "psychology", "arts", "literature"],
       },
       {
         id: "mind-meaning-4",

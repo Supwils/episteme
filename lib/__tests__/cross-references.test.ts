@@ -98,6 +98,7 @@ describe("URL constants", () => {
       "law",
       "life-science",
       "linguistics",
+      "literature",
       "mathematics",
       "medicine",
       "philosophy",

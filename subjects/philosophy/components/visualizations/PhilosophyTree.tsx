@@ -746,7 +746,7 @@ export function PhilosophyTree() {
               markerHeight="6"
               orient="auto-start-reverse"
             >
-              <path d="M0 0L8 4L0 8z" fill="rgba(255,255,255,0.35)" />
+              <path d="M0 0L8 4L0 8z" fill="var(--color-fg-muted)" />
             </marker>
             <marker
               id="arrow-influence-highlight"
@@ -757,7 +757,7 @@ export function PhilosophyTree() {
               markerHeight="7"
               orient="auto-start-reverse"
             >
-              <path d="M0 0L8 4L0 8z" fill="rgba(255,255,255,0.7)" />
+              <path d="M0 0L8 4L0 8z" fill="var(--color-fg-primary)" />
             </marker>
             <filter id="node-glow" x="-50%" y="-50%" width="200%" height="200%">
               <feGaussianBlur stdDeviation="4" result="blur" />
@@ -786,7 +786,7 @@ export function PhilosophyTree() {
                 x={band.x + band.width / 2}
                 y={30}
                 textAnchor="middle"
-                fill="rgba(255,255,255,0.15)"
+                fill="var(--color-fg-disabled)"
                 fontSize="14"
                 fontFamily="monospace"
                 letterSpacing="0.15em"
@@ -802,14 +802,14 @@ export function PhilosophyTree() {
                   y1={50}
                   x2={marker.x}
                   y2={CANVAS_HEIGHT - 20}
-                  stroke="rgba(255,255,255,0.05)"
+                  stroke="var(--color-border-faint)"
                   strokeWidth="1"
                 />
                 <text
                   x={marker.x}
                   y={CANVAS_HEIGHT - 5}
                   textAnchor="middle"
-                  fill="rgba(255,255,255,0.2)"
+                  fill="var(--color-fg-muted)"
                   fontSize="9"
                   fontFamily="monospace"
                 >
@@ -857,10 +857,10 @@ export function PhilosophyTree() {
                     fill="none"
                     stroke={
                       isHighlighted
-                        ? "rgba(255,255,255,0.5)"
+                        ? "var(--color-fg-muted)"
                         : dimmed
-                          ? "rgba(255,255,255,0.03)"
-                          : "rgba(255,255,255,0.12)"
+                          ? "var(--color-border-faint)"
+                          : "var(--color-border-subtle)"
                     }
                     strokeWidth={isHighlighted ? 2 : 1.2}
                     markerEnd={
@@ -873,7 +873,7 @@ export function PhilosophyTree() {
                       x={(fromPos.x + toPos.x) / 2}
                       y={(fromPos.y + toPos.y) / 2 - 8}
                       textAnchor="middle"
-                      fill="rgba(255,255,255,0.45)"
+                      fill="var(--color-fg-muted)"
                       fontSize="9"
                       fontFamily="monospace"
                     >
@@ -923,7 +923,7 @@ export function PhilosophyTree() {
                   <text
                     textAnchor="middle"
                     dy="-2"
-                    fill={dimmed ? "rgba(255,255,255,0.15)" : "rgba(255,255,255,0.9)"}
+                    fill={dimmed ? "var(--color-fg-disabled)" : "var(--color-fg-primary)"}
                     fontSize="12"
                     fontWeight="600"
                     fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
@@ -934,7 +934,7 @@ export function PhilosophyTree() {
                   <text
                     textAnchor="middle"
                     dy="11"
-                    fill={dimmed ? "rgba(255,255,255,0.06)" : "rgba(255,255,255,0.35)"}
+                    fill={dimmed ? "var(--color-border-strong)" : "var(--color-fg-muted)"}
                     fontSize="8"
                     fontFamily="monospace"
                     className="pointer-events-none select-none"
@@ -1007,10 +1007,10 @@ export function PhilosophyTree() {
         {(Object.entries(TRADITION_COLORS) as [Tradition, string][]).map(([t, color]) => (
           <div key={t} className="flex items-center gap-1.5">
             <div className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: color }} />
-            <span className="font-mono text-[9px] text-white/55">{TRADITION_LABELS[t]}</span>
+            <span className="text-fg-muted font-mono text-[9px]">{TRADITION_LABELS[t]}</span>
           </div>
         ))}
-        <span className="mx-1 h-3 w-px bg-white/10" />
+        <span className="bg-border-faint mx-1 h-3 w-px" />
         <div className="flex items-center gap-1.5">
           <svg width="20" height="8">
             <line
@@ -1018,12 +1018,12 @@ export function PhilosophyTree() {
               y1="4"
               x2="20"
               y2="4"
-              stroke="rgba(255,255,255,0.3)"
+              stroke="var(--color-fg-disabled)"
               strokeWidth="1.2"
               markerEnd="url(#arrow-influence)"
             />
           </svg>
-          <span className="font-mono text-[9px] text-white/55">影响</span>
+          <span className="text-fg-muted font-mono text-[9px]">影响</span>
         </div>
       </div>
     </div>

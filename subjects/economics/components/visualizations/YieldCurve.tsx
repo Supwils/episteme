@@ -22,14 +22,16 @@ const YIELD_DATA: YieldPoint[] = [
   { label: "30Y", months: 360, normal: 4.1, inverted: 3.9, flat: 4.0 },
 ];
 
-const SHAPE_CONFIG: Record<CurveShape, { color: string; label: string; description: string; historical: string }> = {
+const SHAPE_CONFIG: Record<
+  CurveShape,
+  { color: string; label: string; description: string; historical: string }
+> = {
   normal: {
     color: "#6bae8a",
     label: "正常曲线",
     description:
       "长期利率高于短期利率，反映投资者对持有更长期限债券要求更高的风险溢价。这是最常见、最健康的收益率曲线形态，表明经济处于扩张期，市场预期温和通胀。",
-    historical:
-      "典型经济扩张期常态。2004-2005年美国经济稳步增长期间，收益率曲线呈现正常向上倾斜。",
+    historical: "典型经济扩张期常态。2004-2005年美国经济稳步增长期间，收益率曲线呈现正常向上倾斜。",
   },
   inverted: {
     color: "#d85a5a",
@@ -44,8 +46,7 @@ const SHAPE_CONFIG: Record<CurveShape, { color: string; label: string; descripti
     label: "平坦曲线",
     description:
       "各期限利率基本相同，反映市场对经济前景不确定。通常是曲线从正常转向倒挂（或反之）的过渡阶段，也可能出现在央行大量购买长期债券（量化宽松）时期。",
-    historical:
-      "2015-2016年，美联储加息但全球央行大规模QE压低长端利率，曲线趋于平坦。",
+    historical: "2015-2016年，美联储加息但全球央行大规模QE压低长端利率，曲线趋于平坦。",
   },
 };
 
@@ -169,7 +170,7 @@ export function YieldCurve() {
                 x={PAD_L - 8}
                 y={y + 3.5}
                 textAnchor="end"
-                fill="rgba(200,164,90,0.45)"
+                fill="var(--color-fg-muted)"
                 fontSize={10}
                 fontFamily="var(--font-mono)"
               >
@@ -212,7 +213,7 @@ export function YieldCurve() {
                 x={x}
                 y={PAD_T + PLOT_H + 18}
                 textAnchor="middle"
-                fill="rgba(200,164,90,0.55)"
+                fill="var(--color-fg-muted)"
                 fontSize={10}
                 fontFamily="var(--font-mono)"
               >
@@ -226,7 +227,7 @@ export function YieldCurve() {
           x={PAD_L + PLOT_W / 2}
           y={SVG_H - 5}
           textAnchor="middle"
-          fill="rgba(200,164,90,0.4)"
+          fill="var(--color-fg-muted)"
           fontSize={10}
           fontFamily="var(--font-mono)"
           letterSpacing="0.08em"
@@ -237,7 +238,7 @@ export function YieldCurve() {
           x={12}
           y={PAD_T + PLOT_H / 2}
           textAnchor="middle"
-          fill="rgba(200,164,90,0.4)"
+          fill="var(--color-fg-muted)"
           fontSize={10}
           fontFamily="var(--font-mono)"
           letterSpacing="0.08em"
@@ -256,12 +257,7 @@ export function YieldCurve() {
           strokeLinejoin="round"
           filter="url(#yc-glow)"
         >
-          <animate
-            attributeName="d"
-            dur="0.5s"
-            fill="freeze"
-            begin="0s"
-          />
+          <animate attributeName="d" dur="0.5s" fill="freeze" begin="0s" />
         </path>
 
         {YIELD_DATA.map((d) => {
@@ -270,13 +266,7 @@ export function YieldCurve() {
           return (
             <g key={`dot-${d.label}`}>
               <circle cx={x} cy={y} r={4} fill={config.color} opacity={0.9} />
-              <circle
-                cx={x}
-                cy={y}
-                r={7}
-                fill={config.color}
-                opacity={0.15}
-              />
+              <circle cx={x} cy={y} r={7} fill={config.color} opacity={0.15} />
               <text
                 x={x}
                 y={y - 12}
@@ -312,12 +302,10 @@ export function YieldCurve() {
             {config.label}
           </span>
         </div>
-        <p className="text-fg-secondary mb-3 text-sm leading-relaxed">
-          {config.description}
-        </p>
+        <p className="text-fg-secondary mb-3 text-sm leading-relaxed">{config.description}</p>
         <div className="border-border-faint border-t pt-3">
           <p className="text-fg-muted text-xs leading-relaxed">
-            <span className="font-mono text-[10px] tracking-wider text-accent-gold uppercase">
+            <span className="text-accent-gold font-mono text-[10px] tracking-wider uppercase">
               历史案例：
             </span>
             {config.historical}
@@ -334,10 +322,7 @@ export function YieldCurve() {
             <div className="text-fg-muted font-mono text-[9px] tracking-wider uppercase">
               {d.label}
             </div>
-            <div
-              className="font-display text-lg font-semibold"
-              style={{ color: config.color }}
-            >
+            <div className="font-display text-lg font-semibold" style={{ color: config.color }}>
               {d[shape].toFixed(1)}%
             </div>
           </div>

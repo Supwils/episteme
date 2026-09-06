@@ -67,7 +67,9 @@
   font-weight: 600;
   cursor: pointer;
   font-family: var(--sans);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .human-history-root .sim-btn-primary:hover {
@@ -84,7 +86,9 @@
   font-size: 0.9rem;
   cursor: pointer;
   font-family: var(--sans);
-  transition: border-color 0.2s, color 0.2s;
+  transition:
+    border-color 0.2s,
+    color 0.2s;
 }
 
 .human-history-root .sim-btn-secondary:hover {
@@ -114,7 +118,10 @@
   cursor: pointer;
   text-align: left;
   font-family: var(--serif);
-  transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
+  transition:
+    border-color 0.25s,
+    background 0.25s,
+    box-shadow 0.25s;
 }
 
 .human-history-root .sim-choice-card:hover {
@@ -259,7 +266,7 @@
 
 .human-history-root .sim-impact-tag-neutral {
   background: rgba(43, 74, 115, 0.25);
-  color: #6b9bd2;
+  color: var(--sky, #2b4a73);
   border: 1px solid rgba(43, 74, 115, 0.4);
 }
 
@@ -359,7 +366,10 @@
   cursor: pointer;
   text-align: left;
   font-family: var(--serif);
-  transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
+  transition:
+    border-color 0.25s,
+    background 0.25s,
+    box-shadow 0.25s;
 }
 
 .human-history-root .sim-gallery-card:hover {
@@ -415,7 +425,9 @@
   font-weight: 500;
   cursor: pointer;
   text-decoration: none;
-  transition: background 0.2s, border-color 0.2s;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
 }
 
 .human-history-root .sim-link-btn:hover {

@@ -1,18 +1,18 @@
 {
   "workflow": "After any content or graph change, run `pnpm update-graph-snapshot` and commit this file's diff. Unit tests read expected aggregate values from this snapshot instead of hardcoded literals, so regenerating it is the entire maintenance step.",
   "branch": {
-    "nodeCount": 3059,
-    "anchorCount": 245,
-    "inferredBranchCount": 2814,
+    "nodeCount": 3095,
+    "anchorCount": 250,
+    "inferredBranchCount": 2845,
     "maximumDistance": 4,
-    "ambiguousTargetCount": 1905,
+    "ambiguousTargetCount": 1935,
     "maximumCandidateCount": 48,
-    "confidenceCounts": { "curated": 245, "direct": 2194, "contextual": 566, "exploratory": 54 }
+    "confidenceCounts": { "curated": 250, "direct": 2229, "contextual": 562, "exploratory": 54 }
   },
   "terrain": {
     "diagnosticCount": 21,
     "highPriorityDiagnosticCount": 4,
-    "domainCount": 18,
+    "domainCount": 19,
     "domains": {
       "physics": {
         "total": 195,
@@ -167,6 +167,15 @@
         "advancedCount": 18,
         "missingLevels": []
       },
+      "literature": {
+        "total": 36,
+        "levels": [6, 6, 8, 10, 6],
+        "curatedCount": 5,
+        "dominantLevel": 4,
+        "dominantCount": 10,
+        "advancedCount": 16,
+        "missingLevels": []
+      },
       "engineering": {
         "total": 54,
         "levels": [3, 15, 19, 7, 10],
@@ -179,12 +188,12 @@
     }
   },
   "coverage": {
-    "nodeCount": 245,
-    "pathCount": 49,
-    "prerequisiteCount": 196,
-    "establishedDomainCount": 18,
+    "nodeCount": 250,
+    "pathCount": 50,
+    "prerequisiteCount": 200,
+    "establishedDomainCount": 19,
     "previewDomainCount": 0,
-    "goalCount": 49,
+    "goalCount": 50,
     "mainThreadGoalCount": 6
   }
 }

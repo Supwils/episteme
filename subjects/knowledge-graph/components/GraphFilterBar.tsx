@@ -130,7 +130,7 @@ export function GraphFilterBar({
         <button
           type="button"
           onClick={() => setMobileExpanded(true)}
-          className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.06] bg-[#111118]/80 text-white/50 backdrop-blur-xl transition-colors hover:text-white/80"
+          className="border-border-faint bg-bg-floating/80 text-fg-muted hover:text-fg-primary flex h-9 w-9 items-center justify-center rounded-lg border backdrop-blur-xl transition-colors"
           aria-label="搜索"
         >
           <svg
@@ -147,7 +147,7 @@ export function GraphFilterBar({
         <button
           type="button"
           onClick={() => setMobileExpanded(true)}
-          className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.06] bg-[#111118]/80 text-white/50 backdrop-blur-xl transition-colors hover:text-white/80"
+          className="border-border-faint bg-bg-floating/80 text-fg-muted hover:text-fg-primary flex h-9 w-9 items-center justify-center rounded-lg border backdrop-blur-xl transition-colors"
           aria-label="筛选"
         >
           <svg
@@ -178,12 +178,12 @@ export function GraphFilterBar({
         />
         <div className="flex-1" />
         {knowledgeLevel ? (
-          <span className="border border-white/[0.08] px-2 py-1 font-mono text-[10px] text-white/55">
+          <span className="border-border-faint text-fg-muted border px-2 py-1 font-mono text-[10px]">
             L{knowledgeLevel}
           </span>
         ) : null}
         {frontierStatus ? (
-          <span className="border border-white/[0.08] px-2 py-1 font-mono text-[10px] text-white/55">
+          <span className="border-border-faint text-fg-muted border px-2 py-1 font-mono text-[10px]">
             {frontierStatus === "mastered"
               ? "已掌握"
               : frontierStatus === "ready"
@@ -210,9 +210,9 @@ export function GraphFilterBar({
     <div
       className={clsx(
         "flex flex-wrap items-center gap-2 px-3 py-2 sm:gap-3 sm:px-4 sm:py-2.5",
-        "rounded-xl border border-white/[0.06]",
-        "bg-[#111118]/80 backdrop-blur-xl",
-        "shadow-[0_4px_24px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.03)]",
+        "border-border-faint rounded-xl border",
+        "bg-bg-floating/80 backdrop-blur-xl",
+        "shadow-[0_8px_24px_-16px_rgba(0,0,0,0.45)]",
         isMobile && "w-full max-w-full min-w-0 overflow-hidden"
       )}
     >
@@ -224,7 +224,7 @@ export function GraphFilterBar({
         onClose={() => setMobileExpanded(false)}
       />
 
-      <div className="hidden h-5 w-px bg-white/[0.08] sm:block" aria-hidden="true" />
+      <div className="hidden h-5 w-px bg-[var(--hover-bg)] sm:block" aria-hidden="true" />
 
       <TypeFilterDropdown
         selectedType={selectedType}
@@ -247,7 +247,7 @@ export function GraphFilterBar({
         isMobile={isMobile}
       />
 
-      <div className="hidden h-5 w-px bg-white/[0.08] sm:block" aria-hidden="true" />
+      <div className="hidden h-5 w-px bg-[var(--hover-bg)] sm:block" aria-hidden="true" />
 
       <GraphLayoutModeControl value={layoutMode} onChange={onLayoutModeChange} />
 
@@ -264,7 +264,7 @@ export function GraphFilterBar({
         isMobile={isMobile}
       />
 
-      <div className="hidden h-5 w-px bg-white/[0.08] sm:block" aria-hidden="true" />
+      <div className="hidden h-5 w-px bg-[var(--hover-bg)] sm:block" aria-hidden="true" />
 
       <GraphSearch
         searchQuery={searchQuery}
@@ -275,7 +275,7 @@ export function GraphFilterBar({
         searchInputRef={searchInputRef}
       />
 
-      <div className="hidden h-5 w-px bg-white/[0.08] sm:block" aria-hidden="true" />
+      <div className="hidden h-5 w-px bg-[var(--hover-bg)] sm:block" aria-hidden="true" />
 
       <PathFinder
         nodes={nodes}
@@ -316,7 +316,7 @@ function KnowledgeLevelSelect({
   isMobile: boolean;
 }) {
   return (
-    <label className="text-white/45">
+    <label className="text-fg-muted">
       <span className="sr-only">认知阶段筛选</span>
       <select
         value={value ?? ""}
@@ -324,7 +324,7 @@ function KnowledgeLevelSelect({
           const next = Number(event.target.value);
           onChange(next >= 1 && next <= 5 ? (next as KnowledgeLevel) : null);
         }}
-        className="h-8 border border-white/[0.06] bg-[#111118] px-2 text-xs text-white/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6366f1]"
+        className="border-border-faint bg-bg-floating text-fg-muted h-8 border px-2 text-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6366f1]"
         aria-label="认知阶段筛选"
       >
         <option value="">{isMobile ? "全部阶段" : "认知阶段：全部"}</option>
@@ -374,8 +374,8 @@ function TypeFilterDropdown({
           "border transition-all duration-200",
           "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6366f1]",
           isOpen
-            ? "border-white/10 bg-white/[0.04] text-white/80"
-            : "border-white/[0.04] text-white/60 hover:border-white/[0.08] hover:text-white/60"
+            ? "border-border-faint text-fg-secondary bg-[var(--input-bg)]"
+            : "border-border-faint text-fg-muted hover:border-border-subtle hover:text-fg-primary"
         )}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
@@ -401,7 +401,7 @@ function TypeFilterDropdown({
             animate={reducedMotion ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1 }}
             exit={reducedMotion ? { opacity: 0 } : { opacity: 0, y: -4, scale: 0.95 }}
             transition={{ duration: reducedMotion ? 0 : 0.15 }}
-            className="absolute top-full left-0 z-50 mt-1 min-w-[120px] rounded-lg border border-white/[0.08] bg-[#111118]/95 py-1 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl"
+            className="border-border-faint bg-bg-floating absolute top-full left-0 z-50 mt-1 min-w-[120px] rounded-lg border py-1 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl"
             role="listbox"
             aria-label="节点类型筛选"
           >
@@ -416,8 +416,8 @@ function TypeFilterDropdown({
               className={clsx(
                 "w-full px-3 py-1.5 text-left text-xs transition-colors duration-150",
                 selectedType === null
-                  ? "bg-white/[0.06] text-white"
-                  : "text-white/50 hover:bg-white/[0.03] hover:text-white/80"
+                  ? "text-fg-primary bg-[var(--hover-bg)]"
+                  : "text-fg-muted hover:text-fg-primary hover:bg-[var(--input-bg)]"
               )}
             >
               全部类型
@@ -435,8 +435,8 @@ function TypeFilterDropdown({
                 className={clsx(
                   "w-full px-3 py-1.5 text-left text-xs transition-colors duration-150",
                   selectedType === nodeType.id
-                    ? "bg-white/[0.06] text-white"
-                    : "text-white/50 hover:bg-white/[0.03] hover:text-white/80"
+                    ? "text-fg-primary bg-[var(--hover-bg)]"
+                    : "text-fg-muted hover:text-fg-primary hover:bg-[var(--input-bg)]"
                 )}
               >
                 {nodeType.label}

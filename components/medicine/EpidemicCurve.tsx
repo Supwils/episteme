@@ -208,7 +208,7 @@ export function EpidemicCurve() {
       {/* readout */}
       <div className="border-border-faint text-fg-muted grid grid-cols-2 gap-x-4 gap-y-1.5 border-t px-4 py-3 font-mono text-[11px] sm:grid-cols-4 sm:px-6">
         <span>
-          有效传染数 <span style={{ color: effR > 1 ? ACCENT : "#98c379" }}>{effR.toFixed(2)}</span>
+          有效传染数 <span style={{ color: "var(--color-fg-primary)" }}>{effR.toFixed(2)}</span>
         </span>
         <span>
           感染高峰 <span className="text-fg-secondary">第 {sim.peakDay} 天</span>

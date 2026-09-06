@@ -214,6 +214,39 @@
   }
 }
 
+.light .knowledge-graph-page {
+  --kg-bg: #efece4;
+  --kg-surface: rgba(44, 42, 38, 0.04);
+  --kg-border: #e8dfd0;
+  --kg-text: #2c2a26;
+  --kg-text-muted: #5a564f;
+}
+
+.light .kg-title {
+  background: linear-gradient(135deg, #2c2a26, #5a52b0);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.light .kg-filter-btn:hover {
+  border-color: #d8d0c0;
+}
+
+.light .kg-tag {
+  background: rgba(44, 42, 38, 0.05);
+  color: #5a564f;
+}
+
+.light .kg-tooltip {
+  border-color: #e8dfd0;
+  background: var(--color-bg-overlay);
+  box-shadow: 0 12px 28px -18px rgba(80, 60, 30, 0.28);
+}
+
+.light .kg-legend-label {
+  color: #5a564f;
+}
+
 @media (max-width: 640px) {
   .kg-container {
     padding: 16px 12px;

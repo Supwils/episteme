@@ -150,7 +150,7 @@ export function HealthPrioritySensitivity({
                   );
                   return (
                     <td key={costLevel.label} className="px-3 py-4 text-xs">
-                      <span className={included ? "text-[#8ed0aa]" : "text-fg-muted"}>
+                      <span className={included ? "text-fg-primary" : "text-fg-muted"}>
                         {included ? "入选" : "未入选"}
                       </span>
                       <span className="text-fg-disabled mt-1 block font-mono">
@@ -187,7 +187,7 @@ function SensitivityRange({
         <label htmlFor={inputId} className="text-fg-primary font-medium">
           {label}
         </label>
-        <output className="font-mono text-xs text-[#8ed0aa]">{display}</output>
+        <output className="text-fg-primary font-mono text-xs">{display}</output>
       </div>
       <input
         id={inputId}

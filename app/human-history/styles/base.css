@@ -69,6 +69,12 @@
   --border-soft: rgba(139, 105, 20, 0.09);
   --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 18px 40px -24px rgba(96, 60, 20, 0.35);
   --shadow-hover: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 26px 60px -24px rgba(96, 60, 20, 0.45);
+  --color-bg-deep: var(--bg-deep);
+  --color-bg-near: var(--silk);
+  --color-bg-panel: var(--bg-card);
+  --color-bg-elevated: var(--bg-elev);
+  --color-bg-floating: var(--silk);
+  --color-bg-base: var(--bg);
 }
 
 .light .human-history-root::before {

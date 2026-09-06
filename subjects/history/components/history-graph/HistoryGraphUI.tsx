@@ -18,11 +18,11 @@ export function FilterSelect({
 }) {
   return (
     <div className="flex items-center gap-2">
-      <label className="text-[10px] text-white/55">{label}</label>
+      <label className="text-fg-muted text-[10px]">{label}</label>
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="rounded-md border border-white/[0.08] bg-[#0c0a09] px-2 py-1 text-xs text-white/70 outline-none focus:border-amber-500/30"
+        className="border-border-faint bg-bg-deep text-fg-secondary rounded-md border px-2 py-1 text-xs outline-none focus:border-amber-500/30"
       >
         <option value="all">全部</option>
         {options.map((opt) => (
@@ -84,13 +84,13 @@ export function DetailPanel({
         role="dialog"
         aria-modal="true"
         aria-label={`${node.label} 详情`}
-        className={`fixed z-50 flex flex-col overflow-hidden border-white/[0.08] shadow-[0_0_60px_rgba(0,0,0,0.45)] ${
+        className={`border-border-faint fixed z-50 flex flex-col overflow-hidden shadow-[0_0_60px_rgba(0,0,0,0.45)] ${
           isMobile
             ? "inset-x-0 top-12 bottom-0 rounded-t-2xl"
             : "inset-0 md:inset-auto md:top-0 md:right-0 md:h-full md:max-w-[380px] md:border-l"
         }`}
         style={{
-          background: "rgba(15, 15, 25, 0.85)",
+          background: "var(--color-bg-overlay)",
           backdropFilter: "blur(24px) saturate(1.2)",
         }}
         initial={reducedMotion ? { opacity: 0 } : isMobile ? { y: "100%" } : { x: "102%" }}
@@ -100,7 +100,7 @@ export function DetailPanel({
       >
         {isMobile && (
           <div className="flex shrink-0 justify-center py-2" aria-hidden>
-            <div className="h-1 w-10 rounded-full bg-white/20" />
+            <div className="bg-fg-disabled h-1 w-10 rounded-full" />
           </div>
         )}
 
@@ -111,7 +111,7 @@ export function DetailPanel({
             type="button"
             onClick={onClose}
             aria-label="关闭详情面板"
-            className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.04] text-white/50 transition-colors hover:border-white/[0.15] hover:bg-white/[0.08] hover:text-white/80 md:h-8 md:w-8"
+            className="border-border-faint bg-bg-floating/40 text-fg-muted hover:border-border-subtle hover:bg-bg-near hover:text-fg-primary flex h-11 w-11 items-center justify-center rounded-lg border transition-colors md:h-8 md:w-8"
           >
             <svg
               viewBox="0 0 16 16"
@@ -140,16 +140,16 @@ export function DetailPanel({
               >
                 {NODE_TYPE_LABELS[node.type]}
               </span>
-              <h2 className="mt-2 text-[1.5rem] leading-tight font-bold text-white/95">
+              <h2 className="text-fg-primary mt-2 text-[1.5rem] leading-tight font-bold">
                 {node.label}
               </h2>
-              <div className="mt-1 flex flex-wrap items-center gap-3 text-[12px] text-white/55">
+              <div className="text-fg-muted mt-1 flex flex-wrap items-center gap-3 text-[12px]">
                 {node.year !== undefined && (
                   <span>{node.year < 0 ? `公元前${Math.abs(node.year)}` : node.year}年</span>
                 )}
                 {node.region && (
                   <>
-                    <span aria-hidden className="text-white/20">
+                    <span aria-hidden className="text-fg-disabled">
                       ·
                     </span>
                     <span>{node.region}</span>
@@ -157,7 +157,7 @@ export function DetailPanel({
                 )}
                 {connectedNodes.length > 0 && (
                   <>
-                    <span aria-hidden className="text-white/20">
+                    <span aria-hidden className="text-fg-disabled">
                       ·
                     </span>
                     <span>{connectedNodes.length} 个关联</span>
@@ -174,7 +174,7 @@ export function DetailPanel({
                   {node.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-md bg-white/[0.04] px-2 py-0.5 font-mono text-[10px] tracking-wide text-white/50"
+                      className="bg-bg-near text-fg-muted rounded-md px-2 py-0.5 font-mono text-[10px] tracking-wide"
                     >
                       {tag}
                     </span>
@@ -187,7 +187,7 @@ export function DetailPanel({
               <motion.div
                 variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
               >
-                <p className="text-[13px] leading-relaxed text-white/60">{node.description}</p>
+                <p className="text-fg-secondary text-[13px] leading-relaxed">{node.description}</p>
               </motion.div>
             )}
 
@@ -197,7 +197,7 @@ export function DetailPanel({
               >
                 <a
                   href={detailUrl}
-                  className="inline-flex w-fit items-center gap-2 rounded-lg border px-4 py-2.5 text-[13px] font-medium transition-all hover:bg-white/[0.06]"
+                  className="hover:bg-bg-near inline-flex w-fit items-center gap-2 rounded-lg border px-4 py-2.5 text-[13px] font-medium transition-all"
                   style={{ borderColor: `${color}40`, background: `${color}15`, color }}
                 >
                   查看详情
@@ -220,8 +220,8 @@ export function DetailPanel({
               <motion.div
                 variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
               >
-                <div className="border-t border-white/[0.06] pt-4">
-                  <h3 className="mb-3 font-mono text-[10px] tracking-[0.3em] text-white/45 uppercase">
+                <div className="border-border-faint border-t pt-4">
+                  <h3 className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.3em] uppercase">
                     关联节点
                   </h3>
                   <div className="flex flex-col gap-1">
@@ -233,7 +233,7 @@ export function DetailPanel({
                           key={connected.id}
                           type="button"
                           onClick={() => onNodeClick(connected.id)}
-                          className="group flex items-start gap-3 rounded-lg border border-transparent bg-white/[0.02] px-3 py-2.5 text-left transition-all hover:border-white/[0.08] hover:bg-white/[0.05]"
+                          className="group hover:border-border-faint hover:bg-bg-near flex items-start gap-3 rounded-lg border border-transparent bg-transparent px-3 py-2.5 text-left transition-all"
                         >
                           <span
                             aria-hidden
@@ -241,16 +241,16 @@ export function DetailPanel({
                             style={{ backgroundColor: nodeColor }}
                           />
                           <div className="min-w-0 flex-1">
-                            <span className="block truncate text-[13px] font-medium text-white/80 group-hover:text-white/95">
+                            <span className="text-fg-secondary group-hover:text-fg-primary block truncate text-[13px] font-medium">
                               {connected.label}
                             </span>
                             {edge?.label && (
-                              <span className="mt-0.5 block text-[11px] text-white/45">
+                              <span className="text-fg-muted mt-0.5 block text-[11px]">
                                 {edge.label}
                               </span>
                             )}
                           </div>
-                          <span className="mt-1 shrink-0 text-[10px] text-white/55">
+                          <span className="text-fg-muted mt-1 shrink-0 text-[10px]">
                             {NODE_TYPE_LABELS[connected.type]}
                           </span>
                         </button>

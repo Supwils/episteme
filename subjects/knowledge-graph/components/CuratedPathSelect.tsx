@@ -14,13 +14,13 @@ export function CuratedPathSelect({ paths, value, onChange, isMobile }: CuratedP
   const domainSpines = paths.filter((path) => path.scope === "domain-spine");
 
   return (
-    <label className="text-white/45">
+    <label className="text-fg-muted">
       <span className="sr-only">规范知识路径</span>
       <select
         value={value ?? ""}
         onChange={(event) => onChange(event.target.value || null)}
         aria-label="规范知识路径"
-        className="h-8 max-w-[190px] border border-white/[0.06] bg-[#111118] px-2 text-xs text-white/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400/70"
+        className="border-border-faint bg-bg-floating text-fg-muted h-8 max-w-[190px] border px-2 text-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400/70"
       >
         <option value="">{isMobile ? "选择知识路径" : "规范路径：自由探索"}</option>
         <optgroup label="六条全景主线">

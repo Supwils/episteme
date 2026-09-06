@@ -27,6 +27,7 @@ const DOMAIN_PAGES = [
   ["法学", "/law", "/law/legal-traditions/civil-vs-common-law"],
   ["艺术", "/arts", "/arts/architecture/building-as-structure"],
   ["工程与技术", "/engineering", "/engineering/frontiers/safety-engineering"],
+  ["文学与叙事", "/literature", "/literature/narrative-basics/what-is-a-story"],
 ];
 
 const PAGES = [
@@ -41,6 +42,10 @@ const PAGES = [
   ["政治学坐标交互", "/political-science/concepts/ideology"],
   ["语言学 IPA 交互", "/linguistics/sounds-and-signs/phonetics-and-ipa"],
   ["生命科学物种页", "/life-science/species/octopus"],
+  ["电网潮流实验室", "/engineering/grid-flow"],
+  ["透视实验室", "/arts/perspective-lab"],
+  ["叙事结构图谱", "/literature/narrative-graph"],
+  ["格律实验室", "/literature/meter-lab"],
 ];
 const SELECTED_PAGES = process.env.SCAN_PATH
   ? PAGES.filter(([, path]) => path === process.env.SCAN_PATH)
