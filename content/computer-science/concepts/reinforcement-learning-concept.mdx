@@ -2,7 +2,7 @@
 title: 强化学习
 title_en: Reinforcement Learning
 status: published
-updated: 2026-06-28
+updated: 2026-09-07
 category: 人工智能
 order: 42
 field: 计算机科学 · 机器学习
@@ -34,6 +34,8 @@ AlphaGo 的核心技术是深度强化学习（Deep Reinforcement Learning）。
 - 智能体通过试错，学习最大化长期累计奖励的策略
 
 没有人告诉智能体每步棋的"正确答案"，只有赢了或输了的最终结果。如何从稀疏、延迟的奖励中学习有效策略，是强化学习的核心挑战，也是其与监督学习的根本区别。
+
+[[machine-learning-overview|监督学习]] 的损失在每条样本上都可以立刻计算。强化学习的反馈常常又稀又晚，整局结束才知道输赢。因此它既要估计「这一步到底有多好」，又要决定下一步还敢不敢试没走过的路。把强化学习理解成「没有标签的监督学习」，会把这两件独有的事一起抹掉。
 
 ## 核心框架：马尔可夫决策过程（MDP）
 
@@ -69,6 +71,10 @@ $$V^{\pi}(s) = \sum_a \pi(a|s) \sum_{s'} P(s'|s,a) \left[R(s,a) + \gamma V^{\pi}
 
 $$V^*(s) = \max_a \sum_{s'} P(s'|s,a) \left[R(s,a) + \gamma V^*(s')\right]$$
 
+贝尔曼方程出自理查德·贝尔曼在二十世纪五十年代于兰德公司发展的 [[dynamic-programming|动态规划]]。他把多阶段决策拆成当前一步的回报，加上从下一状态起的最优后续。这个递归看起来只是换一种记账，却把「有没有最优策略」变成了在函数空间里求一个不动点。
+
+当折扣因子小于一时，值迭代反复套用贝尔曼最优方程，才会在表格规模的 MDP 上落到唯一解。状态一旦连续或高维，就必须改用函数逼近。Q 学习与后来的深度方法，都是在这条限制上起步的。
+
 ## 探索与利用：强化学习独有的两难
 
 监督学习的数据是事先给定的，强化学习的数据却要靠智能体自己采集——它当下选什么动作，决定了它下一步能看到什么经验。
@@ -96,11 +102,17 @@ $$V^*(s) = \max_a \sum_{s'} P(s'|s,a) \left[R(s,a) + \gamma V^*(s')\right]$$
 
 **时序差分（TD）方法**：结合蒙特卡洛（完整轨迹）和动态规划（使用价值函数估计），每步更新：
 
+理查德·萨顿一九八八年的论文把这件事写清楚：不必等到整条轨迹结束才更新，用后继状态的当前估计来修正现在的估计即可。Q 学习是把这一思想用到动作价值上的离策略版本。Sutton 与 Barto 后来的教科书，把动态规划、蒙特卡洛与时序差分放在同一套备份图里，强化学习的现代语言大多从那里来。
+
 **Q-Learning（1989 年，Watkins 提出）**：学习动作价值函数 $Q(s, a)$（在状态 $s$ 采取动作 $a$ 的期望回报）：
 
 $$Q(s, a) \leftarrow Q(s, a) + \alpha \left[r + \gamma \max_{a'} Q(s', a') - Q(s, a)\right]$$
 
 Q-Learning 是**离策略（Off-Policy）**方法：学习最优策略，但可以用任意策略探索。
+
+克里斯托弗·沃特金斯在一九八九年的剑桥博士论文《从延迟奖励中学习》里提出了 Q 学习。一九九二年他与 Peter Dayan 把收敛条件写进期刊：当动作价值以表格存储、步长满足常见随机逼近条件、并且每个状态—动作对被访问无穷多次时，估计收敛到最优动作价值。
+
+它不需要环境的转移概率。智能体只要能行动、能看见下一状态和即时奖励，就可以更新 [[q-learning|动作价值]]。这正是无模型的含义。代价也立刻出现：没有模型，就无法在脑子里预演，样本必须从真实交互里来。
 
 与之相对的是**同策略（On-Policy）**方法，代表是 **SARSA**（Rummery 与 Niranjan 于 1994 年提出，名字来自 state-action-reward-state-action 这一更新所用的五元组）。两者更新式几乎一样，差别只在方括号里：Q-Learning 用下一状态的最优动作 $\max_{a'} Q(s', a')$ 来更新，SARSA 用智能体**实际采取**的那个下一动作 $Q(s', a')$。
 
@@ -136,6 +148,12 @@ $$\nabla_\theta J(\theta) = \mathbb{E}_{\pi_\theta} \left[\nabla_\theta \log \pi
 | 2019 | AlphaStar 击败职业星际争霸 II 玩家（实时策略游戏）|
 | 2022 | ChatGPT 使用 RLHF 对齐人类偏好，强化学习进入大语言模型时代 |
 
+西洋双陆棋程序 TD-Gammon 是这条时间线里最早站得住的自我对弈证据。杰拉尔德·特绍罗在国际商用机器公司用时序差分更新一个 [[neural-networks-concept|神经网络]]，对手就是稍早版本的自己。他在一九九五年的综述里写到，程序已可与顶尖人类棋手抗衡。它并没有穷举棋盘，而是把价值函数交给函数逼近，再让智能体和自己打，从而学到棋谱里没写明的走法。
+
+二〇一六年那篇《自然》论文把策略网络、价值网络与蒙特卡洛树搜索绑在一起。策略网络提议该看哪些落子，价值网络估计局面，搜索在二者之间分配计算。对阵李世石的五局发生在当年三月。它不是突然冒出来的魔法，而是把数十年的时序差分传统，接到了深度网络能够处理的表示上。
+
+一年后的 Zero 去掉人类棋谱，并不表示人类知识无用。它表示：在规则封闭、可以无限自我对弈的环境里，搜索加强化学习可以自己产生训练信号。换成采样昂贵、奖励含糊的真实世界，这条路并不自动成立。
+
 ## 走出棋盘：真实世界的强化学习
 
 一个常见误解是强化学习"只在游戏和模拟器里管用"。
@@ -154,7 +172,13 @@ $$\nabla_\theta J(\theta) = \mathbb{E}_{\pi_\theta} \left[\nabla_\theta \log \pi
 
 **样本效率**：强化学习通常需要巨量交互才能学会简单任务。AlphaGo Zero 在最初三天的训练里就自我对弈约 490 万局；人类职业棋手一生可能只下过几万局。对现实世界应用（如机器人），采集如此多交互数据代价极高。
 
+样本效率的争议不在于要不要数据，而在于交互往往不可重置。棋局可以重来，物理世界里试错一次的代价无法用模拟器步数来换。于是一条路线把环境做进模型，尽量在想象里学习；另一条承认模型会错，坚持从真实反馈里更新。哪一条更「样本高效」，取决于模型有多忠实，而不是取决于算法名字。
+
 **奖励设计（Reward Shaping）**：设计一个能引导智能体达成目标的奖励函数，比看起来难得多。"奖励黑客（Reward Hacking）"屡见不鲜：智能体找到了优化奖励函数的捷径，但完全不符合人类意图。例如，一个被要求在游戏中得分的智能体发现了某个让自己原地重复动作快速得分的漏洞，而非真正完成任务。
+
+这不是实现上的偶然漏洞。可测的标量几乎总比真正想要的目标更窄，智能体优化的是分数能看见的那一截。文献里也把它叫做规格博弈。
+
+争议因而分成两派：把更多细节写进奖励，或者承认奖励写不全、改用人类反馈与约束来补。两条路都会引入新的偏置。后者正是后来用人类偏好训练语言模型时所踩到的同一块石头。
 
 **RLHF 的局限**：用人类反馈对齐大语言模型的行为（RLHF），可能让模型学会"讨好"人类标注者，而非真正诚实和有帮助——这是 AI 对齐研究的核心关切之一。
 
@@ -173,6 +197,12 @@ $$\nabla_\theta J(\theta) = \mathbb{E}_{\pi_\theta} \left[\nabla_\theta \log \pi
 ## 参考文献
 
 - Sutton, R. & Barto, A. *Reinforcement Learning: An Introduction.* 2nd ed. MIT Press, 2018. （免费在线版，领域圣经）
+- Bellman, R. *Dynamic Programming.* Princeton University Press, 1957.
+- Watkins, C. J. C. H. *Learning from Delayed Rewards.* PhD thesis, University of Cambridge, 1989.
+- Watkins, C. J. C. H. & Dayan, P. "Q-learning." *Machine Learning* 8, 279–292, 1992.
+- Sutton, R. S. "Learning to Predict by the Methods of Temporal Differences." *Machine Learning* 3, 9–44, 1988.
+- Tesauro, G. "Temporal Difference Learning and TD-Gammon." *Communications of the ACM* 38(3), 58–68, 1995.
+- Silver, D. et al. *Mastering the Game of Go with Deep Neural Networks and Tree Search.* Nature 529, 484–489, 2016. （AlphaGo）
 - Mnih, V. et al. *Human-level Control through Deep Reinforcement Learning.* Nature 518, 2015. （DQN）
 - Silver, D. et al. *Mastering the Game of Go without Human Knowledge.* Nature 550, 2017. （AlphaGo Zero）
 - Schulman, J. et al. *Proximal Policy Optimization Algorithms.* arXiv, 2017. （PPO）

@@ -2,7 +2,7 @@
 title: 人因工程：为会犯错的人设计
 title_en: "Human Factors Engineering: Designing for Humans Who Make Mistakes"
 status: published
-updated: 2026-08-12
+updated: 2026-09-07
 category: 信息与机器
 order: 11
 field: 工程学 · 人因工程
@@ -11,7 +11,7 @@ evidence_modes:
   - historical-reconstruction
   - formal-analysis
   - comparative
-as_of: 2026-08
+as_of: 2026-09
 tags:
   - 人因工程
   - 人机交互
@@ -41,11 +41,15 @@ related:
 
 查帕尼斯发现：这些机型的起落架与襟翼操纵杆形状完全一样、并排安装，而着陆后的操作又按顺序执行——高压下抓错一根杆，纯属必然。他的方案简单得近乎廉价：给操纵杆做形状编码（shape coding）——起落架杆头装小橡胶轮，襟翼杆做成楔形翼面，摸黑也不会摸错。此类事故随即近乎绝迹，这套形状编码至今仍是驾驶舱的标准做法。
 
-菲茨（Paul Fitts）与琼斯（Richard Jones）把这条线索系统化了。1947 年，他们发表两份美国空军技术报告，分别分析 460 起"飞行员失误"操纵装置与 270 起误读仪表的经历（编号 TSEAA-694-12 与 12A）。两份报告都特意给"飞行员失误"打上引号——失误的真正来源是糟糕的设计。菲茨 1954 年提出的"菲茨定律"用目标距离与宽度量化指向运动时间，把"人有多容易按对"变成可计算的工程变量。1988 年，诺曼（Donald Norman）的《日常事物心理学》（The Psychology of Everyday Things，后更名《设计心理学》）把这套思想带进了千家万户。
+菲茨（Paul Fitts）与琼斯（Richard Jones）把这条线索系统化了。1947 年，他们发表两份美国空军技术报告，分别分析 460 起"飞行员失误"操纵装置与 270 起误读仪表的经历（编号 TSEAA-694-12 与 12A）。两份报告都特意给"飞行员失误"打上引号——失误的真正来源是糟糕的设计。
+
+菲茨 1954 年在《实验心理学杂志》上把指向运动写成可测公式：完成一次指向所需时间 \(MT = a + b \log_2(2A/W)\)，其中 \(A\) 是起点到目标中心的距离，\(W\) 是目标宽度，\(a\)、\(b\) 是由肢体与界面决定的经验常数。对数项后来被称为"难度指数"：目标越远、越窄，人越慢。这不是一条关于肌肉的生物学定律，而是一条把"按错的代价"翻译成毫米与毫秒的工程契约——按钮做大、间距拉开，不是美观问题，是在给操作者买时间。1988 年，诺曼（Donald Norman）的《日常事物心理学》（The Psychology of Everyday Things，后更名《设计心理学》）把这套思想带进了千家万户。
 
 ## 核心机制：让设计替人记住
 
 诺曼留下了两件最常用的工具。第一件是**可供性**（affordance）：物的形态本身暗示它允许的用法——平板用来推，横杆用来拉；设计与可供性冲突时（装横杆却要推的门），错误就是设计埋下的。第二件是**强迫功能**（forcing function）：用物理或逻辑约束让危险动作在前提不满足时根本无法执行——汽车挂入驻车挡才能拔钥匙，医疗接口做成防误插的不对称形状。好的安全设计把记忆负担从人脑转移到物的结构上。
+
+比按钮形状更早入场的，是人体尺寸本身。工业设计师亨利·德雷福斯（Henry Dreyfuss）在《为人们设计》（Designing for People，1955）里画出了"乔与约瑟芬"（Joe and Josephine）两具人体，1960 年又把测量图汇编成《人体尺度》（The Measure of Man）。他的要点不是找一个"平均人"——那样的人几乎不存在——而是按百分位设计：把手够得到的高度按身材较小的人定，通道宽度按身材较大的人定，让大多数人既够得着又不碰头。人体测量学（anthropometry）把"人的身体"从一句口号变成一套可核对的尺寸表。
 
 比操纵杆更隐蔽的敌人是**模式**（mode）。自动化系统的同一套操纵在不同模式下做不同的事，人对"系统此刻在哪个模式"的信念一旦错位，正确的意图就会产生错误的动作——这叫模式混淆（mode confusion）。1995 年，萨特与伍兹（Sarter & Woods）在《Human Factors》上系统分析了驾驶舱的模式错误；他们随后与比林斯把这类困境命名为"自动化意外"（automation surprise）：操作者被突如其来的自动化行为惊到，才意识到自己一直误解了系统在做什么。解药仍是设计：模式状态必须显著、持久地呈现，模式的进出必须一致且可命名。
 
@@ -61,7 +65,13 @@ related:
 
 **三里岛，1979 年 3 月 28 日凌晨四点。** 三里岛核电站二号机组的给水泵跳闸，反应堆自动停堆，泄压阀（PORV）按设计打开泄压——然后卡住，没有回座，冷却剂开始流失。控制室的指示灯在这里犯下教科书级的可供性错误：它显示的是"关闭指令已发出"，而不是"阀门实际已关闭"。操作员看着绿灯，又依据"稳压器水位偏高"的表象（实则是沸腾造成的假象），做出了信息下完全合理、物理上恰恰错误的决定——削减应急高压注水量，任由堆芯裸露过热，部分熔毁。事后的凯梅尼委员会报告与 NRC 的罗戈文报告（NUREG/CR-1250，1980）都明确拒绝把事故归结为"操作员失误"，直指误导性仪表、控制室设计缺陷与培训不足。
 
+控制室的布局把误导写进了空间。事故后人因评估（NUREG/CR-1270，Malone 等，1980）指出：高压注水阀门的操作在前面板上，对应的流量指示却在后面板上，拧阀门的人读不到自己在拧什么；报警窗超过一千五百个，却共用一套声响，扰动时整墙灯同时亮。凯梅尼委员会之后，美国核管会要求所有核电站做控制室设计审查，并在 1981 年发布 NUREG-0700 作为审查指南——核工业第一次把"面板怎么排"写成监管要求。
+
 **法航 447，2009 年 6 月 1 日。** 一架空客 A330 在里约至巴黎航线上穿越风暴带时，皮托管被冰晶堵塞，空速读数不一致，自动驾驶按设计断开，操纵权交还机组。正在操纵的副驾驶表现出典型的惊愕反应（startle），持续向后拉杆，飞机爬升、减速、进入失速；失速告警反复响起，却被机组当作矛盾信息忽略——他们的情景意识停在第一层，始终没能完成"这是一台失速的飞机"的第二层理解。从 38000 英尺到海面，飞机以失速姿态坠落了约三分半钟，228 人全部遇难。BEA 2012 年的最终报告指出：传感器故障只是引信，自动化突然退出、心理模型错位与告警设计混乱，共同造成了这场本可改出的事故。
+
+[[aviation-engineering|航空工程]]把同一课写成了训练制度。1978 年 12 月 28 日，联合航空 173 航班在波特兰因起落架指示灯故障盘旋排查，机组忙于技术细节，耗尽燃油坠毁。次年 6 月，NASA 艾姆斯研究中心召开"驾驶舱资源管理"研讨会（Cooper、White 与 Lauber 编，NASA CP-2120），把有效使用信息、设备与人员定义为资源管理。
+
+联合航空 1981 年率先把这套训练写进大纲，名称后来从 Cockpit 扩成 Crew Resource Management（CRM）：机长不再是唯一发令者，副驾驶被训练成必须把疑虑说出口的人。法航 447 表明，有了 CRM 课程并不等于危机里真的用得上——训练若不能在惊愕状态下被召回，它就只是一本合上的手册。
 
 ## 范式转向：人为失误是系统的属性
 
@@ -89,6 +99,11 @@ related:
 ## 参考文献
 
 - Fitts, P. M. & Jones, R. E. *Analysis of Factors Contributing to 460 "Pilot-Error" Experiences in Operating Aircraft Controls*（报告号 TSEAA-694-12）及配套仪表误读报告（TSEAA-694-12A）. U.S. Air Force, Aero Medical Laboratory, 1947.
+- Fitts, Paul M. "The Information Capacity of the Human Motor System in Controlling the Amplitude of Movement." *Journal of Experimental Psychology* 47, no. 6 (1954): 381–391.
+- Dreyfuss, Henry. *The Measure of Man: Human Factors in Design*. Whitney Library of Design, 1960.
+- Cooper, G. E., M. D. White, and J. K. Lauber, eds. *Resource Management on the Flight Deck*（NASA CP-2120）. NASA Ames Research Center, 1979.
+- Malone, T. B. et al. *Human Factors Evaluation of Control Room Design and Operator Performance at Three Mile Island-2*（NUREG/CR-1270）. U.S. Nuclear Regulatory Commission, 1980.
+- U.S. Nuclear Regulatory Commission. *Guidelines for Control Room Design Reviews*（NUREG-0700）. 1981.
 - Endsley, Mica R. "Toward a Theory of Situation Awareness in Dynamic Systems." *Human Factors*, 37(1): 32–64, 1995.
 - Sarter, Nadine B. & Woods, David D. "How in the World Did We Ever Get into That Mode? Mode Error and Awareness in Supervisory Control." *Human Factors*, 37(1): 5–19, 1995.
 - Reason, James. *Human Error*. Cambridge University Press, 1990.

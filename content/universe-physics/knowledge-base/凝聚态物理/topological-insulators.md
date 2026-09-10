@@ -6,7 +6,7 @@ era: modern
 tags:
   [凝聚态物理, 拓扑绝缘体, 拓扑物质, 时间反演对称性, 自旋-轨道耦合, 表面态, 狄拉克锥, 量子霍尔效应]
 status: published
-updated: 2026-06-16
+updated: 2026-09-09
 related: [topological-qubits-majorana, room-temperature-superconductor]
 ---
 
@@ -40,6 +40,8 @@ related: [topological-qubits-majorana, room-temperature-superconductor]
 
 2007年，傅亮（Liang Fu）、凯恩和梅勒将理论推广到三维，预言了三维时间反演不变的拓扑绝缘体，具有狄拉克锥形表面态（Dirac cone surface states）。2009年，张海军（Haijun Zhang）、刘朝鑫（Chao-Xing Liu）等人预言 Bi$_2$Se$_3$、Bi$_2$Te$_3$、Sb$_2$Te$_3$（硒化铋、碲化铋、碲化锑）一类层状化合物是理想的三维拓扑绝缘体，表面态只有单个狄拉克锥、其狄拉克点位于布里渊区 $\Gamma$ 点。2008—2009年，多个实验组用角分辨光电子能谱（ARPES）直接观测到Bi$_2$Se$_3$ 等材料的表面狄拉克锥，确认了三维拓扑绝缘体的实验实现。
 
+维尔茨堡实验看见的是量子阱边缘电导，还不是三维表面的狄拉克锥。硒化铋家族把目标换成体带隙约 $0.3\,\mathrm{eV}$、表面只有单个锥的三维强拓扑绝缘体，角分辨光电子能谱随即在 $\Gamma$ 点拍到线性色散。输运仍然受体载流子污染，能谱却直接看见带翻转留下的表面态——对齐靠的是可计算的 $\mathbb{Z}_2$，不是偶然的表面氧化。
+
 ---
 
 ## Z₂不变量、带翻转与自旋-动量锁定：拓扑表面态的由来
@@ -51,6 +53,16 @@ related: [topological-qubits-majorana, room-temperature-superconductor]
 关键物理机制是**自旋-轨道耦合**（spin-orbit coupling，SOC）。在重元素材料（如铋、锑、碲化物）中，电子在绕核运动时感受到强大的有效磁场（由相对论效应产生），这一等效磁场与电子自旋强烈耦合，导致能带结构发生"翻转"（band inversion）：原本在价带的原子轨道（如Bi的p轨道）与原本在导带的轨道（如Se的s轨道）发生交叉，改变了能带的拓扑性质。
 
 **表面狄拉克锥**：拓扑绝缘体的表面态色散关系在动量空间形成狄拉克锥，即能量 $E$ 与二维波矢 $\mathbf{k}$ 满足 $E = \pm\hbar v_F |\mathbf{k}|$（$v_F$ 是费米速度），类似于石墨烯或高能物理中的相对论性狄拉克费米子。关键区别是：拓扑绝缘体表面态的自旋与动量锁定（spin-momentum locking）——电子自旋的方向被其运动方向唯一确定，从而对正向背向散射免疫（背向散射需要同时反转动量和自旋，但时间反演不变性禁止了这种散射）。
+
+$\mathbb{Z}_2$ 不是又一个能带填充数。时间反演把布洛赫态编成克拉默斯二重态，三维布里渊区里有八个时间反演不变动量；在同时具有空间反演对称的晶体里，傅亮与凯恩证明，只要看这些点上占据态的宇称本征值乘积，就能读出 $\nu_0$。乘积为奇，就是强拓扑绝缘体：无论切哪一面，表面都必须留下奇数个狄拉克锥，才能把体内的拓扑亏空补上。弱拓扑绝缘体的另外三个弱指标描述的是层层堆叠的二维量子自旋霍尔态，某些面可以没有表面态，无序也更容易把它们局域化掉。
+
+带翻转是让这个乘积改符号的微观动作。没有强自旋–轨道耦合时，硒化铋在 $\Gamma$ 点是普通的半导体排序：阴离子 $p$ 轨道构成价带顶，阳离子轨道构成导带底。铋、锑、碲这些重原子把有效耦合拉到电子伏特量级，两个带在 $\Gamma$ 点交叉再分开，宇称交换，$\mathbb{Z}_2$ 从 0 翻到 1。
+
+二维的 HgTe/CdTe 量子阱是同一逻辑的薄膜版：阱厚越过约 $6.3\,\mathrm{nm}$，$E1$ 与 $H1$ 子带交叉，边缘出现一对螺旋通道。翻转发生在高对称点，所以用角分辨光电子能谱看 $\Gamma$ 点附近的色散，比输运更容易一眼认出拓扑相。量子阱本身仍是半导体异质结，见[[semiconductor-physics|半导体物理]]。
+
+自旋–动量锁定把表面电子变成螺旋型狄拉克费米子：动量沿 $+x$，自旋就指向垂直于动量的方向（手性由材料决定），背向散射等于同时翻转 $\mathbf{k}$ 与自旋。时间反演对称禁止非磁性杂质提供这种矩阵元，所以表面态对弱无序稳健；磁性杂质或外磁场一旦破掉时间反演，间隙可以打开，锁定随之失效。这与石墨烯不同：石墨烯有谷简并，没有这种由体拓扑强制的自旋纹理。锁定是输运上不容易被局域化的原因，也是自旋电子学感兴趣的原因——电流本身带着自旋极化，不必再外加铁磁电极。
+
+没有反演对称时，宇称乘积这一捷径失效，必须用贝里联络在半个布里渊区上的积分来读 $\mathbb{Z}_2$，数值上更麻烦，拓扑类却不变。带翻转仍然是改符号的物理机制，只是判据换了计算工具。
 
 ---
 
@@ -66,6 +78,9 @@ related: [topological-qubits-majorana, room-temperature-superconductor]
 
 **Majorana费米子之争**：半导体纳米线与超导体的界面理论上支持Majorana束缚态（Majorana zero modes）——一种自身即为反粒子的准粒子，是拓扑量子计算的理想量子比特。与微软合作的代尔夫特团队（Kouwenhoven 等）在 InSb/Al 纳米线中宣称观测到"量子化 Majorana 电导"，发表于2018年《自然》（Zhang et al., "Quantized Majorana conductance"），但因被独立研究者发现数据选取与处理存在问题，该文于2021年被《自然》撤稿。这一事件重创了该领域的可信度，并抬高了后续所有 Majorana 实验的证据门槛，截至2025年仍无被广泛接受的 Majorana 零模确认实验。
 
+关于那篇已撤稿的电导论文，公开记录写到数据选取与处理经不起复核，编辑部于 2021 年撤回。实验室未发表的原始笔记、内部审查的未核细节不属于可核验来源，这里不转述。此后该方向的证据门槛被抬高，并不改变 $\mathbb{Z}_2$ 分类与表面狄拉克锥本身已经成立的部分。
+体电导污染不是小瑕疵，而是把「拓扑」从能谱事实变成器件事实时必须迈过的门槛。硒空位把费米能级顶进导带，表面通道与体通道并联；若不把化学势压回带隙，四探针测到的往往是体电阻的温度依赖，而不是螺旋表面态的特征。实验上常用掺杂补偿、静电栅压或薄膜减薄来压体载流子，但补偿过头又会引入散射中心——表面态对磁性杂质敏感，对非磁性杂质相对稳健，二者不能混为一谈。外尔半金属把故事从「有隙绝缘体」推到「无能隙半金属」：体内外尔点成对出现，表面费米弧把它们在投影面上连起来；TaAs 族的确认说明拓扑分类不限于有隙相，但输运上的手性反常同样要先扣掉体贡献才能站稳。Majorana 路线则提醒另一条纪律：拓扑预言可以漂亮，实验声明必须经得起原始数据与独立复现；撤稿抬高的是证据门槛，不是 $\mathbb{Z}_2$ 本身。
+
 ---
 
 ## 拓扑物质的"门捷列夫表"：十重分类与2016年诺贝尔奖
@@ -73,6 +88,14 @@ related: [topological-qubits-majorana, room-temperature-superconductor]
 **标题：拓扑物质的"门捷列夫元素周期表"——十重分类与未来应用**
 
 拓扑绝缘体的发现触发了对所有量子物质的系统拓扑分类。2008—2010年，多个理论组（Schnyder、Ryu、Furusaki、Ludwig；Kitaev）建立了拓扑绝缘体和超导体的"十重分类"（tenfold way / AZ分类）：根据时间反演对称性、粒子-空穴对称性和手征对称性的有无与类型，将所有量子系统分为10个对称类，每类在不同空间维度有不同的拓扑不变量。这一分类方案被喻为凝聚态物理的"拓扑门捷列夫表"。
+
+十重分类把对称性收成三种：时间反演、粒子–空穴、手征。每种可以是无、平方为 $+1$ 的反幺正、或平方为 $-1$，组合起来得到十个 Altland–Zirnbauer 类。每一类再按空间维数问：基态是否允许非平凡的拓扑不变量，答案是 $0$、$\mathbb{Z}$ 或 $\mathbb{Z}_2$，并且以 8 为周期重复。量子霍尔效应属于没有时间反演的 A 类，不变量是整数陈数，见[[quantum-hall-effect|量子霍尔效应]]；三维拓扑绝缘体属于 AII 类，不变量是 $\mathbb{Z}_2$。
+
+分类先于材料：它告诉实验者哪一格里应该有相，哪一格是空的。Kitaev 与 Schnyder、Ryu、Furusaki、Ludwig 几乎同时把这张表写出来，后来的拓扑晶体绝缘体、高阶拓扑绝缘体是在点群对称下把格子再加密，而不是推翻这十格。应用前景里的自旋电子学，靠的正是 AII 类表面态上的自旋–动量锁定，而不是把绝缘体做得更纯。见[[凝聚态物理与量子材料]]。
+
+AII 类在二维给出量子自旋霍尔效应，在三维给出强拓扑绝缘体，这是十重表里同一格沿维数走下去的结果，不是两种无关的材料故事。表本身先于 Bi$_2$Se$_3$ 的样品：先知道这一格允许 $\mathbb{Z}_2$，再去找带翻转的重元素化合物。
+
+应用清单里的三条路线权重并不相同。自旋电子学最贴近现有材料：自旋–动量锁定让电流自带极化，器件可以省掉铁磁注入电极，但室温下体载流子与界面散射仍会冲淡信号。拓扑量子计算依赖的是超导配对与拓扑表面/边缘态的杂交，证据标准已被 2021 年撤稿事件永久抬高。量子传感则利用表面态对磁场与杂质的响应，仍处在原理验证多于量产的阶段。把这三条写成「即将改变工业」为时过早；写成「对称类已经告诉你该在哪一格找相」则不过分。
 
 David Thouless、Duncan Haldane 和 Michael Kosterlitz 因为拓扑物质理论的基础性贡献获得2016年诺贝尔物理学奖——Thouless 因TKNN理论（量子霍尔拓扑）、Haldane 因预言拓扑量子霍尔态（不需要朗道能级，即"Haldane模型"，1988年）和拓扑相变理论。这次诺贝尔奖被视为对拓扑物理整个领域的认可。
 
@@ -113,3 +136,8 @@ David Thouless、Duncan Haldane 和 Michael Kosterlitz 因为拓扑物质理论�
 4. Hasan, M. Z., and Charles L. Kane. "Colloquium: Topological Insulators." _Reviews of Modern Physics_, 82(4): 3045–3067, 2010.
 5. Qi, Xiao-Liang, and Shou-Cheng Zhang. "Topological Insulators and Superconductors." _Reviews of Modern Physics_, 83(4): 1057–1110, 2011.
 6. 方忠, 戴希, 吴泽星. 《拓扑绝缘体》. 科学出版社, 2014.
+7. Fu, Liang, and Charles L. Kane. "Topological Insulators with Inversion Symmetry." _Physical Review B_ 76 (2007): 045302.
+8. Zhang, Haijun, et al. "Topological Insulators in Bi$_2$Se$_3$, Bi$_2$Te$_3$ and Sb$_2$Te$_3$ with a Single Dirac Cone on the Surface." _Nature Physics_ 5 (2009): 438–442.
+9. Schnyder, Andreas P., et al. "Classification of Topological Insulators and Superconductors in Three Spatial Dimensions." _Physical Review B_ 78 (2008): 195125.
+10. Kitaev, Alexei. "Periodic Table for Topological Insulators and Superconductors." _AIP Conference Proceedings_ 1134 (2009): 22–30.
+11. König, Markus, et al. "Quantum Spin Hall Insulator State in HgTe Quantum Wells." _Science_ 318 (2007): 766–770.

@@ -2,7 +2,7 @@
 title: 虚拟化与容器
 title_en: Virtualization and Containers
 status: published
-updated: 2026-06-28
+updated: 2026-09-07
 category: 系统与架构
 order: 6
 field: 计算机科学 · 操作系统 · 云计算
@@ -32,9 +32,15 @@ related:
 
 紧接着的 **CP-67** 运行在 IBM System/360 Model 67 上，1967 年 4 月投入分时使用。它能在一台物理机上同时支撑数十个用户，每人都以为自己独占一台机器。
 
+Model 67 的关键不是更快，而是它有动态地址转换。没有这套硬件，控制程序很难给每个用户一张看起来属于自己的地址空间。剑桥监视器系统跑在每台虚拟机里，提供单用户交互环境。用户登录之后见到的，是一台完整的 System/360，而不是分时系统里切出来的一片终端会话。
+
+CP-67 能同时支撑数十个用户，靠的是把处理机时间与内存切成可以回收的份额。这个想法后来被叫做统计复用。[[cloud-computing|云计算]] 按秒计费，并没有发明新的隔离原理。它只是把大型机机房里已经运转的记账与调度，换成了互联网上的自助接口。
+
 1972 年 8 月 2 日，IBM 发布 **VM/370**，与首批支持虚拟内存的 System/370 大型机同时推出。VM/370 把"一台机器假扮成多台"做成了成熟产品，其血脉至今仍存活在 IBM 的 z/VM 中。
 
 换句话说：当 2006 年 AWS 让虚拟机变成可以按分钟租用的商品时，这项技术本身已经稳定运行了将近四十年。变的不是原理，而是交付方式与经济规模。
+
+大型机虚拟化要回答的是：一台昂贵的机器如何被许多人同时正确使用。后来的 x86 虚拟化要回答的是：许多相对便宜的机器如何被当成可分割的商品来卖。隔离的对象变了，分时与统计复用的算术没有变。云计算卖的是后者的规模，而不是一套新的正确性条件。
 
 ## 破除误解：虚拟化不只是"模拟器"
 
@@ -50,9 +56,15 @@ related:
 
 1974 年，Gerald Popek 和 Robert Goldberg 在论文《Formal Requirements for Virtualizable Third Generation Architectures》中把这件事形式化了。他们证明：一个体系结构要能被经典虚拟化，**所有"敏感指令"（会读写全局状态的指令）必须是"特权指令"的子集**——这样它们才会在客户机里乖乖陷入。
 
+这篇论文真正要求虚拟机监控器满足的，是三条性质，而不是某一条技巧。等价：客户机里的程序，除了时间与可用资源之外，应表现出与在真实机器上实质相同的行为。资源控制：监控器必须完全掌握处理机、内存与外设，客户程序不能绕过它去碰未分配的资源。效率：指令中统计上占多数的部分，必须由硬件直接执行，而不能每条都靠软件解释。
+
+第三条把虚拟机监控器与模拟器划开。只做到前两条、却解释执行全部指令的，仍可能是正确的模拟，却不是他们所定义的高效虚拟化。经典的陷入并模拟能同时满足三条，当且仅当所有敏感指令都是特权指令：它们在非特权态会陷入，监控器才插得进手。
+
 问题来了：x86 不满足这个条件。它有 17 条"敏感但不特权"的指令（例如 `popf`、`sgdt`、`sldt`、`smsw`），在用户态执行时既不报错也不陷入，而是悄悄返回了错误的结果。Hypervisor 根本拦不住它们。这正是 1990 年代业界普遍认为"x86 无法虚拟化"的原因。
 
 突破来自 **VMware**。这家公司 1998 年成立，1999 年 5 月 15 日发布第一款产品 VMware Workstation。它绕过硬件限制的办法叫**二进制翻译（binary translation）**：在客户机内核代码运行前，动态地把那些麻烦指令改写成会陷入的版本，普通指令则原样直跑。x86 第一次被真正虚拟化了。
+
+几位创始人来自斯坦福。他们更早的 Disco 项目已经在可扩展多处理机上托管商品 [[operating-systems|操作系统]]。工作站产品把同一思路带到 x86：用户态指令尽量直接执行，只有会破坏隔离的内核指令才被改写。x86 上的虚拟机从此不再只是论文里的不可能性证明。
 
 后来 Intel VT-x（2005）和 AMD-V（2006）从硬件层面让这些敏感指令可以被陷入，二进制翻译逐渐退场。但要破除另一个误解：硬件辅助**并非一开始就更快**。VMware 工程师 Adams 与 Agesen 在 2006 年的实测论文中发现，第一代硬件虚拟化因为不支持内存管理单元（MMU）的虚拟化、且每次陷入开销很大，在不少负载上反而打不过成熟的二进制翻译。硬件方案的全面胜出，是在后续加入嵌套页表（如 Intel EPT、AMD NPT）等改进之后。
 
@@ -85,6 +97,10 @@ related:
 
 **半虚拟化（paravirtualization）**：换个思路——既然拦截麻烦指令很贵，那就**修改客户机操作系统**，让它主动通过"超级调用"（hypercall）向 Hypervisor 请求特权操作。剑桥大学的 **Xen** 在 2003 年 SOSP 论文《Xen and the Art of Virtualization》中提出这一方案，单机可同时托管上百个虚拟机实例。代价是客户机内核必须改造，因此早期难以运行未经修改的 Windows。
 
+半虚拟化把改客户机当成前提。开源内核可以打补丁，专有系统就很难。Xen 因此早期在公共云里跑得欢，对未修改的 Windows 却不友好。
+
+后来硬件虚拟化补上了陷入能力，Xen 也提供了硬件辅助路径。超级调用并未消失。块设备和网卡仍然常常走半虚拟化驱动，因为一次陷入去模拟整套磁盘控制器，仍然太贵。
+
 **硬件辅助虚拟化（hardware-assisted）**：把陷入与模拟的能力直接做进 CPU（VT-x / AMD-V）。**KVM** 是这条路线的代表：由 Avi Kivity 在 Qumranet 公司开发，2007 年 2 月 5 日随 Linux 2.6.20 内核合入主线。它的巧妙之处在于不另写一个庞大的 Hypervisor，而是把 Linux 内核本身变成 Hypervisor——每个虚拟机就是一个普通的 Linux 进程，复用内核已有的调度器与内存管理。
 
 三条路线并非互斥。今天的主流（KVM、现代 Xen、VMware ESXi）都以硬件辅助为基础，并在 I/O 等局部仍保留半虚拟化驱动（如 virtio）以提升性能。
@@ -100,6 +116,10 @@ related:
 - **Namespaces（命名空间）**：让每个容器以为自己有独立的进程树、网络、文件系统、用户 ID 等。
 - **Cgroups（控制组）**：限制每个容器能使用的 CPU、内存、I/O 等资源上限。
 - **Union File System**：让多个容器共享同一套基础文件系统层（镜像），只存储差异，大幅减少磁盘占用。
+
+这些内核机制都比 Docker 更早。挂载命名空间在二十一世纪初进入 Linux。控制组由谷歌工程师提交，随二点六系列内核在二零零八年前后进入主线。
+
+LXC 已经能在同一内核上拼出隔离的用户空间。Docker 在二零一三年做的事情，不是发明隔离，而是把镜像格式、分层 [[file-systems|文件系统]] 与一套可复制的工作流绑在一起，让「在我机器上能跑」变成可分发的制品。
 
 ```
 物理硬件
@@ -131,9 +151,13 @@ Linux 内核（共享）
 
 Kubernetes 相当于"容器的操作系统"：把一个机器集群抽象成一个统一的计算平台，用户只需声明"我需要 10 个 Nginx 实例"，K8s 负责让这个声明成真。
 
+它的前身是谷歌内部的 Borg。二零一五年的 EuroSys 论文把那套十年调度经验写了出来：以任务的声明为中心，而不是以机器登录为中心。Kubernetes 把同一思路换成对容器镜像与副本的 API。用户不再进入某一台主机去启动进程，而是提交一份期望，让控制回路去逼近它。
+
 ## 虚拟化的代价与安全考量
 
 **容器逃逸**：由于容器共享宿主内核，内核漏洞可能让攻击者突破容器隔离，获得宿主机权限。这是容器安全的核心风险。VM 的内核级隔离使得这类攻击难度更高，但并非不可能（Hypervisor 也有漏洞）。
+
+虚拟机与容器的安全边界不在同一层。前者的客户机有自己的内核，要先突破 Hypervisor。后者与宿主持同一份内核，内核漏洞的影响面因此更大。这不是说容器不能用，而是隔离强度必须按租户边界来选——多租户的硬隔离，至今仍常把虚拟机留在容器下面。
 
 **"噪声邻居"（Noisy Neighbor）问题**：共享物理机的多个 VM/容器，如果某个占用了大量 CPU 或网络带宽，会影响同机其他实例——即使 cgroups 有限制，某些资源（L3 缓存、内存带宽）的共享仍难完全隔离。
 
@@ -153,8 +177,11 @@ Kubernetes 相当于"容器的操作系统"：把一个机器集群抽象成一�
 
 - Popek, G. & Goldberg, R. *Formal Requirements for Virtualizable Third Generation Architectures.* CACM 17(7), 1974, pp. 412–421. （虚拟化理论奠基论文）
 - Creasy, R. J. *The Origin of the VM/370 Time-Sharing System.* IBM Journal of Research and Development 25(5), 1981, pp. 483–490. （IBM 虚拟机的第一手历史）
+- Bugnion, E., Devine, S., Govil, K. & Rosenblum, M. *Disco: Running Commodity Operating Systems on Scalable Multiprocessors.* ACM TOCS 15(4), 1997, pp. 319–360.
 - Barham, P. et al. *Xen and the Art of Virtualization.* SOSP 2003. （半虚拟化奠基论文）
 - Adams, K. & Agesen, O. *A Comparison of Software and Hardware Techniques for x86 Virtualization.* ASPLOS 2006, pp. 2–13. （VMware 工程师对二进制翻译与硬件辅助的实测对比）
+- Verma, A., Pedrosa, L., Korupolu, M., Oppenheimer, D., Tune, E. & Wilkes, J. *Large-scale cluster management at Google with Borg.* EuroSys 2015.
+- Burns, B., Grant, B., Oppenheimer, D., Brewer, E. & Wilkes, J. *Borg, Omega, and Kubernetes.* Communications of the ACM 59(5), 2016, pp. 50–57.
 
 ## 延伸阅读
 

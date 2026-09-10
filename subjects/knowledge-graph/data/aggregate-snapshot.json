@@ -5,9 +5,9 @@
     "anchorCount": 250,
     "inferredBranchCount": 2845,
     "maximumDistance": 4,
-    "ambiguousTargetCount": 1935,
-    "maximumCandidateCount": 48,
-    "confidenceCounts": { "curated": 250, "direct": 2229, "contextual": 562, "exploratory": 54 }
+    "ambiguousTargetCount": 1977,
+    "maximumCandidateCount": 52,
+    "confidenceCounts": { "curated": 250, "direct": 2261, "contextual": 530, "exploratory": 54 }
   },
   "terrain": {
     "diagnosticCount": 21,

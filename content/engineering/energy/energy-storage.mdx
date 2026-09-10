@@ -2,7 +2,7 @@
 title: "储能：电池、抽蓄与氢"
 title_en: "Energy Storage: Batteries, Pumped Hydro and Hydrogen"
 status: published
-updated: 2026-08-03
+updated: 2026-09-07
 category: 能源与动力
 order: 6
 field: 能源工程 · 储能技术
@@ -11,7 +11,7 @@ evidence_modes:
   - formal-analysis
   - comparative
   - observation
-as_of: 2026-08
+as_of: 2026-09
 tags:
   - 储能
   - 抽水蓄能
@@ -42,9 +42,21 @@ related:
 
 第三条线索是规模的爆发。截至 2025 年底，全球已投运电力储能累计约 496 GW，其中抽水蓄能累计装机占比自有统计以来首次跌破五成；仅 2025 年一年，全球新增电池储能约 108 GW，比 2024 年增长约四成，磷酸铁锂（LFP）路线占据约九成份额（中关村储能产业技术联盟 CNESA 与国际能源署口径，数据截至 2025 年底）。中国新型储能累计装机约 144.7 GW，占全球一半以上。抽蓄仍在扩张——全球在建规模超过 200 GW——但电网储能的主流叙事，已经从"水库"切换到了"电池阵列"。
 
+功率占比跌破五成，并不等于抽蓄不再是储能的主体。国际水电协会统计，2024 年底全球抽蓄约 189 GW，2025 年装机首次越过 200 GW。抽蓄单座放电时长通常以数小时到十余小时计、土木寿命以数十年计，新建电池场站仍大量集中在两小时上下。因此在可调度电量的口径上，抽蓄至今仍承担电网侧储能的主要份额，协会仍称其为大规模储能的主导形态。
+
+用同一个吉瓦把调频电池和能把午间光伏搬到夜间的水库加总，会把两种完全不同的服务当成同一类东西。欧洲的对照是威尔士迪诺威格抽蓄电站：它以分钟级爬坡承接核电与间歇性出力，被称作"电山"，说明抽蓄卖的从来不只是容量，还有快速爬坡与旋转备用。
+
 ## 核心机制：往返效率、时长与放置位置
 
 任何储能系统都可以用三个数字刻画。第一个是**往返效率** $$\eta_{RT} = \frac{E_{out}}{E_{in}}$$ ——放出来的电除以充进去的电。锂离子电池的系统级往返效率通常在 85% 上下（电芯更高，扣除变流器、热管理与辅助用电后落到这个区间）；抽水蓄能典型值约 70%–80%；而"电—氢—电"这条路径要串联电解（约 60%–70%）与燃料电池或燃氢发电（约 50%–60%），再叠加压缩与储运损失，实际往返效率通常只有 30%–40% 量级。这不是工程粗糙，而是热力学的硬账：**每多一次能量形式的转换，就多一次不可逆损失**。
+
+铅酸、锂离子与液流电池常被放进同一张"电池"标签下，工程取舍却几乎相反。铅酸系统的往返效率大约 70%–80%，循环以千次计，能量密度低、深度放电会显著伤寿命，今天仍大量用于不间断电源和部分离网系统，却很难胜任高周转的电网侧。锂离子系统级往返效率通常在 85%–95%，响应以毫秒计，是目前一至四小时场景的默认选项。
+
+钒氧化还原液流电池把功率（电堆）与容量（电解液罐）拆开，系统往返效率大约 65%–80%，循环可达上万次，适合四至十二小时。电解液成本与泵耗则把它挡在锂电已经吃掉的短时市场之外。这些区间来自美国能源部与电力研究院的《电力储能手册》及后续技术评估，是扣掉变流器、泵与热管理之后的系统数字，不是电芯实验室的峰值。
+
+压缩空气储能是抽蓄之外少数真正进入过电网商业运行的机械储能。1978 年德国 Huntorf 电站投运，额定约 290 MW，空气存在盐穴里，放电时喷入天然气补热，循环效率约 42%。1991 年美国阿拉巴马州 McIntosh 电站加上回热器，效率提到约 54%，可满负荷放电二十余小时。
+
+两者都是"带燃料的储能"：压缩热没有存住，放电必须再烧燃料。绝热方案试图把压缩热存进热罐再还回去，文献给出的效率目标多在 60%–70% 一带，但迄今没有与这两座电站同量级的商业装置长期运行。地理约束从落差换成了盐穴，这解释了它为何在纸面上能竞争长时场景，却几乎没有被复制。
 
 第二个数字是**时长**，它决定技术选型。毫秒到秒级的频率支撑，靠电池、飞轮与电力电子；分钟到小时级的削峰填谷，锂电池现在最经济；4 到 12 小时的日内平移，抽蓄与长时电池（液流、压缩空气）竞争；跨天到跨季的储能，目前没有便宜的答案——氢、氨与合成燃料之所以在效率如此难看的情况下仍被认真讨论，唯一的理由就是它们的储存介质便宜到可以放几个月，而电池的成本几乎全在"存"这一侧。
 
@@ -78,7 +90,10 @@ related:
 - International Energy Agency. *Renewables 2025: Analysis and Forecasts to 2030*. IEA, 2025.
 - Aurecon. *Hornsdale Power Reserve: Year 1 Technical and Market Impact Case Study*. 2018.
 - U.S. Environmental Protection Agency. "Moss Landing Vistra Battery Fire Response." 2025.
-- International Hydropower Association. *World Hydropower Outlook 2025*.
+- International Hydropower Association. *World Hydropower Outlook 2025*; *World Hydropower Outlook 2026*.
+- Akhil, A. A., et al. *DOE/EPRI Electricity Storage Handbook in Collaboration with NRECA*. SAND2016-9180, 2016.
+- Budt, M., Wolf, D., Span, R., & Yan, J. “A review on compressed air energy storage: Basic principles, past milestones and recent developments.” *Applied Energy* 170 (2016): 250–268.
+- International Energy Agency. *Global Energy Review 2026*. IEA, 2026.
 
 ## 延伸阅读
 

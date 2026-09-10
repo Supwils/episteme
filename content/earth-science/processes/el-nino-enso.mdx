@@ -2,7 +2,7 @@
 title: 厄尔尼诺与 ENSO
 title_en: El Niño and ENSO
 status: published
-updated: 2026-06-19
+updated: 2026-09-07
 category: 气候过程
 order: 8
 field: 地球科学 · 气候动力学
@@ -31,6 +31,10 @@ related:
 
 长期以来，海洋学家研究厄尔尼诺、气象学家研究南方涛动，互不相通。直到 1969 年挪威气象学家**比耶克尼斯（Jacob Bjerknes）**指出：它们根本是一枚硬币的两面——海洋和大气在赤道太平洋互相驱动、彼此放大。这是 20 世纪气候科学最重要的统一之一。
 
+南方涛动的名字属于沃克，不属比耶克尼斯。吉尔伯特·沃克爵士（Gilbert Walker）在 1923 年和 1924 年的印度气象厅研究报告里，用全球气压相关寻找印度季风的预报因子，并标出太平洋与印度洋之间气压此消彼长的"南方涛动"。他当时掌握的是统计结构，还没有把秘鲁外海的暖水写成同一套海气耦合。
+
+把环流圈命名为沃克环流的，是 1969 年的雅各布·比耶克尼斯——他用这个名字向沃克致敬。雅各布是威廉·皮叶克尼斯之子，见 [[vilhelm-bjerknes|威廉·皮叶克尼斯]]。两代人做的不是同一件事：父亲把天气预报写成初值问题，儿子把赤道太平洋写成海洋与大气互相正反馈驱动的耦合振子。
+
 ## 正常状态：沃克环流与冷舌
 
 要理解厄尔尼诺，先要理解"正常"是什么样。
@@ -43,6 +47,10 @@ related:
 高空气流从西向东返回、下沉，完成一个东西向的环流圈——这就是**沃克环流（Walker circulation）**。同时，赤道太平洋的**温跃层（thermocline，冷暖水分界面）**在西边深、东边浅，呈倾斜状。
 
 这个倾斜的温跃层是理解 ENSO 的关键。在正常状态下，东太平洋温跃层很浅，信风驱动的上升流只要轻轻一拉，就能把温跃层之下的冷水带到表面，维持那条"冷舌"。一旦温跃层在东边变深（厄尔尼诺时），上升流即使照常运转，带上来的也只是温跃层之上的暖水了。换句话说，海面温度的剧变，很大程度上是温跃层深浅在背后操纵——这正是海洋"记忆"能为 ENSO 提供延迟反馈的物理根源。
+
+沃克环流是赤道上空的东西向闭合圈，不要与哈德莱环流混为一谈。哈德莱环流在低纬沿经圈：赤道上升、副热带下沉。沃克环流沿纬圈：西太平洋暖池上升，东太平洋冷舌下沉，高空再回流。两者可以同时存在，也互相牵动，但几何方向不同。见 [[global-atmospheric-circulation|全球大气环流]]。信风本身还受科里奥利效应约束，见 [[coriolis-effect|科里奥利效应]]。
+
+温跃层西深东浅，是信风长期把暖水堆向西边的积分结果。它是海洋的记忆，不是某一天的海温快照。预报 ENSO 要同时看风应力、海表高度和温跃层深度，单看东太平洋海温会被季节噪声带偏。这一点与表层风成环流是同一套风应力逻辑，见 [[ocean-surface-circulation|表层洋流]]。
 
 ## 比耶克尼斯反馈：耦合如何自我放大
 
@@ -62,6 +70,14 @@ $$\frac{dT}{dt} = a\,T(t) - b\,T(t-\tau)$$
 
 其中 $T$ 是东太平洋海温异常，$a$ 代表比耶克尼斯正反馈，第二项的时间延迟 $\tau$（约几个月，对应波的往返时间）提供回复力，使系统振荡。
 
+比耶克尼斯反馈能解释事件如何长大，不能单独解释它为何会翻面。向东的赤道开尔文波把西边的温跃层信号送到东太平洋，向西的罗斯贝波在西边界反射后也能改写温跃层。延迟振子把这些波写成滞后的回复力。1997 年，金飞飞（Fei-Fei Jin）又给出充电振子：信风在拉尼娜期把热含量"充"进赤道次表层，厄尔尼诺再把它"放"掉。两种图像并不互相取消。它们都在说：正反馈提供增长，海洋热含量与波动提供节拍。
+
+雅各布·比耶克尼斯 1966 年已在 *Tellus* 讨论赤道海温异常如何改写哈德莱环流。1969 年那篇 *Monthly Weather Review* 才把南方涛动、沃克环流和厄尔尼诺明确写成同一耦合系统。年份要分开写，不能把"发现 ENSO"全部记在 1969 年的一个标题下。开尔文波与罗斯贝波的往返，给的是量级为数月的延迟，不是一条可以写进新闻的精确天数。见 [[dynamical-systems|动力系统]]。
+
+赤道开尔文波被赤道波导约束，沿赤道向东走。这是延迟振子里"西边的温跃层信号何时到达东太平洋"的几何原因。向西的罗斯贝波则把信号带回西边界，再反射成向东的开尔文波。
+
+充电振子不把每一列波写进方程，而把盆地尺度的热含量盈亏当成相位转换的记忆。维尔特基（Wyrtki）更早用海平面看出：暖水体积的重新分配先于海温极值。两种语言说的是同一件海洋记忆，只是一个跟波走，一个跟热含量走。
+
 ## 全球遥相关：一片海如何牵动全球
 
 ENSO 最惊人之处在于它的**遥相关（teleconnection）**——赤道太平洋的异常通过大气环流把影响传遍全球。一次强厄尔尼诺通常意味着：
@@ -76,11 +92,23 @@ ENSO 是地球气候系统在年际尺度上最强的"心跳"，是除季节循�
 
 遥相关的物理机制在于：暖池区异常旺盛或减弱的对流，像往池塘里扔石头，激起大气中的"罗斯贝波列"，这些波沿特定路径传播，改变中纬度高空急流的走向，从而把热带的异常"广播"到温带。这正是为什么秘鲁外海的一片暖水，能在半个地球之外引发加州的暴雨或澳洲的干旱。也正因为 ENSO 影响如此广泛而可预测，它成了季节预报的"金矿"——知道厄尔尼诺正在发展，就能提前数月对许多地区的旱涝、台风活跃度乃至农作物收成给出有用的概率预测，这是其他气候因子难以企及的。
 
+太平洋—北美型（PNA）是最常被提到的北半球冬季遥相关之一。赤道中东太平洋的异常对流加热，会在对流层激发罗斯贝波列，波列可以向东北进入北太平洋和北美，使大气环流出现与 PNA 相似的槽脊配置。机制是波列传播，不是秘鲁海温直接给加州下雨。
+
+不是每一次厄尔尼诺都给出同一张北美天气图。中纬度还有自身变率，波列还受基本气流引导。因此这里只写路径与相位倾向，不写一条假装稳定的相关系数。沃莱斯与古茨勒（Wallace & Gutzler, 1981）给出的是北半球冬季位势高度场上的遥相关型，包括 PNA，而不是 ENSO 的单次因果证明。
+
+沃克当初要找的是印度季风预报。ENSO 与亚洲 [[monsoon-systems|季风]] 有统计联系：厄尔尼诺年南亚夏季风降水偏弱的倾向被多次指出，但关系会随年代际背景滑动，不能当成开关。把季风写成"厄尔尼诺的附属品"，会低估陆地热力与印度洋自身的作用。遥相关提供的是概率倾斜，见 [[weather-systems|天气系统]]。
+
+南方涛动指数（SOI）常用塔希提与达尔文的气压差来表示东西两端的此消彼长。正值倾向对应拉尼娜式的气压配置，负值倾向对应厄尔尼诺。指数是监测工具，不是事件本身的定义。海温区与 SOI 要对照着看，单看一个会被局地天气带偏。这里不写操作阈值。不同气象机构的滑动平均与临界值并不完全相同，把某一个临界值写成自然定律会假装精度。
+
 ## 观测、争议与前沿
 
 1982—83 年那次特大厄尔尼诺让科学界措手不及，直接推动建立了横跨赤道太平洋的 **TAO/TRITON 浮标阵列**，从此能实时监测海温、温跃层与风场。如今 ENSO 可提前约半年到一年作出有用预报，是季节气候预测最成功的范例。
 
+1982–83 年强厄尔尼诺发展时，赤道太平洋还没有完整的实时锚系阵列，事件把观测缺口变成公共教训。随后的热带海洋—大气（TAO）锚定浮标阵在 1990 年代中期铺齐，日本的 TRITON 后来补上西太平洋区段，合称 TAO/TRITON。阵列直接测海温、风、温跃层，使比耶克尼斯反馈不再只是事后讲的故事。麦克法登（McPhaden）等人 2006 年把 ENSO 写成整合地球科学的概念，依据之一就是这套观测网。
+
 前沿争论集中在气候变化下 ENSO 会如何改变。多数模型预估极端厄尔尼诺事件的频率可能上升，但 ENSO 振幅的变化、"中部型"与"东部型"厄尔尼诺的相对增减，仍存在显著的模型分歧，是当前气候动力学最活跃也最不确定的问题之一。
+
+模式对温室气体增暖下 ENSO 的振幅仍有分歧。极端事件是否更频繁，比"平均振幅一定变大"更常被提出，但不同模式给出的中部型与东部型比例并不一致。把单一模式的一次预估写成定论，会超过证据。见 [[climate-modeling|气候建模]]。蔡文驹等人（Cai et al., 2014）讨论的是极端厄尔尼诺频率在增暖情景下可能上升，不是给出现在已经量好的新周期。
 
 ## 跨域连接
 
@@ -94,8 +122,14 @@ ENSO 是地球气候系统在年际尺度上最强的"心跳"，是除季节循�
 
 ## 参考文献
 
+- Walker, G. T. *Correlation in Seasonal Variations of Weather, VIII. A Preliminary Study of World Weather.* Memoirs of the Indian Meteorological Department 24, 1923.
+- Walker, G. T. *Correlation in Seasonal Variations of Weather, IX. A Further Study of World Weather.* Memoirs of the Indian Meteorological Department 24, 1924.
+- Bjerknes, J. *A Possible Response of the Atmospheric Hadley Circulation to Equatorial Anomalies of Ocean Temperature.* Tellus 18(4), 1966. doi:10.1111/j.2153-3490.1966.tb00303.x
 - Bjerknes, J. *Atmospheric Teleconnections from the Equatorial Pacific.* Monthly Weather Review 97(3), 1969. doi:10.1175/1520-0493(1969)097<0163:ATFTEP>2.3.CO;2
+- Wallace, J. M. & Gutzler, D. S. *Teleconnections in the Geopotential Height Field during the Northern Hemisphere Winter.* Monthly Weather Review 109(4), 1981. doi:10.1175/1520-0493(1981)109<0784:TITGHF>2.0.CO;2
 - Suarez, M. J. & Schopf, P. S. *A Delayed Action Oscillator for ENSO.* Journal of the Atmospheric Sciences 45(21), 1988. doi:10.1175/1520-0469(1988)045<3283:ADAOFE>2.0.CO;2
+- Jin, F.-F. *An Equatorial Ocean Recharge Paradigm for ENSO. Part I: Conceptual Model.* Journal of the Atmospheric Sciences 54(7), 1997. doi:10.1175/1520-0469(1997)054<0811:AEORPF>2.0.CO;2
+- Wyrtki, K. *Water Displacements in the Pacific and the Genesis of El Niño Cycles.* Journal of Geophysical Research 90(C4), 1985. doi:10.1029/JC090iC04p07129
 - McPhaden, M. J., Zebiak, S. E. & Glantz, M. H. *ENSO as an Integrating Concept in Earth Science.* Science 314(5806), 2006. doi:10.1126/science.1132588
 - Cai, W. et al. *Increasing Frequency of Extreme El Niño Events due to Greenhouse Warming.* Nature Climate Change 4, 2014. doi:10.1038/nclimate2100
 

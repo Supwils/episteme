@@ -3,7 +3,7 @@ title: 脉冲星计时阵列
 titleEn: Pulsar Timing Array
 category: 致密天体物理学
 tags: [脉冲星, 计时阵列, 引力波背景, NANOGrav, IPTA, 纳赫兹引力波]
-updated: 2026-06-13
+updated: 2026-09-08
 ---
 
 # 脉冲星计时阵列：用星际时钟倾听引力波的低音
@@ -12,11 +12,21 @@ updated: 2026-06-13
 
 毫秒脉冲星（millisecond pulsar，MSP）是自然界最稳定的时钟之一：它们自转周期介于 $1$ 到 $30$ 毫秒，长期稳定性与原子钟相当，甚至在某些时间尺度上超越原子钟。**脉冲星计时阵列**（Pulsar Timing Array，PTA）利用数十颗分布在银河系各方向的毫秒脉冲星，将整个银河系变成一台引力波探测器。其原理是：穿过地球与各颗脉冲星之间空间的引力波，会系统性地延迟或提前脉冲到达时间，且不同方向上的延迟存在特征性的角关联——**赫林斯-唐斯（Hellings-Downs）曲线**。2023 年，全球多个 PTA 团队同时宣布，首次以置信度超过 $4\sigma$ 的水平探测到疑似**纳赫兹引力波背景**（gravitational wave background, GWB）的信号，引发了广泛关注。
 
+与[[gravitational-wave-detectors-ligo-lisa|地面激光干涉仪]]相比，脉冲星计时阵列把基线拉到千秒差距。LIGO 听的是恒星级双星最后几圈的啁啾，频率在赫兹到千赫兹；PTA 听的是周期以年到十年计的低音，频率落在纳赫兹。仪器不是一座放在地面的干涉仪，而是银河系里数十座天然时钟组成的阵列。[[射电望远镜]]一次次记下脉冲到达时间，[[引力波]]的证据藏在这些时间的跨星关联里，而不是某一次「咔嗒」声。
+
+纳赫兹窗口对应的轨道周期以年为单位。超大质量黑洞双星在并合前很久就已经在这个频段发光，不像 LIGO 只看见最后几圈。这就是为什么最可能的源是双星**背景**，而不是一次单独的并合啁啾。
+
 ## 毫秒脉冲星：被"回收"的宇宙时钟
 
 普通脉冲星（旋转周期约 $0.1$–$10$ 秒）由于电磁辐射和粒子风的制动，自转逐渐减慢，寿命约数百万至数千万年。然而，约 $10\%$ 的脉冲星却是每秒旋转数百圈的**毫秒脉冲星**（MSP），它们来自**"回收"过程**（recycling）：在双星系统中，中子星通过从伴星（通常是低质量恒星）吸积物质和角动量，被加速到毫秒级自转周期，同时自转减慢率极低（$\dot{P} \sim 10^{-20}$ s/s）。被回收的毫秒脉冲星仿佛被"再次点燃"，具有极低的特征年龄（$\tau_c = P/(2\dot{P})$）和极高的自转稳定性。
 
+普通脉冲星的计时噪声太大，残差里的红噪声会把纳秒信号淹没。回收过程把自转加速的同时，也把磁场降下来，制动变弱，时钟才稳。PTA 的星表因此不是「亮脉冲星排行榜」，而是「足够稳、足够多地被测过」的一份短名单。
+
 脉冲星计时的精度用**到达时间残差**（timing residual）来衡量——即观测到达时间与精确模型预测到达时间的差异。最佳毫秒脉冲星的计时残差可低至约 $50$–$100$ ns（纳秒），这为探测引力波引起的微小时间延迟（纳秒量级）提供了可能。
+
+计时模型要同时扣掉自转减速、双星轨道、星际介质色散，以及地球在太阳系里的运动。残差里剩下的低频噪声，有的属于这颗星自己的自旋抖动，有的是所有星共享的。只有共享部分才可能是引力波背景；再往下，还必须看共享信号如何随两星夹角变化。毫秒脉冲星被选中，正是因为它们的自转足够稳，才能让纳秒量级的公共信号从噪声里浮出来。
+
+残差要先对每一颗星单独建模。有的星有红噪声，有的有色散量的年变化，不能假设全阵列共用一个噪声参数。公共信号是在做完这步减法之后才去找的。显著性对噪声模型敏感，所以各团队报出的 σ 会略有出入，这不是谁在改数据，是统计方法的正当差异。
 
 ## Hellings-Downs 曲线：引力波的特征指纹
 
@@ -33,6 +43,10 @@ $$\Gamma(\theta) = \frac{3}{2}x\ln x - \frac{x}{4} + \frac{1}{2} + \frac{1}{2}\d
 
 这种特殊的角关联是**各向同性引力波背景**的独特标志，任何其他共同系统误差（如时钟误差、地球自转模型误差）都不会产生完全相同的模式。
 
+可以这样拆：引力波经过地球时，会给所有脉冲星的到达时间加上一份「地球项」，这项在不同星之间相关；波经过脉冲星附近时还有「脉冲星项」，因为光从脉冲星传到地球要上千年，这项在星与星之间几乎不相关。Hellings-Downs 曲线主要来自地球项的几何。
+
+钟差会让所有星一起提前或推迟，是单极型的公共噪声；太阳系星历误差另有一套角结构。它们都可以造出「大家都有红噪声」，却造不出这条随角度先降后升、还会变号的曲线。所以只看到共同谱还不够，必须看到 Hellings-Downs。
+
 ## 2023 年的突破性探测
 
 2023 年 6 月至 7 月，全球四个主要 PTA 团队几乎同步公布了探测到纳赫兹引力波背景的证据：
@@ -44,6 +58,10 @@ $$\Gamma(\theta) = \frac{3}{2}x\ln x - \frac{x}{4} + \frac{1}{2} + \frac{1}{2}\d
 
 四个团队的结果在信号特征（频谱斜率、振幅）上高度一致，且 Hellings-Downs 角相关性的检测置信度约为 $2$–$4\sigma$（各团队估算略有差异）。这是纳赫兹引力波天文学的历史性时刻，但绝大多数研究者认为目前尚不足以宣称"确认"探测，因为 Hellings-Downs 相关的显著性仍需更多数据提升。
 
+更早的数据集已经看到所有脉冲星共有的低频红噪声，但还没有把角相关做到足以称为指纹。2023 年的突破是：四个团队在独立的望远镜与独立的噪声模型下，都报出与 Hellings-Downs 相符的证据。
+
+NANOGrav 的十五年分析把 Hellings-Downs 相关做到大于 $3\sigma$ 量级，合在一起约 $2$–$4\sigma$，这是证据，不是终审。它还不能与 2015 年 LIGO 对 GW150914 的那种确认相提并论。要把「疑似背景」写成「已探测到背景」，还需要更长的时间基线和更多的脉冲星对。
+
 ## 纳赫兹引力波的可能来源
 
 探测到的引力波背景（如果确认）频率约为 $1$–$100$ nHz（对应周期约 $10$–$1000$ 年），远低于 LIGO 探测的赫兹到千赫兹频段。其可能来源包括：
@@ -52,21 +70,27 @@ $$\Gamma(\theta) = \frac{3}{2}x\ln x - \frac{x}{4} + \frac{1}{2} + \frac{1}{2}\d
 
 宇宙中无数个超大质量黑洞双星（质量 $10^7$–$10^{10}\,M_\odot$）在漫长的轨道衰减过程中，持续发射纳赫兹引力波，叠加形成随机背景。这是目前最受支持的解释，也与信号振幅量级基本一致（Phinney 2001，_The Astrophysical Journal Letters_，554，L37）。然而，信号的**谱形**与简单的超大质量黑洞双星背景预测有微小偏差（信号功率谱可能比预期更平坦），暗示可能还有其他物理效应（如环境相互作用使双星轨道衰减加快）或不同的信号来源。
 
+把背景优先读成[[supermassive-black-holes|超大质量黑洞]]双星，不是因为其他可能性已被实验杀死，而是因为星系并合的图景会自然产生大量尚未并合的双星，它们在并合前的漫长旋近中把纳赫兹波段填满。Agazie 等人在 2023 年用同一套十五年数据检验了这一解释：天体物理上合理的双星种群能够同时对上信号的振幅与谱形，但还不能唯一确定起源。环境气体、恒星散射会改变双星变轨的速度，从而把谱走形，这会在未来更高信噪比时被测量，而不是现在就能用来否决双星图像。宇宙弦与相变是更惊人的备选，目前只是「尚未排除」，不是「同样可能」。
+
 ### 宇宙早期相变
 
-宇宙在冷却过程中可能发生的一阶相变（如宇宙电弱相变或 QCD 相变）会产生随机引力波背景，频率取决于相变温度。
+宇宙在冷却过程中可能发生的一阶相变（如宇宙电弱相变或 QCD 相变）会产生随机引力波背景，频率取决于相变温度。要把峰放到纳赫兹，特征能量尺度必须落在很窄的窗口。标准模型里的电弱与 QCD 转变并不是那种强一阶相变。要把 PTA 信号读成早期宇宙相变，需要超出标准模型的额外设定，目前没有独立的粒子物理证据要求这样做。
 
 ### 宇宙弦网络
 
-如果宇宙早期存在拓扑缺陷（宇宙弦），弦环在振荡和自我交叉过程中发射引力波，形成功率律谱的背景。
+如果宇宙早期存在拓扑缺陷（宇宙弦），弦环在振荡和自我交叉过程中发射引力波，形成功率律谱的背景。PTA 若最终确认背景，会给弦的张力一个上限或一个允许窗口。在 Hellings-Downs 还只是证据的阶段，用它主张「发现了宇宙弦」会把尚未结案的信号过早指定来源。双星图像仍然是缺省工作假设。
 
 ### 原初引力波背景
 
-暴胀时期产生的引力波可能延伸到纳赫兹频段，但标准慢滚暴胀的预测幅度通常远低于当前探测水平。
+暴胀时期产生的引力波可能延伸到纳赫兹频段，但标准慢滚暴胀的预测幅度通常远低于当前探测水平。要让原初贡献被看见，需要非标准的谱倾斜或其他早期机制，而这些设定会在微波背景的 B 模式等窗口留下痕迹。解释顺序应当是：先看超大质量黑洞双星能否讲圆，再考虑把剩余部分分给早期宇宙。
 
 ## FAST 与未来的 PTA
 
 中国 500 米口径球面射电望远镜 **FAST**（Five-hundred-meter Aperture Spherical Telescope）于 2016 年竣工，是目前世界上最大、最灵敏的单口径射电望远镜，其观测能力将大幅提升 CPTA 的精度。FAST 能够发现更多适合计时的毫秒脉冲星，并对现有计时脉冲星进行更高精度的测量（时间残差有望低至 $\sim 10$ ns）。
+
+国际脉冲星计时阵列（IPTA）的意义，是把北美、欧洲、澳大利亚的时间基线叠到同一批星上。单阵的系统误差不容易在三套硬件里以同一套角相关形态重现。FAST 给 CPTA 的是灵敏度和新星，不是已经比别人更长的时间跨度；纳赫兹的低频端仍然由「观测了多少年」决定，所以灵敏度与耐心必须一起加。
+
+更多脉冲星的价值主要是增加「对」的数目，从而把 Hellings-Downs 的角依赖采样得更密。时间基线的价值是把最低频往下推，而双星背景的功率恰恰在低频更强。两个方向不能互相替代：只加星不加年，低频端仍然盲；只加年不加星，角相关的采样仍然稀。
 
 **平方千米阵列**（Square Kilometre Array，SKA）建成后（核心部分预计 2030 年代），将使全球 PTA 灵敏度提升一到两个数量级，有望在纳赫兹引力波天文学领域实现：
 
@@ -74,9 +98,15 @@ $$\Gamma(\theta) = \frac{3}{2}x\ln x - \frac{x}{4} + \frac{1}{2} + \frac{1}{2}\d
 - 探测单个超大质量黑洞双星系统的持续引力波
 - 可能分辨引力波背景的各向异性（不同天区亮度不同）
 
+单源连续波是比随机背景更苛刻的下一步：那要求某一对超大质量黑洞足够近、足够重，才能在背景上冒出可分辨的周期性。各向异性则是问背景亮不亮随天区变。两件事都还在未来，不能倒过来当成 2023 年已经完成的发现。
+
 ## 为什么这很重要
 
 脉冲星计时阵列打开了引力波天文学的低频窗口。LIGO/Virgo 探测恒星级天体在最后时刻的并合，而 PTA 探测的是宇宙中最大质量天体（超大质量黑洞双星）的长期演化，以及宇宙早期相变的遗迹。如果 2023 年的信号得到确认，它将是继 LIGO 首次探测引力波（2015 年）之后，引力波天文学的第二次重大革命——而且是在完全不同的频率窗口和物理机制下实现的。
+
+现在该写进教科书的是 Hellings-Downs 证据，以及「最可能来自超大质量黑洞双星背景」这一工作假设。窗口不同，物理不同，确认的门槛也应不同：NANOGrav 2023 把纳赫兹波段从上限推进到有指纹的证据，它还不是终审。后续要看的是角相关显著性是否随时间基线稳定上升，以及谱形是否继续指向双星，而不是过早把宇宙弦写进标准图像。
+
+LIGO 的确认靠的是波形与探测器响应同时吻合。PTA 没有「一次事件的波形」，只有多年积累的相关函数。证据会随时间基线变厚，也会被新的星历或新的脉冲星噪声模型重新评估。把 2023 年写成终审，既抬高了当前数据，也低估了这台银河系仪器真正的工作方式。
 
 ## 跨域连接
 
@@ -89,10 +119,12 @@ $$\Gamma(\theta) = \frac{3}{2}x\ln x - \frac{x}{4} + \frac{1}{2} + \frac{1}{2}\d
 ## 参考文献
 
 - Hellings, R.W. & Downs, G.S. (1983). Upper limits on the isotropic gravitational radiation background from pulsar timing analysis. _The Astrophysical Journal Letters_, 265, L39–L42.
-- Agazie, G. et al. (NANOGrav Collaboration) (2023). The NANOGrav 15-year data set: Evidence for a gravitational-wave background. _The Astrophysical Journal Letters_, 951, L8.
-- Reardon, D.J. et al. (2023). Search for an isotropic gravitational-wave background with the Parkes Pulsar Timing Array. _The Astrophysical Journal Letters_, 951, L6.
-- Xu, H. et al. (2023). Searching for the nano-Hertz stochastic gravitational-wave background with the Chinese Pulsar Timing Array. _Research in Astronomy and Astrophysics_, 23, 075024.
 - Phinney, E.S. (2001). A practical theorem on gravitational wave backgrounds. _The Astrophysical Journal Letters_, 554, L37–L40.
+- Agazie, G. et al. (NANOGrav Collaboration) (2023). The NANOGrav 15-year data set: Evidence for a gravitational-wave background. _The Astrophysical Journal Letters_, 951, L8.
+- Agazie, G. et al. (NANOGrav Collaboration) (2023). The NANOGrav 15 yr Data Set: Constraints on Supermassive Black Hole Binaries from the Gravitational-wave Background. _The Astrophysical Journal Letters_, 952, L37.
+- Reardon, D.J. et al. (2023). Search for an isotropic gravitational-wave background with the Parkes Pulsar Timing Array. _The Astrophysical Journal Letters_, 951, L6.
+- Antoniadis, J. et al. (EPTA/InPTA Collaboration) (2023). The second data release from the European Pulsar Timing Array. III. Search for gravitational wave signals. _Astronomy & Astrophysics_, 678, A50.
+- Xu, H. et al. (2023). Searching for the nano-Hertz stochastic gravitational-wave background with the Chinese Pulsar Timing Array. _Research in Astronomy and Astrophysics_, 23, 075024.
 
 ## 延伸阅读
 

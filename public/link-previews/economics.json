@@ -56,7 +56,7 @@
   },
   "/economics/case-studies/euro-area-fiscal-rules-energy-transition-2026": {
     "t": "欧元区财政规则与能源转型（2026）",
-    "e": "欧元区的宏观难题可以压缩成一句话：它有统一货币，却没有完整财政国家。欧洲央行可以统一设定货币政策。但成员国财政政策仍由各国政府、议会、债务水平、产业结构和国内政治决定。这使欧元区在能源转型时代…",
+    "e": "欧元区的宏观难题可以压缩成一句话：它有统一货币，却没有完整财政国家。欧洲央行可以统一设定货币政策。但成员国财政政策仍由各国政府、议会、债务水平、产业结构和国内政治决定。",
     "d": "economics"
   },
   "/economics/case-studies/euro-area-macro-diagnosis-2026": {
@@ -706,7 +706,7 @@
   },
   "/economics/economists/thomas-schelling": {
     "t": "托马斯·谢林",
-    "e": "1960年，一位从华盛顿转战学术界的经济学家出版了一部关于\"冲突策略\"的著作，意外地改变了博弈论的应用方式。",
+    "e": "1960年，一位刚从华盛顿转到学界的经济学家出版了《冲突的策略》。",
     "d": "economics"
   },
   "/economics/frontier/ai-labor-market": {
@@ -786,7 +786,7 @@
   },
   "/economics/schools/behavioral-economics-school": {
     "t": "行为经济学派",
-    "e": "行为经济学派将心理学洞见融入经济分析，挑战了传统经济学关于完全理性人的假设。该学派已在学术界和政策制定领域产生了深远影响，三位代表人物先后获得诺贝尔经济学奖。",
+    "e": "行为经济学派把心理学洞见写进经济分析，挑战传统经济学的完全理性人假设。卡尼曼、席勒、塞勒先后获得诺贝尔经济学奖。",
     "d": "economics"
   },
   "/economics/schools/classical-economics": {

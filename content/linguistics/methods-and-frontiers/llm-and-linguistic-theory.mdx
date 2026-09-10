@@ -2,7 +2,7 @@
 title: 大语言模型与语言学理论
 title_en: "Large Language Models and Linguistic Theory"
 status: published
-updated: 2026-08-02
+updated: 2026-09-07
 category: 语言学与人工智能
 order: 8
 field: 计算语言学 · 语言学理论 · 认知科学
@@ -34,13 +34,25 @@ related:
 
 1959 年，乔姆斯基发表对斯金纳《言语行为》的书评，主张语言不是刺激—反应的联想链，而是一套生成性规则系统，儿童依靠内在的语言能力（competence）在有限输入下迅速掌握语法——这就是“刺激贫乏”（poverty of stimulus）论证的核心。这一立场此后几十年与经验主义路线反复交锋：基于用法的语言学家反驳说，输入远比乔姆斯基设想的丰富，一般性的统计学习与范畴化机制足以解释习得的大部分。
 
+这场争论还有一条更早的形式语言线索。乔姆斯基在 1956 年把生成装置分成正则、上下文无关、上下文有关与无限制四层，用来标明一类规则系统原则上能生成哪些符号串。神经网络把问题改写成经验问题：在有限样本上训练之后，模型能否把规律推到训练分布之外。
+
+德莱唐等人（Delétang et al., 2023）用受控的形式语言任务比较多种架构，发现循环网络与 Transformer 在非正则任务上的分布外泛化往往失败；带栈或纸带一类结构化记忆的网络，才能在上下文无关与上下文有关任务上稳定外推。这个结果不能直接翻译成“大模型不懂自然语言”——自然语言未必等于形式语言考场上的那几类语言。它提醒我们：层级能力是架构与记忆设计的问题，不是参数量自动送上门的礼物。
+
 LLM 的出现把这场辩论推向一个奇特的位置：机器学习架构几乎不带任何语言学先验——没有先天的短语结构，没有内置的语法范畴——却从纯文本中习得了令人惊讶的句法敏感性。皮安塔多西（Piantadosi, 2023）因此宣称现代语言模型“驳倒了乔姆斯基的路径”。乔姆斯基本人则与罗伯茨、瓦图穆尔在 2023 年《纽约时报》的评论中回应：LLM 是堆砌统计模式的高超模仿，与人脑“用有限操作生成无限表达”的效率原则南辕北辙，机器吃下的数据量与人类儿童根本不在同一量级，二者不可比较。语言学界的回应同样分裂：卡齐尔（Katzir, 2023）和科德纳等人（Kodner, Payne & Heinz, 2023）指出，LLM 的学习条件与儿童完全不对等，它们的成功不构成对习得理论的有效检验。
+
+把争论推进实验室的，是两代预训练模型。2018 年，德夫林等人（Devlin et al.）提出 BERT，用掩码语言模型在双向上下文里预训练编码器，使“打开内部表征看句法”第一次成为常规实验。2020 年，布朗等人（Brown et al.）发表 GPT-3，表明规模足够的自回归模型可以靠少样本提示完成多种语言任务，公众讨论随即从分类器转向生成器。
+
+皮安塔多西主要针对后一类系统发言；乔姆斯基、罗伯茨与瓦图穆尔的回应，针对的也是聊天界面造成的流利错觉。时间线必须分开：句法探针的经典结果大多写在 BERT 上，新一轮刺激贫乏之争则发生在 GPT-3 之后。两者都叫“语言模型”，实验对象并不相同。
 
 ## 证据一：探针——句法表征是否“涌现”
 
 第一个可以动手测量的问题是：模型内部有没有句法结构？休伊特与曼宁（Hewitt & Manning, 2019）提出结构探针：在词向量空间里学习一个距离度量，发现它能相当准确地重建依存树的树距——说明句法树的信息确实编码在表征的几何结构中。坦尼等人（Tenney, Das & Pavlick, 2019）逐层分析 BERT，发现各层的功能顺序近似经典的 NLP 管线：低层处理词性与词块，中层处理句法，高层处理语义与指代——模型在无人教授的情况下“重新发现”了语言学的分析层次。
 
 但要给这个“涌现”加两条脚注。其一，探针能读出信息不等于模型在生成时使用了这些信息——这是探针方法论本身的教训，高容量探针甚至可能自己学会任务。其二，读出的是统计上可用的结构线索，它与语言学家设想的离散、递归、受约束的句法表征是否同构，仍是有争议的解释问题。已确证的是“表征中含有大量句法信息”，有争议的是“这是否等于拥有句法知识”。
+
+探针之后更硬的一步是因果干预：不是问“表征里有没有句法信息”，而是问“拿掉或改写这些信息，模型的下一步预测会不会变”。埃拉扎尔等人（Elazar et al., 2021）提出“失忆探针”（amnesic probing），用迭代零空间投影从 BERT 表征里抹去词性或依存一类属性，再看语言模型损失是否上升。他们的要点很尖锐——探针分类器的高分，与该信息是否被下游计算依赖，并不相关。
+
+维格等人（Vig et al., 2020）把因果中介分析引进 Transformer，追问哪些神经元或注意力头介导了特定行为。孟等人（Meng et al., 2022）在 GPT 类模型上定位事实联想，并用秩一编辑改写中层前馈模块。对语言学理论，这些方法的价值不是“证明机器有语法”，而是把“编码”与“使用”拆开：读得出树距，仍需干预才能说模型靠它做预测。
 
 ## 证据二：系统泛化——组合性之考
 
@@ -82,9 +94,17 @@ LLM 的出现把这场辩论推向一个奇特的位置：机器学习架构几�
 
 ## 参考文献
 
+- Chomsky, N. “Three Models for the Description of Language.” *IRE Transactions on Information Theory* 2(3) (1956): 113–124.
 - Chomsky, N., Roberts, I., & Watumull, J. “The False Promise of ChatGPT.” *The New York Times*, 2023-03-08.
 - Piantadosi, S. T. “Modern Language Models Refute Chomsky’s Approach to Language.” In *From Fieldwork to Linguistic Theory*, Language Science Press, 2023.
 - Katzir, R. “Why Large Language Models Are Poor Theories of Human Linguistic Cognition: A Reply to Piantadosi.” *Biolinguistics* 17 (2023).
+- Devlin, J., Chang, M.-W., Lee, K., & Toutanova, K. “BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding.” *NAACL-HLT*, 2019.
+- Brown, T., et al. “Language Models are Few-Shot Learners.” *NeurIPS*, 2020.
+- Hewitt, J., & Manning, C. D. “A Structural Probe for Finding Syntax in Word Representations.” *NAACL-HLT*, 2019.
+- Elazar, Y., Ravfogel, S., Jacovi, A., & Goldberg, Y. “Amnesic Probing: Behavioral Explanation with Amnesic Counterfactuals.” *Transactions of the Association for Computational Linguistics* 9 (2021): 160–175.
+- Vig, J., et al. “Investigating Gender Bias in Language Models Using Causal Mediation Analysis.” *NeurIPS*, 2020.
+- Meng, K., Bau, D., Andonian, A., & Belinkov, Y. “Locating and Editing Factual Associations in GPT.” *NeurIPS*, 2022.
+- Delétang, G., et al. “Neural Networks and the Chomsky Hierarchy.” *ICLR*, 2023.
 - Warstadt, A., et al. “BLiMP: The Benchmark of Linguistic Minimal Pairs for English.” *Transactions of the Association for Computational Linguistics* 8 (2020): 377–392.
 - Lake, B. M., & Baroni, M. “Generalization without Systematicity: On the Compositional Skills of Sequence-to-Sequence Recurrent Networks.” *ICML*, 2018.
 - Kim, N., & Linzen, T. “COGS: A Compositional Generalization Challenge Based on Semantic Interpretation.” *EMNLP*, 2020.

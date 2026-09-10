@@ -2,7 +2,7 @@
 title: 计算复杂性理论
 title_en: Computational Complexity Theory
 status: published
-updated: 2026-06-13
+updated: 2026-09-07
 category: 计算理论
 order: 2
 field: 计算理论 · 算法
@@ -53,6 +53,12 @@ SAT 问题：给定一个布尔逻辑公式（由变量、AND、OR、NOT 组成�
 
 （注：苏联数学家列昂尼德·列文（Leonid Levin）独立且几乎同时给出了等价的定义，在苏联文献中有时将 NP 完全称为"普遍问题"，卡普-库克-列文定理反映了这段并行历史。）
 
+库克的论证有一个很具体的形状。任意 NP 语言都对应一台多项式时间非确定性图灵机；把该机器在给定输入上的计算过程写成一张时间与空间的表，再把表上每一步的局部一致性编成布尔公式。公式可满足，当且仅当存在一条接受计算。于是所有 NP 问题都多项式归约到 SAT。
+
+这就是后来所称的库克—列文定理。它不提供 SAT 的快速算法，它提供一张等价地图：SAT 若可在多项式时间解决，则 NP 中每一个问题都可以。后世的 [[sat-solving|SAT 求解器]] 能解开许多工业实例，并不否定最坏情况仍然可以很难——平均情况友好与最坏情况难，完全可以同时成立。
+
+卡普并不对每个问题都重新编码图灵机。他建造一条归约链，从 SAT 走到三维匹配、顶点覆盖、哈密顿回路，再到旅行商问题的判定版。二十一个问题因此被证明同生共死。库克获 1982 年图灵奖，卡普获 1985 年图灵奖；列文的论文在苏联发表，西方过了若干年才充分对照。NP 完全性从一开始就不是单线故事。
+
 ## 核心一：P 与 NP 的定义
 
 **P（多项式时间类）**：所有存在多项式时间算法的判定问题的集合。如果问题的输入大小为 $n$，则算法运行时间为 $O(n^k)$（$k$ 为某常数）。
@@ -63,17 +69,27 @@ SAT 问题：给定一个布尔逻辑公式（由变量、AND、OR、NOT 组成�
 
 P $\subseteq$ NP 是显然的（能解就能验证）。**P 是否真的等于 NP**（即"容易验证"是否意味着"容易求解"），是这个领域的核心未解问题。绝大多数计算机科学家相信 P $\neq$ NP，但截至 2026 年，这仍未被证明。
 
+这个问题问的不是有没有更聪明的实现。它问的是：存在一份短证据，与找出这份证据，在多项式时间里是不是同一类任务。[[p-vs-np|P 与 NP]] 仍然开放。相对化、自然证明和代数化表明，一批看似通用的证明技术根本碰不到它，见 [[barriers-to-proving-p-vs-np|P vs NP 的证明障碍]]。
+
+悬赏说明难度，不说明进度。到 2026 年，既没有被社区接受的相等证明，也没有被社区接受的分离证明。公开竞赛没有缩短这个问题与现有证明技术之间的距离。
+
 ## 核心二：NP 完全与多项式规约
 
 **规约**（Reduction）：问题 $A$ 多项式规约到问题 $B$（记作 $A \leq_p B$），意思是：存在一个多项式时间算法，把 $A$ 的任意实例转化为 $B$ 的一个实例，使得两个实例的答案相同。
 
 如果 $A \leq_p B$ 且 $B$ 有多项式算法，则 $A$ 也有。换句话说，$B$ "至少和 $A$ 一样难"。
 
+库克原来允许图灵归约，即归约过程可以多次询问一个预言机。卡普改用多一归约：一次变换，一次提问。教材里今天所说的 NP 完全，默认几乎都是卡普意义下的，因为它把"是实例"精确地映成"是实例"，传递关系更干净。
+
 **NP 完全**（NP-complete）：一个问题 $C$ 是 NP 完全的，当且仅当：
 1. $C \in$ NP（答案可多项式验证）
 2. 所有 NP 问题都可多项式规约到 $C$（即 $C$ 是 NP 中最难的）
 
 如果 P $\neq$ NP（主流信念），则 NP 完全问题没有多项式时间算法——这意味着对大规模输入，只能诉诸近似算法（见 [[approximation-algorithms]]）、启发式方法或随机化算法（见 [[randomized-algorithms]]）。
+
+NP 难比 NP 完全更宽：它要求"所有 NP 问题都可归约到它"，但不要求它自己属于 NP。旅行商的优化版（找出最短回路，而不只是判定是否短于某长度）通常被说成 NP 难，因为它的输出不是一个是/否。判定版在 NP 里，优化版则不一定。
+
+若 P ≠ NP，Ladner 在 1975 年证明：NP 中还有既不在 P、也不是 NP 完全的中间问题。日常语言常把"NP 完全"当成"所有难问题"的同义词，数学上并不是这样。
 
 ## 核心三：复杂度类的层次
 
@@ -91,6 +107,8 @@ P $\subseteq$ NP 是显然的（能解就能验证）。**P 是否真的等于 N
 
 已知的包含关系：$\text{P} \subseteq \text{NP} \subseteq \text{PSPACE} \subseteq \text{EXPTIME}$。量子计算机所在的 BQP 与 NP 的确切关系尚未完全厘清。
 
+并不是所有分离都未解。时间层次定理表明：给图灵机严格更多的时间，就能识别更多语言。由此可知 P 真包含于 EXPTIME，这不是猜想。未知的是中间那几层——NP、PSPACE——是否与 P 重合。P vs NP 难，不是因为我们完全不会证明下界，而是因为现有的对角论证穿不透这两层。
+
 ## 代价与争议
 
 **P = NP 的后果**：如果 P = NP，则现代公钥密码学的基础将崩塌——因为密码学依赖于某些问题（大整数分解、离散对数）"难以求解但易于验证"的性质（参见 [[cryptography-foundations]]）。许多机器学习、优化、药物设计中的 NP 难问题将变得可高效解决，影响将是根本性的。
@@ -99,15 +117,21 @@ P $\subseteq$ NP 是显然的（能解就能验证）。**P 是否真的等于 N
 
 **大量声称的证明**：P vs NP 问题每年都会有数十篇声称"证明"（P = NP 或 P ≠ NP）的论文出现，几乎全部在同行评审中被推翻。Scott Aaronson 等研究者维护了这类错误证明的分析记录，成为复杂度理论社区的一种传统。
 
+社区把错误证明公开解剖，不是为了嘲讽。P vs NP 的陈述干净到任何人都可以写下一份"证明"，而漏洞几乎总是藏在量词、归约或对角论证的缝里。
+
 ## 交互式证明系统与 PCP 定理
 
 1980 年代，Goldwasser、Micali、Rackoff 引入了**交互式证明系统**（Interactive Proof Systems）的概念：证明者（Prover，计算能力无限）与验证者（Verifier，多项式时间有界的随机化机器）之间交互多轮，验证者以高概率判断证明者的断言是否成立。
+
+他们在 1985 年的 STOC 上把交互式证明写成可分析的定义，期刊版于 1989 年发表。随机性从此不再只是加速算法的技巧，而成为证明系统本身可以计算的资源。
 
 引人注意的结果：**IP = PSPACE**（Shamir, 1990/1992，建立在 Lund-Fortnow-Karloff-Nisan 的代数方法之上）——交互式证明系统恰好能验证 PSPACE 中的所有问题，远强于 NP（只允许一轮非交互验证）。这个等式的反直觉之处在于：只要允许验证者**掷硬币**并和证明者**多轮对话**，能被高效验证的命题范围就一举从 NP 暴涨到整个 PSPACE。随机性与交互的组合，威力远超单独任一者——这也是零知识证明（见下文及 [[cryptography-foundations]]）能够存在的理论根基。
 
 更深刻的是 **PCP 定理**（Probabilistically Checkable Proofs Theorem，1992 年由两篇 FOCS 论文共同确立：Arora-Safra 与 Arora-Lund-Motwani-Sudan-Szegedy，常合称 ALMSS）：任何 NP 问题的证明都可以被改写为一种"概率可检验证明"，使验证者只需随机读取证明的**常数个**符号，就能以高概率判断证明的正确性。用一个比喻：一份几百页的证明，验证者蒙上眼睛随机戳几个字，就能以极高概率分辨它是真证明还是骗局——这听上去不可思议，却是被严格证明的定理。
 
 PCP 定理的重要推论是：很多 NP 完全问题的**近似**版本也是 NP 难的——不只是精确解难找，连好的近似解也难找。这统一了大量近似算法下界的证明，是 1990 年代复杂度理论最重要的成果之一。
+
+更细的定义、零知识以及 PCP 的后续证明，见 [[interactive-proofs-and-zero-knowledge|交互式证明与零知识]]。PCP 把 NP 重新刻画为：存在一种证明格式，验证者只随机探查常数个位置。这个刻画把近似算法的下界从个案技巧变成了统一的方法。
 
 ## 随机化计算与 BPP
 
@@ -142,12 +166,16 @@ Adleman（1978）的定理已证明 BPP ⊆ P/poly（非均匀多项式时间）
 ## 参考文献
 
 - Cook, S. A. *The Complexity of Theorem Proving Procedures.* Proceedings of the Third Annual ACM Symposium on Theory of Computing (1971): 151–158. （NP 完全性原始论文）
+- Levin, L. A. "Universal Sequential Search Problems." *Problems of Information Transmission* 9(3):265–266, 1973. （俄文原刊于《信息传输问题》；与库克独立）
+- Goldwasser, S., Micali, S., Rackoff, C. "The Knowledge Complexity of Interactive Proof Systems." *SIAM Journal on Computing* 18(1):186–208, 1989. （STOC 1985）
 - Karp, R. M. *Reducibility Among Combinatorial Problems.* In *Complexity of Computer Computations*. Plenum (1972). （20 个 NP 完全问题）
 - Garey, M. R. & Johnson, D. S. *Computers and Intractability: A Guide to the Theory of NP-Completeness.* W. H. Freeman (1979). （经典参考书，含大量问题分类）
 - Sipser, M. *Introduction to the Theory of Computation.* 3rd ed. Cengage Learning (2012). （第七章为复杂度理论入门）
 - Shamir, A. *IP = PSPACE.* Journal of the ACM 39(4), 869–877 (1992). （初版 FOCS 1990）
 - Arora, S. et al. *Proof Verification and the Hardness of Approximation Problems.* JACM 45(3), 501–555 (1998). （PCP 定理，初版 FOCS 1992）
 - Håstad, J. *Some Optimal Inapproximability Results.* JACM 48(4), 798–859 (2001). （Max-3-SAT 的 7/8 紧界）
+- Ladner, R. E. "On the Structure of Polynomial Time Reducibility." *Journal of the ACM* 22(1):155–171, 1975.
+- Hartmanis, J. & Stearns, R. E. "On the Computational Complexity of Algorithms." *Transactions of the American Mathematical Society* 117:285–306, 1965.
 
 ## 延伸阅读
 

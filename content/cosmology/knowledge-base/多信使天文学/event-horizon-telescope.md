@@ -3,7 +3,7 @@ title: 事件视界望远镜
 titleEn: Event Horizon Telescope
 category: 多信使天文学
 tags: [事件视界望远镜, EHT, M87, Sgr A*, 黑洞成像, 甚长基线干涉, 广义相对论]
-updated: 2026-06-13
+updated: 2026-09-08
 ---
 
 # 事件视界望远镜：拍摄黑洞的"照片"
@@ -12,7 +12,11 @@ updated: 2026-06-13
 
 **事件视界望远镜**（Event Horizon Telescope，**EHT**）是一个全球毫米波射电望远镜阵列，通过**甚长基线干涉测量**（Very Long Baseline Interferometry，VLBI）技术，将分布在地球各大洲的多台射电望远镜联网，形成一台等效口径约等于地球直径（约 $12000$ km）的超大望远镜，达到约 $20$ 微角秒（$\mu$as）的角分辨率——这足以在月球上阅读报纸上的字，或在距地球 $54$ 百万光年处分辨出事件视界尺度的结构。
 
+它不是架在某座山上的单台望远镜。EHT 把地球上已经存在的毫米波天线在同一时刻对准同一目标，事后把电压记录做互相关，等效口径才接近地球直径。2019 年发布的 M87\*、2022 年发布的 Sgr A\*，都是这样来的重建图像，不是底片上的一张照片。
+
 **2019 年 4 月 10 日**，EHT 发布了人类第一张黑洞"照片"——室女座星系 **M87** 中心超大质量黑洞 **M87\*** 的毫米波图像，呈现出一个明亮的圆环和中央暗影，与广义相对论的预测高度吻合。**2022 年 5 月 12 日**，EHT 发布了银河系中心黑洞 **Sgr A\*** 的图像——比 M87\* 近得多，但变化极快，挑战了数据处理极限。
+
+观测发生在 2017 年 4 月，M87\* 的图是 2019 年 4 月 10 日发布的。数据先于新闻。把发布日当成拍摄日，会把相关处理和成像检验那两年抹掉。
 
 ## VLBI技术：将地球变成望远镜
 
@@ -20,9 +24,17 @@ updated: 2026-06-13
 
 **VLBI 的核心思想**：在地球上两台甚至数台射电望远镜同时观测同一目标，记录精确时间戳的射电信号（用原子钟同步），事后在超级计算机上通过"相关处理"（correlation）求两台望远镜信号的互相关函数，等效于一台口径为两台之间基线长度的大望远镜——这就是**综合孔径干涉**。
 
-EHT 在 $1.3$ mm 波长（$230$ GHz 频率）工作，基线最长约 $10^4$ km（地球直径），合成角分辨率约 $20$ $\mu$as。
+EHT 在 $1.3$ mm 波长（$230$ GHz 频率）工作，基线最长约 $10^4$ km（地球直径），合成角分辨率约 $20$ $\mu$as。Doeleman 等人 2008 年已经在这一波段上看到 Sgr A\* 的视界尺度结构，那时还没有全球八站阵。EHT 后来做的是把稀疏可见度填到足以重建一张环，而不是第一次证明源很小。
+
+单台毫米波天线的衍射极限远远不够分辨近邻超大质量黑洞的阴影。分辨率公式是波长除以基线，不是除以某一面天线的口径。把最长基线拉到地球尺度，1.3 毫米波段才能进到文中已给出的微角秒量级。具体有多少公里，以各次实验的台站几何为准，这里不另造一条标准基线。
+
+干涉仪测到的是天空亮度分布的[[fourier-analysis|傅里叶]]分量，一对天线给出一个空间频率上的复可见度。地面台站有限，地球自转会把每条基线扫出一段弧，但采样平面仍然稀疏。图像必须从这些可见度重建，并加上正性、紧致之类的先验，而不是在焦平面上曝光。
+
+闭合相位之类的量对单站增益误差不敏感，因此成为检验环是不是校准假象的硬证据。若只有经过大幅自校准后的总强度图，环的可信度要低得多。EHT 的论证结构是：对增益稳健的闭合量和多套成像算法，收敛到同一圈直径。
 
 **数据量**：每台望远镜每秒记录约 $64$ Gbit 的射电数据，写入硬盘。EHT 2017 年观测活动产生了约 $5$ 拍字节（PB）的数据，装在硬盘上用飞机运输到相关处理中心（当时南极洲的 SPT 望远镜因冬季而无法用网络传输）。
+
+阵列的分辨率由地球大小定，它能不能出图，还取决于把记录运到同一台相关机。南极的硬盘要等冬季结束才能运走，这一条工程约束和衍射公式同等真实。[[甚长基线干涉]]把“同时观测”定义成：在各自的钟面上写下可对齐的电压序列。
 
 ## 参与望远镜
 
@@ -41,6 +53,10 @@ EHT 2017 年观测（产生 M87\* 图像的数据）使用了 8 个站点的望�
 
 此后，格陵兰望远镜（GLT）、诺埃玛望远镜（NOEMA，法国）等也加入 EHT。
 
+2017 年成像用的是八个站点，不是一座新建成的“事件视界号”单天线。ALMA 被相干合成后当作一个高灵敏度站加入，极大改善了对短基线通量的约束。缺了短基线，重建容易把大尺度结构认成过小的环。
+
+地球自转让每一对台站的投影基线在几个小时里画出一段弧，采样比瞬时快照密一点。它填不满空洞，只是让空洞不那么规则。这正是为什么加站和加频率，比把某一面天线再做大更要紧。
+
 ## M87\*：第一张黑洞"照片"
 
 **M87\***（室女座 A 星系中心黑洞）是首个成像目标的选择理由：
@@ -48,6 +64,10 @@ EHT 2017 年观测（产生 M87\* 图像的数据）使用了 8 个站点的望�
 - **质量**：$6.5 \pm 0.7 \times 10^9\,M_\odot$，是已知最重的超大质量黑洞之一
 - **阴影角径**：约 $42\,\mu$as——尽管距离约 $16.8$ Mpc（约 5500 万光年，EHT 采用值），其巨大质量使黑洞阴影在天球上的张角仍约 $42$ $\mu$as，恰好在 EHT 分辨率范围内。注意这是"阴影"（约 $5\,GM/c^2$，即光子环）的角径，约为事件视界本身角径的 2.5 倍
 - **著名喷流**：M87 的相对论喷流延伸超过 $5000$ 光年，是研究喷流起源的最佳系统
+
+选择 M87\* 不是因为它最近，而是质量与距离之比让阴影张角落到阵列能分辨的范围。上面给出的质量与距离是合作组采用值；本段不改写这两个数字。
+
+喷流在大尺度上早已被光学和射电看见，EHT 的环并没有把喷流底部直接画出来。环的不对称与内盘转动一致，和数千光年外的喷流指向是不同尺度上的两件事。把两者叠成“喷流从照片里喷出来”，会把视界尺度和星系尺度混成一张图。
 
 ### 2019 年发布的图像
 
@@ -61,9 +81,15 @@ EHT 2017 年观测（产生 M87\* 图像的数据）使用了 8 个站点的望�
 
 （Event Horizon Telescope Collaboration 2019，_The Astrophysical Journal Letters_，875，L1–L6，共 6 篇论文）
 
+2017 年 4 月 5、6、10、11 日四晚的数据都看到稳定的环，南侧更亮。Paper IV 让四支互盲的成像队伍分别用 CLEAN 和正则化最大似然做重建，再在合成数据上普查参数。环的直径和不对称在这些检验里站得住，这才被允许写成第一张图。
+
+所谓照片，是把稀疏可见度变成一张正值图像的正则化反演。不同算法会在细节上分叉，合作组发布的是对先验不敏感的共同特征：一个直径约四十微角秒量级的亮环，以及中央暗影。细节上的涡旋和热点，不是这张图能单独钉死的。
+
 ### 2021 年的偏振图像
 
 EHT 在 2021 年发布了 M87\* 的**偏振图像**（Event Horizon Telescope Collaboration 2021，_The Astrophysical Journal Letters_，910，L12）：在圆环的不同位置，线偏振方向有规律地排列成螺旋状，与黑洞周围大尺度有序磁场（可能是"磁遏制吸积盘"MAD 状态）的模拟一致，为 Blandford-Znajek 喷流机制提供了间接证据。
+
+偏振图约束的是磁场有没有大尺度秩序，不是把喷流功率读成一个数。螺旋状的电矢量排列与有序磁场一致，和总强度环是同一套数据的另一面。没有偏振，阴影只能说“那里有一个紧致的光子轨道结构”；有了偏振，才能开始谈盘和喷流共用的磁场。
 
 ## Sgr A\*：银河系中心黑洞
 
@@ -77,7 +103,11 @@ EHT 在 2021 年发布了 M87\* 的**偏振图像**（Event Horizon Telescope Co
 
 另一个困难是银河系弥散星际介质对毫米波信号的散射：视线方向穿过银河系中心区域，自由电子使 Sgr A\* 的图像在 $\sim$1 mm 处出现额外的散射模糊（约 $20\,\mu$as），需要数据处理中加以去卷积。
 
+Sgr A\* 更近、质量更小，轨道时标短到以分钟计。EHT 一周的观测里，源本身在变，成像必须处理会动的目标，不能把多天数据当成同一张静图硬叠。星际散射又在毫米波上加了一层模糊，去卷积是分析的一部分，不是美工。
+
 **2022 年发布的图像**（Event Horizon Telescope Collaboration 2022，_The Astrophysical Journal Letters_，930，L12–L17）同样呈现清晰的亮环和中央暗影，结构与 M87\* 一致（尽管两者质量差 $1500$ 倍），再次验证了广义相对论在强场区域的普适性。
+
+质量差了三个数量级仍能看到同类阴影，支持的是光子轨道尺度由质量与距离之比决定，而不是某一座星系的特殊天气。[[accretion-disks-relativistic-jets|吸积盘]]可以很暗，阴影仍然在：Sgr A\* 处于辐射低效状态，环来自内区等离子体的同步辐射，不是一张热薄盘的光学照片。
 
 ## EHT 对广义相对论的检验
 
@@ -87,7 +117,9 @@ EHT 图像为检验广义相对论提供了前所未有的机会：
 
 **轨道频率约束**：对 M87\* 周围亮斑"轨道运动"的检测（若实现）可约束黑洞自旋。2023 年，Wielgus et al. 在 M87\* 的 ALMA 毫米波流量中识别出约 $\sim 5$ 天的准周期振荡，被解释为内盘亮斑的轨道运动。
 
-**Sgr A\* 的周围轨道**：GRAVITY 干涉仪（VLT）通过跟踪绕 Sgr A\* 轨道的恒星（尤其是 S2 星，2018 年近星点通过测量到引力红移和史瓦西进动，GRAVITY Collaboration 2018，_Astronomy & Astrophysics_，618，L10），给出了 Sgr A\* 质量和距离的最精确测量，同时是对强场 GR 的精确检验。
+**Sgr A\* 的周围轨道**：GRAVITY 干涉仪（VLT）通过跟踪绕 Sgr A\* 轨道的恒星（尤其是 S2 星，2018 年近星点通过测量到引力红移，GRAVITY Collaboration 2018，_Astronomy & Astrophysics_，615，L15），给出了 Sgr A\* 质量和距离的最精确测量，同时是对强场 GR 的精确检验。视界附近的轨道运动另有一篇：GRAVITY Collaboration 2018，_A&A_，618，L10，测的是内区亮斑，不是 S2 本身。
+
+环大小与广义相对论在百分之十几量级上相符，排除的是偏差很大的替代模型，不是已经量到自旋的百分位。要把不对称幅度翻成自旋，必须经过磁流体和电子温度假设，约束因此比阴影直径更宽。
 
 ## ngEHT 与未来
 
@@ -99,9 +131,15 @@ EHT 图像为检验广义相对论提供了前所未有的机会：
 
 目标是真正"看到"内吸积盘的动力学过程和喷流启动区域。
 
+加站首先是为了填采样平面上的空洞，其次才是把最长基线再拉长一点。电影成像要求短时标上仍有足够的基线覆盖，否则“动起来”的结构可能来自覆盖在变，而不是来自源在变。
+
 ## 为什么这很重要
 
 EHT 是人类智慧工程的里程碑：将地球上分散的射电望远镜整合为一台地球尺度的"超级望远镜"，拍摄到人类曾认为永远无法直接观测的天体——黑洞事件视界附近的时空。它不仅是视觉上的震撼，更是对广义相对论在极强引力场中的首次真正"成像检验"，以及对黑洞磁层、吸积盘和喷流物理的直接窗口。
+
+里程碑的内容需要说准确：看见的是重建出来的光子环与阴影，不是把视界拍成一张光学风景。阵列可以在跨三个数量级的质量上比对同一条度规预言，前提是靶标的质量距离比刚好落进分辨率窗口。工程上它仍是一台稀疏的[[射电望远镜|射电]]干涉阵，可用性由天气、时钟和硬盘运输共同决定。
+
+2019 与 2022 两张图的科学价值，首先是同一套阵列在两个质量相差约一千五百倍的靶标上看到同类阴影。其次才是视觉冲击。若把它们当成单台望远镜拍下的风景照，会把后续所有关于先验、闭合量和多算法收敛的讨论说成多余。
 
 ## 跨域连接
 
@@ -115,9 +153,12 @@ EHT 是人类智慧工程的里程碑：将地球上分散的射电望远镜整�
 
 - Event Horizon Telescope Collaboration (2019). First M87 Event Horizon Telescope Results. I. _The Astrophysical Journal Letters_, 875, L1.
 - Event Horizon Telescope Collaboration (2019). First M87 Event Horizon Telescope Results. VI. _The Astrophysical Journal Letters_, 875, L6. — 黑洞质量测量和广义相对论检验
+- Event Horizon Telescope Collaboration (2019). First M87 Event Horizon Telescope Results. IV. Imaging the central supermassive black hole. _The Astrophysical Journal Letters_, 875, L4.
 - Event Horizon Telescope Collaboration (2021). First M87 Event Horizon Telescope Results. VII. Polarization. _The Astrophysical Journal Letters_, 910, L12.
-- Event Horizon Telescope Collaboration (2022). First Sagittarius A* Event Horizon Telescope Results. I. *The Astrophysical Journal Letters\*, 930, L12.
-- GRAVITY Collaboration (2018). Detection of orbital motions near the last stable circular orbit of the massive black hole SgrA*. *Astronomy & Astrophysics\*, 618, L10.
+- Event Horizon Telescope Collaboration (2022). First Sagittarius A\* Event Horizon Telescope Results. I. _The Astrophysical Journal Letters_, 930, L12.
+- GRAVITY Collaboration (2018). Detection of the gravitational redshift in the orbit of the star S2 near the Galactic centre massive black hole. _Astronomy & Astrophysics_, 615, L15.
+- GRAVITY Collaboration (2018). Detection of orbital motions near the last stable circular orbit of the massive black hole SgrA\*. _Astronomy & Astrophysics_, 618, L10.
+- Doeleman, S. S. et al. (2008). Event-horizon-scale structure in the supermassive black hole at the Galactic Centre. _Nature_, 455, 78–80.
 
 ## 延伸阅读
 

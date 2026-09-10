@@ -2,7 +2,7 @@
 title: 路由与交换
 title_en: Routing and Switching
 status: published
-updated: 2026-06-28
+updated: 2026-09-07
 category: 系统与架构
 order: 34
 field: 计算机科学 · 计算机网络
@@ -37,6 +37,12 @@ related:
 
 所以"交换机只看 MAC、路由器才看 IP"是入门时的有用简化，真实设备的功能边界要模糊得多。
 
+交换机看 MAC、路由器看 IP，对应的是 OSI 参考模型里第二层与第三层的分界。第二层（数据链路层）处理同一链路或同一广播域里的帧，地址是网卡的 MAC；第三层（网络层）处理跨网络的分组，地址是主机所在网络的 IP。
+
+帧在二层被转发时，不必知道目的地属于哪个自治系统。分组在三层被转发时，也不再携带上一跳的 MAC——那是下一跳链路上才会重新填写的局部地址。[[networking-protocols|TCP/IP 协议栈]] 把两层叠在一起：以太网帧装着 IP 分组，IP 分组再装着传输层报文。
+
+家庭网关常被叫作"路由器"，是因为它同时做三层转发和二层交换，往往还做地址转换。名字是路由器，并不等于设备只活在第三层。
+
 ## 交换：局域网内的通信
 
 **交换机**维护一张**MAC 地址表（CAM 表）**：记录每个 MAC 地址对应哪个端口。
@@ -56,6 +62,8 @@ Cisco 的 Catalyst 系列默认用存储转发，面向数据中心的 Nexus 系
 
 **生成树协议（STP，Spanning Tree Protocol）**：为避免交换机之间形成环路（会导致广播风暴），STP 动态计算一棵无环的生成树，关闭冗余链路的转发（保留链路本身，链路断了再激活）。现代数据中心更多使用 RSTP（快速生成树）或基于 ECMP（等价多路径）的架构替代。
 
+生成树协议的源头是 Radia Perlman 1985 年在 DEC 给出的分布式算法：在可能有环的扩展局域网里，选出一棵转发树，把多余端口挡住。它回答的不是"要不要冗余线"，而是"冗余存在时，二层如何仍保持无环"。没有这条约定，广播帧会在环上被复制到填满带宽为止。
+
 ## 路由：网络间的通信
 
 路由器的核心任务是维护**路由表（Routing Table）**，并根据路由表转发数据包。
@@ -68,6 +76,8 @@ Cisco 的 Catalyst 系列默认用存储转发，面向数据中心的 Nexus 系
 - 度量值（Metric，越小越优先）
 
 **最长前缀匹配（Longest Prefix Match）**：若数据包的目标 IP 匹配多个路由表条目，选择前缀最长（最精确）的那条。这是路由器查找路由的基本规则，大量使用 TCAM（三态内容可寻址存储器）硬件实现纳秒级查找。
+
+最长前缀匹配决定了更具体的路由赢。一条 /24 会压过覆盖它的 /16，这是查找规则，不是价值判断。它让多归属成为可能：同一地址块可以从不同出口、以不同长度被看见，路由器只选自己表里最具体的那条。
 
 TCAM 快，但容量有限且昂贵，这埋下了一个真实隐患。2014 年 8 月 12 日，全球 IPv4 路由表条目数首次突破 512,000——不少老旧路由器（尤其部分 Cisco 型号）出厂默认只给 IPv4 路由划了 512K 的 TCAM 空间。
 
@@ -83,6 +93,12 @@ TCAM 快，但容量有限且昂贵，这埋下了一个真实隐患。2014 年 
 
 - **RIP（路由信息协议）**：距离向量协议。每个路由器只知道到各目标的跳数（Hop Count），定期广播路由表给邻居。它的"慢"有具体原因：链路故障时距离向量协议会出现"计数到无穷（count-to-infinity）"——错误的跳数在路由器之间循环递增、收敛极慢，要靠水平分割（split horizon）等机制缓解，而最大 15 跳的上限正是给这种递增封顶。它简单，但现在几乎仅用于教学。
 
+链路状态与距离向量的差别，落实到算法上就是 [[shortest-path-dijkstra|Dijkstra 最短路]] 与 [[bellman-ford|Bellman-Ford]] 的差别。OSPF 要求每个路由器都有一份一致的拓扑图，然后以自己为源点跑 Dijkstra，得到一棵最短路径树；边权是管理员配置的开销，通常禁止为负，因为 Dijkstra 的正确性依赖非负权。
+
+RIP 不发布整张图，只交换"到某网络还要几跳"。邻居用收到的距离对自己的表做松弛，这正是 Bellman-Ford 在分布式环境下的形态。Bellman 1958 年的论文标题就是 *On a Routing Problem*：距离向量并不是后来才从算法课里借来的比喻。
+
+两种算法在路由里失败的方式也不同。Dijkstra 碰上负权会给出错答案，所以 OSPF 不能靠负开销表达"回避"。Bellman-Ford 能处理负权，但在路由里更常见的麻烦是过时距离在环上打转，也就是计数到无穷。
+
 **域间路由协议（EGP，Exterior Gateway Protocol）**：
 
 - **BGP（边界网关协议）**：互联网唯一实际使用的域间路由协议（RFC 4271），是 AS 之间交换路由信息的标准。BGP 不追求最短路径，而是基于策略的路径向量协议——AS 可以基于商业协议（对等、上下游付费）、地缘政治、安全等因素选择路由路径。
@@ -90,6 +106,12 @@ TCAM 快，但容量有限且昂贵，这埋下了一个真实隐患。2014 年 
 ## BGP：互联网的路由黏合剂
 
 全球互联网由约 80,000 个自治系统（AS）组成，它们彼此公告的 IPv4 路由到 2024 年已增长到约 95 万条。BGP 是让它们互相"知道路"的协议。
+
+BGP 不是和互联网同时出现的。1980 年代的骨干网用过外部网关协议 EGP，它假定自治系统之间接近树状互联；网状拓扑一旦成为常态，树状假设就不够用了。
+
+1989 年，Lougheed 与 Rekhter 在 RFC 1105 里给出 BGP 第一版。随后几年连续修订：1990 年的 RFC 1163 是 BGP-2，1991 年的 RFC 1267 是 BGP-3。真正让全球路由表能聚合的，是 1990 年代中期的 BGP-4：它支持无类别域间路由，可以把许多小网写成一条前缀，也可以把一条大前缀拆开，以便按出口分流。
+
+现行文本是 2006 年的 RFC 4271，但路径向量、策略优先于跳数、前缀由自治系统自愿公告，这些骨架在 1990 年代已经定型。协议并不验证公告者是否真拥有该地址块，因此前缀劫持是真实风险；治理靠路由过滤、源验证和运营惯例，而不是靠协议自己充当产权登记处。
 
 BGP 路由的基本单元是**前缀公告**：`我能到达 203.0.113.0/24，路径是 [AS64500, AS64501]`。
 
@@ -130,6 +152,8 @@ BGP 的另一种失效不来自恶意，而来自自己。2021 年 10 月 4 日�
 
 **互联网的脆弱性**：BGP 的基于信任、无认证的设计，是互联网深层的安全隐患。RPKI 是技术解决方案，但国际间协调部署进展缓慢——没有哪个单一实体能强制所有 AS 升级。
 
+BGP 把信任当作默认配置，不是疏忽，而是规模换来的代价。全球没有一个机构能给所有前缀做实时公证，于是协议先转发、再靠运营者事后纠正。RPKI 把"谁有权公告"从口头约定变成可验证的签名，但它仍是叠加层：不部署、不检查的网络，行为与 1990 年代相同。
+
 **SD-WAN vs. MPLS**：传统企业广域网使用 MPLS（多协议标签交换，运营商提供有保证的 QoS），费用高昂。SD-WAN 用软件在廉价宽带上构建可靠的企业网络，2015 年后快速替代 MPLS。这是一个典型的"软件吃掉专用硬件"的故事。
 
 ## 跨域连接
@@ -145,6 +169,11 @@ BGP 的另一种失效不来自恶意，而来自自己。2021 年 10 月 4 日�
 ## 参考文献
 
 - Rekhter, Y. et al. *A Border Gateway Protocol 4 (BGP-4).* RFC 4271, IETF, 2006.
+- Lougheed, K. & Rekhter, Y. *A Border Gateway Protocol (BGP).* RFC 1105, IETF, 1989.
+- Fuller, V., Li, T., Yu, J., Varadhan, K. *Classless Inter-Domain Routing (CIDR): an Address Assignment and Aggregation Strategy.* RFC 1519, IETF, 1993.
+- Dijkstra, E. W. "A Note on Two Problems in Connexion with Graphs." *Numerische Mathematik* 1:269–271, 1959.
+- Bellman, R. "On a Routing Problem." *Quarterly of Applied Mathematics* 16(1):87–90, 1958.
+- Perlman, R. "An Algorithm for Distributed Computation of a Spanning Tree in an Extended LAN." *ACM SIGCOMM Computer Communication Review* 15(4):44–53, 1985.
 - Moy, J. *OSPF Version 2.* RFC 2328, IETF, 1998.
 - Tanenbaum, A. & Wetherall, D. *Computer Networks.* 5th ed. Pearson, 2011.
 - McKeown, N. et al. *OpenFlow: Enabling Innovation in Campus Networks.* ACM SIGCOMM CCR, 2008.

@@ -2,7 +2,7 @@
 title: 数据库索引与查询优化
 title_en: Database Indexing and Query Optimization
 status: published
-updated: 2026-06-28
+updated: 2026-09-07
 category: 系统与架构
 order: 45
 field: 计算机科学 · 数据库
@@ -45,6 +45,12 @@ SELECT * FROM users WHERE email = 'alice@example.com';
 
 它的来历比多数人想象的要早。B 树由 Rudolf Bayer 与 Edward McCreight 在 1972 年的论文《Organization and Maintenance of Large Ordered Indexes》中提出，发表于《Acta Informatica》创刊卷。半个多世纪过去，它和它的变体 B+ 树仍是几乎所有关系数据库索引的默认结构。
 
+Bayer 与 McCreight 当时在波音科学实验室工作。论文先在实验室内部流传，一九七二年才正式刊于该刊创刊卷第三期。
+
+两人从未说明字母 B 代表什么。波音、平衡、宽阔，都只是后人猜测。能确定的只有一点：它绝不是每个节点只有两个分叉的二叉树。每个节点被做成一整个磁盘页那么宽，好让一次读取带上尽可能多的键。
+
+Douglas Comer 在一九七九年的综述里把它称作「无处不在的 B 树」。那时距离正式发表不过七年，关系数据库才刚走出实验室。半个世纪后，InnoDB 与 PostgreSQL 的默认索引仍是它的直系后裔。这不是因为没有人试过别的树，而是因为它与块设备的读写粒度绑得太紧：比较可以很便宜，把一页从磁盘搬进 [[memory-hierarchy-caching|内存层次]] 才贵。
+
 B+ 树是一种平衡多路搜索树：
 - **所有叶子节点在同一层**（平衡）
 - **所有实际数据只存在叶子节点**（B+ 树特点，B 树内节点也存数据）
@@ -61,6 +67,8 @@ B+ 树是一种平衡多路搜索树：
 
 扇出几百，意味着 10 亿行的 B+ 树通常只有 3 到 4 层。所以一次点查只要 3 到 4 次页访问，而且最上面一两层几乎总是常驻内存缓存，真正落到磁盘的往往只剩一两次——这才是 B+ 树相对二叉树的真正威力。
 
+B 树允许内节点也存放完整记录，B+ 树则把记录全部赶到叶子。内节点因此只剩下分隔键与子页指针，同一页能放下更多路。范围扫描也不必在树里跳来跳去，顺着叶子链表走即可。关系数据库几乎一律选 B+ 变体，不是审美偏好，而是让扇出与范围扫描同时成立。
+
 ## 索引类型
 
 **聚集索引（Clustered Index）**：数据行按索引键顺序物理存储。一张表只能有一个聚集索引（MySQL InnoDB 的主键即聚集索引）。范围查询极快，因为相邻键的数据物理相邻。
@@ -68,6 +76,12 @@ B+ 树是一种平衡多路搜索树：
 **非聚集索引（Non-Clustered Index / Secondary Index）**：索引与数据分开存储，索引叶子节点存储的是指向实际数据行的指针（或主键值）。查询时先查索引，再"回表"查实际数据。
 
 **覆盖索引（Covering Index）**：查询所需的所有列都在索引中，不需要回表。显著减少 I/O。
+
+选择性说的是一个谓词大约会留下表中多少比例的行。取值几乎只有两三种的列，选择性极低。优化器往往会判断：跟着这样的索引东一块西一块回表，还不如顺序读完一张表。
+
+覆盖索引把「要不要回表」从必经之路变成可选路径。查询用到的列若全部落在索引里，引擎就不必再去堆表取行。PostgreSQL 把这种路径叫做仅索引扫描。
+
+即便如此，它仍可能要核对可见性。在 [[databases-transactions|多版本并发控制]] 下，二级索引通常并不携带事务可见信息。覆盖并不是魔法，它只是把大量随机回表，收成更少的页访问。
 
 示例：
 
@@ -100,6 +114,14 @@ SELECT * FROM users WHERE age > 18;
 
 现代基于代价的优化器源自 IBM 的 System R 项目。Patricia Selinger 等人 1979 年的论文《Access Path Selection in a Relational Database Management System》首次系统地提出：用一个代价模型为每条查询挑选访问路径，并用动态规划把 JOIN 顺序的枚举规模从 $n!$ 压到可接受的范围。今天 MySQL、PostgreSQL、Oracle 的优化器骨架，仍沿用这套四十多年前的思路。
 
+System R 是国际商用机器公司圣何塞实验室在一九七四年到一九七九年做的原型。结构化查询语言从这里走出实验室。查询优化也第一次被写成可以发表的算法，而不再是工程师口头相传的经验。
+
+Selinger 那篇路径选择论文做了两件至今仍在用的事。其一是用目录统计估计每条访问路径的代价：顺序扫描、索引等值、索引范围，各自对应不同的页读取次数。其二是用动态规划枚举连接顺序，并把「结果是否已按某列有序」当作可传递的性质。
+
+后一步很关键：有序可以让随后的归并连接或去重少做一次排序。优化器因此不是在比较孤立的算子，而是在比较带着性质的整份计划。
+
+代价模型依赖的选择性，来自行数、不同值个数，以及后来补上的直方图。这些数字一旦过期，计划选择就会跟着偏。System R 把「怎么取」从程序员手里拿走，同时把对统计是否可信的依赖，写进了系统的中枢。
+
 优化器的主要工作：
 
 **1. 解析与重写**：把 SQL 转化为逻辑查询计划（关系代数表达式），应用等价变换规则（如谓词下推、列裁剪）。
@@ -130,6 +152,8 @@ EXPLAIN SELECT * FROM users WHERE email = 'alice@example.com';
 
 输出会显示每一步用了什么索引、预计扫描多少行、各步骤代价。`EXPLAIN ANALYZE` 实际执行查询，显示真实的执行统计，是性能调优的最重要工具。
 
+执行计划是优化器对自己判断的书面说明。它列出每一步打算走哪条访问路径、估计会碰到多少行。真正跑出来的行数往往和估计对不上。读计划时最值得盯住的正是这种偏差：估计一旦偏了，后面的连接方式、工作内存、是否物化，都会跟着错。
+
 ## 慢查询的常见原因
 
 - **未使用索引**：条件列没有索引，或索引被函数/表达式使该列失效（如 `WHERE YEAR(created_at) = 2024` 无法用 `created_at` 上的 B+ 树索引）
@@ -139,11 +163,15 @@ EXPLAIN SELECT * FROM users WHERE email = 'alice@example.com';
 - **JOIN 笛卡尔积**：忘记 JOIN 条件导致结果集爆炸
 - **N+1 查询问题**：对 N 个对象各发一次查询，应该用一次 JOIN 或 IN 子句
 
+这些条目看起来像故障清单，背后却是同一件事。优化器只能看见自己被允许看见的谓词与统计。函数包住列、类型被悄悄转换、谓词跳过最左前缀，都会让索引从计划空间里消失。引擎并不是拒绝使用索引，而是在它看来，那条索引已经不再是合法路径。
+
 ## 代价与争议
 
 **统计信息与实际分布的偏差**：优化器依赖统计信息，但统计信息更新有延迟，数据分布倾斜（Skew）时直方图可能失效。错误的代价估计导致次优的执行计划，而 DBA 往往很难诊断原因。
 
 这不只是工程上的抱怨，而有实证支撑。2015 年 Viktor Leis 等人的论文《How Good Are Query Optimizers, Really?》用一套专门设计的连接顺序基准（Join Order Benchmark）做了拆解实验，结论相当尖锐：基数估计（cardinality estimation，即预测每一步中间结果有多少行）才是糟糕计划的主因，代价模型和计划枚举的影响相对小得多；而且基数估计的误差会随参与连接的表增多而成倍放大。换句话说，优化器最薄弱的环节不是"怎么搜"，而是"估得准不准"。
+
+选择性与覆盖常常互相牵扯。一个选择性很高的单列索引，点查很快，却几乎总会回表。把更多列塞进索引可以提高覆盖率，同时让叶子更宽、扇出下降、缓存命中变差。于是「要不要覆盖」不是一条绝对规则，而是在回表次数与索引宽度之间的再一次权衡。
 
 **学习型查询优化器**：传统优化器是基于规则和统计模型的——用机器学习代替传统统计估计，预测更准确的代价。这是活跃的研究方向（Neo、Bao 等系统），但生产部署仍以传统方法为主。
 
@@ -164,6 +192,8 @@ EXPLAIN SELECT * FROM users WHERE email = 'alice@example.com';
 ## 参考文献
 
 - Bayer, R. & McCreight, E. "Organization and Maintenance of Large Ordered Indexes." *Acta Informatica*, vol. 1, no. 3 (1972): 173–189.
+- Comer, D. "The Ubiquitous B-Tree." *ACM Computing Surveys*, vol. 11, no. 2 (1979): 121–137.
+- Chamberlin, D. D. et al. "A History and Evaluation of System R." *Communications of the ACM*, vol. 24, no. 10 (1981): 632–646.
 - Selinger, P. G., Astrahan, M. M., Chamberlin, D. D., Lorie, R. A. & Price, T. G. "Access Path Selection in a Relational Database Management System." *Proc. ACM SIGMOD*, 1979: 23–34.
 - O'Neil, P., Cheng, E., Gawlick, D. & O'Neil, E. "The Log-Structured Merge-Tree (LSM-Tree)." *Acta Informatica*, vol. 33, no. 4 (1996): 351–385.
 - Leis, V., Gubichev, A., Mirchev, A., Boncz, P., Kemper, A. & Neumann, T. "How Good Are Query Optimizers, Really?" *Proc. VLDB Endowment (PVLDB)*, vol. 9, no. 3 (2015): 204–215.

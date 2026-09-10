@@ -176,7 +176,7 @@
   },
   "/life-science/scientists/watson": {
     "t": "詹姆斯·沃森",
-    "e": "\"沃森和克里克发明了DNA\"——这种说法在通俗叙述里很常见，却完全误解了科学发现的本质。",
+    "e": "\"沃森和克里克发明了DNA\"——这种说法在通俗叙述里很常见，却完全误解了科学发现的本质。DNA不是实验室里做出来的产品，发现也不是两个人的灵感表演。",
     "d": "life-science"
   },
   "/life-science/scientists/wilson": {
@@ -201,7 +201,7 @@
   },
   "/life-science/species/deinococcus": {
     "t": "耐辐射球菌",
-    "e": "耐辐射球菌（Deinococcus radiodurans）是一种红色的小球菌，因为强悍得近乎离谱，被科学家戏称为\"细菌界的柯南\"（Conan the Bacterium）。",
+    "e": "耐辐射球菌（Deinococcus radiodurans）是一种红色的小球菌，因为强悍得近乎离谱，被科学家戏称为\"细菌界的柯南\"（Conan the Bacterium）。红色来自类胡萝卜素…",
     "d": "life-science"
   },
   "/life-science/species/honey-fungus": {
@@ -216,12 +216,12 @@
   },
   "/life-science/species/horseshoe-crab": {
     "t": "鲎",
-    "e": "鲎（hòu）是一类生活在浅海泥沙里的古老海洋节肢动物，常被叫做\"马蹄蟹\"（horseshoe crab）。",
+    "e": "鲎（hòu）是一类生活在浅海泥沙里的古老海洋节肢动物，常被叫做\"马蹄蟹\"（horseshoe crab）。名字里的蟹是外形借贷，不是分类结论；它用剑尾翻身、用书鳃呼吸，走路的方式也更接近螯肢动…",
     "d": "life-science"
   },
   "/life-science/species/immortal-jellyfish": {
     "t": "灯塔水母",
-    "e": "灯塔水母（Turritopsis dohrnii）是一种直径只有约4–5毫米的微小水母，属于刺胞动物门水螅纲。",
+    "e": "灯塔水母（Turritopsis dohrnii）是一种直径只有约4–5毫米的微小水母，属于刺胞动物门水螅纲。它常被冠以\"不死水母\"的名号——但这个名号需要立刻澄清。它不是杀不死的：被鱼吞掉、…",
     "d": "life-science"
   },
   "/life-science/species/mycorrhiza": {
@@ -246,7 +246,7 @@
   },
   "/life-science/species/slime-mould": {
     "t": "多头绒泡菌",
-    "e": "多头绒泡菌（Physarum polycephalum）是一种黏菌——一类既不是动物、不是植物、也不是真菌的奇特生物。",
+    "e": "多头绒泡菌（Physarum polycephalum）是一种黏菌——一类既不是动物、不是植物、也不是真菌的奇特生物。它在分类上靠近阿米巴一类的变形虫状原生生物，生活史里既有单核变形体，也有多…",
     "d": "life-science"
   },
   "/life-science/species/tardigrade": {
@@ -456,7 +456,7 @@
   },
   "/life-science/knowledge-base/生态学--农业生态": {
     "t": "农业生态：从野生植物到现代粮食系统",
-    "e": "\"农业是人类的发明\"——严格来说，农业是人类与植物、动物之间协同进化的产物。驯化不是人类单方面\"创造\"了作物，而是一个双向过程：人类选择了易于收获的性状，而一些植物演化出了\"被驯化的优势\"——…",
+    "e": "\"农业是人类的发明\"——严格来说，农业是人类与植物、动物之间协同进化的产物。驯化不是人类单方面\"创造\"了作物，而是一个双向过程：人类选择了易于收获的性状，而一些植物演化出了\"被驯化的优势\"。",
     "d": "life-science"
   },
   "/life-science/knowledge-base/生态学--城市生态": {

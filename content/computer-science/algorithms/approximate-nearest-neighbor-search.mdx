@@ -2,7 +2,7 @@
 title: 近似最近邻搜索
 title_en: Approximate Nearest Neighbor Search
 status: published
-updated: 2026-08-04
+updated: 2026-09-07
 category: 检索与索引
 order: 52
 field: 计算机科学 · 算法 · 信息检索
@@ -29,7 +29,15 @@ related:
 
 **第一，精确最近邻在高维空间里退化成暴力扫描。** 低维时 kd-树很好用：每次比较砍掉一半空间。但随着维度上升，能被剪枝的分支越来越少——因为查询点到分割超平面的距离，很容易小于它到当前最优点的距离，于是两侧都得搜。到几十维时，kd-树的性能就已经不如直接线性扫描。**所有基于空间划分的精确方法都逃不过这一劫**，这是维度灾难最直接的后果之一。
 
+精确 k 近邻的朴素算法，是把查询和库里每一条向量比一遍距离。n 条 d 维向量，一次查询就要做大约 n 次距离计算。低维时，kd-树一类[[data-structures|空间划分结构]]还能剪掉大片空间。高维时剪枝失效，顺序扫描反而更老实。
+
+Weber、Schek 与 Blott 在 1998 年的 VLDB 论文里给出过一组定量观察。他们分析的若干划分索引，在维数升高后查询代价会退化成线性。在他们的设定里，平均表现甚至不如顺序扫描。交叉点大约落在十维附近。
+
+这不是一条对所有数据、所有硬件都成立的魔法阈值。交叉点会随度量、分布以及磁盘与内存的相对速度而移动。维数灾难是动机，不是一张可以查表的拐点。
+
 **第二，"最近邻"这个概念本身在高维会变得脆弱。** 在许多高维分布下，随机点对之间的距离会向同一个值集中：最近点与最远点的距离之比趋近于 1。当"最近"与"最远"几乎一样远，最近邻查询就失去了区分力。**幸而真实数据通常不是均匀分布在高维空间里，而是聚集在低维流形附近**——这个"内在维度远低于表观维度"的事实，正是所有 ANN 方法能工作的根本原因。
+
+Beyer 等人 1999 年在 ICDT 的论文里，把「最近邻何时还有意义」写成形式条件。在某些独立同分布坐标的模型里，最近与最远的距离比会趋于 1。真实数据往往有低维结构，所以查询仍然有意义。意义来自内在几何，不是来自表观维数本身。
 
 **第三，"近似"不是偷工减料，而是唯一的出路。** 既然精确解在高维不可能又快又准，正确的问题就变成：**用多少召回率的损失，换多少倍的速度**。放松到近似之后，理论上可以做到亚线性查询时间；工程上则得到了一个明确的三维取舍面——**召回率、延迟、内存**，三者不可能同时最优。任何 ANN 系统的参数，本质上都是在这个面上选一个点。
 
@@ -47,6 +55,12 @@ $$\Pr[h(u) = h(v)] = 1 - \frac{\theta(u,v)}{\pi}$$
 
 LSH 的价值在于它是**有证明的**：给定近似因子，可以推出查询时间与空间的渐近界。它的问题也同样明确——为了达到高召回率，需要的哈希表数量很多，内存开销大，而在真实数据上，它的实测表现常常输给下面这条没有漂亮理论保证的路线。这是算法领域一个反复出现的教训：**最坏情况的保证与真实数据上的效率，经常不是同一件事。**
 
+LSH 属于[[randomized-algorithms|随机算法]]：哈希函数从一族分布里抽样，碰撞概率由距离决定。Indyk 与 Motwani 的 1998 年 STOC 论文，给出的正是这种以概率换亚线性查询的框架。成功概率再用多张独立的表抬上去。要高召回，表的数量和内存会一起涨。
+
+欧氏距离上常用的 p-稳定分布哈希，由 Datar、Immorlica、Indyk 与 Mirrokni 在 2004 年的计算几何年会上给出。做法是把向量投到一条随机直线上，再按固定宽度切桶。夹角用随机超平面，欧氏距离用这条投影。两者都服从同一条原则：近的点更可能相撞。
+
+Andoni 与 Indyk 在 2008 年的综述里，把高维近似近邻的哈希下界与构造收成一张更清晰的地图。理论最优的指数，和工程上愿意付的内存，仍然不是同一条曲线。LSH 的位置因此很稳定：它是证明的来源，很少是生产默认。
+
 ## 路线二：图索引——工程上的赢家
 
 近十年的实际主流是**基于邻近图**的方法，其中 HNSW（分层可导航小世界图）几乎成了默认选择。
@@ -54,6 +68,12 @@ LSH 的价值在于它是**有证明的**：给定近似因子，可以推出查
 它的构造思路借自小世界网络：把每个向量作为一个节点，与若干近邻连边；再叠加多层结构——上层稀疏、边长，用于快速跨越大距离；下层稠密、边短，用于精细定位。查询时从顶层的入口点出发，贪心地走向离查询更近的邻居，走不动了就下沉一层，直到最底层。
 
 这是一次**从"划分空间"到"在数据上导航"的范式转变**。它不试图理解空间的几何，只利用数据点之间的邻接关系；因此它对数据分布的适应性极强，而这正是它在基准测试中长期领先的原因。
+
+它的直接前身是可导航小世界图（NSW）。Malkov、Ponomarenko、Logvinov 与 Krylov 在 2014 年给出单层邻近图：插入时沿已有边贪心走，再把新点接到当前近邻上。长边由较早插入的点自然形成。分层是后来才加上的。
+
+HNSW 的预印本出现在 2016 年 3 月，正式文本于 2020 年发表在 IEEE TPAMI。论文把边按尺度拆到多层，并借用跳表的直觉：上层稀疏、下层稠密。层高按指数衰减的随机分布抽取。查询从顶层入口贪心走，走不动再下沉一层。
+
+邻近图是[[graph-theory|图论]]对象，不是空间划分树。同一份实现可以接余弦，也可以接其他可比较的距离。它仍然没有 LSH 那种最坏情况的查询时间证明。工程上领先，不等于理论上被钉死。
 
 代价同样清楚：
 
@@ -74,11 +94,19 @@ LSH 的价值在于它是**有证明的**：给定近似因子，可以推出查
 
 倒排文件（IVF）结构常与量化搭配：先用聚类把向量分到若干簇，查询时只搜最近的几个簇。这样 **IVF-PQ** 就成了内存受限场景下的经典组合，而图索引则统治延迟敏感、内存充裕的场景。
 
+乘积量化的码本，常用[[k-means-clustering|k-means]]一类聚类在各子空间里分别学习。查询时，子空间距离可以预先算成一张表。距离在压缩域上查表相加，不必把向量解回浮点。这是精度换吞吐的显式交易。
+
+FAISS 一类库把 IVF、PQ 与图索引做成可组合的流水线，并提供 GPU 上的实现。Johnson、Douze 与 Jégou 的论文讨论的是十亿级向量上的相似搜索框架。延迟取决于硬件、批次、召回目标与是否重排。某次演示里的毫秒数，不能当成物理常数搬走。
+
+倒排文件先把库划成簇，查询只进最近的几个簇。探的簇越多，漏掉真近邻的机会越小，也越接近线性扫描。这组旋钮没有与数据无关的默认值。它和 HNSW 的边数一样，都是在召回、延迟与内存之间滑动。
+
 ## 被低估的难题：带过滤的检索
 
 生产系统里的查询很少是纯向量查询，而是"**在满足这些条件的文档中**找最相似的十个"——限定时间范围、语言、权限、租户。
 
 这个组合出奇地难。两种朴素做法都会失败：**先过滤再搜索**，若过滤后候选很少，索引结构的优势荡然无存；**先搜索再过滤**，若满足条件的文档比例很低，取回的近邻可能全被过滤掉，召回率崩溃。图索引在这里尤其脆弱——过滤会切断图的连通性，让贪心搜索走进死路。
+
+过滤条件把候选集变成数据的一个子集。图上的边却是在全集上长出来的。子集一变，原来的捷径可能指向被滤掉的点。这不是调几个搜索宽度就能消掉的误差。
 
 这是当前 ANN 研究最活跃的方向之一，也是选型时最该问供应商的问题。**很多向量库的基准分数是在无过滤条件下测出来的，与真实工作负载相距甚远。**
 
@@ -91,6 +119,8 @@ LSH 的价值在于它是**有证明的**：给定近似因子，可以推出查
 **嵌入模型才是真正的上限。** ANN 只负责"在给定的向量空间里高效找近邻"，如果嵌入本身没有把语义编码好，检索再快也无意义。**把召回率低归咎于索引参数，是这个领域最常见的误诊。**
 
 **参数默认值替使用者做了决定。** 大多数向量库的默认配置在召回率、延迟与内存之间已经选好了一个点，而使用者往往不知道自己选了什么。**知道这三者不可兼得，是用好任何一个向量数据库的前提。**
+
+精确 k-NN 在低维、小库、或必须可复现的评测里仍然有位置。空间划分没有被 ANN 废除，只是适用域被高维挤窄了。生产系统里更常见的，是用近似索引做召回，再用精确距离做短名单重排。近似发生在哪一层，应该写进系统契约。
 
 ## 跨域连接
 
@@ -109,10 +139,14 @@ LSH 的价值在于它是**有证明的**：给定近似因子，可以推出查
 - Jégou, H., Douze, M. & Schmid, C. _Product Quantization for Nearest Neighbor Search._ IEEE TPAMI 33(1), 2011.
 - Subramanya, S. J. et al. _DiskANN: Fast Accurate Billion-point Nearest Neighbor Search on a Single Node._ NeurIPS 2019.
 - Johnson, J., Douze, M. & Jégou, H. _Billion-scale Similarity Search with GPUs._ IEEE Transactions on Big Data, 2021.
+- Weber, R., Schek, H.-J. & Blott, S. _A Quantitative Analysis and Performance Study for Similarity-Search Methods in High-Dimensional Spaces._ VLDB 1998.
+- Datar, M., Immorlica, N., Indyk, P. & Mirrokni, V. S. _Locality-Sensitive Hashing Scheme Based on p-Stable Distributions._ SoCG 2004.
+- Malkov, Y., Ponomarenko, A., Logvinov, A. & Krylov, V. _Approximate Nearest Neighbor Algorithm Based on Navigable Small World Graphs._ Information Systems 45, 2014.
+- Beyer, K., Goldstein, J., Ramakrishnan, R. & Shaft, U. _When Is "Nearest Neighbor" Meaningful?_ ICDT 1999.
+- Andoni, A. & Indyk, P. _Near-Optimal Hashing Algorithms for Approximate Nearest Neighbor in High Dimensions._ Communications of the ACM 51(1), 2008.
 
 ## 延伸阅读
 
-- Andoni, A. & Indyk, P. _Near-Optimal Hashing Algorithms for Approximate Nearest Neighbor in High Dimensions._ Communications of the ACM 51(1), 2008.
 - Guo, R. et al. _Accelerating Large-Scale Inference with Anisotropic Vector Quantization (ScaNN)._ ICML 2020.
 - Aumüller, M., Bernhardsson, E. & Faithfull, A. _ANN-Benchmarks: A Benchmarking Tool for Approximate Nearest Neighbor Algorithms._ Information Systems, 2020.
 - Beyer, K. et al. _When Is "Nearest Neighbor" Meaningful?_ ICDT 1999.（高维距离集中现象的原始分析）

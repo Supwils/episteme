@@ -17,7 +17,7 @@ relatedTheorists:
   - kahneman
   - bandura
 status: published
-updated: 2026-06-06
+updated: 2026-09-08
 ---
 
 
@@ -25,14 +25,18 @@ updated: 2026-06-06
 2010年代初，心理学（以及其他社会科学和生物医学领域）经历了一场深刻的方法论危机——
 可复制性危机。大量经典研究无法被独立重复，引发了对心理学知识基础的根本性质疑。
 
+危机的刺痛不在于「有几篇论文是假的」，而在于：用本学科日常接受的方法，就能把不可信的结果做成看起来可信。它逼问的是证据标准，而不只是个别作者的品德。
+
 ## 危机的起源
 
 2011年，达里尔·贝姆在顶级期刊《人格与社会心理学杂志》上发表了一项声称证明"预知能力"存在的研究，
 使用了心理学研究的标准方法论。这篇论文成为可复制性危机的导火索——
 如果标准方法能够"证明"超自然现象，那么这些方法本身可能就有问题（Bem, 2011）。
+争论的要点不是超心理学忽然变得可信，而是：可选终点、灵活分析与显著才发表，已经足以把噪声写成发现。方法若不能挡住这类结果，就不能只靠「我们用了标准程序」来为发现背书。
 
 同年，社会心理学领域接连爆出多起研究欺诈事件，包括德里克·斯塔佩尔的数据造假丑闻，
 进一步动摇了公众和学术界对心理学研究的信任。
+欺诈是极端，p-hacking 是日常。把两者混成一件事，会把改革写成道德整风，而漏掉激励结构。
 
 ## 可复制性项目
 
@@ -40,8 +44,11 @@ updated: 2026-06-06
 他们尝试重复100项已发表的心理学研究，结果只有36-39%的重复研究得到了与原始研究一致的统计显著结果，
 且效应量平均缩小了约50%（Open Science Collaboration, 2015）。
 
+更细的口径必须分开写。原研究中 97% 达到 p<.05，重复研究中只有 36% 达到；39% 被重复团队主观评为「复制成功」；47% 的原效应落在重复效应的 95% 置信区间内。平均效应量从原研究的 Mr=0.403 降到重复的 Mr=0.197。没有单一成功标准，但几条尺子指向同一方向：发表出来的效应，系统性大于后来用更高功效、更少分析灵活性得到的效应。
+
 这一结果震惊了整个学科。虽然后续分析指出某些方法论差异可能影响了重复率，
 但心理学研究的可靠性问题已被推上了风口浪尖。
+Gilbert 等人 2016 年在 *Science* 上的评论认为，若改用区间重叠等标准，成功率会被低估；原团队的回应强调：改尺子不能把「原效应普遍偏大」说成无事发生（Anderson et al., 2016）。争论本身证明了 OSC 的另一贡献——把可复制性变成了可公开计算的对象。
 
 ## 方法论问题
 
@@ -57,6 +64,9 @@ p值（p < 0.05作为显著性阈值）的机械使用是可复制性危机的�
 - **发表偏倚**：期刊倾向于发表显著结果，不显著的结果难以发表
 
 西蒙斯、纳尔逊与西蒙森的经典论文《假阳性心理学》通过模拟证明，研究者未披露的分析灵活性（p-hacking）可使假阳性率从名义上的 5% 膨胀到最坏情况下的 60% 以上（Simmons, Nelson & Simonsohn, 2011）。
+更精确地说：在他们的模拟里，同时使用四种常见的「研究者自由度」——在两个因变量中挑选、可选地追加被试、加入性别作为协变量、选择报告哪些条件——假阳性率达到约 61%。名义上每二十次才错一次，实际上错一次比不错还容易。这不是造假，而是分析路径未上锁。[[confirmation-bias|确认偏差]]在这里有了统计外形：显著的路径被留下，不显著的路径被当成「还没找对」。
+
+HARKing 把探索装成验证。探索本身合理，问题是读者被引导去相信：这条假设在看见数据之前就存在。预注册要锁住的，正是这条时间顺序。
 
 ### 样本量不足
 
@@ -64,14 +74,18 @@ p值（p < 0.05作为显著性阈值）的机械使用是可复制性危机的�
 低功效的研究即使发现显著结果，其效应量估计也往往被夸大
 （这是因为小样本中只有偶然出现的大效应才能达到显著性水平）。
 
+科恩 1962 年审查当时异常与社会心理学期刊，发现检测中等效应的平均功效大约只有一半，远低于他后来建议的 80% 惯例（Cohen, 1962）。功效不足与 p-hacking 会叠在一起：样本越小，越需要灵活分析才能「做出」显著；发表出来的显著结果，又更可能是被夸大的幸运抽签。OSC 2015 里重复效应量约为原效应的一半，与这条「赢家诅咒」是同一件事的两面。[[effect-size-and-power|效应量与统计功效]]要回答的，不是「显著了没有」，而是：若效应是真的，这项设计有多大机会看见它。
+
 ## 已崩塌的经典发现
 
 ### 自我损耗效应
 
 罗伊·鲍迈斯特的自我损耗（ego depletion）理论——意志力是一种有限的心理资源，
 使用后会暂时耗竭——是社会心理学中最有影响力的理论之一。
-然而，一项大规模的注册重复研究（23个实验室，2000多名被试）未能重复这一效应
+然而，一项大规模的注册重复研究（23个实验室，2141名被试）未能重复这一效应
 （Hagger et al., 2016）。
+汇总效应 d=0.04，95% 置信区间为 [-0.07, 0.15]，与零难以区分。
+鲍迈斯特与沃斯事后批评：字母 e 划消任务缺少「先养成习惯再打破」的阶段，因此不算公平检验。争议没有结束，但关键事实已经换了位置：被写进教科书的序列任务范式，没有通过预先登记的多实验室检验。[[ego-depletion|自我损耗]]从「机制已阐明」退回「效应是否稳定存在仍待高功效证明」。
 
 ### 启动效应
 
@@ -79,10 +93,14 @@ p值（p < 0.05作为显著性阈值）的机械使用是可复制性危机的�
 "老年 priming"使被试走路更慢）未能通过大规模重复检验。
 卡尼曼本人对启动效应的可复制性危机表示了严重关切（Kahneman, 2012写信给 priming 研究者）。
 
+Bargh、Chen 与 Burrows 1996 年报告：用与老人刻板印象相关的词完成组句任务后，被试走走廊更慢。Doyen 等人 2012 年用红外计时、更大样本做直接重复，主效应消失；只有当主试被明确告知「启动组会走得更慢」时，速度差异才重新出现。这把解释从「概念自动驱动行为」，推向实验者期望与测量方式。教授启动（Dijksterhuis & van Knippenberg, 1998）同样在后续高功效重复中站不稳（Shanks et al., 2013）。不是「启动作为注意现象」被一笔勾销，而是社会心理学里那些戏剧性的行为启动，失去了原先被当作稳定机制的地位。
+
 ### 姿势与面部反馈
 
 "权力姿势"（power posing）研究声称，采用扩展性姿势可以改变激素水平和行为。
 重复研究未能复制这些生理和行为效应，尽管主观感受的变化可能仍然存在。
+
+Carney、Cuddy 与 Yap 2010 年的样本只有 42 人，却把两分钟扩展姿势写成能升睾酮、降皮质醇并改变冒险。Ranehill 等人 2015 年用 200 人、主试对条件盲法的概念重复，没有发现激素或行为任务上的效应；主观上「更有力量」这一项仍在。2016 年，原作者之一 Carney 公开表示不再相信具身的权力姿势效应。戏剧性生理故事崩塌之后，剩下的是更小、也更容易被需求特征解释的主观报告。
 
 ## 开放科学改革
 
@@ -94,11 +112,14 @@ p值（p < 0.05作为显著性阈值）的机械使用是可复制性危机的�
 - **大规模重复项目**：ManyLabs等项目通过多实验室合作验证重要发现
 - **贝叶斯统计**：作为频率派统计的补充或替代
 
+预注册的要点是把验证路径锁在看见数据之前。它不禁止探索，但禁止把探索写成事先计划。Nosek 等人把这称为「预注册革命」：让时间顺序重新成为方法的一部分，而不是靠作者事后的记忆（Nosek, Ebersole, DeHaven & Mellor, 2018）。注册报告更进一步：期刊先审设计，再承诺无论显著与否都发表，从根上削弱「不显著就换题目」的激励。开放材料处理的是另一层：别人能不能用同一程序得到同一数字。预注册解决的是假说与分析的时间顺序，不是样本外是否还有同样的人。
+
 ## 积极意义
 
 尽管名称令人不安，可复制性危机实际上被视为心理学走向成熟的标志。
 它推动了更严格的方法论标准、更透明的研究实践和更谦逊的知识声称。
 正如丹尼尔·卡尼曼所言："我认为可复制性危机是一场有益的革命。"
+谦逊不是把一切旧发现作废。它是把「一次显著」从结论降级为「待重复的证据」。能公开承认某条经典效应不再稳定，是这门学科仍把世界而不是教科书当作最高法庭的标志。
 
 ## 如何在日常生活中识别可复制性危机的影响
 
@@ -149,6 +170,8 @@ ManyLabs 2（2018）测试了 28 个效应，
 这些项目不仅检验了具体效应的可复制性，
 也为心理学研究建立了更严格的方法论标准。
 
+ManyLabs 2 的规模把「样本不一样所以重复失败」这条辩解压得很薄：125 个样本、15,305 名被试、36 个国家与地区，协议预先评审。按 p<.05 且方向一致，28 个效应中 15 个（54%）重复成功；原效应的中位 d 约 0.60，重复后约 0.15（Klein et al., 2018）。变异更多来自「这是哪一个效应」，而不是实验室开在哪里。预注册的多实验室重复，把争论从印象改写成可核对的分布。
+
 贝叶斯统计方法的兴起为可复制性讨论提供了新的分析工具。
 与传统频率派统计不同，贝叶斯方法允许研究者量化地表达
 对假设的相对证据强度——
@@ -169,3 +192,14 @@ ManyLabs 2（2018）测试了 28 个效应，
 - Simons, D. J., et al. (2016). Do "brain-training" programs work? *Psychological Science in the Public Interest*, 17(3), 103-186.
 - Wagenmakers, E. J., et al. (2012). An agenda for purely confirmatory research. *Perspectives on Psychological Science*, 7(6), 632-638.
 - Anderson, C. J., et al. (2016). Response to Comment on "Estimating the reproducibility of psychological science". *Science*, 351(6277), 1037.
+- Gilbert, D. T., King, G., Pettigrew, S., & Wilson, T. D. (2016). Comment on "Estimating the reproducibility of psychological science". *Science*, 351(6277), 1037.
+- Cohen, J. (1962). The statistical power of abnormal-social psychological research: A review. *Journal of Abnormal and Social Psychology*, 65(3), 145-153.
+- Bargh, J. A., Chen, M., & Burrows, L. (1996). Automaticity of social behavior: Direct effects of trait construct and stereotype activation on action. *Journal of Personality and Social Psychology*, 71(2), 230-244.
+- Doyen, S., Klein, O., Pichon, C.-L., & Cleeremans, A. (2012). Behavioral priming: It's all in the mind, but whose mind? *PLoS ONE*, 7(1), e29081.
+- Dijksterhuis, A., & van Knippenberg, A. (1998). The relation between perception and behavior, or how to win a game of Trivial Pursuit. *Journal of Personality and Social Psychology*, 74(4), 865-877.
+- Shanks, D. R., et al. (2013). Priming intelligent behavior: An elusive phenomenon. *PLoS ONE*, 8(4), e56515.
+- Carney, D. R., Cuddy, A. J. C., & Yap, A. J. (2010). Power posing: Brief nonverbal displays affect neuroendocrine levels and risk tolerance. *Psychological Science*, 21(10), 1363-1368.
+- Ranehill, E., et al. (2015). Assessing the robustness of power posing: No effect on hormones and risk tolerance in a large sample of men and women. *Psychological Science*, 26(5), 653-656.
+- Nosek, B. A., Ebersole, C. R., DeHaven, A. C., & Mellor, D. T. (2018). The preregistration revolution. *Proceedings of the National Academy of Sciences*, 115(11), 2600-2606.
+- Klein, R. A., et al. (2018). Many Labs 2: Investigating variation in replicability across samples and settings. *Advances in Methods and Practices in Psychological Science*, 1(4), 443-490.
+- Camerer, C. F., et al. (2018). Evaluating the replicability of social science experiments in Nature and Science between 2010 and 2015. *Nature Human Behaviour*, 2, 637-644.

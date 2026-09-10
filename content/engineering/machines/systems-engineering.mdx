@@ -2,7 +2,7 @@
 title: "系统工程：需求、约束、验证与变更"
 title_en: "Systems Engineering: Requirements, Constraints, Verification and Change"
 status: published
-updated: 2026-08-11
+updated: 2026-09-07
 category: 信息与机器
 order: 10
 field: 系统工程 · 工程管理
@@ -11,7 +11,7 @@ evidence_modes:
   - historical-reconstruction
   - formal-analysis
   - comparative
-as_of: 2026-08
+as_of: 2026-09
 tags:
   - 系统工程
   - 需求工程
@@ -40,17 +40,25 @@ related:
 
 这个定义的要点不在"跨学科"这个口号，而在**全生命周期**：需求分析、架构设计、集成、验证、运行维护直到退役处置，都在同一个框架里被考虑。它的对立面是"各管一段"——设计交图、制造交产品，整体没人负责。ISO/IEC/IEEE 15288 把这套生命周期过程正式化为国际标准。
 
+NASA 把同一套思想写进了型号工作的内部手册。2016 年修订的《NASA 系统工程手册》把技术工作分成两类过程：一类直接产出系统本身——从利益相关方期望、需求定义、逻辑分解，到设计、实现、集成、验证、确认与交付；另一类是把这些步骤管住的技术管理过程，包括技术规划、需求管理、接口管理、风险管理、构型管理与决策分析。
+
+手册里最不肯含糊的一条纪律是：每一条写成 "shall" 的需求，必须预先指定检验方法。检查、分析、演示、测试四者择一，写不出方法的条目不得进入基线。INCOSE 手册面向跨行业的从业者共同体，NASA 手册面向必须在无法维修的轨道上一次成功的型号队伍，原理相同，容错预算不同。
+
 ## V 模型：把测试计划写进设计开始之前
 
 系统工程最广为人知的图形是 V 模型。左边一撇向下：需求被逐层分解——从利益相关方需要，到系统需求，到子系统需求，到部件规格；右边一撇向上：实现物被逐层集成——部件测试、子系统集成测试、系统测试、验收测试。两边在同一高度上彼此对应：**每一层的左边定义"应该是什么"，右边检验"是不是"**。
 
 这个图最重要的含义经常被画出来却没人注意：**右侧每一项测试的依据，在左侧对应的分解阶段就应当写下来**。如果你在做系统需求时写不出"我们将如何检验这条需求"，这条需求就是不合格的——它可能是一句愿望，而不是一条需求。"测试性"是需求的质量属性，与需求内容同等重要。V 模型在德国的制度化最彻底：1992 年它被定为德国联邦软件开发标准（V-Modell），此后多次修订。
 
+系统工程共同体更常追溯的图形，是凯文·福斯伯格与哈罗德·穆兹 1991 年在全国系统工程理事会年会上提出的 Vee。德国的 V-Modell 是信息技术采办的联邦标准，Vee 则把同一几何用到航天这类多学科系统：每一层需求在分解当时就带上验证计划，防止先造完再问怎么证明。可靠性这类无法穷举的属性，右侧的检验往往从单次测试转向统计分析，与 [[reliability-engineering|可靠性工程]] 共用同一套置信度语言。
+
 验证与确认的区别在 V 模型上有精确的位置：**验证贯穿整个右撇，回答"这一层是否满足上一层的要求"——它对照的是文档；确认位于 V 的顶端，回答"这个系统在真实使用场景中是否满足用户的真实需要"——它对照的是现实**。一套电梯控制系统可以逐条通过规格书测试（验证成功），却在早高峰让乘客等得无法忍受，因为"响应时间小于两秒"这条需求本身就是从错误的假设里推出来的（确认失败）。**验证的失败是工程失败，确认的失败是认知失败——我们把世界想错了。** 在无法穷举测试的系统上，验证的一部分还要从测试转向证明——[[formal-methods-and-verification|形式化方法]]正是在航天与航空这类领域最先真实落地。
 
 ## 需求可追溯性与变更管理：两个代价极高的案例
 
 **可追溯性**的意思很朴素：每一条需求都能向上说出"我为什么存在"（源自哪条更高层需要），向下说出"我在哪里被实现、在哪里被检验"。这条链条的价值平时看不出来，**直到有人要改东西**。没有追溯链，变更的影响分析只能靠工程师的记忆与善意；有了它，"改动这条牵连什么"才是可回答的问题。
+
+NASA 手册把需求管理写成贯穿全生命周期的技术管理过程，而不是设计开始前的一次性收集。基线一旦冻结，改一条 "shall" 就要走构型控制：影响分析、重新验证、接口再确认。可追溯性矩阵是这套手续的账本，它让改动的代价变成可以提交给委员会的数字，而不是会议上的直觉。
 
 **阿波罗登月舱：重量作为最硬的约束。** 1965 年，登月舱的重量失控了。这年 5 月，NASA 阿波罗飞船项目办公室主任约瑟夫·谢伊（Joseph Shea）不得不说服上级把登月舱的控制重量上限上调到 14,850 公斤——6 月已有工程师警告连它也守不住。NASA 的官方史（《Chariots for Apollo》）记录了两条应对措施。其一是变更纪律：项目控制负责人托马斯·马克利（J. Thomas Markley）在 1965 年 6 月的备忘录中要求工程师对构型控制委员会保守提案——**"变更必须纠正设计缺陷，而不是改进硬件"**。其二是格鲁曼公司发动的减重战役（"Scrape"与"SWIP"超级减重计划）：由托马斯·凯利（Thomas J. Kelly）带队，对已经完成 95% 的图纸逐克复查。到 1965 年底，两项计划共削去约 1,100 公斤，包括用金箔多层隔热毯替换刚性隔热罩一项省下的 50 公斤。**这是系统工程的一次完整示范：约束（土星五号的运载能力）不可谈判，需求（功能）必须保住，能动的是设计——而动设计的前提是知道每一公斤挂在哪条需求上。**
 
@@ -59,6 +67,8 @@ related:
 ## 接口控制与权衡研究
 
 系统出问题的地方很少在部件内部，绝大多数在**接口**上——机械、电气、数据、时序，以及最容易被忽略的人际与组织接口。系统工程的对策是把接口当作与设计实体同等的一等公民：**接口控制文件（ICD）先于详细设计冻结**，双方按文件对接，任何偏离都必须经变更程序，而不是两家工程师私下"通融"。
+
+NASA 手册因此单列接口管理过程：接口的所有权必须明确，变更必须同步通知所有受影响的基线。ICD 冻结得越早，后期集成越不容易在插头、时序或数据格式上翻车；冻得太早，则会把尚未理解的约束写成伪需求。权衡研究要回答的，正是这类"现在冻还是继续谈"的决策。
 
 阿波罗计划里有一个漂亮的权衡研究（trade study）实例。1965 年，工程师克莱因·弗雷泽（Cline Frasier）提议用光学跟踪器替换登月舱的交会雷达，估算可省 40 公斤重量与 3,000 万美元。NASA 没有当场拍板，也没有当场否决，而是在年底设立了被内部称为**"交会传感器奥林匹克"**的竞标式评估：两套方案平行推进，统一成功判据，1966 年春见分晓。最终胜出的是雷达——因为乘组操作负责人斯莱顿等人指出的距离与距离变化率测量能力，是光学方案补不上的。**权衡研究的要点不是"选出最优"，而是把选择标准事先摆在桌面上**：事先约定的判据，防止了立场取代论证。阿波罗的"全箭测试"（all-up testing，1963 年由乔治·穆勒推动，尽可能以完整构型试飞而非逐级递加）是同一思想在验证策略上的应用：让接口问题尽早以真实形态暴露。
 
@@ -84,6 +94,8 @@ related:
 
 - Brooks, Courtney G., James M. Grimwood, and Loyd S. Swenson. _Chariots for Apollo: A History of Manned Lunar Spacecraft_. NASA SP-4205, 1979.
 - INCOSE. _Systems Engineering Handbook: A Guide for System Life Cycle Processes and Activities_. 5th ed., Wiley, 2023.
+- NASA. _NASA Systems Engineering Handbook_. NASA/SP-2016-6105 Rev 2, 2016.
+- Forsberg, Kevin, and Harold Mooz. "The Relationship of System Engineering to the Project Cycle." *Proceedings of the First Annual Symposium of the National Council on Systems Engineering*, 1991.
 - Lorell, Mark A., et al. _Do Joint Fighter Programs Save Money?_ RAND Corporation, MG-1225-AF, 2013.
 - U.S. Government Accountability Office. _F-35 Joint Strike Fighter: Preliminary Observations on Program Progress_. Testimony before the House Armed Services Committee, 2016.
 - Gertler, Jeremiah. _F-35 Joint Strike Fighter (JSF) Program_. Congressional Research Service, RL30563（历年更新版）.
@@ -92,6 +104,5 @@ related:
 ## 延伸阅读
 
 - Boehm, Barry W. _Software Engineering Economics_. Prentice Hall, 1981.
-- NASA. _NASA Systems Engineering Handbook_. NASA/SP-2016-6105 Rev 2, 2016.
 - Maier, Mark W., and Eberhardt Rechtin. _The Art of Systems Architecting_. 3rd ed., CRC Press, 2009.
 - Vaughan, Diane. _The Challenger Launch Decision_. University of Chicago Press, 1996.

@@ -2,7 +2,7 @@
 title: 语料标注与一致性：标注方案如何决定结论
 title_en: "Corpus Annotation and Agreement: How Annotation Schemes Shape Conclusions"
 status: published
-updated: 2026-08-11
+updated: 2026-09-07
 category: 语料库方法
 order: 10
 field: 语料库语言学 · 计算语言学
@@ -36,11 +36,15 @@ related:
 
 1960 年，心理学家 Jacob Cohen 在《Educational and Psychological Measurement》上发表的论文给出了今天最常用的校正：Cohen's kappa。它的思路是把观测一致率减去"按两人各自标签分布随机赋值时的期望一致率"，再归一化。kappa 为 0 表示一致程度不比碰运气强，为 1 表示完全一致，负值表示比随机还差。它适用于两名标注者、名义类别（没有大小顺序的标签），这是语言学标注最常见的场景。
 
+计算语言学把这类数字统称为标注者间一致性（inter-annotator agreement, IAA）。把 kappa 引进计算语言学日常流程的，是 Carletta 1996 年在《计算语言学》的短文：她反对只用原始一致率，也反对把某个固定阈值当成「够好了」。Artstein 与 Poesio 2008 年的综述把这条纪律写完整：IAA 回答的是「这套方案在这批人手里能不能复现」，不是「标签是真的」；只报一个 kappa 不够，应同时给出原始一致率、类别分布、所用系数及其假设。Landis 与 Koch 1977 年给医学诊断写的「0.61–0.80 为显著一致」档，不能直接当成语言学标注的及格线——类别数、分布和任务难度都不同。
+
 ## 多个人、缺数据、有顺序：Fleiss 与 Krippendorff
 
 Cohen's kappa 只管两个人。1971 年 Joseph Fleiss 在《Psychological Bulletin》上把它推广到多名标注者：Fleiss' kappa 用全体标注者的汇总分布估计偶然一致，允许每个实例由不同的人来标，适合众包式的轮换标注。但它仍要求每个实例被标注的次数相同，且只处理名义类别。
 
-Krippendorff's alpha 走得更远。Klaus Krippendorff 1970 年在《Sociological Methodology》上提出这一系数，后来在他的内容分析方法论著作中系统化。alpha 允许标注者人数不等、允许缺失数据（众包里每人只标一小批是常态），还能通过更换"差异函数"适配名义、顺序、区间等不同量表——给情感强度打 1 到 5 分时，差 1 分和差 4 分的不一致被区别对待。代价是解释更难：alpha 的数值受所选差异函数影响，跨研究比较必须先核对设置是否相同。
+Krippendorff's alpha 走得更远。Klaus Krippendorff 1970 年在《Sociological Methodology》上提出这一系数，后来在他的内容分析方法论著作中系统化。alpha 允许标注者人数不等、允许缺失数据（众包里每人只标一小批是常态），还能通过更换"差异函数"适配名义、顺序、区间等不同量表——给情感强度打 1 到 5 分时，差 1 分和差 4 分的不一致被区别对待。代价是解释更难：alpha 的数值受所选差异函数影响，跨研究比较必须先核对设置是否相同。选 Cohen 还是 Krippendorff，取决于设计是两人固定搭配，还是众人轮换、还有缺格。选错系数等于改了「偶然」的定义，数字看起来像同一把尺子，量的却不是同一段距离。
+
+Reidsma 与 Carletta 2008 年在《计算语言学》指出：计算语言学常把 kappa 0.8 当成「数据可用」的线，0.67 到 0.8 勉强可接受。机器学习其实能容忍较低的一致率，前提是标注者的分歧看起来像随机噪声。一旦分歧里藏着系统模式——比如某类标签总被某个人多标——模型会把这套模式学进去，评测分数会被同一套错误抬高。哪怕 kappa 到了 0.8，也不保证数据适合拿去训练。IAA 仍然必要，但高系数推不出标签正确，也推不出模型学到了指南想测的那种结构。
 
 ## kappa 悖论：高一致、低系数
 
@@ -48,11 +52,23 @@ Krippendorff's alpha 走得更远。Klaus Krippendorff 1970 年在《Sociologica
 
 这对语言学不是抽象风险而是日常处境：自然语言的分布本来就高度倾斜，值得标注的现象往往正是稀有的那部分。所以单看一个 kappa 数值不能下结论，必须同时报告各类别的一致性、原始一致率和类别分布。反过来，高 kappa 同样不能证明标签正确——两个标注者读过同一份有缺陷的指南、共享同一个误解，可以一致地错。一致性度量回答的是"标注过程可复现吗"，回答不了"标签是真的吗"。
 
+还有一层更容易被软件默认值藏起来：比较的单位是什么。按词比、按短语跨度比、按整句比，偶然一致的基数完全不同。Krippendorff 的 alpha 允许更换差异函数，正是因为「差一个标签」和「差四个等级」不该算成同一种错；但若两人标的根本不是同一批跨度——一个切了三个词、一个切了五个词——先要对齐单位，再谈系数。IAA 的分母写错了，分子再漂亮也没有意义。
+
 ## gold standard 是造出来的
 
 评测和训练需要一个"标准答案"数据集，即 gold standard（黄金标准）。成熟的标注项目不会把它当作天然存在，而是用一套流程造出来：先小批量试标，暴露指南没说清的情况；然后独立双标，用 kappa 或 alpha 设一道门槛；低于门槛的实例进入裁决（adjudication），由资深标注者或方案设计者讨论定案；裁决暴露的系统性分歧反过来修订指南，再进入下一轮。宾州树库的生产实践——自动预分析加人工校对——本质上也是把标注拆成可检查的工序。
 
 裁决环节藏着一个容易遗忘的事实：裁决者也是带着理论的人。gold 标签不是从语料里挖出来的事实，而是把两个可能都成立的分析压缩成一个的制度产物。好的项目会保留分歧记录，而不是只留下裁决结果——因为分歧本身可能是关于语言的真实信息。
+
+## 标签集不匹配会制造假一致
+
+标注者间一致性度量的是同一套方案在同一批人手里能不能复现，不是两套方案是不是在测同一件事。标签集一旦不同，连「一致」的分母都换了。
+
+宾州树库的词性标签集约 36 项；不含标点时常连标点一起数成约 45 项。Marcus 等人 1993 年写明，这是从布朗语料库约 87 项标签集压缩而来：压缩本身就是一次理论选择，决定了后人能看见哪些对立、看不见哪些对立。Petrov、Das 与 McDonald 2012 年在 LREC 提出的「通用词性标签集」只有 12 类；后来的 Universal Dependencies 用 17 个通用词性标签。粗看起来，把细标签映射到粗标签再算 kappa，一致率只会升高。升高的那一截，测量的是映射规则，不是语言变得更容易标了。一个在 12 类标签上拿到 97% 准确率的模型，也不能直接和宾州 36 类标签上的 97% 比高低——分母里的对立不是同一组。
+
+把宾州树库的 IN 映射过去尤其危险：同一个 IN 在树库里既标介词也标从属连词，Universal Dependencies 却把 ADP 与 SCONJ 分开。UD 项目自己的转换说明写得很清楚：正确映射常常需要看句法环境，只按标签表机械对应只是近似。一个在宾州树库上训练、映射到 UD 再评测的模型，并不是在做同一个任务。
+
+切词层也会先把单位换掉。同一串汉字，按不同分词规范切开，词数和后继的词性都会变。后面再算 IAA，比较的就不是同一批对象。跨方案、跨语言、跨版本的「进步」，要先核对这些对象是不是还叫同一个名字。评测榜上的分数一旦跨过标签集边界，先问映射表，再问模型。双标门槛同样不能跨集挪用：36 类宾州标签上的 kappa 0.80，和 12 类通用标签上的 0.80，分母里的对立不是同一组，也不能当成同一道及格线。
 
 ## 案例：NLI 数据集里的标注假象
 
@@ -68,7 +84,7 @@ Krippendorff's alpha 走得更远。Klaus Krippendorff 1970 年在《Sociologica
 
 ## 不能推出什么
 
-一致性度量被误用的方式几乎和它的用途一样多。第一，高 kappa 推不出标签正确，只推出标注过程稳定；正确性需要独立的效度论证。第二，低 kappa 推不出任务失败——类别不平衡、现象本身连续、语言确有歧义，都会压低系数。第三，不同方案的 kappa 不能直接比较：类别数目、分布、量表类型都不同，0.75 在一个任务里未必好于另一个任务里的 0.65。
+一致性度量被误用的方式几乎和它的用途一样多。第一，高 kappa 推不出标签正确，只推出标注过程稳定；正确性需要独立的效度论证。第二，低 kappa 推不出任务失败——类别不平衡、现象本身连续、语言确有歧义，都会压低系数。第三，不同方案的 kappa 不能直接比较：类别数目、分布、量表类型都不同，0.75 在一个任务里未必好于另一个任务里的 0.65。标签集粒度一变，同一个系数的含义也变：12 类通用标签上的高 kappa，推不出 36 类宾州标签上同样稳定。
 
 第四，gold standard 的存在推不出其他分析错误——它只代表某一版指南下的裁决结果，换一套语法理论可能同样自洽。第五，模型在标注数据上得分高，推不出模型掌握了标注想测的能力；SNLI 的教训是，先要排除模型在利用标注协议留下的统计捷径。这五条的共同点是：标注是测量，而一切测量都要先审查仪器——这与 [[experimental-linguistics]] 里"先选构念、再选指标"的纪律同源。
 
@@ -85,9 +101,13 @@ Krippendorff's alpha 走得更远。Klaus Krippendorff 1970 年在《Sociologica
 - Marcus, Mitchell P., Beatrice Santorini, and Mary Ann Marcinkiewicz. "Building a Large Annotated Corpus of English: The Penn Treebank." *Computational Linguistics* 19.2 (1993): 313–330. [ACL Anthology](https://aclanthology.org/J93-2004/)
 - Taylor, Ann, Mitchell Marcus, and Beatrice Santorini. "The Penn Treebank: An Overview." In Anne Abeillé (ed.), *Treebanks: Building and Using Parsed Corpora*. Kluwer, 2003.
 - Cohen, Jacob. "A Coefficient of Agreement for Nominal Scales." *Educational and Psychological Measurement* 20.1 (1960): 37–46.
+- Carletta, Jean. "Assessing Agreement on Classification Tasks: The Kappa Statistic." *Computational Linguistics* 22.2 (1996): 249–254.
+- Reidsma, Dennis, and Jean Carletta. "Reliability Measurement without Limits." *Computational Linguistics* 34.3 (2008): 319–326.
 - Fleiss, Joseph L. "Measuring Nominal Scale Agreement among Many Raters." *Psychological Bulletin* 76.5 (1971): 378–382.
 - Krippendorff, Klaus. "Bivariate Agreement Coefficients for Reliability of Data." *Sociological Methodology* 2 (1970): 139–150.
 - Feinstein, Alvan R., and Domenic V. Cicchetti. "High Agreement but Low Kappa: I. The Problems of Two Paradoxes." *Journal of Clinical Epidemiology* 43.6 (1990): 543–549.
 - Artstein, Ron, and Massimo Poesio. "Inter-Coder Agreement for Computational Linguistics." *Computational Linguistics* 34.4 (2008): 555–596. [ACL Anthology](https://aclanthology.org/J08-4004/)
+- Landis, J. Richard, and Gary G. Koch. "The Measurement of Observer Agreement for Categorical Data." *Biometrics* 33.1 (1977): 159–174.
+- Petrov, Slav, Dipanjan Das, and Ryan McDonald. "A Universal Part-of-Speech Tagset." *Proceedings of LREC* (2012): 2089–2096. [ACL Anthology](https://aclanthology.org/L12-1115/)
 - Gururangan, Suchin, et al. "Annotation Artifacts in Natural Language Inference Data." *NAACL-HLT* (2018). [ACL Anthology](https://aclanthology.org/N18-2017/)
 - Pavlick, Ellie, and Tom Kwiatkowski. "Inherent Disagreements in Human Textual Inferences." *Transactions of the Association for Computational Linguistics* 7 (2019): 677–694.

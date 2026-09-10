@@ -2,7 +2,7 @@
 title: 测量与公差：精密的代价
 title_en: "Measurement and Tolerance: The Price of Precision"
 status: published
-updated: 2026-08-03
+updated: 2026-09-07
 category: 工程基础
 order: 4
 field: 精密工程 · 计量学
@@ -11,7 +11,7 @@ evidence_modes:
   - formal
   - observation
   - historical-reconstruction
-as_of: 2026-08
+as_of: 2026-09
 tags:
   - 计量学
   - 公差
@@ -43,6 +43,8 @@ related:
 
 让互换性下沉到每个车间的，是一个瑞典人的小发明。军械检验员卡尔·爱德华·约翰松 1896 年设计出成套精密量块，1901 年获得专利：一套几十块的矩形钢块，两两研合后能组合出数万种尺寸，精度达微米级。量块把国家计量院的精度"快递"到了普通工厂的案头。约翰松还顺手解决了一个隐形问题：他坚持所有精密测量以 20°C 为基准温度，这个选择后来被国际计量委员会和国际标准化组织采纳，至今仍是全球尺寸计量的法定参考温度。
 
+量块后来被写进 ISO 3650：矩形截面、名义长度 0.5 毫米到 1000 毫米，分校准级 K 与 0、1、2 级。两块研合后中间几乎没有油膜，靠分子吸引力贴住，才能把国家实验室的长度组合到车间。所有名义尺寸都定义在 20°C。ISO 1 把这个温度定为几何产品规范（GPS）的法定参考温度——钢的线膨胀系数大约每开尔文 12×10⁻⁶，100 毫米的钢件温度偏 1°C，长度就偏约 1.2 微米。铝大约是钢的两倍；钢轴配铝壳时，温度一偏，过盈可以变成间隙。不规定温度，微米级公差没有物理意义。
+
 互换性还依赖另一条暗线：机床与螺纹的标准化。19 世纪初，亨利·莫兹利造出精密螺纹切削车床，让螺纹第一次成为可批量复制的精确要素；1841 年，他的学生约瑟夫·惠特沃斯提出统一的螺纹牙型标准（后来的英制惠氏螺纹），英国的机器第一次可以跨厂互换螺栓。标准件的意义常被低估：当螺栓螺母成为"世界语"，维修、备件与协作网络才成为可能。精密不是某一个天才工匠的手感，而是一整套把精度分发出去的基础设施——原器、量块、标准件、校准制度，缺一层，精度就止步于个别作坊。
 
 ## 核心机制：误差、溯源与公差链
@@ -53,17 +55,29 @@ related:
 
 公差则是设计端对制造端的契约。一批零件各有偏差，装配时偏差会累积：五个环节各偏 0.02，最坏情况叠加 0.10。极值法按最坏叠加设计，保险但昂贵；统计法则利用偏差的随机性，按概率设计，便宜但有千分之几的失效风险——选哪种，取决于失效的代价。配合制度（间隙配合、过渡配合、过盈配合）则把"轴与孔该多松多紧"标准化成代码，一张图纸走遍全球工厂。这里有一条深刻的工程哲学：功能决定公差，公差决定工艺，工艺决定成本——公差是连接设计与制造的那枚齿轮。
 
+当代图纸上的公差语言是 ISO 的几何产品规范体系，而不是一张“±0.05”的加减法。ISO 14638 给出 GPS 总图，ISO 8015 写基本规则，ISO 1101 规定形状、方向、位置与跳动的符号。尺寸合格不等于孔的轴线垂直；位置度、平面度会在装配时变成间隙或卡死。ASME Y14.5 的 GD&T 是同一思想在北美图纸上的平行文本。功能决定哪一个几何要素必须被控制，而不是把所有尺寸都收得一样紧。
+
+公差累积必须显式计算。最坏情况把每环的极值沿同一方向相加，安全但昂贵；方和根（RSS）假定偏差近似独立、近正态，用平方和再开方，成本低，却把千分之几的超差写成可接受风险。航空与核工业常拒绝把配合失效交给概率。选择本身就是对失效代价的定价，不是计量学的附属计算。[[materials-strength|材料强度]] 决定零件能承受什么载荷，公差决定它能否在载荷到来之前先装得上。
+
+六西格玛常被讲成“百万分之 3.4 缺陷”的魔法数字。摩托罗拉 1986 年起把它当作过程改进程序：先测量过程散布，再减变异，而不是在图纸上把公差再砍一半。理论六西格玛（无漂移）大约是十亿分之二缺陷；日常宣传的 3.4 DPMO 把 1.5σ 长期漂移写进了换算。把这两个数字混用，会让人以为图纸公差已经等于过程能力。没有过程数据，这个数字不能当验收门槛。过程能力指数 Cpk 把公差带宽与过程散布放在同一张图上：带宽是设计给的，散布是过程给的。若不同时报测量系统不确定度，漂亮的 Cpk 可以是假的。计量学要的是可溯源的不确定度，不是把口号印上墙。控制图与反馈闭环，见 [[control-and-feedback|控制与反馈]]。
+
 ## 争议与边界
 
 惠特尼神话的史学争论至今余波未平。伍德伯里之后，也有史家认为彻底否定惠特尼走向了另一个极端——他确实建立了分工与夹具的体系，只是没有达到他宣称的精度。这段公案的启示超出技术史：工业史上的"发明时刻"叙事，往往是后人对漫长渐变过程的压缩。
 
 统计公差法的引入在保守行业始终存在抵触：航空与核工业宁可付极值法的溢价，也不愿接受哪怕是百万分之一的配合失效概率。这不是保守，而是对失效代价的清醒定价——公差策略本质上是风险定价。
 
+ISO 14253 把“测得值落在公差带内”改写成带不确定度的判定规则：为证明合格，测量结果必须连同不确定度一起落在规范内；为证明不合格，则要完全落在外面。中间那条不确定度带宽不是和稀泥，是防止用一把未校准的尺宣称产品合格。量具的重复性与再现性（Gauge R&R）不够时，先要修测量系统，再谈过程能力。车间通止规是泰勒原则的日常形态：通规检查能否装配，止规检查有没有做得太小。“尺寸在带内”和“能装上”不是同一句话。阿贝原则要求被测长度与基准线共线，卡尺若把测轴放在尺身之外，阿贝误差会直接吃掉微米。检验方法本身可以放进或放出超差件，计量不是读数之后的附言。
+
+量块等级的公差随长度增加：ISO 3650 用近似随名义长度增长的允差，越长的块允许的偏差越大。组合量块时误差也会叠加，所以校准级 K 块不能拿去当车间止规用完再送回实验室。国家计量院用量块干涉仪把车间钢块接到光速定义的米；少了这一级，工厂之间的“微米”只是各自卡尺上的液晶数字。溯源链的每一级都在消耗不确定度预算，省掉恒温或校准周期，图纸上的微米会在装配台上消失。
+
 另一个当代争议是"纳米节点"的名实分离。截至 2025 年第四季度，台积电 N2 制程已按计划进入量产，但"2 纳米"早已不代表晶体管的任何实际尺寸，只是世代代号。营销语言对计量语言的侵蚀，是精密时代一个耐人寻味的反讽。
 
 ## 为什么今天仍然重要
 
 全球供应链的每一环都在无声地依赖计量共识：中国东莞的模具、德国斯图加特的机床、墨西哥瓜达拉哈拉的组装线，能严丝合缝地协作，是因为它们共享同一条溯源链与同一套公差语言（ISO 的极限与配合制度、GD&T 几何公差标准）。半导体把这场游戏推到物理极限——光刻机的套刻精度以个位数纳米计，相当于从上海射出一支箭，命中北京靶心上的一根头发。而当量子传感、芯片原子钟把测量变成新一轮技术竞争的战场，"谁定义了米，谁就定义了世界"这句老话，正在被写入新的篇章。
+
+精度的代价是恒温、时间与制度。车间卡尺若半年未用量块校准，图纸上的微米会在装配台上变成干涉或松旷。六西格玛的 DMAIC 循环（定义、测量、分析、改进、控制）把测量放在改公差之前：先量过程散布，再决定公差带该不该动。把 6σ 印在图纸标题栏，是把过程口号误当成几何规范。GPS 符号、20°C 与溯源链，才是让互换性在全球工厂之间可审计的那套基础设施。
 
 ## 跨域连接
 
@@ -79,10 +93,15 @@ related:
 - Smith, Merritt Roe. *Harpers Ferry Armory and the New Technology*. Cornell University Press, 1977.
 - Hounshell, David A. *From the American System to Mass Production, 1800–1932*. Johns Hopkins University Press, 1984.
 - Bureau International des Poids et Mesures. *The International System of Units (SI Brochure)*, 9th ed. BIPM, 2019.
-- Winchester, Simon. *The Perfectionists: How Precision Engineers Created the Modern World*. Harper, 2018.
+- International Organization for Standardization. ISO 1:2022, *Geometrical product specifications (GPS) — Standard reference temperature for the specification of geometrical and dimensional properties*.
+- International Organization for Standardization. ISO 1101:2017, *Geometrical product specifications (GPS) — Geometrical tolerancing — Tolerances of form, orientation, location and run-out*.
+- International Organization for Standardization. ISO 3650:1998, *Geometrical Product Specifications (GPS) — Length standards — Gauge blocks*.
+- International Organization for Standardization. ISO 14253-1:2017, *Geometrical product specifications (GPS) — Inspection by measurement of workpieces and measuring equipment — Part 1: Decision rules*.
 
 ## 延伸阅读
 
 - Alder, Ken. *The Measure of All Things: The Seven-Year Odyssey and Hidden Error That Transformed the World*. Free Press, 2002.
 - Whitehouse, David J. *Handbook of Surface and Nanometrology*. CRC Press, 多版.
 - Crease, Robert P. *World in the Balance: The Historic Quest for an Absolute System of Measurement*. W. W. Norton, 2011.
+- Winchester, Simon. *The Perfectionists: How Precision Engineers Created the Modern World*. Harper, 2018.
+- ASME Y14.5-2018. *Dimensioning and Tolerancing*. American Society of Mechanical Engineers.

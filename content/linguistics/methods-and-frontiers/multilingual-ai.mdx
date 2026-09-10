@@ -2,7 +2,7 @@
 title: 多语 AI、低资源语言与评测公平
 title_en: Multilingual AI, Low-Resource Languages, and Evaluation Fairness
 status: published
-updated: 2026-07-13
+updated: 2026-09-07
 category: 多语人工智能前沿
 order: 6
 field: 计算语言学 · AI治理 · 语言技术
@@ -37,7 +37,7 @@ related:
 
 语言并不天然拥有“低资源”属性。可数字化文本、平行语料、词典、键盘、标注人员和计算投资由殖民历史、教育政策、版权和市场共同决定。使用者多也可能缺少公开数据，人数少的社群则可能有高质量自主管理档案。
 
-把问题说成“这些语言数据太少”，容易把责任推给使用者。更准确的问题是：哪些机构没有投资、现有材料为何不能授权、什么数据应保持受限，以及任务是否真的需要大模型。
+乔希等人（Joshi et al., 2020）把世界上的语言按标注资源与研究关注度分成若干档，指出自然语言处理的论文和基准高度集中在少数高资源语言，其余大多数语言几乎不进入实验表格。档位描述的是基础设施，不是语言本身的“贫瘠”。把问题说成“这些语言数据太少”，容易把责任推给使用者。更准确的问题是：哪些机构没有投资、现有材料为何不能授权、什么数据应保持受限，以及任务是否真的需要大模型。
 
 ## 字符可编码只是第一层
 
@@ -49,11 +49,17 @@ Unicode 让文本可交换，但字体缺字、键盘难用、规范化不一致
 
 子词分词器通常从高频训练数据学习词表。高资源语言的常见词可能只需一个 token，形态复杂或训练稀少的语言则被拆成许多片段。同样内容因此占用更长上下文、增加费用，也可能降低长距离处理性能。
 
+“生育力”（fertility）是分词文献里的常用度量：一段文本平均被切成多少个子词。拉斯特等人（Rust et al., 2021）比较多语与单语分词器，发现 mBERT 对阿拉伯语、芬兰语、韩语、俄语、土耳其语等的生育力明显高于英语，也就是同样意思被切得更碎。高生育力并不自动等于“模型更差”，但它改变了有效上下文长度、位置编码的负担，以及按 token 计费的成本。比较多语系统时，把生育力、未登录率与破碎率写进报告，不是吹毛求疵，而是把公平从口号落实成可核对的输入层事实。
+
 比较模型时应报告每种语言的字符/token、字节/token、未知与破碎率，而非只看参数量。统一价格按 token 计费时，分词差异还会转化为现实访问不平等。
 
 ## 多语迁移既能帮助也会淹没
 
 共享模型可让相关语言、共同文字或相似任务互相迁移，减少每门语言单独训练成本。高资源数据也可能主导梯度，使低资源语言表示退化，即所谓多语容量竞争。
+
+共享表征的现代起点是多语 BERT。谷歌在 BERT 之后发布的 mBERT，用同一套词表与参数在约一百零四种语言的维基百科文本上做掩码预训练，训练时并不显式对齐平行句。吴与德雷泽（Wu & Dredze, 2020）随后追问：这一百零四种语言是否被平等对待？他们把命名实体、词性与依存等任务的覆盖拉到低资源一侧，发现高资源语言上 mBERT 可与基线抗衡，低资源语言则明显落后；数据更少的语言上，单语 BERT 往往更差，与相近语言共训才能缩小差距。
+
+康诺等人（Conneau et al., 2020）把规模再推一档：XLM-R 在超过两太字节的过滤 Common Crawl 上、对约一百种语言做掩码预训练，并在多项跨语言理解基准上超过 mBERT。同一篇论文写下“多语诅咒”（curse of multilinguality）：固定模型容量时，增加语言起初有助于低资源迁移，过了某一点后再加语言，单语与跨语言成绩都会被容量稀释拖下来。缓解办法是加大模型，而不是假定“语言越多越公平”。因此，“支持一百种语言”若不同时报告容量、数据配比与逐语言成绩，描述的是产品口径，不是能力结论。
 
 迁移不是只由语系决定。文字、领域、标注方案和数据质量都会影响；政治上被分成不同名称的变体也可能共享结构。实验要比较单语、区域多语和超大多语基线，并按具体语言报告，而不是宣布普遍正迁移。
 
@@ -67,7 +73,9 @@ Unicode 让文本可交换，但字体缺字、键盘难用、规范化不一致
 
 FLORES-101/200 通过多语对齐和专业翻译，使大量低资源语言可以在同一框架比较，这是重要基础设施。其句子来源、体裁和参考翻译仍限定可支持的主张。
 
-基准高分不证明医疗会话、口语拼写、代码混合或地方知识可用。部署前需要目标领域数据、母语人工评估和错误后果分层。基准应成为起点，不是认证章。
+戈亚尔等人（Goyal et al., 2022）把 FLORES-101 写成可复用的多语评价集：句子经专业翻译对齐，覆盖面远大于早期以英欧语言为中心的测试集。后来同一套思路扩展到 FLORES-200，让更多语言进入同一张表。覆盖变宽并不取消体裁限制——这些句子仍是相对干净的书面语，不是诊所对话或市场讨价还价。
+
+基准高分不证明医疗会话、口语拼写、代码混合或地方知识可用。部署前需要目标领域数据、母语人工评估和错误后果分层。基准应成为起点，不是认证章。也不要用未经说明的单一自动分，尤其是 BLEU 这类表面重叠指标，去宣布某门低资源语言“已被解决”。
 
 ## 自动指标会继承评测语言偏差
 
@@ -152,6 +160,9 @@ BLOOM 等开放协作模型提高了训练过程和多语数据的透明度，�
 ## 参考文献
 
 - Joshi, Pratik, et al. “The State and Fate of Linguistic Diversity and Inclusion in the NLP World.” *ACL 2020*. [ACL Anthology](https://aclanthology.org/2020.acl-main.560/)
+- Wu, Shijie, and Mark Dredze. “Are All Languages Created Equal in Multilingual BERT?” *RepL4NLP*, 2020.
+- Conneau, Alexis, et al. “Unsupervised Cross-lingual Representation Learning at Scale.” *ACL*, 2020.
+- Rust, Phillip, et al. “How Good is Your Tokenizer? On the Monolingual Performance of Multilingual Language Models.” *ACL*, 2021.
 - Nekoto, Wilhelmina, et al. “Participatory Research for Low-Resourced Machine Translation.” *Findings of EMNLP 2020*. [ACL Anthology](https://aclanthology.org/2020.findings-emnlp.195/)
 - Goyal, Naman, et al. “The Flores-101 Evaluation Benchmark.” *TACL*, 2022. [ACL Anthology](https://aclanthology.org/2022.tacl-1.30/)
 - BigScience Workshop, et al. “BLOOM: A 176B-Parameter Open-Access Multilingual Language Model.” *JMLR*, 2023. [JMLR](https://jmlr.org/papers/v24/23-0069.html)

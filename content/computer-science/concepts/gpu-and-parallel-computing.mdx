@@ -2,7 +2,7 @@
 title: GPU 与并行计算
 title_en: GPU and Parallel Computing
 status: published
-updated: 2026-06-28
+updated: 2026-09-08
 category: 计算机科学基础
 order: 34
 field: 计算机科学 · 体系结构
@@ -36,6 +36,8 @@ CPU 和 GPU 是面向完全不同问题的两种解决方案：
 
 简单比喻：CPU 是少数几位能解任何题的天才教授；GPU 是数以千计只会做乘法的小学生，但同时做乘法。
 
+把同一段串行代码丢上 GPU，单线程往往比 CPU 更慢：流水线浅、缓存小、分支预测弱，它本来就没被设计来最小化单条指令的延迟。GPU 快，是因为有成千上万条同类工作可以同时填满计算单元；没有这份宽度，多出来的核心只是闲着。所以它不是更快的 CPU，而是吞吐机器——问题形状对了才快，形状不对则更慢。这是 [[computer-architecture|计算机体系结构]] 里延迟与吞吐的分工，不是制程代差。
+
 ## 并行的分类法：Flynn、SIMD 与 SIMT
 
 要说清 GPU 的"并行"到底是哪一种并行，先看一张经典地图。1966 年，Michael Flynn 按"指令流"和"数据流"的数量，把计算机分成四类（**Flynn 分类法**，1972 年又作扩充）：
@@ -52,13 +54,19 @@ GPU 既不完全是 SIMD，也不完全是 MIMD。NVIDIA 为它造了一个词�
 
 换句话说，SIMD 把并行暴露给程序员（你得手写向量化），SIMT 把并行藏在线程抽象背后（你只写单个线程的代码，硬件负责把成千上万个线程批量调度）。这种抽象让 GPU 编程门槛大降，但代价藏在后面：当同一批线程真的走了不同分支，SIMT 的"独立"只是假象，硬件仍要逐条路径串行跑完（见下文 Warp 与分支发散）。
 
+林霍尔姆等人 2008 年在 *IEEE Micro* 写 G80（Tesla 统一架构）时，把这种锁步执行说清楚了：硬件一次调度的是一整束线程，束内此刻只能发射同一条指令。NVIDIA 把束宽定为 32（一个 Warp）；程序员仍按一个线程一份数据来写，硬件再把相邻线程打包。Flynn 的 SIMD 抓住了「一条指令打多份数据」，SIMT 多出来的是线程私有的程序计数器与寄存器。分支可以在软件里写出来，只是跑的时候若分道，束内仍得把每条路径都走完。
+
+若把 GPU 当成每个核心独立跑不同程序的集群，会期待 Flynn 分类里的 MIMD 那一格。SIMT 不允许这样：束内此刻共享指令，独立的只是数据地址与寄存器。这就是「不是更快的 CPU」在指令流上的含义——CPU 核心之间才是 MIMD，GPU 的吞吐来自把同一条指令铺到一束线程上。
+
 ## GPU 的起源：图形渲染的数学
 
 GPU 的历史根植于实时三维图形。渲染一帧游戏画面，需要对数百万个三角形的每个顶点做相同的矩阵变换，对数百万个像素做相同的着色计算。这种"同样的操作作用于大量数据"的模式，完美匹配了大规模并行架构。
 
 1999 年，NVIDIA 发布 GeForce 256，首次使用"GPU"这个词。早期 GPU 是固定功能管线；2001 年的 GeForce 3 引入了可编程顶点着色器，开始允许程序员自定义 GPU 计算。
 
-2006 年底，NVIDIA 随 G80 架构（GeForce 8800）发布了 CUDA（Compute Unified Device Architecture）编程框架（首个公开工具包于 2007 年发布），让开发者可以用 C 语言扩展编写通用程序在 GPU 上运行，GPU 从此从图形处理器变成了通用并行计算平台——称为 **GPGPU（General-Purpose GPU Computing）**。
+2006 年 11 月 8 日，NVIDIA 与 GeForce 8800（G80）同日宣布 CUDA（Compute Unified Device Architecture）。顶点着色器与像素着色器被合成一批通用流处理器，C 语言扩展可以直接打到这批核心上；G80 把 128 个流处理器编成 16 个流多处理器，这是统一着色器给通用计算铺的硬件底。首个公开工具包于 2007 年放出；没有这次合并，GPU 仍是 [[computer-graphics|计算机图形学]] 管线里的专用级，写通用程序还得伪装成着色器——此后它才被称为 **GPGPU（General-Purpose GPU Computing）**。
+
+早期要做通用计算，得把问题伪装成给三角形上色。统一着色器之后，算术单元不再分成「只懂顶点」和「只懂像素」两摊，同一批核心既能画图也能跑核函数。CUDA 的贡献是把这批核心从图形接口里解放出来，而不是发明了一种更快的标量处理器。
 
 ## CUDA 编程模型：SIMT
 
@@ -83,6 +91,10 @@ doubleArray<<<1000, 1024>>>(deviceArray, 1000000);
 ```
 
 GPU 内部，32 个线程组成一个 **Warp**（NVIDIA 术语，AMD 叫 Wavefront），Warp 内的所有线程同步执行相同指令。如果 Warp 内部出现分支（if-else），NVIDIA 使用**谓词执行**：两条路径都执行，不相关线程的结果被屏蔽。这使得分支在 GPU 上代价极高——"避免分支"是 GPU 编程的重要优化原则。
+
+访存形状往往比算术更决定快慢。同一 Warp 里若相邻线程读相邻地址，硬件能合成较少几次事务；若各读各的，带宽就被拆碎。共享内存让同一线程块先把反复用到的数据拉到近处再算，这是把算术强度推高的手工办法，并不依赖宣称峰值算力。能驻留多少 Warp 则受寄存器与共享内存配额限制：驻留太少，延迟盖不住；配额占满，调度器又没有新 Warp 可切。
+
+程序员看见的是网格和线程块；硬件真正锁步的是 Warp。一个线程块会被拆成若干 Warp，块内同步要等整个块，束内发散却在更细的粒度上罚你。写 kernel 时少用分叉，本质是在保护这 32 路锁步，而不是在追求某种抽象的少用条件语句。
 
 ## CUDA 不是唯一选择：OpenCL 与开放标准
 
@@ -136,6 +148,10 @@ GPU 是吞吐机器，不是万能加速器。一个任务能不能从 GPU 获�
 
 这正呼应 Amdahl 定律：决定一段程序能不能"上 GPU"的，往往不是它的计算量有多大，而是其中有多大比例**真正可并行**。
 
+吞吐机器靠的是一批线程在等内存时立刻切到另一批。可切的前提是还有大量同类线程排着。任务又窄又短时，切不过来，启动 kernel 和搬数据的固定开销还会把那一点算术吃掉。所以「有 GPU 就变快」这句话缺了主语：加速的是宽而齐的数据并行。
+
+延迟隐藏依赖排队的同类线程，这和 CPU 靠乱序执行填满流水线是同一类想法，只是粒度从指令换成了线程。没有足够的并行宽度，隐藏机制启动不了，GPU 看起来就像一台又慢又烫的 CPU。写 kernel 之前先问有没有这份宽度，比先问峰值算力更接近真相。
+
 ## 代价与争议
 
 **能耗**：NVIDIA H100 GPU 的 TDP（热设计功耗）超过 700 瓦。一个 AI 训练集群可能包含数万块 GPU，总功耗相当于一个中小城市。据 IEA 估计，AI 的能耗增长是全球数据中心能耗增速的主要驱动力。
@@ -158,6 +174,7 @@ GPU 是吞吐机器，不是万能加速器。一个任务能不能从 GPU 获�
 
 - Kirk, D. & Hwu, W. *Programming Massively Parallel Processors: A Hands-on Approach.* Morgan Kaufmann, 2022.
 - Nickolls, J. et al. *Scalable Parallel Programming with CUDA.* Queue 6(2), 2008. （CUDA 的奠基性论文）
+- Lindholm, E., Nickolls, J., Oberman, S. & Montrym, J. *NVIDIA Tesla: A Unified Graphics and Computing Architecture.* IEEE Micro 28(2), 39–55 (2008).（G80 统一架构与 SIMT）
 - Amdahl, G. *Validity of the Single Processor Approach to Achieving Large Scale Computing Capabilities.* AFIPS, 1967.
 - Flynn, M. J. *Very High-Speed Computing Systems.* Proceedings of the IEEE 54(12), 1966. （Flynn 分类法的提出）
 - Williams, S., Waterman, A., Patterson, D. *Roofline: An Insightful Visual Performance Model for Multicore Architectures.* Communications of the ACM 52(4), 2009.

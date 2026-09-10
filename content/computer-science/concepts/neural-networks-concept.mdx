@@ -2,7 +2,7 @@
 title: 神经网络
 title_en: Neural Networks
 status: published
-updated: 2026-06-28
+updated: 2026-09-07
 category: 人工智能
 order: 40
 field: 计算机科学 · 机器学习
@@ -33,6 +33,10 @@ related:
 
 现代神经网络是数学优化工具，不是大脑的仿真。
 
+1943 年那篇论文的目标更窄。McCulloch 与 Pitts 把神经元写成阈值开关，是为了证明这样的开关网络足以计算任意逻辑函数。脉冲波形、离子通道、胶质细胞和神经调质全部被抽象掉了。这是一个逻辑演算，不是生物物理模型；后来的人工网络继承的是"用可微函数代替开关"的数学路线，而不是把皮质微电路搬进硅片。
+
+1989 年，Francis Crick 在《自然》发表短评《神经网络的近期热潮》。他承认这些算法给出了网络能学会复杂映射的存在性证明，但随即指出：反向传播若按字面实现，似乎要求误差信号沿轴突逆向快速传递。新皮层里一个神经元的输出突触通常不同时既兴奋又抑制，而人工网络的权重可正可负。他的判断很干脆：这些网络在几乎每一个重要方面都不像大脑。
+
 为什么说反向传播"不像大脑"？一个具体障碍是**权重传输问题（Weight Transport Problem）**。反向传播在计算梯度时，反向通路必须精确复用前向通路的权重矩阵（两者对称）。
 
 但真实神经元的前向突触与反向连接在物理上是分离的，没有已知机制能让它们时刻保持权重同步。
@@ -60,6 +64,8 @@ $$a = \sigma(z)$$
 
 没有非线性激活函数，多层神经网络等价于单层——因为线性函数的复合仍然是线性函数。激活函数是神经网络"学习复杂函数"能力的来源。
 
+McCulloch-Pitts 的开关没有可调权重。Rosenblatt 1958 年的感知机才把学习写进模型：分对了不动，分错了把权重朝纠正方向调一步。单层加上这条规则，就能在线性可分的数据上收敛；也正是这一层，撑不住异或。多层要等反向传播把"每一层该调多少"算出来。
+
 ## 前馈神经网络：层的结构
 
 将神经元排列为层（Layer）：
@@ -79,6 +85,8 @@ $$a = \sigma(z)$$
 
 **通用近似定理（Universal Approximation Theorem）**：具有至少一个隐藏层和足够多神经元的神经网络，能以任意精度逼近任意连续函数（在有界紧致集上）。这给出了神经网络理论上"为什么有效"的保证，但没有说明实践中需要多大的网络，以及如何训练。
 
+1989 年，Cybenko 证明单隐层、sigmoid 激活、宽度足够的前馈网络，能在紧致集上一致逼近任意连续函数。同年 Hornik、Stinchcombe 与 White 把条件放宽到一类有界、非恒常的激活。定理保证的是存在性，不是可训练性。宽度可能大到无法用，梯度也可能传不回去——寒冬里真正缺的，不是表达力证明，而是一份能在多层上稳定计算梯度的算法。
+
 ## 训练：反向传播与梯度下降
 
 神经网络学习的过程是：调整权重 $\mathbf{W}$ 和偏置 $\mathbf{b}$，最小化损失函数 $L$（衡量预测与真实标签的差距）。
@@ -92,6 +100,8 @@ $$\mathbf{w} \leftarrow \mathbf{w} - \eta \frac{\partial L}{\partial \mathbf{w}}
 问题是：如何高效计算 $\frac{\partial L}{\partial \mathbf{w}}$？神经网络有数百万参数，逐一有限差分计算代价不可接受。
 
 **反向传播（Backpropagation）**：应用链式法则，从输出层向输入层反向传播误差，高效计算所有参数的梯度。1986 年由 Rumelhart、Hinton、Williams 在 Nature 论文中推广（注：更早的独立发现包括 Werbos 1974 年的博士论文）。
+
+反向传播并不是 1986 年才出现的链式法则。芬兰学者 Linnainmaa 在 1970 年的硕士论文里给出了后来称为反向模式自动微分的算法，1976 年发表于 BIT：一次反向遍历的代价与一次前向相当，而不是对每个参数做一次有限差分。Werbos 在 1974 年的哈佛博士论文《Beyond Regression》里讨论了把这类微分用于多层网络。Rumelhart、Hinton 与 Williams 的贡献，是把它写成神经网络共同体读得懂的形式，并表明隐藏层确实能学到内部表示。实现细节见 [[gradient-descent-backprop|梯度下降与反向传播]]。
 
 算法流程：
 1. **前向传播**：给定输入，计算每层输出，直到得到最终预测 $\hat{y}$
@@ -114,6 +124,8 @@ Sigmoid 激活函数恰好是重灾区：它的导数最大值只有 0.25。在�
 
 ReLU 的流行很大程度上就是对这个问题的回应：当输入为正时它的导数恒为 1，连乘不再衰减，梯度能畅通地传回浅层。后来的残差连接（ResNet，2015）、批归一化（Batch Normalization，2015）等技巧进一步缓解了梯度消失及其反面"梯度爆炸"，才让上百层的网络真正可以训练。
 
+1990 年代并不是没有人知道多层网络在理论上能算异或。缺的是一份不会在十几层里把梯度乘没的训练方法。Hochreiter 的分析解释了为什么反向传播被重新发现之后，深度仍然上不去：算法有了，数值通道没有。连乘的量级被拉回一附近之前，深度只停留在纸面上。
+
 ## 神经网络的历史：两次寒冬与两次春天
 
 | 时期 | 事件 |
@@ -126,6 +138,10 @@ ReLU 的流行很大程度上就是对这个问题的回应：当输入为正时
 | 2012 | AlexNet 把 ImageNet top-5 错误率从亚军的 26.2% 一举降到 15.3%，深度学习时代开始 |
 | 2017–今 | Transformer 架构，大规模语言模型（GPT、BERT、LLaMA），AI 新纪元 |
 | 2018 / 2024 | Bengio、Hinton、LeCun 共获图灵奖（2018）；Hopfield 与 Hinton 因神经网络的奠基性贡献共获诺贝尔物理学奖（2024） |
+
+把第一次寒冬写成"1969 年一本书杀死了神经网络"，会把一本计算几何著作误当成宣战书。明斯基与佩珀特证明的是单层感知机的能力边界：线性不可分的函数——课堂例子是异或——单层学不会；他们并没有证明多层网络同样无能。制度层面的收缩更直接地来自经费。1973 年英国科学委员会委托 James Lighthill 提交《人工智能综述》，结论是该领域未能兑现当初承诺的重大影响，随后英国高校的 AI 资助大幅收缩。更完整的制度史见 [[perceptron-and-the-ai-winter|感知机与第一次 AI 寒冬]]。
+
+第二次低潮也不是"支持向量机更好"一句话能概括的。1980 年代专家系统曾成为一门生意，围绕 Lisp 机器形成了专用硬件市场；约 1987 年，通用工作站的性价比追上专用机，这条硬件产业链迅速塌掉。神经网络当时仍被梯度消失卡住，统计学习方法填了空档。那一轮产品化失败的机制，见 [[expert-systems-and-the-second-ai-winter|专家系统与第二次 AI 寒冬]]。
 
 ## 代价与争议
 
@@ -154,8 +170,15 @@ ReLU 的流行很大程度上就是对这个问题的回应：当输入为正时
 ## 参考文献
 
 - McCulloch, W. & Pitts, W. *A Logical Calculus of the Ideas Immanent in Nervous Activity.* Bulletin of Mathematical Biophysics 5, 1943.
+- Rosenblatt, F. *The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain.* Psychological Review 65(6), 386–408 (1958).
 - Minsky, M. & Papert, S. *Perceptrons: An Introduction to Computational Geometry.* MIT Press, 1969.
+- Lighthill, J. *Artificial Intelligence: A General Survey.* In: *Artificial Intelligence: a paper symposium.* Science Research Council, London, 1973.
+- Werbos, P. *Beyond Regression: New Tools for Prediction and Analysis in the Behavioral Sciences.* PhD thesis, Harvard University, 1974.
+- Linnainmaa, S. *Taylor Expansion of the Accumulated Rounding Error.* BIT 16, 146–160 (1976).
 - Rumelhart, D., Hinton, G., & Williams, R. *Learning Representations by Back-propagating Errors.* Nature 323, 1986.
+- Crick, F. *The Recent Excitement about Neural Networks.* Nature 337, 129–132 (1989).
+- Cybenko, G. *Approximation by Superpositions of a Sigmoidal Function.* Mathematics of Control, Signals and Systems 2, 303–314 (1989).
+- Hornik, K., Stinchcombe, M. & White, H. *Multilayer Feedforward Networks are Universal Approximators.* Neural Networks 2(5), 359–366 (1989).
 - Hochreiter, S. *Untersuchungen zu dynamischen neuronalen Netzen.* Diploma thesis, Technische Universität München, 1991.（梯度消失问题的首次系统分析）
 - Krizhevsky, A., Sutskever, I., & Hinton, G. *ImageNet Classification with Deep Convolutional Neural Networks.* NeurIPS, 2012.
 - Szegedy, C. et al. *Intriguing Properties of Neural Networks.* ICLR, 2014.

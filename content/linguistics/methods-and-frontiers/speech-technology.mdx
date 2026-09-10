@@ -2,7 +2,7 @@
 title: 言语技术：机器如何听懂与说出语言
 title_en: "Speech Technology: How Machines Recognize and Synthesize Speech"
 status: published
-updated: 2026-08-02
+updated: 2026-09-07
 category: 言语工程
 order: 7
 field: 言语工程 · 计算语言学
@@ -40,11 +40,17 @@ related:
 
 局限同样清楚：换一个说话人就失灵，机器占满六英尺高的机架，功耗巨大。1962 年 IBM 的 Shoebox 前进了一小步，能识别十六个英文词。整个六七十年代，识别系统被困在同一个笼子里：小词表、孤立词、特定说话人。三把锁要分别开，先开哪一把都不够用。
 
+把声波写成可看的对象，靠的是另一项贝尔实验室发明。声谱仪在二战期间于该实验室开发，战时保密；波特 1945 年在《科学》杂志公开介绍，科尼希、邓恩与莱西 1946 年在《美国声学学会杂志》给出仪器报告。波特、科珀与格林 1947 年的《可见言语》把语谱图做成语音学的工作图像：横轴时间，纵轴频率，黑度表示能量。
+
+后来的识别系统并不“看图”，但滤波器组与梅尔频率倒谱系数，仍然是把同一张时频图压成向量。没有这层表示，模板匹配与统计建模都没有输入。共振峰在图上是暗条，这正是 Audrey 跟踪的对象；统计时代改成了高维特征，对象族谱没有断。
+
 ## 统计转向与隐马尔可夫时代
 
 破笼的关键是换哲学。七十年代初，耶利内克（Frederick Jelinek）在 IBM 把语音识别重新定义为统计解码问题：给定声学证据，求概率最大的词序列——概率不从规则手册来，从数据里估计。同一时期，卡内基梅隆大学的詹姆斯·贝克（James Baker）把隐马尔可夫模型（HMM）引入语音建模。
 
 HMM 的直觉值得说透。我们观察到的是连续的声学特征序列；看不见的是背后的语言状态序列——比如哪个音位的哪一段。模型假设状态按马尔可夫链跳转、每个状态按某种分布（通常是高斯混合模型，GMM）“发射”声学观测。识别就是在这张状态网络里搜索最可能的路径。语言知识没有消失，而是换了个位置：发音词典告诉模型每个词由哪些音位构成，n 元语言模型估计词序列的先验概率。
+
+HMM–GMM 把一件事分成两半：隐马尔可夫模型管时间上的状态跳转，高斯混合模型管某个状态下频谱看起来像什么。训练常用鲍姆–韦尔奇算法估计参数，识别常用维特比算法在状态网络里找最可能的路径。发音词典把词展开成音位串，上下文相关的三音子再把每个音位按左右邻音拆开。
 
 1988 年是里程碑：李开复在卡内基梅隆大学完成 Sphinx 系统，首次实现了大词表、说话人无关的连续语音识别——三把锁同时打开。拉比纳（Lawrence Rabiner）1989 年发表于《IEEE 会报》的教程，则把 HMM 方法整理成一代工程师的标准教材。
 
@@ -60,13 +66,19 @@ HMM 的直觉值得说透。我们观察到的是连续的声学特征序列；�
 
 统计框架统治了二十年，进步却在二十一世纪第一个十年趋于平台期。转折来自声学模型的替换：2009 年起，辛顿（Geoffrey Hinton）团队与微软研究院等几个小组先后用深度神经网络（DNN）替换 GMM，去估计 HMM 状态的发射概率。2012 年，四个研究组在《IEEE 信号处理杂志》联名发表综述《语音识别声学建模中的深度神经网络》，报告基准任务上错误率相对此前最好系统下降两三成——幅度之大，直接改写了整个工业界的技术路线。
 
+DNN–HMM 仍保留状态对齐：网络输出的是各 HMM 状态的后验，解码图还在。真正拆掉音位状态的，是后来的连接主义时序分类与注意力端到端。把 2010 年代的变化写成“深度学习一夜取代语言学”，会看漏中间这层：先替换的是高斯混合，不是整张解码图。
+
 产业落地紧随其后。2011 年，苹果在 iPhone 4S 上推出 Siri，语音识别第一次成为亿级用户的日常功能；云端算力加海量真实语音数据，形成“用得越多、识别越准”的飞轮。
 
 第二条战线是架构的简化。传统系统是拼装流水线：声学模型、发音词典、语言模型各自训练再组合。端到端路线试图一个模型直接从声学序列输出文字。2006 年，格雷夫斯（Alex Graves）等人提出连接主义时序分类（CTC），解决了“声学帧与字符之间没有对齐标注”的核心障碍；2015 年，陈威廉（William Chan）等人的“听、注意与拼写”（Listen, Attend and Spell, LAS）引入注意力机制，模型学会了在出声序列上自主“聚焦”。今天的主流系统，大多站在 CTC、注意力与更大规模预训练的交汇处。
 
 ## 合成：从拼积木到生成波形
 
-语音合成（TTS）的历史是另一条曲线。八十年代末起的拼接合成，像剪贴画：从录好的语音库里切出片段再粘起来，自然度受限于库存。九十年代的参数合成改用统计模型生成声学参数再声码化，流畅但发闷——因为声码器丢掉了太多波形细节。
+合成的前置技术是声码器。达德利（Homer Dudley）1939 年在贝尔实验室公开演示 Vocoder：把语音拆成一组滤波器的能量轨迹，再加上浊音的基频或清音的噪声作为激励，再在接收端重建。它可以压缩信道，也可以改激励来改听感。后来的参数合成与神经网络声码器，问的仍是同一问题：哪些参数足够让波形被重新生成。
+
+拼接合成在库存里选片段。早期用固定的双音子；亨特与布莱克 1996 年把目标代价与拼接代价写成可搜索的量，从更大的语料里挑更长的块。库存里没有的韵律，拼出来就会破。
+
+参数合成走另一条路：先用统计模型预测频谱与基频，再交给声码器。德田惠一等人把基于 HMM 的参数合成做成可复现的系统族；它流畅、可改说话人，但声码器丢掉相位与精细结构，听感发闷。神经网络路线并没有取消这三分法，而是把“预测什么、用什么生成波形”两步都换成了可训练的网络。
 
 2016 年 9 月，DeepMind 的范登奥尔德（Aäron van den Oord）等人发布 WaveNet：一个用扩张因果卷积逐样本预测波形的自回归神经网络，直接对每秒一万六千个采样点建模。合成语音与真人录音的自然度差距，按他们的报告缩小了一半以上。波形从此不再是“最后一步的凑合”，而成了被建模的对象本身。
 
@@ -108,6 +120,12 @@ WaveNet 之后的现代 TTS 兵分两路：一路把神经网络声码器做得�
 ## 参考文献
 
 - Davis, K. H., R. Biddulph, and S. Balashek. “Automatic Recognition of Spoken Digits.” *Journal of the Acoustical Society of America* 24(6), 1952.
+- Potter, Ralph K. “Visible Patterns of Sound.” *Science* 102(2654), 1945.
+- Koenig, W., H. K. Dunn, and L. Y. Lacy. “The Sound Spectrograph.” *Journal of the Acoustical Society of America* 18(1), 1946.
+- Potter, Ralph K., George A. Kopp, and Harriet C. Green. *Visible Speech*. New York: Van Nostrand, 1947.
+- Dudley, Homer. “Remaking Speech.” *Journal of the Acoustical Society of America* 11(2), 1939.
+- Hunt, Andrew J., and Alan W. Black. “Unit Selection in a Concatenative Speech Synthesis System Using a Large Speech Database.” *Proceedings of ICASSP*, 1996.
+- Tokuda, Keiichi, Yoshihiko Nankaku, Tomoki Toda, Heiga Zen, et al. “Speech Synthesis Based on Hidden Markov Models.” *Proceedings of the IEEE* 101(5), 2013.
 - Rabiner, Lawrence R. “A Tutorial on Hidden Markov Models and Selected Applications in Speech Recognition.” *Proceedings of the IEEE* 77(2), 1989.
 - Graves, Alex, Santiago Fernández, Faustino Gomez, and Jürgen Schmidhuber. “Connectionist Temporal Classification: Labelling Unsegmented Sequence Data with Recurrent Neural Networks.” *Proceedings of the 23rd International Conference on Machine Learning*, 2006.
 - Hinton, Geoffrey, Li Deng, Dong Yu, George E. Dahl, Abdel-rahman Mohamed, et al. “Deep Neural Networks for Acoustic Modeling in Speech Recognition: The Shared Views of Four Research Groups.” *IEEE Signal Processing Magazine* 29(6), 2012.

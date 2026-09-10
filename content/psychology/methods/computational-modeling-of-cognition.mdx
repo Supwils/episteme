@@ -2,7 +2,7 @@
 title: 认知的计算建模
 title_en: Computational Modeling of Cognition
 status: published
-updated: 2026-08-04
+updated: 2026-09-07
 category: 测量与实验方法
 order: 11
 field: 心理学方法
@@ -37,11 +37,31 @@ related:
 
 它的价值在于**把一个混合指标拆开**。老年人反应更慢，是加工变慢（漂移率下降）还是更谨慎（边界变宽）？平均反应时无法区分，扩散模型可以——而两者对应完全不同的老化理论。
 
+当代漂移扩散模型的直接前身，是 Ratcliff 1978 年对记忆提取的随机游走表述。证据在一次试验里随时间累积，先碰到哪一侧边界就给出哪一个反应。同一套参数要同时交代正确率、反应时的中心趋势，以及分布的形状与对错之差。平均反应时做不到的分解，正是从这里开始成为可估计的问题。
+
+另一条过程传统是符号产生式系统。安德森的 ACT-R 把认知写成条件—动作规则，陈述性记忆按激活方程竞争提取。它要解释的是技能如何随练习变快、条目如何被检索，而不是把一次按键压成两三个扩散参数。两条路都叫过程模型，但它们盯住的时间尺度和可观察量并不相同。
+
 **学习模型**描述经验如何改变行为。强化学习模型用预测误差更新价值估计，用 softmax 之类的规则把价值转成选择概率，典型参数是学习率与探索—利用的温度。它们在临床研究中被用来把"动机缺陷"分解为"对奖赏不敏感"还是"学不会关联"。
+
+这套写法的近祖是 Rescorla 与 Wagner 1972 年的联想学习方程：预测误差驱动联想强度的更新。Sutton 与 Barto 把同一逻辑写成序贯决策里的[[reinforcement-learning-concept|强化学习]]：时间差分误差修正价值，策略再把价值变成选择。中脑多巴胺神经元的相位放电，在时间形态上常被拿来与这种预测误差对照。这是一条有影响力的对应，不是把拟合出来的学习率直接读成突触重量。
+
+Daw、Niv 与 Dayan 区分了两类控制。模型无关系统缓存“在这里这样做值多少”；模型有关系统保留对环境的内部模型，允许规划。同一批选择上，两者可以给出相近的平均正确率，却对应完全不同的灵活性与计算成本。把“学得慢”写成单一学习率，会把这两种失败混在一起。
+
+学习率与 softmax 温度在选择数据上常常互相补偿。学得慢但很确定，与学得快但很随机，可以留下相近的选择曲线。没有足够的试次结构或独立操纵，这两个参数就不能被当成两件分开的事。这是可识别性在学习模型里的日常形态，不是拟合软件的偶然故障。
 
 **理想观察者模型**（贝叶斯模型）问的是另一个问题：给定任务的统计结构，最优表现是什么？把人的表现与最优基准比较，偏离本身携带信息。这类模型不假装描述神经过程，而是划定行为的规范上界。
 
+“最优”始终相对于一套被写明的生成假设。任务统计写错时，偏离基准并不自动等于非理性，而可能只是模型写错了世界。[[bayesian-modeling-psychology|贝叶斯认知建模]]的力量，在于把先验、似然与决策规则写成可改的组件。它的风险是把拟合时用的先验，误当成被试头脑里的先验。
+
 **神经网络模型**用可训练的参数化系统模拟能力的形成过程，长处是能处理高维真实刺激，短处是参数极多、难以解释。
+
+这条路线在认知科学里的源头是 1980 年代的连接主义。Rumelhart 与 McClelland 的并行分布加工把知识写成权重，用同一套单元去承担提取、泛化，以及损伤后的优雅降级。它与 ACT-R 的争执，不在于要不要计算，而在于表征是可读取的符号，还是只能在权重里间接存在。
+
+当代[[neural-networks-concept|人工神经网络]]把这条路推到了高维刺激，也把可识别性推到了极端：参数多到几乎总能贴上训练样本。因此在认知建模里，网络常常作为存在性证明或刺激编码器，而不是直接当作“这个人用了这些权重”。
+
+安德森的理性分析把符号架构与贝叶斯规范连在一起。它先问认知在给定环境统计下应当怎样，再看 ACT-R 的激活方程能否逼近这种规范。四类模型在这里互相约束，而不是各自占领一块地盘。
+
+理想观察者给出上界，过程模型给出时间路径。学习模型给出经验如何改写参数，网络模型给出高维刺激如何被编码。缺任何一类，另外三类都会变得过分自信。
 
 ## 二、拟合得好，不等于是对的
 
@@ -55,6 +75,10 @@ related:
 
 **后验预测检验**：把拟合好的模型当作生成器，产生模拟数据，与真实数据的关键统计量（反应时分布形状、学习曲线、序列效应）对照。**只报告拟合优度指标而不做这一步，是当前文献最普遍的缺陷**——一个 AIC 更低的模型，完全可能在质的层面预测错误。
 
+Roberts 与 Pashler 早就指出：一条漂亮的拟合曲线，如果模型本来就能画出许多别的形状，并不构成对理论的支持。拟合得好，只说明数据落在模型能到达的区域里。它并不说明数据把其他理论排除了。**拟合不是判决，而是尚未完成的比较。**
+
+后验预测要看的是质的形状，而不只是再抠一个拟合数字。反应时是否缺了慢尾、学习曲线有没有先快后慢的拐点、连续试次会不会互相拖累，这些失配往往比 AIC 的小数点更刺耳。模型可以在平均正确率上赢，却在这些形状上当场失败。
+
 ## 三、模型比较的陷阱
 
 模型越复杂，拟合越好，这是必然的。因此比较必须惩罚复杂度：AIC、BIC 用参数个数近似惩罚，交叉验证与 WAIC/LOO 直接估计样本外预测能力。
@@ -66,6 +90,10 @@ related:
 **忽略参数个数之外的柔性**。两个参数数量相同的模型可能柔性差异很大（一个只能画出单调曲线，另一个能画出任意形状）。**参数计数是复杂度的粗劣代理**，最小描述长度与贝叶斯因子提供了更严格但计算更贵的替代。
 
 **在个体层面选模型，然后汇总"多少人支持模型 A"**。这既忽略了个体层面的估计不确定性，也无法处理"不同人用不同策略"这一真实可能。分层模型（同时估计群体与个体参数，并让个体估计向群体均值收缩）是当前更被接受的做法。
+
+AIC 与 BIC 都用参数个数给复杂度打一个便宜分数，因而好用，也因而粗。BIC 对额外参数的惩罚随样本量加重，大样本上更常偏向更瘦的模型；AIC 更看重样本内预测。两者选出不同赢家时，不必先问谁算错了，而要问这次比较要的是复现样本还是压缩理论。
+
+交叉验证与 WAIC 直接估样本外表现，仍然不能把“预测好”翻译成“机制对”。把个体赢家计数再加总，还会把估计误差当成民意。分层比较至少把不确定性留在模型里，而不是在事后投票中弄丢。
 
 ## 四、模型能回答什么样的问题
 
@@ -79,6 +107,10 @@ related:
 
 **它不能做什么**：模型拟合不能证明大脑执行了该算法。同一行为可以由多种算法产生（等价性问题），而行为数据原则上无法区分它们——这需要神经或干预证据。**"扩散模型拟合得好"意味着"行为与证据累积一致"，不意味着"大脑在累积证据"。**
 
+Marr 把分析分成计算、算法与实现三层。行为数据最多约束问题被规定成什么，以及哪类算法够用。它几乎不能独自指定神经元电路。
+
+多重可实现不是抬杠。同一套输入—输出，可以由扩散累积、产生式匹配或价值迭代分别完成。要宣称大脑执行了某算法，必须引入该算法在时间进程、损伤模式或神经信号上多出来的那些承诺。否则“模型赢了”只是行为层面的相容，不是实现层面的鉴定。
+
 ## 五、实务清单
 
 - 在收数据之前用模拟确定：这个设计能否恢复我关心的参数？需要多少试次？
@@ -87,6 +119,8 @@ related:
 - 做后验预测检验，并展示模型失配的地方；
 - 使用分层模型，报告群体与个体两级的不确定性；
 - 公开代码与拟合流程——建模结果对实现细节的敏感度高于多数统计分析。
+
+清单里的每一步都在保护同一句话：模型是理论的可运行版本，不是对数据的装饰。少做任何一步，拟合数字仍然可以很好看。只是它不再回答你以为自己在问的问题。
 
 ## 跨域连接
 
@@ -98,7 +132,15 @@ related:
 
 ## 参考文献
 
+- Ratcliff, R. _A Theory of Memory Retrieval._ Psychological Review 85(2), 59–108, 1978.
 - Ratcliff, R. & McKoon, G. _The Diffusion Decision Model: Theory and Data for Two-Choice Decision Tasks._ Neural Computation 20(4), 873–922, 2008.
+- Anderson, J. R. _The Adaptive Character of Thought._ Lawrence Erlbaum, 1990.
+- Anderson, J. R. _How Can the Human Mind Occur in the Physical Universe?_ Oxford University Press, 2007.
+- Rumelhart, D. E., McClelland, J. L. & the PDP Research Group. _Parallel Distributed Processing._ MIT Press, 1986.
+- Sutton, R. S. & Barto, A. G. _Reinforcement Learning: An Introduction._ MIT Press, 1998.
+- Daw, N. D., Niv, Y. & Dayan, P. _Uncertainty-based Competition between Prefrontal and Dorsolateral Striatal Systems for Behavioral Control._ Nature Neuroscience 8, 1704–1711, 2005.
+- Schultz, W., Dayan, P. & Montague, P. R. _A Neural Substrate of Prediction and Reward._ Science 275, 1593–1599, 1997.
+- Roberts, S. & Pashler, H. _How Persuasive Is a Good Fit? A Comment on Theory Testing._ Psychological Review 107(2), 358–367, 2000.
 - Wilson, R. C. & Collins, A. G. E. _Ten Simple Rules for the Computational Modeling of Behavioral Data._ eLife 8:e49547, 2019.
 - Palminteri, S., Wyart, V. & Koechlin, E. _The Importance of Falsification in Computational Cognitive Modeling._ Trends in Cognitive Sciences 21(6), 425–433, 2017.
 - Lee, M. D. & Wagenmakers, E.-J. _Bayesian Cognitive Modeling: A Practical Course._ Cambridge University Press, 2013.
@@ -108,5 +150,4 @@ related:
 
 - Farrell, S. & Lewandowsky, S. _Computational Modeling of Cognition and Behavior._ Cambridge University Press, 2018.
 - Daw, N. D. _Trial-by-Trial Data Analysis Using Computational Models._ In: Decision Making, Affect, and Learning, Oxford University Press, 2011.
-- Roberts, S. & Pashler, H. _How Persuasive Is a Good Fit? A Comment on Theory Testing._ Psychological Review 107(2), 358–367, 2000.
 - Guest, O. & Martin, A. E. _How Computational Modeling Can Force Theory Building in Psychological Science._ Perspectives on Psychological Science 16(4), 2021.

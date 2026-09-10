@@ -3,7 +3,7 @@ title: 原初引力波与 B 模式偏振
 titleEn: Primordial Gravitational Waves and B-mode Polarization
 category: 宇宙学基础
 tags: [原初引力波, B模式偏振, 暴胀, 张量标量比, CMB偏振, BICEP, LiteBIRD]
-updated: 2026-06-13
+updated: 2026-09-07
 status: published
 ---
 
@@ -12,6 +12,10 @@ status: published
 ## 概述
 
 原初引力波（Primordial Gravitational Waves）是宇宙暴胀时期量子涨落产生的时空度规张量扰动。与密度涨落（标量扰动）不同，原初引力波是纯张量性质的，其唯一可观测特征是在宇宙微波背景（CMB）偏振中留下的**B 模式**（旋度模式）偏振图案。探测原初引力波的 B 模式是现代宇宙学最重要的实验目标之一——它将直接证实暴胀的发生，确定暴胀的能量尺度，并开创宇宙学引力波天文学。
+
+这句话里的「唯一」有严格限定。它不是说张量扰动只存在于微波背景里，而是说：在可观测的线性效应中，原初张量在[[宇宙微波背景]]偏振上留下的旋度图案，是目前最干净的通道。密度涨落会制造温度各向异性和 E 模式，却不能在线性阶制造 B 模式。因此，B 模式不是又一张更漂亮的温度图。它是一张专门询问「早期宇宙有没有张量」的图。
+
+[[宇宙暴胀]]框架已经用近标度不变的标量谱解释了大尺度结构的种子。它仍缺少一张「判决性照片」：原初引力波本身。没有这张照片，暴胀可以是对的，也可以被其他能制造标量涨落的机制代替。B 模式探测的赌注，是把框架从「很成功的假说」推进到「能标可测量的物理过程」。
 
 ## 物理基础
 
@@ -25,6 +29,10 @@ $$\ddot{h}_{ij} + 3H\dot{h}_{ij} - \frac{\nabla^2}{a^2} h_{ij} = 0$$
 
 $$\mathcal{P}_T(k) = \frac{2H^2}{\pi^2 M_{Pl}^2} \bigg|_{k=aH}$$
 
+方程左边的 $3H\dot{h}_{ij}$ 是膨胀带来的阻尼。模一旦被拉到视界之外，振荡停止，振幅冻结。再进入视界之后，它才重新成为行波。CMB 所看见的，是最后散射面上那些被冻结、又被投影成偏振的超视界张量模，而不是地面干涉仪所听的高频啁啾。
+
+功率谱正比于暴胀时期的 $H^{2}$。哈勃参数越高，能标越高，张量越大。这就是为什么测到 $r$ 就等于测到当时的膨胀率。它不依赖「暴胀子叫什么名字」，只依赖那一小段准指数膨胀有多剧烈。
+
 ### 张量-标量比 $r$
 
 张量功率谱与标量功率谱之比为张量-标量比 $r$：
@@ -37,6 +45,10 @@ $$V^{1/4} \approx 6.3 \times 10^{16} \left(\frac{r}{0.01}\right)^{1/4} \text{ Ge
 
 例如，Starobinsky 模型预言 $r \approx 0.003$，对应暴胀能标约 $V^{1/4} \approx 2 \times 10^{16}$ GeV，接近大统一理论（GUT）能标。
 
+$r\approx 16\varepsilon$ 把几何涨落和势的坡度绑在一起。$\varepsilon$ 越小，滚动越慢，张量越弱。大场混沌模型曾经给出较大的 $r$，正是因为势不够平坦。[[暴胀模型比较]]里的淘汰赛，本质上是在 $(n_s,r)$ 平面上把一条条势曲线划掉。
+
+能量标度公式对 $r$ 只是四分之一次幂。$r$ 下降十倍，能标只降大约 1.8 倍。即便上限已经压到百分之几，能标仍可能停在大统一附近。真正的分岔出现在 $r\sim 10^{-3}$：若 Starobinsky 一类模型为真，下一代实验应当看见信号；若再低一个数量级仍是上限，许多最简单场模型就会退出舞台。
+
 ### CMB 偏振的 E 模式和 B 模式
 
 CMB 的线偏振场可以分解为两种无旋量：
@@ -45,6 +57,10 @@ CMB 的线偏振场可以分解为两种无旋量：
 - **B 模式**（旋度模式）：无法由标量涨落在线性阶产生，只能来自张量扰动（原初引力波）或引力透镜效应（E 模式被扭曲）
 
 这一性质使 B 模式成为原初引力波的"干净"探测器——在去除透镜贡献后，残余 B 模式几乎完全来自原初张量扰动（加上前景）。E 模式和 B 模式的功率谱通常表示为 $C_\ell^{EE}$ 和 $C_\ell^{BB}$。
+
+这套分解在 1997 年几乎同时由两组作者写清楚。Seljak 与 Zaldarriaga 证明，原初引力波会在微波背景偏振中留下可分离的旋度信号（Seljak & Zaldarriaga 1997，_PRL_ 78，2054）。Kamionkowski、Kosowsky 与 Stebbins 给出了等价的张量探针表述（Kamionkowski, Kosowsky & Stebbins 1997，_PRL_ 78，2058）。此后实验的目标不再是「再测一次温度谱」，而是把 $C_\ell^{BB}$ 从噪声、透镜和银河系前景里挖出来。
+
+原初 B 模式的功率主要落在较大角尺度，大致对应再复合与再电离两个凸起。透镜 B 模式则随多极 $\ell$ 上升，在小尺度上压过原初信号。不去透镜，灵敏度会被透镜地板卡住。不把频率开够，尘埃会伪装成一个假的 $r$。两条系统误差走的是完全不同的物理，却在功率谱上长得很像。
 
 ## 实验历程
 
@@ -60,13 +76,21 @@ CMB 的线偏振场可以分解为两种无旋量：
 
 BICEP2 事件是近代科学史中一次重要的"预发布"教训。
 
-### 当前最佳约束（BICEP/Keck 2018）
+正式论文把该声称写在 _Physical Review Letters_ 上（BICEP2 Collaboration 2014，_PRL_ 112，241101）。仪器放在南极点，单频 150 GHz 对度角尺度最敏感，而原初 B 模式的再复合峰也大致在这个多极附近。单频的代价是：一旦该天区的银河尘埃偏振被低估，超额功率会全部被记到 $r$ 的账上。
 
-BICEP/Keck 合作组使用多频段（95、150、220 GHz）数据去除尘埃前景后，给出：
+2015 年的联合分析把 Planck 的高频通道加进来，用来给同一块天区的尘埃建模。结论是：BICEP2 看见的超额与尘埃一致，并不需要原初张量（BICEP2/Keck & Planck Collaborations 2015，_PRL_ 114，101301）。教训不是偏振测量本身失败了。教训是：没有独立频率，前景与信号在形式上无法拆开。
+
+### 当前最佳约束（BK15 与 BK18）
+
+2018 年发表的 BK15 分析，用上了 Keck Array 至 2015 季的 95、150 与 220 GHz 数据，并与 Planck、WMAP 交叉。论文给出 $r_{0.05}<0.07$（95% 置信度）；正文里同一拟合也写作 $r_{0.05}<0.072$（BICEP2/Keck Collaboration 2018，_PRL_ 121，221301）。220 GHz 第一次让地面实验在尘埃上达到可与 Planck 353 GHz 相比的信噪比。大场 $\phi^{2}$ 模型预言的 $r\sim 0.13$ 在这一步已经被压到紧张区之外。
+
+BICEP/Keck 合作组继续累积 2016–2018 季的 Keck 220 GHz 与 BICEP3 95 GHz 数据。2021 年发表的 BK18 结果（观测季截止于 2018 年）把上限收紧为：
 
 $$r_{0.05} < 0.036 \text{（95\% 置信度，BK18，Keck Array + BICEP3，2021）}$$
 
 结合 Planck 和 WMAP 数据，约束进一步收紧至同量级。这已排除了预言 $r > 0.04$ 的大部分暴胀模型（包括简单的 $\phi^2$ 暴胀）。
+
+必须把「2018」读成观测季节，而不是论文年份。BK18 的标题写明 through the 2018 observing season，期刊是 2021 年的 _PRL_ 127，151301。引用上限时应当写 $r_{0.05}<0.036$（95%），不要把 BK15 的 0.07 与 BK18 的 0.036 混成一个数。
 
 ## 探测挑战
 
@@ -80,6 +104,10 @@ $$r_{0.05} < 0.036 \text{（95\% 置信度，BK18，Keck Array + BICEP3，2021�
 
 去除前景需要多频段观测，通过前景的频率依赖特征（尘埃的修正黑体谱、同步辐射的幂律谱）将其与 CMB 分离。引力透镜 B 模式可通过"去透镜"（delensing）技术部分去除（CMB-S4 目标去除效率 $> 90\%$）。
 
+尘埃谱近似修正黑体，同步辐射近似幂律，CMB 是 2.725 K 的黑体。三个成分至少需要多于三个独立、信噪比足够的频率，解才稳定。BICEP2 的 150 GHz 落在尘埃已经不可忽略的区间，却没有更高频通道给尘埃「称重」。这不是事后诸葛亮。它是成分数不能超过独立波段数这条代数约束。
+
+透镜是另一本账。大尺度结构把 E 扭成 B，这个次级信号已经测到。去透镜要先重建透镜势，再从偏振里减掉。CMB-S4 科学白皮书曾把去透镜效率写成大于 90% 的设计目标（CMB-S4 Collaboration 2016，arXiv:1610.02743）。项目本身已于 2025 年取消，但这条物理上限没有取消：不去透镜，$r\sim 0.001$ 的原初信号会被透镜地板淹没。
+
 ### 灵敏度需求
 
 Starobinsky 模型的 $r \approx 0.003$ 对应极微弱的 B 模式信号。相比之下，前景和透镜 B 模式在许多角尺度上比原初 B 模式强 10-100 倍。达到 $\sigma(r) \sim 0.001$ 需要：
@@ -89,16 +117,21 @@ Starobinsky 模型的 $r \approx 0.003$ 对应极微弱的 B 模式信号。相�
 - 深度多频段天空覆盖（去前景）
 - 精确的去透镜处理
 
+「百万级阵列」说的是统计。每个玻尔兹曼探测器只看一小块天、一个频段。要把 $C_\ell^{BB}$ 的误差打到 $r\sim 10^{-3}$，必须靠数量堆积分辨率，再用多频拟合把残差前景从同一组像素里赶走。系统误差控制之所以以厘米计，是因为地面与卫星的光学、地面辐射和极化角标定都会在大尺度上泄漏 E 到 B。那一类泄漏不会被积分时间治愈。
+
 ## 下一代实验
 
-| 实验               | 类型          | 目标灵敏度                       | 时间      |
-| ------------------ | ------------- | -------------------------------- | --------- |
-| BICEP Array        | 地面（南极）  | $\sigma(r) \sim 0.003$           | 2025-2030 |
-| CMB-S4             | 地面（多点）  | $\sigma(r) \sim 0.001$，去透镜后 | 约 2029+  |
-| LiteBIRD（日本）   | 太空（L2 点） | $\sigma(r) \sim 0.001$，全天     | 约 2032   |
-| Ali CMB-PL（中国） | 地面（西藏）  | 中间灵敏度                       | 约 2027   |
+| 实验                           | 类型             | 目标灵敏度                        | 时间                     |
+| ------------------------------ | ---------------- | --------------------------------- | ------------------------ |
+| BICEP Array                    | 地面（南极）     | $\sigma(r) \sim 0.003$            | 运行中                   |
+| Simons Observatory             | 地面（智利）     | 设计 $\sigma(r) \sim 0.003$       | 已在观测                 |
+| LiteBIRD（日本）               | 太空（L2 点）    | 设计 $\sigma(r) \sim 0.001$，全天 | 规划中，目标约 2036 财年 |
+| CMB-S4                         | 地面大阵列       | 原设计 $\sigma(r) \sim 0.001$     | 2025 年 7 月取消         |
+| Ali CMB Polarization Telescope | 地面（西藏阿里） | 中间灵敏度（以项目公布为准）      | 规划/建设中              |
 
-CMB-S4 和 LiteBIRD 的联合目标是达到 $\sigma(r) \sim 0.001$，足以探测或排除 Starobinsky/Higgs 暴胀模型（$r \approx 0.003$）。
+CMB-S4 和 LiteBIRD 曾把联合目标写成 $\sigma(r) \sim 0.001$，足以探测或排除 Starobinsky/Higgs 暴胀模型（$r \approx 0.003$）。2025 年 7 月 9 日，美国能源部与国家科学基金会联合通知：不再支持 CMB-S4 项目。设计书里的灵敏度不能再当成正在建设的设施。地面端目前更现实的路径，是南极 BICEP Array 的延续，以及智利阿塔卡马的 Simons Observatory：其小孔径望远镜已于 2023 年起观测，大孔径望远镜于 2025 年 3 月首光。
+
+LiteBIRD 仍是规划中的卫星，不是已发射任务。它由 JAXA 主导，计划进入日地 L2，做多频全天偏振。全天覆盖对再电离尺度的低 $\ell$ B 模式是地面实验难以替代的。发射窗口几经推迟，当前公开目标约为日本 2036 财年。在升空之前，任何「LiteBIRD 已经测到 $r$」的句子都是错误时态。
 
 ## 原初引力波背景与 LISA、PTA
 
@@ -110,6 +143,12 @@ CMB-S4 和 LiteBIRD 的联合目标是达到 $\sigma(r) \sim 0.001$，足以探�
 - **LIGO/Einstein Telescope**：约 10-1000 Hz
 
 来自暴胀的标准随机引力波背景在高频处信号极弱（谱指数约 $n_T \approx -r/8 \approx -0.0004$），远低于 LIGO 等的当前探测能力。NANOGrav 2023 发现的随机引力波背景信号（Hellings-Downs 相关，$\sim 3 \times 10^{-9}$ Hz）目前最可能来自超大质量黑洞双星并合，而非原初引力波，但一些论文探讨了部分原初贡献的可能性。
+
+这四条不是同一台仪器的四个档位。它们相隔许多个数量级，对应完全不同的天体物理。CMB B 模式看见的是视界尺度的原初张量。[[nanograv-pta-gw-background|脉冲星计时阵]]看见的是纳米赫兹背景，目前最自然的源是星系中心的超大质量黑洞双星。[[gravitational-wave-detectors-ligo-lisa|LISA]] 瞄准毫赫兹，对应大质量黑洞并合与银河双白矮星；它也可以寻找某些相变或宇宙弦留下的随机背景，但那不是 BK18 所约束的那个 $r$。把 LISA 写成「B 模式的空间版」，等于把频率轴折叠起来。
+
+标准慢滚暴胀给出几乎平的张量谱，$n_T\approx -r/8$。在已经测到的 $r$ 上限下，这个谱延伸到 LIGO 频段时振幅极低。因此，LIGO 没有看到暴胀背景，并不构成对暴胀的否证；CMB 没有看到 B 模式，也不构成对 LISA 科学目标的否证。它们问的不是同一个 $r$。
+
+[[引力波]]的直接探测已经由地面干涉仪完成，对象是恒星级致密双星。原初背景若存在，它是随机的、各向同性的、没有单次啁啾。PTA 的 Hellings–Downs 相关检验的是这种随机背景的空间指纹。Agazie 等人 2023 年用 NANOGrav 十五年数据报告了该相关的证据（Agazie et al. 2023，_ApJL_ 951，L8）。解释优先指向超大质量黑洞双星，只有在排除天体物理源之后，才轮得到原初贡献。
 
 ## 跨域连接
 
@@ -129,6 +168,8 @@ CMB-S4 和 LiteBIRD 的联合目标是达到 $\sigma(r) \sim 0.001$，足以探�
 
 如果最终未能探测到（即使到 $r < 0.001$），则大量简单暴胀模型被排除，宇宙学家需要考虑更复杂的暴胀机制、弹跳宇宙、或其他无原初引力波的替代理论。无论结果如何，B 模式探测都是对宇宙起源理论的决定性检验。
 
+「证实暴胀」这一句仍要加限定。B 模式确认的是早期存在足够强的原初张量，以及与慢滚图像相容的能标。它并不自动指出暴胀子是哪个场，也不关闭所有非暴胀替代者。反过来，长期只得到上限，也不是暴胀死亡。它排除的是大 $r$ 的简单势，并把理论压力转到小场、更复杂的势，或几乎不产生张量的机制。实验的价值在于缩小 $(n_s,r)$ 平面上还活着的区域，而不是在新闻标题里宣布宇宙学结束。
+
 ## 参考文献
 
 - Kamionkowski, M. & Kovetz, E.D. (2016). The Quest for B Modes from Inflationary Gravitational Waves. _Annual Review of Astronomy and Astrophysics_, 54, 227.
@@ -136,3 +177,8 @@ CMB-S4 和 LiteBIRD 的联合目标是达到 $\sigma(r) \sim 0.001$，足以探�
 - CMB-S4 Collaboration (2016). CMB-S4 Science Book, First Edition. arXiv:1610.02743.
 - Hazumi, M. et al. (LiteBIRD Collaboration, 2020). LiteBIRD: JAXA's new strategic L-class mission for all-sky surveys of cosmic microwave background polarization. _SPIE_, 11443, 114432F.
 - Seljak, U. & Zaldarriaga, M. (1997). Signature of Gravity Waves in the Polarization of the Microwave Background. _Physical Review Letters_, 78, 2054.
+- Kamionkowski, M., Kosowsky, A. & Stebbins, A. (1997). A Probe of Primordial Gravity Waves and Vorticity. _Physical Review Letters_, 78, 2058.
+- BICEP2 Collaboration (2014). Detection of B-Mode Polarization at Degree Angular Scales by BICEP2. _Physical Review Letters_, 112, 241101.
+- BICEP2/Keck and Planck Collaborations (2015). Joint Analysis of BICEP2/Keck Array and Planck Data. _Physical Review Letters_, 114, 101301.
+- BICEP2/Keck Collaboration (2018). Constraints on Primordial Gravitational Waves Using Planck, WMAP, and New BICEP2/Keck Observations through the 2015 Season. _Physical Review Letters_, 121, 221301.
+- Agazie, G. et al. (NANOGrav Collaboration, 2023). The NANOGrav 15 yr Data Set: Evidence for a Gravitational-wave Background. _Astrophysical Journal Letters_, 951, L8.
