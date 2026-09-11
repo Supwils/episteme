@@ -81,3 +81,8 @@ export function shouldConfirmLighthouseBudget(metrics, budget, globalMinPerforma
     evaluateLighthouseBudget(metrics, budget, globalMinPerformance).length > 0
   );
 }
+
+/** Extra traces after a failed or invalid first sample. CI Chrome on `/` often
+ *  needs a second warm confirmation (decision record 2: keep the 250ms TBT
+ *  budget; absorb runner variance in the script, not by raising the line). */
+export const LIGHTHOUSE_CONFIRMATION_TRACES = 2;

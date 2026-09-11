@@ -4,6 +4,7 @@
 import lighthouse from "lighthouse";
 import * as chromeLauncher from "chrome-launcher";
 import {
+  LIGHTHOUSE_CONFIRMATION_TRACES,
   LIGHTHOUSE_ROUTE_BUDGETS,
   evaluateLighthouseBudget,
   hasValidLighthouseMetrics,
@@ -30,9 +31,14 @@ console.log(`${"route".padEnd(46)} perf  a11y  best  seo      LCP      TBT    CL
 for (const budget of LIGHTHOUSE_ROUTE_BUDGETS) {
   let metrics = await measureRoute(budget.route);
   let routeViolations = evaluateLighthouseBudget(metrics, budget, globalMinPerformance);
-  if (shouldConfirmLighthouseBudget(metrics, budget, globalMinPerformance)) {
+  for (
+    let confirmation = 1;
+    confirmation <= LIGHTHOUSE_CONFIRMATION_TRACES &&
+    shouldConfirmLighthouseBudget(metrics, budget, globalMinPerformance);
+    confirmation += 1
+  ) {
     console.warn(
-      `${budget.route}: ${routeViolations.join(", ") || "invalid trace"}; running one confirmation trace`
+      `${budget.route}: ${routeViolations.join(", ") || "invalid trace"}; running confirmation trace ${confirmation}`
     );
     metrics = await measureRoute(budget.route);
     routeViolations = evaluateLighthouseBudget(metrics, budget, globalMinPerformance);

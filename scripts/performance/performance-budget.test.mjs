@@ -10,6 +10,7 @@ import {
   isGenericArticleRoute,
 } from "./bundle-budget.mjs";
 import {
+  LIGHTHOUSE_CONFIRMATION_TRACES,
   evaluateLighthouseBudget,
   hasValidLighthouseMetrics,
   shouldConfirmLighthouseBudget,
@@ -96,6 +97,7 @@ describe("performance budgets", () => {
     expect(
       shouldConfirmLighthouseBudget({ performance: 64, lcpMs: 3325, tbtMs: 1954, cls: 0 }, budget)
     ).toBe(true);
+    expect(LIGHTHOUSE_CONFIRMATION_TRACES).toBe(2);
   });
 
   it("applies the 40 KB CSS budget to portal and domain routes", () => {
