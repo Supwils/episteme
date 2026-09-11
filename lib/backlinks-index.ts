@@ -16962,6 +16962,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "气候经济学：碳定价、折现率之争与综合评估模型",
     },
     {
+      url: "/religion/frontier/climate-faith-publics",
+      title: "气候危机改变宗教公众了吗",
+    },
+    {
       url: "/economics/frontier/degrowth-vs-green-growth",
       title: "去增长与绿色增长之争：脱钩证据的边界在哪里",
     },
@@ -25676,6 +25680,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/thinkers/montesquieu",
       title: "孟德斯鸠",
+    },
+    {
+      url: "/religion/frontier/global-religious-demography-switching",
+      title: "全球宗教人口：生育率还是改宗",
     },
     {
       url: "/engineering/energy/hydro-power",
@@ -35300,6 +35308,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/literature/reading-and-reception/fandom-and-secondary-creation",
       title: "粉丝与二次创作",
+    },
+    {
+      url: "/religion/frontier/digital-religion-ai-authority",
+      title: "生成式AI能成为宗教权威吗",
     },
     {
       url: "/arts/methods/generative-art-and-ai",
@@ -49812,6 +49824,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "环境伦理学",
     },
     {
+      url: "/religion/frontier/climate-faith-publics",
+      title: "气候危机改变宗教公众了吗",
+    },
+    {
       url: "/sociology/institutions/migration-and-diaspora",
       title: "迁移与离散",
     },
@@ -49846,6 +49862,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/history-typology-society/eskimo-snow-words-hoax",
       title: "爱斯基摩雪词神话：一个学术都市传说的完整解剖",
+    },
+    {
+      url: "/religion/frontier/digital-religion-ai-authority",
+      title: "生成式AI能成为宗教权威吗",
     },
     {
       url: "/arts/methods/generative-art-and-ai",
@@ -51624,6 +51644,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "克尔凯郭尔",
     },
     {
+      url: "/religion/comparative-religion/afterlife-and-salvation",
+      title: "来世与救赎",
+    },
+    {
       url: "/literature/narrative-basics/time-and-narrative-order",
       title: "时间与叙述次序",
     },
@@ -51812,6 +51836,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/religion/texts-and-canons/oral-and-written-transmission",
       title: "口传与书写",
+    },
+    {
+      url: "/religion/comparative-religion/afterlife-and-salvation",
+      title: "来世与救赎",
     },
     {
       url: "/religion/religion-and-society/diaspora-and-conversion",
@@ -52172,6 +52200,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/literature/theory-and-method/close-reading",
       title: "细读",
+    },
+    {
+      url: "/religion/texts-and-canons/commentary-and-interpretation",
+      title: "注疏与解释",
     },
     {
       url: "/psychology/experiments/free-association",
@@ -58508,6 +58540,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "回归不连续设计：门槛两边为什么可以比较",
     },
     {
+      url: "/religion/frontier/christian-nationalism-measurement",
+      title: "基督教民族主义测的是什么",
+    },
+    {
       url: "/psychology/phenomena/framing-effect",
       title: "框架效应",
     },
@@ -58808,6 +58844,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "改革与复兴",
     },
     {
+      url: "/religion/frontier/christian-nationalism-measurement",
+      title: "基督教民族主义测的是什么",
+    },
+    {
       url: "/arts/aesthetics/art-and-skill",
       title: "技艺之争：艺术何时成为艺术",
     },
@@ -58838,6 +58878,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/legal-traditions/chinese-legal-tradition",
       title: "中华法传统与现代转型：从唐律到民法典",
+    },
+    {
+      url: "/religion/comparative-religion/religious-law-and-ethics",
+      title: "宗教法与伦理",
     },
     {
       url: "/human-history/knowledge/事件--宗教改革",
@@ -59842,6 +59886,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/proof",
       title: "证明",
+    },
+    {
+      url: "/religion/frontier/cognitive-science-religion-replication",
+      title: "宗教认知科学还剩多少可重复的结论",
     },
     {
       url: "/psychology/methods/weird-samples-and-generalizability",
@@ -62748,6 +62796,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "芝诺悖论",
     },
     {
+      url: "/religion/frontier/cognitive-science-religion-replication",
+      title: "宗教认知科学还剩多少可重复的结论",
+    },
+    {
       url: "/computer-science/systems/envoy-service-mesh",
       title: "Envoy 与服务网格：把网络逻辑从应用里搬出来",
     },
@@ -65224,6 +65276,174 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/debates/person-situation-debate",
       title: "人格还是情境：行为由什么决定",
+    },
+  ],
+  "/religion/comparative-religion/comparing-religions": [
+    {
+      url: "/religion/comparative-religion/afterlife-and-salvation",
+      title: "来世与救赎",
+    },
+    {
+      url: "/religion/religion-foundations/sacred-and-profane",
+      title: "神圣与凡俗",
+    },
+  ],
+  "/religion/religion-and-society/diaspora-and-conversion": [
+    {
+      url: "/religion/frontier/global-religious-demography-switching",
+      title: "全球宗教人口：生育率还是改宗",
+    },
+    {
+      url: "/religion/religion-and-society/religion-and-gender",
+      title: "宗教与性别",
+    },
+  ],
+  "/religion/religion-and-society/pilgrimage-and-sacred-space": [
+    {
+      url: "/religion/religion-foundations/ritual-and-practice",
+      title: "仪式与实践",
+    },
+  ],
+  "/religion/religion-and-society/religion-and-politics": [
+    {
+      url: "/religion/frontier/christian-nationalism-measurement",
+      title: "基督教民族主义测的是什么",
+    },
+    {
+      url: "/religion/frontier/climate-faith-publics",
+      title: "气候危机改变宗教公众了吗",
+    },
+    {
+      url: "/religion/religion-and-society/religion-and-gender",
+      title: "宗教与性别",
+    },
+  ],
+  "/religion/religion-and-society/religion-and-violence": [
+    {
+      url: "/religion/religion-and-society/religion-and-politics",
+      title: "宗教与政治",
+    },
+  ],
+  "/religion/religion-foundations/myth-and-cosmos": [
+    {
+      url: "/religion/frontier/cognitive-science-religion-replication",
+      title: "宗教认知科学还剩多少可重复的结论",
+    },
+  ],
+  "/religion/religion-foundations/religious-experience": [
+    {
+      url: "/religion/frontier/cognitive-science-religion-replication",
+      title: "宗教认知科学还剩多少可重复的结论",
+    },
+  ],
+  "/religion/religion-foundations/ritual-and-practice": [
+    {
+      url: "/religion/religion-foundations/sacred-and-profane",
+      title: "神圣与凡俗",
+    },
+    {
+      url: "/religion/frontier/digital-religion-ai-authority",
+      title: "生成式AI能成为宗教权威吗",
+    },
+    {
+      url: "/religion/religion-and-society/religion-and-gender",
+      title: "宗教与性别",
+    },
+  ],
+  "/religion/religion-foundations/sacred-and-profane": [
+    {
+      url: "/religion/religion-foundations/ritual-and-practice",
+      title: "仪式与实践",
+    },
+  ],
+  "/religion/religion-foundations/what-is-religion": [
+    {
+      url: "/religion/religion-foundations/sacred-and-profane",
+      title: "神圣与凡俗",
+    },
+    {
+      url: "/religion/religion-foundations/ritual-and-practice",
+      title: "仪式与实践",
+    },
+    {
+      url: "/religion/religious-history/axial-age-religions",
+      title: "轴心时代",
+    },
+  ],
+  "/religion/religious-history/empire-and-mission": [
+    {
+      url: "/religion/religion-and-society/religion-and-politics",
+      title: "宗教与政治",
+    },
+  ],
+  "/religion/religious-history/formation-of-world-religions": [
+    {
+      url: "/religion/frontier/global-religious-demography-switching",
+      title: "全球宗教人口：生育率还是改宗",
+    },
+    {
+      url: "/religion/religious-history/axial-age-religions",
+      title: "轴心时代",
+    },
+  ],
+  "/religion/secularization/atheism-and-nonreligion": [
+    {
+      url: "/religion/secularization/civil-religion",
+      title: "公民宗教",
+    },
+    {
+      url: "/religion/frontier/nones-plateau-after-rls",
+      title: "美国“无宗教归属”停住了吗",
+    },
+  ],
+  "/religion/secularization/civil-religion": [
+    {
+      url: "/religion/frontier/christian-nationalism-measurement",
+      title: "基督教民族主义测的是什么",
+    },
+    {
+      url: "/religion/religion-and-society/religion-and-politics",
+      title: "宗教与政治",
+    },
+  ],
+  "/religion/secularization/religion-and-science": [
+    {
+      url: "/religion/frontier/climate-faith-publics",
+      title: "气候危机改变宗教公众了吗",
+    },
+  ],
+  "/religion/secularization/secularization-debate": [
+    {
+      url: "/religion/religious-history/religion-in-the-twentieth-century",
+      title: "二十世纪的宗教",
+    },
+    {
+      url: "/religion/frontier/nones-plateau-after-rls",
+      title: "美国“无宗教归属”停住了吗",
+    },
+    {
+      url: "/religion/secularization/disenchantment-and-reenchantment",
+      title: "祛魅与再魅",
+    },
+    {
+      url: "/religion/frontier/global-religious-demography-switching",
+      title: "全球宗教人口：生育率还是改宗",
+    },
+  ],
+  "/religion/texts-and-canons/commentary-and-interpretation": [
+    {
+      url: "/religion/frontier/digital-religion-ai-authority",
+      title: "生成式AI能成为宗教权威吗",
+    },
+  ],
+  "/religion/texts-and-canons/scripture-and-canon": [
+    {
+      url: "/religion/texts-and-canons/oral-and-written-transmission",
+      title: "口传与书写",
+    },
+    {
+      url: "/religion/religious-history/axial-age-religions",
+      title: "轴心时代",
     },
   ],
   "/sociology/concepts/chinese-social-thought": [
@@ -68118,6 +68338,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "马克斯·韦伯的社会学",
     },
     {
+      url: "/religion/frontier/nones-plateau-after-rls",
+      title: "美国“无宗教归属”停住了吗",
+    },
+    {
       url: "/human-history/knowledge/中世纪--亚洲--蒙古帝国",
       title: "蒙古帝国",
     },
@@ -68204,6 +68428,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/文化交流--纸的西传",
       title: "纸的西传",
+    },
+    {
+      url: "/religion/religion-foundations/religious-experience",
+      title: "宗教经验",
     },
     {
       url: "/religion/religion-and-society/religion-and-politics",
@@ -69258,6 +69486,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/epidemiology",
       title: "流行病学",
+    },
+    {
+      url: "/religion/frontier/nones-plateau-after-rls",
+      title: "美国“无宗教归属”停住了吗",
     },
     {
       url: "/psychology/theorists/mihaly-csikszentmihalyi",

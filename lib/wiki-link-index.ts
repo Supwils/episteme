@@ -349,6 +349,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "chinese-writing": "/linguistics/writing-systems/chinese-writing",
   chirality: "/chemistry/concepts/chirality",
   cholera: "/medicine/diseases/cholera",
+  "christian-nationalism-measurement": "/religion/frontier/christian-nationalism-measurement",
   chromatography: "/chemistry/concepts/chromatography",
   "chromium-site-isolation": "/computer-science/systems/chromium-site-isolation",
   "chronic-kidney-disease": "/medicine/diseases/chronic-kidney-disease",
@@ -365,6 +366,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "climate-and-the-literary-present":
     "/literature/contemporary-edges/climate-and-the-literary-present",
   "climate-economics-carbon-pricing": "/economics/frontier/climate-economics-carbon-pricing",
+  "climate-faith-publics": "/religion/frontier/climate-faith-publics",
   "climate-justice-and-intergenerational-ethics":
     "/philosophy/frontier/climate-justice-and-intergenerational-ethics",
   "climate-litigation": "/law/global-and-digital/climate-litigation",
@@ -390,6 +392,8 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "cognitive-biases-evolutionary": "/psychology/phenomena/cognitive-biases-evolutionary",
   "cognitive-dissonance": "/psychology/phenomena/cognitive-dissonance",
   "cognitive-dissonance-detail": "/psychology/phenomena/cognitive-dissonance-detail",
+  "cognitive-science-religion-replication":
+    "/religion/frontier/cognitive-science-religion-replication",
   "coleman-report-educational-opportunity-analysis":
     "/sociology/methods/coleman-report-educational-opportunity-analysis",
   "color-and-light": "/arts/foundations/color-and-light",
@@ -629,6 +633,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
     "/psychology/methods/digital-phenotyping-computational-ethics",
   "digital-platform-society": "/sociology/institutions/digital-platform-society",
   "digital-reconstruction-evidence": "/arts/frontier/digital-reconstruction-evidence",
+  "digital-religion-ai-authority": "/religion/frontier/digital-religion-ai-authority",
   "digital-rights-and-privacy": "/law/global-and-digital/digital-rights-and-privacy",
   "dilution-is-the-solution": "/engineering/frontiers/dilution-is-the-solution",
   "dirac-feynman": "/universe-physics/dialogues/dirac-feynman",
@@ -979,6 +984,8 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "global-governance-crisis": "/political-science/frontier/global-governance-crisis",
   "global-health-inequality-coloniality":
     "/medicine/public-health/global-health-inequality-coloniality",
+  "global-religious-demography-switching":
+    "/religion/frontier/global-religious-demography-switching",
   "global-south-sociology": "/sociology/frontier/global-south-sociology",
   "glp1-incretin-obesity": "/medicine/frontier/glp1-incretin-obesity",
   godel: "/mathematics/mathematicians/godel",
@@ -1640,6 +1647,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "noether-einstein": "/mathematics/dialogues/noether-einstein",
   "noethers-theorem": "/mathematics/theorems/noethers-theorem",
   "non-euclidean-geometry": "/mathematics/concepts/non-euclidean-geometry",
+  "nones-plateau-after-rls": "/religion/frontier/nones-plateau-after-rls",
   "norbert-elias": "/sociology/thinkers/norbert-elias",
   "novel-as-a-form": "/literature/poetics-and-form/novel-as-a-form",
   nozick: "/philosophy/thinkers/nozick",

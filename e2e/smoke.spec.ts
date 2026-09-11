@@ -110,6 +110,20 @@ test.describe("production smoke", () => {
     }
   });
 
+  test("religion article invites the ritual lab", async ({ page }) => {
+    const home = await page.goto("/religion");
+    expect(home?.status()).toBe(200);
+    await expect(page.getByRole("heading", { name: "宗教学" })).toBeVisible();
+
+    const article = await page.goto("/religion/religion-foundations/ritual-and-practice");
+    expect(article?.status()).toBe(200);
+    await expect(page.getByRole("heading", { name: "仪式与实践" })).toBeVisible();
+    await page.getByRole("link", { name: /打开实验室/ }).click();
+    await expect(page).toHaveURL(/\/religion\/ritual-lab$/);
+    await page.getByRole("button", { name: "阈限" }).click();
+    await expect(page.getByText(/中间状态/)).toBeVisible();
+  });
+
   test("restores and advances a knowledge graph thought tour", async ({ page, isMobile }) => {
     const pageErrors: Error[] = [];
     page.on("pageerror", (error) => pageErrors.push(error));

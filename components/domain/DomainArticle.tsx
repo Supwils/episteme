@@ -9,6 +9,7 @@ import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { DomainArticleExtras } from "@/components/domain/DomainArticleExtras";
 import Breadcrumb from "@/components/Breadcrumb";
 import RelatedContent from "@/components/RelatedContent";
+import { ReligionLabInvite } from "@/components/religion/ReligionLabInvite";
 import type { Domain } from "@/lib/cross-domain-refs";
 import { SITE_URL } from "@/lib/constants";
 import { serializeJsonLd, createArticleJsonLd } from "@/lib/jsonld";
@@ -192,6 +193,7 @@ export function DomainArticle({
             title={article.title}
           />
         ) : null}
+        {domain === "religion" ? <ReligionLabInvite section={section} slug={slug} /> : null}
         <RelatedContent slug={slug} domain={domain as Domain} entityId={slug} />
       </ArticleLayout>
     </>

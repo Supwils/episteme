@@ -699,7 +699,7 @@ export const RELIGION: DomainConfig = {
       label: "世俗化指标示意",
       icon: "⌁",
       accent: "#4a5a7a",
-      description: "切换参与、认同与信任，看“宗教消退”其实测的是哪一项",
+      description: "切换参与、认同与制度席位，看“宗教消退”其实测的是哪一项",
     },
   ],
 };

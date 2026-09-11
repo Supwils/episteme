@@ -1,13 +1,13 @@
 {
   "workflow": "After any content or graph change, run `pnpm update-graph-snapshot` and commit this file's diff. Unit tests read expected aggregate values from this snapshot instead of hardcoded literals, so regenerating it is the entire maintenance step.",
   "branch": {
-    "nodeCount": 3125,
+    "nodeCount": 3131,
     "anchorCount": 255,
-    "inferredBranchCount": 2870,
+    "inferredBranchCount": 2876,
     "maximumDistance": 4,
-    "ambiguousTargetCount": 1999,
+    "ambiguousTargetCount": 2005,
     "maximumCandidateCount": 52,
-    "confidenceCounts": { "curated": 255, "direct": 2285, "contextual": 531, "exploratory": 54 }
+    "confidenceCounts": { "curated": 255, "direct": 2291, "contextual": 531, "exploratory": 54 }
   },
   "terrain": {
     "diagnosticCount": 21,
@@ -177,12 +177,12 @@
         "missingLevels": []
       },
       "religion": {
-        "total": 30,
-        "levels": [4, 5, 10, 6, 5],
+        "total": 36,
+        "levels": [4, 5, 10, 6, 11],
         "curatedCount": 5,
-        "dominantLevel": 3,
-        "dominantCount": 10,
-        "advancedCount": 11,
+        "dominantLevel": 5,
+        "dominantCount": 11,
+        "advancedCount": 17,
         "missingLevels": []
       },
       "engineering": {

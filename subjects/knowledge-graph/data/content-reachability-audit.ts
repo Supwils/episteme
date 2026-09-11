@@ -123,6 +123,7 @@ export const CONTENT_REACHABILITY_AUDIT_SCOPES: readonly AuditScope[] = [
       "comparative-religion",
       "religion-and-society",
       "secularization",
+      "frontier",
     ],
     minimumCoveragePercent: 100,
   },

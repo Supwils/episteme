@@ -41,6 +41,8 @@ describe("homepage domain catalog", () => {
     expect(scan).toContain("/religion/religion-foundations/what-is-religion");
     expect(scan).toContain("/religion/ritual-lab");
     expect(scan).toContain("/religion/world-map");
+    expect(scan).toContain("/religion/canon-comparator");
+    expect(scan).toContain("/religion/secularization-chart");
   });
 
   it("derives the displayed subject count from the catalog", () => {

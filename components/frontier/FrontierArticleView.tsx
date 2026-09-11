@@ -4,6 +4,7 @@ import { ArticleLayout } from "@/components/ArticleLayout";
 import { TableOfContents } from "@/components/TableOfContents";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import RelatedContent from "@/components/RelatedContent";
+import { ReligionLabInvite } from "@/components/religion/ReligionLabInvite";
 import Breadcrumb from "@/components/Breadcrumb";
 import type { Domain } from "@/lib/cross-domain-refs";
 import { SITE_URL } from "@/lib/constants";
@@ -31,6 +32,7 @@ const CROSS_DOMAINS = new Set<string>([
   "engineering",
   "sociology",
   "linguistics",
+  "religion",
 ]);
 
 function MetaList({ label, items }: { label: string; items: string[] }) {
@@ -139,6 +141,7 @@ export function FrontierArticleView({ domain, slug }: { domain: FrontierDomain; 
         }
       >
         <MarkdownRenderer content={article.content} accentColor={accent} domain={domain} />
+        {domain === "religion" ? <ReligionLabInvite section="frontier" slug={slug} /> : null}
         {CROSS_DOMAINS.has(domain) && (
           <RelatedContent slug={slug} domain={domain as Domain} entityId={slug} />
         )}

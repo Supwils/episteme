@@ -1,18 +1,38 @@
 "use client";
 
 import { useState } from "react";
-import { RITUAL_STAGES, type RitualStageId } from "@/lib/religion/ritual-stages";
+import {
+  RITUAL_CASES,
+  RITUAL_STAGES,
+  type RitualCaseId,
+  type RitualStageId,
+} from "@/lib/religion/ritual-stages";
+import { LabChip } from "./LabChip";
 
 const ACCENT = "var(--color-accent-gold)";
 
 export function RitualLab() {
+  const [caseId, setCaseId] = useState<RitualCaseId>("graduation");
   const [stage, setStage] = useState<RitualStageId>("separation");
-  const active = RITUAL_STAGES.find((item) => item.id === stage)!;
+  const currentCase = RITUAL_CASES.find((item) => item.id === caseId)!;
+  const currentStage = RITUAL_STAGES.find((item) => item.id === stage)!;
   const index = RITUAL_STAGES.findIndex((item) => item.id === stage);
 
   return (
     <div className="border-border-faint bg-bg-near rounded-2xl border p-5 sm:p-6">
-      <svg viewBox="0 0 320 72" className="mb-4 h-auto w-full" role="img" aria-label={active.label}>
+      <div className="mb-3 flex flex-wrap gap-2">
+        {RITUAL_CASES.map((item) => (
+          <LabChip key={item.id} pressed={item.id === caseId} onClick={() => setCaseId(item.id)}>
+            {item.label}
+          </LabChip>
+        ))}
+      </div>
+      <svg
+        viewBox="0 0 320 72"
+        className="mb-4 h-auto w-full"
+        role="img"
+        aria-label={currentStage.label}
+      >
         {RITUAL_STAGES.map((item, i) => {
           const x = 40 + i * 110;
           const on = item.id === stage;
@@ -49,22 +69,16 @@ export function RitualLab() {
       </svg>
       <div className="mb-4 flex flex-wrap gap-2">
         {RITUAL_STAGES.map((item) => (
-          <button
-            key={item.id}
-            type="button"
-            aria-pressed={item.id === stage}
-            onClick={() => setStage(item.id)}
-            className={`rounded-full border px-3 py-1.5 text-[12px] ${
-              item.id === stage
-                ? "border-fg-secondary text-fg-primary bg-bg-elevated"
-                : "border-border-faint text-fg-muted"
-            }`}
-          >
+          <LabChip key={item.id} pressed={item.id === stage} onClick={() => setStage(item.id)}>
             {item.label}
-          </button>
+          </LabChip>
         ))}
       </div>
-      <p className="text-fg-secondary text-[14.5px] leading-relaxed">{active.note}</p>
+      <p className="text-fg-muted text-[12.5px] leading-relaxed">{currentCase.why}</p>
+      <p className="text-fg-secondary mt-3 text-[14.5px] leading-relaxed">{currentStage.note}</p>
+      <p className="text-fg-secondary mt-2 text-[14.5px] leading-relaxed">
+        {currentCase.stages[stage]}
+      </p>
       <p className="text-fg-muted mt-2 text-[12.5px]">
         当前步骤 {index + 1} / 3。箭头是分析次序，不是配方。
       </p>

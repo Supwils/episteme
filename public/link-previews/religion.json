@@ -24,6 +24,36 @@
     "e": "把若干传统并排放在“宗教法”这个标签下，容易让人以为它们都是同一类东西：一部写给神的刑法，再外加若干饮食禁忌。可核对的材料并不支持这种合并。犹太哈拉卡、伊斯兰教法学、天主教教会法、佛教戒律、印…",
     "d": "religion"
   },
+  "/religion/frontier/christian-nationalism-measurement": {
+    "t": "基督教民族主义测的是什么",
+    "e": "2023 年 2 月，公共宗教研究所（PRRI）与布鲁金斯学会发布一项超过 6000 人的调查，把受访者按五道题打成 0 到 1 的分数，再切成四档：追随者、同情者、怀疑者、拒绝者。2023 …",
+    "d": "religion"
+  },
+  "/religion/frontier/climate-faith-publics": {
+    "t": "气候危机改变宗教公众了吗",
+    "e": "2023 年 10 月 4 日，教宗方济各发布宗座劝谕《Laudate Deum》，作为 2015 年通谕《Laudato si’》的续篇，并明确对准即将召开的迪拜 COP28。他要求能源转型…",
+    "d": "religion"
+  },
+  "/religion/frontier/cognitive-science-religion-replication": {
+    "t": "宗教认知科学还剩多少可重复的结论",
+    "e": "2012 年，《科学》发表热尔韦与诺伦萨扬的实验：用罗丹《思想者》一类操纵去启动分析性思维，随后宗教信念下降。2017 年，桑切斯等人在《PLOS ONE》上交出预注册、多地点、941 人的直…",
+    "d": "religion"
+  },
+  "/religion/frontier/digital-religion-ai-authority": {
+    "t": "生成式AI能成为宗教权威吗",
+    "e": "2025 年 1 月 28 日，圣座教义部与文化教育部联合发布《Antiqua et nova》，讨论人工智能与人类理智的关系。文件不是法典新条，而是一份伦理—人类学说明。它承认系统可以辅助教…",
+    "d": "religion"
+  },
+  "/religion/frontier/global-religious-demography-switching": {
+    "t": "全球宗教人口：生育率还是改宗",
+    "e": "2015 年，皮尤研究中心发布《世界宗教的未来》，用 2010 年基线投影到 2050 年：基督徒仍将是最大群体，穆斯林增长最快，无宗教归属者人数增加但全球份额下降——因为他们更年长、生育更低…",
+    "d": "religion"
+  },
+  "/religion/frontier/nones-plateau-after-rls": {
+    "t": "美国“无宗教归属”停住了吗",
+    "e": "2025 年 2 月，皮尤研究中心发布第三次美国宗教景观调查（Religious Landscape Study，实地 2023–24 年）。执行摘要把一句已经讲了十五年的故事改写了：基督徒占…",
+    "d": "religion"
+  },
   "/religion/religion-and-society/diaspora-and-conversion": {
     "t": "离散与改宗",
     "e": "公元前 586 年，新巴比伦攻破耶路撒冷，一部分犹大人被迁到两河流域。后来的希腊文《七十士译本》用 diaspora 翻译“分散”，这个词此后不再只属于一次流放。它变成一种可重复的处境：圣殿不…",

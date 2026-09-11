@@ -49,6 +49,8 @@ const PAGES = [
   ["格律实验室", "/literature/meter-lab"],
   ["仪式结构实验室", "/religion/ritual-lab"],
   ["世界宗教地图", "/religion/world-map"],
+  ["经典开篇比较器", "/religion/canon-comparator"],
+  ["世俗化指标示意", "/religion/secularization-chart"],
 ];
 const SELECTED_PAGES = process.env.SCAN_PATH
   ? PAGES.filter(([, path]) => path === process.env.SCAN_PATH)

@@ -117,7 +117,7 @@ pnpm typecheck && pnpm test                      # 基线应全绿（当前 1213
 
 ## 1. 平台定位
 
-**Episteme · 格致** 是面向大众的**知识即服务平台（Knowledge as a Service）**，以浏览器为唯一交付方式，用可视化、沉浸式的方式探索人类知识。当前 **20 个知识领域 · 2740 篇内容**（`content/` 下 `.md`/`.mdx` 实测，排除 `*.narration.md` 与 `CREDITS.md`）。
+**Episteme · 格致** 是面向大众的**知识即服务平台（Knowledge as a Service）**，以浏览器为唯一交付方式，用可视化、沉浸式的方式探索人类知识。当前 **20 个知识领域 · 2746 篇内容**（`content/` 下 `.md`/`.mdx` 实测，排除 `*.narration.md` 与 `CREDITS.md`）。
 
 领域按 `docs/学科版图与导航架构.md` 的**六簇分类法**组织，`lib/data.tsx` 的 `DOMAINS`（含 `cluster` 字段）是**唯一真相源**，导航/首页/页脚/manifest 全部派生：
 
@@ -126,11 +126,11 @@ pnpm typecheck && pnpm test                      # 基线应全绿（当前 1213
 | **宇宙与自然** | 物理学 `/universe-physics` 177 · 宇宙学 `/cosmology` 168 · 地球科学 `/earth-science` 94 · 化学 `/chemistry` 106     |
 | **生命与心灵** | 生命科学 `/life-science` 140 · 医学与公共卫生 `/medicine` 140 · 心理学 `/psychology` 236 · 语言学 `/linguistics` 65 |
 | **社会与制度** | 社会学 `/sociology` 66 · 经济学 `/economics` 211 · 政治学 `/political-science` 181 · 法学 `/law` 57                 |
-| **历史与文明** | 人类历史 `/human-history` 176 · 宗教学 `/religion` 30                                                               |
+| **历史与文明** | 人类历史 `/human-history` 176 · 宗教学 `/religion` 36                                                               |
 | **人文与艺术** | 哲学思想 `/philosophy` 358 · 艺术、建筑与美学 `/arts` 58 · 文学与叙事 `/literature` 36                              |
 | **数理与技术** | 数学与逻辑 `/mathematics` 174 · 计算机科学 `/computer-science` 213 · 工程与技术 `/engineering` 54                   |
 
-**跨领域与探索入口**：`/`（门户）· `/knowledge-graph`（力导向知识图谱）· `/read`（阅读路线）· `/search`（全站搜索）· `/daily`（每日知识）· `/curiosities`（奇趣知识）· `/molecules`（分子图鉴）· `/knowledge-confluence/[id]`（知识汇流）· `/<领域>/frontier`（研究前沿，20 域共 143 篇）。
+**跨领域与探索入口**：`/`（门户）· `/knowledge-graph`（力导向知识图谱）· `/read`（阅读路线）· `/search`（全站搜索）· `/daily`（每日知识）· `/curiosities`（奇趣知识）· `/molecules`（分子图鉴）· `/knowledge-confluence/[id]`（知识汇流）· `/<领域>/frontier`（研究前沿，20 域共 149 篇）。
 
 **产品灵魂**：让任何人——大学生、上班族、好奇的老人——都能随时以美好的方式接触人类最重要的知识。门槛低、深度足、视觉美。
 
