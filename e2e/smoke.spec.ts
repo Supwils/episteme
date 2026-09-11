@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { COVERAGE_DOMAIN_COUNT } from "@/lib/knowledge-continuum-coverage-meta";
 
 test.describe("production smoke", () => {
   test("accepts repeated search parameters without a server error", async ({ page }) => {
@@ -205,7 +206,8 @@ test.describe("progressive enhancement without JavaScript", () => {
     expect(
       await page.locator('script[type="application/ld+json"]').allTextContents()
     ).toContainEqual(expect.stringContaining('"@type":"WebSite"'));
-    await expect(page.locator(".domain-card")).toHaveCount(20);
+    await expect(page.locator(".domain-card")).toHaveCount(COVERAGE_DOMAIN_COUNT);
+    await expect(page.locator('.domain-card[href="/anthropology"]')).toHaveCount(1);
     const card = page.locator('.domain-card[href="/philosophy"]');
     await card.scrollIntoViewIfNeeded();
     await expect(card).toHaveCSS("opacity", "1");
