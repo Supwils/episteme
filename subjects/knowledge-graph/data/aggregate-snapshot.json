@@ -1,18 +1,18 @@
 {
   "workflow": "After any content or graph change, run `pnpm update-graph-snapshot` and commit this file's diff. Unit tests read expected aggregate values from this snapshot instead of hardcoded literals, so regenerating it is the entire maintenance step.",
   "branch": {
-    "nodeCount": 3131,
-    "anchorCount": 255,
-    "inferredBranchCount": 2876,
+    "nodeCount": 3173,
+    "anchorCount": 260,
+    "inferredBranchCount": 2913,
     "maximumDistance": 4,
-    "ambiguousTargetCount": 2005,
+    "ambiguousTargetCount": 2037,
     "maximumCandidateCount": 52,
-    "confidenceCounts": { "curated": 255, "direct": 2291, "contextual": 531, "exploratory": 54 }
+    "confidenceCounts": { "curated": 260, "direct": 2331, "contextual": 528, "exploratory": 54 }
   },
   "terrain": {
     "diagnosticCount": 21,
     "highPriorityDiagnosticCount": 4,
-    "domainCount": 20,
+    "domainCount": 21,
     "domains": {
       "physics": {
         "total": 195,
@@ -168,12 +168,12 @@
         "missingLevels": []
       },
       "literature": {
-        "total": 36,
-        "levels": [6, 6, 8, 10, 6],
+        "total": 38,
+        "levels": [6, 6, 8, 10, 8],
         "curatedCount": 5,
         "dominantLevel": 4,
         "dominantCount": 10,
-        "advancedCount": 16,
+        "advancedCount": 18,
         "missingLevels": []
       },
       "religion": {
@@ -183,6 +183,15 @@
         "dominantLevel": 5,
         "dominantCount": 11,
         "advancedCount": 17,
+        "missingLevels": []
+      },
+      "anthropology": {
+        "total": 40,
+        "levels": [6, 6, 12, 6, 10],
+        "curatedCount": 5,
+        "dominantLevel": 3,
+        "dominantCount": 12,
+        "advancedCount": 16,
         "missingLevels": []
       },
       "engineering": {
@@ -197,12 +206,12 @@
     }
   },
   "coverage": {
-    "nodeCount": 255,
-    "pathCount": 51,
-    "prerequisiteCount": 204,
-    "establishedDomainCount": 20,
+    "nodeCount": 260,
+    "pathCount": 52,
+    "prerequisiteCount": 208,
+    "establishedDomainCount": 21,
     "previewDomainCount": 0,
-    "goalCount": 51,
+    "goalCount": 52,
     "mainThreadGoalCount": 6
   }
 }

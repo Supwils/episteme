@@ -29,6 +29,16 @@
     "e": "书店海报、大学课表、十月的颁奖直播，都爱把「世界文学」说成人类精神的共同体：各地杰作终于汇入同一条河。这个说法把流通写成了团结。可核验的是另一件事：哪些书被买走版权、被译进枢纽语言、被编进选本…",
     "d": "literature"
   },
+  "/literature/frontier/computational-literary-studies-replication": {
+    "t": "计算文学研究能被复现吗",
+    "e": "二〇一九年春季号《批判探索》（Critical Inquiry）刊出 Nan Z. Da 的长文《反对计算文学研究的计算论证》。文章不只批评几张词频图，而是做了一件人文学科很少公开做的事：把已…",
+    "d": "literature"
+  },
+  "/literature/frontier/llm-training-corpus-litigation": {
+    "t": "训练语料诉讼还不是判决",
+    "e": "二〇二三年十二月二十七日，纽约时报公司在纽约南区联邦地区法院起诉微软与 OpenAI，案号 1:23-cv-11195。起诉书把一件文学课堂上已经熟悉的事，改写成了可被法院审理的主张：受保护的…",
+    "d": "literature"
+  },
   "/literature/narrative-basics/fiction-and-make-believe": {
     "t": "虚构与假装相信",
     "e": "邻居告诉你「昨天失火了」，你后来发现没有火，会改对他的信任：那是一次断言，而且是假的。有人把一本写失火的小说递给你，你不会因此去告他造谣。句子可以长得很像，言语行为却不是同一类。见 故事是什么…",

@@ -8,6 +8,406 @@ export interface Backlink {
 }
 
 export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
+  "/anthropology/comparison-and-ethics/collaborative-indigenous-archaeology": [
+    {
+      url: "/anthropology/comparison-and-ethics/informed-consent-in-ethnography",
+      title: "民族志中的知情同意",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/sampling-and-absence",
+      title: "取样与缺失",
+    },
+    {
+      url: "/anthropology/frontier/digital-heritage-and-3d-ethics",
+      title: "数字遗产与三维伦理",
+    },
+  ],
+  "/anthropology/comparison-and-ethics/excavation-records": [
+    {
+      url: "/anthropology/prehistory-and-archaeology/stratigraphy-and-context",
+      title: "地层与出土情境",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/archaeological-dating",
+      title: "考古测年",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/sampling-and-absence",
+      title: "取样与缺失",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/collaborative-indigenous-archaeology",
+      title: "协作与原住民考古",
+    },
+  ],
+  "/anthropology/comparison-and-ethics/fieldnotes-and-representation": [
+    {
+      url: "/anthropology/prehistory-and-archaeology/stratigraphy-and-context",
+      title: "地层与出土情境",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/excavation-records",
+      title: "发掘记录",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/oral-tradition-and-history",
+      title: "口头传统与历史",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/informed-consent-in-ethnography",
+      title: "民族志中的知情同意",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/collaborative-indigenous-archaeology",
+      title: "协作与原住民考古",
+    },
+    {
+      url: "/anthropology/culture-and-method/ethnography-as-description",
+      title: "作为描述的民族志",
+    },
+  ],
+  "/anthropology/comparison-and-ethics/informed-consent-in-ethnography": [
+    {
+      url: "/anthropology/urban-and-heritage/anthropology-of-the-contemporary",
+      title: "当代人类学",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/fieldnotes-and-representation",
+      title: "田野笔记与再现",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/collaborative-indigenous-archaeology",
+      title: "协作与原住民考古",
+    },
+  ],
+  "/anthropology/comparison-and-ethics/sampling-and-absence": [
+    {
+      url: "/anthropology/prehistory-and-archaeology/stratigraphy-and-context",
+      title: "地层与出土情境",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/excavation-records",
+      title: "发掘记录",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/archaeological-dating",
+      title: "考古测年",
+    },
+    {
+      url: "/anthropology/frontier/climate-archaeology-and-loss",
+      title: "气候考古与正在消失的记录",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/collaborative-indigenous-archaeology",
+      title: "协作与原住民考古",
+    },
+  ],
+  "/anthropology/culture-and-method/culture-is-not-race": [
+    {
+      url: "/anthropology/culture-and-method/what-is-culture",
+      title: "什么是文化",
+    },
+  ],
+  "/anthropology/culture-and-method/emic-and-etic": [
+    {
+      url: "/anthropology/comparison-and-ethics/fieldnotes-and-representation",
+      title: "田野笔记与再现",
+    },
+  ],
+  "/anthropology/culture-and-method/ethnography-as-description": [
+    {
+      url: "/anthropology/comparison-and-ethics/fieldnotes-and-representation",
+      title: "田野笔记与再现",
+    },
+  ],
+  "/anthropology/culture-and-method/what-is-culture": [
+    {
+      url: "/anthropology/prehistory-and-archaeology/foragers-and-farmers",
+      title: "采集者与农人",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/stratigraphy-and-context",
+      title: "地层与出土情境",
+    },
+    {
+      url: "/anthropology/urban-and-heritage/urban-anthropology",
+      title: "都市人类学",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/sampling-and-absence",
+      title: "取样与缺失",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/human-dispersals-and-fossils",
+      title: "人类扩散与化石",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/fieldnotes-and-representation",
+      title: "田野笔记与再现",
+    },
+    {
+      url: "/anthropology/urban-and-heritage/applied-anthropology",
+      title: "应用人类学",
+    },
+  ],
+  "/anthropology/frontier/ancient-dna-and-identity-claims": [
+    {
+      url: "/anthropology/prehistory-and-archaeology/human-dispersals-and-fossils",
+      title: "人类扩散与化石",
+    },
+  ],
+  "/anthropology/kinship-and-exchange/descent-and-alliance": [
+    {
+      url: "/anthropology/kinship-and-exchange/marriage-and-household",
+      title: "婚姻与家户",
+    },
+  ],
+  "/anthropology/kinship-and-exchange/gift-and-reciprocity": [
+    {
+      url: "/anthropology/kinship-and-exchange/property-and-persons",
+      title: "财产与人",
+    },
+    {
+      url: "/anthropology/kinship-and-exchange/marriage-and-household",
+      title: "婚姻与家户",
+    },
+    {
+      url: "/anthropology/culture-and-method/holism-and-context",
+      title: "整体论与语境",
+    },
+    {
+      url: "/anthropology/culture-and-method/ethnography-as-description",
+      title: "作为描述的民族志",
+    },
+  ],
+  "/anthropology/kinship-and-exchange/kinship-terminology": [
+    {
+      url: "/anthropology/kinship-and-exchange/descent-and-alliance",
+      title: "继嗣与联姻",
+    },
+    {
+      url: "/anthropology/culture-and-method/anthropological-comparison",
+      title: "人类学的比较",
+    },
+    {
+      url: "/anthropology/culture-and-method/emic-and-etic",
+      title: "主位与客位",
+    },
+  ],
+  "/anthropology/material-culture/cloth-and-value": [
+    {
+      url: "/anthropology/kinship-and-exchange/gift-and-reciprocity",
+      title: "礼物与互惠",
+    },
+  ],
+  "/anthropology/material-culture/museums-and-collections": [
+    {
+      url: "/anthropology/comparison-and-ethics/collaborative-indigenous-archaeology",
+      title: "协作与原住民考古",
+    },
+  ],
+  "/anthropology/material-culture/things-and-persons": [
+    {
+      url: "/anthropology/kinship-and-exchange/property-and-persons",
+      title: "财产与人",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/stratigraphy-and-context",
+      title: "地层与出土情境",
+    },
+    {
+      url: "/anthropology/kinship-and-exchange/gift-and-reciprocity",
+      title: "礼物与互惠",
+    },
+  ],
+  "/anthropology/prehistory-and-archaeology/archaeological-dating": [
+    {
+      url: "/anthropology/prehistory-and-archaeology/collapse-and-resilience",
+      title: "崩溃与韧性",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/foragers-and-farmers",
+      title: "采集者与农人",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/stratigraphy-and-context",
+      title: "地层与出土情境",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/human-dispersals-and-fossils",
+      title: "人类扩散与化石",
+    },
+  ],
+  "/anthropology/prehistory-and-archaeology/cities-and-early-states": [
+    {
+      url: "/anthropology/prehistory-and-archaeology/collapse-and-resilience",
+      title: "崩溃与韧性",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/foragers-and-farmers",
+      title: "采集者与农人",
+    },
+  ],
+  "/anthropology/prehistory-and-archaeology/collapse-and-resilience": [
+    {
+      url: "/anthropology/prehistory-and-archaeology/cities-and-early-states",
+      title: "城市与早期国家",
+    },
+  ],
+  "/anthropology/prehistory-and-archaeology/foragers-and-farmers": [
+    {
+      url: "/anthropology/prehistory-and-archaeology/collapse-and-resilience",
+      title: "崩溃与韧性",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/cities-and-early-states",
+      title: "城市与早期国家",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/archaeological-dating",
+      title: "考古测年",
+    },
+  ],
+  "/anthropology/prehistory-and-archaeology/human-dispersals-and-fossils": [
+    {
+      url: "/anthropology/frontier/ancient-dna-and-identity-claims",
+      title: "古DNA能替谁认亲",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/archaeological-dating",
+      title: "考古测年",
+    },
+  ],
+  "/anthropology/prehistory-and-archaeology/stratigraphy-and-context": [
+    {
+      url: "/anthropology/comparison-and-ethics/excavation-records",
+      title: "发掘记录",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/archaeological-dating",
+      title: "考古测年",
+    },
+    {
+      url: "/anthropology/frontier/climate-archaeology-and-loss",
+      title: "气候考古与正在消失的记录",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/sampling-and-absence",
+      title: "取样与缺失",
+    },
+    {
+      url: "/anthropology/culture-and-method/holism-and-context",
+      title: "整体论与语境",
+    },
+  ],
+  "/anthropology/urban-and-heritage/anthropology-of-the-contemporary": [
+    {
+      url: "/anthropology/urban-and-heritage/urban-anthropology",
+      title: "都市人类学",
+    },
+    {
+      url: "/anthropology/urban-and-heritage/applied-anthropology",
+      title: "应用人类学",
+    },
+  ],
+  "/anthropology/urban-and-heritage/applied-anthropology": [
+    {
+      url: "/anthropology/urban-and-heritage/anthropology-of-the-contemporary",
+      title: "当代人类学",
+    },
+    {
+      url: "/anthropology/urban-and-heritage/urban-anthropology",
+      title: "都市人类学",
+    },
+  ],
+  "/anthropology/urban-and-heritage/heritage-and-unesco": [
+    {
+      url: "/anthropology/frontier/climate-archaeology-and-loss",
+      title: "气候考古与正在消失的记录",
+    },
+    {
+      url: "/anthropology/urban-and-heritage/who-owns-the-past",
+      title: "谁拥有过去",
+    },
+  ],
+  "/anthropology/urban-and-heritage/nagpra-and-repatriation": [
+    {
+      url: "/anthropology/frontier/museum-restitution-after-2020s",
+      title: "2020年代之后的博物馆归还",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/collapse-and-resilience",
+      title: "崩溃与韧性",
+    },
+    {
+      url: "/anthropology/kinship-and-exchange/property-and-persons",
+      title: "财产与人",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/cities-and-early-states",
+      title: "城市与早期国家",
+    },
+    {
+      url: "/anthropology/frontier/ancient-dna-and-identity-claims",
+      title: "古DNA能替谁认亲",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/archaeological-dating",
+      title: "考古测年",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/human-dispersals-and-fossils",
+      title: "人类扩散与化石",
+    },
+    {
+      url: "/anthropology/urban-and-heritage/who-owns-the-past",
+      title: "谁拥有过去",
+    },
+    {
+      url: "/anthropology/culture-and-method/culture-is-not-race",
+      title: "文化不是种族",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/collaborative-indigenous-archaeology",
+      title: "协作与原住民考古",
+    },
+    {
+      url: "/anthropology/urban-and-heritage/heritage-and-unesco",
+      title: "遗产与联合国教科文组织",
+    },
+  ],
+  "/anthropology/urban-and-heritage/urban-anthropology": [
+    {
+      url: "/anthropology/urban-and-heritage/anthropology-of-the-contemporary",
+      title: "当代人类学",
+    },
+  ],
+  "/anthropology/urban-and-heritage/who-owns-the-past": [
+    {
+      url: "/anthropology/frontier/museum-restitution-after-2020s",
+      title: "2020年代之后的博物馆归还",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/cities-and-early-states",
+      title: "城市与早期国家",
+    },
+    {
+      url: "/anthropology/frontier/digital-heritage-and-3d-ethics",
+      title: "数字遗产与三维伦理",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/collaborative-indigenous-archaeology",
+      title: "协作与原住民考古",
+    },
+    {
+      url: "/anthropology/urban-and-heritage/heritage-and-unesco",
+      title: "遗产与联合国教科文组织",
+    },
+    {
+      url: "/anthropology/urban-and-heritage/nagpra-and-repatriation",
+      title: "NAGPRA 与归还",
+    },
+  ],
   "/arts/aesthetics/aesthetics-taste-judgment": [
     {
       url: "/engineering/materials/concrete-engineering",
@@ -128,8 +528,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "《宫娥》细读：谁在画外观看",
     },
     {
+      url: "/anthropology/frontier/museum-restitution-after-2020s",
+      title: "2020年代之后的博物馆归还",
+    },
+    {
       url: "/arts/frontier/museum-restitution-digital-repatriation",
       title: "博物馆返还与数字归还：复制一件物，能修复被夺走的关系吗",
+    },
+    {
+      url: "/anthropology/material-culture/museums-and-collections",
+      title: "博物馆与收藏",
     },
     {
       url: "/arts/methods/curatorial-practice",
@@ -138,6 +546,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/traditions/indigenous-oceanic-art",
       title: "大洋洲与原住民艺术：从「原始艺术」标签到当代现场",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/excavation-records",
+      title: "发掘记录",
     },
     {
       url: "/arts/traditions/african-art-modernity",
@@ -164,8 +576,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "气候风险下的文化遗产：保护什么、何时撤退、谁来决定",
     },
     {
+      url: "/anthropology/urban-and-heritage/who-owns-the-past",
+      title: "谁拥有过去",
+    },
+    {
       url: "/arts/aesthetics/aesthetics-taste-judgment",
       title: "审美判断：休谟、康德与趣味的标准之争",
+    },
+    {
+      url: "/anthropology/frontier/digital-heritage-and-3d-ethics",
+      title: "数字遗产与三维伦理",
     },
     {
       url: "/literature/reading-and-reception/libraries-and-the-book-trade",
@@ -174,6 +594,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/literature/poetics-and-form/drama-and-performance-text",
       title: "戏剧文本与演出",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/collaborative-indigenous-archaeology",
+      title: "协作与原住民考古",
+    },
+    {
+      url: "/anthropology/urban-and-heritage/heritage-and-unesco",
+      title: "遗产与联合国教科文组织",
     },
     {
       url: "/arts/aesthetics/art-as-progress",
@@ -185,6 +613,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/arts/aesthetics/public-art-and-monuments": [
+    {
+      url: "/anthropology/material-culture/museums-and-collections",
+      title: "博物馆与收藏",
+    },
     {
       url: "/arts/traditions/latin-american-art",
       title: "拉美艺术：从殖民巴洛克到身份的画布",
@@ -586,12 +1018,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/arts/methods/provenance-and-attribution": [
     {
+      url: "/anthropology/frontier/museum-restitution-after-2020s",
+      title: "2020年代之后的博物馆归还",
+    },
+    {
       url: "/arts/methods/conservation-science",
       title: "保护科学：让作品活过时间",
     },
     {
       url: "/arts/frontier/museum-restitution-digital-repatriation",
       title: "博物馆返还与数字归还：复制一件物，能修复被夺走的关系吗",
+    },
+    {
+      url: "/anthropology/material-culture/museums-and-collections",
+      title: "博物馆与收藏",
     },
     {
       url: "/arts/aesthetics/museums-and-display",
@@ -606,6 +1046,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "技术艺术史：当一幅画同时成为光谱、元素与时间的数据体",
     },
     {
+      url: "/anthropology/urban-and-heritage/who-owns-the-past",
+      title: "谁拥有过去",
+    },
+    {
       url: "/arts/frontier/generative-art-authorship-provenance",
       title: "生成式艺术的作者与来源：作品还能证明自己从哪里来吗",
     },
@@ -614,8 +1058,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "数字人文与艺术史：当计算机开始读画",
     },
     {
+      url: "/anthropology/frontier/digital-heritage-and-3d-ethics",
+      title: "数字遗产与三维伦理",
+    },
+    {
       url: "/arts/methods/formal-analysis",
       title: "形式分析：如何读一张画",
+    },
+    {
+      url: "/anthropology/urban-and-heritage/heritage-and-unesco",
+      title: "遗产与联合国教科文组织",
     },
     {
       url: "/arts/aesthetics/art-market-and-value",
@@ -15192,8 +15644,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "奥氏蜜环菌",
     },
     {
+      url: "/anthropology/prehistory-and-archaeology/collapse-and-resilience",
+      title: "崩溃与韧性",
+    },
+    {
       url: "/earth-science/processes/ocean-surface-circulation",
       title: "表层洋流与风成环流",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/foragers-and-farmers",
+      title: "采集者与农人",
     },
     {
       url: "/life-science/knowledge-base/生态系统--草原",
@@ -15274,6 +15734,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/scientists/woese",
       title: "卡尔·沃斯",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/archaeological-dating",
+      title: "考古测年",
     },
     {
       url: "/life-science/scientists/margulis",
@@ -15722,6 +16186,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "大氧化事件",
     },
     {
+      url: "/anthropology/prehistory-and-archaeology/stratigraphy-and-context",
+      title: "地层与出土情境",
+    },
+    {
       url: "/universe-physics/knowledge-base/核物理--radioactive-decay",
       title: "放射性衰变",
     },
@@ -15742,6 +16210,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "鲎",
     },
     {
+      url: "/anthropology/material-culture/landscape-and-dwelling",
+      title: "景观与居住",
+    },
+    {
       url: "/earth-science/concepts/karst-landforms",
       title: "喀斯特地貌",
     },
@@ -15750,12 +16222,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "开尔文与地球年龄之争（1862—1904）",
     },
     {
+      url: "/anthropology/prehistory-and-archaeology/archaeological-dating",
+      title: "考古测年",
+    },
+    {
       url: "/universe-physics/knowledge-base/量子物理--量子隧穿",
       title: "量子隧穿",
     },
     {
       url: "/chemistry/figures/marie-curie",
       title: "玛丽·居里",
+    },
+    {
+      url: "/anthropology/culture-and-method/anthropological-comparison",
+      title: "人类学的比较",
+    },
+    {
+      url: "/anthropology/material-culture/pottery-and-style",
+      title: "陶器与风格",
     },
     {
       url: "/chemistry/substances/noble-gases",
@@ -15894,8 +16378,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/concepts/ice-ages-and-milankovitch": [
     {
+      url: "/anthropology/prehistory-and-archaeology/collapse-and-resilience",
+      title: "崩溃与韧性",
+    },
+    {
       url: "/earth-science/processes/glaciation-ice-ages",
       title: "冰期与冰川作用",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/foragers-and-farmers",
+      title: "采集者与农人",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/archaeological-dating",
+      title: "考古测年",
+    },
+    {
+      url: "/anthropology/frontier/climate-archaeology-and-loss",
+      title: "气候考古与正在消失的记录",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/human-dispersals-and-fossils",
+      title: "人类扩散与化石",
     },
   ],
   "/earth-science/concepts/igneous-sedimentary-metamorphic-rocks": [
@@ -15954,6 +16458,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/concepts/map-projections": [
     {
+      url: "/anthropology/prehistory-and-archaeology/cities-and-early-states",
+      title: "城市与早期国家",
+    },
+    {
       url: "/earth-science/concepts/geodesy-and-geoid",
       title: "大地测量与大地水准面",
     },
@@ -15968,6 +16476,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学基础--共动距离与宇宙学红移",
       title: "共动距离与宇宙学红移",
+    },
+    {
+      url: "/anthropology/material-culture/landscape-and-dwelling",
+      title: "景观与居住",
     },
     {
       url: "/earth-science/pioneers/marie-tharp",
@@ -16166,6 +16678,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "白垩纪大灭绝：恐龙的终结与哺乳动物的黎明",
     },
     {
+      url: "/anthropology/prehistory-and-archaeology/foragers-and-farmers",
+      title: "采集者与农人",
+    },
+    {
       url: "/earth-science/events/continental-drift-rejected",
       title: "大陆漂移被拒绝的五十年（1912—1965）",
     },
@@ -16186,6 +16702,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "寒武纪大爆发：生命多样性的突然绽放",
     },
     {
+      url: "/anthropology/prehistory-and-archaeology/human-dispersals-and-fossils",
+      title: "人类扩散与化石",
+    },
+    {
       url: "/life-science/species/coral",
       title: "珊瑚",
     },
@@ -16204,8 +16724,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/concepts/paleontology-and-stratigraphy": [
     {
+      url: "/anthropology/prehistory-and-archaeology/stratigraphy-and-context",
+      title: "地层与出土情境",
+    },
+    {
       url: "/earth-science/concepts/geologic-time-scale",
       title: "地质年代表",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/excavation-records",
+      title: "发掘记录",
     },
     {
       url: "/life-science/knowledge-base/进化专题--飞行的进化",
@@ -16232,12 +16760,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "金融危机的序列：从郁金香到加密货币",
     },
     {
+      url: "/anthropology/material-culture/landscape-and-dwelling",
+      title: "景观与居住",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/archaeological-dating",
+      title: "考古测年",
+    },
+    {
       url: "/cosmology/knowledge-base/太空探索--space-telescopes-as-time-machines",
       title: "空间望远镜：把宇宙变成时间机器",
     },
     {
       url: "/earth-science/processes/erosion-deposition",
       title: "侵蚀与沉积",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/sampling-and-absence",
+      title: "取样与缺失",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/human-dispersals-and-fossils",
+      title: "人类扩散与化石",
     },
     {
       url: "/human-history/knowledge/远古时期--人类起源",
@@ -16248,8 +16792,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "塑料时代（1907）",
     },
     {
+      url: "/anthropology/material-culture/pottery-and-style",
+      title: "陶器与风格",
+    },
+    {
       url: "/computer-science/concepts/file-systems",
       title: "文件系统",
+    },
+    {
+      url: "/anthropology/culture-and-method/holism-and-context",
+      title: "整体论与语境",
     },
   ],
   "/earth-science/concepts/planetary-geology": [
@@ -16284,6 +16836,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "火山作用",
     },
     {
+      url: "/anthropology/material-culture/landscape-and-dwelling",
+      title: "景观与居住",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/human-dispersals-and-fossils",
+      title: "人类扩散与化石",
+    },
+    {
       url: "/earth-science/processes/orogeny-mountain-building",
       title: "造山运动",
     },
@@ -16316,6 +16876,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/climate-risks/urban-heat-risk-adaptation",
       title: "城市热风险与适应：从热岛到热健康行动",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/stratigraphy-and-context",
+      title: "地层与出土情境",
     },
     {
       url: "/earth-science/concepts/map-projections",
@@ -16358,6 +16922,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "计算几何",
     },
     {
+      url: "/anthropology/material-culture/landscape-and-dwelling",
+      title: "景观与居住",
+    },
+    {
+      url: "/anthropology/frontier/climate-archaeology-and-loss",
+      title: "气候考古与正在消失的记录",
+    },
+    {
       url: "/political-science/international-relations/intelligence-and-espionage",
       title: "情报与间谍",
     },
@@ -16372,6 +16944,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/系外行星探测",
       title: "系外行星探测",
+    },
+    {
+      url: "/anthropology/urban-and-heritage/heritage-and-unesco",
+      title: "遗产与联合国教科文组织",
     },
     {
       url: "/cosmology/knowledge-base/多信使天文学--gravitational-wave-detectors-ligo-lisa",
@@ -25832,6 +26408,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "敦煌藏经洞文书史料剖析",
     },
     {
+      url: "/anthropology/comparison-and-ethics/excavation-records",
+      title: "发掘记录",
+    },
+    {
       url: "/psychology/theorists/philip-zimbardo",
       title: "菲利普·津巴多",
     },
@@ -28302,6 +28882,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/human-history/source-analyses/dunhuang-manuscripts-source-analysis": [
     {
+      url: "/anthropology/prehistory-and-archaeology/collapse-and-resilience",
+      title: "崩溃与韧性",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/stratigraphy-and-context",
+      title: "地层与出土情境",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/excavation-records",
+      title: "发掘记录",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/sampling-and-absence",
+      title: "取样与缺失",
+    },
+    {
       url: "/arts/media/fresco-and-wall-painting",
       title: "湿壁画与墙面传统",
     },
@@ -28317,11 +28913,59 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/literature/poetics-and-form/novel-as-a-form",
       title: "小说作为一种形式",
     },
+    {
+      url: "/anthropology/comparison-and-ethics/collaborative-indigenous-archaeology",
+      title: "协作与原住民考古",
+    },
   ],
   "/human-history/source-analyses/oracle-bones-source-analysis": [
     {
+      url: "/anthropology/prehistory-and-archaeology/collapse-and-resilience",
+      title: "崩溃与韧性",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/cities-and-early-states",
+      title: "城市与早期国家",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/stratigraphy-and-context",
+      title: "地层与出土情境",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/excavation-records",
+      title: "发掘记录",
+    },
+    {
       url: "/linguistics/writing-systems/chinese-writing",
       title: "汉字：形、音、义与历史层次",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/archaeological-dating",
+      title: "考古测年",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/oral-tradition-and-history",
+      title: "口头传统与历史",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/sampling-and-absence",
+      title: "取样与缺失",
+    },
+  ],
+  "/human-history/source-analyses/rosetta-stone-source-analysis": [
+    {
+      url: "/anthropology/prehistory-and-archaeology/cities-and-early-states",
+      title: "城市与早期国家",
+    },
+    {
+      url: "/anthropology/culture-and-method/emic-and-etic",
+      title: "主位与客位",
+    },
+  ],
+  "/human-history/source-analyses/wpa-slave-narratives-source-analysis": [
+    {
+      url: "/anthropology/comparison-and-ethics/oral-tradition-and-history",
+      title: "口头传统与历史",
     },
   ],
   "/law/criminal-and-procedure/crime-and-punishment": [
@@ -29003,6 +29647,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/law/judgment-analyses/handyside-v-uk-expression-margin",
       title: "Handyside v. United Kingdom 判决剖析",
     },
+    {
+      url: "/anthropology/urban-and-heritage/nagpra-and-repatriation",
+      title: "NAGPRA 与归还",
+    },
   ],
   "/law/global-and-digital/international-law": [
     {
@@ -29192,6 +29840,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/legal-traditions/mixed-legal-systems",
       title: "混合法系：当传统相遇",
+    },
+    {
+      url: "/anthropology/urban-and-heritage/nagpra-and-repatriation",
+      title: "NAGPRA 与归还",
     },
   ],
   "/law/legal-traditions/islamic-law-tradition": [
@@ -29400,6 +30052,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/law/private-law/property-and-ownership": [
     {
+      url: "/anthropology/frontier/museum-restitution-after-2020s",
+      title: "2020年代之后的博物馆归还",
+    },
+    {
       url: "/literature/contemporary-edges/copyright-and-the-public-domain",
       title: "版权与公有领域",
     },
@@ -29434,6 +30090,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/foundations/rights-and-duties",
       title: "权利与义务：霍菲尔德的解剖刀",
+    },
+    {
+      url: "/anthropology/urban-and-heritage/who-owns-the-past",
+      title: "谁拥有过去",
     },
   ],
   "/law/private-law/tort-and-liability": [
@@ -32218,6 +32878,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "藏医",
     },
     {
+      url: "/anthropology/prehistory-and-archaeology/human-dispersals-and-fossils",
+      title: "人类扩散与化石",
+    },
+    {
       url: "/life-science/knowledge-base/关键事件--人类走出非洲",
       title: "人类走出非洲：智人的全球迁徙",
     },
@@ -32438,6 +33102,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "第一语言习得",
     },
     {
+      url: "/anthropology/kinship-and-exchange/kinship-terminology",
+      title: "亲属称谓",
+    },
+    {
       url: "/linguistics/sounds-and-signs/sign-language-structure",
       title: "手语的空间语法",
     },
@@ -32452,6 +33120,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/methods-and-frontiers/linguistic-fieldwork",
       title: "语言田野调查与社区协作",
+    },
+    {
+      url: "/anthropology/culture-and-method/emic-and-etic",
+      title: "主位与客位",
     },
   ],
   "/linguistics/acquisition-and-mind/first-language-acquisition": [
@@ -33740,6 +34412,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "佳亚特里·斯皮瓦克",
     },
     {
+      url: "/anthropology/comparison-and-ethics/oral-tradition-and-history",
+      title: "口头传统与历史",
+    },
+    {
+      url: "/anthropology/kinship-and-exchange/kinship-terminology",
+      title: "亲属称谓",
+    },
+    {
       url: "/linguistics/frontier/community-led-language-revitalization",
       title: "社区主导的语言复振：技术能帮忙，但谁定义“语言活了”",
     },
@@ -33750,6 +34430,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/methods-and-frontiers/experimental-linguistics",
       title: "实验语言学与因果推断",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/fieldnotes-and-representation",
+      title: "田野笔记与再现",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/collaborative-indigenous-archaeology",
+      title: "协作与原住民考古",
     },
     {
       url: "/linguistics/history-typology-society/language-families",
@@ -33770,6 +34458,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/concepts/knowledge",
       title: "知识",
+    },
+    {
+      url: "/anthropology/culture-and-method/emic-and-etic",
+      title: "主位与客位",
     },
   ],
   "/linguistics/methods-and-frontiers/llm-and-linguistic-theory": [
@@ -34826,6 +35518,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "孔子",
     },
     {
+      url: "/anthropology/kinship-and-exchange/kinship-terminology",
+      title: "亲属称谓",
+    },
+    {
       url: "/human-history/knowledge/古典时期--亚洲--秦汉帝国",
       title: "秦汉帝国",
     },
@@ -35236,6 +35932,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "汉语叙事传统",
     },
     {
+      url: "/literature/frontier/computational-literary-studies-replication",
+      title: "计算文学研究能被复现吗",
+    },
+    {
       url: "/literature/theory-and-method/reception-aesthetics",
       title: "接受美学",
     },
@@ -35260,6 +35960,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "叙事学",
     },
     {
+      url: "/literature/frontier/llm-training-corpus-litigation",
+      title: "训练语料诉讼还不是判决",
+    },
+    {
       url: "/literature/contemporary-edges/distant-reading",
       title: "远读与数字人文",
     },
@@ -35274,6 +35978,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "理查德·斯托曼",
     },
     {
+      url: "/anthropology/urban-and-heritage/who-owns-the-past",
+      title: "谁拥有过去",
+    },
+    {
       url: "/arts/methods/generative-art-and-ai",
       title: "生成艺术与 AI：作者性的新边界",
     },
@@ -35281,8 +35989,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/arts/aesthetics/visual-culture-everyday",
       title: "视觉文化：从广告到表情包",
     },
+    {
+      url: "/anthropology/frontier/digital-heritage-and-3d-ethics",
+      title: "数字遗产与三维伦理",
+    },
+    {
+      url: "/literature/frontier/llm-training-corpus-litigation",
+      title: "训练语料诉讼还不是判决",
+    },
   ],
   "/literature/contemporary-edges/distant-reading": [
+    {
+      url: "/literature/frontier/computational-literary-studies-replication",
+      title: "计算文学研究能被复现吗",
+    },
     {
       url: "/literature/contemporary-edges/climate-and-the-literary-present",
       title: "气候与当代写作",
@@ -35317,6 +36037,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/arts/methods/generative-art-and-ai",
       title: "生成艺术与 AI：作者性的新边界",
     },
+    {
+      url: "/literature/frontier/llm-training-corpus-litigation",
+      title: "训练语料诉讼还不是判决",
+    },
   ],
   "/literature/narrative-basics/narrative-point-of-view": [
     {
@@ -35328,6 +36052,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/literature/world-traditions/african-oral-literature",
       title: "非洲口头文学",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/fieldnotes-and-representation",
+      title: "田野笔记与再现",
     },
   ],
   "/literature/narrative-basics/plot-character-conflict": [
@@ -35508,6 +36236,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "图书馆与书籍市场",
     },
     {
+      url: "/literature/frontier/llm-training-corpus-litigation",
+      title: "训练语料诉讼还不是判决",
+    },
+    {
       url: "/literature/contemporary-edges/world-literature-as-a-market",
       title: "作为市场的世界文学",
     },
@@ -35528,6 +36260,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/literature/world-traditions/chinese-narrative-tradition",
       title: "汉语叙事传统",
+    },
+    {
+      url: "/literature/frontier/computational-literary-studies-replication",
+      title: "计算文学研究能被复现吗",
     },
     {
       url: "/literature/theory-and-method/reception-aesthetics",
@@ -35572,6 +36308,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/literature/theory-and-method/narratology": [
     {
+      url: "/literature/frontier/computational-literary-studies-replication",
+      title: "计算文学研究能被复现吗",
+    },
+    {
       url: "/literature/contemporary-edges/distant-reading",
       title: "远读与数字人文",
     },
@@ -35580,6 +36320,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/source-analyses/dunhuang-manuscripts-source-analysis",
       title: "敦煌藏经洞文书史料剖析",
+    },
+  ],
+  "/literature/world-traditions/african-oral-literature": [
+    {
+      url: "/anthropology/comparison-and-ethics/oral-tradition-and-history",
+      title: "口头传统与历史",
     },
   ],
   "/literature/world-traditions/arabic-persian-narrative": [
@@ -42602,6 +43348,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/medicine/concepts/informed-consent": [
     {
+      url: "/anthropology/material-culture/museums-and-collections",
+      title: "博物馆与收藏",
+    },
+    {
+      url: "/anthropology/kinship-and-exchange/property-and-persons",
+      title: "财产与人",
+    },
+    {
       url: "/psychology/disorders/dementia",
       title: "痴呆与阿尔茨海默病",
     },
@@ -42626,12 +43380,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "姑息治疗",
     },
     {
+      url: "/anthropology/frontier/ancient-dna-and-identity-claims",
+      title: "古DNA能替谁认亲",
+    },
+    {
       url: "/medicine/ethics/henrietta-lacks-hela",
       title: "海拉细胞与亨丽埃塔·拉克斯",
     },
     {
       url: "/sociology/methods/computational-social-science",
       title: "计算社会科学",
+    },
+    {
+      url: "/anthropology/material-culture/technology-and-skill",
+      title: "技术与技艺",
     },
     {
       url: "/economics/frontier/crypto-cbdc-monetary-economics",
@@ -42660,6 +43422,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/figures/robert-koch",
       title: "罗伯特·科赫",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/informed-consent-in-ethnography",
+      title: "民族志中的知情同意",
     },
     {
       url: "/economics/theories/prospect-theory-econ",
@@ -42698,6 +43464,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "信息不对称理论",
     },
     {
+      url: "/anthropology/kinship-and-exchange/gender-and-personhood",
+      title: "性别与人格",
+    },
+    {
       url: "/medicine/concepts/evidence-based-medicine",
       title: "循证医学",
     },
@@ -42712,6 +43482,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/medical-genetics-and-genomics",
       title: "医学遗传学与基因组医学",
+    },
+    {
+      url: "/anthropology/urban-and-heritage/applied-anthropology",
+      title: "应用人类学",
     },
     {
       url: "/linguistics/methods-and-frontiers/linguistic-fieldwork",
@@ -42730,8 +43504,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "朱迪斯·贾维斯·汤姆森",
     },
     {
+      url: "/anthropology/culture-and-method/ethnography-as-description",
+      title: "作为描述的民族志",
+    },
+    {
       url: "/medicine/trial-analyses/actt-1-remdesivir-trial",
       title: "ACTT-1 瑞德西韦试验",
+    },
+    {
+      url: "/anthropology/urban-and-heritage/nagpra-and-repatriation",
+      title: "NAGPRA 与归还",
     },
     {
       url: "/medicine/trial-analyses/orbita-sham-controlled-pci-trial",
@@ -44480,8 +45262,36 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/medicine/ethics/henrietta-lacks-hela": [
     {
+      url: "/anthropology/urban-and-heritage/anthropology-of-the-contemporary",
+      title: "当代人类学",
+    },
+    {
+      url: "/anthropology/frontier/ancient-dna-and-identity-claims",
+      title: "古DNA能替谁认亲",
+    },
+    {
       url: "/medicine/ethics/genetic-testing-and-privacy",
       title: "基因检测与隐私",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/informed-consent-in-ethnography",
+      title: "民族志中的知情同意",
+    },
+    {
+      url: "/anthropology/culture-and-method/culture-is-not-race",
+      title: "文化不是种族",
+    },
+    {
+      url: "/anthropology/material-culture/things-and-persons",
+      title: "物与人",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/collaborative-indigenous-archaeology",
+      title: "协作与原住民考古",
+    },
+    {
+      url: "/anthropology/urban-and-heritage/nagpra-and-repatriation",
+      title: "NAGPRA 与归还",
     },
   ],
   "/medicine/ethics/informed-consent-and-shared-decision-making": [
@@ -44500,6 +45310,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/debates/basic-income-vs-job-guarantee",
       title: "基本收入还是就业保障：社会应当保证钱还是工作",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/informed-consent-in-ethnography",
+      title: "民族志中的知情同意",
     },
     {
       url: "/medicine/ethics/medical-futility-and-treatment-withdrawal",
@@ -44882,6 +45696,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/ethics/clinical-trial-ethics",
       title: "临床试验伦理",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/sampling-and-absence",
+      title: "取样与缺失",
     },
     {
       url: "/sociology/methods/research-ethics-and-positionality",
@@ -65338,12 +66156,40 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/religion/religion-foundations/ritual-and-practice": [
     {
+      url: "/anthropology/material-culture/technology-and-skill",
+      title: "技术与技艺",
+    },
+    {
+      url: "/anthropology/kinship-and-exchange/descent-and-alliance",
+      title: "继嗣与联姻",
+    },
+    {
+      url: "/anthropology/kinship-and-exchange/gift-and-reciprocity",
+      title: "礼物与互惠",
+    },
+    {
+      url: "/anthropology/culture-and-method/anthropological-comparison",
+      title: "人类学的比较",
+    },
+    {
       url: "/religion/religion-foundations/sacred-and-profane",
       title: "神圣与凡俗",
     },
     {
       url: "/religion/frontier/digital-religion-ai-authority",
       title: "生成式AI能成为宗教权威吗",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/fieldnotes-and-representation",
+      title: "田野笔记与再现",
+    },
+    {
+      url: "/anthropology/urban-and-heritage/heritage-and-unesco",
+      title: "遗产与联合国教科文组织",
+    },
+    {
+      url: "/anthropology/material-culture/cloth-and-value",
+      title: "织物与价值",
     },
     {
       url: "/religion/religion-and-society/religion-and-gender",
@@ -65358,12 +66204,52 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/religion/religion-foundations/what-is-religion": [
     {
+      url: "/anthropology/prehistory-and-archaeology/collapse-and-resilience",
+      title: "崩溃与韧性",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/foragers-and-farmers",
+      title: "采集者与农人",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/cities-and-early-states",
+      title: "城市与早期国家",
+    },
+    {
+      url: "/anthropology/culture-and-method/anthropological-comparison",
+      title: "人类学的比较",
+    },
+    {
+      url: "/anthropology/culture-and-method/what-is-culture",
+      title: "什么是文化",
+    },
+    {
       url: "/religion/religion-foundations/sacred-and-profane",
       title: "神圣与凡俗",
     },
     {
+      url: "/anthropology/comparison-and-ethics/fieldnotes-and-representation",
+      title: "田野笔记与再现",
+    },
+    {
+      url: "/anthropology/material-culture/things-and-persons",
+      title: "物与人",
+    },
+    {
+      url: "/anthropology/kinship-and-exchange/gender-and-personhood",
+      title: "性别与人格",
+    },
+    {
       url: "/religion/religion-foundations/ritual-and-practice",
       title: "仪式与实践",
+    },
+    {
+      url: "/anthropology/urban-and-heritage/heritage-and-unesco",
+      title: "遗产与联合国教科文组织",
+    },
+    {
+      url: "/anthropology/material-culture/cloth-and-value",
+      title: "织物与价值",
     },
     {
       url: "/religion/religious-history/axial-age-religions",
@@ -65434,6 +66320,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/religion/frontier/digital-religion-ai-authority",
       title: "生成式AI能成为宗教权威吗",
+    },
+  ],
+  "/religion/texts-and-canons/oral-and-written-transmission": [
+    {
+      url: "/anthropology/comparison-and-ethics/oral-tradition-and-history",
+      title: "口头传统与历史",
     },
   ],
   "/religion/texts-and-canons/scripture-and-canon": [
@@ -65674,6 +66566,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "承认",
     },
     {
+      url: "/anthropology/urban-and-heritage/urban-anthropology",
+      title: "都市人类学",
+    },
+    {
       url: "/political-science/isms/multiculturalism",
       title: "多元文化主义",
     },
@@ -65696,6 +66592,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/private-law/family-and-inheritance-law",
       title: "婚姻、家庭与继承：从身份共同体到个人选择",
+    },
+    {
+      url: "/anthropology/kinship-and-exchange/marriage-and-household",
+      title: "婚姻与家户",
     },
     {
       url: "/sociology/institutions/family-and-kinship",
@@ -65754,8 +66654,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "小提琴家",
     },
     {
+      url: "/anthropology/kinship-and-exchange/gender-and-personhood",
+      title: "性别与人格",
+    },
+    {
       url: "/economics/theories/indian-institutional-economics",
       title: "印度制度经济学",
+    },
+    {
+      url: "/anthropology/culture-and-method/holism-and-context",
+      title: "整体论与语境",
     },
     {
       url: "/sociology/concepts/race-and-ethnicity",
@@ -65916,6 +66824,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "迁移与离散",
     },
     {
+      url: "/anthropology/kinship-and-exchange/kinship-terminology",
+      title: "亲属称谓",
+    },
+    {
       url: "/sociology/concepts/social-darwinism-and-eugenics",
       title: "社会达尔文主义与优生学：一套披着科学外衣的社会安排",
     },
@@ -65942,6 +66854,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/economists/thomas-schelling",
       title: "托马斯·谢林",
+    },
+    {
+      url: "/anthropology/culture-and-method/culture-is-not-race",
+      title: "文化不是种族",
+    },
+    {
+      url: "/anthropology/kinship-and-exchange/gender-and-personhood",
+      title: "性别与人格",
     },
     {
       url: "/medicine/concepts/medical-genetics-and-genomics",
@@ -66178,6 +67098,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/public-law/lochner-era-freedom-of-contract",
       title: "洛克纳时代：被宪法读进去的「契约自由」",
+    },
+    {
+      url: "/anthropology/culture-and-method/culture-is-not-race",
+      title: "文化不是种族",
     },
     {
       url: "/sociology/concepts/race-and-ethnicity",
@@ -66866,6 +67790,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "比较文学的方法",
     },
     {
+      url: "/anthropology/urban-and-heritage/anthropology-of-the-contemporary",
+      title: "当代人类学",
+    },
+    {
+      url: "/anthropology/urban-and-heritage/urban-anthropology",
+      title: "都市人类学",
+    },
+    {
       url: "/literature/reading-and-reception/translation-as-rewriting",
       title: "翻译即改写",
     },
@@ -66876,6 +67808,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/literature/reading-and-reception/fandom-and-secondary-creation",
       title: "粉丝与二次创作",
+    },
+    {
+      url: "/anthropology/material-culture/technology-and-skill",
+      title: "技术与技艺",
     },
     {
       url: "/literature/reading-and-reception/school-canon-and-exams",
@@ -66890,12 +67826,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "欧洲正典及其批评",
     },
     {
+      url: "/anthropology/culture-and-method/what-is-culture",
+      title: "什么是文化",
+    },
+    {
+      url: "/anthropology/material-culture/pottery-and-style",
+      title: "陶器与风格",
+    },
+    {
       url: "/literature/poetics-and-form/genre-as-contract",
       title: "文类是一种约定",
     },
     {
+      url: "/anthropology/material-culture/things-and-persons",
+      title: "物与人",
+    },
+    {
       url: "/literature/poetics-and-form/novel-as-a-form",
       title: "小说作为一种形式",
+    },
+    {
+      url: "/anthropology/kinship-and-exchange/gender-and-personhood",
+      title: "性别与人格",
+    },
+    {
+      url: "/anthropology/material-culture/cloth-and-value",
+      title: "织物与价值",
     },
     {
       url: "/literature/contemporary-edges/world-literature-as-a-market",
@@ -67830,6 +68786,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/private-law/family-and-inheritance-law",
       title: "婚姻、家庭与继承：从身份共同体到个人选择",
+    },
+    {
+      url: "/anthropology/kinship-and-exchange/marriage-and-household",
+      title: "婚姻与家户",
     },
     {
       url: "/medicine/ethics/genetic-testing-and-privacy",
@@ -69162,12 +70122,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "埃莉诺·奥斯特罗姆",
     },
     {
+      url: "/anthropology/prehistory-and-archaeology/collapse-and-resilience",
+      title: "崩溃与韧性",
+    },
+    {
       url: "/law/legal-traditions/comparative-law-methods",
       title: "比较法的方法：可比性从何而来",
     },
     {
+      url: "/anthropology/prehistory-and-archaeology/foragers-and-farmers",
+      title: "采集者与农人",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/cities-and-early-states",
+      title: "城市与早期国家",
+    },
+    {
       url: "/philosophy/schools/continental-philosophy",
       title: "大陆哲学",
+    },
+    {
+      url: "/anthropology/urban-and-heritage/anthropology-of-the-contemporary",
+      title: "当代人类学",
     },
     {
       url: "/chemistry/methods/electron-microscopy-and-surface-analysis",
@@ -69178,12 +70154,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "调查研究",
     },
     {
+      url: "/anthropology/urban-and-heritage/urban-anthropology",
+      title: "都市人类学",
+    },
+    {
       url: "/sociology/thinkers/fei-xiaotong",
       title: "费孝通",
     },
     {
       url: "/philosophy/thinkers/husserl",
       title: "胡塞尔",
+    },
+    {
+      url: "/anthropology/material-culture/technology-and-skill",
+      title: "技术与技艺",
+    },
+    {
+      url: "/anthropology/kinship-and-exchange/descent-and-alliance",
+      title: "继嗣与联姻",
     },
     {
       url: "/philosophy/thinkers/gadamer",
@@ -69198,8 +70186,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "科学与技术研究（STS）",
     },
     {
+      url: "/anthropology/comparison-and-ethics/informed-consent-in-ethnography",
+      title: "民族志中的知情同意",
+    },
+    {
+      url: "/anthropology/kinship-and-exchange/kinship-terminology",
+      title: "亲属称谓",
+    },
+    {
       url: "/political-science/international-relations/intelligence-and-espionage",
       title: "情报与间谍",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/sampling-and-absence",
+      title: "取样与缺失",
     },
     {
       url: "/sociology/methods/in-depth-interviews",
@@ -69218,8 +70218,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "他者",
     },
     {
+      url: "/anthropology/material-culture/pottery-and-style",
+      title: "陶器与风格",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/fieldnotes-and-representation",
+      title: "田野笔记与再现",
+    },
+    {
       url: "/philosophy/thinkers/wittgenstein",
       title: "维特根斯坦",
+    },
+    {
+      url: "/anthropology/material-culture/things-and-persons",
+      title: "物与人",
     },
     {
       url: "/philosophy/concepts/phenomenology-detail",
@@ -69242,12 +70254,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "研究伦理与位置性：谁在被研究，谁在研究",
     },
     {
+      url: "/anthropology/urban-and-heritage/applied-anthropology",
+      title: "应用人类学",
+    },
+    {
       url: "/political-science/concepts/political-violence",
       title: "政治暴力",
     },
     {
+      url: "/anthropology/material-culture/cloth-and-value",
+      title: "织物与价值",
+    },
+    {
       url: "/psychology/methods/qualitative-methods-psychology",
       title: "质性研究方法：访谈、编码与意义建构",
+    },
+    {
+      url: "/anthropology/culture-and-method/emic-and-etic",
+      title: "主位与客位",
+    },
+    {
+      url: "/anthropology/culture-and-method/ethnography-as-description",
+      title: "作为描述的民族志",
     },
     {
       url: "/human-history/source-analyses/wpa-slave-narratives-source-analysis",
@@ -69356,6 +70384,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/sociology/methods/research-ethics-and-positionality": [
     {
+      url: "/anthropology/urban-and-heritage/anthropology-of-the-contemporary",
+      title: "当代人类学",
+    },
+    {
+      url: "/anthropology/frontier/ancient-dna-and-identity-claims",
+      title: "古DNA能替谁认亲",
+    },
+    {
       url: "/sociology/concepts/intersectionality",
       title: "交叉性：范畴如何相乘",
     },
@@ -69364,8 +70400,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "民族志",
     },
     {
+      url: "/anthropology/comparison-and-ethics/informed-consent-in-ethnography",
+      title: "民族志中的知情同意",
+    },
+    {
       url: "/sociology/methods/in-depth-interviews",
       title: "深度访谈",
+    },
+    {
+      url: "/anthropology/comparison-and-ethics/collaborative-indigenous-archaeology",
+      title: "协作与原住民考古",
+    },
+    {
+      url: "/anthropology/urban-and-heritage/applied-anthropology",
+      title: "应用人类学",
+    },
+    {
+      url: "/anthropology/culture-and-method/ethnography-as-description",
+      title: "作为描述的民族志",
+    },
+    {
+      url: "/anthropology/urban-and-heritage/nagpra-and-repatriation",
+      title: "NAGPRA 与归还",
     },
   ],
   "/sociology/methods/statistical-modeling": [
@@ -69638,6 +70694,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "古典经济学",
     },
     {
+      url: "/anthropology/kinship-and-exchange/descent-and-alliance",
+      title: "继嗣与联姻",
+    },
+    {
       url: "/sociology/institutions/education-and-credentialism",
       title: "教育与文凭社会",
     },
@@ -69650,8 +70710,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "离散与改宗",
     },
     {
+      url: "/anthropology/kinship-and-exchange/gift-and-reciprocity",
+      title: "礼物与互惠",
+    },
+    {
       url: "/political-science/thinkers/montesquieu",
       title: "孟德斯鸠",
+    },
+    {
+      url: "/anthropology/culture-and-method/anthropological-comparison",
+      title: "人类学的比较",
     },
     {
       url: "/sociology/concepts/social-structure",
@@ -69846,6 +70914,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/sociology/thinkers/fei-xiaotong": [
     {
+      url: "/anthropology/urban-and-heritage/urban-anthropology",
+      title: "都市人类学",
+    },
+    {
+      url: "/anthropology/kinship-and-exchange/marriage-and-household",
+      title: "婚姻与家户",
+    },
+    {
+      url: "/anthropology/kinship-and-exchange/descent-and-alliance",
+      title: "继嗣与联姻",
+    },
+    {
       url: "/sociology/institutions/family-and-kinship",
       title: "家庭与亲属关系",
     },
@@ -69860,6 +70940,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/schools/confucianism",
       title: "儒家哲学体系",
+    },
+    {
+      url: "/anthropology/culture-and-method/what-is-culture",
+      title: "什么是文化",
     },
     {
       url: "/philosophy/concepts/modern-chinese-thought",
@@ -70026,8 +71110,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/sociology/thinkers/pierre-bourdieu": [
     {
+      url: "/anthropology/kinship-and-exchange/property-and-persons",
+      title: "财产与人",
+    },
+    {
       url: "/linguistics/words-sentences-meaning/lexicography",
       title: "词典学：词典是怎样编出来的",
+    },
+    {
+      url: "/anthropology/urban-and-heritage/urban-anthropology",
+      title: "都市人类学",
     },
     {
       url: "/literature/reading-and-reception/translation-as-rewriting",
@@ -70036,6 +71128,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/sociology/institutions/education-and-credentialism",
       title: "教育与文凭社会",
+    },
+    {
+      url: "/anthropology/kinship-and-exchange/gift-and-reciprocity",
+      title: "礼物与互惠",
     },
     {
       url: "/sociology/methods/ethnography",
@@ -70062,6 +71158,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "社会资本",
     },
     {
+      url: "/anthropology/culture-and-method/what-is-culture",
+      title: "什么是文化",
+    },
+    {
       url: "/arts/aesthetics/aesthetics-taste-judgment",
       title: "审美判断：休谟、康德与趣味的标准之争",
     },
@@ -70084,6 +71184,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/aesthetics/art-market-and-value",
       title: "艺术市场与价值：杰作的价格是如何被制造出来的",
+    },
+    {
+      url: "/anthropology/urban-and-heritage/applied-anthropology",
+      title: "应用人类学",
+    },
+    {
+      url: "/anthropology/culture-and-method/holism-and-context",
+      title: "整体论与语境",
     },
     {
       url: "/literature/contemporary-edges/canon-wars",
@@ -70118,6 +71226,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/thinkers/frantz-fanon",
       title: "弗朗兹·法农",
+    },
+    {
+      url: "/anthropology/culture-and-method/culture-is-not-race",
+      title: "文化不是种族",
     },
     {
       url: "/sociology/concepts/race-and-ethnicity",
