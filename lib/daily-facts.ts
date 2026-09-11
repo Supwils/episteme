@@ -920,6 +920,34 @@ export const LITERATURE_FACTS: readonly DailySelectedFact[] = [
   },
 ];
 
+export const RELIGION_FACTS: readonly DailySelectedFact[] = [
+  {
+    title: "宗教首先是分类",
+    description: "把一堆实践叫做宗教，依据的是定义和制度，不是某套教义是否为真。",
+    url: "/religion/religion-foundations",
+  },
+  {
+    title: "仪式改变身份",
+    description: "通过仪礼把人从一种社会位置送到另一种；步骤是分析范畴，不是操作指南。",
+    url: "/religion/religion-foundations/ritual-and-practice",
+  },
+  {
+    title: "正典是一份名单",
+    description: "哪些文本被反复抄写、宣读和考试，比“天启”更容易核对。",
+    url: "/religion/texts-and-canons",
+  },
+  {
+    title: "比较会改写对象",
+    description: "用一神、救赎、教会去套别的传统，比较的是范畴，不是世界本身。",
+    url: "/religion/comparative-religion",
+  },
+  {
+    title: "世俗化测的是哪一项",
+    description: "参与、认同与制度特权可以分开下降。一条曲线不能代表宗教消失。",
+    url: "/religion/secularization",
+  },
+];
+
 export const ENGINEERING_FACTS: readonly DailySelectedFact[] = [
   {
     title: "电网是实时平衡",

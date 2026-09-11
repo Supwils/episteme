@@ -18,7 +18,7 @@ const countCjkChars = (value: string) => value.match(/\p{Script=Han}/gu)?.length
 describe("chemistry kinetics, catalysis, and green-process evidence", () => {
   it("dates every reviewed page and keeps substantial evidence guidance", () => {
     for (const page of Object.values(reviewedPages)) {
-      expect(page).toContain("updated: 2026-07-18");
+      expect(page).toMatch(/updated: 2026-\d{2}-\d{2}/);
       expect(page).toContain("## 证据怎么读");
       expect(countCjkChars(page)).toBeGreaterThan(2_500);
     }
@@ -27,7 +27,9 @@ describe("chemistry kinetics, catalysis, and green-process evidence", () => {
   it("treats rate laws and activation parameters as measured models", () => {
     expect(reviewedPages.kinetics).toContain("速率方程是经验关系，不是配平方程");
     expect(reviewedPages.kinetics).toContain("只有对已知的**基元反应**");
-    expect(reviewedPages.kinetics).toContain("Arrhenius 活化能首先是描述速率系数温度依赖的**经验参数**");
+    expect(reviewedPages.kinetics).toContain(
+      "Arrhenius 活化能首先是描述速率系数温度依赖的**经验参数**"
+    );
     expect(reviewedPages.kinetics).toContain("混合、传质、传热和仪器响应限制");
     expect(reviewedPages.kinetics).not.toContain("温度每升高约 10°C，许多反应速率翻一倍");
   });

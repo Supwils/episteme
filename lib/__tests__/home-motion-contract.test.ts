@@ -37,4 +37,17 @@ describe("homepage motion contract", () => {
     expect(css).not.toMatch(/\[data-home-reveal\][^{]*\{[^}]*opacity:\s*0/s);
     expect(css).not.toMatch(/\[data-home-reveal\][^{]*\{[^}]*visibility:\s*hidden/s);
   });
+
+  it("keeps homepage chrome on semantic classes instead of long utility strings", () => {
+    const files = [
+      "app/page.tsx",
+      "components/HeroSection.tsx",
+      "components/FeatureGrid.tsx",
+      "components/DailyKnowledgeCard.tsx",
+      "components/DeferredHomeKnowledgeContinuum.tsx",
+    ];
+    for (const file of files) {
+      expect(read(file), file).not.toMatch(/className="[^"]{80,}"/);
+    }
+  });
 });

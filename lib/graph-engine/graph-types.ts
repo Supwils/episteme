@@ -51,6 +51,7 @@ export type GraphNode = {
     | "law"
     | "arts"
     | "literature"
+    | "religion"
     | "engineering";
   type: GraphNodeType;
   slug: string;

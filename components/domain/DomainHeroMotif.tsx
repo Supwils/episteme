@@ -200,6 +200,18 @@ function EngineeringMotif({ color }: MotifProps) {
   );
 }
 
+function ReligionMotif({ color }: MotifProps) {
+  return (
+    <g {...shared} stroke={color}>
+      <circle cx="104" cy="66" r="38" opacity={0.7} />
+      <circle cx="104" cy="66" r="18" opacity={0.45} />
+      <line x1="104" y1="22" x2="104" y2="110" opacity={0.8} />
+      <line x1="62" y1="66" x2="146" y2="66" opacity={0.8} />
+      <circle cx="104" cy="66" r="4" fill={color} stroke="none" opacity={0.7} />
+    </g>
+  );
+}
+
 function LiteratureMotif({ color }: MotifProps) {
   return (
     <g {...shared} stroke={color}>
@@ -241,6 +253,7 @@ const MOTIFS: Record<string, (props: MotifProps) => React.ReactNode> = {
   law: LawMotif,
   arts: ArtsMotif,
   literature: LiteratureMotif,
+  religion: ReligionMotif,
   engineering: EngineeringMotif,
 };
 

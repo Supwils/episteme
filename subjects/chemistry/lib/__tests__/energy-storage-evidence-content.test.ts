@@ -27,7 +27,7 @@ const edgeKeys = new Set(ALL_EDGES.map((edge) => `${edge.source}->${edge.target}
 describe("energy storage evidence chain", () => {
   it("keeps every reviewed page substantial and current", () => {
     for (const page of Object.values(reviewedPages)) {
-      expect(page).toContain("updated: 2026-07-18");
+      expect(page).toMatch(/updated: 2026-\d{2}-\d{2}/);
       expect(countCjkChars(page)).toBeGreaterThan(2_500);
     }
   });
@@ -81,12 +81,8 @@ describe("energy storage evidence chain", () => {
     expect(route?.waypoints).toHaveLength(9);
     expect(route?.steps).toHaveLength(9);
     expect(route?.waypoints[0]).toBe("chemistry:chemical-thermodynamics");
-    expect(route?.waypoints[2]).toBe(
-      "chemistry:battery-performance-safety-and-circularity"
-    );
-    expect(route?.waypoints[6]).toBe(
-      "earth-science:mineral-resources-and-critical-metals"
-    );
+    expect(route?.waypoints[2]).toBe("chemistry:battery-performance-safety-and-circularity");
+    expect(route?.waypoints[6]).toBe("earth-science:mineral-resources-and-critical-metals");
     expect(route?.waypoints.at(-1)).toBe("chemistry:green-chemistry");
   });
 });

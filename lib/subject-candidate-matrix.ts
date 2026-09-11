@@ -6,7 +6,8 @@ export type SubjectCandidateId =
   | "comparative-law"
   | "arts-aesthetics"
   | "engineering"
-  | "literature-narrative";
+  | "literature-narrative"
+  | "religion-studies";
 
 export const SUBJECT_SCORE_DIMENSIONS = {
   existingSeeds: { label: "现有内容种子", weight: 0.2 },
@@ -551,6 +552,94 @@ export const SUBJECT_CANDIDATES: readonly SubjectCandidate[] = [
     launchGate:
       "先确立“事实层（版本、年代、生平）与解释层（读法、评价）分离表述”的写作规范，以及引文长度的版权口径。",
   },
+  {
+    id: "religion-studies",
+    label: "宗教学",
+    positioning:
+      "从制度、文本与比较进入宗教——神圣与凡俗、经典与正典、宗教与社会、世俗化之争。描述人类如何组织神圣，不替任何传统认信。",
+    scores: {
+      existingSeeds: 2,
+      crossDomainReach: 5,
+      levelCoherence: 5,
+      sourceReadiness: 5,
+      visualizationFit: 3,
+      globalCoverage: 5,
+      deliveryFeasibility: 3,
+    },
+    bridgeDomains: [
+      "philosophy",
+      "human-history",
+      "sociology",
+      "psychology",
+      "linguistics",
+      "political-science",
+    ],
+    learningSpine: [
+      {
+        level: 1,
+        title: "什么是宗教",
+        question: "把一堆实践叫做“宗教”，依据的是定义还是制度？",
+        concepts: ["神圣", "仪式", "共同体", "分类"],
+      },
+      {
+        level: 2,
+        title: "仪式、神话与历史",
+        question: "实践和叙述怎样在时间里被做成可识别的传统？",
+        concepts: ["仪式过程", "神话", "轴心时代", "正典"],
+      },
+      {
+        level: 3,
+        title: "比较如何可能",
+        question: "跨传统比较会不会把别人的神做成自己的范畴？",
+        concepts: ["一神与多神", "救赎", "宗教法", "翻译"],
+      },
+      {
+        level: 4,
+        title: "宗教与社会",
+        question: "权力、性别、暴力与圣地如何进入宗教制度？",
+        concepts: ["政教", "性别", "朝圣", "离散"],
+      },
+      {
+        level: 5,
+        title: "世俗化之后",
+        question: "现代社会是宗教消退，还是宗教改道？",
+        concepts: ["世俗化命题", "祛魅", "公民宗教", "科学"],
+      },
+    ],
+    releaseArticleCount: 30,
+    releaseSections: ["宗教基础", "宗教史", "经典与文本", "比较宗教", "宗教与社会", "世俗化"],
+    visualizations: ["仪式结构实验室", "世界宗教示意地图", "经典开篇比较器", "世俗化指标示意"],
+    globalCoverageCommitments: [
+      "西亚一神教传统",
+      "南亚与内亚",
+      "东亚儒教—佛教—道教交叠",
+      "非洲本土宗教与基督教/伊斯兰教",
+      "美洲原住民与殖民后宗教",
+      "欧洲基督教与世俗化",
+      "当代离散与全球南方",
+    ],
+    sources: [
+      {
+        name: "Internet Sacred Text Archive",
+        url: "https://www.sacred-texts.com/",
+        role: "公有领域圣典译本与比较材料的开放库",
+        access: "open",
+      },
+      {
+        name: "中国哲学书电子化计划（ctext.org）",
+        url: "https://ctext.org/",
+        role: "汉语古典宗教—哲学文本的可引用原文库",
+        access: "open",
+      },
+    ],
+    risks: [
+      "认信口吻会把教义写成世界属性",
+      "世界宗教百分比图容易假装精确底图",
+      "仪式条目滑向可操作步骤",
+    ],
+    launchGate:
+      "先确立描述性而非认信的写法：事实层（制度、文本、年代）与解释层（神义、救赎主张）分离，并禁止可复现的仪式操作步骤。",
+  },
 ] as const;
 
 export const RANKED_SUBJECT_CANDIDATES = [...SUBJECT_CANDIDATES].sort(
@@ -562,6 +651,7 @@ export const LAUNCHED_SUBJECT_CANDIDATE_IDS: ReadonlySet<SubjectCandidateId> = n
   "comparative-law",
   "arts-aesthetics",
   "engineering",
+  "literature-narrative",
 ]);
 
 export const RANKED_NEXT_SUBJECT_CANDIDATES = RANKED_SUBJECT_CANDIDATES.filter(

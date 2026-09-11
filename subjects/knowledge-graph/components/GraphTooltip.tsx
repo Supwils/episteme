@@ -141,6 +141,13 @@ const DOMAIN_META: Record<
     border: "border-amber-700/30",
     borderColor: "#8b5e4a",
   },
+  religion: {
+    label: "宗教学",
+    color: "text-violet-300",
+    bg: "bg-violet-700/20",
+    border: "border-violet-700/30",
+    borderColor: "#6b5c8a",
+  },
   engineering: {
     label: "工程与技术",
     color: "text-slate-300",

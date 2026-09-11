@@ -22,6 +22,7 @@ export const KNOWLEDGE_DOMAINS = {
   law: { label: "法学", href: "/law" },
   arts: { label: "艺术", href: "/arts" },
   literature: { label: "文学与叙事", href: "/literature" },
+  religion: { label: "宗教学", href: "/religion" },
   engineering: { label: "工程与技术", href: "/engineering" },
 } as const;
 
@@ -271,7 +272,7 @@ export const KNOWLEDGE_THREADS: readonly KnowledgeContinuumThread[] = [
         question: "人为什么共同生活，又为什么留下不同制度？",
         description: "从家庭故事、地方规则和历史遗迹开始，看见个人生活背后的集体结构。",
         href: "/human-history/timeline",
-        domains: ["human-history", "sociology", "law"],
+        domains: ["human-history", "sociology", "law", "religion"],
       },
       {
         id: "people-institutions-2",
@@ -280,7 +281,7 @@ export const KNOWLEDGE_THREADS: readonly KnowledgeContinuumThread[] = [
         question: "身份、规范和资源怎样塑造机会？",
         description: "用群体、角色、阶层、文化和社会网络描述个人与社会之间的双向关系。",
         href: "/sociology/concepts/social-structure",
-        domains: ["sociology", "human-history", "psychology"],
+        domains: ["sociology", "human-history", "psychology", "religion"],
       },
       {
         id: "people-institutions-3",

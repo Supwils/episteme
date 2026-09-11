@@ -188,6 +188,21 @@ export const DERIVED_DOMAINS: readonly DerivedDomain[] = [
     ],
   },
   {
+    contentDirectory: "religion",
+    graphDomain: "religion",
+    idPrefix: "religion",
+    entryNodeId: "religion:what-is-religion",
+    sections: [
+      "comparative-religion",
+      "frontier",
+      "religion-and-society",
+      "religion-foundations",
+      "religious-history",
+      "secularization",
+      "texts-and-canons",
+    ],
+  },
+  {
     contentDirectory: "mathematics",
     graphDomain: "mathematics",
     idPrefix: "mathematics",
@@ -301,6 +316,7 @@ export const SECTION_KNOWLEDGE_LEVEL: Readonly<Record<string, KnowledgeLevel>> =
   // L1 — people and dated episodes: the concrete things a reader can enter from.
   economists: 1,
   "narrative-basics": 1,
+  "religion-foundations": 1,
   events: 1,
   figures: 1,
   mathematicians: 1,
@@ -313,6 +329,7 @@ export const SECTION_KNOWLEDGE_LEVEL: Readonly<Record<string, KnowledgeLevel>> =
   // L2 — the core vocabulary of a domain.
   aesthetics: 2,
   "poetics-and-form": 2,
+  "religious-history": 2,
   concepts: 2,
   debates: 2,
   dialogues: 2,
@@ -332,6 +349,8 @@ export const SECTION_KNOWLEDGE_LEVEL: Readonly<Record<string, KnowledgeLevel>> =
   // L3 — machinery built on that vocabulary.
   "acquisition-and-mind": 3,
   "world-traditions": 3,
+  "texts-and-canons": 3,
+  "comparative-religion": 3,
   algorithms: 3,
   architecture: 3,
   "case-studies": 3,
@@ -358,6 +377,7 @@ export const SECTION_KNOWLEDGE_LEVEL: Readonly<Record<string, KnowledgeLevel>> =
   "climate-risks": 4,
   "theory-and-method": 4,
   "reading-and-reception": 4,
+  "religion-and-society": 4,
   ethics: 4,
   experiments: 4,
   "global-and-digital": 4,
@@ -374,6 +394,7 @@ export const SECTION_KNOWLEDGE_LEVEL: Readonly<Record<string, KnowledgeLevel>> =
   frontier: 5,
   frontiers: 5,
   "contemporary-edges": 5,
+  secularization: 5,
 };
 
 /** Section → node type. Sections with no distinctive type fall through to the

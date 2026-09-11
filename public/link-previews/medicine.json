@@ -136,7 +136,7 @@
   },
   "/medicine/concepts/reproductive-system": {
     "t": "生殖系统",
-    "e": "每个人的生命都从一次极不寻常的事件开始：两个只有一半染色体的细胞相遇，合成一个全新的基因组合。这听起来像生物学奇迹。但在身体内部，它是一套严密的内分泌、细胞分裂、组织重塑和免疫耐受工程。生殖系…",
+    "e": "每个人的生命都从一次极不寻常的事件开始：两个只有一半染色体的细胞相遇，合成一个全新的基因组合。这听起来像生物学奇迹。但在身体内部，它是一套严密的内分泌、细胞分裂、组织重塑和免疫耐受工程。",
     "d": "medicine"
   },
   "/medicine/concepts/respiratory-system": {
@@ -156,7 +156,7 @@
   },
   "/medicine/concepts/vaccination": {
     "t": "疫苗原理",
-    "e": "人类历史上彻底消灭过的传染病只有一种：天花。",
+    "e": "人类历史上彻底消灭过的传染病只有一种：天花。这种曾在二十世纪杀死约三亿人的瘟疫，在 1980 年被世界卫生组织宣布从地球上根除。完成这件壮举的，不是某种特效药，而是一支针剂——疫苗。",
     "d": "medicine"
   },
   "/medicine/diseases/alzheimers-disease": {
@@ -306,7 +306,7 @@
   },
   "/medicine/ethics/medical-futility-and-treatment-withdrawal": {
     "t": "医疗无效、治疗撤除与生命末期的决定边界",
-    "e": "当机械通气、透析、升压药或心肺复苏无法实现患者重视的目标时，继续技术干预可能只延长濒死过程。但“无效”是一个危险的快捷词：医生说的是生理上不能达到效果，家属听到的可能是“这个人的生命不值得”。",
+    "e": "当机械通气、透析、升压药或心肺复苏无法实现患者重视的目标时，继续技术干预可能只延长濒死过程。但“无效”是一个危险的快捷词：医生说的是生理上不能达到效果，家属听到的可能是“这个人的生命不值得”。…",
     "d": "medicine"
   },
   "/medicine/ethics/organ-allocation-ethics": {
@@ -351,7 +351,7 @@
   },
   "/medicine/events/jenner-smallpox-vaccination": {
     "t": "詹纳与牛痘接种（1796）",
-    "e": "1796 年 5 月 14 日，英国格洛斯特郡乡间，一位乡村医生在一个八岁男孩 James Phipps 的胳膊上划了两道小口子。",
+    "e": "1796 年 5 月 14 日，英国格洛斯特郡伯克利乡间，乡村医生爱德华·詹纳（Edward Jenner）在八岁男孩 James Phipps 的胳膊上划了两道浅口。",
     "d": "medicine"
   },
   "/medicine/events/miasma-theory": {
@@ -386,7 +386,7 @@
   },
   "/medicine/events/tuskegee-syphilis-study": {
     "t": "塔斯基吉梅毒研究（1932–1972）",
-    "e": "1932 年，在美国亚拉巴马州梅肯县（Macon County），美国公共卫生署（U.S. Public Health Service）招募了约 600 名贫困的非裔美国男性参加一项研究。",
+    "e": "1932 年，在美国亚拉巴马州梅肯县（Macon County），美国公共卫生署（U.S. Public Health Service, USPHS）招募了约 600 名贫困的非裔美国男性参加…",
     "d": "medicine"
   },
   "/medicine/figures/alexander-fleming": {

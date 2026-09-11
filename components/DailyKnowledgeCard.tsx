@@ -56,6 +56,18 @@ const DOMAIN_STYLES: Record<string, { bg: string; border: string; text: string; 
     text: "#d4789c",
     label: "心理学",
   },
+  literature: {
+    bg: "rgba(139, 94, 74, 0.12)",
+    border: "rgba(139, 94, 74, 0.25)",
+    text: "#8b5e4a",
+    label: "文学与叙事",
+  },
+  religion: {
+    bg: "rgba(107, 92, 138, 0.12)",
+    border: "rgba(107, 92, 138, 0.25)",
+    text: "#6b5c8a",
+    label: "宗教学",
+  },
 };
 
 const DEFAULT_STYLE = {
@@ -72,7 +84,7 @@ function getDomainStyle(domain: string) {
 export function DailyKnowledgeCard({ items, fact, date }: DailyKnowledgeCardProps) {
   return (
     <section
-      className="mx-auto w-full max-w-3xl overflow-hidden rounded-2xl backdrop-blur-xl"
+      className="home-daily"
       data-home-reveal
       style={{
         background: "var(--color-bg-panel)",
@@ -88,27 +100,24 @@ export function DailyKnowledgeCard({ items, fact, date }: DailyKnowledgeCardProp
         }}
       />
 
-      <div className="p-6 sm:p-8">
+      <div className="home-daily__body">
         <div className="mb-6">
-          <h2 className="font-display text-fg-primary mb-1 text-xl font-semibold">今天的知识</h2>
-          <p className="text-fg-muted text-[0.85rem]">{date}</p>
+          <h2 className="home-daily__heading">今天的知识</h2>
+          <p className="home-daily__date">{date}</p>
         </div>
 
-        <div className="flex flex-col gap-3">
+        <div className="home-daily__list">
           {items.map((item) => {
             const style = getDomainStyle(item.domain);
             return (
               <div key={item.id} data-home-reveal>
-                <Link
-                  href={item.url}
-                  className="group bg-bg-near border-border-faint hover:bg-bg-elevated block rounded-xl border p-4 no-underline transition-all duration-300"
-                >
-                  <div className="flex items-start gap-3">
-                    <span className="mt-0.5 shrink-0 text-xl">{item.icon}</span>
-                    <div className="min-w-0 flex-1">
-                      <div className="mb-1.5 flex flex-wrap items-center gap-2">
+                <Link href={item.url} className="home-daily__link">
+                  <div className="home-daily__row">
+                    <span className="home-daily__icon">{item.icon}</span>
+                    <div className="home-daily__copy">
+                      <div className="home-daily__meta">
                         <span
-                          className="rounded-full px-2 py-0.5 text-[0.75rem] font-semibold"
+                          className="home-daily__badge"
                           style={{
                             color: `color-mix(in oklab, ${style.text} 38%, var(--color-fg-primary))`,
                             background: style.bg,
@@ -118,22 +127,15 @@ export function DailyKnowledgeCard({ items, fact, date }: DailyKnowledgeCardProp
                           {style.label}
                         </span>
                         {item.year !== undefined && (
-                          <span className="text-fg-muted text-[0.75rem]">
+                          <span className="home-daily__year">
                             {item.year < 0 ? `公元前${Math.abs(item.year)}年` : `${item.year}年`}
                           </span>
                         )}
                       </div>
-                      <h3 className="text-fg-primary group-hover:text-accent-gold mb-1 text-[1rem] leading-snug font-semibold transition-colors">
-                        {item.title}
-                      </h3>
-                      <p className="text-fg-secondary m-0 line-clamp-2 text-[0.9rem] leading-relaxed">
-                        {item.description}
-                      </p>
+                      <h3 className="home-daily__title">{item.title}</h3>
+                      <p className="home-daily__description">{item.description}</p>
                     </div>
-                    <span
-                      aria-hidden="true"
-                      className="text-fg-muted group-hover:text-accent-gold mt-1 shrink-0 transition-all duration-200 group-hover:translate-x-0.5"
-                    >
+                    <span aria-hidden="true" className="home-daily__arrow">
                       →
                     </span>
                   </div>
@@ -144,12 +146,12 @@ export function DailyKnowledgeCard({ items, fact, date }: DailyKnowledgeCardProp
         </div>
 
         <div
-          className="mt-5 flex items-start gap-2 pt-4"
+          className="home-daily__fact"
           style={{ borderTop: "1px solid var(--color-border-faint)" }}
         >
           <span className="shrink-0 text-sm">💡</span>
-          <p className="text-fg-muted m-0 text-[0.85rem] leading-relaxed">
-            <span className="text-accent-gold font-semibold">趣味知识：</span>
+          <p className="home-daily__fact-text">
+            <span className="home-daily__fact-label">趣味知识：</span>
             {fact}
           </p>
         </div>

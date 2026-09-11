@@ -103,8 +103,8 @@ if (
 ) {
   issues.push("Coverage evidence modes do not account for every curated node");
 }
-if (coverage.domains.filter((row) => row.status === "established").length !== 19) {
-  issues.push("Coverage snapshot must keep all 19 subjects established");
+if (coverage.domains.filter((row) => row.status === "established").length !== 20) {
+  issues.push("Coverage snapshot must keep all 20 subjects established");
 }
 const previewDomains = coverage.domains.filter((row) => row.status === "preview");
 if (previewDomains.length !== 0) {
@@ -339,8 +339,8 @@ if (
   issues.push("A higher-level node without prerequisite metadata is incorrectly ready");
 }
 if (
-  emptyFrontierView.recommendations.length !== 19 ||
-  new Set(emptyFrontierView.recommendations.map((result) => result.domainId)).size !== 19 ||
+  emptyFrontierView.recommendations.length !== 20 ||
+  new Set(emptyFrontierView.recommendations.map((result) => result.domainId)).size !== 20 ||
   emptyFrontierView.recommendations.some((result) => result.level !== 1)
 ) {
   issues.push("Knowledge frontier does not provide one diverse L1 start per subject");

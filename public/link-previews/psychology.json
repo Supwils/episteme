@@ -86,42 +86,42 @@
   },
   "/psychology/dialogues/bowlby-psychoanalysis": {
     "t": "鲍尔比与精神分析",
-    "e": "约翰·鲍尔比（John Bowlby）是英国精神分析学会的受训分析师，",
+    "e": "约翰·鲍尔比（John Bowlby，1907–1990）是英国精神分析学会的正式成员。他的个人分析由克莱因圈子的琼·里维埃担任，儿童分析督导是梅兰妮·克莱因本人。第一次督导就发生过冲突：他想…",
     "d": "psychology"
   },
   "/psychology/dialogues/freud-jung-divergence": {
     "t": "弗洛伊德与荣格的分裂",
-    "e": "1907年，弗洛伊德与荣格在维也纳首次会面，两人连续交谈了13个小时。",
+    "e": "这篇对话不重演“无意识是什么”的理论课。它压缩的是 1912 到 1913 年，精神分析作为一个组织如何把理论分歧处理成人事。",
     "d": "psychology"
   },
   "/psychology/dialogues/freud-jung-unconscious": {
     "t": "弗洛伊德vs荣格：无意识的本质",
-    "e": "1907年，弗洛伊德与荣格在维也纳首次会面，两人一见如故，连续交谈了13个小时。",
+    "e": "1907 年，西格蒙德·弗洛伊德（Sigmund Freud，1856–1939）与卡尔·古斯塔夫·荣格（Carl Gustav Jung，1875–1961）在维也纳首次会面，连续谈了十三个…",
     "d": "psychology"
   },
   "/psychology/dialogues/kahneman-gladwell-intuition": {
     "t": "卡尼曼vs格拉德威尔：直觉可靠吗",
-    "e": "2005年，马尔科姆·格拉德威尔出版了畅销书《眨眼之间：不假思索的思考力量》，",
+    "e": "2005 年，马尔科姆·格拉德威尔出版《眨眼之间：不假思索的思考力量》。作者是《纽约客》撰稿人，不是实验室主持人。书把“薄片推理”——从极短片段里抽出模式——写成一种常常惊人准确的能力，并用盖…",
     "d": "psychology"
   },
   "/psychology/dialogues/klein-winnicott-play": {
     "t": "克莱因与温尼科特论游戏",
-    "e": "梅兰妮·克莱因（Melanie Klein）和唐纳德·温尼科特（Donald Winnicott）",
+    "e": "梅兰妮·克莱因（Melanie Klein，1882–1960）与唐纳德·温尼科特（Donald Winnicott，1896–1971）同在英国精神分析学会里工作，都把早期关系看成心灵的骨架…",
     "d": "psychology"
   },
   "/psychology/dialogues/kohut-kernberg-narcissism": {
     "t": "科胡特与科恩伯格论自恋",
-    "e": "20世纪70年代，自恋成为精神分析理论中最具争议的主题之一。",
+    "e": "20 世纪 70 年代，自恋成为精神分析里最容易把人分成两派的题目。",
     "d": "psychology"
   },
   "/psychology/dialogues/seligman-csikszentmihalyi-happiness": {
     "t": "塞利格曼vs契克森米哈赖：幸福是什么",
-    "e": "马丁·塞利格曼和米哈里·契克森米哈赖是积极心理学运动的两位奠基人。",
+    "e": "马丁·塞利格曼与米哈里·契克森米哈赖常被并称为积极心理学的共同奠基人。1998 年塞利格曼出任美国心理学会主席，把“建设人类优势”列为任内议题；同年 1 月，两人与雷蒙德·福勒等人在尤卡坦度过…",
     "d": "psychology"
   },
   "/psychology/dialogues/skinner-chomsky-language": {
     "t": "斯金纳vs乔姆斯基：语言是学习的吗",
-    "e": "1957年，斯金纳出版了《言语行为》，试图用操作性条件反射的原理来解释人类语言。",
+    "e": "1957 年，伯勒斯·弗雷德里克·斯金纳（B. F. Skinner，1904–1990）出版《言语行为》（Verbal Behavior），把人类说话写成操作性条件作用的一种：反应的形式由前…",
     "d": "psychology"
   },
   "/psychology/disorders/addiction": {
@@ -236,7 +236,7 @@
   },
   "/psychology/experiments/dream-analysis-technique": {
     "t": "梦的分析技术",
-    "e": "1900年，弗洛伊德出版了《梦的解析》——他本人视为精神分析最重要的成就。在一个将梦视为\"大脑垃圾\"或\"神灵启示\"的时代，弗洛伊德提出了一个革命性的观点：梦是愿望的伪装满足。无意识的欲望——通…",
+    "e": "常见读法把这篇当成「如何解自己的梦」。它不是。1900 年的《梦的解析》把梦报告改造成一种取证程序：分析师与做梦者一起，从显内容往回推被压抑的愿望。本文把它当作科学史上的观察装置来读——它如何…",
     "d": "psychology"
   },
   "/psychology/experiments/dunning-kruger-1999": {

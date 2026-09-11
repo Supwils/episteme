@@ -206,6 +206,13 @@ export const COVERAGE_DOMAIN_META: Record<
     color: "#8b5e4a",
     status: "established",
   },
+  religion: {
+    label: "宗教学",
+    shortLabel: "宗",
+    href: "/religion",
+    color: "#6b5c8a",
+    status: "established",
+  },
   engineering: {
     label: "工程与技术",
     shortLabel: "工",

@@ -16,7 +16,7 @@
   },
   "/universe-physics/dialogues/einstein-kant": {
     "t": "爱因斯坦 vs 康德：时空的先验性",
-    "e": "伊曼努尔·康德（Immanuel Kant, 1724—1804）在《纯粹理性批判》中提出了一个革命性的主张：时间和空间不是客观存在的实体，而是人类认知的\"先天直观形式\"——我们通过时间和空间…",
+    "e": "伊曼努尔·康德（Immanuel Kant, 1724—1804）在《纯粹理性批判》的先验感性论里提出：空间是外感官的形式，时间是内感官的形式。它们不是从经验中抽象出来的实体，而是使经验成为可…",
     "d": "universe-physics"
   },
   "/universe-physics/dialogues/feynman-oppenheimer": {
@@ -31,7 +31,7 @@
   },
   "/universe-physics/dialogues/hawking-penrose": {
     "t": "霍金 vs 彭罗斯：黑洞信息悖论",
-    "e": "霍金与彭罗斯的争论触及了理论物理学最深层的张力：广义相对论与量子力学的兼容性。彭罗斯坚持经典广义相对论的结论——奇点是时空的真实终结，信息在奇点处被销毁。霍金则从量子力学的幺正性出发，主张信息…",
+    "e": "霍金与彭罗斯的争论触及理论物理最深层的张力：广义相对论与量子力学能否共存。彭罗斯坚持把奇点定理读成时空的真实终结——信息可以在尽头被销毁，这意味着极端条件下修正的是量子力学的幺正性。霍金从幺正…",
     "d": "universe-physics"
   },
   "/universe-physics/dialogues/heisenberg-schrodinger": {
@@ -61,12 +61,12 @@
   },
   "/universe-physics/dialogues/planck-mendel": {
     "t": "普朗克 vs 孟德尔：量子与遗传",
-    "e": "马克斯·普朗克（Max Planck, 1858—1947）在1900年提出了能量量子化假说——能量不是连续的，而是以离散的\"量子\"形式存在。这一发现开启了量子物理学的大门。格雷戈尔·孟德尔（…",
+    "e": "马克斯·普朗克（Max Planck, 1858—1947）在 1900 年提出：为了让空腔辐射的光谱说得通，能量不能再被当成可以无限细分的连续量。格雷戈尔·孟德尔（Gregor Mendel…",
     "d": "universe-physics"
   },
   "/universe-physics/dialogues/schrodinger-darwin": {
     "t": "薛定谔 vs 达尔文：生命是什么",
-    "e": "埃尔温·薛定谔（Erwin Schrödinger, 1887—1961）是量子力学的奠基人之一，他在1944年出版了《生命是什么》——一本试图用物理学来解释生命的经典著作。他提出，生命以\"负…",
+    "e": "这是一场跨过世纪的编排，不是同桌谈话。查尔斯·达尔文（Charles Darwin, 1809—1882）在 1859 年 11 月 24 日出版《物种起源》，1882 年去世；他不知道染色体…",
     "d": "universe-physics"
   },
   "/universe-physics/dialogues/tesla-edison": {

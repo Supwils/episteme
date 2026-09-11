@@ -19,10 +19,10 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
   title: "Episteme · 格致 — 从问题出发",
-  description: "整理十八个领域的文章、知识图谱与阅读路线，帮助你顺着概念之间的联系继续阅读。",
+  description: "整理二十个领域的文章、知识图谱与阅读路线，帮助你顺着概念之间的联系继续阅读。",
   openGraph: {
     title: "Episteme · 格致 — 从问题出发",
-    description: "整理十八个领域的文章、知识图谱与阅读路线，帮助你顺着概念之间的联系继续阅读。",
+    description: "整理二十个领域的文章、知识图谱与阅读路线，帮助你顺着概念之间的联系继续阅读。",
     type: "website",
     images: [
       {
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Episteme · 格致 — 从问题出发",
-    description: "整理十八个领域的文章、知识图谱与阅读路线，帮助你顺着概念之间的联系继续阅读。",
+    description: "整理二十个领域的文章、知识图谱与阅读路线，帮助你顺着概念之间的联系继续阅读。",
     images: [
       `/api/og?title=${encodeURIComponent("Episteme · 格致")}&description=${encodeURIComponent("从问题出发，顺着知识的线索继续读下去")}`,
     ],
@@ -79,20 +79,14 @@ export default function HomePage() {
         <HeroSection />
 
         {getClustersWithDomains(DOMAINS).map((cluster) => (
-          <section key={cluster.id} className="px-6 pt-10 pb-6 sm:px-10 lg:px-16">
-            <header className="mb-6 flex items-baseline gap-3" data-home-reveal>
-              <h2 className="font-display text-fg-primary text-2xl font-semibold tracking-tight">
-                {cluster.label}
-              </h2>
-              <span className="text-fg-muted font-mono text-[11px] tracking-[0.28em] uppercase">
-                {cluster.en}
-              </span>
-              <span className="bg-border-faint h-px flex-1" />
-              <span className="text-fg-disabled font-mono text-[11px] tracking-[0.22em]">
-                {cluster.domains.length} 个领域
-              </span>
+          <section key={cluster.id} className="home-cluster">
+            <header className="home-cluster__header" data-home-reveal>
+              <h2 className="home-cluster__title">{cluster.label}</h2>
+              <span className="home-cluster__en">{cluster.en}</span>
+              <span className="home-cluster__rule" />
+              <span className="home-cluster__count">{cluster.domains.length} 个领域</span>
             </header>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="home-cluster__grid">
               {cluster.domains.map((domain) => (
                 <DomainCard key={domain.id} domain={domain} index={DOMAINS.indexOf(domain)} />
               ))}
@@ -102,8 +96,8 @@ export default function HomePage() {
 
         <DeferredHomeKnowledgeContinuum />
 
-        <section className="w-full px-6 py-16 sm:px-10 lg:px-16">
-          <h2 className="font-display text-fg-primary mb-8 text-2xl font-semibold" data-home-reveal>
+        <section className="home-daily-slot">
+          <h2 className="home-daily-slot__title" data-home-reveal>
             每日知识
           </h2>
           <DailyKnowledgeCard items={daily.items} fact={daily.fact} date={daily.date} />

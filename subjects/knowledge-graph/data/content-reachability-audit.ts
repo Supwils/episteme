@@ -115,6 +115,18 @@ export const CONTENT_REACHABILITY_AUDIT_SCOPES: readonly AuditScope[] = [
     minimumCoveragePercent: 100,
   },
   {
+    domain: "religion",
+    sections: [
+      "religion-foundations",
+      "religious-history",
+      "texts-and-canons",
+      "comparative-religion",
+      "religion-and-society",
+      "secularization",
+    ],
+    minimumCoveragePercent: 100,
+  },
+  {
     domain: "engineering",
     sections: ["foundations", "frontier", "energy", "materials", "machines", "civil", "frontiers"],
     minimumCoveragePercent: 100,

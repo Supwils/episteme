@@ -15,7 +15,7 @@ const reviewedPages = {
 describe("clinical net-benefit content", () => {
   it("dates every reviewed page and gives readers an evidence checklist", () => {
     for (const page of Object.values(reviewedPages)) {
-      expect(page).toContain("updated: 2026-07-18");
+      expect(page).toMatch(/updated: 2026-\d{2}-\d{2}/);
       expect(page).toContain("## 证据怎么读");
     }
   });

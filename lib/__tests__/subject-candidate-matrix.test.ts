@@ -24,6 +24,7 @@ describe("new subject candidate matrix", () => {
       "arts-aesthetics",
       "engineering",
       "literature-narrative",
+      "religion-studies",
     ]);
     const totalWeight = Object.values(SUBJECT_SCORE_DIMENSIONS).reduce(
       (total, dimension) => total + dimension.weight,
@@ -69,13 +70,20 @@ describe("new subject candidate matrix", () => {
     );
     expect(scores).toEqual([...scores].sort((left, right) => right - left));
     expect(LAUNCHED_SUBJECT_CANDIDATE_IDS).toEqual(
-      new Set(["linguistics", "comparative-law", "arts-aesthetics", "engineering"])
+      new Set([
+        "linguistics",
+        "comparative-law",
+        "arts-aesthetics",
+        "engineering",
+        "literature-narrative",
+      ])
     );
     expect(RANKED_NEXT_SUBJECT_CANDIDATES.map((candidate) => candidate.id)).toEqual([
-      "literature-narrative",
+      "religion-studies",
     ]);
-    expect(RECOMMENDED_SUBJECT_CANDIDATE.id).toBe("literature-narrative");
+    expect(RECOMMENDED_SUBJECT_CANDIDATE.id).toBe("religion-studies");
     expect(calculateCandidateScore(RECOMMENDED_SUBJECT_CANDIDATE.scores)).toBeCloseTo(4.0);
+    expect(RANKED_NEXT_SUBJECT_CANDIDATES.length).toBeGreaterThan(0);
   });
 });
 

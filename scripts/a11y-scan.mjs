@@ -28,6 +28,7 @@ const DOMAIN_PAGES = [
   ["艺术", "/arts", "/arts/architecture/building-as-structure"],
   ["工程与技术", "/engineering", "/engineering/frontiers/safety-engineering"],
   ["文学与叙事", "/literature", "/literature/narrative-basics/what-is-a-story"],
+  ["宗教学", "/religion", "/religion/religion-foundations/what-is-religion"],
 ];
 
 const PAGES = [
@@ -46,6 +47,8 @@ const PAGES = [
   ["透视实验室", "/arts/perspective-lab"],
   ["叙事结构图谱", "/literature/narrative-graph"],
   ["格律实验室", "/literature/meter-lab"],
+  ["仪式结构实验室", "/religion/ritual-lab"],
+  ["世界宗教地图", "/religion/world-map"],
 ];
 const SELECTED_PAGES = process.env.SCAN_PATH
   ? PAGES.filter(([, path]) => path === process.env.SCAN_PATH)

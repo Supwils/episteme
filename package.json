@@ -2,7 +2,7 @@
   "name": "episteme",
   "version": "0.0.0",
   "private": true,
-  "description": "Episteme · 格致 — 重现人类认识世界的旅程. A visual, immersive knowledge platform spanning eighteen subjects.",
+  "description": "Episteme · 格致 — 重现人类认识世界的旅程. A visual, immersive knowledge platform spanning twenty subjects.",
   "packageManager": "pnpm@10.27.0",
   "engines": {
     "node": "22.x"
@@ -38,7 +38,8 @@
     "gen-kb": "node --import tsx scripts/gen-kb-index.ts",
     "gen-links": "node --import tsx scripts/gen-wiki-links-index.ts",
     "gen-search-index": "node --import tsx scripts/gen-search-index.ts",
-    "gen-all": "pnpm gen-philo && pnpm gen-econ && pnpm gen-psych && pnpm gen-life && pnpm gen-physics-dialogues && pnpm gen-history-route-data && pnpm gen-kb && pnpm gen-links && pnpm gen-search-index && pnpm gen-content-images",
+    "gen-search-worker": "node --import tsx scripts/gen-search-worker.ts",
+    "gen-all": "pnpm gen-philo && pnpm gen-econ && pnpm gen-psych && pnpm gen-life && pnpm gen-physics-dialogues && pnpm gen-history-route-data && pnpm gen-kb && pnpm gen-links && pnpm gen-search-index && pnpm gen-search-worker && pnpm gen-content-images",
     "gen-narration": "node --import tsx scripts/gen-narration-audio.ts",
     "gen-icons": "node --import tsx scripts/gen-icons.ts",
     "prebuild": "pnpm gen-all",

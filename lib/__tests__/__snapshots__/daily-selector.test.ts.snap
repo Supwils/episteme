@@ -117,6 +117,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-01-15 offset 0
     "year": 1951,
   },
   "question": "人工智能能真正理解美吗？",
+  "religion": {
+    "description": "用一神、救赎、教会去套别的传统，比较的是范畴，不是世界本身。",
+    "title": "比较会改写对象",
+    "url": "/religion/comparative-religion",
+  },
   "seed": 20260115,
   "sociology": {
     "description": "杜波依斯指出，被支配群体常被迫同时用自己的眼睛和支配者的眼睛看自己。",
@@ -243,6 +248,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 0
     "year": 2002,
   },
   "question": "如果时间可以倒流，你最想见证哪个历史时刻？",
+  "religion": {
+    "description": "哪些文本被反复抄写、宣读和考试，比“天启”更容易核对。",
+    "title": "正典是一份名单",
+    "url": "/religion/texts-and-canons",
+  },
   "seed": 20260314,
   "sociology": {
     "description": "统计模型要同时说明变量、样本、效应大小和不确定性；相关关系不能自动变成因果解释。",
@@ -369,6 +379,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 1
     "year": 2000,
   },
   "question": "人类探索太空的意义是什么？",
+  "religion": {
+    "description": "通过仪礼把人从一种社会位置送到另一种；步骤是分析范畴，不是操作指南。",
+    "title": "仪式改变身份",
+    "url": "/religion/religion-foundations/ritual-and-practice",
+  },
   "seed": 20268233,
   "sociology": {
     "description": "费孝通用水波纹比喻中国社会关系：责任和信任常按亲疏远近展开，而不是只按组织边界划分。",
@@ -484,6 +499,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 0
     "year": 1920,
   },
   "question": "人类文明的下一个重大突破会是什么？",
+  "religion": {
+    "description": "参与、认同与制度特权可以分开下降。一条曲线不能代表宗教消失。",
+    "title": "世俗化测的是哪一项",
+    "url": "/religion/secularization",
+  },
   "seed": 20260616,
   "sociology": {
     "description": "韦伯看到现代组织越来越依赖计算、规则和程序；它提高效率，也可能把人困进制度铁笼。",
@@ -599,6 +619,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 2
     "year": 1904,
   },
   "question": "如果时间可以倒流，你最想见证哪个历史时刻？",
+  "religion": {
+    "description": "哪些文本被反复抄写、宣读和考试，比“天启”更容易核对。",
+    "title": "正典是一份名单",
+    "url": "/religion/texts-and-canons",
+  },
   "seed": 20276454,
   "sociology": {
     "description": "分层不只是收入差距，还包括教育、资产、健康、关系网络和失败后能否重新开始的机会。",
@@ -735,6 +760,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-12-25 offset 0
     "year": 1900,
   },
   "question": "人工智能能真正理解美吗？",
+  "religion": {
+    "description": "用一神、救赎、教会去套别的传统，比较的是范畴，不是世界本身。",
+    "title": "比较会改写对象",
+    "url": "/religion/comparative-religion",
+  },
   "seed": 20261225,
   "sociology": {
     "description": "韦伯看到现代组织越来越依赖计算、规则和程序；它提高效率，也可能把人困进制度铁笼。",

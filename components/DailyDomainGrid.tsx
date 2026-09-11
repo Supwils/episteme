@@ -172,6 +172,15 @@ const DOMAIN_CONFIGS = [
     url: "/literature",
   },
   {
+    key: "religion" as const,
+    icon: "◎",
+    label: "宗教学",
+    color: "#6b5c8a",
+    bg: "rgba(107,92,138,0.08)",
+    border: "rgba(107,92,138,0.18)",
+    url: "/religion",
+  },
+  {
     key: "engineering" as const,
     icon: "🔧",
     label: "工程",

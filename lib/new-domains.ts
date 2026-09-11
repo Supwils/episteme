@@ -621,6 +621,89 @@ export const LITERATURE: DomainConfig = {
   ],
 };
 
+export const RELIGION: DomainConfig = {
+  domain: "religion",
+  label: "宗教学",
+  labelEn: "Religion Studies",
+  tagline:
+    "从制度、文本与比较进入宗教——神圣与凡俗、经典与正典、宗教与社会、世俗化之争。描述人类如何组织神圣，不替任何传统认信。",
+  accent: "#6b5c8a",
+  sections: [
+    {
+      key: "religion-foundations",
+      label: "宗教基础",
+      accent: "#6b5c8a",
+      icon: "◎",
+      description: "什么是宗教：神圣与凡俗、仪式、神话与宇宙论、宗教经验",
+    },
+    {
+      key: "religious-history",
+      label: "宗教史",
+      accent: "#7a6a4a",
+      icon: "⏳",
+      description: "轴心时代、世界宗教形成、帝国与传教、改革与二十世纪",
+    },
+    {
+      key: "texts-and-canons",
+      label: "经典与文本",
+      accent: "#5a6b8a",
+      icon: "📜",
+      description: "正典、注疏、口传与书写、翻译、伪经之争",
+    },
+    {
+      key: "comparative-religion",
+      label: "比较宗教",
+      accent: "#8a6b5c",
+      icon: "⇔",
+      description: "比较如何可能、多神与一神、来世、宗教法、神秘主义",
+    },
+    {
+      key: "religion-and-society",
+      label: "宗教与社会",
+      accent: "#5c7a6b",
+      icon: "🏛",
+      description: "政教、性别、暴力、朝圣与圣地、离散与改宗",
+    },
+    {
+      key: "secularization",
+      label: "世俗化",
+      accent: "#4a5a7a",
+      icon: "⌁",
+      description: "世俗化之争、祛魅与再魅、公民宗教、无神论、宗教与科学",
+    },
+  ],
+  tools: [
+    {
+      href: "/religion/ritual-lab",
+      label: "仪式结构实验室",
+      icon: "◎",
+      accent: "#6b5c8a",
+      description: "用分离—阈限—聚合三步看通过仪礼，不是操作手册",
+    },
+    {
+      href: "/religion/world-map",
+      label: "世界宗教示意地图",
+      icon: "🌍",
+      accent: "#7a6a4a",
+      description: "示意几条传统的历史分布，不是精确人口底图",
+    },
+    {
+      href: "/religion/canon-comparator",
+      label: "经典开篇比较器",
+      icon: "↔",
+      accent: "#5a6b8a",
+      description: "并置公有领域开篇，看宇宙论怎样被写成句子",
+    },
+    {
+      href: "/religion/secularization-chart",
+      label: "世俗化指标示意",
+      icon: "⌁",
+      accent: "#4a5a7a",
+      description: "切换参与、认同与信任，看“宗教消退”其实测的是哪一项",
+    },
+  ],
+};
+
 export const ENGINEERING: DomainConfig = {
   domain: "engineering",
   label: "工程与技术",
@@ -787,6 +870,7 @@ export const KNOWLEDGE_DOMAINS: Record<string, DomainConfig> = {
   law: LAW,
   arts: ARTS,
   literature: LITERATURE,
+  religion: RELIGION,
   engineering: ENGINEERING,
 };
 

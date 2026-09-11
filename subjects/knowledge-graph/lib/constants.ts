@@ -21,6 +21,7 @@ export const DOMAIN_COLORS: Record<string, string> = {
   law: "#a8843c",
   arts: "#b0785a",
   literature: "#8b5e4a",
+  religion: "#6b5c8a",
   engineering: "#8a919e",
 };
 
@@ -81,6 +82,7 @@ export const ALL_DOMAINS = [
   "law",
   "arts",
   "literature",
+  "religion",
   "engineering",
 ] as const;
 

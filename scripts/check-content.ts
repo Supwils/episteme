@@ -43,6 +43,7 @@ const MDX_DOMAINS = [
   "law",
   "arts",
   "literature",
+  "religion",
   "engineering",
 ] as const;
 

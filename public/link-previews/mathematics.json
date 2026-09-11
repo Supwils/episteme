@@ -336,102 +336,102 @@
   },
   "/mathematics/dialogues/bourbaki-poincare": {
     "t": "布尔巴基 vs 庞加莱：形式与直觉",
-    "e": "尼古拉·布尔巴基（Nicolas Bourbaki）是20世纪一群法国数学家的集体笔名。他们从1935年开始撰写多卷本《数学原理》（Éléments de mathématique），试图用统…",
+    "e": "尼古拉·布尔巴基（Nicolas Bourbaki）不是一个人。它是一群法国数学家的集体笔名。1934 年 12 月 10 日，亨利·嘉当、克洛德·谢瓦莱、让·德尔萨特、让·迪厄多内与安德烈·…",
     "d": "mathematics"
   },
   "/mathematics/dialogues/cantor-kronecker": {
     "t": "康托尔 vs 克罗内克：无穷的存在",
-    "e": "格奥尔格·康托尔（Georg Cantor, 1845-1918）是集合论的创始人。他证明了无穷有不同的大小——自然数是可数无穷，实数是不可数无穷——并建立了超限数理论。他的工作彻底改变了数学…",
+    "e": "格奥尔格·康托尔（Georg Cantor, 1845–1918）在哈勒大学任教。1874 年他在克雷勒《纯粹与应用数学杂志》第 77 卷发表《论一切实代数数集合的一个性质》，用嵌套区间证明实…",
     "d": "mathematics"
   },
   "/mathematics/dialogues/euclid-archimedes": {
     "t": "欧几里得 vs 阿基米德：纯数学 vs 应用",
-    "e": "欧几里得（Euclid，约前325—前265）是古希腊数学家，《几何原本》的作者。他代表了\"纯数学\"的传统——数学的价值在于其内在的逻辑结构，而不在于它的实际应用。传说当一位学生问\"学几何有什…",
+    "e": "欧几里得（Euclid）活动于托勒密一世时期的亚历山大，大约前 300 年前后。生卒年传统写作约前 325—前 265，精确日期没有当代史料。《几何原本》十三卷把欧多克索斯的比例论、泰阿泰德的…",
     "d": "mathematics"
   },
   "/mathematics/dialogues/euclid-hilbert": {
     "t": "欧几里得 vs 希尔伯特：公理化方法",
-    "e": "欧几里得（Euclid，约前325—前265）是古希腊数学家，其《几何原本》（Elements）是历史上最有影响力的数学著作之一。《几何原本》从五条公理和五条公设出发，用演绎推理建立了整个平面…",
+    "e": "这场对话是跨时代虚构。欧几里得（Euclid）活动于约公元前 300 年的亚历山大，生卒年并不确定；传统说法把他放在约前 325—前 265，史料并不能钉死。希尔伯特（David Hilber…",
     "d": "mathematics"
   },
   "/mathematics/dialogues/euler-dalembert": {
     "t": "欧拉 vs 达朗贝尔：无穷级数的收敛性",
-    "e": "莱昂哈德·欧拉（Leonhard Euler, 1707-1783）是瑞士数学家，历史上最多产的数学家之一。他在分析学、数论、图论、力学、天文学等领域都有奠基性贡献。欧拉对无穷级数有惊人的直觉…",
+    "e": "莱昂哈德·欧拉（Leonhard Euler, 1707—1783）与让·勒朗·达朗贝尔（Jean le Rond d'Alembert, 1717—1783）同年去世。两人在无穷级数与弦振动…",
     "d": "mathematics"
   },
   "/mathematics/dialogues/fibonacci-al-khwarizmi": {
     "t": "斐波那契 vs 花拉子密：东西方代数",
-    "e": "花拉子密（Muhammad ibn Musa al-Khwarizmi, 约780—约850）是波斯数学家、天文学家，代数学的奠基人之一。他的著作《代数学》（al-Kitab al-Mukht…",
+    "e": "花拉子密（Muhammad ibn Musa al-Khwarizmi, 约780—约850）在巴格达智慧宫工作。著作《代数学》（al-Kitab al-Mukhtasar fi Hisab …",
     "d": "mathematics"
   },
   "/mathematics/dialogues/gauss-bolyai": {
     "t": "高斯 vs 波尔约：非欧几何的发现",
-    "e": "卡尔·弗里德里希·高斯（Carl Friedrich Gauss, 1777-1855）是德国数学家，被誉为\"数学王子\"。他在数论、代数、分析、统计、天文学、大地测量学等领域都有奠基性贡献。在…",
+    "e": "这场对谈没有发生过。卡尔·弗里德里希·高斯（Carl Friedrich Gauss, 1777–1855）与亚诺什·波尔约（János Bolyai, 1802–1860）没有就非欧几何当面…",
     "d": "mathematics"
   },
   "/mathematics/dialogues/gauss-riemann": {
     "t": "高斯 vs 黎曼：几何学革命",
-    "e": "卡尔·弗里德里希·高斯（Carl Friedrich Gauss, 1777-1855）是\"数学王子\"，在数论、代数、分析、统计和微分几何等领域都有奠基性贡献。他发展了曲面的内在几何——绝妙定…",
+    "e": "卡尔·弗里德里希·高斯（Carl Friedrich Gauss, 1777–1855）在数论、代数、分析、统计和微分几何都留下可核对的工作。1827 年 10 月 8 日他向哥廷根皇家学会提…",
     "d": "mathematics"
   },
   "/mathematics/dialogues/godel-turing": {
     "t": "哥德尔 vs 图灵：不可判定性",
-    "e": "库尔特·哥德尔（Kurt Gödel, 1906-1978）在1931年证明了不完备性定理：任何足够强的一致形式系统都包含不可判定命题。艾伦·图灵（Alan Turing, 1912-1954…",
+    "e": "库尔特·哥德尔（Kurt Gödel, 1906–1978）于 1930 年 11 月 17 日把论文投给《数学与物理月刊》。1931 年刊出的《论〈数学原理〉及有关系统中形式上不可判定的命题…",
     "d": "mathematics"
   },
   "/mathematics/dialogues/grothendieck-serre": {
     "t": "格罗滕迪克 vs 塞尔：代数几何",
-    "e": "亚历山大·格罗滕迪克（Alexander Grothendieck, 1928-2014）是20世纪最具革命性的数学家之一。他在1960年代完全重建了代数几何的基础——引入了概形（scheme…",
+    "e": "这场对谈把 1955 到 1969 年的信件、讨论班和论著摊在一张桌上。两人当时的主要交流是信件与电话，并不总是对面而坐。皮埃尔·科尔梅兹与塞尔编订的《格罗滕迪克–塞尔通信集》（法文 2001…",
     "d": "mathematics"
   },
   "/mathematics/dialogues/hilbert-brouwer": {
     "t": "希尔伯特 vs 布劳威尔：形式主义 vs 直觉主义",
-    "e": "大卫·希尔伯特（David Hilbert, 1862-1943）是德国数学家，形式主义数学的奠基人。他的希尔伯特纲领试图将全部数学建立在有限的、一致的公理系统之上。他有一句名言：\"没有人能把…",
+    "e": "这场对话依据 1920 年代基础论争（Grundlagenstreit）中双方已发表的讲演、论文与公开冲突来编排，不是一次对坐的会谈。大卫·希尔伯特（David Hilbert, 1862–1…",
     "d": "mathematics"
   },
   "/mathematics/dialogues/hilbert-godel": {
     "t": "希尔伯特 vs 哥德尔：公理化纲领的终结",
-    "e": "大卫·希尔伯特（David Hilbert, 1862-1943）是德国数学家，20世纪最有影响力的数学家之一。他在1900年提出了著名的23个问题，为整个世纪的数学研究设定了议程。在数学基础…",
+    "e": "这场对话是反事实编排。大卫·希尔伯特（David Hilbert, 1862–1943）与库尔特·哥德尔（Kurt Gödel, 1906–1978）从未对坐。1930 年 9 月他们同在哥尼…",
     "d": "mathematics"
   },
   "/mathematics/dialogues/hilbert-poincare": {
     "t": "希尔伯特 vs 庞加莱：形式主义 vs 直觉",
-    "e": "大卫·希尔伯特（David Hilbert, 1862-1943）是德国数学家，形式主义的代表人物。他提出了著名的希尔伯特纲领：将全部数学形式化为一个完备的、一致的公理系统，并用有限方法证明这…",
+    "e": "大卫·希尔伯特（David Hilbert, 1862–1943）1899 年发表《几何基础》（Grundlagen der Geometrie），用五组公理——关联、顺序、合同、平行、连续—…",
     "d": "mathematics"
   },
   "/mathematics/dialogues/mandelbrot-julia": {
     "t": "曼德博 vs 茱莉亚：分形的两种视角",
-    "e": "贝努瓦·曼德博（Benoît Mandelbrot, 1924-2010）是法裔美国数学家，分形几何的创始人。他创造了\"分形\"（fractal）一词，并研究了曼德博集合——复平面上最著名的分形…",
+    "e": "这场对谈在时间上不能发生。",
     "d": "mathematics"
   },
   "/mathematics/dialogues/newton-leibniz": {
     "t": "牛顿 vs 莱布尼茨：微积分发明权",
-    "e": "艾萨克·牛顿（Isaac Newton, 1642-1727）和戈特弗里德·威廉·莱布尼茨（Gottfried Wilhelm Leibniz, 1646-1716）独立发明了微积分，引发了数…",
+    "e": "这场对谈没有发生过。艾萨克·牛顿（Isaac Newton, 1642–1727）与戈特弗里德·威廉·莱布尼茨（Gottfried Wilhelm Leibniz, 1646–1716）从未在…",
     "d": "mathematics"
   },
   "/mathematics/dialogues/noether-einstein": {
     "t": "诺特 vs 爱因斯坦：对称性与守恒律",
-    "e": "艾米·诺特（Emmy Noether, 1882-1935）是德国数学家，抽象代数的奠基人之一。她证明了著名的诺特定理——每一个连续对称性对应一个守恒律。她还在环论、理想论和表示论方面有开创性…",
+    "e": "艾米·诺特（Amalie Emmy Noether, 1882–1935）1882 年 3 月 23 日生于埃尔朗根。1915 年春，大卫·希尔伯特与菲利克斯·克莱因请她到哥廷根，要她用不变式…",
     "d": "mathematics"
   },
   "/mathematics/dialogues/plato-aristotle-math": {
     "t": "柏拉图 vs 亚里士多德：数学本体论",
-    "e": "柏拉图（Plato，约前428—前348）是古希腊哲学家，数学柏拉图主义的创始人。他认为数学对象（数、几何图形、集合）是真实存在的抽象实体，存在于一个独立于物理世界和人类心灵的\"理念世界\"中。…",
+    "e": "柏拉图（Plato，约前428—前348）在《理想国》第六、七卷把可见世界与可知世界分成一条“分割的线”：影像、可感事物、数学对象、理念。卫士先学算术、平面几何、立体几何、天文学与和声学，再进…",
     "d": "mathematics"
   },
   "/mathematics/dialogues/poincare-einstein": {
     "t": "庞加莱 vs 爱因斯坦：时间与空间的本质",
-    "e": "亨利·庞加莱（Henri Poincaré, 1854-1912）是法国数学家、物理学家和哲学家。他在数学的几乎每个分支都有开创性贡献，包括拓扑学、天体力学和偏微分方程。他也是约定主义哲学的代…",
+    "e": "亨利·庞加莱（Henri Poincaré, 1854–1912）1898 年在《时间的测量》里写：远距事件的同时性，只有靠约定才能获得意义；单程光速各向同性无法被实验单独核实。1900 年洛…",
     "d": "mathematics"
   },
   "/mathematics/dialogues/ramanujan-hardy": {
     "t": "拉马努金 vs 哈代：直觉与严格",
-    "e": "斯里尼瓦瑟·拉马努金（Srinivasa Ramanujan, 1887-1920）是印度数学家，20世纪最伟大的数论学家之一。他没有接受过正规的数学训练，却独立发现了数千个深刻的数学公式——…",
+    "e": "斯里尼瓦瑟·拉马努金（Srinivasa Ramanujan, 1887–1920）与戈弗雷·哈罗德·哈代（Godfrey Harold Hardy, 1877–1947）的合作，集中在 19…",
     "d": "mathematics"
   },
   "/mathematics/dialogues/wiles-taniyama": {
     "t": "怀尔斯 vs 谷山-志村：费马大定理的证明之路",
-    "e": "安德鲁·怀尔斯（Andrew Wiles, 1953—）是英国数学家。他在1994年证明了费马大定理——这个困扰数学家350多年的问题。他的证明使用了椭圆曲线和模形式之间的深刻联系——谷山-志…",
+    "e": "这场对谈在时间上不能发生。",
     "d": "mathematics"
   },
   "/mathematics/frontier/ai-formal-proof": {

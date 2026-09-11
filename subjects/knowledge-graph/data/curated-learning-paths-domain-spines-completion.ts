@@ -306,6 +306,44 @@ export const COMPLETION_DOMAIN_SPINE_PATHS: readonly CuratedLearningPath[] = [
     ],
   },
   {
+    id: "religion-sacred-spine",
+    scope: "domain-spine",
+    title: "从分类到世俗化之争",
+    question: "把实践叫做宗教之后，正典、比较与现代测量怎样改写对象？",
+    steps: [
+      {
+        nodeId: "religion:what-is-religion",
+        level: 1,
+        evidenceMode: "interpretation",
+        transition: "先把宗教当成可争辩的分类，而不是必须为真的教义。",
+      },
+      {
+        nodeId: "religion:ritual-and-practice",
+        level: 2,
+        evidenceMode: "comparative",
+        transition: "仪式把分类落实成可观察的社会位置转换。",
+      },
+      {
+        nodeId: "religion:axial-age-religions",
+        level: 3,
+        evidenceMode: "comparative",
+        transition: "若干文明在可纪年的文本里同时提出伦理—宇宙论问题。",
+      },
+      {
+        nodeId: "religion:scripture-and-canon",
+        level: 4,
+        evidenceMode: "formal",
+        transition: "正典是被反复抄写与考试的名单。",
+      },
+      {
+        nodeId: "religion:secularization-debate",
+        level: 5,
+        evidenceMode: "synthesis",
+        transition: "现代测量把参与、认同与制度特权拆开，宗教是否消退变成可争的曲线。",
+      },
+    ],
+  },
+  {
     id: "literature-story-spine",
     scope: "domain-spine",
     title: "从一则故事到正典之争",

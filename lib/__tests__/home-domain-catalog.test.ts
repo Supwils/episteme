@@ -8,6 +8,7 @@ const EXPECTED_DOMAIN_IDS = [
   "universe-physics",
   "cosmology",
   "human-history",
+  "religion",
   "philosophy",
   "arts",
   "literature",
@@ -32,6 +33,14 @@ describe("homepage domain catalog", () => {
 
     expect(domainIds).toEqual(EXPECTED_DOMAIN_IDS);
     expect(new Set(domainIds).size).toBe(domainIds.length);
+  });
+
+  it("includes religion in the accessibility scan inventory", () => {
+    const scan = readFileSync("scripts/a11y-scan.mjs", "utf8");
+    expect(scan).toContain('["宗教学", "/religion"');
+    expect(scan).toContain("/religion/religion-foundations/what-is-religion");
+    expect(scan).toContain("/religion/ritual-lab");
+    expect(scan).toContain("/religion/world-map");
   });
 
   it("derives the displayed subject count from the catalog", () => {

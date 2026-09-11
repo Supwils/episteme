@@ -155,7 +155,7 @@ test.describe("progressive enhancement without JavaScript", () => {
     expect(
       await page.locator('script[type="application/ld+json"]').allTextContents()
     ).toContainEqual(expect.stringContaining('"@type":"WebSite"'));
-    await expect(page.locator(".domain-card")).toHaveCount(19);
+    await expect(page.locator(".domain-card")).toHaveCount(20);
     const card = page.locator('.domain-card[href="/philosophy"]');
     await card.scrollIntoViewIfNeeded();
     await expect(card).toHaveCSS("opacity", "1");

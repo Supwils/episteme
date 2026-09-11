@@ -346,97 +346,97 @@
   },
   "/philosophy/dialogues/apology": {
     "t": "申辩篇",
-    "e": "《申辩篇》（希腊文 Ἀπολογία Σωκράτους，英文 Apology）",
+    "e": "《申辩篇》（希腊文 Ἀπολογία Σωκράτους，英文 Apology）写的是苏格拉底于公元前 399 年在雅典法庭上的辩护。希腊文 apologia 是辩护演说，不是道歉。斯蒂芬努斯…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/aristotle-avicenna": {
     "t": "亚里士多德 vs 阿维森纳：存在与本质",
-    "e": "存在与本质的关系问题是形而上学的核心议题之一。亚里士多德（Aristotle, 前384—前322）在雅典创立了实体理论，认为个别事物是第一实体，形式与质料的结合构成了现实存在。约一千三百年后…",
+    "e": "这场对话是事后编排，不是一次历史会面。亚里士多德（Aristotle，前 384—前 322）死于卡尔基斯，从未读过阿拉伯文。伊本·西那（Ibn Sīnā，拉丁世界称 Avicenna，980…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/confucius-socrates": {
     "t": "孔子 vs 苏格拉底：教育方法",
-    "e": "孔子（前551—前479）是中国最伟大的教育家，他开创了\"有教无类\"的传统，主张\"因材施教\"——根据学生的不同特点采用不同的教学方法。苏格拉底（Socrates, 前470—前399）是西方最…",
+    "e": "这场对话是反事实编排。孔子（传统纪年公元前 551—前 479）去世约十年后，苏格拉底（Socrates，约前 470—前 399）才出生。两人的生命不相交，地理上从未相遇。没有共同的城邦，没…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/crito": {
     "t": "克力同篇",
-    "e": "《克力同篇》（希腊文 Κρίτων，英文 Crito）是柏拉图的早期对话，",
+    "e": "《克力同篇》（希腊文 Κρίτων，英文 Crito）是柏拉图早期对话，斯蒂芬努斯页码 43a–54e。场景在狱中。苏格拉底已被判死刑，等候那艘前往德洛斯向阿波罗献祭的船回来——船在，城邦按习…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/curie-rutherford": {
     "t": "居里 vs 卢瑟福：放射性的本质",
-    "e": "1896年，亨利·贝克勒尔发现了铀的放射性。这一发现开启了原子物理学的新纪元。玛丽·居里（Marie Curie, 1867-1934）和欧内斯特·卢瑟福（Ernest Rutherford,…",
+    "e": "1896年，亨利·贝克勒尔发现铀盐能使底片感光。玛丽·居里（Marie Curie, 1867-1934）把这一现象命名为放射性，并证明它是原子自身的性质，不随化合状态改变。欧内斯特·卢瑟福（…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/darwin-marx": {
     "t": "达尔文 vs 马克思：进化与社会变革",
-    "e": "查尔斯·达尔文（Charles Darwin, 1809-1882）和卡尔·马克思（Karl Marx, 1818-1883）是十九世纪最具影响力的两位思想家。达尔文的《物种起源》（1859）…",
+    "e": "查尔斯·达尔文（Charles Darwin, 1809–1882）与卡尔·马克思（Karl Marx, 1818–1883）是同时代的人，却不是同盟。",
     "d": "philosophy"
   },
   "/philosophy/dialogues/darwin-wallace": {
     "t": "达尔文 vs 华莱士：自然选择的优先权",
-    "e": "1858年夏天，查尔斯·达尔文（Charles Darwin, 1809-1882）收到了一封来自马来群岛的信。信的作者是阿尔弗雷德·拉塞尔·华莱士（Alfred Russel Wallace…",
+    "e": "1858 年 2 月，阿尔弗雷德·拉塞尔·华莱士（Alfred Russel Wallace，1823–1913）在马鲁古群岛的特尔纳特（Ternate）写出一篇短文，题为《论变种无限偏离原始…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/descartes-nagarjuna": {
     "t": "笛卡尔 vs 龙树：确定性与空性",
-    "e": "勒内·笛卡尔（René Descartes, 1596—1650）通过系统性怀疑寻找确定性的基础，最终发现\"我思故我在\"（cogito ergo sum）是不可怀疑的真理。龙树（Nāgārju…",
+    "e": "这场对话是反事实编排。勒内·笛卡尔（René Descartes，1596—1650）与龙树（Nāgārjuna）相隔约十四个世纪，没有共同的论敌，也没有可对勘的通信。把他们放进同一场，是为了…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/einstein-bohr": {
     "t": "爱因斯坦 vs 玻尔：量子力学的诠释",
-    "e": "1927年，第五届索尔维会议在布鲁塞尔召开。这是物理学史上最著名的会议之一。阿尔伯特·爱因斯坦（Albert Einstein, 1879-1955）和尼尔斯·玻尔（Niels Bohr, 1…",
+    "e": "1927 年 10 月 24–29 日，第五届索尔维会议在布鲁塞尔召开。议题是电子与光子。阿尔伯特·爱因斯坦（Albert Einstein，1879–1955）与尼尔斯·玻尔（Niels B…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/euthyphro": {
     "t": "欧绪弗罗篇",
-    "e": "《欧绪弗罗篇》（希腊文 Εὐθύφρων，英文 Euthyphro）是柏拉图的早期对话，",
+    "e": "《欧绪弗罗篇》（希腊文 Εὐθύφρων，英文 Euthyphro）是柏拉图早期对话，斯蒂芬努斯页码 2a–16a。场景在王者廊（Stoa of the King）前。苏格拉底刚被美勒托斯起诉…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/galileo-campanella": {
     "t": "伽利略 vs 康帕内拉：科学与乌托邦",
-    "e": "伽利略·伽利莱（Galileo Galilei, 1564-1642）是意大利物理学家、天文学家，被誉为\"现代科学之父\"。他用望远镜观察天空，支持哥白尼的日心说，最终被罗马宗教裁判所审判。",
+    "e": "伽利略·伽利莱（Galileo Galilei, 1564-1642）用望远镜把木星的卫星、月球的山与金星的位相变成可争论的事实，并因此在1616年受到警告、在1633年被罗马圣职部判为“重大…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/gettier-dialogue": {
     "t": "葛梯尔问题",
-    "e": "葛梯尔问题（The Gettier Problem）是20世纪分析认识论中最重要的\"问题文献\"（problem paper）之一，由美国哲学家埃德蒙德·葛梯尔（Edmund L. Gettie…",
+    "e": "葛梯尔问题（The Gettier Problem）是二十世纪分析认识论里最著名的一篇“问题文献”。1963 年 6 月，美国哲学家埃德蒙德·葛梯尔（Edmund L. Gettier III…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/gorgias-dialogue": {
     "t": "柏拉图《高尔吉亚篇》",
-    "e": "《高尔吉亚篇》（希腊文 Γοργίας，英文 Gorgias）是柏拉图的中期早期对话，",
+    "e": "《高尔吉亚篇》（希腊文 Γοργίας，英文 Gorgias）是柏拉图中期偏早的长篇对话，斯蒂芬努斯页码 447a–527e。场景在卡里克勒斯家里，高尔吉亚刚做完一场展示演说。苏格拉底来晚了，…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/hegel-nietzsche": {
     "t": "黑格尔 vs 尼采：历史的目的",
-    "e": "格奥尔格·威廉·弗里德里希·黑格尔（Georg Wilhelm Friedrich Hegel, 1770—1831）在柏林大学构建了宏大的历史哲学体系，主张历史是绝对精神（Absoluter…",
+    "e": "格奥尔格·威廉·弗里德里希·黑格尔（Georg Wilhelm Friedrich Hegel, 1770–1831）于 1831 年 11 月 14 日在柏林死于霍乱。弗里德里希·尼采（Fr…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/hippocrates-sima-qian": {
     "t": "希波克拉底 vs 司马迁：记录历史与疾病",
-    "e": "希波克拉底（Hippocrates, 约公元前460-370年）是古希腊最著名的医生，被誉为\"医学之父\"。他的学派留下了大量医学文献——《希波克拉底文集》，记录了疾病的症状、治疗和预后。",
+    "e": "希波克拉底传统上约生于公元前 460 年，卒于公元前四世纪前半，科斯岛人。署他名字的《希波克拉底文集》约六十种，多数写于前五世纪末到前四世纪，并非一人一时；其中《流行病》第一、三卷、《论空气、…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/hypatia-hildegard": {
     "t": "希帕蒂亚 vs 希尔德加德：女性与知识",
-    "e": "希帕蒂亚（Hypatia, 约350-415年）是古罗马时期亚历山大城的数学家、天文学家和哲学家。她是新柏拉图主义学派的领袖，在亚历山大博物馆任教。公元415年，她被一群基督教暴徒杀害，成为古…",
+    "e": "希帕蒂亚（Hypatia，约 350–370 年生，415 年 3 月卒）是罗马帝国晚期亚历山大城的新柏拉图派哲学家、数学家与天文学家。父亲席昂（Theon of Alexandria）是目前…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/kant-confucius": {
     "t": "康德 vs 孔子：道德的普遍性",
-    "e": "伊曼努尔·康德（Immanuel Kant, 1724—1804）在哥尼斯堡建立了以绝对命令为核心的道德哲学，主张道德法则必须是普遍的、无条件的。孔子（前551—前479）则以仁、义、礼为基础…",
+    "e": "这场对话是反事实编排。伊曼努尔·康德（Immanuel Kant，1724—1804）与孔子（传统纪年公元前 551—前 479）不在同一条时间线上。两人从未通信。把他们放进同一场，是为了让两…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/laozi-thoreau": {
     "t": "老子 vs 梭罗：自然与简朴",
-    "e": "老子（约前6世纪）是中国道家的创始人，他在《道德经》中提出了\"道法自然\"和\"无为而治\"的思想——最高的智慧是顺应自然，不强求、不执着。亨利·大卫·梭罗（Henry David Thoreau,…",
+    "e": "这场对话是跨时代虚构。传统记载把老子放在春秋，约公元前 6 世纪，与孔子同时；司马迁《史记》写过周守藏室史、出关、著五千言。现代学者对此并不一致：有人认为老聃其人大体可取，有人认为\"老子\"主要…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/laws": {
     "t": "法律篇",
-    "e": "《法律篇》（希腊文 Νόμοι，英文 Laws）",
+    "e": "《法律篇》（希腊文 Νόμοι，英文 Laws）是柏拉图最后也是最长的对话，斯蒂芬努斯页码 624a–969d，十二卷，篇幅超过《理想国》。苏格拉底完全缺席。发言的是一位匿名的雅典陌生人，以及…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/marcus-epictetus": {
@@ -446,52 +446,52 @@
   },
   "/philosophy/dialogues/marx-confucius": {
     "t": "马克思 vs 孔子：社会变革",
-    "e": "卡尔·马克思（Karl Marx, 1818—1883）在伦敦的大英博物馆里写下了《资本论》，提出阶级斗争和历史唯物主义，主张通过革命推翻资本主义制度。孔子（前551—前479）在春秋乱世中周…",
+    "e": "这场对话是反事实编排。卡尔·马克思（Karl Marx, 1818—1883）与孔子（孔丘，传统纪年约前 551—前 479）不在同一条时间线上。马克思在伦敦写下《资本论》第一卷（1867），…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/marx-ibn-khaldun": {
     "t": "马克思 vs 伊本·赫勒敦：历史唯物主义 vs 文明周期",
-    "e": "卡尔·马克思（Karl Marx, 1818—1883）的历史唯物主义认为，经济基础决定上层建筑，阶级斗争是历史发展的动力。伊本·赫勒敦（Ibn Khaldun, 1332—1406）是阿拉伯…",
+    "e": "这场对话是反事实编排。卡尔·马克思（Karl Marx，1818—1883）与伊本·赫勒敦（Ibn Khaldun，1332—1406）不在同一条时间线上。两人从未通信，也没有共同的论敌。把他…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/meno": {
     "t": "美诺篇",
-    "e": "《美诺篇》（希腊文 Μένων，英文 Meno）是柏拉图从早期过渡到中期的重要对话，",
+    "e": "《美诺篇》（希腊文 Μένων，英文 Meno）是柏拉图从早期过渡到中期的对话，斯蒂芬努斯页码 70a–100b。它以一个实践问题开场——美德（aretē）是否可教？——随即表明：若不先回答“…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/natural-religion": {
     "t": "自然宗教对话录",
-    "e": "《自然宗教对话录》（Dialogues Concerning Natural Religion）是苏格兰哲学家大卫·休谟（David Hume，1711–1776）的宗教哲学杰作。休谟大约在1…",
+    "e": "《自然宗教对话录》（英文 Dialogues Concerning Natural Religion）是大卫·休谟大约在 1750 年代起稿、1779 年由其侄子在身后刊行的对话。外层是帕姆菲…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/newton-leibniz": {
     "t": "牛顿 vs 莱布尼茨：微积分的发明权",
-    "e": "微积分的发明是数学史上最伟大也最具争议的事件之一。艾萨克·牛顿（Isaac Newton, 1642-1727）在1660年代就发展了他的\"流数法\"（method of fluxions），但…",
+    "e": "微积分的发明权之争不是一场对坐问答。",
     "d": "philosophy"
   },
   "/philosophy/dialogues/nietzsche-buddha": {
     "t": "尼采 vs 释迦牟尼：苦难与超越",
-    "e": "弗里德里希·尼采（Friedrich Nietzsche, 1844—1900）宣称\"上帝已死\"，提出超人（Übermensch）和永恒回归的思想，主张以 amor fati（热爱命运）的态度…",
+    "e": "传统纪年把乔达摩·悉达多的入灭放在约前 483 年；现代研究常把活动年代下移到前五至四世纪。弗里德里希·尼采（1844–1900）晚了两千多年。他没有读过巴利文原典。他关于佛教的句子，主要来自…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/parmenides-dialogue": {
     "t": "柏拉图《巴门尼德篇》",
-    "e": "《巴门尼德篇》（希腊文 Παρμενίδης，英文 Parmenides）",
+    "e": "《巴门尼德篇》（希腊文 Παρμενίδης，英文 Parmenides）是柏拉图最难解、争议最大的对话之一，斯蒂芬努斯页码范围为 126a–166c。",
     "d": "philosophy"
   },
   "/philosophy/dialogues/phaedo": {
     "t": "斐多篇",
-    "e": "《斐多篇》（希腊文 Φαίδων，英文 Phaedo）",
+    "e": "《斐多篇》（希腊文 Φαίδων，英文 Phaedo）是柏拉图中期对话，斯蒂芬努斯页码 57a–118a。外层在弗里乌斯：斐多向厄克克拉底转述苏格拉底饮鸩当日的谈话。内层在狱中。主要对话者是底…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/phaedrus": {
     "t": "斐德罗篇",
-    "e": "《斐德罗篇》（希腊文 Φαῖδρος，英文 Phaedrus）",
+    "e": "《斐德罗篇》（希腊文 Φαῖδρος，英文 Phaedrus）是柏拉图成熟期对话，斯蒂芬努斯页码 227a–279c。场景在雅典城外伊利索斯河畔一棵法桐树下。苏格拉底极少出城。斐德罗手里攥着吕…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/philebus": {
     "t": "斐莱布篇",
-    "e": "《斐莱布篇》（希腊文 Φίληβος，英文 Philebus）",
+    "e": "《斐莱布篇》（希腊文 Φίληβος，英文 Philebus）是柏拉图后期伦理学对话，斯蒂芬努斯页码 11a–67b。开场就把一个旧争端摊开：人类的善（to agathon）是快乐（hēdon…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/plato-confucius": {
@@ -506,27 +506,27 @@
   },
   "/philosophy/dialogues/sartre-laozi": {
     "t": "萨特 vs 老子：自由与无为",
-    "e": "让-保罗·萨特（Jean-Paul Sartre, 1905—1980）在巴黎的咖啡馆里写下了《存在与虚无》，宣称人是\"被判定为自由的\"——我们没有固定的本质，必须通过选择来定义自己。老子（约…",
+    "e": "这场对话是反事实编排。让-保罗·萨特（Jean-Paul Sartre，1905—1980）与被称作“老子”的作者不在同一条时间线上，也没有共同的论敌。萨特的主要哲学文本是 1943 年的《存…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/sophist": {
     "t": "智者篇",
-    "e": "柏拉图中期至晚期的过渡性对话，写作年代约在公元前360年前后。它与《政治家篇》以及一部计划中的《哲学家篇》（柏拉图最终从未写成）构成一个三部曲，前两篇由同一批人物在同一天的对话中展开。《智者篇…",
+    "e": "《智者篇》（希腊文 Σοφιστής，英文 Sophist）是柏拉图晚期对话，斯蒂芬努斯页码 216a–268d。戏剧时间紧接《泰阿泰德篇》，约在苏格拉底受审前夕。主导者不是苏格拉底，而是塞奥…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/statesman": {
     "t": "政治家篇",
-    "e": "《政治家篇》（Politikos / Statesman）是柏拉图晚期三部曲中的第二部，接续《智者篇》（同一天发生的对话），是《哲学家篇》（未完成）的前奏。写作年代约在公元前360年代，属于柏…",
+    "e": "《政治家篇》（希腊文 Πολιτικός，英文 Statesman）是柏拉图晚期对话，斯蒂芬努斯页码 257a–311c。戏剧时间紧接《智者篇》，同一天。主导者仍是爱利亚陌生人；年轻的泰阿泰德…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/symposium": {
     "t": "会饮篇",
-    "e": "《会饮篇》（Symposion）写作年代约在公元前385–370年之间，是柏拉图文学成就最高的作品之一，也是西方哲学史上最美丽的文本之一。它以公元前416年的一场宴会为背景（即悲剧诗人阿伽松赢…",
+    "e": "《会饮篇》（希腊文 Συμπόσιον，英文 Symposium）约作于公元前 385–370 年，戏剧时间落在前 416 年阿伽松首次夺冠的庆功宴上。叙事是回忆的回忆：阿波罗多洛斯对一位朋友…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/the-republic": {
     "t": "理想国",
-    "e": "《理想国》（Politeia / The Republic）是柏拉图最宏大、影响最深远的著作，写作年代约在公元前380年代，属于中期对话。它以\"正义是什么\"为切入点，展开了涵盖伦理学、政治哲学…",
+    "e": "《理想国》（希腊文 Πολιτεία，英文 Republic）是柏拉图中期最长的对话，斯蒂芬努斯页码 327a–621d。它以“正义是什么、正义的人是否更幸福”开场，用城邦作大写的字母去读灵魂…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/theaetetus": {
@@ -541,12 +541,12 @@
   },
   "/philosophy/dialogues/timaeus": {
     "t": "蒂迈欧篇",
-    "e": "《蒂迈欧篇》（Timaios）是柏拉图晚期最重要的对话之一，写作年代约在公元前360–355年，与《克里提亚斯篇》（未完成）构成一组。它是古希腊最完整的宇宙论叙述，也是西方哲学史上影响最深远的…",
+    "e": "《蒂迈欧篇》（希腊文 Τίμαιος，英文 Timaeus）是柏拉图晚期对话，斯蒂芬努斯页码 17a–92c。开场由苏格拉底点名，要看昨天那个城邦里的人如何行动；克里提亚斯答应稍后讲雅典与亚特…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/turing-godel": {
     "t": "图灵 vs 哥德尔：可计算性与不完备性",
-    "e": "库尔特·哥德尔（Kurt Gödel, 1906-1978）是奥地利-美国数学家和逻辑学家。1931年，他证明了不完备性定理——任何足够强的形式系统都包含不可证明的真命题。这一定理震撼了数学的…",
+    "e": "这场对话是反事实编排。库尔特·哥德尔（Kurt Gödel, 1906–1978）与艾伦·图灵（Alan Turing, 1912–1954）从未见面。图灵 1936 年秋到普林斯顿，本想遇见…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/two-new-sciences": {
@@ -556,12 +556,12 @@
   },
   "/philosophy/dialogues/watson-franklin": {
     "t": "沃森 vs 富兰克林：DNA 双螺旋",
-    "e": "1953年4月25日，《自然》杂志发表了三篇论文，揭示了DNA的双螺旋结构。詹姆斯·沃森（James Watson, 1928-）和弗朗西斯·克里克（Francis Crick, 1916-2…",
+    "e": "1953年4月25日，《自然》同一期连续刊出三篇关于DNA结构的短文。排在最前的是詹姆斯·沃森（James Watson, 1928-2025）与弗朗西斯·克里克（Francis Crick,…",
     "d": "philosophy"
   },
   "/philosophy/dialogues/wittgenstein-zhuangzi": {
     "t": "维特根斯坦 vs 庄子：语言的界限",
-    "e": "路德维希·维特根斯坦（Ludwig Wittgenstein, 1889—1951）在剑桥写下了两部划时代的哲学著作：《逻辑哲学论》和《哲学研究》。前者主张\"凡不可说的，必须沉默\"；后者提出\"…",
+    "e": "这场对话是反事实编排。路德维希·维特根斯坦（Ludwig Wittgenstein，1889—1951）与庄周不在同一条时间线上。两人从未通信，也没有共同的论敌。把他们放进同一场，是为了让两种…",
     "d": "philosophy"
   },
   "/philosophy/experiments/brain-in-vat": {

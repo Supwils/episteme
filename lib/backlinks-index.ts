@@ -23866,6 +23866,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "疟疾",
     },
     {
+      url: "/economics/dialogues/piketty-milanovic-inequality",
+      title: "皮凯蒂vs米拉诺维奇：全球不平等的未来",
+    },
+    {
       url: "/economics/frontier/degrowth-vs-green-growth",
       title: "去增长与绿色增长之争：脱钩证据的边界在哪里",
     },
@@ -24296,6 +24300,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/policy-analyses/mexico-progresa-cash-transfer",
       title: "墨西哥 PROGRESA 政策剖析",
+    },
+    {
+      url: "/economics/dialogues/piketty-milanovic-inequality",
+      title: "皮凯蒂vs米拉诺维奇：全球不平等的未来",
     },
     {
       url: "/human-history/knowledge/古典时期--亚洲--秦汉帝国",
@@ -26138,6 +26146,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/human-history/knowledge/事件--一战": [
     {
+      url: "/human-history/knowledge/事件--二战",
+      title: "第二次世界大战",
+    },
+    {
       url: "/human-history/knowledge/事件--二战爆发",
       title: "二战爆发",
     },
@@ -26206,6 +26218,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "布雷顿森林体系",
     },
     {
+      url: "/human-history/knowledge/事件--二战爆发",
+      title: "二战爆发",
+    },
+    {
       url: "/political-science/thinkers/hannah-arendt",
       title: "汉娜·阿伦特",
     },
@@ -26232,6 +26248,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/human-history/knowledge/事件--二战爆发": [
     {
+      url: "/human-history/knowledge/事件--二战",
+      title: "第二次世界大战",
+    },
+    {
       url: "/human-history/knowledge/事件--一战",
       title: "第一次世界大战",
     },
@@ -26252,6 +26272,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/international-relations/containment",
       title: "遏制战略",
+    },
+    {
+      url: "/human-history/knowledge/事件--二战爆发",
+      title: "二战爆发",
     },
     {
       url: "/cosmology/knowledge-base/天体生物学--fermi-paradox",
@@ -34208,6 +34232,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "语言的进化：FOXP2、布洛卡区与符号能力",
     },
     {
+      url: "/psychology/knowledge-base/psycholinguistics",
+      title: "语言心理学：大脑如何生产与理解语言",
+    },
+    {
       url: "/life-science/knowledge-base/进化机制--evo-devo",
       title: "Evo-Devo：演化改写的不是零件，而是说明书",
     },
@@ -41742,6 +41770,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "弱引力透镜与宇宙剪切",
     },
     {
+      url: "/medicine/concepts/screening-and-early-detection",
+      title: "筛查与早期发现",
+    },
+    {
       url: "/philosophy/questions/does-god-exist",
       title: "上帝存在吗？",
     },
@@ -42006,6 +42038,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/schools/cognitive-behavioral-therapy",
       title: "认知行为疗法",
+    },
+    {
+      url: "/medicine/concepts/screening-and-early-detection",
+      title: "筛查与早期发现",
     },
     {
       url: "/medicine/public-health/implementation-science-health-policy",
@@ -43617,6 +43653,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/life-science/knowledge-base/生理学--睡眠的生物学",
       title: "睡眠的生物学：大脑为什么必须关机",
     },
+    {
+      url: "/medicine/trial-analyses/clarity-ad-lecanemab",
+      title: "Clarity AD 仑卡奈单抗试验",
+    },
   ],
   "/medicine/diseases/anxiety-disorders": [
     {
@@ -43744,6 +43784,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/生态学--热带雨林",
       title: "热带雨林：地球生物多样性的宝库",
+    },
+    {
+      url: "/medicine/concepts/screening-and-early-detection",
+      title: "筛查与早期发现",
     },
     {
       url: "/life-science/knowledge-base/进化专题--生物发光",
@@ -43960,6 +44004,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/frontier/glp1-incretin-obesity",
       title: 'GLP-1 与肠促胰素：肥胖治疗从"减肥针"回到激素回路',
+    },
+    {
+      url: "/medicine/trial-analyses/select-semaglutide",
+      title: "SELECT 司美格鲁肽心血管结局试验",
     },
     {
       url: "/medicine/trial-analyses/sprint-blood-pressure-target-trial",
@@ -46643,6 +46691,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/medicine/trial-analyses/select-semaglutide": [
+    {
+      url: "/medicine/diseases/obesity",
+      title: "肥胖",
+    },
     {
       url: "/medicine/frontier/glp1-incretin-obesity",
       title: 'GLP-1 与肠促胰素：肥胖治疗从"减肥针"回到激素回路',
@@ -49508,6 +49560,44 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "量子力学诠释",
     },
   ],
+  "/philosophy/dialogues/natural-religion": [
+    {
+      url: "/religion/comparative-religion/gods-and-the-one",
+      title: "多神与一神",
+    },
+    {
+      url: "/religion/texts-and-canons/scripture-and-canon",
+      title: "经典与正典",
+    },
+    {
+      url: "/religion/comparative-religion/mysticism-across-traditions",
+      title: "跨传统的神秘主义",
+    },
+    {
+      url: "/religion/secularization/disenchantment-and-reenchantment",
+      title: "祛魅与再魅",
+    },
+    {
+      url: "/religion/religion-foundations/what-is-religion",
+      title: "什么是宗教",
+    },
+    {
+      url: "/religion/religion-foundations/myth-and-cosmos",
+      title: "神话与宇宙论",
+    },
+    {
+      url: "/religion/secularization/atheism-and-nonreligion",
+      title: "无神论与非宗教",
+    },
+    {
+      url: "/religion/religion-foundations/religious-experience",
+      title: "宗教经验",
+    },
+    {
+      url: "/religion/secularization/religion-and-science",
+      title: "宗教与科学",
+    },
+  ],
   "/philosophy/experiments/chinese-room": [
     {
       url: "/philosophy/frontier/llm-language-understanding",
@@ -50462,16 +50552,56 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "安贝德卡尔",
     },
     {
+      url: "/religion/religion-and-society/pilgrimage-and-sacred-space",
+      title: "朝圣与圣地",
+    },
+    {
       url: "/philosophy/concepts/dharma",
       title: "法",
+    },
+    {
+      url: "/religion/texts-and-canons/scripture-and-canon",
+      title: "经典与正典",
+    },
+    {
+      url: "/religion/texts-and-canons/oral-and-written-transmission",
+      title: "口传与书写",
+    },
+    {
+      url: "/religion/comparative-religion/mysticism-across-traditions",
+      title: "跨传统的神秘主义",
+    },
+    {
+      url: "/religion/comparative-religion/afterlife-and-salvation",
+      title: "来世与救赎",
+    },
+    {
+      url: "/religion/religion-foundations/myth-and-cosmos",
+      title: "神话与宇宙论",
     },
     {
       url: "/philosophy/thinkers/schopenhauer",
       title: "叔本华",
     },
     {
+      url: "/religion/secularization/atheism-and-nonreligion",
+      title: "无神论与非宗教",
+    },
+    {
       url: "/philosophy/schools/hindu-philosophy",
       title: "印度哲学六派",
+    },
+    {
+      url: "/religion/religious-history/axial-age-religions",
+      title: "轴心时代",
+    },
+    {
+      url: "/religion/texts-and-canons/commentary-and-interpretation",
+      title: "注疏与解释",
+    },
+    {
+      url: "/religion/religion-foundations/religious-experience",
+      title: "宗教经验",
     },
   ],
   "/philosophy/schools/chinese-buddhism": [
@@ -50480,8 +50610,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "版画与复制技术",
     },
     {
+      url: "/religion/religion-and-society/pilgrimage-and-sacred-space",
+      title: "朝圣与圣地",
+    },
+    {
       url: "/philosophy/thinkers/duns-scotus",
       title: "邓斯·司各脱",
+    },
+    {
+      url: "/religion/religious-history/empire-and-mission",
+      title: "帝国与传教",
     },
     {
       url: "/arts/architecture/east-asian-timber-frame",
@@ -50498,6 +50636,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/文化交流--佛教东传",
       title: "佛教东传",
+    },
+    {
+      url: "/religion/comparative-religion/mysticism-across-traditions",
+      title: "跨传统的神秘主义",
+    },
+    {
+      url: "/religion/comparative-religion/afterlife-and-salvation",
+      title: "来世与救赎",
+    },
+    {
+      url: "/religion/religion-and-society/diaspora-and-conversion",
+      title: "离散与改宗",
+    },
+    {
+      url: "/religion/religion-foundations/myth-and-cosmos",
+      title: "神话与宇宙论",
+    },
+    {
+      url: "/religion/texts-and-canons/translation-of-sacred-texts",
+      title: "圣典翻译",
     },
     {
       url: "/arts/media/fresco-and-wall-painting",
@@ -50518,6 +50676,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/traditions/chinese-painting",
       title: "中国书画：笔墨与意境",
+    },
+    {
+      url: "/religion/religious-history/axial-age-religions",
+      title: "轴心时代",
+    },
+    {
+      url: "/religion/texts-and-canons/commentary-and-interpretation",
+      title: "注疏与解释",
+    },
+    {
+      url: "/religion/religion-foundations/religious-experience",
+      title: "宗教经验",
     },
   ],
   "/philosophy/schools/confucianism": [
@@ -51616,16 +51786,36 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "道家哲学体系",
     },
     {
+      url: "/religion/comparative-religion/gods-and-the-one",
+      title: "多神与一神",
+    },
+    {
       url: "/philosophy/schools/legalism",
       title: "法家",
+    },
+    {
+      url: "/religion/secularization/civil-religion",
+      title: "公民宗教",
     },
     {
       url: "/philosophy/thinkers/heraclitus",
       title: "赫拉克利特",
     },
     {
+      url: "/religion/texts-and-canons/scripture-and-canon",
+      title: "经典与正典",
+    },
+    {
       url: "/human-history/knowledge/人物--孔子",
       title: "孔子",
+    },
+    {
+      url: "/religion/texts-and-canons/oral-and-written-transmission",
+      title: "口传与书写",
+    },
+    {
+      url: "/religion/religion-and-society/diaspora-and-conversion",
+      title: "离散与改宗",
     },
     {
       url: "/philosophy/concepts/li",
@@ -51636,8 +51826,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "墨家",
     },
     {
+      url: "/religion/religion-foundations/myth-and-cosmos",
+      title: "神话与宇宙论",
+    },
+    {
       url: "/arts/architecture/sacred-spaces",
       title: "神圣空间：神庙、教堂与清真寺",
+    },
+    {
+      url: "/religion/religious-history/formation-of-world-religions",
+      title: "世界宗教的形成",
+    },
+    {
+      url: "/religion/texts-and-canons/apocrypha-and-canon-contests",
+      title: "伪经与正典之争",
     },
     {
       url: "/philosophy/concepts/wu-wei",
@@ -51646,6 +51848,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/xunzi-extended",
       title: "荀子深度扩展",
+    },
+    {
+      url: "/religion/religion-foundations/ritual-and-practice",
+      title: "仪式与实践",
     },
     {
       url: "/sociology/concepts/chinese-social-thought",
@@ -51658,6 +51864,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/zhou-dunyi",
       title: "周敦颐",
+    },
+    {
+      url: "/religion/religious-history/axial-age-religions",
+      title: "轴心时代",
+    },
+    {
+      url: "/religion/texts-and-canons/commentary-and-interpretation",
+      title: "注疏与解释",
+    },
+    {
+      url: "/religion/comparative-religion/religious-law-and-ethics",
+      title: "宗教法与伦理",
+    },
+    {
+      url: "/religion/religion-and-society/religion-and-gender",
+      title: "宗教与性别",
     },
   ],
   "/philosophy/thinkers/david-lewis": [
@@ -52290,8 +52512,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "超验主义",
     },
     {
+      url: "/religion/comparative-religion/gods-and-the-one",
+      title: "多神与一神",
+    },
+    {
       url: "/mathematics/knowledge-base/几何--非欧几何革命",
       title: "非欧几何革命",
+    },
+    {
+      url: "/religion/religious-history/reform-and-revival",
+      title: "改革与复兴",
     },
     {
       url: "/philosophy/thinkers/hannah-arendt",
@@ -52330,12 +52560,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "启蒙运动",
     },
     {
+      url: "/religion/secularization/disenchantment-and-reenchantment",
+      title: "祛魅与再魅",
+    },
+    {
       url: "/political-science/isms/communitarianism",
       title: "社群主义",
     },
     {
+      url: "/religion/religion-foundations/what-is-religion",
+      title: "什么是宗教",
+    },
+    {
+      url: "/religion/religion-foundations/sacred-and-profane",
+      title: "神圣与凡俗",
+    },
+    {
       url: "/arts/aesthetics/aesthetics-taste-judgment",
       title: "审美判断：休谟、康德与趣味的标准之争",
+    },
+    {
+      url: "/religion/texts-and-canons/translation-of-sacred-texts",
+      title: "圣典翻译",
     },
     {
       url: "/political-science/isms/cosmopolitanism",
@@ -52350,6 +52596,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "托马斯·霍布斯",
     },
     {
+      url: "/religion/secularization/atheism-and-nonreligion",
+      title: "无神论与非宗教",
+    },
+    {
       url: "/law/private-law/property-and-ownership",
       title: "物与所有权：一捆权利的故事",
     },
@@ -52362,12 +52612,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "知情同意",
     },
     {
+      url: "/religion/texts-and-canons/commentary-and-interpretation",
+      title: "注疏与解释",
+    },
+    {
       url: "/political-science/concepts/liberty",
       title: "自由",
     },
     {
       url: "/political-science/isms/liberalism",
       title: "自由主义",
+    },
+    {
+      url: "/religion/comparative-religion/religious-law-and-ethics",
+      title: "宗教法与伦理",
+    },
+    {
+      url: "/religion/religion-foundations/religious-experience",
+      title: "宗教经验",
+    },
+    {
+      url: "/religion/secularization/religion-and-science",
+      title: "宗教与科学",
     },
   ],
   "/philosophy/thinkers/kierkegaard": [
@@ -52517,6 +52783,54 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/philosophy/thinkers/ambedkar",
       title: "安贝德卡尔",
     },
+    {
+      url: "/religion/religious-history/religion-in-the-twentieth-century",
+      title: "二十世纪的宗教",
+    },
+    {
+      url: "/religion/comparative-religion/afterlife-and-salvation",
+      title: "来世与救赎",
+    },
+    {
+      url: "/religion/religion-foundations/what-is-religion",
+      title: "什么是宗教",
+    },
+    {
+      url: "/religion/religious-history/formation-of-world-religions",
+      title: "世界宗教的形成",
+    },
+    {
+      url: "/religion/secularization/secularization-debate",
+      title: "世俗化之争",
+    },
+    {
+      url: "/religion/texts-and-canons/apocrypha-and-canon-contests",
+      title: "伪经与正典之争",
+    },
+    {
+      url: "/religion/secularization/atheism-and-nonreligion",
+      title: "无神论与非宗教",
+    },
+    {
+      url: "/religion/religious-history/axial-age-religions",
+      title: "轴心时代",
+    },
+    {
+      url: "/religion/comparative-religion/religious-law-and-ethics",
+      title: "宗教法与伦理",
+    },
+    {
+      url: "/religion/religion-and-society/religion-and-violence",
+      title: "宗教与暴力",
+    },
+    {
+      url: "/religion/religion-and-society/religion-and-gender",
+      title: "宗教与性别",
+    },
+    {
+      url: "/religion/religion-and-society/religion-and-politics",
+      title: "宗教与政治",
+    },
   ],
   "/philosophy/thinkers/mencius": [
     {
@@ -52622,8 +52936,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "弗朗西斯·福山",
     },
     {
+      url: "/religion/religious-history/reform-and-revival",
+      title: "改革与复兴",
+    },
+    {
       url: "/philosophy/thinkers/heraclitus",
       title: "赫拉克利特",
+    },
+    {
+      url: "/religion/comparative-religion/mysticism-across-traditions",
+      title: "跨传统的神秘主义",
+    },
+    {
+      url: "/religion/comparative-religion/afterlife-and-salvation",
+      title: "来世与救赎",
+    },
+    {
+      url: "/religion/secularization/disenchantment-and-reenchantment",
+      title: "祛魅与再魅",
+    },
+    {
+      url: "/religion/religion-foundations/sacred-and-profane",
+      title: "神圣与凡俗",
+    },
+    {
+      url: "/religion/texts-and-canons/translation-of-sacred-texts",
+      title: "圣典翻译",
     },
     {
       url: "/philosophy/thinkers/schopenhauer",
@@ -52632,6 +52970,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/socrates",
       title: "苏格拉底",
+    },
+    {
+      url: "/religion/secularization/atheism-and-nonreligion",
+      title: "无神论与非宗教",
+    },
+    {
+      url: "/religion/religion-foundations/religious-experience",
+      title: "宗教经验",
+    },
+    {
+      url: "/religion/religion-and-society/religion-and-violence",
+      title: "宗教与暴力",
+    },
+    {
+      url: "/religion/secularization/religion-and-science",
+      title: "宗教与科学",
     },
   ],
   "/philosophy/thinkers/nozick": [
@@ -52702,6 +53056,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "毕达哥拉斯",
     },
     {
+      url: "/religion/comparative-religion/gods-and-the-one",
+      title: "多神与一神",
+    },
+    {
       url: "/philosophy/thinkers/al-farabi",
       title: "法拉比",
     },
@@ -52710,12 +53068,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "高尔吉亚",
     },
     {
+      url: "/religion/secularization/civil-religion",
+      title: "公民宗教",
+    },
+    {
       url: "/arts/aesthetics/art-and-skill",
       title: "技艺之争：艺术何时成为艺术",
     },
     {
+      url: "/religion/texts-and-canons/scripture-and-canon",
+      title: "经典与正典",
+    },
+    {
+      url: "/religion/texts-and-canons/oral-and-written-transmission",
+      title: "口传与书写",
+    },
+    {
       url: "/arts/aesthetics/what-is-beauty",
       title: "美是什么：客观之美与趣味判断的千年争论",
+    },
+    {
+      url: "/religion/religion-foundations/myth-and-cosmos",
+      title: "神话与宇宙论",
     },
     {
       url: "/philosophy/thinkers/schopenhauer",
@@ -52728,6 +53102,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/人物--苏格拉底",
       title: "苏格拉底",
+    },
+    {
+      url: "/religion/texts-and-canons/apocrypha-and-canon-contests",
+      title: "伪经与正典之争",
     },
     {
       url: "/human-history/knowledge/古典时期--欧洲--希腊城邦",
@@ -52753,6 +53131,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/philosophy/concepts/knowledge",
       title: "知识",
     },
+    {
+      url: "/religion/religious-history/axial-age-religions",
+      title: "轴心时代",
+    },
+    {
+      url: "/religion/comparative-religion/religious-law-and-ethics",
+      title: "宗教法与伦理",
+    },
+    {
+      url: "/religion/secularization/religion-and-science",
+      title: "宗教与科学",
+    },
   ],
   "/philosophy/thinkers/plotinus": [
     {
@@ -52776,6 +53166,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/theorems/riemann-hypothesis",
       title: "黎曼猜想",
+    },
+    {
+      url: "/psychology/experiments/dream-analysis-technique",
+      title: "梦的分析技术",
     },
     {
       url: "/economics/economists/milton-friedman",
@@ -53154,6 +53548,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/sociology/thinkers/robert-merton",
       title: "罗伯特·K. 默顿",
+    },
+    {
+      url: "/psychology/experiments/dream-analysis-technique",
+      title: "梦的分析技术",
     },
     {
       url: "/universe-physics/knowledge-base/物理学--普朗克常数与量子化",
@@ -54204,16 +54602,60 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/political-science/concepts/liberty": [
     {
+      url: "/religion/religious-history/empire-and-mission",
+      title: "帝国与传教",
+    },
+    {
+      url: "/religion/religious-history/religion-in-the-twentieth-century",
+      title: "二十世纪的宗教",
+    },
+    {
+      url: "/religion/religious-history/reform-and-revival",
+      title: "改革与复兴",
+    },
+    {
+      url: "/religion/secularization/civil-religion",
+      title: "公民宗教",
+    },
+    {
       url: "/political-science/isms/republicanism",
       title: "共和主义",
+    },
+    {
+      url: "/religion/religion-and-society/diaspora-and-conversion",
+      title: "离散与改宗",
     },
     {
       url: "/political-science/thinkers/robert-nozick",
       title: "罗伯特·诺齐克",
     },
     {
+      url: "/religion/texts-and-canons/translation-of-sacred-texts",
+      title: "圣典翻译",
+    },
+    {
+      url: "/religion/secularization/atheism-and-nonreligion",
+      title: "无神论与非宗教",
+    },
+    {
+      url: "/religion/religion-foundations/ritual-and-practice",
+      title: "仪式与实践",
+    },
+    {
       url: "/political-science/thinkers/isaiah-berlin",
       title: "以赛亚·柏林",
+    },
+    {
+      url: "/religion/religion-and-society/religion-and-violence",
+      title: "宗教与暴力",
+    },
+    {
+      url: "/religion/religion-and-society/religion-and-gender",
+      title: "宗教与性别",
+    },
+    {
+      url: "/religion/religion-and-society/religion-and-politics",
+      title: "宗教与政治",
     },
   ],
   "/political-science/concepts/modernization-theory": [
@@ -56872,6 +57314,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/political-science/international-relations/just-war-theory": [
     {
+      url: "/religion/religious-history/empire-and-mission",
+      title: "帝国与传教",
+    },
+    {
       url: "/philosophy/experiments/trolley-problem",
       title: "电车难题",
     },
@@ -56886,6 +57332,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/global-and-digital/human-rights-law",
       title: '国际人权法：把"人"写进国际法',
+    },
+    {
+      url: "/religion/religion-and-society/diaspora-and-conversion",
+      title: "离散与改宗",
     },
     {
       url: "/political-science/international-relations/peacekeeping",
@@ -56908,8 +57358,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "威斯特伐利亚和约",
     },
     {
+      url: "/religion/texts-and-canons/apocrypha-and-canon-contests",
+      title: "伪经与正典之争",
+    },
+    {
       url: "/political-science/isms/neoconservatism",
       title: "新保守主义",
+    },
+    {
+      url: "/religion/religion-foundations/ritual-and-practice",
+      title: "仪式与实践",
+    },
+    {
+      url: "/religion/religion-and-society/religion-and-violence",
+      title: "宗教与暴力",
     },
   ],
   "/political-science/international-relations/liberalism-ir": [
@@ -58318,12 +58780,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/political-science/thinkers/max-weber": [
     {
+      url: "/religion/comparative-religion/comparing-religions",
+      title: "比较宗教如何可能",
+    },
+    {
       url: "/law/criminal-and-procedure/procedural-justice",
       title: "程序正义：看得见的正义如何可能",
     },
     {
       url: "/law/legal-traditions/civil-vs-common-law",
       title: "大陆法与普通法：两种法律心智",
+    },
+    {
+      url: "/religion/religious-history/empire-and-mission",
+      title: "帝国与传教",
     },
     {
       url: "/law/foundations/how-courts-decide",
@@ -58334,12 +58804,36 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "法律渊源与效力层级：谁说了算数",
     },
     {
+      url: "/religion/religious-history/reform-and-revival",
+      title: "改革与复兴",
+    },
+    {
       url: "/arts/aesthetics/art-and-skill",
       title: "技艺之争：艺术何时成为艺术",
     },
     {
+      url: "/religion/secularization/disenchantment-and-reenchantment",
+      title: "祛魅与再魅",
+    },
+    {
       url: "/philosophy/concepts/power",
       title: "权力",
+    },
+    {
+      url: "/religion/religion-foundations/what-is-religion",
+      title: "什么是宗教",
+    },
+    {
+      url: "/religion/religious-history/formation-of-world-religions",
+      title: "世界宗教的形成",
+    },
+    {
+      url: "/religion/secularization/secularization-debate",
+      title: "世俗化之争",
+    },
+    {
+      url: "/religion/religion-foundations/ritual-and-practice",
+      title: "仪式与实践",
     },
     {
       url: "/law/legal-traditions/chinese-legal-tradition",
@@ -58348,6 +58842,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/事件--宗教改革",
       title: "宗教改革",
+    },
+    {
+      url: "/religion/secularization/religion-and-science",
+      title: "宗教与科学",
+    },
+    {
+      url: "/religion/religion-and-society/religion-and-politics",
+      title: "宗教与政治",
     },
   ],
   "/political-science/thinkers/michael-sandel": [
@@ -58531,6 +59033,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/psychology/schools/cognitive-behavioral-therapy",
       title: "认知行为疗法",
     },
+    {
+      url: "/psychology/phenomena/psychodynamic-therapy",
+      title: "心理动力学治疗",
+    },
   ],
   "/psychology/debates/emotion-universality-debate": [
     {
@@ -58674,6 +59180,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/schools/cognitive-behavioral-therapy",
       title: "认知行为疗法",
+    },
+    {
+      url: "/psychology/phenomena/psychodynamic-therapy",
+      title: "心理动力学治疗",
     },
   ],
   "/psychology/debates/replication-debate": [
@@ -58835,6 +59345,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/psychology/phenomena/object-constancy",
       title: "客体恒常性",
     },
+    {
+      url: "/psychology/phenomena/psychodynamic-therapy",
+      title: "心理动力学治疗",
+    },
   ],
   "/psychology/disorders/dementia": [
     {
@@ -58896,6 +59410,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "萨特",
     },
     {
+      url: "/psychology/disorders/social-anxiety",
+      title: "社交焦虑障碍",
+    },
+    {
       url: "/psychology/disorders/insomnia",
       title: "失眠障碍",
     },
@@ -58952,6 +59470,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "双胞胎地球",
     },
     {
+      url: "/psychology/disorders/bipolar",
+      title: "双相情感障碍",
+    },
+    {
       url: "/philosophy/schools/existentialism-early",
       title: "早期存在主义",
     },
@@ -58965,11 +59487,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/psychology/disorders/generalized-anxiety",
       title: "广泛性焦虑障碍",
     },
+    {
+      url: "/psychology/disorders/social-anxiety",
+      title: "社交焦虑障碍",
+    },
   ],
   "/psychology/disorders/ptsd": [
     {
       url: "/philosophy/thinkers/epictetus",
       title: "爱比克泰德",
+    },
+    {
+      url: "/psychology/disorders/dissociative-disorders",
+      title: "解离障碍",
     },
     {
       url: "/psychology/disorders/panic-disorder",
@@ -59027,6 +59557,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/psychology/experiments/free-association": [
+    {
+      url: "/psychology/experiments/dream-analysis-technique",
+      title: "梦的分析技术",
+    },
     {
       url: "/psychology/phenomena/psychic-determinism",
       title: "心理决定论",
@@ -59978,6 +60512,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "边缘型人格障碍",
     },
     {
+      url: "/psychology/phenomena/oedipus-complex",
+      title: "俄狄浦斯情结",
+    },
+    {
       url: "/psychology/knowledge-base/developmental-psychology",
       title: '发展心理学：人是如何"长"成的',
     },
@@ -59996,6 +60534,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/phenomena/object-constancy",
       title: "客体恒常性",
+    },
+    {
+      url: "/psychology/phenomena/psychodynamic-therapy",
+      title: "心理动力学治疗",
     },
     {
       url: "/life-science/knowledge-base/进化专题--驯化",
@@ -60442,6 +60984,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/sociology/concepts/social-darwinism-and-eugenics",
       title: "社会达尔文主义与优生学：一套披着科学外衣的社会安排",
+    },
+  ],
+  "/psychology/knowledge-base/io-psychology": [
+    {
+      url: "/psychology/knowledge-base/health-psychology",
+      title: "健康心理学：身体与心灵的双向道",
     },
   ],
   "/psychology/knowledge-base/metacognition-training": [
@@ -61008,6 +61556,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/schools/positive-psychology",
       title: "积极心理学",
+    },
+    {
+      url: "/psychology/knowledge-base/health-psychology",
+      title: "健康心理学：身体与心灵的双向道",
     },
     {
       url: "/psychology/knowledge-base/educational-psychology",
@@ -62334,6 +62886,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "毛泽东政治思想",
     },
     {
+      url: "/psychology/experiments/dream-analysis-technique",
+      title: "梦的分析技术",
+    },
+    {
       url: "/political-science/international-relations/intelligence-and-espionage",
       title: "情报与间谍",
     },
@@ -62362,6 +62918,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "自尊运动的兴衰：一个被政策采纳的假设",
     },
   ],
+  "/psychology/phenomena/countertransference": [
+    {
+      url: "/psychology/experiments/dream-analysis-technique",
+      title: "梦的分析技术",
+    },
+  ],
   "/psychology/phenomena/defense-mechanisms": [
     {
       url: "/psychology/theorists/anna-freud",
@@ -62374,6 +62936,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/phenomena/projection",
       title: "投射",
+    },
+    {
+      url: "/psychology/phenomena/psychodynamic-therapy",
+      title: "心理动力学治疗",
     },
   ],
   "/psychology/phenomena/dopamine-system": [
@@ -62448,6 +63014,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/schools/epicureanism",
       title: "伊壁鸠鲁主义",
+    },
+    {
+      url: "/psychology/disorders/adhd",
+      title: "注意缺陷多动障碍",
     },
     {
       url: "/computer-science/algorithms/q-learning",
@@ -62929,6 +63499,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/political-science/thinkers/plato-political-philosophy",
       title: "柏拉图的政治哲学",
     },
+    {
+      url: "/psychology/phenomena/oedipus-complex",
+      title: "俄狄浦斯情结",
+    },
   ],
   "/psychology/phenomena/learned-helplessness-phenomenon": [
     {
@@ -62984,6 +63558,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/literature/narrative-basics/oral-storytelling",
       title: "口头讲述与记忆",
+    },
+    {
+      url: "/psychology/experiments/dream-analysis-technique",
+      title: "梦的分析技术",
     },
     {
       url: "/psychology/experiments/murdock-1962",
@@ -63554,6 +64132,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "渡渡鸟裁决：各种心理治疗真的等效吗",
     },
     {
+      url: "/psychology/experiments/dream-analysis-technique",
+      title: "梦的分析技术",
+    },
+    {
       url: "/medicine/traditions/homeopathy-evidence",
       title: "顺势疗法与循证",
     },
@@ -63590,6 +64172,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/experiments/rorschach-test",
       title: "罗夏墨迹测验",
+    },
+  ],
+  "/psychology/phenomena/psychic-determinism": [
+    {
+      url: "/psychology/experiments/dream-analysis-technique",
+      title: "梦的分析技术",
+    },
+  ],
+  "/psychology/phenomena/psychodynamic-therapy": [
+    {
+      url: "/psychology/debates/psychoanalysis-efficacy",
+      title: "精神分析的疗效之争",
+    },
+  ],
+  "/psychology/phenomena/repetition-compulsion": [
+    {
+      url: "/psychology/phenomena/working-through",
+      title: "修通",
     },
   ],
   "/psychology/phenomena/secure-base": [
@@ -63785,6 +64385,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/psychology/phenomena/projection",
       title: "投射",
     },
+    {
+      url: "/psychology/phenomena/psychodynamic-therapy",
+      title: "心理动力学治疗",
+    },
   ],
   "/psychology/phenomena/sunk-cost-fallacy": [
     {
@@ -63834,8 +64438,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "反移情",
     },
     {
+      url: "/psychology/experiments/dream-analysis-technique",
+      title: "梦的分析技术",
+    },
+    {
       url: "/psychology/phenomena/projection",
       title: "投射",
+    },
+    {
+      url: "/psychology/phenomena/psychodynamic-therapy",
+      title: "心理动力学治疗",
+    },
+    {
+      url: "/psychology/phenomena/working-through",
+      title: "修通",
     },
   ],
   "/psychology/phenomena/unconscious": [
@@ -63846,6 +64462,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/mathematicians/leibniz",
       title: "莱布尼茨",
+    },
+    {
+      url: "/psychology/experiments/dream-analysis-technique",
+      title: "梦的分析技术",
     },
     {
       url: "/psychology/phenomena/dream-interpretation",
@@ -63996,6 +64616,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "广泛性焦虑障碍",
     },
     {
+      url: "/psychology/disorders/eating-disorders",
+      title: "进食障碍",
+    },
+    {
       url: "/psychology/disorders/panic-disorder",
       title: "惊恐障碍",
     },
@@ -64010,6 +64634,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/seneca",
       title: "塞涅卡",
+    },
+    {
+      url: "/psychology/disorders/social-anxiety",
+      title: "社交焦虑障碍",
     },
     {
       url: "/medicine/public-health/community-mental-health-access-continuity",
@@ -64256,6 +64884,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "渡渡鸟裁决：各种心理治疗真的等效吗",
     },
     {
+      url: "/psychology/disorders/social-anxiety",
+      title: "社交焦虑障碍",
+    },
+    {
       url: "/philosophy/isms/stoicism-ism",
       title: "斯多葛主义",
     },
@@ -64280,6 +64912,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "波波玩偶实验",
     },
     {
+      url: "/psychology/knowledge-base/health-psychology",
+      title: "健康心理学：身体与心灵的双向道",
+    },
+    {
       url: "/sociology/concepts/deviance-and-social-control",
       title: "越轨与社会控制",
     },
@@ -64288,6 +64924,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/theorists/erik-erikson",
       title: "埃里克·埃里克森",
+    },
+    {
+      url: "/psychology/phenomena/oedipus-complex",
+      title: "俄狄浦斯情结",
+    },
+    {
+      url: "/psychology/experiments/dream-analysis-technique",
+      title: "梦的分析技术",
     },
   ],
   "/psychology/theorists/antonio-damasio": [
@@ -64308,12 +64952,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/psychology/theorists/carl-jung": [
     {
+      url: "/psychology/phenomena/oedipus-complex",
+      title: "俄狄浦斯情结",
+    },
+    {
       url: "/psychology/dialogues/freud-jung-divergence",
       title: "弗洛伊德与荣格的分裂",
     },
     {
       url: "/psychology/theorists/carl-rogers",
       title: "卡尔·罗杰斯",
+    },
+    {
+      url: "/psychology/experiments/dream-analysis-technique",
+      title: "梦的分析技术",
     },
     {
       url: "/psychology/phenomena/dream-interpretation",
@@ -64351,8 +65003,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/law/foundations/how-courts-decide",
       title: "法官如何裁判：法律发现、解释方法与现实主义之争",
     },
+    {
+      url: "/psychology/experiments/dream-analysis-technique",
+      title: "梦的分析技术",
+    },
   ],
   "/psychology/theorists/erik-erikson": [
+    {
+      url: "/psychology/phenomena/oedipus-complex",
+      title: "俄狄浦斯情结",
+    },
     {
       url: "/psychology/knowledge-base/developmental-psychology",
       title: '发展心理学：人是如何"长"成的',
@@ -64364,11 +65024,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "奥托·科恩伯格",
     },
     {
+      url: "/psychology/phenomena/psychodynamic-therapy",
+      title: "心理动力学治疗",
+    },
+    {
       url: "/psychology/phenomena/narcissism",
       title: "自恋",
     },
   ],
   "/psychology/theorists/jacques-lacan": [
+    {
+      url: "/psychology/phenomena/oedipus-complex",
+      title: "俄狄浦斯情结",
+    },
     {
       url: "/psychology/phenomena/mirror-stage",
       title: "镜像阶段",
@@ -64402,12 +65070,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "安娜·弗洛伊德",
     },
     {
+      url: "/psychology/phenomena/oedipus-complex",
+      title: "俄狄浦斯情结",
+    },
+    {
       url: "/psychology/knowledge-base/developmental-psychology",
       title: '发展心理学：人是如何"长"成的',
     },
     {
       url: "/psychology/phenomena/object-constancy",
       title: "客体恒常性",
+    },
+    {
+      url: "/psychology/phenomena/psychodynamic-therapy",
+      title: "心理动力学治疗",
     },
     {
       url: "/psychology/knowledge-base/attachment-theory",
@@ -64422,6 +65098,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/concepts/virtue",
       title: "德性",
+    },
+    {
+      url: "/psychology/phenomena/oedipus-complex",
+      title: "俄狄浦斯情结",
     },
     {
       url: "/philosophy/concepts/ren",
@@ -64464,6 +65144,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "客体恒常性",
     },
     {
+      url: "/psychology/experiments/dream-analysis-technique",
+      title: "梦的分析技术",
+    },
+    {
       url: "/psychology/theorists/donald-winnicott",
       title: "唐纳德·温尼科特",
     },
@@ -64499,8 +65183,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/psychology/disorders/borderline-personality",
       title: "边缘型人格障碍",
     },
+    {
+      url: "/psychology/phenomena/psychodynamic-therapy",
+      title: "心理动力学治疗",
+    },
   ],
   "/psychology/theorists/sigmund-freud": [
+    {
+      url: "/psychology/phenomena/oedipus-complex",
+      title: "俄狄浦斯情结",
+    },
     {
       url: "/human-history/knowledge/思想史--马克思主义",
       title: "马克思主义",
@@ -64512,6 +65204,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/sociology/thinkers/norbert-elias",
       title: "诺贝特·埃利亚斯",
+    },
+    {
+      url: "/psychology/phenomena/psychodynamic-therapy",
+      title: "心理动力学治疗",
     },
     {
       url: "/psychology/phenomena/narcissism",
@@ -65072,8 +65768,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/sociology/concepts/secularization-thesis": [
     {
+      url: "/religion/comparative-religion/comparing-religions",
+      title: "比较宗教如何可能",
+    },
+    {
+      url: "/religion/religious-history/religion-in-the-twentieth-century",
+      title: "二十世纪的宗教",
+    },
+    {
       url: "/political-science/isms/end-of-history",
       title: "历史终结论",
+    },
+    {
+      url: "/religion/religion-foundations/sacred-and-profane",
+      title: "神圣与凡俗",
+    },
+    {
+      url: "/religion/secularization/secularization-debate",
+      title: "世俗化之争",
+    },
+    {
+      url: "/religion/secularization/religion-and-science",
+      title: "宗教与科学",
     },
     {
       url: "/sociology/institutions/religion-and-secularization",
@@ -67338,6 +68054,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "埃米尔·涂尔干",
     },
     {
+      url: "/religion/comparative-religion/comparing-religions",
+      title: "比较宗教如何可能",
+    },
+    {
       url: "/human-history/knowledge/古典时期--亚洲--波斯帝国",
       title: "波斯帝国",
     },
@@ -67346,12 +68066,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "超验主义",
     },
     {
+      url: "/religion/religion-and-society/pilgrimage-and-sacred-space",
+      title: "朝圣与圣地",
+    },
+    {
       url: "/human-history/knowledge/人物--成吉思汗",
       title: "成吉思汗",
     },
     {
       url: "/human-history/knowledge/人物--达尔文",
       title: "达尔文",
+    },
+    {
+      url: "/religion/religious-history/religion-in-the-twentieth-century",
+      title: "二十世纪的宗教",
     },
     {
       url: "/philosophy/thinkers/al-farabi",
@@ -67378,6 +68106,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "佛教东传",
     },
     {
+      url: "/religion/secularization/civil-religion",
+      title: "公民宗教",
+    },
+    {
       url: "/psychology/theorists/carl-jung",
       title: "卡尔·荣格",
     },
@@ -67394,6 +68126,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "普罗提诺",
     },
     {
+      url: "/religion/secularization/disenchantment-and-reenchantment",
+      title: "祛魅与再魅",
+    },
+    {
       url: "/philosophy/questions/how-to-live-meaningfully",
       title: "如何过有意义的生活？",
     },
@@ -67408,6 +68144,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/architecture/sacred-spaces",
       title: "神圣空间：神庙、教堂与清真寺",
+    },
+    {
+      url: "/religion/religion-foundations/sacred-and-profane",
+      title: "神圣与凡俗",
+    },
+    {
+      url: "/religion/secularization/secularization-debate",
+      title: "世俗化之争",
     },
     {
       url: "/political-science/concepts/secularism",
@@ -67460,6 +68204,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/文化交流--纸的西传",
       title: "纸的西传",
+    },
+    {
+      url: "/religion/religion-and-society/religion-and-politics",
+      title: "宗教与政治",
     },
   ],
   "/sociology/institutions/urbanization": [
@@ -68634,12 +69382,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/sociology/thinkers/emile-durkheim": [
     {
+      url: "/religion/comparative-religion/comparing-religions",
+      title: "比较宗教如何可能",
+    },
+    {
+      url: "/religion/religion-and-society/pilgrimage-and-sacred-space",
+      title: "朝圣与圣地",
+    },
+    {
       url: "/law/foundations/why-law-exists",
       title: "法律为什么存在：从复仇到规则",
     },
     {
       url: "/law/criminal-and-procedure/crime-and-punishment",
       title: "犯罪与刑罚：国家为什么惩罚",
+    },
+    {
+      url: "/religion/secularization/civil-religion",
+      title: "公民宗教",
     },
     {
       url: "/economics/schools/classical-economics",
@@ -68650,6 +69410,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "教育与文凭社会",
     },
     {
+      url: "/religion/texts-and-canons/oral-and-written-transmission",
+      title: "口传与书写",
+    },
+    {
+      url: "/religion/religion-and-society/diaspora-and-conversion",
+      title: "离散与改宗",
+    },
+    {
       url: "/political-science/thinkers/montesquieu",
       title: "孟德斯鸠",
     },
@@ -68658,16 +69426,36 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "社会结构",
     },
     {
+      url: "/religion/religion-foundations/what-is-religion",
+      title: "什么是宗教",
+    },
+    {
       url: "/arts/architecture/sacred-spaces",
       title: "神圣空间：神庙、教堂与清真寺",
+    },
+    {
+      url: "/religion/religion-foundations/sacred-and-profane",
+      title: "神圣与凡俗",
+    },
+    {
+      url: "/religion/religious-history/formation-of-world-religions",
+      title: "世界宗教的形成",
     },
     {
       url: "/sociology/concepts/secularization-thesis",
       title: "世俗化理论：一个被作者自己撤回的预测",
     },
     {
+      url: "/religion/secularization/secularization-debate",
+      title: "世俗化之争",
+    },
+    {
       url: "/sociology/thinkers/talcott-parsons",
       title: "塔尔科特·帕森斯",
+    },
+    {
+      url: "/religion/religion-foundations/ritual-and-practice",
+      title: "仪式与实践",
     },
     {
       url: "/sociology/concepts/deviance-and-social-control",
@@ -68676,6 +69464,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/sociology/institutions/religion-and-secularization",
       title: "宗教与世俗化",
+    },
+    {
+      url: "/religion/religion-and-society/religion-and-gender",
+      title: "宗教与性别",
     },
   ],
   "/sociology/thinkers/erving-goffman": [

@@ -100,6 +100,26 @@ export const DOMAINS = [
     stats: "100 核心事件 · 202 人物 · 104 知识库",
   },
   {
+    id: "religion" as const,
+    cluster: "history-civilization" as DomainClusterId,
+    title: "宗教学",
+    titleEn: "Religion Studies",
+    description:
+      "从制度、文本与比较进入宗教——神圣与凡俗、经典与正典、宗教与社会、世俗化之争。描述人类如何组织神圣，不替任何传统认信。",
+    gradient: "linear-gradient(135deg, #6b5c8a 0%, #4a5a7a 50%, #8a7aa3 100%)",
+    glowColor: "#6b5c8a",
+    bgAccent: "rgba(107, 92, 138, 0.08)",
+    borderAccent: "rgba(107, 92, 138, 0.2)",
+    icon: (
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+        <circle cx="18" cy="18" r="11" stroke="#6b5c8a" strokeWidth="1.5" opacity="0.55" />
+        <path d="M18 8v20M8 18h20" stroke="#8a7aa3" strokeWidth="1.4" opacity="0.7" />
+        <circle cx="18" cy="18" r="3" fill="#6b5c8a" opacity="0.45" />
+      </svg>
+    ),
+    stats: "基础 · 历史 · 经典 · 比较 · 社会 · 世俗化",
+  },
+  {
     id: "philosophy" as const,
     cluster: "humanities-arts" as DomainClusterId,
     title: "哲学思想",

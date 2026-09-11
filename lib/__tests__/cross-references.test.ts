@@ -104,6 +104,7 @@ describe("URL constants", () => {
       "philosophy",
       "political-science",
       "psychology",
+      "religion",
       "sociology",
       "universe-physics",
     ]);

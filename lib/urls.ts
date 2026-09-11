@@ -5,6 +5,7 @@ export const APP_URLS = {
   philosophy: "/philosophy",
   arts: "/arts",
   literature: "/literature",
+  religion: "/religion",
   "life-science": "/life-science",
   mathematics: "/mathematics",
   engineering: "/engineering",
