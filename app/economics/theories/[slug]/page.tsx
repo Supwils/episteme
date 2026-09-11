@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { getTheoryBySlug, getAllTheories } from "@/subjects/economics/lib/mdx";
 import { CATEGORY_COLORS } from "@/subjects/economics/lib/constants";
@@ -17,10 +18,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const theory = getTheoryBySlug(slug);
   if (!theory) notFound();
-  return {
+  return withCanonicalPath(`/economics/theories/${slug}`, {
     title: `${theory.title} — 经济理论`,
     description: `${theory.title}（${theory.title_en}）：${theory.key_figures.join("、")}`,
-  };
+  });
 }
 
 export default async function TheoryDetailPage({ params }: { params: Promise<{ slug: string }> }) {

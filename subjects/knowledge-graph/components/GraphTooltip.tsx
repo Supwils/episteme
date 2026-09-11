@@ -148,6 +148,13 @@ const DOMAIN_META: Record<
     border: "border-violet-700/30",
     borderColor: "#6b5c8a",
   },
+  anthropology: {
+    label: "人类学与考古",
+    color: "text-amber-300",
+    bg: "bg-amber-800/20",
+    border: "border-amber-800/30",
+    borderColor: "#8b5a3c",
+  },
   engineering: {
     label: "工程与技术",
     color: "text-slate-300",

@@ -31,16 +31,14 @@ export default function ThinkerSidebar({
     <div>
       <TableOfContents accentColor="#a88adf" />
 
-      <div className="border-border-faint mb-8 border p-4">
+      <div className="border-border-faint mb-8 border p-4" style={{ borderTopColor: accent }}>
         <p className="text-fg-muted mb-3 font-mono text-[9px] tracking-[0.32em] uppercase">
           速览 · quick facts
         </p>
         <div className="space-y-2.5">
           <div className="flex items-center justify-between">
             <span className="text-fg-disabled font-mono text-[10px] tracking-[0.12em]">时代</span>
-            <span className="font-mono text-[11px]" style={{ color: accent }}>
-              {era}
-            </span>
+            <span className="text-fg-secondary font-mono text-[11px]">{era}</span>
           </div>
           <div className="flex items-center justify-between">
             <span className="text-fg-disabled font-mono text-[10px] tracking-[0.12em]">流派</span>
@@ -76,10 +74,9 @@ export default function ThinkerSidebar({
                   className="hover:border-border-faint hover:bg-bg-elevated group flex items-center gap-3 border border-transparent p-2 transition-all duration-300"
                 >
                   <div
-                    className="font-display flex h-8 w-8 shrink-0 items-center justify-center border text-sm italic"
+                    className="text-fg-secondary font-display flex h-8 w-8 shrink-0 items-center justify-center border text-sm italic"
                     style={{
-                      borderColor: `${rtAccent}30`,
-                      color: rtAccent,
+                      borderColor: rtAccent,
                     }}
                   >
                     {rt.title[0]}

@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import {
   getAllTimelineEvents,
   getTimelineEventById,
@@ -38,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!event) notFound();
   const description = event.detail;
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(event.event)}&section=life-science&description=${encodeURIComponent(description)}`;
-  return {
+  return withCanonicalPath(`/life-science/timeline/${slug}`, {
     title: `${event.event}（${event.era}） — 进化时间线`,
     description,
     openGraph: {
@@ -46,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
-  };
+  });
 }
 
 export default async function TimelineEventDetailPage({ params }: Props) {

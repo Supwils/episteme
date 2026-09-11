@@ -120,8 +120,44 @@ test.describe("production smoke", () => {
     await expect(page.getByRole("heading", { name: "仪式与实践" })).toBeVisible();
     await page.getByRole("link", { name: /打开实验室/ }).click();
     await expect(page).toHaveURL(/\/religion\/ritual-lab$/);
-    await page.getByRole("button", { name: "阈限" }).click();
+    await page.getByRole("button", { name: "阈限", exact: true }).click();
     await expect(page.getByText(/中间状态/)).toBeVisible();
+  });
+
+  test("literature article invites the narrative lab", async ({ page }) => {
+    const home = await page.goto("/literature");
+    expect(home?.status()).toBe(200);
+    await expect(page.getByRole("heading", { name: "文学与叙事" })).toBeVisible();
+
+    const article = await page.goto("/literature/narrative-basics/what-is-a-story");
+    expect(article?.status()).toBe(200);
+    await expect(page.getByRole("heading", { name: "故事是什么" })).toBeVisible();
+    await page.getByRole("link", { name: /打开实验室/ }).click();
+    await expect(page).toHaveURL(/\/literature\/narrative-graph$/);
+  });
+
+  test("arts article invites the perspective lab", async ({ page }) => {
+    const home = await page.goto("/arts");
+    expect(home?.status()).toBe(200);
+    await expect(page.getByRole("heading", { name: "艺术、建筑与美学" })).toBeVisible();
+
+    const article = await page.goto("/arts/foundations/perspective-and-space");
+    expect(article?.status()).toBe(200);
+    await expect(page.getByRole("heading", { name: "透视与空间：一场视觉革命" })).toBeVisible();
+    await page.getByRole("link", { name: /打开实验室/ }).click();
+    await expect(page).toHaveURL(/\/arts\/perspective-lab$/);
+  });
+
+  test("engineering article invites the grid-flow lab", async ({ page }) => {
+    const home = await page.goto("/engineering");
+    expect(home?.status()).toBe(200);
+    await expect(page.getByRole("heading", { name: "工程与技术" })).toBeVisible();
+
+    const article = await page.goto("/engineering/energy/power-grid");
+    expect(article?.status()).toBe(200);
+    await expect(page.getByRole("heading", { name: "电网：最大的实时平衡系统" })).toBeVisible();
+    await page.getByRole("link", { name: /打开实验室/ }).click();
+    await expect(page).toHaveURL(/\/engineering\/grid-flow$/);
   });
 
   test("restores and advances a knowledge graph thought tour", async ({ page, isMobile }) => {

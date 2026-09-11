@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { getDebateBySlug, getAllDebates } from "@/subjects/economics/lib/mdx";
 import { ERA_COLORS } from "@/subjects/economics/lib/constants";
@@ -17,7 +18,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const debate = getDebateBySlug(slug);
   if (!debate) notFound();
-  return { title: `${debate.title} — 经济学辩论`, description: `${debate.sides.join(" vs ")}` };
+  return withCanonicalPath(`/economics/debates/${slug}`, {
+    title: `${debate.title} — 经济学辩论`,
+    description: `${debate.sides.join(" vs ")}`,
+  });
 }
 
 export default async function DebateDetailPage({ params }: { params: Promise<{ slug: string }> }) {

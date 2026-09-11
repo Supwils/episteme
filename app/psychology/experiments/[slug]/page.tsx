@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { getExperimentBySlug, getAllExperiments } from "@/subjects/psychology/lib/mdx";
 import { FIELD_COLORS } from "@/subjects/psychology/lib/constants";
@@ -19,11 +20,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const experiment = getExperimentBySlug(slug);
   if (!experiment) notFound();
   const description = `${experiment.researcher} 的实验：${experiment.title_en}`;
-  return {
+  return withCanonicalPath(`/psychology/experiments/${slug}`, {
     title: `${experiment.title} — 经典实验`,
     description,
     openGraph: { title: `${experiment.title} — 经典实验`, description },
-  };
+  });
 }
 
 function formatYear(year: number): string {

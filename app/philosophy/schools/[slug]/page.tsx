@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { getSchoolBySlug, getAllSchools } from "@/lib/schools";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!school) notFound();
   const description = school.founder ?? school.school ?? school.title;
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(school.title)}&section=philosophy&description=${encodeURIComponent(description)}`;
-  return {
+  return withCanonicalPath(`/philosophy/schools/${slug}`, {
     title: `${school.title} — 哲学流派`,
     description,
     openGraph: {
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
-  };
+  });
 }
 
 export default async function SchoolDetailPage({ params }: { params: Promise<{ slug: string }> }) {

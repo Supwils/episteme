@@ -33,7 +33,7 @@ export function SearchResults({
     else grouped.set(section, [result]);
   }
 
-  const renderItem = (result: SearchResult) => {
+  const renderItem = (result: SearchResult, showSectionLabel = false) => {
     const index = indexOf.get(result.url) ?? 0;
     return (
       <SearchResultItem
@@ -43,6 +43,7 @@ export function SearchResults({
         isActive={index === activeIndex}
         onClick={onSelect}
         onMouseEnter={() => onActivate(index)}
+        showSectionLabel={showSectionLabel}
       />
     );
   };
@@ -62,7 +63,7 @@ export function SearchResults({
             >
               {SECTION_META[section].label}
             </div>
-            {results.map(renderItem)}
+            {results.map((result) => renderItem(result))}
           </div>
         );
       })}
@@ -70,7 +71,7 @@ export function SearchResults({
       {bodyResults.length > 0 && (
         <div className="gs-group" data-testid="gs-body-group">
           <div className="gs-group-label gs-group-label-body">正文中提到</div>
-          {bodyResults.map(renderItem)}
+          {bodyResults.map((result) => renderItem(result, true))}
         </div>
       )}
     </>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { FrontierArticleView } from "@/components/frontier/FrontierArticleView";
-import { createFrontier, FRONTIER_DOMAIN_CONFIG } from "@/lib/frontier";
+import { frontierArticleMetadata } from "@/lib/article-canonical";
 
 const DOMAIN = "law" as const;
 
@@ -13,13 +13,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
-  const article = createFrontier(DOMAIN).getArticleBySlug(slug);
-  if (!article) return {};
-  return {
-    title: `${article.title} — 研究前沿 — ${FRONTIER_DOMAIN_CONFIG[DOMAIN].label}`,
-    description: article.excerpt,
-  };
+  return frontierArticleMetadata(DOMAIN, (await params).slug);
 }
 
 export default async function FrontierArticlePage({

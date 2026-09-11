@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import { ArticleLayout } from "@/components/ArticleLayout";
 import Breadcrumb from "@/components/Breadcrumb";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
@@ -19,10 +20,10 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const article = mathematicsKB.getArticleBySlug(slug);
   if (!article) notFound();
-  return {
+  return withCanonicalPath(`/mathematics/knowledge-base/${slug}`, {
     title: `${article.title} — 数学深度阅读`,
     description: article.excerpt,
-  };
+  });
 }
 
 export default async function MathematicsKnowledgeArticlePage({ params }: Props) {

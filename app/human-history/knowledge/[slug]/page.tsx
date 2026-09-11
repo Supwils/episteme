@@ -1,4 +1,5 @@
 import "../../styles/pages/knowledge.css";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { serializeJsonLd } from "@/lib/jsonld";
 import { notFound } from "next/navigation";
@@ -34,7 +35,7 @@ export async function generateMetadata({ params }: Props) {
   if (!article) notFound();
   const description = article.excerpt;
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(article.title)}&section=human-history&description=${encodeURIComponent(description)}`;
-  return {
+  return withCanonicalPath(`/human-history/knowledge/${slug}`, {
     title: `${article.title} — 知识库`,
     description,
     openGraph: {
@@ -42,7 +43,7 @@ export async function generateMetadata({ params }: Props) {
       description,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
-  };
+  });
 }
 
 type LinkResolver = (target: string) => string | null;

@@ -7,6 +7,7 @@ import { ArticleTakeaway } from "@/components/ArticleTakeaway";
 import { Backlinks } from "@/components/Backlinks";
 import { ReadingModeControls } from "@/components/ReadingModeControls";
 import { ReadingProgressBar } from "@/components/ReadingProgressBar";
+import { DomainHeroMotif } from "@/components/domain/DomainHeroMotif";
 import { deriveAskPrompts, deriveTakeaway } from "@/lib/article-discovery";
 import { readingMinutes } from "@/lib/reading-time";
 
@@ -64,6 +65,8 @@ interface ArticleLayoutProps {
   articleClassName?: string;
   /** Extra spacing class for the sidebar's inner wrapper. */
   sidebarClassName?: string;
+  /** Engine domain id — paints a static watermark motif when the domain has one. */
+  domain?: string;
 }
 
 /**
@@ -96,6 +99,7 @@ export function ArticleLayout({
   nextLabel = "下一篇",
   articleClassName = "max-w-[44rem]",
   sidebarClassName,
+  domain,
 }: ArticleLayoutProps) {
   const readMinutes = readingMinutes(content);
   const takeaway = deriveTakeaway(content, takeawayProp);
@@ -114,6 +118,7 @@ export function ArticleLayout({
       {breadcrumb}
 
       <header className="border-border-faint bg-bg-panel relative mb-12 overflow-hidden border p-8">
+        {domain ? <DomainHeroMotif domain={domain} accent={accent} variant="watermark" /> : null}
         <div className="relative">
           <div className="mb-3 flex flex-wrap items-center gap-3">
             <span

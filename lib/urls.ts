@@ -6,6 +6,7 @@ export const APP_URLS = {
   arts: "/arts",
   literature: "/literature",
   religion: "/religion",
+  anthropology: "/anthropology",
   "life-science": "/life-science",
   mathematics: "/mathematics",
   engineering: "/engineering",

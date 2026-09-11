@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { getExperimentBySlug, getAllExperiments } from "@/lib/experiments";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!experiment) notFound();
   const description = `${experiment.philosopher} 的思想实验：${experiment.title_en}`;
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(experiment.title)}&section=philosophy&description=${encodeURIComponent(description)}`;
-  return {
+  return withCanonicalPath(`/philosophy/experiments/${slug}`, {
     title: `${experiment.title} — 思想实验`,
     description,
     openGraph: {
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
-  };
+  });
 }
 
 function formatYear(year: number): string {

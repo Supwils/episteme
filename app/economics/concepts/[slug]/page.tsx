@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { getConceptBySlug, getAllConcepts } from "@/subjects/economics/lib/mdx";
 import { CATEGORY_COLORS } from "@/subjects/economics/lib/constants";
@@ -21,10 +22,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const concept = getConceptBySlug(slug);
   if (!concept) notFound();
-  return {
+  return withCanonicalPath(`/economics/concepts/${slug}`, {
     title: `${concept.title} — 经济学概念`,
     description: `${concept.title}（${concept.title_en}）`,
-  };
+  });
 }
 
 export default async function ConceptDetailPage({ params }: { params: Promise<{ slug: string }> }) {

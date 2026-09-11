@@ -117,7 +117,7 @@ pnpm typecheck && pnpm test                      # 基线应全绿（当前 1213
 
 ## 1. 平台定位
 
-**Episteme · 格致** 是面向大众的**知识即服务平台（Knowledge as a Service）**，以浏览器为唯一交付方式，用可视化、沉浸式的方式探索人类知识。当前 **20 个知识领域 · 2746 篇内容**（`content/` 下 `.md`/`.mdx` 实测，排除 `*.narration.md` 与 `CREDITS.md`）。
+**Episteme · 格致** 是面向大众的**知识即服务平台（Knowledge as a Service）**，以浏览器为唯一交付方式，用可视化、沉浸式的方式探索人类知识。当前 **21 个知识领域 · 2788 篇内容**（`content/` 下 `.md`/`.mdx` 实测，排除 `*.narration.md` 与 `CREDITS.md`；人类学上线后复核）。
 
 领域按 `docs/学科版图与导航架构.md` 的**六簇分类法**组织，`lib/data.tsx` 的 `DOMAINS`（含 `cluster` 字段）是**唯一真相源**，导航/首页/页脚/manifest 全部派生：
 
@@ -126,11 +126,11 @@ pnpm typecheck && pnpm test                      # 基线应全绿（当前 1213
 | **宇宙与自然** | 物理学 `/universe-physics` 177 · 宇宙学 `/cosmology` 168 · 地球科学 `/earth-science` 94 · 化学 `/chemistry` 106     |
 | **生命与心灵** | 生命科学 `/life-science` 140 · 医学与公共卫生 `/medicine` 140 · 心理学 `/psychology` 236 · 语言学 `/linguistics` 65 |
 | **社会与制度** | 社会学 `/sociology` 66 · 经济学 `/economics` 211 · 政治学 `/political-science` 181 · 法学 `/law` 57                 |
-| **历史与文明** | 人类历史 `/human-history` 176 · 宗教学 `/religion` 36                                                               |
-| **人文与艺术** | 哲学思想 `/philosophy` 358 · 艺术、建筑与美学 `/arts` 58 · 文学与叙事 `/literature` 36                              |
+| **历史与文明** | 人类历史 `/human-history` 176 · 宗教学 `/religion` 36 · 人类学与考古 `/anthropology` 40                             |
+| **人文与艺术** | 哲学思想 `/philosophy` 358 · 艺术、建筑与美学 `/arts` 58 · 文学与叙事 `/literature` 38                              |
 | **数理与技术** | 数学与逻辑 `/mathematics` 174 · 计算机科学 `/computer-science` 213 · 工程与技术 `/engineering` 54                   |
 
-**跨领域与探索入口**：`/`（门户）· `/knowledge-graph`（力导向知识图谱）· `/read`（阅读路线）· `/search`（全站搜索）· `/daily`（每日知识）· `/curiosities`（奇趣知识）· `/molecules`（分子图鉴）· `/knowledge-confluence/[id]`（知识汇流）· `/<领域>/frontier`（研究前沿，20 域共 149 篇）。
+**跨领域与探索入口**：`/`（门户）· `/knowledge-graph`（力导向知识图谱）· `/read`（阅读路线）· `/search`（全站搜索）· `/daily`（每日知识）· `/curiosities`（奇趣知识）· `/molecules`（分子图鉴）· `/knowledge-confluence/[id]`（知识汇流）· `/<领域>/frontier`（研究前沿，21 域）。
 
 **产品灵魂**：让任何人——大学生、上班族、好奇的老人——都能随时以美好的方式接触人类最重要的知识。门槛低、深度足、视觉美。
 
@@ -156,14 +156,14 @@ universe-knowledge/
 │   └── <subject>/{components,lib,scenes,shaders,store,hooks}  领域间互相隔离
 ├── lib/                      ← 共享工具 + 内容加载器 + 知识编排
 │   ├── knowledge-domain.ts   ← 通用领域引擎（读 content/<域>/<板块>/*.mdx）
-│   ├── new-domains.ts        ← 引擎驱动域的配置（13 个：cs/ps/earth/medicine/chemistry/
-│   │                            sociology/psychology-methods/linguistics/law/arts/engineering/literature/religion）
+│   ├── new-domains.ts        ← 引擎驱动域的配置（14 个：cs/ps/earth/medicine/chemistry/
+│   │                            sociology/psychology-methods/linguistics/law/arts/engineering/literature/religion/anthropology）
 │   ├── data.tsx              ← DOMAINS 真相源（含 cluster）；domain-clusters.ts 为派生层
 │   ├── graph-engine/         ← 力导向图引擎（Barnes-Hut + Web Worker）
 │   ├── search/ search-index/ ← 中文 bigram 两层检索（Worker 索引 + 服务端 corpus 短语层）
 │   ├── cross-links/ cross-domain-refs/ ← 跨领域链接与引用
 │   ├── knowledge-*.ts        ← 连续体/汇流/地形/缺口/学习计划等编排层
-│   ├── frontier.ts           ← 研究前沿加载器（FRONTIER_DOMAINS 当前 20 域）
+│   ├── frontier.ts           ← 研究前沿加载器（FRONTIER_DOMAINS 当前 21 域）
 │   ├── mdx.ts content-paths.ts content-schemas.ts citations.ts image-rights.ts
 │   └── wiki-link-index.ts backlinks-index.ts  ← ⚠️ gen-links 生成，禁止手改
 ├── content/                  ← ⭐ 唯一内容目录，按领域分子目录

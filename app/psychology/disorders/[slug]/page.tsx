@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { getDisorderBySlug, getAllDisorders } from "@/subjects/psychology/lib/mdx";
 import { DISORDER_CATEGORY_COLORS } from "@/subjects/psychology/lib/constants";
@@ -17,11 +18,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const disorder = getDisorderBySlug(slug);
   if (!disorder) notFound();
   const description = `${disorder.category}：${disorder.title_en}`;
-  return {
+  return withCanonicalPath(`/psychology/disorders/${slug}`, {
     title: `${disorder.title} — 心理障碍`,
     description,
     openGraph: { title: `${disorder.title} — 心理障碍`, description },
-  };
+  });
 }
 
 export default async function DisorderDetailPage({

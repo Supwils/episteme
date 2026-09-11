@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { getTheoremBySlug, getAllTheorems } from "@/subjects/mathematics/lib/theorems";
 import {
@@ -28,7 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!theorem) notFound();
   const description = `${theorem.title_en}：${theorem.field}。${theorem.tags.join("、")}`;
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(theorem.title)}&section=mathematics&description=${encodeURIComponent(description)}`;
-  return {
+  return withCanonicalPath(`/mathematics/theorems/${slug}`, {
     title: `${theorem.title} — 数学定理`,
     description,
     openGraph: {
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
-  };
+  });
 }
 
 export default async function TheoremDetailPage({ params }: { params: Promise<{ slug: string }> }) {

@@ -15,6 +15,7 @@ export type Domain =
   | "arts"
   | "literature"
   | "religion"
+  | "anthropology"
   | "law"
   | "engineering"
   | "sociology"
@@ -54,6 +55,7 @@ export const DOMAIN_LABELS: Record<Domain, string> = {
   arts: "艺术",
   literature: "文学与叙事",
   religion: "宗教学",
+  anthropology: "人类学与考古",
   law: "法学",
   engineering: "工程与技术",
   sociology: "社会学",
@@ -77,6 +79,7 @@ export const DOMAIN_ROUTES: Record<Domain, string> = {
   arts: "/arts",
   literature: "/literature",
   religion: "/religion",
+  anthropology: "/anthropology",
   law: "/law",
   engineering: "/engineering",
   sociology: "/sociology",

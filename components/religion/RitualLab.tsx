@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { SVG_LAB_BUTTON_CLASS, SvgFocusCircle } from "@/components/domain/SvgLabFocusRing";
 import {
   RITUAL_CASES,
   RITUAL_STAGES,
@@ -27,28 +28,44 @@ export function RitualLab() {
           </LabChip>
         ))}
       </div>
-      <svg
-        viewBox="0 0 320 72"
-        className="mb-4 h-auto w-full"
-        role="img"
-        aria-label={currentStage.label}
-      >
+      <svg viewBox="0 0 320 72" className="mb-4 h-auto w-full" role="group" aria-label="仪式三阶段">
+        {RITUAL_STAGES.slice(0, -1).map((_, i) => {
+          const x = 40 + i * 110;
+          return (
+            <line
+              key={`link-${i}`}
+              x1={x + 22}
+              y1="28"
+              x2={x + 88}
+              y2="28"
+              stroke={ACCENT}
+              strokeWidth="1.4"
+              opacity={0.5}
+              pointerEvents="none"
+            />
+          );
+        })}
         {RITUAL_STAGES.map((item, i) => {
           const x = 40 + i * 110;
           const on = item.id === stage;
           return (
-            <g key={item.id}>
-              {i < 2 ? (
-                <line
-                  x1={x + 22}
-                  y1="28"
-                  x2={x + 88}
-                  y2="28"
-                  stroke={ACCENT}
-                  strokeWidth="1.4"
-                  opacity={0.5}
-                />
-              ) : null}
+            <g
+              key={item.id}
+              role="button"
+              tabIndex={0}
+              aria-pressed={on}
+              aria-label={`第${i + 1}步：${item.label}`}
+              className={SVG_LAB_BUTTON_CLASS}
+              onClick={() => setStage(item.id)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  setStage(item.id);
+                }
+              }}
+            >
+              <circle cx={x} cy="28" r="22" fill="transparent" />
+              <SvgFocusCircle cx={x} cy={28} r={20} />
               <circle
                 cx={x}
                 cy="28"

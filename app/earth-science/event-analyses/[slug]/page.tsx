@@ -1,25 +1,22 @@
 import type { Metadata } from "next";
 import { DomainArticle } from "@/components/domain/DomainArticle";
-import { createKnowledgeSection } from "@/lib/knowledge-domain";
-import { getDomainConfig, getSectionConfig } from "@/lib/new-domains";
+import { engineArticleMetadata } from "@/lib/article-canonical";
+
 const DOMAIN = "earth-science",
   SECTION = "event-analyses";
+
 export function generateStaticParams() {
   return [];
 }
+
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const a = createKnowledgeSection(DOMAIN, SECTION).getBySlug((await params).slug);
-  return a
-    ? {
-        title: `${a.title} — ${getSectionConfig(DOMAIN, SECTION)?.label} — ${getDomainConfig(DOMAIN)?.label}`,
-        description: a.excerpt,
-      }
-    : {};
+  return engineArticleMetadata(DOMAIN, SECTION, (await params).slug);
 }
+
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   return <DomainArticle domain={DOMAIN} section={SECTION} slug={(await params).slug} />;
 }

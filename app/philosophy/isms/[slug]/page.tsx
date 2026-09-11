@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { getIsmBySlug, buildSlugByTitleMap, getAllIsms } from "@/lib/isms";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!ism) notFound();
   const description = `${ism.category} · ${ism.title}`;
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(ism.title)}&section=philosophy&description=${encodeURIComponent(description)}`;
-  return {
+  return withCanonicalPath(`/philosophy/isms/${slug}`, {
     title: `${ism.title}（${ism.title_en}）— 哲学主义`,
     description,
     openGraph: {
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
-  };
+  });
 }
 
 export default async function IsmDetailPage({ params }: { params: Promise<{ slug: string }> }) {

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import { serializeJsonLd } from "@/lib/jsonld";
 import { notFound } from "next/navigation";
 import { universePhysicsDialogues } from "@/lib/universe-physics-dialogues";
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: Props) {
   const dialogue = universePhysicsDialogues.getBySlug(slug);
   if (!dialogue) notFound();
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(dialogue.title)}&section=universe-physics&description=${encodeURIComponent(dialogue.description)}`;
-  return {
+  return withCanonicalPath(`/universe-physics/dialogues/${slug}`, {
     title: `${dialogue.title} — 物理学对话`,
     description: dialogue.description || dialogue.title,
     openGraph: {
@@ -34,7 +35,7 @@ export async function generateMetadata({ params }: Props) {
       description: dialogue.description || dialogue.title,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
-  };
+  });
 }
 
 export default async function PhysicsDialogueDetailPage({ params }: Props) {

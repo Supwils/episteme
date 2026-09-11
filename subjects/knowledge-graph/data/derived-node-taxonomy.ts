@@ -203,6 +203,21 @@ export const DERIVED_DOMAINS: readonly DerivedDomain[] = [
     ],
   },
   {
+    contentDirectory: "anthropology",
+    graphDomain: "anthropology",
+    idPrefix: "anthropology",
+    entryNodeId: "anthropology:what-is-culture",
+    sections: [
+      "comparison-and-ethics",
+      "culture-and-method",
+      "frontier",
+      "kinship-and-exchange",
+      "material-culture",
+      "prehistory-and-archaeology",
+      "urban-and-heritage",
+    ],
+  },
+  {
     contentDirectory: "mathematics",
     graphDomain: "mathematics",
     idPrefix: "mathematics",
@@ -316,6 +331,7 @@ export const SECTION_KNOWLEDGE_LEVEL: Readonly<Record<string, KnowledgeLevel>> =
   // L1 — people and dated episodes: the concrete things a reader can enter from.
   economists: 1,
   "narrative-basics": 1,
+  "culture-and-method": 1,
   "religion-foundations": 1,
   events: 1,
   figures: 1,
@@ -345,11 +361,14 @@ export const SECTION_KNOWLEDGE_LEVEL: Readonly<Record<string, KnowledgeLevel>> =
   traditions: 2,
   "words-sentences-meaning": 2,
   "writing-systems": 2,
+  "kinship-and-exchange": 2,
   "legal-traditions": 2,
   // L3 — machinery built on that vocabulary.
   "acquisition-and-mind": 3,
   "world-traditions": 3,
   "texts-and-canons": 3,
+  "material-culture": 3,
+  "prehistory-and-archaeology": 3,
   "comparative-religion": 3,
   algorithms: 3,
   architecture: 3,
@@ -377,6 +396,7 @@ export const SECTION_KNOWLEDGE_LEVEL: Readonly<Record<string, KnowledgeLevel>> =
   "climate-risks": 4,
   "theory-and-method": 4,
   "reading-and-reception": 4,
+  "comparison-and-ethics": 4,
   "religion-and-society": 4,
   ethics: 4,
   experiments: 4,
@@ -395,6 +415,7 @@ export const SECTION_KNOWLEDGE_LEVEL: Readonly<Record<string, KnowledgeLevel>> =
   frontiers: 5,
   "contemporary-edges": 5,
   secularization: 5,
+  "urban-and-heritage": 5,
 };
 
 /** Section → node type. Sections with no distinctive type fall through to the

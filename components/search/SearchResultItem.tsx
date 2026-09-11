@@ -1,6 +1,6 @@
 import Link from "next/link";
-import type { SearchResult } from "./types";
-import { TYPE_LABELS } from "./types";
+import type { SearchResult, Section } from "./types";
+import { TYPE_LABELS, SECTION_META } from "./types";
 
 /** Highlight the query where it appears verbatim. Chinese queries are typed as
  *  a contiguous run, so a plain substring match marks what the reader looked
@@ -35,6 +35,8 @@ interface SearchResultItemProps {
   isActive: boolean;
   onClick: (url: string) => void;
   onMouseEnter: () => void;
+  /** Body hits are not grouped by domain, so the row itself has to say which subject it is. */
+  showSectionLabel?: boolean;
 }
 
 export function SearchResultItem({
@@ -43,8 +45,12 @@ export function SearchResultItem({
   isActive,
   onClick,
   onMouseEnter,
+  showSectionLabel = false,
 }: SearchResultItemProps) {
   const typeLabel = TYPE_LABELS[result.kind];
+  const sectionLabel = showSectionLabel
+    ? SECTION_META[result.section as Section]?.label
+    : undefined;
 
   return (
     <Link
@@ -75,6 +81,7 @@ export function SearchResultItem({
           <span className="gs-item-subtitle">{highlight(result.subtitle, query)}</span>
         )}
         {typeLabel && <span className="gs-item-type">{typeLabel}</span>}
+        {sectionLabel && <span className="gs-item-type">{sectionLabel}</span>}
       </div>
       {result.snippet && (
         <div className="gs-item-desc">

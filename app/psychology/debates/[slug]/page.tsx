@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { getDebateBySlug, getAllDebates } from "@/subjects/psychology/lib/mdx";
 import { ERA_COLORS } from "@/subjects/psychology/lib/constants";
@@ -17,11 +18,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const debate = getDebateBySlug(slug);
   if (!debate) notFound();
   const description = `${debate.topic}。关键人物：${debate.key_figures.join("、")}`;
-  return {
+  return withCanonicalPath(`/psychology/debates/${slug}`, {
     title: `${debate.title} — 经典论辩`,
     description,
     openGraph: { title: `${debate.title} — 经典论辩`, description },
-  };
+  });
 }
 
 export default async function DebateDetailPage({ params }: { params: Promise<{ slug: string }> }) {

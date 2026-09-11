@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import { serializeJsonLd } from "@/lib/jsonld";
 import { notFound } from "next/navigation";
 import { cosmologyDialogues } from "@/lib/cosmology-dialogues";
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: Props) {
   const dialogue = cosmologyDialogues.getBySlug(slug);
   if (!dialogue) notFound();
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(dialogue.title)}&section=cosmology&description=${encodeURIComponent(dialogue.description)}`;
-  return {
+  return withCanonicalPath(`/cosmology/dialogues/${slug}`, {
     title: `${dialogue.title} — 宇宙学对话`,
     description: dialogue.description || dialogue.title,
     openGraph: {
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }: Props) {
       description: dialogue.description || dialogue.title,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
-  };
+  });
 }
 
 export default async function CosmologyDialogueDetailPage({ params }: Props) {

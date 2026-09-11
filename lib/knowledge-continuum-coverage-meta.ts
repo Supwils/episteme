@@ -213,6 +213,13 @@ export const COVERAGE_DOMAIN_META: Record<
     color: "#6b5c8a",
     status: "established",
   },
+  anthropology: {
+    label: "人类学与考古",
+    shortLabel: "人",
+    href: "/anthropology",
+    color: "#8b5a3c",
+    status: "established",
+  },
   engineering: {
     label: "工程与技术",
     shortLabel: "工",

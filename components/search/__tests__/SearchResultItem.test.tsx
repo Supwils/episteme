@@ -39,6 +39,28 @@ describe("search result link navigation", () => {
     expect(event.defaultPrevented).toBe(true);
   });
 
+  it("labels body hits with the knowledge domain", () => {
+    render(
+      <SearchResultItem
+        result={{
+          title: "德尔斐神谕",
+          subtitle: "",
+          url: "/philosophy/concepts/delphi",
+          section: "philosophy",
+          kind: "concept",
+          snippet: "神庙上刻着认识你自己这句箴言",
+          matchStart: 4,
+        }}
+        query="认识你自己"
+        isActive={false}
+        onClick={() => {}}
+        onMouseEnter={() => {}}
+        showSectionLabel
+      />
+    );
+    expect(screen.getByRole("option").textContent).toContain("哲学思想");
+  });
+
   it.each([
     { metaKey: true },
     { ctrlKey: true },

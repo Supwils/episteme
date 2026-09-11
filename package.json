@@ -2,7 +2,7 @@
   "name": "episteme",
   "version": "0.0.0",
   "private": true,
-  "description": "Episteme · 格致 — 重现人类认识世界的旅程. A visual, immersive knowledge platform spanning twenty subjects.",
+  "description": "Episteme · 格致 — 重现人类认识世界的旅程. A visual, immersive knowledge platform spanning twenty-one subjects.",
   "packageManager": "pnpm@10.27.0",
   "engines": {
     "node": "22.x"
@@ -17,7 +17,9 @@
     "prepush": "pnpm typecheck && pnpm lint && pnpm check-content && pnpm audit-graph-coverage && pnpm audit-learning-continuum && pnpm audit-subject-candidates && pnpm audit-linguistics-foundation && pnpm audit-image-rights && pnpm test",
     "test:e2e": "playwright test",
     "test:e2e:smoke": "playwright test --config=playwright.smoke.config.ts",
+    "test:e2e:webkit": "playwright test --config=playwright.webkit.config.ts",
     "test:e2e:physics": "playwright test --config=playwright.physics.config.ts",
+    "inp-probe": "node scripts/inp-probe.mjs",
     "bundle-check": "node scripts/physics/bundle-check.mjs",
     "lighthouse": "node scripts/lighthouse.mjs",
     "a11y-scan": "node scripts/a11y-scan.mjs",

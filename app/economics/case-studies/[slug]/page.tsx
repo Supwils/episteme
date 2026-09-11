@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import { getCaseStudyBySlug, getAllCaseStudies } from "@/subjects/economics/lib/mdx";
 import { CATEGORY_COLORS } from "@/subjects/economics/lib/constants";
 import { ArticleLayout } from "@/components/ArticleLayout";
@@ -16,10 +17,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const cs = getCaseStudyBySlug(slug);
   if (!cs) notFound();
-  return {
+  return withCanonicalPath(`/economics/case-studies/${slug}`, {
     title: `${cs.title} — 经济案例`,
     description: `${cs.title}（${cs.title_en}）· ${cs.year} · ${cs.region}`,
-  };
+  });
 }
 
 export default async function CaseStudyDetailPage({

@@ -127,6 +127,13 @@ export const DOMAIN_META: Record<
     border: "border-violet-800/30",
     dot: "bg-violet-500",
   },
+  anthropology: {
+    label: "人类学与考古",
+    color: "text-amber-400",
+    bg: "bg-amber-800/15",
+    border: "border-amber-800/30",
+    dot: "bg-amber-700",
+  },
   engineering: {
     label: "工程与技术",
     color: "text-slate-300",
@@ -202,6 +209,7 @@ export const DOMAIN_ACCENT_GRADIENT: Record<Domain, string> = {
   arts: "linear-gradient(90deg, #b0785a 0%, #d3957e 100%)",
   literature: "linear-gradient(90deg, #8b5e4a 0%, #b07a62 100%)",
   religion: "linear-gradient(90deg, #6b5c8a 0%, #8a7aa3 100%)",
+  anthropology: "linear-gradient(90deg, #8b5a3c 0%, #c4a07a 100%)",
   engineering: "linear-gradient(90deg, #8a919e 0%, #b3bac6 100%)",
 };
 

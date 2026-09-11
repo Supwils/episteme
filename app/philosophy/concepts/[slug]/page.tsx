@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { getConceptBySlug, getAllConcepts } from "@/lib/concepts";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!concept) notFound();
   const description = `${concept.field}：${concept.key_figures.join("、")}`;
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(concept.title)}&section=philosophy&description=${encodeURIComponent(description)}`;
-  return {
+  return withCanonicalPath(`/philosophy/concepts/${slug}`, {
     title: `${concept.title}（${concept.title_en}）— 哲学概念`,
     description,
     openGraph: {
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
-  };
+  });
 }
 
 export default async function ConceptDetailPage({ params }: { params: Promise<{ slug: string }> }) {

@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import { getEventBySlug } from "@/subjects/history/lib/events";
 import { getEventRouteRecord } from "@/subjects/history/lib/event-route-data";
 import { ERAS } from "@/subjects/history/lib/eras";
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }: Props) {
   const description = event.desc;
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://episteme.vercel.app";
   const ogImage = `${siteUrl}/api/og?title=${encodeURIComponent(event.title)}&section=human-history&description=${encodeURIComponent(description)}`;
-  return {
+  return withCanonicalPath(`/human-history/events/${slug}`, {
     title: `${event.title} — 人类历史事件`,
     description,
     openGraph: {
@@ -38,7 +39,7 @@ export async function generateMetadata({ params }: Props) {
       description,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
-  };
+  });
 }
 
 export default async function EventDetailPage({ params }: Props) {

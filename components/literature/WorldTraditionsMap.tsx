@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { SVG_LAB_BUTTON_CLASS, SvgFocusCircle } from "@/components/domain/SvgLabFocusRing";
 import {
   TRADITION_EPOCHS,
   TRADITION_NODES,
@@ -22,7 +23,7 @@ export function WorldTraditionsMap() {
       <svg
         viewBox="0 0 240 170"
         className="mb-4 h-auto w-full"
-        role="img"
+        role="group"
         aria-label="世界文学传统示意，不是精确底图"
       >
         <ellipse
@@ -36,13 +37,33 @@ export function WorldTraditionsMap() {
         {TRADITION_NODES.map((node) => {
           const on = visibleIds.has(node.id);
           return (
-            <g key={node.id} opacity={on ? 1 : 0.22}>
+            <g
+              key={node.id}
+              opacity={on ? 1 : 0.22}
+              role={on ? "button" : undefined}
+              tabIndex={on ? 0 : undefined}
+              aria-pressed={on ? node.id === active.id : undefined}
+              aria-label={on ? `${node.label}示意位置` : undefined}
+              className={on ? SVG_LAB_BUTTON_CLASS : undefined}
+              onClick={() => {
+                if (!on) return;
+                setActiveId(node.id);
+              }}
+              onKeyDown={(event) => {
+                if (!on) return;
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  setActiveId(node.id);
+                }
+              }}
+            >
               <circle
                 cx={node.x}
                 cy={node.y}
                 r={node.id === active.id ? 6 : 4}
                 fill={on ? ACCENT : "var(--color-fg-muted)"}
               />
+              {on ? <SvgFocusCircle cx={node.x} cy={node.y} r={10} /> : null}
               <text x={node.x + 8} y={node.y + 4} fontSize="9" fill="var(--color-fg-secondary)">
                 {node.label}
               </text>

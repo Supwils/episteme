@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { getDialogueBySlug, getAllDialogues } from "@/subjects/psychology/lib/mdx";
 import { ERA_COLORS } from "@/subjects/psychology/lib/constants";
@@ -17,11 +18,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const dialogue = getDialogueBySlug(slug);
   if (!dialogue) notFound();
   const description = `${dialogue.participants.join("、")}的对话：${dialogue.question}`;
-  return {
+  return withCanonicalPath(`/psychology/dialogues/${slug}`, {
     title: `${dialogue.title} — 思想对话`,
     description,
     openGraph: { title: `${dialogue.title} — 思想对话`, description },
-  };
+  });
 }
 
 export default async function DialogueDetailPage({

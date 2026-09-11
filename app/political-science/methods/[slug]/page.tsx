@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { DomainArticle } from "@/components/domain/DomainArticle";
-import { createKnowledgeSection } from "@/lib/knowledge-domain";
-import { getDomainConfig, getSectionConfig } from "@/lib/new-domains";
+import { engineArticleMetadata } from "@/lib/article-canonical";
 
 const DOMAIN = "political-science";
 const SECTION = "methods";
@@ -15,16 +14,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
-  const article = createKnowledgeSection(DOMAIN, SECTION).getBySlug(slug);
-  if (!article) return {};
-
-  const sectionConfig = getSectionConfig(DOMAIN, SECTION);
-  const domainConfig = getDomainConfig(DOMAIN);
-  return {
-    title: `${article.title} — ${sectionConfig?.label} — ${domainConfig?.label}`,
-    description: article.excerpt,
-  };
+  return engineArticleMetadata(DOMAIN, SECTION, (await params).slug);
 }
 
 export default async function PoliticalScienceMethodPage({

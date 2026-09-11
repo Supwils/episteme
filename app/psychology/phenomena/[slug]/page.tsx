@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { getPhenomenonBySlug, getAllPhenomena } from "@/subjects/psychology/lib/mdx";
 import { CATEGORY_COLORS } from "@/subjects/psychology/lib/constants";
@@ -18,11 +19,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const phenomenon = getPhenomenonBySlug(slug);
   if (!phenomenon) notFound();
   const description = `${phenomenon.category}：${phenomenon.key_figures.join("、")}`;
-  return {
+  return withCanonicalPath(`/psychology/phenomena/${slug}`, {
     title: `${phenomenon.title} — 心理现象`,
     description,
     openGraph: { title: `${phenomenon.title} — 心理现象`, description },
-  };
+  });
 }
 
 export default async function PhenomenonDetailPage({

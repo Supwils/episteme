@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { READING_PATHS, getReadingPath } from "@/lib/reading-paths";
@@ -17,12 +18,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const path = getReadingPath(slug);
-  if (!path) return { title: "阅读路线 — Episteme · 格致" };
-  return {
+  if (!path) return withCanonicalPath(`/read/${slug}`, { title: "阅读路线 — Episteme · 格致" });
+  return withCanonicalPath(`/read/${slug}`, {
     title: `${path.title} — 阅读路线`,
     description: path.subtitle,
     openGraph: { title: `${path.title} — 阅读路线`, description: path.subtitle, type: "article" },
-  };
+  });
 }
 
 export default async function ReadingPathPage({ params }: { params: Promise<{ slug: string }> }) {

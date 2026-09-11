@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import { getThinkerBySlug, getAllThinkers } from "@/lib/mdx";
 import Breadcrumb from "@/components/Breadcrumb";
 import RelatedContent from "@/components/RelatedContent";
@@ -23,8 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!thinker) notFound();
   const description = `${thinker.philosopher}：${thinker.school}。${thinker.tags.join("、")}`;
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(thinker.title)}&section=philosophy&description=${encodeURIComponent(description)}`;
-  return {
-    alternates: { canonical: `/philosophy/thinkers/${thinker.slug}` },
+  return withCanonicalPath(`/philosophy/thinkers/${slug}`, {
     title: `${thinker.title} — 哲学`,
     description,
     openGraph: {
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
-  };
+  });
 }
 
 export default async function ThinkerDetailPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -82,11 +82,10 @@ export default async function ThinkerDetailPage({ params }: { params: Promise<{ 
         <div className="mt-6 flex flex-col gap-4">
           <div className="flex flex-wrap items-center gap-2.5">
             <span
-              className="rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.2em] uppercase"
+              className="text-fg-secondary rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.2em] uppercase"
               style={{
-                borderColor: `${accent}30`,
-                color: accent,
-                backgroundColor: `${accent}10`,
+                borderColor: accent,
+                backgroundColor: `${accent}14`,
               }}
             >
               {thinker.era}
@@ -112,11 +111,10 @@ export default async function ThinkerDetailPage({ params }: { params: Promise<{ 
               {thinker.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.12em]"
+                  className="text-fg-secondary rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.12em]"
                   style={{
-                    borderColor: `${accent}20`,
-                    color: `${accent}cc`,
-                    backgroundColor: `${accent}08`,
+                    borderColor: `${accent}66`,
+                    backgroundColor: `${accent}14`,
                   }}
                 >
                   {tag}

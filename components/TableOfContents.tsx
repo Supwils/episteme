@@ -139,13 +139,12 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
             aria-expanded={sheetOpen}
             aria-controls="mobile-toc-sheet"
             onClick={() => setSheetOpen(true)}
-            className="border-border-faint bg-bg-panel/90 text-fg-secondary fixed bottom-6 left-4 z-40 flex items-center gap-2 rounded-full border px-4 py-2.5 font-mono text-[10px] tracking-[0.24em] uppercase shadow-lg backdrop-blur-md transition-colors [[data-narration-active]_&]:bottom-24"
+            className="border-border-subtle bg-bg-panel text-fg-primary fixed bottom-6 left-4 z-40 flex items-center gap-2 rounded-full border px-4 py-2.5 font-mono text-[11px] tracking-[0.24em] uppercase shadow-lg transition-colors [[data-narration-active]_&]:bottom-24"
             style={sheetOpen ? { opacity: 0, pointerEvents: "none" } : undefined}
           >
             <span
               aria-hidden="true"
-              className="inline-block h-1.5 w-1.5 rounded-full"
-              style={{ backgroundColor: accentColor }}
+              className="bg-fg-primary inline-block h-1.5 w-1.5 rounded-full"
             />
             目录
           </button>

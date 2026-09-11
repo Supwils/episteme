@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { getEconomistBySlug, getAllEconomists } from "@/subjects/economics/lib/mdx";
 import { ERA_COLORS } from "@/subjects/economics/lib/constants";
@@ -18,10 +19,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const economist = getEconomistBySlug(slug);
   if (!economist) notFound();
-  return {
+  return withCanonicalPath(`/economics/economists/${slug}`, {
     title: `${economist.title} — 经济学家`,
     description: `${economist.title}（${economist.name_en}）：${economist.school}。${economist.tags.join("、")}`,
-  };
+  });
 }
 
 export default async function EconomistDetailPage({

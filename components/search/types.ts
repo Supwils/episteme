@@ -18,6 +18,7 @@ export type Section =
   | "arts"
   | "literature"
   | "religion"
+  | "anthropology"
   | "engineering";
 
 export const SECTION_META: Record<Section, { label: string; color: string }> = {
@@ -40,6 +41,7 @@ export const SECTION_META: Record<Section, { label: string; color: string }> = {
   arts: { label: "艺术", color: "#b0785a" },
   literature: { label: "文学与叙事", color: "#8b5e4a" },
   religion: { label: "宗教学", color: "#6b5c8a" },
+  anthropology: { label: "人类学与考古", color: "#8b5a3c" },
   engineering: { label: "工程", color: "#8a919e" },
 };
 

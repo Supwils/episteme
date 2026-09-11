@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import { serializeJsonLd } from "@/lib/jsonld";
 import { notFound } from "next/navigation";
 import { lifeScienceKB } from "@/lib/life-science-kb";
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: Props) {
   const article = lifeScienceKB.getArticleBySlug(slug);
   if (!article) notFound();
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(article.title)}&section=life-science&description=${encodeURIComponent(article.excerpt)}`;
-  return {
+  return withCanonicalPath(`/life-science/knowledge-base/${slug}`, {
     title: `${article.title} — 生命科学知识库`,
     description: article.excerpt,
     openGraph: {
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: Props) {
       description: article.excerpt,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
-  };
+  });
 }
 
 export default async function LifeScienceKnowledgeArticlePage({ params }: Props) {

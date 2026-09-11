@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import { getAllDomains, getDomainById } from "@/subjects/life-science/lib/tree-data";
 import { getSpeciesById } from "@/subjects/life-science/lib/species";
 import { DeepReading } from "@/subjects/life-science/components/DeepReading";
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = domain.description;
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://episteme.vercel.app";
   const ogImage = `${siteUrl}/api/og?title=${encodeURIComponent(domain.name)}&section=life-science&description=${encodeURIComponent(description)}`;
-  return {
+  return withCanonicalPath(`/life-science/tree/${domainId}`, {
     title: `${domain.name}（${domain.nameEn}）— 生命之树`,
     description,
     openGraph: {
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
-  };
+  });
 }
 
 export default async function DomainDetailPage({ params }: Props) {

@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { getSchoolBySlug, getAllSchools } from "@/subjects/psychology/lib/mdx";
 import { ERA_COLORS } from "@/subjects/psychology/lib/constants";
@@ -17,11 +18,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const school = getSchoolBySlug(slug);
   if (!school) notFound();
   const description = school.founder ? `${school.founder}：${school.title}` : school.title;
-  return {
+  return withCanonicalPath(`/psychology/schools/${slug}`, {
     title: `${school.title} — 心理学流派`,
     description,
     openGraph: { title: `${school.title} — 心理学流派`, description },
-  };
+  });
 }
 
 export default async function SchoolDetailPage({ params }: { params: Promise<{ slug: string }> }) {

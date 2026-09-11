@@ -31,6 +31,7 @@ export const PRIMARY_DOMAIN_SPINE_PATH_IDS: Record<CoverageDomainId, string> = {
   arts: "arts-seeing-spine",
   literature: "literature-story-spine",
   religion: "religion-sacred-spine",
+  anthropology: "anthropology-culture-spine",
   engineering: "engineering-building-spine",
 };
 

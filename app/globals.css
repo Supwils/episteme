@@ -1437,18 +1437,18 @@ a.home-feature-card {
 .light,
 [data-theme="light"] {
   color-scheme: light;
-  --color-bg-deep: #efece4;
-  --color-bg-base: #faf6ef;
-  --color-bg-near: #ffffff;
-  --color-bg-panel: #ffffff;
-  --color-bg-elevated: #fffdf8;
-  --color-bg-floating: #ffffff;
-  --color-bg-overlay: rgba(245, 242, 235, 0.9);
+  --color-bg-deep: #efece4 !important;
+  --color-bg-base: #faf6ef !important;
+  --color-bg-near: #ffffff !important;
+  --color-bg-panel: #ffffff !important;
+  --color-bg-elevated: #fffdf8 !important;
+  --color-bg-floating: #ffffff !important;
+  --color-bg-overlay: rgba(245, 242, 235, 0.9) !important;
   --color-scrim: rgba(44, 40, 32, 0.32) !important;
-  --color-fg-primary: #2c2a26;
-  --color-fg-secondary: #4f4b45;
-  --color-fg-muted: #5a564f;
-  --color-fg-disabled: #625e58;
+  --color-fg-primary: #2c2a26 !important;
+  --color-fg-secondary: #4f4b45 !important;
+  --color-fg-muted: #5a564f !important;
+  --color-fg-disabled: #625e58 !important;
   --color-accent-gold: #795719;
   --color-border-faint: #eee6d9;
   --color-border-subtle: #e8dfd0;

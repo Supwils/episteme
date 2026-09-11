@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import { serializeJsonLd } from "@/lib/jsonld";
 import { notFound } from "next/navigation";
 import { cosmologyKB } from "@/lib/cosmology-kb";
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: Props) {
   const article = cosmologyKB.getArticleBySlug(slug);
   if (!article) notFound();
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(article.title)}&section=cosmology&description=${encodeURIComponent(article.excerpt)}`;
-  return {
+  return withCanonicalPath(`/cosmology/knowledge-base/${slug}`, {
     title: `${article.title} — 宇宙学知识库`,
     description: article.excerpt,
     openGraph: {
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }: Props) {
       description: article.excerpt,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
-  };
+  });
 }
 
 export default async function CosmologyKnowledgeArticlePage({ params }: Props) {

@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { getEraBySlug, getAdjacentEras } from "@/subjects/history/lib/eras";
 import {
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: Props) {
   const description = era.desc;
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://episteme.vercel.app";
   const ogImage = `${siteUrl}/api/og?title=${encodeURIComponent(era.name)}&section=human-history&description=${encodeURIComponent(description)}`;
-  return {
+  return withCanonicalPath(`/human-history/eras/${slug}`, {
     title: `${era.name} — 人类历史`,
     description,
     openGraph: {
@@ -44,12 +45,12 @@ export async function generateMetadata({ params }: Props) {
       description,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
-  };
+  });
 }
 
 function getEraEvents(eraId: string): HistoryEventSummary[] {
   return HISTORY_EVENT_CATALOG.filter((event) => event.era === eraId).sort(
-    (left, right) => left.year - right.year,
+    (left, right) => left.year - right.year
   );
 }
 

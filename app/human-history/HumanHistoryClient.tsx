@@ -86,10 +86,10 @@ export default function HumanHistoryClient() {
                 style={{
                   minHeight: 44,
                   padding: "0 18px",
-                  border: "1px solid rgba(200,169,81,0.55)",
+                  border: "1px solid var(--color-border-strong)",
                   borderRadius: 4,
-                  background: "rgba(200,169,81,0.12)",
-                  color: "#e6cf84",
+                  background: "var(--color-bg-panel)",
+                  color: "var(--color-fg-primary)",
                   fontSize: 14,
                   fontWeight: 700,
                   cursor: "pointer",

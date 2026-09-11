@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import { getDialogueBySlug, getAllDialogues } from "@/subjects/life-science/lib/dialogues";
 import { getScientistById } from "@/subjects/life-science/lib/scientists";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -32,7 +33,7 @@ export async function generateMetadata({
   const names = dialogue.participants.map(participantName).join("、");
   const description = dialogue.question || `${names}的对话`;
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(dialogue.title)}&section=life-science&description=${encodeURIComponent(description)}`;
-  return {
+  return withCanonicalPath(`/life-science/dialogues/${slug}`, {
     title: `${dialogue.title} — 生命科学对话`,
     description,
     openGraph: {
@@ -40,7 +41,7 @@ export async function generateMetadata({
       description,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
-  };
+  });
 }
 
 export default async function LifeScienceDialoguePage({

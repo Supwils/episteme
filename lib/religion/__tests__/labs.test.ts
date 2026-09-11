@@ -68,5 +68,11 @@ describe("article lab invites", () => {
     expect(religionLabInvite("frontier", "nones-plateau-after-rls").href).toBe(
       "/religion/secularization-chart"
     );
+    expect(religionLabInvite("religion-and-society", "religion-and-politics").href).toBe(
+      "/religion/world-map"
+    );
+    expect(religionLabInvite("frontier", "cognitive-science-religion-replication").href).toBe(
+      "/religion/ritual-lab"
+    );
   });
 });

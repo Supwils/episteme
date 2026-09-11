@@ -17,6 +17,15 @@ describe("religion labs", () => {
     expect(screen.getByText(/中间状态/)).toBeDefined();
   });
 
+  it("keeps svg stage names distinct from chips", () => {
+    render(<RitualLab />);
+    fireEvent.click(screen.getByRole("button", { name: "第2步：阈限" }));
+    expect(screen.getByRole("button", { name: "第2步：阈限" }).getAttribute("aria-pressed")).toBe(
+      "true"
+    );
+    expect(screen.getByText(/中间状态/)).toBeDefined();
+  });
+
   it("switches a public ritual case", () => {
     render(<RitualLab />);
     fireEvent.click(screen.getByRole("button", { name: "朝圣作为结构" }));
@@ -27,14 +36,14 @@ describe("religion labs", () => {
   it("filters traditions by modern epoch", () => {
     render(<WorldReligionMap />);
     fireEvent.click(screen.getByRole("button", { name: "现代" }));
-    expect(screen.getByRole("button", { name: /五旬节运动/ })).toBeDefined();
-    expect(screen.queryByRole("button", { name: /吠陀祭祀/ })).toBeNull();
+    expect(screen.getByRole("button", { name: "五旬节运动" })).toBeDefined();
+    expect(screen.queryByRole("button", { name: "吠陀祭祀" })).toBeNull();
   });
 
   it("opens a tradition note from the modern band", () => {
     render(<WorldReligionMap />);
     fireEvent.click(screen.getByRole("button", { name: "现代" }));
-    fireEvent.click(screen.getByRole("button", { name: /无宗教身份/ }));
+    fireEvent.click(screen.getByRole("button", { name: "无宗教身份示意位置" }));
     expect(screen.getByText(/29%/)).toBeDefined();
   });
 

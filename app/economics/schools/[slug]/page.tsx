@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { getSchoolBySlug, getAllSchools } from "@/subjects/economics/lib/mdx";
 import { ERA_COLORS } from "@/subjects/economics/lib/constants";
@@ -17,10 +18,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const school = getSchoolBySlug(slug);
   if (!school) notFound();
-  return {
+  return withCanonicalPath(`/economics/schools/${slug}`, {
     title: `${school.title} — 经济学派`,
     description: `${school.title}（${school.title_en}）· ${school.period}`,
-  };
+  });
 }
 
 export default async function SchoolDetailPage({ params }: { params: Promise<{ slug: string }> }) {

@@ -212,6 +212,20 @@ function ReligionMotif({ color }: MotifProps) {
   );
 }
 
+function AnthropologyMotif({ color }: MotifProps) {
+  return (
+    <g {...shared} stroke={color}>
+      <path d="M28 108 H180" opacity={0.45} />
+      <path d="M36 92 H172" opacity={0.55} />
+      <path d="M48 76 H160" opacity={0.7} />
+      <circle cx="104" cy="44" r="10" opacity={0.8} />
+      <circle cx="78" cy="58" r="7" opacity={0.55} />
+      <circle cx="130" cy="58" r="7" opacity={0.55} />
+      <path d="M104 54 L78 52 M104 54 L130 52" opacity={0.6} />
+    </g>
+  );
+}
+
 function LiteratureMotif({ color }: MotifProps) {
   return (
     <g {...shared} stroke={color}>
@@ -254,18 +268,27 @@ const MOTIFS: Record<string, (props: MotifProps) => React.ReactNode> = {
   arts: ArtsMotif,
   literature: LiteratureMotif,
   religion: ReligionMotif,
+  anthropology: AnthropologyMotif,
   engineering: EngineeringMotif,
 };
 
-export function DomainHeroMotif({ domain, accent }: { domain: string; accent: string }) {
+export function DomainHeroMotif({
+  domain,
+  accent,
+  variant = "hero",
+}: {
+  domain: string;
+  accent: string;
+  variant?: "hero" | "watermark";
+}) {
   const Motif = MOTIFS[domain];
   if (!Motif) return null;
+  const className =
+    variant === "watermark"
+      ? "pointer-events-none absolute -top-8 -right-6 hidden w-44 opacity-[0.12] sm:block md:w-56"
+      : "pointer-events-none absolute top-24 right-6 hidden w-72 opacity-[0.16] sm:block md:right-16 md:w-96";
   return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 208 132"
-      className="pointer-events-none absolute top-24 right-6 hidden w-72 opacity-[0.16] sm:block md:right-16 md:w-96"
-    >
+    <svg aria-hidden="true" viewBox="0 0 208 132" className={className}>
       <Motif color={accent} />
     </svg>
   );

@@ -20,10 +20,12 @@ if (globalMinPerformance !== undefined && !Number.isFinite(globalMinPerformance)
 
 const formatScore = (score) => String(score).padStart(3);
 const formatMs = (value) => `${Math.round(value)}ms`.padStart(7);
+const formatInp = (value) =>
+  value == null || !Number.isFinite(value) ? "    n/a" : formatMs(value);
 const violations = [];
 
 console.log(`Lighthouse @ ${BASE}`);
-console.log(`${"route".padEnd(46)} perf  a11y  best  seo      LCP      TBT    CLS  budget`);
+console.log(`${"route".padEnd(46)} perf  a11y  best  seo      LCP      TBT    CLS      INP  budget`);
 
 for (const budget of LIGHTHOUSE_ROUTE_BUDGETS) {
   let metrics = await measureRoute(budget.route);
@@ -38,7 +40,7 @@ for (const budget of LIGHTHOUSE_ROUTE_BUDGETS) {
   violations.push(...routeViolations.map((message) => `${budget.route}: ${message}`));
 
   console.log(
-    `${budget.route.padEnd(46)} ${formatScore(metrics.performance)}  ${formatScore(metrics.accessibility)}  ${formatScore(metrics.bestPractices)}  ${formatScore(metrics.seo)}  ${formatMs(metrics.lcpMs)}  ${formatMs(metrics.tbtMs)}  ${metrics.cls.toFixed(3).padStart(5)}  ${routeViolations.length === 0 ? "PASS" : "FAIL"}`
+    `${budget.route.padEnd(46)} ${formatScore(metrics.performance)}  ${formatScore(metrics.accessibility)}  ${formatScore(metrics.bestPractices)}  ${formatScore(metrics.seo)}  ${formatMs(metrics.lcpMs)}  ${formatMs(metrics.tbtMs)}  ${metrics.cls.toFixed(3).padStart(5)}  ${formatInp(metrics.inpMs)}  ${routeViolations.length === 0 ? "PASS" : "FAIL"}`
   );
 }
 

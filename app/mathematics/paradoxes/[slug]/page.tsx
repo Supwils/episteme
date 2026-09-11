@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { getMathParadoxBySlug, getAllMathParadoxes } from "@/subjects/mathematics/lib/paradoxes";
 import { MATH_FIELD_COLORS, mathBadgeColor } from "@/subjects/mathematics/lib/constants";
@@ -24,7 +25,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!paradox) notFound();
   const description = `${paradox.title_en}：${paradox.field}。${paradox.tags.join("、")}`;
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(paradox.title)}&section=mathematics&description=${encodeURIComponent(description)}`;
-  return {
+  return withCanonicalPath(`/mathematics/paradoxes/${slug}`, {
     title: `${paradox.title} — 数学悖论`,
     description,
     openGraph: {
@@ -32,7 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
-  };
+  });
 }
 
 export default async function MathParadoxDetailPage({

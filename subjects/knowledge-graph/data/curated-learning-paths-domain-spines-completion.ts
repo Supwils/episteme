@@ -344,6 +344,44 @@ export const COMPLETION_DOMAIN_SPINE_PATHS: readonly CuratedLearningPath[] = [
     ],
   },
   {
+    id: "anthropology-culture-spine",
+    scope: "domain-spine",
+    title: "从文化分类到遗产主张",
+    question: "把别人的做法叫做文化之后，亲属、地层与归还怎样改写对象？",
+    steps: [
+      {
+        nodeId: "anthropology:what-is-culture",
+        level: 1,
+        evidenceMode: "interpretation",
+        transition: "先把文化当成可争辩的分类，而不是群体的本质。",
+      },
+      {
+        nodeId: "anthropology:kinship-terminology",
+        level: 2,
+        evidenceMode: "comparative",
+        transition: "称谓系统把同一套亲属词切成可比较的格子。",
+      },
+      {
+        nodeId: "anthropology:stratigraphy-and-context",
+        level: 3,
+        evidenceMode: "observation",
+        transition: "地层与出土情境决定器物能证明什么。",
+      },
+      {
+        nodeId: "anthropology:fieldnotes-and-representation",
+        level: 4,
+        evidenceMode: "formal",
+        transition: "笔记与报告是被制度保存的再现，不是透明窗口。",
+      },
+      {
+        nodeId: "anthropology:nagpra-and-repatriation",
+        level: 5,
+        evidenceMode: "synthesis",
+        transition: "归还法律把谁有权讲述过去写成可核对的程序。",
+      },
+    ],
+  },
+  {
     id: "literature-story-spine",
     scope: "domain-spine",
     title: "从一则故事到正典之争",

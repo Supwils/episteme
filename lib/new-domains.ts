@@ -704,6 +704,89 @@ export const RELIGION: DomainConfig = {
   ],
 };
 
+export const ANTHROPOLOGY: DomainConfig = {
+  domain: "anthropology",
+  label: "人类学与考古",
+  labelEn: "Anthropology & Archaeology",
+  tagline:
+    "从亲属、物质文化与考古记录进入人类差异——民族志方法、史前年代、交换与遗产。描述群体如何组织生活与遗存，不写田野采集手册，也不把在世人群做成标本。",
+  accent: "#8b5a3c",
+  sections: [
+    {
+      key: "culture-and-method",
+      label: "文化与方法",
+      accent: "#8b5a3c",
+      icon: "◎",
+      description: "文化不是常识：主位与客位、描述性民族志、比较与整体论、文化不是种族",
+    },
+    {
+      key: "kinship-and-exchange",
+      label: "亲属与交换",
+      accent: "#a07850",
+      icon: "⚭",
+      description: "称谓、继嗣与联姻、礼物与互惠、家户、性别与人格、财产与人",
+    },
+    {
+      key: "material-culture",
+      label: "物质文化",
+      accent: "#7a6a4a",
+      icon: "▣",
+      description: "物与人、技术与技艺、陶器与风格、织物与价值、博物馆收藏、景观与居住",
+    },
+    {
+      key: "prehistory-and-archaeology",
+      label: "史前与考古",
+      accent: "#6a5a48",
+      icon: "⌛",
+      description: "地层与出土情境、测年、采集与农作、早期城市、人类扩散、崩溃与韧性",
+    },
+    {
+      key: "comparison-and-ethics",
+      label: "比较与伦理",
+      accent: "#5c6a58",
+      icon: "⚖",
+      description: "田野笔记与再现、发掘记录、口头传统、取样与缺失、知情同意、协作考古",
+    },
+    {
+      key: "urban-and-heritage",
+      label: "都市与遗产",
+      accent: "#4a5a6a",
+      icon: "🏛",
+      description: "都市人类学、世界遗产、归还制度、谁拥有过去、应用人类学、当代民族志",
+    },
+  ],
+  tools: [
+    {
+      href: "/anthropology/kinship-diagram",
+      label: "亲属称谓示意图",
+      icon: "⚭",
+      accent: "#8b5a3c",
+      description: "切换爱斯基摩型与易洛魁型称谓，看同一套亲属词切出不同的人",
+    },
+    {
+      href: "/anthropology/material-map",
+      label: "物质文化分布示意",
+      icon: "🌍",
+      accent: "#a07850",
+      description: "点选文化区看馆藏与风格传统。椭圆不是遗址坐标",
+    },
+    {
+      href: "/anthropology/chronology-scale",
+      label: "史前年代标尺",
+      icon: "⌛",
+      accent: "#6a5a48",
+      description: "切换相对地层与绝对测年，看两种钟在同一条带子上如何错位",
+    },
+    {
+      href: "/anthropology/reciprocity-lab",
+      label: "交换与互惠实验室",
+      icon: "⇄",
+      accent: "#7a6a4a",
+      description: "用概括、均衡与消极互惠看公开交换，不是交易教程",
+    },
+  ],
+};
+
 export const ENGINEERING: DomainConfig = {
   domain: "engineering",
   label: "工程与技术",
@@ -871,6 +954,7 @@ export const KNOWLEDGE_DOMAINS: Record<string, DomainConfig> = {
   arts: ARTS,
   literature: LITERATURE,
   religion: RELIGION,
+  anthropology: ANTHROPOLOGY,
   engineering: ENGINEERING,
 };
 

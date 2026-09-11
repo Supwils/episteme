@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { SVG_LAB_BUTTON_CLASS, SvgFocusRect } from "@/components/domain/SvgLabFocusRing";
 import { PIGMENT_LAYERS } from "@/lib/arts/pigment-layers";
 
 const COLORS = ["#d8c48c", "#8b3a2a", "#c47848", "#d4c4a8", "#c4a484"];
@@ -15,20 +16,38 @@ export function PigmentProfile() {
       <svg
         viewBox="0 0 220 160"
         className="mb-4 h-auto w-full"
-        role="img"
+        role="group"
         aria-label="油画层位剖面"
       >
         {PIGMENT_LAYERS.map((layer, index) => (
-          <rect
+          <g
             key={layer.id}
-            x="40"
-            y={16 + index * 26}
-            width="140"
-            height="24"
-            fill={COLORS[index]}
-            stroke={index === activeIndex ? "var(--color-fg-primary)" : "var(--color-border-faint)"}
-            strokeWidth="2"
-          />
+            role="button"
+            tabIndex={0}
+            aria-pressed={index === activeIndex}
+            aria-label={`${layer.name}层位`}
+            className={SVG_LAB_BUTTON_CLASS}
+            onClick={() => setActiveId(layer.id)}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                setActiveId(layer.id);
+              }
+            }}
+          >
+            <rect
+              x="40"
+              y={16 + index * 26}
+              width="140"
+              height="24"
+              fill={COLORS[index]}
+              stroke={
+                index === activeIndex ? "var(--color-fg-primary)" : "var(--color-border-faint)"
+              }
+              strokeWidth="2"
+            />
+            <SvgFocusRect x={38} y={14 + index * 26} width={144} height={28} />
+          </g>
         ))}
       </svg>
       <div className="mb-4 flex flex-wrap gap-2">

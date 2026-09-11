@@ -9,6 +9,7 @@ const EXPECTED_DOMAIN_IDS = [
   "cosmology",
   "human-history",
   "religion",
+  "anthropology",
   "philosophy",
   "arts",
   "literature",
@@ -35,6 +36,16 @@ describe("homepage domain catalog", () => {
     expect(new Set(domainIds).size).toBe(domainIds.length);
   });
 
+  it("includes anthropology in the accessibility scan inventory", () => {
+    const scan = readFileSync("scripts/a11y-scan.mjs", "utf8");
+    expect(scan).toContain('["人类学与考古", "/anthropology"');
+    expect(scan).toContain("/anthropology/culture-and-method/what-is-culture");
+    expect(scan).toContain("/anthropology/kinship-diagram");
+    expect(scan).toContain("/anthropology/material-map");
+    expect(scan).toContain("/anthropology/chronology-scale");
+    expect(scan).toContain("/anthropology/reciprocity-lab");
+  });
+
   it("includes religion in the accessibility scan inventory", () => {
     const scan = readFileSync("scripts/a11y-scan.mjs", "utf8");
     expect(scan).toContain('["宗教学", "/religion"');
@@ -43,6 +54,33 @@ describe("homepage domain catalog", () => {
     expect(scan).toContain("/religion/world-map");
     expect(scan).toContain("/religion/canon-comparator");
     expect(scan).toContain("/religion/secularization-chart");
+    expect(scan).toContain("/philosophy/thinkers/socrates");
+    expect(scan).toContain("/universe-physics/dialogues/bohr-heisenberg");
+  });
+
+  it("includes launched-subject labs in the accessibility scan inventory", () => {
+    const scan = readFileSync("scripts/a11y-scan.mjs", "utf8");
+    for (const path of [
+      "/literature/narrative-graph",
+      "/literature/meter-lab",
+      "/literature/world-map",
+      "/literature/translation-comparator",
+      "/arts/perspective-lab",
+      "/arts/detail-comparator",
+      "/arts/pigment-profile",
+      "/arts/exchange-map",
+      "/arts/space-explorer",
+      "/engineering/grid-flow",
+      "/engineering/structure-lab",
+      "/engineering/materials-profile",
+      "/engineering/chip-process",
+      "/anthropology/kinship-diagram",
+      "/anthropology/material-map",
+      "/anthropology/chronology-scale",
+      "/anthropology/reciprocity-lab",
+    ]) {
+      expect(scan, path).toContain(`"${path}"`);
+    }
   });
 
   it("derives the displayed subject count from the catalog", () => {

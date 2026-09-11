@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { getTheoristBySlug, getAllTheorists } from "@/subjects/psychology/lib/mdx";
 import { ERA_COLORS } from "@/subjects/psychology/lib/constants";
@@ -18,11 +19,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const theorist = getTheoristBySlug(slug);
   if (!theorist) notFound();
   const description = `${theorist.school}。${theorist.tags.join("、")}`;
-  return {
+  return withCanonicalPath(`/psychology/theorists/${slug}`, {
     title: `${theorist.title} — 心理学`,
     description,
     openGraph: { title: `${theorist.title} — 心理学`, description },
-  };
+  });
 }
 
 export default async function TheoristDetailPage({

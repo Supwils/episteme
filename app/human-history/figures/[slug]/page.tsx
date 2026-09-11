@@ -8,6 +8,7 @@ import { getFigureRouteRecord, type HistoryFigure } from "@/subjects/history/lib
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withCanonicalPath } from "@/lib/article-canonical";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -52,7 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = figure.desc;
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://episteme.vercel.app";
   const ogImage = `${siteUrl}/api/og?title=${encodeURIComponent(figure.name)}&section=human-history&description=${encodeURIComponent(description)}`;
-  return {
+  return withCanonicalPath(`/human-history/figures/${slug}`, {
     title: `${figure.name} — 人类历史人物`,
     description,
     openGraph: {
@@ -60,7 +61,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
-  };
+  });
 }
 
 function getEraName(eraId: HistoryFigure["era"]): string {

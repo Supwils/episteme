@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { getMathConceptBySlug, getAllMathConcepts } from "@/subjects/mathematics/lib/concepts";
 import { MATH_FIELD_COLORS, mathBadgeColor } from "@/subjects/mathematics/lib/constants";
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!concept) notFound();
   const description = `${concept.title_en}：${concept.field}。${concept.tags.join("、")}`;
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(concept.title)}&section=mathematics&description=${encodeURIComponent(description)}`;
-  return {
+  return withCanonicalPath(`/mathematics/concepts/${slug}`, {
     title: `${concept.title} — 数学概念`,
     description,
     openGraph: {
@@ -37,7 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
-  };
+  });
 }
 
 export default async function MathConceptDetailPage({

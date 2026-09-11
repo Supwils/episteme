@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { getDialogueBySlug } from "@/lib/dialogues";
 import InteractiveDialogue from "@/subjects/philosophy/components/InteractiveDialogue";
@@ -17,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const description = `以交互式方式探索${dialogue.participants.join("、")}的对话：${dialogue.title_en}`;
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://episteme.vercel.app";
   const ogImage = `${siteUrl}/api/og?title=${encodeURIComponent(dialogue.title)}&section=philosophy&description=${encodeURIComponent(description)}`;
-  return {
+  return withCanonicalPath(`/philosophy/dialogues/${slug}/interactive`, {
     title: `交互式阅读 — ${dialogue.title}`,
     description,
     openGraph: {
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
-  };
+  });
 }
 
 const PARTICIPANT_COLORS = ["#c8a45a", "#61afef", "#e06c75", "#98c379", "#c678dd", "#56b6c2"];

@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { getQuestionBySlug, getAllQuestions, getThinkerBySlug } from "@/lib/mdx";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -69,7 +70,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!question) notFound();
   const description = `${question.field}：${question.key_figures.map(resolveKeyFigure).join("、")}`;
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(question.title)}&section=philosophy&description=${encodeURIComponent(description)}`;
-  return {
+  return withCanonicalPath(`/philosophy/questions/${slug}`, {
     title: `${question.title} — 哲学大问题`,
     description,
     openGraph: {
@@ -77,7 +78,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
-  };
+  });
 }
 
 export default async function QuestionDetailPage({

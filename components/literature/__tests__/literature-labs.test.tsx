@@ -33,6 +33,14 @@ describe("literature labs", () => {
     expect(screen.queryByRole("button", { name: "荷马史诗" })).toBeNull();
   });
 
+  it("keeps svg tradition names distinct from chips", () => {
+    render(<WorldTraditionsMap />);
+    fireEvent.click(screen.getByRole("button", { name: "荷马史诗示意位置" }));
+    expect(
+      screen.getByRole("button", { name: "荷马史诗示意位置" }).getAttribute("aria-pressed")
+    ).toBe("true");
+  });
+
   it("switches translation pairs", () => {
     render(<TranslationComparator />);
     fireEvent.click(screen.getByRole("button", { name: "奥德赛起句" }));

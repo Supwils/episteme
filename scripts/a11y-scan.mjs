@@ -29,6 +29,7 @@ const DOMAIN_PAGES = [
   ["工程与技术", "/engineering", "/engineering/frontiers/safety-engineering"],
   ["文学与叙事", "/literature", "/literature/narrative-basics/what-is-a-story"],
   ["宗教学", "/religion", "/religion/religion-foundations/what-is-religion"],
+  ["人类学与考古", "/anthropology", "/anthropology/culture-and-method/what-is-culture"],
 ];
 
 const PAGES = [
@@ -43,14 +44,29 @@ const PAGES = [
   ["政治学坐标交互", "/political-science/concepts/ideology"],
   ["语言学 IPA 交互", "/linguistics/sounds-and-signs/phonetics-and-ipa"],
   ["生命科学物种页", "/life-science/species/octopus"],
+  ["哲学人物", "/philosophy/thinkers/socrates"],
+  ["物理学对话", "/universe-physics/dialogues/bohr-heisenberg"],
   ["电网潮流实验室", "/engineering/grid-flow"],
+  ["结构受力实验室", "/engineering/structure-lab"],
+  ["材料性能剖面", "/engineering/materials-profile"],
+  ["芯片制造流程图", "/engineering/chip-process"],
   ["透视实验室", "/arts/perspective-lab"],
+  ["作品细节比较器", "/arts/detail-comparator"],
+  ["材料与颜料剖面", "/arts/pigment-profile"],
+  ["全球艺术交流地图", "/arts/exchange-map"],
+  ["建筑空间探索器", "/arts/space-explorer"],
   ["叙事结构图谱", "/literature/narrative-graph"],
   ["格律实验室", "/literature/meter-lab"],
+  ["世界文学时空地图", "/literature/world-map"],
+  ["译本比较器", "/literature/translation-comparator"],
   ["仪式结构实验室", "/religion/ritual-lab"],
   ["世界宗教地图", "/religion/world-map"],
   ["经典开篇比较器", "/religion/canon-comparator"],
   ["世俗化指标示意", "/religion/secularization-chart"],
+  ["亲属称谓示意图", "/anthropology/kinship-diagram"],
+  ["物质文化分布示意", "/anthropology/material-map"],
+  ["史前年代标尺", "/anthropology/chronology-scale"],
+  ["交换与互惠实验室", "/anthropology/reciprocity-lab"],
 ];
 const SELECTED_PAGES = process.env.SCAN_PATH
   ? PAGES.filter(([, path]) => path === process.env.SCAN_PATH)

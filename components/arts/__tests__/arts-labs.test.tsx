@@ -30,10 +30,23 @@ describe("arts labs", () => {
     expect(screen.getByText(/最外层保护膜/)).toBeDefined();
   });
 
+  it("keeps svg layer names distinct from chips", () => {
+    render(<PigmentProfile />);
+    fireEvent.click(screen.getByRole("button", { name: "光油层位" }));
+    expect(screen.getByRole("button", { name: "光油层位" }).getAttribute("aria-pressed")).toBe(
+      "true"
+    );
+  });
+
   it("selects an exchange route", () => {
     render(<ArtExchangeMap />);
     fireEvent.click(screen.getByRole("button", { name: "瓷器与模仿" }));
     expect(screen.getByText(/景德镇瓷器/)).toBeDefined();
+  });
+
+  it("keeps svg route names distinct from chips", () => {
+    render(<ArtExchangeMap />);
+    expect(screen.getByRole("button", { name: "瓷器与模仿路径" })).toBeDefined();
   });
 
   it("switches architectural drawings", () => {

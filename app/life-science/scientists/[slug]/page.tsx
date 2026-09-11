@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import { getAllScientists, getScientistById } from "@/subjects/life-science/lib/scientists";
 import { getScientistArticleBody } from "@/subjects/life-science/lib/scientist-article";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
@@ -84,7 +85,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const supp = getSupp(scientist);
   const description = `${scientist.field}。${scientist.keyContribution}`;
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(scientist.name)}&section=life-science&description=${encodeURIComponent(description)}`;
-  return {
+  return withCanonicalPath(`/life-science/scientists/${slug}`, {
     title: `${scientist.name}（${supp.latin}） — 生命科学`,
     description,
     openGraph: {
@@ -92,7 +93,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
-  };
+  });
 }
 
 export default async function ScientistDetailPage({ params }: Props) {

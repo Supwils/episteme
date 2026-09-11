@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { getMathDialogueBySlug, getAllMathDialogues } from "@/subjects/mathematics/lib/dialogues";
 import {
@@ -28,7 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!dialogue) notFound();
   const description = `${dialogue.participants.join("、")}的对话：${dialogue.title_en}`;
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(dialogue.title)}&section=mathematics&description=${encodeURIComponent(description)}`;
-  return {
+  return withCanonicalPath(`/mathematics/dialogues/${slug}`, {
     title: `${dialogue.title} — 数学对话`,
     description,
     openGraph: {
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
-  };
+  });
 }
 
 export default async function MathDialogueDetailPage({

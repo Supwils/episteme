@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { KnowledgeConfluenceEvidenceLedger } from "@/components/knowledge-continuum/KnowledgeConfluenceEvidenceLedger";
@@ -35,10 +36,10 @@ export async function generateMetadata({
 }: KnowledgeConfluencePageProps): Promise<Metadata> {
   const { id } = await params;
   const confluence = getConfluence(id);
-  return {
+  return withCanonicalPath(`/knowledge-confluence/${id}`, {
     title: `${confluence.title}知识汇流 · Episteme`,
     description: confluence.question,
-  };
+  });
 }
 
 export default async function KnowledgeConfluencePage({ params }: KnowledgeConfluencePageProps) {

@@ -104,6 +104,7 @@ describe("GlobalSearch", () => {
     expect(await screen.findByText(/正文中提到/)).toBeTruthy();
     const hit = await screen.findByRole("option");
     expect(hit.getAttribute("href")).toBe("/philosophy/concepts/delphi");
+    expect(hit.textContent).toContain("哲学思想");
   });
 
   it("offers curated exits on the idle empty panel", () => {

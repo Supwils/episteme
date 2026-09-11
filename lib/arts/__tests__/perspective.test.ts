@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { artsLabInvite } from "../article-lab-invites";
 import { perspectiveBox, towardVanishing } from "../perspective";
 
 describe("perspective", () => {
@@ -13,5 +14,17 @@ describe("perspective", () => {
     const frontSpan = box.front[1]!.x - box.front[0]!.x;
     const backSpan = box.back[1]!.x - box.back[0]!.x;
     expect(backSpan).toBeLessThan(frontSpan);
+  });
+});
+
+describe("article lab invites", () => {
+  it("sends perspective articles to the vanishing-point lab", () => {
+    expect(artsLabInvite("foundations", "perspective-and-space").href).toBe(
+      "/arts/perspective-lab"
+    );
+    expect(artsLabInvite("media", "painting-media").href).toBe("/arts/pigment-profile");
+    expect(artsLabInvite("architecture", "building-as-structure").href).toBe(
+      "/arts/space-explorer"
+    );
   });
 });

@@ -7,7 +7,9 @@ export type SubjectCandidateId =
   | "arts-aesthetics"
   | "engineering"
   | "literature-narrative"
-  | "religion-studies";
+  | "religion-studies"
+  | "anthropology-archaeology"
+  | "education-learning-sciences";
 
 export const SUBJECT_SCORE_DIMENSIONS = {
   existingSeeds: { label: "现有内容种子", weight: 0.2 },
@@ -511,7 +513,7 @@ export const SUBJECT_CANDIDATES: readonly SubjectCandidate[] = [
         concepts: ["远读", "翻译研究", "正典之争", "生成文本"],
       },
     ],
-    releaseArticleCount: 36,
+    releaseArticleCount: 38,
     releaseSections: [
       "叙事基础",
       "诗学与形式",
@@ -640,6 +642,195 @@ export const SUBJECT_CANDIDATES: readonly SubjectCandidate[] = [
     launchGate:
       "先确立描述性而非认信的写法：事实层（制度、文本、年代）与解释层（神义、救赎主张）分离，并禁止可复现的仪式操作步骤。",
   },
+  {
+    id: "anthropology-archaeology",
+    label: "人类学 / 考古学",
+    positioning:
+      "从亲属、物质文化与考古记录进入人类差异——民族志方法、史前年代、交换与遗产。描述群体如何组织生活与遗存，不写田野采集手册，也不把在世人群做成标本。",
+    scores: {
+      existingSeeds: 2,
+      crossDomainReach: 5,
+      levelCoherence: 4,
+      sourceReadiness: 4,
+      visualizationFit: 4,
+      globalCoverage: 5,
+      deliveryFeasibility: 3,
+    },
+    bridgeDomains: [
+      "sociology",
+      "human-history",
+      "linguistics",
+      "life-science",
+      "earth-science",
+      "religion",
+    ],
+    learningSpine: [
+      {
+        level: 1,
+        title: "文化不是常识",
+        question: "把别人的做法叫做“文化”，依据的是观察还是刻板印象？",
+        concepts: ["文化", "民族志", "主位与客位", "比较"],
+      },
+      {
+        level: 2,
+        title: "亲属、交换与物",
+        question: "人怎样用称谓、礼物和器物把关系做出来？",
+        concepts: ["亲属称谓", "互惠", "物质文化", "技术"],
+      },
+      {
+        level: 3,
+        title: "考古记录如何说话",
+        question: "地层、年代和器物组合能证明什么，不能证明什么？",
+        concepts: ["地层学", "测年", "遗址", "类型学"],
+      },
+      {
+        level: 4,
+        title: "方法与证据",
+        question: "田野笔记、发掘报告和实验室数据怎样互相校正？",
+        concepts: ["参与观察", "发掘记录", "残差与取样", "口头传统"],
+      },
+      {
+        level: 5,
+        title: "遗产、都市与伦理",
+        question: "谁有权讲述、收藏和归还过去？",
+        concepts: ["遗产", "都市人类学", "归还", "知情同意"],
+      },
+    ],
+    releaseArticleCount: 36,
+    releaseSections: [
+      "文化与方法",
+      "亲属与交换",
+      "物质文化",
+      "史前与考古",
+      "都市与遗产",
+      "比较与伦理",
+    ],
+    visualizations: ["亲属称谓示意图", "物质文化分布示意地图", "史前年代标尺", "交换与互惠实验室"],
+    globalCoverageCommitments: [
+      "非洲",
+      "大洋洲",
+      "美洲原住民",
+      "东亚与东南亚",
+      "南亚",
+      "近东与地中海",
+      "北极与环极",
+    ],
+    sources: [
+      {
+        name: "Smithsonian Open Access",
+        url: "https://www.si.edu/openaccess",
+        role: "公有领域与开放许可的物质文化图像与元数据",
+        access: "open",
+      },
+      {
+        name: "Open Context",
+        url: "https://opencontext.org/",
+        role: "考古与物质文化的开放数据集与发掘记录引用",
+        access: "open",
+      },
+    ],
+    risks: [
+      "田野条目滑向可操作的采集或盗掘指南",
+      "示意地图把遗址坐标写成寻宝图",
+      "把在世群体写成无历史的标本",
+    ],
+    launchGate:
+      "先确立描述性民族志与考古学写法：事实层（遗址、器物、称谓、制度）与解释层（文化本质、单线进化）分离；禁止田野采集步骤，物质文化地图不得提供盗掘可用的地点精度。",
+  },
+  {
+    id: "education-learning-sciences",
+    label: "教育学 / 学习科学",
+    positioning:
+      "从学习理论、记忆与评估进入教育——教学设计、测量与公平、教育技术。描述学校与学习如何被组织，不写可复现的应试刷题手册，也不把“学习风格”写成已被证实的神经事实。",
+    scores: {
+      existingSeeds: 3,
+      crossDomainReach: 4,
+      levelCoherence: 4,
+      sourceReadiness: 4,
+      visualizationFit: 3,
+      globalCoverage: 3,
+      deliveryFeasibility: 3,
+    },
+    bridgeDomains: [
+      "psychology",
+      "linguistics",
+      "sociology",
+      "computer-science",
+      "philosophy",
+      "political-science",
+    ],
+    learningSpine: [
+      {
+        level: 1,
+        title: "学习不是灌输",
+        question: "把“学会了”写成可观察的改变，依据的是作业、谈话还是脑区彩图？",
+        concepts: ["学习", "教学", "课程", "评估"],
+      },
+      {
+        level: 2,
+        title: "记忆、注意与迁移",
+        question: "遗忘曲线和练习间隔能证明什么，不能证明什么？",
+        concepts: ["工作记忆", "间隔练习", "迁移", "元认知"],
+      },
+      {
+        level: 3,
+        title: "课堂、制度与公平",
+        question: "分班、考试和经费怎样分配谁被当成可教的学生？",
+        concepts: ["课程政治", "标准化测验", "教育公平", "学校组织"],
+      },
+      {
+        level: 4,
+        title: "测量与证据",
+        question: "信效度、随机对照与课堂民族志怎样互相校正？",
+        concepts: ["教育测量", "实验设计", "形成性评价", "学习分析"],
+      },
+      {
+        level: 5,
+        title: "技术、政策与开放问题",
+        question: "自适应系统与生成式模型改的是练习条件，还是证书与监视？",
+        concepts: ["教育技术", "学习分析伦理", "教师劳动", "全球南方学校"],
+      },
+    ],
+    releaseArticleCount: 36,
+    releaseSections: [
+      "学习基础",
+      "认知与记忆",
+      "课程与教学",
+      "评估与公平",
+      "教育技术",
+      "比较与政策",
+    ],
+    visualizations: ["遗忘与间隔练习示意", "课堂互动结构图", "测验分数分解器", "自适应路径示意"],
+    globalCoverageCommitments: [
+      "东亚考试文化",
+      "北欧综合学校",
+      "撒哈拉以南普及教育",
+      "拉丁美洲条件现金与就学",
+      "南亚与殖民课程遗产",
+      "原住民与双语教育",
+    ],
+    sources: [
+      {
+        name: "ERIC",
+        url: "https://eric.ed.gov/",
+        role: "教育研究报告与同行评审论文的开放索引",
+        access: "open",
+      },
+      {
+        name: "UNESCO Institute for Statistics",
+        url: "https://uis.unesco.org/",
+        role: "入学、完成与学习成果的国际统计",
+        access: "open",
+      },
+    ],
+    risks: [
+      "把学习风格、左脑右脑写成已证实的教学处方",
+      "课堂条目滑向可复现的应试刷题或监视学生的操作手册",
+      "把某国分数神话写成文明本质",
+    ],
+    launchGate:
+      "先确立描述性学习科学写法：事实层（实验、测验技术、学校制度）与解释层（天赋、文化本质、技术救世）分离；禁止把有争议的神经神话写成课堂处方。",
+  },
 ] as const;
 
 export const RANKED_SUBJECT_CANDIDATES = [...SUBJECT_CANDIDATES].sort(
@@ -652,6 +843,8 @@ export const LAUNCHED_SUBJECT_CANDIDATE_IDS: ReadonlySet<SubjectCandidateId> = n
   "arts-aesthetics",
   "engineering",
   "literature-narrative",
+  "religion-studies",
+  "anthropology-archaeology",
 ]);
 
 export const RANKED_NEXT_SUBJECT_CANDIDATES = RANKED_SUBJECT_CANDIDATES.filter(

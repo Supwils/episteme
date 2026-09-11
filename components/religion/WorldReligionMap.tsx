@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { SVG_LAB_BUTTON_CLASS, SvgFocusCircle } from "@/components/domain/SvgLabFocusRing";
 import {
   EPOCH_LABELS,
   TRADITION_NODES,
@@ -38,11 +39,25 @@ export function WorldReligionMap() {
           </LabChip>
         ))}
       </div>
-      <svg viewBox="0 0 360 152" className="mb-4 h-auto w-full" aria-hidden>
+      <svg viewBox="0 0 360 152" className="mb-4 h-auto w-full" role="group" aria-label="示意位置">
         {visible.map((node) => {
           const on = node.id === selected.id;
           return (
-            <g key={node.id}>
+            <g
+              key={node.id}
+              role="button"
+              tabIndex={0}
+              aria-pressed={on}
+              aria-label={`${node.label}示意位置`}
+              className={SVG_LAB_BUTTON_CLASS}
+              onClick={() => setSelectedId(node.id)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  setSelectedId(node.id);
+                }
+              }}
+            >
               <circle
                 cx={node.x}
                 cy={node.y}
@@ -52,6 +67,7 @@ export function WorldReligionMap() {
                 strokeWidth={on ? 2 : 1}
                 opacity={on ? 0.95 : 0.45}
               />
+              <SvgFocusCircle cx={node.x} cy={node.y} r={on ? 14 : 11} />
               <text
                 x={node.x}
                 y={node.y + 22}

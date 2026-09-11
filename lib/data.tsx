@@ -120,6 +120,28 @@ export const DOMAINS = [
     stats: "基础 · 历史 · 经典 · 比较 · 社会 · 世俗化",
   },
   {
+    id: "anthropology" as const,
+    cluster: "history-civilization" as DomainClusterId,
+    title: "人类学与考古",
+    titleEn: "Anthropology & Archaeology",
+    description:
+      "从亲属、物质文化与考古记录进入人类差异——民族志方法、史前年代、交换与遗产。描述群体如何组织生活与遗存，不写田野采集手册。",
+    gradient: "linear-gradient(135deg, #8b5a3c 0%, #6a3e28 50%, #c4a07a 100%)",
+    glowColor: "#8b5a3c",
+    bgAccent: "rgba(139, 90, 60, 0.08)",
+    borderAccent: "rgba(139, 90, 60, 0.2)",
+    icon: (
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+        <path d="M6 26h24" stroke="#8b5a3c" strokeWidth="1.5" opacity="0.45" />
+        <path d="M8 22h20" stroke="#a07850" strokeWidth="1.4" opacity="0.55" />
+        <path d="M10 18h16" stroke="#c4a07a" strokeWidth="1.3" opacity="0.65" />
+        <circle cx="18" cy="12" r="3" stroke="#8b5a3c" strokeWidth="1.4" opacity="0.7" />
+        <path d="M18 15v3" stroke="#8b5a3c" strokeWidth="1.3" opacity="0.6" />
+      </svg>
+    ),
+    stats: "文化 · 亲属 · 物质 · 史前 · 伦理 · 遗产",
+  },
+  {
     id: "philosophy" as const,
     cluster: "humanities-arts" as DomainClusterId,
     title: "哲学思想",

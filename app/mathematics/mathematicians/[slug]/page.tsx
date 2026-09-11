@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import {
   getMathematicianBySlug,
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!mathematician) notFound();
   const description = `${mathematician.name}：${mathematician.field}。${mathematician.tags.join("、")}`;
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(mathematician.title)}&section=mathematics&description=${encodeURIComponent(description)}`;
-  return {
+  return withCanonicalPath(`/mathematics/mathematicians/${slug}`, {
     title: `${mathematician.title} — 数学家`,
     description,
     openGraph: {
@@ -35,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
-  };
+  });
 }
 
 export default async function MathematicianDetailPage({

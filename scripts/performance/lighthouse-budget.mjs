@@ -39,6 +39,10 @@ export function readLighthouseMetrics(lhr) {
     lcpMs: lhr.audits["largest-contentful-paint"]?.numericValue ?? Infinity,
     tbtMs: lhr.audits["total-blocking-time"]?.numericValue ?? Infinity,
     cls: lhr.audits["cumulative-layout-shift"]?.numericValue ?? Infinity,
+    inpMs:
+      lhr.audits["interaction-to-next-paint"]?.numericValue ??
+      lhr.audits["experimental-interaction-to-next-paint"]?.numericValue ??
+      null,
   };
 }
 

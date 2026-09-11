@@ -3,6 +3,7 @@ import { discourseSequence, HARE_EVENTS } from "../narrative-order";
 import { groupedSlots, meterById } from "../meter-scan";
 import { traditionsInEpoch, TRADITION_NODES } from "../world-traditions-map";
 import { translationPairById } from "../translation-pairs";
+import { literatureLabInvite } from "../article-lab-invites";
 
 describe("narrative order", () => {
   it("keeps the same four events in every discourse mode", () => {
@@ -46,5 +47,16 @@ describe("translation pairs", () => {
     expect(pair.sourceLines).toHaveLength(4);
     expect(pair.left.lines).toHaveLength(4);
     expect(pair.right.lines).toHaveLength(4);
+  });
+});
+
+describe("article lab invites", () => {
+  it("sends plot articles to the narrative graph and copyright edges to translation", () => {
+    expect(literatureLabInvite("narrative-basics", "plot-character-conflict").href).toBe(
+      "/literature/narrative-graph"
+    );
+    expect(literatureLabInvite("frontier", "llm-training-corpus-litigation").href).toBe(
+      "/literature/translation-comparator"
+    );
   });
 });
