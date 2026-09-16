@@ -24,6 +24,18 @@ related:
   - databases-transactions
   - kubernetes-controller-pattern
   - kafka-log-abstraction
+  - paxos-lamport-1998
+  - chubby-2006
+  - zookeeper-2010
+  - herlihy-wing-1990
+  - byzantine-generals-lamport-1982
+  - viewstamped-replication-1988
+  - garcia-molina-1982-bully
+  - birman-1985-virtual-synchrony
+  - castro-liskov-1999-pbft
+  - gilbert-lynch-2002-cap
+  - gray-1978-two-phase-commit
+  - herlihy-1991-wait-free
 ---
 
 # etcd：把 Raft 变成能用的东西
@@ -32,9 +44,9 @@ Raft 论文只有十六页。读完之后你会有种错觉：这东西我能实
 
 然后你开始写，很快撞上一堆论文没打算回答的问题。日志要写到哪儿去？写完要不要 `fsync`？日志涨到几百万条怎么办？往集群里加一台机器的那一瞬间，"多数派"这个词指的是旧的三台还是新的四台？还有一个最容易被忽略的：客户端要读一个值，leader 直接把自己内存里的答案返回去，行不行？
 
-答案是不行。而**为什么不行、以及怎么做才行**，构成了 etcd 代码量的绝大部分。Raft 给的是骨架，etcd 补的是另一半——那一半没有优雅的定理，只有磁盘、时钟、内存和配额。
+答案是不行。而**为什么不行、以及怎么做才行**，构成了 etcd 代码量的绝大部分。Raft 给的是骨架，不是 [[paxos-lamport-1998|Paxos]]，也不是 [[byzantine-generals-lamport-1982|Byzantine Generals]]；etcd 补的是另一半——那一半没有优雅的定理，只有磁盘、时钟、内存和配额。
 
-etcd 由 CoreOS 发起，Xiang Li 在 2013 年 6 月 6 日推下第一个提交，起因是一个很具体的工程需求：CoreOS 要在一群 Linux 机器上做无人值守的自动更新，必须有个地方安全地协调"现在轮到谁重启"。Brandon Philips、Alex Polvi 与 Xiang Li 先看了 Google 的 Chubby 和 Apache ZooKeeper，最后决定自己写一个。2018 年 12 月 etcd 捐给 CNCF，2020 年 11 月毕业。今天它是 Kubernetes 唯一的持久化状态存储——整个集群的期望状态，都压在这个键值存储上。
+etcd 由 CoreOS 发起，Xiang Li 在 2013 年 6 月 6 日推下第一个提交，起因是一个很具体的工程需求：CoreOS 要在一群 Linux 机器上做无人值守的自动更新，必须有个地方安全地协调"现在轮到谁重启"。Brandon Philips、Alex Polvi 与 Xiang Li 先看了 Google 的 [[chubby-2006|Chubby]] 和 Apache [[zookeeper-2010|ZooKeeper]]，最后决定自己写一个。2018 年 12 月 etcd 捐给 CNCF，2020 年 11 月毕业。今天它是 Kubernetes 唯一的持久化状态存储——整个集群的期望状态，都压在这个键值存储上。
 
 ---
 
@@ -168,7 +180,7 @@ etcd 在工程上又加了一层，解决的是另一个问题——**可用性*
 
 ## 四、线性一致读：为什么不能直接读本地
 
-线性一致性的要求可以口语化成一句：**任何一次读，必须能看到这次读开始之前所有已完成的写。**
+[[herlihy-wing-1990|线性一致性]]的要求可以口语化成一句：**任何一次读，必须能看到这次读开始之前所有已完成的写。**
 
 leader 直接返回本地状态机的值会违反它，原因前面说过——被隔离的老 leader 自己不知道自己已经过期了。follower 更明显：它的 `applied` 索引本来就可能落后于 leader。
 

@@ -34,6 +34,7 @@ const CROSS_DOMAINS = new Set<string>([
   "linguistics",
   "religion",
   "anthropology",
+  "education",
 ]);
 
 function MetaList({ label, items }: { label: string; items: string[] }) {

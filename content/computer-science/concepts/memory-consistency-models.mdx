@@ -1,0 +1,219 @@
+---
+title: 内存一致性模型
+title_en: Memory Consistency Models
+status: published
+updated: 2026-09-13
+category: 系统与架构
+order: 69
+field: 计算机科学 · 并发 · 体系结构
+era: 当代
+key_figures:
+  - 莱斯利·兰波特
+  - 萨里塔·阿德韦
+  - 汉斯·博姆
+tags:
+  - 顺序一致性
+  - TSO
+  - 弱内存
+  - C++11
+  - happens-before
+related:
+  - concurrency
+  - computer-architecture
+  - cpu-pipelining
+  - operating-systems
+  - distributed-systems
+  - formal-methods-and-verification
+  - herlihy-wing-1990
+  - herlihy-1991-wait-free
+  - dijkstra-1965-mutual-exclusion
+  - attiya-bar-noy-dolev-1995
+  - herlihy-moss-1993-tm
+  - shavit-touitou-1995-stm
+  - lamport-1979-sequential-consistency
+---
+# 内存一致性模型
+
+1979 年，莱斯利·兰波特（Leslie Lamport）给多处理器写下一句听起来像常识的话：若每个处理器按程序顺序执行，系统的总体行为应像这些操作排成某一全局序列，且该序列符合每台处理器的程序序。
+
+这就是**顺序一致性**（sequential consistency, SC），对象见 [[lamport-1979-sequential-consistency|Lamport 1979]]。真正的芯片几乎从不提供裸的 SC。它们把写缓冲、投机读取、缓存一致性协议叠在一起，于是程序员看到的是一张更弱的合同：内存一致性模型。
+
+没有这张合同，「先写 flag 再写 data」在另一核上可以变成「看见 flag、看不见 data」。bug 不是编译器坏了，是你以为硬件提供了 SC。
+
+## 破除误解：缓存一致性不是一致性模型
+
+MESI 一类协议保证：同一地址在同一时刻至多一个可写副本，读能看到最后一次写的值——这是**一致性**（coherence），按地址说话。
+
+一致性模型（consistency）按**多地址之间的顺序**说话。可以有连贯的缓存，却允许对两个地址的写在另一核上以相反顺序可见。
+
+把两者混称「缓存一致性问题」，会把调试带进总线探听，而真正的 bug 在写缓冲。第二个误解是「volatile 等于正确」。
+
+Java 的 `volatile`、C++ 的 `memory_order_seq_cst` 提供的是语言级合同，且各不相同。C++ 还有 acquire/release、relaxed；把它们都理解成「不要优化这个变量」，既过强又过弱。过强会杀死性能，过弱会留下数据竞争——而数据竞争在 C++ 里是未定义行为，不是「偶尔读到旧值」。
+
+第三个误解是弱模型只存在于 ARM 和 POWER。x86 对普通读写接近 TSO（total store order）：写可以进缓冲，读可以绕过自己的写，但核间对写的顺序有全序。
+
+TSO 已经允许 Dekker 互斥的朴素写法失败。Intel 与 AMD 的手册比教材更细；Sewell 等人把 x86-TSO 写成可操作语义，就是因为手册句子不够当证明用。
+
+## 现场：Dekker 在 TSO 上为什么死
+
+两核各写自己的 flag 再读对方的 flag，若两边都读到 0，就会一起进入临界区。SC 下这不可能：两次写和两次读排进全序，必有一方看见另一方的写。
+
+TSO 下，写停在存储缓冲里，随后的读可以先看自己缓冲、再看缓存，于是双方都看见 0。修复是插入 store-load 屏障（x86 上 `mfence` 或锁前缀），代价是流水线气泡。
+
+这就是一致性模型的工程含义：它告诉你**哪一类屏障是必需的**。弱于 TSO 的 ARM，连 store-store、load-load 都可能重排，必须用 acquire/release 或显式 DMB。
+
+把为 x86 写的无锁队列原样搬到手机，是一致性模型课程里每年都会出现的事故。SB（store buffering）就是 Dekker 的缩写名：两核各写再读对方，允许双方都读到旧值。
+
+LB（load buffering）是对称的另一张图：两核各先读对方再写自己，弱模型允许循环依赖的「先看见对方的新值」。x86-TSO 禁止 LB、允许 SB；ARM 两者都可以。
+
+调试时先画这两张图，比在逻辑分析仪上追 MESI 状态快。
+
+## 核心：从 happens-before 到语言标准
+
+Java 内存模型（JSR-133，2004）用 happens-before 偏序：解锁 happens-before 后续对同一锁的加锁；volatile 写 happens-before 后续 volatile 读。Boehm 与 Adve 把类似结构写进 C++11：atomic 上的 release 与 acquire 配对，seq_cst 再加一张全局全序。
+
+relaxed 原子操作不提供同步，只提供原子性，避免撕裂读写。编译器与硬件共享这张合同。编译器可以绕过非原子的读，可以在没有依赖的情况下上提加载；硬件可以在写缓冲里延迟存储。
+
+模型必须同时约束两者，否则「源代码看起来对、汇编已经错」或反过来。这是为什么内存模型论文读起来像操作语义：它是规范，不是比喻。
+
+分布式系统的「一致性」是另一张表：[[herlihy-wing-1990|线性一致性]]、顺序一致性、因果一致性、最终一致性，对象是网络上的副本，不是缓存行。
+
+把 SC 直接说成 CAP 里的 C，类型就错了。
+
+共享内存模型处理的是单台机器上的地址空间；广域副本见 [[distributed-systems|分布式系统]]。
+
+能借的只有「观察者看到的顺序」这一层词汇。弱模型与流水线是一对。乱序执行希望加载尽早发出；一致性模型决定何时必须等待更早的存储对全球可见。
+
+[[cpu-pipelining|CPU 流水线]] 解释气泡从哪来；一致性模型解释气泡为什么不能总被填掉。
+
+## 机制：写缓冲、TSO 与一组 litmus 测试
+
+写缓冲是 TSO 的物理核心。核把 store 放进 FIFO，不必等它变成全局可见就可以执行后面的指令。自己的 load 必须窥探这个 FIFO，否则会读到自己刚写的旧值——那连单线程语义都坏了。
+
+别人的 load 看不见你缓冲里的值，直到缓冲排水、缓存协议走完 MESI 的升级。Dekker 失败，就是双方都停在缓冲里。MP（message passing）测试是另一张图：线程 0 写 data 再写 flag；线程 1 读 flag 再读 data。
+
+SC 和 TSO 都禁止「看见 flag=1 却看见旧 data」——因为 TSO 保持 store-store 与 load-load 顺序。ARM 和 POWER 允许，除非 flag 的写是 release、读是 acquire，或插入 DMB。这就是「为 x86 写的无锁队列搬到手机」的最小反例。
+
+IRIW（independent reads of independent writes）更弱：两个线程各写一个地址，另外两个线程以相反顺序读这两个地址。SC 禁止两边看到相反顺序；TSO 也禁止，因为写有全序。
+
+POWER 和旧 ARM 允许。C++ 的 seq_cst 原子读写禁止 IRIW；acquire/release 不禁止。选错原子序，不是慢一点，是允许一套你在 x86 上测不出来的执行。x86 上跑一百万次压力测试仍可能全过：TSO 本来就不允许 IRIW。
+
+同一份源码在 POWER 或旧 ARM 上会以很小的概率冒出相反观察。并发测试的「我在开发机上过了」因此不是证据，除非开发机的模型至少一样弱。
+
+litmus 测试把上述故事写成十几条指令加允许/禁止的最终寄存器值。herd、diy、litmus 工具从模型生成或检查这些测试。
+
+芯片出货前跑套件，比读散文手册更接近「这颗核实现了哪张合同」。
+
+## 机制：C++11 六种序，以及 Java 为什么不是同一张表
+
+C++11 原子操作有六种 memory_order：relaxed、consume、acquire、release、acq_rel、seq_cst。relaxed 只保证这一次读写不撕裂，不与其他地址同步。计数器、统计量常用它；用它发布指针会让另一线程看见新指针、看不见新对象——典型的 load 缓冲 / 编译器重排事故。
+
+release 写与 acquire 读配对：看见这次写，就看见写之前的所有副作用。这正好实现「先填 data 再竖 flag」。acq_rel 用在 read-modify-write，一身兼两职。seq_cst 再加一张所有 seq_cst 操作的全局全序，恢复近似 SC 的心智，代价是 x86 上的 `mfence` 或锁前缀，ARM 上更重的屏障。
+
+consume 本意是依赖携带的更轻同步，为 DEC Alpha 一类极弱硬件准备。编译器几乎无法正确实现它而不退化成 acquire；C++17 起被劝退，标准仍留着名字。
+
+Java 的 volatile 接近 seq_cst，没有公开的 relaxed 原子（`VarHandle` 后来补了更细的序）。数据竞争在 Java 里仍有含义：非 volatile 共享可变状态可以看见陈旧值，但不像 C++ 那样整程序未定义。
+
+JSR-133 花大力气修的是「final 字段初始化对其他线程可见」——对象构造期间的写，必须在发布引用之前对观察者变成可见。
+
+这是语言级模型，不是 ISA 附录。Rust 默认把数据竞争变成编译期错误，unsafe 原子沿用 C++ 的序。语言没有让模型变简单；它把大多数人挡在模型外面。
+
+seq_cst 在 x86 上常编译成带锁前缀的交换或 `mov` 加 `mfence`。acquire/release 的普通读写则是裸 `mov`，因为 TSO 已经提供了足够的 store-store 与 load-load。ARM64 上 release 写是 `stlr`，acquire 读是 `ldar`，比全栅栏 `dmb ish` 轻，但仍比 x86 的裸 `mov` 重。
+
+同一份无锁队列在笔记本上快、在手机上慢，往往不是算法变了，是屏障从空操作变成了真指令。
+
+## 机制：编译器重排如何与硬件重排叠成同一张合同
+
+编译器可以在没有同步的情况下把 load 上提、把 store 下沉、删除重复读。若源码写了 `if (flag) read(data)`，而 flag 与 data 都不是原子，编译器可以先读 data——这在硬件 TSO 上也合法，因为单线程看起来等价。
+
+对另一核，这就变成「看见 data 的新值、尚未看见 flag」。所以模型必须同时约束编译器和 CPU。Boehm 强调：只规范硬件的手册，无法单独当 C 或 C++ 的语义。
+
+反向也成立：把 C++ 模型理解成「插入足够的 DMB」而不禁止编译器优化，会漏掉 load 上提。Linux 内核用自己的一套 barrier 宏（`smp_mb`、`smp_wmb`、`smp_rmb`、`smp_load_acquire`），并按架构展开。
+
+内核作者不写 C++11 原子，但面对同一物理：x86 上许多 store-store 是空操作，ARM64 上不是。把内核代码当可移植 C，会在弱架构上丢消息。
+
+RISC-V 选了可配置的模型，默认接近 RVWMO，比 TSO 弱、比旧 POWER 容易教。形式化工作（Alglave、Maranget、Sewell、Batty 等）把这些 ISA 写成关系：po（程序序）、rf（读自）、fr（from-read）、co（一致性序），再加架构特定的公理。
+
+证明一段并发算法，就是证明在这些关系的所有允许执行里不变量成立。SC 下的证明少了写缓冲那一刀，不能原样搬过来。
+
+## 机制：屏障在流水线上值多少周期
+
+x86 上普通 store 后跟 load 不需要 `sfence`。TSO 已保证 store-store；缺的是 store-load 栅栏。
+
+`mfence` 把存储缓冲排空再放行后续访存，代价以十到几十个周期计，在自旋路径上还会乘上重试次数。
+
+Linux 的 `smp_mb()` 在 x86 展开成锁前缀，在 ARM64 是 `dmb ish`，在 RISC-V 是 `fence rw,rw`。把驱动程序从 PC 抄到嵌入式板，漏掉的不是 C 语法，是这些宏变成了不同指令。
+
+`smp_wmb()` 与 `smp_rmb()` 更轻，只挡一边；用错边等于没挡。
+
+POWER 把栅栏再分成 `lwsync` 与 `hwsync`。轻的那种不排空全部，允许部分 store-load 仍交叉；重的那种才接近全序。Java 的 volatile 在 POWER 上曾因此必须选对指令，否则虚拟机自己的内存模型会和芯片公理对不齐。
+
+DEC Alpha 更弱：连数据依赖的 load 都可以不保持顺序。C++ 的 `memory_order_consume` 就是为这种机器准备的；当代 ARM64 已用 acquire 加载覆盖大多数依赖场景，consume 失去硬件对象，标准才把它劝退。
+
+Peterson 互斥在 SC 下正确。在 TSO 下同样要在写 flag 之后、读对方 flag 之前加 store-load 屏障。教材若只画 flag 与 turn 而不写栅栏，学生在 x86 上碰巧能过，在 ARM 上两个线程会一起进入临界区。
+
+这不是习题写错年代，是伪代码没把模型写进去。持久内存把「可见」再拆一刀。
+
+`clwb` 加 `sfence` 让缓存行回到内存控制器，掉电后仍在；这是耐久性，不是 TSO 的核间可见。
+
+CXL.mem 的远内存又问：另一台主机的写何时对本机 load 可见。库若仍按易失 TSO 写，断电或跨主机都会丢更新。标准文本落后于器件时，存储引擎只能自己规定：哪些 store 必须在刷回之前完成，哪些读必须在完成标志的 acquire 之后。
+
+事务内存曾想用硬件事务绕过细栅栏。缓存容量一满就 abort，冲突一高就回退到锁。它没有取消一致性模型，只是把成功路径上的屏障藏进了提交点。
+
+失败路径仍要按弱模型写回退代码。
+
+## 代价与争议
+
+SC 对程序员最友好，对硬件最贵。商业 ISA 选择弱模型，把复杂交给工具链和少数写内核的人。争论从未结束：有人主张硬件回到 SC 并靠投机恢复性能（Gharachorloo 等人早年就讨论过 SC 的实现代价）；有人认为 acquire/release 已经是可教学的折中。
+
+Rust 默认把数据竞争变成编译期错误，把剩余的 unsafe 原子留给专家——这是语言对模型的回应，不是模型变简单了。
+
+形式化是另一场仗。x86-TSO、ARMv8、RISC-V 的内存模型都有可执行的语义和一致性测试套件（diy、herd、litmus）。芯片出货前用这些套件抓重排，比读散文手册可靠。
+
+模型一旦写错，会把真实芯片判成违规，或把违规判成合法。与事务内存、持久内存的叠加还在演进。
+
+CXL、非易失 DIMM 要求「掉电后仍可见」的顺序，比易失 TSO 多一条耐久性轴。标准落后于硬件时，库作者只能自己写屏障图例。
+
+消费内存序 `memory_order_consume` 的失败说明：规范写得出、编译器做不到的合同，最终会被劝退。工程上应使用能被 LLVM 和 GCC 诚实实现的那几档。
+
+## 工程现场：屏障税、锁前缀与持久性第二轴
+
+x86 上一次 `mfence` 往往是几十到上百周期，且会排空存储缓冲。带锁前缀的 `xchg` 通常更便宜，因为硬件把它当成常用同步。ARM 上 `dmb ish` 的代价随互联拓扑变。把「无锁队列更快」写成结论，却不报屏障频率，数字不可比。
+
+seq_cst 原子在 x86 上对 store 常编译成 `xchg` 或带屏障的 store，对 load 往往是普通读。ARM 上 seq_cst store 更重。同一份 C++ 在两台机器上的吞吐可以差出一倍以上，原因不是算法，是内存模型的实现税。见 [[computer-architecture|计算机体系结构]]。
+
+Dekker 死在 store-load：写进缓冲后，随后的读可以绕过它去看缓存。互斥锁的锁前缀已经附带这道屏障，所以用 mutex 的代码不必手写 `mfence`。无锁路径才会把屏障暴露出来。每秒百万次屏障可以吃掉从去掉锁那里省下的全部周期。
+
+消息传递 litmus 在 TSO 上通常通过，在 ARM 上失败：核 0 写 data 再写 flag，核 1 看见 flag 后读 data。SC 与 TSO 都要求看见新 data。弱模型允许 store-store 重排。把为 x86 写的队列原样搬到手机，每年都在这一条上翻车。
+
+IRIW 决定写有没有全局全序。两核各写不同地址，另两核以相反顺序读。SC 禁止两边都看到「自己的新、对方的旧」。部分弱模型允许。语言模型若把 seq_cst 理解成 acquire/release，会在 IRIW 上静默出错。
+
+数据竞争在 C++ 里是未定义行为。编译器可以假设它不存在，从而删除看似多余的读。Java 选择了另一条路：竞争仍有很弱的语义，但 out-of-thin-air 值的争论持续多年。两个 relaxed 原子互相读取，理论上可以发明一个谁也没写过的值。RC11 试图禁止这类值，又要保住现有优化。
+
+Rust 把非原子共享可变挡在安全代码门外。模型没有变简单，语言把大多数人挡在门外。Linux 内核的 `READ_ONCE` / `WRITE_ONCE` 禁止合并或撕裂，但不提供 acquire/release。RCU 读者几乎不写共享缓存行。这是操作系统自己的观测协议，见 [[operating-systems|操作系统]] 与 [[concurrency|并发]]。
+
+CXL 与非易失 DIMM 再加一条「掉电后仍可见」的轴。易失 TSO 里已经对其他核可见的 release 写，掉电后仍可能丢失，除非再发持久性屏障。库作者要画两张图：核间可见性，以及崩溃后的前缀。
+
+## 跨域连接
+
+- **[[proof|证明]]**：litmus 测试是小程序加允许/禁止的观察结果。证明一段并发算法，就是证明它在模型的所有允许执行里都满足不变量。SC 下的证明不能原样搬到 TSO；缺的那一步必须用屏障或更强的原子序补回去。herd 把公理变成可执行检查。内存模型让「并发正确」变成对操作语义的定理，而不是代码评审意见：评审看不见写缓冲，关系代数看得见。
+- **[[category-theory|范畴论]]**：happens-before 是偏序，同步是在这个偏序上添加边。release/acquire 配对是在两个事件之间加一条可传递的序，而不是加一个全局时钟。工具若把执行当成事件范畴里的态射，就能机械地谈组合：锁的临界区是一段必须嵌套的序。弱模型难教，部分因为偏序比全序更不像时间线；范畴语言在这里只是偏序与组合的精确说法，不是要把内核写成论文。
+- **[[nash-equilibrium|纳什均衡]]**：互斥算法是多方协调：每方按本地策略读写 flag。模型决定「看见对方策略」的时机。SC 接近完备信息的回合制；TSO 像有延迟的观察，Dekker 的纯策略在延迟下不再互斥。把均衡分析直接套到缓存协议会过拟合，但「观察延迟改变可执行策略集合」这一层是同一类机制：合同若假设瞬时观察，实现会偷偷扩大策略空间。
+- **[[information-asymmetry|信息不对称]]**：写缓冲让写方已经「知道」更新，读方尚未知道。一致性模型规定这种不对称最多能维持多久、必须用什么信号（屏障、release、锁）打破。经济学里的不对称谈的是激励；这里谈的是物理上的可见性。两者都说明：系统的合同若假设对称观察，实现会偷偷违反。IRIW 把不对称写成四个观察者看到两套相反行情。
+
+---
+
+## 参考文献
+
+- Lamport, L. "How to Make a Multiprocessor Computer That Correctly Executes Multiprocess Programs." *IEEE Transactions on Computers* C-28(9):690–691, 1979.
+- Adve, S. V. & Gharachorloo, K. "Shared Memory Consistency Models: A Tutorial." *IEEE Computer* 29(12):66–76, 1996.
+- Sewell, P. et al. "x86-TSO: A Rigorous and Usable Programmer's Model for x86 Multiprocessors." *Communications of the ACM* 53(7):89–97, 2010.
+- Boehm, H.-J. & Adve, S. V. "Foundations of the C++ Concurrency Memory Model." *Proceedings of PLDI*, 2008.
+- Manson, J., Pugh, W. & Adve, S. V. "The Java Memory Model." *Proceedings of POPL*, 2005. （JSR-133）
+- Alglave, J., Maranget, L. & Tautschnig, M. "Herding Cats: Modelling, Simulation, Testing, and Data Mining for Weak Memory." *ACM TOPLAS* 36(2):7, 2014.
+- Batty, M. et al. "Mathematizing C++ Concurrency." *Proceedings of POPL*, 2011.
+
+## 延伸阅读
+
+- SPARC、ARM、RISC-V 官方内存模型附录；以及 herdtools7 的 litmus 测试库。
+- Maranget, L., Sarkar, S. & Sewell, P. "A Tutorial Introduction to the ARM and POWER Relaxed Memory Models." 公开讲义。

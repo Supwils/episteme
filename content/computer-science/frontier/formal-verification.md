@@ -2,7 +2,7 @@
 title: 形式化验证与程序合成
 title_en: Formal Verification and Program Synthesis — From CompCert to AI-Assisted Proof
 status: published
-updated: 2026-06-13
+updated: 2026-09-12
 category: 编程语言与系统
 horizon: 2020s
 order: 4
@@ -100,6 +100,10 @@ IMO 2024 测试：六道题，DeepMind 系统合计解出 4 道——AlphaProof 
 
 **工具生态碎片化**：Lean、Coq、Isabelle、HOL4 各有优点，社区分散，定理很少能跨系统迁移。统一形式化数学基础设施是长期难题。
 
+IMO 银牌级不是开放数学被攻克。AlphaProof 的 2025 年方法论文写明：非几何题由专家在赛后手工写成 Lean 语句，再用多日计算去搜。内核验证的是推演，不是选题。
+
+竞赛题有标准答案和封闭形式。黎曼假设没有。CompCert 的铁律在这里同样适用：证明只对覆盖范围负责。未形式化的自然语言题面、解析器与搜索策略，都不在 Lean 内核里。
+
 ## 未知的边界
 
 - AI 辅助证明能否扩展到当前人类尚未解决的数学猜想（如黎曼猜想、P vs NP）？
@@ -128,6 +132,7 @@ IMO 2024 测试：六道题，DeepMind 系统合计解出 4 道——AlphaProof 
 - Leroy, X. _Formal Verification of a Realistic Compiler._ CACM 52(7), 2009. （CompCert 的概述）
 - de Moura, L. & Ullrich, S. _The Lean 4 Theorem Prover and Programming Language._ CADE 2021.
 - AlphaProof 团队. _AI Achieves Silver-Medal Standard Solving International Mathematical Olympiad Problems._ Google DeepMind 博客, 2024. （deepmind.google）
+- Hubert, T. et al. _Olympiad-level formal mathematical reasoning with reinforcement learning._ Nature (2025). DOI: 10.1038/s41586-025-09833-y.
 - Gulwani, S. _Automating String Processing in Spreadsheets Using Input-Output Examples._ POPL 2011. （FlashFill 的学术论文）
 - Yang, X., Chen, Y., Eide, E. & Regehr, J. _Finding and Understanding Bugs in C Compilers._ PLDI 2011. （CSmith：在 GCC/LLVM 中找到大量 bug，CompCert 验证部分无错码 bug）
 - Klein, G. et al. _seL4: Formal Verification of an OS Kernel._ SOSP 2009. （首个全功能验证的操作系统微内核）

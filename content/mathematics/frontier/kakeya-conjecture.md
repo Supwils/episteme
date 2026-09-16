@@ -2,7 +2,7 @@
 title: 挂谷猜想：三维的攻克
 title_en: The Kakeya Conjecture Resolved in Three Dimensions
 status: published
-updated: 2026-08-16
+updated: 2026-09-12
 category: 分析学与偏微分方程
 horizon: 2020s
 order: 8
@@ -29,7 +29,7 @@ related:
 
 2025 年 2 月 24 日，纽约大学 Courant 研究所的王虹（Hong Wang）与不列颠哥伦比亚大学的 Joshua Zahl 在 arXiv 上贴出一篇一百余页的预印本："Volume estimates for unions of convex sets, and the Kakeya set conjecture in three dimensions"（arXiv:2502.17655）。摘要的最后一句话只有一行：作为推论，**三维空间中每个挂谷集的 Minkowski 维数与 Hausdorff 维数都等于 3**。
 
-这句话终结了一场持续三十年的正面攻坚战。1995 年 Thomas Wolff 用"发刷论证"证明三维挂谷集的维数至少为 2.5 之后，全世界最强的分析学家轮番上阵，三十年只把这个下界从 2.5 推进到小数点后若干位之外的一个极小增量。王虹与 Zahl 没有继续挤这条缝，而是绕到侧面，把整条问题一次清掉。2025 年 5 月，王虹出任法国高等科学研究所（IHES）常任教授——该机构历史上首位女性常任教授。
+这句话终结了一场持续三十年的正面攻坚战。1995 年 Thomas Wolff 用"发刷论证"证明三维挂谷集的维数至少为 2.5 之后，全世界最强的分析学家轮番上阵，三十年只把这个下界从 2.5 推进到小数点后若干位之外的一个极小增量。王虹与 Zahl 没有继续挤这条缝，而是绕到侧面，把整条问题一次清掉。IHES 宣布其常任教授职位自 2025 年 9 月 1 日起生效，与纽约大学 Courant 联合任职。2026 年 7 月 23 日至 30 日在费城举行的国际数学家大会上，王虹因包括三维挂谷在内的调和分析工作获菲尔兹奖。奖杯不是期刊接收函。主论文截至 2026 年 9 月仍以预印本与 Guth 的社区讲解为主。
 
 ## 破除误解：这不是"转针问题"本身
 
@@ -80,6 +80,12 @@ related:
 
 **方法的可推广性未知。** 尺度归纳在三维成功，严重依赖粘性情形已解决这一前提；四维以上连"粘性"与"非粘性"如何配对都尚未厘清。四维最佳下界（Katz–Zahl 的约 3.059）与目标 4 之间的距离，比当年三维的 2.5 与 3 之间大得多。
 
+王虹与 Zahl 证明的是集合维数。极大函数的 $L^p$ 界是更强的解析语句，三维也还没全部写完。维数等于 3，不等于傅里叶限制猜想已经被带走。逻辑链仍是限制 ⇒ Bochner–Riesz ⇒ 挂谷。证明最弱的一环，只说明更强的环还没有被这条定理自动兑现。把菲尔兹奖写成已经替代审稿，会把荣誉写成证明状态。四维若要把同一套尺度归纳搬过去，先要回答粘性与平面性在更高维怎样配对。配对不清楚时，三维清场不是四维已经开工。
+
+有限域上 Dvir 两页纸解决的是离散模型。欧氏三维靠的是管与凸集。把有限域胜利写成欧氏已经全部解决，会跳过维数 $n\geq 4$。离散模型可以启发。启发不是搬运定理。Guth 的讲解文是社区重证的入口，不是主定理已经在期刊里盖章。入口存在，审稿仍按篇幅走。
+
+粘性情形已于 2022 年预印、2026 年进入 JAMS。那是清场的前提，不是主定理的替代。主定理把“不过度集中于公共凸集”写成体积估计的条件。维数不足 3 的反例必须满足它，于是体积估计直接封死反例。封死的是三维集合维数。波动方程的最优色散指数仍要看极大函数。极大函数未完，PDE 的极限就不能写成已经随菲尔兹奖一起交货。
+
 ## 未知的边界
 
 - **$n \geq 4$ 的挂谷猜想。** 这是下一个主战场。王虹–Zahl 框架哪些部件有本质性的三维依赖、哪些可以直接搬运，是 2025 年以来多个团队正在拆解的问题。
@@ -105,5 +111,7 @@ related:
 
 ## 延伸阅读
 
-- Guth, L. "Introduction to the proof of the Kakeya conjecture." arXiv:2505.07695 (2025)；及 "Outline of the Wang–Zahl proof of the Kakeya conjecture in $\mathbb{R}^3$." arXiv:2508.05475 (2025)。（王虹博士导师本人撰写的两版权威讲解）
+- Guth, L. "Introduction to the proof of the Kakeya conjecture." arXiv:2505.07695 (2025)；及 "Outline of the Wang–Zahl proof of the Kakeya conjecture in $\mathbb{R}^3$." arXiv:2508.05475 (2025)。（社区讲解，不是期刊接收函）
+- IHES. “Hong Wang joins IHES as Permanent Professor of Mathematics.” 任职自 2025 年 9 月 1 日起生效。
+- IHES. “Hong Wang, Permanent Professor at IHES, awarded the 2026 Fields Medal.” 2026 年 7 月费城国际数学家大会。奖杯不是主论文已经正式发表。
 - Quanta Magazine 关于三维挂谷猜想解决的长篇报道（2025 年 2 月）。

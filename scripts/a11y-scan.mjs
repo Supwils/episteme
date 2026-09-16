@@ -30,6 +30,7 @@ const DOMAIN_PAGES = [
   ["文学与叙事", "/literature", "/literature/narrative-basics/what-is-a-story"],
   ["宗教学", "/religion", "/religion/religion-foundations/what-is-religion"],
   ["人类学与考古", "/anthropology", "/anthropology/culture-and-method/what-is-culture"],
+  ["教育学与学习科学", "/education", "/education/learning-foundations/what-is-learning"],
 ];
 
 const PAGES = [
@@ -67,6 +68,10 @@ const PAGES = [
   ["物质文化分布示意", "/anthropology/material-map"],
   ["史前年代标尺", "/anthropology/chronology-scale"],
   ["交换与互惠实验室", "/anthropology/reciprocity-lab"],
+  ["遗忘与间隔练习示意", "/education/spacing-lab"],
+  ["课堂互动结构图", "/education/classroom-talk-lab"],
+  ["测验分数分解器", "/education/score-decomposer"],
+  ["自适应路径示意", "/education/adaptive-path-lab"],
 ];
 const SELECTED_PAGES = process.env.SCAN_PATH
   ? PAGES.filter(([, path]) => path === process.env.SCAN_PATH)

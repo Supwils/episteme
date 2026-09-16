@@ -574,6 +574,35 @@ export const DOMAINS = [
     stats: "声音与手势 · 词句与意义 · 习得 · 社会 · 文字 · 方法",
   },
   {
+    id: "education" as const,
+    cluster: "life-mind" as DomainClusterId,
+    title: "教育学与学习科学",
+    titleEn: "Education & Learning Sciences",
+    description:
+      "从可观察的学会、记忆与评估进入教育——教学、课程、测验与公平。描述学校和学习如何被组织，不写应试刷题手册，也不把学习风格写成已证实的神经事实。",
+    gradient: "linear-gradient(135deg, #3d6b8a 0%, #2c5270 50%, #6a9bb5 100%)",
+    glowColor: "#3d6b8a",
+    bgAccent: "rgba(61, 107, 138, 0.08)",
+    borderAccent: "rgba(61, 107, 138, 0.2)",
+    icon: (
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+        <rect
+          x="7"
+          y="8"
+          width="22"
+          height="16"
+          rx="1.5"
+          stroke="#3d6b8a"
+          strokeWidth="1.5"
+          opacity="0.7"
+        />
+        <path d="M11 13h14M11 17h10M11 21h8" stroke="#6a9bb5" strokeWidth="1.2" opacity="0.65" />
+        <path d="M12 26h12" stroke="#3d6b8a" strokeWidth="1.4" opacity="0.45" />
+      </svg>
+    ),
+    stats: "学习基础 · 认知记忆 · 课程教学 · 评估公平 · 教育技术 · 比较政策",
+  },
+  {
     id: "engineering" as const,
     cluster: "formal-technology" as DomainClusterId,
     title: "工程与技术",

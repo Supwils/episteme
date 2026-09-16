@@ -15,10 +15,15 @@ export type LearningTargetSelection = {
 
 type PlanProgressMap = Record<string, readonly string[]>;
 
+function isProgressMap(value: unknown): value is PlanProgressMap {
+  return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+}
+
 function readProgress(): PlanProgressMap {
   if (typeof window === "undefined") return {};
   try {
-    return JSON.parse(window.localStorage.getItem(PROGRESS_KEY) ?? "{}") as PlanProgressMap;
+    const parsed: unknown = JSON.parse(window.localStorage.getItem(PROGRESS_KEY) ?? "{}");
+    return isProgressMap(parsed) ? parsed : {};
   } catch {
     return {};
   }

@@ -11,6 +11,13 @@ import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
 import { TableOfContents } from "@/components/TableOfContents";
 import { ArticleSidebar } from "@/components/ArticleSidebar";
+import { ReadingModeControls } from "@/components/ReadingModeControls";
+import { ReadingProgressBar } from "@/components/ReadingProgressBar";
+import {
+  ARTICLE_BODY_ROW_CLASS,
+  ARTICLE_HEADER_CLASS,
+  ARTICLE_SURFACE_CLASS,
+} from "@/components/ArticleLayout";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -88,17 +95,21 @@ export default async function ExtinctionDetailPage({ params }: Props) {
   });
 
   return (
-    <div className="w-full px-6 py-12 sm:px-10 lg:px-16">
+    <div className="mx-auto w-full max-w-[1800px] px-6 py-12 sm:px-10 lg:px-16">
+      <ReadingProgressBar />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
-      <div className="flex flex-col gap-12 lg:flex-row">
-        <article className="max-w-[44rem] min-w-0 flex-1">
-          <header className="mb-12">
-            <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
-              life-science / mass extinctions
-            </p>
+      <div className={ARTICLE_BODY_ROW_CLASS}>
+        <article className={ARTICLE_SURFACE_CLASS}>
+          <header className={ARTICLE_HEADER_CLASS}>
+            <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
+              <p className="text-fg-muted font-mono text-[10px] tracking-[0.42em] uppercase">
+                life-science / mass extinctions
+              </p>
+              <ReadingModeControls />
+            </div>
             <div className="mb-4 flex flex-wrap items-center gap-2.5">
               <span
                 className="rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.2em] uppercase"
@@ -143,7 +154,9 @@ export default async function ExtinctionDetailPage({ params }: Props) {
           </div>
 
           <FadeInSection className="mb-12">
-            <h2 className="font-display text-fg-primary mb-4 text-xl font-semibold">灭绝原因</h2>
+            <h2 id="causes" className="font-display text-fg-primary mb-4 text-xl font-semibold">
+              灭绝原因
+            </h2>
             <ul className="space-y-3">
               {extinction.causes.map((cause) => (
                 <li key={cause} className="flex items-start gap-3">
@@ -163,6 +176,7 @@ export default async function ExtinctionDetailPage({ params }: Props) {
               style={{ borderLeftColor: "var(--color-danger)", borderLeftWidth: "3px" }}
             >
               <h3
+                id="victims"
                 className="font-display mb-3 text-sm font-semibold"
                 style={{ color: "var(--color-danger)" }}
               >
@@ -175,6 +189,7 @@ export default async function ExtinctionDetailPage({ params }: Props) {
               style={{ borderLeftColor: "var(--color-accent-green)", borderLeftWidth: "3px" }}
             >
               <h3
+                id="aftermath"
                 className="font-display mb-3 text-sm font-semibold"
                 style={{ color: "var(--color-accent-green)" }}
               >

@@ -1,5 +1,6 @@
 import katex from "katex";
 import { resolveWikiLink } from "@/lib/wiki-link-index";
+import { isSafeHref } from "@/lib/urls";
 import { RegisteredImage } from "@/components/RegisteredImage";
 import {
   MarkdownCodeBlock,
@@ -7,6 +8,13 @@ import {
   WikiLinkPreview,
 } from "@/components/markdown/MarkdownInteractions";
 import { parseHeadingLine as parseHeading } from "@/lib/markdown-heading";
+
+/** Shared KaTeX limits so a hostile `\\def` loop cannot hang article render. */
+const KATEX_OPTIONS = {
+  throwOnError: false,
+  maxSize: 500,
+  maxExpand: 1000,
+} as const;
 
 interface MarkdownRendererProps {
   content: string;
@@ -225,16 +233,18 @@ export function MarkdownRenderer({
         if (text.startsWith("![") && text.includes("](")) {
           const imgMatch = text.match(/^!\[([^\]]*)\]\(([^)]+)\)/);
           if (imgMatch) {
+            const src = imgMatch[2]!.trim();
+            if (!isSafeHref(src)) return null;
             // 登记图像（/images/<id>，图像权利管线）走响应式 <figure>；
             // 其余路径维持原缩放图组件。
-            const registeredMatch = imgMatch[2]!.match(/^\/images\/([a-z0-9-]+)$/);
+            const registeredMatch = src.match(/^\/images\/([a-z0-9-]+)$/);
             if (registeredMatch) {
               return <RegisteredImage key={i} id={registeredMatch[1]!} alt={imgMatch[1]!} />;
             }
             return (
               <MarkdownZoomableImage
                 key={i}
-                src={imgMatch[2]!}
+                src={src}
                 alt={imgMatch[1]!}
                 accentColor={accentColor}
               />
@@ -361,7 +371,7 @@ function renderInline(
     const latexBlockMatch = remaining.match(/^\$\$[\s\S]*?\$\$/);
     if (latexBlockMatch) {
       const tex = latexBlockMatch[0].slice(2, -2).trim();
-      const html = katex.renderToString(tex, { displayMode: true, throwOnError: false });
+      const html = katex.renderToString(tex, { ...KATEX_OPTIONS, displayMode: true });
       parts.push(
         <span
           key={key++}
@@ -385,7 +395,7 @@ function renderInline(
       !/[一-鿿]/.test(latexInlineMatch[1]!)
     ) {
       const latex = latexInlineMatch[1]!;
-      const html = katex.renderToString(latex, { displayMode: false, throwOnError: false });
+      const html = katex.renderToString(latex, { ...KATEX_OPTIONS, displayMode: false });
       parts.push(
         <span
           key={key++}
@@ -468,14 +478,19 @@ function renderInline(
 
     const linkMatch = remaining.match(/^\[([^\]]+)\]\(([^)]+)\)/);
     if (linkMatch) {
+      const href = linkMatch[2]!.trim();
       parts.push(
-        <a
-          key={key++}
-          href={linkMatch[2]}
-          className="text-accent-gold underline underline-offset-2 transition-opacity hover:opacity-80"
-        >
-          {linkMatch[1]}
-        </a>
+        isSafeHref(href) ? (
+          <a
+            key={key++}
+            href={href}
+            className="text-accent-gold underline underline-offset-2 transition-opacity hover:opacity-80"
+          >
+            {linkMatch[1]}
+          </a>
+        ) : (
+          <span key={key++}>{linkMatch[1]}</span>
+        )
       );
       remaining = remaining.slice(linkMatch[0].length);
       continue;
@@ -500,10 +515,15 @@ function renderInline(
 
     const imgMatch = remaining.match(/^!\[([^\]]*)\]\(([^)]+)\)/);
     if (imgMatch) {
+      const src = imgMatch[2]!.trim();
+      if (!isSafeHref(src)) {
+        remaining = remaining.slice(imgMatch[0].length);
+        continue;
+      }
       parts.push(
         <img
           key={key++}
-          src={imgMatch[2]}
+          src={src}
           alt={imgMatch[1] || ""}
           loading="lazy"
           decoding="async"

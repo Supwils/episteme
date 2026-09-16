@@ -2,7 +2,7 @@
 title: 量子纠错跨过门槛
 title_en: Quantum Error Correction Crosses the Threshold
 status: published
-updated: 2026-06-12
+updated: 2026-09-12
 category: 量子信息
 horizon: 2020s
 order: 1
@@ -22,6 +22,7 @@ institutions:
   - IBM T.J. Watson 研究中心
 related:
   - muon-g2-self-correction
+  - topological-qubits-majorana
 ---
 
 # 量子纠错跨过门槛
@@ -30,7 +31,7 @@ related:
 
 当他们把承载"一个"逻辑量子比特的物理比特从 49 个增加到 101 个时，这个逻辑比特的出错率不是上升，而是**下降了一半**。
 
-这句话听起来平淡，却是量子计算从"实验室演示"走向"可用机器"路上第一块真正可靠的台阶。它意味着一个被理论预言了三十年、却始终没人在硬件上确证的转折点——**纠错阈值（error-correction threshold）**——终于被跨过了。
+这句话听起来平淡，却是量子纠错理论等了近三十年才在硬件上看到的那块台阶：扩大编码后，逻辑错误率开始下降。它意味着**纠错阈值（error-correction threshold）**在一块超导芯片上被跨过了。它不是一台通用容错计算机。
 
 这一页要讲的不是"量子计算什么时候能破解密码"这类被反复炒作的问题，而是当下真正卡住整个领域的那道工程鸿沟，以及 2020 年代正在逼近它的几条不同路线。
 
@@ -66,9 +67,11 @@ related:
 
 **Google Willow（超导）** —— 在 105 比特的 Willow 芯片上，研究者依次运行了距离 3、5、7 的表面码。
 
-每增加一档距离，逻辑错误率被压低约 2.14 倍（$\Lambda \approx 2.14$）；距离 7 的逻辑比特每个纠错周期的错误率低至约 0.143%，已经优于芯片上最好的单个物理比特。他们还做到用神经网络辅助的解码器在约 63 微秒内完成实时纠错。
+每增加一档距离，逻辑错误率被压低约 2.14 倍（$\Lambda \approx 2.14$）。这是第一次有人令人信服地展示：**加比特，逻辑比特会变好**[^willow]。
 
-这是第一次有人令人信服地展示：**加比特，逻辑比特会变好**[^willow]。
+必须把实验边界写清楚。Willow 做的是**表面码量子存储器**的低于阈值演示，不是通用容错计算机，也还没有跑出具有算法意义的逻辑电路。论文用两块芯片：72 比特那块跑距离 5，并接上实时解码器；105 比特那块跑距离 7，实际编码用了 101 个物理比特。距离 7 的逻辑错误率约 $0.143\%\pm 0.003\%$ 每个周期，寿命超过最好物理比特约 $2.4\pm 0.3$ 倍。实时解码只在距离 5 上做到：平均延迟约 63 微秒，纠错周期 1.1 微秒。他们还把重复码推到距离 29，发现逻辑表现被大约每小时一次的稀有关联错误卡住。
+
+物理错误率与逻辑错误率也不是同一个数。物理错误率是单个硬件比特、单次门或单次测量的出错概率；逻辑错误率是编码之后、每个纠错周期里那个逻辑比特翻错的概率。Willow 的逻辑错误率已经优于它最好的物理比特，但离实用算法常引用的 $10^{-10}$ 仍差许多个数量级。哈佛–QuEra 的 48 个逻辑比特、离子阱上最多 12 个逻辑比特，都还是纠错原语的演示。逻辑比特个数不等于可用算法的规模。
 
 但超导不是唯一赛道。2020 年代的真实格局是多条技术路线并进，各有所长：
 
@@ -81,9 +84,13 @@ related:
 
 更重要的是，**编码方式本身也在革命。**
 
-表面码"很贵"——一个逻辑比特要烧掉上千个物理比特。2024 年 IBM 在《自然》提出的 **qLDPC（量子低密度奇偶校验）码**（俗称 "gross code"），用同样的纠错能力把物理比特开销降低约一个数量级[^ibm]。
+表面码"很贵"——一个逻辑比特要烧掉上千个物理比特。2024 年 IBM 在《自然》提出的 **qLDPC（量子低密度奇偶校验）码**（俗称 "gross code"），用同样的纠错能力把物理比特开销降低约一个数量级[^ibm]。在标准电路噪声模型里，阈值约 0.7%；假定物理错误率 0.1% 时，288 个物理比特可保护 12 个逻辑比特近一百万个校验周期，而同等表现的表面码约需近 3000 个物理比特。这些数字来自模拟，不是芯片实测。
 
-这把"造一台容错机器要几百万个比特"的噩梦，潜在地改写成"几十万个"。哈佛–QuEra 团队则利用冷原子的可移动性，在 48 个逻辑比特上演示了横向逻辑门[^quera]——这是另一种绕开布线地狱的思路。
+2025 年 6 月，IBM 把容错路线图更新到 Starling：目标是 2029 年提供约 200 个逻辑比特、可跑一亿次门的机器，并押注这套 bivariate bicycle 码。那是公司公开的工程目标，不是已经造出来的机器。
+
+哈佛–QuEra 团队则利用冷原子的可移动性，在 48 个逻辑比特上演示了横向逻辑门[^quera]——这是另一种绕开布线地狱的思路。
+
+囚禁离子上的纠错是常规编码，不要和微软的马约拉纳宣称混在一起。Microsoft 与 Quantinuum 2024 年公开、2026 年在《自然》发表的实验，在离子阱 QCCD 上用 12 比特码与 16 比特超立方体色码，相对若干物理电路基线把逻辑错误率压低 11 倍到 800 倍；其中最醒目的改善部分依赖检出后丢弃可疑实验（post-selection）[^quantinuum]。这不是拓扑量子比特。微软 2025 年 Majorana 1 的宣称属于另一条路线，证据门槛与争议见 [[topological-qubits-majorana|拓扑量子比特与马约拉纳费米子]]。
 
 ## 一条三十年的时间线
 
@@ -91,7 +98,9 @@ related:
 - **2019**：Google Sycamore 宣称"量子优越性"——但解的是一个人为设计的采样问题，没有实用价值。
 - **2021–2023**：表面码距离开始可控扩大，但 $\Lambda$ 始终徘徊在 1 附近，谁也没真正跨过门槛。
 - **2023**：哈佛–QuEra 用冷原子阵列首次在数十个逻辑比特上做横向门。
-- **2024**：IBM 提出 qLDPC 码大幅降低开销；Google Willow 实现 $\Lambda\approx2.14$，第一次确证"加比特变好"。门槛被跨过。
+- **2024**：IBM 提出 qLDPC 码；Google Willow 实现 $\Lambda\approx2.14$，第一次确证"加比特变好"。门槛被跨过。
+- **2025**：Gidney 下修 RSA-2048 资源估算（理论，非实验）；IBM 公布 Starling 路线图；超导芯片上出现魔法态培育实验。
+- **2026**：Microsoft–Quantinuum 离子阱逻辑电路经同行评审发表。这是常规 QEC，与 Majorana 路线不是同一件事。
 
 ## 代价与争议：跨过门槛 ≠ 造出机器
 
@@ -99,12 +108,14 @@ related:
 
 一台能跑 Shor 算法的容错量子计算机，离今天还隔着至少四道工程难关：
 
-1. **规模。** 即便用上 qLDPC 码，破解 RSA-2048 仍可能需要数十万到上百万个高质量物理比特；今天最大的芯片只有几百个。
+1. **规模。** 即便用上 qLDPC 码，破解 RSA-2048 仍可能需要数十万到上百万个高质量物理比特；今天公开的处理器大约只有一百到一千个。
 2. **魔法态蒸馏（magic-state distillation）。** 表面码天然只能廉价地做一类"Clifford 门"，而真正有用的计算需要非 Clifford 门（如 T 门）。制备这些门要靠昂贵的"魔法态蒸馏"——这往往才是资源消耗的真正大头，而非比特数本身。
 3. **实时解码。** 纠错要求在比特退相干之前算出该如何纠正。当逻辑比特成千上万时，解码器本身就是一台需要实时运行的高性能计算机。
 4. **良率与一致性。** 把上百万个几乎完全相同、又相互精密耦合的量子器件造出来，是一个尚未解决的制造问题。
 
-时间表上，各家分歧很大。IBM 公开把"容错的 Starling 系统"目标定在 2029 年前后；更谨慎的物理学家认为实用容错机器要到 2030 年代甚至更晚。
+时间表上，各家分歧很大。更谨慎的看法认为实用容错机器要到 2030 年代甚至更晚。2025 年 5 月，Craig Gidney 把 RSA-2048 的资源估算从 2019 年那份"两千万噪声比特、约八小时"压到"不到一百万噪声比特、不到一周"——沿用最近邻方格、门错误率 $0.1\%$、表面码周期 1 微秒这些假设[^gidney2025]。它仍然是资源估算，不是实验。
+
+非 Clifford 门的成本也在被重估。Gidney、Shutty 与 Jones 2024 年提出"魔法态培育"：在 $10^{-3}$ 均匀去极化电路噪声下，模拟表明可把培育后的逻辑错误率压到约 $2\times 10^{-9}$，时空开销比先前蒸馏方案大约低一个数量级[^cultivation]。2025 年底 Google 在超导处理器上做了培育实验：错误约降 40 倍，态保真度 $0.9999(1)$，保留约 8% 的尝试[^cultivation-exp]。这把蒸馏问题推进到了芯片，但距离算法级 T 门工厂仍远。
 
 也有持续的怀疑声音——例如数学家 Gil Kalai 长期论证：噪声可能存在某种根本性的、无法被纠错绕过的相关性。Willow 的结果削弱了这种最强版本的怀疑，但并未终结争论。
 
@@ -129,17 +140,29 @@ related:
 
 ## 参考文献
 
-- Google Quantum AI. _Quantum error correction below the surface code threshold._ Nature 638, 920–926 (2025). arXiv:2408.13687.
-- Bravyi, S. et al. (IBM). _High-threshold and low-overhead fault-tolerant quantum memory._ Nature 627, 778–782 (2024).
+- Google Quantum AI and Collaborators. _Quantum error correction below the surface code threshold._ Nature 638, 920–926 (2025). DOI: 10.1038/s41586-024-08449-y. arXiv:2408.13687.
+- Bravyi, S. et al. (IBM). _High-threshold and low-overhead fault-tolerant quantum memory._ Nature 627, 778–782 (2024). DOI: 10.1038/s41586-024-07107-7.
 - Bluvstein, D. et al. _Logical quantum processor based on reconfigurable atom arrays._ Nature 626, 58–65 (2024).
+- Paetznick, A. et al. _Improved quantum processor logical error rates via correction and detection._ Nature 654, 349–355 (2026). DOI: 10.1038/s41586-026-10628-y.
+- Gidney, C. _How to factor 2048 bit RSA integers with less than a million noisy qubits._ arXiv:2505.15917 (2025).
+- Gidney, C., Shutty, N. & Jones, C. _Magic state cultivation: growing T states as cheap as CNOT gates._ arXiv:2409.17595 (2024).
+- Rosenfeld, E. et al. _Magic state cultivation on a superconducting quantum processor._ arXiv:2512.13908 (2025).
 - NIST. _Post-Quantum Cryptography Standards (FIPS 203/204/205)._ 2024-08.
 
 ## 延伸阅读
 
 - Nielsen, M. & Chuang, I. _Quantum Computation and Quantum Information._（阈值定理与纠错的标准教材章节）
 
-[^willow]: 数据出自 Google Quantum AI 2024 年论文（arXiv:2408.13687，2025 年发表于《自然》）：105 比特芯片上距离 7 表面码逻辑错误率约 0.143%/周期，$\Lambda\approx2.14$。
+[^willow]: Google Quantum AI and Collaborators, Nature 638, 920–926 (2025), DOI: 10.1038/s41586-024-08449-y。在线发表于 2024 年 12 月 9 日。
 
-[^ibm]: IBM 的 bivariate bicycle（"gross"）码在 Bravyi et al., Nature 627 (2024) 中提出，相对表面码可将物理比特开销降低约一个数量级。
+[^ibm]: Bravyi et al., Nature 627, 778–782 (2024), DOI: 10.1038/s41586-024-07107-7。数字来自电路噪声模型下的端到端协议，不是芯片实测。
 
-[^quera]: Bluvstein et al., Nature 626 (2024)：在可重构中性原子阵列上实现多达 48 个逻辑比特与横向逻辑门。
+[^quera]: Bluvstein et al., Nature 626, 58–65 (2024)。
+
+[^quantinuum]: Paetznick et al., Nature 654, 349–355 (2026), DOI: 10.1038/s41586-026-10628-y。2024 年 4 月新闻稿为同一合作的前期公开。
+
+[^gidney2025]: Gidney, arXiv:2505.15917 (2025)。与 2019/2021 估算使用相同物理假设。
+
+[^cultivation]: Gidney, Shutty & Jones, arXiv:2409.17595 (2024)。
+
+[^cultivation-exp]: Rosenfeld et al., arXiv:2512.13908 (2025)。

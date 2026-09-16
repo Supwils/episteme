@@ -859,4 +859,40 @@ export const COSMOLOGY_KB_DATA = [
     titleEn: "Vulcan — The Same Method, Two Outcomes",
     category: "太阳系",
   },
+  {
+    slug: "宇宙学观测--霍尔姆德尔喇叭天线",
+    title: "霍尔姆德尔喇叭：消不掉的 3.5 K 怎样被写成天线温度",
+    titleEn: "",
+    category: "宇宙学观测",
+  },
+  {
+    slug: "宇宙学观测--eddington-1919-eclipse",
+    title: "1919 日食底片：0.87″ 与 1.75″ 怎样被量到星点上",
+    titleEn: "",
+    category: "宇宙学观测",
+  },
+  {
+    slug: "宇宙学观测--hubble-1929-velocity-distance",
+    title: "1929 速度–距离图：24 个河外星云怎样被写成斜率 K",
+    titleEn: "",
+    category: "宇宙学观测",
+  },
+  {
+    slug: "宇宙学观测--leavitt-1912-period-luminosity",
+    title: "1912 周光关系：25 颗小麦哲伦云变星怎样被写成相对光度台阶",
+    titleEn: "",
+    category: "宇宙学观测",
+  },
+  {
+    slug: "宇宙学观测--shapley-curtis-1920",
+    title: "1920 沙普利–柯蒂斯辩论：大银河与岛宇宙怎样在史密森被写成两套账",
+    titleEn: "",
+    category: "宇宙学观测",
+  },
+  {
+    slug: "宇宙学观测--slipher-1912-nebular-redshifts",
+    title: "斯莱弗 1912：洛威尔 24 英寸镜上的星云视向速度",
+    titleEn: "Slipher 1912 — Nebular Radial Velocities at the Lowell 24-inch",
+    category: "宇宙学观测",
+  },
 ];

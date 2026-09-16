@@ -24,6 +24,7 @@ export const KNOWLEDGE_DOMAINS = {
   literature: { label: "文学与叙事", href: "/literature" },
   religion: { label: "宗教学", href: "/religion" },
   anthropology: { label: "人类学与考古", href: "/anthropology" },
+  education: { label: "教育学与学习科学", href: "/education" },
   engineering: { label: "工程与技术", href: "/engineering" },
 } as const;
 
@@ -229,7 +230,7 @@ export const KNOWLEDGE_THREADS: readonly KnowledgeContinuumThread[] = [
         question: "一个人怎样在关系和文化中成长？",
         description: "把发展、依恋、学习和身份联系起来，理解个人不是脱离环境的孤立心智。",
         href: "/psychology/knowledge-base/attachment-theory",
-        domains: ["psychology", "sociology", "linguistics"],
+        domains: ["psychology", "sociology", "linguistics", "education"],
       },
       {
         id: "mind-meaning-3",

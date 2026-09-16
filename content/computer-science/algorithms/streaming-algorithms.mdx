@@ -1,0 +1,215 @@
+---
+title: 流算法与草图
+title_en: Streaming Algorithms and Sketches
+status: published
+updated: 2026-09-13
+category: 概率数据结构
+order: 53
+field: 计算机科学 · 算法 · 数据流
+era: 当代
+key_figures:
+  - 诺加·阿隆
+  - 菲利普·弗拉若莱
+  - 格雷厄姆·科莫德
+tags:
+  - 数据流
+  - HyperLogLog
+  - Count-Min
+  - AMS
+  - 草图
+related:
+  - bloom-filter
+  - hashing
+  - randomized-algorithms
+  - big-data-systems
+  - mapreduce
+---
+# 流算法与草图
+
+路由器每秒转发的包数以千万计，日志不能全存。你仍想知道：有多少不同的源地址？哪个流最热？二次频率矩是否在飙升？
+
+流算法给的不是精确表，是一张**在一次扫描、亚线性内存里更新的草图（sketch）**，查询时给出带误差条的答案。
+
+1996 年，Alon、Matias、Szegedy 把频率矩估计写成理论问题，并证明二次矩可以用惊人少的空间。
+
+2000 年代，Flajolet 的 HyperLogLog 与 Cormode–Muthukrishnan 的 Count-Min 把同一思想做成网络和数据库里的默认零件。
+
+它们和 [[bloom-filter|布隆过滤器]] 是亲戚：都允许可控错误，都把集合压进哈希。
+
+## 破除误解：抽样不是草图的全部
+
+随机存万分之一的包，可以估吞吐，但对「有多少不同 IP」偏差很大——稀有地址被抽掉，势估计偏低。草图对每个元素都更新，只是更新进一个随机投影，而不是一张完整哈希表。
+
+误差来自碰撞与集中不等式，不是来自漏看。第二个误解是「近似等于不科学」。AMS、HyperLogLog、Count-Min 都有显式的 $(\varepsilon,\delta)$：以至少 $1-\delta$ 的概率，相对或加性误差不超过 $\varepsilon$。
+
+空间随之写成 $\varepsilon^{-2}\log(1/\delta)$ 一类。这是算法保证，不是「看起来差不多」。第三个误解是草图可以替代主键索引。Count-Min 会高估频率（计数偏正），HyperLogLog 不支持删；要删得用 HyperLogLog++ 的变体或 Cuckoo 过滤器一类别的结构。
+
+选错草图，监控面板会在「永远略高」或「不能撤销」上说谎。
+
+## 现场：Flajolet 如何用前导零估计势
+
+Flajolet–Martin（1985）观察：把元素哈希到比特串，看前导零的最大长度 $R$。若哈希均匀，$2^R$ 是势的粗估计。偏差大。HyperLogLog（Flajolet 等，2007）把哈希空间切成 $m$ 个桶，每桶记自己的 $R$，再用调和平均。
+
+标准误差约 $1.04/\sqrt{m}$：$m=2^{14}$ 时大约 0.8%，内存数 KB。Redis、BigQuery、网络遥测都实现过这张图。关键假设是哈希足够随机。实现用 Murmur 或 xxHash，不是密码学哈希；攻击者若控制输入，可以迫使桶饱和。
+
+基数估计在对抗环境里需要种子保密或换结构。Count-Min Sketch（Cormode & Muthukrishnan，2005）用 $d\times w$ 的计数矩阵：每个元素在 $d$ 行用不同哈希加到一格。
+
+查询取 $d$ 个格子的最小。
+
+期望超额来自碰撞；$d=O(\log(1/\delta))$，$w=O(1/\varepsilon)$ 时，超额以高概率不超过 $\varepsilon\|f\|_1$。
+
+它回答的是点查询与内积，不是势。AMS 草图估计二次频率矩 $F_2=\sum f_i^2$：每个元素乘一个随机 $\pm 1$，累加平方。四次矩控制方差。
+
+这是流上「意外地便宜」的代表：精确 $F_2$ 需要线性空间，近似却只需 $O(\varepsilon^{-2}\log n)$。路由器线速若是每秒五千万包，每包只许更新几十个字节的状态。
+
+精确哈希表在这一预算下会把缓存打穿；草图把更新变成对固定大小阵列的几次随机写。
+
+## 核心：一次扫描、可合并、有下界
+
+流模型（Cash Register 或 Turnstile）规定：元素到达后不能回头，内存 $o(n)$。算法必须是**可合并**的，才适合分布式：两台机器各画一张 HyperLogLog，按桶取 max，就是并集的势估计。
+
+这是 MapReduce 计数 distinct 的默认法，也是为什么草图比「抽样再交并」更适合分层聚合。下界同样细。Alon–Matias–Szegedy 证明某些矩需要 $\Omega(n^{1-2/k})$ 空间；势估计的通信与空间下界与碰撞熵有关。
+
+你不能指望一张 32 比特计数器诚实报告十亿 distinct。理论给出的是指数，工程给出的是 $m$ 从哪来。和布隆过滤器的分工：布隆回答成员，假阳性、无假阴性；HyperLogLog 回答势，几乎不回答「这个元素在不在」。
+
+Count-Min 回答频率，只高估。把三者当成同一件「概率数据结构」会在 API 上犯错。滑动窗口、过期、删除，迫使草图带时间或可逆哈希。
+
+这是 2010 年代网络测量和实时特征平台的主战场，准确性往往不再是 AMS 论文里的干净 $(\varepsilon,\delta)$，而是带衰减的启发式。
+
+论文保证停在模型边界上；生产会越过边界，然后用回流校正。
+
+## 机制：AMS 草图、四次矩与有限独立性
+
+AMS 对每个坐标 $i$ 抽一个随机符号 $r_i\in\{+1,-1\}$。维护 $Z=\sum_i r_i f_i$。则 $Z^2$ 的期望正是 $F_2=\sum_i f_i^2$。方差由 $F_4$ 控制；取 $O(\varepsilon^{-2})$ 个独立副本再平均，相对误差进入 $\varepsilon$。
+
+中位数再放大 $O(\log(1/\delta))$ 份，失败概率降到 $\delta$。空间是 $O(\varepsilon^{-2}\log(1/\delta)\log n)$ 比特量级，因为每个计数器要能装下 $F_2$ 的规模。关键是 $r_i$ 不必完全独立。
+
+四次独立性的哈希族就够把期望和方差算干净；两两独立不够。这是流算法反复出现的模式：独立性是一种被计价的资源，不是「哈希足够乱」的口头禅。
+
+Turnstile 模型允许减：元素可以来也可以走，$f_i$ 可为负。Cash Register 只加不减。AMS 对 Turnstile 仍然合法，因为线性：$r_i$ 乘在更新上可正可负。HyperLogLog 对减不合法，除非另做可逆结构。
+
+Indyk 用稳定分布把 $F_p$（$0<p\le 2$）也做成线性草图；$p>2$ 时空间下界变差，AMS 已经指出 $F_k$ 需要 $\Omega(n^{1-2/k})$。你不能对所有矩用同一张小表。工程上，二次矩用来侦测「少数流占据大部分平方质量」，也就是偏斜突然变尖。
+
+精确直方图做不到线速；一张 AMS 计数器阵列可以。DDoS 检测里，$F_2$ 突然升高往往早于「最大流的精确 ID」被找出来。
+
+先告警、再对高频名单做二次精确查询，是草图与精确表的分工，不是互相替代。
+
+## 机制：Count-Min、CountSketch 与 Misra–Gries 的高频名单
+
+Count-Min 的点查询永远不低估（在只加模型里）：碰撞只往上加。这适合「是否超过阈值」的告警，不适合要无偏估计的会计。
+
+CountSketch（Charikar、Chen、Farach-Colton，2002）每格再乘一个 $\pm 1$，查询取中位数。误差变成围绕真值的波动，而不是单向偏正；对内积和点查询，它在 $L^2$ 意义下更稳。
+
+空间仍是 $\varepsilon^{-2}$ 对 $L^2$、或 $\varepsilon^{-1}$ 对 $L_1$ 的不同标定，论文要读清范数。Misra–Gries（1982）更早，也更确定：用 $k-1$ 个计数器，保证频率超过 $n/k$ 的元素一定在表里。
+
+它不是哈希草图，是计数淘汰：每次看到新元素而表满，全体减一。空间 $O(k)$，没有随机。网络测量里的「heavy hitter」常常先跑 Misra–Gries 或 Space Saving，再用 Count-Min 估频率。
+
+两者误差语义不同：前者给确定性保证但可能漏掉刚过阈值的项的精确值，后者给概率超额。把 Count-Min 的输出当精确计数去对账，会系统性偏高。
+
+生产上要用已知流量做校准，或改 CountSketch。删除与衰减迫使结构变形。Count-Min 在 Turnstile 下可以减格子，但格子变负时「取最小」不再是超额上界。
+
+滑动窗口用指数衰减或分块草图：每个时间块一张图，过期整块丢。准确性从 $(\varepsilon,\delta)$ 变成「窗口边界上有一个块的宽度那么粗」。
+
+论文保证停在模型里；遥测系统越过边界，再用精确回流（每天的 netflow 全量）校正偏差。Space Saving 是 Misra–Gries 的工程近亲：表满时淘汰当前计数最小的键，新键以「被淘汰者的计数加一」进入。
+
+它对 heavy hitter 的保证类似，实现更贴近哈希表的心智。Metwally 等人把它用在搜索日志；网络测量栈里常与 Count-Min 串联：先用确定结构抓候选，再用草图估频率。
+
+## 机制：可合并性、HLL++ 与空间下界钉死的事
+
+HyperLogLog 的桶是 max 半格：两张图按桶取 max，得到并集的势估计。这就是分层聚合合法的原因。抽样做不到同一件事：两台机器各抽 1%，并集的抽样比例不是 1%，稀有键的偏差无法对消。
+
+MapReduce 的 distinct count 默认走 HLL，不是抽样。Heule、Nunkesser、Hall（2013）的 HyperLogLog++ 在 Google 里把小基数切到线性计数、修正偏置、并把稀疏表示压到更少字节。Redis 的实现大约 12 KB（$m=2^{14}$），误差口头禅是 0.81%，但偏置修正表与论文不完全相同。
+
+对账必须以该实现的测试向量为准。Kane、Nelson、Woodruff 证明：在常失败概率下，$(1\pm\varepsilon)$ 的势估计需要 $\Omega(\varepsilon^{-2}+\log n)$ 空间。HLL 的 $m\sim\varepsilon^{-2}$ 因此不是随便选的常数，是贴着下界的工程点。
+
+你不能指望再砍一倍内存而保持同一 $\varepsilon$，除非改失败概率或改模型。通信下界同样限制多机合并：合并后的草图仍要携带 $\Omega(\varepsilon^{-2})$ 比特，否则并集势的信息不够。
+
+对抗输入是另一条界。非密码学哈希可被构造性碰撞逼进同一桶，R 被抬高，势被高估。安全遥测必须把种子藏进密钥，或改用带密钥的哈希。
+
+差分隐私的草图还要在计数上加噪声：误差条变宽，但查询不再泄露某一条流是否存在。「只是 sketch」不是隐私豁免；高频尖峰仍可能从 Count-Min 里被还原。
+
+## 机制：线速实现、仓库误用与哈希被投毒
+
+网卡或可编程交换机上，Count-Min 的 $d$ 次随机写会打散缓存行。
+
+$d=5$ 在服务器 CPU 上只是多几次访存；$d=5$ 在 100 Gbps 的数据路径上可能已经超预算。
+
+线速实现往往把 $d$ 降到 3，并把 $w$ 对齐到片上 SRAM。理论里的 $\delta=1/n$ 随之放宽到「偶发高估可接受」。这是先改参数、再补分析的现场，不是论文写错。
+
+原子加还引入另一层：多核同时更新同一格子会争用缓存行。有人改成每核一份草图再合并，空间乘上核数，合并时 Count-Min 对应格子相加、HyperLogLog 对应桶取 max。
+
+可合并性在这里从分布式算法变成了单机 NUMA 技巧。BigQuery 的 `APPROX_COUNT_DISTINCT`、Redis 的 `PFADD`、以及若干 CDN 的边缘计数，默认都是 HyperLogLog 家族。仓库里若已经按天物化了精确去重，再套一层 HLL 只是把 0.8% 的噪声加进报表。
+
+草图赢在未知查询、未知域、必须在包到达时更新；不赢在「我们已经有列存」的回放。把 HyperLogLog 当主键索引用，问「这个用户在不在」，API 就用错了：它几乎不回答成员。
+
+把 Count-Min 的输出写进对账流水，会系统性偏高，财务上不可接受。把 AMS 的 $F_2$ 当成「有多少不同键」，量纲都错了。三种结构共用「哈希进小表」的外形，查询语义完全不同。
+
+哈希被投毒时，Murmur 一类非密钥哈希可被构造出大量打进同一桶的键。HyperLogLog 的 $R$ 被抬高，势被高估到荒谬。Count-Min 的若干格子被灌满，无辜键的点查询一起偏高。
+
+对抗环境必须把种子当成密钥，或改用带密钥的哈希；公开的固定种子等于把攻击面写进二进制。
+
+滑动窗口的指数衰减常用 $f \leftarrow \lambda f$ 再加新计数，$\lambda<1$。保证不再是 AMS 论文里干净的 $(\varepsilon,\delta)$，而是「越远的过去权重越低」的启发式。
+
+窗口边界上会有一个块宽度的台阶。生产系统用回流全量校正这些台阶；理论论文不会为台阶买单。
+
+tabulation hashing 用若干张小随机表按字节异或，提供较高独立性且能在网卡上实现。论文在独立性不够时改用它，不是因为名字好听，是因为有限独立族在真随机位不够时会让方差证明垮掉。
+
+## 代价与争议
+
+哈希质量、实现细节（偏置修正、小基数时的线性计数切换）对 HyperLogLog 误差的影响，常常大于理论里的 $1.04/\sqrt{m}$。Redis 的 HyperLogLog 与原始论文不完全相同。
+
+对账要以实现的测试向量为准。对抗输入和隐私是另一面。草图压缩的是计数，不是身份；但高频元素仍可能从 Count-Min 的尖峰里被还原。
+
+差分隐私的草图需要额外噪声，误差条会变宽。监控系统若把草图输出当成个人数据的聚合，仍要走隐私会计，不能因为「只是 sketch」就豁免。
+
+与精确系统的竞争：列存和预聚合有时比草图更合适。草图赢在未知查询、未知域大小、必须在网卡上更新。
+
+仓库里已有物化视图时，再套一层 HyperLogLog 只是加噪声。网卡上的 sketch 还受缓存行和原子加限制：Count-Min 的 $d$ 次随机写会打散缓存，线速实现往往把 $d$ 降到 3 或 4，理论 $\delta$ 跟着变差。
+
+这是工程先改参数、论文后补分析的典型现场。
+
+## 工程现场：HLL++ 切换、窗口合同与四类查询不要混
+
+HyperLogLog 的调和平均对大基数稳，对小基数偏差大。Google 的 HLL++ 在小基数改走稀疏线性计数，再在阈值处切换，并用经验表做偏置修正。Redis 的实现与 2007 年论文不是同一张图。对账必须以实现的测试向量为准，不能拿 $1.04/\sqrt{m}$ 去骂面板。
+
+$m=2^{14}$ 时标准误差约 $0.8\%$，内存约 12 KB。网卡或边缘节点可以每秒更新这张图。[[mapreduce|MapReduce]] 与 [[big-data-systems|大数据系统]] 的 distinct count 默认合并 HLL：按桶取 max，通信是 KB 不是原始键。抽样做不到同样干净的并。
+
+把 $\delta$ 从 $10^{-3}$ 改到 $10^{-6}$ 只加对数组数；把 $\varepsilon$ 从 $1\%$ 改到 $0.1\%$ 却要一百倍格子。面板上的「再准一位」是平方代价。失败概率用独立重复压低，空间只加对数。这比再讨论一次「近似是否科学」更有用。
+
+滑动窗口把「一次扫描」改成「只看最近 $W$ 个」。Datar–Gionis–Indyk–Motwani 的指数直方图用对数个桶近似窗口计数。过期与删除迫使结构带时间戳。生产若用衰减启发式越界，就要用回流的精确数打补丁，不能把启发式误差条写成 AMS 定理。
+
+Cash Register 只允许加；Turnstile 允许减。HyperLogLog 的桶是 max，删除会破坏单调性。要支持删，得换 Count-Sketch 或重建。这是 API 选型，不是参数微调。
+
+点查询走 Count-Min，矩查询走 AMS 或 $p$-稳定投影，成员查询走 [[bloom-filter|布隆过滤器]]，势查询走 HyperLogLog。对 HLL 问「这个 IP 在不在」没有定义。Misra–Gries 保证频率超过 $n/(k+1)$ 的元素留在表里，内存与 $k$ 成正比，不含 $\varepsilon^{-2}$。大象流检测常走这条线。
+
+空间下界常常来自通信复杂度：把流切成两半，任何草图都是必须发送的摘要。近似 $F_k$（$k>2$）需要 $n^{1-\Theta(1/k)}$ 量级空间；精确势需要线性。你不能指望一张 32 比特计数器诚实报告十亿 distinct。
+
+对抗键是工程边界。实现用 Murmur 或 xxHash，不是密码学哈希。控制输入的对手可以迫使桶饱和。密钥种子是防御。公开哈希的草图在对抗环境里没有 $(\varepsilon,\delta)$。列存和物化视图在查询固定、域已知时比草图更合适。选型是工作负载，不是「大数据所以要草图」。
+
+Count-Sketch 用随机 $\pm 1$ 再取中位数，点查询无偏，方差比 Count-Min 大。Turnstile 里格子可以减成负数，中位数比取最小更合适。高频名单若必须同时支持删，应走这条线，而不是给 HyperLogLog 做减法。
+
+合并代数要在上线前写进 schema：HLL 的 max 与 Count-Min 的加不能装进同一张汇总表。分层聚合选错算子，中心合并会 silently 算错势或频率，面板上只表现为「和昨天对不上」。
+
+## 跨域连接
+
+- **[[probability|概率]]**：草图的误差条来自切尔诺夫、Chebyshev 和有限独立性哈希。证明不假设数据随机，假设哈希随机。这和统计学里「样本随机」的方向相反：流是任意的，随机性在算法一侧。读错方向，会把最坏情况流当成已经平均过的数据。四次独立性足够 AMS，两两独立不够；独立性阶数是被定理计价的资源，不是「哈希看起来乱」的观感。
+- **[[measure-theory|测度论]]**：频率向量是离散测度，$F_2$ 是 $L^2$ 范数的平方，势是支撑大小。草图是随机线性或非线性的泛函，在弱拓扑意义下保留少量矩。AMS 保留的是二次矩，HLL 保留的是支撑的对数尺度统计量，精确支撑本身 provably 压不下去。这不是把 AMS 写成测度论作业，它说明「压缩」压缩的是哪些泛函：选错泛函，下界会立刻变成线性空间。
+- **[[combinatorics|组合学]]**：桶、碰撞、前导零都是组合计数。调和平均出现在 HyperLogLog 里，是因为它对指数尺度的偏差比算术平均更稳：$2^R$ 的右尾太肥。组合设计给出哈希族的独立性；独立性不够时，论文改用 tabulation hashing 一类可实现的替代。Misra–Gries 的计数淘汰则是纯组合：没有随机，只有 $k-1$ 个槽位与全体减一。
+- **[[information-geometry|信息几何]]**：势估计可以看成在离散分布族上估一个非线性泛函。偏差–方差权衡随 $m$ 变化，很像指数族上的充分统计量维度：再加桶按 $1/\sqrt{m}$ 降误差，而不是按奇迹降误差。真正的 HyperLogLog 分析用的是桶内极值的期望，并不需要流形。这条类比解释的是为什么空间下界长成 $\varepsilon^{-2}$：你在估一个标量泛函，有效样本数就是桶数。
+
+---
+
+## 参考文献
+
+- Alon, N., Matias, Y. & Szegedy, M. "The Space Complexity of Approximating the Frequency Moments." *Journal of Computer and System Sciences* 58(1):137–147, 1999. （STOC 1996）
+- Flajolet, P. & Martin, G. N. "Probabilistic Counting Algorithms for Data Base Applications." *Journal of Computer and System Sciences* 31(2):182–209, 1985.
+- Flajolet, P. et al. "HyperLogLog: The Analysis of a Near-Optimal Cardinality Estimation Algorithm." *AOFA*, 2007.
+- Cormode, G. & Muthukrishnan, S. "An Improved Data Stream Summary: The Count-Min Sketch and Its Applications." *Journal of Algorithms* 55(1):58–75, 2005.
+- Misra, J. & Gries, D. "Finding Repeated Elements." *Science of Computer Programming* 2(2):143–152, 1982.
+- Charikar, M., Chen, K. & Farach-Colton, M. "Finding Frequent Items in Data Streams." *Proceedings of ICALP*, 2002.
+- Kane, D. M., Nelson, J. & Woodruff, D. P. "An Optimal Algorithm for the Distinct Elements Problem." *Proceedings of PODS*, 2010.
+
+## 延伸阅读
+
+- Cormode, G. & Hadjieleftheriou, M. "Finding Frequent Items in Data Streams." *Proceedings of VLDB*, 2008. （高频元素算法比较）
+- Heule, S., Nunkesser, M. & Hall, A. "HyperLogLog in Practice: Algorithmic Engineering of a State of The Art Cardinality Estimation Algorithm." *EDBT*, 2013. （Google 的 HLL++）

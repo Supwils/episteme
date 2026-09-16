@@ -15,6 +15,7 @@
     "lint": "eslint . --max-warnings 0",
     "test": "vitest run",
     "prepush": "pnpm typecheck && pnpm lint && pnpm check-content && pnpm audit-graph-coverage && pnpm audit-learning-continuum && pnpm audit-subject-candidates && pnpm audit-linguistics-foundation && pnpm audit-image-rights && pnpm test",
+    "predeploy": "bash scripts/predeploy.sh",
     "test:e2e": "playwright test",
     "test:e2e:smoke": "playwright test --config=playwright.smoke.config.ts",
     "test:e2e:webkit": "playwright test --config=playwright.webkit.config.ts",

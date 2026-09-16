@@ -2,37 +2,60 @@
 
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { getReadingPath, type ReadingStep } from "../lib/reading-paths";
+import {
+  getReadingPath,
+  readingPathChaptersFor,
+  normalizeArticleHref,
+  type ReadingPath,
+  type ReadingPathChapter,
+  type ReadingStep,
+} from "../lib/reading-paths";
 
 /**
  * Global, query-param-driven prev/next bar that turns any article into a chapter
- * of a reading path. Activated by `?path=<slug>&step=<n>` on the URL, so it works
- * on every article route without per-page wiring. Renders nothing otherwise.
- * Colors use theme CSS vars so it adapts to light/dark.
+ * of a reading path. Activated by `?path=<slug>&step=<n>`. If those params are
+ * missing but the current article already sits on a path, a quieter invite
+ * appears so wiki-link landings can still enter the sequence.
  */
 export function ReadingPathBar() {
   const params = useSearchParams();
   const pathname = usePathname();
-
   const pathSlug = params.get("path");
   const path = pathSlug ? getReadingPath(pathSlug) : undefined;
-  if (!path) return null;
+  const articleHref = normalizeArticleHref(pathname);
+  const onPathIndex =
+    path && path.steps.length > 0 ? path.steps.findIndex((step) => step.href === articleHref) : -1;
+  if (path && onPathIndex >= 0) {
+    return <ActiveReadingPathBar path={path} pathname={pathname} step={onPathIndex + 1} />;
+  }
+  const chapters = readingPathChaptersFor(pathname);
+  if (chapters.length === 0) return null;
+  return <ReadingPathInvite chapters={chapters} pathname={pathname} />;
+}
 
+function ActiveReadingPathBar({
+  path,
+  pathname,
+  step,
+}: {
+  path: ReadingPath;
+  pathname: string;
+  step: number;
+}) {
   const total = path.steps.length;
-  const step = Math.min(Math.max(parseInt(params.get("step") ?? "1", 10) || 1, 1), total);
+  if (total === 0) return null;
   const idx = step - 1;
-
   const prev = idx > 0 ? path.steps[idx - 1] : null;
   const next = idx < total - 1 ? path.steps[idx + 1] : null;
   const stepLink = (s: ReadingStep, n: number) => `${s.href}?path=${path.slug}&step=${n}`;
 
   return (
     <div className="print-hidden fixed bottom-4 left-1/2 z-50 w-[min(680px,calc(100vw-1.5rem))] -translate-x-1/2 transition-[bottom] [[data-narration-active]_&]:bottom-24">
-      <div
+      <nav
+        aria-label="阅读路线"
         className="flex items-stretch gap-1 rounded-2xl border border-[var(--nav-border)] bg-[var(--nav-bg)] p-1.5 backdrop-blur-md"
         style={{ boxShadow: "var(--card-shadow)" }}
       >
-        {/* Exit the path: drop the query params */}
         <Link
           href={pathname}
           aria-label="退出阅读路线"
@@ -50,29 +73,17 @@ export function ReadingPathBar() {
             <path d="M3 3l8 8M11 3l-8 8" />
           </svg>
         </Link>
-
-        {/* Prev */}
         {prev ? (
           <Link
             href={stepLink(prev, step - 1)}
+            aria-label={`上一篇：${prev.title}`}
             className="group flex min-w-0 flex-1 items-center gap-2 rounded-xl px-3 py-2 transition-colors hover:bg-[var(--hover-bg)]"
           >
             <span
               className="shrink-0 opacity-80 transition-opacity group-hover:opacity-100"
               style={{ color: path.accent }}
             >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M10 3L5 8l5 5" />
-              </svg>
+              <Chevron dir="prev" />
             </span>
             <span className="hidden min-w-0 flex-col sm:flex">
               <span className="text-[10px] tracking-wider text-[var(--muted)] uppercase">
@@ -86,8 +97,6 @@ export function ReadingPathBar() {
         ) : (
           <div className="hidden flex-1 sm:block" />
         )}
-
-        {/* Center: path title + progress, links to the path's contents page */}
         <Link
           href={`/read/${path.slug}`}
           className="flex shrink-0 flex-col items-center justify-center gap-1 px-3 py-1 text-center"
@@ -107,11 +116,10 @@ export function ReadingPathBar() {
             <span>{total}</span>
           </span>
         </Link>
-
-        {/* Next, or finish */}
         {next ? (
           <Link
             href={stepLink(next, step + 1)}
+            aria-label={`下一篇：${next.title}`}
             className="group flex min-w-0 flex-1 items-center justify-end gap-2 rounded-xl px-3 py-2 text-right transition-colors hover:bg-[var(--hover-bg)]"
           >
             <span className="hidden min-w-0 flex-col items-end sm:flex">
@@ -123,18 +131,7 @@ export function ReadingPathBar() {
               </span>
             </span>
             <span className="shrink-0" style={{ color: path.accent }}>
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M6 3l5 5-5 5" />
-              </svg>
+              <Chevron dir="next" />
             </span>
           </Link>
         ) : (
@@ -150,7 +147,63 @@ export function ReadingPathBar() {
             </span>
           </Link>
         )}
-      </div>
+      </nav>
     </div>
+  );
+}
+
+function ReadingPathInvite({
+  chapters,
+  pathname,
+}: {
+  chapters: readonly ReadingPathChapter[];
+  pathname: string;
+}) {
+  return (
+    <div className="print-hidden fixed bottom-4 left-1/2 z-50 w-[min(680px,calc(100vw-1.5rem))] -translate-x-1/2 transition-[bottom] [[data-narration-active]_&]:bottom-24">
+      <nav
+        aria-label="阅读路线"
+        className="flex flex-wrap items-center gap-2 rounded-2xl border border-[var(--nav-border)] bg-[var(--nav-bg)] px-3 py-2 backdrop-blur-md"
+        style={{ boxShadow: "var(--card-shadow)" }}
+      >
+        <p className="text-[11px] tracking-wide text-[var(--muted)]">这篇也在阅读路线里</p>
+        {chapters.map((chapter) => (
+          <Link
+            key={chapter.path.slug}
+            href={`${pathname}?path=${chapter.path.slug}&step=${chapter.step}`}
+            className="inline-flex min-h-9 items-center gap-1.5 rounded-xl px-2.5 text-[13px] transition-colors hover:bg-[var(--hover-bg)]"
+            style={{ color: chapter.path.accent }}
+          >
+            {chapter.path.title}
+            <span className="text-[var(--muted)] tabular-nums">
+              {chapter.step}/{chapter.path.steps.length}
+            </span>
+          </Link>
+        ))}
+        <Link
+          href="/read"
+          className="ml-auto text-[11px] tracking-wide text-[var(--muted)] hover:text-[var(--foreground)]"
+        >
+          全部路线
+        </Link>
+      </nav>
+    </div>
+  );
+}
+
+function Chevron({ dir }: { dir: "prev" | "next" }) {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {dir === "prev" ? <path d="M10 3L5 8l5 5" /> : <path d="M6 3l5 5-5 5" />}
+    </svg>
   );
 }

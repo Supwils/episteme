@@ -67,7 +67,7 @@ const WIKI_LINK_ALIASES: Record<string, string> = {
   "education-policy": "education-and-credentialism",
   "fairness-in-ml": "ai-ethics",
   "foundation-models": "large-language-models",
-  "fracture-mechanics": "materials-strength",
+  "fracture-mechanics": "fatigue-and-fracture",
   "freedom-of-thought": "fundamental-rights",
   "health-economics": "health-economic-evaluation-priority-setting",
   "historical-method": "historiography-methods-debate",

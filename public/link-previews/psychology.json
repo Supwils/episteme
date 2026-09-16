@@ -219,9 +219,59 @@
     "e": "20世纪中期，社会心理学正处于蓬勃发展阶段。",
     "d": "psychology"
   },
+  "/psychology/experiments/atkinson-shiffrin-1968": {
+    "t": "阿特金森与希夫林 1968：结构特征与控制过程怎样把记忆写成感觉登记、短时库与长时库",
+    "e": "1968 年，理查德·阿特金森（Richard C. Atkinson）与理查德·希夫林（Richard M. Shiffrin）在肯尼斯·斯宾塞（Kenneth W. Spence）与珍妮特…",
+    "d": "psychology"
+  },
+  "/psychology/experiments/baddeley-1966": {
+    "t": "巴德利 1966：词序列的即时记忆为何被声学相似拖垮而不是被语义相似拖垮",
+    "e": "1966 年 11 月，A. D. 巴德利（A. D. Baddeley，后常署 Alan D. Baddeley）在 Quarterly Journal of Experimental Ps…",
+    "d": "psychology"
+  },
+  "/psychology/experiments/baddeley-hitch-1974": {
+    "t": "巴德利与希契 1974：工作记忆怎样把短时仓库拆成三组件",
+    "e": "1974 年，艾伦·巴德利（Alan D. Baddeley）与格雷厄姆·希契（Graham Hitch）在戈登·鲍尔（Gordon H. Bower）主编的 The Psychology o…",
+    "d": "psychology"
+  },
+  "/psychology/experiments/bartlett-1932": {
+    "t": "巴特莱特 1932：回忆是图式重构，不是播放录音",
+    "e": "1932 年，Frederic C. Bartlett 在剑桥大学出版社出版 Remembering: A Study in Experimental and Social Psycholog…",
+    "d": "psychology"
+  },
   "/psychology/experiments/bobo-doll": {
     "t": "波波玩偶实验",
     "e": "20世纪中期，行为主义心理学在美国占据主导地位。",
+    "d": "psychology"
+  },
+  "/psychology/experiments/broadbent-1958": {
+    "t": "布罗德本特 1958：过滤器怎样把有限容量写成早期选择的门",
+    "e": "1958 年，唐纳德·E. 布罗德本特（Donald E. Broadbent）在 Pergamon Press 出版 Perception and Communication。它不是一份课堂…",
+    "d": "psychology"
+  },
+  "/psychology/experiments/brown-1958": {
+    "t": "布朗 1958：即时记忆的衰减怎样被若干测验问到，却还没有画成一条间隔曲线",
+    "e": "1958 年 2 月，约翰·布朗（John Brown）在 Quarterly Journal of Experimental Psychology 第 10 卷第 1 期发表 Some Te…",
+    "d": "psychology"
+  },
+  "/psychology/experiments/cherry-1953": {
+    "t": "彻里 1953：双耳分听怎样把未追随耳从整句里拆成几乎什么也报不出",
+    "e": "1953 年，E. Colin Cherry 在 Journal of the Acoustical Society of America 第 25 卷第 5 期发表 Some Experim…",
+    "d": "psychology"
+  },
+  "/psychology/experiments/conrad-1964": {
+    "t": "康拉德 1964：即时记忆的错误为何跟着声音走而不是跟着字形走",
+    "e": "1964 年 2 月，R. 康拉德（R. Conrad，全名 Rupert Conrad）在 British Journal of Psychology 第 55 卷第 1 期发表 Acous…",
+    "d": "psychology"
+  },
+  "/psychology/experiments/craik-lockhart-1972": {
+    "t": "克雷克与洛克哈特 1972：加工水平怎样把记忆从仓库改写成编码深度的研究纲领",
+    "e": "1972 年，弗格斯·克雷克（Fergus I. M. Craik）与罗伯特·洛克哈特（Robert S. Lockhart）在 Journal of Verbal Learning and …",
+    "d": "psychology"
+  },
+  "/psychology/experiments/craik-tulving-1975": {
+    "t": "克雷克与图尔文 1975：结构、语音与语义定向怎样把加工深度钉进情节记忆",
+    "e": "1975 年，弗格斯·克雷克（Fergus I. M. Craik）与恩德尔·图尔文（Endel Tulving）在 Journal of Experimental Psychology: G…",
     "d": "psychology"
   },
   "/psychology/experiments/csikszentmihalyi-pagers": {
@@ -234,6 +284,11 @@
     "e": "1964年3月13日凌晨，纽约皇后区发生了一起震惊全美的谋杀案。",
     "d": "psychology"
   },
+  "/psychology/experiments/deutsch-deutsch-1963": {
+    "t": "多伊奇与多伊奇 1963：晚期选择怎样把重要性加权写到完整分析之后",
+    "e": "1963 年，J. A. Deutsch 与 D. Deutsch 在 Psychological Review 第 70 卷第 1 期发表 Attention: Some Theoretic…",
+    "d": "psychology"
+  },
   "/psychology/experiments/dream-analysis-technique": {
     "t": "梦的分析技术",
     "e": "常见读法把这篇当成「如何解自己的梦」。它不是。1900 年的《梦的解析》把梦报告改造成一种取证程序：分析师与做梦者一起，从显内容往回推被压抑的愿望。本文把它当作科学史上的观察装置来读——它如何…",
@@ -242,6 +297,11 @@
   "/psychology/experiments/dunning-kruger-1999": {
     "t": "邓宁-克鲁格实验",
     "e": "20世纪90年代，一个日常观察引起了康奈尔大学心理学家大卫·邓宁（David Dunning）的注意。",
+    "d": "psychology"
+  },
+  "/psychology/experiments/ebbinghaus-1885": {
+    "t": "艾宾浩斯 1885：无意义音节与节省法怎样把遗忘写成可再学的差额",
+    "e": "1885 年，Hermann Ebbinghaus 在莱比锡由 Duncker & Humblot 出版 Über das Gedächtnis. Untersuchungen zur exp…",
     "d": "psychology"
   },
   "/psychology/experiments/festinger-carlsmith-1959": {
@@ -254,14 +314,39 @@
     "e": "19世纪末，当弗洛伊德放弃了催眠术——因为他发现并非所有患者都能被催眠——他面临一个根本性的问题：如何在不使用催眠的情况下接近无意识？他的答案既简单又革命性：让患者说出一切出现在脑海中的事物，…",
     "d": "psychology"
   },
+  "/psychology/experiments/glanzer-cunitz-1966": {
+    "t": "格兰泽与库尼茨 1966：自由回忆的首因与近因为何被两套仓库分开",
+    "e": "1966 年 8 月，默里·格兰泽（Murray Glanzer）与安妮塔·库尼茨（Anita R. Cunitz）在 Journal of Verbal Learning and Verba…",
+    "d": "psychology"
+  },
+  "/psychology/experiments/godden-baddeley-1975": {
+    "t": "戈登与巴德利 1975：陆地与水下怎样把环境写成提取线索",
+    "e": "1975 年，唐纳德·戈登（D. R. Godden）与艾伦·巴德利（Alan D. Baddeley）在 British Journal of Psychology 第 66 卷第 3 期发…",
+    "d": "psychology"
+  },
   "/psychology/experiments/gorilla-invisibility": {
     "t": "看不见的大猩猩",
     "e": "在日常生活中，我们对自身注意力的能力抱有强烈的信心——",
     "d": "psychology"
   },
+  "/psychology/experiments/harlow-1958-contact-comfort": {
+    "t": "哈洛 1958：布母猴怎样把接触安慰写成可计时的偏好",
+    "e": "1958 年，Harry Harlow 在美国心理学会发表后来印成 American Psychologist 的演讲 The Nature of Love。对象是恒河猴幼仔在两种人造母体之间…",
+    "d": "psychology"
+  },
+  "/psychology/experiments/kahneman-tversky-1972": {
+    "t": "卡尼曼与特沃斯基 1972：主观概率怎样被写成对代表性的判断",
+    "e": "1972 年，《认知心理学》（Cognitive Psychology）第 3 卷第 3 期刊出丹尼尔·卡尼曼（Daniel Kahneman）与阿莫斯·特沃斯基（Amos Tversky）的…",
+    "d": "psychology"
+  },
   "/psychology/experiments/kahneman-tversky-1979": {
     "t": "卡尼曼与特沃斯基前景理论实验",
     "e": "20世纪70年代，经济学和心理学之间存在一条清晰的分界线。",
+    "d": "psychology"
+  },
+  "/psychology/experiments/keppel-underwood-1962": {
+    "t": "凯佩尔与安德伍德 1962：单项目短时保持里的前摄抑制怎样随试次变陡",
+    "e": "1962 年 10 月，杰弗里·凯佩尔（Geoffrey Keppel）与本顿·J.·安德伍德（Benton J. Underwood）在 Journal of Verbal Learning…",
     "d": "psychology"
   },
   "/psychology/experiments/learned-helplessness": {
@@ -289,14 +374,39 @@
     "e": "1961年，阿道夫·艾希曼（Adolf Eichmann）在耶路撒冷受审，",
     "d": "psychology"
   },
+  "/psychology/experiments/miller-1956": {
+    "t": "米勒 1956：绝对判断、即时记忆与组块怎样把容量从比特改写成结构",
+    "e": "1956 年，George A. Miller 在 Psychological Review 第 63 卷发表 The Magical Number Seven, Plus or Minus …",
+    "d": "psychology"
+  },
+  "/psychology/experiments/moray-1959": {
+    "t": "莫雷 1959：自己的名字怎样把被拒绝耳上的屏障从密封改写成情感显著项仍可能漏出",
+    "e": "1959 年，内维尔·莫雷（Neville Moray）在 Quarterly Journal of Experimental Psychology 第 11 卷发表 Attention in…",
+    "d": "psychology"
+  },
   "/psychology/experiments/murdock-1962": {
     "t": "默多克序列位置实验",
     "e": "20世纪50至60年代，记忆研究正经历从行为主义向认知取向的范式转换。",
     "d": "psychology"
   },
+  "/psychology/experiments/nisbett-wilson-1977": {
+    "t": "尼斯贝特与威尔逊 1977：口头报告怎样从先验理论讲出我们读不到的过程",
+    "e": "1977 年 5 月，理查德·尼斯贝特（Richard E. Nisbett）与蒂莫西·威尔逊（Timothy DeCamp Wilson）在 Psychological Review 第 8…",
+    "d": "psychology"
+  },
   "/psychology/experiments/pavlov-classical-conditioning": {
     "t": "巴甫洛夫经典条件反射",
     "e": "教科书插图里，巴甫洛夫摇着一只手铃，狗就流口水。这是科学史上流传最广的误传之一。",
+    "d": "psychology"
+  },
+  "/psychology/experiments/peterson-peterson-1959": {
+    "t": "彼得森 1959：倒数干扰怎样把单个项目的短时保持画成秒级曲线",
+    "e": "1959 年，Lloyd R. Peterson 与 Margaret Jean Peterson 在 Journal of Experimental Psychology 第 58 卷第 3…",
+    "d": "psychology"
+  },
+  "/psychology/experiments/posner-1980": {
+    "t": "波斯纳 1980：空间提示怎样把隐蔽定向从眼动里拆成有效、无效与中性线索上的代价与收益",
+    "e": "1980 年，迈克尔·I·波斯纳（Michael I. Posner）在 Quarterly Journal of Experimental Psychology 第 32 卷发表 Orien…",
     "d": "psychology"
   },
   "/psychology/experiments/replication-crisis": {
@@ -309,9 +419,19 @@
     "e": "想象你坐在一间安静的房间里，对面是一位心理学家。他递给你一张卡片，上面有一个对称的墨迹图案——既不是任何具体的东西，又可能是什么都像。\"你看到了什么？\"他问。你的回答——你看到了蝴蝶、蝙蝠、还…",
     "d": "psychology"
   },
+  "/psychology/experiments/rosenhan-1973": {
+    "t": "Rosenhan 假病人研究：诊断标签一旦贴上会怎样",
+    "e": "1973 年 1 月 19 日，《科学》刊出 David L. Rosenhan 的长文 On Being Sane in Insane Places。八名没有精神病史的人，预约后走进十二家医…",
+    "d": "psychology"
+  },
   "/psychology/experiments/rosenthal-jacobson-1968": {
     "t": "罗森塔尔课堂实验",
     "e": "20世纪60年代，教育心理学中一个核心争论围绕着\"智力是否固定\"展开。",
+    "d": "psychology"
+  },
+  "/psychology/experiments/shepard-metzler-1971": {
+    "t": "谢泼德与梅茨勒 1971：三维线描的心理旋转怎样把“同一物体”写成与角差成正比的反应时",
+    "e": "1971 年 2 月 19 日，罗杰·N·谢泼德（Roger N. Shepard）与杰奎琳·梅茨勒（Jacqueline Metzler）在 Science 第 171 卷第 3972 期发…",
     "d": "psychology"
   },
   "/psychology/experiments/simons-levin-1998": {
@@ -319,9 +439,19 @@
     "e": "日常经验告诉我们，我们的视觉世界是丰富、完整且稳定的——",
     "d": "psychology"
   },
+  "/psychology/experiments/sperling-1960": {
+    "t": "斯珀林 1960：部分报告怎样把瞬时视觉容量从整报里拆出来",
+    "e": "1960 年，George Sperling 在 Psychological Monographs 第 74 卷第 11 期（Whole No. 498）发表 The information …",
+    "d": "psychology"
+  },
   "/psychology/experiments/stanford-prison": {
     "t": "斯坦福监狱实验",
     "e": "1971年，美国社会正处于深刻动荡之中。",
+    "d": "psychology"
+  },
+  "/psychology/experiments/sternberg-1966": {
+    "t": "斯特恩伯格 1966：高速扫描怎样把短时记忆里的数字写成随集合大小线性变长的反应时",
+    "e": "1966 年 8 月 5 日，索尔·斯特恩伯格（Saul Sternberg）在 Science 第 153 卷第 3736 期发表 High-Speed Scanning in Human …",
     "d": "psychology"
   },
   "/psychology/experiments/strange-situation": {
@@ -334,9 +464,39 @@
     "e": "请做一个一秒钟的实验。下面有几个词，请忽略它的字义，只大声说出它印刷的颜色：",
     "d": "psychology"
   },
+  "/psychology/experiments/treisman-1960": {
+    "t": "特里斯曼 1960：衰减怎样把被拒绝通路从全关改写成阈值仍可能被情境接住",
+    "e": "1960 年，Anne M. Treisman 在 Quarterly Journal of Experimental Psychology 第 12 卷发表 Contextual Cues …",
+    "d": "psychology"
+  },
+  "/psychology/experiments/tulving-thomson-1973": {
+    "t": "图尔文与汤姆森 1973：编码特定性怎样把提取线索写成与痕迹重叠",
+    "e": "1973 年，恩德尔·图尔文（Endel Tulving）与唐纳德·汤姆森（Donald M. Thomson）在 Psychological Review 第 80 卷第 5 期发表 Enc…",
+    "d": "psychology"
+  },
+  "/psychology/experiments/tversky-kahneman-1973-availability": {
+    "t": "特沃斯基与卡尼曼 1973：频率与概率怎样被写成对可得性的判断",
+    "e": "1973 年，《认知心理学》（Cognitive Psychology）第 5 卷第 2 期刊出阿莫斯·特沃斯基（Amos Tversky）与丹尼尔·卡尼曼（Daniel Kahneman）的…",
+    "d": "psychology"
+  },
+  "/psychology/experiments/tversky-kahneman-1974": {
+    "t": "特沃斯基与卡尼曼 1974：不确定判断里的启发式怎样被写成可核对的偏差",
+    "e": "1974 年 9 月 27 日，阿莫斯·特沃斯基（Amos Tversky）与丹尼尔·卡尼曼（Daniel Kahneman）在 Science 第 185 卷第 4157 期发表 Judgm…",
+    "d": "psychology"
+  },
   "/psychology/experiments/wason-selection-task": {
     "t": "沃森选择任务",
     "e": "20世纪60年代，认知心理学正处于蓬勃发展的初期阶段。",
+    "d": "psychology"
+  },
+  "/psychology/experiments/waugh-norman-1965": {
+    "t": "沃与诺曼 1965：初级记忆怎样把遗忘写成插入项目而非单纯流逝",
+    "e": "1965 年 3 月，南希·沃（Nancy C. Waugh）与唐纳德·诺曼（Donald A. Norman）在 Psychological Review 第 72 卷第 2 期发表 Pri…",
+    "d": "psychology"
+  },
+  "/psychology/experiments/wickens-1970": {
+    "t": "威肯斯 1970：换编码范畴怎样把前摄抑制释放写成意义的尺子",
+    "e": "1970 年 1 月，德洛斯·D.·威肯斯（Delos D. Wickens）在 Psychological Review 第 77 卷第 1 期发表 Encoding Categories …",
     "d": "psychology"
   },
   "/psychology/experiments/zajonc-chinese-characters": {
@@ -756,7 +916,7 @@
   },
   "/psychology/schools/cognitive": {
     "t": "认知心理学",
-    "e": "1956 年 9 月 11 日，麻省理工学院一场\"信息论研讨会\"进行到第二天：心理学家乔治·米勒报告了短时记忆只能装下\"神奇数字 7±2\"个组块；纽厄尔和西蒙演示了能自己证明逻辑定理的程序\"逻…",
+    "e": "1956 年 9 月 11 日，麻省理工学院一场\"信息论研讨会\"进行到第二天：心理学家乔治·米勒报告了短时记忆只能装下\"神奇数字 7±2\"个组块，对象页见 米勒 1956；纽厄尔和西蒙演示了能…",
     "d": "psychology"
   },
   "/psychology/schools/ecological-systems-theory": {

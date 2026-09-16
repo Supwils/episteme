@@ -116,7 +116,7 @@ export const SUBJECT_CANDIDATES: readonly SubjectCandidate[] = [
         concepts: ["语言演化", "濒危语言", "语言与认知", "低资源语言技术", "大模型语言能力"],
       },
     ],
-    releaseArticleCount: 59,
+    releaseArticleCount: 63,
     releaseSections: [
       "声音与手势",
       "词句与意义",
@@ -845,10 +845,13 @@ export const LAUNCHED_SUBJECT_CANDIDATE_IDS: ReadonlySet<SubjectCandidateId> = n
   "literature-narrative",
   "religion-studies",
   "anthropology-archaeology",
+  "education-learning-sciences",
 ]);
 
 export const RANKED_NEXT_SUBJECT_CANDIDATES = RANKED_SUBJECT_CANDIDATES.filter(
   (candidate) => !LAUNCHED_SUBJECT_CANDIDATE_IDS.has(candidate.id)
 );
 
-export const RECOMMENDED_SUBJECT_CANDIDATE = RANKED_NEXT_SUBJECT_CANDIDATES[0]!;
+/** Undefined once every matrix candidate is launched; do not invent a B7 to keep this defined. */
+export const RECOMMENDED_SUBJECT_CANDIDATE: SubjectCandidate | undefined =
+  RANKED_NEXT_SUBJECT_CANDIDATES[0];

@@ -1,0 +1,206 @@
+---
+title: 细粒度复杂度
+title_en: Fine-Grained Complexity
+status: published
+updated: 2026-09-13
+category: 计算理论
+order: 26
+field: 计算理论 · 算法下界
+era: 当代
+key_figures:
+  - 弗吉尼亚·瓦西列夫斯卡·威廉姆斯
+  - 瑞安·威廉姆斯
+  - 阿米尔·阿鲍德
+tags:
+  - SETH
+  - 3SUM
+  - 正交向量
+  - 细粒度归约
+  - APSP
+related:
+  - computational-complexity
+  - shortest-path-dijkstra
+  - floyd-warshall
+  - string-matching
+  - edit-distance-algorithms
+  - parameterized-complexity
+  - computational-geometry
+---
+# 细粒度复杂度
+
+P ≠ NP 即使被证明，也不会告诉你：编辑距离该不该是 $n^2$，全源最短路该不该是 $n^3$，3SUM 该不该是 $n^2$。这些问题都在 P 里。细粒度复杂度问的是多项式的**指数**：在一组比 P ≠ NP 更强、也更具体的假设下，目前的 $n^2$、$n^3$ 算法是不是已经顶到天花板。
+
+2010 年代，弗吉尼亚·瓦西列夫斯卡·威廉姆斯（Virginia Vassilevska Williams）、瑞安·威廉姆斯（Ryan Williams）、阿米尔·阿鲍德（Amir Abboud）等人把这类问题收成一张归约网。
+
+网的锚不是 SAT 本身，而是更硬的猜想：SETH、3SUM、APSP。
+
+## 破除误解：多项式时间内部仍有「不可能」
+
+经典复杂度把 P 当成「易」。对字符串、图、几何，易和不易的差别常常是 $n^{2}$ 与 $n^{2-\varepsilon}$。地图应用里 $n$ 是 $10^6$，平方已经痛，立方不可用。
+
+细粒度不试图再证明 NP 完全——这些问题本来就可多项式——它试图证明：**若你找到 $n^{2-\varepsilon}$ 的编辑距离，SETH 就会倒。**SETH（Strong Exponential Time Hypothesis，Impagliazzo–Paturi–Zane）说：对任意 $\varepsilon>0$，存在 $k$ 使得 $k$-SAT 没有 $O(2^{(1-\varepsilon)n})$ 算法。
+
+它比 ETH 强。多数人相信它，无人证明它。细粒度论文的定理形式几乎总是：「在 SETH 下，问题 A 没有 $O(n^{c-\varepsilon})$ 算法。」这不是绝对下界，是**条件**下界。
+
+读的时候要把假设读进去，否则会把一篇 STOC 论文读成「数学已禁止更快的编辑距离」。
+
+3SUM 猜想来自计算几何：给定 $n$ 个整数，是否存在三个数之和为零。
+
+$O(n^2)$ 算法简单；是否对任意 $\varepsilon>0$ 都没有 $O(n^{2-\varepsilon})$ 的真整数算法，仍是猜想。
+
+它独立于 SETH，锚的是另一批几何与图问题。
+
+## 现场：正交向量与编辑距离
+
+正交向量（Orthogonal Vectors, OV）：给两组 $n$ 个 $d$ 维 0-1 向量，$d=\Theta(\log n)$，是否存在一对内积为零。朴素 $O(n^2 d)$。Williams 家族的细粒度归约表明：若 OV 有 $n^{2-\varepsilon}$ 算法，SETH 失败。编辑距离通过 OV 接到 SETH。
+
+Backurs 与 Indyk（2015）证明：若两个长度为 $n$ 的字符串的编辑距离可在 $n^{2-\varepsilon}$ 时间计算，则 SETH 失败。Wagner–Fischer 的 $O(n^2)$ 动态规划于是不再只是「教材里的平方」，而可能是对的。
+
+这并不禁止近似、并不禁止平均情况、也不禁止量子；它禁止的是在 SETH 下对最坏情况精确解再砍掉多项式指数。
+
+全源最短路（APSP）有自己的锚。Floyd–Warshall 是 $O(n^3)$。略快的算法存在（Williams 的 $n^3/\exp(\sqrt{\log n})$ 一类），但 $n^{3-\varepsilon}$ 仍被认为要付出 APSP 猜想的代价。一批图问题——负三角、半径、中位数——与 APSP 亚三次等价：其中一个破 $n^{3-\varepsilon}$，其余一起破。
+
+## 核心：细粒度归约长什么样
+
+卡普归约保的是多项式 vs 非多项式。细粒度归约必须**盯紧指数**。若源问题的 $n$ 变成目标问题的 $n\log n$，平方会变成 $n^2(\log n)^2$，假设就被稀释。
+
+因此构造往往是线性或几乎线性的，并仔细数维度 $d$。OV 是 SETH 的「SAT 替代物」，因为 $k$-SAT 可以通过分裂变量打成向量对：一对向量正交当且仅当对应部分赋值满足子句。
+
+维度 $d=O(k\log n)$ 必须够小，SETH 的底数 $(1-\varepsilon)$ 才能传到 $n^2$。这张网的价值是分类。过去「我们不会更快」是实验室口头禅；现在可以写成：编辑距离、LCS、正则表达式匹配中的一批问题，在 SETH 下与 OV 同生共死。
+
+几何里的一批问题与 3SUM 同生共死。图的一批度量问题与 APSP 同生共死。三条锚互相独立——至少目前没有把它们连成一条。
+
+与参数化复杂度的对话是双向的。ETH 已经禁止许多 $2^{o(k)}n^{O(1)}$ 的 FPT 改进；SETH 把同样的逻辑推到多项式指数。颜色编码给出 $2^{O(k)}n$ 的上界，细粒度则问 $1.99^k$ 会不会毁掉 ETH。
+
+两条线共用「假设 → 精确指数」的修辞，对象一个是 $k$，一个是 $n$ 的幂。
+
+## 机制：从 k-SAT 分裂到正交向量
+
+SETH 到 OV 的标准构造是 split-and-list。把 $k$-SAT 的 $n$ 个变量切成两半，各 $n/2$。枚举左半的全部 $2^{n/2}$ 个赋值，右半同样。每个赋值做成一个 $d$ 维 0-1 向量，坐标对应子句：该部分赋值若已满足该子句，则对应比特为 0，否则为 1。
+
+一对左右向量内积为零，当且仅当每个子句至少被一边满足——即原公式可满足。向量个数 $N=2^{n/2}$，维度 $d$ 等于子句数，通常 $O(n)$；再用散列或稀疏化压到 $O(\log N)$。
+
+若 OV 可在 $N^{2-\varepsilon}\mathrm{poly}(d)$ 时间解决，反推回去就得到 $2^{(1-\varepsilon/2)n}$ 的 $k$-SAT 算法，SETH 失败。这就是为什么必须盯紧 $d=\Theta(\log N)$：维度若涨到 $N^{0.1}$，朴素 $N^2 d$ 已经不是平方。
+
+Williams 2005 年对 2-CSP 的算法，以及后来的 OV 算法，都在 $n^{2-1/O(\log(d/\log n))}$ 这种「不是真亚平方」的缝里改进。真亚平方指存在 $\varepsilon>0$ 使 $O(n^{2-\varepsilon})$ 对 $d=\mathrm{polylog}(n)$ 成立。对数因子、以及 $n^2/2^{\sqrt{\log n}}$，都不算推翻 SETH。
+
+编辑距离的归约更绕。Backurs–Indyk 把 OV 实例编码进两个字符串，使最优对齐代价能读出是否存在正交对。构造必须近似线性：字符串长度相对 OV 的 $n$ 只能乘常数或极小的对数，否则 $n^{2-\varepsilon}$ 会被长度膨胀吃掉。
+
+Abboud、Backurs、Vassilevska Williams 对最长公共子序列（LCS）做了同类定理。正则表达式匹配的一批变体也挂在 OV 上。于是字符串教材里三条平方 DP——编辑距离、LCS、某些模式匹配——在 SETH 下成为同一块天花板。
+
+近似算法不受同一刀口限制：Andoni、Krauthgamer、Onak 等人对编辑距离给出近似，不推翻 SETH。定理禁止的是最坏情况精确解的真亚平方，不是全部研究。
+
+Bringmann 与 Künnemann 把一批正则表达式匹配变体也挂上 OV。模式里一旦出现「任意长度间隙」一类算子，平方 DP 就回来；SETH 下的归约说明这不一定是教材偷懒。
+
+近似匹配、平均情况输入、以及限制字母表大小，都可以绕开同一刀口。读一条「编辑距离不能亚平方」的标题，必须把这些逃逸条款一起读进去。
+
+## 机制：3SUM 锚住的几何，与整数模型的缝
+
+3SUM 的课本算法：排序后对每个元素做双指针，时间 $O(n^2)$。
+
+Baran、Demaine、Pătraşcu 在字 RAM 上给出略亚平方的算法，用的是位操作和哈希，不是「对任意 $\varepsilon$ 的 $n^{2-\varepsilon}$」。Grønlund 与 Pettie 对实数 3SUM 给出 $O(n^2(\log\log n/\log n)^{2/3})$。猜想针对的是真亚平方，尤其在整数和组合归约常用的模型里。
+
+Pătraşcu 把 3SUM 连到动态图、三角形列举、以及若干数据结构下界。计算几何里，三点共线、某些交图、以及卷积型问题，会写成 3SUM-hard。
+
+归约同样必须近似线性：把 $n$ 个整数变成 $n\log n$ 个几何对象，平方假设就稀了。
+
+3SUM 与 SETH 目前没有互相归约。
+
+社区把它们当两笔独立货币：SETH 买字符串与部分图问题，3SUM 买几何与部分动态问题。有人提出更强的击中集（Hitting Set）猜想，换来更短的归约链，也换来更少的信念——因为假设更强，倒起来更容易。
+
+卷积 3SUM、3XOR 是变体，模型从加法换成异或，下界技术部分可搬。读论文时要看清：对象是整数、实数还是 $\mathbb{F}_2$，机器是实 RAM 还是字长 $w=\Theta(\log n)$ 的字 RAM。
+
+同一句「亚平方」在不同模型里不是同一个定理。计算几何的三点共线、某些交图判定、以及卷积型的「是否存在 $a+b=c$」，都会被写成 3SUM-hard。
+
+归约把整数坐标嵌进点集，长度必须保持 $O(n)$ 或 $n\mathrm{polylog}n$。一旦点的数目变成 $n^2$，平方天花板就被吹成四次，假设失去打击力。
+
+Pătraşcu 还把 3SUM 连到动态数据结构：若某类图更新与查询都亚平方，3SUM 就会破。这把几何锚伸进了「动态问题的多项式下界」——仍是条件句，不是无条件的单元代价下界。
+
+## 机制：APSP 等价类与亚三次的薄缝
+
+Floyd–Warshall 对带权全源最短路是 $O(n^3)$。Fredman、Takaoka、以及后来的 Williams，把上界推进到 $n^3/2^{\Omega(\sqrt{\log n})}$ 一类。这比 $n^3$ 快，但不是 $n^{3-\varepsilon}$。APSP 猜想说：不存在 $n^{3-\varepsilon}$ 的（真正）亚三次算法。
+
+Vassilevska Williams 与 Williams 证明：负三角检测、最小权重三角、若干半径与中位数问题，与 APSP 亚三次等价。等价的意思是：其中一个有 $n^{3-\varepsilon}$ 算法，其余经细粒度归约也有。
+
+负三角是干净的中转站——检测是否存在 $i,j,k$ 使 $w(i,j)+w(j,k)+w(k,i)<0$。矩阵乘法能加速无权三角计数；带任意实数权重时，经典快速矩阵乘法帮不上同一忙。
+
+因此无权图的三角和带权 APSP 不在同一块天花板上。直径、半径在稀疏图上还有 SETH 下的二次下界，那是另一张网：锚是 OV 而不是 APSP。
+
+稠密带权度量走立方锚，稀疏无权距离走平方锚。图论对象相同，细粒度会计不同。上界这边一旦出现真正的 $n^{3-\varepsilon}$ APSP，等价类会整体搬家。
+
+目前没有。无权图上的三角计数可以被快速矩阵乘法加速到 $n^{\omega}$，$\omega<2.373$。带任意权重的负三角没有同一条路，因为环上的加法不是域上的乘法。
+
+于是「三角」这个图论词在细粒度里要先问权重。稀疏图的直径还有 SETH 下的二次下界：在 $m$ 条边的图上，$n^{2-\varepsilon}$ 的精确直径会倒 SETH。
+
+那是 OV 锚，不是 APSP 锚。稠密带权与稀疏无权是两本账。中间那条「亚三次但不是真亚三次」的缝，是细粒度健康的标志：上界和下界咬在同一指数上，只留对数或准多项式因子。
+
+## 工程现场：一百万规模时该改计划
+
+把 $n=10^6$ 写进容量表。精确编辑距离的 $n^2$ 是 $10^{12}$ 格。按每格几个周期，单核要数十分钟到数小时；再乘十条序列就变成日计。
+
+亚平方若真能到 $n^{1.5}$，会变成 $10^9$ 量级，分钟级变秒级。SETH 说：不要把项目计划写成后者，除非你愿意赌 $k$-SAT 的底数。见 [[edit-distance-algorithms|编辑距离算法]]。
+
+地图上的 APSP 更残酷。$n=10^4$ 个路口，$n^3$ 是 $10^{12}$；$n=10^5$ 直接出局。生产系统用单源、分层、预处理地标，而不是全源精确表。见 [[floyd-warshall|Floyd–Warshall 算法]] 与 [[shortest-path-dijkstra|Dijkstra 算法]]。
+
+细粒度把这句工程常识写成定理：全源精确的 $n^{3-\varepsilon}$ 会推翻 APSP 猜想。地标与近似直径是合法出口，不是「算法还不够聪明」。
+
+3SUM 在计算几何库里表现为「共线检测能不能再快一个 $\varepsilon$」。扫描线已经 $O(n^2)$。把季度目标写成 $n^{1.8}$ 的精确共线，等于押 3SUM 失败。更稳的是改问题：近似、限制整数位长、或只处理一般位置。
+
+对已经落在 OV 等价类里的字符串问题，预算应改到近似比、限制字母表、利用平均情况。[[string-matching|字符串匹配]] 的 KMP 仍是线性，那是无插入删除；一旦允许编辑，平方墙就出现。
+
+细粒度在这里是项目管理工具。它告诉你哪一类加速需要先推翻哪一条猜想，而不是让你停止写代码。命中集猜想用更短归约换更少信念：写进定理能让证明变短，也会让审稿人问「你为什么需要这么强的前提」。
+
+与 [[parameterized-complexity|参数化复杂度]] 共用 ETH/SETH 这套货币。颜色编码给出 $2^{O(k)}n$ 的上界；细粒度问 $1.99^k$ 会不会毁掉 ETH。对象一个是参数 $k$，一个是 $n$ 的幂。两条线不要合成一句「都是指数下界」。
+
+## 代价与争议
+
+条件下界会被误读成停工令。SETH 若失败，编辑距离的平方算法仍可能是对的，只是证明链断了。反过来，SETH 成立也不排除 $n^2/\log\log n$ 这种「不是 $n^{2-\varepsilon}$」的改进。
+
+论文标题里的「紧」要对照定理里的 $\varepsilon$。锚的选择有社会学。社区围着 SETH、3SUM、APSP 转，因为归约工具成熟；不等于这三个猜想在形而上学上更真。
+
+有人提出更强的「击中集」猜想，换来更短的归约，也换来更少的信念。细粒度是一张以假设为货币的市场，汇率会变。
+
+上界这边并未睡着。对 APSP、最大节点、矩形矩阵乘法，真正的亚三次改进会立刻改写一批等价问题。细粒度的健康状态是：上界与条件下界咬在同一指数上，中间只留对数因子。
+
+一旦某边松掉，分类就要重画。工业上几乎从不用 SETH 做停工依据。地图服务选 Dijkstra 的堆实现或收缩层次，是因为图稀疏、查询重复，不是因为 Floyd–Warshall 被证明最优。
+
+细粒度解释的是最坏情况稠密实例的指数；工程选的是平均结构。两者同时正确，对象不同。Ryan Williams 给出过略快于 $2^n$ 的 SAT 算法，底数改进是 $n$ 的多项式分母，不是 $(1-\varepsilon)$。指数上的次项可以动，SETH 谈的是线性项里的 $\varepsilon$。把「已经有比 $2^n$ 快的 SAT」读成 SETH 已倒，是把次项和主项弄混。
+
+OV 猜想比 SETH 弱，用起来更短。即使不提 SAT，也可以把「$n$ 个 $O(\log n)$ 维向量没有 $n^{2-\varepsilon}$ 算法」单独写成前提。归约网因此有两层锚：想接到 SAT 底数就用 SETH；只想分类二次问题就用 OV。
+
+词 RAM 与实数 RAM 的指数可以不同。Grønlund–Pettie 对 3SUM 的略快算法依赖字操作；比较模型里同一缝不一定存在。定理必须写模型。把 STOC 标题里的「亚平方」抄进比较模型教材，会把对数因子读成 $\varepsilon$。
+
+对工程师的建议仍然很窄。若问题已落在 OV 等价类，就不要把里程碑写成「精确且 $n^{1.5}$」。把预算改到近似、限制字母表、或利用平均情况。细粒度禁止的是一类项目计划，不是所有加速。
+
+$n=10^6$ 的两条基因串，Wagner–Fischer 要填 $10^{12}$ 格。亚平方到 $n^{1.5}$ 会变成 $10^9$。SETH 说不要把项目计划写成后者。地图上 $n=10^4$ 的 APSP 已是 $10^{12}$ 量级；$n=10^5$ 出局。生产用单源与地标，不是因为 Floyd–Warshall 被证伪，是因为立方在这个 $n$ 上不可用。
+
+3SUM 的共线检测同样：扫描线已经 $O(n^2)$。季度目标写成 $n^{1.8}$ 的精确共线，等于押猜想失败。更稳的是改问题。
+
+最长公共子序列与一批正则匹配走同一条 OV 走廊。KMP 仍是线性，那是无插入删除的精确匹配。字母表大小、近似比、以及是否允许随机，都会改变定理的前提。把「不能亚平方」理解成所有变体都不能，会误导做序列对齐的人。
+
+量子查询可以把 OV 一类问题推到 $n^{1.5}$ 量级。SETH 是经典猜想。论文若省略「经典」二字，读者会把量子加速读成反驳，其实只是换了模型。
+
+命中集猜想用更短归约换更少信念。写进定理能让证明变短，也会让审稿人问前提是否过强。汇率会变，分类网却已经把一批序列问题钉在同一块天花板上。
+
+## 跨域连接
+
+- **[[graph-theory|图论]]**：APSP、负三角、直径、半径这些度量问题在图论里各有经典算法，细粒度把它们收成亚三次或亚二次等价类。等价不是图同构，而是「一个 $n^{c-\varepsilon}$ 会传染」。稀疏图的直径挂在 SETH/OV 上，稠密带权 APSP 挂在立方锚上。图论提供对象与稀疏/稠密之分，细粒度提供指数会计：同一张图，问无权距离还是带权全源，天花板可以差一层多项式。
+- **[[combinatorics|组合学]]**：OV 和 3SUM 都是计数与存在性的组合核。split-and-list、着色、多项式切片必须把 $n$ 近似线性地写成目标实例，否则平方假设被对数吹稀。细粒度能盯紧平方，是因为组合构造没有把 $n$ 吹成 $n^2$。哈希把维度压到 $O(\log n)$ 时，也要数清碰撞是否破坏正交性；这里组合比图灵机模拟更关键。
+- **[[probability|概率]]**：许多上界用随机哈希把维度压到 $O(\log n)$，条件下界则必须对最坏输入成立。随机化算法若只在期望或高概率下破 $n^{2-\varepsilon}$，不一定推翻 SETH；定理会写明确定性还是随机化。多项式哈希的碰撞概率必须乘进归约的时间，否则「高概率亚平方」只是平均情况算法。概率在这里是算法资源，不是假设本身。
+- **[[proof|证明]]**：细粒度的「证明」几乎全是归约。它不证明编辑距离需要 $n^2$ 次运算，它证明「更快的编辑距离 ⇒ 更快的 $k$-SAT」。蕴含方向读反，就会把条件句抄成绝对下界——这是教科书最容易写错的一步。正确的阅读是：结论的强度不超过 SETH（或 3SUM、APSP）被相信的程度；假设一倒，整张网要重估，对象上的平方算法仍可能碰巧最优。
+
+---
+
+## 参考文献
+
+- Impagliazzo, R., Paturi, R. & Zane, F. "Which Problems Have Strongly Exponential Complexity?" *Journal of Computer and System Sciences* 63(4):512–530, 2001.
+- Williams, R. "A New Algorithm for Optimal 2-Constraint Satisfaction and Its Implications." *Theoretical Computer Science* 348(2–3):357–365, 2005.
+- Backurs, A. & Indyk, P. "Edit Distance Cannot Be Computed in Strongly Subquadratic Time (unless SETH is false)." *Proceedings of STOC*, 2015; *SIAM Journal on Computing* 47(3), 2018.
+- Vassilevska Williams, V. "On Some Fine-Grained Questions in Algorithms and Complexity." *Proceedings of the ICM*, 2018. （领域地图）
+- Vassilevska Williams, V. & Williams, R. "Subcubic Equivalences Between Path, Matrix, and Triangle Problems." *Journal of the ACM* 65(5):27, 2018.
+- Abboud, A., Backurs, A. & Vassilevska Williams, V. "Tight Hardness Results for LCS and Other Sequence Similarity Measures." *Proceedings of FOCS*, 2015.
+- Pătraşcu, M. "Towards Polynomial Lower Bounds for Dynamic Problems." *Proceedings of STOC*, 2010.
+
+## 延伸阅读
+
+- Bringmann, K. & Künnemann, M. 细粒度复杂度讲义与笔记（近年暑期学校版本持续更新）。

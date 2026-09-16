@@ -1,0 +1,100 @@
+---
+title: Karp–Lipton 1980：SAT 若有多项式电路，多项式层次怎样坍到第二层
+title_en: Some Connections between Nonuniform and Uniform Complexity Classes
+status: published
+updated: 2026-09-15
+category: 计算理论
+order: 74
+field: 计算复杂性
+era: 当代
+key_figures:
+  - Richard Karp
+  - Richard Lipton
+tags:
+  - Karp–Lipton
+  - P/poly
+  - 多项式层次
+  - 非均匀复杂性
+  - 忠告
+related:
+  - circuit-complexity
+  - computational-complexity
+  - cryptography-foundations
+  - baker-gill-solovay-1975
+  - cook-1971-np-completeness
+  - barriers-to-proving-p-vs-np
+  - ladner-1975-np-intermediate
+  - adleman-1978-bpp-ppoly
+  - toda-1991
+  - nisan-wigderson-1994
+---
+
+# Karp–Lipton 1980：SAT 若有多项式电路，多项式层次怎样坍到第二层
+
+1980 年 4 月 28 日至 30 日，第十二届 ACM 计算理论年会（STOC）在洛杉矶举行。会议录页码 302 至 309 刊出理查德·卡普（Richard M. Karp）与理查德·利普顿（Richard J. Lipton）的《Some Connections between Nonuniform and Uniform Complexity Classes》。DOI 为 10.1145/800141.804678。ISBN 为 0-89791-017-6。作者单位印作加州大学伯克利分校。本页的对象是这份**已印行的八页会议论文**：非均匀的多项式规模电路上界，一旦落到可满足性这种「行为规矩」的集合上，就会逼出均匀世界里的结构后果——迈耶–斯托克迈耶的多项式层次坍缩。会议录不是人物评传。书目陷阱必须写在第一段：封面年取 1980，是因为这是定理的标准名称与第一次印刷；它不是 1982 年《数学教学》（*L'Enseignement Mathématique*）第 28 卷那篇《Turing machines that take advice》。后者页码 191 至 209，是忠告机装置的展开本，与 STOC 文本是先行与展开，不是同一印刷、也不是第二篇封面。
+
+它不是 [[baker-gill-solovay-1975|贝克–吉尔–索洛维一九七五年论文]]。那十二页刊于 *SIAM Journal on Computing* 第 4 卷第 4 期，页码 431 至 442，DOI 为 10.1137/0204037，不是 *Journal of the ACM*。相对化问的是添上任意同一神谕之后黑箱模拟还灵不灵；本页问的是：不添神谕、只给每个长度一份多项式长的忠告，SAT 若因此掉进电路类，层次会怎样。相对化是邻居。它不是 [[ladner-1975-np-intermediate|拉德纳一九七五年论文]]：那一篇刊于 *Journal of the ACM* 第 22 卷第 1 期，问的是若 $P\neq NP$，中间语言必须存在。它不是 [[razborov-rudich-1997|拉兹博罗夫–鲁迪奇自然证明]]，不是 [[circuit-complexity|电路复杂度]] 总览，也不是 [[computational-complexity|计算复杂性]] 地图。它更不是概率可验证明，也不把交互式证明写成对象。本页不提供如何装配电路、如何消锁、如何把归约写成习题答案的步骤。
+
+## 破除误解：电路上界不是 P 等于 NP，两篇印刷也不是同一本
+
+第一层误解把标题听成「因此 $P=NP$」，或听成已经证明 SAT 属于 $P$。原文给的是条件句。假设 SAT 有多项式规模电路族，则多项式层次坍到第二层：$\mathrm{NP}\subseteq\mathrm{P/poly}$ 蕴涵 $\Sigma_2^{\mathrm{P}}=\Pi_2^{\mathrm{P}}$，因而整座 $\mathrm{PH}$ 等于 $\Sigma_2^{\mathrm{P}}$。电路族可以对每个输入长度换一张图，不要求存在一台对所有长度通用的多项式时间图灵机。若那些电路还能被一台多项式时间的机器自己造出来，均匀算法就会吞掉 SAT，那才是 $P=NP$。卡普与利普顿的假设弱得多：电路「在那儿」，造电路的手续却不必均匀可算。把「有一张表」听成「有一套对所有 $n$ 都管用的程序」，会把一次非均匀上界收成一次算法。本页没有、也不声称已经裁决 $P$ 对 $NP$。
+
+第二层误解把 STOC 1980 与 1982 年的《数学教学》焊成一次印刷。会议文本的标题谈非均匀类与均匀类的联系；期刊文本把装置改写成「带忠告的图灵机」，并由此固定后来的记法 $\mathrm{P/poly}$：斜线右边是忠告长度的多项式预算。文件名取 1980，是定理的通行称呼与第一印刷；1982 年是展开，不是把同一八页再印一遍。西普塞尔（Michael Sipser）随后指出，会议论证把层次收到第三层之后，同一套自归约还可以把落地收到第二层。此后教材里的「卡普–利普顿定理」默认指这句更紧的陈述。改进是邻居，不是第三篇封面，也不把西普塞尔写成第三作者。
+
+第三层误解把 $\mathrm{P/poly}$ 听成 $P$，或把忠告听成贝克–吉尔–索洛维那种神谕。忠告只依赖输入长度：长度为 $n$ 的所有串共用同一条多项式长的字 $\alpha_n$，机器读 $(x,\alpha_n)$ 再在多项式步内停机。神谕可以就任意串被询问，询问内容随计算路径改变。一张电路是忠告的组合形态：把 $C_n$ 的编码写进 $\alpha_n$，均匀的求值器再模拟这张图。反之，多项式时间加上多项式忠告，也可以按萨维奇（John E. Savage）把时序计算摊成电路。两种写法描述同一类。把忠告听成「免费问任意问题的黑箱」，会把一次长度相关的字收成一座相对化世界。
+
+第四层误解把稀疏完全集、自然证明、浅电路下界或概率可验证明焊进这八页。福琼 1979 年关于稀疏完全集的注记被会议文本引用，对象却不是马哈尼 1982 年那条「若存在稀疏的 $NP$ 多一完全集则 $P=NP$」。图灵归约到稀疏集，与 $\mathrm{P/poly}$ 是同一扇门；多一归约到稀疏集是更窄的门。弗斯特–萨克斯–西普塞尔的奇偶下界、拉兹博罗夫–鲁迪奇的自然证明、卡南对 $\Sigma_2$ 的规模下界，都不在页码 302 至 309 里。概念证据到此为止，不是操作单。
+
+## 忠告、电路，以及一张 SAT 电路怎样对调量词
+
+装置从非均匀上界开始。引言写明已知方向：每个 $P$ 中的集合都有小电路；阿德尔曼（Leonard Adleman）1978 年又证明，多项式时间的随机机器接受的集合同样有小电路。这些句子都是「均匀上界推出非均匀上界」。卡普与利普顿要走相反的箭头：什么时候一张电路族会反过来约束均匀的层次。立刻的回答是「并不总是」——存在有小电路却连递归都不是的集合。他们把目光收到「行为规矩」的集合上。SAT 就是这样的集合：它完全，并且自归约。所谓自归约，不是一份把公式拆成作业的配方，而是一条结构事实：判定「有没有满足赋值」与找出一个赋值，在多项式时间的图灵归约下几乎是同一件事。固定一个变元为 0 或 1，公式缩短，电路再被问一次，真赋值可以沿这条链被回收，再用原公式核对。本页只使用这条结构，不把逐变元改写写成解题步骤。
+
+$\mathrm{P/poly}$ 于是有两种彼此翻译的写法。其一是布尔电路族 $\{C_n\}$：规模被某个多项式封顶，$C_n$ 在长度为 $n$ 的输入上输出成员资格。其二是忠告机：存在多项式 $p$ 与一台确定性多项式时间机器 $M$，以及字序列 $\{\alpha_n\}$，使 $|\alpha_n|\le p(n)$，并且 $x\in L$ 当且仅当 $M(x,\alpha_{|x|})$ 接受。电路的编码就是忠告；忠告被均匀求值器摊开就是电路。序列 $\{\alpha_n\}$ 本身不必可计算：允许「每个长度在数学上存在一张图」，并不允许「有一台机器枚举所有长度上的图」。随机多项式时间掉进这个类，是阿德尔曼的方向；本页要的是：若 SAT 也掉进去，均匀世界会付出什么。均匀可构造的电路会直接给出 $P=NP$；只存在、不可构造，才把代价停在层次的第二层，而不是停在 $P$。
+
+多项式层次来自迈耶与斯托克迈耶。$\Sigma_k^{\mathrm{P}}$ 是 $k$ 个交替量词、最外层为存在、矩阵为多项式时间谓词的语言类；$\Pi_k^{\mathrm{P}}$ 把最外层改成全称。$\Sigma_1^{\mathrm{P}}=\mathrm{NP}$，$\Pi_1^{\mathrm{P}}=\mathrm{coNP}$。一层相等会沿层次向上传染：若 $\Sigma_2^{\mathrm{P}}=\Pi_2^{\mathrm{P}}$，则更高的交替可以被吸进前两层，$\mathrm{PH}$ 停在第二层。卡普–利普顿定理的标准陈述正是这句落地。会议论证先把坍缩写到第三层；西普塞尔指出，自归约允许把「猜一张电路、再核对它是否真的在算 SAT」收进 $\Sigma_2$ 的存在量词里，于是 $\Pi_2^{\mathrm{P}}\subseteq\Sigma_2^{\mathrm{P}}$。标准名称沿用卡普与利普顿，落地取更紧的那一层。
+
+论证的形态可以只说到量词，不必写成归约习题。取 $\Pi_2$ 中任意语言：$x$ 属于它，当且仅当对所有短的 $y$，存在短的 $z$ 使多项式谓词 $\psi(x,y,z)$ 成立。内层的「存在 $z$」是一则 SAT。若 SAT 有多项式电路，也就有多项式电路输出满足赋值——自归约把判定电路改写成搜索电路。$\Sigma_2$ 的机器于是先存在性地猜这张电路的编码，再对所有 $y$ 调用它取出 $z$，并确定性核对 $\psi$。若 $x$ 真在语言里，正确的电路存在，全称核对通过。若 $x$ 不在语言里，某个 $y$ 根本没有合法的 $z$，任何电路都交不出能通过核对的字。量词顺序从「全称–存在」翻成「存在–全称」。翻一次，第二层的两边重合；再往上的层次被吸进去。这是一次关于量词的结构事实，不是一份把 SAT 求解器焊进协议的说明书。
+
+稀疏集是同一扇门的另一种金属。多项式长的忠告可以把每个长度上至多多项式多个例外字列成一张表；图灵归约到稀疏神谕，与 $\mathrm{P/poly}$ 重合。会议文本引用伯曼–哈特马尼斯关于密度与同构的讨论，以及福琼关于稀疏完全集的注记，为的是标明非均匀性与稀疏性是同一类现象。它没有证明「稀疏的 $NP$ 完全集存在则 $P=NP$」。那条更强的多一结论是后年的马哈尼定理，口径更窄。把图灵门与多一门焊在一句里，会把一次层次坍缩收成一次 $P$ 与 $NP$ 的相等。
+
+## 它证明了什么，没有覆盖什么
+
+它证明了：非均匀上界可以逼出均匀后果，只要对象像 SAT 那样完全并且自归约。若 $\mathrm{NP}\subseteq\mathrm{P/poly}$，则多项式层次坍到第二层，$\Sigma_2^{\mathrm{P}}=\Pi_2^{\mathrm{P}}$。$\mathrm{P/poly}$ 等于多项式时间加多项式忠告，也等于多项式规模电路族。$P$ 与随机多项式时间都已经住在这个类里，那是已知的正向箭头；本页提供反向箭头在 SAT 上的结构代价。坍到第二层比坍到 $P$ 弱，却仍把「存在—全称—存在—全称……」的无限交替收成两层。若有人相信层次应当一层层严格包含，这句条件句就是一张否决票，投向 SAT 的小电路，而不是投向 $P=NP$。引言把方法论写清楚：任意集合的小电路什么也推不出来；「规矩」的完全问题一旦被电路吞掉，量词交替就维持不住。
+
+它没有证明 $P\neq NP$，也没有证明 $P=NP$。$P=NP$ 会把层次一直坍到 $P$，那是更强、也未被给出的句子。本页的后果停在第二层：存在与全称在多项式长的交替之后彼此吸收，并不把 SAT 送进均匀的 $P$。层次坍缩仍被多数研究者当成不应当发生的结构事故，因而被读成「SAT 大概没有多项式电路」的证据；证据不是证明，工作假说也不是观测。它没有给出任何显式函数的超多项式电路下界，也没有打开常数深度。它没有证明多项式层次真有无穷多层，也没有构造使层次无穷的神谕。指数时间若掉进 $\mathrm{P/poly}$ 会迫使指数时间自己等于第二层，那是迈耶方向的邻居，不是这八页的封面。卡南 1982 年用本页作分案，证明对每个固定 $k$，$\Sigma_2$ 里都有语言进不了规模 $n^k$ 的电路——那是后一篇。把同一假设再收到 $\mathrm{S}_2^{\mathrm{P}}$、或收到 $\mathrm{AM}=\mathrm{MA}$，是更后的加强，不在页码 302 至 309 里。自然证明、代数化与概率可验证明同样不在。对照属于 [[circuit-complexity|电路复杂度]] 总览与 [[barriers-to-proving-p-vs-np|障碍]] 页。本页把「SAT 的电路上界怎样翻动量词」写成一次条件句。概念证据到此为止。猜电路回答的是存在性量词从哪里来；核对赋值回答的是全称量词怎样仍保持诚实。两句都不是操作单。
+
+## 跨域连接
+
+- **[[circuit-complexity|电路复杂度]]**：总览把 $\mathrm{P/poly}$ 画成「多项式门、深度不限、允许每个长度换一张图」的那一格。格上的结构钉子以 1980 年这句条件句为准：SAT 一旦掉进这一格，层次就停在第二层。把后来的 $\mathrm{AC}^0$ 奇偶下界或自然证明提前读成本页，会把一次量词对调收成一次门的塌缩。地图可以后写；本页只提供「非均匀上界如何变成均匀坍缩」的手续。
+- **[[cryptography-foundations|密码学基础]]**：现代公钥体系依赖「某些问题没有高效算法」，而且对手被允许是非均匀的：每个安全参数可以预计算一份忠告。若 SAT 已有多项式电路，最坏情况下的 $NP$ 完全性就不再能单独支撑这种对手模型。本页给出的是一条否证压力：层次坍缩不被相信，因而 SAT 的小电路也不被相信。它不是把单向函数、伪随机发生器或具体密码方案写成拆解步骤，更不提供如何利用一张假设中的电路去攻一个系统。
+- **[[baker-gill-solovay-1975|贝克–吉尔–索洛维一九七五年论文]]**：五年前的相对化说，只看输入输出的黑箱手续看不见 $P$ 对 $NP$。本页改看内部的电路，却仍只得到条件句，得不到分离。神谕随询问内容而变；忠告只随长度而变。两套装置都在说「额外信息会扰动类的包含」，扰动方向相反：一座神谕让 $P$ 与 $NP$ 重合，另一座让它们分开；忠告则在 SAT 上把整座层次压扁。把 1980 年听成又造了两座相反神谕，会把一次电路假设收成一次询问模型。
+- **[[cook-1971-np-completeness|库克一九七一年论文]]**：库克把任意多项式非确定性计算编译成布尔公式，SAT 因此成为 $NP$ 的完全钉子。本页假定这枚钉子有多项式电路，再问层次还剩几层。完全性提供归约方向的上界：整个 $NP$ 跟着 SAT 走进 $\mathrm{P/poly}$。自归约提供搜索方向的桥梁：判定电路可以取出证人。把库克听成已经排除小电路，会把一次编译收成一次下界。
+- **[[proof|证明]]**：条件句把「什么样的上界算数」写成数学对象。一份只证明「存在电路族」的论证，并不自动给出均匀算法；它给出的是层次里量词的对调权。被排除的不是证明的可能性，而是把非均匀存在与均匀可构造混为一谈的那一类跳跃。把「不相信层次坍缩」听成「已经证明没有小电路」，会把一次方法论上的证据收成一次已完成的下界。
+- **[[philosophy-of-science|科学哲学]]**：卡普–利普顿并不证伪「SAT 有小电路」，它给出的是：若该命题为真，则一条被广泛当作工作假说的层次图必须改画。波普尔式的高风险预言在这里变成复杂度内部的蕴涵。研究者选择不改画层次，就把压力推回电路上界。这是一次对理论后果的权衡，不是一次判决性实验，也不是把「多数人不信」写成已经观测到的事实。
+
+---
+
+## 参考文献
+
+- Richard M. Karp & Richard J. Lipton, "Some Connections between Nonuniform and Uniform Complexity Classes", *Proceedings of the 12th Annual ACM Symposium on Theory of Computing*, Los Angeles, 28–30 April 1980, pp. 302–309. DOI: 10.1145/800141.804678. —— 本文对象：非均匀电路上界与均匀层次之间的反向箭头；SAT 有小电路则迈耶–斯托克迈耶层次坍缩。
+- Richard M. Karp & Richard J. Lipton, "Turing machines that take advice", *L'Enseignement Mathématique* 28, 1982, pp. 191–209. DOI: 10.5169/seals-52237. —— 先行会议文本的展开：忠告机写法，以及 $\mathrm{P/poly}$ 作为多项式时间加多项式忠告。
+- Stephen A. Cook, "The Complexity of Theorem-Proving Procedures", *Proceedings of the 3rd Annual ACM Symposium on Theory of Computing*, Shaker Heights, Ohio, 1971, pp. 151–158. DOI: 10.1145/800157.805047. —— SAT 的完全性，使整个 $NP$ 跟着电路假设进入 $\mathrm{P/poly}$。
+- A. R. Meyer & L. J. Stockmeyer, "The Equivalence Problem for Regular Expressions with Squaring Requires Exponential Space", *Proceedings of the 13th IEEE Symposium on Switching and Automata Theory*, 1972, pp. 125–129. DOI: 10.1109/SWAT.1972.29. —— 多项式层次的来源。
+- L. J. Stockmeyer, "The Polynomial-Time Hierarchy", *Theoretical Computer Science* 3, 1977, pp. 1–22. DOI: 10.1016/0304-3975(76)90061-X. —— 层次的期刊文本；会议论文所引。
+- L. Adleman, "Two Theorems on Random Polynomial Time", *Proceedings of the 19th Annual Symposium on Foundations of Computer Science*, 1978, pp. 75–83. DOI: 10.1109/SFCS.1978.37. —— 随机多项式时间具有小电路，即本页所反转的那条正向箭头。
+- J. E. Savage, "Computational Work and Time on Finite Machines", *Journal of the ACM* 19(4), 1972, pp. 660–674. DOI: 10.1145/321707.321718. —— $P$ 中集合具有小电路。
+- T. Baker, J. Gill & R. Solovay, "Relativizations of the P =? NP Question", *SIAM Journal on Computing* 4(4), 1975, pp. 431–442. DOI: 10.1137/0204037. —— 相对化邻居：神谕与忠告不是同一种额外信息。
+- C. P. Schnorr, "Optimal Algorithms for Self-Reducible Problems", *Proceedings of the 3rd International Colloquium on Automata, Languages and Programming*, Edinburgh, 1976, pp. 322–337. —— 会议文本所依的自归约。
+- S. Fortune, "A Note on Sparse Complete Sets", *SIAM Journal on Computing* 8(3), 1979, pp. 431–433. DOI: 10.1137/0208034. —— 稀疏完全集的先行注记，用以对照图灵门与多一门。
+
+## 延伸阅读
+
+- 与 [[circuit-complexity|电路复杂度]] 对读：总览管 $\mathrm{P/poly}$、浅电路与后来的下界；本页停在 1980 年的条件句。
+- 与 [[barriers-to-proving-p-vs-np|P vs NP 的证明障碍]] 对读：总览管三道障碍的接力；本页既不是相对化，也不是自然证明。
+- 与 [[baker-gill-solovay-1975|贝克–吉尔–索洛维一九七五年论文]] 对读：神谕随询问而变，忠告只随长度而变。
+- 与 [[cook-1971-np-completeness|库克一九七一年论文]] 对读：完全性把整类送进假设；自归约把判定送进搜索。
+- 与 [[ladner-1975-np-intermediate|拉德纳一九七五年论文]] 对读：中间语言是 $P\neq NP$ 之下的度数结构；本页是电路假设之下的层次结构。
+- 与 [[cryptography-foundations|密码学基础]] 对读：非均匀对手住在 $\mathrm{P/poly}$ 里；本页解释为什么最坏情况完全性单独不够。
+- 与 [[toda-1991|户田 1991]] 对读：本页是电路假设下层次坍到第二层；计数神谕把整座层次送进 $\mathrm{P}^{\#\mathrm{P}}$，假设与资源都不是同一句。
+- 与 [[nisan-wigderson-1994|Nisan–Wigderson 1994]] 对读：硬度换随机性要的是难函数做成生成器；本页问的是 NP 自己若有多项式电路，层次怎样坍。
+- 与 R. Kannan, "Circuit-size lower bounds and non-reducibility to sparse sets", *Information and Control* 55, 1982, pp. 40–56 对读：后年用本页作分案，得到 $\Sigma_2$ 对每个固定多项式规模的下界。

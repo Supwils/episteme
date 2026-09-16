@@ -394,6 +394,31 @@
     "e": "X射线天文学探测波长约 0.01–10 nm（能量 0.1–100 keV）的宇宙辐射，专门研究宇宙中温度极高（10^6–10^9 \\, \\text{K}）或能量过程极端的天体环境。地球大气对…",
     "d": "cosmology"
   },
+  "/cosmology/knowledge-base/宇宙学观测--eddington-1919-eclipse": {
+    "t": "1919 日食底片：0.87″ 与 1.75″ 怎样被量到星点上",
+    "e": "1919 年 5 月 29 日的日全食，英国派出两支远征队，去量太阳边缘附近恒星的视位置。普林西比岛上是 Arthur Stanley Eddington 与 Edwin Turner Cot…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学观测--hubble-1929-velocity-distance": {
+    "t": "1929 速度–距离图：24 个河外星云怎样被写成斜率 K",
+    "e": "1929 年 3 月，Edwin Hubble 把 24 个河外星云的距离与视向速度画在一张图上。论文发在 Proceedings of the National Academy of Sci…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学观测--leavitt-1912-period-luminosity": {
+    "t": "1912 周光关系：25 颗小麦哲伦云变星怎样被写成相对光度台阶",
+    "e": "1912 年 3 月 3 日，Harvard College Observatory Circular 第 173 号印出三页短讯，标题是 “Periods of 25 Variable St…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学观测--shapley-curtis-1920": {
+    "t": "1920 沙普利–柯蒂斯辩论：大银河与岛宇宙怎样在史密森被写成两套账",
+    "e": "1920 年 4 月 26 日晚八点十五分，美国国家科学院年会在华盛顿史密森学会自然历史博物馆开晚场。节目单总题是 “The Scale of the Universe”。威尔逊山的 Harl…",
+    "d": "cosmology"
+  },
+  "/cosmology/knowledge-base/宇宙学观测--slipher-1912-nebular-redshifts": {
+    "t": "斯莱弗 1912：洛威尔 24 英寸镜上的星云视向速度",
+    "e": "1912 年秋，亚利桑那弗拉格斯塔夫的洛威尔天文台，Vesto Slipher 把 24 英寸折射镜上的摄谱仪狭缝对准仙女座星云（M31 / NGC 224）的核。9 月 17 日那张底片曝光…",
+    "d": "cosmology"
+  },
   "/cosmology/knowledge-base/宇宙学观测--中微子探测器": {
     "t": "中微子探测器",
     "e": "中微子是宇宙中数量最多的有质量粒子之一（仅次于光子），宇宙大爆炸残留的背景中微子密度约为每立方厘米 336 个，但它们极弱的相互作用使其几乎可以无阻地穿越任何物质——一束穿越地球的中微子，只有…",
@@ -499,6 +524,11 @@
     "e": "詹姆斯·韦伯空间望远镜（JWST）是 NASA、ESA 和 CSA 联合研制的旗舰级红外空间天文台，2021 年 12 月 25 日搭乘阿丽亚娜 5 号火箭发射，运行在日地系统第二拉格朗日点（…",
     "d": "cosmology"
   },
+  "/cosmology/knowledge-base/宇宙学观测--霍尔姆德尔喇叭天线": {
+    "t": "霍尔姆德尔喇叭：消不掉的 3.5 K 怎样被写成天线温度",
+    "e": "1964 到 1965 年，Arno Penzias 与 Robert Wilson 在新泽西霍尔姆德尔的贝尔实验室克劳福德山，用一座为回声号气球卫星通信而建的 20 英尺喇叭反射面天线，把天…",
+    "d": "cosmology"
+  },
   "/cosmology/knowledge-base/宇宙射线": {
     "t": "宇宙射线",
     "e": "每时每刻，都有来自宇宙深处的高能带电粒子撞向地球大气层——这就是宇宙射线（cosmic rays）。它们绝大多数是质子和原子核，能量横跨十几个数量级。其中能量最高的那些粒子，单个所携带的能量比…",
@@ -521,7 +551,7 @@
   },
   "/cosmology/knowledge-base/引力透镜": {
     "t": "引力透镜",
-    "e": "光在引力场中弯曲——这一预言由爱因斯坦的广义相对论作出，并在1919年日食观测中得到首次证实。时至今日，引力透镜已从相对论的验证工具演变为宇宙学最强大的探针之一：它让我们直接\"看到\"不可见的暗…",
+    "e": "光在引力场中弯曲——这一预言由爱因斯坦的广义相对论作出，并在1919年日食观测中得到首次证实。底片、定天镜与 0.87″／1.75″ 的对照见 爱丁顿 1919 日食。时至今日，引力透镜已从相…",
     "d": "cosmology"
   },
   "/cosmology/knowledge-base/快速射电暴": {

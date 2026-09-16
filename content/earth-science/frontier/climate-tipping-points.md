@@ -2,7 +2,7 @@
 title: 气候临界点：地球系统的不可逆开关
 title_en: Climate Tipping Points — The Earth System's Irreversible Switches
 status: published
-updated: 2026-06-19
+updated: 2026-09-12
 category: 气候系统
 horizon: 2020s
 order: 1
@@ -78,6 +78,12 @@ Armstrong McKay 强调，关键不是"我们已经越过了某条线"，而是"�
 - **时间尺度被混淆。** 冰盖的"触发"和"完成"是两回事。即便格陵兰冰盖今天就被推过临界点，它彻底融化也要数百到数千年。"触发"意味着结局被锁定，但不意味着明天海平面就涨 7 米。
 - **过度恐慌 vs 过度安心。** 这是个真实的传播两难。夸大成"2050 年欧洲变冰窖"会损害可信度；而强调"模型显示有韧性"又可能被解读为"不用担心"。两者都偏离了证据本身。
 
+2025 年 10 月 13 日，埃克塞特大学领衔的第二份《全球临界点报告》把暖水珊瑚写成"正在越过热力临界"。作者 160 人、87 所机构、23 个国家。报告说的是评估，不是一张"全球珊瑚已经死光"的讣告。局部避难所与恢复潜力仍在争论。
+
+同一份报告把 AMOC 写成低于 2°C 也不能排除崩溃，并把临界风险提到国家安全与粮食安全。冰岛 2025 年 11 月 12 日把可能的崩溃列入国家安全议程，为的是最坏情景预案，不是观测到传送带已经停摆。Baker 等人 2025 年《自然》那组模型韧性，和这份评估报告仍然并排，没有互相取消。
+
+副极地环流（SPG）与 AMOC 不是同一个开关。报告强调两者耦合、时间尺度不同。许多 CMIP6 模式里，北大西洋深层冬季混合会在 2050 年前变弱。模式里的弱环流不是观测到的崩溃。早期预警仍然可能只是噪声。
+
 ## 未知的边界
 
 - AMOC 是否、何时会突然崩溃，是当前最尖锐的开放问题——统计代理、物理预警、模型韧性三类证据互相矛盾，尚无共识。
@@ -104,6 +110,7 @@ Armstrong McKay 强调，关键不是"我们已经越过了某条线"，而是"�
 - van Westen, R. M., Kliphuis, M. & Dijkstra, H. A. _Physics-based early warning signal shows that AMOC is on tipping course._ Science Advances 10, eadk1189 (2024). DOI: 10.1126/sciadv.adk1189.
 - Baker, J. A. et al. _Continued Atlantic overturning circulation even under climate extremes._ Nature 638, 987–994 (2025). DOI: 10.1038/s41586-024-08544-0.
 - IPCC. _Climate Change 2021: The Physical Science Basis (AR6 WG1)._ Cambridge University Press, 2021.
+- Lenton, T. M. et al. (eds.) _Global Tipping Points Report 2025._ University of Exeter / Global Systems Institute, 2025-10-13.
 
 ## 延伸阅读
 

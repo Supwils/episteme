@@ -564,9 +564,14 @@
     "e": "这场对话是反事实编排。路德维希·维特根斯坦（Ludwig Wittgenstein，1889—1951）与庄周不在同一条时间线上。两人从未通信，也没有共同的论敌。把他们放进同一场，是为了让两种…",
     "d": "philosophy"
   },
+  "/philosophy/experiments/block-1978-china-brain": {
+    "t": "中国脑",
+    "e": "这是一则关于功能组织与心灵同构，是否仍不足以给出感受质的印刷论证。一九七八年，内德·布洛克（Ned Block）在 C.·韦德·萨维奇主编的《知觉与认知：心理学基础中的问题》（Percepti…",
+    "d": "philosophy"
+  },
   "/philosophy/experiments/brain-in-vat": {
     "t": "缸中之脑",
-    "e": "1981年，美国哲学家希拉里·普特南在《理性、真理与历史》一书中提出了这个如今广为人知的 thought experiment：",
+    "e": "它不是摩尔的两只手。摩尔 1939 年举起两只手，当作外部世界的一个印刷证明姿态。普特南问的是语义：若你是缸中之脑，「树」这类词还能否指到缸外的树。两则都碰怀疑论，卡住的环节不一样。",
     "d": "philosophy"
   },
   "/philosophy/experiments/buridans-donkey": {
@@ -579,9 +584,24 @@
     "e": "1980年，美国哲学家约翰·塞尔在《心灵、大脑与程序》一文中提出了这个极具影响力的思想实验：",
     "d": "philosophy"
   },
+  "/philosophy/experiments/donnellan-1966-referring": {
+    "t": "指称与限定摹状词",
+    "e": "这是一则关于限定摹状词在同一种句子里何以既能钉住「谁满足这条描述」，又能只当挑人工具的印刷论证。一九六六年七月，基思·唐纳兰（Keith S. Donnellan）在《哲学评论》（The Ph…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/dretske-1970-zebra": {
+    "t": "斑马",
+    "e": "这是一则关于认知算子会不会穿透到每一个逻辑后承的印刷论证。一九七〇年十二月二十四日，弗雷德·I.·德雷茨克（Fred I. Dretske）在《哲学杂志》第六十七卷第二十四期发表《认知算子》（…",
+    "d": "philosophy"
+  },
   "/philosophy/experiments/experience-machine": {
     "t": "体验机器",
-    "e": "1974年，美国哲学家罗伯特·诺齐克在《无政府、国家与乌托邦》中提出了这个简洁而深刻的思想实验：",
+    "e": "1974年，美国哲学家罗伯特·诺齐克在《无政府、国家与乌托邦》中提出了这个简洁而深刻的思想实验。知识是否追踪真理，是 1981 年另一对象，见 诺齐克 1981 追踪；威尔特·张伯伦论证是同一…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/fitch-1963-knowability": {
+    "t": "菲奇可知性悖论",
+    "e": "这是一则关于「能够被知道」会不会塌成「已经被知道」的印刷论证。一九六三年六月，弗雷德里克·B·菲奇在《符号逻辑杂志》第二十八卷第二期发表《若干价值概念的逻辑分析》（\"A Logical Ana…",
     "d": "philosophy"
   },
   "/philosophy/experiments/frankfurt-cases": {
@@ -591,7 +611,67 @@
   },
   "/philosophy/experiments/gettier-problem": {
     "t": "盖梯尔问题",
-    "e": "自柏拉图在《泰阿泰德篇》中首次探讨以来，西方哲学传统对知识的标准定义是：知识是得到证成的真信念（Justified True Belief，简称JTB）。",
+    "e": "它不是菲奇可知性悖论。菲奇问的是：若每个真理都可知，是否每个真理都已被知道。盖梯尔问的是另一刀：证成的真信念够不够当知识。一九六三年两篇短文同年出世，未知数不一样。它也不是摩尔的两只手。摩尔要…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/goldman-1967-causal": {
+    "t": "因果知识",
+    "e": "这是一则关于知识作为真信念，是否必须由使它为真的事实以恰当方式引起的印刷论证。一九六七年六月二十二日，阿尔文·I.·戈德曼（Alvin I. Goldman）在《哲学杂志》第六十四卷第十二期发…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/goldman-1976-fake-barns": {
+    "t": "假谷仓",
+    "e": "这是一则关于知觉要构成知识，是否必须把真对象从相关的假对象里辨别出来的印刷论证。一九七六年十一月十八日，阿尔文·I.·戈德曼（Alvin I. Goldman）在《哲学杂志》第七十三卷第二十期…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/goodman-grue": {
+    "t": "古德曼的绿蓝谜题",
+    "e": "人们第一次听见谓词「绿蓝」（grue），常把它当成颜色笑话：祖母绿会在某时刻变蓝，或者古德曼在拿色觉实验开玩笑。这不是色觉问题，也不是矿物学预言。已检查的祖母绿现在看起来就是绿的；没有谁声称观…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/grice-strawson-1956": {
+    "t": "为一条教条辩护",
+    "e": "这是一则关于分析与综合这条正在被使用的区分，会不会只因为哲学家拿不出非循环定义就被判为幻觉的印刷论证。一九五六年四月，赫伯特·保罗·格赖斯（Herbert Paul Grice）与彼得·弗雷德…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/hempel-ravens": {
+    "t": "亨佩尔的乌鸦悖论",
+    "e": "人们第一次听见乌鸦悖论，常把它听成一句实验室玩笑：科学家有偏见，只肯盯着乌鸦看，所以才会觉得「所有乌鸦是黑的」被黑乌鸦支持。这不是心理学诊断，也不是观鸟手册。卡尔·亨佩尔在一九四五年分两期刊于…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/hume-missing-shade": {
+    "t": "缺失的蓝色：休谟承认的复制原则例外",
+    "e": "这是大卫·休谟写进《人性论》第一卷第一部第一节的一则装置，不是一间配色实验室。一七三九年一月，伦敦书商约翰·努恩刊行《人性论》第一、二卷。卷一开篇把心灵的一切知觉分成印象与观念，并立刻给出一条…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/inverted-spectrum": {
+    "t": "倒置光谱：行为与功能同一下的颜色经验对调",
+    "e": "这是一篇把颜色经验的质性特征可否在行为与功能完全同一的情况下对调写成论证对象的论文。一九八二年七月，悉尼·休梅克（Sydney Shoemaker）在《哲学杂志》（The Journal of…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/kavka-toxin": {
+    "t": "卡夫卡毒素谜题",
+    "e": "这是一则关于你能否在今夜真正打算去做一件你明知次日将毫无理由去做的事的印刷思想实验。一九八三年一月，美国哲学家格雷戈里·S.·卡夫卡（Gregory S. Kavka）在《分析》第四十三卷第一…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/kripke-1980-naming": {
+    "t": "命名与必然性",
+    "e": "这是一则关于专名如何钉住对象、以及形而上学必然性是否必须与认识论上的先天知识捆成一包的印刷论证。一九七〇年一月二十日、二十二日、二十九日，索尔·克里普克（Saul A. Kripke）在普林斯…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/kripke-quus": {
+    "t": "克里普克的 quus：过去用法怎样钉不住加法",
+    "e": "这是一则关于过去用法能不能钉死语词意义的思想实验。一九八二年，克里普克在哈佛大学出版社刊行《维特根斯坦论规则与私人语言》（Wittgenstein on Rules and Private L…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/lehrer-paxson-1969": {
+    "t": "未被击败的证成真信念",
+    "e": "这是一则关于知识是否等于「未被击败的、完全证成的真信念」的印刷论证。一九六九年四月二十四日，基思·莱勒（Keith Lehrer）与托马斯·帕克森（Thomas Paxson, Jr.）在《哲…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/lottery-paradox": {
+    "t": "彩票悖论",
+    "e": "这是一则关于足够高的概率是否已经等于可以相信的印刷论证。一九六一年，亨利·E.·凯伯格（Henry E. Kyburg, Jr.）在卫斯理大学出版社印出《概率与理性信念的逻辑》（Probabi…",
     "d": "philosophy"
   },
   "/philosophy/experiments/marys-room": {
@@ -599,14 +679,39 @@
     "e": "1982年，澳大利亚哲学家弗兰克·杰克逊在《副现象感质》（Epiphenomenal Qualia）一文中提出了这个如今已成为心灵哲学经典的思想实验。这个论证被广泛认为是二十世纪心灵哲学中最重…",
     "d": "philosophy"
   },
+  "/philosophy/experiments/molyneux-problem": {
+    "t": "莫利纽克斯问题：初次看见能否分出立方与球",
+    "e": "这是一则印在纸上的问题，不是一间诊室。一六八八年七月七日，都柏林的洛克通信人威廉·莫利纽克斯（William Molyneux）把问题写进信里；洛克未把它放进一六九〇年《人类理解论》（An E…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/moore-1939-hands": {
+    "t": "摩尔的两只手",
+    "e": "这是一则关于当场出示两只手，能否构成外部事物存在之证明的印刷论证。一九三九年十一月二十二日，乔治·爱德华·摩尔在不列颠学院作亨利埃特·赫茨信托年度哲学讲演；讲稿同年刊于《不列颠学院院刊》第二十…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/nagel-bat": {
+    "t": "内格尔的蝙蝠：成为某物是什么样子",
+    "e": "这是一篇关于一个有机体有意识经验，当且仅当对那个有机体来说，成为它是某种样子的论文对象。一九七四年十月，托马斯·内格尔在《哲学评论》（The Philosophical Review）第八十三…",
+    "d": "philosophy"
+  },
   "/philosophy/experiments/newcomb-problem": {
     "t": "纽科姆难题",
     "e": "1960年，物理学家威廉·纽科姆构想了这个后来被称为决策论中最深刻悖论的思想实验。罗伯特·诺齐克于1969年首次在哲学文献中将其正式化，从此引发了长达半个多世纪的激烈争论。",
     "d": "philosophy"
   },
+  "/philosophy/experiments/nozick-1981-tracking": {
+    "t": "追踪",
+    "e": "这是一则关于知识是否要求信念随命题的真假一起起伏的印刷论证。一九八一年，罗伯特·诺齐克（Robert Nozick）在哈佛大学出版社印成《哲学解释》（Philosophical Explana…",
+    "d": "philosophy"
+  },
   "/philosophy/experiments/original-position": {
     "t": "原初状态",
     "e": "1971年，美国哲学家约翰·罗尔斯在《正义论》中提出了一个影响深远的思想实验。想象你和其他人被召集在一起，共同决定未来社会的基本制度安排。但有一个关键条件：你们被一道\"无知之幕\"（veil o…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/parfit-teletransport": {
+    "t": "帕菲特的传送：心理连续怎样把人格同一性从重要的事情里拆走",
+    "e": "这是一则关于心理连续能不能在不保住数值同一性的情况下，仍旧带走我们真正在乎的生存的思想实验。一九八四年，帕菲特在牛津大学出版社（Clarendon Press）刊行《理由与人》（Reasons…",
     "d": "philosophy"
   },
   "/philosophy/experiments/pascals-wager": {
@@ -624,9 +729,29 @@
     "e": "在《理想国》第七卷（514a-521b）中，柏拉图通过苏格拉底之口讲述了一个令人震撼的比喻：",
     "d": "philosophy"
   },
+  "/philosophy/experiments/preface-paradox": {
+    "t": "序言悖论",
+    "e": "这是一则关于分别相信每一句话，是否已经等于相信它们的合取的印刷论证。一九六五年六月，戴维·C.·梅金森（D. C. Makinson）在《分析》第二十五卷第六期发表三页短文《序言悖论》（\"Th…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/quine-1951-two-dogmas": {
+    "t": "经验论的两个教条",
+    "e": "这是一则关于分析与综合的界线、以及「一句有意义的话能否单独还原成关于直接经验的逻辑构造」的印刷论证。一九五一年一月，威拉德·冯·奥曼·蒯因（Willard Van Orman Quine）在《…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/quine-gavagai": {
+    "t": "蒯因的 Gavagai：刺激意义下的翻译不确定性",
+    "e": "这是一则关于意义有没有独立于翻译手册的事实的思想实验。一九六〇年，威拉德·蒯因在《语词和对象》（Word and Object，MIT Press）里设想一位野外语言学家走进一种完全陌生的「丛…",
+    "d": "philosophy"
+  },
   "/philosophy/experiments/repugnant-conclusion": {
     "t": "令人厌恶的结论",
     "e": "1984年，英国哲学家德里克·帕菲特在《理由与人格》中提出了一个令人深感不安的论证。",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/russell-1905-on-denoting": {
+    "t": "论指称",
+    "e": "这是一则关于限定摹状词并不单独负载意义、必须拆成存在、唯一与谓词三项合取，以及空描述句因第一项为假而整句为假的印刷论证。",
     "d": "philosophy"
   },
   "/philosophy/experiments/russels-teapot": {
@@ -639,9 +764,19 @@
     "e": "古希腊历史学家普鲁塔克在《希腊罗马名人传》中记载了这个困惑：雅典人保存了英雄忒修斯航海归来的船。随着岁月流逝，腐朽的木板被逐一替换为新的。当所有原始木板都被替换后，这艘船还是忒修斯的船吗？",
     "d": "philosophy"
   },
+  "/philosophy/experiments/sleeping-beauty": {
+    "t": "睡美人问题",
+    "e": "睡美人问题问的不是硬币本身公不公平，而是：一个已经知道硬币公平的人，在一次无法自我定位的醒来里，该把「正面」写成多大的信念。亚当·埃尔加二〇〇〇年发表于《分析》的短文《自我定位信念与睡美人问题…",
+    "d": "philosophy"
+  },
   "/philosophy/experiments/sorites-paradox": {
     "t": "秃头悖论",
     "e": "秃头悖论（Sorites Paradox）是古希腊麦加拉学派哲学家尤布利德斯（Eubulides）提出的一系列悖论中最著名的一个。它的结构极其简单，却揭示了语言和逻辑中一个深层的困难：",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/strawson-1950-on-referring": {
+    "t": "论指称",
+    "e": "这是一则关于语句、使用与陈述必须拆开，以及限定摹状词的指称是人用表达式去做的事、不是表达式自己完成的事的印刷论证。一九五〇年七月，彼得·弗雷德里克·斯特劳森（Peter Frederick S…",
     "d": "philosophy"
   },
   "/philosophy/experiments/swampman": {
@@ -659,6 +794,11 @@
     "e": "1973年，美国哲学家希拉里·普特南在《意义与指称》（\"Meaning and Reference\"，Journal of Philosophy）一文中首次提出了双胞胎地球思想实验，并在197…",
     "d": "philosophy"
   },
+  "/philosophy/experiments/unexpected-hanging": {
+    "t": "出乎意料的绞刑",
+    "e": "这是一则关于已经公开的预告能不能被当事人当成知识去删日子的思想实验。一九五三年一月，蒯因在《心灵》第六十二卷第二四五期发表三页短文《论一个所谓悖论》（\"On a so-called parad…",
+    "d": "philosophy"
+  },
   "/philosophy/experiments/utility-monster": {
     "t": "效用怪兽",
     "e": "1974年，罗伯特·诺齐克在《无政府、国家与乌托邦》中提出了\"效用怪兽\"这一思想实验，用以攻击功利主义的核心逻辑。",
@@ -672,6 +812,16 @@
   "/philosophy/experiments/violinist": {
     "t": "小提琴家",
     "e": "1971年，美国哲学家朱迪丝·贾维斯·汤姆森在《为堕胎辩护》（A Defense of Abortion）一文中提出了这个极具争议性的思想实验：",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/wilt-chamberlain": {
+    "t": "威尔特·张伯伦",
+    "e": "这是一则关于模式化分配原则在自由转让下能否站住的印刷论证。一九七四年，罗伯特·诺齐克（Robert Nozick）在 Basic Books 印成《无政府、国家与乌托邦》（Anarchy, S…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/wittgenstein-beetle": {
+    "t": "甲虫盒子：私人对象在语言游戏中约去",
+    "e": "这是维特根斯坦写进《哲学研究》（Philosophische Untersuchungen / Philosophical Investigations）第二百九十三节的一则装置，不是一部私人…",
     "d": "philosophy"
   },
   "/philosophy/frontier/ai-alignment-philosophy": {
@@ -1556,7 +1706,7 @@
   },
   "/philosophy/thinkers/nagel": {
     "t": "托马斯·内格尔",
-    "e": "内格尔的名文《做一只蝙蝠是什么感觉》常被简化为\"我们无法想象蝙蝠的体验\"。但他的论点更深：即便我们无法想象蝙蝠的回声定位体验，关键在于存在着\"做一只蝙蝠是什么感觉\"这一事实，而这种主观的、有视…",
+    "e": "内格尔的名文《做一只蝙蝠是什么感觉》常被简化为\"我们无法想象蝙蝠的体验\"。对象页见 内格尔 1974。但他的论点更深：即便我们无法想象蝙蝠的回声定位体验，关键在于存在着\"做一只蝙蝠是什么感觉\"…",
     "d": "philosophy"
   },
   "/philosophy/thinkers/nietzsche": {

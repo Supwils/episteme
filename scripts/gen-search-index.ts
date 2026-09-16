@@ -18,8 +18,8 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import MiniSearch from "minisearch";
 import { collectArticles, type Article } from "../lib/search/articles";
+import { articleType, SECTION_BY_DOMAIN } from "../lib/search/article-meta";
 import { getSearchIndex } from "../lib/search-index";
-import { KNOWLEDGE_DOMAINS } from "../lib/new-domains";
 import { toSearchableText } from "../lib/search/extract";
 import { buildCorpus } from "../lib/search/corpus";
 import {
@@ -40,32 +40,6 @@ interface Indexed {
   id: number;
   title: string;
   text: string;
-}
-
-/** Entity documents label these domains by their subject rather than their route
- *  prefix. Articles must agree, or they land in a group the UI cannot render. */
-const SECTION_BY_DOMAIN: Record<string, string> = {
-  "human-history": "history",
-  "universe-physics": "physics",
-};
-
-/** The exact `<domain>/<section>` set the retired domain mirror covered — the
- *  engine-driven domains render from MDX, so their search metadata now comes
- *  straight from frontmatter. Matching the mirror's granularity keeps the
- *  content type identical (e.g. psychology/debates stays an "article"). */
-const ENGINE_SECTIONS = new Set(
-  Object.values(KNOWLEDGE_DOMAINS).flatMap((c) => c.sections.map((s) => `${c.domain}/${s.key}`))
-);
-
-/** The content type for an article with no typed entity, matching what the
- *  retired domain/frontier/math index mirrors used to assign. */
-function articleType(article: Article): string {
-  if (article.url.includes("/frontier/")) return "frontier";
-  const [, domain, section] = article.url.split("/");
-  if (ENGINE_SECTIONS.has(`${domain}/${section}`) || article.domain === "mathematics") {
-    return "entry";
-  }
-  return "article";
 }
 
 /**

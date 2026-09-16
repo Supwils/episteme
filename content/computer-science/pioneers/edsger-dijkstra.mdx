@@ -17,6 +17,10 @@ tags:
 related:
   - donald-knuth
   - alan-turing
+  - dijkstra-1965-mutual-exclusion
+  - peterson-1981-mutual-exclusion
+  - lamport-1974-bakery
+  - knuth-1966-mutex-comment
 ---
 
 # 艾兹格·迪科斯彻
@@ -63,7 +67,7 @@ related:
 
 ## 核心三：信号量与并发
 
-1960 年代初，迪科斯彻主持了 THE 操作系统的设计（Technische Hogeschool Eindhoven）。在处理多个并发进程协作时，他发明了**信号量**（semaphore）：一种用于协调并发进程访问共享资源的抽象机制，通过 P（等待/减少）和 V（释放/增加）两个原语操作来实现互斥与同步。
+1960 年代初，迪科斯彻主持了 THE 操作系统的设计（Technische Hogeschool Eindhoven）。在处理多个并发进程协作时，他发明了**信号量**（semaphore）：一种用于协调并发进程访问共享资源的抽象机制，通过 P（等待/减少）和 V（释放/增加）两个原语操作来实现互斥与同步。更早只用共享变量、没有仲裁者的互斥算法，对象见 [[dijkstra-1965-mutual-exclusion|Dijkstra 1965]]。克努斯后来钉住条件 (d) 仍允许个体饿死，见 [[knuth-1966-mutex-comment|Knuth 1966]]。
 
 他同时定义了**哲学家进餐问题**（Dining Philosophers Problem）作为并发死锁的经典演示：五位哲学家围坐一桌，每人需要两只叉子才能进餐，而只有五只叉子。如果每人同时拿起左边的叉子等右边的叉子，就会陷入死锁。这个模型至今仍是操作系统和并发编程教科书的核心案例。
 

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { buildCorpus } from "../corpus";
-import { MIN_HAN_QUERY, MIN_LATIN_QUERY, searchPhrases } from "../phrase";
+import { MAX_BIGRAM_TERMS, MIN_HAN_QUERY, MIN_LATIN_QUERY, searchPhrases } from "../phrase";
 import type { SearchDoc } from "../types";
 
 const bodies = [
@@ -78,6 +78,11 @@ describe("searchPhrases", () => {
     });
   });
 
+  it("skips a match whose document slot is missing instead of throwing", () => {
+    expect(() => searchPhrases(corpus, [], "热力学第二定律", 10)).not.toThrow();
+    expect(searchPhrases(corpus, [], "热力学第二定律", 10)).toEqual([]);
+  });
+
   describe("query guards", () => {
     it("ignores a Chinese query shorter than the minimum", () => {
       expect(MIN_HAN_QUERY).toBe(2);
@@ -92,6 +97,12 @@ describe("searchPhrases", () => {
     it("ignores blank input", () => {
       expect(run("")).toEqual([]);
       expect(run("   ")).toEqual([]);
+    });
+
+    it("caps unique fallback terms so a 120-character query cannot scan the corpus once per bigram", () => {
+      expect(MAX_BIGRAM_TERMS).toBe(16);
+      const long = Array.from({ length: 40 }, (_, index) => `词${index}`).join("");
+      expect(() => run(long)).not.toThrow();
     });
   });
 });

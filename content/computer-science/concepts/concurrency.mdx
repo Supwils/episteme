@@ -17,6 +17,12 @@ related:
   - data-structures
   - virtualization
   - memory-hierarchy-caching
+  - lamport-1979-sequential-consistency
+  - memory-consistency-models
+  - dijkstra-1965-mutual-exclusion
+  - peterson-1981-mutual-exclusion
+  - lamport-1974-bakery
+  - knuth-1966-mutex-comment
 ---
 
 # 并发与并行
@@ -78,7 +84,7 @@ with lock:
     count = count + 1  # 这段代码每次只有一个线程执行
 ```
 
-互斥锁其实是更一般机制的特例。1965 年，Dijkstra 在手稿 EWD123《协作的顺序进程》（Cooperating Sequential Processes，1968 年正式发表）中提出了**信号量（semaphore）**——历史上第一个进程同步原语。信号量是一个带两个原子操作的计数器：P（申请，计数减一，为零则阻塞）和 V（释放，计数加一）。当计数上限为 1 时，信号量退化成互斥锁；上限大于 1 时，它可以限制同时进入临界区的线程数（例如"最多 10 个数据库连接"）。
+互斥锁其实是更一般机制的特例。1965 年，Dijkstra 在手稿 EWD123《协作的顺序进程》（Cooperating Sequential Processes，1968 年正式发表）中提出了**信号量（semaphore）**——历史上第一个进程同步原语。信号量是一个带两个原子操作的计数器：P（申请，计数减一，为零则阻塞）和 V（释放，计数加一）。当计数上限为 1 时，信号量退化成互斥锁；上限大于 1 时，它可以限制同时进入临界区的线程数（例如"最多 10 个数据库连接"）。没有中央仲裁者、只用共享变量写下互斥的那一页，对象见 [[dijkstra-1965-mutual-exclusion|Dijkstra 1965]]；信号量是 EWD123 / 1968 年的另一装置，不要焊进这一页。两进程上只用两面旗与一个 \(TURN\) 的短注，见 [[peterson-1981-mutual-exclusion|Peterson 1981]]。用取号追求先来先服务、并且允许读写重叠的，见 [[lamport-1974-bakery|Lamport 1974]]。钉住 1965 年集体进展仍允许个体饿死的半页评论，见 [[knuth-1966-mutex-comment|Knuth 1966]]。
 
 **破除一个常见混淆：数据竞争（data race）不等于竞态条件（race condition）。** 数据竞争是一种具体的执行性质——多个线程无同步地访问同一内存且至少一个在写。竞态条件更抽象——程序结果依赖事件的相对时序。两者可以各自独立出现：你可能用锁消除了所有数据竞争，却因为加锁的粒度或顺序设计错了，仍然得到错误结果（竞态条件）；反过来，某些刻意设计的无锁算法存在数据竞争却逻辑正确。一句话：**"加了锁"不等于"并发正确"。**
 

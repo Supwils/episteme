@@ -3,7 +3,10 @@ import { act, cleanup, fireEvent, render, screen } from "@testing-library/react"
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { GlobalSearch } from "../GlobalSearch";
 
-vi.mock("next/navigation", () => ({ useRouter: () => ({ push: vi.fn() }) }));
+vi.mock("next/navigation", () => ({
+  useRouter: () => ({ push: vi.fn() }),
+  usePathname: () => "/",
+}));
 vi.mock("../search/useKnowledgeSearch", () => ({
   useKnowledgeSearch: () => ({
     query: "",

@@ -25,6 +25,7 @@ institutions:
   - 美国环保署（EPA）
 related:
   - inequality-global-wealth-tax
+  - british-columbia-carbon-tax
 ---
 
 # 气候经济学：碳定价、折现率之争与综合评估模型

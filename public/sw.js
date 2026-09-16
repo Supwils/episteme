@@ -5,7 +5,7 @@
 // unbounded on a 2200-page site.
 //
 // Bump VERSION to retire every old cache on the next activation.
-const VERSION = "v2";
+const VERSION = "v3";
 const STATIC_CACHE = `static-${VERSION}`; // content-hashed build assets, immutable
 const PAGES_CACHE = `pages-${VERSION}`; // navigations, network-first
 const ASSET_CACHE = `assets-${VERSION}`; // unhashed static assets, revalidating
@@ -21,6 +21,11 @@ const ASSET_PATTERN = /\.(css|js|mjs|woff2?|ttf|otf|eot|svg|png|jpe?g|gif|webp|a
 function classify(url, isNavigate, origin) {
   if (url.origin !== origin) return "passthrough"; // never touch cross-origin
   if (url.pathname.startsWith("/api/")) return "passthrough"; // APIs own their caching
+  // Unhashed search artifacts must match the current deployment. SWR would keep
+  // a previous worker/index after a protocol or corpus change.
+  if (url.pathname === "/search.worker.js" || url.pathname === "/search-index.json") {
+    return "passthrough";
+  }
   if (isNavigate) return "navigation";
   if (url.pathname.startsWith("/_next/static/")) return "immutable"; // hashed → safe forever
   if (ASSET_PATTERN.test(url.pathname)) return "asset";

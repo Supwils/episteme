@@ -2,7 +2,7 @@
 title: 后量子密码：在机器造出来之前更换全世界的锁
 title_en: Post-Quantum Cryptography — Replacing the World's Locks Before the Machine Exists
 status: published
-updated: 2026-08-04
+updated: 2026-09-12
 category: 密码学与安全
 horizon: 2020s-2030s
 order: 6
@@ -56,7 +56,9 @@ NIST 在 2016 年启动后量子密码标准征集，收到 82 份提案，历�
 - **FIPS 204 / ML-DSA**（源自 CRYSTALS-Dilithium）——基于模格的数字签名主力；
 - **FIPS 205 / SLH-DSA**（源自 SPHINCS+）——无状态哈希签名，只依赖哈希函数的安全性，作为格密码万一失守时的保险。
 
-2025 年 3 月，NIST 又选定 **HQC** 作为第二套密钥封装机制进入标准化——它基于纠错码而非格，数学基础与 ML-KEM 完全不同。这不是冗余，而是**刻意的数学多样性**：如果某天格问题出现突破性攻击，整个体系不至于同时崩塌。
+2025 年 3 月 11 日，NIST 选定 **HQC** 作为第二套密钥封装机制进入标准化，依据是 IR 8545 第四轮状态报告。它基于纠错码而非格，数学基础与 ML-KEM 完全不同。这不是冗余，而是**刻意的数学多样性**：如果某天格问题出现突破性攻击，整个体系不至于同时崩塌。
+
+公告写明草案大约一年后征求意见，正式标准目标在 2027 年。到 2026 年 9 月，HQC 仍没有 FIPS 编号。选定 ≠ 可以当正式标准去买。
 
 这条"要备份"的教训是用血换来的。2022 年 7 月，Castryck 与 Decru 用一个基于 Kani 定理的经典攻击，在单核 CPU 上约一小时内恢复了 SIKE 的密钥——SIKE 当时已经进入 NIST 第四轮，是同源密码的旗舰方案。同年 Beullens 攻破了多变量签名方案 Rainbow。**摧毁它们的不是量子计算机，是数学家。** 这提醒了所有人：新方案的"安全"来自被攻击的年头，而 PQC 方案被认真攻击的年头，比 RSA 少得多。
 
@@ -103,6 +105,12 @@ ECDSA 的签名是 64 字节，ML-DSA-65 的签名约 3.3 KB；X25519 的公钥 
 
 **谁来验证实现。** 标准发布只是起点；侧信道抗性、常数时间实现、随机数质量，历史上造成的实际破解远多于数学上的破解。格密码的采样步骤对时序攻击尤其敏感，而能审计这些实现的人极少。
 
+FIPS 206（FN-DSA，原 Falcon）同样还在草稿管道里。NIST 于 2025 年 8 月提交草案，2026 年 5 月公开评述仍写它卡在发布流程。证书机构普遍表示定稿前不进生产。
+
+ML-DSA 签名大，FN-DSA 签名小，实现却更难。尺寸诱惑不等于实现已经安全。
+
+NIST IR 8547 初始公开草案把 RSA、ECDSA、EdDSA、ECDH 与有限域 Diffie–Hellman 写成 2030 年后弃用、2035 年后禁止。那是过渡计划草案，不是已经生效的禁令。日期把无法定价的风险变成工程排期，不把量子计算机的到货日写死。
+
 ## 未知的边界
 
 - 格问题（LWE / SIS）的困难性在多大程度上被真正理解？现有的安全归约是否覆盖了实际参数区间？
@@ -126,7 +134,9 @@ ECDSA 的签名是 64 字节，ML-DSA-65 的签名约 3.3 KB；X25519 的公钥 
 
 - Shor, P. _Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer._ SIAM J. Comput. 26(5), 1997.
 - NIST. _FIPS 203 (ML-KEM), FIPS 204 (ML-DSA), FIPS 205 (SLH-DSA)._ 2024 年 8 月 13 日发布。
-- NIST. _HQC 选定为第二套后量子密钥封装机制_，2025 年 3 月。
+- NIST. _NIST Selects HQC as Fifth Algorithm for Post-Quantum Encryption._ 2025-03-11；配套 NIST IR 8545。
+- NIST. _FIPS 206: FN-DSA (Falcon)._ Sixth PQC Standardization Conference presentation, 2025-09-25.（截至 2026-09 仍为草稿，非正式 FIPS）
+- NIST. _IR 8547 ipd: Transition to Post-Quantum Cryptography Standards._ 2024-11.
 - Castryck, W. & Decru, T. _An Efficient Key Recovery Attack on SIDH._ EUROCRYPT 2023.
 - Mosca, M. _Cybersecurity in an Era with Quantum Computers: Will We Be Ready?_ IEEE Security & Privacy, 2018.
 - NSA. _Commercial National Security Algorithm Suite 2.0 (CNSA 2.0)_ 及其 FAQ（迁移时间表）。

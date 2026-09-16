@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { getSearchHistory, addToSearchHistory } from "@/lib/search-history";
 import { trackEvent } from "@/lib/analytics";
 import { COVERAGE_DOMAIN_COUNT } from "@/lib/knowledge-continuum-coverage-meta";
@@ -15,6 +15,7 @@ const INPUT_DEBOUNCE_MS = 100;
 
 export function GlobalSearch() {
   const router = useRouter();
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [history, setHistory] = useState<string[]>([]);
@@ -42,6 +43,13 @@ export function GlobalSearch() {
     setQuery("");
     setOpen(false);
   }, [cancelPendingQuery, setQuery]);
+
+  // ClientShell keeps this overlay mounted across App Router navigations.
+  // Native <a> exits (empty-state links, "查看全部结果") must not leave the
+  // dialog covering the next page.
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     function openSearch() {
@@ -241,7 +249,12 @@ export function GlobalSearch() {
               </span>
               <span className="gs-empty-exits">
                 {SEARCH_NO_RESULTS_EXITS.map((exit) => (
-                  <a key={exit.href} className="gs-empty-exit" href={exit.href}>
+                  <a
+                    key={exit.href}
+                    className="gs-empty-exit"
+                    href={exit.href}
+                    onClick={closeSearch}
+                  >
                     {exit.label}
                   </a>
                 ))}
@@ -271,7 +284,12 @@ export function GlobalSearch() {
               <span className="gs-empty-hint">试试更短的关键词，或直接输入记得的一句话</span>
               <span className="gs-empty-exits">
                 {SEARCH_NO_RESULTS_EXITS.map((exit) => (
-                  <a key={exit.href} className="gs-empty-exit" href={exit.href}>
+                  <a
+                    key={exit.href}
+                    className="gs-empty-exit"
+                    href={exit.href}
+                    onClick={closeSearch}
+                  >
                     {exit.label}
                   </a>
                 ))}
@@ -291,7 +309,11 @@ export function GlobalSearch() {
             <kbd className="gs-kbd-sm">esc</kbd> 关闭
           </span>
           {trimmed && (
-            <a className="gs-footer-link" href={`/search?q=${encodeURIComponent(trimmed)}`}>
+            <a
+              className="gs-footer-link"
+              href={`/search?q=${encodeURIComponent(trimmed)}`}
+              onClick={closeSearch}
+            >
               查看全部结果
             </a>
           )}

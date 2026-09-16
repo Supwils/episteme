@@ -24,6 +24,7 @@ function parseRequest(value: unknown): {
   ) {
     return null;
   }
+  if (raw.domainId !== undefined && typeof raw.domainId !== "string") return null;
   const domainId = typeof raw.domainId === "string" ? raw.domainId : undefined;
   if (domainId && !Object.hasOwn(COVERAGE_DOMAIN_META, domainId)) return null;
   if (raw.level !== undefined && typeof raw.level !== "number" && typeof raw.level !== "string") {
@@ -31,10 +32,15 @@ function parseRequest(value: unknown): {
   }
   const level = raw.level === undefined ? undefined : parseKnowledgeLevel(String(raw.level));
   if (raw.level !== undefined && !level) return null;
+  if (raw.query !== undefined && typeof raw.query !== "string") return null;
   const query = typeof raw.query === "string" ? raw.query.slice(0, 120) : undefined;
   const offset = raw.offset === undefined ? 0 : raw.offset;
   const limit = raw.limit === undefined ? 24 : raw.limit;
-  if (typeof offset !== "number" || !Number.isInteger(offset) || offset < 0) return null;
+  // Catalog size is a few thousand nodes; anything beyond this is a pagination
+  // probe, not a real page, and must not skip the integer/range checks.
+  if (typeof offset !== "number" || !Number.isInteger(offset) || offset < 0 || offset > 10_000) {
+    return null;
+  }
   if (typeof limit !== "number" || !Number.isInteger(limit) || limit < 1 || limit > 100) {
     return null;
   }

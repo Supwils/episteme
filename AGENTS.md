@@ -9,7 +9,7 @@
 
 1. **默认不 commit、不 merge、不 push、不开 PR。** 三个动作都由用户口令触发；push `main` 会直接触发生产部署。
 2. **改了 `content/` 就要 `pnpm gen-all`**，并把重生的索引产物一并纳入改动——CI 在干净 checkout 上验证生成幂等，工作区有差异即失败。
-3. **交付前跑 `pnpm prepush`**（typecheck · lint · check-content · 四项知识审计 · 图像审计 · test）；内容或前端轮次还要再跑一次真实 `pnpm build` + `pnpm bundle-check -- --skip-build`。
+3. **交付前跑 `pnpm prepush`**；**push `main` 部署前再跑 `pnpm predeploy`**（gen-all 幂等 · quality · 生产构建 · Lighthouse · 冒烟）。不要只靠云端 CI 发现索引漂移或冒烟写死的数字。
 
 ## 常用入口
 

@@ -39,7 +39,7 @@ Quality与Build并行以缩短反馈时间。Deploy只在非PR的`main`运行；
 
 审计会验证关键路由是否产生正确构建产物、重验证周期是否准确、固定参数集合是否关闭未知slug、通用文章是否保持首次访问SSG，以及私有/查询接口是否仍为动态运行时。源码注释或Next构建日志不能替代这一门禁；源码AST只负责补足Turbopack空聚合清单不再携带的路由配置，静态与动态判定仍必须有生产产物佐证。
 
-Lighthouse保留逐路由固定预算。每条路由和每次确认采样都启动独立Chrome进程，避免长时共享浏览器在最后一条路由累积缓存、内存与主线程状态。有效首测直接决定通过；仅当trace无效或超预算时执行一次独立确认采样，两次都失败才阻断部署。这样不放宽预算，同时避免共享CI runner的单次调度抖动制造假失败。
+Lighthouse保留逐路由固定预算。每条路由和每次确认采样都启动独立Chrome进程。有效首测直接决定通过；仅当trace无效或超预算时再跑最多**两次**确认（共最多 3 条 trace），全部失败才阻断部署。这样不放宽预算，同时吸收共享 CI runner 的冷启动抖动。首页 TBT 仍为 250ms（决策记录第 2 条）。
 
 Bundle门禁按App Router的逐路由manifest对JS与CSS资源去重求和，不使用全目录总量替代用户实际加载量。全目录JS只作为库存，并拆分报告“路由引用资产”和“延迟资产”；真正阻断部署的是共享首载、通用文章、逐路由CSS、最大单块与搜索索引预算。门户和所有领域路由CSS均不得超过48 KB gzip（2026-08-02 按决策记录第 1 条的预设触发条件由40 KB提额，因六个领域引入katex.min.css）；`app/globals.css`必须是`app/`下唯一Tailwind编译入口，领域样式通过`@reference`向根入口注册主题token。该约束防止新学科再次生成一份完整工具类，同时允许领域变量和页面组件样式继续按路由加载。完整预算表见`docs/工程原则.md`第四节。
 
@@ -57,19 +57,19 @@ Playwright smoke在同一Build作业内复用已完成的`.next`生产产物，�
 
 ## 六、本地复现
 
-`pnpm prepush` 镜像 Quality 作业中的九条确定性质量命令：类型检查、Lint、内容检查、四项图谱/学科审计、图像权利审计和单元测试。CI 还会在干净 checkout 上验证 `pnpm gen-all` 幂等；本地内容轮次应先生成索引并确认产物已纳入工作树。
+`pnpm prepush` 镜像 Quality 作业里的确定性命令（类型、Lint、内容、四项图谱/学科审计、图像权利、单测）。它**不**跑 `gen-all` 幂等，也**不**跑 Build 作业。
 
-内容或前端轮次在请求推送前，还必须至少完成一次真实 Turbopack 生产构建及其包体检查：`pnpm build` 后运行 `pnpm bundle-check -- --skip-build`。Lighthouse 与 Playwright smoke 保留在云端 Build 作业，避免把性能抖动与重量级浏览器测试放进本地 pre-push 钩子。
+内容或前端轮次在授权 `git push origin main` 之前，跑 **`pnpm predeploy`**。这条命令按 CI 顺序在本地做完全集：
+
+1. `pnpm gen-all`，工作区必须干净（上次文学预览 excerpt 漂移就是这里拦的）。
+2. `pnpm prepush`
+3. `pnpm build` → `audit-rendering` → `bundle-check --skip-build`
+4. 在独占端口 **3069** 起生产 `next start`，跑 Lighthouse（本机 3000 常被占用，不能拿错进程的结果当预算）。
+5. `CI=1 pnpm test:e2e:smoke`（冒烟自己在 3068 起服务）
+
+不要把 `predeploy` 挂进 husky：生产构建和 TBT 抖动不该挡住只改 `docs/` 的 push。云端 Deploy（`vercel pull` / `vercel build --prod` / `--prebuilt --archive`）仍只在 GitHub Actions 上跑，本地没有 `VERCEL_TOKEN` 也不该替生产部署。
 
 ```bash
 pnpm install --frozen-lockfile
-pnpm gen-all
-git status --short
-pnpm prepush
-pnpm build
-pnpm audit-rendering
-pnpm bundle-check -- --skip-build
-CI=1 pnpm test:e2e:smoke
+pnpm predeploy
 ```
-
-生产Lighthouse必须指向当前项目的独占端口。开发服务器`pnpm dev`跑在**3067**，生产模式`pnpm start`跑在**3000**（Lighthouse默认基准）；若本机`3000`已被其他应用占用，使用其他端口启动Next并设置`LH_BASE`，不能把其他应用的结果当成本项目指标。

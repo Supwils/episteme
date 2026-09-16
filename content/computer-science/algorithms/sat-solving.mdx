@@ -17,11 +17,13 @@ related:
   - backtracking
   - computational-complexity
   - approximation-algorithms
+  - cook-1971-np-completeness
+  - karp-1972-reducibility
 ---
 
 # SAT 求解
 
-1971 年，斯蒂芬·库克（Stephen Cook）证明了**布尔可满足性问题（SAT）是 NP 完全的**——这是计算机科学最重要的定理之一，为整个 NP 完全理论奠定了基础（库克因此获得 1982 年图灵奖）。SAT 的 NP 完全性意味着：如果 SAT 有多项式时间算法，则所有 NP 问题都有多项式时间算法，即 P = NP。
+1971 年，斯蒂芬·库克（Stephen Cook）证明了**布尔可满足性问题（SAT）是 NP 完全的**——对象见 [[cook-1971-np-completeness|Cook 1971]]。这是计算机科学最重要的定理之一，为整个 NP 完全理论奠定了基础（库克因此获得 1982 年图灵奖）。SAT 的 NP 完全性意味着：如果 SAT 有多项式时间算法，则所有 NP 问题都有多项式时间算法，即 P = NP。
 
 然而，2000 年代以来，工程意义上的 SAT 求解器（SAT Solver）在实际问题上取得了令人惊叹的成功。现代 SAT 求解器能在秒级内求解包含数百万个变量的工业级实例——尽管最坏情况下的复杂度依然是指数级。
 

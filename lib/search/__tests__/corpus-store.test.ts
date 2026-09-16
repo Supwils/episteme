@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import { collectArticles } from "../articles";
 import { buildCorpus } from "../corpus";
 import { toSearchableText } from "../extract";
+import { isEmptyPhraseCorpus, parsePhraseCorpusArtifact } from "../corpus-store";
 import type { SearchDoc } from "../types";
 
 /**
@@ -35,5 +36,40 @@ describe.skipIf(!existsSync("generated/corpus.txt"))("phrase corpus", () => {
   it("has one metadata entry per article body", () => {
     expect(meta.docs.length).toBe(meta.offsets.length);
     expect(meta.docs.every((d) => d.u.startsWith("/"))).toBe(true);
+  });
+});
+
+describe("parsePhraseCorpusArtifact", () => {
+  it("rejects metadata whose offsets and docs do not line up", () => {
+    expect(() =>
+      parsePhraseCorpusArtifact("abc", JSON.stringify({ offsets: [0], docs: [] }))
+    ).toThrow(/mismatch/);
+    expect(() =>
+      parsePhraseCorpusArtifact("abc", JSON.stringify({ offsets: "nope", docs: [] }))
+    ).toThrow(/invalid corpus meta/);
+  });
+
+  it("accepts a matching artifact", () => {
+    const parsed = parsePhraseCorpusArtifact(
+      "abc",
+      JSON.stringify({
+        offsets: [0],
+        docs: [
+          {
+            t: "熵",
+            s: "",
+            u: "/universe-physics/physics/thermodynamics",
+            c: "physics",
+            k: "article",
+          },
+        ],
+      })
+    );
+    expect(parsed.docs).toHaveLength(1);
+    expect(isEmptyPhraseCorpus(parsed)).toBe(false);
+  });
+
+  it("treats a zero-length fallback as empty so it is not process-cached", () => {
+    expect(isEmptyPhraseCorpus({ corpus: { text: "", offsets: [] }, docs: [] })).toBe(true);
   });
 });

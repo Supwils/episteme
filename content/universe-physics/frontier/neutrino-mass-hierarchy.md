@@ -2,7 +2,7 @@
 title: 中微子质量顺序：振荡之后尚未称出的那一维
 title_en: Neutrino Mass Hierarchy — Weighing What Oscillation Cannot
 status: published
-updated: 2026-08-23
+updated: 2026-09-12
 category: 粒子物理
 horizon: 2020s
 order: 8
@@ -101,9 +101,13 @@ JUNO 的策略最"干净"。反应堆反电子中微子飞过约 53 公里，太
 
 2025 年 8 月探测器建成后，前 59.1 天已经把 $\sin^2\theta_{12}$ 和 $\Delta m^2_{21}$ 做到比此前全球组合还精确约 1.6 倍——正常顺序假设下 $\sin^2\theta_{12} = 0.3092\pm 0.0087$，$\Delta m^2_{21} = (7.50\pm 0.12)\times 10^{-5}\ \mathrm{eV}^2$。[^juno]
 
+正式论文 2026 年 6 月 10 日刊于 _Nature_ 654: 343–348。摘要写明：这批数据同时给出太阳参数，没有给出 $|\Delta m^2_{31}|$，也没有给出质量顺序。协作组自己把顺序写成需要更长曝光。
+
+JHEP 04 (2026) 089 用公开信息做了独立探测性拟合，那是旁观者练习，不是官方判定。把首光精度合成"顺序已经测出"，是在改写摘要。
+
 质量顺序是它的本职目标，59 天远远不够。设计上要用约六年反应堆数据独立做到约 3σ 判定。
 
-Hyper-Kamiokande 是超级神冈的下一代：有效体积大约八倍，2025 年 7 月主硐室挖完，2026 年 7 月 31 日圆柱水槽不锈钢衬里焊完，计划 2028 年开始运行。295 公里的束流基线偏短，物质效应弱，束流对顺序的单独灵敏度不如 DUNE；大气中微子穿过地球时的物质效应是它的第二条腿。
+Hyper-Kamiokande 是超级神冈的下一代：有效体积大约八倍，2025 年 7 月 31 日主硐室挖完，2026 年 7 月 31 日神冈宣布圆柱水槽不锈钢衬里焊完，下一步才是光电倍增管。计划 2028 年开始运行。水槽焊完 ≠ 开始读符号。295 公里的束流基线偏短，物质效应弱，束流对顺序的单独灵敏度不如 DUNE；大气中微子穿过地球时的物质效应是它的第二条腿。
 
 DUNE 把基线拉到 1300 公里。电子中微子在地球物质里会经历与电子的相干正向散射，共振出现在中微子道还是反中微子道，直接由 $\Delta m^2_{31}$ 的符号决定。远探测器第一批模块的低温容器计划于 2026 年开工，天体物理取数目标在十年末。它慢，但符号杠杆最大。
 
@@ -135,7 +139,8 @@ DUNE 把基线拉到 1300 公里。电子中微子在地球物质里会经历与
 - SNO Collaboration (Ahmad, Q. R. et al.). _Measurement of the Rate of $\nu_e + d \to p + p + e^-$ Interactions Produced by ${}^{8}\mathrm{B}$ Solar Neutrinos at the Sudbury Neutrino Observatory._ Physical Review Letters 87, 071301 (2001). DOI: 10.1103/PhysRevLett.87.071301.
 - KATRIN Collaboration. _Direct neutrino-mass measurement with sub-electronvolt sensitivity._ Nature Physics 18, 160–166 (2022). DOI: 10.1038/s41567-021-01463-1.（$m_\nu < 0.8$ eV，90% C.L.）
 - KATRIN Collaboration. _Direct neutrino-mass measurement based on 259 days of KATRIN data._ Science 388, 180–185 (2025). DOI: 10.1126/science.adq9592. arXiv:2406.13516.（$m_\nu < 0.45$ eV，90% C.L.）
-- JUNO Collaboration. _First measurement of reactor neutrino oscillations at JUNO._ Nature 654, 343–348 (2026). DOI: 10.1038/s41586-026-10538-z. arXiv:2511.14593.（首批 59.1 天；质量顺序仍待更长曝光）
+- JUNO Collaboration. _Measurement of reactor neutrino oscillation with the first JUNO data._ Nature 654, 343–348 (2026). DOI: 10.1038/s41586-026-10538-z. arXiv:2511.14593.（首批 59.1 天；未报告 $|\Delta m^2_{31}|$ 与质量顺序）
+- Esteban, I. et al. _Lessons from the first JUNO results._ JHEP 04 (2026) 089.（独立探测性拟合，不是协作组官方质量顺序判定）
 - T2K and NOvA Collaborations. _Joint neutrino oscillation analysis from the T2K and NOvA experiments._ Nature 646, 818–824 (2025). DOI: 10.1038/s41586-025-09599-3.
 - KamLAND-Zen Collaboration. _Search for Majorana Neutrinos with the Complete KamLAND-Zen Dataset._ Physical Review Letters 135, 262501 (2025). DOI: 10.1103/PhysRevLett.135.262501. arXiv:2406.11438.
 
@@ -143,7 +148,7 @@ DUNE 把基线拉到 1300 公里。电子中微子在地球物质里会经历与
 
 [^katrin-2025]: KATRIN Collaboration, Science 388, 180 (2025)：五轮合计 259 天、约 $3.6\times 10^7$ 个电子，$m_\nu < 0.45$ eV（90% C.L.），较 2022 年上限收紧近一倍。
 
-[^juno]: JUNO Collaboration, arXiv:2511.14593 (2025)：2025 年 8 月建成后 59.1 天，正常顺序假设下 $\sin^2\theta_{12}=0.3092\pm 0.0087$，$\Delta m^2_{21}=(7.50\pm 0.12)\times 10^{-5}\ \mathrm{eV}^2$，精度较此前全球组合提高约 1.6 倍。质量顺序判定需要显著更长的曝光。
+[^juno]: JUNO Collaboration, Nature 654, 343–348 (2026)；arXiv:2511.14593。59.1 天，正常顺序假设下 $\sin^2\theta_{12}=0.3092\pm 0.0087$，$\Delta m^2_{21}=(7.50\pm 0.12)\times 10^{-5}\ \mathrm{eV}^2$。正式论文未报告 $|\Delta m^2_{31}|$ 与质量顺序。
 
 [^kamland-zen]: KamLAND-Zen Collaboration, Phys. Rev. Lett. 135, 262501 (2025)：氙-136 曝光 2.1 吨·年，$T_{1/2}^{0\nu}>3.8\times 10^{26}$ yr（90% C.L.），$m_{\beta\beta}<28$–$122$ meV（依赖核矩阵元）。
 

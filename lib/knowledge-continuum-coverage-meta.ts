@@ -220,6 +220,13 @@ export const COVERAGE_DOMAIN_META: Record<
     color: "#8b5a3c",
     status: "established",
   },
+  education: {
+    label: "教育学与学习科学",
+    shortLabel: "教",
+    href: "/education",
+    color: "#3d6b8a",
+    status: "established",
+  },
   engineering: {
     label: "工程与技术",
     shortLabel: "工",

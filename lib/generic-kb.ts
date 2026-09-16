@@ -1,13 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
-import { getDomainContentDir } from "./content-paths";
-import {
-  safeParseMatter,
-  decodeSlug,
-  firstHeading,
-  stripLeadingHeading,
-  extractExcerpt,
-} from "./content-utils";
+import { readParsedFile } from "./content-article";
+import { getDomainContentDir, existingContentFile } from "./content-paths";
+import { decodeSlug, extractExcerpt, firstHeading, stripLeadingHeading } from "./content-utils";
 
 export interface KBArticle {
   slug: string;
@@ -40,7 +35,10 @@ function walkMarkdown(dir: string, base = ""): string[] {
     const rel = base ? `${base}/${entry.name}` : entry.name;
     if (entry.isDirectory()) {
       results.push(...walkMarkdown(path.join(dir, entry.name), rel));
-    } else if (entry.name.endsWith(".md") && !entry.name.endsWith(".narration.md")) {
+    } else if (
+      (entry.name.endsWith(".md") || entry.name.endsWith(".mdx")) &&
+      !entry.name.endsWith(".narration.md")
+    ) {
       results.push(rel);
     }
   }
@@ -59,13 +57,15 @@ export function createKnowledgeBase(domain: string): KnowledgeBase {
 
   const titleOf = (rel: string, data: Record<string, unknown>, content: string): string => {
     if (typeof data.title === "string" && data.title) return data.title;
-    return firstHeading(content) ?? path.basename(rel, ".md");
+    return firstHeading(content) ?? path.basename(rel).replace(/\.mdx?$/, "");
   };
 
-  const slugOf = (rel: string): string => rel.replace(/\.md$/, "").replace(/\//g, "--");
+  const slugOf = (rel: string): string => rel.replace(/\.mdx?$/, "").replace(/\//g, "--");
 
-  const toArticle = (rel: string): KBArticle => {
-    const { data, content } = safeParseMatter(fs.readFileSync(path.join(root, rel), "utf-8"));
+  const toArticle = (rel: string): KBArticle | null => {
+    const parsed = readParsedFile(path.join(root, rel), "safe");
+    if (!parsed) return null;
+    const { data, content } = parsed;
     return {
       slug: slugOf(rel),
       title: titleOf(rel, data, content),
@@ -79,6 +79,7 @@ export function createKnowledgeBase(domain: string): KnowledgeBase {
     if (cache) return cache;
     cache = walkMarkdown(root)
       .map(toArticle)
+      .filter((article): article is KBArticle => article !== null)
       .sort(
         (a, b) => a.category.localeCompare(b.category, "zh") || a.title.localeCompare(b.title, "zh")
       );
@@ -92,17 +93,20 @@ export function createKnowledgeBase(domain: string): KnowledgeBase {
     // filesystem's own form — otherwise every CJK-named article (暗物质与暗能量,
     // 相对论--黑洞, 当代议题--第六次大灭绝) 404s. ASCII slugs are unaffected.
     const wanted = decodeSlug(slug).normalize("NFC");
-    if (wanted.includes("..")) return null;
     const match = getAllArticles().find((a) => a.slug.normalize("NFC") === wanted);
     if (!match) return null;
-    const rel = match.slug.replace(/--/g, "/") + ".md";
-    const full = path.resolve(root, rel);
-    if (!full.startsWith(path.resolve(root)) || !fs.existsSync(full)) return null;
-    const { data, content } = safeParseMatter(fs.readFileSync(full, "utf-8"));
+    const relStem = match.slug.replace(/--/g, "/");
+    const full =
+      existingContentFile(root, ...`${relStem}.md`.split("/")) ??
+      existingContentFile(root, ...`${relStem}.mdx`.split("/"));
+    if (!full) return null;
+    const parsed = readParsedFile(full, "safe");
+    if (!parsed) return null;
+    const { data, content } = parsed;
     return {
       slug: match.slug,
-      title: titleOf(rel, data, content),
-      category: categoryOf(rel, data),
+      title: titleOf(relStem, data, content),
+      category: categoryOf(relStem, data),
       tags: Array.isArray(data.tags) ? (data.tags as string[]) : [],
       excerpt: extractExcerpt(content, 150),
       content: stripLeadingHeading(content),

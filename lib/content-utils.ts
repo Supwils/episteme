@@ -1,4 +1,4 @@
-import matter from "gray-matter";
+import { parseMatterSafe } from "./content-article";
 
 /**
  * Shared content-loading helpers used by every markdown loader
@@ -7,16 +7,7 @@ import matter from "gray-matter";
  */
 
 /** Parse frontmatter, falling back to "no frontmatter" instead of throwing. */
-export function safeParseMatter(raw: string): {
-  data: Record<string, unknown>;
-  content: string;
-} {
-  try {
-    return matter(raw);
-  } catch {
-    return { data: {}, content: raw };
-  }
-}
+export const safeParseMatter = parseMatterSafe;
 
 /** URL slugs arrive percent-encoded (CJK); decode defensively. */
 export function decodeSlug(slug: string): string {

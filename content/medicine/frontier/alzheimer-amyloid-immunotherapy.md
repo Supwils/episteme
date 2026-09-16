@@ -2,7 +2,7 @@
 title: 抗淀粉样免疫疗法：斑块能清掉，痴呆却倒不回去
 title_en: Amyloid Immunotherapy — Clearing Plaques Is Not Reversing Dementia
 status: published
-updated: 2026-08-23
+updated: 2026-09-12
 category: 神经退行
 horizon: 2020s
 order: 8
@@ -92,6 +92,10 @@ ARIA 也更重。ARIA-E 24.0%（安慰剂 2.1%），有症状约 6%；ARIA-H 约
 
 无症状、仅生物标志物阳性的人群正在 AHEAD 3-45、TRAILBLAZER-ALZ 3 里接受更早干预；抗 tau、抗炎与代谢路线并行。这些都还不是获批适应症。把未来试验的假设写成今天的疗效，是这一领域最常见的越界。
 
+给药路径在变，效应尺子没有变。美国 FDA 于 2025 年 8 月批准仑卡奈单抗的皮下维持路径，2026 年 7 月 14 日再批皮下起始。卫材写明美国上市计划在 2026 年 8 月下旬。
+
+欧洲药品管理局 2025 年 9 月 24 日给多奈单抗（Kisunla）开了欧盟上市许可，适应症收到 ApoE ε4 非纯合子。皮下不等于斑块清得更快，也不等于 ARIA 监测可以取消。这里不写注射步骤。
+
 ## 未知的边界
 
 - 18 个月的斜率差，在 5 年、10 年里会累积成可感知的功能保留，还是会在 tau 与神经元丢失追上之后收窄？开放标签延期不是随机对照，不能单独回答。
@@ -121,6 +125,8 @@ ARIA 也更重。ARIA-E 24.0%（安慰剂 2.1%），有症状约 6%；ARIA-H 约
 - Muir, R. T., Hill, M. D., Black, S. E. & Smith, E. E. _Minimal clinically important difference in Alzheimer's disease: rapid review._ Alzheimer's & Dementia 20, 3352–3363 (2024). DOI: 10.1002/alz.13770.
 - U.S. Food and Drug Administration. _FDA Converts Novel Alzheimer's Disease Treatment to Traditional Approval._ (2023-07-06).
 - U.S. Food and Drug Administration. _FDA Roundup: July 2, 2024._ (announcing approval of Kisunla / donanemab-azbt).
+- Eisai / Biogen. _FDA Approves LEQEMBI IQLIK subcutaneous injection as an initiation dose._ 2026-07-14.（皮下维持 2025-08；皮下起始 2026-07。不写注射步骤）
+- European Medicines Agency. _Kisunla (donanemab) EU marketing authorisation._ 2025-09-24. ApoE ε4 非纯合子。
 
 ## 延伸阅读
 

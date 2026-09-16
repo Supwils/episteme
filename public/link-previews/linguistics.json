@@ -9,6 +9,11 @@
     "e": "儿童听到或看到的每个话语都不同，却能逐渐理解从未遇到的句子，并创造成人没有直接教过的形式。这说明习得不只是储存模仿样本，而是从互动中建立声音或手势类别、词义、组合结构和使用规则。",
     "d": "linguistics"
   },
+  "/linguistics/acquisition-and-mind/infant-categorical-perception": {
+    "t": "婴儿范畴知觉：高振幅吮吸怎样把时间差写成月龄证据",
+    "e": "第一个误解，是把一九七一年艾马斯、西克兰、尤斯奇克与维戈里托在《科学》上的实验读成“婴儿天生带着英语音位表出生”。实验报告的是：一两个月大的婴儿，在高振幅吮吸程序里，对跨越英语 /b/–/p/…",
+    "d": "linguistics"
+  },
   "/linguistics/acquisition-and-mind/language-and-brain": {
     "t": "语言、脑与失语症",
     "e": "经典教科书把左额下回称为布洛卡区、左颞后部称为韦尼克区，并用前者负责产生、后者负责理解。病灶史确实奠定了语言侧化研究，但现代证据显示，命名、句法、语义、声音和控制由分布式皮层与白质网络协作。",
@@ -159,6 +164,11 @@
     "e": "第一个误解，是以为每个人都有独一无二、可被指纹式识别的\"语言指纹\"。这个类比是错的，而且错得很危险。 指纹在个体内稳定、个体间唯一；而一个人的语言会随场合、对象、媒介、情绪剧烈变化——这正是社…",
     "d": "linguistics"
   },
+  "/linguistics/methods-and-frontiers/language-documentation-ethics": {
+    "t": "语言记录伦理：谁有权决定一段声音以后还能被怎样使用",
+    "e": "第一个误解，是把语言记录伦理当成田野开始前要签字的一张表。签字可以结束一次机构审查，结束不了录音进入档案、教材、模型和新闻之后的生活。同意是过程：用途变了，人与集体的位置变了，旧签字不能自动覆…",
+    "d": "linguistics"
+  },
   "/linguistics/methods-and-frontiers/language-evolution": {
     "t": "语言能力如何演化",
     "e": "语言能力演化问人类物种怎样获得学习和使用开放语言系统的生物条件；语言文化演化问结构怎样在学习者之间传递并被重塑；历史语言变化则追踪已有语言数百或数千年的分化。三者时间尺度和证据不同。",
@@ -227,6 +237,11 @@
   "/linguistics/sounds-and-signs/tone-and-prosody": {
     "t": "声调与韵律",
     "e": "第一个误解：声调是\"东方语言的特色\"。",
+    "d": "linguistics"
+  },
+  "/linguistics/sounds-and-signs/voice-onset-time": {
+    "t": "嗓音起始时间：连续气流怎样被切成清浊",
+    "e": "第一个误解，是把嗓音起始时间（VOT）当成“清音与浊音的物理定义”。VOT 是一个可操作的时间差：从塞音除阻到声带开始周期性振动的间隔。语言用这个时间差来做不同的对立，切分点并不相同。把英语短…",
     "d": "linguistics"
   },
   "/linguistics/words-sentences-meaning/discourse-analysis": {
@@ -307,6 +322,11 @@
   "/linguistics/writing-systems/origin-of-writing": {
     "t": "文字的起源：从记账到书写语言",
     "e": "关于文字起源，流传最广的图景是圣人灵光一现：仓颉仰观天象、俯察鸟兽之迹而造字。这类传说把文字当成天才的灵感产物，也默认文字从第一天起就是为了记录思想和文学。",
+    "d": "linguistics"
+  },
+  "/linguistics/writing-systems/script-decipherment": {
+    "t": "文字释读：未知符号怎样变成可检验的假说",
+    "e": "第一个误解，是把释读当成寻宝：天才看见一幅图，突然读出一种死语言。成功的释读是一套可公开检验的假说——符号怎样对应语音或语素、这种文字记录的是哪一种语言、新文本能否被同一套规则读通。灵感可以启…",
     "d": "linguistics"
   },
   "/linguistics/writing-systems/south-asian-scripts": {

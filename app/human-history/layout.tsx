@@ -28,6 +28,8 @@ export default function HumanHistoryLayout({ children }: { children: ReactNode }
           ⌘K global search (root ClientShell), which indexes history content. */}
       <Script
         src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"
+        integrity="sha384-GPb5RlngihS9H0z1D137JsvzmeZ7tCpWEF4t5YDoTZyMsPP8S7h7vFDh4XhheU83"
+        crossOrigin="anonymous"
         strategy="afterInteractive"
       />
       <SubjectHeader subject="human-history" />

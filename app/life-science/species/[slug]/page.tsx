@@ -17,6 +17,11 @@ import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
 import { CellExplorer } from "@/subjects/life-science/components/visualizations/CellExplorer";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
+import {
+  ARTICLE_BODY_ROW_CLASS,
+  ARTICLE_HEADER_CLASS,
+  ARTICLE_SURFACE_CLASS,
+} from "@/components/ArticleLayout";
 import { getSpeciesProse, type SpeciesProse } from "@/lib/species-prose";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -95,9 +100,9 @@ export default async function SpeciesDetailPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
-      <div className="flex flex-col gap-12 lg:flex-row lg:justify-center">
-        <article className="article-reading-surface max-w-[44rem] min-w-0 flex-1 transition-[max-width] duration-300">
-          <header className="mb-12">
+      <div className={ARTICLE_BODY_ROW_CLASS}>
+        <article className={ARTICLE_SURFACE_CLASS}>
+          <header className={ARTICLE_HEADER_CLASS}>
             <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
               <p className="text-fg-muted font-mono text-[10px] tracking-[0.42em] uppercase">
                 life-science / species
@@ -297,9 +302,9 @@ function SpeciesProsePage({ prose, slug }: { prose: SpeciesProse; slug: string }
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
-      <div className="flex flex-col gap-12 lg:flex-row lg:justify-center">
-        <article className="article-reading-surface max-w-[44rem] min-w-0 flex-1 transition-[max-width] duration-300">
-          <header className="mb-10">
+      <div className={ARTICLE_BODY_ROW_CLASS}>
+        <article className={ARTICLE_SURFACE_CLASS}>
+          <header className={ARTICLE_HEADER_CLASS}>
             <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
               <p className="text-fg-muted font-mono text-[10px] tracking-[0.42em] uppercase">
                 life-science / species

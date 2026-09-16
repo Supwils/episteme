@@ -1,9 +1,11 @@
-import Link from "next/link";
 import { withCanonicalPath } from "@/lib/article-canonical";
 import { serializeJsonLd } from "@/lib/jsonld";
 import { notFound } from "next/navigation";
 import { cosmologyDialogues } from "@/lib/cosmology-dialogues";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
+import { TableOfContents } from "@/components/TableOfContents";
+import { ArticleLayout } from "@/components/ArticleLayout";
+import Breadcrumb from "@/components/Breadcrumb";
 import { SITE_URL } from "@/lib/constants";
 
 interface Props {
@@ -13,8 +15,6 @@ interface Props {
 const ACCENT = "#6ea8d8";
 
 export function generateStaticParams() {
-  // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
-  // on first request and is cached. Keeps build output small as content grows.
   return [];
 }
 
@@ -39,65 +39,60 @@ export default async function CosmologyDialogueDetailPage({ params }: Props) {
   const dialogue = cosmologyDialogues.getBySlug(slug);
   if (!dialogue) notFound();
 
+  const all = cosmologyDialogues.getAll();
+  const currentIndex = all.findIndex((item) => item.slug === dialogue.slug);
+  const prev = currentIndex > 0 ? all[currentIndex - 1] : null;
+  const next = currentIndex >= 0 && currentIndex < all.length - 1 ? all[currentIndex + 1] : null;
+  const url = `/cosmology/dialogues/${dialogue.slug}`;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: dialogue.title,
     description: dialogue.description || dialogue.title,
-    url: `${SITE_URL}/cosmology/dialogues/${slug}`,
+    url: `${SITE_URL}${url}`,
     author: { "@type": "Organization", name: "Episteme · 格致" },
     publisher: { "@type": "Organization", name: "Episteme · 格致", url: SITE_URL },
     keywords: dialogue.tags.join(", "),
   };
 
   return (
-    <div className="mx-auto w-full max-w-3xl px-6 py-12 sm:px-10">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
-      <nav className="mb-8 flex items-center justify-between">
-        <Link
-          href="/cosmology/dialogues"
-          className="text-fg-muted hover:text-fg-primary inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] uppercase transition-colors"
-        >
-          ← 返回对话
-        </Link>
-      </nav>
-
-      <article>
-        <header className="mb-10">
-          <h1 className="text-fg-primary mb-4 text-3xl leading-tight font-semibold sm:text-4xl">
-            {dialogue.title}
-          </h1>
-          {dialogue.description && (
-            <p className="text-fg-secondary text-[15px] leading-relaxed">{dialogue.description}</p>
-          )}
-          {dialogue.participants.length > 0 && (
-            <div className="mt-4 flex flex-wrap gap-2">
-              {dialogue.participants.map((name) => (
-                <span
-                  key={name}
-                  className="text-fg-muted border-border-faint rounded border px-2 py-0.5 font-mono text-[10px]"
-                >
-                  {name}
-                </span>
-              ))}
-            </div>
-          )}
-        </header>
-
+      <ArticleLayout
+        domain="cosmology"
+        backHref="/cosmology/dialogues"
+        backLabel="← 返回对话"
+        url={url}
+        breadcrumb={
+          <Breadcrumb
+            items={[
+              { label: "宇宙学", href: "/cosmology" },
+              { label: "对话", href: "/cosmology/dialogues" },
+              { label: dialogue.title },
+            ]}
+          />
+        }
+        accent={ACCENT}
+        eyebrow="宇宙学对话"
+        title={dialogue.title}
+        content={dialogue.content}
+        lede={dialogue.description || undefined}
+        tags={dialogue.tags}
+        meta={
+          dialogue.participants.length > 0 ? (
+            <>对话者：{dialogue.participants.join("、")}</>
+          ) : undefined
+        }
+        prev={prev ? { href: `/cosmology/dialogues/${prev.slug}`, title: prev.title } : null}
+        next={next ? { href: `/cosmology/dialogues/${next.slug}`, title: next.title } : null}
+        sidebar={<TableOfContents accentColor={ACCENT} />}
+      >
         <MarkdownRenderer domain="cosmology" content={dialogue.content} accentColor={ACCENT} />
-      </article>
-
-      <footer className="border-border-subtle mt-12 border-t pt-6">
-        <Link
-          href="/cosmology/dialogues"
-          className="text-fg-muted hover:text-fg-primary inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] uppercase transition-colors"
-        >
-          ← 返回对话
-        </Link>
-      </footer>
-    </div>
+      </ArticleLayout>
+    </>
   );
 }

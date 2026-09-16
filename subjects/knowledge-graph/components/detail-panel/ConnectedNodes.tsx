@@ -91,7 +91,7 @@ export function ConnectedNodes({
                         </div>
                         <span
                           aria-hidden
-                          className="text-fg-disabled mt-1 shrink-0 opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100"
+                          className="text-fg-disabled mt-1 shrink-0 opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100 group-focus-visible:translate-x-0.5 group-focus-visible:opacity-100"
                         >
                           <svg
                             viewBox="0 0 16 16"

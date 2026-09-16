@@ -1,7 +1,6 @@
-import fs from "node:fs";
 import path from "node:path";
-import matter from "gray-matter";
-import { getDomainContentDir } from "./content-paths";
+import { loadAllContent, loadContentBySlug } from "./content-article";
+import { getDomainContentDir, listContentSlugs } from "./content-paths";
 
 const ISMS_DIR = path.join(getDomainContentDir("philosophy"), "isms");
 
@@ -25,41 +24,25 @@ export type Ism = IsmFrontmatter & {
 const ismBySlugCache = new Map<string, Ism | null>();
 let cachedIsms: Ism[] | null = null;
 
+function toIsm(data: Record<string, unknown>, content: string, slug: string): Ism {
+  return {
+    ...(data as IsmFrontmatter),
+    slug,
+    content,
+  };
+}
+
 export function getIsmSlugs(): string[] {
-  if (!fs.existsSync(ISMS_DIR)) return [];
-  return fs
-    .readdirSync(ISMS_DIR)
-    .filter((f) => f.endsWith(".mdx"))
-    .map((f) => f.replace(/\.mdx$/, ""));
+  return listContentSlugs(ISMS_DIR);
 }
 
 export function getIsmBySlug(slug: string): Ism | null {
-  if (ismBySlugCache.has(slug)) return ismBySlugCache.get(slug)!;
-  if (!slug || slug.includes("..") || slug.includes("/") || slug.includes("\\")) return null;
-  const filePath = path.join(ISMS_DIR, `${slug}.mdx`);
-  if (!filePath.startsWith(ISMS_DIR)) return null;
-  if (!fs.existsSync(filePath)) return null;
-  let result: Ism | null = null;
-  try {
-    const raw = fs.readFileSync(filePath, "utf-8");
-    const { data, content } = matter(raw);
-    result = {
-      ...(data as IsmFrontmatter),
-      slug,
-      content,
-    };
-  } catch {
-    // result stays null
-  }
-  ismBySlugCache.set(slug, result);
-  return result;
+  return loadContentBySlug(ISMS_DIR, slug, ismBySlugCache, toIsm);
 }
 
 export function getAllIsms(): Ism[] {
   if (cachedIsms) return cachedIsms;
-  cachedIsms = getIsmSlugs()
-    .map((slug) => getIsmBySlug(slug))
-    .filter((i): i is Ism => i !== null);
+  cachedIsms = loadAllContent(ISMS_DIR, ismBySlugCache, toIsm);
   return cachedIsms;
 }
 

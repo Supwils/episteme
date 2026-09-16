@@ -787,6 +787,89 @@ export const ANTHROPOLOGY: DomainConfig = {
   ],
 };
 
+export const EDUCATION: DomainConfig = {
+  domain: "education",
+  label: "教育学与学习科学",
+  labelEn: "Education & Learning Sciences",
+  tagline:
+    "从可观察的学会、记忆与评估进入教育——教学、课程、测验与公平。描述学校和学习如何被组织，不写应试刷题手册，也不把学习风格写成已证实的神经事实。",
+  accent: "#3d6b8a",
+  sections: [
+    {
+      key: "learning-foundations",
+      label: "学习基础",
+      accent: "#3d6b8a",
+      icon: "◎",
+      description: "把“学会了”写成可观察的改变：学习、教学、课程与评估，而不是灌输隐喻",
+    },
+    {
+      key: "cognition-and-memory",
+      label: "认知与记忆",
+      accent: "#4a7c9b",
+      icon: "◌",
+      description: "遗忘曲线、间隔练习、工作记忆与迁移能证明什么，不能证明什么",
+    },
+    {
+      key: "curriculum-and-teaching",
+      label: "课程与教学",
+      accent: "#2c5270",
+      icon: "▤",
+      description: "课程是选择与排序，课堂是被组织的时间，不是中立的知识管道",
+    },
+    {
+      key: "assessment-and-equity",
+      label: "评估与公平",
+      accent: "#5a8aaa",
+      icon: "⊞",
+      description: "测验分数是推断，分班与经费分配谁被当成可教",
+    },
+    {
+      key: "education-technology",
+      label: "教育技术",
+      accent: "#6a9bb5",
+      icon: "⌘",
+      description: "系统记录了哪些行为、谁有权看数据；不写如何监视学生",
+    },
+    {
+      key: "comparison-and-policy",
+      label: "比较与政策",
+      accent: "#3a5a72",
+      icon: "⇄",
+      description: "国际测评与学制比较是测量选择，不是文明本质",
+    },
+  ],
+  tools: [
+    {
+      href: "/education/spacing-lab",
+      label: "遗忘与间隔练习示意",
+      icon: "◌",
+      accent: "#4a7c9b",
+      description: "对照集中与间隔。即时更熟不是延迟还在，示意不是背词器",
+    },
+    {
+      href: "/education/classroom-talk-lab",
+      label: "课堂互动结构图",
+      icon: "◎",
+      accent: "#2c5270",
+      description: "IRE 与长等待。点一个话轮，不是课堂管理话术",
+    },
+    {
+      href: "/education/score-decomposer",
+      label: "测验分数分解器",
+      icon: "⊞",
+      accent: "#5a8aaa",
+      description: "把示意分数拆成机会、介质与构念。不是真实测量工具",
+    },
+    {
+      href: "/education/adaptive-path-lab",
+      label: "自适应路径示意",
+      icon: "⌘",
+      accent: "#6a9bb5",
+      description: "像家教，还是系统记录了什么。绿灯是模型推断",
+    },
+  ],
+};
+
 export const ENGINEERING: DomainConfig = {
   domain: "engineering",
   label: "工程与技术",
@@ -955,6 +1038,7 @@ export const KNOWLEDGE_DOMAINS: Record<string, DomainConfig> = {
   literature: LITERATURE,
   religion: RELIGION,
   anthropology: ANTHROPOLOGY,
+  education: EDUCATION,
   engineering: ENGINEERING,
 };
 

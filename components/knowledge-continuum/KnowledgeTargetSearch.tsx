@@ -162,7 +162,7 @@ export function KnowledgeTargetSearch({
                   id={`${listboxId}-option-${index}`}
                   type="button"
                   role="option"
-                  aria-selected={selectedTarget?.id === result.id}
+                  aria-selected={index === activeIndex}
                   tabIndex={-1}
                   onMouseDown={(event) => event.preventDefault()}
                   onMouseEnter={() => setActiveIndex(index)}

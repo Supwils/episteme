@@ -2,7 +2,7 @@
 title: 销毁"永久化学品"：PFAS 处理的技术竞赛与监管摇摆
 title_en: Destroying "Forever Chemicals" — The Technology Race and Regulatory Whiplash around PFAS
 status: published
-updated: 2026-08-16
+updated: 2026-09-12
 category: 环境化学
 horizon: 2020s
 order: 6
@@ -67,6 +67,18 @@ PFAS 是一类上万种物质的统称，共同点是含有一串全氟化的碳
 - **公司宣称与同行评审的落差。** 这个赛道挤满了上市公司的新闻稿，但真正带完整质量平衡（含气相）的第三方验证研究屈指可数。
 - **"替代"可能是把问题改名。** 短链 PFAS（如 GenX）被用来替代 PFOA/PFOS，但它们更易迁移、同样难降解，毒性数据却在追赶之中。
 
+监管把"测得到"和"灭得掉"绑在两套互不替代的工具上。
+
+2024 年 5 月 8 日，EPA 把 PFOA 与 PFOS 指定为《综合环境应对、赔偿和责任法》（CERCLA，俗称 Superfund）下的危险物质，规则于同年 7 月 8 日生效。2025 年 9 月，该署宣布继续维持这项指定。这与 2024 年 4 月敲定的饮用水最高污染物水平（MCL）是两套对象：MCL 管出厂水里测到多少，Superfund 管场地责任与报告义务。两者都不会自动把已经泄漏的分子矿化。
+
+水厂用活性炭或反渗透把水做到 MCL 以下，只是把 PFAS 从饮用水里搬走。场地清理同样可以以移除、封存、转移交差。销毁——把有机氟变成无机氟——仍是另一条问题，没有被单一商业技术收口。
+
+更接近"能不能灭"的官方口径，是 EPA 2026 年 4 月更新的《PFAS 销毁与处置临时指南》。这份按《2020 财年国防授权法》要求修订的非约束性文件，把已有规模的路径收成三类：深井灌注、受管制填埋，以及在特定条件下运行的热处置。它写明关键数据缺口尚未闭合，因此还不能给出更确定的技术推荐。
+
+指南同时给超临界水氧化、电化学氧化、等离子体等新兴路线提供评估框架，但框架不是验收证书。焚烧报告的"破坏去除效率"衡量的是名单上的目标化合物从进料到排放少了多少，并不等于氟已经矿化。电化学与等离子体可以把长链变成短链或气相含氟物，那是转化或转移。
+
+Smith 等人 2024 年在《环境科学与技术》把三组词拆开：降解只是目标分子变成别的分子，脱氟是释放无机氟，矿化才是有机氟账结清。他们用一个思想实验说明：若 PFOA 全部变成少一个碳的同系物，靶向分析可以报百分之百降解，矿化效率仍是零。截至 2026 年，EPA 并未把任何一条商业路线写成已经解决 PFAS。
+
 ## 未知的边界
 
 - 现实炉况下焚烧 PFAS 废物的破坏去除效率与排放指纹，何时能有公开的权威测定？
@@ -89,5 +101,8 @@ PFAS 是一类上万种物质的统称，共同点是含有一串全氟化的碳
 - Cui, J., Gao, P. & Deng, Y. _Destruction of Per- and Polyfluoroalkyl Substances (PFAS) with Advanced Reduction Processes (ARPs): A Critical Review._ Environmental Science & Technology 54, 3752–3766 (2020). DOI: 10.1021/acs.est.9b05565.
 - Glüge, J. et al. _An overview of the uses of per- and polyfluoroalkyl substances (PFAS)._ Environmental Science: Processes & Impacts 22, 2345–2373 (2020). DOI: 10.1039/D0EM00291G.
 - U.S. EPA. _PFAS National Primary Drinking Water Regulation._ 89 FR 32532（2024 年 4 月定标）；2025 年 5 月 EPA 宣布保留 PFOA/PFOS 限值、撤回其余四种并拟将合规期限延至 2031 年。
+- U.S. EPA. _Designation of Perfluorooctanoic Acid (PFOA) and Perfluorooctanesulfonic Acid (PFOS) as CERCLA Hazardous Substances._ 89 FR 39124（2024 年 5 月 8 日公布，7 月 8 日生效）；2025 年 9 月 EPA 宣布维持该项指定。
+- U.S. EPA. _Interim Guidance on the Destruction and Disposal of Perfluoroalkyl and Polyfluoroalkyl Substances and Materials Containing Perfluoroalkyl and Polyfluoroalkyl Substances—2026 Version_（2026 年 4 月）；Notice of Availability, 91 FR 22815（2026 年 4 月 28 日）。
+- Smith, S. J., Lauria, M. Z., Higgins, C. P., Pennell, K. D., Blotevogel, J. & Arp, H. P. H. _The Need to Include a Fluorine Mass Balance in the Development of Effective Technologies for PFAS Destruction._ Environmental Science & Technology 58, 2587–2590 (2024). DOI: 10.1021/acs.est.3c10617.
 
 [^epa]: EPA 2024 年规则为六种 PFAS 设限：PFOA、PFOS 各 4.0 ppt；PFHxS、PFNA、HFPO-DA（GenX）各 10 ppt；含 PFBS 的混合物另设危害指数。2025 年 5 月，EPA 宣布拟撤回后四类物质的管制并延长 PFOA/PFOS 合规期至 2031 年 4 月，截至 2026 年中仍在规则程序中。

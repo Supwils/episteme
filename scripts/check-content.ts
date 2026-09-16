@@ -45,6 +45,7 @@ const MDX_DOMAINS = [
   "literature",
   "religion",
   "anthropology",
+  "education",
   "engineering",
 ] as const;
 
@@ -126,6 +127,12 @@ const MIN_LINES: Record<string, number> = {
   "theory-and-method": 100,
   "reading-and-reception": 100,
   "contemporary-edges": 100,
+  "learning-foundations": 100,
+  "cognition-and-memory": 100,
+  "curriculum-and-teaching": 100,
+  "assessment-and-equity": 100,
+  "comparison-and-policy": 100,
+  "education-technology": 100,
 };
 
 // Real depth is CJK character count, not physical non-empty lines. A complete,
@@ -178,6 +185,12 @@ const MIN_CJK_CHARS: Record<string, number> = {
   "theory-and-method": 2200,
   "reading-and-reception": 2200,
   "contemporary-edges": 2200,
+  "learning-foundations": 2200,
+  "cognition-and-memory": 2200,
+  "curriculum-and-teaching": 2200,
+  "assessment-and-equity": 2200,
+  "comparison-and-policy": 2200,
+  "education-technology": 2200,
 };
 
 const TODO_PATTERN = /(?:^|[\s([{<])(?:TODO|FIXME|HACK|XXX)(?:\s*[:：)\]}>\-]|$)|待补|待完善/;

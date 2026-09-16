@@ -71,8 +71,10 @@ function exactMatches(corpus: Corpus, query: string): Map<number, Match> {
  * Each bigram costs one ~1ms scan of the corpus, so a handful of them is still
  * far cheaper than the 36MB full-text index this tier exists to avoid.
  */
+export const MAX_BIGRAM_TERMS = 16;
+
 function bigramMatches(corpus: Corpus, query: string): Map<number, Match> {
-  const terms = [...new Set(tokenize(query))];
+  const terms = [...new Set(tokenize(query))].slice(0, MAX_BIGRAM_TERMS);
   if (terms.length === 0) return new Map();
 
   const byDocument = new Map<number, Match>();
@@ -119,20 +121,23 @@ export function searchPhrases(
   return [...matches.values()]
     .sort((a, b) => b.coverage - a.coverage || b.occurrences - a.occurrences || a.first - b.first)
     .slice(0, limit)
-    .map((match) => {
-      const doc = docs[match.document]!;
+    .flatMap((match) => {
+      const doc = docs[match.document];
+      if (!doc) return [];
       const length = exact ? trimmed.length : 2;
       const context = snippet(corpus, match.first, length, SNIPPET_RADIUS);
-      return {
-        title: doc.t,
-        url: doc.u,
-        section: doc.c,
-        kind: doc.k,
-        snippet: context.text,
-        matchStart: context.matchStart,
-        occurrences: match.occurrences,
-        exact,
-        coverage: match.coverage,
-      };
+      return [
+        {
+          title: doc.t,
+          url: doc.u,
+          section: doc.c,
+          kind: doc.k,
+          snippet: context.text,
+          matchStart: context.matchStart,
+          occurrences: match.occurrences,
+          exact,
+          coverage: match.coverage,
+        },
+      ];
     });
 }

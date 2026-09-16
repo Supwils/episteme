@@ -98,4 +98,30 @@ describe("learning target API", () => {
     expect(response.status).toBe(404);
     await expect(response.json()).resolves.toEqual({ error: "Unknown knowledge target" });
   });
+
+  it("truncates an oversized search query instead of scanning the raw string", async () => {
+    const long = `AI 伦理${"x".repeat(500)}`;
+    const truncated = long.slice(0, 120);
+    const [longResponse, truncatedResponse] = await Promise.all([
+      GET(new Request(`https://episteme.test/api/learning-targets?q=${encodeURIComponent(long)}`)),
+      GET(
+        new Request(`https://episteme.test/api/learning-targets?q=${encodeURIComponent(truncated)}`)
+      ),
+    ]);
+    expect(longResponse.status).toBe(200);
+    expect(truncatedResponse.status).toBe(200);
+    const longBody = (await longResponse.json()) as { results: { id: string }[] };
+    const truncatedBody = (await truncatedResponse.json()) as { results: { id: string }[] };
+    expect(longBody.results.map((result) => result.id)).toEqual(
+      truncatedBody.results.map((result) => result.id)
+    );
+  });
+
+  it("rejects an oversized target id without scanning the catalog", async () => {
+    const response = await GET(
+      new Request(`https://episteme.test/api/learning-targets?id=${"a".repeat(201)}`)
+    );
+    expect(response.status).toBe(404);
+    await expect(response.json()).resolves.toEqual({ error: "Unknown knowledge target" });
+  });
 });

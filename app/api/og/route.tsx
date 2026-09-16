@@ -2,6 +2,9 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
+const MAX_TITLE_LENGTH = 200;
+const MAX_DESCRIPTION_LENGTH = 120;
+
 const SECTION_COLORS: Record<string, string> = {
   philosophy: "#c8a45a",
   mathematics: "#6366f1",
@@ -32,12 +35,16 @@ async function loadFont(): Promise<ArrayBuffer> {
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const title = searchParams.get("title") ?? "Episteme · 格致";
+  const title = (searchParams.get("title") ?? "Episteme · 格致").slice(0, MAX_TITLE_LENGTH);
   const section = searchParams.get("section") ?? "";
-  const description = searchParams.get("description") ?? "";
+  const rawDescription = searchParams.get("description") ?? "";
+  const description =
+    rawDescription.length > MAX_DESCRIPTION_LENGTH
+      ? `${rawDescription.slice(0, MAX_DESCRIPTION_LENGTH)}…`
+      : rawDescription;
 
   const accent = Object.hasOwn(SECTION_COLORS, section) ? SECTION_COLORS[section] : "#c8a45a";
-  const sectionLabel = Object.hasOwn(SECTION_LABELS, section) ? SECTION_LABELS[section] : section;
+  const sectionLabel = Object.hasOwn(SECTION_LABELS, section) ? SECTION_LABELS[section] : "";
 
   let fontData: ArrayBuffer;
   try {
@@ -163,7 +170,7 @@ export async function GET(request: Request) {
               display: "flex",
             }}
           >
-            {description.length > 120 ? `${description.slice(0, 120)}…` : description}
+            {description}
           </p>
         )}
       </div>

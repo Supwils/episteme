@@ -12,6 +12,11 @@ import { ArticleSidebar } from "@/components/ArticleSidebar";
 import { TableOfContents } from "@/components/TableOfContents";
 import { ReadingModeControls } from "@/components/ReadingModeControls";
 import { ReadingProgressBar } from "@/components/ReadingProgressBar";
+import {
+  ARTICLE_BODY_ROW_CLASS,
+  ARTICLE_HEADER_CLASS,
+  ARTICLE_SURFACE_CLASS,
+} from "@/components/ArticleLayout";
 import { serializeJsonLd, createArticleJsonLd } from "@/lib/jsonld";
 
 export function generateStaticParams() {
@@ -81,68 +86,67 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
 
       <Breadcrumb category="schools" currentTitle={school.title} />
 
-      <header className="relative mb-10 py-8">
-        <CornerMarks />
+      <div className={ARTICLE_BODY_ROW_CLASS}>
+        <article className={ARTICLE_SURFACE_CLASS}>
+          <header className={ARTICLE_HEADER_CLASS}>
+            <CornerMarks />
 
-        <div className="mb-3 flex flex-wrap items-center gap-3">
-          <span
-            className="font-mono text-[10px] tracking-[0.32em] uppercase"
-            style={{ color: accent }}
-          >
-            {school.era}
-          </span>
-          {period && (
-            <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">
-              {period}
-            </span>
-          )}
-          <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">
-            约 {readMinutes} 分钟阅读
-          </span>
-          <span className="ml-auto">
-            <ReadingModeControls />
-          </span>
-        </div>
-
-        <h1 className="font-display text-fg-primary text-[2.2rem] leading-tight tracking-tight md:text-[2.8rem]">
-          {school.title}
-        </h1>
-
-        {founder && (
-          <p className="text-fg-secondary mt-3 text-base">
-            创始人：<span className="text-fg-primary font-medium">{founder}</span>
-          </p>
-        )}
-
-        {keyFigures.length > 0 && (
-          <div className="mt-4 flex flex-wrap gap-2">
-            {keyFigures.map((name) => (
+            <div className="mb-3 flex flex-wrap items-center gap-3">
               <span
-                key={name}
-                className="border-fg-disabled/30 text-fg-muted rounded-none border px-2.5 py-1 font-mono text-[10px] tracking-[0.18em]"
+                className="font-mono text-[10px] tracking-[0.32em] uppercase"
+                style={{ color: accent }}
               >
-                {name}
+                {school.era}
               </span>
-            ))}
-          </div>
-        )}
-
-        {school.tags.length > 0 && (
-          <div className="mt-3 flex flex-wrap gap-1.5">
-            {school.tags.map((tag) => (
-              <span
-                key={tag}
-                className="border-fg-disabled/20 text-fg-muted rounded-none border px-2 py-0.5 font-mono text-[9px] tracking-[0.14em]"
-              >
-                {tag}
+              {period && (
+                <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">
+                  {period}
+                </span>
+              )}
+              <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">
+                约 {readMinutes} 分钟阅读
               </span>
-            ))}
-          </div>
-        )}
-      </header>
+              <span className="ml-auto">
+                <ReadingModeControls />
+              </span>
+            </div>
 
-      <div className="flex flex-col gap-12 lg:flex-row">
-        <article className="article-reading-surface max-w-[44rem] min-w-0 flex-1 transition-[max-width] duration-300">
+            <h1 className="font-display text-fg-primary text-[2.2rem] leading-tight tracking-tight md:text-[2.8rem]">
+              {school.title}
+            </h1>
+
+            {founder && (
+              <p className="text-fg-secondary mt-3 text-base">
+                创始人：<span className="text-fg-primary font-medium">{founder}</span>
+              </p>
+            )}
+
+            {keyFigures.length > 0 && (
+              <div className="mt-4 flex flex-wrap gap-2">
+                {keyFigures.map((name) => (
+                  <span
+                    key={name}
+                    className="border-fg-disabled/30 text-fg-muted rounded-none border px-2.5 py-1 font-mono text-[10px] tracking-[0.18em]"
+                  >
+                    {name}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            {school.tags.length > 0 && (
+              <div className="mt-3 flex flex-wrap gap-1.5">
+                {school.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="border-fg-disabled/20 text-fg-muted rounded-none border px-2 py-0.5 font-mono text-[9px] tracking-[0.14em]"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </header>
           <MarkdownRenderer domain="philosophy" content={school.content} />
 
           {keyFigures.length > 0 && (

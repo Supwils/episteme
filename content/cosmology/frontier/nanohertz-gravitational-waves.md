@@ -2,7 +2,7 @@
 title: 纳赫兹引力波背景：脉冲星阵列开启引力波天文学新窗口
 title_en: The Nanohertz Gravitational-Wave Background — Pulsar Timing Arrays Open a New Window
 status: published
-updated: 2026-06-12
+updated: 2026-09-12
 category: 引力波天文学
 horizon: 2020s
 order: 4
@@ -116,6 +116,12 @@ PTA 社区明确表示，当前结果是"证据"（evidence），而非"发现"�
 - **背景的各向异性**：不同来源的各向异性程度不同；
 - **与电磁波段观测的交叉关联**：若能找到一个已知的超大质量黑洞双星对应体，将是强力证据。
 
+Hellings–Downs 曲线是张量极化留下的角指纹，不是一张来源清单。LIGO 听到的是几分钟的并合啁啾。脉冲星阵听的是几十年的随机背景。同一套广义相对论，频率差十亿倍。
+
+把 2023 年四组约 4σ 的证据写成已经发现，会跳过社区自己划的 5σ 线。国际脉冲星计时阵列的第三批数据（IPTA-DR3）在 2025–2026 年进入组合：约 130 颗毫秒脉冲星，最长基线约 27 年。组合本身要统一计时模型与逐星噪声。
+
+区域论文比联合发布早两三年，是这个领域的常态。会议综述不是发现公报。单个超大质量黑洞双星的连续波，截至 2026 年仍未确认。
+
 ## 未知的边界
 
 - 目前4个 PTA 的结果在**振幅**上存在约 1.5–2σ 的不一致，这可能是统计涨落，也可能指向各组系统误差处理的不同——未来国际 PTA（IPTA）的联合数据集将是关键。
@@ -141,6 +147,6 @@ PTA 社区明确表示，当前结果是"证据"（evidence），而非"发现"�
 - EPTA Collaboration + InPTA Collaboration. _The second data release from the European Pulsar Timing Array._ A&A 678, A50 (2023). arXiv:2306.16214.
 - Xu, H. et al. (CPTA). _Searching for the Nano-Hertz Stochastic Gravitational Wave Background with the Chinese Pulsar Timing Array._ Research in Astronomy and Astrophysics 23, 075024 (2023). arXiv:2306.16216.
 - Hellings, R. W. & Downs, G. S. _Upper limits on the isotropic gravitational radiation background from pulsar timing analysis._ ApJL 265, L39 (1983).（Hellings-Downs 曲线的原始论文）
-- IPTA 官方联合声明（2023-06-28）：https://ipta4gw.org/news/2023/06/28/IPTA_statement_on_PTA_results.html
+- IPTA Collaboration. _From a Rumble to a Roar: The International Pulsar Timing Array’s Third Data Release._ J. Phys.: Conf. Ser. 3177, 012065 (2026).（DR3 数据集构造综述，不是 5σ 发现公报）
 
 [^pta2023]: 2023年6月29日，NANOGrav（arXiv:2306.16213）、PPTA（arXiv:2306.16215）、EPTA+InPTA（arXiv:2306.16214）、CPTA（arXiv:2306.16216）同步发布各自对纳赫兹引力波背景的独立证据。[^nanograv15]: NANOGrav 15年数据集：67颗脉冲星，Hellings-Downs 相关约 4σ，贝叶斯因子 >$10^{14}$（arXiv:2306.16213）。[^ipta_statement]: IPTA 国际脉冲星计时阵列 2023年6月28日联合声明。

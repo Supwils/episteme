@@ -14,7 +14,7 @@
 2. **`git commit` 只在用户明确说"commit / 提交"时执行。** 平时不要一边做一边频繁提交；等用户喊 commit 时，再把当前工作收敛成**最小数量**的 commit（理想 1 个；多个互不相干的逻辑单元可各自成 commit，零碎的先 `git reset --soft` 合并）。
 3. **集成到 `main` 用本地 merge，绝不用 PR。** 用户说"merge"时执行 `git checkout main && git merge <branch>`（本地合并），**不要 `gh pr create`**。
 4. **`git push` 只在用户明确说"push / 部署 / 上线 / deploy"时执行。** 本仓库 `main` 一旦被 push，GitHub Actions 会自动触发生产部署（`vercel deploy --prebuilt --prod`）；用户不希望部署被频繁触发。
-5. **验证靠本地命令，不靠 push 触发 CI。** 用 `pnpm prepush / build / bundle-check` 本地确认质量，不要为了"看 CI 绿不绿"而 push。
+5. **验证靠本地命令，不靠 push 触发 CI。** 用 `pnpm prepush` 拦 quality；内容或前端轮次用 `pnpm predeploy` 把 build job（构建、包体、Lighthouse、冒烟）也在本地跑绿，不要为了"看 CI 绿不绿"而 push。
 6. 历史改写（`reset` / force-push）属重操作，仍需用户明确授权（见第十节）。
 
 ---
@@ -63,7 +63,7 @@
 ### 本地 pre-push 门禁（`.husky/pre-push`）
 
 - 每次 `git push` 前自动跑 `pnpm prepush` 九条命令：`typecheck` → `lint` → `check-content` → `audit-graph-coverage` → `audit-learning-continuum` → `audit-subject-candidates` → `audit-linguistics-foundation` → `audit-image-rights` → `test`，镜像 CI `quality` job 的确定性部分。
-- **pre-push 钩子刻意不跑** build job 那套（生产构建、包体、Lighthouse、Playwright 不适合阻塞每次本地 push）。但内容或前端轮次在请求 push 前，代理必须至少本地跑一次真实 Turbopack `pnpm build`，随后 `pnpm bundle-check -- --skip-build`。
+- **pre-push 钩子刻意不跑** build job 那套（生产构建、包体、Lighthouse、Playwright 不适合阻塞每次本地 push）。**内容或前端轮次在用户授权 push `main` 之前，必须先跑 `pnpm predeploy`**：`gen-all` 后工作区必须干净 → `prepush` → `build` → `audit-rendering` → `bundle-check --skip-build` → 独占端口 Lighthouse → `CI=1 pnpm test:e2e:smoke`。这才是 CI quality+build 的本地全集；漏跑就是人类学那次红的三处（索引幂等、首页 TBT、冒烟卡数）。
 - husky 已激活（`prepare` 脚本）。紧急绕过：`git push --no-verify`。
 - ⚠️ `audit-graph-coverage` 目前**对未达覆盖率底线的域仍返回 0**（只有单元测试会拦），本地看到它"绿"不等于达标——以 `pnpm test` 为准。
 
@@ -100,7 +100,7 @@ ls package.json next.config.ts tsconfig.json     # 单一应用，全在仓库�
 ls apps packages turbo.json pnpm-workspace.yaml 2>/dev/null \
   && echo "⚠️ monorepo 残留" || echo "✅ 单一应用结构"
 pnpm install 2>&1 | tail -5                      # 单包，Node 22（.nvmrc）
-pnpm typecheck && pnpm test                      # 基线应全绿（当前 1213 测试 / 152 文件）
+pnpm typecheck && pnpm test                      # 基线应全绿（当前 1419 测试 / 180 文件）
 ```
 
 ### 第三步：识别阻塞问题并记录
@@ -117,20 +117,20 @@ pnpm typecheck && pnpm test                      # 基线应全绿（当前 1213
 
 ## 1. 平台定位
 
-**Episteme · 格致** 是面向大众的**知识即服务平台（Knowledge as a Service）**，以浏览器为唯一交付方式，用可视化、沉浸式的方式探索人类知识。当前 **21 个知识领域 · 2788 篇内容**（`content/` 下 `.md`/`.mdx` 实测，排除 `*.narration.md` 与 `CREDITS.md`；人类学上线后复核）。
+**Episteme · 格致** 是面向大众的**知识即服务平台（Knowledge as a Service）**，以浏览器为唯一交付方式，用可视化、沉浸式的方式探索人类知识。当前 **22 个知识领域 · 2828 篇内容**（`content/` 下 `.md`/`.mdx` 实测，排除 `*.narration.md` 与 `CREDITS.md`；教育学 40 篇后复核）。
 
 领域按 `docs/学科版图与导航架构.md` 的**六簇分类法**组织，`lib/data.tsx` 的 `DOMAINS`（含 `cluster` 字段）是**唯一真相源**，导航/首页/页脚/manifest 全部派生：
 
-| 簇             | 领域（路由 · 篇数）                                                                                                 |
-| -------------- | ------------------------------------------------------------------------------------------------------------------- |
-| **宇宙与自然** | 物理学 `/universe-physics` 177 · 宇宙学 `/cosmology` 168 · 地球科学 `/earth-science` 94 · 化学 `/chemistry` 106     |
-| **生命与心灵** | 生命科学 `/life-science` 140 · 医学与公共卫生 `/medicine` 140 · 心理学 `/psychology` 236 · 语言学 `/linguistics` 65 |
-| **社会与制度** | 社会学 `/sociology` 66 · 经济学 `/economics` 211 · 政治学 `/political-science` 181 · 法学 `/law` 57                 |
-| **历史与文明** | 人类历史 `/human-history` 176 · 宗教学 `/religion` 36 · 人类学与考古 `/anthropology` 40                             |
-| **人文与艺术** | 哲学思想 `/philosophy` 358 · 艺术、建筑与美学 `/arts` 58 · 文学与叙事 `/literature` 38                              |
-| **数理与技术** | 数学与逻辑 `/mathematics` 174 · 计算机科学 `/computer-science` 213 · 工程与技术 `/engineering` 54                   |
+| 簇             | 领域（路由 · 篇数）                                                                                                                          |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| **宇宙与自然** | 物理学 `/universe-physics` 177 · 宇宙学 `/cosmology` 168 · 地球科学 `/earth-science` 94 · 化学 `/chemistry` 106                              |
+| **生命与心灵** | 生命科学 `/life-science` 140 · 医学与公共卫生 `/medicine` 140 · 心理学 `/psychology` 236 · 语言学 `/linguistics` 65 · 教育学 `/education` 40 |
+| **社会与制度** | 社会学 `/sociology` 66 · 经济学 `/economics` 211 · 政治学 `/political-science` 181 · 法学 `/law` 57                                          |
+| **历史与文明** | 人类历史 `/human-history` 176 · 宗教学 `/religion` 36 · 人类学与考古 `/anthropology` 40                                                      |
+| **人文与艺术** | 哲学思想 `/philosophy` 358 · 艺术、建筑与美学 `/arts` 58 · 文学与叙事 `/literature` 38                                                       |
+| **数理与技术** | 数学与逻辑 `/mathematics` 174 · 计算机科学 `/computer-science` 213 · 工程与技术 `/engineering` 54                                            |
 
-**跨领域与探索入口**：`/`（门户）· `/knowledge-graph`（力导向知识图谱）· `/read`（阅读路线）· `/search`（全站搜索）· `/daily`（每日知识）· `/curiosities`（奇趣知识）· `/molecules`（分子图鉴）· `/knowledge-confluence/[id]`（知识汇流）· `/<领域>/frontier`（研究前沿，21 域）。
+**跨领域与探索入口**：`/`（门户）· `/knowledge-graph`（力导向知识图谱）· `/read`（阅读路线）· `/search`（全站搜索）· `/daily`（每日知识）· `/curiosities`（奇趣知识）· `/molecules`（分子图鉴）· `/knowledge-confluence/[id]`（知识汇流）· `/<领域>/frontier`（研究前沿，22 域）。
 
 **产品灵魂**：让任何人——大学生、上班族、好奇的老人——都能随时以美好的方式接触人类最重要的知识。门槛低、深度足、视觉美。
 
@@ -156,14 +156,13 @@ universe-knowledge/
 │   └── <subject>/{components,lib,scenes,shaders,store,hooks}  领域间互相隔离
 ├── lib/                      ← 共享工具 + 内容加载器 + 知识编排
 │   ├── knowledge-domain.ts   ← 通用领域引擎（读 content/<域>/<板块>/*.mdx）
-│   ├── new-domains.ts        ← 引擎驱动域的配置（14 个：cs/ps/earth/medicine/chemistry/
-│   │                            sociology/psychology-methods/linguistics/law/arts/engineering/literature/religion/anthropology）
+│   ├── new-domains.ts        ← 引擎驱动域的配置（含 anthropology、education）
 │   ├── data.tsx              ← DOMAINS 真相源（含 cluster）；domain-clusters.ts 为派生层
 │   ├── graph-engine/         ← 力导向图引擎（Barnes-Hut + Web Worker）
 │   ├── search/ search-index/ ← 中文 bigram 两层检索（Worker 索引 + 服务端 corpus 短语层）
 │   ├── cross-links/ cross-domain-refs/ ← 跨领域链接与引用
 │   ├── knowledge-*.ts        ← 连续体/汇流/地形/缺口/学习计划等编排层
-│   ├── frontier.ts           ← 研究前沿加载器（FRONTIER_DOMAINS 当前 21 域）
+│   ├── frontier.ts           ← 研究前沿加载器（FRONTIER_DOMAINS 与 DOMAINS id 对齐，当前 22 域）
 │   ├── mdx.ts content-paths.ts content-schemas.ts citations.ts image-rights.ts
 │   └── wiki-link-index.ts backlinks-index.ts  ← ⚠️ gen-links 生成，禁止手改
 ├── content/                  ← ⭐ 唯一内容目录，按领域分子目录
@@ -231,9 +230,10 @@ pnpm gen-all               # 重生全部派生索引（改内容后必跑）
 
 pnpm typecheck             # tsc --noEmit
 pnpm lint                  # eslint . --max-warnings 0
-pnpm test                  # Vitest（1213 测试 / 152 文件）
+pnpm test                  # Vitest（1419 测试 / 180 文件）
 pnpm check-content         # 内容质量校验（当前 0 error / 0 warning）
-pnpm prepush               # 上面这些 + 五项审计，一条命令跑完本地门禁
+pnpm prepush               # 上面这些 + 五项审计，一条命令跑完本地 quality
+pnpm predeploy             # ⭐ push `main` 前：gen-all 幂等 + prepush + 生产构建 + Lighthouse + 冒烟
 
 pnpm bundle-check -- --skip-build   # JS/CSS/搜索索引预算（先跑过 build）
 pnpm audit-rendering       # SSG/ISR 契约（读生产产物）
@@ -312,6 +312,9 @@ pnpm update-graph-snapshot # 图谱聚合快照（改图谱数据后必跑，测
 ```bash
 # 通用（任何改动）
 pnpm prepush                                  # 九条本地门禁，必须全绿
+
+# 用户授权 push `main` 部署前（内容或前端轮次）
+pnpm predeploy                                # CI quality + build 本地全集；工作区必须已提交且 gen-all 幂等
 
 # 改了内容
 pnpm gen-all && git status --short            # 索引必须与内容一致，产物一并纳入改动

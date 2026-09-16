@@ -1,7 +1,7 @@
-import fs from "node:fs";
 import path from "node:path";
+import { readContentBySlug } from "./content-article";
 import { getDomainContentDir } from "./content-paths";
-import { safeParseMatter, decodeSlug, stripLeadingHeading } from "./content-utils";
+import { decodeSlug, stripLeadingHeading } from "./content-utils";
 
 /**
  * The species detail route is data-driven (taxonomy/traits from
@@ -29,11 +29,9 @@ function str(value: unknown, fallback = ""): string {
 
 export function getSpeciesProse(slug: string): SpeciesProse | null {
   const wanted = decodeSlug(slug).normalize("NFC");
-  if (!wanted || wanted.includes("..") || wanted.includes("/") || wanted.includes("\\"))
-    return null;
-  const full = path.resolve(speciesRoot, `${wanted}.mdx`);
-  if (!full.startsWith(path.resolve(speciesRoot)) || !fs.existsSync(full)) return null;
-  const { data, content } = safeParseMatter(fs.readFileSync(full, "utf-8"));
+  const entry = readContentBySlug(speciesRoot, wanted, undefined, "safe");
+  if (!entry) return null;
+  const data = entry.frontmatter;
   return {
     slug: wanted,
     title: str(data.title, wanted),
@@ -44,6 +42,6 @@ export function getSpeciesProse(slug: string): SpeciesProse | null {
     tags: Array.isArray(data.tags)
       ? data.tags.filter((t): t is string => typeof t === "string")
       : [],
-    content: stripLeadingHeading(content),
+    content: stripLeadingHeading(entry.content),
   };
 }

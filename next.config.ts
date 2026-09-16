@@ -3,33 +3,33 @@ import createMDX from "@next/mdx";
 
 const isProd = process.env.NODE_ENV === "production";
 
-// Content-Security-Policy. `allowMolstar` adds exactly what the self-hosted Mol*
-// 3D molecule viewer needs at runtime — and nothing more:
-//   • 'unsafe-eval' in script-src: molstar uses new Function / eval + WebAssembly
-//     to bootstrap, which a strict eval-free policy blocks.
-//   • the RCSB hosts in connect-src: molstar fetches real PDB structures from them.
-// It is scoped (see headers()) to only the routes that actually render a molecule
-// (/medicine, /chemistry, /molecules), so the entire rest of the site keeps a
-// strict, eval-free, RCSB-free script/connect policy.
-function csp(allowMolstar: boolean): string {
+// Content-Security-Policy. Extra hosts are route-scoped (see headers()):
+//   • `molstar`: 'unsafe-eval' + RCSB connect, only /medicine /chemistry /molecules.
+//   • `iconify`: the human-history web-component script + api.iconify.design.
+// Everything else stays eval-free and third-party-script-free.
+function csp(options: { molstar?: boolean; iconify?: boolean }): string {
+  const allowMolstar = options.molstar === true;
+  const allowIconify = options.iconify === true;
   // Turbopack dev needs eval everywhere; in prod only molecule routes get it.
   const evalSrc = !isProd || allowMolstar ? " 'unsafe-eval'" : "";
-  // molstar fetches its bundled WASM via a data: URI and real PDB structures from
-  // the RCSB hosts — both only on molecule routes.
   const molstarConnect = allowMolstar
     ? " data: https://models.rcsb.org https://files.rcsb.org"
     : "";
+  const iconifyScript = allowIconify
+    ? " https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"
+    : "";
+  const iconifyConnect = allowIconify ? " https://api.iconify.design" : "";
   return [
     "default-src 'self'",
     "base-uri 'self'",
     "object-src 'none'",
     "frame-ancestors 'none'",
     "form-action 'self'",
-    `script-src 'self'${evalSrc} 'unsafe-inline' https://code.iconify.design`,
+    `script-src 'self'${evalSrc} 'unsafe-inline'${iconifyScript}`,
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "img-src 'self' data: blob:",
     "font-src 'self' data: https://fonts.gstatic.com",
-    `connect-src 'self' https://api.iconify.design https://api.unisvg.com https://api.simpleicons.org https://vitals.vercel-insights.com${molstarConnect}`,
+    `connect-src 'self' https://vitals.vercel-insights.com${iconifyConnect}${molstarConnect}`,
     // blob: workers are required in prod too: Turbopack dev workers use blob:, and
     // the self-hosted Mol* viewer spins up its compute workers from blob: URLs.
     "worker-src 'self' blob:",
@@ -37,9 +37,9 @@ function csp(allowMolstar: boolean): string {
   ].join("; ");
 }
 
-function securityHeaders(allowMolstar: boolean) {
+function securityHeaders(options: { molstar?: boolean; iconify?: boolean }) {
   return [
-    { key: "Content-Security-Policy", value: csp(allowMolstar) },
+    { key: "Content-Security-Policy", value: csp(options) },
     // Own the HSTS policy at the app layer so it stays strong and consistent across
     // *.vercel.app and any future custom domain (Vercel's default weakens on custom
     // domains). `preload` is intentionally omitted until every subdomain is HTTPS —
@@ -80,13 +80,18 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       // Molecule-bearing routes get the Mol*-enabled (eval + RCSB) policy.
-      { source: "/medicine/:path*", headers: securityHeaders(true) },
-      { source: "/chemistry/:path*", headers: securityHeaders(true) },
-      { source: "/molecules/:path*", headers: securityHeaders(true) },
+      { source: "/medicine/:path*", headers: securityHeaders({ molstar: true }) },
+      { source: "/chemistry/:path*", headers: securityHeaders({ molstar: true }) },
+      { source: "/molecules/:path*", headers: securityHeaders({ molstar: true }) },
+      // Human history is the only surface that loads the Iconify web component.
+      { source: "/human-history/:path*", headers: securityHeaders({ iconify: true }) },
       // Everything else keeps the strict, eval-free policy. The negative lookahead
       // makes these paths match ONLY this rule — a second, stricter CSP header would
       // otherwise be enforced alongside and re-block eval on the molecule routes.
-      { source: "/((?!medicine|chemistry|molecules).*)", headers: securityHeaders(false) },
+      {
+        source: "/((?!medicine|chemistry|molecules|human-history).*)",
+        headers: securityHeaders({}),
+      },
     ];
   },
 };

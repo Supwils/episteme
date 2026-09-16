@@ -6,6 +6,7 @@ import { getAllDomains, getDomainById } from "@/subjects/life-science/lib/tree-d
 import { getSpeciesById } from "@/subjects/life-science/lib/species";
 import { DeepReading } from "@/subjects/life-science/components/DeepReading";
 import { FadeInSection } from "@/components/FadeInSection";
+import { ARTICLE_BODY_ROW_CLASS } from "@/components/ArticleLayout";
 
 type Props = { params: Promise<{ domain: string }> };
 
@@ -41,7 +42,7 @@ export default async function DomainDetailPage({ params }: Props) {
 
   return (
     <div className="w-full px-6 py-12 sm:px-10 lg:px-16">
-      <div className="flex flex-col gap-12 lg:flex-row">
+      <div className={ARTICLE_BODY_ROW_CLASS}>
         <article className="max-w-[44rem] min-w-0 flex-1">
           <header className="mb-12">
             <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">

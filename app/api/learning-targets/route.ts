@@ -17,6 +17,11 @@ import { parseKnowledgeLevel } from "@/lib/knowledge-levels";
 
 const catalog = buildKnowledgeBranchCatalog();
 
+/** Same cap as `/api/search` and frontier `filter.query`. */
+const MAX_QUERY_LENGTH = 120;
+/** Same cap as frontier `knownIds` entries. */
+const MAX_ID_LENGTH = 200;
+
 function parseFilter(searchParams: URLSearchParams): KnowledgeTargetFilter | null {
   const domain = searchParams.get("domain")?.trim();
   const level = searchParams.get("level")?.trim();
@@ -37,6 +42,9 @@ export async function GET(request: Request): Promise<NextResponse> {
   const targetId = searchParams.get("id")?.trim();
 
   if (targetId) {
+    if (targetId.length > MAX_ID_LENGTH) {
+      return NextResponse.json({ error: "Unknown knowledge target" }, { status: 404 });
+    }
     const target = catalog.targets.find((candidate) => candidate.id === targetId);
     if (!target) return NextResponse.json({ error: "Unknown knowledge target" }, { status: 404 });
     return NextResponse.json(
@@ -48,7 +56,7 @@ export async function GET(request: Request): Promise<NextResponse> {
   const filter = parseFilter(searchParams);
   if (!filter)
     return NextResponse.json({ error: "Invalid knowledge target filter" }, { status: 400 });
-  const query = searchParams.get("q") ?? "";
+  const query = (searchParams.get("q") ?? "").slice(0, MAX_QUERY_LENGTH);
   const results = searchKnowledgeBranchTargets(catalog, query, 20, filter).map(
     toKnowledgeTargetSearchResult
   );

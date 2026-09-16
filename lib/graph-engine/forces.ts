@@ -1,6 +1,6 @@
-import type { LayoutConfig, LayoutNode, LayoutEdge } from './types';
-import type { QuadNode } from './quadtree';
-import { buildQuadTree, initQuadTreePool } from './quadtree';
+import type { LayoutConfig, LayoutNode, LayoutEdge } from "./types";
+import type { QuadNode } from "./quadtree";
+import { buildQuadTree, initQuadTreePool } from "./quadtree";
 
 let _fx: Float64Array = new Float64Array(0);
 let _fy: Float64Array = new Float64Array(0);
@@ -19,10 +19,7 @@ export function resetForces(n: number): void {
   }
 }
 
-export function applyBarnesHutRepulsion(
-  nodes: LayoutNode[],
-  config: LayoutConfig,
-): void {
+export function applyBarnesHutRepulsion(nodes: LayoutNode[], config: LayoutConfig): void {
   const n = nodes.length;
   if (n === 0) return;
 
@@ -92,7 +89,7 @@ export function applyBarnesHutRepulsion(
 export function applyEdgeAttraction(
   nodes: LayoutNode[],
   edgeList: [number, number, number][],
-  config: LayoutConfig,
+  config: LayoutConfig
 ): void {
   for (let e = 0; e < edgeList.length; e++) {
     const [si, ti, strength] = edgeList[e]!;
@@ -111,10 +108,7 @@ export function applyEdgeAttraction(
   }
 }
 
-export function applyCenterGravity(
-  nodes: LayoutNode[],
-  config: LayoutConfig,
-): void {
+export function applyCenterGravity(nodes: LayoutNode[], config: LayoutConfig): void {
   for (let i = 0; i < nodes.length; i++) {
     _fx[i]! -= nodes[i]!.x * config.centerGravity;
     _fy[i]! -= nodes[i]!.y * config.centerGravity;
@@ -124,7 +118,7 @@ export function applyCenterGravity(
 export function applyDomainClustering(
   nodes: LayoutNode[],
   config: LayoutConfig,
-  domainCenters: Map<string, { x: number; y: number }>,
+  domainCenters: Map<string, { x: number; y: number }>
 ): void {
   for (let i = 0; i < nodes.length; i++) {
     const node = nodes[i]!;
@@ -147,7 +141,7 @@ export function applyDomainClustering(
 export function applyForcesWithDamping(
   nodes: LayoutNode[],
   config: LayoutConfig,
-  alpha: number,
+  alpha: number
 ): void {
   const maxForce = 50;
   for (let i = 0; i < nodes.length; i++) {
@@ -171,10 +165,7 @@ export function applyForcesWithDamping(
   }
 }
 
-export function resolveCollisions(
-  nodes: LayoutNode[],
-  config: LayoutConfig,
-): void {
+export function resolveCollisions(nodes: LayoutNode[], config: LayoutConfig): void {
   const n = nodes.length;
   const minDist = config.minDistance;
   const minDist2 = minDist * minDist;
@@ -228,7 +219,7 @@ function resolvePairs(
   listB: number[],
   nodes: LayoutNode[],
   minDist: number,
-  minDist2: number,
+  minDist2: number
 ): void {
   const isSame = listA === listB;
   for (let a = 0; a < listA.length; a++) {
@@ -243,7 +234,20 @@ function resolvePairs(
       const dy = nj.y - ni.y;
       const dist2 = dx * dx + dy * dy;
 
-      if (dist2 < minDist2 && dist2 > 0) {
+      if (dist2 === 0) {
+        const jitter = 0.01;
+        if (!ni.fixed) {
+          ni.x -= jitter;
+          ni.y -= jitter;
+        }
+        if (!nj.fixed) {
+          nj.x += jitter;
+          nj.y += jitter;
+        }
+        continue;
+      }
+
+      if (dist2 < minDist2) {
         const dist = Math.sqrt(dist2);
         const overlap = (minDist - dist) / 2;
         const nx = dx / dist;

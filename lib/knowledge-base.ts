@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
-import matter from "gray-matter";
-import { getDomainContentDir } from "./content-paths";
+import { readParsedFile } from "./content-article";
+import { getDomainContentDir, existingContentFile } from "./content-paths";
 
 const KB_ROOT = path.join(getDomainContentDir("human-history"), "knowledge-base");
 
@@ -81,29 +81,12 @@ function getEraFromPath(relPath: string): string {
   return ERA_MAP[topDir] ? topDir : "其他";
 }
 
-function safeParseMatter(raw: string): { data: Record<string, unknown>; content: string } {
-  try {
-    return matter(raw);
-  } catch {
-    const contentStart = raw.indexOf("---", 3);
-    if (contentStart !== -1) {
-      return { data: {}, content: raw.slice(contentStart + 3).trim() };
-    }
-    return { data: {}, content: raw };
-  }
-}
-
 let articlesCache: KBArticle[] | null = null;
 
 function buildArticle(rel: string): KBArticle | null {
-  const fullPath = path.join(KB_ROOT, rel);
-  let raw: string;
-  try {
-    raw = fs.readFileSync(fullPath, "utf-8");
-  } catch {
-    return null;
-  }
-  const { data, content } = safeParseMatter(raw);
+  const parsed = readParsedFile(path.join(KB_ROOT, rel), "lenient");
+  if (!parsed) return null;
+  const { data, content } = parsed;
   const era = getEraFromPath(rel);
   const parts = rel.replace(/\.md$/, "").split("/");
   const category =
@@ -150,21 +133,15 @@ export function getArticleBySlug(slug: string): KBArticleFull | null {
   } catch {
     wanted = slug.normalize("NFC");
   }
-  if (wanted.includes("..")) return null;
   const relPath = wanted.replace(/--/g, "/") + ".md";
   // Meta-docs are excluded from listings but the files still exist on disk;
   // without this check their direct URLs would render publicly.
   if (SKIP_FILES.has(path.basename(relPath))) return null;
-  const fullPath = path.resolve(KB_ROOT, relPath);
-  if (!fullPath.startsWith(path.resolve(KB_ROOT))) return null;
-  let raw: string;
-  try {
-    if (!fs.existsSync(fullPath)) return null;
-    raw = fs.readFileSync(fullPath, "utf-8");
-  } catch {
-    return null;
-  }
-  const { data, content } = safeParseMatter(raw);
+  const fullPath = existingContentFile(KB_ROOT, ...relPath.split("/"));
+  if (!fullPath) return null;
+  const parsed = readParsedFile(fullPath, "lenient");
+  if (!parsed) return null;
+  const { data, content } = parsed;
   const era = getEraFromPath(relPath);
   const parts = relPath.replace(/\.md$/, "").split("/");
   const category =

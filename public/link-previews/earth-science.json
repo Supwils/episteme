@@ -169,14 +169,64 @@
     "e": "你今天喝下的一口水里，可能有几个水分子曾流过恐龙的血管，曾是某场罗马时代暴雨的一部分，曾在大洋深处沉睡了上千年。地球上的水几乎不增不减，它只是在海洋、天空、河流、地下与生命之间反复循环。这趟永…",
     "d": "earth-science"
   },
+  "/earth-science/event-analyses/alaska-1964-good-friday": {
+    "t": "1964 年阿拉斯加耶稣受难日地震：升降场、长持时与海啸怎样把巨型逆冲钉成一套记录",
+    "e": "1964 年 3 月 27 日，阿拉斯加标准时 17 时 36 分，耶稣受难日。世界时已经进入 3 月 28 日 03 时 36 分。威廉王子湾北侧、大约北纬 61.0 度、西经 147.7 …",
+    "d": "earth-science"
+  },
+  "/earth-science/event-analyses/cascadia-1700-orphan-tsunami": {
+    "t": "1700 年 1 月 26 日卡斯卡迪亚巨型逆冲：日本孤儿海啸、淹没森林与浊积岩怎样对上同一时刻",
+    "e": "1700 年 1 月 26 日，卡斯卡迪亚当地约 21 时。世界时已经进入 1 月 27 日约 5 时。胡安·德·富卡等小板块沿北美板块下插的浅倾界面，被后来的海啸反演写成一次大约 1100 …",
+    "d": "earth-science"
+  },
   "/earth-science/event-analyses/eyjafjallajokull-ash-crisis-2010": {
     "t": "2010 年艾雅法拉火山灰危机剖析",
     "e": "看得见喷发，为何仍难知道飞机能否安全飞行，是这篇剖析真正要回答的问题。对象发生在冰岛南部，2010 年 4—5 月；影响欧洲航空。如果只记住一个结论，读者会错过知识最有价值的部分：结论究竟由哪…",
     "d": "earth-science"
   },
+  "/earth-science/event-analyses/glomar-challenger-1968-dsdp": {
+    "t": "1968 年格洛玛·挑战者号：深海钻探怎样把离脊变老钉成岩芯年龄表",
+    "e": "1968 年 3 月 23 日，得克萨斯州奥兰治的莱文斯顿船厂，一艘专为深水取芯建造的船下水，命名格洛玛·挑战者号，纪念十九世纪环球走航的挑战者号。8 月 11 日，由国家科学基金会资助、斯克…",
+    "d": "earth-science"
+  },
+  "/earth-science/event-analyses/gutenberg-1914-core-mantle-boundary": {
+    "t": "1914 年古登堡：影区怎样把核–幔边界钉在约 2900 公里",
+    "e": "1914 年，贝诺·古登堡在哥廷根发表长文，题目是《关于地震波。VII A。哥廷根远震记录的观测以及关于地球构造的推论》。他当时是埃米尔·维歇尔特的学生。理查德·迪克森·奥尔德姆 1906 年…",
+    "d": "earth-science"
+  },
+  "/earth-science/event-analyses/hess-1962-seafloor-spreading": {
+    "t": "1962 年赫斯：洋盆历史怎样把脊写成源、把沟写成汇",
+    "e": "1962 年，美国地质学会为普林斯顿岩石学家巴丁顿编的纪念文集《岩石学研究》里，刊出一篇二十来页的长文，题目是《海洋盆地的历史》。作者哈里·赫斯。页码从 599 到 620。他在文中把自己的工…",
+    "d": "earth-science"
+  },
   "/earth-science/event-analyses/hunga-tonga-eruption-observation-2022": {
     "t": "2022 年洪阿汤加喷发事件剖析",
     "e": "一场海底喷发怎样同时进入大气、海洋与电离层，是这篇剖析真正要回答的问题。对象发生在汤加，2022 年 1 月 15 日高潮喷发。如果只记住一个结论，读者会错过知识最有价值的部分：结论究竟由哪些…",
+    "d": "earth-science"
+  },
+  "/earth-science/event-analyses/lehmann-1936-inner-core": {
+    "t": "1936 年莱曼：空影区里的走时分支怎样嵌进固态内核",
+    "e": "1936 年，英厄·莱曼在国际地震学中央局的出版物上发表短文，题目只有两个字符：P′。刊物是 Publications du Bureau Central Séismologique Inte…",
+    "d": "earth-science"
+  },
+  "/earth-science/event-analyses/loma-prieta-1989-cypress": {
+    "t": "1989 年洛马普里埃塔：柏树街高架桥倒塌与滨海区填土怎样把近场走滑钉成场地与结构证据",
+    "e": "1989 年 10 月 17 日，太平洋夏令时 17 时 04 分。世界时已经进入 10 月 18 日 00 时 04 分 15 秒。圣克鲁斯山脉洛马普里埃塔峰附近，圣安德烈斯断层系一条向西南…",
+    "d": "earth-science"
+  },
+  "/earth-science/event-analyses/mexico-city-1985-site-effect": {
+    "t": "1985 年墨西哥城场地效应：古湖床软泥、卓越周期与加速度记录怎样把远场放大钉成证据",
+    "e": "1985 年 9 月 19 日，墨西哥中部夏令时约 7 时 18 分。世界时 13 时 17 分 48 秒。科科斯板块沿中美洲海沟向北美板块下插，破裂发生在米却肯沿岸、拉萨罗·卡德纳斯附近。当…",
+    "d": "earth-science"
+  },
+  "/earth-science/event-analyses/mohorovicic-1909-discontinuity": {
+    "t": "1909 年库帕河谷地震：走时拐点怎样画出莫霍面",
+    "e": "1909 年 10 月 8 日，格林尼治时间约 9 时 59 分，萨格勒布以南库帕河谷发生地震。烟囱倒塌，严重破坏有限。萨格勒布气象台台长安德里亚·莫霍洛维奇开始收集记录。一年前，维歇尔特地震…",
+    "d": "earth-science"
+  },
+  "/earth-science/event-analyses/mount-st-helens-1980-observation": {
+    "t": "1980 年圣海伦斯火山事件剖析",
+    "e": "北坡先滑走，侧向爆破才跟上来——观测怎样把这个顺序从神话里抢救出来，是这篇剖析真正要回答的问题。对象发生在美国华盛顿州圣海伦斯火山，高潮在 1980 年 5 月 18 日 8:32 太平洋夏令…",
     "d": "earth-science"
   },
   "/earth-science/event-analyses/pakistan-flood-attribution-2022": {
@@ -192,6 +242,21 @@
   "/earth-science/event-analyses/turkey-syria-earthquake-forensics-2023": {
     "t": "2023 年土耳其—叙利亚地震事件剖析",
     "e": "从最初震级到四百公里破裂带的快速重建，是这篇剖析真正要回答的问题。对象发生在2023 年 2 月 6 日卡赫拉曼马拉什地震序列。如果只记住一个结论，读者会错过知识最有价值的部分：结论究竟由哪些…",
+    "d": "earth-science"
+  },
+  "/earth-science/event-analyses/vine-matthews-magnetic-stripes": {
+    "t": "1963 年瓦因与马修斯：磁异常剖面怎样把倒转史录进扩张洋底",
+    "e": "1963 年 9 月 7 日，《自然》第 199 卷刊出一篇只有两三页的短文，题目是《洋脊上的磁异常》。作者是弗雷德里克·瓦因与德拉蒙德·马修斯。瓦因当时是剑桥大地测量与地球物理系的研究生，马…",
+    "d": "earth-science"
+  },
+  "/earth-science/event-analyses/wadati-benioff-zone": {
+    "t": "和达—贝尼奥夫带：倾斜震源怎样把下沉的冷板片画出来",
+    "e": "从海沟向岛弧或大陆一侧看，地震的震源不是散在一团雾里。它们排成一条向深处倾斜的带子，浅处贴着海沟，深处可以到大约六百至七百公里。这条带子后来被称作和达—贝尼奥夫带。对象是这件几何：震源深度随离…",
+    "d": "earth-science"
+  },
+  "/earth-science/event-analyses/wilson-1965-transform-faults": {
+    "t": "1965 年威尔逊：转换断层怎样把脊的外观错开收成反号走滑",
+    "e": "1965 年 7 月 24 日，《自然》第 207 卷刊出一篇五页短文，题目是《一类新的断层及其对大陆漂移的意义》。作者是约翰·图佐·威尔逊。对象不是他的生平，不是热点链，也不是后来的威尔逊旋…",
     "d": "earth-science"
   },
   "/earth-science/events/chicxulub-impact": {

@@ -155,6 +155,13 @@ const DOMAIN_META: Record<
     border: "border-amber-800/30",
     borderColor: "#8b5a3c",
   },
+  education: {
+    label: "教育学与学习科学",
+    color: "text-sky-300",
+    bg: "bg-sky-800/20",
+    border: "border-sky-800/30",
+    borderColor: "#3d6b8a",
+  },
   engineering: {
     label: "工程与技术",
     color: "text-slate-300",
@@ -233,10 +240,10 @@ export const GraphTooltip = memo(function GraphTooltip({
           key={node.id}
           role="tooltip"
           aria-label={`${node.label} 信息`}
-          initial={reducedMotion ? { opacity: 0 } : { opacity: 0, scale: 0.95, y: 4 }}
+          initial={reducedMotion ? false : { opacity: 0, scale: 0.95, y: 4 }}
           animate={reducedMotion ? { opacity: 1 } : { opacity: 1, scale: 1, y: 0 }}
-          exit={reducedMotion ? { opacity: 0 } : { opacity: 0, scale: 0.95, y: 4 }}
-          transition={{ duration: 0.15, ease: "easeOut" }}
+          exit={reducedMotion ? undefined : { opacity: 0, scale: 0.95, y: 4 }}
+          transition={reducedMotion ? { duration: 0 } : { duration: 0.15, ease: "easeOut" }}
           className={clsx(
             "border-border-faint pointer-events-none z-[100] max-w-[280px] rounded-xl border shadow-[0_8px_32px_rgba(0,0,0,0.5)]",
             isMobile ? "fixed top-3 left-1/2 -translate-x-1/2" : "fixed"
@@ -306,7 +313,7 @@ export const GraphTooltip = memo(function GraphTooltip({
             ) : null}
 
             {/* Click hint */}
-            <span className="text-fg-muted mt-0.5 text-[10px]">点击查看详情</span>
+            <span className="text-fg-muted mt-0.5 text-[10px]">查看详情</span>
           </div>
         </motion.div>
       ) : null}

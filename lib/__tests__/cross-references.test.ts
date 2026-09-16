@@ -93,6 +93,7 @@ describe("URL constants", () => {
       "cosmology",
       "earth-science",
       "economics",
+      "education",
       "engineering",
       "human-history",
       "knowledge-graph",

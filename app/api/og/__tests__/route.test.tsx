@@ -21,4 +21,16 @@ describe("GET /api/og", () => {
       expect([...bytes.slice(0, 8)]).toEqual([137, 80, 78, 71, 13, 10, 26, 10]);
     }
   );
+
+  it("still renders when title and description are far longer than the paint budget", async () => {
+    const response = await GET(
+      new Request(
+        `https://episteme.test/api/og?title=${encodeURIComponent("T".repeat(2000))}&description=${encodeURIComponent("D".repeat(2000))}&section=philosophy`
+      )
+    );
+    const bytes = new Uint8Array(await response.arrayBuffer());
+    expect(response.status).toBe(200);
+    expect(response.headers.get("content-type")).toBe("image/png");
+    expect([...bytes.slice(0, 8)]).toEqual([137, 80, 78, 71, 13, 10, 26, 10]);
+  });
 });

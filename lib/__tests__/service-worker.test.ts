@@ -57,8 +57,12 @@ describe("service worker request classification", () => {
 
   it("treats unhashed static assets as revalidating assets", () => {
     expect(sw.classify(url("/icons/icon-192.png"), false, origin)).toBe("asset");
-    expect(sw.classify(url("/search-index.json"), false, origin)).toBe("asset");
     expect(sw.classify(url("/link-previews/sociology.json"), false, origin)).toBe("asset");
+  });
+
+  it("does not stale-cache the unhashed search worker or title index", () => {
+    expect(sw.classify(url("/search.worker.js"), false, origin)).toBe("passthrough");
+    expect(sw.classify(url("/search-index.json"), false, origin)).toBe("passthrough");
   });
 
   it("passes through anything it has no strategy for", () => {

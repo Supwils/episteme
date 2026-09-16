@@ -11,6 +11,23 @@ import { DomainHeroMotif } from "@/components/domain/DomainHeroMotif";
 import { deriveAskPrompts, deriveTakeaway } from "@/lib/article-discovery";
 import { readingMinutes } from "@/lib/reading-time";
 
+/** Article + sticky sidebar. Wide screens center the pair so every subject
+ *  shares one reading column instead of hugging the left edge. Title lives
+ *  inside the same column as the body (not a full-bleed header). */
+export const ARTICLE_BODY_ROW_CLASS =
+  "flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-center";
+
+export const ARTICLE_SURFACE_BASE_CLASS =
+  "article-reading-surface min-w-0 flex-1 transition-[max-width] duration-300";
+
+/** Default reading column (~44 CJK chars/line). */
+export const ARTICLE_SURFACE_CLASS = `${ARTICLE_SURFACE_BASE_CLASS} max-w-[44rem]`;
+
+/** Title card inside the reading column. Custom shells should reuse this so
+ *  h1 inset matches DomainArticle / FrontierArticleView. */
+export const ARTICLE_HEADER_CLASS =
+  "border-border-faint bg-bg-panel relative mb-12 overflow-hidden border p-8";
+
 interface PrevNextLink {
   href: string;
   title: string;
@@ -117,70 +134,66 @@ export function ArticleLayout({
 
       {breadcrumb}
 
-      <header className="border-border-faint bg-bg-panel relative mb-12 overflow-hidden border p-8">
-        {domain ? <DomainHeroMotif domain={domain} accent={accent} variant="watermark" /> : null}
-        <div className="relative">
-          <div className="mb-3 flex flex-wrap items-center gap-3">
-            <span
-              className="border px-2.5 py-1 font-mono text-[10px] tracking-[0.32em] uppercase"
-              style={{
-                borderColor: `${accent}50`,
-                color: `color-mix(in oklab, ${accent} 42%, var(--color-fg-primary))`,
-              }}
-            >
-              {eyebrow}
-            </span>
-            {eyebrowMeta?.map((m) => (
-              <span key={m} className="text-fg-muted font-mono text-[10px] tracking-[0.22em]">
-                {m}
-              </span>
-            ))}
-            <span className="text-fg-muted font-mono text-[10px] tracking-[0.22em]">
-              约 {readMinutes} 分钟阅读
-            </span>
-            <span className="ml-auto">
-              <ReadingModeControls />
-            </span>
-          </div>
-          <h1 className="font-display text-fg-primary mb-2 text-[2rem] leading-tight font-semibold tracking-tight md:text-[2.8rem]">
-            {title}
-          </h1>
-          {titleEn && (
-            <p className="text-fg-muted font-display text-lg tracking-wide italic">{titleEn}</p>
-          )}
-          {meta && <div className="text-fg-secondary mt-3">{meta}</div>}
-          {lede && (
-            <p className="text-fg-secondary mt-3 line-clamp-3 text-[1.0625rem] leading-relaxed">
-              {lede}
-            </p>
-          )}
-          {tags && tags.length > 0 && (
-            <div className="mt-4 flex flex-wrap gap-2">
-              {tags.map((tag) => (
+      <div className={ARTICLE_BODY_ROW_CLASS}>
+        <article className={cn(ARTICLE_SURFACE_BASE_CLASS, articleClassName)}>
+          <header className={ARTICLE_HEADER_CLASS}>
+            {domain ? (
+              <DomainHeroMotif domain={domain} accent={accent} variant="watermark" />
+            ) : null}
+            <div className="relative">
+              <div className="mb-3 flex flex-wrap items-center gap-3">
                 <span
-                  key={tag}
-                  className="rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.12em]"
+                  className="border px-2.5 py-1 font-mono text-[10px] tracking-[0.32em] uppercase"
                   style={{
-                    borderColor: `${accent}20`,
+                    borderColor: `${accent}50`,
                     color: `color-mix(in oklab, ${accent} 42%, var(--color-fg-primary))`,
-                    backgroundColor: `${accent}08`,
                   }}
                 >
-                  {tag}
+                  {eyebrow}
                 </span>
-              ))}
+                {eyebrowMeta?.map((m) => (
+                  <span key={m} className="text-fg-muted font-mono text-[10px] tracking-[0.22em]">
+                    {m}
+                  </span>
+                ))}
+                <span className="text-fg-muted font-mono text-[10px] tracking-[0.22em]">
+                  约 {readMinutes} 分钟阅读
+                </span>
+                <span className="ml-auto">
+                  <ReadingModeControls />
+                </span>
+              </div>
+              <h1 className="font-display text-fg-primary mb-2 text-[2rem] leading-tight font-semibold tracking-tight md:text-[2.8rem]">
+                {title}
+              </h1>
+              {titleEn && (
+                <p className="text-fg-muted font-display text-lg tracking-wide italic">{titleEn}</p>
+              )}
+              {meta && <div className="text-fg-secondary mt-3">{meta}</div>}
+              {lede && (
+                <p className="text-fg-secondary mt-3 line-clamp-3 text-[1.0625rem] leading-relaxed">
+                  {lede}
+                </p>
+              )}
+              {tags && tags.length > 0 && (
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.12em]"
+                      style={{
+                        borderColor: `${accent}20`,
+                        color: `color-mix(in oklab, ${accent} 42%, var(--color-fg-primary))`,
+                        backgroundColor: `${accent}08`,
+                      }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
-          )}
-        </div>
-      </header>
-
-      <div className="flex flex-col gap-12 lg:flex-row lg:justify-center">
-        <article
-          className={cn(
-            "article-reading-surface min-w-0 flex-1 transition-[max-width] duration-300",
-            articleClassName
-          )}
-        >
+          </header>
           <AskThisArticle prompts={askPrompts} accent={accent} />
           {children}
           {takeaway ? <ArticleTakeaway text={takeaway} accent={accent} /> : null}

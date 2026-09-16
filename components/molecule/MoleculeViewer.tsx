@@ -83,7 +83,10 @@ export function MoleculeViewer({
     setStatus("loading");
     try {
       const molstar = await loadMolstar();
-      if (!containerRef.current) return;
+      if (!containerRef.current) {
+        setStatus("error");
+        return;
+      }
       const viewer = await molstar.Viewer.create(containerRef.current, {
         layoutIsExpanded: false,
         layoutShowControls: false,
@@ -145,18 +148,28 @@ export function MoleculeViewer({
               </div>
             )}
             {status === "error" && (
-              <div className="text-[13px] text-white/60">
-                加载失败。可直接在{" "}
-                <a
-                  href={`https://www.rcsb.org/structure/${pdbId}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline"
-                  style={{ color: `color-mix(in oklab, ${accent} 78%, #f5f2ea)` }}
+              <div className="flex flex-col items-center gap-3 text-[13px] text-white/60">
+                <p>
+                  加载失败。可直接在{" "}
+                  <a
+                    href={`https://www.rcsb.org/structure/${pdbId}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline"
+                    style={{ color: `color-mix(in oklab, ${accent} 78%, #f5f2ea)` }}
+                  >
+                    RCSB PDB
+                  </a>{" "}
+                  查看。
+                </p>
+                <button
+                  type="button"
+                  onClick={() => void activate()}
+                  className="rounded-full px-4 py-2 text-[13px] font-semibold text-white transition-transform hover:-translate-y-0.5"
+                  style={{ background: `color-mix(in oklab, ${accent} 74%, #000)` }}
                 >
-                  RCSB PDB
-                </a>{" "}
-                查看。
+                  重试
+                </button>
               </div>
             )}
           </div>

@@ -1,0 +1,212 @@
+{
+  "/education/assessment-and-equity/assessment-as-inference": {
+    "t": "评估即推断",
+    "e": "1955 年，李·克龙巴赫与保罗·米赫尔在《心理学公报》上把构念效度写成公开问题：测验分数并不直接等于它所声称的心理属性。分数是观察，属性是推断。推断要靠理论、相关证据和对抗性解释一起撑住。撑…",
+    "d": "education"
+  },
+  "/education/assessment-and-equity/formative-assessment-in-use": {
+    "t": "形成性评价怎样被使用",
+    "e": "1998 年，保罗·布莱克与迪伦·威廉发表后来被广泛引用的综述，中小学界常把它叫做“黑箱里的形成性评价”。他们要问的不是再多一次排名考试，而是教师与学生在学习过程中如何收集证据并改变下一步。证…",
+    "d": "education"
+  },
+  "/education/assessment-and-equity/funding-formulas-and-teachability": {
+    "t": "经费公式与谁被当成可教",
+    "e": "1966 年，詹姆斯·科尔曼主持的《教育机会平等》报告在美国发布。它用大规模调查追问：学校资源与家庭背景，各自与成绩有多强的关系。报告被各方征用。有人读成“学校不重要”，有人读成“家庭决定命运…",
+    "d": "education"
+  },
+  "/education/assessment-and-equity/high-stakes-exams-are-institutions": {
+    "t": "高利害考试是一种制度",
+    "e": "1977 年，中国恢复高等学校招生考试。它重新规定：一份在特定时间、特定地点完成的答卷，将成为高等教育入口的主要信号。日本的大学入学中心考试及其后的大学入学共通测试、韩国的大学修学能力考试，同…",
+    "d": "education"
+  },
+  "/education/assessment-and-equity/inclusive-education-and-disability": {
+    "t": "融合教育与谁被当成可教",
+    "e": "1994 年，联合国教科文组织在萨拉曼卡召开特殊需要教育会议，宣言主张普通学校应容纳所有儿童。2006 年的《残疾人权利公约》把包容性教育写成权利语言。权利是规范。现场是：编制里有没有专业人员…",
+    "d": "education"
+  },
+  "/education/assessment-and-equity/validity-is-an-argument": {
+    "t": "效度是一种论证",
+    "e": "1955 年，李·克龙巴赫与保罗·米希尔讨论构念效度：分数若要代表某种不可直接看见的属性，作者必须给出理论与证据，说明它与哪些观察相连、与哪些无关。后来的教育测量把这句话越写越硬。塞缪尔·梅西…",
+    "d": "education"
+  },
+  "/education/cognition-and-memory/desirable-difficulty-is-a-condition": {
+    "t": "必要难度是一种条件",
+    "e": "1994 年，罗伯特·比约克把一组让当时表现变差、却可能改善延迟学习的安排叫做必要难度。间隔、变化条件和提取练习都在这个家族里。关键词是必要：困难必须指向后来仍能用的痕迹，而不是任意折磨。当时…",
+    "d": "education"
+  },
+  "/education/cognition-and-memory/memory-spacing-and-transfer": {
+    "t": "记忆、间隔与迁移",
+    "e": "1885 年，赫尔曼·艾宾浩斯在莱比锡用无意义音节做自己的被试。他记录节省法：重新学会一份材料比第一次少花多少时间。由此画出后来被教材称为遗忘曲线的下降。那是成人自我实验，有可重复的计数程序，…",
+    "d": "education"
+  },
+  "/education/cognition-and-memory/metacognition-is-a-judgment": {
+    "t": "元认知是一种判断",
+    "e": "1979 年，约翰·弗拉维尔在《美国心理学家》上把元认知写成关于认知的知识与监控。儿童开始能说“这个我还不会”，并据此改变策略，这件事本身就是发展事实。它不是心灵鸡汤里的“学会学习”。判断会错…",
+    "d": "education"
+  },
+  "/education/cognition-and-memory/project-star-class-size": {
+    "t": "田纳西 STAR：班额被随机之后测到了什么",
+    "e": "1985 年，田纳西州立法授权一项为期四年的小学试验，名称是 Student-Teacher Achievement Ratio，简称 STAR。参加的学校必须大到能在校内同时开出三种班：小班…",
+    "d": "education"
+  },
+  "/education/cognition-and-memory/randomized-trials-in-education": {
+    "t": "教育里的随机对照",
+    "e": "1960 年代，唐纳德·坎贝尔把社会项目写成可评价的因果问题：若没有对照，前后变化可能只是成熟、选择或测量回归。教育后来大量借用这句话。美国教育部的什么有效资料中心把随机对照试验写成证据层级的…",
+    "d": "education"
+  },
+  "/education/cognition-and-memory/worked-examples-and-self-explanation": {
+    "t": "样例与自我解释",
+    "e": "1980 年代，约翰·斯威勒等人报告样例效应：对新手，研究已解样例往往优于过早解题。窗口有限，同时搜索解法会把元素交互推到过载。样例把合法步骤外化，让人先建立关系，再自己生成。这不是禁止思考，…",
+    "d": "education"
+  },
+  "/education/cognition-and-memory/working-memory-and-load": {
+    "t": "工作记忆与认知负荷",
+    "e": "1956 年，乔治·米勒在《心理学评论》上写下那句后来被简化成口号的话：即时容量大约是七个组块，可加可减两个。他谈的是成人在实验室任务里能同时把握的符号数量，不是给儿童贴“脑子小”的标签。组块…",
+    "d": "education"
+  },
+  "/education/comparison-and-policy/colonial-curriculum-and-language": {
+    "t": "殖民课程与语言",
+    "e": "1835 年，托马斯·麦考莱在印度写下后来被称为《麦考莱备忘录》的教育意见：用英语培养一批“在血缘和肤色上是印度人、在趣味、意见、道德和智识上是英国人”的中间阶层。这不是关于学习风格的讨论。它…",
+    "d": "education"
+  },
+  "/education/comparison-and-policy/comprehensive-school-is-a-design": {
+    "t": "综合学校是一种设计",
+    "e": "1962 年，瑞典把九年一贯的综合学校（grundskola）推成国家学制的主干：在较长的共同教育之后再分流，而不是在童年早期就把儿童送进平行的中学类型。芬兰在 1970 年代推进综合学校改革…",
+    "d": "education"
+  },
+  "/education/comparison-and-policy/conditional-cash-and-enrollment": {
+    "t": "条件现金与就学",
+    "e": "1997 年，墨西哥启动教育、健康与营养计划，后来被称为普罗格雷萨，再后来改名机遇计划。它向贫困家庭发放现金，条件包括儿童入学与卫生检查。设计被写成可评价的干预：有处理组与对照组。保罗·舒尔茨…",
+    "d": "education"
+  },
+  "/education/comparison-and-policy/pisa-is-not-civilization": {
+    "t": "PISA 不是文明",
+    "e": "2000 年，经济合作与发展组织启动国际学生评估项目，简称 PISA。它抽测接近十五岁的在校学生，在阅读、数学和科学上做纸笔或计算机测验，再发布国家与经济体排名。排名一出，报纸写危机，部长写改…",
+    "d": "education"
+  },
+  "/education/comparison-and-policy/schooling-expansion-in-sub-saharan-africa": {
+    "t": "撒哈拉以南的学校扩张",
+    "e": "1990 年代至 2000 年代，许多撒哈拉以南国家宣布取消小学学费或推行普及小学教育。乌干达 1997 年、肯尼亚 2003 年等政策使注册人数在短时间内急剧上升。教科文组织统计研究所持续发…",
+    "d": "education"
+  },
+  "/education/comparison-and-policy/shadow-education-is-a-market": {
+    "t": "补习是一种市场",
+    "e": "马克·布雷把学校之外、模仿学校课程的付费教学叫做影子教育。它跟着主流课表走：主流考什么，影子卖什么。韩国、日本、中国大陆与许多城市中产家庭里，这种市场可见、可量化、也被政策试图调节。它不是某种…",
+    "d": "education"
+  },
+  "/education/curriculum-and-teaching/bilingual-education-is-a-design": {
+    "t": "双语教育是一种设计",
+    "e": "1974 年，美国联邦最高法院在劳诉尼科尔斯案中判定：只提供英语教学、不给不会英语的学生任何语言支持，并不等于平等教育。判决没有规定唯一正确的双语模型，它规定的是：教学语言可以成为拒绝可懂课程…",
+    "d": "education"
+  },
+  "/education/curriculum-and-teaching/classroom-as-time": {
+    "t": "课堂是被组织的时间",
+    "e": "1968 年，菲利普·杰克逊出版《课堂里的生活》。他写的不是教案技巧，而是拥挤、评价和权力如何把一天切成可忍受的片段。学生学会排队、等待、被打断和假装注意。这些学习很少出现在课程标准里，却消耗…",
+    "d": "education"
+  },
+  "/education/curriculum-and-teaching/curriculum-as-selection": {
+    "t": "课程即选择",
+    "e": "1949 年，拉尔夫·泰勒出版《课程与教学的基本原理》。他问四个问题：学校应追求哪些目标，选择哪些经验，如何组织这些经验，如何评价结果。四个问题看起来中立，像工程流程。它们其实已经在做选择：谁…",
+    "d": "education"
+  },
+  "/education/curriculum-and-teaching/lesson-study-is-professional-knowledge": {
+    "t": "课例研究是专业知识",
+    "e": "1990 年代，凯瑟琳·刘易斯等人把日本中小学的授業研究介绍到英语世界：教师共同计划一节课，观察真实学生，再修订。它不是示范表演，是把教学判断公开化的程序。詹姆斯·斯蒂格勒与詹姆斯·希伯特在《…",
+    "d": "education"
+  },
+  "/education/curriculum-and-teaching/tracking-and-grouping": {
+    "t": "分班与分组",
+    "e": "1985 年，珍妮·奥克斯出版《保持轨道》。她走进美国中学的分流现场，看所谓能力分组如何把课程质量、教师经验和同伴资源一并分开。名字叫能力，运走的是机会。这本书不是性格鉴定手册。它是课程与组织…",
+    "d": "education"
+  },
+  "/education/curriculum-and-teaching/vocational-schooling-is-a-track": {
+    "t": "职业教育是一种轨道",
+    "e": "德国的双元制把部分青年的学习分成学校与企业训练，并以资格证书接到劳动市场。凯瑟琳·西伦把这种技能形成写成政治制度：工会、雇主与国家如何分担训练成本。它是可核对的零件，不是严谨民族的气质。中国的…",
+    "d": "education"
+  },
+  "/education/education-technology/adaptive-systems-are-not-tutors": {
+    "t": "自适应系统不是家教",
+    "e": "1984 年，本杰明·布鲁姆发表关于“二西格玛问题”的文章：一对一家教在他所综述的条件下，平均效应大约相当于两个标准差。这句话后来变成教育技术广告的口头禅：软件将提供人的家教。布鲁姆原文比较的…",
+    "d": "education"
+  },
+  "/education/education-technology/generative-models-change-conditions": {
+    "t": "生成式模型改的是条件",
+    "e": "2022 年底，对话式大型语言模型进入公众视野。学校很快发现：许多作业作为证据的前提崩了。前提是学生在无人协助下生产文本。模型能在几秒内给出流畅段落。流畅会抬升“我会了”的判断，却不一定留下可…",
+    "d": "education"
+  },
+  "/education/education-technology/learning-analytics-are-inferences": {
+    "t": "学习分析是推断",
+    "e": "2010 年代前后，学习分析作为一个研究与产品领域被明确命名：从教育数据中提取模式，以理解与优化学习。乔治·西门子等人强调循环：收集、分析、干预、再收集。瑞安·贝克一系把学生模型、游戏化学习与…",
+    "d": "education"
+  },
+  "/education/education-technology/open-resources-are-not-neutral": {
+    "t": "开放资源不是中立",
+    "e": "UNESCO 在 2012 年巴黎宣言之后，把开放教育资源写成可复制、可改编、可再分享的教学材料。戴维·威利等人用5R描述这种自由。许可是法律技术。材料仍有作者、语言、平台和看不见的劳动。免费…",
+    "d": "education"
+  },
+  "/education/education-technology/teacher-labor-and-platforms": {
+    "t": "教师劳动与平台",
+    "e": "2020 年春季，许多学校在几天内把教学搬到视频会议和作业平台。搬迁首先是劳动重组：教师要同时当主播、技术支持、出勤统计员和家庭联络人。联合国教科文组织与各国教育部随后发布的，是关闭规模与远程…",
+    "d": "education"
+  },
+  "/education/education-technology/what-edtech-records": {
+    "t": "教育技术记录了什么",
+    "e": "一家学校启用学习管理系统之后，学生的到场、提交、点击、停留和讨论区发言，会变成可检索的日志。日志首先是运维产物：用来发通知、收作业、防丢失。它同时是一种新的学校档案。谁有权看、看多久、能否导出…",
+    "d": "education"
+  },
+  "/education/frontier/ai-act-and-education-inference": {
+    "t": "欧盟 AI 法案把哪些教育推断写成高风险",
+    "e": "2024 年，欧盟公布第 2024/1689 号条例，即所谓人工智能法案。附件三第 3 点把教育与职业培训里的若干用途写成高风险：决定录取或分派；评价学习结果并引导学习过程；评估某人适宜的教育…",
+    "d": "education"
+  },
+  "/education/frontier/covid-learning-loss-is-not-one-curve": {
+    "t": "疫情学习损失不是一条曲线",
+    "e": "2022 年 6 月 23 日，世界银行与教科文组织、儿童基金会等机构发布《全球学习贫困状况：2022 年更新》。新闻稿把一句已经很难听的话再推进一步：在中低收入国家，十岁儿童中约 70% 无…",
+    "d": "education"
+  },
+  "/education/frontier/generative-assessment-after-2022": {
+    "t": "生成式模型之后评估还在测什么",
+    "e": "2023 年 9 月 7 日，联合国教科文组织发布《教育与研究中的生成式人工智能指南》。它不是一份课堂提示词手册。它把问题写成：公开可用的生成式工具迭代速度快过大多数国家的监管，学校几乎还没有…",
+    "d": "education"
+  },
+  "/education/frontier/science-of-reading-statutes": {
+    "t": "「阅读科学」立法改的是什么",
+    "e": "2024 年 1 月，美国国家教师质量委员会发布《各州状况：五项政策行动，以加强阅读科学的实施》。报告起句很硬：2013 年至 2023 年 7 月，有 32 个州通过了与基于证据的阅读教学相…",
+    "d": "education"
+  },
+  "/education/learning-foundations/early-childhood-is-an-institution": {
+    "t": "学前是一种制度",
+    "e": "1962 年，密歇根伊普西兰蒂的佩里学前项目招收一批贫困家庭的三至四岁儿童，提供有课程的日间教育，并做长期追踪。随机规则、家访与被重估的回报率见 佩里学前研究。后来的报告写到成年后的教育与收入…",
+    "d": "education"
+  },
+  "/education/learning-foundations/homework-allocates-family-time": {
+    "t": "作业分配的是家庭时间",
+    "e": "1989 年前后，哈里斯·库珀开始系统综述家庭作业与成绩的关系。效应随年级变化，方法争议很大，而且几乎总是把“作业”当成同一种东西。现场里的作业却差得很远：有的是十分钟提取，有的是需要家长代劳…",
+    "d": "education"
+  },
+  "/education/learning-foundations/perry-preschool-study": {
+    "t": "佩里学前：123 名儿童被随机之后，成年表上还剩什么",
+    "e": "1962 至 1967 年，戴维·韦卡特与同事在密歇根州伊普西兰蒂的佩里小学，为被认为有学业失败风险的非裔美国幼儿开办学前班。样本 123 人：58 人进入项目组，65 人进入无项目对照组。项…",
+    "d": "education"
+  },
+  "/education/learning-foundations/school-is-an-institution": {
+    "t": "学校是一种制度",
+    "e": "1900 年前后，许多工业国家把“儿童白天应在何处”写成法律，而不再只写成家庭习惯。法国第三共和国的费里法在 1880 年代初把初等教育推向义务、免费与世俗；中国《义务教育法》在 1986 年…",
+    "d": "education"
+  },
+  "/education/learning-foundations/teacher-education-is-preparation": {
+    "t": "教师教育是专业准备",
+    "e": "1975 年，丹·洛蒂出版《学校教师》。他写美国教师如何在自己当学生的一万小时里，通过观察学徒制学会“教学看起来像什么”。那不是专业准备，是被观察过的表演。后来进入师范或大学课堂，许多新手仍用…",
+    "d": "education"
+  },
+  "/education/learning-foundations/teaching-is-not-pouring": {
+    "t": "教学不是灌输",
+    "e": "1970 年，保罗·弗莱雷在《被压迫者教育学》里写下银行储蓄式教育：教师存款，学生账户。讲解被当成把现成语句存进别人脑子里的手续，提问只为核对是否到账。弗莱雷写的是巴西识字实践里的权力关系，不…",
+    "d": "education"
+  },
+  "/education/learning-foundations/what-is-learning": {
+    "t": "什么是学习",
+    "e": "1898 年，哥伦比亚大学的爱德华·桑代克把一只饿猫放进迷笼。笼外有鱼，笼内有可被踩下的踏板。猫先抓、咬、挤，偶然踩中踏板，门开了。重复多次之后，无效动作变少，踩板变快。桑代克把这写成效果律：…",
+    "d": "education"
+  }
+}

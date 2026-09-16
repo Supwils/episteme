@@ -144,6 +144,11 @@
     "e": "2004 年，谷歌工程师杰弗里·迪恩（Jeffrey Dean）和桑贾伊·格马瓦特（Sanjay Ghemawat）发表了《MapReduce：大型集群上的简化数据处理》。这篇论文描述了 Go…",
     "d": "computer-science"
   },
+  "/computer-science/algorithms/matching-algorithms": {
+    "t": "匹配算法",
+    "e": "1965 年，杰克·埃德蒙兹（Jack Edmonds）发表《Paths, Trees, and Flowers》。论文要解决的是一般图上的最大基数匹配：任意一对顶点最多共用一条边，怎样选出尽…",
+    "d": "computer-science"
+  },
   "/computer-science/algorithms/minimum-spanning-tree": {
     "t": "最小生成树",
     "e": "1926 年，捷克数学家奥塔卡尔·博鲁夫卡（Otakar Borůvka）受摩拉维亚电力公司委托，研究如何用最少的电线把全国所有城镇连接成电网。他发表了第一个求解最小生成树的算法——比 Kru…",
@@ -167,6 +172,11 @@
   "/computer-science/algorithms/pagerank": {
     "t": "PageRank 算法",
     "e": "1998 年，斯坦福大学的两位博士生 Larry Page 和 Sergey Brin 在论文\"The Anatomy of a Large-Scale Hypertextual Web Se…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/parallel-algorithms": {
+    "t": "并行算法",
+    "e": "1974 年，理查德·布伦特（Richard Brent）把「有多少台处理器」和「依赖链有多长」写成一条至今仍在用的不等式。设一个计算的工作量（所有操作之和）为 W，跨度（最长依赖链，也称关键…",
     "d": "computer-science"
   },
   "/computer-science/algorithms/principal-component-analysis": {
@@ -206,7 +216,7 @@
   },
   "/computer-science/algorithms/sat-solving": {
     "t": "SAT 求解",
-    "e": "1971 年，斯蒂芬·库克（Stephen Cook）证明了布尔可满足性问题（SAT）是 NP 完全的——这是计算机科学最重要的定理之一，为整个 NP 完全理论奠定了基础（库克因此获得 198…",
+    "e": "1971 年，斯蒂芬·库克（Stephen Cook）证明了布尔可满足性问题（SAT）是 NP 完全的——对象见 Cook 1971。这是计算机科学最重要的定理之一，为整个 NP 完全理论奠定…",
     "d": "computer-science"
   },
   "/computer-science/algorithms/segment-trees": {
@@ -232,6 +242,11 @@
   "/computer-science/algorithms/sorting-algorithms": {
     "t": "排序算法",
     "e": "把一列数字从小到大排好，看起来是个简单到无聊的问题。但排序是计算机科学里被研究最深、影响最广的问题之一。操作系统调度任务、数据库查找记录、搜索引擎返回结果、基因组学处理 DNA 序列——背后几…",
+    "d": "computer-science"
+  },
+  "/computer-science/algorithms/streaming-algorithms": {
+    "t": "流算法与草图",
+    "e": "路由器每秒转发的包数以千万计，日志不能全存。你仍想知道：有多少不同的源地址？哪个流最热？二次频率矩是否在飙升？",
     "d": "computer-science"
   },
   "/computer-science/algorithms/string-matching": {
@@ -299,6 +314,11 @@
     "e": "2006 年，亚马逊先后发布了两个不起眼的服务：3 月推出 S3（简单存储服务），8 月推出 EC2（弹性计算云）。定价是：存储每 GB 每月 0.15 美元，计算每小时 0.10 美元。",
     "d": "computer-science"
   },
+  "/computer-science/concepts/codd-1970-relational": {
+    "t": "Codd 1970：关系怎样把大型共享数据库从访问路径里解放出来",
+    "e": "1970 年 6 月，国际商业机器公司圣何塞研究实验室（IBM Research Laboratory, San Jose）的埃德加·科德（Edgar F. Codd）在 Communicat…",
+    "d": "computer-science"
+  },
   "/computer-science/concepts/compilers": {
     "t": "编译器",
     "e": "1957 年，约翰·巴克斯（John Backus）领导的 IBM 团队发布了第一个 FORTRAN 编译器，把人类用代数公式写的代码翻译成 IBM 704 的机器指令。当时许多程序员不相信这…",
@@ -342,6 +362,11 @@
   "/computer-science/concepts/cpu-pipelining": {
     "t": "CPU 流水线",
     "e": "想象一个汽车组装工厂，有一百道工序。最简单的方式是：一辆车从头到尾完成所有工序后，再开始下一辆。如果每道工序需要 1 分钟，完成一辆车需要 100 分钟，每小时生产 0.6 辆。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/crdts": {
+    "t": "无冲突复制数据类型",
+    "e": "2011 年，马克·夏皮罗（Marc Shapiro）、努诺·普雷吉萨（Nuno Preguiça）、卡洛斯·巴克罗（Carlos Baquero）与马雷克·扎维尔斯基（Marek Zawir…",
     "d": "computer-science"
   },
   "/computer-science/concepts/data-structures": {
@@ -404,6 +429,11 @@
     "e": "1988 年 11 月 2 日，莫里斯蠕虫（Morris Worm）——历史上第一个大规模传播的互联网蠕虫——在数小时内感染了约 6000 台互联网主机（当时互联网上约 60000 台计算机，…",
     "d": "computer-science"
   },
+  "/computer-science/concepts/floating-point-and-ieee754": {
+    "t": "浮点数与 IEEE 754",
+    "e": "1985 年，IEEE 公布 754 浮点标准时，业界还在用互不兼容的格式：同一段 Fortran 在不同机器上会对同一个中间值给出不同的舍入。",
+    "d": "computer-science"
+  },
   "/computer-science/concepts/formal-methods-and-verification": {
     "t": "形式化方法与程序验证",
     "e": "1996 年 6 月 4 日，阿丽亚娜 5 号首飞在点火序列开始约 40 秒后解体。调查委员会追溯出一条比\"整数溢出\"更完整的失效链：惯性基准系统仍在执行一段升空后已无必要的对准软件；阿丽亚娜…",
@@ -447,6 +477,11 @@
   "/computer-science/concepts/machine-learning-overview": {
     "t": "机器学习概览",
     "e": "1959 年，IBM 工程师 Arthur Samuel 发表了论文《Some Studies in Machine Learning Using the Game of Checkers》—…",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/memory-consistency-models": {
+    "t": "内存一致性模型",
+    "e": "1979 年，莱斯利·兰波特（Leslie Lamport）给多处理器写下一句听起来像常识的话：若每个处理器按程序顺序执行，系统的总体行为应像这些操作排成某一全局序列，且该序列符合每台处理器的…",
     "d": "computer-science"
   },
   "/computer-science/concepts/memory-hierarchy-caching": {
@@ -554,6 +589,11 @@
     "e": "1962 年 7 月 22 日，水手 1 号（Mariner 1）的 Atlas-Agena 火箭偏离航向，地面安全官在发射后 294.5 秒发出自毁指令。NASA 的任务史把失败归因于两个共…",
     "d": "computer-science"
   },
+  "/computer-science/concepts/speculative-execution-and-side-channels": {
+    "t": "投机执行与侧信道",
+    "e": "2018 年 1 月，两个被提前披露的微架构问题同时进入公众视野。一组工作被命名为 Spectre（幽灵），另一组被命名为 Meltdown（熔断）。它们不是某一种病毒，也不是某条具体指令的「…",
+    "d": "computer-science"
+  },
   "/computer-science/concepts/tcp-and-reliable-transport": {
     "t": "TCP 与可靠传输",
     "e": "1986 年秋，互联网发生了所谓的\"拥塞崩溃\"：ARPANET 的吞吐量骤降至峰值的 0.1%。流量挤满了网络，但几乎没有有用的数据成功到达。这不是硬件故障，而是协议设计的缺陷——当时的 TC…",
@@ -589,6 +629,11 @@
     "e": "2005 年 10 月，一个 19 岁的 Myspace 用户 Samy Kamkar 发现他无法在自己的个人页面里加 CSS 样式——网站过滤掉了大多数 HTML 标签。他花了几天时间找漏洞…",
     "d": "computer-science"
   },
+  "/computer-science/concepts/webassembly": {
+    "t": "WebAssembly",
+    "e": "2015 年，浏览器厂商把一份新的「可移植字节码」放进公开设计：它不是把 Java 虚拟机再搬进页面，而是给 C、C++、Rust 一条低层、可验证、接近机器的目标。2017 年 3 月，Ch…",
+    "d": "computer-science"
+  },
   "/computer-science/frontier/ai-for-science": {
     "t": "AI 驱动的科学发现：从蛋白质到天气再到数学",
     "e": "2024 年 10 月，诺贝尔化学奖一半授予 David Baker，另一半授予 Demis Hassabis 与 John Jumper——表彰计算蛋白质设计与蛋白质结构预测。一个本质上是机…",
@@ -599,14 +644,34 @@
     "e": "2021 年，OpenAI 研究者在 CLIP 中观察到一个“蜘蛛侠神经元”：蜘蛛图像、单词 spider 的图像和蜘蛛侠角色都会激活它。这说明模型内部可能出现跨文字、符号和视觉形式的抽象响应…",
     "d": "computer-science"
   },
+  "/computer-science/frontier/cluster-training-systems": {
+    "t": "集群训练系统：把模型铺到一千张卡上",
+    "e": "Meta 在 Llama 3 405B 的预训练里动用 16,384 张 H100，论文给出的总算力约为 3.8\\times 10^{25} FLOPs。同一份材料里有一张更刺眼的表：在 54…",
+    "d": "computer-science"
+  },
   "/computer-science/frontier/confidential-computing-and-tees": {
     "t": "机密计算：把信任从运维手里收回硬件",
     "e": "云计算有一个从第一天起就存在、却长期被默认接受的漏洞：你的数据在云上是加密的——除了它正在被使用的时候。",
     "d": "computer-science"
   },
+  "/computer-science/frontier/diffusion-models": {
+    "t": "扩散模型：从噪声里长出分布",
+    "e": "2020 年，Ho、Jain 与 Abbeel 的 DDPM 把一条看起来像物理的程序——把图像一步步加噪直到变成高斯，再学着把它一步步去噪——做成了能在 CIFAR-10 上打出 FID 3…",
+    "d": "computer-science"
+  },
+  "/computer-science/frontier/ebpf-verifier": {
+    "t": "eBPF 验证器：把内核扩展变成可判定问题",
+    "e": "Linux 把曾经只能写在内核模块里的观测、网络与安全逻辑，部分开放成 eBPF 程序：一段受限制的字节码，在内核里 JIT 后挂钩点运行。没有验证器，这就只是又一种内核模块。有了验证器，它试…",
+    "d": "computer-science"
+  },
   "/computer-science/frontier/formal-verification": {
     "t": "形式化验证与程序合成",
     "e": "2023 年 11 月，菲尔兹奖得主陶哲轩（Terence Tao）和合作者 Timothy Gowers、Ben Green、Freddie Manners 共同宣布证明了多项式 Freim…",
+    "d": "computer-science"
+  },
+  "/computer-science/frontier/fully-homomorphic-encryption": {
+    "t": "全同态加密：在密文上计算",
+    "e": "2009 年，Craig Gentry 在斯坦福的博士论文里第一次给出了全同态加密（Fully Homomorphic Encryption, FHE）的可行构造：不解密，也能对密文做任意计算…",
     "d": "computer-science"
   },
   "/computer-science/frontier/inference-time-compute-and-reasoning": {
@@ -617,6 +682,16 @@
   "/computer-science/frontier/large-language-models": {
     "t": "大语言模型与基础模型",
     "e": "2022 年 11 月 30 日，OpenAI 把一个叫 ChatGPT 的系统悄悄放到了互联网上。没有发布会，没有大型广告。五天后，它有了 100 万用户；两个月后，1 亿用户。这是消费级应…",
+    "d": "computer-science"
+  },
+  "/computer-science/frontier/mixture-of-experts": {
+    "t": "混合专家：稀疏激活的大模型",
+    "e": "2023 年 12 月，Mistral AI 放出 Mixtral 8×7B 的开放权重：总参数约 467 亿，但每个 token 只激活约 129 亿。它在多数公开基准上匹配或超过 Llam…",
+    "d": "computer-science"
+  },
+  "/computer-science/frontier/neural-program-synthesis": {
+    "t": "神经程序综合：从规约到代码的开放问题",
+    "e": "形式化验证那一篇讲的是 CompCert、seL4、Lean 与「证明对象如何被机器检查」。本篇不重复那条链。2020 年代另有一条已经进入生产的路径：用神经网络从自然语言、输入输出例子或残缺…",
     "d": "computer-science"
   },
   "/computer-science/frontier/neuromorphic-and-beyond-cmos-computing": {
@@ -664,6 +739,11 @@
     "e": "在计算机这台机器被造出来之前十几年，一个 24 岁的剑桥研究生先在纸上把它想了出来。1936 年，艾伦·图灵为了回答一个纯逻辑问题，发明了一个假想的机器——后来人们叫它\"图灵机\"。这台纸上的机…",
     "d": "computer-science"
   },
+  "/computer-science/pioneers/andrew-yao": {
+    "t": "姚期智",
+    "e": "1979 年，姚期智（Andrew Chi-Chih Yao，1946 年 12 月 24 日生于上海）问了一个看起来不像复杂性的问题：爱丽丝拿着 x，鲍勃拿着 y，两人算力无限，只计他们之间…",
+    "d": "computer-science"
+  },
   "/computer-science/pioneers/barbara-liskov": {
     "t": "芭芭拉·利斯科夫",
     "e": "1968 年，芭芭拉·利斯科夫（Barbara Liskov）从斯坦福大学计算机科学系获得博士学位——她是美国最早从计算机科学系拿到博士学位的女性之一（更早的玛丽·肯尼斯·凯勒 Mary Ke…",
@@ -679,6 +759,11 @@
     "e": "\"C++ 是被设计成语言特性不断相互作用，形成远超各个部分之和的整体。\"",
     "d": "computer-science"
   },
+  "/computer-science/pioneers/butler-lampson": {
+    "t": "巴特勒·兰普森",
+    "e": "1992 年图灵奖颁给巴特勒·兰普森（Butler W. Lampson），表彰的不是单一算法，而是在 SDS 940、Alto、以太网、激光打印、分时与后来的微软研究里反复出现的一种能力：把…",
+    "d": "computer-science"
+  },
   "/computer-science/pioneers/charles-babbage": {
     "t": "查尔斯·巴贝奇",
     "e": "1833 年，一个机器的图纸被铺在伦敦一间工作室的桌上。设计者用了将近十年时间构思这台装置，它有齿轮、凸轮和穿孔卡片，能够执行任意的数学运算——读取指令，分支判断，循环执行。设计者叫查尔斯·巴…",
@@ -687,6 +772,11 @@
   "/computer-science/pioneers/claude-shannon": {
     "t": "克劳德·香农",
     "e": "1948 年，《贝尔系统技术期刊》分两期（7 月与 10 月）刊发了一篇合计约五十页的长文，题目平淡无奇：《通信的数学理论》。克劳德·香农（Claude Shannon）在这篇文章里做了一件看…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/cynthia-dwork": {
+    "t": "辛西娅·德沃克",
+    "e": "2006 年，辛西娅·德沃克（Cynthia Dwork，1958 年 6 月 27 日生）与弗兰克·麦克谢里、科比·尼西姆、亚当·史密斯把一条不等式写进 TCC：机制在只相差一条记录的两个数…",
     "d": "computer-science"
   },
   "/computer-science/pioneers/dennis-ritchie": {
@@ -712,6 +802,11 @@
   "/computer-science/pioneers/edsger-dijkstra": {
     "t": "艾兹格·迪科斯彻",
     "e": "1968 年，《ACM 通讯》刊发了一封只有三段话的短信，标题是《Go To 语句被认为是有害的》（Go To Statement Considered Harmful）。发信人是荷兰计算机科…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/fei-fei-li": {
+    "t": "李飞飞",
+    "e": "2009 年，李飞飞与邓嘉、董伟、Richard Socher 等人在 CVPR 发表 ImageNet：按 WordNet 同义词集组织、当时约 320 万张标注图像的层次数据库。2010 …",
     "d": "computer-science"
   },
   "/computer-science/pioneers/frances-allen": {
@@ -754,6 +849,11 @@
     "e": "1945 年夏，一份未经正式发表、只是在研究人员之间传阅的打字稿，重新定义了计算机应该是什么样子。这份由约翰·冯·诺伊曼（John von Neumann）执笔的《EDVAC 报告初稿》，把指…",
     "d": "computer-science"
   },
+  "/computer-science/pioneers/judea-pearl": {
+    "t": "朱迪亚·珀尔",
+    "e": "1980 年代中期，人工智能的主流产品是规则库：若症状清单匹配，则推出病名，再给一条「确定性因子」。朱迪亚·珀尔（Judea Pearl，1936 年 9 月 4 日生于特拉维夫）认为这条路在…",
+    "d": "computer-science"
+  },
   "/computer-science/pioneers/ken-thompson": {
     "t": "肯·汤普森",
     "e": "1969 年的一个夏天，肯·汤普森（Ken Thompson）的妻子和儿子去加利福尼亚度假，给他留下了三个星期的独处时光。他用这三周，在贝尔实验室一台被废弃的 PDP-7 小型机上，写出了一个…",
@@ -784,6 +884,21 @@
     "e": "1956 年夏天，在达特茅斯学院的一次研讨会上，一群数学家和工程师聚集在一起，讨论一个听起来疯狂的想法：机器能否模拟人类智能？ 这次会议被认为是人工智能作为一个学科正式诞生的时刻。马文·明斯基…",
     "d": "computer-science"
   },
+  "/computer-science/pioneers/michael-stonebraker": {
+    "t": "迈克尔·斯通布雷克",
+    "e": "1970 年代中期，伯克利的 INGRES 与 IBM 的 System R 几乎同时证明：埃德加·科德 的关系模型可以被做成能跑查询的系统。迈克尔·斯通布雷克（Michael Stonebr…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/patterson-and-hennessy": {
+    "t": "大卫·帕特森与约翰·亨尼西",
+    "e": "1980 年前后，伯克利的大卫·帕特森（David Patterson）与斯坦福的约翰·亨尼西（John Hennessy）几乎同时把指令集往窄处推：只保留能被流水线快速执行的简单操作，把复杂…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/radia-perlman": {
+    "t": "拉迪亚·珀尔曼",
+    "e": "1985 年，拉迪亚·珀尔曼（Radia Perlman）给扩展局域网里的网桥写了一份分布式算法：选出根桥，计算到根的最短路径，阻塞多余端口，让有环的网状连线在逻辑上变成一棵树。没有这棵树，广…",
+    "d": "computer-science"
+  },
   "/computer-science/pioneers/richard-stallman": {
     "t": "理查德·斯托曼",
     "e": "1983 年 9 月 27 日，MIT 人工智能实验室的一台打印机引发了一场运动。理查德·斯托曼（Richard Matthew Stallman，缩写 RMS）想修改一台 Xerox 激光打…",
@@ -797,6 +912,16 @@
   "/computer-science/pioneers/ron-rivest": {
     "t": "罗纳德·里维斯特",
     "e": "1977 年 8 月，《科学美国人》（Scientific American）专栏作家 Martin Gardner 在其\"数学游戏\"专栏里刊登了一道挑战题：破解一段用新密码加密的信息，奖励 …",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/shafi-goldwasser": {
+    "t": "沙菲·戈德瓦塞尔",
+    "e": "1982 年的 STOC 上，两名伯克利研究生把「加密」从一种打乱字母的手艺，改写成一场游戏。沙菲·戈德瓦塞尔（Shafrira Goldwasser，1958 年生于纽约）与西尔维奥·米卡利…",
+    "d": "computer-science"
+  },
+  "/computer-science/pioneers/stephen-cook": {
+    "t": "斯蒂芬·库克",
+    "e": "1971 年 5 月，俄亥俄州谢克海茨（Shaker Heights）的计算理论年会（STOC）上，多伦多大学一位刚满三十岁的教授宣读了一篇标题朴素的短文：《定理证明程序的复杂性》（The C…",
     "d": "computer-science"
   },
   "/computer-science/pioneers/steve-wozniak": {
@@ -829,9 +954,24 @@
     "e": "2003 年，约书亚·本希奥（Yoshua Bengio）与合作者发表了一篇论文《神经概率语言模型》（A Neural Probabilistic Language Model）。这篇论文引入…",
     "d": "computer-science"
   },
+  "/computer-science/systems/bigtable-2006": {
+    "t": "Bigtable：稀疏表、Tablet 与时间戳单元",
+    "e": "2006 年 11 月，OSDI 在西雅图开会。Fay Chang、杰弗里·迪恩（Jeffrey Dean）、桑贾伊·格马瓦特（Sanjay Ghemawat）、Wilson C. Hsieh…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/birman-1985-virtual-synchrony": {
+    "t": "ISIS 1985：进程组、flush 与虚拟同步，不是又一份 ZooKeeper",
+    "e": "1985 年 12 月，康奈尔大学的肯尼斯·伯曼（Kenneth P. Birman）在第十届 ACM SOSP 上交出八页论文，会议录页码 79 至 86，DOI 10.1145/32362…",
+    "d": "computer-science"
+  },
   "/computer-science/systems/build-systems-bazel": {
     "t": "构建系统：从 Make 到可复现构建",
     "e": "一个几乎所有程序员都干过的动作：改了代码，make，跑起来行为没变，怀疑人生半小时，最后敲了 make clean && make，一切正常。",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/chord-2001": {
+    "t": "Chord：标识符环上的查找，不是中心目录",
+    "e": "2001 年 8 月，SIGCOMM 在圣地亚哥开会。Ion Stoica、罗伯特·莫里斯（Robert Morris）、大卫·卡格（David Karger）、M. Frans Kaasho…",
     "d": "computer-science"
   },
   "/computer-science/systems/chromium-site-isolation": {
@@ -839,9 +979,29 @@
     "e": "在 Chrome 里按 Shift+Esc 打开自带的任务管理器，然后只开一个标签页去看一个普通的新闻网站。你大概率会看到不止一行：主文档一行，广告位的 iframe 一行，社交分享按钮的 i…",
     "d": "computer-science"
   },
+  "/computer-science/systems/chubby-2006": {
+    "t": "Chubby：松耦合系统上的锁服务，不是又一套数据库",
+    "e": "2006 年，OSDI 上 Mike Burrows 交出的不是又一套能扛吞吐的存储，而是 Google 已经跑了一年多的粗粒度锁服务。接口看起来像一套很小的文件系统：目录、整文件读写、劝告式…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/cpython-gil": {
+    "t": "CPython 的 GIL",
+    "e": "CPython 的全局解释器锁（GIL）是一把进程里的互斥锁：同一时刻只允许一个线程执行 Python 字节码。它不是语言标准的一部分。PyPy、Jython、IronPython 各自用过不…",
+    "d": "computer-science"
+  },
   "/computer-science/systems/curl-and-maintainer-burden": {
     "t": "curl：一个人维护的全球基础设施",
     "e": "手边任何一台联网设备，多半正在用 curl 说话。手机应用拉一张图、机顶盒检查固件更新、车机后台下载地图、打印机去查耗材余量、游戏主机同步存档——这些请求里有相当一部分不是应用自己写的网络代码…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/demers-1987-epidemic": {
+    "t": "Demers 1987：谣言与反熵怎样维护副本，不是 Dynamo",
+    "e": "1987 年 8 月，第六届 ACM PODC 在温哥华开会。艾伦·德默斯（Alan Demers）、丹·格林（Dan Greene）、卡尔·豪泽（Carl Hauser）、韦斯·艾里什（We…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/dynamo-eventually-consistent": {
+    "t": "Dynamo：最终一致的键值存储",
+    "e": "2004 年到 2007 年，亚马逊的购物车不能停。一次“加入购物车”若因为某台存储节点宕机而失败，页面上就是真金白银的放弃。Giuseppe DeCandia 一队人要的不是全局事务，而是一…",
     "d": "computer-science"
   },
   "/computer-science/systems/envoy-service-mesh": {
@@ -854,9 +1014,34 @@
     "e": "Raft 论文只有十六页。读完之后你会有种错觉：这东西我能实现。选举、日志复制、安全性约束，每一条都写得清清楚楚，伪代码就在图 2 里。",
     "d": "computer-science"
   },
+  "/computer-science/systems/firecracker-microvm": {
+    "t": "Firecracker：微型虚拟机",
+    "e": "AWS Lambda 的计费粒度是毫秒，租户是陌生人。容器共享宿主机内核，启动快，边界宽；传统虚拟机边界窄，启动却要拖着一整套模拟设备。2018 年开源、2020 年 NSDI 成文的 Fir…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/gfs-2003": {
+    "t": "GFS：单主节点、大块与可忍受的不一致",
+    "e": "2003 年 10 月，SOSP 在纽约州博尔顿兰丁开会。桑贾伊·格马瓦特（Sanjay Ghemawat）、Howard Gobioff 和 Shun-Tak Leung 交出的不是又一套 …",
+    "d": "computer-science"
+  },
   "/computer-science/systems/git-object-model": {
     "t": "Git 的对象模型：为什么分支是廉价的",
     "e": "在一个二十年历史、上百万次提交的仓库里敲 git branch feature-x，回车之后光标立刻就回来了。同一台机器上复制一份工作目录要等几十秒，而 Git 建分支的耗时与仓库大小完全无关…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/hnsw-ann-index": {
+    "t": "HNSW 与向量近邻：当距离代替关键词",
+    "e": "倒排索引回答的是“哪些文档含有这些词”。向量索引回答的是另一句：给定一个高维点，谁在几何上离它最近。推荐、以图搜图、以及把句子编成嵌入再检索，都把问题收成近似 k 近邻（ANN）。精确扫一遍全…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/hotspot-jvm": {
+    "t": "JVM：字节码、JIT 与垃圾回收",
+    "e": "HotSpot 这个名字来自一个经验判断：程序里真正值钱的是一小撮反复执行的热点，而不是每一字节码都值得同等待遇。它的前身是 Animorphic 的 Strongtalk，血统接到 Self…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/kademlia-2002": {
+    "t": "Kademlia：XOR 距离上的 k-bucket，不是环上的手指",
+    "e": "2002 年 3 月，第一届 IPTPS 在麻省剑桥开会。纽约大学的彼得·迈蒙科夫（Petar Maymounkov）和大卫·马齐埃尔（David Mazières）交出的不是又一套文件共享产…",
     "d": "computer-science"
   },
   "/computer-science/systems/kafka-log-abstraction": {
@@ -889,6 +1074,11 @@
     "e": "一个装了两千万篇文档的系统，你输入\"量子纠缠\"，两百毫秒之内屏幕上出现十条结果，还按相关度排好了序。",
     "d": "computer-science"
   },
+  "/computer-science/systems/neo4j-property-graph": {
+    "t": "Neo4j 属性图：当邻居指针取代 JOIN",
+    "e": "把好友关系、供应链、分子键画成圆点和箭头，几乎人人都会。把这张图画进数据库，很多人的第一反应却是：再加一张关联表，用 JOIN 把两边拼回去。这条路能走通，也把图查询最贵的那一步藏进了优化器：…",
+    "d": "computer-science"
+  },
   "/computer-science/systems/nginx-event-driven": {
     "t": "Nginx 的事件驱动架构：一个进程如何扛住十万连接",
     "e": "2002 年，Igor Sysoev 在俄罗斯门户站点 Rambler 做系统管理。他遇到的不是\"服务器慢\"，而是一个更硬的墙：Apache 的连接数一旦爬到几千，机器就开始换页、卡顿、拒绝服…",
@@ -897,6 +1087,11 @@
   "/computer-science/systems/object-storage-s3": {
     "t": "对象存储：S3 如何改变了存储的形状",
     "e": "2006 年 3 月 14 日，Amazon 上线了一个只有四个主要动词的存储服务：PUT、GET、DELETE、LIST。定价是每 GB 每月 0.15 美元，外加每 GB 传出 0.20 …",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/pastry-2001": {
+    "t": "Pastry：前缀表、叶集与邻近集，不是环上的手指",
+    "e": "2001 年 11 月，IFIP/ACM Middleware 在海德堡开会。微软剑桥研究院的安东尼·罗斯特龙（Antony Rowstron）和莱斯大学的彼得·德鲁舍尔（Peter Drus…",
     "d": "computer-science"
   },
   "/computer-science/systems/postgresql-mvcc": {
@@ -909,9 +1104,19 @@
     "e": "2012 年 11 月 24 日，Prometheus 仓库收到第一个公开提交。写下它的 Matt T. Proud 和 Julius Volz 刚刚离开 Google 加入 SoundClo…",
     "d": "computer-science"
   },
+  "/computer-science/systems/pytorch-autograd": {
+    "t": "PyTorch：动态图与自动微分",
+    "e": "2017 年的 NeurIPS 自动微分研讨会上，Adam Paszke、Sam Gross、Soumith Chintala 等人把 PyTorch 的核心机制写成一篇短文：前向计算一边跑，…",
+    "d": "computer-science"
+  },
   "/computer-science/systems/quic-http3": {
     "t": "QUIC：把传输层搬进用户态",
     "e": "一个网页有 80 个资源要下载。HTTP/2 说：不用开 6 条连接了，一条就够，80 个请求在同一条 TCP 连接上并行跑，互不阻塞。",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/ratnasamy-2001-can": {
+    "t": "CAN：笛卡尔分区与贪心转发，状态不随规模涨",
+    "e": "2001 年 8 月，SIGCOMM 在圣地亚哥开会。西尔维娅·拉特纳萨米（Sylvia Ratnasamy）、保罗·弗朗西斯（Paul Francis）、马克·汉德利（Mark Handle…",
     "d": "computer-science"
   },
   "/computer-science/systems/redis-single-threaded": {
@@ -924,9 +1129,34 @@
     "e": "C 语言里有一类 bug，它的特征是出错的位置和崩溃的位置没有关系。你在某处 free(p)，程序继续跑了两毫秒、经过了三十个函数，某个完全无辜的地方读到一块已经被别人重新分配走的内存，返回一…",
     "d": "computer-science"
   },
+  "/computer-science/systems/schneider-1990-smr": {
+    "t": "Schneider 1990：副本确定性、输出一致与状态机方法，不是又一份 Paxos",
+    "e": "1990 年 12 月，康奈尔大学的弗雷德·B·施奈德（Fred B. Schneider）在 ACM Computing Surveys 第 22 卷第 4 期发表一篇二十一页教程，页码 2…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/sel4-verified-kernel": {
+    "t": "seL4：被证明的微内核",
+    "e": "2009 年 10 月，美国蒙大拿州 Big Sky 的 SOSP 上，Gerwin Klein 一队人把一份听起来过分的结果摆上桌：一个通用微内核的 C 实现，与一份抽象规格之间，存在机器检…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/spanner-truetime": {
+    "t": "Spanner：用时钟换外部一致性",
+    "e": "2012 年 OSDI 上，Google 的 James C. Corbett 一队人描述了一套全球数据库：数据按目录切开放进 Paxos 组，事务跨组用两阶段提交，而时间戳不来自逻辑时钟，来…",
+    "d": "computer-science"
+  },
   "/computer-science/systems/sqlite-internals": {
     "t": "SQLite：世界上部署最广的数据库",
     "e": "你从来没有安装过它，但你身上大概带着几十份它。",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/tapestry-2001": {
+    "t": "Tapestry：邻接表、代理路由与就近副本，不是把对象搬到键上",
+    "e": "2001 年 4 月，加州大学伯克利分校计算机科学部发出技术报告 UCB/CSD-01-1141。本·赵（Ben Y. Zhao）、约翰·库比亚托维茨（John Kubiatowicz）和安东…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/terry-1994-session-guarantees": {
+    "t": "Terry 1994：会话保证怎样把弱一致副本写成客户视角",
+    "e": "1994 年 9 月，第三届 International Conference on Parallel and Distributed Information Systems（PDIS）在奥斯…",
     "d": "computer-science"
   },
   "/computer-science/systems/tls-certificate-ecosystem": {
@@ -939,6 +1169,16 @@
     "e": "在 C 里写 p->x，编译出来是一条指令：从 p 指的地址往后数固定的字节数，取值。偏移量是编译期算好的常数，因为结构体的布局写在类型里，类型在编译期就定死了。",
     "d": "computer-science"
   },
+  "/computer-science/systems/viewstamped-replication-1988": {
+    "t": "Viewstamped Replication：视图、主副本与盖章请求，不是又一份 Paxos",
+    "e": "1988 年，麻省理工学院计算机科学实验室的布莱恩·奥基（Brian M. Oki）与芭芭拉·利斯科夫（Barbara H. Liskov）在第七届 ACM PODC 上交出一篇十页论文，会议…",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/vllm-paged-attention": {
+    "t": "vLLM：把 KV 缓存当成虚拟内存",
+    "e": "2023 年 SOSP 上，加州大学伯克利分校 Sky Computing Lab 的 Woosuk Kwon、Zhuohan Li 与同事描述了 vLLM：一套为大语言模型在线服务设计的内存…",
+    "d": "computer-science"
+  },
   "/computer-science/systems/xz-backdoor-supply-chain": {
     "t": "xz 后门：一次针对开源信任结构的社会工程",
     "e": "2024 年 3 月下旬，微软的 PostgreSQL 开发者安德烈斯·弗罗因德在自己那台 Debian sid 机器上跑数据库基准测试。他注意到一件不该发生的事：ssh 登录变慢了，而且慢在…",
@@ -947,6 +1187,16 @@
   "/computer-science/systems/zfs-copy-on-write": {
     "t": "ZFS：不覆盖写，与端到端校验",
     "e": "有一类故障，比磁盘冒烟难对付得多。",
+    "d": "computer-science"
+  },
+  "/computer-science/systems/zookeeper-2010": {
+    "t": "ZooKeeper：等待自由的协调，不是又一套 Chubby 说明书",
+    "e": "2010 年 6 月，USENIX ATC 上，Yahoo Grid 的 Patrick Hunt、Mahadev Konar 与 Yahoo Research 的 Flavio P. Jun…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/adleman-1978-bpp-ppoly": {
+    "t": "Adleman 1978：可放大的随机性怎样被多项式忠告替换",
+    "e": "1978 年 10 月 16 日至 18 日，第十九届计算机科学基础年会（FOCS）在密歇根州安阿伯举行。会议录页码 75 至 83 刊出伦纳德·阿德尔曼（Leonard M. Adleman…",
     "d": "computer-science"
   },
   "/computer-science/theory/algorithmic-game-theory": {
@@ -959,6 +1209,11 @@
     "e": "假设你证明了一个问题是 NP 难的——比如规划全国快递车队的最优路线。这意味着（如果 P \\neq NP）你永远找不到一个又快又总能给出最优解的算法。",
     "d": "computer-science"
   },
+  "/computer-science/theory/attiya-bar-noy-dolev-1995": {
+    "t": "Attiya–Bar-Noy–Dolev 1995：消息传递上的原子寄存器",
+    "e": "1995 年 1 月，哈吉特·阿蒂亚（Hagit Attiya）、阿莫茨·巴尔-诺伊（Amotz Bar-Noy）与丹尼·多莱夫（Danny Dolev）在 Journal of the AC…",
+    "d": "computer-science"
+  },
   "/computer-science/theory/automata-formal-languages": {
     "t": "自动机与形式语言",
     "e": "任何一门编程语言——Python、C、Haskell——在被计算机\"读懂\"之前，都必须经过一个关键步骤：把源代码字符串解析为结构化的语法树。这个过程依赖的理论，是自动机与形式语言——一套把\"什…",
@@ -969,14 +1224,49 @@
     "e": "NP 完全性说的是最坏情况：某个问题存在难解的实例。但最坏情况的难度对现实几乎没有承诺。 旅行商问题是 NP 完全的，而工业求解器每天处理着数万城市的实例；反过来，密码学需要的恰恰相反——它需…",
     "d": "computer-science"
   },
+  "/computer-science/theory/baker-gill-solovay-1975": {
+    "t": "Baker–Gill–Solovay 1975：相对化怎样把对角化挡在 P 对 NP 门外",
+    "e": "1975 年 12 月，《SIAM 计算杂志》（SIAM Journal on Computing）第 4 卷第 4 期刊出西奥多·贝克（Theodore Baker）、约翰·吉尔（John …",
+    "d": "computer-science"
+  },
   "/computer-science/theory/barriers-to-proving-p-vs-np": {
     "t": "为什么 P vs NP 这么难证：三道障碍",
     "e": "大多数关于 P 与 NP 的介绍会告诉你问题是什么、悬赏多少、以及\"大家都相信 P ≠ NP\"。很少有介绍讲这件事：我们不只是没证出来，我们还知道为什么整类看起来最自然的证明方法注定证不出来。",
     "d": "computer-science"
   },
+  "/computer-science/theory/ben-or-1983": {
+    "t": "Ben-Or 1983：抛硬币怎样把异步共识的终止改成几乎必然",
+    "e": "1983 年，迈克尔·本-奥尔（Michael Ben-Or）在 PODC 发表短文《Another Advantage of Free Choice: Completely Asynchro…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/byzantine-generals-lamport-1982": {
+    "t": "拜占庭将军问题",
+    "e": "1982 年 7 月，莱斯利·兰波特、Robert Shostak 与 Marshall Pease 在 ACM Transactions on Programming Languages a…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/castro-liskov-1999-pbft": {
+    "t": "Castro–Liskov 1999：实用拜占庭容错，不是将军寓言",
+    "e": "1999 年 2 月，米格尔·卡斯特罗（Miguel Castro）与 芭芭拉·利斯科夫 在新奥尔良第三届 OSDI 上发表《Practical Byzantine Fault Toleran…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/chandra-toueg-1996": {
+    "t": "Chandra–Toueg 1996：会犯错的怀疑预言怎样成为共识的最弱检测器",
+    "e": "1996 年 4 月，图沙尔·迪帕克·钱德拉（Tushar Deepak Chandra）与萨姆·图埃格（Sam Toueg）在 Journal of the ACM 第 43 卷第 2 期发…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/chandy-lamport-1985-snapshots": {
+    "t": "Chandy–Lamport 1985：标记消息怎样把全局状态收成一致割",
+    "e": "1985 年 2 月，凯·马尼·钱迪（K. Mani Chandy）与 莱斯利·兰波特（Leslie Lamport）在 ACM Transactions on Computer System…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/circuit-complexity": {
+    "t": "电路复杂度",
+    "e": "香农在 1949 年算过一笔让人泄气的账：几乎所有 n 元布尔函数都需要指数规模的电路。绝大多数函数「就是难的」。",
+    "d": "computer-science"
+  },
   "/computer-science/theory/communication-complexity": {
     "t": "通信复杂度",
-    "e": "爱丽丝手里有 x，鲍勃手里有 y，两人都有无限的算力，但要合作算出 f(x,y)。唯一被计量的是他们之间传送的比特数。 姚期智在 1979 年提出这个模型时，目标是分布式计算；它后来的主要用途…",
+    "e": "爱丽丝手里有 x，鲍勃手里有 y，两人都有无限的算力，但要合作算出 f(x,y)。唯一被计量的是他们之间传送的比特数。 姚期智在 1979 年提出这个模型时，对象见 Yao 1979，目标是分…",
     "d": "computer-science"
   },
   "/computer-science/theory/computability": {
@@ -994,9 +1284,29 @@
     "e": "你每次用手机地图导航，都在隐式地使用计算几何。地图应用需要计算：你的位置附近有哪些餐厅（最近邻问题）；沿地图的多边形区域裁剪（多边形裁剪）；两条路是否交叉（线段相交）；如何优化无人机的送货路径…",
     "d": "computer-science"
   },
+  "/computer-science/theory/cook-1971-np-completeness": {
+    "t": "Cook 1971：定理证明手续的复杂度怎样把 SAT 写成 NP 完全",
+    "e": "1971 年 5 月 3 日至 5 日，第三届 ACM 计算理论年会（STOC）在俄亥俄州谢克海茨（Shaker Heights）举行。多伦多大学的斯蒂芬·库克（Stephen A. Cook…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/counting-complexity": {
+    "t": "计数复杂度",
+    "e": "1979 年，莱斯利·瓦利安特（Leslie Valiant）把一张看起来几乎和行列式一样的式子推到了理论计算机科学的中心。积和式（permanent）只是把行列式展开里的正负号全部拿掉。高斯…",
+    "d": "computer-science"
+  },
   "/computer-science/theory/cryptography-foundations": {
     "t": "密码学基础",
     "e": "1976 年，斯坦福大学的两位研究者惠特菲尔德·迪菲（Whitfield Diffie）和马丁·赫尔曼（Martin Hellman）发表了一篇论文，标题听起来平淡无奇：《密码学的新方向》（N…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/differential-privacy": {
+    "t": "差分隐私",
+    "e": "2006 年，辛西娅·德沃克（Cynthia Dwork）、弗兰克·麦克雪莉（Frank McSherry）、科比·尼西姆（Kobbi Nissim）与亚当·史密斯（Adam Smith）在 …",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/dijkstra-1965-mutual-exclusion": {
+    "t": "Dijkstra 1965：互斥怎样在没有仲裁者的共享变量上写成可推理的问题",
+    "e": "1965 年 9 月，艾兹格·威贝·迪科斯彻（Edsger W. Dijkstra）在 Communications of the ACM 第 8 卷第 9 期发表《Solution of a…",
     "d": "computer-science"
   },
   "/computer-science/theory/distributed-computing-theory": {
@@ -1004,14 +1314,99 @@
     "e": "一台计算机出错，你重启它就好了。",
     "d": "computer-science"
   },
+  "/computer-science/theory/dwork-lynch-stockmeyer-1988": {
+    "t": "Dwork–Lynch–Stockmeyer 1988：终将有界的延迟怎样让确定性共识可能",
+    "e": "1988 年 4 月，辛西娅·德沃克（Cynthia Dwork）、南希·林奇（Nancy A. Lynch）与拉里·斯托克迈尔（Larry Stockmeyer）在 Journal of t…",
+    "d": "computer-science"
+  },
   "/computer-science/theory/error-correcting-codes": {
     "t": "纠错码理论",
     "e": "1977 年，旅行者 1 号从地球出发驶向木星和土星。无线电信号穿越数亿公里的真空，抵达接收天线时已经微弱到几乎无法与宇宙背景噪声区分。然而，旅行者传回的木星大气图像是清晰的。1986 年，旅…",
     "d": "computer-science"
   },
+  "/computer-science/theory/fidge-mattern-vector-clocks": {
+    "t": "Fidge–Mattern：分量时间戳怎样把并发从标量编号里认出来",
+    "e": "1988 年，科林·J.·菲奇（Colin J. Fidge）在第 11 届澳大利亚计算机科学会议（University of Queensland）发表《Timestamps in Mess…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/fine-grained-complexity": {
+    "t": "细粒度复杂度",
+    "e": "P ≠ NP 即使被证明，也不会告诉你：编辑距离该不该是 n^2，全源最短路该不该是 n^3，3SUM 该不该是 n^2。这些问题都在 P 里。细粒度复杂度问的是多项式的指数：在一组比 P ≠…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/floyd-1967-assigning-meanings": {
+    "t": "Floyd 1967：归纳断言怎样把程序的意义写在流程图的边上",
+    "e": "1966 年 4 月，美国数学会在纽约召开应用数学讨论会，主题是计算机科学的数学方面。卡内基理工学院（Carnegie Institute of Technology）的罗伯特·弗洛伊德（Ro…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/flp-fischer-lynch-paterson-1985": {
+    "t": "FLP：完全异步下一次崩溃也能挡住确定性共识",
+    "e": "1985 年 4 月，迈克尔·费希尔（Michael J. Fischer）、南希·林奇（Nancy A. Lynch）与迈克尔·帕特森（Michael S. Paterson）在 Journ…",
+    "d": "computer-science"
+  },
   "/computer-science/theory/formal-grammars-chomsky-hierarchy": {
     "t": "形式文法与乔姆斯基谱系",
     "e": "1956 年，一位年轻的语言学家在 IRE《信息论汇刊》上发表了一篇论文：《语言描述的三个模型》（\"Three Models for the Description of Language\"）…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/furst-saxe-sipser-1984": {
+    "t": "Furst–Saxe–Sipser 1984：常数深度电路怎样算不出奇偶性",
+    "e": "1984 年 12 月，《数学系统理论》（Mathematical Systems Theory）第 17 卷刊出梅里克·弗斯特（Merrick Furst）、詹姆斯·B·萨克斯（James …",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/garcia-molina-1982-bully": {
+    "t": "Garcia-Molina 1982：编号更高的进程怎样在超时假设下抢走协调者",
+    "e": "1982 年 1 月，赫克托·加西亚-莫利纳（Hector Garcia-Molina）在 IEEE Transactions on Computers 第 C-31 卷第 1 期发表《Ele…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/gilbert-lynch-2002-cap": {
+    "t": "Gilbert–Lynch 2002：异步网上原子寄存器无法既可用又抗分区",
+    "e": "2002 年 6 月，塞思·吉尔伯特（Seth Gilbert）与南希·林奇（Nancy A. Lynch）在 ACM SIGACT News 第 33 卷第 2 期发表《Brewer's C…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/goldwasser-micali-rackoff-1985": {
+    "t": "Goldwasser–Micali–Rackoff 1985：交互证明系统的知识复杂度怎样把零知识写成定义",
+    "e": "1985 年 5 月 6 日至 8 日，第十七届 ACM 计算理论年会（STOC）在罗德岛普罗维登斯举行。麻省理工学院的沙菲·戈德瓦塞尔（Shafi Goldwasser）、西尔维奥·米卡利（…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/gray-1978-two-phase-commit": {
+    "t": "Gray 1978：两阶段提交怎样把多处改动收成提交或中止",
+    "e": "1978 年，吉姆·格雷（Jim Gray）的长篇讲义《Notes on Data Base Operating Systems》收入鲁道夫·拜耳（Rudolf Bayer）、罗伯特·格雷厄姆…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/hartmanis-stearns-1965": {
+    "t": "Hartmanis–Stearns 1965：算法复杂度怎样被写成时间可构造的层次",
+    "e": "1965 年 5 月，《美国数学会汇刊》（Transactions of the American Mathematical Society）第 117 卷刊出尤里斯·哈特马尼斯（Juris …",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/hastad-1986-small-depth": {
+    "t": "Håstad 1986：切换引理怎样把浅电路收成近乎最优的下界",
+    "e": "1986 年 5 月 28 日至 30 日，第十八届 ACM 计算理论年会（STOC）在加利福尼亚州伯克利举行。约翰·哈斯塔德（Johan Håstad）的《Almost Optimal Lo…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/herlihy-1991-wait-free": {
+    "t": "Herlihy 1991：等待自由怎样按共识数给并发对象分层",
+    "e": "1991 年 1 月，莫里斯·赫利希（Maurice P. Herlihy）在 ACM Transactions on Programming Languages and Systems 第 …",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/herlihy-moss-1993-tm": {
+    "t": "Herlihy–Moss 1993：事务内存怎样用体系结构支持无锁数据结构",
+    "e": "1993 年 5 月，莫里斯·赫利希（Maurice Herlihy）与 J. 艾略特·B. 莫斯（J. Eliot B. Moss）在第 20 届计算机体系结构国际研讨会（ISCA）发表《T…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/herlihy-wing-1990": {
+    "t": "Herlihy–Wing 1990：线性化怎样把并发对象收成合法的顺序历史",
+    "e": "1990 年 7 月，莫里斯·赫利希（Maurice P. Herlihy）与珍妮特·温（Jeannette M. Wing）在 ACM Transactions on Programming…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/hoare-1969-axiomatic": {
+    "t": "Hoare 1969：公理基础怎样把程序正确性写成可推导的三元组",
+    "e": "1969 年 10 月，《美国计算机学会通讯》（Communications of the ACM）第 12 卷第 10 期发表 C. A. R. 霍尔（Charles Antony Rich…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/immerman-szelepcsenyi-1988": {
+    "t": "Immerman–Szelepcsényi 1988：非确定性空间怎样对补运算封闭",
+    "e": "1988 年 10 月，《SIAM 计算杂志》（SIAM Journal on Computing）第 17 卷第 5 期刊出尼尔·伊默尔曼（Neil Immerman）的《Nondeterm…",
     "d": "computer-science"
   },
   "/computer-science/theory/information-theory": {
@@ -1024,9 +1419,29 @@
     "e": "第一次是加入交互与随机：证明不再是一份可以静态检查的文书，而是验证者与证明者之间的一场提问游戏，验证者可以掷硬币，并且只要求\"以极高概率不被骗\"。第二次更反直觉：证明可以让你确信某件事为真，而…",
     "d": "computer-science"
   },
+  "/computer-science/theory/karp-1972-reducibility": {
+    "t": "Karp 1972：组合问题之间的可归约性怎样把二十一个问题写成多项式完全",
+    "e": "1972 年 3 月 20 日至 22 日，国际商用机器公司托马斯·J·沃森研究中心在纽约州约克敦海茨召开「计算机计算的复杂度」讨论会。加州大学伯克利分校的理查德·卡普（Richard M. …",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/karp-lipton-1980": {
+    "t": "Karp–Lipton 1980：SAT 若有多项式电路，多项式层次怎样坍到第二层",
+    "e": "1980 年 4 月 28 日至 30 日，第十二届 ACM 计算理论年会（STOC）在洛杉矶举行。会议录页码 302 至 309 刊出理查德·卡普（Richard M. Karp）与理查德·…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/knuth-1966-mutex-comment": {
+    "t": "Knuth 1966：互斥的集体进展怎样仍允许一个人被永远超过",
+    "e": "1966 年 5 月，唐纳德·厄尔·克努斯（Donald E. Knuth）在 Communications of the ACM 第 9 卷第 5 期发表《Additional Commen…",
+    "d": "computer-science"
+  },
   "/computer-science/theory/kolmogorov-complexity": {
     "t": "柯莫哥洛夫复杂度",
     "e": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/ladner-1975-np-intermediate": {
+    "t": "Ladner 1975：若 P 不等于 NP，中间问题怎样必须存在",
+    "e": "1975 年 1 月，《ACM 会刊》（Journal of the ACM）第 22 卷第 1 期刊出理查德·拉德纳（Richard E. Ladner）的《On the Structure…",
     "d": "computer-science"
   },
   "/computer-science/theory/lambda-calculus-type-theory": {
@@ -1034,14 +1449,54 @@
     "e": "数学中的函数，在教科书里通常被写成 f(x) = x^2 + 1 的形式——f 有个名字，x 是变量，结果是某个表达式。1936 年，阿隆佐·邱奇（Alonzo Church）提出了一种不需要…",
     "d": "computer-science"
   },
+  "/computer-science/theory/lamport-1974-bakery": {
+    "t": "Lamport 1974：面包店算法怎样给互斥加上先来先服务",
+    "e": "1974 年 8 月，莱斯利·兰波特（Leslie Lamport）在 Communications of the ACM 第 17 卷第 8 期发表《A New Solution of Di…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/lamport-1978-clocks": {
+    "t": "Lamport 1978：先于关系怎样把分布式事件收成不靠墙钟的偏序",
+    "e": "1978 年 7 月，莱斯利·兰波特（Leslie Lamport）在 Communications of the ACM 第 21 卷第 7 期发表《Time, Clocks, and th…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/lamport-1979-sequential-consistency": {
+    "t": "Lamport 1979：顺序一致性怎样把多处理器程序收成某一条尊重程序序的交错",
+    "e": "1979 年 9 月，莱斯利·兰波特（Leslie Lamport）在 IEEE Transactions on Computers 第 C-28 卷第 9 期发表《How to Make a…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/levin-1973-universal-search": {
+    "t": "Levin 1973：通用顺序搜索怎样把 NP 搜索写成一个万能问题",
+    "e": "1973 年，《Проблемы передачи информации》（《信息传输问题》）第 9 卷第 3 期刊出列昂尼德·列文（Leonid A. Levin）的短讯《Универсал…",
+    "d": "computer-science"
+  },
   "/computer-science/theory/logic-and-computation": {
     "t": "逻辑与计算",
     "e": "1958 年，数学家哈斯凯尔·加里（Haskell Curry）注意到一件奇怪的事：某些组合子逻辑（combinatory logic）的类型，与命题逻辑中的公式在形式上一模一样。",
     "d": "computer-science"
   },
+  "/computer-science/theory/nisan-wigderson-1994": {
+    "t": "Nisan–Wigderson 1994：E 里足够硬的函数怎样冒充 BPP 测试者的硬币",
+    "e": "1994 年 10 月，《计算机与系统科学杂志》（Journal of Computer and System Sciences）第 49 卷第 2 期刊出诺姆·尼桑（Noam Nisan）与…",
+    "d": "computer-science"
+  },
   "/computer-science/theory/online-algorithms-and-competitive-analysis": {
     "t": "在线算法与竞争分析",
     "e": "绝大多数算法课教的是这样一个世界：输入摆在你面前，你可以从容读完再决定怎么做。",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/parameterized-complexity": {
+    "t": "参数化复杂度",
+    "e": "1999 年，罗德尼·唐尼（Rodney G. Downey）和迈克尔·费洛斯（Michael R. Fellows）把一本当时看起来有点偏门的书交给 Springer：《Parameteri…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/paxos-lamport-1998": {
+    "t": "兼职议会与 Paxos",
+    "e": "人们常把 Paxos 听成一次多数投票。名单固定、轮次清楚、票的含义事先谈妥——那样的投票，教室里就能做完。莱斯利·兰波特 1998 年刊出的《兼职议会》（The Part-Time Parl…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/peterson-1981-mutual-exclusion": {
+    "t": "Peterson 1981：两进程互斥怎样用两面旗与一个 turn 写成短注",
+    "e": "1981 年 6 月 13 日，加里·L·彼得森（Gary L. Peterson）在 Information Processing Letters 第 12 卷第 3 期发表《Myths A…",
     "d": "computer-science"
   },
   "/computer-science/theory/physical-limits-of-computation": {
@@ -1059,9 +1514,49 @@
     "e": "一个算法，通常被认为是确定性的：给定相同的输入，它每次都执行相同的步骤，给出相同的输出。而随机算法（Randomized Algorithm）在执行过程中会抛硬币——使用随机数来做决策，使得同…",
     "d": "computer-science"
   },
+  "/computer-science/theory/razborov-1985-monotone": {
+    "t": "Razborov 1985：单调电路怎样看不见团",
+    "e": "1985 年，《苏联科学院报告》（Doklady Akademii Nauk SSSR）第 281 卷第 4 期刊出亚历山大·拉兹博罗夫（Alexander A. Razborov）的俄文短讯…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/razborov-rudich-1997": {
+    "t": "Razborov–Rudich 1997：自然证明怎样把电路下界挡在伪随机函数门外",
+    "e": "1997 年 8 月，《计算机与系统科学杂志》（Journal of Computer and System Sciences）第 55 卷第 1 期刊出亚历山大·拉兹博罗夫（Alexande…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/savitch-1970-theorem": {
+    "t": "Savitch 1970：非确定性空间怎样被确定性平方空间模拟",
+    "e": "1970 年 4 月，《计算机与系统科学杂志》（Journal of Computer and System Sciences）第 4 卷第 2 期刊出沃尔特·萨维奇（Walter J. Sa…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/shapiro-2011-crdts": {
+    "t": "Shapiro 2011：副本收敛是半格或可交换操作，不是共识协议",
+    "e": "2011 年 10 月，马克·夏皮罗（Marc Shapiro）、努诺·普雷吉萨（Nuno Preguiça）、卡洛斯·巴克罗（Carlos Baquero）与马雷克·扎维尔斯基（Marek …",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/shavit-touitou-1995-stm": {
+    "t": "Shavit–Touitou 1995：软件事务内存怎样把无锁写成运行时而不是每只对象的手工艺",
+    "e": "1995 年 8 月，尼尔·沙维特（Nir Shavit）与丹·图伊图（Dan Touitou）在第 14 届分布式计算原理研讨会（PODC）发表《Software Transactional…",
+    "d": "computer-science"
+  },
   "/computer-science/theory/statistical-learning-theory-pac": {
     "t": "统计学习理论与 PAC 学习",
     "e": "机器学习最基本的问题不是\"怎么把训练数据拟合好\"——那件事平凡到可以用一张查找表完成。真正的问题是：为什么在训练集上表现好的模型，在没见过的数据上也会表现好？",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/toda-1991": {
+    "t": "Toda 1991：多项式层次怎样被一次",
+    "e": "1991 年 10 月，《SIAM 计算杂志》（SIAM Journal on Computing）第 20 卷第 5 期刊出户田诚之助（Seinosuke Toda）的《PP is as H…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/valiant-1979-permanent": {
+    "t": "Valiant 1979：积和式怎样把计数写成比判定更硬的类",
+    "e": "1979 年，《理论计算机科学》（Theoretical Computer Science）第 8 卷第 2 期刊出莱斯利·瓦利安特（Leslie G. Valiant）的《The Compl…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/yao-1979-communication-complexity": {
+    "t": "Yao 1979：分布式计算的复杂度问题怎样把通信写成资源",
+    "e": "1979 年 4 月 30 日至 5 月 2 日，第十一届 ACM 计算理论年会（STOC）在佐治亚州亚特兰大举行。斯坦福大学的姚期智（Andrew Chi-Chih Yao）发表《Some …",
     "d": "computer-science"
   }
 }

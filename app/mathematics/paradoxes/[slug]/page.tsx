@@ -12,6 +12,11 @@ import { ArticleSidebar } from "@/components/ArticleSidebar";
 import { TableOfContents } from "@/components/TableOfContents";
 import { ReadingModeControls } from "@/components/ReadingModeControls";
 import { ReadingProgressBar } from "@/components/ReadingProgressBar";
+import {
+  ARTICLE_BODY_ROW_CLASS,
+  ARTICLE_HEADER_CLASS,
+  ARTICLE_SURFACE_CLASS,
+} from "@/components/ArticleLayout";
 
 export function generateStaticParams() {
   // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
@@ -83,75 +88,74 @@ export default async function MathParadoxDetailPage({
         ← 返回悖论
       </Link>
 
-      <header className="border-border-faint bg-bg-panel relative mb-12 overflow-hidden border p-8 backdrop-blur-md">
-        <div
-          className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full opacity-10 blur-3xl"
-          style={{ backgroundColor: fieldColor }}
-        />
+      <div className={ARTICLE_BODY_ROW_CLASS}>
+        <article className={ARTICLE_SURFACE_CLASS}>
+          <header className={`${ARTICLE_HEADER_CLASS} backdrop-blur-md`}>
+            <div
+              className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full opacity-10 blur-3xl"
+              style={{ backgroundColor: fieldColor }}
+            />
 
-        <div className="relative">
-          <div className="mb-3 flex flex-wrap items-center gap-3">
-            <span
-              className="border px-2.5 py-1 font-mono text-[10px] tracking-[0.32em] uppercase"
-              style={{ borderColor: `${fieldColor}50`, color: mathBadgeColor(fieldColor) }}
-            >
-              {paradox.field}
-            </span>
-            <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">
-              约 {readMinutes} 分钟阅读
-            </span>
-            <span className="ml-auto">
-              <ReadingModeControls />
-            </span>
-          </div>
-
-          <h1 className="font-display text-fg-primary mb-2 text-[2rem] leading-tight font-semibold tracking-tight md:text-[2.8rem]">
-            {paradox.title}
-          </h1>
-          <p className="text-fg-muted font-display text-lg tracking-wide italic">
-            {paradox.title_en}
-          </p>
-
-          {paradox.key_figures.length > 0 && (
-            <div className="mt-4">
-              <p className="text-fg-disabled mb-2 font-mono text-[9px] tracking-[0.18em] uppercase">
-                相关人物
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {paradox.key_figures.map((fig) => (
-                  <span
-                    key={fig}
-                    className="border-fg-disabled/20 text-fg-secondary rounded-full border px-3 py-1 font-mono text-[11px] tracking-[0.12em]"
-                  >
-                    {fig}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {paradox.tags.length > 0 && (
-            <div className="mt-4 flex flex-wrap gap-2">
-              {paradox.tags.map((tag) => (
+            <div className="relative">
+              <div className="mb-3 flex flex-wrap items-center gap-3">
                 <span
-                  key={tag}
-                  className="hover:border-accent-indigo/30 hover:text-accent-indigo border px-2.5 py-1 font-mono text-[10px] tracking-[0.22em] transition-colors"
-                  style={{
-                    borderColor: `${fieldColor}20`,
-                    color: `${fieldColor}cc`,
-                    backgroundColor: `${fieldColor}08`,
-                  }}
+                  className="border px-2.5 py-1 font-mono text-[10px] tracking-[0.32em] uppercase"
+                  style={{ borderColor: `${fieldColor}50`, color: mathBadgeColor(fieldColor) }}
                 >
-                  {tag}
+                  {paradox.field}
                 </span>
-              ))}
-            </div>
-          )}
-        </div>
-      </header>
+                <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">
+                  约 {readMinutes} 分钟阅读
+                </span>
+                <span className="ml-auto">
+                  <ReadingModeControls />
+                </span>
+              </div>
 
-      <div className="flex flex-col gap-12 lg:flex-row">
-        <article className="article-reading-surface max-w-[44rem] min-w-0 flex-1 transition-[max-width] duration-300">
+              <h1 className="font-display text-fg-primary mb-2 text-[2rem] leading-tight font-semibold tracking-tight md:text-[2.8rem]">
+                {paradox.title}
+              </h1>
+              <p className="text-fg-muted font-display text-lg tracking-wide italic">
+                {paradox.title_en}
+              </p>
+
+              {paradox.key_figures.length > 0 && (
+                <div className="mt-4">
+                  <p className="text-fg-disabled mb-2 font-mono text-[9px] tracking-[0.18em] uppercase">
+                    相关人物
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {paradox.key_figures.map((fig) => (
+                      <span
+                        key={fig}
+                        className="border-fg-disabled/20 text-fg-secondary rounded-full border px-3 py-1 font-mono text-[11px] tracking-[0.12em]"
+                      >
+                        {fig}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {paradox.tags.length > 0 && (
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {paradox.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="hover:border-accent-indigo/30 hover:text-accent-indigo border px-2.5 py-1 font-mono text-[10px] tracking-[0.22em] transition-colors"
+                      style={{
+                        borderColor: `${fieldColor}20`,
+                        color: `${fieldColor}cc`,
+                        backgroundColor: `${fieldColor}08`,
+                      }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </header>
           {paradox.content ? (
             <MarkdownRenderer
               content={paradox.content}

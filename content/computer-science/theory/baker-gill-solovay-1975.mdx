@@ -1,0 +1,115 @@
+---
+title: Baker–Gill–Solovay 1975：相对化怎样把对角化挡在 P 对 NP 门外
+title_en: "Relativizations of the P =? NP Question"
+status: published
+updated: 2026-09-15
+category: 计算理论
+order: 69
+field: 计算复杂性
+era: 当代
+key_figures:
+  - Theodore Baker
+  - John Gill
+  - Robert Solovay
+tags:
+  - Baker–Gill–Solovay
+  - 相对化
+  - 神谕
+  - P vs NP
+related:
+  - barriers-to-proving-p-vs-np
+  - computational-complexity
+  - cook-1971-np-completeness
+  - karp-1972-reducibility
+  - hartmanis-stearns-1965
+  - savitch-1970-theorem
+  - ladner-1975-np-intermediate
+  - razborov-rudich-1997
+  - furst-saxe-sipser-1984
+  - hastad-1986-small-depth
+  - karp-lipton-1980
+  - toda-1991
+---
+
+# Baker–Gill–Solovay 1975：相对化怎样把对角化挡在 P 对 NP 门外
+
+1975 年 12 月，《SIAM 计算杂志》（*SIAM Journal on Computing*）第 4 卷第 4 期刊出西奥多·贝克（Theodore Baker）、约翰·吉尔（John Gill）与罗伯特·索洛维（Robert Solovay）的《Relativizations of the P =? NP Question》，页码 431 至 442。DOI 为 10.1137/0204037。编辑部于 1973 年 7 月 16 日收到稿件，1974 年 10 月 21 日收到最终修订。作者单位印作佛罗里达州立大学数学系、斯坦福大学电机工程系，以及加州大学伯克利分校数学系。工作受斯坦福的 JSEP 合同 N-00014-67-A-0112-0044 与 NSF 资助 GK-43121，以及伯克利 NSF 资助 GP-38753X 支持。本页的对象是这份**已印行的十二页论文**：存在递归集合 $A$ 使 $\mathrm{P}^A=\mathrm{NP}^A$，也存在递归集合 $B$ 使 $\mathrm{P}^B\neq\mathrm{NP}^B$；凡 $\mathrm{P}^X$、$\mathrm{NP}^X$ 与 $\mathrm{coNP}^X$ 之间逻辑上说得通的包含关系，都有某个神谕把它实现。因此，任何在添上任意同一神谕之后仍然成立的证明——黑箱模拟、普通对角化——都不可能单独裁决无神谕世界里的 $P$ 对 $NP$。期刊文本不是人物评传。书目陷阱必须写在第一段：它刊于 *SIAM Journal on Computing*，不是 *Journal of the ACM*。
+
+它不是 [[barriers-to-proving-p-vs-np|P 对 NP 的证明障碍]] 那张三障碍总览。总览把相对化、自然证明与代数化收成一条学科史；本页只抽出 1975 年这一枚钉子。自然证明与代数化都是后话，不是封面。它不是 [[computational-complexity|计算复杂性]] 的地图，不是 [[cook-1971-np-completeness|库克一九七一年论文]]，不是 [[karp-1972-reducibility|卡普一九七二年论文]]。它不是 [[hartmanis-stearns-1965|哈特马尼斯–斯特恩斯一九六五年论文]]：那一卷的对角化相对化之后仍然分开时间层次。它不是 [[savitch-1970-theorem|萨维奇一九七〇年论文]]：二次磁带模拟在定理 2 里被当作工具，封面仍是神谕。它更不是概率可验证明，也不把交互式证明等于多项式空间写成对象。同年拉德纳的 $NP$ 中间语言论文是邻居。它不是图灵机实现手册，不提供如何装配询问机、如何消锁、如何去攻一个系统的步骤。
+
+## 破除误解：相对化不是不可判定，对角化也没有从此作废
+
+第一层误解把标题听成「$P$ 对 $NP$ 不可判定」，或听成已经证明这个问题没有证明。原文构造的是两座**递归**神谕，不是一条哥德尔式的不可证句子。每一座神谕世界里，相对化后的命题都有确定答案：一座相等，一座严格包含。被排除的是一类手续——那些把机器当黑箱、只看输入输出、因而对任意神谕都同样有效的模拟与对角化。换一套会打开机器内部结构的论证，障碍并不自动生效。把 1975 年收成「这个问题没有数学答案」，会把一次模型扰动说成一次不完备性定理。
+
+第二层误解把「对角化被挡住」听成对角化从此在复杂性里失效。[[hartmanis-stearns-1965|一九六五年的时间层次]] 正是对角化：给一只实时可数的钟，在更松的节拍上翻转所有更紧的机器。那条层次对任意神谕仍然成立，因为它只比较模拟开销与时钟，并不依赖机器有没有额外黑箱。$P$ 对 $NP$ 套不上同一套自指，是因为中间隔着一个多项式长的存在性量词。库克已经写过：拿掉量词上的多项式界限，$NP$ 就变回递归可枚举。本页把这句观察收成定理：若某种对角化在添上任意神谕后仍能分离 $P$ 与 $NP$，它就会在 $A$ 与 $B$ 上同时给出相反答案。层次相对化且结论一致；$P$ 对 $NP$ 相对化后结论分裂。
+
+第三层误解把「存在 $A$ 使 $\mathrm{P}^A=\mathrm{NP}^A$」听成已经在真实世界里证明了 $P=NP$，或把教材里那句「取一个 $\mathrm{PSPACE}$ 完全集合」提前写成定理 1 的装置。定理 1 的 $A$ 是自指编码：把「第 $i$ 台非确定性询问机是否在 $n$ 步内接受 $x$」直接写进 $A$ 的成员资格，使 $A$ 等于自己的卡普完全语言 $K(A)$。$\mathrm{PSPACE}$ 完全集合给出相等，是紧接着的定理 2，对象是一阶等式理论的有效语句这类自然语言，用的是[[savitch-1970-theorem|萨维奇的二次空间模拟]]。两座 $A$ 都让多项式时间的确定性询问机追上非确定性同伴，来源不同。把定理 1 读成量化布尔公式，会把一次归纳定义收成一条完全性清单。
+
+第四层误解把后年的自然证明、代数化、概率可验证明或交互式证明等于多项式空间焊进这一卷，或把询问机听成「把神谕写在一条只读带上」的另一种装置。拉兹博罗夫与鲁迪奇、阿伦森与维格森都不在这十二页里。保罗·莫里斯（Paul Morris）在文中以私人通信出现：若神谕被写成一条按字典序排好的带，或写成特征函数带，则一旦无神谕的 $P=NP$，相对化后的两类也会对每个神谕一起坍缩。本页的分裂依赖于库克那种「每次只问一个串、立刻得到是否」的询问状态。把带模型与询问模型焊成同一句话，会把一次对模型敏感的障碍收成对所有神谕装置都成立的形而上学。概念证据到此为止，不是操作单。
+
+## 询问机、$K(X)$，以及两座相反的神谕
+
+装置从询问机开始。原文把它写成[[cook-1971-np-completeness|库克一九七一年]]那台多带图灵机的扩充，细节按霍普克罗夫特与厄尔曼 1969 年的教本：有限控制器、只读输入带、有限多条工作带，再加一条询问带，以及询问、是、否三个特殊状态。机器进入询问态时，神谕看询问带上的二进制串是否属于集合 $X$，把下一状态设成「是」或「否」。确定性询问机每一步至多一种合法动作；非确定性询问机允许有限多种。多项式有界意味着存在多项式 $p(n)$，使得**无论神谕是谁**，长度为 $n$ 的输入上每条计算都在 $p(n)$ 步内停机。给每台机器加一只与神谕无关的钟，就可以枚举全部多项式有界的确定性机 $P_i$ 与非确定性机 $\mathrm{NP}_i$。$\mathrm{P}^X$ 是确定性多项式询问机相对 $X$ 识别的语言类，$\mathrm{NP}^X$ 是非确定性同伴接受的语言类，$\mathrm{coNP}^X$ 是补集落在 $\mathrm{NP}^X$ 里的那些语言。神谕被等同于集合本身。本页给出的是类在询问模型里如何分裂，不是把询问带的编码格式写成装配说明书。
+
+对每个神谕 $X$，定义
+\[
+K(X)=\{\langle i,x,0^n\rangle\mid \mathrm{NP}_i^X\text{在少于 }n\text{ 步内有一条计算接受 }x\}。
+\]
+引理 1：$K(X)$ 在 $\mathrm{NP}^X$ 里卡普完全。因而 $\mathrm{P}^X=\mathrm{NP}^X$ 当且仅当 $K(X)\in\mathrm{P}^X$。证明是一次标准翻译：若 $S$ 被 $\mathrm{NP}_i^X$ 在多项式 $p$ 步内接受，则 $x\in S$ 当且仅当 $\langle i,x,0^{p(|x|)}\rangle\in K(X)$，而这份三元组可在多项式时间内写出。去掉填充的 $0^n$、只保留 $\langle i,x\rangle$，得到的集合不再属于 $\mathrm{NP}^X$，因为各台机器没有统一的多项式钟。完全性需要那截填充把时间界写进实例里。库克完全是带神谕的询问机归约，卡普完全是一次确定性多项式映射；引理选的是卡普口径。
+
+定理 1 构造 $A=K(A)$，也就是
+\[
+A=\{\langle i,x,0^n\rangle\mid \mathrm{NP}_i^A\text{在少于 }n\text{ 步内接受 }x\}。
+\]
+这是合法的归纳定义。长度少于 $n$ 的计算问不到长度至少为 $n$ 的串；而 $|\langle i,x,0^n\rangle|\ge n$，所以这个三元组是否进入 $A$，只依赖于已经定下来的更短串。于是 $A=K(A)$。再由引理 1，$\mathrm{P}^A=\mathrm{NP}^A$。备注写明：克莱尼递归定理也能产出一座满足 $A=K(A)$ 的递归神谕；按定理 1 写下的这一座可在确定性指数时间内识别。相等来自「完全语言被写进神谕自己的成员资格」，不是来自后来某台求解器。
+
+定理 2 给出自然的神谕。语言在多项式空间内可识别，当且仅当存在多项式 $p$ 与一台确定性机器，在长度为 $n$ 的输入上至多用 $p(n)$ 格工作带。萨维奇已经证明非确定性多项式空间等于确定性多项式空间，因此不必另开一个 $\mathrm{NPSPACE}$ 符号。$A$ 称为多项式空间完全，当且仅当每个多项式空间语言都可对数空间归约到 $A$；对数空间可计算的函数也是多项式时间可计算的，故这类 $A$ 在 $\mathrm{PSPACE}$ 里卡普完全，并且 $\mathrm{PSPACE}\subseteq\mathrm{P}^A$。另一方面，$\mathrm{NP}^A\subseteq\mathrm{NPSPACE}$：向 $A$ 提出的询问长度是多项式，而 $A$ 本身可在多项式空间内判定，不必再调用神谕。于是 $\mathrm{NP}^A\subseteq\mathrm{PSPACE}\subseteq\mathrm{P}^A\subseteq\mathrm{NP}^A$。文中的自然例子是一阶等式理论的有效语句，记作 $1\mathrm{EQ}$；斯托克迈耶与迈耶 1973 年的词问题是另一批。人工例子则是 $\{\langle i,x,0^n\rangle\mid$ 确定性机 $P_i$ 在空间少于 $n$ 内识别 $x\}$。定理 2 把相等钉在空间完全性上；定理 1 把相等钉在自指的 $K(A)$ 上。两句都不是「因此 SAT 属于 $P$」。
+
+当 $\mathrm{P}^A=\mathrm{NP}^A$ 时，引理 2 还给出一种更强的模拟：对每台 $\mathrm{NP}_i$，存在确定性询问机，只要前者接受 $x$，就输出一条接受计算。办法是把「某段格局前缀可以延拓成接受计算」写成仍在 $\mathrm{NP}^A$ 里的语言，再用相等把它放进 $\mathrm{P}^A$，逐步补上下一个瞬时描述。这是存在性搜索被确定性多项式询问买下来的账，不是非确定性硬件图纸。后文定理 6 会再用一次这套前缀延拓。
+
+第三节把箭头反过来。对任意神谕 $X$，令
+\[
+L(X)=\{x\mid\text{存在 }y\in X\text{ 使 }|y|=|x|\}。
+\]
+$L(X)$ 属于 $\mathrm{NP}^X$：非确定性机猜一个等长串，问一次神谕即可。定理 3 构造稀疏的递归集合 $B$，使 $L(B)\notin\mathrm{P}^B$。构造按阶段进行。第 $i$ 阶段选出足够大的 $n$，使 $p_i(n)<2^n$，然后让 $P_i$ 以此时已放入 $B$ 的有限片段为神谕，在输入 $0^n$ 上跑完。若接受，本阶段不往 $B$ 里加任何串；若拒绝，就把长度为 $n$、尚未被问到的、字典序最前的那一个串加进去。这样的串一定存在：多项式步至多问多项式个问题，短于 $2^n$ 个等长串。下一阶段的长度至少翻倍，保证以后不再改写本阶段已经看过的区域。于是 $P_i^B$ 接受 $0^n$ 当且仅当长度为 $n$ 的串全部不在 $B$ 里，也就是当且仅当 $0^n\notin L(B)$。每个确定性多项式询问机都被在某个长度上翻过一次。$B$ 很稀：每个区间 $[n,2n)$ 里至多一个成员。拉德纳独立得到了可在确定性指数时间内识别的神谕，使相对化后的两类仍然分开。库尔特·梅尔霍恩（Kurt Mehlhorn）1973 年的结果被点名：在递归神谕的空间里，使 $\mathrm{P}^X=\mathrm{NP}^X$ 的那些 $X$ 构成一个「瘦」集；多数神谕站在不相等一侧。本页证明这种翻转存在，不把阶段上的加串手续写成攻击步骤。
+
+定理 4 到定理 7 把 $\mathrm{P}^X$、$\mathrm{NP}^X$ 与 $\mathrm{coNP}^X$ 之间说得通的包含全部实现：$\mathrm{NP}$ 对补不封闭；$\mathrm{P}\neq\mathrm{NP}$ 但 $\mathrm{NP}$ 对补封闭；$\mathrm{NP}\cap\mathrm{coNP}=P$ 却仍与 $NP$ 分开；以及 $P$ 真包含于 $\mathrm{NP}\cap\mathrm{coNP}$。定理 5、6 分别记下迈耶与费希尔、拉德纳的独立贡献，以及迈耶提出的问题。封面仍是定理 1 与定理 3 这一对相反答案。第四节把迈耶–斯托克迈耶的多项式层次相对化：定理 1 的 $A$ 让整座层次坍到 $P$；有没有神谕使相对化层次无穷，1975 年没有裁决。本页不把后年的无穷层次神谕、也不把交互式证明绕过相对化的路线写成封面。
+
+## 它证明了什么，没有覆盖什么
+
+它证明了：询问模型里存在递归神谕使相对化的 $P$ 与 $NP$ 重合，也存在递归神谕使它们分开；$\mathrm{P}^X$、$\mathrm{NP}^X$ 与 $\mathrm{coNP}^X$ 之间所有逻辑一致的包含都可以被某座神谕实现。$K(X)$ 是每座神谕世界里 $\mathrm{NP}^X$ 的卡普完全语言。多项式空间完全语言给出自然的重合神谕，依据是萨维奇定理。$L(B)$ 给出自然的分离语言：非确定性猜一个等长证人，确定性多项式时钟问不完长度为 $n$ 的全部串。引言把方法论写清楚：普通对角化若能在无神谕世界里分离 $P$ 与 $NP$，同一套黑箱手续也会在每座神谕世界里给出否定答案，与定理 1 矛盾；一般的确定性多项式模拟若能吞掉非确定性，同一套手续也会给出全称的肯定答案，与定理 3 矛盾。因此要裁决真实世界，必须分析计算的内部结构。他们建议把目光转向具体判定问题，而不是更泛的存在性构造。
+
+它没有证明 $P\neq NP$，也没有证明 $P=NP$。两座神谕是模型扰动，不是无神谕命题的真值。第四节留下相对化多项式层次能否无穷的开放句。本内特与吉尔 1981 年的随机神谕是后话。自然证明、代数化、概率可验证明与交互式证明等于多项式空间都不在这十二页里；对照属于总览页。莫里斯的带模型提醒：连「相对化」自己都对神谕接口敏感。稳健性来自询问状态与多项式钟，不来自后来的电路下界。同年拉德纳问的是：若 $P\neq NP$，则 $NP$ 里会不会留下既不完全也不在 $P$ 里的语言。那是另一篇封面。本页把「黑箱技术够不够裁决 $P$ 对 $NP$」写成一对相反的递归集合。概念证据到此为止。$K(A)$ 回答相等怎样被自指地编码；$L(B)$ 回答不相等怎样被一次猜串与一次问询配额分开。两句都不是操作单。
+
+## 跨域连接
+
+- **[[computational-complexity|计算复杂性]]**：总览把 $P$ 对 $NP$ 画成仍开放的一格，并把相对化写成第一道滤网。滤网的金属成分以 1975 年的询问机与两座递归神谕为准。把后年的自然证明与代数化提前读成本页，会把一次模型扰动收成三道障碍的学科史。地图可以后写；本页只提供「同一句黑箱证明不能在两座世界里同时成立」的手续。
+- **[[hartmanis-stearns-1965|哈特马尼斯–斯特恩斯一九六五年论文]]**：十年前的对角化在确定性时间标度上分出严格层次，相对化之后结论不变。本页表明：一旦插入多项式长的存在性量词，同一套自指就不再给出与神谕无关的答案。层次说「松一档时钟就出现新对象」；$P$ 对 $NP$ 说「存在一条短计算」。把 1965 年的翻转听成已经分离 $NP$，会把时钟对角化收成量词对角化。
+- **[[cook-1971-np-completeness|库克一九七一年论文]]**：询问机与多项式归约都从那八页来。库克已指出停机对角化套不上多项式量词；本页把这句方法论收成一对相反神谕。库克要的是重言式上的完全钉子，本页要的是完全性证明会不会相对化。$K(X)$ 是相对化世界里的 SAT 角色，却把神谕写进实例的成员资格。
+- **[[savitch-1970-theorem|萨维奇一九七〇年论文]]**：定理 2 的重合神谕依赖 $\mathrm{NPSPACE}=\mathrm{PSPACE}$。空间被二次模拟压回同一多项式档，相对化后仍然相等，不能拿来分离 $P$ 与 $NP$。时间没有平行句子。萨维奇问格局图上的可达性；本页问询问状态上的黑箱能否看见那一次猜测。
+- **[[computability|可计算性]]**：图灵在无界时间里分开可计算与不可计算。本页假定语言可判定，并且钟是多项式。神谕是递归集合，不是停机神谕。相对化不是把问题推入不可判定，而是把同一资源问题放到两个仍可判定的世界里得到相反答案。把 $L(B)$ 听成停机，会把「多项式步问不完指数多个等长串」收成「手续不存在」。
+- **[[proof|证明]]**：相对化把「什么样的证明算数」写成数学对象。一份只引用黑箱模拟与对角化的论证，可在任意神谕下逐行重放；重放会在 $A$ 与 $B$ 上得到矛盾，因而不能充当无神谕世界的裁决。被排除的是证明技术的一个类，不是证明的可能性。把障碍听成「不要再证明」，会把一次分类收成一次禁令。
+
+---
+
+## 参考文献
+
+- T. Baker, J. Gill & R. Solovay, "Relativizations of the P =? NP Question", *SIAM Journal on Computing* 4(4), 1975, pp. 431–442. DOI: 10.1137/0204037. —— 本文对象：询问机上的相对化类、$K(X)$ 的卡普完全性、重合神谕与分离神谕，以及 $\mathrm{P}^X$、$\mathrm{NP}^X$、$\mathrm{coNP}^X$ 的全部一致包含。
+- Stephen A. Cook, "The Complexity of Theorem-Proving Procedures", *Proceedings of the 3rd Annual ACM Symposium on Theory of Computing*, Shaker Heights, Ohio, 1971, pp. 151–158. DOI: 10.1145/800157.805047. —— 询问机模型与多项式归约的来源。
+- Walter J. Savitch, "Relationships Between Nondeterministic and Deterministic Tape Complexities", *Journal of Computer and System Sciences* 4(2), 1970, pp. 177–192. DOI: 10.1016/S0022-0000(70)80006-X. —— 定理 2 所用的 $\mathrm{NPSPACE}=\mathrm{PSPACE}$。
+- Richard M. Karp, "Reducibility among Combinatorial Problems", in *Complexity of Computer Computations*, Plenum Press, New York, 1972, pp. 85–103. —— 论文区分库克完全与卡普完全时所引。
+- J. E. Hopcroft & J. D. Ullman, *Formal Languages and Their Relation to Automata*, Addison-Wesley, Reading, Mass., 1969. —— 论文所依的多带图灵机教本。
+- A. R. Meyer & L. J. Stockmeyer, "The Equivalence Problem for Regular Expressions with Squaring Requires Exponential Space", *Proceedings of the 13th IEEE Symposium on Switching and Automata Theory*, 1972, pp. 125–129. DOI: 10.1109/SWAT.1972.29. —— 多项式层次的来源，第四节的开放问题由此提出。
+- L. J. Stockmeyer & A. R. Meyer, "Word Problems Requiring Exponential Time: Preliminary Report", *Proceedings of the 5th Annual ACM Symposium on Theory of Computing*, Austin, 1973, pp. 1–9. DOI: 10.1145/800125.804029. —— 论文所引的多项式空间完全词问题。
+- R. Ladner, N. Lynch & A. Selman, "Comparison of Polynomial-Time Reducibilities", *Proceedings of the 6th Annual ACM Symposium on Theory of Computing*, Seattle, 1974, pp. 110–121. DOI: 10.1145/800119.803891. —— 论文比较库克归约与卡普归约时所引。
+- K. Mehlhorn, "On the Size of Computable Functions", *Proceedings of the 14th IEEE Symposium on Switching and Automata Theory*, Iowa City, 1973, pp. 190–196. DOI: 10.1109/SWAT.1973.23. —— 多数递归神谕上 $\mathrm{P}^X\neq\mathrm{NP}^X$。
+- J. Hartmanis & R. E. Stearns, "On the Computational Complexity of Algorithms", *Transactions of the American Mathematical Society* 117, 1965, pp. 285–306. DOI: 10.2307/1994208. —— 用以标明相对化后仍然成立的时间层次不是本页所挡的那一类对角化。
+
+## 延伸阅读
+
+- 与 [[barriers-to-proving-p-vs-np|P vs NP 的证明障碍]] 对读：总览管三道障碍的接力；本页停在 1975 年的询问机与两座神谕。
+- 与 [[cook-1971-np-completeness|库克一九七一年论文]] 对读：询问机先用来写完全性，四年后用来写相对化。
+- 与 [[hartmanis-stearns-1965|哈特马尼斯–斯特恩斯一九六五年论文]] 对读：对角化在确定性时钟上够用，在多项式量词上不够用。
+- 与 [[savitch-1970-theorem|萨维奇一九七〇年论文]] 对读：空间闭合给出重合神谕，时间没有平行句子。
+- 与 [[computability|可计算性]] 对读：停机对角化没有多项式钟；本页的神谕都是递归集合。
+- 与 [[toda-1991|户田 1991]] 对读：相对化挡住的是能随神谕翻面的对角化；一次 #P 查询吞掉多项式层次，用的是隔离与奇偶，不是又一座相对化神谕。

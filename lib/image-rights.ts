@@ -65,11 +65,23 @@ export const SINGLE_IMAGE_BUDGET_BYTES = 500 * 1024;
 export function loadImageRights(id: string): ImageRights | null {
   const file = path.join(CONTENT_ASSETS_DIR, `${id}.json`);
   if (!fs.existsSync(file)) return null;
-  const parsed = ImageRightsSchema.safeParse(JSON.parse(fs.readFileSync(file, "utf-8")));
-  return parsed.success ? parsed.data : null;
+  try {
+    const parsed = ImageRightsSchema.safeParse(JSON.parse(fs.readFileSync(file, "utf-8")));
+    return parsed.success ? parsed.data : null;
+  } catch {
+    return null;
+  }
 }
 
 export function loadImageManifest(): ImageManifest {
   if (!fs.existsSync(MANIFEST_PATH)) return {};
-  return JSON.parse(fs.readFileSync(MANIFEST_PATH, "utf-8")) as ImageManifest;
+  try {
+    const parsed: unknown = JSON.parse(fs.readFileSync(MANIFEST_PATH, "utf-8"));
+    if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
+      return parsed as ImageManifest;
+    }
+  } catch {
+    // A corrupt manifest must not 500 the article; treat as "no images".
+  }
+  return {};
 }

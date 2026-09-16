@@ -1,7 +1,5 @@
-import fs from "node:fs";
-import path from "node:path";
-import { getDomainContentDir } from "./content-paths";
-import { safeParseMatter } from "./content-utils";
+import { readParsedFile } from "./content-article";
+import { getDomainContentDir, existingContentFile, isSafeContentSegment } from "./content-paths";
 import manifest from "./narration-manifest.json";
 
 /**
@@ -37,10 +35,13 @@ export function narrationKey(domain: string, section: string, slug: string): str
 
 /** Load the spoken companion for an article, or null if none was authored. */
 export function getNarration(domain: string, section: string, slug: string): Narration | null {
-  const file = path.join(getDomainContentDir(domain), section, `${slug}.narration.md`);
-  if (!fs.existsSync(file)) return null;
+  if (![domain, section, slug].every(isSafeContentSegment)) return null;
+  const file = existingContentFile(getDomainContentDir(domain), section, `${slug}.narration.md`);
+  if (!file) return null;
 
-  const { data, content } = safeParseMatter(fs.readFileSync(file, "utf-8"));
+  const parsed = readParsedFile(file, "safe");
+  if (!parsed) return null;
+  const { data, content } = parsed;
   const script = content.trim();
   if (!script) return null;
 

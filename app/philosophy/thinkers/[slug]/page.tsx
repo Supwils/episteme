@@ -13,6 +13,11 @@ import { readingMinutes } from "@/lib/reading-time";
 import { serializeJsonLd, createPersonJsonLd } from "@/lib/jsonld";
 import { ReadingModeControls } from "@/components/ReadingModeControls";
 import { ReadingProgressBar } from "@/components/ReadingProgressBar";
+import {
+  ARTICLE_BODY_ROW_CLASS,
+  ARTICLE_HEADER_CLASS,
+  ARTICLE_SURFACE_CLASS,
+} from "@/components/ArticleLayout";
 
 export function generateStaticParams() {
   return []; // On-demand SSG: build on first request, then cache until the next deployment
@@ -76,57 +81,56 @@ export default async function ThinkerDetailPage({ params }: { params: Promise<{ 
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(personJsonLd) }}
       />
       <ReadingProgressBar />
-      <header className="mb-12">
-        <Breadcrumb category="thinkers" currentTitle={thinker.title} />
+      <div className={ARTICLE_BODY_ROW_CLASS}>
+        <article className={ARTICLE_SURFACE_CLASS}>
+          <header className={ARTICLE_HEADER_CLASS}>
+            <Breadcrumb category="thinkers" currentTitle={thinker.title} />
 
-        <div className="mt-6 flex flex-col gap-4">
-          <div className="flex flex-wrap items-center gap-2.5">
-            <span
-              className="text-fg-secondary rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.2em] uppercase"
-              style={{
-                borderColor: accent,
-                backgroundColor: `${accent}14`,
-              }}
-            >
-              {thinker.era}
-            </span>
-            <span className="border-fg-disabled/20 text-fg-muted rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.16em]">
-              {thinker.school}
-            </span>
-            <span className="ml-auto">
-              <ReadingModeControls />
-            </span>
-          </div>
-
-          <h1 className="font-display text-fg-primary text-[2.4rem] leading-[1.08] tracking-tight md:text-[3.4rem]">
-            {thinker.title}
-          </h1>
-
-          <p className="text-fg-muted font-mono text-sm tracking-wider italic">
-            {thinker.philosopher}
-          </p>
-
-          {thinker.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 pt-1">
-              {thinker.tags.map((tag) => (
+            <div className="mt-6 flex flex-col gap-4">
+              <div className="flex flex-wrap items-center gap-2.5">
                 <span
-                  key={tag}
-                  className="text-fg-secondary rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.12em]"
+                  className="text-fg-secondary rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.2em] uppercase"
                   style={{
-                    borderColor: `${accent}66`,
+                    borderColor: accent,
                     backgroundColor: `${accent}14`,
                   }}
                 >
-                  {tag}
+                  {thinker.era}
                 </span>
-              ))}
-            </div>
-          )}
-        </div>
-      </header>
+                <span className="border-fg-disabled/20 text-fg-muted rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.16em]">
+                  {thinker.school}
+                </span>
+                <span className="ml-auto">
+                  <ReadingModeControls />
+                </span>
+              </div>
 
-      <div className="flex flex-col gap-12 lg:flex-row">
-        <article className="article-reading-surface max-w-[44rem] min-w-0 flex-1 transition-[max-width] duration-300">
+              <h1 className="font-display text-fg-primary text-[2.4rem] leading-[1.08] tracking-tight md:text-[3.4rem]">
+                {thinker.title}
+              </h1>
+
+              <p className="text-fg-muted font-mono text-sm tracking-wider italic">
+                {thinker.philosopher}
+              </p>
+
+              {thinker.tags.length > 0 && (
+                <div className="flex flex-wrap gap-2 pt-1">
+                  {thinker.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-fg-secondary rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.12em]"
+                      style={{
+                        borderColor: `${accent}66`,
+                        backgroundColor: `${accent}14`,
+                      }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </header>
           <MarkdownRenderer content={thinker.content} accentColor={accent} domain="philosophy" />
 
           <SafeRender>

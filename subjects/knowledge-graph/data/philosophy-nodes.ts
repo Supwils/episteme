@@ -1,15 +1,7 @@
-import fs from "node:fs";
 import path from "node:path";
-import matter from "gray-matter";
+import { readContentEntries } from "@/lib/content-article";
+import { getDomainContentDir } from "@/lib/content-paths";
 import type { GraphNode, GraphEdge } from "./types";
-
-// ---- Internal Types ----
-
-interface MdxEntry {
-  slug: string;
-  frontmatter: Record<string, unknown>;
-  content: string;
-}
 
 type PhilosophyNodeSource = "school" | "concept" | "ism";
 
@@ -35,33 +27,6 @@ const PHILOSOPHY_CANONICAL_NODE_SOURCES: Partial<Record<string, PhilosophyNodeSo
 function isCanonicalNodeSource(slug: string, source: PhilosophyNodeSource): boolean {
   const canonicalSource = PHILOSOPHY_CANONICAL_NODE_SOURCES[slug];
   return !canonicalSource || canonicalSource === source;
-}
-
-// ---- Helpers ----
-
-function findMonorepoRoot(): string {
-  let dir = process.cwd();
-  for (let i = 0; i < 5; i++) {
-    if (fs.existsSync(path.join(dir, "pnpm-workspace.yaml"))) {
-      return dir;
-    }
-    const parent = path.dirname(dir);
-    if (parent === dir) break;
-    dir = parent;
-  }
-  return process.cwd();
-}
-
-function readMdxFiles(dir: string): MdxEntry[] {
-  if (!fs.existsSync(dir)) return [];
-  return fs
-    .readdirSync(dir)
-    .filter((f) => f.endsWith(".mdx"))
-    .map((file) => {
-      const raw = fs.readFileSync(path.join(dir, file), "utf-8");
-      const { data, content } = matter(raw);
-      return { slug: file.replace(/\.mdx$/, ""), frontmatter: data, content };
-    });
 }
 
 function extractDescription(content: string): string {
@@ -105,18 +70,14 @@ function normalizeEdgeKey(a: string, b: string): string {
 // ---- Build ----
 
 function buildPhilosophyGraph(): { nodes: GraphNode[]; edges: GraphEdge[] } {
-  const root = findMonorepoRoot();
-
-  const thinkersData = readMdxFiles(path.join(root, "content/philosophy/thinkers"));
-  const schoolsData = readMdxFiles(path.join(root, "content/philosophy/schools"));
-  const conceptsData = readMdxFiles(path.join(root, "content/philosophy/concepts"));
-  const experimentsData = readMdxFiles(path.join(root, "content/philosophy/experiments"));
-  const questionsData = readMdxFiles(path.join(root, "content/philosophy/questions"));
-  const ismsData = readMdxFiles(path.join(root, "content/philosophy/isms"));
-  const dialoguesData = [
-    ...readMdxFiles(path.join(root, "content/philosophy/dialogues")),
-    ...readMdxFiles(path.join(root, "apps/portal/content/philosophy/dialogues")),
-  ];
+  const philosophyDir = getDomainContentDir("philosophy");
+  const thinkersData = readContentEntries(path.join(philosophyDir, "thinkers"));
+  const schoolsData = readContentEntries(path.join(philosophyDir, "schools"));
+  const conceptsData = readContentEntries(path.join(philosophyDir, "concepts"));
+  const experimentsData = readContentEntries(path.join(philosophyDir, "experiments"));
+  const questionsData = readContentEntries(path.join(philosophyDir, "questions"));
+  const ismsData = readContentEntries(path.join(philosophyDir, "isms"));
+  const dialoguesData = readContentEntries(path.join(philosophyDir, "dialogues"));
 
   // ---- Lookup Maps ----
 

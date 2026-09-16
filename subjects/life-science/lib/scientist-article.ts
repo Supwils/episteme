@@ -1,6 +1,5 @@
-import fs from "node:fs";
 import path from "node:path";
-import matter from "gray-matter";
+import { loadContentBySlug } from "@/lib/content-article";
 import { getDomainContentDir } from "@/lib/content-paths";
 
 /**
@@ -11,15 +10,12 @@ import { getDomainContentDir } from "@/lib/content-paths";
  */
 const SCIENTISTS_DIR = path.join(getDomainContentDir("life-science"), "scientists");
 
+const scientistBodyCache = new Map<string, { body: string } | null>();
+
 export function getScientistArticleBody(id: string): string | null {
-  if (!id || id.includes("..") || id.includes("/") || id.includes("\\")) return null;
-  const file = path.join(SCIENTISTS_DIR, `${id}.mdx`);
-  if (!file.startsWith(SCIENTISTS_DIR) || !fs.existsSync(file)) return null;
-  try {
-    const { content } = matter(fs.readFileSync(file, "utf-8"));
-    const body = content.replace(/^\s*#\s+.+\n+/, "").trim();
-    return body.length > 0 ? body : null;
-  } catch {
-    return null;
-  }
+  const article = loadContentBySlug(SCIENTISTS_DIR, id, scientistBodyCache, (_data, content) => ({
+    body: content.replace(/^\s*#\s+.+\n+/, "").trim(),
+  }));
+  if (!article || !article.body) return null;
+  return article.body;
 }

@@ -1,8 +1,6 @@
-import fs from "node:fs";
 import path from "node:path";
-import matter from "gray-matter";
+import { loadAllContent, loadContentBySlug } from "@/lib/content-article";
 import type {
-  Era,
   Theorist,
   Experiment,
   Phenomenon,
@@ -12,7 +10,7 @@ import type {
   Dialogue,
   KnowledgeBaseArticle,
 } from "../types";
-import { getDomainContentDir } from "@/lib/content-paths";
+import { getDomainContentDir, listContentSlugs } from "@/lib/content-paths";
 
 export const CONTENT_ROOT = getDomainContentDir("psychology");
 
@@ -97,11 +95,7 @@ export function normalizeFrontmatter(data: Record<string, unknown>): Record<stri
 }
 
 export function getSlugs(dir: string): string[] {
-  if (!fs.existsSync(dir)) return [];
-  return fs
-    .readdirSync(dir)
-    .filter((f) => f.endsWith(".mdx"))
-    .map((f) => f.replace(/\.mdx$/, ""));
+  return listContentSlugs(dir);
 }
 
 export function getBySlug<T extends { slug: string; content: string }>(
@@ -110,22 +104,10 @@ export function getBySlug<T extends { slug: string; content: string }>(
   cache: Map<string, T | null>,
   cast: (data: unknown, slug: string, content: string) => T
 ): T | null {
-  if (cache.has(slug)) return cache.get(slug)!;
-  if (!slug || slug.includes("..") || slug.includes("/") || slug.includes("\\")) return null;
-  const filePath = path.join(dir, `${slug}.mdx`);
-  if (!filePath.startsWith(dir)) return null;
-  if (!fs.existsSync(filePath)) return null;
-  let result: T | null = null;
-  try {
-    const raw = fs.readFileSync(filePath, "utf-8");
-    const { data, content } = matter(raw);
-    const normalized = normalizeFrontmatter(data as Record<string, unknown>);
-    result = cast(normalized, slug, content);
-  } catch {
-    // result stays null
-  }
-  cache.set(slug, result);
-  return result;
+  return loadContentBySlug(dir, slug, cache, (data, content, nextSlug) => {
+    const normalized = normalizeFrontmatter(data);
+    return cast(normalized, nextSlug, content);
+  });
 }
 
 export function getAll<T extends { slug: string; content: string }>(
@@ -136,10 +118,15 @@ export function getAll<T extends { slug: string; content: string }>(
   sort?: (a: T, b: T) => number
 ): T[] {
   if (listCache.value) return listCache.value;
-  const items = getSlugs(dir)
-    .map((slug) => getBySlug(dir, slug, cache, cast))
-    .filter((item): item is T => item !== null);
-  if (sort) items.sort(sort);
+  const items = loadAllContent(
+    dir,
+    cache,
+    (data, content, slug) => {
+      const normalized = normalizeFrontmatter(data);
+      return cast(normalized, slug, content);
+    },
+    { sort }
+  );
   listCache.value = items;
   return items;
 }

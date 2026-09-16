@@ -15,6 +15,8 @@ tags:
 related:
   - consistent-hashing
   - dynamic-programming
+  - gfs-2003
+  - bigtable-2006
 ---
 
 # MapReduce
@@ -73,7 +75,7 @@ Reduce(word, [count_1, count_2, ...]):
 3. **Shuffle 阶段**：中间键值对按键的哈希值分配到不同的 Reduce Worker，通过网络传输（这是最昂贵的阶段）
 4. **排序**：每个 Reduce Worker 对收到的中间键值对按键排序
 5. **Reduce 任务执行**：对每个不同的键，调用 Reduce 函数
-6. **输出**：写入分布式文件系统（如 GFS/HDFS）
+6. **输出**：写入分布式文件系统（如 [[gfs-2003|GFS]]/HDFS）。结构化的行扫描与随机读是另一篇 [[bigtable-2006|Bigtable]]，不是 Map 的输出格式。
 
 ## 手算走查：三篇文档的 word count 全流程
 

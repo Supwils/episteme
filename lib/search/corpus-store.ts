@@ -13,13 +13,28 @@ const GENERATED = join(process.cwd(), "generated");
 
 /** Fast path: the artifact `pnpm gen-search-index` writes during `prebuild`.
  *  ~60ms for 10M characters, versus ~560ms to rebuild it from `content/`. */
-function fromArtifact(): PhraseCorpus {
-  const text = readFileSync(join(GENERATED, "corpus.txt"), "utf-8");
-  const meta = JSON.parse(readFileSync(join(GENERATED, "corpus-meta.json"), "utf-8")) as {
-    offsets: number[];
-    docs: SearchDoc[];
+export function parsePhraseCorpusArtifact(text: string, metaJson: string): PhraseCorpus {
+  const meta = JSON.parse(metaJson) as { offsets?: unknown; docs?: unknown };
+  if (!Array.isArray(meta.offsets) || !Array.isArray(meta.docs)) {
+    throw new Error("invalid corpus meta");
+  }
+  if (meta.offsets.length !== meta.docs.length) {
+    throw new Error("corpus offsets/docs length mismatch");
+  }
+  if (meta.offsets.some((offset) => typeof offset !== "number" || !Number.isFinite(offset))) {
+    throw new Error("invalid corpus offsets");
+  }
+  return {
+    corpus: { text, offsets: meta.offsets as number[] },
+    docs: meta.docs as SearchDoc[],
   };
-  return { corpus: { text, offsets: meta.offsets }, docs: meta.docs };
+}
+
+function fromArtifact(): PhraseCorpus {
+  return parsePhraseCorpusArtifact(
+    readFileSync(join(GENERATED, "corpus.txt"), "utf-8"),
+    readFileSync(join(GENERATED, "corpus-meta.json"), "utf-8")
+  );
 }
 
 /** Dev path: `generated/` is gitignored, so a fresh clone running `pnpm dev`
@@ -27,16 +42,21 @@ function fromArtifact(): PhraseCorpus {
  *  Only viable outside a deployed function, where `app/` still exists on disk. */
 async function fromContent(): Promise<PhraseCorpus> {
   const { collectArticles } = await import("./articles");
+  const { toCorpusSearchDoc } = await import("./article-meta");
   const articles = collectArticles();
   return {
     corpus: buildCorpus(articles.map((a) => toSearchableText(a.body))),
-    docs: articles.map((a) => ({ t: a.title, s: "", u: a.url, c: a.domain, k: "article" })),
+    docs: articles.map(toCorpusSearchDoc),
   };
 }
 
 const EMPTY: PhraseCorpus = { corpus: { text: "", offsets: [] }, docs: [] };
 
 let cached: Promise<PhraseCorpus> | null = null;
+
+export function isEmptyPhraseCorpus(value: PhraseCorpus): boolean {
+  return value.docs.length === 0 && value.corpus.text.length === 0;
+}
 
 async function load(): Promise<PhraseCorpus> {
   try {
@@ -54,8 +74,15 @@ async function load(): Promise<PhraseCorpus> {
 }
 
 /** Loaded once per process. Fluid Compute reuses instances, so warm requests
- *  pay nothing and a cold one pays the ~60ms read. */
+ *  pay nothing and a cold one pays the ~60ms read. A failed empty fallback is
+ *  not remembered — the next request may find a freshly generated artifact. */
 export function getPhraseCorpus(): Promise<PhraseCorpus> {
-  cached ??= load();
+  if (!cached) {
+    const pending = load().then((result) => {
+      if (isEmptyPhraseCorpus(result) && cached === pending) cached = null;
+      return result;
+    });
+    cached = pending;
+  }
   return cached;
 }

@@ -2,7 +2,7 @@
 title: 零知识证明与隐私计算
 title_en: Zero-Knowledge Proofs and Privacy-Preserving Computation
 status: published
-updated: 2026-06-13
+updated: 2026-09-12
 category: 密码学
 horizon: 2020s
 order: 5
@@ -77,6 +77,10 @@ Groth16（Jens Groth, 2016）是最常用的 zk-SNARK 构造：无论被证明�
 
 **zk-STARK**（Scalable Transparent ARgument of Knowledge，Ben-Sasson 等, 2018）不需要可信设置，基于哈希函数，理论上可抗量子，但证明大小更大（几十到几百 KB）。
 
+把 Groth16 和 STARK 对照着看，差别不在“谁更新”，而在信任落在哪里、账单落在哪一步。Groth16 的公共参数绑定到一条具体电路：换电路就要再做一次仪式。多方计算仪式把风险从“单人销毁随机数”改成“必须全体合谋才留得住毒素”，数学上仍不是零。仪式成功之后，验证极便宜：常数个群元素、几次配对，适合一层上人人都要重跑的验证。
+
+STARK 的公开参数来自哈希函数与 FRI 一类多项式承诺，任何人可以重放，没有需要销毁的随机数。证明因此变长，一层验证更重。量子威胁模型也不一样：配对友好曲线上的离散对数会被 Shor 算法击穿；STARK 依赖哈希抗碰撞，目前没有已知的指数级量子破法。选择往往是付一次仪式换极小证明，或不做仪式、付更大的证明与验证。
+
 ## 谁在做，做到了哪一步
 
 ### 区块链与隐私交易
@@ -88,6 +92,12 @@ Groth16（Jens Groth, 2016）是最常用的 zk-SNARK 构造：无论被证明�
 代表项目：StarkWare（使用 zk-STARK + Cairo 语言）、zkSync（使用 PLONK 方案）、Polygon zkEVM（兼容以太坊 EVM 的零知识虚拟机）。
 
 以太坊 ZK rollup 在 2023-2025 年成为实际使用的基础设施，处理大量交易，每笔交易的 gas 费比直接在以太坊主链上低数倍到数十倍。
+
+2024 年 3 月 13 日，以太坊 Dencun 升级在主网激活（epoch 269568，UTC 13:55）。其中的 EIP-4844（也称 proto-danksharding）引入携带 blob 的交易。Blob 挂在共识层，大约 18 天后修剪（更精确是 4096 个 epoch），不必像 calldata 那样永久写入执行历史。每个 blob 按规范是 4096 个 32 字节域元素，大约 128 KiB。
+
+费用也不与执行 gas 共用同一套市场，而是单独的 blob 费用市场。对 rollup 来说，一层上原先最大的账单往往是数据可用性：必须把足够的批次数据放在一层，让任何人能重建状态。ZK rollup 还要另付一笔：把简洁证明写进一层合约。Blob 拆掉了“数据必须永久住在一层”这条假设——诚实参与者只需在窗口内拿到数据。
+
+数据可用性不再独占账单之后，证明生成与链上验证的相对权重上升。Groth16 仍适合把一层验证费压低；STARK 证明更大，blob 变便宜之后“证明字节更贵”这条惩罚减弱。blob 目标容量仍有限，许多 rollup 共用同一条通道时，费用市场也会变拥挤。一层不再按永久存储的价格收数据税，但也不保证 blob 永远便宜。
 
 ### 身份与隐私合规
 
@@ -116,6 +126,10 @@ Zama（法国初创公司）在 2024 年发布了 fhevm——支持在 FHE 下�
 
 **证明生成速度**：生成 zk-SNARK 证明的计算量远大于直接运行被证明的计算。对复杂计算（如完整的 EVM 执行），生成证明可能需要数分钟到数小时。专用硬件（证明加速器 ASIC）和并行化是主要优化方向。
 
+证明成本与验证成本不是同一笔账，也不该被“简洁”一词糊在一起。验证发生在一层：所有全节点都要跑，所以必须便宜。证明发生在链下：可以由专门的证明者或证明市场完成，失败了可以重试，不必让全网重做。
+
+递归与聚合让许多笔交易最终在一层只看见一个证明。这并不降低总证明量，只改变由谁付、在哪付。电路或实现一旦有缺陷，错误状态可能被“证明通过”——正确性同时依赖方案与代码，这不是步骤说明。
+
 **可信设置的风险**：Groth16 等方案的可信设置如果遭到破坏，可以无声地伪造任意证明。各项目通过"多方计算仪式"（MPC Ceremony）降低风险，但无法从根本上消除。
 
 **审计难度**：ZKP 系统的正确性依赖底层密码学方案和实现代码同时没有 bug。以太坊 ZK rollup 的证明电路极为复杂，已发现的安全漏洞表明这是一个高风险领域。
@@ -128,6 +142,7 @@ Zama（法国初创公司）在 2024 年发布了 fhevm——支持在 FHE 下�
 - ZKP 系统的形式化验证（见[[formal-verification]]条目）是否能覆盖实际部署的 ZK 电路？
 - 隐私与监管合规之间的张力如何解决？ZKP 可以向监管者证明合规性，而不暴露数据——这是否足够满足监管需求，各国立场不一。
 - 量子计算机成熟后，当前基于椭圆曲线的 ZKP 方案将需要迁移到格密码学或哈希基础方案——迁移路径和时间线尚不明确。
+- blob 费用市场在拥挤时会不会把数据可用性重新变成瓶颈，从而把证明尺寸的惩罚又抬回来？
 
 ## 跨域连接
 
@@ -142,7 +157,9 @@ Zama（法国初创公司）在 2024 年发布了 fhevm——支持在 FHE 下�
 ## 参考文献
 
 - Goldwasser, S., Micali, S. & Rackoff, C. _The Knowledge Complexity of Interactive Proof Systems._ SIAM J. Comput. 18(1), 1989. （零知识证明的奠基论文）
-- Groth, J. _On the Size of Pairing-Based Non-interactive Arguments._ Eurocrypt 2016. （Groth16 算法）
+- Groth, J. _On the Size of Pairing-Based Non-interactive Arguments._ Eurocrypt 2016. DOI: 10.1007/978-3-662-49896-5_11.（Groth16 算法）
 - Ben-Sasson, E. et al. _Scalable, Transparent, and Post-Quantum Secure Computational Integrity._ IACR ePrint 2018/046. （zk-STARK 论文）
+- Buterin, V., Feist, D., Loerakker, D., Kadianakis, G., Dietrichs, A., Garnett, M. & Taiwo, M. _EIP-4844: Shard Blob Transactions._ Ethereum Improvement Proposals, 2022.
+- Ethereum Foundation. _Dencun Mainnet Announcement._ 2024 年 2 月 27 日.（主网激活：2024 年 3 月 13 日 epoch 269568）
 - Gentry, C. _A Fully Homomorphic Encryption Scheme._ 博士论文，Stanford University, 2009.
 - Boneh, D. et al. _A Graduate Course in Applied Cryptography._ 第20章（零知识证明）. crypto.stanford.edu. （免费在线）

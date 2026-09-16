@@ -1,0 +1,103 @@
+---
+title: Terry 1994：会话保证怎样把弱一致副本写成客户视角
+title_en: "Terry 1994: Session Guarantees for Weakly Consistent Replicated Data"
+status: published
+updated: 2026-09-15
+category: 系统剖析
+order: 51
+field: 分布式系统 · 弱一致性 · 会话
+era: 当代
+key_figures:
+  - Douglas B. Terry
+  - Alan J. Demers
+  - Karin Petersen
+  - Mike Spreitzer
+  - Marvin Theimer
+  - Brent B. Welch
+tags:
+  - 会话保证
+  - Bayou
+  - 读己之写
+  - 单调读
+  - 弱一致性
+related:
+  - dynamo-eventually-consistent
+  - demers-1987-epidemic
+  - shapiro-2011-crdts
+  - distributed-systems
+  - gfs-2003
+  - postgresql-mvcc
+---
+
+# Terry 1994：会话保证怎样把弱一致副本写成客户视角
+
+1994 年 9 月，第三届 International Conference on Parallel and Distributed Information Systems（PDIS）在奥斯汀开会。道格拉斯·特里（Douglas B. Terry）、艾伦·德默斯（Alan J. Demers）、卡琳·彼得森（Karin Petersen）、迈克·斯普赖策（Mike Spreitzer）、马文·泰默（Marvin Theimer）与布伦特·韦尔奇（Brent B. Welch）交出十页论文，会议录页码 140 至 149，IEEE，DOI 10.1109/PDIS.1994.331722。六人都在 Xerox PARC。对象是四种**按会话切开的保证**：Read Your Writes、Monotonic Reads、Monotonic Writes、Writes Follow Reads。现场是正在设计的 Bayou：给间歇连网的移动用户用的弱一致存储。论文写明，实现当时还在进行。
+
+它不是 [[dynamo-eventually-consistent|Dynamo]]。2007 年那篇 SOSP 报告买的是购物车在部分机器挂掉时仍能写入，合同写在 N、R、W、松散仲裁与向量时钟上。本页停在 1994 年把“这个客户自己做过什么、看见过什么”写成可以检查的证据，没有环，没有提示移交，也没有亚马逊的分位数。它不是 [[demers-1987-epidemic|Demers 1987]]：那十二页把一条更新如何走完已知副本集合分成直接邮寄、反熵与谣言；本页把反熵当成已经存在的底层，并且明确不再对同伴选择、频率或其他特征作假设。它不是 2011 年的 [[shapiro-2011-crdts|Shapiro 2011 CRDT]]，也不是 [[crdts|无冲突复制数据类型]] 那篇总览：半格回答的是并发更新会合之后是哪一个值；本页回答的是，在会合尚未完成时，某一个客户的读写序列该被哪些副本接住。它更不是一份复制系统施工图，不是超时与一致性级别的菜谱，也不是教人如何在分区两侧各写各的操作单。冲突怎么检测、谁赢、要不要人来裁决，论文写明对会话保证没有影响。
+
+---
+
+## 破除误解
+
+**误解一：这篇就是后来 Dynamo 里那句“最终一致”的客户说明书，读完 2007 年就等于读完 1994 年。** Dynamo 面对的是机房里的键值存储与购物车 SLA。特里等人面对的是 Grapevine 一类 read-any/write-any 里已经被人抱怨过的现象：同一个人改完口令再登录，却撞上一份还没收到新口令的副本。施罗德、比雷尔与尼达姆 1984 年的 Grapevine 经验报告被直接引作现场。本页要拆的是把这类现象收成四条可独立请求的会话合同，不是亚马逊的环与仲裁整数。
+
+**误解二：会话就是一次 TCP 连接，或者就是数据库事务。** 论文把 session 写成一次应用执行里的读写序列。它不对应原子性，也不对应可串行化。意图只是：即便读写打到互不一致的服务器，这一个应用看到的库，仍应与它自己做过的动作相符，接近“面前只有一台被许多人并发改写的中心服务器”。一个应用可以开多个会话，用以把保证的范围切细。口令那种例子甚至要求会话跨过注销与机器重启。把会话兑成套接字寿命，会把证据对象换成连接超时；把会话兑成事务，会把本页明确不做的隔离与原子提交偷运进来。[[postgresql-mvcc|PostgreSQL 的 MVCC]] 管的是单机上读不阻塞写的版本可见性；本页管的是客户换副本之后，自己的历史还能不能被下一台服务器认领。
+
+**误解三：四种保证是同一份“因果一致”的四个别名，或者合在一起就是线性化。** 它们可以各自请求，也可以任意搭配。论文还把写随读拆成只保顺序的 WFRO 与只保传播的 WFRP，因为公告板回帖与书目整条覆盖对这两款的需求并不相同。线性化要求存在一个全体操作的单副本顺序，且不相交的实时区间不得颠倒。本页从不声称这一点。[[distributed-systems|分布式系统]] 总览里的一致性光谱是路标，不是 1994 年这四条定义。
+
+**误解四：write-set 与 read-set 是一份要人去抄进集群的 API，版本向量是冲突解决脚本。** 第四节把它们写成会话管理器手里的两份 WID 集合：write-set 是本会话已经提交的写，read-set 是本会话读所依赖的相关写。它们是证据，用来在下一次操作前检查 `DB(S,t)` 是否已经覆盖这份集合。第五节才把集合压成两个 version vector，因为枚举 WID 会在带宽、存储与查找上胀起来。Locus 的版本向量在这里被用来表示“某台服务器的逻辑钟之前的写是否到齐”，以及向量之间的支配关系。论文同时拒绝另一种实现：让客户把写本身带去落后服务器、当场补课。那样会让写经由客户在服务器之间走，破坏写随读与单调写对传播路径的约束。概念证据停在“带哪些标识、查哪种子集关系”。怎样列出生产集群的会话、把向量拧成哪一种 RPC，不在本页对象里。
+
+---
+
+## 四种保证、会话历史与两份证据集合
+
+装置从一份已经存在的弱一致复制库开始。若干服务器各持一份完整副本。客户可以把一次读或一次写打到任意一台。`DB(S,t)` 是服务器 S 在时刻 t 已经收到的有序写序列。弱一致允许 `DB(S1,t)` 与 `DB(S2,t)` 不同。论文假定底层终将一致：每条写终会被全体服务器收到，并且对不可交换的写，全体用同一个谓词 `WriteOrder` 排成同一顺序。顺序可以来自起源时间戳，也可以来自别的协定；本页不绑定墙钟校准，也不绑定哪一种冲突裁决。[[demers-1987-epidemic|Demers 1987]] 把反熵写成协议类；这里只借用那个词，表示写会懒传播。[[gfs-2003|GFS]] 用单主记住块在哪，客户端先问主再跟 chunkserver 说话；本页假定的是没有这份中心目录的 read-any/write-any。把两者兑成“都是多副本存储”，会把客户换服务器这一刀读丢。
+
+读己之写最容易说错。保证是：若会话里读 R 跟在写 W 之后，并且 R 打在 S 的时刻 t，则 W 已经在 `DB(S,t)` 里。它并不保证读回的就是自己刚写入的那个值。会话外的别人完全可以插进一条更新的写。口令例子要的是：检查口令的那次读，不得落到一份还没有收下“改口令”的副本。单调读要先定义 RelevantWrites：对一次读 R，它是仍能完全决定 R 之结果的、最小那一组已收到的写。保证是：后一次读所在的副本，必须已经覆盖前一次读的 RelevantWrites。日历刷新因此不能在两份进度不同的副本之间来回跳。邮件先列出摘要再取正文，第二刀也不得落到一份没有那封信的服务器上。
+
+写随读把约束从“我自己看见”扩到别人也能看见的全局顺序。若读 R1 先于写 W2，则任何已经收下 W2 的服务器，必须也已经收下 R1 的相关写，并且这些相关写在 `WriteOrder` 里排在 W2 前面。书目页码改错再发 UPDATE，要的就是新写在全体副本上盖住旧写。公告板回帖往往只需要传播约束 WFRP：回帖不得出现在尚未拥有原文的服务器上。若每次写都覆盖整条书目，看见最新版本、即使更旧版本还没到，也可以接受，于是只要顺序约束 WFRO。单调写更窄：同一会话里 W1 先于 W2，则任何已有 W2 的副本必须已有 W1，并且 `WriteOrder(W1,W2)`。文本编辑器先后保存第 N 版与第 N+1 版，要避免 N 晚到把 N+1 盖回去。论文特别警告：单调写并不总被“写随读加读己之写”蕴含。若中间插进别人的覆盖写 Wx，R 的相关写里可能已经没有 W1，W1 与 W2 之间的顺序就会丢。
+
+会话管理器是客户存根里串行本会话读写的那一层。它持有两份证据：write-set 与 read-set。读己之写：每次写被接受，WID 进入 write-set；每次读之前，检查 write-set 是 `DB(S,t)` 的子集。单调读：读之前检查 read-set 已被覆盖；读之后把 RelevantWrites 并进 read-set。写随读：读同样更新 read-set；写之前检查 read-set 已被覆盖。单调写：写之前检查 write-set 已被覆盖；写被接受后再把新 WID 放进 write-set。找不到合格服务器，就向应用报告保证无法满足——保证一词在这里包含失败通知，不是偷偷降级。写随读与单调写还要求服务器满足两条行为约束：新写排在该服务器已知写之后；反熵按 `WriteOrder` 把前驱一起带走。论文说 Grapevine 用邮件传播更新，邮件可能被重排，因此不满足后一条；Coda 当时的卷同步被写成原子对齐，因此满足。这些是对已发表系统的分类，不是一份要人去改传播介质的步骤。
+
+版本向量把证据压短。WID 取成接受该写的服务器加上它的单调逻辑钟。服务器向量有一条不变量：若其中有 `<S,c>`，则 S 在逻辑时刻 c 及之前接受的写都已收到。会话状态因此收成两条向量：一条记录本会话的写，一条记录读所依赖的写。下一次操作要找合格服务器，就是看服务器向量是否支配相应的会话向量。复杂查询算不清 RelevantWrites 时，允许退回整份当前向量当作过粗估计；单调读与写随读不被破坏，只是可选服务器更少。咬住同一台服务器时检查可以摊销；换服务器才必须再比。共享缓存里一份不请求保证的过时读，会破坏另一会话的单调读。这是证据对象与缓存对象打架，不是淘汰配方。
+
+不要把这套装置收进别的对象。[[dynamo-eventually-consistent|Dynamo]] 的向量时钟比较同一键上两个版本是否因果覆盖；本页比较的是“这台服务器是否已经覆盖这个客户的历史”。[[shapiro-2011-crdts|Shapiro 2011]] 要会合唯一；本页允许会合尚未发生，只限制哪一台副本有资格为这个会话服务。Ladin、Liskov、Shrira 与 Ghemawat 1992 年的 lazy replication 是论文标明的最近邻：gossip 上的因果操作，无会话、换主机需重同步。Lotus Notes 一类系统往往只能钉死同一台服务器。本页要处理的恰好是移动客户例行换服务器。Tait 与 Duchamp 给的是严格读对宽松读；本页给的是四条可组合的会话合同，不是把每次读抬成“系统里最新的那一版”。
+
+## 论文声称了什么，以及它没有量到的东西
+
+它给出了四条用 `DB(S,t)`、RelevantWrites 与 `WriteOrder` 写成的定义，并给出会话管理器如何用 write-set、read-set 去做子集检查。它声称这些保证可以叠在已有的 read-any/write-any 复制之上，同时保留高可用、简单、可扩展与断连操作。保证按会话请求：一个会话要的保证，不改变其他会话、也不改变不请求保证的应用所看见的可用性。主要代价是合格服务器集合变小。它预期实际影响通常不大，尤其对使用本地缓存的客户。实现不需要系统级共享状态，也不需要服务器之间额外协调：每会话状态是两条版本向量，检查常常可以摊销。它声称 RYW 与单调读可以在不改 Coda 服务器代码的前提下加到客户端，因为服务器已经导出版本向量；写随读与单调写则依赖 Coda 已满足的传播约束。Coda 既有文件向量也有卷向量：跨文件操作可用卷向量，只碰单文件时用文件向量会少限制可用性。
+
+它没有给出公网毫秒分位数，没有给出像 Dynamo 那样的 99.9% 与 300 毫秒 SLA，也没有把 N、R、W 写成可调整数。Bayou 的实现被放在结论里当作进行中的工作，不是一份已经跑完的负载表。它没有测量冲突解决延迟，也没有把反熵间隔、超时或重试写成参数表。它没有声称四条保证完备，并主动说新应用域可能提出变体。它没有把会话保证写成隔离：并发应用仍可改同一项数据；原子性与可串行化被标成正交问题，可以另加，不是本页对象。Gray 与 Reuter 讲的数据库“一致性程度”放松的是事务之间的隔离；本页要增加的是单个应用对自己历史的可见性。有界不一致与 quasi-copy 被写成另一类、可互补的技术，管的是副本之间允许偏离多少，不是客户视角的会话合同。
+
+它也没有覆盖后来的产品化叙事。沃格尔 2009 年把读己之写一类词带给更广的工程读者，那是普及，不是把 1994 年改写成 2007 年的存储引擎。Petersen 等人后来写 Bayou 如何管理更新冲突，是另一份对象。本页停在会话证据。对账步骤、分叉做法与计时器格数，都不在这十页里。概念证据到此为止。
+
+---
+
+## 跨域连接
+
+- **[[epistemology|认识论]]**：没有任何一台服务器被允许声称自己看见了全体副本。会话管理器只携带两份关于自身历史的证据：我写过哪些 WID，我的读依赖过哪些 WID。下一次操作能否发生，取决于对侧能否出示“已经覆盖这份证据”的证词，通常是一条支配关系上的版本向量。读己之写把“我记得我写过”从私人信念改成可被对方核对的公开条件；单调读则禁止用一份更缺相关写的副本去推翻已经成立的观察。找不到合格服务器时必须报告失败，等于承认当前证据不足以支持下一次判断。把本地缓存里的“我已经读过”当成公共知识，正是共享缓存破坏单调读的认识论来源。
+- **[[knowledge|知识]]**：公共知识要求不仅人人知道，而且人人知道人人知道。会话保证不生产这种高阶闭合。一条写在某台服务器被接受，只说明这一侧已经把它收进 `DB(S,t)`，并不因此成为全体副本的共同知识。保证靠的是客户把“我这一侧已经知道什么”写成随身携带的知识状态，并拒绝与尚未达到该状态的副本对话。其他不请求保证的应用仍可继续读一份更旧的库。本页管的是某一条客户历史不要在换服务器时自己打自己耳光，不管抄本在反熵路上还要走多久。
+- **[[philosophy-of-time|时间哲学]]**：弱一致拒绝一个全体共享的“此刻”。`DB(S,t)` 的 t 是该服务器自己的接收历史上的标记，不是人人共用的薄薄一层现在。`WriteOrder` 给出终将一致的排列，论文明确说它不必等于各写实际发生的墙钟顺序，因此也不依赖时钟对准。单调读要的不是“越读越接近绝对现在”，而是相关写入集合不减。把保证理解成“再等一会儿就能读到系统里那一毫秒的最新值”，会把会话合同还原成超时，对象退回 Tait 与 Duchamp 那种严格读，定义不再适用。
+- **[[probability|概率论]]**：论文几乎不把保证写成失败概率上的不等式。它给出的是子集关系：要么 `write-set ⊆ DB(S,t)`，要么报告无法满足。可用性被写成合格服务器集合的缩小，而不是在独立故障假设下凑齐 W 个应答的组合概率。预期“影响通常不大”是设计判断，不是一条带误差的测量。反熵终将把每条写送到全体，是活性前提，本页不对到达时间给出分布。把两条向量误读成随机过程的充分统计量，会把确定性的证据检查听成一次关于传播时延的赌博。
+- **[[causation|因果性]]**：写随读是本页里最像因果的一条，但它并不声称已经看见了休谟意义上的必然联结。它只强制一种可检查的先后：被读依赖过的写，必须在后继写之前出现在每一份已经收下后继写的副本里，并且进入全体同意的 `WriteOrder`。单调写管的是同一主体相继两笔写的先后，不管中间有没有一条读把两者焊住。论文用 W1、R、W2 中间插入覆盖写 Wx 的例子表明：相关写可能把真正的前驱从证据里抹掉，“看起来像因果”的读依赖并不自动恢复会话内部的写顺序。因果在这里是证据集合上的偏序，不是世界上那根看不见的力。把这套偏序读成冲突裁决脚本，会离开对象。
+
+---
+
+## 参考文献
+
+- Douglas B. Terry, Alan J. Demers, Karin Petersen, Mike Spreitzer, Marvin Theimer & Brent B. Welch, "Session Guarantees for Weakly Consistent Replicated Data", *Proceedings of the 3rd International Conference on Parallel and Distributed Information Systems* (PDIS), Austin, 1994, pp. 140–149. IEEE. DOI: 10.1109/PDIS.1994.331722. —— 本文对象：四种会话保证，以及 write-set / read-set 与版本向量上的检查。
+- M. D. Schroeder, A. D. Birrell & R. M. Needham, "Experience with Grapevine: The Growth of a Distributed System", *ACM Transactions on Computer Systems* 2(1), 1984, pp. 3–23. —— 口令改完仍登录失败等现场，论文用作弱一致系统里单用户也会看见不一致的证据。
+- A. Birrell, R. Levin, R. M. Needham & M. D. Schroeder, "Grapevine: An Exercise in Distributed Computing", *Communications of the ACM* 25(4), 1982, pp. 260–274. —— read-any/write-any 的前身现场。
+- R. Ladin, B. Liskov, L. Shrira & S. Ghemawat, "Providing High Availability Using Lazy Replication", *ACM Transactions on Computer Systems* 10(4), 1992, pp. 360–391. —— 论文标明的最近邻：gossip 上的因果操作，无会话、换主机需重同步。
+- D. S. Parker et al., "Detection of Mutual Inconsistency in Distributed Systems", *IEEE Transactions on Software Engineering* SE-9(3), 1983, pp. 240–246. —— 版本向量与支配关系的来源（Locus）。
+- J. J. Kistler & M. Satyanarayanan, "Disconnected Operation in the Coda File System", *Proceedings of the 13th ACM Symposium on Operating Systems Principles*, 1991, pp. 213–225. —— 论文用来说明 RYW 与单调读可在不改服务器的前提下叠到已有向量接口上。
+- Alan Demers et al., "Epidemic Algorithms for Replicated Database Maintenance", *Proceedings of the Sixth Annual ACM Symposium on Principles of Distributed Computing* (PODC), 1987, pp. 1–12. DOI: 10.1145/41840.41841. —— 本页当作已经存在的传播层，不再对反熵协议本身作假设。
+
+## 延伸阅读
+
+- 与 [[dynamo-eventually-consistent|Dynamo]] 对读：2007 年买的是分区下可写与版本集合；本页对象是 1994 年客户视角的四条会话合同。
+- 与 [[demers-1987-epidemic|Demers 1987]]、[[shapiro-2011-crdts|Shapiro 2011 CRDT]]、[[crdts|无冲突复制数据类型]] 对读：传播协议类与会合代数各不是本页的证据对象。
+- Karin Petersen, Mike J. Spreitzer, Douglas B. Terry, Marvin M. Theimer & Alan J. Demers, "Flexible Update Propagation for Weakly Consistent Replication", *Proceedings of the 16th ACM Symposium on Operating Systems Principles* (SOSP), 1997. —— 后来的 Bayou 传播；不是 1994 年这篇的会话定义。
+- Werner Vogels, "Eventually Consistent", *Communications of the ACM* 52(1), 2009, pp. 40–44. —— 把读己之写一类词带给更广工程读者的普及文，不是把年份提前。
+- Leslie Lamport, "Time, Clocks, and the Ordering of Events in a Distributed System", *Communications of the ACM* 21(7), 1978, pp. 558–565. —— 逻辑钟；论文允许 WID 的钟取 Lamport 钟、墙钟或计数器。
+- J. Gray & A. Reuter, *Transaction Processing: Concepts and Techniques*, Morgan Kaufmann, 1993. —— 论文用来对照“一致性程度”谈的是隔离，不是会话可见性。

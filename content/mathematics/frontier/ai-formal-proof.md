@@ -2,7 +2,7 @@
 title: 定理形式化与 AI 证明助手
 title_en: Formal Theorem Proving and AI Proof Assistants
 status: published
-updated: 2026-06-12
+updated: 2026-09-12
 category: 数学与计算
 horizon: 2020s
 order: 1
@@ -96,6 +96,16 @@ AlphaGeometry 2 则专门针对几何题，用符号推导与语言模型配合�
 
 **炒作风险。** AlphaProof 的 IMO 结果引发了大量媒体报道，部分标题声称"AI 即将取代数学家"。这严重高估了现有系统的能力：AI 在闭合、有限的形式化环境中搜索证明，与发现全新的数学结构、提出有价值的猜想，是完全不同量级的任务。
 
+银牌和金牌不要合成一台机器。2025 年 7 月 21 日，DeepMind 公布用 Gemini Deep Think 的进阶版本在当年 IMO 上拿到 35/42，五道题满分。组织方按与人类选手同一套评分确认了金牌线。
+
+2024 年 AlphaProof 的银牌先把题目写成 Lean，再花两三天搜索。2025 年这条路是自然语言端到端，卡在 4.5 小时赛时里。金牌证明是自然语言论证，不是 Lean 内核核过的对象。
+
+OpenAI 同期也报告了金牌级分数，评分通道独立，不走官方机器赛道。竞赛题有标准答案，研究级猜想没有。自动形式化把论文翻成 Lean，到 2026 年 9 月对研究论文仍不可靠。
+
+Mathlib 的规模也容易被合成一句"二十万"。2025 年 10 月 Lean Finder 论文写社区库超过 23 万条定理、约 11 万条定义。社区统计页到 2026 年 9 月显示约 28.8 万条定理、13.7 万条定义、772 名贡献者。
+
+两个数字的计数口径并不相同。库变大降低的是"有没有引理"，不是"这句话是不是你想证的那句"。找对引理本身已经成了瓶颈。
+
 ## 未知的边界
 
 - **自动形式化（Autoformalization）能否真正突破？** 如果大语言模型能以高可靠性把自然语言数学翻译成 Lean，那么人类工作量将大幅下降。这是当前最活跃的研究方向之一，但在 2025 年底，端到端自动形式化对研究级论文仍不可靠。
@@ -112,7 +122,8 @@ AlphaGeometry 2 则专门针对几何题，用符号推导与语言模型配合�
 - **2023 年 11 月**：Gowers-Green-Manners-Tao 证明 Marton 猜想，三周内完成 Lean 形式化。
 - **2024 年 1 月**：Tao 与 Kontorovich 发起"强素数定理"的 Lean 形式化挑战，由 AI 辅助团队三周完成。
 - **2024 年 7 月**：AlphaProof+AlphaGeometry 2 在 IMO 2024 达到银牌水平（28/42 分）。
-- **2025 年**：AlphaProof 相关成果发表于《自然》；Lean Mathlib 库持续扩张，形式化数学进入加速期。
+- **2025 年 7 月**：Gemini Deep Think 在 IMO 2025 拿到 35/42，自然语言端到端，组织方确认金牌线；证明未经 Lean 内核核验。
+- **2025 年 11 月**：AlphaProof 方法论文刊于《自然》；Lean 核验与自然语言金牌仍是两条路。
 
 这条时间线的节奏——一年内多次突破——在过去的数学史上是罕见的。
 
@@ -131,6 +142,8 @@ AlphaGeometry 2 则专门针对几何题，用符号推导与语言模型配合�
 - Gowers, T., Green, B., Manners, F., Tao, T. "On a conjecture of Marton." arXiv:2311.05762 (2023).
 - Tao, T. "Formalizing the proof of PFR in Lean4 using Blueprint: a short tour." _What's New_ (blog), 2023-11-18.
 - de Moura, L. et al. "The Lean 4 Theorem Prover and Programming Language." _CADE 2021_.
+- Google DeepMind. "Advanced version of Gemini with Deep Think officially achieves gold-medal standard at the International Mathematical Olympiad." 2025-07-21.
+- Gao, J. et al. "Lean Finder: Semantic Search for Mathlib That Understands User Intents." arXiv:2510.15940 (2025).
 
 ## 延伸阅读
 

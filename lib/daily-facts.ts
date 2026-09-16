@@ -1000,3 +1000,69 @@ export const ENGINEERING_FACTS: readonly DailySelectedFact[] = [
     url: "/engineering/foundations/simple-machines",
   },
 ];
+
+export const EDUCATION_FACTS: readonly DailySelectedFact[] = [
+  {
+    title: "学会了是可观察的改变",
+    description: "把学习写成行为、判断或作业上的变化，才能核对；“懂了”本身无法当证据。",
+    url: "/education/learning-foundations/what-is-learning",
+  },
+  {
+    title: "间隔练习改变遗忘",
+    description: "同一材料拆开复习，比一次堆完更耐忘；曲线测的是时间安排，不是学习风格。",
+    url: "/education/cognition-and-memory/memory-spacing-and-transfer",
+  },
+  {
+    title: "课程是一份选择",
+    description: "教什么、按什么次序、删掉什么，都是制度决定；中立的知识管道并不存在。",
+    url: "/education/curriculum-and-teaching/curriculum-as-selection",
+  },
+  {
+    title: "分数是一项推断",
+    description: "测验测到的是这次作答；把它写成能力或学校质量，还要另做效度论证。",
+    url: "/education/assessment-and-equity/assessment-as-inference",
+  },
+  {
+    title: "自适应系统在选下一步",
+    description: "平台记录的是点击与对错，再决定下一题；它不是一位会判断误解的教师。",
+    url: "/education/education-technology/adaptive-systems-are-not-tutors",
+  },
+  {
+    title: "PISA 不是文明排名",
+    description: "国际测评比较的是抽样与试卷设计下的表现，不能直接写成国民素质。",
+    url: "/education/comparison-and-policy/pisa-is-not-civilization",
+  },
+];
+
+export const ANTHROPOLOGY_FACTS: readonly DailySelectedFact[] = [
+  {
+    title: "文化不是常识",
+    description: "把一套做法叫做文化，依据的是比较与描述，不是“他们本来就这样”。",
+    url: "/anthropology/culture-and-method/what-is-culture",
+  },
+  {
+    title: "礼物会制造义务",
+    description: "互惠不是礼貌。给出、接受与回报把人绑进可观察的关系，而不是单纯的慷慨。",
+    url: "/anthropology/kinship-and-exchange/gift-and-reciprocity",
+  },
+  {
+    title: "测年先要出土情境",
+    description: "一件遗物的年代挂在地层与共存物上；离开出土位置，数字就无法核对。",
+    url: "/anthropology/prehistory-and-archaeology/archaeological-dating",
+  },
+  {
+    title: "物也在规定人",
+    description: "工具、织物与收藏不是背景。谁能用、谁能传、谁被排除，写在物的流通上。",
+    url: "/anthropology/material-culture/things-and-persons",
+  },
+  {
+    title: "知情同意是一项条件",
+    description: "民族志写的是在世的人。记录能不能公开，取决于同意的范围，不是研究者的方便。",
+    url: "/anthropology/comparison-and-ethics/informed-consent-in-ethnography",
+  },
+  {
+    title: "过去由谁主张",
+    description: "遗址、遗骨与展品的归属是法律与制度问题；“全人类遗产”不能自动取消主张者。",
+    url: "/anthropology/urban-and-heritage/who-owns-the-past",
+  },
+];

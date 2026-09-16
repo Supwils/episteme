@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { SearchResult, Section } from "./types";
 import { TYPE_LABELS, SECTION_META } from "./types";
+import { isSafeInternalPath } from "@/lib/urls";
 
 /** Highlight the query where it appears verbatim. Chinese queries are typed as
  *  a contiguous run, so a plain substring match marks what the reader looked
@@ -51,6 +52,8 @@ export function SearchResultItem({
   const sectionLabel = showSectionLabel
     ? SECTION_META[result.section as Section]?.label
     : undefined;
+
+  if (!isSafeInternalPath(result.url)) return null;
 
   return (
     <Link

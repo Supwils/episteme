@@ -2,7 +2,7 @@
 title: AI 驱动的科学发现：从蛋白质到天气再到数学
 title_en: AI for Science — Machine Learning as an Instrument of Discovery
 status: published
-updated: 2026-08-16
+updated: 2026-09-12
 category: 人工智能
 horizon: 2020s
 order: 10
@@ -47,7 +47,7 @@ related:
 
 **蛋白质结构。** AlphaFold 2（2021 年发表于 _Nature_）在 CASP14 评测中把蛋白质结构预测的精度推到接近实验方法的水平，此后 AlphaFold 数据库免费开放了超过两亿个预测结构。AlphaFold 3（Abramson 等，2024，_Nature_ 630 卷）换用扩散模型架构，能统一预测蛋白质、核酸、小分子配体组成的复合物，在蛋白-配体相互作用上显著超过此前的专用对接工具。它对药物设计的意义直接：过去解析一个复合物结构可能耗时数年，现在以分钟计。
 
-**天气预报。** GraphCast（Lam 等，2023 年发表于 _Science_）用图神经网络做中期全球预报，论文报告在 1380 个验证目标的 90% 上精度超过 ECMWF 的 HRES——后者是数值天气预报的黄金标准。华为的 Pangu-Weather 同年发表于 _Nature_。更重要的是落地速度：ECMWF 在 2025 年 2 月把自己开发的数据驱动模型 AIFS 投入业务运行，与物理模式并列提供官方预报。这是 AI 模型第一次进入国家级别的业务预报链路。
+**天气预报。** GraphCast（Lam 等，2023 年发表于 _Science_）用图神经网络做中期全球预报，论文报告在 1380 个验证目标的 90% 上精度超过 ECMWF 的 HRES——后者是数值天气预报的黄金标准。华为的 Pangu-Weather 同年发表于 _Nature_。更重要的是落地速度：ECMWF 在 2025 年 2 月 25 日把 AIFS Single 投入业务运行，与物理模式 IFS 并列；2025 年 7 月 1 日再把集合预报 AIFS ENS 投入业务。2026 年 5 月 12 日，IFS Cycle 50r1 与 AIFS v2 同步升级，集合版加入数据驱动的海浪变量。业务化不等于取代方程。ECMWF 自己的表述是互补：同一套初始场，两套预报，用户选择。初始场仍来自物理同化与约六千万条质控观测。没有观测，映射无处可学。有了观测，映射仍可能在训练分布之外的极端事件上失真。失真不能靠排行榜上的平均技巧分数自动消失。平均技巧很好，仍要单独审计台风、阻塞和热浪。审计才是业务，演示只是论文。
 
 **材料发现。** GNoME（Merchant 等，2023 年发表于 _Nature_）用图神经网络配合主动学习，预测了 220 万个新晶体，其中约 38 万个被判定为热力学稳定——论文称这相当于把人类已知稳定无机晶体的目录扩大了近一个数量级。约 38 万个候选已并入公开的 Materials Project 数据库。
 
@@ -55,23 +55,25 @@ related:
 
 ## 谁在做，做到了哪一步
 
-| 方向         | 代表系统（年份）                       | 机构                       | 已验证的结果                             |
-| ------------ | -------------------------------------- | -------------------------- | ---------------------------------------- |
-| 结构生物学   | AlphaFold 2/3（2021/2024）             | Google DeepMind            | CASP 评测达实验级精度；数据库超 2 亿结构 |
-| 天气预报     | GraphCast（2023）、AIFS（2025 业务化） | DeepMind、ECMWF            | 多数指标超 HRES；进入业务预报            |
-| 材料         | GNoME（2023）、A-Lab（2023）           | DeepMind、LBNL/UC Berkeley | 38 万稳定候选入库；自主合成出目标化合物  |
-| 数学         | AlphaGeometry/AlphaProof（2024）       | DeepMind                   | IMO 银牌水平；形式化证明可被机器核查     |
-| 等离子体控制 | 托卡马克磁控制（2022）                 | DeepMind + EPFL            | 强化学习实时控制等离子体形状（_Nature_） |
+| 方向         | 代表系统（年份）                       | 机构                       | 已验证的结果                                    |
+| ------------ | -------------------------------------- | -------------------------- | ----------------------------------------------- |
+| 结构生物学   | AlphaFold 2/3（2021/2024）             | Google DeepMind            | CASP 评测达实验级精度；数据库超 2 亿结构        |
+| 天气预报     | GraphCast（2023）、AIFS（2025 业务化） | DeepMind、ECMWF            | 多数指标超 HRES；进入业务预报                   |
+| 材料         | GNoME（2023）、A-Lab（2023）           | DeepMind、LBNL/UC Berkeley | 38 万稳定候选入库；A-Lab 新颖性口径 2026 年更正 |
+| 数学         | AlphaGeometry/AlphaProof（2024）       | DeepMind                   | IMO 银牌水平；形式化证明可被机器核查            |
+| 等离子体控制 | 托卡马克磁控制（2022）                 | DeepMind + EPFL            | 强化学习实时控制等离子体形状（_Nature_）        |
 
 值得注意的共同点：这些成果几乎全部来自少数拥有大规模算力与高质量数据的机构。AI4Science 目前是一个资源高度集中的领域。
 
 ## 代价与争议：预测、验证与可复现性
 
+**预测不是验证。** 学到的映射输出候选，实验仪器输出测量，两件事共用"结构""天气""材料"这些词，回答的问题不同。AlphaFold 3 给出带置信度的三维假说，它不是冷冻电镜或晶体学沉积进 PDB 的实验结构。GraphCast 与 AIFS 给出预报场；ECMWF 仍用同一套物理同化初始场并行运行 IFS，初始场来自约六千万条质控观测。GNoME 给出热力学稳定性的计算判定，稳定性不是烧瓶里的相，更不是器件。把筛选写成终审，排行榜就会冒充发现。2024 年诺贝尔化学奖表彰的是计算蛋白质设计与结构预测这一工具链，不是宣布预测已经替代实验。
+
 **稳定不等于存在。** GNoME 的 38 万"稳定材料"是模型与 DFT 判定的结果。2024 年，UC Santa Barbara 的材料学家公开质疑其中相当比例的结构既不新颖也未必可合成；DeepMind 回应称批评者误读了论文的目标。这场争论至今没有干净的裁决，它暴露的是标准问题："发现一个材料"到底意味着什么——算出稳定、合成出来、还是做出器件？三者之间隔着数量级的时间与成本。
 
-**自主实验室的教训更直接。** LBNL 的 A-Lab（2023 年发表于 _Nature_）让机器人在 17 天里自主完成实验，论文称合成了 41 种"新颖"化合物。2024 年有团队在 _PRX Energy_ 发表分析，质疑其 X 射线衍射的解读方式；2026 年 _Nature_ 刊出作者更正，承认原文对材料"新颖性"的表述容易引起误解。一个被广泛报道为"AI 自主做科学"的标杆工作，最终在同行压力下修正了核心表述。这不是说自主实验室方向错了，而是说明：**自动化的合成没有自动化的验证可靠，而验证恰恰是更难自动化的那一半。**
+**自主实验室的教训更直接。** LBNL 的 A-Lab（Szymanski 等，2023，_Nature_）让机器人在 17 天里自主完成实验，原文把一批产物写成"新颖"化合物。Leeman 等人 2024 年在 _PRX Energy_ 把报告的合成产物逐条复核，指出自动 Rietveld 精修与对无序固溶体的处理会把已知相误判成新相，并得出该工作并未发现新材料的结论；他们估计，声称成功的材料里约三分之二更像已知的成分无序变体。2026 年 1 月 19 日，_Nature_ 刊出作者更正：原文的"新颖"本意是对预测平台而言是新的，不一定对科学是新的。作者对衍射图做了发表后的人工复核（经同行评审），在 40 项报告成功中确认 36 项，4 项仅凭 XRD 无法定论；讨论中撤回 Zn₂Cr₃FeO₈，因为它被误放入训练数据。闭环证明的是吞吐。发现的定义并没有被自动化。自动化的合成没有自动化的验证可靠，而验证恰恰是更难自动化的那一半。
 
-**开放程度的拉锯。** AlphaFold 3 发表时只提供网页服务器、不开放代码与权重，引来数百名科学家联署批评；DeepMind 在 2024 年 11 月改为向非商用研究开放模型参数。科学共同体对"发表即可复现"的期待，与企业的商业与安全考虑之间，张力不会消失。
+**开放程度的拉锯。** AlphaFold 3 于 2024 年 5 月 8 日发表时只提供网页服务器，不开放推理代码与权重；服务器对每日请求次数和可处理的配体种类设限。这与 AlphaFold 2 在 2021 年随论文公开代码的做法对照鲜明，也与期刊对计算论文应附可运行实现的惯例冲突，数百名科学家为此联署。2024 年 11 月 11 日，DeepMind 在 GitHub 发布 v3.0.0 推理代码，并开放模型参数申请。代码使用 CC-BY-NC-SA 4.0；权重须向 Google 直接申请、不得再分发，且仅供非营利机构的非商业用途——包括不得替商业组织做研究，也不得用来训练类似的生物分子结构预测模型。_Nature_ 随后更正一则新闻表述：这不是开源。开放权重与开源许可证不是同一件事。科学共同体对"发表即可复现"的期待，与企业的商业与安全考虑之间，张力不会消失。
 
 **数据壁垒是隐性天花板。** 成功案例几乎都在数据富裕的领域：蛋白质有 PDB 五十年积累，气象有 ECMWF 的再分析数据，材料有 Materials Project 的百万级 DFT 计算。而科学的大部分地区没有这样的数据——失败实验不发表，负结果躺在实验室笔记本里。模型学到的映射只能覆盖数据覆盖的空间，这解释了为什么 AI4Science 的捷报集中在少数几个领域。
 
@@ -98,11 +100,16 @@ related:
 - Lam, R. et al. _Learning Skillful Medium-Range Global Weather Forecasting._ Science 382, 1416–1421 (2023). DOI: 10.1126/science.adi2336.（GraphCast）
 - Merchant, A. et al. _Scaling Deep Learning for Materials Discovery._ Nature 624, 80–85 (2023). DOI: 10.1038/s41586-023-06735-9.（GNoME）
 - Trinh, T. H., Wu, Y., Le, Q. V., He, H. & Luong, T. _Solving Olympiad Geometry Without Human Demonstrations._ Nature 625, 476–482 (2024). DOI: 10.1038/s41586-023-06747-5.（AlphaGeometry）
-- Szymanski, N. J. et al. _An Autonomous Laboratory for the Accelerated Synthesis of Novel Materials._ Nature 624, 86–91 (2023). DOI: 10.1038/s41586-023-06734-w.（A-Lab，含 2026 年作者更正）
+- Szymanski, N. J. et al. _An Autonomous Laboratory for the Accelerated Synthesis of Novel Materials._ Nature 624, 86–91 (2023). DOI: 10.1038/s41586-023-06734-w.（A-Lab）
+- Szymanski, N. J. et al. _Author Correction: An autonomous laboratory for the accelerated synthesis of inorganic materials._ Nature 650, E1 (2026). DOI: 10.1038/s41586-025-09992-y. 2026-01-19.
+- Leeman, J. et al. _Challenges in High-Throughput Inorganic Materials Prediction and Autonomous Synthesis._ PRX Energy 3, 011002 (2024). DOI: 10.1103/PRXEnergy.3.011002.
 
 ## 延伸阅读
 
 - Jumper, J. et al. _Highly Accurate Protein Structure Prediction with AlphaFold._ Nature 596, 583–589 (2021). DOI: 10.1038/s41586-021-03819-2.
 - Romera-Paredes, B. et al. _Mathematical Discoveries from Program Search with Large Language Models._ Nature 625, 468–475 (2023).（FunSearch）
 - Degrave, J. et al. _Magnetic Control of Tokamak Plasmas Through Deep Reinforcement Learning._ Nature 602, 414–419 (2022).
-- Leeman, J. et al. _Commentary on Autonomous Materials Synthesis Claims._ PRX Energy (2024).（对 A-Lab 的质疑）
+- ECMWF. “ECMWF’s AI forecasts become operational.” 25 February 2025. AIFS Single 与 IFS 并列业务运行。
+- ECMWF. “ECMWF’s ensemble AI forecasts become operational.” 1 July 2025. AIFS ENS 投入业务。
+- Google DeepMind. AlphaFold 3 inference code v3.0.0 and Model Parameters Terms of Use. GitHub, 11 November 2024. 代码 CC-BY-NC-SA 4.0；权重须直接申请，非商业、禁止再分发。
+- Nature. _AI protein-prediction tool AlphaFold3 is now more open._ Nature 635, 531–532 (2024). DOI: 10.1038/d41586-024-03708-4. 11 月 14 日更正：并非开源。

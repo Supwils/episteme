@@ -1,9 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { PRODUCT_EASE } from "./constants";
 
 export function Reveal({ children }: { children: React.ReactNode }) {
+  const reducedMotion = useReducedMotion();
+  if (reducedMotion) return <div>{children}</div>;
   return (
     <motion.div
       variants={{

@@ -1,23 +1,14 @@
-import fs from "node:fs";
 import path from "node:path";
-import matter from "gray-matter";
+import { loadContentBySlug } from "@/lib/content-article";
 import type {
   Economist,
-  EconomistFrontmatter,
   Theory,
-  TheoryFrontmatter,
   Concept,
-  ConceptFrontmatter,
   CaseStudy,
-  CaseStudyFrontmatter,
   School,
-  SchoolFrontmatter,
   Debate,
-  DebateFrontmatter,
   Dialogue,
-  DialogueFrontmatter,
   KnowledgeBase,
-  KnowledgeBaseFrontmatter,
 } from "./types";
 import {
   EconomistSchema,
@@ -29,7 +20,7 @@ import {
   DialogueSchema,
   KnowledgeBaseSchema,
 } from "./schemas";
-import { getDomainContentDir } from "@/lib/content-paths";
+import { getDomainContentDir, listContentSlugs } from "@/lib/content-paths";
 
 const CONTENT_ROOT = getDomainContentDir("economics");
 
@@ -61,10 +52,6 @@ let cachedSchools: School[] | null = null;
 let cachedDebates: Debate[] | null = null;
 let cachedDialogues: Dialogue[] | null = null;
 let cachedKnowledgeBase: KnowledgeBase[] | null = null;
-
-function isSafeSlug(slug: string): boolean {
-  return !!slug && !slug.includes("..") && !slug.includes("/") && !slug.includes("\\");
-}
 
 const FIELD_MAP: Record<string, string> = {
   titleEn: "title_en",
@@ -117,43 +104,32 @@ function readMdxFile<T>(
     };
   }
 ): T | null {
-  if (cache.has(slug)) return cache.get(slug)!;
-  if (!isSafeSlug(slug)) return null;
-  const mdxPath = path.join(dir, `${slug}.mdx`);
-  const mdPath = path.join(dir, `${slug}.md`);
-  const filePath = fs.existsSync(mdxPath) ? mdxPath : fs.existsSync(mdPath) ? mdPath : null;
-  if (!filePath || !filePath.startsWith(dir)) return null;
-  let result: T | null = null;
-  try {
-    const raw = fs.readFileSync(filePath, "utf-8");
-    const { data, content } = matter(raw);
-    const normalized = normalizeFrontmatter(data as Record<string, unknown>);
-    let frontmatter: Record<string, unknown> = normalized;
-    if (schema) {
-      const parsed = schema.safeParse(normalized);
-      if (parsed.success) {
-        frontmatter = parsed.data as Record<string, unknown>;
-      } else if (process.env.NODE_ENV === "development") {
-        const details = parsed
-          .error!.issues.map((i) => `${i.path.join(".")}: ${i.message}`)
-          .join("; ");
-        console.warn(`[economics] frontmatter validation failed for ${slug}: ${details}`);
+  return loadContentBySlug(
+    dir,
+    slug,
+    cache,
+    (data, content, nextSlug) => {
+      const normalized = normalizeFrontmatter(data);
+      let frontmatter: Record<string, unknown> = normalized;
+      if (schema) {
+        const parsed = schema.safeParse(normalized);
+        if (parsed.success) {
+          frontmatter = parsed.data as Record<string, unknown>;
+        } else if (process.env.NODE_ENV === "development") {
+          const details = parsed
+            .error!.issues.map((i) => `${i.path.join(".")}: ${i.message}`)
+            .join("; ");
+          console.warn(`[economics] frontmatter validation failed for ${nextSlug}: ${details}`);
+        }
       }
-    }
-    result = { ...frontmatter, slug, content } as T;
-  } catch {
-    // result stays null
-  }
-  cache.set(slug, result);
-  return result;
+      return { ...frontmatter, slug: nextSlug, content } as T;
+    },
+    [".mdx", ".md"]
+  );
 }
 
 function getSlugs(dir: string): string[] {
-  if (!fs.existsSync(dir)) return [];
-  return fs
-    .readdirSync(dir)
-    .filter((f) => f.endsWith(".mdx") || f.endsWith(".md"))
-    .map((f) => f.replace(/\.mdx$/, "").replace(/\.md$/, ""));
+  return listContentSlugs(dir, [".mdx", ".md"]);
 }
 
 // ── Economists ─────────────────────────────────────────────────────────

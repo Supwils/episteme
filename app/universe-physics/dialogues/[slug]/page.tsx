@@ -1,13 +1,11 @@
-import Link from "next/link";
 import { withCanonicalPath } from "@/lib/article-canonical";
 import { serializeJsonLd } from "@/lib/jsonld";
 import { notFound } from "next/navigation";
 import { universePhysicsDialogues } from "@/lib/universe-physics-dialogues";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
-import { ReadingModeControls } from "@/components/ReadingModeControls";
-import { ReadingProgressBar } from "@/components/ReadingProgressBar";
 import { TableOfContents } from "@/components/TableOfContents";
-import { ArticleSidebar } from "@/components/ArticleSidebar";
+import { ArticleLayout } from "@/components/ArticleLayout";
+import Breadcrumb from "@/components/Breadcrumb";
 import { SITE_URL } from "@/lib/constants";
 
 interface Props {
@@ -17,8 +15,6 @@ interface Props {
 const ACCENT = "#7c9fd6";
 
 export function generateStaticParams() {
-  // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
-  // on first request and is cached. Keeps build output small as content grows.
   return [];
 }
 
@@ -43,79 +39,59 @@ export default async function PhysicsDialogueDetailPage({ params }: Props) {
   const dialogue = universePhysicsDialogues.getBySlug(slug);
   if (!dialogue) notFound();
 
+  const all = universePhysicsDialogues.getAll();
+  const currentIndex = all.findIndex((item) => item.slug === dialogue.slug);
+  const prev = currentIndex > 0 ? all[currentIndex - 1] : null;
+  const next = currentIndex >= 0 && currentIndex < all.length - 1 ? all[currentIndex + 1] : null;
+  const url = `/universe-physics/dialogues/${dialogue.slug}`;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: dialogue.title,
     description: dialogue.description || dialogue.title,
-    url: `${SITE_URL}/universe-physics/dialogues/${slug}`,
+    url: `${SITE_URL}${url}`,
     author: { "@type": "Organization", name: "Episteme · 格致" },
     publisher: { "@type": "Organization", name: "Episteme · 格致", url: SITE_URL },
     keywords: dialogue.tags.join(", "),
   };
 
   return (
-    <div className="mx-auto w-full max-w-[1800px] px-6 py-12 sm:px-10 lg:px-16">
-      <ReadingProgressBar />
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
-      <nav className="article-reading-chrome mb-8 flex flex-wrap items-center justify-between gap-4">
-        <Link
-          href="/universe-physics/dialogues"
-          className="text-fg-muted hover:text-fg-primary inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] uppercase transition-colors"
-        >
-          ← 返回对话
-        </Link>
-        <ReadingModeControls />
-      </nav>
-
-      <div className="flex flex-col gap-12 lg:flex-row lg:justify-center">
-        <article className="article-reading-surface max-w-[44rem] min-w-0 flex-1 transition-[max-width] duration-300">
-          <header className="mb-10">
-            <h1 className="text-fg-primary mb-4 text-3xl leading-tight font-semibold sm:text-4xl">
-              {dialogue.title}
-            </h1>
-            {dialogue.description && (
-              <p className="text-fg-secondary text-[15px] leading-relaxed">
-                {dialogue.description}
-              </p>
-            )}
-            {dialogue.tags.length > 0 && (
-              <div className="mt-4 flex flex-wrap gap-2">
-                {dialogue.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-fg-muted border-border-faint rounded border px-2 py-0.5 font-mono text-[10px]"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            )}
-          </header>
-
-          <MarkdownRenderer
-            domain="universe-physics"
-            content={dialogue.content}
-            accentColor={ACCENT}
+      <ArticleLayout
+        domain="universe-physics"
+        backHref="/universe-physics/dialogues"
+        backLabel="← 返回对话"
+        url={url}
+        breadcrumb={
+          <Breadcrumb
+            items={[
+              { label: "物理学", href: "/universe-physics" },
+              { label: "对话", href: "/universe-physics/dialogues" },
+              { label: dialogue.title },
+            ]}
           />
-        </article>
-
-        <ArticleSidebar contentClassName="space-y-6">
-          <TableOfContents accentColor={ACCENT} />
-        </ArticleSidebar>
-      </div>
-
-      <footer className="border-border-subtle mt-12 border-t pt-6">
-        <Link
-          href="/universe-physics/dialogues"
-          className="text-fg-muted hover:text-fg-primary inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] uppercase transition-colors"
-        >
-          ← 返回对话
-        </Link>
-      </footer>
-    </div>
+        }
+        accent={ACCENT}
+        eyebrow="物理学对话"
+        title={dialogue.title}
+        content={dialogue.content}
+        lede={dialogue.description || undefined}
+        tags={dialogue.tags}
+        prev={prev ? { href: `/universe-physics/dialogues/${prev.slug}`, title: prev.title } : null}
+        next={next ? { href: `/universe-physics/dialogues/${next.slug}`, title: next.title } : null}
+        sidebar={<TableOfContents accentColor={ACCENT} />}
+      >
+        <MarkdownRenderer
+          domain="universe-physics"
+          content={dialogue.content}
+          accentColor={ACCENT}
+        />
+      </ArticleLayout>
+    </>
   );
 }

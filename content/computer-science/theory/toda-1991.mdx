@@ -1,0 +1,97 @@
+---
+title: Toda 1991：多项式层次怎样被一次 #P 询问送进确定性多项式时间
+title_en: "PP is as Hard as the Polynomial-Time Hierarchy"
+status: published
+updated: 2026-09-15
+category: 计算理论
+order: 77
+field: 计算复杂性
+era: 当代
+key_figures:
+  - Seinosuke Toda
+tags:
+  - Toda
+  - 户田定理
+  - PP
+  - 夏普P
+  - 多项式层次
+  - 奇偶P
+related:
+  - counting-complexity
+  - valiant-1979-permanent
+  - computational-complexity
+  - cook-1971-np-completeness
+  - karp-lipton-1980
+  - baker-gill-solovay-1975
+  - ladner-1975-np-intermediate
+---
+
+# Toda 1991：多项式层次怎样被一次 #P 询问送进确定性多项式时间
+
+1991 年 10 月，《SIAM 计算杂志》（*SIAM Journal on Computing*）第 20 卷第 5 期刊出户田诚之助（Seinosuke Toda）的《PP is as Hard as the Polynomial-Time Hierarchy》，页码 865 至 877。DOI 为 10.1137/0220053。本页的对象是这份**已印行的十三页期刊论文**：迈耶–斯托克迈耶的多项式层次 $\mathrm{PH}$ 里每一个集合，都可在确定性多项式时间内图灵归约到 $\mathrm{PP}$ 中的某个集合；层次也落在有界错误概率算子作用在奇偶类之上的 $\mathrm{BP}\cdot\oplus\mathrm{P}$ 里。课堂把它写成 $\mathrm{PH}\subseteq\mathrm{P}^{\#\mathrm{P}}$：整座层次可以被一次计数询问加上多项式后处理吞掉。标题里的「一样硬」是归约方向上的硬度——$\mathrm{PP}$ 对层次困难——不是「$\mathrm{PP}$ 等于层次」，更不是「$P=NP$」。期刊文本不是人物评传。书目陷阱必须写在第一段：封面是 1991 年这份 SIAM 期刊，不是 1989 年 10 月 30 日至 11 月 1 日在北卡罗来纳研究三角园举行的第三十届 FOCS 会议录里那六页《On the Computational Power of PP and $\oplus$P》（页码 514 至 519，DOI 为 10.1109/SFCS.1989.63527）。会议录把作者单位印作东京电气通信大学。先行本与期刊是先印与展开，不是同一印刷。它也不是 1992 年户田与荻原伦太郎那篇把更多计数类钉到层次上的 SIAM 续作。
+
+它不是 [[counting-complexity|计数复杂度]] 的总览。总览已经把 $\#\mathrm{P}$、户田定理、FPRAS 与 Holant 收成一张学科地图；本页只抽出地图上 1991 年这一枚钉子，钉子的形状是层次对一次计数询问的包含，不是近似抽样，也不是平面二聚体的多项式岛屿。它不是 [[valiant-1979-permanent|瓦利安特一九七九年积和式论文]]：那十三页把 0-1 积和式写成 $\#\mathrm{P}$ 完全，对象是计数函数本身的完全性，不是层次与多数表决之间的归约。它不是 [[cook-1971-np-completeness|库克一九七一年论文]]，不是 [[ladner-1975-np-intermediate|拉德纳一九七五年论文]]，不是 [[karp-lipton-1980|卡普–利普顿一九八〇年论文]]。卡普–利普顿给的是条件句：若 SAT 有多项式电路，层次坍到第二层；本页给的是无条件包含：层次已经住进 $\mathrm{P}^{\mathrm{PP}}$，坍缩会不会发生仍开放。它不是 [[baker-gill-solovay-1975|贝克–吉尔–索洛维一九七五年论文]]：相对化问黑箱模拟还灵不灵；本页问一次计数神谕能吞下多少量词。它更不是概率可验证明。本页不把隔离哈希、个数多项式或多数表决写成归约习题，也不提供如何装配询问机、如何消锁、如何去攻一个系统的步骤。
+
+## 破除误解：一次计数询问不是 P 等于 NP，两份印刷也不是同一本
+
+第一层误解把标题听成「因此 $P=NP$」，或听成已经证明多项式层次坍缩。原文给的是包含。$\mathrm{PH}\subseteq\mathrm{P}^{\#\mathrm{P}}$ 说的是：层次里任意一个语言，都可以交给一台确定性多项式时间机器，这台机器对某个 $\#\mathrm{P}$ 函数作询问——教学上强调一次——再在多项式时间内把读到的整数翻译成是或否。它没有把 SAT 送进均匀的 $P$，也没有把 $\Sigma_2$ 与 $\Pi_2$ 焊成同一层。若那个 $\#\mathrm{P}$ 函数本身可在确定性多项式时间内算出，层次才会跟着塌向 $P$；那是一条更强、也未被给出的句子。把「一次询问够用」听成「询问已经不必发」，会把一次神谕包含收成一次算法。本页没有、也不声称已经裁决 $P$ 对 $NP$。
+
+第二层误解把 1989 年 FOCS 与 1991 年 SIAM 焊成一次印刷，或把先行本误记成 STOC。会议六页的标题谈 $\mathrm{PP}$ 与 $\oplus\mathrm{P}$ 的计算能力；期刊十三页把装置写全，并多写出更强的一句：$\mathrm{PP}^{\mathrm{PH}}$ 里的每个集合仍可图灵归约到 $\mathrm{PP}$ 中的某个集合。文件名取 1991，是课堂标准名称钉在期刊上；1989 年是先行，不是把同一十三页再印一遍。把两份焊在一句里，会把一次展开收成一次重印。
+
+第三层误解把 $\#\mathrm{P}$、$\mathrm{PP}$ 与 $\oplus\mathrm{P}$ 听成同一个类，或把「数接受路径」听成「多数可满足」的别名。$\#\mathrm{P}$ 是函数类：输出一个整数，即多项式时间非确定性机器的接受计算条数。$\mathrm{PP}$ 是语言类：接受路径是否过半，课堂例子是多数 SAT。$\oplus\mathrm{P}$ 是语言类：接受路径条数是否为奇数。三个对象可以共用同一台非确定性机器，读数的窗口不同。函数神谕一次返回整个整数，奇偶与过半都可以从中读出；语言神谕 $\mathrm{PP}$ 只回答是或否，标题的硬度钉在对这种多数语言的图灵归约上。把三个符号叠成一句话，会把一次类型区分收成一次别名。
+
+第四层误解把户田定理读成卡普–利普顿那种坍缩，或把相对化、中间语言、概率可验证明焊进这十三页。卡普–利普顿的压力来自电路假设；本页的压力来自计数神谕已经无条件地压在层次头顶。若有人相信层次应当一层层严格包含，本页并不否决这种信念——它只说：计数比交替量词更贵，贵到一层计数就能买下整座交替。层次是否真有无穷多层，1991 年没有裁决。概念证据到此为止，不是操作单。
+
+## 多数、奇偶、隔离，以及把交替量词收成一次计数
+
+装置从三类读数开始。非确定性多项式时间机器在输入 $x$ 上留下一丛计算路径。$\#\mathrm{P}$ 把接受路径的条数写成函数。吉尔 1977 年的概率图灵机把「过半路径接受」写成语言类 $\mathrm{PP}$：错误不必可放大到指数小，只要严格多于一半即可，多数 SAT 是它的完全形态。帕帕季米特里乌与扎霍斯 1983 年把「奇数条接受路径」写成 $\oplus\mathrm{P}$。迈耶与斯托克迈耶的层次则沿另一条轴叠上去：$\Sigma_k^{\mathrm{P}}$ 是 $k$ 个交替量词、最外层为存在、矩阵为多项式时间谓词；$\Pi_k^{\mathrm{P}}$ 把最外层改成全称。$\Sigma_1^{\mathrm{P}}=\mathrm{NP}$。本页要比较的，不是「哪一个完全问题更新」，而是两条轴——交替量词与计数窗口——谁能模拟谁。本页给出的是类之间的包含，不是把路径计数器写成装配说明书。
+
+$\mathrm{BP}\cdot$ 是有界双侧错误的概率算子。语言 $L$ 落在 $\mathrm{BP}\cdot\mathcal{C}$ 里，当且仅当存在 $\mathcal{C}$ 中的语言 $A$，使得抛一串多项式长的硬币 $r$ 之后，$x\#r$ 是否属于 $A$ 与 $x$ 是否属于 $L$ 以至少三分之二的概率一致。两边都可以错，错误可被独立重复压下去。期刊的中间句是 $\mathrm{PH}\subseteq\mathrm{BP}\cdot\oplus\mathrm{P}$：层次里任意一层，都可以随机归约到一次奇偶计数。随机性留在算子里，确定性的 $\mathrm{P}^{\mathrm{PP}}$ 机器稍后会把这串硬币连同奇偶一起交给多数表决去读。把 $\mathrm{BP}\cdot$ 听成「已经给出一台去随机的多项式算法」，会把一次有界错误归约收成一次均匀手续。
+
+隔离来自瓦利安特与瓦齐拉尼 1986 年的那条随机归约：对可满足公式随机加约束，以不可忽略的概率把满足赋值的个数压到恰好一个；对不可满足公式，约束后仍然为零。于是「有没有解」以有界错误变成「解的个数是零还是一」。零对一正是奇偶能分辨的窗口。$NP$ 因此随机落到 $\oplus\mathrm{P}$ 上。本页使用这条结构事实，作为把存在量词改写成奇偶的第一级台阶。它不把两两独立哈希族的采样、也不把约束位数的选择写成解题步骤。隔离失败时解可能仍有许多，奇偶会读到错误的比特；有界错误允许这件事以小概率发生，放大手续随后会把缺口拉开。
+
+个数放大是期刊里真正属于户田的那一段金属。存在一份多项式时间可计算的公式改写，把偶数个解送到模 $2$ 的高次幂的 $0$，把奇数个解送到模同一幂的 $-1$。缺口被拉成「几乎全零」对「几乎全一」之后，多数表决看得见；嵌套的奇偶也可以被一次奇偶吸收，因为内层先被放大成一个大的模缺口，再被外层当成新的计数对象。这是存在性手续：证明这种改写存在，并且缺口对后来的多数与奇偶足够宽。它不是把多项式的系数表抄进作业，也不把模幂写成攻击用的编码步骤。放大之后，一层 $\oplus\mathrm{P}$ 就可以模拟「$\oplus\mathrm{P}$ 之上再问一次 $\oplus\mathrm{P}$」那种看起来像两层的对象，交替量词才开始被收进同一扇窗口。
+
+归纳沿层次往上走。$\Sigma_k$ 的外层存在量词再被隔离一次：随机约束把「存在一个短的 $y$」压成「某个改写后的公式解数为零或一」，而内层的全称–存在已经作为 $\mathrm{BP}\cdot\oplus\mathrm{P}$ 对象被上一层吃掉。每一层付出的是更多的随机比特和一次更大的个数改写，不是多一次对 $\#\mathrm{P}$ 的询问。随机性始终留在 $\mathrm{BP}\cdot$ 里。最后一步把 $\mathrm{BP}\cdot\oplus\mathrm{P}$ 送进 $\mathrm{P}^{\mathrm{PP}}$：放大后的奇偶对大多数硬币串同号，多数 SAT 一次就能读出「这一侧是否占优」。函数神谕 $\#\mathrm{P}$ 返回整个整数，一次询问已经够读奇偶、够读过半，也够把硬币串与赋值对编码进同一个计数对象。教学句 $\mathrm{PH}\subseteq\mathrm{P}^{\#\mathrm{P}}$ 钉的是这一次函数询问加上多项式后处理。期刊摘要里的图灵归约写在语言类 $\mathrm{PP}$ 上；两种写法描述同一枚钉子的两面，一面是多数语言，一面是计数函数。本页证明这种收束存在，不把硬币、公式与多数阈值的对照表写成操作单。
+
+更强的一句把神谕掉个头：$\mathrm{PP}$ 自己再去问层次，仍然可以图灵归约回 $\mathrm{PP}$。层次当神谕并没有让多数表决跳出 $\mathrm{P}^{\mathrm{PP}}$。于是，若 $\mathrm{PP}\subseteq\mathrm{PH}$ 或 $\oplus\mathrm{P}\subseteq\mathrm{PH}$，包含与被包含对撞，层次必须坍到有限层。这是条件句，用来标明「多数或奇偶若被层次吞回去，交替就维持不住」。它仍然不是「因此层次已经坍缩」，也不是「因此 $P=NP$」。稳健性来自隔离把存在改写成稀解、多项式把奇偶拉成缺口、多数把缺口读成是非。三步都是关于计数窗口的结构事实，不是求解器配置。
+
+## 它证明了什么，没有覆盖什么
+
+它证明了：多项式层次里每一个集合都可在确定性多项式时间内图灵归约到 $\mathrm{PP}$ 中的某个集合，并且 $\mathrm{PH}\subseteq\mathrm{BP}\cdot\oplus\mathrm{P}$。用后来课堂的话说，$\mathrm{PH}\subseteq\mathrm{P}^{\#\mathrm{P}}$，一次计数询问加上后处理就够。它还证明：$\mathrm{PP}^{\mathrm{PH}}$ 并不比 $\mathrm{P}^{\mathrm{PP}}$ 更强；若 $\mathrm{PP}$ 或 $\oplus\mathrm{P}$ 自己掉进层次，层次会坍到有限层。用后来的话说，这就是「计数比交替量词更贵」的第一枚无条件钉子。吉尔的多数与瓦利安特的计数函数，在这里第一次被写成层次的上界，而不是另一张完全问题表。
+
+它没有证明 $P\neq NP$，也没有证明 $P=NP$。一次 $\#\mathrm{P}$ 询问是神谕，不是一台已经造好的计数算法。它没有证明层次坍缩，也没有证明层次有无穷多层。卡普–利普顿那种「SAT 若有小电路则停在第二层」是另一条条件句，假设不同，落地不同。它没有采用多一归约作为主钉子：摘要写的是多项式时间图灵归约到 $\mathrm{PP}$ 中的集合。它没有覆盖积和式的完全性，那是 1979 年的对象；没有覆盖杰勒姆–瓦利安特–瓦齐拉尼的抽样与近似计数等价，没有覆盖后来对非负积和式的 FPRAS，也没有覆盖算术电路里 VP 对 VNP 的前线。那些属于 [[counting-complexity|计数复杂度]] 的地图。概率可验证明与交互式证明等于多项式空间都不在这十三页里。对照属于总览页。
+
+它也没有给出任何显式函数的超多项式电路下界，没有打开常数深度，没有构造使层次无穷的神谕。相对化世界里计数类与层次的关系可以翻转，本页并不声称钉子在任意神谕下都同样钉住。稳健性来自随机隔离与模缺口，不来自后来的模型计数求解器。概念证据到此为止。隔离回答的是存在量词怎样变成稀解；多项式回答的是奇偶怎样变成多数看得见的缺口；多数回答的是缺口怎样变回是非。三句都不是操作单。
+
+## 跨域连接
+
+- **[[counting-complexity|计数复杂度]]**：总览页把 $\#\mathrm{P}$、户田定理、FPRAS 与 Holant 收成一张学科地图；本页只提供地图上「层次被一次计数询问吞掉」的那枚钉子。钉子的金属成分以 1991 年的 $\mathrm{PP}$、$\oplus\mathrm{P}$ 与 $\mathrm{BP}\cdot$ 为准，不是后来的近似抽样，也不是签名二分。把两页叠在一起读，才能看见：计数类先作为「数接受计算」出现，再被证明贵到买得起整座交替。地图可以后写；包含的方向以期刊摘要为准。
+- **[[valiant-1979-permanent|瓦利安特一九七九年积和式论文]]**：那十三页把 0-1 积和式写成 $\#\mathrm{P}$ 完全，证明判定容易并不蕴含计数容易。本页假定计数神谕已经在手，问它能买下多少量词。没有 1979 年的函数类，1991 年的神谕没有对象可问；没有 1991 年的包含，1979 年的完全性只压在 $NP$ 上，压不到整座层次。把积和式听成户田定理的证明，会把一枚完全钉子收成一次量词吸收。瓦利安特–瓦齐拉尼 1986 年的隔离是两页之间的桥，对象仍是随机归约，不是积和式的矩阵编译。
+- **[[computational-complexity|计算复杂性]]**：总览把 $P$、$NP$ 与层次画成判定地图，并把 $\#\mathrm{P}$ 画在地图上方。本页给出上方那一格为什么能罩住下面所有交替层：不是因为计数「更细」，而是因为一次整数询问可以模拟任意有限次存在–全称交替。若这个整数可多项式算出，判定地图上的整座层次也会塌向 $P$。把户田听成「又证明了 $P\neq NP$」，会把一次包含收成一次分离。库克回答判定完全性；瓦利安特回答计数完全性；本页回答计数神谕对层次的覆盖范围。
+- **[[cook-1971-np-completeness|库克一九七一年论文]]**：那八页把「存在接受计算」编译成可满足公式。本页从同一份存在性出发，却要求随机约束把「有没有」变成「零个还是一个」，再让奇偶去读。库克问有没有，户田问交替多少层之后仍可以被一次计数读出。询问机在两页里都合法：库克用它翻转重言式的极性，户田用它询问一个多数或一个整数。把 1991 年听成 SAT 判定，会把计数钉子收成 1971 年的存在性钉子。
+- **[[proof|证明]]**：户田定理证明的是一份翻译手续存在：层次中的句子可被改写成对一个计数对象的一次询问。证书是归约，不是把层次里每一个量词展开成一张真值表。数学里的普遍证明要求从公理推出必然；这里的必然相对于非确定性机器的路径计数与有界错误的硬币。隔离与模缺口是证明策略，不是把公式交给求解器之前的预处理。把包含听成已经给出 $\#\mathrm{SAT}$ 的闭式算法，会把翻译手续说成求值手续。
+- **[[probability|概率论]]**：隔离的成功概率不必接近一，只要与输入规模的倒数同阶，再被独立重复放大。$\mathrm{BP}\cdot$ 的三分之二是有界错误，不是统计抽样的置信区间。硬币写在归约内部，结论对每一个层次语言仍然确定——确定的是「存在一份随机手续以高概率正确」，不是「该语言本身是随机的」。把随机归约听成蒙特卡洛算法已经解决 SAT，会把一次存在性归约收成一次求解器。概率在这里是归约语言，不是把判定改成平均情形。
+
+---
+
+## 参考文献
+
+- Seinosuke Toda, "PP is as Hard as the Polynomial-Time Hierarchy", *SIAM Journal on Computing* 20(5), 1991, pp. 865–877. DOI: 10.1137/0220053. —— 本文对象：$\mathrm{PH}$ 图灵归约到 $\mathrm{PP}$、$\mathrm{PH}\subseteq\mathrm{BP}\cdot\oplus\mathrm{P}$，以及 $\mathrm{PP}^{\mathrm{PH}}$ 仍落到 $\mathrm{P}^{\mathrm{PP}}$。
+- Seinosuke Toda, "On the Computational Power of PP and $\oplus$P", *Proceedings of the 30th Annual Symposium on Foundations of Computer Science*, Research Triangle Park, North Carolina, 30 October–1 November 1989, pp. 514–519. DOI: 10.1109/SFCS.1989.63527. —— 会议先行本，用以标明与 1991 年期刊不是同一印刷。
+- L. G. Valiant & V. V. Vazirani, "NP is as Easy as Detecting Unique Solutions", *Theoretical Computer Science* 47, 1986, pp. 85–93. DOI: 10.1016/0304-3975(86)90135-0. —— 隔离：随机约束把 SAT 压到零解或一解。
+- L. G. Valiant, "The Complexity of Computing the Permanent", *Theoretical Computer Science* 8(2), 1979, pp. 189–201. DOI: 10.1016/0304-3975(79)90044-6. —— $\#\mathrm{P}$ 与积和式完全性，用以标明本页钉的不是那枚完全钉子。
+- John Gill, "Computational Complexity of Probabilistic Turing Machines", *SIAM Journal on Computing* 6(4), 1977, pp. 675–695. DOI: 10.1137/0206049. —— $\mathrm{PP}$ 作为无界错误多数表决的期刊定义。
+- C. H. Papadimitriou & S. Zachos, "Two Remarks on the Power of Counting", in *Proceedings of the 6th GI-Conference on Theoretical Computer Science*, LNCS 145, Springer, 1983, pp. 269–276. —— $\oplus\mathrm{P}$ 作为奇偶计数类的来源之一。
+- A. R. Meyer & L. J. Stockmeyer, "The Equivalence Problem for Regular Expressions with Squaring Requires Exponential Space", *Proceedings of the 13th IEEE Symposium on Switching and Automata Theory*, 1972, pp. 125–129. DOI: 10.1109/SWAT.1972.29. —— 多项式层次的来源。
+- L. J. Stockmeyer, "The Polynomial-Time Hierarchy", *Theoretical Computer Science* 3, 1977, pp. 1–22. DOI: 10.1016/0304-3975(76)90061-X. —— 层次的期刊文本。
+- Stephen A. Cook, "The Complexity of Theorem-Proving Procedures", *Proceedings of the 3rd Annual ACM Symposium on Theory of Computing*, 1971, pp. 151–158. DOI: 10.1145/800157.805047. —— 存在性编译，隔离从这里把「有没有」改写成「零个还是一个」。
+- Richard M. Karp & Richard J. Lipton, "Some Connections between Nonuniform and Uniform Complexity Classes", *Proceedings of the 12th Annual ACM Symposium on Theory of Computing*, 1980, pp. 302–309. DOI: 10.1145/800141.804678. —— 另一条关于层次的条件句，用以标明坍缩与包含不是同一句话。
+
+## 延伸阅读
+
+- 与 [[counting-complexity|计数复杂度]] 对读：先看 1991 年的包含，再看总览怎样把户田、FPRAS 与 Holant 铺成地图。
+- 与 [[valiant-1979-permanent|瓦利安特一九七九年积和式论文]] 对读：完全性给出神谕的对象；本页给出神谕能买下的量词。
+- 与 [[computational-complexity|计算复杂性]] 对读：判定层次与计数神谕必须分开写，才能看见「一次询问吞掉交替」不是 $P=NP$。
+- 与 [[proof|证明]] 对读：证书是翻译手续，不是一张已算出的满足赋值表。
+- 与 [[probability|概率论]] 对读：有界错误是归约内部的硬币，不是把 SAT 改成平均情形。

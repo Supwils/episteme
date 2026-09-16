@@ -134,6 +134,11 @@
     "e": "从平等保护到学校去隔离化的距离，是这篇剖析真正要回答的问题。对象发生在美国联邦最高法院，347 U.S. 483（1954）。如果只记住一个结论，读者会错过知识最有价值的部分：结论究竟由哪些材…",
     "d": "law"
   },
+  "/law/judgment-analyses/carlill-v-carbolic-smoke-ball": {
+    "t": "卡里尔诉石炭酸烟丸：广告怎样变成一项可强制执行的允诺",
+    "e": "1892 年，Carbolic Smoke Ball Company 在 Pall Mall Gazette 刊登广告：按说明使用烟丸三个月仍染上流感，公司付一百英镑；并声明已把一千英镑存入 …",
+    "d": "law"
+  },
   "/law/judgment-analyses/donoghue-v-stevenson-duty-of-care": {
     "t": "Donoghue v Stevenson 判决剖析",
     "e": "一只不透明瓶子怎样重画侵权法义务边界，是这篇剖析真正要回答的问题。对象发生在英国上议院，[1932] AC 562。如果只记住一个结论，读者会错过知识最有价值的部分：结论究竟由哪些材料支撑，又…",
@@ -147,6 +152,11 @@
   "/law/judgment-analyses/loper-bright-chevron-deference-overruled": {
     "t": "Loper Bright v. Raimondo 判决剖析",
     "e": "2024 年 6 月 28 日，美国联邦最高法院在 Loper Bright Enterprises v. Raimondo 与合并审理的 Relentless, Inc. v. Depart…",
+    "d": "law"
+  },
+  "/law/judgment-analyses/mabo-v-queensland-native-title": {
+    "t": "Mabo v Queensland (No 2) 判决剖析",
+    "e": "普通法怎样在承认主权的同时给先前占用留下位置，是这篇剖析真正要回答的问题。对象发生在澳大利亚高等法院，[1992] HCA 23；(1992) 175 CLR 1，判决日 1992 年 6 月…",
     "d": "law"
   },
   "/law/judgment-analyses/marbury-v-madison-judicial-review": {
@@ -199,6 +209,16 @@
     "e": "第一个误解，是以为公司是\"一群人合伙做生意\"的自然形态，自古就有。公司其实是法律最精心的人工制品之一：它不是人群的集合，而是法律凭空造出来的一个\"人\"——可以拥有财产、签订合同、起诉应诉、永续…",
     "d": "law"
   },
+  "/law/private-law/conflict-of-laws": {
+    "t": "冲突法：跨境民事关系适用哪一套规则",
+    "e": "第一个误解，是把冲突法当成国际法的分支，以为海牙或布鲁塞尔会派出世界法官来判合同。冲突法处理的是国内法院面对跨境民事关系时，选用哪一套私法。它不创造统一的买卖法，只决定：这一次，用法国的合同规…",
+    "d": "law"
+  },
+  "/law/private-law/consumer-protection": {
+    "t": "消费者救济：格式合同对面那个人怎样被当成法律上的弱者",
+    "e": "第一个误解，是把消费者法当成“买到假货可以退”的售后手册。退货只是救济菜单里的一项。真正把这个部门撑起来的，是承认：格式合同里的选择经常不是谈判出来的价格。信息披露、不公平条款控制、撤回权、产…",
+    "d": "law"
+  },
   "/law/private-law/contract-lifecycle": {
     "t": "合同的生命周期：从要约到救济",
     "e": "第一个误解，是把合同等同于一份签了字的书面文件。日常语言里\"签合同\"指的好像是那个纸面动作，但在法律上，合同是一种以合意（意思表示一致）为核心的法律行为：口头达成的买卖、扫码骑走一辆共享单车、…",
@@ -207,6 +227,11 @@
   "/law/private-law/family-and-inheritance-law": {
     "t": "婚姻、家庭与继承：从身份共同体到个人选择",
     "e": "第一个误解，是以为婚姻法只管\"结婚离婚那点家务事\"，是私事中的私事。恰恰相反，历史上没有哪一个领域像家庭这样被国家法律系统性地塑造：谁可以结婚、财产归谁、孩子跟谁姓、谁能继承——每一个问题背后…",
+    "d": "law"
+  },
+  "/law/private-law/fiduciary-duty-and-corporate-control": {
+    "t": "信义义务与控制权：董事到底对谁负责",
+    "e": "第一个误解，是把一九一九年密歇根州的道奇诉福特案读成美国公司法的宪法：公司必须永远把股东利润放在第一位。判决处理的是封闭公司里多数股东对少数股东的压迫——亨利·福特压低股息、宣称要让公众买到更…",
     "d": "law"
   },
   "/law/private-law/intellectual-property": {

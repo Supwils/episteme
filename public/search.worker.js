@@ -1914,19 +1914,43 @@
     enginePromise ??= loadArtifact().then(loadEngine);
     return enginePromise;
   }
+  var MAX_QUERY_LENGTH = 120;
+  var MAX_LIMIT = 50;
+  var DEFAULT_LIMIT = 20;
+  function asRecord(value) {
+    if (!value || typeof value !== "object") return null;
+    return value;
+  }
+  function parseSearchLimit(value) {
+    if (value === void 0) return DEFAULT_LIMIT;
+    if (typeof value !== "number" || !Number.isFinite(value)) return null;
+    return Math.min(MAX_LIMIT, Math.max(1, Math.trunc(value)));
+  }
+  function invalid(id) {
+    return { type: "error", id, message: "invalid search request" };
+  }
   async function handleWorkerRequest(data) {
+    const payload = asRecord(data);
+    if (!payload) return invalid();
     try {
-      if (data.type === "warmup") {
+      if (payload.type === "warmup") {
         await engine();
         return { type: "ready" };
       }
-      const hits = (await engine()).search(data.query, data.limit);
-      return { type: "result", id: data.id, hits };
+      if (payload.type !== "search") return invalid();
+      const id = payload.id;
+      if (typeof id !== "number" || !Number.isInteger(id)) return invalid();
+      if (typeof payload.query !== "string") return invalid(id);
+      const limit = parseSearchLimit(payload.limit);
+      if (limit === null) return invalid(id);
+      const hits = (await engine()).search(payload.query.slice(0, MAX_QUERY_LENGTH), limit);
+      return { type: "result", id, hits };
     } catch (error) {
       enginePromise = null;
+      const id = payload.type === "search" && typeof payload.id === "number" && Number.isInteger(payload.id) ? payload.id : void 0;
       return {
         type: "error",
-        id: data.type === "search" ? data.id : void 0,
+        id,
         message: error instanceof Error ? error.message : "search worker failed"
       };
     }

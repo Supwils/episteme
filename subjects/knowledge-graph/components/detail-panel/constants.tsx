@@ -134,6 +134,13 @@ export const DOMAIN_META: Record<
     border: "border-amber-800/30",
     dot: "bg-amber-700",
   },
+  education: {
+    label: "教育学与学习科学",
+    color: "text-sky-400",
+    bg: "bg-sky-800/15",
+    border: "border-sky-800/30",
+    dot: "bg-sky-500",
+  },
   engineering: {
     label: "工程与技术",
     color: "text-slate-300",
@@ -210,6 +217,7 @@ export const DOMAIN_ACCENT_GRADIENT: Record<Domain, string> = {
   literature: "linear-gradient(90deg, #8b5e4a 0%, #b07a62 100%)",
   religion: "linear-gradient(90deg, #6b5c8a 0%, #8a7aa3 100%)",
   anthropology: "linear-gradient(90deg, #8b5a3c 0%, #c4a07a 100%)",
+  education: "linear-gradient(90deg, #3d6b8a 0%, #6a9bb5 100%)",
   engineering: "linear-gradient(90deg, #8a919e 0%, #b3bac6 100%)",
 };
 

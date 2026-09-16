@@ -15,6 +15,11 @@ tags:
 related:
   - hashing
   - mapreduce
+  - chord-2001
+  - kademlia-2002
+  - pastry-2001
+  - tapestry-2001
+  - ratnasamy-2001-can
 ---
 
 # 一致性哈希
@@ -108,7 +113,7 @@ Amazon Dynamo（2007）是将一致性哈希大规模工业化应用的里程碑
 
 **负载（Load）**：即使不同客户端持有不同的服务器集合视图，任何一台服务器被分配到的键数量也不会超过最优分配的 $O(1)$ 倍（期望意义上）。
 
-这四个性质是 Karger 等人原论文中对"好的分布式缓存协议"的正式化，也是后续所有分布式哈希评估的基准框架。后来的每一个竞争者——Chord、Rendezvous、Jump、Maglev——都要在这四行标准前交卷。
+这四个性质是 Karger 等人原论文中对"好的分布式缓存协议"的正式化，也是后续所有分布式哈希评估的基准框架。后来的每一个竞争者——[[chord-2001|Chord]]、[[kademlia-2002|Kademlia]]、[[pastry-2001|Pastry]]、Rendezvous、Jump、Maglev——都要在这四行标准前交卷。
 
 ## 哈希环的数学性质
 

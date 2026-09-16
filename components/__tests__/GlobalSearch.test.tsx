@@ -38,6 +38,7 @@ vi.mock("next/link", () => ({
 const routerPush = vi.fn();
 vi.mock("next/navigation", () => ({
   useRouter: () => ({ push: routerPush }),
+  usePathname: () => "/",
 }));
 
 function open() {
@@ -147,6 +148,24 @@ describe("GlobalSearch", () => {
 
     const link = screen.getByText("查看全部结果");
     expect(link.getAttribute("href")).toBe(`/search?q=${encodeURIComponent("熵")}`);
+  });
+
+  it("closes the overlay when a curated exit is chosen", () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: false }));
+    open();
+    expect(screen.getByRole("dialog")).toBeTruthy();
+    fireEvent.click(screen.getByRole("link", { name: "每日知识" }));
+    expect(screen.queryByRole("dialog")).toBeNull();
+  });
+
+  it("closes the overlay when opening the full results page", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: false }));
+    open();
+    type("熵");
+    await waitFor(() => expect(releaseTitleSearch).toBeDefined());
+    await act(async () => releaseTitleSearch?.([]));
+    fireEvent.click(screen.getByText("查看全部结果"));
+    expect(screen.queryByRole("dialog")).toBeNull();
   });
 });
 

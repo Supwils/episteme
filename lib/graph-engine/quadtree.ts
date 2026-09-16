@@ -1,4 +1,4 @@
-import type { LayoutNode } from './types';
+import type { LayoutNode } from "./types";
 
 const enum Child {
   NW = 0,
@@ -25,14 +25,34 @@ export let qPoolIdx = 0;
 
 function initQPool(): void {
   for (let i = 0; i < POOL_SIZE; i++) {
-    qPool[i] = { mass: 0, cx: 0, cy: 0, x: 0, y: 0, w: 0, h: 0, bodyIndex: -1, children: [null, null, null, null] };
+    qPool[i] = {
+      mass: 0,
+      cx: 0,
+      cy: 0,
+      x: 0,
+      y: 0,
+      w: 0,
+      h: 0,
+      bodyIndex: -1,
+      children: [null, null, null, null],
+    };
   }
   qPoolIdx = 0;
 }
 
 function acquireQ(): QuadNode {
   if (qPoolIdx >= POOL_SIZE) {
-    return { mass: 0, cx: 0, cy: 0, x: 0, y: 0, w: 0, h: 0, bodyIndex: -1, children: [null, null, null, null] };
+    return {
+      mass: 0,
+      cx: 0,
+      cy: 0,
+      x: 0,
+      y: 0,
+      w: 0,
+      h: 0,
+      bodyIndex: -1,
+      children: [null, null, null, null],
+    };
   }
   const n = qPool[qPoolIdx++]!;
   n.mass = 0;
@@ -57,17 +77,23 @@ function childBounds(
   hw: number,
   hh: number,
   mx: number,
-  my: number,
+  my: number
 ): [number, number] {
   switch (ci) {
-    case Child.NW: return [x, y];
-    case Child.NE: return [mx, y];
-    case Child.SW: return [x, my];
-    case Child.SE: return [mx, my];
+    case Child.NW:
+      return [x, y];
+    case Child.NE:
+      return [mx, y];
+    case Child.SW:
+      return [x, my];
+    case Child.SE:
+      return [mx, my];
   }
 }
 
 let _nodesRef: LayoutNode[] = [];
+
+const MAX_INSERT_DEPTH = 24;
 
 function qtInsert(
   node: QuadNode,
@@ -77,6 +103,7 @@ function qtInsert(
   y: number,
   w: number,
   h: number,
+  depth = 0
 ): void {
   if (node.mass === 0 && node.bodyIndex === -1 && node.children[0] === null) {
     node.bodyIndex = bodyIdx;
@@ -111,7 +138,8 @@ function qtInsert(
 
     const nci = childIndex(body.x, body.y, mx, my);
     if (nci === eci) {
-      qtInsert(eChild, body, bodyIdx, ex, ey, hw, hh);
+      if (depth >= MAX_INSERT_DEPTH) return;
+      qtInsert(eChild, body, bodyIdx, ex, ey, hw, hh, depth + 1);
     } else {
       const nChild = acquireQ();
       const [nx, ny] = childBounds(nci, x, y, hw, hh, mx, my);
@@ -140,7 +168,7 @@ function qtInsert(
     node.children[ci] = child;
   }
   const [cx2, cy2] = childBounds(ci, x, y, hw, hh, mx, my);
-  qtInsert(child, body, bodyIdx, cx2, cy2, hw, hh);
+  qtInsert(child, body, bodyIdx, cx2, cy2, hw, hh, depth + 1);
 }
 
 function qtComputeMass(node: QuadNode): number {
@@ -177,7 +205,7 @@ export function buildQuadTree(
   x: number,
   y: number,
   w: number,
-  h: number,
+  h: number
 ): QuadNode {
   _nodesRef = nodes;
   const root = acquireQ();

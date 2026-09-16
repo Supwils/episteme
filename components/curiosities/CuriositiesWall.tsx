@@ -54,10 +54,11 @@ export function CuriositiesWall({ items }: { items: CuriosityWithSubject[] }) {
         </p>
       </header>
 
-      <div className="mb-8 flex flex-wrap items-center gap-2">
+      <div className="mb-8 flex flex-wrap items-center gap-2" role="group" aria-label="学科筛选">
         <button
           type="button"
           onClick={() => setActive("all")}
+          aria-pressed={active === "all"}
           className={`rounded-full border px-3 py-1.5 font-mono text-[11px] tracking-wider transition-all ${
             active === "all"
               ? "border-accent-gold/50 text-accent-gold bg-accent-gold/10"
@@ -75,6 +76,7 @@ export function CuriositiesWall({ items }: { items: CuriosityWithSubject[] }) {
             <button
               key={s}
               type="button"
+              aria-pressed={on}
               onClick={() => setActive(s)}
               className="rounded-full border px-3 py-1.5 font-mono text-[11px] tracking-wider transition-all"
               style={{

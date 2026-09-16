@@ -18,11 +18,34 @@ related:
   - databases-transactions
   - formal-methods-and-verification
   - software-testing
+  - paxos-lamport-1998
+  - byzantine-generals-lamport-1982
+  - flp-fischer-lynch-paterson-1985
+  - ben-or-1983
+  - zookeeper-2010
+  - chandra-toueg-1996
+  - herlihy-wing-1990
+  - lamport-1978-clocks
+  - fidge-mattern-vector-clocks
+  - viewstamped-replication-1988
+  - garcia-molina-1982-bully
+  - birman-1985-virtual-synchrony
+  - castro-liskov-1999-pbft
+  - chandy-lamport-1985-snapshots
+  - gilbert-lynch-2002-cap
+  - gray-1978-two-phase-commit
+  - shapiro-2011-crdts
+  - dwork-lynch-stockmeyer-1988
+  - herlihy-1991-wait-free
+  - attiya-bar-noy-dolev-1995
+  - schneider-1990-smr
+  - herlihy-moss-1993-tm
+  - shavit-touitou-1995-stm
 ---
 
 # 分布式共识算法
 
-2014 年，Diego Ongaro 和 John Ousterhout 在 USENIX ATC 发表《In Search of an Understandable Consensus Algorithm》。论文没有声称 Paxos 是此前唯一正确的协议，而是指出：从 Paxos 的单次决议核心到可实现的复制日志，工程人员仍需补领导者、成员变更、日志压缩和恢复等大量规则。Raft 把“可理解性”本身设为设计目标。
+2014 年，Diego Ongaro 和 John Ousterhout 在 USENIX ATC 发表《In Search of an Understandable Consensus Algorithm》。论文没有声称 [[paxos-lamport-1998|Paxos]] 是此前唯一正确的协议，而是指出：从 Paxos 的单次决议核心到可实现的复制日志，工程人员仍需补领导者、成员变更、日志压缩和恢复等大量规则。Raft 把“可理解性”本身设为设计目标。更早的编号比较选主见 [[garcia-molina-1982-bully|Garcia-Molina 1982]]，那一页不决定客户值。分区下的原子寄存器见 [[gilbert-lynch-2002-cap|Gilbert 与 Lynch 2002]]；跨节点阻塞提交见 [[gray-1978-two-phase-commit|Gray 1978 两阶段提交]]。两页都不是本页的复制日志对象。无冲突复制见 [[shapiro-2011-crdts|Shapiro 等 2011]]，那一页不决定客户值。消息传递上的原子寄存器见 [[attiya-bar-noy-dolev-1995|ABD 1995]]，那一页也不决定客户值。状态机方法见 [[schneider-1990-smr|Schneider 1990]]；硬件事务内存提案见 [[herlihy-moss-1993-tm|Herlihy–Moss 1993]]；软件事务内存见 [[shavit-touitou-1995-stm|Shavit–Touitou 1995]]，三页都不是本页的复制日志对象。
 
 这段历史提醒我们，共识不是一个可以只凭名称采购的组件。“使用 Raft”不自动证明数据库不会丢数据，正如“使用 TLS”不自动证明整个系统安全。
 
@@ -58,7 +81,7 @@ FLP 给出的是可能性边界，不是实现清单。模型一旦写清，就�
 
 ## FLP 的边界
 
-Fischer、Lynch 和 Paterson 在 1985 年证明：在完全异步消息系统中，只要一个进程可能崩溃，就不存在一个确定性协议能在所有允许执行中同时保证共识安全与终止。
+Fischer、Lynch 和 Paterson 在 1985 年证明：在完全异步消息系统中，只要一个进程可能崩溃，就不存在一个确定性协议能在所有允许执行中同时保证共识安全与终止。定理对象见 [[flp-fischer-lynch-paterson-1985|FLP 1985]]。
 
 FLP 证明存在一种合法调度让协议一直不决定。它不是说现实系统无法达成共识，也不是说每次异步执行都会卡死。
 
@@ -72,13 +95,13 @@ FLP 证明存在一种合法调度让协议一直不决定。它不是说现实�
 
 工程上真正用的，往往是部分同步：存在某个未知时刻之后，延迟才进入有界区间。Dwork、Lynch 与 Stockmeyer 证明，一旦允许这种最终有界，确定性共识就可以同时要安全与终止。Paxos 与 Raft 的活性语句都长这样——多数集合最终能互相通信，领导者竞争最终收敛；它们并不声称在任意长的分区里仍然提交。
 
-故障检测器是同一假设的另一种写法：把“何时可以怀疑对方已经停了”从超时数字里抽出来，变成可比较的完备性与准确性条件。Chandra 与 Toueg 证明，在多数进程正确、且检测器最终不再把某一个活节点永久误判为崩溃时，确定性共识就可以在其余异步前提下完成。绕过 FLP 的方式始终是改模型，不是在原模型里硬写一个更聪明的确定性循环。
+故障检测器是同一假设的另一种写法：把“何时可以怀疑对方已经停了”从超时数字里抽出来，变成可比较的完备性与准确性条件。[[chandra-toueg-1996|Chandra 与 Toueg]] 证明，在多数进程正确、且检测器最终不再把某一个活节点永久误判为崩溃时，确定性共识就可以在其余异步前提下完成。绕过 FLP 的方式始终是改模型，不是在原模型里硬写一个更聪明的确定性循环。
 
-比特币等开放成员协议还涉及链选择、网络传播、算力或权益假设与经济激励，不能简单归为 Ben-Or 随机共识的工程版本。完整理论脉络见 [[distributed-computing-theory]]。
+比特币等开放成员协议还涉及链选择、网络传播、算力或权益假设与经济激励，不能简单归为 [[ben-or-1983|Ben-Or]] 随机共识的工程版本。完整理论脉络见 [[distributed-computing-theory]]。
 
 ## Paxos：多数交集与承诺
 
-Paxos 的逻辑角色包括提议者（Proposer）、接受者（Acceptor）和学习者（Learner）；一台服务器可以承担多种角色。
+1998 年刊出的角色、选票与安全声明，见 [[paxos-lamport-1998|兼职议会与 Paxos]]。总览只交代多数交集；对象页才停在那份发表文本。Paxos 的逻辑角色包括提议者（Proposer）、接受者（Acceptor）和学习者（Learner）；一台服务器可以承担多种角色。
 
 ### 第一阶段：Prepare 与 Promise
 
@@ -99,7 +122,7 @@ Paxos 的逻辑角色包括提议者（Proposer）、接受者（Acceptor）和�
 
 Flexible Paxos 把交集条件写细：只需第一阶段仲裁与第二阶段仲裁相交，同阶段内部不必两两相交。于是可以让第二阶段用更小的集合来换延迟，代价是第一阶段必须更大。这并不推翻原证明，只是把“任意两个多数相交”改写成“跨阶段相交”——正确性条件仍然是集合论，不是实现技巧。
 
-Basic Paxos 解决一个槽位。Multi-Paxos 在稳定领导者下复用第一阶段，并对连续槽位复制日志。持久化承诺、领导者恢复、空洞日志、重配置和客户端去重都需要额外协议。
+Basic Paxos 解决一个槽位。Multi-Paxos 在稳定领导者下复用第一阶段，并对连续槽位复制日志。持久化承诺、领导者恢复、空洞日志、重配置和客户端去重都需要额外协议。主副本与视图更换的另一套管见 [[viewstamped-replication-1988|视图戳复制]]。
 
 ## Raft：把可理解性写进设计
 
@@ -135,9 +158,11 @@ Raft 使用联合共识，使过渡阶段决定同时获得旧配置和新配置
 
 ## 拜占庭容错与开放成员
 
+口头消息与签名消息的界限，以及 \(3f+1\) 那道算术，对象页见 [[byzantine-generals-lamport-1982|拜占庭将军问题]]。总览只交代崩溃模型与拜占庭模型数字差；1982 年那篇思想实验才停在叛徒可以对两名听众说两套话。
+
 Paxos 和 Raft 通常处理崩溃故障：节点会停止或重启，但不会故意向不同接收者发送矛盾消息。
 
-在经典部分同步、认证信道模型下，PBFT 类状态机复制通常使用 \(3f+1\) 个副本和 \(2f+1\) 交集仲裁，容忍 \(f\) 个拜占庭副本。崩溃容错通常以 \(2f+1\) 个副本容忍 \(f\) 个崩溃。
+在经典部分同步、认证信道模型下，[[castro-liskov-1999-pbft|PBFT]] 类状态机复制通常使用 \(3f+1\) 个副本和 \(2f+1\) 交集仲裁，容忍 \(f\) 个拜占庭副本。崩溃容错通常以 \(2f+1\) 个副本容忍 \(f\) 个崩溃。
 
 这些数字依赖模型。改变同步、认证、可信硬件或最终性假设后，下界和协议会变化。
 
@@ -169,7 +194,7 @@ PoW 与 PoS 还要面对开放成员和女巫攻击，以资源或质押定义�
 2. 成员变更、快照、重启和版本升级规格；
 3. 模型检查或机器证明覆盖的具体模型范围；
 4. 确定性调度、网络分区、磁盘故障和长期随机测试；
-5. 对执行历史的线性一致性或应用不变量检查；
+5. 对执行历史的[[herlihy-wing-1990|线性一致性]]或应用不变量检查；
 6. 客户端超时、重试与去重的端到端语义；
 7. 生产监测能否发现任期震荡、提交停滞和副本偏离。
 
@@ -192,7 +217,7 @@ PoW 与 PoS 还要面对开放成员和女巫攻击，以资源或质押定义�
 5. Ben-Or, M. (1983). Another Advantage of Free Choice: Completely Asynchronous Agreement Protocols. *PODC*, 27-30.
 6. Castro, M., & Liskov, B. (1999). Practical Byzantine Fault Tolerance. *OSDI*, 173-186.
 7. Lamport, L., Shostak, R., & Pease, M. (1982). The Byzantine Generals Problem. *ACM TOPLAS*, 4(3), 382-401.
-8. Gray, J., & Lamport, L. (2006). Consensus on Transaction Commit. *ACM TODS*, 31(1), 133-160.
+8. Gray, J., & Lamport, L. (2006). Consensus on Transaction Commit. *ACM TODS*, 31(1), 133-160. —— 这是后至的 Paxos Commit，不是 [[gray-1978-two-phase-commit|Gray 1978 两阶段提交]]。
 9. Howard, H., Malkhi, D., & Spiegelman, A. (2016). Flexible Paxos: Quorum Intersection Revisited. *OPODIS*. DOI: 10.4230/LIPIcs.OPODIS.2016.25.
 10. Dwork, C., Lynch, N., & Stockmeyer, L. (1988). Consensus in the Presence of Partial Synchrony. *Journal of the ACM*, 35(2), 288-323. DOI: 10.1145/42282.42283.
 11. Chandra, T. D., & Toueg, S. (1996). Unreliable Failure Detectors for Reliable Distributed Systems. *Journal of the ACM*, 43(2), 225-267. DOI: 10.1145/226643.226647.

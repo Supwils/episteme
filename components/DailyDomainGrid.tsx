@@ -189,6 +189,24 @@ const DOMAIN_CONFIGS = [
     border: "rgba(138,145,158,0.18)",
     url: "/engineering",
   },
+  {
+    key: "education" as const,
+    icon: "▤",
+    label: "教育学",
+    color: "#3d6b8a",
+    bg: "rgba(61,107,138,0.08)",
+    border: "rgba(61,107,138,0.18)",
+    url: "/education",
+  },
+  {
+    key: "anthropology" as const,
+    icon: "⚭",
+    label: "人类学",
+    color: "#8b5a3c",
+    bg: "rgba(139,90,60,0.08)",
+    border: "rgba(139,90,60,0.18)",
+    url: "/anthropology",
+  },
 ] as const;
 
 const containerVariants = {

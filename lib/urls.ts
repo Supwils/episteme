@@ -20,6 +20,7 @@ export const APP_URLS = {
   sociology: "/sociology",
   law: "/law",
   linguistics: "/linguistics",
+  education: "/education",
   "knowledge-graph": "/knowledge-graph",
 } as const;
 
@@ -35,3 +36,29 @@ export const SECTION_SHELL_PREFIXES: readonly string[] = [
   "/read",
   "/curiosities",
 ];
+
+const INTERNAL_PATH_ORIGIN = "https://episteme.invalid";
+
+/** Same-origin article paths only. Rejects protocol-relative and non-http(s) URLs. */
+export function isSafeInternalPath(url: string): boolean {
+  if (!url.startsWith("/") || url.startsWith("//") || url.includes("\\")) return false;
+  try {
+    const parsed = new URL(url, INTERNAL_PATH_ORIGIN);
+    return parsed.origin === INTERNAL_PATH_ORIGIN && parsed.pathname.startsWith("/");
+  } catch {
+    return false;
+  }
+}
+
+/** Markdown `[text](href)` / images: internal paths, hash, or http(s) only. */
+export function isSafeHref(href: string): boolean {
+  const trimmed = href.trim();
+  if (trimmed.startsWith("#") && !trimmed.includes(":")) return true;
+  if (isSafeInternalPath(trimmed)) return true;
+  try {
+    const parsed = new URL(trimmed);
+    return parsed.protocol === "https:" || parsed.protocol === "http:";
+  } catch {
+    return false;
+  }
+}

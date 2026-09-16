@@ -161,6 +161,31 @@ test.describe("production smoke", () => {
     await expect(page).toHaveURL(/\/engineering\/grid-flow$/);
   });
 
+  test("education article invites the spacing lab", async ({ page }) => {
+    const home = await page.goto("/education");
+    expect(home?.status()).toBe(200);
+    await expect(page.getByRole("heading", { name: "教育学与学习科学" })).toBeVisible();
+
+    const article = await page.goto("/education/learning-foundations/what-is-learning");
+    expect(article?.status()).toBe(200);
+    await expect(page.getByRole("heading", { name: "什么是学习" })).toBeVisible();
+    await page.getByRole("link", { name: /打开实验室/ }).click();
+    await expect(page).toHaveURL(/\/education\/spacing-lab$/);
+    await page.getByRole("button", { name: "间隔练习", exact: true }).click();
+    await expect(page.getByText(/不是背词器/)).toBeVisible();
+  });
+
+  test("education reading-path invite enters the sequence", async ({ page }) => {
+    const response = await page.goto("/education/learning-foundations/what-is-learning");
+    expect(response?.status()).toBe(200);
+    await page
+      .getByRole("navigation", { name: "阅读路线" })
+      .getByRole("link", { name: /从学会到国际比较/ })
+      .click();
+    await expect(page).toHaveURL(/path=from-learning-to-comparison/);
+    await expect(page.getByRole("link", { name: "从学会到国际比较 目录" })).toBeVisible();
+  });
+
   test("restores and advances a knowledge graph thought tour", async ({ page, isMobile }) => {
     const pageErrors: Error[] = [];
     page.on("pageerror", (error) => pageErrors.push(error));
@@ -208,6 +233,7 @@ test.describe("progressive enhancement without JavaScript", () => {
     ).toContainEqual(expect.stringContaining('"@type":"WebSite"'));
     await expect(page.locator(".domain-card")).toHaveCount(COVERAGE_DOMAIN_COUNT);
     await expect(page.locator('.domain-card[href="/anthropology"]')).toHaveCount(1);
+    await expect(page.locator('.domain-card[href="/education"]')).toHaveCount(1);
     const card = page.locator('.domain-card[href="/philosophy"]');
     await card.scrollIntoViewIfNeeded();
     await expect(card).toHaveCSS("opacity", "1");

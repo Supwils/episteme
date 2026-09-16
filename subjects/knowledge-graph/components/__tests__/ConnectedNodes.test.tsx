@@ -6,6 +6,7 @@ import type { GraphNode } from "../../data/types";
 
 // Reveal animates via framer-motion; the tag logic under test doesn't.
 vi.mock("framer-motion", () => ({
+  useReducedMotion: () => false,
   motion: {
     div: ({ children, variants: _variants, ...props }: any) => <div {...props}>{children}</div>,
   },

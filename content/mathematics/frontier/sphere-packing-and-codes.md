@@ -2,7 +2,7 @@
 title: 球堆积与编码：Viazovska 之后
 title_en: Sphere Packing and Codes after Viazovska
 status: published
-updated: 2026-08-16
+updated: 2026-09-12
 category: 离散几何
 horizon: 2020s
 order: 7
@@ -84,6 +84,16 @@ related:
 
 **形式化的先例与代价。** Hales 的 Flyspeck 花了约二十年才把 Kepler 证明变成机器可核验代码，既是形式化运动的里程碑，也暴露了成本：Viazovska 式证明（远短于 Hales 的）目前尚无完整形式化版本，社区对"何时值得形式化"没有共识。
 
+存在性不等于能写下来的格。Klartag 的椭球在格点空间里做布朗型运动：碰到非零格点就把它冻在边界上，直到边界上攒够约 $cn^2$ 个接触。接触成对出现。过程停住时，椭球内部除原点外没有格点，体积仍有 $cn^2$。体积大的无格点椭球，对偶地就是密的格堆积。这是存在性。随机路径不能当成密码学里能生成公钥的算法。后量子格密码要的是显式模格。下界抬高只说明“格能有多好”的地图在改。地图改了，不等于某套加密已经不安全。
+
+Campos 等人 2023 年的 $n\log n$ 下界针对不必成格的堆积。Klartag 的 $n^2$ 下界针对格。格更受约束，却在二次因子上反超非格构造。反超不是说格已经最优。它说明随机过程一旦被允许变形椭球，对称性税不一定比无结构更重。Abuya、Gargava 与 Zhao 2026 年只在无穷多个维数上把分圆对称接进同一过程，再得到 $\log\log$ 因子。无穷多个维数不是每一个维数。把这条写成已经全面超过非格的 $n\log n$，会把两个定理的量词写错。论文 2026 年 3 月进入 _Inventiones_，预印本仍是 arXiv:2504.05042。期刊页码不把存在性变成构造。
+
+4 到 7 维没有魔幻函数，不等于没有最优格。$D_4$ 在四维是强候选。线性规划界可以逼近，却给不出等号。逼近不是证明。把数值冠军写成已经解决，会把计算证据当成 Cohn–Elkies 框架里的等式。编码理论要的是可译码的显式点集。渐近下界抬高，只改“格能有多密”的地图，不自动给出下一部译码器。
+
+2022 年的万有最优把 $E_8$ 与 Leech 从硬球冠军升级为一大类势的能量极小。升级解释它们为何反复出现，不把 4 到 7 维一起关掉。关掉需要等号。等号目前只写在 8 与 24。其余维数仍可以有很好的候选，却没有魔幻函数把线性规划锁死。
+
+格密码的最短向量难度，不随一篇存在性下界自动下降。存在更密的格，不等于对手已经拿到那张格。拿到要算法。算法目前仍缺。把 $cn^2\cdot 2^{-n}$ 写成密码已经过时，会把地图当成攻击。
+
 ## 未知的边界
 
 - **4 维的 $D_4$ 是全局最优吗？** 有强力的数值与线性规划证据，但缺少魔幻函数，证明无门。
@@ -103,7 +113,8 @@ related:
 
 - Viazovska, M. "The sphere packing problem in dimension 8." _Annals of Mathematics_ 185 (2017), 991–1015. DOI: 10.4007/annals.2017.185.3.7.
 - Cohn, H., Kumar, A., Miller, S. D., Radchenko, D. & Viazovska, M. "The sphere packing problem in dimension 24." _Annals of Mathematics_ 185 (2017), 1017–1033.
-- Klartag, B. "Lattice packing of spheres in high dimensions using a stochastically evolving ellipsoid." arXiv:2504.05042 (2025).
+- Klartag, B. "Lattice packing of spheres in high dimensions using a stochastically evolving ellipsoid." _Inventiones mathematicae_ 244, 1251–1279 (2026). DOI: 10.1007/s00222-026-01412-w. 预印本 arXiv:2504.05042。
+- Abuya, E. B., Gargava, N. & Zhao, Y. "Stochastically evolving ellipsoids with symmetries." arXiv:2606.05105 (2026). 无穷多个维数上的 $\log\log$ 因子，不是每一维。
 - Campos, M., Jenssen, M., Michelen, M. & Sahasrabudhe, J. "A new lower bound for sphere packing." arXiv:2312.10026 (2023).
 - Cohn, H., Kumar, A., Miller, S. D., Radchenko, D. & Viazovska, M. "Universal optimality of the $E_8$ and Leech lattices and interpolation formulas." _Annals of Mathematics_ 196 (2022), 983–1082.
 - Hales, T. et al. "A formal proof of the Kepler conjecture." _Forum of Mathematics, Pi_ 5 (2017), e2. DOI: 10.1017/fmp.2017.1.

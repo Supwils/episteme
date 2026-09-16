@@ -16,6 +16,11 @@ import { ArticleSidebar } from "@/components/ArticleSidebar";
 import { TableOfContents } from "@/components/TableOfContents";
 import { ReadingModeControls } from "@/components/ReadingModeControls";
 import { ReadingProgressBar } from "@/components/ReadingProgressBar";
+import {
+  ARTICLE_BODY_ROW_CLASS,
+  ARTICLE_HEADER_CLASS,
+  ARTICLE_SURFACE_CLASS,
+} from "@/components/ArticleLayout";
 
 export function generateStaticParams() {
   // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
@@ -84,76 +89,75 @@ export default async function TheoremDetailPage({ params }: { params: Promise<{ 
         ← 返回定理
       </Link>
 
-      <header className="border-border-faint bg-bg-panel relative mb-12 overflow-hidden border p-8 backdrop-blur-md">
-        <div
-          className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full opacity-10 blur-3xl"
-          style={{ backgroundColor: fieldColor }}
-        />
+      <div className={ARTICLE_BODY_ROW_CLASS}>
+        <article className={ARTICLE_SURFACE_CLASS}>
+          <header className={`${ARTICLE_HEADER_CLASS} backdrop-blur-md`}>
+            <div
+              className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full opacity-10 blur-3xl"
+              style={{ backgroundColor: fieldColor }}
+            />
 
-        <div className="relative">
-          <div className="mb-3 flex flex-wrap items-center gap-3">
-            <span
-              className="border px-2.5 py-1 font-mono text-[10px] tracking-[0.32em] uppercase"
-              style={{ borderColor: `${fieldColor}50`, color: mathBadgeColor(fieldColor) }}
-            >
-              {theorem.field}
-            </span>
-            <span
-              className="rounded-full border px-2.5 py-1 font-mono text-[10px] tracking-[0.2em]"
-              style={{
-                borderColor: `${difficultyColor}40`,
-                color: mathBadgeColor(difficultyColor),
-              }}
-            >
-              {theorem.difficulty}
-            </span>
-            <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">
-              约 {readMinutes} 分钟阅读
-            </span>
-            <span className="ml-auto">
-              <ReadingModeControls />
-            </span>
-          </div>
-
-          <h1 className="font-display text-fg-primary mb-2 text-[2rem] leading-tight font-semibold tracking-tight md:text-[2.8rem]">
-            {theorem.title}
-          </h1>
-          <p className="text-fg-muted font-display text-lg tracking-wide italic">
-            {theorem.title_en}
-          </p>
-
-          <div className="mt-4 flex flex-wrap gap-3 text-sm">
-            <span className="text-fg-secondary">{theorem.mathematician}</span>
-            {theorem.year && (
-              <>
-                <span className="text-fg-disabled">·</span>
-                <span className="text-fg-secondary">{theorem.year}</span>
-              </>
-            )}
-          </div>
-
-          {theorem.tags.length > 0 && (
-            <div className="mt-4 flex flex-wrap gap-2">
-              {theorem.tags.map((tag) => (
+            <div className="relative">
+              <div className="mb-3 flex flex-wrap items-center gap-3">
                 <span
-                  key={tag}
-                  className="hover:border-accent-indigo/30 hover:text-accent-indigo border px-2.5 py-1 font-mono text-[10px] tracking-[0.22em] transition-colors"
+                  className="border px-2.5 py-1 font-mono text-[10px] tracking-[0.32em] uppercase"
+                  style={{ borderColor: `${fieldColor}50`, color: mathBadgeColor(fieldColor) }}
+                >
+                  {theorem.field}
+                </span>
+                <span
+                  className="rounded-full border px-2.5 py-1 font-mono text-[10px] tracking-[0.2em]"
                   style={{
-                    borderColor: `${fieldColor}20`,
-                    color: `${fieldColor}cc`,
-                    backgroundColor: `${fieldColor}08`,
+                    borderColor: `${difficultyColor}40`,
+                    color: mathBadgeColor(difficultyColor),
                   }}
                 >
-                  {tag}
+                  {theorem.difficulty}
                 </span>
-              ))}
-            </div>
-          )}
-        </div>
-      </header>
+                <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">
+                  约 {readMinutes} 分钟阅读
+                </span>
+                <span className="ml-auto">
+                  <ReadingModeControls />
+                </span>
+              </div>
 
-      <div className="flex flex-col gap-12 lg:flex-row">
-        <article className="article-reading-surface max-w-[44rem] min-w-0 flex-1 transition-[max-width] duration-300">
+              <h1 className="font-display text-fg-primary mb-2 text-[2rem] leading-tight font-semibold tracking-tight md:text-[2.8rem]">
+                {theorem.title}
+              </h1>
+              <p className="text-fg-muted font-display text-lg tracking-wide italic">
+                {theorem.title_en}
+              </p>
+
+              <div className="mt-4 flex flex-wrap gap-3 text-sm">
+                <span className="text-fg-secondary">{theorem.mathematician}</span>
+                {theorem.year && (
+                  <>
+                    <span className="text-fg-disabled">·</span>
+                    <span className="text-fg-secondary">{theorem.year}</span>
+                  </>
+                )}
+              </div>
+
+              {theorem.tags.length > 0 && (
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {theorem.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="hover:border-accent-indigo/30 hover:text-accent-indigo border px-2.5 py-1 font-mono text-[10px] tracking-[0.22em] transition-colors"
+                      style={{
+                        borderColor: `${fieldColor}20`,
+                        color: `${fieldColor}cc`,
+                        backgroundColor: `${fieldColor}08`,
+                      }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </header>
           {theorem.content ? (
             <MarkdownRenderer
               content={theorem.content}

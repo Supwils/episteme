@@ -142,6 +142,19 @@ export const CONTENT_REACHABILITY_AUDIT_SCOPES: readonly AuditScope[] = [
     minimumCoveragePercent: 100,
   },
   {
+    domain: "education",
+    sections: [
+      "learning-foundations",
+      "cognition-and-memory",
+      "curriculum-and-teaching",
+      "assessment-and-equity",
+      "education-technology",
+      "comparison-and-policy",
+      "frontier",
+    ],
+    minimumCoveragePercent: 100,
+  },
+  {
     domain: "engineering",
     sections: ["foundations", "frontier", "energy", "materials", "machines", "civil", "frontiers"],
     minimumCoveragePercent: 100,

@@ -2,7 +2,7 @@
 title: 自驱动实验室：当 AI 提议、机器人动手，化学发现开始闭环
 title_en: Self-Driving Labs — When AI Proposes and Robots Execute, Chemical Discovery Closes the Loop
 status: published
-updated: 2026-08-16
+updated: 2026-09-12
 category: 计算化学
 horizon: 2020s
 order: 8
@@ -59,6 +59,14 @@ related:
 
 A-Lab 的故事值得单独说清，因为它是这条前沿最重要的一剂清醒剂。2023 年《自然》论文宣称机器人在 17 天里合成了 41 种"新颖"化合物；2024 年有团队在 _PRX Energy_ 发文质疑其 X 射线衍射解读，2026 年《自然》刊出作者更正，承认"新颖性"表述易致误解（这一事件的详情可对照[[ai-for-science]]）。这不是说方向错了——闭环确实可行——而是证明：**自动化的合成没有自动化的验证可靠，而验证恰恰是更难自动化的那一半。**
 
+同一套硬件后来被写成工作流软件。2024 年，Ceder 组在 _Digital Discovery_ 发表 AlabOS：可重构任务、资源预约、错误恢复，论文写明 A-Lab 在约一年半里编排了超过 3500 个样品。样品数上升，不等于新颖化合物数上升。编排证明的是：粉末称量、球磨、箱式炉、衍射可以连成可重复的队列。队列解决的是吞吐。新颖性仍然卡在谱图是否被过度拟合、目标相是否已在数据库里、失败实验有没有被当成阴性结果保存。把 3500 写成 41 的续集，会把操作系统论文读成发现论文。操作系统很重要。它仍然不能代替人读一张差的衍射图。
+
+样品是操作系统能点数的对象。发现是人对物质身份的判断。AlabOS把称量、球磨、箱式炉与衍射排成可恢复的队列，队列里的每一盘都叫样品：有条码、有时间戳、有一张衍射图。发现却要求另一组条件同时成立——相被正确指认、该相在科学记录上是新的、并且它带有值得发表的性质。这组条件没有一项能被资源预约自动签发。把样品吞吐写成发现速率，是把快递单数写成读完的书。
+
+闭环真正卡住的地方是表征，不是机械臂。A-Lab在2023年原文里已经写明：多相样品的表征仍然困难，决策依赖多数相识别，下一代需要电子显微与质谱来补。当时闭环的传感器是粉末X射线衍射，外加机器学习相鉴定与自动Rietveld精修。它够快，炉子可以继续排班。它不够用来独自裁定“这是不是新结构”。2026年1月19日《自然》作者更正把这个缺口写成可核对的句子：“新颖”本意是预测平台上的新，不一定是科学上的新；四十次已报成功里，三十六次人工重分析认为衍射结论正确，四次仅凭XRD无法下结论。讨论中还拿掉误入训练数据的化合物Zn2Cr3FeO8。更正并不否定闭环能做出目标相。它否定的是：一张衍射图加一个模型输出，就等于一条发现。
+
+“新”还有第二层口径。对预测平台，新等于生成模型或训练库没见过。对晶体学，新等于无机晶体结构数据库里没有等价条目。2024年的质疑主要打在第二层：所谓新相是否早已被收进数据库，衍射解读是否过拟合。2026年更正等于承认第一层曾被读成第二层。样品队列可以在平台内部不断标新，同时在科学记录上并不新。这个差别，样品计数器看不见。
+
 ## 代价与争议
 
 - **验证瓶颈。** 机器人可以一天做一百个反应，但结构确证与性能复测跟不上，闭环就会"自信地犯错"。
@@ -66,7 +74,7 @@ A-Lab 的故事值得单独说清，因为它是这条前沿最重要的一剂�
 - **基准缺失。** 各家用不同任务、不同指标宣称"加速十倍"，缺乏公认基准，横向比较困难——与[[computational-materials-design]]领域同病。
 - **成本账存疑。** 一台移动机器人的折旧与维护，对比一组研究生的产出，经济性远非不言自明；支持者的论据是数据质量与复现性，而非单纯人力替代。
 - **可复现性与开放。** 阴性结果不记录、数据格式各自为政，闭环之间无法互相学习；2025 年多伦多-格拉斯哥跨实验室云端协作是一个正面样本，但远未成行业标准。
-- **安全与治理。** 能自主执行合成的系统，理论上也能被用于危险分子的自动探索——化学品自动合成的访问控制与审查，是刚被提上日程的治理议题。
+- **安全与治理。** 能自主执行合成的系统，理论上也能被用于危险分子的自动探索——化学品自动合成的访问控制与审查，是刚被提上日程的治理议题。本平台不讨论如何设计或绕过此类控制。
 
 ## 未知的边界
 
@@ -88,8 +96,10 @@ A-Lab 的故事值得单独说清，因为它是这条前沿最重要的一剂�
 
 - Burger, B. et al. _A mobile robotic chemist._ Nature 583, 237–241 (2020). DOI: 10.1038/s41586-020-2442-2.
 - Mehr, S. H. M., Craven, M., Leonov, A. I., Keenan, G. & Cronin, L. _A universal system for digitization and automatic execution of the chemical synthesis literature._ Science 370, 101–108 (2020). DOI: 10.1126/science.abc2986.
-- Szymanski, N. J. et al. _An autonomous laboratory for the accelerated synthesis of novel materials._ Nature 624, 86–91 (2023). DOI: 10.1038/s41586-023-06734-w.（含 2026 年作者更正）
+- Szymanski, N. J. et al. _An autonomous laboratory for the accelerated synthesis of novel materials._ Nature 624, 86–91 (2023). DOI: 10.1038/s41586-023-06734-w.
+- Szymanski, N. J. et al. _Author Correction: An autonomous laboratory for the accelerated synthesis of novel materials._ Nature (2026). DOI: 10.1038/s41586-025-09992-y. 更正“新颖”口径；四十次已报成功中四次仅凭XRD无法下结论。
 - Flores-Leonar, M. M. et al. _Materials acceleration platforms: On the way to autonomous experimentation._ Current Opinion in Green and Sustainable Chemistry 25, 100370 (2020). DOI: 10.1016/j.cogsc.2020.100370.
 - Leeman, J. et al. _Commentary on Autonomous Materials Synthesis Claims._ PRX Energy (2024).（对 A-Lab 结果的质疑，与上文更正对照阅读）
+- Fei, Y. et al. _AlabOS: a Python-based reconfigurable workflow management framework for autonomous laboratories._ Digital Discovery 3, 2275–2288 (2024). DOI: 10.1039/D4DD00129J. 文中记录 A-Lab 约 3500 个样品的编排，不是新化合物清单。
 
 [^grant]: 2023 年 4 月，加拿大第一研究卓越基金（CFREF）向多伦多大学 Acceleration Consortium 拨款 2 亿加元，为加拿大高校史上最大单笔联邦研究资助；2025 年该联盟与格拉斯哥等地自驱动实验室通过云端协作、差异化分工，报道了有机固态激光新分子的发现（据多伦多大学 2025 年 8 月新闻稿，同行评审论文同期发表）。

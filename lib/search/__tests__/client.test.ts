@@ -1,7 +1,12 @@
 // @vitest-environment happy-dom
 import { existsSync, readFileSync } from "node:fs";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { createSearchClient, loadArtifact } from "../client";
+import {
+  createSearchClient,
+  isSafeSearchHit,
+  loadArtifact,
+  SEARCH_WORKER_TIMEOUT_MS,
+} from "../client";
 import { SEARCH_INDEX_URL, SEARCH_INDEX_VERSION } from "../types";
 
 const artifactJson = readFileSync("public/search-index.json", "utf-8");
@@ -16,6 +21,7 @@ function mockFetch(body: string, ok = true) {
 }
 
 afterEach(() => {
+  vi.useRealTimers();
   vi.unstubAllGlobals();
   vi.restoreAllMocks();
 });
@@ -160,5 +166,123 @@ describe("createSearchClient with a Worker", () => {
     const hits = await client.search("热力学", 5);
     expect(hits.length).toBeGreaterThan(0);
     client.dispose();
+  });
+
+  it("answers on the main thread after dispose instead of messaging a dead worker", async () => {
+    let terminated = false;
+    class FakeWorker {
+      onmessage: ((event: MessageEvent) => void) | null = null;
+      onerror: ((event: ErrorEvent) => void) | null = null;
+      constructor(public url: string) {}
+      postMessage() {
+        if (terminated) throw new Error("Worker has been terminated");
+      }
+      terminate() {
+        terminated = true;
+      }
+    }
+    vi.stubGlobal("Worker", FakeWorker);
+    mockFetch(artifactJson);
+
+    const client = createSearchClient();
+    client.dispose();
+    const hits = await client.search("热力学", 5);
+    expect(hits.length).toBeGreaterThan(0);
+    expect(hits[0]!.url.startsWith("/")).toBe(true);
+  });
+
+  it("falls back to the main thread when the worker never answers", async () => {
+    class FakeWorker {
+      onmessage: ((event: MessageEvent) => void) | null = null;
+      onerror: ((event: ErrorEvent) => void) | null = null;
+      constructor(public url: string) {}
+      postMessage() {}
+      terminate() {}
+    }
+    vi.useFakeTimers();
+    vi.stubGlobal("Worker", FakeWorker);
+    mockFetch(artifactJson);
+
+    const client = createSearchClient();
+    const searchPromise = client.search("热力学", 5);
+    await vi.advanceTimersByTimeAsync(SEARCH_WORKER_TIMEOUT_MS);
+    const hits = await searchPromise;
+    expect(hits.length).toBeGreaterThan(0);
+    expect(hits[0]!.url.startsWith("/")).toBe(true);
+    client.dispose();
+  });
+
+  it("drops worker hits whose urls are not same-origin paths", async () => {
+    class FakeWorker {
+      onmessage: ((event: MessageEvent) => void) | null = null;
+      onerror: ((event: ErrorEvent) => void) | null = null;
+      constructor(public url: string) {}
+      postMessage(data: { type: string; id?: number }) {
+        if (data.type !== "search") return;
+        queueMicrotask(() => {
+          this.onmessage?.({
+            data: {
+              type: "result",
+              id: data.id,
+              hits: [
+                {
+                  title: "xss",
+                  subtitle: "",
+                  url: "javascript:alert(1)",
+                  section: "philosophy",
+                  kind: "concept",
+                  score: 9,
+                },
+                {
+                  title: "cdn",
+                  subtitle: "",
+                  url: "//evil.example/search",
+                  section: "philosophy",
+                  kind: "concept",
+                  score: 8,
+                },
+                {
+                  title: "热力学",
+                  subtitle: "",
+                  url: "/universe-physics/physics/thermodynamics",
+                  section: "universe-physics",
+                  kind: "concept",
+                  score: 1,
+                },
+              ],
+            },
+          } as MessageEvent);
+        });
+      }
+      terminate() {}
+    }
+    vi.stubGlobal("Worker", FakeWorker);
+
+    const client = createSearchClient();
+    const hits = await client.search("热力学", 5);
+    expect(hits).toHaveLength(1);
+    expect(hits[0]?.url).toBe("/universe-physics/physics/thermodynamics");
+    client.dispose();
+  });
+});
+
+describe("isSafeSearchHit", () => {
+  it("accepts in-site article paths and rejects schemes", () => {
+    expect(
+      isSafeSearchHit({
+        title: "熵",
+        subtitle: "",
+        url: "/universe-physics/physics/thermodynamics",
+        section: "universe-physics",
+        kind: "concept",
+        score: 1,
+      })
+    ).toBe(true);
+    expect(isSafeSearchHit({ title: "x", url: "javascript:alert(1)" })).toBe(false);
+    expect(isSafeSearchHit({ title: "x", url: "/\\evil.example/x" })).toBe(false);
+    expect(isSafeSearchHit({ title: "x", url: "//evil.example/x" })).toBe(false);
+    expect(isSafeSearchHit({ title: "x", url: "https://evil.example/x" })).toBe(false);
+    expect(isSafeSearchHit({ title: "x", url: "" })).toBe(false);
+    expect(isSafeSearchHit(null)).toBe(false);
   });
 });

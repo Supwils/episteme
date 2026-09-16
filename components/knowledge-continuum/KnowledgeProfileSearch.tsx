@@ -122,7 +122,7 @@ export function KnowledgeProfileSearch({
                   id={`${id}-option-${index}`}
                   type="button"
                   role="option"
-                  aria-selected={mastered}
+                  aria-selected={index === activeIndex}
                   disabled={mastered}
                   tabIndex={-1}
                   onMouseDown={(event) => event.preventDefault()}

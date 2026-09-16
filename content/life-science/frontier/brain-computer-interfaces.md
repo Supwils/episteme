@@ -2,7 +2,7 @@
 title: 脑机接口临床元年——从瘫痪患者的光标到被解码的内心语言
 title_en: Brain-Computer Interfaces Go Clinical — From Cursors to Inner Speech
 status: published
-updated: 2026-08-16
+updated: 2026-09-12
 category: 神经生物学
 horizon: 2020s
 order: 2
@@ -55,6 +55,8 @@ related:
 
 值得注意的转折是：这个领域正在从"学术实验室的一次性演示"转向"多家公司并行推进的注册试验"。Synchron 的美国 COMMAND 研究在 6 名重度瘫痪患者中使用 Stentrode 一年，2024 年 10 月公布无器械相关严重不良事件；2025 年 11 月完成 2 亿美元 D 轮融资，计划 2026 年启动首个面向上市批准的关键性试验。Precision 的 Layer 7 于 2025 年获 FDA 510(k) 许可，可用于最长 30 天的植入。Neuralink 到 2025 年底已有十余名受试者接受植入，试验扩展到加拿大、英国与中东。
 
+公司人数与注册试验人数不是同一张表。2026 年 1 月 28 日，路透社引述 Neuralink 称全球试验已有 21 名参与者入组，高于该公司 2025 年 9 月所说的 12 人已植入。美国 ClinicalTrials.gov 上的 PRIME 研究（NCT06429735）当时仍标为招募中，估计入组 15 人，完成日期估在 2031 年。21 是公司口径，15 是该登记项的估计。两者可以同时为真：国际多中心会把人数写到新闻稿里，而美国早期可行性研究仍按 IDE 走。IDE 允许受控人体研究，不是上市批准。把入组人数写成产品已经可用，是把招募进度当成审评结论。电极回缩、信号漂移和家庭独立使用，仍然要靠同行评议的队列，而不是社交平台上的演示视频。
+
 ## 2020s 证据：语音解码是进展最快的战线
 
 运动解码（光标、机械臂）之外，真正改变格局的是语音神经假体——为因渐冻症（ALS）或脑干中风失去说话能力的人重建沟通：
@@ -102,6 +104,8 @@ related:
 - Metzger, S.L. et al. "A high-performance neuroprosthesis for speech decoding and avatar control." _Nature_ 620, 1037–1046 (2023). DOI: 10.1038/s41586-023-06443-4.（78 词/分 + 数字化身）
 - Card, N.S. et al. "An Accurate and Rapidly Calibrating Speech Neuroprosthesis." _New England Journal of Medicine_ 391, 609–618 (2024). DOI: 10.1056/NEJMoa2314132.（97.5% 准确率）
 - Kunz, E.M. et al. "Inner speech in motor cortex and implications for speech neuroprostheses." _Cell_ 188 (2025).（内心语言解码与"思维密码"）
+- Neuralink Corp. PRIME Study. ClinicalTrials.gov NCT06429735. 美国早期可行性研究，估计入组与完成日期以登记页为准，不等于全球公司口径。
+- Reuters. “Elon Musk's Neuralink says it has 21 participants enrolled in trials.” 28 January 2026. 公司声明，非同行评议临床终点。
 
 [^braingate]: Hochberg et al., _Nature_ 442 (2006)：2004 年植入的 Utah 阵列（96 电极）使四肢瘫痪患者能用意念移动光标、操作假肢；BrainGate 试验至今仍在运行，是植入式 BCI 临床证据的主要来源。
 

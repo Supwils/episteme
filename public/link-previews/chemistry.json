@@ -344,14 +344,79 @@
     "e": "X 射线晶体学常被称为“看见原子”。这个说法抓住了分辨率优势，却把真正过程说成了按下快门。它看见的不是一张照片，而是必须重建的强度。",
     "d": "chemistry"
   },
+  "/chemistry/milestones/arrhenius-1887-electrolytic-dissociation": {
+    "t": "阿伦尼乌斯一八八七年的电解离解：离子在通电之前已经待在溶液里",
+    "e": "1880 年代的斯德哥尔摩，瑞典科学院物理研究所里有一只玻璃容器和一台把直流变成交变电流的去极化器。斯万特·奥古斯特·阿伦尼乌斯要测的不是电极上析出了多少银，而是极稀水溶液的电阻怎样随稀释改变…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/aston-1919-mass-spectrograph": {
+    "t": "阿斯顿 1919：质谱仪上氖的两条整数质量怎样把同位素写成实验室对象",
+    "e": "一九一九年十一月二十七日，《自然》印出一则短讯。弗朗西斯·威廉·阿斯顿把题目写成《元素的构成》。他要公开的不是一种尚未命名的气体，而是已经叫氖的那种惰性气体，在质谱仪底片上落成两条质量线：二十…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/born-oppenheimer-1927": {
+    "t": "玻恩–奥本海默 1927：分子怎样把核的慢运动从电子的快运动里拆开",
+    "e": "一九二七年，《物理学年鉴》第三八九卷第二十期刊出马克斯·玻恩与罗伯特·奥本海默的长文，题目按字面是《分子的量子理论》，德文原题 “Zur Quantentheorie der Molekeln…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/bronsted-lowry-1923": {
+    "t": "布朗斯特–劳里 1923：酸给出质子、碱接住质子怎样被写成定义",
+    "e": "一九二三年，两份互不相欠的印刷物把酸碱改写成质子的给予与接受。一份是约翰内斯·尼古劳斯·布朗斯特用德文写进荷兰《低地国家化学文集》第四十二卷第八期的短论，题目按字面是《关于酸与碱概念的若干评注…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/bunsen-kirchhoff-1860-cesium": {
+    "t": "本生与基尔霍夫一八六〇年的铯：棱镜分光镜怎样用天蓝色谱线认出第一种新元素",
+    "e": "一八五九年，海德堡的化学实验室里多了一只涂黑的梯形木箱。罗伯特·本生已经有了一盏几乎不发光的煤气灯；古斯塔夫·基尔霍夫把狭缝、准直管、棱镜和观察望远镜装进同一只箱子。火焰边沿舔着铂丝上的盐珠。…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/chargaff-1950-base-ratios": {
+    "t": "查加夫一九五〇年的碱基比：Experientia 短文里的物种表",
+    "e": "一九五〇年六月十五日，巴塞尔的《Experientia》第六卷第六期印出一篇英文短文。作者埃尔温·查加夫，通讯地址是哥伦比亚大学内科与外科学院生物化学系。题目按字面读，是《核酸的化学特异性及其…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/curie-1898-polonium-radium": {
+    "t": "居里 1898：沥青铀矿里比铀更活的部分怎样被写成钋与镭",
+    "e": "一八九八年，巴黎科学院的《会议报告》里接连印出三则短讯。四月十二日，玛丽亚·斯克沃多夫斯卡·居里把铀盐与钍盐使空气导电的电流写成一张比较表。压电石英静电计把贝克勒尔射线从底片上的轮廓改成可以并…",
+    "d": "chemistry"
+  },
   "/chemistry/milestones/daltons-atomic-theory": {
     "t": "道尔顿原子论（1808）",
     "e": "19 世纪初的英国曼彻斯特，一位衣着朴素、不苟言笑的教师约翰·道尔顿（John Dalton），每天最热衷的事是记录天气。",
     "d": "chemistry"
   },
+  "/chemistry/milestones/debye-huckel-1923": {
+    "t": "德拜–休克尔 1923：离子氛怎样把强电解质的电导亏损改记成远程静电",
+    "e": "一九二三年，苏黎世联邦工学院的彼得·德拜与助手埃里希·休克尔，把两篇同题论文送进《物理杂志》第二十四卷。第一篇从第一八五页写到第二〇六页，副题是冰点降低与相近现象。续篇从第三〇五页写到第三二五…",
+    "d": "chemistry"
+  },
   "/chemistry/milestones/discovery-of-radioactivity": {
     "t": "放射性的发现（1896）",
     "e": "1896 年 2 月，巴黎阴雨连绵。物理学家亨利·贝克勒尔（Henri Becquerel）原本设计了一个需要阳光的实验：他把铀盐放在用黑纸包严的照相底片上，想看阳光照射后铀会不会发出某种「X…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/evans-polanyi-1935": {
+    "t": "Evans–Polanyi 1935：过渡态方法怎样被用来写溶液里的反应速率",
+    "e": "一九三五年，《法拉第学会会志》第三十一卷刊出梅雷迪思·格温·埃文斯与迈克尔·波兰尼的长文，题目按字面是 “Some applications of the transition state m…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/eyring-1935-absolute-rate": {
+    "t": "艾林 1935：活化络合物怎样把反应速率写成越过鞍点的统计频率",
+    "e": "一九三五年二月，《化学物理杂志》第三卷第二期刊出亨利·艾林的长文，题目按字面是 “The Activated Complex in Chemical Reactions”，页码从一〇七到一一五…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/faraday-electrolysis-laws": {
+    "t": "法拉第电解定律：电荷怎样在电极上被称成质量",
+    "e": "1833 年到 1834 年，法拉第在皇家研究院连续发表《电学实验研究》。第五系列把电解从表演收成可比较的分解；第七系列把比较收成两条比例。对象不是发明家的生平，是那只电解池、后来被称为伏打计…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/fukui-1952-frontier-orbitals": {
+    "t": "福井 1952：前线电子密度怎样把芳香烃的反应位置写成轨道指标",
+    "e": "一九五二年四月，《化学物理杂志》第二十卷第四期刊出福井谦一、米泽贞次郎与新宫春男的短讯，题目按字面是 “A Molecular Orbital Theory of Reactivity in …",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/graebe-liebermann-1868-alizarin": {
+    "t": "格雷贝与利贝曼一八六八年的茜素：蒽而非萘，以及第一种对打天然物的合成媒染染料",
+    "e": "一八六八年，柏林工业学院阿道夫·冯·拜耳的实验室里，卡尔·格雷贝与卡尔·利贝曼把茜草根里的红色素拿去和锌粉共热。他们要问的不是怎样把布染红，而是这颗分子的碳骨架到底跟煤焦油里哪一种烃是一家。得…",
     "d": "chemistry"
   },
   "/chemistry/milestones/green-chemistry": {
@@ -364,9 +429,59 @@
     "e": "1909 年 7 月 2 日，德国卡尔斯鲁厄一间实验室里，弗里茨·哈伯（Fritz Haber）和助手罗伯特·勒罗西尼奥尔（Robert Le Rossignol）守着一根滚烫的钢管。",
     "d": "chemistry"
   },
+  "/chemistry/milestones/hammett-1935": {
+    "t": "Hammett 1935：取代基怎样把反应速率与平衡常数写成一条直线",
+    "e": "一九三五年八月，《化学评论》第十七卷第一期刊出路易斯·普拉科·哈米特的长文，题目按字面是 “Some Relations between Reaction Rates and Equilibr…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/hammett-1937": {
+    "t": "Hammett 1937：苯衍生物的取代基常数怎样被收成一张可迁移的表",
+    "e": "一九三七年一月，《美国化学会志》第五十九卷第一期刊出路易斯·普拉科·哈米特的长文，题目按字面是 “The Effect of Structure upon the Reactions of O…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/hammond-1955-postulate": {
+    "t": "Hammond 1955：邻近物种的能量接近怎样被用来猜过渡态的几何",
+    "e": "一九五五年一月二十日，《美国化学会志》第七十七卷第二期刊出乔治·S·哈蒙德的长文，题目按字面是 “A Correlation of Reaction Rates”，页码从三三四到三三八。作者当…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/heitler-london-1927": {
+    "t": "海特勒–伦敦 1927：交换怎样把氢分子写成同极键",
+    "e": "一九二七年，《物理学杂志》第四十四卷第六–七期刊出瓦尔特·海特勒与弗里茨·伦敦的长文，题目按字面是《中性原子的相互作用与量子力学下的同极键》，页码从四五五到四七二。对象是两个中性氢原子靠近时，…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/huckel-1931-benzene-mo": {
+    "t": "休克尔 1931：苯问题的量子贡献怎样把六只 π 电子写成分子轨道",
+    "e": "一九三一年，《物理学杂志》第七十卷刊出埃里希·休克尔（Erich Hückel）的长文，总题按字面是 “Quantentheoretische Beiträge zum Benzolprobl…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/karlsruhe-cannizzaro-atomic-weights": {
+    "t": "卡尔斯鲁厄 1860：坎尼扎罗小册子怎样把原子量变成公共算法",
+    "e": "1860 年 9 月 3 日至 5 日，约一百四十名化学家聚在巴登的卡尔斯鲁厄。发起人是凯库勒、韦尔茨恩与武尔茨。邀请函上还出现李比希、杜马、本生、维勒、巴斯德等人的名字。会议要解决的，不是某…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/kekule-1865-benzene": {
+    "t": "凯库勒一八六五年的苯环：公报上的六元连通式",
+    "e": "一八六五年，当时还在根特任教的奥古斯特·凯库勒，把一篇法文短文送进《巴黎化学会公报》第三卷。题目按字面读，是《关于芳香物质的构造》。六个碳首尾相连，单键与双键交替排列，每个碳再挂一个氢。一取代…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/langmuir-1919-octet": {
+    "t": "朗缪尔 1919：电子怎样被排进立方原子与八隅体",
+    "e": "一九一九年六月，《美国化学会志》第四十一卷第六期刊出欧文·朗缪尔的长文，题目按字面是《原子与分子中的电子排布》，页码从八六八到九三四。作者当时在纽约州斯克内克塔迪的通用电气研究实验室。对象是一…",
+    "d": "chemistry"
+  },
   "/chemistry/milestones/lavoisier-oxygen-revolution": {
     "t": "拉瓦锡的氧化学革命（1789）",
     "e": "1772 年的一个深秋，在巴黎兵工厂二楼的实验室里，安托万-洛朗·拉瓦锡（Antoine-Laurent Lavoisier）把一支大透镜对准阳光，让聚焦的光斑去烧一小块金属。",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/lewis-1916-shared-pair": {
+    "t": "路易斯 1916：共享电子对怎样被写成化学键",
+    "e": "一九一六年四月，《美国化学会志》第三十八卷第四期刊出吉尔伯特·牛顿·路易斯的长文，题目按字面是《原子与分子》，页码从七六二到七八五，文末署收稿一月二十六日。化学键被写成一对由两个原子共同持有的…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/marcus-1956-electron-transfer": {
+    "t": "Marcus 1956：外层电子转移怎样把溶剂极化与内层坐标的重组写成越过",
+    "e": "一九五六年五月，《化学物理杂志》第二十四卷第五期刊出鲁道夫·A·马库斯（Rudolph A. Marcus）的长文，题目按字面是 “On the Theory of Oxidation-Red…",
     "d": "chemistry"
   },
   "/chemistry/milestones/mendeleev-periodic-law": {
@@ -374,9 +489,69 @@
     "e": "1869 年 2 月，圣彼得堡的冬天还没松手。",
     "d": "chemistry"
   },
+  "/chemistry/milestones/miller-urey-experiment": {
+    "t": "米勒–尤里实验：火花、还原气体与氨基酸",
+    "e": "1953 年 5 月 15 日，《科学》刊出不足两页的短文，作者是芝加哥大学化学研究生斯坦利·米勒。标题直译是：在可能的原始地球条件下产生氨基酸。指导者是哈罗德·尤里。同一人一九三一年怎样用液…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/moseley-1913-xray-atomic-number": {
+    "t": "莫塞莱一九一三年的高频率谱：特征 X 射线怎样把原子序数写成直线",
+    "e": "1913 年的曼彻斯特，卢瑟福实验室里多了一根可以换靶的 X 射线管。亨利·格温·杰弗里斯·莫塞莱要把不同元素做成对阴极，让阴极射线打上去，再用晶体当分光计，把特征辐射收成底片上的线。对象不是…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/mulliken-1932-molecular-orbitals": {
+    "t": "马利肯 1932：分子轨道怎样把多原子分子的价写成遍布全分子的单电子函数",
+    "e": "一九三二年四月一日，《物理评论》第四十卷第一期刊出罗伯特·桑德森·马利肯的短文，题目按字面是 “Electronic Structures of Polyatomic Molecules an…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/pasteur-1848-tartaric": {
+    "t": "巴斯德一八四八年的酒石酸钠铵盐：半面晶面、镊子和相反的旋光",
+    "e": "1848 年的巴黎高等师范学校，二十六岁的路易·巴斯德对着一盘从水里长出来的透明晶体。盐是外消旋酒石酸的钠铵复盐，化学式后来写成 \\mathrm{NaNH_4C_4H_4O_6\\cdot 4H…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/pauling-1931-chemical-bond": {
+    "t": "鲍林 1931：杂化、共振与顺磁判据怎样把化学键写成化学家的语言",
+    "e": "一九三一年四月，《美国化学会志》第五十三卷第四期刊出莱纳斯·鲍林的长文，题目按字面是 “The Nature of the Chemical Bond. Application of Resu…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/perkin-1856-mauveine": {
+    "t": "珀金一八五六年的苯胺紫：复活节失败的奎宁凑法与第一种商业合成染料",
+    "e": "一八五六年复活节假期，伦敦东区凯布尔街，十八岁的威廉·亨利·珀金在自家顶层的家庭实验室里做氧化。他是牛津街皇家化学学院奥古斯特·威廉·冯·霍夫曼的名誉助手。课题是用煤焦油里的芳香胺去凑奎宁。奎…",
+    "d": "chemistry"
+  },
   "/chemistry/milestones/polywater-and-pathological-science": {
     "t": "聚合水与病态科学（1962—1973）",
     "e": "1960 年代末，一种新形态的水占据了《自然》《科学》与全球媒体的版面。",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/raman-1928-scattering": {
+    "t": "拉曼一九二八年的散射：汞弧怎样把分子振动写成移位谱线",
+    "e": "1928 年的加尔各答，印度科学培养协会设在鲍巴扎尔街 210 号。钱德拉塞卡拉·文卡塔·拉曼与卡里亚马尼卡姆·斯里尼瓦萨·克里希南要找的，不是样品会不会发光，而是散射光里有没有改了波长的成分…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/ramsay-rayleigh-1894-argon": {
+    "t": "瑞利与拉姆齐一八九四年的氩：两份氮的密度差怎样逼出一种不进化合的气体",
+    "e": "一八九二年九月二十九日，《自然》上出现一封短信。约翰·威廉·斯特拉特，第三代瑞利男爵，说自己被氮的密度弄糊涂了，请化学读者帮忙解释。他称的是同一只大玻璃球里的气体。从空气里取出、已经除掉氧、二…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/roothaan-1951-lcao-scf": {
+    "t": "罗特汉 1951：LCAO-SCF 怎样把哈特里–福克写成矩阵本征值问题",
+    "e": "一九五一年四月，《现代物理评论》第二十三卷第二期刊出克莱门斯·C. J. 罗特汉的长文，题目按字面是 “New Developments in Molecular Orbital Theory…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/rowland-molina-ozone-cfcs": {
+    "t": "Rowland 与 Molina：平流层里的氯循环（1974）",
+    "e": "1974 年 6 月 28 日，《自然》刊登 Mario Molina 与 F. Sherwood Rowland 的短文，页码 249:810–812。文章不长。它问的是一种已经被当成安全制…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/soddy-1913-isotope": {
+    "t": "索迪 1913：放射链上化学无法分开的物种怎样被写成同位素",
+    "e": "一九一三年十二月四日，《自然》第九十二卷印出一封不足一页的来信。发信地址写在格拉斯哥莱斯特路十八号，日期十一月二十七日。弗雷德里克·索迪把题目写成《原子内电荷》。他要公开的不是一种尚未命名的金…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/staudinger-1920-macromolecules": {
+    "t": "施陶丁格 1920：高分子怎样被写成共价长链",
+    "e": "一九二〇年六月十二日，《德国化学会志》第五十三卷第六期印出赫尔曼·施陶丁格的一篇长文，题目只有两个词：Über Polymerisation。署名地址是苏黎世联邦工学院化学研究所。文末日期写着…",
     "d": "chemistry"
   },
   "/chemistry/milestones/synthetic-dyes-industry": {
@@ -384,14 +559,44 @@
     "e": "1856 年的复活节假期，伦敦一间简陋的家庭实验室里，18 岁的化学学生威廉·珀金（William Henry Perkin）正在做一件注定失败的事——他想完成导师霍夫曼（August Wil…",
     "d": "chemistry"
   },
+  "/chemistry/milestones/taft-1952-lfer": {
+    "t": "Taft 1952：脂肪族与邻位酯的酯化水解速率怎样把极性与空间切开",
+    "e": "一九五二年六月一日，《美国化学会志》第七十四卷第十一期刊出罗伯特·W·塔夫特（Robert W. Taft, Jr.）的长文，题目按字面是 “Linear Free Energy Relati…",
+    "d": "chemistry"
+  },
   "/chemistry/milestones/the-plastics-age": {
     "t": "塑料时代（1907）",
     "e": "1907 年，纽约州扬克斯的一间私人实验室里，比利时裔化学家利奥·贝克兰（Leo Baekeland）正盯着一团硬化的褐色物质发呆。",
     "d": "chemistry"
   },
+  "/chemistry/milestones/urey-1931-deuterium": {
+    "t": "尤里一九三一年的氘：液氢残渣原子光谱里的质量二同位素",
+    "e": "一九三一年感恩节，哥伦比亚大学化学系，哈罗德·克莱顿·尤里在底片上把一组事先算好位置的弱线认成真。通信一九三二年一月一日印在《Physical Review》第三十九卷第一六四页。作者是哈罗德…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/vant-hoff-1874-tetrahedron": {
+    "t": "范霍夫一八七四年的四面体碳：荷兰小册、空间结构式与不对称碳",
+    "e": "1874 年九月，乌得勒支印出一本很薄的荷兰文小册。作者雅各布斯·亨德里克斯·范霍夫，二十二岁。标题按字面读，是《提议把化学里现用的结构式扩展到空间》。碳的四根亲和力不再平摊在纸面上，而指向一…",
+    "d": "chemistry"
+  },
   "/chemistry/milestones/vitalism-and-its-long-death": {
     "t": "活力论的漫长死亡（1828—1900）",
     "e": "几乎每一本有机化学教科书都讲同一个故事：1828 年，维勒在实验室里意外地用无机原料做出了尿素——一种只有生命体才能产生的物质。他写信给老师贝采利乌斯：\"我必须告诉您，我能不借助肾脏、也不借助…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/werner-1893-coordination": {
+    "t": "维尔纳 1893：主价、副价与可电离氯怎样把钴氨合物写成八面体",
+    "e": "一八九三年，《无机化学杂志》第三卷刊出阿尔弗雷德·维尔纳的长文，题目按字面是 “Beitrag zur Konstitution anorganischer Verbindungen”，页码从…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/wohler-urea-synthesis": {
+    "t": "维勒的尿素合成：氰酸铵怎样重排成可鉴定的晶体",
+    "e": "1828 年，弗里德里希·维勒在波根多夫主编的《物理与化学年鉴》发表不足四页的短文，标题直译是《论尿素的人工生成》。对象不是活力论怎样在十九世纪后半叶被挤出化学，那一篇已经另写，见 活力论的漫…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/woodward-hoffmann-1965": {
+    "t": "Woodward–Hoffmann 1965：电环化的立体化学怎样被写成 HOMO 的对称性",
+    "e": "一九六五年一月二十日，《美国化学会志》第八十七卷第二期刊出罗伯特·伯恩斯·伍德沃德与罗尔德·霍夫曼的短讯，题目按字面是 “Stereochemistry of Electrocyclic Re…",
     "d": "chemistry"
   },
   "/chemistry/reactions/acid-base-neutralization": {
@@ -441,7 +646,7 @@
   },
   "/chemistry/reactions/organic-synthesis": {
     "t": "有机合成",
-    "e": "1828 年，德国化学家 Friedrich Wöhler 在实验室里把一种无机盐加热，意外得到了尿素——一种本以为只能由活的生命体产生的物质。",
+    "e": "1828 年，德国化学家 Friedrich Wöhler 在实验室里把一种无机盐加热，意外得到了尿素——一种本以为只能由活的生命体产生的物质。氰酸盐重排与尿源对照见 维勒的尿素合成。",
     "d": "chemistry"
   },
   "/chemistry/reactions/photosynthesis": {

@@ -1,3 +1,4 @@
+import { isSafeInternalPath } from "@/lib/urls";
 import { PHYSICS_CURIOSITIES } from "@/content/curiosities/physics";
 import { COSMOLOGY_CURIOSITIES } from "@/content/curiosities/cosmology";
 import { MATHEMATICS_CURIOSITIES } from "@/content/curiosities/mathematics";
@@ -96,9 +97,11 @@ export function getAllCuriosities(): CuriosityWithSubject[] {
 /**
  * Domain homes (`/psychology`) and section lists (`/psychology/phenomena`)
  * dump the reader. Only article-depth paths (three or more segments) count.
+ * Protocol-relative and off-site URLs are never followable from daily/wall CTAs.
  */
 export function curiosityArticleHref(url?: string): string | undefined {
   if (!url) return undefined;
+  if (!isSafeInternalPath(url)) return undefined;
   const parts = url.split("/").filter(Boolean);
   return parts.length >= 3 ? url : undefined;
 }

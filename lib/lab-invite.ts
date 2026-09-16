@@ -1,5 +1,6 @@
 import { anthropologyLabInvite } from "@/lib/anthropology/article-lab-invites";
 import { artsLabInvite } from "@/lib/arts/article-lab-invites";
+import { educationLabInvite } from "@/lib/education/article-lab-invites";
 import { engineeringLabInvite } from "@/lib/engineering/article-lab-invites";
 import { literatureLabInvite } from "@/lib/literature/article-lab-invites";
 import { religionLabInvite } from "@/lib/religion/article-lab-invites";
@@ -12,6 +13,7 @@ export type LabInviteData = {
 
 const RESOLVERS: Record<string, (section: string, slug: string) => LabInviteData> = {
   anthropology: anthropologyLabInvite,
+  education: educationLabInvite,
   religion: religionLabInvite,
   literature: literatureLabInvite,
   arts: artsLabInvite,

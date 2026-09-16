@@ -2,7 +2,7 @@
 title: 单细胞与空间组学——用细胞语言重画生命的地图
 title_en: Single-Cell and Spatial Omics — Recharting Life at Cellular Resolution
 status: published
-updated: 2026-06-12
+updated: 2026-09-12
 category: 细胞生物学
 horizon: 2020s
 order: 1
@@ -107,6 +107,10 @@ related:
 
 **细胞图谱的代表性**：大多数 HCA 数据来自欧洲或北美的参与者，非洲和亚洲人群代表性不足。考虑到遗传和表型多样性，这会影响细胞图谱的普适性。
 
+2024 年 11 月，Nature 家族刊出一组 HCA 专辑。门户当时大约 6200 万个细胞、约 9100 名捐赠者，18 个生物学网络。肺、神经系统、眼已有网络级草稿。
+
+Regev 当时对记者说：这还不是完整图谱，甚至不是完整的第一稿。STAT 2026 年 6 月写，联盟计划在当年年底交出主要器官的第一稿。专辑 ≠ 人体细胞已经点完名。细胞类型的计数仍然取决于你怎么切。
+
 ## 未知的边界
 
 - **发育的"因果地图"**：当前的单细胞图谱主要是描述性的。如何从基因表达的相关性数据中推断出真正的因果调控关系（谁控制谁），仍是主要的计算挑战。
@@ -132,6 +136,8 @@ related:
 - Replogle, J.M. et al. "Mapping information-rich genotype-phenotype landscapes with genome-scale Perturb-seq." _Cell_ 185, 2559–2575 (2022). DOI: 10.1016/j.cell.2022.05.013.（全基因组 Perturb-seq 在大规模基因功能图谱中的应用）
 - Rozenblatt-Rosen, O. et al. (HCA Consortium). "The Human Cell Atlas: from vision to reality." _Nature_ 550, 451–453 (2017). DOI: 10.1038/550451a.
 - Moses, L. & Pachter, L. "Museum of spatial transcriptomics." _Nature Methods_ 19, 534–546 (2022). DOI: 10.1038/s41592-022-01409-2.（空间转录组学技术综述）
+- Human Cell Atlas Consortium / Nature. _The Human Cell Atlas: towards a first draft atlas._ Nature immersive collection (2024-11).（约 62 million cells；Regev：还不是完整第一稿）
+- STAT. _Human Cell Atlas still aiming for a first draft of major organs by the end of 2026._ 2026-06.（计划不是完稿）
 
 [^hca_launch]: Regev et al., _eLife_ 6 (2017)：正式描述 HCA 计划的科学目标、技术框架和治理结构，首批签署机构包括 Broad Institute、Sanger 研究所等。
 

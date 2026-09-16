@@ -2,7 +2,7 @@
 title: 计算材料设计：从试错炼金到按需求"算"出材料
 title_en: Computational Materials Design — From Trial-and-Error Alchemy to Predicting Materials on Demand
 status: published
-updated: 2026-06-19
+updated: 2026-09-12
 category: 计算化学
 horizon: 2020s
 order: 5
@@ -82,6 +82,12 @@ GNoME 用的就是这套思路：用图神经网络（把晶体表示成原子�
 - **逆向设计仍是远景。** 当前主流仍是"先生成大量候选，再筛选"，而真正按目标性能直接反推材料结构（inverse design）尚处早期，把它说成已实现是超前的。
 - **可解释性的代价。** 神经网络给出预测却往往说不清"为什么"，这与材料科学追求机理理解的传统存在张力——算得准不等于懂得深。
 
+逆向设计在 2025 年有了一篇正式论文，不是一座工厂。Zeni 等人把 MatterGen 写进 _Nature_（DOI 10.1038/s41586-025-08628-5）：按体模量目标各生成 8192 个候选，过滤到 75 个，专家挑 4 个去做。合成成功 1 个。
+
+Rietveld 给出的是无序的 TaCr₂O₆，不是模型画的有序胞。目标 200 GPa，实验估计约 158±11 GPa，最高一次到 169 GPa。生成 ≠ 命中靶标 ≠ 可量产。
+
+A-Lab 2023 年那篇写的是 17 天里 57 个目标做成 36 个（63%）。那是机器人闭环的命中率，不是把 GNoME 的 38 万个候选烧完。
+
 ## 未知的边界
 
 - GNoME 预测的几十万稳定材料中，最终有多大比例能被真实合成、并被证明有实用价值？这需要多年实验验证。
@@ -108,6 +114,7 @@ GNoME 用的就是这套思路：用图神经网络（把晶体表示成原子�
 - Jain, A. et al. _Commentary: The Materials Project: A materials genome approach to accelerating materials innovation._ APL Materials 1, 011002 (2013). DOI: 10.1063/1.4812323.
 - Kohn, W. & Sham, L. J. _Self-Consistent Equations Including Exchange and Correlation Effects._ Physical Review 140, A1133–A1138 (1965). DOI: 10.1103/PhysRev.140.A1133.
 - Butler, K. T., Davies, D. W., Cartwright, H., Isayev, O. & Walsh, A. _Machine learning for molecular and materials science._ Nature 559, 547–555 (2018). DOI: 10.1038/s41586-018-0337-2.
+- Zeni, C. et al. _A generative model for inorganic materials design._ Nature (2025). DOI: 10.1038/s41586-025-08628-5.（MatterGen；4 选 1 合成成功，不是 38 万候选已经落地）
 
 ## 延伸阅读
 

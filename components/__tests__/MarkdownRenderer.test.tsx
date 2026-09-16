@@ -151,3 +151,35 @@ describe("MarkdownRenderer heading anchors", () => {
     expect(h2.querySelector('a[href="#custom-id"]')).not.toBeNull();
   });
 });
+
+describe("MarkdownRenderer unsafe URLs", () => {
+  it("renders javascript and protocol-relative links as plain text", () => {
+    const { container } = render(
+      <MarkdownRenderer content={"看[这里](javascript:alert(1))和[那里](//evil.example/x)。"} />
+    );
+    expect(container.querySelector("a")).toBeNull();
+    expect(container.textContent).toContain("这里");
+    expect(container.textContent).toContain("那里");
+  });
+
+  it("keeps ordinary https bibliography links clickable", () => {
+    const { container } = render(
+      <MarkdownRenderer content={"见[论文](https://doi.org/10.1038/example)。"} />
+    );
+    const link = container.querySelector('a[href="https://doi.org/10.1038/example"]');
+    expect(link).not.toBeNull();
+    expect(link!.textContent).toBe("论文");
+  });
+});
+
+describe("MarkdownRenderer math", () => {
+  it("renders ordinary inline TeX as math, not raw dollars", () => {
+    const { container } = render(<MarkdownRenderer content={"面积是 $x^2$ 。"} />);
+    expect(container.querySelector('[role="math"]')).not.toBeNull();
+    expect(container.querySelector(".katex")).not.toBeNull();
+  });
+
+  it("does not throw on a macro-expansion bomb", () => {
+    expect(() => render(<MarkdownRenderer content={"$\\def\\x{x\\x}\\x$"} />)).not.toThrow();
+  });
+});

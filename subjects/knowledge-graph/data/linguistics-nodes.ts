@@ -331,6 +331,19 @@ export const LINGUISTICS_NODES: GraphNode[] = [
     prerequisiteIds: ["linguistics:pragmatics", "linguistics:multilingual-mind"],
   }),
   n({
+    slug: "infant-categorical-perception",
+    label: "婴儿范畴知觉",
+    section: "acquisition-and-mind",
+    description: "用高振幅吮吸、习惯化恢复与合成 VOT 连续统检验月龄辨别是否沿音系边界变陡。",
+    tags: ["范畴知觉", "婴儿言语知觉", "高振幅吮吸"],
+    knowledgeLevel: 4,
+    evidenceMode: "experimental",
+    prerequisiteIds: [
+      "linguistics:children-learn-language",
+      "linguistics:first-language-acquisition",
+    ],
+  }),
+  n({
     slug: "wug-test-morphology-analysis",
     label: "Wug Test：儿童怎样推广新词",
     section: "acquisition-and-mind",
@@ -641,6 +654,36 @@ export const LINGUISTICS_NODES: GraphNode[] = [
     evidenceMode: "observation",
     prerequisiteIds: ["linguistics:morphology"],
   }),
+  n({
+    slug: "voice-onset-time",
+    label: "嗓音起始时间",
+    section: "sounds-and-signs",
+    description: "把清浊从生理口号改写成可核对的时间差、跨语言分布与知觉分界。",
+    tags: ["嗓音起始时间", "塞音", "范畴知觉"],
+    knowledgeLevel: 4,
+    evidenceMode: "experimental",
+    prerequisiteIds: ["linguistics:phonetics-and-ipa", "linguistics:phonemes-and-sound-systems"],
+  }),
+  n({
+    slug: "language-documentation-ethics",
+    label: "语言记录伦理",
+    section: "methods-and-frontiers",
+    description: "分层同意、CARE 与档案治理如何决定一段录音以后还能被谁使用。",
+    tags: ["语言记录伦理", "知情同意", "CARE原则"],
+    knowledgeLevel: 4,
+    evidenceMode: "interpretation",
+    prerequisiteIds: ["linguistics:linguistic-fieldwork"],
+  }),
+  n({
+    slug: "script-decipherment",
+    label: "文字释读",
+    section: "writing-systems",
+    description: "把未知符号的对应表写成可对未见图文证伪的假说，而不是寻宝故事。",
+    tags: ["文字释读", "罗塞塔石碑", "线性文字B"],
+    knowledgeLevel: 3,
+    evidenceMode: "comparative",
+    prerequisiteIds: ["linguistics:writing-system-types", "linguistics:origin-of-writing"],
+  }),
 ];
 const e = (
   source: string,
@@ -657,6 +700,16 @@ const e = (
 export const LINGUISTICS_EDGES: GraphEdge[] = [
   e("morphology", "wug-test-morphology-analysis", "从形态结构到新词推广"),
   e("first-language-acquisition", "wug-test-morphology-analysis", "用实验检验习得"),
+  e("children-learn-language", "infant-categorical-perception", "从习得进入月龄辨别"),
+  e("first-language-acquisition", "infant-categorical-perception", "用习惯化检验早期知觉"),
+  e("voice-onset-time", "infant-categorical-perception", "时间差进入月龄证据", "cross-reference"),
+  e("speech-perception", "infant-categorical-perception", "成人范畴与婴儿代理", "cross-reference"),
+  e(
+    "wug-test-morphology-analysis",
+    "infant-categorical-perception",
+    "两种排除记忆的实验",
+    "cross-reference"
+  ),
   e("linguistic-fieldwork", "corpus-annotation-and-agreement", "从田野记录到可复核标注"),
   e("linguistic-typology", "corpus-annotation-and-agreement", "跨语言可比性来自标注方案"),
   e(
@@ -888,6 +941,11 @@ export const LINGUISTICS_EDGES: GraphEdge[] = [
   e("phonetics-and-ipa", "speech-perception", "从语音记录到知觉对象"),
   e("phonemes-and-sound-systems", "speech-perception", "音位范畴的感知实现"),
   e("acoustic-phonetics", "speech-perception", "从声学测量到知觉判断", "cross-reference"),
+  e("phonetics-and-ipa", "voice-onset-time", "从转写进入时间差测量"),
+  e("phonemes-and-sound-systems", "voice-onset-time", "用时间分布检验清浊范畴"),
+  e("acoustic-phonetics", "voice-onset-time", "从测量总览进入 VOT 对象", "cross-reference"),
+  e("voice-onset-time", "speech-perception", "时间差进入范畴判断", "cross-reference"),
+  e("voice-onset-time", "experimental-linguistics", "标注误差进入实验设计", "cross-reference"),
   e("speech-perception", "psycholinguistic-processing", "语音进入实时加工", "cross-reference"),
   e("speech-perception", "second-language-acquisition", "感知重组与二语难点", "cross-reference"),
   e("computational-linguistics", "llm-and-linguistic-theory", "从任务评估到理论检验"),
@@ -930,4 +988,16 @@ export const LINGUISTICS_EDGES: GraphEdge[] = [
   ),
   e("translation-and-translatability", "philosophy:quine", "翻译不确定性论题", "domain-link"),
   e("forensic-linguistics", "law:evidence-and-proof", "语言证据的可采性", "domain-link"),
+  e("linguistic-fieldwork", "language-documentation-ethics", "从协作记录到权利分配"),
+  e(
+    "endangered-language-revitalization",
+    "language-documentation-ethics",
+    "复振材料的授权与治理",
+    "cross-reference"
+  ),
+  e("corpus-linguistics", "language-documentation-ethics", "抽样之前先有协议", "cross-reference"),
+  e("writing-system-types", "script-decipherment", "类型假说约束释读"),
+  e("origin-of-writing", "script-decipherment", "行政重复是内部证据"),
+  e("language-and-writing", "script-decipherment", "先判断记号是否记录语言", "cross-reference"),
+  e("script-decipherment", "history:event-楔形文字", "早期文字作为释读对象", "domain-link"),
 ];

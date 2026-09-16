@@ -2,7 +2,7 @@
 title: 机器学习辅助数学发现
 title_en: Machine Learning Guided Mathematical Discovery
 status: published
-updated: 2026-06-12
+updated: 2026-09-12
 category: 数学与计算
 horizon: 2020s
 order: 3
@@ -77,18 +77,21 @@ Kazhdan-Lusztig 多项式是表示论中极为重要的多项式族，出现在 
 
 ### 机器的贡献
 
-DeepMind 与 Williamson 合作，对 Kazhdan-Lusztig 多项式和 Bruhat 区间图训练了神经网络。机器以高精度预测出了多项式值，归因分析指向两个关键图结构特征：**断裂的二面体区间**（broken dihedral intervals）和**外部反射**（external reflections）。Williamson 根据这两个线索，构造了一个算法，能够从 Bruhat 区间图计算出 Kazhdan-Lusztig 多项式。这个算法被 DeepMind 在超过 300 万个案例上计算验证，没有发现反例。这**不是**CIC 的完整证明——构造了一个看似正确的算法与严格证明这个算法对所有情形都成立，仍然是两件事。CIC 作为猜想在 2025 年仍然是开放的，但机器的介入给出了前所未有的具体方向。
+DeepMind 与 Williamson 合作，对 Kazhdan-Lusztig 多项式和 Bruhat 区间图训练了神经网络。机器以高精度预测出了多项式值，归因分析指向两个关键图结构特征：**断裂的二面体区间**（broken dihedral intervals）和**外部反射**（external reflections）。Williamson 根据这两个线索，构造了一个算法，能够从 Bruhat 区间图计算出 Kazhdan-Lusztig 多项式。这个算法被 DeepMind 在超过 300 万个案例上计算验证，没有发现反例。这**不是**CIC 的完整证明——构造了一个看似正确的算法与严格证明这个算法对所有情形都成立，仍然是两件事。CIC 作为猜想在 2026 年仍然是开放的，但机器的介入给出了前所未有的具体方向。
+
+若干特殊情形已被证明：一般 Coxeter 群上长度不超过 6 的区间、对称群里的初等区间。全称命题没有被这些局部结果自动带走。
 
 ## 2021 年后：这条路线走向了哪里
 
 2021 年的工作开创了方法，后续研究在不同方向延伸：
 
-| 时间 | 工作                    | 内容                                              |
-| ---- | ----------------------- | ------------------------------------------------- |
-| 2021 | Davies et al., _Nature_ | 纽结理论新定理；CIC 新算法                        |
-| 2022 | Wagner et al.           | 机器学习发现组合优化的新界（Cap set 问题相关）    |
-| 2023 | FunSearch（DeepMind）   | 进化式 AI 搜索发现新的 cap set 上界，超越已知最优 |
-| 2024 | AlphaGeometry 2         | IMO 级几何题自动证明                              |
+| 时间 | 工作                         | 内容                                              |
+| ---- | ---------------------------- | ------------------------------------------------- |
+| 2021 | Davies et al., _Nature_      | 纽结理论新定理；CIC 新算法                        |
+| 2022 | Wagner et al.                | 机器学习发现组合优化的新界（Cap set 问题相关）    |
+| 2023 | FunSearch（DeepMind）        | 进化式 AI 搜索发现新的 cap set 上界，超越已知最优 |
+| 2024 | AlphaProof / AlphaGeometry 2 | IMO 银牌级；题目由专家写成 Lean 语句              |
+| 2025 | AlphaEvolve                  | 可自动评分的构造，不是开放猜想的证明              |
 
 2023 年的 FunSearch 值得单独提及：DeepMind 用大语言模型与进化搜索结合，在"cap set 问题"（有限域中不含等差数列的最大集合）上找到了比已知最优更好的构造，在某些维度上打破了数十年的记录。这是机器在纯数学优化问题上首次超越人类最优记录的可信案例之一。
 
@@ -112,6 +115,10 @@ DeepMind 与 Williamson 合作，对 Kazhdan-Lusztig 多项式和 Bruhat 区间�
 
 **炒作与实质的落差。** 2021 年的媒体报道中出现了大量"AI 开始做数学"的标题，但实际进展是有限而具体的：在两个特定问题上找到了关联，一个被证明了，另一个仍是猜想。这种语境下的炒作在某种程度上损害了领域内部的理性讨论。
 
+三条路线不要合成一句"AI 会做数学"。Davies 那篇是人先选定不变量，机器找相关，人再写成定理。FunSearch 与 2025 年的 AlphaEvolve 只在能自动打分的构造上超过已知纪录：cap set、十一维亲吻数下界从 592 推到 593、四乘四复矩阵乘法 48 次标量乘。分数函数当场判定对错。黎曼假设没有这种分数函数。
+
+AlphaProof 走的是第三条。它在 Lean 里搜索证明，2025 年 11 月的方法论文写进了 _Nature_。IMO 2024 的银牌级分数，建立在专家把题目手工形式化之后，再用多日计算去搜。竞赛题有标准答案，开放研究没有。形式化核验挡住幻觉，挡不住选题错误。
+
 ## 未知的边界
 
 - **能否在更抽象的领域复制？** 目前成功案例集中在有丰富数值数据的组合数论和低维拓扑领域。更抽象的代数几何、数论（如黎曼猜想相关结构）能否被类似方法触碰，目前没有成功案例。
@@ -133,6 +140,8 @@ DeepMind 与 Williamson 合作，对 Kazhdan-Lusztig 多项式和 Bruhat 区间�
 
 - Davies, A., Veličković, P., Buesing, L., Williamson, G. et al. "Advancing mathematics by guiding human intuition with AI." _Nature_ 600, 70–74 (2021).
 - Romera-Paredes, B. et al. "Mathematical discoveries from program search with large language models." _Nature_ 625, 468–475 (2024). （FunSearch 论文）
+- Hubert, T. et al. "Olympiad-level formal mathematical reasoning with reinforcement learning." _Nature_ (2025). DOI: 10.1038/s41586-025-09833-y.（AlphaProof）
+- Novikov, A. et al. "AlphaEvolve: A coding agent for scientific and algorithmic discovery." arXiv:2506.13131 (2025).
 - Lackenby, M. "The Signature of a Knot and Its Hyperbolic Invariants." （2021 年论文的数学部分）
 - Williamson, G. "Is there a neural network approach to some of the central problems in representation theory?" _ICM 2022 Proceedings_.
 

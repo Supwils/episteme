@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import SearchPage from "../page";
+import SearchPage, { metadata } from "../page";
 import { searchEverything } from "@/lib/search/server";
+import { DOMAINS } from "@/lib/data";
 
 vi.mock("@/lib/search/server", () => ({ searchEverything: vi.fn() }));
 
@@ -29,5 +30,14 @@ describe("server search parameter boundary", () => {
     await SearchPage({ searchParams: Promise.resolve(params) });
     expect(searchEverything).toHaveBeenCalledTimes(1);
     expect(searchEverything).toHaveBeenCalledWith(query, domain);
+  });
+});
+
+describe("search metadata", () => {
+  it("names the live domain count instead of a frozen launch number", () => {
+    expect(metadata.description).toBe(
+      `在 ${DOMAINS.length} 个学科的全部文章中检索标题、小标题与正文。`
+    );
+    expect(DOMAINS.length).toBeGreaterThanOrEqual(22);
   });
 });

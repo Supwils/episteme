@@ -47,7 +47,6 @@ export default function DailyPage() {
 
       {daily.onThisDay.length > 0 && (
         <section className="w-full px-6 py-8 pb-20 sm:px-10 lg:px-16">
-          <h2 className="font-display text-fg-primary mb-8 text-2xl font-semibold">历史上的今天</h2>
           <OnThisDay events={daily.onThisDay} />
         </section>
       )}

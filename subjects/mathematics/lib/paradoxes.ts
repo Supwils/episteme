@@ -1,54 +1,37 @@
-import fs from "node:fs";
-import path from "node:path";
-import matter from "gray-matter";
+import { loadAllContent, loadContentBySlug } from "@/lib/content-article";
+import { listContentSlugs } from "@/lib/content-paths";
 import type { MathParadox } from "./types";
 import { PARADOXES_DIR } from "./content-paths";
 
 const paradoxBySlugCache = new Map<string, MathParadox | null>();
 let cachedParadoxes: MathParadox[] | null = null;
 
+function toParadox(data: Record<string, unknown>, content: string, slug: string): MathParadox {
+  return {
+    title: data.title as string,
+    title_en: (data.title_en as string) ?? "",
+    field: (data.field as string) ?? "其他",
+    key_figures: (data.key_figures as string[]) ?? [],
+    tags: (data.tags as string[]) ?? [],
+    key_terms: (data.key_terms as string[]) ?? [],
+    status: (data.status as "stub" | "draft" | "published") ?? "draft",
+    updated: (data.updated as string) ?? "",
+    slug,
+    content,
+  };
+}
+
 export function getMathParadoxSlugs(): string[] {
-  if (!fs.existsSync(PARADOXES_DIR)) return [];
-  return fs
-    .readdirSync(PARADOXES_DIR)
-    .filter((f) => f.endsWith(".mdx"))
-    .map((f) => f.replace(/\.mdx$/, ""));
+  return listContentSlugs(PARADOXES_DIR);
 }
 
 export function getMathParadoxBySlug(slug: string): MathParadox | null {
-  if (paradoxBySlugCache.has(slug)) return paradoxBySlugCache.get(slug)!;
-  if (!slug || slug.includes('..') || slug.includes('/') || slug.includes('\\')) return null;
-  const filePath = path.join(PARADOXES_DIR, `${slug}.mdx`);
-  if (!filePath.startsWith(PARADOXES_DIR)) return null;
-  if (!fs.existsSync(filePath)) return null;
-  let result: MathParadox | null = null;
-  try {
-    const raw = fs.readFileSync(filePath, "utf-8");
-    const { data, content } = matter(raw);
-    result = {
-      title: data.title as string,
-      title_en: (data.title_en as string) ?? "",
-      field: (data.field as string) ?? "其他",
-      key_figures: (data.key_figures as string[]) ?? [],
-      tags: (data.tags as string[]) ?? [],
-      key_terms: (data.key_terms as string[]) ?? [],
-      status: (data.status as "stub" | "draft" | "published") ?? "draft",
-      updated: (data.updated as string) ?? "",
-      slug,
-      content,
-    };
-  } catch {
-    // result stays null
-  }
-  paradoxBySlugCache.set(slug, result);
-  return result;
+  return loadContentBySlug(PARADOXES_DIR, slug, paradoxBySlugCache, toParadox);
 }
 
 export function getAllMathParadoxes(): MathParadox[] {
   if (cachedParadoxes) return cachedParadoxes;
-  cachedParadoxes = getMathParadoxSlugs()
-    .map((slug) => getMathParadoxBySlug(slug))
-    .filter((p): p is MathParadox => p !== null);
+  cachedParadoxes = loadAllContent(PARADOXES_DIR, paradoxBySlugCache, toParadox);
   return cachedParadoxes;
 }
 

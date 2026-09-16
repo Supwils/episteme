@@ -2,7 +2,7 @@
 title: 绿氢：用电、水和催化剂把能源链条重写一遍
 title_en: Green Hydrogen — Rewriting the Energy Chain with Electricity, Water, and Catalysts
 status: published
-updated: 2026-06-19
+updated: 2026-09-12
 category: 能源化学
 horizon: 2020s
 order: 2
@@ -87,6 +87,10 @@ related:
 - **炒作与资本泡沫。** 历史上"氢经济"已被宣告过数次又冷却，把长期愿景当成短期兑现，会重蹈覆辙。
 - **安全与公众认知。** 氢易燃、易泄漏，公众对其安全性的疑虑需要靠透明的工程与监管来回应。
 
+IEA《全球氢能评论 2025》把账重新摊开。2024 年全球氢产量约 1 亿吨，低碳路线仍不到 1%，大约 0.8 Mt。宣布到 2030 年可达的低碳产量从上年的 49 Mt 降到 37 Mt，八成以上的下降来自电解项目延期或取消。已经运行、在建或做了最终投资决定的项目，加起来只支撑约 4.2 Mt/年到 2030 年。
+
+宣布产能不是投资决定。投资决定不是开车。电解槽对从未大规模部署过的时间表尤其乐观。氢应当用在它不可替代的地方。
+
 ## 未知的边界
 
 - 能否找到完全不含铱/铂、且活性与耐久都达标的电解与燃料电池催化剂？
@@ -112,7 +116,7 @@ related:
 - Suntivich, J., May, K. J., Gasteiger, H. A., Goodenough, J. B. & Shao-Horn, Y. _A Perovskite Oxide Optimized for Oxygen Evolution Catalysis from Molecular Orbital Principles._ Science 334, 1383–1385 (2011). DOI: 10.1126/science.1212858.
 - King, L. A. et al. _A non-precious metal hydrogen catalyst in a commercial polymer electrolyte membrane electrolyser._ Nature Nanotechnology 14, 1071–1074 (2019). DOI: 10.1038/s41565-019-0550-7.
 - Staffell, I. et al. _The role of hydrogen and fuel cells in the global energy system._ Energy & Environmental Science 12, 463–491 (2019). DOI: 10.1039/C8EE01157E.
-- International Energy Agency. _Global Hydrogen Review 2022._ IEA, Paris (2022).
+- International Energy Agency. _Global Hydrogen Review 2025._ IEA, Paris (2025).（2024 年产量约 100 Mt；低碳氢约 0.8 Mt；宣布口径 2030 年 37 Mt，FID/在运路径约 4.2 Mt）
 
 ## 延伸阅读
 

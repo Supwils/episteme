@@ -93,4 +93,31 @@ describe("knowledge frontier API", () => {
     expect(emptyPage.status).toBe(400);
     expect(oversizedPage.status).toBe(400);
   });
+
+  it.each([1, true, { toString: "physics" }, ["physics"]])(
+    "rejects a non-string domain filter instead of ignoring it: %j",
+    async (domainId) => {
+      const response = await POST(request({ knownIds: [], filter: { status: "ready", domainId } }));
+      expect(response.status).toBe(400);
+    }
+  );
+
+  it.each([1, true, ["熵"], { q: "熵" }])(
+    "rejects a non-string query instead of ignoring it: %j",
+    async (query) => {
+      const response = await POST(request({ knownIds: [], filter: { status: "ready", query } }));
+      expect(response.status).toBe(400);
+    }
+  );
+
+  it("rejects a pagination offset larger than the catalog can ever need", async () => {
+    const oversizedOffset = await POST(
+      request({ knownIds: [], filter: { status: "ready", offset: 10_001 } })
+    );
+    const unsafeInteger = await POST(
+      request({ knownIds: [], filter: { status: "ready", offset: Number.MAX_SAFE_INTEGER } })
+    );
+    expect(oversizedOffset.status).toBe(400);
+    expect(unsafeInteger.status).toBe(400);
+  });
 });

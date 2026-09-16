@@ -2,7 +2,7 @@
 title: 碳捕集与转化：从空气里把二氧化碳"抓"回来，再让它有用
 title_en: Carbon Capture and Conversion — Pulling CO₂ Back from the Air and Making It Useful
 status: published
-updated: 2026-06-19
+updated: 2026-09-12
 category: 能源化学
 horizon: 2020s
 order: 3
@@ -85,6 +85,12 @@ related:
 - **吸附剂的寿命与损耗。** 胺基吸附剂在反复吸附-脱附循环中会氧化降解、活性衰减，更换吸附剂的成本与废弃物处理常被乐观的示范数据掩盖。
 - **水与土地的隐性账。** 部分捕集与封存方案需要可观的水、土地或特定地质条件，这些"隐性资源消耗"在比较不同负排放路线时同样要算进去。
 
+铭牌容量不是已经捕到的吨数。Climeworks 的 Mammoth 设计年捕集约 3.6 万吨，2024 年开车。公司 2026 年 9 月说，2026 年上半年实际移除约 675 吨。
+
+升级后的收集单元吞吐大约翻倍，运行成本自称降了一半以上。Bloomberg 同日转述了这些数字。675 吨对照每年约 370 亿吨化石碳排放，尺度没有变。
+
+示范厂在学怎么跑，不等于气候账已经翻页。不要把吸附剂配方或再生温度写成可施工步骤。
+
 ## 未知的边界
 
 - DAC 的成本能否从每吨数百美元降到几十美元，使其具备对气候有意义的规模？
@@ -111,6 +117,7 @@ related:
 - De Luna, P. et al. _What would it take for renewably powered electrosynthesis to displace petrochemical processes?_ Science 364, eaav3506 (2019). DOI: 10.1126/science.aav3506.
 - Nitopi, S. et al. _Progress and Perspectives of Electrochemical CO₂ Reduction on Copper in Aqueous Electrolyte._ Chemical Reviews 119, 7610–7672 (2019). DOI: 10.1021/acs.chemrev.8b00705.
 - Keith, D. W., Holmes, G., St. Angelo, D. & Heidel, K. _A Process for Capturing CO₂ from the Atmosphere._ Joule 2, 1573–1594 (2018). DOI: 10.1016/j.joule.2018.05.006.
+- Climeworks. _Mammoth direct air capture performance update._ 2026-09.（2026 年上半年约 675 吨；铭牌年捕集约 3.6 万吨。Bloomberg 2026-09-10 转述）
 
 ## 延伸阅读
 

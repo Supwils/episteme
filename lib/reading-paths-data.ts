@@ -1147,4 +1147,162 @@ export const READING_PATHS: ReadingPath[] = [
       },
     ],
   },
+  {
+    slug: "from-story-to-canon",
+    title: "从一则故事到正典之争",
+    subtitle: "叙述怎样被做成可核对的形式，又怎样进入书单",
+    description:
+      "百科适合查阅单篇作品，却不容易看见叙述本身怎样被做成对象。这条路线从「发生了一件事」出发，经过诗行、史诗与细读，停在正典之争——看课程、奖项和书单怎样决定谁被当成必读。",
+    domain: "literature",
+    domainLabel: "文学与叙事",
+    accent: "#8b5e4a",
+    steps: [
+      {
+        title: "故事是什么",
+        href: "/literature/narrative-basics/what-is-a-story",
+        blurb: "先把可观察的叙述与「发生了」分开",
+      },
+      {
+        title: "韵律与诗行",
+        href: "/literature/poetics-and-form/meter-and-the-line",
+        blurb: "诗行把经验变成可计数的形式单位",
+      },
+      {
+        title: "史诗作为公共记忆",
+        href: "/literature/world-traditions/epic-as-public-memory",
+        blurb: "口头与抄本怎样保存一群人记得的事",
+      },
+      {
+        title: "细读",
+        href: "/literature/theory-and-method/close-reading",
+        blurb: "局部用词与句法是可以争论的证据",
+      },
+      {
+        title: "正典之争",
+        href: "/literature/contemporary-edges/canon-wars",
+        blurb: "书单是制度，不是已经完成的文明名单",
+      },
+    ],
+  },
+  {
+    slug: "from-religion-to-secularization",
+    title: "从分类到世俗化之争",
+    subtitle: "把实践叫做宗教之后，正典与测量怎样改写对象",
+    description:
+      "宗教在这里是可争辩的分类，不是必须为真的教义。这条路线从分类出发，经过仪式、轴心时代与正典，停在世俗化之争——参与、认同与制度特权不是同一条曲线。",
+    domain: "religion",
+    domainLabel: "宗教学",
+    accent: "#6b5c8a",
+    steps: [
+      {
+        title: "什么是宗教",
+        href: "/religion/religion-foundations/what-is-religion",
+        blurb: "先把对象写成可争的分类",
+      },
+      {
+        title: "仪式与实践",
+        href: "/religion/religion-foundations/ritual-and-practice",
+        blurb: "仪式把分类落实成可观察的位置转换",
+      },
+      {
+        title: "轴心时代",
+        href: "/religion/religious-history/axial-age-religions",
+        blurb: "若干文明在可纪年的文本里同时提出伦理问题",
+      },
+      {
+        title: "经典与正典",
+        href: "/religion/texts-and-canons/scripture-and-canon",
+        blurb: "正典是被反复抄写与考试的名单",
+      },
+      {
+        title: "世俗化之争",
+        href: "/religion/secularization/secularization-debate",
+        blurb: "现代测量把参与、认同与特权拆开",
+      },
+    ],
+  },
+  {
+    slug: "from-culture-to-repatriation",
+    title: "从文化分类到遗产主张",
+    subtitle: "把别人的做法叫做文化之后，亲属、地层与归还怎样改写对象",
+    description:
+      "文化不是群体的本质。这条路线从分类出发，经过亲属称谓与地层情境，停在田野笔记与归还法律——谁有权讲述过去，要能被程序核对。",
+    domain: "anthropology",
+    domainLabel: "人类学与考古",
+    accent: "#8b5a3c",
+    steps: [
+      {
+        title: "什么是文化",
+        href: "/anthropology/culture-and-method/what-is-culture",
+        blurb: "先把文化写成可争的分类，而不是气质",
+      },
+      {
+        title: "亲属称谓",
+        href: "/anthropology/kinship-and-exchange/kinship-terminology",
+        blurb: "同一套亲属词切出不同的格子",
+      },
+      {
+        title: "地层与出土情境",
+        href: "/anthropology/prehistory-and-archaeology/stratigraphy-and-context",
+        blurb: "出土位置决定器物能证明什么",
+      },
+      {
+        title: "田野笔记与再现",
+        href: "/anthropology/comparison-and-ethics/fieldnotes-and-representation",
+        blurb: "笔记是被保存的再现，不是透明窗口",
+      },
+      {
+        title: "NAGPRA 与归还",
+        href: "/anthropology/urban-and-heritage/nagpra-and-repatriation",
+        blurb: "归还把讲述权写成可核对的程序",
+      },
+    ],
+  },
+  {
+    slug: "from-learning-to-comparison",
+    title: "从学会到国际比较",
+    subtitle: "把“学会了”写成可观察的改变之后，记忆、课堂、测验与排名怎样改写对象",
+    description:
+      "学习不是把知识倒进容器。这条路线从可观察的学会出发，经过教学、间隔与课堂时间，停在课程选择、分数推断与 PISA——国际测评是测量选择，不是文明排名。",
+    domain: "education",
+    domainLabel: "教育学与学习科学",
+    accent: "#3d6b8a",
+    steps: [
+      {
+        title: "什么是学习",
+        href: "/education/learning-foundations/what-is-learning",
+        blurb: "学会了必须能被作业、谈话或延迟表现对质",
+      },
+      {
+        title: "教学不是灌输",
+        href: "/education/learning-foundations/teaching-is-not-pouring",
+        blurb: "教是组织条件，不是倒进脑袋",
+      },
+      {
+        title: "记忆、间隔与迁移",
+        href: "/education/cognition-and-memory/memory-spacing-and-transfer",
+        blurb: "当时更熟，不等于隔周还在",
+      },
+      {
+        title: "课堂是被组织的时间",
+        href: "/education/curriculum-and-teaching/classroom-as-time",
+        blurb: "话轮与等待是设计，不是气氛",
+      },
+      {
+        title: "课程即选择",
+        href: "/education/curriculum-and-teaching/curriculum-as-selection",
+        blurb: "课表删掉的东西，同样是课程",
+      },
+      {
+        title: "评估即推断",
+        href: "/education/assessment-and-equity/assessment-as-inference",
+        blurb: "分数是对构念的推断，不是照片",
+      },
+      {
+        title: "PISA 不是文明",
+        href: "/education/comparison-and-policy/pisa-is-not-civilization",
+        blurb: "国际排名是测量选择，不是文化本质",
+      },
+    ],
+  },
 ];

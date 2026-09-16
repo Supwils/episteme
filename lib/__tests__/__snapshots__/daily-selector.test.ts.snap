@@ -2,6 +2,11 @@
 
 exports[`getDailySelected (characterization) > is stable for 2026-01-15 offset 0 1`] = `
 {
+  "anthropology": {
+    "description": "把一套做法叫做文化，依据的是比较与描述，不是“他们本来就这样”。",
+    "title": "文化不是常识",
+    "url": "/anthropology/culture-and-method/what-is-culture",
+  },
   "arts": {
     "description": "斗拱把屋顶荷载层层传递到柱网；抗震靠的是柔性节点，不是把木头当成石头用。",
     "title": "东亚木构",
@@ -38,6 +43,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-01-15 offset 0
     "title": "国际货币基金组织成立",
     "url": "/economics/case-studies/bretton-woods",
     "year": 1947,
+  },
+  "education": {
+    "description": "国际测评比较的是抽样与试卷设计下的表现，不能直接写成国民素质。",
+    "title": "PISA 不是文明排名",
+    "url": "/education/comparison-and-policy/pisa-is-not-civilization",
   },
   "engineering": {
     "description": "事故残骸是工程的教科书：断口、疲劳纹和腐蚀痕迹比事后叙述更诚实。",
@@ -133,6 +143,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-01-15 offset 0
 
 exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 0 1`] = `
 {
+  "anthropology": {
+    "description": "互惠不是礼貌。给出、接受与回报把人绑进可观察的关系，而不是单纯的慷慨。",
+    "title": "礼物会制造义务",
+    "url": "/anthropology/kinship-and-exchange/gift-and-reciprocity",
+  },
   "arts": {
     "description": "纪念碑争的不是石头，而是谁被公共空间记住、由谁决定拆除或保留。",
     "title": "公共纪念碑",
@@ -169,6 +184,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 0
     "title": "凯恩斯发表《通论》",
     "url": "/economics/economists/john-maynard-keynes",
     "year": 1936,
+  },
+  "education": {
+    "description": "把学习写成行为、判断或作业上的变化，才能核对；“懂了”本身无法当证据。",
+    "title": "学会了是可观察的改变",
+    "url": "/education/learning-foundations/what-is-learning",
   },
   "engineering": {
     "description": "精密的代价是时间和钱；公差写的是可接受的偏差，不是「尽量准」。",
@@ -264,6 +284,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 0
 
 exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 1 1`] = `
 {
+  "anthropology": {
+    "description": "把一套做法叫做文化，依据的是比较与描述，不是“他们本来就这样”。",
+    "title": "文化不是常识",
+    "url": "/anthropology/culture-and-method/what-is-culture",
+  },
   "arts": {
     "description": "展墙顺序、标签和灯光都是论证；展示本身决定谁被看见、谁被省略。",
     "title": "博物馆在讲谁的故事",
@@ -300,6 +325,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 1
     "title": "《资本论》第一卷出版",
     "url": "/economics/economists/karl-marx",
     "year": 1867,
+  },
+  "education": {
+    "description": "国际测评比较的是抽样与试卷设计下的表现，不能直接写成国民素质。",
+    "title": "PISA 不是文明排名",
+    "url": "/education/comparison-and-policy/pisa-is-not-civilization",
   },
   "engineering": {
     "description": "桥不是「够结实」就行：荷载必须有一条清楚的路从桥面走到地基，风和振动另算。",
@@ -395,6 +425,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 1
 
 exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 0 1`] = `
 {
+  "anthropology": {
+    "description": "工具、织物与收藏不是背景。谁能用、谁能传、谁被排除，写在物的流通上。",
+    "title": "物也在规定人",
+    "url": "/anthropology/material-culture/things-and-persons",
+  },
   "arts": {
     "description": "色彩同时是光学、材料和惯例；同一种红在不同光与底子上不是同一个红。",
     "title": "色彩不是颜料表",
@@ -431,6 +466,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 0
     "title": "黑色星期二",
     "url": "/economics/case-studies/great-depression",
     "year": 1929,
+  },
+  "education": {
+    "description": "教什么、按什么次序、删掉什么，都是制度决定；中立的知识管道并不存在。",
+    "title": "课程是一份选择",
+    "url": "/education/curriculum-and-teaching/curriculum-as-selection",
   },
   "engineering": {
     "description": "电池效率有物理上限；真正难的是把白天的电留到晚上，并让整张网跟着天气呼吸。",
@@ -515,6 +555,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 0
 
 exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 2 1`] = `
 {
+  "anthropology": {
+    "description": "互惠不是礼貌。给出、接受与回报把人绑进可观察的关系，而不是单纯的慷慨。",
+    "title": "礼物会制造义务",
+    "url": "/anthropology/kinship-and-exchange/gift-and-reciprocity",
+  },
   "arts": {
     "description": "纪念碑争的不是石头，而是谁被公共空间记住、由谁决定拆除或保留。",
     "title": "公共纪念碑",
@@ -551,6 +596,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 2
     "title": "凯恩斯发表《通论》",
     "url": "/economics/economists/john-maynard-keynes",
     "year": 1936,
+  },
+  "education": {
+    "description": "把学习写成行为、判断或作业上的变化，才能核对；“懂了”本身无法当证据。",
+    "title": "学会了是可观察的改变",
+    "url": "/education/learning-foundations/what-is-learning",
   },
   "engineering": {
     "description": "精密的代价是时间和钱；公差写的是可接受的偏差，不是「尽量准」。",
@@ -635,6 +685,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 2
 
 exports[`getDailySelected (characterization) > is stable for 2026-12-25 offset 0 1`] = `
 {
+  "anthropology": {
+    "description": "把一套做法叫做文化，依据的是比较与描述，不是“他们本来就这样”。",
+    "title": "文化不是常识",
+    "url": "/anthropology/culture-and-method/what-is-culture",
+  },
   "arts": {
     "description": "斗拱把屋顶荷载层层传递到柱网；抗震靠的是柔性节点，不是把木头当成石头用。",
     "title": "东亚木构",
@@ -671,6 +726,11 @@ exports[`getDailySelected (characterization) > is stable for 2026-12-25 offset 0
     "title": "国际货币基金组织成立",
     "url": "/economics/case-studies/bretton-woods",
     "year": 1947,
+  },
+  "education": {
+    "description": "国际测评比较的是抽样与试卷设计下的表现，不能直接写成国民素质。",
+    "title": "PISA 不是文明排名",
+    "url": "/education/comparison-and-policy/pisa-is-not-civilization",
   },
   "engineering": {
     "description": "事故残骸是工程的教科书：断口、疲劳纹和腐蚀痕迹比事后叙述更诚实。",

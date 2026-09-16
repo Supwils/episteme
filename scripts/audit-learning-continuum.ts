@@ -21,6 +21,7 @@ import { buildKnowledgeConfluencePlan } from "../lib/knowledge-confluence-plan.t
 import { buildKnowledgeFrontierSnapshot } from "../lib/knowledge-frontier.ts";
 import { buildKnowledgeFrontierView } from "../lib/knowledge-frontier-catalog.ts";
 import { buildCatalogKnowledgeRelationReview } from "../lib/knowledge-relation-review-catalog.ts";
+import { COVERAGE_DOMAIN_META } from "../lib/knowledge-continuum-coverage-meta.ts";
 
 const nodeMap = new Map(ALL_NODES.map((node) => [node.id, node]));
 const edgePairs = new Set(
@@ -103,8 +104,11 @@ if (
 ) {
   issues.push("Coverage evidence modes do not account for every curated node");
 }
-if (coverage.domains.filter((row) => row.status === "established").length !== 21) {
-  issues.push("Coverage snapshot must keep all 21 subjects established");
+const expectedEstablished = Object.values(COVERAGE_DOMAIN_META).filter(
+  (meta) => meta.status === "established"
+).length;
+if (coverage.domains.filter((row) => row.status === "established").length !== expectedEstablished) {
+  issues.push(`Coverage snapshot must keep all ${expectedEstablished} subjects established`);
 }
 const previewDomains = coverage.domains.filter((row) => row.status === "preview");
 if (previewDomains.length !== 0) {

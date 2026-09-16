@@ -1,38 +1,7 @@
-import fs from "node:fs";
 import path from "node:path";
-import matter from "gray-matter";
+import { readContentEntries } from "@/lib/content-article";
+import { getDomainContentDir } from "@/lib/content-paths";
 import type { GraphNode, GraphEdge } from "./types";
-
-interface MdxEntry {
-  slug: string;
-  frontmatter: Record<string, unknown>;
-  content: string;
-}
-
-function findMonorepoRoot(): string {
-  let dir = process.cwd();
-  for (let i = 0; i < 5; i++) {
-    if (fs.existsSync(path.join(dir, "pnpm-workspace.yaml"))) {
-      return dir;
-    }
-    const parent = path.dirname(dir);
-    if (parent === dir) break;
-    dir = parent;
-  }
-  return process.cwd();
-}
-
-function readMdxFiles(dir: string): MdxEntry[] {
-  if (!fs.existsSync(dir)) return [];
-  return fs
-    .readdirSync(dir)
-    .filter((f) => f.endsWith(".mdx"))
-    .map((file) => {
-      const raw = fs.readFileSync(path.join(dir, file), "utf-8");
-      const { data, content } = matter(raw);
-      return { slug: file.replace(/\.mdx$/, ""), frontmatter: data, content };
-    });
-}
 
 function extractDescription(content: string): string {
   const lines = content.split("\n");
@@ -64,10 +33,9 @@ function normalizeEdgeKey(a: string, b: string): string {
 }
 
 function buildEconomicsGraph(): { nodes: GraphNode[]; edges: GraphEdge[] } {
-  const root = findMonorepoRoot();
-
-  const economistsData = readMdxFiles(path.join(root, "content/economics/economists"));
-  const theoriesData = readMdxFiles(path.join(root, "content/economics/theories"));
+  const economicsDir = getDomainContentDir("economics");
+  const economistsData = readContentEntries(path.join(economicsDir, "economists"));
+  const theoriesData = readContentEntries(path.join(economicsDir, "theories"));
 
   const economistSlugToId = new Map<string, string>();
   const allSlugs = new Set<string>();

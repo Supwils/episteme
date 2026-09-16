@@ -1,57 +1,39 @@
-import fs from "node:fs";
 import path from "node:path";
-import matter from "gray-matter";
 import type { Concept, ConceptFrontmatter } from "./types";
-import { getDomainContentDir } from "./content-paths";
+import { loadAllContent, loadContentBySlug } from "./content-article";
+import { getDomainContentDir, listContentSlugs } from "./content-paths";
 
 const CONCEPTS_DIR = path.join(getDomainContentDir("philosophy"), "concepts");
 
 const conceptBySlugCache = new Map<string, Concept | null>();
 let cachedConcepts: Concept[] | null = null;
 
+function toConcept(data: Record<string, unknown>, content: string, slug: string): Concept {
+  return {
+    title: (data.title as string) ?? "",
+    title_en: (data.title_en as string) ?? "",
+    field: (data.field as string) ?? "",
+    key_figures: Array.isArray(data.key_figures) ? (data.key_figures as string[]) : [],
+    tags: Array.isArray(data.tags) ? (data.tags as string[]) : [],
+    related: Array.isArray(data.related) ? (data.related as string[]) : [],
+    status: (data.status as ConceptFrontmatter["status"]) ?? "draft",
+    updated: (data.updated as string) ?? "",
+    slug,
+    content,
+  };
+}
+
 export function getConceptSlugs(): string[] {
-  if (!fs.existsSync(CONCEPTS_DIR)) return [];
-  return fs
-    .readdirSync(CONCEPTS_DIR)
-    .filter((f) => f.endsWith(".mdx"))
-    .map((f) => f.replace(/\.mdx$/, ""));
+  return listContentSlugs(CONCEPTS_DIR);
 }
 
 export function getConceptBySlug(slug: string): Concept | null {
-  if (conceptBySlugCache.has(slug)) return conceptBySlugCache.get(slug)!;
-  if (!slug || slug.includes('..') || slug.includes('/') || slug.includes('\\')) return null;
-  const filePath = path.join(CONCEPTS_DIR, `${slug}.mdx`);
-  if (!filePath.startsWith(CONCEPTS_DIR)) return null;
-  if (!fs.existsSync(filePath)) return null;
-  let result: Concept | null = null;
-  try {
-    const raw = fs.readFileSync(filePath, "utf-8");
-    const { data, content } = matter(raw);
-    const d = data as Record<string, unknown>;
-    result = {
-      title: (d.title as string) ?? "",
-      title_en: (d.title_en as string) ?? "",
-      field: (d.field as string) ?? "",
-      key_figures: Array.isArray(d.key_figures) ? (d.key_figures as string[]) : [],
-      tags: Array.isArray(d.tags) ? (d.tags as string[]) : [],
-      related: Array.isArray(d.related) ? (d.related as string[]) : [],
-      status: (d.status as ConceptFrontmatter["status"]) ?? "draft",
-      updated: (d.updated as string) ?? "",
-      slug,
-      content,
-    };
-  } catch {
-    // result stays null
-  }
-  conceptBySlugCache.set(slug, result);
-  return result;
+  return loadContentBySlug(CONCEPTS_DIR, slug, conceptBySlugCache, toConcept);
 }
 
 export function getAllConcepts(): Concept[] {
   if (cachedConcepts) return cachedConcepts;
-  cachedConcepts = getConceptSlugs()
-    .map((slug) => getConceptBySlug(slug))
-    .filter((c): c is Concept => c !== null);
+  cachedConcepts = loadAllContent(CONCEPTS_DIR, conceptBySlugCache, toConcept);
   return cachedConcepts;
 }
 
@@ -66,14 +48,7 @@ export function getConceptsByField(): Record<string, Concept[]> {
   return grouped;
 }
 
-const FIELD_ORDER = [
-  "形而上学",
-  "认识论",
-  "伦理学",
-  "美学",
-  "政治哲学",
-  "逻辑学",
-];
+const FIELD_ORDER = ["形而上学", "认识论", "伦理学", "美学", "政治哲学", "逻辑学"];
 
 export function getOrderedFields(): string[] {
   const grouped = getConceptsByField();

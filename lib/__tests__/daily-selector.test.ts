@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { buildValidRoutes, normalizeRoute } from "@/scripts/valid-routes";
-import { getDailySelected } from "../daily-selector";
+import { getDailySelected, seededSelect } from "../daily-selector";
 import {
   ARTS_FACTS,
   CHEMISTRY_FACTS,
@@ -9,6 +9,8 @@ import {
   EARTH_SCIENCE_FACTS,
   ECONOMICS_FACTS,
   ENGINEERING_FACTS,
+  EDUCATION_FACTS,
+  ANTHROPOLOGY_FACTS,
   LAW_FACTS,
   LITERATURE_FACTS,
   RELIGION_FACTS,
@@ -59,6 +61,18 @@ describe("getDailySelected (characterization)", () => {
     const b = getDailySelected(new Date("2026-06-16T00:00:00"), 1);
     expect(a.seed).not.toEqual(b.seed);
   });
+
+  it("surfaces education and anthropology article cards", () => {
+    const out = getDailySelected(new Date("2026-06-16T00:00:00"), 0);
+    expect(out.education.url).toMatch(/^\/education\/[^/]+\/[^/]+$/);
+    expect(out.anthropology.url).toMatch(/^\/anthropology\/[^/]+\/[^/]+$/);
+  });
+});
+
+describe("seededSelect", () => {
+  it("refuses an empty pool instead of returning undefined", () => {
+    expect(() => seededSelect([], 1)).toThrow(/empty pool/);
+  });
 });
 
 const FACT_CATALOGS = [
@@ -79,6 +93,8 @@ const FACT_CATALOGS = [
   MEDICINE_FACTS,
   CHEMISTRY_FACTS,
   SOCIOLOGY_FACTS,
+  EDUCATION_FACTS,
+  ANTHROPOLOGY_FACTS,
 ] as const;
 
 describe("daily fact article links", () => {

@@ -218,6 +218,21 @@ export const DERIVED_DOMAINS: readonly DerivedDomain[] = [
     ],
   },
   {
+    contentDirectory: "education",
+    graphDomain: "education",
+    idPrefix: "education",
+    entryNodeId: "education:what-is-learning",
+    sections: [
+      "assessment-and-equity",
+      "cognition-and-memory",
+      "comparison-and-policy",
+      "curriculum-and-teaching",
+      "education-technology",
+      "frontier",
+      "learning-foundations",
+    ],
+  },
+  {
     contentDirectory: "mathematics",
     graphDomain: "mathematics",
     idPrefix: "mathematics",
@@ -332,6 +347,7 @@ export const SECTION_KNOWLEDGE_LEVEL: Readonly<Record<string, KnowledgeLevel>> =
   economists: 1,
   "narrative-basics": 1,
   "culture-and-method": 1,
+  "learning-foundations": 1,
   "religion-foundations": 1,
   events: 1,
   figures: 1,
@@ -362,6 +378,7 @@ export const SECTION_KNOWLEDGE_LEVEL: Readonly<Record<string, KnowledgeLevel>> =
   "words-sentences-meaning": 2,
   "writing-systems": 2,
   "kinship-and-exchange": 2,
+  "cognition-and-memory": 2,
   "legal-traditions": 2,
   // L3 — machinery built on that vocabulary.
   "acquisition-and-mind": 3,
@@ -369,6 +386,7 @@ export const SECTION_KNOWLEDGE_LEVEL: Readonly<Record<string, KnowledgeLevel>> =
   "texts-and-canons": 3,
   "material-culture": 3,
   "prehistory-and-archaeology": 3,
+  "curriculum-and-teaching": 3,
   "comparative-religion": 3,
   algorithms: 3,
   architecture: 3,
@@ -397,6 +415,7 @@ export const SECTION_KNOWLEDGE_LEVEL: Readonly<Record<string, KnowledgeLevel>> =
   "theory-and-method": 4,
   "reading-and-reception": 4,
   "comparison-and-ethics": 4,
+  "assessment-and-equity": 4,
   "religion-and-society": 4,
   ethics: 4,
   experiments: 4,
@@ -416,6 +435,8 @@ export const SECTION_KNOWLEDGE_LEVEL: Readonly<Record<string, KnowledgeLevel>> =
   "contemporary-edges": 5,
   secularization: 5,
   "urban-and-heritage": 5,
+  "comparison-and-policy": 5,
+  "education-technology": 5,
 };
 
 /** Section → node type. Sections with no distinctive type fall through to the
@@ -452,6 +473,7 @@ export const SECTION_NODE_TYPE: Readonly<Record<string, GraphNodeType>> = {
   species: "species",
   substances: "substance",
   technologies: "technology",
+  "education-technology": "technology",
   theorems: "theorem",
   theories: "theory",
   theorists: "theorist",

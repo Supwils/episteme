@@ -75,4 +75,24 @@ describe("search result link navigation", () => {
     expect(event.defaultPrevented).toBe(false);
     expect(link.getAttribute("href")).toBe("/philosophy/thinkers/socrates");
   });
+
+  it("does not render an option for a protocol-relative or script URL", () => {
+    const { container } = render(
+      <SearchResultItem
+        result={{
+          title: "钓鱼",
+          subtitle: "",
+          url: "//evil.example/phish",
+          section: "philosophy",
+          kind: "concept",
+        }}
+        query="钓鱼"
+        isActive={false}
+        onClick={() => {}}
+        onMouseEnter={() => {}}
+      />
+    );
+    expect(container.querySelector("[role='option']")).toBeNull();
+    expect(container.querySelector("a")).toBeNull();
+  });
 });

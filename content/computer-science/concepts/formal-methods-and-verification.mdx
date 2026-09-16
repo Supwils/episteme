@@ -16,6 +16,8 @@ related:
   - programming-language-design
   - type-systems
   - software-testing
+  - hoare-1969-axiomatic
+  - floyd-1967-assigning-meanings
 ---
 
 # 形式化方法与程序验证
@@ -40,7 +42,7 @@ Dijkstra 说过一句被反复引用的话：*"测试只能证明 bug 的存在�
 
 ## 核心工具一：Hoare 逻辑
 
-1969 年，Tony Hoare 发表了《计算机程序设计的公理基础》（An Axiomatic Basis for Computer Programming），提出了以他命名的逻辑系统：
+1969 年，Tony Hoare 发表了《计算机程序设计的公理基础》（An Axiomatic Basis for Computer Programming），对象见 [[hoare-1969-axiomatic|Hoare 1969]]，提出了以他命名的逻辑系统。更早把断言写在流程图边上的，是 [[floyd-1967-assigning-meanings|Floyd 1967]]。
 
 **Hoare 三元组** $\{P\}\ C\ \{Q\}$ 表示：若程序状态满足前置条件 $P$，执行程序 $C$ 后，状态将满足后置条件 $Q$。
 

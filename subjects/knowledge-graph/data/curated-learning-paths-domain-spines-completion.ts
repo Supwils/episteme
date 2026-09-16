@@ -382,6 +382,44 @@ export const COMPLETION_DOMAIN_SPINE_PATHS: readonly CuratedLearningPath[] = [
     ],
   },
   {
+    id: "education-learning-spine",
+    scope: "domain-spine",
+    title: "从学会到国际比较",
+    question: "把“学会了”写成可观察的改变之后，记忆、课程、测验与国际排名怎样改写对象？",
+    steps: [
+      {
+        nodeId: "education:what-is-learning",
+        level: 1,
+        evidenceMode: "interpretation",
+        transition: "先把学习写成可观察的改变，而不是把知识倒进容器。",
+      },
+      {
+        nodeId: "education:memory-spacing-and-transfer",
+        level: 2,
+        evidenceMode: "experimental",
+        transition: "遗忘曲线与间隔练习标出记忆能证明什么。",
+      },
+      {
+        nodeId: "education:curriculum-as-selection",
+        level: 3,
+        evidenceMode: "comparative",
+        transition: "课程是选择与排序，不是中立管道。",
+      },
+      {
+        nodeId: "education:assessment-as-inference",
+        level: 4,
+        evidenceMode: "formal",
+        transition: "分数是推断，信效度决定这句话能走多远。",
+      },
+      {
+        nodeId: "education:pisa-is-not-civilization",
+        level: 5,
+        evidenceMode: "synthesis",
+        transition: "国际测评是测量选择，不是文明本质。",
+      },
+    ],
+  },
+  {
     id: "literature-story-spine",
     scope: "domain-spine",
     title: "从一则故事到正典之争",

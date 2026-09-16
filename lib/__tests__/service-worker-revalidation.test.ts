@@ -20,7 +20,7 @@ function dispatchAsset(hasCache = true) {
     put: vi.fn().mockReturnValue(write.promise),
   };
   const event = {
-    request: new Request("https://episteme.example/search-index.json"),
+    request: new Request("https://episteme.example/fonts/cormorant.woff2"),
     respondWith: vi.fn<(response: Promise<Response>) => void>(),
     waitUntil: vi.fn<(work: Promise<unknown>) => void>(),
   };

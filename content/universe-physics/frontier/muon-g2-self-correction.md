@@ -2,7 +2,7 @@
 title: μ子反常磁矩：标准模型的"自我修复"
 title_en: The Muon g-2 Story — How Science Corrected Itself
 status: published
-updated: 2026-06-12
+updated: 2026-09-12
 category: 粒子物理
 horizon: 2020s
 order: 2
@@ -85,6 +85,8 @@ related:
 
 这一精度使得 g-2 实验成为目前对 μ子性质最精确的测量之一[^fermilab2025]。
 
+数字在 2025 年 6 月 3 日的新闻稿里先出现，随后以预印本 arXiv:2506.03069 提交，并在《物理评论快报》发表。新闻稿不是论文。论文把 Run 4/5/6 新数据集写成 $116\,592\,0710(162)\times 10^{-12}$（139 ppb），与先前 Run 合并后才是 127 ppb 的费米实验室平均。世界平均再并入布鲁克海文 E821，才到 124 ppb。三层数字常被媒体合成一个。合成会让人以为实验又测到了新物理。实验侧实际说的是：与 2021、2023 年结果一致，只是误差更小。理论侧的转向写在 Theory Initiative 的 2025 年白皮书更新里：数据驱动法因 CMD-3 与 BaBar、KLOE 无法有意义地合并，推荐值改以格点 QCD 为主。推荐值改了，不是 μ子改了。改的是哪一本账被允许当作标准模型。账本一换，4.2σ 的标题就失去对象。失去对象不等于新物理被证伪。它只说明 g-2 不再是敲门最响的那一扇。
+
 ## 代价与争议：谜题解决了，还是只是换了地方？
 
 说"张力消解"需要一点精确性。
@@ -124,7 +126,8 @@ related:
 
 ## 参考文献
 
-- Muon g-2 Collaboration. _Final measurement of the anomalous magnetic moment of the Muon from the Muon g-2 experiment at Fermilab._ Fermilab 最终结果，2025-06-03 发布（精度 127 ppb）；见 Fermilab 官方新闻稿与 muon-g-2.fnal.gov。
+- Muon g-2 Collaboration. _Measurement of the Positive Muon Anomalous Magnetic Moment to 127 ppb._ Physical Review Letters (2025). arXiv:2506.03069. 费米实验室 Run 1–6 合并精度 127 ppb；世界平均 124 ppb。
+- Aliberti, R. et al. _The anomalous magnetic moment of the muon in the Standard Model: an update._ arXiv:2505.21476 (2025). Theory Initiative 2025 年白皮书更新。
 - Borsanyi, S., et al. (BMW Collaboration). _Leading hadronic contribution to the muon magnetic anomaly from lattice QCD._ Nature 593, 51–55 (2021).
 - Aoyama, T., et al. _The anomalous magnetic moment of the muon in the Standard Model._ Physics Reports 887, 1–166 (2020).（Muon g-2 Theory Initiative 白皮书）
 - Colangelo, G., et al. _Prospects for precise predictions of aμ in the Standard Model._ arXiv:2203.15810（2022 年综述，讨论 CMD-3 分歧前景）

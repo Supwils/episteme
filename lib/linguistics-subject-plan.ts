@@ -79,6 +79,12 @@ export const LINGUISTICS_SECTIONS: readonly LinguisticsSectionPlan[] = [
         level: 4,
         bridgeDomains: ["psychology", "computer-science"],
       },
+      {
+        slug: "voice-onset-time",
+        title: "嗓音起始时间：连续气流怎样被切成清浊",
+        level: 4,
+        bridgeDomains: ["psychology", "mathematics"],
+      },
     ],
   },
   {
@@ -211,6 +217,12 @@ export const LINGUISTICS_SECTIONS: readonly LinguisticsSectionPlan[] = [
         level: 4,
         bridgeDomains: ["psychology", "mathematics", "computer-science"],
       },
+      {
+        slug: "infant-categorical-perception",
+        title: "婴儿范畴知觉：高振幅吮吸怎样把时间差写成月龄证据",
+        level: 4,
+        bridgeDomains: ["psychology", "mathematics"],
+      },
     ],
   },
   {
@@ -337,6 +349,12 @@ export const LINGUISTICS_SECTIONS: readonly LinguisticsSectionPlan[] = [
         level: 4,
         bridgeDomains: ["computer-science", "human-history"],
       },
+      {
+        slug: "script-decipherment",
+        title: "文字释读：未知符号怎样变成可检验的假说",
+        level: 3,
+        bridgeDomains: ["human-history", "philosophy"],
+      },
     ],
   },
   {
@@ -409,6 +427,12 @@ export const LINGUISTICS_SECTIONS: readonly LinguisticsSectionPlan[] = [
         level: 4,
         bridgeDomains: ["psychology", "philosophy", "computer-science"],
       },
+      {
+        slug: "language-documentation-ethics",
+        title: "语言记录伦理：谁有权决定一段声音以后还能被怎样使用",
+        level: 4,
+        bridgeDomains: ["sociology", "medicine", "law"],
+      },
     ],
   },
 ] as const;
@@ -453,6 +477,7 @@ export const LINGUISTICS_RELEASE_WAVES: readonly LinguisticsReleaseWave[] = [
       "chinese-writing",
       "south-asian-scripts",
       "arabic-and-african-scripts",
+      "script-decipherment",
     ],
   },
   {
@@ -474,6 +499,9 @@ export const LINGUISTICS_RELEASE_WAVES: readonly LinguisticsReleaseWave[] = [
       "input-methods",
       "speech-perception",
       "translation-and-translatability",
+      "language-documentation-ethics",
+      "voice-onset-time",
+      "infant-categorical-perception",
     ],
   },
   {

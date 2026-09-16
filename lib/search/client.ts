@@ -1,3 +1,4 @@
+import { isSafeInternalPath } from "@/lib/urls";
 import type { SearchEngine, SearchHit } from "./engine";
 import type { WorkerRequest, WorkerResponse } from "./worker-runtime";
 
@@ -5,6 +6,9 @@ export type { SearchHit } from "./engine";
 export { loadArtifact } from "./artifact";
 
 export const SEARCH_WORKER_URL = "/search.worker.js";
+/** Hung workers (404 that never fires `error`, frozen isolate) must not leave
+ *  overlay searches pending forever. After this, fall back to the main thread. */
+export const SEARCH_WORKER_TIMEOUT_MS = 4000;
 
 export interface SearchClient {
   search(query: string, limit?: number): Promise<SearchHit[]>;
@@ -73,7 +77,22 @@ type PendingSearch = {
   query: string;
   limit: number;
   resolve: (hits: SearchHit[]) => void;
+  timer: ReturnType<typeof setTimeout>;
 };
+
+/** Title-index hits must be same-origin article paths. A compromised or
+ *  confused worker must not be able to hand the overlay `javascript:` or
+ *  protocol-relative URLs. */
+export function isSafeSearchHit(hit: unknown): hit is SearchHit {
+  if (!hit || typeof hit !== "object") return false;
+  const candidate = hit as Partial<SearchHit>;
+  if (typeof candidate.title !== "string" || typeof candidate.url !== "string") return false;
+  return isSafeInternalPath(candidate.url);
+}
+
+function safeHits(hits: unknown): SearchHit[] {
+  return Array.isArray(hits) ? hits.filter(isSafeSearchHit) : [];
+}
 
 function createWorkerClient(): SearchClient | null {
   if (typeof Worker === "undefined") return null;
@@ -90,14 +109,27 @@ function createWorkerClient(): SearchClient | null {
   let failed = false;
   const pending = new Map<number, PendingSearch>();
 
+  const takePending = (id: number): PendingSearch | undefined => {
+    const item = pending.get(id);
+    if (!item) return undefined;
+    pending.delete(id);
+    clearTimeout(item.timer);
+    return item;
+  };
+
   const failToMain = async () => {
     if (failed) return;
     failed = true;
     const waiting = [...pending.values()];
     pending.clear();
+    for (const item of waiting) clearTimeout(item.timer);
     worker.terminate();
     for (const item of waiting) {
-      item.resolve(await main.search(item.query, item.limit));
+      try {
+        item.resolve(safeHits(await main.search(item.query, item.limit)));
+      } catch {
+        item.resolve([]);
+      }
     }
   };
 
@@ -109,32 +141,31 @@ function createWorkerClient(): SearchClient | null {
     const data = event.data;
     if (!data) return;
     if (data.type === "error") {
-      const id = data.id;
-      const item = id === undefined ? undefined : pending.get(id);
-      if (item && id !== undefined) {
-        pending.delete(id);
-        void main.search(item.query, item.limit).then(item.resolve);
-        return;
-      }
       void failToMain();
       return;
     }
     if (data.type === "result") {
-      const item = pending.get(data.id);
+      const item = takePending(data.id);
       if (!item) return;
-      pending.delete(data.id);
-      item.resolve(data.hits);
+      item.resolve(safeHits(data.hits));
     }
   };
 
   return {
     async search(query, limit = 20) {
-      if (failed) return main.search(query, limit);
+      if (failed) return safeHits(await main.search(query, limit));
       const id = nextId++;
       return new Promise<SearchHit[]>((resolve) => {
-        pending.set(id, { query, limit, resolve });
+        const timer = setTimeout(() => {
+          void failToMain();
+        }, SEARCH_WORKER_TIMEOUT_MS);
+        pending.set(id, { query, limit, resolve, timer });
         const message: WorkerRequest = { type: "search", id, query, limit };
-        worker.postMessage(message);
+        try {
+          worker.postMessage(message);
+        } catch {
+          void failToMain();
+        }
       });
     },
     warmup() {
@@ -143,10 +174,18 @@ function createWorkerClient(): SearchClient | null {
         return;
       }
       const message: WorkerRequest = { type: "warmup" };
-      worker.postMessage(message);
+      try {
+        worker.postMessage(message);
+      } catch {
+        void failToMain();
+      }
     },
     dispose() {
-      for (const item of pending.values()) item.resolve([]);
+      failed = true;
+      for (const item of pending.values()) {
+        clearTimeout(item.timer);
+        item.resolve([]);
+      }
       pending.clear();
       worker.terminate();
       main.dispose();

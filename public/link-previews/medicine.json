@@ -334,9 +334,29 @@
     "e": "放血是人类医学史上使用时间最长、应用最广的疗法。从古希腊到十九世纪中叶，跨越两千多年，横跨欧洲、阿拉伯世界与印度，用于治疗发热、炎症、肺炎、精神错乱、中风、乃至失血。",
     "d": "medicine"
   },
+  "/medicine/events/british-doctors-study": {
+    "t": "英国医生队列：吸烟写在肺癌死亡之前",
+    "e": "1951 年 10 月 31 日，理查德·多尔与奥斯汀·布拉德福德·希尔把一份吸烟问卷寄给英国医学注册上的约 59600 名医生。约 41000 份回信里，40000 出头足够完整。长期报告主…",
+    "d": "medicine"
+  },
   "/medicine/events/covid-19-pandemic": {
     "t": "COVID-19 大流行（2020 起）",
     "e": "2020 年初的几个星期里，世界仿佛被按下了暂停键。",
+    "d": "medicine"
+  },
+  "/medicine/events/enders-1949-polio-culture": {
+    "t": "恩德斯 1949 脊髓灰质炎组织培养：非神经组织上的增殖与细胞病变读出",
+    "e": "1949 年 1 月 28 日，《科学》刊出波士顿儿童医院感染病研究部的一篇短文。约翰·恩德斯（John F. Enders）、托马斯·韦勒（Thomas H. Weller）与弗雷德里克·罗…",
+    "d": "medicine"
+  },
+  "/medicine/events/fleming-1928-penicillin-plate": {
+    "t": "弗莱明青霉素皿：1928 年圣玛丽医院的污染培养皿与 1929 年报告",
+    "e": "1928 年夏末，伦敦圣玛丽医院（St Mary's Hospital）接种部的亚历山大·弗莱明（Alexander Fleming）休假归来，在一摞金黄色葡萄球菌（Staphylococcu…",
+    "d": "medicine"
+  },
+  "/medicine/events/framingham-heart-study": {
+    "t": "弗雷明汉心脏研究：危险因素怎样从小镇队列里走出来",
+    "e": "1948 年 9 月 29 日，马萨诸塞州弗雷明汉镇的第一位志愿者完成检查。研究由美国公共卫生局起步，1949 年转入新成立的国家心脏研究所。托马斯·道伯 1950 年 4 月成为主任。原始队…",
     "d": "medicine"
   },
   "/medicine/events/germ-theory-revolution": {
@@ -354,14 +374,39 @@
     "e": "1796 年 5 月 14 日，英国格洛斯特郡伯克利乡间，乡村医生爱德华·詹纳（Edward Jenner）在八岁男孩 James Phipps 的胳膊上划了两道浅口。",
     "d": "medicine"
   },
+  "/medicine/events/landsteiner-1901-abo": {
+    "t": "兰德施泰纳 1901 正常人血凝集：血清使他人血球成团，以及后来称为 A、B、C 的分组",
+    "e": "1901 年 11 月 14 日，维也纳《临床周刊》（Wiener klinische Wochenschrift）刊出卡尔·兰德施泰纳（Karl Landsteiner）一篇很短的通讯。当时…",
+    "d": "medicine"
+  },
+  "/medicine/events/lister-carbolic-1867": {
+    "t": "李斯特石炭酸：1867 年《柳叶刀》里的开放性骨折系列",
+    "e": "1867 年春天起，《柳叶刀》分期刊出格拉斯哥皇家医院（Glasgow Royal Infirmary）外科教授约瑟夫·李斯特（Joseph Lister）的系列报告。对象不是 无菌术 的百年…",
+    "d": "medicine"
+  },
   "/medicine/events/miasma-theory": {
     "t": "瘴气说：一个错误的理论如何救了很多人",
     "e": "十九世纪中叶的欧洲城市有一套关于疾病的解释：病来自坏空气。 腐烂的有机物散发出看不见的毒气——瘴气（miasma）——人吸入后就病倒。霍乱、伤寒、疟疾（malaria，字面意思就是\"坏空气\"）…",
     "d": "medicine"
   },
+  "/medicine/events/mrc-streptomycin-trial-1948": {
+    "t": "MRC 链霉素试验：随机数字怎样走进肺结核病房",
+    "e": "1948 年 10 月 30 日，《英国医学杂志》刊出英国医学研究理事会（Medical Research Council, MRC）链霉素肺结核试验委员会的报告。对象不是土壤里怎样长出一种新…",
+    "d": "medicine"
+  },
   "/medicine/events/peptic-ulcer-bacterial-cause": {
     "t": "溃疡病因之争：一个被拒绝十年的正确答案（1982—2005）",
     "e": "1983 年，两位来自西澳大利亚的医生向学界报告：胃里长了细菌，而且它可能是消化性溃疡的原因。",
+    "d": "medicine"
+  },
+  "/medicine/events/salk-1954-polio-trial": {
+    "t": "1954 年美国脊髓灰质炎疫苗现场试验：观察现场与安慰剂对照并存的读出",
+    "e": "1955 年 4 月 12 日上午十时，密歇根大学安阿伯校区的拉克姆礼堂挤满记者。托马斯·弗朗西斯（Thomas Francis, Jr.）代表独立的脊髓灰质炎疫苗评估中心宣布：现场里比较过的…",
+    "d": "medicine"
+  },
+  "/medicine/events/semmelweis-1847-chlorine": {
+    "t": "塞麦尔维斯 1847：维也纳第一产科的含氯洗手与月度死亡表",
+    "e": "本页对象不是 塞麦尔维斯 的一生，也不是读者可以照着配制的产科洗手规程。对象是 1847 年维也纳总医院（Allgemeines Krankenhaus）产科第一病房那张可以按月核对的死亡账：…",
     "d": "medicine"
   },
   "/medicine/events/smallpox-eradication": {
@@ -667,6 +712,11 @@
   "/medicine/trial-analyses/bnt162b2-pivotal": {
     "t": "BNT162b2 mRNA 疫苗关键试验",
     "e": "“95% 有效”这句话的精确口径是什么，是这篇剖析真正要回答的问题。对象发生在 2020 年疫情高峰期入组的四万三千余名受试者。如果只记住一个结论，读者会错过知识最有价值的部分：结论究竟由哪些…",
+    "d": "medicine"
+  },
+  "/medicine/trial-analyses/cast-arrhythmia-suppression-trial": {
+    "t": "CAST 室性早搏抑制试验",
+    "e": "把心电图片段压下去，为什么没有把死亡一起压下去，是这篇剖析真正要回答的问题。对象是心肌梗死后、无症状或仅有轻度症状的室性早搏患者，用药包括恩卡尼（encainide）与氟卡尼（flecaini…",
     "d": "medicine"
   },
   "/medicine/trial-analyses/clarity-ad-lecanemab": {

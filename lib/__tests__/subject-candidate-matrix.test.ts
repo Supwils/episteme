@@ -53,9 +53,10 @@ describe("new subject candidate matrix", () => {
   it("enforces platform launch scope and global coverage", () => {
     for (const candidate of SUBJECT_CANDIDATES) {
       expect(candidate.releaseArticleCount, candidate.id).toBeGreaterThanOrEqual(30);
-      // Upper bound moved 50 → 60 on 2026-08-02 (T-CONTENT-47): the band was a
-      // launch gate, but live subjects keep growing — linguistics reached 51.
-      expect(candidate.releaseArticleCount, candidate.id).toBeLessThanOrEqual(60);
+      // Upper bound moved 50 → 60 on 2026-08-02 (T-CONTENT-47), then 60 → 70
+      // on 2026-09-12: the band was a launch gate, but live subjects keep
+      // growing — linguistics foundation corpus is now 63.
+      expect(candidate.releaseArticleCount, candidate.id).toBeLessThanOrEqual(70);
       expect(candidate.visualizations.length, candidate.id).toBeGreaterThanOrEqual(3);
       expect(candidate.visualizations.length, candidate.id).toBeLessThanOrEqual(5);
       expect(candidate.globalCoverageCommitments.length, candidate.id).toBeGreaterThanOrEqual(6);
@@ -66,7 +67,7 @@ describe("new subject candidate matrix", () => {
     }
   });
 
-  it("selects the highest weighted unlaunched candidate", () => {
+  it("treats the matrix as complete once every candidate is launched", () => {
     const scores = RANKED_SUBJECT_CANDIDATES.map((candidate) =>
       calculateCandidateScore(candidate.scores)
     );
@@ -80,14 +81,12 @@ describe("new subject candidate matrix", () => {
         "literature-narrative",
         "religion-studies",
         "anthropology-archaeology",
+        "education-learning-sciences",
       ])
     );
-    expect(RANKED_NEXT_SUBJECT_CANDIDATES.map((candidate) => candidate.id)).toEqual([
-      "education-learning-sciences",
-    ]);
-    expect(RECOMMENDED_SUBJECT_CANDIDATE.id).toBe("education-learning-sciences");
-    expect(calculateCandidateScore(RECOMMENDED_SUBJECT_CANDIDATE.scores)).toBeCloseTo(3.5);
-    expect(RANKED_NEXT_SUBJECT_CANDIDATES.length).toBeGreaterThan(0);
+    expect(RANKED_NEXT_SUBJECT_CANDIDATES).toEqual([]);
+    expect(RECOMMENDED_SUBJECT_CANDIDATE).toBeUndefined();
+    expect(LAUNCHED_SUBJECT_CANDIDATE_IDS.size).toBe(SUBJECT_CANDIDATES.length);
   });
 });
 

@@ -1,7 +1,7 @@
-import fs from "node:fs";
 import path from "node:path";
-import { getDomainContentDir } from "./content-paths";
-import { safeParseMatter, firstHeading, stripLeadingHeading } from "./content-utils";
+import { readContentBySlug, readContentEntries } from "./content-article";
+import { getDomainContentDir, listContentSlugs } from "./content-paths";
+import { firstHeading, stripLeadingHeading } from "./content-utils";
 
 export interface DialogueSummary {
   slug: string;
@@ -58,33 +58,23 @@ export function createDialogues(domain: string): DialogueCollection {
     tags: Array.isArray(data.tags) ? (data.tags as string[]) : [],
   });
 
-  const getSlugs = (): string[] => {
-    if (!fs.existsSync(root)) return [];
-    return fs
-      .readdirSync(root)
-      .filter((f) => f.endsWith(".mdx"))
-      .map((f) => f.replace(/\.mdx$/, ""));
-  };
+  const getSlugs = (): string[] => listContentSlugs(root);
 
   const getAll = (): DialogueSummary[] => {
     if (cache) return cache;
-    cache = getSlugs()
-      .map((slug) => {
-        const { data, content } = safeParseMatter(
-          fs.readFileSync(path.join(root, `${slug}.mdx`), "utf-8")
-        );
-        return summaryOf(slug, data, content);
-      })
+    cache = readContentEntries(root, undefined, "safe")
+      .map((entry) => summaryOf(entry.slug, entry.frontmatter, entry.content))
       .sort((a, b) => a.title.localeCompare(b.title, "zh"));
     return cache;
   };
 
   const getBySlug = (slug: string): DialogueFull | null => {
-    if (!slug || slug.includes("..") || slug.includes("/") || slug.includes("\\")) return null;
-    const full = path.join(root, `${slug}.mdx`);
-    if (!fs.existsSync(full)) return null;
-    const { data, content } = safeParseMatter(fs.readFileSync(full, "utf-8"));
-    return { ...summaryOf(slug, data, content), content: stripLeadingHeading(content) };
+    const entry = readContentBySlug(root, slug, undefined, "safe");
+    if (!entry) return null;
+    return {
+      ...summaryOf(slug, entry.frontmatter, entry.content),
+      content: stripLeadingHeading(entry.content),
+    };
   };
 
   return { getAll, getBySlug, getSlugs };

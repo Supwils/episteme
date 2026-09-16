@@ -36,6 +36,7 @@ const DOMAIN_LANES: Record<GraphNode["domain"], CognitiveLaneId> = {
   literature: "mind-meaning",
   religion: "people-institutions",
   anthropology: "people-institutions",
+  education: "mind-meaning",
   engineering: "patterns-computation",
 };
 

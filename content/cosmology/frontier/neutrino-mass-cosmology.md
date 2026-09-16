@@ -2,7 +2,7 @@
 title: 宇宙学正在逼近中微子质量：一把卡住下限的"宇宙天平"
 title_en: Cosmology Closes in on the Neutrino Mass — A Cosmic Scale Pressing Against the Lower Bound
 status: published
-updated: 2026-08-16
+updated: 2026-09-12
 category: 粒子宇宙学
 horizon: 2020s
 order: 8
@@ -62,6 +62,14 @@ $$\lambda_{\rm fs} \approx 40\ {\rm Mpc}\times\left(\frac{m_\nu}{1\ {\rm eV}}\ri
 
 **与地面的交叉检验。** 振荡下限是粒子物理的硬结果；若未来的联合分析以高置信度把上限压到 0.059 eV 之下，则必有某个环节出错：$\Lambda$CDM 假设、BAO 系统误差、CMB 透镜标定，或（最有趣的可能）中微子物理本身——例如快于预期的衰变或新的相互作用。目前没有任何一方愿意先眨眼。值得强调的是这道"缝"的脆弱性：上限一侧的 0.064 eV 依赖 $\Lambda$CDM 成立，放开暗能量立即变成 0.196 eV；下限一侧的 0.059 eV 则假设只有三代中微子、质量顺序正常。两边各藏着一个模型假设，张力到底有多硬，取决于你愿意相信哪一个。
 
+上限 0.064 eV 主要来自膨胀史：中微子变非相对论的时刻会改早期辐射密度，从而改声视界。全形状功率谱读的是另一件事：自由流抹平小尺度成团。DESI 2025 年 3 月的公开说明把 $\Lambda$CDM 下 95% 上限写成小于 0.0642 eV，同时写明放开随时间变化的暗能量后上限放松到约 0.163 eV。同一批星系，模型一换，缝就消失。把 0.064 写成已经测到质量，会把模型依赖的上界当成探测。KATRIN 测的是氚 β 谱里电子中微子的运动学有效质量，不是三个质量本征态之和。实验室 0.45 eV 与宇宙学 0.064 eV 不是同一把尺子上的两次读数。
+
+频率派在零质量边界上的 Feldman–Cousins 上限可以被压到振荡下限以下。那不是宇宙已经称出负质量。它是诊断：数据在结构增长上要求的抑制，比“恰好零质量”还多。多出来的那一截可以是暗能量误设，可以是透镜标定，也可以是尚未写入 $\Lambda$CDM 的新物理。在 JUNO 独立判定质量顺序之前，把这一截写成中微子已经与宇宙学矛盾，过早。CMB-S4 已于 2025 年 7 月 9 日被美国能源部与国家科学基金会联合停止支持。透镜灵敏度的远期旗舰因此从时间表上拿掉。Simons Observatory 仍在跑。远期误差条不能再按十年前的 CMB-S4 预报去画。
+
+有效中微子数 $N_{\rm eff}$ 与质量之和是两笔账。DESI 把 $N_{\rm eff}$ 写成与标准模型预言相容。相容说明没有大量额外热暗辐射。它不给质量之和签字。质量之和仍可以顶在零边界上。Euclid 的弱透镜若按时交出，会提供与 DESI 光谱独立的结构增长通道。通道不一致时，应先报告分歧，而不是先挑更紧的那个上限。
+
+JUNO 的本职是反应堆振荡与质量顺序，不是宇宙学质量之和。顺序若判成倒置，而 DESI 在 $\Lambda$CDM 里仍把上限压在 0.10 eV 之下，张力才从模型选择变成两边都难让步。顺序未判时，把 0.064 eV 写成已经排除倒置，依赖的仍是那一套宇宙学假设。假设要写在数字旁边。
+
 ## 可检验的下一步
 
 1. **DESI 五年完整巡天**（预计 2026 年前后收官）加上 Euclid 的弱透镜数据，预期把 $\sigma(\sum m_\nu)$ 压到约 0.01–0.02 eV——届时 0.059 eV 的最小质量理论上将以数 σ 被"看见"，上限将变成测量。这将是粒子物理七十年来第一次由宇宙学给出中微子的绝对质量。
@@ -86,6 +94,8 @@ $$\lambda_{\rm fs} \approx 40\ {\rm Mpc}\times\left(\frac{m_\nu}{1\ {\rm eV}}\ri
 - Elbers, W. et al. _Negative neutrino masses as a mirage of dark energy._ arXiv:2407.10965 (2025).
 - Aker, M. et al. (KATRIN Collaboration). _Direct neutrino-mass measurement based on 259 days of KATRIN data._ Science 388, eadq9592 (2025). DOI: 10.1126/science.adq9592.
 - JUNO Collaboration. _First measurement of reactor neutrino oscillations at JUNO._ arXiv:2511.14593 (2025).
+- DESI. “DESI DR2 Results: March 19 Guide.” 19 March 2025. $\Lambda$CDM 下 $<0.0642$ eV；放开演化暗能量后约 $0.163$ eV。
+- U.S. DOE / NSF. Statement on the CMB-S4 Project. 9 July 2025. 联合停止支持该项目；不是透镜科学本身被取消。
 
 [^desi_dr1]: DESI 2024 VI（JCAP 02 (2025) 021）：DESI DR1 BAO + Planck CMB，$\Lambda$CDM 下 $\sum m_\nu < 0.072$ eV（95% C.L.）。
 

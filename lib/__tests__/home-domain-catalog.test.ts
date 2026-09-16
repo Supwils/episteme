@@ -25,6 +25,7 @@ const EXPECTED_DOMAIN_IDS = [
   "sociology",
   "law",
   "linguistics",
+  "education",
   "engineering",
 ];
 
@@ -34,6 +35,30 @@ describe("homepage domain catalog", () => {
 
     expect(domainIds).toEqual(EXPECTED_DOMAIN_IDS);
     expect(new Set(domainIds).size).toBe(domainIds.length);
+  });
+
+  it("includes education in the accessibility scan inventory", () => {
+    const scan = readFileSync("scripts/a11y-scan.mjs", "utf8");
+    expect(scan).toContain('["教育学与学习科学", "/education"');
+    expect(scan).toContain("/education/learning-foundations/what-is-learning");
+    expect(scan).toContain("/education/spacing-lab");
+    expect(scan).toContain("/education/classroom-talk-lab");
+    expect(scan).toContain("/education/score-decomposer");
+    expect(scan).toContain("/education/adaptive-path-lab");
+  });
+
+  it("gives every homepage subject a frontier genre", async () => {
+    const { FRONTIER_DOMAINS } = await import("@/lib/frontier");
+    expect([...FRONTIER_DOMAINS].sort()).toEqual([...DOMAINS.map((domain) => domain.id)].sort());
+  });
+
+  it("gives every frontier domain a list page and an article page", async () => {
+    const { existsSync } = await import("node:fs");
+    const { FRONTIER_DOMAINS } = await import("@/lib/frontier");
+    for (const id of FRONTIER_DOMAINS) {
+      expect(existsSync(`app/${id}/frontier/page.tsx`), `${id} frontier list`).toBe(true);
+      expect(existsSync(`app/${id}/frontier/[slug]/page.tsx`), `${id} frontier article`).toBe(true);
+    }
   });
 
   it("includes anthropology in the accessibility scan inventory", () => {
@@ -78,6 +103,10 @@ describe("homepage domain catalog", () => {
       "/anthropology/material-map",
       "/anthropology/chronology-scale",
       "/anthropology/reciprocity-lab",
+      "/education/spacing-lab",
+      "/education/classroom-talk-lab",
+      "/education/score-decomposer",
+      "/education/adaptive-path-lab",
     ]) {
       expect(scan, path).toContain(`"${path}"`);
     }

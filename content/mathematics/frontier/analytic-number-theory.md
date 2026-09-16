@@ -2,7 +2,7 @@
 title: 解析数论的新进展
 title_en: New Advances in Analytic Number Theory
 status: published
-updated: 2026-06-12
+updated: 2026-09-12
 category: 数论
 horizon: 2020s
 order: 5
@@ -86,10 +86,10 @@ Terence Tao 在 2024 年发起了关于"零点密度定理"的 Polymath 式公�
 | ------------------- | -------------------------------------------------- |
 | 黎曼假设            | 开放，千禧年难题                                   |
 | 广义黎曼假设（GRH） | 开放                                               |
-| 零点密度假设        | 若干情形已证，Guth-Maynard 2024 为最新进展         |
+| 零点密度假设        | 若干情形已证，Guth–Maynard 2026 年刊于《数学年刊》 |
 | 孪生素数猜想        | 开放，素数间隔最优界为 246                         |
 | Goldbach 猜想       | 开放，弱 Goldbach（三素数）由 Helfgott 2013 年证明 |
-| Landau-Siegel 零点  | 张益唐 2022 年预印本，专家审阅中                   |
+| Landau-Siegel 零点  | 张益唐 2022 年预印本，截至 2026 年 9 月仍无修订版  |
 
 ## 代价与争议
 
@@ -98,6 +98,14 @@ Terence Tao 在 2024 年发起了关于"零点密度定理"的 Polymath 式公�
 **计算机的角色争议。** Tao 的 Polymath 博客讨论引入了部分"外包给计算机"的计算（computation-outsourced），这在解析数论中是一个新奇的实践。传统数论家对此有不同看法：手工估计的直觉价值 vs. 计算机验证的严格性，在这个领域还没有建立起像流体方程或形式化数学那样清晰的实践规范。
 
 **张益唐预印本的认识论地位。** 一篇未经同行评审正式接受的高知名度预印本，如何被社区"对待"，是个微妙问题。专家们的态度是审慎而开放：不急于否定，也不宣布"已证明"，等待更完整的评审。
+
+Guth–Maynard 改进的是零点密度指数，不是黎曼假设。先前关键区间的纪录属于 Huxley 的 $12/5$，他们把指数改到 $30/13$。短区间素数长度从约 $x^{7/12}$ 降到 $x^{17/30+o(1)}$。
+
+论文 2026 年 3 月进入《数学年刊》。卷期不把密度估计写成假设已被证明。这项改进主要赢在 $\sigma$ 接近 $3/4$ 一带，并不在整条临界线同时生效。
+
+奇偶性障碍仍然挡住从间隔 246 走到间隔 2。筛法数不清偶数个还是奇数个素因子时，孪生素数不会只因为底数更紧就投降。
+
+张益唐 2022 年关于 Landau–Siegel 零点的预印本（arXiv:2211.02515）截至 2026 年仍无修订版。作者本人 2024 年公开说初稿若干处不清楚、仍在修改。没有第二版，就不能把“专家仍在审阅”写成正在形成共识。共识需要可核对的修订，不是三年无更新的沉默。
 
 ## 未知的边界
 
@@ -118,9 +126,10 @@ Terence Tao 在 2024 年发起了关于"零点密度定理"的 Polymath 式公�
 
 ## 参考文献
 
-- Guth, L. & Maynard, J. "New large value estimates for Dirichlet polynomials." arXiv:2405.20552 (2024).
+- Guth, L. & Maynard, J. "New large value estimates for Dirichlet polynomials." _Annals of Mathematics_ 203 (2026). 预印本 arXiv:2405.20552（2024 年 5 月 31 日）。零点密度 $N(\sigma,T)\le T^{30(1-\sigma)/13+o(1)}$，短区间长度 $x^{17/30+o(1)}$。
 - Maynard, J. "Small gaps between primes." _Annals of Mathematics_ 181, 383–413 (2015).（Maynard 2022 年 Fields 奖核心论文）
 - Ingham, A.E. _The Distribution of Prime Numbers._ Cambridge University Press, 1932.（经典教材，1940 年零点密度结果的背景）
+- Zhang, Y. "Discrete mean estimates and the Landau-Siegel zero." arXiv:2211.02515 (2022). 截至 2026 年 9 月仍为第一版，未形成共识。
 - Tao, T. "A computation-outsourced discussion of zero density theorems for the Riemann zeta function." _What's New_ (blog), 2024-07-07.
 - Iwaniec, H. & Kowalski, E. _Analytic Number Theory._ American Mathematical Society, 2004.（解析数论标准教材）
 

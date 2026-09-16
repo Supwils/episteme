@@ -1,6 +1,5 @@
-import fs from "node:fs";
 import path from "node:path";
-import matter from "gray-matter";
+import { readContentEntries } from "./content-article";
 import { getDomainContentDir } from "./content-paths";
 
 export type ContentCategory = "thinker" | "school" | "ism" | "experiment" | "question" | "concept";
@@ -32,20 +31,12 @@ const CATEGORY_ROUTES: Record<ContentCategory, string> = {
 
 function scanDir(dir: string, category: ContentCategory): ContentItem[] {
   const fullDir = path.join(getDomainContentDir("philosophy"), dir);
-  if (!fs.existsSync(fullDir)) return [];
-  return fs
-    .readdirSync(fullDir)
-    .filter((f) => f.endsWith(".mdx"))
-    .map((f) => {
-      const raw = fs.readFileSync(path.join(fullDir, f), "utf-8");
-      const { data } = matter(raw);
-      return {
-        slug: f.replace(/\.mdx$/, ""),
-        title: data.title || f,
-        category,
-        related: data.related || data.related_thinkers || [],
-      };
-    });
+  return readContentEntries(fullDir).map((entry) => ({
+    slug: entry.slug,
+    title: (entry.frontmatter.title as string) || `${entry.slug}.mdx`,
+    category,
+    related: (entry.frontmatter.related || entry.frontmatter.related_thinkers || []) as string[],
+  }));
 }
 
 let cachedAllContent: ContentItem[] | null = null;

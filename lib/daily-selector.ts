@@ -25,6 +25,8 @@ import {
   LITERATURE_FACTS,
   RELIGION_FACTS,
   ENGINEERING_FACTS,
+  EDUCATION_FACTS,
+  ANTHROPOLOGY_FACTS,
 } from "./daily-facts";
 
 export interface DailySelected {
@@ -50,6 +52,8 @@ export interface DailySelected {
   literature: DailySelectedFact;
   religion: DailySelectedFact;
   engineering: DailySelectedFact;
+  education: DailySelectedFact;
+  anthropology: DailySelectedFact;
   curiosity: { title: string; detail: string; url?: string };
   question: string;
   fact: string;
@@ -84,9 +88,16 @@ function dateSeed(date: Date): number {
   return date.getFullYear() * 10000 + (date.getMonth() + 1) * 100 + date.getDate();
 }
 
-function seededSelect<T>(items: readonly T[], seed: number): T {
+export function seededSelect<T>(items: readonly T[], seed: number): T {
+  if (items.length === 0) {
+    throw new Error("seededSelect: empty pool");
+  }
   const index = Math.abs(seed) % items.length;
-  return items[index]!;
+  const picked = items[index];
+  if (picked === undefined) {
+    throw new Error("seededSelect: empty pool");
+  }
+  return picked;
 }
 
 function simpleHash(str: string): number {
@@ -149,6 +160,8 @@ export function getDailySelected(date?: Date, seedOffset = 0): DailySelected {
   const literature = seededSelect(LITERATURE_FACTS, seed + 22);
   const religion = seededSelect(RELIGION_FACTS, seed + 23);
   const engineering = seededSelect(ENGINEERING_FACTS, seed + 21);
+  const education = seededSelect(EDUCATION_FACTS, seed + 24);
+  const anthropology = seededSelect(ANTHROPOLOGY_FACTS, seed + 25);
 
   const curiosityItem = seededSelect(getAllCuriosities(), seed + 14);
   const curiosity = {
@@ -199,6 +212,8 @@ export function getDailySelected(date?: Date, seedOffset = 0): DailySelected {
     literature,
     religion,
     engineering,
+    education,
+    anthropology,
     curiosity,
     question,
     fact,
@@ -254,6 +269,8 @@ export function buildShareText(daily: DailySelected): string {
     `📖 文学：${daily.literature.title}`,
     `◎ 宗教：${daily.religion.title}`,
     `🔧 工程：${daily.engineering.title}`,
+    `▤ 教育学：${daily.education.title}`,
+    `⚭ 人类学：${daily.anthropology.title}`,
     "",
     `❓ 今日一问：${daily.question}`,
     "",

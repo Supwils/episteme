@@ -2,7 +2,7 @@
 title: 地质碳封存：把二氧化碳塞回地下，地球答应吗
 title_en: Geological Carbon Storage — Will the Earth Keep the CO₂ We Bury?
 status: published
-updated: 2026-08-16
+updated: 2026-09-12
 category: 碳与气候
 horizon: 2020s
 order: 7
@@ -60,6 +60,12 @@ related:
 - **容量之争刚开打。** Gidden 等人的"审慎上限"立刻遭到产业界反驳，焦点在排除准则是否过度保守。这场争论的本质是：地质容量到底是物理量，还是一个由风险偏好决定的政策量。
 - **"封存得越久，责任越没人接"。** 封存场地的法定监测期通常几十年，而矿化圈闭要等数百到数千年。跨代的责任主体安排，多数司法辖区尚未立法。
 
+Northern Lights 于 2025 年 8 月 25 日注入并确认第一批进入储层。海德堡材料 Brevik 水泥厂捕集的液化二氧化碳船运到 Øygarden，再经约一百公里管线进入海床以下约 2600 米的 Aurora。一期设计年能力 150 万吨，额度已订满。
+
+2025 年 3 月业主对二期做了最终投资决定，目标至少每年 500 万吨，公开窗口写在 2028 年前后。订满不是气候规模。全球在运商业捕集仍以千万吨计，年排放以百亿吨计。
+
+Gidden 等人把审慎上限写成约 1460 Gt，全部用于碳移除最多逆转约 0.7°C。上限是风险排除后的政策量，不是岩石孔隙的物理无穷。需要钉住的是：服务已经卖出去，气候账还没有因此翻页。
+
 ## 未知的边界
 
 - 在缺乏盖层成像精度的沉积盆地，CO₂ 羽流的长期迁移能否被可靠预测？Sleipner 的九层羽流已经超出注入前的模型预期，类比其他盆地时需多谨慎？
@@ -83,6 +89,7 @@ related:
 - Matter, J. M. et al. _Rapid carbon mineralization for permanent disposal of anthropogenic carbon dioxide emissions._ Science 352, 1312–1314 (2016). DOI: 10.1126/science.aad8132.
 - Gidden, M. J. et al. _A prudent planetary limit for geologic carbon storage._ Nature 645 (2025). DOI: 10.1038/s41586-025-09423-y.
 - Snæbjörnsdóttir, S. Ó. et al. _Carbon dioxide storage through mineral carbonation._ Nature Reviews Earth & Environment 1, 90–102 (2020). DOI: 10.1038/s43017-019-0011-8.
+- Equinor. _Northern Lights: first CO₂ stored in the Aurora reservoir._ 2025-08-25.（首批进入海床下约 2600 米储层；一期 1.5 Mt/年已订满）
 - Global CCS Institute. _Global Status of CCS 2025_（年度报告：全球在运商业项目年捕集能力约 6400 万吨）.
 - IPCC. _Special Report on Carbon Dioxide Capture and Storage._ Cambridge University Press, 2005.
 

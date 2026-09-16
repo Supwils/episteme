@@ -22,6 +22,7 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
   const [sheetOpen, setSheetOpen] = useState(false);
   const progressRef = useRef<HTMLDivElement>(null);
   const sheetRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const headings = document.querySelectorAll<HTMLElement>("h2[id], h3[id]");
@@ -62,12 +63,42 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
 
   useEffect(() => {
     if (!sheetOpen) return;
+    const sheet = sheetRef.current;
+    const trigger = buttonRef.current;
+    if (!sheet) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const focusable = sheet.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    );
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    first?.focus();
+
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setSheetOpen(false);
+      if (e.key === "Escape") {
+        e.preventDefault();
+        setSheetOpen(false);
+        return;
+      }
+      if (e.key !== "Tab" || focusable.length === 0) return;
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last?.focus();
+        }
+      } else if (document.activeElement === last) {
+        e.preventDefault();
+        first?.focus();
+      }
     };
     document.addEventListener("keydown", onKeyDown);
-    sheetRef.current?.querySelector("a")?.focus();
-    return () => document.removeEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKeyDown);
+      trigger?.focus();
+    };
   }, [sheetOpen]);
 
   const handleClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
@@ -135,6 +166,7 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
       {createPortal(
         <div className="print-hidden lg:hidden">
           <button
+            ref={buttonRef}
             type="button"
             aria-expanded={sheetOpen}
             aria-controls="mobile-toc-sheet"

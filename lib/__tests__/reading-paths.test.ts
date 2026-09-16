@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
 import { buildValidRoutes } from "@/scripts/valid-routes";
-import { READING_PATHS, getReadingPath, totalReadingSteps } from "@/lib/reading-paths";
+import {
+  READING_PATHS,
+  getReadingPath,
+  readingPathChaptersFor,
+  totalReadingSteps,
+} from "@/lib/reading-paths";
 
 /**
  * The catalog was split into reading-paths-data.ts; these guard that the
@@ -42,5 +47,25 @@ describe("reading paths", () => {
         .map((step) => `${path.slug}: ${step.title} → ${step.href}`)
     );
     expect(broken).toEqual([]);
+  });
+
+  it("covers the four newest subjects with a spine-shaped path", () => {
+    const byDomain = new Map(READING_PATHS.map((path) => [path.domain, path.slug]));
+    expect(byDomain.get("literature")).toBe("from-story-to-canon");
+    expect(byDomain.get("religion")).toBe("from-religion-to-secularization");
+    expect(byDomain.get("anthropology")).toBe("from-culture-to-repatriation");
+    expect(byDomain.get("education")).toBe("from-learning-to-comparison");
+  });
+
+  it("can recover the chapter index from an article href", () => {
+    const education = readingPathChaptersFor(
+      "/education/cognition-and-memory/memory-spacing-and-transfer"
+    );
+    expect(education[0]?.path.slug).toBe("from-learning-to-comparison");
+    expect(education[0]?.step).toBe(3);
+    expect(
+      readingPathChaptersFor("/education/cognition-and-memory/memory-spacing-and-transfer/")
+    ).toEqual(education);
+    expect(readingPathChaptersFor("/education/spacing-lab")).toEqual([]);
   });
 });

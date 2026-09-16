@@ -61,7 +61,7 @@
   },
   "/life-science/frontier/aging-plasticity": {
     "t": "衰老的可塑性——重编程、衰老细胞清除与长寿生物学",
-    "e": "2006 年，山中伸弥发现向成体细胞引入四个转录因子（Oct4、Sox2、Klf4、c-Myc，即\"山中因子\"），可以将其重编程为诱导多能干细胞（iPSC）——在某种意义上\"抹去\"了细胞的衰老…",
+    "e": "2006 年，山中伸弥发现向成体细胞引入四个转录因子（Oct4、Sox2、Klf4、c-Myc，即“山中因子”），可以将其重编程为诱导多能干细胞（iPSC）。这项发现为他赢得了 2012 年诺…",
     "d": "life-science"
   },
   "/life-science/frontier/brain-computer-interfaces": {
@@ -101,7 +101,7 @@
   },
   "/life-science/frontier/xenotransplantation": {
     "t": "异种移植——基因编辑猪器官进入人体",
-    "e": "2024 年 11 月 25 日，阿拉巴马州 53 岁的 Towana Looney 在纽约大学朗格尼医学中心接受了一颗基因编辑猪的肾脏。她带着这颗猪肾生活了 130 天，无需透析，然后因排斥…",
+    "e": "把猪的器官放进人体，听起来像一次外科冒险。2022 到 2024 年美国真正发生的事，更像一次免疫学与病毒学的压力测试：先在脑死亡受者身上看超急性排斥是否还在，再以同情用药（expanded …",
     "d": "life-science"
   },
   "/life-science/scientists/crick": {
@@ -254,9 +254,44 @@
     "e": "水熊虫（Tardigrada）是一类微型多细胞动物，体长通常为0.1-1.5毫米，已知约1300种。",
     "d": "life-science"
   },
+  "/life-science/knowledge-base/avery-macleod-mccarty-transformation": {
+    "t": "Avery–MacLeod–McCarty：转化因子怎样被写成 DNA",
+    "e": "1944 年 2 月，Oswald T. Avery、Colin M. MacLeod 与 Maclyn McCarty 在 Journal of Experimental Medicine …",
+    "d": "life-science"
+  },
+  "/life-science/knowledge-base/beadle-tatum-1941": {
+    "t": "比德尔–塔特姆 1941：红色面包霉把一步代谢写成一个基因",
+    "e": "1941 年 11 月 15 日，乔治·比德尔与爱德华·塔特姆在 Proceedings of the National Academy of Sciences 第 27 卷第 11 期发表 …",
+    "d": "life-science"
+  },
+  "/life-science/knowledge-base/griffith-1928-transformation": {
+    "t": "格里菲斯 1928：转化的生物学读出",
+    "e": "1928 年，弗雷德里克·格里菲斯在 Journal of Hygiene 第 27 卷发表 The significance of pneumococcal types，页码 113–159…",
+    "d": "life-science"
+  },
   "/life-science/knowledge-base/lamarckism-and-its-afterlives": {
     "t": "拉马克主义：三次死亡与一次不完全的返魂",
     "e": "流行的答案说：拉马克认为长颈鹿伸长脖子够高处的树叶，脖子被用长了，然后把长脖子传给后代；达尔文认为脖子长的个体更容易活下来，于是长脖子的基因扩散。前者错，后者对。",
+    "d": "life-science"
+  },
+  "/life-science/knowledge-base/lederberg-tatum-1946-conjugation": {
+    "t": "莱德伯格–塔特姆 1946：选择平板上的原养型证明细菌会重组",
+    "e": "1946 年 10 月 19 日，约书亚·莱德伯格与爱德华·塔特姆在 Nature 第 158 卷发表 Gene Recombination in Escherichia coli，页码 55…",
+    "d": "life-science"
+  },
+  "/life-science/knowledge-base/luria-delbruck-fluctuation": {
+    "t": "卢里亚–德尔布吕克：方差怎样拆开突变与适应",
+    "e": "1943 年，萨尔瓦多·卢里亚与马克斯·德尔布吕克在 Genetics 第 28 卷发表 Mutations of Bacteria from Virus Sensitivity to Vir…",
+    "d": "life-science"
+  },
+  "/life-science/knowledge-base/meselson-stahl-replication": {
+    "t": "Meselson–Stahl：半保留复制怎样被称出来",
+    "e": "1958 年 7 月，Matthew Meselson 与 Franklin Stahl 在 PNAS 发表 The Replication of DNA in Escherichia col…",
+    "d": "life-science"
+  },
+  "/life-science/knowledge-base/pasteur-swan-neck-flask": {
+    "t": "巴斯德鹅颈瓶：空气通过、尘埃留下",
+    "e": "1861 年，路易·巴斯德在《自然科学年鉴》发表《论大气中存在的有机微粒：对自然发生学说的审查》。通讯地址是巴黎高等师范学校。对象不是“生命能不能从死物里长出来”的两千年综述，而是一件玻璃器：…",
     "d": "life-science"
   },
   "/life-science/knowledge-base/spontaneous-generation": {

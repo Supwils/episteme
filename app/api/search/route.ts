@@ -21,13 +21,22 @@ function parseLimit(raw: string | null): number {
   return Math.min(MAX_LIMIT, Math.max(1, Math.trunc(value)));
 }
 
+function hasRepeatedParam(searchParams: URLSearchParams, key: string): boolean {
+  return searchParams.getAll(key).length > 1;
+}
+
 export async function GET(request: Request): Promise<NextResponse> {
   const { searchParams } = new URL(request.url);
+  if (hasRepeatedParam(searchParams, "q") || hasRepeatedParam(searchParams, "limit")) {
+    return NextResponse.json({ error: "Duplicate query parameter" }, { status: 400 });
+  }
   const query = (searchParams.get("q") ?? "").slice(0, MAX_QUERY_LENGTH);
   const limit = parseLimit(searchParams.get("limit"));
 
   const { corpus, docs } = await getPhraseCorpus();
   const hits = searchPhrases(corpus, docs, query, limit);
+  const cacheControl =
+    docs.length === 0 && corpus.text.length === 0 ? "private, no-store" : SEARCH_CACHE_CONTROL;
 
-  return NextResponse.json({ query, hits }, { headers: { "Cache-Control": SEARCH_CACHE_CONTROL } });
+  return NextResponse.json({ query, hits }, { headers: { "Cache-Control": cacheControl } });
 }

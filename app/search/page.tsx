@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SEARCH_STATS from "@/generated/search-stats.json";
 import { searchEverything } from "@/lib/search/server";
+import { DOMAINS } from "@/lib/data";
 import {
   SEARCH_NO_RESULTS_EXITS,
   SECTION_META,
   TYPE_LABELS,
   type Section,
 } from "@/components/search/types";
+import { isSafeInternalPath } from "@/lib/urls";
 
 // Reads ?q. The homepage's SearchAction schema has always pointed here.
 export const dynamic = "force-dynamic";
@@ -16,7 +18,7 @@ const MAX_QUERY_LENGTH = 120;
 
 export const metadata: Metadata = {
   title: "搜索 — Episteme · 格致",
-  description: "在 19 个学科的全部文章中检索标题、小标题与正文。",
+  description: `在 ${DOMAINS.length} 个学科的全部文章中检索标题、小标题与正文。`,
   robots: { index: false, follow: true },
 };
 
@@ -58,7 +60,14 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   const rawQuery = Array.isArray(params.q) ? params.q[0] : params.q;
   const query = (rawQuery ?? "").slice(0, MAX_QUERY_LENGTH);
   const domain = Array.isArray(params.domain) ? params.domain[0] : params.domain;
-  const { titleResults, bodyResults, facets, total } = await searchEverything(query, domain);
+  const {
+    titleResults: rawTitleResults,
+    bodyResults: rawBodyResults,
+    facets,
+    total,
+  } = await searchEverything(query, domain);
+  const titleResults = rawTitleResults.filter((result) => isSafeInternalPath(result.url));
+  const bodyResults = rawBodyResults.filter((result) => isSafeInternalPath(result.url));
 
   const href = (nextDomain?: string) =>
     `/search?q=${encodeURIComponent(query)}${nextDomain ? `&domain=${nextDomain}` : ""}`;

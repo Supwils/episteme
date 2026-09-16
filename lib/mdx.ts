@@ -1,8 +1,7 @@
-import fs from "node:fs";
 import path from "node:path";
-import matter from "gray-matter";
 import type { Philosopher, PhilosopherFrontmatter, Question, QuestionFrontmatter } from "./types";
-import { getDomainContentDir } from "./content-paths";
+import { loadAllContent, loadContentBySlug } from "./content-article";
+import { getDomainContentDir, listContentSlugs } from "./content-paths";
 
 const PHILOSOPHY_DIR = getDomainContentDir("philosophy");
 const THINKERS_DIR = path.join(PHILOSOPHY_DIR, "thinkers");
@@ -14,82 +13,55 @@ let cachedThinkers: Philosopher[] | null = null;
 const questionBySlugCache = new Map<string, Question | null>();
 let cachedQuestions: Question[] | null = null;
 
+const ERA_ORDER: Record<string, number> = { 古代: 0, 近代: 1, 现代: 2, 当代: 3 };
+
 export function getThinkerSlugs(): string[] {
-  if (!fs.existsSync(THINKERS_DIR)) return [];
-  return fs
-    .readdirSync(THINKERS_DIR)
-    .filter((f) => f.endsWith(".mdx"))
-    .map((f) => f.replace(/\.mdx$/, ""));
+  return listContentSlugs(THINKERS_DIR);
 }
 
 export function getThinkerBySlug(slug: string): Philosopher | null {
-  if (thinkerBySlugCache.has(slug)) return thinkerBySlugCache.get(slug)!;
-  if (!slug || slug.includes("..") || slug.includes("/") || slug.includes("\\")) return null;
-  const filePath = path.join(THINKERS_DIR, `${slug}.mdx`);
-  if (!filePath.startsWith(THINKERS_DIR)) return null;
-  if (!fs.existsSync(filePath)) return null;
-  let result: Philosopher | null = null;
-  try {
-    const raw = fs.readFileSync(filePath, "utf-8");
-    const { data, content } = matter(raw);
-    result = {
-      ...(data as PhilosopherFrontmatter),
-      slug,
-      content,
-    };
-  } catch {
-    // result stays null
-  }
-  thinkerBySlugCache.set(slug, result);
-  return result;
+  return loadContentBySlug(THINKERS_DIR, slug, thinkerBySlugCache, (data, content, nextSlug) => ({
+    ...(data as PhilosopherFrontmatter),
+    slug: nextSlug,
+    content,
+  }));
 }
 
 export function getAllThinkers(): Philosopher[] {
   if (cachedThinkers) return cachedThinkers;
-  cachedThinkers = getThinkerSlugs()
-    .map((slug) => getThinkerBySlug(slug))
-    .filter((t): t is Philosopher => t !== null)
-    .sort((a, b) => {
-      const eraOrder: Record<string, number> = { 古代: 0, 近代: 1, 现代: 2, 当代: 3 };
-      return (eraOrder[a.era] ?? 99) - (eraOrder[b.era] ?? 99);
-    });
+  cachedThinkers = loadAllContent(
+    THINKERS_DIR,
+    thinkerBySlugCache,
+    (data, content, slug) => ({
+      ...(data as PhilosopherFrontmatter),
+      slug,
+      content,
+    }),
+    {
+      sort: (a, b) => (ERA_ORDER[a.era] ?? 99) - (ERA_ORDER[b.era] ?? 99),
+    }
+  );
   return cachedThinkers;
 }
 
 export function getQuestionSlugs(): string[] {
-  if (!fs.existsSync(QUESTIONS_DIR)) return [];
-  return fs
-    .readdirSync(QUESTIONS_DIR)
-    .filter((f) => f.endsWith(".mdx"))
-    .map((f) => f.replace(/\.mdx$/, ""));
+  return listContentSlugs(QUESTIONS_DIR);
 }
 
 export function getQuestionBySlug(slug: string): Question | null {
-  if (questionBySlugCache.has(slug)) return questionBySlugCache.get(slug)!;
-  if (!slug || slug.includes("..") || slug.includes("/") || slug.includes("\\")) return null;
-  const filePath = path.join(QUESTIONS_DIR, `${slug}.mdx`);
-  if (!filePath.startsWith(QUESTIONS_DIR)) return null;
-  if (!fs.existsSync(filePath)) return null;
-  let result: Question | null = null;
-  try {
-    const raw = fs.readFileSync(filePath, "utf-8");
-    const { data, content } = matter(raw);
-    result = {
-      ...(data as QuestionFrontmatter),
-      slug,
-      content,
-    };
-  } catch {
-    // result stays null
-  }
-  questionBySlugCache.set(slug, result);
-  return result;
+  return loadContentBySlug(QUESTIONS_DIR, slug, questionBySlugCache, (data, content, nextSlug) => ({
+    ...(data as QuestionFrontmatter),
+    slug: nextSlug,
+    content,
+  }));
 }
 
 export function getAllQuestions(): Question[] {
   if (cachedQuestions) return cachedQuestions;
-  cachedQuestions = getQuestionSlugs()
-    .map((slug) => getQuestionBySlug(slug))
-    .filter((q): q is Question => q !== null);
+  cachedQuestions = loadAllContent(QUESTIONS_DIR, questionBySlugCache, (data, content, slug) => ({
+    ...(data as QuestionFrontmatter),
+    slug,
+    content,
+  }));
   return cachedQuestions;
 }

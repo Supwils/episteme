@@ -1,6 +1,7 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { GET, SEARCH_CACHE_CONTROL } from "@/app/api/search/route";
 import { MIN_HAN_QUERY } from "@/lib/search/phrase";
+import * as corpusStore from "@/lib/search/corpus-store";
 
 interface Body {
   query: string;
@@ -81,5 +82,28 @@ describe("GET /api/search", () => {
   it("echoes the query so a client can discard stale responses", async () => {
     const { body } = await call("熵增");
     expect(body.query).toBe("熵增");
+  });
+
+  it.each(["q=熵&q=引力", "q=熵&limit=5&limit=50"])(
+    "rejects repeated query parameters instead of picking one silently (%s)",
+    async (queryString) => {
+      const response = await GET(new Request(`http://localhost/api/search?${queryString}`));
+      expect(response.status).toBe(400);
+      await expect(response.json()).resolves.toEqual({ error: "Duplicate query parameter" });
+    }
+  );
+
+  it("does not let the CDN cache an empty fallback corpus", async () => {
+    const spy = vi.spyOn(corpusStore, "getPhraseCorpus").mockResolvedValue({
+      corpus: { text: "", offsets: [] },
+      docs: [],
+    });
+    try {
+      const response = await GET(new Request("http://localhost/api/search?q=热力学"));
+      expect(response.status).toBe(200);
+      expect(response.headers.get("cache-control")).toBe("private, no-store");
+    } finally {
+      spy.mockRestore();
+    }
   });
 });

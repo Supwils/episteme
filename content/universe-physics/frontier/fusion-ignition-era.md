@@ -2,7 +2,7 @@
 title: 受控核聚变的"点火"时代
 title_en: The Ignition Era — Controlled Fusion Crosses the Energy Threshold
 status: published
-updated: 2026-06-12
+updated: 2026-09-12
 category: 聚变能源
 horizon: 2020s
 order: 3
@@ -52,17 +52,17 @@ related:
 
 "点火"之后，NIF 继续推进：
 
-| 时间                | 激光能量输入 | 聚变能量输出 | 靶增益                  |
-| ------------------- | ------------ | ------------ | ----------------------- |
-| 2022 年 12 月 5 日  | 2.05 MJ      | 3.15 MJ      | 1.54                    |
-| 2023 年 7 月 30 日  | 2.05 MJ      | 3.88 MJ      | 1.89                    |
-| 2023 年 10 月 8 日  | 1.9 MJ       | 2.4 MJ       | 1.26                    |
-| 2023 年 10 月 30 日 | 2.2 MJ       | 3.4 MJ       | 1.55                    |
-| 2024 年 2 月 10 日  | 2.2 MJ       | **5.2 MJ**   | **约 2.36**（迄今最高） |
+| 时间                | 激光能量输入 | 聚变能量输出      | 靶增益                      |
+| ------------------- | ------------ | ----------------- | --------------------------- |
+| 2022 年 12 月 5 日  | 2.05 MJ      | 3.15 MJ           | 1.54                        |
+| 2023 年 7 月 30 日  | 2.05 MJ      | 3.88 MJ           | 1.89                        |
+| 2023 年 10 月 8 日  | 1.9 MJ       | 2.4 MJ            | 1.26                        |
+| 2023 年 10 月 30 日 | 2.2 MJ       | 3.4 MJ            | 1.55                        |
+| 2024 年 2 月 10 日  | 2.2 MJ       | 5.2 MJ            | 约 2.36                     |
+| 2025 年 4 月 7 日   | 2.08 MJ      | **8.6 ± 0.45 MJ** | **约 4.13**（公开最高产额） |
+| 2026 年 6 月 20 日  | —            | 7.9 ± 0.4 MJ      | 约 3.8（第 11 次点火）      |
 
-2024 年 2 月的那次实验产生的 5.2 MJ 聚变能量，相当于超过一千克 TNT 炸药的爆炸当量，是迄今最高的靶增益记录[^nif-record]。
-
-这些数据展示了一个重要趋势：增加激光能量输入可以显著提升聚变产出，因为靶增益对激光能量的依赖呈超线性关系（接近四次方关系）。这意味着更大功率的驱动器能带来远超预期的收益，也意味着下一代激光惯性约束聚变装置的设计思路正在快速演化。
+2024 年 2 月那次 5.2 MJ 曾经是公开最高产额。2025 年 4 月 7 日被刷新：2.08 MJ 激光、456 TW 峰值功率，聚变产额 8.6 MJ（测量不确定度 ±0.45 MJ），靶增益约 4.13。利弗莫尔实验室随后把点火写成可重复操作：到 2026 年 6 月 20 日累计第 11 次，该次产额 7.9 ± 0.4 MJ、增益约 3.8。可重复不是电站。NIF 的主任务仍是库存管理：更高产额用来在实验室里复现热核环境，而不是把热换成电。设施正在推进 Enhanced Yield Capability，计划把可重复激光能量从约 2.2 MJ 提到约 2.6 MJ，并投影未来产额可能超过 30 MJ。投影不是已经打出来的数。30 MJ 仍远小于墙上插座意义的工程增益。工程增益要先过激光效率、靶重频和氚循环三道门。三道门一道未过，点火次数加一仍是物理装置的日志，不是电网合同。
 
 ## 谁在做、做到了哪一步
 
@@ -124,12 +124,13 @@ NIF 使用的氘氚靶丸在被激光气化后形成等离子体，通过内爆�
 - Abu-Shawareb, H., et al. (NIF). _Achievement of Target Gain Larger than Unity in an Inertial Fusion Experiment._ Physical Review Letters 132, 065102 (2024).（2022 年 12 月点火实验的正式论文）
 - Creely, A. J., et al. (Commonwealth Fusion). _Overview of the SPARC tokamak._ Journal of Plasma Physics 86, 865860502 (2020).
 - Wurzel, S. E., & Hsu, S. C. _Progress toward fusion energy breakeven and gain as measured against the Lawson criterion._ Physics of Plasmas 29, 062103 (2022).（系统梳理各路线进展的综述）
+- LLNL. “Achieving Fusion Ignition.” lasers.llnl.gov/science/achieving-fusion-ignition. 2025-04-07 产额 8.6 ± 0.45 MJ；2026-06-20 第 11 次点火 7.9 ± 0.4 MJ。投影的更高产额不是已实现的工程增益。
 
 ## 延伸阅读
 
 - ITER Organization. _ITER Technical Reports._ https://www.iter.org/
 
-[^nif-record]: NIF 各次点火实验数据来源：LLNL Achieving Fusion Ignition 页面及相关新闻稿；2024 年 2 月 10 日的 5.2 MJ 结果见 Interesting Engineering 等多家媒体报道，引自 LLNL 官方数据。
+[^nif-record]: NIF 各次点火实验数据以 LLNL “Achieving Fusion Ignition” 页面为准。2024 年 2 月 5.2 MJ 已被 2025 年 4 月 8.6 MJ 刷新；2026 年 6 月累计第 11 次点火。靶增益 >1 仍不是墙上插座意义的工程增益。
 
 [^iter]: ITER 2024 年 7 月公布新基线：科学运行起始 2034 年、氘氚运行 2039 年（较 2016 年基线推迟约四年）；见 ITER Organization 官网 "New baseline" 公告及 Physics World 2024 年报道。
 

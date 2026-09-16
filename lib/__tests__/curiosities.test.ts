@@ -18,6 +18,14 @@ describe("curiosityArticleHref", () => {
     expect(curiosityArticleHref("/philosophy/thinkers/plato")).toBe("/philosophy/thinkers/plato");
   });
 
+  it("rejects protocol-relative, off-site, and script URLs", () => {
+    expect(curiosityArticleHref("//evil.example/foo/bar")).toBeUndefined();
+    expect(curiosityArticleHref("https://evil.example/foo/bar")).toBeUndefined();
+    expect(curiosityArticleHref("javascript:alert(1)")).toBeUndefined();
+    expect(curiosityArticleHref("/\\evil.example/foo/bar")).toBeUndefined();
+    expect(curiosityFollowLabel("//evil.example/foo/bar")).toBe("更多奇趣知识 →");
+  });
+
   it("treats empty strings and trailing-slash section lists as unlinkable", () => {
     expect(curiosityArticleHref("")).toBeUndefined();
     expect(curiosityArticleHref("/psychology/phenomena/")).toBeUndefined();

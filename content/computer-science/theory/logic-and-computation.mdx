@@ -21,6 +21,8 @@ related:
   - lambda-calculus-type-theory
   - computability
   - computational-complexity
+  - hoare-1969-axiomatic
+  - floyd-1967-assigning-meanings
 ---
 
 # 逻辑与计算
@@ -135,7 +137,7 @@ y := x * 2;  // 程序
 {y >= 0 and y = 2*x}  // 后置条件
 ```
 
-霍尔逻辑的公理系统给出了每种程序构造（赋值、顺序、条件、循环）的推理规则，使得程序正确性的验证可以被系统化地进行。
+霍尔逻辑的公理系统给出了每种程序构造（赋值、顺序、条件、循环）的推理规则，使得程序正确性的验证可以被系统化地进行。把断言写在流程图边上的归纳法，对象见 [[floyd-1967-assigning-meanings|Floyd 1967]]；1969 年的语法制导三元组，对象见 [[hoare-1969-axiomatic|Hoare 1969]]。
 
 **戴克斯特拉**（Edsger Dijkstra）进一步发展了**最弱前置条件**（weakest precondition）计算：给定后置条件 $Q$ 和程序 $C$，自动计算最弱的前置条件 $wp(C, Q)$——满足它的任何状态执行 $C$ 后都满足 $Q$。这是程序验证自动化的基础。
 

@@ -1,7 +1,6 @@
-import fs from "node:fs";
 import path from "node:path";
-import matter from "gray-matter";
-import { getDomainContentDir } from "@/lib/content-paths";
+import { loadAllContent, loadContentBySlug } from "@/lib/content-article";
+import { getDomainContentDir, listContentSlugs } from "@/lib/content-paths";
 import type { LifeScienceDialogue } from "./types";
 
 /**
@@ -11,12 +10,14 @@ import type { LifeScienceDialogue } from "./types";
  */
 const DIALOGUES_DIR = path.join(getDomainContentDir("life-science"), "dialogues");
 
-function parse(slug: string): LifeScienceDialogue | null {
-  if (!slug || slug.includes("..") || slug.includes("/") || slug.includes("\\")) return null;
-  const file = path.join(DIALOGUES_DIR, `${slug}.mdx`);
-  if (!file.startsWith(DIALOGUES_DIR) || !fs.existsSync(file)) return null;
-  const { data, content } = matter(fs.readFileSync(file, "utf-8"));
-  // The body opens with a `---` divider after the frontmatter; drop it.
+const dialogueBySlugCache = new Map<string, LifeScienceDialogue | null>();
+let cachedDialogues: LifeScienceDialogue[] | null = null;
+
+function toDialogue(
+  data: Record<string, unknown>,
+  content: string,
+  slug: string
+): LifeScienceDialogue {
   const body = content.replace(/^\s*---\s*\n/, "").trim();
   return {
     slug,
@@ -30,20 +31,17 @@ function parse(slug: string): LifeScienceDialogue | null {
 }
 
 export function getDialogueSlugs(): string[] {
-  if (!fs.existsSync(DIALOGUES_DIR)) return [];
-  return fs
-    .readdirSync(DIALOGUES_DIR)
-    .filter((f) => f.endsWith(".mdx"))
-    .map((f) => f.replace(/\.mdx$/, ""))
-    .sort();
+  return listContentSlugs(DIALOGUES_DIR).sort();
 }
 
 export function getDialogueBySlug(slug: string): LifeScienceDialogue | null {
-  return parse(slug);
+  return loadContentBySlug(DIALOGUES_DIR, slug, dialogueBySlugCache, toDialogue);
 }
 
 export function getAllDialogues(): LifeScienceDialogue[] {
-  return getDialogueSlugs()
-    .map((s) => parse(s))
-    .filter((d): d is LifeScienceDialogue => d !== null);
+  if (cachedDialogues) return cachedDialogues;
+  cachedDialogues = loadAllContent(DIALOGUES_DIR, dialogueBySlugCache, toDialogue, {
+    sort: (a, b) => (a.slug < b.slug ? -1 : a.slug > b.slug ? 1 : 0),
+  });
+  return cachedDialogues;
 }

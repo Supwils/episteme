@@ -47,6 +47,17 @@ export function MobileNav({ groups }: { groups: NavGroup[] }) {
     setOpen(false);
   }, [pathname]);
 
+  // The drawer is `lg:hidden`. Crossing to desktop hides it with CSS but would
+  // otherwise leave `open` true and keep `body` overflow locked with no close control.
+  useEffect(() => {
+    const media = window.matchMedia("(min-width: 1024px)");
+    const unlock = () => {
+      if (media.matches) setOpen(false);
+    };
+    media.addEventListener("change", unlock);
+    return () => media.removeEventListener("change", unlock);
+  }, []);
+
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";

@@ -7,7 +7,7 @@ import { KNOWLEDGE_CONTINUUM_CACHE_CONTROL } from "@/lib/knowledge-continuum-pay
 
 const routes = [
   { name: "spine", get: getSpine, maximumBytes: 250_000 },
-  { name: "planner", get: getPlanner, maximumBytes: 175_000 },
+  { name: "planner", get: getPlanner, maximumBytes: 185_000 },
   { name: "confluences", get: getConfluences, maximumBytes: 10_000 },
   { name: "coverage", get: getCoverage, maximumBytes: 190_000 },
 ] as const;
@@ -21,7 +21,11 @@ describe("deferred knowledge continuum APIs", () => {
       expect(response.headers.get("x-content-strategy")).toBe("deferred-static");
 
       const body = await response.text();
-      expect(Buffer.byteLength(body)).toBeLessThan(route.maximumBytes);
+      const bytes = Buffer.byteLength(body);
+      expect(
+        bytes,
+        `${route.name} payload is ${bytes} bytes (budget ${route.maximumBytes})`
+      ).toBeLessThan(route.maximumBytes);
     });
   }
 

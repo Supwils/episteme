@@ -17,6 +17,11 @@ import { SITE_URL } from "@/lib/constants";
 import { serializeJsonLd, createArticleJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
+import {
+  ARTICLE_BODY_ROW_CLASS,
+  ARTICLE_HEADER_CLASS,
+  ARTICLE_SURFACE_CLASS,
+} from "@/components/ArticleLayout";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -84,9 +89,9 @@ export default async function TimelineEventDetailPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
-      <div className="flex flex-col gap-12 lg:flex-row lg:justify-center">
-        <article className="article-reading-surface max-w-[44rem] min-w-0 flex-1 transition-[max-width] duration-300">
-          <header className="mb-12">
+      <div className={ARTICLE_BODY_ROW_CLASS}>
+        <article className={ARTICLE_SURFACE_CLASS}>
+          <header className={ARTICLE_HEADER_CLASS}>
             <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
               <p className="text-fg-muted font-mono text-[10px] tracking-[0.42em] uppercase">
                 life-science / timeline

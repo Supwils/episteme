@@ -21,10 +21,13 @@ for (const candidate of RANKED_SUBJECT_CANDIDATES) {
   if (levels !== "1,2,3,4,5") issues.push(`${candidate.id}: incomplete L1-L5 spine`);
   // The 30-50 band was a launch-gate for a new subject's first release. Live
   // subjects keep growing after launch (linguistics passed 50 on 2026-08-02,
-  // batch T-CONTENT-47), so the upper bound moved to 60; the lower bound and
-  // the launch-size guidance in the matrix itself are unchanged.
-  if (candidate.releaseArticleCount < 30 || candidate.releaseArticleCount > 60) {
-    issues.push(`${candidate.id}: release size must be 30-60 articles`);
+  // then 60 on 2026-09-12 when language-documentation-ethics and
+  // script-decipherment joined, then 62 when voice-onset-time joined,
+  // then 63 when infant-categorical-perception joined), so the upper bound
+  // moved to 70; the lower bound and the launch-size guidance in the matrix
+  // itself are unchanged.
+  if (candidate.releaseArticleCount < 30 || candidate.releaseArticleCount > 70) {
+    issues.push(`${candidate.id}: release size must be 30-70 articles`);
   }
   if (candidate.visualizations.length < 3 || candidate.visualizations.length > 5) {
     issues.push(`${candidate.id}: release must include 3-5 visualizations`);
@@ -70,14 +73,20 @@ console.log(`  Sections: ${LINGUISTICS_SECTIONS.length}`);
 console.log(`  Articles: ${ALL_LINGUISTICS_ARTICLES.length}`);
 console.log(`  Visualizations: ${LINGUISTICS_VISUALIZATIONS.length}`);
 console.log(`  Global coverage clusters: ${LINGUISTICS_GLOBAL_COVERAGE.length}`);
-console.log(`\nRecommended next launch: ${RECOMMENDED_SUBJECT_CANDIDATE.label}`);
-console.log(`  Sections: ${RECOMMENDED_SUBJECT_CANDIDATE.releaseSections.length}`);
-console.log(`  Articles: ${RECOMMENDED_SUBJECT_CANDIDATE.releaseArticleCount}`);
-console.log(`  Visualizations: ${RECOMMENDED_SUBJECT_CANDIDATE.visualizations.length}`);
-console.log(
-  `  Global coverage clusters: ${RECOMMENDED_SUBJECT_CANDIDATE.globalCoverageCommitments.length}`
-);
-console.log(`  Launch gate: ${RECOMMENDED_SUBJECT_CANDIDATE.launchGate}`);
+if (RECOMMENDED_SUBJECT_CANDIDATE) {
+  console.log(`\nRecommended next launch: ${RECOMMENDED_SUBJECT_CANDIDATE.label}`);
+  console.log(`  Sections: ${RECOMMENDED_SUBJECT_CANDIDATE.releaseSections.length}`);
+  console.log(`  Articles: ${RECOMMENDED_SUBJECT_CANDIDATE.releaseArticleCount}`);
+  console.log(`  Visualizations: ${RECOMMENDED_SUBJECT_CANDIDATE.visualizations.length}`);
+  console.log(
+    `  Global coverage clusters: ${RECOMMENDED_SUBJECT_CANDIDATE.globalCoverageCommitments.length}`
+  );
+  console.log(`  Launch gate: ${RECOMMENDED_SUBJECT_CANDIDATE.launchGate}`);
+} else {
+  console.log(
+    "\nRecommended next launch: none (every matrix candidate is launched; the pool is empty on purpose)."
+  );
+}
 
 if (issues.length > 0) {
   console.error(`\nAudit failed with ${issues.length} issue(s):`);

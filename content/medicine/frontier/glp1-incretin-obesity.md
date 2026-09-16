@@ -2,7 +2,7 @@
 title: GLP-1 与肠促胰素：肥胖治疗从"减肥针"回到激素回路
 title_en: GLP-1 and Incretins — From a Weight-Loss Shot Back to Hormone Circuits
 status: published
-updated: 2026-08-23
+updated: 2026-09-12
 category: 代谢与内分泌
 horizon: 2020s
 order: 7
@@ -102,6 +102,14 @@ SURMOUNT-1（Jastreboff 等，2022）入组 2539 人，随访 72 周。按治疗
 - **长期未知仍在。** 啮齿类甲状腺 C 细胞肿瘤写进了黑框警告，人类证据尚未坐实。胆囊疾病、糖尿病视网膜病变进展、停药后的代谢反弹，随访还不够长。
 - **它更像慢性病用药，而不是一个疗程。** 停药回升不是患者"又没毅力"，而是信号被撤走后设定点回弹。把终身注射、高价与供应瓶颈加在一起，可及性本身就成了疗效的一部分。
 
+减重优势、心血管硬终点、肾脏复合终点，是三张不同的标签。SURMOUNT-5 于 2025 年 5 月在 _NEJM_ 发表：751 名无糖尿病的肥胖成人，开放标签、最大耐受剂量，72 周平均减重 20.2% 对 13.7%。头对头比的是秤上的数字。
+
+它由礼来资助。开放标签让受试者知道自己拿的是哪一支，期望与胃肠道管理都会进效应。它不是 SELECT，也不是心血管发现。
+
+FLOW 试验把司美格鲁肽 1.0 mg 周制剂写进 2 型糖尿病合并慢性肾病。主要肾脏复合终点风险比 0.76，中位随访 3.4 年，因中期分析提前结束。
+
+1.0 mg 是糖尿病剂量，不是肥胖适应证里的 2.4 mg。肾脏获益不能从 STEP 的减幅里直接读出。提前结束的试验容易把效应写得偏大。
+
 ## 未知的边界
 
 - 心血管获益有多少来自减重本身，有多少来自血压、炎症或直接的血管作用？SELECT 不能把这几条拆开。
@@ -128,6 +136,8 @@ SURMOUNT-1（Jastreboff 等，2022）入组 2539 人，随访 72 周。按治疗
 - Drucker, D. J. _Mechanisms of Action and Therapeutic Application of Glucagon-like Peptide-1._ Cell Metabolism 27, 740–756 (2018). DOI: 10.1016/j.cmet.2018.03.001.
 - Drucker, D. J. _GLP-1 physiology informs the pharmacotherapy of obesity._ Molecular Metabolism 57, 101351 (2022). DOI: 10.1016/j.molmet.2021.101351.
 - Wilding, J. P. H. et al. _Weight regain and cardiometabolic effects after withdrawal of semaglutide: The STEP 1 trial extension._ Diabetes, Obesity and Metabolism 24, 1553–1564 (2022). DOI: 10.1111/dom.14725.
+- Aronne, L. J. et al. _Tirzepatide as Compared with Semaglutide for the Treatment of Obesity._ New England Journal of Medicine (2025). DOI: 10.1056/NEJMoa2416394.（SURMOUNT-5，开放标签）
+- Perkovic, V. et al. _Effects of Semaglutide on Chronic Kidney Disease in Patients with Type 2 Diabetes._ New England Journal of Medicine 391, 109–121 (2024). DOI: 10.1056/NEJMoa2403347.（FLOW）
 
 ## 延伸阅读
 

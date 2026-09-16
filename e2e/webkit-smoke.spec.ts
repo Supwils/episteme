@@ -28,6 +28,24 @@ test.describe("WebKit / Safari smoke", () => {
     await expect(page.getByText(/另成一类/)).toBeVisible();
   });
 
+  test("education spacing lab stays keyboard-reachable", async ({ page }) => {
+    const response = await page.goto("/education/spacing-lab");
+    expect(response?.status()).toBe(200);
+    await page.getByRole("button", { name: "间隔练习", exact: true }).click();
+    await expect(page.getByText(/不是背词器/)).toBeVisible();
+  });
+
+  test("education reading-path invite enters the sequence", async ({ page }) => {
+    const response = await page.goto("/education/learning-foundations/what-is-learning");
+    expect(response?.status()).toBe(200);
+    await page
+      .getByRole("navigation", { name: "阅读路线" })
+      .getByRole("link", { name: /从学会到国际比较/ })
+      .click();
+    await expect(page).toHaveURL(/path=from-learning-to-comparison/);
+    await expect(page.getByRole("link", { name: "从学会到国际比较 目录" })).toBeVisible();
+  });
+
   test("search reaches the thinker from the portal", async ({ page }) => {
     const response = await page.goto("/");
     expect(response?.status()).toBe(200);

@@ -1,12 +1,12 @@
-import Link from "next/link";
 import { withCanonicalPath } from "@/lib/article-canonical";
 import { serializeJsonLd } from "@/lib/jsonld";
 import { notFound } from "next/navigation";
 import { cosmologyKB } from "@/lib/cosmology-kb";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
-import { ReadingModeControls } from "@/components/ReadingModeControls";
+import { TableOfContents } from "@/components/TableOfContents";
+import { ArticleLayout } from "@/components/ArticleLayout";
+import Breadcrumb from "@/components/Breadcrumb";
 import { SITE_URL } from "@/lib/constants";
-import { Backlinks } from "@/components/Backlinks";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -39,69 +39,55 @@ export default async function CosmologyKnowledgeArticlePage({ params }: Props) {
   const article = cosmologyKB.getArticleBySlug(slug);
   if (!article) notFound();
 
+  const articles = cosmologyKB.getAllArticles();
+  const currentIndex = articles.findIndex((item) => item.slug === article.slug);
+  const prev = currentIndex > 0 ? articles[currentIndex - 1] : null;
+  const next =
+    currentIndex >= 0 && currentIndex < articles.length - 1 ? articles[currentIndex + 1] : null;
+  const url = `/cosmology/knowledge-base/${article.slug}`;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: article.title,
     description: article.excerpt,
-    url: `${SITE_URL}/cosmology/knowledge-base/${slug}`,
+    url: `${SITE_URL}${url}`,
     author: { "@type": "Organization", name: "Episteme · 格致" },
     publisher: { "@type": "Organization", name: "Episteme · 格致", url: SITE_URL },
     keywords: article.tags.join(", "),
   };
 
   return (
-    <div className="mx-auto w-full max-w-[56rem] px-6 py-12 sm:px-10">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
-      <nav className="article-reading-chrome mb-8 flex items-center justify-between gap-4">
-        <Link
-          href="/cosmology/knowledge-base"
-          className="text-fg-muted hover:text-fg-primary inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] uppercase transition-colors"
-        >
-          ← 返回知识库
-        </Link>
-        <span className="text-fg-muted font-mono text-[10px] tracking-[0.2em] uppercase">
-          {article.category}
-        </span>
-      </nav>
-
-      <article className="article-reading-surface mx-auto max-w-[44rem] transition-[max-width] duration-300">
-        <header className="mb-10">
-          <div className="mb-6 flex justify-end">
-            <ReadingModeControls />
-          </div>
-          <h1 className="text-fg-primary mb-4 text-3xl leading-tight font-semibold sm:text-4xl">
-            {article.title}
-          </h1>
-          {article.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2">
-              {article.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-fg-muted border-border-faint rounded border px-2 py-0.5 font-mono text-[10px]"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
-        </header>
-
+      <ArticleLayout
+        domain="cosmology"
+        backHref="/cosmology/knowledge-base"
+        backLabel="← 返回知识库"
+        url={url}
+        breadcrumb={
+          <Breadcrumb
+            items={[
+              { label: "宇宙学", href: "/cosmology" },
+              { label: "知识库", href: "/cosmology/knowledge-base" },
+              { label: article.title },
+            ]}
+          />
+        }
+        accent={ACCENT}
+        eyebrow={article.category}
+        title={article.title}
+        content={article.content}
+        tags={article.tags}
+        prev={prev ? { href: `/cosmology/knowledge-base/${prev.slug}`, title: prev.title } : null}
+        next={next ? { href: `/cosmology/knowledge-base/${next.slug}`, title: next.title } : null}
+        sidebar={<TableOfContents accentColor={ACCENT} />}
+      >
         <MarkdownRenderer domain="cosmology" content={article.content} accentColor={ACCENT} />
-      </article>
-
-      <Backlinks url={`/cosmology/knowledge-base/${slug}`} />
-      <footer className="border-border-subtle mt-12 border-t pt-6">
-        <Link
-          href="/cosmology/knowledge-base"
-          className="text-fg-muted hover:text-fg-primary inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] uppercase transition-colors"
-        >
-          ← 返回知识库
-        </Link>
-      </footer>
-    </div>
+      </ArticleLayout>
+    </>
   );
 }

@@ -52,6 +52,7 @@ const DOMAIN_COLORS: Record<Domain, string> = {
   literature: "#8b5e4a",
   religion: "#6b5c8a",
   anthropology: "#8b5a3c",
+  education: "#3d6b8a",
   law: "#a8843c",
   engineering: "#8a919e",
   sociology: "#7a8f5a",
@@ -88,7 +89,7 @@ function CategoryGroup({
             </span>
             <span
               aria-hidden
-              className="text-fg-disabled font-mono text-[10px] opacity-0 transition-opacity duration-200 group-hover/mini:opacity-100"
+              className="text-fg-disabled font-mono text-[10px] opacity-0 transition-opacity duration-200 group-hover/mini:opacity-100 group-focus-visible/mini:opacity-100"
             >
               →
             </span>
@@ -146,7 +147,7 @@ function CrossDomainGroup({
               </div>
               <span
                 aria-hidden
-                className="text-fg-disabled mt-0.5 shrink-0 font-mono text-[10px] opacity-0 transition-opacity duration-200 group-hover/mini:opacity-100"
+                className="text-fg-disabled mt-0.5 shrink-0 font-mono text-[10px] opacity-0 transition-opacity duration-200 group-hover/mini:opacity-100 group-focus-visible/mini:opacity-100"
               >
                 →
               </span>
@@ -208,6 +209,7 @@ export default function RelatedContent({ slug, domain, entityId }: RelatedConten
     "literature",
     "religion",
     "anthropology",
+    "education",
     "law",
     "engineering",
     "sociology",

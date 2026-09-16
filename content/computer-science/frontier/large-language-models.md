@@ -2,7 +2,7 @@
 title: 大语言模型与基础模型
 title_en: Large Language Models and Foundation Models
 status: published
-updated: 2026-06-13
+updated: 2026-09-12
 category: 人工智能
 horizon: 2020s
 order: 1
@@ -26,6 +26,7 @@ institutions:
 related:
   - ai-interpretability
   - gradient-descent-backprop
+  - inference-time-compute-and-reasoning
 ---
 
 # 大语言模型与基础模型
@@ -104,9 +105,7 @@ InstructGPT（Ouyang 等, 2022）和 ChatGPT 都用了这个方法。它显著�
 | LLaMA           | Meta AI          | LLaMA 2（2023.7，开放权重）；LLaMA 3.1（2024.7，405B 参数）                                                             |
 | DeepSeek        | DeepSeek（北京） | DeepSeek-R1（2025.1），以更低训练成本达到接近 o1 的推理性能                                                             |
 
-2024 年出现的显著趋势：**推理时扩展（Test-Time Compute Scaling）**——让模型在生成答案时花更多计算做"链式思考"（chain-of-thought），而非只扩大参数量。OpenAI o1/o3 和 DeepSeek-R1 代表了这一方向，在数学和科学推理任务上大幅超越之前的模型。
-
-这条路线在 2025 年 7 月达到一个标志性节点：OpenAI 的一个实验性推理模型和 Google DeepMind 的 Gemini Deep Think，在与人类选手同等条件下（两场 4.5 小时、无工具无联网）作答 2025 年国际数学奥林匹克（IMO）题目，各自解出 6 题中的 5 题、得 35/42 分，达到金牌门槛——这是通用模型首次在 IMO 上达到金牌水平（2024 年 DeepMind 用更专用的 AlphaProof 仅获银牌）。值得强调的是，这两次结果由人类裁判评分、属于实验性系统的内部演示，与公开发布、可复现的产品基准是两回事。
+2024 年起出现第二条曲线：推理时扩展——答题时花更多计算，而不是只堆参数。机制、可验证奖励与失败模式见[[inference-time-compute-and-reasoning|推理时计算与推理模型]]。上表的 o1/o3 与 DeepSeek-R1 属于这条线。它们不改变基础模型仍由数据、评测与发布方式定义这一事实。
 
 ## 代价与争议
 
@@ -117,6 +116,12 @@ InstructGPT（Ouyang 等, 2022）和 ChatGPT 都用了这个方法。它显著�
 **计算成本与集中化**：训练前沿模型的成本在 2020 年代达到数亿到数十亿美元级别（具体数字各公司未公开，外部估算差异很大）。这种规模门槛事实上将前沿 AI 研究集中在少数几家资本充足的机构手中，引发了关于 AI 权力集中的担忧。
 
 **版权与数据问题**：LLM 用大量互联网文本训练，包括受版权保护的内容。多个出版商和作者对此提起诉讼，法律如何界定目前仍无定论（截至 2026 年）。
+
+**训练语料是管道，不是图书馆。** 基础模型的"数据"首先是抓取、过滤、去重之后的产物。Dodge 等人（2021，EMNLP）给 T5 所用的 Colossal Clean Crawled Corpus（C4）做了少见的文档化：它来自 Common Crawl 2019 年 4 月的一次快照，再套一层过滤器。清洗后的文本里有专利、美军站点等意外来源，也有机器翻译腔，以及来自其他 NLP 基准的评测例句。用于去掉"脏词"的屏蔽表，会不成比例地删掉关于少数群体的文本。过滤改变的不只是干净程度，还有谁被写成了语言。闭源 API 模型的语料清单通常不公开，这条审计对它们更做不到。没有语料清单，就很难把基准分数读成对能力的无偏估计。
+
+**评测污染把排行榜变成记忆测验。** 最坏的情况是测试集进了训练集，再拿同一测试集报分。Sainz 等人（2023，EMNLP Findings）把这件事写成必须按每个基准单独测量。已公开承认的例子包括：GPT-3 论文记录过过滤脚本漏洞导致若干基准泄漏；GPT-4 技术报告写明 BIG-bench 的片段混入训练、足以让他们放弃在该基准上报告，并写明 MATH 与 GSM8K 的训练集被用来加强数学——因此 GSM8K 分数不能再被读成干净的零样本。Zhang 等人（2024，NeurIPS）另做了一套风格与难度对齐的新题 GSM1k：部分模型相对 GSM8K 的准确率下降最多约 8 个百分点，若干模型家族呈现系统性过拟合；他们同时写明，许多前沿模型过拟合迹象很小，且所有被测模型仍能推广到保证不在训练集里的新题。污染解释的是分数可能被抬高，不是能力等于零。
+
+**开放权重不是开源，API 更不是。** 能下载参数，意味着可以本地跑推理、做独立评测与微调；通常仍没有训练数据，也没有完整可复现的训练代码。Meta 的 Llama 3 Community License（2024 年 4 月 18 日）允许大多数使用者商用，但它不是 Open Source Initiative 意义上的开源许可证：对使用目的设限，且若产品或服务的月活超过七亿，须另向 Meta 申请许可；也禁止用 Llama 材料或其输出去改进其他大语言模型（Llama 3 及其衍生除外）。另一端是只提供 API 的前沿模型：权重不出门，语料不可审计，版本由提供方切换。开放权重解决的是"能否在自己的机器上复现一次前向计算"。它不自动解决评测污染，也不自动解决训练数据的版权与代表性。2024 年诺贝尔化学奖给的是蛋白质结构预测，不是语言模型。
 
 ## 未知的边界
 
@@ -144,3 +149,8 @@ InstructGPT（Ouyang 等, 2022）和 ChatGPT 都用了这个方法。它显著�
 - Schaeffer, R., Miranda, B. & Koyejo, S. _Are Emergent Abilities of Large Language Models a Mirage?_ NeurIPS 2023（杰出论文奖）. arXiv:2304.15004.
 - Ouyang, L. et al. _Training Language Models to Follow Instructions with Human Feedback._ NeurIPS 2022. （InstructGPT / RLHF 论文）
 - Rafailov, R. et al. _Direct Preference Optimization: Your Language Model is Secretly a Reward Model._ NeurIPS 2023. （DPO 论文）
+- Dodge, J. et al. _Documenting Large Webtext Corpora: A Case Study on the Colossal Clean Crawled Corpus._ EMNLP 2021, 1286–1305. DOI: 10.18653/v1/2021.emnlp-main.98.
+- Sainz, O. et al. _NLP Evaluation in trouble: On the Need to Measure LLM Data Contamination for each Benchmark._ Findings of EMNLP 2023, 10776–10787. DOI: 10.18653/v1/2023.findings-emnlp.722.
+- OpenAI. _GPT-4 Technical Report._ arXiv:2303.08774 (2023).
+- Zhang, H. et al. _A Careful Examination of Large Language Model Performance on Grade School Arithmetic._ NeurIPS 2024. arXiv:2405.00332.（GSM1k）
+- Meta. Llama 3 Community License Agreement. 18 April 2024.

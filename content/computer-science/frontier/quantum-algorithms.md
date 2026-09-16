@@ -2,7 +2,7 @@
 title: 量子算法：Shor 与 Grover 之后的软件边界
 title_en: Quantum Algorithms — The Software Frontier Beyond Shor and Grover
 status: published
-updated: 2026-06-13
+updated: 2026-09-12
 category: 量子计算
 horizon: 2020s
 order: 3
@@ -105,6 +105,10 @@ NIST 于 2024 年 8 月发布的后量子标准（ML-KEM、ML-DSA、SLH-DSA）�
 
 **NISQ 算法的价值**：是否存在任何 NISQ 算法在任何实际应用上能优于经典算法，仍然是一个开放问题。每年都有新的声明，也都在更精细的分析后被质疑。
 
+2024 年 12 月，Google 用 Willow（105 物理比特）做了两件不该合成的事。一件写进 _Nature_ 638: 920–926 (2025)：表面码在阈值以下，码距加大，逻辑错误指数下降。那是纠错，不是算法目录里多了一条 Shor。
+
+另一件是随机电路采样：官方博客写不到五分钟跑完，经典若用现有张量网络、内存又不够，估计要 $10^{25}$ 年。Aaronson 同月说，这些数字就目前算法而言站得住，但对现实问题没有影响。采样基准过关 ≠ 分解 2048 位 RSA，也 ≠ 算固氮酶活性位点。
+
 ## 未知的边界
 
 - 是否存在除 Shor 和 Grover 之类之外的新"量子基本算法"，带来当前未知的量子优势？
@@ -134,3 +138,5 @@ NIST 于 2024 年 8 月发布的后量子标准（ML-KEM、ML-DSA、SLH-DSA）�
 - Babbush, R. et al. _Focus beyond Quadratic Speedups for Error-Corrected Quantum Advantage._ PRX Quantum 2, 010103 (2021).
 - Bravyi, S., Gosset, D. & König, R. _Quantum Advantage with Shallow Circuits._ Science 362, 308–311 (2018). （浅层电路上无条件量子优势的原始证明）
 - Bravyi, S. et al. _Quantum Advantage with Noisy Shallow Circuits._ Nature Physics 16, 1040–1045 (2020). （上述结果在带噪声、几何局部约束下的推广）
+- Acharya, R. et al. _Quantum error correction below the surface code threshold._ Nature 638, 920–926 (2025). DOI: 10.1038/s41586-024-08449-y.（Willow；纠错阈值以下 ≠ 实用算法）
+- Google Quantum AI. _Meet Willow, our state-of-the-art quantum chip._ 2024-12-09.（随机电路采样是人工基准，不是 Shor）

@@ -7,6 +7,7 @@ import { getScientistById } from "@/subjects/life-science/lib/scientists";
 import Breadcrumb from "@/components/Breadcrumb";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { ArticleLayout } from "@/components/ArticleLayout";
+import { TableOfContents } from "@/components/TableOfContents";
 import { SITE_URL } from "@/lib/constants";
 import { serializeJsonLd, createArticleJsonLd } from "@/lib/jsonld";
 
@@ -135,6 +136,7 @@ export default async function LifeScienceDialoguePage({
         next={next ? { href: `/life-science/dialogues/${next.slug}`, title: next.title } : null}
         sidebar={
           <>
+            <TableOfContents accentColor={ACCENT} />
             <div className="border-border-faint border p-4">
               <h3 className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.22em] uppercase">
                 对话信息

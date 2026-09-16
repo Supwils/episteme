@@ -2,7 +2,7 @@
 title: 下一代 CMB 实验对暴胀的检验：寻找宇宙最初的引力波
 title_en: Next-Generation CMB Experiments Testing Inflation — Hunting for Primordial Gravitational Waves
 status: published
-updated: 2026-06-12
+updated: 2026-09-12
 category: 暴胀宇宙学
 horizon: 2020s
 order: 6
@@ -129,6 +129,10 @@ BICEP/Keck 系列已在南极运行多年。下一代的 **BICEP Array** 配置�
 ### 去透镜的技术难度
 
 精确"去透镜"需要高精度的宇宙大尺度结构图（CIB、CMB 温度小尺度各向异性），来重建引力透镜势，然后从 B 模式数据中减去透镜成分。这是一个对数据精度和算法要求极高的技术任务，目前地面实验（SO、BICEP Array）已开始在实际数据中探索去透镜，但效率和可靠性仍在提升中。
+
+西蒙斯天文台 2025 年 3 月的首光是火星图，不是一张 $r$ 的后验。望远镜开机不等于暴胀被证实。CMB-S4 已于 2025 年 7 月 9 日停资。近十年地面 $\sigma(r)\sim 0.001$ 的那条路被切断。
+
+LiteBIRD 的窗口写在大约 2036 年。BICEP2 在 2014 年把尘埃当成了原初引力波。下一代实验的第一课仍是多频段把银河系前景画清楚，而不是先报一个 $r$。
 
 ## 未知的边界
 

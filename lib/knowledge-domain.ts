@@ -1,13 +1,7 @@
-import fs from "node:fs";
 import path from "node:path";
+import { readContentBySlug, readContentEntries, type ContentEntry } from "./content-article";
 import { getDomainContentDir } from "./content-paths";
-import {
-  safeParseMatter,
-  decodeSlug,
-  stripLeadingHeading,
-  firstHeading,
-  extractExcerpt,
-} from "./content-utils";
+import { decodeSlug, extractExcerpt, firstHeading, stripLeadingHeading } from "./content-utils";
 
 /**
  * A generic typed-content engine for whole knowledge domains (computer-science,
@@ -103,23 +97,14 @@ function buildInfo(data: Record<string, unknown>): KnowledgeInfo[] {
   return info;
 }
 
+const ARTICLE_EXTS = [".mdx", ".md"] as const;
+
 export function createKnowledgeSection(domain: string, section: string): KnowledgeSection {
   const root = path.join(getDomainContentDir(domain), section);
   let cache: KnowledgeItem[] | null = null;
 
-  const listFiles = (): string[] => {
-    if (!fs.existsSync(root)) return [];
-    // `<slug>.narration.md` are spoken companions, not articles — never list them.
-    return fs
-      .readdirSync(root)
-      .filter((f) => (f.endsWith(".md") || f.endsWith(".mdx")) && !f.endsWith(".narration.md"));
-  };
-
-  const slugOf = (file: string): string => file.replace(/\.mdx?$/, "");
-
-  const toItem = (file: string): KnowledgeItem => {
-    const { data, content } = safeParseMatter(fs.readFileSync(path.join(root, file), "utf-8"));
-    const slug = slugOf(file);
+  const toItem = (entry: ContentEntry): KnowledgeItem => {
+    const { slug, frontmatter: data, content } = entry;
     return {
       slug,
       title: str(data.title) || firstHeading(content) || slug,
@@ -136,7 +121,7 @@ export function createKnowledgeSection(domain: string, section: string): Knowled
 
   const getAll = (): KnowledgeItem[] => {
     if (cache) return cache;
-    cache = listFiles()
+    cache = readContentEntries(root, ARTICLE_EXTS, "safe")
       .map(toItem)
       .sort(
         (a, b) =>
@@ -149,23 +134,15 @@ export function createKnowledgeSection(domain: string, section: string): Knowled
 
   const getBySlug = (slug: string): KnowledgeItemFull | null => {
     const wanted = decodeSlug(slug).normalize("NFC");
-    if (!wanted || wanted.includes("..") || wanted.includes("/") || wanted.includes("\\"))
-      return null;
     // `<slug>.narration` would otherwise resolve to the sibling .narration.md and
     // render a spoken script as a phantom article — block it explicitly.
     if (wanted.endsWith(".narration")) return null;
-    const file = fs.existsSync(path.join(root, `${wanted}.mdx`))
-      ? `${wanted}.mdx`
-      : fs.existsSync(path.join(root, `${wanted}.md`))
-        ? `${wanted}.md`
-        : null;
-    if (!file) return null;
-    const full = path.resolve(root, file);
-    if (!full.startsWith(path.resolve(root))) return null;
-    const { data, content } = safeParseMatter(fs.readFileSync(full, "utf-8"));
+    const entry = readContentBySlug(root, wanted, ARTICLE_EXTS, "safe");
+    if (!entry) return null;
+    const data = entry.frontmatter;
     return {
-      ...toItem(file),
-      content: stripLeadingHeading(content),
+      ...toItem(entry),
+      content: stripLeadingHeading(entry.content),
       keyInsight: str(data.keyInsight) || str(data.takeaway) || undefined,
       molecule: str(data.molecule) || undefined,
       interactive: str(data.interactive) || undefined,

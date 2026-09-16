@@ -15,13 +15,15 @@ related:
   - distributed-systems
   - databases-transactions
   - database-indexing-and-query-optimization
+  - gfs-2003
+  - bigtable-2006
 ---
 
 # 大数据系统
 
 2003 年，Google 内部工程师在每天爬取、索引数十亿网页，每周要处理数 PB 数据时，意识到已有的工具完全无法应对：单台服务器不够，商业数据库太贵且扩展性有限。
 
-他们需要一种全新的计算范式，能够把普通廉价服务器组成集群，分布式地处理这些数据。他们发明了**MapReduce**，并把底层存储叫做 **GFS（Google File System）**。两篇论文在 2003-2004 年发表，触发了整个"大数据"行业的爆炸。
+他们需要一种全新的计算范式，能够把普通廉价服务器组成集群，分布式地处理这些数据。他们发明了**MapReduce**，并把底层存储叫做 **[[gfs-2003|GFS]]（Google File System）**。2006 年的 [[bigtable-2006|Bigtable]] 再把稀疏表铺在文件层上。两篇论文在 2003-2004 年发表，触发了整个"大数据"行业的爆炸。
 
 ## 破除误解："大数据"不只是"很多数据"
 

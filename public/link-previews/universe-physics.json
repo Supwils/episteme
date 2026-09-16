@@ -289,9 +289,19 @@
     "e": "玻尔模型; 量子化条件; 能级; 里德堡公式; 巴尔末系; 对应原理; 旧量子论; 角动量量子化; 弗兰克-赫兹实验; 索末菲模型",
     "d": "universe-physics"
   },
+  "/universe-physics/knowledge-base/原子物理--compton-scattering-experiment": {
+    "t": "康普顿：石墨怎样把钼 K-α 的波长随散射角推开",
+    "e": "1923 年，Arthur H. Compton 在圣路易斯用钼靶 X 射线管发出 K-α 线，打到石墨一类轻元素上，再用布拉格晶体分光计量散射光的波长如何随散射角走。对象不是量子电动力学讲义…",
+    "d": "universe-physics"
+  },
   "/universe-physics/knowledge-base/原子物理--electron-orbitals-quantum-numbers": {
     "t": "电子轨道与量子数",
     "e": "原子轨道; 主量子数; 轨道量子数; 磁量子数; 自旋量子数; 电子构型; 洪特规则; 构建原理; 多电子原子; 屏蔽效应",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/原子物理--franck-hertz-experiment": {
+    "t": "弗兰克–赫兹：汞蒸气里的电子怎样把能量一份一份交出去",
+    "e": "1914 年，James Franck 与 Gustav Hertz 在柏林用热阴极把电子送进汞蒸气。加速栅把电子推快，收集极相对栅极略带负压，把动能不够的电子挡回去。加速电压往上加，收集极电…",
     "d": "universe-physics"
   },
   "/universe-physics/knowledge-base/原子物理--hydrogen-atom-quantum-theory": {
@@ -299,9 +309,34 @@
     "e": "氢原子; 库仑势; 球谐函数; 径向波函数; 拉盖尔多项式; 能级简并; 精细结构常数; 兰姆位移; 量子电动力学; 氢原子基态",
     "d": "universe-physics"
   },
+  "/universe-physics/knowledge-base/原子物理--rutherford-1911-gold-foil": {
+    "t": "卢瑟福 1911：金箔上的大角 α 怎样把正电荷挤进核",
+    "e": "1909 年，汉斯·盖革（Hans Geiger）与欧内斯特·马斯登（Ernest Marsden）在曼彻斯特，把 α 粒子打向极薄金属箔，用显微镜去数硫化锌屏上的闪光。绝大多数粒子几乎不偏。…",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/原子物理--thomson-1897-cathode-ray": {
+    "t": "汤姆孙 1897：卡文迪许阴极射线怎样把 e/m 读成远大于电解离子",
+    "e": "1897 年，约瑟夫·约翰·汤姆孙（Joseph John Thomson）在剑桥卡文迪许实验室，把阴极射线送进抽空的放电管。射线能被磁场弯折，这在克鲁克斯以来已不新鲜。他要钉住的是另一件事：…",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/原子物理--wilson-1911-cloud-chamber": {
+    "t": "威尔逊 1911：膨胀怎样把离子变成可见的凝结径迹",
+    "e": "1911 年 4 月 19 日收稿、5 月 11 日宣读，查尔斯·汤姆森·里斯·威尔逊（Charles Thomson Rees Wilson）在 Proceedings of the Roy…",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/原子物理--zeeman-1896": {
+    "t": "塞曼 1896：莱顿磁铁里钠 D 线怎样先展宽后劈裂",
+    "e": "1896 年秋，彼得·塞曼（Pieter Zeeman）在莱顿大学物理实验室，把钠焰放进电磁铁的极靴缝里，用罗兰凹面光栅去看钠的两条黄线。通电之后，两条 D 线先变宽。洛伦兹（Hendrik …",
+    "d": "universe-physics"
+  },
   "/universe-physics/knowledge-base/原子物理--光电效应与量子化光": {
     "t": "光电效应与量子化光",
     "e": "光电效应; 光子; 普朗克常数; 功函数; 截止频率; 爱因斯坦; 光量子假说; 太阳能电池; 光电倍增管; 康普顿效应",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/原子物理--密立根油滴实验": {
+    "t": "密立根油滴：基本电荷怎样在悬浮的油雾里被一份一份称出来",
+    "e": "1909 到 1913 年，Robert Millikan 与 Harvey Fletcher 用两块水平电极夹住一滴喷雾油珠。重力往下拉，电场往上拉。调节电压，让油滴几乎悬停，再关掉电场看它…",
     "d": "universe-physics"
   },
   "/universe-physics/knowledge-base/天体物理--恒星结构与演化": {
@@ -354,6 +389,26 @@
     "e": "结合能; 质量亏损; 比结合能; 铁-56; 核稳定性; 强相互作用; 核合成; 恒星核合成; 液滴模型; 魏茨泽克公式",
     "d": "universe-physics"
   },
+  "/universe-physics/knowledge-base/核物理--blackett-1925-nitrogen": {
+    "t": "布莱克特 1925：威尔逊云室怎样把氮上的质子分叉拍成径迹",
+    "e": "1925 年 2 月，帕特里克·布莱克特（Patrick Maynard Stuart Blackett）在 Proceedings of the Royal Society A 第 107 …",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/核物理--chadwick-1932-neutron": {
+    "t": "查德威克：石蜡反冲怎样把铍辐射判成质子质量的中性粒子，而不是硬γ",
+    "e": "1932 年，詹姆斯·查德威克（James Chadwick）在卡文迪许实验室用电离室和示波器，去看铍被钋α轰击后放出的那束极硬辐射，怎样把石蜡里的质子打出来。对象不是结合能与质量亏损那条比结…",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/核物理--cockcroft-walton-1932": {
+    "t": "考克饶夫与瓦尔顿：加速质子打锂怎样放出氦核，并把动能与质量亏损对上账",
+    "e": "1932 年春天，约翰·道格拉斯·考克饶夫（John Douglas Cockcroft）与欧内斯特·托马斯·辛顿·瓦尔顿（Ernest Thomas Sinton Walton）在剑桥卡文迪…",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/核物理--meitner-frisch-1938-fission": {
+    "t": "迈特纳与弗里施：怎样把哈恩的钡读成重核液滴分裂，而不是超铀元素",
+    "e": "1938 年圣诞节前后，莉泽·迈特纳（Lise Meitner）在瑞典西海岸的孔艾尔夫，与侄子奥托·弗里施（Otto Robert Frisch）把柏林寄来的一封化学消息，改写成一滴带电重核的…",
+    "d": "universe-physics"
+  },
   "/universe-physics/knowledge-base/核物理--neutron-capture-nucleosynthesis": {
     "t": "中子俘获与元素合成",
     "e": "中子俘获; s过程; r过程; 元素合成; B2FH; 千新星; 中子星合并; 核天体物理; 宇宙丰度; 铁峰; 幻数壳层; 金铂起源; r过程核素",
@@ -382,6 +437,11 @@
   "/universe-physics/knowledge-base/核物理--radioactive-decay": {
     "t": "放射性衰变",
     "e": "放射性衰变; α粒子; β粒子; γ射线; 半衰期; 衰变常数; 放射性碳定年; 衰变链; 核稳定性; 弱相互作用",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/核物理--rutherford-1919-nitrogen": {
+    "t": "卢瑟福 1919：天然 α 打氮怎样放出氢核，并把核组成第一次改写成实验室对象",
+    "e": "1919 年 4 月，欧内斯特·卢瑟福（Ernest Rutherford）在曼彻斯特写完一组四篇连续论文，6 月刊于 Philosophical Magazine 第 37 卷。对象不是卢瑟…",
     "d": "universe-physics"
   },
   "/universe-physics/knowledge-base/热力学--carnot-cycle-and-heat-engines": {
@@ -604,6 +664,11 @@
     "e": "麦克斯韦方程组; 高斯定律; 法拉第感应定律; 安培-麦克斯韦定律; 位移电流; 电磁波; 光速; 场论; 洛伦兹力; 量子电动力学",
     "d": "universe-physics"
   },
+  "/universe-physics/knowledge-base/相对论--pound-rebka-1959": {
+    "t": "庞德–雷布卡 1959：液压多普勒怎样把 22.5 米写成引力频移",
+    "e": "1959 到 1960 年，罗伯特·庞德（Robert V. Pound）与格伦·雷布卡（Glen A. Rebka, Jr.）在哈佛大学杰斐逊物理实验室（Jefferson Physical…",
+    "d": "universe-physics"
+  },
   "/universe-physics/knowledge-base/相对论--克尔转动黑洞": {
     "t": "克尔转动黑洞",
     "e": "克尔度规; 转动黑洞; 能层; 彭罗斯过程; 框架拖拽; 角动量; 极端克尔黑洞; ISCO; 吸积效率; 相对论喷流",
@@ -674,6 +739,11 @@
     "e": "黑洞; 事件视界; 奇点; 史瓦西半径; 霍金辐射; 超大质量黑洞; 恒星坍缩; 吸积盘; 信息悖论; 引力波",
     "d": "universe-physics"
   },
+  "/universe-physics/knowledge-base/粒子物理--anderson-1932-positron": {
+    "t": "安德森 1932：云室里那条反弯的轻径迹",
+    "e": "1932 年 8 月 2 日，卡尔·安德森（Carl D. Anderson）在加州理工学院那台竖直威尔逊云室里，拍到一条穿过 6 毫米铅板的宇宙线径迹。磁场约 15,000 高斯。铅板一侧曲…",
+    "d": "universe-physics"
+  },
   "/universe-physics/knowledge-base/粒子物理--antimatter": {
     "t": "反物质",
     "e": "反物质; 正电子; 反质子; 反氢; 湮灭; CPT对称性; CP破坏; 萨哈罗夫条件; 重子不对称; 狄拉克方程",
@@ -719,6 +789,11 @@
     "e": "标准模型; 费米子; 玻色子; 规范对称性; SU(3)×SU(2)×U(1); 胶子; W玻色子; Z玻色子; 光子; 希格斯玻色子; 三代粒子; 引力缺席",
     "d": "universe-physics"
   },
+  "/universe-physics/knowledge-base/粒子物理--wu-1956-parity": {
+    "t": "吴健雄 1956：极化钴-60 怎样把β半球不对称写成宇称不守恒",
+    "e": "1956 年末到 1957 年 1 月，吴健雄（Chien-Shiung Wu）把哥伦比亚大学的β计数问题，接到华盛顿国家标准局（National Bureau of Standards，今 …",
+    "d": "universe-physics"
+  },
   "/universe-physics/knowledge-base/经典物理--chaos-three-body-problem": {
     "t": "混沌与三体问题",
     "e": "三体问题; 混沌; 蝴蝶效应; 李雅普诺夫指数; 庞加莱截面; 奇怪吸引子; 分形维数; 科克伍德间隙; 确定性不可预测性; 洛伦兹吸引子; KAM定理",
@@ -732,6 +807,11 @@
   "/universe-physics/knowledge-base/经典物理--lagrangian-hamiltonian-mechanics": {
     "t": "拉格朗日与哈密顿力学",
     "e": "拉格朗日量; 哈密顿量; 最小作用量原理; 广义坐标; 广义动量; 正则方程; 泊松括号; 诺特定理; 辛几何; 相空间; 刘维尔定理; 哈密顿-雅可比方程",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/经典物理--michelson-morley-1887": {
+    "t": "迈克尔逊–莫雷 1887：水银石板干涉仪怎样把预期 0.4 条纹写成近零",
+    "e": "1887 年，Albert A. Michelson 与 Edward W. Morley 在克利夫兰凯斯应用科学学院的地下室，把一台干涉仪装上约 1.5 米见方、厚约 0.3 米的石板。整块…",
     "d": "universe-physics"
   },
   "/universe-physics/knowledge-base/经典物理--momentum-conservation-collisions": {
@@ -819,6 +899,21 @@
     "e": "角动量; 转动惯量; 角动量守恒; 旋转对称性; 自旋; 进动; 开普勒定律; 陀螺效应; 量子角动量; 诺特定理",
     "d": "universe-physics"
   },
+  "/universe-physics/knowledge-base/量子物理--born-1926-probability": {
+    "t": "玻恩 1926：碰撞里的波函数怎样被读成概率",
+    "e": "1926 年 6 月 25 日，《物理学杂志》收到 Max Born 一份短稿。标题是《碰撞过程的量子力学》（Zur Quantenmechanik der Stoßvorgänge），刊于第…",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/量子物理--davisson-germer-experiment": {
+    "t": "戴维森–革末：镍单晶怎样把慢电子折成随电压走动的角向峰",
+    "e": "1927 年，Clinton Davisson 与 Lester Germer 在贝尔实验室把一束慢电子打到镍单晶上。法拉第杯绕着靶转动，记下弹性散射电流随出射角怎样变。对象不是波粒二象性总览…",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/量子物理--gp-thomson-electron-diffraction": {
+    "t": "汤姆孙–里德：多晶薄箔怎样把快电子折成底片上随电压收缩的德拜环",
+    "e": "1927 年，George Paget Thomson 与 Alexander Reid 在阿伯丁把一束尽量单能的阴极射线几乎垂直地打进极薄的箔。箔后面约十厘米处放照相底片，板面与箔平行。底片…",
+    "d": "universe-physics"
+  },
   "/universe-physics/knowledge-base/量子物理--identical-particles-statistics": {
     "t": "全同粒子与量子统计",
     "e": "全同粒子; 玻色子; 费米子; 玻色-爱因斯坦统计; 费米-狄拉克统计; 玻色-爱因斯坦凝聚; 超流; 超导; 费米面; 自旋-统计定理",
@@ -852,6 +947,11 @@
   "/universe-physics/knowledge-base/量子物理--schrodinger-equation": {
     "t": "薛定谔方程",
     "e": "薛定谔方程; 哈密顿量; 定态薛定谔方程; 波函数演化; 分离变量; 势垒; 束缚态; 连续态; 量子动力学; 普朗克常数",
+    "d": "universe-physics"
+  },
+  "/universe-physics/knowledge-base/量子物理--stern-gerlach-experiment": {
+    "t": "施特恩–格拉赫：银原子束怎样在不均匀磁场里裂成两条斑",
+    "e": "1921 到 1922 年，Otto Stern 与 Walther Gerlach 在法兰克福把一束银原子送进不均匀磁场，让原子撞在玻璃板上沉积。板上看见的不是一条被抹开的带子，而是两条分立…",
     "d": "universe-physics"
   },
   "/universe-physics/knowledge-base/量子物理--wave-function-probability": {

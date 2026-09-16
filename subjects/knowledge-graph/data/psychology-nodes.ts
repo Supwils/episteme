@@ -1,15 +1,9 @@
-import fs from "node:fs";
 import path from "node:path";
-import matter from "gray-matter";
+import { readContentEntries } from "@/lib/content-article";
+import { getDomainContentDir } from "@/lib/content-paths";
 import type { GraphNode, GraphEdge } from "./types";
 import { PSYCHOLOGY_METHOD_EDGES, PSYCHOLOGY_METHOD_NODES } from "./psychology-methods-nodes";
 import { PSYCHOLOGY_COVERAGE_EDGES, PSYCHOLOGY_COVERAGE_NODES } from "./psychology-coverage";
-
-interface MdxEntry {
-  slug: string;
-  frontmatter: Record<string, unknown>;
-  content: string;
-}
 
 const PHENOMENON_GRAPH_SLUG_OVERRIDES: Record<string, string> = {
   "learned-helplessness": "learned-helplessness-phenomenon",
@@ -17,31 +11,6 @@ const PHENOMENON_GRAPH_SLUG_OVERRIDES: Record<string, string> = {
 
 function phenomenonGraphId(slug: string): string {
   return `psychology:${PHENOMENON_GRAPH_SLUG_OVERRIDES[slug] ?? slug}`;
-}
-
-function findMonorepoRoot(): string {
-  let dir = process.cwd();
-  for (let i = 0; i < 5; i++) {
-    if (fs.existsSync(path.join(dir, "pnpm-workspace.yaml"))) {
-      return dir;
-    }
-    const parent = path.dirname(dir);
-    if (parent === dir) break;
-    dir = parent;
-  }
-  return process.cwd();
-}
-
-function readMdxFiles(dir: string): MdxEntry[] {
-  if (!fs.existsSync(dir)) return [];
-  return fs
-    .readdirSync(dir)
-    .filter((f) => f.endsWith(".mdx"))
-    .map((file) => {
-      const raw = fs.readFileSync(path.join(dir, file), "utf-8");
-      const { data, content } = matter(raw);
-      return { slug: file.replace(/\.mdx$/, ""), frontmatter: data, content };
-    });
 }
 
 function extractDescription(content: string): string {
@@ -74,11 +43,10 @@ function normalizeEdgeKey(a: string, b: string): string {
 }
 
 function buildPsychologyGraph(): { nodes: GraphNode[]; edges: GraphEdge[] } {
-  const root = findMonorepoRoot();
-
-  const theoristsData = readMdxFiles(path.join(root, "content/psychology/theorists"));
-  const experimentsData = readMdxFiles(path.join(root, "content/psychology/experiments"));
-  const phenomenaData = readMdxFiles(path.join(root, "content/psychology/phenomena"));
+  const psychologyDir = getDomainContentDir("psychology");
+  const theoristsData = readContentEntries(path.join(psychologyDir, "theorists"));
+  const experimentsData = readContentEntries(path.join(psychologyDir, "experiments"));
+  const phenomenaData = readContentEntries(path.join(psychologyDir, "phenomena"));
 
   const theoristSlugToId = new Map<string, string>();
   const allSlugs = new Set<string>();

@@ -79,6 +79,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/anthropology/comparison-and-ethics/collaborative-indigenous-archaeology",
       title: "协作与原住民考古",
     },
+    {
+      url: "/linguistics/methods-and-frontiers/language-documentation-ethics",
+      title: "语言记录伦理：谁有权决定一段声音以后还能被怎样使用",
+    },
   ],
   "/anthropology/comparison-and-ethics/sampling-and-absence": [
     {
@@ -88,6 +92,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/anthropology/comparison-and-ethics/excavation-records",
       title: "发掘记录",
+    },
+    {
+      url: "/linguistics/frontier/ancient-dna-language-prehistory",
+      title: "古 DNA 与语言史前史：基因能追踪迁徙，却不能直接读出语言",
     },
     {
       url: "/anthropology/prehistory-and-archaeology/archaeological-dating",
@@ -134,6 +142,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "都市人类学",
     },
     {
+      url: "/education/curriculum-and-teaching/lesson-study-is-professional-knowledge",
+      title: "课例研究是专业知识",
+    },
+    {
+      url: "/education/curriculum-and-teaching/classroom-as-time",
+      title: "课堂是被组织的时间",
+    },
+    {
       url: "/anthropology/comparison-and-ethics/sampling-and-absence",
       title: "取样与缺失",
     },
@@ -142,12 +158,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "人类扩散与化石",
     },
     {
+      url: "/education/curriculum-and-teaching/bilingual-education-is-a-design",
+      title: "双语教育是一种设计",
+    },
+    {
       url: "/anthropology/comparison-and-ethics/fieldnotes-and-representation",
       title: "田野笔记与再现",
     },
     {
       url: "/anthropology/urban-and-heritage/applied-anthropology",
       title: "应用人类学",
+    },
+    {
+      url: "/education/comparison-and-policy/colonial-curriculum-and-language",
+      title: "殖民课程与语言",
     },
   ],
   "/anthropology/frontier/ancient-dna-and-identity-claims": [
@@ -206,6 +230,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "协作与原住民考古",
     },
   ],
+  "/anthropology/material-culture/technology-and-skill": [
+    {
+      url: "/linguistics/writing-systems/script-decipherment",
+      title: "文字释读：未知符号怎样变成可检验的假说",
+    },
+  ],
   "/anthropology/material-culture/things-and-persons": [
     {
       url: "/anthropology/kinship-and-exchange/property-and-persons",
@@ -246,6 +276,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/anthropology/prehistory-and-archaeology/foragers-and-farmers",
       title: "采集者与农人",
+    },
+    {
+      url: "/linguistics/writing-systems/script-decipherment",
+      title: "文字释读：未知符号怎样变成可检验的假说",
     },
   ],
   "/anthropology/prehistory-and-archaeology/collapse-and-resilience": [
@@ -294,6 +328,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/anthropology/comparison-and-ethics/sampling-and-absence",
       title: "取样与缺失",
+    },
+    {
+      url: "/linguistics/writing-systems/script-decipherment",
+      title: "文字释读：未知符号怎样变成可检验的假说",
     },
     {
       url: "/anthropology/culture-and-method/holism-and-context",
@@ -410,6 +448,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/arts/aesthetics/aesthetics-taste-judgment": [
     {
+      url: "/arts/architecture/urban-public-space",
+      title: "城市公共空间：谁能停留、谁被请出去",
+    },
+    {
       url: "/engineering/materials/concrete-engineering",
       title: "混凝土工程：从万神殿穹顶到高性能混凝土",
     },
@@ -488,6 +530,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/arts/aesthetics/design-and-everyday-objects": [
     {
+      url: "/arts/architecture/urban-public-space",
+      title: "城市公共空间：谁能停留、谁被请出去",
+    },
+    {
       url: "/arts/media/textiles-and-fiber-arts",
       title: "纺织与纤维艺术：被降格为「工艺」的那门艺术",
     },
@@ -526,6 +572,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/methods/las-meninas-close-reading",
       title: "《宫娥》细读：谁在画外观看",
+    },
+    {
+      url: "/arts/methods/great-wave-kanagawa-close-reading",
+      title: "《神奈川冲浪里》细读：浪比山高之后还看见什么",
     },
     {
       url: "/anthropology/frontier/museum-restitution-after-2020s",
@@ -618,6 +668,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "博物馆与收藏",
     },
     {
+      url: "/arts/architecture/urban-public-space",
+      title: "城市公共空间：谁能停留、谁被请出去",
+    },
+    {
       url: "/arts/traditions/latin-american-art",
       title: "拉美艺术：从殖民巴洛克到身份的画布",
     },
@@ -656,6 +710,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "摩天楼：风、地震与垂直交通的工程解法",
     },
   ],
+  "/arts/architecture/landscape-and-gardens": [
+    {
+      url: "/arts/architecture/urban-public-space",
+      title: "城市公共空间：谁能停留、谁被请出去",
+    },
+  ],
   "/arts/architecture/sacred-spaces": [
     {
       url: "/arts/traditions/south-asian-sacred-art",
@@ -672,6 +732,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/arts/foundations/color-and-light": [
     {
+      url: "/arts/methods/great-wave-kanagawa-close-reading",
+      title: "《神奈川冲浪里》细读：浪比山高之后还看见什么",
+    },
+    {
+      url: "/philosophy/experiments/inverted-spectrum",
+      title: "倒置光谱：行为与功能同一下的颜色经验对调",
+    },
+    {
       url: "/arts/media/textiles-and-fiber-arts",
       title: "纺织与纤维艺术：被降格为「工艺」的那门艺术",
     },
@@ -680,11 +748,23 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "浮世绘与江户视觉文化：木版上的浮生",
     },
     {
+      url: "/chemistry/milestones/perkin-1856-mauveine",
+      title: "珀金一八五六年的苯胺紫：复活节失败的奎宁凑法与第一种商业合成染料",
+    },
+    {
+      url: "/philosophy/experiments/hume-missing-shade",
+      title: "缺失的蓝色：休谟承认的复制原则例外",
+    },
+    {
       url: "/arts/aesthetics/art-as-progress",
       title: "艺术进步论：一条被艺术自己走废的单行道",
     },
   ],
   "/arts/foundations/composition-balance": [
+    {
+      url: "/arts/methods/great-wave-kanagawa-close-reading",
+      title: "《神奈川冲浪里》细读：浪比山高之后还看见什么",
+    },
     {
       url: "/arts/foundations/proportion-and-harmony",
       title: "比例与和谐：美的数学",
@@ -703,6 +783,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/arts/methods/las-meninas-close-reading",
       title: "《宫娥》细读：谁在画外观看",
     },
+    {
+      url: "/arts/methods/great-wave-kanagawa-close-reading",
+      title: "《神奈川冲浪里》细读：浪比山高之后还看见什么",
+    },
   ],
   "/arts/foundations/proportion-and-harmony": [
     {
@@ -714,6 +798,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/methods/las-meninas-close-reading",
       title: "《宫娥》细读：谁在画外观看",
+    },
+    {
+      url: "/arts/methods/great-wave-kanagawa-close-reading",
+      title: "《神奈川冲浪里》细读：浪比山高之后还看见什么",
+    },
+    {
+      url: "/philosophy/experiments/molyneux-problem",
+      title: "莫利纽克斯问题：初次看见能否分出立方与球",
     },
     {
       url: "/arts/frontier/neuroaesthetics-cultural-variation",
@@ -756,6 +848,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "策展作为论证：展览如何生产艺术史",
     },
     {
+      url: "/human-history/source-analyses/dunhuang-manuscripts-source-analysis",
+      title: "敦煌藏经洞文书史料剖析",
+    },
+    {
       url: "/arts/traditions/african-art-modernity",
       title: "非洲艺术与现代性：从贝宁青铜器到归还之争",
     },
@@ -766,6 +862,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/aesthetics/art-market-and-value",
       title: "艺术市场与价值：杰作的价格是如何被制造出来的",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/language-documentation-ethics",
+      title: "语言记录伦理：谁有权决定一段声音以后还能被怎样使用",
     },
     {
       url: "/linguistics/frontier/language-data-sovereignty",
@@ -866,6 +966,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/arts/media/photography-medium": [
     {
+      url: "/universe-physics/knowledge-base/核物理--blackett-1925-nitrogen",
+      title: "布莱克特 1925：威尔逊云室怎样把氮上的质子分叉拍成径迹",
+    },
+    {
       url: "/arts/media/film-and-moving-image",
       title: "电影与运动影像：静止的画格如何变成运动",
     },
@@ -886,11 +990,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "视觉文化：从广告到表情包",
     },
     {
+      url: "/universe-physics/knowledge-base/原子物理--wilson-1911-cloud-chamber",
+      title: "威尔逊 1911：膨胀怎样把离子变成可见的凝结径迹",
+    },
+    {
       url: "/arts/aesthetics/art-as-progress",
       title: "艺术进步论：一条被艺术自己走废的单行道",
     },
   ],
   "/arts/media/printmaking": [
+    {
+      url: "/arts/methods/great-wave-kanagawa-close-reading",
+      title: "《神奈川冲浪里》细读：浪比山高之后还看见什么",
+    },
     {
       url: "/arts/traditions/japanese-ukiyoe",
       title: "浮世绘与江户视觉文化：木版上的浮生",
@@ -901,11 +1013,23 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/arts/traditions/african-art-modernity",
       title: "非洲艺术与现代性：从贝宁青铜器到归还之争",
     },
+    {
+      url: "/chemistry/milestones/graebe-liebermann-1868-alizarin",
+      title: "格雷贝与利贝曼一八六八年的茜素：蒽而非萘，以及第一种对打天然物的合成媒染染料",
+    },
+    {
+      url: "/chemistry/milestones/perkin-1856-mauveine",
+      title: "珀金一八五六年的苯胺紫：复活节失败的奎宁凑法与第一种商业合成染料",
+    },
   ],
   "/arts/methods/conservation-science": [
     {
       url: "/arts/aesthetics/museums-and-display",
       title: "博物馆与展示的政治：谁的故事挂在墙上",
+    },
+    {
+      url: "/chemistry/milestones/graebe-liebermann-1868-alizarin",
+      title: "格雷贝与利贝曼一八六八年的茜素：蒽而非萘，以及第一种对打天然物的合成媒染染料",
     },
     {
       url: "/arts/methods/provenance-and-attribution",
@@ -954,6 +1078,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "《宫娥》细读：谁在画外观看",
     },
     {
+      url: "/arts/methods/great-wave-kanagawa-close-reading",
+      title: "《神奈川冲浪里》细读：浪比山高之后还看见什么",
+    },
+    {
       url: "/arts/methods/provenance-and-attribution",
       title: "归属与来源研究：一幅画的履历与它的作者之谜",
     },
@@ -998,6 +1126,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/arts/methods/iconography-iconology": [
     {
+      url: "/arts/methods/great-wave-kanagawa-close-reading",
+      title: "《神奈川冲浪里》细读：浪比山高之后还看见什么",
+    },
+    {
       url: "/arts/aesthetics/visual-culture-everyday",
       title: "视觉文化：从广告到表情包",
     },
@@ -1007,6 +1139,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/arts/methods/las-meninas-close-reading": [
+    {
+      url: "/arts/methods/great-wave-kanagawa-close-reading",
+      title: "《神奈川冲浪里》细读：浪比山高之后还看见什么",
+    },
     {
       url: "/arts/methods/curatorial-practice",
       title: "策展作为论证：展览如何生产艺术史",
@@ -1122,6 +1258,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/arts/traditions/japanese-ukiyoe": [
     {
+      url: "/arts/methods/great-wave-kanagawa-close-reading",
+      title: "《神奈川冲浪里》细读：浪比山高之后还看见什么",
+    },
+    {
       url: "/arts/aesthetics/art-as-progress",
       title: "艺术进步论：一条被艺术自己走废的单行道",
     },
@@ -1136,6 +1276,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/figures/lavoisier",
       title: "安托万·拉瓦锡",
+    },
+    {
+      url: "/chemistry/milestones/bronsted-lowry-1923",
+      title: "布朗斯特–劳里 1923：酸给出质子、碱接住质子怎样被写成定义",
     },
     {
       url: "/earth-science/processes/groundwater-aquifers",
@@ -1270,6 +1414,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "奥古斯特·凯库勒",
     },
     {
+      url: "/chemistry/milestones/chargaff-1950-base-ratios",
+      title: "查加夫一九五〇年的碱基比：Experientia 短文里的物种表",
+    },
+    {
+      url: "/chemistry/milestones/fukui-1952-frontier-orbitals",
+      title: "福井 1952：前线电子密度怎样把芳香烃的反应位置写成轨道指标",
+    },
+    {
+      url: "/chemistry/milestones/graebe-liebermann-1868-alizarin",
+      title: "格雷贝与利贝曼一八六八年的茜素：蒽而非萘，以及第一种对打天然物的合成媒染染料",
+    },
+    {
       url: "/chemistry/milestones/synthetic-dyes-industry",
       title: "合成染料工业（1856）",
     },
@@ -1290,8 +1446,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "交叉偶联反应",
     },
     {
+      url: "/chemistry/milestones/kekule-1865-benzene",
+      title: "凯库勒一八六五年的苯环：公报上的六元连通式",
+    },
+    {
       url: "/chemistry/figures/linus-pauling",
       title: "莱纳斯·鲍林",
+    },
+    {
+      url: "/chemistry/milestones/roothaan-1951-lcao-scf",
+      title: "罗特汉 1951：LCAO-SCF 怎样把哈特里–福克写成矩阵本征值问题",
+    },
+    {
+      url: "/chemistry/milestones/mulliken-1932-molecular-orbitals",
+      title: "马利肯 1932：分子轨道怎样把多原子分子的价写成遍布全分子的单电子函数",
+    },
+    {
+      url: "/chemistry/milestones/perkin-1856-mauveine",
+      title: "珀金一八五六年的苯胺紫：复活节失败的奎宁凑法与第一种商业合成染料",
     },
     {
       url: "/mathematics/theorems/stokes-theorem",
@@ -1301,8 +1473,52 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/chemistry/substances/carbon-allotropes",
       title: "碳的同素异形体",
     },
+    {
+      url: "/chemistry/milestones/huckel-1931-benzene-mo",
+      title: "休克尔 1931：苯问题的量子贡献怎样把六只 π 电子写成分子轨道",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1935",
+      title: "Hammett 1935：取代基怎样把反应速率与平衡常数写成一条直线",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1937",
+      title: "Hammett 1937：苯衍生物的取代基常数怎样被收成一张可迁移的表",
+    },
+    {
+      url: "/chemistry/milestones/hammond-1955-postulate",
+      title: "Hammond 1955：邻近物种的能量接近怎样被用来猜过渡态的几何",
+    },
+    {
+      url: "/chemistry/milestones/taft-1952-lfer",
+      title: "Taft 1952：脂肪族与邻位酯的酯化水解速率怎样把极性与空间切开",
+    },
+    {
+      url: "/chemistry/milestones/woodward-hoffmann-1965",
+      title: "Woodward–Hoffmann 1965：电环化的立体化学怎样被写成 HOMO 的对称性",
+    },
   ],
   "/chemistry/concepts/atomic-structure": [
+    {
+      url: "/chemistry/milestones/aston-1919-mass-spectrograph",
+      title: "阿斯顿 1919：质谱仪上氖的两条整数质量怎样把同位素写成实验室对象",
+    },
+    {
+      url: "/chemistry/milestones/bunsen-kirchhoff-1860-cesium",
+      title: "本生与基尔霍夫一八六〇年的铯：棱镜分光镜怎样用天蓝色谱线认出第一种新元素",
+    },
+    {
+      url: "/chemistry/milestones/born-oppenheimer-1927",
+      title: "玻恩–奥本海默 1927：分子怎样把核的慢运动从电子的快运动里拆开",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--blackett-1925-nitrogen",
+      title: "布莱克特 1925：威尔逊云室怎样把氮上的质子分叉拍成径迹",
+    },
+    {
+      url: "/chemistry/milestones/faraday-electrolysis-laws",
+      title: "法拉第电解定律：电荷怎样在电极上被称成质量",
+    },
     {
       url: "/chemistry/milestones/discovery-of-radioactivity",
       title: "放射性的发现（1896）",
@@ -1336,20 +1552,64 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "价键理论与分子轨道理论",
     },
     {
+      url: "/chemistry/milestones/curie-1898-polonium-radium",
+      title: "居里 1898：沥青铀矿里比铀更活的部分怎样被写成钋与镭",
+    },
+    {
+      url: "/chemistry/milestones/raman-1928-scattering",
+      title: "拉曼一九二八年的散射：汞弧怎样把分子振动写成移位谱线",
+    },
+    {
       url: "/chemistry/figures/linus-pauling",
       title: "莱纳斯·鲍林",
+    },
+    {
+      url: "/chemistry/milestones/langmuir-1919-octet",
+      title: "朗缪尔 1919：电子怎样被排进立方原子与八隅体",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--rutherford-1911-gold-foil",
+      title: "卢瑟福 1911：金箔上的大角 α 怎样把正电荷挤进核",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--rutherford-1919-nitrogen",
+      title: "卢瑟福 1919：天然 α 打氮怎样放出氢核，并把核组成第一次改写成实验室对象",
     },
     {
       url: "/chemistry/milestones/mendeleev-periodic-law",
       title: "门捷列夫周期律（1869）",
     },
     {
+      url: "/universe-physics/knowledge-base/原子物理--密立根油滴实验",
+      title: "密立根油滴：基本电荷怎样在悬浮的油雾里被一份一份称出来",
+    },
+    {
       url: "/chemistry/concepts/the-mole",
       title: "摩尔与物质的量",
     },
     {
+      url: "/chemistry/milestones/moseley-1913-xray-atomic-number",
+      title: "莫塞莱一九一三年的高频率谱：特征 X 射线怎样把原子序数写成直线",
+    },
+    {
       url: "/universe-physics/knowledge-base/原子物理--hydrogen-atom-quantum-theory",
       title: "氢原子的量子理论",
+    },
+    {
+      url: "/chemistry/milestones/ramsay-rayleigh-1894-argon",
+      title: "瑞利与拉姆齐一八九四年的氩：两份氮的密度差怎样逼出一种不进化合的气体",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--stern-gerlach-experiment",
+      title: "施特恩–格拉赫：银原子束怎样在不均匀磁场里裂成两条斑",
+    },
+    {
+      url: "/chemistry/milestones/soddy-1913-isotope",
+      title: "索迪 1913：放射链上化学无法分开的物种怎样被写成同位素",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--thomson-1897-cathode-ray",
+      title: "汤姆孙 1897：卡文迪许阴极射线怎样把 e/m 读成远大于电解离子",
     },
     {
       url: "/chemistry/substances/noble-gases",
@@ -1358,6 +1618,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学观测--星系际介质",
       title: "星系际介质",
+    },
+    {
+      url: "/chemistry/milestones/urey-1931-deuterium",
+      title: "尤里一九三一年的氘：液氢残渣原子光谱里的质量二同位素",
     },
     {
       url: "/chemistry/concepts/periodic-table",
@@ -1502,8 +1766,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/chemistry/concepts/bonding-theory": [
     {
+      url: "/chemistry/milestones/eyring-1935-absolute-rate",
+      title: "艾林 1935：活化络合物怎样把反应速率写成越过鞍点的统计频率",
+    },
+    {
+      url: "/chemistry/milestones/pauling-1931-chemical-bond",
+      title: "鲍林 1931：杂化、共振与顺磁判据怎样把化学键写成化学家的语言",
+    },
+    {
+      url: "/chemistry/milestones/born-oppenheimer-1927",
+      title: "玻恩–奥本海默 1927：分子怎样把核的慢运动从电子的快运动里拆开",
+    },
+    {
       url: "/universe-physics/knowledge-base/电磁学--dielectrics-and-polarization",
       title: "电介质与电极化",
+    },
+    {
+      url: "/chemistry/milestones/vant-hoff-1874-tetrahedron",
+      title: "范霍夫一八七四年的四面体碳：荷兰小册、空间结构式与不对称碳",
+    },
+    {
+      url: "/chemistry/milestones/fukui-1952-frontier-orbitals",
+      title: "福井 1952：前线电子密度怎样把芳香烃的反应位置写成轨道指标",
+    },
+    {
+      url: "/chemistry/milestones/heitler-london-1927",
+      title: "海特勒–伦敦 1927：交换怎样把氢分子写成同极键",
     },
     {
       url: "/chemistry/concepts/chemical-bond",
@@ -1518,8 +1806,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "金属与合金",
     },
     {
+      url: "/chemistry/milestones/raman-1928-scattering",
+      title: "拉曼一九二八年的散射：汞弧怎样把分子振动写成移位谱线",
+    },
+    {
       url: "/chemistry/figures/linus-pauling",
       title: "莱纳斯·鲍林",
+    },
+    {
+      url: "/chemistry/milestones/langmuir-1919-octet",
+      title: "朗缪尔 1919：电子怎样被排进立方原子与八隅体",
+    },
+    {
+      url: "/chemistry/milestones/lewis-1916-shared-pair",
+      title: "路易斯 1916：共享电子对怎样被写成化学键",
+    },
+    {
+      url: "/chemistry/milestones/roothaan-1951-lcao-scf",
+      title: "罗特汉 1951：LCAO-SCF 怎样把哈特里–福克写成矩阵本征值问题",
+    },
+    {
+      url: "/chemistry/milestones/mulliken-1932-molecular-orbitals",
+      title: "马利肯 1932：分子轨道怎样把多原子分子的价写成遍布全分子的单电子函数",
     },
     {
       url: "/universe-physics/knowledge-base/量子物理--pauli-exclusion-principle",
@@ -1530,8 +1838,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "碳的同素异形体",
     },
     {
+      url: "/chemistry/milestones/werner-1893-coordination",
+      title: "维尔纳 1893：主价、副价与可电离氯怎样把钴氨合物写成八面体",
+    },
+    {
       url: "/chemistry/substances/noble-gases",
       title: "稀有气体",
+    },
+    {
+      url: "/chemistry/milestones/huckel-1931-benzene-mo",
+      title: "休克尔 1931：苯问题的量子贡献怎样把六只 π 电子写成分子轨道",
     },
     {
       url: "/chemistry/concepts/organometallic-chemistry",
@@ -1540,6 +1856,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/atomic-structure",
       title: "原子结构",
+    },
+    {
+      url: "/chemistry/milestones/evans-polanyi-1935",
+      title: "Evans–Polanyi 1935：过渡态方法怎样被用来写溶液里的反应速率",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1935",
+      title: "Hammett 1935：取代基怎样把反应速率与平衡常数写成一条直线",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1937",
+      title: "Hammett 1937：苯衍生物的取代基常数怎样被收成一张可迁移的表",
+    },
+    {
+      url: "/chemistry/milestones/marcus-1956-electron-transfer",
+      title: "Marcus 1956：外层电子转移怎样把溶剂极化与内层坐标的重组写成越过",
+    },
+    {
+      url: "/chemistry/milestones/woodward-hoffmann-1965",
+      title: "Woodward–Hoffmann 1965：电环化的立体化学怎样被写成 HOMO 的对称性",
     },
   ],
   "/chemistry/concepts/buffer-systems": [
@@ -1562,12 +1898,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/chemistry/concepts/chemical-bond": [
     {
+      url: "/chemistry/milestones/eyring-1935-absolute-rate",
+      title: "艾林 1935：活化络合物怎样把反应速率写成越过鞍点的统计频率",
+    },
+    {
       url: "/universe-physics/knowledge-base/电磁学--安培定律与磁场",
       title: "安培定律与磁场",
     },
     {
+      url: "/chemistry/milestones/pauling-1931-chemical-bond",
+      title: "鲍林 1931：杂化、共振与顺磁判据怎样把化学键写成化学家的语言",
+    },
+    {
+      url: "/chemistry/milestones/born-oppenheimer-1927",
+      title: "玻恩–奥本海默 1927：分子怎样把核的慢运动从电子的快运动里拆开",
+    },
+    {
       url: "/chemistry/concepts/intermolecular-forces",
       title: "分子间作用力",
+    },
+    {
+      url: "/chemistry/milestones/heitler-london-1927",
+      title: "海特勒–伦敦 1927：交换怎样把氢分子写成同极键",
     },
     {
       url: "/earth-science/processes/volcanism",
@@ -1602,6 +1954,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "莱纳斯·鲍林",
     },
     {
+      url: "/chemistry/milestones/langmuir-1919-octet",
+      title: "朗缪尔 1919：电子怎样被排进立方原子与八隅体",
+    },
+    {
+      url: "/chemistry/milestones/lewis-1916-shared-pair",
+      title: "路易斯 1916：共享电子对怎样被写成化学键",
+    },
+    {
+      url: "/chemistry/milestones/mulliken-1932-molecular-orbitals",
+      title: "马利肯 1932：分子轨道怎样把多原子分子的价写成遍布全分子的单电子函数",
+    },
+    {
       url: "/universe-physics/knowledge-base/量子物理--pauli-exclusion-principle",
       title: "泡利不相容原理",
     },
@@ -1630,8 +1994,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "万有引力",
     },
     {
+      url: "/chemistry/milestones/werner-1893-coordination",
+      title: "维尔纳 1893：主价、副价与可电离氯怎样把钴氨合物写成八面体",
+    },
+    {
       url: "/chemistry/substances/noble-gases",
       title: "稀有气体",
+    },
+    {
+      url: "/chemistry/milestones/huckel-1931-benzene-mo",
+      title: "休克尔 1931：苯问题的量子贡献怎样把六只 π 电子写成分子轨道",
     },
     {
       url: "/universe-physics/knowledge-base/量子物理--schrodinger-equation",
@@ -1655,6 +2027,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/chemistry/concepts/chemical-equilibrium": [
+    {
+      url: "/chemistry/milestones/arrhenius-1887-electrolytic-dissociation",
+      title: "阿伦尼乌斯一八八七年的电解离解：离子在通电之前已经待在溶液里",
+    },
     {
       url: "/chemistry/substances/ammonia",
       title: "氨",
@@ -1714,6 +2090,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学观测--莱曼alpha森林",
       title: "莱曼α森林",
+    },
+    {
+      url: "/chemistry/milestones/miller-urey-experiment",
+      title: "米勒–尤里实验：火花、还原气体与氨基酸",
     },
     {
       url: "/chemistry/concepts/the-mole",
@@ -1853,8 +2233,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/cosmology/knowledge-base/致密天体--neutron-star-interior-eos",
       title: "中子星内部与状态方程",
     },
+    {
+      url: "/chemistry/milestones/evans-polanyi-1935",
+      title: "Evans–Polanyi 1935：过渡态方法怎样被用来写溶液里的反应速率",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1935",
+      title: "Hammett 1935：取代基怎样把反应速率与平衡常数写成一条直线",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1937",
+      title: "Hammett 1937：苯衍生物的取代基常数怎样被收成一张可迁移的表",
+    },
   ],
   "/chemistry/concepts/chirality": [
+    {
+      url: "/chemistry/milestones/pasteur-1848-tartaric",
+      title: "巴斯德一八四八年的酒石酸钠铵盐：半面晶面、镊子和相反的旋光",
+    },
     {
       url: "/chemistry/substances/proteins-chemistry",
       title: "蛋白质的化学",
@@ -1862,6 +2258,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/events/thalidomide-tragedy",
       title: "反应停悲剧（1957）",
+    },
+    {
+      url: "/chemistry/milestones/vant-hoff-1874-tetrahedron",
+      title: "范霍夫一八七四年的四面体碳：荷兰小册、空间结构式与不对称碳",
     },
     {
       url: "/chemistry/concepts/functional-groups",
@@ -1908,6 +2308,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "同分异构",
     },
     {
+      url: "/universe-physics/knowledge-base/粒子物理--wu-1956-parity",
+      title: "吴健雄 1956：极化钴-60 怎样把β半球不对称写成宇称不守恒",
+    },
+    {
       url: "/cosmology/knowledge-base/宇宙学基础--物质反物质不对称与重子生成",
       title: "物质-反物质不对称与重子生成",
     },
@@ -1944,6 +2348,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/methods/conservation-science",
       title: "保护科学：让作品活过时间",
+    },
+    {
+      url: "/chemistry/milestones/chargaff-1950-base-ratios",
+      title: "查加夫一九五〇年的碱基比：Experientia 短文里的物种表",
     },
     {
       url: "/chemistry/concepts/electroanalytical-chemistry",
@@ -2070,6 +2478,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "酸与碱",
     },
     {
+      url: "/chemistry/milestones/werner-1893-coordination",
+      title: "维尔纳 1893：主价、副价与可电离氯怎样把钴氨合物写成八面体",
+    },
+    {
       url: "/medicine/concepts/hematology",
       title: "血液学",
     },
@@ -2079,6 +2491,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/chemistry/concepts/electroanalytical-chemistry": [
+    {
+      url: "/chemistry/milestones/arrhenius-1887-electrolytic-dissociation",
+      title: "阿伦尼乌斯一八八七年的电解离解：离子在通电之前已经待在溶液里",
+    },
+    {
+      url: "/chemistry/milestones/faraday-electrolysis-laws",
+      title: "法拉第电解定律：电荷怎样在电极上被称成质量",
+    },
     {
       url: "/chemistry/figures/fritz-haber",
       title: "弗里茨·哈伯",
@@ -2146,6 +2566,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "氢基直接还原铁：绿色钢铁卡在反应炉外的系统工程",
     },
     {
+      url: "/engineering/frontier/solid-state-battery-manufacturing",
+      title: "全固态电池制造：去掉可燃电解液之后，失效为何没有消失",
+    },
+    {
       url: "/mathematics/theorems/divergence-theorem",
       title: "散度定理",
     },
@@ -2166,11 +2590,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "氧化还原反应",
     },
     {
+      url: "/engineering/frontiers/silver-bridge-1967",
+      title: "银桥：销孔里那条看不见的裂纹，把北链写断",
+    },
+    {
       url: "/chemistry/figures/berzelius",
       title: "永斯·贝采利乌斯",
     },
   ],
   "/chemistry/concepts/functional-groups": [
+    {
+      url: "/chemistry/milestones/pasteur-1848-tartaric",
+      title: "巴斯德一八四八年的酒石酸钠铵盐：半面晶面、镊子和相反的旋光",
+    },
     {
       url: "/chemistry/substances/proteins-chemistry",
       title: "蛋白质的化学",
@@ -2184,6 +2616,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "价键理论与分子轨道理论",
     },
     {
+      url: "/chemistry/milestones/lewis-1916-shared-pair",
+      title: "路易斯 1916：共享电子对怎样被写成化学键",
+    },
+    {
       url: "/chemistry/figures/robert-woodward",
       title: "罗伯特·伍德沃德",
     },
@@ -2194,6 +2630,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/methods/retrosynthesis-and-reaction-optimization",
       title: "逆合成与反应优化：把目标分子变成可执行路线",
+    },
+    {
+      url: "/chemistry/milestones/perkin-1856-mauveine",
+      title: "珀金一八五六年的苯胺紫：复活节失败的奎宁凑法与第一种商业合成染料",
+    },
+    {
+      url: "/chemistry/milestones/staudinger-1920-macromolecules",
+      title: "施陶丁格 1920：高分子怎样被写成共价长链",
     },
     {
       url: "/chemistry/substances/carbohydrates-and-lipids",
@@ -2224,6 +2668,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/respiratory-system",
       title: "呼吸系统",
+    },
+    {
+      url: "/chemistry/milestones/karlsruhe-cannizzaro-atomic-weights",
+      title: "卡尔斯鲁厄 1860：坎尼扎罗小册子怎样把原子量变成公共算法",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--临界密度与宇宙几何",
@@ -2276,8 +2724,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "表面张力与毛细现象",
     },
     {
+      url: "/chemistry/milestones/chargaff-1950-base-ratios",
+      title: "查加夫一九五〇年的碱基比：Experientia 短文里的物种表",
+    },
+    {
       url: "/chemistry/substances/proteins-chemistry",
       title: "蛋白质的化学",
+    },
+    {
+      url: "/chemistry/milestones/debye-huckel-1923",
+      title: "德拜–休克尔 1923：离子氛怎样把强电解质的电导亏损改记成远程静电",
     },
     {
       url: "/chemistry/reactions/diels-alder-reaction",
@@ -2354,12 +2810,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/chemistry/concepts/isomerism": [
     {
+      url: "/chemistry/milestones/pasteur-1848-tartaric",
+      title: "巴斯德一八四八年的酒石酸钠铵盐：半面晶面、镊子和相反的旋光",
+    },
+    {
       url: "/medicine/events/thalidomide-tragedy",
       title: "反应停悲剧（1957）",
     },
     {
+      url: "/chemistry/milestones/vant-hoff-1874-tetrahedron",
+      title: "范霍夫一八七四年的四面体碳：荷兰小册、空间结构式与不对称碳",
+    },
+    {
       url: "/chemistry/concepts/photochemistry",
       title: "光化学",
+    },
+    {
+      url: "/chemistry/milestones/kekule-1865-benzene",
+      title: "凯库勒一八六五年的苯环：公报上的六元连通式",
     },
     {
       url: "/chemistry/methods/retrosynthesis-and-reaction-optimization",
@@ -2370,6 +2838,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "手性与对映异构",
     },
     {
+      url: "/chemistry/milestones/werner-1893-coordination",
+      title: "维尔纳 1893：主价、副价与可电离氯怎样把钴氨合物写成八面体",
+    },
+    {
+      url: "/chemistry/milestones/wohler-urea-synthesis",
+      title: "维勒的尿素合成：氰酸铵怎样重排成可鉴定的晶体",
+    },
+    {
       url: "/chemistry/concepts/mass-spectrometry",
       title: "质谱法",
     },
@@ -2377,8 +2853,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/chemistry/reactions/sn1-sn2-nucleophilic-substitution",
       title: "SN1 与 SN2 亲核取代",
     },
+    {
+      url: "/chemistry/milestones/woodward-hoffmann-1965",
+      title: "Woodward–Hoffmann 1965：电环化的立体化学怎样被写成 HOMO 的对称性",
+    },
   ],
   "/chemistry/concepts/mass-spectrometry": [
+    {
+      url: "/chemistry/milestones/aston-1919-mass-spectrograph",
+      title: "阿斯顿 1919：质谱仪上氖的两条整数质量怎样把同位素写成实验室对象",
+    },
     {
       url: "/cosmology/knowledge-base/恒星物理--white-dwarfs",
       title: "白矮星",
@@ -2432,6 +2916,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: '销毁"永久化学品"：PFAS 处理的技术竞赛与监管摇摆',
     },
     {
+      url: "/chemistry/milestones/urey-1931-deuterium",
+      title: "尤里一九三一年的氘：液氢残渣原子光谱里的质量二同位素",
+    },
+    {
       url: "/chemistry/methods/nmr-spectroscopy-structure-elucidation",
       title: "NMR：从核自旋到分子结构推断",
     },
@@ -2472,6 +2960,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/coordination-chemistry",
       title: "配位化学",
+    },
+    {
+      url: "/chemistry/milestones/perkin-1856-mauveine",
+      title: "珀金一八五六年的苯胺紫：复活节失败的奎宁凑法与第一种商业合成染料",
     },
     {
       url: "/medicine/concepts/pharmacology",
@@ -2658,12 +3150,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: '阿秒物理：实时"拍摄"电子运动',
     },
     {
+      url: "/chemistry/milestones/eyring-1935-absolute-rate",
+      title: "艾林 1935：活化络合物怎样把反应速率写成越过鞍点的统计频率",
+    },
+    {
       url: "/arts/media/printmaking",
       title: "版画与复制技术",
     },
     {
       url: "/chemistry/substances/semiconductors-materials",
       title: "半导体材料",
+    },
+    {
+      url: "/chemistry/milestones/born-oppenheimer-1927",
+      title: "玻恩–奥本海默 1927：分子怎样把核的慢运动从电子的快运动里拆开",
     },
     {
       url: "/engineering/frontier/perovskite-silicon-tandem-scale-up",
@@ -2674,8 +3174,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "光合作用",
     },
     {
+      url: "/chemistry/milestones/raman-1928-scattering",
+      title: "拉曼一九二八年的散射：汞弧怎样把分子振动写成移位谱线",
+    },
+    {
       url: "/chemistry/figures/robert-woodward",
       title: "罗伯特·伍德沃德",
+    },
+    {
+      url: "/chemistry/milestones/miller-urey-experiment",
+      title: "米勒–尤里实验：火花、还原气体与氨基酸",
     },
     {
       url: "/cosmology/knowledge-base/系外行星--热木星",
@@ -2692,6 +3200,30 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/frontier/cosmic-reionization",
       title: '宇宙再电离与第一代恒星：JWST 正在逼近的"宇宙黎明"',
+    },
+    {
+      url: "/chemistry/milestones/evans-polanyi-1935",
+      title: "Evans–Polanyi 1935：过渡态方法怎样被用来写溶液里的反应速率",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1935",
+      title: "Hammett 1935：取代基怎样把反应速率与平衡常数写成一条直线",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1937",
+      title: "Hammett 1937：苯衍生物的取代基常数怎样被收成一张可迁移的表",
+    },
+    {
+      url: "/chemistry/milestones/marcus-1956-electron-transfer",
+      title: "Marcus 1956：外层电子转移怎样把溶剂极化与内层坐标的重组写成越过",
+    },
+    {
+      url: "/chemistry/milestones/rowland-molina-ozone-cfcs",
+      title: "Rowland 与 Molina：平流层里的氯循环（1974）",
+    },
+    {
+      url: "/chemistry/milestones/woodward-hoffmann-1965",
+      title: "Woodward–Hoffmann 1965：电环化的立体化学怎样被写成 HOMO 的对称性",
     },
   ],
   "/chemistry/concepts/polymer-chemistry": [
@@ -2888,8 +3420,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "主序星",
     },
     {
+      url: "/chemistry/milestones/evans-polanyi-1935",
+      title: "Evans–Polanyi 1935：过渡态方法怎样被用来写溶液里的反应速率",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1935",
+      title: "Hammett 1935：取代基怎样把反应速率与平衡常数写成一条直线",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1937",
+      title: "Hammett 1937：苯衍生物的取代基常数怎样被收成一张可迁移的表",
+    },
+    {
+      url: "/chemistry/milestones/hammond-1955-postulate",
+      title: "Hammond 1955：邻近物种的能量接近怎样被用来猜过渡态的几何",
+    },
+    {
+      url: "/chemistry/milestones/marcus-1956-electron-transfer",
+      title: "Marcus 1956：外层电子转移怎样把溶剂极化与内层坐标的重组写成越过",
+    },
+    {
       url: "/chemistry/reactions/sn1-sn2-nucleophilic-substitution",
       title: "SN1 与 SN2 亲核取代",
+    },
+    {
+      url: "/chemistry/milestones/taft-1952-lfer",
+      title: "Taft 1952：脂肪族与邻位酯的酯化水解速率怎样把极性与空间切开",
     },
   ],
   "/chemistry/concepts/reaction-mechanisms": [
@@ -2926,6 +3482,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "有机合成",
     },
     {
+      url: "/chemistry/milestones/hammond-1955-postulate",
+      title: "Hammond 1955：邻近物种的能量接近怎样被用来猜过渡态的几何",
+    },
+    {
       url: "/chemistry/reactions/sn1-sn2-nucleophilic-substitution",
       title: "SN1 与 SN2 亲核取代",
     },
@@ -2950,6 +3510,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/生态系统--冻土苔原",
       title: "冻土苔原：沉睡的碳库与气候定时炸弹",
+    },
+    {
+      url: "/chemistry/milestones/faraday-electrolysis-laws",
+      title: "法拉第电解定律：电荷怎样在电极上被称成质量",
     },
     {
       url: "/earth-science/processes/weathering-soil",
@@ -3084,12 +3648,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "保护科学：让作品活过时间",
     },
     {
+      url: "/chemistry/milestones/bunsen-kirchhoff-1860-cesium",
+      title: "本生与基尔霍夫一八六〇年的铯：棱镜分光镜怎样用天蓝色谱线认出第一种新元素",
+    },
+    {
       url: "/mathematics/concepts/representation-theory",
       title: "表示论",
     },
     {
       url: "/earth-science/pioneers/charles-keeling",
       title: "查尔斯·基林",
+    },
+    {
+      url: "/chemistry/milestones/chargaff-1950-base-ratios",
+      title: "查加夫一九五〇年的碱基比：Experientia 短文里的物种表",
     },
     {
       url: "/universe-physics/knowledge-base/天体物理--超新星与重元素起源",
@@ -3176,6 +3748,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "聚合水与病态科学（1962—1973）",
     },
     {
+      url: "/chemistry/milestones/raman-1928-scattering",
+      title: "拉曼一九二八年的散射：汞弧怎样把分子振动写成移位谱线",
+    },
+    {
       url: "/mathematics/theorems/riemann-hypothesis",
       title: "黎曼猜想",
     },
@@ -3244,6 +3820,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "引力红移与引力时间膨胀",
     },
     {
+      url: "/chemistry/milestones/urey-1931-deuterium",
+      title: "尤里一九三一年的氘：液氢残渣原子光谱里的质量二同位素",
+    },
+    {
       url: "/earth-science/pioneers/eunice-foote",
       title: "尤妮斯·富特",
     },
@@ -3302,6 +3882,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "摩擦与耗散",
     },
     {
+      url: "/chemistry/milestones/staudinger-1920-macromolecules",
+      title: "施陶丁格 1920：高分子怎样被写成共价长链",
+    },
+    {
       url: "/cosmology/knowledge-base/天体生物学--exoplanet-atmosphere",
       title: "系外行星大气探测",
     },
@@ -3320,8 +3904,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/chemistry/concepts/the-mole": [
     {
+      url: "/chemistry/milestones/arrhenius-1887-electrolytic-dissociation",
+      title: "阿伦尼乌斯一八八七年的电解离解：离子在通电之前已经待在溶液里",
+    },
+    {
+      url: "/chemistry/milestones/aston-1919-mass-spectrograph",
+      title: "阿斯顿 1919：质谱仪上氖的两条整数质量怎样把同位素写成实验室对象",
+    },
+    {
       url: "/chemistry/milestones/daltons-atomic-theory",
       title: "道尔顿原子论（1808）",
+    },
+    {
+      url: "/chemistry/milestones/faraday-electrolysis-laws",
+      title: "法拉第电解定律：电荷怎样在电极上被称成质量",
     },
     {
       url: "/chemistry/concepts/analytical-titration",
@@ -3332,8 +3928,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "缓冲体系",
     },
     {
+      url: "/chemistry/milestones/karlsruhe-cannizzaro-atomic-weights",
+      title: "卡尔斯鲁厄 1860：坎尼扎罗小册子怎样把原子量变成公共算法",
+    },
+    {
       url: "/chemistry/figures/michael-faraday",
       title: "迈克尔·法拉第",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--密立根油滴实验",
+      title: "密立根油滴：基本电荷怎样在悬浮的油雾里被一份一份称出来",
+    },
+    {
+      url: "/chemistry/milestones/urey-1931-deuterium",
+      title: "尤里一九三一年的氘：液氢残渣原子光谱里的质量二同位素",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学观测--宇宙距离阶梯",
@@ -3404,6 +4012,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "同分异构",
     },
     {
+      url: "/chemistry/milestones/wohler-urea-synthesis",
+      title: "维勒的尿素合成：氰酸铵怎样重排成可鉴定的晶体",
+    },
+    {
       url: "/chemistry/figures/dalton",
       title: "约翰·道尔顿",
     },
@@ -3427,6 +4039,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/chemistry/figures/dorothy-hodgkin": [
+    {
+      url: "/medicine/events/fleming-1928-penicillin-plate",
+      title: "弗莱明青霉素皿：1928 年圣玛丽医院的污染培养皿与 1929 年报告",
+    },
     {
       url: "/chemistry/figures/frederick-sanger",
       title: "弗雷德里克·桑格",
@@ -3474,11 +4090,55 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/chemistry/figures/gilbert-lewis": [
     {
+      url: "/chemistry/milestones/bronsted-lowry-1923",
+      title: "布朗斯特–劳里 1923：酸给出质子、碱接住质子怎样被写成定义",
+    },
+    {
+      url: "/chemistry/milestones/debye-huckel-1923",
+      title: "德拜–休克尔 1923：离子氛怎样把强电解质的电导亏损改记成远程静电",
+    },
+    {
+      url: "/chemistry/milestones/heitler-london-1927",
+      title: "海特勒–伦敦 1927：交换怎样把氢分子写成同极键",
+    },
+    {
+      url: "/chemistry/milestones/langmuir-1919-octet",
+      title: "朗缪尔 1919：电子怎样被排进立方原子与八隅体",
+    },
+    {
+      url: "/chemistry/milestones/lewis-1916-shared-pair",
+      title: "路易斯 1916：共享电子对怎样被写成化学键",
+    },
+    {
+      url: "/chemistry/milestones/staudinger-1920-macromolecules",
+      title: "施陶丁格 1920：高分子怎样被写成共价长链",
+    },
+    {
       url: "/chemistry/concepts/acids-and-bases",
       title: "酸与碱",
     },
+    {
+      url: "/chemistry/milestones/urey-1931-deuterium",
+      title: "尤里一九三一年的氘：液氢残渣原子光谱里的质量二同位素",
+    },
   ],
   "/chemistry/figures/kekule": [
+    {
+      url: "/chemistry/milestones/pauling-1931-chemical-bond",
+      title: "鲍林 1931：杂化、共振与顺磁判据怎样把化学键写成化学家的语言",
+    },
+    {
+      url: "/chemistry/milestones/vant-hoff-1874-tetrahedron",
+      title: "范霍夫一八七四年的四面体碳：荷兰小册、空间结构式与不对称碳",
+    },
+    {
+      url: "/chemistry/milestones/graebe-liebermann-1868-alizarin",
+      title: "格雷贝与利贝曼一八六八年的茜素：蒽而非萘，以及第一种对打天然物的合成媒染染料",
+    },
+    {
+      url: "/chemistry/milestones/heitler-london-1927",
+      title: "海特勒–伦敦 1927：交换怎样把氢分子写成同极键",
+    },
     {
       url: "/chemistry/milestones/synthetic-dyes-industry",
       title: "合成染料工业（1856）",
@@ -3488,8 +4148,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "化学键",
     },
     {
+      url: "/chemistry/milestones/kekule-1865-benzene",
+      title: "凯库勒一八六五年的苯环：公报上的六元连通式",
+    },
+    {
       url: "/chemistry/figures/linus-pauling",
       title: "莱纳斯·鲍林",
+    },
+    {
+      url: "/chemistry/milestones/langmuir-1919-octet",
+      title: "朗缪尔 1919：电子怎样被排进立方原子与八隅体",
+    },
+    {
+      url: "/chemistry/milestones/perkin-1856-mauveine",
+      title: "珀金一八五六年的苯胺紫：复活节失败的奎宁凑法与第一种商业合成染料",
+    },
+    {
+      url: "/chemistry/milestones/staudinger-1920-macromolecules",
+      title: "施陶丁格 1920：高分子怎样被写成共价长链",
+    },
+    {
+      url: "/chemistry/milestones/huckel-1931-benzene-mo",
+      title: "休克尔 1931：苯问题的量子贡献怎样把六只 π 电子写成分子轨道",
     },
     {
       url: "/chemistry/figures/berzelius",
@@ -3524,6 +4204,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "奥古斯特·凯库勒",
     },
     {
+      url: "/chemistry/milestones/pauling-1931-chemical-bond",
+      title: "鲍林 1931：杂化、共振与顺磁判据怎样把化学键写成化学家的语言",
+    },
+    {
+      url: "/chemistry/milestones/heitler-london-1927",
+      title: "海特勒–伦敦 1927：交换怎样把氢分子写成同极键",
+    },
+    {
       url: "/chemistry/concepts/chemical-bond",
       title: "化学键",
     },
@@ -3532,8 +4220,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "吉尔伯特·路易斯",
     },
     {
+      url: "/chemistry/milestones/langmuir-1919-octet",
+      title: "朗缪尔 1919：电子怎样被排进立方原子与八隅体",
+    },
+    {
       url: "/chemistry/substances/carbon-allotropes",
       title: "碳的同素异形体",
+    },
+    {
+      url: "/chemistry/milestones/werner-1893-coordination",
+      title: "维尔纳 1893：主价、副价与可电离氯怎样把钴氨合物写成八面体",
     },
   ],
   "/chemistry/figures/marie-curie": [
@@ -3550,6 +4246,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "核化学与放射化学",
     },
     {
+      url: "/chemistry/milestones/curie-1898-polonium-radium",
+      title: "居里 1898：沥青铀矿里比铀更活的部分怎样被写成钋与镭",
+    },
+    {
       url: "/earth-science/events/kelvin-and-the-age-of-the-earth",
       title: "开尔文与地球年龄之争（1862—1904）",
     },
@@ -3562,11 +4262,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "迈克尔·法拉第",
     },
     {
+      url: "/chemistry/milestones/urey-1931-deuterium",
+      title: "尤里一九三一年的氘：液氢残渣原子光谱里的质量二同位素",
+    },
+    {
       url: "/medicine/technologies/x-ray-imaging",
       title: "X 射线影像",
     },
   ],
   "/chemistry/figures/mendeleev": [
+    {
+      url: "/chemistry/milestones/bunsen-kirchhoff-1860-cesium",
+      title: "本生与基尔霍夫一八六〇年的铯：棱镜分光镜怎样用天蓝色谱线认出第一种新元素",
+    },
     {
       url: "/chemistry/figures/marie-curie",
       title: "玛丽·居里",
@@ -3574,6 +4282,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/milestones/mendeleev-periodic-law",
       title: "门捷列夫周期律（1869）",
+    },
+    {
+      url: "/chemistry/milestones/ramsay-rayleigh-1894-argon",
+      title: "瑞利与拉姆齐一八九四年的氩：两份氮的密度差怎样逼出一种不进化合的气体",
     },
     {
       url: "/chemistry/figures/berzelius",
@@ -3584,6 +4296,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/engineering/foundations/electricity-and-motors",
       title: "电与电动机：从琥珀静电到驱动世界的旋转磁场",
+    },
+    {
+      url: "/chemistry/milestones/faraday-electrolysis-laws",
+      title: "法拉第电解定律：电荷怎样在电极上被称成质量",
     },
   ],
   "/chemistry/figures/robert-boyle": [
@@ -3601,8 +4317,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/chemistry/reactions/organic-synthesis",
       title: "有机合成",
     },
+    {
+      url: "/chemistry/milestones/woodward-hoffmann-1965",
+      title: "Woodward–Hoffmann 1965：电环化的立体化学怎样被写成 HOMO 的对称性",
+    },
   ],
   "/chemistry/figures/svante-arrhenius": [
+    {
+      url: "/chemistry/milestones/arrhenius-1887-electrolytic-dissociation",
+      title: "阿伦尼乌斯一八八七年的电解离解：离子在通电之前已经待在溶液里",
+    },
+    {
+      url: "/chemistry/milestones/eyring-1935-absolute-rate",
+      title: "艾林 1935：活化络合物怎样把反应速率写成越过鞍点的统计频率",
+    },
+    {
+      url: "/chemistry/milestones/bronsted-lowry-1923",
+      title: "布朗斯特–劳里 1923：酸给出质子、碱接住质子怎样被写成定义",
+    },
+    {
+      url: "/chemistry/milestones/debye-huckel-1923",
+      title: "德拜–休克尔 1923：离子氛怎样把强电解质的电导亏损改记成远程静电",
+    },
     {
       url: "/chemistry/figures/gilbert-lewis",
       title: "吉尔伯特·路易斯",
@@ -3618,6 +4354,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/concepts/greenhouse-effect",
       title: "温室效应",
+    },
+    {
+      url: "/chemistry/milestones/evans-polanyi-1935",
+      title: "Evans–Polanyi 1935：过渡态方法怎样被用来写溶液里的反应速率",
     },
   ],
   "/chemistry/frontier/beyond-lithium-batteries": [
@@ -3710,6 +4450,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/engineering/frontiers/energy-transition-engineering",
       title: "能源转型的工程现实",
+    },
+    {
+      url: "/engineering/frontier/hydrogen-direct-reduced-iron",
+      title: "氢基直接还原铁：绿色钢铁卡在反应炉外的系统工程",
     },
   ],
   "/chemistry/frontier/single-atom-catalysis": [
@@ -3812,6 +4556,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "「稀释是解决污染的办法」：高烟囱政策如何制造了酸雨",
     },
     {
+      url: "/earth-science/event-analyses/eyjafjallajokull-ash-crisis-2010",
+      title: "2010 年艾雅法拉火山灰危机剖析",
+    },
+    {
       url: "/engineering/frontiers/safety-engineering",
       title: "安全工程：为注定会出错的世界而设计",
     },
@@ -3876,6 +4624,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "人因工程：为会犯错的人设计",
     },
     {
+      url: "/engineering/frontiers/three-mile-island-porv-indicator",
+      title: "三里岛：卡住的泄压阀与只显示指令的指示灯",
+    },
+    {
       url: "/computer-science/concepts/real-time-systems",
       title: "实时系统",
     },
@@ -3916,6 +4668,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/figures/fritz-haber",
       title: "弗里茨·哈伯",
+    },
+    {
+      url: "/engineering/frontier/perovskite-silicon-tandem-scale-up",
+      title: "钙钛矿—硅叠层光伏：效率纪录怎样穿过二十五年质保",
     },
     {
       url: "/chemistry/methods/process-safety",
@@ -3986,6 +4742,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "多萝西·霍奇金",
     },
     {
+      url: "/medicine/events/fleming-1928-penicillin-plate",
+      title: "弗莱明青霉素皿：1928 年圣玛丽医院的污染培养皿与 1929 年报告",
+    },
+    {
       url: "/universe-physics/knowledge-base/光学--interference-and-diffraction",
       title: "光的干涉与衍射",
     },
@@ -4018,12 +4778,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "罗莎琳德·富兰克林",
     },
     {
+      url: "/chemistry/milestones/moseley-1913-xray-atomic-number",
+      title: "莫塞莱一九一三年的高频率谱：特征 X 射线怎样把原子序数写成直线",
+    },
+    {
       url: "/universe-physics/knowledge-base/应用物理--生物物理导论",
       title: "生物物理导论",
     },
     {
       url: "/cosmology/knowledge-base/多信使天文学--event-horizon-telescope",
       title: "事件视界望远镜",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--gp-thomson-electron-diffraction",
+      title: "汤姆孙–里德：多晶薄箔怎样把快电子折成底片上随电压收缩的德拜环",
     },
     {
       url: "/cosmology/knowledge-base/星系天文学--蝎虎座BL天体",
@@ -4038,10 +4806,172 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "X射线天文学",
     },
   ],
-  "/chemistry/milestones/daltons-atomic-theory": [
+  "/chemistry/milestones/arrhenius-1887-electrolytic-dissociation": [
+    {
+      url: "/chemistry/milestones/eyring-1935-absolute-rate",
+      title: "艾林 1935：活化络合物怎样把反应速率写成越过鞍点的统计频率",
+    },
+    {
+      url: "/chemistry/milestones/bronsted-lowry-1923",
+      title: "布朗斯特–劳里 1923：酸给出质子、碱接住质子怎样被写成定义",
+    },
+    {
+      url: "/chemistry/milestones/debye-huckel-1923",
+      title: "德拜–休克尔 1923：离子氛怎样把强电解质的电导亏损改记成远程静电",
+    },
+    {
+      url: "/chemistry/concepts/electroanalytical-chemistry",
+      title: "电分析化学",
+    },
+    {
+      url: "/chemistry/milestones/faraday-electrolysis-laws",
+      title: "法拉第电解定律：电荷怎样在电极上被称成质量",
+    },
+    {
+      url: "/chemistry/milestones/vant-hoff-1874-tetrahedron",
+      title: "范霍夫一八七四年的四面体碳：荷兰小册、空间结构式与不对称碳",
+    },
+    {
+      url: "/chemistry/figures/svante-arrhenius",
+      title: "斯万特·阿伦尼乌斯",
+    },
+    {
+      url: "/chemistry/milestones/werner-1893-coordination",
+      title: "维尔纳 1893：主价、副价与可电离氯怎样把钴氨合物写成八面体",
+    },
+    {
+      url: "/chemistry/milestones/evans-polanyi-1935",
+      title: "Evans–Polanyi 1935：过渡态方法怎样被用来写溶液里的反应速率",
+    },
+  ],
+  "/chemistry/milestones/aston-1919-mass-spectrograph": [
+    {
+      url: "/chemistry/milestones/soddy-1913-isotope",
+      title: "索迪 1913：放射链上化学无法分开的物种怎样被写成同位素",
+    },
+    {
+      url: "/chemistry/concepts/mass-spectrometry",
+      title: "质谱法",
+    },
+  ],
+  "/chemistry/milestones/born-oppenheimer-1927": [
+    {
+      url: "/chemistry/milestones/heitler-london-1927",
+      title: "海特勒–伦敦 1927：交换怎样把氢分子写成同极键",
+    },
+    {
+      url: "/chemistry/concepts/chemical-bond",
+      title: "化学键",
+    },
+    {
+      url: "/chemistry/concepts/bonding-theory",
+      title: "价键理论与分子轨道理论",
+    },
+  ],
+  "/chemistry/milestones/bronsted-lowry-1923": [
+    {
+      url: "/chemistry/milestones/arrhenius-1887-electrolytic-dissociation",
+      title: "阿伦尼乌斯一八八七年的电解离解：离子在通电之前已经待在溶液里",
+    },
+    {
+      url: "/chemistry/milestones/debye-huckel-1923",
+      title: "德拜–休克尔 1923：离子氛怎样把强电解质的电导亏损改记成远程静电",
+    },
+    {
+      url: "/chemistry/figures/gilbert-lewis",
+      title: "吉尔伯特·路易斯",
+    },
+    {
+      url: "/chemistry/milestones/lewis-1916-shared-pair",
+      title: "路易斯 1916：共享电子对怎样被写成化学键",
+    },
+    {
+      url: "/chemistry/reactions/acid-base-neutralization",
+      title: "酸碱中和",
+    },
+    {
+      url: "/chemistry/concepts/acids-and-bases",
+      title: "酸与碱",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1935",
+      title: "Hammett 1935：取代基怎样把反应速率与平衡常数写成一条直线",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1937",
+      title: "Hammett 1937：苯衍生物的取代基常数怎样被收成一张可迁移的表",
+    },
+  ],
+  "/chemistry/milestones/bunsen-kirchhoff-1860-cesium": [
+    {
+      url: "/chemistry/figures/mendeleev",
+      title: "德米特里·门捷列夫",
+    },
+    {
+      url: "/chemistry/concepts/spectroscopy",
+      title: "光谱学",
+    },
+    {
+      url: "/chemistry/milestones/mendeleev-periodic-law",
+      title: "门捷列夫周期律（1869）",
+    },
+    {
+      url: "/chemistry/milestones/moseley-1913-xray-atomic-number",
+      title: "莫塞莱一九一三年的高频率谱：特征 X 射线怎样把原子序数写成直线",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--atomic-spectra",
+      title: "原子光谱",
+    },
+  ],
+  "/chemistry/milestones/chargaff-1950-base-ratios": [
+    {
+      url: "/chemistry/concepts/aromaticity",
+      title: "芳香性",
+    },
+    {
+      url: "/chemistry/concepts/intermolecular-forces",
+      title: "分子间作用力",
+    },
+    {
+      url: "/chemistry/concepts/spectroscopy",
+      title: "光谱学",
+    },
+    {
+      url: "/chemistry/substances/nucleic-acids-chemistry",
+      title: "核酸的化学",
+    },
+    {
+      url: "/life-science/knowledge-base/avery-macleod-mccarty-transformation",
+      title: "Avery–MacLeod–McCarty：转化因子怎样被写成 DNA",
+    },
+  ],
+  "/chemistry/milestones/curie-1898-polonium-radium": [
     {
       url: "/chemistry/milestones/discovery-of-radioactivity",
       title: "放射性的发现（1896）",
+    },
+    {
+      url: "/chemistry/figures/marie-curie",
+      title: "玛丽·居里",
+    },
+    {
+      url: "/chemistry/milestones/soddy-1913-isotope",
+      title: "索迪 1913：放射链上化学无法分开的物种怎样被写成同位素",
+    },
+  ],
+  "/chemistry/milestones/daltons-atomic-theory": [
+    {
+      url: "/chemistry/milestones/aston-1919-mass-spectrograph",
+      title: "阿斯顿 1919：质谱仪上氖的两条整数质量怎样把同位素写成实验室对象",
+    },
+    {
+      url: "/chemistry/milestones/discovery-of-radioactivity",
+      title: "放射性的发现（1896）",
+    },
+    {
+      url: "/chemistry/milestones/karlsruhe-cannizzaro-atomic-weights",
+      title: "卡尔斯鲁厄 1860：坎尼扎罗小册子怎样把原子量变成公共算法",
     },
     {
       url: "/chemistry/milestones/lavoisier-oxygen-revolution",
@@ -4056,6 +4986,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "摩尔与物质的量",
     },
     {
+      url: "/chemistry/milestones/soddy-1913-isotope",
+      title: "索迪 1913：放射链上化学无法分开的物种怎样被写成同位素",
+    },
+    {
       url: "/chemistry/concepts/atomic-structure",
       title: "原子结构",
     },
@@ -4068,7 +5002,37 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "约翰·道尔顿",
     },
   ],
+  "/chemistry/milestones/debye-huckel-1923": [
+    {
+      url: "/chemistry/milestones/arrhenius-1887-electrolytic-dissociation",
+      title: "阿伦尼乌斯一八八七年的电解离解：离子在通电之前已经待在溶液里",
+    },
+    {
+      url: "/chemistry/milestones/bronsted-lowry-1923",
+      title: "布朗斯特–劳里 1923：酸给出质子、碱接住质子怎样被写成定义",
+    },
+    {
+      url: "/chemistry/milestones/faraday-electrolysis-laws",
+      title: "法拉第电解定律：电荷怎样在电极上被称成质量",
+    },
+    {
+      url: "/chemistry/milestones/werner-1893-coordination",
+      title: "维尔纳 1893：主价、副价与可电离氯怎样把钴氨合物写成八面体",
+    },
+    {
+      url: "/chemistry/milestones/huckel-1931-benzene-mo",
+      title: "休克尔 1931：苯问题的量子贡献怎样把六只 π 电子写成分子轨道",
+    },
+    {
+      url: "/chemistry/milestones/evans-polanyi-1935",
+      title: "Evans–Polanyi 1935：过渡态方法怎样被用来写溶液里的反应速率",
+    },
+  ],
   "/chemistry/milestones/discovery-of-radioactivity": [
+    {
+      url: "/chemistry/milestones/aston-1919-mass-spectrograph",
+      title: "阿斯顿 1919：质谱仪上氖的两条整数质量怎样把同位素写成实验室对象",
+    },
     {
       url: "/chemistry/milestones/daltons-atomic-theory",
       title: "道尔顿原子论（1808）",
@@ -4078,20 +5042,174 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "核化学与放射化学",
     },
     {
+      url: "/chemistry/milestones/curie-1898-polonium-radium",
+      title: "居里 1898：沥青铀矿里比铀更活的部分怎样被写成钋与镭",
+    },
+    {
       url: "/earth-science/events/kelvin-and-the-age-of-the-earth",
       title: "开尔文与地球年龄之争（1862—1904）",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--cockcroft-walton-1932",
+      title: "考克饶夫与瓦尔顿：加速质子打锂怎样放出氦核，并把动能与质量亏损对上账",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--rutherford-1919-nitrogen",
+      title: "卢瑟福 1919：天然 α 打氮怎样放出氢核，并把核组成第一次改写成实验室对象",
     },
     {
       url: "/chemistry/figures/marie-curie",
       title: "玛丽·居里",
     },
     {
+      url: "/universe-physics/knowledge-base/核物理--meitner-frisch-1938-fission",
+      title: "迈特纳与弗里施：怎样把哈恩的钡读成重核液滴分裂，而不是超铀元素",
+    },
+    {
+      url: "/chemistry/milestones/soddy-1913-isotope",
+      title: "索迪 1913：放射链上化学无法分开的物种怎样被写成同位素",
+    },
+    {
       url: "/chemistry/substances/noble-gases",
       title: "稀有气体",
     },
     {
+      url: "/chemistry/milestones/urey-1931-deuterium",
+      title: "尤里一九三一年的氘：液氢残渣原子光谱里的质量二同位素",
+    },
+    {
       url: "/chemistry/concepts/atomic-structure",
       title: "原子结构",
+    },
+  ],
+  "/chemistry/milestones/evans-polanyi-1935": [
+    {
+      url: "/chemistry/milestones/eyring-1935-absolute-rate",
+      title: "艾林 1935：活化络合物怎样把反应速率写成越过鞍点的统计频率",
+    },
+    {
+      url: "/chemistry/concepts/reaction-kinetics",
+      title: "反应速率",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1935",
+      title: "Hammett 1935：取代基怎样把反应速率与平衡常数写成一条直线",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1937",
+      title: "Hammett 1937：苯衍生物的取代基常数怎样被收成一张可迁移的表",
+    },
+    {
+      url: "/chemistry/milestones/hammond-1955-postulate",
+      title: "Hammond 1955：邻近物种的能量接近怎样被用来猜过渡态的几何",
+    },
+    {
+      url: "/chemistry/milestones/marcus-1956-electron-transfer",
+      title: "Marcus 1956：外层电子转移怎样把溶剂极化与内层坐标的重组写成越过",
+    },
+    {
+      url: "/chemistry/milestones/taft-1952-lfer",
+      title: "Taft 1952：脂肪族与邻位酯的酯化水解速率怎样把极性与空间切开",
+    },
+  ],
+  "/chemistry/milestones/eyring-1935-absolute-rate": [
+    {
+      url: "/chemistry/milestones/arrhenius-1887-electrolytic-dissociation",
+      title: "阿伦尼乌斯一八八七年的电解离解：离子在通电之前已经待在溶液里",
+    },
+    {
+      url: "/chemistry/milestones/born-oppenheimer-1927",
+      title: "玻恩–奥本海默 1927：分子怎样把核的慢运动从电子的快运动里拆开",
+    },
+    {
+      url: "/chemistry/concepts/reaction-kinetics",
+      title: "反应速率",
+    },
+    {
+      url: "/chemistry/figures/svante-arrhenius",
+      title: "斯万特·阿伦尼乌斯",
+    },
+    {
+      url: "/chemistry/milestones/evans-polanyi-1935",
+      title: "Evans–Polanyi 1935：过渡态方法怎样被用来写溶液里的反应速率",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1935",
+      title: "Hammett 1935：取代基怎样把反应速率与平衡常数写成一条直线",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1937",
+      title: "Hammett 1937：苯衍生物的取代基常数怎样被收成一张可迁移的表",
+    },
+    {
+      url: "/chemistry/milestones/hammond-1955-postulate",
+      title: "Hammond 1955：邻近物种的能量接近怎样被用来猜过渡态的几何",
+    },
+    {
+      url: "/chemistry/milestones/marcus-1956-electron-transfer",
+      title: "Marcus 1956：外层电子转移怎样把溶剂极化与内层坐标的重组写成越过",
+    },
+    {
+      url: "/chemistry/milestones/taft-1952-lfer",
+      title: "Taft 1952：脂肪族与邻位酯的酯化水解速率怎样把极性与空间切开",
+    },
+  ],
+  "/chemistry/milestones/faraday-electrolysis-laws": [
+    {
+      url: "/chemistry/milestones/arrhenius-1887-electrolytic-dissociation",
+      title: "阿伦尼乌斯一八八七年的电解离解：离子在通电之前已经待在溶液里",
+    },
+    {
+      url: "/chemistry/milestones/debye-huckel-1923",
+      title: "德拜–休克尔 1923：离子氛怎样把强电解质的电导亏损改记成远程静电",
+    },
+    {
+      url: "/chemistry/figures/michael-faraday",
+      title: "迈克尔·法拉第",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--thomson-1897-cathode-ray",
+      title: "汤姆孙 1897：卡文迪许阴极射线怎样把 e/m 读成远大于电解离子",
+    },
+  ],
+  "/chemistry/milestones/fukui-1952-frontier-orbitals": [
+    {
+      url: "/chemistry/milestones/eyring-1935-absolute-rate",
+      title: "艾林 1935：活化络合物怎样把反应速率写成越过鞍点的统计频率",
+    },
+    {
+      url: "/chemistry/concepts/bonding-theory",
+      title: "价键理论与分子轨道理论",
+    },
+    {
+      url: "/chemistry/milestones/taft-1952-lfer",
+      title: "Taft 1952：脂肪族与邻位酯的酯化水解速率怎样把极性与空间切开",
+    },
+    {
+      url: "/chemistry/milestones/woodward-hoffmann-1965",
+      title: "Woodward–Hoffmann 1965：电环化的立体化学怎样被写成 HOMO 的对称性",
+    },
+  ],
+  "/chemistry/milestones/graebe-liebermann-1868-alizarin": [
+    {
+      url: "/chemistry/figures/kekule",
+      title: "奥古斯特·凯库勒",
+    },
+    {
+      url: "/chemistry/concepts/aromaticity",
+      title: "芳香性",
+    },
+    {
+      url: "/chemistry/milestones/synthetic-dyes-industry",
+      title: "合成染料工业（1856）",
+    },
+    {
+      url: "/chemistry/milestones/kekule-1865-benzene",
+      title: "凯库勒一八六五年的苯环：公报上的六元连通式",
+    },
+    {
+      url: "/chemistry/milestones/perkin-1856-mauveine",
+      title: "珀金一八五六年的苯胺紫：复活节失败的奎宁凑法与第一种商业合成染料",
     },
   ],
   "/chemistry/milestones/green-chemistry": [
@@ -4126,6 +5244,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/reactions/organic-synthesis",
       title: "有机合成",
+    },
+    {
+      url: "/chemistry/milestones/rowland-molina-ozone-cfcs",
+      title: "Rowland 与 Molina：平流层里的氯循环（1974）",
     },
   ],
   "/chemistry/milestones/haber-bosch-process": [
@@ -4170,6 +5292,270 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "自由能与化学势",
     },
   ],
+  "/chemistry/milestones/hammett-1935": [
+    {
+      url: "/chemistry/concepts/reaction-kinetics",
+      title: "反应速率",
+    },
+    {
+      url: "/chemistry/milestones/evans-polanyi-1935",
+      title: "Evans–Polanyi 1935：过渡态方法怎样被用来写溶液里的反应速率",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1937",
+      title: "Hammett 1937：苯衍生物的取代基常数怎样被收成一张可迁移的表",
+    },
+    {
+      url: "/chemistry/milestones/hammond-1955-postulate",
+      title: "Hammond 1955：邻近物种的能量接近怎样被用来猜过渡态的几何",
+    },
+    {
+      url: "/chemistry/milestones/marcus-1956-electron-transfer",
+      title: "Marcus 1956：外层电子转移怎样把溶剂极化与内层坐标的重组写成越过",
+    },
+    {
+      url: "/chemistry/milestones/taft-1952-lfer",
+      title: "Taft 1952：脂肪族与邻位酯的酯化水解速率怎样把极性与空间切开",
+    },
+  ],
+  "/chemistry/milestones/hammett-1937": [
+    {
+      url: "/chemistry/concepts/reaction-kinetics",
+      title: "反应速率",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1935",
+      title: "Hammett 1935：取代基怎样把反应速率与平衡常数写成一条直线",
+    },
+    {
+      url: "/chemistry/milestones/hammond-1955-postulate",
+      title: "Hammond 1955：邻近物种的能量接近怎样被用来猜过渡态的几何",
+    },
+    {
+      url: "/chemistry/milestones/marcus-1956-electron-transfer",
+      title: "Marcus 1956：外层电子转移怎样把溶剂极化与内层坐标的重组写成越过",
+    },
+    {
+      url: "/chemistry/milestones/taft-1952-lfer",
+      title: "Taft 1952：脂肪族与邻位酯的酯化水解速率怎样把极性与空间切开",
+    },
+  ],
+  "/chemistry/milestones/hammond-1955-postulate": [
+    {
+      url: "/chemistry/concepts/reaction-kinetics",
+      title: "反应速率",
+    },
+    {
+      url: "/chemistry/concepts/reaction-mechanisms",
+      title: "有机反应机理",
+    },
+    {
+      url: "/chemistry/milestones/marcus-1956-electron-transfer",
+      title: "Marcus 1956：外层电子转移怎样把溶剂极化与内层坐标的重组写成越过",
+    },
+    {
+      url: "/chemistry/milestones/taft-1952-lfer",
+      title: "Taft 1952：脂肪族与邻位酯的酯化水解速率怎样把极性与空间切开",
+    },
+  ],
+  "/chemistry/milestones/heitler-london-1927": [
+    {
+      url: "/chemistry/milestones/eyring-1935-absolute-rate",
+      title: "艾林 1935：活化络合物怎样把反应速率写成越过鞍点的统计频率",
+    },
+    {
+      url: "/chemistry/milestones/pauling-1931-chemical-bond",
+      title: "鲍林 1931：杂化、共振与顺磁判据怎样把化学键写成化学家的语言",
+    },
+    {
+      url: "/chemistry/milestones/born-oppenheimer-1927",
+      title: "玻恩–奥本海默 1927：分子怎样把核的慢运动从电子的快运动里拆开",
+    },
+    {
+      url: "/chemistry/concepts/chemical-bond",
+      title: "化学键",
+    },
+    {
+      url: "/chemistry/concepts/bonding-theory",
+      title: "价键理论与分子轨道理论",
+    },
+    {
+      url: "/chemistry/milestones/langmuir-1919-octet",
+      title: "朗缪尔 1919：电子怎样被排进立方原子与八隅体",
+    },
+    {
+      url: "/chemistry/milestones/lewis-1916-shared-pair",
+      title: "路易斯 1916：共享电子对怎样被写成化学键",
+    },
+    {
+      url: "/chemistry/milestones/roothaan-1951-lcao-scf",
+      title: "罗特汉 1951：LCAO-SCF 怎样把哈特里–福克写成矩阵本征值问题",
+    },
+    {
+      url: "/chemistry/milestones/mulliken-1932-molecular-orbitals",
+      title: "马利肯 1932：分子轨道怎样把多原子分子的价写成遍布全分子的单电子函数",
+    },
+    {
+      url: "/chemistry/milestones/huckel-1931-benzene-mo",
+      title: "休克尔 1931：苯问题的量子贡献怎样把六只 π 电子写成分子轨道",
+    },
+    {
+      url: "/chemistry/milestones/evans-polanyi-1935",
+      title: "Evans–Polanyi 1935：过渡态方法怎样被用来写溶液里的反应速率",
+    },
+    {
+      url: "/chemistry/milestones/woodward-hoffmann-1965",
+      title: "Woodward–Hoffmann 1965：电环化的立体化学怎样被写成 HOMO 的对称性",
+    },
+  ],
+  "/chemistry/milestones/huckel-1931-benzene-mo": [
+    {
+      url: "/chemistry/milestones/pauling-1931-chemical-bond",
+      title: "鲍林 1931：杂化、共振与顺磁判据怎样把化学键写成化学家的语言",
+    },
+    {
+      url: "/chemistry/concepts/aromaticity",
+      title: "芳香性",
+    },
+    {
+      url: "/chemistry/milestones/fukui-1952-frontier-orbitals",
+      title: "福井 1952：前线电子密度怎样把芳香烃的反应位置写成轨道指标",
+    },
+    {
+      url: "/chemistry/concepts/chemical-bond",
+      title: "化学键",
+    },
+    {
+      url: "/chemistry/concepts/bonding-theory",
+      title: "价键理论与分子轨道理论",
+    },
+    {
+      url: "/chemistry/milestones/roothaan-1951-lcao-scf",
+      title: "罗特汉 1951：LCAO-SCF 怎样把哈特里–福克写成矩阵本征值问题",
+    },
+    {
+      url: "/chemistry/milestones/mulliken-1932-molecular-orbitals",
+      title: "马利肯 1932：分子轨道怎样把多原子分子的价写成遍布全分子的单电子函数",
+    },
+    {
+      url: "/chemistry/milestones/werner-1893-coordination",
+      title: "维尔纳 1893：主价、副价与可电离氯怎样把钴氨合物写成八面体",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1935",
+      title: "Hammett 1935：取代基怎样把反应速率与平衡常数写成一条直线",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1937",
+      title: "Hammett 1937：苯衍生物的取代基常数怎样被收成一张可迁移的表",
+    },
+    {
+      url: "/chemistry/milestones/woodward-hoffmann-1965",
+      title: "Woodward–Hoffmann 1965：电环化的立体化学怎样被写成 HOMO 的对称性",
+    },
+  ],
+  "/chemistry/milestones/karlsruhe-cannizzaro-atomic-weights": [
+    {
+      url: "/chemistry/milestones/aston-1919-mass-spectrograph",
+      title: "阿斯顿 1919：质谱仪上氖的两条整数质量怎样把同位素写成实验室对象",
+    },
+    {
+      url: "/chemistry/milestones/faraday-electrolysis-laws",
+      title: "法拉第电解定律：电荷怎样在电极上被称成质量",
+    },
+    {
+      url: "/chemistry/milestones/moseley-1913-xray-atomic-number",
+      title: "莫塞莱一九一三年的高频率谱：特征 X 射线怎样把原子序数写成直线",
+    },
+    {
+      url: "/chemistry/milestones/soddy-1913-isotope",
+      title: "索迪 1913：放射链上化学无法分开的物种怎样被写成同位素",
+    },
+    {
+      url: "/chemistry/milestones/urey-1931-deuterium",
+      title: "尤里一九三一年的氘：液氢残渣原子光谱里的质量二同位素",
+    },
+    {
+      url: "/human-history/knowledge/科学史--原子论演变",
+      title: "原子论演变",
+    },
+  ],
+  "/chemistry/milestones/kekule-1865-benzene": [
+    {
+      url: "/chemistry/figures/kekule",
+      title: "奥古斯特·凯库勒",
+    },
+    {
+      url: "/chemistry/milestones/chargaff-1950-base-ratios",
+      title: "查加夫一九五〇年的碱基比：Experientia 短文里的物种表",
+    },
+    {
+      url: "/chemistry/concepts/aromaticity",
+      title: "芳香性",
+    },
+    {
+      url: "/chemistry/milestones/graebe-liebermann-1868-alizarin",
+      title: "格雷贝与利贝曼一八六八年的茜素：蒽而非萘，以及第一种对打天然物的合成媒染染料",
+    },
+    {
+      url: "/chemistry/milestones/lewis-1916-shared-pair",
+      title: "路易斯 1916：共享电子对怎样被写成化学键",
+    },
+    {
+      url: "/chemistry/milestones/perkin-1856-mauveine",
+      title: "珀金一八五六年的苯胺紫：复活节失败的奎宁凑法与第一种商业合成染料",
+    },
+    {
+      url: "/chemistry/milestones/staudinger-1920-macromolecules",
+      title: "施陶丁格 1920：高分子怎样被写成共价长链",
+    },
+    {
+      url: "/chemistry/concepts/isomerism",
+      title: "同分异构",
+    },
+    {
+      url: "/chemistry/milestones/huckel-1931-benzene-mo",
+      title: "休克尔 1931：苯问题的量子贡献怎样把六只 π 电子写成分子轨道",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1935",
+      title: "Hammett 1935：取代基怎样把反应速率与平衡常数写成一条直线",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1937",
+      title: "Hammett 1937：苯衍生物的取代基常数怎样被收成一张可迁移的表",
+    },
+  ],
+  "/chemistry/milestones/langmuir-1919-octet": [
+    {
+      url: "/chemistry/milestones/pauling-1931-chemical-bond",
+      title: "鲍林 1931：杂化、共振与顺磁判据怎样把化学键写成化学家的语言",
+    },
+    {
+      url: "/chemistry/milestones/heitler-london-1927",
+      title: "海特勒–伦敦 1927：交换怎样把氢分子写成同极键",
+    },
+    {
+      url: "/chemistry/concepts/chemical-bond",
+      title: "化学键",
+    },
+    {
+      url: "/chemistry/figures/gilbert-lewis",
+      title: "吉尔伯特·路易斯",
+    },
+    {
+      url: "/chemistry/concepts/bonding-theory",
+      title: "价键理论与分子轨道理论",
+    },
+    {
+      url: "/chemistry/milestones/lewis-1916-shared-pair",
+      title: "路易斯 1916：共享电子对怎样被写成化学键",
+    },
+    {
+      url: "/chemistry/concepts/atomic-structure",
+      title: "原子结构",
+    },
+  ],
   "/chemistry/milestones/lavoisier-oxygen-revolution": [
     {
       url: "/chemistry/figures/lavoisier",
@@ -4187,8 +5573,88 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/chemistry/milestones/mendeleev-periodic-law",
       title: "门捷列夫周期律（1869）",
     },
+    {
+      url: "/chemistry/milestones/wohler-urea-synthesis",
+      title: "维勒的尿素合成：氰酸铵怎样重排成可鉴定的晶体",
+    },
+  ],
+  "/chemistry/milestones/lewis-1916-shared-pair": [
+    {
+      url: "/chemistry/figures/kekule",
+      title: "奥古斯特·凯库勒",
+    },
+    {
+      url: "/chemistry/milestones/pauling-1931-chemical-bond",
+      title: "鲍林 1931：杂化、共振与顺磁判据怎样把化学键写成化学家的语言",
+    },
+    {
+      url: "/chemistry/milestones/vant-hoff-1874-tetrahedron",
+      title: "范霍夫一八七四年的四面体碳：荷兰小册、空间结构式与不对称碳",
+    },
+    {
+      url: "/chemistry/concepts/functional-groups",
+      title: "官能团",
+    },
+    {
+      url: "/chemistry/milestones/heitler-london-1927",
+      title: "海特勒–伦敦 1927：交换怎样把氢分子写成同极键",
+    },
+    {
+      url: "/chemistry/concepts/chemical-bond",
+      title: "化学键",
+    },
+    {
+      url: "/chemistry/figures/gilbert-lewis",
+      title: "吉尔伯特·路易斯",
+    },
+    {
+      url: "/chemistry/concepts/bonding-theory",
+      title: "价键理论与分子轨道理论",
+    },
+    {
+      url: "/chemistry/milestones/langmuir-1919-octet",
+      title: "朗缪尔 1919：电子怎样被排进立方原子与八隅体",
+    },
+    {
+      url: "/chemistry/milestones/mulliken-1932-molecular-orbitals",
+      title: "马利肯 1932：分子轨道怎样把多原子分子的价写成遍布全分子的单电子函数",
+    },
+    {
+      url: "/chemistry/milestones/werner-1893-coordination",
+      title: "维尔纳 1893：主价、副价与可电离氯怎样把钴氨合物写成八面体",
+    },
+  ],
+  "/chemistry/milestones/marcus-1956-electron-transfer": [
+    {
+      url: "/chemistry/concepts/reaction-kinetics",
+      title: "反应速率",
+    },
+    {
+      url: "/chemistry/concepts/photochemistry",
+      title: "光化学",
+    },
+    {
+      url: "/chemistry/concepts/bonding-theory",
+      title: "价键理论与分子轨道理论",
+    },
+    {
+      url: "/chemistry/reactions/organic-synthesis",
+      title: "有机合成",
+    },
+    {
+      url: "/chemistry/milestones/hammond-1955-postulate",
+      title: "Hammond 1955：邻近物种的能量接近怎样被用来猜过渡态的几何",
+    },
   ],
   "/chemistry/milestones/mendeleev-periodic-law": [
+    {
+      url: "/chemistry/milestones/aston-1919-mass-spectrograph",
+      title: "阿斯顿 1919：质谱仪上氖的两条整数质量怎样把同位素写成实验室对象",
+    },
+    {
+      url: "/chemistry/milestones/bunsen-kirchhoff-1860-cesium",
+      title: "本生与基尔霍夫一八六〇年的铯：棱镜分光镜怎样用天蓝色谱线认出第一种新元素",
+    },
     {
       url: "/chemistry/milestones/daltons-atomic-theory",
       title: "道尔顿原子论（1808）",
@@ -4198,14 +5664,300 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "放射性的发现（1896）",
     },
     {
+      url: "/chemistry/milestones/curie-1898-polonium-radium",
+      title: "居里 1898：沥青铀矿里比铀更活的部分怎样被写成钋与镭",
+    },
+    {
+      url: "/chemistry/milestones/karlsruhe-cannizzaro-atomic-weights",
+      title: "卡尔斯鲁厄 1860：坎尼扎罗小册子怎样把原子量变成公共算法",
+    },
+    {
       url: "/chemistry/milestones/lavoisier-oxygen-revolution",
       title: "拉瓦锡的氧化学革命（1789）",
+    },
+    {
+      url: "/chemistry/milestones/langmuir-1919-octet",
+      title: "朗缪尔 1919：电子怎样被排进立方原子与八隅体",
+    },
+    {
+      url: "/chemistry/milestones/moseley-1913-xray-atomic-number",
+      title: "莫塞莱一九一三年的高频率谱：特征 X 射线怎样把原子序数写成直线",
+    },
+    {
+      url: "/chemistry/milestones/ramsay-rayleigh-1894-argon",
+      title: "瑞利与拉姆齐一八九四年的氩：两份氮的密度差怎样逼出一种不进化合的气体",
+    },
+    {
+      url: "/chemistry/milestones/soddy-1913-isotope",
+      title: "索迪 1913：放射链上化学无法分开的物种怎样被写成同位素",
+    },
+  ],
+  "/chemistry/milestones/miller-urey-experiment": [
+    {
+      url: "/life-science/knowledge-base/pasteur-swan-neck-flask",
+      title: "巴斯德鹅颈瓶：空气通过、尘埃留下",
+    },
+    {
+      url: "/life-science/knowledge-base/当代议题--生命起源研究",
+      title: "生命起源研究：从化学到生物学的跨越",
+    },
+    {
+      url: "/chemistry/milestones/wohler-urea-synthesis",
+      title: "维勒的尿素合成：氰酸铵怎样重排成可鉴定的晶体",
+    },
+    {
+      url: "/chemistry/milestones/urey-1931-deuterium",
+      title: "尤里一九三一年的氘：液氢残渣原子光谱里的质量二同位素",
+    },
+  ],
+  "/chemistry/milestones/moseley-1913-xray-atomic-number": [
+    {
+      url: "/chemistry/milestones/aston-1919-mass-spectrograph",
+      title: "阿斯顿 1919：质谱仪上氖的两条整数质量怎样把同位素写成实验室对象",
+    },
+    {
+      url: "/chemistry/milestones/bunsen-kirchhoff-1860-cesium",
+      title: "本生与基尔霍夫一八六〇年的铯：棱镜分光镜怎样用天蓝色谱线认出第一种新元素",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--chadwick-1932-neutron",
+      title: "查德威克：石蜡反冲怎样把铍辐射判成质子质量的中性粒子，而不是硬γ",
+    },
+    {
+      url: "/chemistry/milestones/curie-1898-polonium-radium",
+      title: "居里 1898：沥青铀矿里比铀更活的部分怎样被写成钋与镭",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--rutherford-1919-nitrogen",
+      title: "卢瑟福 1919：天然 α 打氮怎样放出氢核，并把核组成第一次改写成实验室对象",
+    },
+    {
+      url: "/chemistry/milestones/lewis-1916-shared-pair",
+      title: "路易斯 1916：共享电子对怎样被写成化学键",
+    },
+    {
+      url: "/chemistry/milestones/mendeleev-periodic-law",
+      title: "门捷列夫周期律（1869）",
+    },
+    {
+      url: "/chemistry/milestones/ramsay-rayleigh-1894-argon",
+      title: "瑞利与拉姆齐一八九四年的氩：两份氮的密度差怎样逼出一种不进化合的气体",
+    },
+    {
+      url: "/chemistry/milestones/soddy-1913-isotope",
+      title: "索迪 1913：放射链上化学无法分开的物种怎样被写成同位素",
+    },
+    {
+      url: "/chemistry/milestones/urey-1931-deuterium",
+      title: "尤里一九三一年的氘：液氢残渣原子光谱里的质量二同位素",
+    },
+    {
+      url: "/chemistry/concepts/atomic-structure",
+      title: "原子结构",
+    },
+  ],
+  "/chemistry/milestones/mulliken-1932-molecular-orbitals": [
+    {
+      url: "/chemistry/milestones/born-oppenheimer-1927",
+      title: "玻恩–奥本海默 1927：分子怎样把核的慢运动从电子的快运动里拆开",
+    },
+    {
+      url: "/chemistry/milestones/fukui-1952-frontier-orbitals",
+      title: "福井 1952：前线电子密度怎样把芳香烃的反应位置写成轨道指标",
+    },
+    {
+      url: "/chemistry/concepts/bonding-theory",
+      title: "价键理论与分子轨道理论",
+    },
+    {
+      url: "/chemistry/milestones/roothaan-1951-lcao-scf",
+      title: "罗特汉 1951：LCAO-SCF 怎样把哈特里–福克写成矩阵本征值问题",
+    },
+  ],
+  "/chemistry/milestones/pasteur-1848-tartaric": [
+    {
+      url: "/chemistry/milestones/vant-hoff-1874-tetrahedron",
+      title: "范霍夫一八七四年的四面体碳：荷兰小册、空间结构式与不对称碳",
+    },
+    {
+      url: "/chemistry/concepts/chirality",
+      title: "手性与对映异构",
+    },
+    {
+      url: "/chemistry/concepts/isomerism",
+      title: "同分异构",
+    },
+    {
+      url: "/chemistry/milestones/werner-1893-coordination",
+      title: "维尔纳 1893：主价、副价与可电离氯怎样把钴氨合物写成八面体",
+    },
+  ],
+  "/chemistry/milestones/pauling-1931-chemical-bond": [
+    {
+      url: "/chemistry/milestones/born-oppenheimer-1927",
+      title: "玻恩–奥本海默 1927：分子怎样把核的慢运动从电子的快运动里拆开",
+    },
+    {
+      url: "/chemistry/milestones/fukui-1952-frontier-orbitals",
+      title: "福井 1952：前线电子密度怎样把芳香烃的反应位置写成轨道指标",
+    },
+    {
+      url: "/chemistry/milestones/heitler-london-1927",
+      title: "海特勒–伦敦 1927：交换怎样把氢分子写成同极键",
+    },
+    {
+      url: "/chemistry/concepts/chemical-bond",
+      title: "化学键",
+    },
+    {
+      url: "/chemistry/figures/linus-pauling",
+      title: "莱纳斯·鲍林",
+    },
+    {
+      url: "/chemistry/milestones/roothaan-1951-lcao-scf",
+      title: "罗特汉 1951：LCAO-SCF 怎样把哈特里–福克写成矩阵本征值问题",
+    },
+    {
+      url: "/chemistry/milestones/mulliken-1932-molecular-orbitals",
+      title: "马利肯 1932：分子轨道怎样把多原子分子的价写成遍布全分子的单电子函数",
+    },
+    {
+      url: "/chemistry/milestones/werner-1893-coordination",
+      title: "维尔纳 1893：主价、副价与可电离氯怎样把钴氨合物写成八面体",
+    },
+    {
+      url: "/chemistry/milestones/huckel-1931-benzene-mo",
+      title: "休克尔 1931：苯问题的量子贡献怎样把六只 π 电子写成分子轨道",
+    },
+  ],
+  "/chemistry/milestones/perkin-1856-mauveine": [
+    {
+      url: "/chemistry/figures/kekule",
+      title: "奥古斯特·凯库勒",
+    },
+    {
+      url: "/chemistry/concepts/aromaticity",
+      title: "芳香性",
+    },
+    {
+      url: "/chemistry/milestones/graebe-liebermann-1868-alizarin",
+      title: "格雷贝与利贝曼一八六八年的茜素：蒽而非萘，以及第一种对打天然物的合成媒染染料",
+    },
+    {
+      url: "/chemistry/concepts/functional-groups",
+      title: "官能团",
+    },
+    {
+      url: "/chemistry/milestones/synthetic-dyes-industry",
+      title: "合成染料工业（1856）",
+    },
+    {
+      url: "/chemistry/milestones/kekule-1865-benzene",
+      title: "凯库勒一八六五年的苯环：公报上的六元连通式",
     },
   ],
   "/chemistry/milestones/polywater-and-pathological-science": [
     {
       url: "/chemistry/substances/water",
       title: "水",
+    },
+  ],
+  "/chemistry/milestones/raman-1928-scattering": [
+    {
+      url: "/chemistry/concepts/spectroscopy",
+      title: "光谱学",
+    },
+  ],
+  "/chemistry/milestones/ramsay-rayleigh-1894-argon": [
+    {
+      url: "/chemistry/milestones/aston-1919-mass-spectrograph",
+      title: "阿斯顿 1919：质谱仪上氖的两条整数质量怎样把同位素写成实验室对象",
+    },
+    {
+      url: "/chemistry/figures/mendeleev",
+      title: "德米特里·门捷列夫",
+    },
+    {
+      url: "/chemistry/milestones/curie-1898-polonium-radium",
+      title: "居里 1898：沥青铀矿里比铀更活的部分怎样被写成钋与镭",
+    },
+    {
+      url: "/chemistry/milestones/mendeleev-periodic-law",
+      title: "门捷列夫周期律（1869）",
+    },
+    {
+      url: "/chemistry/milestones/moseley-1913-xray-atomic-number",
+      title: "莫塞莱一九一三年的高频率谱：特征 X 射线怎样把原子序数写成直线",
+    },
+    {
+      url: "/chemistry/milestones/soddy-1913-isotope",
+      title: "索迪 1913：放射链上化学无法分开的物种怎样被写成同位素",
+    },
+    {
+      url: "/chemistry/substances/noble-gases",
+      title: "稀有气体",
+    },
+    {
+      url: "/chemistry/concepts/atomic-structure",
+      title: "原子结构",
+    },
+  ],
+  "/chemistry/milestones/roothaan-1951-lcao-scf": [
+    {
+      url: "/chemistry/milestones/eyring-1935-absolute-rate",
+      title: "艾林 1935：活化络合物怎样把反应速率写成越过鞍点的统计频率",
+    },
+    {
+      url: "/chemistry/milestones/born-oppenheimer-1927",
+      title: "玻恩–奥本海默 1927：分子怎样把核的慢运动从电子的快运动里拆开",
+    },
+    {
+      url: "/chemistry/milestones/fukui-1952-frontier-orbitals",
+      title: "福井 1952：前线电子密度怎样把芳香烃的反应位置写成轨道指标",
+    },
+    {
+      url: "/chemistry/concepts/bonding-theory",
+      title: "价键理论与分子轨道理论",
+    },
+    {
+      url: "/chemistry/milestones/mulliken-1932-molecular-orbitals",
+      title: "马利肯 1932：分子轨道怎样把多原子分子的价写成遍布全分子的单电子函数",
+    },
+  ],
+  "/chemistry/milestones/soddy-1913-isotope": [
+    {
+      url: "/chemistry/milestones/aston-1919-mass-spectrograph",
+      title: "阿斯顿 1919：质谱仪上氖的两条整数质量怎样把同位素写成实验室对象",
+    },
+    {
+      url: "/chemistry/milestones/discovery-of-radioactivity",
+      title: "放射性的发现（1896）",
+    },
+    {
+      url: "/chemistry/milestones/curie-1898-polonium-radium",
+      title: "居里 1898：沥青铀矿里比铀更活的部分怎样被写成钋与镭",
+    },
+    {
+      url: "/chemistry/milestones/moseley-1913-xray-atomic-number",
+      title: "莫塞莱一九一三年的高频率谱：特征 X 射线怎样把原子序数写成直线",
+    },
+    {
+      url: "/chemistry/milestones/urey-1931-deuterium",
+      title: "尤里一九三一年的氘：液氢残渣原子光谱里的质量二同位素",
+    },
+    {
+      url: "/chemistry/concepts/atomic-structure",
+      title: "原子结构",
+    },
+  ],
+  "/chemistry/milestones/staudinger-1920-macromolecules": [
+    {
+      url: "/chemistry/reactions/polymerization",
+      title: "聚合反应",
+    },
+    {
+      url: "/chemistry/milestones/the-plastics-age",
+      title: "塑料时代（1907）",
     },
   ],
   "/chemistry/milestones/synthetic-dyes-industry": [
@@ -4226,8 +5978,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "腓尼基",
     },
     {
+      url: "/chemistry/milestones/graebe-liebermann-1868-alizarin",
+      title: "格雷贝与利贝曼一八六八年的茜素：蒽而非萘，以及第一种对打天然物的合成媒染染料",
+    },
+    {
       url: "/chemistry/milestones/haber-bosch-process",
       title: "哈伯-博施合成氨（1913）",
+    },
+    {
+      url: "/chemistry/milestones/perkin-1856-mauveine",
+      title: "珀金一八五六年的苯胺紫：复活节失败的奎宁凑法与第一种商业合成染料",
     },
     {
       url: "/arts/media/fresco-and-wall-painting",
@@ -4242,10 +6002,76 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "有机合成",
     },
   ],
+  "/chemistry/milestones/taft-1952-lfer": [
+    {
+      url: "/chemistry/concepts/reaction-kinetics",
+      title: "反应速率",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1937",
+      title: "Hammett 1937：苯衍生物的取代基常数怎样被收成一张可迁移的表",
+    },
+    {
+      url: "/chemistry/milestones/marcus-1956-electron-transfer",
+      title: "Marcus 1956：外层电子转移怎样把溶剂极化与内层坐标的重组写成越过",
+    },
+  ],
   "/chemistry/milestones/the-plastics-age": [
     {
       url: "/chemistry/milestones/synthetic-dyes-industry",
       title: "合成染料工业（1856）",
+    },
+    {
+      url: "/chemistry/milestones/staudinger-1920-macromolecules",
+      title: "施陶丁格 1920：高分子怎样被写成共价长链",
+    },
+  ],
+  "/chemistry/milestones/urey-1931-deuterium": [
+    {
+      url: "/chemistry/milestones/aston-1919-mass-spectrograph",
+      title: "阿斯顿 1919：质谱仪上氖的两条整数质量怎样把同位素写成实验室对象",
+    },
+    {
+      url: "/chemistry/figures/gilbert-lewis",
+      title: "吉尔伯特·路易斯",
+    },
+    {
+      url: "/chemistry/milestones/miller-urey-experiment",
+      title: "米勒–尤里实验：火花、还原气体与氨基酸",
+    },
+    {
+      url: "/chemistry/concepts/the-mole",
+      title: "摩尔与物质的量",
+    },
+    {
+      url: "/chemistry/concepts/atomic-structure",
+      title: "原子结构",
+    },
+  ],
+  "/chemistry/milestones/vant-hoff-1874-tetrahedron": [
+    {
+      url: "/chemistry/milestones/pasteur-1848-tartaric",
+      title: "巴斯德一八四八年的酒石酸钠铵盐：半面晶面、镊子和相反的旋光",
+    },
+    {
+      url: "/chemistry/milestones/pauling-1931-chemical-bond",
+      title: "鲍林 1931：杂化、共振与顺磁判据怎样把化学键写成化学家的语言",
+    },
+    {
+      url: "/chemistry/milestones/kekule-1865-benzene",
+      title: "凯库勒一八六五年的苯环：公报上的六元连通式",
+    },
+    {
+      url: "/chemistry/milestones/lewis-1916-shared-pair",
+      title: "路易斯 1916：共享电子对怎样被写成化学键",
+    },
+    {
+      url: "/chemistry/concepts/chirality",
+      title: "手性与对映异构",
+    },
+    {
+      url: "/chemistry/milestones/werner-1893-coordination",
+      title: "维尔纳 1893：主价、副价与可电离氯怎样把钴氨合物写成八面体",
     },
   ],
   "/chemistry/milestones/vitalism-and-its-long-death": [
@@ -4258,6 +6084,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "聚合水与病态科学（1962—1973）",
     },
     {
+      url: "/chemistry/milestones/miller-urey-experiment",
+      title: "米勒–尤里实验：火花、还原气体与氨基酸",
+    },
+    {
+      url: "/chemistry/milestones/perkin-1856-mauveine",
+      title: "珀金一八五六年的苯胺紫：复活节失败的奎宁凑法与第一种商业合成染料",
+    },
+    {
       url: "/universe-physics/knowledge-base/热力学--热质说的兴衰",
       title: "热质说的兴衰",
     },
@@ -4266,11 +6100,65 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "同分异构",
     },
     {
+      url: "/chemistry/milestones/wohler-urea-synthesis",
+      title: "维勒的尿素合成：氰酸铵怎样重排成可鉴定的晶体",
+    },
+    {
       url: "/life-science/knowledge-base/spontaneous-generation",
       title: "自然发生说：两千年、三轮实验、一场被操纵的评奖",
     },
   ],
+  "/chemistry/milestones/werner-1893-coordination": [
+    {
+      url: "/chemistry/concepts/bonding-theory",
+      title: "价键理论与分子轨道理论",
+    },
+    {
+      url: "/chemistry/concepts/coordination-chemistry",
+      title: "配位化学",
+    },
+    {
+      url: "/chemistry/milestones/marcus-1956-electron-transfer",
+      title: "Marcus 1956：外层电子转移怎样把溶剂极化与内层坐标的重组写成越过",
+    },
+  ],
+  "/chemistry/milestones/wohler-urea-synthesis": [
+    {
+      url: "/chemistry/milestones/vitalism-and-its-long-death",
+      title: "活力论的漫长死亡（1828—1900）",
+    },
+    {
+      url: "/chemistry/milestones/miller-urey-experiment",
+      title: "米勒–尤里实验：火花、还原气体与氨基酸",
+    },
+    {
+      url: "/chemistry/milestones/perkin-1856-mauveine",
+      title: "珀金一八五六年的苯胺紫：复活节失败的奎宁凑法与第一种商业合成染料",
+    },
+    {
+      url: "/chemistry/reactions/organic-synthesis",
+      title: "有机合成",
+    },
+  ],
+  "/chemistry/milestones/woodward-hoffmann-1965": [
+    {
+      url: "/chemistry/milestones/fukui-1952-frontier-orbitals",
+      title: "福井 1952：前线电子密度怎样把芳香烃的反应位置写成轨道指标",
+    },
+    {
+      url: "/chemistry/figures/robert-woodward",
+      title: "罗伯特·伍德沃德",
+    },
+    {
+      url: "/chemistry/milestones/hammond-1955-postulate",
+      title: "Hammond 1955：邻近物种的能量接近怎样被用来猜过渡态的几何",
+    },
+  ],
   "/chemistry/reactions/acid-base-neutralization": [
+    {
+      url: "/chemistry/milestones/bronsted-lowry-1923",
+      title: "布朗斯特–劳里 1923：酸给出质子、碱接住质子怎样被写成定义",
+    },
     {
       url: "/chemistry/reactions/precipitation-reactions",
       title: "沉淀反应",
@@ -4352,6 +6240,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/organometallic-chemistry",
       title: "有机金属化学",
+    },
+    {
+      url: "/chemistry/milestones/rowland-molina-ozone-cfcs",
+      title: "Rowland 与 Molina：平流层里的氯循环（1974）",
     },
   ],
   "/chemistry/reactions/combustion": [
@@ -4518,6 +6410,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/chemistry/reactions/fermentation": [
     {
+      url: "/medicine/events/fleming-1928-penicillin-plate",
+      title: "弗莱明青霉素皿：1928 年圣玛丽医院的污染培养皿与 1929 年报告",
+    },
+    {
       url: "/medicine/technologies/antibiotics",
       title: "抗生素",
     },
@@ -4581,6 +6477,34 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/chemistry/methods/retrosynthesis-and-reaction-optimization",
       title: "逆合成与反应优化：把目标分子变成可执行路线",
     },
+    {
+      url: "/chemistry/milestones/wohler-urea-synthesis",
+      title: "维勒的尿素合成：氰酸铵怎样重排成可鉴定的晶体",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1935",
+      title: "Hammett 1935：取代基怎样把反应速率与平衡常数写成一条直线",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1937",
+      title: "Hammett 1937：苯衍生物的取代基常数怎样被收成一张可迁移的表",
+    },
+    {
+      url: "/chemistry/milestones/hammond-1955-postulate",
+      title: "Hammond 1955：邻近物种的能量接近怎样被用来猜过渡态的几何",
+    },
+    {
+      url: "/chemistry/milestones/marcus-1956-electron-transfer",
+      title: "Marcus 1956：外层电子转移怎样把溶剂极化与内层坐标的重组写成越过",
+    },
+    {
+      url: "/chemistry/milestones/taft-1952-lfer",
+      title: "Taft 1952：脂肪族与邻位酯的酯化水解速率怎样把极性与空间切开",
+    },
+    {
+      url: "/chemistry/milestones/woodward-hoffmann-1965",
+      title: "Woodward–Hoffmann 1965：电环化的立体化学怎样被写成 HOMO 的对称性",
+    },
   ],
   "/chemistry/reactions/photosynthesis": [
     {
@@ -4624,6 +6548,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/polymer-chemistry",
       title: "聚合物化学",
+    },
+    {
+      url: "/chemistry/milestones/staudinger-1920-macromolecules",
+      title: "施陶丁格 1920：高分子怎样被写成共价长链",
     },
     {
       url: "/chemistry/milestones/the-plastics-age",
@@ -4674,6 +6602,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/关键事件--登陆",
       title: "登陆：生命从海洋走向陆地",
+    },
+    {
+      url: "/medicine/events/landsteiner-1901-abo",
+      title: "兰德施泰纳 1901 正常人血凝集：血清使他人血球成团，以及后来称为 A、B、C 的分组",
     },
     {
       url: "/medicine/figures/robert-koch",
@@ -4838,6 +6770,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "内燃机与燃气轮机：热机效率的工程极限",
     },
     {
+      url: "/engineering/foundations/fatigue-and-fracture",
+      title: "疲劳与断裂：裂纹怎样在远低于静强度时把结构写完",
+    },
+    {
       url: "/engineering/civil/bridges",
       title: "桥梁：受力路径、风与美学",
     },
@@ -4846,8 +6782,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "失效分析：从事故残骸中长出来的工程",
     },
     {
+      url: "/engineering/frontiers/liberty-ship-schenectady-brittle-fracture",
+      title: "斯克内克塔迪号：平静码头上把船体写穿的裂纹",
+    },
+    {
+      url: "/engineering/frontiers/tay-bridge-1879",
+      title: "泰桥：风压没写进设计的铸铁斜撑",
+    },
+    {
       url: "/chemistry/substances/noble-gases",
       title: "稀有气体",
+    },
+    {
+      url: "/engineering/frontiers/silver-bridge-1967",
+      title: "银桥：销孔里那条看不见的裂纹，把北链写断",
     },
     {
       url: "/engineering/materials/additive-manufacturing",
@@ -4857,8 +6805,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/cosmology/knowledge-base/宇宙学观测--詹姆斯韦伯空间望远镜",
       title: "詹姆斯·韦伯空间望远镜",
     },
+    {
+      url: "/engineering/frontiers/i35w-minneapolis-2007",
+      title: "I-35W 明尼阿波利斯：半英寸加劲板，把主桁架写成河",
+    },
   ],
   "/chemistry/substances/noble-gases": [
+    {
+      url: "/chemistry/milestones/aston-1919-mass-spectrograph",
+      title: "阿斯顿 1919：质谱仪上氖的两条整数质量怎样把同位素写成实验室对象",
+    },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--暗物质候选粒子WIMP与轴子",
       title: "暗物质候选粒子：WIMP 与轴子",
@@ -4875,11 +6831,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/chemistry/concepts/chemical-bond",
       title: "化学键",
     },
+    {
+      url: "/chemistry/milestones/ramsay-rayleigh-1894-argon",
+      title: "瑞利与拉姆齐一八九四年的氩：两份氮的密度差怎样逼出一种不进化合的气体",
+    },
   ],
   "/chemistry/substances/nucleic-acids-chemistry": [
     {
       url: "/medicine/figures/banting-and-best",
       title: "班廷与贝斯特",
+    },
+    {
+      url: "/chemistry/milestones/chargaff-1950-base-ratios",
+      title: "查加夫一九五〇年的碱基比：Experientia 短文里的物种表",
     },
     {
       url: "/chemistry/concepts/chemical-bond",
@@ -5034,8 +6998,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "本质主义",
     },
     {
+      url: "/chemistry/milestones/bronsted-lowry-1923",
+      title: "布朗斯特–劳里 1923：酸给出质子、碱接住质子怎样被写成定义",
+    },
+    {
       url: "/cosmology/knowledge-base/系外行星--超级地球与迷你海王星",
       title: "超级地球与迷你海王星",
+    },
+    {
+      url: "/chemistry/milestones/debye-huckel-1923",
+      title: "德拜–休克尔 1923：离子氛怎样把强电解质的电导亏损改记成远程静电",
     },
     {
       url: "/universe-physics/knowledge-base/电磁学--dielectrics-and-polarization",
@@ -5048,6 +7020,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/milestones/polywater-and-pathological-science",
       title: "聚合水与病态科学（1962—1973）",
+    },
+    {
+      url: "/philosophy/experiments/kripke-1980-naming",
+      title: "命名与必然性",
     },
     {
       url: "/chemistry/concepts/solutions-and-solubility",
@@ -5112,6 +7088,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "变化盲视",
     },
     {
+      url: "/psychology/experiments/posner-1980",
+      title: "波斯纳 1980：空间提示怎样把隐蔽定向从眼动里拆成有效、无效与中性线索上的代价与收益",
+    },
+    {
       url: "/philosophy/thinkers/derrida",
       title: "德里达",
     },
@@ -5122,6 +7102,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/words-sentences-meaning/translation-and-translatability",
       title: "翻译与可译性：语言强迫你说出的东西",
+    },
+    {
+      url: "/education/cognition-and-memory/working-memory-and-load",
+      title: "工作记忆与认知负荷",
     },
     {
       url: "/philosophy/schools/post-structuralism",
@@ -5164,6 +7148,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "认知心理学",
     },
     {
+      url: "/education/education-technology/generative-models-change-conditions",
+      title: "生成式模型改的是条件",
+    },
+    {
       url: "/literature/contemporary-edges/generated-text-and-authorship",
       title: "生成文本与作者身份",
     },
@@ -5195,6 +7183,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/computer-science/concepts/natural-language-processing",
       title: "自然语言处理",
     },
+    {
+      url: "/education/education-technology/adaptive-systems-are-not-tutors",
+      title: "自适应系统不是家教",
+    },
   ],
   "/computer-science/algorithms/bellman-ford": [
     {
@@ -5216,8 +7208,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "华罗庚",
     },
     {
+      url: "/mathematics/theorems/intermediate-value-theorem",
+      title: "介值定理：连续曲线必穿过中间的高度",
+    },
+    {
       url: "/mathematics/concepts/continuity",
       title: "连续性",
+    },
+    {
+      url: "/psychology/experiments/sternberg-1966",
+      title: "斯特恩伯格 1966：高速扫描怎样把短时记忆里的数字写成随集合大小线性变长的反应时",
     },
     {
       url: "/computer-science/algorithms/skip-lists",
@@ -5233,6 +7233,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/computer-science/algorithms/hashing",
       title: "哈希",
     },
+    {
+      url: "/computer-science/algorithms/streaming-algorithms",
+      title: "流算法与草图",
+    },
+  ],
+  "/computer-science/algorithms/consistent-hashing": [
+    {
+      url: "/computer-science/systems/ratnasamy-2001-can",
+      title: "CAN：笛卡尔分区与贪心转发，状态不随规模涨",
+    },
+    {
+      url: "/computer-science/systems/chord-2001",
+      title: "Chord：标识符环上的查找，不是中心目录",
+    },
+    {
+      url: "/computer-science/systems/kademlia-2002",
+      title: "Kademlia：XOR 距离上的 k-bucket，不是环上的手指",
+    },
+    {
+      url: "/computer-science/systems/pastry-2001",
+      title: "Pastry：前缀表、叶集与邻近集，不是环上的手指",
+    },
+    {
+      url: "/computer-science/systems/tapestry-2001",
+      title: "Tapestry：邻接表、代理路由与就近副本，不是把对象搬到键上",
+    },
   ],
   "/computer-science/algorithms/convolutional-neural-networks": [
     {
@@ -5242,6 +7268,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/星系天文学--哈勃星系形态序列",
       title: "哈勃星系形态序列",
+    },
+    {
+      url: "/computer-science/pioneers/fei-fei-li",
+      title: "李飞飞",
     },
     {
       url: "/mathematics/concepts/lie-group-lie-algebra",
@@ -5360,6 +7390,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "卡尔·沃斯",
     },
     {
+      url: "/computer-science/theory/fine-grained-complexity",
+      title: "细粒度复杂度",
+    },
+    {
       url: "/life-science/frontier/crispr-clinical-revolution",
       title: "CRISPR 走向临床——从剪刀到药物",
     },
@@ -5416,6 +7450,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/methods/nmr-spectroscopy-structure-elucidation",
       title: "NMR：从核自旋到分子结构推断",
+    },
+  ],
+  "/computer-science/algorithms/floyd-warshall": [
+    {
+      url: "/computer-science/theory/fine-grained-complexity",
+      title: "细粒度复杂度",
     },
   ],
   "/computer-science/algorithms/genetic-algorithms": [
@@ -5488,6 +7528,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/algorithms/graph-traversal": [
     {
+      url: "/computer-science/theory/parameterized-complexity",
+      title: "参数化复杂度",
+    },
+    {
+      url: "/computer-science/pioneers/radia-perlman",
+      title: "拉迪亚·珀尔曼",
+    },
+    {
       url: "/computer-science/pioneers/robert-tarjan",
       title: "罗伯特·塔扬",
     },
@@ -5526,6 +7574,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/algorithms/approximate-nearest-neighbor-search",
       title: "近似最近邻搜索",
+    },
+    {
+      url: "/psychology/experiments/craik-lockhart-1972",
+      title: "克雷克与洛克哈特 1972：加工水平怎样把记忆从仓库改写成编码深度的研究纲领",
     },
     {
       url: "/philosophy/experiments/ship-of-theseus",
@@ -5604,6 +7656,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/algorithms/knapsack-problem": [
     {
+      url: "/computer-science/theory/parameterized-complexity",
+      title: "参数化复杂度",
+    },
+    {
       url: "/computer-science/algorithms/dynamic-programming",
       title: "动态规划",
     },
@@ -5624,6 +7680,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/theories/comparative-advantage",
       title: "比较优势理论",
+    },
+    {
+      url: "/computer-science/concepts/floating-point-and-ieee754",
+      title: "浮点数与 IEEE 754",
     },
     {
       url: "/computer-science/theory/computational-complexity",
@@ -5656,14 +7716,34 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/algorithms/lru-cache-eviction": [
     {
+      url: "/psychology/experiments/atkinson-shiffrin-1968",
+      title: "阿特金森与希夫林 1968：结构特征与控制过程怎样把记忆写成感觉登记、短时库与长时库",
+    },
+    {
       url: "/computer-science/concepts/memory-hierarchy-caching",
       title: "存储层级与缓存",
+    },
+    {
+      url: "/psychology/experiments/waugh-norman-1965",
+      title: "沃与诺曼 1965：初级记忆怎样把遗忘写成插入项目而非单纯流逝",
     },
   ],
   "/computer-science/algorithms/mapreduce": [
     {
       url: "/computer-science/pioneers/larry-page-and-sergey-brin",
       title: "拉里·佩奇与谢尔盖·布林",
+    },
+    {
+      url: "/computer-science/algorithms/streaming-algorithms",
+      title: "流算法与草图",
+    },
+    {
+      url: "/computer-science/systems/bigtable-2006",
+      title: "Bigtable：稀疏表、Tablet 与时间戳单元",
+    },
+    {
+      url: "/computer-science/systems/gfs-2003",
+      title: "GFS：单主节点、大块与可忍受的不一致",
     },
   ],
   "/computer-science/algorithms/minimum-spanning-tree": [
@@ -5674,6 +7754,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/theory/approximation-algorithms",
       title: "近似算法理论",
+    },
+    {
+      url: "/computer-science/pioneers/radia-perlman",
+      title: "拉迪亚·珀尔曼",
     },
     {
       url: "/computer-science/algorithms/greedy-algorithms",
@@ -5830,6 +7914,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "代数基本定理",
     },
     {
+      url: "/mathematics/theorems/intermediate-value-theorem",
+      title: "介值定理：连续曲线必穿过中间的高度",
+    },
+    {
+      url: "/mathematics/theorems/mean-value-theorem",
+      title: "拉格朗日中值定理：弦的斜率必在某点被切线追上",
+    },
+    {
       url: "/mathematics/mathematicians/liu-hui",
       title: "刘徽",
     },
@@ -5846,6 +7938,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/knowledge-base/代数--线性代数的几何意义",
       title: "线性代数的几何意义",
+    },
+  ],
+  "/computer-science/algorithms/parallel-algorithms": [
+    {
+      url: "/psychology/experiments/sternberg-1966",
+      title: "斯特恩伯格 1966：高速扫描怎样把短时记忆里的数字写成随集合大小线性变长的反应时",
     },
   ],
   "/computer-science/algorithms/principal-component-analysis": [
@@ -6036,6 +8134,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/algorithms/sat-solving": [
     {
+      url: "/computer-science/theory/parameterized-complexity",
+      title: "参数化复杂度",
+    },
+    {
+      url: "/computer-science/theory/circuit-complexity",
+      title: "电路复杂度",
+    },
+    {
       url: "/philosophy/schools/analytic-philosophy",
       title: "分析哲学",
     },
@@ -6068,8 +8174,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "群",
     },
     {
+      url: "/computer-science/pioneers/stephen-cook",
+      title: "斯蒂芬·库克",
+    },
+    {
       url: "/computer-science/algorithms/topological-sort",
       title: "拓扑排序",
+    },
+    {
+      url: "/computer-science/theory/cook-1971-np-completeness",
+      title: "Cook 1971：定理证明手续的复杂度怎样把 SAT 写成 NP 完全",
+    },
+    {
+      url: "/computer-science/theory/karp-1972-reducibility",
+      title: "Karp 1972：组合问题之间的可归约性怎样把二十一个问题写成多项式完全",
     },
   ],
   "/computer-science/algorithms/shortest-path-dijkstra": [
@@ -6084,6 +8202,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/algorithms/graph-traversal",
       title: "图的遍历（BFS 与 DFS）",
+    },
+    {
+      url: "/computer-science/theory/fine-grained-complexity",
+      title: "细粒度复杂度",
     },
     {
       url: "/computer-science/algorithms/minimum-spanning-tree",
@@ -6118,6 +8240,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/algorithms/suffix-trees-and-arrays",
       title: "后缀树与后缀数组",
+    },
+    {
+      url: "/computer-science/theory/fine-grained-complexity",
+      title: "细粒度复杂度",
     },
     {
       url: "/computer-science/algorithms/regular-expressions",
@@ -6284,6 +8410,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/concepts/b-trees-and-lsm-trees": [
     {
+      url: "/computer-science/pioneers/michael-stonebraker",
+      title: "迈克尔·斯通布雷克",
+    },
+    {
       url: "/computer-science/concepts/data-structures",
       title: "数据结构",
     },
@@ -6294,6 +8424,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/algorithms/skip-lists",
       title: "跳表",
+    },
+    {
+      url: "/computer-science/systems/hnsw-ann-index",
+      title: "HNSW 与向量近邻：当距离代替关键词",
+    },
+    {
+      url: "/computer-science/systems/neo4j-property-graph",
+      title: "Neo4j 属性图：当邻居指针取代 JOIN",
     },
   ],
   "/computer-science/concepts/big-data-systems": [
@@ -6306,12 +8444,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "基因测序：从Sanger到纳米孔的技术演进",
     },
     {
+      url: "/computer-science/algorithms/streaming-algorithms",
+      title: "流算法与草图",
+    },
+    {
       url: "/earth-science/processes/watershed-hydrology",
       title: "流域水文",
     },
     {
       url: "/earth-science/pioneers/marie-tharp",
       title: "玛丽·撒普",
+    },
+    {
+      url: "/computer-science/pioneers/michael-stonebraker",
+      title: "迈克尔·斯通布雷克",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学观测--射电望远镜",
@@ -6330,8 +8476,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "遥感与地理信息系统",
     },
     {
+      url: "/computer-science/systems/bigtable-2006",
+      title: "Bigtable：稀疏表、Tablet 与时间戳单元",
+    },
+    {
       url: "/economics/concepts/gdp",
       title: "GDP（国内生产总值）",
+    },
+    {
+      url: "/computer-science/systems/gfs-2003",
+      title: "GFS：单主节点、大块与可忍受的不一致",
     },
   ],
   "/computer-science/concepts/blockchain": [
@@ -6420,6 +8574,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "约翰·麦卡锡",
     },
   ],
+  "/computer-science/concepts/codd-1970-relational": [
+    {
+      url: "/computer-science/pioneers/edgar-codd",
+      title: "埃德加·科德",
+    },
+    {
+      url: "/computer-science/concepts/databases-transactions",
+      title: "数据库与事务",
+    },
+  ],
   "/computer-science/concepts/compilers": [
     {
       url: "/computer-science/concepts/operating-systems",
@@ -6432,6 +8596,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/theorems/cantors-theorem",
       title: "康托尔定理",
+    },
+    {
+      url: "/psychology/experiments/craik-lockhart-1972",
+      title: "克雷克与洛克哈特 1972：加工水平怎样把记忆从仓库改写成编码深度的研究纲领",
     },
     {
       url: "/computer-science/pioneers/richard-stallman",
@@ -6476,6 +8644,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "查尔斯·巴贝奇",
     },
     {
+      url: "/computer-science/pioneers/patterson-and-hennessy",
+      title: "大卫·帕特森与约翰·亨尼西",
+    },
+    {
       url: "/chemistry/reactions/electrolysis",
       title: "电解",
     },
@@ -6490,6 +8662,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/leibniz",
       title: "莱布尼茨",
+    },
+    {
+      url: "/computer-science/concepts/memory-consistency-models",
+      title: "内存一致性模型",
     },
     {
       url: "/computer-science/concepts/embedded-systems",
@@ -6508,8 +8684,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "数轴",
     },
     {
+      url: "/computer-science/concepts/speculative-execution-and-side-channels",
+      title: "投机执行与侧信道",
+    },
+    {
       url: "/computer-science/concepts/gpu-and-parallel-computing",
       title: "GPU 与并行计算",
+    },
+    {
+      url: "/computer-science/theory/hoare-1969-axiomatic",
+      title: "Hoare 1969：公理基础怎样把程序正确性写成可推导的三元组",
+    },
+    {
+      url: "/computer-science/theory/lamport-1979-sequential-consistency",
+      title: "Lamport 1979：顺序一致性怎样把多处理器程序收成某一条尊重程序序的交错",
     },
   ],
   "/computer-science/concepts/computer-graphics": [
@@ -6558,6 +8746,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "线性代数的几何意义",
     },
     {
+      url: "/psychology/experiments/shepard-metzler-1971",
+      title: "谢泼德与梅茨勒 1971：三维线描的心理旋转怎样把“同一物体”写成与角差成正比的反应时",
+    },
+    {
       url: "/mathematics/concepts/signal-processing",
       title: "信号处理",
     },
@@ -6570,6 +8762,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/international-relations/security-dilemma-war-peace",
       title: "安全困境、战争与和平",
+    },
+    {
+      url: "/computer-science/pioneers/butler-lampson",
+      title: "巴特勒·兰普森",
     },
     {
       url: "/mathematics/mathematicians/fermat",
@@ -6590,6 +8786,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/case-studies/us-fiscal-path-treasury-market-2026",
       title: "美国财政路径与国债市场（2026）",
+    },
+    {
+      url: "/computer-science/pioneers/cynthia-dwork",
+      title: "辛西娅·德沃克",
     },
     {
       url: "/political-science/international-relations/just-war-theory",
@@ -6630,6 +8830,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "代数几何",
     },
     {
+      url: "/philosophy/experiments/inverted-spectrum",
+      title: "倒置光谱：行为与功能同一下的颜色经验对调",
+    },
+    {
       url: "/chemistry/methods/electron-microscopy-and-surface-analysis",
       title: "电子显微与表面表征：看见形貌，也要验证化学状态",
     },
@@ -6662,6 +8866,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "镜像阶段",
     },
     {
+      url: "/computer-science/pioneers/fei-fei-li",
+      title: "李飞飞",
+    },
+    {
       url: "/psychology/theorists/lisa-feldman-barrett",
       title: "丽莎·费尔德曼·巴雷特",
     },
@@ -6676,6 +8884,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/concepts/beauty",
       title: "美",
+    },
+    {
+      url: "/philosophy/experiments/molyneux-problem",
+      title: "莫利纽克斯问题：初次看见能否分出立方与球",
     },
     {
       url: "/philosophy/isms/feminism",
@@ -6796,6 +9008,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "金融危机的解剖：从Minsky到2008，崩溃的共同结构",
     },
     {
+      url: "/computer-science/concepts/memory-consistency-models",
+      title: "内存一致性模型",
+    },
+    {
       url: "/computer-science/concepts/embedded-systems",
       title: "嵌入式系统",
     },
@@ -6811,11 +9027,39 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/political-science/institutions/parliamentary-presidential",
       title: "议会制与总统制",
     },
+    {
+      url: "/computer-science/concepts/codd-1970-relational",
+      title: "Codd 1970：关系怎样把大型共享数据库从访问路径里解放出来",
+    },
+    {
+      url: "/computer-science/theory/dijkstra-1965-mutual-exclusion",
+      title: "Dijkstra 1965：互斥怎样在没有仲裁者的共享变量上写成可推理的问题",
+    },
+    {
+      url: "/computer-science/theory/knuth-1966-mutex-comment",
+      title: "Knuth 1966：互斥的集体进展怎样仍允许一个人被永远超过",
+    },
+    {
+      url: "/computer-science/theory/lamport-1974-bakery",
+      title: "Lamport 1974：面包店算法怎样给互斥加上先来先服务",
+    },
+    {
+      url: "/computer-science/theory/lamport-1979-sequential-consistency",
+      title: "Lamport 1979：顺序一致性怎样把多处理器程序收成某一条尊重程序序的交错",
+    },
+    {
+      url: "/computer-science/theory/peterson-1981-mutual-exclusion",
+      title: "Peterson 1981：两进程互斥怎样用两面旗与一个 turn 写成短注",
+    },
   ],
   "/computer-science/concepts/consensus-algorithms": [
     {
       url: "/economics/schools/austrian-school",
       title: "奥地利学派",
+    },
+    {
+      url: "/computer-science/theory/byzantine-generals-lamport-1982",
+      title: "拜占庭将军问题",
     },
     {
       url: "/computer-science/concepts/version-control",
@@ -6832,6 +9076,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/case-studies/crypto-chronicles",
       title: "加密货币编年史",
+    },
+    {
+      url: "/computer-science/theory/paxos-lamport-1998",
+      title: "兼职议会与 Paxos",
     },
     {
       url: "/political-science/institutions/monarchy",
@@ -6862,8 +9110,92 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "托马斯·谢林",
     },
     {
+      url: "/computer-science/concepts/crdts",
+      title: "无冲突复制数据类型",
+    },
+    {
       url: "/life-science/species/honeybee",
       title: "西方蜜蜂",
+    },
+    {
+      url: "/computer-science/theory/attiya-bar-noy-dolev-1995",
+      title: "Attiya–Bar-Noy–Dolev 1995：消息传递上的原子寄存器",
+    },
+    {
+      url: "/computer-science/theory/castro-liskov-1999-pbft",
+      title: "Castro–Liskov 1999：实用拜占庭容错，不是将军寓言",
+    },
+    {
+      url: "/computer-science/theory/chandra-toueg-1996",
+      title: "Chandra–Toueg 1996：会犯错的怀疑预言怎样成为共识的最弱检测器",
+    },
+    {
+      url: "/computer-science/theory/chandy-lamport-1985-snapshots",
+      title: "Chandy–Lamport 1985：标记消息怎样把全局状态收成一致割",
+    },
+    {
+      url: "/computer-science/theory/dwork-lynch-stockmeyer-1988",
+      title: "Dwork–Lynch–Stockmeyer 1988：终将有界的延迟怎样让确定性共识可能",
+    },
+    {
+      url: "/computer-science/theory/fidge-mattern-vector-clocks",
+      title: "Fidge–Mattern：分量时间戳怎样把并发从标量编号里认出来",
+    },
+    {
+      url: "/computer-science/theory/flp-fischer-lynch-paterson-1985",
+      title: "FLP：完全异步下一次崩溃也能挡住确定性共识",
+    },
+    {
+      url: "/computer-science/theory/garcia-molina-1982-bully",
+      title: "Garcia-Molina 1982：编号更高的进程怎样在超时假设下抢走协调者",
+    },
+    {
+      url: "/computer-science/theory/gilbert-lynch-2002-cap",
+      title: "Gilbert–Lynch 2002：异步网上原子寄存器无法既可用又抗分区",
+    },
+    {
+      url: "/computer-science/theory/gray-1978-two-phase-commit",
+      title: "Gray 1978：两阶段提交怎样把多处改动收成提交或中止",
+    },
+    {
+      url: "/computer-science/theory/herlihy-1991-wait-free",
+      title: "Herlihy 1991：等待自由怎样按共识数给并发对象分层",
+    },
+    {
+      url: "/computer-science/theory/herlihy-moss-1993-tm",
+      title: "Herlihy–Moss 1993：事务内存怎样用体系结构支持无锁数据结构",
+    },
+    {
+      url: "/computer-science/theory/herlihy-wing-1990",
+      title: "Herlihy–Wing 1990：线性化怎样把并发对象收成合法的顺序历史",
+    },
+    {
+      url: "/computer-science/systems/birman-1985-virtual-synchrony",
+      title: "ISIS 1985：进程组、flush 与虚拟同步，不是又一份 ZooKeeper",
+    },
+    {
+      url: "/computer-science/theory/lamport-1978-clocks",
+      title: "Lamport 1978：先于关系怎样把分布式事件收成不靠墙钟的偏序",
+    },
+    {
+      url: "/computer-science/systems/schneider-1990-smr",
+      title: "Schneider 1990：副本确定性、输出一致与状态机方法，不是又一份 Paxos",
+    },
+    {
+      url: "/computer-science/theory/shapiro-2011-crdts",
+      title: "Shapiro 2011：副本收敛是半格或可交换操作，不是共识协议",
+    },
+    {
+      url: "/computer-science/theory/shavit-touitou-1995-stm",
+      title: "Shavit–Touitou 1995：软件事务内存怎样把无锁写成运行时而不是每只对象的手工艺",
+    },
+    {
+      url: "/computer-science/systems/viewstamped-replication-1988",
+      title: "Viewstamped Replication：视图、主副本与盖章请求，不是又一份 Paxos",
+    },
+    {
+      url: "/computer-science/systems/zookeeper-2010",
+      title: "ZooKeeper：等待自由的协调，不是又一套 Chubby 说明书",
     },
   ],
   "/computer-science/concepts/containers-and-orchestration": [
@@ -6878,8 +9210,34 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/concepts/cpu-pipelining": [
     {
+      url: "/computer-science/pioneers/patterson-and-hennessy",
+      title: "大卫·帕特森与约翰·亨尼西",
+    },
+    {
+      url: "/computer-science/concepts/memory-consistency-models",
+      title: "内存一致性模型",
+    },
+    {
+      url: "/computer-science/concepts/speculative-execution-and-side-channels",
+      title: "投机执行与侧信道",
+    },
+    {
       url: "/computer-science/concepts/gpu-and-parallel-computing",
       title: "GPU 与并行计算",
+    },
+  ],
+  "/computer-science/concepts/crdts": [
+    {
+      url: "/computer-science/systems/demers-1987-epidemic",
+      title: "Demers 1987：谣言与反熵怎样维护副本，不是 Dynamo",
+    },
+    {
+      url: "/computer-science/theory/shapiro-2011-crdts",
+      title: "Shapiro 2011：副本收敛是半格或可交换操作，不是共识协议",
+    },
+    {
+      url: "/computer-science/systems/terry-1994-session-guarantees",
+      title: "Terry 1994：会话保证怎样把弱一致副本写成客户视角",
     },
   ],
   "/computer-science/concepts/data-structures": [
@@ -6903,6 +9261,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/mathematics/theorems/fundamental-theorem-of-calculus",
       title: "微积分基本定理",
     },
+    {
+      url: "/computer-science/concepts/codd-1970-relational",
+      title: "Codd 1970：关系怎样把大型共享数据库从访问路径里解放出来",
+    },
   ],
   "/computer-science/concepts/database-indexing-and-query-optimization": [
     {
@@ -6912,6 +9274,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/big-data-systems",
       title: "大数据系统",
+    },
+    {
+      url: "/computer-science/pioneers/michael-stonebraker",
+      title: "迈克尔·斯通布雷克",
     },
     {
       url: "/computer-science/concepts/information-retrieval-and-search",
@@ -6932,12 +9298,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "加密货币、稳定币与央行数字货币的经济学",
     },
     {
+      url: "/computer-science/theory/paxos-lamport-1998",
+      title: "兼职议会与 Paxos",
+    },
+    {
       url: "/mathematics/paradoxes/russels-paradox",
       title: "罗素悖论",
     },
     {
       url: "/computer-science/concepts/logic-programming",
       title: "逻辑编程",
+    },
+    {
+      url: "/computer-science/pioneers/michael-stonebraker",
+      title: "迈克尔·斯通布雷克",
     },
     {
       url: "/political-science/thinkers/jean-bodin",
@@ -6962,6 +9336,58 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/message-queues-and-streaming",
       title: "消息队列与流处理",
+    },
+    {
+      url: "/computer-science/systems/bigtable-2006",
+      title: "Bigtable：稀疏表、Tablet 与时间戳单元",
+    },
+    {
+      url: "/computer-science/concepts/codd-1970-relational",
+      title: "Codd 1970：关系怎样把大型共享数据库从访问路径里解放出来",
+    },
+    {
+      url: "/computer-science/systems/demers-1987-epidemic",
+      title: "Demers 1987：谣言与反熵怎样维护副本，不是 Dynamo",
+    },
+    {
+      url: "/computer-science/theory/gilbert-lynch-2002-cap",
+      title: "Gilbert–Lynch 2002：异步网上原子寄存器无法既可用又抗分区",
+    },
+    {
+      url: "/computer-science/theory/gray-1978-two-phase-commit",
+      title: "Gray 1978：两阶段提交怎样把多处改动收成提交或中止",
+    },
+    {
+      url: "/computer-science/theory/herlihy-1991-wait-free",
+      title: "Herlihy 1991：等待自由怎样按共识数给并发对象分层",
+    },
+    {
+      url: "/computer-science/theory/herlihy-moss-1993-tm",
+      title: "Herlihy–Moss 1993：事务内存怎样用体系结构支持无锁数据结构",
+    },
+    {
+      url: "/computer-science/theory/herlihy-wing-1990",
+      title: "Herlihy–Wing 1990：线性化怎样把并发对象收成合法的顺序历史",
+    },
+    {
+      url: "/computer-science/systems/hnsw-ann-index",
+      title: "HNSW 与向量近邻：当距离代替关键词",
+    },
+    {
+      url: "/computer-science/systems/neo4j-property-graph",
+      title: "Neo4j 属性图：当邻居指针取代 JOIN",
+    },
+    {
+      url: "/computer-science/theory/shapiro-2011-crdts",
+      title: "Shapiro 2011：副本收敛是半格或可交换操作，不是共识协议",
+    },
+    {
+      url: "/computer-science/theory/shavit-touitou-1995-stm",
+      title: "Shavit–Touitou 1995：软件事务内存怎样把无锁写成运行时而不是每只对象的手工艺",
+    },
+    {
+      url: "/computer-science/systems/viewstamped-replication-1988",
+      title: "Viewstamped Replication：视图、主副本与盖章请求，不是又一份 Paxos",
     },
   ],
   "/computer-science/concepts/deep-learning-architectures": [
@@ -6992,6 +9418,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/methods-and-frontiers/computational-linguistics",
       title: "计算语言学与自然语言处理",
+    },
+    {
+      url: "/computer-science/pioneers/fei-fei-li",
+      title: "李飞飞",
     },
     {
       url: "/philosophy/concepts/reason",
@@ -7090,6 +9520,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "模态逻辑",
     },
     {
+      url: "/computer-science/concepts/memory-consistency-models",
+      title: "内存一致性模型",
+    },
+    {
       url: "/philosophy/questions/what-is-time",
       title: "什么是时间？",
     },
@@ -7137,6 +9571,86 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/computer-science/concepts/api-design",
       title: "API 设计",
     },
+    {
+      url: "/computer-science/systems/ratnasamy-2001-can",
+      title: "CAN：笛卡尔分区与贪心转发，状态不随规模涨",
+    },
+    {
+      url: "/computer-science/theory/chandy-lamport-1985-snapshots",
+      title: "Chandy–Lamport 1985：标记消息怎样把全局状态收成一致割",
+    },
+    {
+      url: "/computer-science/systems/chord-2001",
+      title: "Chord：标识符环上的查找，不是中心目录",
+    },
+    {
+      url: "/computer-science/systems/chubby-2006",
+      title: "Chubby：松耦合系统上的锁服务，不是又一套数据库",
+    },
+    {
+      url: "/computer-science/systems/demers-1987-epidemic",
+      title: "Demers 1987：谣言与反熵怎样维护副本，不是 Dynamo",
+    },
+    {
+      url: "/computer-science/theory/fidge-mattern-vector-clocks",
+      title: "Fidge–Mattern：分量时间戳怎样把并发从标量编号里认出来",
+    },
+    {
+      url: "/computer-science/theory/garcia-molina-1982-bully",
+      title: "Garcia-Molina 1982：编号更高的进程怎样在超时假设下抢走协调者",
+    },
+    {
+      url: "/computer-science/systems/gfs-2003",
+      title: "GFS：单主节点、大块与可忍受的不一致",
+    },
+    {
+      url: "/computer-science/theory/gilbert-lynch-2002-cap",
+      title: "Gilbert–Lynch 2002：异步网上原子寄存器无法既可用又抗分区",
+    },
+    {
+      url: "/computer-science/theory/gray-1978-two-phase-commit",
+      title: "Gray 1978：两阶段提交怎样把多处改动收成提交或中止",
+    },
+    {
+      url: "/computer-science/systems/birman-1985-virtual-synchrony",
+      title: "ISIS 1985：进程组、flush 与虚拟同步，不是又一份 ZooKeeper",
+    },
+    {
+      url: "/computer-science/systems/kademlia-2002",
+      title: "Kademlia：XOR 距离上的 k-bucket，不是环上的手指",
+    },
+    {
+      url: "/computer-science/theory/lamport-1978-clocks",
+      title: "Lamport 1978：先于关系怎样把分布式事件收成不靠墙钟的偏序",
+    },
+    {
+      url: "/computer-science/systems/pastry-2001",
+      title: "Pastry：前缀表、叶集与邻近集，不是环上的手指",
+    },
+    {
+      url: "/computer-science/systems/schneider-1990-smr",
+      title: "Schneider 1990：副本确定性、输出一致与状态机方法，不是又一份 Paxos",
+    },
+    {
+      url: "/computer-science/theory/shapiro-2011-crdts",
+      title: "Shapiro 2011：副本收敛是半格或可交换操作，不是共识协议",
+    },
+    {
+      url: "/computer-science/systems/tapestry-2001",
+      title: "Tapestry：邻接表、代理路由与就近副本，不是把对象搬到键上",
+    },
+    {
+      url: "/computer-science/systems/terry-1994-session-guarantees",
+      title: "Terry 1994：会话保证怎样把弱一致副本写成客户视角",
+    },
+    {
+      url: "/computer-science/systems/viewstamped-replication-1988",
+      title: "Viewstamped Replication：视图、主副本与盖章请求，不是又一份 Paxos",
+    },
+    {
+      url: "/computer-science/systems/zookeeper-2010",
+      title: "ZooKeeper：等待自由的协调，不是又一套 Chubby 说明书",
+    },
   ],
   "/computer-science/concepts/dns": [
     {
@@ -7168,6 +9682,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/concepts/encryption-basics": [
     {
+      url: "/computer-science/pioneers/shafi-goldwasser",
+      title: "沙菲·戈德瓦塞尔",
+    },
+    {
       url: "/law/global-and-digital/digital-rights-and-privacy",
       title: "数据权利与隐私：从独处权到被遗忘权",
     },
@@ -7184,6 +9702,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/pioneers/john-mccarthy",
       title: "约翰·麦卡锡",
+    },
+    {
+      url: "/computer-science/pioneers/judea-pearl",
+      title: "朱迪亚·珀尔",
     },
   ],
   "/computer-science/concepts/file-systems": [
@@ -7202,6 +9724,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/virtualization",
       title: "虚拟化与容器",
+    },
+    {
+      url: "/computer-science/systems/gfs-2003",
+      title: "GFS：单主节点、大块与可忍受的不一致",
     },
   ],
   "/computer-science/concepts/firewalls-and-network-security": [
@@ -7336,6 +9862,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "自动机与形式语言",
     },
     {
+      url: "/computer-science/theory/floyd-1967-assigning-meanings",
+      title: "Floyd 1967：归纳断言怎样把程序的意义写在流程图的边上",
+    },
+    {
+      url: "/computer-science/theory/hoare-1969-axiomatic",
+      title: "Hoare 1969：公理基础怎样把程序正确性写成可推导的三元组",
+    },
+    {
       url: "/computer-science/algorithms/sat-solving",
       title: "SAT 求解",
     },
@@ -7382,8 +9916,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/concepts/gpu-and-parallel-computing": [
     {
+      url: "/computer-science/algorithms/parallel-algorithms",
+      title: "并行算法",
+    },
+    {
+      url: "/computer-science/pioneers/patterson-and-hennessy",
+      title: "大卫·帕特森与约翰·亨尼西",
+    },
+    {
       url: "/computer-science/pioneers/frances-allen",
       title: "弗朗西丝·艾伦",
+    },
+    {
+      url: "/computer-science/concepts/floating-point-and-ieee754",
+      title: "浮点数与 IEEE 754",
     },
     {
       url: "/computer-science/frontier/sustainable-computing",
@@ -7538,6 +10084,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "政党与政党制度",
     },
     {
+      url: "/computer-science/systems/gfs-2003",
+      title: "GFS：单主节点、大块与可忍受的不一致",
+    },
+    {
+      url: "/computer-science/systems/hnsw-ann-index",
+      title: "HNSW 与向量近邻：当距离代替关键词",
+    },
+    {
       url: "/computer-science/algorithms/pagerank",
       title: "PageRank 算法",
     },
@@ -7628,8 +10182,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "复杂性哲学",
     },
     {
+      url: "/education/cognition-and-memory/working-memory-and-load",
+      title: "工作记忆与认知负荷",
+    },
+    {
       url: "/mathematics/theorems/pythagorean-theorem",
       title: "勾股定理",
+    },
+    {
+      url: "/philosophy/experiments/goodman-grue",
+      title: "古德曼的绿蓝谜题",
     },
     {
       url: "/sociology/institutions/bureaucracy",
@@ -7638,6 +10200,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/heidegger",
       title: "海德格尔",
+    },
+    {
+      url: "/philosophy/experiments/hempel-ravens",
+      title: "亨佩尔的乌鸦悖论",
     },
     {
       url: "/earth-science/concepts/environmental-geology",
@@ -7670,6 +10236,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/methods-and-frontiers/computational-linguistics",
       title: "计算语言学与自然语言处理",
+    },
+    {
+      url: "/education/cognition-and-memory/memory-spacing-and-transfer",
+      title: "记忆、间隔与迁移",
+    },
+    {
+      url: "/education/education-technology/what-edtech-records",
+      title: "教育技术记录了什么",
     },
     {
       url: "/philosophy/isms/empiricism-ism",
@@ -7706,6 +10280,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/quine",
       title: "蒯因",
+    },
+    {
+      url: "/computer-science/pioneers/fei-fei-li",
+      title: "李飞飞",
     },
     {
       url: "/chemistry/concepts/quantum-chemistry",
@@ -7792,6 +10370,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "神经影像方法及其限度",
     },
     {
+      url: "/education/education-technology/generative-models-change-conditions",
+      title: "生成式模型改的是条件",
+    },
+    {
       url: "/arts/methods/generative-art-and-ai",
       title: "生成艺术与 AI：作者性的新边界",
     },
@@ -7872,8 +10454,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "休谟",
     },
     {
+      url: "/education/education-technology/learning-analytics-are-inferences",
+      title: "学习分析是推断",
+    },
+    {
       url: "/linguistics/methods-and-frontiers/speech-technology",
       title: "言语技术：机器如何听懂与说出语言",
+    },
+    {
+      url: "/education/cognition-and-memory/worked-examples-and-self-explanation",
+      title: "样例与自我解释",
     },
     {
       url: "/chemistry/concepts/medicinal-chemistry",
@@ -7928,12 +10518,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "智力理论：一个数字能装下一个人吗",
     },
     {
+      url: "/computer-science/pioneers/judea-pearl",
+      title: "朱迪亚·珀尔",
+    },
+    {
       url: "/computer-science/concepts/expert-systems-and-the-second-ai-winter",
       title: "专家系统与第二次 AI 寒冬",
     },
     {
       url: "/engineering/machines/automation-and-industry",
       title: "自动化与工业 4.0：从 PLC 到灯塔工厂",
+    },
+    {
+      url: "/education/education-technology/adaptive-systems-are-not-tutors",
+      title: "自适应系统不是家教",
     },
     {
       url: "/psychology/methods/longitudinal-multilevel-models",
@@ -7968,18 +10566,72 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "mRNA 疗法：当新冠疫苗只是这项技术的第一幕",
     },
     {
+      url: "/education/comparison-and-policy/pisa-is-not-civilization",
+      title: "PISA 不是文明",
+    },
+    {
       url: "/linguistics/acquisition-and-mind/wug-test-morphology-analysis",
       title: "Wug Test 实验剖析：儿童怎样生成没听过的词",
     },
   ],
+  "/computer-science/concepts/memory-consistency-models": [
+    {
+      url: "/computer-science/theory/attiya-bar-noy-dolev-1995",
+      title: "Attiya–Bar-Noy–Dolev 1995：消息传递上的原子寄存器",
+    },
+    {
+      url: "/computer-science/theory/dijkstra-1965-mutual-exclusion",
+      title: "Dijkstra 1965：互斥怎样在没有仲裁者的共享变量上写成可推理的问题",
+    },
+    {
+      url: "/computer-science/theory/herlihy-1991-wait-free",
+      title: "Herlihy 1991：等待自由怎样按共识数给并发对象分层",
+    },
+    {
+      url: "/computer-science/theory/herlihy-moss-1993-tm",
+      title: "Herlihy–Moss 1993：事务内存怎样用体系结构支持无锁数据结构",
+    },
+    {
+      url: "/computer-science/theory/herlihy-wing-1990",
+      title: "Herlihy–Wing 1990：线性化怎样把并发对象收成合法的顺序历史",
+    },
+    {
+      url: "/computer-science/theory/lamport-1974-bakery",
+      title: "Lamport 1974：面包店算法怎样给互斥加上先来先服务",
+    },
+    {
+      url: "/computer-science/theory/lamport-1979-sequential-consistency",
+      title: "Lamport 1979：顺序一致性怎样把多处理器程序收成某一条尊重程序序的交错",
+    },
+    {
+      url: "/computer-science/theory/peterson-1981-mutual-exclusion",
+      title: "Peterson 1981：两进程互斥怎样用两面旗与一个 turn 写成短注",
+    },
+    {
+      url: "/computer-science/theory/shavit-touitou-1995-stm",
+      title: "Shavit–Touitou 1995：软件事务内存怎样把无锁写成运行时而不是每只对象的手工艺",
+    },
+  ],
   "/computer-science/concepts/memory-hierarchy-caching": [
+    {
+      url: "/psychology/experiments/atkinson-shiffrin-1968",
+      title: "阿特金森与希夫林 1968：结构特征与控制过程怎样把记忆写成感觉登记、短时库与长时库",
+    },
     {
       url: "/computer-science/concepts/b-trees-and-lsm-trees",
       title: "存储引擎：B 树与 LSM 树",
     },
     {
+      url: "/computer-science/pioneers/patterson-and-hennessy",
+      title: "大卫·帕特森与约翰·亨尼西",
+    },
+    {
       url: "/computer-science/pioneers/john-von-neumann",
       title: "冯·诺伊曼",
+    },
+    {
+      url: "/psychology/experiments/glanzer-cunitz-1966",
+      title: "格兰泽与库尼茨 1966：自由回忆的首因与近因为何被两套仓库分开",
     },
     {
       url: "/psychology/phenomena/memory-systems",
@@ -8189,6 +10841,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/computer-science/algorithms/shortest-path-dijkstra",
       title: "最短路径与 Dijkstra 算法",
     },
+    {
+      url: "/computer-science/systems/ratnasamy-2001-can",
+      title: "CAN：笛卡尔分区与贪心转发，状态不随规模涨",
+    },
+    {
+      url: "/computer-science/systems/chord-2001",
+      title: "Chord：标识符环上的查找，不是中心目录",
+    },
+    {
+      url: "/computer-science/systems/kademlia-2002",
+      title: "Kademlia：XOR 距离上的 k-bucket，不是环上的手指",
+    },
+    {
+      url: "/computer-science/systems/pastry-2001",
+      title: "Pastry：前缀表、叶集与邻近集，不是环上的手指",
+    },
+    {
+      url: "/computer-science/systems/tapestry-2001",
+      title: "Tapestry：邻接表、代理路由与就近副本，不是把对象搬到键上",
+    },
   ],
   "/computer-science/concepts/neural-networks-concept": [
     {
@@ -8314,6 +10986,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/concepts/operating-systems": [
     {
+      url: "/computer-science/pioneers/butler-lampson",
+      title: "巴特勒·兰普森",
+    },
+    {
       url: "/computer-science/pioneers/bill-gates",
       title: "比尔·盖茨",
     },
@@ -8336,6 +11012,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/theory/logic-and-computation",
       title: "逻辑与计算",
+    },
+    {
+      url: "/computer-science/concepts/memory-consistency-models",
+      title: "内存一致性模型",
     },
     {
       url: "/computer-science/concepts/embedded-systems",
@@ -8366,6 +11046,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "布隆过滤器",
     },
     {
+      url: "/computer-science/theory/differential-privacy",
+      title: "差分隐私",
+    },
+    {
       url: "/medicine/public-health/infectious-disease-modeling-surveillance",
       title: "传染病建模、监测与公共卫生情报",
     },
@@ -8386,6 +11070,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "计算语言学与自然语言处理",
     },
     {
+      url: "/education/education-technology/what-edtech-records",
+      title: "教育技术记录了什么",
+    },
+    {
+      url: "/education/education-technology/open-resources-are-not-neutral",
+      title: "开放资源不是中立",
+    },
+    {
       url: "/law/frontier/cross-border-data-governance",
       title: "跨境数据治理：云端的一份数据同时服从几套主权",
     },
@@ -8396,6 +11088,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/thinkers/michel-foucault",
       title: "米歇尔·福柯",
+    },
+    {
+      url: "/education/frontier/ai-act-and-education-inference",
+      title: "欧盟 AI 法案把哪些教育推断写成高风险",
     },
     {
       url: "/economics/concepts/platform-economics",
@@ -8410,6 +11106,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "神经伦理与心理隐私：思想还是最后的私域吗",
     },
     {
+      url: "/education/education-technology/generative-models-change-conditions",
+      title: "生成式模型改的是条件",
+    },
+    {
       url: "/philosophy/concepts/digital-ethics",
       title: "数字伦理",
     },
@@ -8418,12 +11118,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "无知之幕",
     },
     {
+      url: "/computer-science/pioneers/cynthia-dwork",
+      title: "辛西娅·德沃克",
+    },
+    {
       url: "/philosophy/concepts/information-philosophy",
       title: "信息哲学",
     },
     {
       url: "/political-science/institutions/executive-power",
       title: "行政权与行政首长",
+    },
+    {
+      url: "/education/education-technology/learning-analytics-are-inferences",
+      title: "学习分析是推断",
     },
     {
       url: "/medicine/concepts/medical-genetics-and-genomics",
@@ -8868,6 +11576,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "在线算法与竞争分析",
     },
     {
+      url: "/computer-science/pioneers/judea-pearl",
+      title: "朱迪亚·珀尔",
+    },
+    {
       url: "/psychology/theorists/b-f-skinner",
       title: "B·F·斯金纳",
     },
@@ -8886,6 +11598,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/algorithms/bellman-ford",
       title: "贝尔曼-福特算法",
+    },
+    {
+      url: "/computer-science/pioneers/radia-perlman",
+      title: "拉迪亚·珀尔曼",
     },
   ],
   "/computer-science/concepts/software-engineering": [
@@ -9053,8 +11769,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/philosophy/thinkers/ayer",
       title: "A.J. 艾耶尔",
     },
+    {
+      url: "/computer-science/theory/floyd-1967-assigning-meanings",
+      title: "Floyd 1967：归纳断言怎样把程序的意义写在流程图的边上",
+    },
+    {
+      url: "/computer-science/theory/hoare-1969-axiomatic",
+      title: "Hoare 1969：公理基础怎样把程序正确性写成可推导的三元组",
+    },
   ],
   "/computer-science/concepts/tcp-and-reliable-transport": [
+    {
+      url: "/computer-science/pioneers/radia-perlman",
+      title: "拉迪亚·珀尔曼",
+    },
     {
       url: "/computer-science/pioneers/vint-cerf",
       title: "文顿·瑟夫",
@@ -9197,6 +11925,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/computer-science/concepts/memory-hierarchy-caching",
       title: "存储层级与缓存",
     },
+    {
+      url: "/computer-science/concepts/webassembly",
+      title: "WebAssembly",
+    },
   ],
   "/computer-science/concepts/web-security-xss-csrf": [
     {
@@ -9306,6 +12038,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "逻辑与计算",
     },
     {
+      url: "/computer-science/frontier/neural-program-synthesis",
+      title: "神经程序综合：从规约到代码的开放问题",
+    },
+    {
       url: "/mathematics/concepts/proof",
       title: "证明",
     },
@@ -9314,8 +12050,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "AI 驱动的科学发现：从蛋白质到天气再到数学",
     },
     {
+      url: "/computer-science/frontier/ebpf-verifier",
+      title: "eBPF 验证器：把内核扩展变成可判定问题",
+    },
+    {
       url: "/computer-science/theory/lambda-calculus-type-theory",
       title: "λ演算与类型理论",
+    },
+  ],
+  "/computer-science/frontier/inference-time-compute-and-reasoning": [
+    {
+      url: "/computer-science/frontier/large-language-models",
+      title: "大语言模型与基础模型",
     },
   ],
   "/computer-science/frontier/large-language-models": [
@@ -9546,6 +12292,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/phenomena/neuroplasticity",
       title: "神经可塑性",
+    },
+    {
+      url: "/education/frontier/generative-assessment-after-2022",
+      title: "生成式模型之后评估还在测什么",
     },
     {
       url: "/arts/methods/generative-art-and-ai",
@@ -9808,6 +12558,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "柯莫哥洛夫复杂度",
     },
     {
+      url: "/computer-science/pioneers/stephen-cook",
+      title: "斯蒂芬·库克",
+    },
+    {
       url: "/human-history/knowledge/人物--图灵",
       title: "图灵",
     },
@@ -9824,22 +12578,80 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "希尔伯特",
     },
   ],
+  "/computer-science/pioneers/andrew-yao": [
+    {
+      url: "/computer-science/theory/yao-1979-communication-complexity",
+      title: "Yao 1979：分布式计算的复杂度问题怎样把通信写成资源",
+    },
+  ],
+  "/computer-science/pioneers/barbara-liskov": [
+    {
+      url: "/computer-science/pioneers/butler-lampson",
+      title: "巴特勒·兰普森",
+    },
+    {
+      url: "/computer-science/theory/castro-liskov-1999-pbft",
+      title: "Castro–Liskov 1999：实用拜占庭容错，不是将军寓言",
+    },
+  ],
   "/computer-science/pioneers/claude-shannon": [
+    {
+      url: "/psychology/experiments/broadbent-1958",
+      title: "布罗德本特 1958：过滤器怎样把有限容量写成早期选择的门",
+    },
+    {
+      url: "/psychology/experiments/cherry-1953",
+      title: "彻里 1953：双耳分听怎样把未追随耳从整句里拆成几乎什么也报不出",
+    },
+    {
+      url: "/psychology/experiments/deutsch-deutsch-1963",
+      title: "多伊奇与多伊奇 1963：晚期选择怎样把重要性加权写到完整分析之后",
+    },
     {
       url: "/computer-science/theory/error-correcting-codes",
       title: "纠错码理论",
+    },
+    {
+      url: "/psychology/experiments/conrad-1964",
+      title: "康拉德 1964：即时记忆的错误为何跟着声音走而不是跟着字形走",
     },
     {
       url: "/computer-science/theory/kolmogorov-complexity",
       title: "柯莫哥洛夫复杂度",
     },
     {
+      url: "/philosophy/experiments/kripke-quus",
+      title: "克里普克的 quus：过去用法怎样钉不住加法",
+    },
+    {
+      url: "/psychology/experiments/miller-1956",
+      title: "米勒 1956：绝对判断、即时记忆与组块怎样把容量从比特改写成结构",
+    },
+    {
+      url: "/psychology/experiments/moray-1959",
+      title: "莫雷 1959：自己的名字怎样把被拒绝耳上的屏障从密封改写成情感显著项仍可能漏出",
+    },
+    {
       url: "/computer-science/concepts/human-computer-interaction",
       title: "人机交互",
     },
     {
+      url: "/psychology/experiments/sperling-1960",
+      title: "斯珀林 1960：部分报告怎样把瞬时视觉容量从整报里拆出来",
+    },
+    {
       url: "/engineering/machines/telecommunications-networks",
       title: "通信与网络工程：让消息跑赢距离",
+    },
+  ],
+  "/computer-science/pioneers/cynthia-dwork": [
+    {
+      url: "/computer-science/theory/dwork-lynch-stockmeyer-1988",
+      title: "Dwork–Lynch–Stockmeyer 1988：终将有界的延迟怎样让确定性共识可能",
+    },
+    {
+      url: "/computer-science/theory/flp-fischer-lynch-paterson-1985",
+      title: "FLP：完全异步下一次崩溃也能挡住确定性共识",
     },
   ],
   "/computer-science/pioneers/dennis-ritchie": [
@@ -9848,7 +12660,49 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "肯·汤普森",
     },
   ],
+  "/computer-science/pioneers/donald-knuth": [
+    {
+      url: "/computer-science/pioneers/stephen-cook",
+      title: "斯蒂芬·库克",
+    },
+    {
+      url: "/computer-science/theory/knuth-1966-mutex-comment",
+      title: "Knuth 1966：互斥的集体进展怎样仍允许一个人被永远超过",
+    },
+  ],
+  "/computer-science/pioneers/edgar-codd": [
+    {
+      url: "/computer-science/pioneers/michael-stonebraker",
+      title: "迈克尔·斯通布雷克",
+    },
+    {
+      url: "/computer-science/concepts/codd-1970-relational",
+      title: "Codd 1970：关系怎样把大型共享数据库从访问路径里解放出来",
+    },
+  ],
+  "/computer-science/pioneers/edsger-dijkstra": [
+    {
+      url: "/computer-science/theory/dijkstra-1965-mutual-exclusion",
+      title: "Dijkstra 1965：互斥怎样在没有仲裁者的共享变量上写成可推理的问题",
+    },
+    {
+      url: "/computer-science/theory/knuth-1966-mutex-comment",
+      title: "Knuth 1966：互斥的集体进展怎样仍允许一个人被永远超过",
+    },
+    {
+      url: "/computer-science/theory/lamport-1974-bakery",
+      title: "Lamport 1974：面包店算法怎样给互斥加上先来先服务",
+    },
+    {
+      url: "/computer-science/theory/peterson-1981-mutual-exclusion",
+      title: "Peterson 1981：两进程互斥怎样用两面旗与一个 turn 写成短注",
+    },
+  ],
   "/computer-science/pioneers/geoffrey-hinton": [
+    {
+      url: "/computer-science/pioneers/fei-fei-li",
+      title: "李飞飞",
+    },
     {
       url: "/linguistics/methods-and-frontiers/speech-technology",
       title: "言语技术：机器如何听懂与说出语言",
@@ -9866,6 +12720,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "艾伦·图灵",
     },
     {
+      url: "/computer-science/pioneers/patterson-and-hennessy",
+      title: "大卫·帕特森与约翰·亨尼西",
+    },
+    {
       url: "/engineering/machines/computing-hardware",
       title: "计算硬件：从晶体管到先进封装",
     },
@@ -9876,8 +12734,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/pioneers/leslie-lamport": [
     {
+      url: "/computer-science/pioneers/butler-lampson",
+      title: "巴特勒·兰普森",
+    },
+    {
+      url: "/computer-science/theory/byzantine-generals-lamport-1982",
+      title: "拜占庭将军问题",
+    },
+    {
       url: "/computer-science/concepts/consensus-algorithms",
       title: "分布式共识算法",
+    },
+    {
+      url: "/computer-science/theory/paxos-lamport-1998",
+      title: "兼职议会与 Paxos",
     },
     {
       url: "/philosophy/questions/what-is-time",
@@ -9890,6 +12760,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/concepts/philosophy-of-time",
       title: "时间哲学",
+    },
+    {
+      url: "/computer-science/theory/chandy-lamport-1985-snapshots",
+      title: "Chandy–Lamport 1985：标记消息怎样把全局状态收成一致割",
+    },
+    {
+      url: "/computer-science/theory/lamport-1974-bakery",
+      title: "Lamport 1974：面包店算法怎样给互斥加上先来先服务",
+    },
+    {
+      url: "/computer-science/theory/lamport-1978-clocks",
+      title: "Lamport 1978：先于关系怎样把分布式事件收成不靠墙钟的偏序",
+    },
+    {
+      url: "/computer-science/theory/lamport-1979-sequential-consistency",
+      title: "Lamport 1979：顺序一致性怎样把多处理器程序收成某一条尊重程序序的交错",
     },
   ],
   "/computer-science/pioneers/linus-torvalds": [
@@ -9904,10 +12790,322 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "感知机与第一次 AI 寒冬",
     },
   ],
+  "/computer-science/pioneers/ron-rivest": [
+    {
+      url: "/computer-science/pioneers/shafi-goldwasser",
+      title: "沙菲·戈德瓦塞尔",
+    },
+  ],
+  "/computer-science/pioneers/shafi-goldwasser": [
+    {
+      url: "/computer-science/theory/goldwasser-micali-rackoff-1985",
+      title: "Goldwasser–Micali–Rackoff 1985：交互证明系统的知识复杂度怎样把零知识写成定义",
+    },
+  ],
+  "/computer-science/pioneers/stephen-cook": [
+    {
+      url: "/computer-science/theory/cook-1971-np-completeness",
+      title: "Cook 1971：定理证明手续的复杂度怎样把 SAT 写成 NP 完全",
+    },
+    {
+      url: "/computer-science/theory/karp-1972-reducibility",
+      title: "Karp 1972：组合问题之间的可归约性怎样把二十一个问题写成多项式完全",
+    },
+  ],
+  "/computer-science/pioneers/tony-hoare": [
+    {
+      url: "/computer-science/theory/floyd-1967-assigning-meanings",
+      title: "Floyd 1967：归纳断言怎样把程序的意义写在流程图的边上",
+    },
+    {
+      url: "/computer-science/theory/hoare-1969-axiomatic",
+      title: "Hoare 1969：公理基础怎样把程序正确性写成可推导的三元组",
+    },
+  ],
+  "/computer-science/pioneers/vint-cerf": [
+    {
+      url: "/computer-science/pioneers/radia-perlman",
+      title: "拉迪亚·珀尔曼",
+    },
+  ],
+  "/computer-science/pioneers/yann-lecun": [
+    {
+      url: "/computer-science/pioneers/fei-fei-li",
+      title: "李飞飞",
+    },
+  ],
+  "/computer-science/systems/bigtable-2006": [
+    {
+      url: "/computer-science/concepts/big-data-systems",
+      title: "大数据系统",
+    },
+    {
+      url: "/computer-science/concepts/distributed-systems",
+      title: "分布式系统",
+    },
+    {
+      url: "/computer-science/concepts/databases-transactions",
+      title: "数据库与事务",
+    },
+    {
+      url: "/computer-science/systems/chord-2001",
+      title: "Chord：标识符环上的查找，不是中心目录",
+    },
+    {
+      url: "/computer-science/systems/chubby-2006",
+      title: "Chubby：松耦合系统上的锁服务，不是又一套数据库",
+    },
+    {
+      url: "/computer-science/systems/dynamo-eventually-consistent",
+      title: "Dynamo：最终一致的键值存储",
+    },
+    {
+      url: "/computer-science/systems/gfs-2003",
+      title: "GFS：单主节点、大块与可忍受的不一致",
+    },
+    {
+      url: "/computer-science/algorithms/mapreduce",
+      title: "MapReduce",
+    },
+  ],
+  "/computer-science/systems/birman-1985-virtual-synchrony": [
+    {
+      url: "/computer-science/theory/chandy-lamport-1985-snapshots",
+      title: "Chandy–Lamport 1985：标记消息怎样把全局状态收成一致割",
+    },
+    {
+      url: "/computer-science/systems/zookeeper-2010",
+      title: "ZooKeeper：等待自由的协调，不是又一套 Chubby 说明书",
+    },
+  ],
+  "/computer-science/systems/chord-2001": [
+    {
+      url: "/computer-science/concepts/distributed-systems",
+      title: "分布式系统",
+    },
+    {
+      url: "/computer-science/algorithms/consistent-hashing",
+      title: "一致性哈希",
+    },
+    {
+      url: "/computer-science/systems/ratnasamy-2001-can",
+      title: "CAN：笛卡尔分区与贪心转发，状态不随规模涨",
+    },
+    {
+      url: "/computer-science/systems/demers-1987-epidemic",
+      title: "Demers 1987：谣言与反熵怎样维护副本，不是 Dynamo",
+    },
+    {
+      url: "/computer-science/systems/gfs-2003",
+      title: "GFS：单主节点、大块与可忍受的不一致",
+    },
+    {
+      url: "/computer-science/systems/kademlia-2002",
+      title: "Kademlia：XOR 距离上的 k-bucket，不是环上的手指",
+    },
+    {
+      url: "/computer-science/systems/pastry-2001",
+      title: "Pastry：前缀表、叶集与邻近集，不是环上的手指",
+    },
+    {
+      url: "/computer-science/systems/tapestry-2001",
+      title: "Tapestry：邻接表、代理路由与就近副本，不是把对象搬到键上",
+    },
+  ],
+  "/computer-science/systems/chromium-site-isolation": [
+    {
+      url: "/computer-science/concepts/speculative-execution-and-side-channels",
+      title: "投机执行与侧信道",
+    },
+  ],
+  "/computer-science/systems/chubby-2006": [
+    {
+      url: "/computer-science/theory/paxos-lamport-1998",
+      title: "兼职议会与 Paxos",
+    },
+    {
+      url: "/computer-science/systems/bigtable-2006",
+      title: "Bigtable：稀疏表、Tablet 与时间戳单元",
+    },
+    {
+      url: "/computer-science/systems/etcd-raft",
+      title: "etcd：把 Raft 变成能用的东西",
+    },
+    {
+      url: "/computer-science/systems/gfs-2003",
+      title: "GFS：单主节点、大块与可忍受的不一致",
+    },
+    {
+      url: "/computer-science/systems/zookeeper-2010",
+      title: "ZooKeeper：等待自由的协调，不是又一套 Chubby 说明书",
+    },
+  ],
+  "/computer-science/systems/demers-1987-epidemic": [
+    {
+      url: "/computer-science/systems/dynamo-eventually-consistent",
+      title: "Dynamo：最终一致的键值存储",
+    },
+    {
+      url: "/computer-science/systems/terry-1994-session-guarantees",
+      title: "Terry 1994：会话保证怎样把弱一致副本写成客户视角",
+    },
+  ],
+  "/computer-science/systems/dynamo-eventually-consistent": [
+    {
+      url: "/computer-science/systems/bigtable-2006",
+      title: "Bigtable：稀疏表、Tablet 与时间戳单元",
+    },
+    {
+      url: "/computer-science/systems/demers-1987-epidemic",
+      title: "Demers 1987：谣言与反熵怎样维护副本，不是 Dynamo",
+    },
+    {
+      url: "/computer-science/systems/gfs-2003",
+      title: "GFS：单主节点、大块与可忍受的不一致",
+    },
+    {
+      url: "/computer-science/theory/gilbert-lynch-2002-cap",
+      title: "Gilbert–Lynch 2002：异步网上原子寄存器无法既可用又抗分区",
+    },
+    {
+      url: "/computer-science/theory/shapiro-2011-crdts",
+      title: "Shapiro 2011：副本收敛是半格或可交换操作，不是共识协议",
+    },
+    {
+      url: "/computer-science/systems/terry-1994-session-guarantees",
+      title: "Terry 1994：会话保证怎样把弱一致副本写成客户视角",
+    },
+  ],
   "/computer-science/systems/envoy-service-mesh": [
     {
       url: "/computer-science/concepts/microservices-architecture",
       title: "微服务架构",
+    },
+  ],
+  "/computer-science/systems/etcd-raft": [
+    {
+      url: "/computer-science/theory/byzantine-generals-lamport-1982",
+      title: "拜占庭将军问题",
+    },
+    {
+      url: "/computer-science/theory/paxos-lamport-1998",
+      title: "兼职议会与 Paxos",
+    },
+    {
+      url: "/computer-science/theory/castro-liskov-1999-pbft",
+      title: "Castro–Liskov 1999：实用拜占庭容错，不是将军寓言",
+    },
+    {
+      url: "/computer-science/systems/chubby-2006",
+      title: "Chubby：松耦合系统上的锁服务，不是又一套数据库",
+    },
+    {
+      url: "/computer-science/theory/garcia-molina-1982-bully",
+      title: "Garcia-Molina 1982：编号更高的进程怎样在超时假设下抢走协调者",
+    },
+    {
+      url: "/computer-science/theory/herlihy-1991-wait-free",
+      title: "Herlihy 1991：等待自由怎样按共识数给并发对象分层",
+    },
+    {
+      url: "/computer-science/theory/herlihy-wing-1990",
+      title: "Herlihy–Wing 1990：线性化怎样把并发对象收成合法的顺序历史",
+    },
+    {
+      url: "/computer-science/systems/birman-1985-virtual-synchrony",
+      title: "ISIS 1985：进程组、flush 与虚拟同步，不是又一份 ZooKeeper",
+    },
+    {
+      url: "/computer-science/systems/viewstamped-replication-1988",
+      title: "Viewstamped Replication：视图、主副本与盖章请求，不是又一份 Paxos",
+    },
+    {
+      url: "/computer-science/systems/zookeeper-2010",
+      title: "ZooKeeper：等待自由的协调，不是又一套 Chubby 说明书",
+    },
+  ],
+  "/computer-science/systems/gfs-2003": [
+    {
+      url: "/computer-science/concepts/big-data-systems",
+      title: "大数据系统",
+    },
+    {
+      url: "/computer-science/concepts/distributed-systems",
+      title: "分布式系统",
+    },
+    {
+      url: "/computer-science/concepts/information-retrieval-and-search",
+      title: "信息检索与搜索",
+    },
+    {
+      url: "/computer-science/systems/bigtable-2006",
+      title: "Bigtable：稀疏表、Tablet 与时间戳单元",
+    },
+    {
+      url: "/computer-science/systems/chord-2001",
+      title: "Chord：标识符环上的查找，不是中心目录",
+    },
+    {
+      url: "/computer-science/systems/chubby-2006",
+      title: "Chubby：松耦合系统上的锁服务，不是又一套数据库",
+    },
+    {
+      url: "/computer-science/systems/demers-1987-epidemic",
+      title: "Demers 1987：谣言与反熵怎样维护副本，不是 Dynamo",
+    },
+    {
+      url: "/computer-science/systems/dynamo-eventually-consistent",
+      title: "Dynamo：最终一致的键值存储",
+    },
+    {
+      url: "/computer-science/systems/kademlia-2002",
+      title: "Kademlia：XOR 距离上的 k-bucket，不是环上的手指",
+    },
+    {
+      url: "/computer-science/algorithms/mapreduce",
+      title: "MapReduce",
+    },
+    {
+      url: "/computer-science/systems/terry-1994-session-guarantees",
+      title: "Terry 1994：会话保证怎样把弱一致副本写成客户视角",
+    },
+  ],
+  "/computer-science/systems/kademlia-2002": [
+    {
+      url: "/computer-science/concepts/distributed-systems",
+      title: "分布式系统",
+    },
+    {
+      url: "/computer-science/concepts/networking-protocols",
+      title: "网络协议栈 TCP/IP",
+    },
+    {
+      url: "/computer-science/algorithms/consistent-hashing",
+      title: "一致性哈希",
+    },
+    {
+      url: "/computer-science/systems/ratnasamy-2001-can",
+      title: "CAN：笛卡尔分区与贪心转发，状态不随规模涨",
+    },
+    {
+      url: "/computer-science/systems/chord-2001",
+      title: "Chord：标识符环上的查找，不是中心目录",
+    },
+    {
+      url: "/computer-science/systems/demers-1987-epidemic",
+      title: "Demers 1987：谣言与反熵怎样维护副本，不是 Dynamo",
+    },
+    {
+      url: "/computer-science/systems/gfs-2003",
+      title: "GFS：单主节点、大块与可忍受的不一致",
+    },
+    {
+      url: "/computer-science/systems/pastry-2001",
+      title: "Pastry：前缀表、叶集与邻近集，不是环上的手指",
+    },
+    {
+      url: "/computer-science/systems/tapestry-2001",
+      title: "Tapestry：邻接表、代理路由与就近副本，不是把对象搬到键上",
     },
   ],
   "/computer-science/systems/kubernetes-controller-pattern": [
@@ -9916,10 +13114,100 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "微服务架构",
     },
   ],
+  "/computer-science/systems/linux-containers-internals": [
+    {
+      url: "/computer-science/frontier/ebpf-verifier",
+      title: "eBPF 验证器：把内核扩展变成可判定问题",
+    },
+  ],
+  "/computer-science/systems/lucene-inverted-index": [
+    {
+      url: "/computer-science/systems/hnsw-ann-index",
+      title: "HNSW 与向量近邻：当距离代替关键词",
+    },
+    {
+      url: "/computer-science/systems/neo4j-property-graph",
+      title: "Neo4j 属性图：当邻居指针取代 JOIN",
+    },
+  ],
+  "/computer-science/systems/neo4j-property-graph": [
+    {
+      url: "/computer-science/concepts/codd-1970-relational",
+      title: "Codd 1970：关系怎样把大型共享数据库从访问路径里解放出来",
+    },
+    {
+      url: "/computer-science/systems/hnsw-ann-index",
+      title: "HNSW 与向量近邻：当距离代替关键词",
+    },
+  ],
+  "/computer-science/systems/pastry-2001": [
+    {
+      url: "/computer-science/concepts/networking-protocols",
+      title: "网络协议栈 TCP/IP",
+    },
+    {
+      url: "/computer-science/algorithms/consistent-hashing",
+      title: "一致性哈希",
+    },
+    {
+      url: "/computer-science/systems/ratnasamy-2001-can",
+      title: "CAN：笛卡尔分区与贪心转发，状态不随规模涨",
+    },
+    {
+      url: "/computer-science/systems/chord-2001",
+      title: "Chord：标识符环上的查找，不是中心目录",
+    },
+    {
+      url: "/computer-science/systems/gfs-2003",
+      title: "GFS：单主节点、大块与可忍受的不一致",
+    },
+    {
+      url: "/computer-science/systems/kademlia-2002",
+      title: "Kademlia：XOR 距离上的 k-bucket，不是环上的手指",
+    },
+    {
+      url: "/computer-science/systems/tapestry-2001",
+      title: "Tapestry：邻接表、代理路由与就近副本，不是把对象搬到键上",
+    },
+  ],
   "/computer-science/systems/postgresql-mvcc": [
+    {
+      url: "/computer-science/pioneers/michael-stonebraker",
+      title: "迈克尔·斯通布雷克",
+    },
     {
       url: "/computer-science/concepts/databases-transactions",
       title: "数据库与事务",
+    },
+    {
+      url: "/computer-science/concepts/codd-1970-relational",
+      title: "Codd 1970：关系怎样把大型共享数据库从访问路径里解放出来",
+    },
+    {
+      url: "/computer-science/theory/gray-1978-two-phase-commit",
+      title: "Gray 1978：两阶段提交怎样把多处改动收成提交或中止",
+    },
+    {
+      url: "/computer-science/systems/neo4j-property-graph",
+      title: "Neo4j 属性图：当邻居指针取代 JOIN",
+    },
+    {
+      url: "/computer-science/systems/terry-1994-session-guarantees",
+      title: "Terry 1994：会话保证怎样把弱一致副本写成客户视角",
+    },
+  ],
+  "/computer-science/systems/ratnasamy-2001-can": [
+    {
+      url: "/computer-science/systems/chord-2001",
+      title: "Chord：标识符环上的查找，不是中心目录",
+    },
+    {
+      url: "/computer-science/systems/pastry-2001",
+      title: "Pastry：前缀表、叶集与邻近集，不是环上的手指",
+    },
+    {
+      url: "/computer-science/systems/tapestry-2001",
+      title: "Tapestry：邻接表、代理路由与就近副本，不是把对象搬到键上",
     },
   ],
   "/computer-science/systems/redis-single-threaded": [
@@ -9932,6 +13220,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "跳表",
     },
   ],
+  "/computer-science/systems/schneider-1990-smr": [
+    {
+      url: "/computer-science/concepts/consensus-algorithms",
+      title: "分布式共识算法",
+    },
+    {
+      url: "/computer-science/theory/paxos-lamport-1998",
+      title: "兼职议会与 Paxos",
+    },
+    {
+      url: "/computer-science/systems/viewstamped-replication-1988",
+      title: "Viewstamped Replication：视图、主副本与盖章请求，不是又一份 Paxos",
+    },
+  ],
+  "/computer-science/systems/spanner-truetime": [
+    {
+      url: "/computer-science/systems/neo4j-property-graph",
+      title: "Neo4j 属性图：当邻居指针取代 JOIN",
+    },
+  ],
   "/computer-science/systems/sqlite-internals": [
     {
       url: "/computer-science/concepts/data-structures",
@@ -9942,10 +13250,126 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "数据库与事务",
     },
   ],
+  "/computer-science/systems/tapestry-2001": [
+    {
+      url: "/computer-science/systems/ratnasamy-2001-can",
+      title: "CAN：笛卡尔分区与贪心转发，状态不随规模涨",
+    },
+    {
+      url: "/computer-science/systems/chord-2001",
+      title: "Chord：标识符环上的查找，不是中心目录",
+    },
+    {
+      url: "/computer-science/systems/kademlia-2002",
+      title: "Kademlia：XOR 距离上的 k-bucket，不是环上的手指",
+    },
+    {
+      url: "/computer-science/systems/pastry-2001",
+      title: "Pastry：前缀表、叶集与邻近集，不是环上的手指",
+    },
+  ],
+  "/computer-science/systems/terry-1994-session-guarantees": [
+    {
+      url: "/computer-science/concepts/distributed-systems",
+      title: "分布式系统",
+    },
+    {
+      url: "/computer-science/systems/demers-1987-epidemic",
+      title: "Demers 1987：谣言与反熵怎样维护副本，不是 Dynamo",
+    },
+    {
+      url: "/computer-science/systems/dynamo-eventually-consistent",
+      title: "Dynamo：最终一致的键值存储",
+    },
+    {
+      url: "/computer-science/theory/shapiro-2011-crdts",
+      title: "Shapiro 2011：副本收敛是半格或可交换操作，不是共识协议",
+    },
+  ],
+  "/computer-science/systems/viewstamped-replication-1988": [
+    {
+      url: "/computer-science/concepts/consensus-algorithms",
+      title: "分布式共识算法",
+    },
+    {
+      url: "/computer-science/concepts/distributed-systems",
+      title: "分布式系统",
+    },
+    {
+      url: "/computer-science/theory/castro-liskov-1999-pbft",
+      title: "Castro–Liskov 1999：实用拜占庭容错，不是将军寓言",
+    },
+    {
+      url: "/computer-science/theory/garcia-molina-1982-bully",
+      title: "Garcia-Molina 1982：编号更高的进程怎样在超时假设下抢走协调者",
+    },
+    {
+      url: "/computer-science/systems/birman-1985-virtual-synchrony",
+      title: "ISIS 1985：进程组、flush 与虚拟同步，不是又一份 ZooKeeper",
+    },
+    {
+      url: "/computer-science/systems/schneider-1990-smr",
+      title: "Schneider 1990：副本确定性、输出一致与状态机方法，不是又一份 Paxos",
+    },
+    {
+      url: "/computer-science/systems/zookeeper-2010",
+      title: "ZooKeeper：等待自由的协调，不是又一套 Chubby 说明书",
+    },
+  ],
   "/computer-science/systems/xz-backdoor-supply-chain": [
     {
       url: "/computer-science/systems/curl-and-maintainer-burden",
       title: "curl：一个人维护的全球基础设施",
+    },
+  ],
+  "/computer-science/systems/zfs-copy-on-write": [
+    {
+      url: "/philosophy/experiments/parfit-teletransport",
+      title: "帕菲特的传送：心理连续怎样把人格同一性从重要的事情里拆走",
+    },
+  ],
+  "/computer-science/systems/zookeeper-2010": [
+    {
+      url: "/computer-science/systems/chubby-2006",
+      title: "Chubby：松耦合系统上的锁服务，不是又一套数据库",
+    },
+    {
+      url: "/computer-science/systems/etcd-raft",
+      title: "etcd：把 Raft 变成能用的东西",
+    },
+    {
+      url: "/computer-science/theory/garcia-molina-1982-bully",
+      title: "Garcia-Molina 1982：编号更高的进程怎样在超时假设下抢走协调者",
+    },
+    {
+      url: "/computer-science/theory/herlihy-wing-1990",
+      title: "Herlihy–Wing 1990：线性化怎样把并发对象收成合法的顺序历史",
+    },
+    {
+      url: "/computer-science/systems/birman-1985-virtual-synchrony",
+      title: "ISIS 1985：进程组、flush 与虚拟同步，不是又一份 ZooKeeper",
+    },
+    {
+      url: "/computer-science/systems/viewstamped-replication-1988",
+      title: "Viewstamped Replication：视图、主副本与盖章请求，不是又一份 Paxos",
+    },
+  ],
+  "/computer-science/theory/adleman-1978-bpp-ppoly": [
+    {
+      url: "/computer-science/theory/circuit-complexity",
+      title: "电路复杂度",
+    },
+    {
+      url: "/computer-science/theory/computational-complexity",
+      title: "计算复杂性理论",
+    },
+    {
+      url: "/computer-science/theory/randomized-algorithms",
+      title: "随机算法",
+    },
+    {
+      url: "/computer-science/theory/nisan-wigderson-1994",
+      title: "Nisan–Wigderson 1994：E 里足够硬的函数怎样冒充 BPP 测试者的硬币",
     },
   ],
   "/computer-science/theory/algorithmic-game-theory": [
@@ -9972,6 +13396,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/methods/formal-models-game-theory",
       title: "形式模型与政治博弈论",
+    },
+    {
+      url: "/computer-science/pioneers/andrew-yao",
+      title: "姚期智",
     },
     {
       url: "/philosophy/isms/effective-altruism",
@@ -10016,6 +13444,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "在线算法与竞争分析",
     },
   ],
+  "/computer-science/theory/attiya-bar-noy-dolev-1995": [
+    {
+      url: "/computer-science/concepts/consensus-algorithms",
+      title: "分布式共识算法",
+    },
+    {
+      url: "/computer-science/theory/dwork-lynch-stockmeyer-1988",
+      title: "Dwork–Lynch–Stockmeyer 1988：终将有界的延迟怎样让确定性共识可能",
+    },
+    {
+      url: "/computer-science/theory/herlihy-1991-wait-free",
+      title: "Herlihy 1991：等待自由怎样按共识数给并发对象分层",
+    },
+    {
+      url: "/computer-science/theory/herlihy-moss-1993-tm",
+      title: "Herlihy–Moss 1993：事务内存怎样用体系结构支持无锁数据结构",
+    },
+    {
+      url: "/computer-science/theory/herlihy-wing-1990",
+      title: "Herlihy–Wing 1990：线性化怎样把并发对象收成合法的顺序历史",
+    },
+    {
+      url: "/computer-science/systems/schneider-1990-smr",
+      title: "Schneider 1990：副本确定性、输出一致与状态机方法，不是又一份 Paxos",
+    },
+  ],
   "/computer-science/theory/automata-formal-languages": [
     {
       url: "/life-science/knowledge-base/分子生物学--细胞凋亡",
@@ -10037,17 +13491,349 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/computer-science/algorithms/string-matching",
       title: "字符串匹配",
     },
+    {
+      url: "/computer-science/theory/hartmanis-stearns-1965",
+      title: "Hartmanis–Stearns 1965：算法复杂度怎样被写成时间可构造的层次",
+    },
+    {
+      url: "/computer-science/theory/immerman-szelepcsenyi-1988",
+      title: "Immerman–Szelepcsényi 1988：非确定性空间怎样对补运算封闭",
+    },
+    {
+      url: "/computer-science/theory/savitch-1970-theorem",
+      title: "Savitch 1970：非确定性空间怎样被确定性平方空间模拟",
+    },
   ],
   "/computer-science/theory/average-case-complexity": [
     {
       url: "/computer-science/theory/randomized-algorithms",
       title: "随机算法",
     },
+    {
+      url: "/computer-science/theory/nisan-wigderson-1994",
+      title: "Nisan–Wigderson 1994：E 里足够硬的函数怎样冒充 BPP 测试者的硬币",
+    },
   ],
-  "/computer-science/theory/barriers-to-proving-p-vs-np": [
+  "/computer-science/theory/baker-gill-solovay-1975": [
     {
       url: "/computer-science/theory/computational-complexity",
       title: "计算复杂性理论",
+    },
+    {
+      url: "/computer-science/theory/computability",
+      title: "可计算性理论",
+    },
+    {
+      url: "/computer-science/theory/barriers-to-proving-p-vs-np",
+      title: "为什么 P vs NP 这么难证：三道障碍",
+    },
+    {
+      url: "/computer-science/theory/adleman-1978-bpp-ppoly",
+      title: "Adleman 1978：可放大的随机性怎样被多项式忠告替换",
+    },
+    {
+      url: "/computer-science/theory/cook-1971-np-completeness",
+      title: "Cook 1971：定理证明手续的复杂度怎样把 SAT 写成 NP 完全",
+    },
+    {
+      url: "/computer-science/theory/furst-saxe-sipser-1984",
+      title: "Furst–Saxe–Sipser 1984：常数深度电路怎样算不出奇偶性",
+    },
+    {
+      url: "/computer-science/theory/hastad-1986-small-depth",
+      title: "Håstad 1986：切换引理怎样把浅电路收成近乎最优的下界",
+    },
+    {
+      url: "/computer-science/theory/karp-1972-reducibility",
+      title: "Karp 1972：组合问题之间的可归约性怎样把二十一个问题写成多项式完全",
+    },
+    {
+      url: "/computer-science/theory/karp-lipton-1980",
+      title: "Karp–Lipton 1980：SAT 若有多项式电路，多项式层次怎样坍到第二层",
+    },
+    {
+      url: "/computer-science/theory/ladner-1975-np-intermediate",
+      title: "Ladner 1975：若 P 不等于 NP，中间问题怎样必须存在",
+    },
+    {
+      url: "/computer-science/theory/levin-1973-universal-search",
+      title: "Levin 1973：通用顺序搜索怎样把 NP 搜索写成一个万能问题",
+    },
+    {
+      url: "/computer-science/theory/razborov-rudich-1997",
+      title: "Razborov–Rudich 1997：自然证明怎样把电路下界挡在伪随机函数门外",
+    },
+    {
+      url: "/computer-science/theory/savitch-1970-theorem",
+      title: "Savitch 1970：非确定性空间怎样被确定性平方空间模拟",
+    },
+    {
+      url: "/computer-science/theory/toda-1991",
+      title: "Toda 1991：多项式层次怎样被一次",
+    },
+  ],
+  "/computer-science/theory/barriers-to-proving-p-vs-np": [
+    {
+      url: "/computer-science/theory/circuit-complexity",
+      title: "电路复杂度",
+    },
+    {
+      url: "/computer-science/theory/computational-complexity",
+      title: "计算复杂性理论",
+    },
+    {
+      url: "/computer-science/pioneers/stephen-cook",
+      title: "斯蒂芬·库克",
+    },
+    {
+      url: "/computer-science/theory/baker-gill-solovay-1975",
+      title: "Baker–Gill–Solovay 1975：相对化怎样把对角化挡在 P 对 NP 门外",
+    },
+    {
+      url: "/computer-science/theory/cook-1971-np-completeness",
+      title: "Cook 1971：定理证明手续的复杂度怎样把 SAT 写成 NP 完全",
+    },
+    {
+      url: "/computer-science/theory/furst-saxe-sipser-1984",
+      title: "Furst–Saxe–Sipser 1984：常数深度电路怎样算不出奇偶性",
+    },
+    {
+      url: "/computer-science/theory/hastad-1986-small-depth",
+      title: "Håstad 1986：切换引理怎样把浅电路收成近乎最优的下界",
+    },
+    {
+      url: "/computer-science/theory/immerman-szelepcsenyi-1988",
+      title: "Immerman–Szelepcsényi 1988：非确定性空间怎样对补运算封闭",
+    },
+    {
+      url: "/computer-science/theory/karp-1972-reducibility",
+      title: "Karp 1972：组合问题之间的可归约性怎样把二十一个问题写成多项式完全",
+    },
+    {
+      url: "/computer-science/theory/karp-lipton-1980",
+      title: "Karp–Lipton 1980：SAT 若有多项式电路，多项式层次怎样坍到第二层",
+    },
+    {
+      url: "/computer-science/theory/ladner-1975-np-intermediate",
+      title: "Ladner 1975：若 P 不等于 NP，中间问题怎样必须存在",
+    },
+    {
+      url: "/computer-science/theory/levin-1973-universal-search",
+      title: "Levin 1973：通用顺序搜索怎样把 NP 搜索写成一个万能问题",
+    },
+    {
+      url: "/computer-science/theory/razborov-1985-monotone",
+      title: "Razborov 1985：单调电路怎样看不见团",
+    },
+    {
+      url: "/computer-science/theory/razborov-rudich-1997",
+      title: "Razborov–Rudich 1997：自然证明怎样把电路下界挡在伪随机函数门外",
+    },
+    {
+      url: "/computer-science/theory/savitch-1970-theorem",
+      title: "Savitch 1970：非确定性空间怎样被确定性平方空间模拟",
+    },
+  ],
+  "/computer-science/theory/ben-or-1983": [
+    {
+      url: "/computer-science/concepts/consensus-algorithms",
+      title: "分布式共识算法",
+    },
+    {
+      url: "/computer-science/theory/distributed-computing-theory",
+      title: "分布式计算理论",
+    },
+    {
+      url: "/computer-science/theory/randomized-algorithms",
+      title: "随机算法",
+    },
+    {
+      url: "/computer-science/theory/chandra-toueg-1996",
+      title: "Chandra–Toueg 1996：会犯错的怀疑预言怎样成为共识的最弱检测器",
+    },
+    {
+      url: "/computer-science/theory/dwork-lynch-stockmeyer-1988",
+      title: "Dwork–Lynch–Stockmeyer 1988：终将有界的延迟怎样让确定性共识可能",
+    },
+    {
+      url: "/computer-science/theory/flp-fischer-lynch-paterson-1985",
+      title: "FLP：完全异步下一次崩溃也能挡住确定性共识",
+    },
+  ],
+  "/computer-science/theory/byzantine-generals-lamport-1982": [
+    {
+      url: "/computer-science/concepts/consensus-algorithms",
+      title: "分布式共识算法",
+    },
+    {
+      url: "/computer-science/theory/distributed-computing-theory",
+      title: "分布式计算理论",
+    },
+    {
+      url: "/computer-science/theory/paxos-lamport-1998",
+      title: "兼职议会与 Paxos",
+    },
+    {
+      url: "/computer-science/pioneers/leslie-lamport",
+      title: "莱斯利·兰波特",
+    },
+    {
+      url: "/computer-science/theory/ben-or-1983",
+      title: "Ben-Or 1983：抛硬币怎样把异步共识的终止改成几乎必然",
+    },
+    {
+      url: "/computer-science/theory/castro-liskov-1999-pbft",
+      title: "Castro–Liskov 1999：实用拜占庭容错，不是将军寓言",
+    },
+    {
+      url: "/computer-science/theory/chandra-toueg-1996",
+      title: "Chandra–Toueg 1996：会犯错的怀疑预言怎样成为共识的最弱检测器",
+    },
+    {
+      url: "/computer-science/systems/etcd-raft",
+      title: "etcd：把 Raft 变成能用的东西",
+    },
+    {
+      url: "/computer-science/theory/flp-fischer-lynch-paterson-1985",
+      title: "FLP：完全异步下一次崩溃也能挡住确定性共识",
+    },
+    {
+      url: "/computer-science/systems/schneider-1990-smr",
+      title: "Schneider 1990：副本确定性、输出一致与状态机方法，不是又一份 Paxos",
+    },
+    {
+      url: "/computer-science/systems/viewstamped-replication-1988",
+      title: "Viewstamped Replication：视图、主副本与盖章请求，不是又一份 Paxos",
+    },
+  ],
+  "/computer-science/theory/castro-liskov-1999-pbft": [
+    {
+      url: "/computer-science/pioneers/barbara-liskov",
+      title: "芭芭拉·利斯科夫",
+    },
+    {
+      url: "/computer-science/theory/byzantine-generals-lamport-1982",
+      title: "拜占庭将军问题",
+    },
+    {
+      url: "/computer-science/concepts/consensus-algorithms",
+      title: "分布式共识算法",
+    },
+    {
+      url: "/computer-science/concepts/distributed-systems",
+      title: "分布式系统",
+    },
+    {
+      url: "/computer-science/systems/schneider-1990-smr",
+      title: "Schneider 1990：副本确定性、输出一致与状态机方法，不是又一份 Paxos",
+    },
+  ],
+  "/computer-science/theory/chandra-toueg-1996": [
+    {
+      url: "/computer-science/concepts/consensus-algorithms",
+      title: "分布式共识算法",
+    },
+    {
+      url: "/computer-science/theory/distributed-computing-theory",
+      title: "分布式计算理论",
+    },
+    {
+      url: "/computer-science/theory/ben-or-1983",
+      title: "Ben-Or 1983：抛硬币怎样把异步共识的终止改成几乎必然",
+    },
+    {
+      url: "/computer-science/theory/castro-liskov-1999-pbft",
+      title: "Castro–Liskov 1999：实用拜占庭容错，不是将军寓言",
+    },
+    {
+      url: "/computer-science/theory/dwork-lynch-stockmeyer-1988",
+      title: "Dwork–Lynch–Stockmeyer 1988：终将有界的延迟怎样让确定性共识可能",
+    },
+    {
+      url: "/computer-science/theory/fidge-mattern-vector-clocks",
+      title: "Fidge–Mattern：分量时间戳怎样把并发从标量编号里认出来",
+    },
+    {
+      url: "/computer-science/theory/flp-fischer-lynch-paterson-1985",
+      title: "FLP：完全异步下一次崩溃也能挡住确定性共识",
+    },
+    {
+      url: "/computer-science/theory/garcia-molina-1982-bully",
+      title: "Garcia-Molina 1982：编号更高的进程怎样在超时假设下抢走协调者",
+    },
+    {
+      url: "/computer-science/theory/lamport-1978-clocks",
+      title: "Lamport 1978：先于关系怎样把分布式事件收成不靠墙钟的偏序",
+    },
+  ],
+  "/computer-science/theory/chandy-lamport-1985-snapshots": [
+    {
+      url: "/computer-science/theory/fidge-mattern-vector-clocks",
+      title: "Fidge–Mattern：分量时间戳怎样把并发从标量编号里认出来",
+    },
+  ],
+  "/computer-science/theory/circuit-complexity": [
+    {
+      url: "/computer-science/theory/adleman-1978-bpp-ppoly",
+      title: "Adleman 1978：可放大的随机性怎样被多项式忠告替换",
+    },
+    {
+      url: "/computer-science/theory/cook-1971-np-completeness",
+      title: "Cook 1971：定理证明手续的复杂度怎样把 SAT 写成 NP 完全",
+    },
+    {
+      url: "/computer-science/theory/furst-saxe-sipser-1984",
+      title: "Furst–Saxe–Sipser 1984：常数深度电路怎样算不出奇偶性",
+    },
+    {
+      url: "/computer-science/theory/goldwasser-micali-rackoff-1985",
+      title: "Goldwasser–Micali–Rackoff 1985：交互证明系统的知识复杂度怎样把零知识写成定义",
+    },
+    {
+      url: "/computer-science/theory/hastad-1986-small-depth",
+      title: "Håstad 1986：切换引理怎样把浅电路收成近乎最优的下界",
+    },
+    {
+      url: "/computer-science/theory/karp-1972-reducibility",
+      title: "Karp 1972：组合问题之间的可归约性怎样把二十一个问题写成多项式完全",
+    },
+    {
+      url: "/computer-science/theory/karp-lipton-1980",
+      title: "Karp–Lipton 1980：SAT 若有多项式电路，多项式层次怎样坍到第二层",
+    },
+    {
+      url: "/computer-science/theory/nisan-wigderson-1994",
+      title: "Nisan–Wigderson 1994：E 里足够硬的函数怎样冒充 BPP 测试者的硬币",
+    },
+    {
+      url: "/computer-science/theory/razborov-1985-monotone",
+      title: "Razborov 1985：单调电路怎样看不见团",
+    },
+    {
+      url: "/computer-science/theory/razborov-rudich-1997",
+      title: "Razborov–Rudich 1997：自然证明怎样把电路下界挡在伪随机函数门外",
+    },
+    {
+      url: "/computer-science/theory/savitch-1970-theorem",
+      title: "Savitch 1970：非确定性空间怎样被确定性平方空间模拟",
+    },
+    {
+      url: "/computer-science/theory/valiant-1979-permanent",
+      title: "Valiant 1979：积和式怎样把计数写成比判定更硬的类",
+    },
+    {
+      url: "/computer-science/theory/yao-1979-communication-complexity",
+      title: "Yao 1979：分布式计算的复杂度问题怎样把通信写成资源",
+    },
+  ],
+  "/computer-science/theory/communication-complexity": [
+    {
+      url: "/computer-science/pioneers/andrew-yao",
+      title: "姚期智",
+    },
+    {
+      url: "/computer-science/theory/yao-1979-communication-complexity",
+      title: "Yao 1979：分布式计算的复杂度问题怎样把通信写成资源",
     },
   ],
   "/computer-science/theory/computability": [
@@ -10103,11 +13889,71 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/computer-science/theory/automata-formal-languages",
       title: "自动机与形式语言",
     },
+    {
+      url: "/computer-science/theory/baker-gill-solovay-1975",
+      title: "Baker–Gill–Solovay 1975：相对化怎样把对角化挡在 P 对 NP 门外",
+    },
+    {
+      url: "/computer-science/concepts/codd-1970-relational",
+      title: "Codd 1970：关系怎样把大型共享数据库从访问路径里解放出来",
+    },
+    {
+      url: "/computer-science/theory/cook-1971-np-completeness",
+      title: "Cook 1971：定理证明手续的复杂度怎样把 SAT 写成 NP 完全",
+    },
+    {
+      url: "/computer-science/theory/floyd-1967-assigning-meanings",
+      title: "Floyd 1967：归纳断言怎样把程序的意义写在流程图的边上",
+    },
+    {
+      url: "/computer-science/theory/goldwasser-micali-rackoff-1985",
+      title: "Goldwasser–Micali–Rackoff 1985：交互证明系统的知识复杂度怎样把零知识写成定义",
+    },
+    {
+      url: "/computer-science/theory/hartmanis-stearns-1965",
+      title: "Hartmanis–Stearns 1965：算法复杂度怎样被写成时间可构造的层次",
+    },
+    {
+      url: "/computer-science/theory/hoare-1969-axiomatic",
+      title: "Hoare 1969：公理基础怎样把程序正确性写成可推导的三元组",
+    },
+    {
+      url: "/computer-science/theory/immerman-szelepcsenyi-1988",
+      title: "Immerman–Szelepcsényi 1988：非确定性空间怎样对补运算封闭",
+    },
+    {
+      url: "/computer-science/theory/karp-1972-reducibility",
+      title: "Karp 1972：组合问题之间的可归约性怎样把二十一个问题写成多项式完全",
+    },
+    {
+      url: "/computer-science/theory/ladner-1975-np-intermediate",
+      title: "Ladner 1975：若 P 不等于 NP，中间问题怎样必须存在",
+    },
+    {
+      url: "/computer-science/theory/levin-1973-universal-search",
+      title: "Levin 1973：通用顺序搜索怎样把 NP 搜索写成一个万能问题",
+    },
+    {
+      url: "/computer-science/theory/savitch-1970-theorem",
+      title: "Savitch 1970：非确定性空间怎样被确定性平方空间模拟",
+    },
+    {
+      url: "/computer-science/theory/valiant-1979-permanent",
+      title: "Valiant 1979：积和式怎样把计数写成比判定更硬的类",
+    },
+    {
+      url: "/computer-science/theory/yao-1979-communication-complexity",
+      title: "Yao 1979：分布式计算的复杂度问题怎样把通信写成资源",
+    },
   ],
   "/computer-science/theory/computational-complexity": [
     {
       url: "/philosophy/schools/platonism",
       title: "柏拉图主义",
+    },
+    {
+      url: "/computer-science/theory/circuit-complexity",
+      title: "电路复杂度",
     },
     {
       url: "/universe-physics/knowledge-base/原子物理--electron-orbitals-quantum-numbers",
@@ -10218,6 +14064,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "威廉·皮叶克尼斯",
     },
     {
+      url: "/computer-science/pioneers/andrew-yao",
+      title: "姚期智",
+    },
+    {
       url: "/human-history/knowledge/中世纪--伊斯兰黄金时代",
       title: "伊斯兰黄金时代",
     },
@@ -10226,12 +14076,80 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "芝诺悖论",
     },
     {
+      url: "/computer-science/theory/adleman-1978-bpp-ppoly",
+      title: "Adleman 1978：可放大的随机性怎样被多项式忠告替换",
+    },
+    {
+      url: "/computer-science/theory/baker-gill-solovay-1975",
+      title: "Baker–Gill–Solovay 1975：相对化怎样把对角化挡在 P 对 NP 门外",
+    },
+    {
+      url: "/computer-science/theory/cook-1971-np-completeness",
+      title: "Cook 1971：定理证明手续的复杂度怎样把 SAT 写成 NP 完全",
+    },
+    {
       url: "/life-science/knowledge-base/进化机制--evo-devo",
       title: "Evo-Devo：演化改写的不是零件，而是说明书",
     },
     {
+      url: "/computer-science/theory/goldwasser-micali-rackoff-1985",
+      title: "Goldwasser–Micali–Rackoff 1985：交互证明系统的知识复杂度怎样把零知识写成定义",
+    },
+    {
+      url: "/computer-science/theory/hartmanis-stearns-1965",
+      title: "Hartmanis–Stearns 1965：算法复杂度怎样被写成时间可构造的层次",
+    },
+    {
+      url: "/computer-science/theory/hastad-1986-small-depth",
+      title: "Håstad 1986：切换引理怎样把浅电路收成近乎最优的下界",
+    },
+    {
+      url: "/computer-science/theory/immerman-szelepcsenyi-1988",
+      title: "Immerman–Szelepcsényi 1988：非确定性空间怎样对补运算封闭",
+    },
+    {
+      url: "/computer-science/theory/karp-1972-reducibility",
+      title: "Karp 1972：组合问题之间的可归约性怎样把二十一个问题写成多项式完全",
+    },
+    {
+      url: "/computer-science/theory/karp-lipton-1980",
+      title: "Karp–Lipton 1980：SAT 若有多项式电路，多项式层次怎样坍到第二层",
+    },
+    {
+      url: "/computer-science/theory/ladner-1975-np-intermediate",
+      title: "Ladner 1975：若 P 不等于 NP，中间问题怎样必须存在",
+    },
+    {
+      url: "/computer-science/theory/levin-1973-universal-search",
+      title: "Levin 1973：通用顺序搜索怎样把 NP 搜索写成一个万能问题",
+    },
+    {
+      url: "/computer-science/theory/nisan-wigderson-1994",
+      title: "Nisan–Wigderson 1994：E 里足够硬的函数怎样冒充 BPP 测试者的硬币",
+    },
+    {
+      url: "/computer-science/theory/razborov-1985-monotone",
+      title: "Razborov 1985：单调电路怎样看不见团",
+    },
+    {
       url: "/computer-science/algorithms/sat-solving",
       title: "SAT 求解",
+    },
+    {
+      url: "/computer-science/theory/savitch-1970-theorem",
+      title: "Savitch 1970：非确定性空间怎样被确定性平方空间模拟",
+    },
+    {
+      url: "/computer-science/theory/toda-1991",
+      title: "Toda 1991：多项式层次怎样被一次",
+    },
+    {
+      url: "/computer-science/theory/valiant-1979-permanent",
+      title: "Valiant 1979：积和式怎样把计数写成比判定更硬的类",
+    },
+    {
+      url: "/computer-science/theory/yao-1979-communication-complexity",
+      title: "Yao 1979：分布式计算的复杂度问题怎样把通信写成资源",
     },
   ],
   "/computer-science/theory/computational-geometry": [
@@ -10252,10 +14170,106 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "线段树",
     },
   ],
+  "/computer-science/theory/cook-1971-np-completeness": [
+    {
+      url: "/computer-science/theory/computational-complexity",
+      title: "计算复杂性理论",
+    },
+    {
+      url: "/computer-science/pioneers/stephen-cook",
+      title: "斯蒂芬·库克",
+    },
+    {
+      url: "/computer-science/theory/adleman-1978-bpp-ppoly",
+      title: "Adleman 1978：可放大的随机性怎样被多项式忠告替换",
+    },
+    {
+      url: "/computer-science/theory/baker-gill-solovay-1975",
+      title: "Baker–Gill–Solovay 1975：相对化怎样把对角化挡在 P 对 NP 门外",
+    },
+    {
+      url: "/computer-science/theory/furst-saxe-sipser-1984",
+      title: "Furst–Saxe–Sipser 1984：常数深度电路怎样算不出奇偶性",
+    },
+    {
+      url: "/computer-science/theory/goldwasser-micali-rackoff-1985",
+      title: "Goldwasser–Micali–Rackoff 1985：交互证明系统的知识复杂度怎样把零知识写成定义",
+    },
+    {
+      url: "/computer-science/theory/hartmanis-stearns-1965",
+      title: "Hartmanis–Stearns 1965：算法复杂度怎样被写成时间可构造的层次",
+    },
+    {
+      url: "/computer-science/theory/hastad-1986-small-depth",
+      title: "Håstad 1986：切换引理怎样把浅电路收成近乎最优的下界",
+    },
+    {
+      url: "/computer-science/theory/immerman-szelepcsenyi-1988",
+      title: "Immerman–Szelepcsényi 1988：非确定性空间怎样对补运算封闭",
+    },
+    {
+      url: "/computer-science/theory/karp-1972-reducibility",
+      title: "Karp 1972：组合问题之间的可归约性怎样把二十一个问题写成多项式完全",
+    },
+    {
+      url: "/computer-science/theory/karp-lipton-1980",
+      title: "Karp–Lipton 1980：SAT 若有多项式电路，多项式层次怎样坍到第二层",
+    },
+    {
+      url: "/computer-science/theory/ladner-1975-np-intermediate",
+      title: "Ladner 1975：若 P 不等于 NP，中间问题怎样必须存在",
+    },
+    {
+      url: "/computer-science/theory/levin-1973-universal-search",
+      title: "Levin 1973：通用顺序搜索怎样把 NP 搜索写成一个万能问题",
+    },
+    {
+      url: "/computer-science/theory/razborov-1985-monotone",
+      title: "Razborov 1985：单调电路怎样看不见团",
+    },
+    {
+      url: "/computer-science/theory/razborov-rudich-1997",
+      title: "Razborov–Rudich 1997：自然证明怎样把电路下界挡在伪随机函数门外",
+    },
+    {
+      url: "/computer-science/algorithms/sat-solving",
+      title: "SAT 求解",
+    },
+    {
+      url: "/computer-science/theory/savitch-1970-theorem",
+      title: "Savitch 1970：非确定性空间怎样被确定性平方空间模拟",
+    },
+    {
+      url: "/computer-science/theory/toda-1991",
+      title: "Toda 1991：多项式层次怎样被一次",
+    },
+    {
+      url: "/computer-science/theory/valiant-1979-permanent",
+      title: "Valiant 1979：积和式怎样把计数写成比判定更硬的类",
+    },
+    {
+      url: "/computer-science/theory/yao-1979-communication-complexity",
+      title: "Yao 1979：分布式计算的复杂度问题怎样把通信写成资源",
+    },
+  ],
+  "/computer-science/theory/counting-complexity": [
+    {
+      url: "/computer-science/theory/toda-1991",
+      title: "Toda 1991：多项式层次怎样被一次",
+    },
+    {
+      url: "/computer-science/theory/valiant-1979-permanent",
+      title: "Valiant 1979：积和式怎样把计数写成比判定更硬的类",
+    },
+  ],
   "/computer-science/theory/cryptography-foundations": [
     {
       url: "/mathematics/mathematicians/abel",
       title: "阿贝尔",
+    },
+    {
+      url: "/computer-science/theory/differential-privacy",
+      title: "差分隐私",
     },
     {
       url: "/computer-science/concepts/memory-hierarchy-caching",
@@ -10354,6 +14368,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "权利",
     },
     {
+      url: "/computer-science/pioneers/shafi-goldwasser",
+      title: "沙菲·戈德瓦塞尔",
+    },
+    {
       url: "/philosophy/concepts/digital-ethics",
       title: "数字伦理",
     },
@@ -10366,12 +14384,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "为什么 P vs NP 这么难证：三道障碍",
     },
     {
+      url: "/computer-science/pioneers/cynthia-dwork",
+      title: "辛西娅·德沃克",
+    },
+    {
       url: "/economics/theories/information-asymmetry",
       title: "信息不对称理论",
     },
     {
       url: "/computer-science/theory/information-theory",
       title: "信息论",
+    },
+    {
+      url: "/computer-science/pioneers/andrew-yao",
+      title: "姚期智",
     },
     {
       url: "/mathematics/concepts/field",
@@ -10385,8 +14411,70 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/political-science/isms/libertarianism",
       title: "自由意志主义",
     },
+    {
+      url: "/computer-science/theory/adleman-1978-bpp-ppoly",
+      title: "Adleman 1978：可放大的随机性怎样被多项式忠告替换",
+    },
+    {
+      url: "/computer-science/theory/castro-liskov-1999-pbft",
+      title: "Castro–Liskov 1999：实用拜占庭容错，不是将军寓言",
+    },
+    {
+      url: "/computer-science/theory/cook-1971-np-completeness",
+      title: "Cook 1971：定理证明手续的复杂度怎样把 SAT 写成 NP 完全",
+    },
+    {
+      url: "/computer-science/theory/goldwasser-micali-rackoff-1985",
+      title: "Goldwasser–Micali–Rackoff 1985：交互证明系统的知识复杂度怎样把零知识写成定义",
+    },
+    {
+      url: "/computer-science/theory/karp-lipton-1980",
+      title: "Karp–Lipton 1980：SAT 若有多项式电路，多项式层次怎样坍到第二层",
+    },
+    {
+      url: "/computer-science/theory/nisan-wigderson-1994",
+      title: "Nisan–Wigderson 1994：E 里足够硬的函数怎样冒充 BPP 测试者的硬币",
+    },
+    {
+      url: "/computer-science/theory/razborov-rudich-1997",
+      title: "Razborov–Rudich 1997：自然证明怎样把电路下界挡在伪随机函数门外",
+    },
+    {
+      url: "/computer-science/theory/yao-1979-communication-complexity",
+      title: "Yao 1979：分布式计算的复杂度问题怎样把通信写成资源",
+    },
+  ],
+  "/computer-science/theory/dijkstra-1965-mutual-exclusion": [
+    {
+      url: "/computer-science/pioneers/edsger-dijkstra",
+      title: "艾兹格·迪科斯彻",
+    },
+    {
+      url: "/computer-science/concepts/concurrency",
+      title: "并发与并行",
+    },
+    {
+      url: "/computer-science/theory/herlihy-1991-wait-free",
+      title: "Herlihy 1991：等待自由怎样按共识数给并发对象分层",
+    },
+    {
+      url: "/computer-science/theory/knuth-1966-mutex-comment",
+      title: "Knuth 1966：互斥的集体进展怎样仍允许一个人被永远超过",
+    },
+    {
+      url: "/computer-science/theory/lamport-1974-bakery",
+      title: "Lamport 1974：面包店算法怎样给互斥加上先来先服务",
+    },
+    {
+      url: "/computer-science/theory/peterson-1981-mutual-exclusion",
+      title: "Peterson 1981：两进程互斥怎样用两面旗与一个 turn 写成短注",
+    },
   ],
   "/computer-science/theory/distributed-computing-theory": [
+    {
+      url: "/computer-science/theory/byzantine-generals-lamport-1982",
+      title: "拜占庭将军问题",
+    },
     {
       url: "/economics/case-studies/low-income-debt-restructuring-development-finance-2026",
       title: "低收入债务国债务重组与发展融资（2026）",
@@ -10404,6 +14492,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "分布式系统",
     },
     {
+      url: "/computer-science/theory/paxos-lamport-1998",
+      title: "兼职议会与 Paxos",
+    },
+    {
       url: "/computer-science/algorithms/rate-limiting-algorithms",
       title: "限流算法",
     },
@@ -10411,11 +14503,57 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/computer-science/algorithms/consistent-hashing",
       title: "一致性哈希",
     },
+    {
+      url: "/computer-science/theory/castro-liskov-1999-pbft",
+      title: "Castro–Liskov 1999：实用拜占庭容错，不是将军寓言",
+    },
+    {
+      url: "/computer-science/theory/chandra-toueg-1996",
+      title: "Chandra–Toueg 1996：会犯错的怀疑预言怎样成为共识的最弱检测器",
+    },
+    {
+      url: "/computer-science/theory/dwork-lynch-stockmeyer-1988",
+      title: "Dwork–Lynch–Stockmeyer 1988：终将有界的延迟怎样让确定性共识可能",
+    },
+    {
+      url: "/computer-science/theory/flp-fischer-lynch-paterson-1985",
+      title: "FLP：完全异步下一次崩溃也能挡住确定性共识",
+    },
+    {
+      url: "/computer-science/theory/gilbert-lynch-2002-cap",
+      title: "Gilbert–Lynch 2002：异步网上原子寄存器无法既可用又抗分区",
+    },
+    {
+      url: "/computer-science/theory/yao-1979-communication-complexity",
+      title: "Yao 1979：分布式计算的复杂度问题怎样把通信写成资源",
+    },
+  ],
+  "/computer-science/theory/dwork-lynch-stockmeyer-1988": [
+    {
+      url: "/computer-science/pioneers/cynthia-dwork",
+      title: "辛西娅·德沃克",
+    },
+    {
+      url: "/computer-science/theory/attiya-bar-noy-dolev-1995",
+      title: "Attiya–Bar-Noy–Dolev 1995：消息传递上的原子寄存器",
+    },
+    {
+      url: "/computer-science/theory/chandra-toueg-1996",
+      title: "Chandra–Toueg 1996：会犯错的怀疑预言怎样成为共识的最弱检测器",
+    },
+    {
+      url: "/computer-science/theory/flp-fischer-lynch-paterson-1985",
+      title: "FLP：完全异步下一次崩溃也能挡住确定性共识",
+    },
   ],
   "/computer-science/theory/error-correcting-codes": [
     {
       url: "/engineering/foundations/measurement-and-tolerance",
       title: "测量与公差：精密的代价",
+    },
+    {
+      url: "/computer-science/concepts/floating-point-and-ieee754",
+      title: "浮点数与 IEEE 754",
     },
     {
       url: "/chemistry/substances/nucleic-acids-chemistry",
@@ -10494,6 +14632,138 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "DNA与遗传：双螺旋、基因表达与表观遗传",
     },
   ],
+  "/computer-science/theory/fidge-mattern-vector-clocks": [
+    {
+      url: "/computer-science/concepts/distributed-systems",
+      title: "分布式系统",
+    },
+    {
+      url: "/computer-science/theory/chandy-lamport-1985-snapshots",
+      title: "Chandy–Lamport 1985：标记消息怎样把全局状态收成一致割",
+    },
+    {
+      url: "/computer-science/theory/lamport-1978-clocks",
+      title: "Lamport 1978：先于关系怎样把分布式事件收成不靠墙钟的偏序",
+    },
+  ],
+  "/computer-science/theory/fine-grained-complexity": [
+    {
+      url: "/computer-science/theory/parameterized-complexity",
+      title: "参数化复杂度",
+    },
+  ],
+  "/computer-science/theory/floyd-1967-assigning-meanings": [
+    {
+      url: "/computer-science/theory/logic-and-computation",
+      title: "逻辑与计算",
+    },
+    {
+      url: "/computer-science/pioneers/tony-hoare",
+      title: "托尼·霍尔",
+    },
+    {
+      url: "/computer-science/concepts/formal-methods-and-verification",
+      title: "形式化方法与程序验证",
+    },
+    {
+      url: "/computer-science/theory/dijkstra-1965-mutual-exclusion",
+      title: "Dijkstra 1965：互斥怎样在没有仲裁者的共享变量上写成可推理的问题",
+    },
+    {
+      url: "/computer-science/theory/hartmanis-stearns-1965",
+      title: "Hartmanis–Stearns 1965：算法复杂度怎样被写成时间可构造的层次",
+    },
+    {
+      url: "/computer-science/theory/hoare-1969-axiomatic",
+      title: "Hoare 1969：公理基础怎样把程序正确性写成可推导的三元组",
+    },
+    {
+      url: "/computer-science/theory/peterson-1981-mutual-exclusion",
+      title: "Peterson 1981：两进程互斥怎样用两面旗与一个 turn 写成短注",
+    },
+  ],
+  "/computer-science/theory/flp-fischer-lynch-paterson-1985": [
+    {
+      url: "/computer-science/theory/byzantine-generals-lamport-1982",
+      title: "拜占庭将军问题",
+    },
+    {
+      url: "/computer-science/concepts/consensus-algorithms",
+      title: "分布式共识算法",
+    },
+    {
+      url: "/computer-science/theory/distributed-computing-theory",
+      title: "分布式计算理论",
+    },
+    {
+      url: "/computer-science/concepts/distributed-systems",
+      title: "分布式系统",
+    },
+    {
+      url: "/computer-science/theory/paxos-lamport-1998",
+      title: "兼职议会与 Paxos",
+    },
+    {
+      url: "/computer-science/pioneers/cynthia-dwork",
+      title: "辛西娅·德沃克",
+    },
+    {
+      url: "/computer-science/theory/attiya-bar-noy-dolev-1995",
+      title: "Attiya–Bar-Noy–Dolev 1995：消息传递上的原子寄存器",
+    },
+    {
+      url: "/computer-science/theory/ben-or-1983",
+      title: "Ben-Or 1983：抛硬币怎样把异步共识的终止改成几乎必然",
+    },
+    {
+      url: "/computer-science/theory/castro-liskov-1999-pbft",
+      title: "Castro–Liskov 1999：实用拜占庭容错，不是将军寓言",
+    },
+    {
+      url: "/computer-science/theory/chandra-toueg-1996",
+      title: "Chandra–Toueg 1996：会犯错的怀疑预言怎样成为共识的最弱检测器",
+    },
+    {
+      url: "/computer-science/theory/chandy-lamport-1985-snapshots",
+      title: "Chandy–Lamport 1985：标记消息怎样把全局状态收成一致割",
+    },
+    {
+      url: "/computer-science/theory/dwork-lynch-stockmeyer-1988",
+      title: "Dwork–Lynch–Stockmeyer 1988：终将有界的延迟怎样让确定性共识可能",
+    },
+    {
+      url: "/computer-science/theory/fidge-mattern-vector-clocks",
+      title: "Fidge–Mattern：分量时间戳怎样把并发从标量编号里认出来",
+    },
+    {
+      url: "/computer-science/theory/garcia-molina-1982-bully",
+      title: "Garcia-Molina 1982：编号更高的进程怎样在超时假设下抢走协调者",
+    },
+    {
+      url: "/computer-science/theory/gilbert-lynch-2002-cap",
+      title: "Gilbert–Lynch 2002：异步网上原子寄存器无法既可用又抗分区",
+    },
+    {
+      url: "/computer-science/theory/gray-1978-two-phase-commit",
+      title: "Gray 1978：两阶段提交怎样把多处改动收成提交或中止",
+    },
+    {
+      url: "/computer-science/theory/herlihy-1991-wait-free",
+      title: "Herlihy 1991：等待自由怎样按共识数给并发对象分层",
+    },
+    {
+      url: "/computer-science/systems/birman-1985-virtual-synchrony",
+      title: "ISIS 1985：进程组、flush 与虚拟同步，不是又一份 ZooKeeper",
+    },
+    {
+      url: "/computer-science/theory/lamport-1978-clocks",
+      title: "Lamport 1978：先于关系怎样把分布式事件收成不靠墙钟的偏序",
+    },
+    {
+      url: "/computer-science/systems/viewstamped-replication-1988",
+      title: "Viewstamped Replication：视图、主副本与盖章请求，不是又一份 Paxos",
+    },
+  ],
   "/computer-science/theory/formal-grammars-chomsky-hierarchy": [
     {
       url: "/linguistics/words-sentences-meaning/syntax",
@@ -10542,6 +14812,346 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/experiments/chinese-room",
       title: "中文房间",
+    },
+  ],
+  "/computer-science/theory/furst-saxe-sipser-1984": [
+    {
+      url: "/computer-science/theory/circuit-complexity",
+      title: "电路复杂度",
+    },
+    {
+      url: "/computer-science/theory/computational-complexity",
+      title: "计算复杂性理论",
+    },
+    {
+      url: "/computer-science/theory/barriers-to-proving-p-vs-np",
+      title: "为什么 P vs NP 这么难证：三道障碍",
+    },
+    {
+      url: "/computer-science/theory/hastad-1986-small-depth",
+      title: "Håstad 1986：切换引理怎样把浅电路收成近乎最优的下界",
+    },
+    {
+      url: "/computer-science/theory/razborov-1985-monotone",
+      title: "Razborov 1985：单调电路怎样看不见团",
+    },
+    {
+      url: "/computer-science/theory/razborov-rudich-1997",
+      title: "Razborov–Rudich 1997：自然证明怎样把电路下界挡在伪随机函数门外",
+    },
+  ],
+  "/computer-science/theory/garcia-molina-1982-bully": [
+    {
+      url: "/computer-science/concepts/consensus-algorithms",
+      title: "分布式共识算法",
+    },
+    {
+      url: "/computer-science/concepts/distributed-systems",
+      title: "分布式系统",
+    },
+    {
+      url: "/computer-science/systems/birman-1985-virtual-synchrony",
+      title: "ISIS 1985：进程组、flush 与虚拟同步，不是又一份 ZooKeeper",
+    },
+    {
+      url: "/computer-science/systems/zookeeper-2010",
+      title: "ZooKeeper：等待自由的协调，不是又一套 Chubby 说明书",
+    },
+  ],
+  "/computer-science/theory/gilbert-lynch-2002-cap": [
+    {
+      url: "/computer-science/concepts/consensus-algorithms",
+      title: "分布式共识算法",
+    },
+    {
+      url: "/computer-science/theory/distributed-computing-theory",
+      title: "分布式计算理论",
+    },
+    {
+      url: "/computer-science/concepts/distributed-systems",
+      title: "分布式系统",
+    },
+    {
+      url: "/computer-science/concepts/databases-transactions",
+      title: "数据库与事务",
+    },
+    {
+      url: "/computer-science/theory/dwork-lynch-stockmeyer-1988",
+      title: "Dwork–Lynch–Stockmeyer 1988：终将有界的延迟怎样让确定性共识可能",
+    },
+    {
+      url: "/computer-science/systems/dynamo-eventually-consistent",
+      title: "Dynamo：最终一致的键值存储",
+    },
+    {
+      url: "/computer-science/theory/flp-fischer-lynch-paterson-1985",
+      title: "FLP：完全异步下一次崩溃也能挡住确定性共识",
+    },
+    {
+      url: "/computer-science/theory/herlihy-wing-1990",
+      title: "Herlihy–Wing 1990：线性化怎样把并发对象收成合法的顺序历史",
+    },
+    {
+      url: "/computer-science/theory/shapiro-2011-crdts",
+      title: "Shapiro 2011：副本收敛是半格或可交换操作，不是共识协议",
+    },
+  ],
+  "/computer-science/theory/goldwasser-micali-rackoff-1985": [
+    {
+      url: "/computer-science/theory/interactive-proofs-and-zero-knowledge",
+      title: "交互式证明与零知识",
+    },
+    {
+      url: "/computer-science/pioneers/shafi-goldwasser",
+      title: "沙菲·戈德瓦塞尔",
+    },
+  ],
+  "/computer-science/theory/gray-1978-two-phase-commit": [
+    {
+      url: "/computer-science/concepts/consensus-algorithms",
+      title: "分布式共识算法",
+    },
+    {
+      url: "/computer-science/concepts/distributed-systems",
+      title: "分布式系统",
+    },
+    {
+      url: "/computer-science/theory/paxos-lamport-1998",
+      title: "兼职议会与 Paxos",
+    },
+    {
+      url: "/computer-science/concepts/databases-transactions",
+      title: "数据库与事务",
+    },
+    {
+      url: "/computer-science/concepts/codd-1970-relational",
+      title: "Codd 1970：关系怎样把大型共享数据库从访问路径里解放出来",
+    },
+    {
+      url: "/computer-science/theory/flp-fischer-lynch-paterson-1985",
+      title: "FLP：完全异步下一次崩溃也能挡住确定性共识",
+    },
+    {
+      url: "/computer-science/theory/herlihy-wing-1990",
+      title: "Herlihy–Wing 1990：线性化怎样把并发对象收成合法的顺序历史",
+    },
+    {
+      url: "/computer-science/theory/shapiro-2011-crdts",
+      title: "Shapiro 2011：副本收敛是半格或可交换操作，不是共识协议",
+    },
+  ],
+  "/computer-science/theory/hartmanis-stearns-1965": [
+    {
+      url: "/computer-science/theory/computational-complexity",
+      title: "计算复杂性理论",
+    },
+    {
+      url: "/computer-science/theory/baker-gill-solovay-1975",
+      title: "Baker–Gill–Solovay 1975：相对化怎样把对角化挡在 P 对 NP 门外",
+    },
+    {
+      url: "/computer-science/theory/furst-saxe-sipser-1984",
+      title: "Furst–Saxe–Sipser 1984：常数深度电路怎样算不出奇偶性",
+    },
+    {
+      url: "/computer-science/theory/immerman-szelepcsenyi-1988",
+      title: "Immerman–Szelepcsényi 1988：非确定性空间怎样对补运算封闭",
+    },
+    {
+      url: "/computer-science/theory/ladner-1975-np-intermediate",
+      title: "Ladner 1975：若 P 不等于 NP，中间问题怎样必须存在",
+    },
+    {
+      url: "/computer-science/theory/levin-1973-universal-search",
+      title: "Levin 1973：通用顺序搜索怎样把 NP 搜索写成一个万能问题",
+    },
+  ],
+  "/computer-science/theory/hastad-1986-small-depth": [
+    {
+      url: "/computer-science/theory/circuit-complexity",
+      title: "电路复杂度",
+    },
+    {
+      url: "/computer-science/theory/furst-saxe-sipser-1984",
+      title: "Furst–Saxe–Sipser 1984：常数深度电路怎样算不出奇偶性",
+    },
+    {
+      url: "/computer-science/theory/razborov-1985-monotone",
+      title: "Razborov 1985：单调电路怎样看不见团",
+    },
+  ],
+  "/computer-science/theory/herlihy-1991-wait-free": [
+    {
+      url: "/computer-science/theory/attiya-bar-noy-dolev-1995",
+      title: "Attiya–Bar-Noy–Dolev 1995：消息传递上的原子寄存器",
+    },
+    {
+      url: "/computer-science/theory/dijkstra-1965-mutual-exclusion",
+      title: "Dijkstra 1965：互斥怎样在没有仲裁者的共享变量上写成可推理的问题",
+    },
+    {
+      url: "/computer-science/theory/herlihy-moss-1993-tm",
+      title: "Herlihy–Moss 1993：事务内存怎样用体系结构支持无锁数据结构",
+    },
+    {
+      url: "/computer-science/theory/herlihy-wing-1990",
+      title: "Herlihy–Wing 1990：线性化怎样把并发对象收成合法的顺序历史",
+    },
+    {
+      url: "/computer-science/theory/knuth-1966-mutex-comment",
+      title: "Knuth 1966：互斥的集体进展怎样仍允许一个人被永远超过",
+    },
+    {
+      url: "/computer-science/theory/lamport-1974-bakery",
+      title: "Lamport 1974：面包店算法怎样给互斥加上先来先服务",
+    },
+    {
+      url: "/computer-science/theory/lamport-1979-sequential-consistency",
+      title: "Lamport 1979：顺序一致性怎样把多处理器程序收成某一条尊重程序序的交错",
+    },
+    {
+      url: "/computer-science/theory/peterson-1981-mutual-exclusion",
+      title: "Peterson 1981：两进程互斥怎样用两面旗与一个 turn 写成短注",
+    },
+    {
+      url: "/computer-science/theory/shavit-touitou-1995-stm",
+      title: "Shavit–Touitou 1995：软件事务内存怎样把无锁写成运行时而不是每只对象的手工艺",
+    },
+  ],
+  "/computer-science/theory/herlihy-moss-1993-tm": [
+    {
+      url: "/computer-science/concepts/consensus-algorithms",
+      title: "分布式共识算法",
+    },
+    {
+      url: "/computer-science/theory/dijkstra-1965-mutual-exclusion",
+      title: "Dijkstra 1965：互斥怎样在没有仲裁者的共享变量上写成可推理的问题",
+    },
+    {
+      url: "/computer-science/theory/herlihy-1991-wait-free",
+      title: "Herlihy 1991：等待自由怎样按共识数给并发对象分层",
+    },
+    {
+      url: "/computer-science/theory/lamport-1979-sequential-consistency",
+      title: "Lamport 1979：顺序一致性怎样把多处理器程序收成某一条尊重程序序的交错",
+    },
+    {
+      url: "/computer-science/theory/peterson-1981-mutual-exclusion",
+      title: "Peterson 1981：两进程互斥怎样用两面旗与一个 turn 写成短注",
+    },
+    {
+      url: "/computer-science/theory/shavit-touitou-1995-stm",
+      title: "Shavit–Touitou 1995：软件事务内存怎样把无锁写成运行时而不是每只对象的手工艺",
+    },
+  ],
+  "/computer-science/theory/herlihy-wing-1990": [
+    {
+      url: "/computer-science/concepts/consensus-algorithms",
+      title: "分布式共识算法",
+    },
+    {
+      url: "/computer-science/concepts/memory-consistency-models",
+      title: "内存一致性模型",
+    },
+    {
+      url: "/computer-science/concepts/databases-transactions",
+      title: "数据库与事务",
+    },
+    {
+      url: "/computer-science/theory/attiya-bar-noy-dolev-1995",
+      title: "Attiya–Bar-Noy–Dolev 1995：消息传递上的原子寄存器",
+    },
+    {
+      url: "/computer-science/theory/castro-liskov-1999-pbft",
+      title: "Castro–Liskov 1999：实用拜占庭容错，不是将军寓言",
+    },
+    {
+      url: "/computer-science/theory/chandy-lamport-1985-snapshots",
+      title: "Chandy–Lamport 1985：标记消息怎样把全局状态收成一致割",
+    },
+    {
+      url: "/computer-science/concepts/codd-1970-relational",
+      title: "Codd 1970：关系怎样把大型共享数据库从访问路径里解放出来",
+    },
+    {
+      url: "/computer-science/theory/dijkstra-1965-mutual-exclusion",
+      title: "Dijkstra 1965：互斥怎样在没有仲裁者的共享变量上写成可推理的问题",
+    },
+    {
+      url: "/computer-science/systems/etcd-raft",
+      title: "etcd：把 Raft 变成能用的东西",
+    },
+    {
+      url: "/computer-science/theory/gilbert-lynch-2002-cap",
+      title: "Gilbert–Lynch 2002：异步网上原子寄存器无法既可用又抗分区",
+    },
+    {
+      url: "/computer-science/theory/gray-1978-two-phase-commit",
+      title: "Gray 1978：两阶段提交怎样把多处改动收成提交或中止",
+    },
+    {
+      url: "/computer-science/theory/herlihy-1991-wait-free",
+      title: "Herlihy 1991：等待自由怎样按共识数给并发对象分层",
+    },
+    {
+      url: "/computer-science/theory/herlihy-moss-1993-tm",
+      title: "Herlihy–Moss 1993：事务内存怎样用体系结构支持无锁数据结构",
+    },
+    {
+      url: "/computer-science/theory/lamport-1974-bakery",
+      title: "Lamport 1974：面包店算法怎样给互斥加上先来先服务",
+    },
+    {
+      url: "/computer-science/theory/lamport-1979-sequential-consistency",
+      title: "Lamport 1979：顺序一致性怎样把多处理器程序收成某一条尊重程序序的交错",
+    },
+    {
+      url: "/computer-science/theory/peterson-1981-mutual-exclusion",
+      title: "Peterson 1981：两进程互斥怎样用两面旗与一个 turn 写成短注",
+    },
+    {
+      url: "/computer-science/theory/shavit-touitou-1995-stm",
+      title: "Shavit–Touitou 1995：软件事务内存怎样把无锁写成运行时而不是每只对象的手工艺",
+    },
+    {
+      url: "/computer-science/systems/zookeeper-2010",
+      title: "ZooKeeper：等待自由的协调，不是又一套 Chubby 说明书",
+    },
+  ],
+  "/computer-science/theory/hoare-1969-axiomatic": [
+    {
+      url: "/computer-science/theory/logic-and-computation",
+      title: "逻辑与计算",
+    },
+    {
+      url: "/computer-science/pioneers/tony-hoare",
+      title: "托尼·霍尔",
+    },
+    {
+      url: "/computer-science/concepts/formal-methods-and-verification",
+      title: "形式化方法与程序验证",
+    },
+    {
+      url: "/computer-science/theory/floyd-1967-assigning-meanings",
+      title: "Floyd 1967：归纳断言怎样把程序的意义写在流程图的边上",
+    },
+  ],
+  "/computer-science/theory/immerman-szelepcsenyi-1988": [
+    {
+      url: "/computer-science/theory/computational-complexity",
+      title: "计算复杂性理论",
+    },
+    {
+      url: "/computer-science/theory/computability",
+      title: "可计算性理论",
+    },
+    {
+      url: "/computer-science/theory/formal-grammars-chomsky-hierarchy",
+      title: "形式文法与乔姆斯基谱系",
+    },
+    {
+      url: "/computer-science/theory/savitch-1970-theorem",
+      title: "Savitch 1970：非确定性空间怎样被确定性平方空间模拟",
     },
   ],
   "/computer-science/theory/information-theory": [
@@ -10664,6 +15274,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/species/axolotl",
       title: "美西螈",
+    },
+    {
+      url: "/psychology/experiments/miller-1956",
+      title: "米勒 1956：绝对判断、即时记忆与组块怎样把容量从比特改写成结构",
     },
     {
       url: "/computer-science/theory/cryptography-foundations",
@@ -10836,6 +15450,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/theory/interactive-proofs-and-zero-knowledge": [
     {
+      url: "/computer-science/theory/differential-privacy",
+      title: "差分隐私",
+    },
+    {
+      url: "/philosophy/experiments/fitch-1963-knowability",
+      title: "菲奇可知性悖论",
+    },
+    {
       url: "/computer-science/theory/computational-complexity",
       title: "计算复杂性理论",
     },
@@ -10846,6 +15468,100 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/theory/barriers-to-proving-p-vs-np",
       title: "为什么 P vs NP 这么难证：三道障碍",
+    },
+    {
+      url: "/computer-science/theory/goldwasser-micali-rackoff-1985",
+      title: "Goldwasser–Micali–Rackoff 1985：交互证明系统的知识复杂度怎样把零知识写成定义",
+    },
+  ],
+  "/computer-science/theory/karp-1972-reducibility": [
+    {
+      url: "/computer-science/theory/computational-complexity",
+      title: "计算复杂性理论",
+    },
+    {
+      url: "/computer-science/pioneers/stephen-cook",
+      title: "斯蒂芬·库克",
+    },
+    {
+      url: "/computer-science/theory/baker-gill-solovay-1975",
+      title: "Baker–Gill–Solovay 1975：相对化怎样把对角化挡在 P 对 NP 门外",
+    },
+    {
+      url: "/computer-science/theory/cook-1971-np-completeness",
+      title: "Cook 1971：定理证明手续的复杂度怎样把 SAT 写成 NP 完全",
+    },
+    {
+      url: "/computer-science/theory/hartmanis-stearns-1965",
+      title: "Hartmanis–Stearns 1965：算法复杂度怎样被写成时间可构造的层次",
+    },
+    {
+      url: "/computer-science/theory/ladner-1975-np-intermediate",
+      title: "Ladner 1975：若 P 不等于 NP，中间问题怎样必须存在",
+    },
+    {
+      url: "/computer-science/theory/levin-1973-universal-search",
+      title: "Levin 1973：通用顺序搜索怎样把 NP 搜索写成一个万能问题",
+    },
+    {
+      url: "/computer-science/theory/savitch-1970-theorem",
+      title: "Savitch 1970：非确定性空间怎样被确定性平方空间模拟",
+    },
+    {
+      url: "/computer-science/theory/valiant-1979-permanent",
+      title: "Valiant 1979：积和式怎样把计数写成比判定更硬的类",
+    },
+  ],
+  "/computer-science/theory/karp-lipton-1980": [
+    {
+      url: "/computer-science/theory/circuit-complexity",
+      title: "电路复杂度",
+    },
+    {
+      url: "/computer-science/theory/computational-complexity",
+      title: "计算复杂性理论",
+    },
+    {
+      url: "/computer-science/theory/cryptography-foundations",
+      title: "密码学基础",
+    },
+    {
+      url: "/computer-science/theory/adleman-1978-bpp-ppoly",
+      title: "Adleman 1978：可放大的随机性怎样被多项式忠告替换",
+    },
+    {
+      url: "/computer-science/theory/nisan-wigderson-1994",
+      title: "Nisan–Wigderson 1994：E 里足够硬的函数怎样冒充 BPP 测试者的硬币",
+    },
+    {
+      url: "/computer-science/theory/toda-1991",
+      title: "Toda 1991：多项式层次怎样被一次",
+    },
+  ],
+  "/computer-science/theory/knuth-1966-mutex-comment": [
+    {
+      url: "/computer-science/pioneers/edsger-dijkstra",
+      title: "艾兹格·迪科斯彻",
+    },
+    {
+      url: "/computer-science/concepts/concurrency",
+      title: "并发与并行",
+    },
+    {
+      url: "/computer-science/pioneers/donald-knuth",
+      title: "唐纳德·克努特",
+    },
+    {
+      url: "/computer-science/theory/dijkstra-1965-mutual-exclusion",
+      title: "Dijkstra 1965：互斥怎样在没有仲裁者的共享变量上写成可推理的问题",
+    },
+    {
+      url: "/computer-science/theory/lamport-1974-bakery",
+      title: "Lamport 1974：面包店算法怎样给互斥加上先来先服务",
+    },
+    {
+      url: "/computer-science/theory/peterson-1981-mutual-exclusion",
+      title: "Peterson 1981：两进程互斥怎样用两面旗与一个 turn 写成短注",
     },
   ],
   "/computer-science/theory/kolmogorov-complexity": [
@@ -10892,6 +15608,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/knowledge-base/efficient-market-hypothesis",
       title: "有效市场假说：市场能被打败吗？",
+    },
+    {
+      url: "/computer-science/theory/levin-1973-universal-search",
+      title: "Levin 1973：通用顺序搜索怎样把 NP 搜索写成一个万能问题",
+    },
+  ],
+  "/computer-science/theory/ladner-1975-np-intermediate": [
+    {
+      url: "/computer-science/theory/computational-complexity",
+      title: "计算复杂性理论",
+    },
+    {
+      url: "/computer-science/theory/karp-lipton-1980",
+      title: "Karp–Lipton 1980：SAT 若有多项式电路，多项式层次怎样坍到第二层",
+    },
+    {
+      url: "/computer-science/theory/toda-1991",
+      title: "Toda 1991：多项式层次怎样被一次",
     },
   ],
   "/computer-science/theory/lambda-calculus-type-theory": [
@@ -10959,6 +15693,98 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/computer-science/pioneers/john-mccarthy",
       title: "约翰·麦卡锡",
     },
+    {
+      url: "/computer-science/theory/floyd-1967-assigning-meanings",
+      title: "Floyd 1967：归纳断言怎样把程序的意义写在流程图的边上",
+    },
+    {
+      url: "/computer-science/theory/hoare-1969-axiomatic",
+      title: "Hoare 1969：公理基础怎样把程序正确性写成可推导的三元组",
+    },
+  ],
+  "/computer-science/theory/lamport-1974-bakery": [
+    {
+      url: "/computer-science/concepts/concurrency",
+      title: "并发与并行",
+    },
+    {
+      url: "/computer-science/theory/dijkstra-1965-mutual-exclusion",
+      title: "Dijkstra 1965：互斥怎样在没有仲裁者的共享变量上写成可推理的问题",
+    },
+    {
+      url: "/computer-science/theory/knuth-1966-mutex-comment",
+      title: "Knuth 1966：互斥的集体进展怎样仍允许一个人被永远超过",
+    },
+    {
+      url: "/computer-science/theory/peterson-1981-mutual-exclusion",
+      title: "Peterson 1981：两进程互斥怎样用两面旗与一个 turn 写成短注",
+    },
+  ],
+  "/computer-science/theory/lamport-1978-clocks": [
+    {
+      url: "/computer-science/concepts/distributed-systems",
+      title: "分布式系统",
+    },
+    {
+      url: "/computer-science/pioneers/leslie-lamport",
+      title: "莱斯利·兰波特",
+    },
+    {
+      url: "/computer-science/theory/attiya-bar-noy-dolev-1995",
+      title: "Attiya–Bar-Noy–Dolev 1995：消息传递上的原子寄存器",
+    },
+    {
+      url: "/computer-science/theory/chandy-lamport-1985-snapshots",
+      title: "Chandy–Lamport 1985：标记消息怎样把全局状态收成一致割",
+    },
+    {
+      url: "/computer-science/theory/fidge-mattern-vector-clocks",
+      title: "Fidge–Mattern：分量时间戳怎样把并发从标量编号里认出来",
+    },
+    {
+      url: "/computer-science/theory/lamport-1974-bakery",
+      title: "Lamport 1974：面包店算法怎样给互斥加上先来先服务",
+    },
+    {
+      url: "/computer-science/theory/lamport-1979-sequential-consistency",
+      title: "Lamport 1979：顺序一致性怎样把多处理器程序收成某一条尊重程序序的交错",
+    },
+    {
+      url: "/computer-science/systems/viewstamped-replication-1988",
+      title: "Viewstamped Replication：视图、主副本与盖章请求，不是又一份 Paxos",
+    },
+  ],
+  "/computer-science/theory/lamport-1979-sequential-consistency": [
+    {
+      url: "/computer-science/pioneers/leslie-lamport",
+      title: "莱斯利·兰波特",
+    },
+    {
+      url: "/computer-science/concepts/memory-consistency-models",
+      title: "内存一致性模型",
+    },
+    {
+      url: "/computer-science/theory/dijkstra-1965-mutual-exclusion",
+      title: "Dijkstra 1965：互斥怎样在没有仲裁者的共享变量上写成可推理的问题",
+    },
+    {
+      url: "/computer-science/theory/lamport-1974-bakery",
+      title: "Lamport 1974：面包店算法怎样给互斥加上先来先服务",
+    },
+    {
+      url: "/computer-science/theory/peterson-1981-mutual-exclusion",
+      title: "Peterson 1981：两进程互斥怎样用两面旗与一个 turn 写成短注",
+    },
+  ],
+  "/computer-science/theory/levin-1973-universal-search": [
+    {
+      url: "/computer-science/theory/cook-1971-np-completeness",
+      title: "Cook 1971：定理证明手续的复杂度怎样把 SAT 写成 NP 完全",
+    },
+    {
+      url: "/computer-science/theory/ladner-1975-np-intermediate",
+      title: "Ladner 1975：若 P 不等于 NP，中间问题怎样必须存在",
+    },
   ],
   "/computer-science/theory/logic-and-computation": [
     {
@@ -10989,8 +15815,160 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/philosophy/concepts/truth",
       title: "真理",
     },
+    {
+      url: "/computer-science/theory/cook-1971-np-completeness",
+      title: "Cook 1971：定理证明手续的复杂度怎样把 SAT 写成 NP 完全",
+    },
+    {
+      url: "/computer-science/theory/floyd-1967-assigning-meanings",
+      title: "Floyd 1967：归纳断言怎样把程序的意义写在流程图的边上",
+    },
+    {
+      url: "/computer-science/theory/hoare-1969-axiomatic",
+      title: "Hoare 1969：公理基础怎样把程序正确性写成可推导的三元组",
+    },
+  ],
+  "/computer-science/theory/nisan-wigderson-1994": [
+    {
+      url: "/computer-science/theory/circuit-complexity",
+      title: "电路复杂度",
+    },
+    {
+      url: "/computer-science/theory/computational-complexity",
+      title: "计算复杂性理论",
+    },
+    {
+      url: "/computer-science/theory/cryptography-foundations",
+      title: "密码学基础",
+    },
+    {
+      url: "/computer-science/theory/average-case-complexity",
+      title: "平均情况复杂性与密码学的五个世界",
+    },
+    {
+      url: "/computer-science/theory/randomized-algorithms",
+      title: "随机算法",
+    },
+    {
+      url: "/computer-science/theory/adleman-1978-bpp-ppoly",
+      title: "Adleman 1978：可放大的随机性怎样被多项式忠告替换",
+    },
+    {
+      url: "/computer-science/theory/karp-lipton-1980",
+      title: "Karp–Lipton 1980：SAT 若有多项式电路，多项式层次怎样坍到第二层",
+    },
+  ],
+  "/computer-science/theory/parameterized-complexity": [
+    {
+      url: "/computer-science/theory/fine-grained-complexity",
+      title: "细粒度复杂度",
+    },
+  ],
+  "/computer-science/theory/paxos-lamport-1998": [
+    {
+      url: "/computer-science/theory/byzantine-generals-lamport-1982",
+      title: "拜占庭将军问题",
+    },
+    {
+      url: "/computer-science/concepts/consensus-algorithms",
+      title: "分布式共识算法",
+    },
+    {
+      url: "/computer-science/theory/distributed-computing-theory",
+      title: "分布式计算理论",
+    },
+    {
+      url: "/computer-science/pioneers/leslie-lamport",
+      title: "莱斯利·兰波特",
+    },
+    {
+      url: "/computer-science/concepts/databases-transactions",
+      title: "数据库与事务",
+    },
+    {
+      url: "/computer-science/theory/ben-or-1983",
+      title: "Ben-Or 1983：抛硬币怎样把异步共识的终止改成几乎必然",
+    },
+    {
+      url: "/computer-science/theory/castro-liskov-1999-pbft",
+      title: "Castro–Liskov 1999：实用拜占庭容错，不是将军寓言",
+    },
+    {
+      url: "/computer-science/theory/chandra-toueg-1996",
+      title: "Chandra–Toueg 1996：会犯错的怀疑预言怎样成为共识的最弱检测器",
+    },
+    {
+      url: "/computer-science/systems/chubby-2006",
+      title: "Chubby：松耦合系统上的锁服务，不是又一套数据库",
+    },
+    {
+      url: "/computer-science/theory/dwork-lynch-stockmeyer-1988",
+      title: "Dwork–Lynch–Stockmeyer 1988：终将有界的延迟怎样让确定性共识可能",
+    },
+    {
+      url: "/computer-science/systems/etcd-raft",
+      title: "etcd：把 Raft 变成能用的东西",
+    },
+    {
+      url: "/computer-science/theory/flp-fischer-lynch-paterson-1985",
+      title: "FLP：完全异步下一次崩溃也能挡住确定性共识",
+    },
+    {
+      url: "/computer-science/theory/gray-1978-two-phase-commit",
+      title: "Gray 1978：两阶段提交怎样把多处改动收成提交或中止",
+    },
+    {
+      url: "/computer-science/systems/birman-1985-virtual-synchrony",
+      title: "ISIS 1985：进程组、flush 与虚拟同步，不是又一份 ZooKeeper",
+    },
+    {
+      url: "/computer-science/theory/lamport-1974-bakery",
+      title: "Lamport 1974：面包店算法怎样给互斥加上先来先服务",
+    },
+    {
+      url: "/computer-science/theory/lamport-1978-clocks",
+      title: "Lamport 1978：先于关系怎样把分布式事件收成不靠墙钟的偏序",
+    },
+    {
+      url: "/computer-science/systems/schneider-1990-smr",
+      title: "Schneider 1990：副本确定性、输出一致与状态机方法，不是又一份 Paxos",
+    },
+    {
+      url: "/computer-science/theory/shapiro-2011-crdts",
+      title: "Shapiro 2011：副本收敛是半格或可交换操作，不是共识协议",
+    },
+    {
+      url: "/computer-science/systems/viewstamped-replication-1988",
+      title: "Viewstamped Replication：视图、主副本与盖章请求，不是又一份 Paxos",
+    },
+    {
+      url: "/computer-science/systems/zookeeper-2010",
+      title: "ZooKeeper：等待自由的协调，不是又一套 Chubby 说明书",
+    },
+  ],
+  "/computer-science/theory/peterson-1981-mutual-exclusion": [
+    {
+      url: "/computer-science/concepts/concurrency",
+      title: "并发与并行",
+    },
+    {
+      url: "/computer-science/theory/dijkstra-1965-mutual-exclusion",
+      title: "Dijkstra 1965：互斥怎样在没有仲裁者的共享变量上写成可推理的问题",
+    },
+    {
+      url: "/computer-science/theory/knuth-1966-mutex-comment",
+      title: "Knuth 1966：互斥的集体进展怎样仍允许一个人被永远超过",
+    },
+    {
+      url: "/computer-science/theory/lamport-1974-bakery",
+      title: "Lamport 1974：面包店算法怎样给互斥加上先来先服务",
+    },
   ],
   "/computer-science/theory/physical-limits-of-computation": [
+    {
+      url: "/computer-science/theory/circuit-complexity",
+      title: "电路复杂度",
+    },
     {
       url: "/universe-physics/knowledge-base/热力学--麦克斯韦妖",
       title: "麦克斯韦妖",
@@ -11020,6 +15998,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/凝聚态物理--superfluidity",
       title: "超流体",
+    },
+    {
+      url: "/computer-science/theory/circuit-complexity",
+      title: "电路复杂度",
     },
     {
       url: "/universe-physics/knowledge-base/电磁学--capacitance-and-inductance",
@@ -11192,8 +16174,130 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "在线算法与竞争分析",
     },
     {
+      url: "/computer-science/pioneers/judea-pearl",
+      title: "朱迪亚·珀尔",
+    },
+    {
+      url: "/computer-science/theory/adleman-1978-bpp-ppoly",
+      title: "Adleman 1978：可放大的随机性怎样被多项式忠告替换",
+    },
+    {
+      url: "/computer-science/theory/ben-or-1983",
+      title: "Ben-Or 1983：抛硬币怎样把异步共识的终止改成几乎必然",
+    },
+    {
+      url: "/computer-science/theory/chandra-toueg-1996",
+      title: "Chandra–Toueg 1996：会犯错的怀疑预言怎样成为共识的最弱检测器",
+    },
+    {
+      url: "/computer-science/theory/flp-fischer-lynch-paterson-1985",
+      title: "FLP：完全异步下一次崩溃也能挡住确定性共识",
+    },
+    {
+      url: "/computer-science/theory/nisan-wigderson-1994",
+      title: "Nisan–Wigderson 1994：E 里足够硬的函数怎样冒充 BPP 测试者的硬币",
+    },
+    {
       url: "/computer-science/algorithms/public-key-rsa",
       title: "RSA 公钥密码",
+    },
+    {
+      url: "/computer-science/theory/yao-1979-communication-complexity",
+      title: "Yao 1979：分布式计算的复杂度问题怎样把通信写成资源",
+    },
+  ],
+  "/computer-science/theory/razborov-1985-monotone": [
+    {
+      url: "/computer-science/theory/circuit-complexity",
+      title: "电路复杂度",
+    },
+    {
+      url: "/computer-science/theory/furst-saxe-sipser-1984",
+      title: "Furst–Saxe–Sipser 1984：常数深度电路怎样算不出奇偶性",
+    },
+  ],
+  "/computer-science/theory/razborov-rudich-1997": [
+    {
+      url: "/computer-science/theory/circuit-complexity",
+      title: "电路复杂度",
+    },
+    {
+      url: "/computer-science/theory/computational-complexity",
+      title: "计算复杂性理论",
+    },
+    {
+      url: "/computer-science/theory/cryptography-foundations",
+      title: "密码学基础",
+    },
+    {
+      url: "/computer-science/theory/barriers-to-proving-p-vs-np",
+      title: "为什么 P vs NP 这么难证：三道障碍",
+    },
+    {
+      url: "/computer-science/theory/furst-saxe-sipser-1984",
+      title: "Furst–Saxe–Sipser 1984：常数深度电路怎样算不出奇偶性",
+    },
+    {
+      url: "/computer-science/theory/hastad-1986-small-depth",
+      title: "Håstad 1986：切换引理怎样把浅电路收成近乎最优的下界",
+    },
+    {
+      url: "/computer-science/theory/karp-lipton-1980",
+      title: "Karp–Lipton 1980：SAT 若有多项式电路，多项式层次怎样坍到第二层",
+    },
+    {
+      url: "/computer-science/theory/razborov-1985-monotone",
+      title: "Razborov 1985：单调电路怎样看不见团",
+    },
+  ],
+  "/computer-science/theory/savitch-1970-theorem": [
+    {
+      url: "/computer-science/theory/computational-complexity",
+      title: "计算复杂性理论",
+    },
+    {
+      url: "/computer-science/theory/baker-gill-solovay-1975",
+      title: "Baker–Gill–Solovay 1975：相对化怎样把对角化挡在 P 对 NP 门外",
+    },
+    {
+      url: "/computer-science/theory/hartmanis-stearns-1965",
+      title: "Hartmanis–Stearns 1965：算法复杂度怎样被写成时间可构造的层次",
+    },
+    {
+      url: "/computer-science/theory/immerman-szelepcsenyi-1988",
+      title: "Immerman–Szelepcsényi 1988：非确定性空间怎样对补运算封闭",
+    },
+    {
+      url: "/computer-science/theory/levin-1973-universal-search",
+      title: "Levin 1973：通用顺序搜索怎样把 NP 搜索写成一个万能问题",
+    },
+  ],
+  "/computer-science/theory/shapiro-2011-crdts": [
+    {
+      url: "/computer-science/concepts/consensus-algorithms",
+      title: "分布式共识算法",
+    },
+    {
+      url: "/computer-science/concepts/crdts",
+      title: "无冲突复制数据类型",
+    },
+    {
+      url: "/computer-science/systems/terry-1994-session-guarantees",
+      title: "Terry 1994：会话保证怎样把弱一致副本写成客户视角",
+    },
+  ],
+  "/computer-science/theory/shavit-touitou-1995-stm": [
+    {
+      url: "/computer-science/concepts/consensus-algorithms",
+      title: "分布式共识算法",
+    },
+    {
+      url: "/computer-science/theory/herlihy-1991-wait-free",
+      title: "Herlihy 1991：等待自由怎样按共识数给并发对象分层",
+    },
+    {
+      url: "/computer-science/theory/herlihy-moss-1993-tm",
+      title: "Herlihy–Moss 1993：事务内存怎样用体系结构支持无锁数据结构",
     },
   ],
   "/computer-science/theory/statistical-learning-theory-pac": [
@@ -11218,8 +16322,62 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: '形式认识论：把"相信多少"写成数字',
     },
     {
+      url: "/computer-science/theory/valiant-1979-permanent",
+      title: "Valiant 1979：积和式怎样把计数写成比判定更硬的类",
+    },
+    {
       url: "/psychology/methods/weird-samples-and-generalizability",
       title: "WEIRD 样本与可推广性",
+    },
+  ],
+  "/computer-science/theory/toda-1991": [
+    {
+      url: "/computer-science/theory/counting-complexity",
+      title: "计数复杂度",
+    },
+    {
+      url: "/computer-science/theory/computational-complexity",
+      title: "计算复杂性理论",
+    },
+    {
+      url: "/computer-science/theory/baker-gill-solovay-1975",
+      title: "Baker–Gill–Solovay 1975：相对化怎样把对角化挡在 P 对 NP 门外",
+    },
+    {
+      url: "/computer-science/theory/cook-1971-np-completeness",
+      title: "Cook 1971：定理证明手续的复杂度怎样把 SAT 写成 NP 完全",
+    },
+    {
+      url: "/computer-science/theory/karp-lipton-1980",
+      title: "Karp–Lipton 1980：SAT 若有多项式电路，多项式层次怎样坍到第二层",
+    },
+    {
+      url: "/computer-science/theory/ladner-1975-np-intermediate",
+      title: "Ladner 1975：若 P 不等于 NP，中间问题怎样必须存在",
+    },
+    {
+      url: "/computer-science/theory/valiant-1979-permanent",
+      title: "Valiant 1979：积和式怎样把计数写成比判定更硬的类",
+    },
+  ],
+  "/computer-science/theory/valiant-1979-permanent": [
+    {
+      url: "/computer-science/theory/counting-complexity",
+      title: "计数复杂度",
+    },
+    {
+      url: "/computer-science/theory/toda-1991",
+      title: "Toda 1991：多项式层次怎样被一次",
+    },
+  ],
+  "/computer-science/theory/yao-1979-communication-complexity": [
+    {
+      url: "/computer-science/theory/communication-complexity",
+      title: "通信复杂度",
+    },
+    {
+      url: "/computer-science/pioneers/andrew-yao",
+      title: "姚期智",
     },
   ],
   "/cosmology/dialogues/cosmology-crisis": [
@@ -11240,8 +16398,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/cosmology/dialogues/hubble-lemaitre": [
     {
+      url: "/cosmology/knowledge-base/宇宙学观测--hubble-1929-velocity-distance",
+      title: "1929 速度–距离图：24 个河外星云怎样被写成斜率 K",
+    },
+    {
       url: "/cosmology/knowledge-base/暗物质与暗能量",
       title: "暗物质与暗能量",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--slipher-1912-nebular-redshifts",
+      title: "斯莱弗 1912：洛威尔 24 英寸镜上的星云视向速度",
     },
     {
       url: "/universe-physics/knowledge-base/物理学--宇宙学红移与膨胀",
@@ -11309,6 +16475,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/cosmology/frontier/hubble-tension": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--hubble-1929-velocity-distance",
+      title: "1929 速度–距离图：24 个河外星云怎样被写成斜率 K",
+    },
     {
       url: "/cosmology/knowledge-base/暗物质与暗能量",
       title: "暗物质与暗能量",
@@ -11856,6 +17026,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "恒星金属丰度与化学演化",
     },
     {
+      url: "/cosmology/knowledge-base/宇宙学观测--霍尔姆德尔喇叭天线",
+      title: "霍尔姆德尔喇叭：消不掉的 3.5 K 怎样被写成天线温度",
+    },
+    {
       url: "/cosmology/knowledge-base/多信使天文学--fast-radio-bursts",
       title: "快速射电暴FRB",
     },
@@ -12102,6 +17276,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "柯伊伯带与奥尔特云",
     },
     {
+      url: "/philosophy/experiments/kripke-1980-naming",
+      title: "命名与必然性",
+    },
+    {
       url: "/earth-science/concepts/carbon-cycle",
       title: "碳循环",
     },
@@ -12116,6 +17294,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/concepts/planetary-geology",
       title: "行星地质学",
+    },
+  ],
+  "/cosmology/knowledge-base/太阳系--火神星": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--eddington-1919-eclipse",
+      title: "1919 日食底片：0.87″ 与 1.75″ 怎样被量到星点上",
     },
   ],
   "/cosmology/knowledge-base/宇宙大尺度结构": [
@@ -12294,6 +17478,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "稀有气体",
     },
   ],
+  "/cosmology/knowledge-base/宇宙学基础--cosmology-history": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--leavitt-1912-period-luminosity",
+      title: "1912 周光关系：25 颗小麦哲伦云变星怎样被写成相对光度台阶",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--shapley-curtis-1920",
+      title: "1920 沙普利–柯蒂斯辩论：大银河与岛宇宙怎样在史密森被写成两套账",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--hubble-1929-velocity-distance",
+      title: "1929 速度–距离图：24 个河外星云怎样被写成斜率 K",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--slipher-1912-nebular-redshifts",
+      title: "斯莱弗 1912：洛威尔 24 英寸镜上的星云视向速度",
+    },
+  ],
   "/cosmology/knowledge-base/宇宙学基础--丢失的重子问题": [
     {
       url: "/cosmology/knowledge-base/宇宙学观测--星系际介质",
@@ -12319,6 +17521,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/cosmology/knowledge-base/宇宙学基础--共动距离与宇宙学红移": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--hubble-1929-velocity-distance",
+      title: "1929 速度–距离图：24 个河外星云怎样被写成斜率 K",
+    },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--奥伯斯佯谬与黑暗的夜空",
       title: "奥伯斯佯谬与黑暗的夜空",
@@ -12375,6 +17581,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/cosmology/knowledge-base/宇宙学基础--哈勃张力": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--leavitt-1912-period-luminosity",
+      title: "1912 周光关系：25 颗小麦哲伦云变星怎样被写成相对光度台阶",
+    },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--暗能量与状态方程",
       title: "暗能量与状态方程",
@@ -12534,6 +17744,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学基础--稳恒态宇宙",
       title: "稳恒态宇宙：输得最体面的理论",
+    },
+    {
+      url: "/chemistry/milestones/urey-1931-deuterium",
+      title: "尤里一九三一年的氘：液氢残渣原子光谱里的质量二同位素",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--cosmic-thermal-history",
@@ -12850,6 +18064,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "奥伯斯佯谬与黑暗的夜空",
     },
     {
+      url: "/cosmology/knowledge-base/宇宙学观测--霍尔姆德尔喇叭天线",
+      title: "霍尔姆德尔喇叭：消不掉的 3.5 K 怎样被写成天线温度",
+    },
+    {
       url: "/cosmology/knowledge-base/宇宙学基础--宇宙的年龄测定",
       title: "宇宙的年龄测定",
     },
@@ -12880,6 +18098,116 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/致密天体--x-ray-binaries",
       title: "X射线双星",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙学观测--eddington-1919-eclipse": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--hubble-1929-velocity-distance",
+      title: "1929 速度–距离图：24 个河外星云怎样被写成斜率 K",
+    },
+    {
+      url: "/philosophy/thinkers/popper",
+      title: "波普尔",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--广义相对论的实验检验",
+      title: "广义相对论的实验检验",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--pound-rebka-1959",
+      title: "庞德–雷布卡 1959：液压多普勒怎样把 22.5 米写成引力频移",
+    },
+    {
+      url: "/cosmology/knowledge-base/引力透镜",
+      title: "引力透镜",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙学观测--hubble-1929-velocity-distance": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--leavitt-1912-period-luminosity",
+      title: "1912 周光关系：25 颗小麦哲伦云变星怎样被写成相对光度台阶",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--shapley-curtis-1920",
+      title: "1920 沙普利–柯蒂斯辩论：大银河与岛宇宙怎样在史密森被写成两套账",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--slipher-1912-nebular-redshifts",
+      title: "斯莱弗 1912：洛威尔 24 英寸镜上的星云视向速度",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--宇宙距离阶梯",
+      title: "宇宙距离阶梯",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--宇宙学红移与膨胀",
+      title: "宇宙学红移与膨胀",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--cosmology-history",
+      title: "宇宙学简史：从地心说到大爆炸",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙学观测--leavitt-1912-period-luminosity": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--shapley-curtis-1920",
+      title: "1920 沙普利–柯蒂斯辩论：大银河与岛宇宙怎样在史密森被写成两套账",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--hubble-1929-velocity-distance",
+      title: "1929 速度–距离图：24 个河外星云怎样被写成斜率 K",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--slipher-1912-nebular-redshifts",
+      title: "斯莱弗 1912：洛威尔 24 英寸镜上的星云视向速度",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--宇宙距离阶梯",
+      title: "宇宙距离阶梯",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--cosmology-history",
+      title: "宇宙学简史：从地心说到大爆炸",
+    },
+    {
+      url: "/cosmology/knowledge-base/恒星物理--cepheids-variable-stars",
+      title: "造父变星与变星",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙学观测--shapley-curtis-1920": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--leavitt-1912-period-luminosity",
+      title: "1912 周光关系：25 颗小麦哲伦云变星怎样被写成相对光度台阶",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--hubble-1929-velocity-distance",
+      title: "1929 速度–距离图：24 个河外星云怎样被写成斜率 K",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--slipher-1912-nebular-redshifts",
+      title: "斯莱弗 1912：洛威尔 24 英寸镜上的星云视向速度",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--宇宙距离阶梯",
+      title: "宇宙距离阶梯",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学基础--cosmology-history",
+      title: "宇宙学简史：从地心说到大爆炸",
+    },
+  ],
+  "/cosmology/knowledge-base/宇宙学观测--slipher-1912-nebular-redshifts": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--leavitt-1912-period-luminosity",
+      title: "1912 周光关系：25 颗小麦哲伦云变星怎样被写成相对光度台阶",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--hubble-1929-velocity-distance",
+      title: "1929 速度–距离图：24 个河外星云怎样被写成斜率 K",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--宇宙学红移与膨胀",
+      title: "宇宙学红移与膨胀",
     },
   ],
   "/cosmology/knowledge-base/宇宙学观测--中微子探测器": [
@@ -12921,6 +18249,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/cosmology/knowledge-base/宇宙学观测--光学望远镜": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--eddington-1919-eclipse",
+      title: "1919 日食底片：0.87″ 与 1.75″ 怎样被量到星点上",
+    },
     {
       url: "/cosmology/knowledge-base/宇宙学观测--多波段天文学",
       title: "多波段天文学",
@@ -13004,6 +18336,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学观测--红外天文学",
       title: "红外天文学",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--霍尔姆德尔喇叭天线",
+      title: "霍尔姆德尔喇叭：消不掉的 3.5 K 怎样被写成天线温度",
     },
     {
       url: "/cosmology/knowledge-base/多信使天文学--gamma-ray-bursts",
@@ -13122,6 +18458,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/cosmology/knowledge-base/宇宙学观测--天文光谱学方法": [
     {
+      url: "/chemistry/milestones/bunsen-kirchhoff-1860-cesium",
+      title: "本生与基尔霍夫一八六〇年的铯：棱镜分光镜怎样用天蓝色谱线认出第一种新元素",
+    },
+    {
       url: "/cosmology/knowledge-base/宇宙学观测--大型巡天SDSS与DESI",
       title: "大型巡天：SDSS与DESI",
     },
@@ -13138,6 +18478,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "生物标志物",
     },
     {
+      url: "/cosmology/knowledge-base/宇宙学观测--slipher-1912-nebular-redshifts",
+      title: "斯莱弗 1912：洛威尔 24 英寸镜上的星云视向速度",
+    },
+    {
       url: "/cosmology/knowledge-base/天体生物学--habitable-worlds-observatory",
       title: "宜居世界天文台：把生命问题变成光谱问题",
     },
@@ -13147,6 +18491,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/cosmology/knowledge-base/宇宙学观测--宇宙距离阶梯": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--leavitt-1912-period-luminosity",
+      title: "1912 周光关系：25 颗小麦哲伦云变星怎样被写成相对光度台阶",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--shapley-curtis-1920",
+      title: "1920 沙普利–柯蒂斯辩论：大银河与岛宇宙怎样在史密森被写成两套账",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--hubble-1929-velocity-distance",
+      title: "1929 速度–距离图：24 个河外星云怎样被写成斜率 K",
+    },
     {
       url: "/mathematics/mathematicians/archimedes",
       title: "阿基米德",
@@ -13222,6 +18578,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "红外天文学",
     },
     {
+      url: "/cosmology/knowledge-base/宇宙学观测--霍尔姆德尔喇叭天线",
+      title: "霍尔姆德尔喇叭：消不掉的 3.5 K 怎样被写成天线温度",
+    },
+    {
       url: "/cosmology/knowledge-base/致密天体--pulsar-timing-array",
       title: "脉冲星计时阵列",
     },
@@ -13285,6 +18645,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/cosmology/knowledge-base/宇宙学观测--时域天文学": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--leavitt-1912-period-luminosity",
+      title: "1912 周光关系：25 颗小麦哲伦云变星怎样被写成相对光度台阶",
+    },
     {
       url: "/cosmology/knowledge-base/宇宙学观测--标准烛光与Ia超新星测距",
       title: "标准烛光与Ia型超新星测距",
@@ -13584,6 +18948,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "宜居世界天文台：把生命问题变成光谱问题",
     },
   ],
+  "/cosmology/knowledge-base/宇宙学观测--霍尔姆德尔喇叭天线": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--hubble-1929-velocity-distance",
+      title: "1929 速度–距离图：24 个河外星云怎样被写成斜率 K",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--射电望远镜",
+      title: "射电望远镜",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙微波背景",
+      title: "宇宙微波背景辐射",
+    },
+  ],
   "/cosmology/knowledge-base/宇宙射线": [
     {
       url: "/cosmology/knowledge-base/宇宙学前沿--dark-matter-indirect-detection",
@@ -13658,6 +19036,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学观测--红移巡天与宇宙三维制图",
       title: "红移巡天与宇宙三维制图",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--霍尔姆德尔喇叭天线",
+      title: "霍尔姆德尔喇叭：消不掉的 3.5 K 怎样被写成天线温度",
     },
     {
       url: "/universe-physics/knowledge-base/光学--激光冷却与原子阱",
@@ -13814,6 +19196,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/cosmology/knowledge-base/引力透镜": [
     {
+      url: "/cosmology/knowledge-base/宇宙学观测--eddington-1919-eclipse",
+      title: "1919 日食底片：0.87″ 与 1.75″ 怎样被量到星点上",
+    },
+    {
       url: "/universe-physics/knowledge-base/前沿物理--暗物质",
       title: "暗物质",
     },
@@ -13945,6 +19331,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/cosmology/knowledge-base/恒星物理--cepheids-variable-stars": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--leavitt-1912-period-luminosity",
+      title: "1912 周光关系：25 颗小麦哲伦云变星怎样被写成相对光度台阶",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--hubble-1929-velocity-distance",
+      title: "1929 速度–距离图：24 个河外星云怎样被写成斜率 K",
+    },
     {
       url: "/cosmology/knowledge-base/宇宙学观测--标准烛光与Ia超新星测距",
       title: "标准烛光与Ia型超新星测距",
@@ -14466,6 +19860,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/cosmology/knowledge-base/星系天文学--milky-way-structure": [
     {
+      url: "/cosmology/knowledge-base/宇宙学观测--shapley-curtis-1920",
+      title: "1920 沙普利–柯蒂斯辩论：大银河与岛宇宙怎样在史密森被写成两套账",
+    },
+    {
       url: "/cosmology/knowledge-base/天体生物学--fermi-paradox",
       title: "费米悖论",
     },
@@ -14491,6 +19889,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/cosmology/knowledge-base/星系天文学--spiral-galaxies": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--shapley-curtis-1920",
+      title: "1920 沙普利–柯蒂斯辩论：大银河与岛宇宙怎样在史密森被写成两套账",
+    },
     {
       url: "/cosmology/knowledge-base/星系天文学--哈勃星系形态序列",
       title: "哈勃星系形态序列",
@@ -15440,24 +20842,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/climate-risks/extreme-event-attribution": [
     {
-      url: "/earth-science/event-analyses/pinatubo-eruption-observation-1991",
-      title: "1991 年皮纳图博喷发事件剖析",
-    },
-    {
-      url: "/earth-science/event-analyses/eyjafjallajokull-ash-crisis-2010",
-      title: "2010 年艾雅法拉火山灰危机剖析",
-    },
-    {
       url: "/earth-science/event-analyses/pakistan-flood-attribution-2022",
       title: "2022 年巴基斯坦洪水归因剖析",
-    },
-    {
-      url: "/earth-science/event-analyses/hunga-tonga-eruption-observation-2022",
-      title: "2022 年洪阿汤加喷发事件剖析",
-    },
-    {
-      url: "/earth-science/event-analyses/turkey-syria-earthquake-forensics-2023",
-      title: "2023 年土耳其—叙利亚地震事件剖析",
     },
     {
       url: "/economics/case-studies/low-income-debt-countries-macro-diagnosis-2026",
@@ -15598,6 +20984,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "瑞利散射与天空的颜色",
     },
     {
+      url: "/chemistry/milestones/ramsay-rayleigh-1894-argon",
+      title: "瑞利与拉姆齐一八九四年的氩：两份氮的密度差怎样逼出一种不进化合的气体",
+    },
+    {
       url: "/cosmology/knowledge-base/星系天文学--elliptical-galaxies",
       title: "椭圆星系",
     },
@@ -15628,6 +21018,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/figures/dalton",
       title: "约翰·道尔顿",
+    },
+    {
+      url: "/chemistry/milestones/rowland-molina-ozone-cfcs",
+      title: "Rowland 与 Molina：平流层里的氯循环（1974）",
     },
     {
       url: "/chemistry/reactions/sn1-sn2-nucleophilic-substitution",
@@ -15734,6 +21128,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/scientists/woese",
       title: "卡尔·沃斯",
+    },
+    {
+      url: "/chemistry/milestones/kekule-1865-benzene",
+      title: "凯库勒一八六五年的苯环：公报上的六元连通式",
     },
     {
       url: "/anthropology/prehistory-and-archaeology/archaeological-dating",
@@ -15910,6 +21308,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/concepts/earth-interior": [
     {
+      url: "/earth-science/event-analyses/mohorovicic-1909-discontinuity",
+      title: "1909 年库帕河谷地震：走时拐点怎样画出莫霍面",
+    },
+    {
+      url: "/earth-science/event-analyses/gutenberg-1914-core-mantle-boundary",
+      title: "1914 年古登堡：影区怎样把核–幔边界钉在约 2900 公里",
+    },
+    {
+      url: "/earth-science/event-analyses/lehmann-1936-inner-core",
+      title: "1936 年莱曼：空影区里的走时分支怎样嵌进固态内核",
+    },
+    {
       url: "/cosmology/knowledge-base/暗物质与暗能量",
       title: "暗物质与暗能量",
     },
@@ -16004,6 +21414,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/concepts/earths-magnetic-field": [
     {
+      url: "/earth-science/event-analyses/gutenberg-1914-core-mantle-boundary",
+      title: "1914 年古登堡：影区怎样把核–幔边界钉在约 2900 公里",
+    },
+    {
+      url: "/earth-science/event-analyses/lehmann-1936-inner-core",
+      title: "1936 年莱曼：空影区里的走时分支怎样嵌进固态内核",
+    },
+    {
+      url: "/earth-science/event-analyses/vine-matthews-magnetic-stripes",
+      title: "1963 年瓦因与马修斯：磁异常剖面怎样把倒转史录进扩张洋底",
+    },
+    {
       url: "/cosmology/knowledge-base/宇宙学前沿--dark-matter-indirect-detection",
       title: "暗物质间接探测",
     },
@@ -16096,8 +21518,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/concepts/geodesy-and-geoid": [
     {
+      url: "/earth-science/event-analyses/alaska-1964-good-friday",
+      title: "1964 年阿拉斯加耶稣受难日地震：升降场、长持时与海啸怎样把巨型逆冲钉成一套记录",
+    },
+    {
       url: "/mathematics/mathematicians/abel",
       title: "阿贝尔",
+    },
+    {
+      url: "/mathematics/concepts/eratosthenes-earth-circumference",
+      title: "埃拉托色尼测地球周长",
     },
     {
       url: "/earth-science/concepts/tides",
@@ -16238,6 +21668,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "人类学的比较",
     },
     {
+      url: "/chemistry/milestones/soddy-1913-isotope",
+      title: "索迪 1913：放射链上化学无法分开的物种怎样被写成同位素",
+    },
+    {
       url: "/anthropology/material-culture/pottery-and-style",
       title: "陶器与风格",
     },
@@ -16264,8 +21698,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/concepts/greenhouse-effect": [
     {
+      url: "/earth-science/event-analyses/pinatubo-eruption-observation-1991",
+      title: "1991 年皮纳图博喷发事件剖析",
+    },
+    {
+      url: "/earth-science/event-analyses/hunga-tonga-eruption-observation-2022",
+      title: "2022 年洪阿汤加喷发事件剖析",
+    },
+    {
       url: "/earth-science/concepts/cryosphere",
       title: "冰冻圈",
+    },
+    {
+      url: "/chemistry/milestones/born-oppenheimer-1927",
+      title: "玻恩–奥本海默 1927：分子怎样把核的慢运动从电子的快运动里拆开",
+    },
+    {
+      url: "/economics/policy-analyses/british-columbia-carbon-tax",
+      title: "不列颠哥伦比亚碳税政策剖析",
     },
     {
       url: "/earth-science/pioneers/charles-keeling",
@@ -16375,6 +21825,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/economics/debates/free-market-vs-intervention",
       title: "自由市场 vs 政府干预",
     },
+    {
+      url: "/chemistry/milestones/rowland-molina-ozone-cfcs",
+      title: "Rowland 与 Molina：平流层里的氯循环（1974）",
+    },
   ],
   "/earth-science/concepts/ice-ages-and-milankovitch": [
     {
@@ -16458,6 +21912,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/concepts/map-projections": [
     {
+      url: "/mathematics/concepts/eratosthenes-earth-circumference",
+      title: "埃拉托色尼测地球周长",
+    },
+    {
       url: "/anthropology/prehistory-and-archaeology/cities-and-early-states",
       title: "城市与早期国家",
     },
@@ -16506,6 +21964,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/case-studies/stagflation-1970s",
       title: "1970年代滞胀：凯恩斯主义的危机",
+    },
+    {
+      url: "/economics/policy-analyses/alaska-permanent-fund-dividend",
+      title: "阿拉斯加永久基金分红剖析",
     },
     {
       url: "/chemistry/concepts/surface-and-colloid-chemistry",
@@ -16610,8 +22072,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/concepts/minerals": [
     {
+      url: "/chemistry/milestones/bunsen-kirchhoff-1860-cesium",
+      title: "本生与基尔霍夫一八六〇年的铯：棱镜分光镜怎样用天蓝色谱线认出第一种新元素",
+    },
+    {
       url: "/earth-science/processes/weathering-soil",
       title: "风化与成土",
+    },
+    {
+      url: "/chemistry/milestones/curie-1898-polonium-radium",
+      title: "居里 1898：沥青铀矿里比铀更活的部分怎样被写成钋与镭",
     },
     {
       url: "/cosmology/knowledge-base/恒星物理--stellar-populations",
@@ -16639,6 +22109,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/earth-science/concepts/ocean-acidification": [
+    {
+      url: "/chemistry/milestones/bronsted-lowry-1923",
+      title: "布朗斯特–劳里 1923：酸给出质子、碱接住质子怎样被写成定义",
+    },
+    {
+      url: "/chemistry/milestones/debye-huckel-1923",
+      title: "德拜–休克尔 1923：离子氛怎样把强电解质的电导亏损改记成远程静电",
+    },
     {
       url: "/earth-science/processes/marine-biogeochemistry",
       title: "海洋生物地球化学",
@@ -16723,6 +22201,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/earth-science/concepts/paleontology-and-stratigraphy": [
+    {
+      url: "/earth-science/event-analyses/cascadia-1700-orphan-tsunami",
+      title: "1700 年 1 月 26 日卡斯卡迪亚巨型逆冲：日本孤儿海啸、淹没森林与浊积岩怎样对上同一时刻",
+    },
+    {
+      url: "/earth-science/event-analyses/glomar-challenger-1968-dsdp",
+      title: "1968 年格洛玛·挑战者号：深海钻探怎样把离脊变老钉成岩芯年龄表",
+    },
     {
       url: "/anthropology/prehistory-and-archaeology/stratigraphy-and-context",
       title: "地层与出土情境",
@@ -16816,6 +22302,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/concepts/plate-boundaries": [
     {
+      url: "/earth-science/event-analyses/alaska-1964-good-friday",
+      title: "1964 年阿拉斯加耶稣受难日地震：升降场、长持时与海啸怎样把巨型逆冲钉成一套记录",
+    },
+    {
+      url: "/earth-science/event-analyses/wilson-1965-transform-faults",
+      title: "1965 年威尔逊：转换断层怎样把脊的外观错开收成反号走滑",
+    },
+    {
       url: "/earth-science/event-analyses/turkey-syria-earthquake-forensics-2023",
       title: "2023 年土耳其—叙利亚地震事件剖析",
     },
@@ -16830,6 +22324,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/processes/earthquakes",
       title: "地震",
+    },
+    {
+      url: "/earth-science/event-analyses/wadati-benioff-zone",
+      title: "和达—贝尼奥夫带：倾斜震源怎样把下沉的冷板片画出来",
     },
     {
       url: "/earth-science/processes/volcanism",
@@ -16850,16 +22348,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/concepts/remote-sensing-and-gis": [
     {
+      url: "/earth-science/event-analyses/mount-st-helens-1980-observation",
+      title: "1980 年圣海伦斯火山事件剖析",
+    },
+    {
       url: "/earth-science/event-analyses/pinatubo-eruption-observation-1991",
       title: "1991 年皮纳图博喷发事件剖析",
     },
     {
       url: "/earth-science/event-analyses/eyjafjallajokull-ash-crisis-2010",
       title: "2010 年艾雅法拉火山灰危机剖析",
-    },
-    {
-      url: "/earth-science/event-analyses/pakistan-flood-attribution-2022",
-      title: "2022 年巴基斯坦洪水归因剖析",
     },
     {
       url: "/earth-science/event-analyses/hunga-tonga-eruption-observation-2022",
@@ -17014,6 +22512,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/concepts/soil-science-and-pedology": [
     {
+      url: "/earth-science/event-analyses/mexico-city-1985-site-effect",
+      title: "1985 年墨西哥城场地效应：古湖床软泥、卓越周期与加速度记录怎样把远场放大钉成证据",
+    },
+    {
+      url: "/earth-science/event-analyses/loma-prieta-1989-cypress",
+      title: "1989 年洛马普里埃塔：柏树街高架桥倒塌与滨海区填土怎样把近场走滑钉成场地与结构证据",
+    },
+    {
       url: "/life-science/knowledge-base/生态系统--草原",
       title: "草原：火与草的共舞",
     },
@@ -17101,6 +22607,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/earth-science/concepts/tides": [
+    {
+      url: "/earth-science/event-analyses/cascadia-1700-orphan-tsunami",
+      title: "1700 年 1 月 26 日卡斯卡迪亚巨型逆冲：日本孤儿海啸、淹没森林与浊积岩怎样对上同一时刻",
+    },
     {
       url: "/cosmology/knowledge-base/致密天体--tidal-disruption-events",
       title: "潮汐瓦解事件",
@@ -17220,6 +22730,192 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "遥感与地理信息系统",
     },
   ],
+  "/earth-science/event-analyses/alaska-1964-good-friday": [
+    {
+      url: "/earth-science/event-analyses/cascadia-1700-orphan-tsunami",
+      title: "1700 年 1 月 26 日卡斯卡迪亚巨型逆冲：日本孤儿海啸、淹没森林与浊积岩怎样对上同一时刻",
+    },
+    {
+      url: "/earth-science/event-analyses/mexico-city-1985-site-effect",
+      title: "1985 年墨西哥城场地效应：古湖床软泥、卓越周期与加速度记录怎样把远场放大钉成证据",
+    },
+    {
+      url: "/earth-science/event-analyses/loma-prieta-1989-cypress",
+      title: "1989 年洛马普里埃塔：柏树街高架桥倒塌与滨海区填土怎样把近场走滑钉成场地与结构证据",
+    },
+    {
+      url: "/earth-science/processes/earthquakes",
+      title: "地震",
+    },
+  ],
+  "/earth-science/event-analyses/cascadia-1700-orphan-tsunami": [
+    {
+      url: "/earth-science/event-analyses/vine-matthews-magnetic-stripes",
+      title: "1963 年瓦因与马修斯：磁异常剖面怎样把倒转史录进扩张洋底",
+    },
+    {
+      url: "/earth-science/event-analyses/alaska-1964-good-friday",
+      title: "1964 年阿拉斯加耶稣受难日地震：升降场、长持时与海啸怎样把巨型逆冲钉成一套记录",
+    },
+    {
+      url: "/earth-science/processes/plate-tectonics",
+      title: "板块构造",
+    },
+    {
+      url: "/earth-science/processes/earthquakes",
+      title: "地震",
+    },
+    {
+      url: "/earth-science/pioneers/harry-hess",
+      title: "哈里·赫斯",
+    },
+  ],
+  "/earth-science/event-analyses/glomar-challenger-1968-dsdp": [
+    {
+      url: "/earth-science/event-analyses/hess-1962-seafloor-spreading",
+      title: "1962 年赫斯：洋盆历史怎样把脊写成源、把沟写成汇",
+    },
+    {
+      url: "/earth-science/event-analyses/vine-matthews-magnetic-stripes",
+      title: "1963 年瓦因与马修斯：磁异常剖面怎样把倒转史录进扩张洋底",
+    },
+    {
+      url: "/earth-science/concepts/plate-boundaries",
+      title: "板块边界",
+    },
+    {
+      url: "/earth-science/processes/plate-tectonics",
+      title: "板块构造",
+    },
+    {
+      url: "/earth-science/pioneers/harry-hess",
+      title: "哈里·赫斯",
+    },
+    {
+      url: "/earth-science/events/messinian-salinity-crisis",
+      title: "墨西拿盐度危机",
+    },
+  ],
+  "/earth-science/event-analyses/gutenberg-1914-core-mantle-boundary": [
+    {
+      url: "/earth-science/event-analyses/lehmann-1936-inner-core",
+      title: "1936 年莱曼：空影区里的走时分支怎样嵌进固态内核",
+    },
+    {
+      url: "/earth-science/concepts/earth-interior",
+      title: "地球内部结构",
+    },
+    {
+      url: "/earth-science/event-analyses/wadati-benioff-zone",
+      title: "和达—贝尼奥夫带：倾斜震源怎样把下沉的冷板片画出来",
+    },
+  ],
+  "/earth-science/event-analyses/hess-1962-seafloor-spreading": [
+    {
+      url: "/earth-science/event-analyses/vine-matthews-magnetic-stripes",
+      title: "1963 年瓦因与马修斯：磁异常剖面怎样把倒转史录进扩张洋底",
+    },
+    {
+      url: "/earth-science/event-analyses/glomar-challenger-1968-dsdp",
+      title: "1968 年格洛玛·挑战者号：深海钻探怎样把离脊变老钉成岩芯年龄表",
+    },
+    {
+      url: "/earth-science/processes/plate-tectonics",
+      title: "板块构造",
+    },
+    {
+      url: "/earth-science/pioneers/harry-hess",
+      title: "哈里·赫斯",
+    },
+  ],
+  "/earth-science/event-analyses/lehmann-1936-inner-core": [
+    {
+      url: "/earth-science/concepts/earth-interior",
+      title: "地球内部结构",
+    },
+    {
+      url: "/earth-science/event-analyses/wadati-benioff-zone",
+      title: "和达—贝尼奥夫带：倾斜震源怎样把下沉的冷板片画出来",
+    },
+    {
+      url: "/earth-science/pioneers/inge-lehmann",
+      title: "英厄·莱曼",
+    },
+  ],
+  "/earth-science/event-analyses/loma-prieta-1989-cypress": [
+    {
+      url: "/earth-science/event-analyses/alaska-1964-good-friday",
+      title: "1964 年阿拉斯加耶稣受难日地震：升降场、长持时与海啸怎样把巨型逆冲钉成一套记录",
+    },
+    {
+      url: "/earth-science/event-analyses/mexico-city-1985-site-effect",
+      title: "1985 年墨西哥城场地效应：古湖床软泥、卓越周期与加速度记录怎样把远场放大钉成证据",
+    },
+    {
+      url: "/earth-science/processes/plate-tectonics",
+      title: "板块构造",
+    },
+    {
+      url: "/earth-science/processes/earthquakes",
+      title: "地震",
+    },
+    {
+      url: "/earth-science/pioneers/harry-hess",
+      title: "哈里·赫斯",
+    },
+  ],
+  "/earth-science/event-analyses/mexico-city-1985-site-effect": [
+    {
+      url: "/earth-science/event-analyses/cascadia-1700-orphan-tsunami",
+      title: "1700 年 1 月 26 日卡斯卡迪亚巨型逆冲：日本孤儿海啸、淹没森林与浊积岩怎样对上同一时刻",
+    },
+    {
+      url: "/earth-science/event-analyses/alaska-1964-good-friday",
+      title: "1964 年阿拉斯加耶稣受难日地震：升降场、长持时与海啸怎样把巨型逆冲钉成一套记录",
+    },
+    {
+      url: "/earth-science/event-analyses/loma-prieta-1989-cypress",
+      title: "1989 年洛马普里埃塔：柏树街高架桥倒塌与滨海区填土怎样把近场走滑钉成场地与结构证据",
+    },
+    {
+      url: "/earth-science/processes/plate-tectonics",
+      title: "板块构造",
+    },
+    {
+      url: "/earth-science/processes/earthquakes",
+      title: "地震",
+    },
+    {
+      url: "/earth-science/pioneers/harry-hess",
+      title: "哈里·赫斯",
+    },
+    {
+      url: "/earth-science/event-analyses/wadati-benioff-zone",
+      title: "和达—贝尼奥夫带：倾斜震源怎样把下沉的冷板片画出来",
+    },
+  ],
+  "/earth-science/event-analyses/mohorovicic-1909-discontinuity": [
+    {
+      url: "/earth-science/event-analyses/gutenberg-1914-core-mantle-boundary",
+      title: "1914 年古登堡：影区怎样把核–幔边界钉在约 2900 公里",
+    },
+    {
+      url: "/earth-science/event-analyses/lehmann-1936-inner-core",
+      title: "1936 年莱曼：空影区里的走时分支怎样嵌进固态内核",
+    },
+    {
+      url: "/earth-science/event-analyses/hess-1962-seafloor-spreading",
+      title: "1962 年赫斯：洋盆历史怎样把脊写成源、把沟写成汇",
+    },
+    {
+      url: "/earth-science/concepts/earth-interior",
+      title: "地球内部结构",
+    },
+    {
+      url: "/earth-science/processes/earthquakes",
+      title: "地震",
+    },
+  ],
   "/earth-science/event-analyses/pakistan-flood-attribution-2022": [
     {
       url: "/earth-science/climate-risks/compound-climate-risks",
@@ -17234,6 +22930,104 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/processes/volcanism",
       title: "火山作用",
+    },
+    {
+      url: "/chemistry/milestones/rowland-molina-ozone-cfcs",
+      title: "Rowland 与 Molina：平流层里的氯循环（1974）",
+    },
+  ],
+  "/earth-science/event-analyses/vine-matthews-magnetic-stripes": [
+    {
+      url: "/earth-science/event-analyses/cascadia-1700-orphan-tsunami",
+      title: "1700 年 1 月 26 日卡斯卡迪亚巨型逆冲：日本孤儿海啸、淹没森林与浊积岩怎样对上同一时刻",
+    },
+    {
+      url: "/earth-science/event-analyses/hess-1962-seafloor-spreading",
+      title: "1962 年赫斯：洋盆历史怎样把脊写成源、把沟写成汇",
+    },
+    {
+      url: "/earth-science/event-analyses/wilson-1965-transform-faults",
+      title: "1965 年威尔逊：转换断层怎样把脊的外观错开收成反号走滑",
+    },
+    {
+      url: "/earth-science/event-analyses/glomar-challenger-1968-dsdp",
+      title: "1968 年格洛玛·挑战者号：深海钻探怎样把离脊变老钉成岩芯年龄表",
+    },
+    {
+      url: "/earth-science/pioneers/alfred-wegener",
+      title: "阿尔弗雷德·魏格纳",
+    },
+    {
+      url: "/earth-science/concepts/plate-boundaries",
+      title: "板块边界",
+    },
+    {
+      url: "/earth-science/processes/plate-tectonics",
+      title: "板块构造",
+    },
+    {
+      url: "/earth-science/concepts/earths-magnetic-field",
+      title: "地球磁场",
+    },
+    {
+      url: "/earth-science/pioneers/harry-hess",
+      title: "哈里·赫斯",
+    },
+    {
+      url: "/earth-science/event-analyses/wadati-benioff-zone",
+      title: "和达—贝尼奥夫带：倾斜震源怎样把下沉的冷板片画出来",
+    },
+    {
+      url: "/earth-science/pioneers/marie-tharp",
+      title: "玛丽·撒普",
+    },
+  ],
+  "/earth-science/event-analyses/wadati-benioff-zone": [
+    {
+      url: "/earth-science/event-analyses/alaska-1964-good-friday",
+      title: "1964 年阿拉斯加耶稣受难日地震：升降场、长持时与海啸怎样把巨型逆冲钉成一套记录",
+    },
+    {
+      url: "/earth-science/event-analyses/wilson-1965-transform-faults",
+      title: "1965 年威尔逊：转换断层怎样把脊的外观错开收成反号走滑",
+    },
+    {
+      url: "/earth-science/event-analyses/mexico-city-1985-site-effect",
+      title: "1985 年墨西哥城场地效应：古湖床软泥、卓越周期与加速度记录怎样把远场放大钉成证据",
+    },
+    {
+      url: "/earth-science/processes/plate-tectonics",
+      title: "板块构造",
+    },
+    {
+      url: "/earth-science/processes/earthquakes",
+      title: "地震",
+    },
+  ],
+  "/earth-science/event-analyses/wilson-1965-transform-faults": [
+    {
+      url: "/earth-science/event-analyses/hess-1962-seafloor-spreading",
+      title: "1962 年赫斯：洋盆历史怎样把脊写成源、把沟写成汇",
+    },
+    {
+      url: "/earth-science/event-analyses/vine-matthews-magnetic-stripes",
+      title: "1963 年瓦因与马修斯：磁异常剖面怎样把倒转史录进扩张洋底",
+    },
+    {
+      url: "/earth-science/event-analyses/loma-prieta-1989-cypress",
+      title: "1989 年洛马普里埃塔：柏树街高架桥倒塌与滨海区填土怎样把近场走滑钉成场地与结构证据",
+    },
+    {
+      url: "/earth-science/concepts/plate-boundaries",
+      title: "板块边界",
+    },
+    {
+      url: "/earth-science/processes/plate-tectonics",
+      title: "板块构造",
+    },
+    {
+      url: "/earth-science/events/continental-drift-rejected",
+      title: "大陆漂移被拒绝的五十年（1912—1965）",
     },
   ],
   "/earth-science/events/chicxulub-impact": [
@@ -17338,6 +23132,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/events/indian-ocean-tsunami-2004": [
     {
+      url: "/earth-science/event-analyses/hunga-tonga-eruption-observation-2022",
+      title: "2022 年洪阿汤加喷发事件剖析",
+    },
+    {
       url: "/earth-science/processes/earthquakes",
       title: "地震",
     },
@@ -17358,6 +23156,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/concepts/geologic-time-scale",
       title: "地质年代表",
+    },
+    {
+      url: "/chemistry/milestones/soddy-1913-isotope",
+      title: "索迪 1913：放射链上化学无法分开的物种怎样被写成同位素",
     },
   ],
   "/earth-science/events/krakatoa-1883": [
@@ -17502,6 +23304,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/frontier/climate-tipping-points": [
     {
+      url: "/earth-science/event-analyses/pinatubo-eruption-observation-1991",
+      title: "1991 年皮纳图博喷发事件剖析",
+    },
+    {
       url: "/earth-science/frontier/paleoclimate-ice-cores",
       title: "冰芯里的百万年：从 Beyond EPICA 读取最古老的大气",
     },
@@ -17538,6 +23344,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "气候经济学：碳定价、折现率之争与综合评估模型",
     },
     {
+      url: "/law/frontier/climate-litigation-attribution-remedies",
+      title: "气候诉讼的下一步：从证明变暖到分配国家与企业责任",
+    },
+    {
       url: "/religion/frontier/climate-faith-publics",
       title: "气候危机改变宗教公众了吗",
     },
@@ -17556,6 +23366,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/species/coral",
       title: "珊瑚",
+    },
+    {
+      url: "/life-science/knowledge-base/生态系统--珊瑚礁",
+      title: "珊瑚礁：海洋中的热带雨林",
     },
     {
       url: "/human-history/knowledge/未来展望--概述",
@@ -17581,6 +23395,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/earth-science/frontier/earthquake-forecasting": [
+    {
+      url: "/earth-science/event-analyses/cascadia-1700-orphan-tsunami",
+      title: "1700 年 1 月 26 日卡斯卡迪亚巨型逆冲：日本孤儿海啸、淹没森林与浊积岩怎样对上同一时刻",
+    },
     {
       url: "/cosmology/knowledge-base/宇宙学观测--时域天文学",
       title: "时域天文学",
@@ -17652,6 +23470,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/pioneers/alfred-wegener": [
     {
+      url: "/earth-science/event-analyses/hess-1962-seafloor-spreading",
+      title: "1962 年赫斯：洋盆历史怎样把脊写成源、把沟写成汇",
+    },
+    {
+      url: "/earth-science/event-analyses/vine-matthews-magnetic-stripes",
+      title: "1963 年瓦因与马修斯：磁异常剖面怎样把倒转史录进扩张洋底",
+    },
+    {
       url: "/life-science/scientists/wallace",
       title: "阿尔弗雷德·华莱士",
     },
@@ -17702,6 +23528,38 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/pioneers/harry-hess": [
     {
+      url: "/earth-science/event-analyses/cascadia-1700-orphan-tsunami",
+      title: "1700 年 1 月 26 日卡斯卡迪亚巨型逆冲：日本孤儿海啸、淹没森林与浊积岩怎样对上同一时刻",
+    },
+    {
+      url: "/earth-science/event-analyses/hess-1962-seafloor-spreading",
+      title: "1962 年赫斯：洋盆历史怎样把脊写成源、把沟写成汇",
+    },
+    {
+      url: "/earth-science/event-analyses/vine-matthews-magnetic-stripes",
+      title: "1963 年瓦因与马修斯：磁异常剖面怎样把倒转史录进扩张洋底",
+    },
+    {
+      url: "/earth-science/event-analyses/alaska-1964-good-friday",
+      title: "1964 年阿拉斯加耶稣受难日地震：升降场、长持时与海啸怎样把巨型逆冲钉成一套记录",
+    },
+    {
+      url: "/earth-science/event-analyses/wilson-1965-transform-faults",
+      title: "1965 年威尔逊：转换断层怎样把脊的外观错开收成反号走滑",
+    },
+    {
+      url: "/earth-science/event-analyses/glomar-challenger-1968-dsdp",
+      title: "1968 年格洛玛·挑战者号：深海钻探怎样把离脊变老钉成岩芯年龄表",
+    },
+    {
+      url: "/earth-science/event-analyses/mexico-city-1985-site-effect",
+      title: "1985 年墨西哥城场地效应：古湖床软泥、卓越周期与加速度记录怎样把远场放大钉成证据",
+    },
+    {
+      url: "/earth-science/event-analyses/loma-prieta-1989-cypress",
+      title: "1989 年洛马普里埃塔：柏树街高架桥倒塌与滨海区填土怎样把近场走滑钉成场地与结构证据",
+    },
+    {
       url: "/earth-science/processes/plate-tectonics",
       title: "板块构造",
     },
@@ -17710,11 +23568,27 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "大陆漂移被拒绝的五十年（1912—1965）",
     },
     {
+      url: "/earth-science/event-analyses/wadati-benioff-zone",
+      title: "和达—贝尼奥夫带：倾斜震源怎样把下沉的冷板片画出来",
+    },
+    {
       url: "/earth-science/processes/volcanism",
       title: "火山作用",
     },
   ],
   "/earth-science/pioneers/inge-lehmann": [
+    {
+      url: "/earth-science/event-analyses/mohorovicic-1909-discontinuity",
+      title: "1909 年库帕河谷地震：走时拐点怎样画出莫霍面",
+    },
+    {
+      url: "/earth-science/event-analyses/gutenberg-1914-core-mantle-boundary",
+      title: "1914 年古登堡：影区怎样把核–幔边界钉在约 2900 公里",
+    },
+    {
+      url: "/earth-science/event-analyses/lehmann-1936-inner-core",
+      title: "1936 年莱曼：空影区里的走时分支怎样嵌进固态内核",
+    },
     {
       url: "/earth-science/concepts/earth-interior",
       title: "地球内部结构",
@@ -17722,6 +23596,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/processes/earthquakes",
       title: "地震",
+    },
+    {
+      url: "/earth-science/event-analyses/wadati-benioff-zone",
+      title: "和达—贝尼奥夫带：倾斜震源怎样把下沉的冷板片画出来",
     },
   ],
   "/earth-science/pioneers/james-hutton": [
@@ -17739,6 +23617,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/earth-science/pioneers/marie-tharp": [
+    {
+      url: "/earth-science/event-analyses/hess-1962-seafloor-spreading",
+      title: "1962 年赫斯：洋盆历史怎样把脊写成源、把沟写成汇",
+    },
+    {
+      url: "/earth-science/event-analyses/vine-matthews-magnetic-stripes",
+      title: "1963 年瓦因与马修斯：磁异常剖面怎样把倒转史录进扩张洋底",
+    },
+    {
+      url: "/earth-science/event-analyses/alaska-1964-good-friday",
+      title: "1964 年阿拉斯加耶稣受难日地震：升降场、长持时与海啸怎样把巨型逆冲钉成一套记录",
+    },
+    {
+      url: "/earth-science/event-analyses/wilson-1965-transform-faults",
+      title: "1965 年威尔逊：转换断层怎样把脊的外观错开收成反号走滑",
+    },
+    {
+      url: "/earth-science/event-analyses/glomar-challenger-1968-dsdp",
+      title: "1968 年格洛玛·挑战者号：深海钻探怎样把离脊变老钉成岩芯年龄表",
+    },
     {
       url: "/earth-science/pioneers/alfred-wegener",
       title: "阿尔弗雷德·魏格纳",
@@ -17932,20 +23830,36 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/processes/earthquakes": [
     {
-      url: "/earth-science/event-analyses/pinatubo-eruption-observation-1991",
-      title: "1991 年皮纳图博喷发事件剖析",
+      url: "/earth-science/event-analyses/cascadia-1700-orphan-tsunami",
+      title: "1700 年 1 月 26 日卡斯卡迪亚巨型逆冲：日本孤儿海啸、淹没森林与浊积岩怎样对上同一时刻",
     },
     {
-      url: "/earth-science/event-analyses/eyjafjallajokull-ash-crisis-2010",
-      title: "2010 年艾雅法拉火山灰危机剖析",
+      url: "/earth-science/event-analyses/mohorovicic-1909-discontinuity",
+      title: "1909 年库帕河谷地震：走时拐点怎样画出莫霍面",
     },
     {
-      url: "/earth-science/event-analyses/pakistan-flood-attribution-2022",
-      title: "2022 年巴基斯坦洪水归因剖析",
+      url: "/earth-science/event-analyses/gutenberg-1914-core-mantle-boundary",
+      title: "1914 年古登堡：影区怎样把核–幔边界钉在约 2900 公里",
     },
     {
-      url: "/earth-science/event-analyses/hunga-tonga-eruption-observation-2022",
-      title: "2022 年洪阿汤加喷发事件剖析",
+      url: "/earth-science/event-analyses/alaska-1964-good-friday",
+      title: "1964 年阿拉斯加耶稣受难日地震：升降场、长持时与海啸怎样把巨型逆冲钉成一套记录",
+    },
+    {
+      url: "/earth-science/event-analyses/wilson-1965-transform-faults",
+      title: "1965 年威尔逊：转换断层怎样把脊的外观错开收成反号走滑",
+    },
+    {
+      url: "/earth-science/event-analyses/mount-st-helens-1980-observation",
+      title: "1980 年圣海伦斯火山事件剖析",
+    },
+    {
+      url: "/earth-science/event-analyses/mexico-city-1985-site-effect",
+      title: "1985 年墨西哥城场地效应：古湖床软泥、卓越周期与加速度记录怎样把远场放大钉成证据",
+    },
+    {
+      url: "/earth-science/event-analyses/loma-prieta-1989-cypress",
+      title: "1989 年洛马普里埃塔：柏树街高架桥倒塌与滨海区填土怎样把近场走滑钉成场地与结构证据",
     },
     {
       url: "/earth-science/event-analyses/turkey-syria-earthquake-forensics-2023",
@@ -17996,8 +23910,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "高速铁路工程：轨道、受流与系统集成",
     },
     {
+      url: "/earth-science/event-analyses/wadati-benioff-zone",
+      title: "和达—贝尼奥夫带：倾斜震源怎样把下沉的冷板片画出来",
+    },
+    {
       url: "/earth-science/concepts/environmental-geology",
       title: "环境地质学",
+    },
+    {
+      url: "/engineering/frontiers/comet-water-tank-fatigue",
+      title: "彗星客机水槽：方形舷窗怎样在法恩伯勒被压到裂纹",
     },
     {
       url: "/earth-science/processes/volcanism",
@@ -18107,6 +24029,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/earth-science/processes/erosion-deposition": [
+    {
+      url: "/earth-science/event-analyses/cascadia-1700-orphan-tsunami",
+      title: "1700 年 1 月 26 日卡斯卡迪亚巨型逆冲：日本孤儿海啸、淹没森林与浊积岩怎样对上同一时刻",
+    },
     {
       url: "/earth-science/processes/glaciation-ice-ages",
       title: "冰期与冰川作用",
@@ -18256,6 +24182,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/processes/groundwater-aquifers": [
     {
+      url: "/chemistry/milestones/bunsen-kirchhoff-1860-cesium",
+      title: "本生与基尔霍夫一八六〇年的铯：棱镜分光镜怎样用天蓝色谱线认出第一种新元素",
+    },
+    {
       url: "/human-history/knowledge/文明--波斯",
       title: "波斯",
     },
@@ -18364,8 +24294,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/processes/mass-wasting": [
     {
+      url: "/earth-science/event-analyses/alaska-1964-good-friday",
+      title: "1964 年阿拉斯加耶稣受难日地震：升降场、长持时与海啸怎样把巨型逆冲钉成一套记录",
+    },
+    {
+      url: "/earth-science/event-analyses/mount-st-helens-1980-observation",
+      title: "1980 年圣海伦斯火山事件剖析",
+    },
+    {
       url: "/earth-science/concepts/environmental-geology",
       title: "环境地质学",
+    },
+    {
+      url: "/engineering/frontiers/st-francis-dam-1928",
+      title: "圣弗朗西斯坝：东岸古滑坡，没有把重力坝证伪",
+    },
+    {
+      url: "/engineering/frontiers/vaiont-1963",
+      title: "瓦伊昂：左岸滑进库里，站住的拱坝没有把库岸写成安全",
     },
   ],
   "/earth-science/processes/monsoon-systems": [
@@ -18500,6 +24446,46 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/processes/plate-tectonics": [
     {
+      url: "/earth-science/event-analyses/cascadia-1700-orphan-tsunami",
+      title: "1700 年 1 月 26 日卡斯卡迪亚巨型逆冲：日本孤儿海啸、淹没森林与浊积岩怎样对上同一时刻",
+    },
+    {
+      url: "/earth-science/event-analyses/mohorovicic-1909-discontinuity",
+      title: "1909 年库帕河谷地震：走时拐点怎样画出莫霍面",
+    },
+    {
+      url: "/earth-science/event-analyses/hess-1962-seafloor-spreading",
+      title: "1962 年赫斯：洋盆历史怎样把脊写成源、把沟写成汇",
+    },
+    {
+      url: "/earth-science/event-analyses/vine-matthews-magnetic-stripes",
+      title: "1963 年瓦因与马修斯：磁异常剖面怎样把倒转史录进扩张洋底",
+    },
+    {
+      url: "/earth-science/event-analyses/alaska-1964-good-friday",
+      title: "1964 年阿拉斯加耶稣受难日地震：升降场、长持时与海啸怎样把巨型逆冲钉成一套记录",
+    },
+    {
+      url: "/earth-science/event-analyses/wilson-1965-transform-faults",
+      title: "1965 年威尔逊：转换断层怎样把脊的外观错开收成反号走滑",
+    },
+    {
+      url: "/earth-science/event-analyses/glomar-challenger-1968-dsdp",
+      title: "1968 年格洛玛·挑战者号：深海钻探怎样把离脊变老钉成岩芯年龄表",
+    },
+    {
+      url: "/earth-science/event-analyses/mount-st-helens-1980-observation",
+      title: "1980 年圣海伦斯火山事件剖析",
+    },
+    {
+      url: "/earth-science/event-analyses/mexico-city-1985-site-effect",
+      title: "1985 年墨西哥城场地效应：古湖床软泥、卓越周期与加速度记录怎样把远场放大钉成证据",
+    },
+    {
+      url: "/earth-science/event-analyses/loma-prieta-1989-cypress",
+      title: "1989 年洛马普里埃塔：柏树街高架桥倒塌与滨海区填土怎样把近场走滑钉成场地与结构证据",
+    },
+    {
       url: "/earth-science/event-analyses/turkey-syria-earthquake-forensics-2023",
       title: "2023 年土耳其—叙利亚地震事件剖析",
     },
@@ -18570,6 +24556,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/pioneers/harry-hess",
       title: "哈里·赫斯",
+    },
+    {
+      url: "/earth-science/event-analyses/wadati-benioff-zone",
+      title: "和达—贝尼奥夫带：倾斜震源怎样把下沉的冷板片画出来",
     },
     {
       url: "/earth-science/concepts/environmental-geology",
@@ -18692,6 +24682,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/earth-science/processes/volcanism": [
     {
+      url: "/earth-science/event-analyses/mount-st-helens-1980-observation",
+      title: "1980 年圣海伦斯火山事件剖析",
+    },
+    {
       url: "/earth-science/event-analyses/pinatubo-eruption-observation-1991",
       title: "1991 年皮纳图博喷发事件剖析",
     },
@@ -18700,16 +24694,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "2010 年艾雅法拉火山灰危机剖析",
     },
     {
-      url: "/earth-science/event-analyses/pakistan-flood-attribution-2022",
-      title: "2022 年巴基斯坦洪水归因剖析",
-    },
-    {
       url: "/earth-science/event-analyses/hunga-tonga-eruption-observation-2022",
       title: "2022 年洪阿汤加喷发事件剖析",
-    },
-    {
-      url: "/earth-science/event-analyses/turkey-syria-earthquake-forensics-2023",
-      title: "2023 年土耳其—叙利亚地震事件剖析",
     },
     {
       url: "/earth-science/processes/plate-tectonics",
@@ -18830,6 +24816,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/processes/global-atmospheric-circulation",
       title: "全球大气环流",
+    },
+    {
+      url: "/engineering/frontiers/tay-bridge-1879",
+      title: "泰桥：风压没写进设计的铸铁斜撑",
     },
     {
       url: "/earth-science/pioneers/vilhelm-bjerknes",
@@ -19324,12 +25314,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/economics/concepts/commons-governance": [
     {
+      url: "/human-history/source-analyses/magna-carta-source-analysis",
+      title: "《大宪章》史料剖析",
+    },
+    {
       url: "/computer-science/pioneers/bjarne-stroustrup",
       title: "比雅尼·斯特劳斯特鲁普",
     },
     {
       url: "/economics/dialogues/pigou-coase-externalities",
       title: "庇古vs科斯：污染应该由谁付钱",
+    },
+    {
+      url: "/economics/policy-analyses/british-columbia-carbon-tax",
+      title: "不列颠哥伦比亚碳税政策剖析",
     },
     {
       url: "/computer-science/concepts/operating-systems",
@@ -19448,8 +25446,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "最小生成树",
     },
     {
+      url: "/computer-science/systems/gfs-2003",
+      title: "GFS：单主节点、大块与可忍受的不一致",
+    },
+    {
       url: "/computer-science/systems/git-object-model",
       title: "Git 的对象模型：为什么分支是廉价的",
+    },
+    {
+      url: "/computer-science/systems/hnsw-ann-index",
+      title: "HNSW 与向量近邻：当距离代替关键词",
     },
     {
       url: "/computer-science/systems/kubernetes-controller-pattern",
@@ -19468,12 +25474,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "LLVM 的中间表示：编译器生态的枢纽",
     },
     {
+      url: "/computer-science/systems/neo4j-property-graph",
+      title: "Neo4j 属性图：当邻居指针取代 JOIN",
+    },
+    {
       url: "/computer-science/systems/postgresql-mvcc",
       title: "PostgreSQL 的 MVCC：读不阻塞写的代价",
     },
     {
       url: "/computer-science/systems/redis-single-threaded",
       title: "Redis 的单线程模型：为什么不并行反而更快",
+    },
+    {
+      url: "/chemistry/milestones/rowland-molina-ozone-cfcs",
+      title: "Rowland 与 Molina：平流层里的氯循环（1974）",
     },
     {
       url: "/computer-science/systems/rust-borrow-checker",
@@ -19982,10 +25996,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "「稀释是解决污染的办法」：高烟囱政策如何制造了酸雨",
     },
     {
-      url: "/economics/policy-analyses/alaska-permanent-fund-dividend",
-      title: "阿拉斯加永久基金分红剖析",
-    },
-    {
       url: "/economics/economists/paul-romer",
       title: "保罗·罗默",
     },
@@ -20000,10 +26010,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/pioneers/dennis-ritchie",
       title: "丹尼斯·里奇",
-    },
-    {
-      url: "/economics/policy-analyses/germany-hartz-labor-reforms",
-      title: "德国 Hartz 劳动力改革剖析",
     },
     {
       url: "/computer-science/pioneers/tim-berners-lee",
@@ -20052,10 +26058,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/public-law/lochner-era-freedom-of-contract",
       title: "洛克纳时代：被宪法读进去的「契约自由」",
-    },
-    {
-      url: "/economics/policy-analyses/mexico-progresa-cash-transfer",
-      title: "墨西哥 PROGRESA 政策剖析",
     },
     {
       url: "/arts/frontier/climate-risk-cultural-heritage",
@@ -20108,10 +26110,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/concepts/soil-science-and-pedology",
       title: "土壤学与土壤发生学",
-    },
-    {
-      url: "/economics/policy-analyses/volcker-disinflation-policy",
-      title: "沃尔克反通胀政策剖析",
     },
     {
       url: "/medicine/public-health/vaccine-policy-programs-hesitancy",
@@ -20362,6 +26360,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "罗伯特·达尔",
     },
     {
+      url: "/philosophy/experiments/wilt-chamberlain",
+      title: "威尔特·张伯伦",
+    },
+    {
       url: "/philosophy/experiments/utility-monster",
       title: "效用怪兽",
     },
@@ -20442,6 +26444,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "路由与交换",
     },
     {
+      url: "/engineering/foundations/fatigue-and-fracture",
+      title: "疲劳与断裂：裂纹怎样在远低于静强度时把结构写完",
+    },
+    {
       url: "/sociology/concepts/emotions-and-emotional-labor",
       title: "情感与情感劳动：被买下的那份笑容",
     },
@@ -20454,6 +26460,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "数字平台社会",
     },
     {
+      url: "/engineering/machines/project-and-configuration-control",
+      title: "项目与构型控制：基线、变更和可追到零件上的决定",
+    },
+    {
+      url: "/engineering/machines/shewhart-control-chart",
+      title: "休哈特控制图：一张把“该不该动手”写成界限的纸",
+    },
+    {
       url: "/engineering/foundations/steam-and-engines",
       title: "蒸汽机与热机：把热变成功",
     },
@@ -20464,6 +26478,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/diseases/autoimmune-diseases",
       title: "自身免疫病",
+    },
+    {
+      url: "/sociology/concepts/organizational-sociology",
+      title: "组织社会学：组织为何彼此越来越像",
     },
     {
       url: "/computer-science/concepts/cpu-pipelining",
@@ -20490,6 +26508,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/knowledge-base/inflation-psychology",
       title: "通胀心理",
+    },
+    {
+      url: "/economics/policy-analyses/volcker-disinflation-policy",
+      title: "沃尔克反通胀政策剖析",
     },
     {
       url: "/human-history/knowledge/文明--希腊罗马文明",
@@ -20570,6 +26592,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "拜占庭帝国",
     },
     {
+      url: "/education/comparison-and-policy/shadow-education-is-a-market",
+      title: "补习是一种市场",
+    },
+    {
       url: "/economics/frontier/ai-labor-market",
       title: "大语言模型与劳动力市场：证据、争议与未解之问",
     },
@@ -20600,6 +26626,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/economists/gary-becker",
       title: "加里·贝克尔",
+    },
+    {
+      url: "/education/learning-foundations/teacher-education-is-preparation",
+      title: "教师教育是专业准备",
+    },
+    {
+      url: "/education/education-technology/teacher-labor-and-platforms",
+      title: "教师劳动与平台",
+    },
+    {
+      url: "/education/assessment-and-equity/funding-formulas-and-teachability",
+      title: "经费公式与谁被当成可教",
+    },
+    {
+      url: "/economics/policy-analyses/card-krueger-nj-minimum-wage",
+      title: "卡德–克鲁格：新泽西最低工资怎样被快餐店电话问出来",
     },
     {
       url: "/political-science/thinkers/carole-pateman",
@@ -20662,8 +26704,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "托马斯·杰斐逊",
     },
     {
+      url: "/economics/policy-analyses/volcker-disinflation-policy",
+      title: "沃尔克反通胀政策剖析",
+    },
+    {
+      url: "/education/learning-foundations/early-childhood-is-an-institution",
+      title: "学前是一种制度",
+    },
+    {
       url: "/political-science/international-relations/migration-and-refugee-politics",
       title: "移民与难民政治",
+    },
+    {
+      url: "/education/frontier/covid-learning-loss-is-not-one-curve",
+      title: "疫情学习损失不是一条曲线",
     },
     {
       url: "/economics/case-studies/india-macro-diagnosis-2026",
@@ -20676,6 +26730,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/theories/indian-institutional-economics",
       title: "印度制度经济学",
+    },
+    {
+      url: "/education/curriculum-and-teaching/vocational-schooling-is-a-track",
+      title: "职业教育是一种轨道",
+    },
+    {
+      url: "/education/learning-foundations/homework-allocates-family-time",
+      title: "作业分配的是家庭时间",
+    },
+    {
+      url: "/sociology/methods/pager-criminal-record-audit",
+      title: "Pager 前科印记审计：案底怎样在入门岗位上被看见",
     },
   ],
   "/economics/concepts/leverage-and-systemic-risk": [
@@ -20808,6 +26874,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/economics/concepts/market-failure-public-goods": [
     {
+      url: "/medicine/events/salk-1954-polio-trial",
+      title: "1954 年美国脊髓灰质炎疫苗现场试验：观察现场与安慰剂对照并存的读出",
+    },
+    {
       url: "/economics/policy-analyses/alaska-permanent-fund-dividend",
       title: "阿拉斯加永久基金分红剖析",
     },
@@ -20850,6 +26920,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/当代议题--第六次大灭绝",
       title: "第六次大灭绝：人类世的生物危机",
+    },
+    {
+      url: "/medicine/events/enders-1949-polio-culture",
+      title: "恩德斯 1949 脊髓灰质炎组织培养：非神经组织上的增殖与细胞病变读出",
     },
     {
       url: "/universe-physics/knowledge-base/电磁学--法拉第与电磁感应",
@@ -21396,6 +27470,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "外科学",
     },
     {
+      url: "/law/private-law/consumer-protection",
+      title: "消费者救济：格式合同对面那个人怎样被当成法律上的弱者",
+    },
+    {
+      url: "/law/private-law/fiduciary-duty-and-corporate-control",
+      title: "信义义务与控制权：董事到底对谁负责",
+    },
+    {
       url: "/computer-science/concepts/cloud-computing",
       title: "云计算",
     },
@@ -21422,12 +27504,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "产业组织理论",
     },
     {
+      url: "/philosophy/experiments/unexpected-hanging",
+      title: "出乎意料的绞刑",
+    },
+    {
       url: "/mathematics/concepts/algebraic-geometry",
       title: "代数几何",
     },
     {
       url: "/computer-science/concepts/load-balancing",
       title: "负载均衡",
+    },
+    {
+      url: "/computer-science/frontier/mixture-of-experts",
+      title: "混合专家：稀疏激活的大模型",
+    },
+    {
+      url: "/computer-science/frontier/cluster-training-systems",
+      title: "集群训练系统：把模型铺到一千张卡上",
     },
     {
       url: "/mathematics/concepts/complexity",
@@ -21444,6 +27538,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/international-relations/balance-of-power",
       title: "均势理论",
+    },
+    {
+      url: "/computer-science/concepts/memory-consistency-models",
+      title: "内存一致性模型",
+    },
+    {
+      url: "/computer-science/algorithms/matching-algorithms",
+      title: "匹配算法",
     },
     {
       url: "/mathematics/concepts/group",
@@ -21466,12 +27568,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "新古典宏观经济学",
     },
     {
+      url: "/computer-science/pioneers/andrew-yao",
+      title: "姚期智",
+    },
+    {
       url: "/political-science/institutions/parliamentary-presidential",
       title: "议会制与总统制",
     },
     {
       url: "/computer-science/pioneers/yoshua-bengio",
       title: "约书亚·本希奥",
+    },
+    {
+      url: "/computer-science/systems/cpython-gil",
+      title: "CPython 的 GIL",
     },
     {
       url: "/mathematics/theorems/p-vs-np",
@@ -21926,6 +28036,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/international-relations/failed-and-fragile-states",
       title: "失败国家与脆弱国家",
+    },
+    {
+      url: "/education/comparison-and-policy/conditional-cash-and-enrollment",
+      title: "条件现金与就学",
     },
     {
       url: "/psychology/theorists/walter-mischel",
@@ -22404,6 +28518,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "阿马蒂亚·森",
     },
     {
+      url: "/computer-science/theory/byzantine-generals-lamport-1982",
+      title: "拜占庭将军问题",
+    },
+    {
       url: "/philosophy/concepts/paradox",
       title: "悖论",
     },
@@ -22442,6 +28560,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/galois-theory",
       title: "伽罗瓦理论",
+    },
+    {
+      url: "/computer-science/theory/paxos-lamport-1998",
+      title: "兼职议会与 Paxos",
     },
     {
       url: "/mathematics/knowledge-base/应用--决策科学导论",
@@ -22526,6 +28648,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/frontier/ai-alignment-philosophy",
       title: "AI 对齐与价值的哲学：人类价值能否被规范化？",
+    },
+    {
+      url: "/computer-science/theory/gray-1978-two-phase-commit",
+      title: "Gray 1978：两阶段提交怎样把多处改动收成提交或中止",
     },
   ],
   "/economics/concepts/sovereign-debt": [
@@ -22678,6 +28804,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "庇古vs科斯：污染应该由谁付钱",
     },
     {
+      url: "/economics/policy-analyses/british-columbia-carbon-tax",
+      title: "不列颠哥伦比亚碳税政策剖析",
+    },
+    {
       url: "/economics/dialogues/hardin-ostrom-commons",
       title: "哈丁vs奥斯特罗姆：公地一定会毁灭吗",
     },
@@ -22784,6 +28914,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/institutions/central-bank-independence",
       title: "央行独立性",
+    },
+    {
+      url: "/computer-science/pioneers/judea-pearl",
+      title: "朱迪亚·珀尔",
+    },
+    {
+      url: "/computer-science/systems/spanner-truetime",
+      title: "Spanner：用时钟换外部一致性",
     },
   ],
   "/economics/debates/rent-control-affordability-supply": [
@@ -23156,6 +29294,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "理性预期vs适应性预期",
     },
     {
+      url: "/law/private-law/fiduciary-duty-and-corporate-control",
+      title: "信义义务与控制权：董事到底对谁负责",
+    },
+    {
       url: "/political-science/isms/libertarianism",
       title: "自由意志主义",
     },
@@ -23199,6 +29341,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/economics/economists/ronald-coase": [
+    {
+      url: "/law/private-law/conflict-of-laws",
+      title: "冲突法：跨境民事关系适用哪一套规则",
+    },
     {
       url: "/economics/economists/douglass-north",
       title: "道格拉斯·诺思",
@@ -23250,6 +29396,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/milestones/daltons-atomic-theory",
       title: "道尔顿原子论（1808）",
+    },
+    {
+      url: "/chemistry/milestones/karlsruhe-cannizzaro-atomic-weights",
+      title: "卡尔斯鲁厄 1860：坎尼扎罗小册子怎样把原子量变成公共算法",
     },
     {
       url: "/economics/concepts/nash-equilibrium",
@@ -23312,6 +29462,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "计算社会科学的可审计测量",
     },
     {
+      url: "/education/cognition-and-memory/randomized-trials-in-education",
+      title: "教育里的随机对照",
+    },
+    {
       url: "/medicine/events/tobacco-control-movement",
       title: "控烟运动（1964 起）",
     },
@@ -23342,6 +29496,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/algorithms/random-forests",
       title: "随机森林",
+    },
+    {
+      url: "/education/comparison-and-policy/conditional-cash-and-enrollment",
+      title: "条件现金与就学",
     },
     {
       url: "/sociology/methods/statistical-modeling",
@@ -23396,14 +29554,30 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "COVID-19",
     },
     {
+      url: "/political-science/methods/gerber-green-new-haven-gotv",
+      title: "Gerber 与 Green 的纽黑文动员实验：上门、邮件和电话怎样改变投票",
+    },
+    {
+      url: "/sociology/methods/pager-criminal-record-audit",
+      title: "Pager 前科印记审计：案底怎样在入门岗位上被看见",
+    },
+    {
       url: "/cosmology/knowledge-base/致密天体--x-ray-binaries",
       title: "X射线双星",
     },
   ],
   "/economics/frontier/climate-economics-carbon-pricing": [
     {
+      url: "/economics/policy-analyses/british-columbia-carbon-tax",
+      title: "不列颠哥伦比亚碳税政策剖析",
+    },
+    {
       url: "/earth-science/frontier/carbon-storage-geology",
       title: "地质碳封存：把二氧化碳塞回地下，地球答应吗",
+    },
+    {
+      url: "/engineering/frontier/low-carbon-cement-circularity",
+      title: "低碳水泥与循环混凝土：怎样减掉石灰石必然释放的碳",
     },
     {
       url: "/chemistry/concepts/battery-performance-safety-and-circularity",
@@ -23474,6 +29648,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "绿氢：用电、水和催化剂把能源链条重写一遍",
     },
     {
+      url: "/economics/policy-analyses/london-congestion-charge",
+      title: "伦敦拥堵收费剖析",
+    },
+    {
       url: "/engineering/machines/engines-and-turbines",
       title: "内燃机与燃气轮机：热机效率的工程极限",
     },
@@ -23486,6 +29664,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "帕斯卡赌注",
     },
     {
+      url: "/arts/frontier/climate-risk-cultural-heritage",
+      title: "气候风险下的文化遗产：保护什么、何时撤退、谁来决定",
+    },
+    {
       url: "/earth-science/processes/climate-modeling",
       title: "气候建模",
     },
@@ -23496,6 +29678,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/global-and-digital/climate-litigation",
       title: "气候诉讼：把未来告上法庭",
+    },
+    {
+      url: "/religion/frontier/climate-faith-publics",
+      title: "气候危机改变宗教公众了吗",
     },
     {
       url: "/philosophy/frontier/climate-justice-and-intergenerational-ethics",
@@ -23512,6 +29698,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/生态学--热带雨林",
       title: "热带雨林：地球生物多样性的宝库",
+    },
+    {
+      url: "/life-science/knowledge-base/生态系统--珊瑚礁",
+      title: "珊瑚礁：海洋中的热带雨林",
     },
     {
       url: "/mathematics/paradoxes/st-petersburg-paradox",
@@ -23556,6 +29746,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/concepts/remote-sensing-and-gis",
       title: "遥感与地理信息系统",
+    },
+    {
+      url: "/chemistry/milestones/rowland-molina-ozone-cfcs",
+      title: "Rowland 与 Molina：平流层里的氯循环（1974）",
     },
   ],
   "/economics/frontier/degrowth-vs-green-growth": [
@@ -23730,16 +29924,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "令人厌恶的结论",
     },
     {
-      url: "/economics/policy-analyses/london-congestion-charge",
-      title: "伦敦拥堵收费剖析",
-    },
-    {
       url: "/sociology/thinkers/robert-merton",
       title: "罗伯特·K. 默顿",
-    },
-    {
-      url: "/economics/policy-analyses/mexico-progresa-cash-transfer",
-      title: "墨西哥 PROGRESA 政策剖析",
     },
     {
       url: "/sociology/institutions/migration-and-diaspora",
@@ -23760,10 +29946,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/questions/should-we-have-children",
       title: "我们应当生育吗？",
-    },
-    {
-      url: "/economics/policy-analyses/volcker-disinflation-policy",
-      title: "沃尔克反通胀政策剖析",
     },
     {
       url: "/philosophy/experiments/utility-monster",
@@ -23788,6 +29970,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/knowledge-base/political-polarization-psychology",
       title: "政治极化心理",
+    },
+    {
+      url: "/law/judgment-analyses/mabo-v-queensland-native-title",
+      title: "Mabo v Queensland (No 2) 判决剖析",
     },
     {
       url: "/computer-science/algorithms/mapreduce",
@@ -24096,16 +30282,52 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "自我实现预言",
     },
   ],
+  "/economics/policy-analyses/card-krueger-nj-minimum-wage": [
+    {
+      url: "/economics/theories/supply-demand",
+      title: "供需理论",
+    },
+    {
+      url: "/economics/concepts/econometrics-foundations",
+      title: "计量经济学基础",
+    },
+    {
+      url: "/economics/concepts/labor-economics",
+      title: "劳动经济学",
+    },
+    {
+      url: "/political-science/methods/difference-in-differences",
+      title: "双重差分：没有随机实验时怎样评估政策",
+    },
+  ],
   "/economics/policy-analyses/germany-hartz-labor-reforms": [
     {
       url: "/political-science/institutions/welfare-state",
       title: "福利国家",
     },
   ],
+  "/economics/policy-analyses/london-congestion-charge": [
+    {
+      url: "/economics/policy-analyses/british-columbia-carbon-tax",
+      title: "不列颠哥伦比亚碳税政策剖析",
+    },
+  ],
   "/economics/policy-analyses/mexico-progresa-cash-transfer": [
     {
       url: "/political-science/institutions/welfare-state",
       title: "福利国家",
+    },
+    {
+      url: "/economics/policy-analyses/card-krueger-nj-minimum-wage",
+      title: "卡德–克鲁格：新泽西最低工资怎样被快餐店电话问出来",
+    },
+    {
+      url: "/education/learning-foundations/perry-preschool-study",
+      title: "佩里学前：123 名儿童被随机之后，成年表上还剩什么",
+    },
+    {
+      url: "/education/cognition-and-memory/project-star-class-size",
+      title: "田纳西 STAR：班额被随机之后测到了什么",
     },
   ],
   "/economics/policy-analyses/volcker-disinflation-policy": [
@@ -24208,6 +30430,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/case-studies/low-income-debt-restructuring-development-finance-2026",
       title: "低收入债务国债务重组与发展融资（2026）",
+    },
+    {
+      url: "/education/comparison-and-policy/schooling-expansion-in-sub-saharan-africa",
+      title: "撒哈拉以南的学校扩张",
     },
     {
       url: "/economics/case-studies/commodity-exporters-macro-diagnosis-2026",
@@ -24374,6 +30600,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/policy-analyses/mexico-progresa-cash-transfer",
       title: "墨西哥 PROGRESA 政策剖析",
+    },
+    {
+      url: "/education/comparison-and-policy/schooling-expansion-in-sub-saharan-africa",
+      title: "撒哈拉以南的学校扩张",
+    },
+    {
+      url: "/education/comparison-and-policy/conditional-cash-and-enrollment",
+      title: "条件现金与就学",
     },
     {
       url: "/human-history/knowledge/当代--万隆会议",
@@ -24568,6 +30802,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/economics/theories/information-asymmetry": [
     {
+      url: "/computer-science/pioneers/butler-lampson",
+      title: "巴特勒·兰普森",
+    },
+    {
       url: "/computer-science/pioneers/barbara-liskov",
       title: "芭芭拉·利斯科夫",
     },
@@ -24596,6 +30834,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "法经济学：把激励写进规则",
     },
     {
+      url: "/philosophy/experiments/fitch-1963-knowability",
+      title: "菲奇可知性悖论",
+    },
+    {
       url: "/political-science/concepts/civil-society",
       title: "公民社会",
     },
@@ -24620,8 +30862,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "韩非子与法家",
     },
     {
+      url: "/law/frontier/synthetic-media-evidence",
+      title: "合成媒体进入法庭：深伪时代怎样证明一段影像是真的",
+    },
+    {
       url: "/chemistry/concepts/analytical-titration",
       title: "化学分析与滴定",
+    },
+    {
+      url: "/computer-science/frontier/mixture-of-experts",
+      title: "混合专家：稀疏激活的大模型",
     },
     {
       url: "/medicine/ethics/genetic-testing-and-privacy",
@@ -24648,8 +30898,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "罗纳德·科斯",
     },
     {
+      url: "/computer-science/pioneers/michael-stonebraker",
+      title: "迈克尔·斯通布雷克",
+    },
+    {
+      url: "/computer-science/concepts/memory-consistency-models",
+      title: "内存一致性模型",
+    },
+    {
       url: "/economics/economists/george-akerlof",
       title: "乔治·阿克洛夫",
+    },
+    {
+      url: "/computer-science/frontier/fully-homomorphic-encryption",
+      title: "全同态加密：在密文上计算",
     },
     {
       url: "/computer-science/concepts/software-supply-chain-security",
@@ -24658,6 +30920,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/international-relations/soft-power",
       title: "软实力",
+    },
+    {
+      url: "/computer-science/pioneers/shafi-goldwasser",
+      title: "沙菲·戈德瓦塞尔",
+    },
+    {
+      url: "/computer-science/frontier/neural-program-synthesis",
+      title: "神经程序综合：从规约到代码的开放问题",
     },
     {
       url: "/economics/knowledge-base/market-microstructure",
@@ -24680,6 +30950,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "碳的同素异形体",
     },
     {
+      url: "/computer-science/concepts/speculative-execution-and-side-channels",
+      title: "投机执行与侧信道",
+    },
+    {
       url: "/political-science/isms/authoritarianism",
       title: "威权主义",
     },
@@ -24696,16 +30970,36 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "希拉里·普特南",
     },
     {
+      url: "/law/private-law/consumer-protection",
+      title: "消费者救济：格式合同对面那个人怎样被当成法律上的弱者",
+    },
+    {
       url: "/economics/case-studies/microfinance-experiment",
       title: "小额贷款实验",
+    },
+    {
+      url: "/computer-science/pioneers/cynthia-dwork",
+      title: "辛西娅·德沃克",
     },
     {
       url: "/mathematics/concepts/information-theory",
       title: "信息论",
     },
     {
+      url: "/law/private-law/fiduciary-duty-and-corporate-control",
+      title: "信义义务与控制权：董事到底对谁负责",
+    },
+    {
       url: "/life-science/knowledge-base/进化机制--性选择",
       title: "性选择：孔雀尾巴与人类择偶",
+    },
+    {
+      url: "/literature/frontier/llm-training-corpus-litigation",
+      title: "训练语料诉讼还不是判决",
+    },
+    {
+      url: "/computer-science/pioneers/andrew-yao",
+      title: "姚期智",
     },
     {
       url: "/medicine/concepts/drug-development",
@@ -24734,6 +31028,70 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/debates/free-market-vs-intervention",
       title: "自由市场 vs 政府干预",
+    },
+    {
+      url: "/computer-science/systems/bigtable-2006",
+      title: "Bigtable：稀疏表、Tablet 与时间戳单元",
+    },
+    {
+      url: "/computer-science/systems/ratnasamy-2001-can",
+      title: "CAN：笛卡尔分区与贪心转发，状态不随规模涨",
+    },
+    {
+      url: "/computer-science/systems/chord-2001",
+      title: "Chord：标识符环上的查找，不是中心目录",
+    },
+    {
+      url: "/computer-science/systems/chubby-2006",
+      title: "Chubby：松耦合系统上的锁服务，不是又一套数据库",
+    },
+    {
+      url: "/computer-science/systems/cpython-gil",
+      title: "CPython 的 GIL",
+    },
+    {
+      url: "/law/judgment-analyses/donoghue-v-stevenson-duty-of-care",
+      title: "Donoghue v Stevenson 判决剖析",
+    },
+    {
+      url: "/computer-science/systems/dynamo-eventually-consistent",
+      title: "Dynamo：最终一致的键值存储",
+    },
+    {
+      url: "/computer-science/systems/gfs-2003",
+      title: "GFS：单主节点、大块与可忍受的不一致",
+    },
+    {
+      url: "/computer-science/theory/gilbert-lynch-2002-cap",
+      title: "Gilbert–Lynch 2002：异步网上原子寄存器无法既可用又抗分区",
+    },
+    {
+      url: "/computer-science/systems/birman-1985-virtual-synchrony",
+      title: "ISIS 1985：进程组、flush 与虚拟同步，不是又一份 ZooKeeper",
+    },
+    {
+      url: "/computer-science/systems/kademlia-2002",
+      title: "Kademlia：XOR 距离上的 k-bucket，不是环上的手指",
+    },
+    {
+      url: "/computer-science/systems/pastry-2001",
+      title: "Pastry：前缀表、叶集与邻近集，不是环上的手指",
+    },
+    {
+      url: "/computer-science/theory/shapiro-2011-crdts",
+      title: "Shapiro 2011：副本收敛是半格或可交换操作，不是共识协议",
+    },
+    {
+      url: "/computer-science/systems/tapestry-2001",
+      title: "Tapestry：邻接表、代理路由与就近副本，不是把对象搬到键上",
+    },
+    {
+      url: "/computer-science/systems/viewstamped-replication-1988",
+      title: "Viewstamped Replication：视图、主副本与盖章请求，不是又一份 Paxos",
+    },
+    {
+      url: "/computer-science/systems/zookeeper-2010",
+      title: "ZooKeeper：等待自由的协调，不是又一套 Chubby 说明书",
     },
   ],
   "/economics/theories/institutional-economics": [
@@ -24764,10 +31122,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/concepts/creative-destruction",
       title: "创造性破坏",
-    },
-    {
-      url: "/economics/policy-analyses/germany-hartz-labor-reforms",
-      title: "德国 Hartz 劳动力改革剖析",
     },
     {
       url: "/philosophy/concepts/dharma",
@@ -24858,12 +31212,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "孔子的政治思想",
     },
     {
-      url: "/philosophy/concepts/li",
-      title: "礼",
+      url: "/law/frontier/cross-border-data-governance",
+      title: "跨境数据治理：云端的一份数据同时服从几套主权",
     },
     {
-      url: "/economics/policy-analyses/london-congestion-charge",
-      title: "伦敦拥堵收费剖析",
+      url: "/philosophy/concepts/li",
+      title: "礼",
     },
     {
       url: "/political-science/thinkers/max-weber",
@@ -24876,10 +31230,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/frontier/democratic-backsliding",
       title: "民主衰退：指标、争论与路径",
-    },
-    {
-      url: "/economics/policy-analyses/mexico-progresa-cash-transfer",
-      title: "墨西哥 PROGRESA 政策剖析",
     },
     {
       url: "/economics/dialogues/piketty-milanovic-inequality",
@@ -24952,6 +31302,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/judgment-analyses/loper-bright-chevron-deference-overruled",
       title: "Loper Bright v. Raimondo 判决剖析",
+    },
+    {
+      url: "/law/judgment-analyses/marbury-v-madison-judicial-review",
+      title: "Marbury v. Madison 判决剖析",
+    },
+    {
+      url: "/law/judgment-analyses/van-gend-en-loos-direct-effect",
+      title: "Van Gend en Loos 判决剖析",
     },
   ],
   "/economics/theories/keynesian-economics": [
@@ -25178,6 +31536,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "函数",
     },
     {
+      url: "/economics/policy-analyses/card-krueger-nj-minimum-wage",
+      title: "卡德–克鲁格：新泽西最低工资怎样被快餐店电话问出来",
+    },
+    {
+      url: "/law/judgment-analyses/carlill-v-carbolic-smoke-ball",
+      title: "卡里尔诉石炭酸烟丸：广告怎样变成一项可强制执行的允诺",
+    },
+    {
       url: "/economics/theories/keynesian-economics",
       title: "凯恩斯主义经济学",
     },
@@ -25320,7 +31686,157 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "中世纪",
     },
   ],
+  "/education/assessment-and-equity/assessment-as-inference": [
+    {
+      url: "/education/frontier/generative-assessment-after-2022",
+      title: "生成式模型之后评估还在测什么",
+    },
+    {
+      url: "/education/cognition-and-memory/project-star-class-size",
+      title: "田纳西 STAR：班额被随机之后测到了什么",
+    },
+  ],
+  "/education/cognition-and-memory/project-star-class-size": [
+    {
+      url: "/education/cognition-and-memory/randomized-trials-in-education",
+      title: "教育里的随机对照",
+    },
+    {
+      url: "/education/learning-foundations/perry-preschool-study",
+      title: "佩里学前：123 名儿童被随机之后，成年表上还剩什么",
+    },
+  ],
+  "/education/cognition-and-memory/randomized-trials-in-education": [
+    {
+      url: "/education/learning-foundations/perry-preschool-study",
+      title: "佩里学前：123 名儿童被随机之后，成年表上还剩什么",
+    },
+    {
+      url: "/education/cognition-and-memory/project-star-class-size",
+      title: "田纳西 STAR：班额被随机之后测到了什么",
+    },
+  ],
+  "/education/cognition-and-memory/working-memory-and-load": [
+    {
+      url: "/education/frontier/science-of-reading-statutes",
+      title: "「阅读科学」立法改的是什么",
+    },
+  ],
+  "/education/comparison-and-policy/conditional-cash-and-enrollment": [
+    {
+      url: "/economics/policy-analyses/mexico-progresa-cash-transfer",
+      title: "墨西哥 PROGRESA 政策剖析",
+    },
+  ],
+  "/education/comparison-and-policy/pisa-is-not-civilization": [
+    {
+      url: "/education/frontier/covid-learning-loss-is-not-one-curve",
+      title: "疫情学习损失不是一条曲线",
+    },
+  ],
+  "/education/comparison-and-policy/schooling-expansion-in-sub-saharan-africa": [
+    {
+      url: "/education/frontier/covid-learning-loss-is-not-one-curve",
+      title: "疫情学习损失不是一条曲线",
+    },
+  ],
+  "/education/curriculum-and-teaching/curriculum-as-selection": [
+    {
+      url: "/education/frontier/science-of-reading-statutes",
+      title: "「阅读科学」立法改的是什么",
+    },
+  ],
+  "/education/education-technology/adaptive-systems-are-not-tutors": [
+    {
+      url: "/education/frontier/ai-act-and-education-inference",
+      title: "欧盟 AI 法案把哪些教育推断写成高风险",
+    },
+  ],
+  "/education/education-technology/generative-models-change-conditions": [
+    {
+      url: "/education/frontier/generative-assessment-after-2022",
+      title: "生成式模型之后评估还在测什么",
+    },
+  ],
+  "/education/education-technology/learning-analytics-are-inferences": [
+    {
+      url: "/education/frontier/ai-act-and-education-inference",
+      title: "欧盟 AI 法案把哪些教育推断写成高风险",
+    },
+  ],
+  "/education/education-technology/what-edtech-records": [
+    {
+      url: "/education/frontier/ai-act-and-education-inference",
+      title: "欧盟 AI 法案把哪些教育推断写成高风险",
+    },
+    {
+      url: "/education/frontier/generative-assessment-after-2022",
+      title: "生成式模型之后评估还在测什么",
+    },
+  ],
+  "/education/learning-foundations/early-childhood-is-an-institution": [
+    {
+      url: "/education/learning-foundations/perry-preschool-study",
+      title: "佩里学前：123 名儿童被随机之后，成年表上还剩什么",
+    },
+  ],
+  "/education/learning-foundations/perry-preschool-study": [
+    {
+      url: "/education/cognition-and-memory/randomized-trials-in-education",
+      title: "教育里的随机对照",
+    },
+    {
+      url: "/education/learning-foundations/early-childhood-is-an-institution",
+      title: "学前是一种制度",
+    },
+  ],
+  "/education/learning-foundations/school-is-an-institution": [
+    {
+      url: "/law/judgment-analyses/handyside-v-uk-expression-margin",
+      title: "Handyside v. United Kingdom 判决剖析",
+    },
+  ],
+  "/education/learning-foundations/teacher-education-is-preparation": [
+    {
+      url: "/education/frontier/science-of-reading-statutes",
+      title: "「阅读科学」立法改的是什么",
+    },
+  ],
+  "/education/learning-foundations/what-is-learning": [
+    {
+      url: "/economics/policy-analyses/mexico-progresa-cash-transfer",
+      title: "墨西哥 PROGRESA 政策剖析",
+    },
+    {
+      url: "/linguistics/frontier/sign-language-ai-bias",
+      title: "手语人工智能的系统偏差：识别手势，不等于理解语言",
+    },
+    {
+      url: "/law/judgment-analyses/brown-v-board-equal-protection",
+      title: "Brown v. Board of Education 判决剖析",
+    },
+    {
+      url: "/sociology/methods/freedom-summer-political-process-analysis",
+      title: "Freedom Summer 复核：谁去了密西西比，谁把机会写成组织",
+    },
+  ],
   "/engineering/civil/bridges": [
+    {
+      url: "/earth-science/event-analyses/loma-prieta-1989-cypress",
+      title: "1989 年洛马普里埃塔：柏树街高架桥倒塌与滨海区填土怎样把近场走滑钉成场地与结构证据",
+    },
+    {
+      url: "/engineering/frontiers/hyatt-regency-walkway-collapse",
+      title: "凯悦走廊倒塌：连接改了一笔，载荷翻了一倍",
+    },
+    {
+      url: "/engineering/frontiers/quebec-bridge-1907-chord",
+      title: "魁北克桥：已经弯了的下弦杆，没有被当成数据",
+    },
+    {
+      url: "/engineering/frontiers/millennium-bridge-2000",
+      title: "伦敦千年桥：开通当日的行人侧向锁定",
+    },
     {
       url: "/engineering/frontiers/tacoma-narrows-and-the-textbook-error",
       title: "塔科马海峡大桥：一个错了半个世纪的教科书解释",
@@ -25338,8 +31854,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "「稀释是解决污染的办法」：高烟囱政策如何制造了酸雨",
     },
     {
+      url: "/earth-science/event-analyses/mount-st-helens-1980-observation",
+      title: "1980 年圣海伦斯火山事件剖析",
+    },
+    {
+      url: "/earth-science/event-analyses/eyjafjallajokull-ash-crisis-2010",
+      title: "2010 年艾雅法拉火山灰危机剖析",
+    },
+    {
+      url: "/earth-science/event-analyses/pakistan-flood-attribution-2022",
+      title: "2022 年巴基斯坦洪水归因剖析",
+    },
+    {
       url: "/earth-science/event-analyses/turkey-syria-earthquake-forensics-2023",
       title: "2023 年土耳其—叙利亚地震事件剖析",
+    },
+    {
+      url: "/arts/architecture/urban-public-space",
+      title: "城市公共空间：谁能停留、谁被请出去",
     },
     {
       url: "/engineering/frontier/infrastructure-digital-twins",
@@ -25353,8 +31885,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/arts/frontier/climate-risk-cultural-heritage",
       title: "气候风险下的文化遗产：保护什么、何时撤退、谁来决定",
     },
+    {
+      url: "/life-science/knowledge-base/生态系统--珊瑚礁",
+      title: "珊瑚礁：海洋中的热带雨林",
+    },
   ],
   "/engineering/civil/skyscrapers": [
+    {
+      url: "/earth-science/event-analyses/mexico-city-1985-site-effect",
+      title: "1985 年墨西哥城场地效应：古湖床软泥、卓越周期与加速度记录怎样把远场放大钉成证据",
+    },
+    {
+      url: "/engineering/frontiers/citicorp-center-lemessurier",
+      title: "花旗中心：已经换过的螺栓，没有被写成倒塌",
+    },
     {
       url: "/engineering/civil/tunnels-and-metro",
       title: "隧道与地铁：向地下要空间",
@@ -25403,6 +31947,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/engineering/energy/power-grid",
       title: "电网：最大的实时平衡系统",
     },
+    {
+      url: "/engineering/frontiers/malpasset-1959",
+      title: "马尔帕塞：左岸片麻岩退出工作，薄拱没有站住",
+    },
+    {
+      url: "/engineering/frontiers/st-francis-dam-1928",
+      title: "圣弗朗西斯坝：东岸古滑坡，没有把重力坝证伪",
+    },
+    {
+      url: "/engineering/frontiers/teton-dam-1976",
+      title: "提顿坝：右岸流纹岩里的管涌，没有把土石坝证伪",
+    },
+    {
+      url: "/engineering/frontiers/vaiont-1963",
+      title: "瓦伊昂：左岸滑进库里，站住的拱坝没有把库岸写成安全",
+    },
   ],
   "/engineering/energy/nuclear-power": [
     {
@@ -25420,6 +31980,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/engineering/civil/resilient-infrastructure",
       title: "韧性基础设施：为最坏情况设计",
+    },
+    {
+      url: "/engineering/frontiers/three-mile-island-porv-indicator",
+      title: "三里岛：卡住的泄压阀与只显示指令的指示灯",
     },
   ],
   "/engineering/energy/power-grid": [
@@ -25530,6 +32094,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "生物医学工程：把机器放进身体里",
     },
     {
+      url: "/engineering/foundations/experimental-design-and-uncertainty",
+      title: "实验设计与测量不确定度：怎样知道一次试验能说明什么",
+    },
+    {
       url: "/engineering/frontiers/tacoma-narrows-and-the-textbook-error",
       title: "塔科马海峡大桥：一个错了半个世纪的教科书解释",
     },
@@ -25548,7 +32116,111 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "电网：最大的实时平衡系统",
     },
   ],
+  "/engineering/foundations/experimental-design-and-uncertainty": [
+    {
+      url: "/earth-science/event-analyses/cascadia-1700-orphan-tsunami",
+      title: "1700 年 1 月 26 日卡斯卡迪亚巨型逆冲：日本孤儿海啸、淹没森林与浊积岩怎样对上同一时刻",
+    },
+    {
+      url: "/earth-science/event-analyses/alaska-1964-good-friday",
+      title: "1964 年阿拉斯加耶稣受难日地震：升降场、长持时与海啸怎样把巨型逆冲钉成一套记录",
+    },
+    {
+      url: "/earth-science/event-analyses/glomar-challenger-1968-dsdp",
+      title: "1968 年格洛玛·挑战者号：深海钻探怎样把离脊变老钉成岩芯年龄表",
+    },
+    {
+      url: "/earth-science/event-analyses/mexico-city-1985-site-effect",
+      title: "1985 年墨西哥城场地效应：古湖床软泥、卓越周期与加速度记录怎样把远场放大钉成证据",
+    },
+    {
+      url: "/earth-science/event-analyses/loma-prieta-1989-cypress",
+      title: "1989 年洛马普里埃塔：柏树街高架桥倒塌与滨海区填土怎样把近场走滑钉成场地与结构证据",
+    },
+    {
+      url: "/psychology/experiments/baddeley-1966",
+      title: "巴德利 1966：词序列的即时记忆为何被声学相似拖垮而不是被语义相似拖垮",
+    },
+    {
+      url: "/psychology/experiments/peterson-peterson-1959",
+      title: "彼得森 1959：倒数干扰怎样把单个项目的短时保持画成秒级曲线",
+    },
+    {
+      url: "/psychology/experiments/brown-1958",
+      title: "布朗 1958：即时记忆的衰减怎样被若干测验问到，却还没有画成一条间隔曲线",
+    },
+    {
+      url: "/psychology/experiments/glanzer-cunitz-1966",
+      title: "格兰泽与库尼茨 1966：自由回忆的首因与近因为何被两套仓库分开",
+    },
+    {
+      url: "/psychology/experiments/keppel-underwood-1962",
+      title: "凯佩尔与安德伍德 1962：单项目短时保持里的前摄抑制怎样随试次变陡",
+    },
+    {
+      url: "/psychology/experiments/conrad-1964",
+      title: "康拉德 1964：即时记忆的错误为何跟着声音走而不是跟着字形走",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1974",
+      title: "特沃斯基与卡尼曼 1974：不确定判断里的启发式怎样被写成可核对的偏差",
+    },
+    {
+      url: "/psychology/experiments/wickens-1970",
+      title: "威肯斯 1970：换编码范畴怎样把前摄抑制释放写成意义的尺子",
+    },
+    {
+      url: "/psychology/experiments/waugh-norman-1965",
+      title: "沃与诺曼 1965：初级记忆怎样把遗忘写成插入项目而非单纯流逝",
+    },
+    {
+      url: "/engineering/machines/shewhart-control-chart",
+      title: "休哈特控制图：一张把“该不该动手”写成界限的纸",
+    },
+  ],
+  "/engineering/foundations/fatigue-and-fracture": [
+    {
+      url: "/earth-science/event-analyses/turkey-syria-earthquake-forensics-2023",
+      title: "2023 年土耳其—叙利亚地震事件剖析",
+    },
+    {
+      url: "/engineering/foundations/materials-strength",
+      title: "材料强度：钢、混凝土与复合材料",
+    },
+    {
+      url: "/engineering/frontiers/comet-water-tank-fatigue",
+      title: "彗星客机水槽：方形舷窗怎样在法恩伯勒被压到裂纹",
+    },
+    {
+      url: "/engineering/frontier/solid-state-battery-manufacturing",
+      title: "全固态电池制造：去掉可燃电解液之后，失效为何没有消失",
+    },
+    {
+      url: "/engineering/frontiers/liberty-ship-schenectady-brittle-fracture",
+      title: "斯克内克塔迪号：平静码头上把船体写穿的裂纹",
+    },
+    {
+      url: "/engineering/frontiers/tay-bridge-1879",
+      title: "泰桥：风压没写进设计的铸铁斜撑",
+    },
+    {
+      url: "/engineering/frontiers/silver-bridge-1967",
+      title: "银桥：销孔里那条看不见的裂纹，把北链写断",
+    },
+    {
+      url: "/engineering/frontiers/i35w-minneapolis-2007",
+      title: "I-35W 明尼阿波利斯：半英寸加劲板，把主桁架写成河",
+    },
+  ],
   "/engineering/foundations/materials-strength": [
+    {
+      url: "/earth-science/event-analyses/mohorovicic-1909-discontinuity",
+      title: "1909 年库帕河谷地震：走时拐点怎样画出莫霍面",
+    },
+    {
+      url: "/earth-science/event-analyses/turkey-syria-earthquake-forensics-2023",
+      title: "2023 年土耳其—叙利亚地震事件剖析",
+    },
     {
       url: "/engineering/materials/mining-and-extraction",
       title: "采矿与资源提取：现代生活的物质起点",
@@ -25556,6 +32228,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/engineering/foundations/measurement-and-tolerance",
       title: "测量与公差：精密的代价",
+    },
+    {
+      url: "/engineering/frontier/low-carbon-cement-circularity",
+      title: "低碳水泥与循环混凝土：怎样减掉石灰石必然释放的碳",
+    },
+    {
+      url: "/engineering/frontiers/hartford-civic-center-1978",
+      title: "哈特福德市政中心：积雪夜里塌下来的双向钢网架",
     },
     {
       url: "/engineering/machines/aviation-engineering",
@@ -25566,23 +32246,67 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "化学工程：把烧杯里的反应放大一百万倍",
     },
     {
+      url: "/engineering/frontiers/comet-water-tank-fatigue",
+      title: "彗星客机水槽：方形舷窗怎样在法恩伯勒被压到裂纹",
+    },
+    {
+      url: "/engineering/frontiers/hyatt-regency-walkway-collapse",
+      title: "凯悦走廊倒塌：连接改了一笔，载荷翻了一倍",
+    },
+    {
+      url: "/engineering/frontiers/quebec-bridge-1907-chord",
+      title: "魁北克桥：已经弯了的下弦杆，没有被当成数据",
+    },
+    {
       url: "/engineering/civil/skyscrapers",
       title: "摩天楼：风、地震与垂直交通的工程解法",
     },
     {
-      url: "/engineering/frontier/solid-state-battery-manufacturing",
-      title: "全固态电池制造：去掉可燃电解液之后，失效为何没有消失",
+      url: "/engineering/foundations/fatigue-and-fracture",
+      title: "疲劳与断裂：裂纹怎样在远低于静强度时把结构写完",
+    },
+    {
+      url: "/engineering/frontiers/st-francis-dam-1928",
+      title: "圣弗朗西斯坝：东岸古滑坡，没有把重力坝证伪",
+    },
+    {
+      url: "/engineering/frontiers/liberty-ship-schenectady-brittle-fracture",
+      title: "斯克内克塔迪号：平静码头上把船体写穿的裂纹",
     },
     {
       url: "/engineering/frontiers/challenger-o-ring-organizational-failure",
       title: "挑战者号事故：密封失效如何穿过组织防线",
     },
     {
+      url: "/engineering/frontiers/vaiont-1963",
+      title: "瓦伊昂：左岸滑进库里，站住的拱坝没有把库岸写成安全",
+    },
+    {
       url: "/engineering/materials/semiconductor-manufacturing",
       title: '芯片制造：光刻机、洁净室与"纳米节点"的真实含义',
     },
+    {
+      url: "/engineering/frontiers/silver-bridge-1967",
+      title: "银桥：销孔里那条看不见的裂纹，把北链写断",
+    },
+    {
+      url: "/engineering/frontiers/i35w-minneapolis-2007",
+      title: "I-35W 明尼阿波利斯：半英寸加劲板，把主桁架写成河",
+    },
   ],
   "/engineering/foundations/measurement-and-tolerance": [
+    {
+      url: "/psychology/experiments/ebbinghaus-1885",
+      title: "艾宾浩斯 1885：无意义音节与节省法怎样把遗忘写成可再学的差额",
+    },
+    {
+      url: "/psychology/experiments/peterson-peterson-1959",
+      title: "彼得森 1959：倒数干扰怎样把单个项目的短时保持画成秒级曲线",
+    },
+    {
+      url: "/psychology/experiments/brown-1958",
+      title: "布朗 1958：即时记忆的衰减怎样被若干测验问到，却还没有画成一条间隔曲线",
+    },
     {
       url: "/human-history/knowledge/科技史--电力革命",
       title: "电力革命",
@@ -25592,12 +32316,44 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "聚合水与病态科学（1962—1973）",
     },
     {
+      url: "/psychology/experiments/keppel-underwood-1962",
+      title: "凯佩尔与安德伍德 1962：单项目短时保持里的前摄抑制怎样随试次变陡",
+    },
+    {
+      url: "/engineering/frontiers/hyatt-regency-walkway-collapse",
+      title: "凯悦走廊倒塌：连接改了一笔，载荷翻了一倍",
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--michelson-morley-1887",
+      title: "迈克尔逊–莫雷 1887：水银石板干涉仪怎样把预期 0.4 条纹写成近零",
+    },
+    {
+      url: "/psychology/experiments/miller-1956",
+      title: "米勒 1956：绝对判断、即时记忆与组块怎样把容量从比特改写成结构",
+    },
+    {
       url: "/engineering/civil/skyscrapers",
       title: "摩天楼：风、地震与垂直交通的工程解法",
     },
     {
+      url: "/universe-physics/knowledge-base/相对论--pound-rebka-1959",
+      title: "庞德–雷布卡 1959：液压多普勒怎样把 22.5 米写成引力频移",
+    },
+    {
+      url: "/chemistry/milestones/ramsay-rayleigh-1894-argon",
+      title: "瑞利与拉姆齐一八九四年的氩：两份氮的密度差怎样逼出一种不进化合的气体",
+    },
+    {
+      url: "/engineering/foundations/experimental-design-and-uncertainty",
+      title: "实验设计与测量不确定度：怎样知道一次试验能说明什么",
+    },
+    {
       url: "/psychology/methods/psychophysics-and-signal-detection",
       title: "心理物理学与信号检测论",
+    },
+    {
+      url: "/engineering/machines/shewhart-control-chart",
+      title: "休哈特控制图：一张把“该不该动手”写成界限的纸",
     },
     {
       url: "/universe-physics/knowledge-base/经典物理--以太的兴衰",
@@ -25640,16 +32396,108 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "工程伦理：挑战者号与专业责任",
     },
     {
+      url: "/engineering/frontiers/citicorp-center-lemessurier",
+      title: "花旗中心：已经换过的螺栓，没有被写成倒塌",
+    },
+    {
+      url: "/engineering/frontiers/comet-water-tank-fatigue",
+      title: "彗星客机水槽：方形舷窗怎样在法恩伯勒被压到裂纹",
+    },
+    {
+      url: "/engineering/frontiers/quebec-bridge-1907-chord",
+      title: "魁北克桥：已经弯了的下弦杆，没有被当成数据",
+    },
+    {
       url: "/engineering/machines/human-factors-engineering",
       title: "人因工程：为会犯错的人设计",
+    },
+    {
+      url: "/engineering/frontiers/three-mile-island-porv-indicator",
+      title: "三里岛：卡住的泄压阀与只显示指令的指示灯",
     },
     {
       url: "/engineering/frontiers/failure-analysis",
       title: "失效分析：从事故残骸中长出来的工程",
     },
     {
+      url: "/engineering/frontiers/liberty-ship-schenectady-brittle-fracture",
+      title: "斯克内克塔迪号：平静码头上把船体写穿的裂纹",
+    },
+    {
       url: "/engineering/machines/systems-engineering",
       title: "系统工程：需求、约束、验证与变更",
+    },
+  ],
+  "/engineering/frontiers/citicorp-center-lemessurier": [
+    {
+      url: "/engineering/frontiers/engineering-ethics",
+      title: "工程伦理：挑战者号与专业责任",
+    },
+    {
+      url: "/engineering/frontiers/hartford-civic-center-1978",
+      title: "哈特福德市政中心：积雪夜里塌下来的双向钢网架",
+    },
+    {
+      url: "/engineering/frontiers/ronan-point-1968",
+      title: "罗南角：被掀掉的承重翼墙，没有把高层证伪",
+    },
+    {
+      url: "/engineering/frontiers/malpasset-1959",
+      title: "马尔帕塞：左岸片麻岩退出工作，薄拱没有站住",
+    },
+    {
+      url: "/engineering/civil/skyscrapers",
+      title: "摩天楼：风、地震与垂直交通的工程解法",
+    },
+    {
+      url: "/engineering/frontiers/st-francis-dam-1928",
+      title: "圣弗朗西斯坝：东岸古滑坡，没有把重力坝证伪",
+    },
+    {
+      url: "/engineering/frontiers/tay-bridge-1879",
+      title: "泰桥：风压没写进设计的铸铁斜撑",
+    },
+    {
+      url: "/engineering/frontiers/teton-dam-1976",
+      title: "提顿坝：右岸流纹岩里的管涌，没有把土石坝证伪",
+    },
+    {
+      url: "/engineering/frontiers/vaiont-1963",
+      title: "瓦伊昂：左岸滑进库里，站住的拱坝没有把库岸写成安全",
+    },
+    {
+      url: "/engineering/frontiers/silver-bridge-1967",
+      title: "银桥：销孔里那条看不见的裂纹，把北链写断",
+    },
+    {
+      url: "/engineering/frontiers/i35w-minneapolis-2007",
+      title: "I-35W 明尼阿波利斯：半英寸加劲板，把主桁架写成河",
+    },
+  ],
+  "/engineering/frontiers/comet-water-tank-fatigue": [
+    {
+      url: "/engineering/foundations/materials-strength",
+      title: "材料强度：钢、混凝土与复合材料",
+    },
+    {
+      url: "/engineering/machines/aviation-engineering",
+      title: "航空工程：机翼、适航认证与电动飞机的现实约束",
+    },
+    {
+      url: "/engineering/foundations/fatigue-and-fracture",
+      title: "疲劳与断裂：裂纹怎样在远低于静强度时把结构写完",
+    },
+    {
+      url: "/engineering/frontiers/failure-analysis",
+      title: "失效分析：从事故残骸中长出来的工程",
+    },
+    {
+      url: "/engineering/frontiers/liberty-ship-schenectady-brittle-fracture",
+      title: "斯克内克塔迪号：平静码头上把船体写穿的裂纹",
+    },
+    {
+      url: "/engineering/frontiers/silver-bridge-1967",
+      title: "银桥：销孔里那条看不见的裂纹，把北链写断",
     },
   ],
   "/engineering/frontiers/dilution-is-the-solution": [
@@ -25686,12 +32534,64 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "道德运气",
     },
     {
+      url: "/engineering/frontiers/hartford-civic-center-1978",
+      title: "哈特福德市政中心：积雪夜里塌下来的双向钢网架",
+    },
+    {
+      url: "/engineering/frontiers/citicorp-center-lemessurier",
+      title: "花旗中心：已经换过的螺栓，没有被写成倒塌",
+    },
+    {
+      url: "/engineering/frontiers/hyatt-regency-walkway-collapse",
+      title: "凯悦走廊倒塌：连接改了一笔，载荷翻了一倍",
+    },
+    {
+      url: "/engineering/frontiers/quebec-bridge-1907-chord",
+      title: "魁北克桥：已经弯了的下弦杆，没有被当成数据",
+    },
+    {
+      url: "/engineering/frontiers/millennium-bridge-2000",
+      title: "伦敦千年桥：开通当日的行人侧向锁定",
+    },
+    {
+      url: "/engineering/frontiers/ronan-point-1968",
+      title: "罗南角：被掀掉的承重翼墙，没有把高层证伪",
+    },
+    {
+      url: "/engineering/frontiers/malpasset-1959",
+      title: "马尔帕塞：左岸片麻岩退出工作，薄拱没有站住",
+    },
+    {
       url: "/engineering/machines/biomedical-engineering",
       title: "生物医学工程：把机器放进身体里",
     },
     {
+      url: "/engineering/frontiers/st-francis-dam-1928",
+      title: "圣弗朗西斯坝：东岸古滑坡，没有把重力坝证伪",
+    },
+    {
+      url: "/engineering/frontiers/tay-bridge-1879",
+      title: "泰桥：风压没写进设计的铸铁斜撑",
+    },
+    {
+      url: "/engineering/frontiers/teton-dam-1976",
+      title: "提顿坝：右岸流纹岩里的管涌，没有把土石坝证伪",
+    },
+    {
       url: "/engineering/frontiers/challenger-o-ring-organizational-failure",
       title: "挑战者号事故：密封失效如何穿过组织防线",
+    },
+    {
+      url: "/engineering/frontiers/vaiont-1963",
+      title: "瓦伊昂：左岸滑进库里，站住的拱坝没有把库岸写成安全",
+    },
+    {
+      url: "/engineering/frontiers/silver-bridge-1967",
+      title: "银桥：销孔里那条看不见的裂纹，把北链写断",
+    },
+    {
+      url: "/engineering/frontiers/i35w-minneapolis-2007",
+      title: "I-35W 明尼阿波利斯：半英寸加劲板，把主桁架写成河",
     },
   ],
   "/engineering/frontiers/failure-analysis": [
@@ -25712,28 +32612,92 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "对象存储：S3 如何改变了存储的形状",
     },
     {
+      url: "/engineering/frontiers/hartford-civic-center-1978",
+      title: "哈特福德市政中心：积雪夜里塌下来的双向钢网架",
+    },
+    {
       url: "/engineering/machines/aviation-engineering",
       title: "航空工程：机翼、适航认证与电动飞机的现实约束",
+    },
+    {
+      url: "/engineering/frontiers/citicorp-center-lemessurier",
+      title: "花旗中心：已经换过的螺栓，没有被写成倒塌",
+    },
+    {
+      url: "/engineering/frontiers/comet-water-tank-fatigue",
+      title: "彗星客机水槽：方形舷窗怎样在法恩伯勒被压到裂纹",
+    },
+    {
+      url: "/engineering/frontiers/hyatt-regency-walkway-collapse",
+      title: "凯悦走廊倒塌：连接改了一笔，载荷翻了一倍",
     },
     {
       url: "/engineering/machines/reliability-engineering",
       title: "可靠性工程：把“不出事”变成可计算的指标",
     },
     {
+      url: "/engineering/frontiers/quebec-bridge-1907-chord",
+      title: "魁北克桥：已经弯了的下弦杆，没有被当成数据",
+    },
+    {
+      url: "/engineering/frontiers/millennium-bridge-2000",
+      title: "伦敦千年桥：开通当日的行人侧向锁定",
+    },
+    {
+      url: "/engineering/frontiers/ronan-point-1968",
+      title: "罗南角：被掀掉的承重翼墙，没有把高层证伪",
+    },
+    {
+      url: "/engineering/frontiers/malpasset-1959",
+      title: "马尔帕塞：左岸片麻岩退出工作，薄拱没有站住",
+    },
+    {
+      url: "/engineering/foundations/fatigue-and-fracture",
+      title: "疲劳与断裂：裂纹怎样在远低于静强度时把结构写完",
+    },
+    {
       url: "/engineering/machines/human-factors-engineering",
       title: "人因工程：为会犯错的人设计",
+    },
+    {
+      url: "/engineering/frontiers/st-francis-dam-1928",
+      title: "圣弗朗西斯坝：东岸古滑坡，没有把重力坝证伪",
+    },
+    {
+      url: "/engineering/frontiers/liberty-ship-schenectady-brittle-fracture",
+      title: "斯克内克塔迪号：平静码头上把船体写穿的裂纹",
     },
     {
       url: "/engineering/frontiers/tacoma-narrows-and-the-textbook-error",
       title: "塔科马海峡大桥：一个错了半个世纪的教科书解释",
     },
     {
+      url: "/engineering/frontiers/tay-bridge-1879",
+      title: "泰桥：风压没写进设计的铸铁斜撑",
+    },
+    {
+      url: "/engineering/frontiers/teton-dam-1976",
+      title: "提顿坝：右岸流纹岩里的管涌，没有把土石坝证伪",
+    },
+    {
       url: "/engineering/frontiers/challenger-o-ring-organizational-failure",
       title: "挑战者号事故：密封失效如何穿过组织防线",
     },
     {
+      url: "/engineering/frontiers/vaiont-1963",
+      title: "瓦伊昂：左岸滑进库里，站住的拱坝没有把库岸写成安全",
+    },
+    {
       url: "/engineering/machines/systems-engineering",
       title: "系统工程：需求、约束、验证与变更",
+    },
+    {
+      url: "/engineering/frontiers/silver-bridge-1967",
+      title: "银桥：销孔里那条看不见的裂纹，把北链写断",
+    },
+    {
+      url: "/engineering/frontiers/i35w-minneapolis-2007",
+      title: "I-35W 明尼阿波利斯：半英寸加劲板，把主桁架写成河",
     },
     {
       url: "/computer-science/systems/kubernetes-controller-pattern",
@@ -25768,16 +32732,228 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "ZFS：不覆盖写，与端到端校验",
     },
   ],
+  "/engineering/frontiers/hartford-civic-center-1978": [
+    {
+      url: "/engineering/foundations/materials-strength",
+      title: "材料强度：钢、混凝土与复合材料",
+    },
+    {
+      url: "/engineering/frontiers/engineering-ethics",
+      title: "工程伦理：挑战者号与专业责任",
+    },
+    {
+      url: "/engineering/frontiers/citicorp-center-lemessurier",
+      title: "花旗中心：已经换过的螺栓，没有被写成倒塌",
+    },
+    {
+      url: "/engineering/frontiers/hyatt-regency-walkway-collapse",
+      title: "凯悦走廊倒塌：连接改了一笔，载荷翻了一倍",
+    },
+    {
+      url: "/engineering/frontiers/failure-analysis",
+      title: "失效分析：从事故残骸中长出来的工程",
+    },
+  ],
+  "/engineering/frontiers/hyatt-regency-walkway-collapse": [
+    {
+      url: "/engineering/frontiers/hartford-civic-center-1978",
+      title: "哈特福德市政中心：积雪夜里塌下来的双向钢网架",
+    },
+    {
+      url: "/engineering/frontiers/citicorp-center-lemessurier",
+      title: "花旗中心：已经换过的螺栓，没有被写成倒塌",
+    },
+    {
+      url: "/engineering/frontiers/quebec-bridge-1907-chord",
+      title: "魁北克桥：已经弯了的下弦杆，没有被当成数据",
+    },
+    {
+      url: "/engineering/frontiers/ronan-point-1968",
+      title: "罗南角：被掀掉的承重翼墙，没有把高层证伪",
+    },
+    {
+      url: "/engineering/frontiers/st-francis-dam-1928",
+      title: "圣弗朗西斯坝：东岸古滑坡，没有把重力坝证伪",
+    },
+    {
+      url: "/engineering/frontiers/i35w-minneapolis-2007",
+      title: "I-35W 明尼阿波利斯：半英寸加劲板，把主桁架写成河",
+    },
+  ],
+  "/engineering/frontiers/i35w-minneapolis-2007": [
+    {
+      url: "/engineering/frontiers/engineering-ethics",
+      title: "工程伦理：挑战者号与专业责任",
+    },
+    {
+      url: "/engineering/frontiers/millennium-bridge-2000",
+      title: "伦敦千年桥：开通当日的行人侧向锁定",
+    },
+    {
+      url: "/engineering/civil/bridges",
+      title: "桥梁：受力路径、风与美学",
+    },
+    {
+      url: "/engineering/frontiers/failure-analysis",
+      title: "失效分析：从事故残骸中长出来的工程",
+    },
+    {
+      url: "/engineering/frontiers/tay-bridge-1879",
+      title: "泰桥：风压没写进设计的铸铁斜撑",
+    },
+  ],
+  "/engineering/frontiers/liberty-ship-schenectady-brittle-fracture": [
+    {
+      url: "/engineering/foundations/materials-strength",
+      title: "材料强度：钢、混凝土与复合材料",
+    },
+    {
+      url: "/engineering/foundations/fatigue-and-fracture",
+      title: "疲劳与断裂：裂纹怎样在远低于静强度时把结构写完",
+    },
+    {
+      url: "/engineering/frontiers/silver-bridge-1967",
+      title: "银桥：销孔里那条看不见的裂纹，把北链写断",
+    },
+  ],
+  "/engineering/frontiers/malpasset-1959": [
+    {
+      url: "/engineering/frontiers/engineering-ethics",
+      title: "工程伦理：挑战者号与专业责任",
+    },
+    {
+      url: "/engineering/frontiers/failure-analysis",
+      title: "失效分析：从事故残骸中长出来的工程",
+    },
+    {
+      url: "/engineering/energy/hydro-power",
+      title: "水电与大坝：驯服河流的工程学",
+    },
+  ],
   "/engineering/frontiers/megaprojects": [
     {
       url: "/engineering/machines/systems-engineering",
       title: "系统工程：需求、约束、验证与变更",
     },
+    {
+      url: "/engineering/machines/project-and-configuration-control",
+      title: "项目与构型控制：基线、变更和可追到零件上的决定",
+    },
+  ],
+  "/engineering/frontiers/millennium-bridge-2000": [
+    {
+      url: "/engineering/frontiers/engineering-ethics",
+      title: "工程伦理：挑战者号与专业责任",
+    },
+    {
+      url: "/engineering/civil/bridges",
+      title: "桥梁：受力路径、风与美学",
+    },
+    {
+      url: "/engineering/machines/human-factors-engineering",
+      title: "人因工程：为会犯错的人设计",
+    },
+    {
+      url: "/engineering/frontiers/failure-analysis",
+      title: "失效分析：从事故残骸中长出来的工程",
+    },
+    {
+      url: "/engineering/frontiers/tacoma-narrows-and-the-textbook-error",
+      title: "塔科马海峡大桥：一个错了半个世纪的教科书解释",
+    },
+    {
+      url: "/engineering/frontiers/tay-bridge-1879",
+      title: "泰桥：风压没写进设计的铸铁斜撑",
+    },
+  ],
+  "/engineering/frontiers/quebec-bridge-1907-chord": [
+    {
+      url: "/engineering/frontiers/engineering-ethics",
+      title: "工程伦理：挑战者号与专业责任",
+    },
+    {
+      url: "/engineering/frontiers/hartford-civic-center-1978",
+      title: "哈特福德市政中心：积雪夜里塌下来的双向钢网架",
+    },
+    {
+      url: "/engineering/frontiers/citicorp-center-lemessurier",
+      title: "花旗中心：已经换过的螺栓，没有被写成倒塌",
+    },
+    {
+      url: "/engineering/frontiers/ronan-point-1968",
+      title: "罗南角：被掀掉的承重翼墙，没有把高层证伪",
+    },
+    {
+      url: "/engineering/frontiers/malpasset-1959",
+      title: "马尔帕塞：左岸片麻岩退出工作，薄拱没有站住",
+    },
+    {
+      url: "/engineering/civil/bridges",
+      title: "桥梁：受力路径、风与美学",
+    },
+    {
+      url: "/engineering/frontiers/tay-bridge-1879",
+      title: "泰桥：风压没写进设计的铸铁斜撑",
+    },
+    {
+      url: "/engineering/frontiers/teton-dam-1976",
+      title: "提顿坝：右岸流纹岩里的管涌，没有把土石坝证伪",
+    },
+    {
+      url: "/engineering/frontiers/vaiont-1963",
+      title: "瓦伊昂：左岸滑进库里，站住的拱坝没有把库岸写成安全",
+    },
+    {
+      url: "/engineering/frontiers/silver-bridge-1967",
+      title: "银桥：销孔里那条看不见的裂纹，把北链写断",
+    },
+    {
+      url: "/engineering/frontiers/i35w-minneapolis-2007",
+      title: "I-35W 明尼阿波利斯：半英寸加劲板，把主桁架写成河",
+    },
+  ],
+  "/engineering/frontiers/ronan-point-1968": [
+    {
+      url: "/engineering/materials/concrete-engineering",
+      title: "混凝土工程：从万神殿穹顶到高性能混凝土",
+    },
+    {
+      url: "/engineering/frontiers/hyatt-regency-walkway-collapse",
+      title: "凯悦走廊倒塌：连接改了一笔，载荷翻了一倍",
+    },
+    {
+      url: "/engineering/frontiers/st-francis-dam-1928",
+      title: "圣弗朗西斯坝：东岸古滑坡，没有把重力坝证伪",
+    },
+    {
+      url: "/engineering/frontiers/failure-analysis",
+      title: "失效分析：从事故残骸中长出来的工程",
+    },
+    {
+      url: "/engineering/frontiers/silver-bridge-1967",
+      title: "银桥：销孔里那条看不见的裂纹，把北链写断",
+    },
   ],
   "/engineering/frontiers/safety-engineering": [
     {
+      url: "/engineering/frontiers/citicorp-center-lemessurier",
+      title: "花旗中心：已经换过的螺栓，没有被写成倒塌",
+    },
+    {
+      url: "/engineering/frontiers/hyatt-regency-walkway-collapse",
+      title: "凯悦走廊倒塌：连接改了一笔，载荷翻了一倍",
+    },
+    {
+      url: "/engineering/frontiers/ronan-point-1968",
+      title: "罗南角：被掀掉的承重翼墙，没有把高层证伪",
+    },
+    {
       url: "/engineering/civil/resilient-infrastructure",
       title: "韧性基础设施：为最坏情况设计",
+    },
+    {
+      url: "/engineering/frontiers/three-mile-island-porv-indicator",
+      title: "三里岛：卡住的泄压阀与只显示指令的指示灯",
     },
     {
       url: "/engineering/civil/tunnels-and-metro",
@@ -25824,6 +33000,62 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "SQLite：世界上部署最广的数据库",
     },
   ],
+  "/engineering/frontiers/silver-bridge-1967": [
+    {
+      url: "/engineering/foundations/materials-strength",
+      title: "材料强度：钢、混凝土与复合材料",
+    },
+    {
+      url: "/engineering/frontiers/engineering-ethics",
+      title: "工程伦理：挑战者号与专业责任",
+    },
+    {
+      url: "/engineering/foundations/fatigue-and-fracture",
+      title: "疲劳与断裂：裂纹怎样在远低于静强度时把结构写完",
+    },
+    {
+      url: "/engineering/frontiers/failure-analysis",
+      title: "失效分析：从事故残骸中长出来的工程",
+    },
+    {
+      url: "/engineering/frontiers/tay-bridge-1879",
+      title: "泰桥：风压没写进设计的铸铁斜撑",
+    },
+    {
+      url: "/engineering/frontiers/i35w-minneapolis-2007",
+      title: "I-35W 明尼阿波利斯：半英寸加劲板，把主桁架写成河",
+    },
+  ],
+  "/engineering/frontiers/st-francis-dam-1928": [
+    {
+      url: "/engineering/frontiers/engineering-ethics",
+      title: "工程伦理：挑战者号与专业责任",
+    },
+    {
+      url: "/engineering/materials/concrete-engineering",
+      title: "混凝土工程：从万神殿穹顶到高性能混凝土",
+    },
+    {
+      url: "/engineering/frontiers/malpasset-1959",
+      title: "马尔帕塞：左岸片麻岩退出工作，薄拱没有站住",
+    },
+    {
+      url: "/engineering/frontiers/failure-analysis",
+      title: "失效分析：从事故残骸中长出来的工程",
+    },
+    {
+      url: "/engineering/energy/hydro-power",
+      title: "水电与大坝：驯服河流的工程学",
+    },
+    {
+      url: "/engineering/frontiers/teton-dam-1976",
+      title: "提顿坝：右岸流纹岩里的管涌，没有把土石坝证伪",
+    },
+    {
+      url: "/engineering/frontiers/vaiont-1963",
+      title: "瓦伊昂：左岸滑进库里，站住的拱坝没有把库岸写成安全",
+    },
+  ],
   "/engineering/frontiers/tacoma-narrows-and-the-textbook-error": [
     {
       url: "/engineering/foundations/materials-strength",
@@ -25834,8 +33066,100 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "黑暗时代：一个被史学界废弃的分期",
     },
     {
+      url: "/engineering/frontiers/millennium-bridge-2000",
+      title: "伦敦千年桥：开通当日的行人侧向锁定",
+    },
+    {
       url: "/engineering/civil/bridges",
       title: "桥梁：受力路径、风与美学",
+    },
+    {
+      url: "/engineering/frontiers/tay-bridge-1879",
+      title: "泰桥：风压没写进设计的铸铁斜撑",
+    },
+    {
+      url: "/engineering/frontiers/silver-bridge-1967",
+      title: "银桥：销孔里那条看不见的裂纹，把北链写断",
+    },
+    {
+      url: "/engineering/frontiers/i35w-minneapolis-2007",
+      title: "I-35W 明尼阿波利斯：半英寸加劲板，把主桁架写成河",
+    },
+  ],
+  "/engineering/frontiers/tay-bridge-1879": [
+    {
+      url: "/engineering/frontiers/engineering-ethics",
+      title: "工程伦理：挑战者号与专业责任",
+    },
+    {
+      url: "/engineering/frontiers/quebec-bridge-1907-chord",
+      title: "魁北克桥：已经弯了的下弦杆，没有被当成数据",
+    },
+    {
+      url: "/engineering/frontiers/millennium-bridge-2000",
+      title: "伦敦千年桥：开通当日的行人侧向锁定",
+    },
+    {
+      url: "/engineering/civil/bridges",
+      title: "桥梁：受力路径、风与美学",
+    },
+    {
+      url: "/engineering/frontiers/failure-analysis",
+      title: "失效分析：从事故残骸中长出来的工程",
+    },
+    {
+      url: "/engineering/frontiers/i35w-minneapolis-2007",
+      title: "I-35W 明尼阿波利斯：半英寸加劲板，把主桁架写成河",
+    },
+  ],
+  "/engineering/frontiers/teton-dam-1976": [
+    {
+      url: "/engineering/frontiers/engineering-ethics",
+      title: "工程伦理：挑战者号与专业责任",
+    },
+    {
+      url: "/engineering/frontiers/malpasset-1959",
+      title: "马尔帕塞：左岸片麻岩退出工作，薄拱没有站住",
+    },
+    {
+      url: "/engineering/frontiers/failure-analysis",
+      title: "失效分析：从事故残骸中长出来的工程",
+    },
+    {
+      url: "/engineering/energy/hydro-power",
+      title: "水电与大坝：驯服河流的工程学",
+    },
+  ],
+  "/engineering/frontiers/three-mile-island-porv-indicator": [
+    {
+      url: "/engineering/energy/nuclear-power",
+      title: "核电：临界、纵深防御与事故遗产",
+    },
+    {
+      url: "/engineering/machines/human-factors-engineering",
+      title: "人因工程：为会犯错的人设计",
+    },
+  ],
+  "/engineering/frontiers/vaiont-1963": [
+    {
+      url: "/engineering/frontiers/engineering-ethics",
+      title: "工程伦理：挑战者号与专业责任",
+    },
+    {
+      url: "/engineering/frontiers/malpasset-1959",
+      title: "马尔帕塞：左岸片麻岩退出工作，薄拱没有站住",
+    },
+    {
+      url: "/engineering/frontiers/failure-analysis",
+      title: "失效分析：从事故残骸中长出来的工程",
+    },
+    {
+      url: "/engineering/energy/hydro-power",
+      title: "水电与大坝：驯服河流的工程学",
+    },
+    {
+      url: "/engineering/frontiers/teton-dam-1976",
+      title: "提顿坝：右岸流纹岩里的管涌，没有把土石坝证伪",
     },
   ],
   "/engineering/machines/automation-and-industry": [
@@ -25858,8 +33182,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/engineering/machines/aviation-engineering": [
     {
+      url: "/earth-science/event-analyses/eyjafjallajokull-ash-crisis-2010",
+      title: "2010 年艾雅法拉火山灰危机剖析",
+    },
+    {
       url: "/engineering/foundations/materials-strength",
       title: "材料强度：钢、混凝土与复合材料",
+    },
+    {
+      url: "/engineering/foundations/fatigue-and-fracture",
+      title: "疲劳与断裂：裂纹怎样在远低于静强度时把结构写完",
     },
     {
       url: "/engineering/machines/human-factors-engineering",
@@ -25884,8 +33216,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "机器人系统：感知、规划与执行的分层艺术",
     },
     {
+      url: "/engineering/frontier/embodied-ai-robot-reliability",
+      title: "具身人工智能的可靠性：机器人会说会看，为何仍不会收拾陌生厨房",
+    },
+    {
       url: "/engineering/machines/reliability-engineering",
       title: "可靠性工程：把“不出事”变成可计算的指标",
+    },
+    {
+      url: "/engineering/frontiers/millennium-bridge-2000",
+      title: "伦敦千年桥：开通当日的行人侧向锁定",
+    },
+    {
+      url: "/engineering/frontiers/three-mile-island-porv-indicator",
+      title: "三里岛：卡住的泄压阀与只显示指令的指示灯",
+    },
+    {
+      url: "/engineering/frontiers/challenger-o-ring-organizational-failure",
+      title: "挑战者号事故：密封失效如何穿过组织防线",
     },
   ],
   "/engineering/machines/industrial-engineering-and-quality": [
@@ -25906,8 +33254,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "流动化学：把反应从烧瓶搬进管道",
     },
     {
+      url: "/engineering/frontier/hydrogen-direct-reduced-iron",
+      title: "氢基直接还原铁：绿色钢铁卡在反应炉外的系统工程",
+    },
+    {
+      url: "/engineering/foundations/experimental-design-and-uncertainty",
+      title: "实验设计与测量不确定度：怎样知道一次试验能说明什么",
+    },
+    {
       url: "/engineering/machines/systems-engineering",
       title: "系统工程：需求、约束、验证与变更",
+    },
+    {
+      url: "/engineering/machines/project-and-configuration-control",
+      title: "项目与构型控制：基线、变更和可追到零件上的决定",
+    },
+    {
+      url: "/engineering/machines/shewhart-control-chart",
+      title: "休哈特控制图：一张把“该不该动手”写成界限的纸",
     },
     {
       url: "/computer-science/systems/kafka-log-abstraction",
@@ -25938,14 +33302,68 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "ZFS：不覆盖写，与端到端校验",
     },
   ],
+  "/engineering/machines/project-and-configuration-control": [
+    {
+      url: "/engineering/frontiers/hyatt-regency-walkway-collapse",
+      title: "凯悦走廊倒塌：连接改了一笔，载荷翻了一倍",
+    },
+  ],
   "/engineering/machines/reliability-engineering": [
+    {
+      url: "/engineering/frontier/solid-state-battery-manufacturing",
+      title: "全固态电池制造：去掉可燃电解液之后，失效为何没有消失",
+    },
+    {
+      url: "/engineering/frontiers/three-mile-island-porv-indicator",
+      title: "三里岛：卡住的泄压阀与只显示指令的指示灯",
+    },
+    {
+      url: "/engineering/foundations/experimental-design-and-uncertainty",
+      title: "实验设计与测量不确定度：怎样知道一次试验能说明什么",
+    },
     {
       url: "/engineering/machines/systems-engineering",
       title: "系统工程：需求、约束、验证与变更",
     },
     {
+      url: "/engineering/machines/project-and-configuration-control",
+      title: "项目与构型控制：基线、变更和可追到零件上的决定",
+    },
+    {
+      url: "/engineering/machines/shewhart-control-chart",
+      title: "休哈特控制图：一张把“该不该动手”写成界限的纸",
+    },
+    {
       url: "/cosmology/knowledge-base/太空探索--moon-to-mars-architecture",
       title: "月球到火星架构",
+    },
+    {
+      url: "/computer-science/systems/bigtable-2006",
+      title: "Bigtable：稀疏表、Tablet 与时间戳单元",
+    },
+    {
+      url: "/computer-science/theory/castro-liskov-1999-pbft",
+      title: "Castro–Liskov 1999：实用拜占庭容错，不是将军寓言",
+    },
+    {
+      url: "/computer-science/systems/chubby-2006",
+      title: "Chubby：松耦合系统上的锁服务，不是又一套数据库",
+    },
+    {
+      url: "/computer-science/systems/gfs-2003",
+      title: "GFS：单主节点、大块与可忍受的不一致",
+    },
+    {
+      url: "/computer-science/systems/birman-1985-virtual-synchrony",
+      title: "ISIS 1985：进程组、flush 与虚拟同步，不是又一份 ZooKeeper",
+    },
+    {
+      url: "/computer-science/systems/viewstamped-replication-1988",
+      title: "Viewstamped Replication：视图、主副本与盖章请求，不是又一份 Paxos",
+    },
+    {
+      url: "/computer-science/systems/zookeeper-2010",
+      title: "ZooKeeper：等待自由的协调，不是又一套 Chubby 说明书",
     },
   ],
   "/engineering/machines/robotics-systems": [
@@ -25956,6 +33374,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/engineering/machines/biomedical-engineering",
       title: "生物医学工程：把机器放进身体里",
+    },
+  ],
+  "/engineering/machines/shewhart-control-chart": [
+    {
+      url: "/engineering/machines/industrial-engineering-and-quality",
+      title: "工业工程与质量：把变异当作研究对象",
     },
   ],
   "/engineering/machines/space-engineering": [
@@ -25978,8 +33402,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "人因工程：为会犯错的人设计",
     },
     {
+      url: "/engineering/machines/project-and-configuration-control",
+      title: "项目与构型控制：基线、变更和可追到零件上的决定",
+    },
+    {
       url: "/cosmology/knowledge-base/太空探索--moon-to-mars-architecture",
       title: "月球到火星架构",
+    },
+    {
+      url: "/sociology/concepts/organizational-sociology",
+      title: "组织社会学：组织为何彼此越来越像",
     },
   ],
   "/engineering/machines/telecommunications-networks": [
@@ -26016,6 +33448,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/engineering/materials/chemical-engineering": [
     {
+      url: "/medicine/events/fleming-1928-penicillin-plate",
+      title: "弗莱明青霉素皿：1928 年圣玛丽医院的污染培养皿与 1929 年报告",
+    },
+    {
       url: "/chemistry/milestones/haber-bosch-process",
       title: "哈伯-博施合成氨（1913）",
     },
@@ -26034,6 +33470,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/engineering/materials/concrete-engineering": [
     {
+      url: "/earth-science/event-analyses/mexico-city-1985-site-effect",
+      title: "1985 年墨西哥城场地效应：古湖床软泥、卓越周期与加速度记录怎样把远场放大钉成证据",
+    },
+    {
+      url: "/earth-science/event-analyses/loma-prieta-1989-cypress",
+      title: "1989 年洛马普里埃塔：柏树街高架桥倒塌与滨海区填土怎样把近场走滑钉成场地与结构证据",
+    },
+    {
       url: "/engineering/foundations/materials-strength",
       title: "材料强度：钢、混凝土与复合材料",
     },
@@ -26042,8 +33486,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "低碳水泥与循环混凝土：怎样减掉石灰石必然释放的碳",
     },
     {
+      url: "/engineering/frontiers/ronan-point-1968",
+      title: "罗南角：被掀掉的承重翼墙，没有把高层证伪",
+    },
+    {
       url: "/engineering/civil/skyscrapers",
       title: "摩天楼：风、地震与垂直交通的工程解法",
+    },
+    {
+      url: "/engineering/frontiers/st-francis-dam-1928",
+      title: "圣弗朗西斯坝：东岸古滑坡，没有把重力坝证伪",
     },
     {
       url: "/arts/architecture/modernism-and-international-style",
@@ -26166,12 +33618,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Git 的对象模型：为什么分支是廉价的",
     },
     {
+      url: "/computer-science/systems/hnsw-ann-index",
+      title: "HNSW 与向量近邻：当距离代替关键词",
+    },
+    {
       url: "/computer-science/systems/kafka-log-abstraction",
       title: "Kafka：把消息队列还原成一个日志",
     },
     {
       url: "/computer-science/systems/linux-containers-internals",
       title: "Linux 容器：它不是虚拟机",
+    },
+    {
+      url: "/computer-science/systems/neo4j-property-graph",
+      title: "Neo4j 属性图：当邻居指针取代 JOIN",
     },
     {
       url: "/computer-science/systems/nginx-event-driven",
@@ -26356,8 +33816,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/human-history/frontier/historiography-methods-debate": [
     {
-      url: "/human-history/source-analyses/domesday-book-source-analysis",
-      title: "《末日审判书》史料剖析",
+      url: "/earth-science/event-analyses/cascadia-1700-orphan-tsunami",
+      title: "1700 年 1 月 26 日卡斯卡迪亚巨型逆冲：日本孤儿海啸、淹没森林与浊积岩怎样对上同一时刻",
     },
     {
       url: "/psychology/theorists/erik-erikson",
@@ -26462,10 +33922,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/pioneers/linus-torvalds",
       title: "林纳斯·托瓦兹",
-    },
-    {
-      url: "/human-history/source-analyses/rosetta-stone-source-analysis",
-      title: "罗塞塔石碑史料剖析",
     },
     {
       url: "/psychology/experiments/loftus-car-crash-1974",
@@ -27389,10 +34845,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/life-science/frontier/de-extinction",
       title: "去灭绝——复活恐狼、猛犸与袋狼的工程与幻象",
     },
-    {
-      url: "/life-science/frontier/aging-plasticity",
-      title: "衰老的可塑性——重编程、衰老细胞清除与长寿生物学",
-    },
   ],
   "/human-history/knowledge/人物--释迦牟尼": [
     {
@@ -27858,6 +35310,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/human-history/knowledge/思想史--女性主义": [
     {
+      url: "/cosmology/knowledge-base/宇宙学观测--leavitt-1912-period-luminosity",
+      title: "1912 周光关系：25 颗小麦哲伦云变星怎样被写成相对光度台阶",
+    },
+    {
       url: "/cosmology/knowledge-base/恒星物理--cepheids-variable-stars",
       title: "造父变星与变星",
     },
@@ -28277,6 +35733,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/human-history/knowledge/科学史--炼金术到化学",
       title: "炼金术到化学",
     },
+    {
+      url: "/chemistry/milestones/urey-1931-deuterium",
+      title: "尤里一九三一年的氘：液氢残渣原子光谱里的质量二同位素",
+    },
   ],
   "/human-history/knowledge/科学史--古代天文学": [
     {
@@ -28544,6 +36004,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/media/textiles-and-fiber-arts",
       title: "纺织与纤维艺术：被降格为「工艺」的那门艺术",
+    },
+    {
+      url: "/chemistry/milestones/graebe-liebermann-1868-alizarin",
+      title: "格雷贝与利贝曼一八六八年的茜素：蒽而非萘，以及第一种对打天然物的合成媒染染料",
     },
     {
       url: "/human-history/knowledge/概念--工业革命",
@@ -28880,6 +36344,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "大津巴布韦",
     },
   ],
+  "/human-history/source-analyses/domesday-book-source-analysis": [
+    {
+      url: "/human-history/source-analyses/magna-carta-source-analysis",
+      title: "《大宪章》史料剖析",
+    },
+  ],
   "/human-history/source-analyses/dunhuang-manuscripts-source-analysis": [
     {
       url: "/anthropology/prehistory-and-archaeology/collapse-and-resilience",
@@ -28954,6 +36424,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/human-history/source-analyses/rosetta-stone-source-analysis": [
     {
+      url: "/human-history/source-analyses/magna-carta-source-analysis",
+      title: "《大宪章》史料剖析",
+    },
+    {
       url: "/anthropology/prehistory-and-archaeology/cities-and-early-states",
       title: "城市与早期国家",
     },
@@ -28963,6 +36437,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/human-history/source-analyses/wpa-slave-narratives-source-analysis": [
+    {
+      url: "/psychology/experiments/bartlett-1932",
+      title: "巴特莱特 1932：回忆是图式重构，不是播放录音",
+    },
     {
       url: "/anthropology/comparison-and-ethics/oral-tradition-and-history",
       title: "口头传统与历史",
@@ -28976,6 +36454,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/criminal-and-procedure/criminal-justice-reform",
       title: "刑事司法改革的争议现场：认罪协商、陪审团与监狱的未来",
+    },
+    {
+      url: "/sociology/methods/pager-criminal-record-audit",
+      title: "Pager 前科印记审计：案底怎样在入门岗位上被看见",
     },
   ],
   "/law/criminal-and-procedure/criminal-justice-reform": [
@@ -29002,6 +36484,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/law/criminal-and-procedure/evidence-and-proof": [
     {
+      url: "/human-history/source-analyses/domesday-book-source-analysis",
+      title: "《末日审判书》史料剖析",
+    },
+    {
       url: "/law/legal-traditions/civil-vs-common-law",
       title: "大陆法与普通法：两种法律心智",
     },
@@ -29014,12 +36500,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "回归不连续设计：门槛两边为什么可以比较",
     },
     {
+      url: "/human-history/source-analyses/oracle-bones-source-analysis",
+      title: "甲骨文史料剖析",
+    },
+    {
+      url: "/human-history/source-analyses/rosetta-stone-source-analysis",
+      title: "罗塞塔石碑史料剖析",
+    },
+    {
+      url: "/philosophy/experiments/moore-1939-hands",
+      title: "摩尔的两只手",
+    },
+    {
       url: "/arts/media/photography-history",
       title: "摄影史：从达盖尔银版到艺术殿堂",
     },
     {
       url: "/arts/media/photography-medium",
       title: "摄影作为媒介",
+    },
+    {
+      url: "/arts/frontier/generative-art-authorship-provenance",
+      title: "生成式艺术的作者与来源：作品还能证明自己从哪里来吗",
     },
     {
       url: "/political-science/methods/difference-in-differences",
@@ -29041,6 +36543,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/medicine/ethics/informed-consent-and-shared-decision-making",
       title: "知情同意与共同决策：签字为什么不等于选择",
     },
+    {
+      url: "/philosophy/experiments/donnellan-1966-referring",
+      title: "指称与限定摹状词",
+    },
   ],
   "/law/criminal-and-procedure/procedural-justice": [
     {
@@ -29060,6 +36566,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "具身人工智能的可靠性：机器人会说会看，为何仍不会收拾陌生厨房",
     },
     {
+      url: "/economics/policy-analyses/london-congestion-charge",
+      title: "伦敦拥堵收费剖析",
+    },
+    {
       url: "/law/frontier/climate-litigation-attribution-remedies",
       title: "气候诉讼的下一步：从证明变暖到分配国家与企业责任",
     },
@@ -29073,6 +36583,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/law/foundations/how-courts-decide": [
+    {
+      url: "/human-history/source-analyses/magna-carta-source-analysis",
+      title: "《大宪章》史料剖析",
+    },
     {
       url: "/law/legal-traditions/comparative-law-methods",
       title: "比较法的方法：可比性从何而来",
@@ -29106,6 +36620,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "基础设施数字孪生：什么时候模型才配替真实桥梁作决定",
     },
     {
+      url: "/law/judgment-analyses/carlill-v-carbolic-smoke-ball",
+      title: "卡里尔诉石炭酸烟丸：广告怎样变成一项可强制执行的允诺",
+    },
+    {
       url: "/law/public-law/separation-of-powers",
       title: "权力分立与制衡：把权力关进制度的笼子",
     },
@@ -29122,10 +36640,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: '主体、行为与责任：谁在法律上"算数"',
     },
     {
-      url: "/law/judgment-analyses/brown-v-board-equal-protection",
-      title: "Brown v. Board of Education 判决剖析",
-    },
-    {
       url: "/law/judgment-analyses/donoghue-v-stevenson-duty-of-care",
       title: "Donoghue v Stevenson 判决剖析",
     },
@@ -29138,8 +36652,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Loper Bright v. Raimondo 判决剖析",
     },
     {
+      url: "/law/judgment-analyses/mabo-v-queensland-native-title",
+      title: "Mabo v Queensland (No 2) 判决剖析",
+    },
+    {
       url: "/law/judgment-analyses/marbury-v-madison-judicial-review",
       title: "Marbury v. Madison 判决剖析",
+    },
+    {
+      url: "/psychology/experiments/rosenhan-1973",
+      title: "Rosenhan 假病人研究：诊断标签一旦贴上会怎样",
     },
     {
       url: "/law/judgment-analyses/van-gend-en-loos-direct-effect",
@@ -29164,6 +36686,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "女性主义",
     },
     {
+      url: "/philosophy/experiments/parfit-teletransport",
+      title: "帕菲特的传送：心理连续怎样把人格同一性从重要的事情里拆走",
+    },
+    {
       url: "/law/public-law/administrative-law",
       title: "行政法：给行政权力装上刹车与方向盘",
     },
@@ -29182,26 +36708,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/public-law/fundamental-rights",
       title: "基本权利体系：三代权利、平等审查与限制的限度",
-    },
-    {
-      url: "/law/judgment-analyses/brown-v-board-equal-protection",
-      title: "Brown v. Board of Education 判决剖析",
-    },
-    {
-      url: "/law/judgment-analyses/donoghue-v-stevenson-duty-of-care",
-      title: "Donoghue v Stevenson 判决剖析",
-    },
-    {
-      url: "/law/judgment-analyses/handyside-v-uk-expression-margin",
-      title: "Handyside v. United Kingdom 判决剖析",
-    },
-    {
-      url: "/law/judgment-analyses/marbury-v-madison-judicial-review",
-      title: "Marbury v. Madison 判决剖析",
-    },
-    {
-      url: "/law/judgment-analyses/van-gend-en-loos-direct-effect",
-      title: "Van Gend en Loos 判决剖析",
     },
   ],
   "/law/foundations/rule-of-law": [
@@ -29410,28 +36916,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "API 设计",
     },
     {
-      url: "/law/judgment-analyses/brown-v-board-equal-protection",
-      title: "Brown v. Board of Education 判决剖析",
-    },
-    {
-      url: "/law/judgment-analyses/donoghue-v-stevenson-duty-of-care",
-      title: "Donoghue v Stevenson 判决剖析",
-    },
-    {
-      url: "/law/judgment-analyses/handyside-v-uk-expression-margin",
-      title: "Handyside v. United Kingdom 判决剖析",
-    },
-    {
       url: "/philosophy/thinkers/austin",
       title: "J.L. 奥斯汀",
-    },
-    {
-      url: "/law/judgment-analyses/marbury-v-madison-judicial-review",
-      title: "Marbury v. Madison 判决剖析",
-    },
-    {
-      url: "/law/judgment-analyses/van-gend-en-loos-direct-effect",
-      title: "Van Gend en Loos 判决剖析",
     },
   ],
   "/law/foundations/sources-of-law": [
@@ -29475,6 +36961,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/law/judgment-analyses/donoghue-v-stevenson-duty-of-care",
       title: "Donoghue v Stevenson 判决剖析",
     },
+    {
+      url: "/law/judgment-analyses/mabo-v-queensland-native-title",
+      title: "Mabo v Queensland (No 2) 判决剖析",
+    },
   ],
   "/law/foundations/statutory-interpretation": [
     {
@@ -29492,8 +36982,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "法律渊源与效力层级：谁说了算数",
     },
     {
+      url: "/education/assessment-and-equity/funding-formulas-and-teachability",
+      title: "经费公式与谁被当成可教",
+    },
+    {
       url: "/law/foundations/rights-and-duties",
       title: "权利与义务：霍菲尔德的解剖刀",
+    },
+    {
+      url: "/education/assessment-and-equity/inclusive-education-and-disability",
+      title: "融合教育与谁被当成可教",
     },
   ],
   "/law/frontier/algorithmic-discrimination-audits": [
@@ -29534,6 +37032,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/law/global-and-digital/ai-and-algorithm-governance": [
     {
+      url: "/education/frontier/ai-act-and-education-inference",
+      title: "欧盟 AI 法案把哪些教育推断写成高风险",
+    },
+    {
       url: "/literature/contemporary-edges/generated-text-and-authorship",
       title: "生成文本与作者身份",
     },
@@ -29551,6 +37053,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/law/global-and-digital/climate-litigation": [
+    {
+      url: "/earth-science/event-analyses/pakistan-flood-attribution-2022",
+      title: "2022 年巴基斯坦洪水归因剖析",
+    },
     {
       url: "/law/public-law/environmental-law",
       title: "环境法：把看不见的成本写回账本",
@@ -29584,6 +37090,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/frontier/generative-art-authorship-provenance",
       title: "生成式艺术的作者与来源：作品还能证明自己从哪里来吗",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/language-documentation-ethics",
+      title: "语言记录伦理：谁有权决定一段声音以后还能被怎样使用",
     },
     {
       url: "/linguistics/frontier/language-data-sovereignty",
@@ -29674,10 +37184,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "归属与来源研究：一幅画的履历与它的作者之谜",
     },
     {
-      url: "/law/frontier/cross-border-data-governance",
-      title: "跨境数据治理：云端的一份数据同时服从几套主权",
-    },
-    {
       url: "/medicine/diseases/influenza",
       title: "流感",
     },
@@ -29721,10 +37227,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/law/global-and-digital/ai-and-algorithm-governance",
       title: "AI 与算法治理：法律的追赶",
     },
-    {
-      url: "/law/judgment-analyses/van-gend-en-loos-direct-effect",
-      title: "Van Gend en Loos 判决剖析",
-    },
   ],
   "/law/judgment-analyses/brown-v-board-equal-protection": [
     {
@@ -29736,11 +37238,29 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "基本权利体系：三代权利、平等审查与限制的限度",
     },
     {
+      url: "/sociology/methods/freedom-summer-political-process-analysis",
+      title: "Freedom Summer 复核：谁去了密西西比，谁把机会写成组织",
+    },
+    {
       url: "/law/judgment-analyses/marbury-v-madison-judicial-review",
       title: "Marbury v. Madison 判决剖析",
     },
+    {
+      url: "/human-history/source-analyses/wpa-slave-narratives-source-analysis",
+      title: "WPA 前奴隶口述史料剖析",
+    },
+  ],
+  "/law/judgment-analyses/carlill-v-carbolic-smoke-ball": [
+    {
+      url: "/law/private-law/contract-lifecycle",
+      title: "合同的生命周期：从要约到救济",
+    },
   ],
   "/law/judgment-analyses/donoghue-v-stevenson-duty-of-care": [
+    {
+      url: "/law/judgment-analyses/carlill-v-carbolic-smoke-ball",
+      title: "卡里尔诉石炭酸烟丸：广告怎样变成一项可强制执行的允诺",
+    },
     {
       url: "/law/private-law/tort-and-liability",
       title: "侵权与责任：谁为损害买单",
@@ -29802,6 +37322,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/law/legal-traditions/civil-vs-common-law": [
     {
+      url: "/human-history/source-analyses/magna-carta-source-analysis",
+      title: "《大宪章》史料剖析",
+    },
+    {
       url: "/law/legal-traditions/comparative-law-methods",
       title: "比较法的方法：可比性从何而来",
     },
@@ -29822,14 +37346,30 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "混合法系：当传统相遇",
     },
     {
+      url: "/human-history/source-analyses/rosetta-stone-source-analysis",
+      title: "罗塞塔石碑史料剖析",
+    },
+    {
       url: "/law/criminal-and-procedure/civil-procedure-and-remedies",
       title: "民事程序与救济：权利如何变成结果",
+    },
+    {
+      url: "/law/judgment-analyses/mabo-v-queensland-native-title",
+      title: "Mabo v Queensland (No 2) 判决剖析",
     },
   ],
   "/law/legal-traditions/comparative-law-methods": [
     {
+      url: "/law/private-law/conflict-of-laws",
+      title: "冲突法：跨境民事关系适用哪一套规则",
+    },
+    {
       url: "/law/legal-traditions/mixed-legal-systems",
       title: "混合法系：当传统相遇",
+    },
+    {
+      url: "/law/judgment-analyses/mabo-v-queensland-native-title",
+      title: "Mabo v Queensland (No 2) 判决剖析",
     },
     {
       url: "/law/judgment-analyses/van-gend-en-loos-direct-effect",
@@ -29840,6 +37380,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/legal-traditions/mixed-legal-systems",
       title: "混合法系：当传统相遇",
+    },
+    {
+      url: "/law/judgment-analyses/mabo-v-queensland-native-title",
+      title: "Mabo v Queensland (No 2) 判决剖析",
     },
     {
       url: "/anthropology/urban-and-heritage/nagpra-and-repatriation",
@@ -29887,6 +37431,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/law/criminal-and-procedure/civil-procedure-and-remedies",
       title: "民事程序与救济：权利如何变成结果",
     },
+    {
+      url: "/law/private-law/fiduciary-duty-and-corporate-control",
+      title: "信义义务与控制权：董事到底对谁负责",
+    },
   ],
   "/law/private-law/company-and-market-law": [
     {
@@ -29898,8 +37446,40 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "破产与重整：债务的秩序化清理",
     },
     {
+      url: "/law/private-law/fiduciary-duty-and-corporate-control",
+      title: "信义义务与控制权：董事到底对谁负责",
+    },
+    {
       url: "/law/foundations/legal-persons-acts-liability",
       title: '主体、行为与责任：谁在法律上"算数"',
+    },
+    {
+      url: "/sociology/concepts/organizational-sociology",
+      title: "组织社会学：组织为何彼此越来越像",
+    },
+  ],
+  "/law/private-law/conflict-of-laws": [
+    {
+      url: "/law/private-law/consumer-protection",
+      title: "消费者救济：格式合同对面那个人怎样被当成法律上的弱者",
+    },
+  ],
+  "/law/private-law/consumer-protection": [
+    {
+      url: "/law/private-law/conflict-of-laws",
+      title: "冲突法：跨境民事关系适用哪一套规则",
+    },
+    {
+      url: "/law/judgment-analyses/carlill-v-carbolic-smoke-ball",
+      title: "卡里尔诉石炭酸烟丸：广告怎样变成一项可强制执行的允诺",
+    },
+    {
+      url: "/law/private-law/fiduciary-duty-and-corporate-control",
+      title: "信义义务与控制权：董事到底对谁负责",
+    },
+    {
+      url: "/law/judgment-analyses/donoghue-v-stevenson-duty-of-care",
+      title: "Donoghue v Stevenson 判决剖析",
     },
   ],
   "/law/private-law/contract-lifecycle": [
@@ -29920,6 +37500,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "供应链：全球制造的隐形骨架",
     },
     {
+      url: "/law/judgment-analyses/carlill-v-carbolic-smoke-ball",
+      title: "卡里尔诉石炭酸烟丸：广告怎样变成一项可强制执行的允诺",
+    },
+    {
       url: "/law/private-law/labor-and-employment-law",
       title: "劳动与雇佣法：当合同的一方是活人",
     },
@@ -29932,6 +37516,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "权利与义务：霍菲尔德的解剖刀",
     },
     {
+      url: "/law/private-law/consumer-protection",
+      title: "消费者救济：格式合同对面那个人怎样被当成法律上的弱者",
+    },
+    {
       url: "/law/foundations/legal-persons-acts-liability",
       title: '主体、行为与责任：谁在法律上"算数"',
     },
@@ -29939,11 +37527,31 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/law/judgment-analyses/donoghue-v-stevenson-duty-of-care",
       title: "Donoghue v Stevenson 判决剖析",
     },
+    {
+      url: "/computer-science/theory/gray-1978-two-phase-commit",
+      title: "Gray 1978：两阶段提交怎样把多处改动收成提交或中止",
+    },
+  ],
+  "/law/private-law/family-and-inheritance-law": [
+    {
+      url: "/law/private-law/conflict-of-laws",
+      title: "冲突法：跨境民事关系适用哪一套规则",
+    },
+  ],
+  "/law/private-law/fiduciary-duty-and-corporate-control": [
+    {
+      url: "/law/private-law/company-and-market-law",
+      title: "公司与市场组织：有限责任的发明及其代价",
+    },
   ],
   "/law/private-law/intellectual-property": [
     {
       url: "/literature/contemporary-edges/copyright-and-the-public-domain",
       title: "版权与公有领域",
+    },
+    {
+      url: "/arts/frontier/museum-restitution-digital-repatriation",
+      title: "博物馆返还与数字归还：复制一件物，能修复被夺走的关系吗",
     },
     {
       url: "/arts/media/animation-and-comics",
@@ -29958,12 +37566,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "粉丝与二次创作",
     },
     {
+      url: "/chemistry/milestones/graebe-liebermann-1868-alizarin",
+      title: "格雷贝与利贝曼一八六八年的茜素：蒽而非萘，以及第一种对打天然物的合成媒染染料",
+    },
+    {
       url: "/life-science/knowledge-base/当代议题--合成生物学",
       title: "合成生物学：从解读生命到创造生命",
     },
     {
+      url: "/chemistry/milestones/perkin-1856-mauveine",
+      title: "珀金一八五六年的苯胺紫：复活节失败的奎宁凑法与第一种商业合成染料",
+    },
+    {
       url: "/arts/frontier/generative-art-authorship-provenance",
       title: "生成式艺术的作者与来源：作品还能证明自己从哪里来吗",
+    },
+    {
+      url: "/religion/frontier/digital-religion-ai-authority",
+      title: "生成式AI能成为宗教权威吗",
     },
     {
       url: "/literature/contemporary-edges/generated-text-and-authorship",
@@ -29980,6 +37600,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/literature/reading-and-reception/libraries-and-the-book-trade",
       title: "图书馆与书籍市场",
+    },
+    {
+      url: "/literature/frontier/llm-training-corpus-litigation",
+      title: "训练语料诉讼还不是判决",
     },
     {
       url: "/arts/media/games-and-interactive-media",
@@ -30020,8 +37644,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "公司与市场组织：有限责任的发明及其代价",
     },
     {
+      url: "/education/education-technology/teacher-labor-and-platforms",
+      title: "教师劳动与平台",
+    },
+    {
       url: "/sociology/institutions/education-and-credentialism",
       title: "教育与文凭社会",
+    },
+    {
+      url: "/education/education-technology/open-resources-are-not-neutral",
+      title: "开放资源不是中立",
+    },
+    {
+      url: "/education/curriculum-and-teaching/lesson-study-is-professional-knowledge",
+      title: "课例研究是专业知识",
     },
     {
       url: "/sociology/concepts/emotions-and-emotional-labor",
@@ -30036,8 +37672,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "数字平台社会",
     },
     {
+      url: "/law/private-law/fiduciary-duty-and-corporate-control",
+      title: "信义义务与控制权：董事到底对谁负责",
+    },
+    {
       url: "/sociology/concepts/deviance-and-social-control",
       title: "越轨与社会控制",
+    },
+    {
+      url: "/education/curriculum-and-teaching/vocational-schooling-is-a-track",
+      title: "职业教育是一种轨道",
     },
   ],
   "/law/private-law/law-and-economics": [
@@ -30095,8 +37739,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/anthropology/urban-and-heritage/who-owns-the-past",
       title: "谁拥有过去",
     },
+    {
+      url: "/philosophy/experiments/wilt-chamberlain",
+      title: "威尔特·张伯伦",
+    },
+    {
+      url: "/law/judgment-analyses/mabo-v-queensland-native-title",
+      title: "Mabo v Queensland (No 2) 判决剖析",
+    },
   ],
   "/law/private-law/tort-and-liability": [
+    {
+      url: "/law/private-law/conflict-of-laws",
+      title: "冲突法：跨境民事关系适用哪一套规则",
+    },
     {
       url: "/law/private-law/law-and-economics",
       title: "法经济学：把激励写进规则",
@@ -30112,6 +37768,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/engineering/frontiers/failure-analysis",
       title: "失效分析：从事故残骸中长出来的工程",
+    },
+    {
+      url: "/law/private-law/consumer-protection",
+      title: "消费者救济：格式合同对面那个人怎样被当成法律上的弱者",
     },
     {
       url: "/law/foundations/legal-persons-acts-liability",
@@ -30136,8 +37796,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "官僚制",
     },
     {
+      url: "/engineering/frontiers/hartford-civic-center-1978",
+      title: "哈特福德市政中心：积雪夜里塌下来的双向钢网架",
+    },
+    {
       url: "/law/public-law/environmental-law",
       title: "环境法：把看不见的成本写回账本",
+    },
+    {
+      url: "/engineering/frontiers/millennium-bridge-2000",
+      title: "伦敦千年桥：开通当日的行人侧向锁定",
     },
     {
       url: "/sociology/thinkers/max-weber-sociology",
@@ -30150,6 +37818,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/foundations/rights-and-duties",
       title: "权利与义务：霍菲尔德的解剖刀",
+    },
+    {
+      url: "/engineering/frontiers/tay-bridge-1879",
+      title: "泰桥：风压没写进设计的铸铁斜撑",
+    },
+    {
+      url: "/engineering/frontiers/i35w-minneapolis-2007",
+      title: "I-35W 明尼阿波利斯：半英寸加劲板，把主桁架写成河",
     },
     {
       url: "/law/judgment-analyses/loper-bright-chevron-deference-overruled",
@@ -30208,6 +37884,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/public-law/china-constitutional-development",
       title: "中国宪法与法治发展：从五四宪法到全面依法治国",
+    },
+    {
+      url: "/law/judgment-analyses/handyside-v-uk-expression-margin",
+      title: "Handyside v. United Kingdom 判决剖析",
     },
     {
       url: "/law/judgment-analyses/marbury-v-madison-judicial-review",
@@ -30290,6 +37970,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Marbury v. Madison 判决剖析",
     },
   ],
+  "/law/public-law/tax-and-fiscal-law": [
+    {
+      url: "/philosophy/experiments/wilt-chamberlain",
+      title: "威尔特·张伯伦",
+    },
+  ],
   "/life-science/dialogues/darwin-wallace": [
     {
       url: "/human-history/knowledge/人物--达尔文",
@@ -30348,6 +38034,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "炎症",
     },
   ],
+  "/life-science/frontier/brain-computer-interfaces": [
+    {
+      url: "/law/frontier/neurotechnology-mental-privacy",
+      title: "神经技术与精神隐私：大脑数据需要一种新权利吗",
+    },
+  ],
   "/life-science/frontier/organoids-and-brain-intelligence": [
     {
       url: "/life-science/knowledge-base/分子生物学--干细胞",
@@ -30396,7 +38088,225 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "天花根除（1980）",
     },
   ],
+  "/life-science/knowledge-base/avery-macleod-mccarty-transformation": [
+    {
+      url: "/life-science/knowledge-base/beadle-tatum-1941",
+      title: "比德尔–塔特姆 1941：红色面包霉把一步代谢写成一个基因",
+    },
+    {
+      url: "/life-science/knowledge-base/当代议题--病毒学",
+      title: "病毒学：在生与非生之间的存在",
+    },
+    {
+      url: "/chemistry/milestones/chargaff-1950-base-ratios",
+      title: "查加夫一九五〇年的碱基比：Experientia 短文里的物种表",
+    },
+    {
+      url: "/life-science/knowledge-base/griffith-1928-transformation",
+      title: "格里菲斯 1928：转化的生物学读出",
+    },
+    {
+      url: "/life-science/knowledge-base/lederberg-tatum-1946-conjugation",
+      title: "莱德伯格–塔特姆 1946：选择平板上的原养型证明细菌会重组",
+    },
+    {
+      url: "/life-science/knowledge-base/luria-delbruck-fluctuation",
+      title: "卢里亚–德尔布吕克：方差怎样拆开突变与适应",
+    },
+    {
+      url: "/life-science/knowledge-base/进化机制--水平基因转移",
+      title: "水平基因转移：超越亲代的遗传",
+    },
+    {
+      url: "/life-science/scientists/watson",
+      title: "詹姆斯·沃森",
+    },
+    {
+      url: "/life-science/knowledge-base/人体--DNA与遗传",
+      title: "DNA与遗传：双螺旋、基因表达与表观遗传",
+    },
+    {
+      url: "/life-science/knowledge-base/meselson-stahl-replication",
+      title: "Meselson–Stahl：半保留复制怎样被称出来",
+    },
+  ],
+  "/life-science/knowledge-base/beadle-tatum-1941": [
+    {
+      url: "/life-science/knowledge-base/分子生物学--基因调控",
+      title: "基因调控：从转录因子到增强子",
+    },
+    {
+      url: "/life-science/knowledge-base/lederberg-tatum-1946-conjugation",
+      title: "莱德伯格–塔特姆 1946：选择平板上的原养型证明细菌会重组",
+    },
+    {
+      url: "/life-science/knowledge-base/进化机制--水平基因转移",
+      title: "水平基因转移：超越亲代的遗传",
+    },
+    {
+      url: "/life-science/knowledge-base/avery-macleod-mccarty-transformation",
+      title: "Avery–MacLeod–McCarty：转化因子怎样被写成 DNA",
+    },
+  ],
+  "/life-science/knowledge-base/griffith-1928-transformation": [
+    {
+      url: "/life-science/knowledge-base/beadle-tatum-1941",
+      title: "比德尔–塔特姆 1941：红色面包霉把一步代谢写成一个基因",
+    },
+    {
+      url: "/life-science/knowledge-base/lederberg-tatum-1946-conjugation",
+      title: "莱德伯格–塔特姆 1946：选择平板上的原养型证明细菌会重组",
+    },
+    {
+      url: "/life-science/knowledge-base/luria-delbruck-fluctuation",
+      title: "卢里亚–德尔布吕克：方差怎样拆开突变与适应",
+    },
+    {
+      url: "/life-science/knowledge-base/avery-macleod-mccarty-transformation",
+      title: "Avery–MacLeod–McCarty：转化因子怎样被写成 DNA",
+    },
+  ],
+  "/life-science/knowledge-base/lamarckism-and-its-afterlives": [
+    {
+      url: "/life-science/knowledge-base/luria-delbruck-fluctuation",
+      title: "卢里亚–德尔布吕克：方差怎样拆开突变与适应",
+    },
+  ],
+  "/life-science/knowledge-base/lederberg-tatum-1946-conjugation": [
+    {
+      url: "/life-science/knowledge-base/beadle-tatum-1941",
+      title: "比德尔–塔特姆 1941：红色面包霉把一步代谢写成一个基因",
+    },
+    {
+      url: "/life-science/knowledge-base/griffith-1928-transformation",
+      title: "格里菲斯 1928：转化的生物学读出",
+    },
+    {
+      url: "/life-science/knowledge-base/luria-delbruck-fluctuation",
+      title: "卢里亚–德尔布吕克：方差怎样拆开突变与适应",
+    },
+    {
+      url: "/life-science/scientists/pasteur",
+      title: "路易·巴斯德",
+    },
+    {
+      url: "/life-science/knowledge-base/进化机制--水平基因转移",
+      title: "水平基因转移：超越亲代的遗传",
+    },
+    {
+      url: "/life-science/scientists/watson",
+      title: "詹姆斯·沃森",
+    },
+    {
+      url: "/life-science/knowledge-base/avery-macleod-mccarty-transformation",
+      title: "Avery–MacLeod–McCarty：转化因子怎样被写成 DNA",
+    },
+  ],
+  "/life-science/knowledge-base/luria-delbruck-fluctuation": [
+    {
+      url: "/life-science/knowledge-base/pasteur-swan-neck-flask",
+      title: "巴斯德鹅颈瓶：空气通过、尘埃留下",
+    },
+    {
+      url: "/life-science/knowledge-base/beadle-tatum-1941",
+      title: "比德尔–塔特姆 1941：红色面包霉把一步代谢写成一个基因",
+    },
+    {
+      url: "/life-science/knowledge-base/griffith-1928-transformation",
+      title: "格里菲斯 1928：转化的生物学读出",
+    },
+    {
+      url: "/life-science/knowledge-base/lederberg-tatum-1946-conjugation",
+      title: "莱德伯格–塔特姆 1946：选择平板上的原养型证明细菌会重组",
+    },
+    {
+      url: "/life-science/knowledge-base/avery-macleod-mccarty-transformation",
+      title: "Avery–MacLeod–McCarty：转化因子怎样被写成 DNA",
+    },
+    {
+      url: "/life-science/knowledge-base/meselson-stahl-replication",
+      title: "Meselson–Stahl：半保留复制怎样被称出来",
+    },
+  ],
+  "/life-science/knowledge-base/meselson-stahl-replication": [
+    {
+      url: "/chemistry/milestones/chargaff-1950-base-ratios",
+      title: "查加夫一九五〇年的碱基比：Experientia 短文里的物种表",
+    },
+    {
+      url: "/life-science/knowledge-base/luria-delbruck-fluctuation",
+      title: "卢里亚–德尔布吕克：方差怎样拆开突变与适应",
+    },
+    {
+      url: "/life-science/knowledge-base/avery-macleod-mccarty-transformation",
+      title: "Avery–MacLeod–McCarty：转化因子怎样被写成 DNA",
+    },
+  ],
+  "/life-science/knowledge-base/pasteur-swan-neck-flask": [
+    {
+      url: "/chemistry/milestones/pasteur-1848-tartaric",
+      title: "巴斯德一八四八年的酒石酸钠铵盐：半面晶面、镊子和相反的旋光",
+    },
+    {
+      url: "/medicine/events/enders-1949-polio-culture",
+      title: "恩德斯 1949 脊髓灰质炎组织培养：非神经组织上的增殖与细胞病变读出",
+    },
+    {
+      url: "/life-science/knowledge-base/griffith-1928-transformation",
+      title: "格里菲斯 1928：转化的生物学读出",
+    },
+    {
+      url: "/medicine/events/landsteiner-1901-abo",
+      title: "兰德施泰纳 1901 正常人血凝集：血清使他人血球成团，以及后来称为 A、B、C 的分组",
+    },
+    {
+      url: "/medicine/events/lister-carbolic-1867",
+      title: "李斯特石炭酸：1867 年《柳叶刀》里的开放性骨折系列",
+    },
+    {
+      url: "/life-science/knowledge-base/luria-delbruck-fluctuation",
+      title: "卢里亚–德尔布吕克：方差怎样拆开突变与适应",
+    },
+    {
+      url: "/life-science/scientists/pasteur",
+      title: "路易·巴斯德",
+    },
+    {
+      url: "/chemistry/milestones/miller-urey-experiment",
+      title: "米勒–尤里实验：火花、还原气体与氨基酸",
+    },
+    {
+      url: "/life-science/knowledge-base/spontaneous-generation",
+      title: "自然发生说：两千年、三轮实验、一场被操纵的评奖",
+    },
+  ],
+  "/life-science/knowledge-base/spontaneous-generation": [
+    {
+      url: "/life-science/knowledge-base/pasteur-swan-neck-flask",
+      title: "巴斯德鹅颈瓶：空气通过、尘埃留下",
+    },
+    {
+      url: "/chemistry/milestones/miller-urey-experiment",
+      title: "米勒–尤里实验：火花、还原气体与氨基酸",
+    },
+    {
+      url: "/chemistry/milestones/wohler-urea-synthesis",
+      title: "维勒的尿素合成：氰酸铵怎样重排成可鉴定的晶体",
+    },
+    {
+      url: "/life-science/knowledge-base/avery-macleod-mccarty-transformation",
+      title: "Avery–MacLeod–McCarty：转化因子怎样被写成 DNA",
+    },
+    {
+      url: "/life-science/knowledge-base/meselson-stahl-replication",
+      title: "Meselson–Stahl：半保留复制怎样被称出来",
+    },
+  ],
   "/life-science/knowledge-base/人体--DNA与遗传": [
+    {
+      url: "/life-science/knowledge-base/beadle-tatum-1941",
+      title: "比德尔–塔特姆 1941：红色面包霉把一步代谢写成一个基因",
+    },
     {
       url: "/life-science/knowledge-base/当代议题--病毒学",
       title: "病毒学：在生与非生之间的存在",
@@ -30408,6 +38318,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/figures/frederick-sanger",
       title: "弗雷德里克·桑格",
+    },
+    {
+      url: "/life-science/knowledge-base/griffith-1928-transformation",
+      title: "格里菲斯 1928：转化的生物学读出",
     },
     {
       url: "/universe-physics/knowledge-base/凝聚态物理--crystal-structure-bragg-diffraction",
@@ -30424,6 +38338,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/关键事件--人类走出非洲",
       title: "人类走出非洲：智人的全球迁徙",
+    },
+    {
+      url: "/chemistry/milestones/staudinger-1920-macromolecules",
+      title: "施陶丁格 1920：高分子怎样被写成共价长链",
     },
     {
       url: "/life-science/scientists/svante-paabo",
@@ -30456,6 +38374,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/scientists/jennifer-doudna",
       title: "珍妮弗·杜德纳",
+    },
+    {
+      url: "/life-science/knowledge-base/avery-macleod-mccarty-transformation",
+      title: "Avery–MacLeod–McCarty：转化因子怎样被写成 DNA",
+    },
+    {
+      url: "/life-science/knowledge-base/meselson-stahl-replication",
+      title: "Meselson–Stahl：半保留复制怎样被称出来",
     },
     {
       url: "/life-science/knowledge-base/生物技术--PCR技术",
@@ -30768,6 +38694,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/life-science/knowledge-base/分子生物学--基因调控": [
     {
+      url: "/life-science/knowledge-base/beadle-tatum-1941",
+      title: "比德尔–塔特姆 1941：红色面包霉把一步代谢写成一个基因",
+    },
+    {
       url: "/life-science/knowledge-base/分子生物学--表观遗传",
       title: "表观遗传：不改变DNA的遗传变化",
     },
@@ -30886,6 +38816,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/医学--癌症生物学",
       title: "癌症生物学：基因突变、肿瘤微环境与免疫疗法",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--meitner-frisch-1938-fission",
+      title: "迈特纳与弗里施：怎样把哈恩的钡读成重核液滴分裂，而不是超铀元素",
+    },
+    {
+      url: "/philosophy/experiments/parfit-teletransport",
+      title: "帕菲特的传送：心理连续怎样把人格同一性从重要的事情里拆走",
     },
     {
       url: "/computer-science/algorithms/topological-sort",
@@ -31090,6 +39028,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/life-science/knowledge-base/医学--疫苗原理": [
     {
+      url: "/medicine/events/enders-1949-polio-culture",
+      title: "恩德斯 1949 脊髓灰质炎组织培养：非神经组织上的增殖与细胞病变读出",
+    },
+    {
       url: "/medicine/diseases/liver-disease",
       title: "肝硬化与慢性肝病",
     },
@@ -31188,6 +39130,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "酶与生物催化：让不可能的反应在体温下发生",
     },
     {
+      url: "/chemistry/milestones/miller-urey-experiment",
+      title: "米勒–尤里实验：火花、还原气体与氨基酸",
+    },
+    {
       url: "/earth-science/frontier/deep-sea-hydrothermal-frontiers",
       title: "深海前沿：生命起点、地下生物圈与海底采矿的争夺",
     },
@@ -31271,6 +39217,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/life-science/knowledge-base/当代议题--病毒学": [
+    {
+      url: "/medicine/events/enders-1949-polio-culture",
+      title: "恩德斯 1949 脊髓灰质炎组织培养：非神经组织上的增殖与细胞病变读出",
+    },
     {
       url: "/medicine/diseases/influenza",
       title: "流感",
@@ -31998,6 +39948,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/life-science/knowledge-base/进化专题--动物行为与本能": [
     {
+      url: "/philosophy/experiments/nagel-bat",
+      title: "内格尔的蝙蝠：成为某物是什么样子",
+    },
+    {
       url: "/universe-physics/knowledge-base/经典物理--声学与多普勒效应",
       title: "声学与多普勒效应",
     },
@@ -32074,7 +40028,17 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "社会性的进化：利他、亲缘选择与群体选择",
     },
   ],
+  "/life-science/knowledge-base/进化专题--飞行的进化": [
+    {
+      url: "/philosophy/experiments/nagel-bat",
+      title: "内格尔的蝙蝠：成为某物是什么样子",
+    },
+  ],
   "/life-science/knowledge-base/进化专题--驯化": [
+    {
+      url: "/chemistry/milestones/graebe-liebermann-1868-alizarin",
+      title: "格雷贝与利贝曼一八六八年的茜素：蒽而非萘，以及第一种对打天然物的合成媒染染料",
+    },
     {
       url: "/human-history/knowledge/远古时期--亚洲--黄河文明萌芽",
       title: "黄河文明萌芽",
@@ -32352,8 +40316,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "保罗·罗默",
     },
     {
+      url: "/life-science/knowledge-base/beadle-tatum-1941",
+      title: "比德尔–塔特姆 1941：红色面包霉把一步代谢写成一个基因",
+    },
+    {
       url: "/life-science/knowledge-base/当代议题--病毒学",
       title: "病毒学：在生与非生之间的存在",
+    },
+    {
+      url: "/life-science/knowledge-base/griffith-1928-transformation",
+      title: "格里菲斯 1928：转化的生物学读出",
     },
     {
       url: "/life-science/scientists/woese",
@@ -32364,12 +40336,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "抗生素：从青霉素奇迹到耐药性危机",
     },
     {
+      url: "/life-science/knowledge-base/lederberg-tatum-1946-conjugation",
+      title: "莱德伯格–塔特姆 1946：选择平板上的原养型证明细菌会重组",
+    },
+    {
       url: "/life-science/knowledge-base/进化机制--tree-of-life-phylogenetics",
       title: "生命之树与系统发育：如何读出 40 亿年的亲缘关系",
     },
     {
       url: "/life-science/knowledge-base/生物技术--转基因",
       title: "转基因：GMO争议与Golden Rice的故事",
+    },
+    {
+      url: "/life-science/knowledge-base/avery-macleod-mccarty-transformation",
+      title: "Avery–MacLeod–McCarty：转化因子怎样被写成 DNA",
     },
     {
       url: "/medicine/technologies/crispr-gene-editing",
@@ -32660,6 +40640,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/life-science/scientists/crick": [
     {
+      url: "/chemistry/milestones/chargaff-1950-base-ratios",
+      title: "查加夫一九五〇年的碱基比：Experientia 短文里的物种表",
+    },
+    {
       url: "/computer-science/pioneers/dennis-ritchie",
       title: "丹尼斯·里奇",
     },
@@ -32686,6 +40670,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/scientists/jennifer-doudna",
       title: "珍妮弗·杜德纳",
+    },
+    {
+      url: "/life-science/knowledge-base/meselson-stahl-replication",
+      title: "Meselson–Stahl：半保留复制怎样被称出来",
     },
     {
       url: "/computer-science/concepts/unicode-and-text-encoding",
@@ -32728,6 +40716,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/debates/emotion-universality-debate",
       title: "情绪普遍性之争",
+    },
+    {
+      url: "/life-science/frontier/aging-plasticity",
+      title: "衰老的可塑性——重编程、衰老细胞清除与长寿生物学",
     },
     {
       url: "/life-science/scientists/gould",
@@ -32784,6 +40776,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/scientists/watson",
       title: "詹姆斯·沃森",
+    },
+    {
+      url: "/life-science/knowledge-base/avery-macleod-mccarty-transformation",
+      title: "Avery–MacLeod–McCarty：转化因子怎样被写成 DNA",
+    },
+    {
+      url: "/life-science/knowledge-base/meselson-stahl-replication",
+      title: "Meselson–Stahl：半保留复制怎样被称出来",
     },
   ],
   "/life-science/scientists/gould": [
@@ -32850,26 +40850,62 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/life-science/scientists/mendel": [
     {
+      url: "/life-science/knowledge-base/beadle-tatum-1941",
+      title: "比德尔–塔特姆 1941：红色面包霉把一步代谢写成一个基因",
+    },
+    {
       url: "/life-science/scientists/darwin",
       title: "查尔斯·达尔文",
+    },
+    {
+      url: "/life-science/knowledge-base/lederberg-tatum-1946-conjugation",
+      title: "莱德伯格–塔特姆 1946：选择平板上的原养型证明细菌会重组",
+    },
+    {
+      url: "/medicine/events/landsteiner-1901-abo",
+      title: "兰德施泰纳 1901 正常人血凝集：血清使他人血球成团，以及后来称为 A、B、C 的分组",
     },
     {
       url: "/mathematics/concepts/continuity",
       title: "连续性",
     },
     {
+      url: "/life-science/knowledge-base/luria-delbruck-fluctuation",
+      title: "卢里亚–德尔布吕克：方差怎样拆开突变与适应",
+    },
+    {
       url: "/medicine/concepts/hematology",
       title: "血液学",
     },
+    {
+      url: "/life-science/knowledge-base/meselson-stahl-replication",
+      title: "Meselson–Stahl：半保留复制怎样被称出来",
+    },
   ],
   "/life-science/scientists/pasteur": [
+    {
+      url: "/life-science/knowledge-base/pasteur-swan-neck-flask",
+      title: "巴斯德鹅颈瓶：空气通过、尘埃留下",
+    },
     {
       url: "/chemistry/milestones/vitalism-and-its-long-death",
       title: "活力论的漫长死亡（1828—1900）",
     },
     {
+      url: "/life-science/knowledge-base/lederberg-tatum-1946-conjugation",
+      title: "莱德伯格–塔特姆 1946：选择平板上的原养型证明细菌会重组",
+    },
+    {
       url: "/life-science/knowledge-base/spontaneous-generation",
       title: "自然发生说：两千年、三轮实验、一场被操纵的评奖",
+    },
+    {
+      url: "/life-science/knowledge-base/avery-macleod-mccarty-transformation",
+      title: "Avery–MacLeod–McCarty：转化因子怎样被写成 DNA",
+    },
+    {
+      url: "/life-science/knowledge-base/meselson-stahl-replication",
+      title: "Meselson–Stahl：半保留复制怎样被称出来",
     },
   ],
   "/life-science/scientists/svante-paabo": [
@@ -32888,6 +40924,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/life-science/scientists/watson": [
     {
+      url: "/chemistry/milestones/chargaff-1950-base-ratios",
+      title: "查加夫一九五〇年的碱基比：Experientia 短文里的物种表",
+    },
+    {
       url: "/life-science/scientists/crick",
       title: "弗朗西斯·克里克",
     },
@@ -32896,8 +40936,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "晶体结构与布拉格衍射",
     },
     {
+      url: "/life-science/knowledge-base/lederberg-tatum-1946-conjugation",
+      title: "莱德伯格–塔特姆 1946：选择平板上的原养型证明细菌会重组",
+    },
+    {
       url: "/life-science/scientists/jennifer-doudna",
       title: "珍妮弗·杜德纳",
+    },
+    {
+      url: "/life-science/knowledge-base/meselson-stahl-replication",
+      title: "Meselson–Stahl：半保留复制怎样被称出来",
     },
   ],
   "/life-science/scientists/wilson": [
@@ -33090,6 +41138,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/linguistics/acquisition-and-mind/children-learn-language": [
     {
+      url: "/education/frontier/science-of-reading-statutes",
+      title: "「阅读科学」立法改的是什么",
+    },
+    {
       url: "/linguistics/methods-and-frontiers/llm-and-linguistic-theory",
       title: "大语言模型与语言学理论",
     },
@@ -33102,8 +41154,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "第一语言习得",
     },
     {
+      url: "/education/cognition-and-memory/memory-spacing-and-transfer",
+      title: "记忆、间隔与迁移",
+    },
+    {
+      url: "/education/curriculum-and-teaching/classroom-as-time",
+      title: "课堂是被组织的时间",
+    },
+    {
       url: "/anthropology/kinship-and-exchange/kinship-terminology",
       title: "亲属称谓",
+    },
+    {
+      url: "/education/learning-foundations/what-is-learning",
+      title: "什么是学习",
     },
     {
       url: "/linguistics/sounds-and-signs/sign-language-structure",
@@ -33112,6 +41176,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/sounds-and-signs/sign-language-research",
       title: "手语研究：一门学科的诞生",
+    },
+    {
+      url: "/education/curriculum-and-teaching/bilingual-education-is-a-design",
+      title: "双语教育是一种设计",
     },
     {
       url: "/linguistics/sounds-and-signs/language-speech-and-sign",
@@ -33156,6 +41224,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "儿童怎样学会语言",
     },
     {
+      url: "/psychology/experiments/harlow-1958-contact-comfort",
+      title: "哈洛 1958：布母猴怎样把接触安慰写成可计时的偏好",
+    },
+    {
+      url: "/philosophy/experiments/wittgenstein-beetle",
+      title: "甲虫盒子：私人对象在语言游戏中约去",
+    },
+    {
       url: "/linguistics/sounds-and-signs/tone-and-prosody",
       title: "声调与韵律",
     },
@@ -33164,12 +41240,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "实验语用学：含义如何被测量",
     },
     {
+      url: "/education/curriculum-and-teaching/bilingual-education-is-a-design",
+      title: "双语教育是一种设计",
+    },
+    {
       url: "/computer-science/theory/formal-grammars-chomsky-hierarchy",
       title: "形式文法与乔姆斯基谱系",
     },
     {
       url: "/linguistics/words-sentences-meaning/morphological-productivity",
       title: "形态生产性：规则什么时候是活的",
+    },
+    {
+      url: "/education/learning-foundations/early-childhood-is-an-institution",
+      title: "学前是一种制度",
     },
     {
       url: "/linguistics/words-sentences-meaning/grammar-theories",
@@ -33188,8 +41272,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "阅读习得与读写困难",
     },
     {
+      url: "/education/comparison-and-policy/colonial-curriculum-and-language",
+      title: "殖民课程与语言",
+    },
+    {
       url: "/linguistics/acquisition-and-mind/wug-test-morphology-analysis",
       title: "Wug Test 实验剖析：儿童怎样生成没听过的词",
+    },
+  ],
+  "/linguistics/acquisition-and-mind/infant-categorical-perception": [
+    {
+      url: "/linguistics/acquisition-and-mind/first-language-acquisition",
+      title: "第一语言习得",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/voice-onset-time",
+      title: "嗓音起始时间：连续气流怎样被切成清浊",
     },
   ],
   "/linguistics/acquisition-and-mind/language-and-brain": [
@@ -33280,6 +41378,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/linguistics/acquisition-and-mind/psycholinguistic-processing": [
     {
+      url: "/psychology/experiments/ebbinghaus-1885",
+      title: "艾宾浩斯 1885：无意义音节与节省法怎样把遗忘写成可再学的差额",
+    },
+    {
+      url: "/psychology/experiments/peterson-peterson-1959",
+      title: "彼得森 1959：倒数干扰怎样把单个项目的短时保持画成秒级曲线",
+    },
+    {
+      url: "/psychology/experiments/brown-1958",
+      title: "布朗 1958：即时记忆的衰减怎样被若干测验问到，却还没有画成一条间隔曲线",
+    },
+    {
       url: "/linguistics/words-sentences-meaning/words-and-sentences",
       title: "词如何组成句子",
     },
@@ -33328,8 +41438,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "句法学：结构与依存",
     },
     {
+      url: "/psychology/experiments/keppel-underwood-1962",
+      title: "凯佩尔与安德伍德 1962：单项目短时保持里的前摄抑制怎样随试次变陡",
+    },
+    {
       url: "/mathematics/paradoxes/russels-paradox",
       title: "罗素悖论",
+    },
+    {
+      url: "/psychology/experiments/miller-1956",
+      title: "米勒 1956：绝对判断、即时记忆与组块怎样把容量从比特改写成结构",
     },
     {
       url: "/linguistics/sounds-and-signs/tone-and-prosody",
@@ -33338,6 +41456,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/methods-and-frontiers/experimental-linguistics",
       title: "实验语言学与因果推断",
+    },
+    {
+      url: "/psychology/experiments/wickens-1970",
+      title: "威肯斯 1970：换编码范畴怎样把前摄抑制释放写成意义的尺子",
     },
     {
       url: "/linguistics/words-sentences-meaning/morphological-productivity",
@@ -33404,6 +41526,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "声调与韵律",
     },
     {
+      url: "/education/curriculum-and-teaching/bilingual-education-is-a-design",
+      title: "双语教育是一种设计",
+    },
+    {
       url: "/linguistics/sounds-and-signs/speech-perception",
       title: "言语感知：从连续声波到离散单位",
     },
@@ -33414,6 +41540,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/acquisition-and-mind/psycholinguistic-processing",
       title: "语言理解与产生",
+    },
+    {
+      url: "/education/comparison-and-policy/colonial-curriculum-and-language",
+      title: "殖民课程与语言",
     },
   ],
   "/linguistics/acquisition-and-mind/wug-test-morphology-analysis": [
@@ -33434,6 +41564,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "形态生产性：规则什么时候是活的",
     },
     {
+      url: "/linguistics/acquisition-and-mind/infant-categorical-perception",
+      title: "婴儿范畴知觉：高振幅吮吸怎样把时间差写成月龄证据",
+    },
+    {
       url: "/linguistics/methods-and-frontiers/corpus-annotation-and-agreement",
       title: "语料标注与一致性：标注方案如何决定结论",
     },
@@ -33442,6 +41576,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/frontier/museum-restitution-digital-repatriation",
       title: "博物馆返还与数字归还：复制一件物，能修复被夺走的关系吗",
+    },
+    {
+      url: "/religion/frontier/digital-religion-ai-authority",
+      title: "生成式AI能成为宗教权威吗",
     },
   ],
   "/linguistics/frontier/typology-sampling-bias": [
@@ -33516,6 +41654,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/sounds-and-signs/sign-language-structure",
       title: "手语的空间语法",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/language-documentation-ethics",
+      title: "语言记录伦理：谁有权决定一段声音以后还能被怎样使用",
     },
     {
       url: "/linguistics/history-typology-society/language-contact",
@@ -33630,6 +41772,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "手语研究：一门学科的诞生",
     },
     {
+      url: "/education/curriculum-and-teaching/bilingual-education-is-a-design",
+      title: "双语教育是一种设计",
+    },
+    {
       url: "/human-history/knowledge/事件--丝绸之路",
       title: "丝绸之路",
     },
@@ -33688,6 +41834,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/concepts/philosophy-of-language",
       title: "语言哲学",
+    },
+    {
+      url: "/education/comparison-and-policy/colonial-curriculum-and-language",
+      title: "殖民课程与语言",
     },
     {
       url: "/philosophy/schools/chinese-buddhism",
@@ -33928,6 +42078,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "忒修斯之船",
     },
     {
+      url: "/philosophy/experiments/grice-strawson-1956",
+      title: "为一条教条辩护",
+    },
+    {
       url: "/life-science/knowledge-base/进化机制--物种形成",
       title: "物种形成：一个物种如何裂成两个",
     },
@@ -34150,8 +42304,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "实验语用学：含义如何被测量",
     },
     {
+      url: "/philosophy/experiments/grice-strawson-1956",
+      title: "为一条教条辩护",
+    },
+    {
       url: "/linguistics/methods-and-frontiers/corpus-linguistics",
       title: "语料库语言学",
+    },
+    {
+      url: "/linguistics/frontier/language-data-sovereignty",
+      title: "语言数据主权：一段录音开放以后，谁还能决定它的未来",
     },
     {
       url: "/linguistics/methods-and-frontiers/linguistic-fieldwork",
@@ -34256,6 +42418,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "语料标注与一致性：标注方案如何决定结论",
     },
     {
+      url: "/linguistics/methods-and-frontiers/language-documentation-ethics",
+      title: "语言记录伦理：谁有权决定一段声音以后还能被怎样使用",
+    },
+    {
       url: "/linguistics/acquisition-and-mind/psycholinguistic-processing",
       title: "语言理解与产生",
     },
@@ -34284,6 +42450,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/words-sentences-meaning/syntax",
       title: "句法学：结构与依存",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/voice-onset-time",
+      title: "嗓音起始时间：连续气流怎样被切成清浊",
     },
     {
       url: "/linguistics/methods-and-frontiers/experimental-pragmatics",
@@ -34322,6 +42492,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/words-sentences-meaning/pragmatics",
       title: "语用学：语境、意图与会话",
+    },
+  ],
+  "/linguistics/methods-and-frontiers/forensic-linguistics": [
+    {
+      url: "/linguistics/methods-and-frontiers/language-documentation-ethics",
+      title: "语言记录伦理：谁有权决定一段声音以后还能被怎样使用",
+    },
+  ],
+  "/linguistics/methods-and-frontiers/language-documentation-ethics": [
+    {
+      url: "/human-history/source-analyses/dunhuang-manuscripts-source-analysis",
+      title: "敦煌藏经洞文书史料剖析",
+    },
+    {
+      url: "/linguistics/frontier/community-led-language-revitalization",
+      title: "社区主导的语言复振：技术能帮忙，但谁定义“语言活了”",
+    },
+    {
+      url: "/linguistics/frontier/language-data-sovereignty",
+      title: "语言数据主权：一段录音开放以后，谁还能决定它的未来",
     },
   ],
   "/linguistics/methods-and-frontiers/language-evolution": [
@@ -34448,8 +42638,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "语言、身份与权力",
     },
     {
+      url: "/linguistics/methods-and-frontiers/language-documentation-ethics",
+      title: "语言记录伦理：谁有权决定一段声音以后还能被怎样使用",
+    },
+    {
       url: "/linguistics/history-typology-society/language-contact",
       title: "语言接触、借词与混合",
+    },
+    {
+      url: "/linguistics/frontier/typology-sampling-bias",
+      title: "语言类型学的抽样危机：两千四百种语言够代表人类语言吗",
     },
     {
       url: "/linguistics/words-sentences-meaning/pragmatics",
@@ -34568,8 +42766,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "快速傅里叶变换",
     },
     {
+      url: "/linguistics/frontier/animal-communication-ai",
+      title: "人工智能与动物交流：发现组合结构，距离“翻译”还有多远",
+    },
+    {
       url: "/linguistics/sounds-and-signs/how-speech-is-made",
       title: "人怎样发出语音",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/voice-onset-time",
+      title: "嗓音起始时间：连续气流怎样被切成清浊",
     },
     {
       url: "/linguistics/sounds-and-signs/tone-and-prosody",
@@ -34666,6 +42872,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/linguistics/sounds-and-signs/phonemes-and-sound-systems": [
     {
+      url: "/education/frontier/science-of-reading-statutes",
+      title: "「阅读科学」立法改的是什么",
+    },
+    {
       url: "/linguistics/acquisition-and-mind/first-language-acquisition",
       title: "第一语言习得",
     },
@@ -34692,6 +42902,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/sounds-and-signs/how-speech-is-made",
       title: "人怎样发出语音",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/voice-onset-time",
+      title: "嗓音起始时间：连续气流怎样被切成清浊",
     },
     {
       url: "/linguistics/sounds-and-signs/tone-and-prosody",
@@ -34826,16 +43040,56 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/linguistics/sounds-and-signs/speech-perception": [
     {
+      url: "/psychology/experiments/baddeley-1966",
+      title: "巴德利 1966：词序列的即时记忆为何被声学相似拖垮而不是被语义相似拖垮",
+    },
+    {
+      url: "/psychology/experiments/broadbent-1958",
+      title: "布罗德本特 1958：过滤器怎样把有限容量写成早期选择的门",
+    },
+    {
+      url: "/psychology/experiments/cherry-1953",
+      title: "彻里 1953：双耳分听怎样把未追随耳从整句里拆成几乎什么也报不出",
+    },
+    {
       url: "/linguistics/acquisition-and-mind/first-language-acquisition",
       title: "第一语言习得",
+    },
+    {
+      url: "/psychology/experiments/deutsch-deutsch-1963",
+      title: "多伊奇与多伊奇 1963：晚期选择怎样把重要性加权写到完整分析之后",
+    },
+    {
+      url: "/psychology/experiments/conrad-1964",
+      title: "康拉德 1964：即时记忆的错误为何跟着声音走而不是跟着字形走",
+    },
+    {
+      url: "/psychology/experiments/moray-1959",
+      title: "莫雷 1959：自己的名字怎样把被拒绝耳上的屏障从密封改写成情感显著项仍可能漏出",
+    },
+    {
+      url: "/linguistics/frontier/animal-communication-ai",
+      title: "人工智能与动物交流：发现组合结构，距离“翻译”还有多远",
     },
     {
       url: "/linguistics/sounds-and-signs/how-speech-is-made",
       title: "人怎样发出语音",
     },
     {
+      url: "/linguistics/sounds-and-signs/voice-onset-time",
+      title: "嗓音起始时间：连续气流怎样被切成清浊",
+    },
+    {
+      url: "/psychology/experiments/treisman-1960",
+      title: "特里斯曼 1960：衰减怎样把被拒绝通路从全关改写成阈值仍可能被情境接住",
+    },
+    {
       url: "/linguistics/sounds-and-signs/phonemes-and-sound-systems",
       title: "音位与音系系统",
+    },
+    {
+      url: "/linguistics/acquisition-and-mind/infant-categorical-perception",
+      title: "婴儿范畴知觉：高振幅吮吸怎样把时间差写成月龄证据",
     },
     {
       url: "/linguistics/acquisition-and-mind/psycholinguistic-processing",
@@ -34862,6 +43116,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/literature/poetics-and-form/meter-and-the-line",
       title: "韵律与诗行",
+    },
+  ],
+  "/linguistics/sounds-and-signs/voice-onset-time": [
+    {
+      url: "/linguistics/sounds-and-signs/acoustic-phonetics",
+      title: "声学语音学与语音测量",
+    },
+    {
+      url: "/linguistics/acquisition-and-mind/infant-categorical-perception",
+      title: "婴儿范畴知觉：高振幅吮吸怎样把时间差写成月龄证据",
     },
   ],
   "/linguistics/words-sentences-meaning/discourse-analysis": [
@@ -34941,6 +43205,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/linguistics/words-sentences-meaning/lexicography": [
+    {
+      url: "/philosophy/experiments/grice-strawson-1956",
+      title: "为一条教条辩护",
+    },
     {
       url: "/linguistics/words-sentences-meaning/morphological-productivity",
       title: "形态生产性：规则什么时候是活的",
@@ -35052,8 +43320,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "话语与篇章分析：句子以上的语言组织",
     },
     {
+      url: "/philosophy/experiments/wittgenstein-beetle",
+      title: "甲虫盒子：私人对象在语言游戏中约去",
+    },
+    {
       url: "/literature/narrative-basics/oral-storytelling",
       title: "口头讲述与记忆",
+    },
+    {
+      url: "/philosophy/experiments/strawson-1950-on-referring",
+      title: "论指称",
     },
     {
       url: "/economics/economists/george-akerlof",
@@ -35136,6 +43412,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "证明",
     },
     {
+      url: "/philosophy/experiments/donnellan-1966-referring",
+      title: "指称与限定摹状词",
+    },
+    {
       url: "/philosophy/thinkers/austin",
       title: "J.L. 奥斯汀",
     },
@@ -35156,6 +43436,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/figures/vesalius",
       title: "安德烈亚斯·维萨里",
+    },
+    {
+      url: "/psychology/experiments/baddeley-1966",
+      title: "巴德利 1966：词序列的即时记忆为何被声学相似拖垮而不是被语义相似拖垮",
     },
     {
       url: "/philosophy/thinkers/peirce",
@@ -35222,12 +43506,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "计算语言学与自然语言处理",
     },
     {
+      url: "/philosophy/experiments/wittgenstein-beetle",
+      title: "甲虫盒子：私人对象在语言游戏中约去",
+    },
+    {
+      url: "/philosophy/experiments/quine-1951-two-dogmas",
+      title: "经验论的两个教条",
+    },
+    {
       url: "/linguistics/words-sentences-meaning/syntax",
       title: "句法学：结构与依存",
     },
     {
       url: "/philosophy/thinkers/quine",
       title: "蒯因",
+    },
+    {
+      url: "/philosophy/experiments/quine-gavagai",
+      title: "蒯因的 Gavagai：刺激意义下的翻译不确定性",
+    },
+    {
+      url: "/philosophy/experiments/russell-1905-on-denoting",
+      title: "论指称",
+    },
+    {
+      url: "/philosophy/experiments/strawson-1950-on-referring",
+      title: "论指称",
     },
     {
       url: "/philosophy/thinkers/ramanuja",
@@ -35276,6 +43580,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/experiments/sorites-paradox",
       title: "秃头悖论",
+    },
+    {
+      url: "/psychology/experiments/wickens-1970",
+      title: "威肯斯 1970：换编码范畴怎样把前摄抑制释放写成意义的尺子",
+    },
+    {
+      url: "/philosophy/experiments/grice-strawson-1956",
+      title: "为一条教条辩护",
     },
     {
       url: "/political-science/thinkers/cicero",
@@ -35432,6 +43744,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "翻译即改写",
     },
     {
+      url: "/philosophy/experiments/quine-gavagai",
+      title: "蒯因的 Gavagai：刺激意义下的翻译不确定性",
+    },
+    {
       url: "/literature/contemporary-edges/canon-wars",
       title: "正典之争",
     },
@@ -35464,10 +43780,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/words-sentences-meaning/semantics",
       title: "语义学：表达如何承载意义",
-    },
-    {
-      url: "/linguistics/acquisition-and-mind/wug-test-morphology-analysis",
-      title: "Wug Test 实验剖析：儿童怎样生成没听过的词",
     },
   ],
   "/linguistics/writing-systems/arabic-and-african-scripts": [
@@ -35682,6 +43994,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "文字的起源：从记账到书写语言",
     },
     {
+      url: "/linguistics/writing-systems/script-decipherment",
+      title: "文字释读：未知符号怎样变成可检验的假说",
+    },
+    {
       url: "/linguistics/writing-systems/writing-system-types",
       title: "文字系统的主要类型",
     },
@@ -35732,12 +44048,34 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "苏美尔",
     },
     {
+      url: "/linguistics/writing-systems/script-decipherment",
+      title: "文字释读：未知符号怎样变成可检验的假说",
+    },
+    {
       url: "/linguistics/writing-systems/language-and-writing",
       title: "语言与文字不是一回事",
     },
     {
       url: "/human-history/knowledge/远古时期--概述",
       title: "远古时期",
+    },
+  ],
+  "/linguistics/writing-systems/script-decipherment": [
+    {
+      url: "/human-history/source-analyses/dunhuang-manuscripts-source-analysis",
+      title: "敦煌藏经洞文书史料剖析",
+    },
+    {
+      url: "/linguistics/frontier/ancient-dna-language-prehistory",
+      title: "古 DNA 与语言史前史：基因能追踪迁徙，却不能直接读出语言",
+    },
+    {
+      url: "/human-history/source-analyses/oracle-bones-source-analysis",
+      title: "甲骨文史料剖析",
+    },
+    {
+      url: "/human-history/source-analyses/rosetta-stone-source-analysis",
+      title: "罗塞塔石碑史料剖析",
     },
   ],
   "/linguistics/writing-systems/south-asian-scripts": [
@@ -35818,6 +44156,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "《末日审判书》史料剖析",
     },
     {
+      url: "/psychology/experiments/baddeley-1966",
+      title: "巴德利 1966：词序列的即时记忆为何被声学相似拖垮而不是被语义相似拖垮",
+    },
+    {
       url: "/human-history/source-analyses/dunhuang-manuscripts-source-analysis",
       title: "敦煌藏经洞文书史料剖析",
     },
@@ -35882,6 +44224,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "文字的起源：从记账到书写语言",
     },
     {
+      url: "/linguistics/writing-systems/script-decipherment",
+      title: "文字释读：未知符号怎样变成可检验的假说",
+    },
+    {
       url: "/linguistics/sounds-and-signs/phonemes-and-sound-systems",
       title: "音位与音系系统",
     },
@@ -35900,10 +44246,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/unicode-and-text-encoding",
       title: "Unicode 与文本编码",
-    },
-    {
-      url: "/human-history/source-analyses/wpa-slave-narratives-source-analysis",
-      title: "WPA 前奴隶口述史料剖析",
     },
   ],
   "/literature/contemporary-edges/canon-wars": [
@@ -36050,8 +44392,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/literature/narrative-basics/oral-storytelling": [
     {
+      url: "/psychology/experiments/bartlett-1932",
+      title: "巴特莱特 1932：回忆是图式重构，不是播放录音",
+    },
+    {
       url: "/literature/world-traditions/african-oral-literature",
       title: "非洲口头文学",
+    },
+    {
+      url: "/philosophy/experiments/quine-gavagai",
+      title: "蒯因的 Gavagai：刺激意义下的翻译不确定性",
     },
     {
       url: "/anthropology/comparison-and-ethics/fieldnotes-and-representation",
@@ -36170,6 +44520,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/literature/reading-and-reception/how-readers-make-meaning": [
     {
+      url: "/psychology/experiments/bartlett-1932",
+      title: "巴特莱特 1932：回忆是图式重构，不是播放录音",
+    },
+    {
       url: "/literature/reading-and-reception/translation-as-rewriting",
       title: "翻译即改写",
     },
@@ -36184,6 +44538,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/literature/theory-and-method/reception-aesthetics",
       title: "接受美学",
+    },
+    {
+      url: "/philosophy/experiments/quine-gavagai",
+      title: "蒯因的 Gavagai：刺激意义下的翻译不确定性",
     },
     {
       url: "/literature/contemporary-edges/climate-and-the-literary-present",
@@ -36425,6 +44783,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/mathematics/concepts/proof",
       title: "证明",
     },
+    {
+      url: "/computer-science/theory/hoare-1969-axiomatic",
+      title: "Hoare 1969：公理基础怎样把程序正确性写成可推导的三元组",
+    },
   ],
   "/mathematics/concepts/bayesian-inference": [
     {
@@ -36480,6 +44842,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "古 DNA 与语言史前史：基因能追踪迁徙，却不能直接读出语言",
     },
     {
+      url: "/philosophy/experiments/goodman-grue",
+      title: "古德曼的绿蓝谜题",
+    },
+    {
       url: "/arts/methods/provenance-and-attribution",
       title: "归属与来源研究：一幅画的履历与它的作者之谜",
     },
@@ -36496,6 +44862,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "褐矮星",
     },
     {
+      url: "/philosophy/experiments/hempel-ravens",
+      title: "亨佩尔的乌鸦悖论",
+    },
+    {
       url: "/cosmology/knowledge-base/致密天体--stellar-mass-black-holes",
       title: "恒星级黑洞",
     },
@@ -36510,6 +44880,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/frontier/computational-materials-design",
       title: '计算材料设计：从试错炼金到按需求"算"出材料',
+    },
+    {
+      url: "/arts/frontier/heritage-science-imaging",
+      title: "技术艺术史：当一幅画同时成为光谱、元素与时间的数据体",
     },
     {
       url: "/computer-science/theory/kolmogorov-complexity",
@@ -36562,6 +44936,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/methods/difference-in-differences",
       title: "双重差分：没有随机实验时怎样评估政策",
+    },
+    {
+      url: "/philosophy/experiments/sleeping-beauty",
+      title: "睡美人问题",
     },
     {
       url: "/cosmology/knowledge-base/系外行星--微引力透镜法",
@@ -36668,12 +45046,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/mathematics/concepts/category-theory": [
     {
+      url: "/computer-science/pioneers/butler-lampson",
+      title: "巴特勒·兰普森",
+    },
+    {
       url: "/philosophy/thinkers/plato",
       title: "柏拉图",
     },
     {
       url: "/philosophy/schools/platonism",
       title: "柏拉图主义",
+    },
+    {
+      url: "/computer-science/algorithms/parallel-algorithms",
+      title: "并行算法",
     },
     {
       url: "/computer-science/concepts/abstraction",
@@ -36692,8 +45078,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "函数式编程",
     },
     {
+      url: "/computer-science/pioneers/michael-stonebraker",
+      title: "迈克尔·斯通布雷克",
+    },
+    {
       url: "/computer-science/concepts/object-oriented-programming",
       title: "面向对象编程",
+    },
+    {
+      url: "/computer-science/concepts/memory-consistency-models",
+      title: "内存一致性模型",
     },
     {
       url: "/mathematics/knowledge-base/数学基础--什么是数学",
@@ -36704,12 +45098,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "什么是真实的？",
     },
     {
+      url: "/computer-science/frontier/neural-program-synthesis",
+      title: "神经程序综合：从规约到代码的开放问题",
+    },
+    {
       url: "/philosophy/schools/philosophy-of-mathematics",
       title: "数学哲学",
     },
     {
       url: "/philosophy/schools/idealism",
       title: "唯心主义",
+    },
+    {
+      url: "/computer-science/concepts/crdts",
+      title: "无冲突复制数据类型",
     },
     {
       url: "/philosophy/schools/neoplatonism",
@@ -36726,6 +45128,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/zhu-xi",
       title: "朱熹",
+    },
+    {
+      url: "/computer-science/frontier/ebpf-verifier",
+      title: "eBPF 验证器：把内核扩展变成可判定问题",
+    },
+    {
+      url: "/computer-science/systems/pytorch-autograd",
+      title: "PyTorch：动态图与自动微分",
+    },
+    {
+      url: "/computer-science/systems/sel4-verified-kernel",
+      title: "seL4：被证明的微内核",
+    },
+    {
+      url: "/computer-science/concepts/webassembly",
+      title: "WebAssembly",
     },
   ],
   "/mathematics/concepts/chaos-theory": [
@@ -36868,6 +45286,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/mathematics/concepts/combinatorics": [
     {
+      url: "/computer-science/algorithms/parallel-algorithms",
+      title: "并行算法",
+    },
+    {
+      url: "/computer-science/theory/parameterized-complexity",
+      title: "参数化复杂度",
+    },
+    {
       url: "/universe-physics/knowledge-base/粒子物理--feynman-diagrams-perturbation",
       title: "费曼图与微扰论",
     },
@@ -36880,12 +45306,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "回溯算法",
     },
     {
+      url: "/computer-science/frontier/mixture-of-experts",
+      title: "混合专家：稀疏激活的大模型",
+    },
+    {
+      url: "/computer-science/theory/counting-complexity",
+      title: "计数复杂度",
+    },
+    {
+      url: "/computer-science/pioneers/radia-perlman",
+      title: "拉迪亚·珀尔曼",
+    },
+    {
       url: "/mathematics/mathematicians/ramanujan",
       title: "拉马努金",
     },
     {
       url: "/political-science/institutions/coalition-government",
       title: "联合政府",
+    },
+    {
+      url: "/computer-science/algorithms/streaming-algorithms",
+      title: "流算法与草图",
+    },
+    {
+      url: "/computer-science/pioneers/michael-stonebraker",
+      title: "迈克尔·斯通布雷克",
     },
     {
       url: "/medicine/concepts/immune-system",
@@ -36896,8 +45342,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "免疫系统：先天与适应性防御网络",
     },
     {
+      url: "/computer-science/algorithms/matching-algorithms",
+      title: "匹配算法",
+    },
+    {
       url: "/economics/frontier/market-design-frontier",
       title: "市场设计：当经济学家成为工程师",
+    },
+    {
+      url: "/computer-science/pioneers/stephen-cook",
+      title: "斯蒂芬·库克",
     },
     {
       url: "/computer-science/theory/randomized-algorithms",
@@ -36912,8 +45366,56 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "图论",
     },
     {
+      url: "/computer-science/concepts/crdts",
+      title: "无冲突复制数据类型",
+    },
+    {
+      url: "/computer-science/theory/fine-grained-complexity",
+      title: "细粒度复杂度",
+    },
+    {
+      url: "/computer-science/pioneers/andrew-yao",
+      title: "姚期智",
+    },
+    {
+      url: "/computer-science/systems/cpython-gil",
+      title: "CPython 的 GIL",
+    },
+    {
+      url: "/computer-science/systems/dynamo-eventually-consistent",
+      title: "Dynamo：最终一致的键值存储",
+    },
+    {
+      url: "/computer-science/frontier/ebpf-verifier",
+      title: "eBPF 验证器：把内核扩展变成可判定问题",
+    },
+    {
+      url: "/computer-science/systems/firecracker-microvm",
+      title: "Firecracker：微型虚拟机",
+    },
+    {
+      url: "/computer-science/theory/karp-1972-reducibility",
+      title: "Karp 1972：组合问题之间的可归约性怎样把二十一个问题写成多项式完全",
+    },
+    {
+      url: "/computer-science/theory/levin-1973-universal-search",
+      title: "Levin 1973：通用顺序搜索怎样把 NP 搜索写成一个万能问题",
+    },
+    {
+      url: "/computer-science/systems/sel4-verified-kernel",
+      title: "seL4：被证明的微内核",
+    },
+    {
       url: "/cosmology/knowledge-base/系外行星--SETI地外文明搜寻",
       title: "SETI地外文明搜寻",
+    },
+    {
+      url: "/computer-science/systems/vllm-paged-attention",
+      title: "vLLM：把 KV 缓存当成虚拟内存",
+    },
+    {
+      url: "/computer-science/concepts/webassembly",
+      title: "WebAssembly",
     },
   ],
   "/mathematics/concepts/complex-analysis": [
@@ -36981,6 +45483,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/mathematics/concepts/network-science",
       title: "网络科学",
     },
+    {
+      url: "/computer-science/systems/ratnasamy-2001-can",
+      title: "CAN：笛卡尔分区与贪心转发，状态不随规模涨",
+    },
+    {
+      url: "/computer-science/systems/chord-2001",
+      title: "Chord：标识符环上的查找，不是中心目录",
+    },
+    {
+      url: "/computer-science/systems/kademlia-2002",
+      title: "Kademlia：XOR 距离上的 k-bucket，不是环上的手指",
+    },
+    {
+      url: "/computer-science/systems/pastry-2001",
+      title: "Pastry：前缀表、叶集与邻近集，不是环上的手指",
+    },
   ],
   "/mathematics/concepts/computability": [
     {
@@ -36992,6 +45510,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "康托尔定理",
     },
     {
+      url: "/mathematics/theorems/hilberts-tenth-problem",
+      title: "希尔伯特第十问题：丢番图方程没有通用判据",
+    },
+    {
       url: "/mathematics/concepts/information-theory",
       title: "信息论",
     },
@@ -37000,6 +45522,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/parmenides",
       title: "巴门尼德",
+    },
+    {
+      url: "/mathematics/theorems/intermediate-value-theorem",
+      title: "介值定理：连续曲线必穿过中间的高度",
+    },
+    {
+      url: "/mathematics/theorems/mean-value-theorem",
+      title: "拉格朗日中值定理：弦的斜率必在某点被切线追上",
     },
     {
       url: "/philosophy/schools/presocratics",
@@ -37218,6 +45748,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/光学--光的色散与彩虹",
       title: "光的色散与彩虹",
+    },
+    {
+      url: "/mathematics/theorems/intermediate-value-theorem",
+      title: "介值定理：连续曲线必穿过中间的高度",
+    },
+    {
+      url: "/mathematics/theorems/mean-value-theorem",
+      title: "拉格朗日中值定理：弦的斜率必在某点被切线追上",
     },
     {
       url: "/economics/knowledge-base/interest-rate-guide",
@@ -37514,6 +46052,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "量子场论与重整化",
     },
     {
+      url: "/engineering/frontiers/millennium-bridge-2000",
+      title: "伦敦千年桥：开通当日的行人侧向锁定",
+    },
+    {
       url: "/chemistry/reactions/enzymatic-catalysis",
       title: "酶催化",
     },
@@ -37648,6 +46190,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "泛函分析",
     },
     {
+      url: "/engineering/frontiers/hartford-civic-center-1978",
+      title: "哈特福德市政中心：积雪夜里塌下来的双向钢网架",
+    },
+    {
       url: "/universe-physics/knowledge-base/量子物理--卡西米尔效应与真空能",
       title: "卡西米尔效应与真空能",
     },
@@ -37692,6 +46238,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "PageRank 算法",
     },
   ],
+  "/mathematics/concepts/eratosthenes-earth-circumference": [
+    {
+      url: "/earth-science/concepts/geodesy-and-geoid",
+      title: "大地测量与大地水准面",
+    },
+    {
+      url: "/human-history/knowledge/古典时期--欧洲--古希腊",
+      title: "古希腊",
+    },
+    {
+      url: "/mathematics/concepts/euclidean-geometry",
+      title: "欧氏几何",
+    },
+    {
+      url: "/mathematics/concepts/trigonometry",
+      title: "三角函数",
+    },
+  ],
   "/mathematics/concepts/ergodic-theory": [
     {
       url: "/universe-physics/knowledge-base/凝聚态物理--anderson-localization",
@@ -37715,6 +46279,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/mathematics/concepts/euclidean-geometry": [
+    {
+      url: "/mathematics/concepts/eratosthenes-earth-circumference",
+      title: "埃拉托色尼测地球周长",
+    },
     {
       url: "/arts/foundations/proportion-and-harmony",
       title: "比例与和谐：美的数学",
@@ -37791,6 +46359,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/mathematics/concepts/fourier-analysis": [
+    {
+      url: "/earth-science/event-analyses/mexico-city-1985-site-effect",
+      title: "1985 年墨西哥城场地效应：古湖床软泥、卓越周期与加速度记录怎样把远场放大钉成证据",
+    },
     {
       url: "/universe-physics/frontier/attosecond-physics",
       title: '阿秒物理：实时"拍摄"电子运动',
@@ -38058,6 +46630,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "博弈论如何解释日常行为",
     },
     {
+      url: "/philosophy/experiments/unexpected-hanging",
+      title: "出乎意料的绞刑",
+    },
+    {
       url: "/philosophy/thinkers/david-lewis",
       title: "大卫·刘易斯",
     },
@@ -38244,6 +46820,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "并发与并行",
     },
     {
+      url: "/computer-science/algorithms/parallel-algorithms",
+      title: "并行算法",
+    },
+    {
+      url: "/computer-science/theory/parameterized-complexity",
+      title: "参数化复杂度",
+    },
+    {
       url: "/life-science/knowledge-base/生态学--城市生态",
       title: "城市生态：混凝土丛林中的生命",
     },
@@ -38264,6 +46848,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "弗朗西丝·艾伦",
     },
     {
+      url: "/computer-science/frontier/mixture-of-experts",
+      title: "混合专家：稀疏激活的大模型",
+    },
+    {
+      url: "/computer-science/frontier/cluster-training-systems",
+      title: "集群训练系统：把模型铺到一千张卡上",
+    },
+    {
       url: "/computer-science/algorithms/approximate-nearest-neighbor-search",
       title: "近似最近邻搜索",
     },
@@ -38274,6 +46866,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/reactions/polymerization",
       title: "聚合反应",
+    },
+    {
+      url: "/computer-science/pioneers/radia-perlman",
+      title: "拉迪亚·珀尔曼",
     },
     {
       url: "/mathematics/frontier/ramsey-and-combinatorics-progress",
@@ -38300,6 +46896,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "欧债危机",
     },
     {
+      url: "/computer-science/algorithms/matching-algorithms",
+      title: "匹配算法",
+    },
+    {
       url: "/computer-science/concepts/software-engineering",
       title: "软件工程",
     },
@@ -38318,6 +46918,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/进化机制--水平基因转移",
       title: "水平基因转移：超越亲代的遗传",
+    },
+    {
+      url: "/computer-science/pioneers/stephen-cook",
+      title: "斯蒂芬·库克",
     },
     {
       url: "/economics/concepts/search-matching-theory",
@@ -38340,8 +46944,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "网络流",
     },
     {
+      url: "/computer-science/theory/fine-grained-complexity",
+      title: "细粒度复杂度",
+    },
+    {
       url: "/political-science/concepts/gerrymandering",
       title: "选区重划操纵",
+    },
+    {
+      url: "/computer-science/pioneers/andrew-yao",
+      title: "姚期智",
     },
     {
       url: "/medicine/concepts/vaccination",
@@ -38358,6 +46970,58 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/literature/contemporary-edges/distant-reading",
       title: "远读与数字人文",
+    },
+    {
+      url: "/computer-science/pioneers/judea-pearl",
+      title: "朱迪亚·珀尔",
+    },
+    {
+      url: "/computer-science/systems/ratnasamy-2001-can",
+      title: "CAN：笛卡尔分区与贪心转发，状态不随规模涨",
+    },
+    {
+      url: "/computer-science/systems/chord-2001",
+      title: "Chord：标识符环上的查找，不是中心目录",
+    },
+    {
+      url: "/computer-science/systems/dynamo-eventually-consistent",
+      title: "Dynamo：最终一致的键值存储",
+    },
+    {
+      url: "/computer-science/systems/hnsw-ann-index",
+      title: "HNSW 与向量近邻：当距离代替关键词",
+    },
+    {
+      url: "/computer-science/systems/hotspot-jvm",
+      title: "JVM：字节码、JIT 与垃圾回收",
+    },
+    {
+      url: "/computer-science/systems/kademlia-2002",
+      title: "Kademlia：XOR 距离上的 k-bucket，不是环上的手指",
+    },
+    {
+      url: "/computer-science/theory/karp-1972-reducibility",
+      title: "Karp 1972：组合问题之间的可归约性怎样把二十一个问题写成多项式完全",
+    },
+    {
+      url: "/computer-science/systems/neo4j-property-graph",
+      title: "Neo4j 属性图：当邻居指针取代 JOIN",
+    },
+    {
+      url: "/computer-science/systems/pastry-2001",
+      title: "Pastry：前缀表、叶集与邻近集，不是环上的手指",
+    },
+    {
+      url: "/computer-science/theory/razborov-1985-monotone",
+      title: "Razborov 1985：单调电路怎样看不见团",
+    },
+    {
+      url: "/computer-science/systems/tapestry-2001",
+      title: "Tapestry：邻接表、代理路由与就近副本，不是把对象搬到键上",
+    },
+    {
+      url: "/computer-science/systems/vllm-paged-attention",
+      title: "vLLM：把 KV 缓存当成虚拟内存",
     },
   ],
   "/mathematics/concepts/graph-theory-applications": [
@@ -38474,6 +47138,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "拓扑学入门",
     },
   ],
+  "/mathematics/concepts/information-geometry": [
+    {
+      url: "/computer-science/theory/differential-privacy",
+      title: "差分隐私",
+    },
+    {
+      url: "/computer-science/frontier/diffusion-models",
+      title: "扩散模型：从噪声里长出分布",
+    },
+    {
+      url: "/computer-science/pioneers/fei-fei-li",
+      title: "李飞飞",
+    },
+    {
+      url: "/computer-science/algorithms/streaming-algorithms",
+      title: "流算法与草图",
+    },
+    {
+      url: "/computer-science/systems/pytorch-autograd",
+      title: "PyTorch：动态图与自动微分",
+    },
+  ],
   "/mathematics/concepts/information-theory": [
     {
       url: "/mathematics/concepts/ergodic-theory",
@@ -38574,8 +47260,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "常微分方程",
     },
     {
+      url: "/computer-science/pioneers/patterson-and-hennessy",
+      title: "大卫·帕特森与约翰·亨尼西",
+    },
+    {
       url: "/philosophy/thinkers/descartes",
       title: "笛卡尔",
+    },
+    {
+      url: "/computer-science/theory/circuit-complexity",
+      title: "电路复杂度",
+    },
+    {
+      url: "/computer-science/concepts/floating-point-and-ieee754",
+      title: "浮点数与 IEEE 754",
     },
     {
       url: "/universe-physics/knowledge-base/经典物理--rigid-body-rotation",
@@ -38586,16 +47284,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "赫克歇尔-俄林模型",
     },
     {
+      url: "/computer-science/theory/counting-complexity",
+      title: "计数复杂度",
+    },
+    {
       url: "/computer-science/concepts/computer-graphics",
       title: "计算机图形学",
+    },
+    {
+      url: "/computer-science/pioneers/fei-fei-li",
+      title: "李飞飞",
     },
     {
       url: "/universe-physics/knowledge-base/相对论--闵可夫斯基时空与四维矢量",
       title: "闵可夫斯基时空与四维矢量",
     },
     {
+      url: "/computer-science/algorithms/matching-algorithms",
+      title: "匹配算法",
+    },
+    {
       url: "/universe-physics/knowledge-base/光学--polarization",
       title: "偏振",
+    },
+    {
+      url: "/computer-science/frontier/fully-homomorphic-encryption",
+      title: "全同态加密：在密文上计算",
     },
     {
       url: "/mathematics/concepts/group",
@@ -38630,6 +47344,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "振动与简正模式",
     },
     {
+      url: "/computer-science/pioneers/judea-pearl",
+      title: "朱迪亚·珀尔",
+    },
+    {
       url: "/computer-science/algorithms/principal-component-analysis",
       title: "主成分分析",
     },
@@ -38640,6 +47358,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/gpu-and-parallel-computing",
       title: "GPU 与并行计算",
+    },
+    {
+      url: "/computer-science/systems/pytorch-autograd",
+      title: "PyTorch：动态图与自动微分",
+    },
+    {
+      url: "/computer-science/systems/vllm-paged-attention",
+      title: "vLLM：把 KV 缓存当成虚拟内存",
     },
   ],
   "/mathematics/concepts/linear-transformation": [
@@ -38718,6 +47444,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "遍历理论",
     },
     {
+      url: "/computer-science/theory/differential-privacy",
+      title: "差分隐私",
+    },
+    {
+      url: "/computer-science/pioneers/patterson-and-hennessy",
+      title: "大卫·帕特森与约翰·亨尼西",
+    },
+    {
+      url: "/computer-science/concepts/floating-point-and-ieee754",
+      title: "浮点数与 IEEE 754",
+    },
+    {
       url: "/mathematics/concepts/probability",
       title: "概率论",
     },
@@ -38726,12 +47464,36 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "后凯恩斯学派",
     },
     {
+      url: "/computer-science/frontier/diffusion-models",
+      title: "扩散模型：从噪声里长出分布",
+    },
+    {
+      url: "/computer-science/pioneers/fei-fei-li",
+      title: "李飞飞",
+    },
+    {
+      url: "/computer-science/algorithms/streaming-algorithms",
+      title: "流算法与草图",
+    },
+    {
+      url: "/computer-science/pioneers/shafi-goldwasser",
+      title: "沙菲·戈德瓦塞尔",
+    },
+    {
       url: "/mathematics/concepts/stochastic-process",
       title: "随机过程",
     },
     {
       url: "/economics/concepts/consumer-surplus",
       title: "消费者剩余",
+    },
+    {
+      url: "/computer-science/pioneers/cynthia-dwork",
+      title: "辛西娅·德沃克",
+    },
+    {
+      url: "/computer-science/systems/spanner-truetime",
+      title: "Spanner：用时钟换外部一致性",
     },
   ],
   "/mathematics/concepts/multivariable-calculus": [
@@ -39054,6 +47816,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "电路分析与基尔霍夫定律",
     },
     {
+      url: "/engineering/frontiers/hartford-civic-center-1978",
+      title: "哈特福德市政中心：积雪夜里塌下来的双向钢网架",
+    },
+    {
       url: "/cosmology/knowledge-base/恒星物理--hertzsprung-russell-diagram",
       title: "赫罗图",
     },
@@ -39166,6 +47932,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/frontier/ai-weather-climate-models",
       title: "AI 天气与气候建模：当预报不再求解方程",
+    },
+    {
+      url: "/engineering/frontiers/i35w-minneapolis-2007",
+      title: "I-35W 明尼阿波利斯：半英寸加劲板，把主桁架写成河",
     },
   ],
   "/mathematics/concepts/ode": [
@@ -39428,8 +48198,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "布隆过滤器",
     },
     {
+      url: "/philosophy/experiments/lottery-paradox",
+      title: "彩票悖论",
+    },
+    {
+      url: "/computer-science/theory/parameterized-complexity",
+      title: "参数化复杂度",
+    },
+    {
       url: "/mathematics/concepts/measure-theory",
       title: "测度论",
+    },
+    {
+      url: "/computer-science/theory/differential-privacy",
+      title: "差分隐私",
     },
     {
       url: "/computer-science/concepts/b-trees-and-lsm-trees",
@@ -39458,6 +48240,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/consensus-algorithms",
       title: "分布式共识算法",
+    },
+    {
+      url: "/computer-science/concepts/floating-point-and-ieee754",
+      title: "浮点数与 IEEE 754",
     },
     {
       url: "/mathematics/knowledge-base/应用--概率与决策",
@@ -39492,6 +48278,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "混沌与三体问题",
     },
     {
+      url: "/computer-science/frontier/mixture-of-experts",
+      title: "混合专家：稀疏激活的大模型",
+    },
+    {
       url: "/computer-science/algorithms/huffman-coding",
       title: "霍夫曼编码",
     },
@@ -39504,12 +48294,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "激光冷却与原子阱",
     },
     {
+      url: "/computer-science/theory/counting-complexity",
+      title: "计数复杂度",
+    },
+    {
       url: "/computer-science/theory/interactive-proofs-and-zero-knowledge",
       title: "交互式证明与零知识",
     },
     {
       url: "/computer-science/theory/kolmogorov-complexity",
       title: "柯莫哥洛夫复杂度",
+    },
+    {
+      url: "/philosophy/experiments/quine-gavagai",
+      title: "蒯因的 Gavagai：刺激意义下的翻译不确定性",
+    },
+    {
+      url: "/computer-science/frontier/diffusion-models",
+      title: "扩散模型：从噪声里长出分布",
     },
     {
       url: "/mathematics/frontier/ramsey-and-combinatorics-progress",
@@ -39528,6 +48330,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "凌星法",
     },
     {
+      url: "/computer-science/algorithms/streaming-algorithms",
+      title: "流算法与草图",
+    },
+    {
       url: "/political-science/institutions/the-electoral-college",
       title: "美国选举人团制度",
     },
@@ -39540,12 +48346,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "排序算法",
     },
     {
+      url: "/engineering/foundations/fatigue-and-fracture",
+      title: "疲劳与断裂：裂纹怎样在远低于静强度时把结构写完",
+    },
+    {
       url: "/computer-science/theory/average-case-complexity",
       title: "平均情况复杂性与密码学的五个世界",
     },
     {
       url: "/universe-physics/knowledge-base/热力学--kinetic-theory-of-gases",
       title: "气体动理论",
+    },
+    {
+      url: "/computer-science/frontier/fully-homomorphic-encryption",
+      title: "全同态加密：在密文上计算",
     },
     {
       url: "/mathematics/knowledge-base/应用--人工智能的数学",
@@ -39556,8 +48370,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "瑞利散射与天空的颜色",
     },
     {
+      url: "/chemistry/milestones/ramsay-rayleigh-1894-argon",
+      title: "瑞利与拉姆齐一八九四年的氩：两份氮的密度差怎样逼出一种不进化合的气体",
+    },
+    {
+      url: "/linguistics/sounds-and-signs/voice-onset-time",
+      title: "嗓音起始时间：连续气流怎样被切成清浊",
+    },
+    {
+      url: "/computer-science/pioneers/shafi-goldwasser",
+      title: "沙菲·戈德瓦塞尔",
+    },
+    {
       url: "/medicine/concepts/reproductive-system",
       title: "生殖系统",
+    },
+    {
+      url: "/engineering/foundations/experimental-design-and-uncertainty",
+      title: "实验设计与测量不确定度：怎样知道一次试验能说明什么",
     },
     {
       url: "/medicine/technologies/blood-transfusion",
@@ -39570,6 +48400,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/多信使天文学--binary-neutron-star-merger-kilonova",
       title: "双中子星并合与千新星",
+    },
+    {
+      url: "/philosophy/experiments/sleeping-beauty",
+      title: "睡美人问题",
+    },
+    {
+      url: "/psychology/experiments/sperling-1960",
+      title: "斯珀林 1960：部分报告怎样把瞬时视觉容量从整报里拆出来",
     },
     {
       url: "/mathematics/theorems/prime-number-theorem",
@@ -39588,12 +48426,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "随机算法",
     },
     {
+      url: "/psychology/experiments/treisman-1960",
+      title: "特里斯曼 1960：衰减怎样把被拒绝通路从全关改写成阈值仍可能被情境接住",
+    },
+    {
       url: "/computer-science/algorithms/skip-lists",
       title: "跳表",
     },
     {
       url: "/computer-science/theory/communication-complexity",
       title: "通信复杂度",
+    },
+    {
+      url: "/computer-science/concepts/speculative-execution-and-side-channels",
+      title: "投机执行与侧信道",
     },
     {
       url: "/economics/concepts/foreign-exchange",
@@ -39612,12 +48458,36 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "沃尔夫-拉叶星",
     },
     {
+      url: "/computer-science/theory/fine-grained-complexity",
+      title: "细粒度复杂度",
+    },
+    {
+      url: "/engineering/machines/project-and-configuration-control",
+      title: "项目与构型控制：基线、变更和可追到零件上的决定",
+    },
+    {
       url: "/psychology/phenomena/psychic-determinism",
       title: "心理决定论",
     },
     {
+      url: "/computer-science/pioneers/cynthia-dwork",
+      title: "辛西娅·德沃克",
+    },
+    {
       url: "/economics/concepts/behavioral-finance",
       title: "行为金融学",
+    },
+    {
+      url: "/engineering/machines/shewhart-control-chart",
+      title: "休哈特控制图：一张把“该不该动手”写成界限的纸",
+    },
+    {
+      url: "/philosophy/experiments/preface-paradox",
+      title: "序言悖论",
+    },
+    {
+      url: "/computer-science/pioneers/andrew-yao",
+      title: "姚期智",
     },
     {
       url: "/life-science/knowledge-base/进化机制--遗传漂变",
@@ -39630,6 +48500,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/events/indian-ocean-tsunami-2004",
       title: "印度洋海啸（2004）",
+    },
+    {
+      url: "/linguistics/acquisition-and-mind/infant-categorical-perception",
+      title: "婴儿范畴知觉：高振幅吮吸怎样把时间差写成月龄证据",
     },
     {
       url: "/universe-physics/knowledge-base/前沿物理--宇宙暴胀",
@@ -39668,28 +48542,104 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "证明的艺术",
     },
     {
+      url: "/computer-science/pioneers/judea-pearl",
+      title: "朱迪亚·珀尔",
+    },
+    {
       url: "/mathematics/concepts/combinatorics",
       title: "组合数学",
+    },
+    {
+      url: "/computer-science/theory/adleman-1978-bpp-ppoly",
+      title: "Adleman 1978：可放大的随机性怎样被多项式忠告替换",
+    },
+    {
+      url: "/computer-science/theory/attiya-bar-noy-dolev-1995",
+      title: "Attiya–Bar-Noy–Dolev 1995：消息传递上的原子寄存器",
+    },
+    {
+      url: "/computer-science/theory/ben-or-1983",
+      title: "Ben-Or 1983：抛硬币怎样把异步共识的终止改成几乎必然",
+    },
+    {
+      url: "/computer-science/systems/bigtable-2006",
+      title: "Bigtable：稀疏表、Tablet 与时间戳单元",
+    },
+    {
+      url: "/computer-science/systems/ratnasamy-2001-can",
+      title: "CAN：笛卡尔分区与贪心转发，状态不随规模涨",
+    },
+    {
+      url: "/computer-science/systems/chord-2001",
+      title: "Chord：标识符环上的查找，不是中心目录",
+    },
+    {
+      url: "/computer-science/systems/chubby-2006",
+      title: "Chubby：松耦合系统上的锁服务，不是又一套数据库",
     },
     {
       url: "/computer-science/concepts/cpu-pipelining",
       title: "CPU 流水线",
     },
     {
+      url: "/computer-science/systems/demers-1987-epidemic",
+      title: "Demers 1987：谣言与反熵怎样维护副本，不是 Dynamo",
+    },
+    {
       url: "/life-science/knowledge-base/人体--DNA与遗传",
       title: "DNA与遗传：双螺旋、基因表达与表观遗传",
+    },
+    {
+      url: "/computer-science/theory/dwork-lynch-stockmeyer-1988",
+      title: "Dwork–Lynch–Stockmeyer 1988：终将有界的延迟怎样让确定性共识可能",
+    },
+    {
+      url: "/computer-science/systems/dynamo-eventually-consistent",
+      title: "Dynamo：最终一致的键值存储",
     },
     {
       url: "/computer-science/systems/etcd-raft",
       title: "etcd：把 Raft 变成能用的东西",
     },
     {
+      url: "/computer-science/theory/flp-fischer-lynch-paterson-1985",
+      title: "FLP：完全异步下一次崩溃也能挡住确定性共识",
+    },
+    {
+      url: "/computer-science/theory/furst-saxe-sipser-1984",
+      title: "Furst–Saxe–Sipser 1984：常数深度电路怎样算不出奇偶性",
+    },
+    {
+      url: "/computer-science/systems/gfs-2003",
+      title: "GFS：单主节点、大块与可忍受的不一致",
+    },
+    {
       url: "/computer-science/systems/git-object-model",
       title: "Git 的对象模型：为什么分支是廉价的",
     },
     {
+      url: "/computer-science/theory/hastad-1986-small-depth",
+      title: "Håstad 1986：切换引理怎样把浅电路收成近乎最优的下界",
+    },
+    {
+      url: "/computer-science/theory/herlihy-moss-1993-tm",
+      title: "Herlihy–Moss 1993：事务内存怎样用体系结构支持无锁数据结构",
+    },
+    {
+      url: "/computer-science/systems/birman-1985-virtual-synchrony",
+      title: "ISIS 1985：进程组、flush 与虚拟同步，不是又一份 ZooKeeper",
+    },
+    {
+      url: "/computer-science/systems/hotspot-jvm",
+      title: "JVM：字节码、JIT 与垃圾回收",
+    },
+    {
       url: "/cosmology/frontier/jwst-early-galaxies",
       title: 'JWST 与早期宇宙的"过早成熟"星系之谜',
+    },
+    {
+      url: "/computer-science/systems/kademlia-2002",
+      title: "Kademlia：XOR 距离上的 k-bucket，不是环上的手指",
     },
     {
       url: "/computer-science/systems/linux-scheduler-cfs-eevdf",
@@ -39698,6 +48648,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/systems/lucene-inverted-index",
       title: "Lucene：搜索引擎内部的倒排索引",
+    },
+    {
+      url: "/computer-science/theory/nisan-wigderson-1994",
+      title: "Nisan–Wigderson 1994：E 里足够硬的函数怎样冒充 BPP 测试者的硬币",
+    },
+    {
+      url: "/computer-science/systems/pastry-2001",
+      title: "Pastry：前缀表、叶集与邻近集，不是环上的手指",
     },
     {
       url: "/life-science/knowledge-base/生物技术--PCR技术",
@@ -39716,22 +48674,78 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Redis 的单线程模型：为什么不并行反而更快",
     },
     {
+      url: "/computer-science/systems/schneider-1990-smr",
+      title: "Schneider 1990：副本确定性、输出一致与状态机方法，不是又一份 Paxos",
+    },
+    {
+      url: "/computer-science/systems/spanner-truetime",
+      title: "Spanner：用时钟换外部一致性",
+    },
+    {
+      url: "/computer-science/systems/tapestry-2001",
+      title: "Tapestry：邻接表、代理路由与就近副本，不是把对象搬到键上",
+    },
+    {
+      url: "/computer-science/systems/terry-1994-session-guarantees",
+      title: "Terry 1994：会话保证怎样把弱一致副本写成客户视角",
+    },
+    {
+      url: "/computer-science/theory/toda-1991",
+      title: "Toda 1991：多项式层次怎样被一次",
+    },
+    {
       url: "/computer-science/systems/v8-jit",
       title: "V8 的分层 JIT：动态语言如何跑得快",
+    },
+    {
+      url: "/computer-science/systems/viewstamped-replication-1988",
+      title: "Viewstamped Replication：视图、主副本与盖章请求，不是又一份 Paxos",
+    },
+    {
+      url: "/computer-science/systems/vllm-paged-attention",
+      title: "vLLM：把 KV 缓存当成虚拟内存",
+    },
+    {
+      url: "/linguistics/acquisition-and-mind/wug-test-morphology-analysis",
+      title: "Wug Test 实验剖析：儿童怎样生成没听过的词",
     },
     {
       url: "/computer-science/systems/zfs-copy-on-write",
       title: "ZFS：不覆盖写，与端到端校验",
     },
+    {
+      url: "/computer-science/systems/zookeeper-2010",
+      title: "ZooKeeper：等待自由的协调，不是又一套 Chubby 说明书",
+    },
   ],
   "/mathematics/concepts/proof": [
+    {
+      url: "/mathematics/concepts/eratosthenes-earth-circumference",
+      title: "埃拉托色尼测地球周长",
+    },
     {
       url: "/computer-science/pioneers/edsger-dijkstra",
       title: "艾兹格·迪科斯彻",
     },
     {
+      url: "/computer-science/pioneers/butler-lampson",
+      title: "巴特勒·兰普森",
+    },
+    {
+      url: "/computer-science/algorithms/parallel-algorithms",
+      title: "并行算法",
+    },
+    {
+      url: "/computer-science/theory/parameterized-complexity",
+      title: "参数化复杂度",
+    },
+    {
       url: "/computer-science/concepts/recursion",
       title: "递归",
+    },
+    {
+      url: "/computer-science/theory/circuit-complexity",
+      title: "电路复杂度",
     },
     {
       url: "/mathematics/frontier/ai-formal-proof",
@@ -39746,8 +48760,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "弗兰科·莫迪利安尼",
     },
     {
+      url: "/computer-science/concepts/floating-point-and-ieee754",
+      title: "浮点数与 IEEE 754",
+    },
+    {
       url: "/mathematics/concepts/set-theory",
       title: "集合论",
+    },
+    {
+      url: "/computer-science/theory/counting-complexity",
+      title: "计数复杂度",
     },
     {
       url: "/computer-science/theory/computational-complexity",
@@ -39756,6 +48778,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/garbage-collection",
       title: "垃圾回收",
+    },
+    {
+      url: "/computer-science/pioneers/radia-perlman",
+      title: "拉迪亚·珀尔曼",
     },
     {
       url: "/mathematics/mathematicians/leibniz",
@@ -39770,16 +48796,164 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "马克思主义经济学",
     },
     {
+      url: "/philosophy/experiments/moore-1939-hands",
+      title: "摩尔的两只手",
+    },
+    {
+      url: "/computer-science/concepts/memory-consistency-models",
+      title: "内存一致性模型",
+    },
+    {
+      url: "/computer-science/frontier/fully-homomorphic-encryption",
+      title: "全同态加密：在密文上计算",
+    },
+    {
+      url: "/computer-science/pioneers/shafi-goldwasser",
+      title: "沙菲·戈德瓦塞尔",
+    },
+    {
       url: "/mathematics/knowledge-base/数学基础--什么是数学",
       title: "什么是数学",
+    },
+    {
+      url: "/computer-science/frontier/neural-program-synthesis",
+      title: "神经程序综合：从规约到代码的开放问题",
+    },
+    {
+      url: "/computer-science/pioneers/stephen-cook",
+      title: "斯蒂芬·库克",
     },
     {
       url: "/mathematics/theorems/four-color-theorem",
       title: "四色定理",
     },
     {
+      url: "/computer-science/concepts/crdts",
+      title: "无冲突复制数据类型",
+    },
+    {
+      url: "/computer-science/theory/fine-grained-complexity",
+      title: "细粒度复杂度",
+    },
+    {
+      url: "/computer-science/pioneers/judea-pearl",
+      title: "朱迪亚·珀尔",
+    },
+    {
+      url: "/computer-science/theory/adleman-1978-bpp-ppoly",
+      title: "Adleman 1978：可放大的随机性怎样被多项式忠告替换",
+    },
+    {
+      url: "/computer-science/theory/baker-gill-solovay-1975",
+      title: "Baker–Gill–Solovay 1975：相对化怎样把对角化挡在 P 对 NP 门外",
+    },
+    {
+      url: "/computer-science/theory/cook-1971-np-completeness",
+      title: "Cook 1971：定理证明手续的复杂度怎样把 SAT 写成 NP 完全",
+    },
+    {
+      url: "/computer-science/systems/cpython-gil",
+      title: "CPython 的 GIL",
+    },
+    {
+      url: "/computer-science/theory/dijkstra-1965-mutual-exclusion",
+      title: "Dijkstra 1965：互斥怎样在没有仲裁者的共享变量上写成可推理的问题",
+    },
+    {
+      url: "/computer-science/frontier/ebpf-verifier",
+      title: "eBPF 验证器：把内核扩展变成可判定问题",
+    },
+    {
+      url: "/computer-science/systems/firecracker-microvm",
+      title: "Firecracker：微型虚拟机",
+    },
+    {
+      url: "/computer-science/theory/floyd-1967-assigning-meanings",
+      title: "Floyd 1967：归纳断言怎样把程序的意义写在流程图的边上",
+    },
+    {
+      url: "/computer-science/theory/furst-saxe-sipser-1984",
+      title: "Furst–Saxe–Sipser 1984：常数深度电路怎样算不出奇偶性",
+    },
+    {
+      url: "/computer-science/theory/goldwasser-micali-rackoff-1985",
+      title: "Goldwasser–Micali–Rackoff 1985：交互证明系统的知识复杂度怎样把零知识写成定义",
+    },
+    {
+      url: "/computer-science/theory/hastad-1986-small-depth",
+      title: "Håstad 1986：切换引理怎样把浅电路收成近乎最优的下界",
+    },
+    {
+      url: "/computer-science/theory/hoare-1969-axiomatic",
+      title: "Hoare 1969：公理基础怎样把程序正确性写成可推导的三元组",
+    },
+    {
+      url: "/computer-science/systems/hotspot-jvm",
+      title: "JVM：字节码、JIT 与垃圾回收",
+    },
+    {
+      url: "/computer-science/theory/karp-lipton-1980",
+      title: "Karp–Lipton 1980：SAT 若有多项式电路，多项式层次怎样坍到第二层",
+    },
+    {
+      url: "/computer-science/theory/knuth-1966-mutex-comment",
+      title: "Knuth 1966：互斥的集体进展怎样仍允许一个人被永远超过",
+    },
+    {
+      url: "/computer-science/theory/lamport-1974-bakery",
+      title: "Lamport 1974：面包店算法怎样给互斥加上先来先服务",
+    },
+    {
+      url: "/computer-science/theory/nisan-wigderson-1994",
+      title: "Nisan–Wigderson 1994：E 里足够硬的函数怎样冒充 BPP 测试者的硬币",
+    },
+    {
       url: "/mathematics/theorems/p-vs-np",
       title: "P vs NP 问题",
+    },
+    {
+      url: "/computer-science/theory/peterson-1981-mutual-exclusion",
+      title: "Peterson 1981：两进程互斥怎样用两面旗与一个 turn 写成短注",
+    },
+    {
+      url: "/computer-science/systems/pytorch-autograd",
+      title: "PyTorch：动态图与自动微分",
+    },
+    {
+      url: "/computer-science/theory/razborov-1985-monotone",
+      title: "Razborov 1985：单调电路怎样看不见团",
+    },
+    {
+      url: "/computer-science/theory/razborov-rudich-1997",
+      title: "Razborov–Rudich 1997：自然证明怎样把电路下界挡在伪随机函数门外",
+    },
+    {
+      url: "/computer-science/theory/savitch-1970-theorem",
+      title: "Savitch 1970：非确定性空间怎样被确定性平方空间模拟",
+    },
+    {
+      url: "/computer-science/systems/sel4-verified-kernel",
+      title: "seL4：被证明的微内核",
+    },
+    {
+      url: "/computer-science/systems/spanner-truetime",
+      title: "Spanner：用时钟换外部一致性",
+    },
+    {
+      url: "/computer-science/theory/toda-1991",
+      title: "Toda 1991：多项式层次怎样被一次",
+    },
+    {
+      url: "/computer-science/theory/valiant-1979-permanent",
+      title: "Valiant 1979：积和式怎样把计数写成比判定更硬的类",
+    },
+    {
+      url: "/computer-science/concepts/webassembly",
+      title: "WebAssembly",
+    },
+    {
+      url: "/computer-science/theory/yao-1979-communication-complexity",
+      title: "Yao 1979：分布式计算的复杂度问题怎样把通信写成资源",
     },
     {
       url: "/computer-science/theory/lambda-calculus-type-theory",
@@ -39878,6 +49052,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "埃德加·科德",
     },
     {
+      url: "/computer-science/theory/byzantine-generals-lamport-1982",
+      title: "拜占庭将军问题",
+    },
+    {
       url: "/mathematics/concepts/category-theory",
       title: "范畴论",
     },
@@ -39892,6 +49070,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/function",
       title: "函数",
+    },
+    {
+      url: "/computer-science/theory/paxos-lamport-1998",
+      title: "兼职议会与 Paxos",
+    },
+    {
+      url: "/philosophy/experiments/kripke-quus",
+      title: "克里普克的 quus：过去用法怎样钉不住加法",
     },
     {
       url: "/mathematics/paradoxes/russels-paradox",
@@ -39922,8 +49108,44 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "无穷的故事",
     },
     {
+      url: "/computer-science/theory/ben-or-1983",
+      title: "Ben-Or 1983：抛硬币怎样把异步共识的终止改成几乎必然",
+    },
+    {
+      url: "/computer-science/systems/bigtable-2006",
+      title: "Bigtable：稀疏表、Tablet 与时间戳单元",
+    },
+    {
+      url: "/computer-science/theory/castro-liskov-1999-pbft",
+      title: "Castro–Liskov 1999：实用拜占庭容错，不是将军寓言",
+    },
+    {
+      url: "/computer-science/theory/chandra-toueg-1996",
+      title: "Chandra–Toueg 1996：会犯错的怀疑预言怎样成为共识的最弱检测器",
+    },
+    {
       url: "/computer-science/systems/chromium-site-isolation",
       title: "Chromium 的站点隔离：把进程边界当作安全边界",
+    },
+    {
+      url: "/computer-science/concepts/codd-1970-relational",
+      title: "Codd 1970：关系怎样把大型共享数据库从访问路径里解放出来",
+    },
+    {
+      url: "/computer-science/theory/fidge-mattern-vector-clocks",
+      title: "Fidge–Mattern：分量时间戳怎样把并发从标量编号里认出来",
+    },
+    {
+      url: "/computer-science/theory/flp-fischer-lynch-paterson-1985",
+      title: "FLP：完全异步下一次崩溃也能挡住确定性共识",
+    },
+    {
+      url: "/computer-science/theory/garcia-molina-1982-bully",
+      title: "Garcia-Molina 1982：编号更高的进程怎样在超时假设下抢走协调者",
+    },
+    {
+      url: "/computer-science/theory/ladner-1975-np-intermediate",
+      title: "Ladner 1975：若 P 不等于 NP，中间问题怎样必须存在",
     },
     {
       url: "/linguistics/writing-systems/unicode-and-digital-writing",
@@ -40016,6 +49238,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "人怎样发出语音",
     },
     {
+      url: "/linguistics/sounds-and-signs/voice-onset-time",
+      title: "嗓音起始时间：连续气流怎样被切成清浊",
+    },
+    {
       url: "/chemistry/concepts/chromatography",
       title: "色谱分离",
     },
@@ -40050,6 +49276,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/message-queues-and-streaming",
       title: "消息队列与流处理",
+    },
+    {
+      url: "/engineering/machines/shewhart-control-chart",
+      title: "休哈特控制图：一张把“该不该动手”写成界限的纸",
     },
     {
       url: "/computer-science/algorithms/recurrent-neural-networks",
@@ -40103,6 +49333,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/mathematics/concepts/statistics": [
+    {
+      url: "/earth-science/event-analyses/cascadia-1700-orphan-tsunami",
+      title: "1700 年 1 月 26 日卡斯卡迪亚巨型逆冲：日本孤儿海啸、淹没森林与浊积岩怎样对上同一时刻",
+    },
     {
       url: "/psychology/theorists/amos-tversky",
       title: "阿莫斯·特沃斯基",
@@ -40316,6 +49550,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "集合预测、不确定性与气候决策",
     },
     {
+      url: "/literature/frontier/computational-literary-studies-replication",
+      title: "计算文学研究能被复现吗",
+    },
+    {
       url: "/linguistics/methods-and-frontiers/computational-linguistics",
       title: "计算语言学与自然语言处理",
     },
@@ -40392,6 +49630,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "农业革命",
     },
     {
+      url: "/engineering/foundations/fatigue-and-fracture",
+      title: "疲劳与断裂：裂纹怎样在远低于静强度时把结构写完",
+    },
+    {
       url: "/human-history/frontier/climate-and-history",
       title: "气候如何终结王朝——历史气候学的前沿",
     },
@@ -40412,6 +49654,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "认知偏误的进化解释",
     },
     {
+      url: "/linguistics/sounds-and-signs/voice-onset-time",
+      title: "嗓音起始时间：连续气流怎样被切成清浊",
+    },
+    {
       url: "/life-science/knowledge-base/医学--神经退行性疾病",
       title: "神经退行性疾病：阿尔茨海默病与帕金森病",
     },
@@ -40422,6 +49668,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/物理学--时间膨胀与长度收缩",
       title: "时间膨胀与长度收缩",
+    },
+    {
+      url: "/engineering/foundations/experimental-design-and-uncertainty",
+      title: "实验设计与测量不确定度：怎样知道一次试验能说明什么",
     },
     {
       url: "/linguistics/methods-and-frontiers/experimental-linguistics",
@@ -40446,6 +49696,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/methods/digital-humanities-art",
       title: "数字人文与艺术史：当计算机开始读画",
+    },
+    {
+      url: "/arts/frontier/digital-reconstruction-evidence",
+      title: "数字重建的证据边界：三维古城里哪些是真的",
+    },
+    {
+      url: "/political-science/methods/difference-in-differences",
+      title: "双重差分：没有随机实验时怎样评估政策",
     },
     {
       url: "/life-science/scientists/svante-paabo",
@@ -40560,6 +49818,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "行星状星云",
     },
     {
+      url: "/engineering/machines/shewhart-control-chart",
+      title: "休哈特控制图：一张把“该不该动手”写成界限的纸",
+    },
+    {
       url: "/earth-science/concepts/karst-and-caves",
       title: "岩溶与洞穴",
     },
@@ -40586,6 +49848,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/pioneers/inge-lehmann",
       title: "英厄·莱曼",
+    },
+    {
+      url: "/linguistics/acquisition-and-mind/infant-categorical-perception",
+      title: "婴儿范畴知觉：高振幅吮吸怎样把时间差写成月龄证据",
     },
     {
       url: "/earth-science/pioneers/eunice-foote",
@@ -40660,8 +49926,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "自我损耗",
     },
     {
+      url: "/religion/frontier/cognitive-science-religion-replication",
+      title: "宗教认知科学还剩多少可重复的结论",
+    },
+    {
       url: "/psychology/methods/longitudinal-multilevel-models",
       title: "纵向研究与多层模型",
+    },
+    {
+      url: "/medicine/trial-analyses/cast-arrhythmia-suppression-trial",
+      title: "CAST 室性早搏抑制试验",
     },
     {
       url: "/life-science/knowledge-base/人体--DNA与遗传",
@@ -40684,12 +49958,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "MapReduce",
     },
     {
+      url: "/medicine/trial-analyses/recovery-dexamethasone-platform-trial",
+      title: "RECOVERY 地塞米松试验",
+    },
+    {
       url: "/cosmology/knowledge-base/宇宙学前沿--S8结构增长张力",
       title: "S8 结构增长张力",
     },
     {
       url: "/medicine/trial-analyses/select-semaglutide",
       title: "SELECT 司美格鲁肽心血管结局试验",
+    },
+    {
+      url: "/medicine/trial-analyses/sprint-blood-pressure-target-trial",
+      title: "SPRINT 强化降压试验",
     },
   ],
   "/mathematics/concepts/stochastic-process": [
@@ -40814,6 +50096,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "高斯-博内定理",
     },
     {
+      url: "/mathematics/theorems/intermediate-value-theorem",
+      title: "介值定理：连续曲线必穿过中间的高度",
+    },
+    {
       url: "/economics/economists/leon-walras",
       title: "莱昂·瓦尔拉斯",
     },
@@ -40872,6 +50158,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/mathematics/concepts/trigonometry": [
     {
+      url: "/mathematics/concepts/eratosthenes-earth-circumference",
+      title: "埃拉托色尼测地球周长",
+    },
+    {
       url: "/mathematics/concepts/complex-number",
       title: "复数",
     },
@@ -40906,6 +50196,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/中世纪--伊斯兰黄金时代",
       title: "伊斯兰黄金时代",
+    },
+  ],
+  "/mathematics/dialogues/godel-turing": [
+    {
+      url: "/mathematics/theorems/hilberts-tenth-problem",
+      title: "希尔伯特第十问题：丢番图方程没有通用判据",
+    },
+  ],
+  "/mathematics/dialogues/hilbert-godel": [
+    {
+      url: "/mathematics/theorems/hilberts-tenth-problem",
+      title: "希尔伯特第十问题：丢番图方程没有通用判据",
     },
   ],
   "/mathematics/dialogues/noether-einstein": [
@@ -40987,6 +50289,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/mathematics/mathematicians/archimedes": [
+    {
+      url: "/mathematics/concepts/eratosthenes-earth-circumference",
+      title: "埃拉托色尼测地球周长",
+    },
     {
       url: "/human-history/knowledge/古典时期--欧洲--古希腊",
       title: "古希腊",
@@ -41190,6 +50496,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "悖论",
     },
     {
+      url: "/philosophy/experiments/unexpected-hanging",
+      title: "出乎意料的绞刑",
+    },
+    {
       url: "/philosophy/thinkers/frege",
       title: "弗雷格",
     },
@@ -41272,6 +50582,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "过程追踪与因果机制",
     },
     {
+      url: "/psychology/experiments/kahneman-tversky-1972",
+      title: "卡尼曼与特沃斯基 1972：主观概率怎样被写成对代表性的判断",
+    },
+    {
       url: "/computer-science/concepts/observability-and-monitoring",
       title: "可观测性与监控",
     },
@@ -41296,6 +50610,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "时域天文学",
     },
     {
+      url: "/philosophy/experiments/sleeping-beauty",
+      title: "睡美人问题",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1974",
+      title: "特沃斯基与卡尼曼 1974：不确定判断里的启发式怎样被写成可核对的偏差",
+    },
+    {
       url: "/political-science/international-relations/mutually-assured-destruction",
       title: "相互确保毁灭",
     },
@@ -41306,6 +50628,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/frontier/ai-in-medical-diagnosis",
       title: "AI 读片：机器能比医生更早看见癌症吗",
+    },
+    {
+      url: "/computer-science/theory/ben-or-1983",
+      title: "Ben-Or 1983：抛硬币怎样把异步共识的终止改成几乎必然",
     },
     {
       url: "/computer-science/concepts/tcp-and-reliable-transport",
@@ -41320,6 +50646,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/knowledge-base/分析--无穷的故事",
       title: "无穷的故事",
+    },
+    {
+      url: "/mathematics/theorems/hilberts-tenth-problem",
+      title: "希尔伯特第十问题：丢番图方程没有通用判据",
     },
     {
       url: "/mathematics/paradoxes/infinity-hotel",
@@ -41416,6 +50746,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "积分",
     },
     {
+      url: "/mathematics/theorems/intermediate-value-theorem",
+      title: "介值定理：连续曲线必穿过中间的高度",
+    },
+    {
+      url: "/mathematics/theorems/mean-value-theorem",
+      title: "拉格朗日中值定理：弦的斜率必在某点被切线追上",
+    },
+    {
       url: "/philosophy/thinkers/leibniz",
       title: "莱布尼茨",
     },
@@ -41444,8 +50782,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "悖论",
     },
     {
+      url: "/philosophy/experiments/unexpected-hanging",
+      title: "出乎意料的绞刑",
+    },
+    {
       url: "/computer-science/concepts/recursion",
       title: "递归",
+    },
+    {
+      url: "/philosophy/experiments/fitch-1963-knowability",
+      title: "菲奇可知性悖论",
     },
     {
       url: "/mathematics/paradoxes/godel-incompleteness-paradox",
@@ -41478,6 +50824,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/concepts/logic",
       title: "逻辑",
+    },
+    {
+      url: "/philosophy/experiments/kripke-1980-naming",
+      title: "命名与必然性",
     },
     {
       url: "/computer-science/theory/average-case-complexity",
@@ -41516,12 +50866,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "希尔伯特",
     },
     {
+      url: "/mathematics/theorems/hilberts-tenth-problem",
+      title: "希尔伯特第十问题：丢番图方程没有通用判据",
+    },
+    {
       url: "/computer-science/frontier/formal-verification",
       title: "形式化验证与程序合成",
     },
     {
       url: "/mathematics/concepts/proof",
       title: "证明",
+    },
+    {
+      url: "/computer-science/theory/ladner-1975-np-intermediate",
+      title: "Ladner 1975：若 P 不等于 NP，中间问题怎样必须存在",
+    },
+    {
+      url: "/computer-science/theory/razborov-rudich-1997",
+      title: "Razborov–Rudich 1997：自然证明怎样把电路下界挡在伪随机函数门外",
     },
     {
       url: "/computer-science/systems/rust-borrow-checker",
@@ -41538,6 +50900,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "散度定理",
     },
   ],
+  "/mathematics/theorems/intermediate-value-theorem": [
+    {
+      url: "/mathematics/theorems/mean-value-theorem",
+      title: "拉格朗日中值定理：弦的斜率必在某点被切线追上",
+    },
+    {
+      url: "/mathematics/concepts/continuity",
+      title: "连续性",
+    },
+  ],
   "/mathematics/theorems/law-of-large-numbers": [
     {
       url: "/computer-science/pioneers/john-von-neumann",
@@ -41552,12 +50924,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "核扩散",
     },
     {
+      url: "/psychology/experiments/kahneman-tversky-1972",
+      title: "卡尼曼与特沃斯基 1972：主观概率怎样被写成对代表性的判断",
+    },
+    {
       url: "/computer-science/algorithms/monte-carlo-methods",
       title: "蒙特卡洛方法",
     },
     {
       url: "/mathematics/paradoxes/st-petersburg-paradox",
       title: "圣彼得堡悖论",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1973-availability",
+      title: "特沃斯基与卡尼曼 1973：频率与概率怎样被写成对可得性的判断",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1974",
+      title: "特沃斯基与卡尼曼 1974：不确定判断里的启发式怎样被写成可核对的偏差",
     },
     {
       url: "/cosmology/knowledge-base/系外行星--微引力透镜法",
@@ -41578,6 +50962,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/theorems/central-limit-theorem",
       title: "中心极限定理",
+    },
+  ],
+  "/mathematics/theorems/mean-value-theorem": [
+    {
+      url: "/mathematics/theorems/intermediate-value-theorem",
+      title: "介值定理：连续曲线必穿过中间的高度",
     },
   ],
   "/mathematics/theorems/noethers-theorem": [
@@ -41646,6 +51036,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/theory/barriers-to-proving-p-vs-np",
       title: "为什么 P vs NP 这么难证：三道障碍",
+    },
+    {
+      url: "/mathematics/theorems/hilberts-tenth-problem",
+      title: "希尔伯特第十问题：丢番图方程没有通用判据",
     },
     {
       url: "/computer-science/algorithms/floyd-warshall",
@@ -41764,6 +51158,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/figures/dorothy-hodgkin",
       title: "多萝西·霍奇金",
+    },
+    {
+      url: "/medicine/events/fleming-1928-penicillin-plate",
+      title: "弗莱明青霉素皿：1928 年圣玛丽医院的污染培养皿与 1929 年报告",
     },
     {
       url: "/economics/concepts/tragedy-of-commons",
@@ -42040,6 +51438,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/medicine/concepts/clinical-trials": [
     {
+      url: "/medicine/events/salk-1954-polio-trial",
+      title: "1954 年美国脊髓灰质炎疫苗现场试验：观察现场与安慰剂对照并存的读出",
+    },
+    {
       url: "/mathematics/theorems/bayes-theorem",
       title: "贝叶斯定理",
     },
@@ -42056,6 +51458,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "渡渡鸟裁决：各种心理治疗真的等效吗",
     },
     {
+      url: "/medicine/events/enders-1949-polio-culture",
+      title: "恩德斯 1949 脊髓灰质炎组织培养：非神经组织上的增殖与细胞病变读出",
+    },
+    {
       url: "/medicine/events/thalidomide-tragedy",
       title: "反应停悲剧（1957）",
     },
@@ -42066,6 +51472,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/concepts/risk-and-uncertainty",
       title: "风险与不确定性",
+    },
+    {
+      url: "/medicine/events/fleming-1928-penicillin-plate",
+      title: "弗莱明青霉素皿：1928 年圣玛丽医院的污染培养皿与 1929 年报告",
     },
     {
       url: "/life-science/knowledge-base/分子生物学--干细胞",
@@ -42184,6 +51594,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "致幻剂辅助心理治疗的复兴与争议",
     },
     {
+      url: "/medicine/trial-analyses/cast-arrhythmia-suppression-trial",
+      title: "CAST 室性早搏抑制试验",
+    },
+    {
+      url: "/medicine/events/mrc-streptomycin-trial-1948",
+      title: "MRC 链霉素试验：随机数字怎样走进肺结核病房",
+    },
+    {
       url: "/medicine/trial-analyses/orbita-sham-controlled-pci-trial",
       title: "ORBITA 假手术对照试验",
     },
@@ -42216,8 +51634,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "催化剂",
     },
     {
+      url: "/medicine/events/enders-1949-polio-culture",
+      title: "恩德斯 1949 脊髓灰质炎组织培养：非神经组织上的增殖与细胞病变读出",
+    },
+    {
       url: "/medicine/traditions/traditional-african-medicine",
       title: "非洲传统医学",
+    },
+    {
+      url: "/medicine/events/fleming-1928-penicillin-plate",
+      title: "弗莱明青霉素皿：1928 年圣玛丽医院的污染培养皿与 1929 年报告",
     },
     {
       url: "/medicine/traditions/kampo-medicine",
@@ -42410,6 +51836,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/events/bloodletting-and-the-numerical-method",
       title: "放血疗法与第一次临床统计（1828）",
+    },
+    {
+      url: "/medicine/events/framingham-heart-study",
+      title: "弗雷明汉心脏研究：危险因素怎样从小镇队列里走出来",
     },
     {
       url: "/medicine/public-health/maternal-child-health-life-course",
@@ -42628,6 +52058,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "因果性",
     },
     {
+      url: "/medicine/events/british-doctors-study",
+      title: "英国医生队列：吸烟写在肺癌死亡之前",
+    },
+    {
       url: "/medicine/concepts/nutrition-science",
       title: "营养学",
     },
@@ -42672,16 +52106,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "ACTT-1 瑞德西韦试验",
     },
     {
+      url: "/medicine/trial-analyses/cast-arrhythmia-suppression-trial",
+      title: "CAST 室性早搏抑制试验",
+    },
+    {
+      url: "/computer-science/systems/demers-1987-epidemic",
+      title: "Demers 1987：谣言与反熵怎样维护副本，不是 Dynamo",
+    },
+    {
       url: "/medicine/trial-analyses/orbita-sham-controlled-pci-trial",
       title: "ORBITA 假手术对照试验",
     },
     {
       url: "/life-science/knowledge-base/生物技术--PCR技术",
       title: "PCR技术：聚合酶链反应与DNA扩增",
-    },
-    {
-      url: "/medicine/trial-analyses/recovery-dexamethasone-platform-trial",
-      title: "RECOVERY 地塞米松试验",
     },
     {
       url: "/medicine/trial-analyses/sprint-blood-pressure-target-trial",
@@ -42846,6 +52284,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "宜居世界天文台：把生命问题变成光谱问题",
     },
     {
+      url: "/medicine/events/british-doctors-study",
+      title: "英国医生队列：吸烟写在肺癌死亡之前",
+    },
+    {
       url: "/economics/knowledge-base/efficient-market-hypothesis",
       title: "有效市场假说：市场能被打败吗？",
     },
@@ -42882,12 +52324,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "ADHD 诊断之争：过度诊断还是识别不足",
     },
     {
+      url: "/medicine/trial-analyses/cast-arrhythmia-suppression-trial",
+      title: "CAST 室性早搏抑制试验",
+    },
+    {
       url: "/psychology/knowledge-base/cbt-self-help",
       title: "CBT自助工具箱",
     },
     {
       url: "/cosmology/frontier/desi-dark-energy",
       title: "DESI 与演化的暗能量：宇宙学常数的挑战",
+    },
+    {
+      url: "/medicine/events/mrc-streptomycin-trial-1948",
+      title: "MRC 链霉素试验：随机数字怎样走进肺结核病房",
     },
     {
       url: "/medicine/trial-analyses/orbita-sham-controlled-pci-trial",
@@ -42908,6 +52358,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/medicine/concepts/germ-theory": [
     {
+      url: "/life-science/knowledge-base/pasteur-swan-neck-flask",
+      title: "巴斯德鹅颈瓶：空气通过、尘埃留下",
+    },
+    {
       url: "/medicine/concepts/pathology",
       title: "病理学",
     },
@@ -42920,6 +52374,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "放血疗法与第一次临床统计（1828）",
     },
     {
+      url: "/life-science/knowledge-base/griffith-1928-transformation",
+      title: "格里菲斯 1928：转化的生物学读出",
+    },
+    {
       url: "/human-history/knowledge/中世纪--黑死病",
       title: "黑死病",
     },
@@ -42928,12 +52386,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "抗生素耐药性",
     },
     {
+      url: "/medicine/events/lister-carbolic-1867",
+      title: "李斯特石炭酸：1867 年《柳叶刀》里的开放性骨折系列",
+    },
+    {
       url: "/medicine/concepts/epidemiology",
       title: "流行病学",
     },
     {
+      url: "/life-science/knowledge-base/luria-delbruck-fluctuation",
+      title: "卢里亚–德尔布吕克：方差怎样拆开突变与适应",
+    },
+    {
       url: "/life-science/scientists/pasteur",
       title: "路易·巴斯德",
+    },
+    {
+      url: "/medicine/events/semmelweis-1847-chlorine",
+      title: "塞麦尔维斯 1847：维也纳第一产科的含氯洗手与月度死亡表",
     },
     {
       url: "/medicine/events/snow-cholera-broad-street",
@@ -42978,6 +52448,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "化学平衡",
     },
     {
+      url: "/medicine/events/landsteiner-1901-abo",
+      title: "兰德施泰纳 1901 正常人血凝集：血清使他人血球成团，以及后来称为 A、B、C 的分组",
+    },
+    {
       url: "/chemistry/reactions/combustion",
       title: "燃烧",
     },
@@ -43002,6 +52476,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/pathology",
       title: "病理学",
+    },
+    {
+      url: "/chemistry/milestones/bronsted-lowry-1923",
+      title: "布朗斯特–劳里 1923：酸给出质子、碱接住质子怎样被写成定义",
     },
     {
       url: "/mathematics/concepts/ode",
@@ -43156,6 +52634,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "单细胞与空间组学——用细胞语言重画生命的地图",
     },
     {
+      url: "/medicine/events/enders-1949-polio-culture",
+      title: "恩德斯 1949 脊髓灰质炎组织培养：非神经组织上的增殖与细胞病变读出",
+    },
+    {
       url: "/computer-science/concepts/firewalls-and-network-security",
       title: "防火墙与网络安全",
     },
@@ -43182,6 +52664,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/antibiotic-resistance",
       title: "抗生素耐药性",
+    },
+    {
+      url: "/medicine/events/landsteiner-1901-abo",
+      title: "兰德施泰纳 1901 正常人血凝集：血清使他人血球成团，以及后来称为 A、B、C 的分组",
     },
     {
       url: "/medicine/concepts/endocrine-system",
@@ -43348,16 +52834,56 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/medicine/concepts/informed-consent": [
     {
+      url: "/medicine/events/salk-1954-polio-trial",
+      title: "1954 年美国脊髓灰质炎疫苗现场试验：观察现场与安慰剂对照并存的读出",
+    },
+    {
+      url: "/psychology/experiments/atkinson-shiffrin-1968",
+      title: "阿特金森与希夫林 1968：结构特征与控制过程怎样把记忆写成感觉登记、短时库与长时库",
+    },
+    {
+      url: "/psychology/experiments/ebbinghaus-1885",
+      title: "艾宾浩斯 1885：无意义音节与节省法怎样把遗忘写成可再学的差额",
+    },
+    {
+      url: "/psychology/experiments/baddeley-1966",
+      title: "巴德利 1966：词序列的即时记忆为何被声学相似拖垮而不是被语义相似拖垮",
+    },
+    {
+      url: "/psychology/experiments/peterson-peterson-1959",
+      title: "彼得森 1959：倒数干扰怎样把单个项目的短时保持画成秒级曲线",
+    },
+    {
+      url: "/psychology/experiments/posner-1980",
+      title: "波斯纳 1980：空间提示怎样把隐蔽定向从眼动里拆成有效、无效与中性线索上的代价与收益",
+    },
+    {
       url: "/anthropology/material-culture/museums-and-collections",
       title: "博物馆与收藏",
+    },
+    {
+      url: "/psychology/experiments/brown-1958",
+      title: "布朗 1958：即时记忆的衰减怎样被若干测验问到，却还没有画成一条间隔曲线",
+    },
+    {
+      url: "/psychology/experiments/broadbent-1958",
+      title: "布罗德本特 1958：过滤器怎样把有限容量写成早期选择的门",
     },
     {
       url: "/anthropology/kinship-and-exchange/property-and-persons",
       title: "财产与人",
     },
     {
+      url: "/psychology/experiments/cherry-1953",
+      title: "彻里 1953：双耳分听怎样把未追随耳从整句里拆成几乎什么也报不出",
+    },
+    {
       url: "/psychology/disorders/dementia",
       title: "痴呆与阿尔茨海默病",
+    },
+    {
+      url: "/psychology/experiments/deutsch-deutsch-1963",
+      title: "多伊奇与多伊奇 1963：晚期选择怎样把重要性加权写到完整分析之后",
     },
     {
       url: "/philosophy/concepts/dharma",
@@ -43376,6 +52902,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "干细胞：生命的源泉与再生医学的希望",
     },
     {
+      url: "/psychology/experiments/glanzer-cunitz-1966",
+      title: "格兰泽与库尼茨 1966：自由回忆的首因与近因为何被两套仓库分开",
+    },
+    {
       url: "/medicine/ethics/palliative-care",
       title: "姑息治疗",
     },
@@ -43386,6 +52916,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/ethics/henrietta-lacks-hela",
       title: "海拉细胞与亨丽埃塔·拉克斯",
+    },
+    {
+      url: "/medicine/traditions/kampo-medicine",
+      title: "汉方医学：传统方剂如何进入日本现代医疗",
     },
     {
       url: "/sociology/methods/computational-social-science",
@@ -43412,6 +52946,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "卡罗尔·帕特曼",
     },
     {
+      url: "/psychology/experiments/kahneman-tversky-1972",
+      title: "卡尼曼与特沃斯基 1972：主观概率怎样被写成对代表性的判断",
+    },
+    {
+      url: "/psychology/experiments/keppel-underwood-1962",
+      title: "凯佩尔与安德伍德 1962：单项目短时保持里的前摄抑制怎样随试次变陡",
+    },
+    {
+      url: "/psychology/experiments/conrad-1964",
+      title: "康拉德 1964：即时记忆的错误为何跟着声音走而不是跟着字形走",
+    },
+    {
+      url: "/psychology/experiments/craik-lockhart-1972",
+      title: "克雷克与洛克哈特 1972：加工水平怎样把记忆从仓库改写成编码深度的研究纲领",
+    },
+    {
       url: "/medicine/concepts/clinical-trials",
       title: "临床试验",
     },
@@ -43424,8 +52974,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "罗伯特·科赫",
     },
     {
+      url: "/psychology/experiments/miller-1956",
+      title: "米勒 1956：绝对判断、即时记忆与组块怎样把容量从比特改写成结构",
+    },
+    {
       url: "/anthropology/comparison-and-ethics/informed-consent-in-ethnography",
       title: "民族志中的知情同意",
+    },
+    {
+      url: "/psychology/experiments/moray-1959",
+      title: "莫雷 1959：自己的名字怎样把被拒绝耳上的屏障从密封改写成情感显著项仍可能漏出",
     },
     {
       url: "/economics/theories/prospect-theory-econ",
@@ -43448,6 +53006,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "生物工程的边界：义肢、器官与合成生物",
     },
     {
+      url: "/psychology/experiments/sperling-1960",
+      title: "斯珀林 1960：部分报告怎样把瞬时视觉容量从整报里拆出来",
+    },
+    {
+      url: "/psychology/experiments/sternberg-1966",
+      title: "斯特恩伯格 1966：高速扫描怎样把短时记忆里的数字写成随集合大小线性变长的反应时",
+    },
+    {
+      url: "/psychology/experiments/treisman-1960",
+      title: "特里斯曼 1960：衰减怎样把被拒绝通路从全关改写成阈值仍可能被情境接住",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1973-availability",
+      title: "特沃斯基与卡尼曼 1973：频率与概率怎样被写成对可得性的判断",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1974",
+      title: "特沃斯基与卡尼曼 1974：不确定判断里的启发式怎样被写成可核对的偏差",
+    },
+    {
       url: "/human-history/knowledge/人物--图灵",
       title: "图灵",
     },
@@ -43456,8 +53034,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "外科学",
     },
     {
+      url: "/psychology/experiments/wickens-1970",
+      title: "威肯斯 1970：换编码范畴怎样把前摄抑制释放写成意义的尺子",
+    },
+    {
+      url: "/psychology/experiments/waugh-norman-1965",
+      title: "沃与诺曼 1965：初级记忆怎样把遗忘写成插入项目而非单纯流逝",
+    },
+    {
+      url: "/law/private-law/consumer-protection",
+      title: "消费者救济：格式合同对面那个人怎样被当成法律上的弱者",
+    },
+    {
       url: "/philosophy/experiments/violinist",
       title: "小提琴家",
+    },
+    {
+      url: "/psychology/experiments/shepard-metzler-1971",
+      title: "谢泼德与梅茨勒 1971：三维线描的心理旋转怎样把“同一物体”写成与角差成正比的反应时",
     },
     {
       url: "/economics/theories/information-asymmetry",
@@ -43486,6 +53080,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/anthropology/urban-and-heritage/applied-anthropology",
       title: "应用人类学",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/language-documentation-ethics",
+      title: "语言记录伦理：谁有权决定一段声音以后还能被怎样使用",
     },
     {
       url: "/linguistics/methods-and-frontiers/linguistic-fieldwork",
@@ -43522,10 +53120,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/trial-analyses/recovery-dexamethasone-platform-trial",
       title: "RECOVERY 地塞米松试验",
-    },
-    {
-      url: "/medicine/trial-analyses/sprint-blood-pressure-target-trial",
-      title: "SPRINT 强化降压试验",
     },
     {
       url: "/medicine/trial-analyses/womens-health-initiative-hormone-trial",
@@ -43702,6 +53296,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "光化学",
     },
     {
+      url: "/philosophy/experiments/moore-1939-hands",
+      title: "摩尔的两只手",
+    },
+    {
       url: "/medicine/concepts/endocrine-system",
       title: "内分泌系统",
     },
@@ -43720,6 +53318,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/diseases/stroke",
       title: "中风（脑卒中）",
+    },
+    {
+      url: "/computer-science/systems/neo4j-property-graph",
+      title: "Neo4j 属性图：当邻居指针取代 JOIN",
     },
   ],
   "/medicine/concepts/nutrition-science": [
@@ -43792,6 +53394,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/ethics/palliative-care",
       title: "姑息治疗",
+    },
+    {
+      url: "/philosophy/experiments/wittgenstein-beetle",
+      title: "甲虫盒子：私人对象在语言游戏中约去",
     },
     {
       url: "/philosophy/thinkers/levinas",
@@ -43925,8 +53531,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/medicine/concepts/medical-genetics-and-genomics",
       title: "医学遗传学与基因组医学",
     },
+    {
+      url: "/medicine/trial-analyses/cast-arrhythmia-suppression-trial",
+      title: "CAST 室性早搏抑制试验",
+    },
   ],
   "/medicine/concepts/public-health": [
+    {
+      url: "/earth-science/event-analyses/pinatubo-eruption-observation-1991",
+      title: "1991 年皮纳图博喷发事件剖析",
+    },
+    {
+      url: "/earth-science/event-analyses/pakistan-flood-attribution-2022",
+      title: "2022 年巴基斯坦洪水归因剖析",
+    },
+    {
+      url: "/earth-science/event-analyses/hunga-tonga-eruption-observation-2022",
+      title: "2022 年洪阿汤加喷发事件剖析",
+    },
     {
       url: "/philosophy/thinkers/amartya-sen",
       title: "阿马蒂亚·森",
@@ -44044,6 +53666,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "流行病学",
     },
     {
+      url: "/economics/policy-analyses/london-congestion-charge",
+      title: "伦敦拥堵收费剖析",
+    },
+    {
       url: "/human-history/knowledge/人物--毛泽东",
       title: "毛泽东",
     },
@@ -44058,6 +53684,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/人体--免疫系统",
       title: "免疫系统：先天与适应性防御网络",
+    },
+    {
+      url: "/economics/policy-analyses/mexico-progresa-cash-transfer",
+      title: "墨西哥 PROGRESA 政策剖析",
+    },
+    {
+      url: "/religion/frontier/climate-faith-publics",
+      title: "气候危机改变宗教公众了吗",
+    },
+    {
+      url: "/life-science/knowledge-base/生态系统--珊瑚礁",
+      title: "珊瑚礁：海洋中的热带雨林",
     },
     {
       url: "/life-science/knowledge-base/医学--神经退行性疾病",
@@ -44131,8 +53769,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/life-science/knowledge-base/生物技术--PCR技术",
       title: "PCR技术：聚合酶链反应与DNA扩增",
     },
+    {
+      url: "/medicine/trial-analyses/recovery-dexamethasone-platform-trial",
+      title: "RECOVERY 地塞米松试验",
+    },
+    {
+      url: "/medicine/trial-analyses/sprint-blood-pressure-target-trial",
+      title: "SPRINT 强化降压试验",
+    },
+    {
+      url: "/medicine/trial-analyses/womens-health-initiative-hormone-trial",
+      title: "WHI 激素治疗试验",
+    },
   ],
   "/medicine/concepts/renal-physiology": [
+    {
+      url: "/chemistry/milestones/bronsted-lowry-1923",
+      title: "布朗斯特–劳里 1923：酸给出质子、碱接住质子怎样被写成定义",
+    },
     {
       url: "/chemistry/reactions/precipitation-reactions",
       title: "沉淀反应",
@@ -44328,8 +53982,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "安德烈亚斯·维萨里",
     },
     {
+      url: "/medicine/events/landsteiner-1901-abo",
+      title: "兰德施泰纳 1901 正常人血凝集：血清使他人血球成团，以及后来称为 A、B、C 的分组",
+    },
+    {
+      url: "/medicine/events/lister-carbolic-1867",
+      title: "李斯特石炭酸：1867 年《柳叶刀》里的开放性骨折系列",
+    },
+    {
       url: "/medicine/technologies/anesthesia",
       title: "麻醉",
+    },
+    {
+      url: "/medicine/events/semmelweis-1847-chlorine",
+      title: "塞麦尔维斯 1847：维也纳第一产科的含氯洗手与月度死亡表",
     },
   ],
   "/medicine/concepts/vaccination": [
@@ -44630,6 +54296,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "肥胖",
     },
     {
+      url: "/medicine/events/framingham-heart-study",
+      title: "弗雷明汉心脏研究：危险因素怎样从小镇队列里走出来",
+    },
+    {
       url: "/universe-physics/knowledge-base/经典物理--chaos-three-body-problem",
       title: "混沌与三体问题",
     },
@@ -44708,8 +54378,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/medicine/diseases/covid-19": [
     {
+      url: "/medicine/trial-analyses/actt-1-remdesivir-trial",
+      title: "ACTT-1 瑞德西韦试验",
+    },
+    {
       url: "/medicine/trial-analyses/bnt162b2-pivotal",
       title: "BNT162b2 mRNA 疫苗关键试验",
+    },
+    {
+      url: "/medicine/trial-analyses/recovery-dexamethasone-platform-trial",
+      title: "RECOVERY 地塞米松试验",
     },
   ],
   "/medicine/diseases/depression": [
@@ -44827,6 +54505,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/human-history/knowledge/事件--一战",
       title: "第一次世界大战",
     },
+    {
+      url: "/human-history/knowledge/事件--西班牙流感",
+      title: "西班牙流感",
+    },
   ],
   "/medicine/diseases/liver-disease": [
     {
@@ -44854,6 +54536,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/figures/robert-woodward",
       title: "罗伯特·伍德沃德",
+    },
+    {
+      url: "/chemistry/milestones/perkin-1856-mauveine",
+      title: "珀金一八五六年的苯胺紫：复活节失败的奎宁凑法与第一种商业合成染料",
     },
     {
       url: "/medicine/figures/tu-youyou",
@@ -45098,6 +54784,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/medicine/ethics/clinical-trial-ethics": [
     {
+      url: "/medicine/events/salk-1954-polio-trial",
+      title: "1954 年美国脊髓灰质炎疫苗现场试验：观察现场与安慰剂对照并存的读出",
+    },
+    {
       url: "/economics/economists/esther-duflo",
       title: "埃斯特·迪弗洛",
     },
@@ -45152,6 +54842,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/trial-analyses/actt-1-remdesivir-trial",
       title: "ACTT-1 瑞德西韦试验",
+    },
+    {
+      url: "/medicine/trial-analyses/cast-arrhythmia-suppression-trial",
+      title: "CAST 室性早搏抑制试验",
     },
     {
       url: "/medicine/trial-analyses/orbita-sham-controlled-pci-trial",
@@ -45320,6 +55014,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "医疗无效、治疗撤除与生命末期的决定边界",
     },
     {
+      url: "/medicine/trial-analyses/cast-arrhythmia-suppression-trial",
+      title: "CAST 室性早搏抑制试验",
+    },
+    {
       url: "/medicine/trial-analyses/sprint-blood-pressure-target-trial",
       title: "SPRINT 强化降压试验",
     },
@@ -45462,6 +55160,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/medicine/events/antibiotic-era": [
     {
+      url: "/medicine/events/fleming-1928-penicillin-plate",
+      title: "弗莱明青霉素皿：1928 年圣玛丽医院的污染培养皿与 1929 年报告",
+    },
+    {
       url: "/engineering/materials/chemical-engineering",
       title: "化学工程：把烧杯里的反应放大一百万倍",
     },
@@ -45473,11 +55175,25 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/medicine/events/germ-theory-revolution",
       title: "细菌理论革命（19 世纪后半叶）",
     },
+    {
+      url: "/medicine/events/mrc-streptomycin-trial-1948",
+      title: "MRC 链霉素试验：随机数字怎样走进肺结核病房",
+    },
   ],
   "/medicine/events/bloodletting-and-the-numerical-method": [
     {
       url: "/medicine/concepts/humoral-theory",
       title: "体液学说",
+    },
+  ],
+  "/medicine/events/british-doctors-study": [
+    {
+      url: "/medicine/concepts/epidemiology",
+      title: "流行病学",
+    },
+    {
+      url: "/medicine/events/mrc-streptomycin-trial-1948",
+      title: "MRC 链霉素试验：随机数字怎样走进肺结核病房",
     },
   ],
   "/medicine/events/covid-19-pandemic": [
@@ -45502,10 +55218,88 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "RECOVERY 地塞米松试验",
     },
   ],
+  "/medicine/events/enders-1949-polio-culture": [
+    {
+      url: "/medicine/events/salk-1954-polio-trial",
+      title: "1954 年美国脊髓灰质炎疫苗现场试验：观察现场与安慰剂对照并存的读出",
+    },
+    {
+      url: "/medicine/figures/edward-jenner",
+      title: "爱德华·詹纳",
+    },
+    {
+      url: "/medicine/events/fleming-1928-penicillin-plate",
+      title: "弗莱明青霉素皿：1928 年圣玛丽医院的污染培养皿与 1929 年报告",
+    },
+    {
+      url: "/medicine/concepts/clinical-trials",
+      title: "临床试验",
+    },
+    {
+      url: "/medicine/figures/jonas-salk",
+      title: "乔纳斯·萨尔克",
+    },
+    {
+      url: "/medicine/events/germ-theory-revolution",
+      title: "细菌理论革命（19 世纪后半叶）",
+    },
+  ],
+  "/medicine/events/fleming-1928-penicillin-plate": [
+    {
+      url: "/medicine/events/enders-1949-polio-culture",
+      title: "恩德斯 1949 脊髓灰质炎组织培养：非神经组织上的增殖与细胞病变读出",
+    },
+    {
+      url: "/medicine/technologies/antibiotics",
+      title: "抗生素",
+    },
+    {
+      url: "/medicine/events/antibiotic-era",
+      title: "抗生素时代的开启（1942）",
+    },
+    {
+      url: "/medicine/events/lister-carbolic-1867",
+      title: "李斯特石炭酸：1867 年《柳叶刀》里的开放性骨折系列",
+    },
+    {
+      url: "/medicine/events/germ-theory-revolution",
+      title: "细菌理论革命（19 世纪后半叶）",
+    },
+    {
+      url: "/medicine/figures/alexander-fleming",
+      title: "亚历山大·弗莱明",
+    },
+    {
+      url: "/medicine/events/mrc-streptomycin-trial-1948",
+      title: "MRC 链霉素试验：随机数字怎样走进肺结核病房",
+    },
+  ],
+  "/medicine/events/framingham-heart-study": [
+    {
+      url: "/medicine/diseases/cardiovascular-disease",
+      title: "心血管疾病",
+    },
+    {
+      url: "/medicine/events/british-doctors-study",
+      title: "英国医生队列：吸烟写在肺癌死亡之前",
+    },
+  ],
   "/medicine/events/germ-theory-revolution": [
+    {
+      url: "/medicine/events/salk-1954-polio-trial",
+      title: "1954 年美国脊髓灰质炎疫苗现场试验：观察现场与安慰剂对照并存的读出",
+    },
+    {
+      url: "/medicine/events/enders-1949-polio-culture",
+      title: "恩德斯 1949 脊髓灰质炎组织培养：非神经组织上的增殖与细胞病变读出",
+    },
     {
       url: "/philosophy/concepts/paradigm",
       title: "范式",
+    },
+    {
+      url: "/medicine/events/fleming-1928-penicillin-plate",
+      title: "弗莱明青霉素皿：1928 年圣玛丽医院的污染培养皿与 1929 年报告",
     },
     {
       url: "/philosophy/questions/how-does-science-progress",
@@ -45518,6 +55312,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/events/peptic-ulcer-bacterial-cause",
       title: "溃疡病因之争：一个被拒绝十年的正确答案（1982—2005）",
+    },
+    {
+      url: "/medicine/events/landsteiner-1901-abo",
+      title: "兰德施泰纳 1901 正常人血凝集：血清使他人血球成团，以及后来称为 A、B、C 的分组",
+    },
+    {
+      url: "/medicine/events/lister-carbolic-1867",
+      title: "李斯特石炭酸：1867 年《柳叶刀》里的开放性骨折系列",
     },
     {
       url: "/philosophy/thinkers/thomas-kuhn",
@@ -45560,6 +55362,54 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "天花根除（1980）",
     },
   ],
+  "/medicine/events/landsteiner-1901-abo": [
+    {
+      url: "/medicine/concepts/immune-system",
+      title: "免疫系统",
+    },
+    {
+      url: "/medicine/technologies/blood-transfusion",
+      title: "输血",
+    },
+    {
+      url: "/medicine/concepts/surgery",
+      title: "外科学",
+    },
+    {
+      url: "/medicine/events/germ-theory-revolution",
+      title: "细菌理论革命（19 世纪后半叶）",
+    },
+    {
+      url: "/medicine/concepts/hematology",
+      title: "血液学",
+    },
+  ],
+  "/medicine/events/lister-carbolic-1867": [
+    {
+      url: "/medicine/events/fleming-1928-penicillin-plate",
+      title: "弗莱明青霉素皿：1928 年圣玛丽医院的污染培养皿与 1929 年报告",
+    },
+    {
+      url: "/medicine/events/semmelweis-1847-chlorine",
+      title: "塞麦尔维斯 1847：维也纳第一产科的含氯洗手与月度死亡表",
+    },
+    {
+      url: "/medicine/concepts/surgery",
+      title: "外科学",
+    },
+    {
+      url: "/medicine/technologies/antisepsis",
+      title: "无菌术",
+    },
+    {
+      url: "/medicine/events/germ-theory-revolution",
+      title: "细菌理论革命（19 世纪后半叶）",
+    },
+    {
+      url: "/medicine/concepts/germ-theory",
+      title: "细菌致病论",
+    },
+  ],
   "/medicine/events/miasma-theory": [
     {
       url: "/medicine/events/bloodletting-and-the-numerical-method",
@@ -45574,6 +55424,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "卫生假说：一个被自己的名字带偏的假说",
     },
   ],
+  "/medicine/events/mrc-streptomycin-trial-1948": [
+    {
+      url: "/medicine/events/salk-1954-polio-trial",
+      title: "1954 年美国脊髓灰质炎疫苗现场试验：观察现场与安慰剂对照并存的读出",
+    },
+    {
+      url: "/medicine/events/fleming-1928-penicillin-plate",
+      title: "弗莱明青霉素皿：1928 年圣玛丽医院的污染培养皿与 1929 年报告",
+    },
+    {
+      url: "/medicine/events/antibiotic-era",
+      title: "抗生素时代的开启（1942）",
+    },
+    {
+      url: "/medicine/concepts/clinical-trials",
+      title: "临床试验",
+    },
+  ],
   "/medicine/events/peptic-ulcer-bacterial-cause": [
     {
       url: "/medicine/events/germ-theory-revolution",
@@ -45584,7 +55452,47 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "细菌致病论",
     },
   ],
+  "/medicine/events/salk-1954-polio-trial": [
+    {
+      url: "/medicine/events/enders-1949-polio-culture",
+      title: "恩德斯 1949 脊髓灰质炎组织培养：非神经组织上的增殖与细胞病变读出",
+    },
+    {
+      url: "/medicine/concepts/clinical-trials",
+      title: "临床试验",
+    },
+    {
+      url: "/medicine/figures/jonas-salk",
+      title: "乔纳斯·萨尔克",
+    },
+    {
+      url: "/medicine/events/smallpox-eradication",
+      title: "天花根除（1980）",
+    },
+  ],
+  "/medicine/events/semmelweis-1847-chlorine": [
+    {
+      url: "/medicine/events/fleming-1928-penicillin-plate",
+      title: "弗莱明青霉素皿：1928 年圣玛丽医院的污染培养皿与 1929 年报告",
+    },
+    {
+      url: "/medicine/events/lister-carbolic-1867",
+      title: "李斯特石炭酸：1867 年《柳叶刀》里的开放性骨折系列",
+    },
+    {
+      url: "/medicine/concepts/germ-theory",
+      title: "细菌致病论",
+    },
+    {
+      url: "/medicine/figures/ignaz-semmelweis",
+      title: "伊格纳茨·塞麦尔维斯",
+    },
+  ],
   "/medicine/events/smallpox-eradication": [
+    {
+      url: "/medicine/events/salk-1954-polio-trial",
+      title: "1954 年美国脊髓灰质炎疫苗现场试验：观察现场与安慰剂对照并存的读出",
+    },
     {
       url: "/life-science/knowledge-base/人体--免疫系统",
       title: "免疫系统：先天与适应性防御网络",
@@ -45599,6 +55507,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/medicine/events/snow-cholera-broad-street": [
+    {
+      url: "/medicine/events/framingham-heart-study",
+      title: "弗雷明汉心脏研究：危险因素怎样从小镇队列里走出来",
+    },
     {
       url: "/engineering/civil/water-systems",
       title: "供水与排水：城市的隐形系统",
@@ -45616,6 +55528,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "流行病学",
     },
     {
+      url: "/medicine/events/semmelweis-1847-chlorine",
+      title: "塞麦尔维斯 1847：维也纳第一产科的含氯洗手与月度死亡表",
+    },
+    {
       url: "/medicine/concepts/hygiene-hypothesis-overreach",
       title: "卫生假说：一个被自己的名字带偏的假说",
     },
@@ -45626,6 +55542,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/germ-theory",
       title: "细菌致病论",
+    },
+    {
+      url: "/medicine/events/british-doctors-study",
+      title: "英国医生队列：吸烟写在肺癌死亡之前",
     },
     {
       url: "/medicine/events/miasma-theory",
@@ -45656,6 +55576,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "弹性",
     },
     {
+      url: "/medicine/events/framingham-heart-study",
+      title: "弗雷明汉心脏研究：危险因素怎样从小镇队列里走出来",
+    },
+    {
       url: "/medicine/concepts/public-health",
       title: "公共卫生",
     },
@@ -45670,6 +55594,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/events/snow-cholera-broad-street",
       title: "斯诺与宽街水泵（1854）",
+    },
+    {
+      url: "/medicine/events/british-doctors-study",
+      title: "英国医生队列：吸烟写在肺癌死亡之前",
     },
   ],
   "/medicine/events/tuskegee-syphilis-study": [
@@ -45724,6 +55652,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "保罗·埃尔利希",
     },
     {
+      url: "/medicine/events/fleming-1928-penicillin-plate",
+      title: "弗莱明青霉素皿：1928 年圣玛丽医院的污染培养皿与 1929 年报告",
+    },
+    {
       url: "/medicine/figures/tu-youyou",
       title: "屠呦呦",
     },
@@ -45747,6 +55679,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/medicine/figures/edward-jenner": [
+    {
+      url: "/medicine/events/salk-1954-polio-trial",
+      title: "1954 年美国脊髓灰质炎疫苗现场试验：观察现场与安慰剂对照并存的读出",
+    },
+    {
+      url: "/medicine/events/enders-1949-polio-culture",
+      title: "恩德斯 1949 脊髓灰质炎组织培养：非神经组织上的增殖与细胞病变读出",
+    },
     {
       url: "/medicine/figures/louis-pasteur",
       title: "路易·巴斯德",
@@ -45794,6 +55734,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "败血症（脓毒症）",
     },
     {
+      url: "/medicine/events/fleming-1928-penicillin-plate",
+      title: "弗莱明青霉素皿：1928 年圣玛丽医院的污染培养皿与 1929 年报告",
+    },
+    {
       url: "/medicine/figures/florence-nightingale",
       title: "弗洛伦斯·南丁格尔",
     },
@@ -45806,8 +55750,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "科学哲学",
     },
     {
+      url: "/medicine/events/lister-carbolic-1867",
+      title: "李斯特石炭酸：1867 年《柳叶刀》里的开放性骨折系列",
+    },
+    {
       url: "/medicine/figures/louis-pasteur",
       title: "路易·巴斯德",
+    },
+    {
+      url: "/medicine/events/semmelweis-1847-chlorine",
+      title: "塞麦尔维斯 1847：维也纳第一产科的含氯洗手与月度死亡表",
     },
     {
       url: "/philosophy/thinkers/thomas-kuhn",
@@ -45824,6 +55776,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/medicine/figures/jonas-salk": [
     {
+      url: "/medicine/events/salk-1954-polio-trial",
+      title: "1954 年美国脊髓灰质炎疫苗现场试验：观察现场与安慰剂对照并存的读出",
+    },
+    {
+      url: "/medicine/events/enders-1949-polio-culture",
+      title: "恩德斯 1949 脊髓灰质炎组织培养：非神经组织上的增殖与细胞病变读出",
+    },
+    {
       url: "/medicine/ethics/henrietta-lacks-hela",
       title: "海拉细胞与亨丽埃塔·拉克斯",
     },
@@ -45832,6 +55792,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/figures/edward-jenner",
       title: "爱德华·詹纳",
+    },
+    {
+      url: "/chemistry/milestones/pasteur-1848-tartaric",
+      title: "巴斯德一八四八年的酒石酸钠铵盐：半面晶面、镊子和相反的旋光",
     },
     {
       url: "/medicine/figures/florence-nightingale",
@@ -45880,6 +55844,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/figures/paul-ehrlich",
       title: "保罗·埃尔利希",
+    },
+    {
+      url: "/medicine/events/enders-1949-polio-culture",
+      title: "恩德斯 1949 脊髓灰质炎组织培养：非神经组织上的增殖与细胞病变读出",
+    },
+    {
+      url: "/medicine/events/fleming-1928-penicillin-plate",
+      title: "弗莱明青霉素皿：1928 年圣玛丽医院的污染培养皿与 1929 年报告",
     },
     {
       url: "/chemistry/milestones/synthetic-dyes-industry",
@@ -46448,6 +56420,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "公平卫生优先排序：从项目排名到可复审组合",
     },
     {
+      url: "/medicine/traditions/kampo-medicine",
+      title: "汉方医学：传统方剂如何进入日本现代医疗",
+    },
+    {
       url: "/economics/concepts/interest-rates",
       title: "利率机制",
     },
@@ -46496,20 +56472,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "ORBITA 假手术对照试验",
     },
     {
-      url: "/medicine/trial-analyses/recovery-dexamethasone-platform-trial",
-      title: "RECOVERY 地塞米松试验",
-    },
-    {
       url: "/medicine/trial-analyses/select-semaglutide",
       title: "SELECT 司美格鲁肽心血管结局试验",
     },
     {
       url: "/medicine/trial-analyses/sprint-blood-pressure-target-trial",
       title: "SPRINT 强化降压试验",
-    },
-    {
-      url: "/medicine/trial-analyses/womens-health-initiative-hormone-trial",
-      title: "WHI 激素治疗试验",
     },
   ],
   "/medicine/public-health/health-systems-universal-health-coverage": [
@@ -46765,6 +56733,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/medicine/public-health/vaccine-policy-programs-hesitancy",
       title: "疫苗政策、免疫项目与接种行为",
     },
+    {
+      url: "/computer-science/systems/demers-1987-epidemic",
+      title: "Demers 1987：谣言与反熵怎样维护副本，不是 Dynamo",
+    },
   ],
   "/medicine/public-health/maternal-child-health-life-course": [
     {
@@ -46972,8 +56944,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "抗生素",
     },
     {
+      url: "/medicine/events/lister-carbolic-1867",
+      title: "李斯特石炭酸：1867 年《柳叶刀》里的开放性骨折系列",
+    },
+    {
       url: "/medicine/technologies/anesthesia",
       title: "麻醉",
+    },
+    {
+      url: "/medicine/events/semmelweis-1847-chlorine",
+      title: "塞麦尔维斯 1847：维也纳第一产科的含氯洗手与月度死亡表",
     },
     {
       url: "/medicine/technologies/stethoscope",
@@ -46993,6 +56973,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/medicine/technologies/blood-transfusion": [
+    {
+      url: "/medicine/events/landsteiner-1901-abo",
+      title: "兰德施泰纳 1901 正常人血凝集：血清使他人血球成团，以及后来称为 A、B、C 的分组",
+    },
     {
       url: "/chemistry/milestones/the-plastics-age",
       title: "塑料时代（1907）",
@@ -47316,6 +57300,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "多普勒效应与相对论多普勒",
     },
     {
+      url: "/philosophy/experiments/nagel-bat",
+      title: "内格尔的蝙蝠：成为某物是什么样子",
+    },
+    {
       url: "/universe-physics/knowledge-base/经典物理--声学与多普勒效应",
       title: "声学与多普勒效应",
     },
@@ -47572,6 +57560,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "生成艺术与 AI：作者性的新边界",
     },
     {
+      url: "/linguistics/frontier/sign-language-ai-bias",
+      title: "手语人工智能的系统偏差：识别手势，不等于理解语言",
+    },
+    {
       url: "/sociology/frontier/algorithmic-management-worker-power",
       title: "算法管理、工人权力与可审计工作",
     },
@@ -47782,6 +57774,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "干细胞：生命的源泉与再生医学的希望",
     },
     {
+      url: "/psychology/experiments/harlow-1958-contact-comfort",
+      title: "哈洛 1958：布母猴怎样把接触安慰写成可计时的偏好",
+    },
+    {
       url: "/life-science/frontier/synthetic-genome-mirror-life",
       title: "合成基因组与镜像生命——最小细胞与最大风险",
     },
@@ -47946,6 +57942,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/concepts/causation": [
     {
+      url: "/earth-science/event-analyses/cascadia-1700-orphan-tsunami",
+      title: "1700 年 1 月 26 日卡斯卡迪亚巨型逆冲：日本孤儿海啸、淹没森林与浊积岩怎样对上同一时刻",
+    },
+    {
       url: "/economics/economists/alfred-marshall",
       title: "阿尔弗雷德·马歇尔",
     },
@@ -47972,6 +57972,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/concepts/econometrics-foundations",
       title: "计量经济学基础",
+    },
+    {
+      url: "/philosophy/experiments/kavka-toxin",
+      title: "卡夫卡毒素谜题",
     },
     {
       url: "/medicine/concepts/epidemiology",
@@ -48022,8 +58026,40 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "瘴气说：一个错误的理论如何救了很多人",
     },
     {
+      url: "/computer-science/theory/chandy-lamport-1985-snapshots",
+      title: "Chandy–Lamport 1985：标记消息怎样把全局状态收成一致割",
+    },
+    {
       url: "/computer-science/concepts/cpu-pipelining",
       title: "CPU 流水线",
+    },
+    {
+      url: "/computer-science/theory/fidge-mattern-vector-clocks",
+      title: "Fidge–Mattern：分量时间戳怎样把并发从标量编号里认出来",
+    },
+    {
+      url: "/computer-science/theory/herlihy-moss-1993-tm",
+      title: "Herlihy–Moss 1993：事务内存怎样用体系结构支持无锁数据结构",
+    },
+    {
+      url: "/computer-science/theory/herlihy-wing-1990",
+      title: "Herlihy–Wing 1990：线性化怎样把并发对象收成合法的顺序历史",
+    },
+    {
+      url: "/computer-science/theory/lamport-1978-clocks",
+      title: "Lamport 1978：先于关系怎样把分布式事件收成不靠墙钟的偏序",
+    },
+    {
+      url: "/computer-science/theory/lamport-1979-sequential-consistency",
+      title: "Lamport 1979：顺序一致性怎样把多处理器程序收成某一条尊重程序序的交错",
+    },
+    {
+      url: "/computer-science/systems/schneider-1990-smr",
+      title: "Schneider 1990：副本确定性、输出一致与状态机方法，不是又一份 Paxos",
+    },
+    {
+      url: "/computer-science/systems/terry-1994-session-guarantees",
+      title: "Terry 1994：会话保证怎样把弱一致副本写成客户视角",
     },
   ],
   "/philosophy/concepts/complexity-philosophy": [
@@ -48072,6 +58108,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "非洲哲学",
     },
     {
+      url: "/education/education-technology/open-resources-are-not-neutral",
+      title: "开放资源不是中立",
+    },
+    {
       url: "/philosophy/thinkers/kwasi-wiredu",
       title: "夸西·维雷杜",
     },
@@ -48092,8 +58132,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "认识正义",
     },
     {
+      url: "/education/comparison-and-policy/schooling-expansion-in-sub-saharan-africa",
+      title: "撒哈拉以南的学校扩张",
+    },
+    {
       url: "/political-science/international-relations/failed-and-fragile-states",
       title: "失败国家与脆弱国家",
+    },
+    {
+      url: "/education/curriculum-and-teaching/bilingual-education-is-a-design",
+      title: "双语教育是一种设计",
     },
     {
       url: "/arts/methods/iconography-iconology",
@@ -48138,6 +58186,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/methods/comparative-method",
       title: "政治学的比较方法",
+    },
+    {
+      url: "/education/comparison-and-policy/colonial-curriculum-and-language",
+      title: "殖民课程与语言",
     },
     {
       url: "/philosophy/concepts/modern-chinese-thought",
@@ -48453,6 +58505,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/life-science/knowledge-base/进化机制--evo-devo",
       title: "Evo-Devo：演化改写的不是零件，而是说明书",
     },
+    {
+      url: "/computer-science/theory/herlihy-1991-wait-free",
+      title: "Herlihy 1991：等待自由怎样按共识数给并发对象分层",
+    },
   ],
   "/philosophy/concepts/environmental-ethics": [
     {
@@ -48750,6 +58806,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/concepts/falsification": [
     {
+      url: "/earth-science/event-analyses/cascadia-1700-orphan-tsunami",
+      title: "1700 年 1 月 26 日卡斯卡迪亚巨型逆冲：日本孤儿海啸、淹没森林与浊积岩怎样对上同一时刻",
+    },
+    {
+      url: "/earth-science/event-analyses/alaska-1964-good-friday",
+      title: "1964 年阿拉斯加耶稣受难日地震：升降场、长持时与海啸怎样把巨型逆冲钉成一套记录",
+    },
+    {
+      url: "/earth-science/event-analyses/glomar-challenger-1968-dsdp",
+      title: "1968 年格洛玛·挑战者号：深海钻探怎样把离脊变老钉成岩芯年龄表",
+    },
+    {
+      url: "/earth-science/event-analyses/mexico-city-1985-site-effect",
+      title: "1985 年墨西哥城场地效应：古湖床软泥、卓越周期与加速度记录怎样把远场放大钉成证据",
+    },
+    {
+      url: "/earth-science/event-analyses/loma-prieta-1989-cypress",
+      title: "1989 年洛马普里埃塔：柏树街高架桥倒塌与滨海区填土怎样把近场走滑钉成场地与结构证据",
+    },
+    {
       url: "/earth-science/pioneers/alfred-wegener",
       title: "阿尔弗雷德·魏格纳",
     },
@@ -48808,6 +58884,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/多重宇宙假说",
       title: "多重宇宙假说",
+    },
+    {
+      url: "/medicine/events/enders-1949-polio-culture",
+      title: "恩德斯 1949 脊髓灰质炎组织培养：非神经组织上的增殖与细胞病变读出",
     },
     {
       url: "/medicine/events/bloodletting-and-the-numerical-method",
@@ -48892,6 +58972,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/lamarckism-and-its-afterlives",
       title: "拉马克主义：三次死亡与一次不完全的返魂",
+    },
+    {
+      url: "/medicine/events/landsteiner-1901-abo",
+      title: "兰德施泰纳 1901 正常人血凝集：血清使他人血球成团，以及后来称为 A、B、C 的分组",
     },
     {
       url: "/medicine/concepts/clinical-diagnosis",
@@ -49123,6 +59207,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/economics/concepts/nudge-libertarian-paternalism",
       title: "助推与自由家长主义",
     },
+    {
+      url: "/computer-science/theory/dijkstra-1965-mutual-exclusion",
+      title: "Dijkstra 1965：互斥怎样在没有仲裁者的共享变量上写成可推理的问题",
+    },
+    {
+      url: "/computer-science/theory/herlihy-1991-wait-free",
+      title: "Herlihy 1991：等待自由怎样按共识数给并发对象分层",
+    },
+    {
+      url: "/computer-science/theory/knuth-1966-mutex-comment",
+      title: "Knuth 1966：互斥的集体进展怎样仍允许一个人被永远超过",
+    },
+    {
+      url: "/computer-science/theory/lamport-1974-bakery",
+      title: "Lamport 1974：面包店算法怎样给互斥加上先来先服务",
+    },
+    {
+      url: "/computer-science/theory/peterson-1981-mutual-exclusion",
+      title: "Peterson 1981：两进程互斥怎样用两面旗与一个 turn 写成短注",
+    },
   ],
   "/philosophy/concepts/happiness": [
     {
@@ -49168,6 +59272,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "菌根",
     },
     {
+      url: "/medicine/events/landsteiner-1901-abo",
+      title: "兰德施泰纳 1901 正常人血凝集：血清使他人血球成团，以及后来称为 A、B、C 的分组",
+    },
+    {
       url: "/medicine/concepts/immune-system",
       title: "免疫系统",
     },
@@ -49195,6 +59303,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/computer-science/concepts/file-systems",
       title: "文件系统",
     },
+    {
+      url: "/computer-science/theory/chandy-lamport-1985-snapshots",
+      title: "Chandy–Lamport 1985：标记消息怎样把全局状态收成一致割",
+    },
+    {
+      url: "/computer-science/theory/gilbert-lynch-2002-cap",
+      title: "Gilbert–Lynch 2002：异步网上原子寄存器无法既可用又抗分区",
+    },
+    {
+      url: "/computer-science/theory/herlihy-1991-wait-free",
+      title: "Herlihy 1991：等待自由怎样按共识数给并发对象分层",
+    },
+    {
+      url: "/computer-science/theory/herlihy-wing-1990",
+      title: "Herlihy–Wing 1990：线性化怎样把并发对象收成合法的顺序历史",
+    },
+    {
+      url: "/computer-science/theory/shapiro-2011-crdts",
+      title: "Shapiro 2011：副本收敛是半格或可交换操作，不是共识协议",
+    },
   ],
   "/philosophy/concepts/indian-buddhist-epistemology": [
     {
@@ -49212,12 +59340,56 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/concepts/information-philosophy": [
     {
+      url: "/computer-science/theory/circuit-complexity",
+      title: "电路复杂度",
+    },
+    {
       url: "/chemistry/substances/nucleic-acids-chemistry",
       title: "核酸的化学",
     },
     {
       url: "/computer-science/pioneers/claude-shannon",
       title: "克劳德·香农",
+    },
+    {
+      url: "/computer-science/frontier/diffusion-models",
+      title: "扩散模型：从噪声里长出分布",
+    },
+    {
+      url: "/computer-science/pioneers/fei-fei-li",
+      title: "李飞飞",
+    },
+    {
+      url: "/computer-science/frontier/fully-homomorphic-encryption",
+      title: "全同态加密：在密文上计算",
+    },
+    {
+      url: "/computer-science/pioneers/shafi-goldwasser",
+      title: "沙菲·戈德瓦塞尔",
+    },
+    {
+      url: "/computer-science/pioneers/stephen-cook",
+      title: "斯蒂芬·库克",
+    },
+    {
+      url: "/computer-science/concepts/speculative-execution-and-side-channels",
+      title: "投机执行与侧信道",
+    },
+    {
+      url: "/computer-science/concepts/crdts",
+      title: "无冲突复制数据类型",
+    },
+    {
+      url: "/computer-science/pioneers/cynthia-dwork",
+      title: "辛西娅·德沃克",
+    },
+    {
+      url: "/computer-science/pioneers/judea-pearl",
+      title: "朱迪亚·珀尔",
+    },
+    {
+      url: "/computer-science/concepts/webassembly",
+      title: "WebAssembly",
     },
   ],
   "/philosophy/concepts/justice": [
@@ -49273,6 +59445,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/law/criminal-and-procedure/criminal-justice-reform",
       title: "刑事司法改革的争议现场：认罪协商、陪审团与监狱的未来",
     },
+    {
+      url: "/computer-science/theory/knuth-1966-mutex-comment",
+      title: "Knuth 1966：互斥的集体进展怎样仍允许一个人被永远超过",
+    },
   ],
   "/philosophy/concepts/karma": [
     {
@@ -49286,28 +59462,192 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/concepts/knowledge": [
     {
+      url: "/psychology/experiments/atkinson-shiffrin-1968",
+      title: "阿特金森与希夫林 1968：结构特征与控制过程怎样把记忆写成感觉登记、短时库与长时库",
+    },
+    {
+      url: "/psychology/experiments/baddeley-hitch-1974",
+      title: "巴德利与希契 1974：工作记忆怎样把短时仓库拆成三组件",
+    },
+    {
       url: "/mathematics/paradoxes/banach-tarski",
       title: "巴拿赫-塔斯基悖论",
+    },
+    {
+      url: "/psychology/experiments/bartlett-1932",
+      title: "巴特莱特 1932：回忆是图式重构，不是播放录音",
     },
     {
       url: "/economics/economists/paul-romer",
       title: "保罗·罗默",
     },
     {
+      url: "/psychology/experiments/posner-1980",
+      title: "波斯纳 1980：空间提示怎样把隐蔽定向从眼动里拆成有效、无效与中性线索上的代价与收益",
+    },
+    {
+      url: "/psychology/experiments/broadbent-1958",
+      title: "布罗德本特 1958：过滤器怎样把有限容量写成早期选择的门",
+    },
+    {
+      url: "/philosophy/experiments/lottery-paradox",
+      title: "彩票悖论",
+    },
+    {
       url: "/philosophy/isms/transcendentalism",
       title: "超验主义",
+    },
+    {
+      url: "/psychology/experiments/cherry-1953",
+      title: "彻里 1953：双耳分听怎样把未追随耳从整句里拆成几乎什么也报不出",
     },
     {
       url: "/computer-science/pioneers/tim-berners-lee",
       title: "蒂姆·伯纳斯-李",
     },
     {
+      url: "/psychology/experiments/deutsch-deutsch-1963",
+      title: "多伊奇与多伊奇 1963：晚期选择怎样把重要性加权写到完整分析之后",
+    },
+    {
+      url: "/philosophy/experiments/fitch-1963-knowability",
+      title: "菲奇可知性悖论",
+    },
+    {
       url: "/mathematics/knowledge-base/数论--费马大定理",
       title: "费马大定理",
     },
     {
+      url: "/psychology/experiments/glanzer-cunitz-1966",
+      title: "格兰泽与库尼茨 1966：自由回忆的首因与近因为何被两套仓库分开",
+    },
+    {
+      url: "/philosophy/experiments/goldman-1976-fake-barns",
+      title: "假谷仓",
+    },
+    {
+      url: "/philosophy/experiments/kavka-toxin",
+      title: "卡夫卡毒素谜题",
+    },
+    {
+      url: "/psychology/experiments/craik-lockhart-1972",
+      title: "克雷克与洛克哈特 1972：加工水平怎样把记忆从仓库改写成编码深度的研究纲领",
+    },
+    {
+      url: "/philosophy/experiments/quine-gavagai",
+      title: "蒯因的 Gavagai：刺激意义下的翻译不确定性",
+    },
+    {
+      url: "/philosophy/experiments/moore-1939-hands",
+      title: "摩尔的两只手",
+    },
+    {
+      url: "/psychology/experiments/moray-1959",
+      title: "莫雷 1959：自己的名字怎样把被拒绝耳上的屏障从密封改写成情感显著项仍可能漏出",
+    },
+    {
+      url: "/psychology/experiments/sperling-1960",
+      title: "斯珀林 1960：部分报告怎样把瞬时视觉容量从整报里拆出来",
+    },
+    {
+      url: "/psychology/experiments/sternberg-1966",
+      title: "斯特恩伯格 1966：高速扫描怎样把短时记忆里的数字写成随集合大小线性变长的反应时",
+    },
+    {
+      url: "/psychology/experiments/treisman-1960",
+      title: "特里斯曼 1960：衰减怎样把被拒绝通路从全关改写成阈值仍可能被情境接住",
+    },
+    {
+      url: "/psychology/experiments/tulving-thomson-1973",
+      title: "图尔文与汤姆森 1973：编码特定性怎样把提取线索写成与痕迹重叠",
+    },
+    {
+      url: "/psychology/experiments/waugh-norman-1965",
+      title: "沃与诺曼 1965：初级记忆怎样把遗忘写成插入项目而非单纯流逝",
+    },
+    {
+      url: "/psychology/experiments/shepard-metzler-1971",
+      title: "谢泼德与梅茨勒 1971：三维线描的心理旋转怎样把“同一物体”写成与角差成正比的反应时",
+    },
+    {
+      url: "/philosophy/experiments/preface-paradox",
+      title: "序言悖论",
+    },
+    {
+      url: "/philosophy/experiments/goldman-1967-causal",
+      title: "因果知识",
+    },
+    {
       url: "/philosophy/concepts/indian-buddhist-epistemology",
       title: "印度佛教知识论",
+    },
+    {
+      url: "/philosophy/experiments/nozick-1981-tracking",
+      title: "追踪",
+    },
+    {
+      url: "/computer-science/theory/attiya-bar-noy-dolev-1995",
+      title: "Attiya–Bar-Noy–Dolev 1995：消息传递上的原子寄存器",
+    },
+    {
+      url: "/computer-science/theory/chandra-toueg-1996",
+      title: "Chandra–Toueg 1996：会犯错的怀疑预言怎样成为共识的最弱检测器",
+    },
+    {
+      url: "/computer-science/theory/dwork-lynch-stockmeyer-1988",
+      title: "Dwork–Lynch–Stockmeyer 1988：终将有界的延迟怎样让确定性共识可能",
+    },
+    {
+      url: "/computer-science/theory/flp-fischer-lynch-paterson-1985",
+      title: "FLP：完全异步下一次崩溃也能挡住确定性共识",
+    },
+    {
+      url: "/computer-science/theory/garcia-molina-1982-bully",
+      title: "Garcia-Molina 1982：编号更高的进程怎样在超时假设下抢走协调者",
+    },
+    {
+      url: "/computer-science/theory/gilbert-lynch-2002-cap",
+      title: "Gilbert–Lynch 2002：异步网上原子寄存器无法既可用又抗分区",
+    },
+    {
+      url: "/computer-science/theory/goldwasser-micali-rackoff-1985",
+      title: "Goldwasser–Micali–Rackoff 1985：交互证明系统的知识复杂度怎样把零知识写成定义",
+    },
+    {
+      url: "/computer-science/theory/gray-1978-two-phase-commit",
+      title: "Gray 1978：两阶段提交怎样把多处改动收成提交或中止",
+    },
+    {
+      url: "/computer-science/theory/herlihy-1991-wait-free",
+      title: "Herlihy 1991：等待自由怎样按共识数给并发对象分层",
+    },
+    {
+      url: "/computer-science/theory/herlihy-moss-1993-tm",
+      title: "Herlihy–Moss 1993：事务内存怎样用体系结构支持无锁数据结构",
+    },
+    {
+      url: "/computer-science/theory/herlihy-wing-1990",
+      title: "Herlihy–Wing 1990：线性化怎样把并发对象收成合法的顺序历史",
+    },
+    {
+      url: "/computer-science/theory/lamport-1978-clocks",
+      title: "Lamport 1978：先于关系怎样把分布式事件收成不靠墙钟的偏序",
+    },
+    {
+      url: "/computer-science/theory/lamport-1979-sequential-consistency",
+      title: "Lamport 1979：顺序一致性怎样把多处理器程序收成某一条尊重程序序的交错",
+    },
+    {
+      url: "/computer-science/systems/schneider-1990-smr",
+      title: "Schneider 1990：副本确定性、输出一致与状态机方法，不是又一份 Paxos",
+    },
+    {
+      url: "/computer-science/theory/shapiro-2011-crdts",
+      title: "Shapiro 2011：副本收敛是半格或可交换操作，不是共识协议",
+    },
+    {
+      url: "/computer-science/systems/terry-1994-session-guarantees",
+      title: "Terry 1994：会话保证怎样把弱一致副本写成客户视角",
     },
   ],
   "/philosophy/concepts/li": [
@@ -49378,6 +59718,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "沃森选择任务",
     },
     {
+      url: "/mathematics/theorems/hilberts-tenth-problem",
+      title: "希尔伯特第十问题：丢番图方程没有通用判据",
+    },
+    {
       url: "/philosophy/concepts/psychologism",
       title: "心理主义",
     },
@@ -49388,6 +59732,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/xunzi-extended",
       title: "荀子深度扩展",
+    },
+    {
+      url: "/computer-science/theory/floyd-1967-assigning-meanings",
+      title: "Floyd 1967：归纳断言怎样把程序的意义写在流程图的边上",
+    },
+    {
+      url: "/computer-science/theory/hoare-1969-axiomatic",
+      title: "Hoare 1969：公理基础怎样把程序正确性写成可推导的三元组",
     },
     {
       url: "/computer-science/algorithms/sat-solving",
@@ -49422,6 +59774,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/pioneers/tony-hoare",
       title: "托尼·霍尔",
+    },
+    {
+      url: "/computer-science/theory/attiya-bar-noy-dolev-1995",
+      title: "Attiya–Bar-Noy–Dolev 1995：消息传递上的原子寄存器",
+    },
+    {
+      url: "/computer-science/theory/chandra-toueg-1996",
+      title: "Chandra–Toueg 1996：会犯错的怀疑预言怎样成为共识的最弱检测器",
+    },
+    {
+      url: "/computer-science/theory/dwork-lynch-stockmeyer-1988",
+      title: "Dwork–Lynch–Stockmeyer 1988：终将有界的延迟怎样让确定性共识可能",
+    },
+    {
+      url: "/computer-science/systems/schneider-1990-smr",
+      title: "Schneider 1990：副本确定性、输出一致与状态机方法，不是又一份 Paxos",
     },
   ],
   "/philosophy/concepts/modern-chinese-thought": [
@@ -49468,8 +59836,52 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/concepts/paradigm": [
     {
+      url: "/earth-science/event-analyses/cascadia-1700-orphan-tsunami",
+      title: "1700 年 1 月 26 日卡斯卡迪亚巨型逆冲：日本孤儿海啸、淹没森林与浊积岩怎样对上同一时刻",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--eddington-1919-eclipse",
+      title: "1919 日食底片：0.87″ 与 1.75″ 怎样被量到星点上",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--shapley-curtis-1920",
+      title: "1920 沙普利–柯蒂斯辩论：大银河与岛宇宙怎样在史密森被写成两套账",
+    },
+    {
+      url: "/earth-science/event-analyses/lehmann-1936-inner-core",
+      title: "1936 年莱曼：空影区里的走时分支怎样嵌进固态内核",
+    },
+    {
+      url: "/earth-science/event-analyses/hess-1962-seafloor-spreading",
+      title: "1962 年赫斯：洋盆历史怎样把脊写成源、把沟写成汇",
+    },
+    {
+      url: "/earth-science/event-analyses/vine-matthews-magnetic-stripes",
+      title: "1963 年瓦因与马修斯：磁异常剖面怎样把倒转史录进扩张洋底",
+    },
+    {
+      url: "/earth-science/event-analyses/alaska-1964-good-friday",
+      title: "1964 年阿拉斯加耶稣受难日地震：升降场、长持时与海啸怎样把巨型逆冲钉成一套记录",
+    },
+    {
+      url: "/earth-science/event-analyses/wilson-1965-transform-faults",
+      title: "1965 年威尔逊：转换断层怎样把脊的外观错开收成反号走滑",
+    },
+    {
+      url: "/earth-science/event-analyses/glomar-challenger-1968-dsdp",
+      title: "1968 年格洛玛·挑战者号：深海钻探怎样把离脊变老钉成岩芯年龄表",
+    },
+    {
       url: "/economics/case-studies/stagflation-1970s",
       title: "1970年代滞胀：凯恩斯主义的危机",
+    },
+    {
+      url: "/earth-science/event-analyses/mexico-city-1985-site-effect",
+      title: "1985 年墨西哥城场地效应：古湖床软泥、卓越周期与加速度记录怎样把远场放大钉成证据",
+    },
+    {
+      url: "/earth-science/event-analyses/loma-prieta-1989-cypress",
+      title: "1989 年洛马普里埃塔：柏树街高架桥倒塌与滨海区填土怎样把近场走滑钉成场地与结构证据",
     },
     {
       url: "/earth-science/pioneers/alfred-wegener",
@@ -49478,6 +59890,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/前沿物理--暗物质",
       title: "暗物质",
+    },
+    {
+      url: "/life-science/knowledge-base/pasteur-swan-neck-flask",
+      title: "巴斯德鹅颈瓶：空气通过、尘埃留下",
     },
     {
       url: "/life-science/scientists/mcclintock",
@@ -49500,8 +59916,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "大陆漂移被拒绝的五十年（1912—1965）",
     },
     {
+      url: "/universe-physics/knowledge-base/量子物理--davisson-germer-experiment",
+      title: "戴维森–革末：镍单晶怎样把慢电子折成随电压走动的角向峰",
+    },
+    {
       url: "/political-science/international-relations/containment",
       title: "遏制战略",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--franck-hertz-experiment",
+      title: "弗兰克–赫兹：汞蒸气里的电子怎样把能量一份一份交出去",
     },
     {
       url: "/philosophy/concepts/sense-data",
@@ -49524,6 +59948,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "哈勃星系形态序列",
     },
     {
+      url: "/earth-science/event-analyses/wadati-benioff-zone",
+      title: "和达—贝尼奥夫带：倾斜震源怎样把下沉的冷板片画出来",
+    },
+    {
       url: "/universe-physics/knowledge-base/核物理--nuclear-shell-liquid-drop-models",
       title: "核壳层模型与液滴模型",
     },
@@ -49536,12 +59964,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "活力论的漫长死亡（1828—1900）",
     },
     {
+      url: "/cosmology/knowledge-base/宇宙学观测--霍尔姆德尔喇叭天线",
+      title: "霍尔姆德尔喇叭：消不掉的 3.5 K 怎样被写成天线温度",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--compton-scattering-experiment",
+      title: "康普顿：石墨怎样把钼 K-α 的波长随散射角推开",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--密立根油滴实验",
+      title: "密立根油滴：基本电荷怎样在悬浮的油雾里被一份一份称出来",
+    },
+    {
       url: "/political-science/thinkers/niccolo-machiavelli",
       title: "尼科洛·马基雅维利",
     },
     {
       url: "/economics/economists/george-akerlof",
       title: "乔治·阿克洛夫",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--stern-gerlach-experiment",
+      title: "施特恩–格拉赫：银原子束怎样在不均匀磁场里裂成两条斑",
     },
     {
       url: "/philosophy/isms/positivism",
@@ -49558,6 +60002,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/humoral-theory",
       title: "体液学说",
+    },
+    {
+      url: "/chemistry/milestones/wohler-urea-synthesis",
+      title: "维勒的尿素合成：氰酸铵怎样重排成可鉴定的晶体",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--稳恒态宇宙",
@@ -49612,8 +60060,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "变化盲视",
     },
     {
+      url: "/psychology/experiments/posner-1980",
+      title: "波斯纳 1980：空间提示怎样把隐蔽定向从眼动里拆成有效、无效与中性线索上的代价与收益",
+    },
+    {
+      url: "/psychology/experiments/broadbent-1958",
+      title: "布罗德本特 1958：过滤器怎样把有限容量写成早期选择的门",
+    },
+    {
       url: "/philosophy/isms/transcendentalism",
       title: "超验主义",
+    },
+    {
+      url: "/psychology/experiments/deutsch-deutsch-1963",
+      title: "多伊奇与多伊奇 1963：晚期选择怎样把重要性加权写到完整分析之后",
     },
     {
       url: "/philosophy/concepts/sense-data",
@@ -49644,12 +60104,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "美是什么：客观之美与趣味判断的千年争论",
     },
     {
+      url: "/psychology/experiments/moray-1959",
+      title: "莫雷 1959：自己的名字怎样把被拒绝耳上的屏障从密封改写成情感显著项仍可能漏出",
+    },
+    {
       url: "/arts/foundations/color-and-light",
       title: "色彩与光",
     },
     {
+      url: "/psychology/experiments/sperling-1960",
+      title: "斯珀林 1960：部分报告怎样把瞬时视觉容量从整报里拆出来",
+    },
+    {
+      url: "/psychology/experiments/sternberg-1966",
+      title: "斯特恩伯格 1966：高速扫描怎样把短时记忆里的数字写成随集合大小线性变长的反应时",
+    },
+    {
+      url: "/psychology/experiments/treisman-1960",
+      title: "特里斯曼 1960：衰减怎样把被拒绝通路从全关改写成阈值仍可能被情境接住",
+    },
+    {
       url: "/arts/foundations/line-shape-form",
       title: "线条、形状与形体",
+    },
+    {
+      url: "/psychology/experiments/shepard-metzler-1971",
+      title: "谢泼德与梅茨勒 1971：三维线描的心理旋转怎样把“同一物体”写成与角差成正比的反应时",
     },
     {
       url: "/philosophy/concepts/indian-buddhist-epistemology",
@@ -49702,8 +60182,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "句法学：结构与依存",
     },
     {
+      url: "/philosophy/experiments/kripke-quus",
+      title: "克里普克的 quus：过去用法怎样钉不住加法",
+    },
+    {
       url: "/mathematics/mathematicians/leibniz",
       title: "莱布尼茨",
+    },
+    {
+      url: "/philosophy/experiments/russell-1905-on-denoting",
+      title: "论指称",
+    },
+    {
+      url: "/philosophy/experiments/strawson-1950-on-referring",
+      title: "论指称",
     },
     {
       url: "/linguistics/frontier/animal-communication-ai",
@@ -49769,11 +60261,31 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/linguistics/words-sentences-meaning/pragmatics",
       title: "语用学：语境、意图与会话",
     },
+    {
+      url: "/philosophy/experiments/donnellan-1966-referring",
+      title: "指称与限定摹状词",
+    },
   ],
   "/philosophy/concepts/philosophy-of-science": [
     {
+      url: "/chemistry/milestones/aston-1919-mass-spectrograph",
+      title: "阿斯顿 1919：质谱仪上氖的两条整数质量怎样把同位素写成实验室对象",
+    },
+    {
+      url: "/psychology/experiments/atkinson-shiffrin-1968",
+      title: "阿特金森与希夫林 1968：结构特征与控制过程怎样把记忆写成感觉登记、短时库与长时库",
+    },
+    {
       url: "/philosophy/thinkers/averroes",
       title: "阿威罗伊",
+    },
+    {
+      url: "/psychology/experiments/ebbinghaus-1885",
+      title: "艾宾浩斯 1885：无意义音节与节省法怎样把遗忘写成可再学的差额",
+    },
+    {
+      url: "/chemistry/milestones/eyring-1935-absolute-rate",
+      title: "艾林 1935：活化络合物怎样把反应速率写成越过鞍点的统计频率",
     },
     {
       url: "/human-history/knowledge/人物--爱因斯坦",
@@ -49784,8 +60296,36 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "安萨里",
     },
     {
+      url: "/psychology/experiments/baddeley-1966",
+      title: "巴德利 1966：词序列的即时记忆为何被声学相似拖垮而不是被语义相似拖垮",
+    },
+    {
+      url: "/chemistry/milestones/pauling-1931-chemical-bond",
+      title: "鲍林 1931：杂化、共振与顺磁判据怎样把化学键写成化学家的语言",
+    },
+    {
+      url: "/psychology/experiments/peterson-peterson-1959",
+      title: "彼得森 1959：倒数干扰怎样把单个项目的短时保持画成秒级曲线",
+    },
+    {
       url: "/universe-physics/knowledge-base/量子物理--wave-function-probability",
       title: "波函数与概率诠释",
+    },
+    {
+      url: "/chemistry/milestones/born-oppenheimer-1927",
+      title: "玻恩–奥本海默 1927：分子怎样把核的慢运动从电子的快运动里拆开",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--blackett-1925-nitrogen",
+      title: "布莱克特 1925：威尔逊云室怎样把氮上的质子分叉拍成径迹",
+    },
+    {
+      url: "/psychology/experiments/brown-1958",
+      title: "布朗 1958：即时记忆的衰减怎样被若干测验问到，却还没有画成一条间隔曲线",
+    },
+    {
+      url: "/chemistry/milestones/bronsted-lowry-1923",
+      title: "布朗斯特–劳里 1923：酸给出质子、碱接住质子怎样被写成定义",
     },
     {
       url: "/economics/frontier/inflation-after-2021",
@@ -49794,6 +60334,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/frontier/llm-as-cognitive-science-tool",
       title: "大语言模型：认知科学的预测模型、研究工具与研究对象",
+    },
+    {
+      url: "/chemistry/milestones/debye-huckel-1923",
+      title: "德拜–休克尔 1923：离子氛怎样把强电解质的电导亏损改记成远程静电",
     },
     {
       url: "/earth-science/concepts/geologic-time-scale",
@@ -49820,6 +60364,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "费曼图与微扰论",
     },
     {
+      url: "/chemistry/milestones/fukui-1952-frontier-orbitals",
+      title: "福井 1952：前线电子密度怎样把芳香烃的反应位置写成轨道指标",
+    },
+    {
+      url: "/psychology/experiments/godden-baddeley-1975",
+      title: "戈登与巴德利 1975：陆地与水下怎样把环境写成提取线索",
+    },
+    {
+      url: "/psychology/experiments/glanzer-cunitz-1966",
+      title: "格兰泽与库尼茨 1966：自由回忆的首因与近因为何被两套仓库分开",
+    },
+    {
       url: "/earth-science/concepts/paleontology-and-stratigraphy",
       title: "古生物学与地层学",
     },
@@ -49830,6 +60386,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/pioneers/harry-hess",
       title: "哈里·赫斯",
+    },
+    {
+      url: "/chemistry/milestones/heitler-london-1927",
+      title: "海特勒–伦敦 1927：交换怎样把氢分子写成同极键",
     },
     {
       url: "/computer-science/frontier/ai-interpretability",
@@ -49844,8 +60404,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "加里·贝克尔",
     },
     {
+      url: "/chemistry/milestones/curie-1898-polonium-radium",
+      title: "居里 1898：沥青铀矿里比铀更活的部分怎样被写成钋与镭",
+    },
+    {
+      url: "/psychology/experiments/keppel-underwood-1962",
+      title: "凯佩尔与安德伍德 1962：单项目短时保持里的前摄抑制怎样随试次变陡",
+    },
+    {
+      url: "/psychology/experiments/conrad-1964",
+      title: "康拉德 1964：即时记忆的错误为何跟着声音走而不是跟着字形走",
+    },
+    {
       url: "/sociology/concepts/science-and-technology-studies",
       title: "科学与技术研究（STS）",
+    },
+    {
+      url: "/psychology/experiments/craik-lockhart-1972",
+      title: "克雷克与洛克哈特 1972：加工水平怎样把记忆从仓库改写成编码深度的研究纲领",
     },
     {
       url: "/universe-physics/knowledge-base/电磁学--coulomb-law-electrostatics",
@@ -49856,12 +60432,36 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "蒯因",
     },
     {
+      url: "/chemistry/milestones/langmuir-1919-octet",
+      title: "朗缪尔 1919：电子怎样被排进立方原子与八隅体",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--rutherford-1919-nitrogen",
+      title: "卢瑟福 1919：天然 α 打氮怎样放出氢核，并把核组成第一次改写成实验室对象",
+    },
+    {
       url: "/medicine/figures/louis-pasteur",
       title: "路易·巴斯德",
     },
     {
+      url: "/chemistry/milestones/lewis-1916-shared-pair",
+      title: "路易斯 1916：共享电子对怎样被写成化学键",
+    },
+    {
+      url: "/chemistry/milestones/roothaan-1951-lcao-scf",
+      title: "罗特汉 1951：LCAO-SCF 怎样把哈特里–福克写成矩阵本征值问题",
+    },
+    {
       url: "/political-science/thinkers/max-weber",
       title: "马克斯·韦伯",
+    },
+    {
+      url: "/chemistry/milestones/mulliken-1932-molecular-orbitals",
+      title: "马利肯 1932：分子轨道怎样把多原子分子的价写成遍布全分子的单电子函数",
+    },
+    {
+      url: "/psychology/experiments/miller-1956",
+      title: "米勒 1956：绝对判断、即时记忆与组块怎样把容量从比特改写成结构",
     },
     {
       url: "/political-science/institutions/democracy-authoritarianism",
@@ -49880,8 +60480,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "诺特定理",
     },
     {
+      url: "/chemistry/milestones/ramsay-rayleigh-1894-argon",
+      title: "瑞利与拉姆齐一八九四年的氩：两份氮的密度差怎样逼出一种不进化合的气体",
+    },
+    {
       url: "/cosmology/knowledge-base/星系天文学--赛弗特星系",
       title: "赛弗特星系",
+    },
+    {
+      url: "/chemistry/milestones/staudinger-1920-macromolecules",
+      title: "施陶丁格 1920：高分子怎样被写成共价长链",
     },
     {
       url: "/philosophy/isms/positivism",
@@ -49892,12 +60500,36 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "数学与现实",
     },
     {
+      url: "/chemistry/milestones/soddy-1913-isotope",
+      title: "索迪 1913：放射链上化学无法分开的物种怎样被写成同位素",
+    },
+    {
       url: "/philosophy/thinkers/thales",
       title: "泰勒斯",
     },
     {
+      url: "/psychology/experiments/tversky-kahneman-1974",
+      title: "特沃斯基与卡尼曼 1974：不确定判断里的启发式怎样被写成可核对的偏差",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--wilson-1911-cloud-chamber",
+      title: "威尔逊 1911：膨胀怎样把离子变成可见的凝结径迹",
+    },
+    {
+      url: "/psychology/experiments/wickens-1970",
+      title: "威肯斯 1970：换编码范畴怎样把前摄抑制释放写成意义的尺子",
+    },
+    {
       url: "/cosmology/knowledge-base/系外行星--微引力透镜法",
       title: "微引力透镜法",
+    },
+    {
+      url: "/chemistry/milestones/werner-1893-coordination",
+      title: "维尔纳 1893：主价、副价与可电离氯怎样把钴氨合物写成八面体",
+    },
+    {
+      url: "/psychology/experiments/waugh-norman-1965",
+      title: "沃与诺曼 1965：初级记忆怎样把遗忘写成插入项目而非单纯流逝",
     },
     {
       url: "/medicine/figures/hippocrates",
@@ -49926,6 +60558,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/concepts/planetary-geology",
       title: "行星地质学",
+    },
+    {
+      url: "/chemistry/milestones/huckel-1931-benzene-mo",
+      title: "休克尔 1931：苯问题的量子贡献怎样把六只 π 电子写成分子轨道",
     },
     {
       url: "/medicine/concepts/evidence-based-medicine",
@@ -49960,22 +60596,102 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Clarity AD 仑卡奈单抗试验",
     },
     {
+      url: "/computer-science/concepts/codd-1970-relational",
+      title: "Codd 1970：关系怎样把大型共享数据库从访问路径里解放出来",
+    },
+    {
+      url: "/computer-science/theory/cook-1971-np-completeness",
+      title: "Cook 1971：定理证明手续的复杂度怎样把 SAT 写成 NP 完全",
+    },
+    {
       url: "/cosmology/frontier/desi-dark-energy",
       title: "DESI 与演化的暗能量：宇宙学常数的挑战",
+    },
+    {
+      url: "/chemistry/milestones/evans-polanyi-1935",
+      title: "Evans–Polanyi 1935：过渡态方法怎样被用来写溶液里的反应速率",
+    },
+    {
+      url: "/computer-science/theory/floyd-1967-assigning-meanings",
+      title: "Floyd 1967：归纳断言怎样把程序的意义写在流程图的边上",
+    },
+    {
+      url: "/computer-science/theory/goldwasser-micali-rackoff-1985",
+      title: "Goldwasser–Micali–Rackoff 1985：交互证明系统的知识复杂度怎样把零知识写成定义",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1935",
+      title: "Hammett 1935：取代基怎样把反应速率与平衡常数写成一条直线",
+    },
+    {
+      url: "/chemistry/milestones/hammett-1937",
+      title: "Hammett 1937：苯衍生物的取代基常数怎样被收成一张可迁移的表",
+    },
+    {
+      url: "/chemistry/milestones/hammond-1955-postulate",
+      title: "Hammond 1955：邻近物种的能量接近怎样被用来猜过渡态的几何",
+    },
+    {
+      url: "/computer-science/theory/hoare-1969-axiomatic",
+      title: "Hoare 1969：公理基础怎样把程序正确性写成可推导的三元组",
     },
     {
       url: "/cosmology/frontier/k2-18b-atmosphere",
       title: 'K2-18b 大气之争：一次"生命迹象"声称的解剖',
     },
     {
+      url: "/computer-science/theory/karp-1972-reducibility",
+      title: "Karp 1972：组合问题之间的可归约性怎样把二十一个问题写成多项式完全",
+    },
+    {
+      url: "/computer-science/theory/karp-lipton-1980",
+      title: "Karp–Lipton 1980：SAT 若有多项式电路，多项式层次怎样坍到第二层",
+    },
+    {
+      url: "/computer-science/theory/ladner-1975-np-intermediate",
+      title: "Ladner 1975：若 P 不等于 NP，中间问题怎样必须存在",
+    },
+    {
+      url: "/computer-science/theory/levin-1973-universal-search",
+      title: "Levin 1973：通用顺序搜索怎样把 NP 搜索写成一个万能问题",
+    },
+    {
+      url: "/chemistry/milestones/marcus-1956-electron-transfer",
+      title: "Marcus 1956：外层电子转移怎样把溶剂极化与内层坐标的重组写成越过",
+    },
+    {
+      url: "/computer-science/theory/shapiro-2011-crdts",
+      title: "Shapiro 2011：副本收敛是半格或可交换操作，不是共识协议",
+    },
+    {
+      url: "/computer-science/theory/shavit-touitou-1995-stm",
+      title: "Shavit–Touitou 1995：软件事务内存怎样把无锁写成运行时而不是每只对象的手工艺",
+    },
+    {
       url: "/chemistry/reactions/sn1-sn2-nucleophilic-substitution",
       title: "SN1 与 SN2 亲核取代",
+    },
+    {
+      url: "/chemistry/milestones/taft-1952-lfer",
+      title: "Taft 1952：脂肪族与邻位酯的酯化水解速率怎样把极性与空间切开",
+    },
+    {
+      url: "/chemistry/milestones/woodward-hoffmann-1965",
+      title: "Woodward–Hoffmann 1965：电环化的立体化学怎样被写成 HOMO 的对称性",
+    },
+    {
+      url: "/computer-science/theory/yao-1979-communication-complexity",
+      title: "Yao 1979：分布式计算的复杂度问题怎样把通信写成资源",
     },
   ],
   "/philosophy/concepts/philosophy-of-time": [
     {
       url: "/philosophy/thinkers/augustine",
       title: "奥古斯丁",
+    },
+    {
+      url: "/computer-science/theory/byzantine-generals-lamport-1982",
+      title: "拜占庭将军问题",
     },
     {
       url: "/universe-physics/knowledge-base/量子物理--波粒二象性",
@@ -49988,6 +60704,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/光学--激光原理与应用",
       title: "激光原理与应用",
+    },
+    {
+      url: "/computer-science/theory/paxos-lamport-1998",
+      title: "兼职议会与 Paxos",
     },
     {
       url: "/cosmology/knowledge-base/太空探索--space-telescopes-as-time-machines",
@@ -50040,6 +60760,70 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/pioneers/james-hutton",
       title: "詹姆斯·赫顿",
+    },
+    {
+      url: "/computer-science/theory/attiya-bar-noy-dolev-1995",
+      title: "Attiya–Bar-Noy–Dolev 1995：消息传递上的原子寄存器",
+    },
+    {
+      url: "/computer-science/theory/ben-or-1983",
+      title: "Ben-Or 1983：抛硬币怎样把异步共识的终止改成几乎必然",
+    },
+    {
+      url: "/computer-science/theory/chandra-toueg-1996",
+      title: "Chandra–Toueg 1996：会犯错的怀疑预言怎样成为共识的最弱检测器",
+    },
+    {
+      url: "/computer-science/theory/chandy-lamport-1985-snapshots",
+      title: "Chandy–Lamport 1985：标记消息怎样把全局状态收成一致割",
+    },
+    {
+      url: "/computer-science/theory/dwork-lynch-stockmeyer-1988",
+      title: "Dwork–Lynch–Stockmeyer 1988：终将有界的延迟怎样让确定性共识可能",
+    },
+    {
+      url: "/computer-science/theory/fidge-mattern-vector-clocks",
+      title: "Fidge–Mattern：分量时间戳怎样把并发从标量编号里认出来",
+    },
+    {
+      url: "/computer-science/theory/flp-fischer-lynch-paterson-1985",
+      title: "FLP：完全异步下一次崩溃也能挡住确定性共识",
+    },
+    {
+      url: "/computer-science/theory/garcia-molina-1982-bully",
+      title: "Garcia-Molina 1982：编号更高的进程怎样在超时假设下抢走协调者",
+    },
+    {
+      url: "/computer-science/theory/gilbert-lynch-2002-cap",
+      title: "Gilbert–Lynch 2002：异步网上原子寄存器无法既可用又抗分区",
+    },
+    {
+      url: "/computer-science/theory/gray-1978-two-phase-commit",
+      title: "Gray 1978：两阶段提交怎样把多处改动收成提交或中止",
+    },
+    {
+      url: "/computer-science/theory/herlihy-moss-1993-tm",
+      title: "Herlihy–Moss 1993：事务内存怎样用体系结构支持无锁数据结构",
+    },
+    {
+      url: "/computer-science/theory/herlihy-wing-1990",
+      title: "Herlihy–Wing 1990：线性化怎样把并发对象收成合法的顺序历史",
+    },
+    {
+      url: "/computer-science/theory/lamport-1978-clocks",
+      title: "Lamport 1978：先于关系怎样把分布式事件收成不靠墙钟的偏序",
+    },
+    {
+      url: "/computer-science/theory/lamport-1979-sequential-consistency",
+      title: "Lamport 1979：顺序一致性怎样把多处理器程序收成某一条尊重程序序的交错",
+    },
+    {
+      url: "/computer-science/systems/schneider-1990-smr",
+      title: "Schneider 1990：副本确定性、输出一致与状态机方法，不是又一份 Paxos",
+    },
+    {
+      url: "/computer-science/systems/terry-1994-session-guarantees",
+      title: "Terry 1994：会话保证怎样把弱一致副本写成客户视角",
     },
   ],
   "/philosophy/concepts/power": [
@@ -50266,6 +61050,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/concepts/time": [
     {
+      url: "/earth-science/event-analyses/cascadia-1700-orphan-tsunami",
+      title: "1700 年 1 月 26 日卡斯卡迪亚巨型逆冲：日本孤儿海啸、淹没森林与浊积岩怎样对上同一时刻",
+    },
+    {
       url: "/psychology/experiments/libet-free-will",
       title: "利贝特自由意志实验",
     },
@@ -50428,6 +61216,34 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "宗教与科学",
     },
   ],
+  "/philosophy/experiments/block-1978-china-brain": [
+    {
+      url: "/philosophy/experiments/philosophical-zombies",
+      title: "哲学僵尸",
+    },
+    {
+      url: "/philosophy/experiments/chinese-room",
+      title: "中文房间",
+    },
+  ],
+  "/philosophy/experiments/brain-in-vat": [
+    {
+      url: "/philosophy/experiments/dretske-1970-zebra",
+      title: "斑马",
+    },
+    {
+      url: "/philosophy/experiments/moore-1939-hands",
+      title: "摩尔的两只手",
+    },
+    {
+      url: "/philosophy/experiments/molyneux-problem",
+      title: "莫利纽克斯问题：初次看见能否分出立方与球",
+    },
+    {
+      url: "/philosophy/experiments/nozick-1981-tracking",
+      title: "追踪",
+    },
+  ],
   "/philosophy/experiments/chinese-room": [
     {
       url: "/philosophy/frontier/llm-language-understanding",
@@ -50442,28 +61258,604 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "多头绒泡菌",
     },
     {
+      url: "/philosophy/experiments/wittgenstein-beetle",
+      title: "甲虫盒子：私人对象在语言游戏中约去",
+    },
+    {
+      url: "/philosophy/experiments/quine-gavagai",
+      title: "蒯因的 Gavagai：刺激意义下的翻译不确定性",
+    },
+    {
       url: "/computer-science/pioneers/marvin-minsky",
       title: "马文·明斯基",
+    },
+    {
+      url: "/philosophy/experiments/nagel-bat",
+      title: "内格尔的蝙蝠：成为某物是什么样子",
+    },
+    {
+      url: "/philosophy/experiments/parfit-teletransport",
+      title: "帕菲特的传送：心理连续怎样把人格同一性从重要的事情里拆走",
     },
     {
       url: "/philosophy/frontier/digital-personhood-and-mind-uploading",
       title: "数字人格与心灵上传：复制品是我吗",
     },
     {
+      url: "/philosophy/experiments/block-1978-china-brain",
+      title: "中国脑",
+    },
+    {
       url: "/computer-science/concepts/natural-language-processing",
       title: "自然语言处理",
     },
   ],
+  "/philosophy/experiments/donnellan-1966-referring": [
+    {
+      url: "/philosophy/experiments/russell-1905-on-denoting",
+      title: "论指称",
+    },
+    {
+      url: "/philosophy/experiments/strawson-1950-on-referring",
+      title: "论指称",
+    },
+    {
+      url: "/philosophy/thinkers/russell",
+      title: "罗素",
+    },
+    {
+      url: "/philosophy/experiments/kripke-1980-naming",
+      title: "命名与必然性",
+    },
+    {
+      url: "/philosophy/concepts/philosophy-of-language",
+      title: "语言哲学",
+    },
+    {
+      url: "/philosophy/thinkers/strawson",
+      title: "P.F. 斯特劳森",
+    },
+  ],
+  "/philosophy/experiments/dretske-1970-zebra": [
+    {
+      url: "/philosophy/experiments/gettier-problem",
+      title: "盖梯尔问题",
+    },
+    {
+      url: "/philosophy/experiments/goldman-1976-fake-barns",
+      title: "假谷仓",
+    },
+    {
+      url: "/philosophy/schools/epistemology",
+      title: "认识论",
+    },
+    {
+      url: "/philosophy/experiments/lehrer-paxson-1969",
+      title: "未被击败的证成真信念",
+    },
+    {
+      url: "/philosophy/experiments/goldman-1967-causal",
+      title: "因果知识",
+    },
+    {
+      url: "/philosophy/experiments/nozick-1981-tracking",
+      title: "追踪",
+    },
+  ],
   "/philosophy/experiments/experience-machine": [
+    {
+      url: "/philosophy/experiments/kavka-toxin",
+      title: "卡夫卡毒素谜题",
+    },
     {
       url: "/political-science/thinkers/robert-nozick",
       title: "罗伯特·诺齐克",
     },
+    {
+      url: "/philosophy/experiments/wilt-chamberlain",
+      title: "威尔特·张伯伦",
+    },
+    {
+      url: "/philosophy/experiments/nozick-1981-tracking",
+      title: "追踪",
+    },
+  ],
+  "/philosophy/experiments/fitch-1963-knowability": [
+    {
+      url: "/philosophy/experiments/lottery-paradox",
+      title: "彩票悖论",
+    },
+    {
+      url: "/philosophy/experiments/unexpected-hanging",
+      title: "出乎意料的绞刑",
+    },
+    {
+      url: "/philosophy/experiments/gettier-problem",
+      title: "盖梯尔问题",
+    },
+    {
+      url: "/philosophy/experiments/moore-1939-hands",
+      title: "摩尔的两只手",
+    },
+    {
+      url: "/philosophy/experiments/sleeping-beauty",
+      title: "睡美人问题",
+    },
+    {
+      url: "/philosophy/experiments/preface-paradox",
+      title: "序言悖论",
+    },
   ],
   "/philosophy/experiments/frankfurt-cases": [
     {
+      url: "/philosophy/experiments/kavka-toxin",
+      title: "卡夫卡毒素谜题",
+    },
+    {
+      url: "/philosophy/experiments/parfit-teletransport",
+      title: "帕菲特的传送：心理连续怎样把人格同一性从重要的事情里拆走",
+    },
+    {
       url: "/philosophy/isms/libertarianism-free-will",
       title: "自由意志论",
+    },
+  ],
+  "/philosophy/experiments/gettier-problem": [
+    {
+      url: "/psychology/experiments/bartlett-1932",
+      title: "巴特莱特 1932：回忆是图式重构，不是播放录音",
+    },
+    {
+      url: "/philosophy/experiments/dretske-1970-zebra",
+      title: "斑马",
+    },
+    {
+      url: "/philosophy/experiments/lottery-paradox",
+      title: "彩票悖论",
+    },
+    {
+      url: "/philosophy/experiments/fitch-1963-knowability",
+      title: "菲奇可知性悖论",
+    },
+    {
+      url: "/philosophy/experiments/goodman-grue",
+      title: "古德曼的绿蓝谜题",
+    },
+    {
+      url: "/philosophy/experiments/goldman-1976-fake-barns",
+      title: "假谷仓",
+    },
+    {
+      url: "/philosophy/experiments/moore-1939-hands",
+      title: "摩尔的两只手",
+    },
+    {
+      url: "/philosophy/experiments/lehrer-paxson-1969",
+      title: "未被击败的证成真信念",
+    },
+    {
+      url: "/philosophy/experiments/preface-paradox",
+      title: "序言悖论",
+    },
+    {
+      url: "/philosophy/experiments/goldman-1967-causal",
+      title: "因果知识",
+    },
+    {
+      url: "/philosophy/experiments/nozick-1981-tracking",
+      title: "追踪",
+    },
+  ],
+  "/philosophy/experiments/goldman-1967-causal": [
+    {
+      url: "/philosophy/experiments/gettier-problem",
+      title: "盖梯尔问题",
+    },
+    {
+      url: "/philosophy/experiments/goldman-1976-fake-barns",
+      title: "假谷仓",
+    },
+    {
+      url: "/philosophy/schools/epistemology",
+      title: "认识论",
+    },
+    {
+      url: "/philosophy/experiments/lehrer-paxson-1969",
+      title: "未被击败的证成真信念",
+    },
+    {
+      url: "/philosophy/experiments/nozick-1981-tracking",
+      title: "追踪",
+    },
+  ],
+  "/philosophy/experiments/goldman-1976-fake-barns": [
+    {
+      url: "/philosophy/experiments/dretske-1970-zebra",
+      title: "斑马",
+    },
+    {
+      url: "/philosophy/experiments/gettier-problem",
+      title: "盖梯尔问题",
+    },
+    {
+      url: "/philosophy/experiments/lehrer-paxson-1969",
+      title: "未被击败的证成真信念",
+    },
+    {
+      url: "/philosophy/experiments/goldman-1967-causal",
+      title: "因果知识",
+    },
+    {
+      url: "/philosophy/experiments/nozick-1981-tracking",
+      title: "追踪",
+    },
+  ],
+  "/philosophy/experiments/goodman-grue": [
+    {
+      url: "/philosophy/experiments/hempel-ravens",
+      title: "亨佩尔的乌鸦悖论",
+    },
+    {
+      url: "/philosophy/experiments/quine-1951-two-dogmas",
+      title: "经验论的两个教条",
+    },
+    {
+      url: "/philosophy/isms/empiricism-ism",
+      title: "经验主义",
+    },
+    {
+      url: "/philosophy/experiments/kripke-quus",
+      title: "克里普克的 quus：过去用法怎样钉不住加法",
+    },
+    {
+      url: "/philosophy/thinkers/quine",
+      title: "蒯因",
+    },
+    {
+      url: "/philosophy/experiments/quine-gavagai",
+      title: "蒯因的 Gavagai：刺激意义下的翻译不确定性",
+    },
+    {
+      url: "/philosophy/thinkers/hume",
+      title: "休谟",
+    },
+  ],
+  "/philosophy/experiments/grice-strawson-1956": [
+    {
+      url: "/philosophy/experiments/quine-1951-two-dogmas",
+      title: "经验论的两个教条",
+    },
+    {
+      url: "/philosophy/thinkers/quine",
+      title: "蒯因",
+    },
+    {
+      url: "/philosophy/experiments/strawson-1950-on-referring",
+      title: "论指称",
+    },
+    {
+      url: "/philosophy/experiments/donnellan-1966-referring",
+      title: "指称与限定摹状词",
+    },
+    {
+      url: "/philosophy/thinkers/strawson",
+      title: "P.F. 斯特劳森",
+    },
+  ],
+  "/philosophy/experiments/hempel-ravens": [
+    {
+      url: "/philosophy/thinkers/popper",
+      title: "波普尔",
+    },
+    {
+      url: "/philosophy/experiments/goodman-grue",
+      title: "古德曼的绿蓝谜题",
+    },
+    {
+      url: "/philosophy/experiments/quine-1951-two-dogmas",
+      title: "经验论的两个教条",
+    },
+    {
+      url: "/philosophy/experiments/quine-gavagai",
+      title: "蒯因的 Gavagai：刺激意义下的翻译不确定性",
+    },
+    {
+      url: "/philosophy/thinkers/hume",
+      title: "休谟",
+    },
+  ],
+  "/philosophy/experiments/hume-missing-shade": [
+    {
+      url: "/philosophy/experiments/wittgenstein-beetle",
+      title: "甲虫盒子：私人对象在语言游戏中约去",
+    },
+    {
+      url: "/philosophy/thinkers/locke",
+      title: "洛克",
+    },
+    {
+      url: "/philosophy/thinkers/hume",
+      title: "休谟",
+    },
+  ],
+  "/philosophy/experiments/inverted-spectrum": [
+    {
+      url: "/philosophy/experiments/wittgenstein-beetle",
+      title: "甲虫盒子：私人对象在语言游戏中约去",
+    },
+    {
+      url: "/philosophy/thinkers/locke",
+      title: "洛克",
+    },
+    {
+      url: "/philosophy/experiments/marys-room",
+      title: "玛丽的房间",
+    },
+    {
+      url: "/philosophy/experiments/nagel-bat",
+      title: "内格尔的蝙蝠：成为某物是什么样子",
+    },
+    {
+      url: "/philosophy/experiments/hume-missing-shade",
+      title: "缺失的蓝色：休谟承认的复制原则例外",
+    },
+    {
+      url: "/philosophy/experiments/block-1978-china-brain",
+      title: "中国脑",
+    },
+  ],
+  "/philosophy/experiments/kavka-toxin": [
+    {
+      url: "/philosophy/experiments/lottery-paradox",
+      title: "彩票悖论",
+    },
+    {
+      url: "/philosophy/experiments/unexpected-hanging",
+      title: "出乎意料的绞刑",
+    },
+    {
+      url: "/philosophy/experiments/frankfurt-cases",
+      title: "法兰克福案例",
+    },
+    {
+      url: "/philosophy/experiments/preface-paradox",
+      title: "序言悖论",
+    },
+  ],
+  "/philosophy/experiments/kripke-1980-naming": [
+    {
+      url: "/philosophy/experiments/kripke-quus",
+      title: "克里普克的 quus：过去用法怎样钉不住加法",
+    },
+    {
+      url: "/philosophy/experiments/russell-1905-on-denoting",
+      title: "论指称",
+    },
+    {
+      url: "/philosophy/experiments/strawson-1950-on-referring",
+      title: "论指称",
+    },
+    {
+      url: "/philosophy/experiments/twin-earth",
+      title: "双胞胎地球",
+    },
+    {
+      url: "/philosophy/thinkers/kripke",
+      title: "索尔·克里普克",
+    },
+    {
+      url: "/philosophy/experiments/donnellan-1966-referring",
+      title: "指称与限定摹状词",
+    },
+  ],
+  "/philosophy/experiments/kripke-quus": [
+    {
+      url: "/philosophy/experiments/unexpected-hanging",
+      title: "出乎意料的绞刑",
+    },
+    {
+      url: "/philosophy/experiments/quine-gavagai",
+      title: "蒯因的 Gavagai：刺激意义下的翻译不确定性",
+    },
+    {
+      url: "/philosophy/experiments/kripke-1980-naming",
+      title: "命名与必然性",
+    },
+    {
+      url: "/philosophy/experiments/parfit-teletransport",
+      title: "帕菲特的传送：心理连续怎样把人格同一性从重要的事情里拆走",
+    },
+    {
+      url: "/philosophy/thinkers/kripke",
+      title: "索尔·克里普克",
+    },
+    {
+      url: "/philosophy/thinkers/wittgenstein",
+      title: "维特根斯坦",
+    },
+    {
+      url: "/philosophy/experiments/donnellan-1966-referring",
+      title: "指称与限定摹状词",
+    },
+  ],
+  "/philosophy/experiments/lehrer-paxson-1969": [
+    {
+      url: "/philosophy/thinkers/gettier",
+      title: "埃德蒙·盖梯尔",
+    },
+    {
+      url: "/philosophy/experiments/gettier-problem",
+      title: "盖梯尔问题",
+    },
+    {
+      url: "/philosophy/schools/epistemology",
+      title: "认识论",
+    },
+  ],
+  "/philosophy/experiments/lottery-paradox": [
+    {
+      url: "/philosophy/experiments/dretske-1970-zebra",
+      title: "斑马",
+    },
+    {
+      url: "/mathematics/concepts/probability",
+      title: "概率论",
+    },
+    {
+      url: "/philosophy/experiments/goldman-1976-fake-barns",
+      title: "假谷仓",
+    },
+    {
+      url: "/philosophy/schools/epistemology",
+      title: "认识论",
+    },
+    {
+      url: "/philosophy/experiments/preface-paradox",
+      title: "序言悖论",
+    },
+  ],
+  "/philosophy/experiments/marys-room": [
+    {
+      url: "/philosophy/experiments/inverted-spectrum",
+      title: "倒置光谱：行为与功能同一下的颜色经验对调",
+    },
+    {
+      url: "/philosophy/experiments/wittgenstein-beetle",
+      title: "甲虫盒子：私人对象在语言游戏中约去",
+    },
+    {
+      url: "/philosophy/experiments/molyneux-problem",
+      title: "莫利纽克斯问题：初次看见能否分出立方与球",
+    },
+    {
+      url: "/philosophy/experiments/nagel-bat",
+      title: "内格尔的蝙蝠：成为某物是什么样子",
+    },
+    {
+      url: "/philosophy/experiments/hume-missing-shade",
+      title: "缺失的蓝色：休谟承认的复制原则例外",
+    },
+    {
+      url: "/philosophy/experiments/block-1978-china-brain",
+      title: "中国脑",
+    },
+  ],
+  "/philosophy/experiments/molyneux-problem": [
+    {
+      url: "/philosophy/experiments/inverted-spectrum",
+      title: "倒置光谱：行为与功能同一下的颜色经验对调",
+    },
+    {
+      url: "/philosophy/thinkers/locke",
+      title: "洛克",
+    },
+    {
+      url: "/philosophy/experiments/marys-room",
+      title: "玛丽的房间",
+    },
+    {
+      url: "/philosophy/experiments/nagel-bat",
+      title: "内格尔的蝙蝠：成为某物是什么样子",
+    },
+    {
+      url: "/philosophy/experiments/hume-missing-shade",
+      title: "缺失的蓝色：休谟承认的复制原则例外",
+    },
+  ],
+  "/philosophy/experiments/moore-1939-hands": [
+    {
+      url: "/philosophy/experiments/gettier-problem",
+      title: "盖梯尔问题",
+    },
+    {
+      url: "/philosophy/experiments/brain-in-vat",
+      title: "缸中之脑",
+    },
+  ],
+  "/philosophy/experiments/nagel-bat": [
+    {
+      url: "/philosophy/experiments/inverted-spectrum",
+      title: "倒置光谱：行为与功能同一下的颜色经验对调",
+    },
+    {
+      url: "/philosophy/thinkers/jackson",
+      title: "弗兰克·杰克逊",
+    },
+    {
+      url: "/philosophy/experiments/wittgenstein-beetle",
+      title: "甲虫盒子：私人对象在语言游戏中约去",
+    },
+    {
+      url: "/philosophy/experiments/marys-room",
+      title: "玛丽的房间",
+    },
+    {
+      url: "/philosophy/experiments/molyneux-problem",
+      title: "莫利纽克斯问题：初次看见能否分出立方与球",
+    },
+    {
+      url: "/philosophy/experiments/hume-missing-shade",
+      title: "缺失的蓝色：休谟承认的复制原则例外",
+    },
+    {
+      url: "/philosophy/thinkers/nagel",
+      title: "托马斯·内格尔",
+    },
+    {
+      url: "/philosophy/experiments/philosophical-zombies",
+      title: "哲学僵尸",
+    },
+    {
+      url: "/philosophy/experiments/block-1978-china-brain",
+      title: "中国脑",
+    },
+  ],
+  "/philosophy/experiments/newcomb-problem": [
+    {
+      url: "/philosophy/experiments/unexpected-hanging",
+      title: "出乎意料的绞刑",
+    },
+    {
+      url: "/philosophy/experiments/kavka-toxin",
+      title: "卡夫卡毒素谜题",
+    },
+    {
+      url: "/philosophy/experiments/sleeping-beauty",
+      title: "睡美人问题",
+    },
+    {
+      url: "/philosophy/experiments/wilt-chamberlain",
+      title: "威尔特·张伯伦",
+    },
+  ],
+  "/philosophy/experiments/nozick-1981-tracking": [
+    {
+      url: "/philosophy/experiments/dretske-1970-zebra",
+      title: "斑马",
+    },
+    {
+      url: "/philosophy/thinkers/nozick",
+      title: "罗伯特·诺齐克",
+    },
+    {
+      url: "/philosophy/schools/epistemology",
+      title: "认识论",
+    },
+    {
+      url: "/philosophy/experiments/experience-machine",
+      title: "体验机器",
+    },
+    {
+      url: "/philosophy/experiments/wilt-chamberlain",
+      title: "威尔特·张伯伦",
+    },
+    {
+      url: "/philosophy/experiments/lehrer-paxson-1969",
+      title: "未被击败的证成真信念",
+    },
+    {
+      url: "/philosophy/experiments/goldman-1967-causal",
+      title: "因果知识",
     },
   ],
   "/philosophy/experiments/original-position": [
@@ -50476,11 +61868,33 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "社群主义",
     },
     {
+      url: "/philosophy/experiments/wilt-chamberlain",
+      title: "威尔特·张伯伦",
+    },
+    {
       url: "/philosophy/experiments/veil-of-ignorance",
       title: "无知之幕",
     },
   ],
+  "/philosophy/experiments/parfit-teletransport": [
+    {
+      url: "/philosophy/thinkers/david-lewis",
+      title: "大卫·刘易斯",
+    },
+    {
+      url: "/philosophy/thinkers/parfit",
+      title: "德里克·帕菲特",
+    },
+  ],
   "/philosophy/experiments/pascals-wager": [
+    {
+      url: "/philosophy/experiments/kavka-toxin",
+      title: "卡夫卡毒素谜题",
+    },
+    {
+      url: "/philosophy/experiments/sleeping-beauty",
+      title: "睡美人问题",
+    },
     {
       url: "/mathematics/paradoxes/two-envelope",
       title: "信封悖论",
@@ -50488,12 +61902,112 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/experiments/philosophical-zombies": [
     {
+      url: "/philosophy/experiments/inverted-spectrum",
+      title: "倒置光谱：行为与功能同一下的颜色经验对调",
+    },
+    {
+      url: "/philosophy/experiments/nagel-bat",
+      title: "内格尔的蝙蝠：成为某物是什么样子",
+    },
+    {
       url: "/philosophy/frontier/digital-personhood-and-mind-uploading",
       title: "数字人格与心灵上传：复制品是我吗",
     },
     {
       url: "/psychology/debates/consciousness-hard-problem",
       title: "意识的困难问题",
+    },
+    {
+      url: "/philosophy/experiments/block-1978-china-brain",
+      title: "中国脑",
+    },
+  ],
+  "/philosophy/experiments/platos-cave": [
+    {
+      url: "/education/learning-foundations/teaching-is-not-pouring",
+      title: "教学不是灌输",
+    },
+    {
+      url: "/education/education-technology/generative-models-change-conditions",
+      title: "生成式模型改的是条件",
+    },
+    {
+      url: "/education/education-technology/adaptive-systems-are-not-tutors",
+      title: "自适应系统不是家教",
+    },
+  ],
+  "/philosophy/experiments/preface-paradox": [
+    {
+      url: "/philosophy/experiments/dretske-1970-zebra",
+      title: "斑马",
+    },
+    {
+      url: "/philosophy/experiments/lottery-paradox",
+      title: "彩票悖论",
+    },
+    {
+      url: "/philosophy/experiments/fitch-1963-knowability",
+      title: "菲奇可知性悖论",
+    },
+    {
+      url: "/philosophy/experiments/gettier-problem",
+      title: "盖梯尔问题",
+    },
+    {
+      url: "/philosophy/experiments/goldman-1976-fake-barns",
+      title: "假谷仓",
+    },
+  ],
+  "/philosophy/experiments/quine-1951-two-dogmas": [
+    {
+      url: "/philosophy/isms/empiricism-ism",
+      title: "经验主义",
+    },
+    {
+      url: "/philosophy/schools/empiricism",
+      title: "经验主义",
+    },
+    {
+      url: "/philosophy/thinkers/quine",
+      title: "蒯因",
+    },
+    {
+      url: "/philosophy/experiments/quine-gavagai",
+      title: "蒯因的 Gavagai：刺激意义下的翻译不确定性",
+    },
+    {
+      url: "/philosophy/schools/logical-positivism",
+      title: "逻辑实证主义",
+    },
+    {
+      url: "/philosophy/isms/positivism",
+      title: "实证主义",
+    },
+    {
+      url: "/philosophy/experiments/grice-strawson-1956",
+      title: "为一条教条辩护",
+    },
+  ],
+  "/philosophy/experiments/quine-gavagai": [
+    {
+      url: "/philosophy/experiments/unexpected-hanging",
+      title: "出乎意料的绞刑",
+    },
+    {
+      url: "/philosophy/experiments/goodman-grue",
+      title: "古德曼的绿蓝谜题",
+    },
+    {
+      url: "/philosophy/experiments/quine-1951-two-dogmas",
+      title: "经验论的两个教条",
+    },
+    {
+      url: "/philosophy/experiments/kripke-quus",
+      title: "克里普克的 quus：过去用法怎样钉不住加法",
+    },
+    {
+      url: "/philosophy/thinkers/quine",
+      title: "蒯因",
     },
   ],
   "/philosophy/experiments/repugnant-conclusion": [
@@ -50508,6 +62022,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/frontier/climate-justice-and-intergenerational-ethics",
       title: "气候正义与代际伦理：对还不存在的人负有义务吗",
+    },
+  ],
+  "/philosophy/experiments/russell-1905-on-denoting": [
+    {
+      url: "/philosophy/experiments/strawson-1950-on-referring",
+      title: "论指称",
+    },
+    {
+      url: "/philosophy/thinkers/russell",
+      title: "罗素",
+    },
+    {
+      url: "/philosophy/experiments/kripke-1980-naming",
+      title: "命名与必然性",
+    },
+    {
+      url: "/philosophy/concepts/philosophy-of-language",
+      title: "语言哲学",
+    },
+    {
+      url: "/philosophy/experiments/donnellan-1966-referring",
+      title: "指称与限定摹状词",
+    },
+    {
+      url: "/philosophy/thinkers/strawson",
+      title: "P.F. 斯特劳森",
     },
   ],
   "/philosophy/experiments/ship-of-theseus": [
@@ -50532,16 +62072,60 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "虚拟化与容器",
     },
   ],
+  "/philosophy/experiments/sleeping-beauty": [
+    {
+      url: "/philosophy/experiments/unexpected-hanging",
+      title: "出乎意料的绞刑",
+    },
+    {
+      url: "/philosophy/thinkers/david-lewis",
+      title: "大卫·刘易斯",
+    },
+    {
+      url: "/philosophy/experiments/fitch-1963-knowability",
+      title: "菲奇可知性悖论",
+    },
+    {
+      url: "/philosophy/experiments/parfit-teletransport",
+      title: "帕菲特的传送：心理连续怎样把人格同一性从重要的事情里拆走",
+    },
+  ],
   "/philosophy/experiments/sorites-paradox": [
     {
       url: "/medicine/concepts/screening-and-early-detection",
       title: "筛查与早期发现",
     },
   ],
+  "/philosophy/experiments/strawson-1950-on-referring": [
+    {
+      url: "/philosophy/experiments/russell-1905-on-denoting",
+      title: "论指称",
+    },
+    {
+      url: "/philosophy/experiments/grice-strawson-1956",
+      title: "为一条教条辩护",
+    },
+    {
+      url: "/philosophy/concepts/philosophy-of-language",
+      title: "语言哲学",
+    },
+    {
+      url: "/philosophy/experiments/donnellan-1966-referring",
+      title: "指称与限定摹状词",
+    },
+    {
+      url: "/philosophy/thinkers/strawson",
+      title: "P.F. 斯特劳森",
+    },
+  ],
   "/philosophy/experiments/swampman": [
     {
       url: "/philosophy/thinkers/parfit",
       title: "德里克·帕菲特",
+    },
+    {
+      url: "/philosophy/experiments/parfit-teletransport",
+      title: "帕菲特的传送：心理连续怎样把人格同一性从重要的事情里拆走",
     },
   ],
   "/philosophy/experiments/trolley-problem": [
@@ -50578,6 +62162,46 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "AI 对齐与价值的哲学：人类价值能否被规范化？",
     },
   ],
+  "/philosophy/experiments/twin-earth": [
+    {
+      url: "/philosophy/experiments/kripke-1980-naming",
+      title: "命名与必然性",
+    },
+    {
+      url: "/philosophy/experiments/nagel-bat",
+      title: "内格尔的蝙蝠：成为某物是什么样子",
+    },
+  ],
+  "/philosophy/experiments/unexpected-hanging": [
+    {
+      url: "/philosophy/experiments/lottery-paradox",
+      title: "彩票悖论",
+    },
+    {
+      url: "/philosophy/experiments/fitch-1963-knowability",
+      title: "菲奇可知性悖论",
+    },
+    {
+      url: "/philosophy/experiments/kavka-toxin",
+      title: "卡夫卡毒素谜题",
+    },
+    {
+      url: "/philosophy/thinkers/quine",
+      title: "蒯因",
+    },
+    {
+      url: "/philosophy/experiments/quine-gavagai",
+      title: "蒯因的 Gavagai：刺激意义下的翻译不确定性",
+    },
+    {
+      url: "/philosophy/experiments/sleeping-beauty",
+      title: "睡美人问题",
+    },
+    {
+      url: "/philosophy/experiments/preface-paradox",
+      title: "序言悖论",
+    },
+  ],
   "/philosophy/experiments/utility-monster": [
     {
       url: "/mathematics/knowledge-base/应用--概率与决策",
@@ -50586,6 +62210,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/paradoxes/st-petersburg-paradox",
       title: "圣彼得堡悖论",
+    },
+    {
+      url: "/philosophy/experiments/wilt-chamberlain",
+      title: "威尔特·张伯伦",
     },
   ],
   "/philosophy/experiments/veil-of-ignorance": [
@@ -50610,8 +62238,44 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "社群主义",
     },
     {
+      url: "/philosophy/experiments/wilt-chamberlain",
+      title: "威尔特·张伯伦",
+    },
+    {
       url: "/political-science/thinkers/john-rawls",
       title: "约翰·罗尔斯",
+    },
+  ],
+  "/philosophy/experiments/wilt-chamberlain": [
+    {
+      url: "/philosophy/thinkers/nozick",
+      title: "罗伯特·诺齐克",
+    },
+    {
+      url: "/philosophy/thinkers/rawls",
+      title: "罗尔斯",
+    },
+    {
+      url: "/philosophy/experiments/experience-machine",
+      title: "体验机器",
+    },
+  ],
+  "/philosophy/experiments/wittgenstein-beetle": [
+    {
+      url: "/philosophy/experiments/marys-room",
+      title: "玛丽的房间",
+    },
+    {
+      url: "/philosophy/experiments/hume-missing-shade",
+      title: "缺失的蓝色：休谟承认的复制原则例外",
+    },
+    {
+      url: "/philosophy/experiments/block-1978-china-brain",
+      title: "中国脑",
+    },
+    {
+      url: "/philosophy/experiments/chinese-room",
+      title: "中文房间",
     },
   ],
   "/philosophy/frontier/ai-alignment-philosophy": [
@@ -50902,6 +62566,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "世界主义",
     },
   ],
+  "/philosophy/isms/empiricism-ism": [
+    {
+      url: "/philosophy/experiments/goodman-grue",
+      title: "古德曼的绿蓝谜题",
+    },
+  ],
   "/philosophy/isms/environmentalism": [
     {
       url: "/medicine/traditions/indigenous-medicine-knowledge-sovereignty",
@@ -51136,6 +62806,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "汉娜·阿伦特",
     },
     {
+      url: "/philosophy/experiments/kavka-toxin",
+      title: "卡夫卡毒素谜题",
+    },
+    {
       url: "/psychology/experiments/libet-free-will",
       title: "利贝特自由意志实验",
     },
@@ -51286,8 +62960,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "零知识证明与隐私计算",
     },
     {
+      url: "/education/assessment-and-equity/validity-is-an-argument",
+      title: "效度是一种论证",
+    },
+    {
       url: "/philosophy/frontier/formal-epistemology-and-bayesianism",
       title: '形式认识论：把"相信多少"写成数字',
+    },
+    {
+      url: "/education/cognition-and-memory/metacognition-is-a-judgment",
+      title: "元认知是一种判断",
     },
   ],
   "/philosophy/questions/what-is-meaning": [
@@ -51608,8 +63290,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/schools/empiricism": [
     {
+      url: "/earth-science/event-analyses/vine-matthews-magnetic-stripes",
+      title: "1963 年瓦因与马修斯：磁异常剖面怎样把倒转史录进扩张洋底",
+    },
+    {
       url: "/philosophy/thinkers/william-of-ockham",
       title: "奥卡姆的威廉",
+    },
+    {
+      url: "/life-science/knowledge-base/pasteur-swan-neck-flask",
+      title: "巴斯德鹅颈瓶：空气通过、尘埃留下",
     },
     {
       url: "/philosophy/isms/transcendentalism",
@@ -51646,8 +63336,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "奥卡姆的威廉",
     },
     {
+      url: "/psychology/experiments/baddeley-hitch-1974",
+      title: "巴德利与希契 1974：工作记忆怎样把短时仓库拆成三组件",
+    },
+    {
       url: "/political-science/thinkers/plato-political-philosophy",
       title: "柏拉图的政治哲学",
+    },
+    {
+      url: "/computer-science/theory/byzantine-generals-lamport-1982",
+      title: "拜占庭将军问题",
+    },
+    {
+      url: "/philosophy/experiments/dretske-1970-zebra",
+      title: "斑马",
     },
     {
       url: "/mathematics/paradoxes/bertrands-box",
@@ -51658,8 +63360,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "比较法的方法：可比性从何而来",
     },
     {
+      url: "/education/cognition-and-memory/desirable-difficulty-is-a-condition",
+      title: "必要难度是一种条件",
+    },
+    {
       url: "/universe-physics/knowledge-base/量子物理--波粒二象性",
       title: "波粒二象性",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--born-1926-probability",
+      title: "玻恩 1926：碰撞里的波函数怎样被读成概率",
+    },
+    {
+      url: "/philosophy/experiments/lottery-paradox",
+      title: "彩票悖论",
     },
     {
       url: "/mathematics/concepts/measure-theory",
@@ -51670,8 +63384,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "超验主义",
     },
     {
+      url: "/law/private-law/conflict-of-laws",
+      title: "冲突法：跨境民事关系适用哪一套规则",
+    },
+    {
       url: "/earth-science/concepts/map-projections",
       title: "地图投影",
+    },
+    {
+      url: "/philosophy/experiments/fitch-1963-knowability",
+      title: "菲奇可知性悖论",
     },
     {
       url: "/computer-science/concepts/consensus-algorithms",
@@ -51686,8 +63408,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "几何朗兰兹纲领的证明",
     },
     {
+      url: "/philosophy/experiments/goldman-1976-fake-barns",
+      title: "假谷仓",
+    },
+    {
       url: "/economics/concepts/price-formation",
       title: "价格形成机制",
+    },
+    {
+      url: "/computer-science/theory/paxos-lamport-1998",
+      title: "兼职议会与 Paxos",
+    },
+    {
+      url: "/education/cognition-and-memory/randomized-trials-in-education",
+      title: "教育里的随机对照",
     },
     {
       url: "/psychology/phenomena/psychoanalysis-culture",
@@ -51716,6 +63450,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/dialogues/klein-winnicott-play",
       title: "克莱因与温尼科特论游戏",
+    },
+    {
+      url: "/philosophy/experiments/kripke-quus",
+      title: "克里普克的 quus：过去用法怎样钉不住加法",
     },
     {
       url: "/psychology/theorists/leon-festinger",
@@ -51766,8 +63504,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "认知心理学",
     },
     {
+      url: "/linguistics/sounds-and-signs/voice-onset-time",
+      title: "嗓音起始时间：连续气流怎样被切成清浊",
+    },
+    {
       url: "/political-science/institutions/theocracy",
       title: "神权政治",
+    },
+    {
+      url: "/engineering/foundations/experimental-design-and-uncertainty",
+      title: "实验设计与测量不确定度：怎样知道一次试验能说明什么",
     },
     {
       url: "/human-history/frontier/digital-humanities-big-data-history",
@@ -51782,28 +63528,72 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "投射",
     },
     {
+      url: "/psychology/experiments/tulving-thomson-1973",
+      title: "图尔文与汤姆森 1973：编码特定性怎样把提取线索写成与痕迹重叠",
+    },
+    {
+      url: "/philosophy/experiments/lehrer-paxson-1969",
+      title: "未被击败的证成真信念",
+    },
+    {
+      url: "/linguistics/writing-systems/script-decipherment",
+      title: "文字释读：未知符号怎样变成可检验的假说",
+    },
+    {
       url: "/psychology/experiments/simons-levin-1998",
       title: "西蒙斯变化盲视实验",
+    },
+    {
+      url: "/law/private-law/consumer-protection",
+      title: "消费者救济：格式合同对面那个人怎样被当成法律上的弱者",
+    },
+    {
+      url: "/education/assessment-and-equity/validity-is-an-argument",
+      title: "效度是一种论证",
+    },
+    {
+      url: "/education/assessment-and-equity/formative-assessment-in-use",
+      title: "形成性评价怎样被使用",
     },
     {
       url: "/psychology/phenomena/false-memory",
       title: "虚假记忆",
     },
     {
+      url: "/philosophy/experiments/preface-paradox",
+      title: "序言悖论",
+    },
+    {
       url: "/psychology/theorists/elizabeth-loftus",
       title: "伊丽莎白·洛夫特斯",
+    },
+    {
+      url: "/philosophy/experiments/goldman-1967-causal",
+      title: "因果知识",
     },
     {
       url: "/human-history/knowledge/科技史--印刷术",
       title: "印刷术",
     },
     {
+      url: "/linguistics/acquisition-and-mind/infant-categorical-perception",
+      title: "婴儿范畴知觉：高振幅吮吸怎样把时间差写成月龄证据",
+    },
+    {
       url: "/cosmology/knowledge-base/宇宙学前沿--cosmic-neutrino-background",
       title: "宇宙学中微子背景",
     },
     {
+      url: "/linguistics/methods-and-frontiers/language-documentation-ethics",
+      title: "语言记录伦理：谁有权决定一段声音以后还能被怎样使用",
+    },
+    {
       url: "/psychology/knowledge-base/metacognition-training",
       title: "元认知：思考你的思考",
+    },
+    {
+      url: "/education/cognition-and-memory/metacognition-is-a-judgment",
+      title: "元认知是一种判断",
     },
     {
       url: "/human-history/knowledge/远古时期--概述",
@@ -51822,12 +63612,172 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "中央银行独立的政治经济学",
     },
     {
+      url: "/philosophy/experiments/nozick-1981-tracking",
+      title: "追踪",
+    },
+    {
       url: "/psychology/knowledge-base/self-analysis-guide",
       title: "自我分析入门指南",
     },
     {
       url: "/human-history/knowledge/事件--宗教改革",
       title: "宗教改革",
+    },
+    {
+      url: "/sociology/concepts/organizational-sociology",
+      title: "组织社会学：组织为何彼此越来越像",
+    },
+    {
+      url: "/computer-science/theory/attiya-bar-noy-dolev-1995",
+      title: "Attiya–Bar-Noy–Dolev 1995：消息传递上的原子寄存器",
+    },
+    {
+      url: "/computer-science/theory/ben-or-1983",
+      title: "Ben-Or 1983：抛硬币怎样把异步共识的终止改成几乎必然",
+    },
+    {
+      url: "/computer-science/systems/ratnasamy-2001-can",
+      title: "CAN：笛卡尔分区与贪心转发，状态不随规模涨",
+    },
+    {
+      url: "/computer-science/theory/castro-liskov-1999-pbft",
+      title: "Castro–Liskov 1999：实用拜占庭容错，不是将军寓言",
+    },
+    {
+      url: "/computer-science/theory/chandra-toueg-1996",
+      title: "Chandra–Toueg 1996：会犯错的怀疑预言怎样成为共识的最弱检测器",
+    },
+    {
+      url: "/computer-science/theory/chandy-lamport-1985-snapshots",
+      title: "Chandy–Lamport 1985：标记消息怎样把全局状态收成一致割",
+    },
+    {
+      url: "/computer-science/systems/chord-2001",
+      title: "Chord：标识符环上的查找，不是中心目录",
+    },
+    {
+      url: "/computer-science/systems/chubby-2006",
+      title: "Chubby：松耦合系统上的锁服务，不是又一套数据库",
+    },
+    {
+      url: "/computer-science/concepts/codd-1970-relational",
+      title: "Codd 1970：关系怎样把大型共享数据库从访问路径里解放出来",
+    },
+    {
+      url: "/computer-science/theory/cook-1971-np-completeness",
+      title: "Cook 1971：定理证明手续的复杂度怎样把 SAT 写成 NP 完全",
+    },
+    {
+      url: "/computer-science/systems/demers-1987-epidemic",
+      title: "Demers 1987：谣言与反熵怎样维护副本，不是 Dynamo",
+    },
+    {
+      url: "/computer-science/theory/dijkstra-1965-mutual-exclusion",
+      title: "Dijkstra 1965：互斥怎样在没有仲裁者的共享变量上写成可推理的问题",
+    },
+    {
+      url: "/computer-science/theory/dwork-lynch-stockmeyer-1988",
+      title: "Dwork–Lynch–Stockmeyer 1988：终将有界的延迟怎样让确定性共识可能",
+    },
+    {
+      url: "/computer-science/theory/fidge-mattern-vector-clocks",
+      title: "Fidge–Mattern：分量时间戳怎样把并发从标量编号里认出来",
+    },
+    {
+      url: "/computer-science/theory/floyd-1967-assigning-meanings",
+      title: "Floyd 1967：归纳断言怎样把程序的意义写在流程图的边上",
+    },
+    {
+      url: "/computer-science/theory/flp-fischer-lynch-paterson-1985",
+      title: "FLP：完全异步下一次崩溃也能挡住确定性共识",
+    },
+    {
+      url: "/computer-science/theory/garcia-molina-1982-bully",
+      title: "Garcia-Molina 1982：编号更高的进程怎样在超时假设下抢走协调者",
+    },
+    {
+      url: "/computer-science/theory/gilbert-lynch-2002-cap",
+      title: "Gilbert–Lynch 2002：异步网上原子寄存器无法既可用又抗分区",
+    },
+    {
+      url: "/computer-science/theory/goldwasser-micali-rackoff-1985",
+      title: "Goldwasser–Micali–Rackoff 1985：交互证明系统的知识复杂度怎样把零知识写成定义",
+    },
+    {
+      url: "/computer-science/theory/gray-1978-two-phase-commit",
+      title: "Gray 1978：两阶段提交怎样把多处改动收成提交或中止",
+    },
+    {
+      url: "/computer-science/theory/herlihy-1991-wait-free",
+      title: "Herlihy 1991：等待自由怎样按共识数给并发对象分层",
+    },
+    {
+      url: "/computer-science/theory/herlihy-moss-1993-tm",
+      title: "Herlihy–Moss 1993：事务内存怎样用体系结构支持无锁数据结构",
+    },
+    {
+      url: "/computer-science/theory/herlihy-wing-1990",
+      title: "Herlihy–Wing 1990：线性化怎样把并发对象收成合法的顺序历史",
+    },
+    {
+      url: "/computer-science/theory/hoare-1969-axiomatic",
+      title: "Hoare 1969：公理基础怎样把程序正确性写成可推导的三元组",
+    },
+    {
+      url: "/computer-science/systems/birman-1985-virtual-synchrony",
+      title: "ISIS 1985：进程组、flush 与虚拟同步，不是又一份 ZooKeeper",
+    },
+    {
+      url: "/computer-science/systems/kademlia-2002",
+      title: "Kademlia：XOR 距离上的 k-bucket，不是环上的手指",
+    },
+    {
+      url: "/computer-science/theory/knuth-1966-mutex-comment",
+      title: "Knuth 1966：互斥的集体进展怎样仍允许一个人被永远超过",
+    },
+    {
+      url: "/computer-science/theory/lamport-1974-bakery",
+      title: "Lamport 1974：面包店算法怎样给互斥加上先来先服务",
+    },
+    {
+      url: "/computer-science/theory/lamport-1978-clocks",
+      title: "Lamport 1978：先于关系怎样把分布式事件收成不靠墙钟的偏序",
+    },
+    {
+      url: "/computer-science/theory/lamport-1979-sequential-consistency",
+      title: "Lamport 1979：顺序一致性怎样把多处理器程序收成某一条尊重程序序的交错",
+    },
+    {
+      url: "/computer-science/systems/pastry-2001",
+      title: "Pastry：前缀表、叶集与邻近集，不是环上的手指",
+    },
+    {
+      url: "/computer-science/theory/peterson-1981-mutual-exclusion",
+      title: "Peterson 1981：两进程互斥怎样用两面旗与一个 turn 写成短注",
+    },
+    {
+      url: "/computer-science/systems/schneider-1990-smr",
+      title: "Schneider 1990：副本确定性、输出一致与状态机方法，不是又一份 Paxos",
+    },
+    {
+      url: "/computer-science/theory/shapiro-2011-crdts",
+      title: "Shapiro 2011：副本收敛是半格或可交换操作，不是共识协议",
+    },
+    {
+      url: "/computer-science/systems/tapestry-2001",
+      title: "Tapestry：邻接表、代理路由与就近副本，不是把对象搬到键上",
+    },
+    {
+      url: "/computer-science/systems/terry-1994-session-guarantees",
+      title: "Terry 1994：会话保证怎样把弱一致副本写成客户视角",
+    },
+    {
+      url: "/computer-science/systems/viewstamped-replication-1988",
+      title: "Viewstamped Replication：视图、主副本与盖章请求，不是又一份 Paxos",
+    },
+    {
+      url: "/computer-science/systems/zookeeper-2010",
+      title: "ZooKeeper：等待自由的协调，不是又一套 Chubby 说明书",
     },
   ],
   "/philosophy/schools/existentialism": [
@@ -51886,6 +63836,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/古典时期--亚洲--印度思想传统",
       title: "印度思想传统",
+    },
+  ],
+  "/philosophy/schools/idealism": [
+    {
+      url: "/philosophy/experiments/moore-1939-hands",
+      title: "摩尔的两只手",
     },
   ],
   "/philosophy/schools/islamic-philosophy": [
@@ -51954,8 +63910,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "哥德尔",
     },
     {
+      url: "/philosophy/experiments/quine-1951-two-dogmas",
+      title: "经验论的两个教条",
+    },
+    {
       url: "/philosophy/thinkers/quine",
       title: "蒯因",
+    },
+    {
+      url: "/philosophy/experiments/grice-strawson-1956",
+      title: "为一条教条辩护",
     },
   ],
   "/philosophy/schools/marxism-philosophy": [
@@ -52058,6 +64022,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "数学与现实",
     },
     {
+      url: "/computer-science/theory/ladner-1975-np-intermediate",
+      title: "Ladner 1975：若 P 不等于 NP，中间问题怎样必须存在",
+    },
+    {
       url: "/computer-science/theory/lambda-calculus-type-theory",
       title: "λ演算与类型理论",
     },
@@ -52070,6 +64038,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/quine",
       title: "蒯因",
+    },
+    {
+      url: "/psychology/experiments/nisbett-wilson-1977",
+      title: "尼斯贝特与威尔逊 1977：口头报告怎样从先验理论讲出我们读不到的过程",
     },
     {
       url: "/engineering/frontiers/bioengineering-boundaries",
@@ -52086,6 +64058,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/debates/consciousness-theories-psychology",
       title: "意识理论之争：全局工作空间、整合信息与实验判决的尝试",
+    },
+    {
+      url: "/philosophy/experiments/block-1978-china-brain",
+      title: "中国脑",
     },
   ],
   "/philosophy/schools/platonism": [
@@ -52148,6 +64124,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/concepts/modern-chinese-thought",
       title: "中国近现代思想",
+    },
+  ],
+  "/philosophy/schools/skepticism": [
+    {
+      url: "/philosophy/experiments/moore-1939-hands",
+      title: "摩尔的两只手",
     },
   ],
   "/philosophy/schools/stoicism": [
@@ -52233,6 +64215,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/philosophy/schools/utilitarianism": [
+    {
+      url: "/medicine/events/salk-1954-polio-trial",
+      title: "1954 年美国脊髓灰质炎疫苗现场试验：观察现场与安慰剂对照并存的读出",
+    },
     {
       url: "/philosophy/thinkers/amartya-sen",
       title: "阿马蒂亚·森",
@@ -52584,6 +64570,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "极限",
     },
     {
+      url: "/philosophy/experiments/moore-1939-hands",
+      title: "摩尔的两只手",
+    },
+    {
+      url: "/philosophy/experiments/molyneux-problem",
+      title: "莫利纽克斯问题：初次看见能否分出立方与球",
+    },
+    {
       url: "/mathematics/knowledge-base/分析--微积分的故事",
       title: "微积分的故事",
     },
@@ -52592,6 +64586,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/parfit",
       title: "德里克·帕菲特",
+    },
+    {
+      url: "/philosophy/experiments/parfit-teletransport",
+      title: "帕菲特的传送：心理连续怎样把人格同一性从重要的事情里拆走",
     },
   ],
   "/philosophy/thinkers/buddha": [
@@ -52613,6 +64611,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/philosophy/thinkers/chalmers": [
+    {
+      url: "/philosophy/experiments/nagel-bat",
+      title: "内格尔的蝙蝠：成为某物是什么样子",
+    },
     {
       url: "/psychology/debates/consciousness-hard-problem",
       title: "意识的困难问题",
@@ -52741,6 +64743,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/philosophy/concepts/modal-logic",
       title: "模态逻辑",
     },
+    {
+      url: "/philosophy/experiments/parfit-teletransport",
+      title: "帕菲特的传送：心理连续怎样把人格同一性从重要的事情里拆走",
+    },
+    {
+      url: "/philosophy/experiments/sleeping-beauty",
+      title: "睡美人问题",
+    },
   ],
   "/philosophy/thinkers/democritus": [
     {
@@ -52802,6 +64812,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "理查德·罗蒂",
     },
     {
+      url: "/philosophy/experiments/moore-1939-hands",
+      title: "摩尔的两只手",
+    },
+    {
       url: "/arts/foundations/perspective-and-space",
       title: "透视与空间：一场视觉革命",
     },
@@ -52824,12 +64838,48 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "安贝德卡尔",
     },
     {
+      url: "/education/learning-foundations/teacher-education-is-preparation",
+      title: "教师教育是专业准备",
+    },
+    {
+      url: "/education/education-technology/teacher-labor-and-platforms",
+      title: "教师劳动与平台",
+    },
+    {
+      url: "/education/learning-foundations/teaching-is-not-pouring",
+      title: "教学不是灌输",
+    },
+    {
       url: "/political-science/isms/progressivism",
       title: "进步主义",
     },
     {
+      url: "/education/curriculum-and-teaching/curriculum-as-selection",
+      title: "课程即选择",
+    },
+    {
+      url: "/education/curriculum-and-teaching/lesson-study-is-professional-knowledge",
+      title: "课例研究是专业知识",
+    },
+    {
+      url: "/education/curriculum-and-teaching/classroom-as-time",
+      title: "课堂是被组织的时间",
+    },
+    {
       url: "/philosophy/thinkers/richard-rorty",
       title: "理查德·罗蒂",
+    },
+    {
+      url: "/education/learning-foundations/what-is-learning",
+      title: "什么是学习",
+    },
+    {
+      url: "/education/learning-foundations/school-is-an-institution",
+      title: "学校是一种制度",
+    },
+    {
+      url: "/education/cognition-and-memory/worked-examples-and-self-explanation",
+      title: "样例与自我解释",
     },
   ],
   "/philosophy/thinkers/donald-davidson": [
@@ -52982,6 +65032,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "胡塞尔",
     },
     {
+      url: "/philosophy/experiments/russell-1905-on-denoting",
+      title: "论指称",
+    },
+    {
       url: "/computer-science/pioneers/george-boole",
       title: "乔治·布尔",
     },
@@ -53054,6 +65108,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/sociology/thinkers/anthony-giddens",
       title: "安东尼·吉登斯",
+    },
+    {
+      url: "/arts/architecture/urban-public-space",
+      title: "城市公共空间：谁能停留、谁被请出去",
     },
     {
       url: "/philosophy/thinkers/hannah-arendt",
@@ -53296,6 +65354,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "风险与不确定性",
     },
     {
+      url: "/philosophy/experiments/goodman-grue",
+      title: "古德曼的绿蓝谜题",
+    },
+    {
+      url: "/philosophy/experiments/hempel-ravens",
+      title: "亨佩尔的乌鸦悖论",
+    },
+    {
+      url: "/philosophy/experiments/kripke-quus",
+      title: "克里普克的 quus：过去用法怎样钉不住加法",
+    },
+    {
       url: "/philosophy/thinkers/rousseau",
       title: "卢梭",
     },
@@ -53306,6 +65376,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/aesthetics/what-is-beauty",
       title: "美是什么：客观之美与趣味判断的千年争论",
+    },
+    {
+      url: "/philosophy/experiments/hume-missing-shade",
+      title: "缺失的蓝色：休谟承认的复制原则例外",
     },
     {
       url: "/arts/aesthetics/aesthetics-taste-judgment",
@@ -53354,6 +65428,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/sociology/concepts/islamic-social-thought",
       title: "伊斯兰社会思想",
+    },
+  ],
+  "/philosophy/thinkers/jackson": [
+    {
+      url: "/philosophy/experiments/inverted-spectrum",
+      title: "倒置光谱：行为与功能同一下的颜色经验对调",
+    },
+    {
+      url: "/philosophy/experiments/nagel-bat",
+      title: "内格尔的蝙蝠：成为某物是什么样子",
     },
   ],
   "/philosophy/thinkers/kant": [
@@ -53506,12 +65590,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "弗雷格",
     },
     {
+      url: "/philosophy/experiments/kripke-quus",
+      title: "克里普克的 quus：过去用法怎样钉不住加法",
+    },
+    {
+      url: "/philosophy/experiments/kripke-1980-naming",
+      title: "命名与必然性",
+    },
+    {
       url: "/philosophy/concepts/modal-logic",
       title: "模态逻辑",
     },
     {
       url: "/philosophy/thinkers/donald-davidson",
       title: "唐纳德·戴维森",
+    },
+    {
+      url: "/philosophy/experiments/donnellan-1966-referring",
+      title: "指称与限定摹状词",
     },
     {
       url: "/computer-science/concepts/dns",
@@ -53564,6 +65660,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "超验主义",
     },
     {
+      url: "/philosophy/experiments/inverted-spectrum",
+      title: "倒置光谱：行为与功能同一下的颜色经验对调",
+    },
+    {
       url: "/philosophy/thinkers/voltaire",
       title: "伏尔泰",
     },
@@ -53572,12 +65672,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "海拉细胞与亨丽埃塔·拉克斯",
     },
     {
+      url: "/philosophy/experiments/wittgenstein-beetle",
+      title: "甲虫盒子：私人对象在语言游戏中约去",
+    },
+    {
       url: "/human-history/knowledge/事件--美国革命",
       title: "美国革命",
     },
     {
       url: "/philosophy/thinkers/montesquieu",
       title: "孟德斯鸠",
+    },
+    {
+      url: "/philosophy/experiments/molyneux-problem",
+      title: "莫利纽克斯问题：初次看见能否分出立方与球",
+    },
+    {
+      url: "/philosophy/experiments/parfit-teletransport",
+      title: "帕菲特的传送：心理连续怎样把人格同一性从重要的事情里拆走",
+    },
+    {
+      url: "/philosophy/experiments/hume-missing-shade",
+      title: "缺失的蓝色：休谟承认的复制原则例外",
     },
     {
       url: "/philosophy/thinkers/aquinas",
@@ -53760,8 +65876,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "伯纳德·威廉斯",
     },
     {
+      url: "/philosophy/experiments/inverted-spectrum",
+      title: "倒置光谱：行为与功能同一下的颜色经验对调",
+    },
+    {
       url: "/philosophy/thinkers/richard-rorty",
       title: "理查德·罗蒂",
+    },
+    {
+      url: "/philosophy/experiments/nagel-bat",
+      title: "内格尔的蝙蝠：成为某物是什么样子",
     },
     {
       url: "/psychology/debates/consciousness-hard-problem",
@@ -53843,6 +65967,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/economics/frontier/inequality-global-wealth-tax",
       title: "不平等测量与全球财富税之争",
     },
+    {
+      url: "/philosophy/experiments/wilt-chamberlain",
+      title: "威尔特·张伯伦",
+    },
+    {
+      url: "/philosophy/experiments/nozick-1981-tracking",
+      title: "追踪",
+    },
   ],
   "/philosophy/thinkers/parfit": [
     {
@@ -53852,6 +65984,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/concepts/environmental-ethics",
       title: "环境伦理学",
+    },
+    {
+      url: "/philosophy/experiments/parfit-teletransport",
+      title: "帕菲特的传送：心理连续怎样把人格同一性从重要的事情里拆走",
     },
   ],
   "/philosophy/thinkers/parmenides": [
@@ -53930,12 +66066,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "经典与正典",
     },
     {
+      url: "/education/curriculum-and-teaching/curriculum-as-selection",
+      title: "课程即选择",
+    },
+    {
       url: "/religion/texts-and-canons/oral-and-written-transmission",
       title: "口传与书写",
     },
     {
       url: "/arts/aesthetics/what-is-beauty",
       title: "美是什么：客观之美与趣味判断的千年争论",
+    },
+    {
+      url: "/education/learning-foundations/what-is-learning",
+      title: "什么是学习",
     },
     {
       url: "/religion/religion-foundations/myth-and-cosmos",
@@ -54010,8 +66154,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/thinkers/popper": [
     {
+      url: "/cosmology/knowledge-base/宇宙学观测--eddington-1919-eclipse",
+      title: "1919 日食底片：0.87″ 与 1.75″ 怎样被量到星点上",
+    },
+    {
       url: "/economics/economists/friedrich-hayek",
       title: "弗里德里希·哈耶克",
+    },
+    {
+      url: "/philosophy/experiments/hempel-ravens",
+      title: "亨佩尔的乌鸦悖论",
     },
     {
       url: "/mathematics/theorems/riemann-hypothesis",
@@ -54026,12 +66178,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "米尔顿·弗里德曼",
     },
     {
+      url: "/engineering/foundations/experimental-design-and-uncertainty",
+      title: "实验设计与测量不确定度：怎样知道一次试验能说明什么",
+    },
+    {
       url: "/philosophy/isms/positivism",
       title: "实证主义",
     },
     {
+      url: "/linguistics/writing-systems/script-decipherment",
+      title: "文字释读：未知符号怎样变成可检验的假说",
+    },
+    {
+      url: "/engineering/machines/project-and-configuration-control",
+      title: "项目与构型控制：基线、变更和可追到零件上的决定",
+    },
+    {
       url: "/cosmology/knowledge-base/宇宙学基础--宇宙学常数问题",
       title: "宇宙学常数问题",
+    },
+    {
+      url: "/sociology/concepts/organizational-sociology",
+      title: "组织社会学：组织为何彼此越来越像",
     },
   ],
   "/philosophy/thinkers/protagoras": [
@@ -54049,6 +66217,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/philosophy/thinkers/putnam": [
+    {
+      url: "/philosophy/experiments/kripke-1980-naming",
+      title: "命名与必然性",
+    },
     {
       url: "/mathematics/knowledge-base/数学基础--数学与现实",
       title: "数学与现实",
@@ -54078,6 +66250,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "编译器",
     },
     {
+      url: "/philosophy/experiments/unexpected-hanging",
+      title: "出乎意料的绞刑",
+    },
+    {
       url: "/philosophy/thinkers/david-lewis",
       title: "大卫·刘易斯",
     },
@@ -54086,8 +66262,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "翻译与可译性：语言强迫你说出的东西",
     },
     {
+      url: "/philosophy/experiments/goodman-grue",
+      title: "古德曼的绿蓝谜题",
+    },
+    {
+      url: "/philosophy/experiments/quine-1951-two-dogmas",
+      title: "经验论的两个教条",
+    },
+    {
       url: "/philosophy/thinkers/kwasi-wiredu",
       title: "夸西·维雷杜",
+    },
+    {
+      url: "/philosophy/experiments/quine-gavagai",
+      title: "蒯因的 Gavagai：刺激意义下的翻译不确定性",
     },
     {
       url: "/philosophy/thinkers/richard-rorty",
@@ -54112,6 +66300,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/donald-davidson",
       title: "唐纳德·戴维森",
+    },
+    {
+      url: "/philosophy/experiments/grice-strawson-1956",
+      title: "为一条教条辩护",
     },
     {
       url: "/philosophy/concepts/knowledge",
@@ -54206,6 +66398,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/quine",
       title: "蒯因",
+    },
+    {
+      url: "/philosophy/experiments/russell-1905-on-denoting",
+      title: "论指称",
+    },
+    {
+      url: "/philosophy/experiments/strawson-1950-on-referring",
+      title: "论指称",
+    },
+    {
+      url: "/philosophy/experiments/kripke-1980-naming",
+      title: "命名与必然性",
+    },
+    {
+      url: "/philosophy/experiments/donnellan-1966-referring",
+      title: "指称与限定摹状词",
     },
   ],
   "/philosophy/thinkers/ryle": [
@@ -54361,6 +66569,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/philosophy/thinkers/kwasi-wiredu",
       title: "夸西·维雷杜",
     },
+    {
+      url: "/philosophy/experiments/strawson-1950-on-referring",
+      title: "论指称",
+    },
+    {
+      url: "/philosophy/experiments/grice-strawson-1956",
+      title: "为一条教条辩护",
+    },
+    {
+      url: "/philosophy/experiments/donnellan-1966-referring",
+      title: "指称与限定摹状词",
+    },
   ],
   "/philosophy/thinkers/thomas-kuhn": [
     {
@@ -54480,6 +66700,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "程序设计语言设计",
     },
     {
+      url: "/philosophy/experiments/inverted-spectrum",
+      title: "倒置光谱：行为与功能同一下的颜色经验对调",
+    },
+    {
       url: "/law/foundations/statutory-interpretation",
       title: "法规解释：文本、意图与目的之争",
     },
@@ -54500,8 +66724,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "后现代主义",
     },
     {
+      url: "/philosophy/experiments/wittgenstein-beetle",
+      title: "甲虫盒子：私人对象在语言游戏中约去",
+    },
+    {
+      url: "/philosophy/experiments/kripke-quus",
+      title: "克里普克的 quus：过去用法怎样钉不住加法",
+    },
+    {
       url: "/philosophy/thinkers/quine",
       title: "蒯因",
+    },
+    {
+      url: "/philosophy/experiments/quine-gavagai",
+      title: "蒯因的 Gavagai：刺激意义下的翻译不确定性",
     },
     {
       url: "/philosophy/thinkers/richard-rorty",
@@ -54510,6 +66746,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/paradoxes/russels-paradox",
       title: "罗素悖论",
+    },
+    {
+      url: "/philosophy/experiments/moore-1939-hands",
+      title: "摩尔的两只手",
     },
     {
       url: "/philosophy/isms/positivism",
@@ -54588,6 +66828,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "比尔·盖茨",
     },
     {
+      url: "/education/comparison-and-policy/shadow-education-is-a-market",
+      title: "补习是一种市场",
+    },
+    {
       url: "/political-science/institutions/impeachment-and-recall",
       title: "弹劾与罢免",
     },
@@ -54600,8 +66844,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "监察专员制度",
     },
     {
+      url: "/education/learning-foundations/teacher-education-is-preparation",
+      title: "教师教育是专业准备",
+    },
+    {
+      url: "/education/education-technology/teacher-labor-and-platforms",
+      title: "教师劳动与平台",
+    },
+    {
+      url: "/education/education-technology/what-edtech-records",
+      title: "教育技术记录了什么",
+    },
+    {
       url: "/economics/knowledge-base/financial-crises-anatomy",
       title: "金融危机的解剖：从Minsky到2008，崩溃的共同结构",
+    },
+    {
+      url: "/education/assessment-and-equity/funding-formulas-and-teachability",
+      title: "经费公式与谁被当成可教",
+    },
+    {
+      url: "/education/education-technology/open-resources-are-not-neutral",
+      title: "开放资源不是中立",
+    },
+    {
+      url: "/education/curriculum-and-teaching/lesson-study-is-professional-knowledge",
+      title: "课例研究是专业知识",
     },
     {
       url: "/political-science/institutions/coalition-government",
@@ -54616,6 +66884,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "情报与间谍",
     },
     {
+      url: "/education/assessment-and-equity/inclusive-education-and-disability",
+      title: "融合教育与谁被当成可教",
+    },
+    {
       url: "/computer-science/concepts/software-supply-chain-security",
       title: "软件供应链安全",
     },
@@ -54626,6 +66898,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/authentication-authorization",
       title: "身份验证与授权",
+    },
+    {
+      url: "/education/education-technology/generative-models-change-conditions",
+      title: "生成式模型改的是条件",
+    },
+    {
+      url: "/education/frontier/generative-assessment-after-2022",
+      title: "生成式模型之后评估还在测什么",
     },
     {
       url: "/political-science/concepts/taxes-and-public-budget",
@@ -54642,6 +66922,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/public-health/health-economic-evaluation-priority-setting",
       title: "卫生经济学与优先排序",
+    },
+    {
+      url: "/education/assessment-and-equity/validity-is-an-argument",
+      title: "效度是一种论证",
+    },
+    {
+      url: "/education/assessment-and-equity/formative-assessment-in-use",
+      title: "形成性评价怎样被使用",
+    },
+    {
+      url: "/education/education-technology/learning-analytics-are-inferences",
+      title: "学习分析是推断",
+    },
+    {
+      url: "/education/learning-foundations/school-is-an-institution",
+      title: "学校是一种制度",
     },
     {
       url: "/political-science/institutions/central-bank-communication-public-understanding",
@@ -54666,6 +66962,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/institutions/central-bank-independence-political-economy",
       title: "中央银行独立的政治经济学",
+    },
+    {
+      url: "/education/comparison-and-policy/comprehensive-school-is-a-design",
+      title: "综合学校是一种设计",
+    },
+    {
+      url: "/education/learning-foundations/homework-allocates-family-time",
+      title: "作业分配的是家庭时间",
     },
     {
       url: "/philosophy/questions/should-ai-have-rights",
@@ -54789,6 +67093,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/law/judgment-analyses/loper-bright-chevron-deference-overruled",
       title: "Loper Bright v. Raimondo 判决剖析",
     },
+    {
+      url: "/law/judgment-analyses/marbury-v-madison-judicial-review",
+      title: "Marbury v. Madison 判决剖析",
+    },
   ],
   "/political-science/concepts/citizenship-rights": [
     {
@@ -54872,6 +67180,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/sociology/thinkers/james-coleman",
       title: "詹姆斯·S. 科尔曼",
+    },
+    {
+      url: "/law/judgment-analyses/brown-v-board-equal-protection",
+      title: "Brown v. Board of Education 判决剖析",
+    },
+    {
+      url: "/sociology/methods/freedom-summer-political-process-analysis",
+      title: "Freedom Summer 复核：谁去了密西西比，谁把机会写成组织",
+    },
+    {
+      url: "/law/judgment-analyses/van-gend-en-loos-direct-effect",
+      title: "Van Gend en Loos 判决剖析",
     },
   ],
   "/political-science/concepts/constitution": [
@@ -55062,6 +67382,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "透析",
     },
     {
+      url: "/philosophy/experiments/wilt-chamberlain",
+      title: "威尔特·张伯伦",
+    },
+    {
       url: "/economics/concepts/consumer-surplus",
       title: "消费者剩余",
     },
@@ -55090,10 +67414,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/thinkers/thomas-jefferson",
       title: "托马斯·杰斐逊",
-    },
-    {
-      url: "/law/judgment-analyses/brown-v-board-equal-protection",
-      title: "Brown v. Board of Education 判决剖析",
     },
   ],
   "/political-science/concepts/fiscal-rules-democratic-legitimacy": [
@@ -55446,6 +67766,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "祖冲之",
     },
     {
+      url: "/computer-science/theory/garcia-molina-1982-bully",
+      title: "Garcia-Molina 1982：编号更高的进程怎样在超时假设下抢走协调者",
+    },
+    {
       url: "/computer-science/algorithms/public-key-rsa",
       title: "RSA 公钥密码",
     },
@@ -55707,6 +68031,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/political-science/concepts/accountability",
       title: "政治问责",
     },
+    {
+      url: "/political-science/methods/gerber-green-new-haven-gotv",
+      title: "Gerber 与 Green 的纽黑文动员实验：上门、邮件和电话怎样改变投票",
+    },
   ],
   "/political-science/concepts/political-violence": [
     {
@@ -55920,6 +68248,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "安贝德卡尔",
     },
     {
+      url: "/education/comparison-and-policy/shadow-education-is-a-market",
+      title: "补习是一种市场",
+    },
+    {
+      url: "/economics/policy-analyses/british-columbia-carbon-tax",
+      title: "不列颠哥伦比亚碳税政策剖析",
+    },
+    {
       url: "/computer-science/pioneers/charles-babbage",
       title: "查尔斯·巴贝奇",
     },
@@ -55936,6 +68272,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "反应停悲剧（1957）",
     },
     {
+      url: "/education/curriculum-and-teaching/tracking-and-grouping",
+      title: "分班与分组",
+    },
+    {
+      url: "/education/assessment-and-equity/high-stakes-exams-are-institutions",
+      title: "高利害考试是一种制度",
+    },
+    {
       url: "/chemistry/methods/process-safety",
       title: "过程安全：在放大前理解热、压与失控路径",
     },
@@ -55944,8 +68288,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "回归不连续设计：门槛两边为什么可以比较",
     },
     {
+      url: "/education/learning-foundations/teacher-education-is-preparation",
+      title: "教师教育是专业准备",
+    },
+    {
       url: "/political-science/isms/progressivism",
       title: "进步主义",
+    },
+    {
+      url: "/education/assessment-and-equity/funding-formulas-and-teachability",
+      title: "经费公式与谁被当成可教",
+    },
+    {
+      url: "/education/education-technology/open-resources-are-not-neutral",
+      title: "开放资源不是中立",
+    },
+    {
+      url: "/education/curriculum-and-teaching/curriculum-as-selection",
+      title: "课程即选择",
+    },
+    {
+      url: "/education/curriculum-and-teaching/lesson-study-is-professional-knowledge",
+      title: "课例研究是专业知识",
     },
     {
       url: "/chemistry/milestones/green-chemistry",
@@ -55968,8 +68332,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "墨子",
     },
     {
+      url: "/education/assessment-and-equity/assessment-as-inference",
+      title: "评估即推断",
+    },
+    {
       url: "/computer-science/concepts/embedded-systems",
       title: "嵌入式系统",
+    },
+    {
+      url: "/education/assessment-and-equity/inclusive-education-and-disability",
+      title: "融合教育与谁被当成可教",
+    },
+    {
+      url: "/education/comparison-and-policy/schooling-expansion-in-sub-saharan-africa",
+      title: "撒哈拉以南的学校扩张",
     },
     {
       url: "/computer-science/concepts/real-time-systems",
@@ -55978,6 +68354,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/frontier/market-design-frontier",
       title: "市场设计：当经济学家成为工程师",
+    },
+    {
+      url: "/education/comparison-and-policy/conditional-cash-and-enrollment",
+      title: "条件现金与就学",
     },
     {
       url: "/economics/concepts/externalities",
@@ -55992,8 +68372,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "心血管疾病",
     },
     {
+      url: "/education/assessment-and-equity/formative-assessment-in-use",
+      title: "形成性评价怎样被使用",
+    },
+    {
+      url: "/education/learning-foundations/early-childhood-is-an-institution",
+      title: "学前是一种制度",
+    },
+    {
+      url: "/education/learning-foundations/school-is-an-institution",
+      title: "学校是一种制度",
+    },
+    {
       url: "/medicine/concepts/drug-development",
       title: "药物研发与临床试验",
+    },
+    {
+      url: "/education/frontier/covid-learning-loss-is-not-one-curve",
+      title: "疫情学习损失不是一条曲线",
     },
     {
       url: "/economics/concepts/growth-diagnostics",
@@ -56002,6 +68398,30 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/methods/experiments-natural-experiments",
       title: "政治实验与自然实验",
+    },
+    {
+      url: "/education/curriculum-and-teaching/vocational-schooling-is-a-track",
+      title: "职业教育是一种轨道",
+    },
+    {
+      url: "/education/comparison-and-policy/comprehensive-school-is-a-design",
+      title: "综合学校是一种设计",
+    },
+    {
+      url: "/education/learning-foundations/homework-allocates-family-time",
+      title: "作业分配的是家庭时间",
+    },
+    {
+      url: "/political-science/methods/gerber-green-new-haven-gotv",
+      title: "Gerber 与 Green 的纽黑文动员实验：上门、邮件和电话怎样改变投票",
+    },
+    {
+      url: "/education/comparison-and-policy/pisa-is-not-civilization",
+      title: "PISA 不是文明",
+    },
+    {
+      url: "/chemistry/milestones/rowland-molina-ozone-cfcs",
+      title: "Rowland 与 Molina：平流层里的氯循环（1974）",
     },
   ],
   "/political-science/concepts/revolution": [
@@ -56162,6 +68582,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/political-science/concepts/sovereignty": [
     {
+      url: "/law/private-law/conflict-of-laws",
+      title: "冲突法：跨境民事关系适用哪一套规则",
+    },
+    {
       url: "/law/foundations/sources-of-law",
       title: "法律渊源与效力层级：谁说了算数",
     },
@@ -56276,6 +68700,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/political-science/concepts/state-capacity": [
     {
+      url: "/human-history/source-analyses/domesday-book-source-analysis",
+      title: "《末日审判书》史料剖析",
+    },
+    {
+      url: "/computer-science/pioneers/butler-lampson",
+      title: "巴特勒·兰普森",
+    },
+    {
       url: "/economics/economists/paul-romer",
       title: "保罗·罗默",
     },
@@ -56288,6 +68720,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "财政国家",
     },
     {
+      url: "/computer-science/theory/differential-privacy",
+      title: "差分隐私",
+    },
+    {
       url: "/economics/frontier/industrial-policy-economics",
       title: "产业政策的回归：从经济学禁忌到芯片实验",
     },
@@ -56298,6 +68734,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/古典时期--亚洲--春秋战国",
       title: "春秋战国",
+    },
+    {
+      url: "/economics/policy-analyses/germany-hartz-labor-reforms",
+      title: "德国 Hartz 劳动力改革剖析",
     },
     {
       url: "/political-science/institutions/local-and-municipal-government",
@@ -56364,6 +68804,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "后殖民国家建设",
     },
     {
+      url: "/religion/frontier/christian-nationalism-measurement",
+      title: "基督教民族主义测的是什么",
+    },
+    {
+      url: "/computer-science/frontier/cluster-training-systems",
+      title: "集群训练系统：把模型铺到一千张卡上",
+    },
+    {
+      url: "/human-history/source-analyses/oracle-bones-source-analysis",
+      title: "甲骨文史料剖析",
+    },
+    {
       url: "/human-history/knowledge/事件--甲午战争",
       title: "甲午战争",
     },
@@ -56380,6 +68832,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "孔子的政治思想",
     },
     {
+      url: "/law/frontier/cross-border-data-governance",
+      title: "跨境数据治理：云端的一份数据同时服从几套主权",
+    },
+    {
+      url: "/computer-science/pioneers/radia-perlman",
+      title: "拉迪亚·珀尔曼",
+    },
+    {
       url: "/life-science/knowledge-base/lamarckism-and-its-afterlives",
       title: "拉马克主义：三次死亡与一次不完全的返魂",
     },
@@ -56390,6 +68850,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/isms/end-of-history",
       title: "历史终结论",
+    },
+    {
+      url: "/human-history/source-analyses/rosetta-stone-source-analysis",
+      title: "罗塞塔石碑史料剖析",
+    },
+    {
+      url: "/computer-science/pioneers/michael-stonebraker",
+      title: "迈克尔·斯通布雷克",
     },
     {
       url: "/political-science/thinkers/mao-zedong-political-thought",
@@ -56428,6 +68896,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "社会达尔文主义与优生学：一套披着科学外衣的社会安排",
     },
     {
+      url: "/computer-science/frontier/neural-program-synthesis",
+      title: "神经程序综合：从规约到代码的开放问题",
+    },
+    {
       url: "/political-science/international-relations/failed-and-fragile-states",
       title: "失败国家与脆弱国家",
     },
@@ -56448,12 +68920,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "素数之谜",
     },
     {
+      url: "/economics/debates/carbon-tax-vs-cap-and-trade",
+      title: "碳税还是总量交易：给污染定价的两条路",
+    },
+    {
       url: "/philosophy/thinkers/hobbes",
       title: "托马斯·霍布斯",
     },
     {
       url: "/political-science/isms/authoritarianism",
       title: "威权主义",
+    },
+    {
+      url: "/economics/policy-analyses/volcker-disinflation-policy",
+      title: "沃尔克反通胀政策剖析",
     },
     {
       url: "/human-history/knowledge/中世纪--亚洲--吴哥王朝",
@@ -56466,6 +68946,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/concepts/modern-money-fiscal-deficits",
       title: "现代货币、财政赤字与通胀约束",
+    },
+    {
+      url: "/computer-science/pioneers/cynthia-dwork",
+      title: "辛西娅·德沃克",
     },
     {
       url: "/economics/theories/information-asymmetry",
@@ -56514,6 +68998,34 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/isms/liberalism",
       title: "自由主义",
+    },
+    {
+      url: "/law/judgment-analyses/brown-v-board-equal-protection",
+      title: "Brown v. Board of Education 判决剖析",
+    },
+    {
+      url: "/computer-science/frontier/ebpf-verifier",
+      title: "eBPF 验证器：把内核扩展变成可判定问题",
+    },
+    {
+      url: "/computer-science/systems/firecracker-microvm",
+      title: "Firecracker：微型虚拟机",
+    },
+    {
+      url: "/sociology/methods/freedom-summer-political-process-analysis",
+      title: "Freedom Summer 复核：谁去了密西西比，谁把机会写成组织",
+    },
+    {
+      url: "/law/judgment-analyses/marbury-v-madison-judicial-review",
+      title: "Marbury v. Madison 判决剖析",
+    },
+    {
+      url: "/computer-science/systems/sel4-verified-kernel",
+      title: "seL4：被证明的微内核",
+    },
+    {
+      url: "/law/judgment-analyses/van-gend-en-loos-direct-effect",
+      title: "Van Gend en Loos 判决剖析",
     },
   ],
   "/political-science/concepts/taxes-and-public-budget": [
@@ -57074,6 +69586,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/political-science/institutions/constitutionalism-separation-of-powers": [
     {
+      url: "/human-history/source-analyses/magna-carta-source-analysis",
+      title: "《大宪章》史料剖析",
+    },
+    {
       url: "/political-science/concepts/fiscal-rules-democratic-legitimacy",
       title: "财政规则与民主合法性",
     },
@@ -57258,6 +69774,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/political-science/institutions/federalism": [
     {
+      url: "/medicine/events/salk-1954-polio-trial",
+      title: "1954 年美国脊髓灰质炎疫苗现场试验：观察现场与安慰剂对照并存的读出",
+    },
+    {
       url: "/human-history/knowledge/近代--奥斯曼帝国",
       title: "奥斯曼帝国",
     },
@@ -57429,31 +69949,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/political-science/concepts/gerrymandering",
       title: "选区重划操纵",
     },
-    {
-      url: "/law/judgment-analyses/brown-v-board-equal-protection",
-      title: "Brown v. Board of Education 判决剖析",
-    },
-    {
-      url: "/law/judgment-analyses/donoghue-v-stevenson-duty-of-care",
-      title: "Donoghue v Stevenson 判决剖析",
-    },
-    {
-      url: "/law/judgment-analyses/handyside-v-uk-expression-margin",
-      title: "Handyside v. United Kingdom 判决剖析",
-    },
-    {
-      url: "/law/judgment-analyses/marbury-v-madison-judicial-review",
-      title: "Marbury v. Madison 判决剖析",
-    },
-    {
-      url: "/law/judgment-analyses/van-gend-en-loos-direct-effect",
-      title: "Van Gend en Loos 判决剖析",
-    },
   ],
   "/political-science/institutions/legislatures": [
     {
+      url: "/computer-science/theory/byzantine-generals-lamport-1982",
+      title: "拜占庭将军问题",
+    },
+    {
       url: "/political-science/institutions/impeachment-and-recall",
       title: "弹劾与罢免",
+    },
+    {
+      url: "/computer-science/theory/paxos-lamport-1998",
+      title: "兼职议会与 Paxos",
     },
     {
       url: "/political-science/institutions/ombudsman-institutions",
@@ -57486,6 +69994,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/schools/institutional-school",
       title: "制度经济学派",
+    },
+    {
+      url: "/computer-science/theory/castro-liskov-1999-pbft",
+      title: "Castro–Liskov 1999：实用拜占庭容错，不是将军寓言",
+    },
+    {
+      url: "/computer-science/systems/chubby-2006",
+      title: "Chubby：松耦合系统上的锁服务，不是又一套数据库",
+    },
+    {
+      url: "/computer-science/systems/birman-1985-virtual-synchrony",
+      title: "ISIS 1985：进程组、flush 与虚拟同步，不是又一份 ZooKeeper",
+    },
+    {
+      url: "/computer-science/systems/viewstamped-replication-1988",
+      title: "Viewstamped Replication：视图、主副本与盖章请求，不是又一份 Paxos",
+    },
+    {
+      url: "/computer-science/systems/zookeeper-2010",
+      title: "ZooKeeper：等待自由的协调，不是又一套 Chubby 说明书",
     },
   ],
   "/political-science/institutions/local-and-municipal-government": [
@@ -57678,6 +70206,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "社会主义",
     },
     {
+      url: "/education/comparison-and-policy/conditional-cash-and-enrollment",
+      title: "条件现金与就学",
+    },
+    {
       url: "/economics/knowledge-base/inflation-guide",
       title: "通胀对你的钱包意味着什么",
     },
@@ -57698,6 +70230,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "效率工资",
     },
     {
+      url: "/education/learning-foundations/early-childhood-is-an-institution",
+      title: "学前是一种制度",
+    },
+    {
       url: "/psychology/knowledge-base/attachment-theory",
       title: "依恋理论：爱的科学",
     },
@@ -57708,6 +70244,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/theorists/john-bowlby",
       title: "约翰·鲍尔比",
+    },
+    {
+      url: "/education/comparison-and-policy/comprehensive-school-is-a-design",
+      title: "综合学校是一种设计",
+    },
+    {
+      url: "/education/learning-foundations/homework-allocates-family-time",
+      title: "作业分配的是家庭时间",
     },
   ],
   "/political-science/international-relations/african-regional-organizations": [
@@ -58828,6 +71372,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "库施王国",
     },
     {
+      url: "/chemistry/milestones/perkin-1856-mauveine",
+      title: "珀金一八五六年的苯胺紫：复活节失败的奎宁凑法与第一种商业合成染料",
+    },
+    {
       url: "/political-science/thinkers/sun-yat-sen",
       title: "孙中山",
     },
@@ -59232,6 +71780,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "比较法的方法：可比性从何而来",
     },
     {
+      url: "/law/private-law/conflict-of-laws",
+      title: "冲突法：跨境民事关系适用哪一套规则",
+    },
+    {
       url: "/economics/case-studies/great-depression",
       title: "大萧条",
     },
@@ -59258,8 +71810,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "回归不连续设计：门槛两边为什么可以比较",
     },
     {
+      url: "/economics/policy-analyses/card-krueger-nj-minimum-wage",
+      title: "卡德–克鲁格：新泽西最低工资怎样被快餐店电话问出来",
+    },
+    {
       url: "/economics/debates/rent-control-affordability-supply",
       title: "租金管制之争：可负担性、居住稳定与住房供给",
+    },
+    {
+      url: "/political-science/methods/gerber-green-new-haven-gotv",
+      title: "Gerber 与 Green 的纽黑文动员实验：上门、邮件和电话怎样改变投票",
     },
   ],
   "/political-science/methods/experiments-natural-experiments": [
@@ -59310,6 +71870,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/schools/political-philosophy",
       title: "政治哲学",
+    },
+    {
+      url: "/political-science/methods/gerber-green-new-haven-gotv",
+      title: "Gerber 与 Green 的纽黑文动员实验：上门、邮件和电话怎样改变投票",
     },
   ],
   "/political-science/methods/process-tracing": [
@@ -59388,6 +71952,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/knowledge-base/political-polarization-psychology",
       title: "政治极化心理",
+    },
+    {
+      url: "/political-science/methods/gerber-green-new-haven-gotv",
+      title: "Gerber 与 Green 的纽黑文动员实验：上门、邮件和电话怎样改变投票",
     },
   ],
   "/political-science/methods/synthetic-control-method": [
@@ -59618,6 +72186,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/isms/libertarianism",
       title: "自由意志主义",
+    },
+    {
+      url: "/law/judgment-analyses/handyside-v-uk-expression-margin",
+      title: "Handyside v. United Kingdom 判决剖析",
     },
   ],
   "/political-science/thinkers/jurgen-habermas": [
@@ -59974,6 +72546,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "伊丽莎白·洛夫特斯",
     },
   ],
+  "/psychology/debates/iq-malleability": [
+    {
+      url: "/education/curriculum-and-teaching/tracking-and-grouping",
+      title: "分班与分组",
+    },
+    {
+      url: "/education/assessment-and-equity/high-stakes-exams-are-institutions",
+      title: "高利害考试是一种制度",
+    },
+    {
+      url: "/education/assessment-and-equity/assessment-as-inference",
+      title: "评估即推断",
+    },
+    {
+      url: "/education/assessment-and-equity/inclusive-education-and-disability",
+      title: "融合教育与谁被当成可教",
+    },
+  ],
   "/psychology/debates/nature-vs-nurture": [
     {
       url: "/linguistics/acquisition-and-mind/children-learn-language",
@@ -60094,6 +72684,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/methods-and-frontiers/llm-and-linguistic-theory",
       title: "大语言模型与语言学理论",
+    },
+    {
+      url: "/education/learning-foundations/teaching-is-not-pouring",
+      title: "教学不是灌输",
+    },
+    {
+      url: "/education/curriculum-and-teaching/classroom-as-time",
+      title: "课堂是被组织的时间",
     },
     {
       url: "/computer-science/theory/formal-grammars-chomsky-hierarchy",
@@ -60372,6 +72970,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "西班牙流感",
     },
   ],
+  "/psychology/disorders/schizophrenia": [
+    {
+      url: "/psychology/experiments/rosenhan-1973",
+      title: "Rosenhan 假病人研究：诊断标签一旦贴上会怎样",
+    },
+  ],
   "/psychology/disorders/social-anxiety": [
     {
       url: "/psychology/disorders/panic-disorder",
@@ -60412,10 +73016,460 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "政党与政党制度",
     },
   ],
+  "/psychology/experiments/atkinson-shiffrin-1968": [
+    {
+      url: "/psychology/experiments/baddeley-1966",
+      title: "巴德利 1966：词序列的即时记忆为何被声学相似拖垮而不是被语义相似拖垮",
+    },
+    {
+      url: "/psychology/experiments/brown-1958",
+      title: "布朗 1958：即时记忆的衰减怎样被若干测验问到，却还没有画成一条间隔曲线",
+    },
+    {
+      url: "/psychology/experiments/glanzer-cunitz-1966",
+      title: "格兰泽与库尼茨 1966：自由回忆的首因与近因为何被两套仓库分开",
+    },
+    {
+      url: "/psychology/phenomena/memory-systems",
+      title: "记忆系统",
+    },
+    {
+      url: "/psychology/experiments/keppel-underwood-1962",
+      title: "凯佩尔与安德伍德 1962：单项目短时保持里的前摄抑制怎样随试次变陡",
+    },
+    {
+      url: "/psychology/experiments/conrad-1964",
+      title: "康拉德 1964：即时记忆的错误为何跟着声音走而不是跟着字形走",
+    },
+    {
+      url: "/psychology/experiments/craik-lockhart-1972",
+      title: "克雷克与洛克哈特 1972：加工水平怎样把记忆从仓库改写成编码深度的研究纲领",
+    },
+    {
+      url: "/psychology/experiments/wickens-1970",
+      title: "威肯斯 1970：换编码范畴怎样把前摄抑制释放写成意义的尺子",
+    },
+    {
+      url: "/psychology/experiments/waugh-norman-1965",
+      title: "沃与诺曼 1965：初级记忆怎样把遗忘写成插入项目而非单纯流逝",
+    },
+  ],
+  "/psychology/experiments/baddeley-1966": [
+    {
+      url: "/psychology/experiments/baddeley-hitch-1974",
+      title: "巴德利与希契 1974：工作记忆怎样把短时仓库拆成三组件",
+    },
+    {
+      url: "/psychology/phenomena/memory-systems",
+      title: "记忆系统",
+    },
+    {
+      url: "/psychology/experiments/conrad-1964",
+      title: "康拉德 1964：即时记忆的错误为何跟着声音走而不是跟着字形走",
+    },
+    {
+      url: "/psychology/experiments/wickens-1970",
+      title: "威肯斯 1970：换编码范畴怎样把前摄抑制释放写成意义的尺子",
+    },
+    {
+      url: "/psychology/experiments/waugh-norman-1965",
+      title: "沃与诺曼 1965：初级记忆怎样把遗忘写成插入项目而非单纯流逝",
+    },
+  ],
+  "/psychology/experiments/baddeley-hitch-1974": [
+    {
+      url: "/psychology/experiments/atkinson-shiffrin-1968",
+      title: "阿特金森与希夫林 1968：结构特征与控制过程怎样把记忆写成感觉登记、短时库与长时库",
+    },
+    {
+      url: "/psychology/experiments/ebbinghaus-1885",
+      title: "艾宾浩斯 1885：无意义音节与节省法怎样把遗忘写成可再学的差额",
+    },
+    {
+      url: "/psychology/experiments/baddeley-1966",
+      title: "巴德利 1966：词序列的即时记忆为何被声学相似拖垮而不是被语义相似拖垮",
+    },
+    {
+      url: "/psychology/experiments/godden-baddeley-1975",
+      title: "戈登与巴德利 1975：陆地与水下怎样把环境写成提取线索",
+    },
+    {
+      url: "/psychology/experiments/glanzer-cunitz-1966",
+      title: "格兰泽与库尼茨 1966：自由回忆的首因与近因为何被两套仓库分开",
+    },
+    {
+      url: "/psychology/phenomena/memory-systems",
+      title: "记忆系统",
+    },
+    {
+      url: "/psychology/experiments/conrad-1964",
+      title: "康拉德 1964：即时记忆的错误为何跟着声音走而不是跟着字形走",
+    },
+    {
+      url: "/psychology/experiments/craik-lockhart-1972",
+      title: "克雷克与洛克哈特 1972：加工水平怎样把记忆从仓库改写成编码深度的研究纲领",
+    },
+    {
+      url: "/psychology/experiments/craik-tulving-1975",
+      title: "克雷克与图尔文 1975：结构、语音与语义定向怎样把加工深度钉进情节记忆",
+    },
+    {
+      url: "/psychology/experiments/miller-1956",
+      title: "米勒 1956：绝对判断、即时记忆与组块怎样把容量从比特改写成结构",
+    },
+    {
+      url: "/psychology/schools/cognitive",
+      title: "认知心理学",
+    },
+    {
+      url: "/psychology/experiments/sternberg-1966",
+      title: "斯特恩伯格 1966：高速扫描怎样把短时记忆里的数字写成随集合大小线性变长的反应时",
+    },
+    {
+      url: "/psychology/experiments/tulving-thomson-1973",
+      title: "图尔文与汤姆森 1973：编码特定性怎样把提取线索写成与痕迹重叠",
+    },
+    {
+      url: "/psychology/experiments/wickens-1970",
+      title: "威肯斯 1970：换编码范畴怎样把前摄抑制释放写成意义的尺子",
+    },
+    {
+      url: "/psychology/experiments/waugh-norman-1965",
+      title: "沃与诺曼 1965：初级记忆怎样把遗忘写成插入项目而非单纯流逝",
+    },
+  ],
+  "/psychology/experiments/bartlett-1932": [
+    {
+      url: "/psychology/experiments/ebbinghaus-1885",
+      title: "艾宾浩斯 1885：无意义音节与节省法怎样把遗忘写成可再学的差额",
+    },
+    {
+      url: "/psychology/experiments/peterson-peterson-1959",
+      title: "彼得森 1959：倒数干扰怎样把单个项目的短时保持画成秒级曲线",
+    },
+    {
+      url: "/psychology/experiments/brown-1958",
+      title: "布朗 1958：即时记忆的衰减怎样被若干测验问到，却还没有画成一条间隔曲线",
+    },
+    {
+      url: "/psychology/experiments/godden-baddeley-1975",
+      title: "戈登与巴德利 1975：陆地与水下怎样把环境写成提取线索",
+    },
+    {
+      url: "/psychology/phenomena/memory-systems",
+      title: "记忆系统",
+    },
+    {
+      url: "/psychology/experiments/craik-lockhart-1972",
+      title: "克雷克与洛克哈特 1972：加工水平怎样把记忆从仓库改写成编码深度的研究纲领",
+    },
+    {
+      url: "/psychology/experiments/loftus-car-crash-1974",
+      title: "洛夫特斯车祸实验",
+    },
+    {
+      url: "/psychology/experiments/miller-1956",
+      title: "米勒 1956：绝对判断、即时记忆与组块怎样把容量从比特改写成结构",
+    },
+    {
+      url: "/philosophy/experiments/parfit-teletransport",
+      title: "帕菲特的传送：心理连续怎样把人格同一性从重要的事情里拆走",
+    },
+    {
+      url: "/psychology/schools/cognitive",
+      title: "认知心理学",
+    },
+    {
+      url: "/psychology/experiments/sperling-1960",
+      title: "斯珀林 1960：部分报告怎样把瞬时视觉容量从整报里拆出来",
+    },
+    {
+      url: "/psychology/experiments/tulving-thomson-1973",
+      title: "图尔文与汤姆森 1973：编码特定性怎样把提取线索写成与痕迹重叠",
+    },
+  ],
+  "/psychology/experiments/broadbent-1958": [
+    {
+      url: "/psychology/experiments/posner-1980",
+      title: "波斯纳 1980：空间提示怎样把隐蔽定向从眼动里拆成有效、无效与中性线索上的代价与收益",
+    },
+    {
+      url: "/psychology/experiments/brown-1958",
+      title: "布朗 1958：即时记忆的衰减怎样被若干测验问到，却还没有画成一条间隔曲线",
+    },
+    {
+      url: "/psychology/experiments/cherry-1953",
+      title: "彻里 1953：双耳分听怎样把未追随耳从整句里拆成几乎什么也报不出",
+    },
+    {
+      url: "/psychology/experiments/deutsch-deutsch-1963",
+      title: "多伊奇与多伊奇 1963：晚期选择怎样把重要性加权写到完整分析之后",
+    },
+    {
+      url: "/psychology/experiments/miller-1956",
+      title: "米勒 1956：绝对判断、即时记忆与组块怎样把容量从比特改写成结构",
+    },
+    {
+      url: "/psychology/experiments/moray-1959",
+      title: "莫雷 1959：自己的名字怎样把被拒绝耳上的屏障从密封改写成情感显著项仍可能漏出",
+    },
+    {
+      url: "/psychology/schools/cognitive",
+      title: "认知心理学",
+    },
+    {
+      url: "/psychology/experiments/stroop-1935",
+      title: "斯特鲁普实验",
+    },
+    {
+      url: "/psychology/experiments/treisman-1960",
+      title: "特里斯曼 1960：衰减怎样把被拒绝通路从全关改写成阈值仍可能被情境接住",
+    },
+  ],
+  "/psychology/experiments/brown-1958": [
+    {
+      url: "/psychology/experiments/peterson-peterson-1959",
+      title: "彼得森 1959：倒数干扰怎样把单个项目的短时保持画成秒级曲线",
+    },
+    {
+      url: "/psychology/phenomena/memory-systems",
+      title: "记忆系统",
+    },
+  ],
+  "/psychology/experiments/cherry-1953": [
+    {
+      url: "/psychology/experiments/peterson-peterson-1959",
+      title: "彼得森 1959：倒数干扰怎样把单个项目的短时保持画成秒级曲线",
+    },
+    {
+      url: "/psychology/experiments/posner-1980",
+      title: "波斯纳 1980：空间提示怎样把隐蔽定向从眼动里拆成有效、无效与中性线索上的代价与收益",
+    },
+    {
+      url: "/psychology/experiments/broadbent-1958",
+      title: "布罗德本特 1958：过滤器怎样把有限容量写成早期选择的门",
+    },
+    {
+      url: "/psychology/experiments/deutsch-deutsch-1963",
+      title: "多伊奇与多伊奇 1963：晚期选择怎样把重要性加权写到完整分析之后",
+    },
+    {
+      url: "/psychology/experiments/miller-1956",
+      title: "米勒 1956：绝对判断、即时记忆与组块怎样把容量从比特改写成结构",
+    },
+    {
+      url: "/psychology/experiments/moray-1959",
+      title: "莫雷 1959：自己的名字怎样把被拒绝耳上的屏障从密封改写成情感显著项仍可能漏出",
+    },
+    {
+      url: "/psychology/schools/cognitive",
+      title: "认知心理学",
+    },
+    {
+      url: "/psychology/experiments/sperling-1960",
+      title: "斯珀林 1960：部分报告怎样把瞬时视觉容量从整报里拆出来",
+    },
+    {
+      url: "/psychology/experiments/stroop-1935",
+      title: "斯特鲁普实验",
+    },
+    {
+      url: "/psychology/experiments/treisman-1960",
+      title: "特里斯曼 1960：衰减怎样把被拒绝通路从全关改写成阈值仍可能被情境接住",
+    },
+  ],
+  "/psychology/experiments/conrad-1964": [
+    {
+      url: "/psychology/experiments/atkinson-shiffrin-1968",
+      title: "阿特金森与希夫林 1968：结构特征与控制过程怎样把记忆写成感觉登记、短时库与长时库",
+    },
+    {
+      url: "/psychology/experiments/baddeley-1966",
+      title: "巴德利 1966：词序列的即时记忆为何被声学相似拖垮而不是被语义相似拖垮",
+    },
+    {
+      url: "/psychology/experiments/baddeley-hitch-1974",
+      title: "巴德利与希契 1974：工作记忆怎样把短时仓库拆成三组件",
+    },
+    {
+      url: "/psychology/phenomena/memory-systems",
+      title: "记忆系统",
+    },
+    {
+      url: "/psychology/experiments/wickens-1970",
+      title: "威肯斯 1970：换编码范畴怎样把前摄抑制释放写成意义的尺子",
+    },
+    {
+      url: "/psychology/experiments/waugh-norman-1965",
+      title: "沃与诺曼 1965：初级记忆怎样把遗忘写成插入项目而非单纯流逝",
+    },
+  ],
+  "/psychology/experiments/craik-lockhart-1972": [
+    {
+      url: "/psychology/experiments/atkinson-shiffrin-1968",
+      title: "阿特金森与希夫林 1968：结构特征与控制过程怎样把记忆写成感觉登记、短时库与长时库",
+    },
+    {
+      url: "/psychology/experiments/ebbinghaus-1885",
+      title: "艾宾浩斯 1885：无意义音节与节省法怎样把遗忘写成可再学的差额",
+    },
+    {
+      url: "/psychology/experiments/baddeley-hitch-1974",
+      title: "巴德利与希契 1974：工作记忆怎样把短时仓库拆成三组件",
+    },
+    {
+      url: "/psychology/experiments/bartlett-1932",
+      title: "巴特莱特 1932：回忆是图式重构，不是播放录音",
+    },
+    {
+      url: "/psychology/experiments/godden-baddeley-1975",
+      title: "戈登与巴德利 1975：陆地与水下怎样把环境写成提取线索",
+    },
+    {
+      url: "/psychology/experiments/glanzer-cunitz-1966",
+      title: "格兰泽与库尼茨 1966：自由回忆的首因与近因为何被两套仓库分开",
+    },
+    {
+      url: "/psychology/phenomena/memory-systems",
+      title: "记忆系统",
+    },
+    {
+      url: "/psychology/experiments/craik-tulving-1975",
+      title: "克雷克与图尔文 1975：结构、语音与语义定向怎样把加工深度钉进情节记忆",
+    },
+    {
+      url: "/psychology/experiments/miller-1956",
+      title: "米勒 1956：绝对判断、即时记忆与组块怎样把容量从比特改写成结构",
+    },
+    {
+      url: "/psychology/experiments/sternberg-1966",
+      title: "斯特恩伯格 1966：高速扫描怎样把短时记忆里的数字写成随集合大小线性变长的反应时",
+    },
+    {
+      url: "/psychology/experiments/tulving-thomson-1973",
+      title: "图尔文与汤姆森 1973：编码特定性怎样把提取线索写成与痕迹重叠",
+    },
+    {
+      url: "/psychology/experiments/waugh-norman-1965",
+      title: "沃与诺曼 1965：初级记忆怎样把遗忘写成插入项目而非单纯流逝",
+    },
+  ],
+  "/psychology/experiments/craik-tulving-1975": [
+    {
+      url: "/psychology/phenomena/memory-systems",
+      title: "记忆系统",
+    },
+    {
+      url: "/psychology/experiments/craik-lockhart-1972",
+      title: "克雷克与洛克哈特 1972：加工水平怎样把记忆从仓库改写成编码深度的研究纲领",
+    },
+    {
+      url: "/psychology/experiments/tulving-thomson-1973",
+      title: "图尔文与汤姆森 1973：编码特定性怎样把提取线索写成与痕迹重叠",
+    },
+  ],
   "/psychology/experiments/csikszentmihalyi-pagers": [
     {
       url: "/psychology/methods/experience-sampling-and-ema",
       title: "经验取样与生态瞬时评估",
+    },
+  ],
+  "/psychology/experiments/darley-latane-1968": [
+    {
+      url: "/psychology/experiments/nisbett-wilson-1977",
+      title: "尼斯贝特与威尔逊 1977：口头报告怎样从先验理论讲出我们读不到的过程",
+    },
+  ],
+  "/psychology/experiments/deutsch-deutsch-1963": [
+    {
+      url: "/psychology/experiments/posner-1980",
+      title: "波斯纳 1980：空间提示怎样把隐蔽定向从眼动里拆成有效、无效与中性线索上的代价与收益",
+    },
+    {
+      url: "/psychology/experiments/broadbent-1958",
+      title: "布罗德本特 1958：过滤器怎样把有限容量写成早期选择的门",
+    },
+    {
+      url: "/psychology/experiments/cherry-1953",
+      title: "彻里 1953：双耳分听怎样把未追随耳从整句里拆成几乎什么也报不出",
+    },
+    {
+      url: "/psychology/experiments/moray-1959",
+      title: "莫雷 1959：自己的名字怎样把被拒绝耳上的屏障从密封改写成情感显著项仍可能漏出",
+    },
+    {
+      url: "/psychology/experiments/treisman-1960",
+      title: "特里斯曼 1960：衰减怎样把被拒绝通路从全关改写成阈值仍可能被情境接住",
+    },
+  ],
+  "/psychology/experiments/ebbinghaus-1885": [
+    {
+      url: "/psychology/experiments/atkinson-shiffrin-1968",
+      title: "阿特金森与希夫林 1968：结构特征与控制过程怎样把记忆写成感觉登记、短时库与长时库",
+    },
+    {
+      url: "/psychology/experiments/baddeley-hitch-1974",
+      title: "巴德利与希契 1974：工作记忆怎样把短时仓库拆成三组件",
+    },
+    {
+      url: "/psychology/experiments/bartlett-1932",
+      title: "巴特莱特 1932：回忆是图式重构，不是播放录音",
+    },
+    {
+      url: "/psychology/experiments/peterson-peterson-1959",
+      title: "彼得森 1959：倒数干扰怎样把单个项目的短时保持画成秒级曲线",
+    },
+    {
+      url: "/psychology/experiments/brown-1958",
+      title: "布朗 1958：即时记忆的衰减怎样被若干测验问到，却还没有画成一条间隔曲线",
+    },
+    {
+      url: "/psychology/experiments/godden-baddeley-1975",
+      title: "戈登与巴德利 1975：陆地与水下怎样把环境写成提取线索",
+    },
+    {
+      url: "/psychology/experiments/glanzer-cunitz-1966",
+      title: "格兰泽与库尼茨 1966：自由回忆的首因与近因为何被两套仓库分开",
+    },
+    {
+      url: "/psychology/phenomena/memory-systems",
+      title: "记忆系统",
+    },
+    {
+      url: "/psychology/experiments/keppel-underwood-1962",
+      title: "凯佩尔与安德伍德 1962：单项目短时保持里的前摄抑制怎样随试次变陡",
+    },
+    {
+      url: "/psychology/experiments/craik-lockhart-1972",
+      title: "克雷克与洛克哈特 1972：加工水平怎样把记忆从仓库改写成编码深度的研究纲领",
+    },
+    {
+      url: "/psychology/experiments/craik-tulving-1975",
+      title: "克雷克与图尔文 1975：结构、语音与语义定向怎样把加工深度钉进情节记忆",
+    },
+    {
+      url: "/psychology/experiments/loftus-car-crash-1974",
+      title: "洛夫特斯车祸实验",
+    },
+    {
+      url: "/psychology/experiments/miller-1956",
+      title: "米勒 1956：绝对判断、即时记忆与组块怎样把容量从比特改写成结构",
+    },
+    {
+      url: "/psychology/experiments/murdock-1962",
+      title: "默多克序列位置实验",
+    },
+    {
+      url: "/psychology/schools/cognitive",
+      title: "认知心理学",
+    },
+    {
+      url: "/psychology/experiments/sperling-1960",
+      title: "斯珀林 1960：部分报告怎样把瞬时视觉容量从整报里拆出来",
+    },
+    {
+      url: "/psychology/experiments/tulving-thomson-1973",
+      title: "图尔文与汤姆森 1973：编码特定性怎样把提取线索写成与痕迹重叠",
     },
   ],
   "/psychology/experiments/free-association": [
@@ -60426,6 +73480,54 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/phenomena/psychic-determinism",
       title: "心理决定论",
+    },
+  ],
+  "/psychology/experiments/glanzer-cunitz-1966": [
+    {
+      url: "/psychology/experiments/atkinson-shiffrin-1968",
+      title: "阿特金森与希夫林 1968：结构特征与控制过程怎样把记忆写成感觉登记、短时库与长时库",
+    },
+    {
+      url: "/psychology/experiments/baddeley-1966",
+      title: "巴德利 1966：词序列的即时记忆为何被声学相似拖垮而不是被语义相似拖垮",
+    },
+    {
+      url: "/psychology/phenomena/memory-systems",
+      title: "记忆系统",
+    },
+    {
+      url: "/psychology/experiments/conrad-1964",
+      title: "康拉德 1964：即时记忆的错误为何跟着声音走而不是跟着字形走",
+    },
+    {
+      url: "/psychology/experiments/murdock-1962",
+      title: "默多克序列位置实验",
+    },
+    {
+      url: "/psychology/experiments/waugh-norman-1965",
+      title: "沃与诺曼 1965：初级记忆怎样把遗忘写成插入项目而非单纯流逝",
+    },
+  ],
+  "/psychology/experiments/godden-baddeley-1975": [
+    {
+      url: "/psychology/experiments/baddeley-1966",
+      title: "巴德利 1966：词序列的即时记忆为何被声学相似拖垮而不是被语义相似拖垮",
+    },
+    {
+      url: "/psychology/experiments/baddeley-hitch-1974",
+      title: "巴德利与希契 1974：工作记忆怎样把短时仓库拆成三组件",
+    },
+    {
+      url: "/psychology/phenomena/memory-systems",
+      title: "记忆系统",
+    },
+    {
+      url: "/psychology/experiments/craik-tulving-1975",
+      title: "克雷克与图尔文 1975：结构、语音与语义定向怎样把加工深度钉进情节记忆",
+    },
+    {
+      url: "/psychology/experiments/tulving-thomson-1973",
+      title: "图尔文与汤姆森 1973：编码特定性怎样把提取线索写成与痕迹重叠",
     },
   ],
   "/psychology/experiments/gorilla-invisibility": [
@@ -60446,18 +73548,96 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "注意力机制与 Transformer",
     },
   ],
+  "/psychology/experiments/harlow-1958-contact-comfort": [
+    {
+      url: "/psychology/phenomena/secure-base",
+      title: "安全基地",
+    },
+    {
+      url: "/psychology/dialogues/bowlby-psychoanalysis",
+      title: "鲍尔比与精神分析",
+    },
+    {
+      url: "/psychology/experiments/strange-situation",
+      title: "陌生情境实验",
+    },
+    {
+      url: "/psychology/knowledge-base/attachment-theory",
+      title: "依恋理论：爱的科学",
+    },
+  ],
+  "/psychology/experiments/kahneman-tversky-1972": [
+    {
+      url: "/psychology/theorists/daniel-kahneman",
+      title: "丹尼尔·卡尼曼",
+    },
+    {
+      url: "/psychology/experiments/kahneman-tversky-1979",
+      title: "卡尼曼与特沃斯基前景理论实验",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1973-availability",
+      title: "特沃斯基与卡尼曼 1973：频率与概率怎样被写成对可得性的判断",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1974",
+      title: "特沃斯基与卡尼曼 1974：不确定判断里的启发式怎样被写成可核对的偏差",
+    },
+  ],
   "/psychology/experiments/kahneman-tversky-1979": [
     {
       url: "/economics/concepts/price-formation",
       title: "价格形成机制",
     },
     {
+      url: "/psychology/experiments/kahneman-tversky-1972",
+      title: "卡尼曼与特沃斯基 1972：主观概率怎样被写成对代表性的判断",
+    },
+    {
       url: "/economics/concepts/coase-theorem",
       title: "科斯定理",
     },
     {
+      url: "/psychology/experiments/nisbett-wilson-1977",
+      title: "尼斯贝特与威尔逊 1977：口头报告怎样从先验理论讲出我们读不到的过程",
+    },
+    {
       url: "/psychology/schools/cognitive",
       title: "认知心理学",
+    },
+    {
+      url: "/philosophy/experiments/sleeping-beauty",
+      title: "睡美人问题",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1973-availability",
+      title: "特沃斯基与卡尼曼 1973：频率与概率怎样被写成对可得性的判断",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1974",
+      title: "特沃斯基与卡尼曼 1974：不确定判断里的启发式怎样被写成可核对的偏差",
+    },
+  ],
+  "/psychology/experiments/keppel-underwood-1962": [
+    {
+      url: "/psychology/experiments/atkinson-shiffrin-1968",
+      title: "阿特金森与希夫林 1968：结构特征与控制过程怎样把记忆写成感觉登记、短时库与长时库",
+    },
+    {
+      url: "/psychology/experiments/peterson-peterson-1959",
+      title: "彼得森 1959：倒数干扰怎样把单个项目的短时保持画成秒级曲线",
+    },
+    {
+      url: "/psychology/experiments/brown-1958",
+      title: "布朗 1958：即时记忆的衰减怎样被若干测验问到，却还没有画成一条间隔曲线",
+    },
+    {
+      url: "/psychology/phenomena/memory-systems",
+      title: "记忆系统",
+    },
+    {
+      url: "/psychology/experiments/wickens-1970",
+      title: "威肯斯 1970：换编码范畴怎样把前摄抑制释放写成意义的尺子",
     },
   ],
   "/psychology/experiments/learned-helplessness": [
@@ -60488,6 +73668,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/psychology/experiments/libet-free-will": [
     {
+      url: "/psychology/experiments/nisbett-wilson-1977",
+      title: "尼斯贝特与威尔逊 1977：口头报告怎样从先验理论讲出我们读不到的过程",
+    },
+    {
       url: "/philosophy/experiments/newcomb-problem",
       title: "纽科姆难题",
     },
@@ -60513,6 +73697,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/psychology/experiments/loftus-car-crash-1974": [
+    {
+      url: "/psychology/experiments/ebbinghaus-1885",
+      title: "艾宾浩斯 1885：无意义音节与节省法怎样把遗忘写成可再学的差额",
+    },
+    {
+      url: "/psychology/experiments/bartlett-1932",
+      title: "巴特莱特 1932：回忆是图式重构，不是播放录音",
+    },
     {
       url: "/psychology/knowledge-base/trauma-and-ptsd",
       title: "创伤与 PTSD：当记忆无法过去",
@@ -60557,6 +73749,178 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/sociology/methods/research-ethics-and-positionality",
       title: "研究伦理与位置性：谁在被研究，谁在研究",
     },
+    {
+      url: "/psychology/experiments/rosenhan-1973",
+      title: "Rosenhan 假病人研究：诊断标签一旦贴上会怎样",
+    },
+  ],
+  "/psychology/experiments/miller-1956": [
+    {
+      url: "/psychology/experiments/atkinson-shiffrin-1968",
+      title: "阿特金森与希夫林 1968：结构特征与控制过程怎样把记忆写成感觉登记、短时库与长时库",
+    },
+    {
+      url: "/psychology/experiments/ebbinghaus-1885",
+      title: "艾宾浩斯 1885：无意义音节与节省法怎样把遗忘写成可再学的差额",
+    },
+    {
+      url: "/psychology/experiments/baddeley-1966",
+      title: "巴德利 1966：词序列的即时记忆为何被声学相似拖垮而不是被语义相似拖垮",
+    },
+    {
+      url: "/psychology/experiments/baddeley-hitch-1974",
+      title: "巴德利与希契 1974：工作记忆怎样把短时仓库拆成三组件",
+    },
+    {
+      url: "/psychology/experiments/bartlett-1932",
+      title: "巴特莱特 1932：回忆是图式重构，不是播放录音",
+    },
+    {
+      url: "/psychology/experiments/peterson-peterson-1959",
+      title: "彼得森 1959：倒数干扰怎样把单个项目的短时保持画成秒级曲线",
+    },
+    {
+      url: "/psychology/experiments/brown-1958",
+      title: "布朗 1958：即时记忆的衰减怎样被若干测验问到，却还没有画成一条间隔曲线",
+    },
+    {
+      url: "/psychology/experiments/broadbent-1958",
+      title: "布罗德本特 1958：过滤器怎样把有限容量写成早期选择的门",
+    },
+    {
+      url: "/psychology/experiments/cherry-1953",
+      title: "彻里 1953：双耳分听怎样把未追随耳从整句里拆成几乎什么也报不出",
+    },
+    {
+      url: "/psychology/experiments/godden-baddeley-1975",
+      title: "戈登与巴德利 1975：陆地与水下怎样把环境写成提取线索",
+    },
+    {
+      url: "/psychology/experiments/glanzer-cunitz-1966",
+      title: "格兰泽与库尼茨 1966：自由回忆的首因与近因为何被两套仓库分开",
+    },
+    {
+      url: "/psychology/phenomena/memory-systems",
+      title: "记忆系统",
+    },
+    {
+      url: "/psychology/experiments/keppel-underwood-1962",
+      title: "凯佩尔与安德伍德 1962：单项目短时保持里的前摄抑制怎样随试次变陡",
+    },
+    {
+      url: "/psychology/experiments/conrad-1964",
+      title: "康拉德 1964：即时记忆的错误为何跟着声音走而不是跟着字形走",
+    },
+    {
+      url: "/psychology/experiments/craik-lockhart-1972",
+      title: "克雷克与洛克哈特 1972：加工水平怎样把记忆从仓库改写成编码深度的研究纲领",
+    },
+    {
+      url: "/psychology/experiments/craik-tulving-1975",
+      title: "克雷克与图尔文 1975：结构、语音与语义定向怎样把加工深度钉进情节记忆",
+    },
+    {
+      url: "/philosophy/experiments/kripke-quus",
+      title: "克里普克的 quus：过去用法怎样钉不住加法",
+    },
+    {
+      url: "/psychology/experiments/murdock-1962",
+      title: "默多克序列位置实验",
+    },
+    {
+      url: "/psychology/schools/cognitive",
+      title: "认知心理学",
+    },
+    {
+      url: "/psychology/experiments/sperling-1960",
+      title: "斯珀林 1960：部分报告怎样把瞬时视觉容量从整报里拆出来",
+    },
+    {
+      url: "/psychology/experiments/sternberg-1966",
+      title: "斯特恩伯格 1966：高速扫描怎样把短时记忆里的数字写成随集合大小线性变长的反应时",
+    },
+    {
+      url: "/psychology/experiments/tulving-thomson-1973",
+      title: "图尔文与汤姆森 1973：编码特定性怎样把提取线索写成与痕迹重叠",
+    },
+    {
+      url: "/psychology/experiments/wickens-1970",
+      title: "威肯斯 1970：换编码范畴怎样把前摄抑制释放写成意义的尺子",
+    },
+    {
+      url: "/psychology/experiments/waugh-norman-1965",
+      title: "沃与诺曼 1965：初级记忆怎样把遗忘写成插入项目而非单纯流逝",
+    },
+    {
+      url: "/psychology/experiments/shepard-metzler-1971",
+      title: "谢泼德与梅茨勒 1971：三维线描的心理旋转怎样把“同一物体”写成与角差成正比的反应时",
+    },
+  ],
+  "/psychology/experiments/moray-1959": [
+    {
+      url: "/psychology/experiments/posner-1980",
+      title: "波斯纳 1980：空间提示怎样把隐蔽定向从眼动里拆成有效、无效与中性线索上的代价与收益",
+    },
+    {
+      url: "/psychology/experiments/broadbent-1958",
+      title: "布罗德本特 1958：过滤器怎样把有限容量写成早期选择的门",
+    },
+    {
+      url: "/psychology/experiments/cherry-1953",
+      title: "彻里 1953：双耳分听怎样把未追随耳从整句里拆成几乎什么也报不出",
+    },
+    {
+      url: "/psychology/experiments/deutsch-deutsch-1963",
+      title: "多伊奇与多伊奇 1963：晚期选择怎样把重要性加权写到完整分析之后",
+    },
+    {
+      url: "/psychology/experiments/miller-1956",
+      title: "米勒 1956：绝对判断、即时记忆与组块怎样把容量从比特改写成结构",
+    },
+    {
+      url: "/psychology/experiments/treisman-1960",
+      title: "特里斯曼 1960：衰减怎样把被拒绝通路从全关改写成阈值仍可能被情境接住",
+    },
+  ],
+  "/psychology/experiments/murdock-1962": [
+    {
+      url: "/psychology/experiments/atkinson-shiffrin-1968",
+      title: "阿特金森与希夫林 1968：结构特征与控制过程怎样把记忆写成感觉登记、短时库与长时库",
+    },
+    {
+      url: "/psychology/experiments/ebbinghaus-1885",
+      title: "艾宾浩斯 1885：无意义音节与节省法怎样把遗忘写成可再学的差额",
+    },
+    {
+      url: "/psychology/experiments/baddeley-hitch-1974",
+      title: "巴德利与希契 1974：工作记忆怎样把短时仓库拆成三组件",
+    },
+    {
+      url: "/psychology/experiments/glanzer-cunitz-1966",
+      title: "格兰泽与库尼茨 1966：自由回忆的首因与近因为何被两套仓库分开",
+    },
+    {
+      url: "/psychology/experiments/miller-1956",
+      title: "米勒 1956：绝对判断、即时记忆与组块怎样把容量从比特改写成结构",
+    },
+    {
+      url: "/psychology/experiments/waugh-norman-1965",
+      title: "沃与诺曼 1965：初级记忆怎样把遗忘写成插入项目而非单纯流逝",
+    },
+  ],
+  "/psychology/experiments/nisbett-wilson-1977": [
+    {
+      url: "/psychology/experiments/libet-free-will",
+      title: "利贝特自由意志实验",
+    },
+    {
+      url: "/psychology/schools/cognitive",
+      title: "认知心理学",
+    },
+    {
+      url: "/psychology/phenomena/psychic-causality",
+      title: "心理因果性",
+    },
   ],
   "/psychology/experiments/pavlov-classical-conditioning": [
     {
@@ -60586,6 +73950,90 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/schools/behaviorism",
       title: "行为主义",
+    },
+  ],
+  "/psychology/experiments/peterson-peterson-1959": [
+    {
+      url: "/psychology/experiments/atkinson-shiffrin-1968",
+      title: "阿特金森与希夫林 1968：结构特征与控制过程怎样把记忆写成感觉登记、短时库与长时库",
+    },
+    {
+      url: "/psychology/experiments/ebbinghaus-1885",
+      title: "艾宾浩斯 1885：无意义音节与节省法怎样把遗忘写成可再学的差额",
+    },
+    {
+      url: "/psychology/experiments/baddeley-1966",
+      title: "巴德利 1966：词序列的即时记忆为何被声学相似拖垮而不是被语义相似拖垮",
+    },
+    {
+      url: "/psychology/experiments/bartlett-1932",
+      title: "巴特莱特 1932：回忆是图式重构，不是播放录音",
+    },
+    {
+      url: "/psychology/experiments/brown-1958",
+      title: "布朗 1958：即时记忆的衰减怎样被若干测验问到，却还没有画成一条间隔曲线",
+    },
+    {
+      url: "/psychology/experiments/cherry-1953",
+      title: "彻里 1953：双耳分听怎样把未追随耳从整句里拆成几乎什么也报不出",
+    },
+    {
+      url: "/psychology/experiments/glanzer-cunitz-1966",
+      title: "格兰泽与库尼茨 1966：自由回忆的首因与近因为何被两套仓库分开",
+    },
+    {
+      url: "/psychology/phenomena/memory-systems",
+      title: "记忆系统",
+    },
+    {
+      url: "/psychology/experiments/keppel-underwood-1962",
+      title: "凯佩尔与安德伍德 1962：单项目短时保持里的前摄抑制怎样随试次变陡",
+    },
+    {
+      url: "/psychology/experiments/conrad-1964",
+      title: "康拉德 1964：即时记忆的错误为何跟着声音走而不是跟着字形走",
+    },
+    {
+      url: "/psychology/experiments/miller-1956",
+      title: "米勒 1956：绝对判断、即时记忆与组块怎样把容量从比特改写成结构",
+    },
+    {
+      url: "/psychology/schools/cognitive",
+      title: "认知心理学",
+    },
+    {
+      url: "/psychology/experiments/sperling-1960",
+      title: "斯珀林 1960：部分报告怎样把瞬时视觉容量从整报里拆出来",
+    },
+    {
+      url: "/psychology/experiments/sternberg-1966",
+      title: "斯特恩伯格 1966：高速扫描怎样把短时记忆里的数字写成随集合大小线性变长的反应时",
+    },
+    {
+      url: "/psychology/experiments/wickens-1970",
+      title: "威肯斯 1970：换编码范畴怎样把前摄抑制释放写成意义的尺子",
+    },
+    {
+      url: "/psychology/experiments/waugh-norman-1965",
+      title: "沃与诺曼 1965：初级记忆怎样把遗忘写成插入项目而非单纯流逝",
+    },
+  ],
+  "/psychology/experiments/posner-1980": [
+    {
+      url: "/psychology/experiments/deutsch-deutsch-1963",
+      title: "多伊奇与多伊奇 1963：晚期选择怎样把重要性加权写到完整分析之后",
+    },
+    {
+      url: "/psychology/experiments/miller-1956",
+      title: "米勒 1956：绝对判断、即时记忆与组块怎样把容量从比特改写成结构",
+    },
+    {
+      url: "/psychology/experiments/stroop-1935",
+      title: "斯特鲁普实验",
+    },
+    {
+      url: "/psychology/experiments/shepard-metzler-1971",
+      title: "谢泼德与梅茨勒 1971：三维线描的心理旋转怎样把“同一物体”写成与角差成正比的反应时",
     },
   ],
   "/psychology/experiments/replication-crisis": [
@@ -60710,6 +74158,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "宗教认知科学还剩多少可重复的结论",
     },
     {
+      url: "/psychology/experiments/rosenhan-1973",
+      title: "Rosenhan 假病人研究：诊断标签一旦贴上会怎样",
+    },
+    {
       url: "/psychology/methods/weird-samples-and-generalizability",
       title: "WEIRD 样本与可推广性",
     },
@@ -60718,13 +74170,123 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "X 射线晶体学：从衍射斑点到三维结构",
     },
   ],
+  "/psychology/experiments/rosenhan-1973": [
+    {
+      url: "/psychology/experiments/replication-crisis",
+      title: "心理学复制危机",
+    },
+  ],
   "/psychology/experiments/rosenthal-jacobson-1968": [
     {
       url: "/psychology/phenomena/self-fulfilling-prophecy",
       title: "自我实现预言",
     },
   ],
+  "/psychology/experiments/shepard-metzler-1971": [
+    {
+      url: "/psychology/experiments/posner-1980",
+      title: "波斯纳 1980：空间提示怎样把隐蔽定向从眼动里拆成有效、无效与中性线索上的代价与收益",
+    },
+    {
+      url: "/psychology/experiments/miller-1956",
+      title: "米勒 1956：绝对判断、即时记忆与组块怎样把容量从比特改写成结构",
+    },
+    {
+      url: "/psychology/experiments/sternberg-1966",
+      title: "斯特恩伯格 1966：高速扫描怎样把短时记忆里的数字写成随集合大小线性变长的反应时",
+    },
+  ],
+  "/psychology/experiments/sperling-1960": [
+    {
+      url: "/psychology/experiments/atkinson-shiffrin-1968",
+      title: "阿特金森与希夫林 1968：结构特征与控制过程怎样把记忆写成感觉登记、短时库与长时库",
+    },
+    {
+      url: "/psychology/experiments/peterson-peterson-1959",
+      title: "彼得森 1959：倒数干扰怎样把单个项目的短时保持画成秒级曲线",
+    },
+    {
+      url: "/psychology/experiments/posner-1980",
+      title: "波斯纳 1980：空间提示怎样把隐蔽定向从眼动里拆成有效、无效与中性线索上的代价与收益",
+    },
+    {
+      url: "/psychology/experiments/brown-1958",
+      title: "布朗 1958：即时记忆的衰减怎样被若干测验问到，却还没有画成一条间隔曲线",
+    },
+    {
+      url: "/psychology/experiments/broadbent-1958",
+      title: "布罗德本特 1958：过滤器怎样把有限容量写成早期选择的门",
+    },
+    {
+      url: "/psychology/experiments/cherry-1953",
+      title: "彻里 1953：双耳分听怎样把未追随耳从整句里拆成几乎什么也报不出",
+    },
+    {
+      url: "/psychology/phenomena/memory-systems",
+      title: "记忆系统",
+    },
+    {
+      url: "/psychology/experiments/conrad-1964",
+      title: "康拉德 1964：即时记忆的错误为何跟着声音走而不是跟着字形走",
+    },
+    {
+      url: "/psychology/experiments/craik-lockhart-1972",
+      title: "克雷克与洛克哈特 1972：加工水平怎样把记忆从仓库改写成编码深度的研究纲领",
+    },
+    {
+      url: "/psychology/experiments/miller-1956",
+      title: "米勒 1956：绝对判断、即时记忆与组块怎样把容量从比特改写成结构",
+    },
+    {
+      url: "/psychology/schools/cognitive",
+      title: "认知心理学",
+    },
+    {
+      url: "/psychology/experiments/sternberg-1966",
+      title: "斯特恩伯格 1966：高速扫描怎样把短时记忆里的数字写成随集合大小线性变长的反应时",
+    },
+    {
+      url: "/psychology/experiments/shepard-metzler-1971",
+      title: "谢泼德与梅茨勒 1971：三维线描的心理旋转怎样把“同一物体”写成与角差成正比的反应时",
+    },
+  ],
+  "/psychology/experiments/stanford-prison": [
+    {
+      url: "/psychology/experiments/rosenhan-1973",
+      title: "Rosenhan 假病人研究：诊断标签一旦贴上会怎样",
+    },
+  ],
+  "/psychology/experiments/sternberg-1966": [
+    {
+      url: "/psychology/experiments/baddeley-hitch-1974",
+      title: "巴德利与希契 1974：工作记忆怎样把短时仓库拆成三组件",
+    },
+    {
+      url: "/psychology/experiments/peterson-peterson-1959",
+      title: "彼得森 1959：倒数干扰怎样把单个项目的短时保持画成秒级曲线",
+    },
+    {
+      url: "/psychology/experiments/craik-lockhart-1972",
+      title: "克雷克与洛克哈特 1972：加工水平怎样把记忆从仓库改写成编码深度的研究纲领",
+    },
+    {
+      url: "/psychology/experiments/miller-1956",
+      title: "米勒 1956：绝对判断、即时记忆与组块怎样把容量从比特改写成结构",
+    },
+    {
+      url: "/psychology/experiments/sperling-1960",
+      title: "斯珀林 1960：部分报告怎样把瞬时视觉容量从整报里拆出来",
+    },
+    {
+      url: "/psychology/experiments/shepard-metzler-1971",
+      title: "谢泼德与梅茨勒 1971：三维线描的心理旋转怎样把“同一物体”写成与角差成正比的反应时",
+    },
+  ],
   "/psychology/experiments/strange-situation": [
+    {
+      url: "/psychology/experiments/harlow-1958-contact-comfort",
+      title: "哈洛 1958：布母猴怎样把接触安慰写成可计时的偏好",
+    },
     {
       url: "/psychology/knowledge-base/attachment-theory",
       title: "依恋理论：爱的科学",
@@ -60732,8 +74294,136 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/psychology/experiments/stroop-1935": [
     {
+      url: "/psychology/experiments/posner-1980",
+      title: "波斯纳 1980：空间提示怎样把隐蔽定向从眼动里拆成有效、无效与中性线索上的代价与收益",
+    },
+    {
+      url: "/psychology/experiments/broadbent-1958",
+      title: "布罗德本特 1958：过滤器怎样把有限容量写成早期选择的门",
+    },
+    {
+      url: "/psychology/experiments/cherry-1953",
+      title: "彻里 1953：双耳分听怎样把未追随耳从整句里拆成几乎什么也报不出",
+    },
+    {
+      url: "/psychology/experiments/deutsch-deutsch-1963",
+      title: "多伊奇与多伊奇 1963：晚期选择怎样把重要性加权写到完整分析之后",
+    },
+    {
+      url: "/psychology/experiments/moray-1959",
+      title: "莫雷 1959：自己的名字怎样把被拒绝耳上的屏障从密封改写成情感显著项仍可能漏出",
+    },
+    {
       url: "/psychology/schools/cognitive",
       title: "认知心理学",
+    },
+    {
+      url: "/psychology/experiments/treisman-1960",
+      title: "特里斯曼 1960：衰减怎样把被拒绝通路从全关改写成阈值仍可能被情境接住",
+    },
+    {
+      url: "/psychology/experiments/shepard-metzler-1971",
+      title: "谢泼德与梅茨勒 1971：三维线描的心理旋转怎样把“同一物体”写成与角差成正比的反应时",
+    },
+  ],
+  "/psychology/experiments/treisman-1960": [
+    {
+      url: "/psychology/experiments/posner-1980",
+      title: "波斯纳 1980：空间提示怎样把隐蔽定向从眼动里拆成有效、无效与中性线索上的代价与收益",
+    },
+    {
+      url: "/psychology/experiments/broadbent-1958",
+      title: "布罗德本特 1958：过滤器怎样把有限容量写成早期选择的门",
+    },
+    {
+      url: "/psychology/experiments/cherry-1953",
+      title: "彻里 1953：双耳分听怎样把未追随耳从整句里拆成几乎什么也报不出",
+    },
+    {
+      url: "/psychology/experiments/deutsch-deutsch-1963",
+      title: "多伊奇与多伊奇 1963：晚期选择怎样把重要性加权写到完整分析之后",
+    },
+    {
+      url: "/psychology/experiments/miller-1956",
+      title: "米勒 1956：绝对判断、即时记忆与组块怎样把容量从比特改写成结构",
+    },
+    {
+      url: "/psychology/experiments/moray-1959",
+      title: "莫雷 1959：自己的名字怎样把被拒绝耳上的屏障从密封改写成情感显著项仍可能漏出",
+    },
+    {
+      url: "/psychology/experiments/stroop-1935",
+      title: "斯特鲁普实验",
+    },
+  ],
+  "/psychology/experiments/tulving-thomson-1973": [
+    {
+      url: "/psychology/experiments/baddeley-hitch-1974",
+      title: "巴德利与希契 1974：工作记忆怎样把短时仓库拆成三组件",
+    },
+    {
+      url: "/psychology/experiments/godden-baddeley-1975",
+      title: "戈登与巴德利 1975：陆地与水下怎样把环境写成提取线索",
+    },
+    {
+      url: "/psychology/phenomena/memory-systems",
+      title: "记忆系统",
+    },
+    {
+      url: "/psychology/experiments/craik-lockhart-1972",
+      title: "克雷克与洛克哈特 1972：加工水平怎样把记忆从仓库改写成编码深度的研究纲领",
+    },
+    {
+      url: "/psychology/experiments/craik-tulving-1975",
+      title: "克雷克与图尔文 1975：结构、语音与语义定向怎样把加工深度钉进情节记忆",
+    },
+  ],
+  "/psychology/experiments/tversky-kahneman-1973-availability": [
+    {
+      url: "/psychology/experiments/kahneman-tversky-1972",
+      title: "卡尼曼与特沃斯基 1972：主观概率怎样被写成对代表性的判断",
+    },
+    {
+      url: "/psychology/experiments/kahneman-tversky-1979",
+      title: "卡尼曼与特沃斯基前景理论实验",
+    },
+    {
+      url: "/psychology/phenomena/availability-heuristic",
+      title: "可得性启发",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1974",
+      title: "特沃斯基与卡尼曼 1974：不确定判断里的启发式怎样被写成可核对的偏差",
+    },
+  ],
+  "/psychology/experiments/tversky-kahneman-1974": [
+    {
+      url: "/psychology/theorists/amos-tversky",
+      title: "阿莫斯·特沃斯基",
+    },
+    {
+      url: "/psychology/theorists/daniel-kahneman",
+      title: "丹尼尔·卡尼曼",
+    },
+    {
+      url: "/psychology/experiments/kahneman-tversky-1972",
+      title: "卡尼曼与特沃斯基 1972：主观概率怎样被写成对代表性的判断",
+    },
+    {
+      url: "/psychology/experiments/kahneman-tversky-1979",
+      title: "卡尼曼与特沃斯基前景理论实验",
+    },
+    {
+      url: "/psychology/experiments/nisbett-wilson-1977",
+      title: "尼斯贝特与威尔逊 1977：口头报告怎样从先验理论讲出我们读不到的过程",
+    },
+    {
+      url: "/psychology/schools/cognitive",
+      title: "认知心理学",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1973-availability",
+      title: "特沃斯基与卡尼曼 1973：频率与概率怎样被写成对可得性的判断",
     },
   ],
   "/psychology/experiments/wason-selection-task": [
@@ -60784,6 +74474,54 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/schools/sophists",
       title: "智者学派",
+    },
+  ],
+  "/psychology/experiments/waugh-norman-1965": [
+    {
+      url: "/psychology/experiments/atkinson-shiffrin-1968",
+      title: "阿特金森与希夫林 1968：结构特征与控制过程怎样把记忆写成感觉登记、短时库与长时库",
+    },
+    {
+      url: "/psychology/experiments/baddeley-1966",
+      title: "巴德利 1966：词序列的即时记忆为何被声学相似拖垮而不是被语义相似拖垮",
+    },
+    {
+      url: "/psychology/experiments/brown-1958",
+      title: "布朗 1958：即时记忆的衰减怎样被若干测验问到，却还没有画成一条间隔曲线",
+    },
+    {
+      url: "/psychology/experiments/glanzer-cunitz-1966",
+      title: "格兰泽与库尼茨 1966：自由回忆的首因与近因为何被两套仓库分开",
+    },
+    {
+      url: "/psychology/phenomena/memory-systems",
+      title: "记忆系统",
+    },
+    {
+      url: "/psychology/experiments/keppel-underwood-1962",
+      title: "凯佩尔与安德伍德 1962：单项目短时保持里的前摄抑制怎样随试次变陡",
+    },
+    {
+      url: "/psychology/experiments/conrad-1964",
+      title: "康拉德 1964：即时记忆的错误为何跟着声音走而不是跟着字形走",
+    },
+    {
+      url: "/psychology/experiments/wickens-1970",
+      title: "威肯斯 1970：换编码范畴怎样把前摄抑制释放写成意义的尺子",
+    },
+  ],
+  "/psychology/experiments/wickens-1970": [
+    {
+      url: "/psychology/experiments/brown-1958",
+      title: "布朗 1958：即时记忆的衰减怎样被若干测验问到，却还没有画成一条间隔曲线",
+    },
+    {
+      url: "/psychology/phenomena/memory-systems",
+      title: "记忆系统",
+    },
+    {
+      url: "/psychology/experiments/keppel-underwood-1962",
+      title: "凯佩尔与安德伍德 1962：单项目短时保持里的前摄抑制怎样随试次变陡",
     },
   ],
   "/psychology/frontier/behavioral-genetics-polygenic-scores": [
@@ -61170,6 +74908,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "计算社会科学的可审计测量",
     },
     {
+      url: "/literature/frontier/computational-literary-studies-replication",
+      title: "计算文学研究能被复现吗",
+    },
+    {
       url: "/psychology/theorists/gabriele-oettingen",
       title: "加布里埃尔·厄廷根",
     },
@@ -61388,6 +75130,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/knowledge-base/relationship-psychology",
       title: "关系心理学",
+    },
+    {
+      url: "/psychology/experiments/harlow-1958-contact-comfort",
+      title: "哈洛 1958：布母猴怎样把接触安慰写成可计时的偏好",
     },
     {
       url: "/sociology/institutions/family-and-kinship",
@@ -61674,6 +75420,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "孟子",
     },
     {
+      url: "/philosophy/experiments/molyneux-problem",
+      title: "莫利纽克斯问题：初次看见能否分出立方与球",
+    },
+    {
       url: "/philosophy/concepts/rights",
       title: "权利",
     },
@@ -61692,6 +75442,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/knowledge-base/attachment-theory",
       title: "依恋理论：爱的科学",
+    },
+    {
+      url: "/linguistics/acquisition-and-mind/infant-categorical-perception",
+      title: "婴儿范畴知觉：高振幅吮吸怎样把时间差写成月龄证据",
     },
   ],
   "/psychology/knowledge-base/educational-psychology": [
@@ -61848,8 +75602,36 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/psychology/knowledge-base/intelligence-theories": [
     {
+      url: "/education/curriculum-and-teaching/tracking-and-grouping",
+      title: "分班与分组",
+    },
+    {
+      url: "/education/assessment-and-equity/high-stakes-exams-are-institutions",
+      title: "高利害考试是一种制度",
+    },
+    {
+      url: "/education/assessment-and-equity/assessment-as-inference",
+      title: "评估即推断",
+    },
+    {
+      url: "/education/assessment-and-equity/inclusive-education-and-disability",
+      title: "融合教育与谁被当成可教",
+    },
+    {
       url: "/sociology/concepts/social-darwinism-and-eugenics",
       title: "社会达尔文主义与优生学：一套披着科学外衣的社会安排",
+    },
+    {
+      url: "/education/curriculum-and-teaching/vocational-schooling-is-a-track",
+      title: "职业教育是一种轨道",
+    },
+    {
+      url: "/education/education-technology/adaptive-systems-are-not-tutors",
+      title: "自适应系统不是家教",
+    },
+    {
+      url: "/education/comparison-and-policy/pisa-is-not-civilization",
+      title: "PISA 不是文明",
     },
   ],
   "/psychology/knowledge-base/io-psychology": [
@@ -61857,11 +75639,31 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/psychology/knowledge-base/health-psychology",
       title: "健康心理学：身体与心灵的双向道",
     },
+    {
+      url: "/engineering/machines/project-and-configuration-control",
+      title: "项目与构型控制：基线、变更和可追到零件上的决定",
+    },
+    {
+      url: "/law/private-law/consumer-protection",
+      title: "消费者救济：格式合同对面那个人怎样被当成法律上的弱者",
+    },
+    {
+      url: "/law/private-law/fiduciary-duty-and-corporate-control",
+      title: "信义义务与控制权：董事到底对谁负责",
+    },
+    {
+      url: "/sociology/concepts/organizational-sociology",
+      title: "组织社会学：组织为何彼此越来越像",
+    },
   ],
   "/psychology/knowledge-base/metacognition-training": [
     {
       url: "/psychology/phenomena/erikson-stages",
       title: "埃里克森心理社会发展阶段",
+    },
+    {
+      url: "/education/cognition-and-memory/desirable-difficulty-is-a-condition",
+      title: "必要难度是一种条件",
     },
     {
       url: "/psychology/experiments/dunning-kruger-1999",
@@ -61878,6 +75680,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/frontier/ai-formal-proof",
       title: "定理形式化与 AI 证明助手",
+    },
+    {
+      url: "/education/cognition-and-memory/memory-spacing-and-transfer",
+      title: "记忆、间隔与迁移",
     },
     {
       url: "/psychology/theorists/gabriele-oettingen",
@@ -61910,6 +75716,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/knowledge-base/behavioral-finance-practice",
       title: "行为金融的实践：从偏差到市场",
+    },
+    {
+      url: "/education/assessment-and-equity/formative-assessment-in-use",
+      title: "形成性评价怎样被使用",
+    },
+    {
+      url: "/education/cognition-and-memory/worked-examples-and-self-explanation",
+      title: "样例与自我解释",
+    },
+    {
+      url: "/education/cognition-and-memory/metacognition-is-a-judgment",
+      title: "元认知是一种判断",
     },
     {
       url: "/linguistics/acquisition-and-mind/reading-and-dyslexia",
@@ -62014,6 +75832,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/experiments/marys-room",
       title: "玛丽的房间",
+    },
+    {
+      url: "/philosophy/experiments/parfit-teletransport",
+      title: "帕菲特的传送：心理连续怎样把人格同一性从重要的事情里拆走",
     },
     {
       url: "/philosophy/thinkers/shankara",
@@ -62614,6 +76436,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/psychology/methods/causal-inference-experiments-observational-studies": [
     {
+      url: "/medicine/events/salk-1954-polio-trial",
+      title: "1954 年美国脊髓灰质炎疫苗现场试验：观察现场与安慰剂对照并存的读出",
+    },
+    {
       url: "/economics/policy-analyses/alaska-permanent-fund-dividend",
       title: "阿拉斯加永久基金分红剖析",
     },
@@ -62642,6 +76468,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "德国 Hartz 劳动力改革剖析",
     },
     {
+      url: "/medicine/events/enders-1949-polio-culture",
+      title: "恩德斯 1949 脊髓灰质炎组织培养：非神经组织上的增殖与细胞病变读出",
+    },
+    {
       url: "/philosophy/experiments/gettier-problem",
       title: "盖梯尔问题",
     },
@@ -62654,6 +76484,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "供给学派",
     },
     {
+      url: "/philosophy/experiments/goodman-grue",
+      title: "古德曼的绿蓝谜题",
+    },
+    {
       url: "/political-science/international-relations/international-law",
       title: "国际法",
     },
@@ -62662,8 +76496,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "国际人权体系",
     },
     {
-      url: "/economics/policy-analyses/london-congestion-charge",
-      title: "伦敦拥堵收费剖析",
+      url: "/philosophy/experiments/hempel-ravens",
+      title: "亨佩尔的乌鸦悖论",
+    },
+    {
+      url: "/literature/frontier/computational-literary-studies-replication",
+      title: "计算文学研究能被复现吗",
+    },
+    {
+      url: "/education/cognition-and-memory/randomized-trials-in-education",
+      title: "教育里的随机对照",
+    },
+    {
+      url: "/economics/policy-analyses/card-krueger-nj-minimum-wage",
+      title: "卡德–克鲁格：新泽西最低工资怎样被快餐店电话问出来",
     },
     {
       url: "/sociology/methods/ethnography",
@@ -62672,6 +76518,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/policy-analyses/mexico-progresa-cash-transfer",
       title: "墨西哥 PROGRESA 政策剖析",
+    },
+    {
+      url: "/education/learning-foundations/perry-preschool-study",
+      title: "佩里学前：123 名儿童被随机之后，成年表上还剩什么",
     },
     {
       url: "/political-science/concepts/power",
@@ -62690,6 +76540,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "双中子星并合与千新星",
     },
     {
+      url: "/law/frontier/algorithmic-discrimination-audits",
+      title: "算法歧视审计：公平指标能不能变成可举证的法律事实",
+    },
+    {
+      url: "/education/cognition-and-memory/project-star-class-size",
+      title: "田纳西 STAR：班额被随机之后测到了什么",
+    },
+    {
       url: "/philosophy/thinkers/aquinas",
       title: "托马斯·阿奎那",
     },
@@ -62698,8 +76556,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "沃尔克反通胀政策剖析",
     },
     {
+      url: "/education/assessment-and-equity/validity-is-an-argument",
+      title: "效度是一种论证",
+    },
+    {
       url: "/philosophy/thinkers/hume",
       title: "休谟",
+    },
+    {
+      url: "/education/learning-foundations/early-childhood-is-an-institution",
+      title: "学前是一种制度",
+    },
+    {
+      url: "/education/education-technology/learning-analytics-are-inferences",
+      title: "学习分析是推断",
     },
     {
       url: "/medicine/figures/ignaz-semmelweis",
@@ -62722,6 +76592,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "语言、脑与失语症",
     },
     {
+      url: "/linguistics/frontier/typology-sampling-bias",
+      title: "语言类型学的抽样危机：两千四百种语言够代表人类语言吗",
+    },
+    {
       url: "/philosophy/concepts/dependent-origination",
       title: "缘起",
     },
@@ -62738,8 +76612,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "BNT162b2 mRNA 疫苗关键试验",
     },
     {
+      url: "/medicine/trial-analyses/cast-arrhythmia-suppression-trial",
+      title: "CAST 室性早搏抑制试验",
+    },
+    {
       url: "/sociology/methods/coleman-report-educational-opportunity-analysis",
       title: "Coleman Report 复核：学校、家庭与同伴怎样被放进同一个模型",
+    },
+    {
+      url: "/law/judgment-analyses/donoghue-v-stevenson-duty-of-care",
+      title: "Donoghue v Stevenson 判决剖析",
     },
     {
       url: "/cosmology/knowledge-base/恒星物理--type-ia-supernovae",
@@ -62748,6 +76630,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/judgment-analyses/loper-bright-chevron-deference-overruled",
       title: "Loper Bright v. Raimondo 判决剖析",
+    },
+    {
+      url: "/medicine/events/mrc-streptomycin-trial-1948",
+      title: "MRC 链霉素试验：随机数字怎样走进肺结核病房",
+    },
+    {
+      url: "/law/judgment-analyses/van-gend-en-loos-direct-effect",
+      title: "Van Gend en Loos 判决剖析",
+    },
+    {
+      url: "/medicine/trial-analyses/womens-health-initiative-hormone-trial",
+      title: "WHI 激素治疗试验",
     },
   ],
   "/psychology/methods/digital-phenotyping-computational-ethics": [
@@ -63204,6 +77098,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "盖梯尔问题",
     },
     {
+      url: "/philosophy/experiments/goodman-grue",
+      title: "古德曼的绿蓝谜题",
+    },
+    {
+      url: "/philosophy/experiments/hempel-ravens",
+      title: "亨佩尔的乌鸦悖论",
+    },
+    {
       url: "/cosmology/knowledge-base/太阳系--kuiper-belt-oort-cloud",
       title: "柯伊伯带与奥尔特云",
     },
@@ -63250,6 +77152,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/psychology/methods/psychophysics-and-signal-detection": [
     {
+      url: "/psychology/experiments/ebbinghaus-1885",
+      title: "艾宾浩斯 1885：无意义音节与节省法怎样把遗忘写成可再学的差额",
+    },
+    {
+      url: "/psychology/experiments/miller-1956",
+      title: "米勒 1956：绝对判断、即时记忆与组块怎样把容量从比特改写成结构",
+    },
+    {
       url: "/psychology/debates/emotion-universality-debate",
       title: "情绪普遍性之争",
     },
@@ -63270,6 +77180,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/history-typology-society/eskimo-snow-words-hoax",
       title: "爱斯基摩雪词神话：一个学术都市传说的完整解剖",
+    },
+    {
+      url: "/education/cognition-and-memory/working-memory-and-load",
+      title: "工作记忆与认知负荷",
+    },
+    {
+      url: "/education/cognition-and-memory/randomized-trials-in-education",
+      title: "教育里的随机对照",
     },
     {
       url: "/psychology/debates/neuromyths-in-education",
@@ -63322,6 +77240,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "临床诊断",
     },
     {
+      url: "/psychology/experiments/tversky-kahneman-1974",
+      title: "特沃斯基与卡尼曼 1974：不确定判断里的启发式怎样被写成可核对的偏差",
+    },
+    {
       url: "/economics/case-studies/china-property-local-finance-financial-system-2026",
       title: "中国地产、地方财政与金融系统（2026）",
     },
@@ -63364,6 +77286,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/case-studies/yen-carry-trade",
       title: "日元套利交易",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1973-availability",
+      title: "特沃斯基与卡尼曼 1973：频率与概率怎样被写成对可得性的判断",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1974",
+      title: "特沃斯基与卡尼曼 1974：不确定判断里的启发式怎样被写成可核对的偏差",
     },
     {
       url: "/political-science/institutions/executive-power",
@@ -63482,6 +77412,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "工业工程与质量：把变异当作研究对象",
     },
     {
+      url: "/education/cognition-and-memory/working-memory-and-load",
+      title: "工作记忆与认知负荷",
+    },
+    {
       url: "/economics/concepts/public-choice-theory",
       title: "公共选择理论",
     },
@@ -63566,6 +77500,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "素数定理",
     },
     {
+      url: "/psychology/experiments/tversky-kahneman-1974",
+      title: "特沃斯基与卡尼曼 1974：不确定判断里的启发式怎样被写成可核对的偏差",
+    },
+    {
       url: "/sociology/methods/statistical-modeling",
       title: "统计模型",
     },
@@ -63576,6 +77514,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/concepts/psychologism",
       title: "心理主义",
+    },
+    {
+      url: "/engineering/machines/shewhart-control-chart",
+      title: "休哈特控制图：一张把“该不该动手”写成界限的纸",
     },
     {
       url: "/life-science/knowledge-base/医学--疫苗原理",
@@ -63622,12 +77564,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Envoy 与服务网格：把网络逻辑从应用里搬出来",
     },
     {
+      url: "/political-science/methods/gerber-green-new-haven-gotv",
+      title: "Gerber 与 Green 的纽黑文动员实验：上门、邮件和电话怎样改变投票",
+    },
+    {
+      url: "/computer-science/systems/hnsw-ann-index",
+      title: "HNSW 与向量近邻：当距离代替关键词",
+    },
+    {
+      url: "/life-science/knowledge-base/meselson-stahl-replication",
+      title: "Meselson–Stahl：半保留复制怎样被称出来",
+    },
+    {
+      url: "/sociology/methods/pager-criminal-record-audit",
+      title: "Pager 前科印记审计：案底怎样在入门岗位上被看见",
+    },
+    {
       url: "/computer-science/systems/postgresql-mvcc",
       title: "PostgreSQL 的 MVCC：读不阻塞写的代价",
     },
     {
       url: "/computer-science/systems/prometheus-pull-model",
       title: "Prometheus：拉模型与时序数据的代价",
+    },
+    {
+      url: "/psychology/experiments/rosenhan-1973",
+      title: "Rosenhan 假病人研究：诊断标签一旦贴上会怎样",
     },
     {
       url: "/computer-science/systems/rust-borrow-checker",
@@ -63720,6 +77682,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "柏拉图洞穴比喻",
     },
     {
+      url: "/education/cognition-and-memory/desirable-difficulty-is-a-condition",
+      title: "必要难度是一种条件",
+    },
+    {
       url: "/law/criminal-and-procedure/procedural-justice",
       title: "程序正义：看得见的正义如何可能",
     },
@@ -63736,8 +77702,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "格氏反应",
     },
     {
+      url: "/philosophy/experiments/goodman-grue",
+      title: "古德曼的绿蓝谜题",
+    },
+    {
       url: "/economics/concepts/country-macro-diagnostics-forecasting",
       title: "国家宏观诊断与经济预测",
+    },
+    {
+      url: "/engineering/frontiers/hartford-civic-center-1978",
+      title: "哈特福德市政中心：积雪夜里塌下来的双向钢网架",
+    },
+    {
+      url: "/philosophy/experiments/hempel-ravens",
+      title: "亨佩尔的乌鸦悖论",
+    },
+    {
+      url: "/education/learning-foundations/teaching-is-not-pouring",
+      title: "教学不是灌输",
+    },
+    {
+      url: "/education/education-technology/what-edtech-records",
+      title: "教育技术记录了什么",
+    },
+    {
+      url: "/education/cognition-and-memory/randomized-trials-in-education",
+      title: "教育里的随机对照",
     },
     {
       url: "/psychology/debates/neuromyths-in-education",
@@ -63760,6 +77750,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "梦的分析技术",
     },
     {
+      url: "/education/assessment-and-equity/assessment-as-inference",
+      title: "评估即推断",
+    },
+    {
       url: "/political-science/international-relations/intelligence-and-espionage",
       title: "情报与间谍",
     },
@@ -63768,12 +77762,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "沃森选择任务",
     },
     {
+      url: "/education/assessment-and-equity/validity-is-an-argument",
+      title: "效度是一种论证",
+    },
+    {
       url: "/psychology/debates/replication-debate",
       title: "心理学的可复制性危机",
     },
     {
+      url: "/education/assessment-and-equity/formative-assessment-in-use",
+      title: "形成性评价怎样被使用",
+    },
+    {
+      url: "/education/education-technology/learning-analytics-are-inferences",
+      title: "学习分析是推断",
+    },
+    {
+      url: "/education/cognition-and-memory/worked-examples-and-self-explanation",
+      title: "样例与自我解释",
+    },
+    {
       url: "/cosmology/knowledge-base/宇宙学基础--cosmology-history",
       title: "宇宙学简史：从地心说到大爆炸",
+    },
+    {
+      url: "/education/cognition-and-memory/metacognition-is-a-judgment",
+      title: "元认知是一种判断",
     },
     {
       url: "/law/criminal-and-procedure/evidence-and-proof",
@@ -64020,12 +78034,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/psychology/phenomena/false-memory": [
     {
-      url: "/human-history/source-analyses/domesday-book-source-analysis",
-      title: "《末日审判书》史料剖析",
-    },
-    {
       url: "/chemistry/figures/kekule",
       title: "奥古斯特·凯库勒",
+    },
+    {
+      url: "/education/cognition-and-memory/desirable-difficulty-is-a-condition",
+      title: "必要难度是一种条件",
     },
     {
       url: "/psychology/disorders/ptsd",
@@ -64036,10 +78050,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "创伤与 PTSD：当记忆无法过去",
     },
     {
-      url: "/human-history/source-analyses/dunhuang-manuscripts-source-analysis",
-      title: "敦煌藏经洞文书史料剖析",
-    },
-    {
       url: "/psychology/debates/freud-wars",
       title: "弗洛伊德之争",
     },
@@ -64048,12 +78058,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "公共艺术与纪念碑：谁被记住，由谁决定",
     },
     {
-      url: "/psychology/phenomena/memory-systems",
-      title: "记忆系统",
+      url: "/education/cognition-and-memory/memory-spacing-and-transfer",
+      title: "记忆、间隔与迁移",
     },
     {
-      url: "/human-history/source-analyses/oracle-bones-source-analysis",
-      title: "甲骨文史料剖析",
+      url: "/psychology/phenomena/memory-systems",
+      title: "记忆系统",
     },
     {
       url: "/psychology/disorders/dissociative-disorders",
@@ -64066,10 +78076,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/literature/narrative-basics/oral-storytelling",
       title: "口头讲述与记忆",
-    },
-    {
-      url: "/human-history/source-analyses/rosetta-stone-source-analysis",
-      title: "罗塞塔石碑史料剖析",
     },
     {
       url: "/psychology/experiments/loftus-car-crash-1974",
@@ -64118,6 +78124,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/case-studies/tulip-mania",
       title: "郁金香狂热",
+    },
+    {
+      url: "/education/cognition-and-memory/metacognition-is-a-judgment",
+      title: "元认知是一种判断",
     },
     {
       url: "/philosophy/experiments/swampman",
@@ -64382,8 +78392,40 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/psychology/phenomena/memory-systems": [
     {
+      url: "/psychology/experiments/atkinson-shiffrin-1968",
+      title: "阿特金森与希夫林 1968：结构特征与控制过程怎样把记忆写成感觉登记、短时库与长时库",
+    },
+    {
+      url: "/psychology/experiments/ebbinghaus-1885",
+      title: "艾宾浩斯 1885：无意义音节与节省法怎样把遗忘写成可再学的差额",
+    },
+    {
       url: "/philosophy/thinkers/augustine",
       title: "奥古斯丁",
+    },
+    {
+      url: "/psychology/experiments/baddeley-1966",
+      title: "巴德利 1966：词序列的即时记忆为何被声学相似拖垮而不是被语义相似拖垮",
+    },
+    {
+      url: "/psychology/experiments/baddeley-hitch-1974",
+      title: "巴德利与希契 1974：工作记忆怎样把短时仓库拆成三组件",
+    },
+    {
+      url: "/psychology/experiments/bartlett-1932",
+      title: "巴特莱特 1932：回忆是图式重构，不是播放录音",
+    },
+    {
+      url: "/psychology/experiments/peterson-peterson-1959",
+      title: "彼得森 1959：倒数干扰怎样把单个项目的短时保持画成秒级曲线",
+    },
+    {
+      url: "/education/cognition-and-memory/desirable-difficulty-is-a-condition",
+      title: "必要难度是一种条件",
+    },
+    {
+      url: "/psychology/experiments/brown-1958",
+      title: "布朗 1958：即时记忆的衰减怎样被若干测验问到，却还没有画成一条间隔曲线",
     },
     {
       url: "/computer-science/concepts/programming-language-design",
@@ -64414,12 +78456,44 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "电影与运动影像：静止的画格如何变成运动",
     },
     {
+      url: "/psychology/experiments/godden-baddeley-1975",
+      title: "戈登与巴德利 1975：陆地与水下怎样把环境写成提取线索",
+    },
+    {
+      url: "/psychology/experiments/glanzer-cunitz-1966",
+      title: "格兰泽与库尼茨 1966：自由回忆的首因与近因为何被两套仓库分开",
+    },
+    {
+      url: "/education/cognition-and-memory/working-memory-and-load",
+      title: "工作记忆与认知负荷",
+    },
+    {
       url: "/computer-science/concepts/caching-strategies",
       title: "缓存策略",
     },
     {
+      url: "/education/cognition-and-memory/memory-spacing-and-transfer",
+      title: "记忆、间隔与迁移",
+    },
+    {
       url: "/psychology/disorders/dissociative-disorders",
       title: "解离障碍",
+    },
+    {
+      url: "/psychology/experiments/keppel-underwood-1962",
+      title: "凯佩尔与安德伍德 1962：单项目短时保持里的前摄抑制怎样随试次变陡",
+    },
+    {
+      url: "/psychology/experiments/conrad-1964",
+      title: "康拉德 1964：即时记忆的错误为何跟着声音走而不是跟着字形走",
+    },
+    {
+      url: "/psychology/experiments/craik-lockhart-1972",
+      title: "克雷克与洛克哈特 1972：加工水平怎样把记忆从仓库改写成编码深度的研究纲领",
+    },
+    {
+      url: "/psychology/experiments/craik-tulving-1975",
+      title: "克雷克与图尔文 1975：结构、语音与语义定向怎样把加工深度钉进情节记忆",
     },
     {
       url: "/psychology/phenomena/object-constancy",
@@ -64434,12 +78508,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "梦的分析技术",
     },
     {
+      url: "/psychology/experiments/miller-1956",
+      title: "米勒 1956：绝对判断、即时记忆与组块怎样把容量从比特改写成结构",
+    },
+    {
       url: "/psychology/experiments/murdock-1962",
       title: "默多克序列位置实验",
     },
     {
+      url: "/philosophy/experiments/hume-missing-shade",
+      title: "缺失的蓝色：休谟承认的复制原则例外",
+    },
+    {
       url: "/computer-science/concepts/human-computer-interaction",
       title: "人机交互",
+    },
+    {
+      url: "/education/learning-foundations/what-is-learning",
+      title: "什么是学习",
     },
     {
       url: "/life-science/knowledge-base/神经可塑性",
@@ -64462,8 +78548,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "睡眠与心智",
     },
     {
+      url: "/psychology/experiments/sperling-1960",
+      title: "斯珀林 1960：部分报告怎样把瞬时视觉容量从整报里拆出来",
+    },
+    {
       url: "/mathematics/theorems/four-color-theorem",
       title: "四色定理",
+    },
+    {
+      url: "/psychology/experiments/tulving-thomson-1973",
+      title: "图尔文与汤姆森 1973：编码特定性怎样把提取线索写成与痕迹重叠",
+    },
+    {
+      url: "/psychology/experiments/wickens-1970",
+      title: "威肯斯 1970：换编码范畴怎样把前摄抑制释放写成意义的尺子",
     },
     {
       url: "/linguistics/writing-systems/origin-of-writing",
@@ -64474,6 +78572,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "我还是不是我？",
     },
     {
+      url: "/psychology/experiments/waugh-norman-1965",
+      title: "沃与诺曼 1965：初级记忆怎样把遗忘写成插入项目而非单纯流逝",
+    },
+    {
       url: "/psychology/phenomena/serial-position-effect",
       title: "序列位置效应",
     },
@@ -64482,12 +78584,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "循环神经网络",
     },
     {
+      url: "/education/cognition-and-memory/worked-examples-and-self-explanation",
+      title: "样例与自我解释",
+    },
+    {
       url: "/psychology/knowledge-base/psycholinguistics",
       title: "语言心理学：大脑如何生产与理解语言",
     },
     {
       url: "/philosophy/experiments/swampman",
       title: "沼泽人",
+    },
+    {
+      url: "/education/education-technology/adaptive-systems-are-not-tutors",
+      title: "自适应系统不是家教",
     },
     {
       url: "/computer-science/systems/etcd-raft",
@@ -64822,6 +78932,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "毕达哥拉斯",
     },
     {
+      url: "/philosophy/experiments/inverted-spectrum",
+      title: "倒置光谱：行为与功能同一下的颜色经验对调",
+    },
+    {
       url: "/computer-science/pioneers/douglas-engelbart",
       title: "道格拉斯·恩格尔巴特",
     },
@@ -64878,12 +78992,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "美",
     },
     {
+      url: "/philosophy/experiments/moore-1939-hands",
+      title: "摩尔的两只手",
+    },
+    {
+      url: "/philosophy/experiments/molyneux-problem",
+      title: "莫利纽克斯问题：初次看见能否分出立方与球",
+    },
+    {
+      url: "/philosophy/experiments/nagel-bat",
+      title: "内格尔的蝙蝠：成为某物是什么样子",
+    },
+    {
       url: "/philosophy/thinkers/plotinus",
       title: "普罗提诺",
     },
     {
       url: "/philosophy/thinkers/berkeley",
       title: "乔治·贝克莱",
+    },
+    {
+      url: "/philosophy/experiments/hume-missing-shade",
+      title: "缺失的蓝色：休谟承认的复制原则例外",
     },
     {
       url: "/philosophy/thinkers/shankara",
@@ -65044,6 +79174,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "罗夏墨迹测验",
     },
   ],
+  "/psychology/phenomena/psychic-causality": [
+    {
+      url: "/psychology/experiments/nisbett-wilson-1977",
+      title: "尼斯贝特与威尔逊 1977：口头报告怎样从先验理论讲出我们读不到的过程",
+    },
+  ],
   "/psychology/phenomena/psychic-determinism": [
     {
       url: "/psychology/experiments/dream-analysis-technique",
@@ -65112,6 +79248,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/psychology/phenomena/serial-position-effect": [
     {
+      url: "/psychology/experiments/baddeley-hitch-1974",
+      title: "巴德利与希契 1974：工作记忆怎样把短时仓库拆成三组件",
+    },
+    {
       url: "/sociology/methods/survey-research",
       title: "调查研究",
     },
@@ -65125,6 +79265,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/psychology/phenomena/social-identity": [
+    {
+      url: "/arts/methods/las-meninas-close-reading",
+      title: "《宫娥》细读：谁在画外观看",
+    },
     {
       url: "/psychology/theorists/alfred-adler",
       title: "阿尔弗雷德·阿德勒",
@@ -65186,6 +79330,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "国际关系：建构主义",
     },
     {
+      url: "/religion/frontier/christian-nationalism-measurement",
+      title: "基督教民族主义测的是什么",
+    },
+    {
       url: "/economics/case-studies/crypto-chronicles",
       title: "加密货币编年史",
     },
@@ -65198,6 +79346,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "卡尔·施密特",
     },
     {
+      url: "/religion/frontier/nones-plateau-after-rls",
+      title: "美国“无宗教归属”停住了吗",
+    },
+    {
       url: "/economics/economists/george-akerlof",
       title: "乔治·阿克洛夫",
     },
@@ -65208,6 +79360,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/isms/communitarianism",
       title: "社群主义",
+    },
+    {
+      url: "/arts/frontier/neuroaesthetics-cultural-variation",
+      title: "神经美学之后：大脑能解释审美，还是只解释一次按键",
     },
     {
       url: "/linguistics/sounds-and-signs/sign-language-research",
@@ -65234,8 +79390,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "政治极化心理",
     },
     {
+      url: "/sociology/methods/freedom-summer-political-process-analysis",
+      title: "Freedom Summer 复核：谁去了密西西比，谁把机会写成组织",
+    },
+    {
       url: "/sociology/thinkers/w-e-b-du-bois",
       title: "W. E. B. 杜波依斯",
+    },
+    {
+      url: "/human-history/source-analyses/wpa-slave-narratives-source-analysis",
+      title: "WPA 前奴隶口述史料剖析",
     },
   ],
   "/psychology/phenomena/splitting": [
@@ -65366,8 +79530,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "爱德华·桑代克",
     },
     {
+      url: "/philosophy/experiments/inverted-spectrum",
+      title: "倒置光谱：行为与功能同一下的颜色经验对调",
+    },
+    {
       url: "/life-science/knowledge-base/进化专题--动物行为与本能",
       title: "动物行为与本能：基因里写好的剧本与后天的学习",
+    },
+    {
+      url: "/psychology/experiments/harlow-1958-contact-comfort",
+      title: "哈洛 1958：布母猴怎样把接触安慰写成可计时的偏好",
+    },
+    {
+      url: "/philosophy/experiments/wittgenstein-beetle",
+      title: "甲虫盒子：私人对象在语言游戏中约去",
+    },
+    {
+      url: "/education/curriculum-and-teaching/classroom-as-time",
+      title: "课堂是被组织的时间",
     },
     {
       url: "/psychology/schools/cognitive",
@@ -65376,6 +79556,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/schools/cognitive-behavioral-therapy",
       title: "认知行为疗法",
+    },
+    {
+      url: "/education/learning-foundations/what-is-learning",
+      title: "什么是学习",
     },
     {
       url: "/mathematics/mathematicians/turing",
@@ -65400,8 +79584,36 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/psychology/schools/cognitive": [
     {
+      url: "/psychology/experiments/ebbinghaus-1885",
+      title: "艾宾浩斯 1885：无意义音节与节省法怎样把遗忘写成可再学的差额",
+    },
+    {
       url: "/computer-science/pioneers/edsger-dijkstra",
       title: "艾兹格·迪科斯彻",
+    },
+    {
+      url: "/psychology/experiments/baddeley-hitch-1974",
+      title: "巴德利与希契 1974：工作记忆怎样把短时仓库拆成三组件",
+    },
+    {
+      url: "/psychology/experiments/peterson-peterson-1959",
+      title: "彼得森 1959：倒数干扰怎样把单个项目的短时保持画成秒级曲线",
+    },
+    {
+      url: "/psychology/experiments/posner-1980",
+      title: "波斯纳 1980：空间提示怎样把隐蔽定向从眼动里拆成有效、无效与中性线索上的代价与收益",
+    },
+    {
+      url: "/psychology/experiments/brown-1958",
+      title: "布朗 1958：即时记忆的衰减怎样被若干测验问到，却还没有画成一条间隔曲线",
+    },
+    {
+      url: "/psychology/experiments/broadbent-1958",
+      title: "布罗德本特 1958：过滤器怎样把有限容量写成早期选择的门",
+    },
+    {
+      url: "/psychology/experiments/cherry-1953",
+      title: "彻里 1953：双耳分听怎样把未追随耳从整句里拆成几乎什么也报不出",
     },
     {
       url: "/philosophy/frontier/llm-language-understanding",
@@ -65424,6 +79636,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "读者如何生产意义",
     },
     {
+      url: "/psychology/experiments/deutsch-deutsch-1963",
+      title: "多伊奇与多伊奇 1963：晚期选择怎样把重要性加权写到完整分析之后",
+    },
+    {
       url: "/psychology/phenomena/splitting",
       title: "分裂",
     },
@@ -65436,6 +79652,30 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "函数式编程",
     },
     {
+      url: "/psychology/experiments/kahneman-tversky-1972",
+      title: "卡尼曼与特沃斯基 1972：主观概率怎样被写成对代表性的判断",
+    },
+    {
+      url: "/psychology/experiments/craik-lockhart-1972",
+      title: "克雷克与洛克哈特 1972：加工水平怎样把记忆从仓库改写成编码深度的研究纲领",
+    },
+    {
+      url: "/psychology/experiments/craik-tulving-1975",
+      title: "克雷克与图尔文 1975：结构、语音与语义定向怎样把加工深度钉进情节记忆",
+    },
+    {
+      url: "/psychology/experiments/miller-1956",
+      title: "米勒 1956：绝对判断、即时记忆与组块怎样把容量从比特改写成结构",
+    },
+    {
+      url: "/psychology/experiments/moray-1959",
+      title: "莫雷 1959：自己的名字怎样把被拒绝耳上的屏障从密封改写成情感显著项仍可能漏出",
+    },
+    {
+      url: "/psychology/experiments/nisbett-wilson-1977",
+      title: "尼斯贝特与威尔逊 1977：口头报告怎样从先验理论讲出我们读不到的过程",
+    },
+    {
       url: "/linguistics/sounds-and-signs/tone-and-prosody",
       title: "声调与韵律",
     },
@@ -65444,12 +79684,40 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "史蒂文·平克",
     },
     {
+      url: "/psychology/experiments/sperling-1960",
+      title: "斯珀林 1960：部分报告怎样把瞬时视觉容量从整报里拆出来",
+    },
+    {
+      url: "/psychology/experiments/sternberg-1966",
+      title: "斯特恩伯格 1966：高速扫描怎样把短时记忆里的数字写成随集合大小线性变长的反应时",
+    },
+    {
       url: "/philosophy/thinkers/donald-davidson",
       title: "唐纳德·戴维森",
     },
     {
+      url: "/psychology/experiments/treisman-1960",
+      title: "特里斯曼 1960：衰减怎样把被拒绝通路从全关改写成阈值仍可能被情境接住",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1973-availability",
+      title: "特沃斯基与卡尼曼 1973：频率与概率怎样被写成对可得性的判断",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1974",
+      title: "特沃斯基与卡尼曼 1974：不确定判断里的启发式怎样被写成可核对的偏差",
+    },
+    {
+      url: "/psychology/experiments/tulving-thomson-1973",
+      title: "图尔文与汤姆森 1973：编码特定性怎样把提取线索写成与痕迹重叠",
+    },
+    {
       url: "/psychology/phenomena/unconscious",
       title: "无意识",
+    },
+    {
+      url: "/psychology/experiments/shepard-metzler-1971",
+      title: "谢泼德与梅茨勒 1971：三维线描的心理旋转怎样把“同一物体”写成与角差成正比的反应时",
     },
     {
       url: "/philosophy/concepts/indian-buddhist-epistemology",
@@ -65571,6 +79839,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/psychology/schools/embodied-cognition": [
+    {
+      url: "/engineering/frontiers/millennium-bridge-2000",
+      title: "伦敦千年桥：开通当日的行人侧向锁定",
+    },
     {
       url: "/psychology/debates/emotion-universality-debate",
       title: "情绪普遍性之争",
@@ -65790,6 +80062,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "越轨与社会控制",
     },
   ],
+  "/psychology/theorists/amos-tversky": [
+    {
+      url: "/psychology/experiments/kahneman-tversky-1972",
+      title: "卡尼曼与特沃斯基 1972：主观概率怎样被写成对代表性的判断",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1973-availability",
+      title: "特沃斯基与卡尼曼 1973：频率与概率怎样被写成对可得性的判断",
+    },
+  ],
   "/psychology/theorists/anna-freud": [
     {
       url: "/psychology/theorists/erik-erikson",
@@ -65856,6 +80138,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/knowledge-base/educational-psychology",
       title: "教育心理学：学习如何被教学优化",
+    },
+  ],
+  "/psychology/theorists/daniel-kahneman": [
+    {
+      url: "/psychology/experiments/kahneman-tversky-1972",
+      title: "卡尼曼与特沃斯基 1972：主观概率怎样被写成对代表性的判断",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1973-availability",
+      title: "特沃斯基与卡尼曼 1973：频率与概率怎样被写成对可得性的判断",
     },
   ],
   "/psychology/theorists/donald-winnicott": [
@@ -66162,6 +80454,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/anthropology/kinship-and-exchange/descent-and-alliance",
       title: "继嗣与联姻",
+    },
+    {
+      url: "/human-history/source-analyses/oracle-bones-source-analysis",
+      title: "甲骨文史料剖析",
     },
     {
       url: "/anthropology/kinship-and-exchange/gift-and-reciprocity",
@@ -66541,6 +80837,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/philosophy/thinkers/strawson",
       title: "P.F. 斯特劳森",
     },
+    {
+      url: "/psychology/experiments/rosenhan-1973",
+      title: "Rosenhan 假病人研究：诊断标签一旦贴上会怎样",
+    },
   ],
   "/sociology/concepts/emotions-and-emotional-labor": [
     {
@@ -66697,6 +80997,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/sociology/concepts/gender-and-society",
       title: "社会性别与社会",
     },
+    {
+      url: "/law/judgment-analyses/brown-v-board-equal-protection",
+      title: "Brown v. Board of Education 判决剖析",
+    },
+    {
+      url: "/sociology/methods/pager-criminal-record-audit",
+      title: "Pager 前科印记审计：案底怎样在入门岗位上被看见",
+    },
   ],
   "/sociology/concepts/islamic-social-thought": [
     {
@@ -66744,6 +81052,52 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/sociology/frontier/global-south-sociology",
       title: "全球南方社会学的知识再平衡",
+    },
+  ],
+  "/sociology/concepts/organizational-sociology": [
+    {
+      url: "/earth-science/event-analyses/mount-st-helens-1980-observation",
+      title: "1980 年圣海伦斯火山事件剖析",
+    },
+    {
+      url: "/earth-science/event-analyses/turkey-syria-earthquake-forensics-2023",
+      title: "2023 年土耳其—叙利亚地震事件剖析",
+    },
+    {
+      url: "/economics/dialogues/hardin-ostrom-commons",
+      title: "哈丁vs奥斯特罗姆：公地一定会毁灭吗",
+    },
+    {
+      url: "/engineering/frontiers/hartford-civic-center-1978",
+      title: "哈特福德市政中心：积雪夜里塌下来的双向钢网架",
+    },
+    {
+      url: "/engineering/frontier/infrastructure-digital-twins",
+      title: "基础设施数字孪生：什么时候模型才配替真实桥梁作决定",
+    },
+    {
+      url: "/engineering/frontiers/hyatt-regency-walkway-collapse",
+      title: "凯悦走廊倒塌：连接改了一笔，载荷翻了一倍",
+    },
+    {
+      url: "/engineering/frontiers/millennium-bridge-2000",
+      title: "伦敦千年桥：开通当日的行人侧向锁定",
+    },
+    {
+      url: "/engineering/frontiers/tay-bridge-1879",
+      title: "泰桥：风压没写进设计的铸铁斜撑",
+    },
+    {
+      url: "/engineering/frontiers/challenger-o-ring-organizational-failure",
+      title: "挑战者号事故：密封失效如何穿过组织防线",
+    },
+    {
+      url: "/law/private-law/fiduciary-duty-and-corporate-control",
+      title: "信义义务与控制权：董事到底对谁负责",
+    },
+    {
+      url: "/engineering/frontiers/i35w-minneapolis-2007",
+      title: "I-35W 明尼阿波利斯：半英寸加劲板，把主桁架写成河",
     },
   ],
   "/sociology/concepts/race-and-ethnicity": [
@@ -66806,6 +81160,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/sociology/concepts/intersectionality",
       title: "交叉性：范畴如何相乘",
+    },
+    {
+      url: "/medicine/events/landsteiner-1901-abo",
+      title: "兰德施泰纳 1901 正常人血凝集：血清使他人血球成团，以及后来称为 A、B、C 的分组",
     },
     {
       url: "/psychology/experiments/rosenthal-jacobson-1968",
@@ -66879,6 +81237,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/sociology/thinkers/w-e-b-du-bois",
       title: "W. E. B. 杜波依斯",
     },
+    {
+      url: "/human-history/source-analyses/wpa-slave-narratives-source-analysis",
+      title: "WPA 前奴隶口述史料剖析",
+    },
   ],
   "/sociology/concepts/science-and-technology-studies": [
     {
@@ -66892,6 +81254,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/sociology/concepts/secularization-thesis",
       title: "世俗化理论：一个被作者自己撤回的预测",
+    },
+    {
+      url: "/engineering/machines/project-and-configuration-control",
+      title: "项目与构型控制：基线、变更和可追到零件上的决定",
     },
     {
       url: "/computer-science/systems/curl-and-maintainer-burden",
@@ -66937,6 +81303,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/sociology/concepts/social-capital": [
+    {
+      url: "/medicine/events/salk-1954-polio-trial",
+      title: "1954 年美国脊髓灰质炎疫苗现场试验：观察现场与安慰剂对照并存的读出",
+    },
     {
       url: "/computer-science/concepts/version-control",
       title: "版本控制",
@@ -67082,6 +81452,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "宗教与世俗化",
     },
     {
+      url: "/computer-science/systems/neo4j-property-graph",
+      title: "Neo4j 属性图：当邻居指针取代 JOIN",
+    },
+    {
       url: "/computer-science/concepts/web-security-xss-csrf",
       title: "Web 安全：XSS 与 CSRF",
     },
@@ -67113,6 +81487,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/sociology/frontier/algorithmic-management-worker-power",
       title: "算法管理、工人权力与可审计工作",
     },
+    {
+      url: "/sociology/methods/freedom-summer-political-process-analysis",
+      title: "Freedom Summer 复核：谁去了密西西比，谁把机会写成组织",
+    },
   ],
   "/sociology/concepts/social-network-analysis": [
     {
@@ -67142,6 +81520,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/sociology/thinkers/fei-xiaotong",
       title: "费孝通",
+    },
+    {
+      url: "/medicine/events/framingham-heart-study",
+      title: "弗雷明汉心脏研究：危险因素怎样从小镇队列里走出来",
     },
     {
       url: "/sociology/thinkers/georg-simmel",
@@ -67344,11 +81726,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "中国佛教哲学",
     },
     {
+      url: "/sociology/concepts/organizational-sociology",
+      title: "组织社会学：组织为何彼此越来越像",
+    },
+    {
       url: "/computer-science/algorithms/pagerank",
       title: "PageRank 算法",
     },
   ],
   "/sociology/concepts/social-stratification": [
+    {
+      url: "/human-history/source-analyses/domesday-book-source-analysis",
+      title: "《末日审判书》史料剖析",
+    },
     {
       url: "/sociology/thinkers/emile-durkheim",
       title: "埃米尔·涂尔干",
@@ -67360,6 +81750,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/figures/vesalius",
       title: "安德烈亚斯·维萨里",
+    },
+    {
+      url: "/education/comparison-and-policy/shadow-education-is-a-market",
+      title: "补习是一种市场",
     },
     {
       url: "/political-science/concepts/fiscal-state",
@@ -67378,6 +81772,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "春秋战国",
     },
     {
+      url: "/economics/policy-analyses/germany-hartz-labor-reforms",
+      title: "德国 Hartz 劳动力改革剖析",
+    },
+    {
       url: "/economics/theories/development-economics",
       title: "发展经济学",
     },
@@ -67392,6 +81790,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/foundations/legal-profession-and-education",
       title: "法律职业与法学教育：谁被允许说法律是什么",
+    },
+    {
+      url: "/education/curriculum-and-teaching/tracking-and-grouping",
+      title: "分班与分组",
     },
     {
       url: "/political-science/concepts/distributive-justice",
@@ -67412,6 +81814,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/当代--改革开放",
       title: "改革开放",
+    },
+    {
+      url: "/education/assessment-and-equity/high-stakes-exams-are-institutions",
+      title: "高利害考试是一种制度",
     },
     {
       url: "/human-history/knowledge/古代文明--古埃及",
@@ -67454,6 +81860,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "金钱与幸福：科学怎么说",
     },
     {
+      url: "/education/assessment-and-equity/funding-formulas-and-teachability",
+      title: "经费公式与谁被当成可教",
+    },
+    {
       url: "/psychology/debates/categories-or-dimensions",
       title: "精神障碍是类别还是维度",
     },
@@ -67464,6 +81874,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/thinkers/karl-marx",
       title: "卡尔·马克思",
+    },
+    {
+      url: "/education/curriculum-and-teaching/curriculum-as-selection",
+      title: "课程即选择",
     },
     {
       url: "/sociology/concepts/latin-american-dependency-liberation-sociology",
@@ -67510,8 +81924,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "明治维新",
     },
     {
+      url: "/economics/policy-analyses/mexico-progresa-cash-transfer",
+      title: "墨西哥 PROGRESA 政策剖析",
+    },
+    {
       url: "/sociology/thinkers/pierre-bourdieu",
       title: "皮埃尔·布迪厄",
+    },
+    {
+      url: "/education/assessment-and-equity/assessment-as-inference",
+      title: "评估即推断",
     },
     {
       url: "/sociology/thinkers/zygmunt-bauman",
@@ -67562,6 +81984,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "希腊城邦",
     },
     {
+      url: "/education/learning-foundations/school-is-an-institution",
+      title: "学校是一种制度",
+    },
+    {
       url: "/political-science/thinkers/aristotle-politics",
       title: "亚里士多德的政治学",
     },
@@ -67576,6 +82002,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/figures/ignaz-semmelweis",
       title: "伊格纳茨·塞麦尔维斯",
+    },
+    {
+      url: "/education/frontier/covid-learning-loss-is-not-one-curve",
+      title: "疫情学习损失不是一条曲线",
     },
     {
       url: "/sociology/concepts/indian-social-thought",
@@ -67594,12 +82024,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "政治代表",
     },
     {
+      url: "/education/curriculum-and-teaching/vocational-schooling-is-a-track",
+      title: "职业教育是一种轨道",
+    },
+    {
       url: "/economics/schools/institutional-school",
       title: "制度经济学派",
     },
     {
       url: "/sociology/concepts/race-and-ethnicity",
       title: "种族与族群",
+    },
+    {
+      url: "/education/comparison-and-policy/comprehensive-school-is-a-design",
+      title: "综合学校是一种设计",
+    },
+    {
+      url: "/education/learning-foundations/homework-allocates-family-time",
+      title: "作业分配的是家庭时间",
     },
     {
       url: "/sociology/thinkers/c-wright-mills",
@@ -67612,6 +82054,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/algorithms/k-means-clustering",
       title: "K-means 聚类",
+    },
+    {
+      url: "/education/comparison-and-policy/pisa-is-not-civilization",
+      title: "PISA 不是文明",
     },
   ],
   "/sociology/concepts/social-structure": [
@@ -67980,6 +82426,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "后结构主义",
     },
     {
+      url: "/education/education-technology/teacher-labor-and-platforms",
+      title: "教师劳动与平台",
+    },
+    {
+      url: "/education/education-technology/what-edtech-records",
+      title: "教育技术记录了什么",
+    },
+    {
       url: "/philosophy/thinkers/bentham",
       title: "杰里米·边沁",
     },
@@ -68217,6 +82671,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/sociology/institutions/demography-and-aging",
       title: "人口学与老龄化",
     },
+    {
+      url: "/education/comparison-and-policy/schooling-expansion-in-sub-saharan-africa",
+      title: "撒哈拉以南的学校扩张",
+    },
   ],
   "/sociology/institutions/bureaucracy": [
     {
@@ -68242,12 +82700,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/sociology/institutions/demography-and-aging": [
     {
+      url: "/earth-science/event-analyses/pakistan-flood-attribution-2022",
+      title: "2022 年巴基斯坦洪水归因剖析",
+    },
+    {
       url: "/psychology/disorders/dementia",
       title: "痴呆与阿尔茨海默病",
     },
     {
       url: "/political-science/thinkers/michel-foucault",
       title: "米歇尔·福柯",
+    },
+    {
+      url: "/economics/policy-analyses/mexico-progresa-cash-transfer",
+      title: "墨西哥 PROGRESA 政策剖析",
+    },
+    {
+      url: "/religion/frontier/global-religious-demography-switching",
+      title: "全球宗教人口：生育率还是改宗",
     },
     {
       url: "/economics/case-studies/japan-yield-normalization-aging-fiscal-2026",
@@ -68398,6 +82868,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "大脑可塑性实用指南",
     },
     {
+      url: "/economics/policy-analyses/germany-hartz-labor-reforms",
+      title: "德国 Hartz 劳动力改革剖析",
+    },
+    {
       url: "/linguistics/acquisition-and-mind/first-language-acquisition",
       title: "第一语言习得",
     },
@@ -68532,6 +83006,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/economists/michael-spence",
       title: "迈克尔·斯宾塞",
+    },
+    {
+      url: "/religion/frontier/nones-plateau-after-rls",
+      title: "美国“无宗教归属”停住了吗",
     },
     {
       url: "/political-science/thinkers/michel-foucault",
@@ -68742,6 +83220,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "ADHD 诊断之争：过度诊断还是识别不足",
     },
     {
+      url: "/law/judgment-analyses/brown-v-board-equal-protection",
+      title: "Brown v. Board of Education 判决剖析",
+    },
+    {
       url: "/sociology/thinkers/c-wright-mills",
       title: "C. 赖特·米尔斯",
     },
@@ -68896,6 +83378,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/experiments/bobo-doll",
       title: "波波玩偶实验",
+    },
+    {
+      url: "/arts/architecture/urban-public-space",
+      title: "城市公共空间：谁能停留、谁被请出去",
     },
     {
       url: "/philosophy/schools/continental-philosophy",
@@ -69072,6 +83558,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/sociology/thinkers/c-wright-mills",
       title: "C. 赖特·米尔斯",
+    },
+    {
+      url: "/law/judgment-analyses/handyside-v-uk-expression-margin",
+      title: "Handyside v. United Kingdom 判决剖析",
     },
     {
       url: "/medicine/frontier/mrna-therapeutics",
@@ -69402,6 +83892,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/media/printmaking",
       title: "版画与复制技术",
+    },
+    {
+      url: "/arts/architecture/urban-public-space",
+      title: "城市公共空间：谁能停留、谁被请出去",
     },
     {
       url: "/life-science/knowledge-base/生态学--城市生态",
@@ -69816,6 +84310,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "自我决定论：什么真正驱动人",
     },
     {
+      url: "/sociology/concepts/organizational-sociology",
+      title: "组织社会学：组织为何彼此越来越像",
+    },
+    {
       url: "/sociology/frontier/ai-and-labor",
       title: "AI 与劳动过程的再组织",
     },
@@ -69844,6 +84342,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/sociology/institutions/education-and-credentialism",
       title: "教育与文凭社会",
+    },
+    {
+      url: "/education/cognition-and-memory/project-star-class-size",
+      title: "田纳西 STAR：班额被随机之后测到了什么",
     },
     {
       url: "/sociology/methods/research-ethics-and-positionality",
@@ -70138,6 +84640,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "城市与早期国家",
     },
     {
+      url: "/law/private-law/conflict-of-laws",
+      title: "冲突法：跨境民事关系适用哪一套规则",
+    },
+    {
       url: "/philosophy/schools/continental-philosophy",
       title: "大陆哲学",
     },
@@ -70324,8 +84830,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "墨西哥 PROGRESA 政策剖析",
     },
     {
+      url: "/linguistics/sounds-and-signs/voice-onset-time",
+      title: "嗓音起始时间：连续气流怎样被切成清浊",
+    },
+    {
       url: "/political-science/isms/social-democracy",
       title: "社会民主主义",
+    },
+    {
+      url: "/engineering/foundations/experimental-design-and-uncertainty",
+      title: "实验设计与测量不确定度：怎样知道一次试验能说明什么",
     },
     {
       url: "/medicine/events/snow-cholera-broad-street",
@@ -70340,12 +84854,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "协商民主",
     },
     {
+      url: "/linguistics/acquisition-and-mind/infant-categorical-perception",
+      title: "婴儿范畴知觉：高振幅吮吸怎样把时间差写成月龄证据",
+    },
+    {
       url: "/political-science/methods/experiments-natural-experiments",
       title: "政治实验与自然实验",
     },
     {
+      url: "/sociology/methods/pager-criminal-record-audit",
+      title: "Pager 前科印记审计：案底怎样在入门岗位上被看见",
+    },
+    {
       url: "/cosmology/knowledge-base/致密天体--x-ray-binaries",
       title: "X射线双星",
+    },
+  ],
+  "/sociology/methods/freedom-summer-political-process-analysis": [
+    {
+      url: "/sociology/concepts/social-movements",
+      title: "社会运动",
     },
   ],
   "/sociology/methods/in-depth-interviews": [
@@ -70508,6 +85036,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/sociology/methods/survey-research": [
     {
+      url: "/human-history/source-analyses/domesday-book-source-analysis",
+      title: "《末日审判书》史料剖析",
+    },
+    {
       url: "/cosmology/knowledge-base/宇宙学前沿--标准汽笛与引力波宇宙学",
       title: "标准汽笛与引力波宇宙学",
     },
@@ -70576,6 +85108,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "契克森米哈伊呼叫器实验",
     },
     {
+      url: "/religion/frontier/global-religious-demography-switching",
+      title: "全球宗教人口：生育率还是改宗",
+    },
+    {
       url: "/sociology/methods/in-depth-interviews",
       title: "深度访谈",
     },
@@ -70624,12 +85160,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "政治学方法论与行为主义革命",
     },
     {
+      url: "/religion/frontier/cognitive-science-religion-replication",
+      title: "宗教认知科学还剩多少可重复的结论",
+    },
+    {
       url: "/sociology/thinkers/c-wright-mills",
       title: "C. 赖特·米尔斯",
     },
     {
       url: "/sociology/methods/coleman-report-educational-opportunity-analysis",
       title: "Coleman Report 复核：学校、家庭与同伴怎样被放进同一个模型",
+    },
+    {
+      url: "/human-history/source-analyses/wpa-slave-narratives-source-analysis",
+      title: "WPA 前奴隶口述史料剖析",
     },
   ],
   "/sociology/thinkers/anthony-giddens": [
@@ -71001,6 +85545,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/sociology/methods/coleman-report-educational-opportunity-analysis",
       title: "Coleman Report 复核：学校、家庭与同伴怎样被放进同一个模型",
     },
+    {
+      url: "/sociology/methods/pager-criminal-record-audit",
+      title: "Pager 前科印记审计：案底怎样在入门岗位上被看见",
+    },
   ],
   "/sociology/thinkers/mark-granovetter": [
     {
@@ -71090,6 +85638,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "宗教与世俗化",
     },
     {
+      url: "/sociology/concepts/organizational-sociology",
+      title: "组织社会学：组织为何彼此越来越像",
+    },
+    {
       url: "/sociology/thinkers/c-wright-mills",
       title: "C. 赖特·米尔斯",
     },
@@ -71110,6 +85662,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/sociology/thinkers/pierre-bourdieu": [
     {
+      url: "/arts/methods/las-meninas-close-reading",
+      title: "《宫娥》细读：谁在画外观看",
+    },
+    {
+      url: "/education/comparison-and-policy/shadow-education-is-a-market",
+      title: "补习是一种市场",
+    },
+    {
       url: "/anthropology/kinship-and-exchange/property-and-persons",
       title: "财产与人",
     },
@@ -71126,8 +85686,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "翻译即改写",
     },
     {
+      url: "/education/curriculum-and-teaching/tracking-and-grouping",
+      title: "分班与分组",
+    },
+    {
+      url: "/education/assessment-and-equity/high-stakes-exams-are-institutions",
+      title: "高利害考试是一种制度",
+    },
+    {
+      url: "/education/learning-foundations/teacher-education-is-preparation",
+      title: "教师教育是专业准备",
+    },
+    {
+      url: "/education/learning-foundations/teaching-is-not-pouring",
+      title: "教学不是灌输",
+    },
+    {
       url: "/sociology/institutions/education-and-credentialism",
       title: "教育与文凭社会",
+    },
+    {
+      url: "/education/curriculum-and-teaching/curriculum-as-selection",
+      title: "课程即选择",
     },
     {
       url: "/anthropology/kinship-and-exchange/gift-and-reciprocity",
@@ -71182,6 +85762,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "无穷的故事",
     },
     {
+      url: "/education/learning-foundations/school-is-an-institution",
+      title: "学校是一种制度",
+    },
+    {
       url: "/arts/aesthetics/art-market-and-value",
       title: "艺术市场与价值：杰作的价格是如何被制造出来的",
     },
@@ -71196,6 +85780,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/literature/contemporary-edges/canon-wars",
       title: "正典之争",
+    },
+    {
+      url: "/education/comparison-and-policy/comprehensive-school-is-a-design",
+      title: "综合学校是一种设计",
+    },
+    {
+      url: "/education/comparison-and-policy/pisa-is-not-civilization",
+      title: "PISA 不是文明",
     },
   ],
   "/sociology/thinkers/robert-merton": [
@@ -71253,6 +85845,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/universe-physics/dialogues/dirac-feynman": [
+    {
+      url: "/universe-physics/knowledge-base/粒子物理--anderson-1932-positron",
+      title: "安德森 1932：云室里那条反弯的轻径迹",
+    },
     {
       url: "/universe-physics/knowledge-base/相对论--狭义相对论",
       title: "狭义相对论",
@@ -71440,6 +86036,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "量子计算",
     },
     {
+      url: "/universe-physics/frontier/quantum-error-correction",
+      title: "量子纠错跨过门槛",
+    },
+    {
       url: "/mathematics/concepts/knot-theory",
       title: "纽结理论",
     },
@@ -71449,6 +86049,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/universe-physics/knowledge-base/光学--geometric-optics-and-lenses": [
+    {
+      url: "/psychology/experiments/posner-1980",
+      title: "波斯纳 1980：空间提示怎样把隐蔽定向从眼动里拆成有效、无效与中性线索上的代价与收益",
+    },
     {
       url: "/arts/media/film-and-moving-image",
       title: "电影与运动影像：静止的画格如何变成运动",
@@ -71486,6 +86090,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "解剖学革命",
     },
     {
+      url: "/philosophy/experiments/molyneux-problem",
+      title: "莫利纽克斯问题：初次看见能否分出立方与球",
+    },
+    {
       url: "/philosophy/schools/mohism",
       title: "墨家",
     },
@@ -71520,6 +86128,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "波动与声学",
     },
     {
+      url: "/universe-physics/knowledge-base/量子物理--davisson-germer-experiment",
+      title: "戴维森–革末：镍单晶怎样把慢电子折成随电压走动的角向峰",
+    },
+    {
       url: "/chemistry/methods/electron-microscopy-and-surface-analysis",
       title: "电子显微与表面表征：看见形貌，也要验证化学状态",
     },
@@ -71544,12 +86156,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "罗莎琳德·富兰克林",
     },
     {
+      url: "/universe-physics/knowledge-base/经典物理--michelson-morley-1887",
+      title: "迈克尔逊–莫雷 1887：水银石板干涉仪怎样把预期 0.4 条纹写成近零",
+    },
+    {
       url: "/universe-physics/knowledge-base/光学--polarization",
       title: "偏振",
     },
     {
       url: "/universe-physics/knowledge-base/光学--全息术",
       title: "全息术",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--gp-thomson-electron-diffraction",
+      title: "汤姆孙–里德：多晶薄箔怎样把快电子折成底片上随电压收缩的德拜环",
     },
     {
       url: "/life-science/knowledge-base/进化专题--眼睛的进化",
@@ -71674,6 +86294,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "丢失的重子问题",
     },
     {
+      url: "/philosophy/experiments/hume-missing-shade",
+      title: "缺失的蓝色：休谟承认的复制原则例外",
+    },
+    {
       url: "/universe-physics/knowledge-base/光学--瑞利散射与天空的颜色",
       title: "瑞利散射与天空的颜色",
     },
@@ -71766,6 +86390,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "材料强度：钢、混凝土与复合材料",
     },
     {
+      url: "/universe-physics/knowledge-base/量子物理--davisson-germer-experiment",
+      title: "戴维森–革末：镍单晶怎样把慢电子折成随电压走动的角向峰",
+    },
+    {
       url: "/computer-science/algorithms/convolutional-neural-networks",
       title: "卷积神经网络",
     },
@@ -71774,8 +86402,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "摩尔与物质的量",
     },
     {
+      url: "/chemistry/milestones/moseley-1913-xray-atomic-number",
+      title: "莫塞莱一九一三年的高频率谱：特征 X 射线怎样把原子序数写成直线",
+    },
+    {
+      url: "/engineering/foundations/fatigue-and-fracture",
+      title: "疲劳与断裂：裂纹怎样在远低于静强度时把结构写完",
+    },
+    {
       url: "/universe-physics/knowledge-base/凝聚态物理--phonons-lattice-vibrations",
       title: "声子与晶格振动",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--gp-thomson-electron-diffraction",
+      title: "汤姆孙–里德：多晶薄箔怎样把快电子折成底片上随电压收缩的德拜环",
     },
     {
       url: "/universe-physics/knowledge-base/凝聚态物理--quasicrystals",
@@ -72318,6 +86958,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/universe-physics/knowledge-base/原子物理--atomic-spectra": [
     {
+      url: "/chemistry/milestones/bunsen-kirchhoff-1860-cesium",
+      title: "本生与基尔霍夫一八六〇年的铯：棱镜分光镜怎样用天蓝色谱线认出第一种新元素",
+    },
+    {
       url: "/mathematics/concepts/representation-theory",
       title: "表示论",
     },
@@ -72326,12 +86970,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "玻尔原子模型",
     },
     {
+      url: "/universe-physics/knowledge-base/原子物理--franck-hertz-experiment",
+      title: "弗兰克–赫兹：汞蒸气里的电子怎样把能量一份一份交出去",
+    },
+    {
       url: "/universe-physics/knowledge-base/量子物理--quantum-spin",
       title: "量子自旋",
     },
     {
+      url: "/universe-physics/knowledge-base/原子物理--rutherford-1911-gold-foil",
+      title: "卢瑟福 1911：金箔上的大角 α 怎样把正电荷挤进核",
+    },
+    {
       url: "/universe-physics/knowledge-base/原子物理--hydrogen-atom-quantum-theory",
       title: "氢原子的量子理论",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--zeeman-1896",
+      title: "塞曼 1896：莱顿磁铁里钠 D 线怎样先展宽后劈裂",
     },
     {
       url: "/arts/foundations/color-and-light",
@@ -72340,6 +86996,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/星际介质--行星状星云",
       title: "行星状星云",
+    },
+    {
+      url: "/chemistry/milestones/urey-1931-deuterium",
+      title: "尤里一九三一年的氘：液氢残渣原子光谱里的质量二同位素",
     },
     {
       url: "/chemistry/concepts/atomic-structure",
@@ -72356,16 +87016,40 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/universe-physics/knowledge-base/原子物理--bohr-atom-model": [
     {
+      url: "/universe-physics/knowledge-base/量子物理--born-1926-probability",
+      title: "玻恩 1926：碰撞里的波函数怎样被读成概率",
+    },
+    {
       url: "/universe-physics/knowledge-base/原子物理--electron-orbitals-quantum-numbers",
       title: "电子轨道与量子数",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--franck-hertz-experiment",
+      title: "弗兰克–赫兹：汞蒸气里的电子怎样把能量一份一份交出去",
     },
     {
       url: "/universe-physics/knowledge-base/光学--激光原理与应用",
       title: "激光原理与应用",
     },
     {
+      url: "/universe-physics/knowledge-base/原子物理--rutherford-1911-gold-foil",
+      title: "卢瑟福 1911：金箔上的大角 α 怎样把正电荷挤进核",
+    },
+    {
+      url: "/chemistry/milestones/lewis-1916-shared-pair",
+      title: "路易斯 1916：共享电子对怎样被写成化学键",
+    },
+    {
       url: "/universe-physics/knowledge-base/原子物理--hydrogen-atom-quantum-theory",
       title: "氢原子的量子理论",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--zeeman-1896",
+      title: "塞曼 1896：莱顿磁铁里钠 D 线怎样先展宽后劈裂",
+    },
+    {
+      url: "/chemistry/milestones/urey-1931-deuterium",
+      title: "尤里一九三一年的氘：液氢残渣原子光谱里的质量二同位素",
     },
     {
       url: "/universe-physics/knowledge-base/原子物理--atomic-spectra",
@@ -72374,6 +87058,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/科学史--原子论演变",
       title: "原子论演变",
+    },
+  ],
+  "/universe-physics/knowledge-base/原子物理--compton-scattering-experiment": [
+    {
+      url: "/universe-physics/knowledge-base/量子物理--波粒二象性",
+      title: "波粒二象性",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--chadwick-1932-neutron",
+      title: "查德威克：石蜡反冲怎样把铍辐射判成质子质量的中性粒子，而不是硬γ",
+    },
+    {
+      url: "/universe-physics/knowledge-base/电磁学--光的本质",
+      title: "光的本质",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--光电效应与量子化光",
+      title: "光电效应与量子化光",
     },
   ],
   "/universe-physics/knowledge-base/原子物理--electron-orbitals-quantum-numbers": [
@@ -72398,7 +87100,41 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "kilonova与r过程核合成",
     },
   ],
+  "/universe-physics/knowledge-base/原子物理--franck-hertz-experiment": [
+    {
+      url: "/universe-physics/knowledge-base/量子物理--born-1926-probability",
+      title: "玻恩 1926：碰撞里的波函数怎样被读成概率",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--bohr-atom-model",
+      title: "玻尔原子模型",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--davisson-germer-experiment",
+      title: "戴维森–革末：镍单晶怎样把慢电子折成随电压走动的角向峰",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--rutherford-1911-gold-foil",
+      title: "卢瑟福 1911：金箔上的大角 α 怎样把正电荷挤进核",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--zeeman-1896",
+      title: "塞曼 1896：莱顿磁铁里钠 D 线怎样先展宽后劈裂",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--thomson-1897-cathode-ray",
+      title: "汤姆孙 1897：卡文迪许阴极射线怎样把 e/m 读成远大于电解离子",
+    },
+  ],
   "/universe-physics/knowledge-base/原子物理--hydrogen-atom-quantum-theory": [
+    {
+      url: "/universe-physics/knowledge-base/量子物理--born-1926-probability",
+      title: "玻恩 1926：碰撞里的波函数怎样被读成概率",
+    },
+    {
+      url: "/chemistry/milestones/born-oppenheimer-1927",
+      title: "玻恩–奥本海默 1927：分子怎样把核的慢运动从电子的快运动里拆开",
+    },
     {
       url: "/universe-physics/knowledge-base/原子物理--bohr-atom-model",
       title: "玻尔原子模型",
@@ -72406,6 +87142,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/原子物理--electron-orbitals-quantum-numbers",
       title: "电子轨道与量子数",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--franck-hertz-experiment",
+      title: "弗兰克–赫兹：汞蒸气里的电子怎样把能量一份一份交出去",
+    },
+    {
+      url: "/chemistry/milestones/heitler-london-1927",
+      title: "海特勒–伦敦 1927：交换怎样把氢分子写成同极键",
     },
     {
       url: "/chemistry/concepts/chemical-bond",
@@ -72424,6 +87168,130 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "薛定谔方程",
     },
     {
+      url: "/chemistry/milestones/urey-1931-deuterium",
+      title: "尤里一九三一年的氘：液氢残渣原子光谱里的质量二同位素",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--atomic-spectra",
+      title: "原子光谱",
+    },
+  ],
+  "/universe-physics/knowledge-base/原子物理--rutherford-1911-gold-foil": [
+    {
+      url: "/universe-physics/knowledge-base/原子物理--bohr-atom-model",
+      title: "玻尔原子模型",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--blackett-1925-nitrogen",
+      title: "布莱克特 1925：威尔逊云室怎样把氮上的质子分叉拍成径迹",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--franck-hertz-experiment",
+      title: "弗兰克–赫兹：汞蒸气里的电子怎样把能量一份一份交出去",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--cockcroft-walton-1932",
+      title: "考克饶夫与瓦尔顿：加速质子打锂怎样放出氦核，并把动能与质量亏损对上账",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--rutherford-1919-nitrogen",
+      title: "卢瑟福 1919：天然 α 打氮怎样放出氢核，并把核组成第一次改写成实验室对象",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--密立根油滴实验",
+      title: "密立根油滴：基本电荷怎样在悬浮的油雾里被一份一份称出来",
+    },
+    {
+      url: "/chemistry/milestones/soddy-1913-isotope",
+      title: "索迪 1913：放射链上化学无法分开的物种怎样被写成同位素",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--thomson-1897-cathode-ray",
+      title: "汤姆孙 1897：卡文迪许阴极射线怎样把 e/m 读成远大于电解离子",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--wilson-1911-cloud-chamber",
+      title: "威尔逊 1911：膨胀怎样把离子变成可见的凝结径迹",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--atomic-spectra",
+      title: "原子光谱",
+    },
+    {
+      url: "/chemistry/concepts/atomic-structure",
+      title: "原子结构",
+    },
+  ],
+  "/universe-physics/knowledge-base/原子物理--thomson-1897-cathode-ray": [
+    {
+      url: "/chemistry/milestones/aston-1919-mass-spectrograph",
+      title: "阿斯顿 1919：质谱仪上氖的两条整数质量怎样把同位素写成实验室对象",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--franck-hertz-experiment",
+      title: "弗兰克–赫兹：汞蒸气里的电子怎样把能量一份一份交出去",
+    },
+    {
+      url: "/chemistry/milestones/curie-1898-polonium-radium",
+      title: "居里 1898：沥青铀矿里比铀更活的部分怎样被写成钋与镭",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--rutherford-1911-gold-foil",
+      title: "卢瑟福 1911：金箔上的大角 α 怎样把正电荷挤进核",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--密立根油滴实验",
+      title: "密立根油滴：基本电荷怎样在悬浮的油雾里被一份一份称出来",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--zeeman-1896",
+      title: "塞曼 1896：莱顿磁铁里钠 D 线怎样先展宽后劈裂",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--wilson-1911-cloud-chamber",
+      title: "威尔逊 1911：膨胀怎样把离子变成可见的凝结径迹",
+    },
+    {
+      url: "/chemistry/concepts/atomic-structure",
+      title: "原子结构",
+    },
+  ],
+  "/universe-physics/knowledge-base/原子物理--wilson-1911-cloud-chamber": [
+    {
+      url: "/universe-physics/knowledge-base/核物理--blackett-1925-nitrogen",
+      title: "布莱克特 1925：威尔逊云室怎样把氮上的质子分叉拍成径迹",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--rutherford-1911-gold-foil",
+      title: "卢瑟福 1911：金箔上的大角 α 怎样把正电荷挤进核",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--rutherford-1919-nitrogen",
+      title: "卢瑟福 1919：天然 α 打氮怎样放出氢核，并把核组成第一次改写成实验室对象",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--thomson-1897-cathode-ray",
+      title: "汤姆孙 1897：卡文迪许阴极射线怎样把 e/m 读成远大于电解离子",
+    },
+  ],
+  "/universe-physics/knowledge-base/原子物理--zeeman-1896": [
+    {
+      url: "/universe-physics/knowledge-base/原子物理--bohr-atom-model",
+      title: "玻尔原子模型",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--stern-gerlach-experiment",
+      title: "施特恩–格拉赫：银原子束怎样在不均匀磁场里裂成两条斑",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--thomson-1897-cathode-ray",
+      title: "汤姆孙 1897：卡文迪许阴极射线怎样把 e/m 读成远大于电解离子",
+    },
+    {
+      url: "/chemistry/milestones/urey-1931-deuterium",
+      title: "尤里一九三一年的氘：液氢残渣原子光谱里的质量二同位素",
+    },
+    {
       url: "/universe-physics/knowledge-base/原子物理--atomic-spectra",
       title: "原子光谱",
     },
@@ -72438,12 +87306,62 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "激光原理与应用",
     },
     {
+      url: "/universe-physics/knowledge-base/原子物理--compton-scattering-experiment",
+      title: "康普顿：石墨怎样把钼 K-α 的波长随散射角推开",
+    },
+    {
+      url: "/chemistry/milestones/raman-1928-scattering",
+      title: "拉曼一九二八年的散射：汞弧怎样把分子振动写成移位谱线",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--密立根油滴实验",
+      title: "密立根油滴：基本电荷怎样在悬浮的油雾里被一份一份称出来",
+    },
+    {
       url: "/universe-physics/knowledge-base/物理学--普朗克常数与量子化",
       title: "普朗克常数与量子化",
     },
     {
       url: "/cosmology/frontier/cosmic-reionization",
       title: '宇宙再电离与第一代恒星：JWST 正在逼近的"宇宙黎明"',
+    },
+  ],
+  "/universe-physics/knowledge-base/原子物理--密立根油滴实验": [
+    {
+      url: "/universe-physics/knowledge-base/粒子物理--anderson-1932-positron",
+      title: "安德森 1932：云室里那条反弯的轻径迹",
+    },
+    {
+      url: "/chemistry/milestones/faraday-electrolysis-laws",
+      title: "法拉第电解定律：电荷怎样在电极上被称成质量",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--franck-hertz-experiment",
+      title: "弗兰克–赫兹：汞蒸气里的电子怎样把能量一份一份交出去",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--光电效应与量子化光",
+      title: "光电效应与量子化光",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--compton-scattering-experiment",
+      title: "康普顿：石墨怎样把钼 K-α 的波长随散射角推开",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--rutherford-1911-gold-foil",
+      title: "卢瑟福 1911：金箔上的大角 α 怎样把正电荷挤进核",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--thomson-1897-cathode-ray",
+      title: "汤姆孙 1897：卡文迪许阴极射线怎样把 e/m 读成远大于电解离子",
+    },
+    {
+      url: "/chemistry/concepts/atomic-structure",
+      title: "原子结构",
+    },
+    {
+      url: "/human-history/knowledge/科学史--原子论演变",
+      title: "原子论演变",
     },
   ],
   "/universe-physics/knowledge-base/天体物理--恒星结构与演化": [
@@ -72584,6 +87502,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "李群与李代数",
     },
   ],
+  "/universe-physics/knowledge-base/应用物理--生物物理导论": [
+    {
+      url: "/chemistry/milestones/staudinger-1920-macromolecules",
+      title: "施陶丁格 1920：高分子怎样被写成共价长链",
+    },
+  ],
   "/universe-physics/knowledge-base/应用物理--电子学与放大器电路": [
     {
       url: "/universe-physics/knowledge-base/电磁学--电路分析与基尔霍夫定律",
@@ -72591,6 +87515,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/universe-physics/knowledge-base/核物理--binding-energy-mass-defect": [
+    {
+      url: "/universe-physics/knowledge-base/核物理--chadwick-1932-neutron",
+      title: "查德威克：石蜡反冲怎样把铍辐射判成质子质量的中性粒子，而不是硬γ",
+    },
     {
       url: "/universe-physics/knowledge-base/天体物理--超新星与重元素起源",
       title: "超新星与重元素起源",
@@ -72628,8 +87556,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "金属与合金",
     },
     {
+      url: "/universe-physics/knowledge-base/核物理--cockcroft-walton-1932",
+      title: "考克饶夫与瓦尔顿：加速质子打锂怎样放出氦核，并把动能与质量亏损对上账",
+    },
+    {
       url: "/universe-physics/knowledge-base/粒子物理--quarks-and-leptons",
       title: "夸克与轻子",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--rutherford-1919-nitrogen",
+      title: "卢瑟福 1919：天然 α 打氮怎样放出氢核，并把核组成第一次改写成实验室对象",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--meitner-frisch-1938-fission",
+      title: "迈特纳与弗里施：怎样把哈恩的钡读成重核液滴分裂，而不是超铀元素",
     },
     {
       url: "/universe-physics/knowledge-base/经典物理--能量守恒",
@@ -72644,6 +87584,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "太初核合成",
     },
     {
+      url: "/chemistry/milestones/urey-1931-deuterium",
+      title: "尤里一九三一年的氘：液氢残渣原子光谱里的质量二同位素",
+    },
+    {
       url: "/universe-physics/knowledge-base/物理学--质能等价",
       title: "质能等价 E=mc²",
     },
@@ -72654,6 +87598,106 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/恒星物理--main-sequence-stars",
       title: "主序星",
+    },
+  ],
+  "/universe-physics/knowledge-base/核物理--blackett-1925-nitrogen": [
+    {
+      url: "/universe-physics/knowledge-base/核物理--rutherford-1919-nitrogen",
+      title: "卢瑟福 1919：天然 α 打氮怎样放出氢核，并把核组成第一次改写成实验室对象",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--wilson-1911-cloud-chamber",
+      title: "威尔逊 1911：膨胀怎样把离子变成可见的凝结径迹",
+    },
+  ],
+  "/universe-physics/knowledge-base/核物理--chadwick-1932-neutron": [
+    {
+      url: "/universe-physics/knowledge-base/粒子物理--anderson-1932-positron",
+      title: "安德森 1932：云室里那条反弯的轻径迹",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--blackett-1925-nitrogen",
+      title: "布莱克特 1925：威尔逊云室怎样把氮上的质子分叉拍成径迹",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--binding-energy-mass-defect",
+      title: "结合能与质量亏损",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--cockcroft-walton-1932",
+      title: "考克饶夫与瓦尔顿：加速质子打锂怎样放出氦核，并把动能与质量亏损对上账",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--rutherford-1919-nitrogen",
+      title: "卢瑟福 1919：天然 α 打氮怎样放出氢核，并把核组成第一次改写成实验室对象",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--meitner-frisch-1938-fission",
+      title: "迈特纳与弗里施：怎样把哈恩的钡读成重核液滴分裂，而不是超铀元素",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--pauli-exclusion-principle",
+      title: "泡利不相容原理",
+    },
+    {
+      url: "/chemistry/milestones/urey-1931-deuterium",
+      title: "尤里一九三一年的氘：液氢残渣原子光谱里的质量二同位素",
+    },
+    {
+      url: "/universe-physics/knowledge-base/粒子物理--neutrino-physics",
+      title: "中微子物理",
+    },
+  ],
+  "/universe-physics/knowledge-base/核物理--cockcroft-walton-1932": [
+    {
+      url: "/universe-physics/knowledge-base/核物理--blackett-1925-nitrogen",
+      title: "布莱克特 1925：威尔逊云室怎样把氮上的质子分叉拍成径迹",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--chadwick-1932-neutron",
+      title: "查德威克：石蜡反冲怎样把铍辐射判成质子质量的中性粒子，而不是硬γ",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--binding-energy-mass-defect",
+      title: "结合能与质量亏损",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--rutherford-1919-nitrogen",
+      title: "卢瑟福 1919：天然 α 打氮怎样放出氢核，并把核组成第一次改写成实验室对象",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--meitner-frisch-1938-fission",
+      title: "迈特纳与弗里施：怎样把哈恩的钡读成重核液滴分裂，而不是超铀元素",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--wilson-1911-cloud-chamber",
+      title: "威尔逊 1911：膨胀怎样把离子变成可见的凝结径迹",
+    },
+  ],
+  "/universe-physics/knowledge-base/核物理--meitner-frisch-1938-fission": [
+    {
+      url: "/universe-physics/knowledge-base/粒子物理--anderson-1932-positron",
+      title: "安德森 1932：云室里那条反弯的轻径迹",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--chadwick-1932-neutron",
+      title: "查德威克：石蜡反冲怎样把铍辐射判成质子质量的中性粒子，而不是硬γ",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--nuclear-fission",
+      title: "核裂变",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--binding-energy-mass-defect",
+      title: "结合能与质量亏损",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--cockcroft-walton-1932",
+      title: "考克饶夫与瓦尔顿：加速质子打锂怎样放出氦核，并把动能与质量亏损对上账",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--rutherford-1919-nitrogen",
+      title: "卢瑟福 1919：天然 α 打氮怎样放出氢核，并把核组成第一次改写成实验室对象",
     },
   ],
   "/universe-physics/knowledge-base/核物理--neutron-capture-nucleosynthesis": [
@@ -72748,6 +87792,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "黎曼猜想",
     },
     {
+      url: "/universe-physics/knowledge-base/核物理--meitner-frisch-1938-fission",
+      title: "迈特纳与弗里施：怎样把哈恩的钡读成重核液滴分裂，而不是超铀元素",
+    },
+    {
       url: "/mathematics/concepts/number-theory",
       title: "数论",
     },
@@ -72761,6 +87809,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/universe-physics/knowledge-base/核物理--radioactive-decay": [
+    {
+      url: "/earth-science/event-analyses/cascadia-1700-orphan-tsunami",
+      title: "1700 年 1 月 26 日卡斯卡迪亚巨型逆冲：日本孤儿海啸、淹没森林与浊积岩怎样对上同一时刻",
+    },
     {
       url: "/earth-science/concepts/earth-interior",
       title: "地球内部结构",
@@ -72844,8 +87896,54 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/universe-physics/knowledge-base/核物理--radioactive-decay-chains": [
     {
+      url: "/chemistry/milestones/aston-1919-mass-spectrograph",
+      title: "阿斯顿 1919：质谱仪上氖的两条整数质量怎样把同位素写成实验室对象",
+    },
+    {
+      url: "/chemistry/milestones/soddy-1913-isotope",
+      title: "索迪 1913：放射链上化学无法分开的物种怎样被写成同位素",
+    },
+    {
       url: "/cosmology/knowledge-base/宇宙学观测--中微子探测器",
       title: "中微子探测器",
+    },
+  ],
+  "/universe-physics/knowledge-base/核物理--rutherford-1919-nitrogen": [
+    {
+      url: "/chemistry/milestones/aston-1919-mass-spectrograph",
+      title: "阿斯顿 1919：质谱仪上氖的两条整数质量怎样把同位素写成实验室对象",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--blackett-1925-nitrogen",
+      title: "布莱克特 1925：威尔逊云室怎样把氮上的质子分叉拍成径迹",
+    },
+    {
+      url: "/chemistry/milestones/bronsted-lowry-1923",
+      title: "布朗斯特–劳里 1923：酸给出质子、碱接住质子怎样被写成定义",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--binding-energy-mass-defect",
+      title: "结合能与质量亏损",
+    },
+    {
+      url: "/chemistry/milestones/curie-1898-polonium-radium",
+      title: "居里 1898：沥青铀矿里比铀更活的部分怎样被写成钋与镭",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--cockcroft-walton-1932",
+      title: "考克饶夫与瓦尔顿：加速质子打锂怎样放出氦核，并把动能与质量亏损对上账",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--rutherford-1911-gold-foil",
+      title: "卢瑟福 1911：金箔上的大角 α 怎样把正电荷挤进核",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--wilson-1911-cloud-chamber",
+      title: "威尔逊 1911：膨胀怎样把离子变成可见的凝结径迹",
+    },
+    {
+      url: "/chemistry/concepts/atomic-structure",
+      title: "原子结构",
     },
   ],
   "/universe-physics/knowledge-base/热力学--carnot-cycle-and-heat-engines": [
@@ -72964,6 +88062,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "声子与晶格振动",
     },
     {
+      url: "/chemistry/milestones/staudinger-1920-macromolecules",
+      title: "施陶丁格 1920：高分子怎样被写成共价长链",
+    },
+    {
       url: "/universe-physics/knowledge-base/热力学--statistical-mechanics-boltzmann",
       title: "统计力学与玻尔兹曼分布",
     },
@@ -73002,12 +88104,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "大脑：神经元、可塑性与意识之谜",
     },
     {
+      url: "/computer-science/pioneers/patterson-and-hennessy",
+      title: "大卫·帕特森与约翰·亨尼西",
+    },
+    {
       url: "/chemistry/reactions/electrolysis",
       title: "电解",
     },
     {
       url: "/universe-physics/knowledge-base/电磁学--电路分析与基尔霍夫定律",
       title: "电路分析与基尔霍夫定律",
+    },
+    {
+      url: "/computer-science/theory/circuit-complexity",
+      title: "电路复杂度",
     },
     {
       url: "/computer-science/systems/object-storage-s3",
@@ -73024,6 +88134,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/光学--激光原理与应用",
       title: "激光原理与应用",
+    },
+    {
+      url: "/computer-science/frontier/cluster-training-systems",
+      title: "集群训练系统：把模型铺到一千张卡上",
     },
     {
       url: "/computer-science/theory/physical-limits-of-computation",
@@ -73142,6 +88256,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: '碳捕集与转化：从空气里把二氧化碳"抓"回来，再让它有用',
     },
     {
+      url: "/computer-science/concepts/speculative-execution-and-side-channels",
+      title: "投机执行与侧信道",
+    },
+    {
       url: "/philosophy/questions/why-is-there-something",
       title: "为什么会有万物存在，而不是一无所有？",
     },
@@ -73176,6 +88294,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/热力学--自由能与化学势",
       title: "自由能与化学势",
+    },
+    {
+      url: "/computer-science/systems/firecracker-microvm",
+      title: "Firecracker：微型虚拟机",
     },
     {
       url: "/computer-science/systems/kafka-log-abstraction",
@@ -73366,8 +88488,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "催化作用",
     },
     {
+      url: "/computer-science/pioneers/patterson-and-hennessy",
+      title: "大卫·帕特森与约翰·亨尼西",
+    },
+    {
       url: "/life-science/knowledge-base/分子生物学--蛋白质折叠",
       title: "蛋白质折叠：从氨基酸序列到三维结构",
+    },
+    {
+      url: "/chemistry/milestones/debye-huckel-1923",
+      title: "德拜–休克尔 1923：离子氛怎样把强电解质的电导亏损改记成远程静电",
     },
     {
       url: "/philosophy/thinkers/democritus",
@@ -73394,12 +88524,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "霍夫曼编码",
     },
     {
+      url: "/computer-science/frontier/cluster-training-systems",
+      title: "集群训练系统：把模型铺到一千张卡上",
+    },
+    {
       url: "/chemistry/concepts/polymer-chemistry",
       title: "聚合物化学",
     },
     {
       url: "/computer-science/pioneers/claude-shannon",
       title: "克劳德·香农",
+    },
+    {
+      url: "/computer-science/frontier/diffusion-models",
+      title: "扩散模型：从噪声里长出分布",
     },
     {
       url: "/universe-physics/knowledge-base/量子物理--quantum-decoherence",
@@ -73466,6 +88604,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "时间哲学",
     },
     {
+      url: "/computer-science/pioneers/stephen-cook",
+      title: "斯蒂芬·库克",
+    },
+    {
       url: "/mathematics/theorems/prime-number-theorem",
       title: "素数定理",
     },
@@ -73504,6 +88646,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/algorithms/attention-and-transformers",
       title: "注意力机制与 Transformer",
+    },
+    {
+      url: "/computer-science/systems/hotspot-jvm",
+      title: "JVM：字节码、JIT 与垃圾回收",
+    },
+    {
+      url: "/computer-science/systems/tapestry-2001",
+      title: "Tapestry：邻接表、代理路由与就近副本，不是把对象搬到键上",
     },
   ],
   "/universe-physics/knowledge-base/热力学--制冷与热泵": [
@@ -73724,6 +88874,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "宜居带",
     },
     {
+      url: "/engineering/frontiers/silver-bridge-1967",
+      title: "银桥：销孔里那条看不见的裂纹，把北链写断",
+    },
+    {
       url: "/cosmology/knowledge-base/cosmic-inflation",
       title: "宇宙暴胀",
     },
@@ -73848,6 +89002,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "红移巡天与宇宙三维制图",
     },
     {
+      url: "/universe-physics/knowledge-base/相对论--pound-rebka-1959",
+      title: "庞德–雷布卡 1959：液压多普勒怎样把 22.5 米写成引力频移",
+    },
+    {
       url: "/universe-physics/knowledge-base/经典物理--声学与多普勒效应",
       title: "声学与多普勒效应",
     },
@@ -73862,6 +89020,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/多信使天文学--binary-neutron-star-merger-kilonova",
       title: "双中子星并合与千新星",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--slipher-1912-nebular-redshifts",
+      title: "斯莱弗 1912：洛威尔 24 英寸镜上的星云视向速度",
     },
     {
       url: "/cosmology/knowledge-base/恒星物理--wolf-rayet-stars",
@@ -73888,6 +89050,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/theorems/noethers-theorem",
       title: "诺特定理",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--slipher-1912-nebular-redshifts",
+      title: "斯莱弗 1912：洛威尔 24 英寸镜上的星云视向速度",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--稳恒态宇宙",
@@ -73988,6 +89154,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/凝聚态物理--topological-insulators",
       title: "拓扑绝缘体",
+    },
+    {
+      url: "/universe-physics/knowledge-base/粒子物理--wu-1956-parity",
+      title: "吴健雄 1956：极化钴-60 怎样把β半球不对称写成宇称不守恒",
     },
     {
       url: "/universe-physics/knowledge-base/粒子物理--higgs-mechanism",
@@ -74208,6 +89378,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/universe-physics/knowledge-base/物理学--相对论性动量与能量": [
     {
+      url: "/universe-physics/knowledge-base/粒子物理--anderson-1932-positron",
+      title: "安德森 1932：云室里那条反弯的轻径迹",
+    },
+    {
       url: "/universe-physics/knowledge-base/物理学--洛伦兹变换",
       title: "洛伦兹变换",
     },
@@ -74224,6 +89398,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/电磁学--安培定律与磁场",
       title: "安培定律与磁场",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--cockcroft-walton-1932",
+      title: "考克饶夫与瓦尔顿：加速质子打锂怎样放出氦核，并把动能与质量亏损对上账",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--rutherford-1919-nitrogen",
+      title: "卢瑟福 1919：天然 α 打氮怎样放出氢核，并把核组成第一次改写成实验室对象",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--密立根油滴实验",
+      title: "密立根油滴：基本电荷怎样在悬浮的油雾里被一份一份称出来",
     },
   ],
   "/universe-physics/knowledge-base/物理学--质能等价": [
@@ -74242,6 +89428,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/天体物理--恒星结构与演化",
       title: "恒星结构与演化",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--cockcroft-walton-1932",
+      title: "考克饶夫与瓦尔顿：加速质子打锂怎样放出氦核，并把动能与质量亏损对上账",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--meitner-frisch-1938-fission",
+      title: "迈特纳与弗里施：怎样把哈恩的钡读成重核液滴分裂，而不是超铀元素",
     },
     {
       url: "/universe-physics/knowledge-base/经典物理--能量守恒",
@@ -74374,6 +89568,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/universe-physics/knowledge-base/电磁学--coulomb-law-electrostatics": [
     {
+      url: "/chemistry/milestones/debye-huckel-1923",
+      title: "德拜–休克尔 1923：离子氛怎样把强电解质的电导亏损改记成远程静电",
+    },
+    {
       url: "/universe-physics/knowledge-base/电磁学--dielectrics-and-polarization",
       title: "电介质与电极化",
     },
@@ -74388,6 +89586,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/engineering/foundations/electricity-and-motors",
       title: "电与电动机：从琥珀静电到驱动世界的旋转磁场",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--rutherford-1911-gold-foil",
+      title: "卢瑟福 1911：金箔上的大角 α 怎样把正电荷挤进核",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--meitner-frisch-1938-fission",
+      title: "迈特纳与弗里施：怎样把哈恩的钡读成重核液滴分裂，而不是超铀元素",
     },
   ],
   "/universe-physics/knowledge-base/电磁学--dielectrics-and-polarization": [
@@ -74412,6 +89618,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/致密天体--magnetar-flares",
       title: "磁星耀发",
+    },
+    {
+      url: "/chemistry/milestones/debye-huckel-1923",
+      title: "德拜–休克尔 1923：离子氛怎样把强电解质的电导亏损改记成远程静电",
     },
     {
       url: "/universe-physics/knowledge-base/电磁学--电磁波的产生与传播",
@@ -74484,6 +89694,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "激光原理与应用",
     },
     {
+      url: "/universe-physics/knowledge-base/原子物理--compton-scattering-experiment",
+      title: "康普顿：石墨怎样把钼 K-α 的波长随散射角推开",
+    },
+    {
       url: "/universe-physics/knowledge-base/电磁学--麦克斯韦方程组",
       title: "麦克斯韦方程组",
     },
@@ -74510,6 +89724,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "电磁波谱",
     },
     {
+      url: "/cosmology/knowledge-base/宇宙学观测--霍尔姆德尔喇叭天线",
+      title: "霍尔姆德尔喇叭：消不掉的 3.5 K 怎样被写成天线温度",
+    },
+    {
       url: "/cosmology/knowledge-base/快速射电暴",
       title: "快速射电暴",
     },
@@ -74518,6 +89736,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/电磁学--法拉第与电磁感应",
       title: "法拉第与电磁感应",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--zeeman-1896",
+      title: "塞曼 1896：莱顿磁铁里钠 D 线怎样先展宽后劈裂",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--thomson-1897-cathode-ray",
+      title: "汤姆孙 1897：卡文迪许阴极射线怎样把 e/m 读成远大于电解离子",
     },
     {
       url: "/cosmology/knowledge-base/多信使天文学--cosmic-rays",
@@ -74586,6 +89812,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "热木星",
     },
     {
+      url: "/universe-physics/knowledge-base/原子物理--zeeman-1896",
+      title: "塞曼 1896：莱顿磁铁里钠 D 线怎样先展宽后劈裂",
+    },
+    {
       url: "/cosmology/knowledge-base/太阳系--solar-structure-activity",
       title: "太阳的结构与活动",
     },
@@ -74646,6 +89876,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "波动与振动",
     },
     {
+      url: "/philosophy/experiments/inverted-spectrum",
+      title: "倒置光谱：行为与功能同一下的颜色经验对调",
+    },
+    {
       url: "/psychology/phenomena/perception-physiology",
       title: "感觉与知觉的生理基础",
     },
@@ -74672,6 +89906,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/物理学--普朗克常数与量子化",
       title: "普朗克常数与量子化",
+    },
+    {
+      url: "/philosophy/experiments/hume-missing-shade",
+      title: "缺失的蓝色：休谟承认的复制原则例外",
     },
     {
       url: "/universe-physics/knowledge-base/电磁学--天线与电磁辐射",
@@ -74816,6 +90054,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "以太的兴衰",
     },
   ],
+  "/universe-physics/knowledge-base/相对论--pound-rebka-1959": [
+    {
+      url: "/universe-physics/knowledge-base/相对论--等效原理",
+      title: "等效原理",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--广义相对论",
+      title: "广义相对论",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--广义相对论的实验检验",
+      title: "广义相对论的实验检验",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--引力红移与引力时间膨胀",
+      title: "引力红移与引力时间膨胀",
+    },
+  ],
   "/universe-physics/knowledge-base/相对论--克尔转动黑洞": [
     {
       url: "/universe-physics/knowledge-base/相对论--史瓦西黑洞",
@@ -74859,6 +90115,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/universe-physics/knowledge-base/相对论--广义相对论": [
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--eddington-1919-eclipse",
+      title: "1919 日食底片：0.87″ 与 1.75″ 怎样被量到星点上",
+    },
     {
       url: "/human-history/knowledge/人物--爱因斯坦",
       title: "爱因斯坦",
@@ -74924,6 +90184,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "诺特定理",
     },
     {
+      url: "/universe-physics/knowledge-base/相对论--pound-rebka-1959",
+      title: "庞德–雷布卡 1959：液压多普勒怎样把 22.5 米写成引力频移",
+    },
+    {
       url: "/cosmology/knowledge-base/宇宙学观测--弱引力透镜与宇宙剪切",
       title: "弱引力透镜与宇宙剪切",
     },
@@ -74982,6 +90246,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/universe-physics/knowledge-base/相对论--广义相对论的实验检验": [
     {
+      url: "/cosmology/knowledge-base/宇宙学观测--eddington-1919-eclipse",
+      title: "1919 日食底片：0.87″ 与 1.75″ 怎样被量到星点上",
+    },
+    {
       url: "/universe-physics/knowledge-base/相对论--等效原理",
       title: "等效原理",
     },
@@ -74992,6 +90260,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/相对论--克尔转动黑洞",
       title: "克尔转动黑洞",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--pound-rebka-1959",
+      title: "庞德–雷布卡 1959：液压多普勒怎样把 22.5 米写成引力频移",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学观测--甚长基线干涉",
@@ -75110,6 +90382,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "能量守恒",
     },
     {
+      url: "/universe-physics/knowledge-base/相对论--pound-rebka-1959",
+      title: "庞德–雷布卡 1959：液压多普勒怎样把 22.5 米写成引力频移",
+    },
+    {
       url: "/universe-physics/knowledge-base/相对论--史瓦西黑洞",
       title: "史瓦西黑洞",
     },
@@ -75212,6 +90488,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "活动星系核与类星体",
     },
     {
+      url: "/universe-physics/knowledge-base/经典物理--michelson-morley-1887",
+      title: "迈克尔逊–莫雷 1887：水银石板干涉仪怎样把预期 0.4 条纹写成近零",
+    },
+    {
       url: "/universe-physics/knowledge-base/电磁学--麦克斯韦方程组",
       title: "麦克斯韦方程组",
     },
@@ -75247,6 +90527,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/universe-physics/knowledge-base/物理学--质能等价",
       title: "质能等价 E=mc²",
     },
+    {
+      url: "/computer-science/theory/chandy-lamport-1985-snapshots",
+      title: "Chandy–Lamport 1985：标记消息怎样把全局状态收成一致割",
+    },
+    {
+      url: "/computer-science/theory/fidge-mattern-vector-clocks",
+      title: "Fidge–Mattern：分量时间戳怎样把并发从标量编号里认出来",
+    },
+    {
+      url: "/computer-science/theory/lamport-1978-clocks",
+      title: "Lamport 1978：先于关系怎样把分布式事件收成不靠墙钟的偏序",
+    },
   ],
   "/universe-physics/knowledge-base/相对论--相对论性动力学与四维力": [
     {
@@ -75270,6 +90562,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/black-holes",
       title: "黑洞",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--pound-rebka-1959",
+      title: "庞德–雷布卡 1959：液压多普勒怎样把 22.5 米写成引力频移",
     },
     {
       url: "/universe-physics/knowledge-base/相对论--双生子佯谬",
@@ -75348,7 +90644,37 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "宇宙的最终命运",
     },
   ],
+  "/universe-physics/knowledge-base/粒子物理--anderson-1932-positron": [
+    {
+      url: "/universe-physics/knowledge-base/核物理--blackett-1925-nitrogen",
+      title: "布莱克特 1925：威尔逊云室怎样把氮上的质子分叉拍成径迹",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--chadwick-1932-neutron",
+      title: "查德威克：石蜡反冲怎样把铍辐射判成质子质量的中性粒子，而不是硬γ",
+    },
+    {
+      url: "/universe-physics/knowledge-base/粒子物理--antimatter",
+      title: "反物质",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--meitner-frisch-1938-fission",
+      title: "迈特纳与弗里施：怎样把哈恩的钡读成重核液滴分裂，而不是超铀元素",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--wilson-1911-cloud-chamber",
+      title: "威尔逊 1911：膨胀怎样把离子变成可见的凝结径迹",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--相对论性动量与能量",
+      title: "相对论性动量与能量",
+    },
+  ],
   "/universe-physics/knowledge-base/粒子物理--antimatter": [
+    {
+      url: "/universe-physics/knowledge-base/粒子物理--anderson-1932-positron",
+      title: "安德森 1932：云室里那条反弯的轻径迹",
+    },
     {
       url: "/cosmology/knowledge-base/第一代恒星与宇宙黎明",
       title: "第一代恒星与宇宙黎明",
@@ -75382,6 +90708,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/chirality",
       title: "手性与对映异构",
+    },
+    {
+      url: "/universe-physics/knowledge-base/粒子物理--wu-1956-parity",
+      title: "吴健雄 1956：极化钴-60 怎样把β半球不对称写成宇称不守恒",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--物质反物质不对称与重子生成",
@@ -75452,6 +90782,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学前沿--dark-matter-indirect-detection",
       title: "暗物质间接探测",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--chadwick-1932-neutron",
+      title: "查德威克：石蜡反冲怎样把铍辐射判成质子质量的中性粒子，而不是硬γ",
     },
     {
       url: "/universe-physics/knowledge-base/天体物理--超新星与重元素起源",
@@ -75658,6 +90992,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: 'μ子反常磁矩：标准模型的"自我修复"',
     },
   ],
+  "/universe-physics/knowledge-base/粒子物理--wu-1956-parity": [
+    {
+      url: "/universe-physics/knowledge-base/粒子物理--anderson-1932-positron",
+      title: "安德森 1932：云室里那条反弯的轻径迹",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--对称性与诺特定理",
+      title: "对称性与诺特定理",
+    },
+    {
+      url: "/universe-physics/knowledge-base/粒子物理--cp-violation-matter-antimatter",
+      title: "CP破坏与物质反物质不对称",
+    },
+  ],
   "/universe-physics/knowledge-base/经典物理--chaos-three-body-problem": [
     {
       url: "/cosmology/knowledge-base/致密天体--supermassive-black-holes",
@@ -75804,6 +91152,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "数据结构",
     },
   ],
+  "/universe-physics/knowledge-base/经典物理--michelson-morley-1887": [
+    {
+      url: "/universe-physics/knowledge-base/光学--interference-and-diffraction",
+      title: "光的干涉与衍射",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--狭义相对论",
+      title: "狭义相对论",
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--以太的兴衰",
+      title: "以太的兴衰",
+    },
+  ],
   "/universe-physics/knowledge-base/经典物理--momentum-conservation-collisions": [
     {
       url: "/cosmology/knowledge-base/宇宙学前沿--dark-matter-direct-detection",
@@ -75847,8 +91209,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/mathematics/knowledge-base/代数--线性代数的几何意义",
       title: "线性代数的几何意义",
     },
+    {
+      url: "/psychology/experiments/shepard-metzler-1971",
+      title: "谢泼德与梅茨勒 1971：三维线描的心理旋转怎样把“同一物体”写成与角差成正比的反应时",
+    },
   ],
   "/universe-physics/knowledge-base/经典物理--simple-harmonic-motion": [
+    {
+      url: "/earth-science/event-analyses/mexico-city-1985-site-effect",
+      title: "1985 年墨西哥城场地效应：古湖床软泥、卓越周期与加速度记录怎样把远场放大钉成证据",
+    },
     {
       url: "/mathematics/mathematicians/abel",
       title: "阿贝尔",
@@ -75858,11 +91228,27 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "波动与声学",
     },
     {
+      url: "/engineering/frontiers/millennium-bridge-2000",
+      title: "伦敦千年桥：开通当日的行人侧向锁定",
+    },
+    {
       url: "/mathematics/theorems/taylor-theorem",
       title: "泰勒定理",
     },
   ],
   "/universe-physics/knowledge-base/经典物理--waves-and-acoustics": [
+    {
+      url: "/earth-science/event-analyses/cascadia-1700-orphan-tsunami",
+      title: "1700 年 1 月 26 日卡斯卡迪亚巨型逆冲：日本孤儿海啸、淹没森林与浊积岩怎样对上同一时刻",
+    },
+    {
+      url: "/earth-science/event-analyses/mexico-city-1985-site-effect",
+      title: "1985 年墨西哥城场地效应：古湖床软泥、卓越周期与加速度记录怎样把远场放大钉成证据",
+    },
+    {
+      url: "/earth-science/event-analyses/loma-prieta-1989-cypress",
+      title: "1989 年洛马普里埃塔：柏树街高架桥倒塌与滨海区填土怎样把近场走滑钉成场地与结构证据",
+    },
     {
       url: "/cosmology/knowledge-base/宇宙学前沿--标准汽笛与引力波宇宙学",
       title: "标准汽笛与引力波宇宙学",
@@ -75874,6 +91260,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/technologies/ultrasound",
       title: "超声成像",
+    },
+    {
+      url: "/psychology/experiments/cherry-1953",
+      title: "彻里 1953：双耳分听怎样把未追随耳从整句里拆成几乎什么也报不出",
     },
     {
       url: "/earth-science/concepts/earth-interior",
@@ -75962,6 +91352,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "库仑定律与静电场",
     },
     {
+      url: "/universe-physics/knowledge-base/原子物理--rutherford-1911-gold-foil",
+      title: "卢瑟福 1911：金箔上的大角 α 怎样把正电荷挤进核",
+    },
+    {
       url: "/universe-physics/knowledge-base/经典物理--牛顿三大定律",
       title: "牛顿三大定律",
     },
@@ -76018,6 +91412,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "电磁波的产生与传播",
     },
     {
+      url: "/universe-physics/knowledge-base/经典物理--michelson-morley-1887",
+      title: "迈克尔逊–莫雷 1887：水银石板干涉仪怎样把预期 0.4 条纹写成近零",
+    },
+    {
       url: "/universe-physics/knowledge-base/电磁学--天线与电磁辐射",
       title: "天线与电磁辐射",
     },
@@ -76026,6 +91424,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/technologies/ultrasound",
       title: "超声成像",
+    },
+    {
+      url: "/philosophy/experiments/nagel-bat",
+      title: "内格尔的蝙蝠：成为某物是什么样子",
     },
   ],
   "/universe-physics/knowledge-base/经典物理--弹性与材料力学": [
@@ -76054,8 +91456,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "肌肉骨骼系统",
     },
     {
+      url: "/universe-physics/knowledge-base/经典物理--michelson-morley-1887",
+      title: "迈克尔逊–莫雷 1887：水银石板干涉仪怎样把预期 0.4 条纹写成近零",
+    },
+    {
       url: "/universe-physics/knowledge-base/经典物理--摩擦与耗散",
       title: "摩擦与耗散",
+    },
+    {
+      url: "/engineering/frontiers/tay-bridge-1879",
+      title: "泰桥：风压没写进设计的铸铁斜撑",
+    },
+    {
+      url: "/engineering/frontiers/silver-bridge-1967",
+      title: "银桥：销孔里那条看不见的裂纹，把北链写断",
+    },
+    {
+      url: "/engineering/frontiers/i35w-minneapolis-2007",
+      title: "I-35W 明尼阿波利斯：半英寸加劲板，把主桁架写成河",
     },
   ],
   "/universe-physics/knowledge-base/经典物理--振动与简正模式": [
@@ -76315,6 +91733,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/medicine/concepts/respiratory-system",
       title: "呼吸系统",
     },
+    {
+      url: "/universe-physics/knowledge-base/核物理--meitner-frisch-1938-fission",
+      title: "迈特纳与弗里施：怎样把哈恩的钡读成重核液滴分裂，而不是超铀元素",
+    },
   ],
   "/universe-physics/knowledge-base/经典物理--角动量与守恒律": [
     {
@@ -76348,6 +91770,100 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/经典物理--万有引力与开普勒定律",
       title: "万有引力与开普勒定律",
+    },
+    {
+      url: "/universe-physics/knowledge-base/粒子物理--wu-1956-parity",
+      title: "吴健雄 1956：极化钴-60 怎样把β半球不对称写成宇称不守恒",
+    },
+  ],
+  "/universe-physics/knowledge-base/量子物理--born-1926-probability": [
+    {
+      url: "/chemistry/milestones/eyring-1935-absolute-rate",
+      title: "艾林 1935：活化络合物怎样把反应速率写成越过鞍点的统计频率",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--wave-function-probability",
+      title: "波函数与概率诠释",
+    },
+    {
+      url: "/chemistry/milestones/born-oppenheimer-1927",
+      title: "玻恩–奥本海默 1927：分子怎样把核的慢运动从电子的快运动里拆开",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--bohr-atom-model",
+      title: "玻尔原子模型",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--franck-hertz-experiment",
+      title: "弗兰克–赫兹：汞蒸气里的电子怎样把能量一份一份交出去",
+    },
+    {
+      url: "/chemistry/milestones/fukui-1952-frontier-orbitals",
+      title: "福井 1952：前线电子密度怎样把芳香烃的反应位置写成轨道指标",
+    },
+    {
+      url: "/chemistry/milestones/heitler-london-1927",
+      title: "海特勒–伦敦 1927：交换怎样把氢分子写成同极键",
+    },
+    {
+      url: "/chemistry/milestones/langmuir-1919-octet",
+      title: "朗缪尔 1919：电子怎样被排进立方原子与八隅体",
+    },
+    {
+      url: "/chemistry/milestones/roothaan-1951-lcao-scf",
+      title: "罗特汉 1951：LCAO-SCF 怎样把哈特里–福克写成矩阵本征值问题",
+    },
+    {
+      url: "/chemistry/milestones/mulliken-1932-molecular-orbitals",
+      title: "马利肯 1932：分子轨道怎样把多原子分子的价写成遍布全分子的单电子函数",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--hydrogen-atom-quantum-theory",
+      title: "氢原子的量子理论",
+    },
+    {
+      url: "/chemistry/milestones/huckel-1931-benzene-mo",
+      title: "休克尔 1931：苯问题的量子贡献怎样把六只 π 电子写成分子轨道",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--schrodinger-equation",
+      title: "薛定谔方程",
+    },
+    {
+      url: "/chemistry/milestones/evans-polanyi-1935",
+      title: "Evans–Polanyi 1935：过渡态方法怎样被用来写溶液里的反应速率",
+    },
+    {
+      url: "/chemistry/milestones/woodward-hoffmann-1965",
+      title: "Woodward–Hoffmann 1965：电环化的立体化学怎样被写成 HOMO 的对称性",
+    },
+  ],
+  "/universe-physics/knowledge-base/量子物理--davisson-germer-experiment": [
+    {
+      url: "/universe-physics/knowledge-base/量子物理--波粒二象性",
+      title: "波粒二象性",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--compton-scattering-experiment",
+      title: "康普顿：石墨怎样把钼 K-α 的波长随散射角推开",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--gp-thomson-electron-diffraction",
+      title: "汤姆孙–里德：多晶薄箔怎样把快电子折成底片上随电压收缩的德拜环",
+    },
+  ],
+  "/universe-physics/knowledge-base/量子物理--gp-thomson-electron-diffraction": [
+    {
+      url: "/universe-physics/knowledge-base/量子物理--波粒二象性",
+      title: "波粒二象性",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--davisson-germer-experiment",
+      title: "戴维森–革末：镍单晶怎样把慢电子折成随电压走动的角向峰",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--thomson-1897-cathode-ray",
+      title: "汤姆孙 1897：卡文迪许阴极射线怎样把 e/m 读成远大于电解离子",
     },
   ],
   "/universe-physics/knowledge-base/量子物理--identical-particles-statistics": [
@@ -76398,8 +91914,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "白矮星",
     },
     {
+      url: "/chemistry/milestones/pauling-1931-chemical-bond",
+      title: "鲍林 1931：杂化、共振与顺磁判据怎样把化学键写成化学家的语言",
+    },
+    {
       url: "/universe-physics/knowledge-base/原子物理--bohr-atom-model",
       title: "玻尔原子模型",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--chadwick-1932-neutron",
+      title: "查德威克：石蜡反冲怎样把铍辐射判成质子质量的中性粒子，而不是硬γ",
     },
     {
       url: "/universe-physics/knowledge-base/原子物理--electron-orbitals-quantum-numbers",
@@ -76408,6 +91932,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/凝聚态物理--fermi-liquid-theory",
       title: "费米液体理论",
+    },
+    {
+      url: "/chemistry/milestones/fukui-1952-frontier-orbitals",
+      title: "福井 1952：前线电子密度怎样把芳香烃的反应位置写成轨道指标",
+    },
+    {
+      url: "/chemistry/milestones/heitler-london-1927",
+      title: "海特勒–伦敦 1927：交换怎样把氢分子写成同极键",
     },
     {
       url: "/universe-physics/knowledge-base/核物理--nuclear-shell-liquid-drop-models",
@@ -76430,6 +91962,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "红巨星与渐近巨星支",
     },
     {
+      url: "/chemistry/milestones/langmuir-1919-octet",
+      title: "朗缪尔 1919：电子怎样被排进立方原子与八隅体",
+    },
+    {
       url: "/universe-physics/knowledge-base/量子物理--quantum-harmonic-oscillator",
       title: "量子谐振子",
     },
@@ -76438,8 +91974,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "量子自旋",
     },
     {
+      url: "/chemistry/milestones/lewis-1916-shared-pair",
+      title: "路易斯 1916：共享电子对怎样被写成化学键",
+    },
+    {
+      url: "/chemistry/milestones/roothaan-1951-lcao-scf",
+      title: "罗特汉 1951：LCAO-SCF 怎样把哈特里–福克写成矩阵本征值问题",
+    },
+    {
+      url: "/chemistry/milestones/mulliken-1932-molecular-orbitals",
+      title: "马利肯 1932：分子轨道怎样把多原子分子的价写成遍布全分子的单电子函数",
+    },
+    {
       url: "/universe-physics/knowledge-base/量子物理--identical-particles-statistics",
       title: "全同粒子与量子统计",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--stern-gerlach-experiment",
+      title: "施特恩–格拉赫：银原子束怎样在不均匀磁场里裂成两条斑",
+    },
+    {
+      url: "/chemistry/milestones/huckel-1931-benzene-mo",
+      title: "休克尔 1931：苯问题的量子贡献怎样把六只 π 电子写成分子轨道",
     },
     {
       url: "/chemistry/concepts/periodic-table",
@@ -76452,6 +92008,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/天体物理--致密星——白矮星与中子星",
       title: "致密星——白矮星与中子星",
+    },
+    {
+      url: "/chemistry/milestones/woodward-hoffmann-1965",
+      title: "Woodward–Hoffmann 1965：电环化的立体化学怎样被写成 HOMO 的对称性",
     },
   ],
   "/universe-physics/knowledge-base/量子物理--quantum-decoherence": [
@@ -76504,6 +92064,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学基础--暴胀模型比较",
       title: "暴胀模型比较",
+    },
+    {
+      url: "/chemistry/milestones/born-oppenheimer-1927",
+      title: "玻恩–奥本海默 1927：分子怎样把核的慢运动从电子的快运动里拆开",
     },
     {
       url: "/universe-physics/knowledge-base/经典物理--simple-harmonic-motion",
@@ -76602,6 +92166,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "全同粒子与量子统计",
     },
     {
+      url: "/universe-physics/knowledge-base/量子物理--stern-gerlach-experiment",
+      title: "施特恩–格拉赫：银原子束怎样在不均匀磁场里裂成两条斑",
+    },
+    {
+      url: "/universe-physics/knowledge-base/粒子物理--wu-1956-parity",
+      title: "吴健雄 1956：极化钴-60 怎样把β半球不对称写成宇称不守恒",
+    },
+    {
       url: "/cosmology/knowledge-base/星际介质--星际介质与分子云",
       title: "星际介质与分子云",
     },
@@ -76624,6 +92196,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "波函数与概率诠释",
     },
     {
+      url: "/universe-physics/knowledge-base/量子物理--born-1926-probability",
+      title: "玻恩 1926：碰撞里的波函数怎样被读成概率",
+    },
+    {
+      url: "/chemistry/milestones/born-oppenheimer-1927",
+      title: "玻恩–奥本海默 1927：分子怎样把核的慢运动从电子的快运动里拆开",
+    },
+    {
+      url: "/chemistry/milestones/heitler-london-1927",
+      title: "海特勒–伦敦 1927：交换怎样把氢分子写成同极键",
+    },
+    {
       url: "/chemistry/concepts/chemical-bond",
       title: "化学键",
     },
@@ -76640,6 +92224,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "量子谐振子",
     },
     {
+      url: "/chemistry/milestones/mulliken-1932-molecular-orbitals",
+      title: "马利肯 1932：分子轨道怎样把多原子分子的价写成遍布全分子的单电子函数",
+    },
+    {
       url: "/universe-physics/knowledge-base/原子物理--hydrogen-atom-quantum-theory",
       title: "氢原子的量子理论",
     },
@@ -76652,7 +92240,25 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "原子结构",
     },
   ],
+  "/universe-physics/knowledge-base/量子物理--stern-gerlach-experiment": [
+    {
+      url: "/universe-physics/knowledge-base/量子物理--davisson-germer-experiment",
+      title: "戴维森–革末：镍单晶怎样把慢电子折成随电压走动的角向峰",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--quantum-spin",
+      title: "量子自旋",
+    },
+    {
+      url: "/universe-physics/knowledge-base/原子物理--zeeman-1896",
+      title: "塞曼 1896：莱顿磁铁里钠 D 线怎样先展宽后劈裂",
+    },
+  ],
   "/universe-physics/knowledge-base/量子物理--wave-function-probability": [
+    {
+      url: "/universe-physics/knowledge-base/量子物理--born-1926-probability",
+      title: "玻恩 1926：碰撞里的波函数怎样被读成概率",
+    },
     {
       url: "/mathematics/concepts/probability",
       title: "概率论",
@@ -76686,6 +92292,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/量子物理--波粒二象性",
       title: "波粒二象性",
+    },
+    {
+      url: "/philosophy/experiments/fitch-1963-knowability",
+      title: "菲奇可知性悖论",
     },
     {
       url: "/universe-physics/knowledge-base/凝聚态物理--fermi-liquid-theory",
@@ -76748,6 +92358,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "不确定性原理",
     },
     {
+      url: "/universe-physics/knowledge-base/量子物理--davisson-germer-experiment",
+      title: "戴维森–革末：镍单晶怎样把慢电子折成随电压走动的角向峰",
+    },
+    {
       url: "/universe-physics/knowledge-base/电磁学--光的本质",
       title: "光的本质",
     },
@@ -76756,12 +92370,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "光电效应与量子化光",
     },
     {
+      url: "/universe-physics/knowledge-base/原子物理--compton-scattering-experiment",
+      title: "康普顿：石墨怎样把钼 K-α 的波长随散射角推开",
+    },
+    {
+      url: "/chemistry/milestones/raman-1928-scattering",
+      title: "拉曼一九二八年的散射：汞弧怎样把分子振动写成移位谱线",
+    },
+    {
       url: "/universe-physics/knowledge-base/粒子物理--particle-accelerators",
       title: "粒子加速器与对撞机",
     },
     {
+      url: "/universe-physics/knowledge-base/量子物理--stern-gerlach-experiment",
+      title: "施特恩–格拉赫：银原子束怎样在不均匀磁场里裂成两条斑",
+    },
+    {
       url: "/cosmology/knowledge-base/宇宙学观测--苏尼亚耶夫-泽尔多维奇效应",
       title: "苏尼亚耶夫-泽尔多维奇效应",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--gp-thomson-electron-diffraction",
+      title: "汤姆孙–里德：多晶薄箔怎样把快电子折成底片上随电压收缩的德拜环",
     },
   ],
   "/universe-physics/knowledge-base/量子物理--量子纠缠": [
@@ -76834,6 +92464,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/应用物理--晶体管与半导体器件",
       title: "晶体管与半导体器件",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--cockcroft-walton-1932",
+      title: "考克饶夫与瓦尔顿：加速质子打锂怎样放出氦核，并把动能与质量亏损对上账",
     },
   ],
 };

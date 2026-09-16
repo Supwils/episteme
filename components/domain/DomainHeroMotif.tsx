@@ -226,6 +226,20 @@ function AnthropologyMotif({ color }: MotifProps) {
   );
 }
 
+function EducationMotif({ color }: MotifProps) {
+  return (
+    <g {...shared} stroke={color}>
+      <rect x="36" y="28" width="88" height="64" opacity={0.85} />
+      <path d="M48 44 H108 M48 56 H100 M48 68 H92" opacity={0.45} />
+      <rect x="136" y="40" width="28" height="52" opacity={0.55} />
+      <path d="M143 52 H157 M143 64 H157 M143 76 H151" opacity={0.4} />
+      <circle cx="78" cy="108" r="4" opacity={0.7} />
+      <circle cx="104" cy="108" r="4" opacity={0.55} />
+      <circle cx="130" cy="108" r="4" opacity={0.4} />
+    </g>
+  );
+}
+
 function LiteratureMotif({ color }: MotifProps) {
   return (
     <g {...shared} stroke={color}>
@@ -269,6 +283,7 @@ const MOTIFS: Record<string, (props: MotifProps) => React.ReactNode> = {
   literature: LiteratureMotif,
   religion: ReligionMotif,
   anthropology: AnthropologyMotif,
+  education: EducationMotif,
   engineering: EngineeringMotif,
 };
 
