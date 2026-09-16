@@ -74,6 +74,13 @@ const nextConfig: NextConfig = {
       "./public/search-index.json",
     ],
   },
+  // The phrase-corpus fallback walks process.cwd(), so NFT also packs content/
+  // and source images. Production only reads generated/corpus.*; the extra ~210 MB
+  // trips Vercel's 250 MB uncompressed function limit.
+  outputFileTracingExcludes: {
+    "/api/search": ["./content/**/*", "./content-assets/**/*", "./public/**/*", "./reference/**/*"],
+    "/search": ["./content/**/*", "./content-assets/**/*", "./reference/**/*"],
+  },
   experimental: {
     optimizePackageImports: ["three", "@react-three/drei", "framer-motion", "gsap", "katex"],
   },
