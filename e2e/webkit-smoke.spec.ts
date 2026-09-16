@@ -32,7 +32,7 @@ test.describe("WebKit / Safari smoke", () => {
     const response = await page.goto("/education/spacing-lab");
     expect(response?.status()).toBe(200);
     await page.getByRole("button", { name: "间隔练习", exact: true }).click();
-    await expect(page.getByText(/不是背词器/)).toBeVisible();
+    await expect(page.getByText(/示意对照时间表，不是背词器/)).toBeVisible();
   });
 
   test("education reading-path invite enters the sequence", async ({ page }) => {

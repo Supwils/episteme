@@ -172,7 +172,7 @@ test.describe("production smoke", () => {
     await page.getByRole("link", { name: /打开实验室/ }).click();
     await expect(page).toHaveURL(/\/education\/spacing-lab$/);
     await page.getByRole("button", { name: "间隔练习", exact: true }).click();
-    await expect(page.getByText(/不是背词器/)).toBeVisible();
+    await expect(page.getByText(/示意对照时间表，不是背词器/)).toBeVisible();
   });
 
   test("education reading-path invite enters the sequence", async ({ page }) => {
