@@ -479,7 +479,41 @@
   color: var(--color-fg-muted);
 }
 
+/* Margin notes. Only the shared article surface has a left margin wide enough
+   (40rem column + 20rem sidebar, centred), and only from 96rem up; below that,
+   and everywhere else, the end-of-article list is the only copy. Floating with
+   clear stacks consecutive notes instead of overlapping them. */
+.md-sidenote {
+  display: none;
+}
+
+@media (min-width: 96rem) {
+  .article-reading-surface .md-sidenote {
+    display: block;
+    float: left;
+    clear: left;
+    width: 10.5rem;
+    margin-left: -12rem;
+    margin-top: 0.25rem;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    text-align: left;
+    text-indent: 0;
+    color: var(--color-fg-muted);
+  }
+}
+
+.md-sidenote__id {
+  margin-right: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--brass-ink);
+}
+
 .md-footnotes__back {
   margin-left: 0.375rem;
   color: var(--brass-ink);
+  /* Colour alone does not set a link apart from the note text (WCAG 1.4.1). */
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }

@@ -90,83 +90,152 @@ function collectUnmetPrerequisites(
   visiting.delete(nodeId);
 }
 
+type FrontierContext = {
+  nodeMap: ReadonlyMap<string, KnowledgeFrontierNodeInput>;
+  requested: ReadonlySet<string>;
+  knownIds: ReadonlySet<string>;
+};
+
+function frontierContext(
+  nodes: readonly KnowledgeFrontierNodeInput[],
+  requestedKnownIds: Iterable<string>
+): FrontierContext {
+  const nodeMap = new Map(nodes.map((node) => [node.id, node]));
+  const requested = new Set(requestedKnownIds);
+  const knownIds = new Set([...requested].filter((id) => nodeMap.has(id)));
+  return { nodeMap, requested, knownIds };
+}
+
+/** Status only: the cheap part of a node's frontier state. */
+function classifyNode(node: KnowledgeFrontierNodeInput, { nodeMap, knownIds }: FrontierContext) {
+  const level = nodeLevel(node);
+  const prerequisiteIds = (node.prerequisiteIds ?? []).filter((id) => nodeMap.has(id));
+  const missingPrerequisiteIds = prerequisiteIds.filter((id) => !knownIds.has(id));
+  const metadataGap = level > 1 && prerequisiteIds.length === 0;
+  const status: KnowledgeFrontierStatus = knownIds.has(node.id)
+    ? "mastered"
+    : !metadataGap && missingPrerequisiteIds.length === 0
+      ? "ready"
+      : "blocked";
+  return { level, prerequisiteIds, missingPrerequisiteIds, metadataGap, status };
+}
+
+/** The full state: adds the transitive gap (walk + sort) and the reader-facing reason. */
+function describeNode(
+  node: KnowledgeFrontierNodeInput,
+  context: FrontierContext
+): KnowledgeFrontierNodeState {
+  const { nodeMap, knownIds } = context;
+  const { level, prerequisiteIds, missingPrerequisiteIds, metadataGap, status } = classifyNode(
+    node,
+    context
+  );
+  const source = node.knowledgeLevelSource ?? "inferred";
+  const satisfiedPrerequisiteIds = prerequisiteIds.filter((id) => knownIds.has(id));
+  const gapIds = new Set<string>();
+  collectUnmetPrerequisites(node.id, nodeMap, knownIds, gapIds, new Set());
+  const sortedGapIds = [...gapIds].sort((left, right) => {
+    const levelDifference = nodeLevel(nodeMap.get(left)!) - nodeLevel(nodeMap.get(right)!);
+    return levelDifference || left.localeCompare(right);
+  });
+
+  const reason =
+    status === "mastered"
+      ? "你已主动确认掌握；系统没有自动补记它的前置节点。"
+      : status === "ready"
+        ? prerequisiteIds.length === 0
+          ? "这是 L1 自然入口，不要求预先掌握平台中的其他节点。"
+          : `${prerequisiteIds.length} 个${source === "curated" ? "人工策展" : "图谱推断"}前置均已确认。`
+        : metadataGap
+          ? `这是 L${level} 节点，但平台尚未建立可核验的低阶前置；不会把“没有数据”解释为“无需前置”。`
+          : `仍缺 ${sortedGapIds.length} 个前置节点，其中 ${missingPrerequisiteIds.length} 个是直接前置。`;
+
+  return {
+    id: node.id,
+    status,
+    level,
+    source,
+    prerequisiteIds,
+    satisfiedPrerequisiteIds,
+    missingPrerequisiteIds,
+    gapIds: sortedGapIds,
+    metadataGap,
+    reason,
+  };
+}
+
+function summarize(
+  nodes: readonly KnowledgeFrontierNodeInput[],
+  { requested, knownIds }: FrontierContext,
+  classified: Iterable<{ status: KnowledgeFrontierStatus; metadataGap: boolean }>
+): KnowledgeFrontierSummary {
+  let readyCount = 0;
+  let blockedCount = 0;
+  let metadataGapCount = 0;
+  for (const { status, metadataGap } of classified) {
+    if (status === "ready") readyCount += 1;
+    if (status === "blocked") {
+      blockedCount += 1;
+      if (metadataGap) metadataGapCount += 1;
+    }
+  }
+  const masteredNodes = nodes.filter((node) => knownIds.has(node.id));
+  return {
+    nodeCount: nodes.length,
+    validKnownCount: knownIds.size,
+    ignoredKnownCount: requested.size - knownIds.size,
+    masteredCount: knownIds.size,
+    readyCount,
+    blockedCount,
+    metadataGapCount,
+    domainCount: new Set(masteredNodes.map((node) => node.domain)).size,
+    highestMasteredLevel: masteredNodes.reduce<KnowledgeLevel | 0>(
+      (highest, node) => Math.max(highest, nodeLevel(node)) as KnowledgeLevel | 0,
+      0
+    ),
+  };
+}
+
 export function buildKnowledgeFrontierSnapshot(
   nodes: readonly KnowledgeFrontierNodeInput[],
   requestedKnownIds: Iterable<string>
 ): KnowledgeFrontierSnapshot {
-  const nodeMap = new Map(nodes.map((node) => [node.id, node]));
-  const requested = new Set(requestedKnownIds);
-  const knownIds = new Set([...requested].filter((id) => nodeMap.has(id)));
-  const states = new Map<string, KnowledgeFrontierNodeState>();
-  let readyCount = 0;
-  let blockedCount = 0;
-  let metadataGapCount = 0;
+  const context = frontierContext(nodes, requestedKnownIds);
+  const states = new Map(nodes.map((node) => [node.id, describeNode(node, context)]));
+  return { states, summary: summarize(nodes, context, states.values()) };
+}
 
-  for (const node of nodes) {
-    const level = nodeLevel(node);
-    const source = node.knowledgeLevelSource ?? "inferred";
-    const prerequisiteIds = (node.prerequisiteIds ?? []).filter((id) => nodeMap.has(id));
-    const satisfiedPrerequisiteIds = prerequisiteIds.filter((id) => knownIds.has(id));
-    const missingPrerequisiteIds = prerequisiteIds.filter((id) => !knownIds.has(id));
-    const metadataGap = level > 1 && prerequisiteIds.length === 0;
-    const gapIds = new Set<string>();
-    collectUnmetPrerequisites(node.id, nodeMap, knownIds, gapIds, new Set());
-    const sortedGapIds = [...gapIds].sort((left, right) => {
-      const levelDifference = nodeLevel(nodeMap.get(left)!) - nodeLevel(nodeMap.get(right)!);
-      return levelDifference || left.localeCompare(right);
-    });
+export interface KnowledgeFrontierOverview {
+  statuses: ReadonlyMap<string, KnowledgeFrontierStatus>;
+  summary: KnowledgeFrontierSummary;
+  /** Full state for one node, computed on first request. */
+  describe(nodeId: string): KnowledgeFrontierNodeState | undefined;
+}
 
-    let status: KnowledgeFrontierStatus;
-    let reason: string;
-    if (knownIds.has(node.id)) {
-      status = "mastered";
-      reason = "你已主动确认掌握；系统没有自动补记它的前置节点。";
-    } else if (!metadataGap && missingPrerequisiteIds.length === 0) {
-      status = "ready";
-      readyCount += 1;
-      reason =
-        prerequisiteIds.length === 0
-          ? "这是 L1 自然入口，不要求预先掌握平台中的其他节点。"
-          : `${prerequisiteIds.length} 个${source === "curated" ? "人工策展" : "图谱推断"}前置均已确认。`;
-    } else {
-      status = "blocked";
-      blockedCount += 1;
-      if (metadataGap) metadataGapCount += 1;
-      reason = metadataGap
-        ? `这是 L${level} 节点，但平台尚未建立可核验的低阶前置；不会把“没有数据”解释为“无需前置”。`
-        : `仍缺 ${sortedGapIds.length} 个前置节点，其中 ${missingPrerequisiteIds.length} 个是直接前置。`;
-    }
-
-    states.set(node.id, {
-      id: node.id,
-      status,
-      level,
-      source,
-      prerequisiteIds,
-      satisfiedPrerequisiteIds,
-      missingPrerequisiteIds,
-      gapIds: sortedGapIds,
-      metadataGap,
-      reason,
-    });
-  }
-
-  const masteredNodes = nodes.filter((node) => knownIds.has(node.id));
+/**
+ * Same statuses and summary as the snapshot, without every node's transitive
+ * gap and reason: the graph needs those for the selected node only, and
+ * building them for all 3.5k nodes was the largest block of its mount.
+ */
+export function buildKnowledgeFrontierOverview(
+  nodes: readonly KnowledgeFrontierNodeInput[],
+  requestedKnownIds: Iterable<string>
+): KnowledgeFrontierOverview {
+  const context = frontierContext(nodes, requestedKnownIds);
+  const classified = nodes.map((node) => classifyNode(node, context));
+  const statuses = new Map(nodes.map((node, index) => [node.id, classified[index]!.status]));
+  const described = new Map<string, KnowledgeFrontierNodeState>();
   return {
-    states,
-    summary: {
-      nodeCount: nodes.length,
-      validKnownCount: knownIds.size,
-      ignoredKnownCount: requested.size - knownIds.size,
-      masteredCount: knownIds.size,
-      readyCount,
-      blockedCount,
-      metadataGapCount,
-      domainCount: new Set(masteredNodes.map((node) => node.domain)).size,
-      highestMasteredLevel: masteredNodes.reduce<KnowledgeLevel | 0>(
-        (highest, node) => Math.max(highest, nodeLevel(node)) as KnowledgeLevel | 0,
-        0
-      ),
+    statuses,
+    summary: summarize(nodes, context, classified),
+    describe(nodeId) {
+      const cached = described.get(nodeId);
+      if (cached) return cached;
+      const node = context.nodeMap.get(nodeId);
+      if (!node) return undefined;
+      const state = describeNode(node, context);
+      described.set(nodeId, state);
+      return state;
     },
   };
 }

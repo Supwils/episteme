@@ -55,7 +55,7 @@ export function SpatialClusterSummary({
       data-testid="spatial-cluster-summary"
       data-domain={summary.domainId}
       className={clsx(
-        "border-border-faint bg-bg-overlay absolute top-14 left-2 z-[60] flex max-h-[calc(100%-4rem)] flex-col overflow-hidden border shadow-[0_16px_36px_rgba(0,0,0,0.3)] backdrop-blur-xl",
+        "border-border-faint bg-bg-overlay absolute top-14 left-2 z-[55] flex max-h-[calc(100%-4rem)] flex-col overflow-hidden border shadow-[0_16px_36px_rgba(0,0,0,0.3)] backdrop-blur-xl",
         isMobile ? "w-[min(22rem,calc(100%-1rem))]" : "w-[22rem]"
       )}
       aria-label={`${domainMeta.label}空间阶段摘要`}

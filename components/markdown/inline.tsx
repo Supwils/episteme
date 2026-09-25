@@ -192,7 +192,15 @@ export function renderInline(
           title={footnotes.get(footnoteRefMatch[1]!)!}
         >
           [{footnoteRefMatch[1]}]
-        </a>
+        </a>,
+        // A margin copy of the note, shown only where the article has a margin
+        // (prose.css). The end-of-article list stays the accessible, clickable
+        // original, so this copy is inert (not read, not focusable — it may hold
+        // DOI links); nested refs are dropped.
+        <span key={key++} className="md-sidenote" inert>
+          <span className="md-sidenote__id">[{footnoteRefMatch[1]}]</span>
+          {renderInline(footnotes.get(footnoteRefMatch[1]!)!, new Map(), domain)}
+        </span>
       );
       remaining = remaining.slice(footnoteRefMatch[0].length);
       continue;

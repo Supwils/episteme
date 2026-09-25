@@ -42,7 +42,7 @@ import {
 } from "../data/curated-confluences";
 import { ConfluenceGraphNotice } from "./ConfluenceGraphNotice";
 import {
-  buildKnowledgeFrontierSnapshot,
+  buildKnowledgeFrontierOverview,
   KNOWLEDGE_FRONTIER_STATUS_META,
   type KnowledgeFrontierStatus,
 } from "@/lib/knowledge-frontier";
@@ -108,8 +108,8 @@ export function KnowledgeGraph({
   const requestedFrontierStatus = parseFrontierStatus(requestedFrontierValue);
   const profile = useKnowledgeProfile();
   const knownIds = useMemo(() => profile.entries.map((entry) => entry.nodeId), [profile.entries]);
-  const frontierSnapshot = useMemo(
-    () => buildKnowledgeFrontierSnapshot(nodes, knownIds),
+  const frontier = useMemo(
+    () => buildKnowledgeFrontierOverview(nodes, knownIds),
     [knownIds, nodes]
   );
   const activeConfluence = getCuratedKnowledgeConfluence(requestedConfluenceId);
@@ -142,9 +142,9 @@ export function KnowledgeGraph({
   const frontierNodes = useMemo(
     () =>
       frontierStatus
-        ? nodes.filter((node) => frontierSnapshot.states.get(node.id)?.status === frontierStatus)
+        ? nodes.filter((node) => frontier.statuses.get(node.id) === frontierStatus)
         : nodes,
-    [frontierSnapshot.states, frontierStatus, nodes]
+    [frontier.statuses, frontierStatus, nodes]
   );
   const activeCuratedTraceNodes = useMemo(() => {
     if (!activeCuratedPath || !activeCuratedTargetStep) return null;
@@ -287,9 +287,7 @@ export function KnowledgeGraph({
   const setSelectedNodeId = state.setSelectedNodeId;
   const setActiveDomains = state.setActiveDomains;
   const allNodeMap = useMemo(() => new Map(nodes.map((node) => [node.id, node])), [nodes]);
-  const selectedFrontierState = selectedNodeId
-    ? frontierSnapshot.states.get(selectedNodeId)
-    : undefined;
+  const selectedFrontierState = selectedNodeId ? frontier.describe(selectedNodeId) : undefined;
   const selectedFrontierGapNodes = selectedFrontierState
     ? selectedFrontierState.gapIds
         .slice(0, 5)
@@ -323,7 +321,9 @@ export function KnowledgeGraph({
     }
     const timeout = window.setTimeout(
       () => {
-        const currentParams = new URLSearchParams(searchParams.toString());
+        // Read the live URL, not the params captured when the timer started: a
+        // tour step pushed inside the delay would otherwise be written back over.
+        const currentParams = new URLSearchParams(window.location.search);
         const nextParams = writeGraphViewUrlState(
           currentParams,
           "spatial",
@@ -859,7 +859,7 @@ export function KnowledgeGraph({
           knowledgeLevel={knowledgeLevel}
           onKnowledgeLevelChange={handleKnowledgeLevelChange}
           frontierStatus={frontierStatus}
-          frontierSummary={frontierSnapshot.summary}
+          frontierSummary={frontier.summary}
           onFrontierStatusChange={handleFrontierStatusChange}
           searchQuery={state.searchQuery}
           onSearchChange={interactions.handleSearchChange}

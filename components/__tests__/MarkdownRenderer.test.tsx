@@ -40,6 +40,12 @@ describe("MarkdownRenderer footnotes", () => {
     const { container } = render(
       <MarkdownRenderer content={"正文引用[^1]。\n\n[^1]: 脚注定义文本。"} />
     );
+    // The margin copy (shown only on wide article pages) is inert; outside it
+    // the definition text appears once, in the footnotes section.
+    const sidenotes = container.querySelectorAll(".md-sidenote");
+    expect(sidenotes).toHaveLength(1);
+    expect(sidenotes[0]!.hasAttribute("inert")).toBe(true);
+    sidenotes.forEach((note) => note.remove());
     const occurrences = container.textContent!.split("脚注定义文本").length - 1;
     expect(occurrences).toBe(1);
     // The duplicated `fnref-1` id came from the definition block being

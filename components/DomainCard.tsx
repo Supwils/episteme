@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { SpritePlate, SpriteSeal } from "@/components/design/SpriteSeal";
+import { DomainCardLink } from "@/components/portal/DomainCardLink";
 import { pigmentVar } from "@/lib/design/palette";
 import { isSealDomain } from "@/lib/design/seals";
 import type { DomainClusterId } from "@/lib/domain-clusters";
@@ -28,9 +28,9 @@ export function DomainCard({ domain }: { domain: Domain }) {
   const seal = isSealDomain(domain.id) ? domain.id : null;
 
   return (
-    <Link
+    <DomainCardLink
       href={APP_URLS[domain.id]}
-      data-domain={domain.id}
+      domain={domain.id}
       className="domain-card"
       style={{ ["--domain-color" as string]: pigment }}
     >
@@ -52,6 +52,6 @@ export function DomainCard({ domain }: { domain: Domain }) {
           </span>
         </span>
       </div>
-    </Link>
+    </DomainCardLink>
   );
 }

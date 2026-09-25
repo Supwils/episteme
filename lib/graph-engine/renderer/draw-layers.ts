@@ -121,11 +121,15 @@ export function drawEdges(dc: DrawContext, bounds: ViewBounds): void {
     const dist = Math.sqrt((midX - camCX) ** 2 + (midY - camCY) ** 2);
     const distAlpha = Math.max(0.1, 1 - dist / EDGE_ALPHA_DISTANCE);
 
-    const edgeKey =
-      edge.sourceId && edge.targetId
-        ? `${edge.sourceId}->${edge.targetId}`
-        : `${edge.x1},${edge.y1}-${edge.x2},${edge.y2}`;
-    const isHighlighted = hasHighlight && highlight.edgeKeys.has(edgeKey);
+    // The key only serves the highlight lookup; skip building it when nothing
+    // is highlighted (every frame of plain panning and zooming).
+    const isHighlighted =
+      hasHighlight &&
+      highlight.edgeKeys.has(
+        edge.sourceId && edge.targetId
+          ? `${edge.sourceId}->${edge.targetId}`
+          : `${edge.x1},${edge.y1}-${edge.x2},${edge.y2}`
+      );
     const semanticThreshold = hasHighlight ? 0.98 : 0.94;
     if (
       semanticOverview &&

@@ -108,7 +108,7 @@ export function DomainLanding({
             <p className="landing-hero__stats">{heroStats.join(" · ")}</p>
           ) : null}
         </div>
-        <div className="landing-hero__figure">
+        <div className="landing-hero__figure" data-landing-plate={domain}>
           <SpecimenPlate domain={domain} accent={pigment} className="landing-hero__plate" />
           <MiniAstrolabe domain={domain} clusterLabel={getCluster(cluster).label} />
         </div>

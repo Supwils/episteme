@@ -146,7 +146,12 @@ export function useGraphState(
     return matched;
   }, [emphasizedNodeIds, searchRaw]);
 
-  const adjacency = useMemo(() => buildAdjacency(edges), [edges]);
+  // Built on first use (a selection or a path): walking 27k edges at mount was
+  // one of the larger pieces of the graph's first render on slow CPUs.
+  const getAdjacency = useMemo(() => {
+    let adjacency: ReturnType<typeof buildAdjacency> | null = null;
+    return () => (adjacency ??= buildAdjacency(edges));
+  }, [edges]);
 
   // Lookup for the relationship label on the edge between two nodes (both
   // directions). This is the "why" behind a connection — populated for the
@@ -174,11 +179,11 @@ export function useGraphState(
     (startId: string, endId: string) => {
       setPathStartId(startId);
       setPathEndId(endId);
-      const path = findShortestPath(startId, endId, adjacency);
+      const path = findShortestPath(startId, endId, getAdjacency());
       setPathResult(path);
       setAnimatedPath(path ?? []);
     },
-    [adjacency]
+    [getAdjacency]
   );
 
   // Stitch a curated thought tour into one real path by shortest-pathing
@@ -190,7 +195,7 @@ export function useGraphState(
       if (present.length < 2) return;
       const full: string[] = [];
       for (let i = 0; i < present.length - 1; i++) {
-        const seg = findShortestPath(present[i]!, present[i + 1]!, adjacency);
+        const seg = findShortestPath(present[i]!, present[i + 1]!, getAdjacency());
         if (!seg) continue;
         const piece = full.length === 0 ? seg : seg.slice(1);
         full.push(...piece);
@@ -201,7 +206,7 @@ export function useGraphState(
       setPathResult(full);
       setAnimatedPath(full);
     },
-    [adjacency, nodeMap]
+    [getAdjacency, nodeMap]
   );
 
   const handlePathClear = useCallback(() => {
@@ -270,7 +275,7 @@ export function useGraphState(
     }
     const highlightedNodeIds = new Set(emphasizedNodeIds);
     if (selectedNodeId) {
-      for (const nodeId of getNodesWithinHops(selectedNodeId, 1, adjacency)) {
+      for (const nodeId of getNodesWithinHops(selectedNodeId, 1, getAdjacency())) {
         highlightedNodeIds.add(nodeId);
       }
     }
@@ -298,7 +303,7 @@ export function useGraphState(
       pathNodes: activePath,
       dimAlpha: 0.3,
     };
-  }, [selectedNodeId, adjacency, edges, activePath, emphasizedNodeIds, emphasizedEdgeKeys]);
+  }, [selectedNodeId, getAdjacency, edges, activePath, emphasizedNodeIds, emphasizedEdgeKeys]);
 
   const nodeCounts = useMemo(() => computeNodeCounts(nodes, activeDomains), [nodes, activeDomains]);
 
@@ -439,7 +444,6 @@ export function useGraphState(
     connectedNodes,
     connectedEdges,
     prerequisitePathNodes,
-    adjacency,
     highlightState,
     nodeCounts,
     edgeCounts,

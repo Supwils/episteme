@@ -188,8 +188,13 @@ export function useGraphRenderer(
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const layoutNodes = buildLayoutNodes(nodes);
-    const layoutEdges = buildLayoutEdges(edges);
+    // Only a fresh force layout reads these; the build-time layout skips them.
+    let layoutInputs: {
+      nodes: ReturnType<typeof buildLayoutNodes>;
+      edges: ReturnType<typeof buildLayoutEdges>;
+    } | null = null;
+    const getLayoutInputs = () =>
+      (layoutInputs ??= { nodes: buildLayoutNodes(nodes), edges: buildLayoutEdges(edges) });
 
     setIsLoading(true);
 
@@ -429,7 +434,11 @@ export function useGraphRenderer(
     const runSync = async () => {
       const { ForceLayout: ForceLayoutClass } = await import("@/lib/graph-engine");
       if (cancelled) return;
-      const layout = new ForceLayoutClass(layoutNodes, layoutEdges, layoutConfig);
+      const layout = new ForceLayoutClass(
+        getLayoutInputs().nodes,
+        getLayoutInputs().edges,
+        layoutConfig
+      );
       layoutRef.current = layout;
       layout.runToStability();
       initRenderer(layout.getPositions());
@@ -478,8 +487,8 @@ export function useGraphRenderer(
         worker.postMessage({
           type: "run",
           id: requestId,
-          nodes: layoutNodes,
-          edges: layoutEdges,
+          nodes: getLayoutInputs().nodes,
+          edges: getLayoutInputs().edges,
           config: layoutConfig,
         });
       } catch {

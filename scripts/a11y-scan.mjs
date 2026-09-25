@@ -42,6 +42,8 @@ const PAGES = [
   ["知识图谱", "/knowledge-graph"],
   ["每日知识", "/daily"],
   ["设计系统样张", "/design"],
+  // Footnotes: refs, the end-of-article list and (wide screens only) margin notes.
+  ["脚注与页边注", "/psychology/frontier/replication-crisis-open-science"],
   ["地球科学板块交互", "/earth-science/concepts/plate-boundaries"],
   ["政治学坐标交互", "/political-science/concepts/ideology"],
   ["语言学 IPA 交互", "/linguistics/sounds-and-signs/phonetics-and-ipa"],

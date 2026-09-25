@@ -1,8 +1,10 @@
 import { describe, expect, it } from "vitest";
 import {
+  buildKnowledgeFrontierOverview,
   buildKnowledgeFrontierSnapshot,
   type KnowledgeFrontierNodeInput,
 } from "../knowledge-frontier";
+import { ALL_NODES } from "@/subjects/knowledge-graph/data/graph-data";
 import { buildKnowledgeFrontierView } from "../knowledge-frontier-catalog";
 import { buildKnowledgeCoverageSnapshot } from "../knowledge-continuum-coverage";
 
@@ -106,5 +108,26 @@ describe("knowledge frontier", () => {
     expect(view.summary.metadataGapCount).toBe(0);
     expect(view.confluences).toHaveLength(5);
     expect(view.confluences.every((confluence) => confluence.prerequisiteCount === 16)).toBe(true);
+  });
+});
+
+describe("knowledge frontier overview", () => {
+  // The graph mounts with the overview and describes only the selected node, so
+  // it must agree with the full snapshot the API routes serve, node for node.
+  it.each([
+    ["no profile", [] as string[]],
+    ["a sparse profile", ALL_NODES.filter((_, i) => i % 7 === 0).map((node) => node.id)],
+    ["a dense profile", ALL_NODES.filter((_, i) => i % 3 === 0).map((node) => node.id)],
+  ])("matches the full snapshot on the real graph with %s", (_label, known) => {
+    const snapshot = buildKnowledgeFrontierSnapshot(ALL_NODES, known);
+    const overview = buildKnowledgeFrontierOverview(ALL_NODES, known);
+    expect(overview.summary).toEqual(snapshot.summary);
+    for (const [id, state] of snapshot.states) {
+      expect(overview.statuses.get(id), id).toBe(state.status);
+    }
+    for (const id of ALL_NODES.filter((_, i) => i % 50 === 0).map((node) => node.id)) {
+      expect(overview.describe(id), id).toEqual(snapshot.states.get(id));
+    }
+    expect(overview.describe("missing:node")).toBeUndefined();
   });
 });

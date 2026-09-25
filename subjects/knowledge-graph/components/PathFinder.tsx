@@ -426,12 +426,14 @@ export function PathFinder({
             exit={reducedMotion ? { opacity: 0 } : { opacity: 0, y: -4, scale: 0.95 }}
             transition={{ duration: reducedMotion ? 0 : 0.15 }}
             className={clsx(
-              "border-border-faint bg-bg-floating absolute z-50 w-[320px] max-w-[calc(100vw-2rem)] overflow-y-auto rounded-xl border p-3 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl",
+              "border-border-faint bg-bg-floating z-50 overflow-y-auto rounded-xl border p-3 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl",
+              // The trigger sits mid-header on phones, so a panel anchored to it
+              // would hang off the left edge; pin it to the viewport instead.
               isMobile
-                ? "top-full right-0 mt-2 max-h-[72vh]"
+                ? "fixed inset-x-3 top-[3.25rem] max-h-[72vh]"
                 : detailPanelOpen
-                  ? "top-full z-[70] mt-2"
-                  : "top-full left-0 mt-2 max-h-[72vh]"
+                  ? "absolute top-full z-[70] mt-2 w-[320px] max-w-[calc(100vw-2rem)]"
+                  : "absolute top-full left-0 mt-2 max-h-[72vh] w-[320px] max-w-[calc(100vw-2rem)]"
             )}
             style={
               !isMobile && detailPanelOpen
@@ -596,6 +598,13 @@ export function PathFinder({
                         aria-hidden="true"
                       />
                     </div>
+                    {/* Phones keep the detail panel closed during a tour so it
+                        does not cover the graph; name the current stop here instead. */}
+                    {isMobile && activeTourNode ? (
+                      <h3 className="text-fg-primary mt-2 text-sm leading-snug font-semibold">
+                        {activeTourNode.label}
+                      </h3>
+                    ) : null}
                     {activeTourNode?.url ? (
                       <Link
                         href={activeTourNode.url}

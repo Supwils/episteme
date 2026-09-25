@@ -383,6 +383,14 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
   mix-blend-mode: normal;
 }
 
+/* Home card → domain landing: the card's specimen plate grows into the
+   landing's (DomainCardLink). The root swaps instantly (rule above), so the
+   plate is the only thing that moves. */
+::view-transition-group(domain-plate) {
+  animation-duration: 420ms;
+  animation-timing-function: cubic-bezier(0.2, 0.7, 0.1, 1);
+}
+
 /* An active reading route pins its bar to the bottom; keep the last lines of
    the page readable above it. */
 body:has(.reading-path-bar--active) #main-content {
