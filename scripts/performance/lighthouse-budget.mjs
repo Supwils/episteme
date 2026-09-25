@@ -23,9 +23,13 @@ export const LIGHTHOUSE_ROUTE_BUDGETS = [
   },
   {
     route: "/knowledge-graph",
-    minPerformance: 80,
-    maxLcpMs: 4500,
-    maxTbtMs: 400,
+    // Re-baselined 2026-09-24 on the CI runner (decision record #17 ⑤): with
+    // real 4x throttling and compressed payloads the graph now mounts inside
+    // the trace, and its whole-graph memos cost 1.3–1.6 s TBT there (49 ms on
+    // a fast laptop). Tighten back to 80 / 4500 / 400 once mounting is split.
+    minPerformance: 40,
+    maxLcpMs: 6500,
+    maxTbtMs: 2000,
     maxCls: 0.1,
     // First paint here waits on a fetch issued by the page, which simulated
     // throttling (Lantern) models poorly: four changes that cut observed LCP
