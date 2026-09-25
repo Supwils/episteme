@@ -266,6 +266,9 @@ test.describe("portal astrolabe", () => {
     await expect(page.locator(".astrolabe-readout__steps li")).toHaveCount(5);
     const first = await readout.textContent();
 
+    // The wedges are server-rendered; the roving tabindex appears only once the
+    // controller has hydrated and is listening for keys.
+    await expect(page.locator('.astrolabe__wedge[tabindex="0"]')).toHaveCount(1);
     await aimed.focus();
     await page.keyboard.press("ArrowRight");
     await expect(readout).not.toHaveText(first ?? "");
