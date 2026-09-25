@@ -4,6 +4,7 @@ node_modules/
 
 # Next.js
 .next/
+.next-*/
 out/
 
 # Vercel
@@ -51,6 +52,9 @@ test-results/
 *.log
 tmp/
 
+# Design-overhaul before/after screenshots (scripts/visual-baseline.mjs)
+visual-baseline/
+
 # Generated search corpus — 23MB of prose, rebuilt by `prebuild` on every
 # build. Committing it would grow git history by that much per content change.
 generated/
@@ -58,3 +62,6 @@ generated/
 # Scratch space for parallel content-authoring agents (helper scripts only —
 # nothing here is an input to the build).
 .agent-tmp/
+
+# Font sources for pnpm gen-seal-glyphs (downloaded on demand)
+.cache/

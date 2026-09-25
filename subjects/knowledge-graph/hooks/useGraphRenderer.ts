@@ -7,6 +7,9 @@ import { GraphRenderer as GraphRendererClass } from "@/lib/graph-engine";
 import type { ForceLayout, LayoutConfig } from "@/lib/graph-engine";
 import { animateEntrance, animateFocus, animateNodePositions } from "@/lib/graph-engine";
 import { buildLayoutNodes, buildLayoutEdges, toRenderNodes, toRenderEdges } from "../lib/constants";
+
+// Monotonic id for layout requests; a result that outlives its request is dropped.
+let layoutRequestSeq = 0;
 import { shouldAnimateGraphEntrance } from "../lib/initial-render-policy";
 
 type RendererDeps = {
@@ -36,6 +39,8 @@ type RendererDeps = {
   reducedMotion: boolean;
   searchMatchedIds: Set<string>;
   fitScaleMultiplier?: number;
+  /** Build-time layout of the full graph; used only when it covers exactly these nodes. */
+  initialPositions?: ReadonlyMap<string, { x: number; y: number }>;
 };
 
 export function useGraphRenderer(
@@ -78,7 +83,10 @@ export function useGraphRenderer(
     reducedMotion,
     searchMatchedIds,
     fitScaleMultiplier = 1,
+    initialPositions,
   } = deps;
+  const initialPositionsRef = useRef(initialPositions);
+  initialPositionsRef.current = initialPositions;
   const positionOverrideRef = useRef(positionOverride);
   const nodeDepthRef = useRef(nodeDepth);
   const nodeImportanceRef = useRef(nodeImportance);
@@ -427,16 +435,35 @@ export function useGraphRenderer(
       initRenderer(layout.getPositions());
     };
 
+    // The build-time layout is the same deterministic force layout the worker
+    // would compute, but it is only valid for the full, unclustered graph.
+    const prebuilt = initialPositionsRef.current;
+    const prebuiltFits =
+      prebuilt !== undefined &&
+      layoutConfig === undefined &&
+      prebuilt.size === nodes.length &&
+      nodes.every((node) => prebuilt.has(node.id));
+
     let worker: Worker | null = null;
     if (positionOverrideRef.current) {
       initRenderer(positionOverrideRef.current);
-    } else if (typeof Worker !== "undefined" && !reducedMotion) {
+    } else if (prebuiltFits) {
+      initRenderer(new Map(prebuilt));
+      // Layout goes to the Worker regardless of motion preference: reduced
+      // motion only skips the entrance animation, and a synchronous
+      // runToStability() on 3.5k nodes freezes the main thread for seconds.
+    } else if (typeof Worker !== "undefined") {
       try {
         worker = new Worker(new URL("../engine/force-layout.worker.ts", import.meta.url));
+        const requestId = ++layoutRequestSeq;
         worker.onmessage = (
-          e: MessageEvent<{ type: string; positions: [string, { x: number; y: number }][] }>
+          e: MessageEvent<{
+            type: string;
+            id?: number;
+            positions: [string, { x: number; y: number }][];
+          }>
         ) => {
-          if (e.data.type === "result") {
+          if (e.data.type === "result" && e.data.id === requestId) {
             const positions = new Map(e.data.positions);
             initRenderer(positions);
           }
@@ -450,6 +477,7 @@ export function useGraphRenderer(
         };
         worker.postMessage({
           type: "run",
+          id: requestId,
           nodes: layoutNodes,
           edges: layoutEdges,
           config: layoutConfig,

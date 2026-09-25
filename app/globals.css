@@ -1,15 +1,13 @@
-/* Reading modes (standard/focus/spacious, see ReadingModeControls):
-   standard = the articleClassName cap on .article-reading-surface
-   (max-w-[44rem] in ArticleLayout, ~44 CJK chars/line — the long-form
-   comfort measure); focus narrows the measure and loosens leading for
-   line-by-line reading; spacious widens the measure (still under the old
-   ~75 chars/line default) with the largest font/leading. */
+/* Reading modes (standard/focus/spacious, see ReadingModeControls). Prose
+   size and leading live in components/markdown/prose.css (17px / 1.85);
+   standard = max-w-[40rem] on .article-reading-surface (~38 CJK chars/line).
+   focus narrows to ~34 chars and dims the page chrome; spacious widens to
+   ~42 chars with a larger face. */
 html[data-reading-mode="focus"] .article-reading-surface {
-  max-width: 40rem;
+  max-width: 36rem;
 }
 
-html[data-reading-mode="focus"] .article-reading-surface p {
-  font-size: 1rem;
+html[data-reading-mode="focus"] .article-reading-surface .md-p {
   line-height: 1.95;
 }
 
@@ -18,27 +16,32 @@ html[data-reading-mode="focus"] .article-reading-chrome {
 }
 
 html[data-reading-mode="spacious"] .article-reading-surface {
-  max-width: 54rem;
+  max-width: 50rem;
 }
 
-html[data-reading-mode="spacious"] .article-reading-surface p {
-  font-size: 1.06rem;
-  line-height: 2.1;
+html[data-reading-mode="spacious"] .article-reading-surface .md-prose {
+  --prose-size: 1.1875rem;
+  --prose-leading: 2;
 }
 
 html[data-reading-mode="spacious"] .article-reading-surface h2 {
   margin-top: 3rem;
 }
 
-/* CJK ↔ Latin 自动间距（text-autospace）：中西文混排时在汉字与拉丁字母/数字
-   之间插入标准的四分之一空。渐进增强——不支持的引擎静默忽略此声明，混排间距
-   维持现状；不会引入回归。 */
-.prose p,
-.prose li,
-.prose td,
-.prose th,
-.prose blockquote {
+/* CJK 排版的渐进增强，不支持的引擎静默忽略、不会引入回归：
+   text-autospace 在汉字与拉丁字母/数字之间插入四分之一空；
+   text-spacing-trim 挤掉相邻全角标点多余的半格；line-break: strict 按
+   中文禁则断行（不以「、。」开头）；hanging-punctuation 让行末句读悬挂
+   （目前只有 Safari 支持）。 */
+.md-prose p,
+.md-prose li,
+.md-prose td,
+.md-prose th,
+.md-prose blockquote {
   text-autospace: normal;
+  text-spacing-trim: normal;
+  line-break: strict;
+  hanging-punctuation: allow-end;
 }
 
 @import "tailwindcss";
@@ -62,23 +65,23 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
      ones. Panels are OPAQUE (unlike the domain translucent panel) so menus
      never bleed. Cards share the base surface and are separated by hairline
      borders — no glow, no gradient. */
-  --color-bg-deep: #08080d;
-  --color-bg-base: #0e0f14;
-  --color-bg-near: #0e0f14;
-  --color-bg-panel: #14151c;
-  --color-bg-elevated: #14151c;
-  --color-bg-floating: #1c1c26;
-  --color-bg-overlay: rgba(8, 8, 13, 0.86);
+  --color-bg-deep: #0a0f18;
+  --color-bg-base: #0f1622;
+  --color-bg-near: #0f1622;
+  --color-bg-panel: #172131;
+  --color-bg-elevated: #172131;
+  --color-bg-floating: #1e2a3d;
+  --color-bg-overlay: rgba(10, 15, 24, 0.86);
   /* Drawer/menu scrim — flipped to a soft umber in the Notebook theme. */
-  --color-scrim: rgba(4, 4, 8, 0.6);
+  --color-scrim: rgba(5, 8, 14, 0.6);
 
-  --color-fg-primary: #e6e3da;
-  --color-fg-secondary: #a8a499;
-  /* muted/disabled lightened to clear WCAG AA (4.5:1) on the #0e0f14 base. */
-  --color-fg-muted: #8c887d;
-  --color-fg-disabled: #8a8693;
+  --color-fg-primary: #e8dfc9;
+  --color-fg-secondary: #b3ab98;
+  /* muted/disabled lightened to clear WCAG AA (4.5:1) on the #0f1622 base. */
+  --color-fg-muted: #9a9483;
+  --color-fg-disabled: #97917f;
 
-  --color-accent-gold: #d9a441;
+  --color-accent-gold: #c39a45;
   /* Secondary accents are legacy (single-accent system); kept so existing
      FeatureGrid / domain refs resolve. Desaturated to read as ink, not neon. */
   --color-accent-indigo: #6a6fd0;
@@ -104,36 +107,83 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
   --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 }
 
+/* Utilities (text-brass-ink, border-cinnabar, …) resolve to the theme-aware
+   variables in the base layer below, so both themes share one class name. */
+@theme inline {
+  --color-brass: var(--brass);
+  --color-brass-ink: var(--brass-ink);
+  --color-verdigris: var(--verdigris);
+  --color-verdigris-ink: var(--verdigris-ink);
+  --color-cinnabar: var(--cinnabar);
+  --color-cinnabar-ink: var(--cinnabar-ink);
+}
+
 @layer base {
-  :root {
-    --background: #0e0f14;
-    --foreground: #e6e3da;
-    --accent: #d9a441; /* portal neutral accent; domains override per-domain */
-    --accent-hover: #e6b85a;
-    --card-bg: #14151c;
+  /* The three Observatory-only subjects re-declare the dark set on their own
+     root, so a Notebook preference cannot hand them paper-toned instrument
+     inks on a night canvas. Their own unlayered palettes still win. */
+  :root,
+  .life-science-root,
+  .physics-root,
+  .cosmology-root {
+    --background: #0f1622;
+    --foreground: #e8dfc9;
+    --accent: #c39a45; /* portal neutral accent; domains override per-domain */
+    --accent-hover: #d4ad5c;
+    --card-bg: #172131;
     --card-border: rgba(255, 255, 255, 0.08);
-    --muted: #8c887d;
-    --nav-bg: rgba(14, 15, 20, 0.84);
+    --muted: #9a9483;
+    --nav-bg: rgba(15, 22, 34, 0.84);
     --nav-border: rgba(255, 255, 255, 0.1);
     --input-bg: rgba(255, 255, 255, 0.04);
     --input-border: rgba(255, 255, 255, 0.1);
-    --input-hover-bg: rgba(217, 164, 65, 0.08);
+    --input-hover-bg: rgba(195, 154, 69, 0.08);
     --hover-bg: rgba(255, 255, 255, 0.05);
-    --highlight-bg: rgba(217, 164, 65, 0.18);
-    --highlight-text: #e6b85a;
+    --highlight-bg: rgba(195, 154, 69, 0.18);
+    --highlight-text: #d4ad5c;
     --scrollbar-thumb: rgba(255, 255, 255, 0.1);
     --scrollbar-thumb-hover: rgba(255, 255, 255, 0.18);
+
+    /* ── 观测台与手记 · 仪器色与六簇颜料（真相源 lib/design/palette.ts）──
+       无后缀的用于线、印、图版、节点（≥ 3:1），-ink 用于文字（≥ 4.5:1）。
+       颜料只作强调，不铺在正文底下；颜色从不单独承载含义（配学科印或文字）。 */
+    --brass: #c39a45;
+    --brass-ink: #c39a45;
+    --verdigris: #5e9c8a;
+    --verdigris-ink: #659b8c;
+    --cinnabar: #c9553f;
+    --cinnabar-ink: #e76c57;
+    --pigment-cosmos-nature: #2c79a8;
+    --pigment-cosmos-nature-ink: #4d98c8;
+    --pigment-life-mind: #3e8e63;
+    --pigment-life-mind-ink: #509f73;
+    --pigment-society-institutions: #a86a3a;
+    --pigment-society-institutions-ink: #c28252;
+    --pigment-history-civilization: #bb5064;
+    --pigment-history-civilization-ink: #dc6d80;
+    --pigment-humanities-arts: #8265af;
+    --pigment-humanities-arts-ink: #9f82ce;
+    --pigment-formal-technology: #64738b;
+    --pigment-formal-technology-ink: #8291aa;
+
+    /* ── 动效令牌（lib/design/motion.ts 同值）：一页至多一次编排入场，
+       其余动效只回应读者的动作。 */
+    --duration-fast: 150ms;
+    --duration-base: 240ms;
+    --duration-slow: 480ms;
+    --ease-instrument: cubic-bezier(0.2, 0.7, 0.1, 1);
+    --ease-paper: cubic-bezier(0.33, 1, 0.68, 1);
   }
 
   .light,
   [data-theme="light"] {
     --background: #faf6ef;
-    --foreground: #2c2a26;
+    --foreground: #1e2638;
     --accent: #b8862f;
     --accent-hover: #a07726;
     --card-bg: #ffffff;
     --card-border: #eee6d9;
-    --muted: #6e6a61;
+    --muted: #51565f;
     --nav-bg: rgba(250, 246, 239, 0.84);
     --nav-border: #e8dfd0;
     --input-bg: rgba(0, 0, 0, 0.03);
@@ -141,9 +191,26 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
     --input-hover-bg: rgba(184, 134, 47, 0.07);
     --hover-bg: rgba(44, 42, 38, 0.04);
     --highlight-bg: rgba(184, 134, 47, 0.18);
-    --highlight-text: #8a6420;
+    --highlight-text: #795719;
     --scrollbar-thumb: rgba(0, 0, 0, 0.1);
     --scrollbar-thumb-hover: rgba(0, 0, 0, 0.18);
+
+    /* 手记下与观测台不同的仪器色与颜料（相同的不重复声明）。 */
+    --brass: #ad7b21;
+    --brass-ink: #795719;
+    --verdigris: #3f7466;
+    --verdigris-ink: #3c7163;
+    --cinnabar: #b8412f;
+    --cinnabar-ink: #b63f2d;
+    --pigment-cosmos-nature-ink: #1f6f9d;
+    --pigment-life-mind-ink: #24774e;
+    --pigment-society-institutions-ink: #965a29;
+    --pigment-history-civilization: #a2394f;
+    --pigment-history-civilization-ink: #a2394f;
+    --pigment-humanities-arts: #7b5ea7;
+    --pigment-humanities-arts-ink: #775aa2;
+    --pigment-formal-technology: #425066;
+    --pigment-formal-technology-ink: #425066;
 
     /* Theme-aware portal surfaces/foregrounds — Notebook (warm paper). */
     --color-bg-deep: #efece4;
@@ -154,11 +221,11 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
     --color-bg-floating: #ffffff;
     --color-bg-overlay: rgba(245, 242, 235, 0.86);
     --color-scrim: rgba(44, 40, 32, 0.32);
-    --color-fg-primary: #2c2a26;
-    --color-fg-secondary: #4f4b45;
+    --color-fg-primary: #1e2638;
+    --color-fg-secondary: #454b58;
     /* darkened to clear WCAG AA (4.5:1) on the #faf6ef light base. */
-    --color-fg-muted: #5a564f;
-    --color-fg-disabled: #625e58;
+    --color-fg-muted: #51565f;
+    --color-fg-disabled: #5a5f6b;
     --color-accent-gold: #795719;
     --color-border-faint: #eee6d9;
     --color-border-subtle: #e8dfd0;
@@ -308,6 +375,28 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
   }
 }
 
+/* Theme switch reveal (ThemeToggle): the new theme's snapshot is clipped open
+   from the button by a JS-driven animation, so the default cross-fade is off. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* An active reading route pins its bar to the bottom; keep the last lines of
+   the page readable above it. */
+body:has(.reading-path-bar--active) #main-content {
+  padding-bottom: 6rem;
+}
+
+/* Subject header: one indicator slides to the active tab (T-DESIGN-03c). The
+   global reduced-motion rule collapses the transition to an instant move. */
+.subject-tab-indicator {
+  transition:
+    transform var(--duration-base) var(--ease-instrument),
+    width var(--duration-base) var(--ease-instrument);
+}
+
 .nav-link-item {
   font-size: 0.9rem;
   color: var(--color-fg-muted);
@@ -413,897 +502,6 @@ html[data-reading-mode="spacious"] .article-reading-surface h2 {
   }
   .gs-trigger-kbd {
     display: inline-block;
-  }
-}
-
-/* ── Search Overlay ── */
-
-.gs-overlay {
-  position: fixed;
-  inset: 0;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  max-height: none;
-  border: 0;
-  color: inherit;
-  z-index: 9990;
-  background: var(--color-scrim);
-  backdrop-filter: blur(6px);
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 12vh;
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-bottom: 0;
-}
-
-.gs-overlay::backdrop {
-  background: transparent;
-}
-
-.gs-panel {
-  width: 100%;
-  max-width: 560px;
-  max-height: 72vh;
-  display: flex;
-  flex-direction: column;
-  border-radius: 12px;
-  border: 1px solid var(--color-border-subtle);
-  background: var(--color-bg-panel);
-  box-shadow:
-    0 0 0 1px var(--color-border-faint),
-    0 24px 80px rgba(0, 0, 0, 0.6);
-  overflow: hidden;
-}
-
-.gs-input-wrap {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 16px;
-  border-bottom: 1px solid var(--color-border-subtle);
-}
-
-.gs-search-icon {
-  flex-shrink: 0;
-  color: var(--color-fg-muted);
-}
-
-.gs-input {
-  flex: 1;
-  background: transparent;
-  border: none;
-  outline: none;
-  /* ≥16px so iOS Safari does not auto-zoom the page on focus. */
-  font-size: 1rem;
-  color: var(--color-fg-primary);
-  font-family: inherit;
-}
-
-.gs-input::placeholder {
-  color: var(--color-fg-muted);
-}
-
-.gs-kbd {
-  flex-shrink: 0;
-  font-family: inherit;
-  font-size: 0.7rem;
-  padding: 2px 6px;
-  border-radius: 4px;
-  border: 1px solid var(--color-border-subtle);
-  background: var(--color-bg-deep);
-  color: var(--color-fg-muted);
-  line-height: 1.4;
-}
-
-.gs-results {
-  flex: 1;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  padding: 8px 0;
-}
-
-.gs-results::-webkit-scrollbar {
-  width: 4px;
-}
-
-.gs-results::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.gs-results::-webkit-scrollbar-thumb {
-  background: var(--color-border-subtle);
-  border-radius: 2px;
-}
-
-.gs-empty {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  padding: 32px 16px;
-  text-align: center;
-  font-size: 0.85rem;
-  color: var(--color-fg-muted);
-}
-
-.gs-empty-hint {
-  font-size: 0.78rem;
-  color: var(--color-fg-muted);
-}
-
-.gs-empty-exits {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 12px;
-}
-
-.gs-empty-exit {
-  display: inline-block;
-  padding: 4px 10px;
-  border: 1px solid var(--color-border-subtle);
-  border-radius: 999px;
-  color: var(--color-fg-secondary);
-  text-decoration: none;
-  font-size: 0.78rem;
-}
-
-.gs-empty-exit:hover {
-  color: var(--color-fg-primary);
-  border-color: var(--color-fg-primary);
-}
-
-.gs-group {
-  padding: 4px 0;
-}
-
-.gs-group-label {
-  padding: 6px 16px 4px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.gs-item {
-  display: block;
-  padding: 8px 16px;
-  min-height: 44px;
-  cursor: pointer;
-  text-decoration: none;
-  color: inherit;
-  transition: background 0.15s;
-}
-
-.gs-item:hover,
-.gs-item[data-active="true"] {
-  background: var(--hover-bg);
-}
-
-.gs-item-title {
-  font-size: 0.88rem;
-  font-weight: 500;
-  color: var(--color-fg-primary);
-  line-height: 1.4;
-}
-
-.gs-item-subtitle {
-  margin-left: 6px;
-  font-size: 0.78rem;
-  font-weight: 400;
-  color: var(--color-fg-muted);
-}
-
-.gs-item-desc {
-  font-size: 0.78rem;
-  color: var(--color-fg-muted);
-  line-height: 1.4;
-  margin-top: 2px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.gs-footer {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 8px 16px;
-  border-top: 1px solid var(--color-border-subtle);
-  font-size: 0.72rem;
-  color: var(--color-fg-muted);
-}
-
-.gs-kbd-sm {
-  font-family: inherit;
-  font-size: 0.68rem;
-  padding: 1px 4px;
-  border-radius: 3px;
-  border: 1px solid var(--color-border-subtle);
-  background: var(--color-bg-deep);
-  color: var(--color-fg-muted);
-  line-height: 1.3;
-  margin-right: 2px;
-}
-
-/* ── Search Highlight ── */
-
-.gs-highlight {
-  background: var(--highlight-bg);
-  color: var(--highlight-text);
-  border-radius: 2px;
-  padding: 0 1px;
-}
-
-/* ── Search Type Badge ── */
-
-.gs-item-type {
-  margin-left: 6px;
-  font-size: 0.65rem;
-  font-weight: 500;
-  padding: 1px 5px;
-  border-radius: 3px;
-  background: color-mix(in srgb, var(--accent) 14%, transparent);
-  color: var(--accent);
-  letter-spacing: 0.02em;
-  vertical-align: middle;
-}
-
-/* ── Search History ── */
-
-.gs-group-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 6px 16px 4px;
-}
-
-.gs-clear-btn {
-  font-size: 0.68rem;
-  color: var(--color-fg-muted);
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 2px 6px;
-  border-radius: 3px;
-  transition:
-    color 0.15s,
-    background 0.15s;
-}
-
-.gs-clear-btn:hover {
-  color: var(--color-fg-primary);
-  background: var(--hover-bg);
-}
-
-.gs-history-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  width: 100%;
-  padding: 6px 16px;
-  min-height: 36px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--color-fg-muted);
-  font-size: 0.82rem;
-  font-family: inherit;
-  text-align: left;
-  transition:
-    background 0.15s,
-    color 0.15s;
-}
-
-.gs-history-item:hover,
-.gs-history-item[data-active="true"] {
-  background: var(--hover-bg);
-  color: var(--color-fg-primary);
-}
-
-.gs-history-icon {
-  flex-shrink: 0;
-  opacity: 0.5;
-}
-
-.gs-history-text {
-  flex: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.gs-history-remove {
-  flex-shrink: 0;
-  font-size: 0.7rem;
-  color: var(--color-fg-disabled);
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 2px 4px;
-  border-radius: 3px;
-  line-height: 1;
-  opacity: 0;
-  transition:
-    opacity 0.15s,
-    color 0.15s,
-    background 0.15s;
-}
-
-.gs-history-item:hover .gs-history-remove,
-.gs-history-item:focus-within .gs-history-remove,
-.gs-history-item[data-active="true"] .gs-history-remove {
-  opacity: 1;
-}
-
-/* Touch devices have no hover — the delete control must always be reachable. */
-@media (hover: none) {
-  .gs-history-remove {
-    opacity: 1;
-  }
-}
-
-.gs-history-remove:hover {
-  color: #ef4444;
-  background: rgba(239, 68, 68, 0.1);
-}
-
-/* ── Domain Card — flat hairline (dark) / soft-shadow paper (light) ── */
-
-.domain-card {
-  @apply text-fg-primary relative flex cursor-pointer flex-col gap-3.5 rounded-[var(--card-radius,12px)] border border-[var(--color-border-faint)] bg-[var(--color-bg-near)] p-6 no-underline shadow-[var(--card-shadow,none)] sm:p-7;
-  transition:
-    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 0.28s,
-    box-shadow 0.28s;
-}
-
-.domain-card__top {
-  @apply flex items-start justify-between;
-}
-
-.domain-card__counter {
-  @apply flex items-center gap-2 pt-1;
-}
-
-.domain-card__counter-text {
-  @apply text-fg-muted font-mono text-[11px] tracking-[0.16em] uppercase;
-}
-
-.domain-card__copy {
-  @apply block;
-}
-
-.domain-card__title {
-  @apply font-display text-fg-primary m-0 text-[1.4rem] leading-tight font-semibold;
-}
-
-.domain-card__subtitle {
-  @apply text-fg-muted mt-1 mb-0 font-mono text-[0.74rem] uppercase;
-}
-
-.domain-card__description {
-  @apply text-fg-secondary m-0 flex-1 text-[0.92rem] leading-relaxed;
-}
-
-.domain-card__footer {
-  @apply mt-1 flex items-end justify-between gap-3;
-}
-
-.domain-card__stats {
-  @apply text-fg-muted min-w-0 font-mono text-[0.75rem] leading-snug tracking-[0.04em];
-}
-
-.domain-card__cta {
-  @apply inline-flex shrink-0 items-center gap-1.5 font-mono text-[0.78rem] font-medium tracking-[0.04em] whitespace-nowrap;
-}
-
-.domain-card__arrow {
-  @apply inline-block transition-transform duration-300;
-}
-
-.domain-card:hover,
-.domain-card:focus-visible {
-  transform: translateY(-4px);
-  border-color: var(--domain-color);
-  box-shadow: 0 14px 34px -16px color-mix(in srgb, var(--domain-color) 55%, transparent);
-}
-
-.domain-card:focus-visible {
-  outline: 2px solid var(--domain-color);
-  outline-offset: 2px;
-}
-
-/* Icon tile lifts and warms toward its domain colour on hover. */
-.domain-card__icon {
-  @apply grid h-12 w-12 place-items-center rounded-[10px] border border-[var(--color-border-faint)];
-  transition:
-    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 0.3s,
-    box-shadow 0.3s;
-}
-
-.domain-card:hover .domain-card__icon,
-.domain-card:focus-visible .domain-card__icon {
-  transform: scale(1.07) translateY(-1px);
-  border-color: color-mix(in srgb, var(--domain-color) 45%, transparent);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--domain-color) 9%, transparent);
-}
-
-/* Status dot gains a soft halo on hover. */
-.domain-card__dot {
-  @apply h-[9px] w-[9px] rounded-full;
-  transition: box-shadow 0.3s;
-}
-
-.domain-card:hover .domain-card__dot,
-.domain-card:focus-visible .domain-card__dot {
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--domain-color) 18%, transparent);
-}
-
-.domain-card:hover .domain-card__arrow,
-.domain-card:focus-visible .domain-card__arrow {
-  transform: translateX(4px);
-}
-
-/* ── Reusable lift-on-hover card (latest updates, featured content) ──
-   Set --card-accent inline to colour the lift glow per domain. */
-.home-content-section {
-  @apply px-6 py-20;
-}
-
-.home-section-heading,
-.home-lift-item {
-  position: relative;
-}
-
-.home-section-title {
-  @apply font-display text-fg-primary mb-2 text-center text-2xl font-semibold;
-}
-
-.home-section-subtitle {
-  @apply text-fg-muted mb-10 text-center text-[0.95rem];
-}
-
-.home-updates-grid {
-  @apply mx-auto grid max-w-4xl grid-cols-1 gap-4 md:grid-cols-2;
-}
-
-.home-featured-grid {
-  @apply grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3;
-}
-
-.lift-card {
-  @apply border-border-faint bg-bg-near relative block overflow-hidden rounded-xl border p-5 pl-6 no-underline backdrop-blur-lg;
-  transition:
-    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 0.28s,
-    box-shadow 0.28s;
-}
-
-.lift-card--full {
-  @apply h-full;
-}
-
-.lift-card__meta {
-  @apply mb-2.5 flex items-center gap-2;
-}
-
-.lift-card__meta--featured {
-  @apply mb-3;
-}
-
-.lift-card__badge {
-  @apply text-fg-secondary rounded-full px-2 py-0.5 text-[0.75rem] font-semibold;
-}
-
-.lift-card__badge--plain {
-  @apply rounded-none p-0;
-}
-
-.lift-card__date {
-  @apply text-fg-muted text-[0.75rem];
-}
-
-.lift-card__icon {
-  @apply text-lg;
-}
-
-.lift-card__title {
-  @apply text-fg-primary mb-1.5 text-[1rem] font-semibold transition-colors;
-}
-
-.lift-card:hover .lift-card__title,
-.lift-card:focus-visible .lift-card__title {
-  color: var(--color-accent-gold);
-}
-
-.lift-card__description {
-  @apply text-fg-secondary m-0 text-[0.9rem] leading-relaxed;
-}
-
-.lift-card:hover,
-.lift-card:focus-visible {
-  transform: translateY(-4px);
-  border-color: color-mix(in srgb, var(--card-accent, var(--color-fg-disabled)) 40%, transparent);
-  box-shadow: 0 14px 32px -18px
-    color-mix(in srgb, var(--card-accent, var(--color-fg-disabled)) 55%, transparent);
-}
-
-/* Left accent stripe that grows in on hover. */
-.lift-card__stripe {
-  @apply absolute inset-y-3 left-0 w-[3px] rounded-full;
-  transform: scaleY(0.5);
-  transform-origin: center;
-  opacity: 0.7;
-  transition:
-    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.28s;
-}
-
-.lift-card:hover .lift-card__stripe,
-.lift-card:focus-visible .lift-card__stripe {
-  transform: scaleY(1);
-  opacity: 1;
-}
-
-/* Homepage chrome that used to ship as repeated Tailwind strings in the RSC payload. */
-.home-cluster {
-  @apply px-6 pt-10 pb-6 sm:px-10 lg:px-16;
-}
-
-.home-cluster__header {
-  @apply mb-6 flex items-baseline gap-3;
-}
-
-.home-cluster__title {
-  @apply font-display text-fg-primary text-2xl font-semibold tracking-tight;
-}
-
-.home-cluster__en {
-  @apply text-fg-muted font-mono text-[11px] tracking-[0.28em] uppercase;
-}
-
-.home-cluster__rule {
-  @apply bg-border-faint h-px flex-1;
-}
-
-.home-cluster__count {
-  @apply text-fg-disabled font-mono text-[11px] tracking-[0.22em];
-}
-
-.home-cluster__grid {
-  @apply grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3;
-}
-
-.home-hero {
-  @apply relative w-full pt-24 pb-16 text-center;
-}
-
-.home-hero__copy {
-  @apply relative z-1 px-6;
-}
-
-.home-hero__frame {
-  @apply animate-slide-up relative inline-block px-4 py-9 sm:px-12;
-}
-
-.home-hero__kicker-row {
-  @apply animate-slide-up mb-7 flex items-center justify-center gap-3;
-}
-
-.home-hero__kicker-rule {
-  @apply bg-accent-gold/45 h-px w-8;
-}
-
-.home-hero__kicker {
-  @apply text-accent-gold font-mono text-[0.75rem] font-medium tracking-[0.38em] uppercase;
-}
-
-.home-hero__title {
-  @apply animate-slide-up font-display text-fg-primary mb-5 text-[clamp(2.9rem,7.5vw,5.2rem)] leading-[1.04] font-semibold tracking-tight;
-}
-
-.home-hero__lead {
-  @apply animate-slide-up text-fg-secondary mx-auto mb-4 max-w-[560px] text-[1.15rem] leading-relaxed font-medium;
-}
-
-.home-hero__sub {
-  @apply animate-slide-up text-fg-muted mx-auto mb-8 max-w-[520px] text-[1.02rem] leading-relaxed;
-}
-
-.home-hero__actions {
-  @apply animate-slide-up mb-10 flex flex-wrap items-center justify-center gap-3;
-}
-
-.home-hero__cta {
-  @apply inline-flex items-center gap-2 px-5 py-2.5 font-mono text-[12px] tracking-[0.14em] uppercase;
-}
-
-.home-hero__cta--primary {
-  @apply bg-accent-gold text-bg-base transition-opacity hover:opacity-90;
-}
-
-.home-hero__cta--ghost {
-  @apply border-border-subtle text-fg-secondary hover:border-fg-disabled hover:text-fg-primary border transition-colors;
-}
-
-.home-hero__stats {
-  @apply flex flex-wrap items-start justify-center gap-x-10 gap-y-6 px-4 sm:gap-x-16;
-}
-
-.home-hero__stat-row {
-  @apply flex items-center gap-x-10 sm:gap-x-16;
-}
-
-.home-hero__stat-rule {
-  @apply bg-border-faint hidden h-9 w-px sm:block;
-}
-
-.home-hero__stat-value {
-  @apply font-display text-fg-primary block text-[2.1rem] leading-tight font-semibold tracking-tight;
-}
-
-.home-hero__stat-label {
-  @apply text-fg-muted mt-1.5 block font-mono text-[0.75rem] tracking-[0.18em] uppercase;
-}
-
-.home-daily-slot {
-  @apply w-full px-6 py-16 sm:px-10 lg:px-16;
-}
-
-.home-daily-slot__title {
-  @apply font-display text-fg-primary mb-8 text-2xl font-semibold;
-}
-
-.home-daily {
-  @apply mx-auto w-full max-w-3xl overflow-hidden rounded-2xl backdrop-blur-xl;
-}
-
-.home-daily__body {
-  @apply p-6 sm:p-8;
-}
-
-.home-daily__heading {
-  @apply font-display text-fg-primary mb-1 text-xl font-semibold;
-}
-
-.home-daily__date {
-  @apply text-fg-muted text-[0.85rem];
-}
-
-.home-daily__list {
-  @apply flex flex-col gap-3;
-}
-
-.home-daily__link {
-  @apply bg-bg-near border-border-faint hover:bg-bg-elevated block rounded-xl border p-4 no-underline transition-colors duration-300;
-}
-
-.home-daily__row {
-  @apply flex items-start gap-3;
-}
-
-.home-daily__icon {
-  @apply mt-0.5 shrink-0 text-xl;
-}
-
-.home-daily__copy {
-  @apply min-w-0 flex-1;
-}
-
-.home-daily__meta {
-  @apply mb-1.5 flex flex-wrap items-center gap-2;
-}
-
-.home-daily__badge {
-  @apply rounded-full px-2 py-0.5 text-[0.75rem] font-semibold;
-}
-
-.home-daily__year {
-  @apply text-fg-muted text-[0.75rem];
-}
-
-.home-daily__title {
-  @apply text-fg-primary mb-1 text-[1rem] leading-snug font-semibold transition-colors;
-}
-
-.home-daily__link:hover .home-daily__title,
-.home-daily__link:focus-visible .home-daily__title {
-  color: var(--color-accent-gold);
-}
-
-.home-daily__description {
-  @apply text-fg-secondary m-0 line-clamp-2 text-[0.9rem] leading-relaxed;
-}
-
-.home-daily__arrow {
-  @apply text-fg-muted mt-1 shrink-0 transition-transform duration-200;
-}
-
-.home-daily__link:hover .home-daily__arrow,
-.home-daily__link:focus-visible .home-daily__arrow {
-  color: var(--color-accent-gold);
-  transform: translateX(0.125rem);
-}
-
-.home-daily__fact {
-  @apply mt-5 flex items-start gap-2 pt-4;
-}
-
-.home-daily__fact-label {
-  @apply text-accent-gold font-semibold;
-}
-
-.home-daily__fact-text {
-  @apply text-fg-muted m-0 text-[0.85rem] leading-relaxed;
-}
-
-.home-feature-section {
-  @apply px-6 pb-20;
-}
-
-.home-feature-section__title {
-  @apply font-display text-fg-primary mb-2 text-center text-2xl font-semibold;
-}
-
-.home-feature-section__subtitle {
-  @apply text-fg-muted mb-10 text-center text-[0.95rem];
-}
-
-.home-feature-grid {
-  @apply grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4;
-}
-
-.home-feature-card {
-  @apply border-border-faint bg-bg-near block rounded-[var(--card-radius,12px)] border p-6 no-underline shadow-[var(--card-shadow,none)];
-  transition:
-    border-color 0.3s,
-    transform 0.3s;
-}
-
-a.home-feature-card {
-  cursor: pointer;
-}
-
-.home-feature-card:hover,
-.home-feature-card:focus-visible {
-  transform: translateY(-0.125rem);
-  border-color: var(--color-accent-gold);
-}
-
-.home-feature-card__icon {
-  @apply text-accent-gold mb-3 text-2xl opacity-85 transition-opacity duration-300;
-}
-
-.home-feature-card:hover .home-feature-card__icon,
-.home-feature-card:focus-visible .home-feature-card__icon {
-  opacity: 1;
-}
-
-.home-feature-card__title {
-  @apply font-display text-fg-primary mb-1.5 text-base font-semibold;
-}
-
-.home-feature-card__desc {
-  @apply text-fg-secondary m-0 text-[0.9rem] leading-relaxed;
-}
-
-.home-feature-cta {
-  @apply border-border-subtle bg-bg-near hover:border-accent-gold col-span-full mt-4 block rounded-[var(--card-radius,12px)] border p-8 no-underline shadow-[var(--card-shadow,none)];
-  transition:
-    border-color 0.3s,
-    transform 0.3s;
-}
-
-.home-feature-cta:hover,
-.home-feature-cta:focus-visible {
-  transform: translateY(-0.125rem);
-}
-
-.home-feature-cta__inner {
-  @apply text-center;
-}
-
-.home-feature-cta__icon {
-  @apply text-accent-gold mb-3 text-4xl opacity-80;
-}
-
-.home-feature-cta__title {
-  @apply font-display text-fg-primary mb-2 text-xl font-semibold;
-}
-
-.home-feature-cta__desc {
-  @apply text-fg-secondary mx-auto mb-4 max-w-md text-[0.95rem] leading-relaxed;
-}
-
-.home-feature-cta__go {
-  @apply text-accent-gold inline-flex items-center gap-2 text-sm font-semibold;
-}
-
-.home-continuum {
-  @apply w-full px-6 py-16 sm:px-10 lg:px-16;
-}
-
-.home-continuum__intro {
-  @apply mb-9 grid gap-5 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-end;
-}
-
-.home-continuum__eyebrow {
-  @apply text-fg-muted mb-3 font-mono text-[10px] tracking-[0.34em] uppercase;
-}
-
-.home-continuum__title {
-  @apply font-display text-fg-primary text-2xl font-semibold;
-}
-
-.home-continuum__lede {
-  @apply text-fg-secondary max-w-3xl text-sm leading-relaxed;
-}
-
-.home-continuum__panel {
-  @apply border-border-faint bg-bg-near flex flex-col justify-between gap-8 border px-4 py-5 sm:px-6;
-}
-
-.home-continuum__kicker {
-  @apply text-fg-disabled font-mono text-[10px] tracking-[0.22em] uppercase;
-}
-
-.home-continuum__panel-title {
-  @apply font-display text-fg-primary mt-1 text-xl font-semibold;
-}
-
-.home-continuum__stages {
-  @apply border-border-faint mt-5 grid border-t border-l sm:grid-cols-5;
-}
-
-.home-continuum__stage {
-  @apply border-border-faint text-fg-secondary border-r border-b px-3 py-3 text-sm;
-}
-
-.home-continuum__stage-index {
-  @apply text-fg-disabled block font-mono text-[10px];
-}
-
-.home-continuum__actions {
-  @apply mt-8 flex flex-wrap items-center gap-x-5 gap-y-3;
-}
-
-.home-continuum__button {
-  @apply border-border-faint text-fg-primary min-h-10 border px-4 text-sm;
-}
-
-.home-continuum__link {
-  @apply text-fg-secondary hover:text-fg-primary inline-flex min-h-10 items-center border-b border-current text-sm;
-}
-
-.home-continuum__module {
-  @apply border-border-faint bg-bg-near mt-8 border px-4 py-5 sm:px-6;
-}
-
-.home-continuum__hint {
-  @apply text-fg-muted mt-4 text-sm leading-6;
-}
-
-.home-continuum__confluence {
-  @apply mt-4 flex flex-wrap gap-x-5 gap-y-2;
-}
-
-.home-continuum__confluence-link {
-  @apply text-fg-secondary border-b border-current text-xs;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .home-feature-card:hover,
-  .home-feature-card:focus-visible,
-  .home-feature-cta:hover,
-  .home-feature-cta:focus-visible {
-    transform: none;
   }
 }
 
@@ -1431,6 +629,197 @@ a.home-feature-card {
   animation: mobileNavScrimIn 0.2s ease-out;
 }
 
+/* ═══════════════════════════════════════════════════════════════════════
+   MOTION LAYER — "the instrument wakes up".
+   Three reusable signatures shared by the portal, engine domains and the
+   article shell: (1) a pointer-tracking lens on card grids, (2) line-work
+   that draws itself in, (3) fold-gated reveals. Everything degrades to the
+   static final state under prefers-reduced-motion (global rule above) and
+   nothing here hides server markup before JS adds `html.motion-ok`.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. Lens: radial wash + border light following --mx/--my ─────────── */
+[data-spotlight] {
+  --mx: 50%;
+  --my: 50%;
+  --spot: var(--domain-color, var(--accent, var(--color-accent-gold)));
+  isolation: isolate;
+}
+
+[data-spotlight]::before,
+[data-spotlight]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Wash sits between the card background and its content. */
+[data-spotlight]::before {
+  z-index: -1;
+  background: radial-gradient(
+    280px circle at var(--mx) var(--my),
+    color-mix(in srgb, var(--spot) 13%, transparent),
+    transparent 62%
+  );
+}
+
+/* 1px ring lit only near the pointer — a hairline that responds. */
+[data-spotlight]::after {
+  padding: 1px;
+  background: radial-gradient(
+    240px circle at var(--mx) var(--my),
+    color-mix(in srgb, var(--spot) 78%, transparent),
+    transparent 72%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  [data-spotlight]:hover::before,
+  [data-spotlight]:hover::after,
+  [data-spotlight]:focus-visible::before,
+  [data-spotlight]:focus-visible::after {
+    opacity: 1;
+  }
+}
+
+/* ── 2. Reveal: opt-in via [data-reveal]; JS gates it with html.motion-ok ── */
+html.motion-ok [data-reveal] {
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--reveal-i, 0) * 70ms);
+}
+
+html.motion-ok [data-reveal]:not(.is-in) {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+@media print {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ── 3. Line-work that draws itself in (pathLength="1" set by the motif) ── */
+@keyframes motifDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes motifFade {
+  from {
+    opacity: 0;
+  }
+}
+
+.domain-motif--draw path,
+.domain-motif--draw line,
+.domain-motif--draw rect,
+.domain-motif--draw polyline,
+.domain-motif--draw polygon,
+.domain-motif--draw circle:not([stroke="none"]) {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: motifDraw 1.6s cubic-bezier(0.65, 0, 0.35, 1) 0.15s both;
+}
+
+/* `from`-only keyframe: each dot/glyph fades up to its own authored opacity. */
+.domain-motif--draw circle[stroke="none"],
+.domain-motif--draw text {
+  animation: motifFade 0.6s ease-out 1.3s both;
+}
+
+/* Hero motif drifts up as the reader scrolls (scroll-driven; progressive). */
+@keyframes motifParallax {
+  to {
+    transform: translateY(-90px);
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .domain-motif--hero {
+      animation: motifParallax linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 640px;
+    }
+  }
+}
+
+/* Section list cards enter in a short cascade (CSS-only, mount-time). */
+@keyframes listEnter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.list-enter {
+  /* `backwards` keeps the hover lift (a normal transform) working afterwards. */
+  animation: listEnter 0.55s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: calc(var(--i, 0) * 45ms);
+}
+
+/* ── Article shell ───────────────────────────────────────────────────── */
+@keyframes articleEnter {
+  from {
+    transform: translateY(14px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.article-header__enter {
+  animation: articleEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.article-header__enter:nth-child(2) {
+  animation-delay: 0.06s;
+}
+
+.article-header__enter:nth-child(3) {
+  animation-delay: 0.12s;
+}
+
+@keyframes articleRule {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.article-header__rule {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 38%;
+  transform-origin: left center;
+  animation: articleRule 1.1s cubic-bezier(0.65, 0, 0.35, 1) 0.1s both;
+}
+
 /* Tailwind's generated theme variables are unlayered and emitted after the
    base layer. This final unlayered override prevents portal chrome from
    combining Notebook surfaces with Observatory foreground utilities. */
@@ -1445,10 +834,10 @@ a.home-feature-card {
   --color-bg-floating: #ffffff !important;
   --color-bg-overlay: rgba(245, 242, 235, 0.9) !important;
   --color-scrim: rgba(44, 40, 32, 0.32) !important;
-  --color-fg-primary: #2c2a26 !important;
-  --color-fg-secondary: #4f4b45 !important;
-  --color-fg-muted: #5a564f !important;
-  --color-fg-disabled: #625e58 !important;
+  --color-fg-primary: #1e2638 !important;
+  --color-fg-secondary: #454b58 !important;
+  --color-fg-muted: #51565f !important;
+  --color-fg-disabled: #5a5f6b !important;
   --color-accent-gold: #795719;
   --color-border-faint: #eee6d9;
   --color-border-subtle: #e8dfd0;

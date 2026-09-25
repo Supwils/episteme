@@ -46,9 +46,8 @@ vi.mock("framer-motion", () => ({
 }));
 
 import { DomainCard } from "../DomainCard";
-import { HeroSection } from "../HeroSection";
-import { DOMAINS } from "@/lib/data";
-import SEARCH_STATS from "@/generated/search-stats.json";
+import { domainCollectionCount, getDomainStats } from "@/lib/site-stats";
+import { BookShelf } from "../portal/BookShelf";
 import { PageTransition } from "../PageTransition";
 import { ScrollToTop } from "../ScrollToTop";
 import { SectionAwareFooter } from "../SectionAwareFooter";
@@ -66,76 +65,82 @@ const mockDomain = {
   title: "哲学思想",
   titleEn: "PHILOSOPHY",
   description: "探索人类最深刻的思想",
-  gradient: "linear-gradient(135deg, #c8a45a, #e8d5a3)",
-  glowColor: "#c8a45a",
-  bgAccent: "rgba(200,164,90,0.08)",
-  borderAccent: "rgba(200,164,90,0.15)",
-  icon: <span>icon</span>,
+  cluster: "humanities-arts" as const,
   stats: "100+ 哲学家",
 };
 
 describe("DomainCard", () => {
   it("renders domain title", () => {
-    render(<DomainCard domain={mockDomain} index={0} />);
+    render(<DomainCard domain={mockDomain} />);
     expect(screen.getByText("哲学思想")).toBeDefined();
   });
 
   it("renders domain description", () => {
-    render(<DomainCard domain={mockDomain} index={0} />);
+    render(<DomainCard domain={mockDomain} />);
     expect(screen.getByText("探索人类最深刻的思想")).toBeDefined();
   });
 
   it("links to correct URL", () => {
-    render(<DomainCard domain={mockDomain} index={0} />);
+    render(<DomainCard domain={mockDomain} />);
     const link = screen.getByRole("link");
     expect(link.getAttribute("href")).toBe("/philosophy");
   });
 
   it("renders English subtitle", () => {
-    render(<DomainCard domain={mockDomain} index={0} />);
+    render(<DomainCard domain={mockDomain} />);
     expect(screen.getByText("PHILOSOPHY")).toBeDefined();
   });
 
-  it("renders stats badge", () => {
-    render(<DomainCard domain={mockDomain} index={0} />);
-    expect(screen.getByText("100+ 哲学家")).toBeDefined();
+  it("prints generated counts, never the hand-written stats line or a creation index", () => {
+    const { container } = render(<DomainCard domain={mockDomain} />);
+    const { articles } = getDomainStats("philosophy");
+    const stats = container.querySelector(".domain-card__stats")?.textContent ?? "";
+    expect(stats.startsWith(`${articles} 篇文章 · `)).toBe(true);
+    expect(stats).toContain(`${domainCollectionCount("philosophy", "哲学家")} 位哲学家`);
+    expect(stats).not.toContain("100+");
+    expect(container.textContent).not.toMatch(/DOMAIN \d/);
   });
 
   it("renders explore CTA", () => {
-    render(<DomainCard domain={mockDomain} index={0} />);
+    render(<DomainCard domain={mockDomain} />);
     expect(screen.getByText("进入探索")).toBeDefined();
   });
 
-  it("keeps its server-rendered content visible until the scroll controller enhances it", () => {
-    render(<DomainCard domain={mockDomain} index={0} />);
+  it("renders visible with no scroll-reveal hooks", () => {
+    render(<DomainCard domain={mockDomain} />);
     const link = screen.getByRole("link");
 
-    expect(link.hasAttribute("data-home-reveal")).toBe(true);
+    expect(link.hasAttribute("data-home-reveal")).toBe(false);
     expect(link.style.opacity).toBe("");
     expect(link.style.visibility).toBe("");
     expect(link.style.animationDelay).toBe("");
   });
 });
 
-describe("HeroSection", () => {
-  it("invites the reader with concrete, understated language", () => {
-    render(<HeroSection />);
-
-    const heading = screen.getByRole("heading", { level: 1, name: "从问题出发" });
-    expect(heading.textContent).toBe("从问题出发");
-    expect(screen.getByText("顺着知识的线索，慢慢建立自己的理解")).toBeDefined();
+describe("BookShelf", () => {
+  const book = (slug: string, title: string, chapterCount: number) => ({
+    slug,
+    title,
+    subtitle: `${title}的副题`,
+    domainLabel: "哲学思想",
+    pigment: "var(--brass)",
+    chapterCount,
+    preview: ["第一章", "第二章"],
+    startHref: `/philosophy/thinkers/thales?path=${slug}&step=1`,
   });
 
-  it("renders final statistics in the initial markup without a delayed animation", () => {
-    render(<HeroSection />);
+  it("pulls out the first book, then whichever spine the reader picks", () => {
+    render(<BookShelf books={[book("west", "西方哲学之旅", 14), book("east", "东方思想", 6)]} />);
+    expect(screen.getByRole("heading", { name: "西方哲学之旅" })).toBeDefined();
 
-    const statistics = screen.getByRole("list", { name: "平台内容统计" });
-    expect(statistics.classList.contains("animate-fade-slide-up")).toBe(false);
-    expect(screen.getByText(String(DOMAINS.length))).toBeDefined();
-    // Stats derive from the generated search-index snapshot, not literals —
-    // assert against the same source so content rounds don't break this test.
-    expect(screen.getByText(String(SEARCH_STATS.documents))).toBeDefined();
-    expect(screen.getByText(String(SEARCH_STATS.articles))).toBeDefined();
+    const east = screen.getByRole("button", { name: /东方思想/ });
+    expect(east.getAttribute("aria-expanded")).toBe("false");
+    fireEvent.click(east);
+    expect(east.getAttribute("aria-expanded")).toBe("true");
+    expect(screen.getByRole("heading", { name: "东方思想" })).toBeDefined();
+    expect(screen.getByRole("link", { name: "看完整目录" }).getAttribute("href")).toBe(
+      "/read/east"
+    );
   });
 });
 

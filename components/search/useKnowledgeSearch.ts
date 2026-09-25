@@ -37,9 +37,18 @@ export function useKnowledgeSearch(): KnowledgeSearch {
   const [searchingTitles, setSearchingTitles] = useState(false);
   const [searchingBody, setSearchingBody] = useState(false);
 
+  // Created inside the effect so StrictMode's mount→cleanup→mount cycle gets a
+  // live client again; disposing a render-time singleton left every dev search
+  // on the main-thread fallback and hid Worker bugs until production.
   const client = useRef<ReturnType<typeof createSearchClient> | null>(null);
-  if (client.current === null) client.current = createSearchClient();
-  useEffect(() => () => client.current?.dispose(), []);
+  useEffect(() => {
+    const created = createSearchClient();
+    client.current = created;
+    return () => {
+      created.dispose();
+      if (client.current === created) client.current = null;
+    };
+  }, []);
 
   const trimmed = query.trim();
 

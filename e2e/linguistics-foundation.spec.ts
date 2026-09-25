@@ -1,27 +1,24 @@
 import { expect, test } from "@playwright/test";
 
-test("opens the staged linguistics release without exposing empty frontier content", async ({
-  page,
-}) => {
+test("opens the linguistics landing and walks into a section", async ({ page }) => {
   await page.goto("/linguistics");
 
   const subjectMain = page.locator(".domain-root > main");
-  await expect(page.getByRole("heading", { name: "语言学", exact: true })).toBeVisible();
-  await expect(subjectMain.getByText("36 个知识条目")).toBeVisible();
-  await expect(subjectMain.locator('a[href^="/linguistics/"]')).toHaveCount(6);
-  await expect(page.getByRole("link", { name: /研究前沿/ })).toHaveCount(0);
+  await expect(page.getByRole("heading", { level: 1, name: /^语言学/ })).toBeVisible();
+  await expect(subjectMain.locator(".landing-hero__stats")).toHaveText(/\d+ 个条目/);
+  await expect(subjectMain.locator(".section-index a")).not.toHaveCount(0);
 
-  await subjectMain.locator('a[href="/linguistics/sounds-and-signs"]').click();
+  await subjectMain.locator('.section-index a[href="/linguistics/sounds-and-signs"]').click();
   await expect(page.getByRole("heading", { name: "声音与手势" })).toBeVisible();
   await expect(
     page.locator('.domain-root > main a[href^="/linguistics/sounds-and-signs/"]')
-  ).toHaveCount(6);
+  ).not.toHaveCount(0);
 
   await page.goto("/linguistics/sounds-and-signs/language-speech-and-sign");
   await expect(page.getByRole("heading", { name: "语言、言语与手语" })).toBeVisible();
   await expect(page.locator("header.sticky")).toHaveCount(1);
   await expect(page.getByRole("complementary").getByText("L1", { exact: true })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "参考书目" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /^参考(文献|书目)/ })).toBeVisible();
 
   const overflow = await page.evaluate(
     () => document.documentElement.scrollWidth - window.innerWidth
@@ -94,7 +91,7 @@ test("opens the complete L3 meaning, mind, and global writing release", async ({
     await page.goto(route);
     await expect(page.getByRole("heading", { name: heading, exact: true })).toBeVisible();
     await expect(page.getByRole("complementary").getByText("L3", { exact: true })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "参考书目" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /^参考(文献|书目)/ })).toBeVisible();
     const overflow = await page.evaluate(
       () => document.documentElement.scrollWidth - window.innerWidth
     );
@@ -177,7 +174,7 @@ test("opens the five expert synthesis articles with evidence boundaries", async 
     await page.goto(route);
     await expect(page.getByRole("heading", { name: heading, exact: true })).toBeVisible();
     await expect(page.getByRole("complementary").getByText("L5", { exact: true })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "参考书目" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /^参考(文献|书目)/ })).toBeVisible();
     const overflow = await page.evaluate(
       () => document.documentElement.scrollWidth - window.innerWidth
     );

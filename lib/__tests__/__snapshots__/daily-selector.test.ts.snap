@@ -28,9 +28,9 @@ exports[`getDailySelected (characterization) > is stable for 2026-01-15 offset 0
     "url": "/cosmology/knowledge-base/宇宙大尺度结构",
   },
   "curiosity": {
-    "detail": "菲利帕·富特（Philippa Foot）1967 年在一篇关于堕胎与双重效应原则的论文里举了这个例子。她大概没料到，半个世纪后它会成为自动驾驶伦理的标准考题。",
-    "title": "「电车难题」是一位女哲学家在讨论堕胎时顺手提出的",
-    "url": "/philosophy/experiments/trolley-problem",
+    "detail": "流行读物把叶序、螺壳和帕特农都写成 φ≈1.618 的宇宙密码，像植物发芽前读过一份秘密比例。叶序里的黄金角是真的：新原基互相推开，最密堆积会收敛到圆的无理旋转；斐波那契计数是这套动力学的整数影子。把同一比值事后贴到神庙立面或钱包上，是十九世纪才发明的审美神话——马克夫斯基 1992 年逐条拆过：量点可调，总能凑出 1.6。植物没有入会，测量者在选点。",
+    "title": "向日葵、鹦鹉螺和信用卡，看起来都在执行同一份黄金分割密教",
+    "url": "/arts/foundations/proportion-and-harmony",
   },
   "date": "2026-01-15",
   "earthScience": {
@@ -169,9 +169,9 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 0
     "url": "/cosmology/knowledge-base/宇宙学基础--太初核合成",
   },
   "curiosity": {
-    "detail": "1961 年，汉娜·阿伦特作为《纽约客》记者旁听了纳粹战犯艾希曼的审判。她震惊地发现，这个负责将数百万人送进毒气室的人，既不疯狂也不残忍，只是一个拒绝独立思考、只会执行命令的平庸小官员。她把这种现象称为「恶的平庸性」。",
-    "title": "「平庸之恶」——大屠杀不是因为怪物，而是因为一个不动脑子的普通官僚",
-    "url": "/philosophy/thinkers/hannah-arendt",
+    "detail": "有一种说法是：卫星定位靠牛顿力学就够，公开文件里的相对论修正是航天机构用来「证明」爱因斯坦的道具。实情写在公开的接口规范里：星载钟在较弱引力势中每天快约 45 微秒，运动学效应又让它慢约 7 微秒，净快约 38 微秒；不预偏、不监测，伪距会按光速把钟差摊成每天约 11 公里的漂移。这不是密室里的伪造，是把已经发表的钟率写进工程预算——接口控制文件谁都可以读。",
+    "title": "GPS 钟每天要改三十八微秒，看起来像有人把广义相对论写进了导航骗局",
+    "url": "/universe-physics/knowledge-base/相对论--引力红移与引力时间膨胀",
   },
   "date": "2026-03-14",
   "earthScience": {
@@ -197,10 +197,10 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 0
   },
   "fact": "春分通常在3月20日或21日，全球昼夜几乎等长",
   "history": {
-    "description": "物理学家阿尔伯特·爱因斯坦诞生",
-    "title": "爱因斯坦出生",
-    "url": "/human-history/figures/爱因斯坦",
-    "year": 1879,
+    "description": "美国国歌在巴尔的摩诞生",
+    "title": "《星条旗》创作",
+    "url": "/human-history/knowledge/事件--美国革命",
+    "year": 1814,
   },
   "law": {
     "description": "看得见的正义要求告知、听证和中立裁判；结果对，程序也可以是错的。",
@@ -245,10 +245,10 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 0
     },
   ],
   "philosophy": {
-    "description": "相对论创立者，改变了人类对时空的哲学理解",
-    "title": "爱因斯坦出生",
-    "url": "/human-history/figures/爱因斯坦",
-    "year": 1879,
+    "description": "法国存在主义哲学家，诺贝尔文学奖拒绝者",
+    "title": "萨特出生",
+    "url": "/philosophy/thinkers/sartre",
+    "year": 1905,
   },
   "physics": {
     "description": "阿尔伯特·爱因斯坦出生于德国乌尔姆，后来提出了狭义和广义相对论。",
@@ -310,9 +310,9 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 1
     "url": "/cosmology/knowledge-base/星系形成与演化",
   },
   "curiosity": {
-    "detail": "亚当·斯密在《国富论》里提出了「钻石-水悖论」：水维持生命，钻石几乎无用，但价格却完全相反。斯密用劳动价值论解释，却遗漏了关键：稀缺性与边际效用。这个悖论直到一百年后才被奥地利经济学派真正解决。",
-    "title": "水比钻石有用，为什么钻石更贵？亚当·斯密提出这个悖论却答错了答案",
-    "url": "/economics/economists/adam-smith",
+    "detail": "频率错觉（又称 Baader-Meinhof 现象）：一旦某车牌、某病名、某术语进入你的注意，它就像被安排着反复出现。齐茨基 2006 年把它拆成两步：选择性注意加上确认偏误。可得性启发会再补一刀：越容易想起，越觉得「最近特别多」。看起来像有人在协调投放，其实是你的过滤器换了设定，底噪从来都在。",
+    "title": "你刚认识一个词，全世界突然都在用——世界没有串通，是注意被打开了",
+    "url": "/psychology/phenomena/availability-heuristic",
   },
   "date": "2026-03-14",
   "earthScience": {
@@ -386,10 +386,10 @@ exports[`getDailySelected (characterization) > is stable for 2026-03-14 offset 1
     },
   ],
   "philosophy": {
-    "description": "相对论创立者，改变了人类对时空的哲学理解",
-    "title": "爱因斯坦出生",
-    "url": "/human-history/figures/爱因斯坦",
-    "year": 1879,
+    "description": "进化论奠基人，影响了哲学对生命与存在的思考",
+    "title": "达尔文出生",
+    "url": "/life-science/scientists/darwin",
+    "year": 1809,
   },
   "physics": {
     "description": "斯蒂芬·霍金在剑桥去世，享年76岁。他关于黑洞和宇宙起源的研究改变了现代物理学。",
@@ -451,9 +451,9 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 0
     "url": "/cosmology/knowledge-base/宇宙学基础--暗能量与状态方程",
   },
   "curiosity": {
-    "detail": "哈勃定律告诉我们，距离越远，退行速度越快。红移大于约 1.5 的星系，其退行速度已超过光速——但这不违反相对论，因为不是星系在空间中移动，而是它们之间的空间本身在扩张。那些星系发出的光永远无法到达我们。",
-    "title": "此刻有无数星系正在以超过光速的速度「远离」我们，我们永远看不到它们",
-    "url": "/cosmology",
+    "detail": "皇家学会 1712 年的《通信汇编》把莱布尼茨写成抄袭者——牛顿当时正是会长，像一场内定审判。数学史现在的主流判断是独立发明：牛顿 1660 年代已有流数法，莱布尼茨 1670 年代独立发展出更易传播的符号。默顿 1957 年把这类撕扯写成科学奖励制度的必然产物：只认「第一名」，优先权就会被争夺，并不需要有人偷手稿。",
+    "title": "牛顿与莱布尼茨的微积分优先权官司，看起来像跨国盗窃",
+    "url": "/mathematics/dialogues/newton-leibniz",
   },
   "date": "2026-06-16",
   "earthScience": {
@@ -581,9 +581,9 @@ exports[`getDailySelected (characterization) > is stable for 2026-06-16 offset 2
     "url": "/cosmology/knowledge-base/宇宙学基础--太初核合成",
   },
   "curiosity": {
-    "detail": "一副 52 张牌的排列数是 52!，约 8×10^67——比可观测宇宙的恒星数还多得多。即便全人类不停地洗牌至今，也只覆盖了其中微不足道的一角。",
-    "title": "你洗好的这副牌，几乎可以肯定是宇宙历史上第一次出现的顺序",
-    "url": "/mathematics/concepts/combinatorics",
+    "detail": "看起来像有人窃听了学术界：GCHQ 的 Ellis（1969）提出「非秘密加密」，Cocks（1973）写出与 RSA 等价的方案，Williamson（1974）又独立得到与 Diffie–Hellman 等价的密钥交换——全比 1976–1978 年的公开论文更早。其实不是学术圈被渗透，是分类制度：这批笔记直到 1997 年才解密，Ellis 去世前一个月仍未获公开承认。同一套数学在保密机关与公开学界各走一遍，才是 1970 年代公钥的真实诞生图。",
+    "title": "公钥密码在斯坦福「发明」之前四年，已经锁在英国机密柜里",
+    "url": "/computer-science/concepts/encryption-basics",
   },
   "date": "2026-06-16",
   "earthScience": {
@@ -711,9 +711,9 @@ exports[`getDailySelected (characterization) > is stable for 2026-12-25 offset 0
     "url": "/cosmology/knowledge-base/星系形成与演化",
   },
   "curiosity": {
-    "detail": "「上帝死了」首次出现在尼采 1882 年的《快乐的科学》里。尼采的意思是：欧洲文明赖以存在的价值体系已经崩塌，而人们还没有意识到这场危机。这是一个文化诊断，不是一句宗教宣言。",
-    "title": "尼采说「上帝死了」，根本不是在谈论无神论",
-    "url": "/philosophy/thinkers/nietzsche",
+    "detail": "阿尔瓦雷茨父子 1980 年报告：白垩纪—古近纪界线的黏土里铱含量异常，而且远隔大洋的剖面几乎同时出现。铱在地壳里稀、在某些陨石里富，全球一层就很像被统一投料。后来尤卡坦半岛的希克苏鲁伯坑把「谁撒的」收成一次撞击：粉尘、火灾、食物网断裂写在同一条时间线上。不是有人沿纬度撒粉，是一块外来石头把账本复印到全世界。",
+    "title": "全世界同一层黏土里都有铱，像有人把地球表面撒了一圈粉末",
+    "url": "/earth-science/events/chicxulub-impact",
   },
   "date": "2026-12-25",
   "earthScience": {

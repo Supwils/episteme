@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { spaceGrotesk, plexMono } from "./fonts";
-import { SubjectHeader } from "@/components/SubjectHeader";
+import { DomainHeader } from "@/components/chrome/DomainHeader";
 import { PageTransition } from "@/components/PageTransition";
 import "./globals.css";
 
@@ -24,7 +24,7 @@ export default function PsychologyLayout({ children }: { children: React.ReactNo
 
   return (
     <div className={`psychology-root ${fontVars}`}>
-      <SubjectHeader subject="psychology" />
+      <DomainHeader subject="psychology" />
 
       <main>
         <PageTransition>{children}</PageTransition>

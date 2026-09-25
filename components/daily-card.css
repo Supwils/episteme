@@ -1,0 +1,88 @@
+/*
+ * 每日知识卡（/daily 的洗牌区用）。首页在 E4 改为「今天」一段后，
+ * 这张卡只剩 /daily 一处用，样式随组件放在这里。
+ */
+@reference "../app/globals.css";
+
+.home-daily {
+  @apply mx-auto w-full max-w-3xl overflow-hidden rounded-2xl backdrop-blur-xl;
+}
+
+.home-daily__body {
+  @apply p-6 sm:p-8;
+}
+
+.home-daily__heading {
+  @apply font-display text-fg-primary mb-1 text-xl font-semibold;
+}
+
+.home-daily__date {
+  @apply text-fg-muted text-[0.85rem];
+}
+
+.home-daily__list {
+  @apply flex flex-col gap-3;
+}
+
+.home-daily__link {
+  @apply bg-bg-near border-border-faint hover:bg-bg-elevated block rounded-xl border p-4 no-underline transition-colors duration-300;
+}
+
+.home-daily__row {
+  @apply flex items-start gap-3;
+}
+
+.home-daily__icon {
+  @apply mt-0.5 shrink-0 text-xl;
+}
+
+.home-daily__copy {
+  @apply min-w-0 flex-1;
+}
+
+.home-daily__meta {
+  @apply mb-1.5 flex flex-wrap items-center gap-2;
+}
+
+.home-daily__badge {
+  @apply rounded-full px-2 py-0.5 text-[0.75rem] font-semibold;
+}
+
+.home-daily__year {
+  @apply text-fg-muted text-[0.75rem];
+}
+
+.home-daily__title {
+  @apply text-fg-primary mb-1 text-[1rem] leading-snug font-semibold transition-colors;
+}
+
+.home-daily__link:hover .home-daily__title,
+.home-daily__link:focus-visible .home-daily__title {
+  color: var(--color-accent-gold);
+}
+
+.home-daily__description {
+  @apply text-fg-secondary m-0 line-clamp-2 text-[0.9rem] leading-relaxed;
+}
+
+.home-daily__arrow {
+  @apply text-fg-muted mt-1 shrink-0 transition-transform duration-200;
+}
+
+.home-daily__link:hover .home-daily__arrow,
+.home-daily__link:focus-visible .home-daily__arrow {
+  color: var(--color-accent-gold);
+  transform: translateX(0.125rem);
+}
+
+.home-daily__fact {
+  @apply mt-5 flex items-start gap-2 pt-4;
+}
+
+.home-daily__fact-label {
+  @apply text-accent-gold font-semibold;
+}
+
+.home-daily__fact-text {
+  @apply text-fg-muted m-0 text-[0.85rem] leading-relaxed;
+}

@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { openContinuumTab } from "./continuum-tabs";
 import AxeBuilder from "@axe-core/playwright";
 import { buildKnowledgeBranchCatalog } from "@/lib/knowledge-branch-catalog";
 
@@ -94,6 +95,7 @@ test("a11y: portal knowledge confluence", async ({ page }) => {
   await expect(continuum.getByRole("button", { name: "05 综合前沿", exact: true })).toBeVisible({
     timeout: 15_000,
   });
+  await openContinuumTab(page, /多学科汇流/);
   const explorer = continuum.getByTestId("knowledge-confluence-explorer");
   await explorer.scrollIntoViewIfNeeded();
   const load = explorer.getByRole("button", { name: "立即载入" });
@@ -129,6 +131,7 @@ test("a11y: portal reachable knowledge frontier", async ({ page }) => {
   await page.goto("/", { waitUntil: "domcontentloaded" });
   await page.evaluate(() => window.localStorage.removeItem("uk-knowledge-profile-v1"));
   await page.reload({ waitUntil: "domcontentloaded" });
+  await openContinuumTab(page, /可达前沿/);
   const lab = page.getByTestId("knowledge-frontier-lab");
   await lab.scrollIntoViewIfNeeded();
   await expect(lab.getByTestId("frontier-result-computer-science:abstraction")).toBeVisible();
@@ -157,6 +160,7 @@ test("a11y: portal reachable knowledge frontier", async ({ page }) => {
 test("a11y: portal full-graph learning branch", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/", { waitUntil: "domcontentloaded" });
+  await openContinuumTab(page, /地形与路线/);
   const planner = page.getByTestId("knowledge-learning-planner");
   await planner.scrollIntoViewIfNeeded();
   await planner.getByRole("button", { name: "全部节点" }).click();

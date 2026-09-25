@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SpotlightGrid } from "@/components/motion/SpotlightGrid";
 import { READING_PATHS, totalReadingSteps } from "@/lib/reading-paths";
 
 export const dynamic = "force-static";
@@ -30,11 +31,13 @@ export default function ReadIndexPage() {
         </div>
       </header>
 
-      <div className="grid gap-4 sm:grid-cols-2">
+      <SpotlightGrid className="grid gap-4 sm:grid-cols-2">
         {READING_PATHS.map((path) => (
           <Link
             key={path.slug}
             href={`/read/${path.slug}`}
+            data-spotlight
+            style={{ "--spot": path.accent } as React.CSSProperties}
             className="group border-border-subtle bg-bg-elevated hover:border-border-strong relative overflow-hidden rounded-2xl border p-6 transition-colors"
           >
             <span
@@ -98,7 +101,7 @@ export default function ReadIndexPage() {
             </div>
           </Link>
         ))}
-      </div>
+      </SpotlightGrid>
     </div>
   );
 }

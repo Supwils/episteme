@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { SpotlightGrid } from "@/components/motion/SpotlightGrid";
 import { ListSearchFilter, ListEmptyState } from "@/components/ListSearchFilter";
 import type { ListFilterChip } from "@/components/ListSearchFilter";
 import {
@@ -109,13 +110,15 @@ export function TheoremsListBrowser({ theorems }: { theorems: TheoremItem[] }) {
                 <span className="bg-border-faint h-px flex-1" />
               </div>
 
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+              <SpotlightGrid className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
                 {fieldTheorems.map((theorem) => {
                   const difficultyColor = MATH_DIFFICULTY_COLORS[theorem.difficulty] || "#6366f1";
                   return (
                     <Link
                       key={theorem.slug}
                       href={`/mathematics/theorems/${theorem.slug}`}
+                      data-spotlight
+                      style={{ "--spot": difficultyColor } as React.CSSProperties}
                       className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative overflow-hidden border p-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5"
                     >
                       <div
@@ -163,7 +166,7 @@ export function TheoremsListBrowser({ theorems }: { theorems: TheoremItem[] }) {
                     </Link>
                   );
                 })}
-              </div>
+              </SpotlightGrid>
             </div>
           );
         })

@@ -52,31 +52,49 @@ async function readCached(request, cacheName) {
 
 async function storeResponse(request, response, cacheName, limit) {
   if (!response.ok) return;
+  // Chrome refuses a cached `redirected` response for navigations; serving it
+  // offline would surface a network error instead of the fallback page.
+  if (response.redirected && request.mode === "navigate") return;
+  // Clone BEFORE the first await: once the page starts reading the body,
+  // clone() throws and the asset silently never reaches the cache.
+  let copy;
+  try {
+    copy = response.clone();
+  } catch {
+    return;
+  }
   try {
     const cache = await caches.open(cacheName);
-    await cache.put(request, response.clone());
+    await cache.put(request, copy);
     if (limit) await trimCache(cache, limit);
   } catch {
     // The online response remains usable even if offline storage is unavailable.
   }
 }
 
-async function networkFirst(request, cacheName, limit) {
+// `waitUntil` (the fetch event's) lets the response stream to the page while
+// the cache write finishes in the background; without it navigations would
+// wait for the whole body to download before the first byte reaches the tab.
+async function networkFirst(request, cacheName, limit, waitUntil) {
   try {
     const response = await fetch(request);
-    await storeResponse(request, response, cacheName, limit);
+    const store = storeResponse(request, response, cacheName, limit);
+    if (waitUntil) waitUntil(store);
+    else await store;
     return response;
   } catch {
     return (await readCached(request)) || (await readCached("/")) || offline();
   }
 }
 
-async function cacheFirst(request, cacheName) {
+async function cacheFirst(request, cacheName, limit, waitUntil) {
   const cached = await readCached(request);
   if (cached) return cached;
   try {
     const response = await fetch(request);
-    await storeResponse(request, response, cacheName);
+    const store = storeResponse(request, response, cacheName, limit);
+    if (waitUntil) waitUntil(store);
+    else await store;
     return response;
   } catch {
     return offline();
@@ -130,10 +148,11 @@ self.addEventListener("fetch", (event) => {
   const url = new URL(request.url);
   const strategy = classify(url, request.mode === "navigate", self.location.origin);
 
+  const keepAlive = (work) => event.waitUntil(work);
   if (strategy === "navigation") {
-    event.respondWith(networkFirst(request, PAGES_CACHE, PAGES_LIMIT));
+    event.respondWith(networkFirst(request, PAGES_CACHE, PAGES_LIMIT, keepAlive));
   } else if (strategy === "immutable") {
-    event.respondWith(cacheFirst(request, STATIC_CACHE));
+    event.respondWith(cacheFirst(request, STATIC_CACHE, undefined, keepAlive));
   } else if (strategy === "asset") {
     const { response, revalidation } = staleWhileRevalidate(request, ASSET_CACHE);
     event.respondWith(response);

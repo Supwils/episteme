@@ -42,7 +42,8 @@ export function DeferredKnowledgePanel({
       data-testid={testId}
       data-deferred-status={status}
       className="border-border-faint bg-bg-near mt-8 flex flex-col justify-between border px-4 py-5 sm:px-6"
-      style={{ minHeight: "100vh" }}
+      // One tab tall, not one screen: the panel now sits inside the continuum tabs.
+      style={{ minHeight: "32rem" }}
       aria-labelledby={titleId}
     >
       {triggerTestIds.map((triggerTestId) => (

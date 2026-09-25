@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { spaceGrotesk, plexMono } from "./fonts";
-import { SubjectHeader } from "@/components/SubjectHeader";
+import { DomainHeader } from "@/components/chrome/DomainHeader";
 import { PageTransition } from "../../components/PageTransition";
 import "katex/dist/katex.min.css";
 import "./globals.css";
@@ -29,7 +29,7 @@ export const viewport: Viewport = {
 export default function CosmologyLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className={`${spaceGrotesk.variable} ${plexMono.variable} cosmology-root`}>
-      <SubjectHeader subject="cosmology" />
+      <DomainHeader subject="cosmology" />
       <PageTransition>{children}</PageTransition>
     </div>
   );

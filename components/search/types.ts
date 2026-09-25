@@ -56,6 +56,7 @@ export const SEARCH_NO_RESULTS_EXITS = [
   { href: "/read", label: "阅读路线" },
   { href: "/daily", label: "每日知识" },
   { href: "/curiosities", label: "奇趣知识" },
+  { href: "/curiosities?filter=cross-domain", label: "跨学科巧合" },
   { href: "/random", label: "随机一篇" },
 ] as const;
 
@@ -87,6 +88,7 @@ export const TYPE_LABELS: Record<string, string> = {
   knowledgeBase: "知识库",
   frontier: "研究前沿",
   entry: "条目",
+  curiosity: "奇趣知识",
 };
 
 /** One row in the results list, from either tier. */

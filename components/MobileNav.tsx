@@ -1,11 +1,20 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type { NavGroup } from "./nav-data";
+import { Glyph } from "@/components/design/Glyph";
+import { EXPLORE_GROUP } from "./nav-data";
 
-export function MobileNav({ groups }: { groups: NavGroup[] }) {
+const loadAtlas = () => import("./chrome/AtlasGrid").then((m) => m.AtlasGrid);
+const AtlasGrid = dynamic(loadAtlas, { ssr: false });
+
+/**
+ * The phone drawer: the atlas as collapsible clusters (lazy, so seal glyphs
+ * load only when the drawer opens) followed by the explore entries.
+ */
+export function MobileNav() {
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -76,14 +85,13 @@ export function MobileNav({ groups }: { groups: NavGroup[] }) {
     if (!menu) return;
 
     let handleKeyDown: ((e: KeyboardEvent) => void) | null = null;
-    let rafId = requestAnimationFrame(() => {
-      const focusable = menu.querySelectorAll<HTMLElement>(
+    // The atlas loads lazily, so the focusable set is read on every Tab.
+    const focusables = () =>
+      menu.querySelectorAll<HTMLElement>(
         'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
       );
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-
-      first?.focus();
+    let rafId = requestAnimationFrame(() => {
+      focusables()[0]?.focus();
 
       handleKeyDown = function (e: KeyboardEvent) {
         if (e.key === "Escape") {
@@ -92,6 +100,9 @@ export function MobileNav({ groups }: { groups: NavGroup[] }) {
           return;
         }
 
+        const focusable = focusables();
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
         if (e.key !== "Tab" || focusable.length === 0) return;
 
         if (e.shiftKey) {
@@ -128,6 +139,7 @@ export function MobileNav({ groups }: { groups: NavGroup[] }) {
         aria-haspopup="true"
         type="button"
         onClick={() => setOpen(!open)}
+        onPointerEnter={() => void loadAtlas()}
       >
         <span
           className="bg-fg-muted block h-[2px] w-5 rounded-full transition-transform duration-200"
@@ -165,63 +177,29 @@ export function MobileNav({ groups }: { groups: NavGroup[] }) {
           <div aria-hidden="true" className="flex justify-center pt-2">
             <span className="bg-border-strong h-1 w-10 rounded-full" />
           </div>
-          <ul role="menu" className="m-0 flex list-none flex-col gap-1 p-4">
-            <li role="none">
-              <Link
-                role="menuitem"
-                href="/"
-                className={`focus-visible:ring-accent-gold flex min-h-[44px] items-center rounded px-4 py-3 text-[0.95rem] transition-colors focus-visible:ring-1 focus-visible:outline-none ${
-                  isActive("/")
-                    ? "bg-hover-bg text-accent-gold font-medium"
-                    : "text-fg-muted hover:bg-hover-bg hover:text-accent-gold"
-                }`}
-                onClick={closeMenu}
-              >
-                首页
-              </Link>
-            </li>
-            {groups.map((group) => (
-              <li key={group.label} role="none" className="mt-2 first:mt-0">
-                <div
-                  aria-hidden="true"
-                  className="text-fg-disabled px-4 pt-2 pb-1 font-mono text-[10px] tracking-[0.28em] uppercase"
-                >
-                  {group.label}
-                </div>
-                <ul className="m-0 flex list-none flex-col gap-1 p-0">
-                  {group.sections.flatMap((section) =>
-                    section.items.map((item) => (
-                      <li key={item.href} role="none">
-                        <Link
-                          role="menuitem"
-                          href={item.href}
-                          className={`focus-visible:ring-accent-gold flex min-h-[44px] items-center rounded px-4 py-3 text-[0.95rem] transition-colors focus-visible:ring-1 focus-visible:outline-none ${
-                            isActive(item.href)
-                              ? "bg-hover-bg text-accent-gold font-medium"
-                              : "text-fg-muted hover:bg-hover-bg hover:text-accent-gold"
-                          }`}
-                          onClick={closeMenu}
-                          onKeyDown={(e) => {
-                            if (e.key === "Escape") {
-                              e.preventDefault();
-                              closeMenu();
-                            }
-                          }}
-                        >
-                          <span
-                            aria-hidden="true"
-                            className="mr-3 inline-block h-4 w-[3px] shrink-0 rounded-full"
-                            style={{ backgroundColor: item.color, opacity: 0.6 }}
-                          />
-                          {item.label}
-                        </Link>
-                      </li>
-                    ))
-                  )}
-                </ul>
-              </li>
-            ))}
-          </ul>
+          <div className="p-4 pt-2">
+            <AtlasGrid variant="sheet" onNavigate={closeMenu} />
+            <h2 className="text-fg-muted mt-4 mb-1 px-1 text-xs">探索</h2>
+            <ul className="m-0 grid list-none grid-cols-2 gap-1 p-0">
+              {EXPLORE_GROUP.sections[0]!.items.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    aria-current={isActive(item.href) ? "page" : undefined}
+                    className={`flex min-h-[44px] items-center gap-2.5 rounded px-2 text-[0.95rem] transition-colors ${
+                      isActive(item.href)
+                        ? "bg-hover-bg text-accent-gold"
+                        : "text-fg-secondary hover:bg-hover-bg hover:text-fg-primary"
+                    }`}
+                    onClick={closeMenu}
+                  >
+                    {item.glyph && <Glyph name={item.glyph} size={20} className="text-fg-muted" />}
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       )}
     </div>

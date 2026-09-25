@@ -1,0 +1,100 @@
+@reference "../../app/globals.css";
+
+/* 加载 / 404 / 出错（T-DESIGN-03g）：同一套仪器语言，安静，告诉读者下一步。 */
+.state-view {
+  display: flex;
+  min-height: 60vh;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.state-view__title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-fg-primary);
+}
+
+.state-view__body {
+  max-width: 30rem;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--color-fg-secondary);
+}
+
+.state-view__plate {
+  width: min(22rem, 100%);
+  opacity: 0.9;
+}
+
+.state-view__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.state-view__action {
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: var(--color-fg-secondary);
+  transition:
+    color var(--duration-fast) var(--ease-paper),
+    border-color var(--duration-fast) var(--ease-paper);
+}
+
+.state-view__action:hover,
+.state-view__action:focus-visible {
+  border-color: var(--brass);
+  color: var(--color-fg-primary);
+}
+
+.state-view__action[data-primary] {
+  border-color: var(--brass);
+  color: var(--brass-ink);
+}
+
+.state-search {
+  display: flex;
+  width: min(26rem, 100%);
+  gap: 0.5rem;
+}
+
+.state-search input {
+  min-width: 0;
+  flex: 1;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 6px;
+  background: var(--color-bg-panel);
+  padding: 0.55rem 0.75rem;
+  font-size: 0.95rem;
+  color: var(--color-fg-primary);
+}
+
+/* The calibrating dial: the needle sweeps while the page loads, and rests at
+   zero when the reader asks for reduced motion. */
+.calibrating__needle {
+  transform-origin: 50px 50px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .calibrating[data-sweep] .calibrating__needle {
+    animation: calibrate 1600ms var(--ease-instrument) infinite alternate;
+  }
+}
+
+@keyframes calibrate {
+  from {
+    transform: rotate(-38deg);
+  }
+  to {
+    transform: rotate(38deg);
+  }
+}

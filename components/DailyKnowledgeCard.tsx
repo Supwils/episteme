@@ -1,5 +1,12 @@
 import Link from "next/link";
 import type { DailyItem } from "../lib/daily-knowledge";
+import {
+  dailyIconFor,
+  dailyLabelFor,
+  dailyStyleKeyFor,
+  dedupeDailyEvents,
+} from "../lib/daily-display";
+import "./daily-card.css";
 
 type DailyKnowledgeCardProps = {
   items: DailyItem[];
@@ -71,9 +78,9 @@ const DOMAIN_STYLES: Record<string, { bg: string; border: string; text: string; 
 };
 
 const DEFAULT_STYLE = {
-  bg: "rgba(217, 164, 65, 0.12)",
-  border: "rgba(217, 164, 65, 0.25)",
-  text: "#d9a441",
+  bg: "rgba(195, 154, 69, 0.12)",
+  border: "rgba(195, 154, 69, 0.25)",
+  text: "#c39a45",
   label: "知识",
 };
 
@@ -107,13 +114,14 @@ export function DailyKnowledgeCard({ items, fact, date }: DailyKnowledgeCardProp
         </div>
 
         <div className="home-daily__list">
-          {items.map((item) => {
-            const style = getDomainStyle(item.domain);
+          {dedupeDailyEvents(items).map((item) => {
+            const style = getDomainStyle(dailyStyleKeyFor(item.url, item.domain));
+            const label = dailyLabelFor(item.url, style.label);
             return (
               <div key={item.id} data-home-reveal>
                 <Link href={item.url} className="home-daily__link">
                   <div className="home-daily__row">
-                    <span className="home-daily__icon">{item.icon}</span>
+                    <span className="home-daily__icon">{dailyIconFor(item.url, item.icon)}</span>
                     <div className="home-daily__copy">
                       <div className="home-daily__meta">
                         <span
@@ -124,7 +132,7 @@ export function DailyKnowledgeCard({ items, fact, date }: DailyKnowledgeCardProp
                             border: `1px solid ${style.border}`,
                           }}
                         >
-                          {style.label}
+                          {label}
                         </span>
                         {item.year !== undefined && (
                           <span className="home-daily__year">

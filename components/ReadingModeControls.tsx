@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useFocusParagraph } from "@/components/article/useFocusParagraph";
 
 type ReadingMode = "standard" | "focus" | "spacious";
 
@@ -18,6 +19,7 @@ function isReadingMode(value: string | null): value is ReadingMode {
 
 export function ReadingModeControls() {
   const [mode, setMode] = useState<ReadingMode>("standard");
+  useFocusParagraph(mode === "focus");
 
   useEffect(() => {
     let saved: string | null = null;
@@ -53,7 +55,7 @@ export function ReadingModeControls() {
           aria-label={item.description}
           aria-pressed={mode === item.id}
           onClick={() => selectMode(item.id)}
-          className={`rounded-full px-3 py-1.5 font-mono text-[10px] tracking-[0.16em] uppercase transition-colors ${
+          className={`rounded-full px-3 py-1.5 text-[12px] transition-colors ${
             mode === item.id
               ? "bg-accent-gold/15 text-fg-primary border-accent-gold/40 border"
               : "text-fg-muted hover:text-fg-primary hover:bg-bg-elevated border border-transparent"

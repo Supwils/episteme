@@ -380,7 +380,7 @@ function DetailCard({ obj, onClose }: DetailCardProps) {
     >
       <button
         onClick={onClose}
-        className="hover:text-fg-primary absolute top-3 right-3 flex h-7 w-7 items-center justify-center rounded-full bg-[var(--input-bg)] text-sm text-[#868da0] transition-colors hover:bg-[var(--hover-bg)]"
+        className="hover:text-fg-primary text-fg-muted absolute top-3 right-3 flex h-7 w-7 items-center justify-center rounded-full bg-[var(--input-bg)] text-sm transition-colors hover:bg-[var(--hover-bg)]"
         aria-label="关闭"
       >
         ✕
@@ -394,11 +394,11 @@ function DetailCard({ obj, onClose }: DetailCardProps) {
         </div>
         <div className="min-w-0">
           <h3 className="text-fg-primary mb-0.5 text-lg font-semibold">{obj.nameCn}</h3>
-          <p className="mb-2 text-xs text-[#868da0]">{obj.nameEn}</p>
+          <p className="text-fg-muted mb-2 text-xs">{obj.nameEn}</p>
           <p className="mb-3 font-mono text-sm font-medium" style={{ color: obj.color }}>
             {obj.size}
           </p>
-          <p className="text-sm leading-relaxed text-[#a8adbd]">{obj.description}</p>
+          <p className="text-fg-secondary text-sm leading-relaxed">{obj.description}</p>
         </div>
       </div>
     </motion.div>
@@ -421,11 +421,11 @@ export function ScaleOfUniverse() {
   }, [exponent]);
 
   return (
-    <section className="w-full">
-      <div className="mb-8 text-center">
-        <h2 className="text-fg-primary mb-2 text-2xl font-bold md:text-3xl">宇宙尺度</h2>
-        <p className="text-sm text-[#868da0]">拖动滑块，从普朗克长度漫游到可观测宇宙</p>
-      </div>
+    <section className="landing-block w-full" aria-labelledby="scale-of-universe-title">
+      <h2 id="scale-of-universe-title" className="landing-block__title">
+        宇宙尺度
+      </h2>
+      <p className="landing-block__note">拖动滑块，从普朗克长度漫游到可观测宇宙。</p>
 
       {/* Visual representation */}
       <div className="relative mb-8 flex h-64 items-center justify-center">
@@ -492,7 +492,7 @@ export function ScaleOfUniverse() {
 
       {/* Size comparison */}
       <div className="mx-auto mb-8 max-w-lg rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
-        <p className="mb-3 text-xs tracking-wider text-[#868da0] uppercase">尺寸对比</p>
+        <p className="text-fg-muted mb-3 text-xs tracking-wider uppercase">尺寸对比</p>
         <div className="space-y-2">
           {SCALE_OBJECTS.filter((obj) => {
             const diff = exponent - obj.exponent;
@@ -504,7 +504,7 @@ export function ScaleOfUniverse() {
               if (ratio === 0) return null;
               return (
                 <div key={obj.id} className="flex items-center gap-3 text-sm">
-                  <span className="w-20 shrink-0 text-right text-[#868da0]">{obj.nameCn}</span>
+                  <span className="text-fg-muted w-20 shrink-0 text-right">{obj.nameCn}</span>
                   <div className="h-2 flex-1 overflow-hidden rounded-full bg-white/[0.04]">
                     <motion.div
                       className="h-full rounded-full"
@@ -514,7 +514,7 @@ export function ScaleOfUniverse() {
                       transition={{ duration: reduceMotion ? 0 : 0.4 }}
                     />
                   </div>
-                  <span className="w-24 font-mono text-xs text-[#868da0]">
+                  <span className="text-fg-muted w-24 font-mono text-xs">
                     10<sup>{ratio}</sup>× 更小
                   </span>
                 </div>
@@ -543,9 +543,9 @@ export function ScaleOfUniverse() {
           >
             <div className="flex items-center gap-2">
               <span style={{ color: obj.color }}>{obj.icon}</span>
-              <span className="truncate text-xs text-[#a8adbd]">{obj.nameCn}</span>
+              <span className="text-fg-secondary truncate text-xs">{obj.nameCn}</span>
             </div>
-            <p className="mt-1 font-mono text-[10px] text-[#4b5563]">{obj.size}</p>
+            <p className="text-fg-muted mt-1 font-mono text-[10px]">{obj.size}</p>
           </button>
         ))}
       </div>

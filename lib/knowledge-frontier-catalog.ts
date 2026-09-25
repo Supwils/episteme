@@ -11,7 +11,7 @@ import {
   COVERAGE_EVIDENCE_META,
   type CoverageDomainId,
 } from "@/lib/knowledge-continuum-coverage-meta";
-import { ALL_NODES } from "@/subjects/knowledge-graph/data/graph-data";
+import { COGNITIVE_NODES as ALL_NODES } from "@/lib/cognitive-nodes";
 import {
   CURATED_KNOWLEDGE_CONFLUENCES,
   getCuratedConfluenceNodeIds,

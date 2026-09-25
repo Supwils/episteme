@@ -40,6 +40,8 @@ export function NarrationPlayer() {
     const zh = synth.getVoices().find((v) => v.lang.toLowerCase().startsWith("zh"));
     if (zh) utter.voice = zh;
     utter.onend = () => setPlaying(false);
+    // Interrupted / unsupported voice: otherwise the button stays on "pause".
+    utter.onerror = () => setPlaying(false);
     synth.speak(utter);
     setPlaying(true);
   }, []);
@@ -94,7 +96,10 @@ export function NarrationPlayer() {
         a.pause();
         setPlaying(false);
       } else {
-        void a.play().then(() => setPlaying(true));
+        a.play()
+          .then(() => setPlaying(true))
+          // Autoplay policy or a missing file rejects; keep the UI on "play".
+          .catch(() => setPlaying(false));
       }
     } else {
       const synth = window.speechSynthesis;

@@ -128,9 +128,7 @@ test("restores the kinetics-to-green-process route with an article entry", async
   page,
   isMobile,
 }) => {
-  await page.goto(
-    "/knowledge-graph?tourId=from-rate-data-to-defensible-green-process&step=5"
-  );
+  await page.goto("/knowledge-graph?tourId=from-rate-data-to-defensible-green-process&step=5");
 
   await expect(page.getByText("从速率数据到可辩护绿色工艺 · 5/9")).toBeVisible();
   await expect(
@@ -140,10 +138,7 @@ test("restores the kinetics-to-green-process route with an article entry", async
   const articleLink = page.getByRole("link", {
     name: isMobile ? "阅读当前文章 →" : "查看详情",
   });
-  await expect(articleLink).toHaveAttribute(
-    "href",
-    "/chemistry/reactions/catalysis-reaction"
-  );
+  await expect(articleLink).toHaveAttribute("href", "/chemistry/reactions/catalysis-reaction");
 });
 
 test("keeps the circular energy-storage route connected to articles in spatial mode", async ({
@@ -220,9 +215,7 @@ test("moves from digital exposure evidence to adolescent service design", async 
   );
 
   await page.getByRole("button", { name: "下一步" }).click();
-  await expect(page).toHaveURL(
-    /tourId=from-adolescent-development-to-continuous-support&step=6/
-  );
+  await expect(page).toHaveURL(/tourId=from-adolescent-development-to-continuous-support&step=6/);
   await expect(page.getByRole("link", { name: "阅读当前文章 →" })).toHaveAttribute(
     "href",
     "/psychology\/methods\/causal-inference-experiments-observational-studies"
@@ -230,9 +223,7 @@ test("moves from digital exposure evidence to adolescent service design", async 
 
   await page.getByRole("button", { name: "下一步" }).click();
   await page.getByRole("button", { name: "下一步" }).click();
-  await expect(page).toHaveURL(
-    /tourId=from-adolescent-development-to-continuous-support&step=8/
-  );
+  await expect(page).toHaveURL(/tourId=from-adolescent-development-to-continuous-support&step=8/);
   await expect(page.getByRole("link", { name: "阅读当前文章 →" })).toHaveAttribute(
     "href",
     "/medicine/public-health/adolescent-mental-health-school-community-services"

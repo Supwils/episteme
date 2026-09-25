@@ -23,6 +23,8 @@ export interface FrontierArticle {
   related: string[];
   order: number;
   excerpt: string;
+  /** Author-written dek only; see KnowledgeItem.summary. */
+  summary?: string;
 }
 
 export interface FrontierArticleFull extends FrontierArticle {
@@ -104,6 +106,8 @@ function strArray(value: unknown): string[] {
 
 function toMeta(entry: ContentEntry): FrontierArticle {
   const { slug, frontmatter: data, content } = entry;
+  const rawSummary = data.summary ?? data.dek;
+  const summary = typeof rawSummary === "string" && rawSummary ? rawSummary : undefined;
   return {
     slug,
     title:
@@ -116,7 +120,8 @@ function toMeta(entry: ContentEntry): FrontierArticle {
     institutions: strArray(data.institutions),
     related: strArray(data.related),
     order: typeof data.order === "number" ? data.order : 999,
-    excerpt: extractExcerpt(content),
+    excerpt: summary ?? extractExcerpt(content),
+    summary,
   };
 }
 
@@ -126,7 +131,19 @@ export interface Frontier {
   getSlugs(): string[];
 }
 
+// One instance per domain for the life of the server (content is immutable
+// between deployments) — see createKnowledgeSection for the rationale.
+const frontierInstances = new Map<string, Frontier>();
+
 export function createFrontier(domain: string): Frontier {
+  const existing = frontierInstances.get(domain);
+  if (existing) return existing;
+  const instance = buildFrontier(domain);
+  frontierInstances.set(domain, instance);
+  return instance;
+}
+
+function buildFrontier(domain: string): Frontier {
   const root = path.join(getDomainContentDir(domain), "frontier");
   let cache: FrontierArticle[] | null = null;
 

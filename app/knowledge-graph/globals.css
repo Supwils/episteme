@@ -218,12 +218,12 @@
   --kg-bg: #efece4;
   --kg-surface: rgba(44, 42, 38, 0.04);
   --kg-border: #e8dfd0;
-  --kg-text: #2c2a26;
-  --kg-text-muted: #5a564f;
+  --kg-text: #1e2638;
+  --kg-text-muted: #51565f;
 }
 
 .light .kg-title {
-  background: linear-gradient(135deg, #2c2a26, #5a52b0);
+  background: linear-gradient(135deg, #1e2638, #5a52b0);
   -webkit-background-clip: text;
   background-clip: text;
 }
@@ -234,7 +234,7 @@
 
 .light .kg-tag {
   background: rgba(44, 42, 38, 0.05);
-  color: #5a564f;
+  color: #51565f;
 }
 
 .light .kg-tooltip {
@@ -244,7 +244,7 @@
 }
 
 .light .kg-legend-label {
-  color: #5a564f;
+  color: #51565f;
 }
 
 @media (max-width: 640px) {

@@ -239,7 +239,25 @@ async function main(): Promise<void> {
     )
   );
 
+  // The /timeline renderer draws era headers from these fields only; the long
+  // era prose (longDesc, achievements, legacy, references…) belongs to era pages.
+  const eraSummary = ERAS.map(({ id, name, startYear, endYear, color, icon, desc, quote }) => ({
+    id,
+    name,
+    startYear,
+    endYear,
+    color,
+    icon,
+    desc,
+    quote: quote ?? null,
+  }));
+
   await Promise.all([
+    writeGenerated(join(OUTPUT_DIR, "era-summary.js"), exportModule("ERA_SUMMARY", eraSummary)),
+    writeGenerated(
+      join(OUTPUT_DIR, "era-summary.d.ts"),
+      "export const ERA_SUMMARY: {\n  id: string;\n  name: string;\n  startYear: number;\n  endYear: number;\n  color: string;\n  icon: string;\n  desc: string;\n  quote: { text: string; author: string } | null;\n}[];\n"
+    ),
     writeGenerated(
       join(OUTPUT_DIR, "event-catalog.js"),
       exportModule("EVENT_CATALOG", eventCatalog)

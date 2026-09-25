@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Glyph } from "@/components/design/Glyph";
 import type { NavGroup } from "./nav-data";
 
 /**
@@ -78,9 +79,20 @@ export function NavDropdown({ group }: { group: NavGroup }) {
       e.preventDefault();
       items[items.length - 1]?.focus();
     } else if (e.key === "Tab") {
+      // Return focus to the trigger before the panel unmounts, so the browser's
+      // default Tab moves to the next nav control instead of restarting at <body>.
+      triggerRef.current?.focus();
       setOpen(false);
     }
   };
+
+  useEffect(
+    () => () => {
+      if (openTimer.current) clearTimeout(openTimer.current);
+      if (closeTimer.current) clearTimeout(closeTimer.current);
+    },
+    []
+  );
 
   useEffect(() => {
     if (!open) return;
@@ -162,14 +174,19 @@ export function NavDropdown({ group }: { group: NavGroup }) {
               aria-hidden
               className="border-border-subtle bg-bg-floating absolute -top-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border-t border-l"
             />
-            <div className="text-fg-disabled px-3 pt-1 pb-2 font-mono text-[10px] tracking-[0.22em] uppercase">
-              {group.en}
-            </div>
             <div className={multiSection ? "grid grid-cols-2 gap-x-2" : undefined}>
               {group.sections.map((section) => (
-                <div key={section.label}>
+                <div
+                  key={section.label}
+                  role="group"
+                  aria-labelledby={multiSection ? `${panelId}-${section.label}` : undefined}
+                >
                   {multiSection && (
-                    <div className="text-fg-muted px-3 pt-1.5 pb-1 font-mono text-[9px] tracking-[0.28em] uppercase">
+                    <div
+                      id={`${panelId}-${section.label}`}
+                      role="presentation"
+                      className="text-fg-muted px-3 pt-1.5 pb-1 font-mono text-[9px] tracking-[0.28em] uppercase"
+                    >
                       {section.label}
                     </div>
                   )}
@@ -182,12 +199,20 @@ export function NavDropdown({ group }: { group: NavGroup }) {
                         role="menuitem"
                         onClick={() => setOpen(false)}
                         style={{ animationDelay: `${Math.min(i, 6) * 35}ms` }}
-                        className="nav-dropdown-item hover:bg-bg-elevated group/item flex items-center gap-3 rounded-xl px-3 py-2 transition-all hover:translate-x-0.5"
+                        className="nav-dropdown-item hover:bg-bg-elevated group/item flex items-center gap-3 rounded-xl px-3 py-2 transition-colors"
                       >
-                        <span
-                          className="h-7 w-[3px] shrink-0 rounded-full transition-all group-hover/item:h-8"
-                          style={{ backgroundColor: item.color, opacity: active ? 1 : 0.5 }}
-                        />
+                        {item.glyph ? (
+                          <Glyph
+                            name={item.glyph}
+                            size={20}
+                            className={`shrink-0 transition-colors ${active ? "text-accent-gold" : "text-fg-muted group-hover/item:text-accent-gold"}`}
+                          />
+                        ) : (
+                          <span
+                            className="h-7 w-[3px] shrink-0 rounded-full"
+                            style={{ backgroundColor: item.color, opacity: active ? 1 : 0.5 }}
+                          />
+                        )}
                         <span className="flex min-w-0 flex-col">
                           <span
                             className={`truncate text-sm transition-colors ${active ? "text-accent-gold" : "text-fg-primary group-hover/item:text-accent-gold"}`}

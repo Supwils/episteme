@@ -16,6 +16,8 @@ function walkPages(dir: string): string[] {
 const TOC_MARKERS = ["TableOfContents", "ThinkerSidebar"];
 const PROGRESS_MARKERS = ["ReadingProgressBar", "ArticleLayout"];
 const MODE_MARKERS = ["ReadingModeControls", "ArticleLayout"];
+// The design specimen renders a short author-kit sample, not an article.
+const NON_ARTICLE_PAGES = new Set(["app/design/page.tsx"]);
 
 describe("article reading chrome", () => {
   it("gives MarkdownRenderer pages a TOC, progress bar, and reading modes", () => {
@@ -24,6 +26,7 @@ describe("article reading chrome", () => {
     const missingMode: string[] = [];
 
     for (const file of walkPages("app")) {
+      if (NON_ARTICLE_PAGES.has(file)) continue;
       const text = readFileSync(file, "utf8");
       if (!text.includes('from "@/components/MarkdownRenderer"')) continue;
       if (!TOC_MARKERS.some((marker) => text.includes(marker))) missingToc.push(file);
@@ -41,6 +44,7 @@ describe("article reading chrome", () => {
   it("centers custom article columns the same way as ArticleLayout", () => {
     const drifted: string[] = [];
     for (const file of walkPages("app")) {
+      if (NON_ARTICLE_PAGES.has(file)) continue;
       const text = readFileSync(file, "utf8");
       if (!text.includes("article-reading-surface") && !text.includes("ARTICLE_SURFACE_CLASS")) {
         continue;
@@ -63,6 +67,7 @@ describe("article reading chrome", () => {
 
     const drifted: string[] = [];
     for (const file of walkPages("app")) {
+      if (NON_ARTICLE_PAGES.has(file)) continue;
       const text = readFileSync(file, "utf8");
       const rowAt = text.indexOf("<div className={ARTICLE_BODY_ROW_CLASS}>");
       if (rowAt < 0) continue;
@@ -77,13 +82,10 @@ describe("article reading chrome", () => {
     const cosmologyDialogue = readFileSync("app/cosmology/dialogues/[slug]/page.tsx", "utf8");
     const extinctions = readFileSync("app/life-science/extinctions/[slug]/page.tsx", "utf8");
 
-    for (const text of [cosmologyKb, cosmologyDialogue]) {
+    for (const text of [cosmologyKb, cosmologyDialogue, extinctions]) {
       expect(text).toContain("ArticleLayout");
       expect(text).toContain("TableOfContents");
     }
-    expect(extinctions).toContain("ARTICLE_HEADER_CLASS");
-    expect(extinctions).toContain("ARTICLE_BODY_ROW_CLASS");
-    expect(extinctions).toContain("TableOfContents");
   });
 
   it("does not keep the unused physics handwritten placeholder scene", () => {

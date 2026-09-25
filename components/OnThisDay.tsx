@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { STAGGER_CONTAINER, STAGGER_ITEM } from "@/lib/animations";
 import type { OnThisDayEvent } from "../lib/daily-knowledge";
+import { dailyLabelFor, dedupeDailyEvents } from "../lib/daily-display";
 
 type OnThisDayProps = {
   events: OnThisDayEvent[];
@@ -66,8 +67,8 @@ export function OnThisDay({ events }: OnThisDayProps) {
           className="from-border-subtle absolute top-2 bottom-2 left-[15px] w-[2px] bg-gradient-to-b to-transparent"
         />
 
-        {events.map((event) => {
-          const label = getDomainLabel(event.domain);
+        {dedupeDailyEvents(events).map((event) => {
+          const label = dailyLabelFor(event.url, getDomainLabel(event.domain));
           return (
             <motion.div
               key={`${event.year}-${event.title}`}

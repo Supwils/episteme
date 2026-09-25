@@ -7,6 +7,7 @@ import { getSpeciesById } from "@/subjects/life-science/lib/species";
 import { DeepReading } from "@/subjects/life-science/components/DeepReading";
 import { FadeInSection } from "@/components/FadeInSection";
 import { ARTICLE_BODY_ROW_CLASS } from "@/components/ArticleLayout";
+import { SITE_URL } from "@/lib/constants";
 
 type Props = { params: Promise<{ domain: string }> };
 
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const domain = getDomainById(domainId);
   if (!domain) notFound();
   const description = domain.description;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://episteme.vercel.app";
+  const siteUrl = SITE_URL;
   const ogImage = `${siteUrl}/api/og?title=${encodeURIComponent(domain.name)}&section=life-science&description=${encodeURIComponent(description)}`;
   return withCanonicalPath(`/life-science/tree/${domainId}`, {
     title: `${domain.name}（${domain.nameEn}）— 生命之树`,
@@ -43,7 +44,7 @@ export default async function DomainDetailPage({ params }: Props) {
   return (
     <div className="w-full px-6 py-12 sm:px-10 lg:px-16">
       <div className={ARTICLE_BODY_ROW_CLASS}>
-        <article className="max-w-[44rem] min-w-0 flex-1">
+        <article className="max-w-[40rem] min-w-0 flex-1">
           <header className="mb-12">
             <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
               life-science / phylogenetic tree

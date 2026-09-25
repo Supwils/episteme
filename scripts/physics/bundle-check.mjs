@@ -18,7 +18,7 @@ import {
   analyzeJsAssetOwnership,
   analyzeRouteAssets,
   findTailwindEntrypoints,
-  getRouteCssBudget,
+  analyzeCssDelivery,
   isGenericArticleRoute,
 } from "../performance/bundle-budget.mjs";
 
@@ -27,11 +27,18 @@ import {
 // ---------------------------------------------------------------------------
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..", "..");
-const NEXT_DIR = join(ROOT, ".next");
+const NEXT_DIR = join(ROOT, process.env.NEXT_DIST_DIR || ".next");
 const CHUNKS_DIR = join(NEXT_DIR, "static", "chunks");
 const HOMEPAGE_HTML = join(NEXT_DIR, "server", "app", "index.html");
 const HOMEPAGE_RSC = join(NEXT_DIR, "server", "app", "index.rsc");
 const GRAPH_DATA_BODY = join(NEXT_DIR, "server", "app", "knowledge-graph", "graph-data.body");
+const GRAPH_DESCRIPTIONS_BODY = join(
+  NEXT_DIR,
+  "server",
+  "app",
+  "knowledge-graph",
+  "graph-descriptions.body"
+);
 
 // ---------------------------------------------------------------------------
 // Thresholds (gzipped bytes) — from docs/工程原则.md
@@ -44,39 +51,42 @@ const GRAPH_DATA_BODY = join(NEXT_DIR, "server", "app", "knowledge-graph", "grap
 // inevitably ship one ~200 KB gzip chunk; cap is set above that so it
 // passes while still flagging accidental new mega-chunks.
 // ---------------------------------------------------------------------------
+// Budgets measure what a reader pays: brotli for anything the CDN compresses
+// (CSS, HTML, RSC, JSON — Vercel serves all of it as br), gzip for JS by
+// convention and because JS cost is parse/execute more than transfer.
+// Rationale and triggers: 任务清单 决策记录 #15 (2026-09-23).
 const BUDGET = {
-  sharedInitialJs: 180 * 1024, // 180 KB — root+polyfill shared by every route
-  homepageHtmlRaw: 500 * 1024,
-  homepageHtmlGzip: 80 * 1024,
-  homepageRscRaw: 95 * 1024, // 95 KB — tightened from 110 KB by T-PERF-07.
-  // The previous ~105 KB payload was repeated server-rendered Tailwind class text,
-  // not article data. Semantic homepage classes cut it to ~85 KB without adding JS;
-  // this leaves ~10 KB for deliberate portal work while preventing a quiet rollback.
+  sharedInitialJs: 180 * 1024, // 180 KB gzip — root+polyfill shared by every route
   genericArticleJs: 220 * 1024,
   historyTimelineShell: 12 * 1024,
   historyTimelineCatalog: 32 * 1024,
-  routeCss: {
-    portal: 48 * 1024, // 48 KB — homepage regression budget (raised 2026-08-02, see below)
-    // 48 KB — raised from 40 KB on 2026-08-02 per decision record #1's preset
-    // trigger ("route CSS touches the ceiling again → raise to ~48 KB"): six
-    // domains (economics/medicine/chemistry/earth-science/computer-science/
-    // philosophy) now load katex.min.css (~2.6 KB gzip) because 132 articles
-    // render math server-side but previously had no KaTeX stylesheet at all —
-    // formulas displayed as unstyled markup. CSS gzip growth is far less
-    // user-perceptible than JS; the alternative (runtime-injected stylesheet)
-    // trades a render-blocking budget line for a per-page formula FOUC.
-    domain: 48 * 1024,
+  css: {
+    // The site-wide sheet (Tailwind entry + shared components): fetched on the
+    // first page, cached immutable afterwards. Page-only styles belong in a
+    // stylesheet imported by that page's components, not here.
+    sharedBrotli: 30 * 1024,
+    // What one page adds on top (domain sheet, KaTeX, portal styles). A second
+    // Tailwind compilation would add ~25 KB and trip this at once.
+    routeIncrementalBrotli: 10 * 1024,
+    // Worst first visit: render-blocking CSS before any text paints.
+    routeTotalBrotli: 40 * 1024,
   },
+  // The homepage document including its inline RSC payload, as transferred.
+  homepageDocumentBrotli: 40 * 1024,
+  // The RSC payload a client-side navigation to "/" fetches.
+  homepageRscBrotli: 20 * 1024,
   singleChunkMax: 285 * 1024, // 285 KB — accommodates the Three.js / R3F vendor chunk
   // public/search-index.json, fetched into a Worker the first time a reader
-  // opens search. Raised from 560 KB on 2026-08-13 per decision record #1's
-  // preset trigger ("index crosses 90% → raise to ~640 KB"): measured 512.3 KB
-  // brotli (91.5%) at 2801 documents after the five-thin-domain content rounds.
-  // A 10x jump means article bodies leaked into the index, which is what this
-  // catches.
-  searchIndexBrotli: 640 * 1024,
+  // opens search. Raised from 640 KB on 2026-09-18 per decision record #14:
+  // indexing ~300 curiosity hooks as first-class hits measured 717 KB brotli.
+  // A 10x jump would still mean article bodies leaked into the index.
+  searchIndexBrotli: 800 * 1024,
+  // /knowledge-graph payload, wire v3: what must arrive before the graph draws,
+  // then the node descriptions fetched afterwards. Raw covers both files
+  // because both are JSON.parse'd on the main thread.
   graphDataRaw: 5 * 1024 * 1024,
-  graphDataBrotli: 600 * 1024,
+  graphDataBrotli: 350 * 1024,
+  graphDescriptionsBrotli: 400 * 1024,
 };
 
 // ---------------------------------------------------------------------------
@@ -256,15 +266,30 @@ const sharedJsGzip = sharedInitialJsGzip();
 const homepageHtmlRaw = statSync(HOMEPAGE_HTML, { throwIfNoEntry: false })?.size ?? null;
 const homepageHtmlGzip = homepageHtmlRaw === null ? null : gzipSize(HOMEPAGE_HTML);
 const homepageRscRaw = statSync(HOMEPAGE_RSC, { throwIfNoEntry: false })?.size ?? null;
+const brotliFile = (file) => brotliCompressSync(readFileSync(file)).length;
+const homepageDocumentBrotli = homepageHtmlRaw === null ? null : brotliFile(HOMEPAGE_HTML);
+const homepageRscBrotli = homepageRscRaw === null ? null : brotliFile(HOMEPAGE_RSC);
+const cssDelivery = analyzeCssDelivery(NEXT_DIR, routeEntries);
+const worstCssIncrement = [...cssDelivery.routes].sort(
+  (a, b) => b.incrementalBrotli - a.incrementalBrotli
+)[0];
+const worstCssTotal = [...cssDelivery.routes].sort((a, b) => b.totalBrotli - a.totalBrotli)[0];
 
 // Static assets are served pre-compressed, so brotli is what a reader downloads.
 const SEARCH_INDEX = join(ROOT, "public", "search-index.json");
 const searchIndexBrotli = statSync(SEARCH_INDEX, { throwIfNoEntry: false })
   ? brotliCompressSync(readFileSync(SEARCH_INDEX)).length
   : null;
-const graphDataRaw = statSync(GRAPH_DATA_BODY, { throwIfNoEntry: false })?.size ?? null;
-const graphDataBrotli =
-  graphDataRaw === null ? null : brotliCompressSync(readFileSync(GRAPH_DATA_BODY)).length;
+const graphDescriptionsRaw =
+  statSync(GRAPH_DESCRIPTIONS_BODY, { throwIfNoEntry: false })?.size ?? null;
+const graphDescriptionsBrotli =
+  graphDescriptionsRaw === null ? null : brotliFile(GRAPH_DESCRIPTIONS_BODY);
+const graphDataFileRaw = statSync(GRAPH_DATA_BODY, { throwIfNoEntry: false })?.size ?? null;
+const graphDataRaw =
+  graphDataFileRaw === null || graphDescriptionsRaw === null
+    ? null
+    : graphDataFileRaw + graphDescriptionsRaw;
+const graphDataBrotli = graphDataFileRaw === null ? null : brotliFile(GRAPH_DATA_BODY);
 
 // ---------------------------------------------------------------------------
 // 3. Report
@@ -321,16 +346,19 @@ console.log(
   }   (budget ${fmt(BUDGET.sharedInitialJs)})`
 );
 console.log(
-  `    Homepage HTML      : ${homepageHtmlRaw === null ? "n/a" : fmt(homepageHtmlRaw)} raw / ${homepageHtmlGzip === null ? "n/a" : fmt(homepageHtmlGzip)} gzip   (budgets ${fmt(BUDGET.homepageHtmlRaw)} / ${fmt(BUDGET.homepageHtmlGzip)})`
+  `    Homepage document  : ${fmt(homepageDocumentBrotli ?? 0)} brotli   (budget ${fmt(BUDGET.homepageDocumentBrotli)})   [${fmt(homepageHtmlRaw ?? 0)} raw / ${fmt(homepageHtmlGzip ?? 0)} gzip]`
 );
 console.log(
-  `    Homepage RSC       : ${homepageRscRaw === null ? "n/a" : fmt(homepageRscRaw)} raw   (budget ${fmt(BUDGET.homepageRscRaw)})`
+  `    Homepage RSC       : ${fmt(homepageRscBrotli ?? 0)} brotli   (budget ${fmt(BUDGET.homepageRscBrotli)})   [${fmt(homepageRscRaw ?? 0)} raw]`
 );
 console.log(
-  `    Largest route CSS  : ${fmt(largestRouteCss?.cssGzip ?? 0)}   (budget ${fmt(largestRouteCss ? getRouteCssBudget(largestRouteCss.route, BUDGET.routeCss) : BUDGET.routeCss.domain)})${largestRouteCss ? `  ${largestRouteCss.route}` : ""}`
+  `    Shared CSS         : ${fmt(cssDelivery.sharedBrotli)} brotli   (budget ${fmt(BUDGET.css.sharedBrotli)})   [${cssDelivery.shared.length} sheet(s)]`
 );
 console.log(
-  `    Homepage CSS       : ${fmt(routeEntries.find((entry) => entry.route === "/page")?.cssGzip ?? 0)}   (budget ${fmt(BUDGET.routeCss.portal)})`
+  `    Route CSS added    : ${fmt(worstCssIncrement?.incrementalBrotli ?? 0)} brotli   (budget ${fmt(BUDGET.css.routeIncrementalBrotli)})  ${worstCssIncrement?.route ?? ""}`
+);
+console.log(
+  `    Route CSS total    : ${fmt(worstCssTotal?.totalBrotli ?? 0)} brotli   (budget ${fmt(BUDGET.css.routeTotalBrotli)})  ${worstCssTotal?.route ?? ""}   [largest ${fmt(largestRouteCss?.cssGzip ?? 0)} gzip]`
 );
 console.log(
   `    Largest route JS   : ${fmt(largestRouteJs?.jsGzip ?? 0)}   (informational)${largestRouteJs ? `  ${largestRouteJs.route}` : ""}`
@@ -349,7 +377,7 @@ console.log(
   `    Search index       : ${searchIndexBrotli === null ? "n/a" : fmt(searchIndexBrotli)} brotli   (budget ${fmt(BUDGET.searchIndexBrotli)})`
 );
 console.log(
-  `    Graph data         : ${graphDataRaw === null ? "n/a" : fmt(graphDataRaw)} raw / ${graphDataBrotli === null ? "n/a" : fmt(graphDataBrotli)} brotli   (budgets ${fmt(BUDGET.graphDataRaw)} / ${fmt(BUDGET.graphDataBrotli)})`
+  `    Graph data         : ${graphDataBrotli === null ? "n/a" : fmt(graphDataBrotli)} brotli first paint + ${graphDescriptionsBrotli === null ? "n/a" : fmt(graphDescriptionsBrotli)} deferred / ${graphDataRaw === null ? "n/a" : fmt(graphDataRaw)} raw   (budgets ${fmt(BUDGET.graphDataBrotli)} + ${fmt(BUDGET.graphDescriptionsBrotli)} / ${fmt(BUDGET.graphDataRaw)})`
 );
 console.log(
   `    Largest single chunk: ${fmt(topJs[0]?.gzip ?? 0)}   (budget ${fmt(BUDGET.singleChunkMax)})`
@@ -426,6 +454,11 @@ if (searchIndexBrotli === null) {
   );
 }
 
+if (graphDescriptionsBrotli !== null && graphDescriptionsBrotli > BUDGET.graphDescriptionsBrotli) {
+  violations.push(
+    `Knowledge graph descriptions (${fmt(graphDescriptionsBrotli)} brotli) exceed budget (${fmt(BUDGET.graphDescriptionsBrotli)})`
+  );
+}
 if (graphDataRaw === null || graphDataBrotli === null) {
   violations.push("Knowledge graph data artifact is missing; run pnpm build");
 } else {
@@ -447,37 +480,41 @@ if (sharedJsGzip !== null && sharedJsGzip > BUDGET.sharedInitialJs) {
   );
 }
 
-if (homepageHtmlRaw === null || homepageHtmlGzip === null || homepageRscRaw === null) {
-  violations.push("Homepage build artifacts are missing; HTML/RSC budgets cannot be verified");
+if (homepageDocumentBrotli === null || homepageRscBrotli === null) {
+  violations.push("Homepage build artifacts are missing; document/RSC budgets cannot be verified");
 } else {
-  if (homepageHtmlRaw > BUDGET.homepageHtmlRaw) {
+  if (homepageDocumentBrotli > BUDGET.homepageDocumentBrotli) {
     violations.push(
-      `Homepage HTML raw (${fmt(homepageHtmlRaw)}) exceeds budget (${fmt(BUDGET.homepageHtmlRaw)})`
+      `Homepage document (${fmt(homepageDocumentBrotli)} brotli) exceeds budget (${fmt(BUDGET.homepageDocumentBrotli)})`
     );
   }
-  if (homepageHtmlGzip > BUDGET.homepageHtmlGzip) {
+  if (homepageRscBrotli > BUDGET.homepageRscBrotli) {
     violations.push(
-      `Homepage HTML gzip (${fmt(homepageHtmlGzip)}) exceeds budget (${fmt(BUDGET.homepageHtmlGzip)})`
-    );
-  }
-  if (homepageRscRaw > BUDGET.homepageRscRaw) {
-    violations.push(
-      `Homepage RSC (${fmt(homepageRscRaw)}) exceeds budget (${fmt(BUDGET.homepageRscRaw)})`
+      `Homepage RSC (${fmt(homepageRscBrotli)} brotli) exceeds budget (${fmt(BUDGET.homepageRscBrotli)})`
     );
   }
 }
 
-const routeCssViolations = routeEntries.filter(
-  (entry) => entry.cssGzip > getRouteCssBudget(entry.route, BUDGET.routeCss)
-);
-for (const entry of routeCssViolations.slice(0, 10)) {
-  const budget = getRouteCssBudget(entry.route, BUDGET.routeCss);
+if (cssDelivery.sharedBrotli > BUDGET.css.sharedBrotli) {
   violations.push(
-    `Route CSS ${entry.route} (${fmt(entry.cssGzip)}) exceeds budget (${fmt(budget)})`
+    `Shared CSS (${fmt(cssDelivery.sharedBrotli)} brotli) exceeds budget (${fmt(BUDGET.css.sharedBrotli)}) — move page-only styles next to their components`
   );
 }
-if (routeCssViolations.length > 10) {
-  violations.push(`${routeCssViolations.length - 10} additional routes exceed their CSS budget`);
+const cssOverruns = cssDelivery.routes.flatMap((route) => [
+  ...(route.incrementalBrotli > BUDGET.css.routeIncrementalBrotli
+    ? [
+        `Route CSS added by ${route.route} (${fmt(route.incrementalBrotli)} brotli) exceeds budget (${fmt(BUDGET.css.routeIncrementalBrotli)})`,
+      ]
+    : []),
+  ...(route.totalBrotli > BUDGET.css.routeTotalBrotli
+    ? [
+        `Route CSS total ${route.route} (${fmt(route.totalBrotli)} brotli) exceeds budget (${fmt(BUDGET.css.routeTotalBrotli)})`,
+      ]
+    : []),
+]);
+violations.push(...cssOverruns.slice(0, 10));
+if (cssOverruns.length > 10) {
+  violations.push(`${cssOverruns.length - 10} additional route CSS overruns`);
 }
 
 for (const entry of genericArticleRoutes.filter(

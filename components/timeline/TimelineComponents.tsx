@@ -21,7 +21,7 @@ export function TimelinePageHeader({
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: d(0.2) }}
       >
-        universe · knowledge / philosophy / timeline
+        格致 · 哲学 · 时间线
       </motion.p>
 
       <div className="mt-4 flex items-end gap-6">
@@ -93,9 +93,7 @@ export function FilterBar({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: d(0.7) }}
       >
-        <span className="text-fg-muted font-mono text-[9px] tracking-[0.28em] uppercase">
-          时代
-        </span>
+        <span className="text-fg-muted font-mono text-[9px] tracking-[0.28em] uppercase">时代</span>
         {eraOrder.map((era) => (
           <button
             key={era}
@@ -135,9 +133,7 @@ export function StatItem({ value, label }: { value: number | string; label: stri
       <span className="text-accent-gold font-mono text-lg font-semibold tracking-tight">
         {value}
       </span>
-      <span className="text-fg-muted font-mono text-[9px] tracking-[0.2em] uppercase">
-        {label}
-      </span>
+      <span className="text-fg-muted font-mono text-[9px] tracking-[0.2em] uppercase">{label}</span>
     </div>
   );
 }

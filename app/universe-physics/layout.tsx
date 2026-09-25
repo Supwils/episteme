@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { spaceGrotesk, plexMono } from "./fonts";
-import { SubjectHeader } from "@/components/SubjectHeader";
+import { DomainHeader } from "@/components/chrome/DomainHeader";
 import { PageTransition } from "../../components/PageTransition";
 import "./globals.css";
 
@@ -28,7 +28,7 @@ export const viewport: Viewport = {
 export default function PhysicsLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className={`${spaceGrotesk.variable} ${plexMono.variable} physics-root`}>
-      <SubjectHeader subject="universe-physics" />
+      <DomainHeader subject="universe-physics" />
       <PageTransition>{children}</PageTransition>
     </div>
   );

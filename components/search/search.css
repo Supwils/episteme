@@ -1,0 +1,453 @@
+@reference "../../app/globals.css";
+
+/* The ⌘K dialog. Loaded with the dialog on first open (components/SearchLauncher),
+   not with the site-wide sheet — only the header trigger lives in globals.css. */
+
+/* ── Search Overlay ── */
+
+.gs-overlay {
+  position: fixed;
+  inset: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  border: 0;
+  color: inherit;
+  z-index: 9990;
+  background: var(--color-scrim);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 12vh;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 0;
+}
+
+.gs-overlay::backdrop {
+  background: transparent;
+}
+
+.gs-panel {
+  width: 100%;
+  max-width: 560px;
+  max-height: 72vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-panel);
+  box-shadow:
+    0 0 0 1px var(--color-border-faint),
+    0 24px 80px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+.gs-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.gs-search-icon {
+  flex-shrink: 0;
+  color: var(--color-fg-muted);
+}
+
+.gs-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  /* ≥16px so iOS Safari does not auto-zoom the page on focus. */
+  font-size: 1rem;
+  color: var(--color-fg-primary);
+  font-family: inherit;
+}
+
+.gs-input::placeholder {
+  color: var(--color-fg-muted);
+}
+
+.gs-kbd {
+  flex-shrink: 0;
+  font-family: inherit;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-deep);
+  color: var(--color-fg-muted);
+  line-height: 1.4;
+}
+
+.gs-results {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 8px 0;
+}
+
+.gs-results::-webkit-scrollbar {
+  width: 4px;
+}
+
+.gs-results::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.gs-results::-webkit-scrollbar-thumb {
+  background: var(--color-border-subtle);
+  border-radius: 2px;
+}
+
+.gs-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 32px 16px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-fg-muted);
+}
+
+.gs-empty-hint {
+  font-size: 0.78rem;
+  color: var(--color-fg-muted);
+}
+
+.gs-empty-exits {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.gs-empty-exit {
+  display: inline-block;
+  padding: 4px 10px;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 999px;
+  color: var(--color-fg-secondary);
+  text-decoration: none;
+  font-size: 0.78rem;
+}
+
+.gs-empty-exit:hover {
+  color: var(--color-fg-primary);
+  border-color: var(--color-fg-primary);
+}
+
+.gs-group {
+  padding: 4px 0;
+}
+
+.gs-group-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-fg-secondary);
+}
+
+/* Results + desktop preview (T-DESIGN-03e). The preview only appears when the
+   panel is wide enough to keep the result list readable beside it. */
+.gs-body {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+}
+
+.gs-preview {
+  display: none;
+}
+
+@media (min-width: 960px) {
+  .gs-panel:has(.gs-preview) {
+    max-width: 880px;
+  }
+
+  .gs-preview {
+    display: flex;
+    width: 300px;
+    flex-shrink: 0;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    border-left: 1px solid var(--color-border-faint);
+    padding: 18px 20px;
+  }
+}
+
+.gs-preview-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--color-fg-secondary);
+}
+
+.gs-preview-kind {
+  color: var(--color-fg-muted);
+}
+
+.gs-preview-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  line-height: 1.35;
+  color: var(--color-fg-primary);
+}
+
+.gs-preview-subtitle,
+.gs-preview-snippet {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--color-fg-secondary);
+}
+
+.gs-preview-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.gs-preview-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  color: var(--color-fg-secondary);
+}
+
+.gs-preview-action:hover,
+.gs-preview-action:focus-visible {
+  border-color: var(--brass);
+  color: var(--color-fg-primary);
+}
+
+.gs-preview-action[data-primary] {
+  border-color: var(--brass);
+  color: var(--brass-ink);
+}
+
+.gs-item {
+  display: block;
+  padding: 8px 16px;
+  min-height: 44px;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s;
+}
+
+.gs-item:hover,
+.gs-item[data-active="true"] {
+  background: var(--hover-bg);
+}
+
+.gs-item-title {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-fg-primary);
+  line-height: 1.4;
+}
+
+.gs-item-subtitle {
+  margin-left: 6px;
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--color-fg-muted);
+}
+
+.gs-item-desc {
+  font-size: 0.78rem;
+  color: var(--color-fg-muted);
+  line-height: 1.4;
+  margin-top: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gs-footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 16px;
+  border-top: 1px solid var(--color-border-subtle);
+  font-size: 0.72rem;
+  color: var(--color-fg-muted);
+}
+
+.gs-kbd-sm {
+  font-family: inherit;
+  font-size: 0.68rem;
+  padding: 1px 4px;
+  border-radius: 3px;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-deep);
+  color: var(--color-fg-muted);
+  line-height: 1.3;
+  margin-right: 2px;
+}
+
+/* ── Search Highlight ── */
+
+.gs-highlight {
+  background: var(--highlight-bg);
+  color: var(--highlight-text);
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+/* ── Search Type Badge ── */
+
+.gs-item-type {
+  margin-left: 6px;
+  font-size: 0.65rem;
+  font-weight: 500;
+  padding: 1px 5px;
+  border-radius: 3px;
+  /* Ink text with a brass hairline: a brass-on-tint label fell to 2.6:1 on the
+     highlighted row in the Notebook theme. */
+  border: 1px solid color-mix(in oklab, var(--brass) 55%, transparent);
+  color: var(--color-fg-secondary);
+  vertical-align: middle;
+}
+
+/* ── Search History ── */
+
+.gs-group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 16px 4px;
+}
+
+.gs-clear-btn {
+  font-size: 0.68rem;
+  color: var(--color-fg-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 3px;
+  transition:
+    color 0.15s,
+    background 0.15s;
+}
+
+.gs-clear-btn:hover {
+  color: var(--color-fg-primary);
+  background: var(--hover-bg);
+}
+
+.gs-history-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 6px 16px;
+  min-height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-fg-muted);
+  font-size: 0.82rem;
+  font-family: inherit;
+  text-align: left;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.gs-history-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+}
+
+/* The listbox is a grid pass-through so its options and the ✕ buttons (which
+   ARIA forbids inside a listbox) can share rows via --row. */
+.gs-history-listbox {
+  display: contents;
+}
+
+.gs-history-item {
+  grid-row: var(--row);
+  grid-column: 1;
+}
+
+.gs-history-remove {
+  grid-row: var(--row);
+  grid-column: 2;
+  margin-right: 12px;
+}
+
+.gs-history-item:hover,
+.gs-history-item[data-active="true"],
+.gs-history-remove[data-active="true"] {
+  background: var(--hover-bg);
+  color: var(--color-fg-primary);
+}
+
+.gs-history-icon {
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+.gs-history-text {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gs-history-remove {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  color: var(--color-fg-disabled);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 3px;
+  line-height: 1;
+  opacity: 0;
+  transition:
+    opacity 0.15s,
+    color 0.15s,
+    background 0.15s;
+}
+
+.gs-history-remove:hover,
+.gs-history-remove:focus-visible,
+.gs-history-remove[data-active="true"] {
+  opacity: 1;
+}
+
+/* Touch devices have no hover — the delete control must always be reachable. */
+@media (hover: none) {
+  .gs-history-remove {
+    opacity: 1;
+  }
+}
+
+.gs-history-remove:hover {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}

@@ -73,56 +73,46 @@ function ContinuumFallback({ onLoad }: { onLoad?: () => void }) {
         </div>
       </div>
 
-      <FallbackModule
-        testId="knowledge-spine-atlas"
-        title={`${COVERAGE_DOMAIN_COUNT} 门学科的五级主干地图`}
-      />
-      <FallbackModule
-        testId="knowledge-learning-planner"
-        title="知识地形与路线编排"
-        triggerTestIds={["knowledge-terrain", "knowledge-terrain-diagnostics"]}
-      />
-      <FallbackModule testId="knowledge-frontier-lab" title="可达知识前沿" />
-      <FallbackModule testId="knowledge-confluence-explorer" title="多学科知识汇流">
-        <noscript>
-          <nav className="home-continuum__confluence" aria-label="多学科知识汇流正文入口">
-            {CONFLUENCE_LINKS.map((link) => (
-              <Link key={link.href} href={link.href} className="home-continuum__confluence-link">
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-        </noscript>
-      </FallbackModule>
-      <FallbackModule testId="knowledge-coverage-panel" title="全学科策展覆盖" />
+      <ContinuumSkeleton />
+      <noscript>
+        <nav
+          className="home-continuum__confluence"
+          aria-label="多学科知识汇流正文入口"
+          data-testid="knowledge-confluence-explorer"
+        >
+          {CONFLUENCE_LINKS.map((link) => (
+            <Link key={link.href} href={link.href} className="home-continuum__confluence-link">
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+      </noscript>
     </section>
   );
 }
 
-function FallbackModule({
-  children,
-  testId,
-  title,
-  triggerTestIds = [],
-}: {
-  children?: React.ReactNode;
-  testId: string;
-  title: string;
-  triggerTestIds?: readonly string[];
-}) {
+const TAB_LABELS = ["主干地图", "地形与路线", "可达前沿", "多学科汇流", "策展覆盖"];
+
+/**
+ * Drawn in the shape of what replaces it — the tab row and a spine matrix of
+ * five stages — so the swap does not jump and the wait reads as a chart.
+ */
+function ContinuumSkeleton() {
   return (
-    <div data-testid={testId} className="home-continuum__module">
-      {triggerTestIds.map((id) => (
-        <span key={id} data-testid={id} aria-hidden="true" />
-      ))}
-      <div>
-        <p className="home-continuum__kicker">knowledge continuum</p>
-        <h3 className="home-continuum__panel-title">{title}</h3>
+    <div className="continuum-skeleton" aria-hidden="true">
+      <div className="continuum-tabs__list">
+        {TAB_LABELS.map((label, i) => (
+          <span key={label} className="continuum-tabs__tab" data-selected={i === 0 || undefined}>
+            <span className="continuum-tabs__index">0{i + 1}</span>
+            {label}
+          </span>
+        ))}
       </div>
-      <p className="home-continuum__hint">
-        交互数据在这一部分进入视口后载入；完整正文入口始终保留。
-      </p>
-      {children}
+      <div className="continuum-skeleton__matrix">
+        {Array.from({ length: 30 }, (_, i) => (
+          <span key={i} style={{ ["--row" as string]: Math.floor(i / 5) }} />
+        ))}
+      </div>
     </div>
   );
 }

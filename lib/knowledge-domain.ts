@@ -24,7 +24,11 @@ export interface KnowledgeItem {
   tags: string[];
   related: string[];
   order: number;
+  /** Author-written `summary`/`dek` when present, else whole sentences from the body. */
   excerpt: string;
+  /** Author-written dek only. A derived excerpt repeats the first paragraph, so
+   * article headers show this and nothing else. */
+  summary?: string;
   /** Frontmatter `updated` date (YYYY-MM-DD), used by 最近更新 strips. */
   updated: string;
   /** Present optional frontmatter fields, surfaced verbatim in the sidebar. */
@@ -99,12 +103,29 @@ function buildInfo(data: Record<string, unknown>): KnowledgeInfo[] {
 
 const ARTICLE_EXTS = [".mdx", ".md"] as const;
 
+// Content only changes with a deployment, so one section instance (and its
+// parsed lists) can live for the whole server instance. Without this every
+// caller — page, generateMetadata, home cards, recent-updates strip — rebuilt
+// the section and re-parsed every file in it per render.
+const sectionInstances = new Map<string, KnowledgeSection>();
+
 export function createKnowledgeSection(domain: string, section: string): KnowledgeSection {
+  const key = `${domain}/${section}`;
+  const existing = sectionInstances.get(key);
+  if (existing) return existing;
+  const instance = buildKnowledgeSection(domain, section);
+  sectionInstances.set(key, instance);
+  return instance;
+}
+
+function buildKnowledgeSection(domain: string, section: string): KnowledgeSection {
   const root = path.join(getDomainContentDir(domain), section);
   let cache: KnowledgeItem[] | null = null;
+  const bySlug = new Map<string, KnowledgeItemFull | null>();
 
   const toItem = (entry: ContentEntry): KnowledgeItem => {
     const { slug, frontmatter: data, content } = entry;
+    const summary = str(data.summary) || str(data.dek) || undefined;
     return {
       slug,
       title: str(data.title) || firstHeading(content) || slug,
@@ -113,7 +134,8 @@ export function createKnowledgeSection(domain: string, section: string): Knowled
       tags: strArray(data.tags),
       related: strArray(data.related),
       order: typeof data.order === "number" ? data.order : 999,
-      excerpt: extractExcerpt(content),
+      excerpt: summary ?? extractExcerpt(content),
+      summary,
       updated: strDate(data.updated),
       info: buildInfo(data),
     };
@@ -137,16 +159,22 @@ export function createKnowledgeSection(domain: string, section: string): Knowled
     // `<slug>.narration` would otherwise resolve to the sibling .narration.md and
     // render a spoken script as a phantom article — block it explicitly.
     if (wanted.endsWith(".narration")) return null;
+    const cached = bySlug.get(wanted);
+    if (cached !== undefined) return cached;
     const entry = readContentBySlug(root, wanted, ARTICLE_EXTS, "safe");
-    if (!entry) return null;
-    const data = entry.frontmatter;
-    return {
-      ...toItem(entry),
-      content: stripLeadingHeading(entry.content),
-      keyInsight: str(data.keyInsight) || str(data.takeaway) || undefined,
-      molecule: str(data.molecule) || undefined,
-      interactive: str(data.interactive) || undefined,
-    };
+    const full = entry
+      ? {
+          ...toItem(entry),
+          content: stripLeadingHeading(entry.content),
+          keyInsight:
+            str(entry.frontmatter.keyInsight) || str(entry.frontmatter.takeaway) || undefined,
+          molecule: str(entry.frontmatter.molecule) || undefined,
+          interactive: str(entry.frontmatter.interactive) || undefined,
+        }
+      : null;
+    // Misses are cached too: a 404 slug is hit repeatedly by crawlers.
+    bySlug.set(wanted, full);
+    return full;
   };
 
   const getSlugs = (): string[] => getAll().map((item) => item.slug);

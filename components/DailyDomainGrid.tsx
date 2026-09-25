@@ -2,7 +2,9 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
+import { SpotlightGrid } from "@/components/motion/SpotlightGrid";
 import type { DailySelected } from "../lib/daily-selector";
+import { dailyIconFor, dailyLabelFor } from "@/lib/daily-display";
 
 type DailyDomainGridProps = {
   daily: DailySelected;
@@ -230,7 +232,7 @@ export function DailyDomainGrid({ daily }: DailyDomainGridProps) {
   const reduce = useReducedMotion();
 
   return (
-    <div className="mx-auto w-full max-w-3xl">
+    <SpotlightGrid className="mx-auto w-full max-w-3xl">
       <motion.div
         className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4"
         variants={reduce ? undefined : containerVariants}
@@ -243,10 +245,12 @@ export function DailyDomainGrid({ daily }: DailyDomainGridProps) {
             <motion.div key={config.key} variants={itemVariants}>
               <Link
                 href={item.url || config.url}
-                className="group hover:bg-bg-elevated border-border-faint bg-bg-panel block h-full rounded-xl border p-4 no-underline transition-all duration-300"
+                data-spotlight
+                style={{ "--spot": config.color } as React.CSSProperties}
+                className="group hover:bg-bg-elevated border-border-faint bg-bg-panel relative block h-full rounded-xl border p-4 no-underline transition-all duration-300"
               >
                 <div className="mb-2 flex items-center gap-2">
-                  <span className="text-lg">{config.icon}</span>
+                  <span className="text-lg">{dailyIconFor(item.url, config.icon)}</span>
                   <span
                     className="rounded-full px-2 py-0.5 text-[0.7rem] font-semibold"
                     style={{
@@ -255,7 +259,7 @@ export function DailyDomainGrid({ daily }: DailyDomainGridProps) {
                       border: `1px solid ${config.border}`,
                     }}
                   >
-                    {config.label}
+                    {dailyLabelFor(item.url, config.label)}
                   </span>
                 </div>
                 <h4 className="text-fg-primary group-hover:text-accent-gold mb-1 line-clamp-2 text-[0.85rem] leading-snug font-semibold transition-colors">
@@ -269,6 +273,6 @@ export function DailyDomainGrid({ daily }: DailyDomainGridProps) {
           );
         })}
       </motion.div>
-    </div>
+    </SpotlightGrid>
   );
 }

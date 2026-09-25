@@ -9,6 +9,10 @@ export const SEARCH_WORKER_URL = "/search.worker.js";
 /** Hung workers (404 that never fires `error`, frozen isolate) must not leave
  *  overlay searches pending forever. After this, fall back to the main thread. */
 export const SEARCH_WORKER_TIMEOUT_MS = 4000;
+/** Before the worker reports `ready` the first answer includes fetching and
+ *  parsing the ~3.9 MB index; falling back to the main thread at 4 s would
+ *  redo exactly that work on the UI thread on slow connections. */
+export const SEARCH_WORKER_COLD_TIMEOUT_MS = 20000;
 
 export interface SearchClient {
   search(query: string, limit?: number): Promise<SearchHit[]>;
@@ -107,6 +111,7 @@ function createWorkerClient(): SearchClient | null {
   const main = createMainThreadClient();
   let nextId = 1;
   let failed = false;
+  let ready = false;
   const pending = new Map<number, PendingSearch>();
 
   const takePending = (id: number): PendingSearch | undefined => {
@@ -144,7 +149,12 @@ function createWorkerClient(): SearchClient | null {
       void failToMain();
       return;
     }
+    if (data.type === "ready") {
+      ready = true;
+      return;
+    }
     if (data.type === "result") {
+      ready = true;
       const item = takePending(data.id);
       if (!item) return;
       item.resolve(safeHits(data.hits));
@@ -156,9 +166,12 @@ function createWorkerClient(): SearchClient | null {
       if (failed) return safeHits(await main.search(query, limit));
       const id = nextId++;
       return new Promise<SearchHit[]>((resolve) => {
-        const timer = setTimeout(() => {
-          void failToMain();
-        }, SEARCH_WORKER_TIMEOUT_MS);
+        const timer = setTimeout(
+          () => {
+            void failToMain();
+          },
+          ready ? SEARCH_WORKER_TIMEOUT_MS : SEARCH_WORKER_COLD_TIMEOUT_MS
+        );
         pending.set(id, { query, limit, resolve, timer });
         const message: WorkerRequest = { type: "search", id, query, limit };
         try {

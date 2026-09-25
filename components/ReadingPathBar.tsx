@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import {
   getReadingPath,
@@ -15,7 +16,9 @@ import {
  * Global, query-param-driven prev/next bar that turns any article into a chapter
  * of a reading path. Activated by `?path=<slug>&step=<n>`. If those params are
  * missing but the current article already sits on a path, a quieter invite
- * appears so wiki-link landings can still enter the sequence.
+ * appears so wiki-link landings can still enter the sequence — unless the page
+ * ends with the 三向出口 (components/article/ArticleExits), which carries the
+ * same invite in place instead of floating over the text.
  */
 export function ReadingPathBar() {
   const params = useSearchParams();
@@ -50,7 +53,7 @@ function ActiveReadingPathBar({
   const stepLink = (s: ReadingStep, n: number) => `${s.href}?path=${path.slug}&step=${n}`;
 
   return (
-    <div className="print-hidden fixed bottom-4 left-1/2 z-50 w-[min(680px,calc(100vw-1.5rem))] -translate-x-1/2 transition-[bottom] [[data-narration-active]_&]:bottom-24">
+    <div className="reading-path-bar--active print-hidden fixed bottom-4 left-1/2 z-50 w-[min(680px,calc(100vw-1.5rem))] -translate-x-1/2 transition-[bottom] [[data-narration-active]_&]:bottom-24">
       <nav
         aria-label="阅读路线"
         className="flex items-stretch gap-1 rounded-2xl border border-[var(--nav-border)] bg-[var(--nav-bg)] p-1.5 backdrop-blur-md"
@@ -159,6 +162,9 @@ function ReadingPathInvite({
   chapters: readonly ReadingPathChapter[];
   pathname: string;
 }) {
+  const [inPage, setInPage] = useState<boolean | null>(null);
+  useEffect(() => setInPage(Boolean(document.querySelector(".article-exits"))), [pathname]);
+  if (inPage !== false) return null;
   return (
     <div className="print-hidden fixed bottom-4 left-1/2 z-50 w-[min(680px,calc(100vw-1.5rem))] -translate-x-1/2 transition-[bottom] [[data-narration-active]_&]:bottom-24">
       <nav
@@ -171,9 +177,14 @@ function ReadingPathInvite({
           <Link
             key={chapter.path.slug}
             href={`${pathname}?path=${chapter.path.slug}&step=${chapter.step}`}
-            className="inline-flex min-h-9 items-center gap-1.5 rounded-xl px-2.5 text-[13px] transition-colors hover:bg-[var(--hover-bg)]"
-            style={{ color: chapter.path.accent }}
+            className="inline-flex min-h-9 items-center gap-1.5 rounded-xl px-2.5 text-[13px] text-[var(--foreground)] transition-colors hover:bg-[var(--hover-bg)]"
           >
+            {/* Route accents fail AA as text on the translucent bar; keep them as a mark. */}
+            <span
+              aria-hidden="true"
+              className="h-1.5 w-1.5 shrink-0 rounded-full"
+              style={{ background: chapter.path.accent }}
+            />
             {chapter.path.title}
             <span className="text-[var(--muted)] tabular-nums">
               {chapter.step}/{chapter.path.steps.length}

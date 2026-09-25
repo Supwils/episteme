@@ -154,7 +154,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
               </h2>
               <ul className="mt-4 space-y-4">
                 {titleResults.map((result) => (
-                  <li key={result.url}>
+                  <li key={`${result.kind}:${result.url}`}>
                     <Link href={result.url} className="group block">
                       <span className="text-fg-primary group-hover:text-accent font-medium">
                         {result.title}

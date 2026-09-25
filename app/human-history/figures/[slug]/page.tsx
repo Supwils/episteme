@@ -9,6 +9,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { withCanonicalPath } from "@/lib/article-canonical";
+import { SITE_URL } from "@/lib/constants";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -51,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const figure = getHistoryFigureSummary(slug);
   if (!figure) notFound();
   const description = figure.desc;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://episteme.vercel.app";
+  const siteUrl = SITE_URL;
   const ogImage = `${siteUrl}/api/og?title=${encodeURIComponent(figure.name)}&section=human-history&description=${encodeURIComponent(description)}`;
   return withCanonicalPath(`/human-history/figures/${slug}`, {
     title: `${figure.name} — 人类历史人物`,

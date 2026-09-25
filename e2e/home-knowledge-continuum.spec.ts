@@ -1,4 +1,5 @@
 import { expect, test, type Locator, type Page } from "@playwright/test";
+import { openContinuumTab } from "./continuum-tabs";
 import { buildKnowledgeBranchCatalog } from "@/lib/knowledge-branch-catalog";
 import {
   buildKnowledgeTerrainSnapshot,
@@ -128,6 +129,7 @@ async function revealLearningPlanner(page: Page) {
     timeout: 15_000,
   });
 
+  await openContinuumTab(page, /地形与路线/);
   const planner = continuum.getByTestId("knowledge-learning-planner");
   await planner.evaluate((element) => element.scrollIntoView({ block: "center" }));
   const load = planner.getByRole("button", { name: "立即载入" });
@@ -188,6 +190,7 @@ test("loads each deep continuum dataset only when its module approaches the view
   // before the continuum approaches the viewport (asserted above).
   expect(requests.some((url) => url.endsWith("/api/knowledge-continuum/spine"))).toBe(true);
 
+  await openContinuumTab(page, /策展覆盖/);
   const coverage = page.getByTestId("knowledge-coverage-panel");
   await coverage.scrollIntoViewIfNeeded();
   await expect(coverage.getByRole("heading", { name: /个核心节点如何覆盖全学科/ })).toBeVisible({
@@ -199,6 +202,7 @@ test("loads each deep continuum dataset only when its module approaches the view
 
 test("compares every subject spine from first questions to frontiers", async ({ page }) => {
   await page.goto("/");
+  await openContinuumTab(page, /主干地图/);
   const atlas = page.getByTestId("knowledge-spine-atlas");
   await atlas.scrollIntoViewIfNeeded();
   await loadDeferredPanelIfGated(atlas);
@@ -240,6 +244,7 @@ test("compares every subject spine from first questions to frontiers", async ({ 
 
 test("traces a selected subject bridge across stages and domains", async ({ page }) => {
   await page.goto("/");
+  await openContinuumTab(page, /主干地图/);
   const atlas = page.getByTestId("knowledge-spine-atlas");
   await atlas.scrollIntoViewIfNeeded();
   await loadDeferredPanelIfGated(atlas);
@@ -568,6 +573,7 @@ test("explores knowledge from first questions to interdisciplinary frontiers", a
   ).toHaveValue("AI 伦理");
   await expect(restoredBranchPlanner.getByText("直接旁支", { exact: true })).toBeVisible();
 
+  await openContinuumTab(page, /策展覆盖/);
   await coveragePanel.scrollIntoViewIfNeeded();
   await expect(
     coveragePanel.getByRole("heading", {

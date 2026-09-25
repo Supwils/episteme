@@ -32,5 +32,6 @@ export interface SearchDocument {
     | "psychologist"
     | "knowledgeBase"
     | "frontier"
-    | "entry";
+    | "entry"
+    | "curiosity";
 }

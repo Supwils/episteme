@@ -166,7 +166,7 @@ export function ConstitutionalStructureComparator() {
                 className="rounded-full border px-3 py-1 font-mono text-[11px] tracking-[0.08em] transition-colors"
                 style={{
                   borderColor: active ? ACCENT : "var(--color-border-subtle)",
-                  color: active ? "#0e0f14" : "var(--color-fg-muted)",
+                  color: active ? "#0f1622" : "var(--color-fg-muted)",
                   backgroundColor: active ? ACCENT : "transparent",
                 }}
               >

@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { getAllMathematicians } from "@/subjects/mathematics/lib/mathematicians";
-import { getAllTheorems } from "@/subjects/mathematics/lib/theorems";
+import { DomainLanding } from "@/components/landing/DomainLanding";
+import { EraStrip } from "@/components/landing/EraStrip";
+import { mathematicsKB } from "@/lib/mathematics-kb";
 import { getAllMathConcepts } from "@/subjects/mathematics/lib/concepts";
 import { getAllMathDialogues } from "@/subjects/mathematics/lib/dialogues";
-import { getAllMathParadoxes } from "@/subjects/mathematics/lib/paradoxes";
 import { getAllMathEras } from "@/subjects/mathematics/lib/eras";
-import {
-  MATH_ERA_ACCENT,
-  MATH_FIELD_COLORS,
-  mathBadgeColor,
-} from "@/subjects/mathematics/lib/constants";
-import { mathematicsKB } from "@/lib/mathematics-kb";
+import { getAllMathematicians } from "@/subjects/mathematics/lib/mathematicians";
+import { getAllMathParadoxes } from "@/subjects/mathematics/lib/paradoxes";
+import { getAllTheorems } from "@/subjects/mathematics/lib/theorems";
 
 export const metadata: Metadata = {
   title: "数学与逻辑 — Episteme · 格致",
@@ -24,335 +20,75 @@ export const metadata: Metadata = {
 };
 
 export default function MathematicsHomePage() {
-  const mathematicians = getAllMathematicians();
-  const theorems = getAllTheorems();
-  const concepts = getAllMathConcepts();
-  const dialogues = getAllMathDialogues();
-  const paradoxes = getAllMathParadoxes();
-  const eras = getAllMathEras();
-  const deepReadings = mathematicsKB.getAllArticles();
-
-  const stats = [
-    { value: mathematicians.length, label: "数学家", suffix: "" },
-    { value: theorems.length, label: "定理", suffix: "" },
-    { value: concepts.length, label: "概念", suffix: "" },
-    { value: paradoxes.length, label: "悖论", suffix: "" },
-    { value: dialogues.length, label: "对话", suffix: "" },
-    { value: deepReadings.length, label: "深度阅读", suffix: "" },
+  const sections = [
+    {
+      href: "/mathematics/mathematicians",
+      label: "数学家",
+      description: "从欧几里得到陶哲轩，推动数学前进的人",
+      count: getAllMathematicians().length,
+    },
+    {
+      href: "/mathematics/theorems",
+      label: "定理",
+      description: "改变了数学版图的里程碑定理与它们的证明思路",
+      count: getAllTheorems().length,
+    },
+    {
+      href: "/mathematics/concepts",
+      label: "概念",
+      description: "从数与集合到群、流形与范畴的基本概念",
+      count: getAllMathConcepts().length,
+    },
+    {
+      href: "/mathematics/paradoxes",
+      label: "悖论",
+      description: "逼着数学重新检查自己地基的悖论",
+      count: getAllMathParadoxes().length,
+    },
+    {
+      href: "/mathematics/dialogues",
+      label: "对话",
+      description: "不同时代的数学家就同一个问题交锋",
+      count: getAllMathDialogues().length,
+    },
+    {
+      href: "/mathematics/knowledge-base",
+      label: "深度阅读",
+      description: "一个主题从直觉讲到前沿的长文",
+      count: mathematicsKB.getAllArticles().length,
+    },
+    {
+      href: "/mathematics/distributions",
+      label: "概率分布",
+      description: "拖动参数，看常见分布的形状怎样变化",
+      tag: "互动工具",
+    },
+    {
+      href: "/mathematics/timeline",
+      label: "时间线",
+      description: "按年代排开的数学家、定理与转折",
+      tag: "时间线",
+    },
   ];
 
   return (
-    <div className="w-full">
-      {/* Hero */}
-      <section className="relative overflow-hidden px-6 py-20 sm:px-10 sm:py-28 lg:px-16">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0"
-          style={{ background: "var(--gradient-radial-indigo)" }}
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute top-0 right-0 h-96 w-96 rounded-full opacity-20 blur-3xl"
-          style={{ background: "var(--color-accent-violet)" }}
-        />
-
-        <div className="relative z-1 max-w-3xl">
-          <p className="text-fg-muted mb-4 font-mono text-[10px] tracking-[0.42em] uppercase">
-            mathematics & logic
-          </p>
-          <h1 className="font-display text-fg-primary text-[2.8rem] leading-[1.05] tracking-tight md:text-[4rem]">
-            数学<em className="text-accent-indigo italic"> 与逻辑</em>
-          </h1>
-          <p className="text-fg-secondary mt-5 max-w-xl text-base leading-relaxed md:text-lg">
-            从计数到范畴论，从欧几里得到陶哲轩——探索人类思维最纯粹、最有力的形式。
-          </p>
-
-          {/* Stats */}
-          <div className="mt-10 flex flex-wrap gap-6">
-            {stats.map((stat) => (
-              <div key={stat.label} className="flex flex-col">
-                <span className="font-display text-accent-indigo text-2xl font-semibold">
-                  {stat.value || "—"}
-                  {stat.suffix}
-                </span>
-                <span className="text-fg-muted mt-1 font-mono text-[10px] tracking-[0.22em] uppercase">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Eras */}
-      <section className="px-6 py-16 sm:px-10 lg:px-16">
-        <header className="mb-10">
-          <p className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.32em] uppercase">
-            mathematical eras
-          </p>
-          <h2 className="font-display text-fg-primary text-[1.8rem] tracking-tight md:text-[2.2rem]">
-            数学的时代
-          </h2>
-        </header>
-
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-          {eras.map((era) => (
-            <div
-              key={era.id}
-              className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative overflow-hidden border p-5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1"
-            >
-              <div
-                className="pointer-events-none absolute -top-8 -right-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-20"
-                style={{
-                  backgroundColor: era.glowColor.replace("rgba(", "").split(",")[0]
-                    ? era.gradient.match(/#[a-f0-9]+/i)?.[0]
-                    : "#6366f1",
-                }}
-              />
-              <div className="relative">
-                <span className="text-2xl">{era.icon}</span>
-                <h3 className="font-display text-fg-primary group-hover:text-accent-indigo mt-2 text-base font-semibold transition-colors">
-                  {era.name}
-                </h3>
-                <p className="text-fg-muted mt-0.5 font-mono text-[10px] tracking-wider">
-                  {era.nameEn}
-                </p>
-                <p className="text-fg-disabled mt-1 font-mono text-[9px] tracking-[0.18em]">
-                  {era.period}
-                </p>
-                <p className="text-fg-secondary mt-3 text-sm leading-relaxed">{era.keyFact}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Featured Mathematicians */}
-      {mathematicians.length > 0 && (
-        <section className="px-6 py-16 sm:px-10 lg:px-16">
-          <header className="mb-10 flex items-end justify-between">
-            <div>
-              <p className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.32em] uppercase">
-                featured mathematicians
-              </p>
-              <h2 className="font-display text-fg-primary text-[1.8rem] tracking-tight md:text-[2.2rem]">
-                杰出数学家
-              </h2>
-            </div>
-            <Link
-              href="/mathematics/mathematicians"
-              className="text-fg-muted hover:text-accent-indigo font-mono text-[11px] tracking-[0.16em] uppercase transition-colors"
-            >
-              查看全部 →
-            </Link>
-          </header>
-
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {mathematicians.slice(0, 4).map((m) => {
-              const eraColor = MATH_ERA_ACCENT[m.era] || "#6366f1";
-              return (
-                <Link
-                  key={m.slug}
-                  href={`/mathematics/mathematicians/${m.slug}`}
-                  className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative overflow-hidden border p-5 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5"
-                >
-                  <div
-                    className="pointer-events-none absolute -top-8 -right-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-15"
-                    style={{ backgroundColor: eraColor }}
-                  />
-                  <div className="relative">
-                    <span
-                      className="border px-2 py-0.5 font-mono text-[9px] tracking-[0.22em] uppercase"
-                      style={{ borderColor: `${eraColor}40`, color: mathBadgeColor(eraColor) }}
-                    >
-                      {m.era}
-                    </span>
-                    <h3 className="font-display text-fg-primary group-hover:text-accent-indigo mt-3 text-base font-semibold transition-colors">
-                      {m.title}
-                    </h3>
-                    <p className="text-fg-muted mt-1 font-mono text-[11px] tracking-wider italic">
-                      {m.name}
-                    </p>
-                    <p className="text-fg-disabled mt-1 font-mono text-[10px] tracking-wider">
-                      {m.nationality} · {m.birthYear}–{m.deathYear ?? "至今"}
-                    </p>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </section>
-      )}
-
-      {/* Featured Theorems */}
-      {theorems.length > 0 && (
-        <section className="px-6 py-16 sm:px-10 lg:px-16">
-          <header className="mb-10 flex items-end justify-between">
-            <div>
-              <p className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.32em] uppercase">
-                landmark theorems
-              </p>
-              <h2 className="font-display text-fg-primary text-[1.8rem] tracking-tight md:text-[2.2rem]">
-                里程碑定理
-              </h2>
-            </div>
-            <Link
-              href="/mathematics/theorems"
-              className="text-fg-muted hover:text-accent-indigo font-mono text-[11px] tracking-[0.16em] uppercase transition-colors"
-            >
-              查看全部 →
-            </Link>
-          </header>
-
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {theorems.slice(0, 4).map((t) => {
-              const fieldColor = MATH_FIELD_COLORS[t.field] || "#6366f1";
-              return (
-                <Link
-                  key={t.slug}
-                  href={`/mathematics/theorems/${t.slug}`}
-                  className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative overflow-hidden border p-5 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5"
-                >
-                  <div
-                    className="pointer-events-none absolute -top-8 -right-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-15"
-                    style={{ backgroundColor: fieldColor }}
-                  />
-                  <div className="relative">
-                    <span
-                      className="border px-2 py-0.5 font-mono text-[9px] tracking-[0.22em] uppercase"
-                      style={{ borderColor: `${fieldColor}40`, color: mathBadgeColor(fieldColor) }}
-                    >
-                      {t.field}
-                    </span>
-                    <h3 className="font-display text-fg-primary group-hover:text-accent-indigo mt-3 text-base font-semibold transition-colors">
-                      {t.title}
-                    </h3>
-                    <p className="text-fg-muted mt-0.5 font-mono text-[10px] tracking-wider italic">
-                      {t.title_en}
-                    </p>
-                    <p className="text-fg-disabled mt-2 font-mono text-[10px] tracking-wider">
-                      {t.mathematician}
-                    </p>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </section>
-      )}
-
-      {/* Featured Paradoxes */}
-      {paradoxes.length > 0 && (
-        <section className="px-6 py-16 sm:px-10 lg:px-16">
-          <header className="mb-10 flex items-end justify-between">
-            <div>
-              <p className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.32em] uppercase">
-                mathematical paradoxes
-              </p>
-              <h2 className="font-display text-fg-primary text-[1.8rem] tracking-tight md:text-[2.2rem]">
-                深刻悖论
-              </h2>
-            </div>
-            <Link
-              href="/mathematics/paradoxes"
-              className="text-fg-muted hover:text-accent-indigo font-mono text-[11px] tracking-[0.16em] uppercase transition-colors"
-            >
-              查看全部 →
-            </Link>
-          </header>
-
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {paradoxes.slice(0, 4).map((p) => {
-              const fieldColor = MATH_FIELD_COLORS[p.field] || "#6366f1";
-              return (
-                <Link
-                  key={p.slug}
-                  href={`/mathematics/paradoxes/${p.slug}`}
-                  className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative overflow-hidden border p-5 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5"
-                >
-                  <div
-                    className="pointer-events-none absolute -top-8 -right-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-15"
-                    style={{ backgroundColor: fieldColor }}
-                  />
-                  <div className="relative">
-                    <span
-                      className="border px-2 py-0.5 font-mono text-[9px] tracking-[0.22em] uppercase"
-                      style={{ borderColor: `${fieldColor}40`, color: mathBadgeColor(fieldColor) }}
-                    >
-                      {p.field}
-                    </span>
-                    <h3 className="font-display text-fg-primary group-hover:text-accent-indigo mt-3 text-base font-semibold transition-colors">
-                      {p.title}
-                    </h3>
-                    <p className="text-fg-muted mt-0.5 font-mono text-[10px] tracking-wider italic">
-                      {p.title_en}
-                    </p>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </section>
-      )}
-
-      {/* Narrative deep readings */}
-      {deepReadings.length > 0 && (
-        <section className="px-6 py-16 sm:px-10 lg:px-16">
-          <header className="mb-10 flex items-end justify-between gap-6">
-            <div>
-              <p className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.32em] uppercase">
-                mathematical deep readings
-              </p>
-              <h2 className="font-display text-fg-primary text-[1.8rem] tracking-tight md:text-[2.2rem]">
-                从问题史理解数学
-              </h2>
-              <p className="text-fg-secondary mt-2 max-w-xl text-sm leading-relaxed">
-                不只给出结论，也追踪证明、概念和应用为何出现，以及它们改变了什么。
-              </p>
-            </div>
-            <Link
-              href="/mathematics/knowledge-base"
-              className="text-fg-muted hover:text-accent-indigo shrink-0 font-mono text-[11px] tracking-[0.16em] uppercase transition-colors"
-            >
-              查看全部 {deepReadings.length} 篇 →
-            </Link>
-          </header>
-
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {deepReadings.slice(0, 6).map((article) => (
-              <Link
-                key={article.slug}
-                href={`/mathematics/knowledge-base/${article.slug}`}
-                className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 border p-5 transition-all duration-300 hover:-translate-y-0.5"
-              >
-                <span className="text-accent-indigo-bright font-mono text-[10px] tracking-[0.22em] uppercase">
-                  {article.category}
-                </span>
-                <h3 className="font-display text-fg-primary group-hover:text-accent-indigo mt-2 text-base font-semibold transition-colors">
-                  {article.title}
-                </h3>
-                <p className="text-fg-secondary mt-2 line-clamp-2 text-[13px] leading-relaxed">
-                  {article.excerpt}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* Empty state */}
-      {mathematicians.length === 0 && theorems.length === 0 && paradoxes.length === 0 && (
-        <section className="px-6 py-16 sm:px-10 lg:px-16">
-          <div className="border-border-faint bg-bg-panel border p-12 text-center">
-            <p className="text-fg-muted font-mono text-[11px] tracking-[0.22em] uppercase">
-              内容正在建设中
-            </p>
-            <p className="text-fg-secondary mt-2 text-sm">
-              数学与逻辑板块正在编写中，敬请期待数学家、定理、概念与对话等内容。
-            </p>
-          </div>
-        </section>
-      )}
-    </div>
+    <DomainLanding
+      domain="mathematics"
+      lede="从计数到范畴论，从欧几里得到陶哲轩——探索人类思维最纯粹、最有力的形式。"
+      sections={sections}
+    >
+      <EraStrip
+        id="landing-math-eras"
+        title="数学的时代"
+        note="每个时代留下的那件关键事实，点任一段进入时间线。"
+        eras={getAllMathEras().map((era) => ({
+          key: era.id,
+          range: era.period,
+          title: era.name,
+          description: era.keyFact,
+          href: "/mathematics/timeline",
+        }))}
+      />
+    </DomainLanding>
   );
 }

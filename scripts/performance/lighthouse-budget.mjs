@@ -27,6 +27,11 @@ export const LIGHTHOUSE_ROUTE_BUDGETS = [
     maxLcpMs: 4500,
     maxTbtMs: 400,
     maxCls: 0.1,
+    // First paint here waits on a fetch issued by the page, which simulated
+    // throttling (Lantern) models poorly: four changes that cut observed LCP
+    // from 5.7 s to 4.2 s left its estimate within ±5 ms of 5.73 s. Measure
+    // with real (devtools) throttling instead. Decision record #15.
+    throttlingMethod: "devtools",
   },
 ];
 

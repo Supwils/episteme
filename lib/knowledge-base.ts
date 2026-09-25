@@ -3,6 +3,15 @@ import path from "node:path";
 import { readParsedFile } from "./content-article";
 import { getDomainContentDir, existingContentFile } from "./content-paths";
 
+// Hand-written frontmatter parsed in "lenient" mode: `title: 1984` arrives as a
+// number and `tags: 战争` as a string. Bare casts here let one such file crash
+// `getAllArticles()` (localeCompare / tags.map) and 500 the whole route.
+const str = (value: unknown): string => (typeof value === "string" ? value : "");
+const strOrUndefined = (value: unknown): string | undefined =>
+  typeof value === "string" && value ? value : undefined;
+const strArray = (value: unknown): string[] =>
+  Array.isArray(value) ? value.filter((v): v is string => typeof v === "string") : [];
+
 const KB_ROOT = path.join(getDomainContentDir("human-history"), "knowledge-base");
 
 // Editorial meta-docs at the KB root, not knowledge content. Excluded from the
@@ -94,14 +103,14 @@ function buildArticle(rel: string): KBArticle | null {
 
   return {
     slug: makeSlug(rel),
-    title: (data.title as string) || (parts[parts.length - 1] ?? ""),
+    title: str(data.title) || (parts[parts.length - 1] ?? ""),
     era,
     eraLabel: ERA_MAP[era]?.label ?? era,
     category,
-    region: data.region as string | undefined,
-    period: (data.period as string) || undefined,
-    date: (data.date as string) || undefined,
-    tags: (data.tags as string[]) || [],
+    region: strOrUndefined(data.region),
+    period: strOrUndefined(data.period),
+    date: strOrUndefined(data.date),
+    tags: strArray(data.tags),
     excerpt: extractExcerpt(content),
     filePath: rel,
   };
@@ -149,14 +158,14 @@ export function getArticleBySlug(slug: string): KBArticleFull | null {
 
   return {
     slug,
-    title: (data.title as string) || (parts[parts.length - 1] ?? ""),
+    title: str(data.title) || (parts[parts.length - 1] ?? ""),
     era,
     eraLabel: ERA_MAP[era]?.label ?? era,
     category,
-    region: data.region as string | undefined,
-    period: (data.period as string) || undefined,
-    date: (data.date as string) || undefined,
-    tags: (data.tags as string[]) || [],
+    region: strOrUndefined(data.region),
+    period: strOrUndefined(data.period),
+    date: strOrUndefined(data.date),
+    tags: strArray(data.tags),
     excerpt: extractExcerpt(content),
     filePath: relPath,
     content,

@@ -9,6 +9,19 @@ import { PSYCHOLOGY_CURIOSITIES } from "@/content/curiosities/psychology";
 import { HISTORY_CURIOSITIES } from "@/content/curiosities/human-history";
 import { COMPUTER_SCIENCE_CURIOSITIES } from "@/content/curiosities/computer-science";
 import { POLITICAL_SCIENCE_CURIOSITIES } from "@/content/curiosities/political-science";
+import { CHEMISTRY_CURIOSITIES } from "@/content/curiosities/chemistry";
+import { MEDICINE_CURIOSITIES } from "@/content/curiosities/medicine";
+import { EARTH_SCIENCE_CURIOSITIES } from "@/content/curiosities/earth-science";
+import { ENGINEERING_CURIOSITIES } from "@/content/curiosities/engineering";
+import { LINGUISTICS_CURIOSITIES } from "@/content/curiosities/linguistics";
+import { SOCIOLOGY_CURIOSITIES } from "@/content/curiosities/sociology";
+import { LAW_CURIOSITIES } from "@/content/curiosities/law";
+import { ARTS_CURIOSITIES } from "@/content/curiosities/arts";
+import { LITERATURE_CURIOSITIES } from "@/content/curiosities/literature";
+import { RELIGION_CURIOSITIES } from "@/content/curiosities/religion";
+import { ANTHROPOLOGY_CURIOSITIES } from "@/content/curiosities/anthropology";
+import { EDUCATION_CURIOSITIES } from "@/content/curiosities/education";
+import { CROSS_DOMAIN_CURIOSITIES } from "@/content/curiosities/cross-domain";
 
 /**
  * A "curiosity" is a short, surprising, sourced fact — the kind of thing that
@@ -39,7 +52,21 @@ export type CuriositySubject =
   | "psychology"
   | "human-history"
   | "computer-science"
-  | "political-science";
+  | "political-science"
+  | "chemistry"
+  | "medicine"
+  | "earth-science"
+  | "engineering"
+  | "linguistics"
+  | "sociology"
+  | "law"
+  | "arts"
+  | "literature"
+  | "religion"
+  | "anthropology"
+  | "education";
+
+export const CROSS_DOMAIN_TAG = "cross-domain";
 
 export interface CuriosityWithSubject extends Curiosity {
   subject: CuriositySubject;
@@ -69,6 +96,18 @@ export const CURIOSITY_SUBJECTS: Record<
     href: "/political-science",
     icon: "⚖️",
   },
+  chemistry: { label: "化学", accent: "#e08a3c", href: "/chemistry", icon: "⚗️" },
+  medicine: { label: "医学", accent: "#d9544d", href: "/medicine", icon: "🩺" },
+  "earth-science": { label: "地球科学", accent: "#4f9d76", href: "/earth-science", icon: "🌏" },
+  engineering: { label: "工程", accent: "#8a919e", href: "/engineering", icon: "🛠️" },
+  linguistics: { label: "语言学", accent: "#6fa8c7", href: "/linguistics", icon: "🔤" },
+  sociology: { label: "社会学", accent: "#b07cc6", href: "/sociology", icon: "👥" },
+  law: { label: "法学", accent: "#a8843c", href: "/law", icon: "⚖️" },
+  arts: { label: "艺术", accent: "#b0785a", href: "/arts", icon: "🎨" },
+  literature: { label: "文学", accent: "#8b5e4a", href: "/literature", icon: "📖" },
+  religion: { label: "宗教学", accent: "#6b5c8a", href: "/religion", icon: "🕯️" },
+  anthropology: { label: "人类学", accent: "#8b5a3c", href: "/anthropology", icon: "🦴" },
+  education: { label: "教育学", accent: "#3d6b8a", href: "/education", icon: "🎒" },
 };
 
 const REGISTRY: Record<CuriositySubject, Curiosity[]> = {
@@ -82,6 +121,18 @@ const REGISTRY: Record<CuriositySubject, Curiosity[]> = {
   "human-history": HISTORY_CURIOSITIES,
   "computer-science": COMPUTER_SCIENCE_CURIOSITIES,
   "political-science": POLITICAL_SCIENCE_CURIOSITIES,
+  chemistry: CHEMISTRY_CURIOSITIES,
+  medicine: MEDICINE_CURIOSITIES,
+  "earth-science": EARTH_SCIENCE_CURIOSITIES,
+  engineering: ENGINEERING_CURIOSITIES,
+  linguistics: LINGUISTICS_CURIOSITIES,
+  sociology: SOCIOLOGY_CURIOSITIES,
+  law: LAW_CURIOSITIES,
+  arts: ARTS_CURIOSITIES,
+  literature: LITERATURE_CURIOSITIES,
+  religion: RELIGION_CURIOSITIES,
+  anthropology: ANTHROPOLOGY_CURIOSITIES,
+  education: EDUCATION_CURIOSITIES,
 };
 
 export function getAllCuriosities(): CuriosityWithSubject[] {
@@ -91,7 +142,49 @@ export function getAllCuriosities(): CuriosityWithSubject[] {
       all.push({ ...item, subject });
     }
   }
+  for (const item of CROSS_DOMAIN_CURIOSITIES) {
+    const tags = item.tags?.includes(CROSS_DOMAIN_TAG)
+      ? item.tags
+      : [...(item.tags ?? []), CROSS_DOMAIN_TAG];
+    all.push({ ...item, tags });
+  }
   return all;
+}
+
+export function isCrossDomainCuriosity(item: CuriosityWithSubject): boolean {
+  return item.tags?.includes(CROSS_DOMAIN_TAG) === true;
+}
+
+/** Lands the wall on the coincidence chip. Safe to use as a Next `<Link href>`. */
+export const COINCIDENCE_WALL_HREF = "/curiosities?filter=cross-domain";
+
+/** Same salt as daily/homepage so today's coincidence matches across surfaces. */
+export const SPOTLIGHT_COINCIDENCE_SALT = 26;
+
+export function getCrossDomainCuriosities(): CuriosityWithSubject[] {
+  return getAllCuriosities().filter(isCrossDomainCuriosity);
+}
+
+export function getSpotlightCoincidence(seed: number): CuriosityWithSubject {
+  const pool = getCrossDomainCuriosities();
+  if (pool.length === 0) {
+    throw new Error("getSpotlightCoincidence: coincidence pool is empty");
+  }
+  const picked = pool[Math.abs(seed) % pool.length];
+  if (!picked) {
+    throw new Error("getSpotlightCoincidence: coincidence pool is empty");
+  }
+  return picked;
+}
+
+export function coincidenceFollowHref(url?: string): string {
+  return curiosityArticleHref(url) ?? COINCIDENCE_WALL_HREF;
+}
+
+export function curiosityTeaser(detail: string, max = 72): string {
+  const sentence = detail.match(/^[^。！？]+[。！？]?/)?.[0] ?? detail;
+  if (sentence.length <= max) return sentence;
+  return `${sentence.slice(0, max).trimEnd()}…`;
 }
 
 /**

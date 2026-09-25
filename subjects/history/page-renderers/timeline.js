@@ -1,5 +1,5 @@
 import { gsap } from 'gsap';
-import { ERAS } from '@/content/human-history/data/eras.js';
+import { ERA_SUMMARY as ERAS } from '@/content/human-history/data/generated/era-summary.js';
 import { TIMELINE_EVENT_CATALOG } from '@/content/human-history/data/generated/timeline-catalog.js';
 import { SCHOLARLY_TITLES } from '@/content/human-history/data/scholarly-titles.js';
 import { el, clearApp, animateIn, prefersReducedMotion } from '../lib/dom.js';

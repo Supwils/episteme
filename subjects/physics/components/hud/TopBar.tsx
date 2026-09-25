@@ -32,7 +32,7 @@ export function TopBar() {
           className="hover:text-accent-cool flex items-center gap-3 transition-colors"
         >
           <BrandMark className="text-accent-cool h-5 w-5 shrink-0" />
-          <span className="hud-meta text-fg-secondary">universe · physics</span>
+          <span className="hud-meta text-fg-secondary">格致 · 物理学</span>
         </Link>
         <span aria-hidden className="bg-fg-disabled mx-0.5 hidden h-3 w-px sm:inline-block" />
         <span className="hud-meta text-fg-muted hidden lg:inline">scale atlas / phase 0</span>

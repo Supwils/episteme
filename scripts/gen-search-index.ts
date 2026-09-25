@@ -62,6 +62,12 @@ const HEADING_STOPWORD_RATIO = 0.015;
 const HEADING_STOPWORD_FLOOR = 20;
 const HEADING_CHAR_BUDGET = 100;
 
+function countByDomain(articles: Article[]): Record<string, number> {
+  const counts: Record<string, number> = {};
+  for (const article of articles) counts[article.domain] = (counts[article.domain] ?? 0) + 1;
+  return Object.fromEntries(Object.entries(counts).sort(([a], [b]) => a.localeCompare(b)));
+}
+
 function buildHeadingSelector(articles: Article[]): {
   select: (article: Article) => string;
   stopwords: string[];
@@ -105,7 +111,9 @@ async function main(): Promise<void> {
   // modules rather than MDX. Reuse the existing collectors so the new pipeline
   // never covers less than the one it replaces.
   const { documents: entities } = await getSearchIndex();
-  const entityByUrl = new Map(entities.map((d) => [d.url, d]));
+  const curiosities = entities.filter((d) => d.id.startsWith("curiosity-"));
+  const rest = entities.filter((d) => !d.id.startsWith("curiosity-"));
+  const entityByUrl = new Map(rest.map((d) => [d.url, d]));
 
   const headings = buildHeadingSelector(articles);
 
@@ -154,6 +162,26 @@ async function main(): Promise<void> {
     docs.push(doc);
   }
 
+  // Curiosities must stay their own hits. Merging them onto article URLs
+  // used to overwrite English subtitles with「奇趣知识」and drop the punchy title.
+  for (const curiosity of curiosities) {
+    const doc: SearchDoc = {
+      t: curiosity.title,
+      s: curiosity.subtitle,
+      u: curiosity.url,
+      c: curiosity.section,
+      k: curiosity.type,
+    };
+    // Title-only MiniSearch: punchy hooks already live in `t`.
+    // Indexing the 80-char detail slice blew the 800 KB brotli budget (decision #14).
+    indexed.push({
+      id: docs.length,
+      title: doc.t,
+      text: "",
+    });
+    docs.push(doc);
+  }
+
   const index = new MiniSearch<Indexed>(SEARCH_INDEX_OPTIONS);
   index.addAll(indexed);
 
@@ -180,6 +208,9 @@ async function main(): Promise<void> {
       documents: docs.length,
       articles: articles.length,
       entities: docs.length - articles.length,
+      // Per-domain split of `articles`, so a domain's count and the site total
+      // come from the same set and always add up.
+      byDomain: countByDomain(articles),
     })
   );
 

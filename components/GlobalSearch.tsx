@@ -6,14 +6,21 @@ import { getSearchHistory, addToSearchHistory } from "@/lib/search-history";
 import { trackEvent } from "@/lib/analytics";
 import { COVERAGE_DOMAIN_COUNT } from "@/lib/knowledge-continuum-coverage-meta";
 import { SearchInput } from "./search/SearchInput";
-import { SearchHistory } from "./search/SearchHistory";
+import { SearchHistory, SearchHistoryHeader } from "./search/SearchHistory";
+import { SearchPreview } from "./search/SearchPreview";
 import { SearchResults } from "./search/SearchResults";
+import { searchResultDomId } from "./search/SearchResultItem";
 import { orderResultsForDisplay, SEARCH_NO_RESULTS_EXITS } from "./search/types";
 import { useKnowledgeSearch } from "./search/useKnowledgeSearch";
+import "./search/search.css";
 
 const INPUT_DEBOUNCE_MS = 100;
 
-export function GlobalSearch() {
+/**
+ * The ⌘K dialog. Mounted lazily by SearchLauncher; `openOnMount` opens it for
+ * the request that caused the load, after which it handles ⌘K itself.
+ */
+export function GlobalSearch({ openOnMount = false }: { openOnMount?: boolean }) {
   const router = useRouter();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -23,6 +30,7 @@ export function GlobalSearch() {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const openedOnMountRef = useRef(false);
 
   const { query, setQuery, titleResults, bodyResults, searching, warmup } = useKnowledgeSearch();
 
@@ -74,11 +82,15 @@ export function GlobalSearch() {
     }
     document.addEventListener("keydown", handleKeyDown);
     document.addEventListener("open-global-search", openSearch);
+    if (openOnMount && !openedOnMountRef.current) {
+      openedOnMountRef.current = true;
+      openSearch();
+    }
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       document.removeEventListener("open-global-search", openSearch);
     };
-  }, [loadHistory, open, setQuery, warmup, cancelPendingQuery, closeSearch]);
+  }, [loadHistory, open, setQuery, warmup, cancelPendingQuery, closeSearch, openOnMount]);
 
   useEffect(() => {
     if (!open) return;
@@ -207,7 +219,7 @@ export function GlobalSearch() {
   const hasResults = flatResults.length > 0;
   const activeId = trimmed
     ? flatResults[activeIndex]
-      ? `gs-item-${flatResults[activeIndex].url}`
+      ? searchResultDomId(flatResults[activeIndex])
       : undefined
     : showHistory && history[activeIndex]
       ? `gs-history-${activeIndex}`
@@ -230,71 +242,83 @@ export function GlobalSearch() {
       <div className="gs-panel">
         <SearchInput inputRef={inputRef} activeId={activeId} onChange={handleQueryChange} />
 
-        <div className="gs-results" ref={listRef} id="gs-result-list" role="listbox">
-          {showHistory && (
-            <SearchHistory
-              history={history}
-              activeIndex={activeIndex}
-              onHistoryClick={handleHistoryClick}
-              onHistoryChange={loadHistory}
-              onActivate={setActiveIndex}
-            />
-          )}
+        <div className="gs-body">
+          <div className="gs-results" ref={listRef}>
+            {/* Exactly one listbox (#gs-result-list) is mounted at a time and it
+              only contains options/groups; empty states and exits below are
+              plain content so AT never announces them as selectable items. */}
+            {showHistory && (
+              <>
+                <SearchHistoryHeader onHistoryChange={loadHistory} />
+                <SearchHistory
+                  history={history}
+                  activeIndex={activeIndex}
+                  onHistoryClick={handleHistoryClick}
+                  onHistoryChange={loadHistory}
+                  onActivate={setActiveIndex}
+                />
+              </>
+            )}
+            {trimmed && (
+              <div id="gs-result-list" role="listbox" aria-label="搜索结果">
+                <SearchResults
+                  query={trimmed}
+                  titleResults={titleResults}
+                  bodyResults={bodyResults}
+                  flatResults={flatResults}
+                  activeIndex={activeIndex}
+                  onActivate={setActiveIndex}
+                  onSelect={handleItemClick}
+                />
+              </div>
+            )}
 
-          {!trimmed && !showHistory && (
-            <div className="gs-empty">
-              输入关键词开始搜索
-              <span className="gs-empty-hint">
-                标题即时匹配，正文全文检索覆盖 {COVERAGE_DOMAIN_COUNT} 个学科的全部文章
-              </span>
-              <span className="gs-empty-exits">
-                {SEARCH_NO_RESULTS_EXITS.map((exit) => (
-                  <a
-                    key={exit.href}
-                    className="gs-empty-exit"
-                    href={exit.href}
-                    onClick={closeSearch}
-                  >
-                    {exit.label}
-                  </a>
-                ))}
-              </span>
-            </div>
-          )}
+            {!trimmed && !showHistory && (
+              <div className="gs-empty">
+                输入关键词开始搜索
+                <span className="gs-empty-hint">
+                  标题即时匹配，正文全文检索覆盖 {COVERAGE_DOMAIN_COUNT} 个学科的全部文章
+                </span>
+                <span className="gs-empty-exits">
+                  {SEARCH_NO_RESULTS_EXITS.map((exit) => (
+                    <a
+                      key={exit.href}
+                      className="gs-empty-exit"
+                      href={exit.href}
+                      onClick={closeSearch}
+                    >
+                      {exit.label}
+                    </a>
+                  ))}
+                </span>
+              </div>
+            )}
 
-          {trimmed && (
-            <SearchResults
-              query={trimmed}
-              titleResults={titleResults}
-              bodyResults={bodyResults}
-              flatResults={flatResults}
-              activeIndex={activeIndex}
-              onActivate={setActiveIndex}
-              onSelect={handleItemClick}
-            />
-          )}
+            {trimmed && searching && !hasResults && (
+              <div className="gs-empty">正在检索「{trimmed}」…</div>
+            )}
 
-          {trimmed && searching && !hasResults && (
-            <div className="gs-empty">正在检索「{trimmed}」…</div>
-          )}
-
-          {trimmed && !searching && !hasResults && (
-            <div className="gs-empty">
-              未找到「{trimmed.length > 40 ? `${trimmed.slice(0, 40)}…` : trimmed}」相关结果
-              <span className="gs-empty-hint">试试更短的关键词，或直接输入记得的一句话</span>
-              <span className="gs-empty-exits">
-                {SEARCH_NO_RESULTS_EXITS.map((exit) => (
-                  <a
-                    key={exit.href}
-                    className="gs-empty-exit"
-                    href={exit.href}
-                    onClick={closeSearch}
-                  >
-                    {exit.label}
-                  </a>
-                ))}
-              </span>
-            </div>
+            {trimmed && !searching && !hasResults && (
+              <div className="gs-empty">
+                未找到「{trimmed.length > 40 ? `${trimmed.slice(0, 40)}…` : trimmed}」相关结果
+                <span className="gs-empty-hint">试试更短的关键词，或直接输入记得的一句话</span>
+                <span className="gs-empty-exits">
+                  {SEARCH_NO_RESULTS_EXITS.map((exit) => (
+                    <a
+                      key={exit.href}
+                      className="gs-empty-exit"
+                      href={exit.href}
+                      onClick={closeSearch}
+                    >
+                      {exit.label}
+                    </a>
+                  ))}
+                </span>
+              </div>
+            )}
+          </div>
+          {trimmed && hasResults && (
+            <SearchPreview result={flatResults[activeIndex]} onNavigate={handleItemClick} />
           )}
         </div>
 

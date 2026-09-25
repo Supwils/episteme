@@ -5,7 +5,8 @@ import { ECONOMICS_TODAY } from "./daily-economics";
 import { PSYCHOLOGY_TODAY } from "./daily-psychology";
 import { SOCIOLOGY_FACTS } from "./daily-sociology";
 import { ON_THIS_DAY } from "./on-this-day";
-import { getAllCuriosities } from "./curiosities";
+import { dailyEventKey } from "./daily-display";
+import { getSpotlightCoincidence, SPOTLIGHT_COINCIDENCE_SALT } from "./curiosities";
 import {
   DAILY_QUESTIONS,
   MONTHLY_FACTS,
@@ -118,10 +119,16 @@ function simpleHash(str: string): number {
 function pickDailyEvent<T extends DailySelectedEvent>(
   todayMatches: readonly T[],
   fullList: readonly T[],
-  seed: number
+  seed: number,
+  taken: readonly DailySelectedEvent[] = []
 ): DailySelectedEvent {
-  const pool = todayMatches.length > 0 ? todayMatches : fullList;
-  const { title, description, year, url } = seededSelect(pool, seed);
+  // Some dated events are filed in two pools (Neptune, 1846 is both "history"
+  // and "physics"); a later pool must not repeat what an earlier one picked.
+  const takenKeys = new Set(taken.map(dailyEventKey));
+  const notTaken = (events: readonly T[]) => events.filter((e) => !takenKeys.has(dailyEventKey(e)));
+  const today = notTaken(todayMatches);
+  const pool = today.length > 0 ? today : notTaken(fullList);
+  const { title, description, year, url } = seededSelect(pool.length > 0 ? pool : fullList, seed);
   return { title, description, year, url };
 }
 
@@ -140,10 +147,22 @@ export function getDailySelected(date?: Date, seedOffset = 0): DailySelected {
   const onThisDayEvents = ON_THIS_DAY.filter((e) => e.month === month && e.day === day);
 
   const physics = pickDailyEvent(physicsEvents, PHYSICS_TODAY, seed);
-  const history = pickDailyEvent(historyEvents, HISTORY_TODAY, seed + 1);
-  const philosophy = pickDailyEvent(philosophyEvents, PHILOSOPHY_TODAY, seed + 2);
-  const economics = pickDailyEvent(economicsEvents, ECONOMICS_TODAY, seed + 8);
-  const psychology = pickDailyEvent(psychologyEvents, PSYCHOLOGY_TODAY, seed + 9);
+  const history = pickDailyEvent(historyEvents, HISTORY_TODAY, seed + 1, [physics]);
+  const philosophy = pickDailyEvent(philosophyEvents, PHILOSOPHY_TODAY, seed + 2, [
+    physics,
+    history,
+  ]);
+  const economics = pickDailyEvent(economicsEvents, ECONOMICS_TODAY, seed + 8, [
+    physics,
+    history,
+    philosophy,
+  ]);
+  const psychology = pickDailyEvent(psychologyEvents, PSYCHOLOGY_TODAY, seed + 9, [
+    physics,
+    history,
+    philosophy,
+    economics,
+  ]);
 
   const mathematics = seededSelect(MATH_FACTS, seed + 3);
   const lifeScience = seededSelect(LIFE_SCIENCE_FACTS, seed + 4);
@@ -163,7 +182,7 @@ export function getDailySelected(date?: Date, seedOffset = 0): DailySelected {
   const education = seededSelect(EDUCATION_FACTS, seed + 24);
   const anthropology = seededSelect(ANTHROPOLOGY_FACTS, seed + 25);
 
-  const curiosityItem = seededSelect(getAllCuriosities(), seed + 14);
+  const curiosityItem = getSpotlightCoincidence(seed + SPOTLIGHT_COINCIDENCE_SALT);
   const curiosity = {
     title: curiosityItem.title,
     detail: curiosityItem.detail,

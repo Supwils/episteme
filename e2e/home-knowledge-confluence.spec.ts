@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { openContinuumTab } from "./continuum-tabs";
 
 async function revealConfluenceExplorer(page: Page) {
   const continuum = page.getByTestId("home-knowledge-continuum");
@@ -13,6 +14,7 @@ async function revealConfluenceExplorer(page: Page) {
     timeout: 15_000,
   });
 
+  await openContinuumTab(page, /多学科汇流/);
   const explorer = continuum.getByTestId("knowledge-confluence-explorer");
   await explorer.evaluate((element) => element.scrollIntoView({ block: "center" }));
   const load = explorer.getByRole("button", { name: "立即载入" });

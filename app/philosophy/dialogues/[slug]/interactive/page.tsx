@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getDialogueBySlug } from "@/lib/dialogues";
 import InteractiveDialogue from "@/subjects/philosophy/components/InteractiveDialogue";
 import { FIELD_COLORS } from "@/subjects/philosophy/lib/constants";
+import { SITE_URL } from "@/lib/constants";
 
 export function generateStaticParams() {
   // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
@@ -16,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const dialogue = getDialogueBySlug(slug);
   if (!dialogue) return {};
   const description = `以交互式方式探索${dialogue.participants.join("、")}的对话：${dialogue.title_en}`;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://episteme.vercel.app";
+  const siteUrl = SITE_URL;
   const ogImage = `${siteUrl}/api/og?title=${encodeURIComponent(dialogue.title)}&section=philosophy&description=${encodeURIComponent(description)}`;
   return withCanonicalPath(`/philosophy/dialogues/${slug}/interactive`, {
     title: `交互式阅读 — ${dialogue.title}`,

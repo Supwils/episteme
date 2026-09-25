@@ -280,7 +280,7 @@ function StatRow({
     <div className="flex items-center justify-between">
       <span className="text-fg-disabled font-mono text-[10px] tracking-[0.08em]">{label}</span>
       <span
-        className={`font-mono text-[12px] ${accent ? "text-accent-indigo font-semibold" : "text-fg-secondary"}`}
+        className={`font-mono text-[12px] ${accent ? "text-fg-primary font-semibold" : "text-fg-secondary"}`}
       >
         {value}
       </span>

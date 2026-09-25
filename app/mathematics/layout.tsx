@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { spaceGrotesk, plexMono } from "./fonts";
-import { SubjectHeader } from "@/components/SubjectHeader";
+import { DomainHeader } from "@/components/chrome/DomainHeader";
 import { PageTransition } from "@/components/PageTransition";
 import "./globals.css";
 // KaTeX stylesheet: math articles render formulas server-side via MarkdownRenderer.
@@ -26,7 +26,7 @@ export default function MathematicsLayout({ children }: { children: React.ReactN
 
   return (
     <div className={`math-root ${fontVars}`}>
-      <SubjectHeader subject="mathematics" />
+      <DomainHeader subject="mathematics" />
 
       <main>
         <PageTransition>{children}</PageTransition>

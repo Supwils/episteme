@@ -25,7 +25,7 @@
 
 ### 构建（`pnpm build`）
 
-- **`prebuild` 钩子先跑 `pnpm gen-all`**，从 `content/` 重新生成**全部派生索引**，共 11 步（顺序即依赖顺序）：
+- **`prebuild` 钩子先跑 `pnpm gen-all`**，从 `content/` 重新生成**全部派生索引**，共 14 步（顺序即依赖顺序）：
 
   | 命令                     | 产物                                                                                                          |
   | ------------------------ | ------------------------------------------------------------------------------------------------------------- |
@@ -37,7 +37,10 @@
   | `gen-history-route-data` | `content/human-history/data/generated/*`（event/figure catalog，按时代分片）                                  |
   | `gen-kb`                 | 各域 knowledge-base 索引                                                                                      |
   | `gen-links`              | `lib/wiki-link-index.ts`、`lib/backlinks-index.ts`、`public/link-previews/<domain>.json`、`generated/corpus*` |
-  | `gen-search-index`       | `public/search-index.json`、`generated/search-stats.json`                                                     |
+  | `gen-cognitive-nodes`    | `generated/cognitive-nodes.json`（运行时 catalog 读的节点快照）                                               |
+  | `gen-article-exits`      | `generated/article-exits.json`（文章页「向上 / 向旁」出口：上一级前置 + 跨域邻居）                            |
+  | `gen-search-index`       | `public/search-index.json`、`generated/search-stats.json`（含每域篇数 `byDomain`）                            |
+  | `gen-site-stats`         | `generated/site-stats.json`：全站**唯一**计数来源（经 `lib/site-stats.ts` 读取），页面禁止手写计数            |
   | `gen-search-worker`      | `public/search.worker.js`（esbuild IIFE，避开 Turbopack worker 运行时）                                       |
   | `gen-content-images`     | `public/images/<id>-<w>.webp` + manifest                                                                      |
 
@@ -100,7 +103,7 @@ ls package.json next.config.ts tsconfig.json     # 单一应用，全在仓库�
 ls apps packages turbo.json pnpm-workspace.yaml 2>/dev/null \
   && echo "⚠️ monorepo 残留" || echo "✅ 单一应用结构"
 pnpm install 2>&1 | tail -5                      # 单包，Node 22（.nvmrc）
-pnpm typecheck && pnpm test                      # 基线应全绿（当前 1419 测试 / 180 文件）
+pnpm typecheck && pnpm test                      # 基线应全绿
 ```
 
 ### 第三步：识别阻塞问题并记录
@@ -117,18 +120,18 @@ pnpm typecheck && pnpm test                      # 基线应全绿（当前 1419
 
 ## 1. 平台定位
 
-**Episteme · 格致** 是面向大众的**知识即服务平台（Knowledge as a Service）**，以浏览器为唯一交付方式，用可视化、沉浸式的方式探索人类知识。当前 **22 个知识领域 · 2828 篇内容**（`content/` 下 `.md`/`.mdx` 实测，排除 `*.narration.md` 与 `CREDITS.md`；教育学 40 篇后复核）。
+**Episteme · 格致** 是面向大众的**知识即服务平台（Knowledge as a Service）**，以浏览器为唯一交付方式，用可视化、沉浸式的方式探索人类知识。当前 **22 个知识领域**。篇数一律读 `generated/site-stats.json`（`pnpm gen-site-stats`），文档里不手写每域篇数——手写数字会漂。
 
 领域按 `docs/学科版图与导航架构.md` 的**六簇分类法**组织，`lib/data.tsx` 的 `DOMAINS`（含 `cluster` 字段）是**唯一真相源**，导航/首页/页脚/manifest 全部派生：
 
-| 簇             | 领域（路由 · 篇数）                                                                                                                          |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| **宇宙与自然** | 物理学 `/universe-physics` 177 · 宇宙学 `/cosmology` 168 · 地球科学 `/earth-science` 94 · 化学 `/chemistry` 106                              |
-| **生命与心灵** | 生命科学 `/life-science` 140 · 医学与公共卫生 `/medicine` 140 · 心理学 `/psychology` 236 · 语言学 `/linguistics` 65 · 教育学 `/education` 40 |
-| **社会与制度** | 社会学 `/sociology` 66 · 经济学 `/economics` 211 · 政治学 `/political-science` 181 · 法学 `/law` 57                                          |
-| **历史与文明** | 人类历史 `/human-history` 176 · 宗教学 `/religion` 36 · 人类学与考古 `/anthropology` 40                                                      |
-| **人文与艺术** | 哲学思想 `/philosophy` 358 · 艺术、建筑与美学 `/arts` 58 · 文学与叙事 `/literature` 38                                                       |
-| **数理与技术** | 数学与逻辑 `/mathematics` 174 · 计算机科学 `/computer-science` 213 · 工程与技术 `/engineering` 54                                            |
+| 簇             | 领域（路由）                                                                                                               |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| **宇宙与自然** | 物理学 `/universe-physics` · 宇宙学 `/cosmology` · 地球科学 `/earth-science` · 化学 `/chemistry`                           |
+| **生命与心灵** | 生命科学 `/life-science` · 医学与公共卫生 `/medicine` · 心理学 `/psychology` · 语言学 `/linguistics` · 教育学 `/education` |
+| **社会与制度** | 社会学 `/sociology` · 经济学 `/economics` · 政治学 `/political-science` · 法学 `/law`                                      |
+| **历史与文明** | 人类历史 `/human-history` · 宗教学 `/religion` · 人类学与考古 `/anthropology`                                              |
+| **人文与艺术** | 哲学思想 `/philosophy` · 艺术、建筑与美学 `/arts` · 文学与叙事 `/literature`                                               |
+| **数理与技术** | 数学与逻辑 `/mathematics` · 计算机科学 `/computer-science` · 工程与技术 `/engineering`                                     |
 
 **跨领域与探索入口**：`/`（门户）· `/knowledge-graph`（力导向知识图谱）· `/read`（阅读路线）· `/search`（全站搜索）· `/daily`（每日知识）· `/curiosities`（奇趣知识）· `/molecules`（分子图鉴）· `/knowledge-confluence/[id]`（知识汇流）· `/<领域>/frontier`（研究前沿，22 域）。
 
@@ -230,7 +233,7 @@ pnpm gen-all               # 重生全部派生索引（改内容后必跑）
 
 pnpm typecheck             # tsc --noEmit
 pnpm lint                  # eslint . --max-warnings 0
-pnpm test                  # Vitest（1419 测试 / 180 文件）
+pnpm test                  # Vitest
 pnpm check-content         # 内容质量校验（当前 0 error / 0 warning）
 pnpm prepush               # 上面这些 + 五项审计，一条命令跑完本地 quality
 pnpm predeploy             # ⭐ push `main` 前：gen-all 幂等 + prepush + 生产构建 + Lighthouse + 冒烟
@@ -242,6 +245,7 @@ pnpm audit-image-rights    # 图像权利与性能预算
 pnpm test:e2e:smoke        # Playwright 生产冒烟（CI 门禁同款）
 pnpm wiki-slug <关键词>     # 查某篇文章的正确 wiki slug（写内链前用）
 pnpm update-graph-snapshot # 图谱聚合快照（改图谱数据后必跑，测试读它）
+pnpm gen-seal-glyphs       # 学科印字形（改了 lib/design/seals.ts 的字才跑；不在 gen-all 里，首次会下载 15 MB 源字体到 .cache/）
 ```
 
 ---
@@ -257,51 +261,26 @@ pnpm update-graph-snapshot # 图谱聚合快照（改图谱数据后必跑，测
 
 **性能预算**（`scripts/physics/bundle-check.mjs` 强制，超限即挂 CI）：
 
-| 门禁                       | 预算              | 近期水位                                |
-| -------------------------- | ----------------- | --------------------------------------- |
-| 全平台共享初始 JS          | ≤ 180 KB gzip     | ~144.6 KB                               |
-| 门户 / 领域路由 CSS        | ≤ 48 KB gzip      | ~42.4 KB                                |
-| 通用文章路由 JS            | ≤ 220 KB gzip     | —                                       |
-| 任一单 JS chunk            | ≤ 285 KB gzip     | ~179.4 KB                               |
-| `public/search-index.json` | ≤ 640 KB brotli   | ~512.3 KB                               |
-| 首页 RSC 原始体积          | ≤ 110 KB          | —                                       |
-| 3D 路由初始 JS             | ≤ 180 KB gzip     | ~149 KB（`pnpm audit:physics-runtime`） |
-| 单图最大变体 / 单篇图像    | ≤ 500 KB / 800 KB | —                                       |
+| 门禁                            | 预算                                   | 近期水位（2026-09-24）                  |
+| ------------------------------- | -------------------------------------- | --------------------------------------- |
+| 全平台共享初始 JS               | ≤ 180 KB gzip                          | 144.7 KB                                |
+| 全站共享 CSS 表                 | ≤ 30 KB brotli                         | 25.4 KB                                 |
+| 单路由增量 / 首访合计 CSS       | ≤ 10 / 40 KB brotli                    | 9.3 / 34.8 KB（economics 系列）         |
+| 首页文档 / 首页 RSC             | ≤ 40 / 20 KB brotli                    | 26.1 / 16.7 KB                          |
+| 通用文章路由 JS                 | ≤ 220 KB gzip                          | 163.1 KB                                |
+| 任一单 JS chunk                 | ≤ 285 KB gzip                          | 167.9 KB                                |
+| `public/search-index.json`      | ≤ 800 KB brotli                        | 671 KB                                  |
+| 知识图谱数据（首绘 + 延后描述） | ≤ 350 + 400 KB brotli，合计 ≤ 5 MB raw | 286 + 300 KB                            |
+| 3D 路由初始 JS                  | ≤ 180 KB gzip                          | ~149 KB（`pnpm audit:physics-runtime`） |
+| 单图最大变体 / 单篇图像         | ≤ 500 KB / 800 KB                      | —                                       |
 
-提额必须在 `docs/任务清单.md` 的「决策记录」里写明依据与触发条件。详见 `docs/工程原则.md`、`docs/物理3D性能预算.md`。
+CSS / HTML / RSC / JSON 按 brotli 计（生产实际编码），JS 按 gzip 计；口径与每条的依据见 `docs/任务清单.md` 决策记录第 15 条。**页面专属样式放在组件旁的样式表里（`@reference` 全局入口），不要塞进 `app/globals.css`**——全局表会发给所有约 430 个路由。提额必须在「决策记录」里写明依据与触发条件。详见 `docs/工程原则.md`、`docs/物理3D性能预算.md`。
 
 ---
 
 ## 7. 代理工作日志协议（强制）
 
-**每次会话结束前，必须在 `docs/工作日志.md` 追加一条记录。**
-
-```markdown
-## [日期] 会话 #N — [任务标题]
-
-**执行人**：[代理名称]
-**任务**：[做了什么]
-
-### 完成内容
-
-- [具体操作，带文件路径]
-
-### 发现的问题
-
-- [新发现的 bug 或阻塞，带具体错误信息]
-
-### 验证结果
-
-- [跑了哪些命令、输出是什么]
-
-### 下一步
-
-- [下一个代理应该继续做的第一件事]
-
-### 任务清单变更
-
-- [T-XXX] 状态改为：已完成 / 进行中
-```
+**每次会话结束前，在 `docs/工作日志.md` 末尾追加一条，不超过约 20 行**：做了什么和为什么、踩到的坑、验证结果、下一步。模板在该文件开头。不写文件清单、逐函数流水账或字数播报；设计决定写进 `docs/设计方向-观测台与手记.md`，任务状态改 `docs/任务清单.md`，日志只指过去。日志超过约 400 行时把较早的记录挪进 `docs/archive/`。
 
 ---
 

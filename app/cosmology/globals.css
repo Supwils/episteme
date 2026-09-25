@@ -96,161 +96,164 @@
   border-radius: 2px;
 }
 
-.cosmology-root h1 {
-  font-family: var(--font-display);
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--color-fg-primary);
-  margin-bottom: 1rem;
-}
+/* Element defaults live in the base layer so component classes (landing,
+   article prose) and Tailwind utilities can override them without inline styles. */
+@layer base {
+  .cosmology-root h1 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--color-fg-primary);
+    margin-bottom: 1rem;
+  }
 
-.cosmology-root h2 {
-  font-family: var(--font-display);
-  font-size: 1.875rem;
-  font-weight: 600;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
-  color: var(--color-fg-primary);
-  margin-top: 2.5rem;
-  margin-bottom: 0.75rem;
-}
+  .cosmology-root h2 {
+    font-family: var(--font-display);
+    font-size: 1.875rem;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--color-fg-primary);
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
 
-.cosmology-root h3 {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 600;
-  line-height: 1.3;
-  color: var(--color-fg-primary);
-  margin-top: 2rem;
-  margin-bottom: 0.5rem;
-}
+  .cosmology-root h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--color-fg-primary);
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
 
-.cosmology-root h4 {
-  font-family: var(--font-sans);
-  font-size: 1.125rem;
-  font-weight: 600;
-  line-height: 1.4;
-  color: var(--color-fg-secondary);
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
-}
+  .cosmology-root h4 {
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--color-fg-secondary);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
 
-.cosmology-root p {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: var(--color-fg-secondary);
-  margin-bottom: 1.25rem;
-}
+  .cosmology-root p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--color-fg-secondary);
+    margin-bottom: 1.25rem;
+  }
 
-.cosmology-root a {
-  color: var(--color-accent-cool);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: color 0.2s ease;
-}
+  /* No blanket underline: it reached nav tabs and cards. Prose links carry their own. */
+  .cosmology-root a {
+    color: var(--color-accent-cool);
+    transition: color 0.2s ease;
+  }
 
-.cosmology-root a:hover {
-  color: var(--color-accent-warm);
-}
+  .cosmology-root a:hover {
+    color: var(--color-accent-warm);
+  }
 
-.cosmology-root blockquote {
-  border-left: 3px solid var(--color-accent-cool);
-  padding: 0.75rem 1.25rem;
-  margin: 1.5rem 0;
-  background: var(--color-bg-panel);
-  color: var(--color-fg-secondary);
-  font-style: italic;
-}
+  .cosmology-root blockquote {
+    border-left: 3px solid var(--color-accent-cool);
+    padding: 0.75rem 1.25rem;
+    margin: 1.5rem 0;
+    background: var(--color-bg-panel);
+    color: var(--color-fg-secondary);
+    font-style: italic;
+  }
 
-.cosmology-root code {
-  font-family: var(--font-mono);
-  font-size: 0.875em;
-  background: var(--color-bg-elevated);
-  color: var(--color-accent-warm);
-  padding: 0.15em 0.4em;
-  border-radius: 3px;
-}
+  .cosmology-root code {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    background: var(--color-bg-elevated);
+    color: var(--color-accent-warm);
+    padding: 0.15em 0.4em;
+    border-radius: 3px;
+  }
 
-.cosmology-root pre {
-  background: var(--color-bg-near);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 6px;
-  padding: 1rem 1.25rem;
-  margin: 1.5rem 0;
-  overflow-x: auto;
-}
+  .cosmology-root pre {
+    background: var(--color-bg-near);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
 
-.cosmology-root pre code {
-  background: none;
-  padding: 0;
-  color: var(--color-fg-secondary);
-  font-size: 0.85rem;
-  line-height: 1.7;
-}
+  .cosmology-root pre code {
+    background: none;
+    padding: 0;
+    color: var(--color-fg-secondary);
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
 
-.cosmology-root ul,
-.cosmology-root ol {
-  padding-left: 1.5rem;
-  margin-bottom: 1.25rem;
-  color: var(--color-fg-secondary);
-}
+  .cosmology-root ul,
+  .cosmology-root ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+    color: var(--color-fg-secondary);
+  }
 
-.cosmology-root li {
-  line-height: 1.75;
-  margin-bottom: 0.35rem;
-}
+  .cosmology-root li {
+    line-height: 1.75;
+    margin-bottom: 0.35rem;
+  }
 
-.cosmology-root ul li::marker {
-  color: var(--color-accent-cool);
-}
+  .cosmology-root ul li::marker {
+    color: var(--color-accent-cool);
+  }
 
-.cosmology-root ol li::marker {
-  color: var(--color-accent-cool);
-  font-weight: 600;
-}
+  .cosmology-root ol li::marker {
+    color: var(--color-accent-cool);
+    font-weight: 600;
+  }
 
-.cosmology-root hr {
-  border: none;
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--color-fg-disabled), transparent);
-  margin: 2.5rem 0;
-}
+  .cosmology-root hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--color-fg-disabled), transparent);
+    margin: 2.5rem 0;
+  }
 
-.cosmology-root table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.5rem 0;
-  font-size: 0.9rem;
-}
+  .cosmology-root table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+  }
 
-.cosmology-root th {
-  text-align: left;
-  font-weight: 600;
-  color: var(--color-fg-primary);
-  padding: 0.6rem 0.8rem;
-  border-bottom: 2px solid var(--color-fg-disabled);
-}
+  .cosmology-root th {
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-fg-primary);
+    padding: 0.6rem 0.8rem;
+    border-bottom: 2px solid var(--color-fg-disabled);
+  }
 
-.cosmology-root td {
-  padding: 0.5rem 0.8rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-  color: var(--color-fg-secondary);
-}
+  .cosmology-root td {
+    padding: 0.5rem 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    color: var(--color-fg-secondary);
+  }
 
-.cosmology-root img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 6px;
-  margin: 1.5rem 0;
-}
+  .cosmology-root img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin: 1.5rem 0;
+  }
 
-.cosmology-root strong {
-  color: var(--color-fg-primary);
-  font-weight: 600;
-}
+  .cosmology-root strong {
+    color: var(--color-fg-primary);
+    font-weight: 600;
+  }
 
-.cosmology-root em {
-  color: var(--color-fg-secondary);
+  .cosmology-root em {
+    color: var(--color-fg-secondary);
+  }
 }

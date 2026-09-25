@@ -1,5 +1,7 @@
 "use client";
 
+import { preloadSearch } from "./SearchLauncher";
+
 export function SearchTrigger() {
   function handleClick() {
     document.dispatchEvent(new CustomEvent("open-global-search"));
@@ -9,6 +11,8 @@ export function SearchTrigger() {
     <button
       type="button"
       onClick={handleClick}
+      onPointerEnter={preloadSearch}
+      onFocus={preloadSearch}
       className="gs-trigger"
       aria-label="打开搜索（⌘K / Ctrl+K）"
     >

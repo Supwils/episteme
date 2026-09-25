@@ -7,9 +7,6 @@ import { getDeepReading } from "@/subjects/life-science/lib/deep-reading";
 import type { Species } from "@/subjects/life-science/lib/types";
 import { DeepReading } from "@/subjects/life-science/components/DeepReading";
 import { TableOfContents } from "@/components/TableOfContents";
-import { ArticleSidebar } from "@/components/ArticleSidebar";
-import { ReadingModeControls } from "@/components/ReadingModeControls";
-import { ReadingProgressBar } from "@/components/ReadingProgressBar";
 import { FadeInSection } from "@/components/FadeInSection";
 import { SITE_URL } from "@/lib/constants";
 import { serializeJsonLd, createArticleJsonLd } from "@/lib/jsonld";
@@ -17,11 +14,7 @@ import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
 import { CellExplorer } from "@/subjects/life-science/components/visualizations/CellExplorer";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
-import {
-  ARTICLE_BODY_ROW_CLASS,
-  ARTICLE_HEADER_CLASS,
-  ARTICLE_SURFACE_CLASS,
-} from "@/components/ArticleLayout";
+import { ArticleLayout } from "@/components/ArticleLayout";
 import { getSpeciesProse, type SpeciesProse } from "@/lib/species-prose";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -94,140 +87,21 @@ export default async function SpeciesDetailPage({ params }: Props) {
   });
 
   return (
-    <div className="mx-auto w-full max-w-[1800px] px-6 py-12 sm:px-10 lg:px-16">
-      <ReadingProgressBar />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
-      />
-      <div className={ARTICLE_BODY_ROW_CLASS}>
-        <article className={ARTICLE_SURFACE_CLASS}>
-          <header className={ARTICLE_HEADER_CLASS}>
-            <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
-              <p className="text-fg-muted font-mono text-[10px] tracking-[0.42em] uppercase">
-                life-science / species
-              </p>
-              <ReadingModeControls />
-            </div>
-            <div className="mb-4 flex flex-wrap items-center gap-2.5">
-              <span
-                className="rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.2em] uppercase"
-                style={{
-                  borderColor: `${accent}30`,
-                  color: accent,
-                  backgroundColor: `${accent}10`,
-                }}
-              >
-                {species.era}
-              </span>
-              <span className="border-fg-disabled/20 text-fg-muted rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.16em]">
-                {species.taxonomy.phylum ?? species.taxonomy.kingdom}
-              </span>
-              <span
-                className="font-mono text-[9px] tracking-[0.22em] uppercase"
-                style={{
-                  color: species.extinct ? "var(--color-fg-disabled)" : "var(--color-success)",
-                }}
-              >
-                {species.extinct ? "已灭绝" : "现存"}
-              </span>
-            </div>
-            <h1 className="font-display text-fg-primary text-[2.4rem] leading-tight tracking-tight md:text-[3.2rem]">
-              {species.name}
-            </h1>
-            <p className="text-fg-muted mt-2 font-mono text-sm tracking-wider italic">
-              {species.nameEn}
-            </p>
-          </header>
-
-          <div className="mb-12 grid grid-cols-2 gap-4 md:grid-cols-4">
-            <FactCard label="时代" value={species.era} accent={accent} />
-            <FactCard label="时期" value={species.period} accent={accent} />
-            <FactCard label="界" value={species.taxonomy.kingdom} accent={accent} />
-            {species.taxonomy.phylum && (
-              <FactCard label="门" value={species.taxonomy.phylum} accent={accent} />
-            )}
-            {species.taxonomy.class && (
-              <FactCard label="纲" value={species.taxonomy.class} accent={accent} />
-            )}
-            {species.taxonomy.order && (
-              <FactCard label="目" value={species.taxonomy.order} accent={accent} />
-            )}
-          </div>
-
-          <FadeInSection className="mb-12">
-            <h2 className="font-display text-fg-primary mb-4 text-xl font-semibold" id="key-traits">
-              关键特征
-            </h2>
-            <div className="flex flex-wrap gap-2">
-              {species.keyTraits.map((trait) => (
-                <span
-                  key={trait}
-                  className="rounded-full border px-3 py-1.5 font-mono text-[11px] tracking-[0.08em]"
-                  style={{
-                    borderColor: `${accent}25`,
-                    color: `${accent}cc`,
-                    backgroundColor: `${accent}08`,
-                  }}
-                >
-                  {trait}
-                </span>
-              ))}
-            </div>
-          </FadeInSection>
-
-          <FadeInSection className="mb-12">
-            <h2 className="font-display text-fg-primary mb-4 text-xl font-semibold" id="taxonomy">
-              分类信息
-            </h2>
-            <div className="border-border-faint bg-bg-near border p-6">
-              <dl className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <TaxonomyEntry label="界" value={species.taxonomy.kingdom} />
-                {species.taxonomy.phylum && (
-                  <TaxonomyEntry label="门" value={species.taxonomy.phylum} />
-                )}
-                {species.taxonomy.class && (
-                  <TaxonomyEntry label="纲" value={species.taxonomy.class} />
-                )}
-                {species.taxonomy.order && (
-                  <TaxonomyEntry label="目" value={species.taxonomy.order} />
-                )}
-              </dl>
-            </div>
-          </FadeInSection>
-
-          {["动物界", "植物界", "真菌界"].includes(species.taxonomy.kingdom) && (
-            <FadeInSection className="mb-12">
-              <h2
-                className="font-display text-fg-primary mb-4 text-xl font-semibold"
-                id="cell-structure"
-              >
-                细胞结构
-              </h2>
-              <div className="border-border-faint bg-bg-near border p-6">
-                <CellExplorer />
-              </div>
-            </FadeInSection>
-          )}
-
-          {deepReading && <DeepReading {...deepReading} />}
-
-          {prose && (
-            <FadeInSection className="mb-12">
-              <MarkdownRenderer
-                domain="life-science"
-                content={prose.content}
-                accentColor={accent}
-              />
-            </FadeInSection>
-          )}
-
-          <SafeRender>
-            <RelatedContent slug={slug} domain="life-science" entityId={slug} />
-          </SafeRender>
-        </article>
-
-        <ArticleSidebar contentClassName="space-y-6">
+    <ArticleLayout
+      backHref="/life-science/species"
+      url={`/life-science/species/${slug}`}
+      backLabel="← 返回物种图鉴"
+      accent={accent}
+      eyebrow={species.era}
+      eyebrowMeta={[
+        species.taxonomy.phylum ?? species.taxonomy.kingdom,
+        species.extinct ? "已灭绝" : "现存",
+      ]}
+      title={species.name}
+      titleEn={species.nameEn}
+      content={prose?.content ?? ""}
+      sidebar={
+        <>
           <TableOfContents accentColor="#4a9e6f" />
           <div className="border-border-faint bg-bg-near border p-5">
             <h3 className="font-display text-fg-primary mb-4 text-sm font-semibold tracking-wide">
@@ -257,9 +131,93 @@ export default async function SpeciesDetailPage({ params }: Props) {
               ))}
             </ul>
           </div>
-        </ArticleSidebar>
+        </>
+      }
+      sidebarClassName="space-y-6"
+    >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
+      />
+
+      <div className="mb-12 grid grid-cols-2 gap-4 md:grid-cols-4">
+        <FactCard label="时代" value={species.era} accent={accent} />
+        <FactCard label="时期" value={species.period} accent={accent} />
+        <FactCard label="界" value={species.taxonomy.kingdom} accent={accent} />
+        {species.taxonomy.phylum && (
+          <FactCard label="门" value={species.taxonomy.phylum} accent={accent} />
+        )}
+        {species.taxonomy.class && (
+          <FactCard label="纲" value={species.taxonomy.class} accent={accent} />
+        )}
+        {species.taxonomy.order && (
+          <FactCard label="目" value={species.taxonomy.order} accent={accent} />
+        )}
       </div>
-    </div>
+
+      <FadeInSection className="mb-12">
+        <h2 className="font-display text-fg-primary mb-4 text-xl font-semibold" id="key-traits">
+          关键特征
+        </h2>
+        <div className="flex flex-wrap gap-2">
+          {species.keyTraits.map((trait) => (
+            <span
+              key={trait}
+              className="rounded-full border px-3 py-1.5 font-mono text-[11px] tracking-[0.08em]"
+              style={{
+                borderColor: `${accent}25`,
+                color: `${accent}cc`,
+                backgroundColor: `${accent}08`,
+              }}
+            >
+              {trait}
+            </span>
+          ))}
+        </div>
+      </FadeInSection>
+
+      <FadeInSection className="mb-12">
+        <h2 className="font-display text-fg-primary mb-4 text-xl font-semibold" id="taxonomy">
+          分类信息
+        </h2>
+        <div className="border-border-faint bg-bg-near border p-6">
+          <dl className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <TaxonomyEntry label="界" value={species.taxonomy.kingdom} />
+            {species.taxonomy.phylum && (
+              <TaxonomyEntry label="门" value={species.taxonomy.phylum} />
+            )}
+            {species.taxonomy.class && <TaxonomyEntry label="纲" value={species.taxonomy.class} />}
+            {species.taxonomy.order && <TaxonomyEntry label="目" value={species.taxonomy.order} />}
+          </dl>
+        </div>
+      </FadeInSection>
+
+      {["动物界", "植物界", "真菌界"].includes(species.taxonomy.kingdom) && (
+        <FadeInSection className="mb-12">
+          <h2
+            className="font-display text-fg-primary mb-4 text-xl font-semibold"
+            id="cell-structure"
+          >
+            细胞结构
+          </h2>
+          <div className="border-border-faint bg-bg-near border p-6">
+            <CellExplorer />
+          </div>
+        </FadeInSection>
+      )}
+
+      {deepReading && <DeepReading {...deepReading} />}
+
+      {prose && (
+        <FadeInSection className="mb-12">
+          <MarkdownRenderer domain="life-science" content={prose.content} accentColor={accent} />
+        </FadeInSection>
+      )}
+
+      <SafeRender>
+        <RelatedContent slug={slug} domain="life-science" entityId={slug} />
+      </SafeRender>
+    </ArticleLayout>
   );
 }
 
@@ -296,59 +254,33 @@ function SpeciesProsePage({ prose, slug }: { prose: SpeciesProse; slug: string }
     ),
   });
   return (
-    <div className="mx-auto w-full max-w-[1800px] px-6 py-12 sm:px-10 lg:px-16">
-      <ReadingProgressBar />
+    <ArticleLayout
+      backHref="/life-science/species"
+      url={`/life-science/species/${slug}`}
+      backLabel="← 返回物种图鉴"
+      accent={accent}
+      eyebrow={prose.category}
+      eyebrowMeta={prose.era ? [prose.era] : undefined}
+      title={prose.title}
+      titleEn={prose.latinName || prose.titleEn || undefined}
+      content={prose.content}
+      sidebar={
+        <>
+          <TableOfContents accentColor={accent} />
+        </>
+      }
+      sidebarClassName="space-y-6"
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
-      <div className={ARTICLE_BODY_ROW_CLASS}>
-        <article className={ARTICLE_SURFACE_CLASS}>
-          <header className={ARTICLE_HEADER_CLASS}>
-            <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
-              <p className="text-fg-muted font-mono text-[10px] tracking-[0.42em] uppercase">
-                life-science / species
-              </p>
-              <ReadingModeControls />
-            </div>
-            <div className="mb-4 flex flex-wrap items-center gap-2.5">
-              <span
-                className="rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.2em] uppercase"
-                style={{
-                  borderColor: `${accent}30`,
-                  color: accent,
-                  backgroundColor: `${accent}10`,
-                }}
-              >
-                {prose.category}
-              </span>
-              {prose.era && (
-                <span className="border-fg-disabled/20 text-fg-muted rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.16em]">
-                  {prose.era}
-                </span>
-              )}
-            </div>
-            <h1 className="font-display text-fg-primary text-[2.4rem] leading-tight tracking-tight md:text-[3.2rem]">
-              {prose.title}
-            </h1>
-            {(prose.latinName || prose.titleEn) && (
-              <p className="text-fg-muted mt-2 font-mono text-sm tracking-wider italic">
-                {prose.latinName || prose.titleEn}
-              </p>
-            )}
-          </header>
 
-          <MarkdownRenderer domain="life-science" content={prose.content} accentColor={accent} />
+      <MarkdownRenderer domain="life-science" content={prose.content} accentColor={accent} />
 
-          <SafeRender>
-            <RelatedContent slug={slug} domain="life-science" entityId={slug} />
-          </SafeRender>
-        </article>
-
-        <ArticleSidebar contentClassName="space-y-6">
-          <TableOfContents accentColor={accent} />
-        </ArticleSidebar>
-      </div>
-    </div>
+      <SafeRender>
+        <RelatedContent slug={slug} domain="life-science" entityId={slug} />
+      </SafeRender>
+    </ArticleLayout>
   );
 }

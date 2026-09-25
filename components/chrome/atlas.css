@@ -1,0 +1,114 @@
+@reference "../../app/globals.css";
+
+/* 图册（T-DESIGN-03b）。颜料只画每栏顶上那道刻线与学科印，格子本身是安静的纸或夜墨。 */
+.atlas-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0 1.25rem;
+}
+
+.atlas-column__title {
+  margin: 0 0 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 2px solid var(--pigment);
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-fg-primary);
+}
+
+/* The column the reader pointed at gets a heavier rule — the one cue, no fill. */
+.atlas-column[data-active] .atlas-column__title {
+  border-top-width: 4px;
+  padding-top: calc(0.75rem - 2px);
+}
+
+.atlas-column__list,
+.atlas-sheet,
+.atlas-sheet__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.atlas-cell {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  margin: 0 -0.5rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: background-color var(--duration-fast) var(--ease-paper);
+}
+
+.atlas-cell:hover,
+.atlas-cell:focus-visible {
+  background-color: var(--hover-bg);
+}
+
+.atlas-cell[aria-current="page"] {
+  background-color: color-mix(in oklab, var(--pigment) 12%, transparent);
+}
+
+.atlas-cell__text {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.atlas-cell__name {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  color: var(--color-fg-primary);
+}
+
+.atlas-cell__count {
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-fg-muted);
+  white-space: nowrap;
+}
+
+.atlas-cell__line {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--color-fg-secondary);
+}
+
+/* Mobile sheet: one cluster open at a time, the rest folded to a labelled rule. */
+.atlas-sheet > li + li {
+  border-top: 1px solid var(--color-border-faint);
+}
+
+.atlas-sheet__toggle {
+  display: flex;
+  width: 100%;
+  min-height: 48px;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 0.25rem;
+  font-size: 0.95rem;
+  color: var(--color-fg-primary);
+  text-align: left;
+}
+
+.atlas-sheet__rule {
+  width: 3px;
+  height: 1.1rem;
+  border-radius: 2px;
+  background: var(--pigment);
+}
+
+.atlas-sheet__count {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--color-fg-muted);
+}
+
+.atlas-sheet__list {
+  padding: 0 0 0.75rem 0.75rem;
+}

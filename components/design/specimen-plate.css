@@ -1,0 +1,53 @@
+@reference "../../app/globals.css";
+
+.specimen-plate {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.specimen-plate__major {
+  color: var(--color-fg-secondary);
+}
+
+.specimen-plate__minor {
+  color: var(--color-fg-muted);
+  opacity: 0.55;
+}
+
+.specimen-plate__accent {
+  color: var(--plate-accent);
+}
+
+/* Drawn once like an engraver's line: every stroke is normalized to
+   pathLength 1, so the reveal is the same speed whatever the path. Dashed
+   strokes keep their dash pattern and only fade in. */
+@media (prefers-reduced-motion: no-preference) {
+  .specimen-plate[data-animate] path:not([stroke-dasharray]):not([stroke="none"]) {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    /* ≤ 1200 ms in total: the one orchestrated entrance a page may have. */
+    animation: plate-draw 900ms var(--ease-instrument) forwards;
+    animation-delay: calc(min(var(--i), 8) * 30ms);
+  }
+
+  .specimen-plate[data-animate] path[stroke-dasharray],
+  .specimen-plate[data-animate] path[stroke="none"] {
+    animation: plate-fade var(--duration-slow) var(--ease-paper) 700ms backwards;
+  }
+}
+
+@keyframes plate-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes plate-fade {
+  from {
+    opacity: 0;
+  }
+}

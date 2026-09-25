@@ -19,6 +19,7 @@ import { useGraphState, useIsMobile } from "../hooks/useGraphState";
 import { useGraphRenderer } from "../hooks/useGraphRenderer";
 import { useGraphAnimations } from "../hooks/useGraphAnimations";
 import { useGraphInteractions } from "../hooks/useGraphInteractions";
+import { useLocateByUrl } from "../hooks/useLocateByUrl";
 import { parseKnowledgeLevel, type KnowledgeLevel } from "@/lib/knowledge-levels";
 import { buildCognitiveSubgraph } from "../data/cognitive-metadata";
 import { buildCognitiveLayoutPositions, type GraphLayoutMode } from "../lib/cognitive-layout";
@@ -71,6 +72,10 @@ export type KnowledgeGraphProps = {
   onNodeClick?: (node: GraphNode) => void;
   onNodeHover?: (node: GraphNode | null) => void;
   initialFocus?: string;
+  /** Called once, after the first layout has drawn. */
+  onReady?: () => void;
+  /** Build-time layout of the full graph (wire v3). */
+  initialPositions?: ReadonlyMap<string, { x: number; y: number }>;
 };
 
 export function KnowledgeGraph({
@@ -79,6 +84,8 @@ export function KnowledgeGraph({
   onNodeClick,
   onNodeHover,
   initialFocus,
+  onReady,
+  initialPositions,
 }: KnowledgeGraphProps) {
   const reducedMotion = useReducedMotion();
   const isMobile = useIsMobile();
@@ -93,6 +100,7 @@ export function KnowledgeGraph({
     };
   }, [searchParams]);
   const requestedCuratedPathId = searchParams.get("path");
+  useLocateByUrl(nodes);
   const requestedFocusNodeId = searchParams.get("focus");
   const requestedDomainId = searchParams.get("domain");
   const requestedConfluenceId = searchParams.get("confluence");
@@ -475,6 +483,7 @@ export function KnowledgeGraph({
       reducedMotion: reducedMotion ?? false,
       searchMatchedIds: state.searchMatchedIds,
       fitScaleMultiplier: layoutMode === "spatial" && isMobile ? 1.7 : 1,
+      initialPositions,
     }
   );
 
@@ -822,6 +831,13 @@ export function KnowledgeGraph({
       },
     };
   }, [spatialProjection, state.filteredNodes]);
+
+  const readyReportedRef = useRef(false);
+  useEffect(() => {
+    if (state.isLoading || readyReportedRef.current) return;
+    readyReportedRef.current = true;
+    onReady?.();
+  }, [state.isLoading, onReady]);
 
   return (
     <div className="bg-bg-deep text-fg-primary flex min-h-0 w-full flex-1 flex-col">

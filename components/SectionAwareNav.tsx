@@ -7,11 +7,14 @@ import { DesktopNav } from "./DesktopNav";
 import { MobileNav } from "./MobileNav";
 import { SearchTrigger } from "./SearchTrigger";
 import { ThemeToggle } from "./ThemeToggle";
-import { NAV_GROUPS } from "./nav-data";
 import { SECTION_SHELL_PREFIXES } from "../lib/urls";
 import { subscribeToScrollFrame } from "@/lib/scroll-frame";
 
-export function SectionAwareNav() {
+/**
+ * The portal header. `brandMark` is the 格致 seal, rendered on the server by the
+ * root layout so its glyph outlines never enter the shared client bundle.
+ */
+export function SectionAwareNav({ brandMark }: { brandMark: React.ReactNode }) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const inSection = SECTION_SHELL_PREFIXES.some((prefix) => pathname.startsWith(prefix));
@@ -47,15 +50,23 @@ export function SectionAwareNav() {
       >
         <Link
           href="/"
-          className="text-fg-primary hover:text-accent-gold font-display shrink-0 text-base font-semibold tracking-tight whitespace-nowrap transition-colors sm:text-lg"
+          aria-label="Episteme · 格致 首页"
+          aria-current={pathname === "/" ? "page" : undefined}
+          className="text-fg-primary hover:text-accent-gold group flex shrink-0 items-center gap-2.5 transition-colors"
         >
-          Episteme · 格致
+          {brandMark}
+          <span className="font-display text-base font-semibold tracking-tight whitespace-nowrap sm:text-lg">
+            格致
+            <span className="text-fg-muted group-hover:text-accent-gold ml-1.5 hidden text-xs font-normal tracking-normal transition-colors xl:inline">
+              Episteme
+            </span>
+          </span>
         </Link>
         <DesktopNav />
         <div className="flex items-center gap-2 sm:gap-3">
           <SearchTrigger />
           <ThemeToggle />
-          <MobileNav groups={NAV_GROUPS} />
+          <MobileNav />
         </div>
       </nav>
     </header>

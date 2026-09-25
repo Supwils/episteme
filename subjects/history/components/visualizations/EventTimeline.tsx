@@ -281,7 +281,9 @@ export default function EventTimeline({ className }: EventTimelineProps) {
               style={{
                 ...chipStyle,
                 borderColor: meta.color,
-                ...(activeCategory === key ? { background: meta.color, color: "#fff" } : {}),
+                ...(activeCategory === key
+                  ? { background: `${meta.color}40`, color: "var(--color-fg-primary)" }
+                  : {}),
               }}
               onClick={() => setActiveCategory((prev) => (prev === key ? null : key))}
             >
@@ -369,7 +371,7 @@ export default function EventTimeline({ className }: EventTimelineProps) {
                   <span
                     style={{
                       ...categoryLabelStyle,
-                      color: catColor,
+                      color: `color-mix(in oklab, ${catColor} 42%, var(--color-fg-primary))`,
                       borderColor: `${catColor}40`,
                     }}
                   >
@@ -456,10 +458,12 @@ const chipStyle: React.CSSProperties = {
   whiteSpace: "nowrap",
 };
 
+// Active chips tint the fill and keep ink-coloured text: gold or white text on
+// these fills failed AA in one theme or the other.
 const chipActiveStyle: React.CSSProperties = {
   background: "rgba(200,169,81,0.25)",
   borderColor: "#C8A951",
-  color: "#C8A951",
+  color: "var(--color-fg-primary)",
 };
 
 const timelineContainerStyle: React.CSSProperties = {
@@ -546,7 +550,7 @@ const eventTitleStyle: React.CSSProperties = {
 
 const eventDescStyle: React.CSSProperties = {
   fontSize: 13,
-  color: "var(--color-fg-muted)",
+  color: "var(--color-fg-secondary)",
   margin: 0,
   lineHeight: 1.6,
 };
@@ -561,9 +565,10 @@ const expandedBodyStyle: React.CSSProperties = {
   whiteSpace: "pre-line",
 };
 
+// History's parchment muted ink falls under 4.5:1 on its raised card fill.
 const expandIndicatorStyle: React.CSSProperties = {
   fontSize: 11,
-  color: "rgba(200,169,81,0.6)",
+  color: "var(--color-fg-secondary)",
   marginTop: 8,
 };
 

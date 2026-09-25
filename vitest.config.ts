@@ -9,7 +9,14 @@ export default defineConfig({
   },
   test: {
     include: ["**/*.test.ts", "**/*.test.tsx", "**/*.test.mjs"],
-    exclude: ["e2e/**", "node_modules/**", ".next/**", ".pnpm-store/**", "reference/**"],
+    exclude: [
+      "e2e/**",
+      "node_modules/**",
+      ".next/**",
+      ".next-*/**",
+      ".pnpm-store/**",
+      "reference/**",
+    ],
     globals: true,
   },
   esbuild: {

@@ -62,7 +62,7 @@ export function FrontierArticleView({ domain, slug }: { domain: FrontierDomain; 
   const all = frontier.getAllArticles();
   const currentIndex = all.findIndex((a) => a.slug === article.slug);
   const prev = currentIndex > 0 ? all[currentIndex - 1] : null;
-  const next = currentIndex < all.length - 1 ? all[currentIndex + 1] : null;
+  const next = currentIndex >= 0 && currentIndex < all.length - 1 ? all[currentIndex + 1] : null;
   const accent = config.accent;
 
   const jsonLd = createArticleJsonLd({
@@ -102,7 +102,7 @@ export function FrontierArticleView({ domain, slug }: { domain: FrontierDomain; 
         title={article.title}
         titleEn={article.titleEn || undefined}
         content={article.content}
-        lede={article.excerpt || undefined}
+        lede={article.summary}
         tags={article.tags}
         prev={prev ? { href: `/${domain}/frontier/${prev.slug}`, title: prev.title } : null}
         next={next ? { href: `/${domain}/frontier/${next.slug}`, title: next.title } : null}

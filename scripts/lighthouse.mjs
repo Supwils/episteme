@@ -3,6 +3,8 @@
 // still failing material regressions in score, LCP, TBT, or CLS.
 import lighthouse from "lighthouse";
 import * as chromeLauncher from "chrome-launcher";
+import { chromium } from "@playwright/test";
+import { startCompressingProxy } from "./performance/compressing-proxy.mjs";
 import {
   LIGHTHOUSE_CONFIRMATION_TRACES,
   LIGHTHOUSE_ROUTE_BUDGETS,
@@ -12,7 +14,11 @@ import {
   shouldConfirmLighthouseBudget,
 } from "./performance/lighthouse-budget.mjs";
 
-const BASE = process.env.LH_BASE || "http://localhost:3000";
+const UPSTREAM = process.env.LH_BASE || "http://localhost:3000";
+// Measure what the CDN serves (see compressing-proxy.mjs); LH_NO_CDN=1 measures
+// `next start` as-is.
+const proxy = process.env.LH_NO_CDN === "1" ? null : await startCompressingProxy(UPSTREAM);
+const BASE = proxy?.base ?? UPSTREAM;
 const globalMinPerformance = process.env.LH_PERF_MIN ? Number(process.env.LH_PERF_MIN) : undefined;
 
 if (globalMinPerformance !== undefined && !Number.isFinite(globalMinPerformance)) {
@@ -25,11 +31,14 @@ const formatInp = (value) =>
   value == null || !Number.isFinite(value) ? "    n/a" : formatMs(value);
 const violations = [];
 
-console.log(`Lighthouse @ ${BASE}`);
-console.log(`${"route".padEnd(46)} perf  a11y  best  seo      LCP      TBT    CLS      INP  budget`);
+console.log(`Lighthouse @ ${UPSTREAM}${proxy ? " (via CDN-like brotli proxy)" : ""}`);
+if (proxy) await warmUpRoutes();
+console.log(
+  `${"route".padEnd(46)} perf  a11y  best  seo      LCP      TBT    CLS      INP  budget`
+);
 
 for (const budget of LIGHTHOUSE_ROUTE_BUDGETS) {
-  let metrics = await measureRoute(budget.route);
+  let metrics = await measureRoute(budget);
   let routeViolations = evaluateLighthouseBudget(metrics, budget, globalMinPerformance);
   for (
     let confirmation = 1;
@@ -40,7 +49,7 @@ for (const budget of LIGHTHOUSE_ROUTE_BUDGETS) {
     console.warn(
       `${budget.route}: ${routeViolations.join(", ") || "invalid trace"}; running confirmation trace ${confirmation}`
     );
-    metrics = await measureRoute(budget.route);
+    metrics = await measureRoute(budget);
     routeViolations = evaluateLighthouseBudget(metrics, budget, globalMinPerformance);
   }
   violations.push(...routeViolations.map((message) => `${budget.route}: ${message}`));
@@ -50,6 +59,8 @@ for (const budget of LIGHTHOUSE_ROUTE_BUDGETS) {
   );
 }
 
+proxy?.close();
+
 if (violations.length > 0) {
   console.error(`\nFAIL: ${violations.length} Lighthouse budget violation(s):`);
   for (const violation of violations) console.error(`  - ${violation}`);
@@ -58,7 +69,7 @@ if (violations.length > 0) {
 
 console.log("\nPASS: all representative routes are within their performance budgets.");
 
-async function measureRoute(route) {
+async function measureRoute({ route, throttlingMethod }) {
   for (let attempt = 1; attempt <= 2; attempt++) {
     const chrome = await chromeLauncher.launch({
       chromeFlags: ["--headless=new", "--no-sandbox", "--disable-dev-shm-usage"],
@@ -69,6 +80,7 @@ async function measureRoute(route) {
         port: chrome.port,
         output: "json",
         logLevel: "error",
+        ...(throttlingMethod ? { throttlingMethod } : {}),
       });
       if (!result) throw new Error(`Lighthouse returned no result for ${route}`);
       metrics = readLighthouseMetrics(result.lhr);
@@ -79,4 +91,17 @@ async function measureRoute(route) {
     console.warn(`${route}: invalid performance trace, retrying once`);
   }
   throw new Error(`Lighthouse exhausted attempts for ${route}`);
+}
+
+// One untimed visit per route so the proxy has CDN-quality bodies cached,
+// including data fetched after hydration (the graph payload).
+async function warmUpRoutes() {
+  const browser = await chromium.launch();
+  const page = await browser.newPage();
+  for (const { route } of LIGHTHOUSE_ROUTE_BUDGETS) {
+    await page.goto(BASE + route, { waitUntil: "networkidle", timeout: 120_000 });
+  }
+  await browser.close();
+  // Background max-quality compression of multi-MB bodies takes a few seconds.
+  await new Promise((resolve) => setTimeout(resolve, 5000));
 }

@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { buildValidRoutes, normalizeRoute } from "@/scripts/valid-routes";
 import { getDailySelected, seededSelect } from "../daily-selector";
+import { getAllCuriosities, isCrossDomainCuriosity } from "../curiosities";
 import {
   ARTS_FACTS,
   CHEMISTRY_FACTS,
@@ -66,6 +67,14 @@ describe("getDailySelected (characterization)", () => {
     const out = getDailySelected(new Date("2026-06-16T00:00:00"), 0);
     expect(out.education.url).toMatch(/^\/education\/[^/]+\/[^/]+$/);
     expect(out.anthropology.url).toMatch(/^\/anthropology\/[^/]+\/[^/]+$/);
+  });
+
+  it("uses a cross-domain coincidence as the daily curiosity", () => {
+    const out = getDailySelected(new Date("2026-06-16T00:00:00"), 0);
+    const titles = getAllCuriosities()
+      .filter(isCrossDomainCuriosity)
+      .map((item) => item.title);
+    expect(titles).toContain(out.curiosity.title);
   });
 });
 

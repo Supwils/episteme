@@ -1,0 +1,1085 @@
+@reference "../../app/globals.css";
+
+/* 首页（E4）。只随首页加载。颜色规则与学科首页一致：簇颜料只画线、印与色条，
+   文字一律用墨色令牌。动效只有格致仪的一次入场与照准规的转动。 */
+
+.home {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 4.5rem 1rem 5rem;
+}
+
+@media (min-width: 768px) {
+  .home {
+    padding-top: 5.5rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .home {
+    padding-inline: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home {
+    padding-inline: 4rem;
+  }
+}
+
+/* ── ① 格致仪 ───────────────────────────────────────────────────────── */
+.astrolabe__body {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .astrolabe__body {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 3rem;
+    min-height: min(44rem, calc(100svh - 6rem));
+  }
+}
+
+.astrolabe__kicker {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: var(--color-fg-muted);
+}
+
+.astrolabe__title {
+  margin-top: 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 1.6rem + 3.6vw, 4.25rem);
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-fg-primary);
+}
+
+.astrolabe__lead {
+  margin-top: 1rem;
+  max-width: 32rem;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-fg-secondary);
+}
+
+.astrolabe-readout {
+  margin-top: 1.75rem;
+  padding: 1.25rem 1.25rem 1rem;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-panel);
+  /* Tall enough for any domain's five steps, so a new selection never shifts the page. */
+  min-height: 19rem;
+}
+
+.astrolabe-readout__head {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.astrolabe-readout__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-fg-primary);
+}
+
+.astrolabe-readout__caption {
+  margin-left: auto;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--color-fg-muted);
+}
+
+.astrolabe-readout__question {
+  margin-top: 0.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--color-fg-secondary);
+  text-wrap: pretty;
+}
+
+.astrolabe-readout__steps {
+  margin-top: 0.875rem;
+  display: grid;
+  gap: 0.375rem;
+}
+
+.astrolabe-readout__steps li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+}
+
+.astrolabe-readout__steps a {
+  color: var(--color-fg-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--color-border-strong);
+  text-underline-offset: 0.2em;
+}
+
+.astrolabe-readout__steps a:hover,
+.astrolabe-readout__steps a:focus-visible {
+  text-decoration-color: currentColor;
+}
+
+.astrolabe-readout__level {
+  flex-shrink: 0;
+  width: 1.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-fg-muted);
+}
+
+.astrolabe-readout__enter {
+  display: inline-block;
+  margin-top: 0.875rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--brass-ink);
+}
+
+.astrolabe__actions {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.astrolabe__cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0 1.125rem;
+  border: 1px solid var(--color-border-strong);
+  font-size: 0.875rem;
+  color: var(--color-fg-primary);
+  transition:
+    border-color var(--duration-fast, 150ms),
+    background-color var(--duration-fast, 150ms);
+}
+
+.astrolabe__cta:hover,
+.astrolabe__cta:focus-visible {
+  border-color: var(--color-fg-secondary);
+}
+
+.astrolabe__cta--primary {
+  border-color: var(--color-fg-primary);
+  background: var(--color-fg-primary);
+  color: var(--color-bg-base);
+}
+
+.astrolabe__cta--primary:hover,
+.astrolabe__cta--primary:focus-visible {
+  background: var(--color-fg-secondary);
+  border-color: var(--color-fg-secondary);
+}
+
+.astrolabe__dial {
+  position: relative;
+  /* Horizontal swipes turn the disc on phones; vertical ones still scroll. */
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.astrolabe__svg {
+  display: block;
+  width: 100%;
+  max-width: 35rem;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.astrolabe__rings circle {
+  fill: none;
+  stroke: var(--color-border-strong);
+  stroke-width: 0.35;
+}
+
+.astrolabe__level {
+  font-family: var(--font-mono);
+  font-size: 3.2px;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  fill: var(--color-fg-muted);
+}
+
+.astrolabe__ticks {
+  fill: none;
+  stroke: var(--color-fg-muted);
+  stroke-width: 0.4;
+}
+
+.astrolabe__wedge path {
+  fill: transparent;
+  stroke: var(--color-border-subtle);
+  stroke-width: 0.3;
+  transition: fill var(--duration-fast, 150ms);
+}
+
+.astrolabe__wedge {
+  cursor: pointer;
+  outline: none;
+}
+
+.astrolabe__wedge:hover path {
+  fill: color-mix(in oklab, var(--wedge-pigment) 10%, transparent);
+}
+
+.astrolabe__wedge.is-selected path {
+  fill: color-mix(in oklab, var(--wedge-pigment) 20%, transparent);
+  stroke: var(--wedge-pigment);
+}
+
+.astrolabe__wedge:focus-visible path {
+  stroke: var(--color-fg-primary);
+  stroke-width: 0.9;
+}
+
+.astrolabe__spine circle {
+  fill: var(--color-fg-muted);
+  opacity: 0.55;
+}
+
+.astrolabe__spine.is-selected circle {
+  fill: var(--wedge-pigment);
+  opacity: 1;
+  stroke: var(--color-bg-base);
+  stroke-width: 0.6;
+}
+
+.astrolabe__confluence circle {
+  fill: var(--brass);
+  stroke: var(--color-bg-base);
+  stroke-width: 0.6;
+}
+
+.astrolabe__confluence:hover circle {
+  fill: var(--color-fg-primary);
+}
+
+.astrolabe__rule {
+  transform: rotate(var(--aim, 0deg));
+  pointer-events: none;
+}
+
+.astrolabe__rule line {
+  stroke: var(--color-fg-primary);
+  stroke-width: 0.9;
+}
+
+.astrolabe__rule path,
+.astrolabe__pivot {
+  fill: var(--color-fg-primary);
+}
+
+.astrolabe__handle {
+  fill: var(--color-bg-base);
+  stroke: var(--color-fg-primary);
+  stroke-width: 0.9;
+}
+
+/* Dragging is read off the whole face, not the handle: a handle that took
+   pointer events would sweep under a resting cursor as the rule turns and
+   re-fire the hover on the wedge beneath it. */
+.astrolabe__dial svg {
+  cursor: grab;
+}
+
+.astrolabe__hint {
+  margin-top: 0.75rem;
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--color-fg-muted);
+}
+
+.astrolabe__hint-mobile {
+  display: none;
+}
+
+/* Phones: the rule stays at twelve o'clock and the disc turns under it;
+   only the top half of the dial shows, under the readout. */
+@media (max-width: 767px) {
+  .astrolabe__dial {
+    height: 13.5rem;
+    overflow: hidden;
+    margin-inline: -1rem;
+  }
+
+  .astrolabe__svg {
+    width: 140%;
+    max-width: none;
+    margin-left: -20%;
+  }
+
+  .astrolabe__rule {
+    transform: none;
+  }
+
+  .astrolabe__disc {
+    transform: rotate(calc(var(--aim, 0deg) * -1));
+  }
+
+  .astrolabe__hint {
+    position: absolute;
+    inset: auto 0 0.25rem;
+    margin: 0;
+  }
+
+  .astrolabe__hint-desktop {
+    display: none;
+  }
+
+  .astrolabe__hint-mobile {
+    display: inline;
+  }
+
+  .astrolabe-readout {
+    min-height: 0;
+  }
+}
+
+/* One orchestrated entrance (≤ 1200 ms): rings are engraved, then the rule
+   swings from twelve o'clock to today's domain. Nothing moves after that
+   unless the reader turns it. */
+@media (prefers-reduced-motion: no-preference) {
+  .astrolabe__rule,
+  .astrolabe__disc {
+    transition: transform 520ms var(--ease-instrument);
+  }
+
+  .book-shelf__spine,
+  .domain-card__arrow {
+    transition:
+      transform var(--duration-fast, 150ms) var(--ease-instrument),
+      border-color var(--duration-fast, 150ms);
+  }
+
+  .astrolabe__rings circle {
+    stroke-dasharray: 1;
+    animation: astrolabe-engrave 700ms var(--ease-instrument) backwards;
+    animation-delay: calc(var(--i, 0) * 60ms);
+  }
+
+  @media (min-width: 768px) {
+    .astrolabe__rule {
+      animation: astrolabe-swing 640ms var(--ease-instrument) 480ms backwards;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .astrolabe__disc {
+      animation: astrolabe-counter-swing 640ms var(--ease-instrument) 480ms backwards;
+    }
+  }
+}
+
+@keyframes astrolabe-engrave {
+  from {
+    stroke-dashoffset: 1;
+  }
+}
+
+@keyframes astrolabe-swing {
+  from {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes astrolabe-counter-swing {
+  from {
+    transform: rotate(0deg);
+  }
+}
+
+/* ── Sections ────────────────────────────────────────────────────────── */
+.home-section {
+  margin-top: 5.5rem;
+}
+
+.home-section__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+  padding-bottom: 0.875rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.home-section__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  font-weight: 600;
+  color: var(--color-fg-primary);
+}
+
+.home-section__meta {
+  font-size: 0.875rem;
+  color: var(--color-fg-muted);
+}
+
+.home-section__link {
+  margin-left: auto;
+  font-size: 0.875rem;
+  color: var(--color-fg-secondary);
+}
+
+.home-section__link:hover,
+.home-section__link:focus-visible {
+  color: var(--color-fg-primary);
+}
+
+/* ── ② 六簇二十二域 ─────────────────────────────────────────────────── */
+.home-cluster {
+  margin-top: 2.5rem;
+}
+
+.home-cluster__header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.home-cluster__title {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-fg-primary);
+}
+
+.home-cluster__en {
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  color: var(--color-fg-muted);
+}
+
+.home-cluster__rule {
+  flex: 1;
+  height: 2px;
+  align-self: center;
+  background: var(--cluster-pigment);
+}
+
+.home-cluster__count {
+  font-size: 0.8125rem;
+  color: var(--color-fg-muted);
+}
+
+.home-cluster__grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+}
+
+.domain-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-panel);
+  color: var(--color-fg-primary);
+  transition: border-color var(--duration-fast, 150ms);
+}
+
+.domain-card:hover,
+.domain-card:focus-visible {
+  border-color: var(--domain-color);
+}
+
+.domain-card__plate {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  max-height: 9.5rem;
+  color: var(--color-fg-secondary);
+  border-bottom: 1px solid var(--color-border-faint);
+  background: var(--color-bg-deep, var(--color-bg-base));
+  stroke-linecap: round;
+}
+
+.domain-card__copy {
+  flex: 1;
+  padding: 1rem 1.125rem 0;
+}
+
+.domain-card__head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.domain-card__title {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.domain-card__subtitle {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+}
+
+.domain-card__description {
+  margin-top: 0.625rem;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--color-fg-secondary);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.domain-card__footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.375rem 0.75rem;
+  padding: 0.875rem 1.125rem 1rem;
+  font-size: 0.75rem;
+}
+
+.domain-card__stats {
+  color: var(--color-fg-muted);
+}
+
+.domain-card__cta {
+  color: var(--color-fg-secondary);
+}
+
+.domain-card__arrow {
+  display: inline-block;
+  margin-left: 0.25rem;
+}
+
+.domain-card:hover .domain-card__arrow {
+  transform: translateX(0.125rem);
+}
+
+/* ── ③ 今天 ─────────────────────────────────────────────────────────── */
+.home-today__grid {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .home-today__grid {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.home-today__lead {
+  padding: 1.5rem;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-panel);
+}
+
+.home-today__eyebrow,
+.home-today__pick-meta {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--color-fg-muted);
+}
+
+.home-today__lead-title {
+  margin-top: 0.625rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1.35;
+  font-weight: 600;
+  color: var(--color-fg-primary);
+}
+
+.home-today__lead-title a:hover,
+.home-today__lead-title a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.home-today__lead-text {
+  margin-top: 0.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--color-fg-secondary);
+}
+
+.home-today__fact {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border-faint);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--color-fg-secondary);
+}
+
+.home-today__fact-label {
+  margin-right: 0.5rem;
+  font-weight: 600;
+  color: var(--brass-ink);
+}
+
+.home-today__more {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--brass-ink);
+}
+
+.home-today__heading {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--color-fg-secondary);
+}
+
+.home-today__shelf,
+.home-today__updates {
+  margin-top: 0.75rem;
+  display: grid;
+}
+
+.home-today__pick,
+.home-today__update,
+.home-today__coincidence {
+  display: flex;
+  gap: 0.625rem;
+  align-items: flex-start;
+  padding: 0.625rem 0;
+  border-bottom: 1px solid var(--color-border-faint);
+}
+
+.home-today__update,
+.home-today__coincidence {
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.home-today__pick svg {
+  margin-top: 0.125rem;
+}
+
+.home-today__pick-title {
+  display: block;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--color-fg-primary);
+}
+
+.home-today__pick:hover .home-today__pick-title,
+.home-today__pick:focus-visible .home-today__pick-title,
+.home-today__update:hover .home-today__pick-title,
+.home-today__update:focus-visible .home-today__pick-title,
+.home-today__coincidence:hover .home-today__pick-title,
+.home-today__coincidence:focus-visible .home-today__pick-title {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.home-today__coincidence {
+  margin-top: 0.75rem;
+  border-bottom: 0;
+}
+
+.home-today__coincidence-text {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--color-fg-secondary);
+}
+
+/* ── ④ 读完一个主题 ─────────────────────────────────────────────────── */
+.book-shelf {
+  margin-top: 1.5rem;
+}
+
+.book-shelf__row {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.25rem;
+  height: 15rem;
+  padding: 0 0.25rem;
+  overflow-x: auto;
+  border-bottom: 3px solid var(--color-border-strong);
+  scrollbar-width: thin;
+}
+
+.book-shelf__row li {
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+}
+
+.book-shelf__spine {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 2.5rem;
+  height: var(--spine-height, 80%);
+  padding: 0.75rem 0 0.5rem;
+  border: 1px solid var(--color-border-subtle);
+  border-top: 4px solid var(--spine-color);
+  background: var(--color-bg-panel);
+  color: var(--color-fg-primary);
+  cursor: pointer;
+  transition: border-color var(--duration-fast, 150ms);
+}
+
+.book-shelf__spine:hover {
+  transform: translateY(-0.375rem);
+}
+
+.book-shelf__spine[aria-expanded="true"] {
+  transform: translateY(-0.75rem);
+  border-color: var(--spine-color);
+  border-top-width: 4px;
+}
+
+.book-shelf__spine-title {
+  writing-mode: vertical-rl;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: calc(100% - 2.5rem);
+}
+
+.book-shelf__ticks {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 0.25rem);
+  gap: 0.1875rem;
+}
+
+.book-shelf__ticks span {
+  height: 0.1875rem;
+  background: var(--spine-color);
+}
+
+.book-shelf__preview {
+  margin-top: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--color-border-subtle);
+  border-left: 4px solid var(--spine-color);
+  background: var(--color-bg-panel);
+}
+
+.book-shelf__meta {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--color-fg-muted);
+}
+
+.book-shelf__title {
+  margin-top: 0.375rem;
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--color-fg-primary);
+}
+
+.book-shelf__subtitle {
+  margin-top: 0.25rem;
+  font-size: 0.9375rem;
+  color: var(--color-fg-secondary);
+}
+
+.book-shelf__chapters {
+  margin-top: 0.875rem;
+  display: grid;
+  gap: 0.25rem;
+  padding-left: 1.25rem;
+  list-style: decimal;
+  font-size: 0.9375rem;
+  color: var(--color-fg-secondary);
+}
+
+.book-shelf__more {
+  list-style: none;
+  margin-left: -1.25rem;
+  color: var(--color-fg-muted);
+}
+
+.book-shelf__actions {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  font-size: 0.875rem;
+}
+
+.book-shelf__start {
+  font-weight: 600;
+  color: var(--brass-ink);
+}
+
+.book-shelf__toc {
+  color: var(--color-fg-secondary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* ── ⑤ 知识连续体：页签与骨架 ───────────────────────────────────────── */
+.home-continuum {
+  margin-top: 5.5rem;
+}
+
+.home-continuum__intro {
+  display: grid;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .home-continuum__intro {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    align-items: end;
+  }
+}
+
+.home-continuum__eyebrow,
+.home-continuum__kicker {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+}
+
+.home-continuum__title {
+  margin-top: 0.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  font-weight: 600;
+  color: var(--color-fg-primary);
+}
+
+.home-continuum__lede {
+  max-width: 48rem;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  color: var(--color-fg-secondary);
+}
+
+.home-continuum__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-panel);
+}
+
+.home-continuum__panel-title {
+  margin-top: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-fg-primary);
+}
+
+.home-continuum__stages {
+  margin-top: 1.25rem;
+  display: grid;
+  border-top: 1px solid var(--color-border-faint);
+  border-left: 1px solid var(--color-border-faint);
+}
+
+@media (min-width: 640px) {
+  .home-continuum__stages {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+.home-continuum__stage {
+  padding: 0.75rem;
+  border-right: 1px solid var(--color-border-faint);
+  border-bottom: 1px solid var(--color-border-faint);
+  font-size: 0.875rem;
+  color: var(--color-fg-secondary);
+}
+
+.home-continuum__stage-index {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--color-fg-muted);
+}
+
+.home-continuum__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+}
+
+.home-continuum__button {
+  min-height: 2.5rem;
+  padding: 0 1rem;
+  border: 1px solid var(--color-border-strong);
+  font-size: 0.875rem;
+  color: var(--color-fg-primary);
+}
+
+.home-continuum__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.5rem;
+  border-bottom: 1px solid currentColor;
+  font-size: 0.875rem;
+  color: var(--color-fg-secondary);
+}
+
+.home-continuum__confluence {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+.home-continuum__confluence-link {
+  border-bottom: 1px solid currentColor;
+  font-size: 0.8125rem;
+  color: var(--color-fg-secondary);
+}
+
+.continuum-tabs,
+.continuum-skeleton {
+  margin-top: 2rem;
+}
+
+.continuum-tabs__list {
+  display: flex;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--color-border-subtle);
+  scrollbar-width: none;
+}
+
+.continuum-tabs__tab {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0 1rem;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  font-size: 0.9375rem;
+  color: var(--color-fg-secondary);
+}
+
+.continuum-tabs__tab:hover {
+  color: var(--color-fg-primary);
+}
+
+.continuum-tabs__tab[aria-selected="true"],
+.continuum-tabs__tab[data-selected] {
+  border-bottom-color: var(--brass);
+  color: var(--color-fg-primary);
+  font-weight: 600;
+}
+
+.continuum-tabs__index {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--color-fg-muted);
+}
+
+.continuum-tabs__panel > [data-testid] > div:first-child,
+.continuum-tabs__panel > div {
+  margin-top: 0;
+}
+
+.continuum-skeleton__matrix {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.5rem;
+  min-height: 24rem;
+}
+
+.continuum-skeleton__matrix span {
+  border: 1px solid var(--color-border-faint);
+  background: var(--color-bg-panel);
+  /* Rows fade toward the frontier, the way the spine matrix thins out. */
+  opacity: calc(1 - var(--row, 0) * 0.12);
+}
+
+/* ── ⑥ 登上格致山 ───────────────────────────────────────────────────── */
+.home-climb {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  padding: 2.5rem 1.5rem;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-panel);
+}
+
+@media (min-width: 768px) {
+  .home-climb {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    padding: 3rem;
+  }
+}
+
+.home-climb__stage {
+  perspective: 40rem;
+}
+
+.home-climb__dial {
+  display: block;
+  width: 100%;
+  max-width: 18rem;
+  margin: 0 auto;
+}
+
+.home-climb__dial circle {
+  fill: none;
+  stroke: var(--color-fg-muted);
+  stroke-width: 0.6;
+}
+
+.home-climb__text {
+  margin: 1rem 0 1.5rem;
+  max-width: 36rem;
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: var(--color-fg-secondary);
+}
+
+/* The dial tips back as it scrolls in: a plan seen from above becoming a
+   mountain seen from its foot. Scroll-driven, so it costs no script. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .home-climb__dial {
+      animation: climb-recline linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 55%;
+    }
+  }
+}
+
+@keyframes climb-recline {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(52deg);
+  }
+}

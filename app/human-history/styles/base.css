@@ -5,8 +5,8 @@
   --bg-card-hover: rgba(38, 30, 20, 0.95);
   --bg-elev: rgba(48, 38, 25, 0.9);
   --parchment: #f1e5c0;
-  --parchment-dim: #9d8e6c;
-  --parchment-mute: #8c7e5c;
+  --parchment-dim: #ad9d79;
+  --parchment-mute: #9a8b65;
   --gold: #c8a951;
   --gold-light: #e8d48b;
   --gold-deep: #8d7434;
@@ -40,6 +40,10 @@
      renders here too. These reference the parchment vars above, so the header
      automatically follows human-history's own light/dark theme. */
   --color-bg-base: var(--bg);
+  /* Panels follow the history card tone, not the portal's night-ink panel —
+     otherwise translucent panels here turn blue and lift muted text off AA. */
+  --color-bg-panel: var(--bg-card);
+  --color-bg-elevated: var(--bg-elev);
   --color-bg-overlay: color-mix(in srgb, var(--bg) 84%, transparent);
   --color-fg-primary: var(--parchment);
   --color-fg-secondary: var(--parchment-dim);

@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { SpotlightGrid } from "@/components/motion/SpotlightGrid";
 import { ListSearchFilter, ListEmptyState } from "@/components/ListSearchFilter";
 import type { ListFilterChip } from "@/components/ListSearchFilter";
 import { MATH_ERA_ACCENT, mathBadgeColor } from "@/subjects/mathematics/lib/constants";
@@ -82,13 +83,15 @@ export function MathematiciansListBrowser({
           }}
         />
       ) : (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+        <SpotlightGrid className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
           {filtered.map((m) => {
             const eraColor = MATH_ERA_ACCENT[m.era] || "#6366f1";
             return (
               <Link
                 key={m.slug}
                 href={`/mathematics/mathematicians/${m.slug}`}
+                data-spotlight
+                style={{ "--spot": eraColor } as React.CSSProperties}
                 className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative flex h-full flex-col gap-3 overflow-hidden border p-5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(99,102,241,0.06)]"
               >
                 <div
@@ -147,7 +150,7 @@ export function MathematiciansListBrowser({
               </Link>
             );
           })}
-        </div>
+        </SpotlightGrid>
       )}
     </div>
   );

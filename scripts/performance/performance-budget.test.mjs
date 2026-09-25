@@ -6,7 +6,7 @@ import {
   analyzeJsAssetOwnership,
   analyzeRouteAssets,
   findTailwindEntrypoints,
-  getRouteCssBudget,
+  analyzeCssDelivery,
   isGenericArticleRoute,
 } from "./bundle-budget.mjs";
 import {
@@ -100,11 +100,21 @@ describe("performance budgets", () => {
     expect(LIGHTHOUSE_CONFIRMATION_TRACES).toBe(2);
   });
 
-  it("applies the 40 KB CSS budget to portal and domain routes", () => {
-    const budgets = { portal: 40 * 1024, domain: 40 * 1024 };
+  it("splits CSS into the site-wide sheet and each page's own additions", () => {
+    const root = createBuildFixture();
+    const routes = analyzeRouteAssets(root);
+    const delivery = analyzeCssDelivery(root, [
+      ...routes,
+      { route: "/other/page", css: ["static/chunks/shared.css"], js: [] },
+    ]);
 
-    expect(getRouteCssBudget("/page", budgets)).toBe(40 * 1024);
-    expect(getRouteCssBudget("/mathematics/page", budgets)).toBe(40 * 1024);
+    expect(delivery.shared.map((sheet) => sheet.asset)).toEqual(["static/chunks/shared.css"]);
+    expect(delivery.sharedBrotli).toBeGreaterThan(0);
+    const example = delivery.routes.find((route) => route.route === "/example/page");
+    expect(example.incrementalBrotli).toBeGreaterThan(0);
+    expect(example.totalBrotli).toBe(delivery.sharedBrotli + example.incrementalBrotli);
+    const other = delivery.routes.find((route) => route.route === "/other/page");
+    expect(other.incrementalBrotli).toBe(0);
   });
 
   it("finds duplicate Tailwind compilation entrypoints", () => {
@@ -153,44 +163,30 @@ describe("performance budgets", () => {
   });
 
   it("keeps full history datasets and the optional timeline out of the history home startup path", () => {
-    const historyClient = readFileSync(
-      join(process.cwd(), "app/human-history/HumanHistoryClient.tsx"),
-      "utf8"
-    );
-    const historyHome = readFileSync(
-      join(process.cwd(), "subjects/history/page-renderers/home.js"),
-      "utf8"
-    );
-    const historyHomeStyles = readFileSync(
-      join(process.cwd(), "app/human-history/styles/pages/home.css"),
+    const historyHome = readFileSync(join(process.cwd(), "app/human-history/page.tsx"), "utf8");
+    const timelineModule = readFileSync(
+      join(process.cwd(), "app/human-history/HistoryTimelineModule.tsx"),
       "utf8"
     );
 
-    expect(historyClient).toContain("const EventTimeline = lazy(");
-    expect(historyClient).toContain("timelineVisible &&");
-    expect(historyClient).not.toContain('from "next/dynamic"');
     expect(historyHome).toContain("data/home-summary.js");
     expect(historyHome).not.toMatch(/data\/(?:index|events|figures)\.js/);
-    expect(historyHomeStyles).toContain(".human-history-root .figures-grid");
-    for (const retiredSelector of [".home-hero", ".hero-content", ".stats-row", ".stat-val"]) {
-      expect(historyHomeStyles).not.toContain(retiredSelector);
-    }
+    expect(timelineModule).toContain('from "next/dynamic"');
+    expect(timelineModule).toContain("open ? <EventTimeline /> : null");
   });
 
-  it("keeps repeated homepage cards on semantic classes instead of serialized utility stacks", () => {
+  it("keeps repeated homepage cards on semantic classes and seals out of the page payload", () => {
     const homepageComponents = [
       "components/DomainCard.tsx",
-      "components/LatestUpdates.tsx",
-      "components/FeaturedContent.tsx",
+      "components/portal/TodaySection.tsx",
+      "components/portal/Astrolabe.tsx",
     ].map((file) => readFileSync(join(process.cwd(), file), "utf8"));
 
     expect(homepageComponents[0]).toContain('className="domain-card"');
-    expect(homepageComponents[1]).toContain('className="lift-card"');
-    expect(homepageComponents[2]).toContain('className="lift-card lift-card--full"');
-
     for (const source of homepageComponents) {
-      expect(source).not.toContain("group relative block h-full overflow-hidden rounded-xl");
-      expect(source).not.toContain("font-display text-fg-primary m-0 text-[1.4rem]");
+      expect(source).not.toMatch(/className="[^"]{80,}"/);
+      // 22 seals and plates inline would be ~110 KB of path data in HTML and RSC.
+      expect(source).not.toMatch(/from "@\/components\/design\/(?:Seal|SpecimenPlate)"/);
     }
   });
 });

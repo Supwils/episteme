@@ -195,66 +195,64 @@ const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: "/psychology/knowledge-base", priority: 0.7 },
 ];
 
+/** Only real dates go out: a `lastModified` of "now" on every URL at every
+ *  build tells crawlers nothing and devalues the field for the pages that do
+ *  carry a frontmatter `updated`. */
+function articleLastModified(updated: string): { lastModified?: string } {
+  return /^\d{4}-\d{2}-\d{2}$/.test(updated) ? { lastModified: updated } : {};
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries: MetadataRoute.Sitemap = STATIC_ROUTES.map(({ path, priority }) => ({
     url: `${SITE_URL}${path}`,
-    lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority,
   }));
 
   const thinkerEntries: MetadataRoute.Sitemap = getThinkerSlugs().map((slug) => ({
     url: `${SITE_URL}/philosophy/thinkers/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const schoolEntries: MetadataRoute.Sitemap = getSchoolSlugs().map((slug) => ({
     url: `${SITE_URL}/philosophy/schools/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const ismEntries: MetadataRoute.Sitemap = getIsmSlugs().map((slug) => ({
     url: `${SITE_URL}/philosophy/isms/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const experimentEntries: MetadataRoute.Sitemap = getExperimentSlugs().map((slug) => ({
     url: `${SITE_URL}/philosophy/experiments/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const questionEntries: MetadataRoute.Sitemap = getQuestionSlugs().map((slug) => ({
     url: `${SITE_URL}/philosophy/questions/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const philoConceptEntries: MetadataRoute.Sitemap = getPhiloConceptSlugs().map((slug) => ({
     url: `${SITE_URL}/philosophy/concepts/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const philoDialogueEntries: MetadataRoute.Sitemap = getPhiloDialogueSlugs().map((slug) => ({
     url: `${SITE_URL}/philosophy/dialogues/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const knowledgeEntries: MetadataRoute.Sitemap = getAllArticles().map((article) => ({
     url: `${SITE_URL}/human-history/knowledge/${encodeURIComponent(article.slug)}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
@@ -263,14 +261,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // encode the whole segment so the sitemap emits valid URLs.
   const physicsKbEntries: MetadataRoute.Sitemap = universePhysicsKB.getSlugs().map((slug) => ({
     url: `${SITE_URL}/universe-physics/knowledge-base/${encodeURIComponent(slug)}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const cosmologyKbEntries: MetadataRoute.Sitemap = cosmologyKB.getSlugs().map((slug) => ({
     url: `${SITE_URL}/cosmology/knowledge-base/${encodeURIComponent(slug)}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
@@ -280,7 +276,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .getSlugs()
     .map((slug) => ({
       url: `${SITE_URL}/universe-physics/dialogues/${slug}`,
-      lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.6,
     }));
@@ -289,63 +284,54 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .getSlugs()
     .map((slug) => ({
       url: `${SITE_URL}/cosmology/dialogues/${slug}`,
-      lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.6,
     }));
 
   const mathematicianEntries: MetadataRoute.Sitemap = getMathematicianSlugs().map((slug) => ({
     url: `${SITE_URL}/mathematics/mathematicians/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const theoremEntries: MetadataRoute.Sitemap = getTheoremSlugs().map((slug) => ({
     url: `${SITE_URL}/mathematics/theorems/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const mathConceptEntries: MetadataRoute.Sitemap = getMathConceptSlugs().map((slug) => ({
     url: `${SITE_URL}/mathematics/concepts/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const mathDialogueEntries: MetadataRoute.Sitemap = getMathDialogueSlugs().map((slug) => ({
     url: `${SITE_URL}/mathematics/dialogues/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const mathParadoxEntries: MetadataRoute.Sitemap = getMathParadoxSlugs().map((slug) => ({
     url: `${SITE_URL}/mathematics/paradoxes/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const mathKnowledgeBaseEntries: MetadataRoute.Sitemap = mathematicsKB.getSlugs().map((slug) => ({
     url: `${SITE_URL}/mathematics/knowledge-base/${encodeURIComponent(slug)}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const lifeScienceKbEntries: MetadataRoute.Sitemap = lifeScienceKB.getSlugs().map((slug) => ({
     url: `${SITE_URL}/life-science/knowledge-base/${encodeURIComponent(slug)}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const lifeDialogueEntries: MetadataRoute.Sitemap = getLifeDialogueSlugs().map((slug) => ({
     url: `${SITE_URL}/life-science/dialogues/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
@@ -357,35 +343,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...new Set([...getAllSpecies().map((s) => s.id), ...speciesMdxSlugs]),
   ].map((slug) => ({
     url: `${SITE_URL}/life-science/species/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const lifeScientistEntries: MetadataRoute.Sitemap = getAllScientists().map((s) => ({
     url: `${SITE_URL}/life-science/scientists/${s.id}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const lifeExtinctionEntries: MetadataRoute.Sitemap = getAllExtinctions().map((e) => ({
     url: `${SITE_URL}/life-science/extinctions/${e.id}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const lifeTimelineEntries: MetadataRoute.Sitemap = getAllTimelineEvents().map((e) => ({
     url: `${SITE_URL}/life-science/timeline/${e.id}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const lifeTreeDomainEntries: MetadataRoute.Sitemap = getLifeTreeDomains().map((d) => ({
     url: `${SITE_URL}/life-science/tree/${d.id}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
@@ -394,49 +375,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const economistEntries: MetadataRoute.Sitemap = getEconomistSlugs().map((slug) => ({
     url: `${SITE_URL}/economics/economists/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const econTheoryEntries: MetadataRoute.Sitemap = getEconTheorySlugs().map((slug) => ({
     url: `${SITE_URL}/economics/theories/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const econConceptEntries: MetadataRoute.Sitemap = getEconConceptSlugs().map((slug) => ({
     url: `${SITE_URL}/economics/concepts/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const caseStudyEntries: MetadataRoute.Sitemap = getCaseStudySlugs().map((slug) => ({
     url: `${SITE_URL}/economics/case-studies/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const econSchoolEntries: MetadataRoute.Sitemap = getEconSchoolSlugs().map((slug) => ({
     url: `${SITE_URL}/economics/schools/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const econDebateEntries: MetadataRoute.Sitemap = getEconDebateSlugs().map((slug) => ({
     url: `${SITE_URL}/economics/debates/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const econDialogueEntries: MetadataRoute.Sitemap = getEconDialogueSlugs().map((slug) => ({
     url: `${SITE_URL}/economics/dialogues/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
@@ -444,7 +418,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const econKnowledgeBaseEntries: MetadataRoute.Sitemap = getEconKnowledgeBaseSlugs().map(
     (slug) => ({
       url: `${SITE_URL}/economics/knowledge-base/${encodeURIComponent(slug)}`,
-      lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.6,
     })
@@ -454,56 +427,48 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const theoristEntries: MetadataRoute.Sitemap = getTheoristSlugs().map((slug) => ({
     url: `${SITE_URL}/psychology/theorists/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const psyExperimentEntries: MetadataRoute.Sitemap = getPsyExperimentSlugs().map((slug) => ({
     url: `${SITE_URL}/psychology/experiments/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const phenomenonEntries: MetadataRoute.Sitemap = getPhenomenonSlugs().map((slug) => ({
     url: `${SITE_URL}/psychology/phenomena/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const psySchoolEntries: MetadataRoute.Sitemap = getPsySchoolSlugs().map((slug) => ({
     url: `${SITE_URL}/psychology/schools/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const disorderEntries: MetadataRoute.Sitemap = getDisorderSlugs().map((slug) => ({
     url: `${SITE_URL}/psychology/disorders/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const psyDebateEntries: MetadataRoute.Sitemap = getPsyDebateSlugs().map((slug) => ({
     url: `${SITE_URL}/psychology/debates/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const psyDialogueEntries: MetadataRoute.Sitemap = getPsyDialogueSlugs().map((slug) => ({
     url: `${SITE_URL}/psychology/dialogues/${slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const psyKnowledgeBaseEntries: MetadataRoute.Sitemap = getPsyKnowledgeBaseSlugs().map((slug) => ({
     url: `${SITE_URL}/psychology/knowledge-base/${encodeURIComponent(slug)}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
@@ -512,21 +477,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const config of Object.values(KNOWLEDGE_DOMAINS)) {
     newDomainEntries.push({
       url: `${SITE_URL}/${config.domain}`,
-      lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.8,
     });
     for (const section of config.sections) {
       newDomainEntries.push({
         url: `${SITE_URL}/${config.domain}/${section.key}`,
-        lastModified: new Date(),
         changeFrequency: "weekly" as const,
         priority: 0.7,
       });
-      for (const slug of createKnowledgeSection(config.domain, section.key).getSlugs()) {
+      for (const item of createKnowledgeSection(config.domain, section.key).getAll()) {
         newDomainEntries.push({
-          url: `${SITE_URL}/${config.domain}/${section.key}/${encodeURIComponent(slug)}`,
-          lastModified: new Date(),
+          url: `${SITE_URL}/${config.domain}/${section.key}/${encodeURIComponent(item.slug)}`,
+          ...articleLastModified(item.updated),
           changeFrequency: "monthly" as const,
           priority: 0.6,
         });
@@ -539,14 +502,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const section of config.sections) {
       extensionEntries.push({
         url: `${SITE_URL}/${config.domain}/${section.key}`,
-        lastModified: new Date(),
         changeFrequency: "weekly" as const,
         priority: 0.7,
       });
-      for (const slug of createKnowledgeSection(config.domain, section.key).getSlugs()) {
+      for (const item of createKnowledgeSection(config.domain, section.key).getAll()) {
         extensionEntries.push({
-          url: `${SITE_URL}/${config.domain}/${section.key}/${encodeURIComponent(slug)}`,
-          lastModified: new Date(),
+          url: `${SITE_URL}/${config.domain}/${section.key}/${encodeURIComponent(item.slug)}`,
+          ...articleLastModified(item.updated),
           changeFrequency: "monthly" as const,
           priority: 0.6,
         });
@@ -558,14 +520,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const domain of FRONTIER_DOMAINS) {
     frontierEntries.push({
       url: `${SITE_URL}/${domain}/frontier`,
-      lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.7,
     });
     for (const slug of createFrontier(domain).getSlugs()) {
       frontierEntries.push({
         url: `${SITE_URL}/${domain}/frontier/${encodeURIComponent(slug)}`,
-        lastModified: new Date(),
         changeFrequency: "monthly" as const,
         priority: 0.6,
       });
@@ -574,7 +534,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const readingPathEntries: MetadataRoute.Sitemap = READING_PATHS.map((p) => ({
     url: `${SITE_URL}/read/${p.slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
@@ -582,7 +541,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const knowledgeConfluenceEntries: MetadataRoute.Sitemap = CURATED_KNOWLEDGE_CONFLUENCES.map(
     (confluence) => ({
       url: `${SITE_URL}/knowledge-confluence/${confluence.id}`,
-      lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })

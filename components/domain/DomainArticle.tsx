@@ -73,8 +73,9 @@ export function DomainArticle({
 
   const all = knowledge.getAll();
   const currentIndex = all.findIndex((a) => a.slug === article.slug);
+  // -1 (slug normalised differently from the file name) must not alias to all[0].
   const prev = currentIndex > 0 ? all[currentIndex - 1] : null;
-  const next = currentIndex < all.length - 1 ? all[currentIndex + 1] : null;
+  const next = currentIndex >= 0 && currentIndex < all.length - 1 ? all[currentIndex + 1] : null;
   const accent = sectionConfig.accent;
 
   const relatedIndex = getDomainRelatedIndex(domain);
@@ -124,7 +125,7 @@ export function DomainArticle({
         title={article.title}
         titleEn={article.titleEn || undefined}
         content={article.content}
-        lede={article.excerpt || undefined}
+        lede={article.summary}
         takeaway={article.keyInsight}
         tags={article.tags}
         prev={prev ? { href: `/${domain}/${section}/${prev.slug}`, title: prev.title } : null}

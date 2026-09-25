@@ -1,7 +1,8 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { buildValidRoutes } from "@/scripts/valid-routes";
-import { DOMAINS, FEATURED_CONTENT, FEATURES, LATEST_UPDATES, STATS } from "@/lib/data";
+import { astrolabeReadouts } from "@/lib/astrolabe";
+import { DOMAINS, LATEST_UPDATES } from "@/lib/data";
 import { APP_URLS } from "@/lib/urls";
 
 const EXPECTED_DOMAIN_IDS = [
@@ -112,19 +113,13 @@ describe("homepage domain catalog", () => {
     }
   });
 
-  it("derives the displayed subject count from the catalog", () => {
-    const subjectStat = STATS.find((stat) => stat.label === "知识领域");
-
-    expect(subjectStat?.value).toBe(DOMAINS.length);
-  });
-
   it("maps every homepage subject to its canonical route", () => {
     for (const domain of DOMAINS) {
       expect(APP_URLS[domain.id]).toBe(`/${domain.id}`);
     }
   });
 
-  it("points featured cards at real articles, not domain homepages", () => {
+  it("points every astrolabe spine step at a real article", () => {
     const valid = buildValidRoutes();
     const resolves = (url: string) => {
       if (valid.has(url)) return true;
@@ -134,31 +129,11 @@ describe("homepage domain catalog", () => {
       parts[parts.length - 1] = encodeURIComponent(decodeURIComponent(last));
       return valid.has(parts.join("/"));
     };
-    const leftover = FEATURED_CONTENT.filter((item) => /^\/[a-z-]+$/.test(item.href)).map(
-      (item) => `${item.title} ${item.href}`
+    const broken = astrolabeReadouts().flatMap((readout) =>
+      readout.steps
+        .filter((step) => !resolves(step.url))
+        .map((step) => `${readout.domain} → ${step.url}`)
     );
-    const broken = FEATURED_CONTENT.filter((item) => !resolves(item.href)).map(
-      (item) => `${item.title} → ${item.href}`
-    );
-    expect(leftover).toEqual([]);
-    expect(broken).toEqual([]);
-  });
-
-  it("gives every platform-feature card a real route", () => {
-    const valid = buildValidRoutes();
-    const resolves = (url: string) => {
-      if (valid.has(url)) return true;
-      const parts = url.split("/");
-      const last = parts.at(-1);
-      if (!last) return false;
-      parts[parts.length - 1] = encodeURIComponent(decodeURIComponent(last));
-      return valid.has(parts.join("/"));
-    };
-    const missing = FEATURES.filter((f) => !f.href).map((f) => f.title);
-    const broken = FEATURES.filter((f) => f.href && !resolves(f.href)).map(
-      (f) => `${f.title} → ${f.href}`
-    );
-    expect(missing).toEqual([]);
     expect(broken).toEqual([]);
   });
 
@@ -332,11 +307,11 @@ describe("life-science deep reading uses theme tokens", () => {
   });
 });
 
-describe("homepage lift cards use theme tokens", () => {
-  it("does not use a white border that vanishes in the light theme", () => {
-    const source = readFileSync("app/globals.css", "utf-8");
-    expect(source).toMatch(/\.lift-card[\s\S]*border-border-faint/);
-    expect(source).not.toMatch(/lift-card \{[^}]*border-white/);
+describe("homepage cards use theme tokens", () => {
+  it("borders every card with a token that survives both themes", () => {
+    const source = readFileSync("components/portal/portal.css", "utf-8");
+    expect(source).toMatch(/\.domain-card \{[^}]*border: 1px solid var\(--color-border-subtle\)/);
+    expect(source).not.toMatch(/#fff\b|:\s*white\b/);
   });
 });
 

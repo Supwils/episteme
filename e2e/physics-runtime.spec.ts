@@ -100,7 +100,7 @@ async function compareCanvasFrames(page: Page): Promise<PixelComparison> {
         meanFrameDifference: totalDifference / sampled,
       };
     },
-    { firstFrame: first, secondFrame: second },
+    { firstFrame: first, secondFrame: second }
   );
 }
 
@@ -132,14 +132,8 @@ test("handwritten universe bypasses the WebGL runtime", async ({ page }) => {
 
 test("unsupported WebGL keeps the heavy runtime off the network", async ({ page }) => {
   await page.addInitScript(() => {
-    type GenericGetContext = (
-      contextId: string,
-      ...args: unknown[]
-    ) => RenderingContext | null;
-    const canvasPrototype = HTMLCanvasElement.prototype as Omit<
-      HTMLCanvasElement,
-      "getContext"
-    > & {
+    type GenericGetContext = (contextId: string, ...args: unknown[]) => RenderingContext | null;
+    const canvasPrototype = HTMLCanvasElement.prototype as Omit<HTMLCanvasElement, "getContext"> & {
       getContext: GenericGetContext;
     };
     const originalGetContext = canvasPrototype.getContext;
@@ -159,7 +153,7 @@ test("unsupported WebGL keeps the heavy runtime off the network", async ({ page 
 
   await expect(page.locator("[data-section=universe]")).toHaveAttribute(
     "data-webgl-status",
-    "unsupported",
+    "unsupported"
   );
   await expect(page.getByRole("heading", { name: "3D 宇宙暂时无法显示" })).toBeVisible();
   await expect(page.locator("[data-universe-webgl]")).toHaveCount(0);
@@ -184,11 +178,12 @@ test("direct Earth route meets the 3D runtime budget", async ({ page, browserNam
   const marks = await page.evaluate(() =>
     performance
       .getEntriesByType("mark")
-      .map((entry) => ({ name: entry.name, startTime: entry.startTime })),
+      .map((entry) => ({ name: entry.name, startTime: entry.startTime }))
   );
   const markNames = marks.map((entry) => entry.name);
   const sceneReadyAt =
-    marks.find((entry) => entry.name === "universe:scene-ready")?.startTime ?? Number.POSITIVE_INFINITY;
+    marks.find((entry) => entry.name === "universe:scene-ready")?.startTime ??
+    Number.POSITIVE_INFINITY;
 
   expect(markNames).toContain("universe:scene-load:T7");
   expect(markNames).not.toContain("universe:scene-load:T0");
@@ -204,7 +199,7 @@ test("direct Earth route meets the 3D runtime budget", async ({ page, browserNam
     performance
       .getEntriesByType("resource")
       .filter((entry) => entry.name.includes("/_next/static/") && entry.name.endsWith(".js"))
-      .reduce((total, entry) => total + (entry as PerformanceResourceTiming).encodedBodySize, 0),
+      .reduce((total, entry) => total + (entry as PerformanceResourceTiming).encodedBodySize, 0)
   );
   const session = await page.context().newCDPSession(page);
   await session.send("Performance.enable");
@@ -215,7 +210,7 @@ test("direct Earth route meets the 3D runtime budget", async ({ page, browserNam
         performance as Performance & {
           memory?: { usedJSHeapSize?: number };
         }
-      ).memory?.usedJSHeapSize,
+      ).memory?.usedJSHeapSize
   );
   const jsHeapBytes =
     performanceMetrics.metrics.find((metric) => metric.name === "JSHeapUsedSize")?.value ??

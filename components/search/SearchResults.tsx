@@ -1,6 +1,7 @@
 import type { SearchResult, Section } from "./types";
 import { SEARCH_SECTIONS, SECTION_META, orderResultsForDisplay } from "./types";
-import { SearchResultItem } from "./SearchResultItem";
+import { SearchResultItem, searchResultDomId } from "./SearchResultItem";
+import { SectionMark } from "./SectionMark";
 
 interface SearchResultsProps {
   query: string;
@@ -23,7 +24,7 @@ export function SearchResults({
   onActivate,
   onSelect,
 }: SearchResultsProps) {
-  const indexOf = new Map(flatResults.map((result, index) => [result.url, index]));
+  const indexOf = new Map(flatResults.map((result, index) => [searchResultDomId(result), index]));
 
   const grouped = new Map<Section, SearchResult[]>();
   for (const result of orderResultsForDisplay(titleResults, [])) {
@@ -34,10 +35,11 @@ export function SearchResults({
   }
 
   const renderItem = (result: SearchResult, showSectionLabel = false) => {
-    const index = indexOf.get(result.url) ?? 0;
+    const id = searchResultDomId(result);
+    const index = indexOf.get(id) ?? 0;
     return (
       <SearchResultItem
-        key={result.url}
+        key={id}
         result={result}
         query={query}
         isActive={index === activeIndex}
@@ -54,13 +56,14 @@ export function SearchResults({
         const results = grouped.get(section);
         if (!results?.length) return null;
         return (
-          <div key={section} className="gs-group">
-            <div
-              className="gs-group-label"
-              style={{
-                color: `color-mix(in oklab, ${SECTION_META[section].color} 42%, var(--color-fg-primary))`,
-              }}
-            >
+          <div
+            key={section}
+            className="gs-group"
+            role="group"
+            aria-labelledby={`gs-group-${section}`}
+          >
+            <div id={`gs-group-${section}`} role="presentation" className="gs-group-label">
+              <SectionMark section={section} />
               {SECTION_META[section].label}
             </div>
             {results.map((result) => renderItem(result))}
@@ -69,8 +72,19 @@ export function SearchResults({
       })}
 
       {bodyResults.length > 0 && (
-        <div className="gs-group" data-testid="gs-body-group">
-          <div className="gs-group-label gs-group-label-body">正文中提到</div>
+        <div
+          className="gs-group"
+          data-testid="gs-body-group"
+          role="group"
+          aria-labelledby="gs-group-body"
+        >
+          <div
+            id="gs-group-body"
+            role="presentation"
+            className="gs-group-label gs-group-label-body"
+          >
+            正文中提到
+          </div>
           {bodyResults.map((result) => renderItem(result, true))}
         </div>
       )}

@@ -1,8 +1,39 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { shardDomainForHref, type LinkPreview } from "@/lib/link-preview-shards";
+import { LazySeal } from "@/components/design/LazySeal";
+import { DOMAIN_SEALS, isSealDomain } from "@/lib/design/seals";
+import { sectionDomain } from "@/components/search/section-domain";
+
+/** Preview shards name a few domains by their legacy keys (physics, history). */
+function domainName(key: string): string {
+  const domain = sectionDomain(key);
+  return isSealDomain(domain) ? DOMAIN_SEALS[domain].name : key;
+}
+
+const MARGIN_MIN_VIEWPORT = 1280;
+const MARGIN_GAP = 24;
+const MARGIN_CARD_WIDTH = 256;
+
+type MarginPlacement = { left: number; top: number };
+
+/**
+ * On wide screens the preview sits in the page margin beside the paragraph
+ * that holds the link (T-DESIGN-06c) instead of dropping over the text below.
+ * Coordinates are relative to the link's own positioned wrapper.
+ */
+function marginPlacement(anchor: HTMLElement): MarginPlacement | null {
+  if (window.innerWidth < MARGIN_MIN_VIEWPORT) return null;
+  const surface = anchor.closest(".article-reading-surface");
+  if (!surface) return null;
+  const column = surface.getBoundingClientRect();
+  if (column.right + MARGIN_GAP + MARGIN_CARD_WIDTH > window.innerWidth) return null;
+  const own = anchor.getBoundingClientRect();
+  const block = (anchor.closest("p, li") ?? anchor).getBoundingClientRect();
+  return { left: column.right - own.left + MARGIN_GAP, top: block.top - own.top };
+}
 
 export { MarkdownCodeBlock } from "./MarkdownCodeBlock";
 
@@ -32,31 +63,13 @@ function loadPreviews(href: string): Promise<Record<string, LinkPreview>> {
   return promise;
 }
 
-const DOMAIN_LABEL: Record<string, string> = {
-  chemistry: "化学",
-  cosmology: "宇宙学",
-  economics: "经济学",
-  "computer-science": "计算机科学",
-  "earth-science": "地球科学",
-  history: "历史",
-  "human-history": "人类历史",
-  "life-science": "生命科学",
-  linguistics: "语言学",
-  mathematics: "数学",
-  medicine: "医学",
-  philosophy: "哲学",
-  physics: "物理",
-  "political-science": "政治学",
-  psychology: "心理学",
-  sociology: "社会学",
-  "universe-physics": "宇宙物理",
-};
-
 export function WikiLinkPreview({ href, label }: { href: string; label: string }) {
   const [preview, setPreview] = useState<LinkPreview | null>(null);
   const [open, setOpen] = useState(false);
   const [isTouch, setIsTouch] = useState(false);
   const [touchPending, setTouchPending] = useState(false);
+  const [margin, setMargin] = useState<MarginPlacement | null>(null);
+  const tooltipId = useId();
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const rootRef = useRef<HTMLSpanElement>(null);
   const requestVersion = useRef(0);
@@ -101,11 +114,12 @@ export function WikiLinkPreview({ href, label }: { href: string; label: string }
         // Shard requests are shared; invalidate this interaction, not the fetch.
         if (version !== requestVersion.current) return;
         setPreview(previews[href] ?? null);
+        setMargin(rootRef.current && !isTouch ? marginPlacement(rootRef.current) : null);
         setTouchPending(false);
         setOpen(true);
       });
     },
-    [href]
+    [href, isTouch]
   );
 
   const show = useCallback(() => {
@@ -141,24 +155,27 @@ export function WikiLinkPreview({ href, label }: { href: string; label: string }
         onBlur={isTouch ? undefined : hide}
         onClick={handleClick}
         aria-expanded={isTouch ? open : undefined}
+        aria-describedby={open && preview ? tooltipId : undefined}
         className="text-accent-gold font-medium underline decoration-dotted decoration-from-font underline-offset-2 transition-opacity hover:opacity-80"
       >
         {label}
       </Link>
       {open && preview ? (
         <span
+          id={tooltipId}
           role="tooltip"
-          className={`border-border-subtle bg-bg-elevated/95 absolute top-full left-0 z-50 mt-1.5 block w-[min(20rem,80vw)] rounded-xl border p-3 text-left shadow-[0_8px_32px_rgba(0,0,0,0.45)] backdrop-blur-xl ${
-            isTouch ? "pointer-events-auto" : "pointer-events-none"
-          }`}
+          data-placement={margin ? "margin" : "below"}
+          className={`wiki-preview border-border-subtle bg-bg-elevated/95 absolute z-50 block rounded-lg border p-3 text-left shadow-[0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-xl ${
+            margin ? "w-64" : "top-full left-0 mt-1.5 w-[min(20rem,80vw)]"
+          } ${isTouch ? "pointer-events-auto" : "pointer-events-none"}`}
+          style={margin ? { left: margin.left, top: margin.top } : undefined}
         >
-          <span className="mb-1 flex items-center gap-1.5">
-            <span className="bg-bg-panel text-fg-muted rounded px-1.5 py-0.5 text-[10px] font-medium tracking-wide">
-              {DOMAIN_LABEL[preview.d] ?? preview.d}
-            </span>
-            <span className="text-fg-primary text-[13px] leading-tight font-semibold">
-              {preview.t}
-            </span>
+          <span className="text-fg-muted mb-1.5 flex items-center gap-1.5 text-[11px]">
+            <LazySeal domain={sectionDomain(preview.d)} size={16} />
+            {domainName(preview.d)}
+          </span>
+          <span className="text-fg-primary font-display mb-1 block text-[14px] leading-snug font-semibold">
+            {preview.t}
           </span>
           {preview.e ? (
             <span className="text-fg-secondary block text-[12px] leading-relaxed">{preview.e}</span>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { spaceGrotesk, plexMono } from "./fonts";
-import { SubjectHeader } from "@/components/SubjectHeader";
+import { DomainHeader } from "@/components/chrome/DomainHeader";
 import "./globals.css";
 // KaTeX stylesheet: articles in this domain render math via MarkdownRenderer
 // (server-side renderToString), which needs these styles + fonts to display properly.
@@ -26,7 +26,7 @@ export default function EconomicsLayout({ children }: { children: React.ReactNod
 
   return (
     <div className={`economics-root ${fontVars}`}>
-      <SubjectHeader subject="economics" />
+      <DomainHeader subject="economics" />
 
       <main>{children}</main>
 

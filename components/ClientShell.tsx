@@ -1,8 +1,9 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { GlobalSearch } from "./GlobalSearch";
+import { SearchLauncher } from "./SearchLauncher";
 import { NavigationProgress } from "./NavigationProgress";
+import { RevealObserver } from "./motion/RevealObserver";
 
 const ScrollToTop = dynamic(() => import("./ScrollToTop").then((m) => m.ScrollToTop), {
   ssr: false,
@@ -19,7 +20,8 @@ export function ClientShell() {
   return (
     <>
       <NavigationProgress />
-      <GlobalSearch />
+      <RevealObserver />
+      <SearchLauncher />
       <ScrollToTop />
       <ReadingPathBar />
       <NarrationPlayer />

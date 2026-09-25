@@ -2,6 +2,10 @@ import { extractH2Headings } from "@/lib/markdown-heading";
 
 const APPARATUS = new Set(["参考文献", "延伸阅读", "跨域连接"]);
 
+// Scope notices ("本篇……不构成法律建议") often close the 破除误解 section; they
+// are true but they are not the insight, and the body already shows them once.
+export const DISCLAIMER = /不构成[^。！？]*(建议|意见)|仅供(学习|参考)|免责声明/;
+
 function stripMd(text: string): string {
   return text
     .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
@@ -48,12 +52,15 @@ function pickInsightSentence(section: string): string | null {
     .filter((p) => p.length >= 24 && !p.startsWith("|") && !p.startsWith("-"));
   if (paras.length === 0) return null;
 
-  const candidates = [...paras].reverse().flatMap((p) => sentences(p).reverse());
+  const candidates = [...paras]
+    .reverse()
+    .flatMap((p) => sentences(p).reverse())
+    .filter((s) => !DISCLAIMER.test(s));
   for (const s of candidates) {
     if (s.length >= 24 && s.length <= 110) return s;
   }
   const first = sentences(paras[0]!)[0];
-  if (first && first.length >= 24 && first.length <= 140) return first;
+  if (first && !DISCLAIMER.test(first) && first.length >= 24 && first.length <= 140) return first;
   return null;
 }
 

@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { openContinuumTab } from "./continuum-tabs";
 import { COVERAGE_DOMAIN_COUNT } from "@/lib/knowledge-continuum-coverage-meta";
 import { buildKnowledgeFrontierView } from "@/lib/knowledge-frontier-catalog";
 import { buildCatalogKnowledgeGapPlan } from "@/lib/knowledge-gap-plan-catalog";
@@ -31,6 +32,7 @@ async function revealFrontierLab(page: Page) {
     timeout: 15_000,
   });
 
+  await openContinuumTab(page, /可达前沿/);
   const lab = continuum.getByTestId("knowledge-frontier-lab");
   await lab.evaluate((element) => element.scrollIntoView({ block: "center" }));
   await expect(lab.getByRole("heading", { name: "用你真正掌握的知识，计算下一步" })).toBeVisible();

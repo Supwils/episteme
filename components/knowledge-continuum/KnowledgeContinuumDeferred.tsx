@@ -1,7 +1,8 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect } from "react";
+import { useEffect, useId, useRef, useState, type KeyboardEvent } from "react";
+import { hasLearningRouteUrlState } from "@/lib/learning-route-url";
 import type {
   KnowledgeConfluenceCatalogPayload,
   KnowledgeCoveragePayload,
@@ -64,15 +65,100 @@ const CoverageModule = dynamic(
   { ssr: false, loading: DeferredModuleLoading }
 );
 
+const TABS = [
+  { id: "spine", label: "主干地图", Panel: DeferredSpineAtlas },
+  { id: "planner", label: "地形与路线", Panel: DeferredLearningPlanner },
+  { id: "frontier", label: "可达前沿", Panel: FrontierModule },
+  { id: "confluence", label: "多学科汇流", Panel: DeferredConfluenceExplorer },
+  { id: "coverage", label: "策展覆盖", Panel: DeferredCoveragePanel },
+] as const;
+
+type TabId = (typeof TABS)[number]["id"];
+
+/** Shared links (a confluence, a learning route) open on the tab that reads them. */
+function tabFromUrl(): TabId | null {
+  const params = new URLSearchParams(window.location.search);
+  if (params.has("confluence")) return "confluence";
+  if (hasLearningRouteUrlState(params)) return "planner";
+  return null;
+}
+
+/**
+ * 五个深层模块收成一组页签（E4）：一次只挂一个，挂过的留着（隐藏）免得重取；
+ * 各模块仍在进入视口后才取数据。键盘按 WAI-ARIA 页签模式：左右键切换。
+ */
 export function KnowledgeContinuumDeferred() {
+  const [active, setActive] = useState<TabId>("spine");
+  const [visited, setVisited] = useState<ReadonlySet<TabId>>(() => new Set(["spine"]));
+  const tabRefs = useRef(new Map<TabId, HTMLButtonElement>());
+  const baseId = useId();
+
+  function open(id: TabId) {
+    setActive(id);
+    setVisited((current) => (current.has(id) ? current : new Set([...current, id])));
+  }
+
+  useEffect(() => {
+    const requested = tabFromUrl();
+    if (requested) open(requested);
+  }, []);
+
+  function onKeyDown(event: KeyboardEvent<HTMLButtonElement>) {
+    const index = TABS.findIndex((tab) => tab.id === active);
+    const offset = event.key === "ArrowRight" ? 1 : event.key === "ArrowLeft" ? -1 : 0;
+    const target =
+      offset !== 0
+        ? TABS[(index + offset + TABS.length) % TABS.length]
+        : event.key === "Home"
+          ? TABS[0]
+          : event.key === "End"
+            ? TABS.at(-1)
+            : undefined;
+    if (!target) return;
+    event.preventDefault();
+    open(target.id);
+    tabRefs.current.get(target.id)?.focus();
+  }
+
   return (
-    <>
-      <DeferredSpineAtlas />
-      <DeferredLearningPlanner />
-      <FrontierModule />
-      <DeferredConfluenceExplorer />
-      <DeferredCoveragePanel />
-    </>
+    <div className="continuum-tabs">
+      <div className="continuum-tabs__list" role="tablist" aria-label="知识连续体工具">
+        {TABS.map((tab, i) => (
+          <button
+            key={tab.id}
+            ref={(node) => {
+              if (node) tabRefs.current.set(tab.id, node);
+            }}
+            type="button"
+            role="tab"
+            id={`${baseId}-tab-${tab.id}`}
+            aria-selected={tab.id === active}
+            aria-controls={`${baseId}-panel-${tab.id}`}
+            tabIndex={tab.id === active ? 0 : -1}
+            onClick={() => open(tab.id)}
+            onKeyDown={onKeyDown}
+            className="continuum-tabs__tab"
+          >
+            <span className="continuum-tabs__index">0{i + 1}</span>
+            {tab.label}
+          </button>
+        ))}
+      </div>
+      {TABS.map(({ id, Panel }) =>
+        visited.has(id) ? (
+          <div
+            key={id}
+            role="tabpanel"
+            id={`${baseId}-panel-${id}`}
+            aria-labelledby={`${baseId}-tab-${id}`}
+            hidden={id !== active}
+            className="continuum-tabs__panel"
+          >
+            <Panel />
+          </div>
+        ) : null
+      )}
+    </div>
   );
 }
 

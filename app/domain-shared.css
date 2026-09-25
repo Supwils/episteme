@@ -6,24 +6,24 @@
 
 @theme {
   /* ── Surface hierarchy — Observatory (dark, default) ──────────────── */
-  --color-bg-deep: #08080d;
-  --color-bg-base: #0e0f14;
-  --color-bg-near: #0e0f14;
-  --color-bg-panel: #14151c; /* opaque so menus/headers never bleed */
-  --color-bg-elevated: #14151c;
-  --color-bg-floating: #1c1c26;
-  --color-bg-overlay: rgba(8, 8, 13, 0.85);
-  --color-scrim: rgba(4, 4, 8, 0.6);
+  --color-bg-deep: #0a0f18;
+  --color-bg-base: #0f1622;
+  --color-bg-near: #0f1622;
+  --color-bg-panel: #172131; /* opaque so menus/headers never bleed */
+  --color-bg-elevated: #172131;
+  --color-bg-floating: #1e2a3d;
+  --color-bg-overlay: rgba(10, 15, 24, 0.85);
+  --color-scrim: rgba(5, 8, 14, 0.6);
 
   /* ── Foregrounds ──────────────────────────────────────────────────── */
-  --color-fg-primary: #e6e3da;
-  --color-fg-secondary: #a8a499;
-  --color-fg-muted: #8c887d;
-  --color-fg-disabled: #8a8693;
-  --color-fg-inverse: #08080d;
+  --color-fg-primary: #e8dfc9;
+  --color-fg-secondary: #b3ab98;
+  --color-fg-muted: #9a9483;
+  --color-fg-disabled: #97917f;
+  --color-fg-inverse: #0a0f18;
 
   /* ── Accents (single-accent system; per-domain overrides --accent) ── */
-  --color-accent-gold: #d9a441;
+  --color-accent-gold: #c39a45;
   --color-accent-sage: #8aa37b;
   --color-accent-cool: #6a9ec0;
   --color-accent-indigo: #6a6fd0;
@@ -110,11 +110,11 @@
   --color-bg-floating: #ffffff;
   --color-bg-overlay: rgba(245, 242, 235, 0.86);
   --color-scrim: rgba(44, 40, 32, 0.32);
-  --color-fg-primary: #2c2a26;
-  --color-fg-inverse: #2c2a26;
-  --color-fg-secondary: #4f4b45;
-  --color-fg-muted: #5a564f;
-  --color-fg-disabled: #625e58;
+  --color-fg-primary: #1e2638;
+  --color-fg-inverse: #1e2638;
+  --color-fg-secondary: #454b58;
+  --color-fg-muted: #51565f;
+  --color-fg-disabled: #5a5f6b;
   --color-border-faint: #eee6d9;
   --color-border-subtle: #e8dfd0;
   --color-border-strong: #d8d0c0;
@@ -161,9 +161,9 @@
    stay readable. Immersive roots (physics / cosmology / life-science) set
    their own tokens on the scoped root and keep Observatory. */
 html.light {
-  --color-fg-primary: #2c2a26;
-  --color-fg-secondary: #4f4b45;
-  --color-fg-muted: #5a564f;
-  --color-fg-disabled: #625e58;
-  --color-fg-inverse: #2c2a26;
+  --color-fg-primary: #1e2638;
+  --color-fg-secondary: #454b58;
+  --color-fg-muted: #51565f;
+  --color-fg-disabled: #5a5f6b;
+  --color-fg-inverse: #1e2638;
 }

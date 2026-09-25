@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { spaceGrotesk, plexMono } from "./fonts";
-import { SubjectHeader } from "@/components/SubjectHeader";
+import { DomainHeader } from "@/components/chrome/DomainHeader";
 import { PageTransition } from "@/components/PageTransition";
 import "./globals.css";
 
@@ -24,7 +24,7 @@ export default function LifeScienceLayout({ children }: { children: React.ReactN
 
   return (
     <div className={`life-science-root ${fontVars}`}>
-      <SubjectHeader subject="life-science" />
+      <DomainHeader subject="life-science" />
 
       <main>
         <PageTransition>{children}</PageTransition>

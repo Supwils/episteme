@@ -16,6 +16,7 @@ import { getAllTimelineEvents } from "@/subjects/life-science/lib/timeline-event
 import { getAllDomains as getLifeTreeDomains } from "@/subjects/life-science/lib/tree-data";
 import { KNOWLEDGE_DOMAINS } from "@/lib/new-domains";
 import { ERAS } from "@/content/human-history/data/eras.js";
+import { CURATED_KNOWLEDGE_CONFLUENCES } from "@/subjects/knowledge-graph/data/curated-confluences";
 import { EVENT_CATALOG } from "@/content/human-history/data/generated/event-catalog.js";
 import { FIGURE_CATALOG } from "@/content/human-history/data/generated/figure-catalog.js";
 
@@ -227,6 +228,11 @@ export function buildValidRoutes(): Set<string> {
     valid.add(`/human-history/knowledge/${slug.replace(/\//g, "--")}`);
   }
   for (const d of DOMAINS) valid.add(`/${d}`);
+
+  add(
+    "/knowledge-confluence",
+    CURATED_KNOWLEDGE_CONFLUENCES.map((confluence) => confluence.id)
+  );
 
   return valid;
 }

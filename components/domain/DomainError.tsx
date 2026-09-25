@@ -1,9 +1,11 @@
 "use client";
 
+import { CalibratingDial } from "@/components/chrome/Calibrating";
+import "@/components/chrome/states.css";
+
 /**
- * Token-based error fallback. Dual-theme surfaces (root, custom domains,
- * engine domains) should use this instead of hardcoded white/indigo. Labels
- * are passed per surface so the retry/home actions stay in context.
+ * 出错（T-DESIGN-03g）：刻度盘的指针停在偏离处。不显示原始错误信息，只说清
+ * 发生了什么、该做什么：先重试，不行再回到当前领域首页。
  */
 export function DomainError({
   homeHref,
@@ -15,23 +17,18 @@ export function DomainError({
   reset: () => void;
 }) {
   return (
-    <div className="flex min-h-[60vh] flex-col items-center justify-center gap-6 px-6 text-center">
-      <h2 className="text-fg-primary text-xl font-semibold">出了点问题</h2>
-      <p className="text-fg-secondary text-sm">
-        页面加载时遇到错误，你可以重试或返回{homeLabel}首页。
+    <div className="state-view" role="alert">
+      <CalibratingDial sweep={false} needle={52} />
+      <h2 className="state-view__title">出了点问题</h2>
+      <p className="state-view__body">
+        这一页没能加载出来，多半是网络中断或服务暂时出错。重试一次通常就好；还不行的话，先回到
+        {homeLabel}。
       </p>
-      <div className="flex gap-4">
-        <button
-          type="button"
-          onClick={reset}
-          className="border-accent-gold/40 text-accent-gold hover:bg-accent-gold/10 rounded border px-4 py-2 text-sm transition-colors"
-        >
+      <div className="state-view__actions">
+        <button type="button" onClick={reset} className="state-view__action" data-primary>
           重试
         </button>
-        <a
-          href={homeHref}
-          className="border-border-subtle text-fg-secondary hover:text-fg-primary rounded border px-4 py-2 text-sm transition-colors"
-        >
+        <a href={homeHref} className="state-view__action">
           返回{homeLabel}
         </a>
       </div>

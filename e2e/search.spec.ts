@@ -98,6 +98,10 @@ test("empty results offer curated exits instead of a dead end", async ({ page })
     "href",
     "/curiosities"
   );
+  await expect(empty.getByRole("link", { name: "跨学科巧合" })).toHaveAttribute(
+    "href",
+    "/curiosities?filter=cross-domain"
+  );
   await expect(empty.getByRole("link", { name: "随机一篇" })).toHaveAttribute("href", "/random");
 });
 

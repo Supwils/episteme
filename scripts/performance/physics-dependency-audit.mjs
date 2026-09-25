@@ -4,7 +4,7 @@ import path from "node:path";
 
 const root = process.cwd();
 const route = "/universe-physics/universe/earth/page";
-const buildDir = path.join(root, ".next");
+const buildDir = path.join(root, process.env.NEXT_DIST_DIR || ".next");
 const routeDir = path.join(buildDir, "server/app/universe-physics/universe/earth/page");
 
 const INITIAL_JS_BUDGET = 180 * 1024;

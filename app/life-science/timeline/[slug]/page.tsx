@@ -10,18 +10,11 @@ import { DeepReading } from "@/subjects/life-science/components/DeepReading";
 import { getEventDetailForTimeline } from "@/subjects/life-science/lib/event-detail";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { TableOfContents } from "@/components/TableOfContents";
-import { ArticleSidebar } from "@/components/ArticleSidebar";
-import { ReadingModeControls } from "@/components/ReadingModeControls";
-import { ReadingProgressBar } from "@/components/ReadingProgressBar";
 import { SITE_URL } from "@/lib/constants";
 import { serializeJsonLd, createArticleJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
-import {
-  ARTICLE_BODY_ROW_CLASS,
-  ARTICLE_HEADER_CLASS,
-  ARTICLE_SURFACE_CLASS,
-} from "@/components/ArticleLayout";
+import { ArticleLayout } from "@/components/ArticleLayout";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -83,187 +76,18 @@ export default async function TimelineEventDetailPage({ params }: Props) {
   });
 
   return (
-    <div className="mx-auto w-full max-w-[1800px] px-6 py-12 sm:px-10 lg:px-16">
-      <ReadingProgressBar />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
-      />
-      <div className={ARTICLE_BODY_ROW_CLASS}>
-        <article className={ARTICLE_SURFACE_CLASS}>
-          <header className={ARTICLE_HEADER_CLASS}>
-            <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
-              <p className="text-fg-muted font-mono text-[10px] tracking-[0.42em] uppercase">
-                life-science / timeline
-              </p>
-              <ReadingModeControls />
-            </div>
-            <div className="mb-4 flex flex-wrap items-center gap-2.5">
-              <span
-                className="rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.2em] uppercase"
-                style={{
-                  borderColor: `${event.accent}30`,
-                  color: event.accent,
-                  backgroundColor: `${event.accent}10`,
-                }}
-              >
-                {event.era}
-              </span>
-              <span className="border-fg-disabled/20 text-fg-muted rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.16em]">
-                {CATEGORY_LABEL[event.category] ?? event.category}
-              </span>
-            </div>
-            <h1 className="font-display text-fg-primary text-[2.4rem] leading-tight tracking-tight md:text-[3.2rem]">
-              {event.event}
-            </h1>
-            <p className="text-fg-secondary mt-4 max-w-2xl text-base leading-relaxed">
-              {event.detail}
-            </p>
-          </header>
-
-          <section className="mb-12">
-            <h2
-              className="font-display text-fg-primary mb-4 text-xl font-semibold"
-              id="significance"
-            >
-              科学意义
-            </h2>
-            <p className="text-fg-secondary leading-relaxed">{event.significance}</p>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="font-display text-fg-primary mb-4 text-xl font-semibold" id="context">
-              历史脉络
-            </h2>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-              <div
-                className="border-border-faint bg-bg-near border p-6"
-                style={{ borderLeftColor: "var(--color-fg-muted)", borderLeftWidth: "3px" }}
-              >
-                <h3
-                  className="font-display mb-3 text-sm font-semibold"
-                  style={{ color: "var(--color-fg-muted)" }}
-                >
-                  之前
-                </h3>
-                <p className="text-fg-secondary text-sm leading-relaxed">{event.context.before}</p>
-              </div>
-              <div
-                className="border-border-faint bg-bg-near border p-6"
-                style={{ borderLeftColor: event.accent, borderLeftWidth: "3px" }}
-              >
-                <h3
-                  className="font-display mb-3 text-sm font-semibold"
-                  style={{ color: event.accent }}
-                >
-                  之后
-                </h3>
-                <p className="text-fg-secondary text-sm leading-relaxed">{event.context.after}</p>
-              </div>
-            </div>
-          </section>
-
-          {event.keyFigures.length > 0 && (
-            <section className="mb-12">
-              <h2
-                className="font-display text-fg-primary mb-4 text-xl font-semibold"
-                id="key-figures"
-              >
-                关键人物
-              </h2>
-              <div className="flex flex-wrap gap-2">
-                {event.keyFigures.map((figure) => (
-                  <span
-                    key={figure}
-                    className="rounded-full border px-3 py-1.5 font-mono text-[11px] tracking-[0.08em]"
-                    style={{
-                      borderColor: `${event.accent}25`,
-                      color: `${event.accent}cc`,
-                      backgroundColor: `${event.accent}08`,
-                    }}
-                  >
-                    {figure}
-                  </span>
-                ))}
-              </div>
-            </section>
-          )}
-
-          {event.openQuestions.length > 0 && (
-            <section className="mb-12">
-              <h2
-                className="font-display text-fg-primary mb-4 text-xl font-semibold"
-                id="open-questions"
-              >
-                未解之谜
-              </h2>
-              <ul className="space-y-3">
-                {event.openQuestions.map((q, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span
-                      className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
-                      style={{ backgroundColor: event.accent }}
-                    />
-                    <span className="text-fg-secondary text-sm leading-relaxed">{q}</span>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )}
-
-          {eventDetail && (
-            <section className="mb-12">
-              <h2
-                className="font-display text-fg-primary mb-4 text-xl font-semibold"
-                id="deep-dive"
-              >
-                深入详解：{eventDetail.title}
-              </h2>
-              <MarkdownRenderer
-                domain="life-science"
-                content={eventDetail.body}
-                accentColor={event.accent}
-              />
-            </section>
-          )}
-
-          <DeepReading {...event.deepReading} />
-
-          <SafeRender>
-            <RelatedContent slug={slug} domain="life-science" entityId={slug} />
-          </SafeRender>
-
-          <div className="border-border-faint mt-16 flex items-center justify-between gap-4 border-t pt-8">
-            {prev ? (
-              <Link
-                href={`/life-science/timeline/${prev.id}`}
-                className="group flex items-center gap-2 text-sm transition-colors"
-              >
-                <span className="text-fg-muted group-hover:text-fg-secondary">←</span>
-                <span className="text-fg-secondary group-hover:text-accent-green transition-colors">
-                  {prev.event}
-                </span>
-              </Link>
-            ) : (
-              <span />
-            )}
-            {next ? (
-              <Link
-                href={`/life-science/timeline/${next.id}`}
-                className="group flex items-center gap-2 text-sm transition-colors"
-              >
-                <span className="text-fg-secondary group-hover:text-accent-green transition-colors">
-                  {next.event}
-                </span>
-                <span className="text-fg-muted group-hover:text-fg-secondary">→</span>
-              </Link>
-            ) : (
-              <span />
-            )}
-          </div>
-        </article>
-
-        <ArticleSidebar contentClassName="space-y-6">
+    <ArticleLayout
+      backHref="/life-science/timeline"
+      url={`/life-science/timeline/${slug}`}
+      backLabel="← 返回进化时间线"
+      accent={event.accent}
+      eyebrow={event.era}
+      eyebrowMeta={[CATEGORY_LABEL[event.category] ?? event.category]}
+      title={event.event}
+      content={eventDetail?.body ?? ""}
+      lede={event.detail}
+      sidebar={
+        <>
           <TableOfContents accentColor="#4a9e6f" />
           {related.length > 0 && (
             <div className="border-border-faint bg-bg-near border p-5">
@@ -321,8 +145,147 @@ export default async function TimelineEventDetailPage({ params }: Props) {
               ))}
             </ul>
           </div>
-        </ArticleSidebar>
+        </>
+      }
+      sidebarClassName="space-y-6"
+      prev={prev && { href: `/life-science/timeline/${prev.id}`, title: prev.event }}
+      next={next && { href: `/life-science/timeline/${next.id}`, title: next.event }}
+      prevLabel="上一个节点"
+      nextLabel="下一个节点"
+    >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
+      />
+
+      <section className="mb-12">
+        <h2 className="font-display text-fg-primary mb-4 text-xl font-semibold" id="significance">
+          科学意义
+        </h2>
+        <p className="text-fg-secondary leading-relaxed">{event.significance}</p>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="font-display text-fg-primary mb-4 text-xl font-semibold" id="context">
+          历史脉络
+        </h2>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div
+            className="border-border-faint bg-bg-near border p-6"
+            style={{ borderLeftColor: "var(--color-fg-muted)", borderLeftWidth: "3px" }}
+          >
+            <h3
+              className="font-display mb-3 text-sm font-semibold"
+              style={{ color: "var(--color-fg-muted)" }}
+            >
+              之前
+            </h3>
+            <p className="text-fg-secondary text-sm leading-relaxed">{event.context.before}</p>
+          </div>
+          <div
+            className="border-border-faint bg-bg-near border p-6"
+            style={{ borderLeftColor: event.accent, borderLeftWidth: "3px" }}
+          >
+            <h3 className="font-display mb-3 text-sm font-semibold" style={{ color: event.accent }}>
+              之后
+            </h3>
+            <p className="text-fg-secondary text-sm leading-relaxed">{event.context.after}</p>
+          </div>
+        </div>
+      </section>
+
+      {event.keyFigures.length > 0 && (
+        <section className="mb-12">
+          <h2 className="font-display text-fg-primary mb-4 text-xl font-semibold" id="key-figures">
+            关键人物
+          </h2>
+          <div className="flex flex-wrap gap-2">
+            {event.keyFigures.map((figure) => (
+              <span
+                key={figure}
+                className="rounded-full border px-3 py-1.5 font-mono text-[11px] tracking-[0.08em]"
+                style={{
+                  borderColor: `${event.accent}25`,
+                  color: `${event.accent}cc`,
+                  backgroundColor: `${event.accent}08`,
+                }}
+              >
+                {figure}
+              </span>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {event.openQuestions.length > 0 && (
+        <section className="mb-12">
+          <h2
+            className="font-display text-fg-primary mb-4 text-xl font-semibold"
+            id="open-questions"
+          >
+            未解之谜
+          </h2>
+          <ul className="space-y-3">
+            {event.openQuestions.map((q, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <span
+                  className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
+                  style={{ backgroundColor: event.accent }}
+                />
+                <span className="text-fg-secondary text-sm leading-relaxed">{q}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {eventDetail && (
+        <section className="mb-12">
+          <h2 className="font-display text-fg-primary mb-4 text-xl font-semibold" id="deep-dive">
+            深入详解：{eventDetail.title}
+          </h2>
+          <MarkdownRenderer
+            domain="life-science"
+            content={eventDetail.body}
+            accentColor={event.accent}
+          />
+        </section>
+      )}
+
+      <DeepReading {...event.deepReading} />
+
+      <SafeRender>
+        <RelatedContent slug={slug} domain="life-science" entityId={slug} />
+      </SafeRender>
+
+      <div className="border-border-faint mt-16 flex items-center justify-between gap-4 border-t pt-8">
+        {prev ? (
+          <Link
+            href={`/life-science/timeline/${prev.id}`}
+            className="group flex items-center gap-2 text-sm transition-colors"
+          >
+            <span className="text-fg-muted group-hover:text-fg-secondary">←</span>
+            <span className="text-fg-secondary group-hover:text-accent-green transition-colors">
+              {prev.event}
+            </span>
+          </Link>
+        ) : (
+          <span />
+        )}
+        {next ? (
+          <Link
+            href={`/life-science/timeline/${next.id}`}
+            className="group flex items-center gap-2 text-sm transition-colors"
+          >
+            <span className="text-fg-secondary group-hover:text-accent-green transition-colors">
+              {next.event}
+            </span>
+            <span className="text-fg-muted group-hover:text-fg-secondary">→</span>
+          </Link>
+        ) : (
+          <span />
+        )}
       </div>
-    </div>
+    </ArticleLayout>
   );
 }

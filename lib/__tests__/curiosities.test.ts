@@ -1,7 +1,87 @@
 import { describe, expect, it } from "vitest";
 import { buildValidRoutes } from "@/scripts/valid-routes";
 import { indexCuriosities } from "@/lib/search-index/curiosities-index";
-import { curiosityArticleHref, curiosityFollowLabel, getAllCuriosities } from "@/lib/curiosities";
+import {
+  CROSS_DOMAIN_TAG,
+  CURIOSITY_SUBJECTS,
+  COINCIDENCE_WALL_HREF,
+  coincidenceFollowHref,
+  curiosityArticleHref,
+  curiosityFollowLabel,
+  curiosityTeaser,
+  getAllCuriosities,
+  getSpotlightCoincidence,
+  isCrossDomainCuriosity,
+} from "@/lib/curiosities";
+
+describe("curiosity registry", () => {
+  it("registers all twenty-two launched subjects", () => {
+    expect(Object.keys(CURIOSITY_SUBJECTS)).toHaveLength(22);
+  });
+
+  it("keeps coincidence cards tagged and mixed into the wall pool", () => {
+    const coincidences = getAllCuriosities().filter(isCrossDomainCuriosity);
+    expect(coincidences.length).toBeGreaterThanOrEqual(40);
+    expect(coincidences.every((item) => item.tags?.includes(CROSS_DOMAIN_TAG))).toBe(true);
+    const subjects = new Set(coincidences.map((item) => item.subject));
+    expect(subjects.size).toBeGreaterThanOrEqual(10);
+  });
+
+  it("keeps curiosity ids unique within a subject", () => {
+    const seen = new Set<string>();
+    const dupes: string[] = [];
+    for (const item of getAllCuriosities()) {
+      const key = `${item.subject}:${item.id}`;
+      if (seen.has(key)) dupes.push(key);
+      seen.add(key);
+    }
+    expect(dupes).toEqual([]);
+  });
+
+  it("gives every new domain at least sixteen cards", () => {
+    const all = getAllCuriosities();
+    for (const subject of [
+      "chemistry",
+      "medicine",
+      "earth-science",
+      "engineering",
+      "linguistics",
+      "sociology",
+      "law",
+      "arts",
+      "literature",
+      "religion",
+      "anthropology",
+      "education",
+    ] as const) {
+      expect(all.filter((item) => item.subject === subject).length, subject).toBeGreaterThanOrEqual(
+        16
+      );
+    }
+  });
+
+  it("requires a source on every new-domain and coincidence card", () => {
+    const newDomains = new Set([
+      "chemistry",
+      "medicine",
+      "earth-science",
+      "engineering",
+      "linguistics",
+      "sociology",
+      "law",
+      "arts",
+      "literature",
+      "religion",
+      "anthropology",
+      "education",
+    ]);
+    const missing = getAllCuriosities()
+      .filter((item) => newDomains.has(item.subject) || isCrossDomainCuriosity(item))
+      .filter((item) => !item.source?.trim())
+      .map((item) => `${item.subject}:${item.id}`);
+    expect(missing).toEqual([]);
+  });
+});
 
 describe("curiosityArticleHref", () => {
   it("rejects domain homes and section lists", () => {
@@ -44,6 +124,20 @@ describe("curiosityArticleHref", () => {
     expect(curiosityArticleHref("/human-history/figures/马丁·路德·金")).toBe(
       "/human-history/figures/马丁·路德·金"
     );
+  });
+});
+
+describe("coincidence spotlight", () => {
+  it("picks a tagged coincidence and falls back to the wall filter", () => {
+    const item = getSpotlightCoincidence(20260115);
+    expect(isCrossDomainCuriosity(item)).toBe(true);
+    expect(getSpotlightCoincidence(20260115).id).toBe(item.id);
+    expect(coincidenceFollowHref(undefined)).toBe(COINCIDENCE_WALL_HREF);
+    expect(coincidenceFollowHref("/psychology")).toBe(COINCIDENCE_WALL_HREF);
+    expect(coincidenceFollowHref("/chemistry/concepts/chirality")).toBe(
+      "/chemistry/concepts/chirality"
+    );
+    expect(curiosityTeaser("第一句。第二句还很长。")).toBe("第一句。");
   });
 });
 

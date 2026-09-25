@@ -8,7 +8,7 @@ const DIALOGUES_DIR = path.join(getDomainContentDir("philosophy"), "dialogues");
 const dialogueBySlugCache = new Map<string, Dialogue | null>();
 let cachedDialogues: Dialogue[] | null = null;
 
-const ERA_ORDER: Record<string, number> = { 古代: 0, 近代: 1, 现代: 2, 当代: 3 };
+const ERA_ORDER: Record<string, number> = { 古代: 0, 中世纪: 1, 近代: 2, 现代: 3, 当代: 4 };
 
 function toDialogue(data: Record<string, unknown>, content: string, slug: string): Dialogue {
   return {

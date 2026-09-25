@@ -1,26 +1,14 @@
 import { notFound } from "next/navigation";
 import { withCanonicalPath } from "@/lib/article-canonical";
-import Link from "next/link";
 import { getMathDialogueBySlug, getAllMathDialogues } from "@/subjects/mathematics/lib/dialogues";
-import {
-  MATH_FIELD_COLORS,
-  MATH_ERA_ACCENT,
-  mathBadgeColor,
-} from "@/subjects/mathematics/lib/constants";
+import { MATH_FIELD_COLORS } from "@/subjects/mathematics/lib/constants";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { SITE_URL } from "@/lib/constants";
 import { serializeJsonLd, createArticleJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
-import { ArticleSidebar } from "@/components/ArticleSidebar";
 import { TableOfContents } from "@/components/TableOfContents";
-import { ReadingModeControls } from "@/components/ReadingModeControls";
-import { ReadingProgressBar } from "@/components/ReadingProgressBar";
-import {
-  ARTICLE_BODY_ROW_CLASS,
-  ARTICLE_HEADER_CLASS,
-  ARTICLE_SURFACE_CLASS,
-} from "@/components/ArticleLayout";
+import { ArticleLayout } from "@/components/ArticleLayout";
 
 export function generateStaticParams() {
   // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
@@ -61,9 +49,6 @@ export default async function MathDialogueDetailPage({
     (currentIndex < allDialogues.length - 1 ? allDialogues[currentIndex + 1] : null) ?? null;
 
   const fieldColor = MATH_FIELD_COLORS[dialogue.field] || "#6366f1";
-  const eraColor = MATH_ERA_ACCENT[dialogue.era] || "#6366f1";
-  const wordCount = dialogue.content.length;
-  const readMinutes = Math.max(1, Math.ceil(wordCount / 400));
 
   const jsonLd = createArticleJsonLd({
     title: `${dialogue.title}（${dialogue.title_en}）`,
@@ -80,142 +65,57 @@ export default async function MathDialogueDetailPage({
   });
 
   return (
-    <div className="mx-auto w-full max-w-[1800px] px-6 py-12 sm:px-10 lg:px-16">
+    <ArticleLayout
+      backHref="/mathematics/dialogues"
+      url={`/mathematics/dialogues/${slug}`}
+      backLabel="← 返回数学对话"
+      accent={fieldColor}
+      eyebrow={dialogue.field}
+      eyebrowMeta={[dialogue.era]}
+      title={dialogue.title}
+      titleEn={dialogue.title_en}
+      content={dialogue.content}
+      meta={<>对话者：{dialogue.participants.join("、")}</>}
+      tags={dialogue.tags}
+      sidebar={
+        <>
+          <TableOfContents accentColor={fieldColor} />
+        </>
+      }
+      prev={
+        prevDialogue && {
+          href: `/mathematics/dialogues/${prevDialogue.slug}`,
+          title: prevDialogue.title,
+        }
+      }
+      next={
+        nextDialogue && {
+          href: `/mathematics/dialogues/${nextDialogue.slug}`,
+          title: nextDialogue.title,
+        }
+      }
+      prevLabel="上一篇"
+      nextLabel="下一篇"
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
-      <ReadingProgressBar />
-      <Link
-        href="/mathematics/dialogues"
-        className="text-fg-muted hover:text-accent-indigo mb-6 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] uppercase transition-colors"
-      >
-        ← 返回数学对话
-      </Link>
+      {dialogue.content ? (
+        <MarkdownRenderer
+          content={dialogue.content}
+          accentColor={fieldColor}
+          domain="mathematics"
+        />
+      ) : (
+        <div className="border-border-faint bg-bg-panel border p-8 text-center">
+          <p className="text-fg-muted text-sm">详细内容正在编写中。</p>
+        </div>
+      )}
 
-      <div className={ARTICLE_BODY_ROW_CLASS}>
-        <article className={ARTICLE_SURFACE_CLASS}>
-          <header className={`${ARTICLE_HEADER_CLASS} backdrop-blur-md`}>
-            <div
-              className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full opacity-10 blur-3xl"
-              style={{ backgroundColor: fieldColor }}
-            />
-            <div
-              className="pointer-events-none absolute -bottom-12 -left-12 h-32 w-32 rounded-full opacity-5 blur-2xl"
-              style={{ backgroundColor: eraColor }}
-            />
-
-            <div className="relative">
-              <div className="mb-3 flex flex-wrap items-center gap-3">
-                <span
-                  className="border px-2.5 py-1 font-mono text-[10px] tracking-[0.32em] uppercase"
-                  style={{ borderColor: `${fieldColor}50`, color: mathBadgeColor(fieldColor) }}
-                >
-                  {dialogue.field}
-                </span>
-                <span
-                  className="rounded-full border px-2.5 py-1 font-mono text-[10px] tracking-[0.2em]"
-                  style={{ borderColor: `${eraColor}30`, color: mathBadgeColor(eraColor) }}
-                >
-                  {dialogue.era}
-                </span>
-                <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">
-                  约 {readMinutes} 分钟阅读
-                </span>
-                <span className="ml-auto">
-                  <ReadingModeControls />
-                </span>
-              </div>
-
-              <h1 className="font-display text-fg-primary mb-2 text-[2rem] leading-tight font-semibold tracking-tight md:text-[2.8rem]">
-                {dialogue.title}
-              </h1>
-              <p className="text-fg-muted font-display text-lg tracking-wide italic">
-                {dialogue.title_en}
-              </p>
-
-              <div className="mt-4">
-                <p className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.22em] uppercase">
-                  对话者
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {dialogue.participants.map((p) => (
-                    <span
-                      key={p}
-                      className="border-fg-disabled/20 text-fg-secondary rounded-full border px-3 py-1 font-mono text-[11px] tracking-[0.12em]"
-                    >
-                      {p}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-5 flex flex-wrap gap-2">
-                {dialogue.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="border-fg-disabled/30 text-fg-secondary hover:border-accent-indigo/30 hover:text-accent-indigo border px-2.5 py-1 font-mono text-[10px] tracking-[0.22em] transition-colors"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </header>
-          {dialogue.content ? (
-            <MarkdownRenderer
-              content={dialogue.content}
-              accentColor={fieldColor}
-              domain="mathematics"
-            />
-          ) : (
-            <div className="border-border-faint bg-bg-panel border p-8 text-center">
-              <p className="text-fg-muted text-sm">详细内容正在编写中。</p>
-            </div>
-          )}
-
-          <SafeRender>
-            <RelatedContent slug={slug} domain="mathematics" entityId={slug} />
-          </SafeRender>
-        </article>
-
-        <ArticleSidebar>
-          <TableOfContents accentColor={fieldColor} />
-        </ArticleSidebar>
-      </div>
-
-      <nav className="border-border-faint mt-16 flex items-stretch justify-between gap-4 border-t pt-8">
-        {prevDialogue ? (
-          <Link
-            href={`/mathematics/dialogues/${prevDialogue.slug}`}
-            className="group border-border-faint hover:border-fg-disabled/30 hover:bg-bg-panel flex flex-1 flex-col gap-1 border p-4 transition-all duration-300"
-          >
-            <span className="text-fg-disabled font-mono text-[9px] tracking-[0.22em] uppercase">
-              ← 上一篇
-            </span>
-            <span className="font-display text-fg-secondary group-hover:text-accent-indigo text-sm font-medium transition-colors">
-              {prevDialogue.title}
-            </span>
-          </Link>
-        ) : (
-          <div className="flex-1" />
-        )}
-        {nextDialogue ? (
-          <Link
-            href={`/mathematics/dialogues/${nextDialogue.slug}`}
-            className="group border-border-faint hover:border-fg-disabled/30 hover:bg-bg-panel flex flex-1 flex-col items-end gap-1 border p-4 text-right transition-all duration-300"
-          >
-            <span className="text-fg-disabled font-mono text-[9px] tracking-[0.22em] uppercase">
-              下一篇 →
-            </span>
-            <span className="font-display text-fg-secondary group-hover:text-accent-indigo text-sm font-medium transition-colors">
-              {nextDialogue.title}
-            </span>
-          </Link>
-        ) : (
-          <div className="flex-1" />
-        )}
-      </nav>
-    </div>
+      <SafeRender>
+        <RelatedContent slug={slug} domain="mathematics" entityId={slug} />
+      </SafeRender>
+    </ArticleLayout>
   );
 }

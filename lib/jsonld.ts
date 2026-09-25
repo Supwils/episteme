@@ -31,7 +31,7 @@ export function createArticleJsonLd({
   title,
   description,
   url,
-  datePublished = "2025-01-01",
+  datePublished,
   dateModified,
   image,
   author = "Episteme · 格致",
@@ -50,9 +50,10 @@ export function createArticleJsonLd({
       name: "Episteme · 格致",
       url: SITE_URL,
     },
-    datePublished,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
   };
+  // A fabricated default date is worse than none for structured data.
+  if (datePublished) ld.datePublished = datePublished;
   if (dateModified) ld.dateModified = dateModified;
   if (image) ld.image = image;
   if (keywords && keywords.length > 0) ld.keywords = keywords;

@@ -1,6 +1,6 @@
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
-import { gzipSync } from "node:zlib";
+import { brotliCompressSync, gzipSync } from "node:zlib";
 
 function collectManifestFiles(dir) {
   const files = [];
@@ -104,8 +104,42 @@ export function analyzeJsAssetOwnership(nextDir, routeEntries) {
   };
 }
 
-export function getRouteCssBudget(route, budgets) {
-  return route === "/page" ? budgets.portal : budgets.domain;
+function brotliAsset(nextDir, asset) {
+  return brotliCompressSync(readFileSync(join(nextDir, asset))).length;
+}
+
+// A stylesheet referenced by at least this share of pages is the site-wide
+// sheet: fetched on a reader's first page, then cached (immutable) for the rest.
+const SHARED_CSS_PAGE_SHARE = 0.9;
+
+/**
+ * CSS as a reader pays for it: brotli (what the CDN serves), split into the
+ * site-wide sheet and each page's own additions, plus the first-visit total.
+ */
+export function analyzeCssDelivery(nextDir, routeEntries) {
+  const pages = routeEntries.filter((entry) => entry.route.endsWith("/page"));
+  const pageCount = new Map();
+  for (const page of pages) {
+    for (const asset of page.css) pageCount.set(asset, (pageCount.get(asset) ?? 0) + 1);
+  }
+  const brotli = new Map(
+    [...pageCount.keys()].map((asset) => [asset, brotliAsset(nextDir, asset)])
+  );
+  const sum = (assets) => assets.reduce((total, asset) => total + brotli.get(asset), 0);
+  const shared = [...pageCount]
+    .filter(([, count]) => count >= pages.length * SHARED_CSS_PAGE_SHARE)
+    .map(([asset]) => asset)
+    .sort();
+
+  return {
+    shared: shared.map((asset) => ({ asset, brotli: brotli.get(asset) })),
+    sharedBrotli: sum(shared),
+    routes: pages.map((page) => ({
+      route: page.route,
+      incrementalBrotli: sum(page.css.filter((asset) => !shared.includes(asset))),
+      totalBrotli: sum(page.css),
+    })),
+  };
 }
 
 export function findTailwindEntrypoints(appDir) {

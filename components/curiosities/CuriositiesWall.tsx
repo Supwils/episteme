@@ -1,13 +1,16 @@
 "use client";
 
-import { useMemo, useState, useCallback } from "react";
+import { useMemo, useState, useCallback, useEffect } from "react";
 import Link from "next/link";
 import {
   CURIOSITY_SUBJECTS,
   curiosityArticleHref,
+  isCrossDomainCuriosity,
   type CuriosityWithSubject,
   type CuriositySubject,
 } from "@/lib/curiosities";
+
+type WallFilter = CuriositySubject | "all" | "cross-domain";
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -18,14 +21,53 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-export function CuriositiesWall({ items }: { items: CuriosityWithSubject[] }) {
-  const [active, setActive] = useState<CuriositySubject | "all">("all");
+function readFilterFromSearch(): WallFilter | null {
+  if (typeof window === "undefined") return null;
+  return new URLSearchParams(window.location.search).get("filter") === "cross-domain"
+    ? "cross-domain"
+    : null;
+}
+
+function writeFilterToSearch(next: WallFilter) {
+  if (typeof window === "undefined") return;
+  const url = new URL(window.location.href);
+  if (next === "cross-domain") url.searchParams.set("filter", "cross-domain");
+  else url.searchParams.delete("filter");
+  const nextUrl = `${url.pathname}${url.search}${url.hash}`;
+  if (nextUrl !== `${window.location.pathname}${window.location.search}${window.location.hash}`) {
+    window.history.replaceState(null, "", nextUrl);
+  }
+}
+
+export function CuriositiesWall({
+  items,
+  initialFilter = "all",
+}: {
+  items: CuriosityWithSubject[];
+  initialFilter?: WallFilter;
+}) {
+  const [active, setActive] = useState<WallFilter>(initialFilter);
   const [order, setOrder] = useState<string[] | null>(null);
+
+  useEffect(() => {
+    const fromUrl = readFilterFromSearch();
+    if (fromUrl) setActive(fromUrl);
+  }, []);
+
+  const selectFilter = useCallback((next: WallFilter) => {
+    setActive(next);
+    writeFilterToSearch(next);
+  }, []);
 
   const subjects = Object.keys(CURIOSITY_SUBJECTS) as CuriositySubject[];
 
   const visible = useMemo(() => {
-    let list = active === "all" ? items : items.filter((i) => i.subject === active);
+    let list =
+      active === "all"
+        ? items
+        : active === "cross-domain"
+          ? items.filter(isCrossDomainCuriosity)
+          : items.filter((i) => i.subject === active);
     if (order) {
       const rank = new Map(order.map((id, idx) => [id, idx]));
       list = [...list].sort(
@@ -49,15 +91,15 @@ export function CuriositiesWall({ items }: { items: CuriosityWithSubject[] }) {
           原来<em className="text-accent-gold italic"> 如此</em>
         </h1>
         <p className="text-fg-secondary mt-4 text-[15px] leading-relaxed">
-          横跨十个学科、{items.length}{" "}
-          条少有人知却真实而迷人的事实。每一条都有出处，每一条都可能让你「咦？」一声。
+          横跨二十二个学科、{items.length}{" "}
+          条少有人知却真实而迷人的事实。有的像巧合，有的像有人在不同房间里串通——其实是同一套机制。每一条都有出处，每一条都可能让你「咦？」一声。
         </p>
       </header>
 
       <div className="mb-8 flex flex-wrap items-center gap-2" role="group" aria-label="学科筛选">
         <button
           type="button"
-          onClick={() => setActive("all")}
+          onClick={() => selectFilter("all")}
           aria-pressed={active === "all"}
           className={`rounded-full border px-3 py-1.5 font-mono text-[11px] tracking-wider transition-all ${
             active === "all"
@@ -67,6 +109,20 @@ export function CuriositiesWall({ items }: { items: CuriosityWithSubject[] }) {
         >
           全部 {items.length}
         </button>
+        {items.some(isCrossDomainCuriosity) ? (
+          <button
+            type="button"
+            onClick={() => selectFilter("cross-domain")}
+            aria-pressed={active === "cross-domain"}
+            className={`rounded-full border px-3 py-1.5 font-mono text-[11px] tracking-wider transition-all ${
+              active === "cross-domain"
+                ? "border-accent-gold/50 text-accent-gold bg-accent-gold/10"
+                : "border-border-faint text-fg-muted hover:text-fg-secondary"
+            }`}
+          >
+            ✨ 跨学科巧合 {items.filter(isCrossDomainCuriosity).length}
+          </button>
+        ) : null}
         {subjects.map((s) => {
           const meta = CURIOSITY_SUBJECTS[s];
           const count = items.filter((i) => i.subject === s).length;
@@ -77,7 +133,7 @@ export function CuriositiesWall({ items }: { items: CuriosityWithSubject[] }) {
               key={s}
               type="button"
               aria-pressed={on}
-              onClick={() => setActive(s)}
+              onClick={() => selectFilter(s)}
               className="rounded-full border px-3 py-1.5 font-mono text-[11px] tracking-wider transition-all"
               style={{
                 borderColor: on ? `${meta.accent}80` : "var(--color-border-faint)",

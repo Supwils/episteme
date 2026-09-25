@@ -1,26 +1,14 @@
 import { notFound } from "next/navigation";
 import { withCanonicalPath } from "@/lib/article-canonical";
-import Link from "next/link";
 import { getTheoremBySlug, getAllTheorems } from "@/subjects/mathematics/lib/theorems";
-import {
-  MATH_FIELD_COLORS,
-  MATH_DIFFICULTY_COLORS,
-  mathBadgeColor,
-} from "@/subjects/mathematics/lib/constants";
+import { MATH_FIELD_COLORS } from "@/subjects/mathematics/lib/constants";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { SITE_URL } from "@/lib/constants";
 import { serializeJsonLd, createDefinedTermJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
-import { ArticleSidebar } from "@/components/ArticleSidebar";
 import { TableOfContents } from "@/components/TableOfContents";
-import { ReadingModeControls } from "@/components/ReadingModeControls";
-import { ReadingProgressBar } from "@/components/ReadingProgressBar";
-import {
-  ARTICLE_BODY_ROW_CLASS,
-  ARTICLE_HEADER_CLASS,
-  ARTICLE_SURFACE_CLASS,
-} from "@/components/ArticleLayout";
+import { ArticleLayout } from "@/components/ArticleLayout";
 
 export function generateStaticParams() {
   // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
@@ -57,7 +45,6 @@ export default async function TheoremDetailPage({ params }: { params: Promise<{ 
     (currentIndex < allTheorems.length - 1 ? allTheorems[currentIndex + 1] : null) ?? null;
 
   const fieldColor = MATH_FIELD_COLORS[theorem.field] || "#6366f1";
-  const difficultyColor = MATH_DIFFICULTY_COLORS[theorem.difficulty] || "#6366f1";
   const wordCount = theorem.content.length;
   const readMinutes = Math.max(1, Math.ceil(wordCount / 400));
 
@@ -76,106 +63,25 @@ export default async function TheoremDetailPage({ params }: { params: Promise<{ 
   });
 
   return (
-    <div className="mx-auto w-full max-w-[1800px] px-6 py-12 sm:px-10 lg:px-16">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
-      />
-      <ReadingProgressBar />
-      <Link
-        href="/mathematics/theorems"
-        className="text-fg-muted hover:text-accent-indigo mb-6 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] uppercase transition-colors"
-      >
-        ← 返回定理
-      </Link>
-
-      <div className={ARTICLE_BODY_ROW_CLASS}>
-        <article className={ARTICLE_SURFACE_CLASS}>
-          <header className={`${ARTICLE_HEADER_CLASS} backdrop-blur-md`}>
-            <div
-              className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full opacity-10 blur-3xl"
-              style={{ backgroundColor: fieldColor }}
-            />
-
-            <div className="relative">
-              <div className="mb-3 flex flex-wrap items-center gap-3">
-                <span
-                  className="border px-2.5 py-1 font-mono text-[10px] tracking-[0.32em] uppercase"
-                  style={{ borderColor: `${fieldColor}50`, color: mathBadgeColor(fieldColor) }}
-                >
-                  {theorem.field}
-                </span>
-                <span
-                  className="rounded-full border px-2.5 py-1 font-mono text-[10px] tracking-[0.2em]"
-                  style={{
-                    borderColor: `${difficultyColor}40`,
-                    color: mathBadgeColor(difficultyColor),
-                  }}
-                >
-                  {theorem.difficulty}
-                </span>
-                <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">
-                  约 {readMinutes} 分钟阅读
-                </span>
-                <span className="ml-auto">
-                  <ReadingModeControls />
-                </span>
-              </div>
-
-              <h1 className="font-display text-fg-primary mb-2 text-[2rem] leading-tight font-semibold tracking-tight md:text-[2.8rem]">
-                {theorem.title}
-              </h1>
-              <p className="text-fg-muted font-display text-lg tracking-wide italic">
-                {theorem.title_en}
-              </p>
-
-              <div className="mt-4 flex flex-wrap gap-3 text-sm">
-                <span className="text-fg-secondary">{theorem.mathematician}</span>
-                {theorem.year && (
-                  <>
-                    <span className="text-fg-disabled">·</span>
-                    <span className="text-fg-secondary">{theorem.year}</span>
-                  </>
-                )}
-              </div>
-
-              {theorem.tags.length > 0 && (
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {theorem.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="hover:border-accent-indigo/30 hover:text-accent-indigo border px-2.5 py-1 font-mono text-[10px] tracking-[0.22em] transition-colors"
-                      style={{
-                        borderColor: `${fieldColor}20`,
-                        color: `${fieldColor}cc`,
-                        backgroundColor: `${fieldColor}08`,
-                      }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
-          </header>
-          {theorem.content ? (
-            <MarkdownRenderer
-              content={theorem.content}
-              accentColor={fieldColor}
-              domain="mathematics"
-            />
-          ) : (
-            <div className="border-border-faint bg-bg-panel border p-8 text-center">
-              <p className="text-fg-muted text-sm">详细内容正在编写中。</p>
-            </div>
-          )}
-
-          <SafeRender>
-            <RelatedContent slug={slug} domain="mathematics" entityId={slug} />
-          </SafeRender>
-        </article>
-
-        <ArticleSidebar>
+    <ArticleLayout
+      backHref="/mathematics/theorems"
+      url={`/mathematics/theorems/${slug}`}
+      backLabel="← 返回定理"
+      accent={fieldColor}
+      eyebrow={theorem.field}
+      eyebrowMeta={[theorem.difficulty]}
+      title={theorem.title}
+      titleEn={theorem.title_en}
+      content={theorem.content}
+      meta={
+        <>
+          {theorem.mathematician}
+          {theorem.year ? ` · ${theorem.year}` : ""}
+        </>
+      }
+      tags={theorem.tags}
+      sidebar={
+        <>
           <TableOfContents accentColor={fieldColor} />
           <div className="border-border-faint border p-4">
             <h3 className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.22em] uppercase">
@@ -216,41 +122,38 @@ export default async function TheoremDetailPage({ params }: { params: Promise<{ 
               </div>
             </dl>
           </div>
-        </ArticleSidebar>
-      </div>
+        </>
+      }
+      prev={
+        prevTheorem && {
+          href: `/mathematics/theorems/${prevTheorem.slug}`,
+          title: prevTheorem.title,
+        }
+      }
+      next={
+        nextTheorem && {
+          href: `/mathematics/theorems/${nextTheorem.slug}`,
+          title: nextTheorem.title,
+        }
+      }
+      prevLabel="上一个"
+      nextLabel="下一个"
+    >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
+      />
+      {theorem.content ? (
+        <MarkdownRenderer content={theorem.content} accentColor={fieldColor} domain="mathematics" />
+      ) : (
+        <div className="border-border-faint bg-bg-panel border p-8 text-center">
+          <p className="text-fg-muted text-sm">详细内容正在编写中。</p>
+        </div>
+      )}
 
-      <nav className="border-border-faint mt-16 flex items-stretch justify-between gap-4 border-t pt-8">
-        {prevTheorem ? (
-          <Link
-            href={`/mathematics/theorems/${prevTheorem.slug}`}
-            className="group border-border-faint hover:border-fg-disabled/30 hover:bg-bg-panel flex flex-1 flex-col gap-1 border p-4 transition-all duration-300"
-          >
-            <span className="text-fg-disabled font-mono text-[9px] tracking-[0.22em] uppercase">
-              ← 上一个
-            </span>
-            <span className="font-display text-fg-secondary group-hover:text-accent-indigo text-sm font-medium transition-colors">
-              {prevTheorem.title}
-            </span>
-          </Link>
-        ) : (
-          <div className="flex-1" />
-        )}
-        {nextTheorem ? (
-          <Link
-            href={`/mathematics/theorems/${nextTheorem.slug}`}
-            className="group border-border-faint hover:border-fg-disabled/30 hover:bg-bg-panel flex flex-1 flex-col items-end gap-1 border p-4 text-right transition-all duration-300"
-          >
-            <span className="text-fg-disabled font-mono text-[9px] tracking-[0.22em] uppercase">
-              下一个 →
-            </span>
-            <span className="font-display text-fg-secondary group-hover:text-accent-indigo text-sm font-medium transition-colors">
-              {nextTheorem.title}
-            </span>
-          </Link>
-        ) : (
-          <div className="flex-1" />
-        )}
-      </nav>
-    </div>
+      <SafeRender>
+        <RelatedContent slug={slug} domain="mathematics" entityId={slug} />
+      </SafeRender>
+    </ArticleLayout>
   );
 }

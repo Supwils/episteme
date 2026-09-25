@@ -132,12 +132,28 @@ ALL_DOMAINS.forEach((domain, i) => {
   };
 });
 
+/** Deterministic per-id jitter (FNV-1a → two unit floats). The force layout
+ *  itself is deterministic, so seeding the start positions from node ids
+ *  makes the same node set land on the same picture every time — filters
+ *  toggled back and forth no longer reshuffle the whole graph. */
+function seededJitter(id: string): [number, number] {
+  let hash = 0x811c9dc5;
+  for (let i = 0; i < id.length; i++) {
+    hash ^= id.charCodeAt(i);
+    hash = Math.imul(hash, 0x01000193) >>> 0;
+  }
+  const a = (hash & 0xffff) / 0x10000;
+  const b = (hash >>> 16) / 0x10000;
+  return [a, b];
+}
+
 export function buildLayoutNodes(nodes: GraphNode[]): LayoutNode[] {
   return nodes.map((node) => {
     const domainIndex = ALL_DOMAINS.indexOf(node.domain as (typeof ALL_DOMAINS)[number]);
     const domainAngle = (2 * Math.PI * domainIndex) / ALL_DOMAINS.length;
-    const jitterR = 80 + Math.random() * 150;
-    const jitterA = domainAngle + (Math.random() - 0.5) * 1.2;
+    const [u, v] = seededJitter(node.id);
+    const jitterR = 80 + u * 150;
+    const jitterA = domainAngle + (v - 0.5) * 1.2;
     return {
       id: node.id,
       x: Math.cos(jitterA) * jitterR,

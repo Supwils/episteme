@@ -1,0 +1,485 @@
+@reference "../../app/globals.css";
+
+/* 手记的正文（T-DESIGN-06）。只随用到 MarkdownRenderer 的路由加载，不进全站共享表。
+   字体：系统宋体零下载；Windows 没装思源宋体时落到微软雅黑而不是点阵味的 SimSun。
+   字号 17px、行高 1.85，行长由 .article-reading-surface 控制在约 38 个汉字。 */
+.md-prose {
+  --prose-font:
+    "Songti SC", "Noto Serif CJK SC", "Noto Serif SC", "Source Han Serif SC", "Source Han Serif CN",
+    "Microsoft YaHei", "PingFang SC", serif;
+  --prose-size: 1.0625rem;
+  --prose-leading: 1.85;
+  /* Dark pages read softer in the secondary ink; paper takes the full ink. */
+  --prose-ink: var(--color-fg-secondary);
+  font-family: var(--prose-font);
+}
+
+.light .md-prose {
+  --prose-ink: var(--color-fg-primary);
+}
+
+.md-p {
+  margin: 1em 0;
+  font-size: var(--prose-size);
+  line-height: var(--prose-leading);
+  color: var(--prose-ink);
+}
+
+.md-p[data-variant="references"] {
+  margin: 0.75em 0;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.md-strong {
+  font-weight: 600;
+  color: var(--color-fg-primary);
+}
+
+/* ── Headings ─────────────────────────────────────────────────────────── */
+.md-h2 {
+  margin: 3rem 0 0.75rem;
+  scroll-margin-top: 6rem;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.md-h3 {
+  margin: 1.75rem 0 0.5rem;
+  scroll-margin-top: 6rem;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-fg-primary);
+}
+
+.md-h4 {
+  margin: 1.25rem 0 0.5rem;
+  scroll-margin-top: 6rem;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--color-fg-primary);
+}
+
+.md-anchor {
+  margin-left: 0.5rem;
+  color: var(--color-fg-disabled);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-fast) var(--ease-paper);
+}
+
+.md-h2:hover .md-anchor,
+.md-h3:hover .md-anchor,
+.md-anchor:focus-visible {
+  opacity: 0.7;
+  pointer-events: auto;
+}
+
+/* ── Lists, quotes, tables, rules ─────────────────────────────────────── */
+.md-list {
+  margin: 1em 0 1em 1.25rem;
+  font-size: var(--prose-size);
+  line-height: 1.8;
+  color: var(--prose-ink);
+  list-style: disc;
+}
+
+.md-list[data-ordered] {
+  list-style: decimal;
+}
+
+.md-list > li + li {
+  margin-top: 0.4em;
+}
+
+.md-list[data-variant="cross-domain"] {
+  margin-left: 0;
+  padding-left: 1.25rem;
+  border-left: 1px solid var(--color-border-faint);
+  list-style: none;
+}
+
+/* Bibliography: hanging indent, no bullets, set smaller than the prose. */
+.md-list[data-variant="references"] {
+  margin-left: 0;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  list-style: none;
+}
+
+.md-list[data-variant="references"] > li {
+  padding-left: 2em;
+  text-indent: -2em;
+}
+
+.md-list[data-variant="references"] em {
+  font-style: italic;
+}
+
+.md-quote {
+  margin: 1.5rem 0;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  border-left: 2px solid var(--brass);
+}
+
+.md-quote p {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: var(--color-fg-primary);
+}
+
+.md-table {
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  border: 1px solid var(--color-border-faint);
+  border-radius: 6px;
+}
+
+.md-table table {
+  width: 100%;
+  font-size: 0.875rem;
+  border-collapse: collapse;
+}
+
+.md-table th {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+  background: color-mix(in oklab, var(--color-bg-elevated) 50%, transparent);
+  color: var(--color-fg-primary);
+  font-weight: 600;
+  text-align: left;
+}
+
+.md-table td {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--color-border-faint);
+  color: var(--prose-ink);
+}
+
+.md-rule {
+  display: flex;
+  justify-content: center;
+  margin: 2.5rem 0;
+}
+
+.md-rule span {
+  width: 6px;
+  height: 6px;
+  transform: rotate(45deg);
+  background: var(--brass);
+}
+
+.md-note {
+  margin: 1.25rem 0 0;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--color-border-subtle);
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  color: var(--color-fg-muted);
+}
+
+/* ── 破除误解：误解 / 实情卡 ───────────────────────────────────────────── */
+.myth-stack {
+  margin: 1.5rem 0;
+}
+
+.myth-stack__cards {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.myth-card {
+  position: relative;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 4px;
+  background: var(--color-bg-panel);
+}
+
+/* A folded card keeps its text for find-in-page (hidden="until-found" only
+   skips the contents), so its own box has to collapse too. */
+.myth-card[hidden] {
+  height: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+.myth-stack[data-stacked] .myth-stack__cards {
+  gap: 0;
+}
+
+/* Stacked: two card edges peek out below the visible card. */
+.myth-stack[data-stacked] .myth-stack__cards {
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.myth-stack[data-stacked] .myth-stack__cards::before,
+.myth-stack[data-stacked] .myth-stack__cards::after {
+  content: "";
+  position: absolute;
+  inset: auto 10px 5px;
+  height: 12px;
+  border: 1px solid var(--color-border-subtle);
+  border-top: 0;
+  border-radius: 0 0 4px 4px;
+  background: var(--color-bg-panel);
+}
+
+.myth-stack[data-stacked] .myth-stack__cards::after {
+  inset: auto 20px 0;
+  opacity: 0.6;
+}
+
+.myth-card__claim,
+.myth-card__fact {
+  margin: 0;
+  font-size: var(--prose-size);
+  line-height: var(--prose-leading);
+}
+
+.myth-card__claim {
+  color: var(--color-fg-secondary);
+}
+
+.myth-card__claim s {
+  text-decoration-color: var(--cinnabar);
+  text-decoration-thickness: 1px;
+}
+
+.myth-card__fact {
+  margin-top: 0.75rem;
+  color: var(--prose-ink);
+}
+
+.myth-card__tag {
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding: 0 0.4rem;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  vertical-align: 0.15em;
+  color: var(--cinnabar-ink);
+}
+
+.myth-card__tag[data-kind="fact"] {
+  color: var(--verdigris-ink);
+}
+
+.myth-stack__controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--color-fg-muted);
+}
+
+.myth-stack__controls button {
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 4px;
+  color: var(--color-fg-secondary);
+}
+
+.myth-stack__controls button:hover:not(:disabled) {
+  border-color: var(--brass);
+  color: var(--color-fg-primary);
+}
+
+.myth-stack__controls button:disabled {
+  opacity: 0.45;
+}
+
+/* ── 事实卡：带横格的索引卡 ───────────────────────────────────────────── */
+.fact-cards {
+  display: grid;
+  gap: 0.875rem;
+  margin: 1.25rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 640px) {
+  .fact-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.fact-card {
+  padding: 0.9rem 1.1rem 1rem;
+  border: 1px solid var(--color-border-subtle);
+  border-top: 2px solid var(--cinnabar);
+  border-radius: 3px;
+  background-color: var(--color-bg-panel);
+}
+
+.fact-card__label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  color: var(--cinnabar-ink);
+}
+
+.fact-card p {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--prose-ink);
+  /* Ruled lines under every line of text, like a library index card. */
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent calc(1.7em - 1px),
+    var(--color-border-faint) calc(1.7em - 1px),
+    var(--color-border-faint) 1.7em
+  );
+}
+
+/* ── 关键洞察：全文唯一的铜线版 ───────────────────────────────────────── */
+.insight-plate {
+  margin: 3rem 0;
+  padding: 1.25rem 1.75rem 1.5rem;
+  border: 1px solid color-mix(in oklab, var(--brass) 45%, transparent);
+  border-top: 3px solid var(--brass);
+  background: color-mix(in oklab, var(--brass) 5%, var(--color-bg-panel));
+}
+
+.insight-plate .md-h2 {
+  margin-top: 0.25rem;
+  color: var(--brass-ink) !important;
+}
+
+.insight-plate > .md-p:first-of-type {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  line-height: 1.8;
+  color: var(--color-fg-primary);
+}
+
+/* ── 经典名言：题词 ─────────────────────────────────────────────────── */
+.epigraph {
+  margin: 2rem 0;
+  padding-left: 1.25rem;
+  border-left: 1px solid var(--brass);
+}
+
+.epigraph blockquote {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  line-height: 1.6;
+  color: var(--color-fg-primary);
+}
+
+.epigraph figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  color: var(--color-fg-muted);
+}
+
+.epigraph figcaption::before {
+  content: "— ";
+}
+
+/* ── 跨域连接：邻域星图 + 轻着重 ─────────────────────────────────────── */
+.neighborhood-chart {
+  display: block;
+  width: 100%;
+  max-width: 30rem;
+  margin: 1rem auto 1.25rem;
+  overflow: visible;
+}
+
+.neighborhood-chart__label {
+  font-family: var(--prose-font);
+  font-size: 12.5px;
+  fill: var(--color-fg-primary);
+}
+
+.neighborhood-chart__domain {
+  font-size: 10.5px;
+}
+
+.neighborhood-chart__center {
+  fill: var(--color-bg-panel);
+  stroke: var(--brass);
+  stroke-width: 1.5;
+}
+
+.neighborhood-chart__self {
+  font-family: var(--font-display);
+  font-size: 13px;
+  fill: var(--color-fg-primary);
+}
+
+/* The corpus bolds whole clauses here, and both a marker fill and an
+   underline turned the list into shouting. The linked term already stands out,
+   so bold here only lifts the ink to the primary colour. */
+.md-section[data-section="cross-domain"] .md-strong {
+  font-weight: inherit;
+  color: var(--color-fg-primary);
+}
+
+/* ── 关键词 ─────────────────────────────────────────────────────────── */
+.keyword-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.keyword-list li {
+  padding: 0.1rem 0.6rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 3px;
+  font-size: 0.8125rem;
+  color: var(--color-fg-secondary);
+}
+
+/* ── 脚注 ───────────────────────────────────────────────────────────── */
+.md-footnotes {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.md-footnotes__title {
+  margin-bottom: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  color: var(--color-fg-muted);
+}
+
+.md-footnotes ol {
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--prose-ink);
+}
+
+.md-footnotes__id {
+  margin-right: 0.25rem;
+  color: var(--color-fg-muted);
+}
+
+.md-footnotes__back {
+  margin-left: 0.375rem;
+  color: var(--brass-ink);
+}

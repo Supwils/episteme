@@ -1,9 +1,13 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { LoadingSpinner } from "@/components/ui";
-import { unpackGraphData } from "@/subjects/knowledge-graph/lib/graph-wire";
+import {
+  applyGraphDescriptions,
+  unpackGraphData,
+  type PackedGraphDescriptions,
+} from "@/subjects/knowledge-graph/lib/graph-wire";
 import type { GraphNode, GraphEdge } from "@/subjects/knowledge-graph/data/types";
 
 const KnowledgeGraph = dynamic(
@@ -23,28 +27,68 @@ const KnowledgeGraph = dynamic(
   }
 );
 
-type GraphData = { nodes: GraphNode[]; edges: GraphEdge[] };
+type GraphData = ReturnType<typeof unpackGraphData>;
 
 // The dataset is fetched from the force-static /knowledge-graph/graph-data
 // route so the graph payload never enters the page RSC payload or JS bundle.
-// Wire format v2 packs edges (see subjects/knowledge-graph/lib/graph-wire.ts).
+// Wire format v3 (subjects/knowledge-graph/lib/graph-wire.ts) packs edges and
+// defers node descriptions to /knowledge-graph/graph-descriptions.
 export function KnowledgeGraphClient() {
   const [data, setData] = useState<GraphData | null>(null);
+  const [failed, setFailed] = useState(false);
+  // Bumped once descriptions land so open tooltips/panels re-read the field.
+  const [, setDescriptionsLoaded] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
     fetch("/knowledge-graph/graph-data")
-      .then((r) => r.json())
+      .then((r) => {
+        if (!r.ok) throw new Error(`graph-data ${r.status}`);
+        return r.json();
+      })
       .then((d: Parameters<typeof unpackGraphData>[0]) => {
-        if (!cancelled) setData(unpackGraphData(d));
+        if (cancelled) return;
+        setData(unpackGraphData(d));
       })
       .catch(() => {
-        if (!cancelled) setData({ nodes: [], edges: [] });
+        // An HTTP or parse failure must not masquerade as an empty graph.
+        if (!cancelled) setFailed(true);
       });
     return () => {
       cancelled = true;
     };
   }, []);
+
+  // Descriptions only feed tooltips, the panel and search, so they are fetched
+  // after the first layout draws — parsing them mid-layout delayed first paint.
+  // A failure leaves them empty rather than failing the graph.
+  const nodes = data?.nodes;
+  const loadDescriptions = useCallback(() => {
+    if (!nodes) return;
+    fetch("/knowledge-graph/graph-descriptions")
+      .then((r) => (r.ok ? (r.json() as Promise<PackedGraphDescriptions>) : null))
+      .then((packed) => {
+        if (packed && applyGraphDescriptions(nodes, packed)) setDescriptionsLoaded(true);
+      })
+      .catch(() => {});
+  }, [nodes]);
+
+  if (failed) {
+    return (
+      <div className="bg-bg-deep flex h-screen w-full items-center justify-center" role="alert">
+        <p className="text-fg-secondary text-sm">
+          知识图谱数据暂时无法加载。
+          <button
+            type="button"
+            onClick={() => window.location.reload()}
+            className="text-accent-gold ml-2 underline underline-offset-4"
+          >
+            重试
+          </button>
+        </p>
+      </div>
+    );
+  }
 
   if (!data) {
     return (
@@ -60,7 +104,12 @@ export function KnowledgeGraphClient() {
 
   return (
     <div className="knowledge-graph-page">
-      <KnowledgeGraph nodes={data.nodes} edges={data.edges} />
+      <KnowledgeGraph
+        nodes={data.nodes}
+        edges={data.edges}
+        initialPositions={data.initialPositions}
+        onReady={loadDescriptions}
+      />
     </div>
   );
 }

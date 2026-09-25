@@ -1,0 +1,53 @@
+@reference "../../app/globals.css";
+
+/* 「问问这篇」：笔记本的索引页签——问题立在纸边，底线就是页面的上沿。 */
+.ask-tabs {
+  margin-bottom: 2.5rem;
+}
+
+.ask-tabs__title {
+  margin-bottom: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  color: var(--color-fg-muted);
+}
+
+.ask-tabs__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+  list-style: none;
+}
+
+.ask-tab {
+  display: block;
+  margin-bottom: -1px;
+  padding: 0.45rem 0.9rem 0.4rem;
+  border: 1px solid var(--color-border-subtle);
+  border-bottom-color: transparent;
+  border-top: 2px solid color-mix(in oklab, var(--tab-accent, var(--brass)) 60%, transparent);
+  border-radius: 5px 5px 0 0;
+  background: var(--color-bg-panel);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--color-fg-secondary);
+  transition: color var(--duration-fast) var(--ease-paper);
+}
+
+.ask-tab:hover,
+.ask-tab:focus-visible {
+  color: var(--color-fg-primary);
+}
+
+/* 专注模式：正在读的那段保持原样，其余段落退到 muted 墨色。
+   用颜色而不是不透明度，退后的文字仍满足 AA 对比度。 */
+.md-prose[data-focus-active] :is(.md-p, .md-list > li, .md-quote) {
+  transition: color var(--duration-slow) var(--ease-paper);
+}
+
+.md-prose[data-focus-active] :is(.md-p, .md-list > li, .md-quote):not([data-reading]) {
+  color: var(--color-fg-muted);
+}

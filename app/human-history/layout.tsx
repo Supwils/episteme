@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Script from "next/script";
-import { SubjectHeader } from "@/components/SubjectHeader";
+import { DomainHeader } from "@/components/chrome/DomainHeader";
 import PageTransition from "./components/PageTransition";
 import "./globals.css";
 
@@ -32,7 +32,7 @@ export default function HumanHistoryLayout({ children }: { children: ReactNode }
         crossOrigin="anonymous"
         strategy="afterInteractive"
       />
-      <SubjectHeader subject="human-history" />
+      <DomainHeader subject="human-history" />
       <main>
         <PageTransition>{children}</PageTransition>
       </main>

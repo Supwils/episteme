@@ -1,25 +1,17 @@
 import { notFound } from "next/navigation";
 import { withCanonicalPath } from "@/lib/article-canonical";
-import Link from "next/link";
 import {
   getMathematicianBySlug,
   getAllMathematicians,
 } from "@/subjects/mathematics/lib/mathematicians";
-import { MATH_ERA_ACCENT, mathBadgeColor } from "@/subjects/mathematics/lib/constants";
+import { MATH_ERA_ACCENT } from "@/subjects/mathematics/lib/constants";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { SITE_URL } from "@/lib/constants";
 import { serializeJsonLd, createPersonJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
-import { ArticleSidebar } from "@/components/ArticleSidebar";
 import { TableOfContents } from "@/components/TableOfContents";
-import { ReadingModeControls } from "@/components/ReadingModeControls";
-import { ReadingProgressBar } from "@/components/ReadingProgressBar";
-import {
-  ARTICLE_BODY_ROW_CLASS,
-  ARTICLE_HEADER_CLASS,
-  ARTICLE_SURFACE_CLASS,
-} from "@/components/ArticleLayout";
+import { ArticleLayout } from "@/components/ArticleLayout";
 
 export function generateStaticParams() {
   // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
@@ -77,98 +69,25 @@ export default async function MathematicianDetailPage({
   });
 
   return (
-    <div className="mx-auto w-full max-w-[1800px] px-6 py-12 sm:px-10 lg:px-16">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
-      />
-      <ReadingProgressBar />
-      <Link
-        href="/mathematics/mathematicians"
-        className="text-fg-muted hover:text-accent-indigo mb-6 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] uppercase transition-colors"
-      >
-        ← 返回数学家
-      </Link>
-
-      <div className={ARTICLE_BODY_ROW_CLASS}>
-        <article className={ARTICLE_SURFACE_CLASS}>
-          <header className={`${ARTICLE_HEADER_CLASS} backdrop-blur-md`}>
-            <div
-              className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full opacity-10 blur-3xl"
-              style={{ backgroundColor: eraColor }}
-            />
-
-            <div className="relative">
-              <div className="mb-3 flex flex-wrap items-center gap-3">
-                <span
-                  className="border px-2.5 py-1 font-mono text-[10px] tracking-[0.32em] uppercase"
-                  style={{ borderColor: `${eraColor}50`, color: mathBadgeColor(eraColor) }}
-                >
-                  {mathematician.era}
-                </span>
-                <span className="border-fg-disabled/20 text-fg-muted rounded-full border px-2.5 py-1 font-mono text-[10px] tracking-[0.16em]">
-                  {mathematician.field}
-                </span>
-                <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">
-                  约 {readMinutes} 分钟阅读
-                </span>
-                <span className="ml-auto">
-                  <ReadingModeControls />
-                </span>
-              </div>
-
-              <h1 className="font-display text-fg-primary mb-2 text-[2rem] leading-tight font-semibold tracking-tight md:text-[2.8rem]">
-                {mathematician.title}
-              </h1>
-              <p className="text-fg-muted font-mono text-sm tracking-wider italic">
-                {mathematician.name}
-              </p>
-
-              <div className="mt-3 flex flex-wrap gap-3 text-sm">
-                <span className="text-fg-secondary">{mathematician.nationality}</span>
-                <span className="text-fg-disabled">·</span>
-                <span className="text-fg-secondary">
-                  {mathematician.birthYear}–{mathematician.deathYear ?? "至今"}
-                </span>
-              </div>
-
-              {mathematician.tags.length > 0 && (
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {mathematician.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="hover:border-accent-indigo/30 hover:text-accent-indigo border px-2.5 py-1 font-mono text-[10px] tracking-[0.22em] transition-colors"
-                      style={{
-                        borderColor: `${eraColor}20`,
-                        color: `${eraColor}cc`,
-                        backgroundColor: `${eraColor}08`,
-                      }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
-          </header>
-          {mathematician.content ? (
-            <MarkdownRenderer
-              content={mathematician.content}
-              accentColor={eraColor}
-              domain="mathematics"
-            />
-          ) : (
-            <div className="border-border-faint bg-bg-panel border p-8 text-center">
-              <p className="text-fg-muted text-sm">详细内容正在编写中。</p>
-            </div>
-          )}
-
-          <SafeRender>
-            <RelatedContent slug={slug} domain="mathematics" entityId={slug} />
-          </SafeRender>
-        </article>
-
-        <ArticleSidebar>
+    <ArticleLayout
+      backHref="/mathematics/mathematicians"
+      url={`/mathematics/mathematicians/${slug}`}
+      backLabel="← 返回数学家"
+      accent={eraColor}
+      eyebrow={mathematician.era}
+      eyebrowMeta={[mathematician.field]}
+      title={mathematician.title}
+      titleEn={mathematician.name}
+      content={mathematician.content}
+      meta={
+        <>
+          {mathematician.nationality} · {mathematician.birthYear}–
+          {mathematician.deathYear ?? "至今"}
+        </>
+      }
+      tags={mathematician.tags}
+      sidebar={
+        <>
           <TableOfContents accentColor={eraColor} />
           <div className="border-border-faint border p-4">
             <h3 className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.22em] uppercase">
@@ -201,41 +120,36 @@ export default async function MathematicianDetailPage({
               </div>
             </dl>
           </div>
-        </ArticleSidebar>
-      </div>
+        </>
+      }
+      prev={
+        prevMath && { href: `/mathematics/mathematicians/${prevMath.slug}`, title: prevMath.title }
+      }
+      next={
+        nextMath && { href: `/mathematics/mathematicians/${nextMath.slug}`, title: nextMath.title }
+      }
+      prevLabel="上一位"
+      nextLabel="下一位"
+    >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
+      />
+      {mathematician.content ? (
+        <MarkdownRenderer
+          content={mathematician.content}
+          accentColor={eraColor}
+          domain="mathematics"
+        />
+      ) : (
+        <div className="border-border-faint bg-bg-panel border p-8 text-center">
+          <p className="text-fg-muted text-sm">详细内容正在编写中。</p>
+        </div>
+      )}
 
-      <nav className="border-border-faint mt-16 flex items-stretch justify-between gap-4 border-t pt-8">
-        {prevMath ? (
-          <Link
-            href={`/mathematics/mathematicians/${prevMath.slug}`}
-            className="group border-border-faint hover:border-fg-disabled/30 hover:bg-bg-panel flex flex-1 flex-col gap-1 border p-4 transition-all duration-300"
-          >
-            <span className="text-fg-disabled font-mono text-[9px] tracking-[0.22em] uppercase">
-              ← 上一位
-            </span>
-            <span className="font-display text-fg-secondary group-hover:text-accent-indigo text-sm font-medium transition-colors">
-              {prevMath.title}
-            </span>
-          </Link>
-        ) : (
-          <div className="flex-1" />
-        )}
-        {nextMath ? (
-          <Link
-            href={`/mathematics/mathematicians/${nextMath.slug}`}
-            className="group border-border-faint hover:border-fg-disabled/30 hover:bg-bg-panel flex flex-1 flex-col items-end gap-1 border p-4 text-right transition-all duration-300"
-          >
-            <span className="text-fg-disabled font-mono text-[9px] tracking-[0.22em] uppercase">
-              下一位 →
-            </span>
-            <span className="font-display text-fg-secondary group-hover:text-accent-indigo text-sm font-medium transition-colors">
-              {nextMath.title}
-            </span>
-          </Link>
-        ) : (
-          <div className="flex-1" />
-        )}
-      </nav>
-    </div>
+      <SafeRender>
+        <RelatedContent slug={slug} domain="mathematics" entityId={slug} />
+      </SafeRender>
+    </ArticleLayout>
   );
 }

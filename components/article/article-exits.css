@@ -1,0 +1,96 @@
+@reference "../../app/globals.css";
+
+/* 三向出口（T-DESIGN-06f）：三张同样安静的卡片，方向词是唯一的铜色。 */
+.article-exits {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border-faint);
+}
+
+.article-exits__grid {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .article-exits__grid {
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    grid-auto-flow: column;
+  }
+}
+
+.article-exit {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem 1.25rem 1.1rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 4px;
+  transition: border-color var(--duration-fast) var(--ease-paper);
+}
+
+.article-exit:hover,
+.article-exit:focus-visible {
+  border-color: var(--brass);
+}
+
+.article-exit__word {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--brass-ink);
+}
+
+.article-exit__note {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--color-fg-muted);
+}
+
+.article-exit__title {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  line-height: 1.45;
+  color: var(--color-fg-primary);
+}
+
+.article-exits__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  margin-top: 1rem;
+  font-size: 0.8125rem;
+}
+
+.article-exits__minor {
+  color: var(--color-fg-secondary);
+}
+
+.article-exits__minor:hover,
+.article-exits__minor:focus-visible {
+  color: var(--color-fg-primary);
+}
+
+.article-exits__graph {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-left: auto;
+}
+
+.article-exits__routes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+  margin-top: 1rem;
+  font-size: 0.8125rem;
+  color: var(--color-fg-muted);
+}

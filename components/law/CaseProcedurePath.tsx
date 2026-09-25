@@ -145,7 +145,7 @@ export function CaseProcedurePath() {
                 style={{
                   borderColor: active ? ACCENT : "var(--color-border-subtle)",
                   // 金色填充上用深色文字以保证对比度
-                  color: active ? "#0e0f14" : "var(--color-fg-muted)",
+                  color: active ? "#0f1622" : "var(--color-fg-muted)",
                   backgroundColor: active ? ACCENT : "transparent",
                 }}
               >

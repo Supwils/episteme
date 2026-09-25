@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { readFileSync } from "node:fs";
 import { deriveAskPrompts, deriveTakeaway } from "@/lib/article-discovery";
 import { extractH2Headings, parseHeadingLine, slugifyHeading } from "@/lib/markdown-heading";
 
@@ -42,6 +43,13 @@ describe("deriveTakeaway", () => {
     expect(t).toBeTruthy();
     expect(t!.length).toBeGreaterThanOrEqual(24);
     expect(t).toMatch(/债务|日元|风险/);
+  });
+
+  it("never picks the scope disclaimer that closes the 破除误解 section", () => {
+    const law = readFileSync("content/law/foundations/why-law-exists.mdx", "utf8");
+    const takeaway = deriveTakeaway(law);
+    expect(takeaway).toBeTruthy();
+    expect(takeaway).not.toContain("不构成");
   });
 
   it("returns null when there is no usable insight", () => {

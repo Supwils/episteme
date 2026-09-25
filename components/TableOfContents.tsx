@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { createPortal } from "react-dom";
 import { subscribeToScrollFrame } from "@/lib/scroll-frame";
+import "./toc-rail.css";
 
 const HEADING_SCROLL_OFFSET = 96;
 
@@ -10,6 +11,8 @@ type TocItem = {
   id: string;
   text: string;
   level: 2 | 3;
+  /** Share of the article this section occupies (0–1), for its length tick. */
+  share: number;
 };
 
 interface TableOfContentsProps {
@@ -21,12 +24,17 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
   const [activeId, setActiveId] = useState<string>("");
   const [sheetOpen, setSheetOpen] = useState(false);
   const progressRef = useRef<HTMLDivElement>(null);
+  const railRef = useRef<HTMLOListElement>(null);
+  const headingsRef = useRef<HTMLElement[]>([]);
   const sheetRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const headings = document.querySelectorAll<HTMLElement>("h2[id], h3[id]");
-    const tocItems: TocItem[] = Array.from(headings).map((h) => ({
+    const tops = Array.from(headings).map((h) => h.getBoundingClientRect().top + window.scrollY);
+    const end = document.documentElement.scrollHeight;
+    const span = Math.max(1, end - (tops[0] ?? 0));
+    const tocItems: TocItem[] = Array.from(headings).map((h, index) => ({
       id: h.id,
       // Headings may carry a hover `#` permalink (MarkdownRenderer); it is
       // markup, not title text, so exclude it from the TOC label.
@@ -35,8 +43,10 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
         .map((n) => n.textContent)
         .join(""),
       level: h.tagName === "H2" ? 2 : 3,
+      share: ((tops[index + 1] ?? end) - tops[index]!) / span,
     }));
     setItems(tocItems);
+    headingsRef.current = Array.from(headings);
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -52,11 +62,30 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
     return () => observer.disconnect();
   }, []);
 
+  // The brass line fills the rail row by row: inside section i it advances by
+  // how far the reader is through that section, so the fill tracks the text.
   useEffect(() => {
-    return subscribeToScrollFrame(({ progress }) => {
-      if (progressRef.current) progressRef.current.style.transform = `scaleX(${progress})`;
+    return subscribeToScrollFrame(({ scrollY }) => {
+      const fill = progressRef.current;
+      const rows = railRef.current?.children;
+      const headings = headingsRef.current;
+      if (!fill || !rows || headings.length === 0) return;
+      const probe = scrollY + HEADING_SCROLL_OFFSET;
+      const tops = headings.map((h) => h.getBoundingClientRect().top + scrollY);
+      const end =
+        document.documentElement.scrollHeight - window.innerHeight + HEADING_SCROLL_OFFSET;
+      const index = tops.findLastIndex((top) => top <= probe);
+      let height = 0;
+      if (index >= 0) {
+        const start = tops[index]!;
+        const stop = Math.min(tops[index + 1] ?? end, end);
+        const within = Math.min(1, Math.max(0, (probe - start) / Math.max(1, stop - start)));
+        const row = rows[index] as HTMLElement | undefined;
+        height = (row?.offsetTop ?? 0) + (row?.offsetHeight ?? 0) * within;
+      }
+      fill.style.transform = `scaleY(${height / Math.max(1, railRef.current!.offsetHeight)})`;
     });
-  }, []);
+  }, [items]);
 
   // Highlighting the active item is purely visual — we deliberately do NOT
   // auto-scroll it into view, because doing so fought the reader's own scroll.
@@ -126,37 +155,41 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
     <>
       {/* TOC jumps are instant so a programmatic smooth scroll cannot fight the
           reader's next wheel input. */}
-      <nav
-        aria-label="目录"
-        className="border-border-faint mb-4 hidden self-start border-l pl-4 lg:block"
-      >
-        <div className="bg-border-faint mb-3 h-0.5 rounded-full">
-          <div
-            ref={progressRef}
-            className="h-full origin-left rounded-full will-change-transform"
-            style={{ transform: "scaleX(0)", backgroundColor: accentColor }}
-          />
-        </div>
-        <p className="text-fg-muted mb-3 font-mono text-[9px] tracking-[0.32em] uppercase">
-          目录 · contents
-        </p>
-        <div className="space-y-1.5">
-          {items.map((item) => {
-            const isActive = activeId === item.id;
-            return (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                className={`block py-0.5 font-mono text-[11px] leading-relaxed tracking-[0.04em] transition-colors duration-200 ${
-                  item.level === 3 ? "pl-3" : ""
-                } ${isActive ? "font-medium" : "text-fg-muted hover:opacity-80"}`}
-                style={isActive ? { color: accentColor } : undefined}
-                onClick={(e) => handleClick(e, item.id)}
-              >
-                {item.text}
-              </a>
-            );
-          })}
+      <nav aria-label="目录" className="toc-rail mb-4 hidden self-start lg:block">
+        <p className="toc-rail__title">目录</p>
+        <div className="toc-rail__body">
+          <div aria-hidden className="toc-rail__track">
+            <div ref={progressRef} className="toc-rail__fill" style={{ background: accentColor }} />
+          </div>
+          <ol ref={railRef} className="toc-rail__list">
+            {items.map((item) => {
+              const isActive = activeId === item.id;
+              return (
+                <li key={item.id} data-level={item.level} data-active={isActive || undefined}>
+                  <span
+                    aria-hidden
+                    className="toc-rail__tick"
+                    // Tick length shows how long the section is: 4–18px.
+                    style={{ width: `${Math.round(4 + Math.min(1, item.share * 4) * 14)}px` }}
+                  />
+                  <a
+                    href={`#${item.id}`}
+                    aria-current={isActive ? "location" : undefined}
+                    style={
+                      isActive
+                        ? {
+                            color: `color-mix(in oklab, ${accentColor} 42%, var(--color-fg-primary))`,
+                          }
+                        : undefined
+                    }
+                    onClick={(e) => handleClick(e, item.id)}
+                  >
+                    {item.text}
+                  </a>
+                </li>
+              );
+            })}
+          </ol>
         </div>
       </nav>
 
@@ -171,7 +204,7 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
             aria-expanded={sheetOpen}
             aria-controls="mobile-toc-sheet"
             onClick={() => setSheetOpen(true)}
-            className="border-border-subtle bg-bg-panel text-fg-primary fixed bottom-6 left-4 z-40 flex items-center gap-2 rounded-full border px-4 py-2.5 font-mono text-[11px] tracking-[0.24em] uppercase shadow-lg transition-colors [[data-narration-active]_&]:bottom-24"
+            className="border-border-subtle bg-bg-panel text-fg-primary fixed bottom-6 left-4 z-40 flex items-center gap-2 rounded-full border px-4 py-2.5 text-[13px] shadow-lg transition-colors [[data-narration-active]_&]:bottom-24"
             style={sheetOpen ? { opacity: 0, pointerEvents: "none" } : undefined}
           >
             <span
@@ -197,13 +230,11 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="mb-4 flex items-center justify-between">
-                  <p className="text-fg-muted font-mono text-[9px] tracking-[0.32em] uppercase">
-                    目录 · contents
-                  </p>
+                  <p className="font-display text-fg-primary text-sm">目录</p>
                   <button
                     type="button"
                     onClick={() => setSheetOpen(false)}
-                    className="text-fg-muted hover:text-fg-primary font-mono text-[10px] tracking-[0.2em] uppercase transition-colors"
+                    className="text-fg-muted hover:text-fg-primary text-[13px] transition-colors"
                   >
                     关闭
                   </button>
@@ -213,7 +244,7 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
                     <a
                       key={item.id}
                       href={`#${item.id}`}
-                      className={`block py-1.5 font-mono text-[12px] leading-relaxed transition-colors duration-200 ${
+                      className={`block py-1.5 text-[14px] leading-relaxed transition-colors duration-200 ${
                         item.level === 3 ? "pl-3" : ""
                       } ${activeId === item.id ? "font-medium" : "text-fg-muted hover:opacity-80"}`}
                       style={activeId === item.id ? { color: accentColor } : undefined}

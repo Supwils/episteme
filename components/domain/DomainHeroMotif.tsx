@@ -6,6 +6,8 @@
  * accent. Unknown domains get no motif.
  */
 
+import { Children, cloneElement, isValidElement } from "react";
+
 type MotifProps = { color: string };
 
 const shared = {
@@ -287,24 +289,45 @@ const MOTIFS: Record<string, (props: MotifProps) => React.ReactNode> = {
   engineering: EngineeringMotif,
 };
 
+const STROKE_SHAPES = new Set(["path", "line", "circle", "rect", "polyline", "polygon"]);
+
+/** Normalises every stroke so the CSS draw-in (dasharray 1 → offset 0) runs
+ *  at the same pace regardless of geometry length. */
+function withPathLength(node: React.ReactNode): React.ReactNode {
+  if (!isValidElement<{ children?: React.ReactNode; pathLength?: number }>(node)) return node;
+  const children = Children.map(node.props.children, withPathLength);
+  const isStroke = typeof node.type === "string" && STROKE_SHAPES.has(node.type);
+  return cloneElement(node, isStroke ? { pathLength: 1 } : undefined, children);
+}
+
 export function DomainHeroMotif({
   domain,
   accent,
   variant = "hero",
+  draw = false,
 }: {
   domain: string;
   accent: string;
   variant?: "hero" | "watermark";
+  /** Strokes draw themselves in on mount (CSS, reduced-motion aware). */
+  draw?: boolean;
 }) {
   const Motif = MOTIFS[domain];
   if (!Motif) return null;
   const className =
     variant === "watermark"
       ? "pointer-events-none absolute -top-8 -right-6 hidden w-44 opacity-[0.12] sm:block md:w-56"
-      : "pointer-events-none absolute top-24 right-6 hidden w-72 opacity-[0.16] sm:block md:right-16 md:w-96";
+      : "domain-motif--hero pointer-events-none absolute top-24 right-6 hidden w-72 opacity-[0.16] sm:block md:right-16 md:w-96";
+  // Motifs are hook-free render functions; calling one yields the raw <g>
+  // tree so the draw variant can tag every stroke before it is emitted.
+  const art = Motif({ color: accent });
   return (
-    <svg aria-hidden="true" viewBox="0 0 208 132" className={className}>
-      <Motif color={accent} />
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 208 132"
+      className={draw ? `${className} domain-motif--draw` : className}
+    >
+      {draw ? withPathLength(art) : art}
     </svg>
   );
 }

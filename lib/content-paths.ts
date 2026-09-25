@@ -78,6 +78,9 @@ export function existingContentArticle(
   slug: string,
   extensions: readonly string[] = DEFAULT_ARTICLE_EXTS
 ): string | null {
+  // `<slug>.narration` would resolve to the sibling spoken-script file and
+  // render it as a phantom article; every loader shares this guard.
+  if (slug.endsWith(".narration")) return null;
   for (const ext of extensions) {
     const found = existingContentFile(dir, `${slug}${ext}`);
     if (found) return found;

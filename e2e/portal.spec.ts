@@ -2,9 +2,9 @@ import { test, expect } from "@playwright/test";
 
 test("portal home page loads", async ({ page }) => {
   await page.goto("/");
-  // The hero H1 ("探索人类知识的边界") is unique; the brand string appears in
+  // The hero H1 ("从问题出发") is unique; the brand string appears in
   // both the nav and the hero eyebrow, so target the heading instead.
-  await expect(page.getByRole("heading", { name: /探索人类/ })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: /从问题出发/ })).toBeVisible();
 });
 
 test("domain cards are visible", async ({ page }) => {

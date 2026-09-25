@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { SpotlightGrid } from "@/components/motion/SpotlightGrid";
 
 /**
  * Client-side browser for engine-driven section lists: full-text search over
@@ -146,14 +147,16 @@ export function DomainSectionListBrowser({
               <span className="bg-border-faint h-px flex-1" />
             </div>
           )}
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {list.map((entry) => {
+          <SpotlightGrid className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {list.map((entry, i) => {
               const badge = badges[entry.slug] ?? null;
               return (
                 <Link
                   key={entry.slug}
                   href={`/${domain}/${section}/${entry.slug}`}
-                  className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative flex flex-col gap-2 overflow-hidden border p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5"
+                  data-spotlight
+                  className="group list-enter border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative flex flex-col gap-2 overflow-hidden border p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5"
+                  style={{ "--spot": accent, "--i": Math.min(i, 11) } as React.CSSProperties}
                 >
                   <div
                     className="pointer-events-none absolute -top-10 -right-10 h-28 w-28 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-15"
@@ -209,7 +212,7 @@ export function DomainSectionListBrowser({
                 </Link>
               );
             })}
-          </div>
+          </SpotlightGrid>
         </section>
       ))}
 

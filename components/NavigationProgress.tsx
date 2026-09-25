@@ -43,7 +43,9 @@ export function NavigationProgress() {
     };
 
     const start = (event: MouseEvent) => {
-      if (!isNavigationLink(event)) return;
+      // Bubble phase so React handlers run first: a link that called
+      // preventDefault (touch wiki previews) must not light the indicator.
+      if (event.defaultPrevented || !isNavigationLink(event)) return;
       if (timerRef.current) clearTimeout(timerRef.current);
       setActive(true);
       // Covers query-only transitions and failed/cancelled navigations, where
@@ -51,11 +53,11 @@ export function NavigationProgress() {
       timerRef.current = setTimeout(stop, FAILSAFE_MS);
     };
 
-    document.addEventListener("click", start, true);
+    document.addEventListener("click", start);
     window.addEventListener("pageshow", stop);
     window.addEventListener("popstate", stop);
     return () => {
-      document.removeEventListener("click", start, true);
+      document.removeEventListener("click", start);
       window.removeEventListener("pageshow", stop);
       window.removeEventListener("popstate", stop);
       if (timerRef.current) clearTimeout(timerRef.current);

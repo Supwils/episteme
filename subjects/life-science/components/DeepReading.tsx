@@ -52,7 +52,7 @@ export function DeepReading({ introduction, sections, citations }: DeepReadingPr
                 {cite.doi && (
                   <a
                     href={`https://doi.org/${cite.doi}`}
-                    className="text-accent-green ml-1"
+                    className="text-accent-green ml-1 underline underline-offset-2"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

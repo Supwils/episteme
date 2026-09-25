@@ -1,4 +1,4 @@
-import { SubjectHeader } from "@/components/SubjectHeader";
+import { DomainHeader } from "@/components/chrome/DomainHeader";
 
 /**
  * Engine domains (computer-science / political-science) render the shared
@@ -6,5 +6,5 @@ import { SubjectHeader } from "@/components/SubjectHeader";
  * new-domains). Kept as a thin wrapper so the domain layouts stay unchanged.
  */
 export function DomainNav({ domain }: { domain: string }) {
-  return <SubjectHeader subject={domain} />;
+  return <DomainHeader subject={domain} />;
 }

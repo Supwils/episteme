@@ -1,116 +1,97 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { flushSync } from "react-dom";
+import { Glyph, type GlyphName } from "@/components/design/Glyph";
+import { DURATION_MS, EASE_INSTRUMENT } from "@/lib/design/motion-tokens";
 
+type ThemeChoice = "dark" | "light" | "system";
+
+// Cycle 观测台 → 手记 → 跟随系统. The button shows where a click takes you.
+const NEXT: Record<ThemeChoice, ThemeChoice> = { dark: "light", light: "system", system: "dark" };
+const TARGET: Record<ThemeChoice, { glyph: GlyphName; label: string }> = {
+  dark: { glyph: "telescope", label: "切换到观测台（深色主题）" },
+  light: { glyph: "pen", label: "切换到手记（浅色主题）" },
+  system: { glyph: "auto", label: "跟随系统主题" },
+};
+
+function resolve(choice: ThemeChoice): "dark" | "light" {
+  if (choice !== "system") return choice;
+  return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+}
+
+const BUTTON =
+  "border-border-subtle text-fg-muted hover:border-accent-gold hover:text-fg-primary flex h-10 w-10 items-center justify-center rounded-lg border bg-transparent transition-colors";
+
+/**
+ * 主题切换即隐喻（T-DESIGN-03d）：望远镜是观测台，笔尖是手记。支持 View
+ * Transitions 的浏览器里，新主题从按钮处以圆形展开；不支持或要求减少动效时瞬切。
+ */
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  useEffect(() => setMounted(true), []);
 
   if (!mounted) {
     return (
-      <button
-        className="border-border-subtle text-fg-muted hover:border-accent-gold hover:text-fg-primary flex h-10 w-10 items-center justify-center rounded-lg border bg-transparent transition-colors"
-        aria-label="切换主题"
-        disabled
-      >
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <circle cx="12" cy="12" r="5" />
-          <line x1="12" y1="1" x2="12" y2="3" />
-          <line x1="12" y1="21" x2="12" y2="23" />
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-          <line x1="1" y1="12" x2="3" y2="12" />
-          <line x1="21" y1="12" x2="23" y2="12" />
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-        </svg>
+      <button type="button" className={BUTTON} aria-label="切换主题" disabled>
+        <Glyph name="auto" size={18} />
       </button>
     );
   }
 
-  const cycleTheme = () => {
-    if (theme === "dark") {
-      setTheme("light");
-    } else if (theme === "light") {
-      setTheme("system");
-    } else {
-      setTheme("dark");
-    }
+  const current = (theme ?? "dark") as ThemeChoice;
+  const next = NEXT[current] ?? "dark";
+
+  const apply = () => {
+    // Set the class ourselves inside the transition callback so the "new"
+    // snapshot is already the new theme; next-themes then persists the choice.
+    const resolved = resolve(next);
+    const root = document.documentElement;
+    root.classList.remove("dark", "light");
+    root.classList.add(resolved);
+    root.style.colorScheme = resolved;
+    flushSync(() => setTheme(next));
   };
 
+  const switchTheme = () => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const button = buttonRef.current;
+    if (!document.startViewTransition || reduce || !button || resolve(next) === resolve(current)) {
+      apply();
+      return;
+    }
+    const box = button.getBoundingClientRect();
+    const x = box.left + box.width / 2;
+    const y = box.top + box.height / 2;
+    const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+    const transition = document.startViewTransition(apply);
+    void transition.ready.then(() => {
+      document.documentElement.animate(
+        { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
+        {
+          duration: DURATION_MS.slow,
+          easing: `cubic-bezier(${EASE_INSTRUMENT.join(", ")})`,
+          pseudoElement: "::view-transition-new(root)",
+        }
+      );
+    });
+  };
+
+  const target = TARGET[next];
   return (
     <button
-      className="border-border-subtle text-fg-muted hover:border-accent-gold hover:text-fg-primary flex h-10 w-10 items-center justify-center rounded-lg border bg-transparent transition-colors"
-      onClick={cycleTheme}
-      aria-label={
-        theme === "dark" ? "切换为浅色主题" : theme === "light" ? "跟随系统主题" : "切换为深色主题"
-      }
-      title={theme === "dark" ? "浅色主题" : theme === "light" ? "跟随系统" : "深色主题"}
+      ref={buttonRef}
+      type="button"
+      className={BUTTON}
+      onClick={switchTheme}
+      aria-label={target.label}
+      title={target.label}
     >
-      {theme === "dark" ? (
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <circle cx="12" cy="12" r="5" />
-          <line x1="12" y1="1" x2="12" y2="3" />
-          <line x1="12" y1="21" x2="12" y2="23" />
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-          <line x1="1" y1="12" x2="3" y2="12" />
-          <line x1="21" y1="12" x2="23" y2="12" />
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-        </svg>
-      ) : theme === "light" ? (
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-        </svg>
-      ) : (
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-          <line x1="8" y1="21" x2="16" y2="21" />
-          <line x1="12" y1="17" x2="12" y2="21" />
-        </svg>
-      )}
+      <Glyph name={target.glyph} size={18} />
     </button>
   );
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getDailySelected, formatDisplayDate, getWeekday } from "@/lib/daily-selector";
 import { DailyShuffle } from "@/components/DailyShuffle";
 import { OnThisDay } from "@/components/OnThisDay";
+import { dedupeDailyEvents } from "@/lib/daily-display";
 
 export const metadata: Metadata = {
   title: "每日知识 — Episteme · 格致",
@@ -25,6 +26,14 @@ export default function DailyPage() {
   const daily = getDailySelected(today);
   const displayDate = formatDisplayDate(daily.date);
   const weekday = getWeekday(daily.date);
+  // The cards above already show today's picks; the list below adds only the rest.
+  const moreOnThisDay = dedupeDailyEvents(daily.onThisDay, [
+    daily.physics,
+    daily.history,
+    daily.philosophy,
+    daily.economics,
+    daily.psychology,
+  ]);
 
   return (
     <div className="min-h-screen w-full">
@@ -45,9 +54,9 @@ export default function DailyPage() {
         <DailyShuffle initial={daily} />
       </section>
 
-      {daily.onThisDay.length > 0 && (
+      {moreOnThisDay.length > 0 && (
         <section className="w-full px-6 py-8 pb-20 sm:px-10 lg:px-16">
-          <OnThisDay events={daily.onThisDay} />
+          <OnThisDay events={moreOnThisDay} />
         </section>
       )}
     </div>

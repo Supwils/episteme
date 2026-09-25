@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { spaceGrotesk, plexMono } from "./fonts";
-import { SubjectHeader } from "@/components/SubjectHeader";
+import { DomainHeader } from "@/components/chrome/DomainHeader";
 import { PageTransition } from "@/components/PageTransition";
 import "./globals.css";
 // KaTeX stylesheet: articles in this domain render math via MarkdownRenderer
@@ -27,7 +27,7 @@ export default function PhilosophyLayout({ children }: { children: React.ReactNo
 
   return (
     <div className={`philosophy-root ${fontVars}`}>
-      <SubjectHeader subject="philosophy" />
+      <DomainHeader subject="philosophy" />
 
       <main>
         <PageTransition>{children}</PageTransition>

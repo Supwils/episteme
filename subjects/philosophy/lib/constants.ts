@@ -1,5 +1,6 @@
 export const ERA_ACCENT: Record<string, string> = {
   古代: "#6ad0ff",
+  中世纪: "#d08f6a",
   近代: "#c8a45a",
   现代: "#7aaa8a",
   当代: "#a88adf",
@@ -7,6 +8,7 @@ export const ERA_ACCENT: Record<string, string> = {
 
 export const ERA_BG: Record<string, string> = {
   古代: "rgba(106,208,255,0.08)",
+  中世纪: "rgba(208,143,106,0.08)",
   近代: "rgba(200,164,90,0.08)",
   现代: "rgba(122,170,138,0.08)",
   当代: "rgba(168,138,223,0.08)",
@@ -14,6 +16,7 @@ export const ERA_BG: Record<string, string> = {
 
 export const ERA_GLOW: Record<string, string> = {
   古代: "rgba(106,208,255,0.12)",
+  中世纪: "rgba(208,143,106,0.12)",
   近代: "rgba(200,164,90,0.12)",
   现代: "rgba(122,170,138,0.12)",
   当代: "rgba(168,138,223,0.12)",

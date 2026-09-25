@@ -1,27 +1,23 @@
 import { ImageResponse } from "next/og";
+import { DOMAINS } from "@/lib/data";
+import { SITE_URL } from "@/lib/constants";
+import { clusterMarkHex } from "@/lib/design/domain-accent";
 
 export const runtime = "edge";
 
 const MAX_TITLE_LENGTH = 200;
 const MAX_DESCRIPTION_LENGTH = 120;
 
+// Derived from the DOMAINS truth source so every one of the 22 subjects gets
+// its label and cluster pigment on share cards. Satori has no CSS variables,
+// so the pigment comes as hex (Observatory variant — the card is dark).
 const SECTION_COLORS: Record<string, string> = {
-  philosophy: "#c8a45a",
-  mathematics: "#6366f1",
-  "life-science": "#4a9e6f",
-  "human-history": "#6ad0ff",
-  "universe-physics": "#a88adf",
-  cosmology: "#e07a5f",
+  ...Object.fromEntries(DOMAINS.map((domain) => [domain.id, clusterMarkHex(domain.cluster)])),
   "knowledge-graph": "#d19a66",
 };
 
 const SECTION_LABELS: Record<string, string> = {
-  philosophy: "哲学思想",
-  mathematics: "数学",
-  "life-science": "生命科学",
-  "human-history": "人类历史",
-  "universe-physics": "宇宙物理",
-  cosmology: "宇宙学",
+  ...Object.fromEntries(DOMAINS.map((domain) => [domain.id, domain.title])),
   "knowledge-graph": "知识图谱",
 };
 
@@ -201,7 +197,7 @@ export async function GET(request: Request) {
             letterSpacing: "0.12em",
           }}
         >
-          episteme.vercel.app
+          {new URL(SITE_URL).host}
         </span>
       </div>
     </div>,

@@ -117,7 +117,7 @@ export function LegalTraditionsMap() {
                 className="rounded-full border px-3 py-1 font-mono text-[11px] tracking-[0.08em] transition-colors"
                 style={{
                   borderColor: selected ? ACCENT : "var(--color-border-subtle)",
-                  color: selected ? "#0e0f14" : "var(--color-fg-muted)",
+                  color: selected ? "#0f1622" : "var(--color-fg-muted)",
                   backgroundColor: selected ? ACCENT : "transparent",
                 }}
               >
@@ -185,7 +185,7 @@ export function LegalTraditionsMap() {
                   fontFamily="monospace"
                   textAnchor="middle"
                   dominantBaseline="central"
-                  fill={lit ? "#0e0f14" : "var(--color-fg-muted)"}
+                  fill={lit ? "#0f1622" : "var(--color-fg-muted)"}
                   pointerEvents="none"
                 >
                   {tile.label}

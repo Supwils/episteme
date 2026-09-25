@@ -6,10 +6,11 @@ import "../domain-shared.css";
 
 export const metadata: Metadata = {
   title: "奇趣知识 — Episteme · 格致",
-  description: "横跨十个学科的冷知识与「原来如此」时刻：那些少有人知、却真实而迷人的事实。",
+  description:
+    "横跨二十二个学科的冷知识、跨学科巧合与「原来如此」时刻：那些少有人知、却真实而迷人的事实。",
   openGraph: {
     title: "奇趣知识 — Episteme · 格致",
-    description: "横跨十个学科的冷知识与「原来如此」时刻。",
+    description: "横跨二十二个学科的冷知识、跨学科巧合与「原来如此」时刻。",
     type: "website",
   },
 };

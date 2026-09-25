@@ -73,7 +73,7 @@ export function PlateBoundaries() {
                 style={{
                   borderColor: selected ? ACCENT : "var(--color-border-subtle)",
                   // dark text on the light-green accent fill (white fails AA here)
-                  color: selected ? "#0e0f14" : "var(--color-fg-muted)",
+                  color: selected ? "#0f1622" : "var(--color-fg-muted)",
                   backgroundColor: selected ? ACCENT : "transparent",
                 }}
               >

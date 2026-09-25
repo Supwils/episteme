@@ -8,7 +8,7 @@ const SCHOOLS_DIR = path.join(getDomainContentDir("philosophy"), "schools");
 const schoolBySlugCache = new Map<string, School | null>();
 let cachedSchools: School[] | null = null;
 
-const ERA_ORDER: Record<string, number> = { 古代: 0, 近代: 1, 现代: 2, 当代: 3 };
+const ERA_ORDER: Record<string, number> = { 古代: 0, 中世纪: 1, 近代: 2, 现代: 3, 当代: 4 };
 
 function toSchool(data: Record<string, unknown>, content: string, slug: string): School {
   return {

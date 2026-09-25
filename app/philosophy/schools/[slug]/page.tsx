@@ -4,19 +4,12 @@ import Link from "next/link";
 import { getSchoolBySlug, getAllSchools } from "@/lib/schools";
 import Breadcrumb from "@/components/Breadcrumb";
 import RelatedContent from "@/components/RelatedContent";
-import { CornerMarks, OrnamentalDivider } from "@/components/school-detail/Decorations";
+import { OrnamentalDivider } from "@/components/school-detail/Decorations";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { KeyFiguresSection, RelatedSchoolsSection } from "@/components/school-detail/Sections";
 import { ERA_ACCENT, SITE_URL } from "@/lib/constants";
-import { ArticleSidebar } from "@/components/ArticleSidebar";
 import { TableOfContents } from "@/components/TableOfContents";
-import { ReadingModeControls } from "@/components/ReadingModeControls";
-import { ReadingProgressBar } from "@/components/ReadingProgressBar";
-import {
-  ARTICLE_BODY_ROW_CLASS,
-  ARTICLE_HEADER_CLASS,
-  ARTICLE_SURFACE_CLASS,
-} from "@/components/ArticleLayout";
+import { ArticleLayout } from "@/components/ArticleLayout";
 import { serializeJsonLd, createArticleJsonLd } from "@/lib/jsonld";
 
 export function generateStaticParams() {
@@ -60,7 +53,6 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
         (other.era === school.era || other.key_figures?.some((fig) => keyFigures.includes(fig)))
     )
     .slice(0, 4);
-  const readMinutes = Math.max(1, Math.ceil(school.content.replace(/\s/g, "").length / 400));
 
   const jsonLd = createArticleJsonLd({
     title: school.title,
@@ -71,99 +63,27 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
   });
 
   return (
-    <div className="mx-auto w-full max-w-[1800px] px-6 py-12 sm:px-10 lg:px-16">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
-      />
-      <ReadingProgressBar />
-      <Link
-        href="/philosophy/schools"
-        className="text-fg-muted hover:text-fg-secondary mb-8 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] uppercase transition-colors"
-      >
-        ← 返回流派列表
-      </Link>
-
-      <Breadcrumb category="schools" currentTitle={school.title} />
-
-      <div className={ARTICLE_BODY_ROW_CLASS}>
-        <article className={ARTICLE_SURFACE_CLASS}>
-          <header className={ARTICLE_HEADER_CLASS}>
-            <CornerMarks />
-
-            <div className="mb-3 flex flex-wrap items-center gap-3">
-              <span
-                className="font-mono text-[10px] tracking-[0.32em] uppercase"
-                style={{ color: accent }}
-              >
-                {school.era}
-              </span>
-              {period && (
-                <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">
-                  {period}
-                </span>
-              )}
-              <span className="text-fg-disabled font-mono text-[10px] tracking-[0.22em]">
-                约 {readMinutes} 分钟阅读
-              </span>
-              <span className="ml-auto">
-                <ReadingModeControls />
-              </span>
-            </div>
-
-            <h1 className="font-display text-fg-primary text-[2.2rem] leading-tight tracking-tight md:text-[2.8rem]">
-              {school.title}
-            </h1>
-
-            {founder && (
-              <p className="text-fg-secondary mt-3 text-base">
-                创始人：<span className="text-fg-primary font-medium">{founder}</span>
-              </p>
-            )}
-
-            {keyFigures.length > 0 && (
-              <div className="mt-4 flex flex-wrap gap-2">
-                {keyFigures.map((name) => (
-                  <span
-                    key={name}
-                    className="border-fg-disabled/30 text-fg-muted rounded-none border px-2.5 py-1 font-mono text-[10px] tracking-[0.18em]"
-                  >
-                    {name}
-                  </span>
-                ))}
-              </div>
-            )}
-
-            {school.tags.length > 0 && (
-              <div className="mt-3 flex flex-wrap gap-1.5">
-                {school.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="border-fg-disabled/20 text-fg-muted rounded-none border px-2 py-0.5 font-mono text-[9px] tracking-[0.14em]"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            )}
-          </header>
-          <MarkdownRenderer domain="philosophy" content={school.content} />
-
-          {keyFigures.length > 0 && (
-            <>
-              <OrnamentalDivider color={accent} />
-              <KeyFiguresSection figures={keyFigures} accent={accent} />
-            </>
-          )}
-
-          <OrnamentalDivider color={accent} />
-
-          <RelatedSchoolsSection currentSlug={slug} era={school.era} />
-
-          <RelatedContent slug={slug} domain="philosophy" entityId={slug} />
-        </article>
-
-        <ArticleSidebar>
+    <ArticleLayout
+      backHref="/philosophy/schools"
+      url={`/philosophy/schools/${slug}`}
+      backLabel="← 返回流派列表"
+      accent={accent}
+      eyebrow={school.era}
+      eyebrowMeta={period ? [period] : undefined}
+      title={school.title}
+      content={school.content}
+      meta={
+        founder || keyFigures.length > 0 ? (
+          <>
+            {founder ? `创始人：${founder}` : ""}
+            {founder && keyFigures.length > 0 ? " · " : ""}
+            {keyFigures.join("、")}
+          </>
+        ) : undefined
+      }
+      tags={school.tags}
+      sidebar={
+        <>
           <TableOfContents accentColor="#a88adf" />
           <div className="border-border-faint border p-4">
             <h3 className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.22em] uppercase">
@@ -222,8 +142,28 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
               </div>
             </div>
           )}
-        </ArticleSidebar>
-      </div>
-    </div>
+        </>
+      }
+      breadcrumb={<Breadcrumb category="schools" currentTitle={school.title} />}
+    >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
+      />
+      <MarkdownRenderer domain="philosophy" content={school.content} />
+
+      {keyFigures.length > 0 && (
+        <>
+          <OrnamentalDivider color={accent} />
+          <KeyFiguresSection figures={keyFigures} accent={accent} />
+        </>
+      )}
+
+      <OrnamentalDivider color={accent} />
+
+      <RelatedSchoolsSection currentSlug={slug} era={school.era} />
+
+      <RelatedContent slug={slug} domain="philosophy" entityId={slug} />
+    </ArticleLayout>
   );
 }

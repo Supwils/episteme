@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { cn } from "@/components/ui/utils/cn";
+import { ArticleExits } from "@/components/article/ArticleExits";
 import { ArticleSidebar } from "@/components/ArticleSidebar";
 import { AskThisArticle } from "@/components/AskThisArticle";
 import { ArticleTakeaway } from "@/components/ArticleTakeaway";
@@ -20,8 +21,8 @@ export const ARTICLE_BODY_ROW_CLASS =
 export const ARTICLE_SURFACE_BASE_CLASS =
   "article-reading-surface min-w-0 flex-1 transition-[max-width] duration-300";
 
-/** Default reading column (~44 CJK chars/line). */
-export const ARTICLE_SURFACE_CLASS = `${ARTICLE_SURFACE_BASE_CLASS} max-w-[44rem]`;
+/** Default reading column: ~38 CJK chars/line at the 17px prose size. */
+export const ARTICLE_SURFACE_CLASS = `${ARTICLE_SURFACE_BASE_CLASS} max-w-[40rem]`;
 
 /** Title card inside the reading column. Custom shells should reuse this so
  *  h1 inset matches DomainArticle / FrontierArticleView. */
@@ -75,8 +76,8 @@ interface ArticleLayoutProps {
   prevLabel?: string;
   nextLabel?: string;
   /**
-   * Overrides the article column max width. Defaults to `max-w-[44rem]`
-   * (~44 CJK chars/line, the Chinese long-form comfort measure); the
+   * Overrides the article column max width. Defaults to `max-w-[40rem]`
+   * (~38 CJK chars/line at the 17px prose size); the
    * focus/spacious reading modes narrow/widen it further via globals.css.
    */
   articleClassName?: string;
@@ -114,7 +115,7 @@ export function ArticleLayout({
   next,
   prevLabel = "上一篇",
   nextLabel = "下一篇",
-  articleClassName = "max-w-[44rem]",
+  articleClassName = "max-w-[40rem]",
   sidebarClassName,
   domain,
 }: ArticleLayoutProps) {
@@ -136,12 +137,17 @@ export function ArticleLayout({
 
       <div className={ARTICLE_BODY_ROW_CLASS}>
         <article className={cn(ARTICLE_SURFACE_BASE_CLASS, articleClassName)}>
-          <header className={ARTICLE_HEADER_CLASS}>
+          <header className={cn(ARTICLE_HEADER_CLASS, "article-header")}>
             {domain ? (
-              <DomainHeroMotif domain={domain} accent={accent} variant="watermark" />
+              <DomainHeroMotif domain={domain} accent={accent} variant="watermark" draw />
             ) : null}
+            <span
+              aria-hidden="true"
+              className="article-header__rule"
+              style={{ background: accent }}
+            />
             <div className="relative">
-              <div className="mb-3 flex flex-wrap items-center gap-3">
+              <div className="article-header__enter mb-3 flex flex-wrap items-center gap-3">
                 <span
                   className="border px-2.5 py-1 font-mono text-[10px] tracking-[0.32em] uppercase"
                   style={{
@@ -163,11 +169,13 @@ export function ArticleLayout({
                   <ReadingModeControls />
                 </span>
               </div>
-              <h1 className="font-display text-fg-primary mb-2 text-[2rem] leading-tight font-semibold tracking-tight md:text-[2.8rem]">
+              <h1 className="article-header__enter font-display text-fg-primary mb-2 text-[2rem] leading-tight font-semibold tracking-tight md:text-[2.8rem]">
                 {title}
               </h1>
               {titleEn && (
-                <p className="text-fg-muted font-display text-lg tracking-wide italic">{titleEn}</p>
+                <p className="article-header__enter text-fg-muted font-display text-lg tracking-wide italic">
+                  {titleEn}
+                </p>
               )}
               {meta && <div className="text-fg-secondary mt-3">{meta}</div>}
               {lede && (
@@ -203,40 +211,14 @@ export function ArticleLayout({
 
       <Backlinks url={url} />
 
-      {(prev || next) && (
-        <nav className="print-hidden border-border-faint mt-16 flex items-stretch justify-between gap-4 border-t pt-8">
-          {prev ? (
-            <Link
-              href={prev.href}
-              className="group border-border-faint hover:border-fg-disabled/30 hover:bg-bg-panel flex flex-1 flex-col gap-1 border p-4 transition-all duration-300"
-            >
-              <span className="text-fg-muted font-mono text-[9px] tracking-[0.22em] uppercase">
-                ← {prevLabel}
-              </span>
-              <span className="font-display text-fg-secondary group-hover:text-accent-gold text-sm font-medium transition-colors">
-                {prev.title}
-              </span>
-            </Link>
-          ) : (
-            <div className="flex-1" />
-          )}
-          {next ? (
-            <Link
-              href={next.href}
-              className="group border-border-faint hover:border-fg-disabled/30 hover:bg-bg-panel flex flex-1 flex-col items-end gap-1 border p-4 text-right transition-all duration-300"
-            >
-              <span className="text-fg-muted font-mono text-[9px] tracking-[0.22em] uppercase">
-                {nextLabel} →
-              </span>
-              <span className="font-display text-fg-secondary group-hover:text-accent-gold text-sm font-medium transition-colors">
-                {next.title}
-              </span>
-            </Link>
-          ) : (
-            <div className="flex-1" />
-          )}
-        </nav>
-      )}
+      <ArticleExits
+        url={url}
+        content={content}
+        next={next}
+        prev={prev}
+        nextLabel={nextLabel}
+        prevLabel={prevLabel}
+      />
     </div>
   );
 }

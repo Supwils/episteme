@@ -15,6 +15,7 @@ import {
   EventReferences,
   EventNav,
 } from "./EventDetailSections";
+import { SITE_URL } from "@/lib/constants";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: Props) {
   const event = getEventBySlug(slug);
   if (!event) notFound();
   const description = event.desc;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://episteme.vercel.app";
+  const siteUrl = SITE_URL;
   const ogImage = `${siteUrl}/api/og?title=${encodeURIComponent(event.title)}&section=human-history&description=${encodeURIComponent(description)}`;
   return withCanonicalPath(`/human-history/events/${slug}`, {
     title: `${event.title} — 人类历史事件`,

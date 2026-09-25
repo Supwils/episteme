@@ -1,18 +1,14 @@
 import type { Metadata } from "next";
 import { serializeJsonLd } from "@/lib/jsonld";
-import { HeroSection } from "../components/HeroSection";
-import { HeroBackdrop } from "../components/HeroBackdrop";
-import { FeatureGrid } from "../components/FeatureGrid";
-import { DomainCard } from "../components/DomainCard";
-import { LatestUpdates } from "../components/LatestUpdates";
-import { FeaturedContent } from "../components/FeaturedContent";
-import { DailyKnowledgeCard } from "../components/DailyKnowledgeCard";
-import { DeferredHomeKnowledgeContinuum } from "../components/DeferredHomeKnowledgeContinuum";
-import { HomeMotionController } from "../components/HomeMotionController";
-import { getDailyKnowledge } from "../lib/daily-knowledge";
-import { DOMAINS } from "../lib/data";
-import { getClustersWithDomains } from "../lib/domain-clusters";
+import { Astrolabe } from "@/components/portal/Astrolabe";
+import { ClusterAtlas } from "@/components/portal/ClusterAtlas";
+import { TodaySection } from "@/components/portal/TodaySection";
+import { ReadingShelf } from "@/components/portal/ReadingShelf";
+import { ClimbInvite } from "@/components/portal/ClimbInvite";
+import { DeferredHomeKnowledgeContinuum } from "@/components/DeferredHomeKnowledgeContinuum";
+import { astrolabeDomainOfDay } from "@/lib/astrolabe";
 import { SITE_URL } from "../lib/constants";
+import "@/components/portal/portal.css";
 
 export const revalidate = 3600;
 
@@ -59,56 +55,24 @@ const websiteJsonLd = {
   },
 };
 
+/**
+ * 首页（E4）：① 格致仪 → ② 六簇二十二域 → ③ 今天 → ④ 读完一个主题 →
+ * ⑤ 知识连续体 → ⑥ 登上格致山。全部服务端渲染；客户端只有格致仪的选择
+ * 控制器、书架的抽书预览与延后载入的连续体。
+ */
 export default function HomePage() {
-  const daily = getDailyKnowledge();
-
   return (
-    <div
-      className="bg-bg-base text-fg-primary relative min-h-screen overflow-hidden"
-      data-home-motion-root
-    >
+    <div className="home">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(websiteJsonLd) }}
       />
-
-      <HeroBackdrop />
-      <HomeMotionController />
-
-      <div className="relative z-1">
-        <HeroSection />
-
-        {getClustersWithDomains(DOMAINS).map((cluster) => (
-          <section key={cluster.id} className="home-cluster">
-            <header className="home-cluster__header" data-home-reveal>
-              <h2 className="home-cluster__title">{cluster.label}</h2>
-              <span className="home-cluster__en">{cluster.en}</span>
-              <span className="home-cluster__rule" />
-              <span className="home-cluster__count">{cluster.domains.length} 个领域</span>
-            </header>
-            <div className="home-cluster__grid">
-              {cluster.domains.map((domain) => (
-                <DomainCard key={domain.id} domain={domain} index={DOMAINS.indexOf(domain)} />
-              ))}
-            </div>
-          </section>
-        ))}
-
-        <DeferredHomeKnowledgeContinuum />
-
-        <section className="home-daily-slot">
-          <h2 className="home-daily-slot__title" data-home-reveal>
-            每日知识
-          </h2>
-          <DailyKnowledgeCard items={daily.items} fact={daily.fact} date={daily.date} />
-        </section>
-
-        <LatestUpdates />
-
-        <FeaturedContent />
-
-        <FeatureGrid />
-      </div>
+      <Astrolabe selected={astrolabeDomainOfDay()} />
+      <ClusterAtlas />
+      <TodaySection />
+      <ReadingShelf />
+      <DeferredHomeKnowledgeContinuum />
+      <ClimbInvite />
     </div>
   );
 }

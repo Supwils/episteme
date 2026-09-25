@@ -41,7 +41,11 @@ test.describe("production smoke", () => {
     const search = page.getByRole("dialog", { name: "全站搜索" });
     await search.getByRole("textbox", { name: "搜索" }).fill("苏格拉底");
 
-    const thinkerResult = search.locator('a[href="/philosophy/thinkers/socrates"]');
+    // The Socrates curiosity hook shares this URL, and the desktop preview pane
+    // repeats it as 「打开」; target the article's result row.
+    const thinkerResult = search.locator(
+      'a[role="option"][href="/philosophy/thinkers/socrates"]:not([data-kind="curiosity"])'
+    );
     await expect(thinkerResult).toBeVisible();
     for (const composition of [{ isComposing: true }, { keyCode: 229 }]) {
       await search.getByRole("textbox", { name: "搜索" }).dispatchEvent("keydown", {
@@ -253,6 +257,28 @@ test.describe("progressive enhancement without JavaScript", () => {
   });
 });
 
+test.describe("portal astrolabe", () => {
+  test("sweeps subjects with the arrow keys and enters one with Enter", async ({ page }) => {
+    await page.goto("/");
+    const readout = page.locator(".astrolabe-readout__title");
+    const aimed = page.locator(".astrolabe__wedge.is-selected");
+    await expect(aimed).toHaveCount(1);
+    await expect(page.locator(".astrolabe-readout__steps li")).toHaveCount(5);
+    const first = await readout.textContent();
+
+    await aimed.focus();
+    await page.keyboard.press("ArrowRight");
+    await expect(readout).not.toHaveText(first ?? "");
+    await expect(page.locator(".astrolabe-readout__steps li")).toHaveCount(5);
+    const next = await page.evaluate(() => document.activeElement?.getAttribute("data-wedge"));
+    expect(next).toBeTruthy();
+    await expect(page.locator('.astrolabe__wedge[tabindex="0"]')).toHaveCount(1);
+
+    await page.keyboard.press("Enter");
+    await expect(page).toHaveURL(new RegExp(`/${next}$`));
+  });
+});
+
 test.describe("reduced-motion portal", () => {
   test("keeps hydrated content visible without scroll transforms", async ({ page }) => {
     await page.emulateMedia({ reducedMotion: "reduce" });
@@ -264,12 +290,16 @@ test.describe("reduced-motion portal", () => {
     await lastCard.scrollIntoViewIfNeeded();
     await expect(lastCard).toHaveCSS("opacity", "1");
     await expect(lastCard).toHaveCSS("transform", "none");
-    await expect(page.locator("[data-home-hero-copy]")).toHaveCSS("transform", "none");
+    // The astrolabe's one entrance (ring engraving, rule swing) is skipped.
     expect(
-      await page
-        .locator("[data-home-reveal]")
-        .evaluateAll((nodes) => nodes.every((node) => getComputedStyle(node).opacity === "1"))
-    ).toBe(true);
+      await page.evaluate(
+        () =>
+          document.getAnimations().filter((animation) => {
+            const target = (animation.effect as KeyframeEffect | null)?.target;
+            return target instanceof Element && target.closest(".astrolabe");
+          }).length
+      )
+    ).toBe(0);
     expect(
       await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)
     ).toBe(true);

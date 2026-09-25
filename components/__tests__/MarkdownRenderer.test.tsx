@@ -86,7 +86,7 @@ describe("MarkdownRenderer DOI links", () => {
 });
 
 describe("MarkdownRenderer apparatus sections", () => {
-  it("renders 参考文献 lists smaller and denser than narrative lists", () => {
+  it("renders 参考文献 lists as a bibliography, narrative lists as prose", () => {
     const { container } = render(
       <MarkdownRenderer
         content={"## 论证\n\n- 叙事列表项\n\n## 参考文献\n\n- 文献条目甲\n- 文献条目乙"}
@@ -94,21 +94,24 @@ describe("MarkdownRenderer apparatus sections", () => {
     );
     const lists = container.querySelectorAll("ul");
     expect(lists).toHaveLength(2);
-    expect(lists[0]!.className).toContain("text-[1rem]");
-    expect(lists[1]!.className).toContain("text-sm");
-    expect(lists[1]!.className).toContain("space-y-1");
+    expect(lists[0]!.dataset.variant).toBe("narrative");
+    expect(lists[1]!.dataset.variant).toBe("references");
   });
 
-  it("applies the same apparatus styling to 延伸阅读", () => {
-    const { container } = render(<MarkdownRenderer content={"## 延伸阅读\n\n- 推荐读物"} />);
-    expect(container.querySelector("ul")!.className).toContain("text-sm");
+  it("treats 延伸阅读 and 学术文献 as bibliographies too", () => {
+    for (const title of ["延伸阅读", "学术文献"]) {
+      const { container, unmount } = render(
+        <MarkdownRenderer content={`## ${title}\n\n- 推荐读物`} />
+      );
+      expect(container.querySelector("ul")!.dataset.variant).toBe("references");
+      unmount();
+    }
   });
 
-  it("marks 跨域连接 lists with a hairline left rule but keeps narrative sizing", () => {
+  it("marks 跨域连接 lists as the cross-domain variant", () => {
     const { container } = render(<MarkdownRenderer content={"## 跨域连接\n\n- 关联条目"} />);
-    const list = container.querySelector("ul")!;
-    expect(list.className).toContain("border-l");
-    expect(list.className).toContain("text-[1rem]");
+    expect(container.querySelector("ul")!.dataset.variant).toBe("cross-domain");
+    expect(container.querySelector('[data-section="cross-domain"]')).toBeTruthy();
   });
 
   it("resets apparatus styling at the next h2", () => {
@@ -116,16 +119,86 @@ describe("MarkdownRenderer apparatus sections", () => {
       <MarkdownRenderer content={"## 参考文献\n\n- 文献条目\n\n## 跨域连接\n\n- 关联条目"} />
     );
     const lists = container.querySelectorAll("ul");
-    expect(lists[0]!.className).toContain("text-sm");
-    expect(lists[1]!.className).toContain("text-[1rem]");
-    expect(lists[1]!.className).not.toContain("text-sm");
+    expect(lists[0]!.dataset.variant).toBe("references");
+    expect(lists[1]!.dataset.variant).toBe("cross-domain");
   });
 
   it("does not treat narrative headings containing the words as apparatus sections", () => {
     const { container } = render(
       <MarkdownRenderer content={"## 参考文献的写法\n\n- 叙事列表项"} />
     );
-    expect(container.querySelector("ul")!.className).toContain("text-[1rem]");
+    expect(container.querySelector("ul")!.dataset.variant).toBe("narrative");
+  });
+});
+
+describe("MarkdownRenderer section types", () => {
+  it("turns numbered misconceptions into struck claims with their corrections", () => {
+    const { container } = render(
+      <MarkdownRenderer
+        content={
+          "## 破除误解\n\n第一个误解，是把程序看成包装纸。其实程序本身就是正义。\n\n第二个误解，是认为程序保护坏人。它保护的是所有人。\n\n照例说明：本篇不构成法律建议。"
+        }
+      />
+    );
+    const cards = container.querySelectorAll(".myth-card");
+    expect(cards).toHaveLength(2);
+    expect(cards[0]!.querySelector("s")!.textContent).toBe("第一个误解，是把程序看成包装纸。");
+    expect(cards[0]!.textContent).toContain("其实程序本身就是正义。");
+    // The disclaimer leaves the cards and becomes a note.
+    expect(container.querySelector(".md-note")!.textContent).toContain("不构成法律建议");
+  });
+
+  it("never strikes an opening sentence that does not state a misconception", () => {
+    const { container } = render(
+      <MarkdownRenderer content={"## 破除误解\n\n法律起源于纠纷解决。这一点常被忽略。"} />
+    );
+    expect(container.querySelector("s")).toBeNull();
+    expect(container.querySelector(".myth-card")!.textContent).toContain("法律起源于纠纷解决。");
+  });
+
+  it("renders numbered fact cards as index cards", () => {
+    const { container } = render(
+      <MarkdownRenderer content={"## 事实卡\n\n- **卡1**：甲事实。\n- **卡2**：乙事实。"} />
+    );
+    const cards = container.querySelectorAll(".fact-card");
+    expect(cards).toHaveLength(2);
+    expect(cards[0]!.querySelector(".fact-card__label")!.textContent).toBe("卡1");
+  });
+
+  it("gives only the first 关键洞察 the insight plate", () => {
+    const { container } = render(
+      <MarkdownRenderer content={"## 关键洞察\n\n一。\n\n## 关键洞察\n\n二。"} />
+    );
+    expect(container.querySelectorAll(".insight-plate")).toHaveLength(1);
+  });
+
+  it("sets classic quotes as epigraphs with their source", () => {
+    const { container } = render(
+      <MarkdownRenderer
+        content={
+          "## 经典名言\n\n> 「焦虑是自由的眩晕。」——《焦虑的概念》\n\n> 「生活只能向后理解。」——日记"
+        }
+      />
+    );
+    const figures = container.querySelectorAll("figure.epigraph");
+    expect(figures).toHaveLength(2);
+    expect(figures[0]!.querySelector("figcaption")!.textContent).toBe("《焦虑的概念》");
+  });
+
+  it("keeps every word of the body in the DOM", () => {
+    const content =
+      "## 破除误解\n\n第一个误解，甲。乙。\n\n## 事实卡\n\n- **卡1**：丙。\n\n## 关键词\n\n丁; 戊; 己";
+    const { container } = render(<MarkdownRenderer content={content} />);
+    for (const word of ["甲", "乙", "丙", "丁", "戊", "己"]) {
+      expect(container.textContent).toContain(word);
+    }
+  });
+
+  it("splits a heading glued to the paragraph under it", () => {
+    const { container } = render(<MarkdownRenderer content={"## 起源\n正文紧跟标题。"} />);
+    expect(container.querySelector("h2")!.textContent).toContain("起源");
+    expect(container.querySelector("h2")!.textContent).not.toContain("正文");
+    expect(container.querySelector("p")!.textContent).toBe("正文紧跟标题。");
   });
 });
 
@@ -181,5 +254,67 @@ describe("MarkdownRenderer math", () => {
 
   it("does not throw on a macro-expansion bomb", () => {
     expect(() => render(<MarkdownRenderer content={"$\\def\\x{x\\x}\\x$"} />)).not.toThrow();
+  });
+});
+
+describe("MarkdownRenderer fences and author kit", () => {
+  it("keeps blank lines inside a code fence and drops the closing fence", () => {
+    const { container } = render(
+      <MarkdownRenderer content={"```python\na = 1\n\nb = 2\n```\n\n之后的段落。"} />
+    );
+    const code = container.querySelector("pre code")!;
+    expect(code.textContent).toBe("a = 1\n\nb = 2");
+    expect(container.querySelectorAll("pre")).toHaveLength(1);
+    expect(container.querySelector(".md-p")?.textContent).toBe("之后的段落。");
+  });
+
+  it("renders a levels ladder in authored order", () => {
+    const { container } = render(
+      <MarkdownRenderer content={"```levels\nL1 | 想象 | 影子与映像\nL2 | 信念 | 可见事物\n```"} />
+    );
+    const steps = container.querySelectorAll(".kit-levels__step");
+    expect(steps).toHaveLength(2);
+    expect(steps[0]!.querySelector(".kit-levels__title")?.textContent).toBe("想象");
+  });
+
+  it("renders compare as a real table with column headers", () => {
+    const { container } = render(
+      <MarkdownRenderer content={"```compare\n理性论 | 经验论\n天赋观念 | 白板\n```"} />
+    );
+    expect([...container.querySelectorAll("th")].map((th) => th.textContent)).toEqual([
+      "理性论",
+      "经验论",
+    ]);
+    expect(container.querySelectorAll("tbody td")).toHaveLength(2);
+  });
+
+  it("renders steps, timeline and aside", () => {
+    const { container } = render(
+      <MarkdownRenderer
+        content={
+          "```steps\n观察 | 记下现象\n假设 | 提出解释\n```\n\n```timeline\n1687 | 《原理》出版\n```\n\n```aside\n第一段\n\n第二段\n```"
+        }
+      />
+    );
+    expect(container.querySelectorAll(".kit-steps__step")).toHaveLength(2);
+    expect(container.querySelector(".kit-timeline__when")?.textContent).toBe("1687");
+    expect(container.querySelectorAll(".kit-aside p")).toHaveLength(2);
+  });
+
+  it("renders an inline term with its gloss in the DOM", () => {
+    const { container } = render(
+      <MarkdownRenderer content={"柏拉图称之为{{term:理型|eidos，可知世界的原型}}。"} />
+    );
+    const term = container.querySelector("dfn.md-term")!;
+    expect(term.textContent).toBe("理型（eidos，可知世界的原型）");
+    expect(container.querySelector(".md-p")?.textContent).toBe(
+      "柏拉图称之为理型（eidos，可知世界的原型）。"
+    );
+  });
+
+  it("leaves set-builder braces alone", () => {
+    const { container } = render(<MarkdownRenderer content={"3 是 {{{∅}}}。"} />);
+    expect(container.querySelector("dfn")).toBeNull();
+    expect(container.textContent).toContain("{{{∅}}}");
   });
 });

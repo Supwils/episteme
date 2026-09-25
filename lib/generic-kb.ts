@@ -70,7 +70,9 @@ export function createKnowledgeBase(domain: string): KnowledgeBase {
       slug: slugOf(rel),
       title: titleOf(rel, data, content),
       category: categoryOf(rel, data),
-      tags: Array.isArray(data.tags) ? (data.tags as string[]) : [],
+      tags: Array.isArray(data.tags)
+        ? data.tags.filter((v): v is string => typeof v === "string")
+        : [],
       excerpt: extractExcerpt(content, 150),
     };
   };
@@ -107,7 +109,9 @@ export function createKnowledgeBase(domain: string): KnowledgeBase {
       slug: match.slug,
       title: titleOf(relStem, data, content),
       category: categoryOf(relStem, data),
-      tags: Array.isArray(data.tags) ? (data.tags as string[]) : [],
+      tags: Array.isArray(data.tags)
+        ? data.tags.filter((v): v is string => typeof v === "string")
+        : [],
       excerpt: extractExcerpt(content, 150),
       content: stripLeadingHeading(content),
     };

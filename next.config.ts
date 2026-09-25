@@ -59,6 +59,10 @@ function securityHeaders(options: { molstar?: boolean; iconify?: boolean }) {
 }
 
 const nextConfig: NextConfig = {
+  // Lets a production build run beside a live `next dev` (both default to
+  // `.next` and corrupt each other): `NEXT_DIST_DIR=.next-prod pnpm build`.
+  // Unset in CI/Vercel, so the deployed layout is unchanged.
+  distDir: process.env.NEXT_DIST_DIR || ".next",
   poweredByHeader: false,
   reactStrictMode: true,
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],

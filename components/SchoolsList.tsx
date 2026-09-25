@@ -2,6 +2,7 @@
 
 import { memo, useMemo, useState, useCallback } from "react";
 import Link from "next/link";
+import { SpotlightGrid } from "@/components/motion/SpotlightGrid";
 import { motion, useReducedMotion } from "framer-motion";
 import { SearchInput } from "./SearchInput";
 import { EmptyState } from "./EmptyState";
@@ -57,11 +58,13 @@ function SchoolCard({ school, reducedMotion }: { school: SchoolItem; reducedMoti
     >
       <Link
         href={`/philosophy/schools/${school.slug}`}
+        data-spotlight
         className="border-border-faint bg-bg-near group relative flex h-full flex-col overflow-hidden border transition-all duration-300 hover:border-[color:var(--card-accent)]"
         style={
           {
             "--card-accent": accent,
             "--card-glow": glow,
+            "--spot": accent,
           } as React.CSSProperties
         }
       >
@@ -256,11 +259,11 @@ export const SchoolsList = memo(function SchoolsList({ schools }: { schools: Sch
                 </div>
               )}
 
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+              <SpotlightGrid className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
                 {eraSchools.map((school) => (
                   <SchoolCard key={school.slug} school={school} reducedMotion={reducedMotion} />
                 ))}
-              </div>
+              </SpotlightGrid>
             </section>
           ))}
         </div>

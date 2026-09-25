@@ -1,0 +1,82 @@
+@reference "../app/globals.css";
+
+/* 目录刻度条（T-DESIGN-06b）：左侧一条导轨，每节一行；刻度长短表示这一节的篇幅，
+   铜线随阅读沿导轨逐行填充，当前节在导轨上打一个点。 */
+.toc-rail__title {
+  margin-bottom: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  color: var(--color-fg-secondary);
+}
+
+.toc-rail__body {
+  position: relative;
+  padding-left: 0.875rem;
+}
+
+.toc-rail__track {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 1px;
+  background: var(--color-border-subtle);
+}
+
+.toc-rail__fill {
+  position: absolute;
+  inset: 0 -0.5px;
+  transform: scaleY(0);
+  transform-origin: top;
+  will-change: transform;
+}
+
+.toc-rail__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.toc-rail__list li {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.3rem 0;
+}
+
+.toc-rail__list li[data-level="3"] {
+  padding-left: 0.75rem;
+}
+
+/* The current section: a dot sitting on the rail. */
+.toc-rail__list li[data-active]::before {
+  content: "";
+  position: absolute;
+  top: 0.75rem;
+  left: calc(-0.875rem - 2.5px);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brass);
+}
+
+.toc-rail__tick {
+  flex-shrink: 0;
+  height: 1px;
+  transform: translateY(-0.3em);
+  background: var(--color-border-strong);
+}
+
+.toc-rail__list a {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--color-fg-muted);
+  transition: color var(--duration-fast) var(--ease-paper);
+}
+
+.toc-rail__list a:hover {
+  color: var(--color-fg-primary);
+}
+
+.toc-rail__list li[data-active] a {
+  font-weight: 500;
+}

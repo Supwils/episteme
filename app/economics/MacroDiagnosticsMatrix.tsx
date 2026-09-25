@@ -79,14 +79,14 @@ export function MacroDiagnosticsMatrix() {
   }, [activeCase]);
 
   return (
-    <section className="relative z-[2] w-full px-6 pb-20 sm:px-10 lg:px-16">
+    <section className="landing-block relative w-full" aria-labelledby="macro-matrix-title">
       <div className="border-border-faint bg-bg-near/70 overflow-hidden border">
         <div className="border-border-faint grid gap-6 border-b p-5 md:grid-cols-[minmax(0,1fr)_auto] md:items-end md:p-7">
           <div className="max-w-3xl">
-            <p className="text-accent-gold mb-3 font-mono text-[10px] tracking-[0.34em] uppercase">
-              macro diagnostics · 2026
-            </p>
-            <h2 className="font-display text-fg-primary text-2xl leading-tight font-semibold md:text-3xl">
+            <h2
+              id="macro-matrix-title"
+              className="font-display text-fg-primary text-2xl leading-tight font-semibold md:text-3xl"
+            >
               现代宏观国家诊断矩阵
             </h2>
             <p className="text-fg-secondary mt-3 text-sm leading-relaxed md:text-base">

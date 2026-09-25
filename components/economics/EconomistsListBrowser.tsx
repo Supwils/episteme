@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { SpotlightGrid } from "@/components/motion/SpotlightGrid";
 import { ListSearchFilter, ListEmptyState } from "@/components/ListSearchFilter";
 import type { ListFilterChip } from "@/components/ListSearchFilter";
 import { ERA_COLORS } from "@/subjects/economics/lib/constants";
@@ -80,13 +81,15 @@ export function EconomistsListBrowser({
           }}
         />
       ) : (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+        <SpotlightGrid className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
           {filtered.map((economist) => {
             const accent = ERA_COLORS[economist.era] ?? "#c8a45a";
             return (
               <Link
                 key={economist.slug}
                 href={`/economics/economists/${economist.slug}`}
+                data-spotlight
+                style={{ "--spot": accent } as React.CSSProperties}
                 className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative flex h-full flex-col gap-4 overflow-hidden border p-6 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(200,164,90,0.06)]"
               >
                 <div
@@ -154,7 +157,7 @@ export function EconomistsListBrowser({
               </Link>
             );
           })}
-        </div>
+        </SpotlightGrid>
       )}
     </div>
   );

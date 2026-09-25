@@ -19,6 +19,7 @@ import {
   EraLegacy,
   EraNav,
 } from "./EraDetailSections";
+import { SITE_URL } from "@/lib/constants";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -35,7 +36,7 @@ export async function generateMetadata({ params }: Props) {
   const era = getEraBySlug(slug);
   if (!era) notFound();
   const description = era.desc;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://episteme.vercel.app";
+  const siteUrl = SITE_URL;
   const ogImage = `${siteUrl}/api/og?title=${encodeURIComponent(era.name)}&section=human-history&description=${encodeURIComponent(description)}`;
   return withCanonicalPath(`/human-history/eras/${slug}`, {
     title: `${era.name} — 人类历史`,

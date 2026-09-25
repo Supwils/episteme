@@ -64,12 +64,21 @@ export function loadContentBySlug<T>(
   if (cache.has(slug)) return cache.get(slug)!;
   const file = existingContentArticle(dir, slug, extensions);
   if (!file) return null;
+  // A transient fs failure (EMFILE under a cold-start burst) must not be
+  // remembered as "this article does not exist" for the life of the instance.
+  let raw: string;
+  try {
+    raw = fs.readFileSync(file, "utf-8");
+  } catch (error) {
+    console.error(`[content] read failed for ${file}:`, error);
+    return null;
+  }
   let result: T | null = null;
   try {
-    const raw = fs.readFileSync(file, "utf-8");
     const { data, content } = parseMatter(raw);
     result = map(data, content, slug);
-  } catch {
+  } catch (error) {
+    console.error(`[content] parse failed for ${file}:`, error);
     result = null;
   }
   cache.set(slug, result);

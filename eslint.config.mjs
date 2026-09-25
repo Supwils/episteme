@@ -54,6 +54,7 @@ const eslintConfig = [
   {
     ignores: [
       ".next/",
+      ".next-*/",
       ".vercel/",
       "node_modules/",
       "coverage/",
@@ -64,7 +65,7 @@ const eslintConfig = [
   },
   ...compat.extends("next/core-web-vitals"),
   {
-    files: ["**/MarkdownRenderer.tsx"],
+    files: ["**/MarkdownRenderer.tsx", "components/markdown/inline.tsx"],
     rules: {
       "@next/next/no-img-element": "off",
     },

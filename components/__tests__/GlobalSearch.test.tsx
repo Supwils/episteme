@@ -116,6 +116,9 @@ describe("GlobalSearch", () => {
     expect(screen.getByRole("link", { name: "奇趣知识" }).getAttribute("href")).toBe(
       "/curiosities"
     );
+    expect(screen.getByRole("link", { name: "跨学科巧合" }).getAttribute("href")).toBe(
+      "/curiosities?filter=cross-domain"
+    );
   });
 
   it("offers curated exits and Enter-to-search when a query returns nothing", async () => {
@@ -130,6 +133,9 @@ describe("GlobalSearch", () => {
     expect(screen.getByRole("link", { name: "阅读路线" }).getAttribute("href")).toBe("/read");
     expect(screen.getByRole("link", { name: "奇趣知识" }).getAttribute("href")).toBe(
       "/curiosities"
+    );
+    expect(screen.getByRole("link", { name: "跨学科巧合" }).getAttribute("href")).toBe(
+      "/curiosities?filter=cross-domain"
     );
 
     fireEvent.keyDown(screen.getByRole("textbox", { name: "搜索" }), { key: "Enter" });

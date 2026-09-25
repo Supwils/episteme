@@ -2,20 +2,20 @@
 
 @theme {
   /* ── Surface hierarchy — Observatory (dark, default) ──────────────── */
-  --color-bg-deep: #08080d;
-  --color-bg-base: #0e0f14;
-  --color-bg-near: #0e0f14;
-  --color-bg-panel: #14151c;
-  --color-bg-elevated: #14151c;
-  --color-bg-floating: #1c1c26;
-  --color-bg-overlay: rgba(8, 8, 13, 0.85);
+  --color-bg-deep: #0a0f18;
+  --color-bg-base: #0f1622;
+  --color-bg-near: #0f1622;
+  --color-bg-panel: #172131;
+  --color-bg-elevated: #172131;
+  --color-bg-floating: #1e2a3d;
+  --color-bg-overlay: rgba(10, 15, 24, 0.85);
 
   /* ── Foregrounds ──────────────────────────────────────────────────── */
-  --color-fg-primary: #e6e3da;
-  --color-fg-secondary: #a8a499;
-  --color-fg-muted: #8c887d;
-  --color-fg-disabled: #8a8693;
-  --color-fg-inverse: #08080d;
+  --color-fg-primary: #e8dfc9;
+  --color-fg-secondary: #b3ab98;
+  --color-fg-muted: #9a9483;
+  --color-fg-disabled: #97917f;
+  --color-fg-inverse: #0a0f18;
 
   /* ── Accent — economics = gold (single accent) ────────────────────── */
   --color-accent-gold: #c9a23e;
@@ -196,10 +196,10 @@
   --color-bg-elevated: #fffdf8;
   --color-bg-floating: #ffffff;
   --color-bg-overlay: rgba(245, 242, 235, 0.86);
-  --color-fg-primary: #2c2a26;
-  --color-fg-secondary: #4f4b45;
-  --color-fg-muted: #5a564f;
-  --color-fg-disabled: #625e58;
+  --color-fg-primary: #1e2638;
+  --color-fg-secondary: #454b58;
+  --color-fg-muted: #51565f;
+  --color-fg-disabled: #5a5f6b;
   --color-accent-gold: #735914;
   --color-accent-gold-dim: #7c6320;
   --color-accent-gold-bright: #b8902c;
@@ -335,78 +335,8 @@
     -webkit-backdrop-filter: blur(20px);
   }
 
-  .economics-root .glass-strong {
-    background: color-mix(in oklab, var(--color-bg-elevated) 75%, transparent);
-    border: 1px solid var(--color-border-subtle);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-  }
-
-  .economics-root .glass-subtle {
-    background: color-mix(in oklab, var(--color-bg-near) 40%, transparent);
-    border: 1px solid var(--color-border-faint);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-  }
-
-  /* ── Surface Effects ──────────────────────────────────────────────── */
-
-  .economics-root .surface-raised {
-    background: var(--color-bg-elevated);
-    border: 1px solid var(--color-border-faint);
-    box-shadow: var(--shadow-md);
-    border-radius: var(--radius-lg);
-  }
-
-  .economics-root .surface-sunken {
-    background: var(--color-bg-deep);
-    border: 1px solid var(--color-border-faint);
-    box-shadow: var(--shadow-inset);
-    border-radius: var(--radius-lg);
-  }
-
-  .economics-root .surface-panel {
-    background: var(--color-bg-panel);
-    border: 1px solid var(--color-border-faint);
-    border-radius: var(--radius-lg);
-  }
-
-  .economics-root .surface-flat {
-    background: var(--color-bg-near);
-    border-radius: var(--radius-md);
-  }
-
-  /* ── Glow Effects ─────────────────────────────────────────────────── */
-
-  .glow-gold {
-    box-shadow: var(--glow-gold);
-  }
-
-  .glow-gold-intense {
-    box-shadow: var(--glow-gold-intense);
-  }
-
   .glow-copper {
     box-shadow: var(--glow-copper);
-  }
-
-  .glow-copper-intense {
-    box-shadow: var(--glow-copper-intense);
-  }
-
-  .glow-gold-text {
-    text-shadow: none;
-  }
-
-  .glow-copper-text {
-    text-shadow: none;
-  }
-
-  .economics-root .nav-capsule {
-    background: color-mix(in oklab, var(--color-bg-deep) 60%, transparent);
-    border: 1px solid color-mix(in oklab, var(--color-fg-disabled) 35%, transparent);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
   }
 
   /* ── Pull Quote ───────────────────────────────────────────────────── */
@@ -462,16 +392,6 @@
     border-radius: 0 var(--radius-md) var(--radius-md) 0;
   }
 
-  .economics-root .info-card-gold {
-    border-left-color: var(--color-accent-gold);
-    background: linear-gradient(90deg, rgba(200, 164, 90, 0.04) 0%, var(--color-bg-elevated) 30%);
-  }
-
-  .economics-root .info-card-copper {
-    border-left-color: var(--color-accent-copper);
-    background: linear-gradient(90deg, rgba(212, 120, 80, 0.04) 0%, var(--color-bg-elevated) 30%);
-  }
-
   .economics-root .info-card-green {
     border-left-color: var(--color-accent-green);
     background: linear-gradient(90deg, rgba(107, 174, 138, 0.04) 0%, var(--color-bg-elevated) 30%);
@@ -505,73 +425,12 @@
     border: 1px solid rgba(200, 164, 90, 0.2);
   }
 
-  .economics-root .badge-copper {
-    background: rgba(212, 120, 80, 0.1);
-    color: var(--color-accent-copper);
-    border-color: rgba(212, 120, 80, 0.2);
-  }
-
-  .economics-root .badge-green {
-    background: rgba(107, 174, 138, 0.1);
-    color: var(--color-accent-green);
-    border-color: rgba(107, 174, 138, 0.2);
-  }
-
   .economics-root .badge-nobel {
     background: rgba(200, 164, 90, 0.15);
     color: var(--color-accent-gold-bright);
     border: 1px solid rgba(200, 164, 90, 0.3);
   }
 
-  /* ── Decorative Divider ───────────────────────────────────────────── */
-
-  .economics-root .ornament-line {
-    display: flex;
-    align-items: center;
-    gap: var(--space-md);
-    margin: var(--space-3xl) 0;
-    color: var(--color-fg-disabled);
-  }
-
-  .economics-root .ornament-line::before,
-  .economics-root .ornament-line::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--color-border-subtle), transparent);
-  }
-
-  .economics-root .ornament-line > span {
-    font-family: var(--font-display);
-    font-size: var(--text-body-sm);
-    letter-spacing: var(--tracking-wider);
-    color: var(--color-accent-gold-dim);
-  }
-
-  /* ── Grid Paper Background ────────────────────────────────────────── */
-
-  .economics-root .grid-paper {
-    background-image:
-      linear-gradient(rgba(200, 164, 90, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(200, 164, 90, 0.03) 1px, transparent 1px);
-    background-size: 2rem 2rem;
-  }
-
-  .economics-root .grid-paper-fine {
-    background-image:
-      linear-gradient(rgba(200, 164, 90, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(200, 164, 90, 0.02) 1px, transparent 1px);
-    background-size: 1rem 1rem;
-  }
-
-  .economics-root .show-mobile-only {
-    display: none;
-  }
-  @media (max-width: 639px) {
-    .economics-root .show-mobile-only {
-      display: block;
-    }
-  }
   .economics-root .touch-target {
     min-width: 44px;
     min-height: 44px;
@@ -724,16 +583,6 @@
     transform: scale(0.97);
   }
 
-  /* ── Game Matrix ─────────────────────────────────────────────────── */
-
-  .economics-root .game-matrix {
-    display: grid;
-    gap: 2px;
-    background: var(--color-border-faint);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-  }
-
   .economics-root .game-cell {
     background: var(--color-bg-elevated);
     padding: var(--space-sm) var(--space-md);
@@ -752,262 +601,12 @@
     background: color-mix(in oklab, var(--color-accent-green) 15%, var(--color-bg-elevated));
     border: 1px solid rgba(107, 174, 138, 0.3);
   }
-
-  /* ── Mobile Menu ──────────────────────────────────────────────── */
-
-  .economics-root .mobile-menu-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 400;
-    background: rgba(10, 9, 8, 0.75);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    animation: fade-in var(--duration-fast) var(--ease-smooth) both;
-  }
-
-  .economics-root .mobile-menu-panel {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 410;
-    width: min(85vw, 320px);
-    background: var(--color-bg-near);
-    border-left: 1px solid var(--color-border-faint);
-    transform: translateX(100%);
-    transition: transform var(--duration-normal) var(--ease-product);
-    overflow-y: auto;
-  }
-
-  .economics-root .mobile-menu-panel[data-open="true"] {
-    transform: translateX(0);
-  }
-}
-
-/* ═══════════════════════════════════════════════════════════════════════
-   PROSE / MDX CONTENT STYLING
-   ═══════════════════════════════════════════════════════════════════════ */
-
-@layer components {
-  .economics-root .prose {
-    --tw-prose-body: var(--color-fg-secondary);
-    --tw-prose-headings: var(--color-fg-primary);
-    --tw-prose-lead: var(--color-fg-secondary);
-    --tw-prose-links: var(--color-accent-gold);
-    --tw-prose-bold: var(--color-fg-primary);
-    --tw-prose-counters: var(--color-fg-muted);
-    --tw-prose-bullets: var(--color-fg-muted);
-    --tw-prose-hr: var(--color-border-subtle);
-    --tw-prose-quotes: var(--color-fg-primary);
-    --tw-prose-quote-borders: var(--color-accent-gold);
-    --tw-prose-captions: var(--color-fg-muted);
-    --tw-prose-code: var(--color-accent-copper);
-    --tw-prose-pre-code: var(--color-fg-primary);
-    --tw-prose-pre-bg: var(--color-bg-elevated);
-    --tw-prose-th-borders: var(--color-border-subtle);
-    --tw-prose-td-borders: var(--color-border-faint);
-
-    max-width: var(--article-max-width);
-    margin: 0 auto;
-    font-size: var(--text-body-base);
-    line-height: var(--leading-relaxed);
-    color: var(--color-fg-secondary);
-  }
-
-  .economics-root .prose > * + * {
-    margin-top: var(--space-lg);
-  }
-
-  .economics-root .prose h1,
-  .economics-root .prose h2,
-  .economics-root .prose h3,
-  .economics-root .prose h4 {
-    color: var(--color-fg-primary);
-    margin-top: var(--space-3xl);
-    margin-bottom: var(--space-md);
-  }
-
-  .economics-root .prose h1 {
-    font-size: var(--text-display-lg);
-    letter-spacing: var(--tracking-tighter);
-  }
-
-  .economics-root .prose h2 {
-    font-size: var(--text-display-md);
-    padding-bottom: var(--space-sm);
-    border-bottom: 1px solid var(--color-border-faint);
-  }
-
-  .economics-root .prose h3 {
-    font-size: var(--text-display-sm);
-  }
-
-  .economics-root .prose h4 {
-    font-size: var(--text-body-lg);
-    line-height: var(--leading-snug);
-  }
-
-  .economics-root .prose p {
-    margin-top: var(--space-md);
-    margin-bottom: var(--space-md);
-  }
-
-  .economics-root .prose a {
-    color: var(--color-accent-gold);
-    text-decoration: underline;
-    text-decoration-color: rgba(200, 164, 90, 0.3);
-    text-underline-offset: 3px;
-    transition: text-decoration-color var(--duration-fast) var(--ease-smooth);
-  }
-
-  .economics-root .prose a:hover {
-    color: var(--color-accent-gold-bright);
-    text-decoration-color: var(--color-accent-gold);
-  }
-
-  .economics-root .prose strong {
-    color: var(--color-fg-primary);
-    font-weight: 600;
-  }
-
-  .economics-root .prose blockquote {
-    border-left: 3px solid var(--color-accent-gold);
-    padding: var(--space-md) var(--space-lg);
-    color: var(--color-fg-primary);
-    font-style: italic;
-    background: linear-gradient(135deg, rgba(200, 164, 90, 0.04) 0%, transparent 50%);
-    border-radius: 0 var(--radius-md) var(--radius-md) 0;
-  }
-
-  .economics-root .prose em {
-    font-style: italic;
-    color: var(--color-fg-secondary);
-  }
-
-  .economics-root .prose ul,
-  .economics-root .prose ol {
-    padding-left: var(--space-lg);
-  }
-
-  .economics-root .prose li {
-    margin-top: var(--space-xs);
-    margin-bottom: var(--space-xs);
-  }
-
-  .economics-root .prose li::marker {
-    color: var(--color-fg-muted);
-  }
-
-  .economics-root .prose code {
-    font-family: var(--font-mono);
-    font-size: 0.9em;
-    color: var(--color-accent-copper);
-    background: rgba(212, 120, 80, 0.08);
-    padding: 0.15em 0.4em;
-    border-radius: var(--radius-sm);
-  }
-
-  .economics-root .prose pre {
-    background: var(--color-bg-elevated);
-    border: 1px solid var(--color-border-faint);
-    border-radius: var(--radius-lg);
-    padding: var(--space-lg);
-    overflow-x: auto;
-    margin: var(--space-xl) 0;
-  }
-
-  .economics-root .prose pre code {
-    color: var(--color-fg-primary);
-    background: none;
-    padding: 0;
-    font-size: var(--text-mono-code);
-    line-height: var(--leading-relaxed);
-  }
-
-  .economics-root .prose hr {
-    border: none;
-    border-top: 1px solid var(--color-border-subtle);
-    margin: var(--space-3xl) 0;
-  }
-
-  .economics-root .prose img {
-    border-radius: var(--radius-lg);
-    margin: var(--space-2xl) 0;
-  }
-
-  .economics-root .prose figcaption {
-    text-align: center;
-    font-size: var(--text-body-sm);
-    color: var(--color-fg-muted);
-    margin-top: var(--space-xs);
-  }
-
-  .economics-root .prose table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: var(--space-xl) 0;
-    font-size: var(--text-body-sm);
-  }
-
-  .economics-root .prose thead {
-    border-bottom: 2px solid var(--color-border-subtle);
-  }
-
-  .economics-root .prose th {
-    font-family: var(--font-sans);
-    font-weight: 600;
-    font-size: var(--text-body-sm);
-    letter-spacing: var(--tracking-wide);
-    text-transform: uppercase;
-    color: var(--color-fg-muted);
-    text-align: left;
-    padding: var(--space-sm) var(--space-md);
-  }
-
-  .economics-root .prose td {
-    padding: var(--space-sm) var(--space-md);
-    border-bottom: 1px solid var(--color-border-faint);
-    color: var(--color-fg-secondary);
-  }
-
-  .economics-root .prose tbody tr:hover {
-    background: rgba(200, 164, 90, 0.03);
-  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════
    DOMAIN-SPECIFIC KEYFRAME ANIMATIONS
    (common keyframes are in shared-animations.css)
    ═══════════════════════════════════════════════════════════════════════ */
-
-@keyframes pulse-glow {
-  0%,
-  100% {
-    box-shadow: 0 0 15px rgba(200, 164, 90, 0.15);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(200, 164, 90, 0.3);
-  }
-}
-
-@keyframes pulse-glow-copper {
-  0%,
-  100% {
-    box-shadow: 0 0 15px rgba(212, 120, 80, 0.15);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(212, 120, 80, 0.3);
-  }
-}
-
-@keyframes ticker-scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
 
 /* ═══════════════════════════════════════════════════════════════════════
    CUSTOM SCROLLBAR
@@ -1052,77 +651,8 @@
    ═══════════════════════════════════════════════════════════════════════ */
 
 @layer utilities {
-  .economics-root .animate-fade-in {
-    animation: fade-in var(--duration-normal) var(--ease-smooth) both;
-  }
-
   .economics-root .animate-slide-up {
     animation: slide-up var(--duration-slow) var(--ease-product) both;
-  }
-
-  .economics-root .animate-slide-down {
-    animation: slide-down var(--duration-slow) var(--ease-product) both;
-  }
-
-  .economics-root .animate-float {
-    animation: float 4s var(--ease-smooth) infinite;
-  }
-
-  .economics-root .animate-pulse-glow {
-    animation: pulse-glow 3s var(--ease-smooth) infinite;
-  }
-
-  .economics-root .animate-pulse-glow-copper {
-    animation: pulse-glow-copper 3s var(--ease-smooth) infinite;
-  }
-
-  .economics-root .animate-shimmer {
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(200, 164, 90, 0.06) 50%,
-      transparent 100%
-    );
-    background-size: 200% 100%;
-    animation: shimmer 2s var(--ease-smooth) infinite;
-  }
-
-  .economics-root .animate-expand-line {
-    animation: expand-line var(--duration-slow) var(--ease-product) both;
-    transform-origin: left center;
-  }
-
-  .economics-root .animate-spin-slow {
-    animation: spin-slow 20s linear infinite;
-  }
-
-  .economics-root .animate-ticker {
-    animation: ticker-scroll 30s linear infinite;
-  }
-
-  .economics-root .stagger-1 {
-    animation-delay: 50ms;
-  }
-  .economics-root .stagger-2 {
-    animation-delay: 100ms;
-  }
-  .economics-root .stagger-3 {
-    animation-delay: 150ms;
-  }
-  .economics-root .stagger-4 {
-    animation-delay: 200ms;
-  }
-  .economics-root .stagger-5 {
-    animation-delay: 250ms;
-  }
-  .economics-root .stagger-6 {
-    animation-delay: 300ms;
-  }
-  .economics-root .stagger-7 {
-    animation-delay: 350ms;
-  }
-  .economics-root .stagger-8 {
-    animation-delay: 400ms;
   }
 
   .economics-root .full-width {
@@ -1130,11 +660,6 @@
     max-width: 100%;
     padding-left: clamp(1.5rem, 4vw, 4rem);
     padding-right: clamp(1.5rem, 4vw, 4rem);
-  }
-
-  .economics-root .content-width {
-    max-width: min(1200px, 100%);
-    margin-inline: auto;
   }
 }
 
@@ -1151,8 +676,8 @@
 }
 
 html.light {
-  --color-fg-primary: #2c2a26;
-  --color-fg-secondary: #4f4b45;
-  --color-fg-muted: #5a564f;
-  --color-fg-disabled: #625e58;
+  --color-fg-primary: #1e2638;
+  --color-fg-secondary: #454b58;
+  --color-fg-muted: #51565f;
+  --color-fg-disabled: #5a5f6b;
 }

@@ -1,20 +1,7 @@
-import katex from "katex";
-import { resolveWikiLink } from "@/lib/wiki-link-index";
-import { isSafeHref } from "@/lib/urls";
-import { RegisteredImage } from "@/components/RegisteredImage";
-import {
-  MarkdownCodeBlock,
-  MarkdownZoomableImage,
-  WikiLinkPreview,
-} from "@/components/markdown/MarkdownInteractions";
-import { parseHeadingLine as parseHeading } from "@/lib/markdown-heading";
-
-/** Shared KaTeX limits so a hostile `\\def` loop cannot hang article render. */
-const KATEX_OPTIONS = {
-  throwOnError: false,
-  maxSize: 500,
-  maxExpand: 1000,
-} as const;
+import { extractFootnotes, renderInline, type Footnotes } from "@/components/markdown/inline";
+import { splitSections } from "@/components/markdown/sections";
+import { SectionView } from "@/components/markdown/SectionViews";
+import "@/components/markdown/prose.css";
 
 interface MarkdownRendererProps {
   content: string;
@@ -24,33 +11,15 @@ interface MarkdownRendererProps {
 }
 
 /**
- * Apparatus sections (T-CONTENT-33 separated them semantically) get device-level
- * styling so the presentation layer shows the split: bibliographies render
- * smaller and denser, the cross-domain list picks up a hairline rule. Matching
- * is by exact h2 text — the corpus convention (verified 2026-08) uses exactly
- * these three titles, so no narrative heading is affected.
+ * The shared article body renderer (server component). Prose is split into
+ * sections by h2; sections whose titles match a recurring corpus structure —
+ * 破除误解, 事实卡, 关键洞察, 跨域连接, 参考文献… — render through dedicated
+ * components (components/markdown/SectionViews.tsx). Nothing is rewritten:
+ * unknown sections render as ordinary narrative.
+ *
+ * Page shells own the document h1, so a leading `# 标题` block is dropped and
+ * any later `# ` heading is demoted to h2.
  */
-type ApparatusSection = "references" | "cross-domain";
-const APPARATUS_HEADINGS: Record<string, ApparatusSection> = {
-  参考文献: "references",
-  延伸阅读: "references",
-  跨域连接: "cross-domain",
-};
-
-/** Hover-revealed `#` permalink on section headings (pure CSS, zero client JS). */
-function HeadingAnchor({ id, text }: { id: string; text: string }) {
-  return (
-    <a
-      href={`#${id}`}
-      aria-label={`链接到本节：${text}`}
-      data-heading-anchor
-      className="text-fg-disabled hover:text-fg-secondary pointer-events-none ml-2 opacity-0 group-hover:pointer-events-auto group-hover:opacity-70 focus-visible:pointer-events-auto focus-visible:opacity-70 motion-safe:transition-opacity"
-    >
-      <span aria-hidden="true">#</span>
-    </a>
-  );
-}
-
 export function MarkdownRenderer({
   content,
   accentColor = "#c8a45a",
@@ -58,296 +27,30 @@ export function MarkdownRenderer({
   domain = "",
 }: MarkdownRendererProps) {
   const footnotes = extractFootnotes(content);
-
-  // Page shells (ArticleLayout / bespoke headers) already render the article
-  // title as the document h1. The corpus convention repeats that title as a
-  // leading `# ` block (~2000 files), so drop a first-block h1 to keep one h1
-  // per page. Any later `# ` headings (rare, ~50 files) demote to h2 — the
-  // page already has an h1, so a body h1 would break the outline anyway.
-  const blocks = content.split("\n\n");
-  const firstContentBlock = blocks.findIndex((para) => para.trim() !== "");
-  const skipFirst =
-    firstContentBlock >= 0 &&
-    blocks[firstContentBlock]!.trim().startsWith("# ") &&
-    !blocks[firstContentBlock]!.trim().startsWith("## ");
-
-  // Tracks which apparatus section (if any) the block loop is currently inside;
-  // set by h1/h2 headings, consumed by list/paragraph styling below. `map`
-  // iterates in order, so a closure variable is accurate for later blocks.
-  let apparatus: ApparatusSection | null = null;
-
+  const ctx = { footnotes, domain, accentColor };
   return (
-    <div
-      className={className ?? "prose prose-invert max-w-none"}
-      style={{ fontFamily: "var(--font-body, inherit)" }}
-    >
-      {blocks.map((para, i) => {
-        // Footnote definitions (`[^id]: …`) belong only to FootnotesSection;
-        // rendered as body text they would duplicate both the text and the
-        // `fnref-*` anchor id.
-        const text = para
-          .split("\n")
-          .filter((line) => !/^\[\^[^\]]+\]:/.test(line.trim()))
-          .join("\n")
-          .trim();
-        if (!text) return null;
-        if (skipFirst && i === firstContentBlock) return null;
-
-        if (text.startsWith("# ") && !text.startsWith("## ")) {
-          const h2 = parseHeading(text.slice(2));
-          apparatus = APPARATUS_HEADINGS[h2.text.trim()] ?? null;
-          return (
-            <h2
-              key={i}
-              id={h2.id}
-              className="group font-display mt-12 mb-3 scroll-mt-24 text-[1.25rem] leading-snug font-semibold"
-              style={{
-                color: `color-mix(in oklab, ${accentColor} 42%, var(--color-fg-primary))`,
-              }}
-            >
-              {h2.text}
-              <HeadingAnchor id={h2.id} text={h2.text} />
-            </h2>
-          );
-        }
-        if (text.startsWith("## ")) {
-          const { text: headingText, id } = parseHeading(text.slice(3));
-          apparatus = APPARATUS_HEADINGS[headingText.trim()] ?? null;
-          return (
-            <h2
-              key={i}
-              id={id}
-              className="group font-display mt-12 mb-3 scroll-mt-24 text-[1.25rem] leading-snug font-semibold"
-              style={{
-                color: `color-mix(in oklab, ${accentColor} 42%, var(--color-fg-primary))`,
-              }}
-            >
-              {headingText}
-              <HeadingAnchor id={id} text={headingText} />
-            </h2>
-          );
-        }
-        if (text.startsWith("### ")) {
-          const { text: headingText, id } = parseHeading(text.slice(4));
-          return (
-            <h3
-              key={i}
-              id={id}
-              className="group font-display text-fg-primary mt-6 mb-2 scroll-mt-24 text-lg font-semibold"
-            >
-              {headingText}
-              <HeadingAnchor id={id} text={headingText} />
-            </h3>
-          );
-        }
-        if (text.startsWith("#### ")) {
-          const { text: headingText, id } = parseHeading(text.slice(5));
-          return (
-            <h4
-              key={i}
-              id={id}
-              className="font-display text-fg-primary mt-5 mb-2 scroll-mt-24 text-[1.0625rem] font-semibold"
-            >
-              {headingText}
-            </h4>
-          );
-        }
-        if (text.startsWith("```")) {
-          const lines = text.split("\n");
-          const lang = lines[0]!.slice(3).trim();
-          const code = lines.slice(1).join("\n");
-          return (
-            <MarkdownCodeBlock key={i} code={code} language={lang} accentColor={accentColor} />
-          );
-        }
-        if (text.startsWith("> ")) {
-          const quoteText = text
-            .split("\n")
-            .map((l) => l.replace(/^>\s?/, ""))
-            .join("\n");
-          return (
-            <blockquote
-              key={i}
-              className="my-6 border-l-2 py-1 pl-5"
-              style={{ borderColor: accentColor }}
-            >
-              <p className="font-display text-fg-primary text-lg leading-relaxed">
-                {renderInline(quoteText, footnotes, domain)}
-              </p>
-            </blockquote>
-          );
-        }
-        if (text.startsWith("| ")) {
-          const rows = text.split("\n").filter((r) => !r.match(/^\|[\s-:|]+\|$/));
-          return (
-            <div
-              key={i}
-              tabIndex={0}
-              role="region"
-              aria-label="可横向滚动的数据表"
-              className="border-border-faint my-6 overflow-x-auto rounded-lg border"
-            >
-              <table className="w-full text-sm">
-                <thead>
-                  {rows.length > 0 && (
-                    <tr className="border-border-subtle bg-bg-elevated/50 border-b">
-                      {rows[0]!
-                        .split("|")
-                        .filter(Boolean)
-                        .map((c) => c.trim())
-                        .map((cell, ci) => (
-                          <th
-                            key={ci}
-                            className="text-fg-primary px-4 py-3 text-left font-semibold"
-                          >
-                            {renderInline(cell, footnotes, domain)}
-                          </th>
-                        ))}
-                    </tr>
-                  )}
-                </thead>
-                <tbody>
-                  {rows.slice(1).map((row, ri) => {
-                    const cells = row
-                      .split("|")
-                      .filter(Boolean)
-                      .map((c) => c.trim());
-                    return (
-                      <tr
-                        key={ri}
-                        className={`border-border-faint border-b ${ri % 2 === 1 ? "bg-bg-elevated/20" : ""}`}
-                      >
-                        {cells.map((cell, ci) => (
-                          <td key={ci} className="text-fg-secondary px-4 py-2.5">
-                            {renderInline(cell, footnotes, domain)}
-                          </td>
-                        ))}
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-          );
-        }
-        if (text.startsWith("![") && text.includes("](")) {
-          const imgMatch = text.match(/^!\[([^\]]*)\]\(([^)]+)\)/);
-          if (imgMatch) {
-            const src = imgMatch[2]!.trim();
-            if (!isSafeHref(src)) return null;
-            // 登记图像（/images/<id>，图像权利管线）走响应式 <figure>；
-            // 其余路径维持原缩放图组件。
-            const registeredMatch = src.match(/^\/images\/([a-z0-9-]+)$/);
-            if (registeredMatch) {
-              return <RegisteredImage key={i} id={registeredMatch[1]!} alt={imgMatch[1]!} />;
-            }
-            return (
-              <MarkdownZoomableImage
-                key={i}
-                src={src}
-                alt={imgMatch[1]!}
-                accentColor={accentColor}
-              />
-            );
-          }
-        }
-        if (text.startsWith("---")) {
-          return (
-            <div key={i} className="my-10 flex items-center gap-3" aria-hidden>
-              <span
-                className="h-px flex-1"
-                style={{
-                  background: `linear-gradient(to right, transparent, ${accentColor}40)`,
-                }}
-              />
-              <span className="h-1.5 w-1.5 rotate-45" style={{ backgroundColor: accentColor }} />
-              <span
-                className="h-px flex-1"
-                style={{
-                  background: `linear-gradient(to left, transparent, ${accentColor}40)`,
-                }}
-              />
-            </div>
-          );
-        }
-        if (text.startsWith("- ") || /^\d+\.\s/.test(text)) {
-          const items = text.split("\n");
-          const isOrdered = /^\d+\.\s/.test(items[0] ?? "");
-          const Tag = isOrdered ? "ol" : "ul";
-          const listClass =
-            apparatus === "references"
-              ? "text-fg-secondary my-3 ml-5 space-y-1 text-sm leading-normal"
-              : apparatus === "cross-domain"
-                ? "text-fg-secondary border-border-faint my-4 ml-5 space-y-1.5 border-l pl-4 text-[1rem] leading-relaxed"
-                : "text-fg-secondary my-4 ml-5 space-y-1.5 text-[1rem] leading-relaxed";
-          return (
-            <Tag
-              key={i}
-              className={listClass}
-              style={{ listStyleType: isOrdered ? "decimal" : "disc" }}
-            >
-              {items.map((item, li) => (
-                <li
-                  key={li}
-                  className={apparatus === "references" ? "leading-normal" : "leading-relaxed"}
-                >
-                  {renderInline(item.replace(/^[-\d.]+\s*/, ""), footnotes, domain)}
-                </li>
-              ))}
-            </Tag>
-          );
-        }
-        return (
-          <p
-            key={i}
-            className={
-              apparatus === "references"
-                ? "text-fg-secondary my-3 text-sm leading-relaxed"
-                : "text-fg-secondary my-4 text-[1rem] leading-[1.85]"
-            }
-          >
-            {renderInline(text, footnotes, domain)}
-          </p>
-        );
-      })}
-      {footnotes.size > 0 && (
-        <FootnotesSection footnotes={footnotes} accentColor={accentColor} domain={domain} />
-      )}
+    <div className={className ?? "md-prose"}>
+      {splitSections(content).map((section, index) => (
+        <SectionView key={section.heading?.id ?? `lead-${index}`} section={section} ctx={ctx} />
+      ))}
+      {footnotes.size > 0 && <FootnotesSection footnotes={footnotes} domain={domain} />}
     </div>
   );
 }
 
-function extractFootnotes(content: string): Map<string, string> {
-  const footnotes = new Map<string, string>();
-  const regex = /^\[\^(\w+)\]:\s*(.+)$/gm;
-  let match: RegExpExecArray | null;
-  while ((match = regex.exec(content)) !== null) {
-    footnotes.set(match[1]!, match[2]!);
-  }
-  return footnotes;
-}
-
-function FootnotesSection({
-  footnotes,
-  accentColor,
-  domain,
-}: {
-  footnotes: Map<string, string>;
-  accentColor: string;
-  domain: string;
-}) {
+function FootnotesSection({ footnotes, domain }: { footnotes: Footnotes; domain: string }) {
   return (
-    <footer className="border-border-subtle mt-12 border-t pt-6">
-      <h4 className="text-fg-muted mb-4 font-mono text-[10px] tracking-[0.22em] uppercase">脚注</h4>
-      <ol className="space-y-2 text-sm">
+    <footer className="md-footnotes">
+      <h2 className="md-footnotes__title">脚注</h2>
+      <ol>
         {Array.from(footnotes.entries()).map(([id, text]) => (
-          <li key={id} id={`fn-${id}`} className="text-fg-secondary leading-relaxed">
-            <span className="text-fg-disabled mr-1 font-mono text-xs">[{id}]</span>
+          <li key={id} id={`fn-${id}`}>
+            <span className="md-footnotes__id">[{id}]</span>
             {renderInline(text, footnotes, domain)}
             <a
               href={`#fnref-${id}`}
               aria-label={`返回脚注 ${id} 的引用处`}
-              className="text-accent-gold ml-1.5 font-mono text-xs transition-opacity hover:opacity-80"
+              className="md-footnotes__back"
             >
               ↩
             </a>
@@ -356,218 +59,4 @@ function FootnotesSection({
       </ol>
     </footer>
   );
-}
-
-function renderInline(
-  text: string,
-  footnotes: Map<string, string>,
-  domain: string
-): React.ReactNode[] {
-  const parts: React.ReactNode[] = [];
-  let remaining = text;
-  let key = 0;
-
-  while (remaining.length > 0) {
-    const latexBlockMatch = remaining.match(/^\$\$[\s\S]*?\$\$/);
-    if (latexBlockMatch) {
-      const tex = latexBlockMatch[0].slice(2, -2).trim();
-      const html = katex.renderToString(tex, { ...KATEX_OPTIONS, displayMode: true });
-      parts.push(
-        <span
-          key={key++}
-          tabIndex={0}
-          role="math"
-          aria-label={tex}
-          className="my-2 block overflow-x-auto"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-      );
-      remaining = remaining.slice(latexBlockMatch[0].length);
-      continue;
-    }
-
-    // Only treat $...$ as math when it carries a LaTeX signal (\ ^ _ {) and no
-    // CJK — otherwise currency like "$100 万" / "$75,000" would render as garbled math.
-    const latexInlineMatch = remaining.match(/^\$([^$\n]+?)\$/);
-    if (
-      latexInlineMatch &&
-      /[\\^_{]/.test(latexInlineMatch[1]!) &&
-      !/[一-鿿]/.test(latexInlineMatch[1]!)
-    ) {
-      const latex = latexInlineMatch[1]!;
-      const html = katex.renderToString(latex, { ...KATEX_OPTIONS, displayMode: false });
-      parts.push(
-        <span
-          key={key++}
-          role="math"
-          aria-label={latex}
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-      );
-      remaining = remaining.slice(latexInlineMatch[0].length);
-      continue;
-    }
-
-    const boldItalicMatch = remaining.match(/^\*\*\*(.+?)\*\*\*/);
-    if (boldItalicMatch) {
-      parts.push(
-        <strong key={key++} className="text-fg-primary font-semibold">
-          <em>{renderInline(boldItalicMatch[1]!, footnotes, domain)}</em>
-        </strong>
-      );
-      remaining = remaining.slice(boldItalicMatch[0].length);
-      continue;
-    }
-
-    const boldMatch = remaining.match(/^\*\*(.+?)\*\*/);
-    if (boldMatch) {
-      parts.push(
-        <strong key={key++} className="text-fg-primary font-semibold">
-          {renderInline(boldMatch[1]!, footnotes, domain)}
-        </strong>
-      );
-      remaining = remaining.slice(boldMatch[0].length);
-      continue;
-    }
-
-    const italicMatch = remaining.match(/^\*(.+?)\*/);
-    const italicMatch2 = remaining.match(/^_(.+?)_/);
-    const italic = italicMatch || italicMatch2;
-    if (italic) {
-      parts.push(<em key={key++}>{renderInline(italic[1]!, footnotes, domain)}</em>);
-      remaining = remaining.slice(italic[0].length);
-      continue;
-    }
-
-    const codeMatch = remaining.match(/^`([^`]+)`/);
-    if (codeMatch) {
-      parts.push(
-        <code
-          key={key++}
-          className="bg-bg-elevated text-accent-gold rounded px-1 font-mono text-sm"
-        >
-          {codeMatch[1]}
-        </code>
-      );
-      remaining = remaining.slice(codeMatch[0].length);
-      continue;
-    }
-
-    // `[[slug]]` / `[[slug|label]]` wiki-links annotate the concept graph. When
-    // the slug resolves to a routable article (lib/wiki-link-index) we make it a
-    // real internal link, preferring the reader's current domain for slugs that
-    // exist in several. Unresolved targets stay an emphasized non-link chip so a
-    // dead reference never becomes a broken link. Checked before `[label](url)`.
-    const wikiMatch = remaining.match(/^\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/);
-    if (wikiMatch) {
-      const target = wikiMatch[1]!.trim();
-      const label = (wikiMatch[2] ?? wikiMatch[1])!.trim();
-      const href = resolveWikiLink(target, domain);
-      parts.push(
-        href ? (
-          <WikiLinkPreview key={key++} href={href} label={label} />
-        ) : (
-          <span key={key++} className="text-fg-primary font-medium">
-            {label}
-          </span>
-        )
-      );
-      remaining = remaining.slice(wikiMatch[0].length);
-      continue;
-    }
-
-    const linkMatch = remaining.match(/^\[([^\]]+)\]\(([^)]+)\)/);
-    if (linkMatch) {
-      const href = linkMatch[2]!.trim();
-      parts.push(
-        isSafeHref(href) ? (
-          <a
-            key={key++}
-            href={href}
-            className="text-accent-gold underline underline-offset-2 transition-opacity hover:opacity-80"
-          >
-            {linkMatch[1]}
-          </a>
-        ) : (
-          <span key={key++}>{linkMatch[1]}</span>
-        )
-      );
-      remaining = remaining.slice(linkMatch[0].length);
-      continue;
-    }
-
-    const footnoteRefMatch = remaining.match(/^\[\^(\w+)\]/);
-    if (footnoteRefMatch && footnotes.has(footnoteRefMatch[1]!)) {
-      parts.push(
-        <a
-          key={key++}
-          id={`fnref-${footnoteRefMatch[1]}`}
-          href={`#fn-${footnoteRefMatch[1]}`}
-          className="text-accent-gold align-super font-mono text-xs"
-          title={footnotes.get(footnoteRefMatch[1]!)!}
-        >
-          [{footnoteRefMatch[1]}]
-        </a>
-      );
-      remaining = remaining.slice(footnoteRefMatch[0].length);
-      continue;
-    }
-
-    const imgMatch = remaining.match(/^!\[([^\]]*)\]\(([^)]+)\)/);
-    if (imgMatch) {
-      const src = imgMatch[2]!.trim();
-      if (!isSafeHref(src)) {
-        remaining = remaining.slice(imgMatch[0].length);
-        continue;
-      }
-      parts.push(
-        <img
-          key={key++}
-          src={src}
-          alt={imgMatch[1] || ""}
-          loading="lazy"
-          decoding="async"
-          className="inline max-w-full rounded"
-        />
-      );
-      remaining = remaining.slice(imgMatch[0].length);
-      continue;
-    }
-
-    // Bibliographies cite papers as plain `DOI: 10.xxxx/…` text; link the DOI
-    // to doi.org. Trailing punctuation (CJK 。，； or ASCII .,;) is sentence
-    // punctuation, never part of the identifier, so it stays outside the link.
-    const doiMatch = remaining.match(/^DOI:\s*(10\.\d{4,9}\/\S+)/);
-    if (doiMatch) {
-      const doi = doiMatch[1]!.replace(/[.,;:!?。，；、！？）)】」』》"'”’]+$/, "");
-      const trailing = doiMatch[1]!.slice(doi.length);
-      parts.push(
-        <a
-          key={key++}
-          href={`https://doi.org/${doi}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-accent-gold underline underline-offset-2 transition-opacity hover:opacity-80"
-        >
-          DOI: {doi}
-        </a>
-      );
-      if (trailing) parts.push(trailing);
-      remaining = remaining.slice(doiMatch[0].length);
-      continue;
-    }
-
-    // Plain text stops before `DOI: 10.…` so the rule above can link it.
-    const plainMatch = remaining.match(/^(?:(?!DOI:\s*10\.\d{4,9}\/)[^*`_\[$])+/);
-    if (plainMatch) {
-      parts.push(plainMatch[0]);
-      remaining = remaining.slice(plainMatch[0].length);
-      continue;
-    }
-
-    parts.push(remaining[0]);
-    remaining = remaining.slice(1);
-  }
-
-  return parts;
 }

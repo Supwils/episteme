@@ -35,12 +35,25 @@ describe("search empty-result exits", () => {
   it("points only at real static routes", () => {
     const valid = buildValidRoutes();
     for (const exit of SEARCH_NO_RESULTS_EXITS) {
-      expect(valid.has(exit.href), exit.href).toBe(true);
+      const path = exit.href.split("?")[0] ?? exit.href;
+      expect(valid.has(path), exit.href).toBe(true);
     }
+  });
+
+  it("indexes punchy curiosity titles as their own documents", () => {
+    const titles = artifact.docs.map((d) => d.t);
+    expect(titles).toContain("凯库勒的苯环，不是炉边一条蛇咬住了自己的尾巴");
+    expect(titles).toContain("词频和城市人口，居然服从同一条幂律");
+    const kinds = artifact.docs.filter((d) => d.k === "curiosity");
+    expect(kinds.length).toBeGreaterThanOrEqual(390);
+    expect(kinds.every((d) => d.s === "奇趣知识")).toBe(true);
   });
 
   it("includes the curiosities wall among curated exits", () => {
     expect(SEARCH_NO_RESULTS_EXITS.map((e) => e.href)).toContain("/curiosities");
+    expect(SEARCH_NO_RESULTS_EXITS.map((e) => e.href)).toContain(
+      "/curiosities?filter=cross-domain"
+    );
   });
 
   it("is wired into the results page with a live article count", () => {

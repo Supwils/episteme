@@ -13,7 +13,7 @@ let cachedThinkers: Philosopher[] | null = null;
 const questionBySlugCache = new Map<string, Question | null>();
 let cachedQuestions: Question[] | null = null;
 
-const ERA_ORDER: Record<string, number> = { 古代: 0, 近代: 1, 现代: 2, 当代: 3 };
+const ERA_ORDER: Record<string, number> = { 古代: 0, 中世纪: 1, 近代: 2, 现代: 3, 当代: 4 };
 
 export function getThinkerSlugs(): string[] {
   return listContentSlugs(THINKERS_DIR);

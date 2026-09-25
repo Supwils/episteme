@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { DOMAINS } from "@/lib/data";
 import {
   getItemsByCategory,
   getCategoryLabel,
@@ -33,31 +34,11 @@ const CATEGORY_ACCENT: Record<ContentCategory, string> = {
   question: "var(--color-accent-gold)",
 };
 
-const DOMAIN_COLORS: Record<Domain, string> = {
-  "universe-physics": "#6a6fd0",
-  "human-history": "#c08a3e",
-  philosophy: "#4a9e74",
-  "life-science": "#5b9e52",
-  cosmology: "#4f7fd0",
-  mathematics: "#8b6fd0",
-  economics: "#c9a23e",
-  psychology: "#cc7a9e",
-  "computer-science": "#4f9cf0",
-  "political-science": "#c25b5b",
-  "earth-science": "#4f9d76",
-  medicine: "#d9544d",
-  chemistry: "#e08a3c",
-  // Newer domains take their accent from the domain catalog (lib/data.tsx glowColor).
-  arts: "#b0785a",
-  literature: "#8b5e4a",
-  religion: "#6b5c8a",
-  anthropology: "#8b5a3c",
-  education: "#3d6b8a",
-  law: "#a8843c",
-  engineering: "#8a919e",
-  sociology: "#7a8f5a",
-  linguistics: "#3f8f8a",
-};
+// Cluster pigment from the domain catalog (lib/data.tsx → lib/design/palette.ts).
+const DOMAIN_COLORS = Object.fromEntries(DOMAINS.map((d) => [d.id, d.glowColor])) as Record<
+  Domain,
+  string
+>;
 
 function CategoryGroup({
   label,

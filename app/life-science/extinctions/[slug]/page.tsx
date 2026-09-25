@@ -10,14 +10,7 @@ import { serializeJsonLd, createArticleJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
 import { TableOfContents } from "@/components/TableOfContents";
-import { ArticleSidebar } from "@/components/ArticleSidebar";
-import { ReadingModeControls } from "@/components/ReadingModeControls";
-import { ReadingProgressBar } from "@/components/ReadingProgressBar";
-import {
-  ARTICLE_BODY_ROW_CLASS,
-  ARTICLE_HEADER_CLASS,
-  ARTICLE_SURFACE_CLASS,
-} from "@/components/ArticleLayout";
+import { ArticleLayout } from "@/components/ArticleLayout";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -95,145 +88,18 @@ export default async function ExtinctionDetailPage({ params }: Props) {
   });
 
   return (
-    <div className="mx-auto w-full max-w-[1800px] px-6 py-12 sm:px-10 lg:px-16">
-      <ReadingProgressBar />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
-      />
-      <div className={ARTICLE_BODY_ROW_CLASS}>
-        <article className={ARTICLE_SURFACE_CLASS}>
-          <header className={ARTICLE_HEADER_CLASS}>
-            <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
-              <p className="text-fg-muted font-mono text-[10px] tracking-[0.42em] uppercase">
-                life-science / mass extinctions
-              </p>
-              <ReadingModeControls />
-            </div>
-            <div className="mb-4 flex flex-wrap items-center gap-2.5">
-              <span
-                className="rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.2em] uppercase"
-                style={{
-                  borderColor: `${supp.accent}30`,
-                  color: supp.accent,
-                  backgroundColor: `${supp.accent}10`,
-                }}
-              >
-                {extinction.dateDisplay}
-              </span>
-              <span
-                className="font-mono text-[9px] tracking-[0.22em] uppercase"
-                style={{ color: supp.accent }}
-              >
-                严重程度 {extinction.severity}/5
-              </span>
-            </div>
-            <h1 className="font-display text-fg-primary text-[2.4rem] leading-tight tracking-tight md:text-[3.2rem]">
-              {extinction.name}
-            </h1>
-            <p className="text-fg-muted mt-2 font-mono text-sm tracking-wider italic">
-              {extinction.nameEn}
-            </p>
-          </header>
-
-          <div className="mb-12 flex flex-col items-center gap-8 sm:flex-row sm:items-start">
-            <div className="flex flex-col items-center sm:min-w-[140px]">
-              <span
-                className="font-display text-5xl font-bold tabular-nums"
-                style={{ color: supp.accent }}
-              >
-                {extinction.speciesLostPercent}%
-              </span>
-              <span className="text-fg-muted mt-1 font-mono text-[9px] tracking-[0.22em] uppercase">
-                物种灭绝率
-              </span>
-            </div>
-            <div className="flex-1">
-              <p className="text-fg-secondary leading-relaxed">{extinction.description}</p>
-            </div>
-          </div>
-
-          <FadeInSection className="mb-12">
-            <h2 id="causes" className="font-display text-fg-primary mb-4 text-xl font-semibold">
-              灭绝原因
-            </h2>
-            <ul className="space-y-3">
-              {extinction.causes.map((cause) => (
-                <li key={cause} className="flex items-start gap-3">
-                  <span
-                    className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
-                    style={{ backgroundColor: supp.accent }}
-                  />
-                  <span className="text-fg-secondary text-sm leading-relaxed">{cause}</span>
-                </li>
-              ))}
-            </ul>
-          </FadeInSection>
-
-          <div className="mb-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
-            <div
-              className="border-border-faint bg-bg-near border p-6"
-              style={{ borderLeftColor: "var(--color-danger)", borderLeftWidth: "3px" }}
-            >
-              <h3
-                id="victims"
-                className="font-display mb-3 text-sm font-semibold"
-                style={{ color: "var(--color-danger)" }}
-              >
-                受害者
-              </h3>
-              <p className="text-fg-secondary text-sm leading-relaxed">{supp.victims}</p>
-            </div>
-            <div
-              className="border-border-faint bg-bg-near border p-6"
-              style={{ borderLeftColor: "var(--color-accent-green)", borderLeftWidth: "3px" }}
-            >
-              <h3
-                id="aftermath"
-                className="font-display mb-3 text-sm font-semibold"
-                style={{ color: "var(--color-accent-green)" }}
-              >
-                后续影响
-              </h3>
-              <p className="text-fg-secondary text-sm leading-relaxed">{supp.aftermath}</p>
-            </div>
-          </div>
-
-          <SafeRender>
-            <RelatedContent slug={slug} domain="life-science" entityId={slug} />
-          </SafeRender>
-
-          <div className="border-border-faint flex items-center justify-between gap-4 border-t pt-8">
-            {prev ? (
-              <Link
-                href={`/life-science/extinctions/${prev.id}`}
-                className="group flex items-center gap-2 text-sm transition-colors"
-              >
-                <span className="text-fg-muted group-hover:text-fg-secondary">←</span>
-                <span className="text-fg-secondary group-hover:text-accent-green transition-colors">
-                  {prev.name}
-                </span>
-              </Link>
-            ) : (
-              <span />
-            )}
-            {next ? (
-              <Link
-                href={`/life-science/extinctions/${next.id}`}
-                className="group flex items-center gap-2 text-sm transition-colors"
-              >
-                <span className="text-fg-secondary group-hover:text-accent-green transition-colors">
-                  {next.name}
-                </span>
-                <span className="text-fg-muted group-hover:text-fg-secondary">→</span>
-              </Link>
-            ) : (
-              <span />
-            )}
-          </div>
-        </article>
-
-        <ArticleSidebar contentClassName="space-y-6">
+    <ArticleLayout
+      backHref="/life-science/extinctions"
+      url={`/life-science/extinctions/${slug}`}
+      backLabel="← 返回大灭绝"
+      accent={supp.accent}
+      eyebrow={extinction.dateDisplay}
+      eyebrowMeta={[`严重程度 ${extinction.severity}/5`]}
+      title={extinction.name}
+      titleEn={extinction.nameEn}
+      content={""}
+      sidebar={
+        <>
           <TableOfContents accentColor="#4a9e6f" />
           <div className="border-border-faint bg-bg-near border p-5">
             <h3 className="font-display text-fg-primary mb-4 text-sm font-semibold tracking-wide">
@@ -268,8 +134,114 @@ export default async function ExtinctionDetailPage({ params }: Props) {
               })}
             </ul>
           </div>
-        </ArticleSidebar>
+        </>
+      }
+      sidebarClassName="space-y-6"
+      prev={prev && { href: `/life-science/extinctions/${prev.id}`, title: prev.name }}
+      next={next && { href: `/life-science/extinctions/${next.id}`, title: next.name }}
+      prevLabel="上一次"
+      nextLabel="下一次"
+    >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
+      />
+
+      <div className="mb-12 flex flex-col items-center gap-8 sm:flex-row sm:items-start">
+        <div className="flex flex-col items-center sm:min-w-[140px]">
+          <span
+            className="font-display text-5xl font-bold tabular-nums"
+            style={{ color: supp.accent }}
+          >
+            {extinction.speciesLostPercent}%
+          </span>
+          <span className="text-fg-muted mt-1 font-mono text-[9px] tracking-[0.22em] uppercase">
+            物种灭绝率
+          </span>
+        </div>
+        <div className="flex-1">
+          <p className="text-fg-secondary leading-relaxed">{extinction.description}</p>
+        </div>
       </div>
-    </div>
+
+      <FadeInSection className="mb-12">
+        <h2 id="causes" className="font-display text-fg-primary mb-4 text-xl font-semibold">
+          灭绝原因
+        </h2>
+        <ul className="space-y-3">
+          {extinction.causes.map((cause) => (
+            <li key={cause} className="flex items-start gap-3">
+              <span
+                className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
+                style={{ backgroundColor: supp.accent }}
+              />
+              <span className="text-fg-secondary text-sm leading-relaxed">{cause}</span>
+            </li>
+          ))}
+        </ul>
+      </FadeInSection>
+
+      <div className="mb-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <div
+          className="border-border-faint bg-bg-near border p-6"
+          style={{ borderLeftColor: "var(--color-danger)", borderLeftWidth: "3px" }}
+        >
+          <h3
+            id="victims"
+            className="font-display mb-3 text-sm font-semibold"
+            style={{ color: "var(--color-danger)" }}
+          >
+            受害者
+          </h3>
+          <p className="text-fg-secondary text-sm leading-relaxed">{supp.victims}</p>
+        </div>
+        <div
+          className="border-border-faint bg-bg-near border p-6"
+          style={{ borderLeftColor: "var(--color-accent-green)", borderLeftWidth: "3px" }}
+        >
+          <h3
+            id="aftermath"
+            className="font-display mb-3 text-sm font-semibold"
+            style={{ color: "var(--color-accent-green)" }}
+          >
+            后续影响
+          </h3>
+          <p className="text-fg-secondary text-sm leading-relaxed">{supp.aftermath}</p>
+        </div>
+      </div>
+
+      <SafeRender>
+        <RelatedContent slug={slug} domain="life-science" entityId={slug} />
+      </SafeRender>
+
+      <div className="border-border-faint flex items-center justify-between gap-4 border-t pt-8">
+        {prev ? (
+          <Link
+            href={`/life-science/extinctions/${prev.id}`}
+            className="group flex items-center gap-2 text-sm transition-colors"
+          >
+            <span className="text-fg-muted group-hover:text-fg-secondary">←</span>
+            <span className="text-fg-secondary group-hover:text-accent-green transition-colors">
+              {prev.name}
+            </span>
+          </Link>
+        ) : (
+          <span />
+        )}
+        {next ? (
+          <Link
+            href={`/life-science/extinctions/${next.id}`}
+            className="group flex items-center gap-2 text-sm transition-colors"
+          >
+            <span className="text-fg-secondary group-hover:text-accent-green transition-colors">
+              {next.name}
+            </span>
+            <span className="text-fg-muted group-hover:text-fg-secondary">→</span>
+          </Link>
+        ) : (
+          <span />
+        )}
+      </div>
+    </ArticleLayout>
   );
 }

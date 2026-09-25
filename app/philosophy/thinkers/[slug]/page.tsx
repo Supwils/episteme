@@ -7,17 +7,9 @@ import SafeRender from "@/components/SafeRender";
 import { ERA_ACCENT, SITE_URL } from "@/lib/constants";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import ThinkerSidebar from "@/components/thinker-detail/ThinkerSidebar";
-import { ArticleSidebar } from "@/components/ArticleSidebar";
-import ThinkerNav from "@/components/thinker-detail/ThinkerNav";
 import { readingMinutes } from "@/lib/reading-time";
 import { serializeJsonLd, createPersonJsonLd } from "@/lib/jsonld";
-import { ReadingModeControls } from "@/components/ReadingModeControls";
-import { ReadingProgressBar } from "@/components/ReadingProgressBar";
-import {
-  ARTICLE_BODY_ROW_CLASS,
-  ARTICLE_HEADER_CLASS,
-  ARTICLE_SURFACE_CLASS,
-} from "@/components/ArticleLayout";
+import { ArticleLayout } from "@/components/ArticleLayout";
 
 export function generateStaticParams() {
   return []; // On-demand SSG: build on first request, then cache until the next deployment
@@ -75,82 +67,51 @@ export default async function ThinkerDetailPage({ params }: { params: Promise<{ 
   });
 
   return (
-    <div className="mx-auto w-full max-w-[1800px] px-6 py-12 sm:px-10 lg:px-16">
+    <ArticleLayout
+      backHref="/philosophy/thinkers"
+      url={`/philosophy/thinkers/${slug}`}
+      backLabel="← 返回思想家列表"
+      breadcrumb={<Breadcrumb category="thinkers" currentTitle={thinker.title} />}
+      accent={accent}
+      eyebrow={thinker.era}
+      eyebrowMeta={[thinker.school]}
+      title={thinker.title}
+      titleEn={thinker.philosopher}
+      content={thinker.content}
+      tags={thinker.tags}
+      sidebar={
+        <ThinkerSidebar
+          accent={accent}
+          era={thinker.era}
+          school={thinker.school}
+          readMinutes={readMinutes}
+          wordCount={wordCount}
+          relatedThinkers={relatedThinkers}
+        />
+      }
+      prev={
+        prevThinker && {
+          href: `/philosophy/thinkers/${prevThinker.slug}`,
+          title: prevThinker.title,
+        }
+      }
+      next={
+        nextThinker && {
+          href: `/philosophy/thinkers/${nextThinker.slug}`,
+          title: nextThinker.title,
+        }
+      }
+      prevLabel="上一位"
+      nextLabel="下一位"
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(personJsonLd) }}
       />
-      <ReadingProgressBar />
-      <div className={ARTICLE_BODY_ROW_CLASS}>
-        <article className={ARTICLE_SURFACE_CLASS}>
-          <header className={ARTICLE_HEADER_CLASS}>
-            <Breadcrumb category="thinkers" currentTitle={thinker.title} />
-
-            <div className="mt-6 flex flex-col gap-4">
-              <div className="flex flex-wrap items-center gap-2.5">
-                <span
-                  className="text-fg-secondary rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.2em] uppercase"
-                  style={{
-                    borderColor: accent,
-                    backgroundColor: `${accent}14`,
-                  }}
-                >
-                  {thinker.era}
-                </span>
-                <span className="border-fg-disabled/20 text-fg-muted rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.16em]">
-                  {thinker.school}
-                </span>
-                <span className="ml-auto">
-                  <ReadingModeControls />
-                </span>
-              </div>
-
-              <h1 className="font-display text-fg-primary text-[2.4rem] leading-[1.08] tracking-tight md:text-[3.4rem]">
-                {thinker.title}
-              </h1>
-
-              <p className="text-fg-muted font-mono text-sm tracking-wider italic">
-                {thinker.philosopher}
-              </p>
-
-              {thinker.tags.length > 0 && (
-                <div className="flex flex-wrap gap-2 pt-1">
-                  {thinker.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-fg-secondary rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.12em]"
-                      style={{
-                        borderColor: `${accent}66`,
-                        backgroundColor: `${accent}14`,
-                      }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
-          </header>
-          <MarkdownRenderer content={thinker.content} accentColor={accent} domain="philosophy" />
-
-          <SafeRender>
-            <RelatedContent slug={slug} domain="philosophy" entityId={slug} />
-          </SafeRender>
-        </article>
-
-        <ArticleSidebar>
-          <ThinkerSidebar
-            accent={accent}
-            era={thinker.era}
-            school={thinker.school}
-            readMinutes={readMinutes}
-            wordCount={wordCount}
-            relatedThinkers={relatedThinkers}
-          />
-        </ArticleSidebar>
-      </div>
-
-      <ThinkerNav prevThinker={prevThinker} nextThinker={nextThinker} />
-    </div>
+      <MarkdownRenderer content={thinker.content} accentColor={accent} domain="philosophy" />
+      <SafeRender>
+        <RelatedContent slug={slug} domain="philosophy" entityId={slug} />
+      </SafeRender>
+    </ArticleLayout>
   );
 }

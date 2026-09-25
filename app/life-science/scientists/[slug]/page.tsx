@@ -12,14 +12,7 @@ import { serializeJsonLd, createPersonJsonLd } from "@/lib/jsonld";
 import SafeRender from "@/components/SafeRender";
 import RelatedContent from "@/components/RelatedContent";
 import { TableOfContents } from "@/components/TableOfContents";
-import { ArticleSidebar } from "@/components/ArticleSidebar";
-import { ReadingModeControls } from "@/components/ReadingModeControls";
-import { ReadingProgressBar } from "@/components/ReadingProgressBar";
-import {
-  ARTICLE_BODY_ROW_CLASS,
-  ARTICLE_HEADER_CLASS,
-  ARTICLE_SURFACE_CLASS,
-} from "@/components/ArticleLayout";
+import { ArticleLayout } from "@/components/ArticleLayout";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -130,102 +123,19 @@ export default async function ScientistDetailPage({ params }: Props) {
   });
 
   return (
-    <div className="mx-auto w-full max-w-[1800px] px-6 py-12 sm:px-10 lg:px-16">
-      <ReadingProgressBar />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
-      />
-      <div className={ARTICLE_BODY_ROW_CLASS}>
-        <article className={ARTICLE_SURFACE_CLASS}>
-          <header className={ARTICLE_HEADER_CLASS}>
-            <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
-              <p className="text-fg-muted font-mono text-[10px] tracking-[0.42em] uppercase">
-                life-science / scientists
-              </p>
-              <ReadingModeControls />
-            </div>
-            <div className="mb-4 flex flex-wrap items-center gap-2.5">
-              <span
-                className="rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.2em] uppercase"
-                style={{
-                  borderColor: `${supp.accent}30`,
-                  color: supp.accent,
-                  backgroundColor: `${supp.accent}10`,
-                }}
-              >
-                {scientist.field}
-              </span>
-              <span className="border-fg-disabled/20 text-fg-muted rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.16em]">
-                {scientist.era}
-              </span>
-            </div>
-            <h1 className="font-display text-fg-primary text-[2.4rem] leading-tight tracking-tight md:text-[3.2rem]">
-              {scientist.name}
-            </h1>
-            <p className="text-fg-muted mt-2 font-mono text-sm tracking-wider italic">
-              {supp.latin}
-            </p>
-            <p className="text-fg-disabled mt-1 font-mono text-[11px] tracking-[0.18em]">
-              {lifespan}
-            </p>
-          </header>
-
-          <div className="mb-12 grid grid-cols-2 gap-4 md:grid-cols-3">
-            <FactCard label="领域" value={scientist.field} accent={supp.accent} />
-            <FactCard label="时代" value={scientist.era} accent={supp.accent} />
-            <FactCard label="生卒" value={lifespan} accent={supp.accent} />
-          </div>
-
-          <FadeInSection className="mb-12">
-            <h2
-              className="font-display text-fg-primary mb-4 text-xl font-semibold"
-              id="key-contribution"
-            >
-              核心贡献
-            </h2>
-            <p className="text-fg-secondary leading-relaxed">{scientist.keyContribution}</p>
-          </FadeInSection>
-
-          <FadeInSection className="mb-12">
-            <h2
-              className="font-display text-fg-primary mb-4 text-xl font-semibold"
-              id="famous-work"
-            >
-              代表著作
-            </h2>
-            <p className="text-fg-secondary leading-relaxed">{scientist.famousWork}</p>
-          </FadeInSection>
-
-          {articleBody && (
-            <FadeInSection className="mb-12">
-              <MarkdownRenderer
-                domain="life-science"
-                content={articleBody}
-                accentColor={supp.accent}
-              />
-            </FadeInSection>
-          )}
-
-          {supp.quote && (
-            <FadeInSection className="mb-12">
-              <blockquote
-                className="border-l-2 py-2 pl-6"
-                style={{ borderColor: `${supp.accent}40` }}
-              >
-                <p className="text-fg-secondary text-lg leading-relaxed italic">
-                  &ldquo;{supp.quote}&rdquo;
-                </p>
-              </blockquote>
-            </FadeInSection>
-          )}
-
-          <SafeRender>
-            <RelatedContent slug={slug} domain="life-science" entityId={slug} />
-          </SafeRender>
-        </article>
-
-        <ArticleSidebar contentClassName="space-y-6">
+    <ArticleLayout
+      backHref="/life-science/scientists"
+      url={`/life-science/scientists/${slug}`}
+      backLabel="← 返回科学家"
+      accent={supp.accent}
+      eyebrow={scientist.field}
+      eyebrowMeta={[scientist.era]}
+      title={scientist.name}
+      titleEn={supp.latin}
+      content={articleBody ?? ""}
+      meta={<>{lifespan}</>}
+      sidebar={
+        <>
           <TableOfContents accentColor="#4a9e6f" />
           <div className="border-border-faint bg-bg-near border p-5">
             <h3 className="font-display text-fg-primary mb-4 text-sm font-semibold tracking-wide">
@@ -258,21 +168,51 @@ export default async function ScientistDetailPage({ params }: Props) {
               })}
             </ul>
           </div>
-        </ArticleSidebar>
-      </div>
-    </div>
-  );
-}
+        </>
+      }
+      sidebarClassName="space-y-6"
+    >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
+      />
 
-function FactCard({ label, value, accent }: { label: string; value: string; accent: string }) {
-  return (
-    <div className="border-border-faint bg-bg-near border p-4">
-      <dt className="text-fg-muted mb-1 font-mono text-[9px] tracking-[0.22em] uppercase">
-        {label}
-      </dt>
-      <dd className="font-display text-fg-primary text-sm font-medium" style={{ color: accent }}>
-        {value}
-      </dd>
-    </div>
+      <FadeInSection className="mb-12">
+        <h2
+          className="font-display text-fg-primary mb-4 text-xl font-semibold"
+          id="key-contribution"
+        >
+          核心贡献
+        </h2>
+        <p className="text-fg-secondary leading-relaxed">{scientist.keyContribution}</p>
+      </FadeInSection>
+
+      <FadeInSection className="mb-12">
+        <h2 className="font-display text-fg-primary mb-4 text-xl font-semibold" id="famous-work">
+          代表著作
+        </h2>
+        <p className="text-fg-secondary leading-relaxed">{scientist.famousWork}</p>
+      </FadeInSection>
+
+      {articleBody && (
+        <FadeInSection className="mb-12">
+          <MarkdownRenderer domain="life-science" content={articleBody} accentColor={supp.accent} />
+        </FadeInSection>
+      )}
+
+      {supp.quote && (
+        <FadeInSection className="mb-12">
+          <blockquote className="border-l-2 py-2 pl-6" style={{ borderColor: `${supp.accent}40` }}>
+            <p className="text-fg-secondary text-lg leading-relaxed italic">
+              &ldquo;{supp.quote}&rdquo;
+            </p>
+          </blockquote>
+        </FadeInSection>
+      )}
+
+      <SafeRender>
+        <RelatedContent slug={slug} domain="life-science" entityId={slug} />
+      </SafeRender>
+    </ArticleLayout>
   );
 }

@@ -5,13 +5,9 @@ test("builds a constrained adolescent service package and exposes its evidence r
 }) => {
   await page.goto("/medicine/adolescent-service-lab");
 
-  await expect(
-    page.getByRole("heading", { name: "青少年学校与社区服务方案实验室" })
-  ).toBeVisible();
+  await expect(page.getByRole("heading", { name: "青少年学校与社区服务方案实验室" })).toBeVisible();
   await expect(page.getByText(/所有预算与效果数字都是虚构教学输入/)).toBeVisible();
-  await expect(
-    page.getByRole("img", { name: /青少年学校与社区服务六层立体结构/ })
-  ).toBeVisible();
+  await expect(page.getByRole("img", { name: /青少年学校与社区服务六层立体结构/ })).toBeVisible();
   await expect(page.getByText("路径状态").locator("..")).toContainText("完整");
 
   await page.getByLabel("检验哪一层").selectOption("matched-clinical-care");
@@ -20,9 +16,9 @@ test("builds a constrained adolescent service package and exposes its evidence r
 
   await page.getByRole("button", { name: "公平网络" }).click();
   await expect(page.getByTestId("adolescent-service-infeasible")).toHaveCount(0);
-  await expect(
-    page.getByRole("row", { name: /校外青年、偏远社区与少数语言外展/ })
-  ).toContainText("纳入服务包");
+  await expect(page.getByRole("row", { name: /校外青年、偏远社区与少数语言外展/ })).toContainText(
+    "纳入服务包"
+  );
 
   await expect(page.getByRole("link", { name: "阅读学校、社区与连续服务 →" })).toHaveAttribute(
     "href",

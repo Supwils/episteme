@@ -5,7 +5,7 @@ import {
   createSearchClient,
   isSafeSearchHit,
   loadArtifact,
-  SEARCH_WORKER_TIMEOUT_MS,
+  SEARCH_WORKER_COLD_TIMEOUT_MS,
 } from "../client";
 import { SEARCH_INDEX_URL, SEARCH_INDEX_VERSION } from "../types";
 
@@ -205,7 +205,8 @@ describe("createSearchClient with a Worker", () => {
 
     const client = createSearchClient();
     const searchPromise = client.search("热力学", 5);
-    await vi.advanceTimersByTimeAsync(SEARCH_WORKER_TIMEOUT_MS);
+    // A silent worker that never even reports `ready` gets the cold budget.
+    await vi.advanceTimersByTimeAsync(SEARCH_WORKER_COLD_TIMEOUT_MS);
     const hits = await searchPromise;
     expect(hits.length).toBeGreaterThan(0);
     expect(hits[0]!.url.startsWith("/")).toBe(true);

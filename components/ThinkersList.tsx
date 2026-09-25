@@ -2,6 +2,7 @@
 
 import { memo, useCallback, useMemo, useState } from "react";
 import Link from "next/link";
+import { SpotlightGrid } from "@/components/motion/SpotlightGrid";
 import { motion, useReducedMotion } from "framer-motion";
 import { SearchInput } from "./SearchInput";
 import { ERA_ACCENT, ERA_BG, PRODUCT_EASE } from "@/lib/constants";
@@ -15,7 +16,7 @@ type ThinkerItem = {
   slug: string;
 };
 
-const ERA_OPTIONS = ["全部", "古代", "近代", "现代", "当代"] as const;
+const ERA_OPTIONS = ["全部", "古代", "中世纪", "近代", "现代", "当代"] as const;
 
 export const ThinkersList = memo(function ThinkersList({ thinkers }: { thinkers: ThinkerItem[] }) {
   const [query, setQuery] = useState("");
@@ -86,11 +87,11 @@ export const ThinkersList = memo(function ThinkersList({ thinkers }: { thinkers:
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+        <SpotlightGrid className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
           {filtered.map((thinker, i) => (
             <ThinkerCard key={thinker.slug} thinker={thinker} index={i} reduce={!!reduce} />
           ))}
-        </div>
+        </SpotlightGrid>
       )}
     </>
   );
@@ -121,6 +122,8 @@ function ThinkerCard({
     >
       <Link
         href={`/philosophy/thinkers/${thinker.slug}`}
+        data-spotlight
+        style={{ "--spot": accent } as React.CSSProperties}
         className="border-border-faint bg-bg-near hover:bg-bg-elevated group relative flex h-full flex-col overflow-hidden border transition-all duration-500 hover:shadow-[0_8px_40px_-12px_rgba(200,164,90,0.15)]"
       >
         {/* Era color accent — top bar */}

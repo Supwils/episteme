@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { SpotlightGrid } from "@/components/motion/SpotlightGrid";
 import { ListSearchFilter, ListEmptyState } from "@/components/ListSearchFilter";
 import type { ListFilterChip } from "@/components/ListSearchFilter";
 import { orderConceptCategories, conceptCategoryColor } from "@/subjects/economics/lib/constants";
@@ -100,11 +101,13 @@ export function ConceptsListBrowser({ concepts }: { concepts: ConceptItem[] }) {
                 <span className="bg-border-faint h-px flex-1" />
               </div>
 
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+              <SpotlightGrid className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
                 {items.map((concept) => (
                   <Link
                     key={concept.slug}
                     href={`/economics/concepts/${concept.slug}`}
+                    data-spotlight
+                    style={{ "--spot": accent } as React.CSSProperties}
                     className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative overflow-hidden border p-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5"
                   >
                     <div
@@ -147,7 +150,7 @@ export function ConceptsListBrowser({ concepts }: { concepts: ConceptItem[] }) {
                     </div>
                   </Link>
                 ))}
-              </div>
+              </SpotlightGrid>
             </section>
           );
         })

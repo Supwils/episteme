@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SpotlightGrid } from "@/components/motion/SpotlightGrid";
 import {
   createFrontier,
   FRONTIER_DOMAIN_CONFIG,
@@ -84,11 +85,13 @@ export function FrontierListView({ domain }: { domain: FrontierDomain }) {
               <span className="bg-border-faint h-px flex-1" />
             </div>
 
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+            <SpotlightGrid className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
               {items.map((article) => (
                 <Link
                   key={article.slug}
                   href={`/${domain}/frontier/${article.slug}`}
+                  data-spotlight
+                  style={{ "--spot": accent } as React.CSSProperties}
                   className="group border-border-faint bg-bg-panel hover:border-fg-disabled/30 relative flex flex-col gap-3 overflow-hidden border p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5"
                 >
                   <div
@@ -127,7 +130,7 @@ export function FrontierListView({ domain }: { domain: FrontierDomain }) {
                   )}
                 </Link>
               ))}
-            </div>
+            </SpotlightGrid>
           </section>
         );
       })}

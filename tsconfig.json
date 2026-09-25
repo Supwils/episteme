@@ -26,21 +26,14 @@
     }
   },
   "include": [
-    "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
+    ".next-prod/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "subjects/**/*"
+    ".next/types/**/*.ts",
+    "next-env.d.ts",
+    "subjects/**/*",
+    ".next-ab/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules",
-    ".next",
-    "out",
-    "dist",
-    "coverage",
-    "scripts",
-    "content",
-    "reference"
-  ]
+  "exclude": ["node_modules", ".next", "out", "dist", "coverage", "scripts", "content", "reference"]
 }

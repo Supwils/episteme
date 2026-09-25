@@ -40,6 +40,12 @@ interface SearchResultItemProps {
   showSectionLabel?: boolean;
 }
 
+/** Curiosity hooks share their article's URL, so identity (React key, DOM
+ *  id, keyboard index) must include the kind — URL alone collides. */
+export function searchResultDomId(result: Pick<SearchResult, "kind" | "url">): string {
+  return `gs-item-${result.kind}-${result.url}`;
+}
+
 export function SearchResultItem({
   result,
   query,
@@ -57,9 +63,10 @@ export function SearchResultItem({
 
   return (
     <Link
-      id={`gs-item-${result.url}`}
+      id={searchResultDomId(result)}
       href={result.url}
       role="option"
+      data-kind={result.kind}
       aria-selected={isActive}
       className="gs-item"
       data-active={isActive}
