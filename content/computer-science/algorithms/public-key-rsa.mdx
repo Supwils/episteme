@@ -15,11 +15,19 @@ tags:
 related:
   - hashing
   - networking-protocols
+  - diffie-hellman-1976
+  - merkle-1978
+  - naor-yung-1990
+  - rackoff-simon-1991
+  - dolev-dwork-naor-1991
+  - cramer-shoup-1998
+  - bellare-rogaway-1993
+  - bellare-rogaway-1994-oaep
 ---
 
 # RSA 公钥密码
 
-1976 年，Whitfield Diffie 和 Martin Hellman 发表了一篇论文《密码学的新方向》（New Directions in Cryptography），提出了一个听起来矛盾的想法：
+1976 年，Whitfield Diffie 和 Martin Hellman 发表了[[diffie-hellman-1976|一篇论文《密码学的新方向》]]（New Directions in Cryptography），提出了一个听起来矛盾的想法：
 
 **公开传递加密密钥，而不泄露解密能力。**
 
@@ -112,7 +120,7 @@ $$m = c^d \mod n$$
 
 业界的修法是在模幂之前先做**填充**（padding）。但早期的 PKCS#1 v1.5 填充（1993 年定稿）留下了致命缺口：1998 年，Daniel Bleichenbacher 证明，只要服务器在解密后发现"填充格式不合法"时报出可区分的错误（哪怕只是响应时间的细微差别），攻击者就能把服务器当成**预言机**（oracle），用约一百万次精心构造的查询逐步还原出完整明文——即著名的"百万消息攻击"（CRYPTO '98）。它完全不需要分解 $n$，利用的只是实现"嘴不严"。
 
-正确的替代是 **OAEP**（Optimal Asymmetric Encryption Padding，Bellare 与 Rogaway 1994 年在 Eurocrypt 提出）：加密前先把明文与一个随机种子送进两轮 Feistel 式的掩码结构，互相搅拌，使整个编码看上去随机。OAEP 让每次加密结果不可预测（治好确定性），又让"构造一个能通过解码检查的密文"在不知明文时不可行（治好可延展性）。配合 RSA 使用时，其抗选择密文攻击（IND-CCA2）的安全性可归约到 RSA 假设本身——Fujisaki、Okamoto、Pointcheval 与 Stern 在 2001 年补全了这一严格证明。今天仍在使用 RSA 加密的场合，标准要求 OAEP（加密）与 PSS（签名）；TLS 1.3 则干脆移除了 RSA 密钥交换。
+正确的替代是 **[[bellare-rogaway-1994-oaep|OAEP]]**（Optimal Asymmetric Encryption Padding，Bellare 与 Rogaway 1994 年在 Eurocrypt 提出）：加密前先把明文与一个随机种子送进两轮 Feistel 式的掩码结构，互相搅拌，使整个编码看上去随机。OAEP 让每次加密结果不可预测（治好确定性），又让"构造一个能通过解码检查的密文"在不知明文时不可行（治好可延展性）。配合 RSA 使用时，其抗选择密文攻击（IND-CCA2）的安全性可归约到 RSA 假设本身——Fujisaki、Okamoto、Pointcheval 与 Stern 在 2001 年补全了这一严格证明。今天仍在使用 RSA 加密的场合，标准要求 OAEP（加密）与 PSS（签名）；TLS 1.3 则干脆移除了 RSA 密钥交换。
 
 填充与协议层的教训可以概括成一句：预言机不必是明文报错，任何可区分的行为——延迟、关闭连接的方式、重试策略——都可能泄露一位比特。实现者若只盯着"不要打印错误字符串"，往往会漏掉更安静的侧信道。
 

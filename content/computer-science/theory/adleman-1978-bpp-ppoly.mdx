@@ -25,6 +25,7 @@ related:
   - baker-gill-solovay-1975
   - cook-1971-np-completeness
   - nisan-wigderson-1994
+  - impagliazzo-wigderson-1997
 ---
 
 # Adleman 1978：可放大的随机性怎样被多项式忠告替换
@@ -65,7 +66,7 @@ related:
 
 它证明了：可放大的随机多项式时间具有多项式规模电路族，也就是后来所写的 $\mathrm{BPP}\subseteq\mathrm{P/poly}$。印刷先处理随机多项式时间类 $R$；课堂把同一套放大加并集写到双侧错误上，结论形状不变。$\mathrm{P/poly}$ 等于多项式时间加多项式忠告，也等于多项式规模电路族。$P$ 已经住在这个类里；本页把带硬币的多项式时间也送进去。方法论上的句子是：错误率一旦低于输入个数的倒数，并集就会留下一条对整个 $\{0,1\}^n$ 都诚实的硬币。非均匀性吃掉的是这一条存在性，不是一台对所有 $n$ 通用的发生器。
 
-它没有证明 $P=\mathrm{BPP}$，也没有证明 $P\neq\mathrm{BPP}$。均匀去随机化要求忠告本身可在确定性多项式时间内被造出来，或被一台伪随机发生器冒充。那是后年的硬度换随机性，不在页码 75 至 83 里。它没有证明 $NP\subseteq\mathrm{P/poly}$，也没有证明 $NP\subseteq\mathrm{BPP}$。若 SAT 进入 $\mathrm{BPP}$，本页会把它送进 $\mathrm{P/poly}$，再由卡普–利普顿逼出层次坍缩；那是两篇合读的条件句，不是 1978 年单独给出的定理。它没有把 $\mathrm{BPP}$ 放进多项式层次，也没有构造使 $\mathrm{BPP}$ 与 $P$ 相对化后分开或重合的神谕。它没有给出任何显式函数的超多项式电路下界，也没有打开常数深度。自然证明、代数化与概率可验证明同样不在。对照属于 [[circuit-complexity|电路复杂度]] 总览与 [[computational-complexity|计算复杂性]] 地图。本页把「可放大的硬币怎样变成一条忠告」写成一次计数。概念证据到此为止。放大回答的是坏事件如何被指数压下去；并集回答的是为什么压下去之后空间里仍剩得下一条对所有等长输入都诚实的字。两句都不是操作单。
+它没有证明 $P=\mathrm{BPP}$，也没有证明 $P\neq\mathrm{BPP}$。均匀去随机化要求忠告本身可在确定性多项式时间内被造出来，或被一台伪随机发生器冒充。那是后年的[[impagliazzo-wigderson-1997|硬度换随机性]]，不在页码 75 至 83 里。它没有证明 $NP\subseteq\mathrm{P/poly}$，也没有证明 $NP\subseteq\mathrm{BPP}$。若 SAT 进入 $\mathrm{BPP}$，本页会把它送进 $\mathrm{P/poly}$，再由卡普–利普顿逼出层次坍缩；那是两篇合读的条件句，不是 1978 年单独给出的定理。它没有把 $\mathrm{BPP}$ 放进多项式层次，也没有构造使 $\mathrm{BPP}$ 与 $P$ 相对化后分开或重合的神谕。它没有给出任何显式函数的超多项式电路下界，也没有打开常数深度。自然证明、代数化与概率可验证明同样不在。对照属于 [[circuit-complexity|电路复杂度]] 总览与 [[computational-complexity|计算复杂性]] 地图。本页把「可放大的硬币怎样变成一条忠告」写成一次计数。概念证据到此为止。放大回答的是坏事件如何被指数压下去；并集回答的是为什么压下去之后空间里仍剩得下一条对所有等长输入都诚实的字。两句都不是操作单。
 
 ## 跨域连接
 
@@ -100,4 +101,4 @@ related:
 - 与 [[baker-gill-solovay-1975|贝克–吉尔–索洛维一九七五年论文]] 对读：神谕随询问而变，忠告只随长度而变。
 - 与 [[cook-1971-np-completeness|库克一九七一年论文]] 对读：完全性把整类送进假设；本页不把 SAT 送进 $\mathrm{P/poly}$。
 - 与 C. Lautemann, "BPP and the Polynomial Hierarchy", *Information Processing Letters* 17, 1983, pp. 215–217 对读：后年把 $\mathrm{BPP}$ 放进 $\Sigma_2^{\mathrm{P}}\cap\Pi_2^{\mathrm{P}}$，不是安阿伯的电路计数。
-- 与 [[nisan-wigderson-1994|Nisan–Wigderson 1994]] 对读：本页把可放大的随机性送进非均匀电路；那一篇把足够硬的函数做成生成器，去骗均匀的多项式测试。忠告替换不是硬度换随机性。
+- 与 [[nisan-wigderson-1994|Nisan–Wigderson 1994]] 对读：本页把可放大的随机性送进非均匀电路；那一篇把足够硬的函数做成生成器，去骗均匀的多项式测试。均匀 $P=\mathrm{BPP}$ 的指数硬度条件句见 [[impagliazzo-wigderson-1997|Impagliazzo–Wigderson 1997]]。忠告替换不是硬度换随机性。

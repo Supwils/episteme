@@ -354,6 +354,21 @@
     "e": "一九一九年十一月二十七日，《自然》印出一则短讯。弗朗西斯·威廉·阿斯顿把题目写成《元素的构成》。他要公开的不是一种尚未命名的气体，而是已经叫氖的那种惰性气体，在质谱仪底片上落成两条质量线：二十…",
     "d": "chemistry"
   },
+  "/chemistry/milestones/barton-1950-steroid-conformation": {
+    "t": "Barton 1950：甾核椅式怎样把非环价分成赤道与极向",
+    "e": "一九五〇年八月十五日，瑞士期刊《经验》（Experientia）第六卷第八期刊出德里克·H·R·巴顿（D. H. R. Barton）的短文，题目按字面是 “The Conformation …",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/bijvoet-1951-absolute-configuration": {
+    "t": "Bijvoet 1951：反常散射怎样把酒石酸盐的绝对构型钉进晶体学",
+    "e": "一九五一年八月十八日，《自然》第一六八卷第四二六八期刊出约翰内斯·马丁·比佛特（J. M. Bijvoet）、A. F. 皮尔德曼（A. F. Peerdeman）与 A. J. 范博梅尔（A…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/blackwood-1968-ez": {
+    "t": "Blackwood 1968：双键几何怎样被改印成 E 与 Z",
+    "e": "一九六八年一月，《美国化学会志》第九十卷第二期刊出两页通信，作者是詹姆斯·E·布莱克伍德（James E. Blackwood）、卡西米尔·L·格拉迪斯（Casimir L. Gladys）、…",
+    "d": "chemistry"
+  },
   "/chemistry/milestones/born-oppenheimer-1927": {
     "t": "玻恩–奥本海默 1927：分子怎样把核的慢运动从电子的快运动里拆开",
     "e": "一九二七年，《物理学年鉴》第三八九卷第二十期刊出马克斯·玻恩与罗伯特·奥本海默的长文，题目按字面是《分子的量子理论》，德文原题 “Zur Quantentheorie der Molekeln…",
@@ -367,6 +382,21 @@
   "/chemistry/milestones/bunsen-kirchhoff-1860-cesium": {
     "t": "本生与基尔霍夫一八六〇年的铯：棱镜分光镜怎样用天蓝色谱线认出第一种新元素",
     "e": "一八五九年，海德堡的化学实验室里多了一只涂黑的梯形木箱。罗伯特·本生已经有了一盏几乎不发光的煤气灯；古斯塔夫·基尔霍夫把狭缝、准直管、棱镜和观察望远镜装进同一只箱子。火焰边沿舔着铂丝上的盐珠。…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/cahn-ingold-1951": {
+    "t": "Cahn–Ingold 1951：序列规则怎样把四配位不对称原子的构型写成 d 与 l",
+    "e": "一九五一年，《化学会志》刊出编号一三一的论文，作者是罗伯特·S·卡恩（R. S. Cahn）与克里斯托弗·英戈尔德（Christopher Ingold，C. K. Ingold），题目按字面…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/cahn-ingold-prelog-1956": {
+    "t": "Cahn–Ingold–Prelog 1956：有机构型怎样被改印成 R 与 S",
+    "e": "一九五六年，《经验》（Experientia）第十二卷第三期刊出十四页论文，作者是罗伯特·S·卡恩（R. S. Cahn）、克里斯托弗·英戈尔德（Christopher Ingold，C. K…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/cahn-ingold-prelog-1966": {
+    "t": "Cahn–Ingold–Prelog 1966：序列规则怎样让印刷的名字记下三维排布",
+    "e": "一九六六年四月，《应用化学》国际英文版第五卷第四期刊出罗伯特·S·卡恩（R. S. Cahn）、克里斯托弗·英戈尔德爵士（Sir Christopher Ingold）与弗拉迪米尔·普雷洛格（…",
     "d": "chemistry"
   },
   "/chemistry/milestones/chargaff-1950-base-ratios": {
@@ -387,6 +417,11 @@
   "/chemistry/milestones/debye-huckel-1923": {
     "t": "德拜–休克尔 1923：离子氛怎样把强电解质的电导亏损改记成远程静电",
     "e": "一九二三年，苏黎世联邦工学院的彼得·德拜与助手埃里希·休克尔，把两篇同题论文送进《物理杂志》第二十四卷。第一篇从第一八五页写到第二〇六页，副题是冰点降低与相近现象。续篇从第三〇五页写到第三二五…",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/diels-alder-1928": {
+    "t": "Diels–Alder 1928：双烯加成怎样把六元环写成一步同时长出两键",
+    "e": "一九二八年，《利比希化学纪事》第四六〇卷刊出奥托·狄尔斯（Otto Diels）与库尔特·阿尔德（Kurt Alder）的长文，题目按字面是 “Synthesen in der hydroar…",
     "d": "chemistry"
   },
   "/chemistry/milestones/discovery-of-radioactivity": {
@@ -454,6 +489,11 @@
     "e": "一九三一年，《物理学杂志》第七十卷刊出埃里希·休克尔（Erich Hückel）的长文，总题按字面是 “Quantentheoretische Beiträge zum Benzolprobl…",
     "d": "chemistry"
   },
+  "/chemistry/milestones/hush-1961-electron-transfer": {
+    "t": "Hush 1961：外层电子转移的绝热理论怎样把溶液里的速率写成核坐标",
+    "e": "一九六一年，《法拉第学会会志》第五十七卷刊出诺埃尔·S·哈什（N. S. Hush）的长文，题目按字面是 “Adiabatic Theory of Outer Sphere Electron …",
+    "d": "chemistry"
+  },
   "/chemistry/milestones/karlsruhe-cannizzaro-atomic-weights": {
     "t": "卡尔斯鲁厄 1860：坎尼扎罗小册子怎样把原子量变成公共算法",
     "e": "1860 年 9 月 3 日至 5 日，约一百四十名化学家聚在巴登的卡尔斯鲁厄。发起人是凯库勒、韦尔茨恩与武尔茨。邀请函上还出现李比希、杜马、本生、维勒、巴斯德等人的名字。会议要解决的，不是某…",
@@ -489,6 +529,11 @@
     "e": "1869 年 2 月，圣彼得堡的冬天还没松手。",
     "d": "chemistry"
   },
+  "/chemistry/milestones/miller-closs-1984-inverted-region": {
+    "t": "Miller–Closs 1984：分子内电子转移怎样把马库斯反转区写成溶液里的速率",
+    "e": "一九八四年五月一日，《美国化学会志》第一〇六卷第十期刊出三页短讯，题目按字面是 “Intramolecular long-distance electron transfer in radic…",
+    "d": "chemistry"
+  },
   "/chemistry/milestones/miller-urey-experiment": {
     "t": "米勒–尤里实验：火花、还原气体与氨基酸",
     "e": "1953 年 5 月 15 日，《科学》刊出不足两页的短文，作者是芝加哥大学化学研究生斯坦利·米勒。标题直译是：在可能的原始地球条件下产生氨基酸。指导者是哈罗德·尤里。同一人一九三一年怎样用液…",
@@ -522,6 +567,11 @@
   "/chemistry/milestones/polywater-and-pathological-science": {
     "t": "聚合水与病态科学（1962—1973）",
     "e": "1960 年代末，一种新形态的水占据了《自然》《科学》与全球媒体的版面。",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/prelog-helmchen-1982": {
+    "t": "Prelog–Helmchen 1982：CIP 税制怎样被改写得更严、也更能交给机器",
+    "e": "一九八二年八月，《应用化学》国际英文版第二十一卷第八期刊出十七页综述，作者是弗拉迪米尔·普雷洛格（V. Prelog）与君特·黑尔姆兴（Günter Helmchen），题目按字面是 “Bas…",
     "d": "chemistry"
   },
   "/chemistry/milestones/raman-1928-scattering": {

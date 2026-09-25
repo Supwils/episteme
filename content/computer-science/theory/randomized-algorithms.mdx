@@ -24,6 +24,15 @@ related:
   - yao-1979-communication-complexity
   - adleman-1978-bpp-ppoly
   - nisan-wigderson-1994
+  - valiant-vazirani-1986
+  - impagliazzo-wigderson-1997
+  - yao-1982-trapdoor-functions
+  - goldreich-levin-1989
+  - blum-micali-1984
+  - impagliazzo-1995-hard-core
+  - goldwasser-micali-1984
+  - goldreich-goldwasser-micali-1986
+  - diffie-hellman-1976
 keyInsight: 随机算法的不可靠是被指数压下去的误差，不是碰运气；密码学至今仍用米勒-拉宾，而不是理论上的确定性替代。
 ---
 
@@ -119,7 +128,7 @@ keyInsight: 随机算法的不可靠是被指数压下去的误差，不是碰�
 
 **BPP**（Bounded-error Probabilistic Polynomial time）对应双侧错误的蒙特卡洛：多项式时间内结束，对或错的概率都不超过 $1/3$，再靠多数票放大。[[adleman-1978-bpp-ppoly|Adleman 1978]] 证明这类可放大的随机性可以被非均匀忠告吞进 P/poly。**RP** 是单侧错误：答案为“是”时至少以 $1/2$ 的概率正确，答案为“否”时绝不误报。米勒-拉宾测合数时属于 co-RP。**ZPP** 对应拉斯维加斯，$ZPP = RP \cap coRP$。
 
-主要的开放问题仍然是：**P = BPP 吗？** 目前大多数理论计算机科学家相信答案为是——随机性不增加多项式时间的计算能力。这条信念不是口号，它有一条条件式定理垫底。[[nisan-wigderson-1994|尼桑与维格德森 1994]] 证明，足够硬的函数可以做成伪随机生成器，用来骗过多项式时间的测试。因帕利亚佐与维格德森 1997 年把硬度条件推到极限：如果指数时间类 $E = \mathrm{DTIME}(2^{O(n)})$ 里存在需要指数规模电路的语言，则 $P = BPP$。硬度换随机性。这与 [[average-case-complexity|平均情况复杂性与五个世界]] 里因帕利亚佐的五个世界是同一条河的两岸：一边问“随机实例是否仍然难”，一边问“难函数能否冒充硬币”。两者都还不是无条件定理。
+主要的开放问题仍然是：**P = BPP 吗？** 目前大多数理论计算机科学家相信答案为是——随机性不增加多项式时间的计算能力。这条信念不是口号，它有一条条件式定理垫底。[[nisan-wigderson-1994|尼桑与维格德森 1994]] 证明，足够硬的函数可以做成伪随机生成器，用来骗过多项式时间的测试。[[impagliazzo-wigderson-1997|因帕利亚佐与维格德森 1997 年]]把硬度条件推到极限：如果指数时间类 $E = \mathrm{DTIME}(2^{O(n)})$ 里存在需要指数规模电路的语言，则 $P = BPP$。硬度换随机性。这与 [[average-case-complexity|平均情况复杂性与五个世界]] 里因帕利亚佐的五个世界是同一条河的两岸：一边问“随机实例是否仍然难”，一边问“难函数能否冒充硬币”。两者都还不是无条件定理。
 
 ## 代价：伪随机数的挑战
 

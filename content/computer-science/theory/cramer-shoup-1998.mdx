@@ -1,0 +1,107 @@
+---
+title: Cramer–Shoup 1998：判定性迪菲–赫尔曼上怎样交出不再挂非交互零知识的选择密文
+title_en: A Practical Public Key Cryptosystem Provably Secure against Adaptive Chosen Ciphertext Attack
+status: published
+updated: 2026-09-20
+category: 计算理论
+order: 95
+field: 计算复杂性
+era: 当代
+key_figures: [罗纳德·克拉默, 维克多·肖普]
+tags: [Cramer–Shoup, CCA2, DDH, 选择密文, CRYPTO 1998]
+related:
+  - rackoff-simon-1991
+  - naor-yung-1990
+  - dolev-dwork-naor-1991
+  - bellare-rogaway-1993
+  - bellare-rogaway-1994-oaep
+  - goldwasser-micali-1984
+  - cryptography-foundations
+  - encryption-basics
+  - public-key-rsa
+  - diffie-hellman-1976
+  - yao-1982-trapdoor-functions
+  - computational-complexity
+  - shafi-goldwasser
+  - randomized-algorithms
+---
+
+# Cramer–Shoup 1998：判定性迪菲–赫尔曼上怎样交出不再挂非交互零知识的选择密文
+
+1998 年 8 月 23 日至 27 日，第十八届国际密码学年会（CRYPTO）在加利福尼亚州圣芭芭拉举行。苏黎世联邦理工学院理论计算机科学研究所的罗纳德·克拉默（Ronald Cramer）与国际商业机器公司苏黎世研究实验室的维克多·肖普（Victor Shoup）发表《A Practical Public Key Cryptosystem Provably Secure against Adaptive Chosen Ciphertext Attack》。会议录由斯普林格收入《Advances in Cryptology — CRYPTO '98》，计算机科学讲义（LNCS）第 1462 卷，页码 13 至 25。DOI 为 10.1007/BFb0055717。主编是雨果·克拉夫奇克（Hugo Krawczyk）。印刷 ISBN 为 3-540-64892-5。克拉默的单位印作苏黎世联邦理工学院理论计算机科学研究所。肖普的通信地址印作瑞士吕施利孔（Rüschlikon）索伊默街（Säumerstrasse）4 号，IBM 苏黎世研究实验室。本页的对象是这份**已印行的十三页会议论文**：第一次把「可以具体写出」与「在标准数论假说下挡住自适应选择密文」焊在同一套公钥装置上。硬度假说是判定性迪菲–赫尔曼。密文是少数几个群元素，外加一段抗碰撞哈希上的核验；形状不合法则拒绝。它不再把非交互零知识吊在双密文后面。它不是人物评传，也不是把群运算焊进产品的说明书。
+
+书目陷阱必须写在第一段之后。封面是圣芭芭拉这份十三页，不是 2003 年《工业与应用数学学会计算杂志》（*SIAM Journal on Computing*）第 33 卷第 1 期页码 167 至 226 的《Design and Analysis of Practical Public-Key Encryption Schemes Secure against Adaptive Chosen Ciphertext Attack》。那一篇 DOI 为 10.1137/S0097539702403773，标题已改，篇幅扩到六十页，是会议录的论证扩写，不是第二份封面。它也不是国际密码学研究会预印本档案（IACR ePrint Archive）1998/006 那份同年预印。预印把同一条主张提前放到网上，页码与斯普林格讲义链都不在封面上。
+
+它不是 1990 年 5 月马里兰巴尔的摩第二十二届 ACM 计算理论年会（STOC）页码 427 至 437 的[[naor-yung-1990|纳奥尔–扬选择密文论文]]。那一篇 DOI 为 10.1145/100216.100273，对象是午餐时间：访问权停在见到挑战之前，合法密文是双密文外加同文语言上的非交互零知识。它不是 1991 年 8 月[[rackoff-simon-1991|拉科夫与西蒙在 CRYPTO 上把时间窗拉到见到挑战之后]]的那十二页。那一篇 DOI 为 10.1007/3-540-46766-1_35，自适应第一次被写成存在性条件句，撑住窗口的是非交互的知识证明。本页仍要同一扇窗，却把吊在密文后面的证明系统拿掉。把「选择密文那几篇」收成一句，会把午餐时间、自适应存在性与「可写出的第一份」焊成一次页码。
+
+它不是 1991 年 5 月第二十三届 STOC 页码 542 至 552 的[[dolev-dwork-naor-1991|丹尼·多列夫、辛西娅·德沃克与莫尼·纳奥尔《Non-Malleable Cryptography》]]。那一篇 DOI 为 10.1145/103418.103474，问的是密文被改写之后明文关系会不会泄漏。不可延展性是相关性，不是本页这套群元素加核验。它不是 1984 年 4 月《计算机与系统科学杂志》第 28 卷第 2 期页码 270 至 299 的[[goldwasser-micali-1984|戈德瓦塞尔–米卡利概率加密]]，DOI 为 10.1016/0022-0000(84)90070-9。那三十页问的是被动窃听下的语义安全。它更不是[[public-key-rsa|RSA 公钥密码]]算法页上的模幂装配，也不是 1994 年米希尔·贝拉雷（Mihir Bellare）与菲利普·罗加韦（Phillip Rogaway）的最优非对称加密填充（[[bellare-rogaway-1994-oaep|OAEP]]）。填充走的是[[bellare-rogaway-1993|随机预言机]]与 RSA 燃料。本页走的是标准数论假说与离散对数族。
+
+它不是塔希尔·埃尔加迈勒（Taher ElGamal）1985 年那一套离散对数上的概率公钥。那一篇后来被看成判定性迪菲–赫尔曼下挡住被动窃听的祖先，密文已是群元素，却没有本页这一段抗碰撞核验。把封面听成又一本教科书埃尔加迈勒，会把被动窃听与自适应焊成一次页码。
+
+它不是 [[cryptography-foundations|密码学基础]] 总览，不是 [[encryption-basics|加密基础]] 总览，也不是 [[shafi-goldwasser|沙菲·戈德瓦塞尔]] 的人物页。总览已经把三档对手类收成地图。本页只抽出 1998 年这一枚钉子：实用、标准假说、以及不再挂非交互零知识。
+
+## 破除误解：实用不是产品规格，标准假说也不是随机预言机，更不是一份攻击手册
+
+第一种最快的读法是：把克拉默–肖普听成 2003 年那六十页期刊，或听成预印本 1998/006，或听成纳奥尔–扬的午餐时间，或听成拉科夫–西蒙的自适应存在性，或听成多列夫–德沃克–纳奥尔的不可延展性。期刊是扩写。预印是网上先行本。会议录写在封面上：圣芭芭拉、八月、斯普林格 LNCS 第 1462 卷，页码 13 至 25。
+
+第二层误解把「选择密文」听成一份询问解密手续的操作日程，或听成教人去拼装畸形密文的步骤。原文把对手类写成一种资源：在见到自己要区分的那条挑战密文之后，对手仍可对解密手续拥有访问权；唯一禁止的是把那条挑战自己再送回去。课堂后来把这一档叫做 CCA2 或 IND-CCA2。名字是时间窗的标签，不是场景说明书。定义回答的是「安全口径相对哪一种资源成立」，不回答「怎样去使用那一种资源」。本页停在对手类，不把访问权展开成询问次序，也不把核验写成对部署系统的检测步骤。
+
+第三层误解把「实用」听成已经上线的产品规格，或把「可证明安全」听成随机预言机里更早的填充方案已经把这件事做完。纳奥尔–扬与拉科夫–西蒙给出的是存在性条件句：若被动安全与合适的非交互证明在那儿，相应的选择密文口径就会跟着在那儿。合法密文后面吊着证明系统。十三页把「实用」写成另一句话：密文只是少数几个群元素，外加一段哈希核验，不必再调用共享随机串模型里的非交互零知识。贝拉雷与罗加韦 1994 年的 OAEP 一类填充，走的是随机预言机与 RSA 模幂。原文钉住的主张更窄：第一套既可具体写出、又在标准困难性假说下挡住自适应选择密文的公钥装置。把「第一套」听成「线上已经部署的补丁」，会把一次标准模型里的装置收成运维手册。
+
+第四层误解把判定性迪菲–赫尔曼听成已经证明困难，或把抗碰撞哈希听成一份参数表，或把埃尔加迈勒听成本页的封面。判定性版本问的是区分：给定公开底数以及两份独立的幂次，多项式观察者能不能把「真正由这两份指数叠合得到的那一份」与「群里一份均匀随机的元素」分开。计算性版本问的是求值。本页用的是判定性。它是硬度假说，不是已经写下的下界，更不是选取模数与生成元的编制手续。哈希被写成抗碰撞：多项式时间的编码者不应找出两份不同的输入撞到同一份摘要。碰撞若可造，畸形对象就可能混进合法形状。十三页并不证明某一种具体哈希族抗碰撞，也不裁决 $P$ 对 $NP$。
+
+## 群元素、抗碰撞核验，以及不再吊在密文后面的证明系统
+
+装置从自适应这一档已经写下来、却还吊着非交互零知识开始。[[diffie-hellman-1976|迪菲与赫尔曼 1976 年]]把公钥写成正算容易、反算需要陷门的公开程序，并把有限域上的指数映射写成候选燃料。[[goldwasser-micali-1984|戈德瓦塞尔与米卡利]]把被动观察者面前的安全写成语义安全与多项式不可区分。[[naor-yung-1990|纳奥尔与扬 1990 年]]点名的缺口是午餐时间，形状是两次独立编码加上一段同文语言上的非交互零知识。[[rackoff-simon-1991|拉科夫与西蒙 1991 年]]把窗口留到见到挑战之后，并把语言证明换成可抽取的知识证明。十三页点名的下一截缺口不在时间窗，而在装置粒度：那两份存在性条件句都把证明系统吊在密文后面。本页要问的是，同一扇自适应的窗，能否改用少数几个群元素和一段哈希核验来撑住。
+
+合法密文看起来像若干群元素，外加一份抗碰撞哈希上的核验标签。核验先问这份对象是否形状合法。不合法则拒绝，不把明文交出去。合法收信人只在核验通过之后，才用自己的陷门还原。拒绝是合法手续自己的出口，不是一份把畸形串送进解密器的日程。多出来的群元素不是装饰。它们让同一份公钥对外仍是合法编码手续，对归约内部则留下一条不必与挑战同一把陷门的回答路径。抗碰撞哈希把各段群元素绑在一起。改写其中一段而不碰到碰撞，核验就不会放行。这是存在性归约的架构语言，不是把随机指数焊进模运算的装配说明。
+
+判定性迪菲–赫尔曼把「给定底数与两份幂次，区分真正的叠合元组与均匀随机元组」写成多项式观察者面前的困难谓词。埃尔加迈勒那一套概率公钥后来被看成同一假说下挡住被动窃听的祖先：密文已是群元素，同一明文因编码硬币不同而落到许多密文上。本页在祖先的形状上补上一截核验，使见到挑战之后的访问权仍能被归约承接。挑战密文要看起来像合法对象，核验才能让它过门。挑战之外的访问，靠核验把形状不对的对象拒绝掉，靠另一条解释回答形状对的对象。两个方向同时成立，自适应口径才能从数论假说里长出来。十三页把两个方向同时挂在判定性迪菲–赫尔曼与抗碰撞哈希上。
+
+核验不是共享随机串模型里的非交互零知识。[[goldwasser-micali-rackoff-1985|戈德瓦塞尔–米卡利–拉科夫]]把零知识写成：多项式时间的听者自己就能生成与真实对话不可区分的文本。[[goldreich-micali-wigderson-1986|戈德赖希、米卡利与维格德森 1986 年在 FOCS 证明]]：在合适的密码学假设下，每个 $NP$ 语言都有计算零知识。纳奥尔–扬调用的是同文语言上的那一支。拉科夫–西蒙调用的是可抽取的那一支。本页明确不调用这两支作为密文的附属证明。哈希核验是一次抗碰撞检查，不是「存在短证书」或「拥有短证书」的传证。把核验听成又一份非交互零知识，会把一九九〇与一九九一年的传证装置焊回这十三页。
+
+[[yao-1982-trapdoor-functions|姚期智 1982 年]]已经把计算不可区分写成密码学共用的装置。判定性迪菲–赫尔曼本身就是一档区分问题。本页把测试者的资源从「看见密文」改写成「见到挑战之后仍对解密手续拥有访问权」，并把不可区分的对象落在群元素加核验的密文总体上。谓词没变，对手类变了，装置也不再靠证明系统膨胀。[[randomized-algorithms|随机算法]]总览里的硬币常常为了把错误界压低；这里的硬币为了让同一明文对应许多合法密文。归约内部的随机化是证明策略，不是编码轮数表。
+
+## 它证明了什么，没有覆盖什么
+
+它证明了：公钥加密的安全口径可以相对「见到挑战之后仍可访问解密手续」这一档对手类来写，并且不必再把非交互零知识吊在双密文后面。若判定性迪菲–赫尔曼对多项式电路仍然困难，并且所调用的哈希抗碰撞，则存在一套可具体写出的公钥系统，其密文总体在该对手类面前仍不可区分。课堂后来称作 CCA2 或 IND-CCA2。它给出的形状是少数几个群元素加一段哈希核验，畸形对象在核验处被拒绝。它把「实用」写成装置粒度上的主张，而不是写成一份已经上线的产品。这句话不是操作单。
+
+它没有证明判定性迪菲–赫尔曼困难，也没有证明某一种具体哈希族抗碰撞，更没有裁决 $P$ 对 $NP$。十三页是条件句：若这种数论对象与这种抗碰撞哈希在那儿，自适应这一档就会跟着落在一套可写出的装置上。它没有覆盖午餐时间的第一次存在性，那是纳奥尔–扬 1990 年的封面。它没有覆盖自适应的第一次存在性，那是拉科夫–西蒙 1991 年的封面。它没有覆盖不可延展性作为相关性定义的第一次书写。它没有把 RSA 的模幂写成产品规格，也没有把 OAEP 收进随机预言机里重证一遍，更没有把埃尔加迈勒那一套被动安全的祖先当成已经挡住自适应。2003 年那六十页期刊是扩写，不是第二份封面。
+
+限度写在模型自己的粒度上。合法密文包含若干群元素和一段核验，膨胀相对被动安全的祖先要多出一截，却不再多出一套非交互证明系统。对照属于 [[computational-complexity|计算复杂性]] 地图与 [[cryptography-foundations|密码学基础]] 总览。
+
+## 跨域连接
+
+- **[[naor-yung-1990|纳奥尔–扬一九九〇年论文]]**：那十一页把选择密文写成午餐时间，访问权停在见到挑战之前，附属证明是同文语言上的非交互零知识。本页把时间窗留到见到之后，并把吊着的证明换成群元素加哈希核验。把两篇听成同一档，会把「存在性」与「可写出」收成一次页码。
+- **[[rackoff-simon-1991|拉科夫–西蒙一九九一年论文]]**：那十二页把自适应写成存在性条件句，撑住窗口的是可抽取的非交互知识证明。本页要同一扇窗，却不再调用知识证明作为密文附属物。把 1998 年听成又一次存在性，会把标准数论上的装置收成一次传证。
+- **[[dolev-dwork-naor-1991|多列夫–德沃克–纳奥尔一九九一年论文]]**：那十一页问的是密文被改写之后明文关系会不会泄漏。不可延展性是相关性定义，不是本页这套核验装置。把两篇听成同一封面，会把「改写后的关系」与「群元素加核验」焊成一次印刷。
+- **[[goldwasser-micali-1984|戈德瓦塞尔–米卡利一九八四年概率加密]]**：那三十页把被动窃听下的密文总体写成多项式不可区分。本页假定那一档已经在那儿，再问自适应口径能否落在判定性迪菲–赫尔曼上。把 1998 年听成又一篇语义安全，会把自适应收成一次被动抽样。
+- **[[diffie-hellman-1976|迪菲–赫尔曼一九七六年论文]]**：斯坦福那十一页把公钥写成公开程序，并把指数映射写成候选燃料。本页用的是同一条指数燃料的判定性版本。把 1976 年听成已经挡住自适应，会把陷门的存在性收成一次对手类定理。
+- **[[goldwasser-micali-rackoff-1985|戈德瓦塞尔–米卡利–拉科夫一九八五年论文]]**：那十四页把不可区分从密文搬到证明对话的文本上。纳奥尔–扬与拉科夫–西蒙后来调用的正是这一支的非交互后裔。本页明确不把证明对话吊回密文后面。
+- **[[cryptography-foundations|密码学基础]]**：总览需要语义安全、午餐时间与自适应三档对手类，也需要「存在性」与「可写出」两档装置粒度。本页提供 1998 年把第三档落到标准数论上的那一次。它没有把群阶写成步骤。
+- **[[public-key-rsa|RSA 公钥密码]]**：算法页管模幂与填充。本页明确不是那份产品规格，也不是 OAEP 一类随机预言机里的补丁。把封面听成 RSA 的安全修订，会把判定性迪菲–赫尔曼上的装置收成一次模幂工程。
+
+---
+
+## 参考文献
+
+- Ronald Cramer & Victor Shoup, "A Practical Public Key Cryptosystem Provably Secure against Adaptive Chosen Ciphertext Attack", *Advances in Cryptology — CRYPTO '98*, LNCS 1462, Springer, 1998, pp. 13–25. DOI: 10.1007/BFb0055717. ISBN: 3-540-64892-5. —— 本文对象。会议 1998 年 8 月举行于圣芭芭拉。
+- Ronald Cramer & Victor Shoup, "Design and Analysis of Practical Public-Key Encryption Schemes Secure against Adaptive Chosen Ciphertext Attack", *SIAM Journal on Computing* 33(1), 2003, pp. 167–226. DOI: 10.1137/S0097539702403773. —— 后年期刊扩写，不是本页封面。
+- Ronald Cramer & Victor Shoup, IACR Cryptology ePrint Archive 1998/006. —— 同年预印，不是已印行的 LNCS 第 1462 卷。
+- Moni Naor & Moti Yung, "Public-key Cryptosystems Provably Secure against Chosen Ciphertext Attacks", *Proceedings of the 22nd Annual ACM Symposium on Theory of Computing*, Baltimore, May 1990, pp. 427–437. DOI: 10.1145/100216.100273. —— 前邻：午餐时间加同文非交互零知识，不是本页封面。
+- Charles Rackoff & Daniel R. Simon, "Non-Interactive Zero-Knowledge Proof of Knowledge and Chosen Ciphertext Attack", *Advances in Cryptology — CRYPTO '91*, LNCS 576, Springer, 1992, pp. 433–444. DOI: 10.1007/3-540-46766-1_35. —— 前邻：自适应存在性加知识证明，不是本页封面。
+- Danny Dolev, Cynthia Dwork & Moni Naor, "Non-Malleable Cryptography", *Proceedings of the 23rd Annual ACM Symposium on Theory of Computing*, 1991, pp. 542–552. DOI: 10.1145/103418.103474. —— 前邻：不可延展性，不是本页封面。
+- Shafi Goldwasser & Silvio Micali, "Probabilistic Encryption", *Journal of Computer and System Sciences* 28(2), April 1984, pp. 270–299. DOI: 10.1016/0022-0000(84)90070-9. —— 被动窃听下语义安全的先行文本。
+- Taher ElGamal, "A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms", *IEEE Transactions on Information Theory* 31(4), 1985, pp. 469–472. DOI: 10.1109/TIT.1985.1057074. —— 被动安全的祖先，不是本页这截自适应核验。
+- Mihir Bellare & Phillip Rogaway, "Optimal Asymmetric Encryption", *Advances in Cryptology — EUROCRYPT '94*, LNCS 950, Springer, 1995, pp. 92–111. DOI: 10.1007/BFb0053428. —— 随机预言机与 RSA 填充的邻居，不是本页封面。
+- Shafi Goldwasser, Silvio Micali & Charles Rackoff, "The Knowledge Complexity of Interactive Proof-Systems", *Proceedings of the 17th Annual ACM Symposium on Theory of Computing*, 1985, pp. 291–304. DOI: 10.1145/22145.22178. —— 零知识的对话先行文本。
+- Manuel Blum, Paul Feldman & Silvio Micali, "Non-Interactive Zero-Knowledge and Its Applications", *Proceedings of the 20th Annual ACM Symposium on Theory of Computing*, 1988, pp. 103–112. DOI: 10.1145/62212.62222. —— 共享随机串模型里的非交互零知识。
+- Oded Goldreich, Silvio Micali & Avi Wigderson, "Proofs that Yield Nothing But Their Validity or All Languages in NP Have Zero-Knowledge Proof Systems", *Proceedings of the 27th Annual Symposium on Foundations of Computer Science*, Toronto, 1986, pp. 174–187. DOI: 10.1109/SFCS.1986.47. —— 整个 $NP$ 的计算零知识，不是本页封面。
+- Whitfield Diffie & Martin E. Hellman, "New Directions in Cryptography", *IEEE Transactions on Information Theory* 22(6), 1976, pp. 644–654. DOI: 10.1109/TIT.1976.1055638. —— 公钥与指数燃料的先行文本。
+- Andrew C. Yao, "Theory and Application of Trapdoor Functions", *Proceedings of the 23rd Annual Symposium on Foundations of Computer Science*, 1982, pp. 80–91. DOI: 10.1109/SFCS.1982.45. —— 计算不可区分语言的先行文本。
+
+## 延伸阅读
+
+- 与 [[naor-yung-1990|纳奥尔–扬一九九〇年论文]] 对读：午餐时间加同文证明，对不再挂非交互零知识的自适应装置。
+- 与 [[rackoff-simon-1991|拉科夫–西蒙一九九一年论文]] 对读：知识证明上的自适应存在性，对判定性迪菲–赫尔曼上可写出的核验。
+- 与 [[cryptography-foundations|密码学基础]] 对读：自适应选择密文是对手类上的定义，不是一份已造好的产品规格，也不是询问解密手续的操作单。

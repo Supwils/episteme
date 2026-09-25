@@ -1234,9 +1234,24 @@
     "e": "大多数关于 P 与 NP 的介绍会告诉你问题是什么、悬赏多少、以及\"大家都相信 P ≠ NP\"。很少有介绍讲这件事：我们不只是没证出来，我们还知道为什么整类看起来最自然的证明方法注定证不出来。",
     "d": "computer-science"
   },
+  "/computer-science/theory/bellare-rogaway-1993": {
+    "t": "Bellare–Rogaway 1993：为什么先把哈希当成公开的随机预言机",
+    "e": "1993 年 11 月 3 日至 5 日，第一届 ACM 计算机与通信安全会议（CCS '93）在弗吉尼亚州费尔法克斯举行。那还是酒店式的小型年会，不是后来上千人的安全大会。",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/bellare-rogaway-1994-oaep": {
+    "t": "Bellare–Rogaway 1994：RSA 前面那两轮掩码为什么被叫优选",
+    "e": "1994 年 5 月 9 日至 12 日，欧洲密码学年会（EUROCRYPT）在意大利佩鲁贾举行。国际商业机器公司托马斯·J·沃森研究中心的米希尔·贝拉雷（Mihir Bellare）与加州大…",
+    "d": "computer-science"
+  },
   "/computer-science/theory/ben-or-1983": {
     "t": "Ben-Or 1983：抛硬币怎样把异步共识的终止改成几乎必然",
     "e": "1983 年，迈克尔·本-奥尔（Michael Ben-Or）在 PODC 发表短文《Another Advantage of Free Choice: Completely Asynchro…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/blum-micali-1984": {
+    "t": "Blum–Micali 1984：离散对数硬核怎样迭代成密码学伪随机比特",
+    "e": "1984 年 11 月，《SIAM Journal on Computing》第 13 卷第 4 期刊出曼纽尔·布卢姆（Manuel Blum）与西尔维奥·米卡利（Silvio Micali）…",
     "d": "computer-science"
   },
   "/computer-science/theory/byzantine-generals-lamport-1982": {
@@ -1294,6 +1309,11 @@
     "e": "1979 年，莱斯利·瓦利安特（Leslie Valiant）把一张看起来几乎和行列式一样的式子推到了理论计算机科学的中心。积和式（permanent）只是把行列式展开里的正负号全部拿掉。高斯…",
     "d": "computer-science"
   },
+  "/computer-science/theory/cramer-shoup-1998": {
+    "t": "Cramer–Shoup 1998：判定性迪菲–赫尔曼上怎样交出不再挂非交互零知识的选择密文",
+    "e": "1998 年 8 月 23 日至 27 日，第十八届国际密码学年会（CRYPTO）在加利福尼亚州圣芭芭拉举行。苏黎世联邦理工学院理论计算机科学研究所的罗纳德·克拉默（Ronald Cramer…",
+    "d": "computer-science"
+  },
   "/computer-science/theory/cryptography-foundations": {
     "t": "密码学基础",
     "e": "1976 年，斯坦福大学的两位研究者惠特菲尔德·迪菲（Whitfield Diffie）和马丁·赫尔曼（Martin Hellman）发表了一篇论文，标题听起来平淡无奇：《密码学的新方向》（N…",
@@ -1304,6 +1324,11 @@
     "e": "2006 年，辛西娅·德沃克（Cynthia Dwork）、弗兰克·麦克雪莉（Frank McSherry）、科比·尼西姆（Kobbi Nissim）与亚当·史密斯（Adam Smith）在 …",
     "d": "computer-science"
   },
+  "/computer-science/theory/diffie-hellman-1976": {
+    "t": "Diffie–Hellman 1976：公钥怎样把陷门、指数与签名写成公开程序",
+    "e": "1976 年 11 月，《IEEE 信息论汇刊》（IEEE Transactions on Information Theory）第 22 卷第 6 期刊出惠特菲尔德·迪菲（Whitfield…",
+    "d": "computer-science"
+  },
   "/computer-science/theory/dijkstra-1965-mutual-exclusion": {
     "t": "Dijkstra 1965：互斥怎样在没有仲裁者的共享变量上写成可推理的问题",
     "e": "1965 年 9 月，艾兹格·威贝·迪科斯彻（Edsger W. Dijkstra）在 Communications of the ACM 第 8 卷第 9 期发表《Solution of a…",
@@ -1312,6 +1337,11 @@
   "/computer-science/theory/distributed-computing-theory": {
     "t": "分布式计算理论",
     "e": "一台计算机出错，你重启它就好了。",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/dolev-dwork-naor-1991": {
+    "t": "Dolev–Dwork–Naor 1991：看见密文之后为什么仍不该能改出相关明文的另一条",
+    "e": "1991 年 5 月 5 日至 8 日，第二十三届 ACM 计算理论年会（STOC）在路易斯安那州新奥尔良举行。国际商业机器公司阿尔马登研究中心的丹尼·多列夫（Danny Dolev）、辛西娅…",
     "d": "computer-science"
   },
   "/computer-science/theory/dwork-lynch-stockmeyer-1988": {
@@ -1364,6 +1394,31 @@
     "e": "2002 年 6 月，塞思·吉尔伯特（Seth Gilbert）与南希·林奇（Nancy A. Lynch）在 ACM SIGACT News 第 33 卷第 2 期发表《Brewer's C…",
     "d": "computer-science"
   },
+  "/computer-science/theory/goldreich-goldwasser-micali-1986": {
+    "t": "Goldreich–Goldwasser–Micali 1986：长度翻倍发生器怎样铺成询问下仍像随机的函数",
+    "e": "1986 年 10 月，《Journal of the ACM》第 33 卷第 4 期刊出奥德·戈德赖希（Oded Goldreich）、沙菲·戈德瓦塞尔（Shafi Goldwasser）与…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/goldreich-levin-1989": {
+    "t": "Goldreich–Levin 1989：每个单向函数都有一枚内积硬核谓词",
+    "e": "1989 年 5 月 15 日至 17 日，第二十一届 ACM 计算理论年会（STOC）在华盛顿州西雅图举行。会议录页码 25 至 32 刊出奥德·戈德赖希（Oded Goldreich）与列…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/goldreich-micali-wigderson-1986": {
+    "t": "Goldreich–Micali–Wigderson 1986：NP 里每个语言怎样都有计算零知识证明",
+    "e": "1986 年 10 月，第二十七届计算机科学基础年会（FOCS）在多伦多举行。以色列理工学院、海法的奥德·戈德赖希（Oded Goldreich），麻省理工学院计算机科学实验室、剑桥马萨诸塞的…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/goldreich-micali-wigderson-1987": {
+    "t": "Goldreich–Micali–Wigderson 1987：任意心智博弈怎样在诚实多数下被编译成不泄露部分信息的协议",
+    "e": "1987 年 5 月，第十九届 ACM 计算理论年会（STOC）在纽约举行。以色列理工学院、海法的奥德·戈德赖希（Oded Goldreich），麻省理工学院计算机科学实验室、剑桥马萨诸塞的西…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/goldwasser-micali-1984": {
+    "t": "Goldwasser–Micali 1984：语义安全怎样把密文写成多项式不可区分",
+    "e": "1984 年 4 月，《计算机与系统科学杂志》（Journal of Computer and System Sciences）第 28 卷第 2 期刊出沙菲·戈德瓦塞尔（Shafi Gold…",
+    "d": "computer-science"
+  },
   "/computer-science/theory/goldwasser-micali-rackoff-1985": {
     "t": "Goldwasser–Micali–Rackoff 1985：交互证明系统的知识复杂度怎样把零知识写成定义",
     "e": "1985 年 5 月 6 日至 8 日，第十七届 ACM 计算理论年会（STOC）在罗德岛普罗维登斯举行。麻省理工学院的沙菲·戈德瓦塞尔（Shafi Goldwasser）、西尔维奥·米卡利（…",
@@ -1407,6 +1462,21 @@
   "/computer-science/theory/immerman-szelepcsenyi-1988": {
     "t": "Immerman–Szelepcsényi 1988：非确定性空间怎样对补运算封闭",
     "e": "1988 年 10 月，《SIAM 计算杂志》（SIAM Journal on Computing）第 17 卷第 5 期刊出尼尔·伊默尔曼（Neil Immerman）的《Nondeterm…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/impagliazzo-1995-hard-core": {
+    "t": "Impagliazzo 1995：略微难的问题怎样收成一块几乎乱猜的硬核分布",
+    "e": "1995 年 10 月 23 日至 25 日，第三十六届计算机科学基础年会（FOCS）在威斯康星州密尔沃基举行。",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/impagliazzo-levin-luby-1989": {
+    "t": "Impagliazzo–Levin–Luby 1989：一般单向函数怎样交出多项式时间伪随机发生器",
+    "e": "1989 年 5 月 15 日至 17 日，第二十一届 ACM 计算理论年会（STOC）在华盛顿州西雅图举行。会议录页码 12 至 24 刊出罗素·因帕利亚佐（Russell Impaglia…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/impagliazzo-wigderson-1997": {
+    "t": "Impagliazzo–Wigderson 1997：E 的指数电路硬度怎样把 BPP 收成 P",
+    "e": "1997 年 5 月 4 日至 6 日，第二十九届 ACM 计算理论年会（STOC）在得克萨斯州埃尔帕索举行。",
     "d": "computer-science"
   },
   "/computer-science/theory/information-theory": {
@@ -1474,6 +1544,21 @@
     "e": "1958 年，数学家哈斯凯尔·加里（Haskell Curry）注意到一件奇怪的事：某些组合子逻辑（combinatory logic）的类型，与命题逻辑中的公式在形式上一模一样。",
     "d": "computer-science"
   },
+  "/computer-science/theory/luby-rackoff-1988": {
+    "t": "Luby–Rackoff 1988：伪随机函数怎样三轮费斯托变成询问下仍像随机的置换",
+    "e": "1988 年 4 月，《SIAM Journal on Computing》第 17 卷第 2 期刊出迈克尔·卢比（Michael Luby）与查尔斯·拉科夫（Charles Rackoff）…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/merkle-1978": {
+    "t": "Merkle 1978：N 枚谜题怎样把公开分发的窃听代价抬成平方",
+    "e": "1978 年 4 月，《ACM 通讯》（Communications of the ACM）第 21 卷第 4 期刊出拉尔夫·C·默克尔（Ralph C. Merkle）的《Secure Co…",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/naor-yung-1990": {
+    "t": "Naor–Yung 1990：被动窃听上的公钥怎样加上非交互零知识挡住选择密文",
+    "e": "1990 年 5 月 13 日至 17 日，第二十二届 ACM 计算理论年会（STOC）在马里兰州巴尔的摩举行。国际商业机器公司阿尔马登研究中心的莫尼·纳奥尔（Moni Naor）与托马斯·J…",
+    "d": "computer-science"
+  },
   "/computer-science/theory/nisan-wigderson-1994": {
     "t": "Nisan–Wigderson 1994：E 里足够硬的函数怎样冒充 BPP 测试者的硬币",
     "e": "1994 年 10 月，《计算机与系统科学杂志》（Journal of Computer and System Sciences）第 49 卷第 2 期刊出诺姆·尼桑（Noam Nisan）与…",
@@ -1507,6 +1592,11 @@
   "/computer-science/theory/quantum-computing-theory": {
     "t": "量子计算理论",
     "e": "1994 年，美国数学家彼得·肖尔（Peter Shor）发表了一个算法。这个算法可以在多项式时间内分解大整数——而人类目前已知最好的经典算法（普通计算机上运行的算法）需要次指数时间。",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/rackoff-simon-1991": {
+    "t": "Rackoff–Simon 1991：选择密文的时间窗怎样被拉到看见挑战之后",
+    "e": "1991 年 8 月 11 日至 15 日，第十一届国际密码学年会（CRYPTO）在加利福尼亚州圣芭芭拉举行。多伦多大学的查尔斯·拉科夫（Charles Rackoff）与丹尼尔·西蒙（Dan…",
     "d": "computer-science"
   },
   "/computer-science/theory/randomized-algorithms": {
@@ -1554,9 +1644,19 @@
     "e": "1979 年，《理论计算机科学》（Theoretical Computer Science）第 8 卷第 2 期刊出莱斯利·瓦利安特（Leslie G. Valiant）的《The Compl…",
     "d": "computer-science"
   },
+  "/computer-science/theory/valiant-vazirani-1986": {
+    "t": "Valiant–Vazirani 1986：唯一可满足性怎样被随机归约钉成和 SAT 一样硬",
+    "e": "1986 年，《理论计算机科学》（Theoretical Computer Science）第 47 卷刊出莱斯利·瓦利安特（Leslie G. Valiant）与维贾伊·瓦齐拉尼（Vijay…",
+    "d": "computer-science"
+  },
   "/computer-science/theory/yao-1979-communication-complexity": {
     "t": "Yao 1979：分布式计算的复杂度问题怎样把通信写成资源",
     "e": "1979 年 4 月 30 日至 5 月 2 日，第十一届 ACM 计算理论年会（STOC）在佐治亚州亚特兰大举行。斯坦福大学的姚期智（Andrew Chi-Chih Yao）发表《Some …",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/yao-1982-trapdoor-functions": {
+    "t": "Yao 1982：陷门函数怎样把单向置换的硬度放大成假硬币",
+    "e": "1982 年 11 月 3 日至 5 日，第二十三届计算机科学基础年会（FOCS）在伊利诺伊州芝加哥举行。会议录页码 80 至 91 刊出姚期智（Andrew C. Yao）的《Theory …",
     "d": "computer-science"
   }
 }

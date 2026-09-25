@@ -334,9 +334,24 @@
     "e": "1958 年，Harry Harlow 在美国心理学会发表后来印成 American Psychologist 的演讲 The Nature of Love。对象是恒河猴幼仔在两种人造母体之间…",
     "d": "psychology"
   },
+  "/psychology/experiments/heider-1972-color-naming-memory": {
+    "t": "海德 1972：颜色命名与记忆里的普遍性怎样被写成焦点",
+    "e": "1972 年，《实验心理学杂志》（Journal of Experimental Psychology）第 93 卷第 1 期刊出埃莉诺·R.·海德 (Eleanor R. Heider) 的…",
+    "d": "psychology"
+  },
+  "/psychology/experiments/heider-olivier-1972-color-space": {
+    "t": "海德与奥利维尔 1972：两种语言里色空间的命名结构与记忆结构怎样被拆开",
+    "e": "1972 年 4 月，《认知心理学》（Cognitive Psychology）第 3 卷第 2 期刊出埃莉诺·R.·海德 (Eleanor R. Heider) 与唐纳德·C.·奥利维尔 (…",
+    "d": "psychology"
+  },
   "/psychology/experiments/kahneman-tversky-1972": {
     "t": "卡尼曼与特沃斯基 1972：主观概率怎样被写成对代表性的判断",
     "e": "1972 年，《认知心理学》（Cognitive Psychology）第 3 卷第 3 期刊出丹尼尔·卡尼曼（Daniel Kahneman）与阿莫斯·特沃斯基（Amos Tversky）的…",
+    "d": "psychology"
+  },
+  "/psychology/experiments/kahneman-tversky-1973-prediction": {
+    "t": "卡尼曼与特沃斯基 1973：预测怎样被写成对代表性的判断，而基础比率被丢掉",
+    "e": "1973 年 7 月，《心理学评论》（Psychological Review）第 80 卷第 4 期刊出丹尼尔·卡尼曼（Daniel Kahneman）与阿莫斯·特沃斯基（Amos Tver…",
     "d": "psychology"
   },
   "/psychology/experiments/kahneman-tversky-1979": {
@@ -419,6 +434,26 @@
     "e": "想象你坐在一间安静的房间里，对面是一位心理学家。他递给你一张卡片，上面有一个对称的墨迹图案——既不是任何具体的东西，又可能是什么都像。\"你看到了什么？\"他问。你的回答——你看到了蝴蝶、蝙蝠、还…",
     "d": "psychology"
   },
+  "/psychology/experiments/rosch-1973-natural-categories": {
+    "t": "罗施 1973：自然范畴怎样被写成焦点与边缘的内部结构",
+    "e": "1973 年 5 月，《认知心理学》（Cognitive Psychology）第 4 卷第 3 期刊出埃莉诺·罗施 (Eleanor Rosch) 以 Eleanor H. Rosch 署名…",
+    "d": "psychology"
+  },
+  "/psychology/experiments/rosch-1975-cognitive-reference-points": {
+    "t": "罗施 1975：原型怎样被写成认知参照点",
+    "e": "1975 年 10 月，《认知心理学》（Cognitive Psychology）第 7 卷第 4 期刊出埃莉诺·罗施（Eleanor Rosch）单独署名的 Cognitive Refere…",
+    "d": "psychology"
+  },
+  "/psychology/experiments/rosch-1975-semantic-categories": {
+    "t": "罗施 1975：语义范畴怎样被写成带内部结构的认知表征",
+    "e": "1975 年 9 月，《实验心理学杂志：总刊》（Journal of Experimental Psychology: General）第 104 卷第 3 期刊出埃莉诺·罗施（Eleanor…",
+    "d": "psychology"
+  },
+  "/psychology/experiments/rosch-mervis-1975-family-resemblances": {
+    "t": "罗施与默维斯 1975：家族相似怎样被写成范畴的内部结构",
+    "e": "1975 年 10 月，《认知心理学》（Cognitive Psychology）第 7 卷第 4 期刊出埃莉诺·罗施（Eleanor Rosch）与卡罗琳·B.·默维斯（Carolyn B.…",
+    "d": "psychology"
+  },
   "/psychology/experiments/rosenhan-1973": {
     "t": "Rosenhan 假病人研究：诊断标签一旦贴上会怎样",
     "e": "1973 年 1 月 19 日，《科学》刊出 David L. Rosenhan 的长文 On Being Sane in Insane Places。八名没有精神病史的人，预约后走进十二家医…",
@@ -474,6 +509,16 @@
     "e": "1973 年，恩德尔·图尔文（Endel Tulving）与唐纳德·汤姆森（Donald M. Thomson）在 Psychological Review 第 80 卷第 5 期发表 Enc…",
     "d": "psychology"
   },
+  "/psychology/experiments/tversky-1972-elimination-by-aspects": {
+    "t": "特沃斯基 1972：选择怎样被写成按方面的隐蔽逐次剔除",
+    "e": "1972 年 7 月，《心理学评论》（Psychological Review）第 79 卷第 4 期刊出阿莫斯·特沃斯基（Amos Tversky）的 Elimination by Aspe…",
+    "d": "psychology"
+  },
+  "/psychology/experiments/tversky-1977-features-of-similarity": {
+    "t": "特沃斯基 1977：相似性怎样被写成对共同与差异特征的匹配",
+    "e": "1977 年，《心理学评论》（Psychological Review）第 84 卷第 4 期刊出阿莫斯·特沃斯基（Amos Tversky）的 Features of Similarity（…",
+    "d": "psychology"
+  },
   "/psychology/experiments/tversky-kahneman-1973-availability": {
     "t": "特沃斯基与卡尼曼 1973：频率与概率怎样被写成对可得性的判断",
     "e": "1973 年，《认知心理学》（Cognitive Psychology）第 5 卷第 2 期刊出阿莫斯·特沃斯基（Amos Tversky）与丹尼尔·卡尼曼（Daniel Kahneman）的…",
@@ -482,6 +527,11 @@
   "/psychology/experiments/tversky-kahneman-1974": {
     "t": "特沃斯基与卡尼曼 1974：不确定判断里的启发式怎样被写成可核对的偏差",
     "e": "1974 年 9 月 27 日，阿莫斯·特沃斯基（Amos Tversky）与丹尼尔·卡尼曼（Daniel Kahneman）在 Science 第 185 卷第 4157 期发表 Judgm…",
+    "d": "psychology"
+  },
+  "/psychology/experiments/tversky-kahneman-1981-framing": {
+    "t": "特沃斯基与卡尼曼 1981：决策怎样被写成对框架的选择",
+    "e": "1981 年 1 月 30 日，《科学》（Science）第 211 卷第 4481 期刊出阿莫斯·特沃斯基（Amos Tversky）与丹尼尔·卡尼曼（Daniel Kahneman）的 T…",
     "d": "psychology"
   },
   "/psychology/experiments/wason-selection-task": {

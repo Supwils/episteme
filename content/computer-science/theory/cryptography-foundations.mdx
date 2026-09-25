@@ -25,16 +25,37 @@ related:
   - alan-turing
   - cook-1971-np-completeness
   - goldwasser-micali-rackoff-1985
+  - goldreich-micali-wigderson-1986
+  - goldreich-micali-wigderson-1987
   - yao-1979-communication-complexity
   - razborov-rudich-1997
   - karp-lipton-1980
   - adleman-1978-bpp-ppoly
   - nisan-wigderson-1994
+  - valiant-vazirani-1986
+  - impagliazzo-wigderson-1997
+  - yao-1982-trapdoor-functions
+  - goldreich-levin-1989
+  - blum-micali-1984
+  - impagliazzo-1995-hard-core
+  - impagliazzo-levin-luby-1989
+  - goldwasser-micali-1984
+  - goldreich-goldwasser-micali-1986
+  - luby-rackoff-1988
+  - diffie-hellman-1976
+  - merkle-1978
+  - goldreich-micali-wigderson-1987
+  - naor-yung-1990
+  - rackoff-simon-1991
+  - dolev-dwork-naor-1991
+  - cramer-shoup-1998
+  - bellare-rogaway-1993
+  - bellare-rogaway-1994-oaep
 ---
 
 # 密码学基础
 
-1976 年，斯坦福大学的两位研究者惠特菲尔德·迪菲（Whitfield Diffie）和马丁·赫尔曼（Martin Hellman）发表了一篇论文，标题听起来平淡无奇：《密码学的新方向》（*New Directions in Cryptography*）。他们在其中解决了一个看似矛盾的问题：两个从未见过面、也没有秘密沟通渠道的人，如何在公开的网络上安全地协商出一个只有他们两人知道的秘密密钥？
+1976 年，斯坦福大学的两位研究者惠特菲尔德·迪菲（Whitfield Diffie）和马丁·赫尔曼（Martin Hellman）发表了[[diffie-hellman-1976|一篇论文]]，标题听起来平淡无奇：《密码学的新方向》（*New Directions in Cryptography*）。他们在其中解决了一个看似矛盾的问题：两个从未见过面、也没有秘密沟通渠道的人，如何在公开的网络上安全地协商出一个只有他们两人知道的秘密密钥？
 
 这个问题的解决，颠覆了两千年来密码学的基本假设，也成为今天所有 HTTPS 网站、银行交易、消息加密的底层基础。
 
@@ -73,7 +94,7 @@ related:
 
 两方分别选取私钥 $a$ 和 $b$，公开 $g^a \bmod p$ 和 $g^b \bmod p$，各自计算 $(g^b)^a = (g^a)^b = g^{ab} \bmod p$——这个共享值只有双方知道，窃听者只有 $g^a$ 和 $g^b$，需要解离散对数才能得到 $g^{ab}$。
 
-**重要限制**：单向函数的存在至今**未被严格证明**。这里有一个常被科普说错的微妙关系：单向函数存在会**推出** P $\neq$ NP（实际上更强，推出 NP $\not\subseteq$ BPP），但**反过来不成立**——即使证明了 P $\neq$ NP，也未必能得到单向函数。原因在于，P vs NP 谈的是**最坏情况**的难度（存在某些难实例），而密码学需要的是**平均情况**的难度（随机抽一个实例就难），后者是强得多的要求。"P≠NP 能否推出单向函数存在"至今是开放问题。现代密码学建立在"单向函数存在"这一**比 P≠NP 更强**的假设之上——这是密码学最深的基础性未解问题之一。[[razborov-rudich-1997|自然证明]]指出：一类对随机函数也成立的电路下界技术，若强到能分开 P 与 NP，就会毁掉伪随机发生器所依赖的那种硬度。[[karp-lipton-1980|Karp–Lipton]] 从另一侧说：若 SAT 只有多项式规模电路、没有均匀算法，多项式层次会塌——密码学同样不希望那张表存在。硬度换随机性见 [[nisan-wigderson-1994|Nisan–Wigderson 1994]]：难函数可以冒充硬币；那是去随机化，不是把 RSA 写成步骤。
+**重要限制**：单向函数的存在至今**未被严格证明**。这里有一个常被科普说错的微妙关系：单向函数存在会**推出** P $\neq$ NP（实际上更强，推出 NP $\not\subseteq$ BPP），但**反过来不成立**——即使证明了 P $\neq$ NP，也未必能得到单向函数。原因在于，P vs NP 谈的是**最坏情况**的难度（存在某些难实例），而密码学需要的是**平均情况**的难度（随机抽一个实例就难），后者是强得多的要求。"P≠NP 能否推出单向函数存在"至今是开放问题。现代密码学建立在"单向函数存在"这一**比 P≠NP 更强**的假设之上——这是密码学最深的基础性未解问题之一。[[razborov-rudich-1997|自然证明]]指出：一类对随机函数也成立的电路下界技术，若强到能分开 P 与 NP，就会毁掉伪随机发生器所依赖的那种硬度。[[karp-lipton-1980|Karp–Lipton]] 从另一侧说：若 SAT 只有多项式规模电路、没有均匀算法，多项式层次会塌——密码学同样不希望那张表存在。硬度换随机性见 [[nisan-wigderson-1994|Nisan–Wigderson 1994]]：难函数可以冒充硬币；指数电路硬度把 $P=\mathrm{BPP}$ 收成条件句，见 [[impagliazzo-wigderson-1997|Impagliazzo–Wigderson 1997]]：那是去随机化，不是把 RSA 写成步骤。
 
 协议层面还要分清：迪菲—赫尔曼解决的是**密钥协商**，不是直接加密长消息。实践中双方先得到共享密钥，再交给对称算法（AES-GCM 等）承载业务流量；TLS 的握手与记录层正是这一分工。裸 DH 还需要认证，否则中间人可以各与两端协商——因此现实部署几乎总与证书、预共享密钥或口令认证绑定。把"1976 年论文"直接等同于"浏览器锁图标"，中间省略了认证与对称层，故事会失真。
 
@@ -91,7 +112,7 @@ RSA 解密：明文 $m = c^d \bmod n$（$d$ 为私钥指数，满足 $ed \equiv 
 
 至今没有已知的多项式时间经典算法能分解大整数。但 **Shor 算法**（1994）证明量子计算机可以在多项式时间内分解整数——这意味着足够强大的量子计算机将击破当前 RSA 部署，推动了后量子密码学（Post-Quantum Cryptography，PQC）的研究。美国国家标准与技术研究院（NIST）于 2022 年**选定**了首批抗量子算法（CRYSTALS-Kyber 等），并在 2024 年 8 月正式**发布**为标准（FIPS 203/204/205，基于格密码学与哈希函数）——选定与发布相隔两年，中间是漫长的规范撰写、实现测试与公开评审。
 
-教材上的"裸 RSA"与线上安全的 RSA 不是同一物件：没有随机填充的确定性加密不满足语义安全，历史教训包括选择密文与填充预言攻击。现代用法依赖 OAEP 一类填充，或更多时候根本不拿 RSA 直接加密载荷，而是加密对称会话密钥（混合加密）。密钥长度的军备竞赛（1024→2048→3072）反映的是分解算法与算力的渐进改进，不是数学突变；量子威胁则是另一条曲线，逼着生态准备可替换的算法套件，而不是把模数再加长一倍了事。
+教材上的"裸 RSA"与线上安全的 RSA 不是同一物件：没有随机填充的确定性加密不满足语义安全，历史教训包括选择密文与填充预言攻击。现代用法依赖 [[bellare-rogaway-1994-oaep|OAEP]] 一类填充，或更多时候根本不拿 RSA 直接加密载荷，而是加密对称会话密钥（混合加密）。密钥长度的军备竞赛（1024→2048→3072）反映的是分解算法与算力的渐进改进，不是数学突变；量子威胁则是另一条曲线，逼着生态准备可替换的算法套件，而不是把模数再加长一倍了事。
 
 ## 核心四：可证明安全与现代密码学定义
 
@@ -99,7 +120,7 @@ RSA 解密：明文 $m = c^d \bmod n$（$d$ 为私钥指数，满足 $ed \equiv 
 
 **语义安全（Semantic Security）**：攻击者在看到密文后，无法获得关于明文的任何计算上可行的信息。这是"可证明安全"的基本定义，比香农的完美安全弱（允许计算困难性假设），但在实践中是可实现的。
 
-**零知识证明（Zero-Knowledge Proofs，ZKP）**：证明者（Prover）向验证者（Verifier）证明自己知道某个秘密，而不泄露秘密本身的任何信息。例如，证明"我知道这个图的三着色方案"，而不说出方案本身。
+**零知识证明（Zero-Knowledge Proofs，ZKP）**：证明者（Prover）向验证者（Verifier）证明自己知道某个秘密，而不泄露秘密本身的任何信息。例如，证明"我知道这个图的[[goldreich-micali-wigderson-1986|三着色方案]]"，而不说出方案本身。
 
 ZKP 由 Goldwasser、Micali、Rackoff 在 1985 年形式化，其应用从身份认证扩展到了区块链隐私协议（zk-SNARK 等）。
 

@@ -1478,6 +1478,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "休克尔 1931：苯问题的量子贡献怎样把六只 π 电子写成分子轨道",
     },
     {
+      url: "/chemistry/milestones/diels-alder-1928",
+      title: "Diels–Alder 1928：双烯加成怎样把六元环写成一步同时长出两键",
+    },
+    {
       url: "/chemistry/milestones/hammett-1935",
       title: "Hammett 1935：取代基怎样把反应速率与平衡常数写成一条直线",
     },
@@ -1858,6 +1862,34 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "原子结构",
     },
     {
+      url: "/chemistry/milestones/barton-1950-steroid-conformation",
+      title: "Barton 1950：甾核椅式怎样把非环价分成赤道与极向",
+    },
+    {
+      url: "/chemistry/milestones/bijvoet-1951-absolute-configuration",
+      title: "Bijvoet 1951：反常散射怎样把酒石酸盐的绝对构型钉进晶体学",
+    },
+    {
+      url: "/chemistry/milestones/blackwood-1968-ez",
+      title: "Blackwood 1968：双键几何怎样被改印成 E 与 Z",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-1951",
+      title: "Cahn–Ingold 1951：序列规则怎样把四配位不对称原子的构型写成 d 与 l",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-prelog-1956",
+      title: "Cahn–Ingold–Prelog 1956：有机构型怎样被改印成 R 与 S",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-prelog-1966",
+      title: "Cahn–Ingold–Prelog 1966：序列规则怎样让印刷的名字记下三维排布",
+    },
+    {
+      url: "/chemistry/milestones/diels-alder-1928",
+      title: "Diels–Alder 1928：双烯加成怎样把六元环写成一步同时长出两键",
+    },
+    {
       url: "/chemistry/milestones/evans-polanyi-1935",
       title: "Evans–Polanyi 1935：过渡态方法怎样被用来写溶液里的反应速率",
     },
@@ -1870,8 +1902,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Hammett 1937：苯衍生物的取代基常数怎样被收成一张可迁移的表",
     },
     {
+      url: "/chemistry/milestones/hush-1961-electron-transfer",
+      title: "Hush 1961：外层电子转移的绝热理论怎样把溶液里的速率写成核坐标",
+    },
+    {
       url: "/chemistry/milestones/marcus-1956-electron-transfer",
       title: "Marcus 1956：外层电子转移怎样把溶剂极化与内层坐标的重组写成越过",
+    },
+    {
+      url: "/chemistry/milestones/miller-closs-1984-inverted-region",
+      title: "Miller–Closs 1984：分子内电子转移怎样把马库斯反转区写成溶液里的速率",
+    },
+    {
+      url: "/chemistry/milestones/prelog-helmchen-1982",
+      title: "Prelog–Helmchen 1982：CIP 税制怎样被改写得更严、也更能交给机器",
     },
     {
       url: "/chemistry/milestones/woodward-hoffmann-1965",
@@ -2234,6 +2278,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "中子星内部与状态方程",
     },
     {
+      url: "/chemistry/milestones/barton-1950-steroid-conformation",
+      title: "Barton 1950：甾核椅式怎样把非环价分成赤道与极向",
+    },
+    {
       url: "/chemistry/milestones/evans-polanyi-1935",
       title: "Evans–Polanyi 1935：过渡态方法怎样被用来写溶液里的反应速率",
     },
@@ -2326,6 +2374,34 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/reactions/organic-synthesis",
       title: "有机合成",
+    },
+    {
+      url: "/chemistry/milestones/barton-1950-steroid-conformation",
+      title: "Barton 1950：甾核椅式怎样把非环价分成赤道与极向",
+    },
+    {
+      url: "/chemistry/milestones/bijvoet-1951-absolute-configuration",
+      title: "Bijvoet 1951：反常散射怎样把酒石酸盐的绝对构型钉进晶体学",
+    },
+    {
+      url: "/chemistry/milestones/blackwood-1968-ez",
+      title: "Blackwood 1968：双键几何怎样被改印成 E 与 Z",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-1951",
+      title: "Cahn–Ingold 1951：序列规则怎样把四配位不对称原子的构型写成 d 与 l",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-prelog-1956",
+      title: "Cahn–Ingold–Prelog 1956：有机构型怎样被改印成 R 与 S",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-prelog-1966",
+      title: "Cahn–Ingold–Prelog 1966：序列规则怎样让印刷的名字记下三维排布",
+    },
+    {
+      url: "/chemistry/milestones/prelog-helmchen-1982",
+      title: "Prelog–Helmchen 1982：CIP 税制怎样被改写得更严、也更能交给机器",
     },
     {
       url: "/chemistry/reactions/sn1-sn2-nucleophilic-substitution",
@@ -2597,6 +2673,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/chemistry/figures/berzelius",
       title: "永斯·贝采利乌斯",
     },
+    {
+      url: "/chemistry/milestones/hush-1961-electron-transfer",
+      title: "Hush 1961：外层电子转移的绝热理论怎样把溶液里的速率写成核坐标",
+    },
   ],
   "/chemistry/concepts/functional-groups": [
     {
@@ -2848,6 +2928,34 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/mass-spectrometry",
       title: "质谱法",
+    },
+    {
+      url: "/chemistry/milestones/barton-1950-steroid-conformation",
+      title: "Barton 1950：甾核椅式怎样把非环价分成赤道与极向",
+    },
+    {
+      url: "/chemistry/milestones/bijvoet-1951-absolute-configuration",
+      title: "Bijvoet 1951：反常散射怎样把酒石酸盐的绝对构型钉进晶体学",
+    },
+    {
+      url: "/chemistry/milestones/blackwood-1968-ez",
+      title: "Blackwood 1968：双键几何怎样被改印成 E 与 Z",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-1951",
+      title: "Cahn–Ingold 1951：序列规则怎样把四配位不对称原子的构型写成 d 与 l",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-prelog-1956",
+      title: "Cahn–Ingold–Prelog 1956：有机构型怎样被改印成 R 与 S",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-prelog-1966",
+      title: "Cahn–Ingold–Prelog 1966：序列规则怎样让印刷的名字记下三维排布",
+    },
+    {
+      url: "/chemistry/milestones/prelog-helmchen-1982",
+      title: "Prelog–Helmchen 1982：CIP 税制怎样被改写得更严、也更能交给机器",
     },
     {
       url: "/chemistry/reactions/sn1-sn2-nucleophilic-substitution",
@@ -3214,8 +3322,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Hammett 1937：苯衍生物的取代基常数怎样被收成一张可迁移的表",
     },
     {
+      url: "/chemistry/milestones/hush-1961-electron-transfer",
+      title: "Hush 1961：外层电子转移的绝热理论怎样把溶液里的速率写成核坐标",
+    },
+    {
       url: "/chemistry/milestones/marcus-1956-electron-transfer",
       title: "Marcus 1956：外层电子转移怎样把溶剂极化与内层坐标的重组写成越过",
+    },
+    {
+      url: "/chemistry/milestones/miller-closs-1984-inverted-region",
+      title: "Miller–Closs 1984：分子内电子转移怎样把马库斯反转区写成溶液里的速率",
     },
     {
       url: "/chemistry/milestones/rowland-molina-ozone-cfcs",
@@ -3436,8 +3552,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Hammond 1955：邻近物种的能量接近怎样被用来猜过渡态的几何",
     },
     {
+      url: "/chemistry/milestones/hush-1961-electron-transfer",
+      title: "Hush 1961：外层电子转移的绝热理论怎样把溶液里的速率写成核坐标",
+    },
+    {
       url: "/chemistry/milestones/marcus-1956-electron-transfer",
       title: "Marcus 1956：外层电子转移怎样把溶剂极化与内层坐标的重组写成越过",
+    },
+    {
+      url: "/chemistry/milestones/miller-closs-1984-inverted-region",
+      title: "Miller–Closs 1984：分子内电子转移怎样把马库斯反转区写成溶液里的速率",
     },
     {
       url: "/chemistry/reactions/sn1-sn2-nucleophilic-substitution",
@@ -3480,6 +3604,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/reactions/organic-synthesis",
       title: "有机合成",
+    },
+    {
+      url: "/chemistry/milestones/barton-1950-steroid-conformation",
+      title: "Barton 1950：甾核椅式怎样把非环价分成赤道与极向",
     },
     {
       url: "/chemistry/milestones/hammond-1955-postulate",
@@ -4058,6 +4186,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/reactions/organic-synthesis",
       title: "有机合成",
+    },
+    {
+      url: "/chemistry/milestones/barton-1950-steroid-conformation",
+      title: "Barton 1950：甾核椅式怎样把非环价分成赤道与极向",
     },
     {
       url: "/chemistry/methods/x-ray-crystallography",
@@ -4798,6 +4930,30 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "蝎虎座BL天体",
     },
     {
+      url: "/chemistry/milestones/barton-1950-steroid-conformation",
+      title: "Barton 1950：甾核椅式怎样把非环价分成赤道与极向",
+    },
+    {
+      url: "/chemistry/milestones/bijvoet-1951-absolute-configuration",
+      title: "Bijvoet 1951：反常散射怎样把酒石酸盐的绝对构型钉进晶体学",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-1951",
+      title: "Cahn–Ingold 1951：序列规则怎样把四配位不对称原子的构型写成 d 与 l",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-prelog-1956",
+      title: "Cahn–Ingold–Prelog 1956：有机构型怎样被改印成 R 与 S",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-prelog-1966",
+      title: "Cahn–Ingold–Prelog 1966：序列规则怎样让印刷的名字记下三维排布",
+    },
+    {
+      url: "/chemistry/milestones/prelog-helmchen-1982",
+      title: "Prelog–Helmchen 1982：CIP 税制怎样被改写得更严、也更能交给机器",
+    },
+    {
       url: "/medicine/technologies/x-ray-imaging",
       title: "X 射线影像",
     },
@@ -4854,6 +5010,68 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "质谱法",
     },
   ],
+  "/chemistry/milestones/barton-1950-steroid-conformation": [
+    {
+      url: "/chemistry/milestones/blackwood-1968-ez",
+      title: "Blackwood 1968：双键几何怎样被改印成 E 与 Z",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-1951",
+      title: "Cahn–Ingold 1951：序列规则怎样把四配位不对称原子的构型写成 d 与 l",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-prelog-1956",
+      title: "Cahn–Ingold–Prelog 1956：有机构型怎样被改印成 R 与 S",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-prelog-1966",
+      title: "Cahn–Ingold–Prelog 1966：序列规则怎样让印刷的名字记下三维排布",
+    },
+    {
+      url: "/chemistry/milestones/prelog-helmchen-1982",
+      title: "Prelog–Helmchen 1982：CIP 税制怎样被改写得更严、也更能交给机器",
+    },
+  ],
+  "/chemistry/milestones/bijvoet-1951-absolute-configuration": [
+    {
+      url: "/chemistry/concepts/chirality",
+      title: "手性与对映异构",
+    },
+    {
+      url: "/chemistry/milestones/blackwood-1968-ez",
+      title: "Blackwood 1968：双键几何怎样被改印成 E 与 Z",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-1951",
+      title: "Cahn–Ingold 1951：序列规则怎样把四配位不对称原子的构型写成 d 与 l",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-prelog-1956",
+      title: "Cahn–Ingold–Prelog 1956：有机构型怎样被改印成 R 与 S",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-prelog-1966",
+      title: "Cahn–Ingold–Prelog 1966：序列规则怎样让印刷的名字记下三维排布",
+    },
+    {
+      url: "/chemistry/milestones/prelog-helmchen-1982",
+      title: "Prelog–Helmchen 1982：CIP 税制怎样被改写得更严、也更能交给机器",
+    },
+    {
+      url: "/chemistry/methods/x-ray-crystallography",
+      title: "X 射线晶体学：从衍射斑点到三维结构",
+    },
+  ],
+  "/chemistry/milestones/blackwood-1968-ez": [
+    {
+      url: "/chemistry/concepts/isomerism",
+      title: "同分异构",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-prelog-1966",
+      title: "Cahn–Ingold–Prelog 1966：序列规则怎样让印刷的名字记下三维排布",
+    },
+  ],
   "/chemistry/milestones/born-oppenheimer-1927": [
     {
       url: "/chemistry/milestones/heitler-london-1927",
@@ -4866,6 +5084,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/bonding-theory",
       title: "价键理论与分子轨道理论",
+    },
+    {
+      url: "/chemistry/milestones/hush-1961-electron-transfer",
+      title: "Hush 1961：外层电子转移的绝热理论怎样把溶液里的速率写成核坐标",
     },
   ],
   "/chemistry/milestones/bronsted-lowry-1923": [
@@ -4922,6 +5144,96 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/原子物理--atomic-spectra",
       title: "原子光谱",
+    },
+  ],
+  "/chemistry/milestones/cahn-ingold-1951": [
+    {
+      url: "/chemistry/milestones/bijvoet-1951-absolute-configuration",
+      title: "Bijvoet 1951：反常散射怎样把酒石酸盐的绝对构型钉进晶体学",
+    },
+    {
+      url: "/chemistry/milestones/blackwood-1968-ez",
+      title: "Blackwood 1968：双键几何怎样被改印成 E 与 Z",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-prelog-1956",
+      title: "Cahn–Ingold–Prelog 1956：有机构型怎样被改印成 R 与 S",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-prelog-1966",
+      title: "Cahn–Ingold–Prelog 1966：序列规则怎样让印刷的名字记下三维排布",
+    },
+    {
+      url: "/chemistry/milestones/prelog-helmchen-1982",
+      title: "Prelog–Helmchen 1982：CIP 税制怎样被改写得更严、也更能交给机器",
+    },
+  ],
+  "/chemistry/milestones/cahn-ingold-prelog-1956": [
+    {
+      url: "/chemistry/concepts/chirality",
+      title: "手性与对映异构",
+    },
+    {
+      url: "/chemistry/milestones/blackwood-1968-ez",
+      title: "Blackwood 1968：双键几何怎样被改印成 E 与 Z",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-1951",
+      title: "Cahn–Ingold 1951：序列规则怎样把四配位不对称原子的构型写成 d 与 l",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-prelog-1966",
+      title: "Cahn–Ingold–Prelog 1966：序列规则怎样让印刷的名字记下三维排布",
+    },
+    {
+      url: "/chemistry/milestones/prelog-helmchen-1982",
+      title: "Prelog–Helmchen 1982：CIP 税制怎样被改写得更严、也更能交给机器",
+    },
+  ],
+  "/chemistry/milestones/cahn-ingold-prelog-1966": [
+    {
+      url: "/chemistry/milestones/pasteur-1848-tartaric",
+      title: "巴斯德一八四八年的酒石酸钠铵盐：半面晶面、镊子和相反的旋光",
+    },
+    {
+      url: "/chemistry/milestones/vant-hoff-1874-tetrahedron",
+      title: "范霍夫一八七四年的四面体碳：荷兰小册、空间结构式与不对称碳",
+    },
+    {
+      url: "/chemistry/concepts/chirality",
+      title: "手性与对映异构",
+    },
+    {
+      url: "/chemistry/concepts/isomerism",
+      title: "同分异构",
+    },
+    {
+      url: "/chemistry/reactions/organic-synthesis",
+      title: "有机合成",
+    },
+    {
+      url: "/chemistry/milestones/barton-1950-steroid-conformation",
+      title: "Barton 1950：甾核椅式怎样把非环价分成赤道与极向",
+    },
+    {
+      url: "/chemistry/milestones/bijvoet-1951-absolute-configuration",
+      title: "Bijvoet 1951：反常散射怎样把酒石酸盐的绝对构型钉进晶体学",
+    },
+    {
+      url: "/chemistry/milestones/blackwood-1968-ez",
+      title: "Blackwood 1968：双键几何怎样被改印成 E 与 Z",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-1951",
+      title: "Cahn–Ingold 1951：序列规则怎样把四配位不对称原子的构型写成 d 与 l",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-prelog-1956",
+      title: "Cahn–Ingold–Prelog 1956：有机构型怎样被改印成 R 与 S",
+    },
+    {
+      url: "/chemistry/milestones/prelog-helmchen-1982",
+      title: "Prelog–Helmchen 1982：CIP 税制怎样被改写得更严、也更能交给机器",
     },
   ],
   "/chemistry/milestones/chargaff-1950-base-ratios": [
@@ -5028,6 +5340,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Evans–Polanyi 1935：过渡态方法怎样被用来写溶液里的反应速率",
     },
   ],
+  "/chemistry/milestones/diels-alder-1928": [
+    {
+      url: "/chemistry/reactions/diels-alder-reaction",
+      title: "狄尔斯-阿尔德反应",
+    },
+    {
+      url: "/chemistry/milestones/barton-1950-steroid-conformation",
+      title: "Barton 1950：甾核椅式怎样把非环价分成赤道与极向",
+    },
+  ],
   "/chemistry/milestones/discovery-of-radioactivity": [
     {
       url: "/chemistry/milestones/aston-1919-mass-spectrograph",
@@ -5092,6 +5414,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "反应速率",
     },
     {
+      url: "/chemistry/milestones/diels-alder-1928",
+      title: "Diels–Alder 1928：双烯加成怎样把六元环写成一步同时长出两键",
+    },
+    {
       url: "/chemistry/milestones/hammett-1935",
       title: "Hammett 1935：取代基怎样把反应速率与平衡常数写成一条直线",
     },
@@ -5104,8 +5430,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Hammond 1955：邻近物种的能量接近怎样被用来猜过渡态的几何",
     },
     {
+      url: "/chemistry/milestones/hush-1961-electron-transfer",
+      title: "Hush 1961：外层电子转移的绝热理论怎样把溶液里的速率写成核坐标",
+    },
+    {
       url: "/chemistry/milestones/marcus-1956-electron-transfer",
       title: "Marcus 1956：外层电子转移怎样把溶剂极化与内层坐标的重组写成越过",
+    },
+    {
+      url: "/chemistry/milestones/miller-closs-1984-inverted-region",
+      title: "Miller–Closs 1984：分子内电子转移怎样把马库斯反转区写成溶液里的速率",
     },
     {
       url: "/chemistry/milestones/taft-1952-lfer",
@@ -5130,6 +5464,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "斯万特·阿伦尼乌斯",
     },
     {
+      url: "/chemistry/milestones/diels-alder-1928",
+      title: "Diels–Alder 1928：双烯加成怎样把六元环写成一步同时长出两键",
+    },
+    {
       url: "/chemistry/milestones/evans-polanyi-1935",
       title: "Evans–Polanyi 1935：过渡态方法怎样被用来写溶液里的反应速率",
     },
@@ -5146,8 +5484,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Hammond 1955：邻近物种的能量接近怎样被用来猜过渡态的几何",
     },
     {
+      url: "/chemistry/milestones/hush-1961-electron-transfer",
+      title: "Hush 1961：外层电子转移的绝热理论怎样把溶液里的速率写成核坐标",
+    },
+    {
       url: "/chemistry/milestones/marcus-1956-electron-transfer",
       title: "Marcus 1956：外层电子转移怎样把溶剂极化与内层坐标的重组写成越过",
+    },
+    {
+      url: "/chemistry/milestones/miller-closs-1984-inverted-region",
+      title: "Miller–Closs 1984：分子内电子转移怎样把马库斯反转区写成溶液里的速率",
     },
     {
       url: "/chemistry/milestones/taft-1952-lfer",
@@ -5180,6 +5526,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/bonding-theory",
       title: "价键理论与分子轨道理论",
+    },
+    {
+      url: "/chemistry/milestones/diels-alder-1928",
+      title: "Diels–Alder 1928：双烯加成怎样把六元环写成一步同时长出两键",
     },
     {
       url: "/chemistry/milestones/taft-1952-lfer",
@@ -5350,8 +5700,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "有机反应机理",
     },
     {
+      url: "/chemistry/milestones/barton-1950-steroid-conformation",
+      title: "Barton 1950：甾核椅式怎样把非环价分成赤道与极向",
+    },
+    {
+      url: "/chemistry/milestones/diels-alder-1928",
+      title: "Diels–Alder 1928：双烯加成怎样把六元环写成一步同时长出两键",
+    },
+    {
+      url: "/chemistry/milestones/hush-1961-electron-transfer",
+      title: "Hush 1961：外层电子转移的绝热理论怎样把溶液里的速率写成核坐标",
+    },
+    {
       url: "/chemistry/milestones/marcus-1956-electron-transfer",
       title: "Marcus 1956：外层电子转移怎样把溶剂极化与内层坐标的重组写成越过",
+    },
+    {
+      url: "/chemistry/milestones/miller-closs-1984-inverted-region",
+      title: "Miller–Closs 1984：分子内电子转移怎样把马库斯反转区写成溶液里的速率",
     },
     {
       url: "/chemistry/milestones/taft-1952-lfer",
@@ -5645,6 +6011,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/chemistry/milestones/hammond-1955-postulate",
       title: "Hammond 1955：邻近物种的能量接近怎样被用来猜过渡态的几何",
     },
+    {
+      url: "/chemistry/milestones/hush-1961-electron-transfer",
+      title: "Hush 1961：外层电子转移的绝热理论怎样把溶液里的速率写成核坐标",
+    },
+    {
+      url: "/chemistry/milestones/miller-closs-1984-inverted-region",
+      title: "Miller–Closs 1984：分子内电子转移怎样把马库斯反转区写成溶液里的速率",
+    },
   ],
   "/chemistry/milestones/mendeleev-periodic-law": [
     {
@@ -5692,6 +6066,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "索迪 1913：放射链上化学无法分开的物种怎样被写成同位素",
     },
   ],
+  "/chemistry/milestones/miller-closs-1984-inverted-region": [
+    {
+      url: "/chemistry/milestones/hush-1961-electron-transfer",
+      title: "Hush 1961：外层电子转移的绝热理论怎样把溶液里的速率写成核坐标",
+    },
+    {
+      url: "/chemistry/milestones/marcus-1956-electron-transfer",
+      title: "Marcus 1956：外层电子转移怎样把溶剂极化与内层坐标的重组写成越过",
+    },
+  ],
   "/chemistry/milestones/miller-urey-experiment": [
     {
       url: "/life-science/knowledge-base/pasteur-swan-neck-flask",
@@ -5708,6 +6092,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/milestones/urey-1931-deuterium",
       title: "尤里一九三一年的氘：液氢残渣原子光谱里的质量二同位素",
+    },
+    {
+      url: "/chemistry/milestones/miller-closs-1984-inverted-region",
+      title: "Miller–Closs 1984：分子内电子转移怎样把马库斯反转区写成溶液里的速率",
     },
   ],
   "/chemistry/milestones/moseley-1913-xray-atomic-number": [
@@ -5791,6 +6179,30 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/chemistry/milestones/werner-1893-coordination",
       title: "维尔纳 1893：主价、副价与可电离氯怎样把钴氨合物写成八面体",
     },
+    {
+      url: "/chemistry/milestones/bijvoet-1951-absolute-configuration",
+      title: "Bijvoet 1951：反常散射怎样把酒石酸盐的绝对构型钉进晶体学",
+    },
+    {
+      url: "/chemistry/milestones/blackwood-1968-ez",
+      title: "Blackwood 1968：双键几何怎样被改印成 E 与 Z",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-1951",
+      title: "Cahn–Ingold 1951：序列规则怎样把四配位不对称原子的构型写成 d 与 l",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-prelog-1956",
+      title: "Cahn–Ingold–Prelog 1956：有机构型怎样被改印成 R 与 S",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-prelog-1966",
+      title: "Cahn–Ingold–Prelog 1966：序列规则怎样让印刷的名字记下三维排布",
+    },
+    {
+      url: "/chemistry/milestones/prelog-helmchen-1982",
+      title: "Prelog–Helmchen 1982：CIP 税制怎样被改写得更严、也更能交给机器",
+    },
   ],
   "/chemistry/milestones/pauling-1931-chemical-bond": [
     {
@@ -5829,6 +6241,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/chemistry/milestones/huckel-1931-benzene-mo",
       title: "休克尔 1931：苯问题的量子贡献怎样把六只 π 电子写成分子轨道",
     },
+    {
+      url: "/chemistry/milestones/barton-1950-steroid-conformation",
+      title: "Barton 1950：甾核椅式怎样把非环价分成赤道与极向",
+    },
   ],
   "/chemistry/milestones/perkin-1856-mauveine": [
     {
@@ -5860,6 +6276,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/substances/water",
       title: "水",
+    },
+  ],
+  "/chemistry/milestones/prelog-helmchen-1982": [
+    {
+      url: "/chemistry/milestones/blackwood-1968-ez",
+      title: "Blackwood 1968：双键几何怎样被改印成 E 与 Z",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-1951",
+      title: "Cahn–Ingold 1951：序列规则怎样把四配位不对称原子的构型写成 d 与 l",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-prelog-1956",
+      title: "Cahn–Ingold–Prelog 1956：有机构型怎样被改印成 R 与 S",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-prelog-1966",
+      title: "Cahn–Ingold–Prelog 1966：序列规则怎样让印刷的名字记下三维排布",
     },
   ],
   "/chemistry/milestones/raman-1928-scattering": [
@@ -6073,6 +6507,34 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/chemistry/milestones/werner-1893-coordination",
       title: "维尔纳 1893：主价、副价与可电离氯怎样把钴氨合物写成八面体",
     },
+    {
+      url: "/chemistry/milestones/barton-1950-steroid-conformation",
+      title: "Barton 1950：甾核椅式怎样把非环价分成赤道与极向",
+    },
+    {
+      url: "/chemistry/milestones/bijvoet-1951-absolute-configuration",
+      title: "Bijvoet 1951：反常散射怎样把酒石酸盐的绝对构型钉进晶体学",
+    },
+    {
+      url: "/chemistry/milestones/blackwood-1968-ez",
+      title: "Blackwood 1968：双键几何怎样被改印成 E 与 Z",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-1951",
+      title: "Cahn–Ingold 1951：序列规则怎样把四配位不对称原子的构型写成 d 与 l",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-prelog-1956",
+      title: "Cahn–Ingold–Prelog 1956：有机构型怎样被改印成 R 与 S",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-prelog-1966",
+      title: "Cahn–Ingold–Prelog 1966：序列规则怎样让印刷的名字记下三维排布",
+    },
+    {
+      url: "/chemistry/milestones/prelog-helmchen-1982",
+      title: "Prelog–Helmchen 1982：CIP 税制怎样被改写得更严、也更能交给机器",
+    },
   ],
   "/chemistry/milestones/vitalism-and-its-long-death": [
     {
@@ -6148,6 +6610,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/figures/robert-woodward",
       title: "罗伯特·伍德沃德",
+    },
+    {
+      url: "/chemistry/milestones/barton-1950-steroid-conformation",
+      title: "Barton 1950：甾核椅式怎样把非环价分成赤道与极向",
+    },
+    {
+      url: "/chemistry/milestones/diels-alder-1928",
+      title: "Diels–Alder 1928：双烯加成怎样把六元环写成一步同时长出两键",
     },
     {
       url: "/chemistry/milestones/hammond-1955-postulate",
@@ -6327,6 +6797,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/chemistry/reactions/organic-synthesis",
       title: "有机合成",
     },
+    {
+      url: "/chemistry/milestones/diels-alder-1928",
+      title: "Diels–Alder 1928：双烯加成怎样把六元环写成一步同时长出两键",
+    },
   ],
   "/chemistry/reactions/electrolysis": [
     {
@@ -6482,6 +6956,30 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "维勒的尿素合成：氰酸铵怎样重排成可鉴定的晶体",
     },
     {
+      url: "/chemistry/milestones/barton-1950-steroid-conformation",
+      title: "Barton 1950：甾核椅式怎样把非环价分成赤道与极向",
+    },
+    {
+      url: "/chemistry/milestones/blackwood-1968-ez",
+      title: "Blackwood 1968：双键几何怎样被改印成 E 与 Z",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-1951",
+      title: "Cahn–Ingold 1951：序列规则怎样把四配位不对称原子的构型写成 d 与 l",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-prelog-1956",
+      title: "Cahn–Ingold–Prelog 1956：有机构型怎样被改印成 R 与 S",
+    },
+    {
+      url: "/chemistry/milestones/cahn-ingold-prelog-1966",
+      title: "Cahn–Ingold–Prelog 1966：序列规则怎样让印刷的名字记下三维排布",
+    },
+    {
+      url: "/chemistry/milestones/diels-alder-1928",
+      title: "Diels–Alder 1928：双烯加成怎样把六元环写成一步同时长出两键",
+    },
+    {
       url: "/chemistry/milestones/hammett-1935",
       title: "Hammett 1935：取代基怎样把反应速率与平衡常数写成一条直线",
     },
@@ -6494,8 +6992,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Hammond 1955：邻近物种的能量接近怎样被用来猜过渡态的几何",
     },
     {
+      url: "/chemistry/milestones/hush-1961-electron-transfer",
+      title: "Hush 1961：外层电子转移的绝热理论怎样把溶液里的速率写成核坐标",
+    },
+    {
       url: "/chemistry/milestones/marcus-1956-electron-transfer",
       title: "Marcus 1956：外层电子转移怎样把溶剂极化与内层坐标的重组写成越过",
+    },
+    {
+      url: "/chemistry/milestones/miller-closs-1984-inverted-region",
+      title: "Miller–Closs 1984：分子内电子转移怎样把马库斯反转区写成溶液里的速率",
+    },
+    {
+      url: "/chemistry/milestones/prelog-helmchen-1982",
+      title: "Prelog–Helmchen 1982：CIP 税制怎样被改写得更严、也更能交给机器",
     },
     {
       url: "/chemistry/milestones/taft-1952-lfer",
@@ -8036,6 +8546,34 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/knowledge-base/数论--素数之谜",
       title: "素数之谜",
+    },
+    {
+      url: "/computer-science/theory/bellare-rogaway-1993",
+      title: "Bellare–Rogaway 1993：为什么先把哈希当成公开的随机预言机",
+    },
+    {
+      url: "/computer-science/theory/bellare-rogaway-1994-oaep",
+      title: "Bellare–Rogaway 1994：RSA 前面那两轮掩码为什么被叫优选",
+    },
+    {
+      url: "/computer-science/theory/cramer-shoup-1998",
+      title: "Cramer–Shoup 1998：判定性迪菲–赫尔曼上怎样交出不再挂非交互零知识的选择密文",
+    },
+    {
+      url: "/computer-science/theory/dolev-dwork-naor-1991",
+      title: "Dolev–Dwork–Naor 1991：看见密文之后为什么仍不该能改出相关明文的另一条",
+    },
+    {
+      url: "/computer-science/theory/merkle-1978",
+      title: "Merkle 1978：N 枚谜题怎样把公开分发的窃听代价抬成平方",
+    },
+    {
+      url: "/computer-science/theory/naor-yung-1990",
+      title: "Naor–Yung 1990：被动窃听上的公钥怎样加上非交互零知识挡住选择密文",
+    },
+    {
+      url: "/computer-science/theory/rackoff-simon-1991",
+      title: "Rackoff–Simon 1991：选择密文的时间窗怎样被拉到看见挑战之后",
     },
   ],
   "/computer-science/algorithms/q-learning": [
@@ -9692,6 +10230,42 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/mathematicians/sophie-germain",
       title: "索菲·热尔曼",
+    },
+    {
+      url: "/computer-science/theory/bellare-rogaway-1993",
+      title: "Bellare–Rogaway 1993：为什么先把哈希当成公开的随机预言机",
+    },
+    {
+      url: "/computer-science/theory/bellare-rogaway-1994-oaep",
+      title: "Bellare–Rogaway 1994：RSA 前面那两轮掩码为什么被叫优选",
+    },
+    {
+      url: "/computer-science/theory/cramer-shoup-1998",
+      title: "Cramer–Shoup 1998：判定性迪菲–赫尔曼上怎样交出不再挂非交互零知识的选择密文",
+    },
+    {
+      url: "/computer-science/theory/diffie-hellman-1976",
+      title: "Diffie–Hellman 1976：公钥怎样把陷门、指数与签名写成公开程序",
+    },
+    {
+      url: "/computer-science/theory/dolev-dwork-naor-1991",
+      title: "Dolev–Dwork–Naor 1991：看见密文之后为什么仍不该能改出相关明文的另一条",
+    },
+    {
+      url: "/computer-science/theory/luby-rackoff-1988",
+      title: "Luby–Rackoff 1988：伪随机函数怎样三轮费斯托变成询问下仍像随机的置换",
+    },
+    {
+      url: "/computer-science/theory/merkle-1978",
+      title: "Merkle 1978：N 枚谜题怎样把公开分发的窃听代价抬成平方",
+    },
+    {
+      url: "/computer-science/theory/naor-yung-1990",
+      title: "Naor–Yung 1990：被动窃听上的公钥怎样加上非交互零知识挡住选择密文",
+    },
+    {
+      url: "/computer-science/theory/rackoff-simon-1991",
+      title: "Rackoff–Simon 1991：选择密文的时间窗怎样被拉到看见挑战之后",
     },
   ],
   "/computer-science/concepts/expert-systems-and-the-second-ai-winter": [
@@ -12580,6 +13154,15 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/pioneers/andrew-yao": [
     {
+      url: "/computer-science/theory/goldreich-micali-wigderson-1986",
+      title: "Goldreich–Micali–Wigderson 1986：NP 里每个语言怎样都有计算零知识证明",
+    },
+    {
+      url: "/computer-science/theory/goldreich-micali-wigderson-1987",
+      title:
+        "Goldreich–Micali–Wigderson 1987：任意心智博弈怎样在诚实多数下被编译成不泄露部分信息的协议",
+    },
+    {
       url: "/computer-science/theory/yao-1979-communication-complexity",
       title: "Yao 1979：分布式计算的复杂度问题怎样把通信写成资源",
     },
@@ -12643,8 +13226,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/engineering/machines/telecommunications-networks",
       title: "通信与网络工程：让消息跑赢距离",
     },
+    {
+      url: "/computer-science/theory/diffie-hellman-1976",
+      title: "Diffie–Hellman 1976：公钥怎样把陷门、指数与签名写成公开程序",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-levin-luby-1989",
+      title: "Impagliazzo–Levin–Luby 1989：一般单向函数怎样交出多项式时间伪随机发生器",
+    },
+    {
+      url: "/computer-science/theory/merkle-1978",
+      title: "Merkle 1978：N 枚谜题怎样把公开分发的窃听代价抬成平方",
+    },
   ],
   "/computer-science/pioneers/cynthia-dwork": [
+    {
+      url: "/computer-science/theory/dolev-dwork-naor-1991",
+      title: "Dolev–Dwork–Naor 1991：看见密文之后为什么仍不该能改出相关明文的另一条",
+    },
     {
       url: "/computer-science/theory/dwork-lynch-stockmeyer-1988",
       title: "Dwork–Lynch–Stockmeyer 1988：终将有界的延迟怎样让确定性共识可能",
@@ -12798,8 +13397,45 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/computer-science/pioneers/shafi-goldwasser": [
     {
+      url: "/computer-science/theory/bellare-rogaway-1993",
+      title: "Bellare–Rogaway 1993：为什么先把哈希当成公开的随机预言机",
+    },
+    {
+      url: "/computer-science/theory/cramer-shoup-1998",
+      title: "Cramer–Shoup 1998：判定性迪菲–赫尔曼上怎样交出不再挂非交互零知识的选择密文",
+    },
+    {
+      url: "/computer-science/theory/dolev-dwork-naor-1991",
+      title: "Dolev–Dwork–Naor 1991：看见密文之后为什么仍不该能改出相关明文的另一条",
+    },
+    {
+      url: "/computer-science/theory/goldreich-goldwasser-micali-1986",
+      title: "Goldreich–Goldwasser–Micali 1986：长度翻倍发生器怎样铺成询问下仍像随机的函数",
+    },
+    {
+      url: "/computer-science/theory/goldreich-micali-wigderson-1986",
+      title: "Goldreich–Micali–Wigderson 1986：NP 里每个语言怎样都有计算零知识证明",
+    },
+    {
+      url: "/computer-science/theory/goldreich-micali-wigderson-1987",
+      title:
+        "Goldreich–Micali–Wigderson 1987：任意心智博弈怎样在诚实多数下被编译成不泄露部分信息的协议",
+    },
+    {
+      url: "/computer-science/theory/goldwasser-micali-1984",
+      title: "Goldwasser–Micali 1984：语义安全怎样把密文写成多项式不可区分",
+    },
+    {
       url: "/computer-science/theory/goldwasser-micali-rackoff-1985",
       title: "Goldwasser–Micali–Rackoff 1985：交互证明系统的知识复杂度怎样把零知识写成定义",
+    },
+    {
+      url: "/computer-science/theory/naor-yung-1990",
+      title: "Naor–Yung 1990：被动窃听上的公钥怎样加上非交互零知识挡住选择密文",
+    },
+    {
+      url: "/computer-science/theory/rackoff-simon-1991",
+      title: "Rackoff–Simon 1991：选择密文的时间窗怎样被拉到看见挑战之后",
     },
   ],
   "/computer-science/pioneers/stephen-cook": [
@@ -13368,8 +14004,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "随机算法",
     },
     {
+      url: "/computer-science/theory/impagliazzo-wigderson-1997",
+      title: "Impagliazzo–Wigderson 1997：E 的指数电路硬度怎样把 BPP 收成 P",
+    },
+    {
       url: "/computer-science/theory/nisan-wigderson-1994",
       title: "Nisan–Wigderson 1994：E 里足够硬的函数怎样冒充 BPP 测试者的硬币",
+    },
+    {
+      url: "/computer-science/theory/yao-1982-trapdoor-functions",
+      title: "Yao 1982：陷门函数怎样把单向置换的硬度放大成假硬币",
     },
   ],
   "/computer-science/theory/algorithmic-game-theory": [
@@ -13510,8 +14154,40 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "随机算法",
     },
     {
+      url: "/computer-science/theory/blum-micali-1984",
+      title: "Blum–Micali 1984：离散对数硬核怎样迭代成密码学伪随机比特",
+    },
+    {
+      url: "/computer-science/theory/diffie-hellman-1976",
+      title: "Diffie–Hellman 1976：公钥怎样把陷门、指数与签名写成公开程序",
+    },
+    {
+      url: "/computer-science/theory/goldreich-levin-1989",
+      title: "Goldreich–Levin 1989：每个单向函数都有一枚内积硬核谓词",
+    },
+    {
+      url: "/computer-science/theory/goldwasser-micali-1984",
+      title: "Goldwasser–Micali 1984：语义安全怎样把密文写成多项式不可区分",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-1995-hard-core",
+      title: "Impagliazzo 1995：略微难的问题怎样收成一块几乎乱猜的硬核分布",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-levin-luby-1989",
+      title: "Impagliazzo–Levin–Luby 1989：一般单向函数怎样交出多项式时间伪随机发生器",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-wigderson-1997",
+      title: "Impagliazzo–Wigderson 1997：E 的指数电路硬度怎样把 BPP 收成 P",
+    },
+    {
       url: "/computer-science/theory/nisan-wigderson-1994",
       title: "Nisan–Wigderson 1994：E 里足够硬的函数怎样冒充 BPP 测试者的硬币",
+    },
+    {
+      url: "/computer-science/theory/yao-1982-trapdoor-functions",
+      title: "Yao 1982：陷门函数怎样把单向置换的硬度放大成假硬币",
     },
   ],
   "/computer-science/theory/baker-gill-solovay-1975": [
@@ -13634,6 +14310,50 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Savitch 1970：非确定性空间怎样被确定性平方空间模拟",
     },
   ],
+  "/computer-science/theory/bellare-rogaway-1993": [
+    {
+      url: "/computer-science/theory/interactive-proofs-and-zero-knowledge",
+      title: "交互式证明与零知识",
+    },
+    {
+      url: "/computer-science/theory/bellare-rogaway-1994-oaep",
+      title: "Bellare–Rogaway 1994：RSA 前面那两轮掩码为什么被叫优选",
+    },
+    {
+      url: "/computer-science/theory/cramer-shoup-1998",
+      title: "Cramer–Shoup 1998：判定性迪菲–赫尔曼上怎样交出不再挂非交互零知识的选择密文",
+    },
+  ],
+  "/computer-science/theory/bellare-rogaway-1994-oaep": [
+    {
+      url: "/computer-science/concepts/encryption-basics",
+      title: "加密基础",
+    },
+    {
+      url: "/computer-science/pioneers/ron-rivest",
+      title: "罗纳德·里维斯特",
+    },
+    {
+      url: "/computer-science/theory/cryptography-foundations",
+      title: "密码学基础",
+    },
+    {
+      url: "/computer-science/pioneers/shafi-goldwasser",
+      title: "沙菲·戈德瓦塞尔",
+    },
+    {
+      url: "/computer-science/theory/bellare-rogaway-1993",
+      title: "Bellare–Rogaway 1993：为什么先把哈希当成公开的随机预言机",
+    },
+    {
+      url: "/computer-science/theory/cramer-shoup-1998",
+      title: "Cramer–Shoup 1998：判定性迪菲–赫尔曼上怎样交出不再挂非交互零知识的选择密文",
+    },
+    {
+      url: "/computer-science/algorithms/public-key-rsa",
+      title: "RSA 公钥密码",
+    },
+  ],
   "/computer-science/theory/ben-or-1983": [
     {
       url: "/computer-science/concepts/consensus-algorithms",
@@ -13658,6 +14378,40 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/theory/flp-fischer-lynch-paterson-1985",
       title: "FLP：完全异步下一次崩溃也能挡住确定性共识",
+    },
+  ],
+  "/computer-science/theory/blum-micali-1984": [
+    {
+      url: "/computer-science/theory/goldreich-goldwasser-micali-1986",
+      title: "Goldreich–Goldwasser–Micali 1986：长度翻倍发生器怎样铺成询问下仍像随机的函数",
+    },
+    {
+      url: "/computer-science/theory/goldreich-levin-1989",
+      title: "Goldreich–Levin 1989：每个单向函数都有一枚内积硬核谓词",
+    },
+    {
+      url: "/computer-science/theory/goldwasser-micali-1984",
+      title: "Goldwasser–Micali 1984：语义安全怎样把密文写成多项式不可区分",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-levin-luby-1989",
+      title: "Impagliazzo–Levin–Luby 1989：一般单向函数怎样交出多项式时间伪随机发生器",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-wigderson-1997",
+      title: "Impagliazzo–Wigderson 1997：E 的指数电路硬度怎样把 BPP 收成 P",
+    },
+    {
+      url: "/computer-science/theory/luby-rackoff-1988",
+      title: "Luby–Rackoff 1988：伪随机函数怎样三轮费斯托变成询问下仍像随机的置换",
+    },
+    {
+      url: "/computer-science/theory/nisan-wigderson-1994",
+      title: "Nisan–Wigderson 1994：E 里足够硬的函数怎样冒充 BPP 测试者的硬币",
+    },
+    {
+      url: "/computer-science/theory/yao-1982-trapdoor-functions",
+      title: "Yao 1982：陷门函数怎样把单向置换的硬度放大成假硬币",
     },
   ],
   "/computer-science/theory/byzantine-generals-lamport-1982": [
@@ -13792,6 +14546,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/theory/hastad-1986-small-depth",
       title: "Håstad 1986：切换引理怎样把浅电路收成近乎最优的下界",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-1995-hard-core",
+      title: "Impagliazzo 1995：略微难的问题怎样收成一块几乎乱猜的硬核分布",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-wigderson-1997",
+      title: "Impagliazzo–Wigderson 1997：E 的指数电路硬度怎样把 BPP 收成 P",
     },
     {
       url: "/computer-science/theory/karp-1972-reducibility",
@@ -14084,12 +14846,57 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Baker–Gill–Solovay 1975：相对化怎样把对角化挡在 P 对 NP 门外",
     },
     {
+      url: "/computer-science/theory/bellare-rogaway-1993",
+      title: "Bellare–Rogaway 1993：为什么先把哈希当成公开的随机预言机",
+    },
+    {
+      url: "/computer-science/theory/bellare-rogaway-1994-oaep",
+      title: "Bellare–Rogaway 1994：RSA 前面那两轮掩码为什么被叫优选",
+    },
+    {
+      url: "/computer-science/theory/blum-micali-1984",
+      title: "Blum–Micali 1984：离散对数硬核怎样迭代成密码学伪随机比特",
+    },
+    {
       url: "/computer-science/theory/cook-1971-np-completeness",
       title: "Cook 1971：定理证明手续的复杂度怎样把 SAT 写成 NP 完全",
     },
     {
+      url: "/computer-science/theory/cramer-shoup-1998",
+      title: "Cramer–Shoup 1998：判定性迪菲–赫尔曼上怎样交出不再挂非交互零知识的选择密文",
+    },
+    {
+      url: "/computer-science/theory/diffie-hellman-1976",
+      title: "Diffie–Hellman 1976：公钥怎样把陷门、指数与签名写成公开程序",
+    },
+    {
+      url: "/computer-science/theory/dolev-dwork-naor-1991",
+      title: "Dolev–Dwork–Naor 1991：看见密文之后为什么仍不该能改出相关明文的另一条",
+    },
+    {
       url: "/life-science/knowledge-base/进化机制--evo-devo",
       title: "Evo-Devo：演化改写的不是零件，而是说明书",
+    },
+    {
+      url: "/computer-science/theory/goldreich-goldwasser-micali-1986",
+      title: "Goldreich–Goldwasser–Micali 1986：长度翻倍发生器怎样铺成询问下仍像随机的函数",
+    },
+    {
+      url: "/computer-science/theory/goldreich-levin-1989",
+      title: "Goldreich–Levin 1989：每个单向函数都有一枚内积硬核谓词",
+    },
+    {
+      url: "/computer-science/theory/goldreich-micali-wigderson-1986",
+      title: "Goldreich–Micali–Wigderson 1986：NP 里每个语言怎样都有计算零知识证明",
+    },
+    {
+      url: "/computer-science/theory/goldreich-micali-wigderson-1987",
+      title:
+        "Goldreich–Micali–Wigderson 1987：任意心智博弈怎样在诚实多数下被编译成不泄露部分信息的协议",
+    },
+    {
+      url: "/computer-science/theory/goldwasser-micali-1984",
+      title: "Goldwasser–Micali 1984：语义安全怎样把密文写成多项式不可区分",
     },
     {
       url: "/computer-science/theory/goldwasser-micali-rackoff-1985",
@@ -14108,6 +14915,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Immerman–Szelepcsényi 1988：非确定性空间怎样对补运算封闭",
     },
     {
+      url: "/computer-science/theory/impagliazzo-1995-hard-core",
+      title: "Impagliazzo 1995：略微难的问题怎样收成一块几乎乱猜的硬核分布",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-levin-luby-1989",
+      title: "Impagliazzo–Levin–Luby 1989：一般单向函数怎样交出多项式时间伪随机发生器",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-wigderson-1997",
+      title: "Impagliazzo–Wigderson 1997：E 的指数电路硬度怎样把 BPP 收成 P",
+    },
+    {
       url: "/computer-science/theory/karp-1972-reducibility",
       title: "Karp 1972：组合问题之间的可归约性怎样把二十一个问题写成多项式完全",
     },
@@ -14124,8 +14943,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Levin 1973：通用顺序搜索怎样把 NP 搜索写成一个万能问题",
     },
     {
+      url: "/computer-science/theory/luby-rackoff-1988",
+      title: "Luby–Rackoff 1988：伪随机函数怎样三轮费斯托变成询问下仍像随机的置换",
+    },
+    {
+      url: "/computer-science/theory/merkle-1978",
+      title: "Merkle 1978：N 枚谜题怎样把公开分发的窃听代价抬成平方",
+    },
+    {
+      url: "/computer-science/theory/naor-yung-1990",
+      title: "Naor–Yung 1990：被动窃听上的公钥怎样加上非交互零知识挡住选择密文",
+    },
+    {
       url: "/computer-science/theory/nisan-wigderson-1994",
       title: "Nisan–Wigderson 1994：E 里足够硬的函数怎样冒充 BPP 测试者的硬币",
+    },
+    {
+      url: "/computer-science/theory/rackoff-simon-1991",
+      title: "Rackoff–Simon 1991：选择密文的时间窗怎样被拉到看见挑战之后",
     },
     {
       url: "/computer-science/theory/razborov-1985-monotone",
@@ -14148,8 +14983,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Valiant 1979：积和式怎样把计数写成比判定更硬的类",
     },
     {
+      url: "/computer-science/theory/valiant-vazirani-1986",
+      title: "Valiant–Vazirani 1986：唯一可满足性怎样被随机归约钉成和 SAT 一样硬",
+    },
+    {
       url: "/computer-science/theory/yao-1979-communication-complexity",
       title: "Yao 1979：分布式计算的复杂度问题怎样把通信写成资源",
+    },
+    {
+      url: "/computer-science/theory/yao-1982-trapdoor-functions",
+      title: "Yao 1982：陷门函数怎样把单向置换的硬度放大成假硬币",
     },
   ],
   "/computer-science/theory/computational-geometry": [
@@ -14188,8 +15031,21 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Baker–Gill–Solovay 1975：相对化怎样把对角化挡在 P 对 NP 门外",
     },
     {
+      url: "/computer-science/theory/dolev-dwork-naor-1991",
+      title: "Dolev–Dwork–Naor 1991：看见密文之后为什么仍不该能改出相关明文的另一条",
+    },
+    {
       url: "/computer-science/theory/furst-saxe-sipser-1984",
       title: "Furst–Saxe–Sipser 1984：常数深度电路怎样算不出奇偶性",
+    },
+    {
+      url: "/computer-science/theory/goldreich-micali-wigderson-1986",
+      title: "Goldreich–Micali–Wigderson 1986：NP 里每个语言怎样都有计算零知识证明",
+    },
+    {
+      url: "/computer-science/theory/goldreich-micali-wigderson-1987",
+      title:
+        "Goldreich–Micali–Wigderson 1987：任意心智博弈怎样在诚实多数下被编译成不泄露部分信息的协议",
     },
     {
       url: "/computer-science/theory/goldwasser-micali-rackoff-1985",
@@ -14224,6 +15080,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Levin 1973：通用顺序搜索怎样把 NP 搜索写成一个万能问题",
     },
     {
+      url: "/computer-science/theory/rackoff-simon-1991",
+      title: "Rackoff–Simon 1991：选择密文的时间窗怎样被拉到看见挑战之后",
+    },
+    {
       url: "/computer-science/theory/razborov-1985-monotone",
       title: "Razborov 1985：单调电路怎样看不见团",
     },
@@ -14248,6 +15108,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Valiant 1979：积和式怎样把计数写成比判定更硬的类",
     },
     {
+      url: "/computer-science/theory/valiant-vazirani-1986",
+      title: "Valiant–Vazirani 1986：唯一可满足性怎样被随机归约钉成和 SAT 一样硬",
+    },
+    {
       url: "/computer-science/theory/yao-1979-communication-complexity",
       title: "Yao 1979：分布式计算的复杂度问题怎样把通信写成资源",
     },
@@ -14260,6 +15124,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/theory/valiant-1979-permanent",
       title: "Valiant 1979：积和式怎样把计数写成比判定更硬的类",
+    },
+    {
+      url: "/computer-science/theory/valiant-vazirani-1986",
+      title: "Valiant–Vazirani 1986：唯一可满足性怎样被随机归约钉成和 SAT 一样硬",
+    },
+  ],
+  "/computer-science/theory/cramer-shoup-1998": [
+    {
+      url: "/computer-science/theory/bellare-rogaway-1993",
+      title: "Bellare–Rogaway 1993：为什么先把哈希当成公开的随机预言机",
+    },
+    {
+      url: "/computer-science/theory/bellare-rogaway-1994-oaep",
+      title: "Bellare–Rogaway 1994：RSA 前面那两轮掩码为什么被叫优选",
+    },
+    {
+      url: "/computer-science/theory/dolev-dwork-naor-1991",
+      title: "Dolev–Dwork–Naor 1991：看见密文之后为什么仍不该能改出相关明文的另一条",
+    },
+    {
+      url: "/computer-science/theory/naor-yung-1990",
+      title: "Naor–Yung 1990：被动窃听上的公钥怎样加上非交互零知识挡住选择密文",
+    },
+    {
+      url: "/computer-science/theory/rackoff-simon-1991",
+      title: "Rackoff–Simon 1991：选择密文的时间窗怎样被拉到看见挑战之后",
     },
   ],
   "/computer-science/theory/cryptography-foundations": [
@@ -14416,6 +15306,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Adleman 1978：可放大的随机性怎样被多项式忠告替换",
     },
     {
+      url: "/computer-science/theory/bellare-rogaway-1993",
+      title: "Bellare–Rogaway 1993：为什么先把哈希当成公开的随机预言机",
+    },
+    {
+      url: "/computer-science/theory/bellare-rogaway-1994-oaep",
+      title: "Bellare–Rogaway 1994：RSA 前面那两轮掩码为什么被叫优选",
+    },
+    {
+      url: "/computer-science/theory/blum-micali-1984",
+      title: "Blum–Micali 1984：离散对数硬核怎样迭代成密码学伪随机比特",
+    },
+    {
       url: "/computer-science/theory/castro-liskov-1999-pbft",
       title: "Castro–Liskov 1999：实用拜占庭容错，不是将军寓言",
     },
@@ -14424,24 +15326,135 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Cook 1971：定理证明手续的复杂度怎样把 SAT 写成 NP 完全",
     },
     {
+      url: "/computer-science/theory/cramer-shoup-1998",
+      title: "Cramer–Shoup 1998：判定性迪菲–赫尔曼上怎样交出不再挂非交互零知识的选择密文",
+    },
+    {
+      url: "/computer-science/theory/diffie-hellman-1976",
+      title: "Diffie–Hellman 1976：公钥怎样把陷门、指数与签名写成公开程序",
+    },
+    {
+      url: "/computer-science/theory/dolev-dwork-naor-1991",
+      title: "Dolev–Dwork–Naor 1991：看见密文之后为什么仍不该能改出相关明文的另一条",
+    },
+    {
+      url: "/computer-science/theory/goldreich-goldwasser-micali-1986",
+      title: "Goldreich–Goldwasser–Micali 1986：长度翻倍发生器怎样铺成询问下仍像随机的函数",
+    },
+    {
+      url: "/computer-science/theory/goldreich-levin-1989",
+      title: "Goldreich–Levin 1989：每个单向函数都有一枚内积硬核谓词",
+    },
+    {
+      url: "/computer-science/theory/goldreich-micali-wigderson-1986",
+      title: "Goldreich–Micali–Wigderson 1986：NP 里每个语言怎样都有计算零知识证明",
+    },
+    {
+      url: "/computer-science/theory/goldreich-micali-wigderson-1987",
+      title:
+        "Goldreich–Micali–Wigderson 1987：任意心智博弈怎样在诚实多数下被编译成不泄露部分信息的协议",
+    },
+    {
+      url: "/computer-science/theory/goldwasser-micali-1984",
+      title: "Goldwasser–Micali 1984：语义安全怎样把密文写成多项式不可区分",
+    },
+    {
       url: "/computer-science/theory/goldwasser-micali-rackoff-1985",
       title: "Goldwasser–Micali–Rackoff 1985：交互证明系统的知识复杂度怎样把零知识写成定义",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-1995-hard-core",
+      title: "Impagliazzo 1995：略微难的问题怎样收成一块几乎乱猜的硬核分布",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-levin-luby-1989",
+      title: "Impagliazzo–Levin–Luby 1989：一般单向函数怎样交出多项式时间伪随机发生器",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-wigderson-1997",
+      title: "Impagliazzo–Wigderson 1997：E 的指数电路硬度怎样把 BPP 收成 P",
     },
     {
       url: "/computer-science/theory/karp-lipton-1980",
       title: "Karp–Lipton 1980：SAT 若有多项式电路，多项式层次怎样坍到第二层",
     },
     {
+      url: "/computer-science/theory/luby-rackoff-1988",
+      title: "Luby–Rackoff 1988：伪随机函数怎样三轮费斯托变成询问下仍像随机的置换",
+    },
+    {
+      url: "/computer-science/theory/merkle-1978",
+      title: "Merkle 1978：N 枚谜题怎样把公开分发的窃听代价抬成平方",
+    },
+    {
+      url: "/computer-science/theory/naor-yung-1990",
+      title: "Naor–Yung 1990：被动窃听上的公钥怎样加上非交互零知识挡住选择密文",
+    },
+    {
       url: "/computer-science/theory/nisan-wigderson-1994",
       title: "Nisan–Wigderson 1994：E 里足够硬的函数怎样冒充 BPP 测试者的硬币",
+    },
+    {
+      url: "/computer-science/theory/rackoff-simon-1991",
+      title: "Rackoff–Simon 1991：选择密文的时间窗怎样被拉到看见挑战之后",
     },
     {
       url: "/computer-science/theory/razborov-rudich-1997",
       title: "Razborov–Rudich 1997：自然证明怎样把电路下界挡在伪随机函数门外",
     },
     {
+      url: "/computer-science/theory/valiant-vazirani-1986",
+      title: "Valiant–Vazirani 1986：唯一可满足性怎样被随机归约钉成和 SAT 一样硬",
+    },
+    {
       url: "/computer-science/theory/yao-1979-communication-complexity",
       title: "Yao 1979：分布式计算的复杂度问题怎样把通信写成资源",
+    },
+    {
+      url: "/computer-science/theory/yao-1982-trapdoor-functions",
+      title: "Yao 1982：陷门函数怎样把单向置换的硬度放大成假硬币",
+    },
+  ],
+  "/computer-science/theory/diffie-hellman-1976": [
+    {
+      url: "/computer-science/concepts/encryption-basics",
+      title: "加密基础",
+    },
+    {
+      url: "/computer-science/pioneers/ron-rivest",
+      title: "罗纳德·里维斯特",
+    },
+    {
+      url: "/computer-science/theory/cryptography-foundations",
+      title: "密码学基础",
+    },
+    {
+      url: "/computer-science/theory/cramer-shoup-1998",
+      title: "Cramer–Shoup 1998：判定性迪菲–赫尔曼上怎样交出不再挂非交互零知识的选择密文",
+    },
+    {
+      url: "/computer-science/theory/dolev-dwork-naor-1991",
+      title: "Dolev–Dwork–Naor 1991：看见密文之后为什么仍不该能改出相关明文的另一条",
+    },
+    {
+      url: "/computer-science/theory/goldwasser-micali-1984",
+      title: "Goldwasser–Micali 1984：语义安全怎样把密文写成多项式不可区分",
+    },
+    {
+      url: "/computer-science/theory/merkle-1978",
+      title: "Merkle 1978：N 枚谜题怎样把公开分发的窃听代价抬成平方",
+    },
+    {
+      url: "/computer-science/theory/naor-yung-1990",
+      title: "Naor–Yung 1990：被动窃听上的公钥怎样加上非交互零知识挡住选择密文",
+    },
+    {
+      url: "/computer-science/theory/rackoff-simon-1991",
+      title: "Rackoff–Simon 1991：选择密文的时间窗怎样被拉到看见挑战之后",
+    },
+    {
+      url: "/computer-science/algorithms/public-key-rsa",
+      title: "RSA 公钥密码",
     },
   ],
   "/computer-science/theory/dijkstra-1965-mutual-exclusion": [
@@ -14526,6 +15539,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/theory/yao-1979-communication-complexity",
       title: "Yao 1979：分布式计算的复杂度问题怎样把通信写成资源",
+    },
+  ],
+  "/computer-science/theory/dolev-dwork-naor-1991": [
+    {
+      url: "/computer-science/pioneers/cynthia-dwork",
+      title: "辛西娅·德沃克",
+    },
+    {
+      url: "/computer-science/theory/bellare-rogaway-1994-oaep",
+      title: "Bellare–Rogaway 1994：RSA 前面那两轮掩码为什么被叫优选",
+    },
+    {
+      url: "/computer-science/theory/cramer-shoup-1998",
+      title: "Cramer–Shoup 1998：判定性迪菲–赫尔曼上怎样交出不再挂非交互零知识的选择密文",
+    },
+    {
+      url: "/computer-science/theory/naor-yung-1990",
+      title: "Naor–Yung 1990：被动窃听上的公钥怎样加上非交互零知识挡住选择密文",
+    },
+    {
+      url: "/computer-science/theory/rackoff-simon-1991",
+      title: "Rackoff–Simon 1991：选择密文的时间窗怎样被拉到看见挑战之后",
     },
   ],
   "/computer-science/theory/dwork-lynch-stockmeyer-1988": [
@@ -14896,6 +15931,167 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Shapiro 2011：副本收敛是半格或可交换操作，不是共识协议",
     },
   ],
+  "/computer-science/theory/goldreich-goldwasser-micali-1986": [
+    {
+      url: "/computer-science/pioneers/shafi-goldwasser",
+      title: "沙菲·戈德瓦塞尔",
+    },
+    {
+      url: "/computer-science/theory/goldreich-micali-wigderson-1986",
+      title: "Goldreich–Micali–Wigderson 1986：NP 里每个语言怎样都有计算零知识证明",
+    },
+    {
+      url: "/computer-science/theory/goldreich-micali-wigderson-1987",
+      title:
+        "Goldreich–Micali–Wigderson 1987：任意心智博弈怎样在诚实多数下被编译成不泄露部分信息的协议",
+    },
+    {
+      url: "/computer-science/theory/luby-rackoff-1988",
+      title: "Luby–Rackoff 1988：伪随机函数怎样三轮费斯托变成询问下仍像随机的置换",
+    },
+    {
+      url: "/computer-science/theory/naor-yung-1990",
+      title: "Naor–Yung 1990：被动窃听上的公钥怎样加上非交互零知识挡住选择密文",
+    },
+    {
+      url: "/computer-science/theory/razborov-rudich-1997",
+      title: "Razborov–Rudich 1997：自然证明怎样把电路下界挡在伪随机函数门外",
+    },
+  ],
+  "/computer-science/theory/goldreich-levin-1989": [
+    {
+      url: "/computer-science/theory/average-case-complexity",
+      title: "平均情况复杂性与密码学的五个世界",
+    },
+    {
+      url: "/computer-science/theory/blum-micali-1984",
+      title: "Blum–Micali 1984：离散对数硬核怎样迭代成密码学伪随机比特",
+    },
+    {
+      url: "/computer-science/theory/goldreich-goldwasser-micali-1986",
+      title: "Goldreich–Goldwasser–Micali 1986：长度翻倍发生器怎样铺成询问下仍像随机的函数",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-1995-hard-core",
+      title: "Impagliazzo 1995：略微难的问题怎样收成一块几乎乱猜的硬核分布",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-levin-luby-1989",
+      title: "Impagliazzo–Levin–Luby 1989：一般单向函数怎样交出多项式时间伪随机发生器",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-wigderson-1997",
+      title: "Impagliazzo–Wigderson 1997：E 的指数电路硬度怎样把 BPP 收成 P",
+    },
+  ],
+  "/computer-science/theory/goldreich-micali-wigderson-1986": [
+    {
+      url: "/computer-science/theory/interactive-proofs-and-zero-knowledge",
+      title: "交互式证明与零知识",
+    },
+    {
+      url: "/computer-science/theory/cryptography-foundations",
+      title: "密码学基础",
+    },
+    {
+      url: "/computer-science/pioneers/shafi-goldwasser",
+      title: "沙菲·戈德瓦塞尔",
+    },
+    {
+      url: "/computer-science/theory/cramer-shoup-1998",
+      title: "Cramer–Shoup 1998：判定性迪菲–赫尔曼上怎样交出不再挂非交互零知识的选择密文",
+    },
+    {
+      url: "/computer-science/theory/dolev-dwork-naor-1991",
+      title: "Dolev–Dwork–Naor 1991：看见密文之后为什么仍不该能改出相关明文的另一条",
+    },
+    {
+      url: "/computer-science/theory/goldreich-micali-wigderson-1987",
+      title:
+        "Goldreich–Micali–Wigderson 1987：任意心智博弈怎样在诚实多数下被编译成不泄露部分信息的协议",
+    },
+    {
+      url: "/computer-science/theory/rackoff-simon-1991",
+      title: "Rackoff–Simon 1991：选择密文的时间窗怎样被拉到看见挑战之后",
+    },
+  ],
+  "/computer-science/theory/goldreich-micali-wigderson-1987": [
+    {
+      url: "/computer-science/pioneers/andrew-yao",
+      title: "姚期智",
+    },
+    {
+      url: "/computer-science/theory/goldreich-micali-wigderson-1986",
+      title: "Goldreich–Micali–Wigderson 1986：NP 里每个语言怎样都有计算零知识证明",
+    },
+    {
+      url: "/computer-science/theory/rackoff-simon-1991",
+      title: "Rackoff–Simon 1991：选择密文的时间窗怎样被拉到看见挑战之后",
+    },
+  ],
+  "/computer-science/theory/goldwasser-micali-1984": [
+    {
+      url: "/computer-science/pioneers/shafi-goldwasser",
+      title: "沙菲·戈德瓦塞尔",
+    },
+    {
+      url: "/computer-science/theory/bellare-rogaway-1993",
+      title: "Bellare–Rogaway 1993：为什么先把哈希当成公开的随机预言机",
+    },
+    {
+      url: "/computer-science/theory/bellare-rogaway-1994-oaep",
+      title: "Bellare–Rogaway 1994：RSA 前面那两轮掩码为什么被叫优选",
+    },
+    {
+      url: "/computer-science/theory/blum-micali-1984",
+      title: "Blum–Micali 1984：离散对数硬核怎样迭代成密码学伪随机比特",
+    },
+    {
+      url: "/computer-science/theory/cramer-shoup-1998",
+      title: "Cramer–Shoup 1998：判定性迪菲–赫尔曼上怎样交出不再挂非交互零知识的选择密文",
+    },
+    {
+      url: "/computer-science/theory/diffie-hellman-1976",
+      title: "Diffie–Hellman 1976：公钥怎样把陷门、指数与签名写成公开程序",
+    },
+    {
+      url: "/computer-science/theory/dolev-dwork-naor-1991",
+      title: "Dolev–Dwork–Naor 1991：看见密文之后为什么仍不该能改出相关明文的另一条",
+    },
+    {
+      url: "/computer-science/theory/goldreich-goldwasser-micali-1986",
+      title: "Goldreich–Goldwasser–Micali 1986：长度翻倍发生器怎样铺成询问下仍像随机的函数",
+    },
+    {
+      url: "/computer-science/theory/goldreich-levin-1989",
+      title: "Goldreich–Levin 1989：每个单向函数都有一枚内积硬核谓词",
+    },
+    {
+      url: "/computer-science/theory/goldreich-micali-wigderson-1986",
+      title: "Goldreich–Micali–Wigderson 1986：NP 里每个语言怎样都有计算零知识证明",
+    },
+    {
+      url: "/computer-science/theory/goldreich-micali-wigderson-1987",
+      title:
+        "Goldreich–Micali–Wigderson 1987：任意心智博弈怎样在诚实多数下被编译成不泄露部分信息的协议",
+    },
+    {
+      url: "/computer-science/theory/goldwasser-micali-rackoff-1985",
+      title: "Goldwasser–Micali–Rackoff 1985：交互证明系统的知识复杂度怎样把零知识写成定义",
+    },
+    {
+      url: "/computer-science/theory/luby-rackoff-1988",
+      title: "Luby–Rackoff 1988：伪随机函数怎样三轮费斯托变成询问下仍像随机的置换",
+    },
+    {
+      url: "/computer-science/theory/naor-yung-1990",
+      title: "Naor–Yung 1990：被动窃听上的公钥怎样加上非交互零知识挡住选择密文",
+    },
+    {
+      url: "/computer-science/theory/rackoff-simon-1991",
+      title: "Rackoff–Simon 1991：选择密文的时间窗怎样被拉到看见挑战之后",
+    },
+  ],
   "/computer-science/theory/goldwasser-micali-rackoff-1985": [
     {
       url: "/computer-science/theory/interactive-proofs-and-zero-knowledge",
@@ -14904,6 +16100,55 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/pioneers/shafi-goldwasser",
       title: "沙菲·戈德瓦塞尔",
+    },
+    {
+      url: "/computer-science/theory/blum-micali-1984",
+      title: "Blum–Micali 1984：离散对数硬核怎样迭代成密码学伪随机比特",
+    },
+    {
+      url: "/computer-science/theory/cramer-shoup-1998",
+      title: "Cramer–Shoup 1998：判定性迪菲–赫尔曼上怎样交出不再挂非交互零知识的选择密文",
+    },
+    {
+      url: "/computer-science/theory/dolev-dwork-naor-1991",
+      title: "Dolev–Dwork–Naor 1991：看见密文之后为什么仍不该能改出相关明文的另一条",
+    },
+    {
+      url: "/computer-science/theory/goldreich-goldwasser-micali-1986",
+      title: "Goldreich–Goldwasser–Micali 1986：长度翻倍发生器怎样铺成询问下仍像随机的函数",
+    },
+    {
+      url: "/computer-science/theory/goldreich-levin-1989",
+      title: "Goldreich–Levin 1989：每个单向函数都有一枚内积硬核谓词",
+    },
+    {
+      url: "/computer-science/theory/goldreich-micali-wigderson-1986",
+      title: "Goldreich–Micali–Wigderson 1986：NP 里每个语言怎样都有计算零知识证明",
+    },
+    {
+      url: "/computer-science/theory/goldreich-micali-wigderson-1987",
+      title:
+        "Goldreich–Micali–Wigderson 1987：任意心智博弈怎样在诚实多数下被编译成不泄露部分信息的协议",
+    },
+    {
+      url: "/computer-science/theory/goldwasser-micali-1984",
+      title: "Goldwasser–Micali 1984：语义安全怎样把密文写成多项式不可区分",
+    },
+    {
+      url: "/computer-science/theory/luby-rackoff-1988",
+      title: "Luby–Rackoff 1988：伪随机函数怎样三轮费斯托变成询问下仍像随机的置换",
+    },
+    {
+      url: "/computer-science/theory/naor-yung-1990",
+      title: "Naor–Yung 1990：被动窃听上的公钥怎样加上非交互零知识挡住选择密文",
+    },
+    {
+      url: "/computer-science/theory/rackoff-simon-1991",
+      title: "Rackoff–Simon 1991：选择密文的时间窗怎样被拉到看见挑战之后",
+    },
+    {
+      url: "/computer-science/theory/yao-1982-trapdoor-functions",
+      title: "Yao 1982：陷门函数怎样把单向置换的硬度放大成假硬币",
     },
   ],
   "/computer-science/theory/gray-1978-two-phase-commit": [
@@ -15152,6 +16397,88 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/theory/savitch-1970-theorem",
       title: "Savitch 1970：非确定性空间怎样被确定性平方空间模拟",
+    },
+  ],
+  "/computer-science/theory/impagliazzo-1995-hard-core": [
+    {
+      url: "/computer-science/theory/goldreich-levin-1989",
+      title: "Goldreich–Levin 1989：每个单向函数都有一枚内积硬核谓词",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-levin-luby-1989",
+      title: "Impagliazzo–Levin–Luby 1989：一般单向函数怎样交出多项式时间伪随机发生器",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-wigderson-1997",
+      title: "Impagliazzo–Wigderson 1997：E 的指数电路硬度怎样把 BPP 收成 P",
+    },
+    {
+      url: "/computer-science/theory/yao-1982-trapdoor-functions",
+      title: "Yao 1982：陷门函数怎样把单向置换的硬度放大成假硬币",
+    },
+  ],
+  "/computer-science/theory/impagliazzo-levin-luby-1989": [
+    {
+      url: "/computer-science/theory/goldreich-goldwasser-micali-1986",
+      title: "Goldreich–Goldwasser–Micali 1986：长度翻倍发生器怎样铺成询问下仍像随机的函数",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-wigderson-1997",
+      title: "Impagliazzo–Wigderson 1997：E 的指数电路硬度怎样把 BPP 收成 P",
+    },
+    {
+      url: "/computer-science/theory/luby-rackoff-1988",
+      title: "Luby–Rackoff 1988：伪随机函数怎样三轮费斯托变成询问下仍像随机的置换",
+    },
+    {
+      url: "/computer-science/theory/nisan-wigderson-1994",
+      title: "Nisan–Wigderson 1994：E 里足够硬的函数怎样冒充 BPP 测试者的硬币",
+    },
+  ],
+  "/computer-science/theory/impagliazzo-wigderson-1997": [
+    {
+      url: "/computer-science/theory/circuit-complexity",
+      title: "电路复杂度",
+    },
+    {
+      url: "/computer-science/theory/cryptography-foundations",
+      title: "密码学基础",
+    },
+    {
+      url: "/computer-science/theory/average-case-complexity",
+      title: "平均情况复杂性与密码学的五个世界",
+    },
+    {
+      url: "/computer-science/theory/randomized-algorithms",
+      title: "随机算法",
+    },
+    {
+      url: "/computer-science/theory/adleman-1978-bpp-ppoly",
+      title: "Adleman 1978：可放大的随机性怎样被多项式忠告替换",
+    },
+    {
+      url: "/computer-science/theory/blum-micali-1984",
+      title: "Blum–Micali 1984：离散对数硬核怎样迭代成密码学伪随机比特",
+    },
+    {
+      url: "/computer-science/theory/goldreich-levin-1989",
+      title: "Goldreich–Levin 1989：每个单向函数都有一枚内积硬核谓词",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-1995-hard-core",
+      title: "Impagliazzo 1995：略微难的问题怎样收成一块几乎乱猜的硬核分布",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-levin-luby-1989",
+      title: "Impagliazzo–Levin–Luby 1989：一般单向函数怎样交出多项式时间伪随机发生器",
+    },
+    {
+      url: "/computer-science/theory/nisan-wigderson-1994",
+      title: "Nisan–Wigderson 1994：E 里足够硬的函数怎样冒充 BPP 测试者的硬币",
+    },
+    {
+      url: "/computer-science/theory/yao-1982-trapdoor-functions",
+      title: "Yao 1982：陷门函数怎样把单向置换的硬度放大成假硬币",
     },
   ],
   "/computer-science/theory/information-theory": [
@@ -15470,8 +16797,37 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "为什么 P vs NP 这么难证：三道障碍",
     },
     {
+      url: "/computer-science/theory/bellare-rogaway-1993",
+      title: "Bellare–Rogaway 1993：为什么先把哈希当成公开的随机预言机",
+    },
+    {
+      url: "/computer-science/theory/dolev-dwork-naor-1991",
+      title: "Dolev–Dwork–Naor 1991：看见密文之后为什么仍不该能改出相关明文的另一条",
+    },
+    {
+      url: "/computer-science/theory/goldreich-micali-wigderson-1986",
+      title: "Goldreich–Micali–Wigderson 1986：NP 里每个语言怎样都有计算零知识证明",
+    },
+    {
+      url: "/computer-science/theory/goldreich-micali-wigderson-1987",
+      title:
+        "Goldreich–Micali–Wigderson 1987：任意心智博弈怎样在诚实多数下被编译成不泄露部分信息的协议",
+    },
+    {
+      url: "/computer-science/theory/goldwasser-micali-1984",
+      title: "Goldwasser–Micali 1984：语义安全怎样把密文写成多项式不可区分",
+    },
+    {
       url: "/computer-science/theory/goldwasser-micali-rackoff-1985",
       title: "Goldwasser–Micali–Rackoff 1985：交互证明系统的知识复杂度怎样把零知识写成定义",
+    },
+    {
+      url: "/computer-science/theory/naor-yung-1990",
+      title: "Naor–Yung 1990：被动窃听上的公钥怎样加上非交互零知识挡住选择密文",
+    },
+    {
+      url: "/computer-science/theory/rackoff-simon-1991",
+      title: "Rackoff–Simon 1991：选择密文的时间窗怎样被拉到看见挑战之后",
     },
   ],
   "/computer-science/theory/karp-1972-reducibility": [
@@ -15828,6 +17184,60 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Hoare 1969：公理基础怎样把程序正确性写成可推导的三元组",
     },
   ],
+  "/computer-science/theory/luby-rackoff-1988": [
+    {
+      url: "/computer-science/theory/bellare-rogaway-1993",
+      title: "Bellare–Rogaway 1993：为什么先把哈希当成公开的随机预言机",
+    },
+    {
+      url: "/computer-science/theory/bellare-rogaway-1994-oaep",
+      title: "Bellare–Rogaway 1994：RSA 前面那两轮掩码为什么被叫优选",
+    },
+    {
+      url: "/computer-science/theory/goldreich-goldwasser-micali-1986",
+      title: "Goldreich–Goldwasser–Micali 1986：长度翻倍发生器怎样铺成询问下仍像随机的函数",
+    },
+  ],
+  "/computer-science/theory/merkle-1978": [
+    {
+      url: "/computer-science/concepts/encryption-basics",
+      title: "加密基础",
+    },
+    {
+      url: "/computer-science/theory/diffie-hellman-1976",
+      title: "Diffie–Hellman 1976：公钥怎样把陷门、指数与签名写成公开程序",
+    },
+    {
+      url: "/computer-science/theory/naor-yung-1990",
+      title: "Naor–Yung 1990：被动窃听上的公钥怎样加上非交互零知识挡住选择密文",
+    },
+  ],
+  "/computer-science/theory/naor-yung-1990": [
+    {
+      url: "/computer-science/theory/bellare-rogaway-1993",
+      title: "Bellare–Rogaway 1993：为什么先把哈希当成公开的随机预言机",
+    },
+    {
+      url: "/computer-science/theory/bellare-rogaway-1994-oaep",
+      title: "Bellare–Rogaway 1994：RSA 前面那两轮掩码为什么被叫优选",
+    },
+    {
+      url: "/computer-science/theory/cramer-shoup-1998",
+      title: "Cramer–Shoup 1998：判定性迪菲–赫尔曼上怎样交出不再挂非交互零知识的选择密文",
+    },
+    {
+      url: "/computer-science/theory/dolev-dwork-naor-1991",
+      title: "Dolev–Dwork–Naor 1991：看见密文之后为什么仍不该能改出相关明文的另一条",
+    },
+    {
+      url: "/computer-science/theory/goldwasser-micali-1984",
+      title: "Goldwasser–Micali 1984：语义安全怎样把密文写成多项式不可区分",
+    },
+    {
+      url: "/computer-science/theory/rackoff-simon-1991",
+      title: "Rackoff–Simon 1991：选择密文的时间窗怎样被拉到看见挑战之后",
+    },
+  ],
   "/computer-science/theory/nisan-wigderson-1994": [
     {
       url: "/computer-science/theory/circuit-complexity",
@@ -15854,8 +17264,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Adleman 1978：可放大的随机性怎样被多项式忠告替换",
     },
     {
+      url: "/computer-science/theory/blum-micali-1984",
+      title: "Blum–Micali 1984：离散对数硬核怎样迭代成密码学伪随机比特",
+    },
+    {
+      url: "/computer-science/theory/goldreich-levin-1989",
+      title: "Goldreich–Levin 1989：每个单向函数都有一枚内积硬核谓词",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-1995-hard-core",
+      title: "Impagliazzo 1995：略微难的问题怎样收成一块几乎乱猜的硬核分布",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-levin-luby-1989",
+      title: "Impagliazzo–Levin–Luby 1989：一般单向函数怎样交出多项式时间伪随机发生器",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-wigderson-1997",
+      title: "Impagliazzo–Wigderson 1997：E 的指数电路硬度怎样把 BPP 收成 P",
+    },
+    {
       url: "/computer-science/theory/karp-lipton-1980",
       title: "Karp–Lipton 1980：SAT 若有多项式电路，多项式层次怎样坍到第二层",
+    },
+    {
+      url: "/computer-science/theory/yao-1982-trapdoor-functions",
+      title: "Yao 1982：陷门函数怎样把单向置换的硬度放大成假硬币",
     },
   ],
   "/computer-science/theory/parameterized-complexity": [
@@ -16116,6 +17550,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "制冷与热泵",
     },
   ],
+  "/computer-science/theory/rackoff-simon-1991": [
+    {
+      url: "/computer-science/theory/bellare-rogaway-1993",
+      title: "Bellare–Rogaway 1993：为什么先把哈希当成公开的随机预言机",
+    },
+    {
+      url: "/computer-science/theory/bellare-rogaway-1994-oaep",
+      title: "Bellare–Rogaway 1994：RSA 前面那两轮掩码为什么被叫优选",
+    },
+    {
+      url: "/computer-science/theory/cramer-shoup-1998",
+      title: "Cramer–Shoup 1998：判定性迪菲–赫尔曼上怎样交出不再挂非交互零知识的选择密文",
+    },
+    {
+      url: "/computer-science/theory/dolev-dwork-naor-1991",
+      title: "Dolev–Dwork–Naor 1991：看见密文之后为什么仍不该能改出相关明文的另一条",
+    },
+    {
+      url: "/computer-science/theory/naor-yung-1990",
+      title: "Naor–Yung 1990：被动窃听上的公钥怎样加上非交互零知识挡住选择密文",
+    },
+  ],
   "/computer-science/theory/randomized-algorithms": [
     {
       url: "/philosophy/experiments/buridans-donkey",
@@ -16182,28 +17638,101 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Adleman 1978：可放大的随机性怎样被多项式忠告替换",
     },
     {
+      url: "/computer-science/theory/bellare-rogaway-1993",
+      title: "Bellare–Rogaway 1993：为什么先把哈希当成公开的随机预言机",
+    },
+    {
       url: "/computer-science/theory/ben-or-1983",
       title: "Ben-Or 1983：抛硬币怎样把异步共识的终止改成几乎必然",
+    },
+    {
+      url: "/computer-science/theory/blum-micali-1984",
+      title: "Blum–Micali 1984：离散对数硬核怎样迭代成密码学伪随机比特",
     },
     {
       url: "/computer-science/theory/chandra-toueg-1996",
       title: "Chandra–Toueg 1996：会犯错的怀疑预言怎样成为共识的最弱检测器",
     },
     {
+      url: "/computer-science/theory/cramer-shoup-1998",
+      title: "Cramer–Shoup 1998：判定性迪菲–赫尔曼上怎样交出不再挂非交互零知识的选择密文",
+    },
+    {
+      url: "/computer-science/theory/diffie-hellman-1976",
+      title: "Diffie–Hellman 1976：公钥怎样把陷门、指数与签名写成公开程序",
+    },
+    {
+      url: "/computer-science/theory/dolev-dwork-naor-1991",
+      title: "Dolev–Dwork–Naor 1991：看见密文之后为什么仍不该能改出相关明文的另一条",
+    },
+    {
       url: "/computer-science/theory/flp-fischer-lynch-paterson-1985",
       title: "FLP：完全异步下一次崩溃也能挡住确定性共识",
+    },
+    {
+      url: "/computer-science/theory/goldreich-goldwasser-micali-1986",
+      title: "Goldreich–Goldwasser–Micali 1986：长度翻倍发生器怎样铺成询问下仍像随机的函数",
+    },
+    {
+      url: "/computer-science/theory/goldreich-levin-1989",
+      title: "Goldreich–Levin 1989：每个单向函数都有一枚内积硬核谓词",
+    },
+    {
+      url: "/computer-science/theory/goldreich-micali-wigderson-1986",
+      title: "Goldreich–Micali–Wigderson 1986：NP 里每个语言怎样都有计算零知识证明",
+    },
+    {
+      url: "/computer-science/theory/goldreich-micali-wigderson-1987",
+      title:
+        "Goldreich–Micali–Wigderson 1987：任意心智博弈怎样在诚实多数下被编译成不泄露部分信息的协议",
+    },
+    {
+      url: "/computer-science/theory/goldwasser-micali-1984",
+      title: "Goldwasser–Micali 1984：语义安全怎样把密文写成多项式不可区分",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-1995-hard-core",
+      title: "Impagliazzo 1995：略微难的问题怎样收成一块几乎乱猜的硬核分布",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-levin-luby-1989",
+      title: "Impagliazzo–Levin–Luby 1989：一般单向函数怎样交出多项式时间伪随机发生器",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-wigderson-1997",
+      title: "Impagliazzo–Wigderson 1997：E 的指数电路硬度怎样把 BPP 收成 P",
+    },
+    {
+      url: "/computer-science/theory/luby-rackoff-1988",
+      title: "Luby–Rackoff 1988：伪随机函数怎样三轮费斯托变成询问下仍像随机的置换",
+    },
+    {
+      url: "/computer-science/theory/naor-yung-1990",
+      title: "Naor–Yung 1990：被动窃听上的公钥怎样加上非交互零知识挡住选择密文",
     },
     {
       url: "/computer-science/theory/nisan-wigderson-1994",
       title: "Nisan–Wigderson 1994：E 里足够硬的函数怎样冒充 BPP 测试者的硬币",
     },
     {
+      url: "/computer-science/theory/rackoff-simon-1991",
+      title: "Rackoff–Simon 1991：选择密文的时间窗怎样被拉到看见挑战之后",
+    },
+    {
       url: "/computer-science/algorithms/public-key-rsa",
       title: "RSA 公钥密码",
     },
     {
+      url: "/computer-science/theory/valiant-vazirani-1986",
+      title: "Valiant–Vazirani 1986：唯一可满足性怎样被随机归约钉成和 SAT 一样硬",
+    },
+    {
       url: "/computer-science/theory/yao-1979-communication-complexity",
       title: "Yao 1979：分布式计算的复杂度问题怎样把通信写成资源",
+    },
+    {
+      url: "/computer-science/theory/yao-1982-trapdoor-functions",
+      title: "Yao 1982：陷门函数怎样把单向置换的硬度放大成假硬币",
     },
   ],
   "/computer-science/theory/razborov-1985-monotone": [
@@ -16236,6 +17765,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/theory/furst-saxe-sipser-1984",
       title: "Furst–Saxe–Sipser 1984：常数深度电路怎样算不出奇偶性",
+    },
+    {
+      url: "/computer-science/theory/goldreich-goldwasser-micali-1986",
+      title: "Goldreich–Goldwasser–Micali 1986：长度翻倍发生器怎样铺成询问下仍像随机的函数",
     },
     {
       url: "/computer-science/theory/hastad-1986-small-depth",
@@ -16359,8 +17892,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/computer-science/theory/valiant-1979-permanent",
       title: "Valiant 1979：积和式怎样把计数写成比判定更硬的类",
     },
+    {
+      url: "/computer-science/theory/valiant-vazirani-1986",
+      title: "Valiant–Vazirani 1986：唯一可满足性怎样被随机归约钉成和 SAT 一样硬",
+    },
   ],
   "/computer-science/theory/valiant-1979-permanent": [
+    {
+      url: "/computer-science/theory/counting-complexity",
+      title: "计数复杂度",
+    },
+    {
+      url: "/computer-science/theory/toda-1991",
+      title: "Toda 1991：多项式层次怎样被一次",
+    },
+    {
+      url: "/computer-science/theory/valiant-vazirani-1986",
+      title: "Valiant–Vazirani 1986：唯一可满足性怎样被随机归约钉成和 SAT 一样硬",
+    },
+  ],
+  "/computer-science/theory/valiant-vazirani-1986": [
     {
       url: "/computer-science/theory/counting-complexity",
       title: "计数复杂度",
@@ -16378,6 +17929,93 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/pioneers/andrew-yao",
       title: "姚期智",
+    },
+    {
+      url: "/computer-science/theory/goldreich-levin-1989",
+      title: "Goldreich–Levin 1989：每个单向函数都有一枚内积硬核谓词",
+    },
+    {
+      url: "/computer-science/theory/yao-1982-trapdoor-functions",
+      title: "Yao 1982：陷门函数怎样把单向置换的硬度放大成假硬币",
+    },
+  ],
+  "/computer-science/theory/yao-1982-trapdoor-functions": [
+    {
+      url: "/computer-science/pioneers/andrew-yao",
+      title: "姚期智",
+    },
+    {
+      url: "/computer-science/theory/bellare-rogaway-1993",
+      title: "Bellare–Rogaway 1993：为什么先把哈希当成公开的随机预言机",
+    },
+    {
+      url: "/computer-science/theory/bellare-rogaway-1994-oaep",
+      title: "Bellare–Rogaway 1994：RSA 前面那两轮掩码为什么被叫优选",
+    },
+    {
+      url: "/computer-science/theory/blum-micali-1984",
+      title: "Blum–Micali 1984：离散对数硬核怎样迭代成密码学伪随机比特",
+    },
+    {
+      url: "/computer-science/theory/cramer-shoup-1998",
+      title: "Cramer–Shoup 1998：判定性迪菲–赫尔曼上怎样交出不再挂非交互零知识的选择密文",
+    },
+    {
+      url: "/computer-science/theory/diffie-hellman-1976",
+      title: "Diffie–Hellman 1976：公钥怎样把陷门、指数与签名写成公开程序",
+    },
+    {
+      url: "/computer-science/theory/dolev-dwork-naor-1991",
+      title: "Dolev–Dwork–Naor 1991：看见密文之后为什么仍不该能改出相关明文的另一条",
+    },
+    {
+      url: "/computer-science/theory/goldreich-goldwasser-micali-1986",
+      title: "Goldreich–Goldwasser–Micali 1986：长度翻倍发生器怎样铺成询问下仍像随机的函数",
+    },
+    {
+      url: "/computer-science/theory/goldreich-micali-wigderson-1986",
+      title: "Goldreich–Micali–Wigderson 1986：NP 里每个语言怎样都有计算零知识证明",
+    },
+    {
+      url: "/computer-science/theory/goldreich-micali-wigderson-1987",
+      title:
+        "Goldreich–Micali–Wigderson 1987：任意心智博弈怎样在诚实多数下被编译成不泄露部分信息的协议",
+    },
+    {
+      url: "/computer-science/theory/goldwasser-micali-1984",
+      title: "Goldwasser–Micali 1984：语义安全怎样把密文写成多项式不可区分",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-1995-hard-core",
+      title: "Impagliazzo 1995：略微难的问题怎样收成一块几乎乱猜的硬核分布",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-levin-luby-1989",
+      title: "Impagliazzo–Levin–Luby 1989：一般单向函数怎样交出多项式时间伪随机发生器",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-wigderson-1997",
+      title: "Impagliazzo–Wigderson 1997：E 的指数电路硬度怎样把 BPP 收成 P",
+    },
+    {
+      url: "/computer-science/theory/luby-rackoff-1988",
+      title: "Luby–Rackoff 1988：伪随机函数怎样三轮费斯托变成询问下仍像随机的置换",
+    },
+    {
+      url: "/computer-science/theory/merkle-1978",
+      title: "Merkle 1978：N 枚谜题怎样把公开分发的窃听代价抬成平方",
+    },
+    {
+      url: "/computer-science/theory/naor-yung-1990",
+      title: "Naor–Yung 1990：被动窃听上的公钥怎样加上非交互零知识挡住选择密文",
+    },
+    {
+      url: "/computer-science/theory/nisan-wigderson-1994",
+      title: "Nisan–Wigderson 1994：E 里足够硬的函数怎样冒充 BPP 测试者的硬币",
+    },
+    {
+      url: "/computer-science/theory/rackoff-simon-1991",
+      title: "Rackoff–Simon 1991：选择密文的时间窗怎样被拉到看见挑战之后",
     },
   ],
   "/cosmology/dialogues/cosmology-crisis": [
@@ -27642,10 +29280,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "信息时代",
     },
     {
-      url: "/economics/economists/adam-smith",
-      title: "亚当·斯密",
-    },
-    {
       url: "/computer-science/algorithms/consistent-hashing",
       title: "一致性哈希",
     },
@@ -27694,6 +29328,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/kant",
       title: "康德",
+    },
+    {
+      url: "/economics/economists/richard-thaler",
+      title: "理查德·塞勒",
     },
     {
       url: "/psychology/theorists/richard-thaler",
@@ -27966,10 +29604,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/concepts/network-effects",
       title: "网络效应",
-    },
-    {
-      url: "/economics/economists/adam-smith",
-      title: "亚当·斯密",
     },
     {
       url: "/political-science/frontier/ai-governance-surveillance",
@@ -28610,6 +30244,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "让-雅克·卢梭",
     },
     {
+      url: "/psychology/experiments/tversky-1972-elimination-by-aspects",
+      title: "特沃斯基 1972：选择怎样被写成按方面的隐蔽逐次剔除",
+    },
+    {
       url: "/political-science/institutions/constitutionalism-separation-of-powers",
       title: "宪政与分权",
     },
@@ -28882,8 +30520,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/economics/debates/keynes-vs-hayek": [
     {
+      url: "/economics/economists/friedrich-hayek",
+      title: "弗里德里希·哈耶克",
+    },
+    {
       url: "/economics/theories/keynesian-economics",
       title: "凯恩斯主义经济学",
+    },
+    {
+      url: "/economics/economists/john-maynard-keynes",
+      title: "约翰·梅纳德·凯恩斯",
     },
   ],
   "/economics/debates/rational-expectations": [
@@ -28951,6 +30597,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/economics/dialogues/pigou-coase-externalities": [
+    {
+      url: "/economics/economists/arthur-pigou",
+      title: "阿瑟·庇古",
+    },
     {
       url: "/economics/debates/basic-income-vs-job-guarantee",
       title: "基本收入还是就业保障：社会应当保证钱还是工作",
@@ -29568,6 +31218,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/economics/frontier/climate-economics-carbon-pricing": [
     {
+      url: "/economics/economists/arthur-pigou",
+      title: "阿瑟·庇古",
+    },
+    {
       url: "/economics/policy-analyses/british-columbia-carbon-tax",
       title: "不列颠哥伦比亚碳税政策剖析",
     },
@@ -29942,6 +31596,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/thinkers/thomas-paine",
       title: "托马斯·潘恩",
+    },
+    {
+      url: "/economics/economists/thomas-piketty",
+      title: "托马斯·皮凯蒂",
     },
     {
       url: "/philosophy/questions/should-we-have-children",
@@ -30512,6 +32170,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "大津巴布韦",
     },
     {
+      url: "/economics/economists/david-ricardo",
+      title: "大卫·李嘉图",
+    },
+    {
       url: "/chemistry/concepts/electrochemistry",
       title: "电化学",
     },
@@ -30794,6 +32456,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "正义",
     },
   ],
+  "/economics/theories/heckscher-ohlin-model": [
+    {
+      url: "/economics/economists/bertil-ohlin",
+      title: "贝蒂尔·俄林",
+    },
+  ],
   "/economics/theories/indian-institutional-economics": [
     {
       url: "/economics/case-studies/india-growth-employment-constraints-2026",
@@ -31008,6 +32676,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/aesthetics/art-market-and-value",
       title: "艺术市场与价值：杰作的价格是如何被制造出来的",
+    },
+    {
+      url: "/economics/economists/joseph-stiglitz",
+      title: "约瑟夫·斯蒂格利茨",
     },
     {
       url: "/political-science/concepts/political-representation",
@@ -36636,6 +38308,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "行政法：给行政权力装上刹车与方向盘",
     },
     {
+      url: "/philosophy/experiments/strawson-1964-intention-convention",
+      title: "言语行为中的意图与惯例",
+    },
+    {
       url: "/law/foundations/legal-persons-acts-liability",
       title: '主体、行为与责任：谁在法律上"算数"',
     },
@@ -41286,6 +42962,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "第一语言习得",
     },
     {
+      url: "/psychology/experiments/heider-1972-color-naming-memory",
+      title: "海德 1972：颜色命名与记忆里的普遍性怎样被写成焦点",
+    },
+    {
+      url: "/psychology/experiments/heider-olivier-1972-color-space",
+      title: "海德与奥利维尔 1972：两种语言里色空间的命名结构与记忆结构怎样被拆开",
+    },
+    {
+      url: "/psychology/experiments/rosch-1973-natural-categories",
+      title: "罗施 1973：自然范畴怎样被写成焦点与边缘的内部结构",
+    },
+    {
+      url: "/psychology/experiments/rosch-1975-semantic-categories",
+      title: "罗施 1975：语义范畴怎样被写成带内部结构的认知表征",
+    },
+    {
       url: "/linguistics/sounds-and-signs/voice-onset-time",
       title: "嗓音起始时间：连续气流怎样被切成清浊",
     },
@@ -42490,6 +44182,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/linguistics/methods-and-frontiers/experimental-pragmatics": [
     {
+      url: "/philosophy/experiments/grice-1968-utterers-sentence-word",
+      title: "说话人、语句与语词意义",
+    },
+    {
+      url: "/philosophy/experiments/grice-1969-utterers-meaning",
+      title: "说话人意义与意图",
+    },
+    {
+      url: "/philosophy/experiments/grice-1957-meaning",
+      title: "意义",
+    },
+    {
       url: "/linguistics/words-sentences-meaning/pragmatics",
       title: "语用学：语境、意图与会话",
     },
@@ -43320,8 +45024,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "话语与篇章分析：句子以上的语言组织",
     },
     {
+      url: "/philosophy/experiments/grice-1978-further-notes",
+      title: "会话含义的续论",
+    },
+    {
       url: "/philosophy/experiments/wittgenstein-beetle",
       title: "甲虫盒子：私人对象在语言游戏中约去",
+    },
+    {
+      url: "/philosophy/experiments/searle-1975-indirect-speech-acts",
+      title: "间接言语行为",
     },
     {
       url: "/literature/narrative-basics/oral-storytelling",
@@ -43330,6 +45042,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/experiments/strawson-1950-on-referring",
       title: "论指称",
+    },
+    {
+      url: "/philosophy/experiments/grice-1975-logic-and-conversation",
+      title: "逻辑与会话",
     },
     {
       url: "/economics/economists/george-akerlof",
@@ -43346,6 +45062,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/methods-and-frontiers/experimental-pragmatics",
       title: "实验语用学：含义如何被测量",
+    },
+    {
+      url: "/philosophy/experiments/grice-1968-utterers-sentence-word",
+      title: "说话人、语句与语词意义",
+    },
+    {
+      url: "/philosophy/experiments/grice-1969-utterers-meaning",
+      title: "说话人意义与意图",
     },
     {
       url: "/computer-science/pioneers/donald-knuth",
@@ -43382,6 +45106,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/concepts/freedom-of-speech",
       title: "言论自由",
+    },
+    {
+      url: "/philosophy/experiments/strawson-1964-intention-convention",
+      title: "言语行为中的意图与惯例",
+    },
+    {
+      url: "/philosophy/experiments/grice-1957-meaning",
+      title: "意义",
     },
     {
       url: "/philosophy/questions/what-is-meaning",
@@ -43544,6 +45276,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/concepts/logic",
       title: "逻辑",
+    },
+    {
+      url: "/philosophy/experiments/grice-1975-logic-and-conversation",
+      title: "逻辑与会话",
     },
     {
       url: "/political-science/thinkers/michael-walzer",
@@ -48430,6 +50166,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "特里斯曼 1960：衰减怎样把被拒绝通路从全关改写成阈值仍可能被情境接住",
     },
     {
+      url: "/psychology/experiments/tversky-1972-elimination-by-aspects",
+      title: "特沃斯基 1972：选择怎样被写成按方面的隐蔽逐次剔除",
+    },
+    {
       url: "/computer-science/algorithms/skip-lists",
       title: "跳表",
     },
@@ -48698,6 +50438,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "V8 的分层 JIT：动态语言如何跑得快",
     },
     {
+      url: "/computer-science/theory/valiant-vazirani-1986",
+      title: "Valiant–Vazirani 1986：唯一可满足性怎样被随机归约钉成和 SAT 一样硬",
+    },
+    {
       url: "/computer-science/systems/viewstamped-replication-1988",
       title: "Viewstamped Replication：视图、主副本与盖章请求，不是又一份 Paxos",
     },
@@ -48788,6 +50532,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "莱布尼茨",
     },
     {
+      url: "/philosophy/experiments/frege-1892-sense-reference",
+      title: "论涵义与指称",
+    },
+    {
       url: "/computer-science/theory/logic-and-computation",
       title: "逻辑与计算",
     },
@@ -48806,6 +50554,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/frontier/fully-homomorphic-encryption",
       title: "全同态加密：在密文上计算",
+    },
+    {
+      url: "/philosophy/experiments/austin-1962-how-to-do-things",
+      title: "如何以言行事",
     },
     {
       url: "/computer-science/pioneers/shafi-goldwasser",
@@ -48828,12 +50580,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "四色定理",
     },
     {
+      url: "/psychology/experiments/tversky-1977-features-of-similarity",
+      title: "特沃斯基 1977：相似性怎样被写成对共同与差异特征的匹配",
+    },
+    {
       url: "/computer-science/concepts/crdts",
       title: "无冲突复制数据类型",
     },
     {
       url: "/computer-science/theory/fine-grained-complexity",
       title: "细粒度复杂度",
+    },
+    {
+      url: "/philosophy/experiments/searle-1969-speech-acts",
+      title: "言语行为",
     },
     {
       url: "/computer-science/pioneers/judea-pearl",
@@ -48856,6 +50616,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "CPython 的 GIL",
     },
     {
+      url: "/chemistry/milestones/diels-alder-1928",
+      title: "Diels–Alder 1928：双烯加成怎样把六元环写成一步同时长出两键",
+    },
+    {
       url: "/computer-science/theory/dijkstra-1965-mutual-exclusion",
       title: "Dijkstra 1965：互斥怎样在没有仲裁者的共享变量上写成可推理的问题",
     },
@@ -48876,6 +50640,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Furst–Saxe–Sipser 1984：常数深度电路怎样算不出奇偶性",
     },
     {
+      url: "/computer-science/theory/goldreich-levin-1989",
+      title: "Goldreich–Levin 1989：每个单向函数都有一枚内积硬核谓词",
+    },
+    {
       url: "/computer-science/theory/goldwasser-micali-rackoff-1985",
       title: "Goldwasser–Micali–Rackoff 1985：交互证明系统的知识复杂度怎样把零知识写成定义",
     },
@@ -48886,6 +50654,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/theory/hoare-1969-axiomatic",
       title: "Hoare 1969：公理基础怎样把程序正确性写成可推导的三元组",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-1995-hard-core",
+      title: "Impagliazzo 1995：略微难的问题怎样收成一块几乎乱猜的硬核分布",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-wigderson-1997",
+      title: "Impagliazzo–Wigderson 1997：E 的指数电路硬度怎样把 BPP 收成 P",
     },
     {
       url: "/computer-science/systems/hotspot-jvm",
@@ -48948,12 +50724,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Valiant 1979：积和式怎样把计数写成比判定更硬的类",
     },
     {
+      url: "/computer-science/theory/valiant-vazirani-1986",
+      title: "Valiant–Vazirani 1986：唯一可满足性怎样被随机归约钉成和 SAT 一样硬",
+    },
+    {
       url: "/computer-science/concepts/webassembly",
       title: "WebAssembly",
     },
     {
       url: "/computer-science/theory/yao-1979-communication-complexity",
       title: "Yao 1979：分布式计算的复杂度问题怎样把通信写成资源",
+    },
+    {
+      url: "/computer-science/theory/yao-1982-trapdoor-functions",
+      title: "Yao 1982：陷门函数怎样把单向置换的硬度放大成假硬币",
     },
     {
       url: "/computer-science/theory/lambda-calculus-type-theory",
@@ -49068,6 +50852,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "公理",
     },
     {
+      url: "/psychology/experiments/heider-1972-color-naming-memory",
+      title: "海德 1972：颜色命名与记忆里的普遍性怎样被写成焦点",
+    },
+    {
+      url: "/psychology/experiments/heider-olivier-1972-color-space",
+      title: "海德与奥利维尔 1972：两种语言里色空间的命名结构与记忆结构怎样被拆开",
+    },
+    {
       url: "/mathematics/concepts/function",
       title: "函数",
     },
@@ -49078,6 +50870,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/experiments/kripke-quus",
       title: "克里普克的 quus：过去用法怎样钉不住加法",
+    },
+    {
+      url: "/psychology/experiments/rosch-1973-natural-categories",
+      title: "罗施 1973：自然范畴怎样被写成焦点与边缘的内部结构",
+    },
+    {
+      url: "/psychology/experiments/rosch-1975-semantic-categories",
+      title: "罗施 1975：语义范畴怎样被写成带内部结构的认知表征",
+    },
+    {
+      url: "/psychology/experiments/rosch-1975-cognitive-reference-points",
+      title: "罗施 1975：原型怎样被写成认知参照点",
+    },
+    {
+      url: "/psychology/experiments/rosch-mervis-1975-family-resemblances",
+      title: "罗施与默维斯 1975：家族相似怎样被写成范畴的内部结构",
     },
     {
       url: "/mathematics/paradoxes/russels-paradox",
@@ -49102,6 +50910,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/number-line",
       title: "数轴",
+    },
+    {
+      url: "/psychology/experiments/tversky-1972-elimination-by-aspects",
+      title: "特沃斯基 1972：选择怎样被写成按方面的隐蔽逐次剔除",
+    },
+    {
+      url: "/psychology/experiments/tversky-1977-features-of-similarity",
+      title: "特沃斯基 1977：相似性怎样被写成对共同与差异特征的匹配",
     },
     {
       url: "/mathematics/knowledge-base/分析--无穷的故事",
@@ -50584,6 +52400,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/experiments/kahneman-tversky-1972",
       title: "卡尼曼与特沃斯基 1972：主观概率怎样被写成对代表性的判断",
+    },
+    {
+      url: "/psychology/experiments/kahneman-tversky-1973-prediction",
+      title: "卡尼曼与特沃斯基 1973：预测怎样被写成对代表性的判断，而基础比率被丢掉",
     },
     {
       url: "/computer-science/concepts/observability-and-monitoring",
@@ -52914,6 +54734,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "古DNA能替谁认亲",
     },
     {
+      url: "/psychology/experiments/heider-1972-color-naming-memory",
+      title: "海德 1972：颜色命名与记忆里的普遍性怎样被写成焦点",
+    },
+    {
+      url: "/psychology/experiments/heider-olivier-1972-color-space",
+      title: "海德与奥利维尔 1972：两种语言里色空间的命名结构与记忆结构怎样被拆开",
+    },
+    {
       url: "/medicine/ethics/henrietta-lacks-hela",
       title: "海拉细胞与亨丽埃塔·拉克斯",
     },
@@ -52950,6 +54778,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "卡尼曼与特沃斯基 1972：主观概率怎样被写成对代表性的判断",
     },
     {
+      url: "/psychology/experiments/kahneman-tversky-1973-prediction",
+      title: "卡尼曼与特沃斯基 1973：预测怎样被写成对代表性的判断，而基础比率被丢掉",
+    },
+    {
       url: "/psychology/experiments/keppel-underwood-1962",
       title: "凯佩尔与安德伍德 1962：单项目短时保持里的前摄抑制怎样随试次变陡",
     },
@@ -52972,6 +54804,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/figures/robert-koch",
       title: "罗伯特·科赫",
+    },
+    {
+      url: "/psychology/experiments/rosch-1973-natural-categories",
+      title: "罗施 1973：自然范畴怎样被写成焦点与边缘的内部结构",
+    },
+    {
+      url: "/psychology/experiments/rosch-1975-semantic-categories",
+      title: "罗施 1975：语义范畴怎样被写成带内部结构的认知表征",
+    },
+    {
+      url: "/psychology/experiments/rosch-1975-cognitive-reference-points",
+      title: "罗施 1975：原型怎样被写成认知参照点",
+    },
+    {
+      url: "/psychology/experiments/rosch-mervis-1975-family-resemblances",
+      title: "罗施与默维斯 1975：家族相似怎样被写成范畴的内部结构",
     },
     {
       url: "/psychology/experiments/miller-1956",
@@ -53018,12 +54866,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "特里斯曼 1960：衰减怎样把被拒绝通路从全关改写成阈值仍可能被情境接住",
     },
     {
+      url: "/psychology/experiments/tversky-1972-elimination-by-aspects",
+      title: "特沃斯基 1972：选择怎样被写成按方面的隐蔽逐次剔除",
+    },
+    {
+      url: "/psychology/experiments/tversky-1977-features-of-similarity",
+      title: "特沃斯基 1977：相似性怎样被写成对共同与差异特征的匹配",
+    },
+    {
       url: "/psychology/experiments/tversky-kahneman-1973-availability",
       title: "特沃斯基与卡尼曼 1973：频率与概率怎样被写成对可得性的判断",
     },
     {
       url: "/psychology/experiments/tversky-kahneman-1974",
       title: "特沃斯基与卡尼曼 1974：不确定判断里的启发式怎样被写成可核对的偏差",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1981-framing",
+      title: "特沃斯基与卡尼曼 1981：决策怎样被写成对框架的选择",
     },
     {
       url: "/human-history/knowledge/人物--图灵",
@@ -56020,6 +57880,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/medicine/frontier/crispr-clinical-therapy": [
     {
+      url: "/philosophy/isms/essentialism",
+      title: "本质主义",
+    },
+    {
       url: "/philosophy/isms/transhumanism",
       title: "超人类主义",
     },
@@ -58078,8 +59942,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/concepts/dao": [
     {
+      url: "/philosophy/thinkers/laozi",
+      title: "老子",
+    },
+    {
       url: "/philosophy/concepts/wu-wei",
       title: "无为",
+    },
+    {
+      url: "/philosophy/thinkers/zhuangzi",
+      title: "庄子",
     },
   ],
   "/philosophy/concepts/decolonial-epistemology": [
@@ -59245,6 +61117,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/psychology/dialogues/seligman-csikszentmihalyi-happiness",
       title: "塞利格曼vs契克森米哈赖：幸福是什么",
     },
+    {
+      url: "/philosophy/thinkers/aristotle",
+      title: "亚里士多德",
+    },
   ],
   "/philosophy/concepts/identity": [
     {
@@ -60146,12 +62022,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "接受美学",
     },
   ],
-  "/philosophy/concepts/philosophy-of-ai": [
-    {
-      url: "/philosophy/thinkers/quine",
-      title: "蒯因",
-    },
-  ],
   "/philosophy/concepts/philosophy-of-language": [
     {
       url: "/computer-science/pioneers/ada-lovelace",
@@ -60174,6 +62044,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "弗雷格",
     },
     {
+      url: "/philosophy/experiments/grice-1978-further-notes",
+      title: "会话含义的续论",
+    },
+    {
+      url: "/philosophy/experiments/searle-1975-indirect-speech-acts",
+      title: "间接言语行为",
+    },
+    {
       url: "/literature/theory-and-method/reception-aesthetics",
       title: "接受美学",
     },
@@ -60190,6 +62068,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "莱布尼茨",
     },
     {
+      url: "/philosophy/experiments/frege-1892-sense-reference",
+      title: "论涵义与指称",
+    },
+    {
       url: "/philosophy/experiments/russell-1905-on-denoting",
       title: "论指称",
     },
@@ -60198,12 +62080,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "论指称",
     },
     {
+      url: "/philosophy/experiments/grice-1975-logic-and-conversation",
+      title: "逻辑与会话",
+    },
+    {
       url: "/linguistics/frontier/animal-communication-ai",
       title: "人工智能与动物交流：发现组合结构，距离“翻译”还有多远",
     },
     {
+      url: "/philosophy/experiments/austin-1962-how-to-do-things",
+      title: "如何以言行事",
+    },
+    {
       url: "/literature/contemporary-edges/generated-text-and-authorship",
       title: "生成文本与作者身份",
+    },
+    {
+      url: "/philosophy/experiments/grice-1968-utterers-sentence-word",
+      title: "说话人、语句与语词意义",
+    },
+    {
+      url: "/philosophy/experiments/grice-1969-utterers-meaning",
+      title: "说话人意义与意图",
     },
     {
       url: "/philosophy/thinkers/donald-davidson",
@@ -60226,8 +62124,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "叙述视角",
     },
     {
+      url: "/philosophy/experiments/searle-1969-speech-acts",
+      title: "言语行为",
+    },
+    {
+      url: "/philosophy/experiments/strawson-1964-intention-convention",
+      title: "言语行为中的意图与惯例",
+    },
+    {
       url: "/philosophy/thinkers/anscombe",
       title: "伊丽莎白·安斯康姆",
+    },
+    {
+      url: "/philosophy/experiments/grice-1957-meaning",
+      title: "意义",
     },
     {
       url: "/literature/poetics-and-form/metaphor-and-image",
@@ -61216,6 +63126,48 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "宗教与科学",
     },
   ],
+  "/philosophy/experiments/austin-1962-how-to-do-things": [
+    {
+      url: "/philosophy/experiments/grice-1978-further-notes",
+      title: "会话含义的续论",
+    },
+    {
+      url: "/philosophy/experiments/searle-1975-indirect-speech-acts",
+      title: "间接言语行为",
+    },
+    {
+      url: "/philosophy/experiments/grice-1975-logic-and-conversation",
+      title: "逻辑与会话",
+    },
+    {
+      url: "/philosophy/experiments/grice-1968-utterers-sentence-word",
+      title: "说话人、语句与语词意义",
+    },
+    {
+      url: "/philosophy/experiments/grice-1969-utterers-meaning",
+      title: "说话人意义与意图",
+    },
+    {
+      url: "/philosophy/experiments/searle-1969-speech-acts",
+      title: "言语行为",
+    },
+    {
+      url: "/philosophy/experiments/strawson-1964-intention-convention",
+      title: "言语行为中的意图与惯例",
+    },
+    {
+      url: "/philosophy/experiments/grice-1957-meaning",
+      title: "意义",
+    },
+    {
+      url: "/philosophy/concepts/philosophy-of-language",
+      title: "语言哲学",
+    },
+    {
+      url: "/philosophy/thinkers/austin",
+      title: "J.L. 奥斯汀",
+    },
+  ],
   "/philosophy/experiments/block-1978-china-brain": [
     {
       url: "/philosophy/experiments/philosophical-zombies",
@@ -61258,16 +63210,36 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "多头绒泡菌",
     },
     {
+      url: "/philosophy/isms/dualism",
+      title: "二元论",
+    },
+    {
       url: "/philosophy/experiments/wittgenstein-beetle",
       title: "甲虫盒子：私人对象在语言游戏中约去",
+    },
+    {
+      url: "/philosophy/experiments/searle-1975-indirect-speech-acts",
+      title: "间接言语行为",
+    },
+    {
+      url: "/philosophy/thinkers/quine",
+      title: "蒯因",
     },
     {
       url: "/philosophy/experiments/quine-gavagai",
       title: "蒯因的 Gavagai：刺激意义下的翻译不确定性",
     },
     {
+      url: "/philosophy/experiments/grice-1975-logic-and-conversation",
+      title: "逻辑与会话",
+    },
+    {
       url: "/computer-science/pioneers/marvin-minsky",
       title: "马文·明斯基",
+    },
+    {
+      url: "/philosophy/experiments/marys-room",
+      title: "玛丽的房间",
     },
     {
       url: "/philosophy/experiments/nagel-bat",
@@ -61282,6 +63254,38 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "数字人格与心灵上传：复制品是我吗",
     },
     {
+      url: "/philosophy/experiments/grice-1968-utterers-sentence-word",
+      title: "说话人、语句与语词意义",
+    },
+    {
+      url: "/philosophy/experiments/grice-1969-utterers-meaning",
+      title: "说话人意义与意图",
+    },
+    {
+      url: "/philosophy/questions/other-minds-problem",
+      title: "我们怎么知道他人有心智？",
+    },
+    {
+      url: "/philosophy/schools/philosophy-of-mind",
+      title: "心灵哲学",
+    },
+    {
+      url: "/psychology/theorists/jacques-lacan",
+      title: "雅克·拉康",
+    },
+    {
+      url: "/philosophy/experiments/searle-1969-speech-acts",
+      title: "言语行为",
+    },
+    {
+      url: "/philosophy/experiments/grice-1957-meaning",
+      title: "意义",
+    },
+    {
+      url: "/philosophy/concepts/philosophy-of-language",
+      title: "语言哲学",
+    },
+    {
       url: "/philosophy/experiments/block-1978-china-brain",
       title: "中国脑",
     },
@@ -61291,6 +63295,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/philosophy/experiments/donnellan-1966-referring": [
+    {
+      url: "/philosophy/experiments/frege-1892-sense-reference",
+      title: "论涵义与指称",
+    },
     {
       url: "/philosophy/experiments/russell-1905-on-denoting",
       title: "论指称",
@@ -61398,6 +63406,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/isms/libertarianism-free-will",
       title: "自由意志论",
+    },
+  ],
+  "/philosophy/experiments/frege-1892-sense-reference": [
+    {
+      url: "/philosophy/experiments/russell-1905-on-denoting",
+      title: "论指称",
+    },
+    {
+      url: "/philosophy/experiments/kripke-1980-naming",
+      title: "命名与必然性",
+    },
+    {
+      url: "/philosophy/experiments/austin-1962-how-to-do-things",
+      title: "如何以言行事",
+    },
+    {
+      url: "/philosophy/experiments/searle-1969-speech-acts",
+      title: "言语行为",
+    },
+    {
+      url: "/philosophy/concepts/philosophy-of-language",
+      title: "语言哲学",
     },
   ],
   "/philosophy/experiments/gettier-problem": [
@@ -61520,6 +63550,120 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "休谟",
     },
   ],
+  "/philosophy/experiments/grice-1957-meaning": [
+    {
+      url: "/philosophy/experiments/grice-1978-further-notes",
+      title: "会话含义的续论",
+    },
+    {
+      url: "/philosophy/experiments/grice-1975-logic-and-conversation",
+      title: "逻辑与会话",
+    },
+    {
+      url: "/philosophy/experiments/grice-1968-utterers-sentence-word",
+      title: "说话人、语句与语词意义",
+    },
+    {
+      url: "/philosophy/experiments/grice-1969-utterers-meaning",
+      title: "说话人意义与意图",
+    },
+    {
+      url: "/philosophy/experiments/strawson-1964-intention-convention",
+      title: "言语行为中的意图与惯例",
+    },
+    {
+      url: "/philosophy/thinkers/strawson",
+      title: "P.F. 斯特劳森",
+    },
+  ],
+  "/philosophy/experiments/grice-1968-utterers-sentence-word": [
+    {
+      url: "/philosophy/experiments/grice-1978-further-notes",
+      title: "会话含义的续论",
+    },
+    {
+      url: "/philosophy/experiments/grice-1969-utterers-meaning",
+      title: "说话人意义与意图",
+    },
+    {
+      url: "/philosophy/experiments/grice-1957-meaning",
+      title: "意义",
+    },
+  ],
+  "/philosophy/experiments/grice-1969-utterers-meaning": [
+    {
+      url: "/philosophy/experiments/grice-1978-further-notes",
+      title: "会话含义的续论",
+    },
+    {
+      url: "/philosophy/experiments/grice-1968-utterers-sentence-word",
+      title: "说话人、语句与语词意义",
+    },
+    {
+      url: "/philosophy/experiments/grice-1957-meaning",
+      title: "意义",
+    },
+  ],
+  "/philosophy/experiments/grice-1975-logic-and-conversation": [
+    {
+      url: "/philosophy/experiments/grice-1978-further-notes",
+      title: "会话含义的续论",
+    },
+    {
+      url: "/philosophy/experiments/searle-1975-indirect-speech-acts",
+      title: "间接言语行为",
+    },
+    {
+      url: "/philosophy/experiments/austin-1962-how-to-do-things",
+      title: "如何以言行事",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/experimental-pragmatics",
+      title: "实验语用学：含义如何被测量",
+    },
+    {
+      url: "/philosophy/experiments/grice-1968-utterers-sentence-word",
+      title: "说话人、语句与语词意义",
+    },
+    {
+      url: "/philosophy/experiments/grice-1969-utterers-meaning",
+      title: "说话人意义与意图",
+    },
+    {
+      url: "/philosophy/experiments/grice-strawson-1956",
+      title: "为一条教条辩护",
+    },
+    {
+      url: "/philosophy/experiments/searle-1969-speech-acts",
+      title: "言语行为",
+    },
+    {
+      url: "/philosophy/experiments/strawson-1964-intention-convention",
+      title: "言语行为中的意图与惯例",
+    },
+    {
+      url: "/philosophy/experiments/grice-1957-meaning",
+      title: "意义",
+    },
+    {
+      url: "/philosophy/concepts/philosophy-of-language",
+      title: "语言哲学",
+    },
+    {
+      url: "/philosophy/thinkers/austin",
+      title: "J.L. 奥斯汀",
+    },
+  ],
+  "/philosophy/experiments/grice-1978-further-notes": [
+    {
+      url: "/philosophy/experiments/grice-1975-logic-and-conversation",
+      title: "逻辑与会话",
+    },
+    {
+      url: "/philosophy/concepts/philosophy-of-language",
+      title: "语言哲学",
+    },
+  ],
   "/philosophy/experiments/grice-strawson-1956": [
     {
       url: "/philosophy/experiments/quine-1951-two-dogmas",
@@ -61532,6 +63676,34 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/experiments/strawson-1950-on-referring",
       title: "论指称",
+    },
+    {
+      url: "/philosophy/experiments/grice-1975-logic-and-conversation",
+      title: "逻辑与会话",
+    },
+    {
+      url: "/philosophy/experiments/austin-1962-how-to-do-things",
+      title: "如何以言行事",
+    },
+    {
+      url: "/philosophy/experiments/grice-1968-utterers-sentence-word",
+      title: "说话人、语句与语词意义",
+    },
+    {
+      url: "/philosophy/experiments/grice-1969-utterers-meaning",
+      title: "说话人意义与意图",
+    },
+    {
+      url: "/philosophy/experiments/searle-1969-speech-acts",
+      title: "言语行为",
+    },
+    {
+      url: "/philosophy/experiments/strawson-1964-intention-convention",
+      title: "言语行为中的意图与惯例",
+    },
+    {
+      url: "/philosophy/experiments/grice-1957-meaning",
+      title: "意义",
     },
     {
       url: "/philosophy/experiments/donnellan-1966-referring",
@@ -61628,12 +63800,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "克里普克的 quus：过去用法怎样钉不住加法",
     },
     {
+      url: "/philosophy/experiments/frege-1892-sense-reference",
+      title: "论涵义与指称",
+    },
+    {
       url: "/philosophy/experiments/russell-1905-on-denoting",
       title: "论指称",
     },
     {
       url: "/philosophy/experiments/strawson-1950-on-referring",
       title: "论指称",
+    },
+    {
+      url: "/philosophy/experiments/austin-1962-how-to-do-things",
+      title: "如何以言行事",
     },
     {
       url: "/philosophy/experiments/twin-earth",
@@ -61924,6 +64104,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/experiments/platos-cave": [
     {
+      url: "/philosophy/thinkers/plato",
+      title: "柏拉图",
+    },
+    {
       url: "/education/learning-foundations/teaching-is-not-pouring",
       title: "教学不是灌输",
     },
@@ -62026,6 +64210,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/experiments/russell-1905-on-denoting": [
     {
+      url: "/philosophy/experiments/frege-1892-sense-reference",
+      title: "论涵义与指称",
+    },
+    {
       url: "/philosophy/experiments/strawson-1950-on-referring",
       title: "论指称",
     },
@@ -62048,6 +64236,90 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/strawson",
       title: "P.F. 斯特劳森",
+    },
+  ],
+  "/philosophy/experiments/searle-1969-speech-acts": [
+    {
+      url: "/philosophy/experiments/grice-1978-further-notes",
+      title: "会话含义的续论",
+    },
+    {
+      url: "/philosophy/experiments/searle-1975-indirect-speech-acts",
+      title: "间接言语行为",
+    },
+    {
+      url: "/philosophy/experiments/grice-1975-logic-and-conversation",
+      title: "逻辑与会话",
+    },
+    {
+      url: "/philosophy/experiments/austin-1962-how-to-do-things",
+      title: "如何以言行事",
+    },
+    {
+      url: "/philosophy/experiments/grice-1968-utterers-sentence-word",
+      title: "说话人、语句与语词意义",
+    },
+    {
+      url: "/philosophy/experiments/grice-1969-utterers-meaning",
+      title: "说话人意义与意图",
+    },
+    {
+      url: "/philosophy/experiments/strawson-1964-intention-convention",
+      title: "言语行为中的意图与惯例",
+    },
+    {
+      url: "/philosophy/experiments/grice-1957-meaning",
+      title: "意义",
+    },
+    {
+      url: "/philosophy/concepts/philosophy-of-language",
+      title: "语言哲学",
+    },
+    {
+      url: "/philosophy/thinkers/searle",
+      title: "约翰·塞尔",
+    },
+    {
+      url: "/philosophy/thinkers/austin",
+      title: "J.L. 奥斯汀",
+    },
+  ],
+  "/philosophy/experiments/searle-1975-indirect-speech-acts": [
+    {
+      url: "/philosophy/experiments/grice-1978-further-notes",
+      title: "会话含义的续论",
+    },
+    {
+      url: "/philosophy/experiments/grice-1975-logic-and-conversation",
+      title: "逻辑与会话",
+    },
+    {
+      url: "/linguistics/methods-and-frontiers/experimental-pragmatics",
+      title: "实验语用学：含义如何被测量",
+    },
+    {
+      url: "/philosophy/experiments/grice-1968-utterers-sentence-word",
+      title: "说话人、语句与语词意义",
+    },
+    {
+      url: "/philosophy/experiments/grice-1969-utterers-meaning",
+      title: "说话人意义与意图",
+    },
+    {
+      url: "/philosophy/experiments/strawson-1964-intention-convention",
+      title: "言语行为中的意图与惯例",
+    },
+    {
+      url: "/philosophy/experiments/grice-1957-meaning",
+      title: "意义",
+    },
+    {
+      url: "/philosophy/concepts/philosophy-of-language",
+      title: "语言哲学",
+    },
+    {
+      url: "/philosophy/thinkers/searle",
+      title: "约翰·塞尔",
     },
   ],
   "/philosophy/experiments/ship-of-theseus": [
@@ -62098,6 +64370,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/experiments/strawson-1950-on-referring": [
     {
+      url: "/philosophy/experiments/frege-1892-sense-reference",
+      title: "论涵义与指称",
+    },
+    {
       url: "/philosophy/experiments/russell-1905-on-denoting",
       title: "论指称",
     },
@@ -62106,12 +64382,50 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "为一条教条辩护",
     },
     {
+      url: "/philosophy/experiments/strawson-1964-intention-convention",
+      title: "言语行为中的意图与惯例",
+    },
+    {
       url: "/philosophy/concepts/philosophy-of-language",
       title: "语言哲学",
     },
     {
       url: "/philosophy/experiments/donnellan-1966-referring",
       title: "指称与限定摹状词",
+    },
+    {
+      url: "/philosophy/thinkers/strawson",
+      title: "P.F. 斯特劳森",
+    },
+  ],
+  "/philosophy/experiments/strawson-1964-intention-convention": [
+    {
+      url: "/philosophy/experiments/grice-1978-further-notes",
+      title: "会话含义的续论",
+    },
+    {
+      url: "/philosophy/experiments/austin-1962-how-to-do-things",
+      title: "如何以言行事",
+    },
+    {
+      url: "/philosophy/experiments/grice-1968-utterers-sentence-word",
+      title: "说话人、语句与语词意义",
+    },
+    {
+      url: "/philosophy/experiments/grice-1969-utterers-meaning",
+      title: "说话人意义与意图",
+    },
+    {
+      url: "/philosophy/experiments/searle-1969-speech-acts",
+      title: "言语行为",
+    },
+    {
+      url: "/philosophy/experiments/grice-1957-meaning",
+      title: "意义",
+    },
+    {
+      url: "/philosophy/concepts/philosophy-of-language",
+      title: "语言哲学",
     },
     {
       url: "/philosophy/thinkers/strawson",
@@ -62261,6 +64575,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/philosophy/experiments/wittgenstein-beetle": [
+    {
+      url: "/psychology/experiments/heider-1972-color-naming-memory",
+      title: "海德 1972：颜色命名与记忆里的普遍性怎样被写成焦点",
+    },
+    {
+      url: "/psychology/experiments/heider-olivier-1972-color-space",
+      title: "海德与奥利维尔 1972：两种语言里色空间的命名结构与记忆结构怎样被拆开",
+    },
+    {
+      url: "/psychology/experiments/rosch-1973-natural-categories",
+      title: "罗施 1973：自然范畴怎样被写成焦点与边缘的内部结构",
+    },
     {
       url: "/philosophy/experiments/marys-room",
       title: "玛丽的房间",
@@ -62902,6 +65228,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/literature/narrative-basics/narrative-point-of-view",
       title: "叙述视角",
+    },
+    {
+      url: "/philosophy/experiments/philosophical-zombies",
+      title: "哲学僵尸",
     },
   ],
   "/philosophy/questions/what-can-we-know": [
@@ -64474,8 +66804,44 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "哈贝马斯",
     },
     {
+      url: "/philosophy/experiments/grice-1978-further-notes",
+      title: "会话含义的续论",
+    },
+    {
+      url: "/philosophy/experiments/searle-1975-indirect-speech-acts",
+      title: "间接言语行为",
+    },
+    {
+      url: "/philosophy/experiments/grice-1975-logic-and-conversation",
+      title: "逻辑与会话",
+    },
+    {
       url: "/philosophy/schools/feminist-philosophy",
       title: "女性主义哲学",
+    },
+    {
+      url: "/philosophy/experiments/austin-1962-how-to-do-things",
+      title: "如何以言行事",
+    },
+    {
+      url: "/philosophy/experiments/grice-1968-utterers-sentence-word",
+      title: "说话人、语句与语词意义",
+    },
+    {
+      url: "/philosophy/experiments/grice-1969-utterers-meaning",
+      title: "说话人意义与意图",
+    },
+    {
+      url: "/philosophy/experiments/searle-1969-speech-acts",
+      title: "言语行为",
+    },
+    {
+      url: "/philosophy/experiments/strawson-1964-intention-convention",
+      title: "言语行为中的意图与惯例",
+    },
+    {
+      url: "/philosophy/experiments/grice-1957-meaning",
+      title: "意义",
     },
   ],
   "/philosophy/thinkers/averroes": [
@@ -65032,6 +67398,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "胡塞尔",
     },
     {
+      url: "/philosophy/experiments/frege-1892-sense-reference",
+      title: "论涵义与指称",
+    },
+    {
       url: "/philosophy/experiments/russell-1905-on-denoting",
       title: "论指称",
     },
@@ -65270,6 +67640,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/schools/continental-philosophy",
       title: "大陆哲学",
+    },
+    {
+      url: "/philosophy/concepts/dao",
+      title: "道",
     },
     {
       url: "/philosophy/thinkers/voltaire",
@@ -65986,6 +68360,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "环境伦理学",
     },
     {
+      url: "/philosophy/experiments/repugnant-conclusion",
+      title: "令人厌恶的结论",
+    },
+    {
       url: "/philosophy/experiments/parfit-teletransport",
       title: "帕菲特的传送：心理连续怎样把人格同一性从重要的事情里拆走",
     },
@@ -66156,6 +68534,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学观测--eddington-1919-eclipse",
       title: "1919 日食底片：0.87″ 与 1.75″ 怎样被量到星点上",
+    },
+    {
+      url: "/philosophy/thinkers/plato",
+      title: "柏拉图",
     },
     {
       url: "/economics/economists/friedrich-hayek",
@@ -66400,6 +68782,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "蒯因",
     },
     {
+      url: "/philosophy/experiments/frege-1892-sense-reference",
+      title: "论涵义与指称",
+    },
+    {
       url: "/philosophy/experiments/russell-1905-on-denoting",
       title: "论指称",
     },
@@ -66470,12 +68856,44 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "哈贝马斯",
     },
     {
-      url: "/philosophy/thinkers/quine",
-      title: "蒯因",
+      url: "/philosophy/experiments/grice-1978-further-notes",
+      title: "会话含义的续论",
+    },
+    {
+      url: "/philosophy/experiments/searle-1975-indirect-speech-acts",
+      title: "间接言语行为",
     },
     {
       url: "/philosophy/thinkers/richard-rorty",
       title: "理查德·罗蒂",
+    },
+    {
+      url: "/philosophy/experiments/grice-1975-logic-and-conversation",
+      title: "逻辑与会话",
+    },
+    {
+      url: "/philosophy/experiments/austin-1962-how-to-do-things",
+      title: "如何以言行事",
+    },
+    {
+      url: "/philosophy/experiments/grice-1968-utterers-sentence-word",
+      title: "说话人、语句与语词意义",
+    },
+    {
+      url: "/philosophy/experiments/grice-1969-utterers-meaning",
+      title: "说话人意义与意图",
+    },
+    {
+      url: "/philosophy/experiments/searle-1969-speech-acts",
+      title: "言语行为",
+    },
+    {
+      url: "/philosophy/experiments/strawson-1964-intention-convention",
+      title: "言语行为中的意图与惯例",
+    },
+    {
+      url: "/philosophy/experiments/grice-1957-meaning",
+      title: "意义",
     },
   ],
   "/philosophy/thinkers/shankara": [
@@ -66566,16 +68984,48 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "分析哲学",
     },
     {
+      url: "/philosophy/experiments/grice-1978-further-notes",
+      title: "会话含义的续论",
+    },
+    {
       url: "/philosophy/thinkers/kwasi-wiredu",
       title: "夸西·维雷杜",
+    },
+    {
+      url: "/philosophy/experiments/frege-1892-sense-reference",
+      title: "论涵义与指称",
     },
     {
       url: "/philosophy/experiments/strawson-1950-on-referring",
       title: "论指称",
     },
     {
+      url: "/philosophy/experiments/austin-1962-how-to-do-things",
+      title: "如何以言行事",
+    },
+    {
+      url: "/philosophy/experiments/grice-1968-utterers-sentence-word",
+      title: "说话人、语句与语词意义",
+    },
+    {
+      url: "/philosophy/experiments/grice-1969-utterers-meaning",
+      title: "说话人意义与意图",
+    },
+    {
       url: "/philosophy/experiments/grice-strawson-1956",
       title: "为一条教条辩护",
+    },
+    {
+      url: "/philosophy/experiments/searle-1969-speech-acts",
+      title: "言语行为",
+    },
+    {
+      url: "/philosophy/experiments/strawson-1964-intention-convention",
+      title: "言语行为中的意图与惯例",
+    },
+    {
+      url: "/philosophy/experiments/grice-1957-meaning",
+      title: "意义",
     },
     {
       url: "/philosophy/experiments/donnellan-1966-referring",
@@ -66720,6 +69170,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "国际法",
     },
     {
+      url: "/psychology/experiments/heider-1972-color-naming-memory",
+      title: "海德 1972：颜色命名与记忆里的普遍性怎样被写成焦点",
+    },
+    {
+      url: "/psychology/experiments/heider-olivier-1972-color-space",
+      title: "海德与奥利维尔 1972：两种语言里色空间的命名结构与记忆结构怎样被拆开",
+    },
+    {
       url: "/philosophy/schools/postmodernism",
       title: "后现代主义",
     },
@@ -66744,12 +69202,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "理查德·罗蒂",
     },
     {
+      url: "/psychology/experiments/rosch-1973-natural-categories",
+      title: "罗施 1973：自然范畴怎样被写成焦点与边缘的内部结构",
+    },
+    {
+      url: "/psychology/experiments/rosch-1975-semantic-categories",
+      title: "罗施 1975：语义范畴怎样被写成带内部结构的认知表征",
+    },
+    {
+      url: "/psychology/experiments/rosch-mervis-1975-family-resemblances",
+      title: "罗施与默维斯 1975：家族相似怎样被写成范畴的内部结构",
+    },
+    {
       url: "/mathematics/paradoxes/russels-paradox",
       title: "罗素悖论",
     },
     {
       url: "/philosophy/experiments/moore-1939-hands",
       title: "摩尔的两只手",
+    },
+    {
+      url: "/philosophy/experiments/austin-1962-how-to-do-things",
+      title: "如何以言行事",
     },
     {
       url: "/philosophy/isms/positivism",
@@ -66762,6 +69236,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/formal-methods-and-verification",
       title: "形式化方法与程序验证",
+    },
+    {
+      url: "/philosophy/experiments/searle-1969-speech-acts",
+      title: "言语行为",
     },
   ],
   "/philosophy/thinkers/xunzi": [
@@ -73364,6 +75842,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "克雷克与洛克哈特 1972：加工水平怎样把记忆从仓库改写成编码深度的研究纲领",
     },
     {
+      url: "/psychology/experiments/rosch-1975-semantic-categories",
+      title: "罗施 1975：语义范畴怎样被写成带内部结构的认知表征",
+    },
+    {
       url: "/psychology/experiments/tulving-thomson-1973",
       title: "图尔文与汤姆森 1973：编码特定性怎样把提取线索写成与痕迹重叠",
     },
@@ -73566,14 +76048,70 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "依恋理论：爱的科学",
     },
   ],
+  "/psychology/experiments/heider-1972-color-naming-memory": [
+    {
+      url: "/psychology/experiments/heider-olivier-1972-color-space",
+      title: "海德与奥利维尔 1972：两种语言里色空间的命名结构与记忆结构怎样被拆开",
+    },
+    {
+      url: "/psychology/experiments/rosch-1973-natural-categories",
+      title: "罗施 1973：自然范畴怎样被写成焦点与边缘的内部结构",
+    },
+    {
+      url: "/psychology/experiments/rosch-1975-cognitive-reference-points",
+      title: "罗施 1975：原型怎样被写成认知参照点",
+    },
+  ],
+  "/psychology/experiments/heider-olivier-1972-color-space": [
+    {
+      url: "/psychology/experiments/heider-1972-color-naming-memory",
+      title: "海德 1972：颜色命名与记忆里的普遍性怎样被写成焦点",
+    },
+    {
+      url: "/psychology/experiments/rosch-1975-cognitive-reference-points",
+      title: "罗施 1975：原型怎样被写成认知参照点",
+    },
+  ],
   "/psychology/experiments/kahneman-tversky-1972": [
     {
       url: "/psychology/theorists/daniel-kahneman",
       title: "丹尼尔·卡尼曼",
     },
     {
+      url: "/psychology/experiments/heider-1972-color-naming-memory",
+      title: "海德 1972：颜色命名与记忆里的普遍性怎样被写成焦点",
+    },
+    {
+      url: "/psychology/experiments/heider-olivier-1972-color-space",
+      title: "海德与奥利维尔 1972：两种语言里色空间的命名结构与记忆结构怎样被拆开",
+    },
+    {
+      url: "/psychology/experiments/kahneman-tversky-1973-prediction",
+      title: "卡尼曼与特沃斯基 1973：预测怎样被写成对代表性的判断，而基础比率被丢掉",
+    },
+    {
       url: "/psychology/experiments/kahneman-tversky-1979",
       title: "卡尼曼与特沃斯基前景理论实验",
+    },
+    {
+      url: "/psychology/experiments/rosch-1973-natural-categories",
+      title: "罗施 1973：自然范畴怎样被写成焦点与边缘的内部结构",
+    },
+    {
+      url: "/psychology/experiments/rosch-1975-semantic-categories",
+      title: "罗施 1975：语义范畴怎样被写成带内部结构的认知表征",
+    },
+    {
+      url: "/psychology/experiments/rosch-mervis-1975-family-resemblances",
+      title: "罗施与默维斯 1975：家族相似怎样被写成范畴的内部结构",
+    },
+    {
+      url: "/psychology/experiments/tversky-1972-elimination-by-aspects",
+      title: "特沃斯基 1972：选择怎样被写成按方面的隐蔽逐次剔除",
+    },
+    {
+      url: "/psychology/experiments/tversky-1977-features-of-similarity",
+      title: "特沃斯基 1977：相似性怎样被写成对共同与差异特征的匹配",
     },
     {
       url: "/psychology/experiments/tversky-kahneman-1973-availability",
@@ -73584,7 +76122,37 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "特沃斯基与卡尼曼 1974：不确定判断里的启发式怎样被写成可核对的偏差",
     },
   ],
+  "/psychology/experiments/kahneman-tversky-1973-prediction": [
+    {
+      url: "/psychology/experiments/kahneman-tversky-1972",
+      title: "卡尼曼与特沃斯基 1972：主观概率怎样被写成对代表性的判断",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1973-availability",
+      title: "特沃斯基与卡尼曼 1973：频率与概率怎样被写成对可得性的判断",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1974",
+      title: "特沃斯基与卡尼曼 1974：不确定判断里的启发式怎样被写成可核对的偏差",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1981-framing",
+      title: "特沃斯基与卡尼曼 1981：决策怎样被写成对框架的选择",
+    },
+  ],
   "/psychology/experiments/kahneman-tversky-1979": [
+    {
+      url: "/economics/economists/amos-tversky",
+      title: "阿莫斯·特沃斯基",
+    },
+    {
+      url: "/economics/economists/daniel-kahneman",
+      title: "丹尼尔·卡尼曼",
+    },
+    {
+      url: "/psychology/theorists/daniel-kahneman",
+      title: "丹尼尔·卡尼曼",
+    },
     {
       url: "/economics/concepts/price-formation",
       title: "价格形成机制",
@@ -73594,8 +76162,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "卡尼曼与特沃斯基 1972：主观概率怎样被写成对代表性的判断",
     },
     {
+      url: "/psychology/experiments/kahneman-tversky-1973-prediction",
+      title: "卡尼曼与特沃斯基 1973：预测怎样被写成对代表性的判断，而基础比率被丢掉",
+    },
+    {
       url: "/economics/concepts/coase-theorem",
       title: "科斯定理",
+    },
+    {
+      url: "/psychology/experiments/rosch-1975-cognitive-reference-points",
+      title: "罗施 1975：原型怎样被写成认知参照点",
     },
     {
       url: "/psychology/experiments/nisbett-wilson-1977",
@@ -73610,12 +76186,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "睡美人问题",
     },
     {
+      url: "/psychology/experiments/tversky-1972-elimination-by-aspects",
+      title: "特沃斯基 1972：选择怎样被写成按方面的隐蔽逐次剔除",
+    },
+    {
+      url: "/psychology/experiments/tversky-1977-features-of-similarity",
+      title: "特沃斯基 1977：相似性怎样被写成对共同与差异特征的匹配",
+    },
+    {
       url: "/psychology/experiments/tversky-kahneman-1973-availability",
       title: "特沃斯基与卡尼曼 1973：频率与概率怎样被写成对可得性的判断",
     },
     {
       url: "/psychology/experiments/tversky-kahneman-1974",
       title: "特沃斯基与卡尼曼 1974：不确定判断里的启发式怎样被写成可核对的偏差",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1981-framing",
+      title: "特沃斯基与卡尼曼 1981：决策怎样被写成对框架的选择",
     },
   ],
   "/psychology/experiments/keppel-underwood-1962": [
@@ -74170,6 +76758,98 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "X 射线晶体学：从衍射斑点到三维结构",
     },
   ],
+  "/psychology/experiments/rosch-1973-natural-categories": [
+    {
+      url: "/psychology/experiments/heider-1972-color-naming-memory",
+      title: "海德 1972：颜色命名与记忆里的普遍性怎样被写成焦点",
+    },
+    {
+      url: "/psychology/experiments/heider-olivier-1972-color-space",
+      title: "海德与奥利维尔 1972：两种语言里色空间的命名结构与记忆结构怎样被拆开",
+    },
+    {
+      url: "/psychology/experiments/rosch-1975-semantic-categories",
+      title: "罗施 1975：语义范畴怎样被写成带内部结构的认知表征",
+    },
+    {
+      url: "/psychology/experiments/rosch-1975-cognitive-reference-points",
+      title: "罗施 1975：原型怎样被写成认知参照点",
+    },
+    {
+      url: "/psychology/experiments/rosch-mervis-1975-family-resemblances",
+      title: "罗施与默维斯 1975：家族相似怎样被写成范畴的内部结构",
+    },
+  ],
+  "/psychology/experiments/rosch-1975-cognitive-reference-points": [
+    {
+      url: "/psychology/experiments/rosch-1973-natural-categories",
+      title: "罗施 1973：自然范畴怎样被写成焦点与边缘的内部结构",
+    },
+    {
+      url: "/psychology/experiments/rosch-1975-semantic-categories",
+      title: "罗施 1975：语义范畴怎样被写成带内部结构的认知表征",
+    },
+    {
+      url: "/psychology/experiments/rosch-mervis-1975-family-resemblances",
+      title: "罗施与默维斯 1975：家族相似怎样被写成范畴的内部结构",
+    },
+  ],
+  "/psychology/experiments/rosch-1975-semantic-categories": [
+    {
+      url: "/psychology/experiments/heider-1972-color-naming-memory",
+      title: "海德 1972：颜色命名与记忆里的普遍性怎样被写成焦点",
+    },
+    {
+      url: "/psychology/experiments/heider-olivier-1972-color-space",
+      title: "海德与奥利维尔 1972：两种语言里色空间的命名结构与记忆结构怎样被拆开",
+    },
+    {
+      url: "/psychology/experiments/kahneman-tversky-1972",
+      title: "卡尼曼与特沃斯基 1972：主观概率怎样被写成对代表性的判断",
+    },
+    {
+      url: "/psychology/experiments/craik-tulving-1975",
+      title: "克雷克与图尔文 1975：结构、语音与语义定向怎样把加工深度钉进情节记忆",
+    },
+    {
+      url: "/psychology/experiments/rosch-1973-natural-categories",
+      title: "罗施 1973：自然范畴怎样被写成焦点与边缘的内部结构",
+    },
+    {
+      url: "/psychology/experiments/rosch-1975-cognitive-reference-points",
+      title: "罗施 1975：原型怎样被写成认知参照点",
+    },
+    {
+      url: "/psychology/experiments/rosch-mervis-1975-family-resemblances",
+      title: "罗施与默维斯 1975：家族相似怎样被写成范畴的内部结构",
+    },
+  ],
+  "/psychology/experiments/rosch-mervis-1975-family-resemblances": [
+    {
+      url: "/psychology/experiments/heider-1972-color-naming-memory",
+      title: "海德 1972：颜色命名与记忆里的普遍性怎样被写成焦点",
+    },
+    {
+      url: "/psychology/experiments/heider-olivier-1972-color-space",
+      title: "海德与奥利维尔 1972：两种语言里色空间的命名结构与记忆结构怎样被拆开",
+    },
+    {
+      url: "/psychology/experiments/rosch-1973-natural-categories",
+      title: "罗施 1973：自然范畴怎样被写成焦点与边缘的内部结构",
+    },
+    {
+      url: "/psychology/experiments/rosch-1975-semantic-categories",
+      title: "罗施 1975：语义范畴怎样被写成带内部结构的认知表征",
+    },
+    {
+      url: "/psychology/experiments/rosch-1975-cognitive-reference-points",
+      title: "罗施 1975：原型怎样被写成认知参照点",
+    },
+    {
+      url: "/psychology/experiments/tversky-1977-features-of-similarity",
+      title: "特沃斯基 1977：相似性怎样被写成对共同与差异特征的匹配",
+    },
+  ],
   "/psychology/experiments/rosenhan-1973": [
     {
       url: "/psychology/experiments/replication-crisis",
@@ -74378,10 +77058,58 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "克雷克与图尔文 1975：结构、语音与语义定向怎样把加工深度钉进情节记忆",
     },
   ],
+  "/psychology/experiments/tversky-1972-elimination-by-aspects": [
+    {
+      url: "/psychology/theorists/amos-tversky",
+      title: "阿莫斯·特沃斯基",
+    },
+    {
+      url: "/psychology/experiments/rosch-1975-semantic-categories",
+      title: "罗施 1975：语义范畴怎样被写成带内部结构的认知表征",
+    },
+  ],
+  "/psychology/experiments/tversky-1977-features-of-similarity": [
+    {
+      url: "/psychology/theorists/amos-tversky",
+      title: "阿莫斯·特沃斯基",
+    },
+    {
+      url: "/psychology/experiments/heider-1972-color-naming-memory",
+      title: "海德 1972：颜色命名与记忆里的普遍性怎样被写成焦点",
+    },
+    {
+      url: "/psychology/experiments/heider-olivier-1972-color-space",
+      title: "海德与奥利维尔 1972：两种语言里色空间的命名结构与记忆结构怎样被拆开",
+    },
+    {
+      url: "/psychology/experiments/rosch-1973-natural-categories",
+      title: "罗施 1973：自然范畴怎样被写成焦点与边缘的内部结构",
+    },
+    {
+      url: "/psychology/experiments/rosch-1975-semantic-categories",
+      title: "罗施 1975：语义范畴怎样被写成带内部结构的认知表征",
+    },
+    {
+      url: "/psychology/experiments/rosch-1975-cognitive-reference-points",
+      title: "罗施 1975：原型怎样被写成认知参照点",
+    },
+    {
+      url: "/psychology/experiments/rosch-mervis-1975-family-resemblances",
+      title: "罗施与默维斯 1975：家族相似怎样被写成范畴的内部结构",
+    },
+    {
+      url: "/psychology/experiments/tversky-1972-elimination-by-aspects",
+      title: "特沃斯基 1972：选择怎样被写成按方面的隐蔽逐次剔除",
+    },
+  ],
   "/psychology/experiments/tversky-kahneman-1973-availability": [
     {
       url: "/psychology/experiments/kahneman-tversky-1972",
       title: "卡尼曼与特沃斯基 1972：主观概率怎样被写成对代表性的判断",
+    },
+    {
+      url: "/psychology/experiments/kahneman-tversky-1973-prediction",
+      title: "卡尼曼与特沃斯基 1973：预测怎样被写成对代表性的判断，而基础比率被丢掉",
     },
     {
       url: "/psychology/experiments/kahneman-tversky-1979",
@@ -74392,14 +77120,30 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "可得性启发",
     },
     {
+      url: "/psychology/experiments/tversky-1977-features-of-similarity",
+      title: "特沃斯基 1977：相似性怎样被写成对共同与差异特征的匹配",
+    },
+    {
       url: "/psychology/experiments/tversky-kahneman-1974",
       title: "特沃斯基与卡尼曼 1974：不确定判断里的启发式怎样被写成可核对的偏差",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1981-framing",
+      title: "特沃斯基与卡尼曼 1981：决策怎样被写成对框架的选择",
     },
   ],
   "/psychology/experiments/tversky-kahneman-1974": [
     {
+      url: "/economics/economists/amos-tversky",
+      title: "阿莫斯·特沃斯基",
+    },
+    {
       url: "/psychology/theorists/amos-tversky",
       title: "阿莫斯·特沃斯基",
+    },
+    {
+      url: "/economics/economists/daniel-kahneman",
+      title: "丹尼尔·卡尼曼",
     },
     {
       url: "/psychology/theorists/daniel-kahneman",
@@ -74408,6 +77152,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/experiments/kahneman-tversky-1972",
       title: "卡尼曼与特沃斯基 1972：主观概率怎样被写成对代表性的判断",
+    },
+    {
+      url: "/psychology/experiments/kahneman-tversky-1973-prediction",
+      title: "卡尼曼与特沃斯基 1973：预测怎样被写成对代表性的判断，而基础比率被丢掉",
     },
     {
       url: "/psychology/experiments/kahneman-tversky-1979",
@@ -74422,8 +77170,50 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "认知心理学",
     },
     {
+      url: "/psychology/experiments/tversky-1972-elimination-by-aspects",
+      title: "特沃斯基 1972：选择怎样被写成按方面的隐蔽逐次剔除",
+    },
+    {
+      url: "/psychology/experiments/tversky-1977-features-of-similarity",
+      title: "特沃斯基 1977：相似性怎样被写成对共同与差异特征的匹配",
+    },
+    {
       url: "/psychology/experiments/tversky-kahneman-1973-availability",
       title: "特沃斯基与卡尼曼 1973：频率与概率怎样被写成对可得性的判断",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1981-framing",
+      title: "特沃斯基与卡尼曼 1981：决策怎样被写成对框架的选择",
+    },
+  ],
+  "/psychology/experiments/tversky-kahneman-1981-framing": [
+    {
+      url: "/psychology/theorists/amos-tversky",
+      title: "阿莫斯·特沃斯基",
+    },
+    {
+      url: "/psychology/theorists/daniel-kahneman",
+      title: "丹尼尔·卡尼曼",
+    },
+    {
+      url: "/psychology/experiments/kahneman-tversky-1979",
+      title: "卡尼曼与特沃斯基前景理论实验",
+    },
+    {
+      url: "/psychology/phenomena/framing-effect",
+      title: "框架效应",
+    },
+    {
+      url: "/psychology/experiments/rosch-1975-cognitive-reference-points",
+      title: "罗施 1975：原型怎样被写成认知参照点",
+    },
+    {
+      url: "/psychology/experiments/tversky-1972-elimination-by-aspects",
+      title: "特沃斯基 1972：选择怎样被写成按方面的隐蔽逐次剔除",
+    },
+    {
+      url: "/psychology/experiments/tversky-1977-features-of-similarity",
+      title: "特沃斯基 1977：相似性怎样被写成对共同与差异特征的匹配",
     },
   ],
   "/psychology/experiments/wason-selection-task": [
@@ -77264,6 +80054,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "货币主义",
     },
     {
+      url: "/psychology/experiments/kahneman-tversky-1973-prediction",
+      title: "卡尼曼与特沃斯基 1973：预测怎样被写成对代表性的判断，而基础比率被丢掉",
+    },
+    {
       url: "/political-science/institutions/interest-groups-and-lobbying",
       title: "利益集团与游说",
     },
@@ -78264,6 +81058,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/concepts/taxes-and-public-budget",
       title: "税收与公共预算：共同的钱怎样变成共同选择",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1981-framing",
+      title: "特沃斯基与卡尼曼 1981：决策怎样被写成对框架的选择",
     },
     {
       url: "/economics/knowledge-base/behavioral-economics-daily",
@@ -79519,6 +82317,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/mathematics/mathematicians/hua-luogeng",
       title: "华罗庚",
     },
+    {
+      url: "/psychology/theorists/lev-vygotsky",
+      title: "列夫·维果茨基",
+    },
   ],
   "/psychology/schools/behaviorism": [
     {
@@ -80068,8 +82870,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "卡尼曼与特沃斯基 1972：主观概率怎样被写成对代表性的判断",
     },
     {
+      url: "/psychology/experiments/kahneman-tversky-1973-prediction",
+      title: "卡尼曼与特沃斯基 1973：预测怎样被写成对代表性的判断，而基础比率被丢掉",
+    },
+    {
+      url: "/psychology/experiments/tversky-1972-elimination-by-aspects",
+      title: "特沃斯基 1972：选择怎样被写成按方面的隐蔽逐次剔除",
+    },
+    {
+      url: "/psychology/experiments/tversky-1977-features-of-similarity",
+      title: "特沃斯基 1977：相似性怎样被写成对共同与差异特征的匹配",
+    },
+    {
       url: "/psychology/experiments/tversky-kahneman-1973-availability",
       title: "特沃斯基与卡尼曼 1973：频率与概率怎样被写成对可得性的判断",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1981-framing",
+      title: "特沃斯基与卡尼曼 1981：决策怎样被写成对框架的选择",
     },
   ],
   "/psychology/theorists/anna-freud": [
@@ -80146,8 +82964,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "卡尼曼与特沃斯基 1972：主观概率怎样被写成对代表性的判断",
     },
     {
+      url: "/psychology/experiments/kahneman-tversky-1973-prediction",
+      title: "卡尼曼与特沃斯基 1973：预测怎样被写成对代表性的判断，而基础比率被丢掉",
+    },
+    {
       url: "/psychology/experiments/tversky-kahneman-1973-availability",
       title: "特沃斯基与卡尼曼 1973：频率与概率怎样被写成对可得性的判断",
+    },
+    {
+      url: "/psychology/experiments/tversky-kahneman-1981-framing",
+      title: "特沃斯基与卡尼曼 1981：决策怎样被写成对框架的选择",
     },
   ],
   "/psychology/theorists/donald-winnicott": [
@@ -88822,6 +91648,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙的最终命运",
       title: "宇宙的最终命运",
+    },
+    {
+      url: "/computer-science/theory/impagliazzo-levin-luby-1989",
+      title: "Impagliazzo–Levin–Luby 1989：一般单向函数怎样交出多项式时间伪随机发生器",
     },
   ],
   "/universe-physics/knowledge-base/热力学--相变": [

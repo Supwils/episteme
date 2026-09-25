@@ -564,6 +564,11 @@
     "e": "这场对话是反事实编排。路德维希·维特根斯坦（Ludwig Wittgenstein，1889—1951）与庄周不在同一条时间线上。两人从未通信，也没有共同的论敌。把他们放进同一场，是为了让两种…",
     "d": "philosophy"
   },
+  "/philosophy/experiments/austin-1962-how-to-do-things": {
+    "t": "如何以言行事",
+    "e": "这是一则关于某些话语并不给世界拍照，而是在约定程序里把一件事做成，以及记述与施行这道最初的墙为何必须拆掉的印刷论证。",
+    "d": "philosophy"
+  },
   "/philosophy/experiments/block-1978-china-brain": {
     "t": "中国脑",
     "e": "这是一则关于功能组织与心灵同构，是否仍不足以给出感受质的印刷论证。一九七八年，内德·布洛克（Ned Block）在 C.·韦德·萨维奇主编的《知觉与认知：心理学基础中的问题》（Percepti…",
@@ -609,6 +614,11 @@
     "e": "一种古老而有吸引力的道德原则说：只有当一个人本来可以采取别的行动时，他才应为实际行动负责。哲学家常把它称为“替代可能性原则”（Principle of Alternative Possibil…",
     "d": "philosophy"
   },
+  "/philosophy/experiments/frege-1892-sense-reference": {
+    "t": "论涵义与指称",
+    "e": "这是一则关于专名与语句各有涵义（Sinn）与所指（Bedeutung）两层，以及同一性语句 a=a 与 a=b 何以不能写成同一张账单的印刷论证。",
+    "d": "philosophy"
+  },
   "/philosophy/experiments/gettier-problem": {
     "t": "盖梯尔问题",
     "e": "它不是菲奇可知性悖论。菲奇问的是：若每个真理都可知，是否每个真理都已被知道。盖梯尔问的是另一刀：证成的真信念够不够当知识。一九六三年两篇短文同年出世，未知数不一样。它也不是摩尔的两只手。摩尔要…",
@@ -627,6 +637,31 @@
   "/philosophy/experiments/goodman-grue": {
     "t": "古德曼的绿蓝谜题",
     "e": "人们第一次听见谓词「绿蓝」（grue），常把它当成颜色笑话：祖母绿会在某时刻变蓝，或者古德曼在拿色觉实验开玩笑。这不是色觉问题，也不是矿物学预言。已检查的祖母绿现在看起来就是绿的；没有谁声称观…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/grice-1957-meaning": {
+    "t": "意义",
+    "e": "这是一则关于自然意义与非自然意义必须切开，并且说话人意谓要把「意图让听者认出这意图」写进税则的印刷论证。",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/grice-1968-utterers-sentence-word": {
+    "t": "说话人、语句与语词意义",
+    "e": "这是一则关于说话人场合意义、话语类型的无时间性意义（语句意义）与语词意义必须切开，并补上应用的无时间性意义，再从场合意义往上做到个人语库、然后做到一种语言的规约意义的印刷论证。",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/grice-1969-utterers-meaning": {
+    "t": "说话人意义与意图",
+    "e": "这是一则关于说话人意谓要从一九五七年的三层骨架再加细，把高阶意图写进税则，并切开场合意义、无时间性意义与应用的无时间性意义的印刷论证。",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/grice-1975-logic-and-conversation": {
+    "t": "逻辑与会话",
+    "e": "这是一则关于听者如何从「所说」之外算出说话人意谓，以及合作原则连同量、质、关系、方式四条准则如何把那一层写成可演算的会话含义的印刷论证。",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/grice-1978-further-notes": {
+    "t": "会话含义的续论",
+    "e": "这是一则关于可取消与不可剥离这两道检验如何被加细，广义与特殊会话含义如何分栏，以及「但是」「因此」这类规约含义必须留在会话账之外的印刷论证。",
     "d": "philosophy"
   },
   "/philosophy/experiments/grice-strawson-1956": {
@@ -759,6 +794,16 @@
     "e": "1952年，英国哲学家伯特兰·罗素在一篇文章中提出了这个简洁而有力的思想实验：",
     "d": "philosophy"
   },
+  "/philosophy/experiments/searle-1969-speech-acts": {
+    "t": "言语行为",
+    "e": "这是一则关于说话不是给世界拍照，而是按构成规则把一种社会行为做成，以及许诺如何写成可教学的条件的印刷论证。",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/searle-1975-indirect-speech-acts": {
+    "t": "间接言语行为",
+    "e": "这是一则关于一句话如何在字面上做成一种言外行为，同时又按共享背景做成另一种，以及听者如何从请求的真诚条件与预备条件把那一层推出来的印刷论证。",
+    "d": "philosophy"
+  },
   "/philosophy/experiments/ship-of-theseus": {
     "t": "忒修斯之船",
     "e": "古希腊历史学家普鲁塔克在《希腊罗马名人传》中记载了这个困惑：雅典人保存了英雄忒修斯航海归来的船。随着岁月流逝，腐朽的木板被逐一替换为新的。当所有原始木板都被替换后，这艘船还是忒修斯的船吗？",
@@ -777,6 +822,11 @@
   "/philosophy/experiments/strawson-1950-on-referring": {
     "t": "论指称",
     "e": "这是一则关于语句、使用与陈述必须拆开，以及限定摹状词的指称是人用表达式去做的事、不是表达式自己完成的事的印刷论证。一九五〇年七月，彼得·弗雷德里克·斯特劳森（Peter Frederick S…",
+    "d": "philosophy"
+  },
+  "/philosophy/experiments/strawson-1964-intention-convention": {
+    "t": "言语行为中的意图与惯例",
+    "e": "这是一则关于言外之力并不一律靠程序惯例做成，许多言外行为要靠被听者认出的说话人复杂意图，惯例做一部分工作却做不完的印刷论证。",
     "d": "philosophy"
   },
   "/philosophy/experiments/swampman": {
