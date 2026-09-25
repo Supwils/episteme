@@ -317,7 +317,7 @@ function readJson(path) {
 }
 
 function main() {
-  const nextDir = resolve(process.argv[2] ?? ".next");
+  const nextDir = resolve(process.argv[2] ?? process.env.NEXT_DIST_DIR ?? ".next");
   const result = auditRenderingStrategy(nextDir);
   console.log("Rendering Strategy Audit\n");
   console.log(`ISR routes: ${result.summary.isrRoutes}`);

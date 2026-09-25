@@ -61,6 +61,7 @@
   - **quality** — 生成索引幂等性（`gen-all` 后 `git status` 必须干净）→ `typecheck` → `lint` → `check-content` + 四项审计（`audit-graph-coverage` / `audit-learning-continuum` / `audit-subject-candidates` / `audit-linguistics-foundation`）→ `test`。
   - **build** — `pnpm build` → `audit-rendering` → `bundle-check --skip-build` → Lighthouse 预算 → Playwright 生产 smoke（`test:e2e:smoke`）。
   - **deploy** — 仅 `main` 且 quality+build 都过，`vercel pull` → `vercel build --prod` → **`vercel deploy --prebuilt --prod --archive=tgz`**。需仓库 secret `VERCEL_TOKEN`（org/project id 写在 workflow env 里，是资源标识不是凭证）。
+- **夜间全量 e2e**（`.github/workflows/e2e-nightly.yml`）：每天一次在生产构建上跑冒烟以外的全部 spec（`pnpm test:e2e:full`，配置 `playwright.full.config.ts`，端口 3070）。不部署、不拦 push，只让过期断言和深层流程回归在一天内暴露。spec 里的篇数、角度这类会随内容漂的值，从 `content/` 或布局函数推导，不要写死。
 - **为什么不用 Vercel 原生 git 集成**：`vercel.json` 的 `git.deploymentEnabled.main = false` 是**故意关掉**的——原生集成的 deploy 会拒绝 Next 的 serverless 函数去重**符号链接**；`--prebuilt --archive` 是当前唯一可靠路径（同时绕开 15000 文件上限的校验）。**别重新打开它。**
 
 ### 本地 pre-push 门禁（`.husky/pre-push`）
@@ -176,7 +177,7 @@ universe-knowledge/
 ├── generated/                ← corpus.txt / corpus-meta.json / search-stats.json（构建产物，已提交）
 ├── public/                   ← 静态资源（search-index.json、link-previews/（按域分片）、images/、textures/）
 ├── scripts/                  ← 生成（gen-*）· 校验（check-content）· 审计（audit-*）· 性能（physics/、performance/）
-├── e2e/                      ← Playwright（22 spec；CI 只跑 smoke.spec.ts）
+├── e2e/                      ← Playwright（部署门禁只跑 smoke.spec.ts；其余每晚全量跑）
 ├── docs/                     ← 平台文档（代理读写区；一次性报告在 docs/archive/）
 ├── reference/                ← 旧位置参考代码，禁止删除；已排除出 tsconfig/vitest/vercel
 └── package.json next.config.ts tsconfig.json vercel.json vitest.config.ts playwright*.config.ts eslint.config.mjs
@@ -243,6 +244,7 @@ pnpm audit-rendering       # SSG/ISR 契约（读生产产物）
 pnpm audit-cross-domain    # 跨域连接节达标口径
 pnpm audit-image-rights    # 图像权利与性能预算
 pnpm test:e2e:smoke        # Playwright 生产冒烟（CI 门禁同款）
+pnpm test:e2e:full         # 冒烟以外全部 spec（夜间工作流同款，先 build）
 pnpm wiki-slug <关键词>     # 查某篇文章的正确 wiki slug（写内链前用）
 pnpm update-graph-snapshot # 图谱聚合快照（改图谱数据后必跑，测试读它）
 pnpm gen-seal-glyphs       # 学科印字形（改了 lib/design/seals.ts 的字才跑；不在 gen-all 里，首次会下载 15 MB 源字体到 .cache/）

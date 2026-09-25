@@ -14,20 +14,37 @@ const BODY_ONLY = {
   title: "光的干涉与衍射",
 };
 
-async function openDialog(page: import("@playwright/test").Page) {
+type Page = import("@playwright/test").Page;
+
+// The launcher wires its listeners on hydration, so an early press or tap can
+// land on a page that is not listening yet; retry until the dialog opens.
+async function openDialog(page: Page, open: (page: Page) => Promise<void>) {
   await page.goto("/");
-  await page.keyboard.press("Control+k");
   const input = page.locator('[placeholder*="搜索"]');
-  await expect(input).toBeVisible();
+  await expect(async () => {
+    await open(page);
+    await expect(input).toBeVisible({ timeout: 2_000 });
+  }).toPass({ timeout: 15_000 });
   return input;
 }
 
-test("global search opens with Ctrl+K", async ({ page }) => {
-  await openDialog(page);
+const byTrigger = (page: Page) =>
+  page
+    .getByRole("button", { name: /打开搜索/ })
+    .first()
+    .click();
+
+test("global search opens with Ctrl+K", async ({ page, isMobile }) => {
+  test.skip(isMobile, "Keyboard shortcut is a desktop path");
+  await openDialog(page, (target) => target.keyboard.press("Control+k"));
+});
+
+test("global search opens from the header trigger", async ({ page }) => {
+  await openDialog(page, byTrigger);
 });
 
 test("finds an article from a query that starts mid-title", async ({ page }) => {
-  const input = await openDialog(page);
+  const input = await openDialog(page, byTrigger);
   await input.fill(MID_TITLE.query);
 
   const hit = page.locator(`.gs-item[href="${MID_TITLE.url}"]`);
@@ -42,18 +59,20 @@ test("finds an article from a query that starts mid-title", async ({ page }) => 
 // for title-tier hits — this is the regression guard for the silent-worker
 // failure where the whole title tier returned nothing in real browsers.
 test("the title tier renders domain-grouped hits", async ({ page }) => {
-  const input = await openDialog(page);
+  const input = await openDialog(page, byTrigger);
   await input.fill("苏格拉底");
 
   // A domain group label only renders for title-tier hits — this is the
   // regression guard for the silent-worker failure (the body tier can cover
   // a bare "result visible" assertion even with the title tier dead).
   await expect(page.locator(".gs-group-label", { hasText: "哲学思想" })).toBeVisible();
-  await expect(page.locator('.gs-item[href="/philosophy/thinkers/socrates"]')).toBeVisible();
+  await expect(
+    page.locator('.gs-item[data-kind="thinker"][href="/philosophy/thinkers/socrates"]')
+  ).toBeVisible();
 });
 
 test("finds an article by a phrase that only exists in its prose", async ({ page }) => {
-  const input = await openDialog(page);
+  const input = await openDialog(page, byTrigger);
   await input.fill(BODY_ONLY.query);
 
   const bodyGroup = page.getByTestId("gs-body-group");
@@ -123,7 +142,7 @@ test("a domain facet narrows the results without losing the other counts", async
 
 test("the search dialog has no horizontal overflow on a phone", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  const input = await openDialog(page);
+  const input = await openDialog(page, byTrigger);
   await input.fill(BODY_ONLY.query);
   await expect(page.getByTestId("gs-body-group")).toBeVisible({ timeout: 15_000 });
 

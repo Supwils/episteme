@@ -1,10 +1,13 @@
 import { expect, test } from "@playwright/test";
+import { contentArticleCount } from "./content-count";
 
 test("lists all chemistry methods and renders an article", async ({ page }) => {
   await page.goto("/chemistry/methods");
 
   await expect(page.getByRole("heading", { name: "证据与实验方法" })).toBeVisible();
-  await expect(page.locator('a[href^="/chemistry/methods/"]')).toHaveCount(6);
+  await expect(page.locator('a[href^="/chemistry/methods/"]')).toHaveCount(
+    contentArticleCount("chemistry/methods")
+  );
 
   await page.goto("/chemistry/methods/nmr-spectroscopy-structure-elucidation");
   await expect(page.getByRole("heading", { name: "NMR：从核自旋到分子结构推断" })).toBeVisible();

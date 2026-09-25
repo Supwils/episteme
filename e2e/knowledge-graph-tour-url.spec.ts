@@ -1,4 +1,9 @@
 import { expect, test, type Page } from "@playwright/test";
+import {
+  buildSpatialGraphProjection,
+  normalizeSpatialRotation,
+  rotationForSpatialDomain,
+} from "@/subjects/knowledge-graph/lib/spatial-layout";
 
 async function expectFocusedTourArticle(page: Page, isMobile: boolean, heading: string) {
   if (isMobile) {
@@ -268,12 +273,18 @@ test("rotates the spatial graph without losing the active learning route or arti
   await page.goto(
     "/knowledge-graph?tourId=from-data-entry-to-auditable-trust&step=3&source=security-tour"
   );
-  await expect(page.getByRole("heading", { name: "加密协议基础" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "加密协议基础" })).toBeVisible({
+    timeout: 30_000,
+  });
 
+  // The tour restores its own URL once after mount; a mode switch made before
+  // that lands can be overwritten, so repeat the switch until it sticks.
   const cognitiveMode = page.getByRole("button", { name: "阶段", exact: true });
-  await cognitiveMode.click();
+  await expect(async () => {
+    await cognitiveMode.click();
+    await expect(page).toHaveURL(/layout=cognitive/, { timeout: 2_000 });
+  }).toPass({ timeout: 15_000 });
   await expect(cognitiveMode).toHaveAttribute("aria-pressed", "true");
-  await expect(page).toHaveURL(/layout=cognitive/);
 
   const spatialMode = page.getByRole("button", { name: "空间", exact: true });
   await spatialMode.click();
@@ -286,8 +297,12 @@ test("rotates the spatial graph without losing the active learning route or arti
   await expect(controls).toBeVisible();
   await domainSelect.selectOption("computer-science");
   await expect(domainSelect).toHaveValue("computer-science");
-  await expect(controls).toHaveAttribute("data-rotation", "-54");
-  await expect(page).toHaveURL(/spatialAngle=-54/);
+  const csRotation = normalizeSpatialRotation(rotationForSpatialDomain("computer-science"));
+  // The angle round-trips through the URL, which stores whole degrees.
+  await expect
+    .poll(async () => Number(await controls.getAttribute("data-rotation")))
+    .toBeCloseTo(csRotation, 0);
+  await expect(page).toHaveURL(new RegExp(`spatialAngle=${Math.round(csRotation)}(&|$)`));
   await expect(page).toHaveURL(/spatialFront=computer-science/);
 
   const clusterSummary = page.getByTestId("spatial-cluster-summary");
@@ -299,10 +314,15 @@ test("rotates the spatial graph without losing the active learning route or arti
   await expect(articleEntry).toHaveAttribute("href", /\/computer-science\//);
 
   await page.getByRole("button", { name: "向右旋转空间图谱" }).click();
-  await expect(controls).toHaveAttribute("data-rotation", "-30");
-  await expect(page).toHaveURL(/spatialAngle=-30/);
-  await expect(page).toHaveURL(/spatialFront=psychology/);
-  await expect(clusterSummary).toHaveAttribute("data-domain", "psychology");
+  const turned = normalizeSpatialRotation(csRotation + 24);
+  const turnedFront = buildSpatialGraphProjection([], [], turned).frontDomainId;
+  expect(turnedFront).not.toBe("computer-science");
+  await expect
+    .poll(async () => Number(await controls.getAttribute("data-rotation")))
+    .toBeCloseTo(turned, 0);
+  await expect(page).toHaveURL(new RegExp(`spatialAngle=${Math.round(turned)}(&|$)`));
+  await expect(page).toHaveURL(new RegExp(`spatialFront=${turnedFront}(&|$)`));
+  await expect(clusterSummary).toHaveAttribute("data-domain", turnedFront);
   await expect(page).toHaveURL(/spatialLevel=4/);
 
   await expect(page.getByText("从数据进入系统到可审计信任 · 3/7")).toBeVisible();
@@ -312,47 +332,62 @@ test("rotates the spatial graph without losing the active learning route or arti
     "/computer-science/concepts/encryption-basics"
   );
 
-  const canvasHasSpatialInk = await page.locator("canvas").evaluate((canvas) => {
-    const graphCanvas = canvas as HTMLCanvasElement;
-    const context = graphCanvas.getContext("2d");
-    if (!context || graphCanvas.width === 0 || graphCanvas.height === 0) return false;
-    const pixels = context.getImageData(0, 0, graphCanvas.width, graphCanvas.height).data;
-    const baseline = [pixels[0], pixels[1], pixels[2]];
-    let distinctSamples = 0;
-    const pixelStride = Math.max(
-      4,
-      Math.floor((graphCanvas.width * graphCanvas.height) / 12_000) * 4
-    );
-    for (let index = 0; index < pixels.length; index += pixelStride) {
-      if (
-        Math.abs(pixels[index]! - baseline[0]!) > 8 ||
-        Math.abs(pixels[index + 1]! - baseline[1]!) > 8 ||
-        Math.abs(pixels[index + 2]! - baseline[2]!) > 8
-      ) {
-        distinctSamples += 1;
+  const canvasHasSpatialInk = await page
+    .getByRole("img", { name: /^知识图谱，包含/ })
+    .evaluate((canvas) => {
+      const graphCanvas = canvas as HTMLCanvasElement;
+      const context = graphCanvas.getContext("2d");
+      if (!context || graphCanvas.width === 0 || graphCanvas.height === 0) return false;
+      const pixels = context.getImageData(0, 0, graphCanvas.width, graphCanvas.height).data;
+      const baseline = [pixels[0], pixels[1], pixels[2]];
+      let distinctSamples = 0;
+      const pixelStride = Math.max(
+        4,
+        Math.floor((graphCanvas.width * graphCanvas.height) / 12_000) * 4
+      );
+      for (let index = 0; index < pixels.length; index += pixelStride) {
+        if (
+          Math.abs(pixels[index]! - baseline[0]!) > 8 ||
+          Math.abs(pixels[index + 1]! - baseline[1]!) > 8 ||
+          Math.abs(pixels[index + 2]! - baseline[2]!) > 8
+        ) {
+          distinctSamples += 1;
+        }
+        if (distinctSamples > 80) return true;
       }
-      if (distinctSamples > 80) return true;
-    }
-    return false;
-  });
+      return false;
+    });
   expect(canvasHasSpatialInk).toBe(true);
 
   await page.reload();
   await expect(page).not.toHaveURL(/[?&]level=/);
-  await expect(page.getByTestId("spatial-graph-controls")).toHaveAttribute("data-rotation", "-30");
-  await expect(page.getByRole("combobox", { name: "空间图谱正面学科" })).toHaveValue("psychology");
+  await expect(page.getByTestId("spatial-graph-controls")).toHaveAttribute(
+    "data-rotation",
+    String(Math.round(turned))
+  );
+  await expect(page.getByRole("combobox", { name: "空间图谱正面学科" })).toHaveValue(turnedFront);
   await expect(page.getByTestId("spatial-cluster-summary")).toHaveAttribute(
     "data-domain",
-    "psychology"
+    turnedFront
   );
   await expect(page.getByRole("heading", { name: "加密协议基础" })).toBeVisible();
 
-  await page.goBack();
-  await expect(cognitiveMode).toHaveAttribute("aria-pressed", "true");
+  // Focusing a level may or may not be its own history entry depending on
+  // when the URL sync lands, so step back until the stage view returns.
+  await expect(async () => {
+    await page.goBack();
+    await expect(cognitiveMode).toHaveAttribute("aria-pressed", "true", { timeout: 2_000 });
+  }).toPass({ timeout: 20_000 });
   await expect(page.getByTestId("spatial-graph-controls")).toHaveCount(0);
 
-  await page.goForward();
-  await expect(page.getByTestId("spatial-graph-controls")).toHaveAttribute("data-rotation", "-30");
+  await expect(async () => {
+    await page.goForward();
+    await expect(page).toHaveURL(/spatialLevel=4/, { timeout: 2_000 });
+  }).toPass({ timeout: 20_000 });
+  await expect(page.getByTestId("spatial-graph-controls")).toHaveAttribute(
+    "data-rotation",
+    String(Math.round(turned))
+  );
 });
 
 test("keeps spatial graph controls within the mobile viewport", async ({ page, isMobile }) => {

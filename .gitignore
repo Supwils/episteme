@@ -65,3 +65,6 @@ generated/
 
 # Font sources for pnpm gen-seal-glyphs (downloaded on demand)
 .cache/
+
+# One-off agent scratch scripts; keep them out of the repo
+scripts/_tmp-*

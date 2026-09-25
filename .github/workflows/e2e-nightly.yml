@@ -1,0 +1,52 @@
+name: E2E nightly
+
+# The deploy gate runs only the smoke spec. This runs every other feature spec
+# against a production build once a day, so a stale spec or a regression in a
+# deep flow surfaces within a day instead of whenever someone runs it by hand.
+# It never deploys and never blocks a push.
+on:
+  schedule:
+    - cron: "17 10 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: e2e-nightly
+  cancel-in-progress: true
+
+jobs:
+  e2e:
+    name: Full e2e (production build)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+
+      - name: Full e2e
+        run: pnpm test:e2e:full
+
+      - name: Upload Playwright report
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: playwright-full-report
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore
+          retention-days: 7

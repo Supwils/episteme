@@ -12,6 +12,10 @@ GitHub Actions 的唯一生产工作流是`.github/workflows/ci.yml`，在`main`
 
 Quality与Build并行以缩短反馈时间。Deploy只在非PR的`main`运行；任一上游失败都禁止生产部署。工作流只有`contents: read`权限，Vercel CLI固定版本，所有作业都有超时。
 
+三个作业固定在`ubuntu-24.04`，不随`ubuntu-latest`漂到新系统（GitHub 2026-10-19 起把`ubuntu-latest`切到 26.04）；换系统要单独一轮验证 Lighthouse 与冒烟。
+
+另有`.github/workflows/e2e-nightly.yml`：每天 UTC 10:17 在生产构建上跑冒烟以外的全部 spec（`pnpm test:e2e:full`），也可手动触发。它不部署、不拦 push。部署门禁只跑冒烟，其余 spec 以前只在有人手动跑时才暴露过期：2026-09-25 第一次全量跑出 15 条失败，多是写死的篇数、写死的旋转角、小地图改画布后出现两个 canvas，外加一个真实的手机端布局问题（连接引擎面板一半在屏幕外）。
+
 ## 二、可复现构建
 
 `pnpm build`先通过`prebuild`执行`pnpm gen-all`，再用Next 15 Turbopack生产构建。Quality会提前执行同一生成链并要求工作区零差异，因此：
@@ -63,7 +67,7 @@ Playwright smoke在同一Build作业内复用已完成的`.next`生产产物，�
 
 1. `pnpm gen-all`，工作区必须干净（上次文学预览 excerpt 漂移就是这里拦的）。
 2. `pnpm prepush`
-3. `pnpm build` → `audit-rendering` → `bundle-check --skip-build`
+3. `pnpm build` → `audit-rendering` → `bundle-check --skip-build`（三者都认 `NEXT_DIST_DIR`，所以 `NEXT_DIST_DIR=.next-prod pnpm predeploy` 可以不碰开发用的 `.next`）
 4. 在独占端口 **3069** 起生产 `next start`，跑 Lighthouse（本机 3000 常被占用，不能拿错进程的结果当预算）。
 5. `CI=1 pnpm test:e2e:smoke`（冒烟自己在 3068 起服务）
 

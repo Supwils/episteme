@@ -18,6 +18,7 @@
     "predeploy": "bash scripts/predeploy.sh",
     "test:e2e": "playwright test",
     "test:e2e:smoke": "playwright test --config=playwright.smoke.config.ts",
+    "test:e2e:full": "playwright test --config=playwright.full.config.ts",
     "test:e2e:webkit": "playwright test --config=playwright.webkit.config.ts",
     "test:e2e:physics": "playwright test --config=playwright.physics.config.ts",
     "inp-probe": "node scripts/inp-probe.mjs",

@@ -132,10 +132,11 @@ async function revealLearningPlanner(page: Page) {
   await openContinuumTab(page, /地形与路线/);
   const planner = continuum.getByTestId("knowledge-learning-planner");
   await planner.evaluate((element) => element.scrollIntoView({ block: "center" }));
-  const load = planner.getByRole("button", { name: "立即载入" });
-  if (await load.isVisible()) {
-    await load.evaluate((element) => (element as HTMLButtonElement).click());
-  }
+  // The planner may start loading on its own between a visibility check and a
+  // click, so press whatever load button exists right now without waiting.
+  await planner
+    .getByRole("button", { name: "立即载入" })
+    .evaluateAll((buttons) => buttons.forEach((button) => (button as HTMLButtonElement).click()));
   await expect(planner.getByRole("heading", { name: "全图知识地形" })).toBeVisible({
     timeout: 15_000,
   });
