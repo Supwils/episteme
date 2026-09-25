@@ -96,7 +96,9 @@ async function measureRoute({ route, throttlingMethod }) {
 // One untimed visit per route so the proxy has CDN-quality bodies cached,
 // including data fetched after hydration (the graph payload).
 async function warmUpRoutes() {
-  const browser = await chromium.launch();
+  // System Chrome, like the smoke config: CI never downloads Playwright's own
+  // Chromium, so the bundled browser only exists on machines that ran it before.
+  const browser = await chromium.launch({ channel: "chrome" });
   const page = await browser.newPage();
   for (const { route } of LIGHTHOUSE_ROUTE_BUDGETS) {
     await page.goto(BASE + route, { waitUntil: "networkidle", timeout: 120_000 });
