@@ -1,5 +1,6 @@
 "use client";
 
+import type { EdgeLabelLookup } from "../hooks/useGraphState";
 import Link from "next/link";
 import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
@@ -18,7 +19,7 @@ type PathFinderProps = {
   onPathFind: (startId: string, endId: string) => void;
   onPathClear: () => void;
   nodeMap: Map<string, GraphNode>;
-  edgeLabelMap: Map<string, string>;
+  edgeLabelMap: EdgeLabelLookup;
   tours: ThoughtTour[];
   onTourSelect: (waypoints: string[]) => void;
   onTourStepSelect: (nodeId: string) => void;

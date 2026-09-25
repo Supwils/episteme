@@ -1,5 +1,6 @@
 "use client";
 
+import type { EdgeLabelLookup } from "../hooks/useGraphState";
 import { useState, useRef, useEffect } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { clsx } from "clsx";
@@ -72,7 +73,7 @@ type GraphFilterBarProps = {
   onPathFind: (startId: string, endId: string) => void;
   onPathClear: () => void;
   nodeMap: Map<string, FullGraphNode>;
-  edgeLabelMap: Map<string, string>;
+  edgeLabelMap: EdgeLabelLookup;
   tours: ThoughtTour[];
   onTourSelect: (waypoints: string[]) => void;
   onTourStepSelect: (nodeId: string) => void;

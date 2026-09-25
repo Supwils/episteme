@@ -23,6 +23,9 @@ import {
 } from "../lib/constants";
 import { buildPrimaryPrerequisitePath } from "../data/cognitive-metadata";
 
+/** Relationship label for `${source}|${target}` (either direction). */
+export type EdgeLabelLookup = { get(key: string): string | undefined };
+
 const EMPTY_EMPHASIZED_IDS: ReadonlySet<string> = new Set();
 
 export function useIsMobile() {
@@ -148,14 +151,23 @@ export function useGraphState(
   // Lookup for the relationship label on the edge between two nodes (both
   // directions). This is the "why" behind a connection — populated for the
   // hand-authored edges, empty for auto-generated wiki-reference edges.
-  const edgeLabelMap = useMemo(() => {
-    const map = new Map<string, string>();
-    for (const edge of edges) {
-      if (!edge.label) continue;
-      map.set(`${edge.source}|${edge.target}`, edge.label);
-      map.set(`${edge.target}|${edge.source}`, edge.label);
-    }
-    return map;
+  // Built on first lookup: only a found path reads it, and walking every edge
+  // at mount was one of the larger blocks of main-thread work on slow CPUs.
+  const edgeLabelMap = useMemo<EdgeLabelLookup>(() => {
+    let map: Map<string, string> | null = null;
+    return {
+      get(key) {
+        if (!map) {
+          map = new Map();
+          for (const edge of edges) {
+            if (!edge.label) continue;
+            map.set(`${edge.source}|${edge.target}`, edge.label);
+            map.set(`${edge.target}|${edge.source}`, edge.label);
+          }
+        }
+        return map.get(key);
+      },
+    };
   }, [edges]);
 
   const handlePathFind = useCallback(

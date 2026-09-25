@@ -1,7 +1,8 @@
 "use client";
 
-import { useCallback, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { DOMAIN_COLORS } from "../lib/constants";
 
 export type GraphMinimapProps = {
   nodes: { x: number; y: number; domain: string }[];
@@ -10,18 +11,12 @@ export type GraphMinimapProps = {
   onNavigate: (x: number, y: number) => void;
 };
 
-const DOMAIN_COLORS: Record<string, string> = {
-  physics: "#6366f1",
-  history: "#f59e0b",
-  philosophy: "#10b981",
-  "life-science": "#ec4899",
-};
-
 const MINIMAP_WIDTH = 150;
 const MINIMAP_HEIGHT = 100;
 
 export function GraphMinimap({ nodes, viewport, worldBounds, onNavigate }: GraphMinimapProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const reducedMotion = useReducedMotion();
 
   const worldWidth = worldBounds.maxX - worldBounds.minX || 1;
@@ -39,6 +34,28 @@ export function GraphMinimap({ nodes, viewport, worldBounds, onNavigate }: Graph
     (wy: number) => (wy - worldBounds.minY) * scaleY,
     [worldBounds.minY, scaleY]
   );
+
+  // One canvas draw per layout change. The dots used to be one <div> each —
+  // 3.5k elements rebuilt on every pan and zoom, the biggest single block of
+  // main-thread work when the graph mounted.
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const context = canvas?.getContext("2d");
+    if (!canvas || !context) return;
+    const ratio = window.devicePixelRatio || 1;
+    canvas.width = MINIMAP_WIDTH * ratio;
+    canvas.height = MINIMAP_HEIGHT * ratio;
+    context.setTransform(ratio, 0, 0, ratio, 0, 0);
+    context.clearRect(0, 0, MINIMAP_WIDTH, MINIMAP_HEIGHT);
+    context.globalAlpha = 0.7;
+    for (const node of nodes) {
+      const nx = toMinimapX(node.x);
+      const ny = toMinimapY(node.y);
+      if (nx < 0 || nx > MINIMAP_WIDTH || ny < 0 || ny > MINIMAP_HEIGHT) continue;
+      context.fillStyle = DOMAIN_COLORS[node.domain] ?? "#9ca3af";
+      context.fillRect(nx - 1, ny - 1, 2, 2);
+    }
+  }, [nodes, toMinimapX, toMinimapY]);
 
   const vpLeft = toMinimapX(viewport.x);
   const vpTop = toMinimapY(viewport.y);
@@ -79,26 +96,12 @@ export function GraphMinimap({ nodes, viewport, worldBounds, onNavigate }: Graph
       className="border-border-faint bg-bg-floating/90 relative cursor-pointer overflow-hidden rounded-lg border shadow-[0_4px_16px_rgba(0,0,0,0.4)] backdrop-blur-xl select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6366f1]"
       style={{ width: MINIMAP_WIDTH, height: MINIMAP_HEIGHT }}
     >
-      {/* Node dots */}
-      {nodes.map((node, i) => {
-        const nx = toMinimapX(node.x);
-        const ny = toMinimapY(node.y);
-        if (nx < 0 || nx > MINIMAP_WIDTH || ny < 0 || ny > MINIMAP_HEIGHT) return null;
-        return (
-          <div
-            key={i}
-            className="absolute rounded-full"
-            style={{
-              left: nx - 1,
-              top: ny - 1,
-              width: 2,
-              height: 2,
-              backgroundColor: DOMAIN_COLORS[node.domain] ?? "#9ca3af",
-              opacity: 0.7,
-            }}
-          />
-        );
-      })}
+      <canvas
+        ref={canvasRef}
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{ width: MINIMAP_WIDTH, height: MINIMAP_HEIGHT }}
+      />
 
       {/* Viewport rectangle */}
       <div
