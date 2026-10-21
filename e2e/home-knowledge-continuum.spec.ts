@@ -305,10 +305,9 @@ test("offers the mental-health evidence route from the rotating subject spine", 
   });
   const atlas = page.getByTestId("knowledge-spine-atlas");
   await atlas.scrollIntoViewIfNeeded();
-  const load = atlas.getByRole("button", { name: "立即载入" });
-  if (await load.isVisible()) {
-    await load.click();
-  }
+  await atlas
+    .getByRole("button", { name: "立即载入" })
+    .evaluateAll((buttons) => buttons.forEach((button) => (button as HTMLButtonElement).click()));
 
   await expect(atlas.getByRole("heading", { name: "跨域专题游览" })).toBeVisible({
     timeout: 15_000,

@@ -1,4 +1,5 @@
 ---
+summary: "Guth-Maynard推进了实部靠近四分之三一带的零点密度估计，论文已入《数学年刊》。这不是黎曼猜想的证明；孪生素数仍开放，筛法单独过不了奇偶障碍。"
 title: 解析数论的新进展
 title_en: New Advances in Analytic Number Theory
 status: published

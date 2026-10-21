@@ -1,10 +1,10 @@
-import { readFileSync } from "node:fs";
+import { readServiceWorkerSource } from "./service-worker-source";
 import { describe, expect, it, vi } from "vitest";
 
 type Strategy = "networkFirst" | "cacheFirst" | "staleWhileRevalidate";
 const strategies: Strategy[] = ["networkFirst", "cacheFirst", "staleWhileRevalidate"];
 const request = new Request("https://episteme.example/article");
-const source = readFileSync("public/sw.js", "utf8");
+const source = readServiceWorkerSource();
 
 function harness() {
   const match = vi
@@ -90,6 +90,16 @@ describe("navigation fallback and maintenance", () => {
     expect(cache.delete.mock.calls).toEqual([["0"]]);
   });
 
+  it("caps the hashed build-asset cache too, so old deploys' chunks don't pile up", async () => {
+    expect(source).toMatch(/cacheFirst\(request, STATIC_CACHE, STATIC_LIMIT,/);
+    const { sw, cache } = harness();
+    cache.keys.mockResolvedValue(Array.from({ length: 402 }, (_, index) => String(index)));
+    await sw.cacheFirst(request, "static", 400);
+    expect(cache.delete.mock.calls).toEqual([["0"], ["1"]]);
+  });
+});
+
+describe("navigation offline fallback", () => {
   it("falls back to the requested page when offline", async () => {
     const { sw, cache, fetch } = harness();
     const saved = new Response("saved page");
@@ -98,7 +108,7 @@ describe("navigation fallback and maintenance", () => {
     expect(await sw.networkFirst(request, "pages")).toBe(saved);
   });
 
-  it("tries the homepage even if reading the requested page fails", async () => {
+  it("reports an unavailable page instead of substituting the homepage when cache reading fails", async () => {
     const { sw, cache, fetch } = harness();
     const home = new Response("home");
     cache.match.mockImplementation(async (key) => {
@@ -106,7 +116,11 @@ describe("navigation fallback and maintenance", () => {
       throw new Error("bad cached page");
     });
     fetch.mockRejectedValue(new Error("offline"));
-    expect(await sw.networkFirst(request, "pages")).toBe(home);
+    const response = await sw.networkFirst(request, "pages");
+    expect(response.status).toBe(503);
+    expect(response.headers.get("cache-control")).toBe("no-store");
+    expect(await response.text()).toContain('href="/"');
+    expect(cache.match).not.toHaveBeenCalledWith("/");
   });
 
   it.each(["cacheFirst", "staleWhileRevalidate"] as const)(
@@ -123,6 +137,18 @@ describe("navigation fallback and maintenance", () => {
 });
 
 describe("stale asset revalidation", () => {
+  it.each(["cacheFirst", "staleWhileRevalidate"] as const)(
+    "refreshes explicitly reloaded assets but preserves offline fallback in %s",
+    async (strategy) => {
+      const { sw, cache, fetch, fresh } = harness();
+      const stale = new Response("stale");
+      cache.match.mockResolvedValue(stale);
+      const reload = new Request(request, { cache: "reload" });
+      expect(await sw[strategy](reload, "assets")).toBe(fresh);
+      fetch.mockRejectedValue(new Error("offline"));
+      expect(await sw[strategy](reload, "assets")).toBe(stale);
+    }
+  );
   it("returns cached content without waiting for the network or a failing cache write", async () => {
     const { sw, cache, fetch, fresh } = harness();
     const stale = new Response("stale");

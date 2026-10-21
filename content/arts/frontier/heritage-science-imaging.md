@@ -1,6 +1,7 @@
 ---
 title: 技术艺术史：当一幅画同时成为光谱、元素与时间的数据体
 title_en: Technical Art History and Heritage Imaging
+summary: "仪器看到的是铅、汞、铜、铁的元素分布、红外下的底稿与紫外下的清漆荧光。2023 年宏观 X 射线荧光扫描在不取样的条件下绘出中世纪织物的元素地图，突破来自多模态证据的整合。"
 status: published
 updated: 2026-08-07
 category: 保护科学

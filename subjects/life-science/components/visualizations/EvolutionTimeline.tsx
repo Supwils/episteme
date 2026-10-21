@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-  type MouseEvent,
-} from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type MouseEvent } from "react";
 import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
 import { PRODUCT_EASE } from "../../lib/constants";
 import { getAllEras } from "../../lib/eras";
@@ -88,9 +81,7 @@ interface ParsedEvent {
 export function EvolutionTimeline({ events }: EvolutionTimelineProps) {
   const reduce = useReducedMotion();
   const [zoom, setZoom] = useState(1);
-  const [selectedEvent, setSelectedEvent] = useState<TimelineEvent | null>(
-    null
-  );
+  const [selectedEvent, setSelectedEvent] = useState<TimelineEvent | null>(null);
   const [hoveredEvent, setHoveredEvent] = useState<TimelineEvent | null>(null);
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -112,10 +103,7 @@ export function EvolutionTimeline({ events }: EvolutionTimelineProps) {
     return parsed.filter((p) => p.event.category === activeCategory);
   }, [parsed, activeCategory]);
 
-  const sorted = useMemo(
-    () => [...filtered].sort((a, b) => b.dateMa - a.dateMa),
-    [filtered]
-  );
+  const sorted = useMemo(() => [...filtered].sort((a, b) => b.dateMa - a.dateMa), [filtered]);
 
   const categories = Object.keys(CATEGORY_LABELS);
 
@@ -127,13 +115,10 @@ export function EvolutionTimeline({ events }: EvolutionTimelineProps) {
     setZoom((z) => Math.max(z / 1.4, 0.5));
   }, []);
 
-  const handleEventClick = useCallback(
-    (event: TimelineEvent, e: MouseEvent) => {
-      e.stopPropagation();
-      setSelectedEvent((prev) => (prev?.id === event.id ? null : event));
-    },
-    []
-  );
+  const handleEventClick = useCallback((event: TimelineEvent, e: MouseEvent) => {
+    e.stopPropagation();
+    setSelectedEvent((prev) => (prev?.id === event.id ? null : event));
+  }, []);
 
   const handleBackgroundClick = useCallback(() => {
     setSelectedEvent(null);
@@ -144,11 +129,7 @@ export function EvolutionTimeline({ events }: EvolutionTimelineProps) {
     if (!container) return;
     const onScroll = () => {
       const { scrollLeft, scrollWidth, clientWidth } = container;
-      setScrollProgress(
-        scrollWidth > clientWidth
-          ? scrollLeft / (scrollWidth - clientWidth)
-          : 0
-      );
+      setScrollProgress(scrollWidth > clientWidth ? scrollLeft / (scrollWidth - clientWidth) : 0);
     };
     container.addEventListener("scroll", onScroll, { passive: true });
     return () => container.removeEventListener("scroll", onScroll);
@@ -162,12 +143,8 @@ export function EvolutionTimeline({ events }: EvolutionTimelineProps) {
           onClick={() => setActiveCategory(null)}
           className="rounded-full border px-3 py-1 font-mono text-[10px] tracking-wider transition-all duration-300"
           style={{
-            borderColor:
-              activeCategory === null ? "#2a9d8f" : "rgba(255,255,255,0.1)",
-            backgroundColor:
-              activeCategory === null
-                ? "rgba(42,157,143,0.15)"
-                : "transparent",
+            borderColor: activeCategory === null ? "#2a9d8f" : "rgba(255,255,255,0.1)",
+            backgroundColor: activeCategory === null ? "rgba(42,157,143,0.15)" : "transparent",
             color: activeCategory === null ? "#2a9d8f" : "#888",
           }}
         >
@@ -212,9 +189,7 @@ export function EvolutionTimeline({ events }: EvolutionTimelineProps) {
             className="h-1 w-20 accent-[#2a9d8f]"
             aria-label="缩放"
           />
-          <span className="font-mono text-[10px] text-[#666]">
-            {Math.round(zoom * 100)}%
-          </span>
+          <span className="font-mono text-[10px] text-[#666]">{Math.round(zoom * 100)}%</span>
           <button
             type="button"
             onClick={handleZoomIn}
@@ -234,9 +209,7 @@ export function EvolutionTimeline({ events }: EvolutionTimelineProps) {
               className="h-2 w-2 rounded-full"
               style={{ backgroundColor: ERA_COLORS[era.id] ?? "#666" }}
             />
-            <span className="font-mono text-[9px] text-[#888]">
-              {era.name}
-            </span>
+            <span className="font-mono text-[9px] text-[#888]">{era.name}</span>
           </div>
         ))}
       </div>
@@ -249,11 +222,7 @@ export function EvolutionTimeline({ events }: EvolutionTimelineProps) {
         />
       </div>
 
-      <div
-        ref={containerRef}
-        className="overflow-x-auto"
-        style={{ scrollBehavior: "smooth" }}
-      >
+      <div ref={containerRef} className="overflow-x-auto" style={{ scrollBehavior: "smooth" }}>
         <svg
           width={width}
           height={height}
@@ -326,33 +295,31 @@ export function EvolutionTimeline({ events }: EvolutionTimelineProps) {
             );
           })}
 
-          {[4500, 4000, 3000, 2000, 1000, 500, 200, 100, 50, 10, 1].map(
-            (tick) => {
-              const x = logScale(tick, width);
-              return (
-                <g key={`tick-${tick}`}>
-                  <line
-                    x1={x}
-                    y1={timelineY - 8}
-                    x2={x}
-                    y2={timelineY + 8}
-                    stroke="rgba(255,255,255,0.08)"
-                    strokeWidth={1}
-                  />
-                  <text
-                    x={x}
-                    y={timelineY + 24}
-                    textAnchor="middle"
-                    fill="rgba(255,255,255,0.2)"
-                    fontSize={9}
-                    fontFamily="monospace"
-                  >
-                    {formatMYA(tick)}
-                  </text>
-                </g>
-              );
-            }
-          )}
+          {[4500, 4000, 3000, 2000, 1000, 500, 200, 100, 50, 10, 1].map((tick) => {
+            const x = logScale(tick, width);
+            return (
+              <g key={`tick-${tick}`}>
+                <line
+                  x1={x}
+                  y1={timelineY - 8}
+                  x2={x}
+                  y2={timelineY + 8}
+                  stroke="rgba(255,255,255,0.08)"
+                  strokeWidth={1}
+                />
+                <text
+                  x={x}
+                  y={timelineY + 24}
+                  textAnchor="middle"
+                  fill="rgba(255,255,255,0.2)"
+                  fontSize={9}
+                  fontFamily="monospace"
+                >
+                  {formatMYA(tick)}
+                </text>
+              </g>
+            );
+          })}
 
           <line
             x1={PADDING}
@@ -377,9 +344,7 @@ export function EvolutionTimeline({ events }: EvolutionTimelineProps) {
             const isHovered = hoveredEvent?.id === event.id;
             const dotRadius = 6;
             const isAbove = i % 2 === 0;
-            const labelY = isAbove
-              ? timelineY - 40 - (i % 3) * 20
-              : timelineY + 40 + (i % 3) * 20;
+            const labelY = isAbove ? timelineY - 40 - (i % 3) * 20 : timelineY + 40 + (i % 3) * 20;
 
             return (
               <g
@@ -461,7 +426,7 @@ export function EvolutionTimeline({ events }: EvolutionTimelineProps) {
         {selectedEvent && (
           <motion.div
             key={selectedEvent.id}
-            initial={reduce ? { opacity: 1 } : { opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={reduce ? { opacity: 0 } : { opacity: 0, y: 12 }}
             transition={{ duration: reduce ? 0 : 0.25, ease: PRODUCT_EASE }}
@@ -477,23 +442,18 @@ export function EvolutionTimeline({ events }: EvolutionTimelineProps) {
                   <div
                     className="h-2 w-2 rounded-full"
                     style={{
-                      backgroundColor:
-                        CATEGORY_COLORS[selectedEvent.category] ?? "#2a9d8f",
+                      backgroundColor: CATEGORY_COLORS[selectedEvent.category] ?? "#2a9d8f",
                     }}
                   />
                   <span
                     className="font-mono text-[10px] tracking-wider"
                     style={{
-                      color:
-                        CATEGORY_COLORS[selectedEvent.category] ?? "#2a9d8f",
+                      color: CATEGORY_COLORS[selectedEvent.category] ?? "#2a9d8f",
                     }}
                   >
-                    {CATEGORY_LABELS[selectedEvent.category] ??
-                      selectedEvent.category}
+                    {CATEGORY_LABELS[selectedEvent.category] ?? selectedEvent.category}
                   </span>
-                  <span className="font-mono text-[10px] text-[#666]">
-                    {selectedEvent.era}
-                  </span>
+                  <span className="font-mono text-[10px] text-[#666]">{selectedEvent.era}</span>
                 </div>
                 <h3 className="font-display text-lg font-semibold text-[#e8e8f0]">
                   {selectedEvent.event}

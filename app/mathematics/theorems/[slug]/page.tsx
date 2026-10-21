@@ -1,5 +1,10 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { withCanonicalPath } from "@/lib/article-canonical";
+import {
+  mathematicianDisplayName,
+  mathematicianPageHref,
+} from "@/subjects/mathematics/lib/mathematician-label";
 import { getTheoremBySlug, getAllTheorems } from "@/subjects/mathematics/lib/theorems";
 import { MATH_FIELD_COLORS } from "@/subjects/mathematics/lib/constants";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
@@ -20,7 +25,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const theorem = getTheoremBySlug(slug);
   if (!theorem) notFound();
-  const description = `${theorem.title_en}：${theorem.field}。${theorem.tags.join("、")}`;
+  const description =
+    theorem.summary ?? `${theorem.title_en}：${theorem.field}。${theorem.tags.join("、")}`;
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(theorem.title)}&section=mathematics&description=${encodeURIComponent(description)}`;
   return withCanonicalPath(`/mathematics/theorems/${slug}`, {
     title: `${theorem.title} — 数学定理`,
@@ -44,20 +50,31 @@ export default async function TheoremDetailPage({ params }: { params: Promise<{ 
   const nextTheorem =
     (currentIndex < allTheorems.length - 1 ? allTheorems[currentIndex + 1] : null) ?? null;
 
+  const hasPerson = theorem.mathematician.length > 0;
+  const personLabel = hasPerson ? mathematicianDisplayName(theorem.mathematician) : "";
+  const personHref = hasPerson ? mathematicianPageHref(theorem.mathematician) : null;
+  const person = personHref ? (
+    <Link href={personHref} className="hover:text-accent-indigo underline-offset-2 hover:underline">
+      {personLabel}
+    </Link>
+  ) : (
+    personLabel
+  );
   const fieldColor = MATH_FIELD_COLORS[theorem.field] || "#6366f1";
   const wordCount = theorem.content.length;
   const readMinutes = Math.max(1, Math.ceil(wordCount / 400));
 
   const jsonLd = createDefinedTermJsonLd({
     name: `${theorem.title}（${theorem.title_en}）`,
-    description: `${theorem.title_en}：${theorem.field}。${theorem.tags.join("、")}`,
+    description:
+      theorem.summary ?? `${theorem.title_en}：${theorem.field}。${theorem.tags.join("、")}`,
     url: `${SITE_URL}/mathematics/theorems/${slug}`,
     inDefinedTermSet: "Mathematical Theorems",
     keywords: [
       theorem.title,
       theorem.title_en,
       theorem.field,
-      theorem.mathematician,
+      ...(hasPerson ? [personLabel] : []),
       ...theorem.tags,
     ],
   });
@@ -72,12 +89,15 @@ export default async function TheoremDetailPage({ params }: { params: Promise<{ 
       eyebrowMeta={[theorem.difficulty]}
       title={theorem.title}
       titleEn={theorem.title_en}
+      lede={theorem.summary}
       content={theorem.content}
       meta={
-        <>
-          {theorem.mathematician}
-          {theorem.year ? ` · ${theorem.year}` : ""}
-        </>
+        hasPerson || theorem.year ? (
+          <>
+            {hasPerson ? person : null}
+            {theorem.year ? `${hasPerson ? " · " : ""}${theorem.year}` : ""}
+          </>
+        ) : undefined
       }
       tags={theorem.tags}
       sidebar={
@@ -100,12 +120,14 @@ export default async function TheoremDetailPage({ params }: { params: Promise<{ 
                 </dt>
                 <dd className="text-fg-primary mt-0.5">{theorem.difficulty}</dd>
               </div>
-              <div>
-                <dt className="text-fg-disabled font-mono text-[9px] tracking-[0.18em] uppercase">
-                  证明者
-                </dt>
-                <dd className="text-fg-primary mt-0.5">{theorem.mathematician}</dd>
-              </div>
+              {hasPerson ? (
+                <div>
+                  <dt className="text-fg-disabled font-mono text-[9px] tracking-[0.18em] uppercase">
+                    相关人物
+                  </dt>
+                  <dd className="text-fg-primary mt-0.5">{person}</dd>
+                </div>
+              ) : null}
               {theorem.year && (
                 <div>
                   <dt className="text-fg-disabled font-mono text-[9px] tracking-[0.18em] uppercase">

@@ -1,4 +1,5 @@
 ---
+summary: "比铁更重的稳定核要靠快过β衰变的中子俘获，双中子星并合是目前证据最直接的现场。光谱认出的是锶这类第一峰核，金线尚未单独指认；并合也未被写成唯一工厂。"
 title: kilonova与r过程核合成
 titleEn: Kilonova and r-Process Nucleosynthesis
 category: 多信使天文学

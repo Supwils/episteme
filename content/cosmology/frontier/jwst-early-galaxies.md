@@ -1,4 +1,5 @@
 ---
+summary: "早期亮星系偏多，把星系形成理论推向极限，却还不是对标准宇宙学的决定性推翻。光谱红移是距离，光度拟合的质量是模型，大视场也尚未把超额写成定案。"
 title: JWST 与早期宇宙的"过早成熟"星系之谜
 title_en: JWST and the Puzzle of Impossibly Mature Early Galaxies
 status: published

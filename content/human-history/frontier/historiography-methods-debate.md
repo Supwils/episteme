@@ -1,4 +1,5 @@
 ---
+summary: "史学方法之争的核心是何种证据能支持何种因果，而不是微观对宏观的二选一。大历史从简单到复杂的讲法仍带进步论疑点，量化只能提供假说，因果框架能否用于历史仍是开放辩题。"
 title: 史学方法之争——大历史的雄心与年鉴学派的遗产
 title_en: The Debate Over Historical Methods — Big History's Ambition and the Annales Legacy
 status: published

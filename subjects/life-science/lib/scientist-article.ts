@@ -1,6 +1,7 @@
 import path from "node:path";
 import { loadContentBySlug } from "@/lib/content-article";
 import { getDomainContentDir } from "@/lib/content-paths";
+import { authorSummary } from "@/lib/content-utils";
 
 /**
  * The scientist detail page is registry-driven (scientists.ts), but some
@@ -10,12 +11,17 @@ import { getDomainContentDir } from "@/lib/content-paths";
  */
 const SCIENTISTS_DIR = path.join(getDomainContentDir("life-science"), "scientists");
 
-const scientistBodyCache = new Map<string, { body: string } | null>();
+const scientistBodyCache = new Map<string, { body: string; summary?: string } | null>();
 
-export function getScientistArticleBody(id: string): string | null {
-  const article = loadContentBySlug(SCIENTISTS_DIR, id, scientistBodyCache, (_data, content) => ({
+export function getScientistArticle(id: string): { body: string; summary?: string } | null {
+  const article = loadContentBySlug(SCIENTISTS_DIR, id, scientistBodyCache, (data, content) => ({
     body: content.replace(/^\s*#\s+.+\n+/, "").trim(),
+    summary: authorSummary(data),
   }));
   if (!article || !article.body) return null;
-  return article.body;
+  return article;
+}
+
+export function getScientistArticleBody(id: string): string | null {
+  return getScientistArticle(id)?.body ?? null;
 }

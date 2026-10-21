@@ -1,4 +1,5 @@
 ---
+summary: "状态方程决定中子星质量与半径，观测只交来积分量而非内核照片。托尔曼方程对应静态冷球对称星，大气模型会挪动半径，两倍太阳质量只排除极软曲线，多种内核仍能穿过误差带。"
 title: 中子星内部与状态方程
 titleEn: Neutron Star Interior and Equation of State
 category: 致密天体物理学

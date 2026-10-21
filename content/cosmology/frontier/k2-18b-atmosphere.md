@@ -1,4 +1,5 @@
 ---
+summary: "亚海王星大气里的中红外起伏曾被说成可能的生命分子，独立重分析并未达到探测门槛。几次凌星的显著性不能当成粒子物理的发现，甲烷与二氧化碳的组合也不等于液态海洋。"
 title: K2-18b 大气之争：一次"生命迹象"声称的解剖
 title_en: The K2-18 b Atmosphere Controversy — Anatomy of a Biosignature Claim
 status: published

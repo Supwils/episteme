@@ -1,6 +1,7 @@
 ---
 title: 单原子催化：当催化剂被拆到一个原子
 title_en: Single-Atom Catalysis — When the Catalyst Is Pared Down to One Atom
+summary: "2011 年张涛团队与刘景月等人用 Pt₁/FeOₓ 提出“单原子催化”，让每个铂原子都参与反应；但纳米越小越好不等于单原子最好，孤立原子也极难稳住。"
 status: published
 updated: 2026-06-19
 category: 催化与合成

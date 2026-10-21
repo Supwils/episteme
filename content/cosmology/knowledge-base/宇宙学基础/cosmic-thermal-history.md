@@ -1,4 +1,5 @@
 ---
+summary: "宇宙热历史是按温度和热浴自由度分段的阶段地图，核合成之后才有较硬的观测锚。越靠近普朗克时代，时刻越不能当成已经测过的钟点；暴胀在这里是清空与再加热，不是唯一选定的势。"
 title: 宇宙的热历史
 titleEn: Thermal History of the Universe
 category: 宇宙学基础

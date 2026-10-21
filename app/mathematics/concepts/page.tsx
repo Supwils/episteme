@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllMathConcepts } from "@/subjects/mathematics/lib/concepts";
+import { mathFigureLabel } from "@/subjects/mathematics/lib/mathematician-label";
 import { MathConceptsListBrowser } from "@/components/mathematics/MathConceptsListBrowser";
 
 export const metadata: Metadata = {
@@ -20,7 +21,8 @@ export default function MathConceptsPage() {
     title: c.title,
     title_en: c.title_en,
     field: c.field || "其他",
-    key_figures: c.key_figures,
+    key_figures: c.key_figures.map((id) => mathFigureLabel(id, c.content)),
+    figureSlugs: c.key_figures,
     tags: c.tags,
   }));
 

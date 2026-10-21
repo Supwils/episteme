@@ -1,6 +1,7 @@
 ---
 title: 气候临界点：地球系统的不可逆开关
 title_en: Climate Tipping Points — The Earth System's Irreversible Switches
+summary: "临界点一旦越过，气候系统会滑向难以返回的新稳态；2025 年冰岛把 AMOC 停摆风险列为国家安全威胁，而临界点科学本身也有方法论陷阱。"
 status: published
 updated: 2026-09-12
 category: 气候系统

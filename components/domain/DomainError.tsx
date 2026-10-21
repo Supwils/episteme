@@ -1,5 +1,7 @@
 "use client";
 
+import { startTransition } from "react";
+import { useRouter } from "next/navigation";
 import { CalibratingDial } from "@/components/chrome/Calibrating";
 import "@/components/chrome/states.css";
 
@@ -16,6 +18,16 @@ export function DomainError({
   homeLabel: string;
   reset: () => void;
 }) {
+  const router = useRouter();
+  // reset() alone re-renders the cached server payload, so a server component
+  // error would just throw again; refresh fetches a fresh one first.
+  const retry = () => {
+    startTransition(() => {
+      router.refresh();
+      reset();
+    });
+  };
+
   return (
     <div className="state-view" role="alert">
       <CalibratingDial sweep={false} needle={52} />
@@ -25,7 +37,7 @@ export function DomainError({
         {homeLabel}。
       </p>
       <div className="state-view__actions">
-        <button type="button" onClick={reset} className="state-view__action" data-primary>
+        <button type="button" onClick={retry} className="state-view__action" data-primary>
           重试
         </button>
         <a href={homeHref} className="state-view__action">

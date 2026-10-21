@@ -1,4 +1,5 @@
 ---
+summary: "长期主义主张，决定潜在未来人能否存在的事，在道德上可能压倒当下苦难，而不只是想想未来。此推论依赖未解的人口伦理；风险概率能否离开主观判断，正文列为未知边界。"
 title: 长期主义与存在风险：为尚未出生的人类辩护
 title_en: "Longtermism and Existential Risk: The Ethics of the Far Future"
 status: published

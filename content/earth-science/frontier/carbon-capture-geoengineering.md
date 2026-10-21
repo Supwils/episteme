@@ -1,6 +1,7 @@
 ---
 title: 碳捕集与地球工程：能不能把气候"修"回去
 title_en: Carbon Capture and Geoengineering — Can We Engineer the Climate Back?
+summary: "冰岛 Mammoth 直接空气捕集厂年设计能力约 3.6 万吨 CO₂，不到全球排放的百万分之一；碳移除受制于成本与规模，太阳辐射管理则没人敢按下按钮。"
 status: published
 updated: 2026-06-19
 category: 气候干预

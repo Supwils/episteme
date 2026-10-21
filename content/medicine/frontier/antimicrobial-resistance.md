@@ -1,6 +1,7 @@
 ---
 title: 抗微生物耐药：当抗生素一个接一个失效的那一天
 title_en: Antimicrobial Resistance — The Day the Antibiotics Stop Working
+summary: "《柳叶刀》估计 2019 年全球约 127 万人死亡可直接归因于细菌耐药，约 495 万死亡与之相关；最后一道防线正在失守，新抗生素的管线也在枯竭。"
 status: published
 updated: 2026-06-19
 category: 公共卫生

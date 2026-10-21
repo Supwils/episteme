@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { getSearchHistory, addToSearchHistory } from "@/lib/search-history";
 import { trackEvent } from "@/lib/analytics";
+import { useModalDialog } from "./interaction/useModalDialog";
+import { normalizeSearchQuery } from "@/lib/search/query";
 import { COVERAGE_DOMAIN_COUNT } from "@/lib/knowledge-continuum-coverage-meta";
 import { SearchInput } from "./search/SearchInput";
 import { SearchHistory, SearchHistoryHeader } from "./search/SearchHistory";
@@ -23,6 +25,9 @@ const INPUT_DEBOUNCE_MS = 100;
 export function GlobalSearch({ openOnMount = false }: { openOnMount?: boolean }) {
   const router = useRouter();
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const location = `${pathname}?${searchParams.toString()}`;
+  const previousLocationRef = useRef(location);
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [history, setHistory] = useState<string[]>([]);
@@ -53,11 +58,13 @@ export function GlobalSearch({ openOnMount = false }: { openOnMount?: boolean })
   }, [cancelPendingQuery, setQuery]);
 
   // ClientShell keeps this overlay mounted across App Router navigations.
-  // Native <a> exits (empty-state links, "查看全部结果") must not leave the
-  // dialog covering the next page.
+  // History and programmatic navigation must release the same work as the
+  // close button. An unchanged URL (including StrictMode replay) is no exit.
   useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+    if (previousLocationRef.current === location) return;
+    previousLocationRef.current = location;
+    closeSearch();
+  }, [location, closeSearch]);
 
   useEffect(() => {
     function openSearch() {
@@ -92,33 +99,36 @@ export function GlobalSearch({ openOnMount = false }: { openOnMount?: boolean })
     };
   }, [loadHistory, open, setQuery, warmup, cancelPendingQuery, closeSearch, openOnMount]);
 
-  useEffect(() => {
-    if (!open) return;
-    const previousFocus = document.activeElement;
-    const dialog = dialogRef.current;
-    dialog?.showModal();
-    inputRef.current?.focus();
-    return () => {
-      dialog?.close();
-      if (previousFocus instanceof HTMLElement && previousFocus.isConnected) {
-        previousFocus.focus();
-      }
-    };
-  }, [open]);
+  useModalDialog(open, dialogRef, { initialFocusRef: inputRef });
 
   useEffect(() => setActiveIndex(0), [query]);
 
-  const trimmed = query.trim();
+  // Title and body results arrive separately; a late title batch is inserted
+  // ahead of the body rows, so the selection follows the result, not the index.
+  const previousResultsRef = useRef(flatResults);
+  useEffect(() => {
+    const previous = previousResultsRef.current;
+    previousResultsRef.current = flatResults;
+    if (previous === flatResults) return;
+    setActiveIndex((index) => {
+      const selected = previous[index];
+      const moved = selected ? flatResults.indexOf(selected) : -1;
+      return moved === -1 ? 0 : moved;
+    });
+  }, [flatResults]);
+
+  const trimmed = normalizeSearchQuery(query);
   const showHistory = !trimmed && history.length > 0;
   // With no query the walkable list is the search history.
   const walkLength = trimmed ? flatResults.length : showHistory ? history.length : 0;
 
   const handleHistoryClick = useCallback(
     (term: string) => {
+      const normalized = normalizeSearchQuery(term);
       cancelPendingQuery();
-      setQuery(term);
+      setQuery(normalized);
       setActiveIndex(0);
-      if (inputRef.current) inputRef.current.value = term;
+      if (inputRef.current) inputRef.current.value = normalized;
       inputRef.current?.focus();
     },
     [setQuery, cancelPendingQuery]
@@ -128,11 +138,6 @@ export function GlobalSearch({ openOnMount = false }: { openOnMount?: boolean })
     if (!open) return;
     function handleKeyDown(e: KeyboardEvent) {
       if (e.isComposing || e.keyCode === 229) return;
-      if (e.key === "Escape") {
-        e.preventDefault();
-        closeSearch();
-        return;
-      }
       // Links and history controls keep their native keyboard activation.
       if (e.target !== inputRef.current) return;
       if (e.key === "ArrowDown") {
@@ -144,26 +149,23 @@ export function GlobalSearch({ openOnMount = false }: { openOnMount?: boolean })
         setActiveIndex((prev) => Math.max(prev - 1, 0));
       }
       if (e.key !== "Enter") return;
-      // The visible input can be ahead of the debounced query and its results.
-      if (inputRef.current?.value.trim() !== trimmed) {
+      // The visible input can be ahead of the debounced query and its results,
+      // and results may still be loading. Rather than swallow the keypress, hand
+      // the typed text to the full results page.
+      const typed = normalizeSearchQuery(inputRef.current?.value ?? trimmed);
+      const target = typed === trimmed ? flatResults[activeIndex] : undefined;
+      if (typed && target) {
         e.preventDefault();
-        return;
-      }
-      if (trimmed) {
-        const target = flatResults[activeIndex];
-        if (target) {
-          e.preventDefault();
-          addToSearchHistory(trimmed);
-          trackEvent({ type: "search", query: trimmed, resultCount: flatResults.length });
-          closeSearch();
-          router.push(target.url);
-        } else if (!searching) {
-          e.preventDefault();
-          addToSearchHistory(trimmed);
-          trackEvent({ type: "search", query: trimmed, resultCount: 0 });
-          closeSearch();
-          router.push(`/search?q=${encodeURIComponent(trimmed)}`);
-        }
+        addToSearchHistory(typed);
+        trackEvent({ type: "search", query: typed, resultCount: flatResults.length });
+        closeSearch();
+        router.push(target.url);
+      } else if (typed) {
+        e.preventDefault();
+        addToSearchHistory(typed);
+        trackEvent({ type: "search", query: typed, resultCount: flatResults.length });
+        closeSearch();
+        router.push(`/search?q=${encodeURIComponent(typed)}`);
       } else {
         const term = history[activeIndex];
         if (term) {
@@ -183,7 +185,6 @@ export function GlobalSearch({ openOnMount = false }: { openOnMount?: boolean })
     history,
     router,
     handleHistoryClick,
-    searching,
     closeSearch,
   ]);
 
@@ -204,12 +205,12 @@ export function GlobalSearch({ openOnMount = false }: { openOnMount?: boolean })
 
   const handleItemClick = useCallback(
     (url: string) => {
-      addToSearchHistory(query.trim());
-      trackEvent({ type: "search", query: query.trim(), resultCount: flatResults.length });
+      addToSearchHistory(trimmed);
+      trackEvent({ type: "search", query: trimmed, resultCount: flatResults.length });
       closeSearch();
       router.push(url);
     },
-    [query, flatResults.length, router, closeSearch]
+    [trimmed, flatResults.length, router, closeSearch]
   );
 
   useEffect(() => cancelPendingQuery, [cancelPendingQuery]);
@@ -219,7 +220,7 @@ export function GlobalSearch({ openOnMount = false }: { openOnMount?: boolean })
   const hasResults = flatResults.length > 0;
   const activeId = trimmed
     ? flatResults[activeIndex]
-      ? searchResultDomId(flatResults[activeIndex])
+      ? searchResultDomId(activeIndex)
       : undefined
     : showHistory && history[activeIndex]
       ? `gs-history-${activeIndex}`
@@ -240,7 +241,13 @@ export function GlobalSearch({ openOnMount = false }: { openOnMount?: boolean })
       }}
     >
       <div className="gs-panel">
-        <SearchInput inputRef={inputRef} activeId={activeId} onChange={handleQueryChange} />
+        <SearchInput
+          inputRef={inputRef}
+          activeId={activeId}
+          hasList={Boolean(trimmed) || showHistory}
+          onChange={handleQueryChange}
+          onClose={closeSearch}
+        />
 
         <div className="gs-body">
           <div className="gs-results" ref={listRef}>

@@ -1,6 +1,7 @@
 ---
 title: 社区主导的语言复振：技术能帮忙，但谁定义“语言活了”
 title_en: Community-Led Language Revitalization
+summary: "语言复振正从“为社区保存语言”转向由社区决定目标、治理资源并培养新使用者；联合国把 2022–2032 年定为国际原住民语言十年。"
 status: published
 updated: 2026-08-07
 category: 社区与复振

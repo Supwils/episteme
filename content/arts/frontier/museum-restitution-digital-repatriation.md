@@ -1,6 +1,7 @@
 ---
 title: 博物馆返还与数字归还：复制一件物，能修复被夺走的关系吗
 title_en: Museum Restitution and Digital Repatriation
+summary: "把被掠夺的雕像扫描成三维模型发给来源社区，可能恢复学习与仪式，也可能成为不归还原物的廉价替代。2022 年 MONDIACULT 宣言之后，问题是谁决定扫描、谁控制文件、谁能商用。"
 status: published
 updated: 2026-08-07
 category: 博物馆与制度

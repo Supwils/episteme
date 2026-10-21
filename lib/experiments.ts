@@ -1,3 +1,4 @@
+import { authorSummary } from "@/lib/content-utils";
 import path from "node:path";
 import type { Experiment, ExperimentFrontmatter } from "./types";
 import { loadAllContent, loadContentBySlug } from "./content-article";
@@ -11,6 +12,7 @@ let cachedExperiments: Experiment[] | null = null;
 function toExperiment(data: Record<string, unknown>, content: string, slug: string): Experiment {
   return {
     ...(data as ExperimentFrontmatter),
+    summary: authorSummary(data),
     slug,
     content,
   };

@@ -1,0 +1,113 @@
+---
+title: Shoup 2001：OAEP 的安全证明里有一道补不上的缝
+title_en: "OAEP Reconsidered"
+summary: "2001 年肖普指出，OAEP 对任意陷门置换都抗自适应选择密文攻击的那份证明并不成立，并且无法用常规黑盒归约补上；他同时给出可证明的 OAEP+，以及指数为 3 的 RSA-OAEP 的单独证明。"
+status: published
+updated: 2026-10-01
+category: 计算理论
+order: 100
+field: 计算复杂性
+era: 当代
+key_figures: [维克多·肖普]
+tags: [Shoup, OAEP, OAEP+, 选择密文攻击, CRYPTO 2001, 随机预言机]
+related:
+  - bellare-rogaway-1994-oaep
+  - fujisaki-okamoto-pointcheval-stern-2001
+  - bellare-rogaway-1993
+  - cramer-shoup-1998
+  - public-key-rsa
+  - rackoff-simon-1991
+  - dolev-dwork-naor-1991
+  - yao-1982-trapdoor-functions
+  - cryptography-foundations
+---
+
+# Shoup 2001：OAEP 的安全证明里有一道补不上的缝
+
+2001 年 8 月，第二十一届国际密码学年会（CRYPTO 2001）在加州圣芭芭拉举行。会议录收入斯普林格 LNCS 第 2139 卷，其中维克多·肖普（Victor Shoup，当时在 IBM 苏黎世研究实验室）的《OAEP Reconsidered》占页码 239 至 259，DOI 为 10.1007/3-540-44647-8_15。论文先于 2000 年挂在 IACR 预印本库（编号 2000/060），期刊版 2002 年刊于《Journal of Cryptology》第 15 卷第 4 期。
+
+本页的对象是这篇论文提出的三件事。第一，[[bellare-rogaway-1994-oaep|贝拉雷与罗加韦 1994 年的 OAEP]]被普遍认为在随机预言机模型里、对任意单向陷门置换都能抵抗自适应选择密文攻击，但原来的论证并不支持这一点。第二，这道缺口不能用常规的黑盒归约补上。第三，给出一个改过的方案 OAEP+，对任意陷门置换都有完整证明；并单独证明，用指数 $e=3$ 的 RSA 时，原来的 OAEP 是安全的。
+
+## 破除误解：不是对 RSA-OAEP 的攻击
+
+第一种误读，把这篇当成“OAEP 被攻破了”。论文没有给出对 RSA-OAEP 的任何攻击。它说的是证明有缺口，并且这个缺口对“任意陷门置换”这一层一般性是真实的：存在一个人造的世界，在那里有一个满足单向性的陷门置换，OAEP 套在它上面却不抗自适应选择密文攻击。RSA 有那个人造置换没有的代数性质，所以对 RSA，结论要另行判断。同一卷会议录里紧接着的[[fujisaki-okamoto-pointcheval-stern-2001|藤崎、冈本、普安特舍瓦尔与斯特恩]]那篇，正是用 RSA 的特殊性质把结论救了回来。
+
+第二种误读，把它和同一卷里曼格（James Manger）的论文混在一起。曼格攻击的是 PKCS #1 v2.0 标准里 OAEP 的实现方式：解密失败时如果能区分是哪一步出错，攻击者就能借这一信号逐步恢复明文。那是对标准文本和实现细节的攻击，与本页讨论的证明缺口互不相干。两篇同年同卷，结论方向也不同：一篇说证明不够，一篇说实现漏信息。
+
+第三种误读，以为肖普是在维护标准模型、反对随机预言机。论文的正面结果本身就在随机预言机模型里。它批评的是一个具体证明，而不是这套方法论。肖普本人与克拉默合写的 [[cramer-shoup-1998|1998 年方案]]走的是标准模型，但本篇没有用那篇来否定 OAEP。
+
+## 背景：标准先走了一步
+
+这道缝之所以引人注目，是因为 OAEP 当时已经进了标准。1998 年布莱兴巴赫尔在 CRYPTO '98 上发表对 PKCS #1 v1.5 加密填充的选择密文攻击：SSL 3.0 服务器在解密后只要透露“填充格式对不对”这一比特，攻击者就能用大约一百万次询问恢复会话密钥。同年 RSA 实验室发布 PKCS #1 v2.0（后来作为 RFC 2437 公布），把 OAEP 列为新应用推荐的加密填充，理由之一就是它在随机预言机模型里有选择密文安全的证明。RFC 2437 由 RSA 实验室的卡利斯基（Burt Kaliski）与斯塔德尼（Jessica Staddon）执笔，1998 年 10 月发布，v1.5 填充仍保留供旧系统兼容，但标准建议新的应用不再使用它。肖普的论文说的是：标准赖以推荐的那份证明，对一般陷门置换并不成立。
+
+于是同一年的会议上出现了一种少见的局面：标准文本已经写定，证明却要重做。藤崎等人的结果让 RSA-OAEP 的推荐理由得以保留，标准本身不必改动；2003 年的 PKCS #1 v2.1（RFC 3447）和 2016 年的 v2.2（RFC 8017）都继续把 RSAES-OAEP 作为加密方案，并在安全说明里同时引用了肖普与藤崎等人的论文。v2.1 还改写了解密步骤的描述，要求实现不论哪一步失败都只报告同一种错误，这一改动针对的是曼格的攻击。
+
+## 装置：缝在哪里，为什么补不上
+
+OAEP 的结构是两轮掩码。明文后面先补一串零作为冗余，再与随机种子一起经过两个哈希函数 $G$、$H$ 做两次异或，最后把整串送进陷门置换 $f$。写成式子：取随机种子 $r$，令 $s = (m \| 0^{k_1}) \oplus G(r)$，$t = r \oplus H(s)$，密文为 $f(s \| t)$。解密时求逆得到 $s, t$，算出 $r = t \oplus H(s)$，再还原 $m \| 0^{k_1} = s \oplus G(r)$，检查那串零是否完好，不完好就拒绝。这正是两轮费斯特尔网络的形状。
+
+标准文本里的写法稍有不同，但骨架相同。RFC 8017 的 EME-OAEP 把“一串零”换成标签的哈希值、一段零字节填充和一个 0x01 分隔字节，与明文拼成数据块；两个哈希函数都由同一个掩码生成函数 MGF1 实现；编码结果的首字节固定为 0x00，以保证它作为整数小于模数。首字节和分隔字节这些格式细节，正是曼格攻击和后来各种侧信道攻击的落点。
+
+1994 年的论证用了一个叫“明文知晓”（plaintext awareness）的性质：攻击者如果造出一份合法密文，他就一定“知道”对应的明文，因为从他对哈希的询问里就能把明文读出来。如果这成立，解密预言机对攻击者就没有用处，选择密文攻击退化为普通的窃听。问题在于 1994 年的定义没有考虑攻击者在看到挑战密文之后才去构造密文的情形。攻击者可以拿挑战密文作原料，改出一份新的合法密文，而他从来没有为它的种子询问过哈希。1998 年贝拉雷、德赛、普安特舍瓦尔与罗加韦把明文知晓的定义加强到足以推出自适应安全，此后学界大多默认 OAEP 满足加强后的定义。肖普指出，这一步从来没有被证过。
+
+为了说明缝补不上，论文构造了一个相对化的世界。在那里有一个单向陷门置换，额外允许人在不知道 $x$ 的情况下，从 $f(x)$ 算出 $f(x \oplus \delta)$，$\delta$ 任意可选。这个性质不违反单向性。可是 OAEP 的外层恰好是异或掩码：攻击者拿到挑战密文后，可以把里面的值异或一个精心挑选的 $\delta$，得到一份新的合法密文，解密结果与原明文有已知关系。把这份新密文送去解密，就能推出挑战明文。任何只把 $f$ 当黑盒、只用单向性的证明，在这个世界里都必然失败。
+
+OAEP+ 的修改就是对准这个口子：不再用一串固定的零作冗余，而是用第三个哈希函数作用在种子和明文上得到的值。写成式子，OAEP+ 令 $s = (m \oplus G(r)) \| H'(r \| m)$，$t = r \oplus H(s)$，密文仍是 $f(s \| t)$；解密时除了还原 $m$，还要重算 $H'(r \| m)$ 并与 $s$ 的后半段比对。攻击者想改出一份合法密文，就必须让这串校验值也对得上，而那要求他真的询问过对应的种子。论文证明了 OAEP+ 在随机预言机模型里、对任意单向陷门置换都抗自适应选择密文攻击，归约损失也比原来的论证小。
+
+对 RSA 的单独结果用到了科珀史密斯（Don Coppersmith）的小根算法。指数为 3 时，攻击者若能对挑战密文做出上面那种修改，就等于拿到了同一个未知数的两个相关多项式，科珀史密斯的方法能从中解出那个未知数，从而反过来求出 RSA 的逆。归约因此可以落回 RSA 本身。
+
+## 同年的其他修补方案
+
+OAEP+ 不是 2001 年唯一的修补。同一卷会议录里，博内（Dan Boneh）提出 SAEP 与 SAEP+：只用一轮掩码，把随机种子与明文并排放进 RSA 或拉宾函数。对拉宾函数（平方模 $N$），SAEP+ 的选择密文安全可以归约到分解 $N$；对 RSA，证明同样依赖函数本身的代数性质，而不是只把它当作抽象的陷门置换。博内在摘要里强调，这一证明比 OAEP 的证明紧得多。方案结构比 OAEP 更简单，代价是明文能占用的长度更短。它与肖普对 $e=3$ 的证明思路相通：想证得更多，就要用到具体函数的结构。
+
+曼格的攻击也值得具体说一句，因为它说明证明与实现之间隔着多少细节。PKCS #1 v2.0 的 OAEP 解密先把整数转成字节串，再检查首字节是否为零，然后才做掩码还原与完整性校验。如果实现对“首字节非零”和“校验失败”给出可区分的反应，哪怕只是耗时不同，攻击者就得到一个“解密结果是否小于某个界”的预言机，对 1024 位密钥大约一千多次询问就能恢复明文。这比布莱兴巴赫尔对 v1.5 所需的询问少了几个数量级。随机预言机模型里的证明假定解密只输出明文或单一的拒绝符号，实现一旦多说一个比特，证明就不再适用。
+
+之后的工作把问题推向标准模型。2010 年基尔茨（Eike Kiltz）、奥尼尔（Adam O'Neill）与史密斯（Adam Smith）证明，在 Φ-隐藏假设下，并对两个哈希函数提出可具体实现的条件，RSA-OAEP 不依赖随机预言机也能达到选择明文安全。选择密文安全在标准模型里仍没有对应结果。
+
+## 证明了什么，没有覆盖什么
+
+论文证明了三件事：OAEP 对任意陷门置换的一般性证明不成立，并且在相对化意义下不能成立；OAEP+ 对任意陷门置换成立；RSA-OAEP 在 $e=3$ 时成立。全部结论都在随机预言机模型里。
+
+它没有覆盖一般指数的 RSA-OAEP，那由藤崎等人同年用“部分定义域单向性”解决，代价是归约很松。它没有讨论实现层面的问题，例如解密出错信息的泄露。它也没有讨论随机预言机能否被具体哈希替换，这个问题属于[[bellare-rogaway-1993|贝拉雷–罗加韦 1993]]与[[canetti-goldreich-halevi-1998|卡内蒂–戈德赖希–哈勒维]]之间的争论。
+
+证明成立之后还有一个“值多少”的问题。藤崎等人对一般指数的归约要把攻击者的成功概率大致平方之后才落到求 RSA 逆上，攻击者若以 $\varepsilon$ 的优势攻破 RSA-OAEP，归约得到的求逆算法成功率只有约 $\varepsilon^2$ 的量级，运行时间也随询问次数平方增长。按这个界换算，1024 位模数给出的保证相当有限。OAEP+ 对一般陷门置换的归约基本是线性的，损失小得多。所以“可证明安全”在这里分成了两种：方案有没有证明，证明给出的参数是否够用。
+
+肖普后来担任 ISO/IEC 18033-2 的编辑，这份于 2006 年正式发布的非对称加密标准同时收入了 RSA-OAEP 与 RSA-KEM。后者把随机数直接用 RSA 加密，再从中派生对称密钥，证明简单而紧，正是这一轮讨论之后被推荐的另一条路线。
+
+一个可以写成教材习题的对照是 RSA 的指数。指数取 3 时，对 RSA 求逆的难度与一般指数一样被认为很高，但它额外具备“小根可解”的代数结构，正是这一结构让本页的单独证明能够成立。也就是说，同一种填充在 $e=3$ 与 $e=65537$ 之下，证明所依赖的论证完全不同；后者要等到藤崎等人的部分定义域论证。这提醒读者，“RSA-OAEP 可证明安全”这句话背后其实有两条互不相同的证明路线。
+
+这篇论文更持久的影响在方法上。一个被广泛引用、写进标准的证明，七年里没有人发现缺口，原因之一是证明写得非形式，不同定义之间的推导关系没有逐步核对。肖普此后长期提倡把安全证明写成“游戏序列”：从真实攻击出发，每次只改一处，逐步变到一个攻击者显然无优势的游戏，并对每一步的概率差单独做界。这种写法今天已是密码学论文的通行格式，肖普 2004 年的讲义《Sequences of Games》把它整理成了系统的教程。
+
+## 跨域连接
+
+- **[[bellare-rogaway-1994-oaep|贝拉雷–罗加韦 1994 OAEP]]**：被重新审视的那个方案。1994 年的方案没有变，变的是对它能证明什么的判断：对任意陷门置换，只能证到较弱的非自适应安全。
+- **[[fujisaki-okamoto-pointcheval-stern-2001|藤崎–冈本–普安特舍瓦尔–斯特恩 2001]]**：同一卷会议录里的另一半答案。本页说一般证明不可能，那篇说换成更强的“部分定义域单向”假设就能证，而 RSA 恰好满足这一假设。两篇合起来，RSA-OAEP 的地位才重新稳定。
+- **[[cramer-shoup-1998|克拉默–肖普 1998]]**：同一作者在标准模型里的选择密文安全方案。读本页时可以对照：那篇不依赖随机预言机，而是在密文里显式放一段核验；OAEP+ 则把核验交给一个哈希。
+- **[[dolev-dwork-naor-1991|多列夫–德沃克–纳奥尔 1991]]**：不可延展性的出处。本页的反例本质上是一次延展：从挑战密文改出相关的合法密文。OAEP 的缝正是不可延展性没有被保住的地方。
+- **[[yao-1982-trapdoor-functions|姚期智 1982]]**：陷门函数的抽象定义。本页的相对化反例说明，只用“单向陷门置换”这一抽象性质，有时不足以支撑一个具体方案的安全，还需要置换本身的结构。
+- **[[rackoff-simon-1991|拉科夫–西蒙 1991]]**：自适应选择密文攻击的定义来自那里：攻击者在看到挑战密文之后仍可以询问解密，只是不能询问挑战本身。本页的缝恰好落在“之后”这两个字上，1994 年的明文知晓只照顾到看到挑战之前。
+- **[[bellare-rogaway-1993|贝拉雷–罗加韦 1993]]**：随机预言机方法论的出处。本页对方法论没有异议，正面结果全在这个模型里；它指出的是，即使在模型内部，非形式的证明也可能错。
+- **[[public-key-rsa|RSA 公钥密码]]**：算法页里推荐的填充就是 OAEP。本页解释了为什么推荐的依据从“对任意置换都安全”变成了“对 RSA 安全”。
+- **[[tls-certificate-ecosystem|TLS 证书生态]]**：证书里的 RSA 公钥在 TLS 1.2 中可以直接用于传输会话密钥，用的是 v1.5 填充而不是 OAEP，所以本页与布莱兴巴赫尔攻击的那段历史一直延续到 TLS 1.3 删除这种密钥交换为止。
+
+---
+
+## 参考文献
+
+- Victor Shoup, "OAEP Reconsidered", *Advances in Cryptology — CRYPTO 2001*, LNCS 2139, Springer, 2001, pp. 239–259. DOI: 10.1007/3-540-44647-8_15. —— 本文对象。
+- Victor Shoup, "OAEP Reconsidered", *Journal of Cryptology* 15(4), 2002, pp. 223–249. —— 期刊版。
+- Mihir Bellare & Phillip Rogaway, "Optimal Asymmetric Encryption", *Advances in Cryptology — EUROCRYPT '94*, LNCS 950, Springer, 1995, pp. 92–111. DOI: 10.1007/BFb0053428. —— 被重新审视的方案。
+- Eiichiro Fujisaki, Tatsuaki Okamoto, David Pointcheval & Jacques Stern, "RSA-OAEP Is Secure under the RSA Assumption", *Advances in Cryptology — CRYPTO 2001*, LNCS 2139, Springer, 2001, pp. 260–274. DOI: 10.1007/3-540-44647-8_16. —— 同卷的 RSA 专门证明。
+- Ronald Cramer & Victor Shoup, "A Practical Public Key Cryptosystem Provably Secure against Adaptive Chosen Ciphertext Attack", *Advances in Cryptology — CRYPTO '98*, LNCS 1462, Springer, 1998, pp. 13–25. DOI: 10.1007/BFb0055717. —— 同作者的标准模型方案。
+- Daniel Bleichenbacher, "Chosen Ciphertext Attacks Against Protocols Based on the RSA Encryption Standard PKCS #1", *Advances in Cryptology — CRYPTO '98*, LNCS 1462, Springer, 1998, pp. 1–12. DOI: 10.1007/BFb0055716. —— 促成 PKCS #1 v2.0 采用 OAEP 的攻击。
+- James Manger, "A Chosen Ciphertext Attack on RSA Optimal Asymmetric Encryption Padding (OAEP) as Standardized in PKCS #1 v2.0", *Advances in Cryptology — CRYPTO 2001*, LNCS 2139, Springer, 2001, pp. 230–238. DOI: 10.1007/3-540-44647-8_14. —— 同卷的实现层攻击。
+- Dan Boneh, "Simplified OAEP for the RSA and Rabin Functions", *Advances in Cryptology — CRYPTO 2001*, LNCS 2139, Springer, 2001, pp. 275–291. —— SAEP 与 SAEP+。
+- Eike Kiltz, Adam O'Neill & Adam Smith, "Instantiability of RSA-OAEP under Chosen-Plaintext Attack", *Advances in Cryptology — CRYPTO 2010*, LNCS 6223, Springer, 2010, pp. 295–313. DOI: 10.1007/978-3-642-14623-7_16. —— 标准模型下的选择明文安全。
+- Victor Shoup, "Sequences of Games: A Tool for Taming Complexity in Security Proofs", IACR Cryptology ePrint Archive 2004/332. —— 游戏序列写法的教程。
+- K. Moriarty, B. Kaliski, J. Jonsson & A. Rusch, "PKCS #1: RSA Cryptography Specifications Version 2.2", RFC 8017, IETF, November 2016. —— 现行标准文本。
+- ISO/IEC 18033-2:2006, *Information technology — Security techniques — Encryption algorithms — Part 2: Asymmetric ciphers*. —— 收入 RSA-OAEP 与 RSA-KEM 的国际标准，肖普为编辑。
+
+## 延伸阅读
+
+- 与 [[bellare-rogaway-1994-oaep|贝拉雷–罗加韦 1994 OAEP]] 对读：先看原方案的两轮掩码，再看缝开在哪一层。
+- 与 [[fujisaki-okamoto-pointcheval-stern-2001|藤崎等 2001]] 对读：一篇说一般证明不可能，一篇说对 RSA 可以。

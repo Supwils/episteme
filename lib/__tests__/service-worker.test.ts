@@ -1,12 +1,9 @@
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
+import { readServiceWorkerSource } from "./service-worker-source";
 import { beforeAll, describe, expect, it } from "vitest";
 
 /**
- * public/sw.js is a hand-written file served verbatim to the browser, so it
- * can't import a tested module. Instead we load the shipped bytes and exercise
- * their pure decision functions directly — the test runs the real code, not a
- * copy. The file's top-level addEventListener calls run against a mock self.
+ * Load the classic worker and its fixed import from the shipped files. The
+ * top-level event registrations run against a mock self; no strategy is copied.
  */
 type Classification = "passthrough" | "navigation" | "immutable" | "asset";
 interface SwExports {
@@ -17,7 +14,7 @@ interface SwExports {
 let sw: SwExports;
 
 beforeAll(() => {
-  const source = readFileSync(join(process.cwd(), "public", "sw.js"), "utf-8");
+  const source = readServiceWorkerSource();
   const mockSelf = {
     addEventListener() {},
     skipWaiting() {},

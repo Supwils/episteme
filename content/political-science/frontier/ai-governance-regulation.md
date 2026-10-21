@@ -1,6 +1,7 @@
 ---
 title: AI 监管的制度竞赛：欧盟、美国、中国与全球治理
 title_en: The Institutional Race to Regulate AI — EU, US, China, and Global Governance
+summary: "2025 年 8 月联合国大会协商一致通过第 79/325 号决议，设立独立国际 AI 科学小组与全球对话；AI 监管不是监管与创新的二选一，欧盟、美国、中国走出了三种模式。"
 status: published
 updated: 2026-08-16
 category: 政治学前沿

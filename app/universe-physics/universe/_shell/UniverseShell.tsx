@@ -16,7 +16,7 @@ import { UniverseLoading } from "./UniverseLoading";
 type GlStatus = "checking" | "ok" | "unsupported" | "lost";
 
 const UniverseWebGL = lazy(() =>
-  import("./UniverseWebGL").then((module) => ({ default: module.UniverseWebGL })),
+  import("./UniverseWebGL").then((module) => ({ default: module.UniverseWebGL }))
 );
 
 export function UniverseShell({ children }: { children: ReactNode }) {
@@ -45,7 +45,7 @@ export function UniverseShell({ children }: { children: ReactNode }) {
       data-webgl-status={glStatus}
       className="bg-bg-deep text-fg-primary relative h-dvh w-full overflow-hidden"
     >
-      <SkipLink targetId="main-content" />
+      <SkipLink targetId="universe-scene" />
 
       {glStatus === "checking" && <UniverseLoading />}
 

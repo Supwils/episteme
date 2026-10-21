@@ -1,4 +1,5 @@
 ---
+summary: "视界望远镜的图像来自全球天线事后相关和重建，不是底片照片，也不是单台曝光。稀疏可见度要加先验，环靠对增益稳健的闭合量，不能把发布日当成拍摄日。"
 title: 事件视界望远镜
 titleEn: Event Horizon Telescope
 category: 多信使天文学

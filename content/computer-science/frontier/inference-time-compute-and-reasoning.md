@@ -1,6 +1,7 @@
 ---
 title: 推理时计算与推理模型：让机器学会"多想一会儿"
 title_en: Inference-Time Compute and Reasoning Models
+summary: "2024年9月OpenAI发布o1-preview，模型先生成一段看不见的推理再作答；本文澄清三个常见误解，指出这类训练的奖励必须可以被检查，并梳理各家进展。"
 status: published
 updated: 2026-09-12
 category: 人工智能

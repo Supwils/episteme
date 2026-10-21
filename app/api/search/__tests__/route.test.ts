@@ -84,6 +84,16 @@ describe("GET /api/search", () => {
     expect(body.query).toBe("熵增");
   });
 
+  it.each([
+    { input: "热".repeat(119) + "𠀀", expected: "热".repeat(119) + "𠀀" },
+    { input: "𠀀".repeat(121), expected: "𠀀".repeat(120) },
+    { input: "  自然选择  ", expected: "自然选择" },
+  ])("echoes the complete query within the code-point budget", async ({ input, expected }) => {
+    const { body } = await call(input);
+    expect(body.query).toBe(expected);
+    expect(body.query.isWellFormed()).toBe(true);
+  });
+
   it.each(["q=熵&q=引力", "q=熵&limit=5&limit=50"])(
     "rejects repeated query parameters instead of picking one silently (%s)",
     async (queryString) => {

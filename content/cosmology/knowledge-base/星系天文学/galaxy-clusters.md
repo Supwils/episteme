@@ -1,4 +1,5 @@
 ---
+summary: "星系团是已知最大的引力束缚系统，质量主要在暗物质和炽热气体里，发光星系只占很少。超星系团通常尚未维里化，正在并合的团若用静力平衡称重也会出现偏差。"
 title: 星系团与超星系团
 titleEn: Galaxy Clusters and Superclusters
 category: 星系天文学

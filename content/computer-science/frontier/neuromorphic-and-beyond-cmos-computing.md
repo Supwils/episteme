@@ -1,6 +1,7 @@
 ---
 title: 神经形态与后 CMOS 计算：当搬运数据比计算更贵
 title_en: Neuromorphic and Beyond-CMOS Computing — When Moving Data Costs More Than Computing
+summary: "从片外DRAM读一个数的能耗够做几百次乘加，计算的瓶颈在“搬”而不在“算”；本文说明神经形态不是更快的AI芯片，梳理三条后CMOS技术路线，以及事件相机。"
 status: published
 updated: 2026-08-04
 category: 计算体系结构

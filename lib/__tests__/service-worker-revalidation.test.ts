@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { readServiceWorkerSource } from "./service-worker-source";
 import { describe, expect, it, vi } from "vitest";
 
 function deferred<T>() {
@@ -30,7 +30,7 @@ function dispatchAsset(hasCache = true) {
     addEventListener: (type: string, listener: (value: typeof event) => void) =>
       listeners.set(type, listener),
   };
-  new Function("self", "caches", "fetch", readFileSync("public/sw.js", "utf8"))(
+  new Function("self", "caches", "fetch", readServiceWorkerSource())(
     self,
     { open: async () => cache },
     () => network.promise

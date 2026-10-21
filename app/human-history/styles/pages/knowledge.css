@@ -260,6 +260,15 @@
   line-height: 1.35;
 }
 
+.human-history-root .kb-detail-lede {
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--parchment-dim);
+  margin: 4px 0 12px;
+  max-width: 42rem;
+}
+
 .human-history-root .kb-detail-period {
   font-family: var(--mono);
   font-size: 0.78rem;

@@ -1,4 +1,5 @@
 ---
+summary: "靶丸放出的能量超过打到靶上的激光，只是物理意义上的点火，不是工程上已经能发电。产生激光要消耗多得多的电能，工程增益仍远小于一；重复点火也还没过激光效率、靶重频和氚循环。"
 title: 受控核聚变的"点火"时代
 title_en: The Ignition Era — Controlled Fusion Crosses the Energy Threshold
 status: published

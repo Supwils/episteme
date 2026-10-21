@@ -1,6 +1,7 @@
 ---
 title: 后量子密码：在机器造出来之前更换全世界的锁
 title_en: Post-Quantum Cryptography — Replacing the World's Locks Before the Machine Exists
+summary: "Shor 1994年证明大型量子计算机能破解RSA和椭圆曲线，一台尚不存在的机器正迫使全世界换锁；本文说明这事不能等量子计算机造出来再说，讲从竞赛到FIPS标准，以及密钥尺寸这一工程痛点。"
 status: published
 updated: 2026-09-12
 category: 密码学与安全

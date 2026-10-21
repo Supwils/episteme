@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
+import { readerKeyFigureLabel } from "@/lib/reader-key-figure-label";
 import { getTheoryBySlug, getAllTheories } from "@/subjects/economics/lib/mdx";
 import { CATEGORY_COLORS } from "@/subjects/economics/lib/constants";
 import { ArticleLayout } from "@/components/ArticleLayout";
@@ -20,7 +21,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!theory) notFound();
   return withCanonicalPath(`/economics/theories/${slug}`, {
     title: `${theory.title} — 经济理论`,
-    description: `${theory.title}（${theory.title_en}）：${theory.key_figures.join("、")}`,
+    description:
+      theory.summary ?? `${theory.title}（${theory.title_en}）：${theory.key_figures.join("、")}`,
   });
 }
 
@@ -61,9 +63,17 @@ export default async function TheoryDetailPage({ params }: { params: Promise<{ s
       eyebrowMeta={[theory.period]}
       title={theory.title}
       titleEn={theory.title_en}
+      lede={theory.summary}
       content={theory.content}
       meta={
-        theory.key_figures.length > 0 ? <>代表人物：{theory.key_figures.join("、")}</> : undefined
+        theory.key_figures.length > 0 ? (
+          <>
+            代表人物：
+            {theory.key_figures
+              .map((name) => readerKeyFigureLabel(theory.content, name))
+              .join("、")}
+          </>
+        ) : undefined
       }
       tags={theory.tags}
       prev={prev ? { href: `/economics/theories/${prev.slug}`, title: prev.title } : null}
@@ -93,7 +103,11 @@ export default async function TheoryDetailPage({ params }: { params: Promise<{ s
                   <dt className="text-fg-disabled font-mono text-[9px] tracking-[0.18em] uppercase">
                     代表人物
                   </dt>
-                  <dd className="text-fg-primary mt-0.5">{theory.key_figures.join("、")}</dd>
+                  <dd className="text-fg-primary mt-0.5">
+                    {theory.key_figures
+                      .map((name) => readerKeyFigureLabel(theory.content, name))
+                      .join("、")}
+                  </dd>
                 </div>
               )}
             </dl>

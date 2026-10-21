@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { dailyLabelFor, dedupeDailyEvents } from "@/lib/daily-display";
+import { dailyCardHref, dailyLabelFor, dedupeDailyEvents } from "@/lib/daily-display";
 import { getDailyKnowledge } from "@/lib/daily-knowledge";
 import { getDailySelected } from "@/lib/daily-selector";
 
@@ -24,6 +24,15 @@ describe("daily display", () => {
     );
     expect(dailyLabelFor("/human-history/timeline", "历史")).toBe("人类历史");
     expect(dailyLabelFor(undefined, "知识")).toBe("知识");
+  });
+
+  it("does not follow a script or protocol-relative card url", () => {
+    expect(dailyCardHref("/philosophy/thinkers/socrates", "/daily")).toBe(
+      "/philosophy/thinkers/socrates"
+    );
+    expect(dailyCardHref("javascript:alert(1)", "/daily")).toBe("/daily");
+    expect(dailyCardHref("//evil.example/phish", "/universe-physics")).toBe("/universe-physics");
+    expect(dailyCardHref(undefined, "/daily")).toBe("/daily");
   });
 
   it("never lets two pools pick the same event on the same day", () => {

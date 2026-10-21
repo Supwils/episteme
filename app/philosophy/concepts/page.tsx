@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllConcepts, getConceptsByField, getOrderedFields } from "@/lib/concepts";
+import { thinkerDisplayName } from "@/lib/mdx";
 import { FIELD_ACCENTS } from "@/lib/constants";
 import { StaggerGrid, StaggerItem } from "@/components/StaggerGrid";
 import { FadeInSection } from "@/components/FadeInSection";
@@ -184,7 +185,7 @@ export default function ConceptsPage() {
 
                       {concept.key_figures.length > 0 && (
                         <p className="text-fg-muted mt-2 font-mono text-[9px] tracking-wider">
-                          {concept.key_figures.slice(0, 3).join("、")}
+                          {concept.key_figures.slice(0, 3).map(thinkerDisplayName).join("、")}
                         </p>
                       )}
                     </div>

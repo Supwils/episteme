@@ -7,7 +7,7 @@ export const HISTORY_CURIOSITIES: Curiosity[] = [
     detail:
       "胡夫金字塔约建于公元前 2560 年，克娄巴特拉约死于公元前 30 年——相隔约 2500 年。而她距离 1969 年登月只有约 2000 年。她生活的年代离智能手机，比离金字塔更近。",
     tags: ["古埃及", "时间错觉"],
-    url: "/human-history/knowledge/文明--古埃及",
+    url: "/human-history/knowledge/古代文明--古埃及",
   },
   {
     id: "oxford-older-than-aztecs",
@@ -33,7 +33,7 @@ export const HISTORY_CURIOSITIES: Curiosity[] = [
       "我们通常以为猛犸象是遥远史前的生物，但弗兰格尔岛上的一个猛犸象种群直到约公元前 1650 年才灭绝——此时胡夫金字塔已经耸立了将近 900 年。古埃及人与猛犸象曾短暂共存于同一个星球。",
     source: "Rogers et al., Science, 2000; 弗兰格尔岛放射性碳测年",
     tags: ["古埃及", "史前动物", "时间错觉"],
-    url: "/human-history/knowledge/文明--古埃及",
+    url: "/human-history/knowledge/古代文明--古埃及",
   },
   {
     id: "nintendo-founded-before-eiffel-tower",

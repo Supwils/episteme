@@ -1,6 +1,7 @@
 ---
 title: 具身人工智能的可靠性：机器人会说会看，为何仍不会收拾陌生厨房
 title_en: Reliability for Embodied AI and Generalist Robots
+summary: "视觉—语言模型能把指令分解成动作，但物理世界有摩擦、遮挡、软物体与人突然伸手；具身人工智能的前沿是让系统知道何时不知道，并安全降级。"
 status: published
 updated: 2026-09-12
 as_of: 2026-08

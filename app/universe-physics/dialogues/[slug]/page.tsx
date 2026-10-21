@@ -25,10 +25,10 @@ export async function generateMetadata({ params }: Props) {
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(dialogue.title)}&section=universe-physics&description=${encodeURIComponent(dialogue.description)}`;
   return withCanonicalPath(`/universe-physics/dialogues/${slug}`, {
     title: `${dialogue.title} — 物理学对话`,
-    description: dialogue.description || dialogue.title,
+    description: dialogue.summary ?? (dialogue.description || dialogue.title),
     openGraph: {
       title: `${dialogue.title} — 物理学对话`,
-      description: dialogue.description || dialogue.title,
+      description: dialogue.summary ?? (dialogue.description || dialogue.title),
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
   });
@@ -80,7 +80,7 @@ export default async function PhysicsDialogueDetailPage({ params }: Props) {
         eyebrow="物理学对话"
         title={dialogue.title}
         content={dialogue.content}
-        lede={dialogue.description || undefined}
+        lede={dialogue.summary ?? (dialogue.description || undefined)}
         tags={dialogue.tags}
         prev={prev ? { href: `/universe-physics/dialogues/${prev.slug}`, title: prev.title } : null}
         next={next ? { href: `/universe-physics/dialogues/${next.slug}`, title: next.title } : null}

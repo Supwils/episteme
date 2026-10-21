@@ -1,4 +1,5 @@
 ---
+summary: "股票是对公司的一份所有权，短期价格由买卖力量推动，长期才围绕盈利能力摆动。市场短期可以是投票机，一次报价偏离价值，并不等于长期的称重已经完成。"
 title: 股票市场完全指南
 titleEn: Complete Guide to the Stock Market
 category: 金融市场

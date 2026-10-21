@@ -1,3 +1,4 @@
+import { authorSummary } from "@/lib/content-utils";
 import { loadAllContent, loadContentBySlug } from "@/lib/content-article";
 import { listContentSlugs } from "@/lib/content-paths";
 import type { Mathematician, MathEra } from "./types";
@@ -28,6 +29,7 @@ function toMathematician(
   const field = (data.field as string) ?? fields[0] ?? "其他";
   const name = (data.name as string) ?? (data.title_en as string) ?? "";
   return {
+    summary: authorSummary(data),
     title: data.title as string,
     name,
     era: era as MathEra,

@@ -9,4 +9,10 @@ describe("philosophy quote timeline", () => {
     expect(names.indexOf("克尔凯郭尔")).toBeLessThan(names.indexOf("马克思"));
     expect(names.indexOf("德里达")).toBeLessThan(names.indexOf("福柯"));
   });
+
+  it("keeps Averroes in the Islamic tradition instead of the east-west pair", () => {
+    const averroes = CHRONOLOGICAL_QUOTES.find((quote) => quote.id === "averroes-intellect");
+    expect(averroes?.tradition).toBe("islamic");
+    expect(averroes?.philosopher).toBe("阿维罗伊");
+  });
 });

@@ -5,7 +5,15 @@ import { loadImageManifest } from "@/lib/image-rights";
  * 响应式 <figure>——webp srcset、显式宽高（防 CLS）、lazy/async、署名
  * figcaption。只读构建期 manifest，不进客户端 bundle。
  */
-export function RegisteredImage({ id, alt }: { id: string; alt: string }) {
+export function RegisteredImage({
+  id,
+  alt,
+  inline = false,
+}: {
+  id: string;
+  alt: string;
+  inline?: boolean;
+}) {
   const entry = loadImageManifest()[id];
   if (!entry || entry.variants.length === 0) return null;
 
@@ -13,9 +21,13 @@ export function RegisteredImage({ id, alt }: { id: string; alt: string }) {
   const fallback = entry.variants[entry.variants.length - 1]!;
   // 展示尺寸按 900px 文章栏宽估算 DPR 选择，小屏全宽。
   const sizes = "(min-width: 900px) 880px, 100vw";
+  // Inline Markdown must stay phrasing content inside its paragraph. Preserve
+  // the figure semantics and attribution without an invalid nested <figure>.
+  const Frame = inline ? "span" : "figure";
+  const Caption = inline ? "span" : "figcaption";
 
   return (
-    <figure className="my-8">
+    <Frame className={inline ? "my-8 block" : "my-8"} role={inline ? "figure" : undefined}>
       {/* 刻意用原生 img：变体在构建期由 gen-content-images 生成（webp srcset），
           next/image 的运行时优化与静态导出部署模型不符（同 MarkdownInteractions 的既有取舍）。 */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -30,10 +42,10 @@ export function RegisteredImage({ id, alt }: { id: string; alt: string }) {
         decoding="async"
         className="border-border-faint h-auto w-full rounded-lg border"
       />
-      <figcaption className="text-fg-muted mt-2.5 text-[12px] leading-relaxed">
+      <Caption className="text-fg-muted mt-2.5 block text-[12px] leading-relaxed">
         {entry.title}
         {entry.attribution ? <span className="text-fg-disabled">　{entry.attribution}</span> : null}
-      </figcaption>
-    </figure>
+      </Caption>
+    </Frame>
   );
 }

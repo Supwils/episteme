@@ -68,6 +68,11 @@ export type MoleculeViewerProps = {
 
 type Status = "idle" | "loading" | "ready" | "error";
 
+function disposeViewer(viewer: MolstarViewer | null): void {
+  if (viewer?.plugin?.dispose) viewer.plugin.dispose();
+  else viewer?.dispose?.();
+}
+
 export function MoleculeViewer({
   pdbId,
   title,
@@ -78,11 +83,20 @@ export function MoleculeViewer({
   const viewerRef = useRef<MolstarViewer | null>(null);
   const [status, setStatus] = useState<Status>("idle");
 
+  // Viewer.create and loadPdb are slow awaits; the component can unmount
+  // mid-flight, and anything created after that has no owner left to dispose it.
+  const aliveRef = useRef(true);
+
   const activate = useCallback(async () => {
     if (status === "loading" || status === "ready") return;
     setStatus("loading");
+    // A failed attempt may have left a half-built viewer on the container;
+    // a second Mol* instance on the same element leaks the first's WebGL context.
+    disposeViewer(viewerRef.current);
+    viewerRef.current = null;
     try {
       const molstar = await loadMolstar();
+      if (!aliveRef.current) return;
       if (!containerRef.current) {
         setStatus("error");
         return;
@@ -99,19 +113,24 @@ export function MoleculeViewer({
         pdbProvider: "rcsb",
         pixelScale: 1,
       });
+      if (!aliveRef.current) {
+        disposeViewer(viewer);
+        return;
+      }
       viewerRef.current = viewer;
       await viewer.loadPdb(pdbId);
+      if (!aliveRef.current) return;
       setStatus("ready");
     } catch {
-      setStatus("error");
+      if (aliveRef.current) setStatus("error");
     }
   }, [pdbId, status]);
 
   useEffect(() => {
+    aliveRef.current = true;
     return () => {
-      const v = viewerRef.current;
-      if (v?.plugin?.dispose) v.plugin.dispose();
-      else if (v?.dispose) v.dispose();
+      aliveRef.current = false;
+      disposeViewer(viewerRef.current);
       viewerRef.current = null;
     };
   }, []);

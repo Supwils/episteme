@@ -26,6 +26,12 @@ describe("server search parameter boundary", () => {
     { params: { q: [], domain: [] }, query: "", domain: undefined },
     { params: { q: ["", "忽略"] }, query: "", domain: undefined },
     { params: { q: ["知".repeat(121), "忽略"] }, query: "知".repeat(120), domain: undefined },
+    {
+      params: { q: "𠀀".repeat(121) },
+      query: "𠀀".repeat(120),
+      domain: undefined,
+    },
+    { params: { q: "热\ud800力学" }, query: "热�力学", domain: undefined },
   ])("normalizes $params before searching", async ({ params, query, domain }) => {
     await SearchPage({ searchParams: Promise.resolve(params) });
     expect(searchEverything).toHaveBeenCalledTimes(1);

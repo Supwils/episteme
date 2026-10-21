@@ -1,4 +1,5 @@
 ---
+summary: "间接探测等的是湮灭或衰变产物，不是核反冲；矮星系视场干净，给出的多半是上限而非发现。银心超出和正电子上升仍可能来自天体物理本底，排除的是参数点不是暗物质。"
 title: 暗物质间接探测
 titleEn: Indirect Detection of Dark Matter
 category: 宇宙学前沿

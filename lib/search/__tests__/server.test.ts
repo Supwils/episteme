@@ -50,4 +50,20 @@ describe("searchEverything", () => {
     const filtered = await searchEverything("科学", "philosophy");
     expect(filtered.facets.map((f) => f.section)).toEqual(all.facets.map((f) => f.section));
   });
+
+  it("filters to a domain before capping, so a narrow domain is not starved by the global top-N", async () => {
+    const all = await searchEverything("博弈");
+    const economics = all.facets.find((f) => f.section === "economics")?.count ?? 0;
+    const filtered = await searchEverything("博弈", "economics");
+    expect(filtered.total).toBe(economics);
+    expect(filtered.titleResults.length + filtered.bodyResults.length).toBe(
+      Math.min(economics, 100)
+    );
+  });
+
+  it("reports the uncapped total even when the lists are capped", async () => {
+    const result = await searchEverything("博弈");
+    expect(result.total).toBe(result.facets.reduce((n, f) => n + f.count, 0));
+    expect(result.total).toBeGreaterThan(result.titleResults.length + result.bodyResults.length);
+  });
 });

@@ -1,4 +1,5 @@
 ---
+summary: "这页讲天然阿尔法穿过氮后出现来自氮的长射程氢核闪光，不是金箔发现原子核。入射体没有电场加速，也还没把静质量差写成动能，更不是用氮制氢的配方。"
 title: 卢瑟福 1919：天然 α 打氮怎样放出氢核，并把核组成第一次改写成实验室对象
 title_en: "Rutherford 1919: Alpha Particles on Nitrogen and the Recoil Hydrogen Nucleus"
 status: published

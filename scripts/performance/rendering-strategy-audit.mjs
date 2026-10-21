@@ -13,8 +13,6 @@ const CONFLUENCE_IDS = [
 
 const ISR_ROUTES = new Map([
   ["/", 3600],
-  ["/daily", 3600],
-  ["/api/daily", 3600],
   ["/api/knowledge-continuum/spine", 86400],
   ["/api/knowledge-continuum/planner", 86400],
   ["/api/knowledge-continuum/confluences", 86400],
@@ -39,6 +37,8 @@ const ON_DEMAND_SSG_PATTERNS = [
 ];
 
 const DYNAMIC_ROUTE_HANDLERS = [
+  "/api/daily/route",
+  "/api/daily/home/route",
   "/api/daily/shuffle/route",
   "/api/search/route",
   "/api/knowledge-frontier/route",
@@ -49,9 +49,8 @@ const DYNAMIC_ROUTE_HANDLERS = [
   "/api/og/route",
 ];
 
-// Pages that must render per request because their output depends on the query
-// string. Prerendering one would serve every reader the same stale answer.
-const DYNAMIC_PAGES = ["/search"];
+// Request input and the current site day must not be frozen in a route snapshot.
+const DYNAMIC_PAGES = ["/search", "/daily"];
 
 export function auditRenderingStrategy(nextDir, appDir = resolve(nextDir, "..", "app")) {
   const prerender = readJson(resolve(nextDir, "prerender-manifest.json"));

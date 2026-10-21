@@ -321,8 +321,9 @@ export function KnowledgeGraph({
     }
     const timeout = window.setTimeout(
       () => {
-        // Read the live URL, not the params captured when the timer started: a
-        // tour step pushed inside the delay would otherwise be written back over.
+        // Rotation is view state, not navigation. A synchronous replaceState on
+        // the live URL cannot land after a pending tour push and roll the step
+        // back, which an async router.replace could under load.
         const currentParams = new URLSearchParams(window.location.search);
         const nextParams = writeGraphViewUrlState(
           currentParams,
@@ -332,7 +333,7 @@ export function KnowledgeGraph({
           spatialLevel
         );
         if (nextParams.toString() === currentParams.toString()) return;
-        router.replace(`${pathname}?${nextParams.toString()}`, { scroll: false });
+        window.history.replaceState(null, "", `${pathname}?${nextParams.toString()}`);
       },
       reducedMotion ? 0 : 160
     );
@@ -342,7 +343,6 @@ export function KnowledgeGraph({
     pathname,
     reducedMotion,
     requestedGraphView.state.layoutMode,
-    router,
     searchParams,
     spatialProjection,
     spatialLevel,

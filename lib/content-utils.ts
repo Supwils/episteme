@@ -9,6 +9,14 @@ import { parseMatterSafe } from "./content-article";
 /** Parse frontmatter, falling back to "no frontmatter" instead of throwing. */
 export const safeParseMatter = parseMatterSafe;
 
+/** Only author-written plain-text leads belong in the article header. */
+export function authorSummary(data: Record<string, unknown>): string | undefined {
+  for (const value of [data.summary, data.dek]) {
+    if (typeof value === "string" && value.trim()) return value.trim();
+  }
+  return undefined;
+}
+
 /** URL slugs arrive percent-encoded (CJK); decode defensively. */
 export function decodeSlug(slug: string): string {
   try {
@@ -31,7 +39,11 @@ export function stripLeadingHeading(content: string): string {
 
 // Lines that are structure, not prose: headings, tables, quotes, lists, JSX/HTML,
 // images, display math and fences.
-const NON_PROSE_LINE = /^(#|\||>|[-*+]\s|\d+[.)]\s|<|!\[|\$\$|```|import\s|export\s)/;
+const NON_PROSE_LINE =
+  /^(#|\||>|[-*+]\s|\d+[.)]\s|<|!\[|\$\$|```|import\s|export\s|(?:-{3,}|\*{3,}|_{3,})$)/;
+// A paragraph with no sentence end is a keyword list, a date line or a lead-in
+// to a list ("……想法："), none of which reads as a preview on its own.
+const SENTENCE_END = /[。！？!?]/;
 const SENTENCE = /[^。！？!?]+[。！？!?]+[」』”’"）)]*/g;
 const MIN_PARAGRAPH_CHARS = 20;
 
@@ -50,6 +62,13 @@ function toPlainText(markdown: string): string {
 function firstProseParagraph(content: string): string {
   let inFence = false;
   let paragraph: string[] = [];
+  let fallback = "";
+  const consider = (text: string): boolean => {
+    if (text.length < MIN_PARAGRAPH_CHARS) return false;
+    if (SENTENCE_END.test(text)) return true;
+    fallback ||= text;
+    return false;
+  };
   for (const raw of content.split("\n")) {
     const line = raw.trim();
     if (line.startsWith("```")) inFence = !inFence;
@@ -59,10 +78,11 @@ function firstProseParagraph(content: string): string {
       continue;
     }
     const text = toPlainText(paragraph.join(" "));
-    if (text.length >= MIN_PARAGRAPH_CHARS) return text;
+    if (consider(text)) return text;
     paragraph = [];
   }
-  return toPlainText(paragraph.join(" "));
+  const last = toPlainText(paragraph.join(" "));
+  return consider(last) ? last : fallback || last;
 }
 
 /**

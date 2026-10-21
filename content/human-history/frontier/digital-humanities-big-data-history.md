@@ -1,4 +1,5 @@
 ---
+summary: "算法扩大的是史学家能扫过的文献范围，结论仍要交给历史判断，不是让计算机写历史。语料有选择偏差，政体编码因人而异，手稿转录评测还是预印本，模型也会自信地编造史实。"
 title: 数字人文与大数据史学——用算法丈量历史
 title_en: Digital Humanities and Big Data History — Measuring the Past with Algorithms
 status: published

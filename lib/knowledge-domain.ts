@@ -109,6 +109,8 @@ const ARTICLE_EXTS = [".mdx", ".md"] as const;
 // the section and re-parsed every file in it per render.
 const sectionInstances = new Map<string, KnowledgeSection>();
 
+const MAX_CACHED_MISSES = 1000;
+
 export function createKnowledgeSection(domain: string, section: string): KnowledgeSection {
   const key = `${domain}/${section}`;
   const existing = sectionInstances.get(key);
@@ -121,7 +123,8 @@ export function createKnowledgeSection(domain: string, section: string): Knowled
 function buildKnowledgeSection(domain: string, section: string): KnowledgeSection {
   const root = path.join(getDomainContentDir(domain), section);
   let cache: KnowledgeItem[] | null = null;
-  const bySlug = new Map<string, KnowledgeItemFull | null>();
+  const bySlug = new Map<string, KnowledgeItemFull>();
+  const misses = new Set<string>();
 
   const toItem = (entry: ContentEntry): KnowledgeItem => {
     const { slug, frontmatter: data, content } = entry;
@@ -159,6 +162,7 @@ function buildKnowledgeSection(domain: string, section: string): KnowledgeSectio
     // `<slug>.narration` would otherwise resolve to the sibling .narration.md and
     // render a spoken script as a phantom article — block it explicitly.
     if (wanted.endsWith(".narration")) return null;
+    if (misses.has(wanted)) return null;
     const cached = bySlug.get(wanted);
     if (cached !== undefined) return cached;
     const entry = readContentBySlug(root, wanted, ARTICLE_EXTS, "safe");
@@ -172,8 +176,14 @@ function buildKnowledgeSection(domain: string, section: string): KnowledgeSectio
           interactive: str(entry.frontmatter.interactive) || undefined,
         }
       : null;
-    // Misses are cached too: a 404 slug is hit repeatedly by crawlers.
-    bySlug.set(wanted, full);
+    if (full) {
+      bySlug.set(wanted, full);
+    } else {
+      // Misses are cached too: a 404 slug is hit repeatedly by crawlers. But the
+      // slug space is unbounded, so random-slug traffic must not grow memory.
+      if (misses.size >= MAX_CACHED_MISSES) misses.clear();
+      misses.add(wanted);
+    }
     return full;
   };
 

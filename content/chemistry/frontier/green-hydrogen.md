@@ -1,6 +1,7 @@
 ---
 title: 绿氢：用电、水和催化剂把能源链条重写一遍
 title_en: Green Hydrogen — Rewriting the Energy Chain with Electricity, Water, and Catalysts
+summary: "IEA 数据显示 2022 年全球氢产量约 9500 万吨，绿氢不到 1%；氢是能量载体而非清洁能源，电解水与燃料电池都受制于成本和催化剂。"
 status: published
 updated: 2026-09-12
 category: 能源化学

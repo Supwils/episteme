@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
+import { withCanonicalPath } from "@/lib/article-canonical";
 import {
   hasTierContent,
   getTierContent,
@@ -13,37 +15,28 @@ export function generateStaticParams() {
   return COSMOLOGY_TIER_ORDER.map((tierId) => ({ tier: COSMOLOGY_TIER_ROUTES[tierId] }));
 }
 
-export const metadata: Metadata = {
-  title: "宇宙尺度 — 宇宙学 — Episteme · 格致",
-  description: "探索不同宇宙尺度层级的结构与特征，从可观测宇宙到地球",
-  openGraph: {
-    title: "宇宙尺度 — 宇宙学",
-    description: "探索不同宇宙尺度层级的结构与特征，从可观测宇宙到地球",
-    type: "website",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ tier: string }>;
+}): Promise<Metadata> {
+  const slug = (await params).tier;
+  const tierId = tierFromSlug(slug);
+  if (!tierId || !hasTierContent(tierId)) return {};
+  const name = COSMOLOGY_TIERS[tierId].shortLabel;
+  const level = COSMOLOGY_TIER_ORDER.indexOf(tierId) + 1;
+  return withCanonicalPath(`/cosmology/universe/${slug}`, {
+    title: `${name} — 宇宙尺度 — 宇宙学 — Episteme · 格致`,
+    description: `从可观测宇宙缩放到地球的第 ${level} 级尺度：${name}。`,
+  });
+}
 
 export default async function CosmologyTierPage({ params }: { params: Promise<{ tier: string }> }) {
   const resolvedParams = await params;
   const slug = resolvedParams.tier;
   const tierId = tierFromSlug(slug);
 
-  if (!tierId || !hasTierContent(tierId)) {
-    return (
-      <div className="flex min-h-[60vh] items-center justify-center">
-        <div className="text-center">
-          <p className="mb-4 text-8xl font-bold text-white/20">404</p>
-          <h2 className="mb-4 text-2xl text-white">尺度层级未找到</h2>
-          <Link
-            href="/cosmology"
-            className="rounded-full border border-white/20 bg-white/10 px-6 py-2 text-white transition-colors hover:bg-white/20"
-          >
-            返回宇宙学
-          </Link>
-        </div>
-      </div>
-    );
-  }
+  if (!tierId || !hasTierContent(tierId)) notFound();
 
   const content = getTierContent(tierId);
   const tierIndex = COSMOLOGY_TIER_ORDER.indexOf(tierId);

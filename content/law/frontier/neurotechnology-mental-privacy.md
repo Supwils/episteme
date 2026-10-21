@@ -1,6 +1,7 @@
 ---
 title: 神经技术与精神隐私：大脑数据需要一种新权利吗
 title_en: Neurotechnology, Mental Privacy, and Cognitive Liberty
+summary: "脑电头戴设备与脑机接口产生的信号不是可直接读取的“思想文本”，算法却能推断注意、疲劳与运动意图，并被用于雇佣与保险。教科文组织 2023 年起推进神经技术伦理规范，争论在于是否需要新权利。"
 status: published
 updated: 2026-08-07
 category: 新型权利

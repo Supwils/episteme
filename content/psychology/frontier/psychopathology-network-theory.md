@@ -1,4 +1,5 @@
 ---
+summary: "网络理论的未决主张是：抑郁可以是症状互相维持的闭环之名，而不必是症状背后的实体。它不否认生物因素；得分相同但组合不同的人是否该同样治疗，仍最缺证据。"
 title: 精神病理的网络理论：症状之间，而非症状背后
 title_en: Network Theory of Psychopathology — Between Symptoms, Not Behind Them
 status: published

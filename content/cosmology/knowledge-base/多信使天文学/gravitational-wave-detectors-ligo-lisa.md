@@ -1,4 +1,5 @@
 ---
+summary: "地面干涉仪测的是两臂光程的差动应变，不是空气里的声音，单台也几乎给不出可搜天区。毫赫兹空间计划仍在研制，探路者只验证残余加速度，并未开始科学巡天。"
 title: 引力波探测器LIGO与LISA
 titleEn: Gravitational Wave Detectors LIGO and LISA
 category: 多信使天文学

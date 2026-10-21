@@ -1,4 +1,5 @@
 ---
+summary: "本地阶梯与早期宇宙反推的膨胀率长期对不上，分歧的真正根源仍无人知道。新物理方案往往在别的观测上添出新问题，还没有被学界广泛接受。"
 title: 哈勃张力：宇宙学的5σ裂缝
 title_en: The Hubble Tension — A 5σ Crack in Cosmology
 status: published

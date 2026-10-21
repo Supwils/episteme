@@ -1,4 +1,5 @@
 ---
+summary: "2024年的五篇论文证明了无分歧、特征零曲线上的几何朗兰兹范畴等价。数域上的经典朗兰兹和量子情形仍开放，并不是这八百页自动带出的推论。"
 title: 几何朗兰兹纲领的证明
 title_en: Proof of the Geometric Langlands Conjecture
 status: published

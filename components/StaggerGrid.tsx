@@ -1,47 +1,23 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 import { STAGGER_CONTAINER, STAGGER_ITEM } from "@/lib/animations";
 
-export function StaggerGrid({
-  children,
-  className,
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
-  const reduce = useReducedMotion();
+// No useReducedMotion branch here: it is null on the server and true on the
+// client, so the server's opacity:0 markup would hydrate into a variant-less
+// element that never animates back. The root MotionConfig reducedMotion="user"
+// already drops the movement and keeps only the fade for those readers.
 
-  if (reduce) {
-    return <div className={className}>{children}</div>;
-  }
-
+export function StaggerGrid({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <motion.div
-      variants={STAGGER_CONTAINER}
-      initial="hidden"
-      animate="show"
-      className={className}
-    >
+    <motion.div variants={STAGGER_CONTAINER} initial="hidden" animate="show" className={className}>
       {children}
     </motion.div>
   );
 }
 
-export function StaggerItem({
-  children,
-  className,
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
-  const reduce = useReducedMotion();
-
-  if (reduce) {
-    return <div className={className}>{children}</div>;
-  }
-
+export function StaggerItem({ children, className }: { children: ReactNode; className?: string }) {
   return (
     <motion.div variants={STAGGER_ITEM} className={className}>
       {children}

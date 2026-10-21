@@ -1,10 +1,12 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
+import matter from "gray-matter";
 import { describe, expect, it } from "vitest";
 import {
   loadAllContent,
   loadContentBySlug,
+  parseMatter,
   readContentBySlug,
   readContentEntries,
   readParsedFile,
@@ -16,6 +18,16 @@ type Article = { title: string; slug: string; body: string };
 function toArticle(data: Record<string, unknown>, content: string, slug: string): Article {
   return { title: String(data.title ?? ""), slug, body: content.trim() };
 }
+
+describe("parseMatter", () => {
+  it("does not pin the source in gray-matter's process-wide cache", () => {
+    const raw = "---\ntitle: cache-probe\n---\n正文。\n";
+    const cache = (matter as { cache?: Record<string, unknown> }).cache;
+    if (cache) delete cache[raw];
+    expect(parseMatter(raw).data).toMatchObject({ title: "cache-probe" });
+    expect(cache?.[raw]).toBeUndefined();
+  });
+});
 
 describe("loadContentBySlug", () => {
   it("does not cache a missing file, so a later write can appear", () => {

@@ -1,4 +1,5 @@
 ---
+summary: "宇宙学给出的是中微子质量之和的上限，不是已经称出的质量，上限正在贴近振荡实验的下限。这个紧贴依赖宇宙学模型，一旦放开随时间变化的暗能量，缝就会松开。"
 title: 宇宙学正在逼近中微子质量：一把卡住下限的"宇宙天平"
 title_en: Cosmology Closes in on the Neutrino Mass — A Cosmic Scale Pressing Against the Lower Bound
 status: published

@@ -1,5 +1,9 @@
+import { replaceSearchMath } from "./plain-math";
+
 const FENCED_CODE = /^```[\s\S]*?^```/gm;
 const HEADING_2_3 = /^#{2,3}[ \t]+(.+)$/gm;
+const KEYWORD_SECTION =
+  /^##[ \t]+关键词[ \t]*(?:\{#[^}]+\})?[ \t]*\r?\n[\s\S]*?(?=^#{1,2}[ \t]+|(?![\s\S]))/gm;
 
 /** Strip the inline markers that survive inside a heading or a line of prose. */
 function stripInline(text: string): string {
@@ -33,11 +37,13 @@ export function extractHeadings(markdown: string): string[] {
  * Article prose reduced to the text a reader actually sees, for the server-side
  * phrase corpus. Line wrapping is collapsed so a phrase split across two source
  * lines still matches, and markup is removed so `**熵**增` does not hide 熵增.
+ * Formulas become plain text here. Snippets are cut from this string, and the
+ * search worker must not take on KaTeX to render them.
  */
 export function toSearchableText(markdown: string): string {
   return stripInline(
-    markdown
-      .replace(FENCED_CODE, " ")
+    replaceSearchMath(markdown.replace(FENCED_CODE, " "))
+      .replace(KEYWORD_SECTION, " ")
       .replace(/<[^>]+>/g, " ")
       .replace(/^\s{0,3}(#{1,6}|>|[-*+]|\d+\.)[ \t]+/gm, " ")
       .replace(/^\s*([-*_])\s*\1\s*\1[\s\S]*?$/gm, " ")

@@ -1,6 +1,7 @@
 ---
 title: 通用人工智能模型监管：管一个模型，还是管一条价值链
 title_en: Regulating General-Purpose AI Models and Their Value Chains
+summary: "同一个通用模型可以写诗、写代码、筛简历，也可能被接入医疗系统。欧盟《人工智能法》首次为通用模型设立专门义务，并以训练计算量等指标初步认定系统性风险；风险却分散在整条价值链上。"
 status: published
 updated: 2026-08-07
 category: 人工智能法

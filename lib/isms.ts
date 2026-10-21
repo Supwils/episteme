@@ -1,3 +1,4 @@
+import { authorSummary } from "@/lib/content-utils";
 import path from "node:path";
 import { loadAllContent, loadContentBySlug } from "./content-article";
 import { getDomainContentDir, listContentSlugs } from "./content-paths";
@@ -5,6 +6,7 @@ import { getDomainContentDir, listContentSlugs } from "./content-paths";
 const ISMS_DIR = path.join(getDomainContentDir("philosophy"), "isms");
 
 export type IsmFrontmatter = {
+  summary?: string;
   title: string;
   title_en: string;
   category: string;
@@ -27,6 +29,7 @@ let cachedIsms: Ism[] | null = null;
 function toIsm(data: Record<string, unknown>, content: string, slug: string): Ism {
   return {
     ...(data as IsmFrontmatter),
+    summary: authorSummary(data),
     slug,
     content,
   };

@@ -19,7 +19,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const thinker = getThinkerBySlug(slug);
   if (!thinker) notFound();
-  const description = `${thinker.philosopher}：${thinker.school}。${thinker.tags.join("、")}`;
+  const description =
+    thinker.summary ?? `${thinker.philosopher}：${thinker.school}。${thinker.tags.join("、")}`;
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(thinker.title)}&section=philosophy&description=${encodeURIComponent(description)}`;
   return withCanonicalPath(`/philosophy/thinkers/${slug}`, {
     title: `${thinker.title} — 哲学`,
@@ -77,6 +78,7 @@ export default async function ThinkerDetailPage({ params }: { params: Promise<{ 
       eyebrowMeta={[thinker.school]}
       title={thinker.title}
       titleEn={thinker.philosopher}
+      lede={thinker.summary}
       content={thinker.content}
       tags={thinker.tags}
       sidebar={

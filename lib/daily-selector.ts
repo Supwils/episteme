@@ -1,3 +1,6 @@
+import { calendarDateString, calendarDay, calendarSeed } from "./calendar-day";
+import { formatDisplayDate, getWeekday } from "./daily-date";
+export { formatDisplayDate, getWeekday } from "./daily-date";
 import { HISTORY_TODAY } from "./daily-history";
 import { PHYSICS_TODAY } from "./daily-physics";
 import { PHILOSOPHY_TODAY } from "./philosophy-today";
@@ -85,10 +88,6 @@ export interface OnThisDayMatch {
   url: string;
 }
 
-function dateSeed(date: Date): number {
-  return date.getFullYear() * 10000 + (date.getMonth() + 1) * 100 + date.getDate();
-}
-
 export function seededSelect<T>(items: readonly T[], seed: number): T {
   if (items.length === 0) {
     throw new Error("seededSelect: empty pool");
@@ -134,10 +133,9 @@ function pickDailyEvent<T extends DailySelectedEvent>(
 
 export function getDailySelected(date?: Date, seedOffset = 0): DailySelected {
   const now = date ?? new Date();
-  const seed = dateSeed(now) + seedOffset * 7919;
-  const dateStr = formatDate(now);
-  const month = now.getMonth() + 1;
-  const day = now.getDate();
+  const seed = calendarSeed(now) + seedOffset * 7919;
+  const dateStr = calendarDateString(now);
+  const { month, day } = calendarDay(now);
 
   const historyEvents = HISTORY_TODAY.filter((e) => e.month === month && e.day === day);
   const physicsEvents = PHYSICS_TODAY.filter((e) => e.month === month && e.day === day);
@@ -238,27 +236,6 @@ export function getDailySelected(date?: Date, seedOffset = 0): DailySelected {
     fact,
     onThisDay,
   };
-}
-
-function formatDate(date: Date): string {
-  const y = date.getFullYear();
-  const m = String(date.getMonth() + 1).padStart(2, "0");
-  const d = String(date.getDate()).padStart(2, "0");
-  return `${y}-${m}-${d}`;
-}
-
-export function formatDisplayDate(dateStr: string): string {
-  const parts = dateStr.split("-");
-  const y = parts[0] ?? "";
-  const m = parts[1] ?? "";
-  const d = parts[2] ?? "";
-  return `${y}年${parseInt(m, 10)}月${parseInt(d, 10)}日`;
-}
-
-export function getWeekday(dateStr: string): string {
-  const WEEKDAYS = ["日", "一", "二", "三", "四", "五", "六"] as const;
-  const d = new Date(dateStr + "T00:00:00");
-  return `星期${WEEKDAYS[d.getDay()]}`;
 }
 
 export function buildShareText(daily: DailySelected): string {

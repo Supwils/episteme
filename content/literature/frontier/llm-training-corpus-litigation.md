@@ -1,6 +1,7 @@
 ---
 title: 训练语料诉讼还不是判决
 title_en: Training-Corpus Litigation Is Not a Verdict
+summary: "2023 年 12 月 27 日，纽约时报在纽约南区起诉微软与 OpenAI，此后同类诉讼并入多地区诉讼 25-md-3143。双方已提交即决判决动议，本案尚无终局版权判决。"
 status: published
 updated: 2026-09-11
 category: 版权与生成文本

@@ -1,6 +1,7 @@
 ---
 title: vLLM：把 KV 缓存当成虚拟内存
 title_en: "vLLM: PagedAttention and the KV Cache as Virtual Memory"
+summary: "大模型推理时最容易把显存撕成碎片的是随请求膨胀的KV缓存，2023年伯克利的vLLM借用虚拟内存的分页思想来管理它；本文讲碎片从哪里来，以及词元级的请求进出调度。"
 status: published
 updated: 2026-09-13
 category: 系统剖析

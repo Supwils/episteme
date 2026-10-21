@@ -1,6 +1,7 @@
 ---
 title: 合成媒体进入法庭：深伪时代怎样证明一段影像是真的
 title_en: Synthetic Media, Authentication, and Evidence
+summary: "生成模型让伪造音视频更廉价，也让真实影像更容易被一句“可能是 AI”否认。NIST 2024 年报告把来源认证、水印、检测与审计视为互补手段，法庭要重建从采集到出庭的保管链。"
 status: published
 updated: 2026-08-07
 category: 数字证据

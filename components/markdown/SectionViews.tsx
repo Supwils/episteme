@@ -1,5 +1,5 @@
-import type { ReactNode } from "react";
-import { MarkdownBlock, SectionHeading, type BlockContext } from "./blocks";
+import { Fragment, type ReactNode } from "react";
+import { renderMarkdownBlock, renderSectionHeading, type BlockContext } from "./blocks";
 import { renderInline } from "./inline";
 import { MythStack } from "./MythStack";
 import { NeighborhoodChart } from "./NeighborhoodChart";
@@ -12,13 +12,13 @@ import {
   type Section,
 } from "./sections";
 
-type ViewProps = { section: Section; ctx: BlockContext; title?: string };
+type ViewProps = { section: Section; ctx: BlockContext; title?: string; heading?: ReactNode };
 
-function Blocks({ blocks, ctx }: { blocks: string[]; ctx: BlockContext }) {
+function renderBlocks(blocks: string[], ctx: BlockContext) {
   return (
     <>
       {blocks.map((block, index) => (
-        <MarkdownBlock key={index} text={block} ctx={ctx} />
+        <Fragment key={index}>{renderMarkdownBlock({ text: block, ctx })}</Fragment>
       ))}
     </>
   );
@@ -26,30 +26,25 @@ function Blocks({ blocks, ctx }: { blocks: string[]; ctx: BlockContext }) {
 
 function Frame({
   section,
-  ctx,
+  heading,
   children,
 }: {
   section: Section;
-  ctx: BlockContext;
+  heading: ReactNode;
   children: ReactNode;
 }) {
   return (
     <section className="md-section" data-section={section.kind}>
-      {section.heading && (
-        <SectionHeading
-          id={section.heading.id}
-          text={section.heading.text}
-          accentColor={ctx.accentColor}
-        />
-      )}
+      {heading}
       {children}
     </section>
   );
 }
 
 /** 破除误解 → 误解 / 实情卡：误解那句划去，实情接在后面；多张时叠成一叠。 */
-function MisconceptionView({ section, ctx }: ViewProps) {
+function renderMisconception({ section, ctx, heading }: ViewProps) {
   const { intro, myths, after, notes } = parseMisconceptions(section.blocks);
+  const before = renderBlocks(intro, ctx);
   const cards = myths.map((myth, index) => (
     <div key={index} className="myth-card__body">
       {myth.claim && (
@@ -68,13 +63,14 @@ function MisconceptionView({ section, ctx }: ViewProps) {
           {renderInline(myth.rest, ctx.footnotes, ctx.domain)}
         </p>
       )}
+      {renderBlocks(myth.more, ctx)}
     </div>
   ));
   return (
-    <Frame section={section} ctx={ctx}>
-      <Blocks blocks={intro} ctx={ctx} />
+    <Frame section={section} heading={heading}>
+      {before}
       {cards.length > 0 && <MythStack cards={cards} />}
-      <Blocks blocks={after} ctx={ctx} />
+      {renderBlocks(after, ctx)}
       {notes.map((note, index) => (
         <p key={index} className="md-note">
           {renderInline(note, ctx.footnotes, ctx.domain)}
@@ -85,12 +81,13 @@ function MisconceptionView({ section, ctx }: ViewProps) {
 }
 
 /** 事实卡 → 带横格的索引卡。 */
-function FactsView({ section, ctx }: ViewProps) {
+function renderFacts({ section, ctx, heading }: ViewProps) {
   return (
-    <Frame section={section} ctx={ctx}>
+    <Frame section={section} heading={heading}>
       {section.blocks.map((block, index) => {
         const cards = parseFactCards(block);
-        if (!cards) return <MarkdownBlock key={index} text={block} ctx={ctx} />;
+        if (!cards)
+          return <Fragment key={index}>{renderMarkdownBlock({ text: block, ctx })}</Fragment>;
         return (
           <ol key={index} className="fact-cards">
             {cards.map((card, ci) => (
@@ -107,31 +104,29 @@ function FactsView({ section, ctx }: ViewProps) {
 }
 
 /** 关键洞察 → 全文唯一一块铜线版：正文里最醒目的元素。 */
-function InsightView({ section, ctx }: ViewProps) {
+function renderInsight({ section, ctx, heading }: ViewProps) {
   return (
     <section className="insight-plate" data-section="insight">
-      {section.heading && (
-        <SectionHeading
-          id={section.heading.id}
-          text={section.heading.text}
-          accentColor={ctx.accentColor}
-        />
-      )}
-      <Blocks blocks={section.blocks} ctx={ctx} />
+      {heading}
+      {renderBlocks(section.blocks, ctx)}
     </section>
   );
 }
 
 /** 经典名言 / 引用 → 题词：大字引文，出处刻成小字。 */
-function QuotesView({ section, ctx }: ViewProps) {
+function renderQuotes({ section, ctx, heading }: ViewProps) {
   return (
-    <Frame section={section} ctx={ctx}>
+    <Frame section={section} heading={heading}>
       {section.blocks.flatMap((block, index) => {
-        if (!block.startsWith(">")) return [<MarkdownBlock key={index} text={block} ctx={ctx} />];
+        if (!block.startsWith(">"))
+          return [<Fragment key={index}>{renderMarkdownBlock({ text: block, ctx })}</Fragment>];
         // One blockquote block may carry several quotes separated by a bare `>`.
         return block.split(/\n>\s*\n/).map((part, pi) => {
           const quote = parseQuote(part.trim());
-          if (!quote) return <MarkdownBlock key={`${index}-${pi}`} text={part} ctx={ctx} />;
+          if (!quote)
+            return (
+              <Fragment key={`${index}-${pi}`}>{renderMarkdownBlock({ text: part, ctx })}</Fragment>
+            );
           return (
             <figure key={`${index}-${pi}`} className="epigraph">
               <blockquote>{renderInline(quote.text, ctx.footnotes, ctx.domain)}</blockquote>
@@ -147,31 +142,31 @@ function QuotesView({ section, ctx }: ViewProps) {
 }
 
 /** 跨域连接 → 邻域星图 + 原有列表（列表里的加粗换成轻着重，见 prose.css）。 */
-function CrossDomainView({ section, ctx, title }: ViewProps) {
+function renderCrossDomain({ section, ctx, title, heading }: ViewProps) {
   return (
-    <Frame section={section} ctx={ctx}>
+    <Frame section={section} heading={heading}>
       <NeighborhoodChart
         neighbors={parseNeighbors(section.blocks)}
         domain={ctx.domain}
         title={title}
       />
-      <Blocks blocks={section.blocks} ctx={{ ...ctx, variant: "cross-domain" }} />
+      {renderBlocks(section.blocks, { ...ctx, variant: "cross-domain" })}
     </Frame>
   );
 }
 
-function ReferencesView({ section, ctx }: ViewProps) {
+function renderReferences({ section, ctx, heading }: ViewProps) {
   return (
-    <Frame section={section} ctx={ctx}>
-      <Blocks blocks={section.blocks} ctx={{ ...ctx, variant: "references" }} />
+    <Frame section={section} heading={heading}>
+      {renderBlocks(section.blocks, { ...ctx, variant: "references" })}
     </Frame>
   );
 }
 
-function KeywordsView({ section, ctx }: ViewProps) {
+function renderKeywords({ section, ctx, heading }: ViewProps) {
   const terms = parseKeywords(section.blocks);
   return (
-    <Frame section={section} ctx={ctx}>
+    <Frame section={section} heading={heading}>
       {terms ? (
         <ul className="keyword-list">
           {terms.map((term) => (
@@ -179,33 +174,37 @@ function KeywordsView({ section, ctx }: ViewProps) {
           ))}
         </ul>
       ) : (
-        <Blocks blocks={section.blocks} ctx={ctx} />
+        renderBlocks(section.blocks, ctx)
       )}
     </Frame>
   );
 }
 
-function NarrativeView({ section, ctx }: ViewProps) {
-  if (!section.heading) return <Blocks blocks={section.blocks} ctx={ctx} />;
+function renderNarrative({ section, ctx, heading }: ViewProps) {
+  if (!section.heading) return renderBlocks(section.blocks, ctx);
   return (
-    <Frame section={section} ctx={ctx}>
-      <Blocks blocks={section.blocks} ctx={ctx} />
+    <Frame section={section} heading={heading}>
+      {renderBlocks(section.blocks, ctx)}
     </Frame>
   );
 }
 
 const VIEWS: Record<Section["kind"], (props: ViewProps) => ReactNode> = {
-  narrative: NarrativeView,
-  misconception: MisconceptionView,
-  facts: FactsView,
-  insight: InsightView,
-  quotes: QuotesView,
-  "cross-domain": CrossDomainView,
-  references: ReferencesView,
-  keywords: KeywordsView,
+  narrative: renderNarrative,
+  misconception: renderMisconception,
+  facts: renderFacts,
+  insight: renderInsight,
+  quotes: renderQuotes,
+  "cross-domain": renderCrossDomain,
+  references: renderReferences,
+  keywords: renderKeywords,
 };
 
-export function SectionView(props: ViewProps) {
-  const View = VIEWS[props.section.kind];
-  return <View {...props} />;
+/** Prepare every inline citation before RSC can serialize deferred client children. */
+export function renderSection(props: ViewProps) {
+  const { section, ctx } = props;
+  const heading = section.heading
+    ? renderSectionHeading({ ...section.heading, accentColor: ctx.accentColor, ctx })
+    : null;
+  return VIEWS[section.kind]({ ...props, heading });
 }

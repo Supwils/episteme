@@ -1,4 +1,5 @@
 ---
+summary: "大语言模型在任务层面确实提高生产率，但宏观就业与收入冲击迄今仍很有限。观察窗口可能太短，影响有限与尚未显现无法区分，部分估计仍是工作论文。"
 title: 大语言模型与劳动力市场：证据、争议与未解之问
 title_en: Large Language Models and the Labor Market — Evidence, Debate, and Open Questions
 status: published

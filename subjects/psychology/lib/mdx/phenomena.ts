@@ -1,3 +1,4 @@
+import { authorSummary } from "@/lib/content-utils";
 import type { Phenomenon, PhenomenonFrontmatter } from "../types";
 import { DIRS, caches, listCaches, getSlugs, getBySlug, getAll } from "./normalize";
 
@@ -8,6 +9,7 @@ export function getPhenomenonSlugs(): string[] {
 function castPhenomenon(data: unknown, s: string, c: string): Phenomenon {
   const d = data as Record<string, unknown>;
   return {
+    summary: authorSummary(d),
     title: (d.title as string) ?? "",
     title_en: (d.title_en as string) ?? "",
     category: (d.category as string) ?? "",
@@ -26,5 +28,17 @@ export function getPhenomenonBySlug(slug: string): Phenomenon | null {
 }
 
 export function getAllPhenomena(): Phenomenon[] {
-  return getAll(DIRS.phenomena, caches.phenomena, { get value() { return listCaches.phenomena; }, set value(v) { listCaches.phenomena = v; } }, castPhenomenon);
+  return getAll(
+    DIRS.phenomena,
+    caches.phenomena,
+    {
+      get value() {
+        return listCaches.phenomena;
+      },
+      set value(v) {
+        listCaches.phenomena = v;
+      },
+    },
+    castPhenomenon
+  );
 }

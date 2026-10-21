@@ -1,3 +1,4 @@
+import { authorSummary } from "@/lib/content-utils";
 import type { Era, School, SchoolFrontmatter } from "../types";
 import { DIRS, caches, listCaches, getSlugs, getBySlug, getAll, eraOrder } from "./normalize";
 
@@ -8,6 +9,7 @@ export function getSchoolSlugs(): string[] {
 function castSchool(data: unknown, s: string, c: string): School {
   const d = data as Record<string, unknown>;
   return {
+    summary: authorSummary(d),
     title: (d.title as string) ?? "",
     era: (d.era as Era) ?? "当代",
     period: (d.period as string) ?? "",
@@ -27,5 +29,18 @@ export function getSchoolBySlug(slug: string): School | null {
 }
 
 export function getAllSchools(): School[] {
-  return getAll(DIRS.schools, caches.schools, { get value() { return listCaches.schools; }, set value(v) { listCaches.schools = v; } }, castSchool, (a, b) => (eraOrder[a.era] ?? 99) - (eraOrder[b.era] ?? 99));
+  return getAll(
+    DIRS.schools,
+    caches.schools,
+    {
+      get value() {
+        return listCaches.schools;
+      },
+      set value(v) {
+        listCaches.schools = v;
+      },
+    },
+    castSchool,
+    (a, b) => (eraOrder[a.era] ?? 99) - (eraOrder[b.era] ?? 99)
+  );
 }

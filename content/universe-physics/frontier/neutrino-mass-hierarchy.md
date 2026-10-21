@@ -1,4 +1,5 @@
 ---
+summary: "振荡只证明中微子有质量并量出质量平方差，没有称出绝对质量，也没有判定谁轻谁重。氚谱给出的是上限，仍高于振荡要求的下限；顺序不定时，无中微子双β继续沉默的含义也完全不同。"
 title: 中微子质量顺序：振荡之后尚未称出的那一维
 title_en: Neutrino Mass Hierarchy — Weighing What Oscillation Cannot
 status: published

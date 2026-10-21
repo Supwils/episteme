@@ -1,3 +1,4 @@
+import { authorSummary } from "@/lib/content-utils";
 import { loadAllContent, loadContentBySlug } from "@/lib/content-article";
 import { listContentSlugs } from "@/lib/content-paths";
 import type { MathDialogue, MathEra } from "./types";
@@ -21,6 +22,7 @@ const ERA_ORDER: Record<string, number> = { 古代: 0, 中世纪: 1, 近代: 2, 
 function toDialogue(data: Record<string, unknown>, content: string, slug: string): MathDialogue {
   const era = ERA_MAP[data.era as string] ?? data.era ?? "古代";
   return {
+    summary: authorSummary(data),
     title: data.title as string,
     title_en: (data.title_en as string) ?? "",
     participants: (data.participants as string[]) ?? [],

@@ -23,6 +23,13 @@ describe("extractHeadings", () => {
 });
 
 describe("toSearchableText", () => {
+  it("keeps prose matches separate from keyword metadata", () => {
+    const body =
+      "## 关键词\n\n量子化; 能级; 角动量\n\n---\n\n## 为什么能级离散\n\n量子化条件约束了允许的轨道。";
+    expect(toSearchableText(body)).toBe("为什么能级离散 量子化条件约束了允许的轨道。");
+    expect(toSearchableText("正文。\n\n## 关键词\n\n元数据; 附录")).toBe("正文。");
+  });
+
   it("drops fenced code blocks", () => {
     expect(toSearchableText("正文\n```js\nconst x = 1;\n```\n结尾")).toBe("正文 结尾");
   });

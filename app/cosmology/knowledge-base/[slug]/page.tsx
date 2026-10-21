@@ -7,6 +7,7 @@ import { TableOfContents } from "@/components/TableOfContents";
 import { ArticleLayout } from "@/components/ArticleLayout";
 import Breadcrumb from "@/components/Breadcrumb";
 import { SITE_URL } from "@/lib/constants";
+import { redirectIfMerged } from "@/lib/merged-articles";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -20,15 +21,16 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
+  redirectIfMerged("/cosmology/knowledge-base", slug);
   const article = cosmologyKB.getArticleBySlug(slug);
   if (!article) notFound();
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(article.title)}&section=cosmology&description=${encodeURIComponent(article.excerpt)}`;
   return withCanonicalPath(`/cosmology/knowledge-base/${slug}`, {
     title: `${article.title} — 宇宙学知识库`,
-    description: article.excerpt,
+    description: article.summary ?? article.excerpt,
     openGraph: {
       title: `${article.title} — 宇宙学知识库`,
-      description: article.excerpt,
+      description: article.summary ?? article.excerpt,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
   });
@@ -36,6 +38,7 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function CosmologyKnowledgeArticlePage({ params }: Props) {
   const { slug } = await params;
+  redirectIfMerged("/cosmology/knowledge-base", slug);
   const article = cosmologyKB.getArticleBySlug(slug);
   if (!article) notFound();
 
@@ -80,6 +83,7 @@ export default async function CosmologyKnowledgeArticlePage({ params }: Props) {
         accent={ACCENT}
         eyebrow={article.category}
         title={article.title}
+        lede={article.summary}
         content={article.content}
         tags={article.tags}
         prev={prev ? { href: `/cosmology/knowledge-base/${prev.slug}`, title: prev.title } : null}

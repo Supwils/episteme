@@ -1,4 +1,5 @@
 ---
+summary: "实验哲学主张：被当作普遍证据的直觉必须接受实证检验，不能默认它属于所有人。这不是把哲学改写成心理学；直觉对道德真理还有多少证明力，正文明确写成悬而未决的元哲学问题。"
 title: 实验哲学：用数据检验哲学直觉
 title_en: "Experimental Philosophy: Testing Philosophical Intuitions Empirically"
 status: published

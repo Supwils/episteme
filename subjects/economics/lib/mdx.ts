@@ -1,3 +1,4 @@
+import { authorSummary } from "@/lib/content-utils";
 import path from "node:path";
 import { loadContentBySlug } from "@/lib/content-article";
 import type {
@@ -122,7 +123,7 @@ function readMdxFile<T>(
           console.warn(`[economics] frontmatter validation failed for ${nextSlug}: ${details}`);
         }
       }
-      return { ...frontmatter, slug: nextSlug, content } as T;
+      return { ...frontmatter, summary: authorSummary(normalized), slug: nextSlug, content } as T;
     },
     [".mdx", ".md"]
   );

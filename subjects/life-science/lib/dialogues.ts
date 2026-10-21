@@ -1,3 +1,4 @@
+import { authorSummary } from "@/lib/content-utils";
 import path from "node:path";
 import { loadAllContent, loadContentBySlug } from "@/lib/content-article";
 import { getDomainContentDir, listContentSlugs } from "@/lib/content-paths";
@@ -21,6 +22,7 @@ function toDialogue(
   const body = content.replace(/^\s*---\s*\n/, "").trim();
   return {
     slug,
+    summary: authorSummary(data),
     title: typeof data.title === "string" ? data.title : slug,
     participants: Array.isArray(data.participants) ? data.participants.map(String) : [],
     question: typeof data.question === "string" ? data.question : "",

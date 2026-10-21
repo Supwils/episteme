@@ -25,10 +25,10 @@ export async function generateMetadata({ params }: Props) {
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(article.title)}&section=universe-physics&description=${encodeURIComponent(article.excerpt)}`;
   return withCanonicalPath(`/universe-physics/knowledge-base/${slug}`, {
     title: `${article.title} — 物理学知识库`,
-    description: article.excerpt,
+    description: article.summary ?? article.excerpt,
     openGraph: {
       title: `${article.title} — 物理学知识库`,
-      description: article.excerpt,
+      description: article.summary ?? article.excerpt,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
   });
@@ -80,6 +80,7 @@ export default async function PhysicsKnowledgeArticlePage({ params }: Props) {
         accent={ACCENT}
         eyebrow={article.category}
         title={article.title}
+        lede={article.summary}
         content={article.content}
         tags={article.tags}
         prev={

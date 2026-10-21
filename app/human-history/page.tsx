@@ -3,7 +3,7 @@ import { DomainLanding } from "@/components/landing/DomainLanding";
 import { EraStrip } from "@/components/landing/EraStrip";
 import { ERAS } from "@/content/human-history/data/eras.js";
 import { HISTORY_HOME_COUNTS, formatHomeYear } from "@/content/human-history/data/home-summary.js";
-import { KB_ARTICLES } from "@/content/human-history/data/knowledge-base-data";
+import { getAllArticles } from "@/lib/knowledge-base";
 import { createKnowledgeSection } from "@/lib/knowledge-domain";
 import { getSectionConfig } from "@/lib/new-domains";
 import { HistoryTimelineModule } from "./HistoryTimelineModule";
@@ -36,7 +36,7 @@ export default function HumanHistoryPage() {
       href: "/human-history/knowledge",
       label: "知识库",
       description: "从远古到当代的重大事件、文明与人物专题",
-      count: KB_ARTICLES.length,
+      count: getAllArticles().length,
     },
     {
       href: "/human-history/atlas",

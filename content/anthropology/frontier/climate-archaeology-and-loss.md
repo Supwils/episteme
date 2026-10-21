@@ -1,6 +1,7 @@
 ---
 title: 气候考古与正在消失的记录
 title_en: Climate Archaeology and Loss
+summary: "IPCC 第六次评估报告第二工作组把文化遗产写进气候风险：海平面、热浪与冻土变化会造成不可逆的信息损失。气候考古要处理的，是记录本身正被当代气候过程抢走。"
 status: published
 updated: 2026-09-11
 category: 气候考古

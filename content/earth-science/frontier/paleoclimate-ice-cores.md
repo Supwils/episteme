@@ -1,6 +1,7 @@
 ---
 title: 冰芯里的百万年：从 Beyond EPICA 读取最古老的大气
 title_en: A Million Years in the Ice — Reading Earth's Oldest Atmosphere with Beyond EPICA
+summary: "2025 年 Beyond EPICA 在小冰穹 C 钻到基岩，冰芯最底层至少 120 万年；冰中气泡直接封存古大气，记录还显示气候可以在几十年里突变。"
 status: published
 updated: 2026-06-19
 category: 古气候

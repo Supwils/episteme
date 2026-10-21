@@ -1,4 +1,5 @@
 ---
+summary: "塔上的无反冲谱线把竖直落差写成两端核共振频率的可计数差值。不对调源与吸收体，化学位移就和高度缠在一起；它检验的是势差下的一阶频移，钉不住完整的场方程。"
 title: 庞德–雷布卡 1959：液压多普勒怎样把 22.5 米写成引力频移
 title_en: "Pound & Rebka 1959: Hydraulic Doppler Readout of a 22.5-Metre Shift"
 status: published

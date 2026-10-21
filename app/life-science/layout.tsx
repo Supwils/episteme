@@ -26,7 +26,7 @@ export default function LifeScienceLayout({ children }: { children: React.ReactN
     <div className={`life-science-root ${fontVars}`}>
       <DomainHeader subject="life-science" />
 
-      <main>
+      <main data-skip-target tabIndex={-1} className="focus:outline-none">
         <PageTransition>{children}</PageTransition>
       </main>
 

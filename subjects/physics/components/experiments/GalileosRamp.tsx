@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/subjects/physics/lib/cn";
+import { cssCanvasSize, fitCanvasToDisplay } from "./canvas-size";
 
 type Measurement = {
   distance: number;
@@ -281,8 +282,7 @@ export function GalileosRamp({ className }: { className?: string }) {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const w = canvas.width;
-    const h = canvas.height;
+    const { w, h } = cssCanvasSize(canvas);
 
     ctx.clearRect(0, 0, w, h);
 
@@ -333,12 +333,7 @@ export function GalileosRamp({ className }: { className?: string }) {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const dpr = window.devicePixelRatio || 1;
-    const rect = canvas.getBoundingClientRect();
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
-    const ctx = canvas.getContext("2d");
-    if (ctx) ctx.scale(dpr, dpr);
+    fitCanvasToDisplay(canvas);
 
     render();
   }, [render]);

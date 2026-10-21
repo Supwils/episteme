@@ -1,4 +1,5 @@
 import MiniSearch from "minisearch";
+import { isSafeInternalPath } from "@/lib/urls";
 import { SEARCH_INDEX_OPTIONS, type SearchIndexArtifact } from "./types";
 
 /** A result in readable form. The artifact's single-letter keys are a wire
@@ -40,7 +41,7 @@ export function loadEngine(artifact: SearchIndexArtifact): SearchEngine {
       const scanned: SearchHit[] = [];
       for (const result of index.search(normalized)) {
         const doc = artifact.docs[result.id as number];
-        if (!doc) continue;
+        if (!doc || !isSafeInternalPath(doc.u)) continue;
         scanned.push({
           title: doc.t,
           subtitle: doc.s,

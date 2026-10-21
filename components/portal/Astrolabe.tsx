@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { SITE_TOTALS } from "@/lib/site-stats";
+import { SITE_DOMAIN_COUNT_TEXT } from "@/lib/site-copy";
+import { formatChineseCount } from "@/lib/format-count";
 import { pigmentVar } from "@/lib/design/palette";
 import { sealSymbolHref } from "@/lib/design/sprites";
 import { isSealDomain } from "@/lib/design/seals";
@@ -49,7 +51,7 @@ function Dial({ selected }: { selected: string }) {
       viewBox={`${-VIEW} ${-VIEW} ${VIEW * 2} ${VIEW * 2}`}
       className="astrolabe__svg"
       role="group"
-      aria-label="格致仪：二十二个学科按六簇排成一圈，半径是认知层级，外圈 L1 直觉启蒙，靠近圆心 L5 综合前沿"
+      aria-label={`格致仪：${SITE_DOMAIN_COUNT_TEXT}个学科按${formatChineseCount(CLUSTER_ARCS.length)}簇排成一圈，半径是认知层级，外圈 L1 直觉启蒙，靠近圆心 L5 综合前沿`}
     >
       <g className="astrolabe__disc">
         <g className="astrolabe__rings" aria-hidden="true">
@@ -185,9 +187,16 @@ export function Astrolabe({ selected }: { selected: string }) {
               从问题出发
             </h1>
             <p className="astrolabe__lead">
-              {DOMAINS.length} 个学科，{SITE_TOTALS.articles.toLocaleString("en-US")}{" "}
-              篇文章，按同一张星盘排列：角度是学科，半径是从直觉到前沿的五个层级。
+              {SITE_TOTALS.domains} 个学科，{SITE_TOTALS.articles.toLocaleString("en-US")}{" "}
+              篇文章。从一个问题找到解释它的文章，再顺着概念之间的联系继续读下去。
             </p>
+            <nav className="astrolabe__questions" aria-label="从一个问题开始">
+              <Link href="/mathematics/concepts/probability">硬币会记住上次的结果吗？</Link>
+              <Link href="/psychology/phenomena/confirmation-bias">
+                为什么更相信支持自己的证据？
+              </Link>
+              <Link href="/philosophy/thinkers/socrates">知道自己不知道，有什么用？</Link>
+            </nav>
           </header>
         }
         actions={

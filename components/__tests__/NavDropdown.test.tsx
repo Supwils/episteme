@@ -73,4 +73,41 @@ describe("NavDropdown keyboard support", () => {
     expect(screen.queryByRole("menu")).toBeNull();
     expect(document.activeElement).toBe(trigger);
   });
+
+  it("keeps a hover-opened panel open when the trigger is then clicked", () => {
+    vi.useFakeTimers();
+    try {
+      render(<NavDropdown group={GROUP} />);
+      const trigger = screen.getByRole("button", { name: /自然与数理/ });
+      fireEvent.mouseEnter(trigger.parentElement!);
+      act(() => {
+        vi.advanceTimersByTime(100);
+      });
+      expect(trigger.getAttribute("aria-expanded")).toBe("true");
+      fireEvent.click(trigger);
+      expect(trigger.getAttribute("aria-expanded")).toBe("true");
+      fireEvent.click(trigger);
+      expect(trigger.getAttribute("aria-expanded")).toBe("false");
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it("still toggles with a click that arrives before the hover delay (touch)", () => {
+    vi.useFakeTimers();
+    try {
+      render(<NavDropdown group={GROUP} />);
+      const trigger = screen.getByRole("button", { name: /自然与数理/ });
+      fireEvent.mouseEnter(trigger.parentElement!);
+      fireEvent.click(trigger);
+      act(() => {
+        vi.advanceTimersByTime(100);
+      });
+      expect(trigger.getAttribute("aria-expanded")).toBe("true");
+      fireEvent.click(trigger);
+      expect(trigger.getAttribute("aria-expanded")).toBe("false");
+    } finally {
+      vi.useRealTimers();
+    }
+  });
 });

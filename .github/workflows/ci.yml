@@ -87,6 +87,9 @@ jobs:
       - name: SSG and ISR strategy
         run: pnpm audit-rendering
 
+      - name: OG Node function assets
+        run: pnpm audit-og-assets
+
       # Enforce the JS gzip budget documented in CLAUDE.md §6.
       - name: Bundle budget
         run: pnpm bundle-check -- --skip-build

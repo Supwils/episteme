@@ -1,4 +1,5 @@
 ---
+summary: "古DNA给出的是人骨封存的直接生物学记录，能重写谁来过、与谁混血，不是一份寻根家谱。它回答不了迁徙为何发生，把基因组信号写成征服叙事是过度诠释，热带样本空白也还在。"
 title: 古DNA革命——基因组重写人类迁徙史
 title_en: The Ancient DNA Revolution — Paleogenomics Rewrites Human Migration
 status: published

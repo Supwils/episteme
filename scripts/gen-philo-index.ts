@@ -38,7 +38,7 @@ function frontmatter(dir: string): Map<string, Record<string, unknown>> {
   const map = new Map<string, Record<string, unknown>>();
   for (const f of readdirSync(join(CONTENT, dir))) {
     if (!f.endsWith(".mdx")) continue;
-    map.set(f.replace(/\.mdx$/, ""), matter(readFileSync(join(CONTENT, dir, f), "utf8")).data);
+    map.set(f.replace(/\.mdx$/, ""), matter(readFileSync(join(CONTENT, dir, f), "utf8"), {}).data);
   }
   return map;
 }
@@ -47,10 +47,17 @@ function frontmatter(dir: string): Map<string, Record<string, unknown>> {
 function merge(
   dir: string,
   existing: readonly { slug: string }[],
-  build: (slug: string, fm: Record<string, unknown>) => Entry
+  build: (slug: string, fm: Record<string, unknown>) => Entry,
+  options?: { refreshEra?: boolean }
 ): Entry[] {
   const fm = frontmatter(dir);
-  const kept = (existing as readonly Entry[]).filter((e) => fm.has(e.slug));
+  const kept = (existing as readonly Entry[])
+    .filter((e) => fm.has(e.slug))
+    .map((entry) => {
+      if (!options?.refreshEra) return entry;
+      const era = str(fm.get(entry.slug)?.era);
+      return era && entry.era !== era ? { ...entry, era } : entry;
+    });
   const known = new Set(kept.map((e) => e.slug));
   const added: Entry[] = [];
   for (const [slug, data] of fm) {
@@ -71,12 +78,17 @@ async function emit(file: string, exportName: string, entries: Entry[]): Promise
 }
 
 async function main(): Promise<void> {
-  const thinkers = merge("thinkers", THINKERS_DATA, (slug, fm) => ({
-    slug,
-    title: str(fm.title) || slug,
-    subtitle: str(fm.philosopher),
-    era: str(fm.era),
-  }));
+  const thinkers = merge(
+    "thinkers",
+    THINKERS_DATA,
+    (slug, fm) => ({
+      slug,
+      title: str(fm.title) || slug,
+      subtitle: str(fm.philosopher),
+      era: str(fm.era),
+    }),
+    { refreshEra: true }
+  );
   const schools = merge("schools", SCHOOLS_DATA, (slug, fm) => ({
     slug,
     title: str(fm.title) || slug,

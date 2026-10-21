@@ -5,7 +5,7 @@ export const LAW_CURIOSITIES: Curiosity[] = [
     id: "carbolic-smoke-ball-ad",
     title: "一则报纸广告，被法院读成了对全世界的合同",
     detail:
-      "1892 年石炭酸烟丸公司在报上悬赏：按说明用三个月仍流感，赔一百英镑，并声称已在银行存入一千英镑。Carlill 照做后生病，公司说那是吹嘘。上诉法院判她胜诉：带可核验存款的确定允诺，是对世要约；按说明使用就是承诺。不是「广告都是合同」，是那一千英镑把吹嘘钉成了意图。",
+      "1891 年 11 月，石炭酸烟丸公司在报上悬赏：按说明每日三次、连续两周后仍染流感，赔一百英镑，并声称已在银行存入一千英镑。Carlill 照做后仍病，公司说那是吹嘘。上诉法院于 1892 年 12 月 7 日判她胜诉：带可核验存款的确定允诺，是对世要约；按说明使用就是承诺。不是「广告都是合同」，是那一千英镑把吹嘘钉成了意图。",
     source: "Carlill v Carbolic Smoke Ball Co [1893] 1 QB 256",
     tags: ["合同法", "要约"],
     url: "/law/judgment-analyses/carlill-v-carbolic-smoke-ball",

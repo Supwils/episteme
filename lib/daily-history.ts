@@ -2470,7 +2470,7 @@ export const HISTORY_TODAY: DailyEvent[] = [
     year: 1922,
     title: "图坦卡蒙墓被发现",
     description: "霍华德·卡特打开法老墓室",
-    url: "/human-history/knowledge/文明--古埃及",
+    url: "/human-history/knowledge/古代文明--古埃及",
   },
   {
     month: 11,

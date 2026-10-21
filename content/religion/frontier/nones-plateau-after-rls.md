@@ -1,6 +1,7 @@
 ---
 title: 美国“无宗教归属”停住了吗
 title_en: Has Growth of the U.S. Religious Nones Plateaued
+summary: "皮尤第三次美国宗教景观调查显示，无宗教归属者从 2007 年的 16% 升到约 29%，2020 年以来停在 28%–31%。这条走平线是转折还是平台，要把身份、实践与改换分开记账。"
 status: published
 updated: 2026-09-11
 category: 世俗化与人口

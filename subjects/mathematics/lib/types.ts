@@ -1,6 +1,7 @@
 export type MathEra = "古代" | "中世纪" | "近代" | "现代" | "当代";
 
 export type MathematicianFrontmatter = {
+  summary?: string;
   title: string;
   name: string;
   era: MathEra;
@@ -20,6 +21,7 @@ export type Mathematician = MathematicianFrontmatter & {
 };
 
 export type TheoremFrontmatter = {
+  summary?: string;
   title: string;
   title_en: string;
   field: string;
@@ -38,6 +40,7 @@ export type Theorem = TheoremFrontmatter & {
 };
 
 export type MathConceptFrontmatter = {
+  summary?: string;
   title: string;
   title_en: string;
   field: string;
@@ -54,6 +57,7 @@ export type MathConcept = MathConceptFrontmatter & {
 };
 
 export type MathDialogueFrontmatter = {
+  summary?: string;
   title: string;
   title_en: string;
   participants: string[];
@@ -71,6 +75,7 @@ export type MathDialogue = MathDialogueFrontmatter & {
 };
 
 export type MathParadoxFrontmatter = {
+  summary?: string;
   title: string;
   title_en: string;
   field: string;

@@ -26,7 +26,7 @@ export default function PsychologyLayout({ children }: { children: React.ReactNo
     <div className={`psychology-root ${fontVars}`}>
       <DomainHeader subject="psychology" />
 
-      <main>
+      <main data-skip-target tabIndex={-1} className="focus:outline-none">
         <PageTransition>{children}</PageTransition>
       </main>
 

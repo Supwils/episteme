@@ -1,11 +1,12 @@
 ---
+summary: "特征值与特征向量标出线性变换下只缩放、不转向的方向，以及各自的伸缩倍数。根给全了也只说明倍数存在，不保证独立方向够用来对角化；特征值可以为零，特征向量不能为零。"
 title: 特征值与特征向量
 title_en: Eigenvalue and Eigenvector
 field: 代数
 key_figures: [euler, cauchy, hilbert, von_neumann]
 tags: [代数, 线性代数, 特征值, 对角化, 谱理论]
 key_terms: ['特征值', '特征向量', '特征多项式', '对角化', '谱分解', 'Jordan 标准形']
-related: ['linear-algebra', 'matrix', 'vector-space', 'functional-analysis']
+related: ['linear-algebra', 'matrix', 'vector-space', 'functional-analysis', 'spectral-theorem']
 difficulty: 基础
 status: published
 updated: 2026-09-09
@@ -58,7 +59,7 @@ $$T(v) = \lambda v$$
 - $A$ 有 $n$ 个线性无关的特征向量
 - 每个特征值的几何重数等于代数重数
 
-实对称矩阵总是可以正交对角化：$A = Q\Lambda Q^T$，其中 $Q$ 正交，$\Lambda$ 对角。这就是**谱定理**。
+实对称矩阵总是可以正交对角化：$A = Q\Lambda Q^T$，其中 $Q$ 正交，$\Lambda$ 对角。这就是**[[spectral-theorem|谱定理]]**。
 
 对角化有限度。即使在复数域上，特征多项式一定有 $n$ 个根（计重数），这只保证特征值存在，不保证有 $n$ 个线性无关的特征向量。几何重数永远不超过代数重数；一旦严格小于，这组特征向量就张不成全空间。
 
@@ -79,7 +80,7 @@ Jordan 标准形是线性变换在相似变换下的"最简表示"。
 ### 特征值的性质
 
 - **迹与行列式**：$\text{tr}(A) = \sum \lambda_i$，$\det(A) = \prod \lambda_i$
-- **Cayley-Hamilton 定理**：$p_A(A) = 0$
+- **[[cayley-hamilton|Cayley-Hamilton 定理]]**：$p_A(A) = 0$
 - **Gershgorin 圆盘定理**：特征值位于复平面上的圆盘并集中
 - **瑞利商**：$R(x) = \frac{x^*Ax}{x^*x}$，其极值即为最大/最小特征值
 - **特征值的扰动**：Bauer-Fike 定理——若 $A = PDP^{-1}$，则 $A+E$ 的特征值在 $D$ 的特征值的 $\kappa(P)\|E\|$ 邻域内
@@ -105,7 +106,7 @@ Jordan 标准形是线性变换在相似变换下的"最简表示"。
 
 1. **谱定理**：实对称矩阵可正交对角化——$A = Q\Lambda Q^T$
 2. **Jordan 标准形定理**：复方阵相似于 Jordan 形
-3. **Cayley-Hamilton 定理**：$p_A(A) = 0$
+3. **[[cayley-hamilton|Cayley-Hamilton 定理]]**：$p_A(A) = 0$
 4. **极小多项式定理**：极小多项式整除特征多项式
 5. **Courant-Fischer 极小极大定理**：特征值的变分刻画——$\lambda_k = \max_{\dim S=k} \min_{x \in S, \|x\|=1} x^TAx$
 6. **Weyl 不等式**：$A+B$ 的特征值与 $A$、$B$ 特征值之间的不等式关系——特征值的连续依赖性

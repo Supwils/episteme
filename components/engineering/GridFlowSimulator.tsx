@@ -138,7 +138,8 @@ export function GridFlowSimulator() {
       <ul className="text-fg-muted mt-4 space-y-1 text-[11px]" aria-label="各线路潮流">
         {result.lineFlows.map((line) => (
           <li key={line.id}>
-            {line.id}：{line.mw.toFixed(1)} MW，负载率 {(line.loading * 100).toFixed(0)}%
+            {busById.get(line.from)?.name ?? line.from}–{busById.get(line.to)?.name ?? line.to}：
+            {line.mw.toFixed(1)} MW，负载率 {(line.loading * 100).toFixed(0)}%
             {line.overloaded ? "（过载）" : ""}
           </li>
         ))}

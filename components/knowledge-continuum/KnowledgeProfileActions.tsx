@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { downloadJson, readBoundedJson } from "@/lib/local-json-file";
 import type { KnowledgeProfileSnapshot } from "@/lib/knowledge-profile";
 import type { KnowledgeProfileNodeSummary } from "@/lib/knowledge-frontier-view";
 
@@ -34,14 +35,7 @@ export function KnowledgeProfileActions({
         confirmedAt: confirmedAt.get(node.id),
       })),
     };
-    const url = URL.createObjectURL(
-      new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" })
-    );
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = "episteme-knowledge-profile.json";
-    anchor.click();
-    URL.revokeObjectURL(url);
+    downloadJson("episteme-knowledge-profile.json", payload);
   };
 
   return (
@@ -71,7 +65,7 @@ export function KnowledgeProfileActions({
           const file = event.target.files?.[0];
           if (!file) return;
           try {
-            const value = JSON.parse(await file.text()) as unknown;
+            const value = await readBoundedJson(file);
             const entries =
               value && typeof value === "object" && "entries" in value
                 ? (value as { entries: unknown }).entries

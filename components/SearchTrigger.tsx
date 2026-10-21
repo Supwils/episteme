@@ -3,7 +3,8 @@
 import { preloadSearch } from "./SearchLauncher";
 
 export function SearchTrigger() {
-  function handleClick() {
+  function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
+    event.currentTarget.focus({ preventScroll: true });
     document.dispatchEvent(new CustomEvent("open-global-search"));
   }
 

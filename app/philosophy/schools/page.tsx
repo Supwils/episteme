@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getAllSchools } from "@/lib/schools";
+import { thinkerDisplayName } from "@/lib/mdx";
 import { SchoolsList } from "@/components/SchoolsList";
 
 export const metadata: Metadata = {
@@ -42,7 +43,8 @@ export default function SchoolsPage() {
           period: s.period,
           founder: s.founder,
           philosopher: s.philosopher,
-          key_figures: s.key_figures,
+          key_figures: s.key_figures?.map(thinkerDisplayName),
+          key_figure_slugs: s.key_figures,
           tags: s.tags,
           slug: s.slug,
         }))}

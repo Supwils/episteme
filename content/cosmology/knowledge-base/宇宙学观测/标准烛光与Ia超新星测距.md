@@ -1,4 +1,5 @@
 ---
+summary: "形状和颜色标准化之后，Ia 型超新星才成为距离尺，并显出比减速宇宙预期更暗。它们原本不是严格标准烛光，关系是经验相关而非第一原理；前身星若随红移换通道，差异会被写成距离。"
 title: 标准烛光与Ia型超新星测距
 titleEn: Standard Candles and Type Ia Supernova Distance Measurement
 category: 宇宙学观测

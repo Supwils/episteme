@@ -23,6 +23,7 @@ export type TheoremItem = {
   title_en: string;
   field: string;
   mathematician: string;
+  mathematicianSlug?: string;
   year: number | null;
   difficulty: string;
   tags: string[];
@@ -51,7 +52,14 @@ export function TheoremsListBrowser({ theorems }: { theorems: TheoremItem[] }) {
     return theorems.filter((t) => {
       if (activeField && t.field !== activeField) return false;
       if (!q) return true;
-      const haystack = [t.title, t.title_en, t.mathematician, t.field, ...t.tags]
+      const haystack = [
+        t.title,
+        t.title_en,
+        t.mathematician,
+        t.mathematicianSlug ?? "",
+        t.field,
+        ...t.tags,
+      ]
         .join("\n")
         .toLowerCase();
       return haystack.includes(q);
@@ -158,10 +166,11 @@ export function TheoremsListBrowser({ theorems }: { theorems: TheoremItem[] }) {
                           {theorem.title_en}
                         </p>
 
-                        <p className="text-fg-muted mt-2 font-mono text-[9px] tracking-wider">
-                          {theorem.mathematician}
-                          {theorem.year ? ` · ${theorem.year}` : ""}
-                        </p>
+                        {theorem.mathematician || theorem.year ? (
+                          <p className="text-fg-muted mt-2 font-mono text-[9px] tracking-wider">
+                            {[theorem.mathematician, theorem.year].filter(Boolean).join(" · ")}
+                          </p>
+                        ) : null}
                       </div>
                     </Link>
                   );

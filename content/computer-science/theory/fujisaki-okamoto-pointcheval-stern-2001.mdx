@@ -1,0 +1,119 @@
+---
+title: Fujisaki–Okamoto–Pointcheval–Stern 2001：RSA-OAEP 在 RSA 假设下安全
+title_en: "RSA-OAEP Is Secure under the RSA Assumption"
+summary: "2001 年藤崎、冈本、普安特舍瓦尔与斯特恩证明：只要陷门置换“部分定义域单向”，OAEP 就抗自适应选择密文攻击；而 RSA 的部分定义域单向与普通单向等价，于是 RSA-OAEP 的安全重新落回 RSA 假设，代价是一条很松的归约。"
+status: published
+updated: 2026-10-01
+category: 计算理论
+order: 101
+field: 计算复杂性
+era: 当代
+key_figures: [藤崎英一郎, 冈本龙明, 大卫·普安特舍瓦尔, 雅克·斯特恩]
+tags: [RSA-OAEP, 部分定义域单向, 选择密文攻击, CRYPTO 2001, 随机预言机]
+related:
+  - shoup-2001-oaep-reconsidered
+  - bellare-rogaway-1994-oaep
+  - bellare-rogaway-1993
+  - public-key-rsa
+  - cramer-shoup-1998
+  - fiat-shamir-1986
+  - yao-1982-trapdoor-functions
+  - cryptography-foundations
+  - post-quantum-cryptography
+---
+
+# Fujisaki–Okamoto–Pointcheval–Stern 2001：RSA-OAEP 在 RSA 假设下安全
+
+CRYPTO 2001 会议录（斯普林格 LNCS 第 2139 卷）里，紧跟在肖普《OAEP Reconsidered》之后的一篇，是日本电报电话公司（NTT）实验室的藤崎英一郎（Eiichiro Fujisaki）、冈本龙明（Tatsuaki Okamoto），与巴黎高等师范学院的大卫·普安特舍瓦尔（David Pointcheval）、雅克·斯特恩（Jacques Stern）合写的《RSA-OAEP Is Secure under the RSA Assumption》，页码 260 至 274，DOI 为 10.1007/3-540-44647-8_16。期刊版 2004 年刊于《Journal of Cryptology》第 17 卷第 2 期，页码 81 至 104。
+
+本页的对象是这篇论文的两步论证。第一步：在随机预言机模型里，只要底层陷门置换满足一个比单向性更强的性质，即“部分定义域单向”，OAEP 就抵抗自适应选择密文攻击。第二步：对 RSA 而言，这个更强的性质与普通单向性等价。两步合起来，RSA-OAEP 的安全就只依赖 RSA 问题本身。论文摘要自己点明了代价：归约并不紧。
+
+## 一次接力
+
+两篇论文在 IACR 预印本库里的编号是相邻的：肖普的是 2000/060，本文是 2000/061。本文摘要的第一句就是“最近肖普指出，OAEP 抗自适应选择密文攻击这一被普遍相信的结论存在缺口”，并转述了肖普的判断：大概不能只从底层置换的单向性证明 OAEP 的安全。也就是说，本文是对肖普的直接回应，而不是独立的平行工作；两篇最终被安排在会议录里前后相连。
+
+作者组合本身说明了这个回应为什么来得快。普安特舍瓦尔与斯特恩此前在随机预言机模型下的签名证明上积累了一套技术，包括 1996 年的分叉引理与 2000 年刊于《Journal of Cryptology》的长文；斯特恩领导的巴黎高师小组又长期研究格约化在密码分析中的用法，第二步的二维格论证正出自这一传统。藤崎与冈本则在 NTT 设计了基于 FO 变换的 PSEC 系列方案，其中的 PSEC-KEM 后来进入 ISO/IEC 18033-2。两边一边熟悉 OAEP 式的随机预言机证明，一边熟悉 RSA 的代数结构，合起来恰好覆盖了这道题需要的两半。
+
+## 破除误解：不是 FO 变换，也不是“RSA-OAEP 已无条件安全”
+
+第一种误读，把这篇和藤崎与冈本 1999 年的“FO 变换”混为一谈。FO 变换出自 CRYPTO '99，是一种通用方法：把一个只抗窃听的公钥加密，与对称加密和哈希组合，得到抗选择密文攻击的方案。它今天被后量子密钥封装方案普遍采用。本页则只谈 OAEP 这一个具体填充，以及它与 RSA 的配合。两篇共享两位作者，对象不同。
+
+第二种误读，以为标题里的“安全”是无条件的。全部结论都在随机预言机模型里，并且依赖 RSA 问题困难这一假设。随机预言机模型把 $G$、$H$ 当作对所有人公开、输出完全随机的函数，现实中替代它们的是以 SHA 系列哈希构造的掩码生成函数 MGF1。论文没有在标准模型里证明任何东西，也没有处理实现层面的泄露。
+
+第三种误读，以为这篇推翻了肖普同卷的结论。两篇并不冲突。肖普说的是：只用“单向陷门置换”这一抽象性质，证明 OAEP 不可能成功。本篇换用了更强的假设，因而绕开了肖普的反例；肖普构造的那个人造置换并不满足部分定义域单向：它允许从 $f(x)$ 算出 $f(x \oplus \delta)$，这种可塑性正好会泄露原像的一段。两篇合成一张清楚的图：单向不够，部分定义域单向足够，RSA 属于后者。
+
+## 装置：只求出前一半，也算破解
+
+先把要证的安全性说清楚。自适应选择密文攻击下的语义安全（文献里记作 IND-CCA2）是一场游戏：攻击者拿到公钥，可以随意请求解密；然后他交出两条等长的明文，挑战者随机挑一条加密，把密文交给他；此后他仍可请求解密，唯独不能请求那份挑战密文；最后他猜挑战加密的是哪一条。方案安全，指任何高效的攻击者猜对的概率都只比一半多出可忽略的量。“自适应”三个字指的就是看到挑战之后的那段解密请求，肖普指出的缺口也正落在这里。
+
+OAEP 把种子和带冗余的明文掩成两段 $s \| t$，再送进陷门置换 $f$。原来的证明需要这样一种能力：模拟器从攻击者的哈希询问里，认出完整的原像。本文观察到，只要攻击者问过与 $s$ 有关的那一个哈希，模拟器就已经掌握了原像的前一段 $s$。如果有人能从 $f(s\|t)$ 求出 $s$，哪怕求不出 $t$，就足以支撑整个归约。这就是部分定义域单向性的定义：给定 $f(s\|t)$，找出 $s$ 是困难的。
+
+这个假设在形式上比单向性强：能求出完整原像，当然能求出前一段；反过来不一定。对一般的陷门置换，两者可能不等价，所以本文的第一步不能直接用于任意置换。
+
+第二步只对 RSA 成立，利用的是 RSA 的乘法结构。设有一个算法能从 $x^e \bmod n$ 求出 $x$ 的高位部分。拿到一个要求逆的 $y = x^e$，再随机取 $a$，把 $y$ 和 $y \cdot a^e$ 分别交给这个算法，就得到 $x$ 与 $ax \bmod n$ 的高位。已知两个相关数的高位，求它们的低位，可以写成一个二维格上的问题，用格约化算法以很高的概率解出，于是得到完整的 $x$。部分求逆因此等于完整求逆。
+
+把这一步写细一点。设模数长 $k$ 位，未知的低段 $t$ 长 $k_0$ 位，于是 $x = 2^{k_0} s + t$，$ax = 2^{k_0} s' + t' \pmod n$，其中 $s, s'$ 已由部分求逆算法给出。代入消去 $x$，得到一个关于 $t, t'$ 的线性同余式 $a t - t' \equiv c \pmod n$，常数 $c$ 可以算出。要找的是这个同余式的一组“小”解，两个未知数都小于 $2^{k_0}$。所有解构成一个二维格，二维格的约化用高斯的经典算法即可，运行时间是 $k$ 的三次方量级。只要 $k > 2k_0$，也就是未知的那一段短于模数长度的一半，小解在绝大多数 $a$ 下是唯一的，约化能把它找出来。PKCS #1 里种子只占一个哈希值的长度，远不到模数的一半，这个条件在实际参数下自然满足。以 2048 位模数配 SHA-256 为例，种子是 256 位，对应论文记号里的 $k_0 = 256$，远小于 1024；部分求逆者需要给出的，是编码里另外那一千七百多位的掩码数据块。
+
+这一步也解释了为什么结论只对 RSA 成立。整个论证靠的是“把密文乘上 $a^e$，原像就乘上 $a$”，这是 RSA 的随机自归约性。对一个没有这种代数结构的陷门置换，部分求逆与完整求逆之间没有已知的桥梁。
+
+## 测到了什么，没有测到什么
+
+测到的是一条从攻击者到 RSA 求逆的归约链。它的松，来自两个地方：部分求逆算法要被调用两次，并且两次都要成功，成功概率因此大致变成原来的平方；模拟器还要在攻击者的全部哈希询问里逐对尝试，运行时间随询问次数的平方增长。论文结论写得克制：RSA-OAEP 仍然可以信任，但归约的代价比原来声称的大；对其他置换要格外小心，因为安全实际上依赖部分定义域单向，而不是单向。
+
+把数字代进去看得更清楚。模拟器要把攻击者对两个哈希的询问逐对组合，每一对都做一次格约化，所以归约算法的运行时间里有一项正比于哈希询问次数的平方。设想一个现实的攻击者做了 $2^{60}$ 次哈希计算，这一项就到了 $2^{120}$ 次格约化，再加上成功概率的平方损失，归约给出的求逆算法比已知最好的分解算法还慢。换句话说，对 1024 位模数，这条定理在字面上推不出任何有用的结论。
+
+标准文本自己也把这笔账写了出来。RFC 8017 的安全说明称：原论文里求逆算法的成功概率约为 $\varepsilon^2/4$；标准编码开头还多了八个固定的零比特，而归约要两次调用攻击者，每次多损失 $2^{-8}$，于是落到约 $\varepsilon^2/2^{18}$，运行时间约为攻击者时间的平方。RFC 的结论是，不能排除在具体参数下攻击 RSA-OAEP 比求 RSA 逆容易得多；但有证明仍比 v1.5 这类没有证明的构造可靠。它还说，基于 RSA-KEM 的混合加密有可以直接用于具体参数的紧证明。
+
+科布利茨（Neal Koblitz）与梅内塞斯（Alfred Menezes）2007 年在《Journal of Cryptology》发表《Another Look at "Provable Security"》，用 RSA-OAEP 的这段历史作为主要案例：一份被广泛引用的证明七年后被发现有缺口，补上的证明又松到无法直接指导参数。他们据此批评“可证明安全”这一说法在推广中被说得过满。文章在密码学界引起了不少争论，但它对紧归约的强调此后被普遍接受，许多论文开始在定理里明确写出损失因子，并把“紧”作为单独的结果来追求。
+
+另一条回应是换方案。RSA-KEM 只加密一个随机整数再派生密钥，它的归约几乎没有损失；PSS 签名一侧也有类似的紧证明。在新设计里，人们更倾向于选择这类证明紧的方案，而不是去加长 RSA-OAEP 的模数。
+
+论文没有测到具体哈希代替预言机之后的情况，这一问题与[[bellare-rogaway-1993|贝拉雷–罗加韦 1993]]以来的方法论争论相同。它也没有处理同卷里曼格指出的那类实现问题：解密失败时若能区分错误类型，攻击者不需要破解 RSA 就能恢复明文。标准文本后来据此修改了出错处理的要求。
+
+## 落进标准
+
+RSA-OAEP 当时已写进 RSA 实验室的 PKCS #1 v2.0。肖普的论文让它的理论依据一度悬空，本文把依据重新落在 RSA 假设上，标准因而没有改用 OAEP+。2003 年 2 月发布的 PKCS #1 v2.1（RFC 3447，约翰松与卡利斯基执笔）继续采用 OAEP，并在关于安全性的说明里引用了本文与肖普的论文。今天 TLS 1.3 已经取消了 RSA 密钥传输，但 OAEP 仍是 RSA 加密在硬件安全模块、密钥封装等场合的标准填充。
+
+## 两个名字相近的“FO”
+
+本页常与藤崎、冈本 1999 年的工作混淆，值得把后者说清楚。《Secure Integration of Asymmetric and Symmetric Encryption Schemes》发表于 CRYPTO '99（LNCS 1666，页码 537 至 554）。它的做法是：随机取一个值 $\sigma$，用一个只要求单向安全的公钥加密把 $\sigma$ 加密，加密时使用的随机数不是新抽的，而是由哈希 $H(\sigma, c)$ 决定，其中 $c$ 是用 $G(\sigma)$ 作密钥对明文做的对称加密。解密方解出 $\sigma$ 之后，用同样的哈希重新加密一遍，结果与收到的密文一致才接受。这一“重加密检查”把加密变成确定性的函数，攻击者无法凭空造出能通过检查的密文，除非他询问过对应的哈希。
+
+这条思路后来成了后量子密钥封装的通用外壳。2017 年霍夫海因茨（Dennis Hofheinz）、赫弗尔曼斯（Kathrin Hövelmanns）与基尔茨在 TCC 上把它拆成几个可单独分析的模块，并处理了解密可能偶尔出错的格密码情形。2024 年 8 月发布的 FIPS 203（ML-KEM，即 Kyber）采用的就是这一族变换中的“隐式拒绝”版本：重加密检查失败时，解封装不报错，而是输出一个由私钥中的秘密值与密文派生的伪随机密钥，攻击者从输出上看不出检查失败与否。本页的 RSA-OAEP 则是另一条路，没有重加密，靠的是填充本身的冗余。
+
+## RSA-OAEP 今天在哪里
+
+TLS 1.3 删除了 RSA 密钥传输，但 RSA-OAEP 并没有退场。美国国家标准与技术研究院的 SP 800-56B 规定了基于整数分解的密钥建立方案，其中的密钥传输方案就是 RSA-OAEP；JSON 网络加密（RFC 7518）定义了 RSA-OAEP 与 RSA-OAEP-256 两个算法标识；密码消息语法里也有专门的 RSAES-OAEP 密钥传输规范（RFC 3560）。这些规范引用的安全依据，最终都指向本文的定理。今天推荐的模数至少为 2048 位，主要出于对分解算法进展的估计，而不是为了让这条归约变得有意义。
+
+## 跨域连接
+
+- **[[shoup-2001-oaep-reconsidered|肖普 2001]]**：同卷前一篇。肖普证明，只用单向性无法证明 OAEP；本文换用部分定义域单向，并证明 RSA 满足它。读这两篇要一起读，单读任何一篇都会得出偏的结论。
+- **[[bellare-rogaway-1994-oaep|贝拉雷–罗加韦 1994 OAEP]]**：方案本身。本文没有修改方案，只是替它换了一条证明路线。原文的直觉，即“问过哈希就知道明文”，在这里被弱化成“问过某一个哈希就知道原像的前一段”。
+- **[[public-key-rsa|RSA 公钥密码]]**：本文第二步只对 RSA 成立，靠的是 RSA 的乘法同态。算法页把同态当作教科书 RSA 的缺陷，本文却把它当作证明工具：正是因为可以把密文乘上 $a^e$，部分求逆才能放大成完整求逆。
+- **[[fiat-shamir-1986|菲亚特–沙米尔 1986]]**：普安特舍瓦尔与斯特恩 1996 年的分叉引理，给菲亚特–沙米尔式签名提供了随机预言机模型下的证明。本文的作者组合与证明风格都与那条线一脉相承，归约的松紧问题在两处同样突出。
+- **[[cramer-shoup-1998|克拉默–肖普 1998]]**：不依赖随机预言机的选择密文安全方案。对照本文，可以看出两种代价：一边是模型理想化，一边是密文多带几个群元素。
+- **[[yao-1982-trapdoor-functions|姚期智 1982]]**：陷门函数的抽象定义只要求“难以求出原像”。本文说明，具体方案的证明有时需要更细的要求，例如“难以求出原像的某一段”，而这一细化是否免费，要看具体函数。
+- **[[cryptography-foundations|密码学基础]]**：总览里“可证明安全”常被写成一个是非判断。本文提供了一个反例式的提醒：定理成立，但归约损失大到需要换参数，才能让定理在工程上有意义。安全证明除了“有没有”，还有“紧不紧”。
+- **[[post-quantum-cryptography|后量子密码]]**：后量子密钥封装方案普遍使用藤崎与冈本 1999 年的 FO 变换。那是本文两位作者的另一项工作，常被与本文混淆。
+- **[[tls-certificate-ecosystem|TLS 证书生态]]**：TLS 1.2 及以前，RSA 密钥传输用的仍是 PKCS #1 v1.5 加密填充，而不是本文证明的 OAEP；布莱兴巴赫尔式的填充预言机攻击因此在 2017 年的 ROBOT 研究中再次在大量服务器上复现。TLS 1.3 干脆取消了 RSA 密钥传输，改为只用临时迪菲–赫尔曼，这比换成 OAEP 更彻底：前向保密不再依赖服务器长期私钥，填充预言机也就无从谈起。
+
+---
+
+## 参考文献
+
+- Eiichiro Fujisaki, Tatsuaki Okamoto, David Pointcheval & Jacques Stern, "RSA-OAEP Is Secure under the RSA Assumption", *Advances in Cryptology — CRYPTO 2001*, LNCS 2139, Springer, 2001, pp. 260–274. DOI: 10.1007/3-540-44647-8_16. —— 本文对象。
+- Eiichiro Fujisaki, Tatsuaki Okamoto, David Pointcheval & Jacques Stern, "RSA-OAEP Is Secure under the RSA Assumption", *Journal of Cryptology* 17(2), 2004, pp. 81–104. DOI: 10.1007/s00145-002-0204-y. —— 期刊版。
+- Victor Shoup, "OAEP Reconsidered", *Advances in Cryptology — CRYPTO 2001*, LNCS 2139, Springer, 2001, pp. 239–259. DOI: 10.1007/3-540-44647-8_15. —— 同卷前一篇。
+- Mihir Bellare & Phillip Rogaway, "Optimal Asymmetric Encryption", *Advances in Cryptology — EUROCRYPT '94*, LNCS 950, Springer, 1995, pp. 92–111. DOI: 10.1007/BFb0053428. —— 方案原文。
+- David Pointcheval & Jacques Stern, "Security Proofs for Signature Schemes", *Advances in Cryptology — EUROCRYPT '96*, LNCS 1070, Springer, 1996, pp. 387–398. DOI: 10.1007/3-540-68339-9_33. —— 作者的分叉引理。
+- Eiichiro Fujisaki & Tatsuaki Okamoto, "Secure Integration of Asymmetric and Symmetric Encryption Schemes", *Advances in Cryptology — CRYPTO '99*, LNCS 1666, Springer, 1999, pp. 537–554. DOI: 10.1007/3-540-48405-1_34. —— FO 变换，常与本文混淆。
+- Dennis Hofheinz, Kathrin Hövelmanns & Eike Kiltz, "A Modular Analysis of the Fujisaki-Okamoto Transformation", *Theory of Cryptography — TCC 2017*, LNCS 10677, Springer, 2017, pp. 341–371. DOI: 10.1007/978-3-319-70500-2_12. —— FO 变换的模块化分析。
+- NIST, FIPS 203, *Module-Lattice-Based Key-Encapsulation Mechanism Standard*, August 2024. —— 采用 FO 变换隐式拒绝版本的 ML-KEM。
+- M. Jones, "JSON Web Algorithms (JWA)", RFC 7518, IETF, May 2015. —— RSA-OAEP 的算法标识。
+- Neal Koblitz & Alfred Menezes, "Another Look at 'Provable Security'", *Journal of Cryptology* 20(1), 2007, pp. 3–37. DOI: 10.1007/s00145-005-0432-z. —— 以 RSA-OAEP 为案例批评证明的松紧。
+- David Pointcheval & Jacques Stern, "Security Arguments for Digital Signatures and Blind Signatures", *Journal of Cryptology* 13(3), 2000, pp. 361–396. —— 分叉引理的期刊长文。
+- Hanno Böck, Juraj Somorovsky & Craig Young, "Return Of Bleichenbacher's Oracle Threat (ROBOT)", *27th USENIX Security Symposium*, 2018. —— v1.5 填充预言机在 TLS 中的复现。
+
+## 延伸阅读
+
+- 与 [[shoup-2001-oaep-reconsidered|肖普 2001]] 对读：一般证明不可能，对 RSA 的专门证明可以。
+- 与 [[public-key-rsa|RSA 公钥密码]] 对读：同一条乘法同态，在算法页是缺陷，在本页是证明工具。

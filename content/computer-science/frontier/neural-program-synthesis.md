@@ -1,6 +1,7 @@
 ---
 title: 神经程序综合：从规约到代码的开放问题
 title_en: Neural Program Synthesis — Open Problems from Specification to Code
+summary: "神经网络从自然语言、输入输出例子或残缺代码中提出程序，再用测试、类型或证明筛选；本文指出会生成代码不等于会综合程序，并讨论规约、工具链与责任等开放问题。"
 status: published
 updated: 2026-09-12
 category: 编程语言与系统

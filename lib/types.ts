@@ -1,6 +1,7 @@
 export type Era = "古代" | "近代" | "现代" | "当代";
 
 export type PhilosopherFrontmatter = {
+  summary?: string;
   title: string;
   philosopher: string;
   era: Era;
@@ -17,6 +18,7 @@ export type Philosopher = PhilosopherFrontmatter & {
 };
 
 export type QuestionFrontmatter = {
+  summary?: string;
   title: string;
   field: string;
   key_figures: string[];
@@ -32,6 +34,7 @@ export type Question = QuestionFrontmatter & {
 };
 
 export type SchoolFrontmatter = {
+  summary?: string;
   title: string;
   era: Era;
   period?: string;
@@ -52,6 +55,7 @@ export type School = SchoolFrontmatter & {
 };
 
 export type ExperimentFrontmatter = {
+  summary?: string;
   title: string;
   title_en: string;
   philosopher: string;
@@ -69,6 +73,7 @@ export type Experiment = ExperimentFrontmatter & {
 };
 
 export type DialogueFrontmatter = {
+  summary?: string;
   title: string;
   title_en: string;
   participants: string[];
@@ -86,6 +91,7 @@ export type Dialogue = DialogueFrontmatter & {
 };
 
 export type ConceptFrontmatter = {
+  summary?: string;
   title: string;
   title_en: string;
   field: string;

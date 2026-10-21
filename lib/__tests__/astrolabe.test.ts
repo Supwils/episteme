@@ -33,11 +33,12 @@ describe("astrolabe data", () => {
   });
 
   it("rotates six L2–L3 picks from six different domains, stable within a day", () => {
-    const monday = dailyShelf(new Date(2026, 8, 21, 8));
+    // The shelf turns over on the Beijing calendar, whatever zone the test runs in.
+    const monday = dailyShelf(new Date("2026-09-21T08:00:00+08:00"));
     expect(monday).toHaveLength(6);
     expect(new Set(monday.map((p) => p.domain)).size).toBe(6);
     expect(monday.every((p) => p.level === 2 || p.level === 3)).toBe(true);
-    expect(dailyShelf(new Date(2026, 8, 21, 22))).toEqual(monday);
-    expect(dailyShelf(new Date(2026, 8, 22, 8))).not.toEqual(monday);
+    expect(dailyShelf(new Date("2026-09-21T23:59:00+08:00"))).toEqual(monday);
+    expect(dailyShelf(new Date("2026-09-22T00:01:00+08:00"))).not.toEqual(monday);
   });
 });

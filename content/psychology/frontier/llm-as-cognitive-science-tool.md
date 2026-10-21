@@ -1,4 +1,5 @@
 ---
+summary: "大语言模型能预测部分人类反应，也能当研究工具或实验对象，三种角色却不能混用。预测准并不等于机制相同，合成回答不是新的人类被试，也不能代替缺席群体发言。"
 title: 大语言模型：认知科学的预测模型、研究工具与研究对象
 title_en: Large Language Models as Predictive Models, Research Tools, and Objects of Cognitive Science
 status: published

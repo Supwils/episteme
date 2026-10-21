@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { mathematicianDisplayName } from "@/subjects/mathematics/lib/mathematician-label";
 import { getAllTheorems } from "@/subjects/mathematics/lib/theorems";
 import { TheoremsListBrowser } from "@/components/mathematics/TheoremsListBrowser";
 
@@ -18,7 +19,8 @@ export default function TheoremsPage() {
     title: t.title,
     title_en: t.title_en,
     field: t.field || "其他",
-    mathematician: t.mathematician,
+    mathematician: mathematicianDisplayName(t.mathematician),
+    mathematicianSlug: t.mathematician,
     year: t.year,
     difficulty: t.difficulty,
     tags: t.tags,

@@ -73,7 +73,7 @@ describe("service worker browser lifecycle", () => {
     await execute("production", harness);
 
     expect(harness.register).toHaveBeenCalledOnce();
-    expect(harness.register).toHaveBeenCalledWith("/sw.js");
+    expect(harness.register).toHaveBeenCalledWith("/sw.js", { updateViaCache: "none" });
     expect(harness.getRegistration).not.toHaveBeenCalled();
   });
 

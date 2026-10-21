@@ -1,4 +1,5 @@
 ---
+summary: "恒星靠向外递减的压强托住自引力，不是一团着了火的气。流体静力恢复远快于热核时标，但辐射压主导时包层只是准平衡，简并压则不随冷却消失。"
 title: 恒星结构与流体静力平衡
 titleEn: Stellar Structure and Hydrostatic Equilibrium
 category: 恒星物理

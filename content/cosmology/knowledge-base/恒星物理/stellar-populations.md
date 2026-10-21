@@ -1,4 +1,5 @@
 ---
+summary: "星族不是两套互斥抽屉，而是化学时间轴上便于说话的区间。金属丰度测的是气体被加工了几代而非过了多少年，星族III至今没有直接探测。"
 title: 星族I与星族II恒星
 titleEn: Population I and Population II Stars
 category: 恒星物理

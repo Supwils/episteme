@@ -515,21 +515,26 @@ export default function HistoricalMap() {
     });
   }, []);
 
-  const handleWheel = useCallback((e: React.WheelEvent) => {
-    e.preventDefault();
-    const factor = e.deltaY > 0 ? 1.1 : 0.9;
-    setViewBox((prev) => {
-      const svg = svgRef.current;
-      if (!svg) return prev;
+  // React attaches wheel listeners as passive, so preventDefault there cannot stop the page scrolling.
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return;
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      const factor = e.deltaY > 0 ? 1.1 : 0.9;
       const rect = svg.getBoundingClientRect();
-      const mx = ((e.clientX - rect.left) / rect.width) * prev.w + prev.x;
-      const my = ((e.clientY - rect.top) / rect.height) * prev.h + prev.y;
-      const nw = Math.max(200, Math.min(1920, prev.w * factor));
-      const nh = (nw / 960) * 600;
-      const nx = mx - (nw / prev.w) * (mx - prev.x);
-      const ny = my - (nh / prev.h) * (my - prev.y);
-      return { x: nx, y: ny, w: nw, h: nh };
-    });
+      setViewBox((prev) => {
+        const mx = ((e.clientX - rect.left) / rect.width) * prev.w + prev.x;
+        const my = ((e.clientY - rect.top) / rect.height) * prev.h + prev.y;
+        const nw = Math.max(200, Math.min(1920, prev.w * factor));
+        const nh = (nw / 960) * 600;
+        const nx = mx - (nw / prev.w) * (mx - prev.x);
+        const ny = my - (nh / prev.h) * (my - prev.y);
+        return { x: nx, y: ny, w: nw, h: nh };
+      });
+    };
+    svg.addEventListener("wheel", handleWheel, { passive: false });
+    return () => svg.removeEventListener("wheel", handleWheel);
   }, []);
 
   const resetView = useCallback(() => {
@@ -604,6 +609,7 @@ export default function HistoricalMap() {
           height: 100%;
           display: block;
           cursor: grab;
+          touch-action: none;
         }
         .hm-map-svg.panning {
           cursor: grabbing;
@@ -803,7 +809,6 @@ export default function HistoricalMap() {
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
           onPointerCancel={handlePointerUp}
-          onWheel={handleWheel}
         >
           <defs>
             <radialGradient id="hm-bg-grad" cx="50%" cy="40%" r="60%">

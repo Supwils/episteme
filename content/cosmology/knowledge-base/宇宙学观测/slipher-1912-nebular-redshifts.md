@@ -1,4 +1,5 @@
 ---
+summary: "洛威尔摄谱仪把亮旋涡核的吸收线位移写成视向速度，多数后来的点是退行。没有距离轴，这串速度还不是膨胀斜率；当时的多普勒公式也还不是尺度因子对波长的拉伸。"
 title: 斯莱弗 1912：洛威尔 24 英寸镜上的星云视向速度
 title_en: Slipher 1912 — Nebular Radial Velocities at the Lowell 24-inch
 status: published

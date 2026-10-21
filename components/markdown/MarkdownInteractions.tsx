@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
-import { shardDomainForHref, type LinkPreview } from "@/lib/link-preview-shards";
+import type { LinkPreview } from "@/lib/link-preview-shards";
+import { loadLinkPreviews } from "@/lib/link-preview-client";
 import { LazySeal } from "@/components/design/LazySeal";
 import { DOMAIN_SEALS, isSealDomain } from "@/lib/design/seals";
 import { sectionDomain } from "@/components/search/section-domain";
@@ -36,32 +37,6 @@ function marginPlacement(anchor: HTMLElement): MarginPlacement | null {
 }
 
 export { MarkdownCodeBlock } from "./MarkdownCodeBlock";
-
-// Preview data is sharded per domain (`/link-previews/<domain>.json`) so the
-// first hover downloads only the target link's shard instead of one ~915 KB
-// file. A resolved wiki-link URL always starts with its article's domain, so
-// the shard to load comes straight from the href — this also covers
-// multi-domain slugs, since `resolveWikiLink` has already picked one URL.
-const previewShardPromises = new Map<string, Promise<Record<string, LinkPreview>>>();
-
-function loadPreviews(href: string): Promise<Record<string, LinkPreview>> {
-  const domain = shardDomainForHref(href);
-  if (!domain) return Promise.resolve({});
-  let promise = previewShardPromises.get(domain);
-  if (!promise) {
-    promise = fetch(`/link-previews/${domain}.json`)
-      .then((response) => {
-        if (!response.ok) throw new Error("Preview shard unavailable");
-        return response.json();
-      })
-      .catch(() => {
-        previewShardPromises.delete(domain);
-        return {};
-      });
-    previewShardPromises.set(domain, promise);
-  }
-  return promise;
-}
 
 export function WikiLinkPreview({ href, label }: { href: string; label: string }) {
   const [preview, setPreview] = useState<LinkPreview | null>(null);
@@ -110,7 +85,7 @@ export function WikiLinkPreview({ href, label }: { href: string; label: string }
 
   const reveal = useCallback(
     (version: number) => {
-      void loadPreviews(href).then((previews) => {
+      void loadLinkPreviews(href).then((previews) => {
         // Shard requests are shared; invalidate this interaction, not the fetch.
         if (version !== requestVersion.current) return;
         setPreview(previews[href] ?? null);

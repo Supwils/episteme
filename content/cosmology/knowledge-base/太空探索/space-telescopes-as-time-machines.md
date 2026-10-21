@@ -1,4 +1,5 @@
 ---
+summary: "空间望远镜把更远的光子当成更早的发射，深场是光化石，不是天体当下的录像。单个天体后来如何演化无法追踪，须假设不同红移样本可比；最早的等离子体对电磁波不透明。"
 title: 空间望远镜：把宇宙变成时间机器
 title_en: Space Telescopes as Time Machines
 category: 太空探索

@@ -1,4 +1,5 @@
 ---
+summary: "恒星结局由质量决定，稳定发光靠核心热核聚变，不是撑不住地质时标的化学燃烧。主序是辐射压与引力的平衡，终点才分成白矮星、中子星或黑洞。"
 title: 恒星演化
 titleEn: Stellar Evolution
 category: 天体物理学

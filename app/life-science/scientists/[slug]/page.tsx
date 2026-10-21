@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { withCanonicalPath } from "@/lib/article-canonical";
 import { getAllScientists, getScientistById } from "@/subjects/life-science/lib/scientists";
-import { getScientistArticleBody } from "@/subjects/life-science/lib/scientist-article";
+import { getScientistArticle } from "@/subjects/life-science/lib/scientist-article";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import type { Scientist } from "@/subjects/life-science/lib/types";
 import { FadeInSection } from "@/components/FadeInSection";
@@ -81,7 +81,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const scientist = getScientistById(slug);
   if (!scientist) notFound();
   const supp = getSupp(scientist);
-  const description = `${scientist.field}。${scientist.keyContribution}`;
+  const articleLead = getScientistArticle(slug)?.summary;
+  const description = articleLead ?? `${scientist.field}。${scientist.keyContribution}`;
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(scientist.name)}&section=life-science&description=${encodeURIComponent(description)}`;
   return withCanonicalPath(`/life-science/scientists/${slug}`, {
     title: `${scientist.name}（${supp.latin}） — 生命科学`,
@@ -100,7 +101,8 @@ export default async function ScientistDetailPage({ params }: Props) {
   if (!scientist) notFound();
 
   const supp = getSupp(scientist);
-  const articleBody = getScientistArticleBody(scientist.id);
+  const article = getScientistArticle(scientist.id);
+  const articleBody = article?.body ?? null;
   const allScientists = getAllScientists();
   const related = allScientists
     .filter(
@@ -114,7 +116,7 @@ export default async function ScientistDetailPage({ params }: Props) {
 
   const jsonLd = createPersonJsonLd({
     name: scientist.name,
-    description: `${scientist.field}。${scientist.keyContribution}`,
+    description: article?.summary ?? `${scientist.field}。${scientist.keyContribution}`,
     url: `${SITE_URL}/life-science/scientists/${slug}`,
     birthDate: `${scientist.birthYear}`,
     deathDate: scientist.deathYear ? `${scientist.deathYear}` : undefined,
@@ -132,6 +134,7 @@ export default async function ScientistDetailPage({ params }: Props) {
       eyebrowMeta={[scientist.era]}
       title={scientist.name}
       titleEn={supp.latin}
+      lede={article?.summary}
       content={articleBody ?? ""}
       meta={<>{lifespan}</>}
       sidebar={

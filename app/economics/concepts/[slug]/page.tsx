@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import { withCanonicalPath } from "@/lib/article-canonical";
+import { extractExcerpt } from "@/lib/content-utils";
 import Link from "next/link";
+import { readerKeyFigureLabel } from "@/lib/reader-key-figure-label";
 import { getConceptBySlug, getAllConcepts } from "@/subjects/economics/lib/mdx";
 import { CATEGORY_COLORS } from "@/subjects/economics/lib/constants";
 import { ArticleLayout } from "@/components/ArticleLayout";
@@ -24,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!concept) notFound();
   return withCanonicalPath(`/economics/concepts/${slug}`, {
     title: `${concept.title} — 经济学概念`,
-    description: `${concept.title}（${concept.title_en}）`,
+    description: concept.summary ?? extractExcerpt(concept.content),
   });
 }
 
@@ -63,9 +65,12 @@ export default async function ConceptDetailPage({ params }: { params: Promise<{ 
       eyebrow={concept.category}
       title={concept.title}
       titleEn={concept.title_en}
+      lede={concept.summary}
       content={concept.content}
       meta={
-        concept.key_figures.length > 0 ? `相关人物：${concept.key_figures.join("、")}` : undefined
+        concept.key_figures.length > 0
+          ? `相关人物：${concept.key_figures.map((name) => readerKeyFigureLabel(concept.content, name)).join("、")}`
+          : undefined
       }
       tags={concept.tags}
       prev={prev ? { href: `/economics/concepts/${prev.slug}`, title: prev.title } : null}

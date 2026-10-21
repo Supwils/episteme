@@ -1,6 +1,7 @@
 ---
 title: 人工智能与动物交流：发现组合结构，距离“翻译”还有多远
 title_en: AI and the Structure of Animal Communication
+summary: "2024 年 Project CETI 分析 8719 组抹香鲸咔嗒序列，发现可组合的结构，但多数 coda 的功能仍未知；聚类出信号类型不等于知道它们“说了什么”。"
 status: published
 updated: 2026-08-07
 category: 语言演化

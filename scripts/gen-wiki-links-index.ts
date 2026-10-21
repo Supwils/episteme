@@ -29,6 +29,7 @@ import { join } from "node:path";
 import prettier from "prettier";
 import { collectArticles, type Article } from "../lib/search/articles";
 import { groupPreviewsByDomain } from "../lib/link-preview-shards";
+import { extractExcerpt } from "../lib/content-utils";
 
 const ROOT = process.cwd();
 const OUT_LINKS = join(ROOT, "lib", "wiki-link-index.ts");
@@ -198,32 +199,11 @@ async function emit(file: string, body: string): Promise<void> {
   writeFileSync(file, await prettier.format(body, { ...config, parser: "typescript" }));
 }
 
-/** First substantial prose sentence of a body, stripped of markdown, for a
- *  hover preview. Skips headings, lists, tables, quotes and code. */
-function excerpt(body: string): string {
-  for (const raw of body.split("\n")) {
-    const t = raw.trim();
-    if (!t || /^[#>\-*|`:]/.test(t) || /^\d+\.\s/.test(t)) continue;
-    const s = t
-      .replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, "$2")
-      .replace(/\[\[([^\]]+)\]\]/g, "$1")
-      .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
-      .replace(/\*\*([^*]+)\*\*/g, "$1")
-      .replace(/\*([^*]+)\*/g, "$1")
-      .replace(/`([^`]+)`/g, "$1")
-      .replace(/\$\$?([^$]*)\$\$?/g, "$1")
-      .trim();
-    if (s.length < 12) continue;
-    return s.length > 96 ? s.slice(0, 96) + "…" : s;
-  }
-  return "";
-}
-
 function buildPreviews(articles: Article[]): Record<string, { t: string; e: string; d: string }> {
   const out: Record<string, { t: string; e: string; d: string }> = {};
   for (const a of articles) {
     if (out[a.url]) continue;
-    out[a.url] = { t: a.title, e: excerpt(a.body), d: a.domain };
+    out[a.url] = { t: a.title, e: a.summary ?? extractExcerpt(a.body, 96), d: a.domain };
   }
   return out;
 }

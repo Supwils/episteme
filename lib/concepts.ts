@@ -1,3 +1,4 @@
+import { authorSummary } from "@/lib/content-utils";
 import path from "node:path";
 import type { Concept, ConceptFrontmatter } from "./types";
 import { loadAllContent, loadContentBySlug } from "./content-article";
@@ -10,6 +11,7 @@ let cachedConcepts: Concept[] | null = null;
 
 function toConcept(data: Record<string, unknown>, content: string, slug: string): Concept {
   return {
+    summary: authorSummary(data),
     title: (data.title as string) ?? "",
     title_en: (data.title_en as string) ?? "",
     field: (data.field as string) ?? "",

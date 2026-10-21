@@ -25,7 +25,7 @@ function rows(lines: string[]) {
 type KindProps = { lines: string[]; ctx: BlockContext };
 
 /** 层级阶梯：作者自下而上书写，屏幕上最高一级在顶端；读屏仍按书写顺序。 */
-function Levels({ lines, ctx }: KindProps) {
+function renderLevels({ lines, ctx }: KindProps) {
   const inline = (text: string) => renderInline(text, ctx.footnotes, ctx.domain);
   return (
     <ol className="kit-levels" style={{ ["--kit-accent" as string]: ctx.accentColor }}>
@@ -41,7 +41,7 @@ function Levels({ lines, ctx }: KindProps) {
 }
 
 /** 对照：首行是两栏的名字，其后每行一组对照。 */
-function Compare({ lines, ctx }: KindProps) {
+function renderCompare({ lines, ctx }: KindProps) {
   const [head = [], ...body] = rows(lines);
   const inline = (text: string) => renderInline(text, ctx.footnotes, ctx.domain);
   return (
@@ -70,7 +70,7 @@ function Compare({ lines, ctx }: KindProps) {
   );
 }
 
-function Steps({ lines, ctx }: KindProps) {
+function renderSteps({ lines, ctx }: KindProps) {
   const inline = (text: string) => renderInline(text, ctx.footnotes, ctx.domain);
   return (
     <ol className="kit-steps">
@@ -84,7 +84,7 @@ function Steps({ lines, ctx }: KindProps) {
   );
 }
 
-function Timeline({ lines, ctx }: KindProps) {
+function renderTimeline({ lines, ctx }: KindProps) {
   const inline = (text: string) => renderInline(text, ctx.footnotes, ctx.domain);
   return (
     <ol className="kit-timeline">
@@ -99,7 +99,7 @@ function Timeline({ lines, ctx }: KindProps) {
 }
 
 /** 旁注：正文之外的补充，一段或几段，用空行分段。 */
-function Aside({ lines, ctx }: KindProps) {
+function renderAside({ lines, ctx }: KindProps) {
   const paragraphs = lines
     .join("\n")
     .split(/\n\s*\n/)
@@ -118,14 +118,14 @@ function Aside({ lines, ctx }: KindProps) {
 }
 
 const RENDERERS: Record<AuthorKind, (props: KindProps) => ReactNode> = {
-  levels: Levels,
-  compare: Compare,
-  steps: Steps,
-  timeline: Timeline,
-  aside: Aside,
+  levels: renderLevels,
+  compare: renderCompare,
+  steps: renderSteps,
+  timeline: renderTimeline,
+  aside: renderAside,
 };
 
-export function AuthorBlock({
+export function renderAuthorBlock({
   kind,
   lines,
   ctx,
@@ -134,6 +134,5 @@ export function AuthorBlock({
   lines: string[];
   ctx: BlockContext;
 }) {
-  const Renderer = RENDERERS[kind];
-  return <Renderer lines={lines} ctx={ctx} />;
+  return RENDERERS[kind]({ lines, ctx });
 }

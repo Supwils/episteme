@@ -1,6 +1,7 @@
 ---
 title: ZFS：不覆盖写，与端到端校验
 title_en: "ZFS: Never Overwrite, Always Verify"
+summary: "磁盘没坏、SMART全绿，读回的数据却不是当初写的，这就是静默数据损坏；本文讲ZFS如何用事务组和不覆盖写杜绝“写到一半”，并用块指针组成能自我验证的Merkle树。"
 status: published
 updated: 2026-08-05
 category: 系统剖析

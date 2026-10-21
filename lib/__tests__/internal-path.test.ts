@@ -14,6 +14,9 @@ describe("isSafeInternalPath", () => {
     expect(isSafeInternalPath("javascript:alert(1)")).toBe(false);
     expect(isSafeInternalPath("/\\evil.example")).toBe(false);
     expect(isSafeInternalPath("")).toBe(false);
+    expect(isSafeInternalPath("/foo\r\nSet-Cookie: a=b")).toBe(false);
+    expect(isSafeInternalPath("/foo\nbar")).toBe(false);
+    expect(isSafeInternalPath("/foo\u0000bar")).toBe(false);
   });
 });
 
@@ -29,5 +32,7 @@ describe("isSafeHref", () => {
     expect(isSafeHref("javascript:alert(1)")).toBe(false);
     expect(isSafeHref("data:text/html,<script>alert(1)</script>")).toBe(false);
     expect(isSafeHref("//evil.example/phish")).toBe(false);
+    expect(isSafeHref("https://example.org/\r\nX-Injected: 1")).toBe(false);
+    expect(isSafeHref("#fn\n-1")).toBe(false);
   });
 });

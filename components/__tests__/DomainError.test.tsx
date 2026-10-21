@@ -6,6 +6,12 @@ import { DomainError } from "@/components/domain/DomainError";
 import { DomainNotFound } from "@/components/domain/DomainNotFound";
 import { queryFromPath } from "@/components/chrome/UnchartedSearch";
 
+const refresh = vi.hoisted(() => vi.fn());
+vi.mock("next/navigation", async (importOriginal) => ({
+  ...(await importOriginal<typeof import("next/navigation")>()),
+  useRouter: () => ({ refresh }),
+}));
+
 afterEach(() => {
   cleanup();
 });
@@ -17,6 +23,7 @@ describe("DomainError", () => {
     expect(screen.queryByText(/ENOENT|TypeError|stack/i)).toBeNull();
     expect(screen.getByRole("heading", { name: "出了点问题" })).toBeTruthy();
     fireEvent.click(screen.getByRole("button", { name: "重试" }));
+    expect(refresh).toHaveBeenCalledTimes(1);
     expect(reset).toHaveBeenCalledTimes(1);
     expect(screen.getByRole("link", { name: "返回哲学思想" }).getAttribute("href")).toBe(
       "/philosophy"
@@ -37,6 +44,7 @@ describe("DomainNotFound", () => {
     render(<DomainNotFound homeHref="/" homeLabel="首页" />);
     const form = screen.getByRole("search");
     expect(form.getAttribute("action")).toBe("/search");
+    expect(screen.getByLabelText("搜索全站").getAttribute("maxlength")).toBe("120");
     const links = screen.getAllByRole("link").map((link) => link.getAttribute("href"));
     expect(links).toEqual(["/", "/knowledge-graph", "/random"]);
   });
@@ -46,5 +54,6 @@ describe("DomainNotFound", () => {
     expect(queryFromPath("/law/%E6%B3%95%E6%B2%BB")).toBe("法治");
     expect(queryFromPath("/%E0%A4%A")).toBe("");
     expect(queryFromPath("/")).toBe("");
+    expect(queryFromPath(`/missing/${"a".repeat(200)}`)).toHaveLength(120);
   });
 });

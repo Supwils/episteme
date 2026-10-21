@@ -1,4 +1,5 @@
 ---
+summary: "黑洞自旋决定最内稳定轨道与吸积效率，电磁方法却是先测盘内半径再翻译成自旋。连续谱法只用于热软态，误差常被质量、距离和倾角主导，不同方法不一致时先查这些共享假设。"
 title: 黑洞自旋测量
 titleEn: Black Hole Spin Measurement
 category: 致密天体物理学

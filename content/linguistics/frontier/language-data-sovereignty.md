@@ -1,6 +1,7 @@
 ---
 title: 语言数据主权：一段录音开放以后，谁还能决定它的未来
 title_en: Language Data Sovereignty beyond Open Access
+summary: "录音进入开放仓库后可能被用于训练商业模型或脱离语境重剪；CARE 原则以集体利益与控制权回应“默认开放”，与 FAIR 原则并行。"
 status: published
 updated: 2026-08-07
 category: 社区与复振

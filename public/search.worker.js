@@ -5,6 +5,10 @@
   // lib/search/tokenize.ts
   var HAN = /\p{Script=Han}/u;
   var WORD = /[\p{Letter}\p{Number}]/u;
+  var FULL_WIDTH_ALNUM = /[\uFF10-\uFF19\uFF21-\uFF3A\uFF41-\uFF5A]/g;
+  function normalizeSearchText(text) {
+    return text.normalize("NFC").replace(FULL_WIDTH_ALNUM, (ch) => String.fromCharCode(ch.charCodeAt(0) - 65248));
+  }
   function tokenize(text) {
     const terms = [];
     let han = "";
@@ -21,7 +25,7 @@
       terms.push(word.toLowerCase());
       word = "";
     };
-    for (const ch of text) {
+    for (const ch of normalizeSearchText(text)) {
       if (HAN.test(ch)) {
         flushWord();
         han += ch;
@@ -1873,6 +1877,50 @@
   var wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
   var SPACE_OR_PUNCTUATION = /[\n\r\p{Z}\p{P}]+/u;
 
+  // lib/urls.ts
+  var APP_URLS = {
+    "universe-physics": "/universe-physics",
+    cosmology: "/cosmology",
+    "human-history": "/human-history",
+    philosophy: "/philosophy",
+    arts: "/arts",
+    literature: "/literature",
+    religion: "/religion",
+    anthropology: "/anthropology",
+    "life-science": "/life-science",
+    mathematics: "/mathematics",
+    engineering: "/engineering",
+    economics: "/economics",
+    psychology: "/psychology",
+    "computer-science": "/computer-science",
+    "political-science": "/political-science",
+    "earth-science": "/earth-science",
+    medicine: "/medicine",
+    chemistry: "/chemistry",
+    sociology: "/sociology",
+    law: "/law",
+    linguistics: "/linguistics",
+    education: "/education",
+    "knowledge-graph": "/knowledge-graph"
+  };
+  var SECTION_SHELL_PREFIXES = [
+    ...Object.values(APP_URLS),
+    "/read",
+    "/curiosities"
+  ];
+  var INTERNAL_PATH_ORIGIN = "https://episteme.invalid";
+  var CONTROL_CHARS = /[\u0000-\u001F\u007F]/;
+  function isSafeInternalPath(url) {
+    if (!url.startsWith("/") || url.startsWith("//") || url.includes("\\")) return false;
+    if (CONTROL_CHARS.test(url)) return false;
+    try {
+      const parsed = new URL(url, INTERNAL_PATH_ORIGIN);
+      return parsed.origin === INTERNAL_PATH_ORIGIN && parsed.pathname.startsWith("/");
+    } catch {
+      return false;
+    }
+  }
+
   // lib/search/engine.ts
   function loadEngine(artifact) {
     const index = MiniSearch.loadJS(
@@ -1887,7 +1935,7 @@
         const scanned = [];
         for (const result of index.search(normalized)) {
           const doc = artifact.docs[result.id];
-          if (!doc) continue;
+          if (!doc || !isSafeInternalPath(doc.u)) continue;
           scanned.push({
             title: doc.t,
             subtitle: doc.s,
@@ -1908,13 +1956,29 @@
     };
   }
 
+  // lib/search/query.ts
+  var MAX_SEARCH_QUERY_LENGTH = 120;
+  function truncateSearchQuery(value) {
+    let result = "";
+    let length = 0;
+    for (const character of value) {
+      if (length === MAX_SEARCH_QUERY_LENGTH) break;
+      const codePoint = character.codePointAt(0);
+      result += codePoint >= 55296 && codePoint <= 57343 ? "\uFFFD" : character;
+      length += 1;
+    }
+    return result;
+  }
+  function normalizeSearchQuery(value) {
+    return truncateSearchQuery(value.trim()).trim();
+  }
+
   // lib/search/worker-runtime.ts
   var enginePromise = null;
   function engine() {
     enginePromise ??= loadArtifact().then(loadEngine);
     return enginePromise;
   }
-  var MAX_QUERY_LENGTH = 120;
   var MAX_LIMIT = 50;
   var DEFAULT_LIMIT = 20;
   function asRecord(value) {
@@ -1943,7 +2007,7 @@
       if (typeof payload.query !== "string") return invalid(id);
       const limit = parseSearchLimit(payload.limit);
       if (limit === null) return invalid(id);
-      const hits = (await engine()).search(payload.query.slice(0, MAX_QUERY_LENGTH), limit);
+      const hits = (await engine()).search(normalizeSearchQuery(payload.query), limit);
       return { type: "result", id, hits };
     } catch (error) {
       enginePromise = null;

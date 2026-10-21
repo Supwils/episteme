@@ -1,6 +1,7 @@
 ---
 title: 宗教认知科学还剩多少可重复的结论
 title_en: How Much of the Cognitive Science of Religion Replicates
+summary: "2012 年《科学》上“分析性思维降低宗教信念”的启动实验，在 2017 年 941 人的预注册多地点重复里几乎测不到效应。宗教认知科学的许多机制正在被重新检验。"
 status: published
 updated: 2026-09-11
 category: 认知与方法

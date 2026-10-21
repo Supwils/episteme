@@ -28,12 +28,13 @@
   "include": [
     "**/*.ts",
     "**/*.tsx",
+    ".next-ab/types/**/*.ts",
     ".next-prod/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     ".next/types/**/*.ts",
     "next-env.d.ts",
     "subjects/**/*",
-    ".next-ab/types/**/*.ts"
+    ".next-ux-review/types/**/*.ts"
   ],
   "exclude": ["node_modules", ".next", "out", "dist", "coverage", "scripts", "content", "reference"]
 }

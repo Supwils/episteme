@@ -1,4 +1,5 @@
 ---
+summary: "碳的社会成本把未来排放损害折成今天的金额，但折现率一变，最优碳价可以差出数量级。损害函数是综合评估模型最薄弱的一环，尾部风险下成本收益分析可能失效。"
 title: 气候经济学：碳定价、折现率之争与综合评估模型
 title_en: Climate Economics — Carbon Pricing, Discount Rate Debates, and IAMs
 status: published

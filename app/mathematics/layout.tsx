@@ -28,7 +28,7 @@ export default function MathematicsLayout({ children }: { children: React.ReactN
     <div className={`math-root ${fontVars}`}>
       <DomainHeader subject="mathematics" />
 
-      <main>
+      <main data-skip-target tabIndex={-1} className="focus:outline-none">
         <PageTransition>{children}</PageTransition>
       </main>
 

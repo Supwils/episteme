@@ -1,6 +1,7 @@
 ---
 title: 计算材料设计：从试错炼金到按需求"算"出材料
 title_en: Computational Materials Design — From Trial-and-Error Alchemy to Predicting Materials on Demand
+summary: "2023 年 DeepMind 的 GNoME 给出约 220 万个新晶体结构，其中约 38 万个被预测为稳定；预测出来不等于造出来，机器学习正为 DFT 计算提速。"
 status: published
 updated: 2026-09-12
 category: 计算化学

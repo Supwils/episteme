@@ -1,3 +1,4 @@
+import { calendarDateString, calendarDay } from "./calendar-day";
 import { HISTORY_TODAY } from "./history-today";
 import { PHYSICS_TODAY } from "./physics-today";
 import { PHILOSOPHY_TODAY } from "./philosophy-today";
@@ -33,21 +34,10 @@ const DOMAIN_ICONS: Record<string, string> = {
   psychology: "🧠",
 };
 
-function formatDate(date: Date): string {
-  const y = date.getFullYear();
-  const m = String(date.getMonth() + 1).padStart(2, "0");
-  const d = String(date.getDate()).padStart(2, "0");
-  return `${y}-${m}-${d}`;
-}
-
-function getMonthDay(date: Date): { month: number; day: number } {
-  return { month: date.getMonth() + 1, day: date.getDate() };
-}
-
 export function getDailyKnowledge(date?: Date): DailyKnowledge {
   const now = date ?? new Date();
-  const dateStr = formatDate(now);
-  const { month, day } = getMonthDay(now);
+  const dateStr = calendarDateString(now);
+  const { month, day } = calendarDay(now);
 
   const historyEvents = HISTORY_TODAY.filter((e) => e.month === month && e.day === day);
   const physicsEvents = PHYSICS_TODAY.filter((e) => e.month === month && e.day === day);

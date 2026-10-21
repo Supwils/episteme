@@ -1,5 +1,6 @@
 "use client";
 
+import { isInOpenDialog } from "./interaction/dialog-events";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { createPortal } from "react-dom";
 import { subscribeToScrollFrame } from "@/lib/scroll-frame";
@@ -36,12 +37,14 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
     const span = Math.max(1, end - (tops[0] ?? 0));
     const tocItems: TocItem[] = Array.from(headings).map((h, index) => ({
       id: h.id,
-      // Headings may carry a hover `#` permalink (MarkdownRenderer); it is
-      // markup, not title text, so exclude it from the TOC label.
-      text: Array.from(h.childNodes)
-        .filter((n) => !(n instanceof HTMLElement && n.hasAttribute("data-heading-anchor")))
-        .map((n) => n.textContent)
-        .join(""),
+      // Article headings carry a plain label: their DOM text repeats each
+      // KaTeX formula (MathML + HTML) and includes the hover `#` permalink.
+      text:
+        h.dataset.tocLabel ??
+        Array.from(h.childNodes)
+          .filter((n) => !(n instanceof HTMLElement && n.hasAttribute("data-heading-anchor")))
+          .map((n) => n.textContent)
+          .join(""),
       level: h.tagName === "H2" ? 2 : 3,
       share: ((tops[index + 1] ?? end) - tops[index]!) / span,
     }));
@@ -106,6 +109,7 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
     first?.focus();
 
     const onKeyDown = (e: KeyboardEvent) => {
+      if (isInOpenDialog(e.target)) return;
       if (e.key === "Escape") {
         e.preventDefault();
         setSheetOpen(false);
@@ -204,6 +208,7 @@ export function TableOfContents({ accentColor = "#c8a45a" }: TableOfContentsProp
             aria-expanded={sheetOpen}
             aria-controls="mobile-toc-sheet"
             onClick={() => setSheetOpen(true)}
+            inert={sheetOpen || undefined}
             className="border-border-subtle bg-bg-panel text-fg-primary fixed bottom-6 left-4 z-40 flex items-center gap-2 rounded-full border px-4 py-2.5 text-[13px] shadow-lg transition-colors [[data-narration-active]_&]:bottom-24"
             style={sheetOpen ? { opacity: 0, pointerEvents: "none" } : undefined}
           >

@@ -1,6 +1,7 @@
 ---
 title: 「阅读科学」立法改的是什么
 title_en: What Science-of-Reading Statutes Actually Change
+summary: "美国国家教师质量委员会 2024 年报告，2013 年至 2023 年 7 月有 32 个州通过了阅读科学相关法律或政策，但几乎都还没有把教师准备、许可考试与课程选用连成可核对的实施链。"
 status: published
 updated: 2026-09-12
 category: 课程与识字政策

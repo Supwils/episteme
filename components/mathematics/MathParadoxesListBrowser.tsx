@@ -19,6 +19,8 @@ export type MathParadoxItem = {
   title_en: string;
   field: string;
   key_figures: string[];
+  /** Internal ids. Searched, not shown. */
+  figureSlugs?: string[];
   tags: string[];
 };
 
@@ -45,7 +47,14 @@ export function MathParadoxesListBrowser({ paradoxes }: { paradoxes: MathParadox
     return paradoxes.filter((p) => {
       if (activeField && p.field !== activeField) return false;
       if (!q) return true;
-      const haystack = [p.title, p.title_en, p.field, ...p.key_figures, ...p.tags]
+      const haystack = [
+        p.title,
+        p.title_en,
+        p.field,
+        ...p.key_figures,
+        ...(p.figureSlugs ?? []),
+        ...p.tags,
+      ]
         .join("\n")
         .toLowerCase();
       return haystack.includes(q);

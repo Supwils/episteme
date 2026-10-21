@@ -1,4 +1,5 @@
 ---
+summary: "直接探测只回答一件窄事：若暗物质与核子有非引力耦合，核反冲截面的上限是多少。它不解释旋转曲线，也不是在给暗物质拍照；找不到弱作用大质量粒子，不能说成暗物质不存在。"
 title: 暗物质直接探测实验
 titleEn: Dark Matter Direct Detection Experiments
 category: 宇宙学前沿

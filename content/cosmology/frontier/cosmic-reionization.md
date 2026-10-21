@@ -1,4 +1,5 @@
 ---
+summary: "再电离是延展过程，主要电离源是早期星系还是类星体，至今仍有争议。第一代恒星从未被直接观测到，最接近的天体仍只是候选，中性氢射电信号也尚未直接测到。"
 title: 宇宙再电离与第一代恒星：JWST 正在逼近的"宇宙黎明"
 title_en: Cosmic Reionization and Population III Stars — JWST Approaching the Cosmic Dawn
 status: published

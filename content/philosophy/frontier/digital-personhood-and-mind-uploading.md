@@ -1,4 +1,5 @@
 ---
+summary: "复制品是不是我，不能由连接组是否画完来回答，因为电路图还不是运转中的机器。意识有没有可用于非生物系统的判据、分叉之后的身份如何建构，正文都列为没有共识的边界。"
 title: 数字人格与心灵上传：复制品是我吗
 title_en: Digital Personhood and Mind Uploading — Would the Copy Be Me
 status: published

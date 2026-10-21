@@ -1,7 +1,7 @@
 import "../styles/pages/knowledge.css";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllArticles, type KBArticle } from "@/lib/knowledge-base";
+import { getAllArticles, orderedEraKeys, type KBArticle } from "@/lib/knowledge-base";
 
 export const metadata: Metadata = {
   title: "知识库 — Episteme · 格致",
@@ -17,6 +17,8 @@ export const metadata: Metadata = {
     description: "人类历史知识库，涵盖从远古到当代的重大事件、文明与人物",
   },
 };
+
+const FALLBACK_ERA_COLOR = "#c8a951";
 
 const ERA_COLORS: Record<string, string> = {
   远古时期: "#8b6914",
@@ -57,18 +59,7 @@ function groupByEra(articles: KBArticle[]): Map<string, KBArticle[]> {
 export default function KnowledgePage() {
   const articles = getAllArticles();
   const grouped = groupByEra(articles);
-  const eraOrder = [
-    "远古时期",
-    "古典时期",
-    "中世纪",
-    "近代",
-    "现代",
-    "当代",
-    "未来展望",
-    "人物",
-    "文明",
-    "事件",
-  ];
+  const eraOrder = orderedEraKeys(grouped.keys());
 
   return (
     <div className="kb-page">
@@ -83,8 +74,12 @@ export default function KnowledgePage() {
           const count = grouped.get(era)?.length ?? 0;
           if (count === 0) return null;
           return (
-            <div key={era} className="kb-stat" style={{ borderColor: ERA_COLORS[era] }}>
-              <span className="kb-stat-icon">{ERA_ICONS[era]}</span>
+            <div
+              key={era}
+              className="kb-stat"
+              style={{ borderColor: ERA_COLORS[era] ?? FALLBACK_ERA_COLOR }}
+            >
+              {ERA_ICONS[era] ? <span className="kb-stat-icon">{ERA_ICONS[era]}</span> : null}
               <span className="kb-stat-count">{count}</span>
               <span className="kb-stat-label">{era}</span>
             </div>
@@ -95,11 +90,11 @@ export default function KnowledgePage() {
       {eraOrder.map((era) => {
         const eraArticles = grouped.get(era);
         if (!eraArticles || eraArticles.length === 0) return null;
-        const color = ERA_COLORS[era] ?? "#c8a951";
+        const color = ERA_COLORS[era] ?? FALLBACK_ERA_COLOR;
         return (
           <section key={era} className="kb-era-section">
             <div className="kb-era-head">
-              <span className="kb-era-icon">{ERA_ICONS[era]}</span>
+              {ERA_ICONS[era] ? <span className="kb-era-icon">{ERA_ICONS[era]}</span> : null}
               <h2 className="kb-era-title" style={{ color }}>
                 {era}
               </h2>
@@ -114,7 +109,9 @@ export default function KnowledgePage() {
                   style={{ "--accent": color } as React.CSSProperties}
                 >
                   <div className="kb-card-top">
-                    <span className="kb-card-category">{article.category}</span>
+                    {article.category !== article.title && (
+                      <span className="kb-card-category">{article.category}</span>
+                    )}
                     {article.period && <span className="kb-card-period">{article.period}</span>}
                   </div>
                   <h3 className="kb-card-title">{article.title}</h3>

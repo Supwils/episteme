@@ -45,9 +45,15 @@ export function SubjectHeader({ subject, mark }: { subject: string; mark?: React
     setIndicator(tab ? { left: tab.offsetLeft, width: tab.offsetWidth } : null);
   }, [pathname]);
 
-  // Keep the active tab in view when landing deep in a subject.
+  // Keep the active tab in view when landing deep in a subject. Scrolls the strip
+  // itself: Chrome moves the Tab starting point to whatever scrollIntoView
+  // targets, so the first Tab skipped the skip link and landed in the tabs.
   useEffect(() => {
-    activeRef.current?.scrollIntoView({ block: "nearest", inline: "center" });
+    const strip = stripRef.current;
+    const tab = activeRef.current;
+    if (strip && tab) {
+      strip.scrollLeft = tab.offsetLeft - (strip.clientWidth - tab.offsetWidth) / 2;
+    }
     measureFade();
   }, [pathname, measureFade]);
 

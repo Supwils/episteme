@@ -16,6 +16,7 @@ import { CellExplorer } from "@/subjects/life-science/components/visualizations/
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { ArticleLayout } from "@/components/ArticleLayout";
 import { getSpeciesProse, type SpeciesProse } from "@/lib/species-prose";
+import { redirectIfMerged } from "@/lib/merged-articles";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -39,14 +40,17 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+  redirectIfMerged("/life-science/species", slug);
   const species = getSpeciesById(slug);
   const prose = getSpeciesProse(slug);
   if (!species && !prose) notFound();
   const name = species ? species.name : prose!.title;
   const nameEn = species ? species.nameEn : prose!.latinName;
-  const description = species
-    ? `${species.era} ${species.period}。${species.keyTraits.join("、")}`
-    : `${prose!.category}。${prose!.tags.join("、")}`;
+  const description =
+    prose?.summary ??
+    (species
+      ? `${species.era} ${species.period}。${species.keyTraits.join("、")}`
+      : `${prose!.category}。${prose!.tags.join("、")}`);
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(name)}&section=life-science&description=${encodeURIComponent(description)}`;
   return withCanonicalPath(`/life-science/species/${slug}`, {
     title: `${name}（${nameEn}） — 生命科学`,
@@ -61,6 +65,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function SpeciesDetailPage({ params }: Props) {
   const { slug } = await params;
+  redirectIfMerged("/life-science/species", slug);
   const species = getSpeciesById(slug);
   const prose = getSpeciesProse(slug);
   if (!species && !prose) notFound();
@@ -81,7 +86,8 @@ export default async function SpeciesDetailPage({ params }: Props) {
 
   const jsonLd = createArticleJsonLd({
     title: `${species.name}（${species.nameEn}）`,
-    description: `${species.era} ${species.period}。${species.keyTraits.join("、")}`,
+    description:
+      prose?.summary ?? `${species.era} ${species.period}。${species.keyTraits.join("、")}`,
     url: `${SITE_URL}/life-science/species/${slug}`,
     keywords: [species.name, species.nameEn, species.era, species.period, ...species.keyTraits],
   });
@@ -99,6 +105,7 @@ export default async function SpeciesDetailPage({ params }: Props) {
       ]}
       title={species.name}
       titleEn={species.nameEn}
+      lede={prose?.summary}
       content={prose?.content ?? ""}
       sidebar={
         <>
@@ -247,7 +254,7 @@ function SpeciesProsePage({ prose, slug }: { prose: SpeciesProse; slug: string }
   const accent = "#4a9e6f";
   const jsonLd = createArticleJsonLd({
     title: prose.titleEn ? `${prose.title}（${prose.titleEn}）` : prose.title,
-    description: `${prose.category}。${prose.tags.join("、")}`,
+    description: prose.summary ?? `${prose.category}。${prose.tags.join("、")}`,
     url: `${SITE_URL}/life-science/species/${slug}`,
     keywords: [prose.title, prose.titleEn, prose.latinName, prose.category, ...prose.tags].filter(
       (k): k is string => Boolean(k)
@@ -263,6 +270,7 @@ function SpeciesProsePage({ prose, slug }: { prose: SpeciesProse; slug: string }
       eyebrowMeta={prose.era ? [prose.era] : undefined}
       title={prose.title}
       titleEn={prose.latinName || prose.titleEn || undefined}
+      lede={prose.summary}
       content={prose.content}
       sidebar={
         <>

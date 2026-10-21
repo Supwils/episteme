@@ -1,6 +1,7 @@
 ---
 title: 氢基直接还原铁：绿色钢铁卡在反应炉外的系统工程
 title_en: Hydrogen Direct-Reduced Iron and Near-Zero Steel
+summary: "钢铁业约占能源系统二氧化碳排放的 7%；氢基直接还原加电弧炉化学上清楚，工程难题却扩散到矿石品位、绿氢、电网与核算，早期纯氢工厂成本高 50%–140%。"
 status: published
 updated: 2026-09-12
 as_of: 2026-08

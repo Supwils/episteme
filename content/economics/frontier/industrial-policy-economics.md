@@ -1,4 +1,5 @@
 ---
+summary: "产业政策事后是否划算，取决于对准哪种市场失灵，以及有没有纠错与日落纪律。当代芯片补贴的评估仍停在工作论文和机构报告，全球补贴竞赛的福利账还是空白。"
 title: 产业政策的回归：从经济学禁忌到芯片实验
 title_en: The Return of Industrial Policy — From Taboo to the CHIPS Experiment
 status: published

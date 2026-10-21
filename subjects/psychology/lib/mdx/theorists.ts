@@ -1,3 +1,4 @@
+import { authorSummary } from "@/lib/content-utils";
 import type { Era, Theorist, TheoristFrontmatter } from "../types";
 import { DIRS, caches, listCaches, getSlugs, getBySlug, getAll, eraOrder } from "./normalize";
 
@@ -8,6 +9,7 @@ export function getTheoristSlugs(): string[] {
 function castTheorist(data: unknown, s: string, c: string): Theorist {
   const d = data as Record<string, unknown>;
   return {
+    summary: authorSummary(d),
     title: (d.title as string) ?? "",
     name_en: (d.name_en as string) ?? "",
     years: (d.years as string) ?? "",
@@ -28,5 +30,18 @@ export function getTheoristBySlug(slug: string): Theorist | null {
 }
 
 export function getAllTheorists(): Theorist[] {
-  return getAll(DIRS.theorists, caches.theorists, { get value() { return listCaches.theorists; }, set value(v) { listCaches.theorists = v; } }, castTheorist, (a, b) => (eraOrder[a.era] ?? 99) - (eraOrder[b.era] ?? 99));
+  return getAll(
+    DIRS.theorists,
+    caches.theorists,
+    {
+      get value() {
+        return listCaches.theorists;
+      },
+      set value(v) {
+        listCaches.theorists = v;
+      },
+    },
+    castTheorist,
+    (a, b) => (eraOrder[a.era] ?? 99) - (eraOrder[b.era] ?? 99)
+  );
 }

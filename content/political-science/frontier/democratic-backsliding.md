@@ -1,6 +1,7 @@
 ---
 title: 民主衰退：指标、争论与路径
 title_en: Democratic Backsliding — Indicators, Debates, and Pathways
+summary: "2021 年自由之家称全球民主已连续 15 年净退步，V-Dem 认为专制化回到 1990 年代初的水平；民主衰退通常不是坦克上街，指标与路径都有争论。"
 status: published
 updated: 2026-06-13
 category: 政治学前沿

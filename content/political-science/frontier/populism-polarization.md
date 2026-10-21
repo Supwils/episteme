@@ -1,6 +1,7 @@
 ---
 title: 民粹主义与政治极化的成因之争
 title_en: Populism and Political Polarization — Competing Explanations
+summary: "2016 年英国脱欧与特朗普当选让多数预测失准；民粹主义不是草根的纯洁，其成因有经济焦虑、文化反冲等不同解释路线。"
 status: published
 updated: 2026-06-13
 category: 政治学前沿

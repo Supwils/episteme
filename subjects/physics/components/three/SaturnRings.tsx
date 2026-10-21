@@ -30,11 +30,24 @@ export function SaturnRings({
   const texture = useMemo(() => getPlanetTexture("saturnRing"), []);
   const geometry = useMemo(() => buildRingGeometry(inner, outer, 96), [inner, outer]);
 
-  const lastOpacity = useRef(opacity);
+  const lastOpacity = useRef(-1);
+  // The memoised texture may be the 1×1 loading placeholder; swap in the real
+  // ring strip once the cache has it (same approach as Planet).
+  const textureSwapped = useRef(false);
   useFrame(() => {
-    if (matRef.current && lastOpacity.current !== opacity) {
-      matRef.current.opacity = opacity;
+    const mat = matRef.current;
+    if (!mat) return;
+    if (lastOpacity.current !== opacity) {
+      mat.opacity = opacity;
       lastOpacity.current = opacity;
+    }
+    if (!textureSwapped.current) {
+      const fresh = getPlanetTexture("saturnRing");
+      if (fresh !== texture) {
+        mat.map = fresh;
+        mat.needsUpdate = true;
+        textureSwapped.current = true;
+      }
     }
   });
 

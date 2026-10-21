@@ -1,4 +1,5 @@
 ---
+summary: "对齐不止于让模型听话：多元且冲突的人类价值，能否写成可学习的目标，是未完成的哲学问题。偏好、规则与可纠正性各有未解假设；系统算不算应被考量的主体，正文标为悬而未决。"
 title: AI 对齐与价值的哲学：人类价值能否被规范化？
 title_en: The Philosophy of AI Alignment and Value
 status: published

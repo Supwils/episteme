@@ -1,4 +1,5 @@
 ---
+summary: "月球到火星架构把月球写成验证自治与生命保障的训练场，而不是证明到达的单次壮举。绕月成功不是登月，阴影坑水冰也不是推进剂工厂，地火延迟还随轨道几何变化。"
 title: 月球到火星架构
 title_en: Moon to Mars Architecture
 category: 太空探索

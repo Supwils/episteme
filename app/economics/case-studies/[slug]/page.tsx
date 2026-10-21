@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!cs) notFound();
   return withCanonicalPath(`/economics/case-studies/${slug}`, {
     title: `${cs.title} — 经济案例`,
-    description: `${cs.title}（${cs.title_en}）· ${cs.year} · ${cs.region}`,
+    description: cs.summary ?? `${cs.title}（${cs.title_en}）· ${cs.year} · ${cs.region}`,
   });
 }
 
@@ -57,6 +57,7 @@ export default async function CaseStudyDetailPage({
       eyebrowMeta={[`${cs.year} 年`, cs.region]}
       title={cs.title}
       titleEn={cs.title_en}
+      lede={cs.summary}
       content={cs.content}
       takeaway={cs.keyInsight}
       tags={cs.tags}

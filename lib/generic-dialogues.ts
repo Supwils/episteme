@@ -1,9 +1,11 @@
+import { authorSummary } from "@/lib/content-utils";
 import path from "node:path";
 import { readContentBySlug, readContentEntries } from "./content-article";
 import { getDomainContentDir, listContentSlugs } from "./content-paths";
 import { firstHeading, stripLeadingHeading } from "./content-utils";
 
 export interface DialogueSummary {
+  summary?: string;
   slug: string;
   title: string;
   /** The framing question (physics `question`) or subject (cosmology `topic`). */
@@ -48,6 +50,7 @@ export function createDialogues(domain: string): DialogueCollection {
     content: string
   ): DialogueSummary => ({
     slug,
+    summary: authorSummary(data),
     title:
       typeof data.title === "string" && data.title ? data.title : (firstHeading(content) ?? slug),
     description:

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getAllConcepts } from "@/subjects/economics/lib/mdx";
 import { extractExcerpt } from "@/lib/content-utils";
+import { readerKeyFigureLabel } from "@/lib/reader-key-figure-label";
 import { ConceptsListBrowser } from "@/components/economics/ConceptsListBrowser";
 import type { ConceptItem } from "@/components/economics/ConceptsListBrowser";
 
@@ -17,7 +18,8 @@ export default function ConceptsPage() {
     title: concept.title,
     title_en: concept.title_en,
     category: concept.category || "其他",
-    key_figures: concept.key_figures,
+    key_figures: concept.key_figures.map((name) => readerKeyFigureLabel(concept.content, name)),
+    figureSlugs: concept.key_figures,
     tags: concept.tags,
     excerpt: extractExcerpt(concept.content, 120),
   }));

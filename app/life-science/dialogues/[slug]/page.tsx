@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { withCanonicalPath } from "@/lib/article-canonical";
 import { getDialogueBySlug, getAllDialogues } from "@/subjects/life-science/lib/dialogues";
+import { dialogueParticipantLabel } from "@/subjects/life-science/lib/dialogue-label";
 import { getScientistById } from "@/subjects/life-science/lib/scientists";
 import Breadcrumb from "@/components/Breadcrumb";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
@@ -19,8 +20,13 @@ export function generateStaticParams() {
   return [];
 }
 
-function participantName(id: string): string {
-  return getScientistById(id)?.name ?? id;
+function participantName(
+  id: string,
+  participants: readonly string[],
+  title: string,
+  articleText: string
+): string {
+  return dialogueParticipantLabel(id, participants, title, articleText);
 }
 
 export async function generateMetadata({
@@ -31,8 +37,10 @@ export async function generateMetadata({
   const { slug } = await params;
   const dialogue = getDialogueBySlug(slug);
   if (!dialogue) notFound();
-  const names = dialogue.participants.map(participantName).join("、");
-  const description = dialogue.question || `${names}的对话`;
+  const names = dialogue.participants
+    .map((id) => participantName(id, dialogue.participants, dialogue.title, dialogue.body))
+    .join("、");
+  const description = dialogue.summary ?? (dialogue.question || `${names}的对话`);
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(dialogue.title)}&section=life-science&description=${encodeURIComponent(description)}`;
   return withCanonicalPath(`/life-science/dialogues/${slug}`, {
     title: `${dialogue.title} — 生命科学对话`,
@@ -68,7 +76,9 @@ export default async function LifeScienceDialoguePage({
     )
     .slice(0, 4);
 
-  const names = dialogue.participants.map(participantName);
+  const names = dialogue.participants.map((id) =>
+    participantName(id, dialogue.participants, dialogue.title, dialogue.body)
+  );
 
   const jsonLd = createArticleJsonLd({
     title: dialogue.title,
@@ -94,6 +104,7 @@ export default async function LifeScienceDialoguePage({
         accent={ACCENT}
         eyebrow={dialogue.field}
         title={dialogue.title}
+        lede={dialogue.summary}
         content={dialogue.body}
         meta={
           <>
@@ -109,7 +120,12 @@ export default async function LifeScienceDialoguePage({
               <div className="flex flex-wrap gap-2">
                 {dialogue.participants.map((p) => {
                   const sc = getScientistById(p);
-                  const label = sc?.name ?? p;
+                  const label = participantName(
+                    p,
+                    dialogue.participants,
+                    dialogue.title,
+                    dialogue.body
+                  );
                   return sc ? (
                     <Link
                       key={p}

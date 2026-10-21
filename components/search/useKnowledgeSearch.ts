@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createSearchClient, type SearchHit } from "@/lib/search/client";
 import type { SearchResult } from "./types";
+import { normalizeSearchQuery } from "@/lib/search/query";
 
 const TITLE_LIMIT = 30;
 const BODY_LIMIT = 20;
@@ -50,7 +51,7 @@ export function useKnowledgeSearch(): KnowledgeSearch {
     };
   }, []);
 
-  const trimmed = query.trim();
+  const trimmed = normalizeSearchQuery(query);
 
   useEffect(() => {
     setTitleResults([]);

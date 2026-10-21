@@ -1,4 +1,5 @@
 ---
+summary: "Campos等人把对角拉姆齐数上界的指数底从四压低，论文已刊于《数学年刊》。这并不算出R(5)；拉姆齐数取k次方根后极限是否存在，仍开放。"
 title: 拉姆齐数与组合学的新工具
 title_en: Ramsey Numbers and the New Toolkit of Combinatorics
 status: published

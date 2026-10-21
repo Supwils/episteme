@@ -1,6 +1,7 @@
 ---
 title: RSA 公钥密码
 title_en: "Public-Key Cryptography: RSA"
+summary: "1976年Diffie与Hellman提出公开传递密钥的设想，RSA随后用大数分解的难度实现了它；本文澄清公钥加密并非“无法破解”，因子分解的难度是亚指数级的，不是指数级的。"
 status: published
 updated: 2026-09-09
 category: 密码学算法
@@ -56,7 +57,7 @@ RSA 的核心是两个相反方向的计算代价**极不对称**：
 
 （注：目前被分解的最大 RSA 数是 RSA-250，829 位，由法国国家信息与自动化研究所等团队在 2020 年完成，花费了相当于约 2700 年单核 CPU 的计算量。）
 
-RSA 还依赖欧拉定理（Euler's Theorem）：若 $\gcd(m, n) = 1$，则 $m^{\phi(n)} \equiv 1 \pmod{n}$，其中 $\phi(n)$ 是欧拉函数。
+RSA 还依赖[[euler-totient-theorem|欧拉定理]]（Euler's Theorem）：若 $\gcd(m, n) = 1$，则 $m^{\phi(n)} \equiv 1 \pmod{n}$，其中 $\phi(n)$ 是欧拉函数。
 
 欧拉定理在这里的角色，是保证**加密和解密互为逆运算**。密钥生成时选择 $e \times d \equiv 1 \pmod{\phi(n)}$，意味着存在整数 $k$ 使 $ed = 1 + k\phi(n)$。于是解密时：
 

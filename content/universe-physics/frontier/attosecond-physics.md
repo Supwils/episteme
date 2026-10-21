@@ -1,4 +1,5 @@
 ---
+summary: "阿秒脉冲靠高次谐波把相位锁住再叠加，不是把可见或近红外激光再削短。半个光学周期已是普通激光脉宽的下限；检索出的脉宽和电子动力学是反演，不是快门拍下的轨迹。"
 title: 阿秒物理：实时"拍摄"电子运动
 title_en: Attosecond Physics — Watching Electrons Move in Real Time
 status: published

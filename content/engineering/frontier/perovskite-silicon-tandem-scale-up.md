@@ -1,6 +1,7 @@
 ---
 title: 钙钛矿—硅叠层光伏：效率纪录怎样穿过二十五年质保
 title_en: Scaling Perovskite–Silicon Tandem Photovoltaics
+summary: "钙钛矿—硅叠层电池的研究效率已超过单结硅，但小面积纪录不等于能撑过二十五年质保；放大到平方米、长期老化与制造一致性才是工程前沿。"
 status: published
 updated: 2026-09-12
 as_of: 2026-08

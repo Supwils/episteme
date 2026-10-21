@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/subjects/physics/lib/cn";
+import { cssCanvasSize, fitCanvasToDisplay } from "./canvas-size";
 
 type Step = {
   label: string;
@@ -55,11 +56,12 @@ export function MillersUrey({ className }: { className?: string }) {
   };
 
   const initParticles = useCallback((canvas: HTMLCanvasElement) => {
+    const { w, h } = cssCanvasSize(canvas);
     const particles: Particle[] = [];
     for (let i = 0; i < 30; i++) {
       particles.push({
-        x: 60 + Math.random() * (canvas.width * 0.4 - 60),
-        y: 40 + Math.random() * (canvas.height * 0.5 - 40),
+        x: 60 + Math.random() * (w * 0.4 - 60),
+        y: 40 + Math.random() * (h * 0.5 - 40),
         vx: (Math.random() - 0.5) * 1.5,
         vy: (Math.random() - 0.5) * 1.5,
         radius: 3 + Math.random() * 3,
@@ -241,8 +243,7 @@ export function MillersUrey({ className }: { className?: string }) {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const w = canvas.width;
-    const h = canvas.height;
+    const { w, h } = cssCanvasSize(canvas);
 
     ctx.clearRect(0, 0, w, h);
 
@@ -287,6 +288,7 @@ export function MillersUrey({ className }: { className?: string }) {
     const p = Math.min(elapsed / stepDuration, 1);
     setProgress(p);
 
+    const { w, h } = cssCanvasSize(canvas);
     // Update particles
     for (const particle of particlesRef.current) {
       particle.x += particle.vx;
@@ -294,9 +296,9 @@ export function MillersUrey({ className }: { className?: string }) {
 
       // Bounds
       const minX = 60;
-      const maxX = canvas.width * 0.5 - 20;
+      const maxX = w * 0.5 - 20;
       const minY = 40;
-      const maxY = canvas.height * 0.6;
+      const maxY = h * 0.6;
 
       if (particle.x < minX || particle.x > maxX) particle.vx *= -1;
       if (particle.y < minY || particle.y > maxY) particle.vy *= -1;
@@ -326,12 +328,7 @@ export function MillersUrey({ className }: { className?: string }) {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const dpr = window.devicePixelRatio || 1;
-    const rect = canvas.getBoundingClientRect();
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
-    const ctx = canvas.getContext("2d");
-    if (ctx) ctx.scale(dpr, dpr);
+    fitCanvasToDisplay(canvas);
 
     initParticles(canvas);
     render();

@@ -37,7 +37,7 @@ for (const section of activeSections) {
   for (const file of fs.readdirSync(contentDir).filter((name) => name.endsWith(".mdx"))) {
     const slug = file.replace(/\.mdx$/, "");
     const source = fs.readFileSync(path.join(contentDir, file), "utf8");
-    const parsed = matter(source);
+    const parsed = matter(source, {});
     const schemaResult = LinguisticsArticleSchema.safeParse(parsed.data);
     if (!schemaResult.success) issues.push(`${section}/${slug}: invalid frontmatter`);
     const cjkChars = (parsed.content.match(/[\u3400-\u9fff]/g) ?? []).length;

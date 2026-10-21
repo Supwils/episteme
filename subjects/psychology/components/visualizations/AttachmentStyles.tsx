@@ -310,7 +310,7 @@ export default function AttachmentStyles() {
                       stroke={style.color}
                       strokeWidth={isActive ? 2 : 1}
                       strokeOpacity={isActive ? 0.6 : 0.15}
-                      initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0 }}
+                      initial={{ opacity: 0 }}
                       animate={{
                         opacity: hasAnimated ? 1 : 0,
                         scale: isActive ? 1.01 : 1,
@@ -362,7 +362,7 @@ export default function AttachmentStyles() {
                   return (
                     <motion.g
                       key={`label-${style.id}`}
-                      initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0 }}
+                      initial={{ opacity: 0 }}
                       animate={{ opacity: hasAnimated ? 1 : 0 }}
                       transition={
                         prefersReducedMotion ? { duration: 0 } : { duration: 0.5, delay: 0.2 }
@@ -549,7 +549,7 @@ export default function AttachmentStyles() {
                 {activeId && activeStyle ? (
                   <motion.div
                     key={activeStyle.id}
-                    initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
+                    initial={{ opacity: 0, y: 10 }}
                     animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
                     exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: -10 }}
                     transition={
@@ -650,7 +650,7 @@ export default function AttachmentStyles() {
                 ) : userPos && userStyle ? (
                   <motion.div
                     key="user-result"
-                    initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
+                    initial={{ opacity: 0, y: 10 }}
                     animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
                     exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: -10 }}
                     transition={
@@ -704,7 +704,7 @@ export default function AttachmentStyles() {
                 ) : (
                   <motion.div
                     key="empty"
-                    initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0 }}
+                    initial={{ opacity: 0 }}
                     animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1 }}
                     className="border-border-faint bg-bg-elevated/50 border p-6"
                   >

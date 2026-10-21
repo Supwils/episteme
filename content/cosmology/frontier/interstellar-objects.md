@@ -1,4 +1,5 @@
 ---
+summary: "已确认的星际天体仍只有寥寥数个，轨道证明它们来自太阳系之外，并不证明技术造物。无彗发加速可用不可见氢喷发解释，但天体已经远去，形状与起源仍是模型在竞争。"
 title: 星际访客元年：从奥陌陌到 3I/ATLAS，一个新兴学科的诞生
 title_en: The Era of Interstellar Objects — From 'Oumuamua to 3I/ATLAS
 status: published

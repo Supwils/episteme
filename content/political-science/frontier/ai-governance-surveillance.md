@@ -1,6 +1,7 @@
 ---
 title: AI、算法治理与监控的政治
 title_en: AI, Algorithmic Governance, and the Politics of Surveillance
+summary: "2019 年费尔德斯坦的报告发现至少 75 个国家在使用 AI 监控工具；技术不是中性的，本篇讨论算法治理与监控的核心问题和不同路线。"
 status: published
 updated: 2026-06-13
 category: 政治学前沿

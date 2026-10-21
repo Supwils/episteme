@@ -1,4 +1,5 @@
 ---
+summary: "大质量星离开主序后可成冷的红超巨星或较热的蓝超巨星，由质量损失、金属丰度和双星决定。光学变暗可以是尘埃加对流斑，不是即将爆炸；蓝超巨星也能作为超新星前体。"
 title: 红超巨星与蓝超巨星
 titleEn: Red Supergiants and Blue Supergiants
 category: 恒星物理

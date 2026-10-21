@@ -1,4 +1,5 @@
 ---
+summary: "造父变星把可测周期翻译成绝对光度，用来衔接宇宙距离阶梯。周光关系只适用于不稳定带内且模式与星族已分清的星，同周期两类造父光度不同，零点还受消光与拥挤改正限制。"
 title: 造父变星与变星
 titleEn: Cepheid Variables and Variable Stars
 category: 恒星物理
@@ -51,7 +52,7 @@ $$M_V = -2.81 \log_{10}(P/\text{day}) - 1.43 \pm 0.05 \quad \text{(经金属丰�
 
 **经典造父变星**（Cepheid Ia 或 I 型）是大质量、年轻的超巨星（质量 $4$–$20\,M_\odot$，年龄 $10^7$–$10^8$ yr），位于薄盘和旋臂中。它们的脉动模式主要是径向基模（fundamental mode）。
 
-造父座 $\delta$（$\delta$ Cephei）是原型星，周期 $5.366$ 天，亮度在 $V$ 波段从 $3.48$ 到 $4.37$ 等之间变化，距离约 $273$ pc（Gaia 视差测量，Benedict et al. 2007）。
+造父座 $\delta$（$\delta$ Cephei）是原型星，周期 $5.366$ 天，亮度在 $V$ 波段从 $3.48$ 到 $4.37$ 等之间变化，距离约 $273$ pc（哈勃精细导星传感器视差，Benedict et al. 2002），不是盖亚的测量。
 
 ### W Vir 型（II 型造父变星）
 

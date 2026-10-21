@@ -1,6 +1,7 @@
 ---
 title: 手语人工智能的系统偏差：识别手势，不等于理解语言
 title_en: Systemic Bias in Sign-Language AI
+summary: "许多手语翻译演示只识别孤立手形，丢掉面部表情、空间指代与语序；2024 年聋人研究者主导的分析指出议程、代表性与标注上的系统偏差。"
 status: published
 updated: 2026-08-07
 category: 手语与技术

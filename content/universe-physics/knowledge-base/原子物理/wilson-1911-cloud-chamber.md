@@ -1,4 +1,5 @@
 ---
+summary: "云室里可见的是离子上凝成的水滴串，不是原子核或粒子外形的照片。尘核、旧离子、扩散和扰动都得先压住，否则雾不是径迹；它也不回答金箔的散射角，更没有把后来的核反应写进底片。"
 title: 威尔逊 1911：膨胀怎样把离子变成可见的凝结径迹
 title_en: "Wilson 1911: The Cloud Chamber as Condensation on Ions"
 status: published

@@ -1,3 +1,4 @@
+import { authorSummary } from "@/lib/content-utils";
 import type { Era, Dialogue, DialogueFrontmatter } from "../types";
 import { DIRS, caches, listCaches, getSlugs, getBySlug, getAll, eraOrder } from "./normalize";
 
@@ -8,6 +9,7 @@ export function getDialogueSlugs(): string[] {
 function castDialogue(data: unknown, s: string, c: string): Dialogue {
   const d = data as Record<string, unknown>;
   return {
+    summary: authorSummary(d),
     title: (d.title as string) ?? "",
     title_en: (d.title_en as string) ?? "",
     participants: Array.isArray(d.participants) ? (d.participants as string[]) : [],
@@ -27,5 +29,18 @@ export function getDialogueBySlug(slug: string): Dialogue | null {
 }
 
 export function getAllDialogues(): Dialogue[] {
-  return getAll(DIRS.dialogues, caches.dialogues, { get value() { return listCaches.dialogues; }, set value(v) { listCaches.dialogues = v; } }, castDialogue, (a, b) => (eraOrder[a.era] ?? 99) - (eraOrder[b.era] ?? 99));
+  return getAll(
+    DIRS.dialogues,
+    caches.dialogues,
+    {
+      get value() {
+        return listCaches.dialogues;
+      },
+      set value(v) {
+        listCaches.dialogues = v;
+      },
+    },
+    castDialogue,
+    (a, b) => (eraOrder[a.era] ?? 99) - (eraOrder[b.era] ?? 99)
+  );
 }

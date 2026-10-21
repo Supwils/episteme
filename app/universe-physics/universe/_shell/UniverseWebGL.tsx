@@ -2,11 +2,7 @@
 
 import { Canvas, useFrame } from "@react-three/fiber";
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from "react";
-import {
-  ACESFilmicToneMapping,
-  SRGBColorSpace,
-  type WebGLRenderer,
-} from "three";
+import { ACESFilmicToneMapping, SRGBColorSpace, type WebGLRenderer } from "three";
 import { CameraRig } from "@/subjects/physics/camera/CameraRig";
 import { FloatingViewControl } from "@/subjects/physics/components/hud/FloatingViewControl";
 import { HudShell } from "@/subjects/physics/components/hud/HudShell";
@@ -16,17 +12,14 @@ import { HoverTooltip } from "@/subjects/physics/components/knowledge/HoverToolt
 import { KnowledgePanel } from "@/subjects/physics/components/knowledge/KnowledgePanel";
 import { startMonitoring, stopMonitoring } from "@/subjects/physics/lib/perf-monitor";
 import type { UniverseTierId } from "@/subjects/physics/lib/tier";
-import {
-  ActiveScene,
-  preloadAdjacentUniverseScene,
-} from "@/subjects/physics/scenes/ActiveScene";
+import { ActiveScene, preloadAdjacentUniverseScene } from "@/subjects/physics/scenes/ActiveScene";
 import { useUiStore } from "@/subjects/physics/store/useUiStore";
 import { UniverseLoading } from "./UniverseLoading";
 
 const PostFX = lazy(() =>
   import("@/subjects/physics/components/post/PostFX").then((module) => ({
     default: module.PostFX,
-  })),
+  }))
 );
 
 type RendererSample = {
@@ -128,11 +121,7 @@ export function UniverseWebGL({ initialTier, onContextLost }: Props) {
     if (!sceneReady) return;
     return scheduleIdleWork(() => {
       setPostFxRequested(true);
-      if (
-        qualityTier !== "low" &&
-        preloadedTier.current !== initialTier &&
-        shouldPreloadScene()
-      ) {
+      if (qualityTier !== "low" && preloadedTier.current !== initialTier && shouldPreloadScene()) {
         preloadedTier.current = initialTier;
         preloadAdjacentUniverseScene(initialTier);
       }
@@ -150,12 +139,12 @@ export function UniverseWebGL({ initialTier, onContextLost }: Props) {
           event.preventDefault();
           onContextLost();
         },
-        { once: true },
+        { once: true }
       );
       performance.mark("universe:renderer-ready");
       setRendererReady(true);
     },
-    [onContextLost],
+    [onContextLost]
   );
 
   const handleSceneReady = useCallback(() => {
@@ -189,7 +178,7 @@ export function UniverseWebGL({ initialTier, onContextLost }: Props) {
       <PerfMonitorSync />
       <TierAriaLive />
       <Canvas
-        id="main-content"
+        id="universe-scene"
         tabIndex={-1}
         className="absolute inset-0 focus:outline-none"
         camera={{ position: [0, 0, 3], fov: 50, near: 0.01, far: 1000 }}

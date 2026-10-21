@@ -1,6 +1,7 @@
 ---
 title: 算法歧视审计：公平指标能不能变成可举证的法律事实
 title_en: Algorithmic Discrimination Audits as Legal Evidence
+summary: "招聘模型对不同群体的通过率不同，是歧视、真实资格差异，还是样本与测量问题？反歧视法关心受保护群体、因果与正当化，审计依赖标签、阈值与基准率，前沿在于把两套语言连成可举证的证据链。"
 status: published
 updated: 2026-08-07
 category: 人工智能法

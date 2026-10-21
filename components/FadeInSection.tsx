@@ -1,9 +1,12 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 import { FADE_IN_UP } from "@/lib/animations";
 
+// Same element and variants on server and client: a useReducedMotion branch
+// would swap <section> for <div> during hydration and strand the server's
+// opacity:0. The root MotionConfig reducedMotion="user" handles those readers.
 export function FadeInSection({
   children,
   className,
@@ -13,12 +16,6 @@ export function FadeInSection({
   className?: string;
   delay?: number;
 }) {
-  const reduce = useReducedMotion();
-
-  if (reduce) {
-    return <div className={className}>{children}</div>;
-  }
-
   return (
     <motion.section
       variants={FADE_IN_UP}

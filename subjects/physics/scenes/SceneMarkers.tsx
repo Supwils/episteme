@@ -1,10 +1,14 @@
 "use client";
 
 import { useFrame } from "@react-three/fiber";
-import { useCallback, useMemo, useRef, type PointerEvent } from "react";
+import { useCallback, useEffect, useMemo, useRef, type PointerEvent } from "react";
 import { Vector3, type Group } from "three";
 import type { SceneMarker } from "@/subjects/physics/lib/content";
-import { TIER_MARKER_KIND, type MarkerKind, type UniverseTierId } from "@/subjects/physics/lib/tier";
+import {
+  TIER_MARKER_KIND,
+  type MarkerKind,
+  type UniverseTierId,
+} from "@/subjects/physics/lib/tier";
 import { useUiStore } from "@/subjects/physics/store/useUiStore";
 import { MarkerHaloDisk } from "./markers/MarkerHaloDisk";
 import { MarkerDiamond } from "./markers/MarkerDiamond";
@@ -57,7 +61,7 @@ function MarkerPoint({
       setHoveredMarker(marker);
       setHoverMousePos({ x: e.clientX, y: e.clientY });
     },
-    [marker, setHoveredMarker, setHoverMousePos],
+    [marker, setHoveredMarker, setHoverMousePos]
   );
 
   const onPointerOut = useCallback(
@@ -66,14 +70,25 @@ function MarkerPoint({
       targetGlow.current = 0;
       setHoveredMarker(null);
     },
-    [setHoveredMarker],
+    [setHoveredMarker]
+  );
+
+  // A marker can unmount under the cursor (keyboard tier change) without ever
+  // receiving pointerout, which would leave its tooltip stuck on screen.
+  const markerId = marker.id;
+  useEffect(
+    () => () => {
+      const { hoveredMarker, setHoveredMarker: clear } = useUiStore.getState();
+      if (hoveredMarker?.id === markerId) clear(null);
+    },
+    [markerId]
   );
 
   const onPointerMove = useCallback(
     (e: PointerEvent) => {
       setHoverMousePos({ x: e.clientX, y: e.clientY });
     },
-    [setHoverMousePos],
+    [setHoverMousePos]
   );
 
   useFrame((_, dt) => {
@@ -97,10 +112,18 @@ function MarkerPoint({
       onPointerOut={onPointerOut}
       onPointerMove={onPointerMove}
     >
-      {kind === "haloDisk" && <MarkerHaloDisk color={baseColor} opacity={opacity} glowRef={glowRef} />}
-      {kind === "diamond" && <MarkerDiamond color={baseColor} opacity={opacity} glowRef={glowRef} />}
-      {kind === "starPoint" && <MarkerStarPoint color={baseColor} opacity={opacity} glowRef={glowRef} />}
-      {kind === "pinNeedle" && <MarkerPinNeedle color={baseColor} opacity={opacity} glowRef={glowRef} />}
+      {kind === "haloDisk" && (
+        <MarkerHaloDisk color={baseColor} opacity={opacity} glowRef={glowRef} />
+      )}
+      {kind === "diamond" && (
+        <MarkerDiamond color={baseColor} opacity={opacity} glowRef={glowRef} />
+      )}
+      {kind === "starPoint" && (
+        <MarkerStarPoint color={baseColor} opacity={opacity} glowRef={glowRef} />
+      )}
+      {kind === "pinNeedle" && (
+        <MarkerPinNeedle color={baseColor} opacity={opacity} glowRef={glowRef} />
+      )}
     </group>
   );
 }

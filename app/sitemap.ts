@@ -51,7 +51,15 @@ import { createFrontier, FRONTIER_DOMAINS } from "@/lib/frontier";
 import { EXTENSION_DOMAINS, KNOWLEDGE_DOMAINS } from "@/lib/new-domains";
 import { READING_PATHS } from "@/lib/reading-paths";
 import { CURATED_KNOWLEDGE_CONFLUENCES } from "@/subjects/knowledge-graph/data/curated-confluences";
+import {
+  HISTORY_EVENT_CATALOG,
+  HISTORY_FIGURE_CATALOG,
+} from "@/subjects/history/lib/history-catalog";
+import { ERAS } from "@/subjects/history/lib/eras";
 
+// Index paths that only redirect (/random, /universe-physics/universe,
+// /human-history/events …) are left out: crawlers report them as "page with
+// redirect", and their targets are listed in their own right.
 const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: "", priority: 1 },
   // Daily
@@ -63,10 +71,8 @@ const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: "/curiosities", priority: 0.7 },
   // Molecule gallery
   { path: "/molecules", priority: 0.7 },
-  { path: "/random", priority: 0.5 },
   // Universe Physics
   { path: "/universe-physics", priority: 0.8 },
-  { path: "/universe-physics/universe", priority: 0.8 },
   { path: "/universe-physics/universe/observable", priority: 0.6 },
   { path: "/universe-physics/universe/laniakea", priority: 0.6 },
   { path: "/universe-physics/universe/local-group", priority: 0.6 },
@@ -84,7 +90,6 @@ const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: "/universe-physics/universe/handwritten/stellar-neighborhood", priority: 0.5 },
   { path: "/universe-physics/universe/handwritten/earth", priority: 0.5 },
   { path: "/universe-physics/universe/handwritten/cosmic-web", priority: 0.5 },
-  { path: "/universe-physics/physics", priority: 0.8 },
   { path: "/universe-physics/physics/classical-mechanics", priority: 0.6 },
   { path: "/universe-physics/physics/thermodynamics", priority: 0.6 },
   { path: "/universe-physics/physics/electromagnetism", priority: 0.6 },
@@ -103,8 +108,6 @@ const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: "/human-history/atlas", priority: 0.7 },
   { path: "/human-history/graph", priority: 0.7 },
   { path: "/human-history/figures", priority: 0.7 },
-  { path: "/human-history/events", priority: 0.7 },
-  { path: "/human-history/eras", priority: 0.7 },
   { path: "/human-history/civilizations", priority: 0.7 },
   { path: "/human-history/map", priority: 0.7 },
   { path: "/human-history/scholarly", priority: 0.7 },
@@ -159,7 +162,6 @@ const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: "/knowledge-graph", priority: 0.7 },
   // Cosmology
   { path: "/cosmology", priority: 0.8 },
-  { path: "/cosmology/universe", priority: 0.7 },
   { path: "/cosmology/universe/observable", priority: 0.6 },
   { path: "/cosmology/universe/cosmic-web", priority: 0.6 },
   { path: "/cosmology/universe/laniakea", priority: 0.6 },
@@ -247,6 +249,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const philoDialogueEntries: MetadataRoute.Sitemap = getPhiloDialogueSlugs().map((slug) => ({
     url: `${SITE_URL}/philosophy/dialogues/${slug}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  // Event and figure slugs are their Chinese titles and names.
+  const historyDetailEntries: MetadataRoute.Sitemap = [
+    ...HISTORY_EVENT_CATALOG.map(
+      (event) => `/human-history/events/${encodeURIComponent(event.title)}`
+    ),
+    ...HISTORY_FIGURE_CATALOG.map(
+      (figure) => `/human-history/figures/${encodeURIComponent(figure.name)}`
+    ),
+    ...ERAS.map((era) => `/human-history/eras/${era.id}`),
+  ].map((path) => ({
+    url: `${SITE_URL}${path}`,
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
@@ -546,7 +563,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
-  return [
+  const entries: MetadataRoute.Sitemap = [
     ...staticEntries,
     ...readingPathEntries,
     ...knowledgeConfluenceEntries,
@@ -594,5 +611,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...psyDebateEntries,
     ...psyDialogueEntries,
     ...psyKnowledgeBaseEntries,
+    ...historyDetailEntries,
   ];
+
+  // Hand-listed pages overlap the generated ones (/psychology, the two math
+  // concept labs); the first listing wins.
+  const seen = new Set<string>();
+  return entries.filter((entry) => !seen.has(entry.url) && Boolean(seen.add(entry.url)));
 }

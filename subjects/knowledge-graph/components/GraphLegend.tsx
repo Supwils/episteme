@@ -51,7 +51,7 @@ export function GraphLegend({
 
   return (
     <motion.div
-      initial={reducedMotion ? false : { opacity: 0, y: 8 }}
+      initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: reducedMotion ? 0 : 0.3, ease: "easeOut" }}
       className="border-border-faint bg-bg-floating/80 inline-flex flex-col gap-2.5 rounded-xl border px-4 py-3 shadow-[0_4px_24px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.03)] backdrop-blur-xl"

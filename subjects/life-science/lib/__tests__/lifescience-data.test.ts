@@ -8,7 +8,7 @@ import { getAllDomains, getDomainById } from "../tree-data";
 describe("life-science data access", () => {
   describe("getAllSpecies", () => {
     it("has at least the core species set", () => {
-      expect(getAllSpecies().length).toBeGreaterThanOrEqual(93);
+      expect(getAllSpecies().length).toBeGreaterThanOrEqual(92);
     });
 
     it("each species has required fields (id, name, era, taxonomy)", () => {
@@ -38,6 +38,24 @@ describe("life-science data access", () => {
       for (const species of getAllSpecies()) {
         expect(typeof species.extinct).toBe("boolean");
       }
+    });
+
+    it("aligns era with the year already written on four cards", () => {
+      const ammonite = getSpeciesById("ammonite");
+      expect(ammonite?.period).toBe("6600万年前");
+      expect(ammonite?.era).toBe("中生代");
+
+      const australopithecus = getSpeciesById("australopithecus");
+      expect(australopithecus?.era).toBe("新生代");
+      expect(australopithecus?.period).toBe("390万年前");
+
+      const ardipithecus = getSpeciesById("ardipithecus");
+      expect(ardipithecus?.era).toBe("新生代");
+      expect(ardipithecus?.period).toBe("440万年前");
+
+      const woollyRhinoceros = getSpeciesById("woolly-rhinoceros");
+      expect(woollyRhinoceros?.era).toBe("新生代");
+      expect(woollyRhinoceros?.period).toBe("350万年前");
     });
   });
 

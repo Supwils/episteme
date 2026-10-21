@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SEARCH_STATS from "@/generated/search-stats.json";
 import { searchEverything } from "@/lib/search/server";
+import { normalizeSearchQuery } from "@/lib/search/query";
+import { SearchQueryInput } from "@/components/search/SearchQueryInput";
 import { DOMAINS } from "@/lib/data";
 import {
   SEARCH_NO_RESULTS_EXITS,
@@ -13,8 +15,6 @@ import { isSafeInternalPath } from "@/lib/urls";
 
 // Reads ?q. The homepage's SearchAction schema has always pointed here.
 export const dynamic = "force-dynamic";
-
-const MAX_QUERY_LENGTH = 120;
 
 export const metadata: Metadata = {
   title: "搜索 — Episteme · 格致",
@@ -58,7 +58,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   const params = await searchParams;
   // Match URLSearchParams.get(): repeated keys use their first value.
   const rawQuery = Array.isArray(params.q) ? params.q[0] : params.q;
-  const query = (rawQuery ?? "").slice(0, MAX_QUERY_LENGTH);
+  const query = normalizeSearchQuery(rawQuery ?? "");
   const domain = Array.isArray(params.domain) ? params.domain[0] : params.domain;
   const {
     titleResults: rawTitleResults,
@@ -70,7 +70,8 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   const bodyResults = rawBodyResults.filter((result) => isSafeInternalPath(result.url));
 
   const href = (nextDomain?: string) =>
-    `/search?q=${encodeURIComponent(query)}${nextDomain ? `&domain=${nextDomain}` : ""}`;
+    `/search?q=${encodeURIComponent(query)}${nextDomain ? `&domain=${encodeURIComponent(nextDomain)}` : ""}`;
+  const shown = titleResults.length + bodyResults.length;
 
   return (
     <main className="mx-auto w-full max-w-4xl px-6 py-16">
@@ -80,12 +81,11 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
         <label className="sr-only" htmlFor="search-q">
           搜索关键词
         </label>
-        <input
+        <SearchQueryInput
           id="search-q"
           name="q"
           type="search"
           defaultValue={query}
-          maxLength={MAX_QUERY_LENGTH}
           placeholder="输入标题关键词，或你记得的一句话"
           className="border-border-subtle bg-bg-elevated text-fg-primary placeholder:text-fg-muted focus:border-accent flex-1 rounded-lg border px-4 py-3 outline-none"
         />
@@ -111,6 +111,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
           <p className="text-fg-muted mt-8" data-testid="search-summary">
             「{query}」共 {total} 条结果
             {domain ? `（已筛选：${sectionLabel(domain)}）` : ""}
+            {shown < total ? `，下面列出最相关的 ${shown} 条` : ""}
           </p>
 
           {facets.length > 0 && (
@@ -153,8 +154,9 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                 标题匹配
               </h2>
               <ul className="mt-4 space-y-4">
-                {titleResults.map((result) => (
-                  <li key={`${result.kind}:${result.url}`}>
+                {titleResults.map((result, index) => (
+                  // Curiosity hooks share one URL and kind, so only position is unique.
+                  <li key={`${index}:${result.kind}:${result.url}`}>
                     <Link href={result.url} className="group block">
                       <span className="text-fg-primary group-hover:text-accent font-medium">
                         {result.title}
@@ -200,10 +202,12 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                             <mark className="rounded-sm bg-[var(--highlight-bg)] px-0.5 text-[var(--highlight-text)]">
                               {result.snippet.slice(
                                 result.matchStart,
-                                result.matchStart + query.length
+                                result.matchStart + (result.matchLength ?? query.length)
                               )}
                             </mark>
-                            {result.snippet.slice(result.matchStart + query.length)}
+                            {result.snippet.slice(
+                              result.matchStart + (result.matchLength ?? query.length)
+                            )}
                           </>
                         ) : (
                           result.snippet

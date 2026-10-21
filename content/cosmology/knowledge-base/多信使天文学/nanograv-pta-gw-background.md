@@ -1,4 +1,5 @@
 ---
+summary: "纳赫兹背景的指纹是脉冲星对随夹角变化的赫尔宾斯-道-里曼相关，不是各星共享的低频红噪声。十五年数据仍只是证据而非确认，谱比纯引力波驱动更平，来源还不能终审。"
 title: NANOGrav与纳赫兹引力波背景
 titleEn: NANOGrav and the Nanohertz Gravitational Wave Background
 category: 多信使天文学

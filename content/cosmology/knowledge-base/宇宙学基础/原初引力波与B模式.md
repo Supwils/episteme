@@ -1,4 +1,5 @@
 ---
+summary: "原初引力波若够强，会在微波背景偏振上留下线性阶 B 模式，用来询问早期有没有张量。密度涨落在线性阶造不出这种旋度；现有结果仍是上限，尘埃可伪装成它，透镜则占住小尺度。"
 title: 原初引力波与 B 模式偏振
 titleEn: Primordial Gravitational Waves and B-mode Polarization
 category: 宇宙学基础

@@ -1,4 +1,5 @@
 ---
+summary: "下一代微波背景实验仍在寻找暴胀预言的原初引力波，原初偏振指纹尚未被确认。银河尘埃曾被当成宇宙起源信号，去透镜与多频段前景分离仍是未完成的门槛。"
 title: 下一代 CMB 实验对暴胀的检验：寻找宇宙最初的引力波
 title_en: Next-Generation CMB Experiments Testing Inflation — Hunting for Primordial Gravitational Waves
 status: published

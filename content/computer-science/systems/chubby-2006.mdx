@@ -1,6 +1,7 @@
 ---
 title: Chubby：松耦合系统上的锁服务，不是又一套数据库
 title_en: "Chubby 2006: Lock Service for Loosely-Coupled Distributed Systems"
+summary: "2006年Burrows在OSDI上介绍Google的Chubby：一套接口像小文件系统的粗粒度锁服务，目标首先是可靠与可用；本文讲单元、租约与客户端缓存，以及设计如何被实际用途改写。"
 status: published
 updated: 2026-09-15
 category: 系统剖析
@@ -88,7 +89,7 @@ API 上的教训同样来自论文自己的清单。`Close` 与 `Poison` 既取�
 
 ## 延伸阅读
 
-- Lamport, L. *Paxos Made Simple.* ACM SIGACT News 32(4), 2001, pp. 18–25.（角色名的通行讲法；安全论证仍属 1998 年文本）
+- Lamport, L. *Paxos Made Simple.* ACM SIGACT News 32(4), 2001, pp. 51–58.（角色名的通行讲法；安全论证仍属 1998 年文本）
 - Hunt, P., Konar, M., Junqueira, F. P. & Reed, B. *ZooKeeper: Wait-free Coordination for Internet-scale Systems.* USENIX ATC, 2010.（后来的开源协调服务，接口与本文对象不同）
 - 与 [[paxos-lamport-1998|兼职议会与 Paxos]] 对读：定理页保证选定值不能被替换；本文是锁 API、会话与小文件广告。
 - 与 [[etcd-raft|etcd]] 对读：产品史与 Raft 工程属另一页，不要把 2006 年的 Chubby 单元读成那条时间线。

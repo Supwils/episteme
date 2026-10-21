@@ -1,4 +1,5 @@
 ---
+summary: "MOND用极低加速度解释星系旋转曲线，在这个尺度上很准，却不是能替代冷暗物质的完整宇宙学。星系团和声学峰仍要无碰撞的额外质量，相对论推广也被引力波速度约束排除大半。"
 title: 修改引力理论MOND
 titleEn: Modified Newtonian Dynamics (MOND) and Modified Gravity
 category: 宇宙学前沿

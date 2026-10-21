@@ -1,17 +1,14 @@
 import { NextResponse } from "next/server";
 import { getDailySelected } from "@/lib/daily-selector";
+import { dailyResponseHeaders } from "@/lib/daily-refresh";
 
-// Statically generated and revalidated hourly — it always serves "today".
-// (A `?date=` query was removed: force-static routes can't read query params.)
-export const dynamic = "force-static";
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const daily = getDailySelected();
+  const now = new Date();
+  const daily = getDailySelected(now);
 
   return NextResponse.json(daily, {
-    headers: {
-      "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
-    },
+    headers: dailyResponseHeaders(now),
   });
 }

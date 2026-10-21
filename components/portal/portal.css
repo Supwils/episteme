@@ -77,6 +77,38 @@
   min-height: 19rem;
 }
 
+.astrolabe__questions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--color-fg-secondary);
+}
+
+.astrolabe__questions a {
+  padding-block: 0.375rem;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.astrolabe__questions a:hover,
+.astrolabe__questions a:focus-visible {
+  color: var(--color-fg-primary);
+}
+
+.home-today__milestones {
+  margin-top: 1.5rem;
+  font-size: 0.8125rem;
+  color: var(--color-fg-secondary);
+}
+
+.home-today__milestones summary {
+  min-height: 2.75rem;
+  cursor: pointer;
+}
+
 .astrolabe-readout__head {
   display: flex;
   align-items: center;
@@ -438,6 +470,30 @@
 }
 
 /* ── ② 六簇二十二域 ─────────────────────────────────────────────────── */
+.home-atlas__jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.home-atlas__jump a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.875rem;
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-fg-secondary);
+  font-size: 0.875rem;
+}
+
+.home-atlas__jump a:hover,
+.home-atlas__jump a:focus-visible {
+  border-color: var(--color-fg-secondary);
+  color: var(--color-fg-primary);
+}
+
 .home-cluster {
   margin-top: 2.5rem;
 }
@@ -450,6 +506,7 @@
 }
 
 .home-cluster__title {
+  scroll-margin-top: 5rem;
   font-family: var(--font-display);
   font-size: 1.125rem;
   font-weight: 600;
@@ -566,6 +623,53 @@
 
 .domain-card:hover .domain-card__arrow {
   transform: translateX(0.125rem);
+}
+
+@media (max-width: 767px) {
+  .home-atlas__jump {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-cluster__grid {
+    gap: 0.625rem;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .domain-card {
+    display: grid;
+    grid-template-columns: 4.25rem minmax(0, 1fr);
+  }
+
+  .domain-card__plate {
+    grid-row: 1 / span 2;
+    height: 100%;
+    max-height: none;
+    aspect-ratio: auto;
+    border-right: 1px solid var(--color-border-faint);
+    border-bottom: 0;
+  }
+
+  .domain-card__copy {
+    padding: 0.75rem 0.75rem 0;
+  }
+
+  .domain-card__head > svg,
+  .domain-card__subtitle,
+  .domain-card__description,
+  .domain-card__stats-detail {
+    display: none;
+  }
+
+  .domain-card__title {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .domain-card__footer {
+    grid-column: 2;
+    padding: 0.375rem 0.75rem 0.75rem;
+  }
 }
 
 /* ── ③ 今天 ─────────────────────────────────────────────────────────── */

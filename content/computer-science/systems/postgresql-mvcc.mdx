@@ -1,6 +1,7 @@
 ---
 title: PostgreSQL 的 MVCC：读不阻塞写的代价
 title_en: "PostgreSQL MVCC: The Price of Readers Never Blocking Writers"
+summary: "财务跑报表时用户仍在下单，PostgreSQL靠多版本并发控制让读不阻塞写；本文讲每行数据上的xmin与xmax，以及快照中三个数字如何决定事务能看见什么，并分析这样做的代价。"
 status: published
 updated: 2026-08-05
 category: 系统剖析

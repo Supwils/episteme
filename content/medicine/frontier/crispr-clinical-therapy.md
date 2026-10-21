@@ -1,6 +1,7 @@
 ---
 title: CRISPR 进入临床：当基因编辑第一次真正治好了一种病
 title_en: CRISPR in the Clinic — When Gene Editing First Actually Cured a Disease
+summary: "2023 年 11 月英国批准 Casgevy 治疗镰刀型细胞病和 β-地中海贫血，这是首款获批的 CRISPR 疗法；但它并没有修好致病突变，体内编辑也已有突破。"
 status: published
 updated: 2026-06-19
 category: 基因与免疫

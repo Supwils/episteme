@@ -43,6 +43,69 @@ test("global search opens from the header trigger", async ({ page }) => {
   await openDialog(page, byTrigger);
 });
 
+test("preserves the same 120-code-point query through the dialog, API and results form", async ({
+  page,
+  request,
+}) => {
+  const input = await openDialog(page, byTrigger);
+  const query = "𠀀".repeat(119) + "热";
+  const bodyResponse = page.waitForResponse(
+    (response) =>
+      new URL(response.url()).pathname === "/api/search" &&
+      new URL(response.url()).searchParams.get("q") === query
+  );
+  await input.fill(query);
+  await expect(input).toHaveValue(query);
+  expect((await (await bodyResponse).json()).query).toBe(query);
+  await expect(page.locator(".gs-empty")).toContainText("未找到");
+  expect(page.workers().map((worker) => new URL(worker.url()).pathname)).toContain(
+    "/search.worker.js"
+  );
+  await input.press("Enter");
+  await expect(page.getByRole("searchbox", { name: "搜索关键词" })).toHaveValue(query);
+  expect(new URL(page.url()).searchParams.get("q")).toBe(query);
+
+  const resultInput = page.getByRole("searchbox", { name: "搜索关键词" });
+  await expect(async () => {
+    await resultInput.fill(query + "超出");
+    await expect(resultInput).toHaveValue(query);
+  }).toPass();
+  const response = await request.get("/api/search", { params: { q: query + "超出" } });
+  expect(response.status()).toBe(200);
+  expect((await response.json()).query).toBe(query);
+});
+
+test("commits an IME query at the code-point boundary", async ({ page }) => {
+  const input = await openDialog(page, byTrigger);
+  const prefix = "知".repeat(119);
+  await input.dispatchEvent("compositionstart");
+  await input.fill(prefix + "ziran");
+  await expect(input).toHaveValue(prefix + "ziran");
+  await input.fill(prefix + "自然");
+  const bodyResponse = page.waitForResponse(
+    (response) =>
+      new URL(response.url()).pathname === "/api/search" &&
+      new URL(response.url()).searchParams.get("q") === prefix + "自"
+  );
+  await input.dispatchEvent("compositionend", { data: "自然" });
+  await expect(input).toHaveValue(prefix + "自");
+  expect((await (await bodyResponse).json()).query).toBe(prefix + "自");
+});
+
+test.describe("search without JavaScript", () => {
+  test.use({ javaScriptEnabled: false });
+
+  test("submits all 120 supplementary characters through the native form", async ({ page }) => {
+    const query = "𠀀".repeat(120);
+    await page.goto("/search");
+    await page.getByRole("searchbox", { name: "搜索关键词" }).fill(query);
+    await page.getByRole("button", { name: "搜索", exact: true }).click();
+    expect(new URL(page.url()).searchParams.get("q")).toBe(query);
+    await expect(page.getByRole("searchbox", { name: "搜索关键词" })).toHaveValue(query);
+    await expect(page.getByTestId("search-summary")).toContainText(query);
+  });
+});
+
 test("finds an article from a query that starts mid-title", async ({ page }) => {
   const input = await openDialog(page, byTrigger);
   await input.fill(MID_TITLE.query);

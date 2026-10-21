@@ -1,6 +1,7 @@
 ---
 title: 语言类型学的抽样危机：两千四百种语言够代表人类语言吗
 title_en: Sampling Bias and Causal Inference in Linguistic Typology
+summary: "语言不是相互独立的数据点：2023 年 Grambank 汇集约 2400 种语言、40 多万个数据点，前沿是把系谱、地理与记录质量纳入推断。"
 status: published
 updated: 2026-08-07
 category: 比较与历史

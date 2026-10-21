@@ -1,6 +1,7 @@
 ---
 title: 生成式AI能成为宗教权威吗
 title_en: Can Generative AI Become Religious Authority
+summary: "2025 年 1 月圣座发布《Antiqua et nova》，第一次用正式文件把聊天机器人放进宗教权威问题。用户把教义疑问交给模型时，权威落在语料、品牌、教职，还是用户自己？"
 status: published
 updated: 2026-09-11
 category: 数字宗教

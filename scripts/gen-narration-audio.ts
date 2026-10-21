@@ -157,7 +157,7 @@ async function main() {
     const key = keyOf(file);
     const provider = providerFor(key);
     const cfg = PROVIDER_CONFIG[provider];
-    const script = matter(fs.readFileSync(file, "utf-8")).content.trim();
+    const script = matter(fs.readFileSync(file, "utf-8"), {}).content.trim();
     const hash = crypto
       .createHash("sha256")
       .update(`${cfg.voice}|${cfg.model}|${script}`)

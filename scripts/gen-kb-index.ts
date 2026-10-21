@@ -66,7 +66,7 @@ function build(domain: string): Built[] {
   return walk(root).map((rel) => {
     const slug = rel.replace(/\.md$/, "").replace(/\//g, "--");
     const segments = rel.split("/");
-    const { data, content } = matter(fs.readFileSync(path.join(root, rel), "utf-8"));
+    const { data, content } = matter(fs.readFileSync(path.join(root, rel), "utf-8"), {});
     const category = segments.length > 1 ? segments[0]! : str(data.category) || "专题";
     return {
       slug,

@@ -1,6 +1,7 @@
 ---
 title: 大语言模型与基础模型
 title_en: Large Language Models and Foundation Models
+summary: "ChatGPT上线两个月用户就达到1亿，是消费级应用最快的增长；本文说明大语言模型不是改进版搜索引擎，讲Transformer架构和“大即是不同”的规模化定律。"
 status: published
 updated: 2026-09-12
 category: 人工智能

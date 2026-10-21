@@ -33,7 +33,7 @@ export default function HumanHistoryLayout({ children }: { children: ReactNode }
         strategy="afterInteractive"
       />
       <DomainHeader subject="human-history" />
-      <main>
+      <main data-skip-target tabIndex={-1} className="focus:outline-none">
         <PageTransition>{children}</PageTransition>
       </main>
     </div>

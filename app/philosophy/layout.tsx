@@ -29,7 +29,7 @@ export default function PhilosophyLayout({ children }: { children: React.ReactNo
     <div className={`philosophy-root ${fontVars}`}>
       <DomainHeader subject="philosophy" />
 
-      <main>
+      <main data-skip-target tabIndex={-1} className="focus:outline-none">
         <PageTransition>{children}</PageTransition>
       </main>
 

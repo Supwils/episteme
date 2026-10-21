@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { withCanonicalPath } from "@/lib/article-canonical";
+import { extractExcerpt } from "@/lib/content-utils";
 import Link from "next/link";
 import { getDisorderBySlug, getAllDisorders } from "@/subjects/psychology/lib/mdx";
 import { DISORDER_CATEGORY_COLORS } from "@/subjects/psychology/lib/constants";
@@ -17,11 +18,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const disorder = getDisorderBySlug(slug);
   if (!disorder) notFound();
-  const description = `${disorder.category}：${disorder.title_en}`;
   return withCanonicalPath(`/psychology/disorders/${slug}`, {
     title: `${disorder.title} — 心理障碍`,
-    description,
-    openGraph: { title: `${disorder.title} — 心理障碍`, description },
+    description: disorder.summary ?? extractExcerpt(disorder.content),
   });
 }
 
@@ -50,6 +49,7 @@ export default async function DisorderDetailPage({
       eyebrowMeta={[disorder.dsm_code]}
       title={disorder.title}
       titleEn={disorder.title_en}
+      lede={disorder.summary}
       content={disorder.content}
       meta={
         disorder.key_symptoms.length > 0 ? (

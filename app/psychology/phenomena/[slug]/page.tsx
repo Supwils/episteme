@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import { withCanonicalPath } from "@/lib/article-canonical";
+import { extractExcerpt } from "@/lib/content-utils";
 import Link from "next/link";
+import { readerKeyFigureLabel } from "@/lib/reader-key-figure-label";
 import { getPhenomenonBySlug, getAllPhenomena } from "@/subjects/psychology/lib/mdx";
 import { CATEGORY_COLORS } from "@/subjects/psychology/lib/constants";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
@@ -18,11 +20,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const phenomenon = getPhenomenonBySlug(slug);
   if (!phenomenon) notFound();
-  const description = `${phenomenon.category}：${phenomenon.key_figures.join("、")}`;
   return withCanonicalPath(`/psychology/phenomena/${slug}`, {
     title: `${phenomenon.title} — 心理现象`,
-    description,
-    openGraph: { title: `${phenomenon.title} — 心理现象`, description },
+    description: phenomenon.summary ?? extractExcerpt(phenomenon.content),
   });
 }
 
@@ -55,10 +55,16 @@ export default async function PhenomenonDetailPage({
       eyebrow={phenomenon.category}
       title={phenomenon.title}
       titleEn={phenomenon.title_en}
+      lede={phenomenon.summary}
       content={phenomenon.content}
       meta={
         phenomenon.key_figures.length > 0 ? (
-          <>关键人物：{phenomenon.key_figures.join("、")}</>
+          <>
+            关键人物：
+            {phenomenon.key_figures
+              .map((name) => readerKeyFigureLabel(phenomenon.content, name))
+              .join("、")}
+          </>
         ) : undefined
       }
       tags={phenomenon.tags}
@@ -81,7 +87,11 @@ export default async function PhenomenonDetailPage({
                   <dt className="text-fg-disabled font-mono text-[9px] tracking-[0.18em] uppercase">
                     关键人物
                   </dt>
-                  <dd className="text-fg-primary mt-0.5">{phenomenon.key_figures.join("、")}</dd>
+                  <dd className="text-fg-primary mt-0.5">
+                    {phenomenon.key_figures
+                      .map((name) => readerKeyFigureLabel(phenomenon.content, name))
+                      .join("、")}
+                  </dd>
                 </div>
               )}
             </dl>

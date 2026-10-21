@@ -1,6 +1,7 @@
 ---
 title: 检索增强与智能体：把语言模型接到世界上
 title_en: Retrieval-Augmented Generation and Agents — Wiring Language Models to the World
+summary: "语言模型的知识冻结在权重里，检索增强生成的办法是先查再答；本文纠正三个流行的错误直觉，说明检索管线的质量藏在细节里，并讨论把控制权交给模型的智能体。"
 status: published
 updated: 2026-08-04
 category: 人工智能系统

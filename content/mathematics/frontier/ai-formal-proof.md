@@ -1,4 +1,5 @@
 ---
+summary: "证明助手核对人写的证明。多项式Freiman-Ruzsa猜想已证明并在Lean中核完，研究论文的自动形式化到2026年9月仍不可靠，自然语言竞赛金牌也没有经过内核核对。"
 title: 定理形式化与 AI 证明助手
 title_en: Formal Theorem Proving and AI Proof Assistants
 status: published

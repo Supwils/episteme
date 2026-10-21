@@ -4,7 +4,16 @@ const isCI = Boolean(process.env.CI);
 
 export default defineConfig({
   testDir: "./e2e",
-  testMatch: "webkit-smoke.spec.ts",
+  testMatch: [
+    "webkit-smoke.spec.ts",
+    "daily-rollover.spec.ts",
+    "reading-width.spec.ts",
+    "chinese-math.spec.ts",
+    "diagram-touch.spec.ts",
+    "modal-lifecycle.spec.ts",
+    "search-navigation.spec.ts",
+    "curiosities.spec.ts",
+  ],
   fullyParallel: false,
   forbidOnly: isCI,
   retries: 0,

@@ -1,6 +1,7 @@
 ---
 title: 癌症免疫疗法：松开免疫系统的刹车，让身体自己打癌细胞
 title_en: Cancer Immunotherapy — Releasing the Immune System's Brakes
+summary: "2018 年诺贝尔奖授予 Allison 与本庶佑。免疫疗法不是增强免疫力，而是松开免疫刹车；检查点抑制剂与 CAR-T 改变了多种癌症的治疗。"
 status: published
 updated: 2026-06-19
 category: 基因与免疫

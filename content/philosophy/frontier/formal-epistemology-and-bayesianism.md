@@ -1,4 +1,5 @@
 ---
+summary: "形式认识论把是非式的知道换成信念度，让辩护与分歧可计算，而不是用数学装饰哲学。它衡量理性要求什么，不是人实际怎么想；先验、旧证据与逻辑全知仍无共识。"
 title: 形式认识论：把"相信多少"写成数字
 title_en: Formal Epistemology — Putting a Number on Belief
 status: published

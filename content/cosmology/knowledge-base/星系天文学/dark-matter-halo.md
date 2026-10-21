@@ -1,4 +1,5 @@
 ---
+summary: "旋涡星系外区的旋转曲线保持平坦，要求质量随半径继续增长，可见盘解释不了。纯暗物质模拟给出的密度尖峰会被重子改造，恒星盘的质光比也能吃掉一部分内区贡献。"
 title: 暗物质晕与星系旋转曲线
 titleEn: Dark Matter Halos and Galaxy Rotation Curves
 category: 星系天文学

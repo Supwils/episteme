@@ -30,7 +30,9 @@ export default function CosmologyLayout({ children }: { children: React.ReactNod
   return (
     <div className={`${spaceGrotesk.variable} ${plexMono.variable} cosmology-root`}>
       <DomainHeader subject="cosmology" />
-      <PageTransition>{children}</PageTransition>
+      <div data-skip-target tabIndex={-1} className="focus:outline-none">
+        <PageTransition>{children}</PageTransition>
+      </div>
     </div>
   );
 }

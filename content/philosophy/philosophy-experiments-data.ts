@@ -58,6 +58,14 @@ export const PHILOSOPHY_EXPERIMENTS = [
     field: "认识论",
   },
   {
+    slug: "epr-1935-completeness",
+    title: "爱因斯坦、波多尔斯基、罗森 1935：描述并不完备",
+    title_en: "Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?",
+    philosopher: "Albert Einstein, Boris Podolsky, Nathan Rosen",
+    year: 1935,
+    field: "科学哲学",
+  },
+  {
     slug: "experience-machine",
     title: "体验机器",
     title_en: "Experience Machine",
@@ -224,6 +232,14 @@ export const PHILOSOPHY_EXPERIMENTS = [
     philosopher: "基思·莱勒与托马斯·帕克森",
     year: 1969,
     field: "认识论",
+  },
+  {
+    slug: "leibniz-1714-mill",
+    title: "磨坊论证",
+    title_en: "The Mill Argument",
+    philosopher: "Gottfried Wilhelm Leibniz",
+    year: 1714,
+    field: "心灵哲学",
   },
   {
     slug: "lottery-paradox",
@@ -394,6 +410,14 @@ export const PHILOSOPHY_EXPERIMENTS = [
     field: "形而上学",
   },
   {
+    slug: "singer-1972-famine-affluence",
+    title: "饥荒、富裕与道德",
+    title_en: "Famine, Affluence, and Morality",
+    philosopher: "Peter Singer",
+    year: 1972,
+    field: "伦理学",
+  },
+  {
     slug: "sleeping-beauty",
     title: "睡美人问题",
     title_en: "The Sleeping Beauty Problem",
@@ -442,6 +466,14 @@ export const PHILOSOPHY_EXPERIMENTS = [
     field: "伦理学",
   },
   {
+    slug: "turing-1950-imitation-game",
+    title: "模仿游戏",
+    title_en: "Computing Machinery and Intelligence",
+    philosopher: "Alan Turing",
+    year: 1950,
+    field: "心灵哲学",
+  },
+  {
     slug: "twin-earth",
     title: "双胞胎地球",
     title_en: "Twin Earth",
@@ -480,6 +512,14 @@ export const PHILOSOPHY_EXPERIMENTS = [
     philosopher: "Judith Jarvis Thomson",
     year: 1971,
     field: "伦理学",
+  },
+  {
+    slug: "wigner-1961-friend",
+    title: "维格纳的朋友",
+    title_en: "Remarks on the Mind-Body Question",
+    philosopher: "Eugene Wigner",
+    year: 1961,
+    field: "心灵哲学",
   },
   {
     slug: "wilt-chamberlain",

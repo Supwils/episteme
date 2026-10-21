@@ -20,7 +20,7 @@ const entries = readdirSync(DIR)
   .filter((f) => f.endsWith(".mdx"))
   .map((f) => {
     const slug = f.replace(/\.mdx$/, "");
-    const { data } = matter(readFileSync(join(DIR, f), "utf8"));
+    const { data } = matter(readFileSync(join(DIR, f), "utf8"), {});
     return {
       slug,
       title: str(data.title) || slug,

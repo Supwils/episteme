@@ -1,4 +1,5 @@
 ---
+summary: "四大脉冲星计时阵列同步给出纳赫兹引力波背景的证据，但来源并未钉死。社区称之为证据而非发现，黑洞双星最受共识，早期宇宙解释也未被排除。"
 title: 纳赫兹引力波背景：脉冲星阵列开启引力波天文学新窗口
 title_en: The Nanohertz Gravitational-Wave Background — Pulsar Timing Arrays Open a New Window
 status: published

@@ -61,6 +61,28 @@ describe("search result link navigation", () => {
     expect(screen.getByRole("option").textContent).toContain("哲学思想");
   });
 
+  it("marks only the located body match when it is shorter than the query", () => {
+    render(
+      <SearchResultItem
+        result={{
+          title: "单位",
+          subtitle: "",
+          url: "/life-science/knowledge-base/进化机制--自然选择",
+          section: "philosophy",
+          kind: "concept",
+          snippet: "自然选择是作用的单位",
+          matchStart: 2,
+          matchLength: 2,
+        }}
+        query="自然选择的单位"
+        isActive={false}
+        onClick={() => {}}
+        onMouseEnter={() => {}}
+      />
+    );
+    expect(screen.getByRole("option").querySelector("mark")?.textContent).toBe("选择");
+  });
+
   it.each([
     { metaKey: true },
     { ctrlKey: true },

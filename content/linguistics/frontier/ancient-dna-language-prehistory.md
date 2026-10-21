@@ -1,6 +1,7 @@
 ---
 title: 古 DNA 与语言史前史：基因能追踪迁徙，却不能直接读出语言
 title_en: Ancient DNA and the Prehistory of Languages
+summary: "古基因组能显示迁移、亲缘与混合，但骨骼里没有语言标签：人群可以换语而少有基因替换。前沿在于让遗传、考古与历史语言学相互约束。"
 status: published
 updated: 2026-08-07
 category: 比较与历史

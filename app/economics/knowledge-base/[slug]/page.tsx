@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { withCanonicalPath } from "@/lib/article-canonical";
+import { extractExcerpt } from "@/lib/content-utils";
 import { getKnowledgeBaseBySlug, getAllKnowledgeBase } from "@/subjects/economics/lib/mdx";
 import { ArticleLayout } from "@/components/ArticleLayout";
 import { TableOfContents } from "@/components/TableOfContents";
@@ -28,7 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!article) notFound();
   return withCanonicalPath(`/economics/knowledge-base/${slug}`, {
     title: `${article.title} — 知识库 — 经济学`,
-    description: article.title,
+    description: article.summary ?? extractExcerpt(article.content),
   });
 }
 
@@ -57,6 +58,7 @@ export default async function KnowledgeBaseDetailPage({
       eyebrow={article.category}
       title={article.title}
       titleEn={article.title_en}
+      lede={article.summary}
       content={article.content}
       tags={article.tags}
       prev={prev ? { href: `/economics/knowledge-base/${prev.slug}`, title: prev.title } : null}

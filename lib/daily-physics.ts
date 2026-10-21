@@ -310,7 +310,7 @@ export const PHYSICS_TODAY: DailyEvent[] = [
     day: 27,
     title: "诺贝尔奖设立",
     description: "阿尔弗雷德·诺贝尔签署遗嘱，设立诺贝尔奖。",
-    url: "/human-history/knowledge/概念--工业革命",
+    url: "/human-history/knowledge/事件--工业革命",
   },
   {
     year: 1901,

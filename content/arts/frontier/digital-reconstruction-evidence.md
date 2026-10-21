@@ -1,6 +1,7 @@
 ---
 title: 数字重建的证据边界：三维古城里哪些是真的
 title_en: Evidence and Uncertainty in Digital Reconstruction
+summary: "数字重建最危险的成功，是让推测看起来像亲眼所见。2022 年“面包师之家”三维重建尝试用图形标注各部分的证据等级，模型由此从一张图片变成一个可查询的论证。"
 status: published
 updated: 2026-08-07
 category: 数字遗产

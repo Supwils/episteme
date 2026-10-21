@@ -1,4 +1,5 @@
 ---
+summary: "常温常压的超导声明没有被独立复现站住，悬浮来自铁磁而不是迈斯纳效应。高压氢化物的高温转变要求极高压力和极小样品，离输电还远；常压铜氧化物能够超导，机制却仍然没有公认解释。"
 title: 室温超导：圣杯、谎言与真实进展
 title_en: Room-Temperature Superconductivity — The Holy Grail, the Frauds, and Real Progress
 status: published

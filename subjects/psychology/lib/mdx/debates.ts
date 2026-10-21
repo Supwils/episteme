@@ -1,3 +1,4 @@
+import { authorSummary } from "@/lib/content-utils";
 import type { Era, Debate, DebateFrontmatter } from "../types";
 import { DIRS, caches, listCaches, getSlugs, getBySlug, getAll, eraOrder } from "./normalize";
 
@@ -8,6 +9,7 @@ export function getDebateSlugs(): string[] {
 function castDebate(data: unknown, s: string, c: string): Debate {
   const d = data as Record<string, unknown>;
   return {
+    summary: authorSummary(d),
     title: (d.title as string) ?? "",
     topic: (d.topic as string) ?? "",
     key_figures: Array.isArray(d.key_figures) ? (d.key_figures as string[]) : [],
@@ -26,5 +28,18 @@ export function getDebateBySlug(slug: string): Debate | null {
 }
 
 export function getAllDebates(): Debate[] {
-  return getAll(DIRS.debates, caches.debates, { get value() { return listCaches.debates; }, set value(v) { listCaches.debates = v; } }, castDebate, (a, b) => (eraOrder[a.era] ?? 99) - (eraOrder[b.era] ?? 99));
+  return getAll(
+    DIRS.debates,
+    caches.debates,
+    {
+      get value() {
+        return listCaches.debates;
+      },
+      set value(v) {
+        listCaches.debates = v;
+      },
+    },
+    castDebate,
+    (a, b) => (eraOrder[a.era] ?? 99) - (eraOrder[b.era] ?? 99)
+  );
 }

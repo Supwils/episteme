@@ -32,9 +32,11 @@ import { getAllExtinctions } from "../subjects/life-science/lib/extinctions.ts";
 import { getAllScientists } from "../subjects/life-science/lib/scientists.ts";
 import { getAllSpecies } from "../subjects/life-science/lib/species/index.ts";
 import { HISTORY_HOME_COUNTS } from "../content/human-history/data/home-summary.js";
-import { KB_ARTICLES } from "../content/human-history/data/knowledge-base-data.ts";
+import { getAllArticles as getHistoryArticles } from "../lib/knowledge-base.ts";
 import { ALL_EDGES, ALL_NODES } from "../subjects/knowledge-graph/data/graph-data.ts";
 import { BACKLINKS_INDEX } from "../lib/backlinks-index.ts";
+import { collectArticles } from "../lib/search/articles.ts";
+import { selectRecentArticles } from "../lib/recent-articles.ts";
 
 type Collection = { label: string; unit: string; count: number };
 
@@ -42,7 +44,7 @@ const COLLECTIONS: Record<string, Collection[]> = {
   "human-history": [
     { label: "核心事件", unit: "个", count: HISTORY_HOME_COUNTS.events },
     { label: "历史人物", unit: "位", count: HISTORY_HOME_COUNTS.figures },
-    { label: "知识库文章", unit: "篇", count: KB_ARTICLES.length },
+    { label: "知识库文章", unit: "篇", count: getHistoryArticles().length },
   ],
   philosophy: [
     { label: "哲学家", unit: "位", count: getAllThinkers().length },
@@ -82,9 +84,22 @@ for (const edge of ALL_EDGES) {
   degree.set(edge.source, (degree.get(edge.source) ?? 0) + 1);
   degree.set(edge.target, (degree.get(edge.target) ?? 0) + 1);
 }
+// A domain's entry node ("从尺度、光与膨胀开始") shares its URL with the article it
+// opens on, so hubs are deduped by URL and labelled with the article title.
 function hubsFor(domainId: string) {
-  return ALL_NODES.filter((node) => node.url?.split("/")[1] === domainId)
-    .map((node) => ({ label: node.label, url: node.url!, degree: degree.get(node.id) ?? 0 }))
+  const byUrl = new Map<string, { label: string; url: string; degree: number }>();
+  for (const node of ALL_NODES) {
+    if (!node.url || node.url.split("/")[1] !== domainId) continue;
+    const nodeDegree = degree.get(node.id) ?? 0;
+    const existing = byUrl.get(node.url);
+    if (!existing) {
+      byUrl.set(node.url, { label: node.label, url: node.url, degree: nodeDegree });
+      continue;
+    }
+    existing.label = titleByUrl.get(node.url) ?? existing.label;
+    existing.degree = Math.max(existing.degree, nodeDegree);
+  }
+  return [...byUrl.values()]
     .sort((a, b) => b.degree - a.degree || a.label.localeCompare(b.label, "zh"))
     .slice(0, HUBS_PER_DOMAIN);
 }
@@ -159,6 +174,7 @@ writeFileSync(
     articles: searchStats.articles,
     documents: searchStats.documents,
     graphNodes,
+    recentArticles: selectRecentArticles(collectArticles()),
     domains,
   })
 );

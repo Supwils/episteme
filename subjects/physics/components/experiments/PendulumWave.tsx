@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/subjects/physics/lib/cn";
+import { cssCanvasSize, fitCanvasToDisplay } from "./canvas-size";
 
 const NUM_PENDULUMS = 15;
 const BASE_PERIOD = 1.0;
@@ -46,8 +47,7 @@ export function PendulumWave({ className }: { className?: string }) {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const w = canvas.width;
-    const h = canvas.height;
+    const { w, h } = cssCanvasSize(canvas);
     const layout = getLayout(w, h);
     const t = timeRef.current;
 
@@ -143,12 +143,7 @@ export function PendulumWave({ className }: { className?: string }) {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const dpr = window.devicePixelRatio || 1;
-    const rect = canvas.getBoundingClientRect();
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
-    const ctx = canvas.getContext("2d");
-    if (ctx) ctx.scale(dpr, dpr);
+    fitCanvasToDisplay(canvas);
 
     render();
   }, [render]);

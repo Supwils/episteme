@@ -1,6 +1,7 @@
 ---
 title: 多极世界与中美战略竞争
 title_en: Multipolar World and US-China Strategic Competition
+summary: "2017 年美国《国家安全战略》把中俄定义为修正主义强国，标志接触政策终结；竞争不等于冲突不可避免，本篇讨论多极化趋势与学术路线之争。"
 status: published
 updated: 2026-06-13
 category: 政治学前沿

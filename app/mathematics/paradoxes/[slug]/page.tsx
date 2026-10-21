@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { withCanonicalPath } from "@/lib/article-canonical";
 import { getMathParadoxBySlug, getAllMathParadoxes } from "@/subjects/mathematics/lib/paradoxes";
+import { mathFigureLabel } from "@/subjects/mathematics/lib/mathematician-label";
 import { MATH_FIELD_COLORS } from "@/subjects/mathematics/lib/constants";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { SITE_URL } from "@/lib/constants";
@@ -20,7 +21,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const paradox = getMathParadoxBySlug(slug);
   if (!paradox) notFound();
-  const description = `${paradox.title_en}：${paradox.field}。${paradox.tags.join("、")}`;
+  const description =
+    paradox.summary ?? `${paradox.title_en}：${paradox.field}。${paradox.tags.join("、")}`;
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(paradox.title)}&section=mathematics&description=${encodeURIComponent(description)}`;
   return withCanonicalPath(`/mathematics/paradoxes/${slug}`, {
     title: `${paradox.title} — 数学悖论`,
@@ -49,12 +51,13 @@ export default async function MathParadoxDetailPage({
     (currentIndex < allParadoxes.length - 1 ? allParadoxes[currentIndex + 1] : null) ?? null;
 
   const fieldColor = MATH_FIELD_COLORS[paradox.field] || "#6366f1";
+  const figureLabels = paradox.key_figures.map((id) => mathFigureLabel(id, paradox.content));
 
   const jsonLd = createArticleJsonLd({
     title: `${paradox.title}（${paradox.title_en}）`,
     description: `${paradox.title_en}：${paradox.field}。${paradox.tags.join("、")}`,
     url: `${SITE_URL}/mathematics/paradoxes/${slug}`,
-    author: paradox.key_figures[0] ?? "Episteme · 格致",
+    author: figureLabels[0] ?? "Episteme · 格致",
     keywords: [
       paradox.title,
       paradox.title_en,
@@ -73,10 +76,9 @@ export default async function MathParadoxDetailPage({
       eyebrow={paradox.field}
       title={paradox.title}
       titleEn={paradox.title_en}
+      lede={paradox.summary}
       content={paradox.content}
-      meta={
-        paradox.key_figures.length > 0 ? <>关键人物：{paradox.key_figures.join("、")}</> : undefined
-      }
+      meta={paradox.key_figures.length > 0 ? <>关键人物：{figureLabels.join("、")}</> : undefined}
       tags={paradox.tags}
       sidebar={
         <>

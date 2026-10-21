@@ -1,4 +1,5 @@
 ---
+summary: "去殖民史学要揭示被档案压住的声音，并拒绝把欧洲经验写成所有社会的终点，而不是简单反西方。口述传统的地位，以及借去殖民之名的排他民族主义，都还没有定论。"
 title: 全球史与去殖民史学——多中心的世界史书写
 title_en: Global History and Decolonial Historiography — Writing World History from Multiple Centers
 status: published

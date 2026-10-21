@@ -15,15 +15,28 @@ export type LearningTargetSelection = {
 
 type PlanProgressMap = Record<string, readonly string[]>;
 
-function isProgressMap(value: unknown): value is PlanProgressMap {
+function isRecord(value: unknown): value is Record<string, unknown> {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+}
+
+/** A stored step list must be strings. `new Set(number)` throws and blanks the route. */
+function completedStepIds(value: unknown): readonly string[] | null {
+  if (!Array.isArray(value)) return null;
+  const ids = value.filter((item): item is string => typeof item === "string" && item.length > 0);
+  return ids.length === value.length ? ids : null;
 }
 
 function readProgress(): PlanProgressMap {
   if (typeof window === "undefined") return {};
   try {
     const parsed: unknown = JSON.parse(window.localStorage.getItem(PROGRESS_KEY) ?? "{}");
-    return isProgressMap(parsed) ? parsed : {};
+    if (!isRecord(parsed)) return {};
+    const clean: PlanProgressMap = {};
+    for (const [planId, steps] of Object.entries(parsed)) {
+      const ids = completedStepIds(steps);
+      if (ids) clean[planId] = ids;
+    }
+    return clean;
   } catch {
     return {};
   }

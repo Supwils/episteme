@@ -14,5 +14,11 @@ export const metadata: Metadata = {
 };
 
 export default function CivilizationsPage() {
-  return <CivilizationsClient />;
+  // The interactive client renders no heading, so the page supplies one for outline and search.
+  return (
+    <>
+      <h1 className="sr-only">文明对比</h1>
+      <CivilizationsClient />
+    </>
+  );
 }

@@ -1,3 +1,4 @@
+import { authorSummary } from "@/lib/content-utils";
 import type { Experiment, ExperimentFrontmatter } from "../types";
 import { DIRS, caches, listCaches, getSlugs, getBySlug, getAll } from "./normalize";
 
@@ -8,6 +9,7 @@ export function getExperimentSlugs(): string[] {
 function castExperiment(data: unknown, s: string, c: string): Experiment {
   const d = data as Record<string, unknown>;
   return {
+    summary: authorSummary(d),
     title: (d.title as string) ?? "",
     title_en: (d.title_en as string) ?? "",
     researcher: (d.researcher as string) ?? "",
@@ -27,5 +29,18 @@ export function getExperimentBySlug(slug: string): Experiment | null {
 }
 
 export function getAllExperiments(): Experiment[] {
-  return getAll(DIRS.experiments, caches.experiments, { get value() { return listCaches.experiments; }, set value(v) { listCaches.experiments = v; } }, castExperiment, (a, b) => a.year - b.year);
+  return getAll(
+    DIRS.experiments,
+    caches.experiments,
+    {
+      get value() {
+        return listCaches.experiments;
+      },
+      set value(v) {
+        listCaches.experiments = v;
+      },
+    },
+    castExperiment,
+    (a, b) => a.year - b.year
+  );
 }

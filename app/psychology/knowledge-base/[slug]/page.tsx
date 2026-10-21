@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { withCanonicalPath } from "@/lib/article-canonical";
+import { extractExcerpt } from "@/lib/content-utils";
 import { getKnowledgeBaseBySlug, getAllKnowledgeBase } from "@/subjects/psychology/lib/mdx";
 import { ArticleLayout } from "@/components/ArticleLayout";
 import { TableOfContents } from "@/components/TableOfContents";
@@ -24,16 +25,9 @@ export async function generateMetadata({
   const { slug } = await params;
   const article = getKnowledgeBaseBySlug(slug);
   if (!article) notFound();
-  const description = article.title_en || article.title;
-  const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(article.title)}&section=psychology&description=${encodeURIComponent(description)}`;
   return withCanonicalPath(`/psychology/knowledge-base/${slug}`, {
     title: `${article.title} — 知识库 — 心理学`,
-    description,
-    openGraph: {
-      title: `${article.title} — 知识库 — 心理学`,
-      description,
-      images: [{ url: ogImage, width: 1200, height: 630 }],
-    },
+    description: article.summary ?? extractExcerpt(article.content),
   });
 }
 
@@ -72,6 +66,7 @@ export default async function PsychologyKnowledgeBaseDetailPage({
         eyebrow={article.category}
         title={article.title}
         titleEn={article.title_en}
+        lede={article.summary}
         content={article.content}
         tags={article.tags}
         prev={prev ? { href: `/psychology/knowledge-base/${prev.slug}`, title: prev.title } : null}

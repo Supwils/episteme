@@ -219,12 +219,6 @@ export const COSMOLOGY_KB_DATA = [
     category: "恒星物理",
   },
   {
-    slug: "星系天文学--agn-and-quasars",
-    title: "活动星系核与类星体",
-    titleEn: "Active Galactic Nuclei and Quasars",
-    category: "星系天文学",
-  },
-  {
     slug: "星系天文学--dark-matter-halo",
     title: "暗物质晕与星系旋转曲线",
     titleEn: "Dark Matter Halos and Galaxy Rotation Curves",
@@ -289,12 +283,6 @@ export const COSMOLOGY_KB_DATA = [
     slug: "多信使天文学--binary-neutron-star-merger-kilonova",
     title: "双中子星并合与千新星",
     titleEn: "Binary Neutron Star Merger and Kilonova",
-    category: "多信使天文学",
-  },
-  {
-    slug: "多信使天文学--cosmic-rays",
-    title: "宇宙射线",
-    titleEn: "Cosmic Rays",
     category: "多信使天文学",
   },
   {
@@ -894,5 +882,35 @@ export const COSMOLOGY_KB_DATA = [
     title: "斯莱弗 1912：洛威尔 24 英寸镜上的星云视向速度",
     titleEn: "Slipher 1912 — Nebular Radial Velocities at the Lowell 24-inch",
     category: "宇宙学观测",
+  },
+  {
+    slug: "宇宙学观测--bullet-cluster-2006",
+    title: "子弹星系团 1E 0657-558：2006 年质量峰与气体峰的错位",
+    titleEn: "Bullet Cluster 1E 0657-558: The 2006 Offset between the Mass Peaks and the Gas",
+    category: "宇宙学观测",
+  },
+  {
+    slug: "宇宙学观测--hulse-taylor-b1913",
+    title: "PSR B1913+16：1974 年的双星脉冲星与后来的轨道周期导数",
+    titleEn: "PSR B1913+16: The 1974 Binary Pulsar and the Later Orbital Decay",
+    category: "宇宙学观测",
+  },
+  {
+    slug: "宇宙学观测--supernova-acceleration-1998",
+    title: "1998–1999：两支 Ia 型超新星样本怎样把加速写进哈勃图",
+    titleEn: "The 1998–1999 Type Ia Supernova Samples and the Accelerating Expansion",
+    category: "宇宙学观测",
+  },
+  {
+    slug: "宇宙学观测--cobe-firas-1990",
+    title: "COBE 的 FIRAS：黑体谱没有顺便画出各向异性",
+    titleEn: "",
+    category: "宇宙学观测",
+  },
+  {
+    slug: "多信使天文学--gw150914",
+    title: "GW150914：两个黑洞并合的第一声，不是一张照片",
+    titleEn: "",
+    category: "多信使天文学",
   },
 ];

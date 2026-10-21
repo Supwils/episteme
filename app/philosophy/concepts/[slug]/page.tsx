@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 import { withCanonicalPath } from "@/lib/article-canonical";
+import { extractExcerpt } from "@/lib/content-utils";
 import Link from "next/link";
 import { getConceptBySlug, getAllConcepts } from "@/lib/concepts";
+import { thinkerDisplayName } from "@/lib/mdx";
 import Breadcrumb from "@/components/Breadcrumb";
 import RelatedContent from "@/components/RelatedContent";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
@@ -20,16 +22,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const concept = getConceptBySlug(slug);
   if (!concept) notFound();
-  const description = `${concept.field}：${concept.key_figures.join("、")}`;
-  const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(concept.title)}&section=philosophy&description=${encodeURIComponent(description)}`;
   return withCanonicalPath(`/philosophy/concepts/${slug}`, {
-    title: `${concept.title}（${concept.title_en}）— 哲学概念`,
-    description,
-    openGraph: {
-      title: `${concept.title}（${concept.title_en}）— 哲学概念`,
-      description,
-      images: [{ url: ogImage, width: 1200, height: 630 }],
-    },
+    title: `${concept.title}${concept.title_en ? `（${concept.title_en}）` : ""} — 哲学概念`,
+    description: concept.summary ?? extractExcerpt(concept.content),
   });
 }
 
@@ -52,7 +47,7 @@ export default async function ConceptDetailPage({ params }: { params: Promise<{ 
     .slice(0, 4);
 
   const jsonLd = createDefinedTermJsonLd({
-    name: `${concept.title}（${concept.title_en}）`,
+    name: `${concept.title}${concept.title_en ? `（${concept.title_en}）` : ""}`,
     description: `${concept.field}：${concept.key_figures.join("、")}`,
     url: `${SITE_URL}/philosophy/concepts/${slug}`,
     inDefinedTermSet: "Philosophy Concepts",
@@ -80,10 +75,11 @@ export default async function ConceptDetailPage({ params }: { params: Promise<{ 
         eyebrow={concept.field}
         title={concept.title}
         titleEn={concept.title_en}
+        lede={concept.summary}
         content={concept.content}
         meta={
           concept.key_figures.length > 0 ? (
-            <>关键人物：{concept.key_figures.join("、")}</>
+            <>关键人物：{concept.key_figures.map(thinkerDisplayName).join("、")}</>
           ) : undefined
         }
         tags={concept.tags}
@@ -106,7 +102,9 @@ export default async function ConceptDetailPage({ params }: { params: Promise<{ 
                     <dt className="text-fg-disabled font-mono text-[9px] tracking-[0.18em] uppercase">
                       关键人物
                     </dt>
-                    <dd className="text-fg-primary mt-0.5">{concept.key_figures.join("、")}</dd>
+                    <dd className="text-fg-primary mt-0.5">
+                      {concept.key_figures.map(thinkerDisplayName).join("、")}
+                    </dd>
                   </div>
                 )}
               </dl>

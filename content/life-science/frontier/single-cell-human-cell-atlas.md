@@ -1,4 +1,5 @@
 ---
+summary: "单细胞与空间测量想画出每个细胞在何时何地执行了哪条指令，而不是一张平均的基因组。图谱仍主要是描述，相关还不等于因果；细胞类型更像连续谱，专辑也还不是人体细胞已经点完名。"
 title: 单细胞与空间组学——用细胞语言重画生命的地图
 title_en: Single-Cell and Spatial Omics — Recharting Life at Cellular Resolution
 status: published

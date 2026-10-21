@@ -1,4 +1,5 @@
 ---
+summary: "这场争论争的是意识算整合信息的基本属性，还是皮层广播的产物，而不只是两个神经假说谁对。对抗性合作并未裁决胜负；证据标准本身仍是开放问题，不能把任一理论写成已证定理。"
 title: 意识科学的世纪之战：IIT 对决 GNW
 title_en: "The Century's Battle in Consciousness Science: IIT vs. GNW"
 status: published

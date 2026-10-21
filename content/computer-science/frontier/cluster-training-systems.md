@@ -1,6 +1,7 @@
 ---
 title: 集群训练系统：把模型铺到一千张卡上
 title_en: Cluster Training Systems — Spreading a Model across a Thousand Accelerators
+summary: "Llama 3 405B用16384张H100预训练，54天内任务被打断466次，约每三小时一次；本文说明并行策略不是切得越碎越好，讲算力利用率，以及故障如何成为一等公民。"
 status: published
 updated: 2026-09-13
 category: 计算体系结构

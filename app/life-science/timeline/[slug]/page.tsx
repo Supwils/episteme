@@ -5,6 +5,7 @@ import { withCanonicalPath } from "@/lib/article-canonical";
 import {
   getAllTimelineEvents,
   getTimelineEventById,
+  timelineFigureLabel,
 } from "@/subjects/life-science/lib/timeline-events";
 import { DeepReading } from "@/subjects/life-science/components/DeepReading";
 import { getEventDetailForTimeline } from "@/subjects/life-science/lib/event-detail";
@@ -35,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const event = getTimelineEventById(slug);
   if (!event) notFound();
-  const description = event.detail;
+  const description = getEventDetailForTimeline(slug)?.summary ?? event.detail;
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(event.event)}&section=life-science&description=${encodeURIComponent(description)}`;
   return withCanonicalPath(`/life-science/timeline/${slug}`, {
     title: `${event.event}（${event.era}） — 进化时间线`,
@@ -65,7 +66,7 @@ export default async function TimelineEventDetailPage({ params }: Props) {
 
   const jsonLd = createArticleJsonLd({
     title: `${event.event}（${event.era}）`,
-    description: event.detail,
+    description: eventDetail?.summary ?? event.detail,
     url: `${SITE_URL}/life-science/timeline/${slug}`,
     keywords: [
       event.event,
@@ -85,7 +86,7 @@ export default async function TimelineEventDetailPage({ params }: Props) {
       eyebrowMeta={[CATEGORY_LABEL[event.category] ?? event.category]}
       title={event.event}
       content={eventDetail?.body ?? ""}
-      lede={event.detail}
+      lede={eventDetail?.summary ?? event.detail}
       sidebar={
         <>
           <TableOfContents accentColor="#4a9e6f" />
@@ -210,7 +211,7 @@ export default async function TimelineEventDetailPage({ params }: Props) {
                   backgroundColor: `${event.accent}08`,
                 }}
               >
-                {figure}
+                {timelineFigureLabel(event, figure)}
               </span>
             ))}
           </div>

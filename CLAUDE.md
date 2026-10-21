@@ -27,24 +27,24 @@
 
 - **`prebuild` 钩子先跑 `pnpm gen-all`**，从 `content/` 重新生成**全部派生索引**，共 14 步（顺序即依赖顺序）：
 
-  | 命令                     | 产物                                                                                                          |
-  | ------------------------ | ------------------------------------------------------------------------------------------------------------- |
-  | `gen-philo`              | `content/philosophy/*-data.ts` 搜索镜像                                                                       |
-  | `gen-econ`               | `content/economics/*-data.ts`                                                                                 |
-  | `gen-psych`              | `content/psychology/*-data.ts`                                                                                |
-  | `gen-life`               | `content/life-science/*-data.ts`                                                                              |
-  | `gen-physics-dialogues`  | 物理对话索引                                                                                                  |
-  | `gen-history-route-data` | `content/human-history/data/generated/*`（event/figure catalog，按时代分片）                                  |
-  | `gen-kb`                 | 各域 knowledge-base 索引                                                                                      |
-  | `gen-links`              | `lib/wiki-link-index.ts`、`lib/backlinks-index.ts`、`public/link-previews/<domain>.json`、`generated/corpus*` |
-  | `gen-cognitive-nodes`    | `generated/cognitive-nodes.json`（运行时 catalog 读的节点快照）                                               |
-  | `gen-article-exits`      | `generated/article-exits.json`（文章页「向上 / 向旁」出口：上一级前置 + 跨域邻居）                            |
-  | `gen-search-index`       | `public/search-index.json`、`generated/search-stats.json`（含每域篇数 `byDomain`）                            |
-  | `gen-site-stats`         | `generated/site-stats.json`：全站**唯一**计数来源（经 `lib/site-stats.ts` 读取），页面禁止手写计数            |
-  | `gen-search-worker`      | `public/search.worker.js`（esbuild IIFE，避开 Turbopack worker 运行时）                                       |
-  | `gen-content-images`     | `public/images/<id>-<w>.webp` + manifest                                                                      |
+  | 命令                     | 产物                                                                                                                                     |
+  | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
+  | `gen-philo`              | `content/philosophy/*-data.ts` 搜索镜像                                                                                                  |
+  | `gen-econ`               | `content/economics/*-data.ts`                                                                                                            |
+  | `gen-psych`              | `content/psychology/*-data.ts`                                                                                                           |
+  | `gen-life`               | `content/life-science/*-data.ts`                                                                                                         |
+  | `gen-physics-dialogues`  | 物理对话索引                                                                                                                             |
+  | `gen-history-route-data` | `content/human-history/data/generated/*`（event/figure catalog，按时代分片）                                                             |
+  | `gen-kb`                 | 各域 knowledge-base 索引                                                                                                                 |
+  | `gen-links`              | `lib/wiki-link-index.ts`、`lib/backlinks-index.ts`、`public/link-previews/<domain>.json`                                                 |
+  | `gen-cognitive-nodes`    | `generated/cognitive-nodes.json`（运行时 catalog 读的节点快照）                                                                          |
+  | `gen-article-exits`      | `generated/article-exits.json`（文章页「向上 / 向旁」出口：上一级前置 + 跨域邻居）                                                       |
+  | `gen-search-index`       | `public/search-index.json`、`generated/corpus.txt`、`generated/corpus-meta.json`、`generated/search-stats.json`（含每域篇数 `byDomain`） |
+  | `gen-site-stats`         | `generated/site-stats.json`：全站**唯一**计数来源（经 `lib/site-stats.ts` 读取），页面禁止手写计数                                       |
+  | `gen-search-worker`      | `public/search.worker.js`（esbuild IIFE，避开 Turbopack worker 运行时）                                                                  |
+  | `gen-content-images`     | `public/images/<id>-<w>.webp` + manifest                                                                                                 |
 
-  **改了内容就要 `pnpm gen-all`**（不是只跑 `gen-links`——corpus/搜索统计属另一层，漏跑会以"看似无关的测试失败"暴露）。CI 在干净 checkout 上跑同一条链并要求**工作区零差异**，所以重生的索引文件必须一并提交。
+  **改了内容就要 `pnpm gen-all`**（不是只跑 `gen-links`——corpus/搜索统计属另一层，漏跑会以"看似无关的测试失败"暴露）。CI 在干净 checkout 上跑同一条链并要求**工作区零差异**，所以受 Git 跟踪的重生索引必须一并提交；根目录 `generated/` 被忽略，由构建重生，不要强行纳入 Git。
 
 - 然后 `next build --turbopack`（生产构建用 **Turbopack**），带 `NODE_OPTIONS=--max-old-space-size=8192`（内容量大，否则 OOM）。
 
@@ -52,14 +52,14 @@
 
 - 各 `[slug]` 内容路由用 `generateStaticParams` 只返回**一小部分**精选 slug（或空数组）+ 默认 `dynamicParams: true` → 未覆盖的 slug **首次访问时生成并缓存到下次部署**，不在构建期全量产出（当前生产构建约 246 静态页）。
 - 这是**刻意设计**：Vercel 部署有 **15000 文件上限**，~2500 篇内容 × 多路由若全静态会超限。**不要**给这些路由返回全部 slug、也别关掉 `dynamicParams`。
-- 通用文章不设定时 ISR（内容随部署发布，定时重验证只增加函数重算）；首页/每日为 1 小时 ISR，连续体与知识汇流为 24 小时 ISR，用户档案类 POST 接口保持 `private, no-store`。契约由 `pnpm audit-rendering` 读生产产物强制。
+- 通用文章不设定时 ISR（内容随部署发布，定时重验证只增加函数重算）；首页为 1 小时 ISR，日期区域在水合后校正并跨日刷新；每日页和每日三个 API 按请求生成并 `no-store`，连续体与知识汇流为 24 小时 ISR，用户档案类 POST 接口保持 `private, no-store`。契约由 `pnpm audit-rendering` 读生产产物强制。
 
 ### CI-CD（`.github/workflows/ci.yml`，push 到 `main` 触发）
 
 - **触发**：push 到 `main`（`docs/` 目录下的改动被 `paths-ignore` 跳过，**不构建、不部署**）、面向 `main` 的 PR、手动 `workflow_dispatch`。
 - **三个 job**：
   - **quality** — 生成索引幂等性（`gen-all` 后 `git status` 必须干净）→ `typecheck` → `lint` → `check-content` + 四项审计（`audit-graph-coverage` / `audit-learning-continuum` / `audit-subject-candidates` / `audit-linguistics-foundation`）→ `test`。
-  - **build** — `pnpm build` → `audit-rendering` → `bundle-check --skip-build` → Lighthouse 预算 → Playwright 生产 smoke（`test:e2e:smoke`）。
+  - **build** — `pnpm build` → `audit-rendering` → `audit-og-assets` → `bundle-check --skip-build` → Lighthouse 预算 → Playwright 生产 smoke（`test:e2e:smoke`）。
   - **deploy** — 仅 `main` 且 quality+build 都过，`vercel pull` → `vercel build --prod` → **`vercel deploy --prebuilt --prod --archive=tgz`**。需仓库 secret `VERCEL_TOKEN`（org/project id 写在 workflow env 里，是资源标识不是凭证）。
 - **夜间全量 e2e**（`.github/workflows/e2e-nightly.yml`）：每天一次在生产构建上跑冒烟以外的全部 spec（`pnpm test:e2e:full`，配置 `playwright.full.config.ts`，端口 3070）。不部署、不拦 push，只让过期断言和深层流程回归在一天内暴露。spec 里的篇数、角度这类会随内容漂的值，从 `content/` 或布局函数推导，不要写死。
 - **为什么不用 Vercel 原生 git 集成**：`vercel.json` 的 `git.deploymentEnabled.main = false` 是**故意关掉**的——原生集成的 deploy 会拒绝 Next 的 serverless 函数去重**符号链接**；`--prebuilt --archive` 是当前唯一可靠路径（同时绕开 15000 文件上限的校验）。**别重新打开它。**
@@ -67,9 +67,9 @@
 ### 本地 pre-push 门禁（`.husky/pre-push`）
 
 - 每次 `git push` 前自动跑 `pnpm prepush` 九条命令：`typecheck` → `lint` → `check-content` → `audit-graph-coverage` → `audit-learning-continuum` → `audit-subject-candidates` → `audit-linguistics-foundation` → `audit-image-rights` → `test`，镜像 CI `quality` job 的确定性部分。
-- **pre-push 钩子刻意不跑** build job 那套（生产构建、包体、Lighthouse、Playwright 不适合阻塞每次本地 push）。**内容或前端轮次在用户授权 push `main` 之前，必须先跑 `pnpm predeploy`**：`gen-all` 后工作区必须干净 → `prepush` → `build` → `audit-rendering` → `bundle-check --skip-build` → 独占端口 Lighthouse → `CI=1 pnpm test:e2e:smoke`。这才是 CI quality+build 的本地全集；漏跑就是人类学那次红的三处（索引幂等、首页 TBT、冒烟卡数）。
+- **pre-push 钩子刻意不跑** build job 那套（生产构建、包体、Lighthouse、Playwright 不适合阻塞每次本地 push）。**内容或前端轮次在用户授权 push `main` 之前，必须先跑 `pnpm predeploy`**：`gen-all` 后工作区必须干净 → `prepush` → `build` → `audit-rendering` → `audit-og-assets` → `bundle-check --skip-build` → 独占端口 Lighthouse → `CI=1 pnpm test:e2e:smoke`。这才是 CI quality+build 的本地全集；漏跑就是人类学那次红的三处（索引幂等、首页 TBT、冒烟卡数）。
 - husky 已激活（`prepare` 脚本）。紧急绕过：`git push --no-verify`。
-- ⚠️ `audit-graph-coverage` 目前**对未达覆盖率底线的域仍返回 0**（只有单元测试会拦），本地看到它"绿"不等于达标——以 `pnpm test` 为准。
+- `audit-graph-coverage` 对低于领域覆盖率底线的报告以 **1** 退出；单元测试另行验证覆盖率与悬空图谱 URL。脚本与测试都必须通过。
 
 ### 代理注意事项（部署相关）
 
@@ -146,7 +146,7 @@ pnpm typecheck && pnpm test                      # 基线应全绿
 
 ```
 universe-knowledge/
-├── app/                      ← App Router：18 领域 + 探索页 + API（343 个 page.tsx / 14 个 route handler）
+├── app/                      ← App Router：22 领域 + 探索页 + API（2026-10-05：427 个 page.tsx / 19 个 route handler；以目录为准）
 │   ├── <domain>/             ← 每域：layout/globals.css/page + 各板块 list + [slug] + loading/error/not-found
 │   ├── api/                  ← daily · search · learning-targets · knowledge-continuum/* · knowledge-frontier/* · og
 │   └── read/ search/ daily/ curiosities/ molecules/ knowledge-graph/ knowledge-confluence/
@@ -174,7 +174,7 @@ universe-knowledge/
 │   ├── <domain>/*-data.ts             ← 类型化数据/搜索镜像（部分由 gen-* 生成）
 │   └── <domain>/frontier/*.md         ← 研究前沿（.md）
 ├── content-assets/images/    ← 内容图像原图 + 权利元数据（见 docs/图像管线指南.md）
-├── generated/                ← corpus.txt / corpus-meta.json / search-stats.json（构建产物，已提交）
+├── generated/                ← corpus.txt / corpus-meta.json / search-stats.json（构建产物，Git 忽略，prebuild 重生）
 ├── public/                   ← 静态资源（search-index.json、link-previews/（按域分片）、images/、textures/）
 ├── scripts/                  ← 生成（gen-*）· 校验（check-content）· 审计（audit-*）· 性能（physics/、performance/）
 ├── e2e/                      ← Playwright（部署门禁只跑 smoke.spec.ts；其余每晚全量跑）
@@ -241,10 +241,12 @@ pnpm predeploy             # ⭐ push `main` 前：gen-all 幂等 + prepush + �
 
 pnpm bundle-check -- --skip-build   # JS/CSS/搜索索引预算（先跑过 build）
 pnpm audit-rendering       # SSG/ISR 契约（读生产产物）
+pnpm audit-og-assets       # OG Node 字体、许可证、WASM 与函数体积（先 build）
 pnpm audit-cross-domain    # 跨域连接节达标口径
 pnpm audit-image-rights    # 图像权利与性能预算
 pnpm test:e2e:smoke        # Playwright 生产冒烟（CI 门禁同款）
 pnpm test:e2e:full         # 冒烟以外全部 spec（夜间工作流同款，先 build）
+pnpm test:e2e:browser-lifecycle # 独立浏览器启动/关闭诊断（默认系统 Chrome，30 秒有界）
 pnpm wiki-slug <关键词>     # 查某篇文章的正确 wiki slug（写内链前用）
 pnpm update-graph-snapshot # 图谱聚合快照（改图谱数据后必跑，测试读它）
 pnpm gen-seal-glyphs       # 学科印字形（改了 lib/design/seals.ts 的字才跑；不在 gen-all 里，首次会下载 15 MB 源字体到 .cache/）
@@ -308,6 +310,7 @@ pnpm update-graph-snapshot && pnpm test       # 快照与实际一致
 # 改了前端 / 构建
 pnpm build && pnpm bundle-check -- --skip-build
 pnpm audit-rendering
+pnpm audit-og-assets
 
 # 渲染验证（改动页面/路由后）——注意端口 3067
 pnpm dev

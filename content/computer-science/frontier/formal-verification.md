@@ -1,6 +1,7 @@
 ---
 title: 形式化验证与程序合成
 title_en: Formal Verification and Program Synthesis — From CompCert to AI-Assisted Proof
+summary: "2023年陶哲轩等人证明PFR猜想，证明在Lean 4中得到机器检验；本文说明形式化验证不只是测试更多，介绍经过证明的编译器CompCert和Lean 4的数学证明生态。"
 status: published
 updated: 2026-09-12
 category: 编程语言与系统

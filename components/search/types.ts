@@ -102,6 +102,8 @@ export interface SearchResult {
   snippet?: string;
   /** Where the match starts inside `snippet`. */
   matchStart?: number;
+  /** How many characters of `snippet` are the match. Absent on title hits. */
+  matchLength?: number;
 }
 
 /** Display order shared by SearchResults (visual grouping) and GlobalSearch

@@ -17,7 +17,7 @@ export function UniverseFallback({ reason = "unsupported" }: { reason?: "unsuppo
 
   return (
     <div
-      id="main-content"
+      id="universe-scene"
       tabIndex={-1}
       className="absolute inset-0 flex items-center justify-center overflow-y-auto px-6 py-12 focus:outline-none"
     >

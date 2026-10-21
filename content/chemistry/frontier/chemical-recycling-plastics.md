@@ -1,6 +1,7 @@
 ---
 title: 塑料的化学回收：解聚、热解与"回收"二字的名实之争
 title_en: Chemical Recycling of Plastics — Depolymerization, Pyrolysis, and the Battle over What "Recycling" Means
+summary: "“化学回收”是一顶帽子而非一种技术；2024 年 Eastman 的甲醇解工厂开始创收，Carbios 的 PET 酶解工厂却一再延期，能否拆回去取决于聚合物化学。"
 status: published
 updated: 2026-09-12
 category: 环境化学

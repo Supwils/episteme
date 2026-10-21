@@ -1,4 +1,5 @@
 ---
+summary: "发消息、受骚扰和比外貌都发生在平台上，却不是同一种暴露，不能压成每日屏幕时间。文献不足以支持总体人口层面造成健康变化的笼统结论，也不能认定平台已经足够安全。"
 title: 社交媒体与青少年心理健康：从屏幕时间争论到机制证据
 title_en: "Social Media and Adolescent Mental Health: From Screen Time to Mechanism"
 status: published

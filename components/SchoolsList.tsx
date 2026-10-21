@@ -15,6 +15,8 @@ type SchoolItem = {
   founder?: string;
   philosopher?: string;
   key_figures?: string[];
+  /** Internal ids. Searched, not shown. */
+  key_figure_slugs?: string[];
   tags: string[];
   slug: string;
 };
@@ -168,7 +170,8 @@ export const SchoolsList = memo(function SchoolsList({ schools }: { schools: Sch
           (s.founder ?? "").toLowerCase().includes(q) ||
           (s.philosopher ?? "").toLowerCase().includes(q) ||
           s.tags.some((tag) => tag.toLowerCase().includes(q)) ||
-          (s.key_figures ?? []).some((fig) => fig.toLowerCase().includes(q))
+          (s.key_figures ?? []).some((fig) => fig.toLowerCase().includes(q)) ||
+          (s.key_figure_slugs ?? []).some((fig) => fig.toLowerCase().includes(q))
       );
     }
     return result;

@@ -1,4 +1,5 @@
 ---
+summary: "最小合成细胞能自我复制，均匀分裂却做不好，写得出基因组仍不等于理解生命。约三分之一基因功能未知；完整镜像细胞尚未实现，警告说的是可行性在加快，不是灾难已经发生。"
 title: 合成基因组与镜像生命——最小细胞与最大风险
 title_en: Synthetic Genomes and Mirror Life — Minimal Cells and Maximum Risk
 status: published

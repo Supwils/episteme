@@ -1,4 +1,5 @@
 ---
+summary: "基因编辑猪器官目前证明的是超急性排斥可以被推迟，不是它已经能常规替代人类器官。活体案例多无对照，数周后抗体介导的损伤仍会回来；短期测不到病毒，也排除不了以年计的传播。"
 title: 异种移植——基因编辑猪器官进入人体
 title_en: Xenotransplantation — Gene-Edited Pig Organs Enter the Clinic
 status: published

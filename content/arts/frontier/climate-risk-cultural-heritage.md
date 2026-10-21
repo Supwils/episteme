@@ -1,6 +1,7 @@
 ---
 title: 气候风险下的文化遗产：保护什么、何时撤退、谁来决定
 title_en: Cultural Heritage under Climate Risk
+summary: "教科文组织汇总显示，约六分之一文化遗产地受气候外部影响威胁，约三分之一世界遗产城市位于沿海。最难的问题不是找到万能涂层，而是在损失不可避免时决定保护、记录还是有计划地撤退。"
 status: published
 updated: 2026-08-07
 category: 保护科学

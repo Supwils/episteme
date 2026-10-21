@@ -1,6 +1,7 @@
 ---
 title: Bellare–Rogaway 1993：为什么先把哈希当成公开的随机预言机
 title_en: "Random Oracles are Practical: A Paradigm for Designing Efficient Protocols"
+summary: "1993年Bellare与Rogaway在首届CCS上提出，先把哈希当作公开的随机预言机来证明安全，再换成具体哈希；本文讲对预言机编程的技巧和最后那一跳，并辨析它证明了什么、没有覆盖什么。"
 status: published
 updated: 2026-09-20
 category: 计算理论
@@ -23,6 +24,9 @@ related:
   - computational-complexity
   - shafi-goldwasser
   - randomized-algorithms
+  - fiat-shamir-1986
+  - canetti-goldreich-halevi-1998
+  - bellare-rogaway-1996-pss
 ---
 
 # Bellare–Rogaway 1993：为什么先把哈希当成公开的随机预言机
@@ -33,11 +37,11 @@ related:
 
 本页的对象是这份**已印行的十二页会议论文**：先把哈希当成一枚公开的随机预言机，好让加密与签名可以在该模型里被设计、被证明；最后再用真实哈希去替换预言机。具体展品包括后来课堂称作全域哈希（Full-Domain Hash）风格的签名，以及随机预言机模型里的加密。它不是产品规格，不是攻击菜谱，也不是一份已经配好的哈希标准。封面年份是 1993。十二页印在会议录里，没有后年扩写的期刊长文可以另造 DOI。
 
-书目必须立刻分开。它不是 1986 年阿莫斯·菲亚特（Amos Fiat）与阿迪·沙米尔（Adi Shamir）在国际密码学年会（CRYPTO）上的《How to Prove Yourself》。那一篇后来收入斯普林格 LNCS 第 263 卷，页码 186 至 194，DOI 为 10.1007/3-540-47721-7_12。对象是把交互识别里验证者的随机提问换成对已有对话的哈希，好交出非交互签名。哈希在那里已经当随机答案用，却不是费尔法克斯这十二页的设计范式封面。
+书目必须立刻分开。它不是 1986 年阿莫斯·菲亚特（Amos Fiat）与阿迪·沙米尔（Adi Shamir）在国际密码学年会（CRYPTO）上的[[fiat-shamir-1986|《How to Prove Yourself》]]。那一篇后来收入斯普林格 LNCS 第 263 卷，页码 186 至 194，DOI 为 10.1007/3-540-47721-7_12。对象是把交互识别里验证者的随机提问换成对已有对话的哈希，好交出非交互签名。哈希在那里已经当随机答案用，却不是费尔法克斯这十二页的设计范式封面。
 
 它不是同一对作者次年的最优非对称加密填充（OAEP）。那一篇是 1994 年欧洲密码学年会（EUROCRYPT）的《Optimal Asymmetric Encryption》，会议录次年收入 LNCS 第 950 卷，页码 92 至 111，DOI 为 10.1007/BFb0053428。填充、最优密文膨胀与 RSA 燃料属于 1994 年，不是页码 62 至 73。把「贝拉雷–罗加韦那篇哈希论文」收成一句，会把范式宣言与填充方案叠成同一条书目。[[bellare-rogaway-1994-oaep|一九九四年那篇 OAEP]] 是邻居，不是第二份封面。
 
-它不是 1998 年拉恩·卡内蒂（Ran Canetti）、奥戴德·戈德赖希（Oded Goldreich）与沙伊·哈勒维（Shai Halevi）在第三十届 ACM 计算理论年会（STOC）上的《The Random Oracle Methodology, Revisited》。那一篇 DOI 为 10.1145/276698.276741；2004 年《Journal of the ACM》第 51 卷第 4 期页码 557 至 594 是期刊扩写，DOI 为 10.1145/1008731.1008734。后年问的是：存在这样的方案，在随机预言机里可证，对任意具体哈希却不可实例化。那是对方法论的反例，不是 1993 年的主张。
+它不是 1998 年拉恩·卡内蒂（Ran Canetti）、奥戴德·戈德赖希（Oded Goldreich）与沙伊·哈勒维（Shai Halevi）在第三十届 ACM 计算理论年会（STOC）上的[[canetti-goldreich-halevi-1998|《The Random Oracle Methodology, Revisited》]]。那一篇 DOI 为 10.1145/276698.276741；2004 年《Journal of the ACM》第 51 卷第 4 期页码 557 至 594 是期刊扩写，DOI 为 10.1145/1008731.1008734。后年问的是：存在这样的方案，在随机预言机里可证，对任意具体哈希却不可实例化。那是对方法论的反例，不是 1993 年的主张。
 
 它更不是 1998 年[[cramer-shoup-1998|克拉默–肖普在标准数论假说下挡住自适应选择密文]]的那十三页。标准模型不把哈希升成公开随机函数。两条后话不要写回费尔法克斯。
 

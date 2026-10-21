@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 export function queryFromPath(pathname: string): string {
   const segment = pathname.split("/").filter(Boolean).at(-1) ?? "";
   try {
-    return decodeURIComponent(segment).replace(/[-_]+/g, " ").trim();
+    return decodeURIComponent(segment).replace(/[-_]+/g, " ").trim().slice(0, 120);
   } catch {
     return "";
   }
@@ -28,6 +28,7 @@ export function UnchartedSearch() {
         name="q"
         type="search"
         defaultValue={queryFromPath(pathname ?? "")}
+        maxLength={120}
         placeholder="搜索文章、人物、概念"
       />
       <button type="submit" className="state-view__action" data-primary>

@@ -1,4 +1,5 @@
 ---
+summary: "多基因评分加总的是极多微小变体，不是宣布找到了决定行为的那几个基因。遗传力是特定环境下的群体统计量，高遗传力也不等于对环境改变不再敏感。"
 title: 行为遗传学的基因组时代：多基因评分、人格与智力
 title_en: "Behavioral Genetics in the Genomic Era: Polygenic Scores, Personality, and Intelligence"
 status: published

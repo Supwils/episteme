@@ -238,7 +238,9 @@ describe("curiosity deep links", () => {
     );
     expect(urlOf("iceland-oldest-parliament")).toBe("/human-history/knowledge/中世纪--维京人");
     expect(urlOf("oxford-older-than-aztecs")).toBe("/human-history/knowledge/美洲--阿兹特克帝国");
-    expect(urlOf("woolly-mammoth-pyramids-overlap")).toBe("/human-history/knowledge/文明--古埃及");
+    expect(urlOf("woolly-mammoth-pyramids-overlap")).toBe(
+      "/human-history/knowledge/古代文明--古埃及"
+    );
     expect(urlOf("sahara-was-green")).toBe("/human-history/knowledge/远古时期--农业革命");
     expect(urlOf("harvard-older-than-calculus")).toBe(
       "/mathematics/knowledge-base/分析--微积分的故事"

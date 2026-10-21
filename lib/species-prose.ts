@@ -1,7 +1,7 @@
 import path from "node:path";
 import { readContentBySlug } from "./content-article";
 import { getDomainContentDir } from "./content-paths";
-import { decodeSlug, stripLeadingHeading } from "./content-utils";
+import { authorSummary, decodeSlug, stripLeadingHeading } from "./content-utils";
 
 /**
  * The species detail route is data-driven (taxonomy/traits from
@@ -19,6 +19,7 @@ export interface SpeciesProse {
   era: string;
   tags: string[];
   content: string;
+  summary?: string;
 }
 
 const speciesRoot = path.join(getDomainContentDir("life-science"), "species");
@@ -43,5 +44,6 @@ export function getSpeciesProse(slug: string): SpeciesProse | null {
       ? data.tags.filter((t): t is string => typeof t === "string")
       : [],
     content: stripLeadingHeading(entry.content),
+    summary: authorSummary(data),
   };
 }

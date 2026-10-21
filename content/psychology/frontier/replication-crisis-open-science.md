@@ -1,4 +1,5 @@
 ---
+summary: "复制危机的根源是发表激励与研究者自由度，而不是几个坏苹果。不能从一个复制比例倒推出整门学科的真实阳性率，情境差异也不等于原稿是假的。"
 title: 复制危机之后：开放科学如何重塑心理学
 title_en: "After the Replication Crisis: How Open Science Is Reshaping Psychology"
 status: published

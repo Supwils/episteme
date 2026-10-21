@@ -17,10 +17,11 @@ async function revealConfluenceExplorer(page: Page) {
   await openContinuumTab(page, /多学科汇流/);
   const explorer = continuum.getByTestId("knowledge-confluence-explorer");
   await explorer.evaluate((element) => element.scrollIntoView({ block: "center" }));
-  const load = explorer.getByRole("button", { name: "立即载入" });
-  if (await load.isVisible()) {
-    await load.evaluate((element) => (element as HTMLButtonElement).click());
-  }
+  // The explorer may start loading on its own between a visibility check and a
+  // click, so press whatever load button exists right now without waiting.
+  await explorer
+    .getByRole("button", { name: "立即载入" })
+    .evaluateAll((buttons) => buttons.forEach((button) => (button as HTMLButtonElement).click()));
   await expect(explorer.getByRole("link", { name: /AI 治理/ })).toBeVisible({ timeout: 15_000 });
   return explorer;
 }

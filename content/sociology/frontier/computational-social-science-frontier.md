@@ -1,6 +1,7 @@
 ---
 title: 计算社会科学的可审计测量
 title_en: Auditable Measurement in Computational Social Science
+summary: "从 2009 年 Lazer 等人在 Science 提出计算社会科学，到 2020 年的“障碍与机遇”，前沿已转向概念效度、可审计性与测量伤害。"
 status: published
 updated: 2026-07-04
 category: 方法前沿

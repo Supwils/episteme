@@ -1,6 +1,7 @@
 ---
 title: 贝尔曼-福特算法
 title_en: Bellman-Ford Algorithm
+summary: "Dijkstra的贪心在负权边面前失效，Bellman与Ford各自给出的算法改为对全部边反复松弛；本文解释其核心思想，并在5节点带负权图上逐轮手算松弛过程。"
 status: published
 updated: 2026-07-25
 category: 图算法
@@ -202,7 +203,7 @@ while queue:
 
 ### 它为什么能被卡掉
 
-SPFA 的开销可以精确写成：**每次出队都要扫一遍该点的出边**，所以总工作量 = $\sum_v (\text{$v$ 的出队次数}) \times \deg^+(v)$。
+SPFA 的开销可以精确写成：**每次出队都要扫一遍该点的出边**，所以总工作量 = $\sum_v (v\text{ 的出队次数}) \times \deg^+(v)$。
 
 而一个节点每被压小一次距离，就要重新入队一次。如果攻击者能让每个点的距离被压小 $\Theta(V)$ 次，总量就回到 $O(VE)$——和朴素 Bellman-Ford 一样，还多背了队列的常数。
 

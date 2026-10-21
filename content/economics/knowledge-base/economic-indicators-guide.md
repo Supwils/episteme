@@ -1,4 +1,5 @@
 ---
+summary: "国内生产总值把最终商品和服务的市场价值加总，却不衡量分配、家务、环境损耗和幸福。名义增速可以只是价格上涨，生产者价格上升也不必然等幅传到消费价格。"
 title: 经济指标解读手册
 titleEn: How to Read Economic Indicators
 category: 宏观经济学

@@ -19,6 +19,8 @@ export type MathConceptItem = {
   title_en: string;
   field: string;
   key_figures: string[];
+  /** Internal ids. Searched, not shown. */
+  figureSlugs?: string[];
   tags: string[];
 };
 
@@ -45,7 +47,14 @@ export function MathConceptsListBrowser({ concepts }: { concepts: MathConceptIte
     return concepts.filter((c) => {
       if (activeField && c.field !== activeField) return false;
       if (!q) return true;
-      const haystack = [c.title, c.title_en, c.field, ...c.key_figures, ...c.tags]
+      const haystack = [
+        c.title,
+        c.title_en,
+        c.field,
+        ...c.key_figures,
+        ...(c.figureSlugs ?? []),
+        ...c.tags,
+      ]
         .join("\n")
         .toLowerCase();
       return haystack.includes(q);

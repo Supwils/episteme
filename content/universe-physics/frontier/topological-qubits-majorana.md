@@ -1,4 +1,5 @@
 ---
+summary: "拓扑保护要先有无争议的马约拉纳零模并能操控它，这一步仍未完成，不是容错计算已经实现。零偏压峰可以由普通束缚态冒充；进入某种拓扑相的宣称，也不等于零模已经编码并完成编织。"
 title: 拓扑量子比特与马约拉纳费米子
 title_en: Topological Qubits and Majorana Fermions — Microsoft's Bet and the Physics It Depends On
 status: published

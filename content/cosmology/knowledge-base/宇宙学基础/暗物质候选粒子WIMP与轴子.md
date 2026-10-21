@@ -1,4 +1,5 @@
 ---
+summary: "暗物质的引力证据与它究竟是哪种粒子是两件独立的事。液氙把一部分弱相互作用窗口涂黑，并不排除轴子或更弱的耦合，两类粒子都还没被发现。"
 title: 暗物质候选粒子：WIMP 与轴子
 titleEn: Dark Matter Candidates - WIMPs and Axions
 category: 宇宙学基础

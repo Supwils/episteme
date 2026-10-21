@@ -1,4 +1,5 @@
 ---
+summary: "这张云室底片钉住的是正电荷且远轻于质子的径迹，不是整部反物质史。铅板先给出飞行方向，弯曲才读成电荷；质量窗只排除质子，并未测到与电子同质量，也不是对产生讲义。"
 title: 安德森 1932：云室里那条反弯的轻径迹
 title_en: Anderson 1932 — The Cloud-Chamber Track That Was Not a Proton
 status: published

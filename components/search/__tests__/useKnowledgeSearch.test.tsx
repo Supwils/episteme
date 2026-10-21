@@ -39,6 +39,24 @@ afterEach(() => {
 });
 
 describe("useKnowledgeSearch", () => {
+  it.each([
+    { input: "  " + "𠀀".repeat(121), expected: "𠀀".repeat(120) },
+    { input: "热\ud800力学", expected: "热�力学" },
+  ])("sends the same well-formed query to both tiers", async ({ input, expected }) => {
+    searchMock.mockResolvedValue([]);
+    const fetchMock = mockPhraseApi([
+      { title: "正文", url: "/body", section: "physics", kind: "article" },
+    ]);
+    const { result } = renderHook(() => useKnowledgeSearch());
+    act(() => result.current.setQuery(input));
+    await waitFor(() => expect(result.current.searching).toBe(false));
+    expect(searchMock).toHaveBeenCalledWith(expected, 30);
+    expect(
+      new URL(fetchMock.mock.calls[0]![0] as string, "http://localhost").searchParams.get("q")
+    ).toBe(expected);
+    expect(result.current.bodyResults).toHaveLength(1);
+  });
+
   it("clears old title and body matches while a replacement query is pending", async () => {
     searchMock.mockResolvedValue([titleHit("/old-title")]);
     const fetchMock = mockPhraseApi([

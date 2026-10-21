@@ -30,6 +30,7 @@ describe("mobile table of contents sheet", () => {
 
     const dialog = await screen.findByRole("dialog", { name: "目录" });
     expect(document.body.style.overflow).toBe("hidden");
+    expect(trigger.hasAttribute("inert")).toBe(true);
 
     const close = within(dialog).getByRole("button", { name: "关闭" });
     const lastLink = within(dialog).getByRole("link", { name: "第二" });
@@ -51,5 +52,19 @@ describe("mobile table of contents sheet", () => {
     expect(await screen.findByRole("dialog")).toBeTruthy();
     fireEvent.click(screen.getByRole("presentation"));
     expect(screen.queryByRole("dialog")).toBeNull();
+  });
+});
+
+describe("table of contents labels", () => {
+  it("prefers the heading's plain data-toc-label over its rendered math text", async () => {
+    document.body.innerHTML = `
+      <main>
+        <h2 id="zeta" data-toc-label="ζ 函数"><span>ζ\\zetaζ</span> 函数<a data-heading-anchor>#</a></h2>
+      </main>
+    `;
+    render(<TableOfContents />);
+    fireEvent.click(await screen.findByRole("button", { name: "目录" }));
+    const dialog = await screen.findByRole("dialog");
+    expect(within(dialog).getByRole("link", { name: "ζ 函数" })).toBeTruthy();
   });
 });

@@ -24,7 +24,9 @@ export function SearchResults({
   onActivate,
   onSelect,
 }: SearchResultsProps) {
-  const indexOf = new Map(flatResults.map((result, index) => [searchResultDomId(result), index]));
+  // Grouping reuses the same objects, so identity maps each row back to its
+  // place in the keyboard walk.
+  const indexOf = new Map(flatResults.map((result, index) => [result, index]));
 
   const grouped = new Map<Section, SearchResult[]>();
   for (const result of orderResultsForDisplay(titleResults, [])) {
@@ -35,11 +37,12 @@ export function SearchResults({
   }
 
   const renderItem = (result: SearchResult, showSectionLabel = false) => {
-    const id = searchResultDomId(result);
-    const index = indexOf.get(id) ?? 0;
+    const index = indexOf.get(result) ?? -1;
+    const id = searchResultDomId(index);
     return (
       <SearchResultItem
         key={id}
+        domId={id}
         result={result}
         query={query}
         isActive={index === activeIndex}

@@ -1,4 +1,5 @@
 ---
+summary: "赫罗图是恒星随燃料和半径移动的演化路径，主序、巨星和白矮星是停留最久的路段，不是分类标签。右上方并不更年轻，空隙星少是因为穿越太快，主序质光关系不能外推超巨星。"
 title: 赫罗图
 titleEn: Hertzsprung-Russell Diagram
 category: 恒星物理

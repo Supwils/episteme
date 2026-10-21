@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { readerKeyFigureLabel } from "@/lib/reader-key-figure-label";
 import { getAllSchools } from "@/subjects/economics/lib/mdx";
 import { ERA_COLORS } from "@/subjects/economics/lib/constants";
 
@@ -97,7 +98,7 @@ export default function SchoolsPage() {
                             key={name}
                             className="border-fg-disabled/30 text-fg-muted rounded-none border px-2 py-0.5 font-mono text-[9px] tracking-[0.22em]"
                           >
-                            {name}
+                            {readerKeyFigureLabel(school.content, name)}
                           </span>
                         ))}
                       </div>

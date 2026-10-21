@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { withCanonicalPath } from "@/lib/article-canonical";
+import { extractExcerpt } from "@/lib/content-utils";
 import Link from "next/link";
 import { getIsmBySlug, buildSlugByTitleMap, getAllIsms } from "@/lib/isms";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -21,16 +22,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const ism = getIsmBySlug(slug);
   if (!ism) notFound();
-  const description = `${ism.category} · ${ism.title}`;
-  const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(ism.title)}&section=philosophy&description=${encodeURIComponent(description)}`;
   return withCanonicalPath(`/philosophy/isms/${slug}`, {
     title: `${ism.title}（${ism.title_en}）— 哲学主义`,
-    description,
-    openGraph: {
-      title: `${ism.title}（${ism.title_en}）— 哲学主义`,
-      description,
-      images: [{ url: ogImage, width: 1200, height: 630 }],
-    },
+    description: ism.summary ?? extractExcerpt(ism.content),
   });
 }
 
@@ -52,7 +46,7 @@ export default async function IsmDetailPage({ params }: { params: Promise<{ slug
 
   const jsonLd = createArticleJsonLd({
     title: `${ism.title}（${ism.title_en}）`,
-    description: `${ism.category} · ${ism.title}`,
+    description: extractExcerpt(ism.content),
     url: `${SITE_URL}/philosophy/isms/${slug}`,
     author: ism.key_figures[0] ?? "Episteme · 格致",
     keywords: [ism.title, ism.title_en, ism.category, ...ism.key_figures],
@@ -74,6 +68,7 @@ export default async function IsmDetailPage({ params }: { params: Promise<{ slug
         eyebrowMeta={[ism.era]}
         title={ism.title}
         titleEn={ism.title_en}
+        lede={ism.summary}
         content={ism.content}
         meta={ism.key_figures.length > 0 ? <>关键人物：{ism.key_figures.join("、")}</> : undefined}
         sidebar={

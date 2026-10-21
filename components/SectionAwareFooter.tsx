@@ -24,7 +24,9 @@ const EXPLORE_LINKS = [
 
 export function SectionAwareFooter() {
   const pathname = usePathname();
-  const inSection = SECTION_SHELL_PREFIXES.some((p) => pathname.startsWith(p));
+  const inSection = SECTION_SHELL_PREFIXES.some(
+    (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`)
+  );
 
   if (inSection) return null;
 
@@ -109,7 +111,8 @@ export function SectionAwareFooter() {
         </div>
 
         <div className="border-border-faint flex flex-wrap items-center justify-between gap-3 border-t pt-6">
-          <span className="text-fg-disabled text-[0.72rem]">
+          {/* ISR HTML can be rendered in an earlier year than the reader's clock. */}
+          <span className="text-fg-disabled text-[0.72rem]" suppressHydrationWarning>
             © {new Date().getFullYear()} Episteme · 格致. All rights reserved.
           </span>
           <div className="flex items-center gap-4">

@@ -67,6 +67,23 @@ describe("deriveTakeaway", () => {
 });
 
 describe("deriveAskPrompts", () => {
+  it("skips keyword and fact-card apparatus in the published decoherence article", () => {
+    const content = readFileSync(
+      "content/universe-physics/knowledge-base/量子物理/quantum-decoherence.md",
+      "utf8"
+    );
+    const prompts = deriveAskPrompts(content);
+    const firstBody = extractH2Headings(content).find((heading) =>
+      heading.text.startsWith("退相干不等于坍缩")
+    );
+    expect(prompts.find((prompt) => prompt.label === "往下看核心章节")?.href).toBe(
+      `#${firstBody!.id}`
+    );
+    expect(prompts.some((prompt) => prompt.href === "#关键词" || prompt.href === "#事实卡")).toBe(
+      false
+    );
+  });
+
   it("uses the explicit heading id in prompt hrefs", () => {
     const prompts = deriveAskPrompts(`## 破除误解 {#myth}
 

@@ -1,4 +1,5 @@
 ---
+summary: "利率是资金与时间的价格：上升加重借贷、压低远期利润的现值，下降则减轻月供并抬高资产估值。它要经过银行、长短端与汇率才传到实体，长期利率还受通胀预期左右。"
 title: 利率如何影响你的生活
 titleEn: How Interest Rates Affect Your Life
 category: 宏观经济学

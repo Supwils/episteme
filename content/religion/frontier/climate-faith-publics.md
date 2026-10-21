@@ -1,6 +1,7 @@
 ---
 title: 气候危机改变宗教公众了吗
 title_en: Has the Climate Crisis Changed Religious Publics
+summary: "2023 年教宗发布《Laudate Deum》，COP28 首次在核心场地设立信仰馆。开放问题是：这些文件与馆舍改变了信徒公众的气候态度，还是只改写了精英外交的嘉宾名单。"
 status: published
 updated: 2026-09-11
 category: 宗教与生态

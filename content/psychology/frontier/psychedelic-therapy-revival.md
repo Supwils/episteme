@@ -1,4 +1,5 @@
 ---
+summary: "试验仍在检验未结算的假说：致幻化合物配合治疗，或能在数次给药后留下持续数周的效应。设盲几乎做不到，FDA 尚未批准上市，回路机制也尚未充分阐明。"
 title: 致幻剂辅助心理治疗的复兴与争议
 title_en: The Revival and Controversy of Psychedelic-Assisted Psychotherapy
 status: published

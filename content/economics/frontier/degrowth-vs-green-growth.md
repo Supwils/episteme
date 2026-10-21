@@ -1,4 +1,5 @@
 ---
+summary: "争论收窄成一个实证问题：增长能否把排放与资源压进行星边界且足够快。全球消费与材料口径的绝对脱钩从未被观察到，后增长路径仍只是单团队模型。"
 title: 去增长与绿色增长之争：脱钩证据的边界在哪里
 title_en: Degrowth vs. Green Growth — Where the Decoupling Evidence Runs Out
 status: published

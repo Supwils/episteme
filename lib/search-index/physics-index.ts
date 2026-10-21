@@ -1,4 +1,9 @@
+import path from "node:path";
+import { readContentBySlug } from "@/lib/content-article";
+import { getDomainContentDir } from "@/lib/content-paths";
+import { personDisplayName } from "@/lib/person-display-name";
 import type { SearchDocument } from "./types";
+
 const TIER_ROUTES: Record<string, string> = {
   T0: "observable",
   T1: "cosmic-web",
@@ -123,11 +128,14 @@ export function indexPhysics(
   }
 
   if (physicsDialoguesDataMod) {
+    const dialogueDir = path.join(getDomainContentDir("universe-physics"), "dialogues");
     for (const dialogue of physicsDialoguesDataMod.UNIVERSE_PHYSICS_DIALOGUES_DATA) {
+      const body = readContentBySlug(dialogueDir, dialogue.slug, undefined, "safe")?.content ?? "";
       docs.push({
         id: `physics-dialogue-${dialogue.slug}`,
         title: dialogue.title,
-        subtitle: dialogue.participants.join("、"),
+        subtitle: dialogue.participants.map((id) => personDisplayName(id, body)).join("、"),
+        aliases: dialogue.participants.join(" "),
         content: `${dialogue.description} ${dialogue.tags.join(" ")}`,
         section: "physics",
         url: `/universe-physics/dialogues/${dialogue.slug}`,

@@ -1,6 +1,7 @@
 ---
 title: AI 与劳动过程的再组织
 title_en: AI and the Reorganization of Labor
+summary: "AI 对劳动的影响不只是替代岗位，而是进入派单、排班、评估与招聘，重组劳动过程；本篇主张以任务为分析单位，并追问模型建议的责任归属。"
 status: published
 updated: 2026-07-04
 category: 劳动与技术

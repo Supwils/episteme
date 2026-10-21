@@ -1,4 +1,5 @@
 ---
+summary: "银河系是我们身处其中的棒旋星系，外盘旋转速度不随距离下降，要求可见物质之外还有延伸的暗晕。旋臂是密度波而不是固定的恒星臂，从盘内重建全局结构仍受尘埃和投影限制。"
 title: 银河系结构
 titleEn: Structure of the Milky Way
 category: 星系天文学
@@ -29,7 +30,7 @@ status: published
 
 银心（Galactic Center）距太阳约 26,000 光年（8 kpc），方向位于射手座。银心附近有一个**棒状核球**（Galactic Bar），长轴约 27,000 光年，与太阳-银心连线成约 44° 的倾角（Wegg et al. 2015，红外星数计数方法）。
 
-**超大质量黑洞人马座 A\***：银心驻留着质量约 $4 \times 10^6 M_\odot$ 的[[supermassive-black-holes|超大质量黑洞]]人马座 A*。2022 年，[[event-horizon-telescope|事件视界望远镜]]（EHT）公布了人马座 A* 的首张影像，其视界张角约 50 微角秒，与理论预言的史瓦西半径一致（EHT Collaboration 2022，_The Astrophysical Journal Letters_）。
+**超大质量黑洞人马座 A\***：银心驻留着质量约 $4 \times 10^6 M_\odot$ 的[[supermassive-black-holes|超大质量黑洞]]人马座 A*。2022 年，[[event-horizon-telescope|事件视界望远镜]]（EHT）公布了人马座 A* 的首张影像。亮环角直径约 52 微角秒，对应的是黑洞影子（大约 5.2 倍史瓦西半径），不是视界本身；史瓦西半径在银心距离上只张约 10 微角秒（EHT Collaboration 2022，_The Astrophysical Journal Letters_ 930, L12）。
 
 ### 旋臂结构
 

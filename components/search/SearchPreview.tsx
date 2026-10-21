@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { loadLinkPreviews } from "@/lib/link-preview-client";
 import { isSafeInternalPath } from "@/lib/urls";
 import { SectionMark } from "./SectionMark";
 import { SECTION_META, TYPE_LABELS, type SearchResult, type Section } from "./types";
@@ -23,11 +25,34 @@ export function SearchPreview({
   result: SearchResult | undefined;
   onNavigate: (url: string) => void;
 }) {
+  const url = result?.url;
+  const loadable = Boolean(result && !result.snippet && !NOT_IN_GRAPH.has(result.kind));
+  const [loaded, setLoaded] = useState<{ url: string; excerpt: string } | null>(null);
+
+  useEffect(() => {
+    if (!url || !loadable || !isSafeInternalPath(url)) return;
+    let active = true;
+    const viewport = window.matchMedia("(min-width: 960px)");
+    const load = () => {
+      if (!viewport.matches) return;
+      void loadLinkPreviews(url).then((previews) => {
+        if (active) setLoaded({ url, excerpt: previews[url]?.e ?? "" });
+      });
+    };
+    load();
+    viewport.addEventListener("change", load);
+    return () => {
+      active = false;
+      viewport.removeEventListener("change", load);
+    };
+  }, [url, loadable]);
+
   if (!result || !isSafeInternalPath(result.url)) {
     return <aside className="gs-preview" aria-hidden />;
   }
   const section = SECTION_META[result.section as Section];
   const kind = TYPE_LABELS[result.kind];
+  const excerpt = loaded?.url === result.url ? loaded.excerpt : "";
   const follow = (href: string) => (event: React.MouseEvent) => {
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return;
     event.preventDefault();
@@ -43,6 +68,7 @@ export function SearchPreview({
       <h3 className="gs-preview-title">{result.title}</h3>
       {result.subtitle && <p className="gs-preview-subtitle">{result.subtitle}</p>}
       {result.snippet && <p className="gs-preview-snippet">…{result.snippet}…</p>}
+      {!result.snippet && excerpt && <p className="gs-preview-snippet">{excerpt}</p>}
       <div className="gs-preview-actions">
         <a
           href={result.url}

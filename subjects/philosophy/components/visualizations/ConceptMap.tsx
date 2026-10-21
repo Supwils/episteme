@@ -201,6 +201,9 @@ export function ConceptMap({ className }: ConceptMapProps) {
   const domainCentersRef = useRef(computeDomainCenters());
   const animFrameRef = useRef<number>(0);
   const draggingRef = useRef<string | null>(null);
+  const draggedRef = useRef(false);
+  const dragOriginRef = useRef<{ x: number; y: number } | null>(null);
+  const suppressClickRef = useRef(false);
 
   const [tick, setTick] = useState(0);
   const [zoom, setZoom] = useState(1);
@@ -383,12 +386,15 @@ export function ConceptMap({ className }: ConceptMapProps) {
       if (nodeGroup) {
         const nodeId = nodeGroup.getAttribute("data-node-id");
         if (nodeId) {
+          draggedRef.current = false;
+          dragOriginRef.current = { x: e.clientX, y: e.clientY };
           draggingRef.current = nodeId;
           const node = nodesRef.current.find((n) => n.id === nodeId);
           if (node) {
             node.fx = node.x;
             node.fy = node.y;
           }
+          setTick((t) => t + 1);
           e.stopPropagation();
           return;
         }
@@ -403,6 +409,12 @@ export function ConceptMap({ className }: ConceptMapProps) {
   const handlePointerMove = useCallback(
     (e: React.PointerEvent) => {
       if (draggingRef.current) {
+        const origin = dragOriginRef.current;
+        if (origin) {
+          const dx = e.clientX - origin.x;
+          const dy = e.clientY - origin.y;
+          if (dx * dx + dy * dy > 16) draggedRef.current = true;
+        }
         const pos = getPointerGraphPos(e);
         const node = nodesRef.current.find((n) => n.id === draggingRef.current);
         if (node) {
@@ -430,7 +442,11 @@ export function ConceptMap({ className }: ConceptMapProps) {
         node.fx = null;
         node.fy = null;
       }
+      if (draggedRef.current) suppressClickRef.current = true;
+      draggedRef.current = false;
+      dragOriginRef.current = null;
       draggingRef.current = null;
+      setTick((t) => t + 1);
       return;
     }
     setIsPanning(false);
@@ -649,7 +665,11 @@ export function ConceptMap({ className }: ConceptMapProps) {
                   onPointerEnter={() => setHoveredId(node.id)}
                   onPointerLeave={() => setHoveredId(null)}
                   onClick={(e) => {
-                    if (draggingRef.current) return;
+                    if (suppressClickRef.current) {
+                      suppressClickRef.current = false;
+                      e.stopPropagation();
+                      return;
+                    }
                     e.stopPropagation();
                     handleNodeClick(node.id);
                   }}

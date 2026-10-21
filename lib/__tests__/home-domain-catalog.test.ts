@@ -166,7 +166,8 @@ describe("static sitemap exploration routes", () => {
     expect(source).toContain('path: "/curiosities"');
     expect(source).toContain('path: "/molecules"');
     expect(source).toContain('path: "/search"');
-    expect(source).toContain('path: "/random"');
+    // /random answers with a different 307 on every request, so it stays out.
+    expect(source).not.toContain('path: "/random"');
     expect(source).toContain('path: "/philosophy/tree"');
     expect(source).toContain('path: "/life-science/food-web"');
     expect(source).toContain('path: "/cosmology/stellar-evolution"');
@@ -192,14 +193,6 @@ describe("cosmology home uses theme tokens for chrome", () => {
   it("does not hardcode a white hover that vanishes in the light theme", () => {
     const source = readFileSync("app/cosmology/page.tsx", "utf-8");
     expect(source).not.toMatch(/hover:bg-white/);
-  });
-});
-
-describe("daily loading skeleton uses theme tokens", () => {
-  it("does not hardcode white pulses that vanish in the light theme", () => {
-    const source = readFileSync("app/daily/loading.tsx", "utf-8");
-    expect(source).not.toMatch(/bg-white\//);
-    expect(source).not.toMatch(/border-white\//);
   });
 });
 

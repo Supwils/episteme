@@ -1,4 +1,5 @@
 ---
+summary: "被称作复活恐狼的幼崽，基因组主体仍是现代灰狼，只改了少数位点，得到的是表型代理。生态功能与可维持种群尚未达到；长毛性状的小鼠验证当时只以预印本发布，未经同行评议。"
 title: 去灭绝——复活恐狼、猛犸与袋狼的工程与幻象
 title_en: De-Extinction — Engineering the Dire Wolf, Mammoth, and Thylacine
 status: published

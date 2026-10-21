@@ -20,7 +20,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const experiment = getExperimentBySlug(slug);
   if (!experiment) notFound();
-  const description = `${experiment.philosopher} 的思想实验：${experiment.title_en}`;
+  const description =
+    experiment.summary ?? `${experiment.philosopher} 的思想实验：${experiment.title_en}`;
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(experiment.title)}&section=philosophy&description=${encodeURIComponent(description)}`;
   return withCanonicalPath(`/philosophy/experiments/${slug}`, {
     title: `${experiment.title} — 思想实验`,
@@ -88,6 +89,7 @@ export default async function ExperimentDetailPage({
         eyebrowMeta={[formatYear(experiment.year)]}
         title={experiment.title}
         titleEn={experiment.title_en}
+        lede={experiment.summary}
         content={experiment.content}
         meta={<span className="text-sm">{experiment.philosopher}</span>}
         tags={experiment.tags}

@@ -1,4 +1,5 @@
 ---
+summary: "脑机接口解码的是校准后的运动意图，不是抽象思想，也不是某家公司才发明的。语音提速来自同行评议的小样本；公司口径的入组不是上市批准，内心语言也才刚碰到读心的边界。"
 title: 脑机接口临床元年——从瘫痪患者的光标到被解码的内心语言
 title_en: Brain-Computer Interfaces Go Clinical — From Cursors to Inner Speech
 status: published

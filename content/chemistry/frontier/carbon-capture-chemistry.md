@@ -1,6 +1,7 @@
 ---
 title: 碳捕集与转化：从空气里把二氧化碳"抓"回来，再让它有用
 title_en: Carbon Capture and Conversion — Pulling CO₂ Back from the Air and Making It Useful
+summary: "2021 年 Climeworks 在冰岛启动 Orca，设计年捕集约 4000 吨 CO₂，相对每年约 370 亿吨排放只是沧海一粟；碳捕集不是气候的免罪符。"
 status: published
 updated: 2026-09-12
 category: 能源化学

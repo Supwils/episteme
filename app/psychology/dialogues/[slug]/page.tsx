@@ -17,7 +17,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const dialogue = getDialogueBySlug(slug);
   if (!dialogue) notFound();
-  const description = `${dialogue.participants.join("、")}的对话：${dialogue.question}`;
+  const description =
+    dialogue.summary ?? `${dialogue.participants.join("、")}的对话：${dialogue.question}`;
   return withCanonicalPath(`/psychology/dialogues/${slug}`, {
     title: `${dialogue.title} — 思想对话`,
     description,
@@ -57,6 +58,7 @@ export default async function DialogueDetailPage({
       eyebrow={dialogue.era}
       title={dialogue.title}
       titleEn={dialogue.title_en}
+      lede={dialogue.summary}
       content={dialogue.content}
       meta={
         <>

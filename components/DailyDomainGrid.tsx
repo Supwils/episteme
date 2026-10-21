@@ -1,10 +1,10 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { SpotlightGrid } from "@/components/motion/SpotlightGrid";
 import type { DailySelected } from "../lib/daily-selector";
-import { dailyIconFor, dailyLabelFor } from "@/lib/daily-display";
+import { dailyCardHref, dailyIconFor, dailyLabelFor } from "@/lib/daily-display";
 
 type DailyDomainGridProps = {
   daily: DailySelected;
@@ -229,14 +229,13 @@ const itemVariants = {
 };
 
 export function DailyDomainGrid({ daily }: DailyDomainGridProps) {
-  const reduce = useReducedMotion();
-
+  // Knowledge is visible in the HTML, even without hydration or animation.
   return (
     <SpotlightGrid className="mx-auto w-full max-w-3xl">
       <motion.div
         className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4"
-        variants={reduce ? undefined : containerVariants}
-        initial="hidden"
+        variants={containerVariants}
+        initial={false}
         animate="show"
       >
         {DOMAIN_CONFIGS.map((config) => {
@@ -244,7 +243,7 @@ export function DailyDomainGrid({ daily }: DailyDomainGridProps) {
           return (
             <motion.div key={config.key} variants={itemVariants}>
               <Link
-                href={item.url || config.url}
+                href={dailyCardHref(item.url, config.url)}
                 data-spotlight
                 style={{ "--spot": config.color } as React.CSSProperties}
                 className="group hover:bg-bg-elevated border-border-faint bg-bg-panel relative block h-full rounded-xl border p-4 no-underline transition-all duration-300"

@@ -8,6 +8,7 @@ import { ClimbInvite } from "@/components/portal/ClimbInvite";
 import { DeferredHomeKnowledgeContinuum } from "@/components/DeferredHomeKnowledgeContinuum";
 import { astrolabeDomainOfDay } from "@/lib/astrolabe";
 import { SITE_URL } from "../lib/constants";
+import { SITE_DESCRIPTION } from "@/lib/site-copy";
 import "@/components/portal/portal.css";
 
 export const revalidate = 3600;
@@ -15,10 +16,10 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
   title: "Episteme · 格致 — 从问题出发",
-  description: "整理二十二个领域的文章、知识图谱与阅读路线，帮助你顺着概念之间的联系继续阅读。",
+  description: SITE_DESCRIPTION,
   openGraph: {
     title: "Episteme · 格致 — 从问题出发",
-    description: "整理二十二个领域的文章、知识图谱与阅读路线，帮助你顺着概念之间的联系继续阅读。",
+    description: SITE_DESCRIPTION,
     type: "website",
     images: [
       {
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Episteme · 格致 — 从问题出发",
-    description: "整理二十二个领域的文章、知识图谱与阅读路线，帮助你顺着概念之间的联系继续阅读。",
+    description: SITE_DESCRIPTION,
     images: [
       `/api/og?title=${encodeURIComponent("Episteme · 格致")}&description=${encodeURIComponent("从问题出发，顺着知识的线索继续读下去")}`,
     ],
@@ -58,18 +59,19 @@ const websiteJsonLd = {
 /**
  * 首页（E4）：① 格致仪 → ② 六簇二十二域 → ③ 今天 → ④ 读完一个主题 →
  * ⑤ 知识连续体 → ⑥ 登上格致山。全部服务端渲染；客户端只有格致仪的选择
- * 控制器、书架的抽书预览与延后载入的连续体。
+ * 控制器、每日区域的跨日刷新、书架抽书预览与延后载入的连续体。
  */
 export default function HomePage() {
+  const now = new Date();
   return (
     <div className="home">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(websiteJsonLd) }}
       />
-      <Astrolabe selected={astrolabeDomainOfDay()} />
+      <Astrolabe selected={astrolabeDomainOfDay(now)} />
+      <TodaySection now={now} />
       <ClusterAtlas />
-      <TodaySection />
       <ReadingShelf />
       <DeferredHomeKnowledgeContinuum />
       <ClimbInvite />

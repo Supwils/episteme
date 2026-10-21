@@ -25,7 +25,7 @@ export function LearningPlanRoute({
   const completedNodeIds = useLearningPlanProgress(planId);
   const completed = new Set(completedNodeIds);
   const completedCount = steps.filter((step) => completed.has(step.nodeId)).length;
-  const progress = Math.round((completedCount / steps.length) * 100);
+  const progress = steps.length === 0 ? 0 : Math.round((completedCount / steps.length) * 100);
 
   return (
     <>

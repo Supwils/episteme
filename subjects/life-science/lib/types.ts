@@ -61,8 +61,9 @@ export type Scientist = {
 };
 
 export type LifeScienceDialogue = {
+  summary?: string;
   slug: string;
-  /** Scientist registry ids (resolve via getScientistById for display/links). */
+  /** Participant ids. The page links scientists by id; the label is resolved separately. */
   participants: string[];
   title: string;
   question: string;

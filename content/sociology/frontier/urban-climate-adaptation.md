@@ -1,6 +1,7 @@
 ---
 title: 城市气候适应的社会不平等
 title_en: Urban Climate Adaptation and Social Inequality
+summary: "IPCC 2022 年指出城市脆弱性增长最快的是非正规住区与中小城市；城市适应的社会问题是谁被保护、谁被迁走、谁承担成本。"
 status: published
 updated: 2026-07-04
 category: 城市与气候

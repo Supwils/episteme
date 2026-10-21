@@ -9,7 +9,8 @@ const enc = encodeURIComponent;
 function mdxSlugs(dir, n = 2) {
   if (!existsSync(dir)) return [];
   return readdirSync(dir)
-    .filter((f) => f.endsWith(".mdx") || f.endsWith(".md"))
+    // `<slug>.narration.md` is a spoken script, not an article; its URL 404s by design.
+    .filter((f) => (f.endsWith(".mdx") || f.endsWith(".md")) && !f.includes(".narration."))
     .slice(0, n)
     .map((f) => f.replace(/\.(mdx|md)$/, ""));
 }

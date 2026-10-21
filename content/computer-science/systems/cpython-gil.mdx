@@ -1,6 +1,7 @@
 ---
 title: CPython 的 GIL
 title_en: "CPython's GIL"
+summary: "CPython的全局解释器锁让同一时刻只有一个线程执行Python字节码，它让引用计数保持简单，也成了最受抱怨的边界；本文分析这把锁守着什么，以及自由线程构建如何改写对象头。"
 status: published
 updated: 2026-09-13
 category: 系统剖析

@@ -1,4 +1,5 @@
 ---
+summary: "扩大编码后逻辑错误率下降，只说明表面码在超导芯片上跨过阈值，不是通用容错机已经造成。物理错误率与逻辑错误率不是同一个数；更省比特的方案有的来自模拟，醒目改善也有事后丢弃。"
 title: 量子纠错跨过门槛
 title_en: Quantum Error Correction Crosses the Threshold
 status: published

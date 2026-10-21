@@ -6,6 +6,7 @@ import {
   nextTier,
   prevTier,
   type AnyTierId,
+  type TransitionKind,
   type UniverseTierId,
 } from "@/subjects/physics/lib/tier";
 import { useUniverseStore } from "@/subjects/physics/store/useUniverseStore";
@@ -82,34 +83,47 @@ export function ActiveScene({
   onSceneReady: () => void;
 }) {
   const transition = useUniverseStore((state) => state.transition);
+  const layers = sceneLayers(transition, initialTier);
 
-  if (transition.active && transition.kind === "dissolve" && transition.from && transition.to) {
-    return (
-      <>
-        <Suspense fallback={null}>
-          {renderScene(transition.from, 1 - transition.progress)}
-          <SceneReadySignal onReady={onSceneReady} />
-        </Suspense>
-        <Suspense fallback={null}>{renderScene(transition.to, transition.progress)}</Suspense>
-      </>
-    );
-  }
-
-  if (transition.active && transition.from) {
-    return (
-      <Suspense fallback={null}>
-        {renderScene(transition.from, 1)}
-        <SceneReadySignal onReady={onSceneReady} />
-      </Suspense>
-    );
-  }
-
+  // One keyed Suspense per tier under a stable parent: when a dissolve ends,
+  // the destination keeps its key and stays mounted instead of being torn
+  // down and rebuilt because the tree shape changed.
   return (
-    <Suspense fallback={null}>
-      {renderScene(initialTier, 1)}
-      <SceneReadySignal onReady={onSceneReady} />
-    </Suspense>
+    <>
+      {layers.map((layer, index) => (
+        <Suspense key={layer.tier} fallback={null}>
+          {renderScene(layer.tier, layer.opacity)}
+          {index === 0 ? <SceneReadySignal onReady={onSceneReady} /> : null}
+        </Suspense>
+      ))}
+    </>
   );
+}
+
+type SceneLayer = { tier: AnyTierId; opacity: number };
+
+type SceneTransition = {
+  active: boolean;
+  kind: TransitionKind | null;
+  from: AnyTierId | null;
+  to: AnyTierId | null;
+  progress: number;
+};
+
+/** First layer is the one whose load marks the scene as ready. */
+export function sceneLayers(
+  transition: SceneTransition,
+  initialTier: UniverseTierId
+): SceneLayer[] {
+  const { active, kind, from, to, progress } = transition;
+  if (active && kind === "dissolve" && from && to && from !== to) {
+    return [
+      { tier: from, opacity: 1 - progress },
+      { tier: to, opacity: progress },
+    ];
+  }
+  if (active && from) return [{ tier: from, opacity: 1 }];
+  return [{ tier: initialTier, opacity: 1 }];
 }
 
 function renderScene(tier: AnyTierId, opacity: number): ReactNode {

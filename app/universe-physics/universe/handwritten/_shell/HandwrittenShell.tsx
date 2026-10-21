@@ -40,10 +40,10 @@ export function HandwrittenShell({ children }: { children: ReactNode }) {
       className="relative h-dvh w-full overflow-hidden"
       style={{ background: "var(--hw-bg)", color: "var(--hw-ink)" }}
     >
-      <SkipLink targetId="main-content" />
+      <SkipLink targetId="universe-scene" />
       <TierAriaLive />
       <svg
-        id="main-content"
+        id="universe-scene"
         tabIndex={-1}
         className="absolute inset-0 h-full w-full focus:outline-none"
         viewBox={HW_VIEWBOX_STRING}

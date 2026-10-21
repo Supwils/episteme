@@ -1,6 +1,7 @@
 ---
 title: 地质碳封存：把二氧化碳塞回地下，地球答应吗
 title_en: Geological Carbon Storage — Will the Earth Keep the CO₂ We Bury?
+summary: "2025 年挪威 Northern Lights 首次把跨境运来的 CO₂ 注入北海咸水层；Sleipner 自 1996 年起累计封存接近 2000 万吨，另一条路是让 CO₂ 在玄武岩里变成石头。"
 status: published
 updated: 2026-09-12
 category: 碳与气候

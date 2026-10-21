@@ -1,0 +1,110 @@
+---
+title: Canetti–Goldreich–Halevi 1998：有些方案只在随机预言机里安全
+title_en: "The Random Oracle Methodology, Revisited"
+summary: "1998 年卡内蒂、戈德赖希与哈勒维构造出这样的签名与加密方案：在随机预言机模型里可证明安全，可一旦把预言机换成任何一个可以写出来的函数族，就能被攻破。由此，“模型里有证明，换上好哈希就安全”不能当一般原则使用。"
+status: published
+updated: 2026-10-01
+category: 计算理论
+order: 103
+field: 计算复杂性
+era: 当代
+key_figures: [拉恩·卡内蒂, 奥戴德·戈德赖希, 沙伊·哈勒维]
+tags: [随机预言机, 不可实例化, 相关不可解, STOC 1998, JACM 2004]
+related:
+  - bellare-rogaway-1993
+  - goldwasser-kalai-2003
+  - fiat-shamir-1986
+  - bellare-rogaway-1996-pss
+  - bellare-rogaway-1994-oaep
+  - cramer-shoup-1998
+  - goldreich-goldwasser-micali-1986
+  - computational-complexity
+  - cryptography-foundations
+---
+
+# Canetti–Goldreich–Halevi 1998：有些方案只在随机预言机里安全
+
+1998 年 5 月，第三十届 ACM 计算理论年会（STOC '98）在达拉斯举行。IBM 沃森研究中心的拉恩·卡内蒂（Ran Canetti）与沙伊·哈勒维（Shai Halevi），以及魏茨曼科学研究所的奥戴德·戈德赖希（Oded Goldreich），发表《The Random Oracle Methodology, Revisited》，会议录页码 209 至 218，DOI 为 10.1145/276698.276741。扩充后的期刊版 2004 年刊于《Journal of the ACM》第 51 卷第 4 期，页码 557 至 594，DOI 为 10.1145/1008731.1008734。
+
+本页的对象是这篇论文的核心结论：存在签名方案和加密方案，在随机预言机模型里是安全的，但无论用哪一个可以在多项式时间内求值的函数族去代替预言机，得到的方案都不安全。论文称之为随机预言机方法论的“不可实例化”。它针对的是[[bellare-rogaway-1993|贝拉雷与罗加韦 1993 年]]提出的那套做法：先在模型里设计和证明，再换成真实哈希。
+
+## 背景：从“实现随机预言机”到“实现不了”
+
+论文的问题意识有一段前史。卡内蒂 1997 年在 CRYPTO '97 上发表《Towards Realizing Random Oracles》，尝试为随机预言机的某一项用途找到标准模型下的替代：他定义了“完全单向”的概率性哈希，要求输出不泄露输入的任何部分信息，并在具体的数论假设下构造出来。那篇的思路是一项一项地把预言机的性质“实现”出来。一年后的本篇反过来问：有没有可能一次性实现预言机的全部性质？答案是否定的，而且否定得很彻底。
+
+到 1998 年，随机预言机已经是设计实用方案的标准做法：[[bellare-rogaway-1994-oaep|OAEP]] 进了 PKCS #1 v2.0，[[bellare-rogaway-1996-pss|PSS]] 正在进入 IEEE P1363a，菲亚特–沙米尔式的签名也普遍以预言机证明为据。本篇因此不是在讨论一个冷门模型，而是在检验当时整个实用密码学的一条默认推理：模型里有证明，换上一个设计良好的哈希函数就安全。
+
+## 破除误解：不是对 SHA 或任何真实方案的攻击
+
+第一种误读，以为这篇论文攻破了某个常用的哈希函数，或某个已部署的方案。它没有。反例方案是专门构造的，带有一个在正常使用中不会触发、但在被实例化之后可以被攻击者触发的“后门”分支。论文要说明的是方法论层面的事实：随机预言机模型里的安全证明，在逻辑上不蕴含任何具体实现的安全。
+
+第二种误读，以为结论是“随机预言机模型没用”。三位作者的态度是：模型里的证明可以当作一种健全性检查，说明方案没有某类结构性缺陷，但不能当作对实现的保证。至于自然的、不是专门构造出来的方案，例如 [[bellare-rogaway-1994-oaep|OAEP]] 或 [[bellare-rogaway-1996-pss|PSS]]，论文没有对它们给出任何负面结论。
+
+第三种误读，把它和[[goldwasser-kalai-2003|戈德瓦塞尔与卡莱 2003]]混为一谈。那篇针对的是菲亚特–沙米尔变换这一具体用法，反例是一个本身安全的识别协议。本篇针对的是整个方法论，反例是专门造出来的签名和加密方案。两者结论方向相同，范围与技术不同。
+
+## 装置：一个函数族无法躲开自己的描述
+
+随机预言机与任何具体函数族之间有一个根本差别：具体函数族里的每个函数，都有一段可以写下来的短描述，例如一个种子加一段程序；随机函数没有。论文把这一差别变成一个可以检验的性质，叫“相关不可解”（correlation intractability）。
+
+先把对象说清楚。论文里的“函数族”是一组由种子 $s$ 索引的函数 $f_s$，每个都能在多项式时间内求值；实例化时随机选一个种子并把它公开，因为随机预言机本来就对所有参与者开放，攻击者也必须能求值。论文把“几乎不可能用随机预言机命中”的关系称为难以命中（evasive）的关系。设有一个关系 $R$，对随机预言机而言，几乎不可能找到满足它的输入输出对。若一个函数族也能让人找不到满足 $R$ 的对，就说它对 $R$ 相关不可解。论文证明，任何函数族都做不到对所有这样的关系相关不可解。反例关系用的是对角线：令 $R$ 包含所有满足“$y$ 等于以 $x$ 为描述的那个函数在 $x$ 上的值”的对。对随机预言机，这个关系很难被满足，因为预言机的答案与 $x$ 所描述的函数没有关系。对具体函数族，攻击者只要把当前函数自己的描述当作输入，就满足了它。
+
+有了这个工具，构造反例方案只需一步。拿一个在模型里安全的签名方案，修改签名算法：如果待签消息恰好满足上面的关系，也就是说，它是一段描述，而那段描述所定义的函数与当前使用的哈希在这一点上给出相同的值，签名者就把私钥一并交出。在随机预言机里，攻击者几乎不可能造出这样的消息，修改后的方案仍然安全。一旦预言机被换成任何一个具体函数族，攻击者就把那个函数族的描述当作消息提交，拿到私钥。用一个具体的画面来说：设实例化用的是 SHA-256。攻击者把“SHA-256 的程序代码”编码进一条消息 $m$ 提交签名；签名者运行这段代码，发现它在 $m$ 上的输出正好等于自己算出的哈希值，检查通过，于是交出私钥。在预言机的世界里，没有任何一段短代码能预测预言机的输出，这样的消息造不出来。
+
+这个最简单的版本要求消息长度可以超过函数描述的长度。论文还借助米卡利（Silvio Micali）的计算可靠证明（CS proofs），把检查“描述与哈希吻合”这一步换成核验一份短证明，签名者不必亲自运行那段描述。加密方案的反例按同样思路构造。
+
+这里有一个容易漏掉的细节：签名者要检查“消息所描述的函数在这一点上与当前哈希吻合”，就得把那段描述运行一遍，而描述要跑多久事先并不知道。签名算法本身必须是多项式时间的，不能无限制地等下去。最简单的版本让允许的运行步数随消息长度增长，攻击者只要把消息填得足够长，就能让任何一个具体函数族的求值落在限度之内。这也是这一版本需要长消息的原因。
+
+## 证明了什么，没有覆盖什么
+
+证明了：随机预言机方法论作为一般原则是不成立的。存在至少一个方案，模型里的证明成立，任何实例化都失败。
+
+没有覆盖：自然方案在真实哈希下是否安全。论文没有给出一个判别标准，说明哪类方案可以放心地实例化。这一空白此后一直存在。支持随机预言机模型的一方认为，反例都带有人为的后门，现实中的方案不会这样设计；批评的一方认为，正因为没有判别标准，模型里的证明不能被当作安全保证。两种意见至今并存，许多标准方案仍以随机预言机证明为主要依据。
+
+论文还提出了一个正面方向：既然随机函数做不到，能不能为某一具体用途，找到满足所需那一部分性质的具体函数族。后续研究沿这条线，为特定场景构造了可在标准假设下实例化的哈希，包括为菲亚特–沙米尔变换在某些协议上寻找相关不可解的函数族。
+
+这条线二十年后有了实质结果。本篇证明“对所有难以命中的关系都相关不可解”不可能；但对一类受限的关系，例如可以用有界大小电路描述的关系，相关不可解并不矛盾。2019 年卡内蒂、陈一镭等七位作者在 STOC 上，以及派克特（Chris Peikert）与希希安（Sina Shiehian）在 CRYPTO 上，先后在格上的困难假设下构造出这样的哈希族，后者只用标准的带误差学习（LWE）假设。把它代入菲亚特–沙米尔变换，就得到 NP 的非交互零知识证明。一个原本用来否定方法论的定义，最后成了在标准模型里实现预言机某一项用途的工具。
+
+三位作者自己承认，这个反例离不开“消息长度没有事先上界”这一点，于是留下了一种可能：只签短消息（短于密钥）、签名之间不保留状态的方案，也许可以放心地实例化。他们在 2004 年的 TCC 上把否定结论推广到这类方案，关键工具是一种新的交互证明系统。
+
+## 之后：更自然的反例，以及“不可区分”这把尺子
+
+本篇的反例常被批评为人造的。此后的工作试图回应这一批评。2002 年尼尔森（Jesper Buus Nielsen）在 CRYPTO 上证明，有一项本身很自然的密码学任务，即非交互的不可承诺加密，在随机预言机模型里可以实现，在标准模型里却不可能实现。这一次被分开的不是一个带后门的方案，而是一整类任务。2004 年贝拉雷、博尔德列娃（Alexandra Boldyreva）与帕拉西奥（Adriana Palacio）在欧洲密码学年会上给出一个看上去相当普通的混合加密方案，在模型里安全，任何实例化下都不安全。反例离实用方案越来越近，但仍没有落到一个已部署的方案上。
+
+另一条线不再追问“能不能实例化”，而是追问“具体的哈希构造离随机预言机有多远”。2004 年毛雷尔、伦纳（Renato Renner）与霍伦斯坦（Clemens Holenstein）提出不可区分性（indifferentiability）的框架：若一个用理想部件搭成的构造与随机预言机在这一意义下不可区分，那么在模型里证明安全的方案，换上这个构造仍然安全。2005 年科龙、多迪斯（Yevgeniy Dodis）、马利诺（Cécile Malinaud）与普尼亚（Prashant Puniya）据此指出，MD5、SHA-1、SHA-2 采用的梅克尔–达姆加德迭代本身就不满足这一条件。最直观的症状是长度扩展：知道 $H(m)$ 和 $m$ 的长度，不必知道 $m$，就能算出 $H(m \| \text{pad} \| m')$。随机预言机绝不会这样。用 $H(k \| m)$ 当消息认证码的系统因此可以被伪造，2009 年杜翁（Thai Duong）与里佐（Juliano Rizzo）对 Flickr 接口的攻击就是一例。HMAC 的两层结构、截断输出的 SHA-512/256，以及 SHA-3 采用的海绵结构，都可以看作对这一缺陷的修补。2011 年里斯滕帕特（Thomas Ristenpart）、沙哈姆（Hovav Shacham）与施林普顿（Thomas Shrimpton）又指出，不可区分性对“多阶段”的安全定义不保证可组合，这把尺子本身也有量程。
+
+## 一场持续的争论
+
+本篇也是“可证明安全”之争的一个固定参照。科布利茨与梅内塞斯 2004 年起发表一系列批评文章，认为理论密码学的定理—证明范式对实践的意义被高估。戈德赖希 2006 年写了一篇观点文章《On Post-Modern Cryptography》逐条反驳，他在文中明确表示这不是技术贡献，而是对一种立场的回应。耐人寻味的是，两边都可以引用本篇：批评者用它说明模型里的证明不可靠，戈德赖希一方则用它说明正因为模型不可靠，才需要严格的标准模型证明，而不是放弃证明。
+
+## 跨域连接
+
+- **[[bellare-rogaway-1993|贝拉雷–罗加韦 1993]]**：被重新审视的方法论。1993 年的原文已经把“换成真实哈希”标为启发式，本篇证明这一步在一般情况下确实会失败，而不只是没有被证明。
+- **[[goldwasser-kalai-2003|戈德瓦塞尔–卡莱 2003]]**：同一方向上针对菲亚特–沙米尔变换的反例。两篇都用到“程序可以把自己的描述当作输入”这一非黑盒思路，后者还借用了巴拉克的非黑盒技术。
+- **[[fiat-shamir-1986|菲亚特–沙米尔 1986]]**：最早把哈希当作随机挑战来用的方案之一。本篇的结论对它构成间接压力，五年后的戈德瓦塞尔–卡莱把压力变成了针对它的直接反例。
+- **[[goldreich-goldwasser-micali-1986|戈德赖希–戈德瓦塞尔–米卡利 1986]]**：伪随机函数的构造。带密钥的伪随机函数在密钥保密时与随机函数不可区分，但随机预言机必须对所有人公开，攻击者能看到函数的完整描述。本篇的对角线论证正是利用了这一点，GGM 的不可区分性在这里帮不上忙。
+- **[[cramer-shoup-1998|克拉默–肖普 1998]]**：同年发表的标准模型方案，不依赖随机预言机，就能抵抗自适应选择密文攻击。本篇的结论让这类方案的价值更清楚：它们的证明不会因为换哈希而失效，代价是更复杂的结构和更长的密文。
+- **[[computational-complexity|计算复杂性]]**：对角线论证是复杂性理论里最古老的工具之一，从图灵停机问题到时间层级定理都用它。本篇把同一工具用到密码学的模型问题上：任何一个能被写出来的函数，都可以被它自己的描述绊倒。
+- **[[bellare-rogaway-1996-pss|贝拉雷–罗加韦 1996 PSS]]** 与 **[[bellare-rogaway-1994-oaep|1994 OAEP]]**：今天 RFC 8017 里的两种 RSA 编码，安全依据都是随机预言机模型里的证明，并在实现中用 SHA 系列哈希构造的 MGF1 代替预言机。本篇的反例不针对它们，但说明这一步替换在逻辑上没有保证；标准文本在安全说明里也只把这些证明当作“比没有证明的构造更可靠”的依据。
+
+---
+
+## 参考文献
+
+- Ran Canetti, Oded Goldreich & Shai Halevi, "The Random Oracle Methodology, Revisited", *Proceedings of the 30th Annual ACM Symposium on Theory of Computing*, 1998, pp. 209–218. DOI: 10.1145/276698.276741. —— 本文对象（会议版）。
+- Ran Canetti, Oded Goldreich & Shai Halevi, "The Random Oracle Methodology, Revisited", *Journal of the ACM* 51(4), 2004, pp. 557–594. DOI: 10.1145/1008731.1008734. —— 期刊版。
+- Mihir Bellare & Phillip Rogaway, "Random Oracles are Practical: A Paradigm for Designing Efficient Protocols", *Proceedings of the 1st ACM Conference on Computer and Communications Security*, 1993, pp. 62–73. DOI: 10.1145/168588.168596. —— 被审视的方法论。
+- Shafi Goldwasser & Yael Tauman Kalai, "On the (In)security of the Fiat-Shamir Paradigm", *Proceedings of the 44th Annual IEEE Symposium on Foundations of Computer Science*, 2003, pp. 102–115. DOI: 10.1109/SFCS.2003.1238185. —— 针对菲亚特–沙米尔的反例。
+- Ran Canetti, "Towards Realizing Random Oracles: Hash Functions That Hide All Partial Information", *Advances in Cryptology — CRYPTO '97*, LNCS 1294, Springer, 1997, pp. 455–469. —— 逐项实现预言机性质的前史。
+- Jesper Buus Nielsen, "Separating Random Oracle Proofs from Complexity Theoretic Proofs: The Non-committing Encryption Case", *Advances in Cryptology — CRYPTO 2002*, LNCS 2442, Springer, 2002, pp. 111–126. —— 一整类任务的分离。
+- Mihir Bellare, Alexandra Boldyreva & Adriana Palacio, "An Uninstantiable Random-Oracle-Model Scheme for a Hybrid-Encryption Problem", *Advances in Cryptology — EUROCRYPT 2004*, LNCS 3027, Springer, 2004, pp. 171–188. —— 更接近实用的不可实例化方案。
+- Ueli Maurer, Renato Renner & Clemens Holenstein, "Indifferentiability, Impossibility Results on Reductions, and Applications to the Random Oracle Methodology", *Theory of Cryptography — TCC 2004*, LNCS 2951, Springer, 2004, pp. 21–39. —— 不可区分性框架。
+- Jean-Sébastien Coron, Yevgeniy Dodis, Cécile Malinaud & Prashant Puniya, "Merkle-Damgård Revisited: How to Construct a Hash Function", *Advances in Cryptology — CRYPTO 2005*, LNCS 3621, Springer, 2005, pp. 430–448. DOI: 10.1007/11535218_26. —— 梅克尔–达姆加德迭代与随机预言机的距离。
+- Thomas Ristenpart, Hovav Shacham & Thomas Shrimpton, "Careful with Composition: Limitations of the Indifferentiability Framework", *Advances in Cryptology — EUROCRYPT 2011*, LNCS 6632, Springer, 2011, pp. 487–506. —— 不可区分性的适用边界。
+- Oded Goldreich, "On Post-Modern Cryptography", IACR Cryptology ePrint Archive 2006/461. —— 对“可证明安全”批评的回应。
+- Ran Canetti, Oded Goldreich & Shai Halevi, "On the Random-Oracle Methodology as Applied to Length-Restricted Signature Schemes", *Theory of Cryptography — TCC 2004*, LNCS 2951, Springer, 2004, pp. 40–57. —— 限制消息长度时的情形。
+- Chris Peikert & Sina Shiehian, "Noninteractive Zero Knowledge for NP from (Plain) Learning with Errors", *Advances in Cryptology — CRYPTO 2019*, LNCS 11692, Springer, 2019, pp. 89–114. DOI: 10.1007/978-3-030-26948-7_4. —— 由带误差学习构造相关不可解哈希。
+
+## 延伸阅读
+
+- 与 [[bellare-rogaway-1993|贝拉雷–罗加韦 1993]] 对读：方法论的提出与它的一般性反例。
+- 与 [[goldwasser-kalai-2003|戈德瓦塞尔–卡莱 2003]] 对读：同一结论，从方法论收窄到一个具体变换。

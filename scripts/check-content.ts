@@ -271,7 +271,7 @@ function checkFile(filePath: string, allSlugs: Map<string, Set<string>>): CheckR
 
   let parsed: matter.GrayMatterFile<string>;
   try {
-    parsed = matter(raw);
+    parsed = matter(raw, {});
   } catch {
     issues.push({ type: "error", message: "Failed to parse frontmatter" });
     return { file: filePath, issues };
@@ -589,7 +589,7 @@ function checkFrontier(): { errors: number; warnings: number } {
       const raw = fs.readFileSync(path.join(dir, entry), "utf-8");
       let parsed: matter.GrayMatterFile<string>;
       try {
-        parsed = matter(raw);
+        parsed = matter(raw, {});
       } catch {
         console.log(`  \x1b[31mERROR\x1b[0m ${rel}: failed to parse frontmatter`);
         errors++;
@@ -679,7 +679,7 @@ function checkProseHygiene(): { errors: number; warnings: number } {
   for (const file of findAllContentFiles(CONTENT_ROOT)) {
     let body: string;
     try {
-      body = matter(fs.readFileSync(file, "utf-8")).content;
+      body = matter(fs.readFileSync(file, "utf-8"), {}).content;
     } catch {
       continue; // frontmatter parse errors are surfaced by the per-domain pass
     }

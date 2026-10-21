@@ -1,0 +1,26 @@
+diff --git a/lib/coreBundle.js b/lib/coreBundle.js
+index bc601fcf741792e3fc76884a28a3c43f80c6472f..ba173c031ca80ae5edb264eda3094c5dd504c7ba 100644
+--- a/lib/coreBundle.js
++++ b/lib/coreBundle.js
+@@ -8647,7 +8647,21 @@ async function launchProcess(options2) {
+   let fulfillCleanup = () => {
+   };
+   const waitForCleanup = new Promise((f) => fulfillCleanup = f);
++  let inheritedStdioTimer;
++  spawnedProcess.once("exit", () => {
++    // macOS Chrome helpers can retain inherited stdio after the browser exits.
++    // Allow final browser logs to drain, then release only our dead child's ends.
++    inheritedStdioTimer = setTimeout(() => {
++      if (processClosed)
++        return;
++      options2.log(`[pid=${spawnedProcess.pid}] <closing inherited stdio after process exit>`);
++      for (const stream of spawnedProcess.stdio)
++        stream?.destroy?.();
++    }, 1000);
++    inheritedStdioTimer.unref();
++  });
+   spawnedProcess.once("close", (exitCode, signal) => {
++    clearTimeout(inheritedStdioTimer);
+     options2.log(`[pid=${spawnedProcess.pid}] <process did exit: exitCode=${exitCode}, signal=${signal}>`);
+     processClosed = true;
+     gracefullyCloseSet.delete(gracefullyClose);

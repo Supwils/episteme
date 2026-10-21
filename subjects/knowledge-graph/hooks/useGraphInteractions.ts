@@ -7,6 +7,12 @@ import { animateFocus } from "@/lib/graph-engine";
 import { toRenderNodes, toRenderEdges } from "../lib/constants";
 import { buildPrimaryPrerequisitePath } from "../data/cognitive-metadata";
 
+export function isFiniteTransform(scale: number, offsetX: number, offsetY: number): boolean {
+  return (
+    scale > 0 && Number.isFinite(scale) && Number.isFinite(offsetX) && Number.isFinite(offsetY)
+  );
+}
+
 type InteractionDeps = {
   canvasRef: React.RefObject<HTMLCanvasElement | null>;
   containerRef: React.RefObject<HTMLDivElement | null>;
@@ -191,35 +197,43 @@ export function useGraphInteractions(
     ]
   );
 
-  const handleZoomIn = useCallback(() => {
-    const renderer = rendererRef.current;
-    const container = containerRef.current;
-    if (!renderer || !container) return;
-    const w = container.clientWidth;
-    const h = container.clientHeight;
-    const newScale = Math.min(5, zoom * 1.25);
-    const cx = w / 2;
-    const cy = h / 2;
-    const worldCX = (cx - offsetX) / zoom;
-    const worldCY = (cy - offsetY) / zoom;
-    renderer.setTransform(newScale, cx - worldCX * newScale, cy - worldCY * newScale);
-    setZoom(newScale);
-  }, [zoom, offsetX, offsetY, rendererRef, containerRef, setZoom]);
+  // Every programmatic transform goes through here so React's zoom/offset
+  // state — which the next zoom step and the minimap read — never drifts from
+  // what the renderer actually shows.
+  const applyTransform = useCallback(
+    (scale: number, nextOffsetX: number, nextOffsetY: number) => {
+      const renderer = rendererRef.current;
+      if (!renderer || !isFiniteTransform(scale, nextOffsetX, nextOffsetY)) return;
+      renderer.setTransform(scale, nextOffsetX, nextOffsetY);
+      setZoom(scale);
+      setOffsetX(nextOffsetX);
+      setOffsetY(nextOffsetY);
+    },
+    [rendererRef, setZoom, setOffsetX, setOffsetY]
+  );
 
-  const handleZoomOut = useCallback(() => {
-    const renderer = rendererRef.current;
-    const container = containerRef.current;
-    if (!renderer || !container) return;
-    const w = container.clientWidth;
-    const h = container.clientHeight;
-    const newScale = Math.max(0.05, zoom / 1.25);
-    const cx = w / 2;
-    const cy = h / 2;
-    const worldCX = (cx - offsetX) / zoom;
-    const worldCY = (cy - offsetY) / zoom;
-    renderer.setTransform(newScale, cx - worldCX * newScale, cy - worldCY * newScale);
-    setZoom(newScale);
-  }, [zoom, offsetX, offsetY, rendererRef, containerRef, setZoom]);
+  const zoomAroundViewportCenter = useCallback(
+    (nextScale: number) => {
+      const container = containerRef.current;
+      if (!container) return;
+      const cx = container.clientWidth / 2;
+      const cy = container.clientHeight / 2;
+      const worldCX = (cx - offsetX) / zoom;
+      const worldCY = (cy - offsetY) / zoom;
+      applyTransform(nextScale, cx - worldCX * nextScale, cy - worldCY * nextScale);
+    },
+    [zoom, offsetX, offsetY, containerRef, applyTransform]
+  );
+
+  const handleZoomIn = useCallback(
+    () => zoomAroundViewportCenter(Math.min(5, zoom * 1.25)),
+    [zoom, zoomAroundViewportCenter]
+  );
+
+  const handleZoomOut = useCallback(
+    () => zoomAroundViewportCenter(Math.max(0.05, zoom / 1.25)),
+    [zoom, zoomAroundViewportCenter]
+  );
 
   const handleFitToScreen = useCallback(() => {
     const renderer = rendererRef.current;
@@ -248,32 +262,25 @@ export function useGraphInteractions(
     const scale = Math.min(Math.min(w / worldW, h / worldH) * fitScaleMultiplier, 2);
     const centerX = (minX + maxX) / 2;
     const centerY = (minY + maxY) / 2;
-    const nextOffsetX = w / 2 - centerX * scale;
-    const nextOffsetY = h / 2 - centerY * scale;
-    renderer.setTransform(scale, nextOffsetX, nextOffsetY);
-    setZoom(scale);
-    setOffsetX(nextOffsetX);
-    setOffsetY(nextOffsetY);
-  }, [
-    containerRef,
-    fitScaleMultiplier,
-    positionsRef,
-    rendererRef,
-    setOffsetX,
-    setOffsetY,
-    setZoom,
-  ]);
+    applyTransform(scale, w / 2 - centerX * scale, h / 2 - centerY * scale);
+  }, [applyTransform, containerRef, fitScaleMultiplier, positionsRef, rendererRef]);
+
+  const centerOn = useCallback(
+    (worldX: number, worldY: number, scale: number) => {
+      const container = containerRef.current;
+      if (!container) return;
+      applyTransform(
+        scale,
+        container.clientWidth / 2 - worldX * scale,
+        container.clientHeight / 2 - worldY * scale
+      );
+    },
+    [containerRef, applyTransform]
+  );
 
   const handleMinimapNavigate = useCallback(
-    (worldX: number, worldY: number) => {
-      const renderer = rendererRef.current;
-      const container = containerRef.current;
-      if (!renderer || !container) return;
-      const w = container.clientWidth;
-      const h = container.clientHeight;
-      renderer.setTransform(zoom, w / 2 - worldX * zoom, h / 2 - worldY * zoom);
-    },
-    [zoom, rendererRef, containerRef]
+    (worldX: number, worldY: number) => centerOn(worldX, worldY, zoom),
+    [zoom, centerOn]
   );
 
   const handleDetailPanelClose = useCallback(() => {
@@ -405,19 +412,7 @@ export function useGraphInteractions(
             if (node) {
               setSelectedNodeId(node.id);
               const pos = positionsRef.current.get(node.id);
-              const renderer = rendererRef.current;
-              const container = containerRef.current;
-              if (pos && renderer && container) {
-                const w = container.clientWidth;
-                const h = container.clientHeight;
-                const targetScale = 1.5;
-                renderer.setTransform(
-                  targetScale,
-                  w / 2 - pos.x * targetScale,
-                  h / 2 - pos.y * targetScale
-                );
-                setZoom(targetScale);
-              }
+              if (pos) centerOn(pos.x, pos.y, 1.5);
             }
           }
           break;
@@ -433,13 +428,11 @@ export function useGraphInteractions(
       filteredNodes,
       focusNodeByIndex,
       setSelectedNodeId,
-      setZoom,
       setFocusedNodeIndex,
       setHoveredNodeId,
       searchInputRef,
       positionsRef,
-      rendererRef,
-      containerRef,
+      centerOn,
     ]
   );
 

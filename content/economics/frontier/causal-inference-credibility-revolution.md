@@ -1,4 +1,5 @@
 ---
+summary: "可信性革命要用近似随机的变动去识别因果，而不是再提出一套新理论。能被干净识别的问题未必最重要，外部有效性与长期效应仍是开放问题。"
 title: 因果推断与"可信性革命"
 title_en: Causal Inference and the Credibility Revolution
 status: published

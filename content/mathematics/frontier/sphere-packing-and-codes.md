@@ -1,4 +1,5 @@
 ---
+summary: "二、三、八与二十四维的球堆积已经解决，四到七维仍开放。Klartag证明任意维都存在带维数二次因子的格堆积密度下界，这是存在性，不是写得出来的格。"
 title: 球堆积与编码：Viazovska 之后
 title_en: Sphere Packing and Codes after Viazovska
 status: published

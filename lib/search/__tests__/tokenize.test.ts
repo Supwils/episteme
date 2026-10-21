@@ -46,4 +46,12 @@ describe("tokenize", () => {
       expect(title.has(term)).toBe(true);
     }
   });
+
+  it("reads full-width letters and digits as ASCII", () => {
+    expect(tokenize("ＤＮＡ １９０５")).toEqual(["dna", "1905"]);
+  });
+
+  it("composes decomposed accents so a word stays one term", () => {
+    expect(tokenize("Go\u0308del")).toEqual(["gödel"]);
+  });
 });

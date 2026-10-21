@@ -1,6 +1,7 @@
 ---
 title: 生成式艺术的作者与来源：作品还能证明自己从哪里来吗
 title_en: Authorship and Provenance in Generative Art
+summary: "一幅图可以由提示词、参考图、局部重绘与人工后期共同生成。美国版权局 2025 年的报告认为，用了人工智能不自动排除保护，但仅凭提示词通常不足以证明对具体表达有足够的人类控制。"
 status: published
 updated: 2026-08-07
 category: 生成与媒介

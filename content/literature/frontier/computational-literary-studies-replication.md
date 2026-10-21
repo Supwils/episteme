@@ -1,6 +1,7 @@
 ---
 title: 计算文学研究能被复现吗
 title_en: Can Computational Literary Studies Be Replicated
+summary: "2019 年《批判探索》刊出 Nan Z. Da 的长文，把已发表的计算文学研究重走一遍，看结论是否站得住。这场争论与其说是人文对算法，不如说是一堂迟到的复现方法课。"
 status: published
 updated: 2026-09-11
 category: 方法与远读

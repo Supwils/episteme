@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
+import { readerKeyFigureLabel } from "@/lib/reader-key-figure-label";
 import { getSchoolBySlug, getAllSchools } from "@/subjects/economics/lib/mdx";
 import { ERA_COLORS } from "@/subjects/economics/lib/constants";
 import { ArticleLayout } from "@/components/ArticleLayout";
@@ -20,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!school) notFound();
   return withCanonicalPath(`/economics/schools/${slug}`, {
     title: `${school.title} — 经济学派`,
-    description: `${school.title}（${school.title_en}）· ${school.period}`,
+    description: school.summary ?? `${school.title}（${school.title_en}）· ${school.period}`,
   });
 }
 
@@ -61,6 +62,7 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
       eyebrowMeta={[school.period]}
       title={school.title}
       titleEn={school.title_en}
+      lede={school.summary}
       content={school.content}
       meta={
         <>
@@ -76,7 +78,7 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
                   key={name}
                   className="border-fg-disabled/30 text-fg-muted rounded-none border px-2.5 py-1 font-mono text-[10px] tracking-[0.18em]"
                 >
-                  {name}
+                  {readerKeyFigureLabel(school.content, name)}
                 </span>
               ))}
             </div>

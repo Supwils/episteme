@@ -1,4 +1,5 @@
 ---
+summary: "王虹与Zahl的预印本得出：三维挂谷集的Minkowski维数与Hausdorff维数都是三。截至2026年9月主文仍未完成期刊发表，四维及以上仍开放。"
 title: 挂谷猜想：三维的攻克
 title_en: The Kakeya Conjecture Resolved in Three Dimensions
 status: published

@@ -1,6 +1,7 @@
 ---
 title: 混合专家：稀疏激活的大模型
 title_en: Mixture of Experts — Sparsely Activated Large Models
+summary: "Mixtral 8×7B总参数约467亿，每个token只激活约129亿；本文说明总参数不等于有效规模，梳理从顶层门控到细粒度专家的演进，以及DeepSeek-V3等进展。"
 status: published
 updated: 2026-09-13
 category: 人工智能

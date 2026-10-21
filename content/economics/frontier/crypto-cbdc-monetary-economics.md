@@ -1,4 +1,5 @@
 ---
+summary: "加密资产更像高波动的价值储存，而不是同时充当媒介、储存与计价单位的货币。它究竟是货币还是资产、哪种稳定币架构会留下，迄今并没有共识。"
 title: 加密货币、稳定币与央行数字货币的经济学
 title_en: Crypto, Stablecoins, and the Economics of Central Bank Digital Currencies
 status: published

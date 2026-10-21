@@ -1,7 +1,9 @@
+import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
 import { getMathConceptBySlug, getAllMathConcepts } from "@/subjects/mathematics/lib/concepts";
+import { mathFigureLabel } from "@/subjects/mathematics/lib/mathematician-label";
 import { MATH_FIELD_COLORS, mathBadgeColor } from "@/subjects/mathematics/lib/constants";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { FunctionPlotter } from "@/subjects/mathematics/components/visualizations";
@@ -16,6 +18,20 @@ import { ArticleLayout } from "@/components/ArticleLayout";
 
 const INTERACTIVE_CONCEPTS = new Set(["derivative", "integral", "limit"]);
 
+// These two labs used to be static routes at the article's own URL, which
+// shadowed [slug] and hid the published article. They now open the article,
+// split into their own chunks so other concept pages don't ship them.
+const ProbabilityVisualizer = dynamic(
+  () => import("@/subjects/mathematics/components/visualizations/ProbabilityVisualizer")
+);
+const NumberLineConcepts = dynamic(
+  () => import("@/subjects/mathematics/components/visualizations/NumberLineConcepts")
+);
+const CONCEPT_LABS: Record<string, () => React.ReactNode> = {
+  probability: () => <ProbabilityVisualizer />,
+  "number-line": () => <NumberLineConcepts />,
+};
+
 export function generateStaticParams() {
   // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
   // on first request and is cached. Keeps build output small as content grows.
@@ -26,7 +42,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const concept = getMathConceptBySlug(slug);
   if (!concept) notFound();
-  const description = `${concept.title_en}：${concept.field}。${concept.tags.join("、")}`;
+  const description =
+    concept.summary ?? `${concept.title_en}：${concept.field}。${concept.tags.join("、")}`;
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(concept.title)}&section=mathematics&description=${encodeURIComponent(description)}`;
   return withCanonicalPath(`/mathematics/concepts/${slug}`, {
     title: `${concept.title} — 数学概念`,
@@ -55,6 +72,7 @@ export default async function MathConceptDetailPage({
     (currentIndex < allConcepts.length - 1 ? allConcepts[currentIndex + 1] : null) ?? null;
 
   const fieldColor = MATH_FIELD_COLORS[concept.field] || "#6366f1";
+  const figureLabels = concept.key_figures.map((id) => mathFigureLabel(id, concept.content));
 
   const jsonLd = createDefinedTermJsonLd({
     name: `${concept.title}（${concept.title_en}）`,
@@ -79,10 +97,9 @@ export default async function MathConceptDetailPage({
       eyebrow={concept.field}
       title={concept.title}
       titleEn={concept.title_en}
+      lede={concept.summary}
       content={concept.content}
-      meta={
-        concept.key_figures.length > 0 ? <>关键人物：{concept.key_figures.join("、")}</> : undefined
-      }
+      meta={concept.key_figures.length > 0 ? <>关键人物：{figureLabels.join("、")}</> : undefined}
       tags={concept.tags}
       sidebar={<TableOfContents accentColor={fieldColor} />}
       prev={
@@ -109,6 +126,8 @@ export default async function MathConceptDetailPage({
           <FractalExplorer />
         </div>
       )}
+
+      {CONCEPT_LABS[slug] && <div className="mb-12">{CONCEPT_LABS[slug]()}</div>}
 
       {concept.content ? (
         <MarkdownRenderer content={concept.content} accentColor={fieldColor} domain="mathematics" />
@@ -150,7 +169,7 @@ export default async function MathConceptDetailPage({
             交互式函数绘图
           </h2>
           <p className="text-fg-secondary mb-4 text-[15px] leading-relaxed">
-            选择函数、查看导数与积分、拖拽平移、滚轮缩放，点击曲线追踪坐标。
+            点按曲线追踪坐标，鼠标拖拽平移、滚轮缩放。触屏滑动页面；需要移动图表时，先点「触屏平移」，松手后恢复滚动。
           </p>
           <FunctionPlotter />
         </section>

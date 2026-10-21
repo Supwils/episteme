@@ -1,4 +1,5 @@
 ---
+summary: "地外文明搜寻把没有确定回答本身当作信息，用来收紧仍可被听见的时间。德雷克方程只拆开未知，给不出文明总数；费米问题是期望与零检测的张力，不是证明文明不存在。"
 title: SETI地外文明搜寻
 titleEn: SETI — Search for Extraterrestrial Intelligence
 category: 系外行星

@@ -1,4 +1,5 @@
 ---
+summary: "气候正义难在受益者可能因我们的选择才存在，个体伤害因此说不通，而不在要不要为子孙着想。非同一性仍无公认解；现有判决保护现存原告，并未确立未来世代的可诉地位。"
 title: 气候正义与代际伦理：对还不存在的人负有义务吗
 title_en: Climate Justice and Intergenerational Ethics — Do We Owe Anything to People Who Don't Yet Exist
 status: published

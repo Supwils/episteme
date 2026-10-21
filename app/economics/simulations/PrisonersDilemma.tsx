@@ -8,7 +8,9 @@ export function PrisonersDilemma() {
   const [strategy, setStrategy] = useState<"cooperate" | "defect" | null>(null);
   const [opponentStrategy, setOpponentStrategy] = useState<"cooperate" | "defect" | null>(null);
   const [result, setResult] = useState<{ player: number; opponent: number } | null>(null);
-  const [history, setHistory] = useState<{ player: string; opponent: string; pPayoff: number; oPayoff: number }[]>([]);
+  const [history, setHistory] = useState<
+    { player: string; opponent: string; pPayoff: number; oPayoff: number }[]
+  >([]);
 
   const payoffs: Record<string, Record<string, [number, number]>> = {
     cooperate: { cooperate: [3, 3], defect: [0, 5] },
@@ -36,35 +38,41 @@ export function PrisonersDilemma() {
 
   return (
     <div className="chart-container">
-      <h3 className="font-display text-fg-primary mb-4 text-lg font-semibold">
-        囚徒困境
-      </h3>
+      <h3 className="font-display text-fg-primary mb-4 text-lg font-semibold">囚徒困境</h3>
 
-      <div className="mb-4 overflow-hidden rounded-lg border border-border-faint">
+      <div className="border-border-faint mb-4 overflow-hidden rounded-lg border">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-border-faint">
-              <th className="p-2 text-fg-muted font-mono text-[10px] tracking-wider uppercase" />
-              <th className="p-2 text-accent-green font-mono text-[10px] tracking-wider uppercase">对手合作</th>
-              <th className="p-2 text-accent-copper font-mono text-[10px] tracking-wider uppercase">对手背叛</th>
+            <tr className="border-border-faint border-b">
+              <th className="text-fg-muted p-2 font-mono text-[10px] tracking-wider uppercase" />
+              <th className="text-accent-green p-2 font-mono text-[10px] tracking-wider uppercase">
+                对手合作
+              </th>
+              <th className="text-accent-copper p-2 font-mono text-[10px] tracking-wider uppercase">
+                对手背叛
+              </th>
             </tr>
           </thead>
           <tbody>
-            <tr className="border-b border-border-faint">
-              <td className="p-2 text-accent-green font-mono text-[10px] tracking-wider uppercase">你合作</td>
-              <td className="p-2 text-center text-fg-primary">3, 3</td>
-              <td className="p-2 text-center text-fg-primary">0, 5</td>
+            <tr className="border-border-faint border-b">
+              <td className="text-accent-green p-2 font-mono text-[10px] tracking-wider uppercase">
+                你合作
+              </td>
+              <td className="text-fg-primary p-2 text-center">3, 3</td>
+              <td className="text-fg-primary p-2 text-center">0, 5</td>
             </tr>
             <tr>
-              <td className="p-2 text-accent-copper font-mono text-[10px] tracking-wider uppercase">你背叛</td>
-              <td className="p-2 text-center text-fg-primary">5, 0</td>
-              <td className="p-2 text-center text-fg-primary">1, 1</td>
+              <td className="text-accent-copper p-2 font-mono text-[10px] tracking-wider uppercase">
+                你背叛
+              </td>
+              <td className="text-fg-primary p-2 text-center">5, 0</td>
+              <td className="text-fg-primary p-2 text-center">1, 1</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <div className="flex gap-3 mb-4">
+      <div className="mb-4 flex gap-3">
         <button
           onClick={() => setStrategy("cooperate")}
           aria-pressed={strategy === "cooperate"}
@@ -89,7 +97,7 @@ export function PrisonersDilemma() {
 
       {result && (
         <motion.div
-          initial={reduce ? false : { opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           className="data-panel mb-4"
           role="status"
@@ -98,27 +106,35 @@ export function PrisonersDilemma() {
           <div className="flex items-center justify-between">
             <div>
               <span className="data-label">你的收益</span>
-              <span className={`data-value ${result.player >= 3 ? "stat-positive" : "stat-negative"}`}>
-                {" "}{result.player}
+              <span
+                className={`data-value ${result.player >= 3 ? "stat-positive" : "stat-negative"}`}
+              >
+                {" "}
+                {result.player}
               </span>
             </div>
             <div className="text-right">
               <span className="data-label">对手收益</span>
-              <span className={`data-value ${result.opponent >= 3 ? "stat-positive" : "stat-negative"}`}>
-                {" "}{result.opponent}
+              <span
+                className={`data-value ${result.opponent >= 3 ? "stat-positive" : "stat-negative"}`}
+              >
+                {" "}
+                {result.opponent}
               </span>
             </div>
           </div>
           <p className="text-fg-muted mt-2 text-xs">
-            你: {strategy === "cooperate" ? "合作" : "背叛"} ·
-            对手: {opponentStrategy === "cooperate" ? "合作" : "背叛"}
+            你: {strategy === "cooperate" ? "合作" : "背叛"} · 对手:{" "}
+            {opponentStrategy === "cooperate" ? "合作" : "背叛"}
           </p>
         </motion.div>
       )}
 
       {history.length > 0 && (
         <div>
-          <p className="data-label mb-2" id="history-label">历史记录</p>
+          <p className="data-label mb-2" id="history-label">
+            历史记录
+          </p>
           <div className="flex flex-wrap gap-1" role="list" aria-labelledby="history-label">
             {history.map((h, i) => (
               <span

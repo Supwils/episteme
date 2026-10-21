@@ -1,6 +1,7 @@
 ---
 title: 行星防御：人类第一次学会推开小行星
 title_en: Planetary Defense — Humanity's First Test at Pushing an Asteroid Away
+summary: "2022 年 DART 撞击使 Dimorphos 绕转周期缩短 33 分钟，远超 73 秒的成功门槛；行星防御还要靠巡天补网，并经受了 2024 YR4 的压力测试。"
 status: published
 updated: 2026-09-12
 category: 行星与近地空间

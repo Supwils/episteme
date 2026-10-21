@@ -1,7 +1,10 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import { useNarrationStore } from "./narration-store";
+import "./narration-player.css";
+
+const SEEK_STEPS = 1000;
 
 const SPEEDS = [1, 1.25, 1.5, 0.75];
 
@@ -16,6 +19,10 @@ export function NarrationPlayer() {
   const close = useNarrationStore((s) => s.close);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  // `cancel()` fires the replaced utterance's end/error events asynchronously,
+  // after the new one has already set "playing"; only the current one may
+  // report that speech stopped.
+  const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
   const [playing, setPlaying] = useState(false);
   const [speedIdx, setSpeedIdx] = useState(0);
   const [progress, setProgress] = useState(0); // 0..1, audio only
@@ -39,9 +46,13 @@ export function NarrationPlayer() {
     utter.rate = rate;
     const zh = synth.getVoices().find((v) => v.lang.toLowerCase().startsWith("zh"));
     if (zh) utter.voice = zh;
-    utter.onend = () => setPlaying(false);
+    const stopped = () => {
+      if (utteranceRef.current === utter) setPlaying(false);
+    };
+    utter.onend = stopped;
     // Interrupted / unsupported voice: otherwise the button stays on "pause".
-    utter.onerror = () => setPlaying(false);
+    utter.onerror = stopped;
+    utteranceRef.current = utter;
     synth.speak(utter);
     setPlaying(true);
   }, []);
@@ -86,6 +97,16 @@ export function NarrationPlayer() {
     if (audioRef.current) audioRef.current.playbackRate = speed;
   }, [speed]);
 
+  // Speech synthesis fixes the rate when the utterance is created. There is no
+  // playback position to keep, so a change during browser-voice preview starts
+  // the script again at the new rate.
+  const cycleSpeed = () => {
+    const nextIdx = (speedIdx + 1) % SPEEDS.length;
+    const nextSpeed = SPEEDS[nextIdx]!;
+    setSpeedIdx(nextIdx);
+    if (active && !active.audioUrl && playing) speakFallback(active.script, nextSpeed);
+  };
+
   if (!active) return null;
 
   const toggle = () => {
@@ -112,11 +133,12 @@ export function NarrationPlayer() {
     }
   };
 
-  const seek = (e: React.MouseEvent<HTMLDivElement>) => {
-    const a = audioRef.current;
-    if (!a || !a.duration) return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    a.currentTime = ((e.clientX - rect.left) / rect.width) * a.duration;
+  const seekToRatio = (ratio: number) => {
+    const audio = audioRef.current;
+    if (!audio || !Number.isFinite(audio.duration) || audio.duration <= 0) return;
+    const next = Math.min(1, Math.max(0, ratio));
+    audio.currentTime = next * audio.duration;
+    setProgress(next);
   };
 
   return (
@@ -153,15 +175,18 @@ export function NarrationPlayer() {
               )}
             </div>
             {active.audioUrl ? (
-              <div
-                className="bg-bg-elevated mt-1.5 h-1 cursor-pointer overflow-hidden rounded-full"
-                onClick={seek}
-              >
-                <div
-                  className="bg-accent-gold h-full rounded-full"
-                  style={{ width: `${progress * 100}%` }}
-                />
-              </div>
+              <input
+                type="range"
+                min={0}
+                max={SEEK_STEPS}
+                step={1}
+                value={Math.round(progress * SEEK_STEPS)}
+                aria-label="讲解进度"
+                aria-valuetext={`${Math.round(progress * 100)}%`}
+                onChange={(event) => seekToRatio(Number(event.target.value) / SEEK_STEPS)}
+                className="narration-seek mt-1.5"
+                style={{ "--seek": `${Math.round(progress * 100)}%` } as CSSProperties}
+              />
             ) : (
               <div className="text-fg-disabled mt-1 text-[11px]">
                 浏览器语音朗读（配置 TTS 后自动替换为高质量音频）
@@ -171,7 +196,7 @@ export function NarrationPlayer() {
 
           <button
             type="button"
-            onClick={() => setSpeedIdx((i) => (i + 1) % SPEEDS.length)}
+            onClick={cycleSpeed}
             className="text-fg-secondary hover:text-fg-primary font-mono text-xs tabular-nums transition-colors"
             aria-label="调整语速"
           >
@@ -201,6 +226,7 @@ export function NarrationPlayer() {
 
       {active.audioUrl && (
         <audio
+          hidden
           ref={audioRef}
           src={active.audioUrl}
           onTimeUpdate={(e) => {

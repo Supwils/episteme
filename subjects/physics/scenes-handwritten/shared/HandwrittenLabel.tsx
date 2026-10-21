@@ -52,7 +52,7 @@ export function HandwrittenLabel({
 
   return (
     <motion.g
-      initial={reduce ? { opacity: 1 } : { opacity: 0 }}
+      initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: reduce ? 0 : 0.5, delay }}
     >

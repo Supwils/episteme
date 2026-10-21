@@ -70,6 +70,7 @@ export const ECONOMICS_CONCEPTS_DATA = [
     field: "劳动经济学",
   },
   { slug: "elasticity", title: "弹性", subtitle: "Elasticity", field: "微观经济学" },
+  { slug: "engels-law", title: "恩格尔定律", subtitle: "Engel's Law", field: "微观经济学" },
   {
     slug: "environmental-economics",
     title: "环境经济学",
@@ -101,6 +102,7 @@ export const ECONOMICS_CONCEPTS_DATA = [
     subtitle: "General Equilibrium and the Arrow-Debreu Model",
     field: "微观经济理论",
   },
+  { slug: "giffen-goods", title: "吉芬商品", subtitle: "Giffen Goods", field: "微观经济学" },
   {
     slug: "gini-coefficient",
     title: "基尼系数",
@@ -192,6 +194,7 @@ export const ECONOMICS_CONCEPTS_DATA = [
     subtitle: "Nudge and Libertarian Paternalism",
     field: "行为经济学",
   },
+  { slug: "okuns-law", title: "奥肯定律", subtitle: "Okun's Law", field: "宏观经济学" },
   {
     slug: "opportunity-cost",
     title: "机会成本",
@@ -237,6 +240,7 @@ export const ECONOMICS_CONCEPTS_DATA = [
     subtitle: "Risk and Uncertainty",
     field: "决策理论",
   },
+  { slug: "says-law", title: "萨伊定律", subtitle: "Say's Law", field: "宏观经济学" },
   {
     slug: "search-matching-theory",
     title: "搜寻与匹配理论",
@@ -252,6 +256,7 @@ export const ECONOMICS_CONCEPTS_DATA = [
   },
   { slug: "sovereign-debt", title: "主权债务", subtitle: "Sovereign Debt", field: "国际金融" },
   { slug: "stock-valuation", title: "股票估值", subtitle: "Stock Valuation", field: "金融经济学" },
+  { slug: "taylor-rule", title: "泰勒规则", subtitle: "The Taylor Rule", field: "宏观经济学" },
   {
     slug: "tragedy-of-commons",
     title: "公地悲剧",

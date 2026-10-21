@@ -1,14 +1,17 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { STAGGER_CONTAINER, STAGGER_ITEM } from "@/lib/animations";
 import type { OnThisDayEvent } from "../lib/daily-knowledge";
 import { dailyLabelFor, dedupeDailyEvents } from "../lib/daily-display";
+import { isSafeHref } from "@/lib/urls";
 
 type OnThisDayProps = {
   events: OnThisDayEvent[];
+  /** The site day the events were picked for (YYYY-MM-DD, Asia/Shanghai). The
+   *  browser's own clock would disagree with the server's pick near midnight. */
+  date: string;
 };
 
 const DOMAIN_LABELS: Record<string, string> = {
@@ -22,7 +25,8 @@ const DOMAIN_LABELS: Record<string, string> = {
 const FALLBACK_URL = "/human-history/timeline";
 
 export function eventHref(event: Pick<OnThisDayEvent, "url">): string {
-  return event.url?.trim() ? event.url : FALLBACK_URL;
+  const url = event.url?.trim();
+  return url && isSafeHref(url) ? url : FALLBACK_URL;
 }
 
 function getDomainLabel(domain: string): string {
@@ -33,17 +37,14 @@ function formatYear(year: number): string {
   return year < 0 ? `公元前${Math.abs(year)}年` : `${year}年`;
 }
 
-export function OnThisDay({ events }: OnThisDayProps) {
-  const reduce = useReducedMotion();
-
-  const [today] = useState(() => new Date());
-  const month = today.getMonth() + 1;
-  const day = today.getDate();
+// Server content stays visible without waiting for viewport callbacks or JS.
+export function OnThisDay({ events, date }: OnThisDayProps) {
+  const [, month, day] = date.split("-").map(Number);
 
   return (
     <section className="mx-auto w-full max-w-3xl">
       <motion.div
-        initial={reduce ? false : { opacity: 0, y: 24 }}
+        initial={false}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.5 }}
@@ -57,8 +58,8 @@ export function OnThisDay({ events }: OnThisDayProps) {
 
       <motion.div
         className="relative"
-        variants={reduce ? undefined : STAGGER_CONTAINER}
-        initial="hidden"
+        variants={STAGGER_CONTAINER}
+        initial={false}
         whileInView="show"
         viewport={{ once: true, margin: "-60px" }}
       >

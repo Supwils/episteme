@@ -1,6 +1,7 @@
 ---
 title: AI 天气与气候建模：当预报不再求解方程
 title_en: AI Weather and Climate Modeling — Forecasting Without Solving the Equations
+summary: "2025 年 ECMWF 把机器学习模型 AIFS 纳入业务预报，能耗约为物理模式的千分之一；它学的是再分析档案而非物理，评测与气候尺度外推仍有争议。"
 status: published
 updated: 2026-09-12
 category: 大气与计算

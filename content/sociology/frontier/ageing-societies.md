@@ -1,6 +1,7 @@
 ---
 title: 人口老龄化的社会基础设施
 title_en: Social Infrastructure for Ageing Societies
+summary: "老龄化正被从人口统计问题改写为社会基础设施问题：照护、住房、养老金与社区如何分配；联合国 2023 年报告与“健康老龄化十年”是政策背景。"
 status: published
 updated: 2026-07-04
 category: 人口与照护

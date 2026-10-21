@@ -62,37 +62,47 @@ export function GraphMinimap({ nodes, viewport, worldBounds, onNavigate }: Graph
   const vpWidth = viewport.width * scaleX;
   const vpHeight = viewport.height * scaleY;
 
-  const handleClick = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      const clickX = e.clientX - rect.left;
-      const clickY = e.clientY - rect.top;
-
-      const worldX = clickX / scaleX + worldBounds.minX;
-      const worldY = clickY / scaleY + worldBounds.minY;
-
+  const navigateToMinimapPoint = useCallback(
+    (minimapX: number, minimapY: number) => {
+      const worldX = minimapX / scaleX + worldBounds.minX;
+      const worldY = minimapY / scaleY + worldBounds.minY;
+      if (!Number.isFinite(worldX) || !Number.isFinite(worldY)) return;
       onNavigate(worldX, worldY);
     },
     [scaleX, scaleY, worldBounds.minX, worldBounds.minY, onNavigate]
   );
 
+  const handleClick = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      navigateToMinimapPoint(e.clientX - rect.left, e.clientY - rect.top);
+    },
+    [navigateToMinimapPoint]
+  );
+
+  // A key press has no pointer position; it recentres on the whole map, the
+  // keyboard equivalent of clicking the middle of the minimap.
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLDivElement>) => {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      e.preventDefault();
+      navigateToMinimapPoint(MINIMAP_WIDTH / 2, MINIMAP_HEIGHT / 2);
+    },
+    [navigateToMinimapPoint]
+  );
+
   return (
     <motion.div
-      initial={reducedMotion ? false : { opacity: 0, scale: 0.9 }}
+      initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: reducedMotion ? 0 : 0.3, ease: "easeOut" }}
       ref={containerRef}
       role="button"
       tabIndex={0}
       onClick={handleClick}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          handleClick(e as unknown as React.MouseEvent<HTMLDivElement>);
-        }
-      }}
-      aria-label="图谱导航小地图，点击跳转到对应区域"
+      onKeyDown={handleKeyDown}
+      aria-label="图谱导航小地图，点击跳转到对应区域，按回车回到全图中心"
       className="border-border-faint bg-bg-floating/90 relative cursor-pointer overflow-hidden rounded-lg border shadow-[0_4px_16px_rgba(0,0,0,0.4)] backdrop-blur-xl select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6366f1]"
       style={{ width: MINIMAP_WIDTH, height: MINIMAP_HEIGHT }}
     >

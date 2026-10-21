@@ -68,7 +68,7 @@ export const MESOZOIC_SPECIES: Species[] = [
     name: "菊石",
     nameEn: "Ammonite",
     era: "中生代",
-    period: "4亿年前",
+    period: "6600万年前",
     keyTraits: ["螺旋形外壳", "海洋头足类"],
     taxonomy: { kingdom: "动物界", phylum: "软体动物门", class: "头足纲" },
     extinct: true,

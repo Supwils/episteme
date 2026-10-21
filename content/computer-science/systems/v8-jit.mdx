@@ -1,6 +1,7 @@
 ---
 title: V8 的分层 JIT：动态语言如何跑得快
 title_en: "V8's Tiered JIT: How a Dynamically Typed Language Runs Fast"
+summary: "C里的p->x是一次固定偏移的取值，JavaScript的p.x按规范却是一次字符串键查找；本文讲V8如何用隐藏类把哈希表变回结构体，以及分层JIT如何让动态语言跑得快。"
 status: published
 updated: 2026-08-05
 category: 系统剖析

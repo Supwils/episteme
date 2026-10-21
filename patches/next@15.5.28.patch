@@ -1,0 +1,116 @@
+diff --git a/dist/compiled/react-dom/cjs/react-dom-client.development.js b/dist/compiled/react-dom/cjs/react-dom-client.development.js
+index 4376913076151ad78dcc4059ad4152fad25478da..2e911bf46da46418d5685cea323907578bfd6b6b 100644
+--- a/dist/compiled/react-dom/cjs/react-dom-client.development.js
++++ b/dist/compiled/react-dom/cjs/react-dom-client.development.js
+@@ -4616,6 +4616,16 @@
+             hydrationParentFiber = hydrationParentFiber.return;
+         }
+     }
++    function popHydrationStateOnInterruptedWork(fiber) {
++      if (fiber !== hydrationParentFiber) return;
++      if (!isHydrating) {
++        popToNextHostParent(fiber);
++        isHydrating = !0;
++        return;
++      }
++      popToNextHostParent(fiber);
++      null !== fiber.stateNode && (nextHydratableInstance = fiber.stateNode);
++    }
+     function popHydrationState(fiber) {
+       if (fiber !== hydrationParentFiber) return !1;
+       if (!isHydrating)
+@@ -15776,6 +15786,7 @@
+           break;
+         case 5:
+           resetHooksOnUnwind(unitOfWork);
++          popHydrationStateOnInterruptedWork(unitOfWork);
+         default:
+           unwindInterruptedWork(current, unitOfWork),
+             (unitOfWork = workInProgress =
+diff --git a/dist/compiled/react-dom/cjs/react-dom-client.production.js b/dist/compiled/react-dom/cjs/react-dom-client.production.js
+index 755076a5cf15273f024c18fdc6a8805f1e36860b..de5b756cbfe224b066a50e788bc0c357e7220a8d 100644
+--- a/dist/compiled/react-dom/cjs/react-dom-client.production.js
++++ b/dist/compiled/react-dom/cjs/react-dom-client.production.js
+@@ -2836,6 +2836,16 @@ function popToNextHostParent(fiber) {
+         hydrationParentFiber = hydrationParentFiber.return;
+     }
+ }
++function popHydrationStateOnInterruptedWork(fiber) {
++  if (fiber !== hydrationParentFiber) return;
++  if (!isHydrating) {
++    popToNextHostParent(fiber);
++    isHydrating = !0;
++    return;
++  }
++  popToNextHostParent(fiber);
++  null !== fiber.stateNode && (nextHydratableInstance = fiber.stateNode);
++}
+ function popHydrationState(fiber) {
+   if (fiber !== hydrationParentFiber) return !1;
+   if (!isHydrating) return popToNextHostParent(fiber), (isHydrating = !0), !1;
+@@ -11210,6 +11220,7 @@ function replaySuspendedUnitOfWork(unitOfWork) {
+       break;
+     case 5:
+       resetHooksOnUnwind(next);
++      popHydrationStateOnInterruptedWork(next);
+     default:
+       unwindInterruptedWork(current, next),
+         (next = workInProgress =
+diff --git a/dist/compiled/react-dom/cjs/react-dom-profiling.development.js b/dist/compiled/react-dom/cjs/react-dom-profiling.development.js
+index 43d0363849598f796873fffaf33117d54b76de19..8739e6d04a6d0f2bc58ba305e4366b1b5d9f8020 100644
+--- a/dist/compiled/react-dom/cjs/react-dom-profiling.development.js
++++ b/dist/compiled/react-dom/cjs/react-dom-profiling.development.js
+@@ -4624,6 +4624,16 @@
+             hydrationParentFiber = hydrationParentFiber.return;
+         }
+     }
++    function popHydrationStateOnInterruptedWork(fiber) {
++      if (fiber !== hydrationParentFiber) return;
++      if (!isHydrating) {
++        popToNextHostParent(fiber);
++        isHydrating = !0;
++        return;
++      }
++      popToNextHostParent(fiber);
++      null !== fiber.stateNode && (nextHydratableInstance = fiber.stateNode);
++    }
+     function popHydrationState(fiber) {
+       if (fiber !== hydrationParentFiber) return !1;
+       if (!isHydrating)
+@@ -15784,6 +15794,7 @@
+           break;
+         case 5:
+           resetHooksOnUnwind(unitOfWork);
++          popHydrationStateOnInterruptedWork(unitOfWork);
+         default:
+           unwindInterruptedWork(current, unitOfWork),
+             (unitOfWork = workInProgress =
+diff --git a/dist/compiled/react-dom/cjs/react-dom-profiling.profiling.js b/dist/compiled/react-dom/cjs/react-dom-profiling.profiling.js
+index 85185b07d38d122ada8ed308523b181da102ccad..228f8ca3f19e08702dcdf302607e65ce5e3d9508 100644
+--- a/dist/compiled/react-dom/cjs/react-dom-profiling.profiling.js
++++ b/dist/compiled/react-dom/cjs/react-dom-profiling.profiling.js
+@@ -2930,6 +2930,16 @@ function popToNextHostParent(fiber) {
+         hydrationParentFiber = hydrationParentFiber.return;
+     }
+ }
++function popHydrationStateOnInterruptedWork(fiber) {
++  if (fiber !== hydrationParentFiber) return;
++  if (!isHydrating) {
++    popToNextHostParent(fiber);
++    isHydrating = !0;
++    return;
++  }
++  popToNextHostParent(fiber);
++  null !== fiber.stateNode && (nextHydratableInstance = fiber.stateNode);
++}
+ function popHydrationState(fiber) {
+   if (fiber !== hydrationParentFiber) return !1;
+   if (!isHydrating) return popToNextHostParent(fiber), (isHydrating = !0), !1;
+@@ -11814,6 +11824,7 @@ function replaySuspendedUnitOfWork(unitOfWork) {
+       break;
+     case 5:
+       resetHooksOnUnwind(next);
++      popHydrationStateOnInterruptedWork(next);
+     default:
+       unwindInterruptedWork(current, next),
+         (next = workInProgress =

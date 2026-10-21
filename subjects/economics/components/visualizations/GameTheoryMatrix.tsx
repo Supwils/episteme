@@ -22,38 +22,67 @@ const GAMES: Record<GameType, GameConfig> = {
     id: "prisoner",
     label: "囚徒困境",
     labelEn: "Prisoner's Dilemma",
-    description: "两个囚犯面临合作或背叛的选择。尽管双方合作能获得更好的集体结果，但个体理性导致双方都选择背叛。",
+    description:
+      "两个囚犯面临合作或背叛的选择。尽管双方合作能获得更好的集体结果，但个体理性导致双方都选择背叛。",
     payoffs: [
-      [[3, 3], [0, 5]],
-      [[5, 0], [1, 1]],
+      [
+        [3, 3],
+        [0, 5],
+      ],
+      [
+        [5, 0],
+        [1, 1],
+      ],
     ],
     nashEquilibria: [[1, 1]],
     dominantStrategy: { A: "defect", B: "defect" },
-    insight: "个体理性 ≠ 集体理性。纳什均衡（背叛, 背叛）是帕累托次优的，这揭示了市场失灵的根源之一。",
+    insight:
+      "个体理性 ≠ 集体理性。纳什均衡（背叛, 背叛）是帕累托次优的，这揭示了市场失灵的根源之一。",
   },
   chicken: {
     id: "chicken",
     label: "胆小鬼博弈",
     labelEn: "Game of Chicken",
-    description: "两辆车相向而行，谁先转向谁是\u201C胆小鬼\u201D。如果都不转向则两败俱伤。这描述了核威慑、价格战等对峙场景。",
+    description:
+      "两辆车相向而行，谁先转向谁是\u201C胆小鬼\u201D。如果都不转向则两败俱伤。这描述了核威慑、价格战等对峙场景。",
     payoffs: [
-      [[0, 0], [-1, 1]],
-      [[1, -1], [-5, -5]],
+      [
+        [0, 0],
+        [-1, 1],
+      ],
+      [
+        [1, -1],
+        [-5, -5],
+      ],
     ],
-    nashEquilibria: [[0, 1], [1, 0]],
+    nashEquilibria: [
+      [0, 1],
+      [1, 0],
+    ],
     dominantStrategy: { A: null, B: null },
-    insight: "两个纯策略纳什均衡都存在——关键是谁先行动或做出承诺。这解释了为什么\u201C疯狂\u201D有时是理性策略。",
+    insight:
+      "两个纯策略纳什均衡都存在——关键是谁先行动或做出承诺。这解释了为什么\u201C疯狂\u201D有时是理性策略。",
   },
   "stag-hunt": {
     id: "stag-hunt",
     label: "猎鹿博弈",
     labelEn: "Stag Hunt",
-    description: "两个猎人可以合作猎鹿（高收益但需要双方合作）或单独猎兔（低收益但有保障）。这描述了信任与协作的困境。",
+    description:
+      "两个猎人可以合作猎鹿（高收益但需要双方合作）或单独猎兔（低收益但有保障）。这描述了信任与协作的困境。",
     payoffs: [
-      [[5, 5], [0, 3]],
-      [[3, 0], [3, 3]],
+      [
+        [5, 5],
+        [0, 3],
+      ],
+      [
+        [3, 0],
+        [3, 3],
+      ],
     ],
-    nashEquilibria: [[0, 0], [1, 1]],
+    nashEquilibria: [
+      [0, 0],
+      [1, 1],
+    ],
     dominantStrategy: { A: null, B: null },
     insight: "存在两个纳什均衡——合作是帕累托最优，但需要信任。这说明了社会契约和制度信任的重要性。",
   },
@@ -106,7 +135,7 @@ export function GameTheoryMatrix() {
     (row: number, col: number) => {
       return game.nashEquilibria.some(([r, c]) => r === row && c === col);
     },
-    [game],
+    [game]
   );
 
   return (
@@ -134,7 +163,9 @@ export function GameTheoryMatrix() {
       <div className="mb-6 flex justify-center">
         <div className="relative">
           <div className="mb-2 text-center">
-            <span className="text-fg-muted font-mono text-[10px] tracking-[0.2em] uppercase">玩家 B（列）</span>
+            <span className="text-fg-muted font-mono text-[10px] tracking-[0.2em] uppercase">
+              玩家 B（列）
+            </span>
           </div>
 
           <div className="flex items-start gap-0">
@@ -205,15 +236,21 @@ export function GameTheoryMatrix() {
                         aria-label={`${stratA === "cooperate" ? "合作" : "背叛"} vs ${stratB === "cooperate" ? "合作" : "背叛"}: 收益 ${payoff[0]}, ${payoff[1]}${isNE ? " (纳什均衡)" : ""}`}
                       >
                         {isNE && (
-                          <span className="absolute -top-1 -right-1 font-mono text-[7px] tracking-wider text-accent-green uppercase bg-bg-elevated px-1 rounded">
+                          <span className="text-accent-green bg-bg-elevated absolute -top-1 -right-1 rounded px-1 font-mono text-[7px] tracking-wider uppercase">
                             NE
                           </span>
                         )}
-                        <span className="font-mono text-sm font-semibold tabular-nums" style={{ color: STRATEGY_LABELS[stratA].color }}>
+                        <span
+                          className="font-mono text-sm font-semibold tabular-nums"
+                          style={{ color: STRATEGY_LABELS[stratA].color }}
+                        >
                           {payoff[0]}
                         </span>
                         <span className="text-fg-disabled font-mono text-[9px]">,</span>
-                        <span className="font-mono text-sm font-semibold tabular-nums" style={{ color: STRATEGY_LABELS[stratB].color }}>
+                        <span
+                          className="font-mono text-sm font-semibold tabular-nums"
+                          style={{ color: STRATEGY_LABELS[stratB].color }}
+                        >
                           {payoff[1]}
                         </span>
                         <span className="text-fg-disabled mt-0.5 font-mono text-[8px]">
@@ -231,7 +268,7 @@ export function GameTheoryMatrix() {
 
       {selectedPayoff && revealed && (
         <motion.div
-          initial={reduce ? false : { opacity: 0, y: 8 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.25 }}
           className="data-panel mb-4"
@@ -260,8 +297,14 @@ export function GameTheoryMatrix() {
             </div>
           </div>
           <p className="text-fg-muted text-xs">
-            玩家 A: <span style={{ color: STRATEGY_LABELS[playerA!].color }}>{STRATEGY_LABELS[playerA!].cn}</span> ·
-            玩家 B: <span style={{ color: STRATEGY_LABELS[playerB!].color }}>{STRATEGY_LABELS[playerB!].cn}</span>
+            玩家 A:{" "}
+            <span style={{ color: STRATEGY_LABELS[playerA!].color }}>
+              {STRATEGY_LABELS[playerA!].cn}
+            </span>{" "}
+            · 玩家 B:{" "}
+            <span style={{ color: STRATEGY_LABELS[playerB!].color }}>
+              {STRATEGY_LABELS[playerB!].cn}
+            </span>
           </p>
         </motion.div>
       )}
@@ -277,7 +320,10 @@ export function GameTheoryMatrix() {
           className="border-border-faint bg-bg-elevated rounded-lg border p-4"
           style={{ borderLeftWidth: 3, borderLeftColor: "#c8a45a" }}
         >
-          <p className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.2em] uppercase" style={{ color: "#c8a45a" }}>
+          <p
+            className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.2em] uppercase"
+            style={{ color: "#c8a45a" }}
+          >
             博弈分析
           </p>
           <div className="space-y-2">
@@ -285,18 +331,25 @@ export function GameTheoryMatrix() {
               <span className="text-fg-muted font-mono text-[10px]">纳什均衡：</span>
               <span className="text-fg-primary font-mono text-[11px]">
                 {game.nashEquilibria
-                  .map(
-                    ([r, c]) =>
-                      `(${r === 0 ? "合作" : "背叛"}, ${c === 0 ? "合作" : "背叛"})`,
-                  )
+                  .map(([r, c]) => `(${r === 0 ? "合作" : "背叛"}, ${c === 0 ? "合作" : "背叛"})`)
                   .join(" 和 ")}
               </span>
             </div>
             <div>
               <span className="text-fg-muted font-mono text-[10px]">优势策略：</span>
               <span className="text-fg-primary font-mono text-[11px]">
-                A: {game.dominantStrategy.A === null ? "无" : game.dominantStrategy.A === "cooperate" ? "合作" : "背叛"} ·
-                B: {game.dominantStrategy.B === null ? "无" : game.dominantStrategy.B === "cooperate" ? "合作" : "背叛"}
+                A:{" "}
+                {game.dominantStrategy.A === null
+                  ? "无"
+                  : game.dominantStrategy.A === "cooperate"
+                    ? "合作"
+                    : "背叛"}{" "}
+                · B:{" "}
+                {game.dominantStrategy.B === null
+                  ? "无"
+                  : game.dominantStrategy.B === "cooperate"
+                    ? "合作"
+                    : "背叛"}
               </span>
             </div>
           </div>
@@ -305,7 +358,10 @@ export function GameTheoryMatrix() {
           className="border-border-faint bg-bg-elevated rounded-lg border p-4"
           style={{ borderLeftWidth: 3, borderLeftColor: "#5a9ad8" }}
         >
-          <p className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.2em] uppercase" style={{ color: "#5a9ad8" }}>
+          <p
+            className="text-fg-muted mb-2 font-mono text-[10px] tracking-[0.2em] uppercase"
+            style={{ color: "#5a9ad8" }}
+          >
             经济学启示
           </p>
           <p className="text-fg-secondary text-sm leading-relaxed">{game.insight}</p>

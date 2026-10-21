@@ -32,6 +32,8 @@ export const CitationSchema = z.object({
 export type Citation = z.infer<typeof CitationSchema>;
 
 const BaseFrontmatter = z.object({
+  summary: z.string().optional(),
+  dek: z.string().optional(),
   title: z.string().min(1, "title is required"),
   status: statusEnum,
   updated: dateString,

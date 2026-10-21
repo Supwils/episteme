@@ -12,10 +12,29 @@
   /* Dark pages read softer in the secondary ink; paper takes the full ink. */
   --prose-ink: var(--color-fg-secondary);
   font-family: var(--prose-font);
+  overflow-wrap: anywhere;
 }
 
 .light .md-prose {
   --prose-ink: var(--color-fg-primary);
+}
+
+/* Padding keeps KaTeX ink and subscripts clear of the scroll edges. */
+.md-math-inline {
+  display: var(--inline-math-display, inline);
+  max-inline-size: 100%;
+  overflow-x: auto;
+  vertical-align: baseline;
+  padding: 0.4em 0.15em;
+  margin: 0 -0.15em;
+}
+
+.md-math-inline[data-overflow] {
+  --inline-math-display: inline-flex;
+}
+
+.md-math-inline > .katex {
+  flex: none;
 }
 
 .md-p {
@@ -64,7 +83,8 @@
 }
 
 .md-anchor {
-  margin-left: 0.5rem;
+  margin-left: 0.35rem;
+  padding: 0.15rem 0.35rem;
   color: var(--color-fg-disabled);
   opacity: 0;
   pointer-events: none;
@@ -73,9 +93,19 @@
 
 .md-h2:hover .md-anchor,
 .md-h3:hover .md-anchor,
+.md-h2:focus-within .md-anchor,
+.md-h3:focus-within .md-anchor,
 .md-anchor:focus-visible {
   opacity: 0.7;
   pointer-events: auto;
+}
+
+/* Touch screens never hover, so a hover-only permalink cannot be tapped. */
+@media (hover: none) {
+  .md-anchor {
+    opacity: 0.55;
+    pointer-events: auto;
+  }
 }
 
 /* ── Lists, quotes, tables, rules ─────────────────────────────────────── */
@@ -93,6 +123,11 @@
 
 .md-list > li + li {
   margin-top: 0.4em;
+}
+
+.md-list .md-list {
+  margin: 0.4em 0 0 1.25rem;
+  text-indent: 0;
 }
 
 .md-list[data-variant="cross-domain"] {
@@ -135,6 +170,7 @@
 .md-table {
   margin: 1.5rem 0;
   overflow-x: auto;
+  overflow-wrap: normal;
   border: 1px solid var(--color-border-faint);
   border-radius: 6px;
 }
@@ -258,6 +294,11 @@
 .myth-card__fact {
   margin-top: 0.75rem;
   color: var(--prose-ink);
+}
+
+/* A fact may run on for several blocks; the card padding closes it. */
+.myth-card__body > :last-child {
+  margin-bottom: 0;
 }
 
 .myth-card__tag {

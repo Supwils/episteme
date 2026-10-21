@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { readerKeyFigureLabel } from "@/lib/reader-key-figure-label";
 import { getAllTheories } from "@/subjects/economics/lib/mdx";
 import { CATEGORY_COLORS } from "@/subjects/economics/lib/constants";
 
@@ -60,12 +61,14 @@ export default function TheoriesPage() {
               />
 
               <div className="relative flex items-center justify-between">
-                <span
-                  className="border px-2 py-0.5 font-mono text-[10px] tracking-[0.32em] uppercase"
-                  style={{ borderColor: `${color}50`, color }}
-                >
-                  {theory.category}
-                </span>
+                {theory.category !== theory.title && (
+                  <span
+                    className="border px-2 py-0.5 font-mono text-[10px] tracking-[0.32em] uppercase"
+                    style={{ borderColor: `${color}50`, color }}
+                  >
+                    {theory.category}
+                  </span>
+                )}
                 <span className="text-fg-disabled font-mono text-[9px] tracking-[0.22em]">
                   {theory.period}
                 </span>
@@ -82,7 +85,10 @@ export default function TheoriesPage() {
 
               {theory.key_figures.length > 0 && (
                 <p className="text-fg-secondary text-sm">
-                  {theory.key_figures.slice(0, 3).join(" · ")}
+                  {theory.key_figures
+                    .slice(0, 3)
+                    .map((name) => readerKeyFigureLabel(theory.content, name))
+                    .join(" · ")}
                 </p>
               )}
 

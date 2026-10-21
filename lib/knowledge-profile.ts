@@ -15,6 +15,8 @@ export interface KnowledgeProfileSnapshot {
 }
 
 const EMPTY_PROFILE: KnowledgeProfileSnapshot = { version: 1, entries: [] };
+const MAX_NODE_ID_LENGTH = 200;
+const MAX_CONFIRMED_AT_LENGTH = 40;
 const listeners = new Set<() => void>();
 let storageListenerAttached = false;
 let profileSnapshot = typeof window === "undefined" ? EMPTY_PROFILE : readProfile();
@@ -28,7 +30,16 @@ function normalizeProfile(value: unknown): KnowledgeProfileSnapshot {
     if (!entry || typeof entry !== "object") continue;
     const nodeId = (entry as { nodeId?: unknown }).nodeId;
     const confirmedAt = (entry as { confirmedAt?: unknown }).confirmedAt;
-    if (typeof nodeId !== "string" || !nodeId || typeof confirmedAt !== "string") continue;
+    if (
+      typeof nodeId !== "string" ||
+      nodeId.length === 0 ||
+      nodeId.length > MAX_NODE_ID_LENGTH ||
+      typeof confirmedAt !== "string" ||
+      confirmedAt.length === 0 ||
+      confirmedAt.length > MAX_CONFIRMED_AT_LENGTH
+    ) {
+      continue;
+    }
     unique.set(nodeId, { nodeId, confirmedAt });
   }
   return { version: 1, entries: [...unique.values()] };

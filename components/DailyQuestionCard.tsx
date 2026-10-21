@@ -1,14 +1,12 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
 type DailyQuestionCardProps = {
   question: string;
 };
 
 export function DailyQuestionCard({ question }: DailyQuestionCardProps) {
-  const reduce = useReducedMotion();
-
   return (
     <motion.section
       className="mx-auto w-full max-w-3xl overflow-hidden rounded-2xl backdrop-blur-xl"
@@ -17,7 +15,7 @@ export function DailyQuestionCard({ question }: DailyQuestionCardProps) {
         border: "1px solid var(--color-border-faint)",
         boxShadow: "var(--card-shadow)",
       }}
-      initial={reduce ? false : { opacity: 0, y: 24 }}
+      initial={false}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.15 }}
     >

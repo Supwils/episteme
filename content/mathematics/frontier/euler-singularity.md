@@ -1,4 +1,5 @@
 ---
+summary: "Chen与Hou证明带圆柱边界的三维轴对称欧拉方程会在有限时间奇异。黏性能否阻止爆破没有答案，去掉边界仍开放，这不是纳维-斯托克斯千禧题。"
 title: 流体方程奇点的计算机辅助证明
 title_en: Computer-Assisted Proofs of Fluid Singularities
 status: published

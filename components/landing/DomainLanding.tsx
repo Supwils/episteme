@@ -74,7 +74,7 @@ export function DomainLanding({
       title: article.title,
       meta: article.horizon,
     }));
-  const headline = question ?? spine?.question ?? entry.description;
+  const headline = question ?? entry.question ?? spine?.question ?? entry.description;
   const pigment = pigmentVar(cluster);
 
   return (

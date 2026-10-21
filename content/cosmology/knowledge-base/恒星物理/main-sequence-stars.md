@@ -1,4 +1,5 @@
 ---
+summary: "主序是氢燃烧与流体静力同时成立的阶段，质量几乎决定落点。质光关系只在中间质量最干净，两端因辐射压或全对流改写斜率，亮度也不由燃料库存决定。"
 title: 主序星
 titleEn: Main Sequence Stars
 category: 恒星物理

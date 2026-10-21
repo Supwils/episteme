@@ -1,4 +1,5 @@
 ---
+summary: "金属丰度记录气体在成星前被加工了几代，不是全宇宙同步的年龄钟。闭箱模型因无流入而高估贫金属星，α比铁的膝部还会被稀释与外流挪动，不能当成无模型的快慢计。"
 title: 恒星金属丰度与化学演化
 titleEn: Stellar Metallicity and Chemical Evolution
 category: 恒星物理

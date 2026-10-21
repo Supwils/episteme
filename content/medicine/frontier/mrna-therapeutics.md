@@ -1,6 +1,7 @@
 ---
 title: mRNA 疗法：当新冠疫苗只是这项技术的第一幕
 title_en: mRNA Therapeutics — When the COVID Vaccine Was Only Act One
+summary: "2023 年诺贝尔奖授予 Karikó 与 Weissman 的核苷修饰发现，Karikó 曾长期申请不到经费；mRNA 不改变基因，难点在稳定与递送，平台的威力在于可编程和快。"
 status: published
 updated: 2026-06-19
 category: 基因与免疫

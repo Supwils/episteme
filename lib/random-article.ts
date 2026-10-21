@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { isSafeInternalPath } from "./urls";
 
 type SearchDoc = { t: string; u: string; c: string; k?: string };
 
@@ -18,6 +19,15 @@ function encodeLastSegment(url: string): string {
   return parts.join("/");
 }
 
+/** Article-depth same-origin paths only. `//host` is a protocol-relative redirect. */
+export function acceptRandomArticleUrl(raw: string): string | null {
+  if (!isSafeInternalPath(raw)) return null;
+  const encoded = encodeLastSegment(raw);
+  if (!isSafeInternalPath(encoded)) return null;
+  if (encoded.split("/").filter(Boolean).length < 3) return null;
+  return encoded;
+}
+
 let cachedUrls: string[] | null = null;
 
 function loadArticleUrls(): string[] {
@@ -26,10 +36,11 @@ function loadArticleUrls(): string[] {
   const raw = JSON.parse(fs.readFileSync(file, "utf-8")) as { docs: SearchDoc[] };
   cachedUrls = [
     ...new Set(
-      raw.docs
-        .filter((d) => typeof d.u === "string" && d.u.startsWith("/"))
-        .map((d) => encodeLastSegment(d.u))
-        .filter((u) => u.split("/").filter(Boolean).length >= 3)
+      raw.docs.flatMap((doc) => {
+        if (typeof doc.u !== "string") return [];
+        const url = acceptRandomArticleUrl(doc.u);
+        return url ? [url] : [];
+      })
     ),
   ];
   return cachedUrls;
@@ -50,6 +61,8 @@ export function pickRandomArticleUrl(): string {
 
 /** Node refuses non-ASCII `Location` values (`ERR_INVALID_CHAR`). */
 export function toRedirectLocation(url: string): string {
+  // A protocol-relative or off-site value must not become the Location header.
+  if (!isSafeInternalPath(url)) return "/daily";
   return url
     .split("/")
     .map((segment, index) => {

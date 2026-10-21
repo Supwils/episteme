@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { readerKeyFigureLabel } from "@/lib/reader-key-figure-label";
 import { getAllDebates } from "@/subjects/psychology/lib/mdx";
 import { ERA_COLORS } from "@/subjects/psychology/lib/constants";
 
@@ -59,7 +60,7 @@ export default function DebatesPage() {
               <div className="relative flex flex-wrap gap-1.5">
                 {d.key_figures.slice(0, 3).map((fig) => (
                   <span key={fig} className="text-fg-muted font-mono text-[9px] tracking-[0.16em]">
-                    {fig}
+                    {readerKeyFigureLabel(d.content, fig)}
                   </span>
                 ))}
               </div>

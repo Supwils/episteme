@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { withCanonicalPath } from "@/lib/article-canonical";
+import { extractExcerpt } from "@/lib/content-utils";
 import Link from "next/link";
 import { getDialogueBySlug, getAllDialogues } from "@/subjects/economics/lib/mdx";
 import { ERA_COLORS } from "@/subjects/economics/lib/constants";
@@ -20,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!dialogue) notFound();
   return withCanonicalPath(`/economics/dialogues/${slug}`, {
     title: `${dialogue.title} — 经济学对话`,
-    description: `${dialogue.participants.join("、")}的对话`,
+    description: dialogue.summary ?? extractExcerpt(dialogue.content),
   });
 }
 
@@ -60,6 +61,7 @@ export default async function DialogueDetailPage({
       eyebrow={dialogue.era}
       title={dialogue.title}
       titleEn={dialogue.title_en}
+      lede={dialogue.summary}
       content={dialogue.content}
       meta={
         <>

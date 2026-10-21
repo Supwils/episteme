@@ -21,7 +21,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!economist) notFound();
   return withCanonicalPath(`/economics/economists/${slug}`, {
     title: `${economist.title} — 经济学家`,
-    description: `${economist.title}（${economist.name_en}）：${economist.school}。${economist.tags.join("、")}`,
+    description:
+      economist.summary ??
+      `${economist.title}（${economist.name_en}）：${economist.school}。${economist.tags.join("、")}`,
   });
 }
 
@@ -70,6 +72,7 @@ export default async function EconomistDetailPage({
       eyebrowMeta={[economist.years]}
       title={economist.title}
       titleEn={economist.name_en}
+      lede={economist.summary}
       content={economist.content}
       meta={
         <>

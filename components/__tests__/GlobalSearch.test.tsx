@@ -39,6 +39,7 @@ const routerPush = vi.fn();
 vi.mock("next/navigation", () => ({
   useRouter: () => ({ push: routerPush }),
   usePathname: () => "/",
+  useSearchParams: () => new URLSearchParams(),
 }));
 
 function open() {
@@ -176,7 +177,7 @@ describe("GlobalSearch", () => {
 });
 
 describe("GlobalSearch keyboard and session behaviour", () => {
-  it("does not navigate an old result when Enter arrives before the input debounce", async () => {
+  it("sends Enter before the input debounce to the full results for the typed text, not an old result", async () => {
     vi.useFakeTimers();
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: false }));
     open();
@@ -186,10 +187,20 @@ describe("GlobalSearch keyboard and session behaviour", () => {
     expect(screen.getByRole("option")).toBeTruthy();
     type("柏拉图");
     fireEvent.keyDown(screen.getByRole("textbox", { name: "搜索" }), { key: "Enter" });
-    expect(routerPush).not.toHaveBeenCalled();
-    expect(screen.getByRole("dialog")).toBeTruthy();
-    await act(async () => vi.advanceTimersByTimeAsync(100));
-    expect(screen.queryByRole("option")).toBeNull();
+    expect(routerPush).toHaveBeenCalledTimes(1);
+    expect(routerPush).toHaveBeenCalledWith(`/search?q=${encodeURIComponent("柏拉图")}`);
+  });
+
+  it("sends Enter to the full results while the first results are still loading", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockReturnValue(new Promise(() => {})));
+    open();
+    type("苏格拉底");
+    await waitFor(() =>
+      expect(screen.getByRole("textbox", { name: "搜索" })).toHaveProperty("value", "苏格拉底")
+    );
+    await waitFor(() => expect(releaseTitleSearch).toBeDefined());
+    fireEvent.keyDown(screen.getByRole("textbox", { name: "搜索" }), { key: "Enter" });
+    expect(routerPush).toHaveBeenCalledWith(`/search?q=${encodeURIComponent("苏格拉底")}`);
   });
 
   it("aborts body work when the search overlay closes", async () => {
@@ -199,7 +210,7 @@ describe("GlobalSearch keyboard and session behaviour", () => {
     type("苏格拉底");
     await waitFor(() => expect(fetchMock).toHaveBeenCalled());
     const signal = (fetchMock.mock.calls[0]?.[1] as RequestInit | undefined)?.signal;
-    fireEvent.keyDown(document, { key: "Escape" });
+    fireEvent(screen.getByRole("dialog"), new Event("cancel", { cancelable: true }));
     expect(signal?.aborted).toBe(true);
   });
 
@@ -221,13 +232,15 @@ describe("GlobalSearch keyboard and session behaviour", () => {
       vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: false }));
       window.localStorage.setItem("uk-search-history", JSON.stringify(["苏格拉底"]));
       open();
-      expect(fireEvent.keyDown(screen.getByRole("button", { name }), { key: "Enter" })).toBe(true);
+      const button = screen.getByRole("button", { name });
+      expect(button.getAttribute("type")).toBe("button");
+      expect(fireEvent.keyDown(button, { key: "Enter" })).toBe(true);
       expect((screen.getByRole("textbox", { name: "搜索" }) as HTMLInputElement).value).toBe("");
       expect(screen.queryByText("查看全部结果")).toBeNull();
     }
   );
 
-  it.each(["escape", "shortcut", "backdrop"])(
+  it.each(["cancel", "shortcut", "backdrop"])(
     "cancels queued input when closed by %s",
     async (method) => {
       vi.useFakeTimers();
@@ -235,11 +248,9 @@ describe("GlobalSearch keyboard and session behaviour", () => {
       open();
       type("旧查询");
       if (method === "backdrop") fireEvent.click(screen.getByRole("dialog"));
-      else
-        fireEvent.keyDown(
-          document,
-          method === "escape" ? { key: "Escape" } : { key: "k", ctrlKey: true }
-        );
+      else if (method === "cancel")
+        fireEvent(screen.getByRole("dialog"), new Event("cancel", { cancelable: true }));
+      else fireEvent.keyDown(document, { key: "k", ctrlKey: true });
       expect(screen.queryByRole("dialog")).toBeNull();
       act(() => document.dispatchEvent(new Event("open-global-search")));
       await act(async () => vi.advanceTimersByTimeAsync(300));
@@ -299,8 +310,8 @@ describe("GlobalSearch keyboard and session behaviour", () => {
     await act(async () => releaseTitleSearch?.([socrates]));
     expect(await screen.findByRole("option")).toBeTruthy();
 
-    // Close with Escape, reopen — no stale results, empty input.
-    fireEvent.keyDown(document, { key: "Escape" });
+    // Native cancellation is delivered as cancel; real Escape is covered in browser tests.
+    fireEvent(screen.getByRole("dialog"), new Event("cancel", { cancelable: true }));
     expect(screen.queryByRole("dialog")).toBeNull();
     act(() => document.dispatchEvent(new Event("open-global-search")));
     expect(screen.queryByRole("option")).toBeNull();

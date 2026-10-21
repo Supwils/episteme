@@ -23,7 +23,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const mathematician = getMathematicianBySlug(slug);
   if (!mathematician) notFound();
-  const description = `${mathematician.name}：${mathematician.field}。${mathematician.tags.join("、")}`;
+  const description =
+    mathematician.summary ??
+    `${mathematician.name}：${mathematician.field}。${mathematician.tags.join("、")}`;
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(mathematician.title)}&section=mathematics&description=${encodeURIComponent(description)}`;
   return withCanonicalPath(`/mathematics/mathematicians/${slug}`, {
     title: `${mathematician.title} — 数学家`,
@@ -78,6 +80,7 @@ export default async function MathematicianDetailPage({
       eyebrowMeta={[mathematician.field]}
       title={mathematician.title}
       titleEn={mathematician.name}
+      lede={mathematician.summary}
       content={mathematician.content}
       meta={
         <>

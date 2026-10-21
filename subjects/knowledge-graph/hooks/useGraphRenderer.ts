@@ -178,10 +178,13 @@ export function useGraphRenderer(
       startOffsets.set(id, { x: 0, y: 0 });
     }
 
-    animateNodePositions(startOffsets, targetOffsets, 300, (offsets) => {
+    // Cancelled on re-run so a stale spread for the previous selection can't
+    // keep painting over the new one (or over a cleared selection).
+    const cancelSpread = animateNodePositions(startOffsets, targetOffsets, 300, (offsets) => {
       spreadOffsetsRef.current = offsets;
       pushRenderData();
     });
+    return cancelSpread;
   }, [selectedNodeId, edges, pushRenderData, spreadOffsetsRef, positionsRef]);
 
   useEffect(() => {
@@ -254,15 +257,13 @@ export function useGraphRenderer(
             const pos = positionsRef.current.get(id);
             const container = containerRef.current;
             if (pos && container) {
-              const w = container.clientWidth;
-              const h = container.clientHeight;
               const targetScale = 1.5;
-              renderer.setTransform(
-                targetScale,
-                w / 2 - pos.x * targetScale,
-                h / 2 - pos.y * targetScale
-              );
+              const nextOffsetX = container.clientWidth / 2 - pos.x * targetScale;
+              const nextOffsetY = container.clientHeight / 2 - pos.y * targetScale;
+              renderer.setTransform(targetScale, nextOffsetX, nextOffsetY);
               setZoom(targetScale);
+              setOffsetX(nextOffsetX);
+              setOffsetY(nextOffsetY);
             }
             setSelectedNodeId(id);
             setTooltipNode(null);
@@ -500,6 +501,9 @@ export function useGraphRenderer(
 
     const currentAnimFrame = animFrameRef.current;
     return () => {
+      // Stops a late worker result or the async sync-layout fallback from
+      // building a second renderer on a canvas this effect no longer owns.
+      cancelled = true;
       cancelAnimationFrame(currentAnimFrame);
       cancelAnimRef.current?.();
       cancelAnimationFrame(resizeFrame);

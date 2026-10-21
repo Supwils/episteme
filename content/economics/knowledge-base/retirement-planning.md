@@ -1,4 +1,5 @@
 ---
+summary: "退休保障靠社会保障、企业年金与个人储蓄三根支柱，其中只有个人积累能完全自己决定。现收现付随抚养比变紧而不可单靠，只问钱够多少年会漏掉寿命与照护尾部。"
 title: 退休理财的科学
 titleEn: The Science of Retirement Planning
 category: 个人理财

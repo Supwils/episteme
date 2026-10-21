@@ -1,4 +1,5 @@
 ---
+summary: "恒星级黑洞是坍缩残骸超过中子星支撑后的结局，孤立个体几乎不辐射。质量间隙是否被填满仍无定论，动力学质量还含倾角投影，X射线样本只覆盖正在吸积的双星。"
 title: 恒星级黑洞
 titleEn: Stellar-Mass Black Holes
 category: 致密天体物理学

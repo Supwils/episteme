@@ -1,6 +1,7 @@
 ---
 title: 跨境数据治理：云端的一份数据同时服从几套主权
 title_en: Cross-Border Data Governance and Jurisdictional Conflict
+summary: "甲国收集的数据由乙国云公司在丙国处理，母公司又可能收到丁国政府的命令。欧盟《数据法》自 2025 年 9 月起适用，第 32 条要求服务商防止与欧盟法冲突的第三国政府访问非个人数据。"
 status: published
 updated: 2026-08-07
 category: 数据法

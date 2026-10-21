@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { withCanonicalPath } from "@/lib/article-canonical";
+import { extractExcerpt } from "@/lib/content-utils";
 import { getMathDialogueBySlug, getAllMathDialogues } from "@/subjects/mathematics/lib/dialogues";
 import { MATH_FIELD_COLORS } from "@/subjects/mathematics/lib/constants";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
@@ -20,16 +21,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const dialogue = getMathDialogueBySlug(slug);
   if (!dialogue) notFound();
-  const description = `${dialogue.participants.join("、")}的对话：${dialogue.title_en}`;
-  const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(dialogue.title)}&section=mathematics&description=${encodeURIComponent(description)}`;
   return withCanonicalPath(`/mathematics/dialogues/${slug}`, {
     title: `${dialogue.title} — 数学对话`,
-    description,
-    openGraph: {
-      title: `${dialogue.title} — 数学对话`,
-      description,
-      images: [{ url: ogImage, width: 1200, height: 630 }],
-    },
+    description: dialogue.summary ?? extractExcerpt(dialogue.content),
   });
 }
 
@@ -74,6 +68,7 @@ export default async function MathDialogueDetailPage({
       eyebrowMeta={[dialogue.era]}
       title={dialogue.title}
       titleEn={dialogue.title_en}
+      lede={dialogue.summary}
       content={dialogue.content}
       meta={<>对话者：{dialogue.participants.join("、")}</>}
       tags={dialogue.tags}

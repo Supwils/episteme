@@ -522,10 +522,17 @@ export function PhilosophyTree() {
     [selectedId]
   );
 
-  const handleWheel = useCallback((e: React.WheelEvent) => {
-    e.preventDefault();
-    const delta = e.deltaY > 0 ? 0.92 : 1.08;
-    setZoom((prev) => Math.min(4, Math.max(0.3, prev * delta)));
+  // React attaches wheel listeners as passive, so preventDefault there cannot stop the page scrolling.
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      const delta = e.deltaY > 0 ? 0.92 : 1.08;
+      setZoom((prev) => Math.min(4, Math.max(0.3, prev * delta)));
+    };
+    container.addEventListener("wheel", handleWheel, { passive: false });
+    return () => container.removeEventListener("wheel", handleWheel);
   }, []);
 
   const handlePointerDown = useCallback(
@@ -726,7 +733,6 @@ export function PhilosophyTree() {
           minHeight: 500,
           touchAction: "none",
         }}
-        onWheel={handleWheel}
       >
         <svg
           className="absolute inset-0 h-full w-full"

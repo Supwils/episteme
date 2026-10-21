@@ -32,6 +32,8 @@ function highlightSnippet(snippet: string, matchStart: number, length: number): 
 
 interface SearchResultItemProps {
   result: SearchResult;
+  /** DOM id the listbox's aria-activedescendant points at. */
+  domId?: string;
   query: string;
   isActive: boolean;
   onClick: (url: string) => void;
@@ -40,14 +42,15 @@ interface SearchResultItemProps {
   showSectionLabel?: boolean;
 }
 
-/** Curiosity hooks share their article's URL, so identity (React key, DOM
- *  id, keyboard index) must include the kind — URL alone collides. */
-export function searchResultDomId(result: Pick<SearchResult, "kind" | "url">): string {
-  return `gs-item-${result.kind}-${result.url}`;
+/** Dozens of curiosity hooks share one URL (and one kind), so no field of a
+ *  result is unique. Identity is its position in the walkable list. */
+export function searchResultDomId(index: number): string {
+  return `gs-item-${index}`;
 }
 
 export function SearchResultItem({
   result,
+  domId,
   query,
   isActive,
   onClick,
@@ -63,7 +66,7 @@ export function SearchResultItem({
 
   return (
     <Link
-      id={searchResultDomId(result)}
+      id={domId}
       href={result.url}
       role="option"
       data-kind={result.kind}
@@ -95,7 +98,11 @@ export function SearchResultItem({
       </div>
       {result.snippet && (
         <div className="gs-item-desc">
-          {highlightSnippet(result.snippet, result.matchStart ?? -1, query.length)}
+          {highlightSnippet(
+            result.snippet,
+            result.matchStart ?? -1,
+            result.matchLength ?? query.length
+          )}
         </div>
       )}
     </Link>

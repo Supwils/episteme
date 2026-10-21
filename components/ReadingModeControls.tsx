@@ -2,20 +2,17 @@
 
 import { useEffect, useState } from "react";
 import { useFocusParagraph } from "@/components/article/useFocusParagraph";
-
-type ReadingMode = "standard" | "focus" | "spacious";
+import {
+  isReadingMode,
+  READING_MODE_STORAGE_KEY as STORAGE_KEY,
+  type ReadingMode,
+} from "@/lib/reading-mode";
 
 const MODES: { id: ReadingMode; label: string; description: string }[] = [
   { id: "standard", label: "标准", description: "标准阅读模式" },
   { id: "focus", label: "专注", description: "专注阅读模式" },
   { id: "spacious", label: "宽松", description: "宽松阅读模式" },
 ];
-
-const STORAGE_KEY = "episteme-reading-mode";
-
-function isReadingMode(value: string | null): value is ReadingMode {
-  return value === "standard" || value === "focus" || value === "spacious";
-}
 
 export function ReadingModeControls() {
   const [mode, setMode] = useState<ReadingMode>("standard");

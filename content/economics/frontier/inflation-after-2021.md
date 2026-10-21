@@ -1,4 +1,5 @@
 ---
+summary: "这轮大通胀是复合冲击，主导因素随阶段变化，而且落在主要宏观模型的预料之外。利润扩张作为放大器几乎无人否认，作为发动机则缺乏证据，能否复制软着陆仍无共识。"
 title: 大通胀复盘：2021–2025 年的诊断之争与政策账单
 title_en: The Great Inflation Revisited — Diagnosis Debates and the Policy Bill, 2021–2025
 status: published

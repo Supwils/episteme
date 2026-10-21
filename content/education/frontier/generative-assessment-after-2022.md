@@ -1,6 +1,7 @@
 ---
 title: 生成式模型之后评估还在测什么
 title_en: What Assessment Still Measures after Generative Models
+summary: "教科文组织 2023 年 9 月发布生成式人工智能指南时，所调查的四百五十多所学校与大学里不到 10% 有正式政策。开放问题是：作业文本可被模型起草之后，试卷与论文还在对什么构念做推断。"
 status: published
 updated: 2026-09-12
 category: 评估与生成式系统

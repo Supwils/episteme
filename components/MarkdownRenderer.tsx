@@ -1,7 +1,19 @@
-import { extractFootnotes, renderInline, type Footnotes } from "@/components/markdown/inline";
+import {
+  extractFootnotes,
+  footnoteReturnAnchors,
+  renderInline,
+  type Footnotes,
+} from "@/components/markdown/inline";
 import { splitSections } from "@/components/markdown/sections";
-import { SectionView } from "@/components/markdown/SectionViews";
+import { renderSection } from "@/components/markdown/SectionViews";
+import { Fragment } from "react";
+import {
+  finalizeFootnoteAnchors,
+  footnoteDefinitionAnchor,
+  footnoteFragment,
+} from "@/components/markdown/footnotes";
 import "@/components/markdown/prose.css";
+import { InlineMathScroll } from "@/components/markdown/InlineMathScroll";
 
 interface MarkdownRendererProps {
   content: string;
@@ -27,33 +39,57 @@ export function MarkdownRenderer({
   domain = "",
 }: MarkdownRendererProps) {
   const footnotes = extractFootnotes(content);
-  const ctx = { footnotes, domain, accentColor };
+  const usedHeadingIds = new Set<string>();
+  const sections = splitSections(content, usedHeadingIds);
+  const ctx = { footnotes, domain, accentColor, usedHeadingIds };
+  const body = sections.map((section, index) => (
+    <Fragment key={section.heading?.id ?? `lead-${index}`}>
+      {renderSection({ section, ctx })}
+    </Fragment>
+  ));
+  const notes = Array.from(footnotes, ([id, text]) => ({
+    id,
+    content: renderInline(text, footnotes, domain),
+  }));
+  finalizeFootnoteAnchors(footnotes, usedHeadingIds);
   return (
     <div className={className ?? "md-prose"}>
-      {splitSections(content).map((section, index) => (
-        <SectionView key={section.heading?.id ?? `lead-${index}`} section={section} ctx={ctx} />
-      ))}
-      {footnotes.size > 0 && <FootnotesSection footnotes={footnotes} domain={domain} />}
+      {body}
+      {footnotes.size > 0 && <FootnotesSection footnotes={footnotes} notes={notes} />}
+      <InlineMathScroll />
     </div>
   );
 }
 
-function FootnotesSection({ footnotes, domain }: { footnotes: Footnotes; domain: string }) {
+function FootnotesSection({
+  footnotes,
+  notes,
+}: {
+  footnotes: Footnotes;
+  notes: { id: string; content: React.ReactNode }[];
+}) {
   return (
     <footer className="md-footnotes">
       <h2 className="md-footnotes__title">脚注</h2>
       <ol>
-        {Array.from(footnotes.entries()).map(([id, text]) => (
-          <li key={id} id={`fn-${id}`}>
+        {notes.map(({ id, content }) => (
+          <li key={id} id={footnoteDefinitionAnchor(footnotes, id)}>
             <span className="md-footnotes__id">[{id}]</span>
-            {renderInline(text, footnotes, domain)}
-            <a
-              href={`#fnref-${id}`}
-              aria-label={`返回脚注 ${id} 的引用处`}
-              className="md-footnotes__back"
-            >
-              ↩
-            </a>
+            {content}
+            {footnoteReturnAnchors(footnotes, id).map((anchor, index, anchors) => (
+              <a
+                key={anchor}
+                href={footnoteFragment(anchor)}
+                aria-label={
+                  anchors.length === 1
+                    ? `返回脚注 ${id} 的引用处`
+                    : `返回脚注 ${id} 的第 ${index + 1} 处引用`
+                }
+                className="md-footnotes__back"
+              >
+                ↩
+              </a>
+            ))}
           </li>
         ))}
       </ol>

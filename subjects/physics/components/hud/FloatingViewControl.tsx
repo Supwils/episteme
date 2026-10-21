@@ -18,6 +18,7 @@ import {
   type SectionId,
   type ViewMode,
 } from "@/subjects/physics/lib/section";
+import { parseControlPosition } from "@/subjects/physics/lib/control-position";
 import { getViewMode } from "@/subjects/physics/lib/tier";
 import { useHandwrittenStore } from "@/subjects/physics/store/useHandwrittenStore";
 import { useUniverseStore } from "@/subjects/physics/store/useUniverseStore";
@@ -30,18 +31,13 @@ const noopSubscribe = () => () => {};
 
 function readPersistedPos(): Pos {
   if (typeof window === "undefined") return { x: 0, y: 0 };
+  let raw: string | null = null;
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) {
-      const parsed = JSON.parse(raw) as Pos;
-      if (typeof parsed.x === "number" && typeof parsed.y === "number") {
-        return parsed;
-      }
-    }
+    raw = localStorage.getItem(STORAGE_KEY);
   } catch {
-    // fall through to default
+    raw = null;
   }
-  return { x: window.innerWidth - 88, y: 88 };
+  return parseControlPosition(raw, { x: window.innerWidth - 88, y: 88 });
 }
 
 /**

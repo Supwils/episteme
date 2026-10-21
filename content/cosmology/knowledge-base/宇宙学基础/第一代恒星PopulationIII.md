@@ -1,4 +1,5 @@
 ---
+summary: "第一代恒星由几乎纯氢氦构成，理论预测它们比今天的恒星重得多。质量、光度和寿命全部来自模拟与间接推断，至今没有一颗被直接观测确认。"
 title: 第一代恒星 Population III
 titleEn: Population III Stars
 category: 宇宙学基础

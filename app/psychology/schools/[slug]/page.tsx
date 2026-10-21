@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import { withCanonicalPath } from "@/lib/article-canonical";
+import { extractExcerpt } from "@/lib/content-utils";
 import Link from "next/link";
+import { readerKeyFigureLabel } from "@/lib/reader-key-figure-label";
 import { getSchoolBySlug, getAllSchools } from "@/subjects/psychology/lib/mdx";
 import { ERA_COLORS } from "@/subjects/psychology/lib/constants";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
@@ -17,11 +19,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const school = getSchoolBySlug(slug);
   if (!school) notFound();
-  const description = school.founder ? `${school.founder}：${school.title}` : school.title;
   return withCanonicalPath(`/psychology/schools/${slug}`, {
     title: `${school.title} — 心理学流派`,
-    description,
-    openGraph: { title: `${school.title} — 心理学流派`, description },
+    description: school.summary ?? extractExcerpt(school.content),
   });
 }
 
@@ -43,6 +43,7 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
       eyebrow={school.era}
       eyebrowMeta={school.period ? [school.period] : undefined}
       title={school.title}
+      lede={school.summary}
       content={school.content}
       meta={
         <>
@@ -52,7 +53,12 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
             </p>
           )}
           {school.key_figures.length > 0 && (
-            <p className="mt-3">代表人物：{school.key_figures.join("、")}</p>
+            <p className="mt-3">
+              代表人物：
+              {school.key_figures
+                .map((name) => readerKeyFigureLabel(school.content, name))
+                .join("、")}
+            </p>
           )}
         </>
       }

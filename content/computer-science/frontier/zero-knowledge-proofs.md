@@ -1,6 +1,7 @@
 ---
 title: 零知识证明与隐私计算
 title_en: Zero-Knowledge Proofs and Privacy-Preserving Computation
+summary: "零知识证明让人证明自己年满18岁或信用达标，却不透露具体数据；本文澄清零知识不等于匿名，讲交互式证明的三个性质，以及非交互式的zk-SNARK。"
 status: published
 updated: 2026-09-12
 category: 密码学

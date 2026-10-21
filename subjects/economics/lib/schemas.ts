@@ -7,6 +7,8 @@ const updatedField = z
   .default("");
 
 export const EconomistSchema = z.object({
+  summary: z.string().optional(),
+  dek: z.string().optional(),
   title: z.string().default(""),
   name_en: z.string().default(""),
   years: z.string().default(""),
@@ -21,6 +23,8 @@ export const EconomistSchema = z.object({
 });
 
 export const TheorySchema = z.object({
+  summary: z.string().optional(),
+  dek: z.string().optional(),
   title: z.string().default(""),
   title_en: z.string().default(""),
   category: z.string().default(""),
@@ -35,6 +39,8 @@ export const TheorySchema = z.object({
 });
 
 export const ConceptSchema = z.object({
+  summary: z.string().optional(),
+  dek: z.string().optional(),
   title: z.string().default(""),
   title_en: z.string().default(""),
   category: z.string().default(""),
@@ -48,6 +54,8 @@ export const ConceptSchema = z.object({
 });
 
 export const CaseStudySchema = z.object({
+  summary: z.string().optional(),
+  dek: z.string().optional(),
   title: z.string().default(""),
   title_en: z.string().default(""),
   year: z.number().default(0),
@@ -63,6 +71,8 @@ export const CaseStudySchema = z.object({
 });
 
 export const SchoolSchema = z.object({
+  summary: z.string().optional(),
+  dek: z.string().optional(),
   title: z.string().default(""),
   title_en: z.string().default(""),
   era: z.string().default("当代"),
@@ -77,6 +87,8 @@ export const SchoolSchema = z.object({
 });
 
 export const DebateSchema = z.object({
+  summary: z.string().optional(),
+  dek: z.string().optional(),
   title: z.string().default(""),
   title_en: z.string().optional().default(""),
   topic: z.string().optional().default(""),
@@ -91,6 +103,8 @@ export const DebateSchema = z.object({
 });
 
 export const DialogueSchema = z.object({
+  summary: z.string().optional(),
+  dek: z.string().optional(),
   title: z.string().default(""),
   title_en: z.string().optional().default(""),
   participants: z.array(z.string()).default([]),
@@ -104,6 +118,8 @@ export const DialogueSchema = z.object({
 });
 
 export const KnowledgeBaseSchema = z.object({
+  summary: z.string().optional(),
+  dek: z.string().optional(),
   title: z.string().default(""),
   title_en: z.string().default(""),
   category: z.string().default(""),

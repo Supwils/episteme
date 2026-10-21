@@ -10,6 +10,7 @@ import {
   resetKnowledgeGapJourneys,
 } from "@/lib/knowledge-gap-journey-store";
 import type { KnowledgeGapJourney } from "@/lib/knowledge-gap-journey";
+import { downloadJson, readBoundedJson } from "@/lib/local-json-file";
 import {
   createLocalRouteArchive,
   parseLocalRouteArchive,
@@ -66,14 +67,7 @@ export function KnowledgeJourneyArchiveActions({
 
   const exportArchive = () => {
     const payload = createLocalRouteArchive({ journeys, comparison, serviceLabSnapshots });
-    const url = URL.createObjectURL(
-      new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" })
-    );
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = "episteme-learning-journeys.json";
-    anchor.click();
-    URL.revokeObjectURL(url);
+    downloadJson("episteme-learning-journeys.json", payload);
   };
 
   const closePreview = () => {
@@ -109,7 +103,7 @@ export function KnowledgeJourneyArchiveActions({
             const file = event.target.files?.[0];
             if (!file) return;
             try {
-              const parsed = parseLocalRouteArchive(JSON.parse(await file.text()) as unknown);
+              const parsed = parseLocalRouteArchive(await readBoundedJson(file));
               if (!parsed.ok) {
                 setImportError(parsed.error);
                 setIncoming(null);

@@ -51,12 +51,12 @@ export const PALEOZOIC_SPECIES: Species[] = [
   {
     id: "coelacanth",
     story:
-      "学界以为腔棘鱼随恐龙在 6600 万年前一同灭绝，直到 1938 年一条活体在南非渔获中被认出——这被誉为 20 世纪最轰动的动物学发现。",
+      "化石记录在 6600 万年前戛然而止，学界便以为腔棘鱼随恐龙一同灭绝；1938 年南非博物馆员考特尼-拉蒂默在渔获里认出一条活体，1997 年印尼苏拉威西又发现了第二个种——这一支系默默存续了四亿年。",
     name: "腔棘鱼",
     nameEn: "Coelacanth",
     era: "古生代",
     period: "4亿年前",
-    keyTraits: ["活化石", "肉鳍鱼类", "被认为已灭绝后重新发现"],
+    keyTraits: ["活化石", "叶状肉鳍", "被认为已灭绝后重新发现"],
     taxonomy: { kingdom: "动物界", phylum: "脊索动物门", class: "肉鳍鱼纲" },
     extinct: false,
   },

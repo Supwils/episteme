@@ -1,4 +1,5 @@
 import { PRESETS } from "./plotter-utils";
+import type { ReactNode } from "react";
 
 interface PlotterToolbarProps {
   presetIndex: number;
@@ -11,6 +12,7 @@ interface PlotterToolbarProps {
   onZoomIn: () => void;
   onZoomOut: () => void;
   onReset: () => void;
+  children?: ReactNode;
 }
 
 export function PlotterToolbar({
@@ -24,6 +26,7 @@ export function PlotterToolbar({
   onZoomIn,
   onZoomOut,
   onReset,
+  children,
 }: PlotterToolbarProps) {
   return (
     <div className="border-border-faint flex flex-wrap items-center justify-between gap-3 border-b px-4 py-3">
@@ -64,7 +67,7 @@ export function PlotterToolbar({
         </button>
       </div>
 
-      <div className="flex items-center gap-1">
+      <div className="flex flex-wrap items-center gap-1">
         <button
           onClick={onZoomOut}
           className="border-border-faint text-fg-muted hover:text-fg-primary flex h-8 w-8 items-center justify-center rounded border text-lg transition-colors"
@@ -84,10 +87,11 @@ export function PlotterToolbar({
         </button>
         <button
           onClick={onReset}
-          className="border-border-faint text-fg-muted hover:text-fg-primary ml-1 rounded border px-2 py-1 font-mono text-[10px] transition-colors"
+          className="border-border-faint text-fg-muted hover:text-fg-primary ml-1 rounded border px-2 py-1 font-mono text-[10px] whitespace-nowrap transition-colors"
         >
           重置
         </button>
+        {children}
       </div>
     </div>
   );

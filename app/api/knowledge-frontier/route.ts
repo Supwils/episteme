@@ -1,4 +1,10 @@
-import { NextResponse } from "next/server";
+import type { NextResponse } from "next/server";
+import {
+  knowledgeJsonResponse,
+  parseKnownNodeIds,
+  readKnowledgeRequestBody,
+} from "@/lib/knowledge-api-request";
+import { normalizeSearchQuery } from "@/lib/search/query";
 import { buildKnowledgeFrontierView } from "@/lib/knowledge-frontier-catalog";
 import { KNOWLEDGE_FRONTIER_STATUS_META } from "@/lib/knowledge-frontier";
 import type { KnowledgeFrontierFilter } from "@/lib/knowledge-frontier-view";
@@ -11,11 +17,8 @@ function parseRequest(value: unknown): {
 } | null {
   if (!value || typeof value !== "object") return null;
   const body = value as { knownIds?: unknown; filter?: unknown };
-  if (!Array.isArray(body.knownIds) || body.knownIds.length > 2000) return null;
-  const knownIds = body.knownIds.filter(
-    (id): id is string => typeof id === "string" && id.length > 0 && id.length <= 200
-  );
-  if (knownIds.length !== body.knownIds.length) return null;
+  const knownIds = parseKnownNodeIds(body.knownIds);
+  if (!knownIds) return null;
   if (!body.filter || typeof body.filter !== "object") return null;
   const raw = body.filter as Record<string, unknown>;
   if (
@@ -33,7 +36,7 @@ function parseRequest(value: unknown): {
   const level = raw.level === undefined ? undefined : parseKnowledgeLevel(String(raw.level));
   if (raw.level !== undefined && !level) return null;
   if (raw.query !== undefined && typeof raw.query !== "string") return null;
-  const query = typeof raw.query === "string" ? raw.query.slice(0, 120) : undefined;
+  const query = typeof raw.query === "string" ? normalizeSearchQuery(raw.query) : undefined;
   const offset = raw.offset === undefined ? 0 : raw.offset;
   const limit = raw.limit === undefined ? 24 : raw.limit;
   // Catalog size is a few thousand nodes; anything beyond this is a pagination
@@ -45,7 +48,7 @@ function parseRequest(value: unknown): {
     return null;
   }
   return {
-    knownIds: [...new Set(knownIds)],
+    knownIds,
     filter: {
       status: raw.status as KnowledgeFrontierFilter["status"],
       domainId: domainId as KnowledgeFrontierFilter["domainId"],
@@ -58,18 +61,9 @@ function parseRequest(value: unknown): {
 }
 
 export async function POST(request: Request): Promise<NextResponse> {
-  let body: unknown;
-  try {
-    body = await request.json();
-  } catch {
-    return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
-  }
-  const parsed = parseRequest(body);
-  if (!parsed) return NextResponse.json({ error: "Invalid frontier request" }, { status: 400 });
-  return NextResponse.json(buildKnowledgeFrontierView(parsed.knownIds, parsed.filter), {
-    headers: {
-      "Cache-Control": "private, no-store",
-      "X-Profile-Storage": "local-only",
-    },
-  });
+  const body = await readKnowledgeRequestBody(request);
+  if (!body.ok) return body.response;
+  const parsed = parseRequest(body.body);
+  if (!parsed) return knowledgeJsonResponse({ error: "Invalid frontier request" }, 400);
+  return knowledgeJsonResponse(buildKnowledgeFrontierView(parsed.knownIds, parsed.filter));
 }

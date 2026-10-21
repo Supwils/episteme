@@ -1,4 +1,5 @@
 ---
+summary: "买房的真实成本远不止房价，还包括利息、维修、交易费用和把财富锁在一处的风险。租售比偏低时租房可以更划算，房价也不是只涨不跌，危机里房屋本身也会缩水。"
 title: 房地产经济学实用指南
 titleEn: Practical Guide to Real Estate Economics
 category: 个人理财

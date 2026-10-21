@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
+import { readerKeyFigureLabel } from "@/lib/reader-key-figure-label";
 import { getDebateBySlug, getAllDebates } from "@/subjects/psychology/lib/mdx";
 import { ERA_COLORS } from "@/subjects/psychology/lib/constants";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
@@ -17,7 +18,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const debate = getDebateBySlug(slug);
   if (!debate) notFound();
-  const description = `${debate.topic}。关键人物：${debate.key_figures.join("、")}`;
+  const description =
+    debate.summary ?? `${debate.topic}。关键人物：${debate.key_figures.join("、")}`;
   return withCanonicalPath(`/psychology/debates/${slug}`, {
     title: `${debate.title} — 经典论辩`,
     description,
@@ -42,12 +44,18 @@ export default async function DebateDetailPage({ params }: { params: Promise<{ s
       accent={eraColor}
       eyebrow={debate.era}
       title={debate.title}
+      lede={debate.summary}
       content={debate.content}
       meta={
         <>
           <p className="text-sm">{debate.topic}</p>
           {debate.key_figures.length > 0 && (
-            <p className="mt-3">关键人物：{debate.key_figures.join("、")}</p>
+            <p className="mt-3">
+              关键人物：
+              {debate.key_figures
+                .map((name) => readerKeyFigureLabel(debate.content, name))
+                .join("、")}
+            </p>
           )}
         </>
       }
@@ -77,7 +85,11 @@ export default async function DebateDetailPage({ params }: { params: Promise<{ s
                   <dt className="text-fg-disabled font-mono text-[9px] tracking-[0.18em] uppercase">
                     关键人物
                   </dt>
-                  <dd className="text-fg-primary mt-0.5">{debate.key_figures.join("、")}</dd>
+                  <dd className="text-fg-primary mt-0.5">
+                    {debate.key_figures
+                      .map((name) => readerKeyFigureLabel(debate.content, name))
+                      .join("、")}
+                  </dd>
                 </div>
               )}
             </dl>

@@ -243,14 +243,33 @@ const ALGOS: Algo[] = [
 
 const N = 22;
 
-function randomArray(): number[] {
+export function shuffledHeights(random: () => number): number[] {
   // Heights 8..100, shuffled — distinct-ish so bars read clearly.
   const a = Array.from({ length: N }, (_, i) => 8 + Math.round((92 * i) / (N - 1)));
   for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
+    const j = Math.floor(random() * (i + 1));
     [a[i], a[j]] = [a[j]!, a[i]!];
   }
   return a;
+}
+
+// mulberry32: a tiny deterministic PRNG so server and client agree on the
+// first array; Math.random() there would bake mismatched bar heights into
+// the hydrated markup, which React does not patch.
+function seededRandom(seed: number): () => number {
+  let t = seed >>> 0;
+  return () => {
+    t = (t + 0x6d2b79f5) >>> 0;
+    let r = Math.imul(t ^ (t >>> 15), 1 | t);
+    r = (r + Math.imul(r ^ (r >>> 7), 61 | r)) ^ r;
+    return ((r ^ (r >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+export const INITIAL_HEIGHTS: readonly number[] = shuffledHeights(seededRandom(20260101));
+
+function randomArray(): number[] {
+  return shuffledHeights(Math.random);
 }
 
 function usePrefersReducedMotion(): boolean {
@@ -274,7 +293,7 @@ const SPEEDS = [
 export function SortingVisualizer() {
   const reduced = usePrefersReducedMotion();
   const [algoKey, setAlgoKey] = useState<string>("quick");
-  const [base, setBase] = useState<number[]>(() => randomArray());
+  const [base, setBase] = useState<number[]>(() => [...INITIAL_HEIGHTS]);
   const [frame, setFrame] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [speedIdx, setSpeedIdx] = useState(1);
@@ -286,6 +305,11 @@ export function SortingVisualizer() {
   const steps = useMemo(() => algo.run(base), [algo, base]);
   const cur = steps[Math.min(frame, steps.length - 1)]!;
   const done = frame >= steps.length - 1;
+
+  // Fresh data per visit, but only after hydration has matched the server.
+  useEffect(() => {
+    setBase(randomArray());
+  }, []);
 
   // reset the playhead whenever the algorithm or data set changes
   useEffect(() => {

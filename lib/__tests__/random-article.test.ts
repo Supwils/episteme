@@ -1,6 +1,11 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { buildValidRoutes } from "@/scripts/valid-routes";
-import { listRandomArticleUrls, pickRandomArticleUrl, toRedirectLocation } from "../random-article";
+import {
+  acceptRandomArticleUrl,
+  listRandomArticleUrls,
+  pickRandomArticleUrl,
+  toRedirectLocation,
+} from "../random-article";
 
 afterEach(() => {
   vi.restoreAllMocks();
@@ -62,6 +67,18 @@ describe("pickRandomArticleUrl", () => {
     expect(historyKb).toBeDefined();
     expect(historyKb).not.toMatch(/%E/);
     expect(buildValidRoutes().has(historyKb!)).toBe(true);
+  });
+
+  it("drops protocol-relative and off-site index urls before they can redirect", () => {
+    expect(acceptRandomArticleUrl("//evil.example/a/b")).toBeNull();
+    expect(acceptRandomArticleUrl("https://evil.example/a/b")).toBeNull();
+    expect(acceptRandomArticleUrl("/\\evil.example/a/b")).toBeNull();
+    expect(acceptRandomArticleUrl("/only/two")).toBeNull();
+    expect(acceptRandomArticleUrl("/philosophy/thinkers/socrates")).toBe(
+      "/philosophy/thinkers/socrates"
+    );
+    expect(toRedirectLocation("//evil.example/a/b")).toBe("/daily");
+    expect(toRedirectLocation("https://evil.example/a/b")).toBe("/daily");
   });
 
   it("makes every pool URL safe for a Location header", () => {

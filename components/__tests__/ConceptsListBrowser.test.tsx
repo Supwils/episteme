@@ -65,6 +65,26 @@ describe("ConceptsListBrowser", () => {
     expect(headings).toEqual(["微观经济学", "宏观经济学", "博弈论与市场设计"]);
   });
 
+  it("still matches the original English name when the card shows Chinese", () => {
+    render(
+      <ConceptsListBrowser
+        concepts={[
+          {
+            ...concepts[0]!,
+            key_figures: ["库兹涅茨"],
+            figureSlugs: ["Simon Kuznets"],
+          },
+        ]}
+      />
+    );
+    fireEvent.change(screen.getByLabelText("搜索经济学概念"), {
+      target: { value: "kuznets" },
+    });
+    expect(screen.queryByText("国内生产总值")).toBeTruthy();
+    expect(screen.queryByText("库兹涅茨")).toBeTruthy();
+    expect(screen.queryByText("Simon Kuznets")).toBeNull();
+  });
+
   it("filters by free-text query across title, figures and excerpt", () => {
     renderBrowser();
     fireEvent.change(screen.getByLabelText("搜索经济学概念"), {

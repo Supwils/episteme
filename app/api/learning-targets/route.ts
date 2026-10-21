@@ -14,11 +14,10 @@ import {
   type CoverageDomainId,
 } from "@/lib/knowledge-continuum-coverage-meta";
 import { parseKnowledgeLevel } from "@/lib/knowledge-levels";
+import { normalizeSearchQuery } from "@/lib/search/query";
 
 const catalog = buildKnowledgeBranchCatalog();
 
-/** Same cap as `/api/search` and frontier `filter.query`. */
-const MAX_QUERY_LENGTH = 120;
 /** Same cap as frontier `knownIds` entries. */
 const MAX_ID_LENGTH = 200;
 
@@ -37,8 +36,17 @@ function parseFilter(searchParams: URLSearchParams): KnowledgeTargetFilter | nul
   };
 }
 
+const FILTER_KEYS = ["id", "domain", "level", "confidence", "q"] as const;
+
+function hasRepeatedParam(searchParams: URLSearchParams, key: string): boolean {
+  return searchParams.getAll(key).length > 1;
+}
+
 export async function GET(request: Request): Promise<NextResponse> {
   const { searchParams } = new URL(request.url);
+  if (FILTER_KEYS.some((key) => hasRepeatedParam(searchParams, key))) {
+    return NextResponse.json({ error: "Duplicate query parameter" }, { status: 400 });
+  }
   const targetId = searchParams.get("id")?.trim();
 
   if (targetId) {
@@ -56,7 +64,7 @@ export async function GET(request: Request): Promise<NextResponse> {
   const filter = parseFilter(searchParams);
   if (!filter)
     return NextResponse.json({ error: "Invalid knowledge target filter" }, { status: 400 });
-  const query = (searchParams.get("q") ?? "").slice(0, MAX_QUERY_LENGTH);
+  const query = normalizeSearchQuery(searchParams.get("q") ?? "");
   const results = searchKnowledgeBranchTargets(catalog, query, 20, filter).map(
     toKnowledgeTargetSearchResult
   );

@@ -1,6 +1,7 @@
 ---
 title: 扩散模型：从噪声里长出分布
 title_en: Diffusion Models — Growing a Distribution out of Noise
+summary: "2020年DDPM把逐步加噪再学着逐步去噪的过程做成生成模型，在CIFAR-10上达到FID 3.17；本文说明扩散不只是滤掉噪声，梳理DDPM、分数模型与随机微分方程的关系。"
 status: published
 updated: 2026-09-13
 category: 人工智能

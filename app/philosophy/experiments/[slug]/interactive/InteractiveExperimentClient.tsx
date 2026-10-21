@@ -1,9 +1,9 @@
 "use client";
 
-import { useParams } from "next/navigation";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
+import type { InteractiveExperimentSlug } from "./experiment-slugs";
 
 const TrolleyProblem = dynamic(
   () => import("@/subjects/philosophy/components/experiments/TrolleyProblem")
@@ -26,7 +26,7 @@ const BuridansAss = dynamic(
 );
 
 const EXPERIMENT_MAP: Record<
-  string,
+  InteractiveExperimentSlug,
   { component: React.ComponentType; title: string; titleEn: string }
 > = {
   "trolley-problem": { component: TrolleyProblem, title: "电车难题", titleEn: "Trolley Problem" },
@@ -46,24 +46,8 @@ const EXPERIMENT_MAP: Record<
   "buridans-ass": { component: BuridansAss, title: "布里丹之驴", titleEn: "Buridan's Ass" },
 };
 
-export default function InteractiveExperimentClient() {
-  const { slug } = useParams<{ slug: string }>();
-  const entry = slug ? EXPERIMENT_MAP[slug] : undefined;
-
-  if (!entry) {
-    return (
-      <div className="mx-auto w-full max-w-[1800px] px-6 py-12 text-center sm:px-10 sm:py-16 lg:px-16">
-        <p className="text-fg-muted font-mono text-sm">未找到该互动实验。</p>
-        <Link
-          href="/philosophy/experiments"
-          className="text-accent-gold mt-4 inline-block font-mono text-xs tracking-wider uppercase"
-        >
-          ← 返回思想实验
-        </Link>
-      </div>
-    );
-  }
-
+export default function InteractiveExperimentClient({ slug }: { slug: InteractiveExperimentSlug }) {
+  const entry = EXPERIMENT_MAP[slug];
   const ExperimentComponent = entry.component;
 
   return (

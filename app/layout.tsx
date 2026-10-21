@@ -10,6 +10,8 @@ import { SectionAwareFooter } from "../components/SectionAwareFooter";
 import { SkipNav } from "../components/SkipNav";
 import { ClientShell } from "../components/ClientShell";
 import { MotionProvider } from "../components/MotionProvider";
+import { READING_MODE_BOOT_SCRIPT } from "@/lib/reading-mode";
+import { SITE_DESCRIPTION } from "@/lib/site-copy";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -24,6 +26,8 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  // Every page without its own canonical gets its path; articles still set theirs.
+  alternates: { canonical: "./" },
   title: "Episteme · 格致 — 重现人类认识世界的旅程",
   description:
     "重现人类认识世界的旅程——宇宙物理、人类历史、哲学思想、生命科学、数学、经济学、心理学、计算机科学、政治学等领域的深度知识平台。",
@@ -38,7 +42,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Episteme · 格致 — 重现人类认识世界的旅程",
-    description: "整理二十二个领域的文章、知识图谱与阅读路线，帮助你顺着概念之间的联系继续阅读。",
+    description: SITE_DESCRIPTION,
     type: "website",
     images: [
       {
@@ -51,7 +55,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Episteme · 格致 — 重现人类认识世界的旅程",
-    description: "整理二十二个领域的文章、知识图谱与阅读路线，帮助你顺着概念之间的联系继续阅读。",
+    description: SITE_DESCRIPTION,
     images: [
       `/api/og?title=${encodeURIComponent("Episteme · 格致")}&description=${encodeURIComponent("从问题出发，顺着知识的线索继续读下去")}`,
     ],
@@ -76,6 +80,7 @@ export default function RootLayout({
   return (
     <html lang="zh-Hans" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: READING_MODE_BOOT_SCRIPT }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -87,7 +92,7 @@ export default function RootLayout({
         <ThemeProvider>
           <SkipNav />
           <SectionAwareNav brandMark={<BrandSeal size={28} />} />
-          <main id="main-content">
+          <main id="main-content" tabIndex={-1} className="focus:outline-none">
             <MotionProvider>{children}</MotionProvider>
           </main>
           <SectionAwareFooter />

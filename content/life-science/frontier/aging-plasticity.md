@@ -1,4 +1,5 @@
 ---
+summary: "部分重编程只想回拨衰老相关的表观标记并保住细胞身份，而不是把细胞清零。小鼠里有信号，人类寿命终点没有；清除衰老细胞的一项人体主终点无差异，标志清单也不是药方。"
 title: 衰老的可塑性——重编程、衰老细胞清除与长寿生物学
 title_en: The Plasticity of Aging — Reprogramming, Senolytics, and Longevity Biology
 status: published

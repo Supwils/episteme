@@ -1069,4 +1069,58 @@ export const UNIVERSE_PHYSICS_KB_DATA = [
     category: "量子物理",
     excerpt: "玻恩、概率诠释、散射、波函数、量子力学",
   },
+  {
+    slug: "量子物理--aspect-1982-bell",
+    title: "1982 年奥尔赛：双通道偏振器与声光开关上的贝尔实验",
+    category: "量子物理",
+    excerpt: "阿斯佩、贝尔不等式、纠缠、奥尔赛",
+  },
+  {
+    slug: "电磁学--oersted-1820-compass",
+    title: "奥斯特 1820：闭合回路移动磁针，讲座不是无准备的意外",
+    category: "电磁学",
+    excerpt: "奥斯特、电流磁效应、磁针、电磁学",
+  },
+  {
+    slug: "热力学--joule-1850-mechanical-equivalent",
+    title: "焦耳 1850：桨轮把功和热收成 772 英尺磅",
+    category: "热力学",
+    excerpt: "焦耳、热功当量、桨轮、能量守恒",
+  },
+  {
+    slug: "粒子物理--cowan-reines-1956",
+    title: "科温–莱因斯 1956：反应堆反中微子的延迟符合",
+    category: "粒子物理",
+    excerpt: "中微子、科温、莱因斯、逆β衰变、萨凡纳河",
+  },
+  {
+    slug: "物理学--foucault-1851-pendulum",
+    title: "傅科 1851：摆面先在地窖里离开标记",
+    category: "物理学",
+    excerpt: "傅科摆、地球自转、纬度、惯性系",
+  },
+  {
+    slug: "电磁学--young-1801-interference",
+    title: "杨 1801：干涉定律先写在薄板上，不是两条狭缝",
+    category: "电磁学",
+    excerpt: "托马斯·杨、干涉、双缝、薄板颜色、波动说",
+  },
+  {
+    slug: "量子物理--schrodinger-1935-cat",
+    title: "薛定谔 1935：猫是用来拒绝宏观涂糊的例子",
+    category: "量子物理",
+    excerpt: "薛定谔的猫、测量、叠加、诠释",
+  },
+  {
+    slug: "光学--fraunhofer-1817-dark-lines",
+    title: "弗劳恩霍夫 1817：574 条暗线是刻度",
+    category: "光学",
+    excerpt: "弗劳恩霍夫、暗线、色散、折射率",
+  },
+  {
+    slug: "经典物理--cavendish-1798-density",
+    title: "卡文迪许 1798：地球密度是水的 5.48 倍",
+    category: "经典物理",
+    excerpt: "卡文迪许、地球密度、扭秤、引力",
+  },
 ];

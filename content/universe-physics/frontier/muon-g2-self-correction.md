@@ -1,4 +1,5 @@
 ---
+summary: "实验与旧理论差了多个标准差，并不等于发现了新物理，因为最难的一项理论本身可以算偏。强子真空极化改用格点后张力不再成立；账本一换，裂缝失去对象，标准模型也并未被证明无遗漏。"
 title: μ子反常磁矩：标准模型的"自我修复"
 title_en: The Muon g-2 Story — How Science Corrected Itself
 status: published

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getPhraseCorpus } from "@/lib/search/corpus-store";
 import { searchPhrases } from "@/lib/search/phrase";
+import { normalizeSearchQuery } from "@/lib/search/query";
 
 // Dynamic (reads ?q). The title tier answers in the browser; this endpoint is
 // the one that can reach a phrase buried in an article's prose.
@@ -12,7 +13,6 @@ export const SEARCH_CACHE_CONTROL = "public, s-maxage=86400, stale-while-revalid
 
 const DEFAULT_LIMIT = 20;
 const MAX_LIMIT = 50;
-const MAX_QUERY_LENGTH = 120;
 
 function parseLimit(raw: string | null): number {
   if (!raw?.trim()) return DEFAULT_LIMIT;
@@ -30,7 +30,7 @@ export async function GET(request: Request): Promise<NextResponse> {
   if (hasRepeatedParam(searchParams, "q") || hasRepeatedParam(searchParams, "limit")) {
     return NextResponse.json({ error: "Duplicate query parameter" }, { status: 400 });
   }
-  const query = (searchParams.get("q") ?? "").slice(0, MAX_QUERY_LENGTH);
+  const query = normalizeSearchQuery(searchParams.get("q") ?? "");
   const limit = parseLimit(searchParams.get("limit"));
 
   const { corpus, docs } = await getPhraseCorpus();

@@ -1,6 +1,7 @@
 ---
 title: AI 读片：机器能比医生更早看见癌症吗
 title_en: AI in Medical Diagnosis — Can a Machine See Cancer Earlier Than a Doctor?
+summary: "2016 年 Hinton 说应停止培养放射科医生，十年后需求反而增长；AI 正以辅助方式进入诊室，乳腺癌筛查随机试验与数字病理是主要现场。"
 status: published
 updated: 2026-06-19
 category: 数字医学

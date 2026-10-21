@@ -1,6 +1,7 @@
 ---
 title: 地震预测：为什么我们能预报飓风却预测不了地震
 title_en: Earthquake Forecasting — Why We Can Forecast Hurricanes but Not Quakes
+summary: "拉奎拉地震后科学家被判过失杀人，后又被推翻，暴露出公众对地震预测的误解：确定性预测（prediction）极难，可做的是概率预报（forecast）。"
 status: published
 updated: 2026-06-19
 category: 固体地球

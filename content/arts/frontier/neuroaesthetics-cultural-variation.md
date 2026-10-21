@@ -1,6 +1,7 @@
 ---
 title: 神经美学之后：大脑能解释审美，还是只解释一次按键
 title_en: Neuroaesthetics after the Universal Beauty Hypothesis
+summary: "扫描仪里看几十幅画、按“喜欢”或“不喜欢”，测到的可能只是快速偏好判断。Iigaya 等人 2023 年的模型把审美价值写成从视觉皮层到前额叶的层级建构，问题在于它能否解释两小时的展览。"
 status: published
 updated: 2026-08-07
 category: 审美与认知

@@ -1,6 +1,7 @@
 ---
 title: GLP-1 与肠促胰素：肥胖治疗从"减肥针"回到激素回路
 title_en: GLP-1 and Incretins — From a Weight-Loss Shot Back to Hormone Circuits
+summary: "2021 年 FDA 批准司美格鲁肽 2.4 mg 用于体重管理，STEP 试验 68 周平均减重约 15%，替尔泊肽约 21%；GLP-1 不是减肥针，SELECT 把它写进了结局医学。"
 status: published
 updated: 2026-09-12
 category: 代谢与内分泌

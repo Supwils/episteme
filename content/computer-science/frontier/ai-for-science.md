@@ -1,6 +1,7 @@
 ---
 title: AI 驱动的科学发现：从蛋白质到天气再到数学
 title_en: AI for Science — Machine Learning as an Instrument of Discovery
+summary: "2024年诺贝尔化学奖授予蛋白质设计与结构预测，机器学习成果首次获科学最高奖；本文说明AI不只是替科学家算得更快，梳理蛋白质、天气、数学等已经立住的前沿和各方进展。"
 status: published
 updated: 2026-09-12
 category: 人工智能

@@ -1,6 +1,7 @@
 ---
 title: 2020年代之后的博物馆归还
 title_en: Museum Restitution after the 2020s
+summary: "2018 年萨尔—萨瓦报告之后，2022 年德国承诺移交 1130 件贝宁青铜器所有权，史密森尼移交 29 件，霍尼曼博物馆无条件移交 72 件。2020 年代改变的是归还的速度与公开性。"
 status: published
 updated: 2026-09-11
 category: 博物馆归还

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getAllMathParadoxes } from "@/subjects/mathematics/lib/paradoxes";
+import { mathFigureLabel } from "@/subjects/mathematics/lib/mathematician-label";
 import { MathParadoxesListBrowser } from "@/components/mathematics/MathParadoxesListBrowser";
 
 export const metadata: Metadata = {
@@ -18,7 +19,8 @@ export default function MathParadoxesPage() {
     title: p.title,
     title_en: p.title_en,
     field: p.field || "其他",
-    key_figures: p.key_figures,
+    key_figures: p.key_figures.map((id) => mathFigureLabel(id, p.content)),
+    figureSlugs: p.key_figures,
     tags: p.tags,
   }));
 

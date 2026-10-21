@@ -1,6 +1,8 @@
 "use client";
 
-import { useState, useCallback, useRef, useMemo } from "react";
+import { useState, useCallback, useEffect, useRef, useMemo } from "react";
+import { useDiagramPan } from "@/components/interaction/useDiagramPan";
+import { TouchPanButton } from "@/components/interaction/TouchPanButton";
 import {
   PRESETS,
   SVG_WIDTH,
@@ -22,13 +24,6 @@ export default function FunctionPlotter() {
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const [traceX, setTraceX] = useState<number | null>(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [dragStart, setDragStart] = useState<{
-    x: number;
-    y: number;
-    panX: number;
-    panY: number;
-  } | null>(null);
   const svgRef = useRef<SVGSVGElement>(null);
 
   const preset = PRESETS[presetIndex]!;
@@ -77,54 +72,69 @@ export default function FunctionPlotter() {
     [preset.fn, showIntegral, viewXMin, viewXMax, viewYMin, viewYMax]
   );
 
-  const handleSvgPointerDown = useCallback(
-    (e: React.PointerEvent) => {
+  const toPanDelta = useCallback(
+    (dx: number, dy: number, element: SVGSVGElement) => {
+      const rect = element.getBoundingClientRect();
+      return { x: -(dx / rect.width) * viewWidth, y: (dy / rect.height) * viewHeight };
+    },
+    [viewWidth, viewHeight]
+  );
+  const diagram = useDiagramPan<SVGSVGElement>({ pan, onPan: setPan, toPanDelta });
+  const { cancel: cancelPan } = diagram;
+  const { onPointerMove: moveDiagram } = diagram.handlers;
+  const traceAt = useCallback(
+    (clientX: number) => {
       if (!svgRef.current) return;
       const rect = svgRef.current.getBoundingClientRect();
-      setTraceX(unmapX(((e.clientX - rect.left) / rect.width) * SVG_WIDTH));
-      setIsDragging(true);
-      setDragStart({ x: e.clientX, y: e.clientY, panX: pan.x, panY: pan.y });
+      setTraceX(unmapX(((clientX - rect.left) / rect.width) * SVG_WIDTH));
     },
-    [unmapX, pan]
+    [unmapX]
   );
-
   const handleSvgPointerMove = useCallback(
-    (e: React.PointerEvent) => {
-      if (!svgRef.current) return;
-      const rect = svgRef.current.getBoundingClientRect();
-      if (isDragging && dragStart) {
-        const dx = ((e.clientX - dragStart.x) / rect.width) * (viewXMax - viewXMin);
-        const dy = ((e.clientY - dragStart.y) / rect.height) * (viewYMax - viewYMin);
-        setPan({ x: dragStart.panX - dx, y: dragStart.panY + dy });
-      } else {
-        setTraceX(unmapX(((e.clientX - rect.left) / rect.width) * SVG_WIDTH));
-      }
+    (event: React.PointerEvent<SVGSVGElement>) => {
+      if (moveDiagram(event) || event.pointerType === "touch") return;
+      if (event.pointerType === "pen" && event.buttons !== 0) return;
+      traceAt(event.clientX);
     },
-    [isDragging, dragStart, unmapX, viewXMin, viewXMax, viewYMin, viewYMax]
+    [moveDiagram, traceAt]
   );
 
-  const handleSvgPointerUp = useCallback(() => {
-    setIsDragging(false);
-    setDragStart(null);
-  }, []);
-
-  const handleZoomIn = useCallback(() => setZoom((z) => Math.min(z * 1.3, 20)), []);
-  const handleZoomOut = useCallback(() => setZoom((z) => Math.max(z / 1.3, 0.2)), []);
+  const handleZoomIn = useCallback(() => {
+    cancelPan();
+    setZoom((z) => Math.min(z * 1.3, 20));
+  }, [cancelPan]);
+  const handleZoomOut = useCallback(() => {
+    cancelPan();
+    setZoom((z) => Math.max(z / 1.3, 0.2));
+  }, [cancelPan]);
   const handleReset = useCallback(() => {
+    cancelPan();
     setZoom(1);
     setPan({ x: 0, y: 0 });
     setTraceX(null);
-  }, []);
-  const handleWheel = useCallback((e: React.WheelEvent) => {
-    e.preventDefault();
-    setZoom((z) => (e.deltaY < 0 ? Math.min(z * 1.1, 20) : Math.max(z / 1.1, 0.2)));
-  }, []);
-  const handlePresetChange = useCallback((index: number) => {
-    setPresetIndex(index);
-    setZoom(1);
-    setPan({ x: 0, y: 0 });
-    setTraceX(null);
-  }, []);
+  }, [cancelPan]);
+  // React attaches wheel listeners as passive, so preventDefault there cannot stop the page scrolling.
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return;
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      cancelPan();
+      setZoom((z) => (e.deltaY < 0 ? Math.min(z * 1.1, 20) : Math.max(z / 1.1, 0.2)));
+    };
+    svg.addEventListener("wheel", handleWheel, { passive: false });
+    return () => svg.removeEventListener("wheel", handleWheel);
+  }, [cancelPan]);
+  const handlePresetChange = useCallback(
+    (index: number) => {
+      cancelPan();
+      setPresetIndex(index);
+      setZoom(1);
+      setPan({ x: 0, y: 0 });
+      setTraceX(null);
+    },
+    [cancelPan]
+  );
 
   const tracePoint = useMemo(() => {
     if (traceX === null) return null;
@@ -161,18 +171,26 @@ export default function FunctionPlotter() {
         onZoomIn={handleZoomIn}
         onZoomOut={handleZoomOut}
         onReset={handleReset}
-      />
+      >
+        <TouchPanButton
+          armed={diagram.armed}
+          controls={diagram.surfaceId}
+          onToggle={diagram.toggle}
+          onCancel={cancelPan}
+        />
+      </PlotterToolbar>
 
       <svg
         ref={svgRef}
         viewBox={`0 0 ${SVG_WIDTH} ${SVG_HEIGHT}`}
         className="w-full cursor-crosshair"
-        style={{ background: COLORS.bg }}
-        onPointerDown={handleSvgPointerDown}
+        id={diagram.surfaceId}
+        role="img"
+        aria-label={`函数图像：${preset.label}`}
+        style={{ background: COLORS.bg, touchAction: diagram.touchAction }}
+        {...diagram.handlers}
         onPointerMove={handleSvgPointerMove}
-        onPointerUp={handleSvgPointerUp}
-        onPointerLeave={handleSvgPointerUp}
-        onWheel={handleWheel}
+        onClick={(event) => traceAt(event.clientX)}
       >
         <defs>
           <clipPath id="plot-area">

@@ -11,6 +11,7 @@ import { ReadingProgressBar } from "@/components/ReadingProgressBar";
 import { DomainHeroMotif } from "@/components/domain/DomainHeroMotif";
 import { deriveAskPrompts, deriveTakeaway } from "@/lib/article-discovery";
 import { readingMinutes } from "@/lib/reading-time";
+import { OfflineArticle } from "@/components/article/OfflineArticle";
 
 /** Article + sticky sidebar. Wide screens center the pair so every subject
  *  shares one reading column instead of hugging the left edge. Title lives
@@ -126,6 +127,7 @@ export function ArticleLayout({
   return (
     <div className="mx-auto w-full max-w-[1800px] px-6 py-12 sm:px-10 lg:px-16">
       <ReadingProgressBar />
+      <OfflineArticle url={url} />
       <Link
         href={backHref}
         className="text-fg-secondary hover:text-accent-gold mb-6 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] uppercase transition-colors"
@@ -179,7 +181,7 @@ export function ArticleLayout({
               )}
               {meta && <div className="text-fg-secondary mt-3">{meta}</div>}
               {lede && (
-                <p className="text-fg-secondary mt-3 line-clamp-3 text-[1.0625rem] leading-relaxed">
+                <p className="article-header__lede text-fg-secondary mt-3 text-[1.0625rem] leading-relaxed">
                   {lede}
                 </p>
               )}

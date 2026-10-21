@@ -1,6 +1,7 @@
 ---
 title: 平台治理的系统风险转向
 title_en: Platform Governance and Systemic Risk
+summary: "欧盟《数字服务法》要求超大型平台评估并缓解系统风险，平台治理因此从“删不删内容”转向推荐、广告、审核与研究者数据访问的制度设计。"
 status: published
 updated: 2026-07-04
 category: 数字社会

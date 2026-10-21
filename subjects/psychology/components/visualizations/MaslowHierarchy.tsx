@@ -232,7 +232,7 @@ export function MaslowHierarchy() {
                         strokeWidth={isActive ? 2 : 1}
                         strokeOpacity={isActive ? 0.9 : 0.3}
                         filter={isTop && filledLevels.has(i) ? "url(#maslow-glow)" : undefined}
-                        initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0 }}
+                        initial={{ opacity: 0 }}
                         animate={{
                           opacity: 1,
                           y: isActive || isHovered ? -3 : 0,
@@ -266,7 +266,7 @@ export function MaslowHierarchy() {
                         fontWeight={600}
                         fontFamily="var(--font-sans)"
                         className="pointer-events-none select-none"
-                        initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0 }}
+                        initial={{ opacity: 0 }}
                         animate={{ opacity: filledLevels.has(i) ? 1 : 0.4 }}
                         transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.5 }}
                       >
@@ -294,7 +294,7 @@ export function MaslowHierarchy() {
                       fontFamily="var(--font-mono)"
                       letterSpacing="0.04em"
                       className="pointer-events-none select-none"
-                      initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0 }}
+                      initial={{ opacity: 0 }}
                       animate={{ opacity: filledLevels.has(i) ? 0.7 : 0 }}
                       transition={
                         prefersReducedMotion ? { duration: 0 } : { duration: 0.5, delay: 0.3 }
@@ -312,7 +312,7 @@ export function MaslowHierarchy() {
                 {activeIndex !== null ? (
                   <motion.div
                     key={LEVELS[activeIndex]!.id}
-                    initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
+                    initial={{ opacity: 0, y: 10 }}
                     animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
                     exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: -10 }}
                     transition={
@@ -389,7 +389,7 @@ export function MaslowHierarchy() {
                 ) : (
                   <motion.div
                     key="empty"
-                    initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0 }}
+                    initial={{ opacity: 0 }}
                     animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1 }}
                     className="border-border-faint bg-bg-elevated/50 border p-6"
                   >

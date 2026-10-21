@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllQuestions } from "@/lib/mdx";
+import { getAllQuestions, thinkerDisplayName } from "@/lib/mdx";
 import { FIELD_ACCENTS } from "@/lib/constants";
 import { StaggerGrid, StaggerItem } from "@/components/StaggerGrid";
 
@@ -92,7 +92,7 @@ export default function QuestionsPage() {
                       key={fig}
                       className="text-fg-secondary font-mono text-[9px] tracking-[0.16em]"
                     >
-                      {fig}
+                      {thinkerDisplayName(fig)}
                       {q.key_figures.indexOf(fig) < Math.min(q.key_figures.length, 4) - 1 && (
                         <span className="text-fg-disabled ml-1.5">·</span>
                       )}

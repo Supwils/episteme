@@ -3,7 +3,7 @@ import type { TimelineEvent } from "./types";
 export const ERA_4_7_EVENTS: TimelineEvent[] = [
   {
     id: "permian-extinction",
-    era: "2.5 亿年前",
+    era: "2.52 亿年前",
     event: "二叠纪大灭绝",
     detail: "地球历史上最严重的灭绝事件——96% 的海洋物种消失。西伯利亚暗色岩火山活动是主因。",
     accent: "#d85a5a",
@@ -51,7 +51,8 @@ export const ERA_4_7_EVENTS: TimelineEvent[] = [
           id: "burgess-2017",
           authors: "Burgess, S.D. et al.",
           year: 2017,
-          title: "Initial pulse of Siberian Traps sills as the trigger of the end-Permian mass extinction",
+          title:
+            "Initial pulse of Siberian Traps sills as the trigger of the end-Permian mass extinction",
           journal: "Nature Communications",
           doi: "10.1038/s41467-017-00083-9",
         },
@@ -233,11 +234,13 @@ export const ERA_4_7_EVENTS: TimelineEvent[] = [
     detail: "开花植物出现，迅速改变了陆地生态系统，与传粉昆虫共同演化。",
     accent: "#4a9e6f",
     category: "plants",
-    significance: "被子植物的出现是陆地生态系统的一次革命，它们与传粉者的协同演化创造了地球上最多样化的生物群落。",
+    significance:
+      "被子植物的出现是陆地生态系统的一次革命，它们与传粉者的协同演化创造了地球上最多样化的生物群落。",
     keyFigures: [],
     context: {
       before: "中生代的陆地植被以裸子植物（松柏类、苏铁类）为主，风力是主要的传粉方式。",
-      after: "白垩纪晚期，被子植物成为陆地植被的优势类群，与昆虫、鸟类和哺乳动物建立了复杂的相互作用网络。",
+      after:
+        "白垩纪晚期，被子植物成为陆地植被的优势类群，与昆虫、鸟类和哺乳动物建立了复杂的相互作用网络。",
     },
     connections: ["植物登陆", "K-Pg 大灭绝"],
     openQuestions: [
@@ -289,11 +292,14 @@ export const ERA_4_7_EVENTS: TimelineEvent[] = [
     detail: "小行星撞击尤卡坦半岛，恐龙（非鸟类）灭绝。哺乳动物的时代开始了。",
     accent: "#d85a5a",
     category: "animals",
-    significance: "K-Pg大灭绝终结了恐龙的统治，为哺乳动物和鸟类的辐射演化创造了条件，间接导致了人类的出现。",
+    significance:
+      "K-Pg大灭绝终结了恐龙的统治，为哺乳动物和鸟类的辐射演化创造了条件，间接导致了人类的出现。",
     keyFigures: [],
     context: {
-      before: "白垩纪晚期，恐龙仍然是陆地生态系统的统治者，但火山活动和海平面变化已经给生态系统带来了压力。",
-      after: "新生代早期，哺乳动物迅速辐射演化为鲸鱼、蝙蝠、灵长类等多个类群，占据了恐龙留下的生态位。",
+      before:
+        "白垩纪晚期，恐龙仍然是陆地生态系统的统治者，但火山活动和海平面变化已经给生态系统带来了压力。",
+      after:
+        "新生代早期，哺乳动物迅速辐射演化为鲸鱼、蝙蝠、灵长类等多个类群，占据了恐龙留下的生态位。",
     },
     connections: ["恐龙崛起", "哺乳动物出现", "鲸鱼回到海洋", "人类与黑猩猩分化"],
     openQuestions: [
@@ -324,7 +330,8 @@ export const ERA_4_7_EVENTS: TimelineEvent[] = [
           id: "schulte-2010",
           authors: "Schulte, P. et al.",
           year: 2010,
-          title: "The Chicxulub asteroid impact and mass extinction at the Cretaceous-Paleogene boundary",
+          title:
+            "The Chicxulub asteroid impact and mass extinction at the Cretaceous-Paleogene boundary",
           journal: "Science",
           doi: "10.1126/science.1177265",
         },
@@ -359,7 +366,7 @@ export const ERA_4_7_EVENTS: TimelineEvent[] = [
     ],
     deepReading: {
       introduction:
-        "鲸鱼的演化是生物演化史上最引人入胜的故事之一。约5500年前，一群陆生的偶蹄目动物开始进入海洋生活，经过数千万年的演化，它们完全适应了水生环境，成为地球上最大的动物。",
+        "鲸鱼的演化是生物演化史上最引人入胜的故事之一。约5500万年前，一群陆生的偶蹄目动物开始进入海洋生活，经过数千万年的演化，它们完全适应了水生环境，成为地球上最大的动物。",
       sections: [
         {
           title: "从陆地到海洋",
@@ -460,7 +467,8 @@ export const ERA_4_7_EVENTS: TimelineEvent[] = [
     detail: "解剖学意义上的现代智人在非洲出现，最终成为地球上最具影响力的物种。",
     accent: "#4a9e6f",
     category: "animals",
-    significance: "智人的出现标志着地球演化进入了一个全新的阶段——一个物种能够理解并主动改变整个星球的命运。",
+    significance:
+      "智人的出现标志着地球演化进入了一个全新的阶段——一个物种能够理解并主动改变整个星球的命运。",
     keyFigures: [],
     context: {
       before: "人属在非洲经历了多次物种分化，直立人、海德堡人等先后出现。",
@@ -621,7 +629,8 @@ export const ERA_4_7_EVENTS: TimelineEvent[] = [
           id: "bloch-2007",
           authors: "Bloch, J.I. et al.",
           year: 2007,
-          title: "New Paleocene skeletons and the relationship of plesiadapiforms to crown-clade primates",
+          title:
+            "New Paleocene skeletons and the relationship of plesiadapiforms to crown-clade primates",
           journal: "Proceedings of the National Academy of Sciences",
           doi: "10.1073/pnas.0704611104",
         },
@@ -635,7 +644,8 @@ export const ERA_4_7_EVENTS: TimelineEvent[] = [
     detail: "草地开始扩展，改变了陆地生态系统，与食草动物共同演化。",
     accent: "#98c379",
     category: "plants",
-    significance: "草原的兴起重塑了全球生态系统，推动了食草哺乳动物的多样化，最终为人类祖先提供了栖息地。",
+    significance:
+      "草原的兴起重塑了全球生态系统，推动了食草哺乳动物的多样化，最终为人类祖先提供了栖息地。",
     keyFigures: [],
     context: {
       before: "新生代早期的陆地植被以森林为主，气候温暖湿润。",
@@ -816,7 +826,8 @@ export const ERA_4_7_EVENTS: TimelineEvent[] = [
           id: "henshilwood-2002",
           authors: "Henshilwood, C.S. et al.",
           year: 2002,
-          title: "Emergence of modern human behavior: Middle Stone Age engravings from South Africa",
+          title:
+            "Emergence of modern human behavior: Middle Stone Age engravings from South Africa",
           journal: "Science",
           doi: "10.1126/science.1067575",
         },
@@ -841,7 +852,8 @@ export const ERA_4_7_EVENTS: TimelineEvent[] = [
     keyFigures: [],
     context: {
       before: "智人在非洲经历了认知革命，获得了语言、符号思维和复杂工具技术。",
-      after: "智人扩散到除南极洲外的所有大陆，在约1.5万年前到达美洲，最终成为地球上分布最广的大型哺乳动物。",
+      after:
+        "智人扩散到除南极洲外的所有大陆，在约1.5万年前到达美洲，最终成为地球上分布最广的大型哺乳动物。",
     },
     connections: ["智人出现", "农业革命"],
     openQuestions: [

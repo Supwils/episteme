@@ -1,4 +1,5 @@
 ---
+summary: "暗能量状态方程似乎随宇宙年龄改变，这是强暗示，还不是发现。显著性随超新星样本浮动，把张角换成膨胀史，仍要依赖早期那把声视界尺子。"
 title: DESI 与演化的暗能量：宇宙学常数的挑战
 title_en: DESI and Dynamical Dark Energy — A Challenge to the Cosmological Constant
 status: published

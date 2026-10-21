@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { dialogueParticipantLabel } from "@/subjects/life-science/lib/dialogue-label";
 import { getAllDialogues } from "@/subjects/life-science/lib/dialogues";
-import { getScientistById } from "@/subjects/life-science/lib/scientists";
 import { StaggerGrid, StaggerItem } from "@/components/StaggerGrid";
 
 export const metadata: Metadata = {
@@ -40,7 +40,9 @@ export default function LifeScienceDialoguesPage() {
 
       <StaggerGrid className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {dialogues.map((d) => {
-          const names = d.participants.map((p) => getScientistById(p)?.name ?? p);
+          const names = d.participants.map((id) =>
+            dialogueParticipantLabel(id, d.participants, d.title, d.body)
+          );
           return (
             <StaggerItem key={d.slug}>
               <Link

@@ -1,4 +1,5 @@
 ---
+summary: "没有技术能读取不配合的思想，把神经解码称作读心是营销而不是科学。紧迫处在粗糙信号加上行为后的推断；隐私的规范基础，以及推断到何处算侵犯，正文都说尚缺辩护。"
 title: 神经伦理与心理隐私：思想还是最后的私域吗
 title_en: Neuroethics and Mental Privacy — Is Thought Still the Last Private Place
 status: published

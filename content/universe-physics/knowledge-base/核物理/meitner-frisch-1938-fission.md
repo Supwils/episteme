@@ -1,4 +1,5 @@
 ---
+summary: "迈特纳与弗里施把化学上钉住的钡解释成重核液滴分成两块，不是又删掉一种超铀元素。两封短讯没有画出后来的势垒曲线，也不是布置铀与中子的工程说明书。"
 title: 迈特纳与弗里施：怎样把哈恩的钡读成重核液滴分裂，而不是超铀元素
 title_en: "Meitner & Frisch 1939: Barium as Liquid-Drop Fission, Not a Transuranic"
 status: published

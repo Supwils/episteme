@@ -1,4 +1,5 @@
 ---
+summary: "系外大气光谱读出的是温度、混合、云与光化学耦合的分层状态，不是静态成分表。云和霾可以抹平透射特征；排除厚大气也不等于没有薄大气，比值还带着逃逸分馏。"
 title: 系外行星大气探测
 titleEn: Exoplanet Atmosphere Detection
 category: 天体生物学

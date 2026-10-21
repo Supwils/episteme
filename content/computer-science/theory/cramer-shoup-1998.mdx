@@ -1,6 +1,7 @@
 ---
 title: Cramer–Shoup 1998：判定性迪菲–赫尔曼上怎样交出不再挂非交互零知识的选择密文
 title_en: A Practical Public Key Cryptosystem Provably Secure against Adaptive Chosen Ciphertext Attack
+summary: "1998年Cramer与Shoup在CRYPTO上给出基于判定性迪菲–赫尔曼假设、抗选择密文攻击的实用公钥方案，不再依赖非交互零知识或随机预言机；本文辨析它证明了什么、没有覆盖什么。"
 status: published
 updated: 2026-09-20
 category: 计算理论
@@ -24,6 +25,8 @@ related:
   - computational-complexity
   - shafi-goldwasser
   - randomized-algorithms
+  - elgamal-1985
+  - shoup-2001-oaep-reconsidered
 ---
 
 # Cramer–Shoup 1998：判定性迪菲–赫尔曼上怎样交出不再挂非交互零知识的选择密文
@@ -36,7 +39,7 @@ related:
 
 它不是 1991 年 5 月第二十三届 STOC 页码 542 至 552 的[[dolev-dwork-naor-1991|丹尼·多列夫、辛西娅·德沃克与莫尼·纳奥尔《Non-Malleable Cryptography》]]。那一篇 DOI 为 10.1145/103418.103474，问的是密文被改写之后明文关系会不会泄漏。不可延展性是相关性，不是本页这套群元素加核验。它不是 1984 年 4 月《计算机与系统科学杂志》第 28 卷第 2 期页码 270 至 299 的[[goldwasser-micali-1984|戈德瓦塞尔–米卡利概率加密]]，DOI 为 10.1016/0022-0000(84)90070-9。那三十页问的是被动窃听下的语义安全。它更不是[[public-key-rsa|RSA 公钥密码]]算法页上的模幂装配，也不是 1994 年米希尔·贝拉雷（Mihir Bellare）与菲利普·罗加韦（Phillip Rogaway）的最优非对称加密填充（[[bellare-rogaway-1994-oaep|OAEP]]）。填充走的是[[bellare-rogaway-1993|随机预言机]]与 RSA 燃料。本页走的是标准数论假说与离散对数族。
 
-它不是塔希尔·埃尔加迈勒（Taher ElGamal）1985 年那一套离散对数上的概率公钥。那一篇后来被看成判定性迪菲–赫尔曼下挡住被动窃听的祖先，密文已是群元素，却没有本页这一段抗碰撞核验。把封面听成又一本教科书埃尔加迈勒，会把被动窃听与自适应焊成一次页码。
+它不是[[elgamal-1985|塔希尔·埃尔加迈勒（Taher ElGamal）]]1985 年那一套离散对数上的概率公钥。那一篇后来被看成判定性迪菲–赫尔曼下挡住被动窃听的祖先，密文已是群元素，却没有本页这一段抗碰撞核验。把封面听成又一本教科书埃尔加迈勒，会把被动窃听与自适应焊成一次页码。
 
 它不是 [[cryptography-foundations|密码学基础]] 总览，不是 [[encryption-basics|加密基础]] 总览，也不是 [[shafi-goldwasser|沙菲·戈德瓦塞尔]] 的人物页。总览已经把三档对手类收成地图。本页只抽出 1998 年这一枚钉子：实用、标准假说、以及不再挂非交互零知识。
 

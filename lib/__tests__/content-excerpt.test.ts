@@ -32,4 +32,27 @@ describe("extractExcerpt", () => {
     ].join("\n");
     expect(extractExcerpt(body)).toBe("这段引用了洞穴比喻和一篇论文，加粗也要去掉标记。");
   });
+
+  it("passes over keyword lines, rules and colon lead-ins that have no sentence end", () => {
+    const body = [
+      "## 关键词",
+      "",
+      "水利社会; 东方专制主义; 魏特夫; 亚细亚生产方式; 灌溉农业; 官僚制",
+      "",
+      "---",
+      "",
+      "他提出了一个覆盖数千年、跨越四大洲的因果链：",
+      "",
+      "- 灌溉需要调集海量劳力",
+      "",
+      "这条因果链后来被逐一检验，多数环节没有经受住反例。",
+    ].join("\n");
+    expect(extractExcerpt(body)).toBe("这条因果链后来被逐一检验，多数环节没有经受住反例。");
+  });
+
+  it("falls back to the first long paragraph when no paragraph ends a sentence", () => {
+    expect(extractExcerpt("只有一行没有句号的说明文字，长度也超过了二十个字")).toBe(
+      "只有一行没有句号的说明文字，长度也超过了二十个字"
+    );
+  });
 });

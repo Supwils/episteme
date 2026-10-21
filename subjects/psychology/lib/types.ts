@@ -1,6 +1,7 @@
 export type Era = "经典" | "现代" | "当代";
 
 export type TheoristFrontmatter = {
+  summary?: string;
   title: string;
   name_en: string;
   years: string;
@@ -19,6 +20,7 @@ export type Theorist = TheoristFrontmatter & {
 };
 
 export type ExperimentFrontmatter = {
+  summary?: string;
   title: string;
   title_en: string;
   researcher: string;
@@ -36,6 +38,7 @@ export type Experiment = ExperimentFrontmatter & {
 };
 
 export type PhenomenonFrontmatter = {
+  summary?: string;
   title: string;
   title_en: string;
   category: string;
@@ -52,6 +55,7 @@ export type Phenomenon = PhenomenonFrontmatter & {
 };
 
 export type SchoolFrontmatter = {
+  summary?: string;
   title: string;
   era: Era;
   period: string;
@@ -69,6 +73,7 @@ export type School = SchoolFrontmatter & {
 };
 
 export type DisorderFrontmatter = {
+  summary?: string;
   title: string;
   title_en: string;
   category: string;
@@ -86,6 +91,7 @@ export type Disorder = DisorderFrontmatter & {
 };
 
 export type KnowledgeBaseFrontmatter = {
+  summary?: string;
   title: string;
   title_en: string;
   category: string;
@@ -100,6 +106,7 @@ export type KnowledgeBaseArticle = KnowledgeBaseFrontmatter & {
 };
 
 export type DebateFrontmatter = {
+  summary?: string;
   title: string;
   topic: string;
   key_figures: string[];
@@ -116,6 +123,7 @@ export type Debate = DebateFrontmatter & {
 };
 
 export type DialogueFrontmatter = {
+  summary?: string;
   title: string;
   title_en: string;
   participants: string[];

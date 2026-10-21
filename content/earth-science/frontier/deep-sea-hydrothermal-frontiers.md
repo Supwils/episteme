@@ -1,6 +1,7 @@
 ---
 title: 深海前沿：生命起点、地下生物圈与海底采矿的争夺
 title_en: Deep-Sea Frontiers — Life's Origin, the Deep Biosphere, and the Fight over Seabed Mining
+summary: "IODP 399 航次在亚特兰蒂斯海山取得 1268 米蛇纹石化地幔岩芯；深海前沿同时牵涉生命起源的碱性热液假说、深部生物圈与海底采矿之争。"
 status: published
 updated: 2026-06-19
 category: 海洋与地球内部

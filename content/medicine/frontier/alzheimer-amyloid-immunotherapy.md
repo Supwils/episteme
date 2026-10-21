@@ -1,6 +1,7 @@
 ---
 title: 抗淀粉样免疫疗法：斑块能清掉，痴呆却倒不回去
 title_en: Amyloid Immunotherapy — Clearing Plaques Is Not Reversing Dementia
+summary: "仑卡奈单抗 2023 年先凭清除斑块获加速批准，后凭 CLARITY-AD 转为传统批准；18 个月 0.45 分的差距说明它只是减缓而非逆转，aducanumab 的前车之鉴也不能忘。"
 status: published
 updated: 2026-09-12
 category: 神经退行

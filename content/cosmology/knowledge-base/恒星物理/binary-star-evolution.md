@@ -1,4 +1,5 @@
 ---
+summary: "多数恒星并非孤立演化，伴星会改写外包层、质量损失与最终结局。洛希瓣几何只在同步近圆轨道下成立，共包层效率尚未被流体力学唯一标定，单星轨迹只是极限情形。"
 title: 双星演化与质量转移
 titleEn: Binary Star Evolution and Mass Transfer
 category: 恒星物理

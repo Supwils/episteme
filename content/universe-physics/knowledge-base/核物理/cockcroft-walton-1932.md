@@ -1,4 +1,5 @@
 ---
+summary: "这页钉住电场加速的质子打锂放出氦，动能与质量亏损对得上同一数量级。它不是天然阿尔法打氮的那次嬗变，也不是倍压电路的接线说明，中子和裂变都不在这面屏上。"
 title: 考克饶夫与瓦尔顿：加速质子打锂怎样放出氦核，并把动能与质量亏损对上账
 title_en: "Cockcroft & Walton 1932: Accelerated Protons on Lithium, Helium, and Mass-Energy"
 status: published

@@ -1,4 +1,5 @@
 ---
+summary: "税务数据表明发达经济体顶端财富份额上升，并有提案以全球最低税封堵避税。诊断已被广泛接受，但没有强制机制时处方仍无落地路径，离岸规模的估算也不确定。"
 title: 不平等测量与全球财富税之争
 title_en: Measuring Inequality and the Global Wealth Tax Debate
 status: published

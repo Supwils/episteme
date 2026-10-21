@@ -135,7 +135,8 @@ async function main(): Promise<void> {
     };
     indexed.push({
       id: docs.length,
-      title: `${doc.t} ${doc.s}`.trim(),
+      // Aliases stay out of `s`: the subtitle is what the result row prints.
+      title: [doc.t, doc.s, entity?.aliases].filter(Boolean).join(" "),
       text: headings.select(article),
     });
     docs.push(doc);
@@ -156,7 +157,7 @@ async function main(): Promise<void> {
     };
     indexed.push({
       id: docs.length,
-      title: `${doc.t} ${doc.s}`.trim(),
+      title: [doc.t, doc.s, entity.aliases].filter(Boolean).join(" "),
       text: entity.content,
     });
     docs.push(doc);

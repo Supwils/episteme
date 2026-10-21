@@ -1,6 +1,7 @@
 ---
 title: 基础设施数字孪生：什么时候模型才配替真实桥梁作决定
 title_en: Trustworthy Digital Twins for Infrastructure
+summary: "三维模型不等于数字孪生，只有持续更新、能预测并回到决策的闭环才算；前沿问题是决策者何时、多大程度上可以相信它，NIST 2024 年为此启动研究。"
 status: published
 updated: 2026-09-12
 as_of: 2026-08

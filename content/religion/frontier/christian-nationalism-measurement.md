@@ -1,6 +1,7 @@
 ---
 title: 基督教民族主义测的是什么
 title_en: What Do Christian Nationalism Scales Measure
+summary: "PRRI 2023 年把五道同意题打成分数，约一成美国人被归为追随者、两成为同情者。争论在于这些题测到的是神权方案、文化怀旧、党派身份，还是三者的混合。"
 status: published
 updated: 2026-09-11
 category: 宗教与政治

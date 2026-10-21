@@ -1,3 +1,4 @@
+import { authorSummary } from "@/lib/content-utils";
 import { loadAllContent, loadContentBySlug } from "@/lib/content-article";
 import { listContentSlugs } from "@/lib/content-paths";
 import type { MathConcept } from "./types";
@@ -8,6 +9,7 @@ let cachedConcepts: MathConcept[] | null = null;
 
 function toConcept(data: Record<string, unknown>, content: string, slug: string): MathConcept {
   return {
+    summary: authorSummary(data),
     title: data.title as string,
     title_en: (data.title_en as string) ?? "",
     field: (data.field as string) ?? "其他",

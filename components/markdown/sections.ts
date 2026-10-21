@@ -3,8 +3,9 @@
  * 结构（破除误解、事实卡、关键洞察……），交给专门的组件渲染。只读标题，
  * 从不改写内容；认不出的段一律按普通叙事渲染。
  */
-import { parseHeadingLine } from "@/lib/markdown-heading";
+import { parseHeadingLine, takeHeadingId } from "@/lib/markdown-heading";
 import { DISCLAIMER } from "@/lib/article-discovery";
+import { splitMarkdownFences } from "@/lib/markdown-fences";
 
 export type SectionKind =
   | "narrative"
@@ -46,76 +47,86 @@ const KIND_BY_TITLE: Record<string, SectionKind> = {
 
 export function sectionKind(title: string): SectionKind {
   const bare = title.replace(/^第\s*\d+\s*页\s*·\s*/, "").trim();
-  return KIND_BY_TITLE[bare] ?? "narrative";
+  return Object.hasOwn(KIND_BY_TITLE, bare) ? KIND_BY_TITLE[bare]! : "narrative";
 }
 
-/** Blank lines inside a ``` fence belong to the fence, not the paragraph grid. */
-function joinFences(chunks: string[]): string[] {
-  const joined: string[] = [];
-  let open: string[] | null = null;
-  for (const chunk of chunks) {
-    if (open) {
-      open.push(chunk);
-    } else if (chunk.trimStart().startsWith("```")) {
-      open = [chunk];
-    } else {
-      joined.push(chunk);
-      continue;
+/**
+ * Footnote ids are any run without `]` or whitespace: the corpus cites
+ * `[^1]`, `[^fpp]` and `[^katrin-2022]`. Definitions and references share it,
+ * so a definition is never dropped while its references stay raw.
+ */
+export const FOOTNOTE_ID = String.raw`[^\]\s]+`;
+const FOOTNOTE_DEFINITION_LINE = new RegExp(String.raw`^\[\^${FOOTNOTE_ID}\]:`);
+
+const HEADING_LINE = /^#{1,4} /;
+export const LIST_ITEM_LINE = /^\s*(?:[-*]|\d+\.)\s/;
+
+/** Fences are already isolated; paired display-math delimiters protect their lines. */
+function togglesVerbatim(line: string): boolean {
+  return (line.match(/\$\$/g)?.length ?? 0) % 2 === 1;
+}
+
+/**
+ * Authors sometimes omit the blank line before a heading or a list. CommonMark
+ * still starts a new block there, so a glued `## 参考文献` or `- 条目` must not
+ * collapse into the paragraph above. Lines inside a formula or fence are verbatim.
+ */
+function splitGluedBlock(block: string): string[] {
+  const groups: string[][] = [[]];
+  let verbatim = false;
+  let afterHeading = false;
+  for (const line of block.split("\n")) {
+    const current = groups.at(-1)!;
+    if (!verbatim && current.length > 0) {
+      const heading = HEADING_LINE.test(line);
+      const listStart = LIST_ITEM_LINE.test(line) && !LIST_ITEM_LINE.test(current[0]!);
+      if (heading || afterHeading || listStart) groups.push([]);
     }
-    const fenceLines = open
-      .join("\n\n")
-      .split("\n")
-      .filter((line) => line.trimStart().startsWith("```"));
-    if (fenceLines.length >= 2) {
-      joined.push(open.join("\n\n"));
-      open = null;
-    }
+    groups.at(-1)!.push(line);
+    afterHeading = !verbatim && HEADING_LINE.test(line);
+    if (togglesVerbatim(line)) verbatim = !verbatim;
   }
-  if (open) joined.push(open.join("\n\n"));
-  return joined;
+  return groups.map((lines) => lines.join("\n").trim()).filter(Boolean);
 }
 
 /** The corpus separates blocks with blank lines; footnote definitions live elsewhere. */
 export function splitBlocks(content: string): string[] {
-  return joinFences(content.split("\n\n"))
-    .map((block) =>
-      block.startsWith("```")
-        ? block.trim()
-        : block
-            .split("\n")
-            .filter((line) => !/^\[\^[^\]]+\]:/.test(line.trim()))
-            .join("\n")
-            .trim()
-    )
-    .filter(Boolean)
-    .flatMap((block) => {
-      // A heading glued to the text under it (no blank line) is still a heading.
-      const newline = block.indexOf("\n");
-      return newline > 0 && /^#{1,4} /.test(block)
-        ? [block.slice(0, newline), block.slice(newline + 1).trim()].filter(Boolean)
-        : [block];
-    });
+  return splitMarkdownFences(content).flatMap(({ text, fenced }) => {
+    if (fenced) return [text.trim()];
+    return text
+      .split("\n\n")
+      .map((block) =>
+        block
+          .split("\n")
+          .filter((line) => !FOOTNOTE_DEFINITION_LINE.test(line.trim()))
+          .join("\n")
+          .trim()
+      )
+      .filter(Boolean)
+      .flatMap(splitGluedBlock);
+  });
 }
 
-function headingOf(block: string): Heading | null {
+function headingOf(block: string, used: Set<string>): Heading | null {
   // `# ` (demoted to h2) and `## ` open a section; `###` and below stay inside it.
   const match = block.match(/^#{1,2} (.+)$/);
   if (!match || block.includes("\n")) return null;
-  return parseHeadingLine(match[1]!.trim());
+  const parsed = parseHeadingLine(match[1]!.trim());
+  return { text: parsed.text, id: takeHeadingId(parsed.id, used) };
 }
 
 /**
  * Splits prose into sections. A leading `# 标题` block is dropped — the page
  * shell owns the document h1. Blocks are otherwise kept verbatim and in order.
  */
-export function splitSections(content: string): Section[] {
+export function splitSections(content: string, usedHeadingIds: Set<string> = new Set()): Section[] {
   const blocks = splitBlocks(content);
   if (blocks[0]?.startsWith("# ") && !blocks[0].includes("\n")) blocks.shift();
 
   const sections: Section[] = [{ heading: null, kind: "narrative", blocks: [] }];
   let insightSeen = false;
   for (const block of blocks) {
-    const heading = headingOf(block);
+    const heading = headingOf(block, usedHeadingIds);
     if (!heading) {
       sections.at(-1)!.blocks.push(block);
       continue;
@@ -131,16 +142,31 @@ export function splitSections(content: string): Section[] {
   return sections.filter((section) => section.heading || section.blocks.length > 0);
 }
 
-export type Myth = { claim: string | null; rest: string };
+/** `more` holds the fact's further blocks when a bold claim stands alone on its line. */
+export type Myth = { claim: string | null; rest: string; more: string[] };
 
-const MYTH_OPENING = /^(第[一二三四五六七八九十\d]+个?(常见)?误解|误解[一二三四五六七八九十\d]+)/;
+const MYTH_OPENING =
+  /^\**(第[一二三四五六七八九十\d]+个?(常见)?误解|误解[一二三四五六七八九十\d]+)/;
 // A first sentence is only struck through when it states the misconception.
 const STATES_MISCONCEPTION = /误解|误区|以为|常被|流行的说法|很多人|人们常/;
+const OPENING_BOLD = /^\*\*((?:(?!\*\*)[\s\S])+)\*\*([。！？]?)\s*([\s\S]*)$/;
+const ENDS_SENTENCE = /[。！？][」』”"）)]*$/;
 
 function firstSentence(paragraph: string): [string, string] {
   const match = paragraph.match(/^[\s\S]*?[。！？](?=[^」』”）)]|$)/);
   if (!match) return [paragraph, ""];
   return [match[0], paragraph.slice(match[0].length).trim()];
+}
+
+/**
+ * `**误解一：……。**` (or `**……**。`) bolds the whole claim; cutting at the `。`
+ * inside it would split the bold. A short bold label (`**误解一**：…`) is not
+ * a sentence, so that paragraph is cut at its first sentence as usual.
+ */
+function splitClaim(paragraph: string): [string, string] {
+  const bold = paragraph.match(OPENING_BOLD);
+  if (!bold || !(bold[2] || ENDS_SENTENCE.test(bold[1]!))) return firstSentence(paragraph);
+  return [bold[1]! + bold[2]!, bold[3]!.trim()];
 }
 
 /**
@@ -158,17 +184,24 @@ export function parseMisconceptions(blocks: string[]): {
   const after: string[] = [];
   const notes: string[] = [];
   const isParagraph = (block: string) => !/^([#>|!-]|\d+\.|```)/.test(block);
+  // A bold claim alone on its line takes the blocks under it as its fact,
+  // up to the next claim, sub-heading or rule.
+  let collecting: Myth | null = null;
 
   for (const block of blocks) {
     if (isParagraph(block) && DISCLAIMER.test(block) && block.length < 160) {
       notes.push(block);
     } else if (isParagraph(block) && MYTH_OPENING.test(block)) {
-      const [claim, rest] = firstSentence(block);
-      myths.push({ claim, rest });
-    } else if (myths.length === 0) {
-      intro.push(block);
+      const [claim, rest] = splitClaim(block);
+      const myth: Myth = { claim, rest, more: [] };
+      myths.push(myth);
+      collecting = rest || !block.startsWith("**") ? null : myth;
+    } else if (collecting && !/^(#|---)/.test(block)) {
+      if (!collecting.rest && isParagraph(block)) collecting.rest = block;
+      else collecting.more.push(block);
     } else {
-      after.push(block);
+      collecting = null;
+      (myths.length === 0 ? intro : after).push(block);
     }
   }
 
@@ -177,10 +210,14 @@ export function parseMisconceptions(blocks: string[]): {
   if (myths.length === 0) {
     const index = intro.findIndex(isParagraph);
     if (index >= 0) {
-      const [claim, rest] = firstSentence(intro[index]!);
+      const [claim, rest] = splitClaim(intro[index]!);
       const struck = STATES_MISCONCEPTION.test(claim);
-      myths.push({ claim: struck ? claim : null, rest: struck ? rest : intro[index]! });
-      after.push(...intro.splice(index + 1));
+      const following = intro.splice(index + 1);
+      // A bold claim alone on its line is answered by the paragraph under it.
+      const fact =
+        struck && !rest && following[0] && isParagraph(following[0]) ? following.shift()! : rest;
+      myths.push({ claim: struck ? claim : null, rest: struck ? fact : intro[index]!, more: [] });
+      after.push(...following);
       intro.splice(index, 1);
     }
   }

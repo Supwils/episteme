@@ -44,6 +44,13 @@ export const PSYCHOLOGY_EXPERIMENTS_DATA = [
     year: 1932,
   },
   {
+    slug: "berlin-kay-1969-basic-color-terms",
+    title: "Berlin 与 Kay 1969：二十种语言、三百二十九块色片与十一个基本色词",
+    subtitle: "Berlin & Kay 1969 Basic Color Terms",
+    researcher: "Brent Berlin, Paul Kay",
+    year: 1969,
+  },
+  {
     slug: "bobo-doll",
     title: "波波玩偶实验",
     subtitle: "Bobo Doll Experiment",
@@ -135,6 +142,13 @@ export const PSYCHOLOGY_EXPERIMENTS_DATA = [
     year: 1885,
   },
   {
+    slug: "ekman-friesen-1971-constants",
+    title: "埃克曼与弗里森 1971：三张面孔里的选择",
+    subtitle: "Constants Across Cultures in the Face and Emotion",
+    researcher: "Paul Ekman",
+    year: 1971,
+  },
+  {
     slug: "festinger-carlsmith-1959",
     title: "认知失调实验",
     subtitle: "Cognitive Dissonance Experiment",
@@ -175,6 +189,13 @@ export const PSYCHOLOGY_EXPERIMENTS_DATA = [
     subtitle: "Harlow 1958 Contact Comfort",
     researcher: "Harry Harlow",
     year: 1958,
+  },
+  {
+    slug: "hawthorne-illumination-1924",
+    title: "霍桑照明实验",
+    subtitle: "The Hawthorne Illumination Experiments",
+    researcher: "National Research Council illumination studies",
+    year: 1924,
   },
   {
     slug: "heider-1972-color-naming-memory",
@@ -359,11 +380,32 @@ export const PSYCHOLOGY_EXPERIMENTS_DATA = [
     year: 1968,
   },
   {
+    slug: "schachter-singer-1962",
+    title: "沙赫特与辛格 1962：同一份唤起没有自动变成两种情绪",
+    subtitle: "Cognitive, Social, and Physiological Determinants of Emotional State",
+    researcher: "Stanley Schachter",
+    year: 1962,
+  },
+  {
+    slug: "scoville-milner-1957",
+    title: "Scoville 与米尔纳 1957：近期记忆缺损随双侧海马是否受损而出现",
+    subtitle: "Loss of Recent Memory after Bilateral Hippocampal Lesions",
+    researcher: "William Beecher Scoville & Brenda Milner",
+    year: 1957,
+  },
+  {
     slug: "shepard-metzler-1971",
     title: "谢泼德与梅茨勒 1971：三维线描的心理旋转怎样把“同一物体”写成与角差成正比的反应时",
     subtitle: "Shepard and Metzler 1971 Mental Rotation of Three-Dimensional Objects",
     researcher: "Roger N. Shepard; Jacqueline Metzler",
     year: 1971,
+  },
+  {
+    slug: "sherif-1935-autokinetic",
+    title: "谢里夫 1935：光点没有动，标准却会留下来",
+    subtitle: "A Study of Some Social Factors in Perception",
+    researcher: "Muzafer Sherif",
+    year: 1935,
   },
   {
     slug: "simons-levin-1998",
@@ -378,6 +420,13 @@ export const PSYCHOLOGY_EXPERIMENTS_DATA = [
     subtitle: "Sperling 1960 Partial Report Iconic Memory",
     researcher: "George Sperling",
     year: 1960,
+  },
+  {
+    slug: "sperry-1968-split-brain",
+    title: "半球离断与意识觉知的统一",
+    subtitle: "Hemisphere Deconnection and Unity in Conscious Awareness",
+    researcher: "Roger W. Sperry",
+    year: 1968,
   },
   {
     slug: "stanford-prison",
@@ -406,6 +455,13 @@ export const PSYCHOLOGY_EXPERIMENTS_DATA = [
     subtitle: "The Stroop Experiment",
     researcher: "John Ridley Stroop",
     year: 1935,
+  },
+  {
+    slug: "tajfel-1971-minimal-group",
+    title: "泰弗尔 1971：最小群体偏的是差距，不是共同利益",
+    subtitle: "Social Categorization and Intergroup Behaviour",
+    researcher: "Henri Tajfel",
+    year: 1971,
   },
   {
     slug: "treisman-1960",
@@ -462,6 +518,13 @@ export const PSYCHOLOGY_EXPERIMENTS_DATA = [
     subtitle: "Wason Selection Task",
     researcher: "Peter Wason",
     year: 1966,
+  },
+  {
+    slug: "watson-rayner-1920-little-albert",
+    title: "小阿尔伯特：1920 年那七次联合刺激",
+    subtitle: "Conditioned Emotional Reactions",
+    researcher: "John B. Watson",
+    year: 1920,
   },
   {
     slug: "waugh-norman-1965",

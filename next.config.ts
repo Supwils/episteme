@@ -71,6 +71,7 @@ const nextConfig: NextConfig = {
   // function would fall back to an empty corpus — search would quietly return no
   // prose matches in production while working perfectly in dev.
   outputFileTracingIncludes: {
+    "/api/og": ["./assets/og/**/*", "./node_modules/@resvg/resvg-wasm/index_bg.wasm"],
     "/api/search": ["./generated/corpus.txt", "./generated/corpus-meta.json"],
     "/search": [
       "./generated/corpus.txt",
@@ -96,11 +97,11 @@ const nextConfig: NextConfig = {
       { source: "/molecules/:path*", headers: securityHeaders({ molstar: true }) },
       // Human history is the only surface that loads the Iconify web component.
       { source: "/human-history/:path*", headers: securityHeaders({ iconify: true }) },
-      // Everything else keeps the strict, eval-free policy. The negative lookahead
-      // makes these paths match ONLY this rule — a second, stricter CSP header would
-      // otherwise be enforced alongside and re-block eval on the molecule routes.
+      // Exclude whole route segments: similar prefixes such as /medicine-extra
+      // still need the default headers. The policies must not overlap because a
+      // second, stricter CSP would re-block eval on the molecule routes.
       {
-        source: "/((?!medicine|chemistry|molecules|human-history).*)",
+        source: "/((?!(?:medicine|chemistry|molecules|human-history)(?:/|$)).*)",
         headers: securityHeaders({}),
       },
     ];

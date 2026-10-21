@@ -14,6 +14,7 @@ const PORTAL_SOURCES = [
   "components/portal/AstrolabeController.tsx",
   "components/portal/ClusterAtlas.tsx",
   "components/portal/TodaySection.tsx",
+  "components/portal/TodaySectionView.tsx",
   "components/portal/ReadingShelf.tsx",
   "components/portal/BookShelf.tsx",
   "components/portal/ClimbInvite.tsx",

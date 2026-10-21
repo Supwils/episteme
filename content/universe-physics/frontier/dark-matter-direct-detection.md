@@ -1,4 +1,5 @@
 ---
+summary: "液氙的零结果收紧的是弱相互作用重粒子的截面上限，不是暗物质存在被否定。直接探测也不是搜寻的全部；探测器已灵敏到太阳中微子的核反冲，此后单纯加曝光不再线性地买到新知识。"
 title: 暗物质直接探测的"沉默"
 title_en: The Silence of Dark Matter — Direct Detection at the Neutrino Floor
 status: published

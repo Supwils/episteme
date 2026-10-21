@@ -12,7 +12,7 @@ import { BrandMark } from "@/subjects/physics/components/hud/BrandMark";
 export function UniverseLoading({ overlay = false }: { overlay?: boolean }) {
   return (
     <div
-      {...(overlay ? { "aria-hidden": true } : { id: "main-content", tabIndex: -1 })}
+      {...(overlay ? { "aria-hidden": true } : { id: "universe-scene", tabIndex: -1 })}
       role="status"
       aria-live="polite"
       className={`absolute inset-0 flex flex-col items-center justify-center gap-5 focus:outline-none ${

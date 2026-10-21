@@ -26,19 +26,26 @@ describe("eventHref", () => {
   it("falls back to the history timeline when url is missing or blank", () => {
     expect(eventHref({ url: "" })).toBe("/human-history/timeline");
     expect(eventHref({ url: "  " })).toBe("/human-history/timeline");
+    expect(eventHref({ url: "javascript:alert(1)" })).toBe("/human-history/timeline");
+    expect(eventHref({ url: "//evil.example/phish" })).toBe("/human-history/timeline");
   });
 });
 
 describe("OnThisDay", () => {
   it("renders each event as a link to its url", () => {
-    render(<OnThisDay events={[baseEvent]} />);
+    render(<OnThisDay events={[baseEvent]} date="2026-06-05" />);
     const link = screen.getByRole("link", { name: /国富论/ });
     expect(link.getAttribute("href")).toBe("/economics/economists/adam-smith");
   });
 
   it("links events without url to the history timeline", () => {
-    render(<OnThisDay events={[{ ...baseEvent, url: "" }]} />);
+    render(<OnThisDay events={[{ ...baseEvent, url: "" }]} date="2026-06-05" />);
     const link = screen.getByRole("link", { name: /国富论/ });
     expect(link.getAttribute("href")).toBe("/human-history/timeline");
+  });
+
+  it("labels the list with the server's day, not the browser clock", () => {
+    render(<OnThisDay events={[baseEvent]} date="2026-06-05" />);
+    expect(screen.getByText("6月5日")).toBeTruthy();
   });
 });

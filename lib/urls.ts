@@ -39,9 +39,13 @@ export const SECTION_SHELL_PREFIXES: readonly string[] = [
 
 const INTERNAL_PATH_ORIGIN = "https://episteme.invalid";
 
+/** URL parsing drops these, so a check on the parsed URL would miss a raw header break. */
+const CONTROL_CHARS = /[\u0000-\u001F\u007F]/;
+
 /** Same-origin article paths only. Rejects protocol-relative and non-http(s) URLs. */
 export function isSafeInternalPath(url: string): boolean {
   if (!url.startsWith("/") || url.startsWith("//") || url.includes("\\")) return false;
+  if (CONTROL_CHARS.test(url)) return false;
   try {
     const parsed = new URL(url, INTERNAL_PATH_ORIGIN);
     return parsed.origin === INTERNAL_PATH_ORIGIN && parsed.pathname.startsWith("/");
@@ -53,6 +57,7 @@ export function isSafeInternalPath(url: string): boolean {
 /** Markdown `[text](href)` / images: internal paths, hash, or http(s) only. */
 export function isSafeHref(href: string): boolean {
   const trimmed = href.trim();
+  if (CONTROL_CHARS.test(trimmed)) return false;
   if (trimmed.startsWith("#") && !trimmed.includes(":")) return true;
   if (isSafeInternalPath(trimmed)) return true;
   try {

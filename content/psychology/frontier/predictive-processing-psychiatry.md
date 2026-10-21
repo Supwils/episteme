@@ -1,4 +1,5 @@
 ---
+summary: "预测加工把大脑写成用感觉误差更新预测的机器，并想以此重写精神症状从何而来。自由能原理是否可证伪仍有根本争议，部分预注册复制里的效应量已经缩水。"
 title: 计算精神病学与预测加工：大脑作为贝叶斯机器
 title_en: "Computational Psychiatry and Predictive Processing: The Brain as a Bayesian Machine"
 status: published

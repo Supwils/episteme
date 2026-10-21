@@ -1,6 +1,7 @@
 ---
 title: eBPF 验证器：把内核扩展变成可判定问题
 title_en: "The eBPF Verifier: Turning Kernel Extensions into a Decidable Problem"
+summary: "eBPF让观测、网络和安全逻辑以受限字节码在内核中运行，验证器要在加载前证明程序会停止、访存合法；本文指出通过验证不等于内核无漏洞，并讲抽象解释与完备性、并发等开放问题。"
 status: published
 updated: 2026-09-13
 category: 系统与安全

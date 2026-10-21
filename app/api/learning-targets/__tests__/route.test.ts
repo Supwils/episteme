@@ -1,12 +1,37 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import graphSnapshot from "@/subjects/knowledge-graph/data/aggregate-snapshot.json";
 import { GET } from "@/app/api/learning-targets/route";
 import {
   buildKnowledgeBranchCatalog,
   searchKnowledgeBranchTargets,
 } from "@/lib/knowledge-branch-catalog";
+import * as branchCatalog from "@/lib/knowledge-branch-catalog";
 
 describe("learning target API", () => {
+  it.each([
+    { input: "热".repeat(119) + "𠀀", expected: "热".repeat(119) + "𠀀" },
+    { input: "𠀀".repeat(121), expected: "𠀀".repeat(120) },
+    { input: "  自然选择  ", expected: "自然选择" },
+  ])("passes a canonical code-point query to the target search", async ({ input, expected }) => {
+    const search = vi.spyOn(branchCatalog, "searchKnowledgeBranchTargets");
+    try {
+      const response = await GET(
+        new Request(`https://episteme.test/api/learning-targets?q=${encodeURIComponent(input)}`)
+      );
+      expect(response.status).toBe(200);
+      expect(search).toHaveBeenCalledWith(expect.anything(), expected, 20, expect.anything());
+    } finally {
+      search.mockRestore();
+    }
+  });
+
+  it("rejects a repeated filter so the first value cannot hide a second one", async () => {
+    const response = await GET(
+      new Request("https://episteme.test/api/learning-targets?domain=sociology&domain=philosophy")
+    );
+    expect(response.status).toBe(400);
+  });
+
   it.each(["__proto__", "constructor", "toString"])(
     "rejects inherited filter keys: %s",
     async (key) => {

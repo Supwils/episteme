@@ -1,4 +1,5 @@
 ---
+summary: "历史气候学把气候写成可测量的结构性变量，不是王朝覆灭的唯一原因，也不是可以忽略的墙纸。同样的冷期里德川日本并未崩溃，气候必须经过制度，统计关联也不等于因果。"
 title: 气候如何终结王朝——历史气候学的前沿
 title_en: How Climate Ends Dynasties — Frontiers of Historical Climatology
 status: published

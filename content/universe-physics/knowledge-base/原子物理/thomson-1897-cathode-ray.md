@@ -1,4 +1,5 @@
 ---
+summary: "阴极射线抽稀后能被电场按负电弯折，质量电荷比远小于电解氢离子，这不是电子肖像。比值小可以来自质量小，也可以来自电荷偏大，当时两头都留门；早先弯不动斑，是残余气体屏蔽了电场。"
 title: 汤姆孙 1897：卡文迪许阴极射线怎样把 e/m 读成远大于电解离子
 title_en: "Thomson 1897: Cathode Rays, Corpuscles, and e/m at the Cavendish"
 status: published

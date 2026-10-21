@@ -1,6 +1,7 @@
 ---
 title: xz 后门：一次针对开源信任结构的社会工程
 title_en: "The xz Backdoor — Social Engineering Against the Trust Structure of Open Source"
+summary: "2024年3月，弗罗因德发现sshd每次登录多烧约半秒CPU，由此揭开xz后门；本文讲一个身份如何用三年赢得维护者的信任，以及恶意代码如何藏在测试夹具里。"
 status: published
 updated: 2026-08-05
 category: 系统剖析
@@ -30,7 +31,7 @@ related:
 
 2024 年 3 月下旬，微软的 PostgreSQL 开发者安德烈斯·弗罗因德在自己那台 Debian sid 机器上跑数据库基准测试。他注意到一件不该发生的事：ssh 登录变慢了，而且慢在 CPU 上——即使用户名是错的、连接立刻被拒，`sshd` 进程也要多烧掉大约半秒的 CPU 时间。同时 Valgrind 在 `sshd` 里报出他看不懂的内存错误。
 
-半秒。对绝大多数人来说，这个数字根本不构成"异常"。弗罗因德顺着它挖了下去，用 `perf record -e intel_pt//ub` 对比后门生效与不生效时执行路径在哪里分叉，再用 gdb 在分叉点前下断点。3 月 28 日，他把结论发到 oss-security 邮件列表：xz-utils 5.6.0 与 5.6.1 的发布包里藏着一个针对 OpenSSH 服务端的后门。CVE-2024-3094，CVSS 10.0。
+半秒。对绝大多数人来说，这个数字根本不构成"异常"。弗罗因德顺着它挖了下去，用 `perf record -e intel_pt//ub` 对比后门生效与不生效时执行路径在哪里分叉，再用 gdb 在分叉点前下断点。3 月 29 日，他把结论发到 oss-security 邮件列表：xz-utils 5.6.0 与 5.6.1 的发布包里藏着一个针对 OpenSSH 服务端的后门。CVE-2024-3094，CVSS 10.0。
 
 这件事值得反复讲，不是因为技术手法多罕见——利用动态链接器做劫持的手法在恶意软件里并不新鲜——而是因为它把开源世界赖以运转的那套信任结构，一层一层地拆给了所有人看。攻击者花了将近三年，投入最多的地方不是写代码，是写邮件。
 

@@ -20,7 +20,7 @@ export function SearchHistoryHeader({ onHistoryChange }: { onHistoryChange: () =
       <span id="gs-history-label" className="gs-group-label">
         搜索历史
       </span>
-      <button className="gs-clear-btn" onClick={handleClearHistory}>
+      <button type="button" className="gs-clear-btn" onClick={handleClearHistory}>
         清除
       </button>
     </div>
@@ -90,6 +90,7 @@ export function SearchHistory({
       {history.map((term, index) => (
         <button
           key={term}
+          type="button"
           className="gs-history-remove"
           data-active={index === activeIndex}
           style={{ "--row": index + 1 } as React.CSSProperties}

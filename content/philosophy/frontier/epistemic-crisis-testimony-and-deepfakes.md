@@ -1,4 +1,5 @@
 ---
+summary: "深度伪造拆掉的是影像充当证言最终仲裁的后盾，而不只是某一条信息的真假。来源凭证只保住媒介完整而非断言为真；能否不因此惩罚无凭证内容，仍是未决问题。"
 title: 认识论危机：当眼见不再为实
 title_en: The Epistemic Crisis — When Seeing Is No Longer Believing
 status: published

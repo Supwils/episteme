@@ -1,6 +1,7 @@
 ---
 title: 全球南方社会学的知识再平衡
 title_en: Global South Sociology and the Rebalancing of Knowledge
+summary: "全球南方社会学追问谁被认为能生产理论、谁只提供数据，不是书单配额也不是拒绝欧洲理论；南方内部差异巨大，不能当作统一阵营。"
 status: published
 updated: 2026-07-04
 category: 知识与理论

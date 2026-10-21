@@ -13,5 +13,11 @@ export const metadata: Metadata = {
 };
 
 export default function MapPage() {
-  return <MapClient />;
+  // The interactive client renders no heading, so the page supplies one for outline and search.
+  return (
+    <>
+      <h1 className="sr-only">历史地图</h1>
+      <MapClient />
+    </>
+  );
 }

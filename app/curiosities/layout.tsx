@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { spaceGrotesk, plexMono } from "@/lib/fonts";
 import { PageTransition } from "@/components/PageTransition";
+import { CURIOSITY_DESCRIPTION } from "@/lib/site-copy";
 import "../domain-shared.css";
 
 export const metadata: Metadata = {
   title: "奇趣知识 — Episteme · 格致",
-  description:
-    "横跨二十二个学科的冷知识、跨学科巧合与「原来如此」时刻：那些少有人知、却真实而迷人的事实。",
+  description: `${CURIOSITY_DESCRIPTION}：那些少有人知、却真实而迷人的事实。`,
   openGraph: {
     title: "奇趣知识 — Episteme · 格致",
-    description: "横跨二十二个学科的冷知识、跨学科巧合与「原来如此」时刻。",
+    description: `${CURIOSITY_DESCRIPTION}。`,
     type: "website",
   },
 };
@@ -42,7 +42,7 @@ export default function CuriositiesLayout({ children }: { children: React.ReactN
           奇趣知识
         </span>
       </nav>
-      <main>
+      <main data-skip-target tabIndex={-1} className="focus:outline-none">
         <PageTransition>{children}</PageTransition>
       </main>
       <footer className="border-border-faint border-t px-4 py-6 sm:px-6">

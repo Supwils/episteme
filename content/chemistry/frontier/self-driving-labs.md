@@ -1,6 +1,7 @@
 ---
 title: 自驱动实验室：当 AI 提议、机器人动手，化学发现开始闭环
 title_en: Self-Driving Labs — When AI Proposes and Robots Execute, Chemical Discovery Closes the Loop
+summary: "2020 年利物浦大学的机器人连续工作 8 天，自主完成 688 个实验，由贝叶斯算法挑选下一批配方；自驱动实验室不是取代化学家，而是加速试错循环。"
 status: published
 updated: 2026-09-12
 category: 计算化学

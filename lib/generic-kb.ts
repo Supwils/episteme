@@ -2,7 +2,14 @@ import fs from "node:fs";
 import path from "node:path";
 import { readParsedFile } from "./content-article";
 import { getDomainContentDir, existingContentFile } from "./content-paths";
-import { decodeSlug, extractExcerpt, firstHeading, stripLeadingHeading } from "./content-utils";
+import { contentTreeStamp } from "./content-freshness";
+import {
+  authorSummary,
+  decodeSlug,
+  extractExcerpt,
+  firstHeading,
+  stripLeadingHeading,
+} from "./content-utils";
 
 export interface KBArticle {
   slug: string;
@@ -10,6 +17,7 @@ export interface KBArticle {
   category: string;
   tags: string[];
   excerpt: string;
+  summary?: string;
 }
 
 export interface KBArticleFull extends KBArticle {
@@ -48,6 +56,7 @@ function walkMarkdown(dir: string, base = ""): string[] {
 export function createKnowledgeBase(domain: string): KnowledgeBase {
   const root = path.join(getDomainContentDir(domain), "knowledge-base");
   let cache: KBArticle[] | null = null;
+  let cacheStamp = "";
 
   const categoryOf = (rel: string, data: Record<string, unknown>): string => {
     if (typeof data.category === "string" && data.category) return data.category;
@@ -73,12 +82,15 @@ export function createKnowledgeBase(domain: string): KnowledgeBase {
       tags: Array.isArray(data.tags)
         ? data.tags.filter((v): v is string => typeof v === "string")
         : [],
-      excerpt: extractExcerpt(content, 150),
+      excerpt: authorSummary(data) ?? extractExcerpt(content, 150),
+      summary: authorSummary(data),
     };
   };
 
   const getAllArticles = (): KBArticle[] => {
-    if (cache) return cache;
+    const stamp = process.env.NODE_ENV === "development" ? contentTreeStamp(root) : "prod";
+    if (cache && cacheStamp === stamp) return cache;
+    cacheStamp = stamp;
     cache = walkMarkdown(root)
       .map(toArticle)
       .filter((article): article is KBArticle => article !== null)
@@ -112,7 +124,8 @@ export function createKnowledgeBase(domain: string): KnowledgeBase {
       tags: Array.isArray(data.tags)
         ? data.tags.filter((v): v is string => typeof v === "string")
         : [],
-      excerpt: extractExcerpt(content, 150),
+      excerpt: authorSummary(data) ?? extractExcerpt(content, 150),
+      summary: authorSummary(data),
       content: stripLeadingHeading(content),
     };
   };

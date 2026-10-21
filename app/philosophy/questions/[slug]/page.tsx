@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { withCanonicalPath } from "@/lib/article-canonical";
 import Link from "next/link";
-import { getQuestionBySlug, getAllQuestions, getThinkerBySlug } from "@/lib/mdx";
+import { getQuestionBySlug, getAllQuestions, thinkerDisplayName } from "@/lib/mdx";
 import Breadcrumb from "@/components/Breadcrumb";
 import RelatedContent from "@/components/RelatedContent";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
@@ -16,59 +16,13 @@ export function generateStaticParams() {
   return [];
 }
 
-/**
- * key_figures mixes thinker slugs ("parfit"), full romanized names
- * ("Daniel Dennett") and already-Chinese names ("洛克"). Resolve each to a
- * Chinese display name: the thinker page's frontmatter title first (trying the
- * id, its slugified form, then its last word), then a small fallback table for
- * figures without a thinker page — those names are taken from the question
- * bodies themselves (verified 2026-08); anything left shows the raw id.
- */
-const KEY_FIGURE_FALLBACK: Record<string, string> = {
-  bell: "贝尔",
-  benacerraf: "贝纳塞拉夫",
-  benatar: "贝纳塔尔",
-  bergson: "柏格森",
-  blackburn: "布莱克本",
-  feyerabend: "费耶阿本德",
-  field: "菲尔德",
-  james: "詹姆斯",
-  kane: "凯恩",
-  korsgaard: "科斯嘉德",
-  kuhn: "库恩",
-  lakatos: "拉卡托斯",
-  mackie: "麦基",
-  mcmahan: "麦克马汉",
-  moore: "摩尔",
-  narveson: "纳尔维森",
-  pereboom: "佩雷布姆",
-  regan: "里根",
-  singer: "辛格",
-  stevenson: "史蒂文森",
-  tarski: "塔尔斯基",
-  turing: "图灵",
-  williams: "威廉姆斯",
-  "Viktor Frankl": "弗兰克尔",
-  "Martin Seligman": "塞利格曼",
-};
-
-function resolveKeyFigure(id: string): string {
-  if (/[一-鿿]/.test(id)) return id;
-  const candidates = [id, id.toLowerCase().replace(/\s+/g, "-")];
-  const lastWord = id.split(/\s+/).pop();
-  if (lastWord) candidates.push(lastWord.toLowerCase());
-  for (const slug of candidates) {
-    const thinker = getThinkerBySlug(slug);
-    if (thinker) return thinker.title;
-  }
-  return KEY_FIGURE_FALLBACK[id] ?? id;
-}
-
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const question = getQuestionBySlug(slug);
   if (!question) notFound();
-  const description = `${question.field}：${question.key_figures.map(resolveKeyFigure).join("、")}`;
+  const description =
+    question.summary ??
+    `${question.field}：${question.key_figures.map(thinkerDisplayName).join("、")}`;
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(question.title)}&section=philosophy&description=${encodeURIComponent(description)}`;
   return withCanonicalPath(`/philosophy/questions/${slug}`, {
     title: `${question.title} — 哲学大问题`,
@@ -91,7 +45,7 @@ export default async function QuestionDetailPage({
   if (!question) notFound();
 
   const fieldColor = FIELD_ACCENTS[question.field] || "#c8a45a";
-  const keyFigureNames = question.key_figures.map(resolveKeyFigure);
+  const keyFigureNames = question.key_figures.map(thinkerDisplayName);
 
   const allQuestions = getAllQuestions();
   const relatedQuestions = allQuestions
@@ -125,6 +79,7 @@ export default async function QuestionDetailPage({
         accent={fieldColor}
         eyebrow={question.field}
         title={question.title}
+        lede={question.summary}
         content={question.content}
         meta={keyFigureNames.length > 0 ? <>关键人物：{keyFigureNames.join("、")}</> : undefined}
         sidebar={

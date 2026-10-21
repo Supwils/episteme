@@ -1,6 +1,7 @@
 ---
 title: 公平卫生优先排序：从项目排名到可复审组合
 title_en: Fair Health Priority Setting — From Rankings to Revisable Portfolios
+summary: "按成本效果从高到低选项目只是起点，卫生系统选择的是相互依赖的服务组合；不确定性也不是一条误差线，敏感性分析要找出让排序翻转的条件。"
 status: published
 updated: 2026-07-12
 category: 卫生系统与决策科学

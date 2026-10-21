@@ -1,4 +1,5 @@
 ---
+summary: "核心氢耗尽后，恒星靠氢壳燃烧和氦核收缩膨胀成红巨星；渐近巨星支再叠一层氦壳。氦闪只出现在氦核已简并的较低质量星，能量几乎全被包层吸收，表面没有可见闪光。"
 title: 红巨星与渐近巨星支
 titleEn: Red Giants and the Asymptotic Giant Branch
 category: 恒星物理

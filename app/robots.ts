@@ -6,7 +6,9 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
+        // og:image cards live under /api/og; X and LinkedIn honour robots.txt
+        // when fetching them, so that one prefix must stay open.
+        allow: ["/", "/api/og"],
         disallow: ["/api/"],
       },
     ],

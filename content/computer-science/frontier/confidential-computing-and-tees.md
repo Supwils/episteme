@@ -1,6 +1,7 @@
 ---
 title: 机密计算：把信任从运维手里收回硬件
 title_en: Confidential Computing — Moving Trust from the Operator into the Silicon
+summary: "静态加密和传输加密都保护不了正在被计算的明文，机密计算试图把这份信任从运维收回硬件；本文说明它保护什么、不保护什么，讲从飞地到机密虚拟机，以及作为支点的远程证明。"
 status: published
 updated: 2026-08-04
 category: 密码学与安全

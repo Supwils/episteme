@@ -1,5 +1,6 @@
 "use client";
 
+import { isInOpenDialog } from "../interaction/dialog-events";
 import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -34,6 +35,7 @@ export function AtlasMenu({ triggers }: { triggers: "clusters" | "single" }) {
   useEffect(() => {
     if (!open) return;
     const onKey = (event: KeyboardEvent) => {
+      if (isInOpenDialog(event.target)) return;
       if (event.key === "Escape") close(true);
     };
     const onPointer = (event: PointerEvent) => {
@@ -124,6 +126,7 @@ export function AtlasMenu({ triggers }: { triggers: "clusters" | "single" }) {
         aria-label="全部领域"
         hidden={!open}
         onBlur={(event) => {
+          if (isInOpenDialog(event.relatedTarget)) return;
           const next = event.relatedTarget as Node | null;
           if (next && !panelRef.current?.contains(next) && !rootRef.current?.contains(next)) {
             close(false);

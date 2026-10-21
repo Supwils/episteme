@@ -4,7 +4,8 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
 import { PRODUCT_EASE } from "@/subjects/philosophy/lib/constants";
 
-type Tradition = "all" | "western" | "eastern";
+type Tradition = "all" | "western" | "eastern" | "islamic";
+type QuoteTradition = Exclude<Tradition, "all">;
 
 interface Quote {
   id: string;
@@ -12,7 +13,7 @@ interface Quote {
   philosopher: string;
   philosopherLatin: string;
   year: number;
-  tradition: "western" | "eastern";
+  tradition: QuoteTradition;
   era: string;
   source: string;
   context: string;
@@ -141,7 +142,7 @@ const QUOTES: Quote[] = [
     philosopher: "阿维罗伊",
     philosopherLatin: "Averroes",
     year: 1170,
-    tradition: "eastern",
+    tradition: "islamic",
     era: "伊斯兰黄金时代",
     source: "《矛盾的矛盾》",
     context: "阿维罗伊坚持哲学与宗教最终一致，对亚里士多德的注释深刻影响了中世纪欧洲经院哲学。",
@@ -386,6 +387,22 @@ const TRADITION_ACCENTS: Record<Tradition, string> = {
   all: "#c8a45a",
   western: "#6ad0ff",
   eastern: "#c8a45a",
+  islamic: "#e07a5f",
+};
+
+const TRADITION_LABEL: Record<QuoteTradition, string> = {
+  western: "西方",
+  eastern: "东方",
+  islamic: "伊斯兰",
+};
+
+const TRADITION_FILTERS: readonly Tradition[] = ["all", "western", "eastern", "islamic"];
+
+const FILTER_LABEL: Record<Tradition, string> = {
+  all: "全部",
+  western: "西方 Western",
+  eastern: "东方 Eastern",
+  islamic: "伊斯兰 Islamic",
 };
 
 function formatTimelineYear(year: number): string {
@@ -461,13 +478,10 @@ function QuoteCard({
 
         <div className="flex items-center gap-2">
           <span
-            className={`inline-block px-2 py-0.5 font-mono text-[8px] tracking-[0.2em] uppercase ${
-              quote.tradition === "eastern"
-                ? "border-accent-gold/40 text-fg-secondary border"
-                : "border-accent-sage/40 text-fg-secondary border"
-            }`}
+            className="text-fg-secondary inline-block border px-2 py-0.5 font-mono text-[8px] tracking-[0.2em] uppercase"
+            style={{ borderColor: TRADITION_ACCENTS[quote.tradition] }}
           >
-            {quote.tradition === "eastern" ? "东方" : "西方"}
+            {TRADITION_LABEL[quote.tradition]}
           </span>
           <span className="text-fg-muted font-mono text-[8px] tracking-[0.14em]">
             {quote.source}
@@ -545,13 +559,10 @@ function ExpandedPanel({
             {quote.philosopherLatin}
           </span>
           <span
-            className={`inline-block px-2 py-0.5 font-mono text-[8px] tracking-[0.2em] uppercase ${
-              quote.tradition === "eastern"
-                ? "border-accent-gold/40 text-fg-secondary border"
-                : "border-accent-sage/40 text-fg-secondary border"
-            }`}
+            className="text-fg-secondary inline-block border px-2 py-0.5 font-mono text-[8px] tracking-[0.2em] uppercase"
+            style={{ borderColor: TRADITION_ACCENTS[quote.tradition] }}
           >
-            {quote.tradition === "eastern" ? "东方" : "西方"}
+            {TRADITION_LABEL[quote.tradition]}
           </span>
         </div>
 
@@ -652,9 +663,10 @@ export default function QuotesTimeline() {
             <span className="text-fg-muted font-mono text-[9px] tracking-[0.28em] uppercase">
               传统
             </span>
-            {(["all", "western", "eastern"] as const).map((t) => (
+            {TRADITION_FILTERS.map((t) => (
               <button
                 key={t}
+                type="button"
                 onClick={() => {
                   setTradition(t);
                   setActiveId(null);
@@ -665,7 +677,7 @@ export default function QuotesTimeline() {
                     : "border-fg-disabled/20 text-fg-muted hover:border-fg-disabled/40 hover:text-fg-secondary"
                 }`}
               >
-                {t === "all" ? "全部" : t === "western" ? "西方 Western" : "东方 Eastern"}
+                {FILTER_LABEL[t]}
               </button>
             ))}
             <span className="text-fg-muted font-mono text-[9px] tracking-[0.14em]">

@@ -1,6 +1,7 @@
 ---
 title: 欧盟 AI 法案把哪些教育推断写成高风险
 title_en: Which Educational Inferences the EU AI Act Calls High-Risk
+summary: "欧盟 2024/1689 号条例附件三把录取分派、评价学习结果、评估适宜教育水平与考试监测列为高风险用途。本条核对这份清单改了哪些法律对象，以及 2026 年简化立法如何改写截止日期。"
 status: published
 updated: 2026-09-12
 category: 评估与生成式系统

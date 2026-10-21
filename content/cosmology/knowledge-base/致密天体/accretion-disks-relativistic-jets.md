@@ -1,4 +1,5 @@
 ---
+summary: "黑洞吸积把引力能换成辐射，效率远高于核聚变，但爱丁顿光度不是不可逾越的墙。它假定球对称与电子散射，薄盘效率又把内边缘钉在最内稳定轨道，辐射低效的暗核并不等于自旋低。"
 title: 黑洞吸积盘与相对论喷流
 titleEn: Black Hole Accretion Disks and Relativistic Jets
 category: 致密天体物理学

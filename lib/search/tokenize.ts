@@ -1,5 +1,18 @@
 const HAN = /\p{Script=Han}/u;
 const WORD = /[\p{Letter}\p{Number}]/u;
+const FULL_WIDTH_ALNUM = /[\uFF10-\uFF19\uFF21-\uFF3A\uFF41-\uFF5A]/g;
+
+/**
+ * A Chinese IME in full-width mode types ＤＮＡ for DNA, and some keyboards send
+ * decomposed accents (o + U+0308). Only full-width letters and digits are
+ * mapped: full-width punctuation (，。) is what the corpus itself uses, and
+ * folding it would break exact phrase matches.
+ */
+export function normalizeSearchText(text: string): string {
+  return text
+    .normalize("NFC")
+    .replace(FULL_WIDTH_ALNUM, (ch) => String.fromCharCode(ch.charCodeAt(0) - 0xfee0));
+}
 
 /**
  * Tokenizer shared by the build-time index generator and the browser.
@@ -35,7 +48,7 @@ export function tokenize(text: string): string[] {
     word = "";
   };
 
-  for (const ch of text) {
+  for (const ch of normalizeSearchText(text)) {
     if (HAN.test(ch)) {
       flushWord();
       han += ch;

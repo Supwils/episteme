@@ -1,16 +1,14 @@
-import { useRef } from "react";
+import { SearchQueryInput } from "./SearchQueryInput";
 
 interface SearchInputProps {
   inputRef: React.RefObject<HTMLInputElement | null>;
   activeId: string | undefined;
+  hasList: boolean;
   onChange: (value: string) => void;
+  onClose: () => void;
 }
 
-export function SearchInput({ inputRef, activeId, onChange }: SearchInputProps) {
-  // IME composition (e.g. Chinese pinyin) fires change events for half-typed
-  // Latin fragments — hold queries until the composition commits.
-  const composing = useRef(false);
-
+export function SearchInput({ inputRef, activeId, hasList, onChange, onClose }: SearchInputProps) {
   return (
     <div className="gs-input-wrap">
       <svg
@@ -25,30 +23,22 @@ export function SearchInput({ inputRef, activeId, onChange }: SearchInputProps) 
         <circle cx="9" cy="9" r="6" />
         <path d="m14 14 4.5 4.5" />
       </svg>
-      <input
+      <SearchQueryInput
         ref={inputRef}
         type="text"
         className="gs-input"
         placeholder="搜索宇宙物理、人类历史、哲学思想、生命科学、经济学、心理学…"
         aria-label="搜索"
         aria-autocomplete="list"
-        aria-controls="gs-result-list"
+        aria-controls={hasList ? "gs-result-list" : undefined}
         aria-activedescendant={activeId}
-        maxLength={120}
-        onChange={(e) => {
-          if (!composing.current) onChange(e.target.value);
-        }}
-        onCompositionStart={() => {
-          composing.current = true;
-        }}
-        onCompositionEnd={(e) => {
-          composing.current = false;
-          onChange(e.currentTarget.value);
-        }}
+        onQueryChange={onChange}
         autoComplete="off"
         spellCheck={false}
       />
-      <kbd className="gs-kbd">ESC</kbd>
+      <button type="button" className="gs-close" aria-label="关闭搜索" onClick={onClose}>
+        关闭
+      </button>
     </div>
   );
 }

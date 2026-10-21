@@ -1,6 +1,7 @@
 ---
 title: 全球宗教人口：生育率还是改宗
 title_en: Global Religious Demography — Fertility or Switching
+summary: "皮尤 2025 年核算 2010–2020 年的实际变化：穆斯林十年增加约 3.47 亿，基督徒约占世界人口 28.8%。版图的变动来自生育与年龄结构，还是来自改宗？"
 status: published
 updated: 2026-09-11
 category: 世俗化与人口

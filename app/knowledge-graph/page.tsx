@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 export default function KnowledgeGraphPage() {
   return (
     <>
+      <h1 className="sr-only">知识图谱</h1>
       {/* Start the graph payload with the HTML instead of after hydration: on a
           slow connection each round trip costs ~0.5 s, and this removes the
           HTML → JS → fetch chain from the first draw. Matches the client's

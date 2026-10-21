@@ -1,6 +1,7 @@
 import path from "node:path";
 import { loadContentBySlug } from "@/lib/content-article";
 import { getDomainContentDir } from "@/lib/content-paths";
+import { authorSummary } from "@/lib/content-utils";
 
 /**
  * Long-form deep-dive articles for major life-history events
@@ -23,6 +24,7 @@ const TIMELINE_TO_EVENT_DETAIL: Record<string, string> = {
 export interface EventDetail {
   title: string;
   body: string;
+  summary?: string;
 }
 
 const eventDetailCache = new Map<string, EventDetail | null>();
@@ -37,6 +39,7 @@ export function getEventDetailForTimeline(timelineEventId: string): EventDetail 
     (data, content): EventDetail => ({
       title: typeof data.title === "string" ? data.title : "深入详解",
       body: content.replace(/^\s*#\s+.+\n+/, "").trim(),
+      summary: authorSummary(data),
     })
   );
   if (!article || !article.body) return null;

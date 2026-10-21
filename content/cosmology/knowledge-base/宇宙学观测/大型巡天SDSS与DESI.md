@@ -1,4 +1,5 @@
 ---
+summary: "大型光谱巡天交付的是选择函数已知的成团统计，不是一张越来越密的星图。专门挑选的目标无论多少都不能测宇宙学参数；光纤碰撞和完备度漂移必须建模，机械臂也没取消无偏性。"
 title: 大型巡天：SDSS与DESI
 titleEn: Large-Scale Surveys — SDSS and DESI
 category: 宇宙学观测

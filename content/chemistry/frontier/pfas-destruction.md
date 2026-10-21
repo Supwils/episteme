@@ -1,6 +1,7 @@
 ---
 title: 销毁"永久化学品"：PFAS 处理的技术竞赛与监管摇摆
 title_en: Destroying "Forever Chemicals" — The Technology Race and Regulatory Whiplash around PFAS
+summary: "2024 年 EPA 把饮用水中 PFOA 与 PFOS 的上限定为 4 ppt；过滤掉不等于消灭，碳-氟键是有机化学中最强的单键，各种销毁技术与监管都还在摇摆。"
 status: published
 updated: 2026-09-12
 category: 环境化学

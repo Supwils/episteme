@@ -1,6 +1,7 @@
 import { isSafeInternalPath } from "@/lib/urls";
 import type { SearchEngine, SearchHit } from "./engine";
 import type { WorkerRequest, WorkerResponse } from "./worker-runtime";
+import { normalizeSearchQuery } from "./query";
 
 export type { SearchHit } from "./engine";
 export { loadArtifact } from "./artifact";
@@ -207,5 +208,9 @@ function createWorkerClient(): SearchClient | null {
 }
 
 export function createSearchClient(): SearchClient {
-  return createWorkerClient() ?? createMainThreadClient();
+  const client = createWorkerClient() ?? createMainThreadClient();
+  return {
+    ...client,
+    search: (query, limit) => client.search(normalizeSearchQuery(query), limit),
+  };
 }

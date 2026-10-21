@@ -12,6 +12,7 @@ const concepts: MathConceptItem[] = [
     title_en: "Group",
     field: "代数",
     key_figures: ["伽罗瓦"],
+    figureSlugs: ["galois"],
     tags: ["对称"],
   },
   {
@@ -54,6 +55,11 @@ describe("MathConceptsListBrowser", () => {
     expect(screen.queryByText("群")).toBeTruthy();
     expect(screen.queryByText("极限")).toBeNull();
     expect(screen.getByText("1/3")).toBeTruthy();
+    fireEvent.change(screen.getByLabelText("搜索数学概念"), {
+      target: { value: "galois" },
+    });
+    expect(screen.queryByText("群")).toBeTruthy();
+    expect(screen.queryByText("galois")).toBeNull();
   });
 
   it("filters by field chip and toggles back to all", () => {

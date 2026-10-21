@@ -1,6 +1,7 @@
 ---
 title: 低碳水泥与循环混凝土：怎样减掉石灰石必然释放的碳
 title_en: Low-Carbon Cement and Circular Concrete
+summary: "水泥的碳不只来自燃料：石灰石煅烧本身就释放二氧化碳。前沿是叠加少用熟料、替代胶凝材料与循环再生，2024 年剑桥团队展示了借电弧炉再生水泥的路线。"
 status: published
 updated: 2026-09-12
 as_of: 2026-08

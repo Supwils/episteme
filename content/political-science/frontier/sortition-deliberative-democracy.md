@@ -1,6 +1,7 @@
 ---
 title: 抽签治国的复兴：公民大会与协商民主的制度化实验
 title_en: The Return of Sortition — Citizens' Assemblies and the Institutionalization of Deliberative Democracy
+summary: "2018 年爱尔兰以 66.4% 的赞成票废除宪法第八修正案，议题先交给 99 名抽签公民组成的公民大会审议；抽签不是抓阄治国，正从一次性实验走向常设机构。"
 status: published
 updated: 2026-08-16
 category: 政治学前沿

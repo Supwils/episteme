@@ -29,7 +29,9 @@ export default function PhysicsLayout({ children }: { children: React.ReactNode 
   return (
     <div className={`${spaceGrotesk.variable} ${plexMono.variable} physics-root`}>
       <DomainHeader subject="universe-physics" />
-      <PageTransition>{children}</PageTransition>
+      <div data-skip-target tabIndex={-1} className="focus:outline-none">
+        <PageTransition>{children}</PageTransition>
+      </div>
     </div>
   );
 }

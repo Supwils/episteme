@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { DailyItem } from "../lib/daily-knowledge";
 import {
+  dailyCardHref,
   dailyIconFor,
   dailyLabelFor,
   dailyStyleKeyFor,
@@ -119,7 +120,7 @@ export function DailyKnowledgeCard({ items, fact, date }: DailyKnowledgeCardProp
             const label = dailyLabelFor(item.url, style.label);
             return (
               <div key={item.id} data-home-reveal>
-                <Link href={item.url} className="home-daily__link">
+                <Link href={dailyCardHref(item.url, "/daily")} className="home-daily__link">
                   <div className="home-daily__row">
                     <span className="home-daily__icon">{dailyIconFor(item.url, item.icon)}</span>
                     <div className="home-daily__copy">

@@ -17,7 +17,10 @@ import { subscribeToScrollFrame } from "@/lib/scroll-frame";
 export function SectionAwareNav({ brandMark }: { brandMark: React.ReactNode }) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  const inSection = SECTION_SHELL_PREFIXES.some((prefix) => pathname.startsWith(prefix));
+  // Segment-bounded so /lawyer or /reading (404s) keep the portal chrome.
+  const inSection = SECTION_SHELL_PREFIXES.some(
+    (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`)
+  );
 
   useEffect(() => {
     if (inSection) return;

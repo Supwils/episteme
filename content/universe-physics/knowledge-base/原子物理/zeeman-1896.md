@@ -1,4 +1,5 @@
 ---
+summary: "钠线在磁场里先变宽、边缘呈圆偏振，读法是束缚谐振子加上洛伦兹力，不是自旋已经出现。正常三重线只是第一把尺子，钠的双线在强场下更碎；展宽给出的是荷质比的数量级，不是电子质量。"
 title: 塞曼 1896：莱顿磁铁里钠 D 线怎样先展宽后劈裂
 title_en: Zeeman 1896 — Sodium D Lines Broadened then Split in Leiden
 status: published

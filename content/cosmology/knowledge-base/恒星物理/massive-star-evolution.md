@@ -1,4 +1,5 @@
 ---
+summary: "质量越大主序越短，因为光度比燃料涨得更快，铁核才是燃烧终点。表中时标来自特定单星模型，金属丰度、自转与双星都会改层质量，残骸类型不能单凭初始质量读出。"
 title: 大质量恒星演化
 titleEn: Massive Star Evolution
 category: 恒星物理

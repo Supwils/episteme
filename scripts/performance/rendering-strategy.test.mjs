@@ -1,4 +1,4 @@
-import { mkdtempSync, mkdirSync, writeFileSync } from "node:fs";
+import { mkdtempSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
@@ -10,8 +10,6 @@ function fixture({ omitCoverage = false } = {}) {
   const routes = {};
   for (const [route, seconds] of [
     ["/", 3600],
-    ["/daily", 3600],
-    ["/api/daily", 3600],
     ["/api/knowledge-continuum/spine", 86400],
     ["/api/knowledge-continuum/planner", 86400],
     ["/api/knowledge-continuum/confluences", 86400],
@@ -49,6 +47,8 @@ function fixture({ omitCoverage = false } = {}) {
 
   const appPaths = Object.fromEntries(
     [
+      "/api/daily/route",
+      "/api/daily/home/route",
       "/api/daily/shuffle/route",
       "/api/search/route",
       "/api/knowledge-frontier/route",
@@ -60,6 +60,8 @@ function fixture({ omitCoverage = false } = {}) {
     ].map((route) => [route, `${route}.js`])
   );
 
+  appPaths["/daily/page"] = "/daily/page.js";
+  appPaths["/search/page"] = "/search/page.js";
   writeFileSync(join(root, "prerender-manifest.json"), JSON.stringify({ routes, dynamicRoutes }));
   writeFileSync(join(root, "server/app-paths-manifest.json"), JSON.stringify(appPaths));
   return root;
@@ -80,6 +82,18 @@ describe("rendering strategy audit", () => {
     const { nextDir, appDir } = splitTurbopackFixture();
     expect(auditRenderingStrategy(nextDir, appDir).errors).toEqual([]);
   });
+
+  it.each(["/daily", "/api/daily", "/api/daily/home"])(
+    "rejects a cached calendar snapshot at %s",
+    (route) => {
+      const root = fixture();
+      const file = join(root, "prerender-manifest.json");
+      const manifest = JSON.parse(readFileSync(file, "utf8"));
+      manifest.routes[route] = { initialRevalidateSeconds: 3600 };
+      writeFileSync(file, JSON.stringify(manifest));
+      expect(auditRenderingStrategy(root).errors.join("\n")).toContain(`${route}: expected`);
+    }
+  );
 });
 
 function splitTurbopackFixture() {
@@ -94,6 +108,8 @@ function splitTurbopackFixture() {
 
   const routeManifest = {};
   for (const route of [
+    "/api/daily/route",
+    "/api/daily/home/route",
     "/api/daily/shuffle/route",
     "/api/search/route",
     "/api/knowledge-frontier/route",
@@ -123,8 +139,6 @@ function splitTurbopackFixture() {
 
   for (const [route, seconds] of [
     ["/", 3600],
-    ["/daily", 3600],
-    ["/api/daily", 3600],
     ["/api/knowledge-continuum/spine", 86400],
     ["/api/knowledge-continuum/planner", 86400],
     ["/api/knowledge-continuum/confluences", 86400],
@@ -157,9 +171,11 @@ function splitTurbopackFixture() {
 
   // Query-dependent page: a server module but deliberately no prerendered HTML.
   {
-    const serverModule = join(nextDir, "server", "app", "search", "page.js");
-    mkdirSync(join(serverModule, ".."), { recursive: true });
-    writeFileSync(serverModule, "module");
+    for (const route of ["search", "daily"]) {
+      const serverModule = join(nextDir, "server", "app", route, "page.js");
+      mkdirSync(join(serverModule, ".."), { recursive: true });
+      writeFileSync(serverModule, "module");
+    }
   }
 
   for (const [route, kind] of [

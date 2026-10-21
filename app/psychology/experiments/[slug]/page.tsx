@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { withCanonicalPath } from "@/lib/article-canonical";
+import { extractExcerpt } from "@/lib/content-utils";
 import Link from "next/link";
 import { getExperimentBySlug, getAllExperiments } from "@/subjects/psychology/lib/mdx";
 import { FIELD_COLORS } from "@/subjects/psychology/lib/constants";
@@ -19,11 +20,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const experiment = getExperimentBySlug(slug);
   if (!experiment) notFound();
-  const description = `${experiment.researcher} 的实验：${experiment.title_en}`;
   return withCanonicalPath(`/psychology/experiments/${slug}`, {
     title: `${experiment.title} — 经典实验`,
-    description,
-    openGraph: { title: `${experiment.title} — 经典实验`, description },
+    description: experiment.summary ?? extractExcerpt(experiment.content),
   });
 }
 
@@ -61,6 +60,7 @@ export default async function ExperimentDetailPage({
       eyebrowMeta={[formatYear(experiment.year)]}
       title={experiment.title}
       titleEn={experiment.title_en}
+      lede={experiment.summary}
       content={experiment.content}
       meta={<span className="text-sm">{experiment.researcher}</span>}
       tags={experiment.tags}

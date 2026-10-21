@@ -1,6 +1,7 @@
 ---
 title: 气候诉讼的下一步：从证明变暖到分配国家与企业责任
 title_en: Climate Litigation, Attribution, and Remedies
+summary: "2024 年国际海洋法法庭的咨询意见确认，人为温室气体排放可构成《联合国海洋法公约》意义上的海洋污染。归因科学能回答排放如何改变极端事件概率，法律仍要决定这足以触发何种义务与救济。"
 status: published
 updated: 2026-08-07
 category: 气候法

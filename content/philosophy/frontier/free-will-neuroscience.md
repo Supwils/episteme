@@ -1,4 +1,5 @@
 ---
+summary: "利贝特实验没有证明自由意志是幻觉，准备电位被看成噪声积累的选择效应，而非先于意识的决定。这也不等于自由意志已被保住；能否推广到有理由的道德决策，正文写明仍悬而未决。"
 title: 自由意志与神经科学：Libet 实验之后
 title_en: "Free Will and Neuroscience: After the Libet Experiment"
 status: published

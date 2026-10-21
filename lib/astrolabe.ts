@@ -3,6 +3,7 @@
  * 方位、「今天」书架的每日轮换。只在服务端与 force-static 路由里用，
  * 图谱数据不进客户端包。
  */
+import { calendarSeed } from "@/lib/calendar-day";
 import { DOMAINS } from "@/lib/data";
 import { domainSpine, graphDomainId } from "@/lib/domain-spine";
 import { DOMAIN_WEDGES, domainWedge } from "@/lib/knowledge-geometry";
@@ -70,15 +71,11 @@ export function astrolabeConfluences(): AstrolabeConfluence[] {
 
 /** The domain the rule rests on today: one per day, round the ring. */
 export function astrolabeDomainOfDay(date = new Date()): string {
-  const index = Math.floor(seeded(dateSeed(date) + 7)() * DOMAIN_WEDGES.length);
+  const index = Math.floor(seeded(calendarSeed(date) + 7)() * DOMAIN_WEDGES.length);
   return DOMAIN_WEDGES[index]!.domain;
 }
 
 export type ShelfPick = AstrolabeStep & { domain: string; domainTitle: string };
-
-function dateSeed(date: Date): number {
-  return date.getFullYear() * 10000 + (date.getMonth() + 1) * 100 + date.getDate();
-}
 
 /** mulberry32: small, deterministic, good enough to shuffle a shelf. */
 function seeded(seed: number): () => number {
@@ -102,7 +99,7 @@ export function dailyShelf(date = new Date(), size = 6): ShelfPick[] {
       .filter((step) => step.level === 2 || step.level === 3)
       .map((step) => ({ ...step, domain: readout.domain, domainTitle: readout.title }))
   );
-  const random = seeded(dateSeed(date));
+  const random = seeded(calendarSeed(date));
   const shuffled = pool
     .map((pick) => ({ pick, key: random() }))
     .sort((a, b) => a.key - b.key)

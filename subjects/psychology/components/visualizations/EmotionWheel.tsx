@@ -244,6 +244,9 @@ function SegmentPath({
         stroke={isSelected ? emotion.color : hexToRgba(emotion.color, 0.4)}
         strokeWidth={isSelected ? 2 : 0.5}
         style={{ transform, transformOrigin: `${CX}px ${CY}px` }}
+        // SVG nodes have no readable starting opacity; start at the target
+        // state and animate only later changes (hover / selection).
+        initial={false}
         animate={{
           scale,
           opacity: 1,
@@ -260,6 +263,7 @@ function SegmentPath({
         fontWeight={ringIndex === 2 ? 600 : 400}
         className="pointer-events-none select-none"
         style={{ color: "var(--color-fg-primary)" }}
+        initial={false}
         animate={{ opacity: 1 }}
         transition={{ duration: reduce ? 0 : 0.15 }}
       >

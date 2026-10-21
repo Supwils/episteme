@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 import { withCanonicalPath } from "@/lib/article-canonical";
+import { extractExcerpt } from "@/lib/content-utils";
 import Link from "next/link";
 import { getSchoolBySlug, getAllSchools } from "@/lib/schools";
+import { thinkerDisplayName } from "@/lib/mdx";
 import Breadcrumb from "@/components/Breadcrumb";
 import RelatedContent from "@/components/RelatedContent";
 import { OrnamentalDivider } from "@/components/school-detail/Decorations";
@@ -22,16 +24,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const school = getSchoolBySlug(slug);
   if (!school) notFound();
-  const description = school.founder ?? school.school ?? school.title;
-  const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(school.title)}&section=philosophy&description=${encodeURIComponent(description)}`;
   return withCanonicalPath(`/philosophy/schools/${slug}`, {
     title: `${school.title} — 哲学流派`,
-    description,
-    openGraph: {
-      title: `${school.title} — 哲学流派`,
-      description,
-      images: [{ url: ogImage, width: 1200, height: 630 }],
-    },
+    description: school.summary ?? extractExcerpt(school.content),
   });
 }
 
@@ -43,6 +38,7 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
   const founder = school.founder ?? school.philosopher ?? "";
   const period = school.period ?? "";
   const keyFigures = school.key_figures ?? [];
+  const keyFigureLabels = keyFigures.map(thinkerDisplayName);
   const accent = ERA_ACCENT[school.era] ?? "#c8a45a";
 
   const allSchools = getAllSchools();
@@ -56,7 +52,7 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
 
   const jsonLd = createArticleJsonLd({
     title: school.title,
-    description: founder || school.school || school.title,
+    description: extractExcerpt(school.content),
     url: `${SITE_URL}/philosophy/schools/${slug}`,
     author: founder || "Episteme · 格致",
     keywords: [school.title, school.school ?? "", ...keyFigures, ...school.tags],
@@ -71,13 +67,14 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
       eyebrow={school.era}
       eyebrowMeta={period ? [period] : undefined}
       title={school.title}
+      lede={school.summary}
       content={school.content}
       meta={
-        founder || keyFigures.length > 0 ? (
+        founder || keyFigureLabels.length > 0 ? (
           <>
             {founder ? `创始人：${founder}` : ""}
-            {founder && keyFigures.length > 0 ? " · " : ""}
-            {keyFigures.join("、")}
+            {founder && keyFigureLabels.length > 0 ? " · " : ""}
+            {keyFigureLabels.join("、")}
           </>
         ) : undefined
       }
@@ -155,7 +152,7 @@ export default async function SchoolDetailPage({ params }: { params: Promise<{ s
       {keyFigures.length > 0 && (
         <>
           <OrnamentalDivider color={accent} />
-          <KeyFiguresSection figures={keyFigures} accent={accent} />
+          <KeyFiguresSection figures={keyFigureLabels} accent={accent} />
         </>
       )}
 

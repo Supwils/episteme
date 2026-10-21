@@ -1,6 +1,7 @@
 export type Era = "古典" | "新古典" | "现代" | "当代";
 
 export type EconomistFrontmatter = {
+  summary?: string;
   title: string;
   name_en: string;
   years: string;
@@ -20,6 +21,7 @@ export type Economist = EconomistFrontmatter & {
 };
 
 export type TheoryFrontmatter = {
+  summary?: string;
   title: string;
   title_en: string;
   category: string;
@@ -37,6 +39,7 @@ export type Theory = TheoryFrontmatter & {
 };
 
 export type ConceptFrontmatter = {
+  summary?: string;
   title: string;
   title_en: string;
   category: string;
@@ -53,6 +56,7 @@ export type Concept = ConceptFrontmatter & {
 };
 
 export type CaseStudyFrontmatter = {
+  summary?: string;
   title: string;
   title_en: string;
   year: number;
@@ -71,6 +75,7 @@ export type CaseStudy = CaseStudyFrontmatter & {
 };
 
 export type SchoolFrontmatter = {
+  summary?: string;
   title: string;
   title_en: string;
   era: Era;
@@ -89,6 +94,7 @@ export type School = SchoolFrontmatter & {
 };
 
 export type DebateFrontmatter = {
+  summary?: string;
   title: string;
   title_en: string;
   sides: string[];
@@ -106,6 +112,7 @@ export type Debate = DebateFrontmatter & {
 };
 
 export type DialogueFrontmatter = {
+  summary?: string;
   title: string;
   title_en: string;
   participants: string[];
@@ -123,6 +130,7 @@ export type Dialogue = DialogueFrontmatter & {
 };
 
 export type KnowledgeBaseFrontmatter = {
+  summary?: string;
   title: string;
   title_en: string;
   category: string;

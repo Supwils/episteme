@@ -1,6 +1,7 @@
 ---
 title: 全球治理的危机与改革
 title_en: The Crisis and Reform of Global Governance
+summary: "新冠大流行暴露了全球治理的短板，2021 年部分低收入国家接种率仍不足 1%；危机不等于体系崩溃，本篇分析危机的五个维度与各种改革方案。"
 status: published
 updated: 2026-06-13
 category: 政治学前沿

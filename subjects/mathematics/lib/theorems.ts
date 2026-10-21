@@ -1,3 +1,5 @@
+import { contentTreeStamp } from "@/lib/content-freshness";
+import { authorSummary } from "@/lib/content-utils";
 import { loadAllContent, loadContentBySlug } from "@/lib/content-article";
 import { listContentSlugs } from "@/lib/content-paths";
 import type { Theorem } from "./types";
@@ -5,9 +7,11 @@ import { THEOREMS_DIR } from "./content-paths";
 
 const theoremBySlugCache = new Map<string, Theorem | null>();
 let cachedTheorems: Theorem[] | null = null;
+let cacheStamp = "";
 
 function toTheorem(data: Record<string, unknown>, content: string, slug: string): Theorem {
   return {
+    summary: authorSummary(data),
     title: data.title as string,
     title_en: (data.title_en as string) ?? "",
     field: (data.field as string) ?? "其他",
@@ -32,7 +36,10 @@ export function getTheoremBySlug(slug: string): Theorem | null {
 }
 
 export function getAllTheorems(): Theorem[] {
-  if (cachedTheorems) return cachedTheorems;
+  const stamp = process.env.NODE_ENV === "development" ? contentTreeStamp(THEOREMS_DIR) : "prod";
+  if (cachedTheorems && cacheStamp === stamp) return cachedTheorems;
+  if (process.env.NODE_ENV === "development") theoremBySlugCache.clear();
+  cacheStamp = stamp;
   cachedTheorems = loadAllContent(THEOREMS_DIR, theoremBySlugCache, toTheorem);
   return cachedTheorems;
 }

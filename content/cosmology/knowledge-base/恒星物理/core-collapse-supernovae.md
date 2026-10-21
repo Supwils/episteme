@@ -1,4 +1,5 @@
 ---
+summary: "核心坍缩把绝大部分能量交给中微子，可见光只占抛射账的极小份额。延迟中微子加热是主流却依赖前身星结构与状态方程，球对称里冲击波常会停滞，近邻事件只核过能量预算。"
 title: 核心坍缩超新星
 titleEn: Core-Collapse Supernovae
 category: 恒星物理

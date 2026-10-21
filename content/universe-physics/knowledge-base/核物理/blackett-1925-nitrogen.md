@@ -1,4 +1,5 @@
 ---
+summary: "布莱克特的云室照片里氮上分叉缺了第三条阿尔法臂，说明阿尔法被俘获而不是逃走。这不是早年的射程门，也不是后来的加速器或中子实验，雾滴只是电离痕迹，不是装配说明。"
 title: 布莱克特 1925：威尔逊云室怎样把氮上的质子分叉拍成径迹
 title_en: "Blackett 1925: Cloud-Chamber Forks of Nitrogen Disintegration"
 status: published

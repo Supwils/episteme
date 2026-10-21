@@ -1,6 +1,7 @@
 ---
 title: 全同态加密：在密文上计算
 title_en: Fully Homomorphic Encryption — Computing on Ciphertexts
+summary: "2009年Gentry在博士论文中首次构造出全同态加密，不解密就能对密文做任意计算；本文说明同态并非“加密够强就能随便算”，关键在于管理噪声预算，并梳理各方进展。"
 status: published
 updated: 2026-09-13
 category: 密码学

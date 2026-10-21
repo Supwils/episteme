@@ -1,6 +1,7 @@
 ---
 title: 量子算法：Shor 与 Grover 之后的软件边界
 title_en: Quantum Algorithms — The Software Frontier Beyond Shor and Grover
+summary: "Shor与Grover的算法让许多人以为量子计算机无所不能；本文澄清它不是万能加速器，介绍NISQ时代的变分量子算法，以及最有希望的近期应用量子化学。"
 status: published
 updated: 2026-09-12
 category: 量子计算

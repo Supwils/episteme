@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/subjects/physics/lib/cn";
+import { cssCanvasSize, fitCanvasToDisplay } from "./canvas-size";
 
 const NUM_PARTICLES = 300;
 const JET_PARTICLES = 40;
@@ -76,8 +77,7 @@ export function BlackHoleAccretion({ className }: { className?: string }) {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const w = canvas.width;
-    const h = canvas.height;
+    const { w, h } = cssCanvasSize(canvas);
     const cx = w * 0.5;
     const cy = h * 0.5;
     const bhRadius = Math.min(w, h) * 0.06;
@@ -269,14 +269,10 @@ export function BlackHoleAccretion({ className }: { className?: string }) {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const dpr = window.devicePixelRatio || 1;
-    const rect = canvas.getBoundingClientRect();
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
-    const ctx = canvas.getContext("2d");
-    if (ctx) ctx.scale(dpr, dpr);
+    fitCanvasToDisplay(canvas);
 
-    initParticles(canvas.width, canvas.height);
+    const { w, h } = cssCanvasSize(canvas);
+    initParticles(w, h);
     render();
   }, [render, initParticles]);
 
@@ -299,7 +295,8 @@ export function BlackHoleAccretion({ className }: { className?: string }) {
     setIsPlaying(false);
     const canvas = canvasRef.current;
     if (canvas) {
-      initParticles(canvas.width, canvas.height);
+      const { w, h } = cssCanvasSize(canvas);
+      initParticles(w, h);
     }
     timeRef.current = 0;
     render();

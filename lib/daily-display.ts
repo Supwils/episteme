@@ -1,4 +1,5 @@
 import { DOMAIN_LABELS } from "@/lib/cross-domain-refs/types";
+import { isSafeHref } from "@/lib/urls";
 
 // The daily pools are grouped by the list an event was filed under, not by the
 // article it links to: a "history" entry for Neptune links into physics. Labels
@@ -18,6 +19,11 @@ const STYLE_KEY_BY_DOMAIN: Record<string, string> = {
   "universe-physics": "physics",
   "human-history": "history",
 };
+
+/** Card links follow http(s) and same-origin paths only. */
+export function dailyCardHref(url: string | undefined, fallback: string): string {
+  return url && isSafeHref(url) ? url : fallback;
+}
 
 export function domainFromUrl(url: string | undefined): string | null {
   const segment = url?.split("/")[1] ?? "";

@@ -47,7 +47,7 @@ export class GraphRenderer {
   private ctx: CanvasRenderingContext2D;
   private config: RenderConfig;
   private transform: Transform = { scale: 1, offsetX: 0, offsetY: 0 };
-  private dpr: number;
+  private dpr = 1;
   private width = 0;
   private height = 0;
   private dirty = true;
@@ -90,6 +90,7 @@ export class GraphRenderer {
   private boundTouchMove: (e: TouchEvent) => void;
   private boundTouchEnd: (e: TouchEvent) => void;
   private boundResize: () => void;
+  private resizeObserver: ResizeObserver | null = null;
 
   constructor(canvas: HTMLCanvasElement, config: RenderConfig) {
     this.canvas = canvas;
@@ -97,7 +98,6 @@ export class GraphRenderer {
     if (!ctx) throw new Error("Failed to get 2D context");
     this.ctx = ctx;
     this.config = config;
-    this.dpr = window.devicePixelRatio || 1;
     this.spatialGrid = new SpatialGrid(100);
 
     this.boundMouseMove = this.onMouseMove.bind(this);
@@ -118,7 +118,14 @@ export class GraphRenderer {
     canvas.addEventListener("touchmove", this.boundTouchMove, { passive: false });
     canvas.addEventListener("touchend", this.boundTouchEnd);
     canvas.addEventListener("touchcancel", this.boundTouchEnd);
+    // The canvas resizes with its container (side panels, layout shifts) far
+    // more often than the window does; window resize still catches DPR changes
+    // when the page moves between displays.
     window.addEventListener("resize", this.boundResize);
+    if (typeof ResizeObserver !== "undefined") {
+      this.resizeObserver = new ResizeObserver(this.boundResize);
+      this.resizeObserver.observe(canvas);
+    }
 
     this.onResize();
     this.startLoop();
@@ -220,6 +227,8 @@ export class GraphRenderer {
     this.canvas.removeEventListener("touchend", this.boundTouchEnd);
     this.canvas.removeEventListener("touchcancel", this.boundTouchEnd);
     window.removeEventListener("resize", this.boundResize);
+    this.resizeObserver?.disconnect();
+    this.resizeObserver = null;
   }
 
   private startLoop(): void {
@@ -527,10 +536,15 @@ export class GraphRenderer {
 
   private onResize(): void {
     const rect = this.canvas.getBoundingClientRect();
+    this.dpr = window.devicePixelRatio || 1;
     this.width = rect.width;
     this.height = rect.height;
-    this.canvas.width = rect.width * this.dpr;
-    this.canvas.height = rect.height * this.dpr;
+    const backingWidth = Math.round(rect.width * this.dpr);
+    const backingHeight = Math.round(rect.height * this.dpr);
+    // Assigning canvas.width clears the bitmap even when unchanged, so skip
+    // no-op resizes that the observer reports on first observe.
+    if (this.canvas.width !== backingWidth) this.canvas.width = backingWidth;
+    if (this.canvas.height !== backingHeight) this.canvas.height = backingHeight;
     this.markDirty();
   }
 

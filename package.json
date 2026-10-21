@@ -2,7 +2,7 @@
   "name": "episteme",
   "version": "0.0.0",
   "private": true,
-  "description": "Episteme · 格致 — 重现人类认识世界的旅程. A visual, immersive knowledge platform spanning twenty-one subjects.",
+  "description": "Episteme · 格致 — 重现人类认识世界的旅程，以可视化和沉浸式体验探索跨学科知识。",
   "packageManager": "pnpm@10.27.0",
   "engines": {
     "node": "22.x"
@@ -21,6 +21,9 @@
     "test:e2e:full": "playwright test --config=playwright.full.config.ts",
     "test:e2e:webkit": "playwright test --config=playwright.webkit.config.ts",
     "test:e2e:physics": "playwright test --config=playwright.physics.config.ts",
+    "test:e2e:browser-lifecycle": "node --import tsx scripts/e2e/browser-lifecycle.ts",
+    "diagnose:navigation": "node --import tsx scripts/e2e/navigation-cancellation.ts",
+    "test:e2e:browser-lifecycle:regression": "node --import tsx scripts/e2e/retained-stdio-regression.ts",
     "inp-probe": "node scripts/inp-probe.mjs",
     "bundle-check": "node scripts/physics/bundle-check.mjs",
     "lighthouse": "node scripts/lighthouse.mjs",
@@ -58,25 +61,29 @@
     "update-graph-snapshot": "node --import tsx scripts/update-graph-snapshot.ts",
     "wiki-slug": "node --import tsx scripts/wiki-slug.mjs",
     "audit-image-rights": "node --import tsx scripts/audit-image-rights.ts",
+    "audit-og-assets": "node scripts/performance/og-assets-audit.mjs",
     "gen-content-images": "node --import tsx scripts/gen-content-images.ts"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.0",
-    "@next/mdx": "^15.5.25",
+    "@next/mdx": "15.5.28",
     "@react-three/drei": "^10.0.0",
     "@react-three/fiber": "^9.0.0",
     "@react-three/postprocessing": "^3.0.0",
+    "@resvg/resvg-wasm": "2.4.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.0.0",
     "gray-matter": "^4.0.3",
     "gsap": "^3.15.0",
-    "katex": "^0.17.0",
+    "katex": "0.18.2",
     "minisearch": "^7.2.0",
-    "next": "^15.5.25",
+    "next": "15.5.28",
     "next-themes": "^0.4.6",
     "postprocessing": "^6.39.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "satori": "0.25.0",
+    "sharp": "0.35.5",
     "three": "^0.170.0",
     "zod": "^3.23.0",
     "zustand": "^5.0.0"
@@ -85,7 +92,7 @@
     "@axe-core/playwright": "^4.11.3",
     "@eslint/eslintrc": "^3.3.5",
     "@eslint/js": "^9.39.4",
-    "@playwright/test": "^1.60.0",
+    "@playwright/test": "1.60.0",
     "@tailwindcss/postcss": "^4.0.0",
     "@tailwindcss/typography": "^0.5.15",
     "@testing-library/dom": "^10.4.0",
@@ -98,8 +105,9 @@
     "@vitejs/plugin-react": "^4.3.0",
     "@vitest/coverage-v8": "^2.1.0",
     "chrome-launcher": "^1.2.1",
+    "esbuild": "0.28.0",
     "eslint": "^9.17.0",
-    "eslint-config-next": "^15.5.25",
+    "eslint-config-next": "15.5.28",
     "happy-dom": "^15.11.0",
     "husky": "^9.1.7",
     "lighthouse": "^13.4.0",
@@ -124,12 +132,25 @@
   },
   "pnpm": {
     "overrides": {
-      "gray-matter>js-yaml": "3.15.2"
+      "gray-matter>js-yaml": "3.15.2",
+      "next@15.5.28>sharp": "0.35.5",
+      "next@15.5.28>postcss": "8.5.23",
+      "postcss@>=8.5.0 <8.5.23": "8.5.23",
+      "postcss@8.5.23>nanoid": "3.3.18",
+      "postcss@8.5.23>source-map-js": "1.2.2",
+      "@babel/helper-compilation-targets@7>browserslist": "4.28.7",
+      "browserslist@4.28.7>baseline-browser-mapping": "2.11.0",
+      "three-stdlib@2.36.1>fflate": "0.6.11",
+      "@shuding/opentype.js@1.4.0-beta.0>fflate": "0.7.5"
     },
     "onlyBuiltDependencies": [
       "esbuild",
       "sharp",
       "unrs-resolver"
-    ]
+    ],
+    "patchedDependencies": {
+      "next@15.5.28": "patches/next@15.5.28.patch",
+      "playwright-core@1.60.0": "patches/playwright-core@1.60.0.patch"
+    }
   }
 }

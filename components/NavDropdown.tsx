@@ -1,5 +1,6 @@
 "use client";
 
+import { isInOpenDialog } from "./interaction/dialog-events";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -21,6 +22,9 @@ export function NavDropdown({ group }: { group: NavGroup }) {
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const ref = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
+  // A pointer that hovers the trigger opens the panel 80 ms before it can click,
+  // so that click must pin the panel instead of toggling it shut again.
+  const openedByHover = useRef(false);
   const panelId = `nav-dropdown-${group.label}`;
 
   const isItemActive = (href: string) => pathname === href || pathname.startsWith(href + "/");
@@ -32,12 +36,26 @@ export function NavDropdown({ group }: { group: NavGroup }) {
     if (closeTimer.current) clearTimeout(closeTimer.current);
     if (openTimer.current) clearTimeout(openTimer.current);
     // Small intent delay so sweeping the cursor across the nav doesn't flash panels.
-    openTimer.current = setTimeout(() => setOpen(true), 80);
+    const wasOpen = open;
+    openTimer.current = setTimeout(() => {
+      if (!wasOpen) openedByHover.current = true;
+      setOpen(true);
+    }, 80);
   };
   const closeSoon = () => {
     if (openTimer.current) clearTimeout(openTimer.current);
     if (closeTimer.current) clearTimeout(closeTimer.current);
     closeTimer.current = setTimeout(() => setOpen(false), 120);
+  };
+
+  const onTriggerClick = () => {
+    if (openTimer.current) clearTimeout(openTimer.current);
+    if (open && openedByHover.current) {
+      openedByHover.current = false;
+      return;
+    }
+    openedByHover.current = false;
+    setOpen(!open);
   };
 
   const getMenuItems = () =>
@@ -97,6 +115,7 @@ export function NavDropdown({ group }: { group: NavGroup }) {
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
+      if (isInOpenDialog(e.target)) return;
       if (e.key === "Escape") {
         setOpen(false);
         triggerRef.current?.focus();
@@ -121,7 +140,7 @@ export function NavDropdown({ group }: { group: NavGroup }) {
         aria-expanded={open}
         aria-haspopup="menu"
         aria-controls={panelId}
-        onClick={() => setOpen((o) => !o)}
+        onClick={onTriggerClick}
         onKeyDown={onTriggerKeyDown}
         className={`flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm transition-colors ${
           open

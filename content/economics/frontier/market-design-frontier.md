@@ -1,4 +1,5 @@
 ---
+summary: "市场设计是在价格不能出清时，为学校、器官与频谱写出能运转的规则。加入夫妻这类耦合约束后，防操纵的机制未必仍有稳定解，福利归谁的证据也仍然有限。"
 title: 市场设计：当经济学家成为工程师
 title_en: Market Design — When Economists Become Engineers
 status: published

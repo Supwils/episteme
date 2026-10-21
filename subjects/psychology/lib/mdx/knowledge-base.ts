@@ -1,3 +1,4 @@
+import { authorSummary } from "@/lib/content-utils";
 import type { KnowledgeBaseArticle } from "../types";
 import { DIRS, caches, listCaches, getSlugs, getBySlug, getAll } from "./normalize";
 
@@ -14,6 +15,7 @@ function toDateStr(v: unknown): string {
 function castKnowledgeBase(data: unknown, s: string, c: string): KnowledgeBaseArticle {
   const d = data as Record<string, unknown>;
   return {
+    summary: authorSummary(d),
     title: (d.title as string) ?? "",
     title_en: (d.title_en as string) ?? "",
     category: (d.category as string) ?? "",

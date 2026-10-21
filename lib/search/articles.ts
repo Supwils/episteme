@@ -15,6 +15,7 @@ import { join } from "node:path";
 import matter from "gray-matter";
 import { SKIP_FILES } from "../knowledge-base";
 import { extractHeadings } from "./extract";
+import { authorSummary } from "../content-utils";
 
 const ROOT = process.cwd();
 const CONTENT = join(ROOT, "content");
@@ -33,6 +34,9 @@ export interface Article {
    *  search subtitle for engine-driven / frontier / math articles reads this
    *  directly, which is why those domains need no separate generated mirror. */
   titleEn: string;
+  summary?: string;
+  updated?: string;
+  status?: string;
   /** Raw markdown body, frontmatter removed. */
   body: string;
   /** Level 2–3 section headings, the topical signal the search index leans on. */
@@ -44,6 +48,10 @@ export interface Article {
 }
 
 const str = (value: unknown): string => (typeof value === "string" ? value : "");
+
+function updatedDate(data: Record<string, unknown>): string {
+  return data.updated instanceof Date ? data.updated.toISOString().slice(0, 10) : str(data.updated);
+}
 
 const RELATION_KEYS = [
   "related",
@@ -76,7 +84,7 @@ export const englishTitle = (data: Record<string, unknown>): string =>
  *  whole index (mirrors lib/content-utils.ts::safeParseMatter at runtime). */
 function safeMatter(raw: string): { data: Record<string, unknown>; content: string } {
   try {
-    const p = matter(raw);
+    const p = matter(raw, {});
     return { data: p.data as Record<string, unknown>, content: p.content };
   } catch {
     return { data: {}, content: raw.replace(/^---\n[\s\S]*?\n---\n?/, "") };
@@ -109,6 +117,9 @@ function collectFlatArticles(): Article[] {
           url: `/${domain}/${section}/${slug}`,
           title,
           titleEn: englishTitle(parsed.data),
+          summary: authorSummary(parsed.data),
+          updated: updatedDate(parsed.data),
+          status: str(parsed.data.status),
           body: parsed.content,
           headings: extractHeadings(parsed.content),
           keys: [slug],
@@ -168,6 +179,9 @@ function collectKbArticles(): Article[] {
         url: `/${domain}/${route}/${slug}`,
         title,
         titleEn: englishTitle(parsed.data),
+        summary: authorSummary(parsed.data),
+        updated: updatedDate(parsed.data),
+        status: str(parsed.data.status),
         body: parsed.content,
         headings: extractHeadings(parsed.content),
         keys: bare === slug ? [slug] : [slug, bare],

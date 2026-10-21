@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Noto Sans SC",
+    "file": "NotoSansSC-700.ttf",
+    "weight": 700,
+    "sha256": "9a38ae0ab28cd5a256f9ea8e00dedc688aac17f7915fcb000572990afa956b96",
+    "source": "https://cdn.jsdelivr.net/npm/@expo-google-fonts/noto-sans-sc@0.4.3/700Bold/NotoSansSC_700Bold.ttf",
+    "license": "NotoSansSC-OFL.txt"
+  },
+  {
+    "name": "Noto Sans",
+    "file": "NotoSans-700.ttf",
+    "weight": 700,
+    "sha256": "13a813c49624ae3ba3c5c6e72c5ebffc4b9e1e6ea32f421c04069b037c6ad431",
+    "source": "https://cdn.jsdelivr.net/npm/@expo-google-fonts/noto-sans@0.4.2/700Bold/NotoSans_700Bold.ttf",
+    "license": "NotoSans-OFL.txt"
+  },
+  {
+    "name": "Noto Emoji",
+    "file": "NotoEmoji-400.ttf",
+    "weight": 400,
+    "sha256": "f59c2c702c3c91c2843cd40e76432b1f4aaf96df09c940ef66f0c3053f8a7e6b",
+    "source": "https://cdn.jsdelivr.net/npm/@expo-google-fonts/noto-emoji@0.4.3/400Regular/NotoEmoji_400Regular.ttf",
+    "license": "NotoEmoji-OFL.txt"
+  }
+]

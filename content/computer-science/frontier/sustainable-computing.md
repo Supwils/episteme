@@ -1,6 +1,7 @@
 ---
 title: 计算的碳足迹：可持续计算的实测与分歧
 title_en: The Carbon Footprint of Computing — Sustainable Computing
+summary: "IEA 2025年报告估计全球数据中心2024年用电约415太瓦时，基准情景下2030年将增至约945太瓦时；本文先分清三种数字，再说明PUE量的并不是有用功。"
 status: published
 updated: 2026-09-12
 category: 计算体系结构

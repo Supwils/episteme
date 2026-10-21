@@ -1,4 +1,5 @@
 ---
+summary: "大模型是否理解语言，问的是有没有对意义的把握，而不是分数或参数够不够。功能与指称被拆开后，伴随理解的主观感受是否存在仍开放；三种立场都没有被写成定论。"
 title: 大语言模型真的"理解"语言吗？
 title_en: Do Large Language Models Truly "Understand" Language?
 status: published

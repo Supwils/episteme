@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props) {
   if (!article) notFound();
   return withCanonicalPath(`/mathematics/knowledge-base/${slug}`, {
     title: `${article.title} — 数学深度阅读`,
-    description: article.excerpt,
+    description: article.summary ?? article.excerpt,
   });
 }
 
@@ -55,6 +55,7 @@ export default async function MathematicsKnowledgeArticlePage({ params }: Props)
       accent={ACCENT}
       eyebrow={article.category}
       title={article.title}
+      lede={article.summary}
       content={article.content}
       tags={article.tags}
       prev={prev ? { href: `/mathematics/knowledge-base/${prev.slug}`, title: prev.title } : null}

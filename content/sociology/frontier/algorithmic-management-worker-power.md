@@ -1,6 +1,7 @@
 ---
 title: 算法管理、工人权力与可审计工作
 title_en: Algorithmic Management, Worker Power, and Auditable Work
+summary: "算法管理把排班、监督、评价与纪律写进数据和自动规则，常常无需复杂模型；本篇拆解其五类功能、证据获取难题与工人的集体回应。"
 status: published
 updated: 2026-07-12
 category: 劳动与技术前沿

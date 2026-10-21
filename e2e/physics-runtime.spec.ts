@@ -19,7 +19,7 @@ function projectKind(projectName: string): "desktop" | "mobile" {
 }
 
 async function readWebglEntryChunkNames(): Promise<string[]> {
-  const chunkDirectory = ".next/static/chunks";
+  const chunkDirectory = `${process.env.NEXT_DIST_DIR ?? ".next"}/static/chunks`;
   const files = (await readdir(chunkDirectory)).filter((file) => file.endsWith(".js"));
   const entryChunks: string[] = [];
   for (const file of files) {
@@ -124,7 +124,7 @@ test("handwritten universe bypasses the WebGL runtime", async ({ page }) => {
     waitUntil: "domcontentloaded",
   });
 
-  await expect(page.locator("svg#main-content")).toBeVisible();
+  await expect(page.locator("svg#universe-scene")).toBeVisible();
   await expect(page.locator("[data-universe-webgl] canvas")).toHaveCount(0);
   await expect(page.locator("[data-universe-webgl]")).toHaveCount(0);
   expect(requestedChunks.filter((chunk) => webglChunks.includes(chunk))).toEqual([]);

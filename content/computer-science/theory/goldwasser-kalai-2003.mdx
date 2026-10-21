@@ -1,0 +1,107 @@
+---
+title: Goldwasser–Kalai 2003：菲亚特–沙米尔变换可以把安全的协议变成可伪造的签名
+title_en: "On the (In)security of the Fiat-Shamir Paradigm"
+summary: "2003 年戈德瓦塞尔与陶曼·卡莱构造出一个本身安全的三步公开硬币识别协议，经菲亚特–沙米尔变换后，无论用哪一个具体哈希函数族，得到的签名都能被有效伪造；随机预言机模型里的分叉引理证明因此不能搬到真实哈希上。"
+status: published
+updated: 2026-10-01
+category: 计算理论
+order: 104
+field: 计算复杂性
+era: 当代
+key_figures: [沙菲·戈德瓦塞尔, 雅埃尔·陶曼·卡莱]
+tags: [Fiat–Shamir, 随机预言机, 非黑盒, FOCS 2003, 数字签名]
+related:
+  - fiat-shamir-1986
+  - canetti-goldreich-halevi-1998
+  - bellare-rogaway-1993
+  - interactive-proofs-and-zero-knowledge
+  - goldwasser-micali-rackoff-1985
+  - shafi-goldwasser
+  - zero-knowledge-proofs
+  - cryptography-foundations
+---
+
+# Goldwasser–Kalai 2003：菲亚特–沙米尔变换可以把安全的协议变成可伪造的签名
+
+2003 年 10 月，第四十四届 IEEE 计算机科学基础年会（FOCS 2003）在马萨诸塞州剑桥举行。沙菲·戈德瓦塞尔（Shafi Goldwasser）与当时还在麻省理工学院读博士的雅埃尔·陶曼·卡莱（Yael Tauman Kalai）发表《On the (In)security of the Fiat-Shamir Paradigm》，会议录页码 102 至 115，DOI 为 10.1109/SFCS.2003.1238185。论文同年挂在 IACR 预印本库（编号 2003/034），那里作者署名为 Yael Tauman。
+
+本页的对象是论文的主定理：存在一个安全的三步公开硬币识别协议，对它施加[[fiat-shamir-1986|菲亚特–沙米尔变换]]之后，无论用哪一个可以求值的函数族去充当哈希，得到的签名方案都能被一个有效的攻击者伪造。预印本摘要把对照写得很直接：1996 年普安特舍瓦尔与斯特恩证明，在随机预言机模型里，这一变换总能得到抗选择消息攻击的签名；本文回答，这一证明不意味着在真实世界里也成立。
+
+## 破除误解：不是说菲亚特–沙米尔签名都不安全
+
+第一种误读，以为本文推翻了施诺尔签名之类基于菲亚特–沙米尔变换的常用方案。没有。反例协议是专门构造的。本文证明的是：“只要识别协议安全，变换后的签名就安全”这一一般命题，对任何具体哈希都不成立。对施诺尔签名等自然方案，本文没有给出任何攻击。
+
+第二种误读，把它当成[[canetti-goldreich-halevi-1998|卡内蒂、戈德赖希与哈勒维]]结论的特例。那篇构造的是人为的签名和加密方案，证明随机预言机方法论作为一般原则失效。本文更具体：它的反例是一个本身满足安全定义的识别协议，变换是原封不动的菲亚特–沙米尔变换，失败完全来自“把验证者的硬币换成哈希”这一步。前者说明方法论有反例，后者说明这一个最常用的变换本身就有反例。
+
+第三种误读，以为失败是因为哈希函数选得不好，换一个更强的哈希就能解决。主定理对任何函数族都成立，今天最常用的 SHA-256 与 SHA-3 也不例外。问题不在哈希的质量，而在哈希是一个可以被写下来的程序。
+
+## 装置：让协议奖励能预测挑战的人
+
+先把变换写出来。三步公开硬币识别协议的形状是：证明者发出承诺 $a$，验证者回一个随机挑战 $e$，证明者给出应答 $z$，验证者检查 $(a, e, z)$。以施诺尔协议为例，私钥是 $x$，公钥是 $y = g^x$；证明者取随机数 $k$，发出 $a = g^k$，收到 $e$ 后回 $z = k + e x$，验证者检查 $g^z = a \cdot y^e$。菲亚特–沙米尔变换把挑战换成 $e = H(a, m)$，三元组 $(a, e, z)$ 或简写成 $(e, z)$ 就是对消息 $m$ 的签名。
+
+随机预言机模型里的证明靠的是“重放”。普安特舍瓦尔与斯特恩的分叉引理说：如果伪造者能以不可忽略的概率成功，就把它倒回到询问 $H(a, m)$ 的那一刻，给同一个询问换一个答案再跑一次，以相当的概率会得到同一个承诺 $a$ 下对两个不同挑战的应答；对施诺尔协议，由 $z - z' = (e - e') x$ 就能解出私钥。这一步要求归约能随意改写哈希在某一点上的值。哈希一旦是固定的、写得出来的函数，就没有“换一个答案”可言，证明的这一环在原理上就断了。本文的反例说明，断掉的不只是证明，在某些协议上连结论本身也不成立。
+
+构造的出发点很朴素。在交互式识别里，验证者的挑战是现场抛出的硬币，证明者事先不可能知道。变换之后，挑战变成哈希函数对承诺和消息的值，任何拿到哈希描述的人都可以事先算出。
+
+两位作者在一个安全的识别协议里加入一条额外的通过路径：如果证明者能够证明“我手里有一段短程序，它能预测你将要发出的挑战”，验证者也接受。在交互式协议里，这条路径没有用处，因为验证者的硬币是真随机的，没有任何短程序能以不可忽略的概率预测它；协议因此仍然安全。在变换后的签名里，挑战由哈希给出，而哈希本身就是一段能完全预测挑战的短程序。伪造者把哈希的描述交出来，走这条额外路径，就不需要私钥。
+
+难点在于“证明我有一段能预测挑战的程序”必须在三步之内、以简短的消息完成，否则协议就不再是菲亚特–沙米尔变换所适用的那种形状。为此，本文借用了巴拉克（Boaz Barak）2001 年提出的非黑盒技术，以及能对长计算给出简短论证的方法。这些工具让证明者可以把“这段程序在这个输入上输出这个挑战”压缩成一段简短的论证，而不必把整段计算展开。
+
+这里的工具链值得点名。巴拉克 2001 年在 FOCS 上的论文第一次越过了“黑盒模拟”的障碍：模拟器不再只把验证者当作可以反复调用的黑盒，而是读取并利用验证者程序本身的代码。巴拉克与戈德赖希 2002 年的“通用论证”则让证明者能为“某段程序在若干步内输出某个值”这类陈述给出简短的论证，即使那段计算本身很长。本文把两者合在一起：要证明的陈述正是“存在一段短程序，它在当前承诺上输出的值等于挑战”，在交互世界里这句话几乎总是假的，在哈希世界里它总是真的，而且伪造者手里就拿着证据。
+
+一个细节决定了结论的形状。本文的反例协议是一个“论证”，即只对多项式时间的证明者可靠，而不是对任意证明者都可靠的“证明”。通用论证本身就只具有计算可靠性。因此本文留下了一个缺口：对统计可靠的交互式证明，菲亚特–沙米尔变换会不会总是可靠？这个问题后来被称为“针对证明的菲亚特–沙米尔”。
+
+## 证明了什么，没有覆盖什么
+
+证明了：菲亚特–沙米尔变换作为一般方法，不能保证安全。存在一个满足安全定义的三步公开硬币识别协议，其变换结果对任何哈希函数族都不安全。这一结论与随机预言机模型里的正面结果并存，两者合起来说明，那个正面结果离不开预言机这一理想化。
+
+没有覆盖：对哪些协议、在何种假设下变换是可靠的。本文之后，这一问题成为一条独立的研究线。2019 年前后，卡内蒂、陈一镭（Yilei Chen）、霍姆格伦（Justin Holmgren）、隆巴尔迪（Alex Lombardi）、罗斯布卢姆兄弟（Guy N. Rothblum、Ron D. Rothblum）与威克斯（Daniel Wichs），以及派克特（Chris Peikert）与希希安（Sina Shiehian）等工作，在格上的标准假设下，为一些特定协议构造出可以使变换保持可靠的具体哈希，并由此得到非交互零知识证明。这些结果针对特定协议，不与本文矛盾。
+
+本文留下的那个缺口，此后由一组结果逐步收窄。2013 年比坦斯基（Nir Bitansky）、卡莱等七位作者在 TCC 上证明，不能用黑盒归约从任何可证伪的假设推出“针对证明的菲亚特–沙米尔”是可靠的，标题就叫《Why "Fiat-Shamir for Proofs" Lacks a Proof》。2017 年卡莱与罗斯布卢姆兄弟在 CRYPTO 上换了一个方向：假设存在足够强的程序混淆，就可以为所有统计可靠的常数轮公开硬币证明构造使变换可靠的哈希。上一段提到的 2019 年两项工作，正是把这类假设降到了格上的标准假设，只是范围限于特定协议。
+
+2025 年的一项结果把问题又推回到反面。霍夫拉托维奇（Dmitry Khovratovich）、罗恩·罗斯布卢姆与苏哈诺夫（Lev Soukhanov）在 CRYPTO 2025 上发表《How to Prove False Statements: Practical Attacks on Fiat-Shamir》：对 GKR 协议这一被广泛使用、统计可靠的交互式证明（GKR 取自戈德瓦塞尔、卡莱与盖伊·罗斯布卢姆 2008 年的论文，其中两位正是本文作者），施加菲亚特–沙米尔变换之后，不论选用哪个哈希函数，他们都能构造一个电路，并为关于它的一个错误陈述给出能通过验证的证明。这个电路是特意构造的，其中嵌入了哈希函数本身的计算，思路与本文一脉相承；不同的是，被攻破的不再是一个为反例而造的协议，而是一个自然的、实际部署中使用的证明系统。作者也强调，这一攻击需要特制的电路，并不意味着现有系统在正常输入下已被攻破。
+
+本文也没有覆盖今天简洁证明系统里大量使用的“多轮”变换。那里的安全分析比三步协议复杂，一般仍在随机预言机模型里完成。
+
+## 现实中出事的版本
+
+本文的反例是理论上的，但菲亚特–沙米尔变换在实践中确实反复出错，原因通常比本文朴素得多：哈希的输入里漏掉了该放的东西。2012 年伯恩哈德（David Bernhard）、佩雷拉（Olivier Pereira）与瓦林斯基（Bogdan Warinschi）在亚洲密码学年会上区分了“弱”与“强”两种变换：弱变换只对证明者的承诺求哈希，强变换还把被证明的陈述本身一起放进哈希。弱变换允许攻击者先造好证明、再反过来挑一个对自己有利的陈述。他们指出，Helios 网络投票系统使用的正是弱变换：在某些常见的选举类型里，恶意的参与者可以让计票程序无限运行下去，甚至篡改选举结果。论文同时证明，改用强变换后，Helios 的证明满足所需的安全性，投票隐私也随之成立。2022 年 4 月，安全公司 Trail of Bits 公开了一组被他们称为 Frozen Heart 的漏洞，涉及 PlonK、Bulletproofs 与 Girault 证明等系统的多个开源实现，根源相同：生成挑战时没有把全部公开输入放进哈希，攻击者因此可以伪造证明。
+
+这些事故与本文的结论方向不同。它们说明的是实现没有照着随机预言机模型的要求去做；本文说明的是，即使完全照做，也没有一般性的保证。两类问题常被混在一起讨论，区分开来更清楚：前者可以靠仔细的规范修复，后者只能靠对具体协议的单独分析。
+
+## 作者
+
+卡莱 2006 年在麻省理工学院获得博士学位，导师正是戈德瓦塞尔，本文是她博士阶段的工作之一。此后她长期在微软研究院工作，并在麻省理工学院任教，2022 年当选国际密码学研究协会会士。她后来的主要贡献在“可验证的计算委托”：让能力弱的一方把计算交给能力强的一方，再高效地检查结果。2008 年她与戈德瓦塞尔、盖伊·罗斯布卢姆提出的 GKR 协议，就是这条研究线的起点之一。这条研究线与本文同根，核心问题都是如何在没有交互的情况下保留验证者随机性所提供的可靠性。ACM 以“在可验证计算委托上的突破和对密码学的基础性贡献”授予她 2022 年度 ACM 计算奖。
+
+## 跨域连接
+
+- **[[fiat-shamir-1986|菲亚特–沙米尔 1986]]**：被分析的变换。1986 年的签名论证假定哈希行为像随机函数；本文说明，这一假定不能被任何真实函数满足到足以支撑一般定理的程度。
+- **[[canetti-goldreich-halevi-1998|卡内蒂–戈德赖希–哈勒维]]**：方法论层面的反例，本文的直接前驱。两者都利用了“真实函数有简短描述”这一点，本文把反例从人为方案收窄到一个原封不动的通用变换。
+- **[[goldwasser-micali-rackoff-1985|戈德瓦塞尔–米卡利–拉科夫 1985]]**：交互式证明里验证者的随机性是可靠性的来源。本文从反面说明了这一点：随机性一旦被可预测的程序取代，原本无害的额外路径就会变成漏洞。
+- **[[shafi-goldwasser|沙菲·戈德瓦塞尔]]**：她 1985 年参与定义交互式证明与零知识，2003 年参与证明把交互去掉的通用方法不可靠。人物页里这两件事前后相隔十八年。
+- **[[bellare-rogaway-1993|贝拉雷–罗加韦 1993]]**：随机预言机方法论的出处。原文已经把“换成真实哈希”标为启发式。本文给出了这一启发式在一个最常用场景里失败的具体例子，而且失败不依赖哈希的质量。
+- **[[interactive-proofs-and-zero-knowledge|交互式证明与零知识]]**：总览在讲非交互化时提到了本文。读总览时可以把本文当作一条边界：交互式证明的可靠性来自验证者的硬币，删掉硬币，可靠性就要另找来源。
+- **[[zero-knowledge-proofs|零知识证明前沿]]**：区块链与可验证计算中的简洁证明，大多是交互协议加菲亚特–沙米尔变换。本文是这些系统安全论证停留在随机预言机模型里的原因之一，也是后来研究“哪些协议可以安全变换”的起点。
+- **[[computational-complexity|计算复杂性]]**：GKR 协议原本是复杂性理论的结果：对低深度电路，验证者只需远少于电路规模的时间就能检查计算结果。它今天是许多简洁证明系统的组件，经菲亚特–沙米尔变换后成为非交互证明。2025 年的攻击恰好落在这里，说明本文提出的问题已经从理论反例走到了实际在用的协议上。
+
+---
+
+## 参考文献
+
+- Shafi Goldwasser & Yael Tauman Kalai, "On the (In)security of the Fiat-Shamir Paradigm", *Proceedings of the 44th Annual IEEE Symposium on Foundations of Computer Science*, 2003, pp. 102–115. DOI: 10.1109/SFCS.2003.1238185. —— 本文对象；预印本 IACR ePrint 2003/034。
+- Amos Fiat & Adi Shamir, "How to Prove Yourself: Practical Solutions to Identification and Signature Problems", *Advances in Cryptology — CRYPTO '86*, LNCS 263, Springer, 1987, pp. 186–194. DOI: 10.1007/3-540-47721-7_12. —— 被分析的变换。
+- David Pointcheval & Jacques Stern, "Security Proofs for Signature Schemes", *Advances in Cryptology — EUROCRYPT '96*, LNCS 1070, Springer, 1996, pp. 387–398. DOI: 10.1007/3-540-68339-9_33. —— 随机预言机模型下的正面结果。
+- Ran Canetti, Oded Goldreich & Shai Halevi, "The Random Oracle Methodology, Revisited", *Journal of the ACM* 51(4), 2004, pp. 557–594. DOI: 10.1145/1008731.1008734. —— 方法论层面的反例。
+- Boaz Barak, "How to Go Beyond the Black-Box Simulation Barrier", *Proceedings of the 42nd IEEE Symposium on Foundations of Computer Science*, 2001, pp. 106–115. —— 非黑盒模拟技术。
+- Boaz Barak & Oded Goldreich, "Universal Arguments and their Applications", *Proceedings of the 17th IEEE Conference on Computational Complexity*, 2002, pp. 194–203. —— 对长计算的简短论证。
+- Nir Bitansky, Dana Dachman-Soled, Sanjam Garg, Abhishek Jain, Yael Tauman Kalai, Adriana López-Alt & Daniel Wichs, "Why 'Fiat-Shamir for Proofs' Lacks a Proof", *Theory of Cryptography — TCC 2013*, LNCS 7785, Springer, 2013, pp. 182–201. DOI: 10.1007/978-3-642-36594-2_11. —— 黑盒归约的不可能性。
+- Yael Tauman Kalai, Guy N. Rothblum & Ron D. Rothblum, "From Obfuscation to the Security of Fiat-Shamir for Proofs", *Advances in Cryptology — CRYPTO 2017*, LNCS 10402, Springer, 2017, pp. 224–251. —— 以混淆为假设的正面结果。
+- Chris Peikert & Sina Shiehian, "Noninteractive Zero Knowledge for NP from (Plain) Learning with Errors", *Advances in Cryptology — CRYPTO 2019*, LNCS 11692, Springer, 2019, pp. 89–114. DOI: 10.1007/978-3-030-26948-7_4. —— 格假设下使变换可靠的哈希。
+- Dmitry Khovratovich, Ron D. Rothblum & Lev Soukhanov, "How to Prove False Statements: Practical Attacks on Fiat-Shamir", *Advances in Cryptology — CRYPTO 2025*, LNCS 16005, Springer, 2025, pp. 3–26. —— 对 GKR 协议的菲亚特–沙米尔攻击；预印本 IACR ePrint 2025/118。
+- David Bernhard, Olivier Pereira & Bogdan Warinschi, "How Not to Prove Yourself: Pitfalls of the Fiat-Shamir Heuristic and Applications to Helios", *Advances in Cryptology — ASIACRYPT 2012*, LNCS 7658, Springer, 2012, pp. 626–643. —— 弱变换与强变换。
+- Shafi Goldwasser, Yael Tauman Kalai & Guy N. Rothblum, "Delegating Computation: Interactive Proofs for Muggles", *Proceedings of the 40th Annual ACM Symposium on Theory of Computing*, 2008, pp. 113–122. DOI: 10.1145/1374376.1374396. —— GKR 协议。
+
+## 延伸阅读
+
+- 与 [[fiat-shamir-1986|菲亚特–沙米尔 1986]] 对读：同一个变换的提出与它的一般性反例。
+- 与 [[interactive-proofs-and-zero-knowledge|交互式证明与零知识]] 对读：总览里非交互化一节提到的“尴尬”，就是本文。

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import { OG_DESCRIPTION_LIMIT, takeCodePoints } from "./og/text";
 
 const OG_SIZE = { width: 1200, height: 630 } as const;
 // /api/og truncates at 120 characters; sending more only lengthens the URL.
-const OG_DESCRIPTION_CHARS = 120;
 
 export interface ArticleMetadataInput {
   /** Site-relative path; `metadataBase` in the root layout makes it absolute. */
@@ -20,7 +20,7 @@ export function articleOgImagePath({ title, description, domain }: ArticleMetada
   const query = new URLSearchParams({
     title,
     section: domain,
-    description: description.slice(0, OG_DESCRIPTION_CHARS),
+    description: takeCodePoints(description, OG_DESCRIPTION_LIMIT),
   });
   return `/api/og?${query.toString()}`;
 }

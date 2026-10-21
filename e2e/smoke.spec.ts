@@ -93,7 +93,9 @@ test.describe("production smoke", () => {
       }
       if (state === "results") {
         await input.fill("苏格拉底");
-        await expect(dialog.locator('a[href="/philosophy/thinkers/socrates"]')).toBeVisible();
+        await expect(
+          dialog.locator('a[data-kind="thinker"][href="/philosophy/thinkers/socrates"]')
+        ).toBeVisible();
       }
       await page.keyboard.press("Shift+Tab");
       expect(

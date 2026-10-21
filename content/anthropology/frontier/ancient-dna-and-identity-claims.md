@@ -1,6 +1,7 @@
 ---
 title: 古DNA能替谁认亲
 title_en: Ancient DNA and Identity Claims
+summary: "赖克 2018 年的书把古基因组写成改写迁徙叙事的证据，同年六十七名学者联署公开信批评其种族话语。争论在于基因组被谁拿去认亲、认主权、认博物馆里的遗骸属于谁。"
 status: published
 updated: 2026-09-11
 category: 古代DNA与认同

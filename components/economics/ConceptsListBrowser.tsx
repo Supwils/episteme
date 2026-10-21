@@ -20,6 +20,8 @@ export type ConceptItem = {
   title_en: string;
   category: string;
   key_figures: string[];
+  /** Original names. Searched, not shown. */
+  figureSlugs?: string[];
   tags: string[];
   excerpt: string;
 };
@@ -43,7 +45,15 @@ export function ConceptsListBrowser({ concepts }: { concepts: ConceptItem[] }) {
     return concepts.filter((c) => {
       if (activeCategory && c.category !== activeCategory) return false;
       if (!q) return true;
-      const haystack = [c.title, c.title_en, c.category, c.excerpt, ...c.key_figures, ...c.tags]
+      const haystack = [
+        c.title,
+        c.title_en,
+        c.category,
+        c.excerpt,
+        ...c.key_figures,
+        ...(c.figureSlugs ?? []),
+        ...c.tags,
+      ]
         .join("\n")
         .toLowerCase();
       return haystack.includes(q);

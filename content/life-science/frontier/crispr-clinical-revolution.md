@@ -1,4 +1,5 @@
 ---
+summary: "首个获批疗法关掉增强子、让胎儿血红蛋白重开，并不是精确修复致病突变。碱基编辑与先导编辑多数仍在早期试验；脱靶的长期随访还不存在，体内编辑的毒性风险也未关账。"
 title: CRISPR 走向临床——从剪刀到药物
 title_en: CRISPR Goes Clinical — From Scissors to Medicine
 status: published

@@ -38,7 +38,10 @@ export function recoverBrokenFrontmatter(
 
 export function parseMatter(raw: string, mode: MatterParseMode = "strict"): ParsedMatter {
   try {
-    const { data, content } = matter(raw);
+    // Empty options skip gray-matter's process-wide cache, which keys on the
+    // entire source string and never evicts. A long-lived server would otherwise
+    // retain every article it has parsed.
+    const { data, content } = matter(raw, {});
     return { data: data as Record<string, unknown>, content };
   } catch (error) {
     if (mode === "strict") throw error;

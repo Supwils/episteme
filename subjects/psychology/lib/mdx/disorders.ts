@@ -1,3 +1,4 @@
+import { authorSummary } from "@/lib/content-utils";
 import type { Disorder, DisorderFrontmatter } from "../types";
 import { DIRS, caches, listCaches, getSlugs, getBySlug, getAll } from "./normalize";
 
@@ -8,6 +9,7 @@ export function getDisorderSlugs(): string[] {
 function castDisorder(data: unknown, s: string, c: string): Disorder {
   const d = data as Record<string, unknown>;
   return {
+    summary: authorSummary(d),
     title: (d.title as string) ?? "",
     title_en: (d.title_en as string) ?? "",
     category: (d.category as string) ?? "",
@@ -27,5 +29,17 @@ export function getDisorderBySlug(slug: string): Disorder | null {
 }
 
 export function getAllDisorders(): Disorder[] {
-  return getAll(DIRS.disorders, caches.disorders, { get value() { return listCaches.disorders; }, set value(v) { listCaches.disorders = v; } }, castDisorder);
+  return getAll(
+    DIRS.disorders,
+    caches.disorders,
+    {
+      get value() {
+        return listCaches.disorders;
+      },
+      set value(v) {
+        listCaches.disorders = v;
+      },
+    },
+    castDisorder
+  );
 }

@@ -1,4 +1,5 @@
 ---
+summary: "这场革命是两件事：由序列预测已有蛋白的形状，以及设计自然界没有的蛋白。无序区的预测仍可能给出虚假结构，批评还停在预印本；折到目标形状，也不等于在细胞里按预期工作。"
 title: 蛋白质结构预测与从头设计革命
 title_en: The Protein Design Revolution — AlphaFold to De Novo Design
 status: published

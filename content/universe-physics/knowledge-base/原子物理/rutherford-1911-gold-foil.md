@@ -1,4 +1,5 @@
 ---
+summary: "金箔上的大角闪光被读成一次硬散射，正电荷挤在远小于原子的中心，这不是核的照片。角分布签名来自平方反比，不是小偏转堆出的尾；中心电荷还不是原子序数，趋近距离也不是核半径。"
 title: 卢瑟福 1911：金箔上的大角 α 怎样把正电荷挤进核
 title_en: "Rutherford 1911: Large-Angle α Scattering from Gold Foil"
 status: published

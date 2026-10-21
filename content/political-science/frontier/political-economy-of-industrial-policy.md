@@ -1,6 +1,7 @@
 ---
 title: 产业政策回潮：补贴竞赛与新政治经济学
 title_en: The Return of Industrial Policy — Subsidy Races and the New Political Economy
+summary: "2025 年美国政府以 89 亿美元换取英特尔约 10% 股权，是全球补贴竞赛的一个注脚；产业政策回潮不是回到计划经济，学界仍在争论这次是否不同。"
 status: published
 updated: 2026-08-16
 category: 政治学前沿

@@ -49,20 +49,22 @@ const ADJ: number[][] = NODES.map((n) => {
 type Frame = { current: number; visited: number[]; frontier: number[] };
 
 function bfs(start: number): Frame[] {
-  const visited = new Set<number>([start]);
+  const seen = new Set<number>([start]);
+  const order: number[] = [];
   const queue: number[] = [start];
   const frames: Frame[] = [];
   while (queue.length) {
     const cur = queue.shift()!;
+    order.push(cur);
     for (const nb of ADJ[cur]!) {
-      if (!visited.has(nb)) {
-        visited.add(nb);
+      if (!seen.has(nb)) {
+        seen.add(nb);
         queue.push(nb);
       }
     }
-    frames.push({ current: cur, visited: [...visited], frontier: [...queue] });
+    frames.push({ current: cur, visited: [...order], frontier: [...queue] });
   }
-  frames.push({ current: -1, visited: [...visited], frontier: [] });
+  frames.push({ current: -1, visited: [...order], frontier: [] });
   return frames;
 }
 
@@ -252,6 +254,20 @@ export function GraphTraversal() {
             );
           })}
         </svg>
+      </div>
+
+      <div className="flex flex-wrap gap-1 px-4 pb-1 sm:px-6" role="group" aria-label="选择起点">
+        {NODES.map((n) => (
+          <button
+            key={n.id}
+            type="button"
+            aria-pressed={n.id === start}
+            onClick={() => setStart(n.id)}
+            className="border-border-subtle text-fg-secondary border px-1.5 py-0.5 font-mono text-[11px]"
+          >
+            {n.label}
+          </button>
+        ))}
       </div>
 
       {/* frontier state */}

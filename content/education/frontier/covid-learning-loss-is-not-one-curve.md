@@ -1,6 +1,7 @@
 ---
 title: 疫情学习损失不是一条曲线
 title_en: COVID Learning Loss Is Not One Curve
+summary: "世界银行等机构 2022 年估计，中低收入国家约 70% 的十岁儿童读不懂一段简单文本，疫情前为 57%。这不是一次统考，而是入学数据、学习评估与停课模拟拼成的指标。"
 status: published
 updated: 2026-09-12
 category: 全球学习危机

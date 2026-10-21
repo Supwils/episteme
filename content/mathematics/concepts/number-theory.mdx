@@ -1,11 +1,12 @@
 ---
+summary: "数论追问整数在分解与同余下还保持哪些性质。大于二的偶数是否都是两个素数之和，试起来都成立，却还没有被证明对所有这样的偶数成立。"
 title: 数论
 title_en: Number Theory
 field: 代数
 key_figures: [euler, gauss, riemann, fermat]
 tags: [代数, 数论, 素数, 同余, 解析数论]
 key_terms: ['素数', '同余', '二次互反律', 'Euler 函数', 'Riemann 猜想', '模运算']
-related: ['group', 'ring', 'field', 'combinatorics']
+related: ['group', 'ring', 'field', 'combinatorics', 'chinese-remainder-theorem', 'fundamental-theorem-of-arithmetic']
 difficulty: 基础
 status: published
 updated: 2026-09-09
@@ -37,21 +38,21 @@ updated: 2026-09-09
 
 ### 初等数论
 
-**算术基本定理**：每个大于 1 的整数都可以唯一地分解为素数之积（不计顺序）：
+**[[fundamental-theorem-of-arithmetic|算术基本定理]]**：每个大于 1 的整数都可以唯一地分解为素数之积（不计顺序）：
 
 $$n = p_1^{a_1} p_2^{a_2} \cdots p_k^{a_k}$$
 
 **Euler 函数**：$\varphi(n) = |\{k : 1 \leq k \leq n, \gcd(k,n)=1\}|$——小于 $n$ 且与 $n$ 互素的正整数个数。
 
-**Euler 定理**：若 $\gcd(a,n)=1$，则 $a^{\varphi(n)} \equiv 1 \pmod{n}$。Fermat 小定理是其特例（$n$ 为素数）。
+**[[euler-totient-theorem|Euler 定理]]**：若 $\gcd(a,n)=1$，则 $a^{\varphi(n)} \equiv 1 \pmod{n}$。Fermat 小定理是其特例（$n$ 为素数）。
 
-**中国剩余定理**：同余方程组 $x \equiv a_i \pmod{m_i}$（$m_i$ 两两互素）有唯一解 $\pmod{m_1 \cdots m_k}$。
+**[[chinese-remainder-theorem|中国剩余定理]]**：同余方程组 $x \equiv a_i \pmod{m_i}$（$m_i$ 两两互素）有唯一解 $\pmod{m_1 \cdots m_k}$。
 
 ### 二次互反律
 
 **Legendre 符号**：$\left(\frac{a}{p}\right) = \begin{cases} 1 & \text{若 } a \text{ 是模 } p \text{ 的二次剩余} \\ -1 & \text{若 } a \text{ 是模 } p \text{ 的二次非剩余} \end{cases}$
 
-**二次互反律**（Gauss）：对奇素数 $p \neq q$：
+**[[quadratic-reciprocity|二次互反律]]**（Gauss）：对奇素数 $p \neq q$：
 
 $$\left(\frac{p}{q}\right)\left(\frac{q}{p}\right) = (-1)^{\frac{p-1}{2}\cdot\frac{q-1}{2}}$$
 
@@ -85,7 +86,7 @@ $$\left(\frac{p}{q}\right)\left(\frac{q}{p}\right) = (-1)^{\frac{p-1}{2}\cdot\fr
 
 ## 历史演变
 
-数论是数学中最古老的分支。古希腊人已经知道素数有无穷多个（欧几里得证明）和素数分解的唯一性。丢番图（Diophantus，约3世纪）研究了方程的整数解——"丢番图方程"至今仍是活跃的研究领域。费马（Pierre de Fermat，17世纪）提出了大量深刻的猜想，包括费马大定理（$x^n + y^n = z^n$ 在 $n \geq 3$ 时无正整数解——1995年被 Andrew Wiles 证明）和费马小定理。
+数论是数学中最古老的分支。古希腊人已经知道素数有无穷多个（欧几里得证明）和素数分解的唯一性。丢番图（Diophantus，约3世纪）研究了方程的整数解——"丢番图方程"至今仍是活跃的研究领域。费马（Pierre de Fermat，17世纪）提出了大量深刻的猜想，包括费马大定理（$x^n + y^n = z^n$ 在 $n \geq 3$ 时无正整数解——1995年被 Andrew Wiles 证明）和[[fermats-little-theorem|费马小定理]]。
 
 高斯（Carl Friedrich Gauss）在1801年的《算术研究》中将数论系统化，引入了同余的概念，证明了二次互反律。黎曼（Bernhard Riemann，1859）将 $\zeta$ 函数与素数分布联系起来，提出了 Riemann 猜想。
 

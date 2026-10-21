@@ -1,6 +1,6 @@
 import { extractH2Headings } from "@/lib/markdown-heading";
 
-const APPARATUS = new Set(["参考文献", "延伸阅读", "跨域连接"]);
+const APPARATUS = new Set(["参考文献", "延伸阅读", "跨域连接", "关键词", "事实卡"]);
 
 // Scope notices ("本篇……不构成法律建议") often close the 破除误解 section; they
 // are true but they are not the insight, and the body already shows them once.

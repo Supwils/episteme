@@ -1,6 +1,7 @@
 ---
 title: 超越锂离子：从材料承诺到可制造电池
 title_en: Beyond Lithium-Ion — From Materials Promise to Manufacturable Batteries
+summary: "高容量材料、实验室扣式电池与吉瓦时产线不是一回事；超越锂离子需要先统一比较尺度，钠离子改变的是供应组合，而不是消灭供应链。"
 status: published
 updated: 2026-07-18
 category: 能源化学

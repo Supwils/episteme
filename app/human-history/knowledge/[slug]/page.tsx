@@ -7,6 +7,7 @@ import { getAllArticles, getArticleBySlug } from "@/lib/knowledge-base";
 import { resolveWikiLink } from "@/lib/wiki-link-index";
 import { SITE_URL } from "@/lib/constants";
 import { Backlinks } from "@/components/Backlinks";
+import { redirectIfMerged } from "@/lib/merged-articles";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -31,9 +32,10 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
+  redirectIfMerged("/human-history/knowledge", slug);
   const article = getArticleBySlug(slug);
   if (!article) notFound();
-  const description = article.excerpt;
+  const description = article.summary ?? article.excerpt;
   const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(article.title)}&section=human-history&description=${encodeURIComponent(description)}`;
   return withCanonicalPath(`/human-history/knowledge/${slug}`, {
     title: `${article.title} — 知识库`,
@@ -193,6 +195,7 @@ function renderMarkdown(content: string, resolveLink: LinkResolver): React.React
 
 export default async function KnowledgeArticlePage({ params }: Props) {
   const { slug } = await params;
+  redirectIfMerged("/human-history/knowledge", slug);
   const article = getArticleBySlug(slug);
   if (!article) notFound();
 
@@ -220,7 +223,7 @@ export default async function KnowledgeArticlePage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: article.title,
-    description: article.excerpt,
+    description: article.summary ?? article.excerpt,
     url: `${SITE_URL}/human-history/knowledge/${slug}`,
     author: {
       "@type": "Organization",
@@ -261,6 +264,7 @@ export default async function KnowledgeArticlePage({ params }: Props) {
             {article.eraLabel}
           </span>
           <h1 className="kb-detail-title">{article.title}</h1>
+          {article.summary && <p className="kb-detail-lede">{article.summary}</p>}
           {article.period && <p className="kb-detail-period">{article.period}</p>}
           {article.tags.length > 0 && (
             <div className="kb-detail-tags">

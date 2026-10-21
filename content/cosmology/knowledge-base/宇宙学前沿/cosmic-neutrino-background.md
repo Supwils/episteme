@@ -1,4 +1,5 @@
 ---
+summary: "宇宙中微子背景更早退耦，证据是它改变了膨胀率与声学峰，不是探测器抓到的粒子。今天能量远低于阈值，常规反应打不开，不能把高能事例当成已经摸到遗迹。"
 title: 宇宙学中微子背景
 titleEn: Cosmic Neutrino Background
 category: 宇宙学前沿

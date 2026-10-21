@@ -45,10 +45,7 @@ export function AuctionSimulator() {
           const winIdx = trueValues.current.findIndex((v) => v > price);
           setWinner(winIdx);
           setCurrentPrice(price);
-          setLog((prev) => [
-            ...prev,
-            `赢家: 玩家${winIdx + 1}，成交价: ¥${price}`,
-          ]);
+          setLog((prev) => [...prev, `赢家: 玩家${winIdx + 1}，成交价: ¥${price}`]);
           setRunning(false);
           return;
         }
@@ -70,40 +67,30 @@ export function AuctionSimulator() {
           setRunning(false);
           return;
         }
-        const bidder = trueValues.current.findIndex(
-          (v, i) => v >= price && Math.random() > 0.3
-        );
+        const bidder = trueValues.current.findIndex((v, i) => v >= price && Math.random() > 0.3);
         if (bidder >= 0) {
           if (intervalRef.current !== null) clearInterval(intervalRef.current);
           intervalRef.current = null;
           setWinner(bidder);
           setCurrentPrice(price);
-          setLog((prev) => [
-            ...prev,
-            `玩家${bidder + 1} 在 ¥${price} 拍下！`,
-          ]);
+          setLog((prev) => [...prev, `玩家${bidder + 1} 在 ¥${price} 拍下！`]);
           setRunning(false);
           return;
         }
         setCurrentPrice(price);
-        setLog((prev) => [
-          ...prev.slice(-15),
-          `荷兰式降价: ¥${price}`,
-        ]);
+        setLog((prev) => [...prev.slice(-15), `荷兰式降价: ¥${price}`]);
       }, 200);
     } else {
-      const sealedBids = trueValues.current.map((v) =>
-        Math.round(v * (0.7 + Math.random() * 0.3))
-      );
+      const sealedBids = trueValues.current.map((v) => Math.round(v * (0.7 + Math.random() * 0.3)));
       setBids(sealedBids);
       const maxBid = Math.max(...sealedBids);
       const winIdx = sealedBids.indexOf(maxBid);
       setWinner(winIdx);
       setCurrentPrice(maxBid);
       setLog(
-        sealedBids.map((b, i) => `玩家${i + 1} 出价: ¥${b}`).concat([
-          `赢家: 玩家${winIdx + 1}，成交价: ¥${maxBid}`,
-        ])
+        sealedBids
+          .map((b, i) => `玩家${i + 1} 出价: ¥${b}`)
+          .concat([`赢家: 玩家${winIdx + 1}，成交价: ¥${maxBid}`])
       );
       setRunning(false);
     }
@@ -111,11 +98,9 @@ export function AuctionSimulator() {
 
   return (
     <div className="chart-container">
-      <h3 className="font-display text-fg-primary mb-4 text-lg font-semibold">
-        拍卖模拟器
-      </h3>
+      <h3 className="font-display text-fg-primary mb-4 text-lg font-semibold">拍卖模拟器</h3>
 
-      <div className="flex gap-2 mb-4" role="group" aria-label="拍卖类型">
+      <div className="mb-4 flex gap-2" role="group" aria-label="拍卖类型">
         {(["english", "dutch", "sealed"] as const).map((t) => (
           <button
             key={t}
@@ -129,7 +114,9 @@ export function AuctionSimulator() {
       </div>
 
       <div className="mb-4">
-        <label htmlFor="auction-bidders" className="data-label">竞拍人数: {numBidders}</label>
+        <label htmlFor="auction-bidders" className="data-label">
+          竞拍人数: {numBidders}
+        </label>
         <input
           id="auction-bidders"
           type="range"
@@ -158,7 +145,7 @@ export function AuctionSimulator() {
 
       {winner !== null && winner >= 0 && (
         <motion.div
-          initial={reduce ? false : { opacity: 0 }}
+          initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           className="info-card info-card-green mb-4"
           role="status"
@@ -173,7 +160,12 @@ export function AuctionSimulator() {
       )}
 
       {log.length > 0 && (
-        <div className="max-h-40 overflow-y-auto rounded-lg bg-bg-deep p-3" role="log" aria-live="polite" aria-label="拍卖日志">
+        <div
+          className="bg-bg-deep max-h-40 overflow-y-auto rounded-lg p-3"
+          role="log"
+          aria-live="polite"
+          aria-label="拍卖日志"
+        >
           {log.map((entry, i) => (
             <p key={i} className="text-fg-muted font-mono text-[10px] leading-relaxed">
               {entry}

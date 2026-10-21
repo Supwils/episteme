@@ -51,7 +51,7 @@ export function Cartouche({
 
   return (
     <motion.g
-      initial={reduce ? { opacity: 1 } : { opacity: 0, y: -6 }}
+      initial={{ opacity: 0, y: -6 }}
       animate={{ opacity: 1, y: 0 }}
       transition={baseTransition}
     >

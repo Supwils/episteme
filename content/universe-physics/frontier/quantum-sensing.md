@@ -1,4 +1,5 @@
 ---
+summary: "量子传感是用敏感的量子系统去估计磁场、频率或引力势，不是先造出容错计算机。压缩不改变不确定度乘积，只把噪声挤到不关心的分量；几分贝增益也还不是按海森堡标度日常运行的优势。"
 title: 量子传感：跨过标准量子极限
 title_en: Quantum Sensing — Crossing the Standard Quantum Limit
 status: published

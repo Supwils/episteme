@@ -2,6 +2,8 @@ export interface SearchDocument {
   id: string;
   title: string;
   subtitle: string;
+  /** Person ids and other recall tokens. Indexed, never shown. */
+  aliases?: string;
   content: string;
   section: string;
   url: string;

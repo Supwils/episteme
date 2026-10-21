@@ -1,5 +1,6 @@
 import path from "node:path";
 import { loadAllContent, loadContentBySlug } from "@/lib/content-article";
+import { contentTreeStamp } from "@/lib/content-freshness";
 import type {
   Theorist,
   Experiment,
@@ -110,6 +111,8 @@ export function getBySlug<T extends { slug: string; content: string }>(
   });
 }
 
+const devListStamp = new Map<string, string>();
+
 export function getAll<T extends { slug: string; content: string }>(
   dir: string,
   cache: Map<string, T | null>,
@@ -117,7 +120,9 @@ export function getAll<T extends { slug: string; content: string }>(
   cast: (data: unknown, slug: string, content: string) => T,
   sort?: (a: T, b: T) => number
 ): T[] {
-  if (listCache.value) return listCache.value;
+  const stamp = process.env.NODE_ENV === "development" ? contentTreeStamp(dir) : "prod";
+  if (listCache.value && devListStamp.get(dir) === stamp) return listCache.value;
+  if (process.env.NODE_ENV === "development") cache.clear();
   const items = loadAllContent(
     dir,
     cache,
@@ -128,6 +133,7 @@ export function getAll<T extends { slug: string; content: string }>(
     { sort }
   );
   listCache.value = items;
+  devListStamp.set(dir, stamp);
   return items;
 }
 

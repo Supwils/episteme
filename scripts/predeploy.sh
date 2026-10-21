@@ -28,6 +28,9 @@ pnpm build
 step "SSG and ISR strategy"
 pnpm audit-rendering
 
+step "OG Node function assets"
+pnpm audit-og-assets
+
 step "Bundle budget"
 pnpm bundle-check -- --skip-build
 

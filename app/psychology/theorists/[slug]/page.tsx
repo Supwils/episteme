@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const theorist = getTheoristBySlug(slug);
   if (!theorist) notFound();
-  const description = `${theorist.school}。${theorist.tags.join("、")}`;
+  const description = theorist.summary ?? `${theorist.school}。${theorist.tags.join("、")}`;
   return withCanonicalPath(`/psychology/theorists/${slug}`, {
     title: `${theorist.title} — 心理学`,
     description,
@@ -51,6 +51,7 @@ export default async function TheoristDetailPage({
       eyebrowMeta={[theorist.years]}
       title={theorist.title}
       titleEn={theorist.name_en}
+      lede={theorist.summary}
       content={theorist.content}
       meta={
         <>

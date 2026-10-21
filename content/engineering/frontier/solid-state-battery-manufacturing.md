@@ -1,6 +1,7 @@
 ---
 title: 全固态电池制造：去掉可燃电解液之后，失效为何没有消失
 title_en: Manufacturing All-Solid-State Batteries
+summary: "固体电解质减少可燃液体，却把界面变成必须长期贴合的固—固接触；体积变化、裂纹、副反应与锂丝穿透以新的力—化学耦合方式出现，硫化物与氧化物各有工厂难题。"
 status: published
 updated: 2026-09-12
 as_of: 2026-08

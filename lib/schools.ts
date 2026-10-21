@@ -1,3 +1,4 @@
+import { authorSummary } from "@/lib/content-utils";
 import path from "node:path";
 import type { School, SchoolFrontmatter } from "./types";
 import { loadAllContent, loadContentBySlug } from "./content-article";
@@ -13,6 +14,7 @@ const ERA_ORDER: Record<string, number> = { 古代: 0, 中世纪: 1, 近代: 2, 
 function toSchool(data: Record<string, unknown>, content: string, slug: string): School {
   return {
     ...(data as SchoolFrontmatter),
+    summary: authorSummary(data),
     slug,
     content,
   };

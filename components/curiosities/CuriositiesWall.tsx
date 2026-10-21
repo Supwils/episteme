@@ -1,16 +1,14 @@
 "use client";
 
-import { useMemo, useState, useCallback, useEffect } from "react";
+import { Suspense, useMemo, useState, useCallback } from "react";
 import Link from "next/link";
 import {
   CURIOSITY_SUBJECTS,
   curiosityArticleHref,
   isCrossDomainCuriosity,
   type CuriosityWithSubject,
-  type CuriositySubject,
 } from "@/lib/curiosities";
-
-type WallFilter = CuriositySubject | "all" | "cross-domain";
+import { CuriosityFilterSync, writeCuriosityFilter, type WallFilter } from "./CuriosityFilterSync";
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -21,45 +19,24 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-function readFilterFromSearch(): WallFilter | null {
-  if (typeof window === "undefined") return null;
-  return new URLSearchParams(window.location.search).get("filter") === "cross-domain"
-    ? "cross-domain"
-    : null;
-}
-
-function writeFilterToSearch(next: WallFilter) {
-  if (typeof window === "undefined") return;
-  const url = new URL(window.location.href);
-  if (next === "cross-domain") url.searchParams.set("filter", "cross-domain");
-  else url.searchParams.delete("filter");
-  const nextUrl = `${url.pathname}${url.search}${url.hash}`;
-  if (nextUrl !== `${window.location.pathname}${window.location.search}${window.location.hash}`) {
-    window.history.replaceState(null, "", nextUrl);
-  }
-}
-
 export function CuriositiesWall({
   items,
+  domainCountText,
   initialFilter = "all",
 }: {
   items: CuriosityWithSubject[];
+  domainCountText: string;
   initialFilter?: WallFilter;
 }) {
   const [active, setActive] = useState<WallFilter>(initialFilter);
   const [order, setOrder] = useState<string[] | null>(null);
 
-  useEffect(() => {
-    const fromUrl = readFilterFromSearch();
-    if (fromUrl) setActive(fromUrl);
-  }, []);
-
   const selectFilter = useCallback((next: WallFilter) => {
     setActive(next);
-    writeFilterToSearch(next);
+    writeCuriosityFilter(next);
   }, []);
 
-  const subjects = Object.keys(CURIOSITY_SUBJECTS) as CuriositySubject[];
+  const subjects = Object.keys(CURIOSITY_SUBJECTS) as Array<keyof typeof CURIOSITY_SUBJECTS>;
 
   const visible = useMemo(() => {
     let list =
@@ -83,6 +60,9 @@ export function CuriositiesWall({
 
   return (
     <div className="w-full px-6 py-16 sm:px-10 lg:px-16">
+      <Suspense fallback={null}>
+        <CuriosityFilterSync onChange={setActive} />
+      </Suspense>
       <header className="mb-10 max-w-3xl">
         <p className="text-fg-muted mb-3 font-mono text-[10px] tracking-[0.42em] uppercase">
           奇趣知识
@@ -91,7 +71,7 @@ export function CuriositiesWall({
           原来<em className="text-accent-gold italic"> 如此</em>
         </h1>
         <p className="text-fg-secondary mt-4 text-[15px] leading-relaxed">
-          横跨二十二个学科、{items.length}{" "}
+          横跨{domainCountText}个学科、{items.length}{" "}
           条少有人知却真实而迷人的事实。有的像巧合，有的像有人在不同房间里串通——其实是同一套机制。每一条都有出处，每一条都可能让你「咦？」一声。
         </p>
       </header>
@@ -137,7 +117,9 @@ export function CuriositiesWall({
               className="rounded-full border px-3 py-1.5 font-mono text-[11px] tracking-wider transition-all"
               style={{
                 borderColor: on ? `${meta.accent}80` : "var(--color-border-faint)",
-                color: on ? meta.accent : "var(--color-fg-muted)",
+                color: on
+                  ? `color-mix(in oklab, ${meta.accent} 42%, var(--color-fg-primary))`
+                  : "var(--color-fg-muted)",
                 backgroundColor: on ? `${meta.accent}14` : "transparent",
               }}
             >
@@ -186,7 +168,9 @@ export function CuriositiesWall({
                 </span>
                 <span
                   className="font-mono text-[9px] tracking-[0.22em] uppercase"
-                  style={{ color: meta.accent }}
+                  style={{
+                    color: `color-mix(in oklab, ${meta.accent} 42%, var(--color-fg-primary))`,
+                  }}
                 >
                   {meta.label}
                 </span>

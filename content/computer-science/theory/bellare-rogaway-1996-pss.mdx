@@ -1,0 +1,108 @@
+---
+title: Bellare–Rogaway 1996 PSS：给 RSA 签名加一把盐，换一条紧的归约
+title_en: "The Exact Security of Digital Signatures: How to Sign with RSA and Rabin"
+summary: "1996 年贝拉雷与罗加韦先把“哈希后再用 RSA 签名”的安全损失按询问次数算清楚，再在哈希前加入随机盐，使伪造签名的难度与求 RSA 逆几乎相同；这就是 TLS 1.3 规定 RSA 签名必须使用的 PSS。"
+status: published
+updated: 2026-10-01
+category: 计算理论
+order: 102
+field: 计算复杂性
+era: 当代
+key_figures: [米希尔·贝拉雷, 菲利普·罗加韦]
+tags: [PSS, 精确安全, 全域哈希, RSA 签名, EUROCRYPT 1996]
+related:
+  - bellare-rogaway-1993
+  - bellare-rogaway-1994-oaep
+  - public-key-rsa
+  - fiat-shamir-1986
+  - fujisaki-okamoto-pointcheval-stern-2001
+  - tls-certificate-ecosystem
+  - cryptography-foundations
+  - shafi-goldwasser
+---
+
+# Bellare–Rogaway 1996 PSS：给 RSA 签名加一把盐，换一条紧的归约
+
+1996 年 5 月，欧洲密码学年会（EUROCRYPT '96）在西班牙萨拉戈萨举行。会议录由毛雷尔（Ueli Maurer）主编，收入斯普林格 LNCS 第 1070 卷。米希尔·贝拉雷（Mihir Bellare，加州大学圣迭戈分校）与菲利普·罗加韦（Phillip Rogaway，加州大学戴维斯分校）的《The Exact Security of Digital Signatures — How to Sign with RSA and Rabin》占页码 399 至 416，DOI 为 10.1007/3-540-68339-9_34。
+
+本页的对象是这篇论文里的两件事。一是“精确安全”的记账方式：不满足于说“伪造者成功就能求逆”，而是把伪造者的运行时间、签名询问次数、哈希询问次数和成功概率，逐项换算成求逆算法的时间与成功概率。二是按这套记账设计出来的概率签名方案 PSS（Probabilistic Signature Scheme），以及能从签名里恢复消息的变体 PSS-R。论文摘要的说法是：签名只需一次 RSA 私钥运算加若干哈希，签名长度等于模数长度；在哈希理想的前提下，伪造签名所需的资源与求 RSA 逆大致相同。
+
+## 破除误解：不是一份新的困难假设，也不是又一个随机预言机宣言
+
+第一种误读，以为 PSS 比“哈希后签名”更安全，是因为它依赖了更强或不同的假设。两者都只依赖 RSA 求逆困难，并且都在随机预言机模型里。区别在归约的松紧。没有盐的全域哈希签名（FDH）出自[[bellare-rogaway-1993|1993 年那篇]]，本文重新计算它的归约，发现求逆算法的成功概率要比伪造者低一个与询问次数成比例的因子。PSS 把这个因子拿掉。
+
+精确安全这套记账并非始于本文。两年前，贝拉雷、基利安（Joe Kilian）与罗加韦在 CRYPTO '94 上分析分组密码的 CBC 消息认证码时，就把“攻击者做了 $q$ 次询问、花了 $t$ 的时间”逐项写进安全界，而不是只说“多项式时间攻击者优势可忽略”。本文把这一做法搬到公钥签名：渐近的说法只告诉你“模数足够大时安全”，精确的说法告诉你“多大才够”。
+
+第二种误读，把本文当成 1993 年随机预言机论文的续篇宣言。模型是同一个，但本文的问题更具体：同样在模型里，不同的方案对“多大的模数才够”给出的答案可以差很多。精确安全的意义正在这里：一个松的归约，等于要求更大的参数，才能得到同样的保证。
+
+第三种误读，把 PSS 和同一对作者 [[bellare-rogaway-1994-oaep|1994 年的 OAEP]] 混淆。OAEP 是加密前的填充，PSS 是签名前的编码。两者都用两个哈希函数和一个随机值，结构相似，用途和安全目标不同。
+
+## 装置：为什么加一把盐，归约就变紧
+
+先说要防的是什么。目标叫“自适应选择消息攻击下的存在性不可伪造”：伪造者拿到公钥，可以挑任意消息请签名者签，每次都可以根据之前拿到的签名决定下一条；最后他只要为任意一条没请人签过的消息交出合法签名，哪怕那条消息毫无意义，就算赢。这是对伪造者最宽松、对方案最苛刻的设定，本文的所有不等式都是在这个设定下计算的。
+
+先看没有盐的 FDH。签名者把消息 $M$ 送进一个输出覆盖整个 RSA 定义域的哈希 $H$，再用私钥对 $H(M)$ 求逆。归约要把一个伪造者变成求逆算法：它接管哈希预言机，对大多数询问，先随机取 $x$，把 $x^e$ 当作答案，这样日后被问到签名时，可以直接交出 $x$；对其中一个询问，它把待求逆的挑战 $y$ 当作答案，指望伪造者恰好在这条消息上伪造。归约不知道伪造者会选哪条，只能猜，猜中的概率大约是询问次数的倒数。成功概率因此被这个因子打了折扣。
+
+PSS 的改动是在哈希之前加入一段随机盐 $r$。签名时先算 $w = H(M\|r)$，再用另一个哈希把 $r$ 掩起来，与 $w$ 拼成一个编码，最后对整个编码求 RSA 逆。由于每次签名都用新的盐，归约在回答签名询问时可以自己选盐，并为这次询问单独准备一个“知道答案”的哈希值；而伪造者交出的伪造签名，几乎必然落在一个归约没有为签名准备过的哈希值上，归约可以把挑战嵌进所有这样的值里。它不再需要猜伪造者会选哪条消息，猜测带来的损失随之消失。
+
+写成论文里的式子：取随机盐 $r$，算 $w = h(M \| r)$，$r^* = g_1(w) \oplus r$，编码为 $y = 0 \| w \| r^* \| g_2(w)$，签名是 $y$ 的 RSA 逆 $y^d \bmod N$。验证者用公钥算出 $y$，从中取出 $w$，用 $g_1(w)$ 解出 $r$，再检查 $h(M \| r)$ 是否等于 $w$、末段是否等于 $g_2(w)$。首位的 0 保证编码作为整数小于模数。
+
+现行标准 RFC 8017 里的 EMSA-PSS 在细节上有所调整，但骨架没变。它先对消息求哈希，再把八个零字节、消息哈希和盐拼起来求一次哈希得到 $H$；数据块由若干零字节、一个 0x01 分隔字节和盐组成，用 MGF1 以 $H$ 为种子生成的掩码遮住；编码是被遮住的数据块、$H$ 和结尾固定字节 0xbc 的拼接。验证时每一个固定字节都要核对，不能只取出哈希就算数。
+
+PSS-R 把消息的一部分直接塞进编码，验证时从签名里恢复出来，适合带宽紧张、消息很短的场合。论文还把同一套思路搬到拉宾（Rabin）签名上，得到的方案的安全可以紧地联系到大数分解。拉宾函数是平方模 $N$，它不是置换：只有二次剩余才有平方根，而且每个二次剩余有四个平方根。把方案搬过去，要额外处理“编码不是二次剩余”和“四个根选哪一个”这两点，论文给出了相应的做法；好处是验证只需一次平方，比 RSA 还快。
+
+本文发表前后，没有证明的确定性编码接连出事，可以作为对照。1999 年科龙、纳卡什（David Naccache）与朱利安·斯特恩（Julien P. Stern）在 CRYPTO '99 上给出一类选择消息伪造：如果编码后的整数常常是光滑数（只含小素因子），就可以利用 RSA 的乘法同态，把若干条消息的签名相乘拼出另一条消息的签名。他们据此对 ISO/IEC 9796-2 给出了有效的攻击，并在实验中攻破了 9796-1 的一个变体。PSS 的编码由哈希输出决定，不受这种光滑性攻击的影响，它的证明正好排除了这一类伪造。
+
+## 测到了什么，没有测到什么
+
+用一个示意的数字看“精确”二字的分量。设对某个模数求 RSA 逆大约需要 $2^{80}$ 次运算，又设伪造者可以做 $2^{60}$ 次哈希计算。按本文对 FDH 的归约，求逆算法的成功概率比伪造者低一个约 $2^{60}$ 的因子，于是定理只能保证：伪造的代价不低于大约 $2^{20}$ 次运算，这个保证在实践中毫无用处。按科龙 2000 年的改进，因子换成签名询问次数，若签名者最多签 $2^{30}$ 次，保证提高到约 $2^{50}$。对 PSS，因子接近常数，保证几乎就是 $2^{80}$。三种方案依赖同一个假设，给出的结论却差了几十个数量级。
+
+测到的是一组具体的不等式：若有伪造者在给定时间、给定询问次数下以某个概率成功，就有求逆算法在差不多的时间里以差不多的概率成功。对 FDH，这组不等式里多出一个询问次数的因子；对 PSS，几乎没有。
+
+它没有回答 FDH 的损失是否不可避免。2000 年科龙（Jean-Sébastien Coron）把 FDH 的损失从“哈希询问次数”改进到“签名询问次数”，2002 年他又证明，对这一类每条消息只有一个合法签名的方案，这个损失在一般意义下无法再降。这也解释了 PSS 为什么需要盐：签名一旦带随机性，同一条消息就有许多合法签名，紧归约才有可能。科龙还算出盐只需大约签名询问次数的对数那么多位。原论文为了紧归约，建议的盐长度在一百多位以上；科龙 2002 年在欧洲密码学年会上证明，若签名者一生最多签十亿次，大约 30 位的盐就够得到与原来同样紧的界，而比这更短的盐不可能有紧的证明。标准因此允许盐长度可调，RFC 8017 常见的做法是让盐与哈希输出等长，TLS 1.3 也是这样规定的。
+
+此后还有两条值得一提的结果。2003 年卡茨（Jonathan Katz）与王楠（Nan Wang）发现，盐并不一定要随机：只用一个比特的“选择位”，由签名者以确定的方式（例如对消息和私钥求伪随机值）决定，就足以保留紧归约，签名因此可以不依赖签名时的随机数质量。2012 年卡克维（Saqib Kakvi）与基尔茨又回到 FDH，指出科龙的下界只对“可验证为置换”的函数成立；当公钥指数足够大、RSA 在 Φ-隐藏假设下可以被看成一个有损函数时，FDH 本身也能有紧证明。两条结果都说明，“盐带来紧”是一个可以拆开来分析的现象，而不是 PSS 独有的魔法。
+
+它没有覆盖随机预言机换成具体哈希之后的情况，这与 1993 年的论文一样留作启发式。它也没有讨论实现中的旁道泄露，或签名时随机数发生器失效带来的问题；对 PSS 而言，盐的质量差只会让归约退回 FDH 那样松，不会像 ElGamal 型签名那样直接泄露私钥。
+
+## 落进标准
+
+PSS 先后进入 IEEE P1363a、RSA 实验室 2003 年的 PKCS #1 v2.1（称为 RSASSA-PSS），以及美国联邦的数字签名标准：2009 年的 FIPS 186-3 开始批准使用 RSASSA-PSS。2005 年的 RFC 4055 为 X.509 证书定义了 PSS 的算法标识与参数编码。旧的 PKCS #1 v1.5 签名编码是确定性的，没有类似的安全证明，但因为兼容性长期占据主流。RFC 8017 的措辞是：目前没有已知攻击针对 v1.5 签名编码，但为了更稳健，新应用必须使用 PSS，v1.5 仅为兼容既有应用而保留。2018 年发布的 TLS 1.3（RFC 8446）改变了这一局面：握手中用 RSA 做的签名必须使用 PSS，v1.5 编码只保留在证书本身的签名里。TLS 1.3 为此定义了两组签名算法代码：rsa_pss_rsae_* 用于证书里是普通 RSA 公钥的情形，rsa_pss_pss_* 用于证书按 RFC 4055 把公钥限定为只能做 PSS 的情形；两组都要求盐长度等于所用哈希的输出长度。2023 年的 FIPS 186-5 把引用的 RSA 规范更新为 RFC 8017，继续同时批准 v1.5 与 PSS 两种签名编码。论文发表二十多年后，这套编码才在最常见的协议里成为强制要求。
+
+## 旧编码出过的事
+
+v1.5 签名编码没有证明，但长期并没有被直接攻破；出问题的是验证实现。2006 年 8 月的 CRYPTO 闲谈环节上，布莱兴巴赫尔指出：如果公钥指数为 3，而验证程序在解析编码时只检查开头的固定字节和哈希，不核对哈希之后是否还有多余字节，攻击者就可以在末尾塞进精心挑选的垃圾，凑出一个完全立方数，它的立方根就是一份能通过验证的签名，全程不需要私钥。当时多款常用的密码库都存在这类宽松解析，美国国家标准与技术研究院随后发布声明，建议拒绝尾随数据，并避免在签名中使用指数 3。此后多年，同类解析错误仍在不同的库里反复出现。
+
+这段历史与本文的关系是间接的。PSS 的证明并不能防止实现者偷懒；但 PSS 的编码要求逐字节核对固定格式、末尾固定为 0xbc，并在证明中把“编码不合法就拒绝”作为前提，留给宽松解析的空间更小。TLS 1.3 规定握手签名改用 PSS，理由之一就是 v1.5 这类反复出现的实现问题。
+
+## 跨域连接
+
+- **[[bellare-rogaway-1993|贝拉雷–罗加韦 1993]]**：FDH 风格签名的出处。本文没有推翻它，只是把它的归约损失算出来，再给出一个不损失的版本。两篇连读，能看出“可证明安全”从定性走向定量的一步。
+- **[[bellare-rogaway-1994-oaep|贝拉雷–罗加韦 1994 OAEP]]**：同一对作者给 RSA 加密设计的填充。OAEP 与 PSS 都是“两个哈希加一个随机值”，一个服务加密，一个服务签名，PKCS #1 v2.1 把两者一起收入。
+- **[[public-key-rsa|RSA 公钥密码]]**：算法页里“用私钥签名、用公钥验证”的教科书描述，省略了签名前的编码。本文说明，编码方式决定了签名的安全能被多紧地联系到 RSA 本身。
+- **[[fiat-shamir-1986|菲亚特–沙米尔 1986]]**：另一类签名，从识别协议去掉交互得到，本身就带随机性。它们在随机预言机里的证明同样不紧，损失来自分叉引理，而不是来自猜测哪条消息。
+- **[[tls-certificate-ecosystem|TLS 证书生态]]**：TLS 1.3 把握手签名限定为 PSS，而证书链上的签名仍大量使用 v1.5。读证书生态时会看到这两种编码并存，原因是本文之后二十年的兼容包袱。
+- **[[shafi-goldwasser|沙菲·戈德瓦塞尔]]**：选择消息攻击下的存在性伪造这一安全目标，来自她与米卡利、里维斯特 1988 年的签名论文。那篇在标准模型里给出了满足这一目标的方案，代价是效率低。本文在随机预言机里计算的，正是同一目标下高效方案的精确代价。
+- **[[number-theory|数论]]**：本页用到的几样数论工具都很基础：拉宾签名依赖二次剩余与平方根的个数，科龙–纳卡什–斯特恩的伪造依赖光滑数在大整数中的出现频率。数论页里这些概念是独立的话题，在这里它们决定了一种编码是否安全。
+- **[[cryptography-foundations|密码学基础]]**：总览把签名的安全写成“伪造不可行”。本文把这句话换成一组可以代入数字的不等式，并说明同一个假设下，不同的编码对模数长度的要求可以不同。
+
+---
+
+## 参考文献
+
+- Mihir Bellare & Phillip Rogaway, "The Exact Security of Digital Signatures — How to Sign with RSA and Rabin", *Advances in Cryptology — EUROCRYPT '96*, LNCS 1070, Springer, 1996, pp. 399–416. DOI: 10.1007/3-540-68339-9_34. —— 本文对象。
+- Mihir Bellare & Phillip Rogaway, "Random Oracles are Practical: A Paradigm for Designing Efficient Protocols", *Proceedings of the 1st ACM Conference on Computer and Communications Security*, 1993, pp. 62–73. DOI: 10.1145/168588.168596. —— FDH 风格签名的出处。
+- Shafi Goldwasser, Silvio Micali & Ronald L. Rivest, "A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks", *SIAM Journal on Computing* 17(2), 1988, pp. 281–308. DOI: 10.1137/0217017. —— 签名安全目标的定义。
+- Jean-Sébastien Coron, "On the Exact Security of Full Domain Hash", *Advances in Cryptology — CRYPTO 2000*, LNCS 1880, Springer, 2000, pp. 229–235. DOI: 10.1007/3-540-44598-6_14. —— FDH 归约的改进。
+- Jean-Sébastien Coron, "Optimal Security Proofs for PSS and Other Signature Schemes", *Advances in Cryptology — EUROCRYPT 2002*, LNCS 2332, Springer, 2002, pp. 272–287. —— 盐长度的下界与 FDH 的不可改进性。
+- Jonathan Katz & Nan Wang, "Efficiency Improvements for Signature Schemes with Tight Security Reductions", *Proceedings of the 10th ACM Conference on Computer and Communications Security (CCS 2003)*, 2003, pp. 155–164. DOI: 10.1145/948109.948132. —— 用一个选择位代替随机盐。
+- Saqib A. Kakvi & Eike Kiltz, "Optimal Security Proofs for Full Domain Hash, Revisited", *Advances in Cryptology — EUROCRYPT 2012*, LNCS 7237, Springer, 2012, pp. 537–553. —— Φ-隐藏下 FDH 的紧证明。
+- K. Moriarty, B. Kaliski, J. Jonsson & A. Rusch, "PKCS #1: RSA Cryptography Specifications Version 2.2", RFC 8017, IETF, November 2016. —— EMSA-PSS 的现行文本。
+- E. Rescorla, "The Transport Layer Security (TLS) Protocol Version 1.3", RFC 8446, IETF, August 2018. —— 握手签名强制使用 PSS。
+- Jean-Sébastien Coron, David Naccache & Julien P. Stern, "On the Security of RSA Padding", *Advances in Cryptology — CRYPTO '99*, LNCS 1666, Springer, 1999, pp. 1–18. DOI: 10.1007/3-540-48405-1_1. —— 对无证明的确定性编码的伪造攻击。
+- Mihir Bellare, Joe Kilian & Phillip Rogaway, "The Security of Cipher Block Chaining", *Advances in Cryptology — CRYPTO '94*, LNCS 839, Springer, 1994, pp. 341–358. —— 精确安全记账的早期范例。
+
+## 延伸阅读
+
+- 与 [[bellare-rogaway-1993|贝拉雷–罗加韦 1993]] 对读：同一个模型，先有定性的范式，再有定量的账本。
+- 与 [[bellare-rogaway-1994-oaep|贝拉雷–罗加韦 1994 OAEP]] 对读：加密填充与签名编码的同构与不同。

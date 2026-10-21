@@ -123,6 +123,7 @@ const DOMAIN_CATALOG = [
   },
   {
     id: "philosophy" as const,
+    question: "世界是什么，我们如何认识它，又该怎样生活？",
     cluster: "humanities-arts" as DomainClusterId,
     title: "哲学思想",
     titleEn: "Philosophy",
@@ -250,6 +251,7 @@ const DOMAIN_CATALOG = [
   },
   {
     id: "economics" as const,
+    question: "资源有限时，人们如何选择，市场与制度又怎样改变结果？",
     cluster: "society-institutions" as DomainClusterId,
     title: "经济学",
     titleEn: "Economics",
@@ -416,6 +418,7 @@ const DOMAIN_CATALOG = [
   },
   {
     id: "sociology" as const,
+    question: "社会如何组织我们的生活，个人又怎样参与和改变它？",
     cluster: "society-institutions" as DomainClusterId,
     title: "社会学",
     titleEn: "Sociology",
@@ -546,6 +549,7 @@ const DOMAIN_CATALOG = [
 /** 领域的强调色取所属簇的国画颜料（T-DESIGN-01b），同簇领域靠学科印区分。 */
 export const DOMAINS = DOMAIN_CATALOG.map((domain) => ({
   ...domain,
+  question: "question" in domain ? domain.question : undefined,
   ...domainAccent(domain.cluster),
 }));
 

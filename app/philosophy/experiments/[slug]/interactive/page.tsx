@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import InteractiveExperimentClient from "./InteractiveExperimentClient";
+import { isInteractiveExperimentSlug } from "./experiment-slugs";
 
 export function generateStaticParams() {
   // On-demand ISR: not prerendered at build (dynamicParams defaults to true); renders
@@ -17,6 +19,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function InteractiveExperimentPage() {
-  return <InteractiveExperimentClient />;
+export default async function InteractiveExperimentPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  if (!isInteractiveExperimentSlug(slug)) notFound();
+  return <InteractiveExperimentClient slug={slug} />;
 }

@@ -1,5 +1,6 @@
 import { loadArtifact } from "./artifact";
 import { loadEngine, type SearchEngine, type SearchHit } from "./engine";
+import { normalizeSearchQuery } from "./query";
 
 let enginePromise: Promise<SearchEngine> | null = null;
 
@@ -17,8 +18,6 @@ export type WorkerResponse =
   | { type: "result"; id: number; hits: SearchHit[] }
   | { type: "error"; id?: number; message: string };
 
-/** Same cap as `/api/search` and the overlay input `maxLength`. */
-const MAX_QUERY_LENGTH = 120;
 const MAX_LIMIT = 50;
 const DEFAULT_LIMIT = 20;
 
@@ -59,7 +58,7 @@ export async function handleWorkerRequest(data: unknown): Promise<WorkerResponse
     const limit = parseSearchLimit(payload.limit);
     if (limit === null) return invalid(id);
 
-    const hits = (await engine()).search(payload.query.slice(0, MAX_QUERY_LENGTH), limit);
+    const hits = (await engine()).search(normalizeSearchQuery(payload.query), limit);
     return { type: "result", id, hits };
   } catch (error) {
     enginePromise = null;

@@ -1,6 +1,7 @@
 ---
 title: 机制可解释性：从可命名特征到因果机制
 title_en: Mechanistic Interpretability from Named Features to Causal Mechanisms
+summary: "CLIP中的“蜘蛛侠神经元”说明模型内部可能存在跨模态的抽象，但一个好懂的神经元并不等于完整解释；本文先问解释什么、为谁解释，区分四层证据，并讨论多义性与叠加问题。"
 status: published
 updated: 2026-07-17
 category: 人工智能

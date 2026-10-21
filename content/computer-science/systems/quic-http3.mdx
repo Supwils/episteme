@@ -1,6 +1,7 @@
 ---
 title: QUIC：把传输层搬进用户态
 title_en: "QUIC: Moving the Transport Layer into User Space"
+summary: "HTTP/2把80个请求放在一条TCP连接上，丢一个包就会让其余资源全部等待；本文指出队头阻塞的根源在socket API，并讲QUIC如何把传输层搬进用户态，以及报文号永不复用解开的两个难题。"
 status: published
 updated: 2026-08-05
 category: 系统剖析

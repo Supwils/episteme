@@ -1,7 +1,13 @@
 import katex from "katex";
 import { resolveWikiLink } from "@/lib/wiki-link-index";
+import { isInlineMath } from "@/lib/search/plain-math";
 import { isSafeHref } from "@/lib/urls";
 import { WikiLinkPreview } from "@/components/markdown/MarkdownInteractions";
+import { FOOTNOTE_ID } from "@/components/markdown/sections";
+import { MarkdownImage, matchMarkdownImage } from "./image";
+import { registerFootnoteReference, type Footnotes } from "./footnotes";
+import { FootnoteCitation } from "./FootnoteCitation";
+export { extractFootnotes, footnoteReturnAnchors, type Footnotes } from "./footnotes";
 
 /**
  * Inline markdown for article prose: math, emphasis, code, wiki-links, links,
@@ -14,19 +20,17 @@ const KATEX_OPTIONS = {
   throwOnError: false,
   maxSize: 500,
   maxExpand: 1000,
+  // Chinese inside `$…$` renders correctly; warning on it per formula floods server logs.
+  strict: (errorCode: string) => (errorCode === "unicodeTextInMathMode" ? "ignore" : "warn"),
 } as const;
 
-export type Footnotes = Map<string, string>;
-
-export function extractFootnotes(content: string): Footnotes {
-  const footnotes = new Map<string, string>();
-  const regex = /^\[\^(\w+)\]:\s*(.+)$/gm;
-  let match: RegExpExecArray | null;
-  while ((match = regex.exec(content)) !== null) {
-    footnotes.set(match[1]!, match[2]!);
-  }
-  return footnotes;
-}
+const FOOTNOTE_REF = new RegExp(String.raw`^\[\^(${FOOTNOTE_ID})\]`);
+// One level of balanced parentheses: DOIs such as 10.1016/S0140-6736(25)01375-3.
+const LINK_TARGET = String.raw`\(((?:[^()]|\([^()]*\))+)\)`;
+const LINK = new RegExp(String.raw`^\[([^\]]+)\]` + LINK_TARGET);
+// CommonMark flanking: `π* 轨道` and `A* 搜索` are not emphasis, and a `**`
+// never closes a single `*`.
+const ITALIC = /^\*(?=[^\s*])(.+?)(?<=[^\s*])\*(?!\*)/;
 
 export function renderInline(
   text: string,
@@ -56,20 +60,18 @@ export function renderInline(
       continue;
     }
 
-    // Only treat $...$ as math when it carries a LaTeX signal (\ ^ _ {) and no
-    // CJK — otherwise currency like "$100 万" / "$75,000" would render as garbled math.
+    // Compact variables/fractions and relations also use paired dollars. Currency separated
+    // by prose ("$100 万" / "$75,000") is not a compact token or a TeX formula.
     const latexInlineMatch = remaining.match(/^\$([^$\n]+?)\$/);
-    if (
-      latexInlineMatch &&
-      /[\\^_{]/.test(latexInlineMatch[1]!) &&
-      !/[一-鿿]/.test(latexInlineMatch[1]!)
-    ) {
+    if (latexInlineMatch && isInlineMath(latexInlineMatch[1]!)) {
       const latex = latexInlineMatch[1]!;
       const html = katex.renderToString(latex, { ...KATEX_OPTIONS, displayMode: false });
       parts.push(
         <span
           key={key++}
           role="math"
+          tabIndex={0}
+          className="md-math-inline"
           aria-label={latex}
           dangerouslySetInnerHTML={{ __html: html }}
         />
@@ -100,9 +102,17 @@ export function renderInline(
       continue;
     }
 
-    const italicMatch = remaining.match(/^\*(.+?)\*/);
-    const italicMatch2 = remaining.match(/^_(.+?)_/);
-    const italic = italicMatch || italicMatch2;
+    const italicMatch = remaining.match(ITALIC);
+    const underscoreMatch = remaining.match(/^_(.+?)_/);
+    // Identifiers such as isec_a_00383 contain underscores. Emphasis only opens
+    // when the mark is not glued to an ASCII letter or digit on either side.
+    const prevChar = text[text.length - remaining.length - 1];
+    const underscoreInIdentifier =
+      underscoreMatch != null &&
+      (/[A-Za-z0-9]/.test(prevChar ?? "") ||
+        /[A-Za-z0-9]/.test(remaining.charAt(underscoreMatch[0].length)));
+    const italic =
+      italicMatch || (underscoreMatch && !underscoreInIdentifier ? underscoreMatch : undefined);
     if (italic) {
       parts.push(<em key={key++}>{renderInline(italic[1]!, footnotes, domain)}</em>);
       remaining = remaining.slice(italic[0].length);
@@ -161,7 +171,7 @@ export function renderInline(
       continue;
     }
 
-    const linkMatch = remaining.match(/^\[([^\]]+)\]\(([^)]+)\)/);
+    const linkMatch = remaining.match(LINK);
     if (linkMatch) {
       const href = linkMatch[2]!.trim();
       parts.push(
@@ -181,18 +191,15 @@ export function renderInline(
       continue;
     }
 
-    const footnoteRefMatch = remaining.match(/^\[\^(\w+)\]/);
+    const footnoteRefMatch = remaining.match(FOOTNOTE_REF);
     if (footnoteRefMatch && footnotes.has(footnoteRefMatch[1]!)) {
       parts.push(
-        <a
+        <FootnoteCitation
           key={key++}
-          id={`fnref-${footnoteRefMatch[1]}`}
-          href={`#fn-${footnoteRefMatch[1]}`}
-          className="text-accent-gold align-super font-mono text-xs"
+          reference={registerFootnoteReference(footnotes, footnoteRefMatch[1]!)}
+          label={footnoteRefMatch[1]!}
           title={footnotes.get(footnoteRefMatch[1]!)!}
-        >
-          [{footnoteRefMatch[1]}]
-        </a>,
+        />,
         // A margin copy of the note, shown only where the article has a margin
         // (prose.css). The end-of-article list stays the accessible, clickable
         // original, so this copy is inert (not read, not focusable — it may hold
@@ -206,34 +213,22 @@ export function renderInline(
       continue;
     }
 
-    const imgMatch = remaining.match(/^!\[([^\]]*)\]\(([^)]+)\)/);
+    const imgMatch = matchMarkdownImage(remaining);
     if (imgMatch) {
       const src = imgMatch[2]!.trim();
-      if (!isSafeHref(src)) {
-        remaining = remaining.slice(imgMatch[0].length);
-        continue;
-      }
-      parts.push(
-        <img
-          key={key++}
-          src={src}
-          alt={imgMatch[1] || ""}
-          loading="lazy"
-          decoding="async"
-          className="inline max-w-full rounded"
-        />
-      );
+      parts.push(<MarkdownImage key={key++} src={src} alt={imgMatch[1] || ""} inline />);
       remaining = remaining.slice(imgMatch[0].length);
       continue;
     }
 
     // Bibliographies cite papers as plain `DOI: 10.xxxx/…` text; link the DOI
-    // to doi.org. Trailing punctuation (CJK 。，； or ASCII .,;) is sentence
-    // punctuation, never part of the identifier, so it stays outside the link.
-    const doiMatch = remaining.match(/^DOI:\s*(10\.\d{4,9}\/\S+)/);
+    // to doi.org. Authors also write `doi:` in lowercase. Trailing punctuation
+    // (CJK 。，； or ASCII .,;) is sentence punctuation, never part of the
+    // identifier, so it stays outside the link. The prefix is kept as written.
+    const doiMatch = remaining.match(/^([Dd][Oo][Ii]:\s*)(10\.\d{4,9}\/\S+)/);
     if (doiMatch) {
-      const doi = doiMatch[1]!.replace(/[.,;:!?。，；、！？）)】」』》"'”’]+$/, "");
-      const trailing = doiMatch[1]!.slice(doi.length);
+      const doi = doiMatch[2]!.replace(/[.,;:!?。，；、！？）)】」』》"'”’]+$/, "");
+      const trailing = doiMatch[2]!.slice(doi.length);
       parts.push(
         <a
           key={key++}
@@ -242,7 +237,8 @@ export function renderInline(
           rel="noopener noreferrer"
           className="text-accent-gold underline underline-offset-2 transition-opacity hover:opacity-80"
         >
-          DOI: {doi}
+          {doiMatch[1]}
+          {doi}
         </a>
       );
       if (trailing) parts.push(trailing);
@@ -250,8 +246,11 @@ export function renderInline(
       continue;
     }
 
-    // Plain text stops before `DOI: 10.…` and `{{term:` so the rules above see them.
-    const plainMatch = remaining.match(/^(?:(?!DOI:\s*10\.\d{4,9}\/|\{\{term:)[^*`_\[$])+/);
+    // Plain text stops before `DOI: 10.…` (any capitalization) and `{{term:`
+    // so the rules above see them.
+    const plainMatch = remaining.match(
+      /^(?:(?![Dd][Oo][Ii]:\s*10\.\d{4,9}\/|\{\{term:|!\[)[^*`_\[$])+/
+    );
     if (plainMatch) {
       parts.push(plainMatch[0]);
       remaining = remaining.slice(plainMatch[0].length);

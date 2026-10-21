@@ -1,4 +1,5 @@
 ---
+summary: "Davies等人把模型找到的相关写成了已证的纽结定理；组合不变性猜想在超过三百万个例子上没有反例，到2026年仍然开放。能自动评分的搜索可以刷新构造，却不是猜想的证明。"
 title: 机器学习辅助数学发现
 title_en: Machine Learning Guided Mathematical Discovery
 status: published

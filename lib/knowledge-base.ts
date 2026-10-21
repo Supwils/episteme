@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { readParsedFile } from "./content-article";
+import { authorSummary, extractExcerpt } from "./content-utils";
 import { getDomainContentDir, existingContentFile } from "./content-paths";
 
 // Hand-written frontmatter parsed in "lenient" mode: `title: 1984` arrives as a
@@ -37,6 +38,8 @@ export interface KBArticle {
   date?: string;
   tags: string[];
   excerpt: string;
+  /** Author dek. List cards keep the body excerpt. */
+  summary?: string;
   filePath: string;
 }
 
@@ -61,15 +64,6 @@ function makeSlug(relativePath: string): string {
   return relativePath.replace(/\.md$/, "").replace(/\//g, "--");
 }
 
-function extractExcerpt(content: string): string {
-  const lines = content.split("\n").filter((l) => l.trim() && !l.startsWith("#"));
-  const text = lines
-    .slice(0, 3)
-    .join(" ")
-    .replace(/[*_`#\[\]]/g, "");
-  return text.length > 160 ? text.slice(0, 160) + "…" : text;
-}
-
 function walkDir(dir: string, base: string = ""): string[] {
   const results: string[] = [];
   if (!fs.existsSync(dir)) return results;
@@ -86,8 +80,23 @@ function walkDir(dir: string, base: string = ""): string[] {
 }
 
 function getEraFromPath(relPath: string): string {
-  const topDir = relPath.split("/")[0] ?? "";
-  return ERA_MAP[topDir] ? topDir : "其他";
+  const slash = relPath.indexOf("/");
+  // A file at the knowledge-base root has no directory. Named folders outside
+  // ERA_MAP (制度, 美洲, …) keep their folder name so the list can show them;
+  // collapsing those folders into 「其他」 hid them, because the list never
+  // rendered that bucket.
+  if (slash <= 0) return "其他";
+  return relPath.slice(0, slash);
+}
+
+/** Chronological buckets stay in ERA_MAP order. Other directories follow, by name. */
+export function orderedEraKeys(eras: Iterable<string>): string[] {
+  return [...new Set(eras)].sort((a, b) => {
+    const orderA = ERA_MAP[a]?.order ?? 99;
+    const orderB = ERA_MAP[b]?.order ?? 99;
+    if (orderA !== orderB) return orderA - orderB;
+    return a.localeCompare(b, "zh");
+  });
 }
 
 let articlesCache: KBArticle[] | null = null;
@@ -112,6 +121,7 @@ function buildArticle(rel: string): KBArticle | null {
     date: strOrUndefined(data.date),
     tags: strArray(data.tags),
     excerpt: extractExcerpt(content),
+    summary: authorSummary(data),
     filePath: rel,
   };
 }
@@ -167,6 +177,7 @@ export function getArticleBySlug(slug: string): KBArticleFull | null {
     date: strOrUndefined(data.date),
     tags: strArray(data.tags),
     excerpt: extractExcerpt(content),
+    summary: authorSummary(data),
     filePath: relPath,
     content,
   };

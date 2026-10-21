@@ -1,4 +1,5 @@
 ---
+summary: "脑类器官能重现大脑早期发育的若干细胞过程，但不是会思考的缩小版大脑。它缺少血管和来自身体的感觉输入，连接大多随机；被训练做任务仍是演示，是否具有主观体验并没有定论。"
 title: 类器官与"脑类器官智能"——在培养皿里培育大脑
 title_en: Organoids and Brain Organoid Intelligence — Growing Brains in a Dish
 status: published

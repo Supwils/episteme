@@ -15,6 +15,7 @@ describe("MarkdownRenderer server boundary", () => {
       join(process.cwd(), "components/domain/DomainArticleExtras.tsx"),
       "utf8"
     );
+    const mathScroll = readFileSync("components/markdown/InlineMathScroll.tsx", "utf8");
 
     expect(renderer.startsWith('"use client"')).toBe(false);
     expect(renderer).not.toContain("usePathname");
@@ -25,6 +26,8 @@ describe("MarkdownRenderer server boundary", () => {
     expect(interactions.startsWith('"use client"')).toBe(true);
     expect(interactions).not.toContain("wiki-link-index");
     expect(interactions).not.toContain('from "katex"');
+    expect(mathScroll).not.toContain('from "katex"');
+    expect(mathScroll).not.toContain("wiki-link-index");
     expect(articleExtras.startsWith('"use client"')).toBe(true);
     expect(articleExtras).toContain('from "next/dynamic"');
   });

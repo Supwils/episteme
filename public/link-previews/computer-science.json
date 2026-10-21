@@ -1,1662 +1,1702 @@
 {
   "/computer-science/algorithms/a-star-search": {
     "t": "A* 搜索算法",
-    "e": "1968 年，Stanford Research Institute 的三位研究员——Peter Hart、Nils Nilsson 和 Bertram Raphael——在开发一台机器人（S…",
+    "e": "1968年Hart、Nilsson与Raphael为机器人Shakey的导航提出A*，用f=g+h结合已走代价与启发估计，比Dijkstra更有方向；只要启发函数可接受，就能保证找到最短路径。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/approximate-nearest-neighbor-search": {
     "t": "近似最近邻搜索",
-    "e": "给定一亿个向量和一个查询向量，找出与它最接近的十个——这个问题听起来像入门练习，实际上是过去三十年算法研究中最顽固的难题之一，也是今天每一个向量数据库、推荐系统与检索增强生成管线的地基。",
+    "e": "高维空间里精确最近邻会退化成暴力扫描，近似最近邻于是成为向量数据库与检索增强生成的地基；本文比较理论最干净的局部敏感哈希与工程上胜出的图索引两条路线。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/attention-and-transformers": {
     "t": "注意力机制与 Transformer",
-    "e": "2017 年，谷歌大脑的八位研究员——阿希什·瓦斯瓦尼（Ashish Vaswani）等人——发表了题为《注意力就是一切》（Attention Is All You Need）的论文，提出了 …",
+    "e": "2017年《注意力就是一切》提出Transformer，此后GPT、BERT等模型都建立在它之上；本文澄清注意力并非“关注重要部分”，并用三个二维词向量手算一次缩放点积自注意力。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/backtracking": {
     "t": "回溯算法",
-    "e": "1848 年，国际象棋棋手 Max Bezzel 提出了一个看似简单的问题：把 8 个皇后放在 8 \\times 8 棋盘上，使得没有两个皇后互相攻击。这个问题有多少种放法？",
+    "e": "从1848年Bezzel的八皇后问题讲起，说明回溯并非蛮力暴搜，而是系统性的“尝试—撤销”，靠剪枝跳过整棵子树；文中给出算法骨架，并手算走完4皇后的搜索树。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/bellman-ford": {
     "t": "贝尔曼-福特算法",
-    "e": "Richard Bellman（动态规划的奠基人）在 1958 年的论文《On a Routing Problem》中、Lester Ford Jr.（最大流-最小割定理的共同提出者，他与 F…",
+    "e": "Dijkstra的贪心在负权边面前失效，Bellman与Ford各自给出的算法改为对全部边反复松弛；本文解释其核心思想，并在5节点带负权图上逐轮手算松弛过程。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/binary-search": {
     "t": "二分查找",
-    "e": "在 1000 页的字典里查一个单词，没有人会从第一页开始逐页翻。人们翻到中间，判断目标词在左半还是右半，然后对着那半部分重复这个动作——几步就找到了。",
+    "e": "二分查找的真正前提不是有序数组，而是单调谓词；它思路最简单，却以难写正确著称。本文从查字典讲起，梳理边界写法与它作为有序搜索理论最优解的地位。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/bloom-filter": {
     "t": "布隆过滤器",
-    "e": "1970 年，Burton Howard Bloom 在 Communications of the ACM 上发表了一篇不到 3 页的短文\"Space/Time Trade-offs in …",
+    "e": "1970年Burton Bloom用不到3页提出布隆过滤器：用位向量和多个哈希函数以极小空间判断成员，代价是允许误报而不会漏报；文中用16位向量和3个哈希手算一遍。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/consistent-hashing": {
     "t": "一致性哈希",
-    "e": "1997 年，大卫·卡格（David Karger）等人在 ACM STOC 会议上发表了论文《一致性哈希及随机树：分布式缓存协议以减轻万维网上的热点》（第 654 至 663 页）。当时的背…",
+    "e": "1997年Karger等人为缓解万维网热点提出一致性哈希：把节点和键映射到同一个环上，增删节点只迁移少量数据；虚拟节点则用来解决环上负载不均。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/convex-hull": {
     "t": "凸包算法",
-    "e": "把若干颗钉子钉在木板上，然后用一根橡皮筋套住所有钉子并拉紧——橡皮筋绷出的形状就是这些点的凸包（Convex Hull）。",
+    "e": "凸包是包住所有点的最小凸多边形，像橡皮筋套住钉子；本文说明为何凸包的下界与排序同为Ω(n log n)，并在8个点上手算Graham扫描。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/convolutional-neural-networks": {
     "t": "卷积神经网络",
-    "e": "2012 年 9 月，ImageNet 大规模视觉识别竞赛（ILSVRC）的结果让整个计算机视觉社区震惊：来自多伦多大学的 AlexNet，由亚历克斯·克里热夫斯基（Alex Krizhevs…",
+    "e": "2012年AlexNet在ImageNet竞赛中震惊视觉界，卷积神经网络由此走红；本文指出卷积不只是“滤镜”，并解释局部连接、权重共享等先验如何变成网络结构。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/decision-trees": {
     "t": "决策树",
-    "e": "一个人去看医生，医生问：你发烧吗？是的。咳嗽吗？是的。呼吸困难吗？不。那么，可能是普通支气管炎。",
+    "e": "决策树像医生问诊一样，用一连串有序问题把样本逐步划分到答案，是最接近人类直觉推理的模型；本文讲Quinlan的ID3、最优分裂的选法，以及过拟合与剪枝。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/divide-and-conquer": {
     "t": "分治算法",
-    "e": "\"分而治之\"——这句话在政治上是权谋，在算法里是智慧。",
+    "e": "分治把大问题拆成同类小问题、递归求解再合并，但拆分不一定是“两半”；本文用主定理分析分治复杂度，并按三种情形说明代价集中在递归树的哪一层。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/dynamic-programming": {
     "t": "动态规划",
-    "e": "\"Dynamic Programming\"这个名字，是 Richard Bellman（美国应用数学家）在 1950 年代发明的。他后来在自传里坦承，选这个名字是因为\"dynamic\"听起来酷…",
+    "e": "“动态规划”这个名字是Bellman为了让军方资助人无法反对而取的；本文澄清DP不是某个固定算法，而是复用重叠子问题解的思路，从斐波那契数列讲起。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/edit-distance-algorithms": {
     "t": "编辑距离算法",
-    "e": "\"您是要搜索 'Alber Einstien'？\"",
+    "e": "拼写纠错和DNA比对背后都是编辑距离，即把一个串改成另一个串的最少操作数；本文用动态规划求解，并提醒最少步数并不等于“实际改了什么”。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/fast-fourier-transform": {
     "t": "快速傅里叶变换",
-    "e": "1965 年，James Cooley 和 John Tukey 在 Mathematics of Computation 上发表了一篇五页的论文\"An Algorithm for the M…",
+    "e": "1965年Cooley与Tukey用五页论文提出快速傅里叶变换，把离散傅里叶变换从O(n²)降到O(n log n)；本文先讲傅里叶变换本身，再用蝶形运算图解FFT。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/floyd-warshall": {
     "t": "Floyd-Warshall 算法",
-    "e": "1962 年，两位研究者几乎同时发表了全对最短路径算法。Robert Floyd 在 Communications of the ACM 上发表了\"Algorithm 97: Shortest…",
+    "e": "1962年Floyd与Warshall的工作给出全对最短路径算法：以“允许经过的中间节点”为阶段做动态规划，核心只有三行三重循环。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/genetic-algorithms": {
     "t": "遗传算法",
-    "e": "1975 年，密歇根大学教授约翰·霍兰德（John Holland）出版了《自然与人工系统中的适应》（Adaptation in Natural and Artificial Systems）…",
+    "e": "1975年霍兰德出版《自然与人工系统中的适应》，确立遗传算法框架；本文说明它靠选择、交叉与变异定向搜索，不是随机搜索，并用4条5位染色体手算一代。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/gradient-boosting": {
     "t": "梯度提升",
-    "e": "2001 年，斯坦福大学教授杰罗姆·弗里德曼（Jerome Friedman）发表论文《贪婪函数近似：梯度提升机》，将函数空间的梯度下降与集成学习结合，创造了梯度提升（Gradient Boo…",
+    "e": "2001年弗里德曼提出梯度提升，把集成学习看成在函数空间做梯度下降，每棵新树拟合当前残差方向；XGBoost、LightGBM等都以此为基础，它也不是更强的随机森林。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/gradient-descent-backprop": {
     "t": "梯度下降与反向传播",
-    "e": "今天所有主流的神经网络——GPT、Stable Diffusion、AlphaFold、自动驾驶系统——都依赖两个核心算法在数以亿计的参数上共同工作：梯度下降告诉参数应该往哪个方向调整，反向传…",
+    "e": "梯度下降决定参数往哪个方向调，反向传播高效算出每个参数对误差的贡献；本文澄清反向传播本身不是学习，并从损失函数讲到沿最陡坡下山。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/graph-traversal": {
     "t": "图的遍历（BFS 与 DFS）",
-    "e": "谷歌的网络爬虫访问 example.com，发现它链接到 a.com、b.com，然后访问 a.com，发现它链接到 c.com、d.com……这个过程叫做图遍历：系统地访问图中每一个可达节点…",
+    "e": "网络爬虫、依赖分析和朋友推荐都要系统地访问图中每个可达节点；本文对比广度优先与深度优先两种策略，说明BFS为何保证无权最短路径，DFS为何天然对应递归。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/greedy-algorithms": {
     "t": "贪心算法",
-    "e": "1956 年，年轻的 Edsger Dijkstra 在为阿姆斯特丹数学中心编写程序时，想到了一个简洁到让人惊叹的主意：每次都走目前看起来最近的路，就这样，不回头。",
+    "e": "贪心算法每步只做局部最优选择、从不回溯，却在不少问题上恰好最优；本文以活动选择问题为例，说明什么时候贪心并不意味着次优，并列举主要应用领域。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/hashing": {
     "t": "哈希",
-    "e": "有两件事，哈希函数都能做，而且性质完全不同：",
+    "e": "哈希函数有两种性质迥异的用法：哈希表把键映射到小范围用于快速查找，密码学哈希则生成改一字节就面目全非的指纹；文中在8槽表上手算线性探测。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/heaps-and-priority-queues": {
     "t": "堆与优先队列",
-    "e": "想象一家急诊室：病人按紧迫程度（而不是到达时间）接受治疗。最危重的病人总是最先被处理，哪怕他是最后到达的。这就是优先队列的行为模型——一种\"根据优先级出队\"而非\"先进先出\"的数据结构。",
+    "e": "优先队列像急诊室，按紧迫程度而非到达顺序出队；堆靠堆序性把取最值和插入都降到对数时间，本文手算7个元素的建堆和一次extract-min。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/huffman-coding": {
     "t": "霍夫曼编码",
-    "e": "1951 年，麻省理工学院一门信息论课程上，教授 Robert Fano 给学生一个选择：要么参加期末考试，要么写一篇学期论文，证明一种最优的数据编码方案——能把信息压缩到尽可能短。Fano …",
+    "e": "1951年，学生Huffman为免去Fano课程的期末考试，找到了比Shannon-Fano更优的编码：用贪心反复合并频率最低的两个符号；本文讲构造过程并证明其最优性。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/k-means-clustering": {
     "t": "K-means 聚类",
-    "e": "1957 年，Bell Labs 的 Stuart Lloyd 开发了一种信号量化算法，用于将连续信号压缩为有限个离散值——他将类似的点\"聚合\"到同一个\"中心\"附近。这个方法在 Bell La…",
+    "e": "Lloyd 1957年在贝尔实验室为信号量化设计的迭代，后来成为K-means聚类：在分配点和更新中心之间交替进行；本文还说明K-means++初始化为何关键。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/knapsack-problem": {
     "t": "背包问题",
-    "e": "一位探险家准备出发，背包最多承重 W 公斤。他面前有 n 件宝物，每件有重量 w_i 和价值 v_i。他应该带哪些宝物，才能让总价值最大，同时不超过背包承重？",
+    "e": "0-1背包问题要在承重限制下选出总价值最大的物品组合，每件只能全拿或不拿；本文说明贪心为何失效，并用动态规划手算一张完整的DP表。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/linear-programming": {
     "t": "线性规划",
-    "e": "1939 年，苏联数学家 Leonid Kantorovich 在研究苏联工业生产调度时（其著作《生产组织与计划的数学方法》），提出了一类特殊的数学优化问题：目标函数和约束都是线性的。他的工作…",
+    "e": "1939年康托罗维奇研究苏联生产调度时提出线性规划，后来Dantzig给出单纯形法；本文讲标准形式、可行域作为多面体的几何，以及单纯形法如何沿边游走。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/lru-cache-eviction": {
     "t": "LRU 缓存淘汰算法",
-    "e": "每次你访问一个网站，浏览器从本地缓存中加载它，而不是从服务器重新下载——这背后有一个决策：当缓存满了，哪个页面应该被删除，为新内容腾出空间？",
+    "e": "缓存满了该删哪一项？LRU淘汰最久未被访问的条目；本文讲缓存替换问题，以及栈性质为何让LRU不会出现Bélády异常，并给出哈希表加双向链表的O(1)实现。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/mapreduce": {
     "t": "MapReduce",
-    "e": "2004 年，谷歌工程师杰弗里·迪恩（Jeffrey Dean）和桑贾伊·格马瓦特（Sanjay Ghemawat）发表了《MapReduce：大型集群上的简化数据处理》。这篇论文描述了 Go…",
+    "e": "2004年Dean与Ghemawat发表MapReduce论文，用map和reduce两个函数把PB级数据处理交给集群，并自动处理分发与故障；它随后催生了Hadoop。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/matching-algorithms": {
     "t": "匹配算法",
-    "e": "1965 年，杰克·埃德蒙兹（Jack Edmonds）发表《Paths, Trees, and Flowers》。论文要解决的是一般图上的最大基数匹配：任意一对顶点最多共用一条边，怎样选出尽…",
+    "e": "1965年Edmonds在《Paths, Trees, and Flowers》中把奇数环收缩成“花”，解决了一般图的最大匹配；本文区分最大匹配与稳定匹配，并讲霍尔定理与Hopcroft–Karp。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/minimum-spanning-tree": {
     "t": "最小生成树",
-    "e": "1926 年，捷克数学家奥塔卡尔·博鲁夫卡（Otakar Borůvka）受摩拉维亚电力公司委托，研究如何用最少的电线把全国所有城镇连接成电网。他发表了第一个求解最小生成树的算法——比 Kru…",
+    "e": "1926年博鲁夫卡为摩拉维亚电网设计出第一个最小生成树算法，比Kruskal和Prim早约30年；本文澄清MST不是最短路径树，并讲Kruskal从小到大贪心加边的做法。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/monte-carlo-methods": {
     "t": "蒙特卡洛方法",
-    "e": "1946 年，斯坦尼斯瓦夫·乌拉姆（Stanislaw Ulam）大病初愈、卧床休养，用纸牌游戏打发时间。他开始思考：能不能通过多次实际发牌来估算某种单人纸牌（Solitaire）获胜的概率，…",
+    "e": "乌拉姆病中玩单人纸牌时想到用多次模拟估算获胜概率，这一思路后来用于曼哈顿计划的中子模拟；本文说明蒙特卡洛不是随机猜测，而是用频率估概率、用概率估积分。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/network-flow": {
     "t": "网络流",
-    "e": "1956 年，美国空军系统分析师 T.E. Harris 写了一份机密备忘录，估算若苏联遭受核打击后，铁路网络能承载多少物资流量。这个问题后来成为一道经典算法题目的直接来源。同年，L.R. F…",
+    "e": "1956年Harris估算苏联铁路网运力的机密备忘录，引出了最大流问题；同年Ford与Fulkerson证明最大流—最小割定理，并给出沿增广路径不断推流的方法。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/newtons-method-numerical": {
     "t": "牛顿法与数值求解",
-    "e": "1669 年，艾萨克·牛顿（Isaac Newton）在一份未发表的手稿中描述了一种求多项式根的迭代方法。三个多世纪后，这个方法仍然是科学计算的基石：每一次 GPS 定位、每一次卫星轨道修正、…",
+    "e": "牛顿1669年在手稿中描述的迭代法至今仍是科学计算的基石：用切线代替曲线逐步逼近根，在根附近二次收敛；它的用途也不只求根，还包括二阶优化。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/pagerank": {
     "t": "PageRank 算法",
-    "e": "1998 年，斯坦福大学的两位博士生 Larry Page 和 Sergey Brin 在论文\"The Anatomy of a Large-Scale Hypertextual Web Se…",
+    "e": "1998年Page与Brin用PageRank给网页打分：一个网页被重要网页链接得越多就越重要；本文从随机冲浪者模型讲到它的数学定义。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/parallel-algorithms": {
     "t": "并行算法",
-    "e": "1974 年，理查德·布伦特（Richard Brent）把「有多少台处理器」和「依赖链有多长」写成一条至今仍在用的不等式。设一个计算的工作量（所有操作之和）为 W，跨度（最长依赖链，也称关键…",
+    "e": "并行算法不等于GPU编程，也不是线程越多越快；1974年布伦特的不等式把耗时限制在W/p+S，本文用工作—跨度模型分析，并以前缀和为例说明如何做到工作有效的对数跨度。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/principal-component-analysis": {
     "t": "主成分分析",
-    "e": "主成分分析（Principal Component Analysis, PCA）的历史可以追溯到 1901 年，由卡尔·皮尔逊（Karl Pearson）在《哲学杂志》发表的论文中首次提出（作…",
+    "e": "主成分分析可追溯到1901年皮尔逊，现代形式出自霍特林：寻找数据方差最大的正交方向来降维；本文澄清PCA不是特征选择，并用奇异值分解给出计算流程。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/public-key-rsa": {
     "t": "RSA 公钥密码",
-    "e": "1976 年，Whitfield Diffie 和 Martin Hellman 发表了一篇论文《密码学的新方向》（New Directions in Cryptography），提出了一个听…",
+    "e": "1976年Diffie与Hellman提出公开传递密钥的设想，RSA随后用大数分解的难度实现了它；本文澄清公钥加密并非“无法破解”，因子分解的难度是亚指数级的，不是指数级的。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/q-learning": {
     "t": "Q 学习与强化学习",
-    "e": "1992 年，克里斯托弗·沃特金斯（Christopher Watkins）和彼得·达扬（Peter Dayan）发表论文，为 Q 学习（Q-Learning）算法提供了收敛证明。但这个算法在…",
+    "e": "Q学习通过试错学习每个状态—动作的长期价值，1992年Watkins与Dayan证明了它收敛，DeepMind后来将其与深度网络结合；本文从马尔可夫决策过程讲到贝尔曼方程。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/random-forests": {
     "t": "随机森林",
-    "e": "2001 年，利奥·布雷曼（Leo Breiman）在《机器学习》杂志发表了题为《随机森林》的论文，提出了一个简单但极其有效的思想：一棵决策树不稳定、容易过拟合，但一千棵随机生长的决策树投票，…",
+    "e": "2001年Breiman提出随机森林：单棵决策树不稳定，但许多随机生长的树投票就能稳定而准确；它的随机性来自样本自助采样和特征子集两层。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/rate-limiting-algorithms": {
     "t": "限流算法",
-    "e": "你写了一个公开的 API，某天凌晨流量突然暴涨——可能是真实的爆款，也可能是某个客户端写错代码陷入死循环、每秒打来上万次请求，还可能是恶意攻击。如果什么都不做，你的服务器会被压垮，连正常用户也…",
+    "e": "API遭遇流量暴涨时，限流就像一个阀门，拒绝或排队处理超速请求；本文说明限流不只是计数器加一，并比较容许突发的令牌桶与强制平滑输出的漏桶。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/recurrent-neural-networks": {
     "t": "循环神经网络",
-    "e": "1986 年，大卫·鲁姆哈特（David Rumelhart）、杰弗里·欣顿（Geoffrey Hinton）和罗纳德·威廉姆斯（Ronald Williams）在提出反向传播算法的同一篇论文…",
+    "e": "循环神经网络用隐藏状态把序列信息逐步传下去，但它的“记忆”有限；本文讲标准RNN的结构，并用一个标量循环权重手算梯度为何会消失。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/regular-expressions": {
     "t": "正则表达式",
-    "e": "注册表单里检查邮箱格式的那行校验、IDE 里按下 Ctrl+Shift+F 的全局搜索、运维在几十 GB 日志里捞出某个错误码的那条 grep——它们背后是同一个工具：正则表达式。",
+    "e": "正则表达式用三个算子描述一类字符串，理论上对应有限自动机；本文指出日常所用的“正则”大多已超出正则语言，并追溯从神经网络模型到grep的历史。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/sat-solving": {
     "t": "SAT 求解",
-    "e": "1971 年，斯蒂芬·库克（Stephen Cook）证明了布尔可满足性问题（SAT）是 NP 完全的——对象见 Cook 1971。这是计算机科学最重要的定理之一，为整个 NP 完全理论奠定…",
+    "e": "1971年库克证明SAT是NP完全问题，但工业级求解器仍能解开含百万变量的实例；本文从DPLL的回溯与单元传播讲到CDCL的冲突驱动子句学习。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/segment-trees": {
     "t": "线段树",
-    "e": "考虑一个百万元素的数组，要回答几十万次这样的问询：\"第 30000 到 80000 个元素之和是多少？\"——而且元素的值还会不断被修改。",
+    "e": "数组元素不断修改，又要频繁询问区间和时，线段树把数组按二叉树分解成区间，让单次查询和修改都只需O(log n)；文中在8元素数组上手算一次区间查询。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/shortest-path-dijkstra": {
     "t": "最短路径与 Dijkstra 算法",
-    "e": "1956 年，荷兰计算机科学家艾兹赫尔·迪克斯特拉（Edsger W. Dijkstra）在阿姆斯特丹数学中心工作，那时没有鼠标、没有编辑器——程序员用铅笔在纸上写，然后把穿孔卡片送进去运行。",
+    "e": "1956年Dijkstra在阿姆斯特丹想出最短路径算法：贪心地扩展当前最近的节点，前提是没有负权边；本文提醒最短路径不等于最少边数，并给出实现。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/simulated-annealing": {
     "t": "模拟退火",
-    "e": "金属工匠早在几千年前就知道：将金属加热到高温后缓慢冷却（退火），能使原子找到低能量的稳定排列，消除内部应力，使材料更坚韧。1983 年，IBM 研究员柯克帕特里克（Scott Kirkpatr…",
+    "e": "1983年Kirkpatrick等人把金属退火翻译成优化算法，以随温度下降的概率接受更差的解来跳出局部最优；它的真正源头是1953年的Metropolis算法。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/skip-lists": {
     "t": "跳表",
-    "e": "1990 年，威廉·普格（William Pugh）在《ACM 通讯》发表了《跳表：平衡树的概率替代》，提出了跳表（Skip List）这一数据结构。",
+    "e": "1990年Pugh提出跳表，把有序链表叠成多层、以随机方式决定层数，实现期望对数时间的查找；它比平衡树容易实现，但并不只是“更快的平衡树”。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/sorting-algorithms": {
     "t": "排序算法",
-    "e": "把一列数字从小到大排好，看起来是个简单到无聊的问题。但排序是计算机科学里被研究最深、影响最广的问题之一。操作系统调度任务、数据库查找记录、搜索引擎返回结果、基因组学处理 DNA 序列——背后几…",
+    "e": "排序是研究最深、影响最广的问题之一，高德纳为此写了整整一卷；本文说明不存在“最好的”排序算法，比较排序有Ω(n log n)下界，并梳理主要算法。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/streaming-algorithms": {
     "t": "流算法与草图",
-    "e": "路由器每秒转发的包数以千万计，日志不能全存。你仍想知道：有多少不同的源地址？哪个流最热？二次频率矩是否在飙升？",
+    "e": "数据流太大存不下时，流算法只在一次扫描中维护亚线性内存的草图，给出带误差条的答案；本文从Flajolet用前导零估计基数讲起，讲草图的可合并性与理论下界。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/string-matching": {
     "t": "字符串匹配",
-    "e": "每次你按下 Ctrl+F 搜索一个词，每次你的 IDE 给你标出一个错误，每次 grep 在日志文件里找到一行记录——背后都有一个字符串匹配算法在工作。",
+    "e": "Ctrl+F和grep背后都是字符串匹配；暴力法不够用，KMP利用失配信息避免回退，Boyer-Moore从右往左比对、一次跳得更远。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/suffix-trees-and-arrays": {
     "t": "后缀树与后缀数组",
-    "e": "人类基因组包含约 32 亿个碱基对。生物信息学家每天都需要在其中寻找一段几十个字符的 DNA 序列——这是一个对 32 亿字符字符串做模式匹配的问题，而且同一个基因组上要做的不是一次查询，是成…",
+    "e": "要在32亿碱基对的基因组上反复做模式匹配，就需要后缀树和后缀数组这样的全局索引；本文讲后缀树的结构与Ukkonen线性时间构建算法。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/support-vector-machines": {
     "t": "支持向量机",
-    "e": "1995 年，贝尔实验室的科琳娜·科尔特斯（Corinna Cortes）和弗拉基米尔·万普尼克（Vladimir Vapnik）发表论文《支持向量网络》，奠定了支持向量机（Support V…",
+    "e": "1995年Cortes与Vapnik发表《支持向量网络》，奠定SVM的现代形态：它找的不是任意分界线，而是间隔最大的超平面；文中用三个点手算最大间隔超平面。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/topological-sort": {
     "t": "拓扑排序",
-    "e": "你敲下 make 编译一个 C 项目，或者 npm install 装一堆依赖包：a.o 必须先于 b.o 编译，库 X 必须先于依赖它的库 Y 安装。构建工具要做的第一件事，就是把这张\"谁依…",
+    "e": "make和npm install都要先把“谁依赖谁”理成一条可执行的顺序，这就是有向无环图的拓扑排序；本文给出形式定义，并手算Kahn算法如何逐步消去入度。",
     "d": "computer-science"
   },
   "/computer-science/algorithms/union-find": {
     "t": "并查集",
-    "e": "一张有十亿用户的社交网络，好友关系不断新增。系统要随时回答：\"张三和李四，通过朋友的朋友的朋友……能不能连上？\"",
+    "e": "并查集用一片森林维护动态连通性，只提供合并与查询两个操作；加上按秩合并和路径压缩后，均摊代价只有α(n)，本文说明这个函数到底增长得多慢。",
     "d": "computer-science"
   },
   "/computer-science/concepts/abstraction": {
     "t": "抽象与分层",
-    "e": "1970 年代，一台电子计算机上运行程序，程序员需要了解寄存器、总线、内存地址。今天，一个网页开发者用 JavaScript 调用 fetch() 发出网络请求，中间隔着十几层代码，却无需知道…",
+    "e": "抽象用简单的接口隐藏复杂的实现，让网页开发者调用fetch()时无需了解底下十几层代码；本文澄清抽象不等于简化，数一数一个系统里有多少层，并归纳抽象的三种形态。",
     "d": "computer-science"
   },
   "/computer-science/concepts/api-design": {
     "t": "API 设计",
-    "e": "2002 年前后，亚马逊的 CEO 杰夫·贝索斯发出了一道著名的内部指令（其内容直到 2011 年才被前亚马逊、时任 Google 工程师 Steve Yegge 在一篇广为流传的随笔中公开转…",
+    "e": "从贝索斯要求亚马逊各团队只通过服务接口通信的内部指令讲起，说明好API不等于功能齐全；本文比较以资源为中心的REST和以查询为接口的GraphQL。",
     "d": "computer-science"
   },
   "/computer-science/concepts/authentication-authorization": {
     "t": "身份验证与授权",
-    "e": "每次你登录一个网站，系统至少要处理四个不同问题：",
+    "e": "登录一次至少涉及身份解析、身份验证、授权决策和会话管理四个问题，攻击针对的是整条身份生命周期；本文也指出密码并非最佳的身份验证方式。",
     "d": "computer-science"
   },
   "/computer-science/concepts/b-trees-and-lsm-trees": {
     "t": "存储引擎：B 树与 LSM 树",
-    "e": "打开任何一个数据库——MySQL、PostgreSQL、MongoDB、Cassandra、RocksDB——在它优雅的 SQL 接口之下，都藏着一个默默干脏活累活的核心组件：存储引擎。它要回…",
+    "e": "数据多到只能放在磁盘上时，存储引擎要决定怎样组织字节；读优化的B树与写优化的LSM树走了相反的路，快慢取决于底层硬件。",
     "d": "computer-science"
   },
   "/computer-science/concepts/big-data-systems": {
     "t": "大数据系统",
-    "e": "2003 年，Google 内部工程师在每天爬取、索引数十亿网页，每周要处理数 PB 数据时，意识到已有的工具完全无法应对：单台服务器不够，商业数据库太贵且扩展性有限。",
+    "e": "2003年前后，Google每周要处理PB级网页数据，于是发明了MapReduce和分布式文件系统；本文说明“大数据”不只是数据多，并讲分布式存储与列存储。",
     "d": "computer-science"
   },
   "/computer-science/concepts/blockchain": {
     "t": "区块链",
-    "e": "2008 年 10 月 31 日，署名\"中本聪（Satoshi Nakamoto）\"的人向密码学邮件列表发布了一篇九页论文：《比特币：一个点对点电子现金系统》。文中提出了一种无需可信第三方的去…",
+    "e": "2008年中本聪发表比特币论文，提出无需可信第三方的去中心化账本，其核心正是一条哈希链接的区块序列；本文澄清区块链既不等于比特币，也不自动等于去中心化，并追溯中本聪之前的前史。",
     "d": "computer-science"
   },
   "/computer-science/concepts/caching-strategies": {
     "t": "缓存策略",
-    "e": "2010 年，Facebook 的工程师们面临一个危机：随着用户增长，MySQL 数据库承受不住负载，页面响应时间大幅上升。解决方案是什么？不是更换数据库，而是在数据库前面加了一层——使用 M…",
+    "e": "Facebook扛住用户增长靠的不是更换数据库，而是在前面加一层Memcached；本文梳理从CPU到CDN的缓存层次，以及读写两侧的基本缓存策略与取舍。",
     "d": "computer-science"
   },
   "/computer-science/concepts/cloud-computing": {
     "t": "云计算",
-    "e": "2006 年，亚马逊先后发布了两个不起眼的服务：3 月推出 S3（简单存储服务），8 月推出 EC2（弹性计算云）。定价是：存储每 GB 每月 0.15 美元，计算每小时 0.10 美元。",
+    "e": "2006年亚马逊先后推出S3和EC2，按GB和小时计价，开启了重构软件商业模式的云计算；本文说明云不只是“别人的电脑”，追溯这个酝酿半个世纪的设想，并讲三层服务模型。",
     "d": "computer-science"
   },
   "/computer-science/concepts/codd-1970-relational": {
     "t": "Codd 1970：关系怎样把大型共享数据库从访问路径里解放出来",
-    "e": "1970 年 6 月，国际商业机器公司圣何塞研究实验室（IBM Research Laboratory, San Jose）的埃德加·科德（Edgar F. Codd）在 Communicat…",
+    "e": "1970年IBM圣何塞实验室的科德发表关系模型论文，用域、元组和键描述数据，让检索不必了解数据在存储中如何铺开；本文辨析它证明了什么、没有覆盖什么。",
     "d": "computer-science"
   },
   "/computer-science/concepts/compilers": {
     "t": "编译器",
-    "e": "1957 年，约翰·巴克斯（John Backus）领导的 IBM 团队发布了第一个 FORTRAN 编译器，把人类用代数公式写的代码翻译成 IBM 704 的机器指令。当时许多程序员不相信这…",
+    "e": "1957年巴克斯团队发布第一个FORTRAN编译器，打破了编译代码必然慢于手写汇编的成见；本文说明编译器不只是翻译机器，并讲它的历史与五阶段结构。",
     "d": "computer-science"
   },
   "/computer-science/concepts/computer-architecture": {
     "t": "计算机体系结构",
-    "e": "1945 年 6 月，约翰·冯·诺伊曼（John von Neumann）起草了一份关于 EDVAC 计算机设计的报告草稿，描述了一个看似简单的思想：程序和数据存储在同一内存中。",
+    "e": "1945年冯·诺伊曼的EDVAC报告草稿提出把程序和数据存进同一内存，告别了ENIAC式的插线编程；本文讲冯·诺伊曼架构的组件，以及RISC与CISC两种指令集路线。",
     "d": "computer-science"
   },
   "/computer-science/concepts/computer-graphics": {
     "t": "计算机图形学",
-    "e": "1995 年，《玩具总动员》（Toy Story）上映，这是第一部完全由计算机生成的长篇动画电影。导演约翰·拉塞特（John Lasseter）和皮克斯团队用了约四年完成制作，全片 11.4 …",
+    "e": "《玩具总动员》全片11.4万帧由117台工作站组成的渲染农场算出；本文追溯比游戏早得多的图形学起点，说明它不只是“画图”，并讲从三维场景到像素的渲染管线。",
     "d": "computer-science"
   },
   "/computer-science/concepts/computer-security-principles": {
     "t": "计算机安全原则",
-    "e": "2017 年 5 月 12 日，\"WannaCry\"勒索软件在一天之内感染了全球 150 个国家超过 23 万台计算机。英国国家医疗服务体系（NHS）的大量医院被迫关闭紧急服务，手术被取消，救…",
+    "e": "2017年WannaCry一天内感染150国逾23万台计算机，令英国NHS医院停诊；本文以此说明安全是过程而非产品，藏起系统并不等于安全，并讲机密性、完整性、可用性三要素。",
     "d": "computer-science"
   },
   "/computer-science/concepts/computer-vision": {
     "t": "计算机视觉",
-    "e": "1966 年夏天，MIT 人工智能实验室的 Seymour Papert 发起了\"夏季视觉项目（The Summer Vision Project）\"。在 7 月 7 日的备忘录里，他计划用一…",
+    "e": "1966年Papert发起MIT“夏季视觉项目”，想用一个暑假让机器分离并识别物体；本文说明人眼所见与计算机处理的像素截然不同，梳理视觉核心任务和前深度学习时代的手工特征。",
     "d": "computer-science"
   },
   "/computer-science/concepts/concurrency": {
     "t": "并发与并行",
-    "e": "1965 年，英特尔联合创始人戈登·摩尔观察到：集成电路上可容纳的晶体管数目，大约每两年翻一番。这个预测维持了数十年，让单核处理器的速度持续攀升。",
+    "e": "2004年英特尔放弃4GHz的奔腾4计划转向多核，功耗与散热终结了单核提速；本文澄清并发不等于并行，讲进程与线程，以及竞态条件和互斥。",
     "d": "computer-science"
   },
   "/computer-science/concepts/consensus-algorithms": {
     "t": "分布式共识算法",
-    "e": "2014 年，Diego Ongaro 和 John Ousterhout 在 USENIX ATC 发表《In Search of an Understandable Consensus A…",
+    "e": "分布式共识不是一次多数投票；本文从Ongaro与Ousterhout 2014年为可理解性设计的Raft讲起，强调先写清系统模型，再讨论FLP不可能性划出的边界。",
     "d": "computer-science"
   },
   "/computer-science/concepts/containers-and-orchestration": {
     "t": "容器与容器编排",
-    "e": "2013 年 3 月，一家名不见经传的 PaaS 初创公司 dotCloud 在 PyCon 上发布了一个内部工具——Docker。演示视频里，工程师 Solomon Hykes 在台上用几行…",
+    "e": "2013年dotCloud在PyCon上发布Docker，几行命令就能让应用在另一台机器上原样运行；本文澄清容器不是轻量级虚拟机，Docker也没有发明容器，并讲它的三个核心概念。",
     "d": "computer-science"
   },
   "/computer-science/concepts/cpu-pipelining": {
     "t": "CPU 流水线",
-    "e": "想象一个汽车组装工厂，有一百道工序。最简单的方式是：一辆车从头到尾完成所有工序后，再开始下一辆。如果每道工序需要 1 分钟，完成一辆车需要 100 分钟，每小时生产 0.6 辆。",
+    "e": "CPU流水线像汽车装配线，让多条指令同时处在不同阶段，从而提高吞吐；本文澄清它不是多核并行，讲基本阶段，以及阻碍流水线的各种冒险。",
     "d": "computer-science"
   },
   "/computer-science/concepts/crdts": {
     "t": "无冲突复制数据类型",
-    "e": "2011 年，马克·夏皮罗（Marc Shapiro）、努诺·普雷吉萨（Nuno Preguiça）、卡洛斯·巴克罗（Carlos Baquero）与马雷克·扎维尔斯基（Marek Zawir…",
+    "e": "2011年Shapiro等人提出无冲突复制数据类型，让各副本独立更新后仍能确定地合并；本文澄清它既非没有并发也不替代共识，比较状态型与操作型两种形态，并以计数器、集合、序列为例。",
     "d": "computer-science"
   },
   "/computer-science/concepts/data-structures": {
     "t": "数据结构",
-    "e": "一个程序员拿到一台 16GB 内存的电脑，可以用十几种截然不同的方式把数据放进这 160 亿个字节里。选择哪种方式，决定了程序快还是慢、简单还是复杂，有时甚至决定了一个问题能不能被解决。",
+    "e": "同样的16GB内存可以用十几种方式组织数据，选择决定了程序的快慢甚至问题能否解决；本文澄清数据结构不是存储格式，讲四种基础结构，并用摊还分析解释末尾追加为何是O(1)。",
     "d": "computer-science"
   },
   "/computer-science/concepts/database-indexing-and-query-optimization": {
     "t": "数据库索引与查询优化",
-    "e": "一张存储了 10 亿行用户数据的表，每行包含用户 ID、姓名、邮箱、注册时间等字段。你执行一条查询：",
+    "e": "十亿行的表没有索引要扫描几十分钟，有了合适的索引只需几毫秒；本文说明索引并非越多越好，讲数据库索引的主力B树及各种索引类型。",
     "d": "computer-science"
   },
   "/computer-science/concepts/databases-transactions": {
     "t": "数据库与事务",
-    "e": "设想一个最朴素的取款程序：先读出账户余额，减去取款金额，再把新余额写回。当两台 ATM 在同一瞬间为同一个账户执行这段逻辑——都读到了 1000 元、都各自算出 900 元、都写回 900 元…",
+    "e": "两台ATM同时取款可能只扣一次钱，写到一半断电又会留下半条账；本文从这两个场景出发，说明数据库不只是存数据的地方，并讲事务的ACID四个承诺。",
     "d": "computer-science"
   },
   "/computer-science/concepts/deep-learning-architectures": {
     "t": "深度学习架构",
-    "e": "2012 年 9 月，ImageNet 大规模视觉识别挑战赛（ILSVRC）的结果公布。多伦多大学的 AlexNet 以 15.3% 的 Top-5 错误率获胜，而第二名是 26.2%——超出…",
+    "e": "2012年AlexNet以15.3%的Top-5错误率大幅领先第二名的26.2%；本文说明“深度”不只是更多层，并梳理为图像设计的CNN和处理序列的RNN等主要架构。",
     "d": "computer-science"
   },
   "/computer-science/concepts/design-patterns": {
     "t": "设计模式",
-    "e": "1977 年，建筑学家克里斯托弗·亚历山大（Christopher Alexander）出版了《建筑模式语言》——一本记录了 253 种建筑设计中反复出现的解决方案的书：如何设计楼梯、如何安排…",
+    "e": "设计模式的概念借自建筑学家亚历山大1977年的《建筑模式语言》，后来被引入软件；本文提醒模式不是万能套路，介绍三类模式和常见反模式。",
     "d": "computer-science"
   },
   "/computer-science/concepts/distributed-systems": {
     "t": "分布式系统",
-    "e": "2003 到 2006 年间，Google 接连发表了三篇论文：GFS（分布式文件系统，2003）、MapReduce（分布式计算框架，2004）、Bigtable（分布式数据库，2006）。…",
+    "e": "2003至2006年Google的GFS、MapReduce、Bigtable三篇论文重塑了互联网基础设施；本文澄清分布式不是“更快的单机”，强调先写故障模型，并讲CAP定理。",
     "d": "computer-science"
   },
   "/computer-science/concepts/dns": {
     "t": "DNS：互联网的命名系统",
-    "e": "1983 年之前，互联网上的所有计算机名字都记录在一个文件里：HOSTS.TXT。这个文件由斯坦福研究院（SRI）下属的网络信息中心（NIC，长期由 Elizabeth \"Jake\" Fein…",
+    "e": "1983年前，全网主机名都记在SRI维护的一份HOSTS.TXT里；DNS用层级结构和分布式权威取代了它。本文说明DNS不只是名字转地址，并讲递归与迭代解析。",
     "d": "computer-science"
   },
   "/computer-science/concepts/embedded-systems": {
     "t": "嵌入式系统",
-    "e": "你口袋里的手机是一台通用计算机。但打开洗碗机的控制面板，里面那块芯片永远只做一件事：控制洗碗程序。这就是嵌入式系统（Embedded System）——专门为特定任务而设计、集成到更大设备中的…",
+    "e": "洗碗机里那块只做一件事的芯片就是嵌入式系统，一辆现代汽车通常装有70到100个处理器；本文澄清嵌入式不等于低端，区分微控制器与微处理器，并讲嵌入式软件的特殊性。",
     "d": "computer-science"
   },
   "/computer-science/concepts/encryption-basics": {
     "t": "加密基础",
-    "e": "1977 年，Ron Rivest、Adi Shamir、Leonard Adleman 设计了后来以三人姓氏首字母命名的 RSA，并于次年发表。它利用模幂运算易算、从公开参数恢复私钥在已知经…",
+    "e": "本文从一段被尘封的前传和1977年的RSA讲起，说明加密不是把文字搅乱，而是在明确的威胁模型下选用合适的密码原语；RSA也不是公钥思想的唯一起点。",
     "d": "computer-science"
   },
   "/computer-science/concepts/expert-systems-and-the-second-ai-winter": {
     "t": "专家系统与第二次 AI 寒冬",
-    "e": "1980 年代初，人工智能第一次成为一门生意。",
+    "e": "1980年代专家系统把领域知识写成规则，让AI第一次成为生意，DEC的XCON用于配置VAX订单；本文说明它并非“没用”，分析四个瓶颈与日本第五代计算机计划如何引向第二次寒冬。",
     "d": "computer-science"
   },
   "/computer-science/concepts/file-systems": {
     "t": "文件系统",
-    "e": "你电脑上有 100,000 个文件分散在 SSD 的数十亿个存储单元中，你用一秒钟就能找到并打开任何一个。",
+    "e": "文件系统要在随时可能断电、出现坏块的硬件上可靠地保存海量命名数据；本文澄清文件不是磁盘上的一块区域，删除也不会抹掉数据，并讲文件系统的基本结构。",
     "d": "computer-science"
   },
   "/computer-science/concepts/firewalls-and-network-security": {
     "t": "防火墙与网络安全",
-    "e": "1988 年 11 月 2 日，莫里斯蠕虫（Morris Worm）——历史上第一个大规模传播的互联网蠕虫——在数小时内感染了约 6000 台互联网主机（当时互联网上约 60000 台计算机，…",
+    "e": "1988年莫里斯蠕虫数小时内感染约6000台主机，约占当时互联网的十分之一；本文说明防火墙不是唯一的安全手段，介绍防火墙类型，以及“默认拒绝”这条铁律。",
     "d": "computer-science"
   },
   "/computer-science/concepts/floating-point-and-ieee754": {
     "t": "浮点数与 IEEE 754",
-    "e": "1985 年，IEEE 公布 754 浮点标准时，业界还在用互不兼容的格式：同一段 Fortran 在不同机器上会对同一个中间值给出不同的舍入。",
+    "e": "1985年卡亨领导的委员会发布IEEE 754，把符号、指数、尾数、舍入、无穷与NaN统一成一份可实现的合同；本文说明精度不等于小数点后几位，并演示一次减法如何吃掉有效位。",
     "d": "computer-science"
   },
   "/computer-science/concepts/formal-methods-and-verification": {
     "t": "形式化方法与程序验证",
-    "e": "1996 年 6 月 4 日，阿丽亚娜 5 号首飞在点火序列开始约 40 秒后解体。调查委员会追溯出一条比\"整数溢出\"更完整的失效链：惯性基准系统仍在执行一段升空后已无必要的对准软件；阿丽亚娜…",
+    "e": "阿丽亚娜5号首飞约40秒后解体，失效链远比“整数溢出”复杂；本文以此说明测试不等于证明，并介绍Hoare逻辑与模型检验两大形式化工具。",
     "d": "computer-science"
   },
   "/computer-science/concepts/functional-programming": {
     "t": "函数式编程",
-    "e": "1958 年，约翰·麦卡锡（John McCarthy）在麻省理工学院设计了 Lisp——世界上第一门函数式编程语言。它的灵感不来自硬件或工程实用性，而来自阿隆佐·邱奇（Alonzo Chur…",
+    "e": "1958年麦卡锡设计Lisp，其灵感来自邱奇1930年代的Lambda演算而非硬件；本文说明函数式编程不只是用函数写代码，并讲纯函数、不可变性等核心概念。",
     "d": "computer-science"
   },
   "/computer-science/concepts/garbage-collection": {
     "t": "垃圾回收",
-    "e": "1959 年，约翰·麦卡锡（John McCarthy）在为 Lisp 实现\"cons cell\"（基本数据结构）时，遇到了一个根本问题：程序分配的内存单元，用完了怎么处理？",
+    "e": "1959年麦卡锡实现Lisp时，让运行时自动回收不再使用的内存，垃圾回收由此诞生；本文澄清GC不只是自动free()，也不能杜绝内存泄漏，并从引用计数讲起。",
     "d": "computer-science"
   },
   "/computer-science/concepts/gpu-and-parallel-computing": {
     "t": "GPU 与并行计算",
-    "e": "2012 年，多伦多大学的 AlexNet 在 ImageNet 图像识别大赛中，将前五误差率从 26% 降到 15.3%——领先第二名超过 10 个百分点。震撼行业的不只是准确率，还有它的实…",
+    "e": "AlexNet用两块GTX 580显卡训练而成，成为深度学习革命的转折点；本文澄清GPU不是更强的CPU，讲Flynn分类与SIMD、SIMT，以及GPU如何源于图形渲染的数学。",
     "d": "computer-science"
   },
   "/computer-science/concepts/human-computer-interaction": {
     "t": "人机交互",
-    "e": "1968年12月9日，在旧金山一间礼堂里，一位名叫道格拉斯·恩格尔巴特（Douglas Engelbart）的工程师坐在屏幕前，用一只木壳的小盒子在桌面上滑动，屏幕上的光标随之移动。他点击、拖…",
+    "e": "1968年恩格尔巴特在旧金山演示鼠标、超文本与实时协同编辑；本文说明人机交互不是把界面做好看，讲交互如何被量化与设计，以及从增强智能到图形界面的里程碑。",
     "d": "computer-science"
   },
   "/computer-science/concepts/information-retrieval-and-search": {
     "t": "信息检索与搜索",
-    "e": "1998 年，两名斯坦福博士生谢尔盖·布林（Sergey Brin）和拉里·佩奇（Larry Page）在第七届万维网大会上发表了一篇论文，标题朴素得不像会改变世界：《大规模超文本网络搜索引擎…",
+    "e": "1998年布林与佩奇描述了索引约2400万网页的Google原型；本文说明搜索不只是找出含关键词的文档，讲倒排索引这一基础架构和相关性模型的演进。",
     "d": "computer-science"
   },
   "/computer-science/concepts/load-balancing": {
     "t": "负载均衡",
-    "e": "每年\"双十一\"零点，或者一场热门演唱会开票的瞬间，海量请求在一秒内涌向同一组服务器。没有任何一台机器能独自扛住这种流量。让网站不至于当场崩溃的，是一个安静地站在用户和服务器之间、把潮水般的请求…",
+    "e": "抢票或大促的瞬间，海量请求要靠负载均衡器分摊到一排服务器上；本文澄清负载均衡不只是轮流分配，区分L4与L7两个层次，并讲主要的调度算法。",
     "d": "computer-science"
   },
   "/computer-science/concepts/logic-programming": {
     "t": "逻辑编程",
-    "e": "1972 年夏天，法国马赛大学的阿兰·科尔默劳（Alain Colmerauer）和他的学生菲利普·鲁塞尔（Philippe Roussel）正在为一个自然语言问题发愁：怎么让计算机理解法语问…",
+    "e": "1972年科尔默劳与鲁塞尔为让计算机回答法语问句而创造了Prolog；本文说明逻辑编程不是一堆if-else，阐释“算法=逻辑+控制”，以及Horn子句与合一构成的计算模型。",
     "d": "computer-science"
   },
   "/computer-science/concepts/machine-learning-overview": {
     "t": "机器学习概览",
-    "e": "1959 年，IBM 工程师 Arthur Samuel 发表了论文《Some Studies in Machine Learning Using the Game of Checkers》—…",
+    "e": "1959年Samuel在跳棋程序论文中推广了“机器学习”一词；本文澄清机器学习不是让计算机变聪明，而是从数据中拟合模型，并讲三大学习范式与关键概念。",
     "d": "computer-science"
   },
   "/computer-science/concepts/memory-consistency-models": {
     "t": "内存一致性模型",
-    "e": "1979 年，莱斯利·兰波特（Leslie Lamport）给多处理器写下一句听起来像常识的话：若每个处理器按程序顺序执行，系统的总体行为应像这些操作排成某一全局序列，且该序列符合每台处理器的…",
+    "e": "1979年兰波特定义了顺序一致性，但现代处理器并不遵守它；本文区分缓存一致性与内存一致性模型，演示Dekker算法为何在TSO上失效，并讲从happens-before到语言标准的演进。",
     "d": "computer-science"
   },
   "/computer-science/concepts/memory-hierarchy-caching": {
     "t": "存储层级与缓存",
-    "e": "CPU 处理数据的速度，比从主内存（RAM）读取数据快大约 100 到 500 倍。",
+    "e": "CPU比从主存取数快约100到500倍，这道“内存墙”要靠多级缓存来跨越；本文说明RAM并不是“快的存储”，讲局部性原理为何让缓存有效，以及CPU的多级缓存。",
     "d": "computer-science"
   },
   "/computer-science/concepts/message-queues-and-streaming": {
     "t": "消息队列与流处理",
-    "e": "2010 年，LinkedIn 的工程团队遇到了一个奇怪的问题：系统里有数十个数据管道，把数据从各个来源同步到各个目的地，形成了一张复杂的点对点网络。每增加一个新数据来源或新的数据消费者，就需…",
+    "e": "LinkedIn数十条点对点数据管道带来O(n²)的连接复杂度，他们为此发明了统一日志Kafka；本文说明消息队列不只是缓冲区，比较两种核心范式，并讲Kafka的设计。",
     "d": "computer-science"
   },
   "/computer-science/concepts/microservices-architecture": {
     "t": "微服务架构",
-    "e": "2008 年 8 月，Netflix 的单体 Oracle 数据库损坏，导致连续三天无法发货 DVD。这场事故让他们看清了单体 Java 应用（所有功能打包在一个巨大的程序里）的脆弱：一个模块…",
+    "e": "2008年Netflix的单体Oracle数据库损坏，DVD连续三天无法发货，促使它转向微服务；本文讲这个名字的由来，澄清微服务不是简单“把单体切开”，并对比两种架构。",
     "d": "computer-science"
   },
   "/computer-science/concepts/natural-language-processing": {
     "t": "自然语言处理",
-    "e": "1950 年，Alan Turing 在他关于\"计算机器与智能\"的论文中提出，评判机器智能的标准应该是：能否在文字对话中被误认为是人类。",
+    "e": "从图灵1950年的对话测试到今天的大语言模型，机器是否真的“理解”语言仍无定论；本文澄清NLP不是让计算机读懂文字，梳理语言的核心挑战与NLP任务分类。",
     "d": "computer-science"
   },
   "/computer-science/concepts/networking-protocols": {
     "t": "网络协议栈 TCP/IP",
-    "e": "1969 年 10 月 29 日，第一条通过 ARPANET 发送的消息是\"lo\"。原计划发\"login\"，系统在收到前两个字母后崩溃了。",
+    "e": "1969年ARPANET发出的第一条消息只传了“lo”两个字母就崩溃了；本文说明互联网不是单一事物，讲TCP/IP如何分层分解复杂性，以及IP的全球地址系统。",
     "d": "computer-science"
   },
   "/computer-science/concepts/neural-networks-concept": {
     "t": "神经网络",
-    "e": "1943 年，神经科学家 Warren McCulloch 和数理逻辑学家 Walter Pitts 发表了一篇论文，提出了第一个神经元的数学模型——受生物神经元启发的简单阈值函数。他们的目标…",
+    "e": "1943年McCulloch与Pitts提出第一个神经元数学模型，即一个简单的阈值函数；本文指出人工神经网络与生物大脑的相似性很有限，并讲单个神经元和前馈网络的层结构。",
     "d": "computer-science"
   },
   "/computer-science/concepts/object-oriented-programming": {
     "t": "面向对象编程",
-    "e": "1967 年，挪威计算机科学家奥利·约翰·达尔（Ole-Johan Dahl）和克里斯滕·尼高（Kristen Nygaard）发布了 Simula 67——一种为离散事件模拟而设计的语言（其…",
+    "e": "1967年达尔与尼高为离散事件模拟设计Simula 67，引入了类和对象；本文指出OOP的核心不是继承而是多态，并讨论为何组合优于继承。",
     "d": "computer-science"
   },
   "/computer-science/concepts/observability-and-monitoring": {
     "t": "可观测性与监控",
-    "e": "凌晨三点，一个电商网站的下单接口突然变慢。表面只是\"慢了一点\"，但背后这一次下单，可能穿过了几十个互相调用的微服务、几个数据库、一个消息队列和两个外部支付接口。问题出在哪一环？在单台服务器的年…",
+    "e": "一次下单可能穿过几十个微服务，出了问题光看日志无从下手；本文说明可观测性不只是监控的新名字，讲日志、指标、追踪三类信号，以及SLI、SLO与SLA。",
     "d": "computer-science"
   },
   "/computer-science/concepts/operating-systems": {
     "t": "操作系统",
-    "e": "1969 年夏天，贝尔实验室的肯·汤普森（Ken Thompson）发现了一台被闲置在角落里的老旧 PDP-7 计算机。他用了三周时间，在上面写下了一个简单的操作系统内核、一个 shell、一…",
+    "e": "1969年汤普森用三周时间在一台闲置的PDP-7上写出Unix的雏形；本文说明操作系统不只是“管理程序的程序”，梳理从无OS、批处理到分时的历史，并讲进程管理。",
     "d": "computer-science"
   },
   "/computer-science/concepts/perceptron-and-the-ai-winter": {
     "t": "感知机与第一次 AI 寒冬",
-    "e": "1958 年 7 月 8 日，《纽约时报》以\"新海军装置边做边学\"为题，报道了罗森布拉特在康奈尔航空实验室展示的感知机：一台能通过示例学会区分图像的机器。报道说，海军期待它成为\"能行走、说话、…",
+    "e": "1958年《纽约时报》报道罗森布拉特的感知机，称海军期待它成为能自我意识的计算机雏形；本文讲感知机及其收敛定理，辨析Minsky与Papert证明了什么，以及寒冬的真正成因。",
     "d": "computer-science"
   },
   "/computer-science/concepts/privacy-engineering": {
     "t": "隐私工程",
-    "e": "一个系统可以从未发生数据泄露，却仍然严重侵犯隐私：它可能收集完成任务不需要的数据，把用户预期中的单次用途变成长期画像，允许员工合法查询敏感记录，或用准确模型对人做不透明且不公平的决定。",
+    "e": "系统可以从未泄露数据，却仍严重侵犯隐私；隐私工程把隐私变成可验证的系统属性。本文澄清隐私不等于保密或删除姓名，讲风险模型，并从画出真实数据流入手。",
     "d": "computer-science"
   },
   "/computer-science/concepts/programming-language-design": {
     "t": "程序设计语言设计",
-    "e": "1972 年，Dennis Ritchie 在贝尔实验室用 C 语言重写了 Unix 操作系统。在此之前，操作系统只能用汇编语言写——每换一台新机器，代码全部报废。C 的出现让同一份源代码能跑…",
+    "e": "1972年里奇用C重写Unix，让同一份源码只需重新编译就能跑在不同硬件上；本文说明语言设计不是语法美学，讲语法、语义、语用，以及语言设计的关键维度。",
     "d": "computer-science"
   },
   "/computer-science/concepts/real-time-systems": {
     "t": "实时系统",
-    "e": "1996 年 6 月 4 日，阿丽亚娜 5 型火箭首次发射，在主发动机点火后约 37 秒（离地升空约 30 秒）爆炸解体。调查结果令人震惊：原因是一个 64 位浮点数被转换为 16 位整数时发…",
+    "e": "阿丽亚娜5号因一个64位浮点数转16位整数时溢出而解体，而那段代码沿用自阿丽亚娜4；本文说明实时不是“很快”而是要按时，区分硬实时与软实时，并讲最坏执行时间分析。",
     "d": "computer-science"
   },
   "/computer-science/concepts/recommender-systems": {
     "t": "推荐系统",
-    "e": "2006 年，Netflix 宣布了一项百万美元竞赛：谁能让公司的电影推荐算法预测准确率提升 10%，就获得 100 万美元奖金。竞赛吸引了全球数千支团队，历时三年。最终获奖的方案综合了超过 …",
+    "e": "2006年Netflix悬赏百万美元，奖励能把推荐准确率提升10%的团队；本文说明推荐不是给你看你搜索过的东西，并讲协同过滤与矩阵分解两大核心方法。",
     "d": "computer-science"
   },
   "/computer-science/concepts/recursion": {
     "t": "递归",
-    "e": "字典里如果有这样一条词条：\"递归，见：递归\"，读者会感到困惑和被戏弄。",
+    "e": "递归用自身定义自身，是许多算法和数据结构的钥匙，这种能力并非编程语言生来就有；本文澄清递归不等于循环，用汉诺塔和目录遍历演示，并强调必须有终止条件。",
     "d": "computer-science"
   },
   "/computer-science/concepts/reinforcement-learning-concept": {
     "t": "强化学习",
-    "e": "2016 年 3 月，DeepMind 的 AlphaGo 以 4:1 击败围棋世界冠军李世石。围棋被认为是人工智能最难的棋盘游戏之一——棋盘状态空间约 2.08 \\times 10^{170…",
+    "e": "2016年AlphaGo以4:1击败李世石，在穷举无望的围棋上依靠深度强化学习；本文说明强化学习不是监督学习，讲马尔可夫决策过程、价值函数与贝尔曼方程。",
     "d": "computer-science"
   },
   "/computer-science/concepts/robotics": {
     "t": "机器人学",
-    "e": "1997 年，IBM 的\"深蓝\"在国际象棋上击败了世界冠军卡斯帕罗夫。同一时期，全世界没有一个机器人能像三岁小孩那样，从桌上拿起一只杯子而不把它碰倒。",
+    "e": "深蓝击败卡斯帕罗夫的年代，还没有机器人能像三岁孩子那样稳稳拿起杯子，这正是莫拉维克悖论；本文说明机器人不是装了身体的软件，讲感知、决策、执行，以及运动学与动力学。",
     "d": "computer-science"
   },
   "/computer-science/concepts/routing-and-switching": {
     "t": "路由与交换",
-    "e": "一个数据包从北京的客户端发出，穿越多个运营商网络，跨越太平洋海底光缆，到达旧金山某个数据中心的服务器——全程可能经过 15 个路由器，耗时 120 毫秒。这个过程没有任何中央调度，每一个路由器…",
+    "e": "一个数据包跨越太平洋可能经过约15个路由器，全程没有中央调度，每一跳都由局部决策决定；本文区分路由器与交换机，讲局域网内的交换和网络间的路由。",
     "d": "computer-science"
   },
   "/computer-science/concepts/software-engineering": {
     "t": "软件工程",
-    "e": "1968 年，北大西洋公约组织（NATO）在西德加尔米施举办了一次研讨会，议题只有一个：软件危机（Software Crisis）。",
+    "e": "1968年北约在加尔米施召开会议应对“软件危机”，OS/360成了失控的代名词；本文说明软件工程不是照书写代码，梳理开发方法论的演进，并分析软件估算为何这么难。",
     "d": "computer-science"
   },
   "/computer-science/concepts/software-supply-chain-security": {
     "t": "软件供应链安全",
-    "e": "现代软件很少从空白开始。一个应用可能依赖操作系统镜像、编译器、包管理器、数百个直接与传递依赖、CI 插件、制品仓库、部署脚本和自动更新服务。攻击者不一定要攻破最终应用；只要控制其中一个被信任环…",
+    "e": "攻击者不必攻破最终应用，只要控制依赖、编译器、CI等任一受信任环节，就能借合法流水线分发恶意代码；本文指出签名、SBOM和扫描都不是安全证明，并建立资产、对手与信任边界的模型。",
     "d": "computer-science"
   },
   "/computer-science/concepts/software-testing": {
     "t": "软件测试",
-    "e": "1962 年 7 月 22 日，水手 1 号（Mariner 1）的 Atlas-Agena 火箭偏离航向，地面安全官在发射后 294.5 秒发出自毁指令。NASA 的任务史把失败归因于两个共…",
+    "e": "1962年水手1号因制导天线失锁和方程里漏掉的一条上划线而被自毁；本文说明测试不能证明没有bug，强调先定义故障模型与测试预言机，并讲测试的层次。",
     "d": "computer-science"
   },
   "/computer-science/concepts/speculative-execution-and-side-channels": {
     "t": "投机执行与侧信道",
-    "e": "2018 年 1 月，两个被提前披露的微架构问题同时进入公众视野。一组工作被命名为 Spectre（幽灵），另一组被命名为 Meltdown（熔断）。它们不是某一种病毒，也不是某条具体指令的「…",
+    "e": "2018年1月公开的Spectre与Meltdown不是某个缓存bug，而是两类泄露形态：投机执行在架构上回滚了，却在微架构上留下可测的痕迹；本文分别解释这两类问题。",
     "d": "computer-science"
   },
   "/computer-science/concepts/tcp-and-reliable-transport": {
     "t": "TCP 与可靠传输",
-    "e": "1986 年秋，互联网发生了所谓的\"拥塞崩溃\"：ARPANET 的吞吐量骤降至峰值的 0.1%。流量挤满了网络，但几乎没有有用的数据成功到达。这不是硬件故障，而是协议设计的缺陷——当时的 TC…",
+    "e": "1986年互联网发生拥塞崩溃，吞吐骤降至峰值的0.1%，Van Jacobson随后设计了拥塞控制；本文说明“可靠”不等于不丢包，讲三次握手、序号、确认与重传。",
     "d": "computer-science"
   },
   "/computer-science/concepts/the-web-and-http": {
     "t": "万维网与 HTTP",
-    "e": "1991 年 8 月 6 日，互联网上出现了第一个公开可访问的网页。它的内容是关于如何使用万维网的说明，由 Tim Berners-Lee 在瑞士日内瓦的 CERN（欧洲核子研究中心）托管。地…",
+    "e": "1991年8月，伯纳斯-李在CERN托管的第一个公开网页是一份教人使用万维网的说明书；本文澄清万维网不等于互联网，讲URL、HTML、HTTP三个核心构件和HTTP的工作原理。",
     "d": "computer-science"
   },
   "/computer-science/concepts/type-systems": {
     "t": "类型系统",
-    "e": "1996 年 6 月 4 日，欧洲航天局阿丽亚娜 5 号运载火箭首航。升空约 37 秒，制导系统因一行代码崩溃：一个表示水平速度的 64 位浮点数被转换成 16 位有符号整数，而它的值超过了该…",
+    "e": "阿丽亚娜5号因一个超出16位整数上限的速度值转换失败而坠毁；本文说明类型不只是区分数字和字符串，追溯从罗素悖论到λ演算的类型起源，并比较静态与动态类型。",
     "d": "computer-science"
   },
   "/computer-science/concepts/unicode-and-text-encoding": {
     "t": "Unicode 与文本编码",
-    "e": "2003 年 10 月，软件开发者 Joel Spolsky 发表了一篇长文，标题就带着不容商量的口气：《每个软件开发者绝对、必须了解的 Unicode 与字符集知识（没有借口！）》。",
+    "e": "Spolsky 2003年写道，脱离编码谈字符串毫无意义；本文说明文本不是字节，回顾从ASCII到编码战争的历史，以及Unicode如何统一全世界的字符。",
     "d": "computer-science"
   },
   "/computer-science/concepts/version-control": {
     "t": "版本控制",
-    "e": "1991 年，Linus Torvalds 在赫尔辛基大学宿舍里开始写 Linux 内核，协调方式是通过邮件列表发补丁文件（.patch）。贡献者把修改写成差异文件，发给 Linus，他手工合…",
+    "e": "Linux早期靠邮件发补丁、由Linus手工合并，2005年与BitKeeper闹翻后他写出了Git；本文说明版本控制不只是存档，讲Git的核心模型和工作流的演进。",
     "d": "computer-science"
   },
   "/computer-science/concepts/virtualization": {
     "t": "虚拟化与容器",
-    "e": "2006 年，亚马逊推出了一项新服务：EC2（Elastic Compute Cloud）。它让用户通过浏览器点几下，就能在几分钟内\"租到\"一台 Linux 服务器，不再需要购买物理机器。",
+    "e": "EC2让人几分钟就能租到一台服务器，靠的是一个比云计算早四十年的想法：让一台物理机假扮多台相互隔离的机器；本文说明虚拟化不只是模拟器，并解释x86为何一度无法虚拟化。",
     "d": "computer-science"
   },
   "/computer-science/concepts/web-security-xss-csrf": {
     "t": "Web 安全：XSS 与 CSRF",
-    "e": "2005 年 10 月，一个 19 岁的 Myspace 用户 Samy Kamkar 发现他无法在自己的个人页面里加 CSS 样式——网站过滤掉了大多数 HTML 标签。他花了几天时间找漏洞…",
+    "e": "2005年Samy Kamkar在Myspace注入JavaScript，写出自动加他为好友的蠕虫；本文从信任边界这个根本问题出发，讲解跨站脚本攻击XSS与跨站请求伪造CSRF。",
     "d": "computer-science"
   },
   "/computer-science/concepts/webassembly": {
     "t": "WebAssembly",
-    "e": "2015 年，浏览器厂商把一份新的「可移植字节码」放进公开设计：它不是把 Java 虚拟机再搬进页面，而是给 C、C++、Rust 一条低层、可验证、接近机器的目标。2017 年 3 月，Ch…",
+    "e": "2017年3月四大浏览器同时宣布支持WebAssembly MVP，为C、C++、Rust提供可验证的低层编译目标；本文澄清它既不替代JavaScript也不等于原生，并讲线性内存、模块与验证。",
     "d": "computer-science"
   },
   "/computer-science/frontier/ai-for-science": {
     "t": "AI 驱动的科学发现：从蛋白质到天气再到数学",
-    "e": "2024 年 10 月，诺贝尔化学奖一半授予 David Baker，另一半授予 Demis Hassabis 与 John Jumper——表彰计算蛋白质设计与蛋白质结构预测。一个本质上是机…",
+    "e": "2024年诺贝尔化学奖授予蛋白质设计与结构预测，机器学习成果首次获科学最高奖；本文说明AI不只是替科学家算得更快，梳理蛋白质、天气、数学等已经立住的前沿和各方进展。",
     "d": "computer-science"
   },
   "/computer-science/frontier/ai-interpretability": {
     "t": "机制可解释性：从可命名特征到因果机制",
-    "e": "2021 年，OpenAI 研究者在 CLIP 中观察到一个“蜘蛛侠神经元”：蜘蛛图像、单词 spider 的图像和蜘蛛侠角色都会激活它。这说明模型内部可能出现跨文字、符号和视觉形式的抽象响应…",
+    "e": "CLIP中的“蜘蛛侠神经元”说明模型内部可能存在跨模态的抽象，但一个好懂的神经元并不等于完整解释；本文先问解释什么、为谁解释，区分四层证据，并讨论多义性与叠加问题。",
     "d": "computer-science"
   },
   "/computer-science/frontier/cluster-training-systems": {
     "t": "集群训练系统：把模型铺到一千张卡上",
-    "e": "Meta 在 Llama 3 405B 的预训练里动用 16,384 张 H100，论文给出的总算力约为 3.8\\times 10^{25} FLOPs。同一份材料里有一张更刺眼的表：在 54…",
+    "e": "Llama 3 405B用16384张H100预训练，54天内任务被打断466次，约每三小时一次；本文说明并行策略不是切得越碎越好，讲算力利用率，以及故障如何成为一等公民。",
     "d": "computer-science"
   },
   "/computer-science/frontier/confidential-computing-and-tees": {
     "t": "机密计算：把信任从运维手里收回硬件",
-    "e": "云计算有一个从第一天起就存在、却长期被默认接受的漏洞：你的数据在云上是加密的——除了它正在被使用的时候。",
+    "e": "静态加密和传输加密都保护不了正在被计算的明文，机密计算试图把这份信任从运维收回硬件；本文说明它保护什么、不保护什么，讲从飞地到机密虚拟机，以及作为支点的远程证明。",
     "d": "computer-science"
   },
   "/computer-science/frontier/diffusion-models": {
     "t": "扩散模型：从噪声里长出分布",
-    "e": "2020 年，Ho、Jain 与 Abbeel 的 DDPM 把一条看起来像物理的程序——把图像一步步加噪直到变成高斯，再学着把它一步步去噪——做成了能在 CIFAR-10 上打出 FID 3…",
+    "e": "2020年DDPM把逐步加噪再学着逐步去噪的过程做成生成模型，在CIFAR-10上达到FID 3.17；本文说明扩散不只是滤掉噪声，梳理DDPM、分数模型与随机微分方程的关系。",
     "d": "computer-science"
   },
   "/computer-science/frontier/ebpf-verifier": {
     "t": "eBPF 验证器：把内核扩展变成可判定问题",
-    "e": "Linux 把曾经只能写在内核模块里的观测、网络与安全逻辑，部分开放成 eBPF 程序：一段受限制的字节码，在内核里 JIT 后挂钩点运行。没有验证器，这就只是又一种内核模块。有了验证器，它试…",
+    "e": "eBPF让观测、网络和安全逻辑以受限字节码在内核中运行，验证器要在加载前证明程序会停止、访存合法；本文指出通过验证不等于内核无漏洞，并讲抽象解释与完备性、并发等开放问题。",
     "d": "computer-science"
   },
   "/computer-science/frontier/formal-verification": {
     "t": "形式化验证与程序合成",
-    "e": "2023 年 11 月，菲尔兹奖得主陶哲轩（Terence Tao）和合作者 Timothy Gowers、Ben Green、Freddie Manners 共同宣布证明了多项式 Freim…",
+    "e": "2023年陶哲轩等人证明PFR猜想，证明在Lean 4中得到机器检验；本文说明形式化验证不只是测试更多，介绍经过证明的编译器CompCert和Lean 4的数学证明生态。",
     "d": "computer-science"
   },
   "/computer-science/frontier/fully-homomorphic-encryption": {
     "t": "全同态加密：在密文上计算",
-    "e": "2009 年，Craig Gentry 在斯坦福的博士论文里第一次给出了全同态加密（Fully Homomorphic Encryption, FHE）的可行构造：不解密，也能对密文做任意计算…",
+    "e": "2009年Gentry在博士论文中首次构造出全同态加密，不解密就能对密文做任意计算；本文说明同态并非“加密够强就能随便算”，关键在于管理噪声预算，并梳理各方进展。",
     "d": "computer-science"
   },
   "/computer-science/frontier/inference-time-compute-and-reasoning": {
     "t": "推理时计算与推理模型：让机器学会\"多想一会儿\"",
-    "e": "2024 年 9 月 12 日，OpenAI 发布 o1-preview，博客标题只有一句话：Learning to Reason with LLMs。模型的用法看起来很反常——它在回答之前会…",
+    "e": "2024年9月OpenAI发布o1-preview，模型先生成一段看不见的推理再作答；本文澄清三个常见误解，指出这类训练的奖励必须可以被检查，并梳理各家进展。",
     "d": "computer-science"
   },
   "/computer-science/frontier/large-language-models": {
     "t": "大语言模型与基础模型",
-    "e": "2022 年 11 月 30 日，OpenAI 把一个叫 ChatGPT 的系统悄悄放到了互联网上。没有发布会，没有大型广告。五天后，它有了 100 万用户；两个月后，1 亿用户。这是消费级应…",
+    "e": "ChatGPT上线两个月用户就达到1亿，是消费级应用最快的增长；本文说明大语言模型不是改进版搜索引擎，讲Transformer架构和“大即是不同”的规模化定律。",
     "d": "computer-science"
   },
   "/computer-science/frontier/mixture-of-experts": {
     "t": "混合专家：稀疏激活的大模型",
-    "e": "2023 年 12 月，Mistral AI 放出 Mixtral 8×7B 的开放权重：总参数约 467 亿，但每个 token 只激活约 129 亿。它在多数公开基准上匹配或超过 Llam…",
+    "e": "Mixtral 8×7B总参数约467亿，每个token只激活约129亿；本文说明总参数不等于有效规模，梳理从顶层门控到细粒度专家的演进，以及DeepSeek-V3等进展。",
     "d": "computer-science"
   },
   "/computer-science/frontier/neural-program-synthesis": {
     "t": "神经程序综合：从规约到代码的开放问题",
-    "e": "形式化验证那一篇讲的是 CompCert、seL4、Lean 与「证明对象如何被机器检查」。本篇不重复那条链。2020 年代另有一条已经进入生产的路径：用神经网络从自然语言、输入输出例子或残缺…",
+    "e": "神经网络从自然语言、输入输出例子或残缺代码中提出程序，再用测试、类型或证明筛选；本文指出会生成代码不等于会综合程序，并讨论规约、工具链与责任等开放问题。",
     "d": "computer-science"
   },
   "/computer-science/frontier/neuromorphic-and-beyond-cmos-computing": {
     "t": "神经形态与后 CMOS 计算：当搬运数据比计算更贵",
-    "e": "现代处理器有一个被算力叙事掩盖的真相：一次乘加运算的能耗，远低于把参与运算的数从内存搬到运算单元的能耗。 在典型工艺下，从片外 DRAM 读一个数所耗的能量，可以做几百次乘加。",
+    "e": "从片外DRAM读一个数的能耗够做几百次乘加，计算的瓶颈在“搬”而不在“算”；本文说明神经形态不是更快的AI芯片，梳理三条后CMOS技术路线，以及事件相机。",
     "d": "computer-science"
   },
   "/computer-science/frontier/post-quantum-cryptography": {
     "t": "后量子密码：在机器造出来之前更换全世界的锁",
-    "e": "密码学史上从没出现过这样的局面：一种尚不存在的机器，正在迫使全世界更换正在使用的锁。",
+    "e": "Shor 1994年证明大型量子计算机能破解RSA和椭圆曲线，一台尚不存在的机器正迫使全世界换锁；本文说明这事不能等量子计算机造出来再说，讲从竞赛到FIPS标准，以及密钥尺寸这一工程痛点。",
     "d": "computer-science"
   },
   "/computer-science/frontier/quantum-algorithms": {
     "t": "量子算法：Shor 与 Grover 之后的软件边界",
-    "e": "量子计算有两个最著名的算法：Shor 算法（1994）能在多项式时间内分解大整数，打破 RSA；Grover 算法（1996）能对无序数据库搜索给出二次方加速（O(\\sqrt{N}) vs 经…",
+    "e": "Shor与Grover的算法让许多人以为量子计算机无所不能；本文澄清它不是万能加速器，介绍NISQ时代的变分量子算法，以及最有希望的近期应用量子化学。",
     "d": "computer-science"
   },
   "/computer-science/frontier/retrieval-augmented-generation-and-agents": {
     "t": "检索增强与智能体：把语言模型接到世界上",
-    "e": "语言模型有一个结构性缺陷：它知道的一切都被压缩进了权重，而权重在训练结束那一刻就冻结了。它不知道昨天发生了什么，不知道你公司内网里的文档，也无法说清自己为什么这样回答。",
+    "e": "语言模型的知识冻结在权重里，检索增强生成的办法是先查再答；本文纠正三个流行的错误直觉，说明检索管线的质量藏在细节里，并讨论把控制权交给模型的智能体。",
     "d": "computer-science"
   },
   "/computer-science/frontier/sustainable-computing": {
     "t": "计算的碳足迹：可持续计算的实测与分歧",
-    "e": "2025 年 4 月，国际能源署（IEA）发布《Energy and AI》特别报告，给出了两个被反复引用的数字：全球数据中心 2024 年用电约 415 太瓦时（TWh），占全球用电量约 1…",
+    "e": "IEA 2025年报告估计全球数据中心2024年用电约415太瓦时，基准情景下2030年将增至约945太瓦时；本文先分清三种数字，再说明PUE量的并不是有用功。",
     "d": "computer-science"
   },
   "/computer-science/frontier/zero-knowledge-proofs": {
     "t": "零知识证明与隐私计算",
-    "e": "想象这样一个场景：你想向一家医院证明你没有某种遗传性疾病，但不想透露你的基因数据。你想向银行证明你的信用分足以申请贷款，但不想暴露你的财务明细。你想证明你年满 18 岁，但不想给对方看你的身份…",
+    "e": "零知识证明让人证明自己年满18岁或信用达标，却不透露具体数据；本文澄清零知识不等于匿名，讲交互式证明的三个性质，以及非交互式的zk-SNARK。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/ada-lovelace": {
     "t": "爱达·洛夫莱斯",
-    "e": "1843 年，一位 27 岁的英国女性在翻译一篇意大利数学家的文章时，加进了自己的七条注释。这些注释的篇幅比原文多出三倍，包含了人类历史上第一个被发表的计算机程序——尽管运行这个程序的机器从未…",
+    "e": "1843年，拜伦之女洛夫莱斯翻译一篇论分析机的文章，所加注释的篇幅超过原文三倍，其中的注释G包含第一个被发表的算法；本文也厘清“第一位程序员”称号的真实边界。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/alan-kay": {
     "t": "艾伦·凯",
-    "e": "1968 年，艾伦·凯（Alan Kay）还是犹他大学的一名博士生，某天他走进一个陈列室，看到一台叫 FLEX 的实验性计算机原型。那台机器可以在屏幕上直接绘制图形。他突然意识到：这台机器不应…",
+    "e": "艾伦·凯在犹他读博时看到FLEX原型，萌生了人人可用的Dynabook构想；本文澄清他不是图形界面的发明者，讲Xerox PARC的黄金时代，以及面向对象编程与Smalltalk。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/alan-turing": {
     "t": "艾伦·图灵",
-    "e": "在计算机这台机器被造出来之前十几年，一个 24 岁的剑桥研究生先在纸上把它想了出来。1936 年，艾伦·图灵为了回答一个纯逻辑问题，发明了一个假想的机器——后来人们叫它\"图灵机\"。这台纸上的机…",
+    "e": "1936年，24岁的图灵为回答判定问题，在纸上发明了图灵机，定义了什么叫计算；本文澄清他不是造出第一台计算机的人，并解释图灵机为何长成那个样子。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/andrew-yao": {
     "t": "姚期智",
-    "e": "1979 年，姚期智（Andrew Chi-Chih Yao，1946 年 12 月 24 日生于上海）问了一个看起来不像复杂性的问题：爱丽丝拿着 x，鲍勃拿着 y，两人算力无限，只计他们之间…",
+    "e": "1979年姚期智把计量单位从步数换成跨越边界的比特，开创通信复杂性；本文还讲他如何把极小极大原理变成随机算法下界，以及百万富翁问题与混淆电路。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/barbara-liskov": {
     "t": "芭芭拉·利斯科夫",
-    "e": "1968 年，芭芭拉·利斯科夫（Barbara Liskov）从斯坦福大学计算机科学系获得博士学位——她是美国最早从计算机科学系拿到博士学位的女性之一（更早的玛丽·肯尼斯·凯勒 Mary Ke…",
+    "e": "利斯科夫是美国最早获得计算机科学博士的女性之一，1974年在MIT设计了CLU；本文澄清Liskov替换原则不是继承的语法规则，而是关于行为的形式定义。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/bill-gates": {
     "t": "比尔·盖茨",
-    "e": "1975 年 1 月，《大众电子》杂志封面刊登了 Altair 8800——第一台面向消费者的个人计算机套件。哈佛大学大二学生比尔·盖茨（William Henry Gates III）看到后…",
+    "e": "1975年，哈佛学生盖茨看到Altair 8800后致电MITS，声称已有可在其上运行的BASIC；本文说明盖茨首先是程序员，并讲Altair BASIC、DOS与Windows。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/bjarne-stroustrup": {
     "t": "比雅尼·斯特劳斯特鲁普",
-    "e": "\"C++ 是被设计成语言特性不断相互作用，形成远超各个部分之和的整体。\"",
+    "e": "斯特劳斯特鲁普受Simula启发，在贝尔实验室创造了C++；本文澄清C++不只是“加了类的C”，并阐释它让语言特性相互作用、整体大于部分之和的核心设计哲学。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/butler-lampson": {
     "t": "巴特勒·兰普森",
-    "e": "1992 年图灵奖颁给巴特勒·兰普森（Butler W. Lampson），表彰的不是单一算法，而是在 SDS 940、Alto、以太网、激光打印、分时与后来的微软研究里反复出现的一种能力：把…",
+    "e": "1992年兰普森获图灵奖，表彰他在SDS 940、Alto、以太网、激光打印等系统中把设计判断写成可实现的系统；本文澄清Alto不是他一个人的成果，并讲他的系统设计提示。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/charles-babbage": {
     "t": "查尔斯·巴贝奇",
-    "e": "1833 年，一个机器的图纸被铺在伦敦一间工作室的桌上。设计者用了将近十年时间构思这台装置，它有齿轮、凸轮和穿孔卡片，能够执行任意的数学运算——读取指令，分支判断，循环执行。设计者叫查尔斯·巴…",
+    "e": "1833年巴贝奇设计的分析机已有穿孔卡片、分支与循环，却从未被完整造出；本文从维多利亚时代的计算危机讲起，说明巴贝奇不是失败者，并介绍差分机。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/claude-shannon": {
     "t": "克劳德·香农",
-    "e": "1948 年，《贝尔系统技术期刊》分两期（7 月与 10 月）刊发了一篇合计约五十页的长文，题目平淡无奇：《通信的数学理论》。克劳德·香农（Claude Shannon）在这篇文章里做了一件看…",
+    "e": "1948年香农发表《通信的数学理论》，把飘忽的“信息”变成可精确计算的量；本文澄清信息论不关心信息的含义，讲熵、比特与信道容量，以及贝尔实验室里的这位“魔术师”。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/cynthia-dwork": {
     "t": "辛西娅·德沃克",
-    "e": "2006 年，辛西娅·德沃克（Cynthia Dwork，1958 年 6 月 27 日生）与弗兰克·麦克谢里、科比·尼西姆、亚当·史密斯把一条不等式写进 TCC：机制在只相差一条记录的两个数…",
+    "e": "2006年德沃克等人写下差分隐私的定义：机制在只差一条记录的两个数据集上，输出分布必须接近；本文澄清加噪声或删姓名都不是差分隐私，并回顾她更早在非延展密码等方向的工作。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/dennis-ritchie": {
     "t": "丹尼斯·里奇",
-    "e": "有一种贡献，你每天在使用它，却从未意识到它的存在。你打开的每一个 App，运行的每一段服务器代码，嵌入在你汽车里的每一行固件——它们的绝大多数都用 C 语言写成，或者运行在 Unix 及其后代…",
+    "e": "今天绝大多数软件不是用C写成，就是运行在Unix的后代之上；本文说明C语言并非偶然发明，讲里奇在贝尔实验室与Unix的诞生，以及C的核心设计哲学。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/donald-knuth": {
     "t": "唐纳德·克努特",
-    "e": "1962 年，一位年仅 24 岁的数学研究生收到了一家出版社的邀约，请他写一本关于编译器的书。他估计需要 12 章，大约两年完成。实际上，他花了六十年，只写完了其中的一部分——但这本半完成的书…",
+    "e": "1962年克努特应约写一本编译器的书，预计两年写完，结果写了六十年，成了《计算机程序设计艺术》；本文讲他从神学生到算法圣经作者的经历，以及他对算法分析的规范化。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/douglas-engelbart": {
     "t": "道格拉斯·恩格尔巴特",
-    "e": "1968 年 12 月 9 日下午，旧金山一个大礼堂里，几千名计算机工程师目睹了一场后来被称为\"所有演示之母\"（Mother of All Demos）的展示。",
+    "e": "1968年恩格尔巴特在旧金山做了“所有演示之母”，远程连线约50公里外的门洛帕克；本文指出他的核心不是发明鼠标，而是增强人类智能，讲H-LAM/T框架与引导程序思想。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/edgar-codd": {
     "t": "埃德加·科德",
-    "e": "1970 年，IBM 研究员埃德加·科德（Edgar Codd，全名 Edgar Frank Codd）发表了一篇 11 页的论文：《大型共享数据库的关系数据模型》（\"A Relational…",
+    "e": "1970年IBM研究员科德用一篇11页论文提出关系模型，回应1960年代数据库的混乱；本文澄清关系数据库不是“把数据放进表格”，并讲关系模型的核心思想。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/edsger-dijkstra": {
     "t": "艾兹格·迪科斯彻",
-    "e": "1968 年，《ACM 通讯》刊发了一封只有三段话的短信，标题是《Go To 语句被认为是有害的》（Go To Statement Considered Harmful）。发信人是荷兰计算机科…",
+    "e": "1968年迪科斯彻的短信《Go To语句被认为是有害的》引发了数十年争论；本文指出他不只是算法发明家，讲他在物理与计算机之间的抉择，以及1959年的最短路径算法。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/fei-fei-li": {
     "t": "李飞飞",
-    "e": "2009 年，李飞飞与邓嘉、董伟、Richard Socher 等人在 CVPR 发表 ImageNet：按 WordNet 同义词集组织、当时约 320 万张标注图像的层次数据库。2010 …",
+    "e": "2009年李飞飞等人发表按WordNet组织、约320万张标注图像的ImageNet，后来成为年度公共基准；本文澄清她不是深度学习之母，ImageNet也不是无代价的自然数据。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/frances-allen": {
     "t": "弗朗西丝·艾伦",
-    "e": "编译器是软件世界里最沉默的基础设施之一。你写下 for i in range(10): print(i)，背后有一套复杂的程序把你的意图翻译成处理器能理解的指令，并在翻译过程中悄悄地、系统地把…",
+    "e": "优化编译器的数学基础与工程实践，很大程度上出自弗朗西丝·艾伦；本文讲她从小学教师到IBM研究员的经历，以及程序流图与数据流分析等核心贡献。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/geoffrey-hinton": {
     "t": "杰弗里·辛顿",
-    "e": "2024 年 10 月，瑞典皇家科学院宣布将当年的诺贝尔物理学奖授予杰弗里·辛顿（Geoffrey Hinton）和约翰·霍普菲尔德（John Hopfield），表彰他们\"通过人工神经网络实…",
+    "e": "2024年辛顿与霍普菲尔德因人工神经网络获诺贝尔物理学奖；本文澄清反向传播不是他发明的，但他让它真正发挥作用，讲他被主流冷落的岁月和玻尔兹曼机。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/george-boole": {
     "t": "乔治·布尔",
-    "e": "1854 年，一位没有大学学位的英国乡村教师出版了一本薄薄的书，书名叫《思维的规律》（The Laws of Thought）。书中提出了一套用代数符号表达逻辑推理的方法——AND、OR、NO…",
+    "e": "1854年，没有大学学位的乡村教师布尔出版《思维的规律》，用代数符号表达逻辑推理；本文澄清布尔不是计算机科学家，讲这位自学成才者如何把逻辑变成代数。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/grace-hopper": {
     "t": "格蕾丝·霍普",
-    "e": "1947 年 9 月 9 日，哈佛大学 Mark II 计算机出现故障。操作团队在继电器（Relay #70）触点之间找到了一只飞蛾，把它用胶带粘在日志本上，在旁边写道：\"First actu…",
+    "e": "1947年Mark II继电器里那只被贴进日志的飞蛾，并不是霍普贴的，“bug”一词也不是她发明的；本文讲她作为数学家从军的经历，以及1952年的A-0系统这个早期编译器。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/guido-van-rossum": {
     "t": "吉多·范罗苏姆",
-    "e": "1989 年圣诞节假期，荷兰程序员吉多·范罗苏姆（Guido van Rossum）觉得无聊，决定做一个他构思已久的小项目：一门新的脚本语言，作为 ABC 语言的继承者，但修正他认为 ABC …",
+    "e": "1989年圣诞假期，范罗苏姆开始写一门继承ABC语言的脚本语言Python；本文澄清Python不是慢而简单的玩具语言，并讲它的核心设计决策。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/john-backus": {
     "t": "约翰·巴克斯",
-    "e": "1953 年，IBM 的工程师约翰·巴克斯（John Backus）向管理层提交了一份提案，内容是开发一种全新的编程语言，让数学家和工程师可以用接近数学公式的方式写程序，而不必手写汇编代码。管…",
+    "e": "1957年巴克斯带领团队发布FORTRAN，打破了编译代码必然慢于手写汇编的迷信；本文说明他不只是FORTRAN之父，并讲他从混混到IBM研究员的经历。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/john-mccarthy": {
     "t": "约翰·麦卡锡",
-    "e": "1955 年夏天，一个年仅 27 岁的数学家在一份提案里写下了两个词：\"artificial intelligence\"。那个夏天，这两个词还不存在于任何技术词汇表里。写下它们的人是约翰·麦卡…",
+    "e": "1955年，27岁的麦卡锡在达特茅斯研讨会提案中写下“artificial intelligence”；本文说明他并不是在制造“聪明机器”，讲他的早年经历，以及1956年夏天的达特茅斯会议。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/john-von-neumann": {
     "t": "冯·诺伊曼",
-    "e": "1945 年夏，一份未经正式发表、只是在研究人员之间传阅的打字稿，重新定义了计算机应该是什么样子。这份由约翰·冯·诺伊曼（John von Neumann）执笔的《EDVAC 报告初稿》，把指…",
+    "e": "1945年冯·诺伊曼执笔的《EDVAC报告初稿》把指令和数据放进同一块存储器，成为此后计算机的骨架；本文说明他远不只是架构师，讲他从布达佩斯神童到曼哈顿计划的经历。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/judea-pearl": {
     "t": "朱迪亚·珀尔",
-    "e": "1980 年代中期，人工智能的主流产品是规则库：若症状清单匹配，则推出病名，再给一条「确定性因子」。朱迪亚·珀尔（Judea Pearl，1936 年 9 月 4 日生于特拉维夫）认为这条路在…",
+    "e": "1980年代珀尔认为规则库加确定性因子在概率上不自洽，转而用有向无环图表示依赖；本文澄清贝叶斯网络不是画成图的贝叶斯公式，讲从d-分离到do演算，以及他参与的三场争论。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/ken-thompson": {
     "t": "肯·汤普森",
-    "e": "1969 年的一个夏天，肯·汤普森（Ken Thompson）的妻子和儿子去加利福尼亚度假，给他留下了三个星期的独处时光。他用这三周，在贝尔实验室一台被废弃的 PDP-7 小型机上，写出了一个…",
+    "e": "1969年夏天，汤普森趁家人度假，用三周在一台废弃的PDP-7上写出内核、shell和编辑器，Unix由此诞生；本文说明他不只是里奇的合作者，并讲Unix的核心设计。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/larry-page-and-sergey-brin": {
     "t": "拉里·佩奇与谢尔盖·布林",
-    "e": "1995 年，谢尔盖·布林（Sergey Brin）被斯坦福大学计算机科学系派去接待一批新生参观校园，其中一个新生是拉里·佩奇（Larry Page）。两人争论不休——朋友们后来说，他们第一次…",
+    "e": "1995年布林接待新生佩奇时两人争论不休，三年后合创Google；本文澄清Google不是第一个搜索引擎，讲斯坦福时期的PageRank及其数学直觉。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/leslie-lamport": {
     "t": "莱斯利·兰波特",
-    "e": "1978 年，兰波特（Leslie Lamport）发表了一篇题为《分布式系统中的时间、时钟与事件排序》（Time, Clocks, and the Ordering of Events in…",
+    "e": "1978年兰波特发表《分布式系统中的时间、时钟与事件排序》，提出逻辑时钟；本文说明他不只是LaTeX的作者，并讲拜占庭将军问题等工作。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/linus-torvalds": {
     "t": "林纳斯·托瓦兹",
-    "e": "1991 年 8 月 25 日，赫尔辛基大学的一名 21 岁学生在 comp.os.minix 新闻组上发帖：",
+    "e": "1991年，21岁的托瓦兹在Minix新闻组发帖，称在做一个“只是爱好”的免费操作系统；本文澄清Linux只是内核，讲Minix带来的灵感与挫折，以及0.01版的名字和许可证。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/margaret-hamilton": {
     "t": "玛格丽特·汉密顿",
-    "e": "1969 年 7 月 20 日，阿波罗 11 号登月舱距离月球表面还有约 3000 米时，飞行计算机突然发出警报——代码 1202。宇航员尼尔·阿姆斯特朗向地面报告，休斯顿控制中心紧张地评估：…",
+    "e": "阿波罗11号登月前约3000米处，飞行计算机报出1202警报，但系统按设计丢弃低优先级任务，继续运行；本文说明汉密顿并非碰巧参与阿波罗，并讲在“软件工程师”一词出现前的工程挑战。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/marvin-minsky": {
     "t": "马文·明斯基",
-    "e": "1956 年夏天，在达特茅斯学院的一次研讨会上，一群数学家和工程师聚集在一起，讨论一个听起来疯狂的想法：机器能否模拟人类智能？ 这次会议被认为是人工智能作为一个学科正式诞生的时刻。马文·明斯基…",
+    "e": "明斯基是1956年达特茅斯会议的组织者之一，此后半个世纪推动也搅动着AI领域；本文说明他不只是“AI之父”，讲他从神经网络转向符号主义，以及他创建的MIT人工智能实验室。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/michael-stonebraker": {
     "t": "迈克尔·斯通布雷克",
-    "e": "1970 年代中期，伯克利的 INGRES 与 IBM 的 System R 几乎同时证明：埃德加·科德 的关系模型可以被做成能跑查询的系统。迈克尔·斯通布雷克（Michael Stonebr…",
+    "e": "1970年代伯克利的INGRES与IBM的System R证明了关系模型可以做成能跑查询的系统；本文澄清斯通布雷克不是SQL之父，讲INGRES、Postgres与专用引擎，以及布局与执行模型的取舍。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/patterson-and-hennessy": {
     "t": "大卫·帕特森与约翰·亨尼西",
-    "e": "1980 年前后，伯克利的大卫·帕特森（David Patterson）与斯坦福的约翰·亨尼西（John Hennessy）几乎同时把指令集往窄处推：只保留能被流水线快速执行的简单操作，把复杂…",
+    "e": "1980年前后，伯克利的帕特森与斯坦福的亨尼西几乎同时提出RISC，只保留能被流水线快速执行的简单操作；本文说明RISC不是指令越少越好，而是一条可测量的性能方程。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/radia-perlman": {
     "t": "拉迪亚·珀尔曼",
-    "e": "1985 年，拉迪亚·珀尔曼（Radia Perlman）给扩展局域网里的网桥写了一份分布式算法：选出根桥，计算到根的最短路径，阻塞多余端口，让有环的网状连线在逻辑上变成一棵树。没有这棵树，广…",
+    "e": "1985年珀尔曼为网桥设计了生成树算法，把有环的网状连线在逻辑上变成一棵树，防止广播帧无限复制；本文澄清她不是互联网之母，生成树也不是路由。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/richard-stallman": {
     "t": "理查德·斯托曼",
-    "e": "1983 年 9 月 27 日，MIT 人工智能实验室的一台打印机引发了一场运动。理查德·斯托曼（Richard Matthew Stallman，缩写 RMS）想修改一台 Xerox 激光打…",
+    "e": "1983年，一台频繁卡纸的施乐打印机拿不到驱动源码，促使斯托曼发起GNU项目；本文强调自由软件的关键是“自由”而非“免费”，并讲GPL与1985年成立的自由软件基金会。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/robert-tarjan": {
     "t": "罗伯特·塔扬",
-    "e": "1971 年，斯坦福大学的一名博士生在攻读计算机科学的第一年，注意到一个奇特的模式：深度优先搜索（DFS）这个看似简单的图遍历策略，背后蕴藏着惊人的算法力量。",
+    "e": "塔扬读博第一年就发现深度优先搜索蕴藏的算法力量，用它在线性时间内求出强连通分量等结构；本文说明“塔扬算法”不是一个而是一类，并讲1972年的强连通分量算法。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/ron-rivest": {
     "t": "罗纳德·里维斯特",
-    "e": "1977 年 8 月，《科学美国人》（Scientific American）专栏作家 Martin Gardner 在其\"数学游戏\"专栏里刊登了一道挑战题：破解一段用新密码加密的信息，奖励 …",
+    "e": "1977年加德纳在《科学美国人》专栏刊出一道RSA挑战题，悬赏100美元；本文澄清公钥加密的思想不是RSA首创，讲MIT办公室里的那个夜晚，以及RSA为何既正确又难破。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/shafi-goldwasser": {
     "t": "沙菲·戈德瓦塞尔",
-    "e": "1982 年的 STOC 上，两名伯克利研究生把「加密」从一种打乱字母的手艺，改写成一场游戏。沙菲·戈德瓦塞尔（Shafrira Goldwasser，1958 年生于纽约）与西尔维奥·米卡利…",
+    "e": "1982年戈德瓦塞尔与米卡利把加密重写成一场区分游戏，又以GMR把证明变成带硬币的对话；本文用二次剩余加密一个比特来演示，并澄清零知识不是把秘密再加密一遍。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/stephen-cook": {
     "t": "斯蒂芬·库克",
-    "e": "1971 年 5 月，俄亥俄州谢克海茨（Shaker Heights）的计算理论年会（STOC）上，多伦多大学一位刚满三十岁的教授宣读了一篇标题朴素的短文：《定理证明程序的复杂性》（The C…",
+    "e": "1971年库克在STOC宣读《定理证明程序的复杂性》，奠定了NP完全理论；本文澄清NP完全不等于解不了，演示一张计算表如何变成布尔公式，并讲列文的平行发现。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/steve-wozniak": {
     "t": "史蒂夫·沃兹尼亚克",
-    "e": "如果说史蒂夫·乔布斯是苹果公司的灵魂，史蒂夫·沃兹尼亚克（Stephen Gary Wozniak，绰号\"Woz\"）就是它的智识。",
+    "e": "1976年在惠普工作的沃兹尼亚克为家酿计算机俱乐部的朋友设计了Apple I；本文说明他才是苹果的技术灵魂，并讲真正改变世界的Apple II。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/tim-berners-lee": {
     "t": "蒂姆·伯纳斯-李",
-    "e": "1989 年 3 月，一位在瑞士日内瓦欧洲核子研究中心（CERN）工作的英国工程师向老板提交了一份建议书，标题是《信息管理：一个提案》（Information Management: A Pr…",
+    "e": "1989年伯纳斯-李在CERN提交《信息管理：一个提案》，老板批注“模糊但令人兴奋”，万维网由此诞生；本文澄清万维网不等于互联网，讲三个协议构成的开放架构。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/tony-hoare": {
     "t": "托尼·霍尔",
-    "e": "1960 年，一位 26 岁的英国年轻人为了和上司打的一个赌，写出了一种排序方法。它快得不可思议，至今仍是计算机每天排序数据时最常用的算法之一。但写出它的查尔斯·安东尼·理查德·霍尔（C. A…",
+    "e": "1960年，26岁的霍尔为了一个赌写出快速排序，但他一生更难的工作是让人相信程序真的正确；本文还讲他经历的一次价值三十人年的失败。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/vint-cerf": {
     "t": "文顿·瑟夫",
-    "e": "1973 年的一个下午，文顿·瑟夫（Vinton G. Cerf）坐在旧金山的一家酒店大堂里，在一个信封的背面草草写下了一些想法——关于如何让不同的计算机网络互相\"交谈\"。他的搭档鲍勃·卡恩（…",
+    "e": "1973年瑟夫与卡恩在旧金山一家酒店大堂的信封背面勾画出TCP/IP的雏形；本文强调互联网不是某一个人发明的，讲ARPANET的局限和TCP/IP为何行得通。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/yann-lecun": {
     "t": "杨·勒坤",
-    "e": "1989 年，贝尔实验室的一位年轻法国研究员把一张手写数字的灰度图像送入一个神经网络，网络输出了正确的数字识别结果。这不是第一次有人尝试用神经网络识别字符，但这一次的网络有一个根本不同的结构—…",
+    "e": "1989年勒坤在贝尔实验室用共享权重的小过滤器扫描图像，识别手写数字；本文澄清CNN并非他凭空发明，解释卷积为何节省参数，并提到法国学派的平行再发现。",
     "d": "computer-science"
   },
   "/computer-science/pioneers/yoshua-bengio": {
     "t": "约书亚·本希奥",
-    "e": "2003 年，约书亚·本希奥（Yoshua Bengio）与合作者发表了一篇论文《神经概率语言模型》（A Neural Probabilistic Language Model）。这篇论文引入…",
+    "e": "2003年本希奥等人发表《神经概率语言模型》，用神经网络把词映射到低维连续向量，即词嵌入；本文说明他不只是“深度学习三剑客”之一，讲他在蒙特利尔的坚持与主要技术贡献。",
     "d": "computer-science"
   },
   "/computer-science/systems/bigtable-2006": {
     "t": "Bigtable：稀疏表、Tablet 与时间戳单元",
-    "e": "2006 年 11 月，OSDI 在西雅图开会。Fay Chang、杰弗里·迪恩（Jeffrey Dean）、桑贾伊·格马瓦特（Sanjay Ghemawat）、Wilson C. Hsieh…",
+    "e": "2006年OSDI上发表的Bigtable把数据存成以行、列、时间戳为索引的稀疏表，按列族组织，并用Webtable举例；本文讲Tablet的三级定位以及对Chubby的依赖。",
     "d": "computer-science"
   },
   "/computer-science/systems/birman-1985-virtual-synchrony": {
     "t": "ISIS 1985：进程组、flush 与虚拟同步，不是又一份 ZooKeeper",
-    "e": "1985 年 12 月，康奈尔大学的肯尼斯·伯曼（Kenneth P. Birman）在第十届 ACM SOSP 上交出八页论文，会议录页码 79 至 86，DOI 10.1145/32362…",
+    "e": "1985年伯曼在SOSP上发表ISIS论文，提出进程组、flush与虚拟同步；本文梳理这套机制，辨析论文证明了什么、没有证明什么，并说明它不是又一份ZooKeeper。",
     "d": "computer-science"
   },
   "/computer-science/systems/build-systems-bazel": {
     "t": "构建系统：从 Make 到可复现构建",
-    "e": "一个几乎所有程序员都干过的动作：改了代码，make，跑起来行为没变，怀疑人生半小时，最后敲了 make clean && make，一切正常。",
+    "e": "改了代码make却毫无变化，最后只能make clean，这是构建系统给出了错误答案；本文从Make的依赖图模型讲起，说明正确的增量构建需要什么，以及如何走向可复现构建。",
     "d": "computer-science"
   },
   "/computer-science/systems/chord-2001": {
     "t": "Chord：标识符环上的查找，不是中心目录",
-    "e": "2001 年 8 月，SIGCOMM 在圣地亚哥开会。Ion Stoica、罗伯特·莫里斯（Robert Morris）、大卫·卡格（David Karger）、M. Frans Kaasho…",
+    "e": "2001年Stoica等人在SIGCOMM上提出Chord：把节点和键放在标识符环上，靠后继与手指表做对数跳数的查找，而不依赖中心目录；本文也辨析论文测到了什么、没测到什么。",
     "d": "computer-science"
   },
   "/computer-science/systems/chromium-site-isolation": {
     "t": "Chromium 的站点隔离：把进程边界当作安全边界",
-    "e": "在 Chrome 里按 Shift+Esc 打开自带的任务管理器，然后只开一个标签页去看一个普通的新闻网站。你大概率会看到不止一行：主文档一行，广告位的 iframe 一行，社交分享按钮的 i…",
+    "e": "Chrome里一个标签页可能对应四五个操作系统进程，这是站点隔离把进程边界当作安全边界的结果；本文讲它为何先为稳定性而生、后服务于安全，以及沙箱拿走了渲染器的哪些能力。",
     "d": "computer-science"
   },
   "/computer-science/systems/chubby-2006": {
     "t": "Chubby：松耦合系统上的锁服务，不是又一套数据库",
-    "e": "2006 年，OSDI 上 Mike Burrows 交出的不是又一套能扛吞吐的存储，而是 Google 已经跑了一年多的粗粒度锁服务。接口看起来像一套很小的文件系统：目录、整文件读写、劝告式…",
+    "e": "2006年Burrows在OSDI上介绍Google的Chubby：一套接口像小文件系统的粗粒度锁服务，目标首先是可靠与可用；本文讲单元、租约与客户端缓存，以及设计如何被实际用途改写。",
     "d": "computer-science"
   },
   "/computer-science/systems/cpython-gil": {
     "t": "CPython 的 GIL",
-    "e": "CPython 的全局解释器锁（GIL）是一把进程里的互斥锁：同一时刻只允许一个线程执行 Python 字节码。它不是语言标准的一部分。PyPy、Jython、IronPython 各自用过不…",
+    "e": "CPython的全局解释器锁让同一时刻只有一个线程执行Python字节码，它让引用计数保持简单，也成了最受抱怨的边界；本文分析这把锁守着什么，以及自由线程构建如何改写对象头。",
     "d": "computer-science"
   },
   "/computer-science/systems/curl-and-maintainer-burden": {
     "t": "curl：一个人维护的全球基础设施",
-    "e": "手边任何一台联网设备，多半正在用 curl 说话。手机应用拉一张图、机顶盒检查固件更新、车机后台下载地图、打印机去查耗材余量、游戏主机同步存档——这些请求里有相当一部分不是应用自己写的网络代码…",
+    "e": "手机、机顶盒、车机和打印机的大量网络请求都由libcurl发出；本文以这个基本靠一人维护的全球基础设施为例，讲它的scheme表与函数指针结构，以及迟到二十四年的连接过滤器抽象。",
     "d": "computer-science"
   },
   "/computer-science/systems/demers-1987-epidemic": {
     "t": "Demers 1987：谣言与反熵怎样维护副本，不是 Dynamo",
-    "e": "1987 年 8 月，第六届 ACM PODC 在温哥华开会。艾伦·德默斯（Alan Demers）、丹·格林（Dan Greene）、卡尔·豪泽（Carl Hauser）、韦斯·艾里什（We…",
+    "e": "1987年德默斯等人在PODC上用流行病模型维护复制数据库，区分直接邮寄、反熵与谣言传播三种机制；本文解释“死亡证书”要防止的是删除项复活，并说明它不是Dynamo。",
     "d": "computer-science"
   },
   "/computer-science/systems/dynamo-eventually-consistent": {
     "t": "Dynamo：最终一致的键值存储",
-    "e": "2004 年到 2007 年，亚马逊的购物车不能停。一次“加入购物车”若因为某台存储节点宕机而失败，页面上就是真金白银的放弃。Giuseppe DeCandia 一队人要的不是全局事务，而是一…",
+    "e": "亚马逊购物车不能因节点宕机而写入失败，2007年的Dynamo论文以最终一致性换取写可用；本文讲环、虚拟节点与偏好列表，以及松散仲裁、Hinted Handoff和Merkle树。",
     "d": "computer-science"
   },
   "/computer-science/systems/envoy-service-mesh": {
     "t": "Envoy 与服务网格：把网络逻辑从应用里搬出来",
-    "e": "2015 年前后的 Lyft 正处在一段很典型的迁移里：一个 PHP 单体被拆成几十个 Python 和 Go 服务。拆完以后出现了一类新的故障——请求失败了，但没有任何一个服务认为自己出了错…",
+    "e": "Lyft拆分单体后，超时、重试和故障实例这些网络逻辑被各个服务重复实现，Envoy因此把它们从应用里搬了出来；本文讲服务网格的由来，以及Envoy内部几乎无锁的线程模型。",
     "d": "computer-science"
   },
   "/computer-science/systems/etcd-raft": {
     "t": "etcd：把 Raft 变成能用的东西",
-    "e": "Raft 论文只有十六页。读完之后你会有种错觉：这东西我能实现。选举、日志复制、安全性约束，每一条都写得清清楚楚，伪代码就在图 2 里。",
+    "e": "Raft论文只有十六页，真去实现时，日志写在哪、要不要fsync、成员如何变更都得自己补；本文以etcd为例，讲把Raft变成可用系统要补的工程，从预写日志落盘讲起。",
     "d": "computer-science"
   },
   "/computer-science/systems/firecracker-microvm": {
     "t": "Firecracker：微型虚拟机",
-    "e": "AWS Lambda 的计费粒度是毫秒，租户是陌生人。容器共享宿主机内核，启动快，边界宽；传统虚拟机边界窄，启动却要拖着一整套模拟设备。2018 年开源、2020 年 NSDI 成文的 Fir…",
+    "e": "AWS Lambda按毫秒计费、租户互不相识，Firecracker用KVM做硬件虚拟化，却把设备模型砍到几乎只剩virtio网卡和磁盘；本文讲如何把攻击面压成一张短表，并在单机上提高密度。",
     "d": "computer-science"
   },
   "/computer-science/systems/gfs-2003": {
     "t": "GFS：单主节点、大块与可忍受的不一致",
-    "e": "2003 年 10 月，SOSP 在纽约州博尔顿兰丁开会。桑贾伊·格马瓦特（Sanjay Ghemawat）、Howard Gobioff 和 Shun-Tak Leung 交出的不是又一套 …",
+    "e": "2003年SOSP上发表的GFS是Google的生产存储：单主节点管元数据、一群chunkserver存大块数据，并容忍一定的不一致；本文讲控制面与数据面分离，以及副本如何跨机架放置。",
     "d": "computer-science"
   },
   "/computer-science/systems/git-object-model": {
     "t": "Git 的对象模型：为什么分支是廉价的",
-    "e": "在一个二十年历史、上百万次提交的仓库里敲 git branch feature-x，回车之后光标立刻就回来了。同一台机器上复制一份工作目录要等几十秒，而 Git 建分支的耗时与仓库大小完全无关…",
+    "e": "在百万次提交的仓库里建分支也是瞬间完成，这是Git数据模型的直接推论；本文讲Git只认识的四种对象，以及名字由内容决定的内容寻址。",
     "d": "computer-science"
   },
   "/computer-science/systems/hnsw-ann-index": {
     "t": "HNSW 与向量近邻：当距离代替关键词",
-    "e": "倒排索引回答的是“哪些文档含有这些词”。向量索引回答的是另一句：给定一个高维点，谁在几何上离它最近。推荐、以图搜图、以及把句子编成嵌入再检索，都把问题收成近似 k 近邻（ANN）。精确扫一遍全…",
+    "e": "向量索引回答的是谁在几何上离查询点最近，分层可导航小世界图HNSW允许漏掉少数真近邻来换取低延迟；本文澄清向量库不是会算余弦的数据库，讲它在内存和磁盘上的结构与查询路径。",
     "d": "computer-science"
   },
   "/computer-science/systems/hotspot-jvm": {
     "t": "JVM：字节码、JIT 与垃圾回收",
-    "e": "HotSpot 这个名字来自一个经验判断：程序里真正值钱的是一小撮反复执行的热点，而不是每一字节码都值得同等待遇。它的前身是 Animorphic 的 Strongtalk，血统接到 Self…",
+    "e": "HotSpot的名字来自一个判断：值得优化的只是一小撮反复执行的热点代码，它的血统可追溯到Strongtalk与Self；本文讲剖面、内联与JIT编译，以及共用一份堆的各种垃圾收集器。",
     "d": "computer-science"
   },
   "/computer-science/systems/kademlia-2002": {
     "t": "Kademlia：XOR 距离上的 k-bucket，不是环上的手指",
-    "e": "2002 年 3 月，第一届 IPTPS 在麻省剑桥开会。纽约大学的彼得·迈蒙科夫（Petar Maymounkov）和大卫·马齐埃尔（David Mazières）交出的不是又一套文件共享产…",
+    "e": "2002年Maymounkov与Mazières提出Kademlia，用异或定义节点间的远近，并以k-bucket组织路由表、由发起者主导查找；本文说明它不同于环上的手指表，并辨析论文测量的范围。",
     "d": "computer-science"
   },
   "/computer-science/systems/kafka-log-abstraction": {
     "t": "Kafka：把消息队列还原成一个日志",
-    "e": "2011 年，LinkedIn 的 Jay Kreps、Neha Narkhede、Jun Rao 在 NetDB 研讨会上发表了《Kafka: a Distributed Messaging…",
+    "e": "2011年LinkedIn的Kreps等人发表Kafka论文，没有新算法，主张只有一条：把消息队列还原成一个只追加的日志；本文讲磁盘上的实际结构，以及同一个日志为何既是队列又是流。",
     "d": "computer-science"
   },
   "/computer-science/systems/kubernetes-controller-pattern": {
     "t": "Kubernetes 的控制器模式：声明式系统怎么收敛",
-    "e": "敲下 kubectl apply -f deployment.yaml，命令一秒返回，三个容器过一会儿就跑起来了。直觉会告诉你：这条命令去创建了三个容器。",
+    "e": "kubectl apply并不去创建容器，只是往数据库里写下“应该有三个副本”，真正干活的是一群不断调谐的控制器；本文讲声明式系统如何收敛，以及调谐循环的样子。",
     "d": "computer-science"
   },
   "/computer-science/systems/linux-containers-internals": {
     "t": "Linux 容器：它不是虚拟机",
-    "e": "在一台跑着 Debian 的机器上敲 docker run --rm -it ubuntu:24.04 bash，一秒之内你会拿到一个 Ubuntu 的 shell。cat /etc/os-r…",
+    "e": "在Debian上一秒就能得到一个Ubuntu shell，但容器并不是虚拟机，内核仍是同一个；本文讲内核里实际发生了什么，以及namespaces如何改写进程所看见的世界。",
     "d": "computer-science"
   },
   "/computer-science/systems/linux-scheduler-cfs-eevdf": {
     "t": "Linux 调度器：从 CFS 到 EEVDF",
-    "e": "你的笔记本上现在大概跑着一千多个线程，而 CPU 只有八到十六个逻辑核。每过几毫秒，内核就要回答一次同一个问题：下一微秒，这个核给谁？",
+    "e": "一千多个线程争抢十几个核，调度器要在公平、延迟与吞吐之间取舍；本文讲CFS如何把公平压缩成一个可比较的虚拟运行时间，以及它管得住总量、管不住时刻的弱点如何引出EEVDF。",
     "d": "computer-science"
   },
   "/computer-science/systems/llvm-ir": {
     "t": "LLVM 的中间表示：编译器生态的枢纽",
-    "e": "Rust、Swift、Julia、C++、Fortran 是五门差异极大的语言；x86-64、AArch64、RISC-V、NVIDIA 的 PTX、WebAssembly 是五套差异同样极大…",
+    "e": "五门语言、五套指令集的组合都能编译，却不需要二十五个编译器，中间靠的是LLVM IR；本文用把乘法变成加法的优化作例子，讲这种可读、可写、可验证的“汇编”。",
     "d": "computer-science"
   },
   "/computer-science/systems/lucene-inverted-index": {
     "t": "Lucene：搜索引擎内部的倒排索引",
-    "e": "一个装了两千万篇文档的系统，你输入\"量子纠缠\"，两百毫秒之内屏幕上出现十条结果，还按相关度排好了序。",
+    "e": "两千万篇文档里两百毫秒返回排好序的结果，靠的不是更快的服务器，而是倒排索引把扫描变成查表；本文讲Lucene倒排索引的形状，以及词项字典为何用FST而不用哈希表。",
     "d": "computer-science"
   },
   "/computer-science/systems/neo4j-property-graph": {
     "t": "Neo4j 属性图：当邻居指针取代 JOIN",
-    "e": "把好友关系、供应链、分子键画成圆点和箭头，几乎人人都会。把这张图画进数据库，很多人的第一反应却是：再加一张关联表，用 JOIN 把两边拼回去。这条路能走通，也把图查询最贵的那一步藏进了优化器：…",
+    "e": "用关联表和JOIN存图，每走一跳都要做一次索引查找；属性图数据库让节点直接持有邻居指针。本文澄清图数据库不是会递归的SQL，讲它的磁盘结构和相比JOIN省下的工作。",
     "d": "computer-science"
   },
   "/computer-science/systems/nginx-event-driven": {
     "t": "Nginx 的事件驱动架构：一个进程如何扛住十万连接",
-    "e": "2002 年，Igor Sysoev 在俄罗斯门户站点 Rambler 做系统管理。他遇到的不是\"服务器慢\"，而是一个更硬的墙：Apache 的连接数一旦爬到几千，机器就开始换页、卡顿、拒绝服…",
+    "e": "2002年Sysoev在Rambler发现Apache连接数一过几千就失去响应，资源却还没用满，于是写了nginx；本文从C10K问题讲起，解释事件驱动的master/worker进程架构。",
     "d": "computer-science"
   },
   "/computer-science/systems/object-storage-s3": {
     "t": "对象存储：S3 如何改变了存储的形状",
-    "e": "2006 年 3 月 14 日，Amazon 上线了一个只有四个主要动词的存储服务：PUT、GET、DELETE、LIST。定价是每 GB 每月 0.15 美元，外加每 GB 传出 0.20 …",
+    "e": "2006年上线的S3只有PUT、GET、DELETE、LIST四个主要动词，没有目录，也不能改写文件中间的字节；本文讲这个极简API，以及不可变对象与版本如何把“修改”变成“追加”。",
     "d": "computer-science"
   },
   "/computer-science/systems/pastry-2001": {
     "t": "Pastry：前缀表、叶集与邻近集，不是环上的手指",
-    "e": "2001 年 11 月，IFIP/ACM Middleware 在海德堡开会。微软剑桥研究院的安东尼·罗斯特龙（Antony Rowstron）和莱斯大学的彼得·德鲁舍尔（Peter Drus…",
+    "e": "2001年Rowstron与Druschel在Middleware会议上提出Pastry，为每个节点分配128位标识，用前缀表、叶集和邻近集路由；本文说明它不是环上的手指表，并辨析论文测量的范围。",
     "d": "computer-science"
   },
   "/computer-science/systems/postgresql-mvcc": {
     "t": "PostgreSQL 的 MVCC：读不阻塞写的代价",
-    "e": "一个再普通不过的场景：财务在跑一份要花八分钟的月度报表，与此同时，几百个用户正在下单、改地址、退款。报表读的是账户表，用户写的也是账户表。",
+    "e": "财务跑报表时用户仍在下单，PostgreSQL靠多版本并发控制让读不阻塞写；本文讲每行数据上的xmin与xmax，以及快照中三个数字如何决定事务能看见什么，并分析这样做的代价。",
     "d": "computer-science"
   },
   "/computer-science/systems/prometheus-pull-model": {
     "t": "Prometheus：拉模型与时序数据的代价",
-    "e": "2012 年 11 月 24 日，Prometheus 仓库收到第一个公开提交。写下它的 Matt T. Proud 和 Julius Volz 刚刚离开 Google 加入 SoundClo…",
+    "e": "2012年两位前Google工程师在SoundCloud参照Borgmon开始写Prometheus；本文指出拉与推之争决定的其实是谁掌握监控名单，并讲时序数据的形状如何决定TSDB设计。",
     "d": "computer-science"
   },
   "/computer-science/systems/pytorch-autograd": {
     "t": "PyTorch：动态图与自动微分",
-    "e": "2017 年的 NeurIPS 自动微分研讨会上，Adam Paszke、Sam Gross、Soumith Chintala 等人把 PyTorch 的核心机制写成一篇短文：前向计算一边跑，…",
+    "e": "PyTorch前向计算时在“磁带”上记下用过的函数，反向时倒放磁带，用向量—雅可比乘积把梯度送回叶子张量；本文讲磁带记录的内容，以及分发器与ATen算子库。",
     "d": "computer-science"
   },
   "/computer-science/systems/quic-http3": {
     "t": "QUIC：把传输层搬进用户态",
-    "e": "一个网页有 80 个资源要下载。HTTP/2 说：不用开 6 条连接了，一条就够，80 个请求在同一条 TCP 连接上并行跑，互不阻塞。",
+    "e": "HTTP/2把80个请求放在一条TCP连接上，丢一个包就会让其余资源全部等待；本文指出队头阻塞的根源在socket API，并讲QUIC如何把传输层搬进用户态，以及报文号永不复用解开的两个难题。",
     "d": "computer-science"
   },
   "/computer-science/systems/ratnasamy-2001-can": {
     "t": "CAN：笛卡尔分区与贪心转发，状态不随规模涨",
-    "e": "2001 年 8 月，SIGCOMM 在圣地亚哥开会。西尔维娅·拉特纳萨米（Sylvia Ratnasamy）、保罗·弗朗西斯（Paul Francis）、马克·汉德利（Mark Handle…",
+    "e": "2001年Ratnasamy等人在SIGCOMM上提出CAN，把键空间划成笛卡尔坐标空间的分区，用贪心转发路由，每个节点的状态不随规模增长；本文也辨析论文测到了什么、没测到什么。",
     "d": "computer-science"
   },
   "/computer-science/systems/redis-single-threaded": {
     "t": "Redis 的单线程模型：为什么不并行反而更快",
-    "e": "买一台 32 核的服务器，装上 Redis，打开监控——你会看到 31 个核几乎在闲着。",
+    "e": "32核服务器上跑Redis，31个核几乎闲着，这并不是配置错误；本文跟随一个请求走过Redis，解释单线程模型为何反而更快，以及它换来了什么。",
     "d": "computer-science"
   },
   "/computer-science/systems/rust-borrow-checker": {
     "t": "Rust 的借用检查器：把内存安全变成编译期问题",
-    "e": "C 语言里有一类 bug，它的特征是出错的位置和崩溃的位置没有关系。你在某处 free(p)，程序继续跑了两毫秒、经过了三十个函数，某个完全无辜的地方读到一块已经被别人重新分配走的内存，返回一…",
+    "e": "C里释放后再使用的内存错误，出错处与崩溃处往往毫无关系；Rust的借用检查器把这类问题挪到编译期。本文讲三条借用规则各自排除了哪些错误，以及检查器实际在做什么。",
     "d": "computer-science"
   },
   "/computer-science/systems/schneider-1990-smr": {
     "t": "Schneider 1990：副本确定性、输出一致与状态机方法，不是又一份 Paxos",
-    "e": "1990 年 12 月，康奈尔大学的弗雷德·B·施奈德（Fred B. Schneider）在 ACM Computing Surveys 第 22 卷第 4 期发表一篇二十一页教程，页码 2…",
+    "e": "1990年施奈德在ACM Computing Surveys发表教程，系统阐述状态机复制：确定性副本按全序执行请求就能输出一致；本文辨析这篇教程表明了什么、没表明什么，并说明它不是又一份Paxos。",
     "d": "computer-science"
   },
   "/computer-science/systems/sel4-verified-kernel": {
     "t": "seL4：被证明的微内核",
-    "e": "2009 年 10 月，美国蒙大拿州 Big Sky 的 SOSP 上，Gerwin Klein 一队人把一份听起来过分的结果摆上桌：一个通用微内核的 C 实现，与一份抽象规格之间，存在机器检…",
+    "e": "2009年Klein团队证明了约8700行C的seL4微内核与抽象规格之间存在机器检查过的精化关系；本文说明微内核为何必须小，并讲规格、原型、C实现三层精化。",
     "d": "computer-science"
   },
   "/computer-science/systems/spanner-truetime": {
     "t": "Spanner：用时钟换外部一致性",
-    "e": "2012 年 OSDI 上，Google 的 James C. Corbett 一队人描述了一套全球数据库：数据按目录切开放进 Paxos 组，事务跨组用两阶段提交，而时间戳不来自逻辑时钟，来…",
+    "e": "2012年Google的Spanner让时间戳来自TrueTime，它返回的不是时刻，而是一个区间；本文讲TrueTime在提交路径上的作用，以及按目录、tablet、Paxos组切分数据。",
     "d": "computer-science"
   },
   "/computer-science/systems/sqlite-internals": {
     "t": "SQLite：世界上部署最广的数据库",
-    "e": "你从来没有安装过它，但你身上大概带着几十份它。",
+    "e": "手机短信、浏览器历史和汽车导航背后常是同一段C代码，SQLite可能是部署最广的数据库；本文讲单个文件里的页、B树与freelist，以及事务从回滚日志到WAL的演进。",
     "d": "computer-science"
   },
   "/computer-science/systems/tapestry-2001": {
     "t": "Tapestry：邻接表、代理路由与就近副本，不是把对象搬到键上",
-    "e": "2001 年 4 月，加州大学伯克利分校计算机科学部发出技术报告 UCB/CSD-01-1141。本·赵（Ben Y. Zhao）、约翰·库比亚托维茨（John Kubiatowicz）和安东…",
+    "e": "2001年伯克利的本·赵等人的技术报告提出Tapestry，用邻接表、代理路由和软状态指针定位就近副本，而不是把对象搬到键所在节点；本文也辨析论文测到了什么、没测到什么。",
     "d": "computer-science"
   },
   "/computer-science/systems/terry-1994-session-guarantees": {
     "t": "Terry 1994：会话保证怎样把弱一致副本写成客户视角",
-    "e": "1994 年 9 月，第三届 International Conference on Parallel and Distributed Information Systems（PDIS）在奥斯…",
+    "e": "1994年特里等人提出会话保证，从客户视角为弱一致副本给出四种保证；本文讲会话历史与两份证据集合如何实现这些保证，并辨析论文声称了什么、没有测量什么。",
     "d": "computer-science"
   },
   "/computer-science/systems/tls-certificate-ecosystem": {
     "t": "TLS 与证书生态：陌生人之间如何建立信任",
-    "e": "你在地址栏敲下一个域名，几十毫秒之后，你的浏览器和一台从未见过的机器已经共享了一串只有它们两个知道的字节。中间隔着你家的路由器、运营商的骨干网、若干个数据中心的负载均衡器，任何一环都能读到全部…",
+    "e": "浏览器几十毫秒内就和陌生服务器共享了一串秘密字节，这背后其实是两个不同的问题：密钥交换与身份认证；本文讲一次握手要协商的三件事，以及TLS 1.3为何能把往返减半。",
     "d": "computer-science"
   },
   "/computer-science/systems/v8-jit": {
     "t": "V8 的分层 JIT：动态语言如何跑得快",
-    "e": "在 C 里写 p->x，编译出来是一条指令：从 p 指的地址往后数固定的字节数，取值。偏移量是编译期算好的常数，因为结构体的布局写在类型里，类型在编译期就定死了。",
+    "e": "C里的p->x是一次固定偏移的取值，JavaScript的p.x按规范却是一次字符串键查找；本文讲V8如何用隐藏类把哈希表变回结构体，以及分层JIT如何让动态语言跑得快。",
     "d": "computer-science"
   },
   "/computer-science/systems/viewstamped-replication-1988": {
     "t": "Viewstamped Replication：视图、主副本与盖章请求，不是又一份 Paxos",
-    "e": "1988 年，麻省理工学院计算机科学实验室的布莱恩·奥基（Brian M. Oki）与芭芭拉·利斯科夫（Barbara H. Liskov）在第七届 ACM PODC 上交出一篇十页论文，会议…",
+    "e": "1988年奥基与利斯科夫在PODC上提出Viewstamped Replication，用视图、主副本与视图戳盖章的请求实现复制；本文辨析论文表明了什么、没表明什么，并说明它不是又一份Paxos。",
     "d": "computer-science"
   },
   "/computer-science/systems/vllm-paged-attention": {
     "t": "vLLM：把 KV 缓存当成虚拟内存",
-    "e": "2023 年 SOSP 上，加州大学伯克利分校 Sky Computing Lab 的 Woosuk Kwon、Zhuohan Li 与同事描述了 vLLM：一套为大语言模型在线服务设计的内存…",
+    "e": "大模型推理时最容易把显存撕成碎片的是随请求膨胀的KV缓存，2023年伯克利的vLLM借用虚拟内存的分页思想来管理它；本文讲碎片从哪里来，以及词元级的请求进出调度。",
     "d": "computer-science"
   },
   "/computer-science/systems/xz-backdoor-supply-chain": {
     "t": "xz 后门：一次针对开源信任结构的社会工程",
-    "e": "2024 年 3 月下旬，微软的 PostgreSQL 开发者安德烈斯·弗罗因德在自己那台 Debian sid 机器上跑数据库基准测试。他注意到一件不该发生的事：ssh 登录变慢了，而且慢在…",
+    "e": "2024年3月，弗罗因德发现sshd每次登录多烧约半秒CPU，由此揭开xz后门；本文讲一个身份如何用三年赢得维护者的信任，以及恶意代码如何藏在测试夹具里。",
     "d": "computer-science"
   },
   "/computer-science/systems/zfs-copy-on-write": {
     "t": "ZFS：不覆盖写，与端到端校验",
-    "e": "有一类故障，比磁盘冒烟难对付得多。",
+    "e": "磁盘没坏、SMART全绿，读回的数据却不是当初写的，这就是静默数据损坏；本文讲ZFS如何用事务组和不覆盖写杜绝“写到一半”，并用块指针组成能自我验证的Merkle树。",
     "d": "computer-science"
   },
   "/computer-science/systems/zookeeper-2010": {
     "t": "ZooKeeper：等待自由的协调，不是又一套 Chubby 说明书",
-    "e": "2010 年 6 月，USENIX ATC 上，Yahoo Grid 的 Patrick Hunt、Mahadev Konar 与 Yahoo Research 的 Flavio P. Jun…",
+    "e": "2010年Yahoo的Hunt等人在USENIX ATC上发表已投入生产的ZooKeeper，提供等待自由的协调原语；本文讲znode、watch与会话，并说明它不是又一套Chubby。",
     "d": "computer-science"
   },
   "/computer-science/theory/adleman-1978-bpp-ppoly": {
     "t": "Adleman 1978：可放大的随机性怎样被多项式忠告替换",
-    "e": "1978 年 10 月 16 日至 18 日，第十九届计算机科学基础年会（FOCS）在密歇根州安阿伯举行。会议录页码 75 至 83 刊出伦纳德·阿德尔曼（Leonard M. Adleman…",
+    "e": "1978年阿德尔曼在FOCS上证明，可放大的随机多项式时间算法能被多项式长度的忠告替代；本文讲放大与多数票如何让一条忠告对所有等长输入都有效，并辨析它证明了什么、没有覆盖什么。",
     "d": "computer-science"
   },
   "/computer-science/theory/algorithmic-game-theory": {
     "t": "算法博弈论",
-    "e": "1951 年，约翰·纳什证明了一件让经济学界震动的事：任何有限博弈，都至少存在一个均衡——一组策略，没有任何参与者能靠单方面改变策略而获益。这是博弈论的基石。",
+    "e": "纳什1951年证明任何有限博弈都至少存在一个均衡，但均衡存在并不意味着它好算；本文从冯·诺依曼的极小极大定理讲起，讨论计算纳什均衡有多难及其复杂性地位。",
     "d": "computer-science"
   },
   "/computer-science/theory/approximation-algorithms": {
     "t": "近似算法理论",
-    "e": "假设你证明了一个问题是 NP 难的——比如规划全国快递车队的最优路线。这意味着（如果 P \\neq NP）你永远找不到一个又快又总能给出最优解的算法。",
+    "e": "问题被证明是NP难之后，快递车队明天照样要发车；近似算法要在多项式时间内给出有保证的解，而不是“差不多就行”的启发式。本文讲近似比，并以顶点覆盖和集合覆盖为例。",
     "d": "computer-science"
   },
   "/computer-science/theory/attiya-bar-noy-dolev-1995": {
     "t": "Attiya–Bar-Noy–Dolev 1995：消息传递上的原子寄存器",
-    "e": "1995 年 1 月，哈吉特·阿蒂亚（Hagit Attiya）、阿莫茨·巴尔-诺伊（Amotz Bar-Noy）与丹尼·多莱夫（Danny Dolev）在 Journal of the AC…",
+    "e": "1995年Attiya、Bar-Noy与Dolev在JACM上证明，消息传递系统可以借时间戳、多数派与读回写仿真原子寄存器；本文澄清这种仿真不是共识，并讲它在崩溃少于半数时的容错界限。",
     "d": "computer-science"
   },
   "/computer-science/theory/automata-formal-languages": {
     "t": "自动机与形式语言",
-    "e": "任何一门编程语言——Python、C、Haskell——在被计算机\"读懂\"之前，都必须经过一个关键步骤：把源代码字符串解析为结构化的语法树。这个过程依赖的理论，是自动机与形式语言——一套把\"什…",
+    "e": "编译器把源代码解析成语法树，依赖的是自动机与形式语言理论，而它的起点是乔姆斯基的语言学；本文说明形式语言不只是计算机语言，并讲乔姆斯基谱系。",
     "d": "computer-science"
   },
   "/computer-science/theory/average-case-complexity": {
     "t": "平均情况复杂性与密码学的五个世界",
-    "e": "NP 完全性说的是最坏情况：某个问题存在难解的实例。但最坏情况的难度对现实几乎没有承诺。 旅行商问题是 NP 完全的，而工业求解器每天处理着数万城市的实例；反过来，密码学需要的恰恰相反——它需…",
+    "e": "NP完全性只说存在难解的实例，密码学却要求随机抽一个实例几乎必然难解；本文从列文如何比较平均难度讲起，说明单向函数才是密码学真正需要的，以及“五个世界”的划分。",
     "d": "computer-science"
   },
   "/computer-science/theory/baker-gill-solovay-1975": {
     "t": "Baker–Gill–Solovay 1975：相对化怎样把对角化挡在 P 对 NP 门外",
-    "e": "1975 年 12 月，《SIAM 计算杂志》（SIAM Journal on Computing）第 4 卷第 4 期刊出西奥多·贝克（Theodore Baker）、约翰·吉尔（John …",
+    "e": "1975年Baker、Gill与Solovay构造出两座相反的神谕，一座下P等于NP，另一座下不等；本文说明相对化为何把对角化挡在P对NP门外，并澄清对角化并未就此作废。",
     "d": "computer-science"
   },
   "/computer-science/theory/barriers-to-proving-p-vs-np": {
     "t": "为什么 P vs NP 这么难证：三道障碍",
-    "e": "大多数关于 P 与 NP 的介绍会告诉你问题是什么、悬赏多少、以及\"大家都相信 P ≠ NP\"。很少有介绍讲这件事：我们不只是没证出来，我们还知道为什么整类看起来最自然的证明方法注定证不出来。",
+    "e": "我们不只是没证出P≠NP，还知道整类最自然的证明方法注定失败；本文介绍复杂性理论的三道障碍，从1975年的相对化讲到1994/1997年的自然证明。",
     "d": "computer-science"
   },
   "/computer-science/theory/bellare-rogaway-1993": {
     "t": "Bellare–Rogaway 1993：为什么先把哈希当成公开的随机预言机",
-    "e": "1993 年 11 月 3 日至 5 日，第一届 ACM 计算机与通信安全会议（CCS '93）在弗吉尼亚州费尔法克斯举行。那还是酒店式的小型年会，不是后来上千人的安全大会。",
+    "e": "1993年Bellare与Rogaway在首届CCS上提出，先把哈希当作公开的随机预言机来证明安全，再换成具体哈希；本文讲对预言机编程的技巧和最后那一跳，并辨析它证明了什么、没有覆盖什么。",
     "d": "computer-science"
   },
   "/computer-science/theory/bellare-rogaway-1994-oaep": {
     "t": "Bellare–Rogaway 1994：RSA 前面那两轮掩码为什么被叫优选",
-    "e": "1994 年 5 月 9 日至 12 日，欧洲密码学年会（EUROCRYPT）在意大利佩鲁贾举行。国际商业机器公司托马斯·J·沃森研究中心的米希尔·贝拉雷（Mihir Bellare）与加州大…",
+    "e": "1994年Bellare与Rogaway在EUROCRYPT上提出OAEP，在RSA陷门置换之前对消息加两轮费斯托式掩码；本文解释“优选”是关于膨胀的算术而非广告词，并辨析它证明了什么。",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/bellare-rogaway-1996-pss": {
+    "t": "Bellare–Rogaway 1996 PSS：给 RSA 签名加一把盐，换一条紧的归约",
+    "e": "1996 年贝拉雷与罗加韦先把“哈希后再用 RSA 签名”的安全损失按询问次数算清楚，再在哈希前加入随机盐，使伪造签名的难度与求 RSA 逆几乎相同；这就是 TLS 1.3 规定 RSA 签名必须使用的 PSS。",
     "d": "computer-science"
   },
   "/computer-science/theory/ben-or-1983": {
     "t": "Ben-Or 1983：抛硬币怎样把异步共识的终止改成几乎必然",
-    "e": "1983 年，迈克尔·本-奥尔（Michael Ben-Or）在 PODC 发表短文《Another Advantage of Free Choice: Completely Asynchro…",
+    "e": "1983年Ben-Or证明，让进程抛硬币，就能使完全异步系统中的共识以概率1终止，从而绕开确定性协议的不可能性；本文讲提议、选票、硬币的协议，并澄清“几乎必然”不是每条调度都结束。",
     "d": "computer-science"
   },
   "/computer-science/theory/blum-micali-1984": {
     "t": "Blum–Micali 1984：离散对数硬核怎样迭代成密码学伪随机比特",
-    "e": "1984 年 11 月，《SIAM Journal on Computing》第 13 卷第 4 期刊出曼纽尔·布卢姆（Manuel Blum）与西尔维奥·米卡利（Silvio Micali）…",
+    "e": "1984年Blum与Micali证明离散对数有硬核比特，并把单向置换迭代成密码学上强伪随机的比特序列；本文澄清硬核不是输出里的某个坐标，并讲反向输出下一比特的构造。",
     "d": "computer-science"
   },
   "/computer-science/theory/byzantine-generals-lamport-1982": {
     "t": "拜占庭将军问题",
-    "e": "1982 年 7 月，莱斯利·兰波特、Robert Shostak 与 Marshall Pease 在 ACM Transactions on Programming Languages a…",
+    "e": "1982年兰波特、Shostak与Pease提出拜占庭将军问题，研究部分成员任意作恶时如何达成交互一致性；本文澄清它不是崩溃故障，并说明只用口头消息时三个将军为何不够。",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/canetti-goldreich-halevi-1998": {
+    "t": "Canetti–Goldreich–Halevi 1998：有些方案只在随机预言机里安全",
+    "e": "1998 年卡内蒂、戈德赖希与哈勒维构造出这样的签名与加密方案：在随机预言机模型里可证明安全，可一旦把预言机换成任何一个可以写出来的函数族，就能被攻破。由此，“模型里有证明，换上好哈希就安全”不能当一般原则使用。",
     "d": "computer-science"
   },
   "/computer-science/theory/castro-liskov-1999-pbft": {
     "t": "Castro–Liskov 1999：实用拜占庭容错，不是将军寓言",
-    "e": "1999 年 2 月，米格尔·卡斯特罗（Miguel Castro）与 芭芭拉·利斯科夫 在新奥尔良第三届 OSDI 上发表《Practical Byzantine Fault Toleran…",
+    "e": "1999年Castro与Liskov在OSDI上发表实用拜占庭容错PBFT，把拜占庭容错做成可用的状态机复制；本文讲成员、视图、主副本与仲裁，以及预准备、准备、提交的正常路径。",
     "d": "computer-science"
   },
   "/computer-science/theory/chandra-toueg-1996": {
     "t": "Chandra–Toueg 1996：会犯错的怀疑预言怎样成为共识的最弱检测器",
-    "e": "1996 年 4 月，图沙尔·迪帕克·钱德拉（Tushar Deepak Chandra）与萨姆·图埃格（Sam Toueg）在 Journal of the ACM 第 43 卷第 2 期发…",
+    "e": "1996年Chandra与Toueg提出不可靠故障检测器，按完备性与准确性分级，并证明会犯错的怀疑预言也能支撑共识；本文说明“最弱”检测器的含义，以及多数正确的前提。",
     "d": "computer-science"
   },
   "/computer-science/theory/chandy-lamport-1985-snapshots": {
     "t": "Chandy–Lamport 1985：标记消息怎样把全局状态收成一致割",
-    "e": "1985 年 2 月，凯·马尼·钱迪（K. Mani Chandy）与 莱斯利·兰波特（Leslie Lamport）在 ACM Transactions on Computer System…",
+    "e": "1985年Chandy与兰波特提出分布式快照算法，靠沿FIFO通道发送标记消息记录出一致割；本文澄清快照不需要全员同时按快门，并辨析它证明了什么。",
     "d": "computer-science"
   },
   "/computer-science/theory/circuit-complexity": {
     "t": "电路复杂度",
-    "e": "香农在 1949 年算过一笔让人泄气的账：几乎所有 n 元布尔函数都需要指数规模的电路。绝大多数函数「就是难的」。",
+    "e": "香农1949年算出几乎所有布尔函数都需要指数规模电路，但给SAT这类具体函数证明下界极难；本文讲奇偶函数为何进不了AC⁰，以及从自然证明到Williams的NEXP⊄ACC⁰。",
     "d": "computer-science"
   },
   "/computer-science/theory/communication-complexity": {
     "t": "通信复杂度",
-    "e": "爱丽丝手里有 x，鲍勃手里有 y，两人都有无限的算力，但要合作算出 f(x,y)。唯一被计量的是他们之间传送的比特数。 姚期智在 1979 年提出这个模型时，对象见 Yao 1979，目标是分…",
+    "e": "姚期智1979年提出的模型只计算两方交换了多少比特，而不计步数；本文先用判断相等这个例子算一遍，再讲如何把协议画成矩形来证明下界。",
     "d": "computer-science"
   },
   "/computer-science/theory/computability": {
     "t": "可计算性理论",
-    "e": "在第一台电子计算机被制造出来之前整整十年，数学家们已经严格地证明了：某些问题，无论计算机有多强大，永远无法被程序所解决。这不是工程的局限，而是数学的边界——一条永远不会因为技术进步而后退的线。",
+    "e": "早在第一台电子计算机诞生前十年，数学家就证明了某些问题无论计算机多强都无法解决；本文澄清不可判定性不是“现在做不到”，讲1930年代的数学危机与图灵机模型。",
     "d": "computer-science"
   },
   "/computer-science/theory/computational-complexity": {
     "t": "计算复杂性理论",
-    "e": "1971 年，斯蒂芬·库克（Stephen Cook）在 ACM 会议上提出了一个问题，此后五十年没有人能够解决，而且极有可能在人类文明的有生之年都无法解决：P 是否等于 NP？",
+    "e": "1971年库克提出P是否等于NP，这个问题牵动密码学的根基和AI的边界，至今未解；本文澄清难题不等于不可计算，并讲P与NP的定义。",
     "d": "computer-science"
   },
   "/computer-science/theory/computational-geometry": {
     "t": "计算几何",
-    "e": "你每次用手机地图导航，都在隐式地使用计算几何。地图应用需要计算：你的位置附近有哪些餐厅（最近邻问题）；沿地图的多边形区域裁剪（多边形裁剪）；两条路是否交叉（线段相交）；如何优化无人机的送货路径…",
+    "e": "地图导航里的最近邻、多边形裁剪和线段相交都属于计算几何；本文说明它不是欧几里得几何的数字化，讲这门学科1970年代的建立，以及凸包等核心问题。",
     "d": "computer-science"
   },
   "/computer-science/theory/cook-1971-np-completeness": {
     "t": "Cook 1971：定理证明手续的复杂度怎样把 SAT 写成 NP 完全",
-    "e": "1971 年 5 月 3 日至 5 日，第三届 ACM 计算理论年会（STOC）在俄亥俄州谢克海茨（Shaker Heights）举行。多伦多大学的斯蒂芬·库克（Stephen A. Cook…",
+    "e": "1971年库克在STOC上发表《定理证明程序的复杂性》，把非确定性机器的接受计算写成公式，证明SAT是NP完全的；本文澄清完全性不等于没有算法，也区别于1972年的多一归约。",
     "d": "computer-science"
   },
   "/computer-science/theory/counting-complexity": {
     "t": "计数复杂度",
-    "e": "1979 年，莱斯利·瓦利安特（Leslie Valiant）把一张看起来几乎和行列式一样的式子推到了理论计算机科学的中心。积和式（permanent）只是把行列式展开里的正负号全部拿掉。高斯…",
+    "e": "积和式只是把行列式的正负号全部去掉，瓦利安特1979年却证明它是#P完全的；本文澄清#P不是“更细的NP”，并讲户田定理如何让一次计数查询吞掉整个多项式层级。",
     "d": "computer-science"
   },
   "/computer-science/theory/cramer-shoup-1998": {
     "t": "Cramer–Shoup 1998：判定性迪菲–赫尔曼上怎样交出不再挂非交互零知识的选择密文",
-    "e": "1998 年 8 月 23 日至 27 日，第十八届国际密码学年会（CRYPTO）在加利福尼亚州圣芭芭拉举行。苏黎世联邦理工学院理论计算机科学研究所的罗纳德·克拉默（Ronald Cramer…",
+    "e": "1998年Cramer与Shoup在CRYPTO上给出基于判定性迪菲–赫尔曼假设、抗选择密文攻击的实用公钥方案，不再依赖非交互零知识或随机预言机；本文辨析它证明了什么、没有覆盖什么。",
     "d": "computer-science"
   },
   "/computer-science/theory/cryptography-foundations": {
     "t": "密码学基础",
-    "e": "1976 年，斯坦福大学的两位研究者惠特菲尔德·迪菲（Whitfield Diffie）和马丁·赫尔曼（Martin Hellman）发表了一篇论文，标题听起来平淡无奇：《密码学的新方向》（N…",
+    "e": "1976年迪菲与赫尔曼在《密码学的新方向》中解决了素未谋面的双方如何共享秘密；本文说明密码学不只是打乱和还原，从香农的信息论基础讲到单向函数与公钥密码学的诞生。",
     "d": "computer-science"
   },
   "/computer-science/theory/differential-privacy": {
     "t": "差分隐私",
-    "e": "2006 年，辛西娅·德沃克（Cynthia Dwork）、弗兰克·麦克雪莉（Frank McSherry）、科比·尼西姆（Kobbi Nissim）与亚当·史密斯（Adam Smith）在 …",
+    "e": "2006年德沃克等人把“参与数据集是否改变输出分布”写成一条不等式；本文澄清差分隐私不是加一点噪声，讲相邻数据集、灵敏度与(ε,δ)，以及拉普拉斯机制和高斯机制。",
     "d": "computer-science"
   },
   "/computer-science/theory/diffie-hellman-1976": {
     "t": "Diffie–Hellman 1976：公钥怎样把陷门、指数与签名写成公开程序",
-    "e": "1976 年 11 月，《IEEE 信息论汇刊》（IEEE Transactions on Information Theory）第 22 卷第 6 期刊出惠特菲尔德·迪菲（Whitfield…",
+    "e": "1976年迪菲与赫尔曼在《IEEE信息论汇刊》上发表《密码学的新方向》，提出公钥与私钥分离、以指数交换为硬度假设，并构想数字签名；本文辨析它证明了什么，并说明默克尔不是合著者。",
     "d": "computer-science"
   },
   "/computer-science/theory/dijkstra-1965-mutual-exclusion": {
     "t": "Dijkstra 1965：互斥怎样在没有仲裁者的共享变量上写成可推理的问题",
-    "e": "1965 年 9 月，艾兹格·威贝·迪科斯彻（Edsger W. Dijkstra）在 Communications of the ACM 第 8 卷第 9 期发表《Solution of a…",
+    "e": "1965年迪科斯彻在一页论文里，用共享变量在没有仲裁者的情况下解决了互斥问题；本文澄清互斥不是锁指令，讲公共字与四条禁令，并辨析它证明了什么、没有覆盖什么。",
     "d": "computer-science"
   },
   "/computer-science/theory/distributed-computing-theory": {
     "t": "分布式计算理论",
-    "e": "一台计算机出错，你重启它就好了。",
+    "e": "成千上万台机器隔着会延迟、会丢包的网络协作，没有一台能看到全局；本文说明分布式的难点不是机器不够快，讲共识问题，以及FLP不可能性定理对异步共识的“判决”。",
     "d": "computer-science"
   },
   "/computer-science/theory/dolev-dwork-naor-1991": {
     "t": "Dolev–Dwork–Naor 1991：看见密文之后为什么仍不该能改出相关明文的另一条",
-    "e": "1991 年 5 月 5 日至 8 日，第二十三届 ACM 计算理论年会（STOC）在路易斯安那州新奥尔良举行。国际商业机器公司阿尔马登研究中心的丹尼·多列夫（Danny Dolev）、辛西娅…",
+    "e": "1991年Dolev、Dwork与Naor在STOC上提出非延展性：看见密文后，仍不应能改出明文相关的另一份密文；本文讲这一要求在加密、承诺与知识证明上的同一种形状。",
     "d": "computer-science"
   },
   "/computer-science/theory/dwork-lynch-stockmeyer-1988": {
     "t": "Dwork–Lynch–Stockmeyer 1988：终将有界的延迟怎样让确定性共识可能",
-    "e": "1988 年 4 月，辛西娅·德沃克（Cynthia Dwork）、南希·林奇（Nancy A. Lynch）与拉里·斯托克迈尔（Larry Stockmeyer）在 Journal of t…",
+    "e": "1988年德沃克、林奇与斯托克迈尔证明，只要延迟最终有界，确定性共识就可能实现；本文澄清部分同步不是“网还不错”，讲上界未知或自GST起才生效两种模型。",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/elgamal-1985": {
+    "t": "ElGamal 1985：把迪菲–赫尔曼密钥交换改写成加密与签名",
+    "e": "1985 年埃尔加迈勒在四页里把迪菲–赫尔曼交换的一方固定成公钥，得到每次加密都要新取随机数、密文长一倍的公钥加密，并另给一套离散对数签名；后者是美国数字签名标准 DSA 的直接来源。",
     "d": "computer-science"
   },
   "/computer-science/theory/error-correcting-codes": {
     "t": "纠错码理论",
-    "e": "1977 年，旅行者 1 号从地球出发驶向木星和土星。无线电信号穿越数亿公里的真空，抵达接收天线时已经微弱到几乎无法与宇宙背景噪声区分。然而，旅行者传回的木星大气图像是清晰的。1986 年，旅…",
+    "e": "旅行者号的信号穿越近30亿公里仍能还原出清晰照片，靠的是纠错码；本文澄清纠错码不是重复发送数据，从1940年代的通信危机讲到用奇偶校验纠错的汉明码。",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/fiat-shamir-1986": {
+    "t": "Fiat–Shamir 1986：把验证者的硬币换成哈希",
+    "e": "1986 年菲亚特与沙米尔把平方根识别协议里验证者随机抛出的挑战位，换成对消息与承诺的函数值，交出一份不用在线对话的签名；签名的安全论证从一开始就押在“这个函数像随机函数”上。",
     "d": "computer-science"
   },
   "/computer-science/theory/fidge-mattern-vector-clocks": {
     "t": "Fidge–Mattern：分量时间戳怎样把并发从标量编号里认出来",
-    "e": "1988 年，科林·J.·菲奇（Colin J. Fidge）在第 11 届澳大利亚计算机科学会议（University of Queensland）发表《Timestamps in Mess…",
+    "e": "1988年Fidge与Mattern各自提出向量时钟：每个进程递增自己的分量，接收时逐项取最大，不可比即为并发；本文说明多一个计数器并不意味着更准的时刻，并辨析它表明了什么。",
     "d": "computer-science"
   },
   "/computer-science/theory/fine-grained-complexity": {
     "t": "细粒度复杂度",
-    "e": "P ≠ NP 即使被证明，也不会告诉你：编辑距离该不该是 n^2，全源最短路该不该是 n^3，3SUM 该不该是 n^2。这些问题都在 P 里。细粒度复杂度问的是多项式的指数：在一组比 P ≠…",
+    "e": "即使证明了P≠NP，也说不清编辑距离是否必须n²、全源最短路是否必须n³；细粒度复杂度在更强的假设下追问多项式的指数。本文以正交向量与编辑距离为例，讲细粒度归约。",
     "d": "computer-science"
   },
   "/computer-science/theory/floyd-1967-assigning-meanings": {
     "t": "Floyd 1967：归纳断言怎样把程序的意义写在流程图的边上",
-    "e": "1966 年 4 月，美国数学会在纽约召开应用数学讨论会，主题是计算机科学的数学方面。卡内基理工学院（Carnegie Institute of Technology）的罗伯特·弗洛伊德（Ro…",
+    "e": "弗洛伊德在《为程序赋予意义》中把归纳断言写在流程图的边上，以验证条件证明部分正确性，以良序下降证明终止；本文辨析它证明了什么、没有覆盖什么。",
     "d": "computer-science"
   },
   "/computer-science/theory/flp-fischer-lynch-paterson-1985": {
     "t": "FLP：完全异步下一次崩溃也能挡住确定性共识",
-    "e": "1985 年 4 月，迈克尔·费希尔（Michael J. Fischer）、南希·林奇（Nancy A. Lynch）与迈克尔·帕特森（Michael S. Paterson）在 Journ…",
+    "e": "1985年Fischer、Lynch与Paterson证明，完全异步系统中只要可能有一个进程崩溃，确定性共识就无法保证终止；本文讲二值待定与公平调度构成的证明主线，并澄清不可能不等于从不决定。",
     "d": "computer-science"
   },
   "/computer-science/theory/formal-grammars-chomsky-hierarchy": {
     "t": "形式文法与乔姆斯基谱系",
-    "e": "1956 年，一位年轻的语言学家在 IRE《信息论汇刊》上发表了一篇论文：《语言描述的三个模型》（\"Three Models for the Description of Language\"）…",
+    "e": "1956年乔姆斯基发表《语言描述的三个模型》，本想用数学描述人类语言，答案却成为计算机科学的核心理论；本文说明形式文法不只是语法规则，并讲乔姆斯基谱系的四个层级。",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/fujisaki-okamoto-pointcheval-stern-2001": {
+    "t": "Fujisaki–Okamoto–Pointcheval–Stern 2001：RSA-OAEP 在 RSA 假设下安全",
+    "e": "2001 年藤崎、冈本、普安特舍瓦尔与斯特恩证明：只要陷门置换“部分定义域单向”，OAEP 就抗自适应选择密文攻击；而 RSA 的部分定义域单向与普通单向等价，于是 RSA-OAEP 的安全重新落回 RSA 假设，代价是一条很松的归约。",
     "d": "computer-science"
   },
   "/computer-science/theory/furst-saxe-sipser-1984": {
     "t": "Furst–Saxe–Sipser 1984：常数深度电路怎样算不出奇偶性",
-    "e": "1984 年 12 月，《数学系统理论》（Mathematical Systems Theory）第 17 卷刊出梅里克·弗斯特（Merrick Furst）、詹姆斯·B·萨克斯（James …",
+    "e": "1984年Furst、Saxe与Sipser用随机限制证明，常数深度、多项式规模的无界扇入电路算不出奇偶性；本文说明这是超多项式而非指数下界，随机限制也还不是切换引理。",
     "d": "computer-science"
   },
   "/computer-science/theory/garcia-molina-1982-bully": {
     "t": "Garcia-Molina 1982：编号更高的进程怎样在超时假设下抢走协调者",
-    "e": "1982 年 1 月，赫克托·加西亚-莫利纳（Hector Garcia-Molina）在 IEEE Transactions on Computers 第 C-31 卷第 1 期发表《Ele…",
+    "e": "1982年加西亚-莫利纳提出霸道选举算法：编号最高的存活进程在超时假设下接任协调者；本文澄清编号大不等于票数多，超时也不能证明对方已死，并辨析论文表明了什么。",
     "d": "computer-science"
   },
   "/computer-science/theory/gilbert-lynch-2002-cap": {
     "t": "Gilbert–Lynch 2002：异步网上原子寄存器无法既可用又抗分区",
-    "e": "2002 年 6 月，塞思·吉尔伯特（Seth Gilbert）与南希·林奇（Nancy A. Lynch）在 ACM SIGACT News 第 33 卷第 2 期发表《Brewer's C…",
+    "e": "2002年吉尔伯特与林奇证明了布鲁尔猜想：在异步网络中，原子寄存器无法同时保证可用并容忍分区；本文澄清CAP不是三选二的开关，其中的C也不是事务一致性。",
     "d": "computer-science"
   },
   "/computer-science/theory/goldreich-goldwasser-micali-1986": {
     "t": "Goldreich–Goldwasser–Micali 1986：长度翻倍发生器怎样铺成询问下仍像随机的函数",
-    "e": "1986 年 10 月，《Journal of the ACM》第 33 卷第 4 期刊出奥德·戈德赖希（Oded Goldreich）、沙菲·戈德瓦塞尔（Shafi Goldwasser）与…",
+    "e": "1986年Goldreich、Goldwasser与Micali用长度翻倍的伪随机发生器铺成一棵深度为n的二叉树，构造出伪随机函数；本文澄清伪随机函数不是现成的密钥流，并辨析它证明了什么。",
     "d": "computer-science"
   },
   "/computer-science/theory/goldreich-levin-1989": {
     "t": "Goldreich–Levin 1989：每个单向函数都有一枚内积硬核谓词",
-    "e": "1989 年 5 月 15 日至 17 日，第二十一届 ACM 计算理论年会（STOC）在华盛顿州西雅图举行。会议录页码 25 至 32 刊出奥德·戈德赖希（Oded Goldreich）与列…",
+    "e": "1989年Goldreich与Levin证明，任何单向函数经填充后，原像与随机串的内积都是硬核谓词；本文讲如何把猜测优势收拢成候选名单，并澄清硬核谓词不是原像里某个指定比特。",
     "d": "computer-science"
   },
   "/computer-science/theory/goldreich-micali-wigderson-1986": {
     "t": "Goldreich–Micali–Wigderson 1986：NP 里每个语言怎样都有计算零知识证明",
-    "e": "1986 年 10 月，第二十七届计算机科学基础年会（FOCS）在多伦多举行。以色列理工学院、海法的奥德·戈德赖希（Oded Goldreich），麻省理工学院计算机科学实验室、剑桥马萨诸塞的…",
+    "e": "1986年Goldreich、Micali与Wigderson在FOCS上证明，借助比特承诺，NP中每个语言都有计算零知识证明，方法是先为图三着色构造协议；本文辨析它证明了什么、没有覆盖什么。",
     "d": "computer-science"
   },
   "/computer-science/theory/goldreich-micali-wigderson-1987": {
     "t": "Goldreich–Micali–Wigderson 1987：任意心智博弈怎样在诚实多数下被编译成不泄露部分信息的协议",
-    "e": "1987 年 5 月，第十九届 ACM 计算理论年会（STOC）在纽约举行。以色列理工学院、海法的奥德·戈德赖希（Oded Goldreich），麻省理工学院计算机科学实验室、剑桥马萨诸塞的西…",
+    "e": "1987年Goldreich、Micali与Wigderson证明，在诚实多数下，任意“心智博弈”都能被编译成不泄露额外信息的多方协议，并用零知识约束每一条消息；本文辨析它证明了什么。",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/goldwasser-kalai-2003": {
+    "t": "Goldwasser–Kalai 2003：菲亚特–沙米尔变换可以把安全的协议变成可伪造的签名",
+    "e": "2003 年戈德瓦塞尔与陶曼·卡莱构造出一个本身安全的三步公开硬币识别协议，经菲亚特–沙米尔变换后，无论用哪一个具体哈希函数族，得到的签名都能被有效伪造；随机预言机模型里的分叉引理证明因此不能搬到真实哈希上。",
     "d": "computer-science"
   },
   "/computer-science/theory/goldwasser-micali-1984": {
     "t": "Goldwasser–Micali 1984：语义安全怎样把密文写成多项式不可区分",
-    "e": "1984 年 4 月，《计算机与系统科学杂志》（Journal of Computer and System Sciences）第 28 卷第 2 期刊出沙菲·戈德瓦塞尔（Shafi Gold…",
+    "e": "1984年Goldwasser与Micali发表《概率加密》，提出语义安全，并证明它等价于多项式不可区分，以二次剩余为硬度假设；本文澄清语义安全不是香农意义上的完善保密。",
     "d": "computer-science"
   },
   "/computer-science/theory/goldwasser-micali-rackoff-1985": {
     "t": "Goldwasser–Micali–Rackoff 1985：交互证明系统的知识复杂度怎样把零知识写成定义",
-    "e": "1985 年 5 月 6 日至 8 日，第十七届 ACM 计算理论年会（STOC）在罗德岛普罗维登斯举行。麻省理工学院的沙菲·戈德瓦塞尔（Shafi Goldwasser）、西尔维奥·米卡利（…",
+    "e": "1985年Goldwasser、Micali与Rackoff在STOC上用交互图灵机与知识复杂度定义了零知识，并以二次非剩余为例；本文澄清零知识既不是加密，也不是“证明可以随便一点”。",
     "d": "computer-science"
   },
   "/computer-science/theory/gray-1978-two-phase-commit": {
     "t": "Gray 1978：两阶段提交怎样把多处改动收成提交或中止",
-    "e": "1978 年，吉姆·格雷（Jim Gray）的长篇讲义《Notes on Data Base Operating Systems》收入鲁道夫·拜耳（Rudolf Bayer）、罗伯特·格雷厄姆…",
+    "e": "1978年格雷在讲义《数据库操作系统笔记》中阐述两阶段提交：协调者先让参与者准备，再统一提交或中止；本文澄清它不是多数共识，并分析阻塞的含义。",
     "d": "computer-science"
   },
   "/computer-science/theory/hartmanis-stearns-1965": {
     "t": "Hartmanis–Stearns 1965：算法复杂度怎样被写成时间可构造的层次",
-    "e": "1965 年 5 月，《美国数学会汇刊》（Transactions of the American Mathematical Society）第 117 卷刊出尤里斯·哈特马尼斯（Juris …",
+    "e": "1965年Hartmanis与Stearns用多带图灵机和可构造的时间函数定义计算复杂度，并以对角化证明时间层次；本文说明这个层次不是P对NP问题，加速定理也与工程提速无关。",
     "d": "computer-science"
   },
   "/computer-science/theory/hastad-1986-small-depth": {
     "t": "Håstad 1986：切换引理怎样把浅电路收成近乎最优的下界",
-    "e": "1986 年 5 月 28 日至 30 日，第十八届 ACM 计算理论年会（STOC）在加利福尼亚州伯克利举行。约翰·哈斯塔德（Johan Håstad）的《Almost Optimal Lo…",
+    "e": "1986年Håstad在STOC上用切换引理证明，浅电路计算奇偶性需要近乎最优的指数规模；本文讲随机限制下与或门如何塌缩，并辨析它证明了什么、没有覆盖什么。",
     "d": "computer-science"
   },
   "/computer-science/theory/herlihy-1991-wait-free": {
     "t": "Herlihy 1991：等待自由怎样按共识数给并发对象分层",
-    "e": "1991 年 1 月，莫里斯·赫利希（Maurice P. Herlihy）在 ACM Transactions on Programming Languages and Systems 第 …",
+    "e": "1991年Herlihy在《等待自由同步》中按共识数给并发对象分层：寄存器、队列、比较并交换各居其位，并证明了万能性；本文澄清等待自由不是无锁编程手册。",
     "d": "computer-science"
   },
   "/computer-science/theory/herlihy-moss-1993-tm": {
     "t": "Herlihy–Moss 1993：事务内存怎样用体系结构支持无锁数据结构",
-    "e": "1993 年 5 月，莫里斯·赫利希（Maurice Herlihy）与 J. 艾略特·B. 莫斯（J. Eliot B. Moss）在第 20 届计算机体系结构国际研讨会（ISCA）发表《T…",
+    "e": "1993年Herlihy与Moss在ISCA上提出事务内存，用新指令、读写集合和缓存所有权检测冲突，从体系结构上支持无锁数据结构；本文澄清它不是把数据库事务搬进缓存。",
     "d": "computer-science"
   },
   "/computer-science/theory/herlihy-wing-1990": {
     "t": "Herlihy–Wing 1990：线性化怎样把并发对象收成合法的顺序历史",
-    "e": "1990 年 7 月，莫里斯·赫利希（Maurice P. Herlihy）与珍妮特·温（Jeannette M. Wing）在 ACM Transactions on Programming…",
+    "e": "1990年Herlihy与Wing提出线性化：每个并发操作都像在某个线性化点上瞬间生效，历史因而等价于合法的顺序执行；本文讲它为何具有局部性、可以组合，并区分它与可串行化。",
     "d": "computer-science"
   },
   "/computer-science/theory/hoare-1969-axiomatic": {
     "t": "Hoare 1969：公理基础怎样把程序正确性写成可推导的三元组",
-    "e": "1969 年 10 月，《美国计算机学会通讯》（Communications of the ACM）第 12 卷第 10 期发表 C. A. R. 霍尔（Charles Antony Rich…",
+    "e": "1969年霍尔发表《计算机程序设计的公理基础》，用前置条件—程序—后置条件三元组，以赋值公理、推论与复合规则推导程序正确性；本文辨析它证明了什么、没有覆盖什么。",
     "d": "computer-science"
   },
   "/computer-science/theory/immerman-szelepcsenyi-1988": {
     "t": "Immerman–Szelepcsényi 1988：非确定性空间怎样对补运算封闭",
-    "e": "1988 年 10 月，《SIAM 计算杂志》（SIAM Journal on Computing）第 17 卷第 5 期刊出尼尔·伊默尔曼（Neil Immerman）的《Nondeterm…",
+    "e": "1988年伊默尔曼与塞莱普切尼分别证明，非确定性空间类对补运算封闭，方法是归纳计数可达格局；本文澄清这既不是P对NP，也没有解决NL对L。",
     "d": "computer-science"
   },
   "/computer-science/theory/impagliazzo-1995-hard-core": {
     "t": "Impagliazzo 1995：略微难的问题怎样收成一块几乎乱猜的硬核分布",
-    "e": "1995 年 10 月 23 日至 25 日，第三十六届计算机科学基础年会（FOCS）在威斯康星州密尔沃基举行。",
+    "e": "1995年Impagliazzo证明，略微难的问题必定含有一块“硬核”分布，在其上任何小电路都几乎只能乱猜；本文讲密度与多数票论证，并说明为何异或只需要有限独立。",
     "d": "computer-science"
   },
   "/computer-science/theory/impagliazzo-levin-luby-1989": {
     "t": "Impagliazzo–Levin–Luby 1989：一般单向函数怎样交出多项式时间伪随机发生器",
-    "e": "1989 年 5 月 15 日至 17 日，第二十一届 ACM 计算理论年会（STOC）在华盛顿州西雅图举行。会议录页码 12 至 24 刊出罗素·因帕利亚佐（Russell Impaglia…",
+    "e": "1989年Impagliazzo、Levin与Luby在STOC上证明，一般单向函数就足以构造多项式时间伪随机发生器，而不必是置换；本文讲两类单向性与下一比特不可预测性，并说明置换为何更容易。",
     "d": "computer-science"
   },
   "/computer-science/theory/impagliazzo-wigderson-1997": {
     "t": "Impagliazzo–Wigderson 1997：E 的指数电路硬度怎样把 BPP 收成 P",
-    "e": "1997 年 5 月 4 日至 6 日，第二十九届 ACM 计算理论年会（STOC）在得克萨斯州埃尔帕索举行。",
+    "e": "1997年Impagliazzo与Wigderson证明，若E类问题需要指数规模电路，则BPP等于P；本文讲电路下界如何通过发生器和去随机化的异或引理换成确定性，并澄清这并不是已证明P=BPP。",
     "d": "computer-science"
   },
   "/computer-science/theory/information-theory": {
     "t": "信息论",
-    "e": "一个最基本的问题，直到 1948 年才有了精确答案：\"信息\"到底是什么，如何量化它？",
+    "e": "1948年香农的《通信的数学理论》把“信息量”从直觉变成精确的数学量；本文说明信息量与重要性无关，并讲香农熵、信道容量与香农定理。",
     "d": "computer-science"
   },
   "/computer-science/theory/interactive-proofs-and-zero-knowledge": {
     "t": "交互式证明与零知识",
-    "e": "第一次是加入交互与随机：证明不再是一份可以静态检查的文书，而是验证者与证明者之间的一场提问游戏，验证者可以掷硬币，并且只要求\"以极高概率不被骗\"。第二次更反直觉：证明可以让你确信某件事为真，而…",
+    "e": "1980年代“证明”被重新定义了两次：先是加入交互与随机，后是零知识，让人确信为真却不知为何为真；本文讲把证明变成对话，以及IP=PSPACE说明这场对话能走多远。",
     "d": "computer-science"
   },
   "/computer-science/theory/karp-1972-reducibility": {
     "t": "Karp 1972：组合问题之间的可归约性怎样把二十一个问题写成多项式完全",
-    "e": "1972 年 3 月 20 日至 22 日，国际商用机器公司托马斯·J·沃森研究中心在纽约州约克敦海茨召开「计算机计算的复杂度」讨论会。加州大学伯克利分校的理查德·卡普（Richard M. …",
+    "e": "1972年卡普在《组合问题之间的可归约性》中用多一归约从SAT出发，证明二十一个组合问题都是NP完全的；本文澄清完全性不等于旅行商问题没有算法，并辨析它证明了什么。",
     "d": "computer-science"
   },
   "/computer-science/theory/karp-lipton-1980": {
     "t": "Karp–Lipton 1980：SAT 若有多项式电路，多项式层次怎样坍到第二层",
-    "e": "1980 年 4 月 28 日至 30 日，第十二届 ACM 计算理论年会（STOC）在洛杉矶举行。会议录页码 302 至 309 刊出理查德·卡普（Richard M. Karp）与理查德·…",
+    "e": "1980年卡普与利普顿证明，若SAT有多项式规模电路，多项式层次就会坍缩到第二层；本文讲忠告与电路如何帮助对调量词，并澄清电路上界并不意味着P等于NP。",
     "d": "computer-science"
   },
   "/computer-science/theory/knuth-1966-mutex-comment": {
     "t": "Knuth 1966：互斥的集体进展怎样仍允许一个人被永远超过",
-    "e": "1966 年 5 月，唐纳德·厄尔·克努斯（Donald E. Knuth）在 Communications of the ACM 第 9 卷第 5 期发表《Additional Commen…",
+    "e": "1966年克努斯指出，迪科斯彻的互斥方案虽保证整体有进展，却可能让某个进程被永远超过，并给出把等待限于指数上界的方案；本文澄清饿死不是死锁，有界等待也不等于先来先服务。",
     "d": "computer-science"
   },
   "/computer-science/theory/kolmogorov-complexity": {
     "t": "柯莫哥洛夫复杂度",
-    "e": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "e": "一串A可以用一句话描述，看似随机的串却只能原样写出，但“看起来随机”不等于真随机；本文澄清柯莫哥洛夫复杂度不是描述难度，讲三位独立发现者和形式定义。",
     "d": "computer-science"
   },
   "/computer-science/theory/ladner-1975-np-intermediate": {
     "t": "Ladner 1975：若 P 不等于 NP，中间问题怎样必须存在",
-    "e": "1975 年 1 月，《ACM 会刊》（Journal of the ACM）第 22 卷第 1 期刊出理查德·拉德纳（Richard E. Ladner）的《On the Structure…",
+    "e": "1975年拉德纳证明，若P不等于NP，就必然存在既不在P中、也不是NP完全的中间问题；本文讲延迟对角化与填充技术，并澄清中间问题不是“尚未分类的自然问题”。",
     "d": "computer-science"
   },
   "/computer-science/theory/lambda-calculus-type-theory": {
     "t": "λ演算与类型理论",
-    "e": "数学中的函数，在教科书里通常被写成 f(x) = x^2 + 1 的形式——f 有个名字，x 是变量，结果是某个表达式。1936 年，阿隆佐·邱奇（Alonzo Church）提出了一种不需要…",
+    "e": "1936年邱奇提出λ演算，把函数本身当作无名对象来书写；本文说明它不只是函数式语言的语法糖，讲无类型λ演算，以及保证殊途同归的Church-Rosser定理。",
     "d": "computer-science"
   },
   "/computer-science/theory/lamport-1974-bakery": {
     "t": "Lamport 1974：面包店算法怎样给互斥加上先来先服务",
-    "e": "1974 年 8 月，莱斯利·兰波特（Leslie Lamport）在 Communications of the ACM 第 17 卷第 8 期发表《A New Solution of Di…",
+    "e": "1974年兰波特提出面包店算法：进程像顾客一样取号排队，从而为互斥加上先来先服务；本文讲门口、号码，以及读可以出错、写必须正确的前提，并辨析它证明了什么。",
     "d": "computer-science"
   },
   "/computer-science/theory/lamport-1978-clocks": {
     "t": "Lamport 1978：先于关系怎样把分布式事件收成不靠墙钟的偏序",
-    "e": "1978 年 7 月，莱斯利·兰波特（Leslie Lamport）在 Communications of the ACM 第 21 卷第 7 期发表《Time, Clocks, and th…",
+    "e": "1978年兰波特用“先于”关系把分布式事件排成不依赖墙钟的偏序，并用逻辑时钟扩展为全序；本文澄清时钟编号不是时刻，全序也不是唯一的历史。",
     "d": "computer-science"
   },
   "/computer-science/theory/lamport-1979-sequential-consistency": {
     "t": "Lamport 1979：顺序一致性怎样把多处理器程序收成某一条尊重程序序的交错",
-    "e": "1979 年 9 月，莱斯利·兰波特（Leslie Lamport）在 IEEE Transactions on Computers 第 C-28 卷第 9 期发表《How to Make a…",
+    "e": "1979年兰波特定义顺序一致性：多处理器的执行结果应等同于某一条尊重各自程序顺序的交错；本文用互斥例子和两条充分条件说明，并区分它与缓存连贯和线性化。",
     "d": "computer-science"
   },
   "/computer-science/theory/levin-1973-universal-search": {
     "t": "Levin 1973：通用顺序搜索怎样把 NP 搜索写成一个万能问题",
-    "e": "1973 年，《Проблемы передачи информации》（《信息传输问题》）第 9 卷第 3 期刊出列昂尼德·列文（Leonid A. Levin）的短讯《Универсал…",
+    "e": "1973年列文在一篇两页短讯中提出通用顺序搜索，把NP类搜索问题写成“万能问题”，与库克的工作平行；本文澄清万能搜索不等于没有算法，并辨析它证明了什么。",
     "d": "computer-science"
   },
   "/computer-science/theory/logic-and-computation": {
     "t": "逻辑与计算",
-    "e": "1958 年，数学家哈斯凯尔·加里（Haskell Curry）注意到一件奇怪的事：某些组合子逻辑（combinatory logic）的类型，与命题逻辑中的公式在形式上一模一样。",
+    "e": "加里1958年注意到组合子的类型与命题公式形式相同，霍华德1969年将其系统化为“命题即类型”；本文说明逻辑不只是真假判断，并讲从类型论到程序正确性的联系。",
     "d": "computer-science"
   },
   "/computer-science/theory/luby-rackoff-1988": {
     "t": "Luby–Rackoff 1988：伪随机函数怎样三轮费斯托变成询问下仍像随机的置换",
-    "e": "1988 年 4 月，《SIAM Journal on Computing》第 17 卷第 2 期刊出迈克尔·卢比（Michael Luby）与查尔斯·拉科夫（Charles Rackoff）…",
+    "e": "1988年Luby与Rackoff证明，用伪随机函数做三轮费斯托网络，就能得到在询问下仍像随机的置换；本文讲左右两半与费斯托轮，以及三轮与四轮的区别，并澄清它不等于现成的分组密码。",
     "d": "computer-science"
   },
   "/computer-science/theory/merkle-1978": {
     "t": "Merkle 1978：N 枚谜题怎样把公开分发的窃听代价抬成平方",
-    "e": "1978 年 4 月，《ACM 通讯》（Communications of the ACM）第 21 卷第 4 期刊出拉尔夫·C·默克尔（Ralph C. Merkle）的《Secure Co…",
+    "e": "1978年默克尔发表“谜题”方案：发送N枚谜题，让合法双方付出线性代价、窃听者付出平方代价；本文澄清它不是迪菲–赫尔曼，平方间隙也不是指数间隙。",
     "d": "computer-science"
   },
   "/computer-science/theory/naor-yung-1990": {
     "t": "Naor–Yung 1990：被动窃听上的公钥怎样加上非交互零知识挡住选择密文",
-    "e": "1990 年 5 月 13 日至 17 日，第二十二届 ACM 计算理论年会（STOC）在马里兰州巴尔的摩举行。国际商业机器公司阿尔马登研究中心的莫尼·纳奥尔（Moni Naor）与托马斯·J…",
+    "e": "1990年Naor与Yung在STOC上把只抗被动窃听的公钥方案，用双密文加同文的非交互零知识证明，升级为抗“午餐时间”选择密文攻击；本文辨析它证明了什么、没有覆盖什么。",
     "d": "computer-science"
   },
   "/computer-science/theory/nisan-wigderson-1994": {
     "t": "Nisan–Wigderson 1994：E 里足够硬的函数怎样冒充 BPP 测试者的硬币",
-    "e": "1994 年 10 月，《计算机与系统科学杂志》（Journal of Computer and System Sciences）第 49 卷第 2 期刊出诺姆·尼桑（Noam Nisan）与…",
+    "e": "1994年Nisan与Wigderson在《硬度与随机性》中，用E中难以近似的函数和近乎不相交的设计构造发生器，去冒充BPP算法所用的随机硬币；本文澄清这并不等于已证明P=BPP。",
     "d": "computer-science"
   },
   "/computer-science/theory/online-algorithms-and-competitive-analysis": {
     "t": "在线算法与竞争分析",
-    "e": "绝大多数算法课教的是这样一个世界：输入摆在你面前，你可以从容读完再决定怎么做。",
+    "e": "缓存、调度和广告投放都必须在不知道未来的情况下当场决定；本文介绍在线算法与竞争分析，说明竞争比的含义，讲三个经典问题，以及领域的中心猜想k-服务器问题。",
     "d": "computer-science"
   },
   "/computer-science/theory/parameterized-complexity": {
     "t": "参数化复杂度",
-    "e": "1999 年，罗德尼·唐尼（Rodney G. Downey）和迈克尔·费洛斯（Michael R. Fellows）把一本当时看起来有点偏门的书交给 Springer：《Parameteri…",
+    "e": "1999年唐尼与费洛斯出版《Parameterized Complexity》；本文说明给NP难问题加参数不是开后门，讲顶点覆盖如何成为FPT，以及W层次、核化下界与ETH。",
     "d": "computer-science"
   },
   "/computer-science/theory/paxos-lamport-1998": {
     "t": "兼职议会与 Paxos",
-    "e": "人们常把 Paxos 听成一次多数投票。名单固定、轮次清楚、票的含义事先谈妥——那样的投票，教室里就能做完。莱斯利·兰波特 1998 年刊出的《兼职议会》（The Part-Time Parl…",
+    "e": "兰波特1998年发表《兼职议会》，用一座议员会缺席、信使会走丢的议会寓言描述Paxos；本文澄清Paxos不是一次多数投票，并讲提议者、接受者、学习者三个角色。",
     "d": "computer-science"
   },
   "/computer-science/theory/peterson-1981-mutual-exclusion": {
     "t": "Peterson 1981：两进程互斥怎样用两面旗与一个 turn 写成短注",
-    "e": "1981 年 6 月 13 日，加里·L·彼得森（Gary L. Peterson）在 Information Processing Letters 第 12 卷第 3 期发表《Myths A…",
+    "e": "1981年彼得森在两页短文《关于互斥问题的迷思》中，只用两面旗和一个turn变量就解决了两进程互斥；本文讲他如何把两种死锁拆开再合起来，并辨析它证明了什么。",
     "d": "computer-science"
   },
   "/computer-science/theory/physical-limits-of-computation": {
     "t": "计算的物理极限",
-    "e": "复杂性理论问\"这个问题需要多少步\"。本篇问一个更基础的问题：一步计算，最少要花多少能量？",
+    "e": "一步计算最少要花多少能量？答案不是零，而由热力学第二定律给出；本文从麦克斯韦妖讲到为擦除定价的兰道尔原理，说明这条边界如何把信息与熵焊在一起。",
     "d": "computer-science"
   },
   "/computer-science/theory/quantum-computing-theory": {
     "t": "量子计算理论",
-    "e": "1994 年，美国数学家彼得·肖尔（Peter Shor）发表了一个算法。这个算法可以在多项式时间内分解大整数——而人类目前已知最好的经典算法（普通计算机上运行的算法）需要次指数时间。",
+    "e": "1994年肖尔给出多项式时间分解大整数的量子算法，经典算法则需次指数时间；本文澄清量子计算机不是更快的计算机，讲1980年代的思想实验与叠加、纠缠等基础。",
     "d": "computer-science"
   },
   "/computer-science/theory/rackoff-simon-1991": {
     "t": "Rackoff–Simon 1991：选择密文的时间窗怎样被拉到看见挑战之后",
-    "e": "1991 年 8 月 11 日至 15 日，第十一届国际密码学年会（CRYPTO）在加利福尼亚州圣芭芭拉举行。多伦多大学的查尔斯·拉科夫（Charles Rackoff）与丹尼尔·西蒙（Dan…",
+    "e": "1991年Rackoff与Simon在CRYPTO上把选择密文攻击的时间窗延伸到看见挑战密文之后，并借非交互零知识知识证明来抵御；本文区分午餐时间与自适应攻击，讲抽取与模拟。",
     "d": "computer-science"
   },
   "/computer-science/theory/randomized-algorithms": {
     "t": "随机算法",
-    "e": "一个算法，通常被认为是确定性的：给定相同的输入，它每次都执行相同的步骤，给出相同的输出。而随机算法（Randomized Algorithm）在执行过程中会抛硬币——使用随机数来做决策，使得同…",
+    "e": "随机算法在执行中抛硬币，同一输入可能走不同的路径，但随机并不等于不可靠；本文区分拉斯维加斯与蒙特卡洛两类随机算法，并以米勒-拉宾素数测试为例。",
     "d": "computer-science"
   },
   "/computer-science/theory/razborov-1985-monotone": {
     "t": "Razborov 1985：单调电路怎样看不见团",
-    "e": "1985 年，《苏联科学院报告》（Doklady Akademii Nauk SSSR）第 281 卷第 4 期刊出亚历山大·拉兹博罗夫（Alexander A. Razborov）的俄文短讯…",
+    "e": "1985年拉兹博罗夫证明，只用与门和或门的单调电路判定团需要超多项式规模；本文讲这一下界的论证，并澄清超多项式不是指数，单调下界也还不是P对NP。",
     "d": "computer-science"
   },
   "/computer-science/theory/razborov-rudich-1997": {
     "t": "Razborov–Rudich 1997：自然证明怎样把电路下界挡在伪随机函数门外",
-    "e": "1997 年 8 月，《计算机与系统科学杂志》（Journal of Computer and System Sciences）第 55 卷第 1 期刊出亚历山大·拉兹博罗夫（Alexande…",
+    "e": "1997年拉兹博罗夫与鲁迪奇提出“自然证明”障碍：若伪随机函数存在，同时满足构造性、宽广性与有用性的组合性质就证明不了强电路下界；本文澄清这既不是不可判定，电路下界也没有就此作废。",
     "d": "computer-science"
   },
   "/computer-science/theory/savitch-1970-theorem": {
     "t": "Savitch 1970：非确定性空间怎样被确定性平方空间模拟",
-    "e": "1970 年 4 月，《计算机与系统科学杂志》（Journal of Computer and System Sciences）第 4 卷第 2 期刊出沃尔特·萨维奇（Walter J. Sa…",
+    "e": "1970年萨维奇证明，非确定性空间s(n)可以被确定性空间s(n)²模拟，方法是在格局图上递归地取中点；本文澄清这既不是P对NP，也没有解决NL对L。",
     "d": "computer-science"
   },
   "/computer-science/theory/shapiro-2011-crdts": {
     "t": "Shapiro 2011：副本收敛是半格或可交换操作，不是共识协议",
-    "e": "2011 年 10 月，马克·夏皮罗（Marc Shapiro）、努诺·普雷吉萨（Nuno Preguiça）、卡洛斯·巴克罗（Carlos Baquero）与马雷克·扎维尔斯基（Marek …",
+    "e": "2011年夏皮罗等人在SSS会议上形式化CRDT：只要状态构成join-半格，或操作可交换，副本就能达到强最终一致；本文澄清无冲突不是没有并发，收敛也不等于线性化。",
     "d": "computer-science"
   },
   "/computer-science/theory/shavit-touitou-1995-stm": {
     "t": "Shavit–Touitou 1995：软件事务内存怎样把无锁写成运行时而不是每只对象的手工艺",
-    "e": "1995 年 8 月，尼尔·沙维特（Nir Shavit）与丹·图伊图（Dan Touitou）在第 14 届分布式计算原理研讨会（PODC）发表《Software Transactional…",
+    "e": "1995年Shavit与Touitou在PODC上提出软件事务内存，用所有权记录与“帮助”机制在运行时实现无锁，而不必为每个对象手工设计；本文区分静态与动态事务，以及它与硬件事务内存的不同。",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/shoup-2001-oaep-reconsidered": {
+    "t": "Shoup 2001：OAEP 的安全证明里有一道补不上的缝",
+    "e": "2001 年肖普指出，OAEP 对任意陷门置换都抗自适应选择密文攻击的那份证明并不成立，并且无法用常规黑盒归约补上；他同时给出可证明的 OAEP+，以及指数为 3 的 RSA-OAEP 的单独证明。",
     "d": "computer-science"
   },
   "/computer-science/theory/statistical-learning-theory-pac": {
     "t": "统计学习理论与 PAC 学习",
-    "e": "机器学习最基本的问题不是\"怎么把训练数据拟合好\"——那件事平凡到可以用一张查找表完成。真正的问题是：为什么在训练集上表现好的模型，在没见过的数据上也会表现好？",
+    "e": "为什么在训练集上表现好的模型在新数据上也好？1984年瓦利安特提出PAC学习，给这个问题一个数学框架；本文说明泛化不是数据够多就行，并讲如何用VC维处理无限假设空间。",
     "d": "computer-science"
   },
   "/computer-science/theory/toda-1991": {
     "t": "Toda 1991：多项式层次怎样被一次",
-    "e": "1991 年 10 月，《SIAM 计算杂志》（SIAM Journal on Computing）第 20 卷第 5 期刊出户田诚之助（Seinosuke Toda）的《PP is as H…",
+    "e": "1991年户田诚之助证明，整个多项式层次都能用一次#P询问在确定性多项式时间内解决；本文讲多数、奇偶与隔离如何把交替量词收成一次计数，并澄清这并不意味着P等于NP。",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/turing-1936-halting": {
+    "t": "1936：图灵证明没有一般过程能判定机器是否无圆",
+    "e": "1936年艾伦·图灵证明：没有一般过程能在有限步内判定任意机器是否无圆。无圆指印出无穷多个第一类符号，有圆只印有限个。这不是后来所称的停机。更正刊于1937年。",
     "d": "computer-science"
   },
   "/computer-science/theory/valiant-1979-permanent": {
     "t": "Valiant 1979：积和式怎样把计数写成比判定更硬的类",
-    "e": "1979 年，《理论计算机科学》（Theoretical Computer Science）第 8 卷第 2 期刊出莱斯利·瓦利安特（Leslie G. Valiant）的《The Compl…",
+    "e": "1979年瓦利安特证明计算积和式是#P完全的，用计数图灵机把接受路径的条数写进矩阵；本文澄清积和式不是“去掉符号的行列式”，并辨析它证明了什么。",
     "d": "computer-science"
   },
   "/computer-science/theory/valiant-vazirani-1986": {
     "t": "Valiant–Vazirani 1986：唯一可满足性怎样被随机归约钉成和 SAT 一样硬",
-    "e": "1986 年，《理论计算机科学》（Theoretical Computer Science）第 47 卷刊出莱斯利·瓦利安特（Leslie G. Valiant）与维贾伊·瓦齐拉尼（Vijay…",
+    "e": "1986年瓦利安特与瓦齐拉尼用随机超平面把可满足的公式隔离到只剩唯一解，证明判断唯一可满足性和SAT一样难；本文澄清隔离不等于SAT已经唯一，随机归约也不是确定性算法。",
     "d": "computer-science"
   },
   "/computer-science/theory/yao-1979-communication-complexity": {
     "t": "Yao 1979：分布式计算的复杂度问题怎样把通信写成资源",
-    "e": "1979 年 4 月 30 日至 5 月 2 日，第十一届 ACM 计算理论年会（STOC）在佐治亚州亚特兰大举行。斯坦福大学的姚期智（Andrew Chi-Chih Yao）发表《Some …",
+    "e": "1979年姚期智在STOC上提出通信复杂度，把两方协议中交换的比特数当作资源，并把随机协议的分析转成对最坏输入分布的分析；本文澄清它不是网络课程。",
     "d": "computer-science"
   },
   "/computer-science/theory/yao-1982-trapdoor-functions": {
     "t": "Yao 1982：陷门函数怎样把单向置换的硬度放大成假硬币",
-    "e": "1982 年 11 月 3 日至 5 日，第二十三届计算机科学基础年会（FOCS）在伊利诺伊州芝加哥举行。会议录页码 80 至 91 刊出姚期智（Andrew C. Yao）的《Theory …",
+    "e": "1982年姚期智在FOCS上发表《陷门函数的理论与应用》，用异或引理放大单向置换的硬度，并在其上构造伪随机发生器；本文澄清陷门函数并不等于现成的公钥方案。",
     "d": "computer-science"
   }
 }

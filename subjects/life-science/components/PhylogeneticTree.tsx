@@ -9,6 +9,8 @@ import {
   type KeyboardEvent as ReactKeyboardEvent,
 } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { useDiagramPan } from "@/components/interaction/useDiagramPan";
+import { TouchPanButton } from "@/components/interaction/TouchPanButton";
 import { PRODUCT_EASE } from "../lib/constants";
 import type { PhylogeneticNode } from "../lib/types";
 
@@ -46,20 +48,12 @@ function countDescendants(node: PhylogeneticNode): number {
   return node.children.reduce((sum, c) => sum + countDescendants(c), 0);
 }
 
-function measureSubtreeWidth(
-  node: PhylogeneticNode,
-  expanded: Set<string>,
-): number {
+function measureSubtreeWidth(node: PhylogeneticNode, expanded: Set<string>): number {
   if (!node.children || node.children.length === 0 || !expanded.has(node.id)) {
     return MIN_SPAN;
   }
-  const childWidths = node.children.map((c) =>
-    measureSubtreeWidth(c, expanded),
-  );
-  return Math.max(
-    MIN_SPAN,
-    childWidths.reduce((a, b) => a + b, 0) + (childWidths.length - 1) * 12,
-  );
+  const childWidths = node.children.map((c) => measureSubtreeWidth(c, expanded));
+  return Math.max(MIN_SPAN, childWidths.reduce((a, b) => a + b, 0) + (childWidths.length - 1) * 12);
 }
 
 function layoutTree(
@@ -67,25 +61,20 @@ function layoutTree(
   expanded: Set<string>,
   centerX: number,
   startY: number,
-  depth: number,
+  depth: number
 ): { nodes: LayoutNode[]; edges: LayoutEdge[]; maxX: number; maxY: number } {
   const nodes: LayoutNode[] = [];
   const edges: LayoutEdge[] = [];
   const y = startY + depth * LEVEL_HEIGHT;
-  const hasChildren =
-    !!node.children && node.children.length > 0 && expanded.has(node.id);
+  const hasChildren = !!node.children && node.children.length > 0 && expanded.has(node.id);
   const isLeaf = !node.children || node.children.length === 0;
 
   let maxX = centerX;
   let maxY = y;
 
   if (hasChildren && node.children) {
-    const childWidths = node.children.map((c) =>
-      measureSubtreeWidth(c, expanded),
-    );
-    const totalWidth =
-      childWidths.reduce((a, b) => a + b, 0) +
-      (childWidths.length - 1) * 12;
+    const childWidths = node.children.map((c) => measureSubtreeWidth(c, expanded));
+    const totalWidth = childWidths.reduce((a, b) => a + b, 0) + (childWidths.length - 1) * 12;
     let currentX = centerX - totalWidth / 2;
 
     for (let i = 0; i < node.children.length; i++) {
@@ -104,13 +93,7 @@ function layoutTree(
         divergenceMYA: child.divergenceMYA,
       });
 
-      const sub = layoutTree(
-        child,
-        expanded,
-        childCenter,
-        startY,
-        depth + 1,
-      );
+      const sub = layoutTree(child, expanded, childCenter, startY, depth + 1);
       nodes.push(...sub.nodes);
       edges.push(...sub.edges);
       maxX = Math.max(maxX, sub.maxX);
@@ -190,10 +173,7 @@ function DivergenceLabel({
   const mx = (x1 + x2) / 2 + 8;
   const my = (y1 + y2) / 2 - 4;
 
-  const label =
-    mya >= 1000
-      ? `${(mya / 1000).toFixed(1)} Bya`
-      : `${mya} Mya`;
+  const label = mya >= 1000 ? `${(mya / 1000).toFixed(1)} Bya` : `${mya} Mya`;
 
   return (
     <motion.text
@@ -211,15 +191,7 @@ function DivergenceLabel({
   );
 }
 
-function NodeTooltip({
-  node,
-  x,
-  y,
-}: {
-  node: PhylogeneticNode;
-  x: number;
-  y: number;
-}) {
+function NodeTooltip({ node, x, y }: { node: PhylogeneticNode; x: number; y: number }) {
   const descendantCount = countDescendants(node);
   const formatCount = (n: number) => {
     if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
@@ -255,14 +227,7 @@ function NodeTooltip({
       >
         {node.name} ({node.nameEn})
       </text>
-      <text
-        x={x}
-        y={y - 32}
-        textAnchor="middle"
-        fill="#888"
-        fontSize="9"
-        fontFamily="monospace"
-      >
+      <text x={x} y={y - 32} textAnchor="middle" fill="#888" fontSize="9" fontFamily="monospace">
         {node.divergenceMYA
           ? `分歧: ${node.divergenceMYA >= 1000 ? (node.divergenceMYA / 1000).toFixed(1) + " Bya" : node.divergenceMYA + " Mya"}`
           : ""}
@@ -281,24 +246,29 @@ export function PhylogeneticTree({ data }: PhylogeneticTreeProps) {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
-  const [isPanning, setIsPanning] = useState(false);
-  const panStart = useRef({ x: 0, y: 0, px: 0, py: 0 });
+  const diagram = useDiagramPan<HTMLDivElement>({ pan, onPan: setPan });
+  const { cancel: cancelPan } = diagram;
   const containerRef = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
 
-  const toggle = useCallback((id: string) => {
-    setExpanded((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) {
-        next.delete(id);
-      } else {
-        next.add(id);
-      }
-      return next;
-    });
-  }, []);
+  const toggle = useCallback(
+    (id: string) => {
+      cancelPan();
+      setExpanded((prev) => {
+        const next = new Set(prev);
+        if (next.has(id)) {
+          next.delete(id);
+        } else {
+          next.add(id);
+        }
+        return next;
+      });
+    },
+    [cancelPan]
+  );
 
   const expandAll = useCallback(() => {
+    cancelPan();
     const ids = new Set<string>();
     const walk = (n: PhylogeneticNode) => {
       ids.add(n.id);
@@ -306,58 +276,41 @@ export function PhylogeneticTree({ data }: PhylogeneticTreeProps) {
     };
     walk(data);
     setExpanded(ids);
-  }, [data]);
+  }, [data, cancelPan]);
 
   const collapseAll = useCallback(() => {
+    cancelPan();
     setExpanded(new Set(["luca"]));
-  }, []);
+  }, [cancelPan]);
 
   const { nodes, edges, maxX, maxY } = useMemo(
     () => layoutTree(data, expanded, 0, 30, 0),
-    [data, expanded],
+    [data, expanded]
   );
 
   const padding = 100;
   const viewBox = `${-padding} ${-padding} ${maxX * 2 + padding * 2} ${maxY + padding * 2}`;
 
-  const handleWheel = useCallback((e: React.WheelEvent) => {
-    e.preventDefault();
-    setZoom((prev) => Math.max(0.2, Math.min(3, prev - e.deltaY * 0.001)));
-  }, []);
-
-  const handlePointerDown = useCallback(
-    (e: React.PointerEvent) => {
-      if (e.button !== 0) return;
-      setIsPanning(true);
-      panStart.current = { x: e.clientX, y: e.clientY, px: pan.x, py: pan.y };
-      (e.target as HTMLElement).setPointerCapture(e.pointerId);
-    },
-    [pan],
-  );
-
-  const handlePointerMove = useCallback(
-    (e: React.PointerEvent) => {
-      if (!isPanning) return;
-      setPan({
-        x: panStart.current.px + (e.clientX - panStart.current.x),
-        y: panStart.current.py + (e.clientY - panStart.current.y),
-      });
-    },
-    [isPanning],
-  );
-
-  const handlePointerUp = useCallback(() => {
-    setIsPanning(false);
-  }, []);
+  // React attaches wheel listeners as passive, so preventDefault there cannot stop the page scrolling.
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      cancelPan();
+      setZoom((prev) => Math.max(0.2, Math.min(3, prev - e.deltaY * 0.001)));
+    };
+    container.addEventListener("wheel", handleWheel, { passive: false });
+    return () => container.removeEventListener("wheel", handleWheel);
+  }, [cancelPan]);
 
   const resetView = useCallback(() => {
+    cancelPan();
     setZoom(1);
     setPan({ x: 0, y: 0 });
-  }, []);
+  }, [cancelPan]);
 
-  const hoveredNode = hoveredId
-    ? nodes.find((n) => n.node.id === hoveredId)
-    : null;
+  const hoveredNode = hoveredId ? nodes.find((n) => n.node.id === hoveredId) : null;
 
   return (
     <div className="flex flex-col gap-4">
@@ -376,7 +329,10 @@ export function PhylogeneticTree({ data }: PhylogeneticTreeProps) {
         </button>
         <div className="border-border-faint flex items-center gap-2 border-l pl-3">
           <button
-            onClick={() => setZoom((z) => Math.min(3, z + 0.2))}
+            onClick={() => {
+              cancelPan();
+              setZoom((z) => Math.min(3, z + 0.2));
+            }}
             className="border-border-faint bg-bg-near hover:bg-bg-elevated text-fg-secondary flex h-7 w-7 items-center justify-center border font-mono text-sm transition-colors"
             aria-label="放大"
           >
@@ -386,7 +342,10 @@ export function PhylogeneticTree({ data }: PhylogeneticTreeProps) {
             {Math.round(zoom * 100)}%
           </span>
           <button
-            onClick={() => setZoom((z) => Math.max(0.2, z - 0.2))}
+            onClick={() => {
+              cancelPan();
+              setZoom((z) => Math.max(0.2, z - 0.2));
+            }}
             className="border-border-faint bg-bg-near hover:bg-bg-elevated text-fg-secondary flex h-7 w-7 items-center justify-center border font-mono text-sm transition-colors"
             aria-label="缩小"
           >
@@ -398,8 +357,14 @@ export function PhylogeneticTree({ data }: PhylogeneticTreeProps) {
           >
             重置
           </button>
+          <TouchPanButton
+            armed={diagram.armed}
+            controls={diagram.surfaceId}
+            onToggle={diagram.toggle}
+            onCancel={cancelPan}
+          />
         </div>
-        <div className="flex flex-wrap items-center gap-2 ml-auto">
+        <div className="ml-auto flex flex-wrap items-center gap-2">
           {[
             { label: "细菌", color: "#61afef" },
             { label: "古菌", color: "#c678dd" },
@@ -425,12 +390,13 @@ export function PhylogeneticTree({ data }: PhylogeneticTreeProps) {
       <div
         ref={containerRef}
         className="border-border-faint bg-bg-card relative overflow-hidden border"
-        style={{ height: 600, cursor: isPanning ? "grabbing" : "grab" }}
-        onWheel={handleWheel}
-        onPointerDown={handlePointerDown}
-        onPointerMove={handlePointerMove}
-        onPointerUp={handlePointerUp}
-        onPointerCancel={handlePointerUp}
+        id={diagram.surfaceId}
+        style={{
+          height: 600,
+          cursor: diagram.isPanning ? "grabbing" : "grab",
+          touchAction: diagram.touchAction,
+        }}
+        {...diagram.handlers}
       >
         <svg
           width="100%"
@@ -441,7 +407,7 @@ export function PhylogeneticTree({ data }: PhylogeneticTreeProps) {
           style={{
             transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
             transformOrigin: "center top",
-            transition: isPanning ? "none" : "transform 0.2s ease",
+            transition: diagram.isPanning ? "none" : "transform 0.2s ease",
           }}
         >
           <defs>
@@ -574,17 +540,15 @@ export function PhylogeneticTree({ data }: PhylogeneticTreeProps) {
                   {node.nameEn}
                 </text>
 
-                {isHovered && (
-                  <NodeTooltip node={node} x={x} y={y} />
-                )}
+                {isHovered && <NodeTooltip node={node} x={x} y={y} />}
               </g>
             );
           })}
         </svg>
       </div>
 
-      <p className="text-fg-muted font-mono text-[9px] tracking-[0.15em] uppercase text-center">
-        滚轮缩放 · 拖拽平移 · 点击节点展开/收起分支 · 悬停查看信息
+      <p className="text-fg-muted text-center font-mono text-[9px] tracking-[0.15em] uppercase">
+        滚轮缩放 · 鼠标拖拽平移 · 点按节点展开/收起；触屏先启用「触屏平移」，拖动一次后恢复页面滚动
       </p>
     </div>
   );
