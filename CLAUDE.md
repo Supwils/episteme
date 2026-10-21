@@ -59,7 +59,7 @@
 - **触发**：push 到 `main`（`docs/` 目录下的改动被 `paths-ignore` 跳过，**不构建、不部署**）、面向 `main` 的 PR、手动 `workflow_dispatch`。
 - **三个 job**：
   - **quality** — 生成索引幂等性（`gen-all` 后 `git status` 必须干净）→ `typecheck` → `lint` → `check-content` + 四项审计（`audit-graph-coverage` / `audit-learning-continuum` / `audit-subject-candidates` / `audit-linguistics-foundation`）→ `test`。
-  - **build** — `pnpm build` → `audit-rendering` → `audit-og-assets` → `bundle-check --skip-build` → Lighthouse 预算 → Playwright 生产 smoke（`test:e2e:smoke`）。
+  - **build** — `pnpm build` → `audit-rendering` → `audit-og-assets` → `audit-function-assets` → `bundle-check --skip-build` → Lighthouse 预算 → Playwright 生产 smoke（`test:e2e:smoke`）。
   - **deploy** — 仅 `main` 且 quality+build 都过，`vercel pull` → `vercel build --prod` → **`vercel deploy --prebuilt --prod --archive=tgz`**。需仓库 secret `VERCEL_TOKEN`（org/project id 写在 workflow env 里，是资源标识不是凭证）。
 - **夜间全量 e2e**（`.github/workflows/e2e-nightly.yml`）：每天一次在生产构建上跑冒烟以外的全部 spec（`pnpm test:e2e:full`，配置 `playwright.full.config.ts`，端口 3070）。不部署、不拦 push，只让过期断言和深层流程回归在一天内暴露。spec 里的篇数、角度这类会随内容漂的值，从 `content/` 或布局函数推导，不要写死。
 - **为什么不用 Vercel 原生 git 集成**：`vercel.json` 的 `git.deploymentEnabled.main = false` 是**故意关掉**的——原生集成的 deploy 会拒绝 Next 的 serverless 函数去重**符号链接**；`--prebuilt --archive` 是当前唯一可靠路径（同时绕开 15000 文件上限的校验）。**别重新打开它。**
@@ -67,7 +67,7 @@
 ### 本地 pre-push 门禁（`.husky/pre-push`）
 
 - 每次 `git push` 前自动跑 `pnpm prepush` 九条命令：`typecheck` → `lint` → `check-content` → `audit-graph-coverage` → `audit-learning-continuum` → `audit-subject-candidates` → `audit-linguistics-foundation` → `audit-image-rights` → `test`，镜像 CI `quality` job 的确定性部分。
-- **pre-push 钩子刻意不跑** build job 那套（生产构建、包体、Lighthouse、Playwright 不适合阻塞每次本地 push）。**内容或前端轮次在用户授权 push `main` 之前，必须先跑 `pnpm predeploy`**：`gen-all` 后工作区必须干净 → `prepush` → `build` → `audit-rendering` → `audit-og-assets` → `bundle-check --skip-build` → 独占端口 Lighthouse → `CI=1 pnpm test:e2e:smoke`。这才是 CI quality+build 的本地全集；漏跑就是人类学那次红的三处（索引幂等、首页 TBT、冒烟卡数）。
+- **pre-push 钩子刻意不跑** build job 那套（生产构建、包体、Lighthouse、Playwright 不适合阻塞每次本地 push）。**内容或前端轮次在用户授权 push `main` 之前，必须先跑 `pnpm predeploy`**：`gen-all` 后工作区必须干净 → `prepush` → `build` → `audit-rendering` → `audit-og-assets` → `audit-function-assets` → `bundle-check --skip-build` → 独占端口 Lighthouse → `CI=1 pnpm test:e2e:smoke`。这才是 CI quality+build 的本地全集；漏跑就是人类学那次红的三处（索引幂等、首页 TBT、冒烟卡数）。
 - husky 已激活（`prepare` 脚本）。紧急绕过：`git push --no-verify`。
 - `audit-graph-coverage` 对低于领域覆盖率底线的报告以 **1** 退出；单元测试另行验证覆盖率与悬空图谱 URL。脚本与测试都必须通过。
 
@@ -242,6 +242,7 @@ pnpm predeploy             # ⭐ push `main` 前：gen-all 幂等 + prepush + �
 pnpm bundle-check -- --skip-build   # JS/CSS/搜索索引预算（先跑过 build）
 pnpm audit-rendering       # SSG/ISR 契约（读生产产物）
 pnpm audit-og-assets       # OG Node 字体、许可证、WASM 与函数体积（先 build）
+pnpm audit-function-assets # 全部 Node 函数追踪输入 ≤ 225 MiB，预留平台封装空间
 pnpm audit-cross-domain    # 跨域连接节达标口径
 pnpm audit-image-rights    # 图像权利与性能预算
 pnpm test:e2e:smoke        # Playwright 生产冒烟（CI 门禁同款）
@@ -311,6 +312,7 @@ pnpm update-graph-snapshot && pnpm test       # 快照与实际一致
 pnpm build && pnpm bundle-check -- --skip-build
 pnpm audit-rendering
 pnpm audit-og-assets
+pnpm audit-function-assets
 
 # 渲染验证（改动页面/路由后）——注意端口 3067
 pnpm dev

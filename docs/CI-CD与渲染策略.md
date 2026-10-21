@@ -150,3 +150,7 @@ E2E_BROWSER_CHANNEL=chromium pnpm diagnose:navigation
 ### Lighthouse 失败诊断
 
 设置 `LH_ARTIFACT_DIR` 时，脚本在测量完成后保存每条路由（包括失败确认）的 LHR JSON，并保存图谱的 Chrome trace 与对应脚本。默认不写文件，本地可指向临时目录；CI 使用 runner 临时目录，始终上传 `lighthouse-diagnostics`，保留七天。产物用于核对 Linux 中的长任务、网络和页面异常，不改变阈值、确认次数、测量窗口或失败退出状态；不能用本地 Mac 的通过替代 CI 图谱失败。
+
+### 函数运行输入与体积门禁
+
+`pnpm audit-function-assets` 遍历生产 `.nft.json`，按每个函数实际文件的未压缩体积去重计数，225 MiB 上限为平台 250 MB 留出共享运行时和封装余量；缺文件、缺追踪或越界均失败，CI build 与本地 predeploy 同步执行。NFT 无法透过任意路径辅助调用恢复静态前缀，读取目录时应保持 `content` 前缀可见，避免把 `process.cwd()` 扩为整个工作区。函数不携带构建用原图、静态 WebP 和 reference；图像权利 JSON、manifest、对话和人物内容继续打包，静态图片仍由 public 资源发布。不能靠上传压缩率、删运行数据或开启大函数 beta 代替检查，最终仍需平台打包与隔离输入/线上读取验证。

@@ -31,6 +31,9 @@ pnpm audit-rendering
 step "OG Node function assets"
 pnpm audit-og-assets
 
+step "Server function asset budgets"
+pnpm audit-function-assets
+
 step "Bundle budget"
 pnpm bundle-check -- --skip-build
 

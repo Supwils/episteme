@@ -90,6 +90,9 @@ jobs:
       - name: OG Node function assets
         run: pnpm audit-og-assets
 
+      - name: Server function asset budgets
+        run: pnpm audit-function-assets
+
       # Enforce the JS gzip budget documented in CLAUDE.md §6.
       - name: Bundle budget
         run: pnpm bundle-check -- --skip-build

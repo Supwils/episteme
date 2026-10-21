@@ -536,11 +536,23 @@ export class GraphRenderer {
 
   private onResize(): void {
     const rect = this.canvas.getBoundingClientRect();
-    this.dpr = window.devicePixelRatio || 1;
+    const dpr = window.devicePixelRatio || 1;
+    const backingWidth = Math.round(rect.width * dpr);
+    const backingHeight = Math.round(rect.height * dpr);
+    // The observer's initial notification can arrive after the first frame.
+    // Marking an unchanged canvas dirty redraws the entire graph a second time.
+    if (
+      this.width === rect.width &&
+      this.height === rect.height &&
+      this.dpr === dpr &&
+      this.canvas.width === backingWidth &&
+      this.canvas.height === backingHeight
+    ) {
+      return;
+    }
+    this.dpr = dpr;
     this.width = rect.width;
     this.height = rect.height;
-    const backingWidth = Math.round(rect.width * this.dpr);
-    const backingHeight = Math.round(rect.height * this.dpr);
     // Assigning canvas.width clears the bitmap even when unchanged, so skip
     // no-op resizes that the observer reports on first observe.
     if (this.canvas.width !== backingWidth) this.canvas.width = backingWidth;

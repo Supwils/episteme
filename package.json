@@ -62,6 +62,7 @@
     "wiki-slug": "node --import tsx scripts/wiki-slug.mjs",
     "audit-image-rights": "node --import tsx scripts/audit-image-rights.ts",
     "audit-og-assets": "node scripts/performance/og-assets-audit.mjs",
+    "audit-function-assets": "node scripts/performance/function-assets-audit.mjs",
     "gen-content-images": "node --import tsx scripts/gen-content-images.ts"
   },
   "dependencies": {

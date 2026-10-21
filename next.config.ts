@@ -83,6 +83,9 @@ const nextConfig: NextConfig = {
   // and source images. Production only reads generated/corpus.*; the extra ~210 MB
   // trips Vercel's 250 MB uncompressed function limit.
   outputFileTracingExcludes: {
+    // Readers use the rights JSON and manifest; image bytes are served as static
+    // files. Reference source never participates in the deployed application.
+    "/**": ["./content-assets/images/*.src.*", "./public/images/*.webp", "./reference/**/*"],
     "/api/search": ["./content/**/*", "./content-assets/**/*", "./public/**/*", "./reference/**/*"],
     "/search": ["./content/**/*", "./content-assets/**/*", "./reference/**/*"],
   },

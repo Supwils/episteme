@@ -1,6 +1,5 @@
 import path from "node:path";
 import { readContentEntries } from "@/lib/content-article";
-import { getDomainContentDir } from "@/lib/content-paths";
 import { chineseNameBesideLatin } from "@/lib/reader-person-label";
 import { getAllScientists } from "@/subjects/life-science/lib/scientists";
 
@@ -36,7 +35,8 @@ function addTitle(found: Map<string, Set<string>>, slug: string, title: string):
 function loadPageTitles(): Map<string, string | null> {
   const found = new Map<string, Set<string>>();
   for (const [domain, section] of PERSON_SECTIONS) {
-    const root = path.join(getDomainContentDir(domain), section);
+    // Keep the content prefix visible to NFT; a helper hides it and traces cwd.
+    const root = path.join(process.cwd(), "content", domain, section);
     for (const entry of readContentEntries(root, [".mdx", ".md"], "safe")) {
       const title = entry.frontmatter.title;
       if (typeof title === "string") addTitle(found, entry.slug, title);
