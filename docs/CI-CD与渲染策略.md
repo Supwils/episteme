@@ -146,3 +146,7 @@ E2E_BROWSER_CHANNEL=chromium pnpm diagnose:navigation
 默认总时限 30 秒，`--timeout-ms=5000…120000`、`--cycles=1…10`、`--observation-ms=100…3000` 可调整；报告默认在 `.cache/navigation-cancellation/`。启动为清理预留时间，超时或中断报告非零，只处理本次取得的浏览器句柄与自有 HTTP 服务。观察期满未完成的请求记录为 `pending`；为避免在替换期间排队读取旧上下文，其 DOM 信号记 `null`。进程字段是最后观察状态，故障清理后的实际存活须核对报告中的具体 PID 与临时端口。`status: complete` 仅说明对照有效、矩阵完成；是否复现必须看各替换场景的 `finding`，不能用退出码 0 证明机制。
 
 2026-10-21 本机 Playwright 1.60.0 / WebKit 26.4 三轮均观察到：同源控制两种 API 返回 200；真正跨域失败有带原始 Origin 和 POST 方法的 OPTIONS 入站、403、零 POST；文档替换中的同源新请求没有入站，fetch 拒绝、XHR error/status 0，产生两条访问控制 pageerror，但没有 DOM error 或未处理拒绝。Chrome 155 在相同阶段的观察窗口结束时仍等待且无 pageerror。另测已经流式传输的正文：两种引擎均发生未完成正文的取消，浏览器和服务器确认后才关闭测试上下文，避免把测试清理误算成导航取消；WebKit 在替换响应仍被保持时已关闭两条在途连接，Chrome 在该观察点尚未关闭，响应释放并完成导航后确认已关闭。这些是本机实验边界的观测，不是对浏览器内部提交时序的推断。这个无框架样例支持将本站快速 `goto` 的相同症状归因于文档替换边界，不能据此放宽 CORS、全局过滤 pageerror，或宣称所有 Safari 版本和请求取消均已验证。[上游 #43120](https://github.com/microsoft/playwright/issues/43120)、[#42823](https://github.com/microsoft/playwright/issues/42823)是相关报告，不能代替本机证据。独立页面断言使用独立上下文；真正的站内导航路径仍须保留完整验证。同一轮的真实生产构建对照中，六个经济学 RSC 入口在 WebKit / 系统 Chrome 共 12 次读取均为同源 200、正文完整且无重定向；真实 NextLink 进入学派页的两次软导航均无文档请求和 pageerror。该对照支持保留站点现有权限策略。
+
+### Lighthouse 失败诊断
+
+设置 `LH_ARTIFACT_DIR` 时，脚本在测量完成后保存每条路由（包括失败确认）的 LHR JSON，并保存图谱的 Chrome trace 与对应脚本。默认不写文件，本地可指向临时目录；CI 使用 runner 临时目录，始终上传 `lighthouse-diagnostics`，保留七天。产物用于核对 Linux 中的长任务、网络和页面异常，不改变阈值、确认次数、测量窗口或失败退出状态；不能用本地 Mac 的通过替代 CI 图谱失败。

@@ -1,6 +1,8 @@
 // Run against a production server: `pnpm build && pnpm start`, then `pnpm lighthouse`.
 // Route-specific baselines intentionally leave a small variance margin while
 // still failing material regressions in score, LCP, TBT, or CLS.
+import { mkdir, writeFile } from "node:fs/promises";
+import { join } from "node:path";
 import lighthouse from "lighthouse";
 import * as chromeLauncher from "chrome-launcher";
 import { chromium } from "@playwright/test";
@@ -30,6 +32,7 @@ const formatMs = (value) => `${Math.round(value)}ms`.padStart(7);
 const formatInp = (value) =>
   value == null || !Number.isFinite(value) ? "    n/a" : formatMs(value);
 const violations = [];
+let diagnosticSequence = 0;
 
 console.log(`Lighthouse @ ${UPSTREAM}${proxy ? " (via CDN-like brotli proxy)" : ""}`);
 if (proxy) await warmUpRoutes();
@@ -84,6 +87,7 @@ async function measureRoute({ route, throttlingMethod }) {
       });
       if (!result) throw new Error(`Lighthouse returned no result for ${route}`);
       metrics = readLighthouseMetrics(result.lhr);
+      await saveDiagnostics(route, result);
     } finally {
       await chrome.kill();
     }
@@ -91,6 +95,23 @@ async function measureRoute({ route, throttlingMethod }) {
     console.warn(`${route}: invalid performance trace, retrying once`);
   }
   throw new Error(`Lighthouse exhausted attempts for ${route}`);
+}
+
+// Preserve the measured run, including failed confirmations: laptop timings
+// cannot identify long tasks that only appear on a Linux CI runner.
+async function saveDiagnostics(route, result) {
+  const directory = process.env.LH_ARTIFACT_DIR;
+  if (!directory) return;
+  await mkdir(directory, { recursive: true });
+  const name = `${++diagnosticSequence}-${route === "/" ? "home" : route.slice(1).replaceAll("/", "-")}`;
+  await writeFile(join(directory, `${name}.lhr.json`), JSON.stringify(result.lhr));
+  if (route === "/knowledge-graph") {
+    await writeFile(join(directory, `${name}.trace.json`), JSON.stringify(result.artifacts.Trace));
+    await writeFile(
+      join(directory, `${name}.scripts.json`),
+      JSON.stringify(result.artifacts.Scripts)
+    );
+  }
 }
 
 // One untimed visit per route so the proxy has CDN-quality bodies cached,

@@ -95,6 +95,8 @@ jobs:
         run: pnpm bundle-check -- --skip-build
 
       - name: Lighthouse performance budget
+        env:
+          LH_ARTIFACT_DIR: ${{ runner.temp }}/lighthouse
         run: |
           pnpm start > /tmp/episteme-next.log 2>&1 &
           server_pid=$!
@@ -114,6 +116,15 @@ jobs:
             sleep 1
           done
           LH_BASE=http://127.0.0.1:3000 pnpm lighthouse
+
+      - name: Upload Lighthouse diagnostics
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: lighthouse-diagnostics
+          path: ${{ runner.temp }}/lighthouse/
+          if-no-files-found: ignore
+          retention-days: 7
 
       - name: Playwright production smoke
         run: pnpm test:e2e:smoke
