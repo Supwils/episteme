@@ -79024,6 +79024,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/psychology/experiments/stanford-prison": [
     {
+      url: "/psychology/theorists/philip-zimbardo",
+      title: "菲利普·津巴多",
+    },
+    {
+      url: "/psychology/phenomena/fundamental-attribution-error",
+      title: "基本归因错误",
+    },
+    {
+      url: "/psychology/schools/social-psychology",
+      title: "社会心理学",
+    },
+    {
       url: "/psychology/experiments/rosenhan-1973",
       title: "Rosenhan 假病人研究：诊断标签一旦贴上会怎样",
     },

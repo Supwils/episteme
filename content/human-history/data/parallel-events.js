@@ -58,7 +58,7 @@ export const PARALLEL_EVENTS = [
   { year: 1519, title: '阿兹特克帝国灭亡', desc: '科尔特斯仅用600人就征服了拥有数百万人口的阿兹特克帝国', era: 'earlyModern', region: 'americas', cat: 'military' },
   { year: 1526, title: '莫卧儿帝国建立', desc: '巴布尔建立莫卧儿帝国——统治印度300年', era: 'earlyModern', region: 'asia', cat: 'politics' },
   { year: 1533, title: '印加帝国灭亡', desc: '皮萨罗俘虏印加皇帝阿塔瓦尔帕——南美洲最大的帝国崩溃', era: 'earlyModern', region: 'americas', cat: 'military' },
-  { year: 1550, title: '大西洋奴隶贸易开始', desc: '约1200万非洲人被贩卖到美洲——人类历史上最大的强制迁徙', era: 'earlyModern', region: 'africa', cat: 'economy' },
+  { year: 1550, title: '大西洋奴隶贸易开始', desc: '约1250万装船、约1070万抵达——人类历史上最大的强制迁徙之一', era: 'earlyModern', region: 'africa', cat: 'economy' },
   { year: 1582, title: '格里高利历', desc: '教皇格里高利十三世颁布新历法——我们今天使用的公历', era: 'earlyModern', region: 'europe', cat: 'science' },
   { year: 1610, title: '伽利略的望远镜', desc: '伽利略用望远镜观测天空，发现木星卫星和月面环形山——为日心说提供有力证据', era: 'earlyModern', region: 'europe', cat: 'science' },
   { year: 1610, title: '莎士比亚创作《暴风雨》', desc: '莎士比亚的最后一部作品——"我们都是梦的材料做成的"', era: 'earlyModern', region: 'europe', cat: 'culture' },

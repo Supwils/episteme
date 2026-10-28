@@ -1114,7 +1114,7 @@ export const TIMELINE_EVENT_CATALOG = [
   {
     "year": 868,
     "title": "印刷术发明",
-    "desc": "知识民主化的开端，从雕版到活字的革命",
+    "desc": "868年《金刚经》是现存最早的纪年雕版，活字约在1040年",
     "era": "medieval",
     "region": "asia",
     "cat": "technology",
@@ -1664,7 +1664,7 @@ export const TIMELINE_EVENT_CATALOG = [
   {
     "year": 1550,
     "title": "大西洋奴隶贸易开始",
-    "desc": "约1200万非洲人被贩卖到美洲——人类历史上最大的强制迁徙",
+    "desc": "约1250万装船、约1070万抵达——人类历史上最大的强制迁徙之一",
     "era": "earlyModern",
     "region": "africa",
     "cat": "economy",
@@ -1917,7 +1917,7 @@ export const TIMELINE_EVENT_CATALOG = [
   {
     "year": 1776,
     "title": "美国独立",
-    "desc": "人类第一个现代民主国家诞生",
+    "desc": "有产白人男性才能投票的联邦共和国，不是多数人民主",
     "era": "earlyModern",
     "region": "americas",
     "cat": "politics",
@@ -3039,7 +3039,7 @@ export const TIMELINE_EVENT_CATALOG = [
   {
     "year": 2050,
     "title": "火星殖民",
-    "desc": "人类在火星建立第一个永久定居点",
+    "desc": "乐观情景里的火星永久定居，年份高度不确定",
     "era": "future",
     "region": "global",
     "cat": "science",
@@ -3050,7 +3050,7 @@ export const TIMELINE_EVENT_CATALOG = [
   {
     "year": 2060,
     "title": "核聚变商业化",
-    "desc": "清洁、安全、近乎无限的能源成为现实",
+    "desc": "点火不等于商业电站，年份仍不确定",
     "era": "future",
     "region": "global",
     "cat": "science",

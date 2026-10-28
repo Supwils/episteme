@@ -67,7 +67,7 @@ export const FIGURE_RELATIONS = [
   { source: '达尔文', target: '马克思', type: 'influence', desc: '进化论影响了马克思的历史唯物主义' },
   { source: '黑格尔', target: '马克思', type: 'influence', desc: '马克思批判继承了黑格尔辩证法' },
   { source: '马克思', target: '恩格斯', type: 'collaboration', desc: '共同创立马克思主义' },
-  { source: '哥白尼', target: '伽利略', type: 'influence', desc: '伽利略用观测证实了哥白尼日心说' },
+  { source: '哥白尼', target: '伽利略', type: 'influence', desc: '伽利略的观测有力支持日心说，当时还不能证伪第谷体系' },
   { source: '伽利略', target: '牛顿', type: 'influence', desc: '牛顿说"站在巨人的肩膀上"' },
   { source: '莎士比亚', target: '伏尔泰', type: 'influence', desc: '伏尔泰将莎士比亚介绍到法国' },
   { source: '甘地', target: '马丁·路德·金', type: 'influence', desc: '马丁·路德·金借鉴甘地非暴力策略' },
