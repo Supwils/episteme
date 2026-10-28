@@ -75,6 +75,7 @@ const PAGES = [
   ["课堂互动结构图", "/education/classroom-talk-lab"],
   ["测验分数分解器", "/education/score-decomposer"],
   ["自适应路径示意", "/education/adaptive-path-lab"],
+  ["代际流动示意", "/sociology/mobility-lab"],
 ];
 const SELECTED_PAGES = process.env.SCAN_PATH
   ? PAGES.filter(([, path]) => path === process.env.SCAN_PATH)

@@ -333,6 +333,7 @@ export function KnowledgeGraph({
           spatialLevel
         );
         if (nextParams.toString() === currentParams.toString()) return;
+        appliedGraphViewKeyRef.current = graphViewUrlKey(nextParams);
         window.history.replaceState(null, "", `${pathname}?${nextParams.toString()}`);
       },
       reducedMotion ? 0 : 160
@@ -761,6 +762,11 @@ export function KnowledgeGraph({
       }
     }
     const query = nextParams.toString();
+    // A delayed navigation must not restore the view over a newer interaction.
+    const nextView = parseGraphViewUrlState(nextParams);
+    if (mode === "spatial") setSpatialRotation(nextView.spatialRotation);
+    setSpatialLevel(nextView.spatialLevel);
+    appliedGraphViewKeyRef.current = graphViewUrlKey(nextParams);
     router.push(query ? `${pathname}?${query}` : pathname, { scroll: false });
   };
 
@@ -774,6 +780,7 @@ export function KnowledgeGraph({
       spatialProjection.frontDomainId,
       level
     );
+    appliedGraphViewKeyRef.current = graphViewUrlKey(nextParams);
     router.push(`${pathname}?${nextParams.toString()}`, { scroll: false });
   };
 

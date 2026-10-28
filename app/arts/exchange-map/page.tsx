@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function ExchangeMapPage() {
   return (
-    <main className="mx-auto w-full max-w-3xl px-5 py-16 sm:px-8">
+    <div className="mx-auto w-full max-w-3xl px-5 py-16 sm:px-8">
       <header className="mb-8">
         <p className="text-fg-muted mb-3 font-mono text-[11px] tracking-[0.3em] uppercase">交流</p>
         <h1 className="text-fg-primary mb-4 text-3xl font-bold sm:text-4xl">全球艺术交流地图</h1>
@@ -28,6 +28,6 @@ export default function ExchangeMapPage() {
           ]}
         />
       </section>
-    </main>
+    </div>
   );
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { DomainLanding } from "@/components/landing/DomainLanding";
 import { createKnowledgeSection } from "@/lib/knowledge-domain";
 import {
@@ -87,6 +88,22 @@ export default function PsychologyHomePage() {
       lede="从弗洛伊德的潜意识到卡尼曼的双系统，从米尔格拉姆的服从实验到斯坦福监狱——一座跨越百年的心理学与认知科学知识图谱。"
       sections={sections}
     >
+      <section className="landing-block" aria-labelledby="landing-signal-lab">
+        <h2 id="landing-signal-lab" className="landing-block__title">
+          信号检测示意
+        </h2>
+        <p className="landing-block__note">
+          移动判断标准，看击中和虚报一起变，敏感度却停在原处。不是被试成绩。
+        </p>
+        <p className="text-[14px]">
+          <Link
+            href="/psychology/signal-detection-lab"
+            className="text-accent-gold hover:underline"
+          >
+            打开示意 →
+          </Link>
+        </p>
+      </section>
       <EmotionWheelModule />
     </DomainLanding>
   );

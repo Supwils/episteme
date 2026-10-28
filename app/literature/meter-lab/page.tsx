@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function MeterLabPage() {
   return (
-    <main className="mx-auto w-full max-w-3xl px-5 py-16 sm:px-8">
+    <div className="mx-auto w-full max-w-3xl px-5 py-16 sm:px-8">
       <header className="mb-8">
         <p className="text-fg-muted mb-3 font-mono text-[11px] tracking-[0.3em] uppercase">
           可数的诗行
@@ -33,6 +33,6 @@ export default function MeterLabPage() {
           ]}
         />
       </section>
-    </main>
+    </div>
   );
 }

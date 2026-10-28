@@ -171,7 +171,7 @@ export default function DesignSystemPage() {
   const dark = PALETTE.dark;
   const light = PALETTE.light;
   return (
-    <main className="mx-auto max-w-6xl px-4 pt-24 pb-24 sm:px-8">
+    <div className="mx-auto max-w-6xl px-4 pt-24 pb-24 sm:px-8">
       <p className="text-fg-muted text-sm">内部样张 · 不对外链接</p>
       <h1 className="font-display text-fg-primary mt-2 text-4xl">观测台与手记 · 设计系统</h1>
       <p className="text-fg-secondary mt-4 max-w-2xl leading-relaxed">
@@ -322,6 +322,6 @@ export default function DesignSystemPage() {
           <MarkdownRenderer content={AUTHOR_KIT_SAMPLE} domain="philosophy" />
         </div>
       </Section>
-    </main>
+    </div>
   );
 }

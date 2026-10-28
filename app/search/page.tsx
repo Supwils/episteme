@@ -74,7 +74,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   const shown = titleResults.length + bodyResults.length;
 
   return (
-    <main className="mx-auto w-full max-w-4xl px-6 py-16">
+    <div className="mx-auto w-full max-w-4xl px-6 py-16">
       <h1 className="font-display text-fg-primary text-3xl font-semibold">搜索</h1>
 
       <form action="/search" className="mt-6 flex gap-3">
@@ -222,6 +222,6 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
           )}
         </>
       )}
-    </main>
+    </div>
   );
 }

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function WorldMapPage() {
   return (
-    <main className="mx-auto w-full max-w-3xl px-5 py-16 sm:px-8">
+    <div className="mx-auto w-full max-w-3xl px-5 py-16 sm:px-8">
       <header className="mb-8">
         <p className="text-fg-muted mb-3 font-mono text-[11px] tracking-[0.3em] uppercase">
           示意，不是底图
@@ -40,6 +40,6 @@ export default function WorldMapPage() {
           ]}
         />
       </section>
-    </main>
+    </div>
   );
 }

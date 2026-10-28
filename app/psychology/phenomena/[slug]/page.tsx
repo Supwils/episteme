@@ -5,6 +5,7 @@ import Link from "next/link";
 import { readerKeyFigureLabel } from "@/lib/reader-key-figure-label";
 import { getPhenomenonBySlug, getAllPhenomena } from "@/subjects/psychology/lib/mdx";
 import { CATEGORY_COLORS } from "@/subjects/psychology/lib/constants";
+import { DomainLabInvite } from "@/components/domain/DomainLabInvite";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { ArticleLayout } from "@/components/ArticleLayout";
 import { TableOfContents } from "@/components/TableOfContents";
@@ -128,6 +129,7 @@ export default async function PhenomenonDetailPage({
     >
       {slug === "attachment-styles" && <AttachmentStyles />}
       <MarkdownRenderer domain="psychology" content={phenomenon.content} accentColor={catColor} />
+      <DomainLabInvite domain="psychology" section="phenomena" slug={slug} />
     </ArticleLayout>
   );
 }

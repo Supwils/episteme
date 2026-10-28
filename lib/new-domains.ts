@@ -83,6 +83,15 @@ export const COMPUTER_SCIENCE: DomainConfig = {
       description: "Git、PostgreSQL、Redis、Kubernetes、Linux 容器——真实系统内部到底怎么运作",
     },
   ],
+  tools: [
+    {
+      href: "/computer-science/cache-locality-lab",
+      label: "缓存步长示意",
+      icon: "▦",
+      accent: "#4f9cf0",
+      description: "改访问步长，看同一小块内存里命中怎么变。不是测速，也不是攻击",
+    },
+  ],
 };
 
 export const POLITICAL_SCIENCE: DomainConfig = {
@@ -136,6 +145,15 @@ export const POLITICAL_SCIENCE: DomainConfig = {
       description: "比较、过程追踪、案例选择、调查、实验、形式模型与政治文本分析",
     },
   ],
+  tools: [
+    {
+      href: "/political-science/seat-threshold-lab",
+      label: "席位与否决示意",
+      icon: "⚖",
+      accent: "#c25b5b",
+      description: "改赞成票和否决者人数，看示意议案过不过。不是选举预测器，不跟踪选民",
+    },
+  ],
 };
 
 export const EARTH_SCIENCE: DomainConfig = {
@@ -187,6 +205,15 @@ export const EARTH_SCIENCE: DomainConfig = {
       accent: "#d66b45",
       icon: "🛰",
       description: "从地震波、卫星、雷达、气体与模型反演，重建真实地球事件及其不确定性",
+    },
+  ],
+  tools: [
+    {
+      href: "/earth-science/water-balance-lab",
+      label: "水量平衡示意",
+      icon: "💧",
+      accent: "#4f9d76",
+      description: "改降水、蒸散发和径流，看储蓄项怎么变。不是气候预测，也不是洪水预警",
     },
   ],
 };
@@ -347,6 +374,15 @@ export const CHEMISTRY: DomainConfig = {
       description: "氧化学革命、周期律、合成氨、合成染料、塑料时代、放射性、原子论、绿色化学",
     },
   ],
+  tools: [
+    {
+      href: "/chemistry/equilibrium-lab",
+      label: "平衡方向示意",
+      icon: "⇌",
+      accent: "#e08a3c",
+      description: "改反应商和平衡常数，看净变化朝哪一侧。不是测定，也不是操作步骤",
+    },
+  ],
 };
 
 export const SOCIOLOGY: DomainConfig = {
@@ -384,6 +420,15 @@ export const SOCIOLOGY: DomainConfig = {
       accent: "#8a78bd",
       icon: "🔎",
       description: "民族志、访谈、调查、比较历史、内容分析、统计模型、实验与计算方法",
+    },
+  ],
+  tools: [
+    {
+      href: "/sociology/mobility-lab",
+      label: "代际流动示意",
+      icon: "↕",
+      accent: "#7a8f5a",
+      description: "改开放度，看示意队列里子女去向的份额。不是调查表，也不跟踪人",
     },
   ],
 };

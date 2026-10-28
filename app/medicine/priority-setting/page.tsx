@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function HealthPrioritySettingPage() {
   return (
-    <main className="mx-auto w-full max-w-6xl px-5 py-16 sm:px-8 lg:px-10">
+    <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:px-8 lg:px-10">
       <header className="mb-9 max-w-3xl">
         <p className="text-accent-gold mb-3 font-mono text-[10px] tracking-[0.32em] uppercase">
           medicine / priority setting
@@ -66,6 +66,6 @@ export default function HealthPrioritySettingPage() {
           卫生系统与全民健康覆盖 →
         </Link>
       </nav>
-    </main>
+    </div>
   );
 }

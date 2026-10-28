@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function SpaceExplorerPage() {
   return (
-    <main className="mx-auto w-full max-w-3xl px-5 py-16 sm:px-8">
+    <div className="mx-auto w-full max-w-3xl px-5 py-16 sm:px-8">
       <header className="mb-8">
         <p className="text-fg-muted mb-3 font-mono text-[11px] tracking-[0.3em] uppercase">图示</p>
         <h1 className="text-fg-primary mb-4 text-3xl font-bold sm:text-4xl">建筑空间探索器</h1>
@@ -27,6 +27,6 @@ export default function SpaceExplorerPage() {
           ]}
         />
       </section>
-    </main>
+    </div>
   );
 }

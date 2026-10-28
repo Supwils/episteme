@@ -28,9 +28,9 @@ export default function EconomicsLayout({ children }: { children: React.ReactNod
     <div className={`economics-root ${fontVars}`}>
       <DomainHeader subject="economics" />
 
-      <main data-skip-target tabIndex={-1} className="focus:outline-none">
+      <div data-skip-target tabIndex={-1} className="focus:outline-none">
         {children}
-      </main>
+      </div>
 
       <footer className="border-border-faint border-t px-4 py-6 sm:px-6">
         <div className="flex w-full flex-col items-center gap-2 sm:flex-row sm:items-center sm:justify-between">

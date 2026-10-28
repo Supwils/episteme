@@ -42,9 +42,9 @@ export default function CuriositiesLayout({ children }: { children: React.ReactN
           奇趣知识
         </span>
       </nav>
-      <main data-skip-target tabIndex={-1} className="focus:outline-none">
+      <div data-skip-target tabIndex={-1} className="focus:outline-none">
         <PageTransition>{children}</PageTransition>
-      </main>
+      </div>
       <footer className="border-border-faint border-t px-4 py-6 sm:px-6">
         <span className="text-fg-muted font-mono text-[10px] tracking-[0.32em] uppercase">
           原来如此

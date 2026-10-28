@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function MoleculesPage() {
   return (
-    <main className="mx-auto w-full max-w-5xl px-5 py-16 sm:px-8">
+    <div className="mx-auto w-full max-w-5xl px-5 py-16 sm:px-8">
       <header className="mb-12">
         <p className="text-fg-muted mb-3 font-mono text-[11px] tracking-[0.3em] uppercase">
           真实结构
@@ -79,6 +79,6 @@ export default function MoleculesPage() {
           );
         })}
       </div>
-    </main>
+    </div>
   );
 }

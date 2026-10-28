@@ -390,6 +390,50 @@ test("rotates the spatial graph without losing the active learning route or arti
   );
 });
 
+test("keeps a newer spatial rotation when the layout navigation arrives late", async ({
+  page,
+  isMobile,
+}) => {
+  await page.goto("/knowledge-graph?layout=cognitive", { waitUntil: "networkidle" });
+  if (isMobile) await page.getByRole("button", { name: "筛选", exact: true }).click();
+  await expect(page.getByRole("button", { name: "阶段", exact: true })).toHaveAttribute(
+    "aria-pressed",
+    "true"
+  );
+
+  let releaseNavigation!: () => void;
+  let navigationBlocked = false;
+  const navigationGate = new Promise<void>((resolve) => {
+    releaseNavigation = resolve;
+  });
+  await page.route("**/knowledge-graph?**", async (route) => {
+    const url = new URL(route.request().url());
+    if (url.searchParams.get("layout") === "spatial" && route.request().headers()["rsc"] === "1") {
+      navigationBlocked = true;
+      await navigationGate;
+    }
+    await route.continue();
+  });
+
+  const switching = page.getByRole("button", { name: "空间", exact: true }).click();
+  try {
+    const controls = page.getByTestId("spatial-graph-controls");
+    await expect(controls).toBeVisible();
+    await expect.poll(() => navigationBlocked).toBe(true);
+    await page.getByRole("combobox", { name: "空间图谱正面学科" }).selectOption("physics");
+    await expect(controls).toHaveAttribute("data-rotation", "90");
+
+    releaseNavigation();
+    await switching;
+    await expect(page).toHaveURL(/layout=spatial/);
+    await expect(page).toHaveURL(/spatialAngle=90/);
+    await expect(controls).toHaveAttribute("data-rotation", "90");
+  } finally {
+    releaseNavigation();
+    await switching;
+  }
+});
+
 test("keeps spatial graph controls within the mobile viewport", async ({ page, isMobile }) => {
   test.skip(!isMobile, "Mobile spatial graph flow");
 

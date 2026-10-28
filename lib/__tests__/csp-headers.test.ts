@@ -1,4 +1,7 @@
+import { spawnSync } from "node:child_process";
 import { readFileSync } from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 import { getPathMatch } from "next/dist/shared/lib/router/utils/path-match";
 import nextConfig from "../../next.config";
@@ -68,6 +71,53 @@ describe("route-scoped Content-Security-Policy", () => {
     const csp = cspFor("/molecules");
     expect(csp).toContain("https://models.rcsb.org");
     expect(csp).not.toContain("iconify");
+  });
+
+  it("scopes production eval and third parties to the routes that embed them", () => {
+    const child = path.join(
+      path.dirname(fileURLToPath(import.meta.url)),
+      "csp-production-child.ts"
+    );
+    const result = spawnSync(process.execPath, ["--import", "tsx", child], {
+      cwd: process.cwd(),
+      env: { ...process.env, NODE_ENV: "production" },
+      encoding: "utf8",
+    });
+    expect(result.stderr).toBe("");
+    expect(result.status).toBe(0);
+    const report = JSON.parse(result.stdout) as Record<
+      string,
+      {
+        eval: boolean;
+        rcsb: boolean;
+        iconify: boolean;
+        pinnedIconify: boolean;
+        blobWorker: boolean;
+      }
+    >;
+    for (const name of ["home", "search", "medicineExtra"]) {
+      expect(report[name]).toMatchObject({
+        eval: false,
+        rcsb: false,
+        iconify: false,
+        blobWorker: true,
+      });
+    }
+    for (const name of ["medicine", "chemistry", "molecules"]) {
+      expect(report[name]).toMatchObject({
+        eval: true,
+        rcsb: true,
+        iconify: false,
+        blobWorker: true,
+      });
+    }
+    expect(report.history).toMatchObject({
+      eval: false,
+      rcsb: false,
+      iconify: true,
+      pinnedIconify: true,
+      blobWorker: true,
+    });
   });
 
   it("pins the human-history script with SRI", () => {

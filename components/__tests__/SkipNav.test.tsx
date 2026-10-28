@@ -21,15 +21,16 @@ describe("SkipNav", () => {
           <header>
             <a href="/philosophy">哲学</a>
           </header>
-          <main data-skip-target tabIndex={-1}>
+          <div data-skip-target tabIndex={-1}>
             正文
-          </main>
+          </div>
         </main>
       </>
     );
     const link = screen.getByRole("link", { name: "跳转到内容" });
     const notPrevented = fireEvent.click(link);
     expect(notPrevented).toBe(false);
+    expect(document.activeElement?.tagName).toBe("DIV");
     expect(document.activeElement?.hasAttribute("data-skip-target")).toBe(true);
   });
 

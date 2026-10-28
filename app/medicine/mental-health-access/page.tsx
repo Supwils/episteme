@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function MentalHealthAccessPage() {
   return (
-    <main className="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 lg:px-10">
+    <div className="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 lg:px-10">
       <header className="mb-9 max-w-4xl">
         <p className="text-accent-gold mb-3 font-mono text-[10px] tracking-[0.32em] uppercase">
           medicine / mental health access
@@ -60,6 +60,6 @@ export default function MentalHealthAccessPage() {
           在知识图谱查看完整路线 →
         </Link>
       </nav>
-    </main>
+    </div>
   );
 }

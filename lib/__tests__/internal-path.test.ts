@@ -34,5 +34,13 @@ describe("isSafeHref", () => {
     expect(isSafeHref("//evil.example/phish")).toBe(false);
     expect(isSafeHref("https://example.org/\r\nX-Injected: 1")).toBe(false);
     expect(isSafeHref("#fn\n-1")).toBe(false);
+    expect(isSafeHref("\u2028javascript:alert(1)")).toBe(false);
+    expect(isSafeHref("java\u2028script:alert(1)")).toBe(false);
+    expect(isSafeHref("\uFEFFjavascript:alert(1)")).toBe(false);
+  });
+
+  it("keeps a special scheme without slashes on that scheme", () => {
+    expect(isSafeHref("https:example.org/paper")).toBe(true);
+    expect(new URL("https:example.org/paper").href).toBe("https://example.org/paper");
   });
 });

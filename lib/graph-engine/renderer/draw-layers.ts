@@ -109,7 +109,8 @@ export function drawEdges(dc: DrawContext, bounds: ViewBounds): void {
   const semanticOverview = transform.scale < 0.24;
   const semanticMidrange = transform.scale < 0.45;
 
-  ctx.lineCap = "round";
+  // Filled nodes cover line ends; round caps add costly software rasterization.
+  ctx.lineCap = "butt";
 
   for (let i = 0; i < edgesRef.length; i++) {
     const edge = edgesRef[i]!;
