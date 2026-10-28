@@ -19,6 +19,9 @@ export function GraphIndex() {
         <p className="text-fg-secondary mt-3">
           {SITE_TOTALS.graphNodes} 个知识节点，分布在 {SITE_TOTALS.domains}{" "}
           个学科。下面按学科列出连接最多的节点。
+          <Link href="/knowledge-summit" className="text-fg-primary ml-3 underline">
+            格致山
+          </Link>
         </p>
         {getClustersWithDomains(DOMAINS).map((cluster) => (
           <section key={cluster.id} className="mt-12" aria-labelledby={`graph-index-${cluster.id}`}>

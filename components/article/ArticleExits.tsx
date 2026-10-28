@@ -7,6 +7,7 @@ import { domainCluster } from "@/lib/knowledge-geometry";
 import { KNOWLEDGE_LEVELS } from "@/lib/knowledge-levels";
 import { sidewaysExit, upwardExit, type Exit } from "@/lib/article-exits";
 import { readingPathChaptersFor } from "@/lib/reading-paths";
+import { summitLocateForUrl } from "@/lib/summit-url";
 import "./article-exits.css";
 
 type Direction = { key: string; word: string; note: string; exit: Exit };
@@ -58,6 +59,7 @@ export function ArticleExits({
   const side = sidewaysExit(content, url);
   const levelName = (level?: number) =>
     KNOWLEDGE_LEVELS.find((item) => item.id === level)?.label ?? "";
+  const summitPlace = summitLocateForUrl(url);
   const directions: Direction[] = [
     forward && { key: "forward", word: "向前", note: forward.note, exit: forward.exit },
     up && { key: "up", word: "向上", note: `L${up.level} ${levelName(up.level)}`, exit: up },
@@ -111,13 +113,24 @@ export function ArticleExits({
             {prevLabel}：{prev.title}
           </Link>
         )}
-        <Link
-          href={`/knowledge-graph?at=${encodeURIComponent(url)}&source=article-exit`}
-          className="article-exits__minor article-exits__graph"
-        >
-          <Glyph name="graph" size={16} />
-          在知识图谱中定位
-        </Link>
+        <span className="article-exits__locate">
+          {summitPlace && (
+            <Link
+              href={`/knowledge-summit/${summitPlace.domain}#summit-node-${summitPlace.index}`}
+              className="article-exits__minor article-exits__graph"
+            >
+              <Glyph name="graph" size={16} />
+              在格致山中查看
+            </Link>
+          )}
+          <Link
+            href={`/knowledge-graph?at=${encodeURIComponent(url)}&source=article-exit`}
+            className="article-exits__minor article-exits__graph"
+          >
+            <Glyph name="graph" size={16} />
+            在知识图谱中定位
+          </Link>
+        </span>
       </div>
     </nav>
   );

@@ -45,6 +45,13 @@ export const EXPLORE_GROUP: NavGroup = {
           color: "",
           glyph: "graph",
         },
+        {
+          href: "/knowledge-summit",
+          label: "格致山",
+          en: "Knowledge Summit",
+          color: "",
+          glyph: "graph",
+        },
         { href: "/daily", label: "每日知识", en: "Daily Knowledge", color: "", glyph: "daily" },
         {
           href: "/curiosities",

@@ -78,11 +78,17 @@
   color: var(--color-fg-primary);
 }
 
+.article-exits__locate {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  margin-left: auto;
+}
+
 .article-exits__graph {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  margin-left: auto;
 }
 
 .article-exits__routes {

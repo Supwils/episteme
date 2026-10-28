@@ -23,7 +23,7 @@ const ISR_ROUTES = new Map([
   ]),
 ]);
 
-const STATIC_ROUTES = ["/knowledge-graph", "/read/western-philosophy"];
+const STATIC_ROUTES = ["/knowledge-graph", "/knowledge-summit", "/read/western-philosophy"];
 
 const ON_DEMAND_SSG_PATTERNS = [
   "/chemistry/concepts/[slug]",

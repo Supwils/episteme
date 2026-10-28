@@ -1,0 +1,272 @@
+@reference "../globals.css";
+
+.summit {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 5rem;
+  color: var(--color-fg-primary);
+}
+
+.summit-header h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 560;
+  letter-spacing: 0.04em;
+}
+
+.summit-header p {
+  max-width: 40rem;
+  margin: 0.9rem 0 0;
+  color: var(--color-fg-secondary);
+  line-height: 1.7;
+}
+
+.summit-header a {
+  margin-left: 0.75rem;
+  color: var(--brass-ink, var(--brass));
+  white-space: nowrap;
+}
+
+.summit-stage {
+  position: relative;
+  width: min(100%, 72vh);
+  margin: 1.75rem auto 0;
+  aspect-ratio: 1;
+  max-height: 72vh;
+  background: var(--color-bg-deep);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.summit-plan,
+.summit-canvas,
+.summit-labels {
+  position: absolute;
+  inset: 0;
+}
+
+.summit-plan__svg {
+  width: 100%;
+  height: 100%;
+}
+
+.summit-plan__ring,
+.summit-plan__core {
+  fill: none;
+  stroke: var(--color-border-subtle);
+}
+
+.summit-plan__seal {
+  font-size: 7px;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.summit-plan__beacon {
+  fill: var(--brass);
+}
+
+.summit-canvas {
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  pointer-events: none;
+  touch-action: none;
+}
+
+.summit-stage[data-mode="solid"] .summit-canvas {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.summit-stage[data-mode="solid"] .summit-plan {
+  visibility: hidden;
+}
+
+.summit-labels {
+  pointer-events: none;
+}
+
+.summit-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  color: var(--color-fg-primary);
+  font-size: 0.78rem;
+  pointer-events: none;
+  text-shadow: 0 0 6px var(--color-bg-deep);
+}
+
+.summit-hover {
+  position: absolute;
+  z-index: 3;
+  margin: 0;
+  padding: 0.3rem 0.5rem;
+  background: var(--color-bg-floating);
+  color: var(--color-fg-primary);
+  border: 1px solid var(--color-border-subtle);
+  pointer-events: none;
+  font-size: 0.82rem;
+}
+
+.summit-toolbar {
+  position: absolute;
+  z-index: 4;
+  left: 0.75rem;
+  bottom: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.summit-lenses {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.summit-button,
+.summit-lenses button,
+.summit-panel button,
+.summit-panel a.summit-button {
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-bg-panel);
+  color: var(--color-fg-primary);
+  padding: 0.35rem 0.7rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+.summit-button[aria-pressed="true"],
+.summit-lenses button[aria-checked="true"] {
+  border-color: var(--brass);
+}
+
+.summit-notice {
+  position: absolute;
+  z-index: 4;
+  top: 0.75rem;
+  left: 0.75rem;
+  right: 0.75rem;
+  margin: 0;
+  color: var(--color-fg-secondary);
+}
+
+.summit-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: var(--color-scrim);
+}
+
+.summit-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 41;
+  width: min(22rem, 100%);
+  height: 100%;
+  overflow: auto;
+  padding: 1.25rem 1.25rem 2rem;
+  background: var(--color-bg-panel);
+  color: var(--color-fg-primary);
+  border-left: 1px solid var(--color-border-subtle);
+}
+
+.summit-panel h2 {
+  margin: 0.4rem 0 0.8rem;
+  font-size: 1.4rem;
+}
+
+.summit-panel h3 {
+  margin: 1rem 0 0.35rem;
+  font-size: 0.85rem;
+  color: var(--color-fg-muted);
+}
+
+.summit-panel__meta {
+  margin: 0.8rem 0 0;
+  color: var(--color-fg-secondary);
+}
+
+.summit-panel__read {
+  display: inline-block;
+  margin-top: 1.2rem;
+  text-decoration: none;
+}
+
+.summit-panel ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.summit-panel li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.35rem;
+}
+
+.summit-directory {
+  margin-top: 2.5rem;
+}
+
+.summit-directory h2 {
+  margin: 1.5rem 0 0.6rem;
+  font-size: 1.35rem;
+}
+
+.summit-directory h3 {
+  margin: 0.8rem 0 0.3rem;
+  font-size: 0.95rem;
+  color: var(--color-fg-secondary);
+}
+
+.summit-directory ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.summit-directory li {
+  margin: 0.15rem 0;
+}
+
+.summit-cluster,
+.summit-domain {
+  border-top: 1px solid var(--color-border-faint);
+  padding: 0.35rem 0;
+}
+
+.summit-domain {
+  margin-left: 0.75rem;
+}
+
+.summit-directory summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.summit-directory a {
+  color: var(--color-fg-secondary);
+}
+
+.summit a:focus-visible,
+.summit button:focus-visible,
+.summit summary:focus-visible,
+.summit-canvas:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 2px;
+}
+
+@media (max-width: 767px) {
+  .summit-stage {
+    max-height: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .summit-canvas {
+    scroll-behavior: auto;
+  }
+}

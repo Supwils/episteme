@@ -13,6 +13,7 @@ const COLUMN_HEADING_CLASS =
 
 const EXPLORE_LINKS = [
   { href: "/knowledge-graph", label: "知识图谱" },
+  { href: "/knowledge-summit", label: "格致山" },
   { href: "/daily", label: "每日知识" },
   { href: "/read", label: "阅读路线" },
   { href: "/random", label: "随机一篇" },

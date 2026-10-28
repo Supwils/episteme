@@ -28,6 +28,7 @@ function fixture({ omitCoverage = false } = {}) {
     routes[route] = { initialRevalidateSeconds: seconds };
   }
   routes["/knowledge-graph"] = { initialRevalidateSeconds: false };
+  routes["/knowledge-summit"] = { initialRevalidateSeconds: false };
   routes["/read/western-philosophy"] = { initialRevalidateSeconds: false };
 
   const dynamicRoutes = Object.fromEntries(
@@ -149,7 +150,7 @@ function splitTurbopackFixture() {
     writeArtifact(route, kind);
   }
 
-  for (const route of ["/knowledge-graph", "/read/western-philosophy"]) {
+  for (const route of ["/knowledge-graph", "/knowledge-summit", "/read/western-philosophy"]) {
     writeArtifact(route, "page");
   }
 

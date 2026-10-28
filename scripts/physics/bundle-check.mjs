@@ -81,6 +81,16 @@ const BUDGET = {
   // indexing ~300 curiosity hooks as first-class hits measured 717 KB brotli.
   // A 10x jump would still mean article bodies leaked into the index.
   searchIndexBrotli: 800 * 1024,
+  // public/summit-layout.json. Measured 2026-10-28 at 13696 brotli / 77325 raw
+  // (13.4 KB / 75.5 KB) for 3634 nodes. Coordinates only; titles live in summit-cards.json.
+  // 80 KB brotli is the headroom the reader path was approved with.
+  summitLayoutRaw: 200 * 1024,
+  summitLayoutBrotli: 80 * 1024,
+  // public/summit-cards.json is fetched with the solid view, not with the
+  // document. Measured 2026-10-28 at 147676 brotli / 500133 raw
+  // (144.2 KB / 488.4 KB). 362497 was the JavaScript string length, not the file.
+  summitCardsRaw: 500 * 1024,
+  summitCardsBrotli: 200 * 1024,
   // /knowledge-graph payload, wire v3: what must arrive before the graph draws,
   // then the node descriptions fetched afterwards. Raw covers both files
   // because both are JSON.parse'd on the main thread.
@@ -280,6 +290,12 @@ const SEARCH_INDEX = join(ROOT, "public", "search-index.json");
 const searchIndexBrotli = statSync(SEARCH_INDEX, { throwIfNoEntry: false })
   ? brotliCompressSync(readFileSync(SEARCH_INDEX)).length
   : null;
+const SUMMIT_LAYOUT = join(ROOT, "public", "summit-layout.json");
+const summitLayoutRaw = statSync(SUMMIT_LAYOUT, { throwIfNoEntry: false })?.size ?? null;
+const summitLayoutBrotli = summitLayoutRaw === null ? null : brotliFile(SUMMIT_LAYOUT);
+const SUMMIT_CARDS = join(ROOT, "public", "summit-cards.json");
+const summitCardsRaw = statSync(SUMMIT_CARDS, { throwIfNoEntry: false })?.size ?? null;
+const summitCardsBrotli = summitCardsRaw === null ? null : brotliFile(SUMMIT_CARDS);
 const graphDescriptionsRaw =
   statSync(GRAPH_DESCRIPTIONS_BODY, { throwIfNoEntry: false })?.size ?? null;
 const graphDescriptionsBrotli =
@@ -377,6 +393,12 @@ console.log(
   `    Search index       : ${searchIndexBrotli === null ? "n/a" : fmt(searchIndexBrotli)} brotli   (budget ${fmt(BUDGET.searchIndexBrotli)})`
 );
 console.log(
+  `    Summit layout      : ${summitLayoutBrotli === null ? "n/a" : fmt(summitLayoutBrotli)} brotli / ${summitLayoutRaw === null ? "n/a" : fmt(summitLayoutRaw)} raw   (budget ${fmt(BUDGET.summitLayoutBrotli)} / ${fmt(BUDGET.summitLayoutRaw)})`
+);
+console.log(
+  `    Summit cards       : ${summitCardsBrotli === null ? "n/a" : fmt(summitCardsBrotli)} brotli / ${summitCardsRaw === null ? "n/a" : fmt(summitCardsRaw)} raw   (budget ${fmt(BUDGET.summitCardsBrotli)} / ${fmt(BUDGET.summitCardsRaw)})`
+);
+console.log(
   `    Graph data         : ${graphDataBrotli === null ? "n/a" : fmt(graphDataBrotli)} brotli first paint + ${graphDescriptionsBrotli === null ? "n/a" : fmt(graphDescriptionsBrotli)} deferred / ${graphDataRaw === null ? "n/a" : fmt(graphDataRaw)} raw   (budgets ${fmt(BUDGET.graphDataBrotli)} + ${fmt(BUDGET.graphDescriptionsBrotli)} / ${fmt(BUDGET.graphDataRaw)})`
 );
 console.log(
@@ -452,6 +474,36 @@ if (searchIndexBrotli === null) {
   violations.push(
     `Search index (${fmt(searchIndexBrotli)} brotli) exceeds budget (${fmt(BUDGET.searchIndexBrotli)})`
   );
+}
+
+if (summitLayoutRaw === null || summitLayoutBrotli === null) {
+  violations.push("public/summit-layout.json is missing; run pnpm gen-summit-layout");
+} else {
+  if (summitLayoutRaw > BUDGET.summitLayoutRaw) {
+    violations.push(
+      `Summit layout (${fmt(summitLayoutRaw)} raw) exceeds budget (${fmt(BUDGET.summitLayoutRaw)})`
+    );
+  }
+  if (summitLayoutBrotli > BUDGET.summitLayoutBrotli) {
+    violations.push(
+      `Summit layout (${fmt(summitLayoutBrotli)} brotli) exceeds budget (${fmt(BUDGET.summitLayoutBrotli)})`
+    );
+  }
+}
+
+if (summitCardsRaw === null || summitCardsBrotli === null) {
+  violations.push("public/summit-cards.json is missing; run pnpm gen-summit-layout");
+} else {
+  if (summitCardsRaw > BUDGET.summitCardsRaw) {
+    violations.push(
+      `Summit cards (${fmt(summitCardsRaw)} raw) exceed budget (${fmt(BUDGET.summitCardsRaw)})`
+    );
+  }
+  if (summitCardsBrotli > BUDGET.summitCardsBrotli) {
+    violations.push(
+      `Summit cards (${fmt(summitCardsBrotli)} brotli) exceed budget (${fmt(BUDGET.summitCardsBrotli)})`
+    );
+  }
 }
 
 if (graphDescriptionsBrotli !== null && graphDescriptionsBrotli > BUDGET.graphDescriptionsBrotli) {

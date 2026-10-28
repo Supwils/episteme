@@ -22,6 +22,7 @@ import { lifeScienceKB } from "@/lib/life-science-kb";
 import { universePhysicsDialogues } from "@/lib/universe-physics-dialogues";
 import { cosmologyDialogues } from "@/lib/cosmology-dialogues";
 import { SITE_URL } from "@/lib/constants";
+import { summitRouteDomains } from "@/lib/summit-catalog";
 import { getMathematicianSlugs } from "@/subjects/mathematics/lib/mathematicians";
 import { getTheoremSlugs } from "@/subjects/mathematics/lib/theorems";
 import { getMathConceptSlugs } from "@/subjects/mathematics/lib/concepts";
@@ -160,6 +161,8 @@ const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: "/medicine/simulator", priority: 0.7 },
   // Knowledge Graph
   { path: "/knowledge-graph", priority: 0.7 },
+  { path: "/knowledge-summit", priority: 0.7 },
+  ...summitRouteDomains().map((domain) => ({ path: `/knowledge-summit/${domain}`, priority: 0.5 })),
   // Cosmology
   { path: "/cosmology", priority: 0.8 },
   { path: "/cosmology/universe/observable", priority: 0.6 },

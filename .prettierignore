@@ -11,3 +11,7 @@ AGENTS.md
 # prettifying inflates it from ~3 MB to ~5.6 MB (+86%) for zero benefit. Note
 # public/link-previews.json is NOT listed: its generator runs prettier itself.
 public/search-index.json
+# gen-summit-layout writes these compact. Prettier would inflate them and
+# make the next gen-all look dirty.
+public/summit-layout.json
+public/summit-cards.json
