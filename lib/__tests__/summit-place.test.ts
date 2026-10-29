@@ -158,7 +158,8 @@ describe("summit model", () => {
   it("keeps the card file and the twenty-two domain routes inside their budgets", () => {
     expect(summitRouteDomains()).toHaveLength(22);
     const bytes = readFileSync("public/summit-cards.json");
-    expect(bytes.length).toBeLessThanOrEqual(500 * 1024);
+    // Decision 34: raw cap rose to 640 KB after 514085 bytes with brotli still under 180 KB.
+    expect(bytes.length).toBeLessThanOrEqual(640 * 1024);
     expect(brotliCompressSync(bytes).length).toBeLessThanOrEqual(200 * 1024);
     const cards = summitCardFile(model.nodes);
     const parsed = JSON.parse(bytes.toString()) as { l: string[]; u: string[] };

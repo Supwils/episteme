@@ -60,7 +60,11 @@ interface Indexed {
  */
 const HEADING_STOPWORD_RATIO = 0.015;
 const HEADING_STOPWORD_FLOOR = 20;
-const HEADING_CHAR_BUDGET = 100;
+// 2026-10-29 the title index was 722303 bytes brotli, past decision 14's 720 KB
+// watch line and under the 800 KB hard cap. Heading text stays in the tier-2
+// corpus, so later sections remain phrase-searchable. The instant index keeps
+// only the earliest distinctive headings. Do not raise the hard cap for this.
+const HEADING_CHAR_BUDGET = 40;
 
 function countByDomain(articles: Article[]): Record<string, number> {
   const counts: Record<string, number> = {};

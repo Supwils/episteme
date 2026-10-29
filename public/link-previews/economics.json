@@ -164,9 +164,19 @@
     "e": "日元套利靠借入便宜货币、投向高息资产赚取利差，平静时看起来像稳赚。这份收益是尾部风险的补偿而不是免费午餐，平仓时基本面无关的市场会一起下跌。",
     "d": "economics"
   },
+  "/economics/concepts/adverse-selection": {
+    "t": "逆向选择",
+    "e": "逆向选择是签约前的隐藏信息：高风险更愿投保，低风险退出，竞争性保险因此可能没有均衡。它不是签约后的隐藏行动，也不是用工资筛选应聘者的另一种用法。",
+    "d": "economics"
+  },
   "/economics/concepts/auction-theory": {
     "t": "拍卖理论",
     "e": "拍卖理论比较不同规则如何改变出价、卖家收益与配置，而不是认定某种形式天生更优。收入等价要求风险中性、估值独立同分布且最高估价者得标，条件一破，形式就重新重要。",
+    "d": "economics"
+  },
+  "/economics/concepts/bank-run": {
+    "t": "银行挤兑",
+    "e": "银行挤兑博弈有两个纳什均衡：没人挤兑则银行照常运转，所有人挤兑则银行倒闭。存款保险的作用是拿掉坏的那个均衡，而不是教人如何去挤兑。",
     "d": "economics"
   },
   "/economics/concepts/behavioral-finance": {
@@ -202,6 +212,11 @@
   "/economics/concepts/creative-destruction": {
     "t": "创造性破坏",
     "e": "创造性破坏把新产品与新技术从内部替换旧结构，并视为资本主义进步的动力。它并不意味着旧产业必然消亡，收益分散而成本集中，受损地区复苏远慢于总量。",
+    "d": "economics"
+  },
+  "/economics/concepts/crowding-out": {
+    "t": "挤出",
+    "e": "挤出是公共支出或公债是否顶掉私人支出，各页对利率、等量和充分就业的说法并不相同。它不是货币乘数，超额准备金造成的倍数下滑也不能写成挤出。",
     "d": "economics"
   },
   "/economics/concepts/debt-sustainability-macro-framework": {
@@ -252,6 +267,16 @@
   "/economics/concepts/externalities": {
     "t": "外部性",
     "e": "外部性是未进价格的第三方成本或收益，市场因此会把转嫁代价的活动做得偏多、把外溢好处做得偏少。征税对齐社会成本须能估计外部代价，谈判对齐则须产权清楚且交易成本够低。",
+    "d": "economics"
+  },
+  "/economics/concepts/fiscal-multiplier": {
+    "t": "财政乘数",
+    "e": "财政乘数是支出变动被说成会放大成更大的收入变动，餐厅里的 100 元、边际消费倾向 0.8 和乘数 5 只是标明了的假设。它不是测量，也不是流动性陷阱本身。",
+    "d": "economics"
+  },
+  "/economics/concepts/fisher-equation": {
+    "t": "费雪方程",
+    "e": "费雪方程在利率页写成名义利率约等于实际利率加预期通胀，用来分开名目回报和扣掉物价之后的回报。它不是交易方程，也不是购买力平价，土耳其的两个超过不可相减。",
     "d": "economics"
   },
   "/economics/concepts/foreign-exchange": {
@@ -312,6 +337,11 @@
   "/economics/concepts/leverage-and-systemic-risk": {
     "t": "杠杆与系统性风险",
     "e": "杠杆用借入资金同时放大收益与亏损，一家机构的加仓可以沿抵押品和短期融资变成全系统抛售。危险在于水平过高且顺周期，监管之外的信用中介往往缺少资本约束与流动性后盾。",
+    "d": "economics"
+  },
+  "/economics/concepts/liquidity-trap": {
+    "t": "流动性陷阱",
+    "e": "流动性陷阱是公众几乎无限偏好持有货币，利率政策失去牵引力，降息到零附近仍推不动支出。它不是财政乘数，也不是超额准备金把货币乘数打下去。",
     "d": "economics"
   },
   "/economics/concepts/loss-aversion-anchoring": {

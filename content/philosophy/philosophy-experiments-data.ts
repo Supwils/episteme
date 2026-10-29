@@ -42,6 +42,14 @@ export const PHILOSOPHY_EXPERIMENTS = [
     field: "心灵哲学",
   },
   {
+    slug: "clark-chalmers-1998-extended-mind",
+    title: "延展心灵：笔记本不是测量，也不是训练",
+    title_en: "The Extended Mind",
+    philosopher: "Andy Clark 与 David Chalmers",
+    year: 1998,
+    field: "心灵哲学",
+  },
+  {
     slug: "donnellan-1966-referring",
     title: "指称与限定摹状词",
     title_en: "Reference and Definite Descriptions",

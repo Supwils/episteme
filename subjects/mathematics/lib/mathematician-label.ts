@@ -8,9 +8,11 @@ const HAN = /[一-鿿]/;
 // name that theorem already uses; the frontmatter slug stays the entity id.
 const LABEL_WITHOUT_PAGE: Record<string, string> = {
   appel: "阿佩尔",
+  banach: "巴拿赫",
   bayes: "贝叶斯",
   bernoulli: "伯努利",
   bolzano: "波尔查诺",
+  brouwer: "布劳威尔",
   cantor: "康托尔",
   cook: "库克",
   green: "格林",

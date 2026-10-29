@@ -189,6 +189,12 @@ export const PHENOMENA_DATA = [
     category: "精神分析",
   },
   {
+    slug: "regression-to-the-mean",
+    title: "回归均值",
+    subtitle: "Regression to the Mean",
+    category: "认知",
+  },
+  {
     slug: "repetition-compulsion",
     title: "强迫性重复",
     subtitle: "Repetition Compulsion",

@@ -39,6 +39,11 @@
     "e": "代谢不断产酸，血液 pH 却稳定在 7.35–7.45；缓冲不是把 pH 固定成魔法数字，而是共轭酸碱对的协同防御，可用亨德森–哈塞尔巴尔赫方程描述。",
     "d": "chemistry"
   },
+  "/chemistry/concepts/catalysis-and-equilibrium": {
+    "t": "催化与平衡",
+    "e": "对同一净反应，催化剂改变路径和到达平衡的快慢，不改变标准吉布斯自由能，也不改变平衡常数。正逆速率常数按同一倍数放大，比值仍是平衡常数。更快到达，不等于终点里产物更多。",
+    "d": "chemistry"
+  },
   "/chemistry/concepts/chemical-bond": {
     "t": "化学键",
     "e": "成键不是因为原子“想要”什么，而是结合后能量更低；离子键、共价键与金属键这三种典型方式，决定了物质的软硬、熔点与导电性。",
@@ -89,6 +94,11 @@
     "e": "电池不是装着电的容器：电子沿外电路绕行，离子在内部迁移，被空间分开的氧化还原反应才能对外做电功；阳极和阴极按反应命名，而非按正负号。",
     "d": "chemistry"
   },
+  "/chemistry/concepts/electronegativity": {
+    "t": "电负性",
+    "e": "电负性衡量原子在化学键里把电子拉向自己的能力，不是原子序，也不是活泼程度。差值大，键更偏离子性；差值小，更接近电子分布对称的共价。氟只是这把标尺高端的锚。",
+    "d": "chemistry"
+  },
   "/chemistry/concepts/functional-groups": {
     "t": "官能团",
     "e": "乙醇与乙酸骨架几乎相同，差别只在末端的 –OH 与 –COOH，红外谱图就能把它们分开；官能团决定了分子可重复的反应模式。",
@@ -97,6 +107,16 @@
   "/chemistry/concepts/gas-laws": {
     "t": "气体定律与理想气体",
     "e": "理想气体不是某一种气体，而是一个模型；十七世纪以来分头发现的四条经验定律，最终合成状态方程 PV = nRT，成为物理化学的地基之一。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/hydrogen-bond": {
+    "t": "氢键",
+    "e": "氢键写作X–H与另一原子或原子团之间有证据的相互作用，不限于氮、氧、氟，也不是一种新的基本力。它常同时包含静电、诱导、色散和一些电荷转移。烧开水拆开的是分子之间的这种接触。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/hydrophobic-effect": {
+    "t": "疏水效应",
+    "e": "疏水效应是非极性表面进入水中时，空腔与水网络重组带来的溶剂自由能问题，不是油讨厌水，也不是一种新的基本吸引力。焓与熵谁主导，要看温度、尺寸和曲率。表面张力是界面少了邻居，不是这个效应本身。",
     "d": "chemistry"
   },
   "/chemistry/concepts/intermolecular-forces": {
@@ -464,9 +484,19 @@
     "e": "1894 年埃米尔·费歇尔在《德国化学会会志》上写明：酵母酶与苦杏仁酶对糖苷的切割高度依赖构型，α 与 β 并不等同。锁与钥匙是这篇论文里的图像。它没有测定酶的晶体结构，也没有规定药物必须严丝合缝。",
     "d": "chemistry"
   },
+  "/chemistry/milestones/friedel-crafts-1877": {
+    "t": "弗里德尔与克拉夫茨一八七七年的烷基苯：公报上的通式",
+    "e": "1877年Friedel与Crafts在《通报》上写出苯与卤代烷在氯化铝存在下生成烷基苯。电子对受体那种路易斯酸定义要到1923年才出现。",
+    "d": "chemistry"
+  },
   "/chemistry/milestones/fukui-1952-frontier-orbitals": {
     "t": "福井 1952：前线电子密度怎样把芳香烃的反应位置写成轨道指标",
     "e": "1952 年福井谦一等人用简单的 LCAO 方法计算芳香烃的前线电子密度，与取代反应的取向记录对齐，说明总电子密度不足以预测反应位置。",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/geim-novoselov-2004-graphene": {
+    "t": "诺沃肖洛夫与盖姆二〇〇四年的石墨烯：单层与双极电场效应",
+    "e": "2004年Novoselov与Geim报告微机械剥离得到的少层以至单层石墨薄膜，以及双极电场效应。单原子层这个名字更早，胶带轶事不是论文里的实验记录。",
     "d": "chemistry"
   },
   "/chemistry/milestones/graebe-liebermann-1868-alizarin": {
@@ -522,6 +552,11 @@
   "/chemistry/milestones/kekule-1865-benzene": {
     "t": "凯库勒一八六五年的苯环：公报上的六元连通式",
     "e": "1865 年凯库勒在《巴黎化学会公报》发表苯的六元连通式，单双键交替，用一取代只有一种、二取代有三种的异构数加以说明，与蛇梦故事无关。",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/kroto-1985-buckminsterfullerene": {
+    "t": "克罗托一九八五年的碳六十：质谱峰与截角二十面体",
+    "e": "1985年Kroto等人在激光蒸发石墨的质谱里看见六十个碳的强峰，并提议截角二十面体。这不是晶体结构，也不是已经分离出的一瓶固体。",
     "d": "chemistry"
   },
   "/chemistry/milestones/langmuir-1919-octet": {
@@ -617,6 +652,11 @@
   "/chemistry/milestones/rowland-molina-ozone-cfcs": {
     "t": "Rowland 与 Molina：平流层里的氯循环（1974）",
     "e": "1974 年莫利纳与罗兰在《自然》指出，在对流层惰性的氯氟烃会升入平流层、被紫外光解出氯原子，循环破坏臭氧；证据后来一路加厚到议定书。",
+    "d": "chemistry"
+  },
+  "/chemistry/milestones/seveso-1976-icmesa": {
+    "t": "塞维索一九七六年：梅达Icmesa反应器的泄压",
+    "e": "1976年7月10日梅达Icmesa三氯苯酚反应器泄压，云团中有少量二噁英。打开的记述没有当场炸死上百人。1982年指令写的是预防、通报和告知。",
     "d": "chemistry"
   },
   "/chemistry/milestones/soddy-1913-isotope": {

@@ -87,9 +87,9 @@ const BUDGET = {
   summitLayoutRaw: 200 * 1024,
   summitLayoutBrotli: 80 * 1024,
   // public/summit-cards.json is fetched with the solid view, not with the
-  // document. Measured 2026-10-28 at 147676 brotli / 500133 raw
-  // (144.2 KB / 488.4 KB). 362497 was the JavaScript string length, not the file.
-  summitCardsRaw: 500 * 1024,
+  // document. 2026-10-28 later measured 152261 brotli / 514085 raw, past
+  // 500 KiB raw while brotli stayed under 180 KB. Decision 34 raises raw to 640 KB.
+  summitCardsRaw: 640 * 1024,
   summitCardsBrotli: 200 * 1024,
   // /knowledge-graph payload, wire v3: what must arrive before the graph draws,
   // then the node descriptions fetched afterwards. Raw covers both files

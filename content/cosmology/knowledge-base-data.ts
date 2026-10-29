@@ -913,4 +913,16 @@ export const COSMOLOGY_KB_DATA = [
     titleEn: "",
     category: "多信使天文学",
   },
+  {
+    slug: "宇宙学观测--eisenstein-2005-bao",
+    title: "Eisenstein 2005：四万六千个亮红星系上的声学峰",
+    titleEn: "Eisenstein 2005: The Acoustic Peak from Forty-Six Thousand Galaxies",
+    category: "宇宙学观测",
+  },
+  {
+    slug: "系外行星--51-pegasi-b-1995",
+    title: "飞马座51b：1995年的半幅与质量下限，不是质量真值",
+    titleEn: "51 Pegasi b: A 1995 Semiamplitude, Not a True Mass",
+    category: "系外行星",
+  },
 ];

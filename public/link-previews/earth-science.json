@@ -89,6 +89,11 @@
     "e": "冰期的开关不在寒冬或太阳变暗，而在偏心率、倾角与岁差三个轨道参数；米兰科维奇在战俘营里开始计算，深海岩芯与冰芯后来提供了证据链。",
     "d": "earth-science"
   },
+  "/earth-science/concepts/ice-albedo-feedback": {
+    "t": "冰-反照率反馈",
+    "e": "冰雪反射的阳光多于深色海面和裸露陆地。冰线扩张会更冷、再扩张，越过大致位于中纬度的临界后可以跑飞。融冰所需的二氧化碳远高于触发冰封时的浓度。休伦冰期与成冰纪不是同一次事件。",
+    "d": "earth-science"
+  },
   "/earth-science/concepts/igneous-sedimentary-metamorphic-rocks": {
     "t": "三大类岩石",
     "e": "岩石按成因而非外表分类：火成岩由熔体结晶，沉积岩由碎屑或沉淀压实，变质岩在固态下被高温高压改造。",
@@ -154,6 +159,11 @@
     "e": "岩石循环没有固定顺序，几乎任何岩石都能变成其他类型；风化、熔融与变质把一座花岗岩山在亿万年里反复重铸。",
     "d": "earth-science"
   },
+  "/earth-science/concepts/silicate-weathering-thermostat": {
+    "t": "硅酸盐风化恒温器",
+    "e": "硅酸盐风化是慢的负反馈：变暖则加快抽碳、温度回落，变冷则放慢、火山排出的碳得以积累。反应时间在几十万年，跟不上人为排放。只有硅酸盐风化才是长期的净碳汇。",
+    "d": "earth-science"
+  },
   "/earth-science/concepts/soil-science-and-pedology": {
     "t": "土壤学与土壤发生学",
     "e": "土壤是由矿物、有机质、水、空气与生物组成、具有层次结构的自然体；1934 年黑色风暴卷走约 12 亿吨表土，而一厘米肥沃表土常要几百年才形成。",
@@ -162,6 +172,11 @@
   "/earth-science/concepts/thermohaline-circulation": {
     "t": "温盐环流",
     "e": "驱动深海环流的是密度而非风；北大西洋海水下沉启动周期上千年的全球传送带，其大西洋分支 AMOC 是气候风险讨论的焦点。",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/tidal-locking": {
+    "t": "潮汐锁定不是海岸潮差",
+    "e": "潮汐锁定是耗散把自转周期拖到与公转周期相同。月球几乎已锁住，地球仍因自转更快而把月球推远。红矮星宜居带行星常在一亿到十亿年内锁相，那不是地月时标。",
     "d": "earth-science"
   },
   "/earth-science/concepts/tides": {
@@ -199,6 +214,11 @@
     "e": "在奥尔德姆 1906 年低速核的基础上，古登堡 1914 年用哥廷根远震记录把 P 波影区几何算成深度，将核–幔边界定在约 2900 公里。",
     "d": "earth-science"
   },
+  "/earth-science/event-analyses/hays-imbrie-shackleton-1976": {
+    "t": "海斯、因布里与沙克尔顿1976：三个周期，不是年总量",
+    "e": "1976年《科学》报告深海氧同位素记录里约10万年、4.1万年和2.3万年三个周期。轨道改的是日照在季节与纬度上的分配，不是每年的总量。",
+    "d": "earth-science"
+  },
   "/earth-science/event-analyses/hess-1962-seafloor-spreading": {
     "t": "1962 年赫斯：洋盆历史怎样把脊写成源、把沟写成汇",
     "e": "赫斯 1962 年的《海洋盆地的历史》自称“地质诗”：新洋壳在洋脊生成、向两侧搬走、在海沟沉回，洋盆因此有年龄、会循环。",
@@ -219,9 +239,19 @@
     "e": "1989 年洛马普里埃塔地震矩震级约 6.9；柏树街双层高架倒塌与滨海区填土破坏，把近场走滑变成场地与结构两类证据。",
     "d": "earth-science"
   },
+  "/earth-science/event-analyses/love-canal-1978": {
+    "t": "1978 年拉夫运河：紧急声明、没有干净曲线的调查，以及 1980 年的超级基金",
+    "e": "1978 年纽约州卫生专员把拉夫运河宣布为公共卫生紧急事件。随后的健康研究各有限度，并没有交出一条干净的剂量反应曲线。1980 年超级基金法补上废弃场地的清理权力。",
+    "d": "earth-science"
+  },
   "/earth-science/event-analyses/mexico-city-1985-site-effect": {
     "t": "1985 年墨西哥城场地效应：古湖床软泥、卓越周期与加速度记录怎样把远场放大钉成证据",
     "e": "1985 年米却肯沿岸地震距墨西哥城约四百公里，特斯科科古湖床软泥以约两秒卓越周期放大地动，六到十八层房屋破坏最重。",
+    "d": "earth-science"
+  },
+  "/earth-science/event-analyses/minamata-1956-methylmercury": {
+    "t": "1956 年水俣：鱼贝中的甲基汞、1968 年的公告，以及行政认定名单",
+    "e": "1956 年水俣市报告不明神经症状。熊本大学当年把它写成经鱼贝传递的重金属中毒。1968 年政府公告指向工厂排水里的甲基汞。认定人数是行政名单，不是普查。",
     "d": "earth-science"
   },
   "/earth-science/event-analyses/mohorovicic-1909-discontinuity": {
@@ -234,6 +264,11 @@
     "e": "1980 年 5 月 18 日圣海伦斯火山北坡先滑走、侧向爆破随后；地震仪、测距与连续照片怎样把这个先后顺序钉牢，是本篇的问题。",
     "d": "earth-science"
   },
+  "/earth-science/event-analyses/oldham-1906-core": {
+    "t": "奥尔德姆1906：从延迟与阴影推断有核",
+    "e": "1906年奥尔德姆从地震波延迟和阴影区推断地球有中心核。液态外核主要归到1926年杰弗里斯等人。约2900公里是古登堡后来给出的深度。",
+    "d": "earth-science"
+  },
   "/earth-science/event-analyses/pakistan-flood-attribution-2022": {
     "t": "2022 年巴基斯坦洪水归因剖析",
     "e": "世界天气归因组织把 2022 年巴基斯坦洪水写成可检验的降雨指标，再把损失拆回暴露与脆弱性，明确拒绝“全是气候”的单一原因叙事。",
@@ -242,6 +277,11 @@
   "/earth-science/event-analyses/pinatubo-eruption-observation-1991": {
     "t": "1991 年皮纳图博喷发事件剖析",
     "e": "1991 年皮纳图博喷发前，地震、气体与地质史支撑了疏散预警；6 月 15 日的高潮把大量二氧化硫送进平流层，成为卫星时代最完整的火山—气候观测之一。",
+    "d": "earth-science"
+  },
+  "/earth-science/event-analyses/san-francisco-1906": {
+    "t": "1906 年旧金山：圣安德烈斯的水平错动、后来的矩震级，以及并排的死亡数字",
+    "e": "1906 年 4 月 18 日圣安德烈斯断层发生长距离水平错动。矩震级 7.9 是后来的大地测量模型。死亡数字各时期不同，火灾造成的财产破坏大于震动本身。",
     "d": "earth-science"
   },
   "/earth-science/event-analyses/turkey-syria-earthquake-forensics-2023": {

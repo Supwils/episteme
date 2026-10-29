@@ -212,6 +212,13 @@ export const PSYCHOLOGY_EXPERIMENTS_DATA = [
     year: 1972,
   },
   {
+    slug: "jones-harris-1967",
+    title: "琼斯与哈里斯1967：指定立场仍被读成真实态度",
+    subtitle: "The Attribution of Attitudes",
+    researcher: "Edward E. Jones",
+    year: 1967,
+  },
+  {
     slug: "kahneman-tversky-1972",
     title: "卡尼曼与特沃斯基 1972：主观概率怎样被写成对代表性的判断",
     subtitle: "Kahneman Tversky 1972 Subjective Probability Representativeness",
@@ -464,6 +471,13 @@ export const PSYCHOLOGY_EXPERIMENTS_DATA = [
     year: 1971,
   },
   {
+    slug: "tolman-1948-cognitive-maps",
+    title: "托尔曼1948：没有外在强化，学习仍可表现",
+    subtitle: "Cognitive Maps in Rats and Men",
+    researcher: "Edward C. Tolman",
+    year: 1948,
+  },
+  {
     slug: "treisman-1960",
     title: "特里斯曼 1960：衰减怎样把被拒绝通路从全关改写成阈值仍可能被情境接住",
     subtitle: "Treisman 1960 Contextual Cues and Attenuation",
@@ -511,6 +525,13 @@ export const PSYCHOLOGY_EXPERIMENTS_DATA = [
     subtitle: "Tversky Kahneman 1981 Framing of Decisions Psychology of Choice",
     researcher: "Amos Tversky and Daniel Kahneman",
     year: 1981,
+  },
+  {
+    slug: "wason-1960-2-4-6",
+    title: "沃森1960：规则是任意递增的三个数",
+    subtitle: "On the Failure to Eliminate Hypotheses in a Conceptual Task",
+    researcher: "Peter C. Wason",
+    year: 1960,
   },
   {
     slug: "wason-selection-task",

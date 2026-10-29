@@ -4,6 +4,11 @@
     "e": "1968年Hart、Nilsson与Raphael为机器人Shakey的导航提出A*，用f=g+h结合已走代价与启发估计，比Dijkstra更有方向；只要启发函数可接受，就能保证找到最短路径。",
     "d": "computer-science"
   },
+  "/computer-science/algorithms/amortized-versus-average": {
+    "t": "摊还不是平均情况",
+    "e": "摊还看的是一串操作的总账。它不是单次上界，也不是对一个分布取期望。塔扬那一页既写摊还是平均保证、不是最坏，也写对任意序列成立、没有概率假设。两句都保留，不合成新的复杂度。",
+    "d": "computer-science"
+  },
   "/computer-science/algorithms/approximate-nearest-neighbor-search": {
     "t": "近似最近邻搜索",
     "e": "高维空间里精确最近邻会退化成暴力扫描，近似最近邻于是成为向量数据库与检索增强生成的地基；本文比较理论最干净的局部敏感哈希与工程上胜出的图索引两条路线。",
@@ -294,6 +299,11 @@
     "e": "数据多到只能放在磁盘上时，存储引擎要决定怎样组织字节；读优化的B树与写优化的LSM树走了相反的路，快慢取决于底层硬件。",
     "d": "computer-science"
   },
+  "/computer-science/concepts/bias-and-variance": {
+    "t": "偏差不是方差",
+    "e": "偏差是模型族表达不到的那份误差，方差是换一批样本估计就会晃的那份。两者加不可约噪声才是误差分解。过拟合是高方差，双重下降并不废止这条入门分解。",
+    "d": "computer-science"
+  },
   "/computer-science/concepts/big-data-systems": {
     "t": "大数据系统",
     "e": "2003年前后，Google每周要处理PB级网页数据，于是发明了MapReduce和分布式文件系统；本文说明“大数据”不只是数据多，并讲分布式存储与列存储。",
@@ -354,6 +364,11 @@
     "e": "分布式共识不是一次多数投票；本文从Ongaro与Ousterhout 2014年为可理解性设计的Raft讲起，强调先写清系统模型，再讨论FLP不可能性划出的边界。",
     "d": "computer-science"
   },
+  "/computer-science/concepts/consistency-vocabulary": {
+    "t": "事务一致性不是副本一致性",
+    "e": "事务一致性是约束在事务前后仍成立。它不是副本上的单一历史。ACID 的 C、CAP 的 C、线性一致、可串行化和严格串行化各管一种合同，不能互相翻译。",
+    "d": "computer-science"
+  },
   "/computer-science/concepts/containers-and-orchestration": {
     "t": "容器与容器编排",
     "e": "2013年dotCloud在PyCon上发布Docker，几行命令就能让应用在另一台机器上原样运行；本文澄清容器不是轻量级虚拟机，Docker也没有发明容器，并讲它的三个核心概念。",
@@ -367,6 +382,11 @@
   "/computer-science/concepts/crdts": {
     "t": "无冲突复制数据类型",
     "e": "2011年Shapiro等人提出无冲突复制数据类型，让各副本独立更新后仍能确定地合并；本文澄清它既非没有并发也不替代共识，比较状态型与操作型两种形态，并以计数器、集合、序列为例。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/data-leakage": {
+    "t": "数据泄漏不是过拟合",
+    "e": "数据泄漏是测试里的信息渗进了训练，纸面分数因此虚高。过拟合是训练极好而换新数据就差。两者方向相反。划分训练、验证与测试，是为了挡住泄漏，不是为了治疗方差。",
     "d": "computer-science"
   },
   "/computer-science/concepts/data-structures": {
@@ -384,9 +404,19 @@
     "e": "两台ATM同时取款可能只扣一次钱，写到一半断电又会留下半条账；本文从这两个场景出发，说明数据库不只是存数据的地方，并讲事务的ACID四个承诺。",
     "d": "computer-science"
   },
+  "/computer-science/concepts/deadlock-conditions": {
+    "t": "死锁不是饥饿，也不是活锁",
+    "e": "死锁是线程互相持有对方正在等待的锁因而一起停住，它不是没有这种互相等待时仍然永远吃不上的饥饿，也不是无锁重试长期做不成的活锁。",
+    "d": "computer-science"
+  },
   "/computer-science/concepts/deep-learning-architectures": {
     "t": "深度学习架构",
     "e": "2012年AlexNet以15.3%的Top-5错误率大幅领先第二名的26.2%；本文说明“深度”不只是更多层，并梳理为图像设计的CNN和处理序列的RNN等主要架构。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/delivery-semantics": {
+    "t": "传递语义不是业务上的恰好一次",
+    "e": "传递语义只规定一次交接在失败后会丢失、重复，还是被去重。它不是业务上钱只动一次。至少一次、至多一次、恰好一次、幂等键和端到端边界各管一段。",
     "d": "computer-science"
   },
   "/computer-science/concepts/design-patterns": {
@@ -404,6 +434,11 @@
     "e": "1983年前，全网主机名都记在SRI维护的一份HOSTS.TXT里；DNS用层级结构和分布式权威取代了它。本文说明DNS不只是名字转地址，并讲递归与迭代解析。",
     "d": "computer-science"
   },
+  "/computer-science/concepts/edge-versus-level-trigger": {
+    "t": "边缘触发不是电平触发",
+    "e": "边缘触发在epoll里是状态跳变时才通知一次，电平触发在控制器里是被叫醒后重读当前状态，两套说法不是同一个机制。",
+    "d": "computer-science"
+  },
   "/computer-science/concepts/embedded-systems": {
     "t": "嵌入式系统",
     "e": "洗碗机里那块只做一件事的芯片就是嵌入式系统，一辆现代汽车通常装有70到100个处理器；本文澄清嵌入式不等于低端，区分微控制器与微处理器，并讲嵌入式软件的特殊性。",
@@ -419,6 +454,11 @@
     "e": "1980年代专家系统把领域知识写成规则，让AI第一次成为生意，DEC的XCON用于配置VAX订单；本文说明它并非“没用”，分析四个瓶颈与日本第五代计算机计划如何引向第二次寒冬。",
     "d": "computer-science"
   },
+  "/computer-science/concepts/false-sharing": {
+    "t": "伪共享不是数据竞争",
+    "e": "伪共享是不同变量落在同一条缓存行上，写入让对方的行失效。它不是数据竞争。数据竞争要无同步地访问同一内存且至少有一个写。乒乓、数量级下跌和引用计数打脏各是来源里的原句。",
+    "d": "computer-science"
+  },
   "/computer-science/concepts/file-systems": {
     "t": "文件系统",
     "e": "文件系统要在随时可能断电、出现坏块的硬件上可靠地保存海量命名数据；本文澄清文件不是磁盘上的一块区域，删除也不会抹掉数据，并讲文件系统的基本结构。",
@@ -432,6 +472,11 @@
   "/computer-science/concepts/floating-point-and-ieee754": {
     "t": "浮点数与 IEEE 754",
     "e": "1985年卡亨领导的委员会发布IEEE 754，把符号、指数、尾数、舍入、无穷与NaN统一成一份可实现的合同；本文说明精度不等于小数点后几位，并演示一次减法如何吃掉有效位。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/flow-versus-congestion-control": {
+    "t": "流量控制不是拥塞控制",
+    "e": "流量控制用接收窗口保护对端缓冲，拥塞控制用拥塞窗口保护路径上的共享队列。发送受两者的最小值卡住。队头阻塞是按序交付把别的流拖住，不是这两个窗口的别名。",
     "d": "computer-science"
   },
   "/computer-science/concepts/formal-methods-and-verification": {
@@ -462,6 +507,11 @@
   "/computer-science/concepts/information-retrieval-and-search": {
     "t": "信息检索与搜索",
     "e": "1998年布林与佩奇描述了索引约2400万网页的Google原型；本文说明搜索不只是找出含关键词的文档，讲倒排索引这一基础架构和相关性模型的演进。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/isolation-anomalies": {
+    "t": "隔离异常不是同一个旋钮",
+    "e": "脏读、不可重复读、幻读和写偏斜挡住的不是同一种交错。快照隔离看的是一份旧切面，可串行化快照隔离还要再查读写依赖会不会成环。",
     "d": "computer-science"
   },
   "/computer-science/concepts/load-balancing": {
@@ -514,6 +564,11 @@
     "e": "1943年McCulloch与Pitts提出第一个神经元数学模型，即一个简单的阈值函数；本文指出人工神经网络与生物大脑的相似性很有限，并讲单个神经元和前馈网络的层结构。",
     "d": "computer-science"
   },
+  "/computer-science/concepts/no-free-lunch": {
+    "t": "没有免费午餐不是算法都一样",
+    "e": "没有免费午餐说的是，在所有可能的问题上取平均，任意两个算法表现相同。这不是说手头的任务里算法没有差别。差别来自归纳偏置是否对准数据里的结构，表格与图像因此常常选不同的模型族。",
+    "d": "computer-science"
+  },
   "/computer-science/concepts/object-oriented-programming": {
     "t": "面向对象编程",
     "e": "1967年达尔与尼高为离散事件模拟设计Simula 67，引入了类和对象；本文指出OOP的核心不是继承而是多态，并讨论为何组合优于继承。",
@@ -534,6 +589,11 @@
     "e": "1958年《纽约时报》报道罗森布拉特的感知机，称海军期待它成为能自我意识的计算机雏形；本文讲感知机及其收敛定理，辨析Minsky与Papert证明了什么，以及寒冬的真正成因。",
     "d": "computer-science"
   },
+  "/computer-science/concepts/priority-inversion": {
+    "t": "优先级反转不是死锁",
+    "e": "优先级反转是低优先级持着锁却被中优先级抢占，致使高优先级干等，它不是两把锁互相等待才出现的死锁。",
+    "d": "computer-science"
+  },
   "/computer-science/concepts/privacy-engineering": {
     "t": "隐私工程",
     "e": "系统可以从未泄露数据，却仍严重侵犯隐私；隐私工程把隐私变成可验证的系统属性。本文澄清隐私不等于保密或删除姓名，讲风险模型，并从画出真实数据流入手。",
@@ -542,6 +602,16 @@
   "/computer-science/concepts/programming-language-design": {
     "t": "程序设计语言设计",
     "e": "1972年里奇用C重写Unix，让同一份源码只需重新编译就能跑在不同硬件上；本文说明语言设计不是语法美学，讲语法、语义、语用，以及语言设计的关键维度。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/quorum-intersection": {
+    "t": "法定人数相交不是线性一致",
+    "e": "写确认数与读确认数来自同一组固定副本且之和大于副本数，只保证两次访问的集合相交。相交不是线性一致。松散仲裁和只读本地内存都会把最新值读丢。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/raii-versus-collection": {
+    "t": "资源获取即初始化不是垃圾回收",
+    "e": "资源获取即初始化把获取绑在构造上、把释放绑在析构上。它不是垃圾回收。异常展开、引用计数、追踪和所有权各有释放合同，不能因为最后都把资源还回去就合成一种机制。",
     "d": "computer-science"
   },
   "/computer-science/concepts/real-time-systems": {
@@ -574,6 +644,16 @@
     "e": "一个数据包跨越太平洋可能经过约15个路由器，全程没有中央调度，每一跳都由局部决策决定；本文区分路由器与交换机，讲局域网内的交换和网络间的路由。",
     "d": "computer-science"
   },
+  "/computer-science/concepts/semaphore-versus-mutex": {
+    "t": "信号量不是互斥锁",
+    "e": "信号量是带申请与释放两个原子操作的计数器，计数上限为1时才退化成互斥锁，大于1时限制同时进入的人数，不能焊进1965年那一页互斥。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/sharding-versus-replication": {
+    "t": "分片不是复制",
+    "e": "分片按键把不同数据放到不同节点，每个节点只留一部分。复制是同一份数据留多份。一致性哈希只决定键落在环的哪一段，热点键不会因多加节点而自动拆开。",
+    "d": "computer-science"
+  },
   "/computer-science/concepts/software-engineering": {
     "t": "软件工程",
     "e": "1968年北约在加尔米施召开会议应对“软件危机”，OS/360成了失控的代名词；本文说明软件工程不是照书写代码，梳理开发方法论的演进，并分析软件估算为何这么难。",
@@ -604,6 +684,11 @@
     "e": "1991年8月，伯纳斯-李在CERN托管的第一个公开网页是一份教人使用万维网的说明书；本文澄清万维网不等于互联网，讲URL、HTML、HTTP三个核心构件和HTTP的工作原理。",
     "d": "computer-science"
   },
+  "/computer-science/concepts/two-phase-locking": {
+    "t": "两阶段锁不是两阶段提交",
+    "e": "两阶段锁在来源里是与串行执行并列的并发控制名字，没有给出加锁步骤。两阶段提交是另一份合同，协调者先收集已准备，再宣布提交或中止。",
+    "d": "computer-science"
+  },
   "/computer-science/concepts/type-systems": {
     "t": "类型系统",
     "e": "阿丽亚娜5号因一个超出16位整数上限的速度值转换失败而坠毁；本文说明类型不只是区分数字和字符串，追溯从罗素悖论到λ演算的类型起源，并比较静态与动态类型。",
@@ -614,9 +699,19 @@
     "e": "Spolsky 2003年写道，脱离编码谈字符串毫无意义；本文说明文本不是字节，回顾从ASCII到编码战争的历史，以及Unicode如何统一全世界的字符。",
     "d": "computer-science"
   },
+  "/computer-science/concepts/vanishing-gradient": {
+    "t": "梯度消失不是学习率太小",
+    "e": "梯度消失是链式法则把每层导数连乘回浅层，误差信号被乘没。学习率太小是步长问题，步子再大也乘不回已经接近零的因子。爆炸是同一连乘的放大镜像，不是一份训练配方。",
+    "d": "computer-science"
+  },
   "/computer-science/concepts/version-control": {
     "t": "版本控制",
     "e": "Linux早期靠邮件发补丁、由Linus手工合并，2005年与BitKeeper闹翻后他写出了Git；本文说明版本控制不只是存档，讲Git的核心模型和工作流的演进。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/virtual-address-translation": {
+    "t": "虚拟地址翻译不是交换空间",
+    "e": "虚拟地址翻译是页表把虚拟地址换成物理地址，它不是把页写进磁盘上的交换空间，工作集与抖动要分别按两页的原句来记。",
     "d": "computer-science"
   },
   "/computer-science/concepts/virtualization": {
@@ -632,6 +727,11 @@
   "/computer-science/concepts/webassembly": {
     "t": "WebAssembly",
     "e": "2017年3月四大浏览器同时宣布支持WebAssembly MVP，为C、C++、Rust提供可验证的低层编译目标；本文澄清它既不替代JavaScript也不等于原生，并讲线性内存、模块与验证。",
+    "d": "computer-science"
+  },
+  "/computer-science/concepts/write-ahead-log": {
+    "t": "预写日志不是把数据页写两遍",
+    "e": "预写日志先把修改记到稳定存储，提交只等这条记录落稳，数据页可以仍留在内存。它不是把同一页再写一遍，也不是写时复制，重做和撤销要等崩溃之后才分开做。",
     "d": "computer-science"
   },
   "/computer-science/frontier/ai-for-science": {
@@ -1159,6 +1259,11 @@
     "e": "1994年特里等人提出会话保证，从客户视角为弱一致副本给出四种保证；本文讲会话历史与两份证据集合如何实现这些保证，并辨析论文声称了什么、没有测量什么。",
     "d": "computer-science"
   },
+  "/computer-science/systems/therac-25": {
+    "t": "Therac-25：安全从硬件联锁挪进软件之后",
+    "e": "一九八五到一九八七年，加拿大原子能公司的 Therac-25 至少六次给出超出处方上百倍的辐射，造成多人死亡或重伤。调查写明不能把事故收成一处竞态。",
+    "d": "computer-science"
+  },
   "/computer-science/systems/tls-certificate-ecosystem": {
     "t": "TLS 与证书生态：陌生人之间如何建立信任",
     "e": "浏览器几十毫秒内就和陌生服务器共享了一串秘密字节，这背后其实是两个不同的问题：密钥交换与身份认证；本文讲一次握手要协商的三件事，以及TLS 1.3为何能把往返减半。",
@@ -1642,6 +1747,11 @@
   "/computer-science/theory/razborov-rudich-1997": {
     "t": "Razborov–Rudich 1997：自然证明怎样把电路下界挡在伪随机函数门外",
     "e": "1997年拉兹博罗夫与鲁迪奇提出“自然证明”障碍：若伪随机函数存在，同时满足构造性、宽广性与有用性的组合性质就证明不了强电路下界；本文澄清这既不是不可判定，电路下界也没有就此作废。",
+    "d": "computer-science"
+  },
+  "/computer-science/theory/saltzer-reed-clark-1984": {
+    "t": "1984年的端到端论证：萨尔策、里德与克拉克",
+    "e": "1984年《计算机系统汇刊》刊出萨尔策、里德与克拉克的端到端论证。功能若必须靠端点的知识才能做完，放进网络内部就不可能，或至多不划算。它不是1988年的拥塞控制。",
     "d": "computer-science"
   },
   "/computer-science/theory/savitch-1970-theorem": {

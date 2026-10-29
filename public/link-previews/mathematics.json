@@ -1,4 +1,9 @@
 {
+  "/mathematics/concepts/absolute-versus-conditional": {
+    "t": "绝对收敛不是条件收敛",
+    "e": "绝对收敛指绝对值级数仍收敛，它蕴含原级数收敛，反过来并不成立。条件收敛的和依赖排列，对任意实数乃至正负无穷都存在收敛到它的重排，只有绝对收敛与顺序无关。",
+    "d": "mathematics"
+  },
   "/mathematics/concepts/algebraic-geometry": {
     "t": "代数几何",
     "e": "代数几何把多项式方程组的解集当作可用代数运算研究的几何对象。画不出图或系数换成任意域时，要靠代数簇和概形；概形不是更抽象的簇，它记下厚度，并能在任意环上做几何。",
@@ -34,6 +39,11 @@
     "e": "组合数学研究离散对象有多少、是否存在、约束下能有多大，以及怎样把它们构造出来。它靠对应、容斥和鸽巢化简，而不是把每一种可能逐个点清。",
     "d": "mathematics"
   },
+  "/mathematics/concepts/compact-versus-connected": {
+    "t": "紧致不是连通",
+    "e": "紧致是开覆盖有有限子覆盖，连通是不能分为两个不相交的非空开集。两个分离的闭球可以紧致但不连通，整条实数轴连通但不紧致。",
+    "d": "mathematics"
+  },
   "/mathematics/concepts/complex-analysis": {
     "t": "复分析",
     "e": "复分析要求沿平面任意方向的变化率相同；可导一次就无穷次可导，并能展成幂级数。柯西-黎曼方程单独不够，还要连续性；到圆盘的共形映射只证明存在，且只对单连通的真子域。",
@@ -54,9 +64,24 @@
     "e": "可计算性用图灵机划定哪些函数能在有限步内算完。没有程序能普遍判断另一个程序在给定输入上会否停下，这是逻辑界限而非尚未找到的技巧；把它等同于一切有效计算，仍是论题而不是定理。",
     "d": "mathematics"
   },
+  "/mathematics/concepts/consistency-versus-independence": {
+    "t": "相对一致不是独立",
+    "e": "相对一致只说若原来无矛盾，添上某命题后仍无矛盾。哥德尔对连续统假设以及选择公理、广义连续统假设证明的是这一半。科恩补上否定也一致，两边合起来才是独立。",
+    "d": "mathematics"
+  },
   "/mathematics/concepts/continuity": {
     "t": "连续性",
     "e": "函数在一点连续，是说输入扰得足够小，输出偏差就能压进任意指定的限度，而不是图像可以一笔画完。逐点连续的容差可以随点改变；一致连续要求同一个容差对所有点都够用。",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/continuous-versus-differentiable": {
+    "t": "连续不是可导",
+    "e": "可导必定连续，连续却不必可导。魏尔斯特拉斯在1872年用一致收敛的三角级数得到处处连续的函数，每一点的差商却发散。贝尔纲意义下，大多数连续函数处处不可导。",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/continuous-versus-uniform": {
+    "t": "逐点连续不是一致连续",
+    "e": "逐点连续的容差可以随点改变，一致连续要求同一个容差对所有点够用。紧集上的连续函数必一致连续。倒数在开区间上连续，靠近端点时容差必须缩小。利普希茨条件给出一致连续，并几乎处处可导。",
     "d": "mathematics"
   },
   "/mathematics/concepts/control-theory": {
@@ -67,6 +92,11 @@
   "/mathematics/concepts/convergence": {
     "t": "收敛性",
     "e": "收敛是说无论把目标附近收得多窄，从某一项起都会落进去并留在那里，尽管每一项都可以尚未抵达。项与项越来越近并不保证有极限，除非空间完备；函数列逐点收敛，也不保证极限仍然连续。",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/dense-versus-uncountable": {
+    "t": "稠密不是不可数",
+    "e": "有理数在任意两个实数之间都会出现，却仍与自然数一样多。实数不可数。代数数可数，可数个可数集的并仍可数。连续统假设在来源页里不是已经证出的等式。",
     "d": "mathematics"
   },
   "/mathematics/concepts/derivative": {
@@ -159,9 +189,19 @@
     "e": "群是可以复合、可以撤销、并且含有不动动作的变换集合，公理只要求封闭、结合、单位元和逆元。交换律不在其中：许多对称本来就不交换，先后顺序会落到不同结果。",
     "d": "mathematics"
   },
+  "/mathematics/concepts/homeomorphism-versus-homotopy": {
+    "t": "同胚不是同伦等价",
+    "e": "同胚是空间之间的等价，同伦是映射之间的等价，同伦等价更弱。来源写明 R^n 与单点同伦等价但不同胚。同胚不蕴含微分同胚。",
+    "d": "mathematics"
+  },
   "/mathematics/concepts/homology-cohomology": {
     "t": "同调与上同调",
     "e": "同调把各维的洞记成闭链模掉边缘所得的群，上同调用对偶的赋值，并多出一个乘法。同调不同则必不同胚，相同却不保证同胚；洞的个数也装不下挠率。",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/independent-versus-uncorrelated": {
+    "t": "独立不是不相关",
+    "e": "独立是两事件之交的概率等于各自概率相乘，不相关只是相关系数为零。概率总览写明前者蕴含后者，反过来除正态分布外不成立，并把辛普森悖论称作例子。",
     "d": "mathematics"
   },
   "/mathematics/concepts/information-geometry": {
@@ -204,6 +244,11 @@
     "e": "线性变换是保持加法和数乘的映射，平行直线与均匀刻度在它之下仍然保持。矩阵只是某组基下的坐标记录，并不等于变换本身：换一组基，同一动作写成另一张表。",
     "d": "mathematics"
   },
+  "/mathematics/concepts/lln-versus-clt": {
+    "t": "大数定律不是中心极限定理",
+    "e": "大数定律说样本均值趋于有限期望，中心极限定理说标准化和依分布趋于标准正态。均值贴向一点并不把分布改成钟形，钟形也不把下一次结果补上。",
+    "d": "mathematics"
+  },
   "/mathematics/concepts/manifold": {
     "t": "流形",
     "e": "流形整体可以弯曲或扭转，但每一点附近都像一块欧氏空间，用一叠重叠的局部地图来描述。它不必先嵌进更高维才有定义；拓扑上相同，也不保证只有一种光滑结构。",
@@ -222,6 +267,11 @@
   "/mathematics/concepts/multivariable-calculus": {
     "t": "多元微积分",
     "e": "多元里的陡峭带方向：梯度是指向最陡上升的箭头，沿某个方向的升降率才是一个数。把它读成单独一个数，就写不出该往哪走；区域内部的累积改由边界上的行为表达。",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/necessary-versus-sufficient": {
+    "t": "充分条件不是必要条件",
+    "e": "充分条件能推出结论，必要条件是结论成立时必须已成立。费马同余式只能证伪合数，挂谷证明只验收猜想链最弱的一环，图灵测试对智能两个方向都不成立。",
     "d": "mathematics"
   },
   "/mathematics/concepts/network-science": {
@@ -267,6 +317,11 @@
   "/mathematics/concepts/pde": {
     "t": "偏微分方程",
     "e": "偏微分方程的未知函数至少依赖两个自变量，方程同时含有对这些变量的偏导数。二阶线性分成稳态、扩散与传播三类；热扰动瞬间传遍全空间，只是有效模型，不是微观定律。",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/pointwise-versus-uniform": {
+    "t": "逐点收敛不是一致收敛",
+    "e": "逐点收敛的早晚可以随点改变，一致收敛要求同一个早晚对所有点同时够用。幂函数列在闭区间上逐点收到断开的极限，上确界偏差等于1且不趋向零。",
     "d": "mathematics"
   },
   "/mathematics/concepts/probability": {
@@ -337,6 +392,11 @@
   "/mathematics/concepts/vector-space": {
     "t": "向量空间",
     "e": "向量空间不要求成员是箭头，只要求能相加、能按比例缩放，并满足加法和数乘的八条规则。有限维数不随所选基改变；换基会改写坐标，却不改写空间里的几何关系。",
+    "d": "mathematics"
+  },
+  "/mathematics/concepts/weak-versus-norm-convergence": {
+    "t": "弱收敛不是范数收敛",
+    "e": "弱收敛要求每个连续线性泛函都把序列收成数，页上写明它比范数收敛弱。ε-N 先点名极限，柯西只看项与项，三者量词不同，页内没有另给等价定理。",
     "d": "mathematics"
   },
   "/mathematics/dialogues/bourbaki-poincare": {
@@ -654,6 +714,11 @@
     "e": "芝诺以为无穷多段正的路程必然耗掉无穷时间，所以追不上。公比小于一的几何级数可以收成有限和，这只解决求和，并不裁定物理时空是否连续。",
     "d": "mathematics"
   },
+  "/mathematics/theorems/banach-fixed-point": {
+    "t": "巴拿赫不动点定理",
+    "e": "完备度量空间上利普希茨常数小于一的自映射有唯一不动点，迭代从任意起点收敛到它。它不是闭球上那条只保证存在的连续映射定理。",
+    "d": "mathematics"
+  },
   "/mathematics/theorems/bayes-theorem": {
     "t": "贝叶斯定理",
     "e": "贝叶斯定理把先验概率与新证据结合，算出条件改变后的后验概率。看到阳性结果时，判断还取决于原先的患病基数；检测的准确程度不能直接当成患病概率。",
@@ -662,6 +727,11 @@
   "/mathematics/theorems/binomial-theorem": {
     "t": "二项式定理",
     "e": "非负整数次的乘方可以写成有限和，每一项是选法个数乘上两个量的幂。牛顿的无穷级数、系数三角和一阶近似都不是这条等式。本页只守住这个有限展开。",
+    "d": "mathematics"
+  },
+  "/mathematics/theorems/brouwer-fixed-point": {
+    "t": "布劳威尔不动点定理",
+    "e": "闭球到自身的连续映射必有不动点。一维区间上的不动点来自中间值定理，不是这条定理。存在性证明不给出找点的算法。",
     "d": "mathematics"
   },
   "/mathematics/theorems/cantors-theorem": {
