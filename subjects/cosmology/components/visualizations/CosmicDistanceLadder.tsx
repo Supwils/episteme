@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 const PRODUCT_EASE: [number, number, number, number] = [0.22, 0.61, 0.36, 1];
 
@@ -290,63 +290,58 @@ export function CosmicDistanceLadder({ className }: CosmicDistanceLadderProps) {
         </div>
       </div>
 
-      <AnimatePresence mode="wait">
-        {selected ? (
-          <motion.div
-            key={selected.id}
-            initial={reduce ? {} : { opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={reduce ? {} : { opacity: 0, y: -10 }}
-            transition={{ duration: reduce ? 0 : 0.3, ease: PRODUCT_EASE }}
-            className="mt-3 border p-5"
-            style={{
-              borderColor: `${selected.color}30`,
-              background: `${selected.color}08`,
-            }}
-          >
-            <div className="flex items-start gap-4">
-              <div
-                className="flex h-12 w-12 shrink-0 items-center justify-center text-2xl"
-                style={{ backgroundColor: `${selected.color}20`, color: selected.color }}
-              >
-                {selected.icon}
-              </div>
-              <div className="min-w-0 flex-1">
-                <h4 className="font-display text-fg-primary text-base font-semibold">
-                  {selected.name}
-                  <span className="text-fg-muted ml-2 font-mono text-[10px]">
-                    {selected.nameEn}
-                  </span>
-                </h4>
-                <p className="text-fg-secondary mt-1 text-sm leading-relaxed">
-                  {selected.description}
-                </p>
-                <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                  <div className="border-border-faint border p-2">
-                    <p className="text-fg-muted font-mono text-[9px]">方法</p>
-                    <p className="text-fg-primary font-mono text-xs">{selected.method}</p>
-                  </div>
-                  <div className="border-border-faint border p-2">
-                    <p className="text-fg-muted font-mono text-[9px]">示例</p>
-                    <p className="text-fg-primary font-mono text-xs">{selected.example}</p>
-                  </div>
+      {selected ? (
+        <motion.div
+          key={selected.id}
+          initial={reduce ? {} : { opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: reduce ? 0 : 0.3, ease: PRODUCT_EASE }}
+          className="mt-3 border p-5"
+          style={{
+            borderColor: `${selected.color}30`,
+            background: `${selected.color}08`,
+          }}
+        >
+          <div className="flex items-start gap-4">
+            <div
+              className="flex h-12 w-12 shrink-0 items-center justify-center text-2xl"
+              style={{ backgroundColor: `${selected.color}20`, color: selected.color }}
+            >
+              {selected.icon}
+            </div>
+            <div className="min-w-0 flex-1">
+              <h4 className="font-display text-fg-primary text-base font-semibold">
+                {selected.name}
+                <span className="text-fg-muted ml-2 font-mono text-[10px]">{selected.nameEn}</span>
+              </h4>
+              <p className="text-fg-secondary mt-1 text-sm leading-relaxed">
+                {selected.description}
+              </p>
+              <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <div className="border-border-faint border p-2">
+                  <p className="text-fg-muted font-mono text-[9px]">方法</p>
+                  <p className="text-fg-primary font-mono text-xs">{selected.method}</p>
+                </div>
+                <div className="border-border-faint border p-2">
+                  <p className="text-fg-muted font-mono text-[9px]">示例</p>
+                  <p className="text-fg-primary font-mono text-xs">{selected.example}</p>
                 </div>
               </div>
             </div>
-          </motion.div>
-        ) : (
-          <motion.div
-            key="empty"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="border-border-faint bg-bg-near mt-3 border p-5 text-center"
-          >
-            <p className="text-fg-disabled font-mono text-xs">
-              点击上方阶梯的各层级，查看该距离测量方法的详细说明
-            </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </motion.div>
+      ) : (
+        <motion.div
+          key="empty"
+          initial={false}
+          animate={{ opacity: 1 }}
+          className="border-border-faint bg-bg-near mt-3 border p-5 text-center"
+        >
+          <p className="text-fg-disabled font-mono text-xs">
+            点击上方阶梯的各层级，查看该距离测量方法的详细说明
+          </p>
+        </motion.div>
+      )}
 
       <p className="text-fg-muted mt-3 text-xs leading-relaxed">
         来源：
